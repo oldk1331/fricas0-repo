@@ -1980,6 +1980,8 @@
 (DEFUN |orderByDependency| (|vl| |dl|) (PROG () (RETURN |vl|)))
 
 ; compInternalFunction(df is ['DEF, form, signature, body], m, e) ==
+;     -- FIXME: should correctly handle import in nested functions
+;     -- $CapsuleDomainsInScope : local := e
 ;     [op, :argl] := form
 ;     not(IDENTP(op)) =>
 ;         stackAndThrow ['"Bad name for internal function:", op]

@@ -1262,10 +1262,6 @@
 ;       null atom slot =>
 ;         EQ(QCAR slot,FUNCTION newGoGet) => someMatch:=true
 ;                    --treat as if operation were not there
-;         --if EQ(QCAR slot, function newGoGet) then
-;         --  UNWIND_-PROTECT --break infinite recursion
-;         --    ((SETELT(domain,loc,'skip); slot := replaceGoGetSlot QCDR slot),
-;         --      if domain.loc = 'skip then domain.loc := slot)
 ;         return (success := slot)
 ;       slot = 'skip =>       --recursive call from above 'replaceGoGetSlot
 ;         return (success := newLookupInAddChain(op,sig,domain,dollar))
@@ -1712,6 +1708,7 @@
 ;      HasCategory(CDDR domain, catform')
 ;   catform:= devaluate catform'
 ;   isNewWorldDomain domain => newHasCategory(domain,catform)
+;   -- FIXME: handle strings, for example "failed"
 ;   domain0:=domain.0 -- handles old style domains, Record, Union etc.
 ;   slot4 := domain.4
 ;   catlist := slot4.1
