@@ -267,7 +267,8 @@
 ;   if u := htpProperty(page,'specialMessage) then APPLY(first u,rest u)
 ;   htSayStandard('"\beginscroll ")
 ;   FUNCALL(fn,page,opAlist,which,data) --apply branch function
-;   dbOpsExposureMessage()
+;   if $atLeastOneUnexposed then
+;       htSay '"{\em *} = unexposed"
 ;   htSayStandard("\endscroll ")
 ;   dbPresentOps(page,which,branch)
 ;   htShowPageNoScroll()
@@ -445,7 +446,8 @@
                   (APPLY (CAR |u|) (CDR |u|))))
                 (|htSayStandard| "\\beginscroll ")
                 (FUNCALL |fn| |page| |opAlist| |which| |data|)
-                (|dbOpsExposureMessage|)
+                (COND
+                 (|$atLeastOneUnexposed| (|htSay| "{\\em *} = unexposed")))
                 (|htSayStandard| '|\\endscroll |)
                 (|dbPresentOps| |page| |which| |branch|)
                 (|htShowPageNoScroll|))))))))))
@@ -512,15 +514,6 @@
                     ((EQ |branch| '|conditions|) " organized by conditions")
                     ('T "")))
       (APPEND |heading| (CONS |suffix| NIL))))))
-
-; dbOpsExposureMessage() ==
-;   $atLeastOneUnexposed => htSay '"{\em *} = unexposed"
-
-(DEFUN |dbOpsExposureMessage| ()
-  (PROG ()
-    (RETURN
-     (COND
-      (|$atLeastOneUnexposed| (IDENTITY (|htSay| "{\\em *} = unexposed")))))))
 
 ; fromHeading htPage ==
 ;   null htPage => '""
