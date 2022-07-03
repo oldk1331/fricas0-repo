@@ -131,7 +131,7 @@
                (SPADCALL (|ICARD;db_part| |x| 3 1 $)
                          (SPADCALL 1 1 (QREFELT $ 14)) (QREFELT $ 15)))
               ((EQUAL |s| '|type|) (|ICARD;db_part| |x| 4 1 $))
-              ((EQUAL |s| '|abbreviation|) (|ICARD;db_part| |x| 5 1 $))
+              ((EQUAL |s| '|abbreviation|) (|ICARD;db_part| |x| 6 1 $))
               ((EQUAL |s| '|kind|) (|ICARD;alql_get_kind| |x| $))
               ((EQUAL |s| '|origin|) (|ICARD;alql_get_origin| |x| $))
               ((EQUAL |s| '|params|) (|ICARD;alql_get_params| |x| $))
