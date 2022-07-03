@@ -660,7 +660,7 @@
 ;       MEMQ(op,'(Union Mapping QUOTE)) =>
 ;          and/[lazyMatchArg(s,a,dollar,domain) for s in sargl for a in argl]
 ;       coSig := GETDATABASE(op,'COSIG)
-;       NULL coSig => error ["bad Constructor op", op]
+;       NULL coSig => error ['"bad Constructor op", op]
 ;       and/[lazyMatchArg2(s,a,dollar,domain,flag)
 ;            for s in sargl for a in argl for flag in rest coSig]
 ;   STRINGP source and lazyt is ['QUOTE,=source] => true
@@ -739,7 +739,7 @@
         (#1#
          (PROGN
           (SETQ |coSig| (GETDATABASE |op| 'COSIG))
-          (COND ((NULL |coSig|) (|error| (LIST '|bad Constructor op| |op|)))
+          (COND ((NULL |coSig|) (|error| (LIST "bad Constructor op" |op|)))
                 (#1#
                  ((LAMBDA
                       (|bfVar#20| |bfVar#17| |s| |bfVar#18| |a| |bfVar#19|
@@ -993,7 +993,7 @@
 ;           [functorName,:[newExpandLocalTypeArgs(a,dollar,domain,true) for a in argl]]
 ;   functorName = 'QUOTE => [functorName,:argl]
 ;   coSig := GETDATABASE(functorName,'COSIG)
-;   NULL coSig => error ["bad functorName", functorName]
+;   NULL coSig => error ['"bad functorName", functorName]
 ;   [functorName,:[newExpandLocalTypeArgs(a,dollar,domain,flag)
 ;         for a in argl for flag in rest coSig]]
 
@@ -1055,7 +1055,7 @@
         (PROGN
          (SETQ |coSig| (GETDATABASE |functorName| 'COSIG))
          (COND
-          ((NULL |coSig|) (|error| (LIST '|bad functorName| |functorName|)))
+          ((NULL |coSig|) (|error| (LIST "bad functorName" |functorName|)))
           (#1#
            (CONS |functorName|
                  ((LAMBDA (|bfVar#34| |bfVar#32| |a| |bfVar#33| |flag|)

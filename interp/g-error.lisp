@@ -404,13 +404,13 @@
   (PROG () (RETURN (|check_union_failure_msg| |val| |submode| |mode|))))
 
 ; IdentityError(op) ==
-;     error(["No identity element for reduce of empty list using operation",op])
+;     error(['"No identity element for reduce of empty list using operation",op])
 
 (DEFUN |IdentityError| (|op|)
   (PROG ()
     (RETURN
      (|error|
-      (LIST '|No identity element for reduce of empty list using operation|
+      (LIST "No identity element for reduce of empty list using operation"
             |op|)))))
 
 ; throwMessage(:msg) ==

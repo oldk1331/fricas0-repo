@@ -1133,7 +1133,7 @@
 ;         fullopt := selectOptionLC(optname,optList,nil)
 ;
 ;         fullopt = 'new       => nil
-;         fullopt = 'old  => error "Internal error: compileAsharpCmd got )old"
+;         fullopt = 'old  => error '"Internal error: compileAsharpCmd got )old"
 ;         fullopt = 'quiet     => beQuiet := true
 ;         fullopt = 'noquiet   => beQuiet := false
 ;
@@ -1230,7 +1230,7 @@
                 (SETQ |fullopt| (|selectOptionLC| |optname| |optList| NIL))
                 (COND ((EQ |fullopt| '|new|) NIL)
                       ((EQ |fullopt| '|old|)
-                       (|error| '|Internal error: compileAsharpCmd got )old|))
+                       (|error| "Internal error: compileAsharpCmd got )old"))
                       ((EQ |fullopt| '|quiet|) (SETQ |beQuiet| T))
                       ((EQ |fullopt| '|noquiet|) (SETQ |beQuiet| NIL))
                       ((EQ |fullopt| '|nolispcompile|)
@@ -1810,7 +1810,7 @@
 ;             first := NIL
 ;         displayParserMacro macro
 ;     macro in imacs => 'iterate
-;     sayBrightly (["   ",'%b, macro, '%d, " is not a known FriCAS macro."])
+;     sayBrightly (['"   ",'%b, macro, '%d, '" is not a known FriCAS macro."])
 ;
 ;   -- now system ones
 ;
@@ -1856,8 +1856,8 @@
                      ((|member| |macro| |imacs|) '|iterate|)
                      (#1#
                       (|sayBrightly|
-                       (LIST '|   | '|%b| |macro| '|%d|
-                             '| is not a known FriCAS macro.|))))))
+                       (LIST "   " '|%b| |macro| '|%d|
+                             " is not a known FriCAS macro."))))))
                   (SETQ |bfVar#34| (CDR |bfVar#34|))))
                |macros| NIL)
               (SETQ CAR T)
@@ -1951,7 +1951,7 @@
 ;   sayMessage '"Names of User-Defined Objects in the Workspace:"
 ;   names := MSORT append(getWorkspaceNames(),pmacs)
 ;   if null names
-;     then sayBrightly "   * None *"
+;     then sayBrightly '"   * None *"
 ;     else sayAsManyPerLineAsPossible [object2String x for x in names]
 ;   imacs := SETDIFFERENCE(imacs,pmacs)
 ;   if imacs then
@@ -1966,7 +1966,7 @@
       (SETQ |pmacs| (|getParserMacroNames|))
       (|sayMessage| "Names of User-Defined Objects in the Workspace:")
       (SETQ |names| (MSORT (APPEND (|getWorkspaceNames|) |pmacs|)))
-      (COND ((NULL |names|) (|sayBrightly| '|   * None *|))
+      (COND ((NULL |names|) (|sayBrightly| "   * None *"))
             (#1='T
              (|sayAsManyPerLineAsPossible|
               ((LAMBDA (|bfVar#39| |bfVar#38| |x|)
@@ -2393,7 +2393,7 @@
 ;       [[local,:signature],fn,:.]:= mm
 ;       local='interpOnly => nil
 ;       varPart:= (giveVariableIfNil => nil; ['" of",:bright v])
-;       prefix:= ["   Compiled function type",:varPart,": "]
+;       prefix:= ['"   Compiled function type",:varPart,'": "]
 ;       sayBrightly concat(prefix,formatSignature signature)
 
 (DEFUN |displayModemap| (|v| |val| |giveVariableIfNil|)
@@ -2421,16 +2421,16 @@
                       (COND (|giveVariableIfNil| NIL)
                             (#1# (CONS " of" (|bright| |v|)))))
               (SETQ |prefix|
-                      (CONS '|   Compiled function type|
-                            (APPEND |varPart| (CONS '|: | NIL))))
+                      (CONS "   Compiled function type"
+                            (APPEND |varPart| (CONS ": " NIL))))
               (|sayBrightly|
                (|concat| |prefix| (|formatSignature| |signature|))))))))))
 
 ; displayMode(v,mode,giveVariableIfNil) ==
 ;   null mode => nil
-;   varPart:= (giveVariableIfNil => nil; [" of",:bright fixObjectForPrinting v])
-;   sayBrightly concat("   Declared type or mode",
-;     varPart,":   ",prefix2String mode)
+;   varPart:= (giveVariableIfNil => nil; ['" of",:bright fixObjectForPrinting v])
+;   sayBrightly concat('"   Declared type or mode",
+;     varPart,'":   ",prefix2String mode)
 
 (DEFUN |displayMode| (|v| |mode| |giveVariableIfNil|)
   (PROG (|varPart|)
@@ -2441,16 +2441,16 @@
              (SETQ |varPart|
                      (COND (|giveVariableIfNil| NIL)
                            (#1#
-                            (CONS '| of|
+                            (CONS " of"
                                   (|bright| (|fixObjectForPrinting| |v|))))))
              (|sayBrightly|
-              (|concat| '|   Declared type or mode| |varPart| '|:   |
+              (|concat| "   Declared type or mode" |varPart| ":   "
                (|prefix2String| |mode|)))))))))
 
 ; displayCondition(v,condition,giveVariableIfNil) ==
-;   varPart:= (giveVariableIfNil => nil; [" of",:bright v])
+;   varPart:= (giveVariableIfNil => nil; ['" of",:bright v])
 ;   condPart:= condition or 'true
-;   sayBrightly concat("   condition",varPart,":  ",pred2English condPart)
+;   sayBrightly concat('"   condition",varPart,'":  ",pred2English condPart)
 
 (DEFUN |displayCondition| (|v| |condition| |giveVariableIfNil|)
   (PROG (|varPart| |condPart|)
@@ -2458,22 +2458,22 @@
      (PROGN
       (SETQ |varPart|
               (COND (|giveVariableIfNil| NIL)
-                    ('T (CONS '| of| (|bright| |v|)))))
+                    ('T (CONS " of" (|bright| |v|)))))
       (SETQ |condPart| (OR |condition| '|true|))
       (|sayBrightly|
-       (|concat| '|   condition| |varPart| '|:  |
+       (|concat| "   condition" |varPart| ":  "
         (|pred2English| |condPart|)))))))
 
 ; getAndSay(v,prop) ==
-;   val:= getI(v,prop) => sayMSG ["    ",val,'%l]
-;   sayMSG ["    none",'%l]
+;   val:= getI(v,prop) => sayMSG ['"    ",val,'%l]
+;   sayMSG ['"    none",'%l]
 
 (DEFUN |getAndSay| (|v| |prop|)
   (PROG (|val|)
     (RETURN
      (COND
-      ((SETQ |val| (|getI| |v| |prop|)) (|sayMSG| (LIST '|    | |val| '|%l|)))
-      ('T (|sayMSG| (LIST '|    none| '|%l|)))))))
+      ((SETQ |val| (|getI| |v| |prop|)) (|sayMSG| (LIST "    " |val| '|%l|)))
+      ('T (|sayMSG| (LIST "    none" '|%l|)))))))
 
 ; displayType(op, u, omitVariableNameIfTrue) ==
 ;   null u =>
@@ -2505,7 +2505,7 @@
         NIL))))))
 
 ; displayValue(op, u, omitVariableNameIfTrue) ==
-;   null u => sayMSG ["   Value of ", fixObjectForPrinting PNAME op,
+;   null u => sayMSG ['"   Value of ", fixObjectForPrinting PNAME op,
 ;                     '":  (none)"]
 ;   expr := objValUnwrap(u)
 ;   expr is [op1, :.] and (op1 = 'SPADMAP) =>
@@ -2531,7 +2531,7 @@
      (COND
       ((NULL |u|)
        (|sayMSG|
-        (LIST '|   Value of | (|fixObjectForPrinting| (PNAME |op|))
+        (LIST "   Value of " (|fixObjectForPrinting| (PNAME |op|))
               ":  (none)")))
       (#1='T
        (PROGN
@@ -2627,15 +2627,15 @@
 ;   -- try to use new stuff first
 ;   if newHelpSpad2Cmd(args) then return nil
 ;
-;   sayBrightly "Available help topics for system commands are:"
-;   sayBrightly ""
-;   sayBrightly " boot   cd     clear    close     compile   display"
-;   sayBrightly " edit   fin    frame    help      history   library"
-;   sayBrightly " lisp   load   ltrace   pquit     quit      read"
-;   sayBrightly " set    show   spool    synonym   system    trace"
-;   sayBrightly " undo   what"
-;   sayBrightly ""
-;   sayBrightly "Issue _")help help_" for more information about the help command."
+;   sayBrightly '"Available help topics for system commands are:"
+;   sayBrightly '""
+;   sayBrightly '" boot   cd     clear    close     compile   display"
+;   sayBrightly '" edit   fin    frame    help      history   library"
+;   sayBrightly '" lisp   load   ltrace   pquit     quit      read"
+;   sayBrightly '" set    show   spool    synonym   system    trace"
+;   sayBrightly '" undo   what"
+;   sayBrightly '""
+;   sayBrightly '"Issue _")help help_" for more information about the help command."
 ;
 ;   nil
 
@@ -2644,16 +2644,16 @@
     (RETURN
      (PROGN
       (COND ((|newHelpSpad2Cmd| |args|) (RETURN NIL)))
-      (|sayBrightly| '|Available help topics for system commands are:|)
-      (|sayBrightly| '||)
-      (|sayBrightly| '| boot   cd     clear    close     compile   display|)
-      (|sayBrightly| '| edit   fin    frame    help      history   library|)
-      (|sayBrightly| '| lisp   load   ltrace   pquit     quit      read|)
-      (|sayBrightly| '| set    show   spool    synonym   system    trace|)
-      (|sayBrightly| '| undo   what|)
-      (|sayBrightly| '||)
+      (|sayBrightly| "Available help topics for system commands are:")
+      (|sayBrightly| "")
+      (|sayBrightly| " boot   cd     clear    close     compile   display")
+      (|sayBrightly| " edit   fin    frame    help      history   library")
+      (|sayBrightly| " lisp   load   ltrace   pquit     quit      read")
+      (|sayBrightly| " set    show   spool    synonym   system    trace")
+      (|sayBrightly| " undo   what")
+      (|sayBrightly| "")
       (|sayBrightly|
-       '|Issue ")help help" for more information about the help command.|)
+       "Issue \")help help\" for more information about the help command.")
       NIL))))
 
 ; newHelpSpad2Cmd args ==
@@ -5498,28 +5498,28 @@
   (PROG () (RETURN (PROGN (|sayKeyedMsg| 'S2IU0003 NIL) NIL))))
 
 ; reportCount () ==
-;   centerAndHighlight(" Current Count Settings ",$LINELENGTH,specialChar 'hbar)
-;   SAY " "
-;   sayBrightly [:bright " cache",fillerSpaces(30,'".")," ",$cacheCount]
+;   centerAndHighlight('" Current Count Settings ",$LINELENGTH,specialChar 'hbar)
+;   SAY '" "
+;   sayBrightly [:bright '" cache",fillerSpaces(30,'"."),'" ",$cacheCount]
 ;   if $cacheAlist then
 ;     for [a,:b] in $cacheAlist repeat
 ;       aPart:= linearFormatName a
 ;       n:= sayBrightlyLength aPart
-;       sayBrightly concat("     ",aPart," ",fillerSpaces(32-n,'".")," ",b)
-;   SAY " "
-;   sayBrightly [:bright " stream",fillerSpaces(29,'".")," ",$streamCount]
+;       sayBrightly concat('"     ",aPart,'" ",fillerSpaces(32-n,'"."),'" ",b)
+;   SAY '" "
+;   sayBrightly [:bright '" stream",fillerSpaces(29,'"."),'" ",$streamCount]
 
 (DEFUN |reportCount| ()
   (PROG (|n| |aPart| |b| |a|)
     (RETURN
      (PROGN
-      (|centerAndHighlight| '| Current Count Settings | $LINELENGTH
+      (|centerAndHighlight| " Current Count Settings " $LINELENGTH
        (|specialChar| '|hbar|))
-      (SAY '| |)
+      (SAY " ")
       (|sayBrightly|
-       (APPEND (|bright| '| cache|)
+       (APPEND (|bright| " cache")
                (CONS (|fillerSpaces| 30 ".")
-                     (CONS '| | (CONS |$cacheCount| NIL)))))
+                     (CONS " " (CONS |$cacheCount| NIL)))))
       (COND
        (|$cacheAlist|
         ((LAMBDA (|bfVar#109| |bfVar#108|)
@@ -5538,15 +5538,15 @@
                     (SETQ |aPart| (|linearFormatName| |a|))
                     (SETQ |n| (|sayBrightlyLength| |aPart|))
                     (|sayBrightly|
-                     (|concat| '|     | |aPart| '| |
-                      (|fillerSpaces| (- 32 |n|) ".") '| | |b|))))))
+                     (|concat| "     " |aPart| " "
+                      (|fillerSpaces| (- 32 |n|) ".") " " |b|))))))
             (SETQ |bfVar#109| (CDR |bfVar#109|))))
          |$cacheAlist| NIL)))
-      (SAY '| |)
+      (SAY " ")
       (|sayBrightly|
-       (APPEND (|bright| '| stream|)
+       (APPEND (|bright| " stream")
                (CONS (|fillerSpaces| 29 ".")
-                     (CONS '| | (CONS |$streamCount| NIL)))))))))
+                     (CONS " " (CONS |$streamCount| NIL)))))))))
 
 ; nopiles l == nopilesSpad2Cmd l
 
@@ -5555,18 +5555,18 @@
 ; nopilesSpad2Cmd l ==
 ;     null l => setNopiles ("{")
 ;     #l > 1 =>
-;        SAY "nopiles takes a single argument"
+;        SAY '"nopiles takes a single argument"
 ;     #l = 0 => setNopiles ("{")
 ;     l is [opt] =>
 ;        opt = 'brace => setNopiles ("{")
 ;        opt = 'parenthesis => setNopiles ("(")
-;        SAY "nopiles only takes 'brace' or 'parenthesis' as an argument"
+;        SAY '"nopiles only takes 'brace' or 'parenthesis' as an argument"
 
 (DEFUN |nopilesSpad2Cmd| (|l|)
   (PROG (|opt|)
     (RETURN
      (COND ((NULL |l|) (|setNopiles| '{))
-           ((< 1 (LENGTH |l|)) (SAY '|nopiles takes a single argument|))
+           ((< 1 (LENGTH |l|)) (SAY "nopiles takes a single argument"))
            ((EQL (LENGTH |l|) 0) (|setNopiles| '{))
            ((AND (CONSP |l|) (EQ (CDR |l|) NIL)
                  (PROGN (SETQ |opt| (CAR |l|)) #1='T))
@@ -5574,7 +5574,7 @@
                   ((EQ |opt| '|parenthesis|) (|setNopiles| '|(|))
                   (#1#
                    (SAY
-                    '|nopiles only takes 'brace' or 'parenthesis' as an argument|))))))))
+                    "nopiles only takes 'brace' or 'parenthesis' as an argument"))))))))
 
 ; pquit() == pquitSpad2Cmd()
 
@@ -5840,7 +5840,7 @@
 ;   $resolve_level : local := 15
 ;   null u => nil
 ;   u = $quadSymbol =>
-;      sayBrightly ['"   mode denotes", :bright '"any", "type"]
+;      sayBrightly ['"   mode denotes", :bright '"any", '"type"]
 ;   u = "%" =>
 ;     sayKeyedMsg("S2IZ0063",NIL)
 ;     sayKeyedMsg("S2IZ0064",NIL)
@@ -5874,7 +5874,7 @@
             ((EQUAL |u| |$quadSymbol|)
              (|sayBrightly|
               (CONS "   mode denotes"
-                    (APPEND (|bright| "any") (CONS '|type| NIL)))))
+                    (APPEND (|bright| "any") (CONS "type" NIL)))))
             ((EQ |u| '%)
              (PROGN
               (|sayKeyedMsg| 'S2IZ0063 NIL)
@@ -6782,7 +6782,7 @@
 
 ; reportUndo acc ==
 ;   for [name,:proplist] in acc repeat
-;     sayBrightly STRCONC("Properties of ",PNAME name,'" ::")
+;     sayBrightly STRCONC('"Properties of ",PNAME name,'" ::")
 ;     curproplist := LASSOC(name,CAAR $InteractiveFrame)
 ;     for [prop,:value] in proplist repeat
 ;       sayBrightlyNT ['"  ",prop,'" was: "]
@@ -6807,7 +6807,7 @@
                  #1#)
                 (PROGN
                  (|sayBrightly|
-                  (STRCONC '|Properties of | (PNAME |name|) " ::"))
+                  (STRCONC "Properties of " (PNAME |name|) " ::"))
                  (SETQ |curproplist|
                          (LASSOC |name| (CAAR |$InteractiveFrame|)))
                  ((LAMBDA (|bfVar#148| |bfVar#147|)
@@ -7402,7 +7402,7 @@
          NIL)))))))
 
 ; printSynonyms(patterns) ==
-;   centerAndHighlight("System Command Synonyms",$LINELENGTH,specialChar 'hbar)
+;   centerAndHighlight('"System Command Synonyms",$LINELENGTH,specialChar 'hbar)
 ;   ls := filterListOfStringsWithFn(patterns, [[STRINGIMAGE a,:b]
 ;     for [a,:b] in synonymsForUserLevel $CommandSynonymAlist],
 ;       function first)
@@ -7413,7 +7413,7 @@
   (PROG (|a| |b| |ls|)
     (RETURN
      (PROGN
-      (|centerAndHighlight| '|System Command Synonyms| $LINELENGTH
+      (|centerAndHighlight| "System Command Synonyms" $LINELENGTH
        (|specialChar| '|hbar|))
       (SETQ |ls|
               (|filterListOfStringsWithFn| |patterns|
@@ -7523,7 +7523,7 @@
         (|sayBrightly| "")))))))
 
 ; whatCommands(patterns) ==
-;   label := STRCONC("System Commands for User Level: ",
+;   label := STRCONC('"System Commands for User Level: ",
 ;     STRINGIMAGE $UserLevel)
 ;   centerAndHighlight(label,$LINELENGTH,specialChar 'hbar)
 ;   l := filterListOfStrings(patterns,
@@ -7536,7 +7536,7 @@
 ;       '%l,'"   ",'%b,:blankList patterns,'%d]
 ;   if l then
 ;     sayAsManyPerLineAsPossible l
-;     SAY " "
+;     SAY '" "
 ;   patterns => nil  -- don't be so verbose
 ;   sayKeyedMsg("S2IZ0046",NIL)
 ;   nil
@@ -7546,7 +7546,7 @@
     (RETURN
      (PROGN
       (SETQ |label|
-              (STRCONC '|System Commands for User Level: |
+              (STRCONC "System Commands for User Level: "
                (STRINGIMAGE |$UserLevel|)))
       (|centerAndHighlight| |label| $LINELENGTH (|specialChar| '|hbar|))
       (SETQ |l|
@@ -7580,7 +7580,7 @@
                              (CONS '|%b|
                                    (APPEND (|blankList| |patterns|)
                                            (CONS '|%d| NIL)))))))))))
-      (COND (|l| (|sayAsManyPerLineAsPossible| |l|) (SAY '| |)))
+      (COND (|l| (|sayAsManyPerLineAsPossible| |l|) (SAY " ")))
       (COND (|patterns| NIL)
             (#1# (PROGN (|sayKeyedMsg| 'S2IZ0046 NIL) NIL)))))))
 

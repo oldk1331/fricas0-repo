@@ -632,7 +632,7 @@
 ;   val := -1
 ;   for v in args for i in 0.. repeat
 ;      sym=v => return(val:=i)
-;   val<0 => error ["Cannot coerce",sym,"to",["Enumeration",:args]]
+;   val<0 => error ['"Cannot coerce",sym,'"to",['"Enumeration",:args]]
 ;   val
 
 (DEFUN |createEnum| (|sym| |dom|)
@@ -654,7 +654,7 @@
       (COND
        ((MINUSP |val|)
         (|error|
-         (LIST '|Cannot coerce| |sym| '|to| (CONS '|Enumeration| |args|))))
+         (LIST "Cannot coerce" |sym| "to" (CONS "Enumeration" |args|))))
        (#1# |val|))))))
 
 ; get_oplist_maker(op) ==

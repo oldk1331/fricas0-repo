@@ -366,7 +366,7 @@
 ;           if not STRINGP var and (n := countXLAM(var, rhs)) ~= 1 then
 ;               -- in current code base there are no cases like "f(x, y) == x"
 ;               -- so throw an error if such case emerges.
-;               stackAndThrow [op, " can not be properly inline optimized"]
+;               stackAndThrow [op, '" can not be properly inline optimized"]
 ;               return nil
 ;   spadreplace
 
@@ -455,7 +455,7 @@
                                         1)))
                              (|stackAndThrow|
                               (LIST |op|
-                                    '| can not be properly inline optimized|))
+                                    " can not be properly inline optimized"))
                              (RETURN NIL)))))
                          (SETQ |bfVar#22| (CDR |bfVar#22|))))
                       |lhs| NIL)))
@@ -1272,7 +1272,7 @@
 ;     sub_data1 := [false, good_preds]
 ;     condCats := boolean_subst(condCats, catvecListMaker, sub_data1)
 ;     if not(first(sub_data1)) then
-;         userError(["simplify_self_preds1: cannot simplify", $op, self_preds])
+;         userError(['"simplify_self_preds1: cannot simplify", $op, self_preds])
 ;     [condCats, first(sub_data1)]
 
 (DEFUN |simplify_self_preds1| (|catvecListMaker| |condCats|)
@@ -1406,7 +1406,7 @@
               (COND
                ((NULL (CAR |sub_data1|))
                 (|userError|
-                 (LIST '|simplify_self_preds1: cannot simplify| |$op|
+                 (LIST "simplify_self_preds1: cannot simplify" |$op|
                        |self_preds|))))
               (LIST |condCats| (CAR |sub_data1|)))))))))
 
@@ -2321,7 +2321,7 @@
 ;           t = 5 => $NRTaddForm
 ;           u:= $NRTdeltaList.($NRTdeltaLength+5-t)
 ;           first u = 'domain => CADR u
-;           error "bad $NRTdeltaList entry"
+;           error '"bad $NRTdeltaList entry"
 ;         MEMQ(first t, '(Mapping Union Record _:)) =>
 ;            [first t, :[replaceSlotTypes(x) for x in rest t]]
 ;         t
@@ -2353,7 +2353,7 @@
               (PROGN
                (SETQ |u| (ELT |$NRTdeltaList| (- (+ |$NRTdeltaLength| 5) |t|)))
                (COND ((EQ (CAR |u|) '|domain|) (CADR |u|))
-                     (#1# (|error| '|bad $NRTdeltaList entry|)))))))
+                     (#1# (|error| "bad $NRTdeltaList entry")))))))
       ((MEMQ (CAR |t|) '(|Mapping| |Union| |Record| |:|))
        (CONS (CAR |t|)
              ((LAMBDA (|bfVar#118| |bfVar#117| |x|)

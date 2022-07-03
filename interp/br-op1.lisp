@@ -269,7 +269,7 @@
 ;   FUNCALL(fn,page,opAlist,which,data) --apply branch function
 ;   if $atLeastOneUnexposed then
 ;       htSay '"{\em *} = unexposed"
-;   htSayStandard("\endscroll ")
+;   htSayStandard('"\endscroll ")
 ;   dbPresentOps(page,which,branch)
 ;   htShowPageNoScroll()
 
@@ -448,7 +448,7 @@
                 (FUNCALL |fn| |page| |opAlist| |which| |data|)
                 (COND
                  (|$atLeastOneUnexposed| (|htSay| "{\\em *} = unexposed")))
-                (|htSayStandard| '|\\endscroll |)
+                (|htSayStandard| "\\endscroll ")
                 (|dbPresentOps| |page| |which| |branch|)
                 (|htShowPageNoScroll|))))))))))
 

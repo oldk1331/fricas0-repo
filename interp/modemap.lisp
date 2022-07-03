@@ -500,7 +500,7 @@
 
 ; augModemapsFromCategory(domainName, functorForm, categoryForm, e) ==
 ;   [fnAlist,e]:= evalAndSub(domainName, functorForm, categoryForm, e)
-;   compilerMessage ["Adding ",domainName," modemaps"]
+;   compilerMessage ['"Adding ",domainName,'" modemaps"]
 ;   e:= putDomainsInScope(domainName,e)
 ;   for [[op,sig,:.],cond,fnsel] in fnAlist repeat
 ;       e:= addModemapKnown(op,domainName,sig,cond,fnsel,e)
@@ -516,7 +516,7 @@
               (|evalAndSub| |domainName| |functorForm| |categoryForm| |e|))
       (SETQ |fnAlist| (CAR |LETTMP#1|))
       (SETQ |e| (CADR |LETTMP#1|))
-      (|compilerMessage| (LIST '|Adding | |domainName| '| modemaps|))
+      (|compilerMessage| (LIST "Adding " |domainName| " modemaps"))
       (SETQ |e| (|putDomainsInScope| |domainName| |e|))
       ((LAMBDA (|bfVar#13| |bfVar#12|)
          (LOOP
@@ -581,7 +581,7 @@
 ;     ($domainShell => $domainShell.(1); systemError '"$ has no shell now")
 ;   T := compMakeCategoryObject(form, $tmp_e) =>
 ;       ([., ., $tmp_e] := T; T.expr.(1))
-;   stackMessage ["not a category form: ",form]
+;   stackMessage ['"not a category form: ",form]
 
 (DEFUN |getOperationAlist| (|name| |functorForm| |form|)
   (PROG (|u| T$)
@@ -601,7 +601,7 @@
               (#1='T (|systemError| "$ has no shell now"))))
        ((SETQ T$ (|compMakeCategoryObject| |form| |$tmp_e|))
         (PROGN (SETQ |$tmp_e| (CADDR T$)) (ELT (CAR T$) 1)))
-       (#1# (|stackMessage| (LIST '|not a category form: | |form|))))))))
+       (#1# (|stackMessage| (LIST "not a category form: " |form|))))))))
 
 ; substNames(domainName, functorForm, opalist) ==
 ;   functorForm := SUBSTQ("$$","$", functorForm)
@@ -835,7 +835,7 @@
 
 ; putDomainsInScope(x,e) ==
 ;   l:= getDomainsInScope e
-;   if member(x,l) then SAY("****** Domain: ",x," already in scope")
+;   if member(x,l) then SAY('"****** Domain: ",x,'" already in scope")
 ;   newValue:= [x,:delete(x,l)]
 ;   $insideCapsuleFunctionIfTrue => ($CapsuleDomainsInScope:= newValue; e)
 ;   put("$DomainsInScope","special",newValue,e)
@@ -846,7 +846,7 @@
      (PROGN
       (SETQ |l| (|getDomainsInScope| |e|))
       (COND
-       ((|member| |x| |l|) (SAY '|****** Domain: | |x| '| already in scope|)))
+       ((|member| |x| |l|) (SAY "****** Domain: " |x| " already in scope")))
       (SETQ |newValue| (CONS |x| (|delete| |x| |l|)))
       (COND
        (|$insideCapsuleFunctionIfTrue|

@@ -1960,7 +1960,7 @@
 ;         if spadflag = count then spadflag := false
 ;       else if not mathSymbolsOk and member(x,'("+" "*" "=" "==" "->")) then
 ;         if $checkingXmptex? then
-;           checkDocError ["Symbol ",x,'" appearing outside \spad{}"]
+;           checkDocError ['"Symbol ",x,'" appearing outside \spad{}"]
 ;
 ;     acc :=
 ;       x = '"\end{verbatim}" =>
@@ -2051,7 +2051,7 @@
                       (COND
                        (|$checkingXmptex?|
                         (|checkDocError|
-                         (LIST '|Symbol | |x|
+                         (LIST "Symbol " |x|
                                " appearing outside \\spad{}"))))))))
                   (SETQ |acc|
                           (COND
@@ -2758,7 +2758,7 @@
 ;           and not
 ;             (substring?('"\radiobox",x,0) or substring?('"\inputbox",x,0))=>
 ;              --allow 0 argument guys to pass through
-;               checkDocError ["Unexpected HT command: ",x]
+;               checkDocError ['"Unexpected HT command: ",x]
 ;       x = '"\beginitems" =>
 ;         beginEndStack := ["items",:beginEndStack]
 ;       x = '"\begin" =>
@@ -2805,7 +2805,7 @@
                            (NULL
                             (OR (|substring?| "\\radiobox" |x| 0)
                                 (|substring?| "\\inputbox" |x| 0))))
-                      (|checkDocError| (LIST '|Unexpected HT command: | |x|)))
+                      (|checkDocError| (LIST "Unexpected HT command: " |x|)))
                      ((EQUAL |x| "\\beginitems")
                       (SETQ |beginEndStack| (CONS '|items| |beginEndStack|)))
                      ((EQUAL |x| "\\begin")
@@ -3415,7 +3415,7 @@
 ;         if spadflag = count then spadflag := false
 ;       else if not spadflag and member(x,'("+" "*" "=" "==" "->")) then
 ;         if $checkingXmptex? then
-;           checkDocError ["Symbol ",x,'" appearing outside \spad{}"]
+;           checkDocError ['"Symbol ",x,'" appearing outside \spad{}"]
 ;       x = '"$" or x = '"%" => checkDocError ['"Unescaped ",x]
 ;     u := rest u
 ;   u
@@ -3454,7 +3454,7 @@
                       (COND
                        (|$checkingXmptex?|
                         (|checkDocError|
-                         (LIST '|Symbol | |x|
+                         (LIST "Symbol " |x|
                                " appearing outside \\spad{}"))))))
                     (COND
                      ((OR (EQUAL |x| "$") (EQUAL |x| "%"))

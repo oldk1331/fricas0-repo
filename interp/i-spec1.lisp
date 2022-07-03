@@ -811,7 +811,7 @@
 ;   if first unionDoms is ['_:,.,.] then
 ;      for i in 0.. for d in unionDoms repeat
 ;         if d is ['_:,=rhs,.] then rhstag := i
-;      if NULL rhstag then error "upcase: bad Union form"
+;      if NULL rhstag then error '"upcase: bad Union form"
 ;      $genValue =>
 ;         rhstag = first unwrap objVal triple => code := wrap(true)
 ;         code := wrap(false)
@@ -897,7 +897,7 @@
                  (SETQ |i| (+ |i| 1))
                  (SETQ |bfVar#17| (CDR |bfVar#17|))))
               0 |unionDoms| NIL)
-             (COND ((NULL |rhstag|) (|error| '|upcase: bad Union form|)))
+             (COND ((NULL |rhstag|) (|error| "upcase: bad Union form")))
              (COND
               (|$genValue|
                (COND
@@ -1508,7 +1508,7 @@
 ;       -- following is an optimization
 ;       typeIsASmallInteger(get(index,'mode,$env)) =>
 ;         RPLACA(iter,'ISTEP)
-;     throwKeyedMsg("Malformed iterator")
+;     throwKeyedMsg('"Malformed iterator")
 
 (DEFUN |upLoopIters| (|itrl|)
   (PROG (|ISTMP#1| |pred| |index| |ISTMP#2| |s| |lower| |ISTMP#3| |step|
@@ -1565,7 +1565,7 @@
               (COND
                ((|typeIsASmallInteger| (|get| |index| '|mode| |$env|))
                 (RPLACA |iter| 'ISTEP)))))
-            (#1# (|throwKeyedMsg| '|Malformed iterator|)))))
+            (#1# (|throwKeyedMsg| "Malformed iterator")))))
          (SETQ |bfVar#32| (CDR |bfVar#32|))))
       |itrl| NIL))))
 
@@ -2848,9 +2848,9 @@
 ;               $boundVariables := cons(var, $boundVariables)
 ;           var
 ;         ["SETF",newvar,checkForFreeVariables(form,locals)]
-;       error "Non-simple variable bindings are not currently supported"
+;       error '"Non-simple variable bindings are not currently supported"
 ;     op = "PROG" =>
-;       error "Non-simple variable bindings are not currently supported"
+;       error '"Non-simple variable bindings are not currently supported"
 ;     op = "LAMBDA" => v
 ;     op = "QUOTE" => v
 ;     op = "getValueFromEnvironment" => v
@@ -2961,10 +2961,10 @@
                                (|checkForFreeVariables| |form| |locals|))))
                        (#1#
                         (|error|
-                         '|Non-simple variable bindings are not currently supported|))))
+                         "Non-simple variable bindings are not currently supported"))))
                      ((EQ |op| 'PROG)
                       (|error|
-                       '|Non-simple variable bindings are not currently supported|))
+                       "Non-simple variable bindings are not currently supported"))
                      ((EQ |op| 'LAMBDA) |v|) ((EQ |op| 'QUOTE) |v|)
                      ((EQ |op| '|getValueFromEnvironment|) |v|)
                      ((EQ |op| '|local|)

@@ -56,7 +56,7 @@
 ;   [op, :argl] := x
 ;   u := (op is ['Sel, ., x] => x; op)
 ;   SYMBOLP(u) and (fn := GET(u, 'parseTran)) =>
-;       if op ~= u then SAY(["parseTran op ~= u", op, u])
+;       if op ~= u then SAY(['"parseTran op ~= u", op, u])
 ;       FUNCALL(fn, argl)
 ;   [parseTran op, :parseTranList argl]
 
@@ -88,7 +88,7 @@
                (PROGN
                 (COND
                  ((NOT (EQUAL |op| |u|))
-                  (SAY (LIST '|parseTran op ~= u| |op| |u|))))
+                  (SAY (LIST "parseTran op ~= u" |op| |u|))))
                 (FUNCALL |fn| |argl|)))
               (#1# (CONS (|parseTran| |op|) (|parseTranList| |argl|))))))))))
 

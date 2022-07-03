@@ -95,15 +95,15 @@
 (DEFUN |kxPage| (|htPage| |name|) (PROG () (RETURN (|downlink| |name|))))
 
 ; kdPageInfo(name,abbrev,nargs,conform,signature,file?) ==
-;   htSay("{\sf ",name,'"}")
-;   if abbrev ~= name then bcHt [" has abbreviation ",abbrev]
+;   htSay('"{\sf ",name,'"}")
+;   if abbrev ~= name then bcHt ['" has abbreviation ",abbrev]
 ;   if file? then bcHt ['" is a source file."]
 ;   if nargs = 0 then (if abbrev ~= name then bcHt '".")
 ;     else
 ;       if abbrev ~= name then bcHt '" and"
 ;       bcHt
 ;         nargs = 1 => '" takes one argument:"
-;         [" takes ",STRINGIMAGE nargs," arguments:"]
+;         ['" takes ",STRINGIMAGE nargs,'" arguments:"]
 ;   htSayStandard '"\indentrel{2}"
 ;   if nargs > 0 then kPageArgs(conform,signature)
 ;   htSayStandard '"\indentrel{-2}"
@@ -121,17 +121,17 @@
   (PROG (|sourceFileName| |filename|)
     (RETURN
      (PROGN
-      (|htSay| '|{\\sf | |name| "}")
+      (|htSay| "{\\sf " |name| "}")
       (COND
        ((NOT (EQUAL |abbrev| |name|))
-        (|bcHt| (LIST '| has abbreviation | |abbrev|))))
+        (|bcHt| (LIST " has abbreviation " |abbrev|))))
       (COND (|file?| (|bcHt| (LIST " is a source file."))))
       (COND
        ((EQL |nargs| 0) (COND ((NOT (EQUAL |abbrev| |name|)) (|bcHt| "."))))
        (#1='T (COND ((NOT (EQUAL |abbrev| |name|)) (|bcHt| " and")))
         (|bcHt|
          (COND ((EQL |nargs| 1) " takes one argument:")
-               (#1# (LIST '| takes | (STRINGIMAGE |nargs|) '| arguments:|))))))
+               (#1# (LIST " takes " (STRINGIMAGE |nargs|) " arguments:"))))))
       (|htSayStandard| "\\indentrel{2}")
       (COND ((< 0 |nargs|) (|kPageArgs| |conform| |signature|)))
       (|htSayStandard| "\\indentrel{-2}")
@@ -2387,7 +2387,7 @@
 ;     key = 'parameters => bcConTable REMDUP ASSOCLEFT cAlist
 ;     key = 'kinds => dbShowConsKinds cAlist
 ;   dbConsExposureMessage()
-;   htSayStandard("\endscroll ")
+;   htSayStandard('"\endscroll ")
 ;   dbPresentCons(page,kind,key)
 ;   htShowPageNoScroll()
 
@@ -2524,7 +2524,7 @@
                     (|bcConTable| (REMDUP (ASSOCLEFT |cAlist|))))
                    ((EQ |key| '|kinds|) (|dbShowConsKinds| |cAlist|)))))))
          (|dbConsExposureMessage|)
-         (|htSayStandard| '|\\endscroll |)
+         (|htSayStandard| "\\endscroll ")
          (|dbPresentCons| |page| |kind| |key|)
          (|htShowPageNoScroll|))))))))
 
