@@ -1,6 +1,6 @@
 
-(30 . 3865820769)            
-(5206 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(30 . 3865820858)            
+(5207 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -1000,17 +1000,17 @@
  |ruleset| |rur| |create| |nullBoundary| |boxBoundary| |ellipseBoundary|
  |intersection| |sunion| |extendToPoint| |containsPoint?| |lineIntersect|
  |isNull?| |isEllipse?| |isBox?| |getMin| |getMax| |getCentre| |clearCache|
- |linearSearch| |enterInCache| |parse_integer| |variableOf| |samplePoint|
- |hasDimension?| |allSimpleCells| |createSceneRoot| |createSceneGroup|
- |addSceneGroup| |createSceneLine| |addSceneLine| |createSceneLines|
- |addSceneLines| |createSceneShape| |addSceneShape| |createSceneDef|
- |addSceneDef| |createSceneUse| |addSceneUse| |createSceneArrows|
- |addSceneArrows| |createSceneArrow| |addSceneArrow| |createSceneNamedPoints|
- |addSceneNamedPoints| |createSceneIFS| |addSceneIFS| |createSceneBox|
- |addSceneBox| |createSceneText| |addSceneText| |createSceneClip|
- |addSceneClip| |createSceneGrid| |addSceneGrid| |createScenePattern|
- |addScenePattern| |createSceneRuler| |addSceneRuler| |createSceneGraph|
- |addSceneGraph| |createSceneMaterial| |addSceneMaterial|
+ |linearSearch| |enterInCache| |binarySearch| |parse_integer| |variableOf|
+ |samplePoint| |hasDimension?| |allSimpleCells| |createSceneRoot|
+ |createSceneGroup| |addSceneGroup| |createSceneLine| |addSceneLine|
+ |createSceneLines| |addSceneLines| |createSceneShape| |addSceneShape|
+ |createSceneDef| |addSceneDef| |createSceneUse| |addSceneUse|
+ |createSceneArrows| |addSceneArrows| |createSceneArrow| |addSceneArrow|
+ |createSceneNamedPoints| |addSceneNamedPoints| |createSceneIFS| |addSceneIFS|
+ |createSceneBox| |addSceneBox| |createSceneText| |addSceneText|
+ |createSceneClip| |addSceneClip| |createSceneGrid| |addSceneGrid|
+ |createScenePattern| |addScenePattern| |createSceneRuler| |addSceneRuler|
+ |createSceneGraph| |addSceneGraph| |createSceneMaterial| |addSceneMaterial|
  |createSceneTransform| |addSceneTransform| |createPlot1Din2D| |addPlot1Din2D|
  |createPlot1Din2Dparametric| |addPlot1Din2Dparametric|
  |createPlot1Din3Dparametric| |addPlot1Din3Dparametric| |createPlot2Din3D|
