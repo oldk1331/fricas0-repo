@@ -100,7 +100,7 @@
          (|den| |UnivariatePuiseuxSeries| FE |var| |cen|)
          ($ |Union| (|OrderedCompletion| FE) "failed"))
         (SPROG
-         ((#1=#:G164 NIL) (|sig| (|Union| (|Integer|) "failed")) (|coef| (FE))
+         ((#1=#:G167 NIL) (|sig| (|Union| (|Integer|) "failed")) (|coef| (FE))
           (|ord| (|Fraction| (|Integer|)))
           (|series| (|UnivariatePuiseuxSeries| FE |var| |cen|)))
          (SEQ
@@ -130,7 +130,7 @@
                                   ((QEQCAR |sig| 1)
                                    (PROGN
                                     (LETT #1# (CONS 1 "failed"))
-                                    (GO #3=#:G163)))
+                                    (GO #3=#:G166)))
                                   ((EQL (QCDR |sig|) 1)
                                    (CONS 0 (SPADCALL (QREFELT $ 54))))
                                   (#2#
@@ -144,7 +144,7 @@
          (|den| |UnivariatePuiseuxSeries| FE |var| |cen|)
          ($ |Union| (|OrderedCompletion| FE) "failed"))
         (SPROG
-         ((#1=#:G176 NIL) (|sig| (|Union| (|Integer|) "failed")) (|cc| (FE))
+         ((#1=#:G180 NIL) (|sig| (|Union| (|Integer|) "failed")) (|cc| (FE))
           (|denOrd| #2=(|Fraction| (|Integer|))) (|numOrd| #2#))
          (SEQ
           (EXIT
@@ -181,7 +181,7 @@
                                   ((QEQCAR |sig| 1)
                                    (PROGN
                                     (LETT #1# (CONS 1 "failed"))
-                                    (GO #4=#:G175)))
+                                    (GO #4=#:G179)))
                                   ((EQL (QCDR |sig|) 1)
                                    (CONS 0 (SPADCALL (QREFELT $ 54))))
                                   (#3#
@@ -193,7 +193,7 @@
 (SDEFUN |EXPEXPAN;limitPlus;$U;10|
         ((|f| $) ($ |Union| (|OrderedCompletion| FE) "failed"))
         (SPROG
-         ((#1=#:G200 NIL) (|sig| (|Union| (|Integer|) "failed"))
+         ((#1=#:G204 NIL) (|sig| (|Union| (|Integer|) "failed"))
           (|expCoef| (FE))
           (|exponDiff| (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
           (|denCoef| #2=(|UnivariatePuiseuxSeries| FE |var| |cen|))
@@ -324,7 +324,7 @@
                                                ((QEQCAR |sig| 1)
                                                 (PROGN
                                                  (LETT #1# (CONS 1 "failed"))
-                                                 (GO #7=#:G199)))
+                                                 (GO #7=#:G203)))
                                                ((EQL (QCDR |sig|) -1)
                                                 (CONS 0
                                                       (SPADCALL
@@ -395,9 +395,9 @@
 
 (DECLAIM (NOTINLINE |ExponentialExpansion;|)) 
 
-(DEFUN |ExponentialExpansion| (&REST #1=#:G232)
+(DEFUN |ExponentialExpansion| (&REST #1=#:G236)
   (SPROG NIL
-         (PROG (#2=#:G233)
+         (PROG (#2=#:G237)
            (RETURN
             (COND
              ((LETT #2#
@@ -416,7 +416,7 @@
 
 (DEFUN |ExponentialExpansion;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G231 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((|pv$| NIL) (#1=#:G235 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

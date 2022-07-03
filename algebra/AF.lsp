@@ -531,7 +531,7 @@
           (|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (#2=#:G419 NIL) (#3=#:G416 NIL) (#4=#:G412 NIL)
+          (#2=#:G417 NIL) (#3=#:G415 NIL) (#4=#:G412 NIL)
           (|rd| #5=(|Union| (|Integer|) "failed")) (|rn| #5#))
          (SEQ
           (LETT |rn|
@@ -649,7 +649,7 @@
          ((|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (#1=#:G435 NIL))
+          (#1=#:G433 NIL))
          (SEQ
           (LETT |rec|
                 (SPADCALL |r|
@@ -689,7 +689,7 @@
 
 (SDEFUN |AF;minPoly;KSup;30|
         ((|k| |Kernel| F) ($ |SparseUnivariatePolynomial| F))
-        (SPROG ((#1=#:G446 NIL))
+        (SPROG ((#1=#:G444 NIL))
                (COND
                 ((SPADCALL |k| (QREFELT $ 13) (QREFELT $ 143))
                  (SPADCALL
@@ -753,9 +753,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicFunction;|)) 
 
-(DEFUN |AlgebraicFunction| (&REST #1=#:G459)
+(DEFUN |AlgebraicFunction| (&REST #1=#:G457)
   (SPROG NIL
-         (PROG (#2=#:G460)
+         (PROG (#2=#:G458)
            (RETURN
             (COND
              ((LETT #2#

@@ -6,7 +6,7 @@
           (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| #1="failed")
           (|:| |pole| #2="potentialPole")))
         (SPROG
-         ((#3=#:G172 NIL) (|v| (|Union| F "failed"))
+         ((#3=#:G187 NIL) (|v| (|Union| F "failed"))
           (|u|
            (|Union| (|:| |f1| (|OrderedCompletion| F))
                     (|:| |f2| (|List| (|OrderedCompletion| F)))
@@ -18,7 +18,7 @@
                  (EXIT
                   (COND
                    ((OR (QEQCAR |u| 0) (QEQCAR |u| 1))
-                    (PROGN (LETT #3# |u|) (GO #4=#:G166)))
+                    (PROGN (LETT #3# |u|) (GO #4=#:G181)))
                    ('T
                     (SEQ (LETT |v| (SPADCALL |f| |x| |a| |b| (QREFELT $ 12)))
                          (EXIT
@@ -102,7 +102,7 @@
         ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) (|a| |OrderedCompletion| F)
          (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) "failed"))
         (SPROG
-         ((#1=#:G214 NIL) (|u| (|Union| (|Boolean|) "failed"))
+         ((#1=#:G232 NIL) (|u| (|Union| (|Boolean|) "failed"))
           (|d| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (SEQ
           (EXIT
@@ -114,7 +114,7 @@
              (EXIT
               (COND
                ((OR (QEQCAR |u| 1) (QCDR |u|))
-                (PROGN (LETT #1# |u|) (GO #2=#:G212))))))
+                (PROGN (LETT #1# |u|) (GO #2=#:G230))))))
             (SEQ (LETT |u| (|DEFINTEF;checkSMP| |d| |x| |k| |a| |b| $))
                  (EXIT
                   (COND
@@ -130,12 +130,12 @@
          (|a| |OrderedCompletion| F) (|b| |OrderedCompletion| F)
          ($ |Union| (|Boolean|) #1="failed"))
         (SPROG
-         ((#2=#:G242 NIL) (|w| (|Union| (|Boolean|) #1#)) (|k| #3=(|Kernel| F))
+         ((#2=#:G262 NIL) (|w| (|Union| (|Boolean|) #1#)) (|k| #3=(|Kernel| F))
           (|z|
            (|Union|
             (|Record| (|:| |var| #3#) (|:| |exponent| (|NonNegativeInteger|)))
             #4="failed"))
-          (#5=#:G241 NIL) (#6=#:G243 NIL) (#7=#:G244 NIL) (|t| NIL)
+          (#5=#:G261 NIL) (#6=#:G263 NIL) (#7=#:G264 NIL) (|t| NIL)
           (|v|
            (|Union| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F)))
                     #4#))
@@ -171,8 +171,8 @@
                                         (LETT #5#
                                               (PROGN
                                                (LETT #6# |w|)
-                                               (GO #9=#:G240)))
-                                        (GO #10=#:G225))))))
+                                               (GO #9=#:G260)))
+                                        (GO #10=#:G244))))))
                                    (LETT #7# (CDR #7#)) (GO G190) G191
                                    (EXIT NIL)))
                              #10# (EXIT #5#))
@@ -213,7 +213,7 @@
                                                            (NULL (QCDR |w|)))
                                                        (PROGN
                                                         (LETT #2# |w|)
-                                                        (GO #11=#:G235))))))
+                                                        (GO #11=#:G255))))))
                                                    (EXIT
                                                     (|DEFINTEF;moreThan|
                                                      (SPADCALL |a|
@@ -255,18 +255,18 @@
          (|k| |Kernel| F) (|a| |OrderedCompletion| F)
          (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) #1="failed"))
         (SPROG
-         ((#2=#:G343 NIL) (|w| (|Union| (|Boolean|) #1#)) (|f2| (F))
-          (#3=#:G344 NIL) (#4=#:G345 NIL) (#5=#:G342 NIL) (#6=#:G351 NIL)
+         ((#2=#:G380 NIL) (|w| (|Union| (|Boolean|) #1#)) (|f2| (F))
+          (#3=#:G381 NIL) (#4=#:G382 NIL) (#5=#:G379 NIL) (#6=#:G388 NIL)
           (|f| (F)) (|ak| (|List| F)) (|kk| #7=(|Kernel| F))
           (|z|
            (|Union|
             (|Record| (|:| |var| #7#) (|:| |exponent| (|NonNegativeInteger|)))
             #8="failed"))
-          (|n| (R)) (#9=#:G354 NIL) (#10=#:G356 NIL) (|t| NIL)
+          (|n| (R)) (#9=#:G391 NIL) (#10=#:G393 NIL) (|t| NIL)
           (|v|
            (|Union| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F)))
                     #8#))
-          (#11=#:G341 NIL) (#12=#:G355 NIL)
+          (#11=#:G378 NIL) (#12=#:G392 NIL)
           (|u| (|Union| (|SparseUnivariatePolynomial| F) "failed")))
          (SEQ
           (EXIT
@@ -300,8 +300,8 @@
                                              (LETT #11#
                                                    (PROGN
                                                     (LETT #9# |w|)
-                                                    (GO #14=#:G340)))
-                                             (GO #15=#:G267))))))
+                                                    (GO #14=#:G377)))
+                                             (GO #15=#:G288))))))
                                         (LETT #12# (CDR #12#)) (GO G190) G191
                                         (EXIT NIL)))
                                   #15# (EXIT #11#))
@@ -494,7 +494,7 @@
                                                                (PROGN
                                                                 (LETT #6# |w|)
                                                                 (GO
-                                                                 #16=#:G294))))))
+                                                                 #16=#:G318))))))
                                                            (SEQ
                                                             (LETT |w|
                                                                   (|DEFINTEF;posit|
@@ -545,7 +545,7 @@
                                                                (PROGN
                                                                 (LETT #5# |w|)
                                                                 (GO
-                                                                 #17=#:G305))))))
+                                                                 #17=#:G334))))))
                                                            (EXIT
                                                             (|DEFINTEF;negat|
                                                              (SPADCALL |f|
@@ -600,7 +600,7 @@
                                                                (PROGN
                                                                 (LETT #4# |w|)
                                                                 (GO
-                                                                 #18=#:G307))))))
+                                                                 #18=#:G337))))))
                                                            (EXIT
                                                             (|DEFINTEF;negat|
                                                              |f| |x| |k| |a|
@@ -658,7 +658,7 @@
                                                                          #3#
                                                                          |w|)
                                                                         (GO
-                                                                         #19=#:G325))))))
+                                                                         #19=#:G361))))))
                                                                    (EXIT
                                                                     (|DEFINTEF;negat|
                                                                      |f2| |x|
@@ -710,7 +710,7 @@
                                                                       (LETT #2#
                                                                             |w|)
                                                                       (GO
-                                                                       #20=#:G330))))))
+                                                                       #20=#:G367))))))
                                                                  (EXIT
                                                                   (|DEFINTEF;posit|
                                                                    (SPADCALL
@@ -732,8 +732,8 @@
         ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) (|a| |OrderedCompletion| F)
          (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) "failed"))
         (SPROG
-         ((#1=#:G374 NIL) (|w| (|Union| (|Boolean|) "failed")) (#2=#:G375 NIL)
-          (#3=#:G364 NIL) (|b2| #4=(|Boolean|))
+         ((#1=#:G412 NIL) (|w| (|Union| (|Boolean|) "failed")) (#2=#:G413 NIL)
+          (#3=#:G401 NIL) (|b2| #4=(|Boolean|))
           (|z| (|Union| (|Integer|) #5="failed")) (|r| (|Union| F "failed"))
           (|b1| #4#))
          (SEQ
@@ -758,7 +758,7 @@
                          (|check_union2| (QEQCAR #3# 0) (|Integer|)
                                          (|Union| (|Integer|) #5#) #3#))
                        0)
-                      (PROGN (LETT #2# (CONS 0 'T)) (GO #7=#:G372))))))))
+                      (PROGN (LETT #2# (CONS 0 'T)) (GO #7=#:G410))))))))
             (LETT |z|
                   (SEQ (LETT |r| (SPADCALL |b| (QREFELT $ 51)))
                        (EXIT
@@ -794,7 +794,7 @@
                      (EXIT
                       (COND
                        ((OR (QEQCAR |w| 1) (QCDR |w|))
-                        (PROGN (LETT #1# (CONS 1 "failed")) (GO #8=#:G371))))))
+                        (PROGN (LETT #1# (CONS 1 "failed")) (GO #8=#:G409))))))
                     (EXIT (CONS 0 NIL))))
                   #8# (EXIT #1#)))))))
             (EXIT (CONS 1 "failed"))))
@@ -804,8 +804,8 @@
         ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) (|a| |OrderedCompletion| F)
          (|b| |OrderedCompletion| F) ($ |Union| (|Boolean|) "failed"))
         (SPROG
-         ((#1=#:G393 NIL) (|w| (|Union| (|Boolean|) "failed")) (#2=#:G394 NIL)
-          (#3=#:G383 NIL) (|b2| #4=(|Boolean|))
+         ((#1=#:G432 NIL) (|w| (|Union| (|Boolean|) "failed")) (#2=#:G433 NIL)
+          (#3=#:G421 NIL) (|b2| #4=(|Boolean|))
           (|z| (|Union| (|Integer|) #5="failed")) (|r| (|Union| F "failed"))
           (|b1| #4#))
          (SEQ
@@ -830,7 +830,7 @@
                          (|check_union2| (QEQCAR #3# 0) (|Integer|)
                                          (|Union| (|Integer|) #5#) #3#))
                        0)
-                      (PROGN (LETT #2# (CONS 0 'T)) (GO #7=#:G391))))))))
+                      (PROGN (LETT #2# (CONS 0 'T)) (GO #7=#:G430))))))))
             (LETT |z|
                   (SEQ (LETT |r| (SPADCALL |b| (QREFELT $ 51)))
                        (EXIT
@@ -866,7 +866,7 @@
                      (EXIT
                       (COND
                        ((OR (QEQCAR |w| 1) (QCDR |w|))
-                        (PROGN (LETT #1# (CONS 1 "failed")) (GO #8=#:G390))))))
+                        (PROGN (LETT #1# (CONS 1 "failed")) (GO #8=#:G429))))))
                     (EXIT (CONS 0 NIL))))
                   #8# (EXIT #1#)))))))
             (EXIT (CONS 1 "failed"))))
@@ -879,7 +879,7 @@
          ((|q|
            (|SparseUnivariatePolynomial|
             (|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (|ans| (|SparseUnivariatePolynomial| F)) (#1=#:G403 NIL) (|c| (F)))
+          (|ans| (|SparseUnivariatePolynomial| F)) (#1=#:G442 NIL) (|c| (F)))
          (SEQ
           (EXIT
            (SEQ (LETT |q| (SPADCALL |p| |x| (QREFELT $ 79)))
@@ -900,7 +900,7 @@
                                            (QREFELT $ 85)))
                                     (QREFELT $ 87))
                                    (QREFELT $ 89))
-                         (PROGN (LETT #1# (CONS 1 "failed")) (GO #2=#:G402)))
+                         (PROGN (LETT #1# (CONS 1 "failed")) (GO #2=#:G441)))
                         ('T
                          (SEQ
                           (LETT |ans|
@@ -922,8 +922,8 @@
           (|:| |f2| (|List| (|OrderedCompletion| F))) (|:| |fail| #1="failed")
           (|:| |pole| "potentialPole")))
         (SPROG
-         ((|ans| (|List| (|OrderedCompletion| F))) (#2=#:G420 NIL)
-          (|v| (|Union| (|OrderedCompletion| F) "failed")) (#3=#:G421 NIL)
+         ((|ans| (|List| (|OrderedCompletion| F))) (#2=#:G459 NIL)
+          (|v| (|Union| (|OrderedCompletion| F) "failed")) (#3=#:G460 NIL)
           (|g| NIL) (|u| (|Union| F (|List| F))))
          (SEQ
           (EXIT
@@ -952,7 +952,7 @@
                                 ((QEQCAR |v| 1)
                                  (PROGN
                                   (LETT #2# (CONS 2 #1#))
-                                  (GO #5=#:G419)))
+                                  (GO #5=#:G458)))
                                 ('T
                                  (LETT |ans|
                                        (SPADCALL |ans| (LIST (QCDR |v|))
@@ -963,9 +963,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionDefiniteIntegration;|)) 
 
-(DEFUN |ElementaryFunctionDefiniteIntegration| (&REST #1=#:G422)
+(DEFUN |ElementaryFunctionDefiniteIntegration| (&REST #1=#:G461)
   (SPROG NIL
-         (PROG (#2=#:G423)
+         (PROG (#2=#:G462)
            (RETURN
             (COND
              ((LETT #2#
