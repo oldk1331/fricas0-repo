@@ -6,7 +6,7 @@
         (SPADCALL |x| (QREFELT $ 9))) 
 
 (SDEFUN |STAGG-;elt;AIS;3| ((|x| (A)) (|i| (|Integer|)) ($ (S)))
-        (SPROG ((#1=#:G139 NIL))
+        (SPROG ((#1=#:G138 NIL))
                (SEQ (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 13))))
                     (COND
                      ((OR (< |i| 0)
@@ -23,57 +23,16 @@
                       (EXIT (|error| "index out of range"))))
                     (EXIT (SPADCALL |x| (QREFELT $ 17)))))) 
 
-(SDEFUN |STAGG-;elt;AUsA;4|
-        ((|x| (A)) (|i| (|UniversalSegment| (|Integer|))) ($ (A)))
-        (SPROG
-         ((#1=#:G148 NIL) (#2=#:G147 NIL) (|h| #3=(|Integer|)) (#4=#:G144 NIL)
-          (|l| #3#))
-         (SEQ
-          (LETT |l|
-                (- (SPADCALL |i| (QREFELT $ 20))
-                   (SPADCALL |x| (QREFELT $ 13))))
-          (EXIT
-           (COND ((< |l| 0) (|error| "index out of range"))
-                 ((NULL (SPADCALL |i| (QREFELT $ 21)))
-                  (SPADCALL
-                   (SPADCALL |x|
-                             (PROG1 (LETT #4# |l|)
-                               (|check_subtype2| (>= #4# 0)
-                                                 '(|NonNegativeInteger|)
-                                                 '(|Integer|) #4#))
-                             (QREFELT $ 15))
-                   (QREFELT $ 22)))
-                 ('T
-                  (SEQ
-                   (LETT |h|
-                         (- (SPADCALL |i| (QREFELT $ 23))
-                            (SPADCALL |x| (QREFELT $ 13))))
-                   (EXIT
-                    (COND ((< |h| |l|) (SPADCALL (QREFELT $ 24)))
-                          ('T
-                           (SPADCALL
-                            (SPADCALL |x|
-                                      (PROG1 (LETT #2# |l|)
-                                        (|check_subtype2| (>= #2# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          '(|Integer|) #2#))
-                                      (QREFELT $ 15))
-                            (PROG1 (LETT #1# (+ (- |h| |l|) 1))
-                              (|check_subtype2| (>= #1# 0)
-                                                '(|NonNegativeInteger|)
-                                                '(|Integer|) #1#))
-                            (QREFELT $ 25)))))))))))) 
+(SDEFUN |STAGG-;concat;3A;4| ((|x| (A)) (|y| (A)) ($ (A)))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 19)) |y| (QREFELT $ 20))) 
 
-(SDEFUN |STAGG-;concat;3A;5| ((|x| (A)) (|y| (A)) ($ (A)))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 22)) |y| (QREFELT $ 27))) 
-
-(SDEFUN |STAGG-;concat;LA;6| ((|l| (|List| A)) ($ (A)))
-        (SPROG ((|res| (A)) (#1=#:G158 NIL) (|x| NIL) (|l1| (|List| A)))
+(SDEFUN |STAGG-;concat;LA;5| ((|l| (|List| A)) ($ (A)))
+        (SPROG ((|res| (A)) (#1=#:G148 NIL) (|x| NIL) (|l1| (|List| A)))
                (SEQ
-                (COND ((NULL |l|) (SPADCALL (QREFELT $ 24)))
+                (COND ((NULL |l|) (SPADCALL (QREFELT $ 22)))
                       ('T
                        (SEQ (LETT |l1| (REVERSE |l|))
-                            (LETT |res| (SPADCALL (QREFELT $ 24)))
+                            (LETT |res| (SPADCALL (QREFELT $ 22)))
                             (SEQ (LETT |x| NIL) (LETT #1# |l1|) G190
                                  (COND
                                   ((OR (ATOM #1#)
@@ -83,26 +42,26 @@
                                   (EXIT
                                    (LETT |res|
                                          (SPADCALL
-                                          (SPADCALL |x| (QREFELT $ 22)) |res|
-                                          (QREFELT $ 27)))))
+                                          (SPADCALL |x| (QREFELT $ 19)) |res|
+                                          (QREFELT $ 20)))))
                                  (LETT #1# (CDR #1#)) (GO G190) G191
                                  (EXIT NIL))
                             (EXIT |res|))))))) 
 
-(SDEFUN |STAGG-;fill!;ASA;7| ((|x| (A)) (|s| (S)) ($ (A)))
+(SDEFUN |STAGG-;fill!;ASA;6| ((|x| (A)) (|s| (S)) ($ (A)))
         (SPROG ((|y| (A)))
                (SEQ (LETT |y| |x|)
                     (SEQ G190
                          (COND
                           ((NULL (NULL (SPADCALL |y| (QREFELT $ 16))))
                            (GO G191)))
-                         (SEQ (SPADCALL |y| |s| (QREFELT $ 31))
-                              (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 32)))))
+                         (SEQ (SPADCALL |y| |s| (QREFELT $ 25))
+                              (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 26)))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |x|)))) 
 
-(SDEFUN |STAGG-;setelt!;AI2S;8| ((|x| (A)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
-        (SPROG ((#1=#:G166 NIL))
+(SDEFUN |STAGG-;setelt!;AI2S;7| ((|x| (A)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
+        (SPROG ((#1=#:G156 NIL))
                (SEQ (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 13))))
                     (COND
                      ((OR (< |i| 0)
@@ -117,16 +76,16 @@
                                            (QREFELT $ 15)))
                            (QREFELT $ 16)))
                       (EXIT (|error| "index out of range"))))
-                    (EXIT (SPADCALL |x| |s| (QREFELT $ 31)))))) 
+                    (EXIT (SPADCALL |x| |s| (QREFELT $ 25)))))) 
 
-(SDEFUN |STAGG-;setelt!;AUs2S;9|
+(SDEFUN |STAGG-;setelt!;AUs2S;8|
         ((|x| (A)) (|i| (|UniversalSegment| (|Integer|))) (|s| (S)) ($ (S)))
         (SPROG
-         ((|y| (A)) (|z| (A)) (#1=#:G173 NIL) (#2=#:G172 NIL) (|h| (|Integer|))
+         ((|y| (A)) (|z| (A)) (#1=#:G163 NIL) (#2=#:G162 NIL) (|h| (|Integer|))
           (|l| (|Integer|)))
          (SEQ
           (LETT |l|
-                (- (SPADCALL |i| (QREFELT $ 20))
+                (- (SPADCALL |i| (QREFELT $ 30))
                    (SPADCALL |x| (QREFELT $ 13))))
           (EXIT
            (COND ((< |l| 0) (|error| "index out of range"))
@@ -134,10 +93,10 @@
                   (SEQ
                    (LETT |h|
                          (COND
-                          ((SPADCALL |i| (QREFELT $ 21))
-                           (- (SPADCALL |i| (QREFELT $ 23))
+                          ((SPADCALL |i| (QREFELT $ 31))
+                           (- (SPADCALL |i| (QREFELT $ 32))
                               (SPADCALL |x| (QREFELT $ 13))))
-                          (#3# (SPADCALL |x| (QREFELT $ 35)))))
+                          (#3# (SPADCALL |x| (QREFELT $ 33)))))
                    (EXIT
                     (COND ((< |h| |l|) |s|)
                           (#3#
@@ -161,21 +120,21 @@
                             (SEQ G190
                                  (COND
                                   ((NULL
-                                    (NULL (SPADCALL |y| |z| (QREFELT $ 36))))
+                                    (NULL (SPADCALL |y| |z| (QREFELT $ 34))))
                                    (GO G191)))
-                                 (SEQ (SPADCALL |y| |s| (QREFELT $ 31))
+                                 (SEQ (SPADCALL |y| |s| (QREFELT $ 25))
                                       (EXIT
                                        (LETT |y|
-                                             (SPADCALL |y| (QREFELT $ 32)))))
+                                             (SPADCALL |y| (QREFELT $ 26)))))
                                  NIL (GO G190) G191 (EXIT NIL))
                             (EXIT |s|)))))))))))) 
 
-(SDEFUN |STAGG-;concat!;3A;10| ((|x| (A)) (|y| (A)) ($ (A)))
+(SDEFUN |STAGG-;concat!;3A;9| ((|x| (A)) (|y| (A)) ($ (A)))
         (SEQ
          (COND ((SPADCALL |x| (QREFELT $ 16)) |y|)
                ('T
                 (SEQ
-                 (SPADCALL (SPADCALL |x| (QREFELT $ 38)) |y| (QREFELT $ 39))
+                 (SPADCALL (SPADCALL |x| (QREFELT $ 36)) |y| (QREFELT $ 37))
                  (EXIT |x|)))))) 
 
 (DECLAIM (NOTINLINE |StreamAggregate&;|)) 
@@ -186,7 +145,7 @@
           (LETT DV$1 (|devaluate| |#1|))
           (LETT DV$2 (|devaluate| |#2|))
           (LETT |dv$| (LIST '|StreamAggregate&| DV$1 DV$2))
-          (LETT $ (GETREFV 45))
+          (LETT $ (GETREFV 43))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| $)
@@ -196,15 +155,15 @@
           (COND
            ((|HasCategory| |#1| '(|shallowlyMutable|))
             (PROGN
-             (QSETREFV $ 28 (CONS (|dispatchFunction| |STAGG-;concat;3A;5|) $))
-             (QSETREFV $ 30 (CONS (|dispatchFunction| |STAGG-;concat;LA;6|) $))
-             (QSETREFV $ 33 (CONS (|dispatchFunction| |STAGG-;fill!;ASA;7|) $))
-             (QSETREFV $ 34
-                       (CONS (|dispatchFunction| |STAGG-;setelt!;AI2S;8|) $))
-             (QSETREFV $ 37
-                       (CONS (|dispatchFunction| |STAGG-;setelt!;AUs2S;9|) $))
-             (QSETREFV $ 40
-                       (CONS (|dispatchFunction| |STAGG-;concat!;3A;10|) $)))))
+             (QSETREFV $ 21 (CONS (|dispatchFunction| |STAGG-;concat;3A;4|) $))
+             (QSETREFV $ 24 (CONS (|dispatchFunction| |STAGG-;concat;LA;5|) $))
+             (QSETREFV $ 27 (CONS (|dispatchFunction| |STAGG-;fill!;ASA;6|) $))
+             (QSETREFV $ 28
+                       (CONS (|dispatchFunction| |STAGG-;setelt!;AI2S;7|) $))
+             (QSETREFV $ 35
+                       (CONS (|dispatchFunction| |STAGG-;setelt!;AUs2S;8|) $))
+             (QSETREFV $ 38
+                       (CONS (|dispatchFunction| |STAGG-;concat!;3A;9|) $)))))
           $))) 
 
 (MAKEPROP '|StreamAggregate&| '|infovec|
@@ -213,16 +172,15 @@
               (0 . |cyclic?|) |STAGG-;explicitlyFinite?;AB;1|
               |STAGG-;possiblyInfinite?;AB;2| (|Integer|) (5 . |minIndex|)
               (|NonNegativeInteger|) (10 . |rest|) (16 . |empty?|)
-              (21 . |first|) |STAGG-;elt;AIS;3| (|UniversalSegment| 12)
-              (26 . |low|) (31 . |hasHi|) (36 . |copy|) (41 . |high|)
-              (46 . |empty|) (50 . |first|) |STAGG-;elt;AUsA;4|
-              (56 . |concat!|) (62 . |concat|) (|List| $) (68 . |concat|)
-              (73 . |setfirst!|) (79 . |rest|) (84 . |fill!|) (90 . |setelt!|)
-              (97 . |maxIndex|) (102 . |eq?|) (108 . |setelt!|) (115 . |tail|)
-              (120 . |setrest!|) (126 . |concat!|) '#1="last" '#2="rest"
+              (21 . |first|) |STAGG-;elt;AIS;3| (26 . |copy|) (31 . |concat!|)
+              (37 . |concat|) (43 . |empty|) (|List| $) (47 . |concat|)
+              (52 . |setfirst!|) (58 . |rest|) (63 . |fill!|) (69 . |setelt!|)
+              (|UniversalSegment| 12) (76 . |low|) (81 . |hasHi|) (86 . |high|)
+              (91 . |maxIndex|) (96 . |eq?|) (102 . |setelt!|) (109 . |tail|)
+              (114 . |setrest!|) (120 . |concat!|) '#1="last" '#2="rest"
               '#3="first" '#4="value")
-           '#(|setelt!| 132 |possiblyInfinite?| 146 |fill!| 151
-              |explicitlyFinite?| 157 |elt| 162 |concat!| 174 |concat| 180)
+           '#(|setelt!| 126 |possiblyInfinite?| 140 |fill!| 145
+              |explicitlyFinite?| 151 |elt| 156 |concat!| 162 |concat| 168)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -259,19 +217,18 @@
                               '((|setelt!| (|#2| |#1| #4# |#2|)) T)
                               '((|elt| (|#2| |#1| #4#)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 40
+                        (|makeByteWordVec2| 38
                                             '(1 6 8 0 9 1 6 12 0 13 2 6 0 0 14
-                                              15 1 6 8 0 16 1 6 7 0 17 1 19 12
-                                              0 20 1 19 8 0 21 1 6 0 0 22 1 19
-                                              12 0 23 0 6 0 24 2 6 0 0 14 25 2
-                                              6 0 0 0 27 2 0 0 0 0 28 1 0 0 29
-                                              30 2 6 7 0 7 31 1 6 0 0 32 2 0 0
-                                              0 7 33 3 0 7 0 12 7 34 1 6 12 0
-                                              35 2 6 8 0 0 36 3 0 7 0 19 7 37 1
-                                              6 0 0 38 2 6 0 0 0 39 2 0 0 0 0
-                                              40 3 0 7 0 12 7 34 3 0 7 0 19 7
-                                              37 1 0 8 0 11 2 0 0 0 7 33 1 0 8
-                                              0 10 2 0 7 0 12 18 2 0 0 0 19 26
-                                              2 0 0 0 0 40 1 0 0 29 30 2 0 0 0
-                                              0 28)))))
+                                              15 1 6 8 0 16 1 6 7 0 17 1 6 0 0
+                                              19 2 6 0 0 0 20 2 0 0 0 0 21 0 6
+                                              0 22 1 0 0 23 24 2 6 7 0 7 25 1 6
+                                              0 0 26 2 0 0 0 7 27 3 0 7 0 12 7
+                                              28 1 29 12 0 30 1 29 8 0 31 1 29
+                                              12 0 32 1 6 12 0 33 2 6 8 0 0 34
+                                              3 0 7 0 29 7 35 1 6 0 0 36 2 6 0
+                                              0 0 37 2 0 0 0 0 38 3 0 7 0 12 7
+                                              28 3 0 7 0 29 7 35 1 0 8 0 11 2 0
+                                              0 0 7 27 1 0 8 0 10 2 0 7 0 12 18
+                                              2 0 0 0 0 38 1 0 0 23 24 2 0 0 0
+                                              0 21)))))
            '|lookupComplete|)) 
