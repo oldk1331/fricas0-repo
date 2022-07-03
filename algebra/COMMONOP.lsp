@@ -491,7 +491,7 @@
                           (QREFELT $ 102) (QREFELT $ 103) (QREFELT $ 104)
                           (QREFELT $ 105) (QREFELT $ 107) (QREFELT $ 108)
                           (QREFELT $ 109) (QREFELT $ 110) (QREFELT $ 111)
-                          (QREFELT $ 112) (QREFELT $ 113)))
+                          (QREFELT $ 112) (QREFELT $ 113) (QREFELT $ 106)))
           (QSETREFV $ 150
                     (LIST (QREFELT $ 42) (QREFELT $ 45) (QREFELT $ 41)
                           (QREFELT $ 44)))
