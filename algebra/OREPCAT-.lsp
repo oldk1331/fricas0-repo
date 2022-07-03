@@ -330,7 +330,7 @@
            (LETT |u| (QVELT |#G68| 3))
            (LETT |v| (QVELT |#G68| 4))
            |#G68|)
-          (EXIT (VECTOR |g| |c| |c| (SPADCALL |u| |a| (QREFELT $ 55))))))) 
+          (EXIT (VECTOR |g| |c| |d| (SPADCALL |u| |a| (QREFELT $ 55))))))) 
 
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomialCategory&;|)) 
 
