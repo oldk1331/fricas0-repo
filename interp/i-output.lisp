@@ -1357,16 +1357,11 @@
 ;       d:= APP(opString,x,y,d)
 ;       x:= x + #opString
 ;     [d,x]:= appInfixArg(arg,x,y,d,rightPrec,"left",nil) --app in a right arg
-;     wasSimple := atom arg and not NUMBERP arg
-;     wasQuotient:= isQuotient op
-;     wasNumber:= NUMBERP arg
-;     lastOp := op
 ;     firstTime:= nil
 ;   d
 
 (DEFUN |tensorApp| (|u| |x| |y| |d|)
-  (PROG (|rightPrec| |firstTime| |op| |opString| |LETTMP#1| |wasSimple|
-         |wasQuotient| |wasNumber| |lastOp|)
+  (PROG (|rightPrec| |firstTime| |op| |opString| |LETTMP#1|)
     (RETURN
      (PROGN
       (SETQ |rightPrec| (|getOpBindingPower| '* '|Led| '|right|))
@@ -1388,10 +1383,6 @@
                      (|appInfixArg| |arg| |x| |y| |d| |rightPrec| '|left| NIL))
              (SETQ |d| (CAR |LETTMP#1|))
              (SETQ |x| (CADR |LETTMP#1|))
-             (SETQ |wasSimple| (AND (ATOM |arg|) (NULL (NUMBERP |arg|))))
-             (SETQ |wasQuotient| (|isQuotient| |op|))
-             (SETQ |wasNumber| (NUMBERP |arg|))
-             (SETQ |lastOp| |op|)
              (SETQ |firstTime| NIL))))
           (SETQ |bfVar#21| (CDR |bfVar#21|))))
        (CDR |u|) NIL)
@@ -1408,15 +1399,11 @@
 ;       w:= w + #opString
 ;     if infixArgNeedsParens(arg, rightPrec, "left") then w:= w+2
 ;     w:= w+WIDTH arg
-;     wasSimple := atom arg and not NUMBERP arg
-;     wasQuotient:= isQuotient op
-;     wasNumber:= NUMBERP arg
 ;     firstTime:= nil
 ;   w
 
 (DEFUN |tensorWidth| (|u|)
-  (PROG (|rightPrec| |firstTime| |w| |op| |opString| |wasSimple| |wasQuotient|
-         |wasNumber|)
+  (PROG (|rightPrec| |firstTime| |w| |op| |opString|)
     (RETURN
      (PROGN
       (SETQ |rightPrec| (|getOpBindingPower| '* '|Led| '|right|))
@@ -1438,9 +1425,6 @@
               ((|infixArgNeedsParens| |arg| |rightPrec| '|left|)
                (SETQ |w| (+ |w| 2))))
              (SETQ |w| (+ |w| (WIDTH |arg|)))
-             (SETQ |wasSimple| (AND (ATOM |arg|) (NULL (NUMBERP |arg|))))
-             (SETQ |wasQuotient| (|isQuotient| |op|))
-             (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |firstTime| NIL))))
           (SETQ |bfVar#22| (CDR |bfVar#22|))))
        (CDR |u|) NIL)

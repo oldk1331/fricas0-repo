@@ -397,11 +397,6 @@
 ;       ['PROGN,:decomposeCode,
 ;         ['REPEAT,['WHILE,'T],['PROGN,endTest,advanceCode,
 ;           newValueCode,:rotateCode]]]
-;   fromScratchInit:=
-;     [['LET,gIndex,n],:[['LET,g,x] for g in gsList for x in initCode]]
-;   continueInit:=
-;     [['LET,gIndex,['ELT,stateVar,0]],
-;       :[['LET,g,['ELT,stateVar,i]] for g in gsList for i in 1..]]
 ;   mainFunction:= [nam,['LAMBDA, margl, mbody]] where
 ;     margl:= [:argl,'envArg]
 ;     max:= GENSYM()
@@ -448,20 +443,20 @@
 ;   $e:= put(nam,'cacheInfo, cacheVector,$e)
 ;   nam
 
-(DEFUN |compileRecurrenceRelation| (|op| |nam| |argl| |junk| |bfVar#22|)
+(DEFUN |compileRecurrenceRelation| (|op| |nam| |argl| |junk| |bfVar#17|)
   (PROG (|body| |sharpArg| |n| |initCode| |k| |extraArguments| |x|
          |extraArgumentCode| |g| |gIndex| |gsList| |auxfn| |stateNam|
          |stateVar| |stateVal| |lastArg| |decomposeCode| |gsRev| |rotateCode|
          |advanceCode| |newTripleCode| |newStateCode| |cargl| |returnValue|
-         |endTest| |newValueCode| |cbody| |computeFunction| |fromScratchInit|
-         |continueInit| |margl| |max| |tripleCode| |initialValueCode|
-         |cacheResetCode| |initialSetCode| |initialResetCode| |preset|
-         |phrase1| |phrase2| |phrase3| |phrase4| |phrase5| |mbody|
-         |mainFunction| |cacheType| |cacheCountCode| |cacheVector|)
+         |endTest| |newValueCode| |cbody| |computeFunction| |margl| |max|
+         |tripleCode| |initialValueCode| |cacheResetCode| |initialSetCode|
+         |initialResetCode| |preset| |phrase1| |phrase2| |phrase3| |phrase4|
+         |phrase5| |mbody| |mainFunction| |cacheType| |cacheCountCode|
+         |cacheVector|)
     (RETURN
      (PROGN
-      (SETQ |body| (CAR |bfVar#22|))
-      (SETQ |sharpArg| (CADR . #1=(|bfVar#22|)))
+      (SETQ |body| (CAR |bfVar#17|))
+      (SETQ |sharpArg| (CADR . #1=(|bfVar#17|)))
       (SETQ |n| (CADDR . #1#))
       (SETQ |initCode| (CDDDR . #1#))
       (SETQ |k| (LENGTH |initCode|))
@@ -567,38 +562,6 @@
                                                             |rotateCode|)))))
                               NIL)))))
       (SETQ |computeFunction| (LIST |auxfn| (LIST 'LAMBDA |cargl| |cbody|)))
-      (SETQ |fromScratchInit|
-              (CONS (LIST 'LET |gIndex| |n|)
-                    ((LAMBDA (|bfVar#19| |bfVar#17| |g| |bfVar#18| |x|)
-                       (LOOP
-                        (COND
-                         ((OR (ATOM |bfVar#17|)
-                              (PROGN (SETQ |g| (CAR |bfVar#17|)) NIL)
-                              (ATOM |bfVar#18|)
-                              (PROGN (SETQ |x| (CAR |bfVar#18|)) NIL))
-                          (RETURN (NREVERSE |bfVar#19|)))
-                         (#2#
-                          (SETQ |bfVar#19|
-                                  (CONS (LIST 'LET |g| |x|) |bfVar#19|))))
-                        (SETQ |bfVar#17| (CDR |bfVar#17|))
-                        (SETQ |bfVar#18| (CDR |bfVar#18|))))
-                     NIL |gsList| NIL |initCode| NIL)))
-      (SETQ |continueInit|
-              (CONS (LIST 'LET |gIndex| (LIST 'ELT |stateVar| 0))
-                    ((LAMBDA (|bfVar#21| |bfVar#20| |g| |i|)
-                       (LOOP
-                        (COND
-                         ((OR (ATOM |bfVar#20|)
-                              (PROGN (SETQ |g| (CAR |bfVar#20|)) NIL))
-                          (RETURN (NREVERSE |bfVar#21|)))
-                         (#2#
-                          (SETQ |bfVar#21|
-                                  (CONS
-                                   (LIST 'LET |g| (LIST 'ELT |stateVar| |i|))
-                                   |bfVar#21|))))
-                        (SETQ |bfVar#20| (CDR |bfVar#20|))
-                        (SETQ |i| (+ |i| 1))))
-                     NIL |gsList| NIL 1)))
       (SETQ |margl| (APPEND |argl| (CONS '|envArg| NIL)))
       (SETQ |max| (GENSYM))
       (SETQ |tripleCode| (LIST 'CONS |n| (CONS 'LIST |initCode|)))
@@ -720,21 +683,21 @@
       ((OR (|get| |x| '|localModemap| |$e|) (|get| |x| '|mapBody| |$e|))
        (IDENTITY
         (PROGN
-         ((LAMBDA (|bfVar#24| |bfVar#23|)
+         ((LAMBDA (|bfVar#19| |bfVar#18|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#24|)
-                   (PROGN (SETQ |bfVar#23| (CAR |bfVar#24|)) NIL))
+              ((OR (ATOM |bfVar#19|)
+                   (PROGN (SETQ |bfVar#18| (CAR |bfVar#19|)) NIL))
                (RETURN NIL))
               (#1='T
-               (AND (CONSP |bfVar#23|)
+               (AND (CONSP |bfVar#18|)
                     (PROGN
-                     (SETQ |map| (CAR |bfVar#23|))
-                     (SETQ |sub| (CDR |bfVar#23|))
+                     (SETQ |map| (CAR |bfVar#18|))
+                     (SETQ |sub| (CDR |bfVar#18|))
                      #1#)
                     (COND
                      ((EQUAL |map| |x|) (IDENTITY (|untrace2| |sub| NIL)))))))
-             (SETQ |bfVar#24| (CDR |bfVar#24|))))
+             (SETQ |bfVar#19| (CDR |bfVar#19|))))
           |$mapSubNameAlist| NIL)
          (SETQ |$e| (|putHist| |x| '|localModemap| NIL |$e|))
          (SETQ |$e| (|putHist| |x| '|mapBody| NIL |$e|))
@@ -784,10 +747,10 @@
 (DEFUN |clearAllSlams,fn| (|thoseToClear| |thoseCleared|)
   (PROG (|slamListName| |someMoreToClear|)
     (RETURN
-     ((LAMBDA (|bfVar#25| |x|)
+     ((LAMBDA (|bfVar#20| |x|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#25|) (PROGN (SETQ |x| (CAR |bfVar#25|)) NIL))
+          ((OR (ATOM |bfVar#20|) (PROGN (SETQ |x| (CAR |bfVar#20|)) NIL))
            (RETURN NIL))
           ('T
            (AND (NULL (MEMQ |x| |thoseCleared|))
@@ -800,7 +763,7 @@
                                         (APPEND |thoseToClear|
                                                 |thoseCleared|)))
                  (NCONC |thoseToClear| |someMoreToClear|)))))
-         (SETQ |bfVar#25| (CDR |bfVar#25|))))
+         (SETQ |bfVar#20| (CDR |bfVar#20|))))
       |thoseToClear| NIL))))
 
 ; clearSlam(functor)==

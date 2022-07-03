@@ -315,20 +315,17 @@
 
 (SDEFUN |REGSET;extend;P$L;27| ((|p| (P)) (|ts| ($)) ($ (|List| $)))
         (SPROG
-         ((|lts| (|List| $)) (#1=#:G280 NIL) (|us| NIL) (|split| (|List| $))
-          (|v| (V)))
+         ((|lts| (|List| $)) (#1=#:G280 NIL) (|us| NIL) (|split| (|List| $)))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT $ 49))
             (|error| "in extend$REGSET: ground? #1"))
+           ((NULL
+             (SPADCALL (SPADCALL |ts| (QREFELT $ 33))
+                       (SPADCALL |p| (QREFELT $ 32)) (QREFELT $ 51)))
+            (|error| "in extend$REGSET: bad #1"))
            ('T
-            (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 32)))
-                 (COND
-                  ((NULL
-                    (SPADCALL (SPADCALL |ts| (QREFELT $ 33))
-                              (SPADCALL |p| (QREFELT $ 32)) (QREFELT $ 51)))
-                   (EXIT (|error| "in extend$REGSET: bad #1"))))
-                 (LETT |lts| NIL)
+            (SEQ (LETT |lts| NIL)
                  (LETT |split|
                        (SPADCALL (SPADCALL |p| (QREFELT $ 52)) |ts|
                                  (QREFELT $ 79)))

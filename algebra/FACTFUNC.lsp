@@ -88,33 +88,31 @@
          ($
           (|List|
            (|Record| (|:| |coef| (|NonNegativeInteger|)) (|:| |logand| M)))))
-        (SPROG ((#1=#:G155 NIL) (|term| NIL) (#2=#:G154 NIL) (|ans| (M)))
-               (SEQ (LETT |ans| (SPADCALL |ff| (QREFELT $ 9)))
-                    (EXIT
-                     (CONS (CONS 1 (SPADCALL |ff| (QREFELT $ 9)))
-                           (PROGN
-                            (LETT #2# NIL)
-                            (SEQ (LETT |term| NIL)
-                                 (LETT #1# (SPADCALL |ff| (QREFELT $ 15))) G190
-                                 (COND
-                                  ((OR (ATOM #1#)
-                                       (PROGN (LETT |term| (CAR #1#)) NIL))
-                                   (GO G191)))
-                                 (SEQ
-                                  (EXIT
-                                   (LETT #2#
-                                         (CONS
-                                          (CONS (QVELT |term| 2)
-                                                (QVELT |term| 1))
-                                          #2#))))
-                                 (LETT #1# (CDR #1#)) (GO G190) G191
-                                 (EXIT (NREVERSE #2#))))))))) 
+        (SPROG ((#1=#:G154 NIL) (|term| NIL) (#2=#:G153 NIL))
+               (SEQ
+                (CONS (CONS 1 (SPADCALL |ff| (QREFELT $ 9)))
+                      (PROGN
+                       (LETT #2# NIL)
+                       (SEQ (LETT |term| NIL)
+                            (LETT #1# (SPADCALL |ff| (QREFELT $ 15))) G190
+                            (COND
+                             ((OR (ATOM #1#)
+                                  (PROGN (LETT |term| (CAR #1#)) NIL))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (LETT #2#
+                                    (CONS
+                                     (CONS (QVELT |term| 2) (QVELT |term| 1))
+                                     #2#))))
+                            (LETT #1# (CDR #1#)) (GO G190) G191
+                            (EXIT (NREVERSE #2#)))))))) 
 
 (DECLAIM (NOTINLINE |FactoredFunctions;|)) 
 
-(DEFUN |FactoredFunctions| (#1=#:G156)
+(DEFUN |FactoredFunctions| (#1=#:G155)
   (SPROG NIL
-         (PROG (#2=#:G157)
+         (PROG (#2=#:G156)
            (RETURN
             (COND
              ((LETT #2#

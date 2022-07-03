@@ -57,10 +57,8 @@
          ($ (|Void|)))
         (SPROG
          ((|ii| (|Integer|)) (#1=#:G160 NIL) (|j| NIL) (|di| #2=(|Integer|))
-          (|ci| (|U32Vector|)) (#3=#:G159 NIL) (|i| NIL) (|msize| #2#)
-          (|vz| (|Symbol|)))
-         (SEQ (LETT |vz| (QVELT |mu| 0))
-              (LETT |msize| (SPADCALL (QVELT |mu| 1) (QREFELT $ 22)))
+          (|ci| (|U32Vector|)) (#3=#:G159 NIL) (|i| NIL) (|msize| #2#))
+         (SEQ (LETT |msize| (SPADCALL (QVELT |mu| 1) (QREFELT $ 22)))
               (EXIT
                (SEQ (LETT |i| 0) (LETT #3# |dg|) G190
                     (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -91,8 +89,8 @@
          ((|xu| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|k| (|NonNegativeInteger|)) (|cl| (|Polynomial| (|Integer|)))
           (|res| (|PrimitiveArray| (|U32Vector|))) (|zz| (|U32Vector|))
-          (|p| (|Integer|)) (|vz| (|Symbol|)))
-         (SEQ (LETT |vz| (QVELT |mu| 0)) (LETT |p| (QVELT |mu| 2))
+          (|p| (|Integer|)))
+         (SEQ (LETT |p| (QVELT |mu| 2))
               (LETT |xu| (SPADCALL |x| |ivx| (QREFELT $ 28)))
               (LETT |zz| (GETREFV_U32 1 0))
               (LETT |res| (MAKEARR1 (+ (SPADCALL |xu| (QREFELT $ 32)) 1) |zz|))

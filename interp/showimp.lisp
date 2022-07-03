@@ -28,7 +28,6 @@
 ;   domainForm := devaluate dom
 ;   [nam, :.] := domainForm
 ;   $predicateList: local := GETDATABASE(nam,'PREDICATES)
-;   predVector := dom.3
 ;   u := getDomainOpTable(dom,true)
 ;   --sort into 4 groups: domain exports, unexports, default exports, others
 ;   for (x := [.,.,:key]) in u repeat
@@ -70,7 +69,7 @@
 (DEFUN |showImp| (|dom| &REST |options|)
   (PROG (|$predicateList| |defop| |s| |LETTMP#1| |others| |constants|
          |nowheres| |defexports| |unexports| |domexports| |key| |ISTMP#1| |u|
-         |predVector| |nam| |domainForm| |missingOnlyFlag|)
+         |nam| |domainForm| |missingOnlyFlag|)
     (DECLARE (SPECIAL |$predicateList|))
     (RETURN
      (PROGN
@@ -79,7 +78,6 @@
       (SETQ |domainForm| (|devaluate| |dom|))
       (SETQ |nam| (CAR |domainForm|))
       (SETQ |$predicateList| (GETDATABASE |nam| 'PREDICATES))
-      (SETQ |predVector| (ELT |dom| 3))
       (SETQ |u| (|getDomainOpTable| |dom| T))
       ((LAMBDA (|bfVar#1| |x|)
          (LOOP

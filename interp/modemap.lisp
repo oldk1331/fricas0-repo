@@ -502,15 +502,14 @@
 ;   [fnAlist,e]:= evalAndSub(domainName, functorForm, categoryForm, e)
 ;   compilerMessage ["Adding ",domainName," modemaps"]
 ;   e:= putDomainsInScope(domainName,e)
-;   condlist:=[]
 ;   for [[op,sig,:.],cond,fnsel] in fnAlist repeat
 ;       e:= addModemapKnown(op,domainName,sig,cond,fnsel,e)
 ;   e
 
 (DEFUN |augModemapsFromCategory|
        (|domainName| |functorForm| |categoryForm| |e|)
-  (PROG (|LETTMP#1| |fnAlist| |condlist| |ISTMP#1| |op| |ISTMP#2| |sig|
-         |ISTMP#3| |cond| |ISTMP#4| |fnsel|)
+  (PROG (|LETTMP#1| |fnAlist| |ISTMP#1| |op| |ISTMP#2| |sig| |ISTMP#3| |cond|
+         |ISTMP#4| |fnsel|)
     (RETURN
      (PROGN
       (SETQ |LETTMP#1|
@@ -519,7 +518,6 @@
       (SETQ |e| (CADR |LETTMP#1|))
       (|compilerMessage| (LIST '|Adding | |domainName| '| modemaps|))
       (SETQ |e| (|putDomainsInScope| |domainName| |e|))
-      (SETQ |condlist| NIL)
       ((LAMBDA (|bfVar#13| |bfVar#12|)
          (LOOP
           (COND

@@ -40,8 +40,7 @@
         ((|p| (I)) (|n| (I)) (|nm1| (I)) (|q| (I)) (|k| (|NonNegativeInteger|))
          ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G165 NIL) (#2=#:G164 NIL) (|t| (I)) (|oldt| (I))
-          (#3=#:G166 NIL) (|j| NIL))
+         ((#1=#:G165 NIL) (#2=#:G164 NIL) (|t| (I)) (#3=#:G166 NIL) (|j| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |t| (SPADCALL |p| |q| |n| (QREFELT $ 43)))
@@ -54,18 +53,17 @@
                       (EXIT
                        (SEQ (LETT |j| 1) (LETT #3# (- |k| 1)) G190
                             (COND ((|greater_SI| |j| #3#) (GO G191)))
-                            (SEQ (LETT |oldt| |t|)
-                                 (LETT |t|
-                                       (SPADCALL |t| |t| |n| (QREFELT $ 45)))
-                                 (EXIT
-                                  (COND
-                                   ((SPADCALL |t| (|spadConstant| $ 11)
-                                              (QREFELT $ 44))
-                                    (PROGN (LETT #1# 'T) (GO #4=#:G163)))
-                                   ((SPADCALL |t| |nm1| (QREFELT $ 44))
-                                    (PROGN
-                                     (LETT #2# |$NoValue|)
-                                     (GO #5=#:G160))))))
+                            (SEQ
+                             (LETT |t| (SPADCALL |t| |t| |n| (QREFELT $ 45)))
+                             (EXIT
+                              (COND
+                               ((SPADCALL |t| (|spadConstant| $ 11)
+                                          (QREFELT $ 44))
+                                (PROGN (LETT #1# 'T) (GO #4=#:G163)))
+                               ((SPADCALL |t| |nm1| (QREFELT $ 44))
+                                (PROGN
+                                 (LETT #2# |$NoValue|)
+                                 (GO #5=#:G160))))))
                             (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                             (EXIT NIL)))
                       #5# (EXIT #2#))

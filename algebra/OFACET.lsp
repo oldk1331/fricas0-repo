@@ -95,10 +95,10 @@
           (#3=#:G199 NIL) (|expected| (|List| $)) (|res| ($))
           (|indexes| (|List| (|NonNegativeInteger|))) (#4=#:G198 NIL) (|i| NIL)
           (|indexLst| (|List| (|List| (|NonNegativeInteger|)))) (#5=#:G197 NIL)
-          (|subFacet| NIL) (|b| (|List| $)) (|multLst| (|List| (|Integer|))))
+          (|subFacet| NIL) (|b| (|List| $)))
          (SEQ
           (EXIT
-           (SEQ (LETT |indexLst| NIL) (LETT |multLst| NIL)
+           (SEQ (LETT |indexLst| NIL)
                 (COND
                  ((< (SPADCALL |boundary| (QREFELT $ 22)) 1)
                   (PROGN (LETT #1# (CONS 1 "failed")) (GO #6=#:G195))))
@@ -286,12 +286,10 @@
         (SPROG
          ((|res| (|List| $)) (|sub| (|List| $)) (|r1| ($))
           (|r| (|List| (|NonNegativeInteger|))) (#1=#:G253 NIL) (|x| NIL)
-          (#2=#:G252 NIL) (|mult| (|Integer|))
-          (|facet| (|List| (|NonNegativeInteger|))))
+          (#2=#:G252 NIL) (|facet| (|List| (|NonNegativeInteger|))))
          (SEQ
           (EXIT
-           (SEQ (LETT |facet| (QCDR |orf|)) (LETT |mult| (QCAR |orf|))
-                (LETT |res| NIL)
+           (SEQ (LETT |facet| (QCDR |orf|)) (LETT |res| NIL)
                 (COND
                  ((<= (SPADCALL |orf| (QREFELT $ 35)) |minDim|)
                   (PROGN (LETT #2# |res|) (GO #3=#:G251))))

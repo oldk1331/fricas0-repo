@@ -54,15 +54,13 @@
           (|lus| (|List| TS)) (|lsfp| (|List| P)) (|b| (|Boolean|)) (|h| (P))
           (|lts| (|List| TS)) (|us| (TS)) (|g| (P)) (#3=#:G202 NIL) (|gwt| NIL)
           (|lgwt| (|List| (|Record| (|:| |val| P) (|:| |tower| TS))))
-          (|ts_v| (P)) (#4=#:G179 NIL) (|ts_v+| (TS)) (|ts_v-| (TS))
-          (|n| (|NonNegativeInteger|)) (|v| (V)))
+          (|ts_v| (P)) (#4=#:G179 NIL) (|ts_v+| (TS)) (|ts_v-| (TS)) (|v| (V)))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT $ 29))
             (|error| " in algebraicDecompose$REGSET: should never happen !"))
            (#5='T
             (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 30)))
-                 (LETT |n| (SPADCALL |ts| (QREFELT $ 12)))
                  (LETT |ts_v-| (SPADCALL |ts| |v| (QREFELT $ 31)))
                  (LETT |ts_v+| (SPADCALL |ts| |v| (QREFELT $ 32)))
                  (LETT |ts_v|

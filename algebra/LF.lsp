@@ -134,22 +134,15 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |LF;dvint| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
-        (SPROG ((|k| (|Kernel| F)))
-               (SEQ
-                (LETT |k|
-                      (SPADCALL (SPADCALL |l| (QREFELT $ 52)) (QREFELT $ 54)))
-                (EXIT
-                 (SPADCALL
-                  (SPADCALL
-                   (SPADCALL (SPADCALL |l| (QREFELT $ 55)) |x| (QREFELT $ 78))
+        (SPADCALL
+         (SPADCALL (SPADCALL (SPADCALL |l| (QREFELT $ 55)) |x| (QREFELT $ 78))
                    (|LF;integrand| |l| $) (QREFELT $ 79))
-                  (SPADCALL (QREFELT $ 16)
-                            (LIST
-                             (SPADCALL (|SPADfirst| |l|) |x| (QREFELT $ 78))
-                             (SPADCALL |l| (QREFELT $ 52))
-                             (SPADCALL |l| (QREFELT $ 55)))
-                            (QREFELT $ 61))
-                  (QREFELT $ 80)))))) 
+         (SPADCALL (QREFELT $ 16)
+                   (LIST (SPADCALL (|SPADfirst| |l|) |x| (QREFELT $ 78))
+                         (SPADCALL |l| (QREFELT $ 52))
+                         (SPADCALL |l| (QREFELT $ 55)))
+                   (QREFELT $ 61))
+         (QREFELT $ 80))) 
 
 (SDEFUN |LF;iiint| ((|l| (|List| F)) ($ (F)))
         (SPROG
@@ -171,8 +164,8 @@
 
 (SDEFUN |LF;dviint| ((|l| (|List| F)) (|v| (|Symbol|)) ($ (F)))
         (SPROG
-         ((|m| (|Integer|)) (|lv| (|List| (|Symbol|))) (#1=#:G199 NIL)
-          (|vf| NIL) (#2=#:G198 NIL) (|lvf| (|List| F))
+         ((|m| (|Integer|)) (|lv| (|List| (|Symbol|))) (#1=#:G198 NIL)
+          (|vf| NIL) (#2=#:G197 NIL) (|lvf| (|List| F))
           (|n| (|NonNegativeInteger|))
           (|nu| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ (LETT |nu| (SPADCALL (LENGTH |l|) 2 (QREFELT $ 83)))
@@ -332,9 +325,9 @@
 
 (DECLAIM (NOTINLINE |LiouvillianFunction;|)) 
 
-(DEFUN |LiouvillianFunction| (&REST #1=#:G285)
+(DEFUN |LiouvillianFunction| (&REST #1=#:G284)
   (SPROG NIL
-         (PROG (#2=#:G286)
+         (PROG (#2=#:G285)
            (RETURN
             (COND
              ((LETT #2#

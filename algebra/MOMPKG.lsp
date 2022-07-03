@@ -200,7 +200,7 @@
            (PROGN
             (SPROG
              ((|gseries| NIL) (#1=#:G161 NIL) (|a| NIL) (|gseries1| NIL)
-              (|b| NIL) (|b1| NIL))
+              (|b| NIL))
              (SEQ
               (LETT |gseries|
                     (SPADCALL (|spadConstant| $ 17)
@@ -218,8 +218,6 @@
               (LETT |b|
                     (SPADCALL (SPADCALL |gseries1| (QREFELT $ 49))
                               (QREFELT $ 43)))
-              (LETT |b1|
-                    (SPADCALL (SPADCALL |b| (QREFELT $ 50)) (QREFELT $ 43)))
               (EXIT
                (SPADCALL (CONS |a| |b|)
                          (SPADCALL

@@ -1721,8 +1721,8 @@
            (|Mapping| (|UnivariateFormalPowerSeries| F)
                       (|UnivariateFormalPowerSeries| F)
                       (|NonNegativeInteger|)))
-          (|fl| (|List| EXPRR)) (|degrees| (|Stream| (|NonNegativeInteger|)))
-          (|partitions| (|Stream| (|List| (|Integer|)))) (|dk| (|Symbol|)))
+          (|fl| (|List| EXPRR)) (|partitions| (|Stream| (|List| (|Integer|))))
+          (|dk| (|Symbol|)))
          (SEQ
           (COND
            ((NULL (ZEROP (SPADCALL |options| (QREFELT $ 198))))
@@ -1737,7 +1737,6 @@
             ('T
              (SEQ
               (LETT |partitions| (|GUESS;FilteredPartitionStream| |options| $))
-              (LETT |degrees| (|GUESS;ADEdegreeStream| |partitions| $))
               (LETT |fl| (|GUESS;get_fnames| (LENGTH |lists|) |options| $))
               (LETT |fakeDS|
                     (CONS #'|GUESS;algDepHP;LLR;47!0| (VECTOR $ |lists|)))
@@ -3853,8 +3852,8 @@
           (#7=#:G1188 NIL) (|i1| NIL) (#8=#:G1189 NIL) (|i2| NIL)
           (|Mr| (|Matrix| (|SparseUnivariatePolynomial| S)))
           (|m| (|NonNegativeInteger|)) (|rl| (|List| (|Integer|)))
-          (|ce| (|List| (|SparseUnivariatePolynomial| S))) (#9=#:G1187 NIL)
-          (|i| NIL) (M (|Matrix| (|SparseUnivariatePolynomial| S)))
+          (#9=#:G1187 NIL) (|i| NIL)
+          (M (|Matrix| (|SparseUnivariatePolynomial| S)))
           (|vguessListF| (|Vector| (|SparseUnivariatePolynomial| F)))
           (|vguessList| (|Vector| (|SparseUnivariatePolynomial| S)))
           (|guessPolys| (|List| (|SparseUnivariatePolynomial| F)))
@@ -4016,9 +4015,6 @@
               (SEQ (LETT |i| 1) (LETT #9# (ANCOLS M)) G190
                    (COND ((|greater_SI| |i| #9#) (GO G191)))
                    (SEQ
-                    (LETT |ce|
-                          (SPADCALL (SPADCALL M |i| (QREFELT $ 387))
-                                    (QREFELT $ 388)))
                     (EXIT
                      (COND
                       ((QEQCAR
@@ -4336,9 +4332,9 @@
           (#11=#:G1285 NIL) (#12=#:G1274 NIL) (#13=#:G1284 NIL)
           (#14=#:G1283 NIL) (#15=#:G1276 NIL) (|cden| (S)) (|c2| (S))
           (#16=#:G1236 NIL) (|c1| (S)) (|pp| (S)) (|vd| (S)) (|vi| (F))
-          (#17=#:G1282 NIL) (#18=#:G1281 NIL) (|order| (|Integer|))
-          (|j0| (|Integer|)) (|svar| (|SingletonAsOrderedSet|))
-          (|max_ind| #19=(|Integer|)) (|degree_loss| #19#) (|gl0| (|Vector| F))
+          (#17=#:G1282 NIL) (#18=#:G1281 NIL) (|j0| (|Integer|))
+          (|svar| (|SingletonAsOrderedSet|)) (|max_ind| #19=(|Integer|))
+          (|degree_loss| #19#) (|gl0| (|Vector| F))
           (|m| (|NonNegativeInteger|))
           (|resv| (|Vector| (|SparseUnivariatePolynomial| S)))
           (|homo| (|Boolean|))
@@ -4357,7 +4353,7 @@
                   (LETT |max_ind| (- (- (QVSIZE |gl0|) |degree_loss|) 1)))
                  (#20# (LETT |max_ind| (- |sigma| 1))))
                 (LETT |svar| (SPADCALL (QREFELT $ 423)))
-                (LETT |j0| (COND (|homo| 1) (#20# 2))) (LETT |order| 0)
+                (LETT |j0| (COND (|homo| 1) (#20# 2)))
                 (EXIT
                  (COND
                   ((|domainEqual| (QREFELT $ 6) (|Fraction| (QREFELT $ 7)))

@@ -713,15 +713,10 @@
         ((|p| ($)) (|off| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          (|l| (|NonNegativeInteger|)) ($ (|List| (|NonNegativeInteger|))))
         (SPROG
-         ((|lst_col| (|List| (|NonNegativeInteger|))) (#1=#:G488 NIL)
-          (#2=#:G493 NIL) (|i| NIL) (|A_wrk| (|Matrix| R))
-          (|j_wrk| (|NonNegativeInteger|)) (#3=#:G485 NIL)
-          (|n| (|NonNegativeInteger|)) (#4=#:G484 NIL))
+         ((|lst_col| (|List| (|NonNegativeInteger|))) (#1=#:G487 NIL)
+          (#2=#:G492 NIL) (|i| NIL) (|A_wrk| (|Matrix| R))
+          (|j_wrk| (|NonNegativeInteger|)) (#3=#:G484 NIL))
          (SEQ
-          (LETT |n|
-                (PROG1 (LETT #4# (- (+ (QVELT |p| 1) 1) |off|))
-                  (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
-                                    '(|Integer|) #4#)))
           (LETT |j_wrk|
                 (PROG1 (LETT #3# (- (+ |off| |j|) 1))
                   (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
@@ -750,12 +745,12 @@
         ((|p| ($)) (|off| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
          ($ (|List| (|List| (|NonNegativeInteger|)))))
         (SPROG
-         ((|k| (|NonNegativeInteger|)) (#1=#:G501 NIL)
-          (|lst_tmp| (|List| (|NonNegativeInteger|))) (#2=#:G498 NIL)
-          (#3=#:G507 NIL) (|i| NIL) (#4=#:G506 NIL) (|j| NIL)
+         ((|k| (|NonNegativeInteger|)) (#1=#:G500 NIL)
+          (|lst_tmp| (|List| (|NonNegativeInteger|))) (#2=#:G497 NIL)
+          (#3=#:G506 NIL) (|i| NIL) (#4=#:G505 NIL) (|j| NIL)
           (|A_wrk| (|Matrix| R))
           (|lst_col| (|List| (|List| (|NonNegativeInteger|))))
-          (|n| (|NonNegativeInteger|)) (#5=#:G494 NIL))
+          (|n| (|NonNegativeInteger|)) (#5=#:G493 NIL))
          (SEQ
           (LETT |n|
                 (PROG1 (LETT #5# (- (+ (QVELT |p| 1) 1) |off|))
@@ -795,11 +790,11 @@
         ((|p| ($)) (|off| (|NonNegativeInteger|))
          ($ (|List| (|List| (|NonNegativeInteger|)))))
         (SPROG
-         ((|k| (|NonNegativeInteger|)) (#1=#:G514 NIL)
-          (|lst_tmp| (|List| (|NonNegativeInteger|))) (#2=#:G511 NIL)
-          (#3=#:G521 NIL) (|i| NIL) (#4=#:G520 NIL) (|j| NIL)
+         ((|k| (|NonNegativeInteger|)) (#1=#:G513 NIL)
+          (|lst_tmp| (|List| (|NonNegativeInteger|))) (#2=#:G510 NIL)
+          (#3=#:G520 NIL) (|i| NIL) (#4=#:G519 NIL) (|j| NIL)
           (|lst_col| (|List| (|List| (|NonNegativeInteger|))))
-          (|n| (|NonNegativeInteger|)) (#5=#:G508 NIL))
+          (|n| (|NonNegativeInteger|)) (#5=#:G507 NIL))
          (SEQ
           (LETT |n|
                 (PROG1 (LETT #5# (- (+ (QVELT |p| 1) 1) |off|))
@@ -857,7 +852,7 @@
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          ($ (|List| R)))
         (SPROG
-         ((|A_wrk| (|Matrix| R)) (#1=#:G538 NIL) (|k| NIL)
+         ((|A_wrk| (|Matrix| R)) (#1=#:G537 NIL) (|k| NIL)
           (|lst_wrk| (|List| R)))
          (SEQ
           (COND
@@ -884,7 +879,7 @@
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          ($ (|List| R)))
         (SPROG
-         ((|A_wrk| (|Matrix| R)) (#1=#:G545 NIL) (|k| NIL)
+         ((|A_wrk| (|Matrix| R)) (#1=#:G544 NIL) (|k| NIL)
           (|lst_wrk| (|List| R)))
          (SEQ
           (LETT |lst_wrk|
@@ -929,8 +924,8 @@
          (|r_max| (|NonNegativeInteger|)) (|c_min| (|NonNegativeInteger|))
          (|c_max| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
-         ((|n_new| (|NonNegativeInteger|)) (#1=#:G560 NIL)
-          (|m_new| (|NonNegativeInteger|)) (#2=#:G559 NIL) (#3=#:G563 NIL)
+         ((|n_new| (|NonNegativeInteger|)) (#1=#:G559 NIL)
+          (|m_new| (|NonNegativeInteger|)) (#2=#:G558 NIL) (#3=#:G562 NIL)
           (|k| NIL) (|A_lst| (|List| (|Matrix| R))))
          (SEQ
           (COND
@@ -968,8 +963,8 @@
         ((|p| ($)) (|lst_row| (|List| (|NonNegativeInteger|)))
          (|lst_col| (|List| (|NonNegativeInteger|))) ($ ($)))
         (SPROG
-         ((#1=#:G586 NIL) (|j| NIL) (#2=#:G585 NIL) (|i| NIL)
-          (|A_wrk| #3=(|Matrix| R)) (|A_new| #3#) (#4=#:G584 NIL) (|k| NIL)
+         ((#1=#:G585 NIL) (|j| NIL) (#2=#:G584 NIL) (|i| NIL)
+          (|A_wrk| #3=(|Matrix| R)) (|A_new| #3#) (#4=#:G583 NIL) (|k| NIL)
           (|lp_new| ($)) (|c_max| #5=(|NonNegativeInteger|)) (|c_min| #5#)
           (|r_max| #5#) (|r_min| #5#))
          (SEQ (LETT |r_min| (SPADCALL (ELT $ 79) |lst_row| (QREFELT $ 81)))
@@ -1023,8 +1018,8 @@
         ((|p| ($)) (|lst_row| (|List| (|NonNegativeInteger|)))
          (|lst_col| (|List| (|NonNegativeInteger|))) ($ ($)))
         (SPROG
-         ((#1=#:G615 NIL) (|j| NIL) (#2=#:G614 NIL) (|i| NIL)
-          (|A_wrk| #3=(|Matrix| R)) (|A_new| #3#) (#4=#:G613 NIL) (|k| NIL)
+         ((#1=#:G614 NIL) (|j| NIL) (#2=#:G613 NIL) (|i| NIL)
+          (|A_wrk| #3=(|Matrix| R)) (|A_new| #3#) (#4=#:G612 NIL) (|k| NIL)
           (|lp_new| ($)) (|l_col| (|List| (|NonNegativeInteger|)))
           (|l_row| (|List| (|NonNegativeInteger|)))
           (|c_max| #5=(|NonNegativeInteger|)) (|c_min| #5#) (|r_max| #5#)
@@ -1096,12 +1091,12 @@
         ((|p| ($)) (|lst_row| (|List| (|NonNegativeInteger|)))
          (|lst_col| (|List| (|NonNegativeInteger|))) ($ ($)))
         (SPROG
-         ((#1=#:G650 NIL) (|j| NIL) (#2=#:G649 NIL) (|i| NIL)
-          (|A_dst| #3=(|Matrix| R)) (|A_src| #3#) (#4=#:G648 NIL) (|k| NIL)
-          (|j_dst| #5=(|NonNegativeInteger|)) (|j_ins| #5#) (#6=#:G647 NIL)
+         ((#1=#:G649 NIL) (|j| NIL) (#2=#:G648 NIL) (|i| NIL)
+          (|A_dst| #3=(|Matrix| R)) (|A_src| #3#) (#4=#:G647 NIL) (|k| NIL)
+          (|j_dst| #5=(|NonNegativeInteger|)) (|j_ins| #5#) (#6=#:G646 NIL)
           (|l_col| #7=(|List| (|NonNegativeInteger|)))
           (|l_tmp| (|List| (|NonNegativeInteger|))) (|i_dst| #5#) (|i_ins| #5#)
-          (#8=#:G646 NIL) (|l_row| #7#) (|lp_new| ($))
+          (#8=#:G645 NIL) (|l_row| #7#) (|lp_new| ($))
           (|n| #9=(|NonNegativeInteger|)) (|m| #9#)
           (|c_max| #10=(|NonNegativeInteger|)) (|r_max| #10#))
          (SEQ (LETT |r_max| (SPADCALL (ELT $ 82) |lst_row| (QREFELT $ 81)))
@@ -1190,7 +1185,7 @@
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          ($ ($)))
         (SPROG
-         ((|a_tmp| (R)) (#1=#:G660 NIL) (|k| NIL) (#2=#:G659 NIL)
+         ((|a_tmp| (R)) (#1=#:G659 NIL) (|k| NIL) (#2=#:G658 NIL)
           (|A_wrk| NIL))
          (SEQ
           (COND
@@ -1224,7 +1219,7 @@
 (SDEFUN |LINPEN;qaddRows!;$2NniR$;42|
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          (|alpha| (R)) ($ ($)))
-        (SPROG ((#1=#:G673 NIL) (|k| NIL) (#2=#:G672 NIL) (|A_wrk| NIL))
+        (SPROG ((#1=#:G672 NIL) (|k| NIL) (#2=#:G671 NIL) (|A_wrk| NIL))
                (SEQ
                 (SEQ (LETT |A_wrk| NIL) (LETT #2# (QVELT |p| 2)) G190
                      (COND
@@ -1266,7 +1261,7 @@
 
 (SDEFUN |LINPEN;qmultiplyRow!;$NniR$;44|
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|alpha| (R)) ($ ($)))
-        (SPROG ((#1=#:G686 NIL) (|k| NIL) (#2=#:G685 NIL) (|A_wrk| NIL))
+        (SPROG ((#1=#:G685 NIL) (|k| NIL) (#2=#:G684 NIL) (|A_wrk| NIL))
                (SEQ
                 (SEQ (LETT |A_wrk| NIL) (LETT #2# (QVELT |p| 2)) G190
                      (COND
@@ -1300,7 +1295,7 @@
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          ($ ($)))
         (SPROG
-         ((|a_tmp| (R)) (#1=#:G699 NIL) (|k| NIL) (#2=#:G698 NIL)
+         ((|a_tmp| (R)) (#1=#:G698 NIL) (|k| NIL) (#2=#:G697 NIL)
           (|A_wrk| NIL))
          (SEQ
           (COND
@@ -1334,7 +1329,7 @@
 (SDEFUN |LINPEN;qaddColumns!;$2NniR$;48|
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          (|alpha| (R)) ($ ($)))
-        (SPROG ((#1=#:G712 NIL) (|k| NIL) (#2=#:G711 NIL) (|A_wrk| NIL))
+        (SPROG ((#1=#:G711 NIL) (|k| NIL) (#2=#:G710 NIL) (|A_wrk| NIL))
                (SEQ
                 (SEQ (LETT |A_wrk| NIL) (LETT #2# (QVELT |p| 2)) G190
                      (COND
@@ -1375,7 +1370,7 @@
 
 (SDEFUN |LINPEN;qmultiplyColumn!;$NniR$;50|
         ((|p| ($)) (|j| (|NonNegativeInteger|)) (|alpha| (R)) ($ ($)))
-        (SPROG ((#1=#:G725 NIL) (|k| NIL) (#2=#:G724 NIL) (|A_wrk| NIL))
+        (SPROG ((#1=#:G724 NIL) (|k| NIL) (#2=#:G723 NIL) (|A_wrk| NIL))
                (SEQ
                 (SEQ (LETT |A_wrk| NIL) (LETT #2# (QVELT |p| 2)) G190
                      (COND
@@ -1411,7 +1406,7 @@
          (|j_max| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
          (|alpha| (R)) ($ ($)))
         (SPROG
-         ((#1=#:G737 NIL) (|j| NIL) (#2=#:G736 NIL) (|i| NIL)
+         ((#1=#:G736 NIL) (|j| NIL) (#2=#:G735 NIL) (|i| NIL)
           (|A_wrk| (|Matrix| R)))
          (SEQ (LETT |A_wrk| (SPADCALL (QVELT |p| 2) |l| (QREFELT $ 17)))
               (SEQ (LETT |i| |i_min|) (LETT #2# |i_max|) G190
@@ -1442,7 +1437,7 @@
                     (SPADCALL |lp_new| T$ (QREFELT $ 107)) (EXIT |lp_new|)))) 
 
 (SDEFUN |LINPEN;transformRows!;$M$;55| ((|p| ($)) (T$ (|Matrix| R)) ($ ($)))
-        (SPROG ((#1=#:G749 NIL) (|k| NIL) (|A_lst| (|List| (|Matrix| R))))
+        (SPROG ((#1=#:G748 NIL) (|k| NIL) (|A_lst| (|List| (|Matrix| R))))
                (SEQ
                 (COND
                  ((EQL (ANROWS T$) (ANCOLS T$))
@@ -1467,7 +1462,7 @@
                 (EXIT |p|)))) 
 
 (SDEFUN |LINPEN;transformColumns!;$M$;56| ((|p| ($)) (U (|Matrix| R)) ($ ($)))
-        (SPROG ((#1=#:G757 NIL) (|k| NIL) (|A_lst| (|List| (|Matrix| R))))
+        (SPROG ((#1=#:G756 NIL) (|k| NIL) (|A_lst| (|List| (|Matrix| R))))
                (SEQ
                 (COND
                  ((EQL (ANROWS U) (ANCOLS U))
@@ -1491,7 +1486,7 @@
                 (EXIT |p|)))) 
 
 (SDEFUN |LINPEN;leftIdentity;$M;57| ((|p| ($)) ($ (|Matrix| R)))
-        (SPROG ((#1=#:G763 NIL) (|k| NIL) (|trf_mtx| (|Matrix| R)))
+        (SPROG ((#1=#:G762 NIL) (|k| NIL) (|trf_mtx| (|Matrix| R)))
                (SEQ
                 (LETT |trf_mtx|
                       (MAKE_MATRIX1 (QVELT |p| 0) (QVELT |p| 0)
@@ -1506,7 +1501,7 @@
                 (EXIT |trf_mtx|)))) 
 
 (SDEFUN |LINPEN;rightIdentity;$M;58| ((|p| ($)) ($ (|Matrix| R)))
-        (SPROG ((#1=#:G769 NIL) (|k| NIL) (|trf_mtx| (|Matrix| R)))
+        (SPROG ((#1=#:G768 NIL) (|k| NIL) (|trf_mtx| (|Matrix| R)))
                (SEQ
                 (LETT |trf_mtx|
                       (MAKE_MATRIX1 (QVELT |p| 1) (QVELT |p| 1)
@@ -1531,7 +1526,7 @@
 (SDEFUN |LINPEN;qsetelt!;$2Nni2L;60|
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          (|lst| (|List| R)) ($ (|List| R)))
-        (SPROG ((#1=#:G778 NIL) (|l| NIL))
+        (SPROG ((#1=#:G777 NIL) (|l| NIL))
                (SEQ
                 (SEQ (LETT |l| 1) (LETT #1# (LENGTH |lst|)) G190
                      (COND ((|greater_SI| |l| #1#) (GO G191)))
@@ -1562,7 +1557,7 @@
 (SDEFUN |LINPEN;setelt!;$2Nni2L;62|
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          (|lst| (|List| R)) ($ (|List| R)))
-        (SPROG ((#1=#:G793 NIL) (|l| NIL))
+        (SPROG ((#1=#:G792 NIL) (|l| NIL))
                (SEQ
                 (COND
                  ((OR (< |i| 1)
@@ -1607,8 +1602,8 @@
         ((|p| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
          (|q| ($)) ($ ($)))
         (SPROG
-         ((|A_wrk| (|Matrix| R)) (#1=#:G813 NIL) (|k| NIL) (#2=#:G803 NIL)
-          (#3=#:G802 NIL))
+         ((|A_wrk| (|Matrix| R)) (#1=#:G812 NIL) (|k| NIL) (#2=#:G802 NIL)
+          (#3=#:G801 NIL))
          (SEQ
           (COND
            ((OR (< |i| 1)
@@ -1650,21 +1645,21 @@
          (|cext| (|List| (|NonNegativeInteger|))) ($ (|List| (|Matrix| R))))
         (SPROG
          ((|lst_trn| (|List| (|Matrix| R)))
-          (|idx_fct| #1=(|NonNegativeInteger|)) (#2=#:G1010 NIL)
-          (|j_src| #3=(|NonNegativeInteger|)) (#4=#:G1029 NIL) (|l| NIL)
-          (|j_wrk| #5=(|NonNegativeInteger|)) (#6=#:G1028 NIL) (|j| NIL)
-          (#7=#:G989 NIL) (|i_src| #3#) (#8=#:G1027 NIL) (|i_wrk| #5#)
-          (#9=#:G1026 NIL) (|i| NIL) (|lst_coe| (|List| R)) (#10=#:G943 NIL)
-          (#11=#:G1025 NIL) (|U_wrk| #12=(|Matrix| R)) (#13=#:G1024 NIL)
+          (|idx_fct| #1=(|NonNegativeInteger|)) (#2=#:G1009 NIL)
+          (|j_src| #3=(|NonNegativeInteger|)) (#4=#:G1028 NIL) (|l| NIL)
+          (|j_wrk| #5=(|NonNegativeInteger|)) (#6=#:G1027 NIL) (|j| NIL)
+          (#7=#:G988 NIL) (|i_src| #3#) (#8=#:G1026 NIL) (|i_wrk| #5#)
+          (#9=#:G1025 NIL) (|i| NIL) (|lst_coe| (|List| R)) (#10=#:G942 NIL)
+          (#11=#:G1024 NIL) (|U_wrk| #12=(|Matrix| R)) (#13=#:G1023 NIL)
           (|T_wrk| #12#)
           (|sol_wrk|
            (|Record| (|:| |particular| (|Union| (|Vector| R) #14="failed"))
                      (|:| |basis| (|List| (|Vector| R)))))
-          (#15=#:G932 NIL) (#16=#:G1023 NIL) (#17=#:G887 NIL) (#18=#:G1022 NIL)
-          (|idx_eqn| #1#) (#19=#:G846 NIL) (#20=#:G1021 NIL) (#21=#:G843 NIL)
-          (|i_off| #22=(|NonNegativeInteger|)) (#23=#:G842 NIL)
-          (#24=#:G1020 NIL) (|k_off| #22#) (#25=#:G828 NIL)
-          (|A_wrk| (|Matrix| R)) (#26=#:G1019 NIL) (|k| NIL)
+          (#15=#:G931 NIL) (#16=#:G1022 NIL) (#17=#:G886 NIL) (#18=#:G1021 NIL)
+          (|idx_eqn| #1#) (#19=#:G845 NIL) (#20=#:G1020 NIL) (#21=#:G842 NIL)
+          (|i_off| #22=(|NonNegativeInteger|)) (#23=#:G841 NIL)
+          (#24=#:G1019 NIL) (|k_off| #22#) (#25=#:G827 NIL)
+          (|A_wrk| (|Matrix| R)) (#26=#:G1018 NIL) (|k| NIL)
           (|lst_rhs| (|List| R)) (|mtx_sys| #12#)
           (|n_var| (|NonNegativeInteger|)) (|n_eqn| #22#) (|n_row| #1#)
           (|n_col| #1#) (|n_fct| #1#) (|nr_fct| #22#) (|nc_fct| #22#)
@@ -1982,9 +1977,9 @@
          (|col_Q| (|List| (|NonNegativeInteger|))) (|sym_Q| (|Symbol|))
          ($ (|List| (|Matrix| (|Polynomial| R)))))
         (SPROG
-         ((|idx_Q| #1=(|NonNegativeInteger|)) (#2=#:G1052 NIL) (|j| NIL)
-          (#3=#:G1051 NIL) (|i| NIL) (|idx_P| #1#) (#4=#:G1050 NIL)
-          (#5=#:G1049 NIL) (#6=#:G1048 NIL) (#7=#:G1047 NIL)
+         ((|idx_Q| #1=(|NonNegativeInteger|)) (#2=#:G1051 NIL) (|j| NIL)
+          (#3=#:G1050 NIL) (|i| NIL) (|idx_P| #1#) (#4=#:G1049 NIL)
+          (#5=#:G1048 NIL) (#6=#:G1047 NIL) (#7=#:G1046 NIL)
           (|Q_wrk| #8=(|Matrix| (|Polynomial| R))) (|P_wrk| #8#))
          (SEQ
           (LETT |P_wrk|
@@ -2069,105 +2064,110 @@
          ($ (|List| (|Matrix| R))))
         (SPROG
          ((|val_wrk| (|Polynomial| R)) (|idx_Q| #1=(|NonNegativeInteger|))
-          (#2=#:G1077 NIL) (|j| NIL) (#3=#:G1076 NIL) (|i| NIL) (|idx_P| #1#)
-          (#4=#:G1075 NIL) (#5=#:G1074 NIL) (#6=#:G1073 NIL) (#7=#:G1072 NIL)
+          (#2=#:G1076 NIL) (|j| NIL) (#3=#:G1075 NIL) (|i| NIL) (|idx_P| #1#)
+          (#4=#:G1074 NIL) (#5=#:G1073 NIL) (#6=#:G1072 NIL) (#7=#:G1071 NIL)
           (|sym_Q| (|Symbol|)) (|sym_P| (|Symbol|)) (|Q_wrk| #8=(|Matrix| R))
-          (|P_wrk| #8#) (|lst_trn| (|List| (|Matrix| (|Polynomial| R)))))
-         (SEQ
-          (LETT |lst_trn|
-                (SPADCALL |p| |row_P| |col_P| |row_Q| |col_Q| (QREFELT $ 139)))
-          (LETT |P_wrk|
-                (MAKE_MATRIX1 (QVELT |p| 0) (QVELT |p| 0)
-                              (|spadConstant| $ 8)))
-          (LETT |Q_wrk|
-                (MAKE_MATRIX1 (QVELT |p| 1) (QVELT |p| 1)
-                              (|spadConstant| $ 8)))
-          (LETT |sym_P| '|a|) (LETT |sym_Q| '|b|)
-          (SEQ (LETT |i| 1) (LETT #7# (QVELT |p| 0)) G190
-               (COND ((|greater_SI| |i| #7#) (GO G191)))
-               (SEQ
-                (EXIT (QSETAREF2O |P_wrk| |i| |i| (|spadConstant| $ 20) 1 1)))
-               (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-          (SEQ (LETT |i| 1) (LETT #6# (QVELT |p| 1)) G190
-               (COND ((|greater_SI| |i| #6#) (GO G191)))
-               (SEQ
-                (EXIT (QSETAREF2O |Q_wrk| |i| |i| (|spadConstant| $ 20) 1 1)))
-               (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-          (LETT |idx_P| 0)
-          (SEQ (LETT |i| NIL) (LETT #5# |row_P|) G190
-               (COND
-                ((OR (ATOM #5#) (PROGN (LETT |i| (CAR #5#)) NIL)) (GO G191)))
-               (SEQ
-                (EXIT
-                 (SEQ (LETT |j| NIL) (LETT #4# |col_P|) G190
-                      (COND
-                       ((OR (ATOM #4#) (PROGN (LETT |j| (CAR #4#)) NIL))
-                        (GO G191)))
-                      (SEQ (LETT |idx_P| (+ |idx_P| 1))
-                           (LETT |val_wrk|
-                                 (SPADCALL
-                                  (SPADCALL
-                                   (SPADCALL |sym_P|
-                                             (LIST
-                                              (SPADCALL |idx_P|
-                                                        (QREFELT $ 132)))
-                                             (QREFELT $ 135))
-                                   (QREFELT $ 136))
-                                  |sol| (QREFELT $ 141)))
-                           (EXIT
-                            (COND
-                             ((< (SPADCALL |val_wrk| (QREFELT $ 142)) 1)
-                              (QSETAREF2O |P_wrk| |i| |j|
-                                          (SPADCALL |val_wrk| (QREFELT $ 143))
-                                          1 1)))))
-                      (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))))
-               (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
-          (EXIT
-           (COND
-            ((< (SPADCALL |P_wrk| (QREFELT $ 144)) (QVELT |p| 0))
-             (|error|
-              "LINPEN: eliminationTransformations(p,...) - row transformation matrix not invertible."))
-            (#9='T
-             (SEQ (LETT |idx_Q| 0)
-                  (SEQ (LETT |i| NIL) (LETT #3# |row_Q|) G190
-                       (COND
-                        ((OR (ATOM #3#) (PROGN (LETT |i| (CAR #3#)) NIL))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (SEQ (LETT |j| NIL) (LETT #2# |col_Q|) G190
-                              (COND
-                               ((OR (ATOM #2#)
-                                    (PROGN (LETT |j| (CAR #2#)) NIL))
-                                (GO G191)))
-                              (SEQ (LETT |idx_Q| (+ |idx_Q| 1))
-                                   (LETT |val_wrk|
-                                         (SPADCALL
-                                          (SPADCALL
-                                           (SPADCALL |sym_Q|
-                                                     (LIST
-                                                      (SPADCALL |idx_Q|
-                                                                (QREFELT $
-                                                                         132)))
-                                                     (QREFELT $ 135))
-                                           (QREFELT $ 136))
-                                          |sol| (QREFELT $ 141)))
-                                   (EXIT
-                                    (COND
-                                     ((< (SPADCALL |val_wrk| (QREFELT $ 142))
-                                         1)
-                                      (QSETAREF2O |Q_wrk| |i| |j|
-                                                  (SPADCALL |val_wrk|
-                                                            (QREFELT $ 143))
-                                                  1 1)))))
-                              (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))))
-                       (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
-                  (EXIT
+          (|P_wrk| #8#))
+         (SEQ (SPADCALL |p| |row_P| |col_P| |row_Q| |col_Q| (QREFELT $ 139))
+              (LETT |P_wrk|
+                    (MAKE_MATRIX1 (QVELT |p| 0) (QVELT |p| 0)
+                                  (|spadConstant| $ 8)))
+              (LETT |Q_wrk|
+                    (MAKE_MATRIX1 (QVELT |p| 1) (QVELT |p| 1)
+                                  (|spadConstant| $ 8)))
+              (LETT |sym_P| '|a|) (LETT |sym_Q| '|b|)
+              (SEQ (LETT |i| 1) (LETT #7# (QVELT |p| 0)) G190
+                   (COND ((|greater_SI| |i| #7#) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (QSETAREF2O |P_wrk| |i| |i| (|spadConstant| $ 20) 1 1)))
+                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+              (SEQ (LETT |i| 1) (LETT #6# (QVELT |p| 1)) G190
+                   (COND ((|greater_SI| |i| #6#) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (QSETAREF2O |Q_wrk| |i| |i| (|spadConstant| $ 20) 1 1)))
+                   (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
+              (LETT |idx_P| 0)
+              (SEQ (LETT |i| NIL) (LETT #5# |row_P|) G190
                    (COND
-                    ((< (SPADCALL |Q_wrk| (QREFELT $ 144)) (QVELT |p| 1))
-                     (|error|
-                      "LINPEN: eliminationTransformations(p,...) - column transformation matrix not invertible."))
-                    (#9# (LIST |P_wrk| |Q_wrk|))))))))))) 
+                    ((OR (ATOM #5#) (PROGN (LETT |i| (CAR #5#)) NIL))
+                     (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (SEQ (LETT |j| NIL) (LETT #4# |col_P|) G190
+                          (COND
+                           ((OR (ATOM #4#) (PROGN (LETT |j| (CAR #4#)) NIL))
+                            (GO G191)))
+                          (SEQ (LETT |idx_P| (+ |idx_P| 1))
+                               (LETT |val_wrk|
+                                     (SPADCALL
+                                      (SPADCALL
+                                       (SPADCALL |sym_P|
+                                                 (LIST
+                                                  (SPADCALL |idx_P|
+                                                            (QREFELT $ 132)))
+                                                 (QREFELT $ 135))
+                                       (QREFELT $ 136))
+                                      |sol| (QREFELT $ 141)))
+                               (EXIT
+                                (COND
+                                 ((< (SPADCALL |val_wrk| (QREFELT $ 142)) 1)
+                                  (QSETAREF2O |P_wrk| |i| |j|
+                                              (SPADCALL |val_wrk|
+                                                        (QREFELT $ 143))
+                                              1 1)))))
+                          (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))))
+                   (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
+              (EXIT
+               (COND
+                ((< (SPADCALL |P_wrk| (QREFELT $ 144)) (QVELT |p| 0))
+                 (|error|
+                  "LINPEN: eliminationTransformations(p,...) - row transformation matrix not invertible."))
+                (#9='T
+                 (SEQ (LETT |idx_Q| 0)
+                      (SEQ (LETT |i| NIL) (LETT #3# |row_Q|) G190
+                           (COND
+                            ((OR (ATOM #3#) (PROGN (LETT |i| (CAR #3#)) NIL))
+                             (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (SEQ (LETT |j| NIL) (LETT #2# |col_Q|) G190
+                                  (COND
+                                   ((OR (ATOM #2#)
+                                        (PROGN (LETT |j| (CAR #2#)) NIL))
+                                    (GO G191)))
+                                  (SEQ (LETT |idx_Q| (+ |idx_Q| 1))
+                                       (LETT |val_wrk|
+                                             (SPADCALL
+                                              (SPADCALL
+                                               (SPADCALL |sym_Q|
+                                                         (LIST
+                                                          (SPADCALL |idx_Q|
+                                                                    (QREFELT $
+                                                                             132)))
+                                                         (QREFELT $ 135))
+                                               (QREFELT $ 136))
+                                              |sol| (QREFELT $ 141)))
+                                       (EXIT
+                                        (COND
+                                         ((<
+                                           (SPADCALL |val_wrk| (QREFELT $ 142))
+                                           1)
+                                          (QSETAREF2O |Q_wrk| |i| |j|
+                                                      (SPADCALL |val_wrk|
+                                                                (QREFELT $
+                                                                         143))
+                                                      1 1)))))
+                                  (LETT #2# (CDR #2#)) (GO G190) G191
+                                  (EXIT NIL))))
+                           (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
+                      (EXIT
+                       (COND
+                        ((< (SPADCALL |Q_wrk| (QREFELT $ 144)) (QVELT |p| 1))
+                         (|error|
+                          "LINPEN: eliminationTransformations(p,...) - column transformation matrix not invertible."))
+                        (#9# (LIST |P_wrk| |Q_wrk|))))))))))) 
 
 (SDEFUN |LINPEN;eliminationEquations;$6LL;69|
         ((|p| ($)) (|row_P| (|List| (|NonNegativeInteger|)))
@@ -2178,11 +2178,11 @@
          (|cdst| (|List| (|NonNegativeInteger|)))
          ($ (|List| (|Matrix| (|Polynomial| R)))))
         (SPROG
-         ((|lst_mtx| (|List| (|Matrix| (|Polynomial| R)))) (#1=#:G1095 NIL)
-          (|j| NIL) (#2=#:G1094 NIL) (|i| NIL)
+         ((|lst_mtx| (|List| (|Matrix| (|Polynomial| R)))) (#1=#:G1094 NIL)
+          (|j| NIL) (#2=#:G1093 NIL) (|i| NIL)
           (|E_wrk| (|Matrix| (|Polynomial| R)))
-          (|B_wrk| (|Matrix| (|Polynomial| R))) (#3=#:G1093 NIL)
-          (#4=#:G1092 NIL) (|A_tmp| (|Matrix| R)) (|k| NIL)
+          (|B_wrk| (|Matrix| (|Polynomial| R))) (#3=#:G1092 NIL)
+          (#4=#:G1091 NIL) (|A_tmp| (|Matrix| R)) (|k| NIL)
           (|A_wrk| (|Matrix| (|Polynomial| R)))
           (|lst_trn| (|List| (|Matrix| (|Polynomial| R)))))
          (SEQ
@@ -2257,12 +2257,12 @@
          (|cex2| (|List| (|NonNegativeInteger|)))
          ($ (|List| (|Matrix| (|Polynomial| R)))))
         (SPROG
-         ((|lst_mtx| (|List| (|Matrix| (|Polynomial| R)))) (#1=#:G1125 NIL)
-          (|j| NIL) (#2=#:G1124 NIL) (|i| NIL) (#3=#:G1123 NIL)
-          (#4=#:G1122 NIL) (#5=#:G1121 NIL) (#6=#:G1120 NIL)
+         ((|lst_mtx| (|List| (|Matrix| (|Polynomial| R)))) (#1=#:G1124 NIL)
+          (|j| NIL) (#2=#:G1123 NIL) (|i| NIL) (#3=#:G1122 NIL)
+          (#4=#:G1121 NIL) (#5=#:G1120 NIL) (#6=#:G1119 NIL)
           (|E_wrk| (|Matrix| (|Polynomial| R)))
-          (|B_wrk| (|Matrix| (|Polynomial| R))) (#7=#:G1119 NIL)
-          (#8=#:G1118 NIL) (|A_tmp| (|Matrix| R)) (|k| NIL)
+          (|B_wrk| (|Matrix| (|Polynomial| R))) (#7=#:G1118 NIL)
+          (#8=#:G1117 NIL) (|A_tmp| (|Matrix| R)) (|k| NIL)
           (|A_wrk| (|Matrix| (|Polynomial| R)))
           (|lst_trn| (|List| (|Matrix| (|Polynomial| R)))))
          (SEQ
@@ -2376,10 +2376,10 @@
          ($ (|List| (|Polynomial| R))))
         (SPROG
          ((|lst_eqn| (|List| (|Polynomial| R))) (|det_Q| #1=(|Polynomial| R))
-          (|det_P| #1#) (#2=#:G1160 NIL) (|j| NIL) (#3=#:G1159 NIL) (|i| NIL)
-          (#4=#:G1158 NIL) (#5=#:G1157 NIL) (#6=#:G1156 NIL) (#7=#:G1155 NIL)
-          (|B_wrk| (|Matrix| (|Polynomial| R))) (#8=#:G1154 NIL)
-          (#9=#:G1153 NIL) (|A_tmp| (|Matrix| R)) (|k| NIL)
+          (|det_P| #1#) (#2=#:G1159 NIL) (|j| NIL) (#3=#:G1158 NIL) (|i| NIL)
+          (#4=#:G1157 NIL) (#5=#:G1156 NIL) (#6=#:G1155 NIL) (#7=#:G1154 NIL)
+          (|B_wrk| (|Matrix| (|Polynomial| R))) (#8=#:G1153 NIL)
+          (#9=#:G1152 NIL) (|A_tmp| (|Matrix| R)) (|k| NIL)
           (|A_wrk| (|Matrix| (|Polynomial| R)))
           (|lst_trn| (|List| (|Matrix| (|Polynomial| R)))))
          (SEQ
@@ -2517,21 +2517,12 @@
          (|cex2| (|List| (|NonNegativeInteger|)))
          ($ (|List| (|Polynomial| R))))
         (SPROG
-         ((|lst_gro| (|List| (|Polynomial| R))) (#1=#:G1178 NIL) (|eqn| NIL)
-          (#2=#:G1177 NIL) (|bas_gro| (|List| |tDMP|))
-          (|eqn_wrk| (|List| |tDMP|)) (#3=#:G1176 NIL) (#4=#:G1175 NIL)
-          (|var_wrk| (|List| |tOVL|)) (#5=#:G1164 NIL) (#6=#:G1174 NIL)
-          (|var| NIL) (#7=#:G1173 NIL)
+         ((|lst_gro| (|List| (|Polynomial| R))) (#1=#:G1170 NIL) (|eqn| NIL)
+          (#2=#:G1169 NIL) (|bas_gro| (|List| |tDMP|))
+          (|eqn_wrk| (|List| |tDMP|)) (#3=#:G1168 NIL) (#4=#:G1167 NIL)
           (|tPRD|
            (|DirectProductCategory| (|call| LENGTH |lst_var|)
                                     (|NonNegativeInteger|)))
-          (|tOVL|
-           (|Join| (|OrderedFinite|) (|ConvertibleTo| (|Symbol|))
-                   (|ConvertibleTo| (|InputForm|))
-                   (|ConvertibleTo| (|Pattern| (|Float|)))
-                   (|ConvertibleTo| (|Pattern| (|Integer|)))
-                   (CATEGORY |domain|
-                    (SIGNATURE |variable| ((|Union| $ "failed") (|Symbol|))))))
           (|tDMP|
            (|Join|
             (|PolynomialCategory| R
@@ -2553,36 +2544,8 @@
                           (QREFELT $ 167)))
           (LETT |tDMP|
                 (|DistributedMultivariatePolynomial| |lst_var| (QREFELT $ 6)))
-          (LETT |tOVL| (|OrderedVariableList| |lst_var|))
           (LETT |tPRD|
                 (|DirectProduct| (LENGTH |lst_var|) (|NonNegativeInteger|)))
-          (LETT |var_wrk|
-                (PROGN
-                 (LETT #7# NIL)
-                 (SEQ (LETT |var| NIL) (LETT #6# |lst_var|) G190
-                      (COND
-                       ((OR (ATOM #6#) (PROGN (LETT |var| (CAR #6#)) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #7#
-                              (CONS
-                               (PROG2
-                                   (LETT #5#
-                                         (SPADCALL |var|
-                                                   (|compiledLookupCheck|
-                                                    '|variable|
-                                                    (LIST
-                                                     (LIST '|Union| '$
-                                                           '#8="failed")
-                                                     (LIST '|Symbol|))
-                                                    |tOVL|)))
-                                   (QCDR #5#)
-                                 (|check_union2| (QEQCAR #5# 0) |tOVL|
-                                                 (|Union| |tOVL| #8#) #5#))
-                               #7#))))
-                      (LETT #6# (CDR #6#)) (GO G190) G191
-                      (EXIT (NREVERSE #7#)))))
           (LETT |eqn_wrk|
                 (PROGN
                  (LETT #4# NIL)
@@ -2665,11 +2628,11 @@
          ($ (|List| (|List| (|Equation| (|Polynomial| R))))))
         (SPROG
          ((|lst_sol| (|List| (|List| (|Equation| (|Polynomial| R)))))
-          (|sol_tmp| (|List| (|Equation| (|Polynomial| R)))) (#1=#:G1194 NIL)
+          (|sol_tmp| (|List| (|Equation| (|Polynomial| R)))) (#1=#:G1186 NIL)
           (|sol2| NIL) (|rhs_tst| (|Fraction| (|Polynomial| R)))
           (|lhs_tst| (|Fraction| (|Polynomial| R)))
           (|sol_tst| (|Equation| (|Fraction| (|Polynomial| R))))
-          (#2=#:G1193 NIL) (|sol1| NIL)
+          (#2=#:G1185 NIL) (|sol1| NIL)
           (|sol_wrk|
            (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
          (SEQ (LETT |lst_sol| NIL)
@@ -2720,8 +2683,8 @@
          (|lst_sol| (|List| (|List| (|Equation| (|Polynomial| R)))))
          ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G1208 NIL) (|pos| (|Integer|)) (#2=#:G1210 NIL) (|tmp| NIL)
-          (#3=#:G1209 NIL))
+         ((#1=#:G1200 NIL) (|pos| (|Integer|)) (#2=#:G1202 NIL) (|tmp| NIL)
+          (#3=#:G1201 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -2736,7 +2699,7 @@
                      (EXIT
                       (COND
                        ((ZEROP (LENGTH |tmp|))
-                        (PROGN (LETT #1# 'T) (GO #4=#:G1207))))))
+                        (PROGN (LETT #1# 'T) (GO #4=#:G1199))))))
                     (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                (EXIT (PROGN (LETT #1# NIL) (GO #4#))))))
             (SEQ (LETT |tmp| NIL) (LETT #2# |lst_sol|) G190
@@ -2763,15 +2726,15 @@
          ($ (|List| (|List| (|Equation| (|Polynomial| R))))))
         (SPROG
          ((|lst_sol| (|List| (|List| (|Equation| (|Polynomial| R)))))
-          (#1=#:G1254 NIL) (|sol| NIL)
+          (#1=#:G1246 NIL) (|sol| NIL)
           (|sol_wrk| (|List| (|List| (|Equation| (|Polynomial| R)))))
           (|eqn_tmp| (|Polynomial| R))
           (|lst_tmp| (|List| (|Equation| (|Polynomial| R))))
-          (|idx_val| (|NonNegativeInteger|)) (#2=#:G1234 NIL) (#3=#:G1232 NIL)
-          (#4=#:G1253 NIL) (|j| NIL) (#5=#:G1252 NIL) (|i| NIL)
-          (|vars| (|List| (|Symbol|))) (#6=#:G1251 NIL) (|var| NIL)
-          (#7=#:G1248 NIL) (#8=#:G1250 NIL) (|lst_var| (|List| (|Symbol|)))
-          (|var_sub| (|List| (|Symbol|))) (#9=#:G1249 NIL) (|ele| NIL)
+          (|idx_val| (|NonNegativeInteger|)) (#2=#:G1226 NIL) (#3=#:G1224 NIL)
+          (#4=#:G1245 NIL) (|j| NIL) (#5=#:G1244 NIL) (|i| NIL)
+          (|vars| (|List| (|Symbol|))) (#6=#:G1243 NIL) (|var| NIL)
+          (#7=#:G1240 NIL) (#8=#:G1242 NIL) (|lst_var| (|List| (|Symbol|)))
+          (|var_sub| (|List| (|Symbol|))) (#9=#:G1241 NIL) (|ele| NIL)
           (|k_val| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -2780,7 +2743,7 @@
                 (LETT |k_val| (LENGTH |lst_val|))
                 (COND
                  ((ZEROP (LENGTH |lst_var|))
-                  (PROGN (LETT #7# |lst_sol|) (GO #10=#:G1247))))
+                  (PROGN (LETT #7# |lst_sol|) (GO #10=#:G1239))))
                 (EXIT
                  (COND
                   ((ZEROP |k_val|)
@@ -2944,9 +2907,9 @@
          ($ (|List| (|List| (|Equation| (|Polynomial| R))))))
         (SPROG
          ((|lst_sol| (|List| (|List| (|Equation| (|Polynomial| R)))))
-          (#1=#:G1271 NIL) (|sol| NIL)
+          (#1=#:G1263 NIL) (|sol| NIL)
           (|lst_wrk| (|List| (|List| (|Equation| (|Polynomial| R)))))
-          (#2=#:G1270 NIL) (|sub| NIL) (#3=#:G1268 NIL) (#4=#:G1269 NIL))
+          (#2=#:G1262 NIL) (|sub| NIL) (#3=#:G1260 NIL) (#4=#:G1261 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |lst_sol| NIL)
@@ -2965,7 +2928,7 @@
                            ((NULL (|LINPEN;equalEquation?| |sol| |lst_sol| $))
                             (LETT |lst_sol| (CONS |sol| |lst_sol|))))))
                         (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-                   (EXIT (PROGN (LETT #3# |lst_sol|) (GO #5=#:G1267))))))
+                   (EXIT (PROGN (LETT #3# |lst_sol|) (GO #5=#:G1259))))))
                 (SEQ (LETT |sub| NIL) (LETT #2# |lst_sub|) G190
                      (COND
                       ((OR (ATOM #2#) (PROGN (LETT |sub| (CAR #2#)) NIL))
@@ -2996,11 +2959,11 @@
          ($ (|List| (|List| (|Equation| (|Polynomial| R))))))
         (SPROG
          ((|lst_sol| (|List| (|List| (|Equation| (|Polynomial| R)))))
-          (#1=#:G1296 NIL) (|flg_sol| (|Boolean|)) (|eqn_tmp| (|Polynomial| R))
-          (#2=#:G1303 NIL) (|eqn| NIL) (#3=#:G1302 NIL) (|sol| NIL)
+          (#1=#:G1288 NIL) (|flg_sol| (|Boolean|)) (|eqn_tmp| (|Polynomial| R))
+          (#2=#:G1295 NIL) (|eqn| NIL) (#3=#:G1294 NIL) (|sol| NIL)
           (|lst_wrk| (|List| (|List| (|Equation| (|Polynomial| R)))))
-          (#4=#:G1301 NIL) (|sub| NIL) (#5=#:G1298 NIL) (#6=#:G1297 NIL)
-          (#7=#:G1300 NIL) (#8=#:G1299 NIL))
+          (#4=#:G1293 NIL) (|sub| NIL) (#5=#:G1290 NIL) (#6=#:G1289 NIL)
+          (#7=#:G1292 NIL) (#8=#:G1291 NIL))
          (SEQ
           (EXIT
            (COND
@@ -3041,7 +3004,7 @@
                                                (EXIT
                                                 (PROGN
                                                  (LETT #6# 1)
-                                                 (GO #9=#:G1276))))))))
+                                                 (GO #9=#:G1268))))))))
                                       (LETT #7# (CDR #7#)) (GO G190) G191
                                       (EXIT NIL)))
                                 #9# (EXIT #6#))
@@ -3055,7 +3018,7 @@
                                     (LETT |lst_sol|
                                           (CONS |sol| |lst_sol|))))))))
                           (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL))
-                     (EXIT (PROGN (LETT #5# |lst_sol|) (GO #10=#:G1295))))))
+                     (EXIT (PROGN (LETT #5# |lst_sol|) (GO #10=#:G1287))))))
                   (SEQ (LETT |sub| NIL) (LETT #4# |lst_sub|) G190
                        (COND
                         ((OR (ATOM #4#) (PROGN (LETT |sub| (CAR #4#)) NIL))
@@ -3094,7 +3057,7 @@
                                                    (EXIT
                                                     (PROGN
                                                      (LETT #1# |$NoValue|)
-                                                     (GO #11=#:G1287))))))))
+                                                     (GO #11=#:G1279))))))))
                                           (LETT #2# (CDR #2#)) (GO G190) G191
                                           (EXIT NIL)))
                                     #11# (EXIT #1#))
@@ -3117,7 +3080,7 @@
          ($ (|List| (|List| (|Equation| (|Polynomial| R))))))
         (SPROG
          ((|lst_sol| (|List| (|List| (|Equation| (|Polynomial| R)))))
-          (#1=#:G1310 NIL)
+          (#1=#:G1302 NIL)
           (|sol_wrk| (|List| (|List| (|Equation| (|Polynomial| R)))))
           (|lst_wrk| (|List| (|Polynomial| R))) (|k| NIL)
           (|lst_val| (|List| R)))
@@ -3137,7 +3100,7 @@
                                   (QREFELT $ 201)))
                   (COND
                    ((ZEROP (LENGTH |sol_wrk|))
-                    (PROGN (LETT #1# NIL) (GO #2=#:G1309))))
+                    (PROGN (LETT #1# NIL) (GO #2=#:G1301))))
                   (EXIT (LETT |lst_sol| (SPADCALL |sol_wrk| (QREFELT $ 204)))))
                  (LETT |k| (+ |k| -1)) (GO G190) G191 (EXIT NIL))
             (EXIT |lst_sol|)))
@@ -3145,9 +3108,9 @@
 
 (DECLAIM (NOTINLINE |LinearMultivariateMatrixPencil;|)) 
 
-(DEFUN |LinearMultivariateMatrixPencil| (#1=#:G1311)
+(DEFUN |LinearMultivariateMatrixPencil| (#1=#:G1303)
   (SPROG NIL
-         (PROG (#2=#:G1312)
+         (PROG (#2=#:G1304)
            (RETURN
             (COND
              ((LETT #2#

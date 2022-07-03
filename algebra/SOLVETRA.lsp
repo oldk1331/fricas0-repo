@@ -110,14 +110,12 @@
           (|finv| (|Union| (|Expression| R) #21="failed")) (#22=#:G265 NIL)
           (|lr| #9#) (#23=#:G232 NIL) (#24=#:G231 #9#) (#25=#:G233 #9#)
           (#26=#:G264 NIL) (|fatt| NIL) (|eq1| (|Expression| R))
-          (|bigX| (|Expression| R)) (Y (|Expression| R)) (X (|Symbol|))
-          (|ausgabe1| #7#))
+          (|bigX| (|Expression| R)) (X (|Symbol|)) (|ausgabe1| #7#))
          (SEQ
           (EXIT
            (SEQ (LETT |lside| (|SOLVETRA;eliminateRoot| |lside| |x| $))
                 (LETT |ausgabe1| (|SOLVETRA;tableXkernels| |lside| |x| $))
                 (LETT X (SPADCALL (QREFELT $ 31)))
-                (LETT Y (SPADCALL (SPADCALL (QREFELT $ 31)) (QREFELT $ 32)))
                 (EXIT
                  (COND
                   ((EQL (LENGTH |ausgabe1|) 1)

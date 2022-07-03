@@ -914,7 +914,7 @@
 
 ; augProplistOf(var,prop,val,e) ==
 ;   proplist:= getProplist(var,e)
-;   semchkProplist(var,proplist,prop,val)
+;   semchkProplist(var, proplist, prop)
 ;   augProplist(proplist,prop,val)
 
 (DEFUN |augProplistOf| (|var| |prop| |val| |e|)
@@ -922,16 +922,16 @@
     (RETURN
      (PROGN
       (SETQ |proplist| (|getProplist| |var| |e|))
-      (|semchkProplist| |var| |proplist| |prop| |val|)
+      (|semchkProplist| |var| |proplist| |prop|)
       (|augProplist| |proplist| |prop| |val|)))))
 
-; semchkProplist(x,proplist,prop,val) ==
+; semchkProplist(x, proplist, prop) ==
 ;   prop="isLiteral" =>
 ;     LASSOC("value",proplist) or LASSOC("mode",proplist) => warnLiteral x
 ;   MEMQ(prop,'(mode value)) =>
 ;     LASSOC("isLiteral",proplist) => warnLiteral x
 
-(DEFUN |semchkProplist| (|x| |proplist| |prop| |val|)
+(DEFUN |semchkProplist| (|x| |proplist| |prop|)
   (PROG ()
     (RETURN
      (COND

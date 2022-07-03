@@ -1872,22 +1872,12 @@
           (|p2| #3=(|Point| (|DoubleFloat|)))
           (|ptInfo| (|Record| (|:| |newPt| #3#) (|:| |type| (|String|))))
           (|pt1| (|Point| (|DoubleFloat|))) (|pt0| (|Point| (|DoubleFloat|)))
-          (|p0| (|Point| (|DoubleFloat|))) (|py| #4=(|DoubleFloat|)) (|px| #4#)
-          (|y1| (|DoubleFloat|)) (|x1| (|DoubleFloat|)))
+          (|p0| (|Point| (|DoubleFloat|))) (|y1| (|DoubleFloat|))
+          (|x1| (|DoubleFloat|)))
          (SEQ
           (EXIT
            (SEQ (LETT |x1| (SPADCALL |p1| (QREFELT $ 28)))
                 (LETT |y1| (SPADCALL |p1| (QREFELT $ 27)))
-                (LETT |px|
-                      (SPADCALL
-                       (SPADCALL |dpdxSF| (LIST |x| |y|) (LIST |x1| |y1|)
-                                 (QREFELT $ 133))
-                       (QREFELT $ 134)))
-                (LETT |py|
-                      (SPADCALL
-                       (SPADCALL |dpdySF| (LIST |x| |y|) (LIST |x1| |y1|)
-                                 (QREFELT $ 133))
-                       (QREFELT $ 134)))
                 (LETT |p0|
                       (|ACPLOT;makePt| (|sub_DF| |x1| 1.0) (|sub_DF| |y1| 1.0)
                        $))
@@ -1901,7 +1891,7 @@
                  (COND
                   ((EQUAL (QCDR |ptInfo|) (QREFELT $ 17))
                    (|error| "boundary reached while on loop"))
-                  (#5='T
+                  (#4='T
                    (SEQ
                     (COND
                      ((EQUAL (QCDR |ptInfo|) (QREFELT $ 18))
@@ -1909,7 +1899,7 @@
                        ((SPADCALL |p1| |p2| (QREFELT $ 138))
                         (|error|
                          "first and second points on loop are identical"))
-                       (#5#
+                       (#4#
                         (LETT |crits|
                               (SPADCALL |p2| |crits| (QREFELT $ 136)))))))
                     (LETT |pointList| (CONS |p2| |pointList|))
@@ -1942,12 +1932,12 @@
                                       (PROGN
                                        (LETT #2#
                                              (LIST |pointList| |crits| |bdry|))
-                                       (GO #6=#:G505))))))))))
+                                       (GO #5=#:G505))))))))))
                               (EXIT
                                (LETT |pointList| (CONS |p2| |pointList|))))))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT (LIST |pointList| |crits| |bdry|))))))))
-          #6# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |ACPLOT;computeNextPt|
         ((|pSF| (|Polynomial| (|DoubleFloat|)))

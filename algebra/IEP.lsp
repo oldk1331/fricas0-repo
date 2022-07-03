@@ -463,10 +463,8 @@
              (|:| |eigval| (|Union| F (|SparseUnivariatePolynomial| F)))
              (|:| |eigmult| (|NonNegativeInteger|))
              (|:| |eigvec|
-                  (|List| (|Vector| (|SparseUnivariatePolynomial| F)))))))
-          (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (ANROWS A))
-              (LETT |leig| (SPADCALL A |fac| (QREFELT $ 18)))
+                  (|List| (|Vector| (|SparseUnivariatePolynomial| F))))))))
+         (SEQ (LETT |leig| (SPADCALL A |fac| (QREFELT $ 18)))
               (EXIT
                (PROGN
                 (LETT #2# NIL)
@@ -507,9 +505,9 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| #2#)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (|p| (|SparseUnivariatePolynomial| F)) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (ANROWS A)) (LETT |p| (SPADCALL A (QREFELT $ 38)))
-              (LETT |ratSol| NIL) (LETT |algSol| NIL)
+          (|p| (|SparseUnivariatePolynomial| F)))
+         (SEQ (LETT |p| (SPADCALL A (QREFELT $ 38))) (LETT |ratSol| NIL)
+              (LETT |algSol| NIL)
               (LETT |lff| (SPADCALL (SPADCALL |p| |fac|) (QREFELT $ 56)))
               (SEQ (LETT |fact| NIL) (LETT #3# |lff|) G190
                    (COND

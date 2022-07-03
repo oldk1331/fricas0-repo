@@ -975,25 +975,6 @@
 (DEFUN |bcStarConform| (|form|)
   (PROG () (RETURN (PROGN (|bcStar| (|opOf| |form|)) (|bcConform| |form|)))))
 
-; dbSourceFile name ==
-;   u:= GETDATABASE(name,'SOURCEFILE)
-;   null u => '""
-;   n := PATHNAME_-NAME u
-;   t := PATHNAME_-TYPE u
-;   STRCONC(n,'".",t)
-
-(DEFUN |dbSourceFile| (|name|)
-  (PROG (|u| |n| |t|)
-    (RETURN
-     (PROGN
-      (SETQ |u| (GETDATABASE |name| 'SOURCEFILE))
-      (COND ((NULL |u|) "")
-            ('T
-             (PROGN
-              (SETQ |n| (PATHNAME-NAME |u|))
-              (SETQ |t| (PATHNAME-TYPE |u|))
-              (STRCONC |n| "." |t|))))))))
-
 ; asharpConstructorName? name ==
 ;   u:= GETDATABASE(name,'SOURCEFILE)
 ;   u and PATHNAME_-TYPE u = '"as"
@@ -1412,11 +1393,6 @@
           (SETQ |bfVar#24| (CDR |bfVar#24|))))
        |options| NIL)
       (COND ((NOT (EQL |count| 0)) (|bcHt| ":")))))))
-
-; dbBasicConstructor? conname == member(dbSourceFile conname,'("catdef" "coerce"))
-
-(DEFUN |dbBasicConstructor?| (|conname|)
-  (PROG () (RETURN (|member| (|dbSourceFile| |conname|) '("catdef" "coerce")))))
 
 ; htCopyProplist htPage == [[x,:y] for [x,:y] in htpPropertyList htPage]
 

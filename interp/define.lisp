@@ -2899,9 +2899,10 @@
                              ''|%d| "needs to be compiled")))))))
 
 ; compAdd(['add,$addForm,capsule],m,e) ==
+;   addForm := $addForm
 ;   $bootStrapMode = true =>
-;     if $addForm is ["@Tuple", :.] then code := nil
-;        else [code,m,e]:= comp($addForm,m,e)
+;     if addForm is ["@Tuple", :.] then code := nil
+;        else [code, m, e]:= comp(addForm, m, e)
 ;     [['COND, _
 ;        ['$bootStrapMode, _
 ;            code],_
@@ -2909,9 +2910,8 @@
 ;          '"from", ''%b, MKQ namestring($edit_file), ''%d, _
 ;          '"needs to be compiled"]]]],
 ;      m, e]
-;   $addFormLhs: local:= $addForm
-;   addForm := $addForm
-;   if $addForm is ["SubDomain",domainForm,predicate] then
+;   $addFormLhs: local:= addForm
+;   if addForm is ["SubDomain", domainForm, predicate] then
 ; --+
 ;     $NRTaddForm := domainForm
 ;     NRTgetLocalIndex(domainForm, e)
@@ -2920,10 +2920,10 @@
 ;     [$addForm, m1, e] := compSubDomain1(domainForm, predicate, m, e)
 ;   else
 ; --+
-;     $NRTaddForm := $addForm
+;     $NRTaddForm := addForm
 ;     [$addForm, m1, e]:=
-;       $addForm is ["@Tuple", :.] => BREAK()
-;       compOrCroak($addForm,$EmptyMode,e)
+;         addForm is ["@Tuple", :.] => BREAK()
+;         compOrCroak(addForm, $EmptyMode, e)
 ;   not(isCategoryForm(m1)) or m1 = '(Category) =>
 ;       userError(concat('"need domain before 'add', got", addForm,
 ;                        '"of type", m1))
@@ -2931,19 +2931,20 @@
 
 (DEFUN |compAdd| (|bfVar#119| |m| |e|)
   (PROG (|$addFormLhs| |$addForm| |m1| |predicate| |ISTMP#2| |domainForm|
-         |ISTMP#1| |addForm| |LETTMP#1| |code| |capsule|)
+         |ISTMP#1| |LETTMP#1| |code| |addForm| |capsule|)
     (DECLARE (SPECIAL |$addFormLhs| |$addForm|))
     (RETURN
      (PROGN
       (SETQ |$addForm| (CADR . #1=(|bfVar#119|)))
       (SETQ |capsule| (CADDR . #1#))
+      (SETQ |addForm| |$addForm|)
       (COND
        ((EQUAL |$bootStrapMode| T)
         (PROGN
          (COND
-          ((AND (CONSP |$addForm|) (EQ (CAR |$addForm|) '|@Tuple|))
+          ((AND (CONSP |addForm|) (EQ (CAR |addForm|) '|@Tuple|))
            (SETQ |code| NIL))
-          (#2='T (SETQ |LETTMP#1| (|comp| |$addForm| |m| |e|))
+          (#2='T (SETQ |LETTMP#1| (|comp| |addForm| |m| |e|))
            (SETQ |code| (CAR |LETTMP#1|)) (SETQ |m| (CADR . #3=(|LETTMP#1|)))
            (SETQ |e| (CADDR . #3#)) |LETTMP#1|))
          (LIST
@@ -2957,12 +2958,11 @@
           |m| |e|)))
        (#2#
         (PROGN
-         (SETQ |$addFormLhs| |$addForm|)
-         (SETQ |addForm| |$addForm|)
+         (SETQ |$addFormLhs| |addForm|)
          (COND
-          ((AND (CONSP |$addForm|) (EQ (CAR |$addForm|) '|SubDomain|)
+          ((AND (CONSP |addForm|) (EQ (CAR |addForm|) '|SubDomain|)
                 (PROGN
-                 (SETQ |ISTMP#1| (CDR |$addForm|))
+                 (SETQ |ISTMP#1| (CDR |addForm|))
                  (AND (CONSP |ISTMP#1|)
                       (PROGN
                        (SETQ |domainForm| (CAR |ISTMP#1|))
@@ -2976,12 +2976,12 @@
            (SETQ |$addForm| (CAR |LETTMP#1|))
            (SETQ |m1| (CADR . #4=(|LETTMP#1|))) (SETQ |e| (CADDR . #4#))
            |LETTMP#1|)
-          (#2# (SETQ |$NRTaddForm| |$addForm|)
+          (#2# (SETQ |$NRTaddForm| |addForm|)
            (SETQ |LETTMP#1|
                    (COND
-                    ((AND (CONSP |$addForm|) (EQ (CAR |$addForm|) '|@Tuple|))
+                    ((AND (CONSP |addForm|) (EQ (CAR |addForm|) '|@Tuple|))
                      (BREAK))
-                    (#2# (|compOrCroak| |$addForm| |$EmptyMode| |e|))))
+                    (#2# (|compOrCroak| |addForm| |$EmptyMode| |e|))))
            (SETQ |$addForm| (CAR |LETTMP#1|))
            (SETQ |m1| (CADR . #5=(|LETTMP#1|))) (SETQ |e| (CADDR . #5#))
            |LETTMP#1|))

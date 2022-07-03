@@ -25,8 +25,7 @@
           (|vlst| (|List| F)) (#12=#:G228 NIL) (#13=#:G227 NIL) (|rsum| (F))
           (|deg1| (|NonNegativeInteger|))
           (|f1| #14=(|SparseUnivariatePolynomial| F)) (#15=#:G226 NIL)
-          (|fac| NIL) (|u0| (F)) (|nk| (|NonNegativeInteger|))
-          (|dummy| (|SingletonAsOrderedSet|))
+          (|fac| NIL) (|u0| (F)) (|dummy| (|SingletonAsOrderedSet|))
           (|lfac|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -36,7 +35,7 @@
           (LETT |lfac|
                 (SPADCALL (SPADCALL |df| (QREFELT $ 11)) (QREFELT $ 15)))
           (LETT |res| NIL) (LETT |dummy| (SPADCALL (QREFELT $ 17)))
-          (LETT |vlst| NIL) (LETT |nk| (LENGTH |lk|))
+          (LETT |vlst| NIL)
           (LETT |u0| (SPADCALL (SPADCALL |k| (QREFELT $ 20)) 1 (QREFELT $ 22)))
           (SEQ (LETT |fac| NIL) (LETT #15# |lfac|) G190
                (COND
@@ -401,8 +400,7 @@
           (|vlst| (|List| F)) (#12=#:G302 NIL) (#13=#:G301 NIL) (|lprod| (F))
           (|f1| #14=(|SparseUnivariatePolynomial| F)) (|tc| (F))
           (|deg1| (|NonNegativeInteger|)) (#15=#:G300 NIL) (|fac| NIL)
-          (|v0| (F)) (|nk| (|NonNegativeInteger|))
-          (|dummy| (|SingletonAsOrderedSet|))
+          (|v0| (F)) (|dummy| (|SingletonAsOrderedSet|))
           (|lfac|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -412,7 +410,7 @@
           (LETT |lfac|
                 (SPADCALL (SPADCALL |df| (QREFELT $ 11)) (QREFELT $ 15)))
           (LETT |res| NIL) (LETT |dummy| (SPADCALL (QREFELT $ 17)))
-          (LETT |vlst| NIL) (LETT |nk| (LENGTH |lk|))
+          (LETT |vlst| NIL)
           (LETT |v0| (SPADCALL (SPADCALL |k| (QREFELT $ 20)) 1 (QREFELT $ 22)))
           (SEQ (LETT |fac| NIL) (LETT #15# |lfac|) G190
                (COND
@@ -1354,7 +1352,7 @@
           (|deg1| (|NonNegativeInteger|)) (|u1| (F))
           (|cfac| (|SparseUnivariatePolynomial| F))
           (|liden| #4=(|SparseUnivariatePolynomial| F)) (#5=#:G448 NIL)
-          (|ldr| NIL) (#6=#:G449 NIL) (|linum| NIL) (|u0| (F))
+          (|ldr| NIL) (#6=#:G449 NIL) (|linum| NIL)
           (|dummy| (|SingletonAsOrderedSet|))
           (|linums| (|List| (|SparseUnivariatePolynomial| F)))
           (|dn| (|List| (|SparseUnivariatePolynomial| F)))
@@ -1403,9 +1401,6 @@
                                               (QREFELT $ 130)))
                               (LETT |linums| (CDR |dn|))
                               (LETT |dummy| (SPADCALL (QREFELT $ 17)))
-                              (LETT |u0|
-                                    (SPADCALL (SPADCALL |k| (QREFELT $ 20)) 1
-                                              (QREFELT $ 22)))
                               (LETT |res| (|spadConstant| $ 29))
                               (LETT |logs| NIL)
                               (SEQ (LETT |linum| NIL) (LETT #6# |linums|)
@@ -1792,7 +1787,7 @@
                       (|:| |logand|
                            (|SparseUnivariatePolynomial|
                             (|Fraction| (|SparseUnivariatePolynomial| F)))))))
-          (|u0| (F)) (|dummy| (|SingletonAsOrderedSet|))
+          (|dummy| (|SingletonAsOrderedSet|))
           (|polynums1| (|List| (|SparseUnivariatePolynomial| F)))
           (|dn| (|List| (|SparseUnivariatePolynomial| F)))
           (|elden| (|Union| (|SparseUnivariatePolynomial| F) "failed"))
@@ -1861,9 +1856,6 @@
                                               (QREFELT $ 130)))
                               (LETT |polynums1| (CDR |dn|))
                               (LETT |dummy| (SPADCALL (QREFELT $ 17)))
-                              (LETT |u0|
-                                    (SPADCALL (SPADCALL |k| (QREFELT $ 20)) 1
-                                              (QREFELT $ 22)))
                               (LETT |res| (|spadConstant| $ 29))
                               (LETT |logs| NIL)
                               (SEQ (LETT |polynum1| NIL) (LETT #7# |polynums1|)

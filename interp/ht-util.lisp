@@ -1336,7 +1336,6 @@
 
 ; typeCheckInputAreas htPage ==
 ;   -- This needs to be severely beefed up
-;   inputAlist := nil
 ;   errorCondition := false
 ;   for entry in htpInputAreaAlist htPage
 ;    | entry is [stringName, ., ., ., 'string, ., spadType, filter] repeat
@@ -1357,12 +1356,11 @@
 ;   errorCondition
 
 (DEFUN |typeCheckInputAreas| (|htPage|)
-  (PROG (|inputAlist| |errorCondition| |stringName| |ISTMP#1| |ISTMP#2|
-         |ISTMP#3| |ISTMP#4| |ISTMP#5| |ISTMP#6| |spadType| |ISTMP#7| |filter|
-         |condList| |string| |val|)
+  (PROG (|errorCondition| |stringName| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4|
+         |ISTMP#5| |ISTMP#6| |spadType| |ISTMP#7| |filter| |condList| |string|
+         |val|)
     (RETURN
      (PROGN
-      (SETQ |inputAlist| NIL)
       (SETQ |errorCondition| NIL)
       ((LAMBDA (|bfVar#37| |entry|)
          (LOOP

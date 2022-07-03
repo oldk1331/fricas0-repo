@@ -261,7 +261,7 @@
          ($ (|Union| (|Integer|) #1="failed")))
         (SPROG
          ((|m| (|Integer|)) (|tcf| (|Integer|)) (#2=#:G262 NIL) (#3=#:G264 NIL)
-          (|i| NIL) (#4=#:G263 NIL) (|two_fac| (|Integer|)) (|cp| (|Void|))
+          (|i| NIL) (#4=#:G263 NIL) (|two_fac| (|Integer|))
           (|pa| (|PrimitiveArray| (|Integer|))) (#5=#:G235 NIL)
           (|mm| #6=(|Integer|)) (#7=#:G226 NIL) (|mm1| (|Integer|))
           (|fl| (|List| (|Integer|))) (|r1| (|Integer|))
@@ -371,10 +371,8 @@
                                                          '(|NonNegativeInteger|)
                                                          '(|Integer|) #5#))
                                                       0))
-                                               (LETT |cp|
-                                                     (|CYCLOT2;cyclotomic_SPS2|
-                                                      |mm| (LENGTH |fl|) |pa|
-                                                      |fl| 1 $))
+                                               (|CYCLOT2;cyclotomic_SPS2| |mm|
+                                                (LENGTH |fl|) |pa| |fl| 1 $)
                                                (LETT |two_fac|
                                                      (COND ((ODDP |r1|) 1)
                                                            (#8# -1)))
@@ -899,9 +897,8 @@
                      (|:| |exponent| #2=(|NonNegativeInteger|)))))
          (|co| (|Boolean|)) (|two_fac| (|Integer|)) ($ (|List| (|Integer|))))
         (SPROG
-         ((|res| (|List| (|Integer|))) (#3=#:G373 NIL)
-          (|nres| (|List| (|Integer|))) (|f1| #1#) (|e| #2#) (#4=#:G374 NIL)
-          (|fac| NIL))
+         ((|res| (|List| (|Integer|))) (#3=#:G373 NIL) (|f1| #1#) (|e| #2#)
+          (#4=#:G374 NIL) (|fac| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |res| (LIST 1))
@@ -910,7 +907,6 @@
                       ((OR (ATOM #4#) (PROGN (LETT |fac| (CAR #4#)) NIL))
                        (GO G191)))
                      (SEQ (LETT |e| (QCDR |fac|)) (LETT |f1| (QCAR |fac|))
-                          (LETT |nres| NIL)
                           (COND
                            ((EQL |f1| 2)
                             (COND

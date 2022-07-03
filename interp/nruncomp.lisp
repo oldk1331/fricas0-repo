@@ -1478,7 +1478,6 @@
 ;   -- a list, one for each element of catvecListMaker
 ;   -- indicating under what conditions this
 ;   -- category should be present.  true => always
-;   makeCatvecCode:= first catvecListMaker
 ;   domainShell := GETREFV (6 + $NRTdeltaLength)
 ;   for i in 0..4 repeat domainShell.i := base_shell.i
 ;   $template := GETREFV (6 + $NRTdeltaLength)
@@ -1499,7 +1498,7 @@
 ;
 ;   storeOperationCode := DescendCode(code, true, nil, first catNames,
 ;                                     domainShell, e)
-;   outsideFunctionCode:= NRTaddDeltaCode(domainShell)
+;   NRTaddDeltaCode(domainShell)
 ;   storeOperationCode:= NRTputInLocalReferences storeOperationCode
 ;   NRTdescendCodeTran(storeOperationCode,nil) --side effects storeOperationCode
 ;   codePart2:=
@@ -1548,11 +1547,10 @@
          |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO
          |$definition| |ans| |codePart3| |codePart1| |slamCode| |slot3Code|
          |setVector0Code| |createViewCode| |createDomainCode| |devaluate_code|
-         |b| |a| |codePart2| |addargname| |argStuffCode| |outsideFunctionCode|
-         |storeOperationCode| |predBitVectorCode2| |predBitVectorCode1|
-         |LETTMP#1| |domname| |catNames| |domainShell| |makeCatvecCode|
-         |condCats| |catvecListMaker| |argsig| |catsig| |oldtime| |args|
-         |name|)
+         |b| |a| |codePart2| |addargname| |argStuffCode| |storeOperationCode|
+         |predBitVectorCode2| |predBitVectorCode1| |LETTMP#1| |domname|
+         |catNames| |domainShell| |condCats| |catvecListMaker| |argsig|
+         |catsig| |oldtime| |args| |name|)
     (DECLARE
      (SPECIAL |$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
       |$MissingFunctionInfo| |$SetFunctions| |$catvecList| $GENNO
@@ -1605,7 +1603,6 @@
       (SETQ |condCats|
               (|InvestigateConditions| (CONS |catsig| (CDR |catvecListMaker|))
                |base_shell| |e|))
-      (SETQ |makeCatvecCode| (CAR |catvecListMaker|))
       (SETQ |domainShell| (GETREFV (+ 6 |$NRTdeltaLength|)))
       ((LAMBDA (|i|)
          (LOOP
@@ -1653,7 +1650,7 @@
       (SETQ |predBitVectorCode2| (CDDR . #2#))
       (SETQ |storeOperationCode|
               (|DescendCode| |code| T NIL (CAR |catNames|) |domainShell| |e|))
-      (SETQ |outsideFunctionCode| (|NRTaddDeltaCode| |domainShell|))
+      (|NRTaddDeltaCode| |domainShell|)
       (SETQ |storeOperationCode|
               (|NRTputInLocalReferences| |storeOperationCode|))
       (|NRTdescendCodeTran| |storeOperationCode| NIL)

@@ -484,7 +484,7 @@
                      (|:| |poleigen|
                           (|List|
                            (|Matrix| (|SparseUnivariatePolynomial| K))))))
-          (#4=#:G226 NIL) (|lev| NIL) (|n| (|NonNegativeInteger|))
+          (#4=#:G226 NIL) (|lev| NIL)
           (|sln1|
            (|List|
             (|Union|
@@ -497,8 +497,7 @@
                              (|Matrix| (|SparseUnivariatePolynomial| K))))))))
           (|pol| (|SparseUnivariatePolynomial| K)))
          (SEQ (LETT |pol| (SPADCALL A (QREFELT $ 94)))
-              (LETT |sln1| (|INEP;inteigen| A |pol| |fact| $))
-              (LETT |n| (ANROWS A)) (LETT |sln| NIL)
+              (LETT |sln1| (|INEP;inteigen| A |pol| |fact| $)) (LETT |sln| NIL)
               (SEQ (LETT |lev| NIL) (LETT #4# |sln1|) G190
                    (COND
                     ((OR (ATOM #4#) (PROGN (LETT |lev| (CAR #4#)) NIL))

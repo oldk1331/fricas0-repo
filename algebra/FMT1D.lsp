@@ -15,8 +15,8 @@
 
 (SDEFUN |FMT1D;fricasEscapeString| ((|s| (|String|)) ($ (|String|)))
         (SPROG
-         ((|str| (|String|)) (|esc| (|String|)) (|c| (|Character|))
-          (|n| (|Integer|)) (|p| (|Integer|)) (|cc| (|CharacterClass|)))
+         ((|str| (|String|)) (|esc| (|String|)) (|n| (|Integer|))
+          (|p| (|Integer|)) (|cc| (|CharacterClass|)))
          (SEQ (LETT |cc| (SPADCALL "\"_" (QREFELT $ 14)))
               (LETT |p| (SPADCALL |cc| |s| 1 (QREFELT $ 16)))
               (EXIT
@@ -42,7 +42,6 @@
                                                                              18))
                                                           (QREFELT $ 19))))
                                  (LETT |n| (+ |p| 1))
-                                 (LETT |c| (SPADCALL |s| |p| (QREFELT $ 21)))
                                  (LETT |esc|
                                        (SPADCALL "_"
                                                  (SPADCALL |s| |p|

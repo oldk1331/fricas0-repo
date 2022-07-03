@@ -676,7 +676,7 @@
 ;     u:= assoc(key,newAl) =>
 ;       argl => RPLACD(u,encodeUnion(id,first newEntry,rest u))
 ;       if newEntry ~= rest u then
-;         p:= moreGeneralCategoryPredicate(id,newEntry,rest u) => RPLACD(u,p)
+;         p := moreGeneralCategoryPredicate(newEntry, rest(u)) => RPLACD(u, p)
 ;         sayMSG '"Duplicate entries:"
 ;         PRINT [newEntry,rest u]
 ;     newAl:= [[key,:newEntry],:newAl]
@@ -715,8 +715,8 @@
                        ((NOT (EQUAL |newEntry| (CDR |u|)))
                         (COND
                          ((SETQ |p|
-                                  (|moreGeneralCategoryPredicate| |id|
-                                   |newEntry| (CDR |u|)))
+                                  (|moreGeneralCategoryPredicate| |newEntry|
+                                   (CDR |u|)))
                           (RPLACD |u| |p|))
                          (#1#
                           (PROGN
@@ -730,7 +730,7 @@
 
 ; encodeUnion(id,new:=[a,:b],alist) ==
 ;   u := assoc(a,alist) =>
-;     RPLACD(u,moreGeneralCategoryPredicate(id,b,rest u))
+;     RPLACD(u, moreGeneralCategoryPredicate(b, rest(u)))
 ;     alist
 ;   [new,:alist]
 
@@ -743,11 +743,11 @@
       (COND
        ((SETQ |u| (|assoc| |a| |alist|))
         (PROGN
-         (RPLACD |u| (|moreGeneralCategoryPredicate| |id| |b| (CDR |u|)))
+         (RPLACD |u| (|moreGeneralCategoryPredicate| |b| (CDR |u|)))
          |alist|))
        ('T (CONS |new| |alist|)))))))
 
-; moreGeneralCategoryPredicate(id,new,old) ==
+; moreGeneralCategoryPredicate(new, old) ==
 ;   old = 'T or new = 'T => 'T
 ;   old is ['has,a,b] and new is ['has,=a,c] =>
 ;     tempExtendsCat(b,c) => new
@@ -755,7 +755,7 @@
 ;     ['OR,old,new]
 ;   mkCategoryOr(new,old)
 
-(DEFUN |moreGeneralCategoryPredicate| (|id| |new| |old|)
+(DEFUN |moreGeneralCategoryPredicate| (|new| |old|)
   (PROG (|ISTMP#1| |a| |ISTMP#2| |b| |c|)
     (RETURN
      (COND ((OR (EQ |old| 'T) (EQ |new| 'T)) 'T)
@@ -796,12 +796,11 @@
 
 ; simpCategoryOr(new,l) ==
 ;   newExtendsAnOld:= false
-;   anOldExtendsNew:= false
 ;   ['has,a,b] := new
 ;   newList:= nil
 ;   for pred in l repeat
 ;     pred is ['has,=a,c] =>
-;       tempExtendsCat(c,b) => anOldExtendsNew:= true
+;       tempExtendsCat(c,b) => "iterate"
 ;       if tempExtendsCat(b,c) then newExtendsAnOld:= true
 ;       newList:= [pred,:newList]
 ;     newList:= [pred,:newList]
@@ -810,12 +809,10 @@
 ;   ['OR,:newList]
 
 (DEFUN |simpCategoryOr| (|new| |l|)
-  (PROG (|newExtendsAnOld| |anOldExtendsNew| |a| |b| |newList| |ISTMP#1|
-         |ISTMP#2| |c|)
+  (PROG (|newExtendsAnOld| |a| |b| |newList| |ISTMP#1| |ISTMP#2| |c|)
     (RETURN
      (PROGN
       (SETQ |newExtendsAnOld| NIL)
-      (SETQ |anOldExtendsNew| NIL)
       (SETQ |a| (CADR . #1=(|new|)))
       (SETQ |b| (CADDR . #1#))
       (SETQ |newList| NIL)
@@ -834,7 +831,7 @@
                           (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                           (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                                (PROGN (SETQ |c| (CAR |ISTMP#2|)) #2#))))))
-              (COND ((|tempExtendsCat| |c| |b|) (SETQ |anOldExtendsNew| T))
+              (COND ((|tempExtendsCat| |c| |b|) '|iterate|)
                     (#2#
                      (PROGN
                       (COND
@@ -934,7 +931,7 @@
 ;     finalList :=
 ;       pred = 'T => newList
 ;       [[a,:quickAnd(b,pred)] for [a,:b] in newList]
-;     extendsList:= catPairUnion(extendsList,finalList,cop,cat)
+;     extendsList := catPairUnion(extendsList, finalList)
 ;   extendsList
 
 (DEFUN |mkCategoryExtensionAlist| (|cform|)
@@ -1005,8 +1002,8 @@
                                                        (CDR |bfVar#51|))))
                                             NIL |newList| NIL))))
                             (SETQ |extendsList|
-                                    (|catPairUnion| |extendsList| |finalList|
-                                     |cop| |cat|))))))
+                                    (|catPairUnion| |extendsList|
+                                     |finalList|))))))
                     (SETQ |bfVar#49| (CDR |bfVar#49|))))
                  |catlist| NIL)
                 |extendsList|)))))))))
@@ -1023,7 +1020,7 @@
 ;     finalList :=
 ;       pred = 'T => newList
 ;       [[a,:quickAnd(b,pred)] for [a,:b] in newList]
-;     extendsList:= catPairUnion(extendsList,finalList,cop,cat)
+;     extendsList := catPairUnion(extendsList, finalList)
 ;   extendsList
 
 (DEFUN |mkCategoryExtensionAlistBasic| (|cform|)
@@ -1086,13 +1083,12 @@
                                      (SETQ |bfVar#58| (CDR |bfVar#58|))))
                                   NIL |newList| NIL))))
                   (SETQ |extendsList|
-                          (|catPairUnion| |extendsList| |finalList| |cop|
-                           |cat|))))))
+                          (|catPairUnion| |extendsList| |finalList|))))))
           (SETQ |bfVar#56| (CDR |bfVar#56|))))
        (ELT (ELT |category| 4) 1) NIL)
       |extendsList|))))
 
-; catPairUnion(oldList,newList,op,cat) ==
+; catPairUnion(oldList, newList) ==
 ;   for pair in newList repeat
 ;     u:= assoc(first pair,oldList) =>
 ;       rest u = rest pair => nil
@@ -1101,7 +1097,7 @@
 ;     oldList:= [pair,:oldList]
 ;   oldList
 
-(DEFUN |catPairUnion| (|oldList| |newList| |op| |cat|)
+(DEFUN |catPairUnion| (|oldList| |newList|)
   (PROG (|u|)
     (RETURN
      (PROGN

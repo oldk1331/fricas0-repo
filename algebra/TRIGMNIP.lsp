@@ -191,25 +191,22 @@
             (SPADCALL (SPADCALL |y| (QREFELT $ 36)) RTRIG (QREFELT $ 56)))))) 
 
 (SDEFUN |TRIGMNIP;complexNormalize;2F;10| ((|f| (F)) ($ (F)))
-        (SPROG
-         ((|g| (F)) (|h| (|Expression| (|Complex| R)))
-          (|l| (|List| (|Symbol|))))
-         (SEQ
-          (LETT |l|
-                (SPADCALL (LETT |g| (SPADCALL |f| (QREFELT $ 58)))
-                          (QREFELT $ 66)))
-          (EXIT
-           (COND
-            ((SPADCALL
-              (CONS #'|TRIGMNIP;complexNormalize;2F;10!0|
-                    (VECTOR $ (QREFELT $ 8)))
-              (SPADCALL |g| (QREFELT $ 60)) (QREFELT $ 62))
-             (SEQ (LETT |h| (|TRIGMNIP;localexplogs| |f| |g| $))
-                  (LETT |h| (QVELT (SPADCALL |h| NIL (QREFELT $ 78)) 0))
-                  (EXIT (SPADCALL |h| (QREFELT $ 74)))))
-            ('T
-             (SEQ (LETT |g| (QVELT (SPADCALL |g| NIL (QREFELT $ 79)) 0))
-                  (EXIT |g|)))))))) 
+        (SPROG ((|g| (F)) (|h| (|Expression| (|Complex| R))))
+               (SEQ (LETT |g| (SPADCALL |f| (QREFELT $ 58)))
+                    (EXIT
+                     (COND
+                      ((SPADCALL
+                        (CONS #'|TRIGMNIP;complexNormalize;2F;10!0|
+                              (VECTOR $ (QREFELT $ 8)))
+                        (SPADCALL |g| (QREFELT $ 60)) (QREFELT $ 62))
+                       (SEQ (LETT |h| (|TRIGMNIP;localexplogs| |f| |g| $))
+                            (LETT |h|
+                                  (QVELT (SPADCALL |h| NIL (QREFELT $ 78)) 0))
+                            (EXIT (SPADCALL |h| (QREFELT $ 74)))))
+                      ('T
+                       (SEQ
+                        (LETT |g| (QVELT (SPADCALL |g| NIL (QREFELT $ 79)) 0))
+                        (EXIT |g|)))))))) 
 
 (SDEFUN |TRIGMNIP;complexNormalize;2F;10!0| ((|x| NIL) ($$ NIL))
         (PROG (RTRIG $)

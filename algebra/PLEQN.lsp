@@ -646,10 +646,9 @@
             (|Record| (|:| |det| GR) (|:| |rows| (|List| (|Integer|)))
                       (|:| |cols| (|List| (|Integer|))))))
           (#6=#:G290 NIL) (|k| NIL) (#7=#:G291 NIL)
-          (|n| (|NonNegativeInteger|)) (|r| (|NonNegativeInteger|))
-          (|psbf| (|List| GR)))
+          (|n| (|NonNegativeInteger|)) (|r| (|NonNegativeInteger|)))
          (SEQ (LETT |rcl| NIL) (LETT |ps| NIL) (LETT |pc| NIL) (LETT |npc| NIL)
-              (LETT |psbf| NIL) (LETT |done| NIL) (LETT |r| (ANROWS |mat|))
+              (LETT |done| NIL) (LETT |r| (ANROWS |mat|))
               (LETT |n| (ANCOLS |mat|)) (LETT |maxrk| (MIN |r| |n|))
               (SEQ (LETT #7# NIL) (LETT |k| (MIN |r| |n|)) (LETT #6# |h|) G190
                    (COND ((OR (< |k| #6#) #7#) (GO G191)))

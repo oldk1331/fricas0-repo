@@ -407,12 +407,12 @@
         (SPROG
          ((|runningRbinv| #1=(|Matrix| R)) (|runningRb| #1#)
           (|runningRbden| (R)) (|mat| (|Matrix| R)) (|disc| (R)) (|rbden| (R))
-          (|rbinv| #2=(|Matrix| R)) (|rb| #3=(|Matrix| R))
+          (|rb| #2=(|Matrix| R))
           (|lb|
-           (|Record| (|:| |basis| #3#) (|:| |basisDen| R) (|:| |basisInv| #2#)
-                     (|:| |discr| R)))
-          (#4=#:G195 NIL) (|prime| NIL) (|matrixOut| #5=(|Matrix| R))
-          (|tfm| #5#) (|pows| #6=(|Vector| F)) (|bas| #6#)
+           (|Record| (|:| |basis| #2#) (|:| |basisDen| R)
+                     (|:| |basisInv| (|Matrix| R)) (|:| |discr| R)))
+          (#3=#:G195 NIL) (|prime| NIL) (|matrixOut| #4=(|Matrix| R))
+          (|tfm| #4#) (|pows| #5=(|Vector| F)) (|bas| #5#)
           (|singList| (|List| R)) (|n| (|PositiveInteger|))
           (|traceMat| (|Matrix| R)))
          (SEQ (LETT |traceMat| (SPADCALL (QREFELT $ 58)))
@@ -422,7 +422,7 @@
                (COND
                 ((SPADCALL |disc| (QREFELT $ 60))
                  (|error| "integralBasis: polynomial must be separable"))
-                (#7='T
+                (#6='T
                  (SEQ
                   (LETT |singList| (|WFFINTBS;listSquaredFactors| |disc| $))
                   (LETT |runningRb|
@@ -434,17 +434,17 @@
                    (COND
                     ((NULL |singList|)
                      (VECTOR |runningRb| |runningRbden| |runningRbinv|))
-                    (#7#
+                    (#6#
                      (SEQ (LETT |bas| (MAKEARR1 |n| (|spadConstant| $ 30)))
                           (LETT |pows| (MAKEARR1 |n| (|spadConstant| $ 30)))
                           (LETT |tfm|
                                 (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 40)))
                           (LETT |matrixOut|
                                 (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 40)))
-                          (SEQ (LETT |prime| NIL) (LETT #4# |singList|) G190
+                          (SEQ (LETT |prime| NIL) (LETT #3# |singList|) G190
                                (COND
-                                ((OR (ATOM #4#)
-                                     (PROGN (LETT |prime| (CAR #4#)) NIL))
+                                ((OR (ATOM #3#)
+                                     (PROGN (LETT |prime| (CAR #3#)) NIL))
                                  (GO G191)))
                                (SEQ
                                 (LETT |lb|
@@ -452,7 +452,6 @@
                                        |pows| |tfm| |matrixOut| |disc| |prime|
                                        $))
                                 (LETT |rb| (QVELT |lb| 0))
-                                (LETT |rbinv| (QVELT |lb| 2))
                                 (LETT |rbden| (QVELT |lb| 1))
                                 (LETT |disc| (QVELT |lb| 3))
                                 (EXIT
@@ -479,7 +478,7 @@
                                      (LETT |runningRbinv|
                                            (SPADCALL |runningRb| |runningRbden|
                                                      (QREFELT $ 45)))))))))
-                               (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
+                               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                           (EXIT
                            (VECTOR |runningRb| |runningRbden|
                                    |runningRbinv|))))))))))))) 

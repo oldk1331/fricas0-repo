@@ -1882,26 +1882,6 @@
                                        (#1#
                                         (|coercionFailure|)))))))))))))))))))
 
-; I2EI(n,source,target) ==
-;   n = '_$fromCoerceable_$ => nil
-;   if not ODDP(n) then n else coercionFailure()
-
-(DEFUN I2EI (|n| |source| |target|)
-  (PROG ()
-    (RETURN
-     (COND ((EQ |n| '|$fromCoerceable$|) NIL)
-           (#1='T (COND ((NULL (ODDP |n|)) |n|) (#1# (|coercionFailure|))))))))
-
-; I2OI(n,source,target) ==
-;   n = '_$fromCoerceable_$ => nil
-;   if ODDP(n) then n else coercionFailure()
-
-(DEFUN I2OI (|n| |source| |target|)
-  (PROG ()
-    (RETURN
-     (COND ((EQ |n| '|$fromCoerceable$|) NIL)
-           (#1='T (COND ((ODDP |n|) |n|) (#1# (|coercionFailure|))))))))
-
 ; I2PI(n,source,target) ==
 ;   n = '_$fromCoerceable_$ => nil
 ;   if n > 0 then n else coercionFailure()

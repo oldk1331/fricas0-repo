@@ -903,7 +903,6 @@
 ;     predIndex := numvec.(i := inc_SI i)
 ;     predIndex ~= 0 and null testBitVector(predvec, predIndex) => nil
 ;     slotIndex := numvec.(i + 2 + numberOfArgs)
-;     newStart := add_SI(start, add_SI(numberOfArgs, 4))
 ;     slot := domain.slotIndex
 ;     null atom slot and EQ(first slot, first arg) and EQ(rest slot, rest arg) =>
 ;         return (success := true)
@@ -912,8 +911,7 @@
 
 (DEFUN |lookupInDomainByName| (|op| |domain| |arg|)
   (PROG (|opvec| |numvec| |predvec| |max| |k| |maxIndex| |start| |finish|
-         |success| |i| |numberOfArgs| |predIndex| |slotIndex| |newStart|
-         |slot|)
+         |success| |i| |numberOfArgs| |predIndex| |slotIndex| |slot|)
     (RETURN
      (COND ((ATOM |arg|) NIL)
            (#1='T
@@ -951,9 +949,6 @@
                             (SETQ |slotIndex|
                                     (ELT |numvec|
                                          (+ (+ |i| 2) |numberOfArgs|)))
-                            (SETQ |newStart|
-                                    (|add_SI| |start|
-                                     (|add_SI| |numberOfArgs| 4)))
                             (SETQ |slot| (ELT |domain| |slotIndex|))
                             (COND
                              ((AND (NULL (ATOM |slot|))

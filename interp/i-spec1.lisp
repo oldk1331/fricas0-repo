@@ -3871,7 +3871,6 @@
 ; upRecordConstruct(op,l,tar) ==
 ;   -- special handler for record constructors
 ;   tar isnt [.,:types] => nil
-;   argModes := nil
 ;   for arg in l repeat bottomUp arg
 ;   argCode :=
 ;     [(getArgValue(arg,type) or throwKeyedMsgCannotCoerceWithValue(
@@ -3887,13 +3886,12 @@
 ;   putModeSet(op,[tar])
 
 (DEFUN |upRecordConstruct| (|op| |l| |tar|)
-  (PROG (|types| |argModes| |ISTMP#1| |ISTMP#2| |type| |argCode| |len| |code|)
+  (PROG (|types| |ISTMP#1| |ISTMP#2| |type| |argCode| |len| |code|)
     (RETURN
      (COND
       ((NOT (AND (CONSP |tar|) (PROGN (SETQ |types| (CDR |tar|)) #1='T))) NIL)
       (#1#
        (PROGN
-        (SETQ |argModes| NIL)
         ((LAMBDA (|bfVar#97| |arg|)
            (LOOP
             (COND
@@ -3954,7 +3952,7 @@
 ;   not isLegitimateMode(mode,nil,nil) => throwKeyedMsgSP("S2IE0004",[mode],op)
 ;   categoryForm?(mode) => throwKeyedMsgSP("S2IE0011",[mode, 'category],op)
 ;   packageForm?(mode) => throwKeyedMsgSP("S2IE0011",[mode, 'package],op)
-;   junk :=
+;   if true then
 ;     lhs is ['free,['Tuple,:vars]] or lhs is ['free,['LISTOF,:vars]] or
 ;       lhs is ['free,:vars] =>
 ;         for var in vars repeat declare(['free,var],mode)
@@ -3968,7 +3966,7 @@
 ;   putModeSet(op,[$Void])
 
 (DEFUN |upDeclare| (|t|)
-  (PROG (|op| |ISTMP#1| |lhs| |ISTMP#2| |rhs| |mode| |vars| |junk|)
+  (PROG (|op| |ISTMP#1| |lhs| |ISTMP#2| |rhs| |mode| |vars|)
     (RETURN
      (COND
       ((NOT
@@ -4009,95 +4007,92 @@
                (|throwKeyedMsgSP| 'S2IE0011 (LIST |mode| '|package|) |op|))
               (#1#
                (PROGN
-                (SETQ |junk|
+                (COND
+                 (T
+                  (COND
+                   ((OR
+                     (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
+                          (PROGN
+                           (SETQ |ISTMP#1| (CDR |lhs|))
+                           (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                                (PROGN
+                                 (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                                 (AND (CONSP |ISTMP#2|)
+                                      (EQ (CAR |ISTMP#2|) '|Tuple|)
+                                      (PROGN
+                                       (SETQ |vars| (CDR |ISTMP#2|))
+                                       #1#))))))
+                     (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
+                          (PROGN
+                           (SETQ |ISTMP#1| (CDR |lhs|))
+                           (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                                (PROGN
+                                 (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                                 (AND (CONSP |ISTMP#2|)
+                                      (EQ (CAR |ISTMP#2|) 'LISTOF)
+                                      (PROGN
+                                       (SETQ |vars| (CDR |ISTMP#2|))
+                                       #1#))))))
+                     (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
+                          (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
+                    ((LAMBDA (|bfVar#104| |var|)
+                       (LOOP
                         (COND
-                         ((OR
-                           (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
+                         ((OR (ATOM |bfVar#104|)
+                              (PROGN (SETQ |var| (CAR |bfVar#104|)) NIL))
+                          (RETURN NIL))
+                         (#1# (|declare| (LIST '|free| |var|) |mode|)))
+                        (SETQ |bfVar#104| (CDR |bfVar#104|))))
+                     |vars| NIL))
+                   ((OR
+                     (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
+                          (PROGN
+                           (SETQ |ISTMP#1| (CDR |lhs|))
+                           (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                                 (PROGN
-                                 (SETQ |ISTMP#1| (CDR |lhs|))
-                                 (AND (CONSP |ISTMP#1|)
-                                      (EQ (CDR |ISTMP#1|) NIL)
+                                 (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                                 (AND (CONSP |ISTMP#2|)
+                                      (EQ (CAR |ISTMP#2|) '|Tuple|)
                                       (PROGN
-                                       (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                                       (AND (CONSP |ISTMP#2|)
-                                            (EQ (CAR |ISTMP#2|) '|Tuple|)
-                                            (PROGN
-                                             (SETQ |vars| (CDR |ISTMP#2|))
-                                             #1#))))))
-                           (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
+                                       (SETQ |vars| (CDR |ISTMP#2|))
+                                       #1#))))))
+                     (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
+                          (PROGN
+                           (SETQ |ISTMP#1| (CDR |lhs|))
+                           (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                                 (PROGN
-                                 (SETQ |ISTMP#1| (CDR |lhs|))
-                                 (AND (CONSP |ISTMP#1|)
-                                      (EQ (CDR |ISTMP#1|) NIL)
+                                 (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                                 (AND (CONSP |ISTMP#2|)
+                                      (EQ (CAR |ISTMP#2|) 'LISTOF)
                                       (PROGN
-                                       (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                                       (AND (CONSP |ISTMP#2|)
-                                            (EQ (CAR |ISTMP#2|) 'LISTOF)
-                                            (PROGN
-                                             (SETQ |vars| (CDR |ISTMP#2|))
-                                             #1#))))))
-                           (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
-                                (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
-                          ((LAMBDA (|bfVar#104| |var|)
-                             (LOOP
-                              (COND
-                               ((OR (ATOM |bfVar#104|)
-                                    (PROGN (SETQ |var| (CAR |bfVar#104|)) NIL))
-                                (RETURN NIL))
-                               (#1# (|declare| (LIST '|free| |var|) |mode|)))
-                              (SETQ |bfVar#104| (CDR |bfVar#104|))))
-                           |vars| NIL))
-                         ((OR
-                           (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
-                                (PROGN
-                                 (SETQ |ISTMP#1| (CDR |lhs|))
-                                 (AND (CONSP |ISTMP#1|)
-                                      (EQ (CDR |ISTMP#1|) NIL)
-                                      (PROGN
-                                       (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                                       (AND (CONSP |ISTMP#2|)
-                                            (EQ (CAR |ISTMP#2|) '|Tuple|)
-                                            (PROGN
-                                             (SETQ |vars| (CDR |ISTMP#2|))
-                                             #1#))))))
-                           (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
-                                (PROGN
-                                 (SETQ |ISTMP#1| (CDR |lhs|))
-                                 (AND (CONSP |ISTMP#1|)
-                                      (EQ (CDR |ISTMP#1|) NIL)
-                                      (PROGN
-                                       (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                                       (AND (CONSP |ISTMP#2|)
-                                            (EQ (CAR |ISTMP#2|) 'LISTOF)
-                                            (PROGN
-                                             (SETQ |vars| (CDR |ISTMP#2|))
-                                             #1#))))))
-                           (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
-                                (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
-                          ((LAMBDA (|bfVar#105| |var|)
-                             (LOOP
-                              (COND
-                               ((OR (ATOM |bfVar#105|)
-                                    (PROGN (SETQ |var| (CAR |bfVar#105|)) NIL))
-                                (RETURN NIL))
-                               (#1# (|declare| (LIST '|local| |var|) |mode|)))
-                              (SETQ |bfVar#105| (CDR |bfVar#105|))))
-                           |vars| NIL))
-                         ((OR
-                           (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|Tuple|)
-                                (PROGN (SETQ |vars| (CDR |lhs|)) #1#))
-                           (AND (CONSP |lhs|) (EQ (CAR |lhs|) 'LISTOF)
-                                (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
-                          ((LAMBDA (|bfVar#106| |var|)
-                             (LOOP
-                              (COND
-                               ((OR (ATOM |bfVar#106|)
-                                    (PROGN (SETQ |var| (CAR |bfVar#106|)) NIL))
-                                (RETURN NIL))
-                               (#1# (|declare| |var| |mode|)))
-                              (SETQ |bfVar#106| (CDR |bfVar#106|))))
-                           |vars| NIL))
-                         (#1# (|declare| |lhs| |mode|))))
+                                       (SETQ |vars| (CDR |ISTMP#2|))
+                                       #1#))))))
+                     (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
+                          (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
+                    ((LAMBDA (|bfVar#105| |var|)
+                       (LOOP
+                        (COND
+                         ((OR (ATOM |bfVar#105|)
+                              (PROGN (SETQ |var| (CAR |bfVar#105|)) NIL))
+                          (RETURN NIL))
+                         (#1# (|declare| (LIST '|local| |var|) |mode|)))
+                        (SETQ |bfVar#105| (CDR |bfVar#105|))))
+                     |vars| NIL))
+                   ((OR
+                     (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|Tuple|)
+                          (PROGN (SETQ |vars| (CDR |lhs|)) #1#))
+                     (AND (CONSP |lhs|) (EQ (CAR |lhs|) 'LISTOF)
+                          (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
+                    ((LAMBDA (|bfVar#106| |var|)
+                       (LOOP
+                        (COND
+                         ((OR (ATOM |bfVar#106|)
+                              (PROGN (SETQ |var| (CAR |bfVar#106|)) NIL))
+                          (RETURN NIL))
+                         (#1# (|declare| |var| |mode|)))
+                        (SETQ |bfVar#106| (CDR |bfVar#106|))))
+                     |vars| NIL))
+                   (#1# (|declare| |lhs| |mode|)))))
                 (|putValue| |op| (|objNewWrap| (|voidValue|) |$Void|))
                 (|putModeSet| |op| (LIST |$Void|)))))))))))
 

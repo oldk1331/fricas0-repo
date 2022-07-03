@@ -767,16 +767,7 @@
 
 (SDEFUN |CKP;complete;JdeV;19|
         ((|De| (|JetDifferentialEquation| JB D)) ($ (|Void|)))
-        (SPROG
-         ((|tmp|
-           (|Record| (|:| |IDe| (|JetDifferentialEquation| JB D))
-                     (|:| |ISys| (|List| D))
-                     (|:| |Order| (|NonNegativeInteger|))
-                     (|:| |NumProj| (|NonNegativeInteger|))
-                     (|:| |Dim| (|NonNegativeInteger|))
-                     (|:| |CarChar| (|List| (|NonNegativeInteger|))))))
-         (SEQ (LETT |tmp| (SPADCALL |De| (QREFELT $ 96)))
-              (EXIT (SPADCALL (QREFELT $ 29)))))) 
+        (SPADCALL |De| (QREFELT $ 96))) 
 
 (SDEFUN |CKP;complete2;JdeR;20|
         ((|De| (|JetDifferentialEquation| JB D))
@@ -796,9 +787,9 @@
                      (|:| IC (|List| D))))
           (|PrevDe| #1#) (|CompSys| (|List| D)) (|s| #2=(|NonNegativeInteger|))
           (|InvDe| (|Boolean|)) (|ProjDeDim| #3=(|NonNegativeInteger|))
-          (#4=#:G472 NIL) (|ProjDe| (|JetDifferentialEquation| JB D))
+          (#4=#:G470 NIL) (|ProjDe| (|JetDifferentialEquation| JB D))
           (|InvSymb| (|Boolean|)) (|CurDeDim| #3#) (|CurSymbDim| #2#)
-          (#5=#:G464 NIL)
+          (#5=#:G462 NIL)
           (|CurMV|
            (|Record| (|:| |Rank| (|NonNegativeInteger|))
                      (|:| |NumMultVar| (|NonNegativeInteger|))
@@ -811,7 +802,7 @@
                      (|:| |Betas| (|List| (|NonNegativeInteger|)))))
           (|dimSq1| #6=(|NonNegativeInteger|)) (|dimSq| #6#)
           (|q1| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|))
-          (#7=#:G458 NIL) (#8=#:G456 NIL) (#9=#:G481 NIL)
+          (#7=#:G456 NIL) (#8=#:G454 NIL) (#9=#:G479 NIL)
           (|solved?| (|Boolean|)))
          (SEQ (LETT |PrevDe| (QCAR (SPADCALL |De| (QREFELT $ 99))))
               (LETT |CompSys| (SPADCALL |PrevDe| (QREFELT $ 100)))
@@ -1009,9 +1000,9 @@
 
 (DECLAIM (NOTINLINE |CartanKuranishi;|)) 
 
-(DEFUN |CartanKuranishi| (&REST #1=#:G482)
+(DEFUN |CartanKuranishi| (&REST #1=#:G480)
   (SPROG NIL
-         (PROG (#2=#:G483)
+         (PROG (#2=#:G481)
            (RETURN
             (COND
              ((LETT #2#

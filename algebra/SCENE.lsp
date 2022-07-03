@@ -451,9 +451,9 @@
 
 (SDEFUN |SCENE;createSceneGrid;Sb$;51| ((|bb| (|SBoundary| PT)) ($ ($)))
         (SPROG
-         ((|gd3| ($)) (|mt3| ($)) (|gd2| ($)) (|mt2| ($)) (|gd1| ($))
-          (|mt1| ($)) (|gp| ($)) (|stepSize| (|DoubleFloat|))
-          (|maxx| #1=(|DoubleFloat|)) (|minx| #1#))
+         ((|mt3| ($)) (|mt2| ($)) (|mt1| ($)) (|gp| ($))
+          (|stepSize| (|DoubleFloat|)) (|maxx| #1=(|DoubleFloat|))
+          (|minx| #1#))
          (SEQ
           (LETT |minx|
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 84)))
@@ -464,27 +464,23 @@
           (LETT |mt1|
                 (SPADCALL |gp| (VECTOR 1.0 "blue" "blue" (|mk_DF| 5 -1))
                           (QREFELT $ 92)))
-          (LETT |gd1| (SPADCALL |mt1| |stepSize| |bb| (QREFELT $ 88)))
+          (SPADCALL |mt1| |stepSize| |bb| (QREFELT $ 88))
           (LETT |mt2|
                 (SPADCALL |gp|
                           (VECTOR (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT) "blue"
                                   "blue" (|mk_DF| 5 -1))
                           (QREFELT $ 92)))
-          (LETT |gd2|
-                (SPADCALL |mt2|
-                          (|mul_DF| |stepSize|
-                                    (FLOAT 5 MOST-POSITIVE-DOUBLE-FLOAT))
-                          |bb| (QREFELT $ 88)))
+          (SPADCALL |mt2|
+                    (|mul_DF| |stepSize| (FLOAT 5 MOST-POSITIVE-DOUBLE-FLOAT))
+                    |bb| (QREFELT $ 88))
           (LETT |mt3|
                 (SPADCALL |gp|
                           (VECTOR (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT) "red"
                                   "red" (|mk_DF| 5 -1))
                           (QREFELT $ 92)))
-          (LETT |gd3|
-                (SPADCALL |mt3|
-                          (|mul_DF| |stepSize|
-                                    (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT))
-                          |bb| (QREFELT $ 88)))
+          (SPADCALL |mt3|
+                    (|mul_DF| |stepSize| (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT))
+                    |bb| (QREFELT $ 88))
           (EXIT |gp|)))) 
 
 (SDEFUN |SCENE;addSceneGrid;$Sb$;52|
@@ -510,8 +506,8 @@
          ((|ln| ($)) (|pts| (|List| PT)) (#1=#:G805 NIL) (|j| NIL)
           (#2=#:G804 NIL) (#3=#:G803 NIL) (|i| NIL) (|mt2| ($)) (#4=#:G802 NIL)
           (#5=#:G801 NIL) (#6=#:G800 NIL) (|mt1| ($)) (|gp| ($))
-          (|stepSize| (|DoubleFloat|)) (|maxy| #7=(|DoubleFloat|))
-          (|maxx| #8=(|DoubleFloat|)) (|miny| #7#) (|minx| #8#))
+          (|stepSize| (|DoubleFloat|)) (|maxx| #7=(|DoubleFloat|))
+          (|miny| (|DoubleFloat|)) (|minx| #7#))
          (SEQ
           (LETT |minx|
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 84)))
@@ -519,8 +515,6 @@
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 85)))
           (LETT |maxx|
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 40)) (QREFELT $ 84)))
-          (LETT |maxy|
-                (SPADCALL (SPADCALL |bb| (QREFELT $ 40)) (QREFELT $ 85)))
           (LETT |stepSize| (|div_DF_I| (|sub_DF| |maxx| |minx|) 1200))
           (LETT |gp| (SPADCALL (QREFELT $ 18)))
           (LETT |mt1|
@@ -688,8 +682,7 @@
           (#4=#:G829 NIL) (#5=#:G828 NIL) (|i| NIL) (#6=#:G827 NIL)
           (|ycoords| (|List| (|List| #7=(|NonNegativeInteger|))))
           (|xcoords| (|List| (|List| #7#))) (|scale| (|DoubleFloat|))
-          (|maxy| #8=(|DoubleFloat|)) (|maxx| #9=(|DoubleFloat|)) (|miny| #8#)
-          (|minx| #9#))
+          (|maxx| #8=(|DoubleFloat|)) (|miny| (|DoubleFloat|)) (|minx| #8#))
          (SEQ
           (LETT |minx|
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 84)))
@@ -697,8 +690,6 @@
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 85)))
           (LETT |maxx|
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 40)) (QREFELT $ 84)))
-          (LETT |maxy|
-                (SPADCALL (SPADCALL |bb| (QREFELT $ 40)) (QREFELT $ 85)))
           (LETT |scale| (|div_DF_I| (|sub_DF| |maxx| |minx|) 1000))
           (LETT |xcoords|
                 (LIST (LIST 0 0 500 1000 1000 0) (LIST 150 350 350 150 150)
@@ -827,14 +818,11 @@
           (|stepI| (|Integer|)) (|gp| ($)) (|suffix| (|String|))
           (|zeroes| #3=(|Integer|)) (|maxPrimaryNorm| #4=(|DoubleFloat|))
           (|minPrimaryNorm| #4#) (|divn| (|DoubleFloat|)) (|expStep| #3#)
-          (|stepSize| (|DoubleFloat|)) (|maxSecondary| #5=(|DoubleFloat|))
-          (|maxPrimary| #6=(|DoubleFloat|)) (|minSecondary| #5#)
-          (|minPrimary| #6#))
+          (|stepSize| (|DoubleFloat|)) (|maxSecondary| (|DoubleFloat|))
+          (|maxPrimary| #5=(|DoubleFloat|)) (|minPrimary| #5#))
          (SEQ
           (LETT |minPrimary|
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 84)))
-          (LETT |minSecondary|
-                (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 85)))
           (LETT |maxPrimary|
                 (SPADCALL (SPADCALL |bb| (QREFELT $ 40)) (QREFELT $ 84)))
           (LETT |maxSecondary|
@@ -844,8 +832,6 @@
             (SEQ
              (LETT |minPrimary|
                    (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 85)))
-             (LETT |minSecondary|
-                   (SPADCALL (SPADCALL |bb| (QREFELT $ 41)) (QREFELT $ 84)))
              (LETT |maxPrimary|
                    (SPADCALL (SPADCALL |bb| (QREFELT $ 40)) (QREFELT $ 85)))
              (EXIT
@@ -6653,8 +6639,8 @@
          ($ (|List| (|String|))))
         (SPROG
          ((|ptStr| (|List| (|String|))) (|thisStr| (|String|)) (|param2| (PT))
-          (#1=#:G1209 NIL) (|param| NIL) (|lastValid| (|Boolean|)))
-         (SEQ (LETT |ptStr| NIL) (LETT |lastValid| 'T)
+          (#1=#:G1209 NIL) (|param| NIL))
+         (SEQ (LETT |ptStr| NIL)
               (SEQ (LETT |param| NIL) (LETT #1# |pts|) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |param| (CAR #1#)) NIL))
@@ -7761,12 +7747,10 @@
           (#17=#:G1300 NIL) (|tran2| (|STransform| PT)) (#18=#:G1301 NIL)
           (#19=#:G1358 NIL) (|mx| (PT)) (|mn| (PT))
           (|offsety| #20=(|DoubleFloat|)) (|offsetRequired| (|Boolean|))
-          (|offsetx| #20#) (|miny| (|DoubleFloat|)) (|minx| (|DoubleFloat|))
-          (|nodeName| (|String|)))
+          (|offsetx| #20#) (|miny| (|DoubleFloat|)) (|minx| (|DoubleFloat|)))
          (SEQ
           (EXIT
-           (SEQ (LETT |nodeName| (|SCENE;setX3DNodeName| (QVELT |n| 0) $))
-                (LETT |bb2| |bb|) (LETT |tran2| |tran|)
+           (SEQ (LETT |bb2| |bb|) (LETT |tran2| |tran|)
                 (COND
                  ((EQUAL (QVELT |n| 0) 'ROOT)
                   (SEQ

@@ -257,8 +257,8 @@
           (|rp| (|U32Vector|)) (|deg_r1| (|Integer|)) (|r1| (|U32Vector|))
           (|j| #3=(|Integer|)) (|dens| (|PrimitiveArray| (|U32Vector|)))
           (|nums| (|PrimitiveArray| (|U32Vector|))) (#4=#:G213 NIL)
-          (#5=#:G211 NIL) (|n| (|Integer|)) (|ok| (|Boolean|))
-          (|bound| (|Integer|)) (|m| (|Integer|)) (|j0| #3#) (|p| (|Integer|))
+          (#5=#:G211 NIL) (|n| (|Integer|)) (|bound| (|Integer|))
+          (|m| (|Integer|)) (|j0| #3#) (|p| (|Integer|))
           (|polyvec| (|PrimitiveArray| (|U32Vector|)))
           (|modulus| (|U32Vector|)) (|state| (|Rep|)))
          (SEQ
@@ -279,7 +279,7 @@
                       (QSETVELT |state| 8
                                 (+ (QVELT |state| 8)
                                    (COND ((> |m| 200) 4) (#7# 1))))))
-                    (LETT |bound| (QUOTIENT2 |m| 2)) (LETT |ok| 'T)
+                    (LETT |bound| (QUOTIENT2 |m| 2))
                     (LETT |pp|
                           (SPADCALL (QAREF1 |polyvec| |j0|) |modulus| |bound|
                                     |p| (QREFELT $ 31)))

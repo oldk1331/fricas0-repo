@@ -2720,7 +2720,6 @@
            (|Record| (|:| |nargs0| (|List| FE)) (|:| |sers| (|List| UPS))
                      (|:| |syms| (|List| (|Symbol|)))))
           (|lser0| (|List| FE)) (|lsere| (|List| FE)) (|lsers| (|List| UPS))
-          (|losers| (|List| UPS))
           (|ares|
            (|Record| (|:| |osers| (|List| UPS)) (|:| |sers| (|List| UPS))
                      (|:| |sere| (|List| FE)) (|:| |sers0| (|List| FE))))
@@ -2737,7 +2736,6 @@
                (COND ((QEQCAR |aresu| 1) (QCDR |aresu|))
                      ('T
                       (SEQ (LETT |ares| (QCDR |aresu|))
-                           (LETT |losers| (QVELT |ares| 0))
                            (LETT |lsers| (QVELT |ares| 1))
                            (LETT |lsere| (QVELT |ares| 2))
                            (LETT |lser0| (QVELT |ares| 3))

@@ -592,7 +592,6 @@
 ;   conname         := opOf conform
 ;   capitalKind     := capitalize kind
 ;   signature       := ncParseFromString sig
-;   sourceFileName  := dbSourceFile INTERN name
 ;   constrings      :=
 ;     IFCDR form => dbConformGenUnder form
 ;     [STRCONC(name,args)]
@@ -623,7 +622,7 @@
 (DEFUN |kPage| (|line| |options|)
   (PROG (|parts| |kind| |name| |nargs| |xflag| |sig| |args| |abbrev| |comments|
          |form| |isFile| |conform| |conname| |capitalKind| |signature|
-         |sourceFileName| |constrings| |emString| |heading| |page|)
+         |constrings| |emString| |heading| |page|)
     (RETURN
      (PROGN
       (SETQ |parts| (|dbXParts| |line| 7 1))
@@ -643,7 +642,6 @@
       (SETQ |conname| (|opOf| |conform|))
       (SETQ |capitalKind| (|capitalize| |kind|))
       (SETQ |signature| (|ncParseFromString| |sig|))
-      (SETQ |sourceFileName| (|dbSourceFile| (INTERN |name|)))
       (SETQ |constrings|
               (COND ((IFCDR |form|) (|dbConformGenUnder| |form|))
                     ('T (LIST (STRCONC |name| |args|)))))

@@ -453,10 +453,10 @@
         (SPROG
          ((|iCol| #1=(|Integer|)) (#2=#:G258 NIL) (|ss| (R)) (#3=#:G255 NIL)
           (#4=#:G254 (R)) (#5=#:G256 (R)) (#6=#:G267 NIL) (|k| NIL)
-          (#7=#:G266 NIL) (|j| NIL) (|i| NIL) (|iRow| #8=(|Integer|))
-          (|minC1| #9=(|Integer|)) (|maxC1| #9#) (|maxR1| #1#) (|det| (R))
-          (|exCol| (|Integer|)) (|maxC| #1#) (|minC| (|Integer|)) (|maxR| #8#)
-          (|minR| (|Integer|)) (|ndim| (|NonNegativeInteger|)))
+          (#7=#:G266 NIL) (|j| NIL) (|i| NIL) (|maxC1| (|Integer|))
+          (|maxR1| #1#) (|det| (R)) (|exCol| (|Integer|)) (|maxC| #1#)
+          (|minC| (|Integer|)) (|maxR| (|Integer|)) (|minR| (|Integer|))
+          (|ndim| (|NonNegativeInteger|)))
          (SEQ (LETT |ndim| (SPADCALL |x| (QREFELT $ 26)))
               (LETT |minR| (SPADCALL |x| (QREFELT $ 17)))
               (LETT |maxR| (SPADCALL |x| (QREFELT $ 18)))
@@ -465,7 +465,6 @@
               (LETT |exCol| (SPADCALL |x| (QREFELT $ 12)))
               (LETT |det| (SPADCALL |x| |maxR| |maxC| (QREFELT $ 51)))
               (LETT |maxR1| (- |maxR| 1)) (LETT |maxC1| (+ |maxC| 1))
-              (LETT |minC1| (+ |minC| 1)) (LETT |iRow| |maxR|)
               (LETT |iCol| (- |maxC| 1))
               (SEQ (LETT |i| |maxR1|) G190 (COND ((< |i| 1) (GO G191)))
                    (SEQ

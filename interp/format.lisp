@@ -648,17 +648,15 @@
        |modemaps| NIL)
       |ans|))))
 
-; formatOperation([[op,sig],.,[fn,.,n]],domain) ==
+; formatOperation([[op, sig], :.]) ==
 ;     formatOpSignature(op,sig)
 
-(DEFUN |formatOperation| (|bfVar#18| |domain|)
-  (PROG (|op| |sig| |fn| |n|)
+(DEFUN |formatOperation| (|bfVar#18|)
+  (PROG (|op| |sig|)
     (RETURN
      (PROGN
       (SETQ |op| (CAAR . #1=(|bfVar#18|)))
       (SETQ |sig| (CADAR . #1#))
-      (SETQ |fn| (CAADDR . #2=(|bfVar#18|)))
-      (SETQ |n| (CADR (CDADDR . #2#)))
       (|formatOpSignature| |op| |sig|)))))
 
 ; formatOperationWithPred([[op,sig],pred,.]) ==

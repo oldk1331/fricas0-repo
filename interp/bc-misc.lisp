@@ -1174,17 +1174,15 @@
 ;   fun := htpLabelInputString(htPage,'function)
 ;   var := htpLabelInputString(htPage,'variable)
 ;   point := htpLabelInputString(htPage,'point)
-;   terms := htpLabelInputString(htPage,'numberOfTerms)
 ;   bcFinish("series",fun,STRCONC(var,'" = ",point))
 
 (DEFUN |bcSeriesExpansionGen| (|htPage|)
-  (PROG (|fun| |var| |point| |terms|)
+  (PROG (|fun| |var| |point|)
     (RETURN
      (PROGN
       (SETQ |fun| (|htpLabelInputString| |htPage| '|function|))
       (SETQ |var| (|htpLabelInputString| |htPage| '|variable|))
       (SETQ |point| (|htpLabelInputString| |htPage| '|point|))
-      (SETQ |terms| (|htpLabelInputString| |htPage| '|numberOfTerms|))
       (|bcFinish| '|series| |fun| (STRCONC |var| " = " |point|))))))
 
 ; bcSeriesByFormula(a,b) ==

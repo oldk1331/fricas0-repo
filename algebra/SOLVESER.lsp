@@ -56,11 +56,10 @@
           (|degG| #2=(|NonNegativeInteger|)) (|degF| #2#)
           (|g2| #3=(|SparseUnivariatePolynomial| (|Expression| R)))
           (|g1| #4=(|SparseUnivariatePolynomial| (|Expression| R))) (|f2| #3#)
-          (|f1| #4#) (X (|Symbol|)))
+          (|f1| #4#))
          (SEQ
           (EXIT
-           (SEQ (LETT X (SPADCALL (QREFELT $ 8)))
-                (LETT |f1| (SPADCALL |exprf| (QREFELT $ 28)))
+           (SEQ (LETT |f1| (SPADCALL |exprf| (QREFELT $ 28)))
                 (LETT |f2| (SPADCALL |exprf| (QREFELT $ 29)))
                 (LETT |g1| (SPADCALL |exprg| (QREFELT $ 28)))
                 (LETT |g2| (SPADCALL |exprg| (QREFELT $ 29)))

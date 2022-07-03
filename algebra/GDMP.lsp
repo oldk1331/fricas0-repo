@@ -200,8 +200,8 @@
                     (EXIT (COND ((NULL |l|) 'T) ('T (NULL (CDR |l|)))))))) 
 
 (SDEFUN |GDMP;maxNorm| ((|p| ($)) ($ (R)))
-        (SPROG ((|m| (R)) (#1=#:G226 NIL) (|r| NIL) (|l| (|List| R)))
-               (SEQ (LETT |l| NIL) (LETT |m| (|spadConstant| $ 59))
+        (SPROG ((|m| (R)) (#1=#:G226 NIL) (|r| NIL))
+               (SEQ (LETT |m| (|spadConstant| $ 59))
                     (SEQ (LETT |r| NIL) (LETT #1# (|GDMP;listCoef| |p| $)) G190
                          (COND
                           ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#)) NIL))

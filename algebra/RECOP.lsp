@@ -1110,7 +1110,7 @@
 (SDEFUN |RECOP;iADE| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((#1=#:G348 NIL) (|g| (|Mapping| (|Stream| F))) (#2=#:G340 NIL)
-          (N (|NonNegativeInteger|)) (#3=#:G338 NIL)
+          (#3=#:G338 NIL)
           (|info|
            (|Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
                      (|:| |fnc| (|BasicOperator|)) (|:| |var| (|Symbol|))
@@ -1153,7 +1153,6 @@
                            (GO #5=#:G347)))
                          (#6='T
                           (SEQ
-                           (LETT N (SPADCALL (QVELT |info| 5) (QREFELT $ 79)))
                            (LETT |g|
                                  (PROG2 (LETT #2# (QVELT |info| 7))
                                      (QCDR #2#)

@@ -232,7 +232,7 @@
   (PROG () (RETURN (|unStackWarning| (LIST '|%b| |s| '|%d| "has no value")))))
 
 ; consProplistOf(var,proplist,prop,val) ==
-;   semchkProplist(var,proplist,prop,val)
+;   semchkProplist(var, proplist, prop)
 ;   $InteractiveMode and (u:= assoc(prop,proplist)) =>
 ;     RPLACD(u,val)
 ;     proplist
@@ -242,7 +242,7 @@
   (PROG (|u|)
     (RETURN
      (PROGN
-      (|semchkProplist| |var| |proplist| |prop| |val|)
+      (|semchkProplist| |var| |proplist| |prop|)
       (COND
        ((AND |$InteractiveMode| (SETQ |u| (|assoc| |prop| |proplist|)))
         (PROGN (RPLACD |u| |val|) |proplist|))

@@ -1649,12 +1649,11 @@
          (|nu| (|List| (|NonNegativeInteger|))) ($ (D)))
         (SPROG
          ((|res| (D)) (|prod| (D)) (#1=#:G588 NIL) (|si| NIL) (#2=#:G589 NIL)
-          (|mi| NIL) (#3=#:G587 NIL) (|s| NIL) (|q| (|NonNegativeInteger|))
+          (|mi| NIL) (#3=#:G587 NIL) (|s| NIL)
           (|rmu| (|List| (|PositiveInteger|)))
           (|snu| (|List| (|List| (|PositiveInteger|)))))
          (SEQ (LETT |snu| (SPADCALL |nu| (QREFELT $ 157)))
               (LETT |rmu| (SPADCALL |mu| (QREFELT $ 159)))
-              (LETT |q| (LENGTH (|SPADfirst| |snu|)))
               (LETT |res| (|spadConstant| $ 48))
               (SEQ (LETT |s| NIL) (LETT #3# |snu|) G190
                    (COND

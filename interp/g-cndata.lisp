@@ -133,10 +133,10 @@
 
 ; mkUserConstructorAbbreviation(c,a,type) ==
 ;   if not atom c then c := first c  --  Existing constructors will be wrapped
-;   constructorAbbreviationErrorCheck(c,a,type,'abbreviationError)
+;   constructorAbbreviationErrorCheck(c, a, type)
 ;   clearClams()
 ;   clearConstructorCache(c)
-;   installConstructor(c,type)
+;   installConstructor(c)
 ;   setAutoLoadProperty(c)
 
 (DEFUN |mkUserConstructorAbbreviation| (|c| |a| |type|)
@@ -144,10 +144,10 @@
     (RETURN
      (PROGN
       (COND ((NULL (ATOM |c|)) (SETQ |c| (CAR |c|))))
-      (|constructorAbbreviationErrorCheck| |c| |a| |type| '|abbreviationError|)
+      (|constructorAbbreviationErrorCheck| |c| |a| |type|)
       (|clearClams|)
       (|clearConstructorCache| |c|)
-      (|installConstructor| |c| |type|)
+      (|installConstructor| |c|)
       (|setAutoLoadProperty| |c|)))))
 
 ; abbQuery(x) ==
@@ -164,14 +164,14 @@
         (LIST |abb| (GETDATABASE |x| 'CONSTRUCTORKIND) |x|)))
       ('T (|sayKeyedMsg| 'S2IZ0003 (LIST |x|)))))))
 
-; installConstructor(cname,type) ==
+; installConstructor(cname) ==
 ;   (entry := getCDTEntry(cname,true)) => entry
 ;   item := [cname,GETDATABASE(cname,'ABBREVIATION),nil]
 ;   if BOUNDP '$lowerCaseConTb and $lowerCaseConTb then
 ;     HPUT($lowerCaseConTb,cname,item)
 ;     HPUT($lowerCaseConTb,DOWNCASE cname,item)
 
-(DEFUN |installConstructor| (|cname| |type|)
+(DEFUN |installConstructor| (|cname|)
   (PROG (|entry| |item|)
     (RETURN
      (COND ((SETQ |entry| (|getCDTEntry| |cname| T)) |entry|)
@@ -184,7 +184,7 @@
                (HPUT |$lowerCaseConTb| |cname| |item|)
                (HPUT |$lowerCaseConTb| (DOWNCASE |cname|) |item|)))))))))
 
-; constructorAbbreviationErrorCheck(c,a,typ,errmess) ==
+; constructorAbbreviationErrorCheck(c,a,typ) ==
 ;   siz := SIZE (s := PNAME a)
 ;   if typ = 'category and siz > 7
 ;     then throwKeyedErrorMsg('precompilation,"S2IL0021",NIL)
@@ -197,7 +197,7 @@
 ;   a=name and c~=name => lisplibError(c,a,typ,abb,name,type,'abbIsName)
 ;   c=name and typ~=type => lisplibError(c,a,typ,abb,name,type,'wrongType)
 
-(DEFUN |constructorAbbreviationErrorCheck| (|c| |a| |typ| |errmess|)
+(DEFUN |constructorAbbreviationErrorCheck| (|c| |a| |typ|)
   (PROG (|s| |siz| |abb| |name| |type|)
     (RETURN
      (PROGN
@@ -218,30 +218,6 @@
         (|lisplibError| |c| |a| |typ| |abb| |name| |type| '|abbIsName|))
        ((AND (EQUAL |c| |name|) (NOT (EQUAL |typ| |type|)))
         (|lisplibError| |c| |a| |typ| |abb| |name| |type| '|wrongType|)))))))
-
-; abbreviationError(c,a,typ,abb,name,type,error) ==
-;   sayKeyedMsg("S2IL0009",[a,typ,c])
-;   error='duplicateAbb =>
-;     throwKeyedMsg("S2IL0010",[a,typ,name])
-;   error='abbIsName =>
-;     throwKeyedMsg("S2IL0011",[a,type])
-;   error='wrongType =>
-;     throwKeyedMsg("S2IL0012",[c,type])
-;   NIL
-
-(DEFUN |abbreviationError| (|c| |a| |typ| |abb| |name| |type| |error|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (|sayKeyedMsg| 'S2IL0009 (LIST |a| |typ| |c|))
-      (COND
-       ((EQ |error| '|duplicateAbb|)
-        (|throwKeyedMsg| 'S2IL0010 (LIST |a| |typ| |name|)))
-       ((EQ |error| '|abbIsName|)
-        (|throwKeyedMsg| 'S2IL0011 (LIST |a| |type|)))
-       ((EQ |error| '|wrongType|)
-        (|throwKeyedMsg| 'S2IL0012 (LIST |c| |type|)))
-       ('T NIL))))))
 
 ; abbreviate u ==
 ;   u is ['Union,:arglist] =>

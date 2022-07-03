@@ -678,8 +678,6 @@
             (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
           (|g| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
           (#8=#:G260 NIL) (|x| NIL)
-          (|lup|
-           (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
           (|basis|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
           (|leq1| #1#)
@@ -710,8 +708,7 @@
            ((NULL (|GROEBSOL;zeroDim?| |leq1| |lvar| $))
             (EXIT
              (|error| "system does not have a finite number of solutions"))))
-          (LETT |basis| (SPADCALL |leq1| (QREFELT $ 80))) (LETT |lup| NIL)
-          (LETT |llfact| NIL)
+          (LETT |basis| (SPADCALL |leq1| (QREFELT $ 80))) (LETT |llfact| NIL)
           (SEQ
            (EXIT
             (SEQ (LETT |x| NIL) (LETT #8# |lvar|) G190

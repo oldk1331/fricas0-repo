@@ -60,15 +60,12 @@
                    (SEQ (LETT |f1| (QVELT |fac| 1)) (LETT |e1| (QVELT |fac| 2))
                         (LETT |e2| (QUOTIENT2 |e1| 2))
                         (LETT |c1|
-                              (SPADCALL
-                               (SPADCALL (QVELT |fac| 1) |e2| (QREFELT $ 41))
-                               |c1| (QREFELT $ 42)))
+                              (SPADCALL (SPADCALL |f1| |e2| (QREFELT $ 41))
+                                        |c1| (QREFELT $ 42)))
                         (EXIT
                          (COND
                           ((SPADCALL |e1| (* 2 |e2|) (QREFELT $ 44))
-                           (LETT |r1|
-                                 (SPADCALL (QVELT |fac| 1) |r1|
-                                           (QREFELT $ 42)))))))
+                           (LETT |r1| (SPADCALL |f1| |r1| (QREFELT $ 42)))))))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (LETT |u1|
                     (SPADCALL (SPADCALL |ff| (QREFELT $ 45)) (QREFELT $ 46)))

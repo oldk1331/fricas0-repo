@@ -276,8 +276,8 @@
         (SPROG
          ((|v| (S)) (|v0| (S)) (|#G65| (S)) (|#G64| (S)) (|u| (S)) (|u0| (S))
           (|#G63| (S)) (|#G62| (S)) (|#G61| (S)) (|#G60| (S))
-          (|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S))) (|a0| (S)))
-         (SEQ (LETT |a0| |a|) (LETT |u0| (LETT |v| (|spadConstant| $ 54)))
+          (|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S))))
+         (SEQ (LETT |u0| (LETT |v| (|spadConstant| $ 54)))
               (LETT |v0| (LETT |u| (|spadConstant| $ 8)))
               (SEQ G190
                    (COND

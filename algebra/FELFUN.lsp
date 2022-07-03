@@ -647,7 +647,7 @@
           (|itau| #8#) (|tau| #3#) (|ppi| (|Float|))
           (|kk2| #9=(|Complex| (|Float|)))
           (|ll2| (|List| (|Complex| (|Float|)))) (|kn| #3#) (|mp| #7#)
-          (|ms0| #6#) (|m1| #7#) (|iz| #8#) (|kk| #9#)
+          (|ms0| #6#) (|m1| #7#) (|kk| #9#)
           (|ll| (|List| (|Complex| (|Float|)))) (|eps| (|Float|))
           (|res| (|List| #3#)) (|pl| #1#) (|k| #6#)
           (|cc| (|Complex| (|Float|))) (|prec| (|PositiveInteger|))
@@ -728,7 +728,6 @@
                      (LETT |ll| (SPADCALL |m| |eps| (QREFELT $ 51)))
                      (LETT |kk| (SPADCALL |ll| (QREFELT $ 55)))
                      (LETT |z1| (SPADCALL |z| |kk| (QREFELT $ 43)))
-                     (LETT |iz| (SPADCALL |z1| (QREFELT $ 86)))
                      (LETT |m1|
                            (SPADCALL (|spadConstant| $ 32) |m| (QREFELT $ 44)))
                      (LETT |ms0| (SPADCALL |m| (QREFELT $ 40)))
@@ -780,13 +779,13 @@
                            (SPADCALL (SPADCALL (QREFELT $ 58)) 2
                                      (QREFELT $ 48)))
                      (LETT |z1|
-                           (SPADCALL |z| (SPADCALL |kk| |ppi| (QREFELT $ 87))
+                           (SPADCALL |z| (SPADCALL |kk| |ppi| (QREFELT $ 86))
                                      (QREFELT $ 43)))
                      (LETT |tau|
                            (SPADCALL (SPADCALL |iu| |kk2| (QREFELT $ 52)) |kk|
                                      (QREFELT $ 43)))
-                     (LETT |itau| (SPADCALL |tau| (QREFELT $ 86)))
-                     (LETT |iz1| (SPADCALL |z1| (QREFELT $ 86)))
+                     (LETT |itau| (SPADCALL |tau| (QREFELT $ 87)))
+                     (LETT |iz1| (SPADCALL |z1| (QREFELT $ 87)))
                      (LETT |ni|
                            (SPADCALL
                             (SPADCALL (SPADCALL |iz1| |itau| (QREFELT $ 22))
@@ -945,8 +944,8 @@
 
 (SDEFUN |FELFUN;jacobiSn;3F;27| ((|z| (|Float|)) (|m| (|Float|)) ($ (|Float|)))
         (SPROG
-         ((|res| (|Float|)) (|k| (|Float|)) (|cc| (|Float|))
-          (|prec| (|PositiveInteger|)) (|obits| (|PositiveInteger|)))
+         ((|res| (|Float|)) (|k| (|Float|)) (|prec| (|PositiveInteger|))
+          (|obits| (|PositiveInteger|)))
          (SEQ (LETT |obits| (SPADCALL (QREFELT $ 67)))
               (LETT |prec| (+ |obits| 20))
               (EXIT
@@ -957,7 +956,6 @@
                       (SPADCALL |obits| (QREFELT $ 68)) (EXIT |res|)))
                 (#1='T
                  (SEQ (SPADCALL |prec| (QREFELT $ 68))
-                      (LETT |cc| (SPADCALL 1 0 10 (QREFELT $ 15)))
                       (COND
                        ((SPADCALL |m| (|spadConstant| $ 20) (QREFELT $ 74))
                         (SEQ
@@ -1160,13 +1158,13 @@
               (COND
                ((NULL
                  (SPADCALL (SPADCALL (|spadConstant| $ 20) 2 (QREFELT $ 48))
-                           (SPADCALL |tau| (QREFELT $ 86)) (QREFELT $ 17)))
+                           (SPADCALL |tau| (QREFELT $ 87)) (QREFELT $ 17)))
                 (EXIT (|error| "imag(tau) must be bigger than 1/2"))))
               (LETT |otau| |tau|)
               (SEQ G190
                    (COND
                     ((NULL
-                      (SPADCALL (SPADCALL |tau| (QREFELT $ 86)) |tresh|
+                      (SPADCALL (SPADCALL |tau| (QREFELT $ 87)) |tresh|
                                 (QREFELT $ 17)))
                      (GO G191)))
                    (SEQ
@@ -1216,7 +1214,7 @@
                              (SPADCALL
                               (SPADCALL
                                (SPADCALL (SPADCALL (QREFELT $ 104)) |rtd|
-                                         (QREFELT $ 87))
+                                         (QREFELT $ 86))
                                (QREFELT $ 80))
                               (QREFELT $ 105)))
                        (LETT |liq2| NIL)
@@ -1323,7 +1321,7 @@
                             (LETT |aw2| |#G116|))))))
                        (LETT |tau| (SPADCALL |w1| |w2| (QREFELT $ 43)))
                        (COND
-                        ((SPADCALL (SPADCALL |tau| (QREFELT $ 86))
+                        ((SPADCALL (SPADCALL |tau| (QREFELT $ 87))
                                    (|spadConstant| $ 65) (QREFELT $ 17))
                          (SEQ (LETT |tau| (SPADCALL |tau| (QREFELT $ 80)))
                               (EXIT
@@ -1346,7 +1344,7 @@
                              ((SPADCALL
                                (SPADCALL (SPADCALL 2 3 (QREFELT $ 29))
                                          (QREFELT $ 103))
-                               (SPADCALL |tau| (QREFELT $ 86)) (QREFELT $ 17))
+                               (SPADCALL |tau| (QREFELT $ 87)) (QREFELT $ 17))
                               (PROGN (LETT #4# (LIST |w1| |w2|)) (GO #5#)))
                              ('T
                               (LETT |aw1|
@@ -1363,7 +1361,7 @@
          (SEQ
           (COND
            ((NULL
-             (SPADCALL (|spadConstant| $ 65) (SPADCALL |tau| (QREFELT $ 86))
+             (SPADCALL (|spadConstant| $ 65) (SPADCALL |tau| (QREFELT $ 87))
                        (QREFELT $ 17)))
             (|error| "need imag(tau) > 0"))
            ('T
@@ -1689,9 +1687,8 @@
         (SPROG
          ((|e_val| #1=(|Float|)) (|p| (|Float|)) (|k1inv| (|Float|))
           (|f_val| #1#) (|k1| (|Float|)) (#2=#:G389 NIL) (|k| NIL)
-          (|llr| (|List| (|Float|))) (|ll| (|List| (|Float|)))
-          (|eps| (|Float|)) (|prec| (|PositiveInteger|))
-          (|obits| (|PositiveInteger|)))
+          (|ll| (|List| (|Float|))) (|eps| (|Float|))
+          (|prec| (|PositiveInteger|)) (|obits| (|PositiveInteger|)))
          (SEQ
           (COND
            ((SPADCALL |m| (|spadConstant| $ 20) (QREFELT $ 66))
@@ -1703,7 +1700,6 @@
                  (LETT |prec| (+ |obits| 20)) (SPADCALL |prec| (QREFELT $ 68))
                  (LETT |eps| (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2) $))
                  (LETT |ll| (SPADCALL |m| |eps| (QREFELT $ 33)))
-                 (LETT |llr| (REVERSE |ll|))
                  (LETT |f_val|
                        (LETT |e_val|
                              (SPADCALL (SPADCALL (QREFELT $ 58)) 2
@@ -1741,7 +1737,6 @@
          ((|e_val| #1=(|Complex| (|Float|))) (|p| (|Complex| (|Float|)))
           (|k1inv| (|Complex| (|Float|))) (|f_val| #1#)
           (|k1| (|Complex| (|Float|))) (#2=#:G397 NIL) (|k| NIL)
-          (|llr| (|List| (|Complex| (|Float|))))
           (|ll| (|List| (|Complex| (|Float|)))) (|eps| (|Float|))
           (|prec| (|PositiveInteger|)) (|obits| (|PositiveInteger|)))
          (SEQ
@@ -1768,7 +1763,7 @@
                                   (|FELFUN;two_to_minus_n| (QUOTIENT2 |prec| 2)
                                    $))
                             (LETT |ll| (SPADCALL |m| |eps| (QREFELT $ 51)))
-                            (LETT |llr| (REVERSE |ll|)) (LETT |f_val| |e_val|)
+                            (LETT |f_val| |e_val|)
                             (SEQ (LETT |k| NIL) (LETT #2# |ll|) G190
                                  (COND
                                   ((OR (ATOM #2#)
@@ -3122,7 +3117,7 @@
               (233 . *) |FELFUN;ellipticK;2C;16| (239 . >) (245 . ^) (251 . -)
               (256 . |sign|) (261 . |Zero|) (265 . |complex|) (271 . -)
               (276 . |elt|) (282 . |cos|) (287 . |cosh|) (292 . |sinh|)
-              (297 . |tanh|) (302 . |imag|) (307 . *) (313 . *)
+              (297 . |tanh|) (302 . *) (308 . |imag|) (313 . *)
               (319 . |coerce|) (324 . |coerce|) (329 . |positiveRemainder|)
               |FELFUN;jacobiSn;3C;24| |FELFUN;jacobiCn;3C;25|
               |FELFUN;jacobiDn;3C;26| (335 . =) (341 . |tanh|)
@@ -3284,8 +3279,8 @@
                                               0 0 13 75 1 6 0 0 76 1 6 13 0 77
                                               0 9 0 78 2 9 0 6 6 79 1 9 0 0 80
                                               2 46 9 0 13 81 1 9 0 0 82 1 9 0 0
-                                              83 1 9 0 0 84 1 9 0 0 85 1 9 6 0
-                                              86 2 9 0 0 6 87 2 9 0 13 0 88 1 6
+                                              83 1 9 0 0 84 1 9 0 0 85 2 9 0 0
+                                              6 86 1 9 6 0 87 2 9 0 13 0 88 1 6
                                               0 13 89 1 9 0 6 90 2 13 0 0 0 91
                                               2 6 16 0 0 95 1 6 0 0 96 1 6 0 0
                                               98 2 27 0 0 13 102 1 6 0 27 103 0
