@@ -1010,13 +1010,13 @@
           (EQ '$ (ELT |n| 0))))))
 
 ; isFunction(x,e) ==
-;   get(x,"modemap",e) or GETL(x,"SPECIAL") or x="case" or getmode(x,e) is [
-;     "Mapping",:.]
+;     get(x, "modemap", e) or GETL(x, "comp_special") or x = "case"
+;       or getmode(x, e) is ["Mapping", :.]
 
 (DEFUN |isFunction| (|x| |e|)
   (PROG (|ISTMP#1|)
     (RETURN
-     (OR (|get| |x| '|modemap| |e|) (GETL |x| 'SPECIAL) (EQ |x| '|case|)
+     (OR (|get| |x| '|modemap| |e|) (GETL |x| '|comp_special|) (EQ |x| '|case|)
          (PROGN
           (SETQ |ISTMP#1| (|getmode| |x| |e|))
           (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)))))))
@@ -1039,17 +1039,36 @@
      (AND (IDENTP |s|) (< 2 (LENGTH (SETQ |x| (PNAME |s|))))
           (EQ (ELT |x| 0) '|#|) (EQ (ELT |x| 1) '|#|)))))
 
+; is_integer_subset(s, t) ==
+;     t = "Integer" =>
+;         s = "PositiveInteger" => [">", "*", 0]
+;         s = "NonNegativeInteger" => [">=", "*", 0]
+;         s = "SingleInteger" => ["SINTP", "*"]
+;     t = "NonNegativeInteger" and s = "PositiveInteger" => [">", "*", 0]
+;     false
+
+(DEFUN |is_integer_subset| (|s| |t|)
+  (PROG ()
+    (RETURN
+     (COND
+      ((EQ |t| '|Integer|)
+       (COND ((EQ |s| '|PositiveInteger|) (LIST '> '* 0))
+             ((EQ |s| '|NonNegativeInteger|) (LIST '>= '* 0))
+             ((EQ |s| '|SingleInteger|) (LIST 'SINTP '*))))
+      ((AND (EQ |t| '|NonNegativeInteger|) (EQ |s| '|PositiveInteger|))
+       (LIST '> '* 0))
+      ('T NIL)))))
+
 ; isSubset(x,y,e) ==
-;   x="$" and y="Rep" or x=y or
-;     LASSOC(opOf x, GETL(opOf y,"Subsets")) or
-;       LASSOC(opOf x,get(opOf y,"SubDomain",e)) or
+;   x = "$" and y = "Rep" or x = y or is_integer_subset(opOf(x), opOf(y)) or
+;       LASSOC(opOf(x), get(opOf(y), "SubDomain", e)) or
 ;         opOf(y)='Type
 
 (DEFUN |isSubset| (|x| |y| |e|)
   (PROG ()
     (RETURN
      (OR (AND (EQ |x| '$) (EQ |y| '|Rep|)) (EQUAL |x| |y|)
-         (LASSOC (|opOf| |x|) (GETL (|opOf| |y|) '|Subsets|))
+         (|is_integer_subset| (|opOf| |x|) (|opOf| |y|))
          (LASSOC (|opOf| |x|) (|get| (|opOf| |y|) '|SubDomain| |e|))
          (EQ (|opOf| |y|) '|Type|)))))
 

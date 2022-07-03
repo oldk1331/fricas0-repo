@@ -114,35 +114,81 @@
 ;   atom x =>
 ;     postAtom x
 ;   op := first x
-;   IDENTP(op) and (f := GET(op, 'postTran)) => FUNCALL(f, x)
+;   op = "with" => postWith(x)
+;   op = "/" => postSlash(x)
+;   op = "construct" => postConstruct(x)
+;   op = "QUOTE" => postQUOTE(x)
+;   op = "COLLECT" => postCollect(x)
+;   op = ":BF:" => postBigFloat(x)
+;   -- the infix operator version of in
+;   op = "in" => postin(x)
+;   -- the iterator form of in
+;   op = "IN" => postIn(x)
+;   op = "REPEAT" => postRepeat(x)
+;   op = "add" => postAdd(x)
+;   op = "Reduce" => postReduce(x)
+;   op = "," => postComma(x)
+;   op = ";" => postSemiColon(x)
+;   op = "where" => postWhere(x)
+;   op = "if" => postIf(x)
+;   op = "Join" => postJoin(x)
+;   op = "Signature" => postSignature(x)
+;   op = "CATEGORY" => postCategory(x)
+;   op = "==" => postDef(x)
+;   op = "==>" => postMDef(x)
+;   op = "->" => postMapping(x)
+;   op = "=>" => postExit(x)
+;   op = "@Tuple" => postTuple(x)
 ;   op is ['Sel, a, b] =>
 ;     u:= postTran [b,:rest x]
 ;     [postTran op,:rest u]
 ;   postForm x
 
 (DEFUN |postTran| (|x|)
-  (PROG (|op| |f| |ISTMP#1| |a| |ISTMP#2| |b| |u|)
+  (PROG (|op| |ISTMP#1| |a| |ISTMP#2| |b| |u|)
     (RETURN
      (COND ((ATOM |x|) (|postAtom| |x|))
            (#1='T
             (PROGN
              (SETQ |op| (CAR |x|))
-             (COND
-              ((AND (IDENTP |op|) (SETQ |f| (GET |op| '|postTran|)))
-               (FUNCALL |f| |x|))
-              ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
+             (COND ((EQ |op| '|with|) (|postWith| |x|))
+                   ((EQ |op| '/) (|postSlash| |x|))
+                   ((EQ |op| '|construct|) (|postConstruct| |x|))
+                   ((EQ |op| 'QUOTE) (|postQUOTE| |x|))
+                   ((EQ |op| 'COLLECT) (|postCollect| |x|))
+                   ((EQ |op| '|:BF:|) (|postBigFloat| |x|))
+                   ((EQ |op| '|in|) (|postin| |x|))
+                   ((EQ |op| 'IN) (|postIn| |x|))
+                   ((EQ |op| 'REPEAT) (|postRepeat| |x|))
+                   ((EQ |op| '|add|) (|postAdd| |x|))
+                   ((EQ |op| '|Reduce|) (|postReduce| |x|))
+                   ((EQ |op| '|,|) (|postComma| |x|))
+                   ((EQ |op| '|;|) (|postSemiColon| |x|))
+                   ((EQ |op| '|where|) (|postWhere| |x|))
+                   ((EQ |op| '|if|) (|postIf| |x|))
+                   ((EQ |op| '|Join|) (|postJoin| |x|))
+                   ((EQ |op| '|Signature|) (|postSignature| |x|))
+                   ((EQ |op| 'CATEGORY) (|postCategory| |x|))
+                   ((EQ |op| '==) (|postDef| |x|))
+                   ((EQ |op| '==>) (|postMDef| |x|))
+                   ((EQ |op| '->) (|postMapping| |x|))
+                   ((EQ |op| '=>) (|postExit| |x|))
+                   ((EQ |op| '|@Tuple|) (|postTuple| |x|))
+                   ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
+                         (PROGN
+                          (SETQ |ISTMP#1| (CDR |op|))
+                          (AND (CONSP |ISTMP#1|)
+                               (PROGN
+                                (SETQ |a| (CAR |ISTMP#1|))
+                                (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                                     (PROGN
+                                      (SETQ |b| (CAR |ISTMP#2|))
+                                      #1#))))))
                     (PROGN
-                     (SETQ |ISTMP#1| (CDR |op|))
-                     (AND (CONSP |ISTMP#1|)
-                          (PROGN
-                           (SETQ |a| (CAR |ISTMP#1|))
-                           (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                           (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                                (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1#))))))
-               (PROGN
-                (SETQ |u| (|postTran| (CONS |b| (CDR |x|))))
-                (CONS (|postTran| |op|) (CDR |u|))))
-              (#1# (|postForm| |x|)))))))))
+                     (SETQ |u| (|postTran| (CONS |b| (CDR |x|))))
+                     (CONS (|postTran| |op|) (CDR |u|))))
+                   (#1# (|postForm| |x|)))))))))
 
 ; postTranList x == [postTran y for y in x]
 

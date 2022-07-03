@@ -1319,7 +1319,7 @@
          (|$comp370_apply| (FUNCALL |$comp370_apply| |fname| |nbody|)))))))))
 
 ; MKPF(l, op) ==
-;     if GET(op, "NARY") then
+;     if MEMQ(op, ["*", "+", "AND", "OR", "PROGN"]) then
 ;         l := MKPFFLATTEN1(l, op, nil)
 ;     MKPF1(l, op)
 
@@ -1327,7 +1327,9 @@
   (PROG ()
     (RETURN
      (PROGN
-      (COND ((GET |op| 'NARY) (SETQ |l| (MKPFFLATTEN1 |l| |op| NIL))))
+      (COND
+       ((MEMQ |op| (LIST '* '+ 'AND 'OR 'PROGN))
+        (SETQ |l| (MKPFFLATTEN1 |l| |op| NIL))))
       (MKPF1 |l| |op|)))))
 
 ; MKPFFLATTEN(x, op) ==
