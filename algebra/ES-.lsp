@@ -382,14 +382,14 @@
                 ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#)) NIL)) (GO G191)))
                (SEQ
                 (LETT |t|
-                      (SEQ
-                       (LETT |u|
-                             (SPADCALL (SPADCALL |k| (QREFELT $ 41))
-                                       (QREFELT $ 7) (QREFELT $ 107)))
-                       (EXIT
-                        (COND
-                         ((QEQCAR |u| 0)
-                          (SEQ (LETT |arg| (SPADCALL |k| (QREFELT $ 96)))
+                      (SEQ (LETT |arg| (SPADCALL |k| (QREFELT $ 96)))
+                           (LETT |u|
+                                 (SPADCALL (SPADCALL |k| (QREFELT $ 41))
+                                           (QREFELT $ 7) (QREFELT $ 107)))
+                           (EXIT
+                            (COND
+                             ((QEQCAR |u| 0)
+                              (SEQ
                                (LETT |s0|
                                      (SPADCALL
                                       (SPADCALL
@@ -403,7 +403,7 @@
                                (EXIT
                                 (SPADCALL |s0| (|ES-;allk| |arg| $)
                                           (QREFELT $ 28)))))
-                         ('T (|ES-;allk| (SPADCALL |k| (QREFELT $ 96)) $))))))
+                             ('T (|ES-;allk| |arg| $))))))
                 (EXIT (LETT |s| (SPADCALL |s| |t| (QREFELT $ 28)))))
                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
           (EXIT |s|)))) 
