@@ -3,7 +3,7 @@
         ((|s| |Symbol|) (|p| |Pattern| S)
          (|l| |PatternMatchResult| S (|Symbol|))
          ($ |PatternMatchResult| S (|Symbol|)))
-        (SPROG ((#1=#:G129 NIL) (|u| (|Union| (|Symbol|) "failed")))
+        (SPROG ((#1=#:G131 NIL) (|u| (|Union| (|Symbol|) "failed")))
                (SEQ
                 (COND
                  ((SPADCALL |p| (QREFELT $ 9))
@@ -18,16 +18,16 @@
                             ((QEQCAR |u| 0)
                              (COND
                               ((EQUAL (QCDR |u|) |s|)
-                               (PROGN (LETT #1# |l|) (GO #2=#:G125))))))))
+                               (PROGN (LETT #1# |l|) (GO #2=#:G127))))))))
                      (EXIT (SPADCALL (QREFELT $ 16)))))
                    #2# (EXIT #1#)))
                  ('T (SPADCALL (QREFELT $ 16))))))) 
 
 (DECLAIM (NOTINLINE |PatternMatchSymbol;|)) 
 
-(DEFUN |PatternMatchSymbol| (#1=#:G130)
+(DEFUN |PatternMatchSymbol| (#1=#:G132)
   (SPROG NIL
-         (PROG (#2=#:G131)
+         (PROG (#2=#:G133)
            (RETURN
             (COND
              ((LETT #2#

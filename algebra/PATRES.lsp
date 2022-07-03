@@ -25,8 +25,8 @@
 (SDEFUN |PATRES;satisfy?;$PU;7|
         ((|r| $) (|p| |Pattern| R) ($ |Union| (|Boolean|) "failed"))
         (SPROG
-         ((|lv| (|List| S)) (#1=#:G165 NIL) (|u| (|Union| S "failed"))
-          (#2=#:G167 NIL) (|v| NIL) (#3=#:G166 NIL)
+         ((|lv| (|List| S)) (#1=#:G166 NIL) (|u| (|Union| S "failed"))
+          (#2=#:G168 NIL) (|v| NIL) (#3=#:G167 NIL)
           (|lr| (|AssociationList| (|Symbol|) S)))
          (SEQ
           (EXIT
@@ -57,7 +57,7 @@
                                                ((QEQCAR |u| 1)
                                                 (PROGN
                                                  (LETT #1# (CONS 1 "failed"))
-                                                 (GO #4=#:G164)))
+                                                 (GO #4=#:G165)))
                                                ('T (QCDR |u|)))))
                                             #3#))))
                                    (LETT #2# (CDR #2#)) (GO G190) G191
@@ -122,9 +122,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchResult;|)) 
 
-(DEFUN |PatternMatchResult| (&REST #1=#:G194)
+(DEFUN |PatternMatchResult| (&REST #1=#:G199)
   (SPROG NIL
-         (PROG (#2=#:G195)
+         (PROG (#2=#:G200)
            (RETURN
             (COND
              ((LETT #2#

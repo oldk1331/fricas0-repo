@@ -644,7 +644,7 @@
           (RETURN (PROGN (|STTAYLOR;lagrangere| |x| |y| $))))) 
 
 (SDEFUN |STTAYLOR;revert;2S;29| ((|x| |Stream| A) ($ |Stream| A))
-        (SPROG ((#1=#:G387 NIL) (|y| (|Union| (|Stream| A) #2="failed")))
+        (SPROG ((|y| (|Union| (|Stream| A) "failed")))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 10))
@@ -653,30 +653,18 @@
                   (COND
                    ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 10))
                     (|error| "revert: should be nonzero"))
-                   (#3='T
+                   (#1='T
                     (SEQ
                      (LETT |y|
                            (SPADCALL (SPADCALL |x| (QREFELT $ 11))
                                      (QREFELT $ 36)))
                      (EXIT
                       (COND
-                       ((QEQCAR |y| 0)
-                        (SPADCALL
-                         (PROG2
-                             (LETT #1#
-                                   (SPADCALL (SPADCALL |x| (QREFELT $ 11))
-                                             (QREFELT $ 36)))
-                             (QCDR #1#)
-                           (|check_union2| (QEQCAR #1# 0)
-                                           (|Stream| (QREFELT $ 6))
-                                           (|Union| (|Stream| (QREFELT $ 6))
-                                                    #2#)
-                                           #1#))
-                         (QREFELT $ 88)))
-                       (#3#
+                       ((QEQCAR |y| 0) (SPADCALL (QCDR |y|) (QREFELT $ 88)))
+                       (#1#
                         (|error|
                          "revert: should start 0, x, ... with invertible x"))))))))
-                 (#3# (|error| "revert: should start 0, x, ...")))))) 
+                 (#1# (|error| "revert: should start 0, x, ...")))))) 
 
 (SDEFUN |STTAYLOR;prodiag1|
         ((|ststa| |Stream| (|Stream| A)) (|n| |Integer|) ($ |Stream| A))
