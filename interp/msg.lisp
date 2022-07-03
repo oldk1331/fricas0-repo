@@ -215,7 +215,7 @@
 ;         posLetter := rest ASSOC(poCharPosn getMsgPos msg, chPosList)
 ;         oldPre := getMsgPrefix msg
 ;         setMsgPrefix (msg,STRCONC(oldPre,_
-;                      make_full_CVEC2($preLength - 4 - SIZE oldPre), posLetter))
+;                      make_full_CVEC($preLength - 4 - SIZE oldPre), posLetter))
 ;     leaderMsg := makeLeaderMsg chPosList
 ;     NCONC(msgList,LIST leaderMsg)  --a back cons
 
@@ -238,7 +238,7 @@
              (SETQ |oldPre| (|getMsgPrefix| |msg|))
              (|setMsgPrefix| |msg|
               (STRCONC |oldPre|
-               (|make_full_CVEC2| (- (- |$preLength| 4) (SIZE |oldPre|)))
+               (|make_full_CVEC| (- (- |$preLength| 4) (SIZE |oldPre|)))
                |posLetter|)))))
           (SETQ |bfVar#1| (CDR |bfVar#1|))))
        |msgList| NIL)
