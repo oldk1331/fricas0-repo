@@ -59,8 +59,8 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|newLines| NIL) (#1=#:G144 NIL) (|i| NIL) (#2=#:G143 NIL)
-              (|line| NIL) (#3=#:G142 NIL) (|boxline| NIL) (#4=#:G141 NIL)
+             ((|newLines| NIL) (#1=#:G148 NIL) (|i| NIL) (#2=#:G147 NIL)
+              (|line| NIL) (#3=#:G146 NIL) (|boxline| NIL) (#4=#:G145 NIL)
               (|emptyLine| NIL) (|nd| NIL) (|nh| NIL) (|nw| NIL) (|w| NIL))
              (SEQ (LETT |w| (SPADCALL |box| (QREFELT $ 14)))
                   (LETT |nw|
@@ -163,10 +163,10 @@
         ((|lb| (|List| $)) (|h| (|NonNegativeInteger|)) (|adjust| (|Integer|))
          ($ ($)))
         (SPROG
-         ((|d| (|Integer|)) (|newLines| (|List| (|String|))) (#1=#:G169 NIL)
-          (|b| NIL) (#2=#:G168 NIL) (#3=#:G156 NIL) (#4=#:G167 NIL)
-          (#5=#:G166 NIL) (#6=#:G154 NIL) (#7=#:G165 NIL) (#8=#:G164 NIL)
-          (|w| (|NonNegativeInteger|)) (#9=#:G163 NIL) (#10=#:G162 NIL))
+         ((|d| (|Integer|)) (|newLines| (|List| (|String|))) (#1=#:G178 NIL)
+          (|b| NIL) (#2=#:G177 NIL) (#3=#:G164 NIL) (#4=#:G176 NIL)
+          (#5=#:G175 NIL) (#6=#:G161 NIL) (#7=#:G174 NIL) (#8=#:G173 NIL)
+          (|w| (|NonNegativeInteger|)) (#9=#:G172 NIL) (#10=#:G171 NIL))
          (SEQ
           (COND ((SPADCALL |lb| (QREFELT $ 46)) (SPADCALL (QREFELT $ 8)))
                 (#11='T
@@ -295,13 +295,13 @@
 (SDEFUN |OUTBOX;hconcat;L$;13| ((|lb| (|List| $)) ($ ($)))
         (SPROG
          ((|newLines| (|List| (|String|))) (|wx| (|NonNegativeInteger|))
-          (#1=#:G195 NIL) (|j| NIL) (|line| (|String|)) (|ix| (|Integer|))
+          (#1=#:G211 NIL) (|j| NIL) (|line| (|String|)) (|ix| (|Integer|))
           (|hb| (|NonNegativeInteger|)) (|wb| (|NonNegativeInteger|))
-          (#2=#:G194 NIL) (|b| NIL) (|newLine| (|String|)) (#3=#:G193 NIL)
+          (#2=#:G210 NIL) (|b| NIL) (|newLine| (|String|)) (#3=#:G209 NIL)
           (|i| NIL) (|emptyLine| (|String|)) (|w| (|NonNegativeInteger|))
-          (#4=#:G192 NIL) (#5=#:G191 NIL) (|d| #6=(|NonNegativeInteger|))
-          (#7=#:G190 NIL) (#8=#:G189 NIL) (|h| #6#) (#9=#:G188 NIL)
-          (#10=#:G187 NIL))
+          (#4=#:G208 NIL) (#5=#:G207 NIL) (|d| #6=(|NonNegativeInteger|))
+          (#7=#:G206 NIL) (#8=#:G205 NIL) (|h| #6#) (#9=#:G204 NIL)
+          (#10=#:G203 NIL))
          (SEQ
           (COND ((SPADCALL |lb| (QREFELT $ 46)) (SPADCALL (QREFELT $ 8)))
                 ('T
@@ -415,7 +415,7 @@
 
 (DEFUN |OutputBox| ()
   (SPROG NIL
-         (PROG (#1=#:G197)
+         (PROG (#1=#:G213)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|OutputBox|))

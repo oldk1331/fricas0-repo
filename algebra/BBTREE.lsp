@@ -1,7 +1,7 @@
 
 (SDEFUN |BBTREE;setleaves!;$L$;1| ((|t| ($)) (|u| (|List| S)) ($ ($)))
         (SPROG
-         ((|acc| (|List| S)) (#1=#:G137 NIL) (|i| NIL)
+         ((|acc| (|List| S)) (#1=#:G138 NIL) (|i| NIL)
           (|m| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |u|))
               (EXIT
@@ -146,9 +146,9 @@
 
 (DECLAIM (NOTINLINE |BalancedBinaryTree;|)) 
 
-(DEFUN |BalancedBinaryTree| (#1=#:G189)
+(DEFUN |BalancedBinaryTree| (#1=#:G190)
   (SPROG NIL
-         (PROG (#2=#:G190)
+         (PROG (#2=#:G191)
            (RETURN
             (COND
              ((LETT #2#
@@ -165,7 +165,7 @@
 
 (DEFUN |BalancedBinaryTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G186 NIL) (#2=#:G187 NIL) (#3=#:G188 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G187 NIL) (#2=#:G188 NIL) (#3=#:G189 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

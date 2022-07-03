@@ -8,9 +8,9 @@
 
 (SDEFUN |SQMATRIX;matrix;L$;4| ((|l| (|List| (|List| R))) ($ ($)))
         (SPROG
-         ((#1=#:G138 NIL) (|j| NIL) (#2=#:G139 NIL) (|r| NIL) (#3=#:G136 NIL)
-          (|i| NIL) (#4=#:G137 NIL) (|ll| NIL) (|ans| (|Matrix| R))
-          (#5=#:G134 NIL) (#6=#:G135 NIL))
+         ((#1=#:G141 NIL) (|j| NIL) (#2=#:G142 NIL) (|r| NIL) (#3=#:G139 NIL)
+          (|i| NIL) (#4=#:G140 NIL) (|ll| NIL) (|ans| (|Matrix| R))
+          (#5=#:G137 NIL) (#6=#:G138 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
@@ -29,7 +29,7 @@
                        ((SPADCALL (LENGTH |ll|) (QREFELT $ 6) (QREFELT $ 19))
                         (PROGN
                          (LETT #5# (|error| "matrix: wrong number of columns"))
-                         (GO #7=#:G128))))))
+                         (GO #7=#:G129))))))
                     (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL)))
               #7# (EXIT #5#))
              (LETT |ans|
@@ -111,7 +111,7 @@
 
 (SDEFUN |SQMATRIX;columnSpace;$L;18|
         ((|x| ($)) ($ (|List| (|DirectProduct| |ndim| R))))
-        (SPROG ((#1=#:G160 NIL) (|c| NIL) (#2=#:G159 NIL))
+        (SPROG ((#1=#:G164 NIL) (|c| NIL) (#2=#:G163 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -134,7 +134,7 @@
 
 (SDEFUN |SQMATRIX;nullSpace;$L;21|
         ((|x| ($)) ($ (|List| (|DirectProduct| |ndim| R))))
-        (SPROG ((#1=#:G166 NIL) (|c| NIL) (#2=#:G165 NIL))
+        (SPROG ((#1=#:G171 NIL) (|c| NIL) (#2=#:G170 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -177,9 +177,9 @@
 
 (DECLAIM (NOTINLINE |SquareMatrix;|)) 
 
-(DEFUN |SquareMatrix| (&REST #1=#:G207)
+(DEFUN |SquareMatrix| (&REST #1=#:G212)
   (SPROG NIL
-         (PROG (#2=#:G208)
+         (PROG (#2=#:G213)
            (RETURN
             (COND
              ((LETT #2#
@@ -196,7 +196,7 @@
 
 (DEFUN |SquareMatrix;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G204 NIL) (#2=#:G206 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G209 NIL) (#2=#:G211 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)

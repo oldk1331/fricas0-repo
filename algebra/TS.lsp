@@ -1,7 +1,7 @@
 
 (SDEFUN |TS;polynomial;$NniP;1|
         ((|s| ($)) (|n| (|NonNegativeInteger|)) ($ (|Polynomial| |Coef|)))
-        (SPROG ((|sum| (|Polynomial| |Coef|)) (#1=#:G125 NIL) (|i| NIL))
+        (SPROG ((|sum| (|Polynomial| |Coef|)) (#1=#:G126 NIL) (|i| NIL))
                (SEQ (LETT |sum| (|spadConstant| $ 9))
                     (SEQ (LETT |i| 0) (LETT #1# |n|) G190
                          (COND
@@ -18,9 +18,9 @@
 
 (DECLAIM (NOTINLINE |TaylorSeries;|)) 
 
-(DEFUN |TaylorSeries| (#1=#:G138)
+(DEFUN |TaylorSeries| (#1=#:G139)
   (SPROG NIL
-         (PROG (#2=#:G139)
+         (PROG (#2=#:G140)
            (RETURN
             (COND
              ((LETT #2#
@@ -36,7 +36,7 @@
 
 (DEFUN |TaylorSeries;| (|#1|)
   (SPROG
-   ((#1=#:G137 NIL) (|pv$| NIL) (#2=#:G136 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G138 NIL) (|pv$| NIL) (#2=#:G137 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT |dv$| (LIST '|TaylorSeries| DV$1))

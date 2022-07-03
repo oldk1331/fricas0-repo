@@ -20,7 +20,7 @@
         (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 24))) 
 
 (SDEFUN |MONOGEN-;basis;V;7| (($ (|Vector| S)))
-        (SPROG ((#1=#:G140 NIL) (|i| NIL) (#2=#:G139 NIL) (#3=#:G136 NIL))
+        (SPROG ((#1=#:G141 NIL) (|i| NIL) (#2=#:G140 NIL) (#3=#:G137 NIL))
                (SEQ
                 (PROGN
                  (LETT #2#

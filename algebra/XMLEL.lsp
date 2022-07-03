@@ -18,8 +18,8 @@
 
 (SDEFUN |XMLEL;outputStructured| ((|rp| ($)) ($ (|List| (|String|))))
         (SPROG
-         ((|res| (|List| #1=(|String|))) (#2=#:G139 NIL) (|el| NIL)
-          (|atts| #1#) (#3=#:G138 NIL) (|s| NIL) (#4=#:G137 NIL))
+         ((|res| (|List| #1=(|String|))) (#2=#:G141 NIL) (|el| NIL)
+          (|atts| #1#) (#3=#:G140 NIL) (|s| NIL) (#4=#:G139 NIL))
          (SEQ
           (LETT |atts|
                 (SPADCALL
@@ -65,8 +65,8 @@
 
 (SDEFUN |XMLEL;outputUnstructured| ((|rp| ($)) ($ (|List| (|String|))))
         (SPROG
-         ((|res| (|List| #1=(|String|))) (|atts| #1#) (#2=#:G144 NIL) (|s| NIL)
-          (#3=#:G143 NIL))
+         ((|res| (|List| #1=(|String|))) (|atts| #1#) (#2=#:G147 NIL) (|s| NIL)
+          (#3=#:G146 NIL))
          (SEQ
           (LETT |atts|
                 (SPADCALL
@@ -101,8 +101,8 @@
 
 (SDEFUN |XMLEL;outputVRML;$TfV;7| ((|rp| ($)) (|f1| (|TextFile|)) ($ (|Void|)))
         (SPROG
-         ((#1=#:G169 NIL) (|el| NIL) (#2=#:G168 NIL) (|att| NIL)
-          (#3=#:G166 NIL) (#4=#:G167 NIL))
+         ((#1=#:G176 NIL) (|el| NIL) (#2=#:G175 NIL) (|att| NIL)
+          (#3=#:G173 NIL) (#4=#:G174 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -115,7 +115,7 @@
                       (GO G191)))
                     (SEQ (EXIT (SPADCALL |el| |f1| (QREFELT $ 26))))
                     (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
-               (EXIT (PROGN (LETT #3# (|Void|)) (GO #5=#:G165))))))
+               (EXIT (PROGN (LETT #3# (|Void|)) (GO #5=#:G172))))))
             (SPADCALL |f1| (STRCONC (QVELT |rp| 0) "{") (QREFELT $ 27))
             (COND
              ((EQUAL (QVELT |rp| 0) "Shape")
@@ -149,7 +149,7 @@
 
 (DEFUN |XmlElement| ()
   (SPROG NIL
-         (PROG (#1=#:G171)
+         (PROG (#1=#:G178)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|XmlElement|))

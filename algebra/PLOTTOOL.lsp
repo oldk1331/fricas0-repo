@@ -32,7 +32,7 @@
          (|f| (|Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|))))
          (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
          ($ (|DoubleFloat|)))
-        (SPROG ((|m| #1#) (#2=#:G124 NIL) (|p| NIL))
+        (SPROG ((|m| #1#) (#2=#:G125 NIL) (|p| NIL))
                (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|))
                     (SEQ (LETT |p| NIL) (LETT #2# (CDR |l|)) G190
                          (COND
@@ -64,7 +64,7 @@
           (|Mapping| #1=(|DoubleFloat|) (|List| (|Point| (|DoubleFloat|)))))
          (|g| (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
          ($ (|DoubleFloat|)))
-        (SPROG ((|m| #1#) (#2=#:G142 NIL) (|p| NIL))
+        (SPROG ((|m| #1#) (#2=#:G144 NIL) (|p| NIL))
                (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|))
                     (SEQ (LETT |p| NIL) (LETT #2# (CDR |l|)) G190
                          (COND
@@ -121,7 +121,7 @@
 
 (DEFUN |PlotTools| ()
   (SPROG NIL
-         (PROG (#1=#:G159)
+         (PROG (#1=#:G161)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|PlotTools|))

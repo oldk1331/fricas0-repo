@@ -2,8 +2,8 @@
 (SDEFUN |CYCLOTOM;cyclotomic;ISup;1|
         ((|n| (|Integer|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
-         ((|l| (|SparseUnivariatePolynomial| (|Integer|))) (#1=#:G126 NIL)
-          (#2=#:G125 NIL) (#3=#:G123 NIL) (#4=#:G131 NIL) (|u| NIL)
+         ((|l| (|SparseUnivariatePolynomial| (|Integer|))) (#1=#:G127 NIL)
+          (#2=#:G126 NIL) (#3=#:G124 NIL) (#4=#:G132 NIL) (|u| NIL)
           (|g|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -58,9 +58,9 @@
         (SPROG
          ((|l| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
           (|m| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
-          (#1=#:G137 NIL) (#2=#:G150 NIL) (|z| NIL) (#3=#:G149 NIL)
-          (#4=#:G148 NIL) (|rr| NIL) (#5=#:G135 NIL) (#6=#:G147 NIL)
-          (#7=#:G146 NIL) (#8=#:G145 NIL) (|u| NIL)
+          (#1=#:G142 NIL) (#2=#:G155 NIL) (|z| NIL) (#3=#:G154 NIL)
+          (#4=#:G153 NIL) (|rr| NIL) (#5=#:G138 NIL) (#6=#:G152 NIL)
+          (#7=#:G151 NIL) (#8=#:G150 NIL) (|u| NIL)
           (|g|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -146,7 +146,7 @@
          ($ (|Factored| (|SparseUnivariatePolynomial| (|Integer|)))))
         (SPROG
          ((|fr| (|Factored| (|SparseUnivariatePolynomial| (|Integer|))))
-          (#1=#:G154 NIL) (|f| NIL))
+          (#1=#:G160 NIL) (|f| NIL))
          (SEQ (LETT |fr| (|spadConstant| $ 27))
               (SEQ (LETT |f| NIL) (LETT #1# (SPADCALL |n| (QREFELT $ 25))) G190
                    (COND
@@ -164,7 +164,7 @@
 
 (DEFUN |CyclotomicPolynomialPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G156)
+         (PROG (#1=#:G162)
            (RETURN
             (COND
              ((LETT #1#

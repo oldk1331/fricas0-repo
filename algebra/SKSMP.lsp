@@ -71,7 +71,7 @@
 
 (SDEFUN |SKSMP;exquo;2$U;7| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG
-         ((|res| ($)) (|cc| ($)) (#1=#:G172 NIL)
+         ((|res| ($)) (|cc| ($)) (#1=#:G173 NIL)
           (|cu| (|Union| (|SparseMultivariatePolynomial| R |Var|) "failed"))
           (|lx| (|SparseMultivariatePolynomial| R |Var|)) (|lx1| ($))
           (|ly| (|SparseMultivariatePolynomial| R |Var|))
@@ -97,7 +97,7 @@
                               ((> (SPADCALL |lx1| (QREFELT $ 48)) |maxd|)
                                (PROGN
                                 (LETT #1# (CONS 1 "failed"))
-                                (GO #2=#:G171)))
+                                (GO #2=#:G172)))
                               ('T
                                (SEQ (LETT |lx| |lx1|)
                                     (LETT |cu|
@@ -126,7 +126,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |SKSMP;^;$Pi$;8| ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
-        (SPROG ((|res| ($)) (#1=#:G176 NIL) (|i| NIL))
+        (SPROG ((|res| ($)) (#1=#:G178 NIL) (|i| NIL))
                (SEQ (LETT |res| |x|)
                     (SEQ (LETT |i| 2) (LETT #1# |n|) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -141,7 +141,7 @@
               ('T (SPADCALL |x| |n| (QREFELT $ 57))))) 
 
 (SDEFUN |SKSMP;coerce;$Of;10| ((|x| ($)) ($ (|OutputForm|)))
-        (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G179 NIL))
+        (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G181 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 34))
@@ -164,9 +164,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateSkewPolynomial;|)) 
 
-(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G202)
+(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G204)
   (SPROG NIL
-         (PROG (#2=#:G203)
+         (PROG (#2=#:G205)
            (RETURN
             (COND
              ((LETT #2#
@@ -189,7 +189,7 @@
 
 (DEFUN |SparseMultivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G200 NIL) (#2=#:G201 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL)
+   ((|pv$| NIL) (#1=#:G202 NIL) (#2=#:G203 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

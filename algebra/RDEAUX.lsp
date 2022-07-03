@@ -18,8 +18,8 @@
                      (|:| |lcpar| (|List| (|SparseUnivariatePolynomial| F)))
                      (|:| |dpar| (|Integer|))))))
         (SPROG
-         ((#1=#:G154 NIL) (|s1| NIL) (#2=#:G155 NIL) (#3=#:G153 NIL)
-          (#4=#:G151 NIL) (|s2| NIL) (#5=#:G152 NIL) (#6=#:G150 NIL)
+         ((#1=#:G160 NIL) (|s1| NIL) (#2=#:G161 NIL) (#3=#:G159 NIL)
+          (#4=#:G157 NIL) (|s2| NIL) (#5=#:G158 NIL) (#6=#:G156 NIL)
           (|dres|
            (|Record| (|:| |ans| (|List| (|SparseUnivariatePolynomial| F)))
                      (|:| |acoeff| (|SparseUnivariatePolynomial| F))
@@ -46,12 +46,12 @@
            (|Record| (|:| |quotient| (|SparseUnivariatePolynomial| F))
                      (|:| |remainder| #7#)))
           (|cc2| #8=(|SparseUnivariatePolynomial| F)) (|cc1| #8#)
-          (#9=#:G149 NIL) (|c| NIL) (#10=#:G148 NIL) (#11=#:G147 NIL)
+          (#9=#:G155 NIL) (|c| NIL) (#10=#:G154 NIL) (#11=#:G153 NIL)
           (|ee|
            (|Record| (|:| |coef1| (|SparseUnivariatePolynomial| F))
                      (|:| |coef2| (|SparseUnivariatePolynomial| F))
                      (|:| |generator| (|SparseUnivariatePolynomial| F))))
-          (#12=#:G146 NIL) (#13=#:G145 NIL) (#14=#:G144 NIL) (#15=#:G143 NIL))
+          (#12=#:G152 NIL) (#13=#:G151 NIL) (#14=#:G150 NIL) (#15=#:G149 NIL))
          (SEQ
           (COND
            ((< |d| 0)
@@ -221,8 +221,8 @@
                     (|:| |remainder| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| F))
-          (|qq| (|SparseUnivariatePolynomial| F)) (#1=#:G157 NIL)
-          (#2=#:G163 NIL) (|n| (|Integer|)) (|lb| (F)) (|db| (|Integer|)))
+          (|qq| (|SparseUnivariatePolynomial| F)) (#1=#:G164 NIL)
+          (#2=#:G170 NIL) (|n| (|Integer|)) (|lb| (F)) (|db| (|Integer|)))
          (SEQ
           (EXIT
            (SEQ (LETT |q| (|spadConstant| $ 9))
@@ -237,7 +237,7 @@
                           (EXIT
                            (COND
                             ((< |n| 0)
-                             (PROGN (LETT #2# (CONS |q| |c|)) (GO #3=#:G162)))
+                             (PROGN (LETT #2# (CONS |q| |c|)) (GO #3=#:G169)))
                             ('T
                              (SEQ
                               (LETT |qq|
@@ -265,9 +265,9 @@
 
 (DECLAIM (NOTINLINE |RDEaux;|)) 
 
-(DEFUN |RDEaux| (#1=#:G164)
+(DEFUN |RDEaux| (#1=#:G171)
   (SPROG NIL
-         (PROG (#2=#:G165)
+         (PROG (#2=#:G172)
            (RETURN
             (COND
              ((LETT #2#

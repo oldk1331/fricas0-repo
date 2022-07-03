@@ -58,7 +58,7 @@
 
 (SDEFUN |IXAGG-;map!;M2S;8|
         ((|f| (|Mapping| |Entry| |Entry|)) (|a| (S)) ($ (S)))
-        (SPROG ((#1=#:G149 NIL) (|i| NIL))
+        (SPROG ((#1=#:G150 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# (SPADCALL |a| (QREFELT $ 19)))
                      G190
@@ -75,7 +75,7 @@
                 (EXIT |a|)))) 
 
 (SDEFUN |IXAGG-;fill!;SEntryS;9| ((|a| (S)) (|x| (|Entry|)) ($ (S)))
-        (SPROG ((#1=#:G153 NIL) (|i| NIL))
+        (SPROG ((#1=#:G155 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# (SPADCALL |a| (QREFELT $ 19)))
                      G190

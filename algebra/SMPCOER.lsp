@@ -36,7 +36,7 @@
                                               (|:| |c|
                                                    (|SparseMultivariatePolynomial|
                                                     R |VarSet1|))))))))
-          (#3=#:G144 NIL) (|t0| NIL) (|pu1| #1#) (#4=#:G143 NIL)
+          (#3=#:G145 NIL) (|t0| NIL) (|pu1| #1#) (#4=#:G144 NIL)
           (|v2| (|VarSet2|)) (|v1| (|VarSet1|)))
          (SEQ
           (EXIT
@@ -52,7 +52,7 @@
                            (LETT #4#
                                  (|SMPCOER;convert_sorted| |p1| (CDR |lv1|)
                                   |lv2| $))
-                           (GO #6=#:G142)))
+                           (GO #6=#:G143)))
                          (#5#
                           (SEQ (LETT |lv1| (CDR |lv1|))
                                (LETT |pu1| (QCDR (QCDR |p1|))) (LETT |pu2| NIL)
@@ -87,7 +87,7 @@
                      (|:| |elt2|
                           (|SparseMultivariatePolynomial| R |VarSet2|)))))
          ($ (|SparseMultivariatePolynomial| R |VarSet2|)))
-        (SPROG ((#1=#:G150 NIL) (#2=#:G151 NIL) (|y| NIL))
+        (SPROG ((#1=#:G152 NIL) (#2=#:G153 NIL) (|y| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -99,7 +99,7 @@
                         (EXIT
                          (COND
                           ((SPADCALL |x| (QCAR |y|) (QREFELT $ 11))
-                           (PROGN (LETT #1# (QCDR |y|)) (GO #3=#:G149))))))
+                           (PROGN (LETT #1# (QCDR |y|)) (GO #3=#:G151))))))
                        (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                   (EXIT (|error| "Impossible"))))
                 #3# (EXIT #1#)))) 
@@ -114,12 +114,12 @@
             (|Record| (|:| |elt1| |VarSet1|)
                       (|:| |elt2|
                            (|SparseMultivariatePolynomial| R |VarSet2|)))))
-          (#1=#:G181 NIL) (|el1| NIL) (#2=#:G182 NIL) (|el2| NIL)
-          (#3=#:G180 NIL) (#4=#:G179 NIL) (|x| NIL) (#5=#:G178 NIL)
-          (#6=#:G177 NIL) (#7=#:G176 NIL)
+          (#1=#:G187 NIL) (|el1| NIL) (#2=#:G188 NIL) (|el2| NIL)
+          (#3=#:G186 NIL) (#4=#:G185 NIL) (|x| NIL) (#5=#:G184 NIL)
+          (#6=#:G183 NIL) (#7=#:G182 NIL)
           (|pl|
            (|List| (|Record| (|:| |elt1| |VarSet1|) (|:| |elt2| |VarSet2|))))
-          (#8=#:G174 NIL) (#9=#:G175 NIL) (#10=#:G173 NIL)
+          (#8=#:G180 NIL) (#9=#:G181 NIL) (#10=#:G179 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |lv1|))
               (EXIT
@@ -221,9 +221,9 @@
 
 (DECLAIM (NOTINLINE |SparsePolynomialCoercionHelpers;|)) 
 
-(DEFUN |SparsePolynomialCoercionHelpers| (&REST #1=#:G183)
+(DEFUN |SparsePolynomialCoercionHelpers| (&REST #1=#:G189)
   (SPROG NIL
-         (PROG (#2=#:G184)
+         (PROG (#2=#:G190)
            (RETURN
             (COND
              ((LETT #2#

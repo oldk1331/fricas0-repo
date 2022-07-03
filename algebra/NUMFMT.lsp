@@ -71,8 +71,8 @@
 
 (SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| (|PositiveInteger|)) ($ (|String|)))
         (SPROG
-         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G178 NIL) (|j| NIL)
-          (#2=#:G177 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
+         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G180 NIL) (|j| NIL)
+          (#2=#:G179 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
           (|i| NIL) (#3=#:G164 NIL))
          (SEQ (LETT |n| |pn|) (LETT |d| (+ (REM |n| 10) (QREFELT $ 36)))
               (LETT |n| (QUOTIENT2 |n| 10))
@@ -210,9 +210,9 @@
 
 (SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| (|String|)) ($ (|PositiveInteger|)))
         (SPROG
-         ((#1=#:G189 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
-          (|n| (|Integer|)) (#2=#:G192 NIL) (|i| (|Integer|))
-          (|c| (|Character|)) (#3=#:G193 NIL) (|k| NIL)
+         ((#1=#:G194 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
+          (|n| (|Integer|)) (#2=#:G197 NIL) (|i| (|Integer|))
+          (|c| (|Character|)) (#3=#:G198 NIL) (|k| NIL)
           (|nprens| (|PositiveInteger|)))
          (SEQ (LETT |s| (SPADCALL |s| (QREFELT $ 50))) (LETT |tot| 0)
               (LETT |Max| 0) (LETT |i| (SPADCALL |s| (QREFELT $ 51)))
@@ -280,7 +280,7 @@
                                                  (LETT #2#
                                                        (|error|
                                                         "Improper Roman numeral: unbalanced ')'"))
-                                                 (GO #4=#:G181)))))))
+                                                 (GO #4=#:G186)))))))
                                            #4# (EXIT #2#))
                                           (LETT |k| (|inc_SI| |k|)) (GO G190)
                                           G191 (EXIT NIL))
@@ -313,7 +313,7 @@
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G196)
+         (PROG (#1=#:G201)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|))

@@ -8,13 +8,13 @@
         ((|f| (F)) (|x| (|Symbol|))
          ($ (|Record| (|:| |const| F) (|:| |nconst| F))))
         (SPROG
-         ((#1=#:G173 NIL) (|rec| (|Record| (|:| |const| F) (|:| |nconst| F)))
+         ((#1=#:G175 NIL) (|rec| (|Record| (|:| |const| F) (|:| |nconst| F)))
           (|vv| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|))))
           (|v|
            (|Union| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|)))
                     #2="failed"))
-          (|cc| (F)) (#3=#:G175 NIL) (|g| NIL) (|nc| (F))
-          (|u| (|Union| (|List| F) #2#)) (#4=#:G174 NIL))
+          (|cc| (F)) (#3=#:G177 NIL) (|g| NIL) (|nc| (F))
+          (|u| (|Union| (|List| F) #2#)) (#4=#:G176 NIL))
          (SEQ
           (EXIT
            (COND
@@ -87,7 +87,7 @@
                                           (LETT #1#
                                                 (CONS (|spadConstant| $ 44)
                                                       |f|))
-                                          (GO #6=#:G172))))))
+                                          (GO #6=#:G174))))))
                                      (LETT #3# (CDR #3#)) (GO G190) G191
                                      (EXIT NIL))
                                 (EXIT (CONS |cc| |nc|))))
@@ -130,7 +130,7 @@
         ((|f| (F)) (|x| (|Symbol|)) (|t| (F)) (|cc| (F))
          ($ (|Union| F "failed")))
         (SPROG
-         ((#1=#:G195 NIL) (|mmi| (|Integer|)) (|mm| (F)) (#2=#:G199 NIL)
+         ((#1=#:G197 NIL) (|mmi| (|Integer|)) (|mm| (F)) (#2=#:G201 NIL)
           (|sgz| #3=(|Union| (|Integer|) "failed")) (|z| (F)) (|sgs| #3#)
           (|ms| (F)) (|mw| (F)) (|l| (|List| F)))
          (SEQ
@@ -152,7 +152,7 @@
                             ((QEQCAR |sgs| 1)
                              (PROGN
                               (LETT #2# (CONS 1 #5#))
-                              (GO #6=#:G196))))))))
+                              (GO #6=#:G198))))))))
                    (SEQ
                     (LETT |sgz|
                           (SPADCALL
@@ -368,9 +368,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchIntegration;|)) 
 
-(DEFUN |PatternMatchIntegration| (&REST #1=#:G224)
+(DEFUN |PatternMatchIntegration| (&REST #1=#:G226)
   (SPROG NIL
-         (PROG (#2=#:G225)
+         (PROG (#2=#:G227)
            (RETURN
             (COND
              ((LETT #2#

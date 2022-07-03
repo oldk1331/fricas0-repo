@@ -130,7 +130,7 @@
 (SDEFUN |RECLOS;allRootsOf;SupL;8|
         ((|pol| (|SparseUnivariatePolynomial| $)) ($ (|List| $)))
         (SPROG
-         ((|res| (|List| $)) (|o| (|OutputForm|)) (#1=#:G198 NIL) (|term| NIL)
+         ((|res| (|List| $)) (|o| (|OutputForm|)) (#1=#:G199 NIL) (|term| NIL)
           (|liste|
            (|List|
             (|RightOpenIntervalRootCharacterization| $
@@ -509,9 +509,9 @@
 
 (DECLAIM (NOTINLINE |RealClosure;|)) 
 
-(DEFUN |RealClosure| (#1=#:G326)
+(DEFUN |RealClosure| (#1=#:G327)
   (SPROG NIL
-         (PROG (#2=#:G327)
+         (PROG (#2=#:G328)
            (RETURN
             (COND
              ((LETT #2#

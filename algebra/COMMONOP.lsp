@@ -1,6 +1,6 @@
 
 (SDEFUN |COMMONOP;operator;SBo;1| ((|s| (|Symbol|)) ($ (|BasicOperator|)))
-        (SPROG ((#1=#:G124 NIL) (#2=#:G125 NIL) (#3=#:G126 NIL) (|op| NIL))
+        (SPROG ((#1=#:G125 NIL) (#2=#:G126 NIL) (#3=#:G127 NIL) (|op| NIL))
                (SEQ
                 (EXIT
                  (SEQ (COND ((QREFELT $ 6) (|COMMONOP;startUp| NIL $)))
@@ -20,8 +20,8 @@
                                         (PROGN
                                          (LETT #2#
                                                (SPADCALL |op| (QREFELT $ 158)))
-                                         (GO #4=#:G123)))
-                                  (GO #5=#:G121))))))
+                                         (GO #4=#:G124)))
+                                  (GO #5=#:G122))))))
                              (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                        #5# (EXIT #1#))
                       (EXIT (SPADCALL |s| (QREFELT $ 43)))))
@@ -104,10 +104,10 @@
 
 (SDEFUN |COMMONOP;startUp| ((|b| (|Boolean|)) ($ (|Void|)))
         (SPROG
-         ((#1=#:G198 NIL) (|op| NIL) (#2=#:G197 NIL) (#3=#:G196 NIL)
-          (#4=#:G195 NIL) (#5=#:G194 NIL) (#6=#:G193 NIL) (#7=#:G192 NIL)
-          (#8=#:G191 NIL) (#9=#:G190 NIL) (#10=#:G189 NIL) (#11=#:G188 NIL)
-          (#12=#:G187 NIL) (#13=#:G186 NIL))
+         ((#1=#:G212 NIL) (|op| NIL) (#2=#:G211 NIL) (#3=#:G210 NIL)
+          (#4=#:G209 NIL) (#5=#:G208 NIL) (#6=#:G207 NIL) (#7=#:G206 NIL)
+          (#8=#:G205 NIL) (#9=#:G204 NIL) (#10=#:G203 NIL) (#11=#:G202 NIL)
+          (#12=#:G201 NIL) (#13=#:G200 NIL))
          (SEQ (SETELT $ 6 |b|)
               (SPADCALL (QREFELT $ 42) (ELT $ 162) (QREFELT $ 179))
               (SPADCALL (QREFELT $ 41) (ELT $ 180) (QREFELT $ 182))
@@ -284,7 +284,7 @@
 
 (DEFUN |CommonOperators| ()
   (SPROG NIL
-         (PROG (#1=#:G200)
+         (PROG (#1=#:G214)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|CommonOperators|))

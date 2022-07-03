@@ -5,7 +5,7 @@
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
          ($ (|List| (|Symbol|))))
         (SPROG
-         ((|truels| (|List| (|Symbol|))) (#1=#:G137 NIL) (#2=#:G143 NIL)
+         ((|truels| (|List| (|Symbol|))) (#1=#:G138 NIL) (#2=#:G144 NIL)
           (|s| NIL) (|lv| (|List| (|OrderedVariableList| |ls|))))
          (SEQ
           (LETT |lv| (SPADCALL (SPADCALL |lp| (QREFELT $ 10)) (QREFELT $ 12)))
@@ -36,8 +36,8 @@
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
          ($ (|Boolean|)))
         (SPROG
-         ((|lq1| (|List| (|Polynomial| R))) (#1=#:G148 NIL) (|p| NIL)
-          (#2=#:G147 NIL)
+         ((|lq1| (|List| (|Polynomial| R))) (#1=#:G150 NIL) (|p| NIL)
+          (#2=#:G149 NIL)
           (|fglmpack|
            (CATEGORY |package|
             (SIGNATURE |zeroDimensional?|
@@ -84,10 +84,10 @@
             (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
            "failed")))
         (SPROG
-         ((#1=#:G167 NIL) (|q1| NIL) (#2=#:G166 NIL) (#3=#:G163 NIL)
+         ((#1=#:G171 NIL) (|q1| NIL) (#2=#:G170 NIL) (#3=#:G167 NIL)
           (|foo| (|Union| (|List| (|Polynomial| R)) #4="failed"))
-          (|lq1| (|List| (|Polynomial| R))) (#5=#:G165 NIL) (|p| NIL)
-          (#6=#:G164 NIL)
+          (|lq1| (|List| (|Polynomial| R))) (#5=#:G169 NIL) (|p| NIL)
+          (#6=#:G168 NIL)
           (|fglmpack|
            (CATEGORY |package|
             (SIGNATURE |zeroDimensional?|
@@ -136,7 +136,7 @@
                 (EXIT
                  (COND
                   ((QEQCAR |foo| 1)
-                   (PROGN (LETT #3# (CONS 1 "failed")) (GO #7=#:G162)))
+                   (PROGN (LETT #3# (CONS 1 "failed")) (GO #7=#:G166)))
                   ('T
                    (SEQ
                     (LETT |lp|
@@ -166,9 +166,9 @@
            (|NewSparseMultivariatePolynomial| R
                                               (|OrderedVariableList| |ls|)))))
         (SPROG
-         ((#1=#:G175 NIL) (|q1| NIL) (#2=#:G174 NIL)
-          (|lq1| (|List| (|Polynomial| R))) (#3=#:G173 NIL) (|p| NIL)
-          (#4=#:G172 NIL)
+         ((#1=#:G181 NIL) (|q1| NIL) (#2=#:G180 NIL)
+          (|lq1| (|List| (|Polynomial| R))) (#3=#:G179 NIL) (|p| NIL)
+          (#4=#:G178 NIL)
           (|fglmpack|
            (CATEGORY |package|
             (SIGNATURE |zeroDimensional?|
@@ -238,7 +238,7 @@
                                                          (|OrderedVariableList|
                                                           |ls|))))
              (|:| |tower| (|RegularChain| R |ls|)))))
-          (#2=#:G203 NIL)
+          (#2=#:G213 NIL)
           (|newlp|
            (|List|
             (|NewSparseMultivariatePolynomial| R
@@ -502,7 +502,7 @@
                                                      R
                                                      (|OrderedVariableList|
                                                       |ls|)))))))
-          (#2=#:G235 NIL)
+          (#2=#:G249 NIL)
           (|newlp|
            (|List|
             (|NewSparseMultivariatePolynomial| R
@@ -794,9 +794,9 @@
 
 (DECLAIM (NOTINLINE |LexTriangularPackage;|)) 
 
-(DEFUN |LexTriangularPackage| (&REST #1=#:G241)
+(DEFUN |LexTriangularPackage| (&REST #1=#:G255)
   (SPROG NIL
-         (PROG (#2=#:G242)
+         (PROG (#2=#:G256)
            (RETURN
             (COND
              ((LETT #2#

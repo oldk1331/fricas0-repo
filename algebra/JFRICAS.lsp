@@ -2,8 +2,8 @@
 (SDEFUN |JFRICAS;setFormatsAux!|
         ((|lf| (|List| (|FormatterCategory|))) ($ (|Void|)))
         (SPROG
-         ((#1=#:G130 NIL) (|f| NIL) (#2=#:G129 NIL) (|e| #3=(|OutputBox|))
-          (|b| #3#) (|n| (|String|)) (#4=#:G128 NIL))
+         ((#1=#:G132 NIL) (|f| NIL) (#2=#:G131 NIL) (|e| #3=(|OutputBox|))
+          (|b| #3#) (|n| (|String|)) (#4=#:G130 NIL))
          (SEQ
           (COND
            ((NULL |lf|) (SPADCALL "set output formatted off" (QREFELT $ 9)))
@@ -95,7 +95,7 @@
              (SPADCALL (|spadConstant| $ 13) (QREFELT $ 16)) (QREFELT $ 18)))))) 
 
 (SDEFUN |JFRICAS;setFormats!;LV;2| ((|lt| (|List| (|Type|))) ($ (|Void|)))
-        (SPROG ((#1=#:G134 NIL) (|t| NIL))
+        (SPROG ((#1=#:G137 NIL) (|t| NIL))
                (SEQ
                 (SEQ (LETT |t| NIL) (LETT #1# |lt|) G190
                      (COND
@@ -120,7 +120,7 @@
 
 (DEFUN |JFriCASSupport| ()
   (SPROG NIL
-         (PROG (#1=#:G137)
+         (PROG (#1=#:G140)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|JFriCASSupport|))

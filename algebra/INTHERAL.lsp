@@ -9,12 +9,12 @@
          ($ (|Record| (|:| |answer| R) (|:| |logpart| R))))
         (SPROG
          ((|iden| (UP)) (|inum| #1=(|Vector| UP)) (#2=#:G136 NIL)
-          (#3=#:G152 NIL) (#4=#:G154 NIL) (|i| NIL) (#5=#:G153 NIL)
+          (#3=#:G155 NIL) (#4=#:G157 NIL) (|i| NIL) (#5=#:G156 NIL)
           (|ratform| (R)) (|cnum| #1#)
           (|corr| #6=(|Record| (|:| |num| #1#) (|:| |den| UP))) (|s0| (R))
           (|sol| (|Vector| UP)) (|p| (UP)) (|j| (|NonNegativeInteger|))
-          (#7=#:G141 NIL) (|nn| (|Integer|)) (|sys| (|Matrix| UP)) (|u'| (UP))
-          (|u| (UP)) (|v| (UP)) (#8=#:G151 NIL) (|trm| NIL) (|coef| (UP))
+          (#7=#:G143 NIL) (|nn| (|Integer|)) (|sys| (|Matrix| UP)) (|u'| (UP))
+          (|u| (UP)) (|v| (UP)) (#8=#:G154 NIL) (|trm| NIL) (|coef| (UP))
           (|e| (UP)) (|cform| #6#) (|m| (|Matrix| UP))
           (|mat| (|Record| (|:| |num| (|Matrix| UP)) (|:| |den| UP)))
           (|n| (|PositiveInteger|)))
@@ -267,12 +267,12 @@
         ((|mat| (|Matrix| UP)) (|vec| (|Vector| UP)) (|modulus| (UP))
          ($ (|Vector| UP)))
         (SPROG
-         ((#1=#:G171 NIL)
+         ((#1=#:G176 NIL)
           (|bc|
            (|Union| (|Record| (|:| |coef1| UP) (|:| |coef2| UP)) "failed"))
-          (#2=#:G175 NIL) (|i| NIL)
-          (|sol| (|Union| (|Vector| (|Fraction| UP)) "failed")) (#3=#:G172 NIL)
-          (#4=#:G173 NIL) (|j| NIL) (#5=#:G174 NIL) (|k| NIL)
+          (#2=#:G180 NIL) (|i| NIL)
+          (|sol| (|Union| (|Vector| (|Fraction| UP)) "failed")) (#3=#:G177 NIL)
+          (#4=#:G178 NIL) (|j| NIL) (#5=#:G179 NIL) (|k| NIL)
           (|ans| (|Vector| UP)))
          (SEQ
           (EXIT
@@ -299,7 +299,7 @@
                             ((QEQCAR |bc| 1)
                              (PROGN
                               (LETT #1# (MAKEARR1 0 (|spadConstant| $ 11)))
-                              (GO #6=#:G170)))
+                              (GO #6=#:G175)))
                             ('T (QSETAREF1O |ans| |i| (QCAR (QCDR |bc|)) 1)))))
                          (LETT |i|
                                (PROG1 (+ |i| 1)
@@ -352,9 +352,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicHermiteIntegration;|)) 
 
-(DEFUN |AlgebraicHermiteIntegration| (&REST #1=#:G176)
+(DEFUN |AlgebraicHermiteIntegration| (&REST #1=#:G181)
   (SPROG NIL
-         (PROG (#2=#:G177)
+         (PROG (#2=#:G182)
            (RETURN
             (COND
              ((LETT #2#

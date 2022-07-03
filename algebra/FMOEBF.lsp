@@ -13,8 +13,8 @@
 (SDEFUN |FMOEBF;moebiusFunction;L$;4| ((|xx| (|List| P)) ($ ($)))
         (SPROG
          ((|mf| (|Matrix| (|Integer|))) (|zf| (|Matrix| (|Integer|)))
-          (#1=#:G138 NIL) (|y| NIL) (#2=#:G137 NIL) (#3=#:G136 NIL) (|x| NIL)
-          (#4=#:G135 NIL) (|xxo| (|List| P)))
+          (#1=#:G140 NIL) (|y| NIL) (#2=#:G139 NIL) (#3=#:G138 NIL) (|x| NIL)
+          (#4=#:G137 NIL) (|xxo| (|List| P)))
          (SEQ
           (LETT |xxo|
                 (SPADCALL (SPADCALL (ELT $ 11) |xx| (QREFELT $ 14))
@@ -58,20 +58,20 @@
           (EXIT (|FMOEBF;per| (CONS |mf| |xxo|) $))))) 
 
 (SDEFUN |FMOEBF;canonicalZeta| ((|pi| (P)) (|si| (P)) ($ (|Integer|)))
-        (SPROG ((#1=#:G141 NIL))
+        (SPROG ((#1=#:G143 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL |pi| |si| (QREFELT $ 11))
-                    (PROGN (LETT #1# 1) (GO #2=#:G140))))
+                    (PROGN (LETT #1# 1) (GO #2=#:G142))))
                   (EXIT 0)))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |FMOEBF;moebiusMu;$2PI;6|
         ((|mf| ($)) (|x| (P)) (|y| (P)) ($ (|Integer|)))
         (SPROG
-         ((#1=#:G147 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
+         ((#1=#:G149 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
           (|mfn| (|Matrix| (|Integer|))))
          (SEQ
           (EXIT
@@ -88,12 +88,12 @@
                 (EXIT
                  (PROGN
                   (LETT #1# (SPADCALL |mfn| |kx| |ky| (QREFELT $ 24)))
-                  (GO #3=#:G146)))))
+                  (GO #3=#:G148)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |FMOEBF;apply;$2PI;7| ((|mf| ($)) (|x| (P)) (|y| (P)) ($ (|Integer|)))
         (SPROG
-         ((#1=#:G153 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
+         ((#1=#:G155 NIL) (|ky| #2=(|Integer|)) (|kx| #2#)
           (|mfn| (|Matrix| (|Integer|))))
          (SEQ
           (EXIT
@@ -110,7 +110,7 @@
                 (EXIT
                  (PROGN
                   (LETT #1# (SPADCALL |mfn| |kx| |ky| (QREFELT $ 24)))
-                  (GO #3=#:G152)))))
+                  (GO #3=#:G154)))))
           #3# (EXIT #1#)))) 
 
 (SDEFUN |FMOEBF;moebiusMatrix;$M;8| ((|mf| ($)) ($ (|Matrix| (|Integer|))))
@@ -123,9 +123,9 @@
 
 (DECLAIM (NOTINLINE |FiniteMoebiusFunction;|)) 
 
-(DEFUN |FiniteMoebiusFunction| (#1=#:G158)
+(DEFUN |FiniteMoebiusFunction| (#1=#:G160)
   (SPROG NIL
-         (PROG (#2=#:G159)
+         (PROG (#2=#:G161)
            (RETURN
             (COND
              ((LETT #2#

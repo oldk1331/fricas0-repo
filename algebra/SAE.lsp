@@ -3,7 +3,7 @@
         (EXPT (SPADCALL (QREFELT $ 32)) (QREFELT $ 17))) 
 
 (SDEFUN |SAE;random;$;2| (($ ($)))
-        (SPROG ((#1=#:G134 NIL) (|i| NIL) (#2=#:G133 NIL))
+        (SPROG ((#1=#:G136 NIL) (|i| NIL) (#2=#:G135 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -55,7 +55,7 @@
         (SPADCALL (SPADCALL |x| |y| (QREFELT $ 67)) (QREFELT $ 56))) 
 
 (SDEFUN |SAE;coordinates;$V;17| ((|x| ($)) ($ (|Vector| R)))
-        (SPROG ((#1=#:G153 NIL) (|i| NIL) (#2=#:G152 NIL))
+        (SPROG ((#1=#:G156 NIL) (|i| NIL) (#2=#:G155 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# (GETREFV (|inc_SI| #3=(QREFELT $ 21))))
@@ -71,7 +71,7 @@
 
 (SDEFUN |SAE;represents;V$;18| ((|vect| (|Vector| R)) ($ ($)))
         (SPROG
-         ((#1=#:G155 NIL) (#2=#:G154 ($)) (#3=#:G156 ($)) (#4=#:G158 NIL)
+         ((#1=#:G158 NIL) (#2=#:G157 ($)) (#3=#:G159 ($)) (#4=#:G161 NIL)
           (|i| NIL))
          (SEQ
           (PROGN
@@ -95,7 +95,7 @@
         (SPADCALL (QREFELT $ 73))) 
 
 (SDEFUN |SAE;rank;Pi;21| (($ (|PositiveInteger|)))
-        (SPROG ((#1=#:G161 NIL))
+        (SPROG ((#1=#:G164 NIL))
                (PROG1 (LETT #1# (QREFELT $ 17))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
@@ -126,7 +126,7 @@
 (SDEFUN |SAE;coordinates;$VV;25|
         ((|x| ($)) (|bas| (|Vector| $)) ($ (|Vector| R)))
         (SPROG
-         ((|xi| (|qf|)) (#1=#:G178 NIL) (|i| NIL) (|vec| (|Vector| R))
+         ((|xi| (|qf|)) (#1=#:G182 NIL) (|i| NIL) (|vec| (|Vector| R))
           (|vecQF| (|Vector| |qf|)) (|coordsQF| (|Vector| |qf|))
           (|m| (|Union| (|Matrix| |qf|) #2="failed")) (|mat| (|Matrix| R))
           (|imatqf|
@@ -273,7 +273,7 @@
 
 (SDEFUN |SAE;mkDiscMat| ((|b| (|Boolean|)) ($ (|Void|)))
         (SPROG
-         ((#1=#:G196 NIL) (|j| NIL) (#2=#:G195 NIL) (|i| NIL)
+         ((#1=#:G202 NIL) (|j| NIL) (#2=#:G201 NIL) (|i| NIL)
           (|mc| (|Integer|)) (|mr| (|Integer|)))
          (SEQ (SETELT $ 25 |b|) (LETT |mr| (PROGN (QREFELT $ 24) 1))
               (LETT |mc| (PROGN (QREFELT $ 24) 1))
@@ -301,7 +301,7 @@
               (EXIT (SPADCALL (QREFELT $ 107)))))) 
 
 (SDEFUN |SAE;trace;$R;32| ((|x| ($)) ($ (R)))
-        (SPROG ((|ans| (R)) (|xn| ($)) (#1=#:G201 NIL) (|n| NIL))
+        (SPROG ((|ans| (R)) (|xn| ($)) (#1=#:G208 NIL) (|n| NIL))
                (SEQ (LETT |xn| |x|)
                     (LETT |ans|
                           (SPADCALL (SPADCALL |xn| (QREFELT $ 53)) 0
@@ -336,7 +336,7 @@
 
 (SDEFUN |SAE;index;Pi$;35| ((|k| (|PositiveInteger|)) ($ ($)))
         (SPROG
-         ((|i| (|Integer|)) (|ans| ($)) (|a| (R)) (#1=#:G208 NIL)
+         ((|i| (|Integer|)) (|ans| ($)) (|a| (R)) (#1=#:G216 NIL)
           (|h| (|Integer|)) (|j| NIL) (|p| (|Integer|)))
          (SEQ (LETT |i| (REM |k| (SPADCALL (QREFELT $ 33))))
               (LETT |p| (SPADCALL (QREFELT $ 32)))
@@ -403,9 +403,9 @@
 
 (DECLAIM (NOTINLINE |SimpleAlgebraicExtension;|)) 
 
-(DEFUN |SimpleAlgebraicExtension| (&REST #1=#:G263)
+(DEFUN |SimpleAlgebraicExtension| (&REST #1=#:G272)
   (SPROG NIL
-         (PROG (#2=#:G264)
+         (PROG (#2=#:G273)
            (RETURN
             (COND
              ((LETT #2#
@@ -425,8 +425,8 @@
 
 (DEFUN |SimpleAlgebraicExtension;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G262 NIL) (|i| NIL) (#2=#:G261 NIL) (#3=#:G127 NIL) (#4=#:G124 NIL)
-    (|pv$| NIL) (#5=#:G258 NIL) (#6=#:G259 NIL) (#7=#:G260 NIL) ($ NIL)
+   ((#1=#:G271 NIL) (|i| NIL) (#2=#:G270 NIL) (#3=#:G127 NIL) (#4=#:G124 NIL)
+    (|pv$| NIL) (#5=#:G267 NIL) (#6=#:G268 NIL) (#7=#:G269 NIL) ($ NIL)
     (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN

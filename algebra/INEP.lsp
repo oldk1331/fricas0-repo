@@ -67,7 +67,7 @@
         ((|vect| (|Matrix| (|SparseUnivariatePolynomial| K))) (|alg| (F))
          ($ (|Matrix| F)))
         (SPROG
-         ((|v| (F)) (|polf| (|SparseUnivariatePolynomial| F)) (#1=#:G140 NIL)
+         ((|v| (F)) (|polf| (|SparseUnivariatePolynomial| F)) (#1=#:G141 NIL)
           (|i| NIL) (|w| (|Matrix| F)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANROWS |vect|))
               (LETT |w| (SPADCALL |n| 1 (QREFELT $ 36)))
@@ -110,15 +110,15 @@
                             (|List|
                              (|Matrix| (|SparseUnivariatePolynomial| K))))))))
           (|soln| (|List| (|Matrix| (|SparseUnivariatePolynomial| K))))
-          (#1=#:G187 NIL) (|i| NIL)
-          (|wk| (|Matrix| (|SparseUnivariatePolynomial| K))) (#2=#:G186 NIL)
-          (|vec| NIL) (|sln2| (|List| (|Vector| MM))) (#3=#:G185 NIL) (|j| NIL)
-          (#4=#:G184 NIL) (B (AM)) (|alg| (MM))
+          (#1=#:G197 NIL) (|i| NIL)
+          (|wk| (|Matrix| (|SparseUnivariatePolynomial| K))) (#2=#:G196 NIL)
+          (|vec| NIL) (|sln2| (|List| (|Vector| MM))) (#3=#:G195 NIL) (|j| NIL)
+          (#4=#:G194 NIL) (B (AM)) (|alg| (MM))
           (|ppol| (|SparseUnivariatePolynomial| K))
-          (|lr| (|List| (|Matrix| F))) (#5=#:G183 NIL) (|wf| (|Matrix| F))
-          (#6=#:G182 NIL) (|vecr| NIL) (#7=#:G181 NIL) (#8=#:G180 NIL)
+          (|lr| (|List| (|Matrix| F))) (#5=#:G193 NIL) (|wf| (|Matrix| F))
+          (#6=#:G192 NIL) (|vecr| NIL) (#7=#:G191 NIL) (#8=#:G190 NIL)
           (B1 (|Matrix| K)) (|alpha| (K))
-          (|pol| #9=(|SparseUnivariatePolynomial| K)) (#10=#:G179 NIL)
+          (|pol| #9=(|SparseUnivariatePolynomial| K)) (#10=#:G189 NIL)
           (|ff| NIL)
           (|lff|
            (|List|
@@ -391,8 +391,8 @@
          ($ (|List| F)))
         (SPROG
          ((|upi| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|denom| #1=(|Integer|)) (#2=#:G189 NIL) (#3=#:G188 #1#)
-          (#4=#:G190 #1#) (#5=#:G194 NIL) (|c| NIL))
+          (|denom| #1=(|Integer|)) (#2=#:G199 NIL) (#3=#:G198 #1#)
+          (#4=#:G200 #1#) (#5=#:G204 NIL) (|c| NIL))
          (SEQ
           (LETT |denom|
                 (PROGN
@@ -420,8 +420,8 @@
          ($ (|List| F)))
         (SPROG
          ((|upgi| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
-          (|denom| #1=(|Integer|)) (#2=#:G196 NIL) (#3=#:G195 #1#)
-          (#4=#:G197 #1#) (#5=#:G201 NIL) (|c| NIL))
+          (|denom| #1=(|Integer|)) (#2=#:G206 NIL) (#3=#:G205 #1#)
+          (#4=#:G207 #1#) (#5=#:G211 NIL) (|c| NIL))
          (SEQ
           (LETT |denom|
                 (PROGN
@@ -474,7 +474,7 @@
           (|nsl|
            (|Record| (|:| |outval| F) (|:| |outmult| (|Integer|))
                      (|:| |outvect| (|List| (|Matrix| F)))))
-          (#1=#:G216 NIL) (|ep| NIL) (#2=#:G215 NIL) (#3=#:G214 NIL)
+          (#1=#:G229 NIL) (|ep| NIL) (#2=#:G228 NIL) (#3=#:G227 NIL)
           (|alg| NIL) (|lmult| (|Integer|))
           (|lvect| (|List| (|Matrix| (|SparseUnivariatePolynomial| K))))
           (|lval| (|List| F))
@@ -484,7 +484,7 @@
                      (|:| |poleigen|
                           (|List|
                            (|Matrix| (|SparseUnivariatePolynomial| K))))))
-          (#4=#:G213 NIL) (|lev| NIL) (|n| (|NonNegativeInteger|))
+          (#4=#:G226 NIL) (|lev| NIL) (|n| (|NonNegativeInteger|))
           (|sln1|
            (|List|
             (|Union|
@@ -554,7 +554,7 @@
 (SDEFUN |INEP;charpol;MSup;11|
         ((A (|Matrix| K)) ($ (|SparseUnivariatePolynomial| K)))
         (SPROG
-         ((#1=#:G224 NIL) (|j| NIL) (#2=#:G223 NIL) (|i| NIL)
+         ((#1=#:G239 NIL) (|j| NIL) (#2=#:G238 NIL) (|i| NIL)
           (B (|Matrix| (|SparseUnivariatePolynomial| K)))
           (|dimA| (|NonNegativeInteger|)))
          (SEQ (LETT |dimA| (ANROWS A))
@@ -592,9 +592,9 @@
 
 (DECLAIM (NOTINLINE |InnerNumericEigenPackage;|)) 
 
-(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G225)
+(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G240)
   (SPROG NIL
-         (PROG (#2=#:G226)
+         (PROG (#2=#:G241)
            (RETURN
             (COND
              ((LETT #2#

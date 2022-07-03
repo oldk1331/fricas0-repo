@@ -4,8 +4,8 @@
          ($ (|FiniteCubicalComplex| (|Integer|))))
         (SPROG
          ((|r| (ASIMP)) (|vs1| (|List| (|Integer|)))
-          (|v1| (|List| (|List| (|List| (|Integer|))))) (#1=#:G124 NIL)
-          (|n| NIL) (#2=#:G123 NIL)
+          (|v1| (|List| (|List| (|List| (|Integer|))))) (#1=#:G125 NIL)
+          (|n| NIL) (#2=#:G124 NIL)
           (ASIMP
            (|Join| (|SetCategory|)
                    (CATEGORY |domain|
@@ -217,7 +217,7 @@
 
 (DEFUN |CubicalComplexFactory| ()
   (SPROG NIL
-         (PROG (#1=#:G135)
+         (PROG (#1=#:G136)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|CubicalComplexFactory|))

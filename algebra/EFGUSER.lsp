@@ -423,9 +423,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionsGeneralizedUnivariatePowerSeries;|)) 
 
-(DEFUN |ElementaryFunctionsGeneralizedUnivariatePowerSeries| (&REST #1=#:G215)
+(DEFUN |ElementaryFunctionsGeneralizedUnivariatePowerSeries| (&REST #1=#:G216)
   (SPROG NIL
-         (PROG (#2=#:G216)
+         (PROG (#2=#:G217)
            (RETURN
             (COND
              ((LETT #2#

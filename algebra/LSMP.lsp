@@ -18,7 +18,7 @@
 
 (SDEFUN |LSMP;aSolution| ((|m| (M)) ($ (|Union| |Col| "failed")))
         (SPROG
-         ((#1=#:G155 NIL) (|j| NIL) (#2=#:G154 NIL) (|i| NIL)
+         ((#1=#:G160 NIL) (|j| NIL) (#2=#:G159 NIL) (|i| NIL)
           (|v| (|PrimitiveArray| (|Integer|))) (|sol| (|Col|))
           (|ck| (|Integer|)) (|rk| (|Integer|)) (|nvar| (|NonNegativeInteger|))
           (#3=#:G139 NIL))
@@ -143,7 +143,7 @@
            (|Record| (|:| |particular| (|Union| |Col| #1="failed"))
                      (|:| |basis| #2=(|List| |Col|))))))
         (SPROG
-         ((#3=#:G176 NIL) (|b| NIL) (#4=#:G175 NIL) (|nl| #2#)
+         ((#3=#:G182 NIL) (|b| NIL) (#4=#:G181 NIL) (|nl| #2#)
           (|sol0|
            (|Record| (|:| |particular| (|Union| |Col| #1#))
                      (|:| |basis| (|List| |Col|)))))
@@ -186,9 +186,9 @@
 
 (DECLAIM (NOTINLINE |LinearSystemMatrixPackage;|)) 
 
-(DEFUN |LinearSystemMatrixPackage| (&REST #1=#:G177)
+(DEFUN |LinearSystemMatrixPackage| (&REST #1=#:G183)
   (SPROG NIL
-         (PROG (#2=#:G178)
+         (PROG (#2=#:G184)
            (RETURN
             (COND
              ((LETT #2#

@@ -80,7 +80,7 @@
                     (EXIT |node|)))) 
 
 (SDEFUN |SUBSPACE;deepCopy;2$;11| ((|space| ($)) ($ ($)))
-        (SPROG ((|cc| ($)) (#1=#:G181 NIL) (|c| NIL) (|node| ($)))
+        (SPROG ((|cc| ($)) (#1=#:G182 NIL) (|c| NIL) (|node| ($)))
                (SEQ (LETT |node| (SPADCALL |space| (QREFELT $ 37)))
                     (EXIT
                      (COND ((SPADCALL |space| (QREFELT $ 15)) |node|)
@@ -122,7 +122,7 @@
 
 (SDEFUN |SUBSPACE;merge;L$;13| ((|listOfSpaces| (|List| $)) ($ ($)))
         (SPROG
-         ((#1=#:G191 NIL) (|c| NIL) (#2=#:G190 NIL) (#3=#:G189 NIL) (|s| NIL)
+         ((#1=#:G194 NIL) (|c| NIL) (#2=#:G193 NIL) (#3=#:G192 NIL) (|s| NIL)
           (|space| ($)))
          (SEQ
           (COND
@@ -167,7 +167,7 @@
              (EXIT |space|))))))) 
 
 (SDEFUN |SUBSPACE;separate;$L;14| ((|space| ($)) ($ (|List| $)))
-        (SPROG ((|spaceList| (|List| $)) (|spc| ($)) (#1=#:G196 NIL) (|s| NIL))
+        (SPROG ((|spaceList| (|List| $)) (|spc| ($)) (#1=#:G200 NIL) (|s| NIL))
                (SEQ (LETT |spaceList| NIL)
                     (SEQ (LETT |s| NIL) (LETT #1# (QVELT |space| 3)) G190
                          (COND
@@ -187,8 +187,8 @@
         ((|space| ($)) (|path| (|List| (|NonNegativeInteger|)))
          (|point| (|Point| R)) ($ ($)))
         (SPROG
-         ((|node| ($)) (#1=#:G208 NIL) (|more| NIL)
-          (|depth| (|NonNegativeInteger|)) (#2=#:G207 NIL) (|i| NIL)
+         ((|node| ($)) (#1=#:G214 NIL) (|more| NIL)
+          (|depth| (|NonNegativeInteger|)) (#2=#:G213 NIL) (|i| NIL)
           (|which| (|NonNegativeInteger|)) (|lastPt| (|List| (|Point| R))))
          (SEQ
           (COND
@@ -221,7 +221,7 @@
 (SDEFUN |SUBSPACE;addPoint2;$P$;16|
         ((|space| ($)) (|point| (|Point| R)) ($ ($)))
         (SPROG
-         ((|node| ($)) (#1=#:G217 NIL) (|more| NIL) (|first| ($))
+         ((|node| ($)) (#1=#:G224 NIL) (|more| NIL) (|first| ($))
           (|depth| (|NonNegativeInteger|)) (|which| (|NonNegativeInteger|))
           (|lastPt| (|List| (|Point| R))))
          (SEQ
@@ -251,7 +251,7 @@
         ((|space| ($)) (|node| ($)) (|point| (|Point| R))
          (|depth| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
-         ((#1=#:G226 NIL) (|more| NIL) (|which| (|NonNegativeInteger|))
+         ((#1=#:G234 NIL) (|more| NIL) (|which| (|NonNegativeInteger|))
           (|lastPt| (|List| (|Point| R))))
          (SEQ
           (COND
@@ -280,8 +280,8 @@
         ((|space| ($)) (|path| (|List| (|NonNegativeInteger|)))
          (|which| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
-         ((|node| ($)) (#1=#:G234 NIL) (|more| NIL)
-          (|depth| (|NonNegativeInteger|)) (#2=#:G233 NIL) (|i| NIL))
+         ((|node| ($)) (#1=#:G244 NIL) (|more| NIL)
+          (|depth| (|NonNegativeInteger|)) (#2=#:G243 NIL) (|i| NIL))
          (SEQ (LETT |node| |space|) (LETT |depth| 0)
               (SEQ (LETT |i| NIL) (LETT #2# |path|) G190
                    (COND
@@ -326,7 +326,7 @@
         ((|space| ($)) (|path| (|List| (|NonNegativeInteger|)))
          (|point| (|Point| R)) ($ ($)))
         (SPROG
-         ((|node| ($)) (#1=#:G251 NIL) (|i| NIL)
+         ((|node| ($)) (#1=#:G262 NIL) (|i| NIL)
           (|which| (|NonNegativeInteger|)) (|lastPt| (|List| (|Point| R))))
          (SEQ
           (COND
@@ -353,7 +353,7 @@
 (SDEFUN |SUBSPACE;modifyPoint;$LNni$;21|
         ((|space| ($)) (|path| (|List| (|NonNegativeInteger|)))
          (|which| (|NonNegativeInteger|)) ($ ($)))
-        (SPROG ((|node| ($)) (#1=#:G256 NIL) (|i| NIL))
+        (SPROG ((|node| ($)) (#1=#:G268 NIL) (|i| NIL))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -383,7 +383,7 @@
 (SDEFUN |SUBSPACE;closeComponent;$LB$;23|
         ((|space| ($)) (|path| (|List| (|NonNegativeInteger|)))
          (|val| (|Boolean|)) ($ ($)))
-        (SPROG ((|node| ($)) (#1=#:G264 NIL) (|i| NIL))
+        (SPROG ((|node| ($)) (#1=#:G277 NIL) (|i| NIL))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -399,7 +399,7 @@
 (SDEFUN |SUBSPACE;defineProperty;$LSscp$;24|
         ((|space| ($)) (|path| (|List| (|NonNegativeInteger|)))
          (|prop| (|SubSpaceComponentProperty|)) ($ ($)))
-        (SPROG ((|node| ($)) (#1=#:G268 NIL) (|i| NIL))
+        (SPROG ((|node| ($)) (#1=#:G282 NIL) (|i| NIL))
                (SEQ (LETT |node| |space|)
                     (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                          (COND
@@ -413,7 +413,7 @@
 
 (SDEFUN |SUBSPACE;traverse;$L$;25|
         ((|space| ($)) (|path| (|List| (|NonNegativeInteger|))) ($ ($)))
-        (SPROG ((#1=#:G272 NIL) (|i| NIL))
+        (SPROG ((#1=#:G287 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# |path|) G190
                      (COND
@@ -475,8 +475,8 @@
 
 (SDEFUN |SUBSPACE;=;2$B;33| ((|s1| ($)) (|s2| ($)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G291 NIL) (#2=#:G290 #3=(|Boolean|)) (#4=#:G292 #3#)
-          (#5=#:G297 NIL) (|c1| NIL) (#6=#:G298 NIL) (|c2| NIL))
+         ((#1=#:G307 NIL) (#2=#:G306 #3=(|Boolean|)) (#4=#:G308 #3#)
+          (#5=#:G313 NIL) (|c1| NIL) (#6=#:G314 NIL) (|c2| NIL))
          (SEQ
           (COND
            ((SPADCALL |s1| (QREFELT $ 15))
@@ -537,9 +537,9 @@
 
 (DECLAIM (NOTINLINE |SubSpace;|)) 
 
-(DEFUN |SubSpace| (&REST #1=#:G300)
+(DEFUN |SubSpace| (&REST #1=#:G316)
   (SPROG NIL
-         (PROG (#2=#:G301)
+         (PROG (#2=#:G317)
            (RETURN
             (COND
              ((LETT #2#

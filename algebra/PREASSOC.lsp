@@ -15,8 +15,8 @@
 (SDEFUN |PREASSOC;makeMonic|
         ((|op| (L)) ($ (|Union| (|PrimitiveArray| R) "failed")))
         (SPROG
-         ((#1=#:G139 NIL) (|u| (|Union| R "failed")) (#2=#:G140 NIL)
-          (#3=#:G131 NIL) (|i| NIL) (|a| (|PrimitiveArray| R))
+         ((#1=#:G140 NIL) (|u| (|Union| R "failed")) (#2=#:G141 NIL)
+          (#3=#:G132 NIL) (|i| NIL) (|a| (|PrimitiveArray| R))
           (|n| (|NonNegativeInteger|)) (|lc| (R)))
          (SEQ
           (EXIT
@@ -38,7 +38,7 @@
                       (EXIT
                        (COND
                         ((QEQCAR |u| 1)
-                         (PROGN (LETT #1# (CONS 1 "failed")) (GO #4=#:G138)))
+                         (PROGN (LETT #1# (CONS 1 "failed")) (GO #4=#:G139)))
                         ('T
                          (QSETAREF1 |a| |i|
                                     (SPADCALL (QCDR |u|) (QREFELT $ 22)))))))
@@ -438,9 +438,9 @@
 
 (DECLAIM (NOTINLINE |PrecomputedAssociatedEquations;|)) 
 
-(DEFUN |PrecomputedAssociatedEquations| (&REST #1=#:G163)
+(DEFUN |PrecomputedAssociatedEquations| (&REST #1=#:G165)
   (SPROG NIL
-         (PROG (#2=#:G164)
+         (PROG (#2=#:G166)
            (RETURN
             (COND
              ((LETT #2#

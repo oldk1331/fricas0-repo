@@ -28,7 +28,7 @@
           (RETURN (PROGN (SPADCALL |r1| |p| (QREFELT $ 18)))))) 
 
 (SDEFUN |INMODGCD;modularGcdPrimitive;LBP;3| ((|listf| (|List| BP)) ($ (BP)))
-        (SPROG ((|g| (BP)) (#1=#:G169 NIL) (|f| NIL))
+        (SPROG ((|g| (BP)) (#1=#:G170 NIL) (|f| NIL))
                (SEQ
                 (COND ((NULL |listf|) (|spadConstant| $ 11))
                       ('T
@@ -55,7 +55,7 @@
         ((|listdeg| (|List| (|NonNegativeInteger|))) (|listf| (|List| BP))
          ($ (BP)))
         (SPROG
-         ((#1=#:G178 NIL) (|f1| (|Union| BP "failed")) (#2=#:G179 NIL)
+         ((#1=#:G180 NIL) (|f1| (|Union| BP "failed")) (#2=#:G181 NIL)
           (|f| NIL) (|g| (BP)) (|n| (|Integer|)))
          (SEQ
           (EXIT
@@ -71,7 +71,7 @@
                             ((QEQCAR |f1| 1)
                              (PROGN
                               (LETT #1# (|spadConstant| $ 27))
-                              (GO #3=#:G177))))))
+                              (GO #3=#:G179))))))
                      (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |g|)))
           #3# (EXIT #1#)))) 
@@ -98,9 +98,9 @@
 
 (SDEFUN |INMODGCD;modGcdPrimitive| ((|f| (BP)) (|g| (BP)) ($ (BP)))
         (SPROG
-         ((#1=#:G212 NIL) (|result| (BP)) (|testdeg| #2=(|NonNegativeInteger|))
+         ((#1=#:G216 NIL) (|result| (BP)) (|testdeg| #2=(|NonNegativeInteger|))
           (|soFar| (BP)) (|soFarModulus| (R)) (|correctionFactor| (R))
-          (|ans| (BP)) (#3=#:G194 NIL) (|cont| (R)) (|correction| (BP))
+          (|ans| (BP)) (#3=#:G198 NIL) (|cont| (R)) (|correction| (BP))
           (|dp| (FP)) (|ldp| (FP)) (|lcdp| (R)) (|dgp| (|NonNegativeInteger|))
           (|gp| (FP)) (|fp| (FP)) (|prime| (R))
           (|bound| (|NonNegativeInteger|)) (|lcd| (R)) (|lcg| (R)) (|lcf| (R))
@@ -135,7 +135,7 @@
                 (EXIT
                  (COND
                   ((ZEROP |testdeg|)
-                   (PROGN (LETT #1# (|spadConstant| $ 27)) (GO #4=#:G211)))
+                   (PROGN (LETT #1# (|spadConstant| $ 27)) (GO #4=#:G215)))
                   (#5='T
                    (SEQ
                     (LETT |ldp|
@@ -364,7 +364,7 @@
               ('T (CONS 1 "failed")))) 
 
 (SDEFUN |INMODGCD;modInverse| ((|c| (R)) (|p| (R)) ($ (R)))
-        (SPROG ((#1=#:G219 NIL))
+        (SPROG ((#1=#:G223 NIL))
                (QCAR
                 (PROG2
                     (LETT #1#
@@ -405,8 +405,8 @@
 
 (SDEFUN |INMODGCD;height| ((|f| (BP)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G229 NIL) (#2=#:G228 #3=(|NonNegativeInteger|)) (#4=#:G230 #3#)
-          (#5=#:G233 NIL) (|cc| NIL) (|degf| (|NonNegativeInteger|)))
+         ((#1=#:G233 NIL) (#2=#:G232 #3=(|NonNegativeInteger|)) (#4=#:G234 #3#)
+          (#5=#:G237 NIL) (|cc| NIL) (|degf| (|NonNegativeInteger|)))
          (SEQ (LETT |degf| (SPADCALL |f| (QREFELT $ 23)))
               (EXIT
                (PROGN
@@ -433,9 +433,9 @@
 
 (DECLAIM (NOTINLINE |InnerModularGcd;|)) 
 
-(DEFUN |InnerModularGcd| (&REST #1=#:G236)
+(DEFUN |InnerModularGcd| (&REST #1=#:G240)
   (SPROG NIL
-         (PROG (#2=#:G237)
+         (PROG (#2=#:G241)
            (RETURN
             (COND
              ((LETT #2#

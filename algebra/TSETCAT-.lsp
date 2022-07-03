@@ -278,7 +278,7 @@
 (SDEFUN |TSETCAT-;reduce;PSMMP;13|
         ((|p| (P)) (|ts| (S)) (|redOp| (|Mapping| P P P))
          (|redOp?| (|Mapping| (|Boolean|) P P)) ($ (P)))
-        (SPROG ((#1=#:G305 NIL) (|reductor| (P)) (#2=#:G302 NIL) (|ts0| (S)))
+        (SPROG ((#1=#:G316 NIL) (|reductor| (P)) (#2=#:G313 NIL) (|ts0| (S)))
                (SEQ
                 (COND
                  ((OR (SPADCALL |ts| (QREFELT $ 12))
@@ -384,7 +384,7 @@
 
 (SDEFUN |TSETCAT-;removeZero;PSP;18| ((|p| (P)) (|ts| (S)) ($ (P)))
         (SPROG
-         ((|q| (P)) (#1=#:G359 NIL) (#2=#:G349 NIL) (|ts_v-| (S)) (|v| (V)))
+         ((|q| (P)) (#1=#:G372 NIL) (#2=#:G361 NIL) (|ts_v-| (S)) (|v| (V)))
          (SEQ
           (EXIT
            (COND
@@ -412,7 +412,7 @@
                      (EXIT
                       (COND
                        ((SPADCALL |q| (QREFELT $ 31))
-                        (PROGN (LETT #1# |q|) (GO #3=#:G358)))
+                        (PROGN (LETT #1# |q|) (GO #3=#:G371)))
                        ((SPADCALL (SPADCALL |q| |ts_v-| (QREFELT $ 84))
                                   (QREFELT $ 31))
                         (PROGN (LETT #1# (|spadConstant| $ 85)) (GO #3#))))))))
@@ -488,7 +488,7 @@
         (SPADCALL |ts| (ELT $ 103) (QREFELT $ 98))) 
 
 (SDEFUN |TSETCAT-;mvar;SV;25| ((|ts| (S)) ($ (V)))
-        (SPROG ((#1=#:G385 NIL))
+        (SPROG ((#1=#:G399 NIL))
                (COND
                 ((SPADCALL |ts| (QREFELT $ 12))
                  (|error| "Error from TSETCAT in mvar : #1 is empty"))
@@ -541,7 +541,7 @@
         (SPADCALL (ELT $ 22) (SPADCALL |ts| (QREFELT $ 28)) (QREFELT $ 36))) 
 
 (SDEFUN |TSETCAT-;algebraicVariables;SL;30| ((|ts| (S)) ($ (|List| V)))
-        (SPROG ((#1=#:G419 NIL) (|p| NIL) (#2=#:G418 NIL))
+        (SPROG ((#1=#:G434 NIL) (|p| NIL) (#2=#:G433 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -678,7 +678,7 @@
 
 (SDEFUN |TSETCAT-;coHeight;SNni;39| ((|ts| (S)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G470 NIL) (|m| (|NonNegativeInteger|))
+         ((#1=#:G489 NIL) (|m| (|NonNegativeInteger|))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL (QREFELT $ 125)))
               (LETT |m| (LENGTH (SPADCALL |ts| (QREFELT $ 28))))

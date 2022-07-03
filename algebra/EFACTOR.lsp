@@ -52,7 +52,7 @@
           (|fr1|
            (|SparseUnivariatePolynomial|
             (|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (#1=#:G144 NIL) (|frec| NIL)
+          (#1=#:G145 NIL) (|frec| NIL)
           (|fres1|
            (|Factored|
             (|SparseUnivariatePolynomial|
@@ -127,7 +127,7 @@
          ((|res| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|fr2| (|SparseUnivariatePolynomial| F))
           (|fru| (|SparseUnivariatePolynomial| F)) (|fr1| (|ups|))
-          (#2=#:G169 NIL) (|frec| NIL) (|kf| (F)) (|fres1| (|Factored| |ups|))
+          (#2=#:G172 NIL) (|frec| NIL) (|kf| (F)) (|fres1| (|Factored| |ups|))
           (|p2| (|ups|))
           (|ups|
            (|Join| (|UnivariatePolynomialCategory| |sae|)
@@ -142,7 +142,7 @@
                             (ATTRIBUTE (|PolynomialFactorizationExplicit|))
                             |noBranch|)
                         |noBranch|))))
-          (|lk2| (|List| #1#)) (#3=#:G168 NIL) (|k| NIL) (#4=#:G167 NIL)
+          (|lk2| (|List| #1#)) (#3=#:G171 NIL) (|k| NIL) (#4=#:G170 NIL)
           (|q| (|SparseUnivariatePolynomial| F)) (|k1| (|Kernel| F))
           (|cnp| (|SparseUnivariatePolynomial| F)) (|cn| (F))
           (|n| (|NonNegativeInteger|)))
@@ -406,9 +406,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionFactorPolynomial;|)) 
 
-(DEFUN |ExpressionFactorPolynomial| (&REST #1=#:G172)
+(DEFUN |ExpressionFactorPolynomial| (&REST #1=#:G175)
   (SPROG NIL
-         (PROG (#2=#:G173)
+         (PROG (#2=#:G176)
            (RETURN
             (COND
              ((LETT #2#

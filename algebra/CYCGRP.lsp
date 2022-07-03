@@ -84,7 +84,7 @@
 (SDEFUN |CYCGRP;random;$;16| (($ ($))) (|CYCGRP;per| (RANDOM (QREFELT $ 6)) $)) 
 
 (SDEFUN |CYCGRP;enumerate;L;17| (($ (|List| $)))
-        (SPROG ((#1=#:G148 NIL) (|k| NIL) (#2=#:G147 NIL))
+        (SPROG ((#1=#:G149 NIL) (|k| NIL) (#2=#:G148 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -104,9 +104,9 @@
 
 (DECLAIM (NOTINLINE |CyclicGroup;|)) 
 
-(DEFUN |CyclicGroup| (&REST #1=#:G155)
+(DEFUN |CyclicGroup| (&REST #1=#:G156)
   (SPROG NIL
-         (PROG (#2=#:G156)
+         (PROG (#2=#:G157)
            (RETURN
             (COND
              ((LETT #2#

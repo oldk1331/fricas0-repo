@@ -92,11 +92,11 @@
 
 (SDEFUN |VIEW3D;makeViewport3D0| ((|viewport| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G241 NIL) (|oneIndexedPoint| NIL) (#2=#:G239 NIL)
-          (|alipts| NIL) (#3=#:G240 NIL) (|tinyprop| NIL) (#4=#:G236 NIL)
-          (|allipts| NIL) (#5=#:G237 NIL) (|oneprop| NIL) (#6=#:G238 NIL)
+         ((#1=#:G246 NIL) (|oneIndexedPoint| NIL) (#2=#:G244 NIL)
+          (|alipts| NIL) (#3=#:G245 NIL) (|tinyprop| NIL) (#4=#:G241 NIL)
+          (|allipts| NIL) (#5=#:G242 NIL) (|oneprop| NIL) (#6=#:G243 NIL)
           (|onelprops| NIL) (|aPoint| #7=(|Point| (|DoubleFloat|)))
-          (#8=#:G235 NIL) (|pt| NIL) (|n| (|PositiveInteger|)) (#9=#:G234 NIL)
+          (#8=#:G240 NIL) (|pt| NIL) (|n| (|PositiveInteger|)) (#9=#:G239 NIL)
           (|s| (|Set| (|PositiveInteger|)))
           (|lprops| (|List| (|SubSpaceComponentProperty|)))
           (|llprops| (|List| (|List| (|SubSpaceComponentProperty|))))
@@ -349,7 +349,7 @@
 (SDEFUN |VIEW3D;lighting;$3FV;22|
         ((|viewport| ($)) (|Xlight| (|Float|)) (|Ylight| (|Float|))
          (|Zlight| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G262 NIL))
+        (SPROG ((#1=#:G267 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -382,12 +382,12 @@
                                                        (QVELT |viewport| 8) 2))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G260)))))))
+                      (GO #2=#:G265)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;axes;$SV;23|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G268 NIL))
+        (SPROG ((#1=#:G273 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -411,12 +411,12 @@
                                                            2))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G266)))))))
+                      (GO #2=#:G271)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;diagonals;$SV;24|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G274 NIL))
+        (SPROG ((#1=#:G279 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -440,12 +440,12 @@
                                                            3))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G272)))))))
+                      (GO #2=#:G277)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;outlineRender;$SV;25|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G280 NIL))
+        (SPROG ((#1=#:G285 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -469,12 +469,12 @@
                                                            4))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G278)))))))
+                      (GO #2=#:G283)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;controlPanel;$SV;26|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G286 NIL))
+        (SPROG ((#1=#:G291 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -498,12 +498,12 @@
                                                            0))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G284)))))))
+                      (GO #2=#:G289)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;drawStyle;$SV;27|
         ((|viewport| ($)) (|how| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G291 NIL))
+        (SPROG ((#1=#:G296 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -528,7 +528,7 @@
                                   (COND
                                    ((|VIEW3D;checkViewport| |viewport| $)
                                     (|sockGetInt| |$ViewportServer|))))))
-                      (GO #2=#:G289)))))))
+                      (GO #2=#:G294)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;reset;$V;28| ((|viewport| ($)) ($ (|Void|)))
@@ -608,7 +608,7 @@
                     (|:| |deltaX| (|DoubleFloat|))
                     (|:| |deltaY| (|DoubleFloat|))))
          ($ (|Void|)))
-        (SPROG ((#1=#:G312 NIL))
+        (SPROG ((#1=#:G317 NIL))
                (SEQ
                 (EXIT
                  (SEQ (QSETVELT |viewport| 5 |viewpt|)
@@ -659,7 +659,7 @@
                                          (EXIT
                                           (|sockGetInt|
                                            |$ViewportServer|))))))))
-                          (GO #2=#:G310)))))))
+                          (GO #2=#:G315)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;viewpoint;$5FV;32|
@@ -763,7 +763,7 @@
 
 (SDEFUN |VIEW3D;title;$SV;36|
         ((|viewport| ($)) (|Title| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G329 NIL))
+        (SPROG ((#1=#:G334 NIL))
                (SEQ
                 (EXIT
                  (SEQ (QSETVELT |viewport| 2 |Title|)
@@ -784,13 +784,13 @@
                                          (EXIT
                                           (|sockGetInt|
                                            |$ViewportServer|))))))))
-                          (GO #2=#:G327)))))))
+                          (GO #2=#:G332)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;colorDef;$2CV;37|
         ((|viewport| ($)) (|HueOffset| (|Color|)) (|HueNumber| (|Color|))
          ($ (|Void|)))
-        (SPROG ((#1=#:G336 NIL) (|h| (|Integer|)))
+        (SPROG ((#1=#:G341 NIL) (|h| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -818,7 +818,7 @@
                                                               (QREFELT $ 124)))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G334)))))))
+                      (GO #2=#:G339)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;dimensions;$2Nni2PiV;38|
@@ -831,7 +831,7 @@
 (SDEFUN |VIEW3D;move;$2NniV;39|
         ((|viewport| ($)) (|xLoc| (|NonNegativeInteger|))
          (|yLoc| (|NonNegativeInteger|)) ($ (|Void|)))
-        (SPROG ((#1=#:G347 NIL))
+        (SPROG ((#1=#:G352 NIL))
                (SEQ
                 (EXIT
                  (SEQ (QSETVELT |viewport| 3 (CONS |xLoc| |yLoc|))
@@ -854,13 +854,13 @@
                                          (EXIT
                                           (|sockGetInt|
                                            |$ViewportServer|))))))))
-                          (GO #2=#:G345)))))))
+                          (GO #2=#:G350)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;resize;$2PiV;40|
         ((|viewport| ($)) (|xSize| (|PositiveInteger|))
          (|ySize| (|PositiveInteger|)) ($ (|Void|)))
-        (SPROG ((#1=#:G354 NIL))
+        (SPROG ((#1=#:G359 NIL))
                (SEQ
                 (EXIT
                  (SEQ (QSETVELT |viewport| 4 (CONS |xSize| |ySize|))
@@ -883,7 +883,7 @@
                                          (EXIT
                                           (|sockGetInt|
                                            |$ViewportServer|))))))))
-                          (GO #2=#:G352)))))))
+                          (GO #2=#:G357)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;coerce;$Of;41| ((|viewport| ($)) ($ (|OutputForm|)))
@@ -919,7 +919,7 @@
 
 (SDEFUN |VIEW3D;rotate;$2FV;44|
         ((|viewport| ($)) (|Theta| (|Float|)) (|Phi| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G365 NIL))
+        (SPROG ((#1=#:G370 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -947,12 +947,12 @@
                                                        (QVELT |viewport| 5) 1))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G363)))))))
+                      (GO #2=#:G368)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;zoom;$FV;45|
         ((|viewport| ($)) (|Scale| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G371 NIL))
+        (SPROG ((#1=#:G376 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -975,13 +975,13 @@
                                                        (QVELT |viewport| 5) 2))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G369)))))))
+                      (GO #2=#:G374)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;zoom;$3FV;46|
         ((|viewport| ($)) (|ScaleX| (|Float|)) (|ScaleY| (|Float|))
          (|ScaleZ| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G377 NIL))
+        (SPROG ((#1=#:G382 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1014,13 +1014,13 @@
                                                        (QVELT |viewport| 5) 5))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G375)))))))
+                      (GO #2=#:G380)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;translate;$2FV;47|
         ((|viewport| ($)) (|DeltaX| (|Float|)) (|DeltaY| (|Float|))
          ($ (|Void|)))
-        (SPROG ((#1=#:G383 NIL))
+        (SPROG ((#1=#:G388 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1048,12 +1048,12 @@
                                                        (QVELT |viewport| 5) 7))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G381)))))))
+                      (GO #2=#:G386)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;intensity;$FV;48|
         ((|viewport| ($)) (|Amount| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G391 NIL))
+        (SPROG ((#1=#:G396 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1082,7 +1082,7 @@
                                                        (QVELT |viewport| 8) 5))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G389)))))))
+                      (GO #2=#:G394)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;write;$3S;49|
@@ -1099,7 +1099,7 @@
         ((|viewport| ($)) (|Filename| (|String|))
          (|thingsToWrite| (|List| (|String|))) ($ (|String|)))
         (SPROG
-         ((|writeTypeInt| (|Integer|)) (#1=#:G404 NIL) (|aTypeOfFile| NIL)
+         ((|writeTypeInt| (|Integer|)) (#1=#:G410 NIL) (|aTypeOfFile| NIL)
           (|m| (|Integer|)) (|avail| (|List| (|String|)))
           (|stringToSend| (|String|)))
          (SEQ (LETT |stringToSend| "")
@@ -1153,7 +1153,7 @@
 
 (SDEFUN |VIEW3D;perspective;$SV;52|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G410 NIL))
+        (SPROG ((#1=#:G416 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1177,12 +1177,12 @@
                                                            0))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G408)))))))
+                      (GO #2=#:G414)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;showRegion;$SV;53|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G416 NIL))
+        (SPROG ((#1=#:G422 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1206,12 +1206,12 @@
                                                            5))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G414)))))))
+                      (GO #2=#:G420)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;showClipRegion;$SV;54|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G422 NIL))
+        (SPROG ((#1=#:G428 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1235,12 +1235,12 @@
                                                      (QVELT |viewport| 10) 6))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G420)))))))
+                      (GO #2=#:G426)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;clipSurface;$SV;55|
         ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
-        (SPROG ((#1=#:G428 NIL))
+        (SPROG ((#1=#:G434 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1264,12 +1264,12 @@
                                                      (QVELT |viewport| 10) 7))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G426)))))))
+                      (GO #2=#:G432)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;eyeDistance;$FV;56|
         ((|viewport| ($)) (|EyeDistance| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G434 NIL))
+        (SPROG ((#1=#:G440 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1292,12 +1292,12 @@
                                                        (QVELT |viewport| 9) 1))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G432)))))))
+                      (GO #2=#:G438)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;hitherPlane;$FV;57|
         ((|viewport| ($)) (|HitherPlane| (|Float|)) ($ (|Void|)))
-        (SPROG ((#1=#:G440 NIL))
+        (SPROG ((#1=#:G446 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1320,13 +1320,13 @@
                                                        (QVELT |viewport| 9) 2))
                                      (EXIT
                                       (|sockGetInt| |$ViewportServer|))))))))
-                      (GO #2=#:G438)))))))
+                      (GO #2=#:G444)))))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW3D;modifyPointData;$NniPV;58|
         ((|viewport| ($)) (|anIndex| (|NonNegativeInteger|))
          (|aPoint| (|Point| (|DoubleFloat|))) ($ (|Void|)))
-        (SPROG ((#1=#:G447 NIL) (|n| (|PositiveInteger|)))
+        (SPROG ((#1=#:G453 NIL) (|n| (|PositiveInteger|)))
                (SEQ (LETT |n| (SPADCALL |aPoint| (QREFELT $ 70)))
                     (EXIT
                      (COND
@@ -1383,14 +1383,14 @@
                                              (EXIT
                                               (|sockGetInt|
                                                |$ViewportServer|))))))))
-                              (GO #3=#:G444)))))))
+                              (GO #3=#:G450)))))))
                         #3# (EXIT #1#)))))))) 
 
 (DECLAIM (NOTINLINE |ThreeDimensionalViewport;|)) 
 
 (DEFUN |ThreeDimensionalViewport| ()
   (SPROG NIL
-         (PROG (#1=#:G449)
+         (PROG (#1=#:G455)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ThreeDimensionalViewport|))

@@ -24,10 +24,10 @@
 
 (SDEFUN |IPF;initializeLogarithmTable| (($ (|Void|)))
         (SPROG
-         ((#1=#:G150 NIL) (|a| ($)) (#2=#:G156 NIL) (#3=#:G144 NIL) (|i| NIL)
+         ((#1=#:G154 NIL) (|a| ($)) (#2=#:G160 NIL) (#3=#:G148 NIL) (|i| NIL)
           (|tbl| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
           (|n| (|Integer|)) (|d| (|Integer|)) (|l| (|Integer|)) (|base| ($))
-          (|primeDivisor| (|Integer|)) (#4=#:G155 NIL) (|rec| NIL)
+          (|primeDivisor| (|Integer|)) (#4=#:G159 NIL) (|rec| NIL)
           (|limit| (|Integer|)))
          (SEQ (COND ((QREFELT $ 7) (|IPF;initializePrimitiveElement| $)))
               (LETT |limit| 30)
@@ -104,9 +104,9 @@
 
 (SDEFUN |IPF;sqrt;2$;5| ((|x| ($)) ($ ($)))
         (SPROG
-         ((|y| ($)) (#1=#:G168 NIL) (#2=#:G175 NIL)
+         ((|y| ($)) (#1=#:G175 NIL) (#2=#:G182 NIL)
           (|lr| (|List| #3=(|NonNegativeInteger|))) (|r| #3#) (|z| ($))
-          (#4=#:G164 NIL) (|u| (|NonNegativeInteger|)) (#5=#:G162 NIL)
+          (#4=#:G170 NIL) (|u| (|NonNegativeInteger|)) (#5=#:G167 NIL)
           (|e| (|NonNegativeInteger|)) (|b| ($)))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT $ 47)) |x|)
@@ -198,7 +198,7 @@
 (SDEFUN |IPF;generator;$;6| (($ ($))) (|spadConstant| $ 36)) 
 
 (SDEFUN |IPF;^;$I$;7| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
-        (SPROG ((|r| (|NonNegativeInteger|)) (#1=#:G177 NIL))
+        (SPROG ((|r| (|NonNegativeInteger|)) (#1=#:G184 NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 36))
                       ((SPADCALL |x| (QREFELT $ 47)) (|spadConstant| $ 16))
@@ -272,7 +272,7 @@
          ((|tbl|
            (|Union| (|Table| (|PositiveInteger|) (|NonNegativeInteger|))
                     "failed"))
-          (#1=#:G214 NIL))
+          (#1=#:G221 NIL))
          (SEQ (COND ((QREFELT $ 11) (|IPF;initializeLogarithmTable| $)))
               (LETT |tbl|
                     (SPADCALL
@@ -341,9 +341,9 @@
 
 (DECLAIM (NOTINLINE |InnerPrimeField;|)) 
 
-(DEFUN |InnerPrimeField| (#1=#:G261)
+(DEFUN |InnerPrimeField| (#1=#:G268)
   (SPROG NIL
-         (PROG (#2=#:G262)
+         (PROG (#2=#:G269)
            (RETURN
             (COND
              ((LETT #2#

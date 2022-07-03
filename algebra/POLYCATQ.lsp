@@ -256,7 +256,7 @@
 (SDEFUN |POLYCATQ;isTimes;FU;9| ((|f| (F)) ($ (|Union| (|List| F) "failed")))
         (SPROG
          ((|d| (F)) (|den| (P)) (|l| (|Union| (|List| F) "failed"))
-          (#1=#:G205 NIL) (|x| NIL) (#2=#:G204 NIL)
+          (#1=#:G206 NIL) (|x| NIL) (#2=#:G205 NIL)
           (|t| (|Union| (|List| P) "failed")) (|num| (P)))
          (SEQ
           (LETT |t|
@@ -300,7 +300,7 @@
 
 (SDEFUN |POLYCATQ;isPlus;FU;10| ((|f| (F)) ($ (|Union| (|List| F) "failed")))
         (SPROG
-         ((#1=#:G217 NIL) (|x| NIL) (#2=#:G216 NIL)
+         ((#1=#:G219 NIL) (|x| NIL) (#2=#:G218 NIL)
           (|s| (|Union| (|List| P) "failed")))
          (SEQ
           (COND
@@ -349,9 +349,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialCategoryQuotientFunctions;|)) 
 
-(DEFUN |PolynomialCategoryQuotientFunctions| (&REST #1=#:G224)
+(DEFUN |PolynomialCategoryQuotientFunctions| (&REST #1=#:G226)
   (SPROG NIL
-         (PROG (#2=#:G225)
+         (PROG (#2=#:G227)
            (RETURN
             (COND
              ((LETT #2#

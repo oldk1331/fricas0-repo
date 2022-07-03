@@ -26,7 +26,7 @@
 
 (SDEFUN |PFACET;getMaxLeft;$Nni;4| ((|orf| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((|m| (|NonNegativeInteger|)) (#1=#:G143 NIL) (|index| NIL)
+         ((|m| (|NonNegativeInteger|)) (#1=#:G144 NIL) (|index| NIL)
           (|indexes|
            (|List|
             (|Record| (|:| |left| (|NonNegativeInteger|))
@@ -45,7 +45,7 @@
 
 (SDEFUN |PFACET;getMaxRight;$Nni;5| ((|orf| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((|m| (|NonNegativeInteger|)) (#1=#:G150 NIL) (|index| NIL)
+         ((|m| (|NonNegativeInteger|)) (#1=#:G152 NIL) (|index| NIL)
           (|indexes|
            (|List|
             (|Record| (|:| |left| (|NonNegativeInteger|))
@@ -89,7 +89,7 @@
 
 (SDEFUN |PFACET;=;2$B;10| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G171 NIL) (#2=#:G172 NIL) (|inda| NIL) (#3=#:G173 NIL)
+         ((#1=#:G174 NIL) (#2=#:G175 NIL) (|inda| NIL) (#3=#:G176 NIL)
           (|indb| NIL)
           (|indbs|
            #4=(|List|
@@ -101,7 +101,7 @@
            (SEQ
             (COND
              ((SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 24))
-              (PROGN (LETT #1# NIL) (GO #5=#:G170))))
+              (PROGN (LETT #1# NIL) (GO #5=#:G173))))
             (LETT |indas| (SPADCALL |a| (QREFELT $ 14)))
             (LETT |indbs| (SPADCALL |b| (QREFELT $ 14)))
             (COND
@@ -130,7 +130,7 @@
         (SPROG
          ((|body| (|OutputForm|)) (|elements| (|List| (|OutputForm|)))
           (|element| (|OutputForm|)) (|r| (|NonNegativeInteger|))
-          (|l| (|NonNegativeInteger|)) (#1=#:G182 NIL) (|x| NIL)
+          (|l| (|NonNegativeInteger|)) (#1=#:G186 NIL) (|x| NIL)
           (|prefix| (|OutputForm|)) (|m| (|Integer|)))
          (SEQ (LETT |prefix| (SPADCALL "" (QREFELT $ 28)))
               (LETT |m| (QCAR |s|))
@@ -165,7 +165,7 @@
 
 (DEFUN |ProductFacet| ()
   (SPROG NIL
-         (PROG (#1=#:G184)
+         (PROG (#1=#:G188)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ProductFacet|))

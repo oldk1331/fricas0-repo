@@ -8,11 +8,11 @@
 (SDEFUN |SCPKG;coordinates;MLV;2|
         ((|x| (|Matrix| R)) (|b| (|List| (|Matrix| R))) ($ (|Vector| R)))
         (SPROG
-         ((#1=#:G141 NIL)
+         ((#1=#:G142 NIL)
           (|res|
            (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
                      (|:| |basis| (|List| (|Vector| R)))))
-          (#2=#:G145 NIL) (|i| NIL) (|transitionMatrix| (|Matrix| R))
+          (#2=#:G146 NIL) (|i| NIL) (|transitionMatrix| (|Matrix| R))
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
           (#3=#:G136 NIL))
          (SEQ
@@ -56,10 +56,10 @@
 (SDEFUN |SCPKG;structuralConstants;LV;3|
         ((|b| (|List| (|Matrix| R))) ($ (|Vector| (|Matrix| R))))
         (SPROG
-         ((#1=#:G159 NIL) (|k| NIL) (|covec| (|Vector| R)) (#2=#:G158 NIL)
-          (|j| NIL) (#3=#:G157 NIL) (|i| NIL) (|sC| (|Vector| (|Matrix| R)))
-          (#4=#:G154 NIL) (#5=#:G156 NIL) (#6=#:G155 NIL)
-          (|m| (|NonNegativeInteger|)) (#7=#:G146 NIL))
+         ((#1=#:G164 NIL) (|k| NIL) (|covec| (|Vector| R)) (#2=#:G163 NIL)
+          (|j| NIL) (#3=#:G162 NIL) (|i| NIL) (|sC| (|Vector| (|Matrix| R)))
+          (#4=#:G159 NIL) (#5=#:G161 NIL) (#6=#:G160 NIL)
+          (|m| (|NonNegativeInteger|)) (#7=#:G147 NIL))
          (SEQ
           (LETT |m|
                 (PROG1 (LETT #7# (LENGTH |b|))
@@ -112,7 +112,7 @@
         (SPROG
          ((|lscopy| (|List| (|Symbol|)))
           (|gamma| (|List| (|Matrix| (|Polynomial| R)))) (|c| (|Polynomial| R))
-          (|p| (|Polynomial| R)) (#1=#:G172 NIL) (|j| NIL) (#2=#:G171 NIL)
+          (|p| (|Polynomial| R)) (#1=#:G180 NIL) (|j| NIL) (#2=#:G179 NIL)
           (|i| NIL) (|s| (|Symbol|)) (|mat| (|Matrix| (|Polynomial| R)))
           (|nn| (|NonNegativeInteger|)))
          (SEQ (LETT |nn| (LENGTH |ls|))
@@ -162,8 +162,8 @@
          ((|lscopy| (|List| (|Symbol|)))
           (|gamma| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))
           (|c| (|Polynomial| R)) (|p| (|Polynomial| R)) (|q| (|Polynomial| R))
-          (|r| (|Fraction| (|Polynomial| R))) (#1=#:G186 NIL) (|j| NIL)
-          (#2=#:G185 NIL) (|i| NIL) (|s| (|Symbol|))
+          (|r| (|Fraction| (|Polynomial| R))) (#1=#:G197 NIL) (|j| NIL)
+          (#2=#:G196 NIL) (|i| NIL) (|s| (|Symbol|))
           (|mat| (|Matrix| (|Fraction| (|Polynomial| R))))
           (|nn| (|NonNegativeInteger|)))
          (SEQ (LETT |nn| (LENGTH |ls|))
@@ -225,9 +225,9 @@
 
 (DECLAIM (NOTINLINE |StructuralConstantsPackage;|)) 
 
-(DEFUN |StructuralConstantsPackage| (#1=#:G187)
+(DEFUN |StructuralConstantsPackage| (#1=#:G198)
   (SPROG NIL
-         (PROG (#2=#:G188)
+         (PROG (#2=#:G199)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,7 +1,7 @@
 
 (SDEFUN |ARRAY22;map;MMAMB;1| ((|f| (|Mapping| B A)) (|m| (MA)) ($ (MB)))
         (SPROG
-         ((#1=#:G125 NIL) (|k| NIL) (#2=#:G124 NIL) (|i| NIL) (|res| (MB))
+         ((#1=#:G127 NIL) (|k| NIL) (#2=#:G126 NIL) (|i| NIL) (|res| (MB))
           (|nc| (|NonNegativeInteger|)) (|nr| (|NonNegativeInteger|)))
          (SEQ (LETT |nr| (SPADCALL |m| (QREFELT $ 15)))
               (LETT |nc| (SPADCALL |m| (QREFELT $ 16)))
@@ -27,9 +27,9 @@
 
 (DECLAIM (NOTINLINE |TwoDimensionalArrayFunctions;|)) 
 
-(DEFUN |TwoDimensionalArrayFunctions| (&REST #1=#:G126)
+(DEFUN |TwoDimensionalArrayFunctions| (&REST #1=#:G128)
   (SPROG NIL
-         (PROG (#2=#:G127)
+         (PROG (#2=#:G129)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,8 +1,8 @@
 
 (SDEFUN |ALAGG-;coerce;SOf;1| ((|u| (S)) ($ (|OutputForm|)))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (#1=#:G134 NIL) (|r| NIL)
-          (#2=#:G133 NIL))
+         ((|l| (|List| (|OutputForm|))) (#1=#:G135 NIL) (|r| NIL)
+          (#2=#:G134 NIL))
          (SEQ
           (LETT |l|
                 (PROGN

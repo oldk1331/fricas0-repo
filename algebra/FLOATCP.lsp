@@ -14,9 +14,9 @@
          ($ (|List| (|List| (|Complex| |Par|)))))
         (SPROG
          ((|lden| (|List| #1=(|Polynomial| (|Complex| (|Integer|)))))
-          (|dp| #1#) (#2=#:G130 NIL) (|p| NIL) (#3=#:G129 NIL)
+          (|dp| #1#) (#2=#:G132 NIL) (|p| NIL) (#3=#:G131 NIL)
           (|lnum| (|List| (|Polynomial| (|Complex| (|Integer|)))))
-          (#4=#:G128 NIL) (#5=#:G127 NIL))
+          (#4=#:G130 NIL) (#5=#:G129 NIL))
          (SEQ
           (LETT |lnum|
                 (PROGN
@@ -52,15 +52,15 @@
          (|eps| (|Par|))
          ($ (|List| (|List| (|Equation| (|Polynomial| (|Complex| |Par|)))))))
         (SPROG
-         ((#1=#:G153 NIL) (|x| NIL) (#2=#:G154 NIL) (|r| NIL) (#3=#:G152 NIL)
-          (#4=#:G151 NIL) (|nres| NIL) (#5=#:G150 NIL)
-          (|lv| #6=(|List| (|Symbol|))) (#7=#:G137 NIL) (#8=#:G136 #6#)
-          (#9=#:G138 #6#) (#10=#:G149 NIL) (#11=#:G134 NIL) (#12=#:G133 #6#)
-          (#13=#:G135 #6#) (#14=#:G148 NIL) (|np| NIL)
+         ((#1=#:G159 NIL) (|x| NIL) (#2=#:G160 NIL) (|r| NIL) (#3=#:G158 NIL)
+          (#4=#:G157 NIL) (|nres| NIL) (#5=#:G156 NIL)
+          (|lv| #6=(|List| (|Symbol|))) (#7=#:G141 NIL) (#8=#:G140 #6#)
+          (#9=#:G142 #6#) (#10=#:G155 NIL) (#11=#:G138 NIL) (#12=#:G137 #6#)
+          (#13=#:G139 #6#) (#14=#:G154 NIL) (|np| NIL)
           (|lden| (|List| #15=(|Polynomial| (|Complex| (|Integer|)))))
-          (|dp| #15#) (#16=#:G147 NIL) (|p| NIL) (#17=#:G146 NIL)
+          (|dp| #15#) (#16=#:G153 NIL) (|p| NIL) (#17=#:G152 NIL)
           (|lnum| (|List| (|Polynomial| (|Complex| (|Integer|)))))
-          (#18=#:G145 NIL) (#19=#:G144 NIL))
+          (#18=#:G151 NIL) (#19=#:G150 NIL))
          (SEQ
           (LETT |lnum|
                 (PROGN
@@ -180,17 +180,17 @@
          (|eps| (|Par|))
          ($ (|List| (|List| (|Equation| (|Polynomial| (|Complex| |Par|)))))))
         (SPROG
-         ((#1=#:G180 NIL) (|x| NIL) (#2=#:G181 NIL) (|r| NIL) (#3=#:G179 NIL)
-          (#4=#:G178 NIL) (|nres| NIL) (#5=#:G177 NIL)
-          (|lv| #6=(|List| (|Symbol|))) (#7=#:G162 NIL) (#8=#:G161 #6#)
-          (#9=#:G163 #6#) (#10=#:G176 NIL) (#11=#:G159 NIL) (#12=#:G158 #6#)
-          (#13=#:G160 #6#) (#14=#:G175 NIL) (|np| NIL)
+         ((#1=#:G191 NIL) (|x| NIL) (#2=#:G192 NIL) (|r| NIL) (#3=#:G190 NIL)
+          (#4=#:G189 NIL) (|nres| NIL) (#5=#:G188 NIL)
+          (|lv| #6=(|List| (|Symbol|))) (#7=#:G171 NIL) (#8=#:G170 #6#)
+          (#9=#:G172 #6#) (#10=#:G187 NIL) (#11=#:G168 NIL) (#12=#:G167 #6#)
+          (#13=#:G169 #6#) (#14=#:G186 NIL) (|np| NIL)
           (|lden| (|List| #15=(|Polynomial| (|Complex| (|Integer|)))))
-          (|dp| #15#) (#16=#:G174 NIL) (|p| NIL) (#17=#:G173 NIL)
+          (|dp| #15#) (#16=#:G185 NIL) (|p| NIL) (#17=#:G184 NIL)
           (|lnum| (|List| (|Polynomial| (|Complex| (|Integer|)))))
-          (#18=#:G172 NIL) (#19=#:G171 NIL)
+          (#18=#:G183 NIL) (#19=#:G182 NIL)
           (|lp| (|List| (|Fraction| (|Polynomial| (|Complex| (|Integer|))))))
-          (#20=#:G170 NIL) (|ep| NIL) (#21=#:G169 NIL))
+          (#20=#:G181 NIL) (|ep| NIL) (#21=#:G180 NIL))
          (SEQ
           (LETT |lp|
                 (PROGN
@@ -325,7 +325,7 @@
          (|eps| (|Par|))
          ($ (|List| (|Equation| (|Polynomial| (|Complex| |Par|))))))
         (SPROG
-         ((#1=#:G190 NIL) (|val| NIL) (#2=#:G189 NIL)
+         ((#1=#:G202 NIL) (|val| NIL) (#2=#:G201 NIL)
           (|x| (|Polynomial| (|Complex| |Par|)))
           (|mvar| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -368,9 +368,9 @@
 
 (DECLAIM (NOTINLINE |FloatingComplexPackage;|)) 
 
-(DEFUN |FloatingComplexPackage| (#1=#:G192)
+(DEFUN |FloatingComplexPackage| (#1=#:G204)
   (SPROG NIL
-         (PROG (#2=#:G193)
+         (PROG (#2=#:G205)
            (RETURN
             (COND
              ((LETT #2#

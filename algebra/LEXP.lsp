@@ -6,8 +6,8 @@
           (|List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))))
          ($ (|List| (|Equation| R))))
         (SPROG
-         ((|r| (R)) (|c2| (R)) (|u2| #1#) (|c1| (R)) (|u1| #1#) (#2=#:G137 NIL)
-          (|t| NIL) (#3=#:G136 NIL) (#4=#:G135 NIL) (#5=#:G134 NIL))
+         ((|r| (R)) (|c2| (R)) (|u2| #1#) (|c1| (R)) (|u1| #1#) (#2=#:G139 NIL)
+          (|t| NIL) (#3=#:G138 NIL) (#4=#:G137 NIL) (#5=#:G136 NIL))
          (SEQ
           (COND
            ((NULL |l1|)
@@ -100,8 +100,8 @@
         (SPROG
          ((|lt|
            (|List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))))
-          (#1=#:G149 NIL) (|l| (|Union| (|LyndonWord| |VarSet|) #2="failed"))
-          (#3=#:G158 NIL) (|t| NIL) (#4=#:G157 NIL))
+          (#1=#:G152 NIL) (|l| (|Union| (|LyndonWord| |VarSet|) #2="failed"))
+          (#3=#:G161 NIL) (|t| NIL) (#4=#:G160 NIL))
          (SEQ
           (LETT |lt|
                 (PROGN
@@ -139,7 +139,7 @@
                            (QREFELT $ 39))))))) 
 
 (SDEFUN |LEXP;*;3$;6| ((|x| ($)) (|y| ($)) ($ ($)))
-        (SPROG ((#1=#:G160 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (SPADCALL |x| |y|
                          (PROG1 (LETT #1# (QREFELT $ 8))
                            (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
@@ -147,7 +147,7 @@
                          (QREFELT $ 41)))) 
 
 (SDEFUN |LEXP;exp;Lp$;7| ((|p| (|LiePolynomial| |VarSet| R)) ($ ($)))
-        (SPROG ((#1=#:G163 NIL))
+        (SPROG ((#1=#:G166 NIL))
                (SPADCALL (SPADCALL |p| (QREFELT $ 44))
                          (PROG1 (LETT #1# (QREFELT $ 8))
                            (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
@@ -155,7 +155,7 @@
                          (QREFELT $ 45)))) 
 
 (SDEFUN |LEXP;log;$Lp;8| ((|p| ($)) ($ (|LiePolynomial| |VarSet| R)))
-        (SPROG ((#1=#:G170 NIL) (#2=#:G168 NIL))
+        (SPROG ((#1=#:G173 NIL) (#2=#:G171 NIL))
                (PROG2
                    (LETT #1#
                          (SPADCALL
@@ -176,7 +176,7 @@
 
 (SDEFUN |LEXP;coerce;$Of;9| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G181 NIL) (|t| NIL) (#2=#:G180 NIL)
+         ((#1=#:G185 NIL) (|t| NIL) (#2=#:G184 NIL)
           (|lt|
            (|List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R)))))
          (SEQ
@@ -203,7 +203,7 @@
 
 (SDEFUN |LEXP;LyndonBasis;LL;10|
         ((|lv| (|List| |VarSet|)) ($ (|List| (|LiePolynomial| |VarSet| R))))
-        (SPROG ((#1=#:G185 NIL) (|l| NIL) (#2=#:G184 NIL))
+        (SPROG ((#1=#:G190 NIL) (|l| NIL) (#2=#:G189 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -230,7 +230,7 @@
            (|List|
             (|Record| (|:| |k| (|PoincareBirkhoffWittLyndonBasis| |VarSet|))
                       (|:| |c| R))))
-          (#1=#:G193 NIL) (|t| NIL) (#2=#:G192 NIL))
+          (#1=#:G199 NIL) (|t| NIL) (#2=#:G198 NIL))
          (SEQ
           (COND
            ((SPADCALL |x| (|spadConstant| $ 51) (QREFELT $ 52))
@@ -264,9 +264,9 @@
 
 (DECLAIM (NOTINLINE |LieExponentials;|)) 
 
-(DEFUN |LieExponentials| (&REST #1=#:G197)
+(DEFUN |LieExponentials| (&REST #1=#:G203)
   (SPROG NIL
-         (PROG (#2=#:G198)
+         (PROG (#2=#:G204)
            (RETURN
             (COND
              ((LETT #2#

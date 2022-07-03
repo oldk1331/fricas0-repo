@@ -42,7 +42,7 @@
         (SPROG
          ((|mult| (UP)) (|p| (UP)) (|a| (UP)) (#1=#:G133 NIL) (|qr_rem| (UP))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#2=#:G137 NIL)
+          (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#2=#:G138 NIL)
           (|qtil| (UP)) (|qbarhat| (UP)) (|g| (UP)) (|qbar| (UP)) (|qhat| (UP))
           (|g0| (UP)) (|q| (UP)))
          (SEQ (LETT |a| (SPADCALL |f| (QREFELT $ 22)))
@@ -145,9 +145,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalHermiteIntegration;|)) 
 
-(DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G144)
+(DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G145)
   (SPROG NIL
-         (PROG (#2=#:G145)
+         (PROG (#2=#:G146)
            (RETURN
             (COND
              ((LETT #2#

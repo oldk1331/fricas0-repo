@@ -95,7 +95,7 @@
                     (#6# |i|))))))))) 
 
 (SDEFUN |TREE;map;M2$;8| ((|fn| (|Mapping| S S)) (|t| ($)) ($ ($)))
-        (SPROG ((#1=#:G169 NIL) (|c| NIL) (#2=#:G168 NIL))
+        (SPROG ((#1=#:G170 NIL) (|c| NIL) (#2=#:G169 NIL))
                (SEQ
                 (COND ((QEQCAR |t| 1) |t|)
                       ('T
@@ -121,7 +121,7 @@
                                  (QREFELT $ 23))))))) 
 
 (SDEFUN |TREE;map!;M2$;9| ((|fn| (|Mapping| S S)) (|t| ($)) ($ ($)))
-        (SPROG ((#1=#:G174 NIL) (|c| NIL))
+        (SPROG ((#1=#:G176 NIL) (|c| NIL))
                (SEQ
                 (COND ((QEQCAR |t| 1) |t|)
                       ('T
@@ -144,7 +144,7 @@
 (SDEFUN |TREE;tree;S$;11| ((|s| (S)) ($ ($))) (CONS 0 (CONS |s| NIL))) 
 
 (SDEFUN |TREE;tree;L$;12| ((|ls| (|List| S)) ($ ($)))
-        (SPROG ((#1=#:G181 NIL) (|s| NIL) (#2=#:G180 NIL))
+        (SPROG ((#1=#:G184 NIL) (|s| NIL) (#2=#:G183 NIL))
                (SEQ
                 (COND ((NULL |ls|) (SPADCALL (QREFELT $ 10)))
                       ('T
@@ -179,9 +179,9 @@
 
 (SDEFUN |TREE;distance1| ((|t1| ($)) (|t2| ($)) ($ #1=(|Integer|)))
         (SPROG
-         ((#2=#:G189 NIL) (#3=#:G188 #1#) (#4=#:G190 #1#) (#5=#:G195 NIL)
-          (#6=#:G119 NIL) (|u| (|List| #1#)) (|n| #1#) (#7=#:G194 NIL)
-          (|t| NIL) (#8=#:G193 NIL))
+         ((#2=#:G193 NIL) (#3=#:G192 #1#) (#4=#:G194 #1#) (#5=#:G199 NIL)
+          (#6=#:G119 NIL) (|u| (|List| #1#)) (|n| #1#) (#7=#:G198 NIL)
+          (|t| NIL) (#8=#:G197 NIL))
          (SEQ
           (COND ((SPADCALL |t1| |t2| (QREFELT $ 31)) 0) ((QEQCAR |t2| 1) -1)
                 (#9='T
@@ -251,7 +251,7 @@
 
 (SDEFUN |TREE;any?;M$B;18|
         ((|fn| (|Mapping| #1=(|Boolean|) S)) (|t| ($)) ($ #1#))
-        (SPROG ((#2=#:G210 NIL) (#3=#:G211 NIL) (|c| NIL))
+        (SPROG ((#2=#:G215 NIL) (#3=#:G216 NIL) (|c| NIL))
                (SEQ
                 (EXIT
                  (COND ((QEQCAR |t| 1) NIL)
@@ -268,14 +268,14 @@
                                (EXIT
                                 (COND
                                  ((SPADCALL |fn| |c| (QREFELT $ 37))
-                                  (PROGN (LETT #2# 'T) (GO #4=#:G209))))))
+                                  (PROGN (LETT #2# 'T) (GO #4=#:G214))))))
                               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                          (EXIT NIL)))))
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |TREE;every?;M$B;19|
         ((|fn| (|Mapping| #1=(|Boolean|) S)) (|t| ($)) ($ #1#))
-        (SPROG ((#2=#:G218 NIL) (#3=#:G219 NIL) (|c| NIL))
+        (SPROG ((#2=#:G224 NIL) (#3=#:G225 NIL) (|c| NIL))
                (SEQ
                 (EXIT
                  (COND ((QEQCAR |t| 1) 'T)
@@ -293,7 +293,7 @@
                                (EXIT
                                 (COND
                                  ((NULL (SPADCALL |fn| |c| (QREFELT $ 38)))
-                                  (PROGN (LETT #2# NIL) (GO #4=#:G217))))))
+                                  (PROGN (LETT #2# NIL) (GO #4=#:G223))))))
                               (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                          (EXIT 'T)))))
                 #4# (EXIT #2#)))) 
@@ -317,9 +317,9 @@
 
 (SDEFUN |TREE;parts;$L;21| ((|t| ($)) ($ (|List| S)))
         (SPROG
-         ((#1=#:G230 NIL) (#2=#:G229 #3=(|List| S)) (#4=#:G231 #3#)
-          (#5=#:G236 NIL) (#6=#:G120 NIL) (|u| (|List| #3#)) (#7=#:G235 NIL)
-          (|c| NIL) (#8=#:G234 NIL))
+         ((#1=#:G237 NIL) (#2=#:G236 #3=(|List| S)) (#4=#:G238 #3#)
+          (#5=#:G243 NIL) (#6=#:G120 NIL) (|u| (|List| #3#)) (#7=#:G242 NIL)
+          (|c| NIL) (#8=#:G241 NIL))
          (SEQ
           (COND ((QEQCAR |t| 1) NIL)
                 (#9='T
@@ -369,7 +369,7 @@
 
 (SDEFUN |TREE;hashUpdate!;Hs$Hs;22|
         ((|s| (|HashState|)) (|t| ($)) ($ (|HashState|)))
-        (SPROG ((#1=#:G242 NIL) (|subt| NIL))
+        (SPROG ((#1=#:G250 NIL) (|subt| NIL))
                (SEQ
                 (COND ((QEQCAR |t| 1) |s|)
                       ('T
@@ -400,8 +400,8 @@
 
 (SDEFUN |TREE;#;$Nni;24| ((|t| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G249 NIL) (#2=#:G248 #3=(|NonNegativeInteger|)) (#4=#:G250 #3#)
-          (#5=#:G253 NIL) (|c| NIL))
+         ((#1=#:G257 NIL) (#2=#:G256 #3=(|NonNegativeInteger|)) (#4=#:G258 #3#)
+          (#5=#:G261 NIL) (|c| NIL))
          (SEQ
           (COND ((SPADCALL |t| (QREFELT $ 9)) 0)
                 (#6='T
@@ -424,7 +424,7 @@
                      (COND (#1# #2#) (#6# 0))))))))) 
 
 (SDEFUN |TREE;copy;2$;25| ((|t| ($)) ($ ($)))
-        (SPROG ((#1=#:G258 NIL) (|c| NIL) (#2=#:G257 NIL))
+        (SPROG ((#1=#:G267 NIL) (|c| NIL) (#2=#:G266 NIL))
                (SEQ
                 (COND ((SPADCALL |t| (QREFELT $ 9)) (SPADCALL (QREFELT $ 10)))
                       ('T
@@ -450,7 +450,7 @@
 
 (SDEFUN |TREE;coerce;$Of;26| ((|t| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G266 NIL) (|c| NIL) (#2=#:G265 NIL)
+         ((#1=#:G276 NIL) (|c| NIL) (#2=#:G275 NIL)
           (|nodeForm| (|OutputForm|)))
          (SEQ
           (COND ((SPADCALL |t| (QREFELT $ 9)) (SPADCALL NIL (QREFELT $ 51)))
@@ -486,9 +486,9 @@
 
 (DECLAIM (NOTINLINE |Tree;|)) 
 
-(DEFUN |Tree| (#1=#:G271)
+(DEFUN |Tree| (#1=#:G281)
   (SPROG NIL
-         (PROG (#2=#:G272)
+         (PROG (#2=#:G282)
            (RETURN
             (COND
              ((LETT #2#
@@ -503,7 +503,7 @@
 
 (DEFUN |Tree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G268 NIL) (#2=#:G269 NIL) (#3=#:G270 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G278 NIL) (#2=#:G279 NIL) (#3=#:G280 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

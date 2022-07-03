@@ -1,7 +1,7 @@
 
 (SDEFUN |FORDER;order;FdNni;1|
         ((|d| (|FiniteDivisor| F UP UPUP R)) ($ (|NonNegativeInteger|)))
-        (SPROG ((|dd| (|FiniteDivisor| F UP UPUP R)) (#1=#:G124 NIL) (|i| NIL))
+        (SPROG ((|dd| (|FiniteDivisor| F UP UPUP R)) (#1=#:G125 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ (LETT |dd| (LETT |d| (SPADCALL |d| (QREFELT $ 11))))
@@ -11,7 +11,7 @@
                              (EXIT
                               (COND
                                ((SPADCALL |dd| (QREFELT $ 13))
-                                (PROGN (LETT #1# |i|) (GO #2=#:G123)))
+                                (PROGN (LETT #1# |i|) (GO #2=#:G124)))
                                ('T
                                 (LETT |dd|
                                       (SPADCALL
@@ -23,9 +23,9 @@
 
 (DECLAIM (NOTINLINE |FindOrderFinite;|)) 
 
-(DEFUN |FindOrderFinite| (&REST #1=#:G125)
+(DEFUN |FindOrderFinite| (&REST #1=#:G126)
   (SPROG NIL
-         (PROG (#2=#:G126)
+         (PROG (#2=#:G127)
            (RETURN
             (COND
              ((LETT #2#

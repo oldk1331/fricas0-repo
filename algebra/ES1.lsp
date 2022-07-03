@@ -2,8 +2,8 @@
 (SDEFUN |ES1;map;MSKS;1|
         ((F2S (|Mapping| S F)) (|prop| (|Symbol|)) (|k| (|Kernel| F)) ($ (S)))
         (SPROG
-         ((|p| (|Union| (|None|) "failed")) (|args| (|List| S)) (#1=#:G128 NIL)
-          (|x| NIL) (#2=#:G127 NIL))
+         ((|p| (|Union| (|None|) "failed")) (|args| (|List| S)) (#1=#:G129 NIL)
+          (|x| NIL) (#2=#:G128 NIL))
          (SEQ
           (LETT |args|
                 (PROGN
@@ -24,9 +24,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionSpaceFunctions1;|)) 
 
-(DEFUN |ExpressionSpaceFunctions1| (&REST #1=#:G129)
+(DEFUN |ExpressionSpaceFunctions1| (&REST #1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G130)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#

@@ -35,7 +35,7 @@
                        ('T (QCDR |u|))))))) 
 
 (SDEFUN |SUMFS;notRF?| ((|f| (F)) (|k| (|Kernel| F)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G142 NIL) (#2=#:G143 NIL) (#3=#:G144 NIL) (|kk| NIL))
+        (SPROG ((#1=#:G143 NIL) (#2=#:G144 NIL) (#3=#:G145 NIL) (|kk| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -56,8 +56,8 @@
                              (COND
                               ((QEQCAR (SPADCALL |kk| (QREFELT $ 36)) 1)
                                (PROGN
-                                (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G141)))
-                                (GO #5=#:G139))))))))
+                                (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G142)))
+                                (GO #5=#:G140))))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT NIL)))
@@ -106,9 +106,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceSum;|)) 
 
-(DEFUN |FunctionSpaceSum| (&REST #1=#:G152)
+(DEFUN |FunctionSpaceSum| (&REST #1=#:G153)
   (SPROG NIL
-         (PROG (#2=#:G153)
+         (PROG (#2=#:G154)
            (RETURN
             (COND
              ((LETT #2#

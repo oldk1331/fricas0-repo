@@ -66,7 +66,7 @@
 
 (SDEFUN |IPADIC;=;2$B;15| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG
-         ((|st| (|Stream| (|Integer|))) (#1=#:G196 NIL) (#2=#:G197 NIL)
+         ((|st| (|Stream| (|Integer|))) (#1=#:G197 NIL) (#2=#:G198 NIL)
           (|i| NIL) (|n| (|Integer|)))
          (SEQ
           (EXIT
@@ -79,7 +79,7 @@
                   (EXIT
                    (COND
                     ((SPADCALL |st| (QREFELT $ 30))
-                     (PROGN (LETT #1# 'T) (GO #3=#:G195)))
+                     (PROGN (LETT #1# 'T) (GO #3=#:G196)))
                     ((SPADCALL (SPADCALL |st| (QREFELT $ 31)) 0 (QREFELT $ 27))
                      (PROGN (LETT #1# NIL) (GO #3#)))
                     ('T (LETT |st| (SPADCALL |st| (QREFELT $ 38)))))))
@@ -88,7 +88,7 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |IPADIC;order;$Nni;16| ((|x| ($)) ($ (|NonNegativeInteger|)))
-        (SPROG ((|st| ($)) (#1=#:G203 NIL) (|i| NIL))
+        (SPROG ((|st| ($)) (#1=#:G205 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ (LETT |st| (|IPADIC;stream| |x| $))
@@ -98,7 +98,7 @@
                             (EXIT
                              (COND
                               ((SPADCALL |st| (QREFELT $ 30))
-                               (PROGN (LETT #1# 0) (GO #2=#:G202)))
+                               (PROGN (LETT #1# 0) (GO #2=#:G204)))
                               ((SPADCALL (SPADCALL |st| (QREFELT $ 31)) 0
                                          (QREFELT $ 27))
                                (PROGN (LETT #1# |i|) (GO #2#)))
@@ -593,7 +593,7 @@
           (LETT |p| (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((#1=#:G345 NIL) (|num| NIL) (|digit| NIL))
+            (SPROG ((#1=#:G347 NIL) (|num| NIL) (|digit| NIL))
                    (SEQ
                     (LETT |num|
                           (SPADCALL
@@ -680,7 +680,7 @@
 (SDEFUN |IPADIC;coerce;$Of;43| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|st| ($)) (|st1| ($)) (|n| NIL)
-          (#1=#:G380 NIL) (|count| (|NonNegativeInteger|)))
+          (#1=#:G384 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ
           (COND
            ((SPADCALL (LETT |st| (|IPADIC;stream| |x| $)) (QREFELT $ 30))
@@ -762,9 +762,9 @@
 
 (DECLAIM (NOTINLINE |InnerPAdicInteger;|)) 
 
-(DEFUN |InnerPAdicInteger| (&REST #1=#:G392)
+(DEFUN |InnerPAdicInteger| (&REST #1=#:G396)
   (SPROG NIL
-         (PROG (#2=#:G393)
+         (PROG (#2=#:G397)
            (RETURN
             (COND
              ((LETT #2#

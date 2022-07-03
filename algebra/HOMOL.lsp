@@ -4,7 +4,7 @@
          ($ ($)))
         (SPROG
          ((|kernelFree| (|List| (|Vector| (|Integer|))))
-          (|v| (|Vector| (|Integer|))) (#1=#:G148 NIL) (|i| NIL)
+          (|v| (|Vector| (|Integer|))) (#1=#:G150 NIL) (|i| NIL)
           (|n_cols| #2=(|NonNegativeInteger|))
           (|n_rows| #3=(|NonNegativeInteger|))
           (|mFree| #4=(|Matrix| (|Integer|)))
@@ -21,7 +21,7 @@
           (|g|
            (|Record| (|:| |vec| (|Vector| (|Integer|)))
                      (|:| |ord| (|Integer|))))
-          (|order| (|Integer|)) (|r| (|Vector| (|Integer|))) (#7=#:G147 NIL)
+          (|order| (|Integer|)) (|r| (|Vector| (|Integer|))) (#7=#:G149 NIL)
           (|nr| NIL) (|mNCols| #2#) (|mNRows| #3#) (|leftNRows| #3#) (|m| #4#)
           (|left| #5#) (|smit| #6#) (|zero| (|Matrix| (|Integer|))))
          (SEQ
@@ -110,8 +110,8 @@
          (|torsionOrd| (|List| (|Integer|)))
          (|free1| (|List| (|List| (|Integer|)))) ($ ($)))
         (SPROG
-         ((|kernelFree| (|List| (|Vector| (|Integer|)))) (#1=#:G160 NIL)
-          (|v| NIL) (#2=#:G159 NIL)
+         ((|kernelFree| (|List| (|Vector| (|Integer|)))) (#1=#:G164 NIL)
+          (|v| NIL) (#2=#:G163 NIL)
           (|res|
            (|List|
             (|Record| (|:| |vec| (|Vector| (|Integer|)))
@@ -119,7 +119,7 @@
           (|r3|
            (|Record| (|:| |vec| (|Vector| (|Integer|)))
                      (|:| |ord| (|Integer|))))
-          (#3=#:G157 NIL) (|r1| NIL) (#4=#:G158 NIL) (|r2| NIL))
+          (#3=#:G161 NIL) (|r1| NIL) (#4=#:G162 NIL) (|r2| NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |torsionVec|) (LENGTH |torsionOrd|)
@@ -168,7 +168,7 @@
 (SDEFUN |HOMOL;dispGenerators;$Of;8| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|ln2| #1=(|OutputForm|)) (|ln| #1#)
-          (#2=#:G171 NIL) (|g| NIL) (|s1| (|Rep|)))
+          (#2=#:G176 NIL) (|g| NIL) (|s1| (|Rep|)))
          (SEQ (LETT |res| (SPADCALL (QREFELT $ 47))) (LETT |s1| |s|)
               (SEQ (LETT |g| NIL) (LETT #2# (QCAR |s1|)) G190
                    (COND
@@ -193,8 +193,8 @@
 
 (SDEFUN |HOMOL;=;2$B;9| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G183 NIL) (|noTorsionB| #2=(|Boolean|)) (#3=#:G185 NIL)
-          (|tb| NIL) (|noTorsionA| #2#) (#4=#:G184 NIL) (|ta| NIL)
+         ((#1=#:G190 NIL) (|noTorsionB| #2=(|Boolean|)) (#3=#:G192 NIL)
+          (|tb| NIL) (|noTorsionA| #2#) (#4=#:G191 NIL) (|ta| NIL)
           (|torb|
            #5=(|List|
                (|Record| (|:| |vec| (|Vector| (|Integer|)))
@@ -230,14 +230,14 @@
                      (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
                 (COND
                  ((SPADCALL |noTorsionA| |noTorsionA| (QREFELT $ 56))
-                  (PROGN (LETT #1# NIL) (GO #6=#:G182))))
+                  (PROGN (LETT #1# NIL) (GO #6=#:G189))))
                 (EXIT (EQL (LENGTH (QCDR |a|)) (LENGTH (QCDR |b|))))))
           #6# (EXIT #1#)))) 
 
 (SDEFUN |HOMOL;coerce;$Of;10| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|res| (|OutputForm|)) (|firstTermRead| (|Boolean|))
-          (|ln2| (|OutputForm|)) (#1=#:G195 NIL) (|t| NIL)
+          (|ln2| (|OutputForm|)) (#1=#:G203 NIL) (|t| NIL)
           (|nFree| (|NonNegativeInteger|)) (|s1| (|Rep|)))
          (SEQ (LETT |res| (SPADCALL (QREFELT $ 47))) (LETT |firstTermRead| NIL)
               (LETT |s1| |s|) (LETT |nFree| (LENGTH (QCDR |s1|)))
@@ -290,7 +290,7 @@
 
 (DEFUN |Homology| ()
   (SPROG NIL
-         (PROG (#1=#:G197)
+         (PROG (#1=#:G205)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Homology|))

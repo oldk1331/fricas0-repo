@@ -80,7 +80,6 @@
 ;           ["=", 400, 700], _
 ;           ["return", 202, 201, ["parse_Return"]], _
 ;           ["from"], _
-;           ["iterate"], _
 ;           ["yield"], _
 ;           ["if", 130, 0, ["parse_Conditional"]], _
 ;           ["try", 130, 0, ["parse_Try"]], _
@@ -140,8 +139,7 @@
              (LIST '|:| 194 195) (LIST '|not| 260 259 NIL)
              (LIST '~ 260 259 NIL) (LIST '= 400 700)
              (LIST '|return| 202 201 (LIST '|parse_Return|)) (LIST '|from|)
-             (LIST '|iterate|) (LIST '|yield|)
-             (LIST '|if| 130 0 (LIST '|parse_Conditional|))
+             (LIST '|yield|) (LIST '|if| 130 0 (LIST '|parse_Conditional|))
              (LIST '|try| 130 0 (LIST '|parse_Try|)) (LIST '|catch| 0 114)
              (LIST '|finally| 0 114) (LIST '|\|| 0 190) (LIST '|then| 0 114)
              (LIST '|else| 0 114))

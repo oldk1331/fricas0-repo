@@ -285,9 +285,9 @@
 
 (DECLAIM (NOTINLINE |FreeNilpotentLie;|)) 
 
-(DEFUN |FreeNilpotentLie| (&REST #1=#:G156)
+(DEFUN |FreeNilpotentLie| (&REST #1=#:G159)
   (SPROG NIL
-         (PROG (#2=#:G157)
+         (PROG (#2=#:G160)
            (RETURN
             (COND
              ((LETT #2#

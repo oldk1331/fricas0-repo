@@ -4,8 +4,8 @@
 
 (SDEFUN |PSETCAT-;variables1| ((|lp| (|List| P)) ($ (|List| |VarSet|)))
         (SPROG
-         ((|lvars| (|List| (|List| |VarSet|))) (#1=#:G176 NIL) (|p| NIL)
-          (#2=#:G175 NIL))
+         ((|lvars| (|List| (|List| |VarSet|))) (#1=#:G177 NIL) (|p| NIL)
+          (#2=#:G176 NIL))
          (SEQ
           (LETT |lvars|
                 (PROGN
@@ -27,8 +27,8 @@
 
 (SDEFUN |PSETCAT-;variables2| ((|lp| (|List| P)) ($ (|List| |VarSet|)))
         (SPROG
-         ((|lvars| (|List| |VarSet|)) (#1=#:G181 NIL) (|p| NIL)
-          (#2=#:G180 NIL))
+         ((|lvars| (|List| |VarSet|)) (#1=#:G183 NIL) (|p| NIL)
+          (#2=#:G182 NIL))
          (SEQ
           (LETT |lvars|
                 (PROGN
@@ -151,8 +151,8 @@
 
 (SDEFUN |PSETCAT-;=;2SB;11| ((|ps1| (S)) (|ps2| (S)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G224 NIL) (|p| NIL) (#2=#:G223 NIL) (#3=#:G222 NIL)
-          (#4=#:G221 NIL))
+         ((#1=#:G233 NIL) (|p| NIL) (#2=#:G232 NIL) (#3=#:G231 NIL)
+          (#4=#:G230 NIL))
          (SEQ
           (SPADCALL
            (SPADCALL
@@ -293,7 +293,7 @@
         (SPADCALL |r| |s| (QREFELT $ 59))) 
 
 (SDEFUN |PSETCAT-;iexactQuo;3R;22| ((|r| (R)) (|s| (R)) ($ (R)))
-        (SPROG ((#1=#:G264 NIL))
+        (SPROG ((#1=#:G276 NIL))
                (PROG2 (LETT #1# (SPADCALL |r| |s| (QREFELT $ 62)))
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)

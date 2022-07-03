@@ -2,7 +2,7 @@
 (SDEFUN |PATRES2;map;MPmrPmr;1|
         ((|f| (|Mapping| B A)) (|r| (|PatternMatchResult| R A))
          ($ (|PatternMatchResult| R B)))
-        (SPROG ((#1=#:G127 NIL) (|rec| NIL) (#2=#:G126 NIL))
+        (SPROG ((#1=#:G128 NIL) (|rec| NIL) (#2=#:G127 NIL))
                (SEQ
                 (COND ((SPADCALL |r| (QREFELT $ 11)) (SPADCALL (QREFELT $ 13)))
                       ('T
@@ -28,9 +28,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchResultFunctions2;|)) 
 
-(DEFUN |PatternMatchResultFunctions2| (&REST #1=#:G128)
+(DEFUN |PatternMatchResultFunctions2| (&REST #1=#:G129)
   (SPROG NIL
-         (PROG (#2=#:G129)
+         (PROG (#2=#:G130)
            (RETURN
             (COND
              ((LETT #2#

@@ -38,7 +38,7 @@
                                                  (|Fraction|
                                                   (|Polynomial|
                                                    (|Integer|))))))
-          (#1=#:G161 NIL) (|poly| NIL) (#2=#:G160 NIL)
+          (#1=#:G162 NIL) (|poly| NIL) (#2=#:G161 NIL)
           (|Id|
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
@@ -89,7 +89,7 @@
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
                                                  (|Fraction| (|Integer|)))))
-          (#1=#:G167 NIL) (|poly| NIL) (#2=#:G166 NIL)
+          (#1=#:G169 NIL) (|poly| NIL) (#2=#:G168 NIL)
           (|Id|
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
@@ -140,7 +140,7 @@
                                                                    (|Fraction|
                                                                     (|Polynomial|
                                                                      (|Integer|))))))))
-        (SPROG ((#1=#:G177 NIL) (I NIL) (#2=#:G176 NIL))
+        (SPROG ((#1=#:G181 NIL) (I NIL) (#2=#:G180 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -196,13 +196,13 @@
                                                     (|Fraction|
                                                      (|Polynomial|
                                                       (|Integer|))))))
-          (#2=#:G194 NIL) (|h| NIL) (#3=#:G193 NIL)
+          (#2=#:G201 NIL) (|h| NIL) (#3=#:G200 NIL)
           (|lf|
            #4=(|DistributedMultivariatePolynomial| |vl|
                                                    (|Fraction|
                                                     (|Polynomial|
                                                      (|Integer|)))))
-          (|Id| #1#) (#5=#:G192 NIL) (#6=#:G191 NIL)
+          (|Id| #1#) (#5=#:G199 NIL) (#6=#:G198 NIL)
           (|pw|
            #7=(|DistributedMultivariatePolynomial| |vl|
                                                    (|Fraction|
@@ -213,7 +213,7 @@
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
                                                  (|Polynomial| (|Integer|)))))
-          (#8=#:G180 NIL) (|f| #4#)
+          (#8=#:G184 NIL) (|f| #4#)
           (|py|
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
@@ -423,7 +423,7 @@
                                                                          (|Polynomial|
                                                                           (|Integer|)))))))))
         (SPROG
-         ((|f| #1#) (#2=#:G202 NIL) (|g| NIL) (#3=#:G201 NIL)
+         ((|f| #1#) (#2=#:G211 NIL) (|g| NIL) (#3=#:G210 NIL)
           (J
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
@@ -482,19 +482,19 @@
                                                                     (|Integer|))))))
          (|truelist| (|List| (|OrderedVariableList| |vl|))) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G214 NIL)
+         ((#1=#:G225 NIL)
           (|Jd|
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
                                                  (|Fraction|
                                                   (|Polynomial|
                                                    (|Integer|))))))
-          (#2=#:G169 NIL) (|y| (|Union| (|OrderedVariableList| |vl|) "failed"))
+          (#2=#:G172 NIL) (|y| (|Union| (|OrderedVariableList| |vl|) "failed"))
           (|f|
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
                                                  (|Polynomial| (|Integer|)))))
-          (#3=#:G215 NIL) (|x| NIL) (|n| (|NonNegativeInteger|)))
+          (#3=#:G226 NIL) (|x| NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (COND
@@ -520,7 +520,7 @@
                                          (SPADCALL (QCDR |y|) |x|
                                                    (QREFELT $ 87))
                                          (NULL (|IDECOMP;ismonic| |f| |x| $))))
-                                    (PROGN (LETT #1# NIL) (GO #4=#:G213))))))
+                                    (PROGN (LETT #1# NIL) (GO #4=#:G224))))))
                             (SEQ G190
                                  (COND
                                   ((NULL
@@ -576,7 +576,7 @@
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
                                                  (|Polynomial| (|Integer|)))))
-          (#1=#:G220 NIL) (|f| NIL))
+          (#1=#:G232 NIL) (|f| NIL))
          (SEQ (LETT |lmonicvar| NIL)
               (SEQ (LETT |f| NIL) (LETT #1# (SPADCALL J (QREFELT $ 33))) G190
                    (COND
@@ -629,7 +629,7 @@
                                                                     (|Fraction|
                                                                      (|Polynomial|
                                                                       (|Integer|)))))))
-          (#2=#:G251 NIL) (JJ NIL) (|sresult| #1#)
+          (#2=#:G268 NIL) (JJ NIL) (|sresult| #1#)
           (|sideal|
            (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
                               (|DirectProduct| (|#| |vl|)
@@ -655,15 +655,15 @@
                                                                          (|Fraction|
                                                                           (|Polynomial|
                                                                            (|Integer|))))))))
-          (#3=#:G250 NIL) (II NIL) (#4=#:G249 NIL)
+          (#3=#:G267 NIL) (II NIL) (#4=#:G266 NIL)
           (|s|
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
                                                  (|Polynomial| (|Integer|)))))
-          (#5=#:G231 NIL)
-          (#6=#:G230 #7=(|Fraction| (|Polynomial| (|Integer|))))
-          (#8=#:G232 #7#) (#9=#:G248 NIL) (|f| NIL) (#10=#:G247 NIL)
-          (#11=#:G246 NIL) (#12=#:G245 NIL) (|idp| NIL) (#13=#:G244 NIL)
+          (#5=#:G246 NIL)
+          (#6=#:G245 #7=(|Fraction| (|Polynomial| (|Integer|))))
+          (#8=#:G247 #7#) (#9=#:G265 NIL) (|f| NIL) (#10=#:G264 NIL)
+          (#11=#:G263 NIL) (#12=#:G262 NIL) (|idp| NIL) (#13=#:G261 NIL)
           (|Jc|
            (|List|
             (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
@@ -680,7 +680,7 @@
                                                  (|Fraction|
                                                   (|Polynomial|
                                                    (|Integer|))))))
-          (#14=#:G243 NIL) (#15=#:G242 NIL) (|x| (|OrderedVariableList| |vl|)))
+          (#14=#:G260 NIL) (#15=#:G259 NIL) (|x| (|OrderedVariableList| |vl|)))
          (SEQ
           (COND ((SPADCALL (|spadConstant| $ 47) J (QREFELT $ 48)) (LIST J))
                 ((|IDECOMP;zerodimcase| J |truelist| $)
@@ -869,7 +869,7 @@
                                                                     (|Fraction|
                                                                      (|Polynomial|
                                                                       (|Integer|)))))))
-          (#1=#:G259 NIL)
+          (#1=#:G277 NIL)
           (J1
            (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
                               (|DirectProduct| (|#| |vl|)
@@ -883,7 +883,7 @@
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
                                                  (|Polynomial| (|Integer|)))))
-          (#2=#:G260 NIL) (|ef| NIL)
+          (#2=#:G278 NIL) (|ef| NIL)
           (|lfact|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -953,7 +953,7 @@
                          ((NULL (|IDECOMP;is0dimprimary| J1 |truelist| $))
                           (PROGN
                            (LETT #1# (|IDECOMP;zeroPrimDecomp| I |truelist| $))
-                           (GO #4=#:G258))))
+                           (GO #4=#:G276))))
                         (EXIT
                          (LETT |ris|
                                (CONS
@@ -983,8 +983,8 @@
                                                                   (|Fraction|
                                                                    (|Integer|))))))
         (SPROG
-         ((#1=#:G268 NIL)
-          (#2=#:G267
+         ((#1=#:G286 NIL)
+          (#2=#:G285
            #3=(|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
                                  (|DirectProduct| (|#| |vl|)
                                                   (|NonNegativeInteger|))
@@ -993,10 +993,10 @@
                                                                       (|Fraction|
                                                                        (|Polynomial|
                                                                         (|Integer|))))))
-          (#4=#:G269 #3#) (#5=#:G273 NIL) (#6=#:G119 NIL)
-          (|truelist| (|List| (|OrderedVariableList| |vl|))) (#7=#:G262 NIL)
-          (#8=#:G261 #9=(|List| (|OrderedVariableList| |vl|))) (#10=#:G263 #9#)
-          (#11=#:G272 NIL) (|f| NIL)
+          (#4=#:G287 #3#) (#5=#:G291 NIL) (#6=#:G119 NIL)
+          (|truelist| (|List| (|OrderedVariableList| |vl|))) (#7=#:G280 NIL)
+          (#8=#:G279 #9=(|List| (|OrderedVariableList| |vl|))) (#10=#:G281 #9#)
+          (#11=#:G290 NIL) (|f| NIL)
           (J
            (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
                               (|DirectProduct| (|#| |vl|)
@@ -1102,7 +1102,7 @@
                                                (|Fraction|
                                                 (|Polynomial| (|Integer|))))))
         (SPROG
-         ((#1=#:G279 NIL)
+         ((#1=#:G298 NIL)
           (|newt|
            (|Union|
             (|DistributedMultivariatePolynomial| |vl|
@@ -1259,7 +1259,7 @@
                                                  (|Fraction|
                                                   (|Polynomial|
                                                    (|Integer|))))))
-          (#1=#:G310 NIL)
+          (#1=#:G332 NIL)
           (JM
            (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
                               (|DirectProduct| (|#| |vl|)
@@ -1269,8 +1269,8 @@
                                                                    (|Fraction|
                                                                     (|Polynomial|
                                                                      (|Integer|))))))
-          (|i| (|Union| (|NonNegativeInteger|) "failed")) (#2=#:G298 NIL)
-          (|x| (|OrderedVariableList| |vl|)) (#3=#:G311 NIL) (|f| NIL)
+          (|i| (|Union| (|NonNegativeInteger|) "failed")) (#2=#:G320 NIL)
+          (|x| (|OrderedVariableList| |vl|)) (#3=#:G333 NIL) (|f| NIL)
           (JR
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
@@ -1299,7 +1299,7 @@
                                    (QREFELT $ 102))
                          (QREFELT $ 106)))
                        1 (QREFELT $ 68))
-                      (PROGN (LETT #1# NIL) (GO #5=#:G309)))
+                      (PROGN (LETT #1# NIL) (GO #5=#:G331)))
                      (#4#
                       (SEQ
                        (LETT |i|
@@ -1403,15 +1403,15 @@
                                                                 (|Polynomial|
                                                                  (|Integer|)))))))))
         (SPROG
-         ((#1=#:G325 NIL) (|p| NIL) (#2=#:G324 NIL)
+         ((#1=#:G349 NIL) (|p| NIL) (#2=#:G348 NIL)
           (|val|
            #3=(|DistributedMultivariatePolynomial| |vl|
                                                    (|Fraction|
                                                     (|Polynomial|
                                                      (|Integer|)))))
-          (#4=#:G315 NIL) (#5=#:G314 #3#) (#6=#:G316 #3#) (#7=#:G322 NIL)
-          (|vv| NIL) (#8=#:G323 NIL) (|rv| NIL)
-          (|ranvals| (|List| (|Integer|))) (#9=#:G321 NIL) (#10=#:G320 NIL)
+          (#4=#:G338 NIL) (#5=#:G337 #3#) (#6=#:G339 #3#) (#7=#:G346 NIL)
+          (|vv| NIL) (#8=#:G347 NIL) (|rv| NIL)
+          (|ranvals| (|List| (|Integer|))) (#9=#:G345 NIL) (#10=#:G344 NIL)
           (|lv1| (|List| (|OrderedVariableList| |vl|)))
           (|x| (|OrderedVariableList| |vl|)))
          (SEQ (LETT |x| (SPADCALL |truelist| (QREFELT $ 133)))
@@ -1498,18 +1498,18 @@
                                                                    (|Polynomial|
                                                                     (|Integer|)))))))
         (SPROG
-         ((#1=#:G347 NIL) (|p| NIL) (#2=#:G346 NIL)
+         ((#1=#:G372 NIL) (|p| NIL) (#2=#:G371 NIL)
           (|val|
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
                                                  (|Polynomial| (|Integer|)))))
-          (#3=#:G339 NIL)
-          (#4=#:G338
+          (#3=#:G363 NIL)
+          (#4=#:G362
            #5=(|DistributedMultivariatePolynomial| |vl|
                                                    (|Fraction|
                                                     (|Polynomial|
                                                      (|Integer|)))))
-          (#6=#:G340 #5#) (#7=#:G344 NIL) (|vv| NIL) (#8=#:G345 NIL) (|rv| NIL)
+          (#6=#:G364 #5#) (#7=#:G369 NIL) (|vv| NIL) (#8=#:G370 NIL) (|rv| NIL)
           (|lv1| (|List| (|OrderedVariableList| |vl|)))
           (|x| (|OrderedVariableList| |vl|)))
          (SEQ
@@ -1620,7 +1620,7 @@
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
                                                  (|Polynomial| (|Integer|)))))
-          (#1=#:G350 NIL) (|df| (|PositiveInteger|)) (#2=#:G349 NIL))
+          (#1=#:G375 NIL) (|df| (|PositiveInteger|)) (#2=#:G374 NIL))
          (SEQ
           (LETT |df|
                 (PROG1 (LETT #2# (SPADCALL |uf| (QREFELT $ 139)))
@@ -1671,7 +1671,7 @@
            (|DistributedMultivariatePolynomial| |vl|
                                                 (|Fraction|
                                                  (|Polynomial| (|Integer|)))))
-          (|i| (|NonNegativeInteger|)) (#1=#:G363 NIL) (#2=#:G364 NIL)
+          (|i| (|NonNegativeInteger|)) (#1=#:G389 NIL) (#2=#:G390 NIL)
           (|f| NIL)
           (|Jd|
            (|List|
@@ -1720,7 +1720,7 @@
                                        (SPADCALL (QREFELT $ 44) |i|
                                                  (QREFELT $ 130))
                                        $))
-                                     (PROGN (LETT #1# NIL) (GO #4=#:G362))))
+                                     (PROGN (LETT #1# NIL) (GO #4=#:G388))))
                                    (COND
                                     ((< |i| |n|)
                                      (COND
@@ -1784,10 +1784,10 @@
                                                                    (|Fraction|
                                                                     (|Integer|)))))))
         (SPROG
-         ((#1=#:G377 NIL) (II NIL) (#2=#:G376 NIL)
-          (|truelist| (|List| (|OrderedVariableList| |vl|))) (#3=#:G367 NIL)
-          (#4=#:G366 #5=(|List| (|OrderedVariableList| |vl|))) (#6=#:G368 #5#)
-          (#7=#:G375 NIL) (|f| NIL)
+         ((#1=#:G404 NIL) (II NIL) (#2=#:G403 NIL)
+          (|truelist| (|List| (|OrderedVariableList| |vl|))) (#3=#:G393 NIL)
+          (#4=#:G392 #5=(|List| (|OrderedVariableList| |vl|))) (#6=#:G394 #5#)
+          (#7=#:G402 NIL) (|f| NIL)
           (J
            (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
                               (|DirectProduct| (|#| |vl|)
@@ -1858,27 +1858,27 @@
                                                                   (|Fraction|
                                                                    (|Integer|))))))
         (SPROG
-         ((#1=#:G407 NIL) (|gg| NIL) (#2=#:G406 NIL)
+         ((#1=#:G440 NIL) (|gg| NIL) (#2=#:G439 NIL)
           (|fullPol|
            (|List|
             #3=(|DistributedMultivariatePolynomial| |vl|
                                                     (|Fraction| (|Integer|)))))
-          (#4=#:G405 NIL) (|vv| NIL) (#5=#:G404 NIL)
+          (#4=#:G438 NIL) (|vv| NIL) (#5=#:G437 NIL)
           (J
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
                                                  (|Fraction| (|Integer|)))))
-          (#6=#:G169 NIL) (#7=#:G403 NIL) (|f| NIL) (#8=#:G402 NIL)
+          (#6=#:G172 NIL) (#7=#:G436 NIL) (|f| NIL) (#8=#:G435 NIL)
           (|lJ|
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
                                                  (|Fraction| (|Integer|)))))
-          (#9=#:G401 NIL) (|g| NIL) (#10=#:G400 NIL) (|subsVars| (|List| #3#))
-          (#11=#:G399 NIL) (#12=#:G398 NIL)
-          (|newVars| (|List| (|OrderedVariableList| |vl|))) (#13=#:G397 NIL)
-          (#14=#:G396 NIL) (|n| (|NonNegativeInteger|))
+          (#9=#:G434 NIL) (|g| NIL) (#10=#:G433 NIL) (|subsVars| (|List| #3#))
+          (#11=#:G432 NIL) (#12=#:G431 NIL)
+          (|newVars| (|List| (|OrderedVariableList| |vl|))) (#13=#:G430 NIL)
+          (#14=#:G429 NIL) (|n| (|NonNegativeInteger|))
           (|fullVars| #15=(|List| (|OrderedVariableList| |vl|)))
-          (#16=#:G379 NIL) (#17=#:G378 #15#) (#18=#:G380 #15#) (#19=#:G395 NIL)
+          (#16=#:G406 NIL) (#17=#:G405 #15#) (#18=#:G407 #15#) (#19=#:G428 NIL)
           (|Id|
            (|List|
             (|DistributedMultivariatePolynomial| |vl|
@@ -2102,9 +2102,9 @@
 
 (DECLAIM (NOTINLINE |IdealDecompositionPackage;|)) 
 
-(DEFUN |IdealDecompositionPackage| (#1=#:G410)
+(DEFUN |IdealDecompositionPackage| (#1=#:G443)
   (SPROG NIL
-         (PROG (#2=#:G411)
+         (PROG (#2=#:G444)
            (RETURN
             (COND
              ((LETT #2#
@@ -2123,7 +2123,7 @@
 
 (DEFUN |IdealDecompositionPackage;| (|#1|)
   (SPROG
-   ((#1=#:G172 NIL) (#2=#:G169 NIL) (#3=#:G409 NIL) (|xx| NIL) (#4=#:G408 NIL)
+   ((#1=#:G175 NIL) (#2=#:G172 NIL) (#3=#:G442 NIL) (|xx| NIL) (#4=#:G441 NIL)
     (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (SEQ
     (PROGN

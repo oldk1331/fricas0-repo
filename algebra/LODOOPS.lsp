@@ -71,8 +71,8 @@
                                                         (|Symbol|)))))
          (|diff| (|Mapping| A A)) ($ (L)))
         (SPROG
-         ((|lu| (|List| #1#)) (#2=#:G144 NIL) (|l| (|List| (|Vector| A)))
-          (|mat| (|Matrix| A)) (#3=#:G145 NIL) (|q| NIL))
+         ((|lu| (|List| #1#)) (#2=#:G145 NIL) (|l| (|List| (|Vector| A)))
+          (|mat| (|Matrix| A)) (#3=#:G146 NIL) (|q| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |lu| (LIST |u|))
@@ -88,7 +88,7 @@
                         (EXIT
                          (PROGN
                           (LETT #2# (|LODOOPS;vec2LODO| (|SPADfirst| |l|) $))
-                          (GO #4=#:G143)))))
+                          (GO #4=#:G144)))))
                       (LETT |u|
                             (SPADCALL (SPADCALL |u| |diff| (QREFELT $ 44))
                                       |lvar| |lval| (QREFELT $ 47)))
@@ -209,9 +209,9 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorsOps;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G156)
+(DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G158)
   (SPROG NIL
-         (PROG (#2=#:G157)
+         (PROG (#2=#:G159)
            (RETURN
             (COND
              ((LETT #2#

@@ -83,8 +83,8 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((|ans| (|Union| UPS "failed")) (#3=#:G370 NIL)
-          (|signum| (|Union| (|Integer|) "failed")) (#4=#:G369 NIL)
+         ((|ans| (|Union| UPS "failed")) (#3=#:G371 NIL)
+          (|signum| (|Union| (|Integer|) "failed")) (#4=#:G370 NIL)
           (|coef| (FE)) (|deg| (|Expon|)) (|deg1| (|Expon|)) (|posCheck?| #1#))
          (SEQ
           (EXIT
@@ -132,7 +132,7 @@
                                          (LETT #4#
                                                (|error|
                                                 "log of series with many leading zero coefficients"))
-                                         (GO #6=#:G353)))))))
+                                         (GO #6=#:G354)))))))
                                    #6# (EXIT #4#))
                                   NIL (GO G190) G191 (EXIT NIL))
                              (COND
@@ -153,7 +153,7 @@
                                                "nth root"
                                                "negative leading coefficient"
                                                $))
-                                        (GO #7=#:G368)))
+                                        (GO #7=#:G369)))
                                       ((NULL |rightOnly?|)
                                        (COND
                                         ((NULL (SPADCALL |deg| (QREFELT $ 36)))
@@ -331,7 +331,7 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((|ans| (UPS)) (#2=#:G474 NIL) (#3=#:G460 NIL) (|coef| (FE))
+         ((|ans| (UPS)) (#2=#:G476 NIL) (#3=#:G461 NIL) (|coef| (FE))
           (|deg| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -361,7 +361,7 @@
                        (LETT #2#
                              (|FS2UPS2;stateProblem| "polyToUPS" "bad coeff"
                               $))
-                       (GO #4=#:G473))))))
+                       (GO #4=#:G475))))))
                   (LETT |ans|
                         (SPADCALL |coef| (SPADCALL |deg| (QREFELT $ 26))
                                   (QREFELT $ 67)))
@@ -446,7 +446,7 @@
                    (|:| |%problem|
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
-        (SPROG ((#8=#:G485 NIL) (|term| #1#))
+        (SPROG ((#8=#:G488 NIL) (|term| #1#))
                (SEQ
                 (EXIT
                  (SEQ
@@ -458,7 +458,7 @@
                         (EXIT
                          (COND
                           ((QEQCAR |term| 1)
-                           (PROGN (LETT #8# |term|) (GO #9=#:G484)))
+                           (PROGN (LETT #8# |term|) (GO #9=#:G487)))
                           ('T
                            (SEQ (LETT |ans| (SPADCALL |ans| (CDR |term|) |op|))
                                 (EXIT (LETT |list| (CDR |list|))))))))
@@ -504,8 +504,8 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#2=#:G509 NIL) (|coef| (FE)) (|deg| (|Expon|)) (|ups| (UPS))
-          (|deg1| (|Expon|)) (#3=#:G494 NIL) (#4=#:G500 NIL)
+         ((#2=#:G513 NIL) (|coef| (FE)) (|deg| (|Expon|)) (|ups| (UPS))
+          (|deg1| (|Expon|)) (#3=#:G497 NIL) (#4=#:G503 NIL)
           (|b|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -571,7 +571,7 @@
                                    (LETT #2#
                                          (|error|
                                           "inverse of series with many leading zero coefficients"))
-                                   (GO #5=#:G503)))))))
+                                   (GO #5=#:G507)))))))
                              #5# (EXIT #2#))
                             NIL (GO G190) G191 (EXIT NIL))
                        (COND
@@ -605,14 +605,14 @@
                                    (|:| |prob| (|String|))))))))
         (SPROG
          ((|lsers| (|List| UPS)) (|lsere| (|List| FE)) (|lcoef| (|List| FE))
-          (|losers| (|List| UPS)) (|coef| (FE)) (#2=#:G526 NIL) (|ups| (UPS))
-          (#3=#:G512 NIL)
+          (|losers| (|List| UPS)) (|coef| (FE)) (#2=#:G531 NIL) (|ups| (UPS))
+          (#3=#:G516 NIL)
           (|nsu|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
                          (|Record| (|:| |func| (|String|))
                                    (|:| |prob| (|String|))))))
-          (#4=#:G527 NIL) (|arg| NIL))
+          (#4=#:G532 NIL) (|arg| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |losers| NIL) (LETT |lsers| NIL) (LETT |lsere| NIL)
@@ -642,7 +642,7 @@
                           (EXIT
                            (COND
                             ((QEQCAR |nsu| 1)
-                             (PROGN (LETT #2# (CONS 1 |nsu|)) (GO #5=#:G525)))
+                             (PROGN (LETT #2# (CONS 1 |nsu|)) (GO #5=#:G530)))
                             ('T
                              (SEQ
                               (LETT |ups|
@@ -705,8 +705,8 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((|ups| (UPS)) (|lders| (|List| (|Mapping| FE FE))) (#1=#:G541 NIL)
-          (|sym| NIL) (#2=#:G540 NIL))
+         ((|ups| (UPS)) (|lders| (|List| (|Mapping| FE FE))) (#1=#:G549 NIL)
+          (|sym| NIL) (#2=#:G548 NIL))
          (SEQ
           (LETT |lders|
                 (PROGN
@@ -737,7 +737,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((#1=#:G537 NIL) (|sym| NIL) (#2=#:G536 NIL))
+            (SPROG ((#1=#:G545 NIL) (|sym| NIL) (#2=#:G544 NIL))
                    (SEQ
                     (SPADCALL |c|
                               (PROGN
@@ -774,8 +774,8 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((|ups| (UPS)) (|lders| (|List| (|Mapping| FE FE))) (#1=#:G555 NIL)
-          (|sym| NIL) (#2=#:G554 NIL))
+         ((|ups| (UPS)) (|lders| (|List| (|Mapping| FE FE))) (#1=#:G566 NIL)
+          (|sym| NIL) (#2=#:G565 NIL))
          (SEQ
           (LETT |lders|
                 (PROGN
@@ -806,7 +806,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN
            (PROGN
-            (SPROG ((#1=#:G551 NIL) (|sym| NIL) (#2=#:G550 NIL))
+            (SPROG ((#1=#:G562 NIL) (|sym| NIL) (#2=#:G561 NIL))
                    (SEQ
                     (SPADCALL |c|
                               (PROGN
@@ -842,8 +842,8 @@
                     (|:| |syms| (|List| (|Symbol|))))))
         (SPROG
          ((|nargs| (|List| FE)) (|lser| (|List| UPS))
-          (|lsyms| (|List| (|Symbol|))) (|nsym| (|Symbol|)) (#1=#:G561 NIL)
-          (|s| NIL) (#2=#:G562 NIL) (|e| NIL) (#3=#:G563 NIL) (|c| NIL))
+          (|lsyms| (|List| (|Symbol|))) (|nsym| (|Symbol|)) (#1=#:G573 NIL)
+          (|s| NIL) (#2=#:G574 NIL) (|e| NIL) (#3=#:G575 NIL) (|c| NIL))
          (SEQ (LETT |lsyms| NIL) (LETT |lser| NIL) (LETT |nargs| NIL)
               (SEQ (LETT |c| NIL) (LETT #3# |lser0|) (LETT |e| NIL)
                    (LETT #2# |lsere|) (LETT |s| NIL) (LETT #1# |lsers|) G190
@@ -1101,10 +1101,10 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((|ups| (UPS)) (|lc| (|List| FE)) (#2=#:G599 NIL) (|c| NIL)
-          (#3=#:G598 NIL) (|nker| (FE)) (#4=#:G597 NIL)
+         ((|ups| (UPS)) (|lc| (|List| FE)) (#2=#:G614 NIL) (|c| NIL)
+          (#3=#:G613 NIL) (|nker| (FE)) (#4=#:G612 NIL)
           (|lsyms| (|List| (|Symbol|))) (|sym| (|Symbol|)) (|ecl| #1#)
-          (#5=#:G596 NIL) (#6=#:G595 NIL) (|cn1| (UTS))
+          (#5=#:G611 NIL) (#6=#:G610 NIL) (|cn1| (UTS))
           (|cn1u| (|Union| UTS "failed")) (|cn| (UTS)) (|z0| (FE))
           (|nargs| (|List| FE))
           (|cargs|
@@ -1227,7 +1227,7 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#2=#:G611 NIL)
+         ((#2=#:G626 NIL)
           (|nres2|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -1267,7 +1267,7 @@
                             (LETT #2#
                                   (|FS2UPS2;stateProblem| "weierstrass"
                                    "need to invert bad coefficient" $))
-                            (GO #4=#:G610))))
+                            (GO #4=#:G625))))
                          (EXIT
                           (LETT |z_inv|
                                 (SPADCALL |cz|
@@ -1674,7 +1674,7 @@
                    (|:| |%problem|
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
-        (SPROG ((|lpol| (UTS)) (#1=#:G671 NIL) (|i| NIL))
+        (SPROG ((|lpol| (UTS)) (#1=#:G687 NIL) (|i| NIL))
                (SEQ
                 (LETT |lpol|
                       (|FS2UPS2;make_taylor|
@@ -1738,7 +1738,7 @@
           (|cargs|
            (|Record| (|:| |nargs0| (|List| FE)) (|:| |sers| (|List| UPS))
                      (|:| |syms| (|List| (|Symbol|)))))
-          (#2=#:G1277 NIL) (|nexpr| (FE)) (|narg1| (FE)) (|arg1| (FE))
+          (#2=#:G1293 NIL) (|nexpr| (FE)) (|narg1| (FE)) (|arg1| (FE))
           (|ii| (|Union| (|Integer|) #3="failed")) (|ir| (|Union| R #3#))
           (|nm| (|Symbol|)) (|lser0| (|List| FE)) (|lsere| (|List| FE))
           (|lsers| (|List| UPS)) (|losers| (|List| UPS))
@@ -1755,7 +1755,7 @@
                                     (|:| |prob| (|String|)))))))
           (|ups1| (UPS)) (|iups| (UPS))
           (|signum| (|Union| (|Integer|) "failed")) (|lc| (FE))
-          (|ord| (|Expon|)) (|ups| (UPS)) (#4=#:G512 NIL)
+          (|ord| (|Expon|)) (|ups| (UPS)) (#4=#:G516 NIL)
           (|nsu|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -1797,7 +1797,7 @@
                        (EXIT
                         (COND
                          ((QEQCAR |nsu| 1)
-                          (PROGN (LETT #2# |nsu|) (GO #7=#:G1276)))
+                          (PROGN (LETT #2# |nsu|) (GO #7=#:G1292)))
                          (#6#
                           (SEQ
                            (LETT |ups|
@@ -2533,7 +2533,7 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#2=#:G1291 NIL)
+         ((#2=#:G1307 NIL)
           (|ns|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -2553,7 +2553,7 @@
                               (QREFELT $ 81)))
               (LETT |ns| (|FS2UPS2;i_expr_to_PS| |nf| |opt_rec| $))
               (EXIT
-               (COND ((QEQCAR |ns| 1) (PROGN (LETT #2# |ns|) (GO #3=#:G1290)))
+               (COND ((QEQCAR |ns| 1) (PROGN (LETT #2# |ns|) (GO #3=#:G1306)))
                      (#4='T
                       (CONS 0
                             (SPADCALL (SPADCALL |c0| (QREFELT $ 78))
@@ -2583,7 +2583,7 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((|coef| (FE)) (#2=#:G1317 NIL) (|ups| (UPS)) (#3=#:G512 NIL)
+         ((|coef| (FE)) (#2=#:G1333 NIL) (|ups| (UPS)) (#3=#:G516 NIL)
           (|nsu|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -2604,7 +2604,7 @@
                         (EXIT
                          (COND
                           ((QEQCAR |nsu| 1)
-                           (PROGN (LETT #2# |nsu|) (GO #5=#:G1316)))
+                           (PROGN (LETT #2# |nsu|) (GO #5=#:G1332)))
                           (#4#
                            (SEQ
                             (LETT |ups|
@@ -2771,7 +2771,7 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#2=#:G1336 NIL) (|n| (|Integer|)) (|arg| (FE))
+         ((#2=#:G1352 NIL) (|n| (|Integer|)) (|arg| (FE))
           (|op| (|BasicOperator|)) (|args| (|List| FE))
           (|sym| (|Union| (|Symbol|) "failed")))
          (SEQ (LETT |sym| (SPADCALL |ker| (QREFELT $ 216)))
@@ -2900,10 +2900,10 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((|logTerm| (FE)) (|lt| (UPS)) (#2=#:G1365 NIL) (#3=#:G1373 NIL)
-          (#4=#:G1372 NIL) (|signum| (|Union| (|Integer|) "failed"))
-          (#5=#:G1371 NIL) (|coef| (FE)) (|deg| (|Expon|)) (|ups| (UPS))
-          (|deg1| (|Expon|)) (#6=#:G512 NIL)
+         ((|logTerm| (FE)) (|lt| (UPS)) (#2=#:G1382 NIL) (#3=#:G1390 NIL)
+          (#4=#:G1389 NIL) (|signum| (|Union| (|Integer|) "failed"))
+          (#5=#:G1388 NIL) (|coef| (FE)) (|deg| (|Expon|)) (|ups| (UPS))
+          (|deg1| (|Expon|)) (#6=#:G516 NIL)
           (|result|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -2971,7 +2971,7 @@
                                        (LETT #5#
                                              (|error|
                                               "log of series with many leading zero coefficients"))
-                                       (GO #8=#:G1353)))))))
+                                       (GO #8=#:G1370)))))))
                                  #8# (EXIT #5#))
                                 NIL (GO G190) G191 (EXIT NIL))
                            (COND
@@ -2997,8 +2997,8 @@
                                                  (|FS2UPS2;stateProblem| "log"
                                                   "negative leading coefficient"
                                                   $))
-                                           (GO #9=#:G1370)))
-                                    (GO #10=#:G1368))))))))))
+                                           (GO #9=#:G1387)))
+                                    (GO #10=#:G1385))))))))))
                            (COND
                             ((NULL
                               (|FS2UPS2;check_inverse| |coef| |opt_rec| $))
@@ -3076,7 +3076,7 @@
         (SPROG
          ((|cc| (FE)) (|n| (|Integer|)) (|left?| (|Boolean|))
           (|posNegPi2| (FE)) (|signum| (|Union| (|Integer|) "failed"))
-          (|lc| (FE)) (#3=#:G1399 NIL)
+          (|lc| (FE)) (#3=#:G1416 NIL)
           (|rn| (|Union| (|Fraction| (|Integer|)) "failed")) (|atanFlag| #1#))
          (SEQ
           (EXIT
@@ -3091,7 +3091,7 @@
                            (LETT #3#
                                  (|FS2UPS2;stateProblem| "atan"
                                   "essential singularity" $))
-                           (GO #4=#:G1398)))
+                           (GO #4=#:G1415)))
                          (#5='T
                           (SEQ
                            (LETT |rn|
@@ -3247,8 +3247,8 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((|res1| (|Union| UPS "failed")) (#2=#:G1410 NIL) (#3=#:G1411 NIL)
-          (|ord| (|Expon|)) (|coef| (FE)) (|ups| (UPS)) (#4=#:G512 NIL)
+         ((|res1| (|Union| UPS "failed")) (#2=#:G1427 NIL) (#3=#:G1428 NIL)
+          (|ord| (|Expon|)) (|coef| (FE)) (|ups| (UPS)) (#4=#:G516 NIL)
           (|result|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -3300,8 +3300,8 @@
                                          (LETT #3#
                                                (|FS2UPS2;stateProblem| "atan"
                                                 "logarithmic singularity" $))
-                                         (GO #6=#:G1409)))
-                                  (GO #7=#:G1407))))))))
+                                         (GO #6=#:G1426)))
+                                  (GO #7=#:G1424))))))))
                            (EXIT
                             (COND
                              ((QREFELT $ 203)
@@ -3656,7 +3656,7 @@
 (SDEFUN |FS2UPS2;k2Elem| ((|k| (|Kernel| FE)) ($ (FE)))
         (SPROG
          ((|cosz| (FE)) (|sinz| (FE)) (|iez| (FE)) (|ez| (FE)) (|z| (FE))
-          (|args| (|List| FE)) (#1=#:G1514 NIL) (|a| NIL) (#2=#:G1513 NIL))
+          (|args| (|List| FE)) (#1=#:G1532 NIL) (|a| NIL) (#2=#:G1531 NIL))
          (SEQ
           (COND
            ((NULL
@@ -3821,8 +3821,8 @@
 
 (SDEFUN |FS2UPS2;opsInvolvingX| ((|fcn| (FE)) ($ (|List| (|BasicOperator|))))
         (SPROG
-         ((|opList| (|List| #1=(|BasicOperator|))) (|op| #1#) (#2=#:G1558 NIL)
-          (|k| NIL) (#3=#:G1557 NIL))
+         ((|opList| (|List| #1=(|BasicOperator|))) (|op| #1#) (#2=#:G1577 NIL)
+          (|k| NIL) (#3=#:G1576 NIL))
          (SEQ
           (LETT |opList|
                 (PROGN
@@ -3854,7 +3854,7 @@
 (SDEFUN |FS2UPS2;opInOpList?|
         ((|name| (|Symbol|)) (|opList| (|List| (|BasicOperator|)))
          ($ (|Boolean|)))
-        (SPROG ((#1=#:G1563 NIL) (#2=#:G1564 NIL) (#3=#:G1565 NIL) (|op| NIL))
+        (SPROG ((#1=#:G1583 NIL) (#2=#:G1584 NIL) (#3=#:G1585 NIL) (|op| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -3869,8 +3869,8 @@
                            (COND
                             ((SPADCALL |op| |name| (QREFELT $ 280))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G1562)))
-                              (GO #5=#:G1560))))))
+                              (LETT #1# (PROGN (LETT #2# 'T) (GO #4=#:G1582)))
+                              (GO #5=#:G1580))))))
                          (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL)))
                    #5# (EXIT #1#))
                   (EXIT NIL)))
@@ -3887,7 +3887,7 @@
 
 (SDEFUN |FS2UPS2;productOfNonZeroes?| ((|fcn| (FE)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G1581 NIL) (#2=#:G1582 NIL) (#3=#:G1583 NIL) (|term| NIL)
+         ((#1=#:G1602 NIL) (#2=#:G1603 NIL) (#3=#:G1604 NIL) (|term| NIL)
           (|prod| (|Union| (|List| FE) "failed")))
          (SEQ
           (EXIT
@@ -3923,8 +3923,8 @@
                                               (LETT #1#
                                                     (PROGN
                                                      (LETT #2# NIL)
-                                                     (GO #5=#:G1580)))
-                                              (GO #6=#:G1576))))))))
+                                                     (GO #5=#:G1601)))
+                                              (GO #6=#:G1597))))))))
                                        (LETT #3# (CDR #3#)) (GO G190) G191
                                        (EXIT NIL)))
                                  #6# (EXIT #1#))
@@ -3951,7 +3951,7 @@
                                   (|:| |prob| (|String|)))))))
         (SPROG
          ((|xOpList| (|List| (|BasicOperator|))) (|coef| (FE))
-          (|deg| (|Expon|)) (|ups| (UPS)) (#2=#:G512 NIL) (#3=#:G1588 NIL)
+          (|deg| (|Expon|)) (|ups| (UPS)) (#2=#:G516 NIL) (#3=#:G1609 NIL)
           (|b|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -4048,7 +4048,7 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#2=#:G1606 NIL) (|n| (|Integer|)) (|arg| (FE)) (|args| (|List| FE))
+         ((#2=#:G1627 NIL) (|n| (|Integer|)) (|arg| (FE)) (|args| (|List| FE))
           (|sym| (|Union| (|Symbol|) "failed")))
          (SEQ (LETT |sym| (SPADCALL |ker| (QREFELT $ 216)))
               (EXIT
@@ -4164,9 +4164,9 @@
          ((|logTerm| (FE)) (|term1| (FE)) (|pow| (FE)) (|mon| (FE))
           (|negRat?| (|Boolean|))
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|cen| (FE))
-          (|lt| (UPS)) (#2=#:G1637 NIL) (#3=#:G1638 NIL)
+          (|lt| (UPS)) (#2=#:G1658 NIL) (#3=#:G1659 NIL)
           (|signum| (|Union| (|Integer|) "failed")) (|coef| (FE))
-          (|deg| (|Expon|)) (|ups| (UPS)) (#4=#:G512 NIL)
+          (|deg| (|Expon|)) (|ups| (UPS)) (#4=#:G516 NIL)
           (|result|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -4235,8 +4235,8 @@
                                                  (|FS2UPS2;stateProblem| "log"
                                                   "negative leading coefficient"
                                                   $))
-                                           (GO #6=#:G1636)))
-                                    (GO #7=#:G1634))))))))))
+                                           (GO #6=#:G1657)))
+                                    (GO #7=#:G1655))))))))))
                            (LETT |lt| (SPADCALL |coef| |deg| (QREFELT $ 67)))
                            (LETT |cen| (SPADCALL |lt| (QREFELT $ 281)))
                            (LETT |negRat?|
@@ -4412,8 +4412,8 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#2=#:G1655 NIL) (|ord| (|Expon|)) (|coef| (FE)) (|ups| (UPS))
-          (#3=#:G512 NIL)
+         ((#2=#:G1676 NIL) (|ord| (|Expon|)) (|coef| (FE)) (|ups| (UPS))
+          (#3=#:G516 NIL)
           (|trouble|
            (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))
           (|result|
@@ -4465,7 +4465,7 @@
                                     (QREFELT $ 21))
                           (PROGN
                            (LETT #2# (CONS 0 (SPADCALL |ups| (QREFELT $ 207))))
-                           (GO #5=#:G1652))))))))
+                           (GO #5=#:G1673))))))))
                     (EXIT
                      (|FS2UPS2;atanacot2| |ups| |coef| |ord| |opt_rec|
                       |plusMinus| $))))
@@ -4491,8 +4491,8 @@
                         (|Record| (|:| |func| (|String|))
                                   (|:| |prob| (|String|)))))))
         (SPROG
-         ((#3=#:G1658 NIL) (|xOpList| (|List| (|BasicOperator|))) (|lc| (FE))
-          (|deg| (|Expon|)) (|ups| (UPS)) (#4=#:G512 NIL)
+         ((#3=#:G1679 NIL) (|xOpList| (|List| (|BasicOperator|))) (|lc| (FE))
+          (|deg| (|Expon|)) (|ups| (UPS)) (#4=#:G516 NIL)
           (|series|
            (|Union| (|:| |%series| UPS)
                     (|:| |%problem|
@@ -4719,9 +4719,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceToUnivariatePowerSeries2;|)) 
 
-(DEFUN |FunctionSpaceToUnivariatePowerSeries2| (&REST #1=#:G1709)
+(DEFUN |FunctionSpaceToUnivariatePowerSeries2| (&REST #1=#:G1730)
   (SPROG NIL
-         (PROG (#2=#:G1710)
+         (PROG (#2=#:G1731)
            (RETURN
             (COND
              ((LETT #2#

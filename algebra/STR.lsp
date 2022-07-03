@@ -100,7 +100,7 @@
          (|offsetz| (|DoubleFloat|)) (|scalex| (|DoubleFloat|))
          (|scaley| (|DoubleFloat|)) (|scalez| (|DoubleFloat|)) ($ ($)))
         (SPROG
-         ((#1=#:G161 NIL) (|pp| (|Mapping| PT PT)) (|trConf| (CA))
+         ((#1=#:G165 NIL) (|pp| (|Mapping| PT PT)) (|trConf| (CA))
           (CA
            (|Join| (|Ring|) (|Algebra| #2=(|DoubleFloat|))
                    (CATEGORY |domain| (SIGNATURE |e| ($ (|PositiveInteger|)))
@@ -133,7 +133,7 @@
                       (LIST (LIST |scalex| 0.0 |offsetx|)
                             (LIST 0.0 |scaley| |offsety|) (LIST 0.0 0.0 1.0))
                       (QREFELT $ 15)))
-               (GO #3=#:G160))))
+               (GO #3=#:G164))))
             (COND
              ((EQUAL (QREFELT $ 6) (|SCartesian| 3))
               (PROGN
@@ -200,11 +200,11 @@
         ((|tr| ($)) (|inpt| (|SCartesian| 2)) ($ (|SCartesian| 2)))
         (SPROG
          ((|b| #1=(|DoubleFloat|)) (#2=#:G123 NIL) (|a| #1#)
-          (|vin| (|List| (|DoubleFloat|))) (#3=#:G170 NIL))
+          (|vin| (|List| (|DoubleFloat|))) (#3=#:G174 NIL))
          (SEQ
           (EXIT
            (SEQ
-            (COND ((QEQCAR |tr| 3) (PROGN (LETT #3# |inpt|) (GO #4=#:G169))))
+            (COND ((QEQCAR |tr| 3) (PROGN (LETT #3# |inpt|) (GO #4=#:G173))))
             (COND
              ((QEQCAR |tr| 1)
               (SEQ
@@ -372,11 +372,11 @@
         ((|tr| ($)) (|inpt| (|SCartesian| 3)) ($ (|SCartesian| 3)))
         (SPROG
          ((|c| #1=(|DoubleFloat|)) (#2=#:G123 NIL) (|b| #1#) (|a| #1#)
-          (|vin| (|List| (|DoubleFloat|))) (#3=#:G178 NIL))
+          (|vin| (|List| (|DoubleFloat|))) (#3=#:G182 NIL))
          (SEQ
           (EXIT
            (SEQ
-            (COND ((QEQCAR |tr| 3) (PROGN (LETT #3# |inpt|) (GO #4=#:G177))))
+            (COND ((QEQCAR |tr| 3) (PROGN (LETT #3# |inpt|) (GO #4=#:G181))))
             (COND
              ((QEQCAR |tr| 1)
               (SEQ
@@ -692,11 +692,11 @@
 
 (SDEFUN |STR;applyTransCx| ((|tr| ($)) (|inpt| (|SArgand|)) ($ (|SArgand|)))
         (SPROG
-         ((|res| (PT)) (|f| (|Mapping| PT PT)) (#1=#:G124 NIL) (#2=#:G182 NIL))
+         ((|res| (PT)) (|f| (|Mapping| PT PT)) (#1=#:G124 NIL) (#2=#:G186 NIL))
          (SEQ
           (EXIT
            (SEQ
-            (COND ((QEQCAR |tr| 3) (PROGN (LETT #2# |inpt|) (GO #3=#:G181))))
+            (COND ((QEQCAR |tr| 3) (PROGN (LETT #2# |inpt|) (GO #3=#:G185))))
             (COND
              ((QEQCAR |tr| 0)
               (SEQ
@@ -750,11 +750,11 @@
                     (SIGNATURE |reverse| ($ $)) (SIGNATURE |conj| ($ $))
                     (SIGNATURE |setMode|
                      ((|Boolean|) (|String|) (|Boolean|))))))
-          (|m| (|Matrix| (|DoubleFloat|))) (#3=#:G186 NIL))
+          (|m| (|Matrix| (|DoubleFloat|))) (#3=#:G190 NIL))
          (SEQ
           (EXIT
            (SEQ
-            (COND ((QEQCAR |tr| 3) (PROGN (LETT #3# |inpt|) (GO #4=#:G185))))
+            (COND ((QEQCAR |tr| 3) (PROGN (LETT #3# |inpt|) (GO #4=#:G189))))
             (COND
              ((NULL (QEQCAR |tr| 2))
               (SEQ
@@ -817,7 +817,7 @@
 
 (SDEFUN |STR;compound2| ((|tr| ($)) (|inpt| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G198 NIL) (#2=#:G123 NIL) (|j| NIL) (|i| NIL)
+         ((#1=#:G204 NIL) (#2=#:G123 NIL) (|j| NIL) (|i| NIL)
           (|arr| (|PrimitiveArray| (|PrimitiveArray| (|DoubleFloat|)))))
          (SEQ
           (EXIT
@@ -988,12 +988,12 @@
                                 (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                 (EXIT NIL))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                (EXIT (PROGN (LETT #1# (CONS 0 |arr|)) (GO #4=#:G197)))))
+                (EXIT (PROGN (LETT #1# (CONS 0 |arr|)) (GO #4=#:G203)))))
           #4# (EXIT #1#)))) 
 
 (SDEFUN |STR;compound3| ((|tr| ($)) (|inpt| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G208 NIL) (#2=#:G123 NIL) (|j| NIL) (|i| NIL)
+         ((#1=#:G216 NIL) (#2=#:G123 NIL) (|j| NIL) (|i| NIL)
           (|arr| (|PrimitiveArray| (|PrimitiveArray| (|DoubleFloat|)))))
          (SEQ
           (EXIT
@@ -1216,12 +1216,12 @@
                                 (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                 (EXIT NIL))))
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-                (EXIT (PROGN (LETT #1# (CONS 0 |arr|)) (GO #4=#:G207)))))
+                (EXIT (PROGN (LETT #1# (CONS 0 |arr|)) (GO #4=#:G215)))))
           #4# (EXIT #1#)))) 
 
 (SDEFUN |STR;compoundConf2| ((|tr| ($)) (|inpt| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G211 NIL) (|resConf| (CA)) (|inptConf| (CA)) (#2=#:G125 NIL)
+         ((#1=#:G219 NIL) (|resConf| (CA)) (|inptConf| (CA)) (#2=#:G125 NIL)
           (|trConf| (CA))
           (CA
            (|Join| (|Ring|) (|Algebra| #3=(|DoubleFloat|))
@@ -1290,17 +1290,17 @@
             (LETT |resConf|
                   (SPADCALL |trConf| |inptConf|
                             (|compiledLookupCheck| '* (LIST '$ '$ '$) CA)))
-            (EXIT (PROGN (LETT #1# (CONS 2 |resConf|)) (GO #5=#:G210)))))
+            (EXIT (PROGN (LETT #1# (CONS 2 |resConf|)) (GO #5=#:G218)))))
           #5# (EXIT #1#)))) 
 
 (SDEFUN |STR;compound;3$;16| ((|tr| ($)) (|inpt| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G222 NIL) (|fn| (|Mapping| PT PT)) (|in2| (|Mapping| PT PT))
+         ((#1=#:G230 NIL) (|fn| (|Mapping| PT PT)) (|in2| (|Mapping| PT PT))
           (|in1| (|Mapping| PT PT)))
          (SEQ
           (EXIT
            (SEQ
-            (COND ((QEQCAR |tr| 3) (PROGN (LETT #1# |inpt|) (GO #2=#:G221))))
+            (COND ((QEQCAR |tr| 3) (PROGN (LETT #1# |inpt|) (GO #2=#:G229))))
             (COND ((QEQCAR |inpt| 3) (PROGN (LETT #1# |tr|) (GO #2#))))
             (COND
              ((QEQCAR |tr| 0)
@@ -1338,7 +1338,7 @@
 (SDEFUN |STR;outputArray|
         ((|x| (|PrimitiveArray| (|DoubleFloat|))) ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G231 NIL) (|i| NIL) (#2=#:G230 NIL)
+         ((#1=#:G240 NIL) (|i| NIL) (#2=#:G239 NIL)
           (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (QVSIZE |x|))
               (EXIT
@@ -1360,8 +1360,8 @@
         ((|x| (|PrimitiveArray| (|PrimitiveArray| (|DoubleFloat|))))
          ($ (|OutputForm|)))
         (SPROG
-         ((|l| (|List| (|List| (|OutputForm|)))) (#1=#:G243 NIL) (|j| NIL)
-          (#2=#:G242 NIL) (#3=#:G241 NIL) (|i| NIL) (#4=#:G240 NIL)
+         ((|l| (|List| (|List| (|OutputForm|)))) (#1=#:G254 NIL) (|j| NIL)
+          (#2=#:G253 NIL) (#3=#:G252 NIL) (|i| NIL) (#4=#:G251 NIL)
           (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (QVSIZE |x|))
               (LETT |l|
@@ -1395,7 +1395,7 @@
               (EXIT (SPADCALL |l| (QREFELT $ 58)))))) 
 
 (SDEFUN |STR;coerce;$Of;19| ((|tr| ($)) ($ (|OutputForm|)))
-        (SPROG ((#1=#:G125 NIL) (#2=#:G246 NIL) (#3=#:G123 NIL))
+        (SPROG ((#1=#:G125 NIL) (#2=#:G257 NIL) (#3=#:G123 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1403,7 +1403,7 @@
                    ((QEQCAR |tr| 3)
                     (PROGN
                      (LETT #2# (SPADCALL "iden" (QREFELT $ 38)))
-                     (GO #4=#:G245))))
+                     (GO #4=#:G256))))
                   (COND
                    ((QEQCAR |tr| 1)
                     (PROGN
@@ -1468,9 +1468,9 @@
 
 (DECLAIM (NOTINLINE |STransform;|)) 
 
-(DEFUN |STransform| (#1=#:G247)
+(DEFUN |STransform| (#1=#:G258)
   (SPROG NIL
-         (PROG (#2=#:G248)
+         (PROG (#2=#:G259)
            (RETURN
             (COND
              ((LETT #2#

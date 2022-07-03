@@ -87,7 +87,7 @@
 
 (SDEFUN |TABLBUMP;slex;LL;7| ((|ls| (|List| S)) ($ (|List| (|List| S))))
         (SPROG
-         ((#1=#:G155 NIL) (|i| NIL) (#2=#:G156 NIL) (|j| NIL) (#3=#:G154 NIL))
+         ((#1=#:G156 NIL) (|i| NIL) (#2=#:G157 NIL) (|j| NIL) (#3=#:G155 NIL))
          (SEQ
           (SPADCALL
            (PROGN
@@ -105,8 +105,8 @@
 
 (SDEFUN |TABLBUMP;inverse;2L;8| ((|ls| (|List| S)) ($ (|List| S)))
         (SPROG
-         ((#1=#:G161 NIL) (#2=#:G163 NIL) (|i| NIL) (#3=#:G164 NIL) (|j| NIL)
-          (#4=#:G162 NIL) (|lss| NIL) (#5=#:G160 NIL))
+         ((#1=#:G164 NIL) (#2=#:G166 NIL) (|i| NIL) (#3=#:G167 NIL) (|j| NIL)
+          (#4=#:G165 NIL) (|lss| NIL) (#5=#:G163 NIL))
          (SEQ
           (PROGN
            (LETT #5# NIL)
@@ -215,7 +215,7 @@
 
 (SDEFUN |TABLBUMP;bat1;LL;13|
         ((|llls| (|List| (|List| (|List| S)))) ($ (|List| (|List| S))))
-        (SPROG ((#1=#:G184 NIL) (|lls| NIL) (#2=#:G183 NIL))
+        (SPROG ((#1=#:G188 NIL) (|lls| NIL) (#2=#:G187 NIL))
                (SEQ
                 (SPADCALL NIL
                           (PROGN
@@ -237,9 +237,9 @@
 
 (DECLAIM (NOTINLINE |TableauxBumpers;|)) 
 
-(DEFUN |TableauxBumpers| (#1=#:G186)
+(DEFUN |TableauxBumpers| (#1=#:G190)
   (SPROG NIL
-         (PROG (#2=#:G187)
+         (PROG (#2=#:G191)
            (RETURN
             (COND
              ((LETT #2#

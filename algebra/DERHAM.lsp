@@ -1,7 +1,7 @@
 
 (SDEFUN |DERHAM;totalDifferential;E$;1|
         ((|f| (|Expression| |CoefRing|)) ($ ($)))
-        (SPROG ((|divs| (|List| $)) (#1=#:G128 NIL) (|i| NIL) (#2=#:G127 NIL))
+        (SPROG ((|divs| (|List| $)) (#1=#:G129 NIL) (|i| NIL) (#2=#:G128 NIL))
                (SEQ
                 (LETT |divs|
                       (PROGN
@@ -55,7 +55,7 @@
 
 (SDEFUN |DERHAM;displayList| ((|x| (|ExtAlgBasis|)) ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G141 NIL) (|i| NIL) (#2=#:G140 NIL)
+         ((#1=#:G144 NIL) (|i| NIL) (#2=#:G143 NIL)
           (|le| (|List| (|Integer|))))
          (SEQ (LETT |le| (SPADCALL |x| (QREFELT $ 45)))
               (EXIT
@@ -103,7 +103,7 @@
 
 (SDEFUN |DERHAM;coerce;$Of;8| ((|a| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G154 NIL) (|t| NIL) (#2=#:G153 NIL)
+         ((#1=#:G158 NIL) (|t| NIL) (#2=#:G157 NIL)
           (|ta|
            (|List|
             (|Record| (|:| |k| (|ExtAlgBasis|))
@@ -141,9 +141,9 @@
 
 (DECLAIM (NOTINLINE |DeRhamComplex;|)) 
 
-(DEFUN |DeRhamComplex| (&REST #1=#:G164)
+(DEFUN |DeRhamComplex| (&REST #1=#:G168)
   (SPROG NIL
-         (PROG (#2=#:G165)
+         (PROG (#2=#:G169)
            (RETURN
             (COND
              ((LETT #2#
@@ -161,7 +161,7 @@
 
 (DEFUN |DeRhamComplex;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G163 NIL) (|liv| NIL) (#2=#:G162 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL)
+   ((#1=#:G167 NIL) (|liv| NIL) (#2=#:G166 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL)
     (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN

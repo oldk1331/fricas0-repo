@@ -3,7 +3,7 @@
         ((|f| (ULS)) (|lx| (|List| ULS))
          (|ld| (|List| (|Mapping| |Coef| |Coef|))) ($ (ULS)))
         (SPROG
-         ((|lxt| (|List| UTS)) (#1=#:G123 NIL) (|x| NIL) (#2=#:G122 NIL)
+         ((|lxt| (|List| UTS)) (#1=#:G124 NIL) (|x| NIL) (#2=#:G123 NIL)
           (|ft| (UTS)))
          (SEQ (LETT |ft| (SPADCALL |f| (QREFELT $ 9)))
               (LETT |lxt|
@@ -42,9 +42,9 @@
 
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionLaurent;|)) 
 
-(DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G129)
+(DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G130)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#

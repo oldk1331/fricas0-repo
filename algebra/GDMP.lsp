@@ -32,7 +32,7 @@
         ((|p| ($)) (|v| (|OrderedVariableList| |vl|))
          (|e| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
-         ((#1=#:G158 NIL) (#2=#:G160 NIL) (|z| NIL) (#3=#:G159 NIL)
+         ((#1=#:G159 NIL) (#2=#:G161 NIL) (|z| NIL) (#3=#:G160 NIL)
           (|locv| (|PositiveInteger|)))
          (SEQ (LETT |locv| (SPADCALL |v| (QREFELT $ 24)))
               (EXIT
@@ -64,7 +64,7 @@
         (SPADCALL (|spadConstant| $ 25) |v| 1 (QREFELT $ 30))) 
 
 (SDEFUN |GDMP;listCoef| ((|p| ($)) ($ (|List| R)))
-        (SPROG ((#1=#:G166 NIL) (|rec| NIL) (#2=#:G165 NIL))
+        (SPROG ((#1=#:G168 NIL) (|rec| NIL) (#2=#:G167 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -79,8 +79,8 @@
 (SDEFUN |GDMP;mainVariable;$U;6|
         ((|p| ($)) ($ (|Union| (|OrderedVariableList| |vl|) #1="failed")))
         (SPROG
-         ((#2=#:G178 NIL) (|vv| (|OrderedVariableList| |vl|)) (#3=#:G168 NIL)
-          (#4=#:G179 NIL) (|v| NIL))
+         ((#2=#:G181 NIL) (|vv| (|OrderedVariableList| |vl|)) (#3=#:G170 NIL)
+          (#4=#:G182 NIL) (|v| NIL))
          (SEQ
           (EXIT
            (COND ((SPADCALL |p| (QREFELT $ 13)) (CONS 1 "failed"))
@@ -105,7 +105,7 @@
                          (EXIT
                           (COND
                            ((> (SPADCALL |p| |vv| (QREFELT $ 35)) 0)
-                            (PROGN (LETT #2# (CONS 0 |vv|)) (GO #5=#:G177))))))
+                            (PROGN (LETT #2# (CONS 0 |vv|)) (GO #5=#:G180))))))
                         (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                    (EXIT (CONS 1 "failed"))))))
           #5# (EXIT #2#)))) 
@@ -156,7 +156,7 @@
 (SDEFUN |GDMP;degree;$LL;13|
         ((|p| ($)) (|lv| (|List| (|OrderedVariableList| |vl|)))
          ($ (|List| (|NonNegativeInteger|))))
-        (SPROG ((#1=#:G206 NIL) (|v| NIL) (#2=#:G205 NIL))
+        (SPROG ((#1=#:G211 NIL) (|v| NIL) (#2=#:G210 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -174,7 +174,7 @@
 (SDEFUN |GDMP;minimumDegree;$LL;14|
         ((|p| ($)) (|lv| (|List| (|OrderedVariableList| |vl|)))
          ($ (|List| (|NonNegativeInteger|))))
-        (SPROG ((#1=#:G210 NIL) (|v| NIL) (#2=#:G209 NIL))
+        (SPROG ((#1=#:G216 NIL) (|v| NIL) (#2=#:G215 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -200,7 +200,7 @@
                     (EXIT (COND ((NULL |l|) 'T) ('T (NULL (CDR |l|)))))))) 
 
 (SDEFUN |GDMP;maxNorm| ((|p| ($)) ($ (R)))
-        (SPROG ((|m| (R)) (#1=#:G219 NIL) (|r| NIL) (|l| (|List| R)))
+        (SPROG ((|m| (R)) (#1=#:G226 NIL) (|r| NIL) (|l| (|List| R)))
                (SEQ (LETT |l| NIL) (LETT |m| (|spadConstant| $ 59))
                     (SEQ (LETT |r| NIL) (LETT #1# (|GDMP;listCoef| |p| $)) G190
                          (COND
@@ -222,8 +222,8 @@
 (SDEFUN |GDMP;variables;$L;19|
         ((|p| ($)) ($ (|List| (|OrderedVariableList| |vl|))))
         (SPROG
-         ((#1=#:G229 NIL) (#2=#:G235 NIL) (|i| NIL) (#3=#:G234 NIL)
-          (#4=#:G233 NIL) (|tdeg| (E))
+         ((#1=#:G239 NIL) (#2=#:G245 NIL) (|i| NIL) (#3=#:G244 NIL)
+          (#4=#:G243 NIL) (|tdeg| (E))
           (|maxdeg| (|Vector| (|NonNegativeInteger|))))
          (SEQ (LETT |maxdeg| (SPADCALL (QREFELT $ 11) 0 (QREFELT $ 65)))
               (SEQ G190
@@ -271,8 +271,8 @@
 
 (SDEFUN |GDMP;reorder;$L$;20| ((|p| ($)) (|perm| (|List| (|Integer|))) ($ ($)))
         (SPROG
-         ((|q| ($)) (#1=#:G245 NIL) (#2=#:G247 NIL) (|j| NIL) (#3=#:G246 NIL)
-          (#4=#:G244 NIL) (|term| NIL) (#5=#:G243 NIL))
+         ((|q| ($)) (#1=#:G257 NIL) (#2=#:G259 NIL) (|j| NIL) (#3=#:G258 NIL)
+          (#4=#:G256 NIL) (|term| NIL) (#5=#:G255 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |perm|) (QREFELT $ 11) (QREFELT $ 70))
@@ -329,8 +329,8 @@
         ((|p| ($)) (|v| (|OrderedVariableList| |vl|))
          ($ (|SparseUnivariatePolynomial| $)))
         (SPROG
-         ((|nexp| (E)) (|deg| (|NonNegativeInteger|)) (#1=#:G254 NIL)
-          (#2=#:G256 NIL) (|i| NIL) (#3=#:G255 NIL)
+         ((|nexp| (E)) (|deg| (|NonNegativeInteger|)) (#1=#:G267 NIL)
+          (#2=#:G269 NIL) (|i| NIL) (#3=#:G268 NIL)
           (|locv| (|PositiveInteger|)) (|exp| (E)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 13)) (|spadConstant| $ 78))
@@ -447,7 +447,7 @@
         ((|p| ($)) (|Lvar| (|List| (|OrderedVariableList| |vl|)))
          (|Lpval| (|List| $)) ($ ($)))
         (SPROG
-         ((|nlpval| (|List| $)) (#1=#:G272 NIL) (|mvar| NIL) (#2=#:G271 NIL)
+         ((|nlpval| (|List| $)) (#1=#:G286 NIL) (|mvar| NIL) (#2=#:G285 NIL)
           (|nlvar| (|List| (|OrderedVariableList| |vl|))))
          (SEQ (LETT |nlvar| (SPADCALL (ELT $ 90) |Lvar| (QREFELT $ 99)))
               (LETT |nlpval|
@@ -547,7 +547,7 @@
 
 (SDEFUN |GDMP;content;$R;30| ((|p| ($)) ($ (R)))
         (SPROG
-         ((#1=#:G287 NIL) (#2=#:G286 (R)) (#3=#:G288 (R)) (#4=#:G291 NIL)
+         ((#1=#:G302 NIL) (#2=#:G301 (R)) (#3=#:G303 (R)) (#4=#:G306 NIL)
           (|t| NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 13)) (|spadConstant| $ 59))
@@ -673,9 +673,9 @@
 
 (SDEFUN |GDMP;coerce;$Of;34| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((|lt| (|List| #1=(|OutputForm|))) (|l| (|List| #1#)) (#2=#:G328 NIL)
-          (|i| NIL) (#3=#:G327 NIL) (|t| NIL) (|vl1| (|List| (|OutputForm|)))
-          (#4=#:G326 NIL) (|v| NIL) (#5=#:G325 NIL))
+         ((|lt| (|List| #1=(|OutputForm|))) (|l| (|List| #1#)) (#2=#:G346 NIL)
+          (|i| NIL) (#3=#:G345 NIL) (|t| NIL) (|vl1| (|List| (|OutputForm|)))
+          (#4=#:G344 NIL) (|v| NIL) (#5=#:G343 NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT $ 13))
@@ -757,9 +757,9 @@
 
 (DECLAIM (NOTINLINE |GeneralDistributedMultivariatePolynomial;|)) 
 
-(DEFUN |GeneralDistributedMultivariatePolynomial| (&REST #1=#:G366)
+(DEFUN |GeneralDistributedMultivariatePolynomial| (&REST #1=#:G384)
   (SPROG NIL
-         (PROG (#2=#:G367)
+         (PROG (#2=#:G385)
            (RETURN
             (COND
              ((LETT #2#
@@ -782,8 +782,8 @@
 
 (DEFUN |GeneralDistributedMultivariatePolynomial;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G365 NIL) (|pv$| NIL) (#2=#:G358 NIL) (#3=#:G359 NIL) (#4=#:G360 NIL)
-    (#5=#:G361 NIL) (#6=#:G362 NIL) (#7=#:G363 NIL) (#8=#:G364 NIL) ($ NIL)
+   ((#1=#:G383 NIL) (|pv$| NIL) (#2=#:G376 NIL) (#3=#:G377 NIL) (#4=#:G378 NIL)
+    (#5=#:G379 NIL) (#6=#:G380 NIL) (#7=#:G381 NIL) (#8=#:G382 NIL) ($ NIL)
     (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)

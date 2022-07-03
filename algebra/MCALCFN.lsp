@@ -1,7 +1,7 @@
 
 (SDEFUN |MCALCFN;localGradient|
         ((|v| (F)) (|xlist| (|List| S)) ($ (|Vector| F)))
-        (SPROG ((#1=#:G122 NIL) (|x| NIL) (#2=#:G121 NIL))
+        (SPROG ((#1=#:G123 NIL) (|x| NIL) (#2=#:G122 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -27,8 +27,8 @@
 (SDEFUN |MCALCFN;localDivergence|
         ((|vf| (|Vector| F)) (|xlist| (|List| S)) ($ (F)))
         (SPROG
-         ((|ans| (F)) (#1=#:G129 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
-          (#2=#:G125 NIL))
+         ((|ans| (F)) (#1=#:G131 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
+          (#2=#:G126 NIL))
          (SEQ
           (LETT |n|
                 (MIN (LENGTH |xlist|)
@@ -53,8 +53,8 @@
 (SDEFUN |MCALCFN;divergence;FLAFFLASF;4|
         ((|vf| (FLAF)) (|xflas| (FLAS)) ($ (F)))
         (SPROG
-         ((|ans| (F)) (#1=#:G134 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
-          (#2=#:G130 NIL) (|xlist| (|List| S)))
+         ((|ans| (F)) (#1=#:G137 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
+          (#2=#:G132 NIL) (|xlist| (|List| S)))
          (SEQ (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15)))
               (LETT |n|
                     (MIN (LENGTH |xlist|)
@@ -85,8 +85,8 @@
 (SDEFUN |MCALCFN;hessian;FFLASM;6|
         ((|v| (F)) (|xflas| (FLAS)) ($ (|Matrix| F)))
         (SPROG
-         ((#1=#:G144 NIL) (|x| NIL) (#2=#:G143 NIL) (#3=#:G142 NIL) (|y| NIL)
-          (#4=#:G141 NIL) (|xlist| (|List| S)))
+         ((#1=#:G149 NIL) (|x| NIL) (#2=#:G148 NIL) (#3=#:G147 NIL) (|y| NIL)
+          (#4=#:G146 NIL) (|xlist| (|List| S)))
          (SEQ (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15)))
               (EXIT
                (SPADCALL
@@ -124,8 +124,8 @@
 (SDEFUN |MCALCFN;jacobian;FLAFFLASM;7|
         ((|vf| (FLAF)) (|xflas| (FLAS)) ($ (|Matrix| F)))
         (SPROG
-         ((#1=#:G152 NIL) (|x| NIL) (#2=#:G151 NIL) (#3=#:G150 NIL) (|i| NIL)
-          (#4=#:G149 NIL) (|xlist| (|List| S)))
+         ((#1=#:G159 NIL) (|x| NIL) (#2=#:G158 NIL) (#3=#:G157 NIL) (|i| NIL)
+          (#4=#:G156 NIL) (|xlist| (|List| S)))
          (SEQ (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15)))
               (EXIT
                (SPADCALL
@@ -164,7 +164,7 @@
         ((|v| (F)) (|xflas| (FLAS)) (|k| (|NonNegativeInteger|))
          ($ (|Matrix| F)))
         (SPROG
-         ((#1=#:G160 NIL) (|j| NIL) (#2=#:G159 NIL) (|iw| NIL) (#3=#:G158 NIL)
+         ((#1=#:G170 NIL) (|j| NIL) (#2=#:G169 NIL) (|iw| NIL) (#3=#:G168 NIL)
           (|bandM| (|Matrix| F)) (|n| (|NonNegativeInteger|))
           (|xlist| (|List| S)))
          (SEQ (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15)))
@@ -206,8 +206,8 @@
 (SDEFUN |MCALCFN;jacobian;FLAFFLASM;9|
         ((|vf| (FLAF)) (|xflas| (FLAS)) ($ (|Matrix| F)))
         (SPROG
-         ((#1=#:G168 NIL) (|x| NIL) (#2=#:G167 NIL) (#3=#:G166 NIL) (|i| NIL)
-          (#4=#:G165 NIL) (|xlist| (|List| S)))
+         ((#1=#:G180 NIL) (|x| NIL) (#2=#:G179 NIL) (#3=#:G178 NIL) (|i| NIL)
+          (#4=#:G177 NIL) (|xlist| (|List| S)))
          (SEQ (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15)))
               (EXIT
                (SPADCALL
@@ -246,8 +246,8 @@
         ((|vf| (FLAF)) (|xflas| (FLAS)) (|kl| (|NonNegativeInteger|))
          (|ku| (|NonNegativeInteger|)) ($ (|Matrix| F)))
         (SPROG
-         ((#1=#:G180 NIL) (|j| NIL) (#2=#:G179 NIL) (|iw| NIL) (#3=#:G178 NIL)
-          (#4=#:G177 NIL) (#5=#:G176 NIL) (|bandM| (|Matrix| F))
+         ((#1=#:G197 NIL) (|j| NIL) (#2=#:G196 NIL) (|iw| NIL) (#3=#:G195 NIL)
+          (#4=#:G194 NIL) (#5=#:G193 NIL) (|bandM| (|Matrix| F))
           (|n| (|NonNegativeInteger|)) (|xlist| (|List| S)))
          (SEQ (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15)))
               (LETT |n| (LENGTH |xlist|))
@@ -305,9 +305,9 @@
 
 (DECLAIM (NOTINLINE |MultiVariableCalculusFunctions;|)) 
 
-(DEFUN |MultiVariableCalculusFunctions| (&REST #1=#:G181)
+(DEFUN |MultiVariableCalculusFunctions| (&REST #1=#:G198)
   (SPROG NIL
-         (PROG (#2=#:G182)
+         (PROG (#2=#:G199)
            (RETURN
             (COND
              ((LETT #2#

@@ -136,8 +136,8 @@
           (RETURN
            (PROGN
             (SPROG
-             ((#1=#:G197 NIL) (#2=#:G196 NIL) (#3=#:G201 NIL) (|d| NIL)
-              (#4=#:G200 NIL))
+             ((#1=#:G198 NIL) (#2=#:G197 NIL) (#3=#:G202 NIL) (|d| NIL)
+              (#4=#:G201 NIL))
              (SEQ
               (SPADCALL (ELT $ 35)
                         (PROGN
@@ -184,8 +184,8 @@
 (SDEFUN |DIRRING;qrecip|
         ((|f| ($)) (|f1inv| (|Coef|)) (|n| (|PositiveInteger|)) ($ (|Coef|)))
         (SPROG
-         ((#1=#:G221 NIL) (#2=#:G220 NIL) (#3=#:G226 NIL) (|d| NIL)
-          (#4=#:G225 NIL))
+         ((#1=#:G223 NIL) (#2=#:G222 NIL) (#3=#:G228 NIL) (|d| NIL)
+          (#4=#:G227 NIL))
          (SEQ
           (COND ((EQL |n| 1) |f1inv|)
                 ('T
@@ -266,15 +266,15 @@
 (SDEFUN |DIRRING;multiplicative?;$PiB;20|
         ((|a| ($)) (|n| (|PositiveInteger|)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G270 NIL) (#2=#:G264 NIL) (|rl| (|List| |Coef|))
-          (#3=#:G240 NIL) (#4=#:G239 NIL) (#5=#:G273 NIL) (|f| NIL)
-          (#6=#:G272 NIL)
+         ((#1=#:G274 NIL) (#2=#:G268 NIL) (|rl| (|List| |Coef|))
+          (#3=#:G244 NIL) (#4=#:G243 NIL) (#5=#:G277 NIL) (|f| NIL)
+          (#6=#:G276 NIL)
           (|fl|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|Integer|))
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#7=#:G271 NIL) (|i| NIL))
+          (#7=#:G275 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -328,7 +328,7 @@
                      (SEQ
                       (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
                       (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
-                      (EXIT (PROGN (LETT #1# NIL) (GO #8=#:G269))))))))
+                      (EXIT (PROGN (LETT #1# NIL) (GO #8=#:G273))))))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
           #8# (EXIT #1#)))) 
@@ -336,15 +336,15 @@
 (SDEFUN |DIRRING;additive?;$PiB;21|
         ((|a| ($)) (|n| (|PositiveInteger|)) ($ (|Boolean|)))
         (SPROG
-         ((#1=#:G306 NIL) (#2=#:G300 NIL) (|rl| (|List| |Coef|))
-          (#3=#:G276 NIL) (#4=#:G275 NIL) (#5=#:G309 NIL) (|f| NIL)
-          (#6=#:G308 NIL)
+         ((#1=#:G312 NIL) (#2=#:G306 NIL) (|rl| (|List| |Coef|))
+          (#3=#:G282 NIL) (#4=#:G281 NIL) (#5=#:G315 NIL) (|f| NIL)
+          (#6=#:G314 NIL)
           (|fl|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| (|Integer|))
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#7=#:G307 NIL) (|i| NIL))
+          (#7=#:G313 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -398,16 +398,16 @@
                      (SEQ
                       (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
                       (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
-                      (EXIT (PROGN (LETT #1# NIL) (GO #8=#:G305))))))))
+                      (EXIT (PROGN (LETT #1# NIL) (GO #8=#:G311))))))))
                  (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
           #8# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |DirichletRing;|)) 
 
-(DEFUN |DirichletRing| (#1=#:G311)
+(DEFUN |DirichletRing| (#1=#:G317)
   (SPROG NIL
-         (PROG (#2=#:G312)
+         (PROG (#2=#:G318)
            (RETURN
             (COND
              ((LETT #2#

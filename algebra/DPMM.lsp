@@ -1,6 +1,6 @@
 
 (SDEFUN |DPMM;*;R2$;1| ((|r| (R)) (|x| ($)) ($ ($)))
-        (SPROG ((#1=#:G121 NIL) (#2=#:G123 NIL) (|i| NIL) (#3=#:G122 NIL))
+        (SPROG ((#1=#:G122 NIL) (#2=#:G124 NIL) (|i| NIL) (#3=#:G123 NIL))
                (SEQ
                 (PROGN
                  (LETT #3# (GETREFV #4=(QREFELT $ 6)))
@@ -18,8 +18,8 @@
 
 (SDEFUN |DPMM;*;M2$;2| ((|m| (M)) (|x| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G125 NIL) (#2=#:G124 (S)) (#3=#:G126 (S)) (#4=#:G132 NIL)
-          (|j| NIL) (#5=#:G129 NIL) (#6=#:G131 NIL) (|i| NIL) (#7=#:G130 NIL))
+         ((#1=#:G127 NIL) (#2=#:G126 (S)) (#3=#:G128 (S)) (#4=#:G134 NIL)
+          (|j| NIL) (#5=#:G131 NIL) (#6=#:G133 NIL) (|i| NIL) (#7=#:G132 NIL))
          (SEQ
           (PROGN
            (LETT #7# (GETREFV #8=(QREFELT $ 6)))
@@ -55,9 +55,9 @@
 
 (DECLAIM (NOTINLINE |DirectProductMatrixModule;|)) 
 
-(DEFUN |DirectProductMatrixModule| (&REST #1=#:G158)
+(DEFUN |DirectProductMatrixModule| (&REST #1=#:G160)
   (SPROG NIL
-         (PROG (#2=#:G159)
+         (PROG (#2=#:G161)
            (RETURN
             (COND
              ((LETT #2#
@@ -77,8 +77,8 @@
 
 (DEFUN |DirectProductMatrixModule;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G150 NIL) (#2=#:G151 NIL) (#3=#:G152 NIL) (#4=#:G153 NIL)
-    (#5=#:G154 NIL) (#6=#:G155 NIL) (#7=#:G156 NIL) (#8=#:G157 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G152 NIL) (#2=#:G153 NIL) (#3=#:G154 NIL) (#4=#:G155 NIL)
+    (#5=#:G156 NIL) (#6=#:G157 NIL) (#7=#:G158 NIL) (#8=#:G159 NIL) ($ NIL)
     (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 |#1|)

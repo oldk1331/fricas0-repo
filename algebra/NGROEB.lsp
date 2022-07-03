@@ -78,7 +78,7 @@
 
 (SDEFUN |NGROEB;gbasis| ((|Pol| (|List| |Dpol|)) ($ (|List| |Dpol|)))
         (SPROG
-         ((#1=#:G186 NIL) (|x| NIL) (#2=#:G185 NIL) (|redPols| (|List| |Dpol|))
+         ((#1=#:G192 NIL) (|x| NIL) (#2=#:G191 NIL) (|redPols| (|List| |Dpol|))
           (|basPols|
            (|List|
             (|Record| (|:| |totdeg| (|NonNegativeInteger|))
@@ -88,13 +88,13 @@
             #3=(|Record| (|:| |lcmfij| |Expon|)
                          (|:| |totdeg| (|NonNegativeInteger|))
                          (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
-          (D1 (|List| #3#)) (#4=#:G184 NIL) (#5=#:G183 NIL) (#6=#:G178 NIL)
+          (D1 (|List| #3#)) (#4=#:G190 NIL) (#5=#:G189 NIL) (#6=#:G184 NIL)
           (|h| (|Dpol|)) (|s| (|Dpol|))
           (D0
            (|Record| (|:| |lcmfij| |Expon|)
                      (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
                      (|:| |polj| |Dpol|)))
-          (#7=#:G182 NIL) (#8=#:G181 NIL) (#9=#:G180 NIL) (#10=#:G179 NIL)
+          (#7=#:G188 NIL) (#8=#:G187 NIL) (#9=#:G186 NIL) (#10=#:G185 NIL)
           (|toth| (|NonNegativeInteger|)) (|Pol1| (|List| |Dpol|)))
          (SEQ
           (LETT |Pol1|
@@ -164,7 +164,7 @@
                                    (|spadConstant| $ 35) (QREFELT $ 38))
                          (SEQ (LETT D NIL)
                               (LETT |basPols| (|NGROEB;updatF| |h| 0 NIL $))
-                              (EXIT (PROGN (LETT #6# 1) (GO #11=#:G174)))))
+                              (EXIT (PROGN (LETT #6# 1) (GO #11=#:G179)))))
                         ('T
                          (SEQ
                           (LETT D1
@@ -244,7 +244,7 @@
          ($ (|Dpol|)))
         (SPROG
          ((|cc| (|Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|))) (|fj| (|Dpol|))
-          (#1=#:G194 NIL) (|fi| (|Dpol|)) (|Tij| (|Expon|)))
+          (#1=#:G200 NIL) (|fi| (|Dpol|)) (|Tij| (|Expon|)))
          (SEQ (LETT |Tij| (QVELT |p| 0)) (LETT |fi| (QVELT |p| 2))
               (LETT |fj| (QVELT |p| 3))
               (LETT |fi|
@@ -469,9 +469,9 @@
 
 (DECLAIM (NOTINLINE |NGroebnerPackage;|)) 
 
-(DEFUN |NGroebnerPackage| (&REST #1=#:G237)
+(DEFUN |NGroebnerPackage| (&REST #1=#:G245)
   (SPROG NIL
-         (PROG (#2=#:G238)
+         (PROG (#2=#:G246)
            (RETURN
             (COND
              ((LETT #2#

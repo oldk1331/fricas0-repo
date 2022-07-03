@@ -5,9 +5,9 @@
           (|Record| (|:| LU (|Matrix| D)) (|:| |Perm| (|Vector| (|Integer|)))
                     (|:| |Pivots| (|List| D)))))
         (SPROG
-         ((#1=#:G148 NIL) (|k| NIL) (|d| (D)) (|Pivs| (|List| D))
-          (|i0| (|Integer|)) (|s| (D)) (#2=#:G147 NIL) (#3=#:G146 NIL)
-          (|i| NIL) (#4=#:G145 NIL) (#5=#:G144 NIL) (#6=#:G143 NIL) (|j| NIL)
+         ((#1=#:G154 NIL) (|k| NIL) (|d| (D)) (|Pivs| (|List| D))
+          (|i0| (|Integer|)) (|s| (D)) (#2=#:G153 NIL) (#3=#:G152 NIL)
+          (|i| NIL) (#4=#:G151 NIL) (#5=#:G150 NIL) (#6=#:G149 NIL) (|j| NIL)
           (|PermV| (|Vector| (|Integer|))) (#7=#:G126 NIL) (|maxC| (|Integer|))
           (|minC| (|Integer|)) (|maxR| (|Integer|)) (|minR| (|Integer|))
           (A (|Matrix| D)))
@@ -114,8 +114,8 @@
         ((LU (|Matrix| D)) (|Perm| (|Vector| (|Integer|))) (XX (|Vector| D))
          ($ (|Vector| D)))
         (SPROG
-         ((|s| (D)) (#1=#:G162 NIL) (|j| NIL) (#2=#:G161 NIL) (|i| NIL)
-          (|ii| (|Integer|)) (#3=#:G160 NIL) (|ip| (|Integer|)) (#4=#:G159 NIL)
+         ((|s| (D)) (#1=#:G172 NIL) (|j| NIL) (#2=#:G171 NIL) (|i| NIL)
+          (|ii| (|Integer|)) (#3=#:G170 NIL) (|ip| (|Integer|)) (#4=#:G169 NIL)
           (|maxR| (|Integer|)) (|minR| (|Integer|)) (X (|Vector| D)))
          (SEQ (LETT X (SPADCALL XX (QREFELT $ 24))) (LETT |minR| (PROGN LU 1))
               (LETT |maxR| (SPADCALL LU (QREFELT $ 10)))
@@ -180,7 +180,7 @@
         ((A (|Matrix| D))
          ($ (|Record| (|:| |Inv| (|Matrix| D)) (|:| |Pivots| (|List| D)))))
         (SPROG
-         ((|res| (|Matrix| D)) (|v| (|Vector| D)) (#1=#:G170 NIL) (|i| NIL)
+         ((|res| (|Matrix| D)) (|v| (|Vector| D)) (#1=#:G181 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|))
           (|Alu|
            (|Record| (|:| LU (|Matrix| D)) (|:| |Perm| (|Vector| (|Integer|)))
@@ -204,9 +204,9 @@
 
 (DECLAIM (NOTINLINE |LUDecomposition;|)) 
 
-(DEFUN |LUDecomposition| (#1=#:G171)
+(DEFUN |LUDecomposition| (#1=#:G182)
   (SPROG NIL
-         (PROG (#2=#:G172)
+         (PROG (#2=#:G183)
            (RETURN
             (COND
              ((LETT #2#

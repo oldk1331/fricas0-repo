@@ -3,7 +3,7 @@
         (SPADCALL (QCAR |s1|) (QCAR |s2|) (QREFELT $ 15))) 
 
 (SDEFUN |SETMN;coerce;$Of;2| ((|s| ($)) ($ (|OutputForm|)))
-        (SPROG ((#1=#:G142 NIL) (|i| NIL) (#2=#:G141 NIL))
+        (SPROG ((#1=#:G143 NIL) (|i| NIL) (#2=#:G142 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -22,7 +22,7 @@
 
 (SDEFUN |SETMN;reallyEnumerate| (($ (|Vector| $)))
         (SPROG
-         ((#1=#:G145 NIL) (|i| NIL) (#2=#:G147 NIL) (|b| NIL) (#3=#:G146 NIL))
+         ((#1=#:G147 NIL) (|i| NIL) (#2=#:G149 NIL) (|b| NIL) (#3=#:G148 NIL))
          (SEQ
           (PROGN
            (LETT #3#
@@ -56,8 +56,8 @@
         ((|p| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|))
          (|n| (|PositiveInteger|)) ($ (|List| (|Bits|))))
         (SPROG
-         ((#1=#:G165 NIL) (|s| NIL) (|l| (|List| (|Bits|))) (#2=#:G158 NIL)
-          (|q1| (|NonNegativeInteger|)) (#3=#:G157 NIL) (#4=#:G164 NIL)
+         ((#1=#:G169 NIL) (|s| NIL) (|l| (|List| (|Bits|))) (#2=#:G161 NIL)
+          (|q1| (|NonNegativeInteger|)) (#3=#:G160 NIL) (#4=#:G168 NIL)
           (|i| NIL) (|b| (|Bits|)))
          (SEQ
           (COND ((OR (ZEROP |p|) (ZEROP |q|)) NIL)
@@ -101,7 +101,7 @@
                                (QREFELT $ 35))))))))))) 
 
 (SDEFUN |SETMN;size;Nni;7| (($ (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G166 NIL))
+        (SPROG ((#1=#:G170 NIL))
                (SEQ
                 (COND
                  ((ZEROP (QREFELT $ 12))
@@ -116,7 +116,7 @@
                 (EXIT (QREFELT $ 12))))) 
 
 (SDEFUN |SETMN;lookup;$Pi;8| ((|s| ($)) ($ (|PositiveInteger|)))
-        (SPROG ((#1=#:G173 NIL) (#2=#:G171 NIL))
+        (SPROG ((#1=#:G177 NIL) (#2=#:G175 NIL))
                (SEQ
                 (COND
                  ((SPADCALL (QREFELT $ 11) (QREFELT $ 28))
@@ -152,7 +152,7 @@
 
 (SDEFUN |SETMN;setOfMinN;L$;10| ((|l| (|List| (|PositiveInteger|))) ($ ($)))
         (SPROG
-         ((|count| (|NonNegativeInteger|)) (#1=#:G186 NIL) (|i| NIL)
+         ((|count| (|NonNegativeInteger|)) (#1=#:G191 NIL) (|i| NIL)
           (|s| (|Bits|)))
          (SEQ (LETT |s| (SPADCALL (QREFELT $ 7) NIL (QREFELT $ 32)))
               (LETT |count| 0)
@@ -194,7 +194,7 @@
 (SDEFUN |SETMN;incrementKthElement;$PiU;12|
         ((|s| ($)) (|k| (|PositiveInteger|)) ($ (|Union| $ "failed")))
         (SPROG
-         ((#1=#:G201 NIL) (|newb| (|Bits|)) (|i| (|NonNegativeInteger|))
+         ((#1=#:G208 NIL) (|newb| (|Bits|)) (|i| (|NonNegativeInteger|))
           (|found| (|NonNegativeInteger|)) (|b| (|Bits|)))
          (SEQ (LETT |b| (QCAR |s|)) (LETT |found| 0) (LETT |i| 1)
               (SEQ G190 (COND ((NULL (< |found| |k|)) (GO G191)))
@@ -267,9 +267,9 @@
 
 (DECLAIM (NOTINLINE |SetOfMIntegersInOneToN;|)) 
 
-(DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G224)
+(DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G233)
   (SPROG NIL
-         (PROG (#2=#:G225)
+         (PROG (#2=#:G234)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,7 +1,7 @@
 
 (SDEFUN |MODMON;setPoly;2Rep;1| ((|mon| (|Rep|)) ($ (|Rep|)))
         (SPROG
-         ((#1=#:G139 NIL) (|i| NIL) (#2=#:G128 NIL) (|copymon| (|Rep|))
+         ((#1=#:G141 NIL) (|i| NIL) (#2=#:G129 NIL) (|copymon| (|Rep|))
           (|oldm| (|Rep|)))
          (SEQ
           (COND ((SPADCALL |mon| (QREFELT $ 12) (QREFELT $ 25)) |mon|)
@@ -82,7 +82,7 @@
         (* (QREFELT $ 14) (SPADCALL (QREFELT $ 43)))) 
 
 (SDEFUN |MODMON;random;$;4| (($ ($)))
-        (SPROG ((#1=#:G145 NIL) (|i| NIL) (#2=#:G144 NIL))
+        (SPROG ((#1=#:G148 NIL) (|i| NIL) (#2=#:G147 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -166,7 +166,7 @@
                     (EXIT (SPADCALL |ans| |p| (QREFELT $ 30)))))) 
 
 (SDEFUN |MODMON;Vectorise;$V;22| ((|x| ($)) ($ (|Vector| R)))
-        (SPROG ((#1=#:G170 NIL) (|i| NIL) (#2=#:G169 NIL))
+        (SPROG ((#1=#:G175 NIL) (|i| NIL) (#2=#:G174 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# (GETREFV (|inc_SI| #3=(QREFELT $ 15))))
@@ -182,8 +182,8 @@
 
 (SDEFUN |MODMON;UnVectorise;V$;23| ((|vect| (|Vector| R)) ($ ($)))
         (SPROG
-         ((#1=#:G172 NIL) (#2=#:G171 (|Rep|)) (#3=#:G173 (|Rep|))
-          (#4=#:G175 NIL) (|i| NIL))
+         ((#1=#:G177 NIL) (#2=#:G176 (|Rep|)) (#3=#:G178 (|Rep|))
+          (#4=#:G180 NIL) (|i| NIL))
          (SEQ
           (SPADCALL
            (PROGN
@@ -204,7 +204,7 @@
 
 (SDEFUN |MODMON;computePowers;Pa;24| (($ (|PrimitiveArray| $)))
         (SPROG
-         ((#1=#:G180 NIL) (|i| NIL) (|w| ($)) (|mat| (|PrimitiveArray| $)))
+         ((#1=#:G186 NIL) (|i| NIL) (|w| ($)) (|mat| (|PrimitiveArray| $)))
          (SEQ
           (LETT |mat|
                 (SPADCALL (QREFELT $ 14) (|spadConstant| $ 18) (QREFELT $ 21)))
@@ -243,7 +243,7 @@
 
 (SDEFUN |MODMON;computeFrobeniusPowers| (($ (|PrimitiveArray| $)))
         (SPROG
-         ((#1=#:G184 NIL) (|i| NIL) (|mult| ($)) (|mat| (|PrimitiveArray| $)))
+         ((#1=#:G191 NIL) (|i| NIL) (|mult| ($)) (|mat| (|PrimitiveArray| $)))
          (SEQ
           (LETT |mat|
                 (SPADCALL (QREFELT $ 14) (|spadConstant| $ 8) (QREFELT $ 21)))
@@ -293,7 +293,7 @@
 (SDEFUN |MODMON;monomial;RNni$;28|
         ((|c| (R)) (|e| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
-         ((|k2| (|NonNegativeInteger|)) (#1=#:G190 NIL)
+         ((|k2| (|NonNegativeInteger|)) (#1=#:G198 NIL)
           (|k1| (|NonNegativeInteger|)))
          (SEQ
           (COND ((< |e| (QREFELT $ 14)) (SPADCALL |c| |e| (QREFELT $ 11)))
@@ -321,7 +321,7 @@
 
 (SDEFUN |MODMON;exquo;2$U;29| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG
-         ((#1=#:G202 NIL)
+         ((#1=#:G210 NIL)
           (|uv| (|Union| (|Record| (|:| |coef1| $) (|:| |coef2| $)) "failed")))
          (SEQ
           (EXIT
@@ -335,7 +335,7 @@
                      (LETT #1#
                            (CONS 0
                                  (SPADCALL (QCAR (QCDR |uv|)) (QREFELT $ 39))))
-                     (GO #2=#:G201)))))))
+                     (GO #2=#:G209)))))))
           #2# (EXIT #1#)))) 
 
 (SDEFUN |MODMON;recip;$U;30| ((|y| ($)) ($ (|Union| $ "failed")))
@@ -354,8 +354,8 @@
 
 (DEFUN |ModMonic| (|#1| |#2|)
   (SPROG
-   ((#1=#:G124 NIL) (#2=#:G258 NIL) (|pv$| NIL) (#3=#:G254 NIL) (#4=#:G255 NIL)
-    (#5=#:G256 NIL) (#6=#:G257 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G124 NIL) (#2=#:G266 NIL) (|pv$| NIL) (#3=#:G262 NIL) (#4=#:G263 NIL)
+    (#5=#:G264 NIL) (#6=#:G265 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

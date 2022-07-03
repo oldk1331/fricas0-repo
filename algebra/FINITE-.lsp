@@ -8,7 +8,7 @@
                 (QREFELT $ 11)))) 
 
 (SDEFUN |FINITE-;enumerate;L;2| (($ (|List| S)))
-        (SPROG ((#1=#:G128 NIL) (#2=#:G132 NIL) (|i| NIL) (#3=#:G131 NIL))
+        (SPROG ((#1=#:G129 NIL) (#2=#:G133 NIL) (|i| NIL) (#3=#:G132 NIL))
                (SEQ
                 (PROGN
                  (LETT #3# NIL)

@@ -930,6 +930,8 @@
 ;     $exitModeStack : local := []
 ;     $returnMode : local := $EmptyMode
 ;     $leaveLevelStack : local := []
+;     $iterate_tag : local := []
+;     $iterate_count : local := 0
 ;     $CategoryFrame : local := [[[]]]
 ;     $insideFunctorIfTrue : local := false
 ;     $insideWhereIfTrue : local := false
@@ -944,15 +946,17 @@
 (DEFUN |boo_comp1| (|x|)
   (PROG (|$previousTime| |$genSDVar| |$e| |$insideCapsuleFunctionIfTrue|
          |$insideCategoryIfTrue| |$insideWhereIfTrue| |$insideFunctorIfTrue|
-         |$CategoryFrame| |$leaveLevelStack| |$returnMode| |$exitModeStack|
-         |$exitMode| |$warningStack| |$semanticErrorStack| |$topOp|
-         |$postStack| |$compUniquelyIfTrue| $MACROASSOC |$Index|)
+         |$CategoryFrame| |$iterate_count| |$iterate_tag| |$leaveLevelStack|
+         |$returnMode| |$exitModeStack| |$exitMode| |$warningStack|
+         |$semanticErrorStack| |$topOp| |$postStack| |$compUniquelyIfTrue|
+         $MACROASSOC |$Index|)
     (DECLARE
      (SPECIAL |$previousTime| |$genSDVar| |$e| |$insideCapsuleFunctionIfTrue|
       |$insideCategoryIfTrue| |$insideWhereIfTrue| |$insideFunctorIfTrue|
-      |$CategoryFrame| |$leaveLevelStack| |$returnMode| |$exitModeStack|
-      |$exitMode| |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
-      |$compUniquelyIfTrue| $MACROASSOC |$Index|))
+      |$CategoryFrame| |$iterate_count| |$iterate_tag| |$leaveLevelStack|
+      |$returnMode| |$exitModeStack| |$exitMode| |$warningStack|
+      |$semanticErrorStack| |$topOp| |$postStack| |$compUniquelyIfTrue|
+      $MACROASSOC |$Index|))
     (RETURN
      (PROGN
       (SETQ |$Index| 0)
@@ -966,6 +970,8 @@
       (SETQ |$exitModeStack| NIL)
       (SETQ |$returnMode| |$EmptyMode|)
       (SETQ |$leaveLevelStack| NIL)
+      (SETQ |$iterate_tag| NIL)
+      (SETQ |$iterate_count| 0)
       (SETQ |$CategoryFrame| (LIST (LIST NIL)))
       (SETQ |$insideFunctorIfTrue| NIL)
       (SETQ |$insideWhereIfTrue| NIL)
@@ -1133,9 +1139,11 @@
 ;     $semanticErrorStack : local := nil
 ;     $warningStack : local := nil
 ;     $exitMode : local := $EmptyMode
-;     $exitModeStack : local := nil
+;     $exitModeStack : local := []
 ;     $returnMode : local := $EmptyMode
-;     $leaveLevelStack : local := nil
+;     $leaveLevelStack : local := []
+;     $iterate_tag : local := []
+;     $iterate_count : local := 0
 ;     $CategoryFrame : local := [[[]]]
 ;     $insideFunctorIfTrue : local := false
 ;     $insideWhereIfTrue : local := false
@@ -1175,16 +1183,17 @@
   (PROG (|$m| |$x| |$s| |$previousTime| |$genSDVar| |$e|
          |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
          |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
-         |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
-         |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
-         |$compUniquelyIfTrue| $MACROASSOC |$Index| |u| |nform|)
+         |$iterate_count| |$iterate_tag| |$leaveLevelStack| |$returnMode|
+         |$exitModeStack| |$exitMode| |$warningStack| |$semanticErrorStack|
+         |$topOp| |$postStack| |$compUniquelyIfTrue| $MACROASSOC |$Index| |u|
+         |nform|)
     (DECLARE
      (SPECIAL |$m| |$x| |$s| |$previousTime| |$genSDVar| |$e|
       |$insideCapsuleFunctionIfTrue| |$insideCategoryIfTrue|
       |$insideWhereIfTrue| |$insideFunctorIfTrue| |$CategoryFrame|
-      |$leaveLevelStack| |$returnMode| |$exitModeStack| |$exitMode|
-      |$warningStack| |$semanticErrorStack| |$topOp| |$postStack|
-      |$compUniquelyIfTrue| $MACROASSOC |$Index|))
+      |$iterate_count| |$iterate_tag| |$leaveLevelStack| |$returnMode|
+      |$exitModeStack| |$exitMode| |$warningStack| |$semanticErrorStack|
+      |$topOp| |$postStack| |$compUniquelyIfTrue| $MACROASSOC |$Index|))
     (RETURN
      (PROGN
       (SETQ |$Index| 0)
@@ -1198,6 +1207,8 @@
       (SETQ |$exitModeStack| NIL)
       (SETQ |$returnMode| |$EmptyMode|)
       (SETQ |$leaveLevelStack| NIL)
+      (SETQ |$iterate_tag| NIL)
+      (SETQ |$iterate_count| 0)
       (SETQ |$CategoryFrame| (LIST (LIST NIL)))
       (SETQ |$insideFunctorIfTrue| NIL)
       (SETQ |$insideWhereIfTrue| NIL)

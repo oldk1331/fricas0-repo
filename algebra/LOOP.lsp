@@ -4,7 +4,7 @@
          ((|li| #1=(|List| (|NonNegativeInteger|)))
           (|lx| #2=(|List| (|NonNegativeInteger|)))
           (|minValue| (|NonNegativeInteger|)) (|l2| #2#) (|l1| #1#)
-          (#3=#:G134 NIL) (|x| NIL) (#4=#:G133 NIL))
+          (#3=#:G136 NIL) (|x| NIL) (#4=#:G135 NIL))
          (SEQ
           (LETT |li|
                 (PROGN
@@ -44,7 +44,7 @@
 
 (SDEFUN |LOOP;latex;$S;4| ((|lp| ($)) ($ (|String|)))
         (SPROG
-         ((|res| (|String|)) (|x| (|NonNegativeInteger|)) (#1=#:G141 NIL)
+         ((|res| (|String|)) (|x| (|NonNegativeInteger|)) (#1=#:G144 NIL)
           (|i| NIL))
          (SEQ (LETT |res| "")
               (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT $ 16))) G190
@@ -58,14 +58,14 @@
               (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT $ 19)))))) 
 
 (SDEFUN |LOOP;=;2$B;5| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G147 NIL) (#2=#:G148 NIL) (|i| NIL))
+        (SPROG ((#1=#:G151 NIL) (#2=#:G152 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL (SPADCALL |x| (QREFELT $ 16))
                               (SPADCALL |y| (QREFELT $ 16)) (QREFELT $ 22))
-                    (PROGN (LETT #1# NIL) (GO #3=#:G146))))
+                    (PROGN (LETT #1# NIL) (GO #3=#:G150))))
                   (SEQ (LETT |i| 1) (LETT #2# (SPADCALL |x| (QREFELT $ 16)))
                        G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ
@@ -80,7 +80,7 @@
 
 (SDEFUN |LOOP;coerce;$Of;6| ((|lp| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((|res| (|OutputForm|)) (|x| (|NonNegativeInteger|)) (#1=#:G153 NIL)
+         ((|res| (|OutputForm|)) (|x| (|NonNegativeInteger|)) (#1=#:G158 NIL)
           (|i| NIL))
          (SEQ (LETT |res| (SPADCALL (QREFELT $ 25)))
               (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |lp| (QREFELT $ 16))) G190
@@ -99,7 +99,7 @@
 
 (DEFUN |Loop| ()
   (SPROG NIL
-         (PROG (#1=#:G155)
+         (PROG (#1=#:G160)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Loop|))

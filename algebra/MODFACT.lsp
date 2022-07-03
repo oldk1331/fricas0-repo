@@ -3,7 +3,7 @@
         ((|m| (|U32Matrix|)) (|v| (|U32Vector|)) (|p| (|Integer|))
          ($ (|U32Vector|)))
         (SPROG
-         ((|ss| (|Integer|)) (#1=#:G133 NIL) (|j| NIL) (#2=#:G132 NIL)
+         ((|ss| (|Integer|)) (#1=#:G135 NIL) (|j| NIL) (#2=#:G134 NIL)
           (|i| NIL) (|res| (|U32Vector|)) (|nc| (|NonNegativeInteger|))
           (|nr| (|NonNegativeInteger|)))
          (SEQ (LETT |nr| (ANROWS_U32 |m|)) (LETT |nc| (ANCOLS_U32 |m|))
@@ -35,8 +35,8 @@
         ((|m1| (|U32Matrix|)) (|m2| (|U32Matrix|)) (|p| (|Integer|))
          ($ (|U32Matrix|)))
         (SPROG
-         ((|ss| (|Integer|)) (#1=#:G143 NIL) (|k| NIL) (#2=#:G142 NIL)
-          (|j| NIL) (#3=#:G141 NIL) (|i| NIL) (|res| (|U32Matrix|))
+         ((|ss| (|Integer|)) (#1=#:G148 NIL) (|k| NIL) (#2=#:G147 NIL)
+          (|j| NIL) (#3=#:G146 NIL) (|i| NIL) (|res| (|U32Matrix|))
           (|nr2| #4=(|NonNegativeInteger|)) (|nc1| (|NonNegativeInteger|))
           (|nr1| #4#))
          (SEQ (LETT |nr1| (ANROWS_U32 |m1|)) (LETT |nc1| (ANCOLS_U32 |m1|))
@@ -79,7 +79,7 @@
 (SDEFUN |MODFACT;copy_slice2|
         ((|np| (|U32Vector|)) (|op| (|U32Vector|)) (|n| (|Integer|))
          (|m| (|Integer|)) ($ (|Void|)))
-        (SPROG ((#1=#:G146 NIL) (|i| NIL))
+        (SPROG ((#1=#:G152 NIL) (|i| NIL))
                (SEQ (LETT |i| 0) (LETT #1# (- |m| 1)) G190
                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                     (SEQ
@@ -94,9 +94,9 @@
                      (|:| |poly| (|U32Vector|)))))
          ($ (|Void|)))
         (SPROG
-         ((#1=#:G157 NIL) (|i| NIL) (|tmp| (|U32Vector|))
+         ((#1=#:G165 NIL) (|i| NIL) (|tmp| (|U32Vector|))
           (|mi| (|NonNegativeInteger|)) (|ni| #2=(|Integer|))
-          (|ii| #3=(|NonNegativeInteger|)) (#4=#:G156 NIL) (|ri| NIL)
+          (|ii| #3=(|NonNegativeInteger|)) (#4=#:G164 NIL) (|ri| NIL)
           (|n0| #2#) (|f| (|U32Vector|)) (|p| #3#)
           (|r0|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
@@ -136,7 +136,7 @@
                      (|:| |poly| (|U32Vector|)))))
          ($ (|U32Vector|)))
         (SPROG
-         ((|pow1| #1=(|U32Vector|)) (#2=#:G167 NIL) (|has_res| (|Boolean|))
+         ((|pow1| #1=(|U32Vector|)) (#2=#:G176 NIL) (|has_res| (|Boolean|))
           (|res1| #1#) (|res| #3=(|U32Vector|)) (|pow| #3#)
           (|m| (|NonNegativeInteger|)) (|f| (|U32Vector|))
           (|p| (|NonNegativeInteger|))
@@ -178,7 +178,7 @@
                               (EXIT
                                (COND
                                 ((EQL |n| 0)
-                                 (PROGN (LETT #2# |$NoValue|) (GO #4=#:G164)))
+                                 (PROGN (LETT #2# |$NoValue|) (GO #4=#:G173)))
                                 ('T
                                  (SEQ
                                   (LETT |pow1|
@@ -201,8 +201,8 @@
                      (|:| |poly| (|U32Vector|)))))
          ($ (|Record| (|:| |matr| (|U32Matrix|)) (|:| |poly| (|U32Vector|)))))
         (SPROG
-         ((#1=#:G179 NIL) (|k| NIL) (|nn1| (|Integer|)) (|pow1| (|U32Vector|))
-          (#2=#:G178 NIL) (#3=#:G177 NIL) (|j| NIL) (|n1| (|SingleInteger|))
+         ((#1=#:G191 NIL) (|k| NIL) (|nn1| (|Integer|)) (|pow1| (|U32Vector|))
+          (#2=#:G190 NIL) (#3=#:G189 NIL) (|j| NIL) (|n1| (|SingleInteger|))
           (|l1| (|Integer|)) (|pow| (|U32Vector|)) (|pm| (|U32Matrix|))
           (|n| (|NonNegativeInteger|)) (|f| (|U32Vector|))
           (|p| (|NonNegativeInteger|))
@@ -246,9 +246,9 @@
                      (|:| |poly| (|U32Vector|)))))
          ($ (|U32Vector|)))
         (SPROG
-         ((|res1| (|U32Vector|)) (#1=#:G192 NIL) (|i| (|SingleInteger|))
+         ((|res1| (|U32Vector|)) (#1=#:G208 NIL) (|i| (|SingleInteger|))
           (|k| NIL) (|ns1| (|SingleInteger|)) (|res| #2=(|U32Vector|))
-          (|p1| #2#) (|m2| (|U32Matrix|)) (#3=#:G191 NIL) (#4=#:G190 NIL)
+          (|p1| #2#) (|m2| (|U32Matrix|)) (#3=#:G207 NIL) (#4=#:G206 NIL)
           (|j| NIL) (|k1| #5=(|SingleInteger|)) (|l1s| #5#)
           (|m1| (|U32Matrix|)) (|ns| #5#) (|n| (|NonNegativeInteger|))
           (|f| (|U32Vector|)) (|p| (|NonNegativeInteger|))
@@ -303,7 +303,7 @@
            #1=(|Record| (|:| |ind| (|NonNegativeInteger|))
                         (|:| |poly| (|U32Vector|))))))
         (SPROG
-         ((|res| (|List| #1#)) (|tmp1| #2=(|U32Vector|)) (#3=#:G201 NIL)
+         ((|res| (|List| #1#)) (|tmp1| #2=(|U32Vector|)) (#3=#:G219 NIL)
           (|i| NIL) (|ni| #4=(|Integer|)) (|ii| #4#) (|nn| (|Integer|))
           (|tmp| #2#) (|n1| #4#) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |pol| (QREFELT $ 14)))
@@ -348,8 +348,8 @@
          ((|dg| #3=(|NonNegativeInteger|)) (|dp| (|NonNegativeInteger|))
           (|#G64| (|NonNegativeInteger|)) (|#G63| #3#) (|g| #4=(|U32Vector|))
           (|#G62| #4#) (|#G61| #5=(|U32Vector|)) (|tmp| #5#) (|tr1| #5#)
-          (|tr| #5#) (#6=#:G221 NIL) (|i| NIL) (#7=#:G220 NIL) (#8=#:G219 NIL)
-          (|kk| (|Integer|)) (#9=#:G218 NIL) (|n0| (|Integer|)) (|rpol| #5#)
+          (|tr| #5#) (#6=#:G244 NIL) (|i| NIL) (#7=#:G243 NIL) (#8=#:G242 NIL)
+          (|kk| (|Integer|)) (#9=#:G241 NIL) (|n0| (|Integer|)) (|rpol| #5#)
           (|n| (|NonNegativeInteger|)) (|f| #2#) (|p| #1#)
           (|r0|
            (|Record| (|:| |ind| (|NonNegativeInteger|))
@@ -475,16 +475,16 @@
                       (|:| |degree| (|NonNegativeInteger|))
                       (|:| |separate_factors|
                            (|Mapping| (|List| (|U32Vector|)))))))
-          (#1=#:G239 NIL) (|dg| (|Integer|)) (|pk| (|U32Vector|))
-          (#2=#:G246 NIL) (#3=#:G244 NIL) (#4=#:G245 NIL)
+          (#1=#:G266 NIL) (|dg| (|Integer|)) (|pk| (|U32Vector|))
+          (#2=#:G273 NIL) (#3=#:G271 NIL) (#4=#:G272 NIL)
           (|n| #5=(|NonNegativeInteger|)) (|tmp| #6=(|U32Vector|))
-          (#7=#:G250 NIL) (|g1| NIL) (|res1| (|List| (|U32Vector|)))
-          (|g| (|U32Vector|)) (|i| (|NonNegativeInteger|)) (#8=#:G249 NIL)
-          (#9=#:G248 NIL) (|i1| NIL) (|xp2| #10=(|U32Vector|))
+          (#7=#:G277 NIL) (|g1| NIL) (|res1| (|List| (|U32Vector|)))
+          (|g| (|U32Vector|)) (|i| (|NonNegativeInteger|)) (#8=#:G276 NIL)
+          (#9=#:G275 NIL) (|i1| NIL) (|xp2| #10=(|U32Vector|))
           (|pmat2| #11=(|U32Matrix|)) (|#G72| #10#) (|#G71| #11#)
           (|#G70| #12=(|Record| (|:| |matr| #11#) (|:| |poly| #10#)))
           (|pk1| #6#) (|pj| #13=(|U32Vector|)) (|lpj| (|List| #6#))
-          (#14=#:G247 NIL) (|k2| (|NonNegativeInteger|))
+          (#14=#:G274 NIL) (|k2| (|NonNegativeInteger|))
           (|k1| (|NonNegativeInteger|)) (|n2| (|NonNegativeInteger|))
           (|xp1| #10#) (|pmat1| #11#) (|#G68| #12#)
           (|l1| (|NonNegativeInteger|)) (|l2| (|NonNegativeInteger|))
@@ -639,15 +639,15 @@
                                         (LETT #3#
                                               (PROGN
                                                (LETT #4# 1)
-                                               (GO #16=#:G235)))
-                                        (GO #17=#:G234)))))))
+                                               (GO #16=#:G262)))
+                                        (GO #17=#:G261)))))))
                               #17# (EXIT #3#))
                              (LETT #8# (CDR #8#)) (GO G190) G191 (EXIT NIL)))
                        #16# (EXIT #4#))
                       (EXIT
                        (COND
                         ((>= |i| (QUOTIENT2 |n| 2))
-                         (PROGN (LETT #2# 1) (GO #18=#:G237)))
+                         (PROGN (LETT #2# 1) (GO #18=#:G264)))
                         ('T
                          (LETT |pk|
                                (SPADCALL |pk| |pmat2| |xp2| |l1| |l2| |rdata|
@@ -710,7 +710,7 @@
         ((|pol| (|U32Vector|)) (|prime| (|Integer|))
          ($ (|List| (|U32Vector|))))
         (SPROG
-         ((#1=#:G259 NIL) (|el| NIL) (#2=#:G258 NIL)
+         ((#1=#:G287 NIL) (|el| NIL) (#2=#:G286 NIL)
           (|rl1|
            (|List|
             (|Record| (|:| |poly| (|U32Vector|))
@@ -733,7 +733,7 @@
 
 (DEFUN |ModularFactorization| ()
   (SPROG NIL
-         (PROG (#1=#:G261)
+         (PROG (#1=#:G289)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ModularFactorization|))

@@ -43,13 +43,13 @@
           (|Record| (|:| |basis| #1=(|Vector| R))
                     (|:| |transform| #2=(|Matrix| (|Integer|))))))
         (SPROG
-         ((#3=#:G146 NIL) (|j| NIL) (#4=#:G145 NIL) (|i| NIL)
+         ((#3=#:G149 NIL) (|j| NIL) (#4=#:G148 NIL) (|i| NIL)
           (|ct| (|Matrix| (|Integer|))) (|m| (|NonNegativeInteger|))
           (|ct0| #2#) (|cb| #1#)
           (|pr|
            (|Record| (|:| |basis| (|Vector| R))
                      (|:| |transform| (|Matrix| (|Integer|)))))
-          (#5=#:G144 NIL) (|nv| (|Vector| R)) (|n| (|NonNegativeInteger|)))
+          (#5=#:G147 NIL) (|nv| (|Vector| R)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (QVSIZE |v|))
               (LETT |nv| (MAKEARR1 (* 2 |n|) (|spadConstant| $ 16)))
               (SEQ (LETT |i| 1) (LETT #5# |n|) G190
@@ -93,25 +93,25 @@
           (|Record| (|:| |basis| #1=(|Vector| R))
                     (|:| |transform| #2=(|Matrix| (|Integer|))))))
         (SPROG
-         ((#3=#:G193 NIL) (|i| NIL) (#4=#:G192 NIL)
-          (|nv| (|Vector| (|Integer|))) (|a| (R)) (#5=#:G191 NIL) (|l| NIL)
-          (#6=#:G190 NIL) (|m| (|NonNegativeInteger|))
-          (|firstAdded| (|Boolean|)) (|c| (|Integer|)) (#7=#:G189 NIL)
+         ((#3=#:G206 NIL) (|i| NIL) (#4=#:G205 NIL)
+          (|nv| (|Vector| (|Integer|))) (|a| (R)) (#5=#:G204 NIL) (|l| NIL)
+          (#6=#:G203 NIL) (|m| (|NonNegativeInteger|))
+          (|firstAdded| (|Boolean|)) (|c| (|Integer|)) (#7=#:G202 NIL)
           (|k| NIL) (|ov| (|Vector| (|Integer|)))
           (|n1| #8=(|NonNegativeInteger|)) (|ct1| #2#) (|cb1| #1#)
           (|dr1|
            (|Record| (|:| |basis| (|Vector| R))
                      (|:| |transform| (|Matrix| (|Integer|)))))
-          (#9=#:G188 NIL) (#10=#:G187 NIL) (#11=#:G186 NIL) (|cf| (R))
+          (#9=#:G201 NIL) (#10=#:G200 NIL) (#11=#:G199 NIL) (|cf| (R))
           (|b1| (R)) (|a1| (R))
           (|sr| (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R)))
           (|sr1|
            (|Union|
             (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R))
             "failed"))
-          (#12=#:G183 NIL) (|pquo| (|Union| R "failed")) (|b| (R))
-          (#13=#:G185 NIL) (|j| NIL) (|i0| (|NonNegativeInteger|))
-          (#14=#:G184 NIL) (|ct| (|FlexibleArray| (|Vector| (|Integer|))))
+          (#12=#:G196 NIL) (|pquo| (|Union| R "failed")) (|b| (R))
+          (#13=#:G198 NIL) (|j| NIL) (|i0| (|NonNegativeInteger|))
+          (#14=#:G197 NIL) (|ct| (|FlexibleArray| (|Vector| (|Integer|))))
           (|n| #8#) (|cb| (|FlexibleArray| R)))
          (SEQ (LETT |cb| (SPADCALL (QREFELT $ 30))) (LETT |n| (QVSIZE |v|))
               (LETT |ct| (SPADCALL (QREFELT $ 32)))
@@ -162,7 +162,7 @@
                                     (EXIT
                                      (COND
                                       ((SPADCALL |a| (QREFELT $ 13))
-                                       (PROGN (LETT #12# 1) (GO #15=#:G176)))
+                                       (PROGN (LETT #12# 1) (GO #15=#:G188)))
                                       ('T
                                        (SEQ
                                         (LETT |sr1|
@@ -623,9 +623,9 @@
 
 (DECLAIM (NOTINLINE |GcdBasis;|)) 
 
-(DEFUN |GcdBasis| (#1=#:G194)
+(DEFUN |GcdBasis| (#1=#:G207)
   (SPROG NIL
-         (PROG (#2=#:G195)
+         (PROG (#2=#:G208)
            (RETURN
             (COND
              ((LETT #2#

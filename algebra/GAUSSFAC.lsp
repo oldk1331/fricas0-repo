@@ -37,7 +37,7 @@
 
 (SDEFUN |GAUSSFAC;findelt| ((|q| (|Integer|)) ($ (|Integer|)))
         (SPROG
-         ((|t| (|FMod|)) (|s| (|FMod|)) (#1=#:G156 NIL) (|i| NIL)
+         ((|t| (|FMod|)) (|s| (|FMod|)) (#1=#:G158 NIL) (|i| NIL)
           (|qq1| (|FMod|)) (|r1| (|Union| (|Integer|) "failed"))
           (|r| #2=(|Integer|)) (#3=#:G131 NIL) (|q1| #2#))
          (SEQ (LETT |q1| (- |q| 1)) (LETT |r| |q1|)
@@ -98,7 +98,7 @@
                       (|:| |factor| (|Complex| (|Integer|)))
                       (|:| |exponent| (|NonNegativeInteger|)))))
           (|z| #1=(|Complex| (|Integer|))) (|sz| (|List| (|Integer|)))
-          (|unity| #1#) (|exp| (|NonNegativeInteger|)) (#2=#:G180 NIL)
+          (|unity| #1#) (|exp| (|NonNegativeInteger|)) (#2=#:G185 NIL)
           (|term| NIL) (|lfn| (|Factored| (|Integer|))))
          (SEQ (LETT |lfn| (SPADCALL |n| (QREFELT $ 29))) (LETT |r| NIL)
               (LETT |unity|
@@ -170,7 +170,7 @@
             (|:| |factor| (|Complex| (|Integer|)))
             (|:| |exponent| (|NonNegativeInteger|))))
           (|g0| (|Complex| (|Integer|))) (|exp| #5=(|NonNegativeInteger|))
-          (|n| (|Integer|)) (#6=#:G201 NIL) (|term| NIL)
+          (|n| (|Integer|)) (#6=#:G207 NIL) (|term| NIL)
           (|factn|
            (|List|
             (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#))
@@ -338,7 +338,7 @@
 
 (DEFUN |GaussianFactorizationPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G211)
+         (PROG (#1=#:G217)
            (RETURN
             (COND
              ((LETT #1#

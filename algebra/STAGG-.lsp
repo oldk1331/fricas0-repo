@@ -68,7 +68,7 @@
         (SPADCALL (SPADCALL |x| (QREFELT $ 22)) |y| (QREFELT $ 27))) 
 
 (SDEFUN |STAGG-;concat;LA;6| ((|l| (|List| A)) ($ (A)))
-        (SPROG ((|res| (A)) (#1=#:G157 NIL) (|x| NIL) (|l1| (|List| A)))
+        (SPROG ((|res| (A)) (#1=#:G158 NIL) (|x| NIL) (|l1| (|List| A)))
                (SEQ
                 (COND ((NULL |l|) (SPADCALL (QREFELT $ 24)))
                       ('T
@@ -102,7 +102,7 @@
                     (EXIT |x|)))) 
 
 (SDEFUN |STAGG-;setelt!;AI2S;8| ((|x| (A)) (|i| (|Integer|)) (|s| (S)) ($ (S)))
-        (SPROG ((#1=#:G164 NIL))
+        (SPROG ((#1=#:G166 NIL))
                (SEQ (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 13))))
                     (COND
                      ((OR (< |i| 0)
@@ -122,7 +122,7 @@
 (SDEFUN |STAGG-;setelt!;AUs2S;9|
         ((|x| (A)) (|i| (|UniversalSegment| (|Integer|))) (|s| (S)) ($ (S)))
         (SPROG
-         ((|y| (A)) (|z| (A)) (#1=#:G171 NIL) (#2=#:G170 NIL) (|h| (|Integer|))
+         ((|y| (A)) (|z| (A)) (#1=#:G173 NIL) (#2=#:G172 NIL) (|h| (|Integer|))
           (|l| (|Integer|)))
          (SEQ
           (LETT |l|

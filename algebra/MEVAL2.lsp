@@ -78,8 +78,8 @@
          (|ls1| #1=(|List| (|Symbol|))) (|ls2| #1#) ($ (|FakePolynomial|)))
         (SPROG
          ((|res1| (|FakePolynomial|))
-          (|lm| (|List| (|Polynomial| (|Integer|)))) (#2=#:G161 NIL) (|v| NIL)
-          (#3=#:G160 NIL))
+          (|lm| (|List| (|Polynomial| (|Integer|)))) (#2=#:G162 NIL) (|v| NIL)
+          (#3=#:G161 NIL))
          (SEQ
           (LETT |lm|
                 (PROGN
@@ -122,7 +122,7 @@
          ((|q|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|Polynomial| (|Integer|)))))
-          (#1=#:G166 NIL) (|s| NIL) (#2=#:G167 NIL) (|m| NIL))
+          (#1=#:G168 NIL) (|s| NIL) (#2=#:G169 NIL) (|m| NIL))
          (SEQ
           (SEQ (LETT |m| NIL) (LETT #2# |lmu|) (LETT |s| NIL) (LETT #1# |ls|)
                G190
@@ -150,18 +150,18 @@
          (|lm| (|List| #1#)) (|v| #2=(|Symbol|)) (|ls| (|List| #2#))
          ($ (|Boolean|)))
         (SPROG
-         ((#3=#:G183 NIL)
+         ((#3=#:G188 NIL)
           (|pu|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|Polynomial| (|Integer|)))))
           (|c1| (|Fraction| (|Polynomial| (|Integer|))))
-          (|lcp| #4=(|Fraction| (|Polynomial| (|Integer|)))) (#5=#:G176 NIL)
+          (|lcp| #4=(|Fraction| (|Polynomial| (|Integer|)))) (#5=#:G180 NIL)
           (|dp| #6=(|NonNegativeInteger|))
           (|lmu|
            (|List|
             (|SparseUnivariatePolynomial|
              (|Fraction| (|Polynomial| (|Integer|))))))
-          (#7=#:G185 NIL) (|m| NIL) (#8=#:G186 NIL) (|s| NIL) (#9=#:G184 NIL)
+          (#7=#:G190 NIL) (|m| NIL) (#8=#:G191 NIL) (|s| NIL) (#9=#:G189 NIL)
           (|rgu|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|Polynomial| (|Integer|)))))
@@ -244,7 +244,7 @@
                             ((SPADCALL |c1| (|spadConstant| $ 62)
                                        (QREFELT $ 71))
                              (LETT |pu| (SPADCALL |pu| (QREFELT $ 58))))
-                            ('T (PROGN (LETT #3# NIL) (GO #10=#:G182))))))
+                            ('T (PROGN (LETT #3# NIL) (GO #10=#:G187))))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT 'T)))
           #10# (EXIT #3#)))) 
@@ -253,7 +253,7 @@
 
 (DEFUN |ModularEvaluation2| ()
   (SPROG NIL
-         (PROG (#1=#:G190)
+         (PROG (#1=#:G195)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ModularEvaluation2|))

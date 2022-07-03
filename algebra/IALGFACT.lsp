@@ -3,7 +3,7 @@
         ((|f| (|AlPol|)) (|k| (|Integer|))
          (|fact| (|Mapping| (|Factored| UP) UP)) ($ (|List| |AlPol|)))
         (SPROG
-         ((#1=#:G128 NIL) (|pp| NIL) (#2=#:G127 NIL) (|pol| (|AlPol|))
+         ((#1=#:G129 NIL) (|pp| NIL) (#2=#:G128 NIL) (|pol| (|AlPol|))
           (|lsols| (|List| |AlPol|)) (|newf| (|AlPol|)))
          (SEQ
           (LETT |pol|
@@ -42,8 +42,8 @@
         ((|f| (|AlPol|)) (|k| (|Integer|))
          (|fact| (|Mapping| (|Factored| UP) UP)) ($ (|List| |AlPol|)))
         (SPROG
-         ((|listerm| (|List| |AlPol|)) (|newf| (|AlPol|)) (#1=#:G134 NIL)
-          (|g| (|AlPol|)) (#2=#:G144 NIL) (|pelt| NIL)
+         ((|listerm| (|List| |AlPol|)) (|newf| (|AlPol|)) (#1=#:G136 NIL)
+          (|g| (|AlPol|)) (#2=#:G146 NIL) (|pelt| NIL)
           (|listfact|
            (|List|
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -107,9 +107,9 @@
         ((|f| (|AlPol|)) (|fact| (|Mapping| (|Factored| UP) UP))
          ($ (|Factored| |AlPol|)))
         (SPROG
-         ((#1=#:G147 NIL) (#2=#:G146 #3=(|Factored| |AlPol|)) (#4=#:G148 #3#)
-          (#5=#:G151 NIL) (#6=#:G150 #3#) (#7=#:G152 #3#) (#8=#:G157 NIL)
-          (|pol| NIL) (#9=#:G156 NIL) (|sqterm| NIL)
+         ((#1=#:G149 NIL) (#2=#:G148 #3=(|Factored| |AlPol|)) (#4=#:G150 #3#)
+          (#5=#:G153 NIL) (#6=#:G152 #3#) (#7=#:G154 #3#) (#8=#:G159 NIL)
+          (|pol| NIL) (#9=#:G158 NIL) (|sqterm| NIL)
           (|sqf| (|Factored| |AlPol|)))
          (SEQ (LETT |sqf| (SPADCALL |f| (QREFELT $ 34)))
               (EXIT
@@ -185,9 +185,9 @@
 
 (DECLAIM (NOTINLINE |InnerAlgFactor;|)) 
 
-(DEFUN |InnerAlgFactor| (&REST #1=#:G163)
+(DEFUN |InnerAlgFactor| (&REST #1=#:G165)
   (SPROG NIL
-         (PROG (#2=#:G164)
+         (PROG (#2=#:G166)
            (RETURN
             (COND
              ((LETT #2#

@@ -66,8 +66,8 @@
           (|Record| (|:| |normal| (|Factored| UP))
                     (|:| |special| (|Factored| UP)))))
         (SPROG
-         ((|n| #1=(|Factored| UP)) (|h| (UP)) (#2=#:G141 NIL) (|s| #1#)
-          (|g| (UP)) (|r| (UP)) (#3=#:G148 NIL) (|rec| NIL)
+         ((|n| #1=(|Factored| UP)) (|h| (UP)) (#2=#:G142 NIL) (|s| #1#)
+          (|g| (UP)) (|r| (UP)) (#3=#:G149 NIL) (|rec| NIL)
           (|q| (|Factored| UP)))
          (SEQ (LETT |s| (|spadConstant| $ 26)) (LETT |n| |s|)
               (LETT |q| (SPADCALL |p| (QREFELT $ 28)))
@@ -115,7 +115,7 @@
           (|Record| (|:| |poly| UP) (|:| |normal| (|Fraction| UP))
                     (|:| |special| (|Fraction| UP)))))
         (SPROG
-         ((|eeu| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#1=#:G155 NIL)
+         ((|eeu| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#1=#:G156 NIL)
           (|rec| (|Record| (|:| |normal| UP) (|:| |special| UP)))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))))
          (SEQ
@@ -146,9 +146,9 @@
 
 (DECLAIM (NOTINLINE |MonomialExtensionTools;|)) 
 
-(DEFUN |MonomialExtensionTools| (&REST #1=#:G160)
+(DEFUN |MonomialExtensionTools| (&REST #1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#

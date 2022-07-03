@@ -4,11 +4,11 @@
          ($ (|Union| (|NonNegativeInteger|) "failed")))
         (SPROG
          ((|a| (M)) (|disclog| (|Integer|)) (|found| (|Boolean|))
-          (|rho| (|Union| (|NonNegativeInteger|) "failed")) (#1=#:G141 NIL)
-          (|i| NIL) (|b| (M)) (|end| (|Integer|)) (#2=#:G140 NIL)
-          (#3=#:G128 NIL)
+          (|rho| (|Union| (|NonNegativeInteger|) "failed")) (#1=#:G144 NIL)
+          (|i| NIL) (|b| (M)) (|end| (|Integer|)) (#2=#:G143 NIL)
+          (#3=#:G130 NIL)
           (|exptable| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
-          (|n| (|Integer|)) (|l| (|Integer|)) (#4=#:G139 NIL)
+          (|n| (|Integer|)) (|l| (|Integer|)) (#4=#:G142 NIL)
           (|limit| (|Integer|)))
          (SEQ (LETT |limit| 30)
               (EXIT
@@ -92,9 +92,9 @@
 
 (DECLAIM (NOTINLINE |DiscreteLogarithmPackage;|)) 
 
-(DEFUN |DiscreteLogarithmPackage| (#1=#:G142)
+(DEFUN |DiscreteLogarithmPackage| (#1=#:G145)
   (SPROG NIL
-         (PROG (#2=#:G143)
+         (PROG (#2=#:G146)
            (RETURN
             (COND
              ((LETT #2#

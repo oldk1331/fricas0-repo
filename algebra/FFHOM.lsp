@@ -45,20 +45,20 @@
 
 (SDEFUN |FFHOM;initialize| (($ (|Void|)))
         (SPROG
-         ((|matbs| #1=(|Matrix| GF)) (#2=#:G153 NIL) (|matsb| #1#)
-          (#3=#:G179 NIL) (|i| NIL) (|mat| #1#)
+         ((|matbs| #1=(|Matrix| GF)) (#2=#:G155 NIL) (|matsb| #1#)
+          (#3=#:G186 NIL) (|i| NIL) (|mat| #1#)
           (|arr| (|PrimitiveArray| (|SparseUnivariatePolynomial| GF)))
-          (#4=#:G178 NIL) (#5=#:G177 NIL) (|rowind| (|Integer|))
+          (#4=#:G185 NIL) (#5=#:G184 NIL) (|rowind| (|Integer|))
           (|ra| (|Integer|)) (|iVec| (|Vector| (|Integer|)))
           (|a| #6=(|FiniteFieldExtensionByPolynomial| GF |dPbig|))
-          (#7=#:G176 NIL) (|root| #6#)
+          (#7=#:G183 NIL) (|root| #6#)
           (|rTsmall|
            (|Union| #8="prime" #9="polynomial" #10="normal" #11="cyclic"))
           (|dPsmall| (|SparseUnivariatePolynomial| GF))
           (|rTbig| (|Union| #8# #9# #10# #11#))
           (|dPbig| (|SparseUnivariatePolynomial| GF))
           (|degbig| (|NonNegativeInteger|)) (|degsmall| (|NonNegativeInteger|))
-          (#12=#:G175 NIL))
+          (#12=#:G182 NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT $ 30) (QREFELT $ 32) (QREFELT $ 41))
@@ -369,9 +369,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldHomomorphisms;|)) 
 
-(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G198)
+(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G205)
   (SPROG NIL
-         (PROG (#2=#:G199)
+         (PROG (#2=#:G206)
            (RETURN
             (COND
              ((LETT #2#

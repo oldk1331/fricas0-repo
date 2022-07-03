@@ -108,7 +108,7 @@
                        (EXIT (SPADCALL (ELT $ 59) |l| (QREFELT $ 61))))))))) 
 
 (SDEFUN |LAUPOL;coefficient;$IR;23| ((|p| ($)) (|n| (|Integer|)) ($ (R)))
-        (SPROG ((#1=#:G169 NIL) (|m| (|Integer|)))
+        (SPROG ((#1=#:G170 NIL) (|m| (|Integer|)))
                (SEQ (LETT |m| (- |n| (SPADCALL |p| (QREFELT $ 19))))
                     (EXIT
                      (COND ((< |m| 0) (|spadConstant| $ 10))
@@ -172,7 +172,7 @@
                                    (- (SPADCALL |p| (QREFELT $ 19))) $)))))))) 
 
 (SDEFUN |LAUPOL;+;3$;28| ((|p| ($)) (|q| ($)) ($ ($)))
-        (SPROG ((#1=#:G191 NIL) (#2=#:G190 NIL) (|d| (|Integer|)))
+        (SPROG ((#1=#:G192 NIL) (#2=#:G191 NIL) (|d| (|Integer|)))
                (SEQ
                 (COND ((SPADCALL |q| (QREFELT $ 52)) |p|)
                       ((SPADCALL |p| (QREFELT $ 52)) |q|)
@@ -220,7 +220,7 @@
                             $)))))))))) 
 
 (SDEFUN |LAUPOL;mkgpol| ((|n| (|Integer|)) (|p| (UP)) ($ ($)))
-        (SPROG ((#1=#:G197 NIL) (|d| (|NonNegativeInteger|)))
+        (SPROG ((#1=#:G198 NIL) (|d| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((SPADCALL |p| (QREFELT $ 47)) (|spadConstant| $ 9))
                       ('T
@@ -260,7 +260,7 @@
                                (QCDR |r|) $)))))))) 
 
 (SDEFUN |LAUPOL;retractIfCan;$U;31| ((|p| ($)) ($ (|Union| UP "failed")))
-        (SPROG ((#1=#:G214 NIL))
+        (SPROG ((#1=#:G215 NIL))
                (COND
                 ((< (SPADCALL |p| (QREFELT $ 19)) 0)
                  (|error| "Not retractable"))
@@ -295,8 +295,8 @@
          ($ (|Record| (|:| |polyPart| $) (|:| |fracPart| (|Fraction| UP)))))
         (SPROG
          ((|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#1=#:G234 NIL)
-          (|q| (UP)) (#2=#:G230 NIL) (|tn| (UP)) (|n| (|NonNegativeInteger|)))
+          (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#1=#:G235 NIL)
+          (|q| (UP)) (#2=#:G231 NIL) (|tn| (UP)) (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |n|
                 (SPADCALL (LETT |q| (SPADCALL |f| (QREFELT $ 88)))
@@ -341,7 +341,7 @@
          ($ (|Record| (|:| |quotient| $) (|:| |remainder| $))))
         (SPROG
          ((|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (#1=#:G245 NIL) (|c| (|Integer|)))
+          (#1=#:G246 NIL) (|c| (|Integer|)))
          (SEQ
           (LETT |c|
                 (MIN (SPADCALL |p| (QREFELT $ 19))
@@ -394,9 +394,9 @@
 
 (DECLAIM (NOTINLINE |LaurentPolynomial;|)) 
 
-(DEFUN |LaurentPolynomial| (&REST #1=#:G274)
+(DEFUN |LaurentPolynomial| (&REST #1=#:G275)
   (SPROG NIL
-         (PROG (#2=#:G275)
+         (PROG (#2=#:G276)
            (RETURN
             (COND
              ((LETT #2#

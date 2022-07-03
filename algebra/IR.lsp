@@ -166,8 +166,8 @@
         ((|l| (|List| (|Record| (|:| |integrand| F) (|:| |intvar| F))))
          ($ (|List| (|Record| (|:| |integrand| F) (|:| |intvar| F)))))
         (SPROG
-         ((|u| (F)) (#1=#:G184 NIL) (#2=#:G186 NIL) (|ne| NIL) (#3=#:G185 NIL)
-          (|x| NIL) (#4=#:G183 NIL))
+         ((|u| (F)) (#1=#:G187 NIL) (#2=#:G189 NIL) (|ne| NIL) (#3=#:G188 NIL)
+          (|x| NIL) (#4=#:G186 NIL))
          (SEQ
           (PROGN
            (LETT #4# NIL)
@@ -198,7 +198,7 @@
 
 (SDEFUN |IR;retractIfCan;$U;18| ((|u| ($)) ($ (|Union| F "failed")))
         (SPROG
-         ((#1=#:G193 NIL) (#2=#:G192 (F)) (#3=#:G194 (F)) (#4=#:G200 NIL)
+         ((#1=#:G196 NIL) (#2=#:G195 (F)) (#3=#:G197 (F)) (#4=#:G203 NIL)
           (|ne| NIL))
          (SEQ
           (COND
@@ -308,9 +308,9 @@
 (SDEFUN |IR;differentiate;$MF;24|
         ((|u| ($)) (|derivation| (|Mapping| F F)) ($ (F)))
         (SPROG
-         ((#1=#:G234 NIL) (#2=#:G233 (F)) (#3=#:G235 (F)) (#4=#:G239 NIL)
-          (|ne| NIL) (#5=#:G229 NIL) (#6=#:G228 (F)) (#7=#:G230 (F))
-          (#8=#:G238 NIL) (|log| NIL))
+         ((#1=#:G237 NIL) (#2=#:G236 (F)) (#3=#:G238 (F)) (#4=#:G242 NIL)
+          (|ne| NIL) (#5=#:G232 NIL) (#6=#:G231 (F)) (#7=#:G233 (F))
+          (#8=#:G241 NIL) (|log| NIL))
          (SEQ
           (SPADCALL
            (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 24)) |derivation|)
@@ -369,11 +369,11 @@
          (|derivation| (|Mapping| F F)) ($ (F)))
         (SPROG
          ((|ans| (F)) (|algans| #1=(|SparseUnivariatePolynomial| F))
-          (#2=#:G261 NIL) (|i| NIL)
+          (#2=#:G265 NIL) (|i| NIL)
           (|diflog|
            (|Record| (|:| |coef1| #1#)
                      (|:| |coef2| (|SparseUnivariatePolynomial| F))))
-          (#3=#:G253 NIL) (|numlog| (|SparseUnivariatePolynomial| F)) (|c| (F))
+          (#3=#:G256 NIL) (|numlog| (|SparseUnivariatePolynomial| F)) (|c| (F))
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -459,8 +459,8 @@
 
 (SDEFUN |IR;coerce;$Of;27| ((|u| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (#1=#:G282 NIL) (|f| NIL)
-          (#2=#:G281 NIL) (#3=#:G280 NIL) (#4=#:G279 NIL)
+         ((|l| (|List| (|OutputForm|))) (#1=#:G291 NIL) (|f| NIL)
+          (#2=#:G290 NIL) (#3=#:G289 NIL) (#4=#:G288 NIL)
           (|r| (|Union| F "failed")))
          (SEQ (LETT |r| (SPADCALL |u| (QREFELT $ 67)))
               (EXIT
@@ -532,9 +532,9 @@
 
 (DECLAIM (NOTINLINE |IntegrationResult;|)) 
 
-(DEFUN |IntegrationResult| (#1=#:G289)
+(DEFUN |IntegrationResult| (#1=#:G298)
   (SPROG NIL
-         (PROG (#2=#:G290)
+         (PROG (#2=#:G299)
            (RETURN
             (COND
              ((LETT #2#
@@ -550,7 +550,7 @@
                   (HREM |$ConstructorCache| '|IntegrationResult|)))))))))) 
 
 (DEFUN |IntegrationResult;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G288 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G297 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|IntegrationResult| DV$1))

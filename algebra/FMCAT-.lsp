@@ -1,6 +1,6 @@
 
 (SDEFUN |FMCAT-;support;AL;1| ((|p| (A)) ($ (|List| S)))
-        (SPROG ((#1=#:G134 NIL) (|t| NIL) (#2=#:G133 NIL))
+        (SPROG ((#1=#:G135 NIL) (|t| NIL) (#2=#:G134 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -14,7 +14,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |FMCAT-;coefficients;AL;2| ((|p| (A)) ($ (|List| R)))
-        (SPROG ((#1=#:G139 NIL) (|t| NIL) (#2=#:G138 NIL))
+        (SPROG ((#1=#:G141 NIL) (|t| NIL) (#2=#:G140 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -28,7 +28,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |FMCAT-;monomials;AL;3| ((|p| (A)) ($ (|List| A)))
-        (SPROG ((#1=#:G144 NIL) (|t| NIL) (#2=#:G143 NIL))
+        (SPROG ((#1=#:G147 NIL) (|t| NIL) (#2=#:G146 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -58,7 +58,7 @@
                     (EXIT (SPADCALL (QCDR |t|) (QCAR |t|) (QREFELT $ 16)))))) 
 
 (SDEFUN |FMCAT-;smaller?;2AB;7| ((|p| (A)) (|q| (A)) ($ (|Boolean|)))
-        (SPROG ((#1=#:G159 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (SEQ
                 (EXIT
                  (SEQ G190 NIL
@@ -66,7 +66,7 @@
                        (EXIT
                         (COND
                          ((SPADCALL |q| (QREFELT $ 24))
-                          (PROGN (LETT #1# NIL) (GO #2=#:G158)))
+                          (PROGN (LETT #1# NIL) (GO #2=#:G162)))
                          ((SPADCALL |p| (QREFELT $ 24))
                           (PROGN (LETT #1# 'T) (GO #2#)))
                          ((SPADCALL (SPADCALL |p| (QREFELT $ 25))

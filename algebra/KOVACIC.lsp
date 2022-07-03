@@ -103,7 +103,7 @@
            (|Record| (|:| |factor| UP)
                      (|:| |exponent| (|NonNegativeInteger|)))))
          ($ (|Boolean|)))
-        (SPROG ((#1=#:G155 NIL) (#2=#:G156 NIL) (#3=#:G157 NIL) (|rec| NIL))
+        (SPROG ((#1=#:G156 NIL) (#2=#:G157 NIL) (#3=#:G158 NIL) (|rec| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -118,8 +118,8 @@
                            (COND
                             ((EQL (QCDR |rec|) 2)
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G154)))
-                              (GO #5=#:G152)))
+                              (LETT #1# (PROGN (LETT #2# NIL) (GO #4=#:G155)))
+                              (GO #5=#:G153)))
                             ((ODDP (QCDR |rec|))
                              (COND
                               ((> (QCDR |rec|) 2)
@@ -133,9 +133,9 @@
 
 (DECLAIM (NOTINLINE |Kovacic;|)) 
 
-(DEFUN |Kovacic| (&REST #1=#:G158)
+(DEFUN |Kovacic| (&REST #1=#:G159)
   (SPROG NIL
-         (PROG (#2=#:G159)
+         (PROG (#2=#:G160)
            (RETURN
             (COND
              ((LETT #2#

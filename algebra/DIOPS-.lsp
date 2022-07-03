@@ -8,7 +8,7 @@
         (SPADCALL (SPADCALL |d| (QREFELT $ 13)) (QREFELT $ 9))) 
 
 (SDEFUN |DIOPS-;coerce;AOf;4| ((|s| (A)) ($ (|OutputForm|)))
-        (SPROG ((#1=#:G132 NIL) (|x| NIL) (#2=#:G131 NIL))
+        (SPROG ((#1=#:G133 NIL) (|x| NIL) (#2=#:G132 NIL))
                (SEQ
                 (SPADCALL (SPADCALL "dictionary" (QREFELT $ 17))
                           (PROGN

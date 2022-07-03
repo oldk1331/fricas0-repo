@@ -5,7 +5,7 @@
         (SPADCALL (SPADCALL (ELT $ 8) |l| (QREFELT $ 13)) (QREFELT $ 15))) 
 
 (SDEFUN |PGE;li1n| ((|n| (|Integer|)) ($ (|List| (|Integer|))))
-        (SPROG ((#1=#:G140 NIL) (|i| NIL) (#2=#:G139 NIL))
+        (SPROG ((#1=#:G141 NIL) (|i| NIL) (#2=#:G140 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL)
@@ -19,8 +19,8 @@
         ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|element| (|Integer|))
-          (|gens| (|List| (|List| (|List| (|Integer|))))) (#1=#:G149 NIL)
-          (|i| NIL) (#2=#:G148 NIL) (#3=#:G147 NIL) (|n| NIL))
+          (|gens| (|List| (|List| (|List| (|Integer|))))) (#1=#:G152 NIL)
+          (|i| NIL) (#2=#:G151 NIL) (#3=#:G150 NIL) (|n| NIL))
          (SEQ (LETT |gens| NIL) (LETT |element| 1)
               (SEQ (LETT |n| NIL) (LETT #3# |l|) G190
                    (COND
@@ -583,8 +583,8 @@
          ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|element| (|Integer|))
-          (|gens| (|List| (|List| (|List| (|Integer|))))) (#1=#:G185 NIL)
-          (|i| NIL) (#2=#:G184 NIL) (#3=#:G183 NIL) (|n| NIL))
+          (|gens| (|List| (|List| (|List| (|Integer|))))) (#1=#:G190 NIL)
+          (|i| NIL) (#2=#:G189 NIL) (#3=#:G188 NIL) (|n| NIL))
          (SEQ (LETT |gens| NIL) (LETT |element| 1)
               (SEQ (LETT |n| NIL) (LETT #3# |l|) G190
                    (COND
@@ -620,7 +620,7 @@
         ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
          ((|gens| (|List| (|List| (|List| #1=(|Integer|)))))
-          (|tmp| (|List| #1#)) (#2=#:G194 NIL) (|i| NIL) (#3=#:G193 NIL))
+          (|tmp| (|List| #1#)) (#2=#:G200 NIL) (|i| NIL) (#3=#:G199 NIL))
          (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
               (EXIT
                (COND
@@ -709,8 +709,8 @@
 (SDEFUN |PGE;dihedralGroup;LPg;25|
         ((|l| (|List| (|Integer|))) ($ (|PermutationGroup| (|Integer|))))
         (SPROG
-         ((|tmp| (|List| (|List| (|Integer|)))) (#1=#:G208 NIL) (|i| NIL)
-          (#2=#:G207 NIL))
+         ((|tmp| (|List| (|List| (|Integer|)))) (#1=#:G215 NIL) (|i| NIL)
+          (#2=#:G214 NIL))
          (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 24)))
               (EXIT
                (COND
@@ -749,7 +749,7 @@
 
 (DEFUN |PermutationGroupExamples| ()
   (SPROG NIL
-         (PROG (#1=#:G211)
+         (PROG (#1=#:G218)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|PermutationGroupExamples|))

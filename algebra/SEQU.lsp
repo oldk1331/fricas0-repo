@@ -16,7 +16,7 @@
 
 (SDEFUN |SEQU;apply;$PR;5| ((|mm| ($)) (|pi| (|Partition|)) ($ (R)))
         (SPROG
-         ((#1=#:G133 NIL) (|k| NIL) (#2=#:G132 NIL)
+         ((#1=#:G138 NIL) (|k| NIL) (#2=#:G137 NIL)
           (|pil| (|List| (|Integer|))))
          (SEQ (LETT |pil| (SPADCALL |pi| (QREFELT $ 18)))
               (EXIT
@@ -109,9 +109,9 @@
 
 (DECLAIM (NOTINLINE |Sequence;|)) 
 
-(DEFUN |Sequence| (#1=#:G164)
+(DEFUN |Sequence| (#1=#:G169)
   (SPROG NIL
-         (PROG (#2=#:G165)
+         (PROG (#2=#:G170)
            (RETURN
             (COND
              ((LETT #2#
@@ -126,7 +126,7 @@
 
 (DEFUN |Sequence;| (|#1|)
   (SPROG
-   ((#1=#:G161 NIL) (#2=#:G163 NIL) (#3=#:G162 NIL) (|pv$| NIL) (#4=#:G160 NIL)
+   ((#1=#:G166 NIL) (#2=#:G168 NIL) (#3=#:G167 NIL) (|pv$| NIL) (#4=#:G165 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

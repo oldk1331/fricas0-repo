@@ -17,24 +17,24 @@
                            (|:| |coeffs| (|Vector| F)))))
            (|:| |basis| (|List| (|Vector| F))))))
         (SPROG
-         ((#1=#:G173 NIL) (|bvec| NIL) (#2=#:G172 NIL) (#3=#:G170 NIL)
-          (|np| NIL) (#4=#:G171 NIL) (|bv| NIL) (#5=#:G169 NIL)
+         ((#1=#:G186 NIL) (|bvec| NIL) (#2=#:G185 NIL) (#3=#:G183 NIL)
+          (|np| NIL) (#4=#:G184 NIL) (|bv| NIL) (#5=#:G182 NIL)
           (|base_vecs| (|List| (|Vector| F))) (|cb| (|List| (|Vector| F)))
           (|pl| (|List| (|Vector| F))) (|k| #6=(|NonNegativeInteger|))
-          (#7=#:G168 NIL) (|l| NIL) (|g1| #8=(|Vector| F)) (#9=#:G165 NIL)
-          (|be| NIL) (#10=#:G166 NIL) (#11=#:G167 NIL) (|npl| (|List| #8#))
-          (#12=#:G164 NIL) (#13=#:G163 NIL) (#14=#:G162 NIL)
-          (|base_vec| (|Vector| F)) (#15=#:G161 NIL) (|s| NIL)
-          (|nn| (|NonNegativeInteger|)) (|ncb| (|List| #8#)) (#16=#:G160 NIL)
-          (#17=#:G159 NIL)
+          (#7=#:G181 NIL) (|l| NIL) (|g1| #8=(|Vector| F)) (#9=#:G178 NIL)
+          (|be| NIL) (#10=#:G179 NIL) (#11=#:G180 NIL) (|npl| (|List| #8#))
+          (#12=#:G177 NIL) (#13=#:G176 NIL) (#14=#:G175 NIL)
+          (|base_vec| (|Vector| F)) (#15=#:G174 NIL) (|s| NIL)
+          (|nn| (|NonNegativeInteger|)) (|ncb| (|List| #8#)) (#16=#:G173 NIL)
+          (#17=#:G172 NIL)
           (|np1|
            #18=(|List|
                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
           (|u| (|Record| (|:| |particular| #18#) (|:| |basis| (|List| F))))
-          (|crh| (|List| F)) (#19=#:G158 NIL) (#20=#:G157 NIL) (#21=#:G156 NIL)
-          (|e| NIL) (#22=#:G154 NIL) (|i| #6#) (#23=#:G155 NIL)
-          (#24=#:G153 NIL) (|v| NIL) (#25=#:G152 NIL) (#26=#:G151 NIL)
-          (#27=#:G150 NIL) (|n| (|NonNegativeInteger|)) (|mA| #28=(|Matrix| F))
+          (|crh| (|List| F)) (#19=#:G171 NIL) (#20=#:G170 NIL) (#21=#:G169 NIL)
+          (|e| NIL) (#22=#:G167 NIL) (|i| #6#) (#23=#:G168 NIL)
+          (#24=#:G166 NIL) (|v| NIL) (#25=#:G165 NIL) (#26=#:G164 NIL)
+          (#27=#:G163 NIL) (|n| (|NonNegativeInteger|)) (|mA| #28=(|Matrix| F))
           (|nv| (|NonNegativeInteger|))
           (|rec|
            (|Record| (|:| A #28#)
@@ -279,7 +279,7 @@
                      (|:| |basis| (|Matrix| F)))
            "failed")))
         (SPROG
-         ((|bm| (|Matrix| F)) (#1=#:G207 NIL) (|bv| NIL) (#2=#:G206 NIL)
+         ((|bm| (|Matrix| F)) (#1=#:G221 NIL) (|bv| NIL) (#2=#:G220 NIL)
           (|s1| (|Vector| F)) (|c1inv| (F))
           (|part1|
            (|Record| (|:| |ratpart| (|Vector| F)) (|:| |coeffs| (|Vector| F))))
@@ -354,14 +354,14 @@
            (|List|
             (|Record| (|:| C (|Matrix| F)) (|:| |lg| (|List| (|Vector| F)))
                       (|:| |eq| LO) (|:| |lrh| (|List| F)))))
-          (|lh| (|List| F)) (|h0| (F)) (#1=#:G229 NIL) (|j| NIL)
-          (#2=#:G228 NIL) (|sum| (|Vector| F)) (#3=#:G227 NIL) (|g| NIL)
-          (|op| (LO)) (#4=#:G226 NIL) (|n| (|NonNegativeInteger|))
-          (#5=#:G225 NIL) (|er| NIL)
+          (|lh| (|List| F)) (|h0| (F)) (#1=#:G249 NIL) (|j| NIL)
+          (#2=#:G248 NIL) (|sum| (|Vector| F)) (#3=#:G247 NIL) (|g| NIL)
+          (|op| (LO)) (#4=#:G246 NIL) (|n| (|NonNegativeInteger|))
+          (#5=#:G245 NIL) (|er| NIL)
           (|l|
            (|List|
             (|Record| (|:| C (|Matrix| F)) (|:| |lg| (|List| (|Vector| F))))))
-          (#6=#:G224 NIL) (|v| NIL) (#7=#:G223 NIL)
+          (#6=#:G244 NIL) (|v| NIL) (#7=#:G243 NIL)
           (|rat|
            (|Record| (|:| R (|Matrix| F)) (|:| A (|Matrix| F))
                      (|:| |Ainv| (|Matrix| F)))))
@@ -499,7 +499,7 @@
            (|List|
             (|Record| (|:| C (|Matrix| F)) (|:| |g| (|Vector| F)) (|:| |eq| LO)
                       (|:| |rh| F))))
-          (#1=#:G241 NIL) (|er2| NIL)
+          (#1=#:G262 NIL) (|er2| NIL)
           (|res1|
            (|Record| (|:| A (|Matrix| F))
                      (|:| |eqs|
@@ -552,8 +552,8 @@
                              (|:| |coeffs| (|Vector| F)))))
              (|:| |basis| (|List| (|Vector| F))))
             "failed"))
-          (#1=#:G258 NIL) (|u| (|Union| (|Matrix| F) "failed")) (#2=#:G259 NIL)
-          (#3=#:G261 NIL) (|i| NIL) (#4=#:G260 NIL)
+          (#1=#:G280 NIL) (|u| (|Union| (|Matrix| F) "failed")) (#2=#:G281 NIL)
+          (#3=#:G283 NIL) (|i| NIL) (#4=#:G282 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -583,7 +583,7 @@
                  ((QEQCAR |u| 0)
                   (PROGN
                    (LETT #1# (SPADCALL (QCDR |u|) |lv| |solf| (QREFELT $ 35)))
-                   (GO #5=#:G256))))))))
+                   (GO #5=#:G278))))))))
             (LETT |rec|
                   (SPADCALL |m| (|spadConstant| $ 15) |lv| |solf|
                             (QREFELT $ 75)))
@@ -596,8 +596,8 @@
 
 (SDEFUN |ODESYS;M2F| ((|m| (|Matrix| LO)) ($ (|Union| (|Matrix| F) "failed")))
         (SPROG
-         ((#1=#:G273 NIL) (|u| (|Union| F "failed")) (#2=#:G275 NIL) (|j| NIL)
-          (#3=#:G274 NIL) (|i| NIL) (|mf| (|Matrix| F)))
+         ((#1=#:G297 NIL) (|u| (|Union| F "failed")) (#2=#:G299 NIL) (|j| NIL)
+          (#3=#:G298 NIL) (|i| NIL) (|mf| (|Matrix| F)))
          (SEQ
           (EXIT
            (SEQ
@@ -621,7 +621,7 @@
                            ((QEQCAR |u| 1)
                             (PROGN
                              (LETT #1# (CONS 1 "failed"))
-                             (GO #4=#:G272)))
+                             (GO #4=#:G296)))
                            ('T
                             (SPADCALL |mf| |i| |j| (QCDR |u|)
                                       (QREFELT $ 82))))))
@@ -649,9 +649,9 @@
 
 (DECLAIM (NOTINLINE |SystemODESolver;|)) 
 
-(DEFUN |SystemODESolver| (&REST #1=#:G289)
+(DEFUN |SystemODESolver| (&REST #1=#:G313)
   (SPROG NIL
-         (PROG (#2=#:G290)
+         (PROG (#2=#:G314)
            (RETURN
             (COND
              ((LETT #2#

@@ -7,7 +7,7 @@
 
 (SDEFUN |JBX;retractIfCan;JbeU;2|
         ((|p| (|JetBundleExpression| JB)) ($ (|Union| $ "failed")))
-        (SPROG ((#1=#:G136 NIL) (|jv| NIL) (#2=#:G135 NIL))
+        (SPROG ((#1=#:G138 NIL) (|jv| NIL) (#2=#:G137 NIL))
                (SEQ
                 (COND
                  ((SPADCALL (ELT $ 16)
@@ -44,9 +44,9 @@
 
 (DECLAIM (NOTINLINE |JetBundleXExpression;|)) 
 
-(DEFUN |JetBundleXExpression| (#1=#:G202)
+(DEFUN |JetBundleXExpression| (#1=#:G204)
   (SPROG NIL
-         (PROG (#2=#:G203)
+         (PROG (#2=#:G205)
            (RETURN
             (COND
              ((LETT #2#
@@ -63,7 +63,7 @@
                   (HREM |$ConstructorCache| '|JetBundleXExpression|)))))))))) 
 
 (DEFUN |JetBundleXExpression;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G201 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G203 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|JetBundleXExpression| DV$1))

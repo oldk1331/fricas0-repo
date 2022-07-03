@@ -35,7 +35,7 @@
 (SDEFUN |REGSET;roughUnitIdeal?;$B;11| ((|ts| ($)) ($ (|Boolean|))) NIL) 
 
 (SDEFUN |REGSET;coerce;$Of;12| ((|ts| ($)) ($ (|OutputForm|)))
-        (SPROG ((#1=#:G179 NIL) (|p| NIL) (#2=#:G178 NIL) (|lp| (|List| P)))
+        (SPROG ((#1=#:G180 NIL) (|p| NIL) (#2=#:G179 NIL) (|lp| (|List| P)))
                (SEQ (LETT |lp| (REVERSE (|REGSET;rep| |ts| $)))
                     (EXIT
                      (SPADCALL
@@ -161,7 +161,7 @@
 
 (SDEFUN |REGSET;removeZero;P$P;22| ((|p| (P)) (|ts| ($)) ($ (P)))
         (SPROG
-         ((|q| (P)) (#1=#:G249 NIL) (#2=#:G239 NIL) (|ts_v-| ($)) (|v| (V)))
+         ((|q| (P)) (#1=#:G254 NIL) (#2=#:G243 NIL) (|ts_v-| ($)) (|v| (V)))
          (SEQ
           (EXIT
            (COND
@@ -189,7 +189,7 @@
                      (EXIT
                       (COND
                        ((SPADCALL |q| (QREFELT $ 57))
-                        (PROGN (LETT #1# |q|) (GO #3=#:G248)))
+                        (PROGN (LETT #1# |q|) (GO #3=#:G253)))
                        ((SPADCALL (SPADCALL |q| |ts_v-| (QREFELT $ 58))
                                   (QREFELT $ 57))
                         (PROGN (LETT #1# (|spadConstant| $ 59)) (GO #3#))))))))
@@ -243,8 +243,8 @@
          (|prim?| (|Boolean|)) (|sqfr?| (|Boolean|)) (|extend?| (|Boolean|))
          ($ (|List| $)))
         (SPROG
-         ((#1=#:G263 NIL) (|us| NIL) (#2=#:G262 NIL) (|lts| (|List| $))
-          (#3=#:G261 NIL) (|f| NIL) (#4=#:G260 NIL) (|lsfp| (|List| P))
+         ((#1=#:G270 NIL) (|us| NIL) (#2=#:G269 NIL) (|lts| (|List| $))
+          (#3=#:G268 NIL) (|f| NIL) (#4=#:G267 NIL) (|lsfp| (|List| P))
           (|ts_v+| ($)) (|ts_v-| ($)) (|v| (V)))
          (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 32)))
               (LETT |ts_v-| (SPADCALL |ts| |v| (QREFELT $ 44)))
@@ -315,7 +315,7 @@
 
 (SDEFUN |REGSET;extend;P$L;27| ((|p| (P)) (|ts| ($)) ($ (|List| $)))
         (SPROG
-         ((|lts| (|List| $)) (#1=#:G272 NIL) (|us| NIL) (|split| (|List| $))
+         ((|lts| (|List| $)) (#1=#:G280 NIL) (|us| NIL) (|split| (|List| $))
           (|v| (V)))
          (SEQ
           (COND
@@ -446,7 +446,7 @@
         ((|lp| (|List| P)) (|clos?| (|Boolean|)) (|info?| (|Boolean|))
          (|prep?| (|Boolean|)) ($ (|List| $)))
         (SPROG
-         ((|lts| #1=(|List| $)) (#2=#:G310 NIL) (|p| NIL) (|ts| ($))
+         ((|lts| #1=(|List| $)) (#2=#:G319 NIL) (|p| NIL) (|ts| ($))
           (|pp| (|Record| (|:| |val| (|List| P)) (|:| |towers| #1#))))
          (SEQ
           (COND
@@ -514,11 +514,11 @@
         ((|lp| (|List| P)) (|clos?| (|Boolean|)) (|info?| (|Boolean|))
          ($ (|Record| (|:| |val| (|List| P)) (|:| |towers| (|List| $)))))
         (SPROG
-         ((#1=#:G363 NIL) (|lp2| (|List| P)) (|lts| (|List| $)) (#2=#:G376 NIL)
-          (|p| NIL) (|lp3| (|List| P)) (#3=#:G375 NIL) (|lp4| (|List| P))
-          (#4=#:G374 NIL) (#5=#:G373 NIL) (#6=#:G372 NIL) (#7=#:G371 NIL)
-          (#8=#:G370 NIL) (#9=#:G369 NIL) (#10=#:G368 NIL) (#11=#:G367 NIL)
-          (#12=#:G366 NIL) (#13=#:G365 NIL) (|lp1| (|List| P)) (#14=#:G364 NIL)
+         ((#1=#:G381 NIL) (|lp2| (|List| P)) (|lts| (|List| $)) (#2=#:G394 NIL)
+          (|p| NIL) (|lp3| (|List| P)) (#3=#:G393 NIL) (|lp4| (|List| P))
+          (#4=#:G392 NIL) (#5=#:G391 NIL) (#6=#:G390 NIL) (#7=#:G389 NIL)
+          (#8=#:G388 NIL) (#9=#:G387 NIL) (#10=#:G386 NIL) (#11=#:G385 NIL)
+          (#12=#:G384 NIL) (#13=#:G383 NIL) (|lp1| (|List| P)) (#14=#:G382 NIL)
           (|ts| ($)))
          (SEQ
           (EXIT
@@ -552,7 +552,7 @@
                                  ((|REGSET;largeSystem?| |lp| $)
                                   (PROGN
                                    (LETT #1# (CONS |lp2| |lts|))
-                                   (GO #16=#:G362)))
+                                   (GO #16=#:G380)))
                                  (#15#
                                   (SEQ
                                    (COND
@@ -801,9 +801,9 @@
 
 (DECLAIM (NOTINLINE |RegularTriangularSet;|)) 
 
-(DEFUN |RegularTriangularSet| (&REST #1=#:G395)
+(DEFUN |RegularTriangularSet| (&REST #1=#:G413)
   (SPROG NIL
-         (PROG (#2=#:G396)
+         (PROG (#2=#:G414)
            (RETURN
             (COND
              ((LETT #2#
@@ -822,7 +822,7 @@
 
 (DEFUN |RegularTriangularSet;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G394 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((#1=#:G412 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

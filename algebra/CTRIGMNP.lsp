@@ -33,7 +33,7 @@
          (#1# NIL))) 
 
 (SDEFUN |CTRIGMNP;localexplogs| ((|f| (F)) (|g| (F)) ($ (F)))
-        (SPROG ((#1=#:G143 NIL) (|k| NIL) (#2=#:G142 NIL))
+        (SPROG ((#1=#:G144 NIL) (|k| NIL) (#2=#:G143 NIL))
                (SEQ
                 (SPADCALL |g|
                           (PROGN
@@ -75,7 +75,7 @@
 
 (SDEFUN |CTRIGMNP;complexElementary;FSF;10|
         ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
-        (SPROG ((#1=#:G152 NIL) (|g| (F)) (|k| NIL) (#2=#:G151 NIL))
+        (SPROG ((#1=#:G154 NIL) (|g| (F)) (|k| NIL) (#2=#:G153 NIL))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -115,7 +115,7 @@
             (SPADCALL (SPADCALL |y| (QREFELT $ 56)) RTRIG (QREFELT $ 48)))))) 
 
 (SDEFUN |CTRIGMNP;complexNormalize;FSF;11| ((|f| (F)) (|x| (|Symbol|)) ($ (F)))
-        (SPROG ((#1=#:G159 NIL) (|g| (F)) (|k| NIL) (#2=#:G158 NIL))
+        (SPROG ((#1=#:G162 NIL) (|g| (F)) (|k| NIL) (#2=#:G161 NIL))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -181,9 +181,9 @@
 
 (DECLAIM (NOTINLINE |ComplexTrigonometricManipulations;|)) 
 
-(DEFUN |ComplexTrigonometricManipulations| (&REST #1=#:G165)
+(DEFUN |ComplexTrigonometricManipulations| (&REST #1=#:G168)
   (SPROG NIL
-         (PROG (#2=#:G166)
+         (PROG (#2=#:G169)
            (RETURN
             (COND
              ((LETT #2#

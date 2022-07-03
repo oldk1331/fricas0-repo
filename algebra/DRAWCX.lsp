@@ -44,14 +44,14 @@
          (|imagRange| (|Segment| (|DoubleFloat|))) (|arrows?| (|Boolean|))
          ($ (|ThreeDimensionalViewport|)))
         (SPROG
-         ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G151 NIL) (|a| NIL)
+         ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G158 NIL) (|a| NIL)
           (|arrow| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|p2| #4=(|Point| (|DoubleFloat|))) (|len| (|DoubleFloat|))
-          (|p1| #4#) (|arg| (|DoubleFloat|)) (#5=#:G150 NIL) (|j| NIL)
-          (#6=#:G149 NIL) (|i| NIL) (|space| (|ThreeSpace| (|DoubleFloat|)))
+          (|p1| #4#) (|arg| (|DoubleFloat|)) (#5=#:G157 NIL) (|j| NIL)
+          (#6=#:G156 NIL) (|i| NIL) (|space| (|ThreeSpace| (|DoubleFloat|)))
           (|llp| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|lp| (|List| (|Point| (|DoubleFloat|)))) (|p| #4#) (#7=#:G148 NIL)
-          (#8=#:G147 NIL) (|z| #1#) (#9=#:G146 NIL) (#10=#:G145 NIL)
+          (|lp| (|List| (|Point| (|DoubleFloat|)))) (|p| #4#) (#7=#:G155 NIL)
+          (#8=#:G154 NIL) (|z| #1#) (#9=#:G153 NIL) (#10=#:G152 NIL)
           (|funTable|
            (|TwoDimensionalArray|
             (|Record| (|:| |rr| (|DoubleFloat|)) (|:| |th| (|DoubleFloat|)))))
@@ -194,11 +194,11 @@
          (|imagRange| (|Segment| (|DoubleFloat|)))
          ($ (|ThreeDimensionalViewport|)))
         (SPROG
-         ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G161 NIL) (|a| NIL)
+         ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G171 NIL) (|a| NIL)
           (|arrow| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|p2| #4=(|Point| (|DoubleFloat|))) (|scaleLen| (|DoubleFloat|))
           (|p1| #4#) (|len| (|DoubleFloat|)) (|arg| (|DoubleFloat|)) (|z| #1#)
-          (#5=#:G160 NIL) (|j| NIL) (#6=#:G159 NIL) (|i| NIL)
+          (#5=#:G170 NIL) (|j| NIL) (#6=#:G169 NIL) (|i| NIL)
           (|space| (|ThreeSpace| (|DoubleFloat|)))
           (|delImag| #7=(|DoubleFloat|)) (|delReal| #7#))
          (SEQ
@@ -274,7 +274,7 @@
 
 (DEFUN |DrawComplex| ()
   (SPROG NIL
-         (PROG (#1=#:G166)
+         (PROG (#1=#:G176)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DrawComplex|))

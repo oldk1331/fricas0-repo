@@ -1,13 +1,13 @@
 
 (SDEFUN |MPRFF;factor;PRFF;1| ((|p| (PRF)) ($ (|Factored| PRF)))
         (SPROG
-         ((#1=#:G130 NIL) (#2=#:G129 #3=(|Factored| PRF)) (#4=#:G131 #3#)
-          (#5=#:G139 NIL) (|ff| NIL)
+         ((#1=#:G133 NIL) (#2=#:G132 #3=(|Factored| PRF)) (#4=#:G134 #3#)
+          (#5=#:G142 NIL) (|ff| NIL)
           (|ffact|
            (|List|
             (|Record| (|:| |irr| PRF) (|:| |pow| (|NonNegativeInteger|)))))
-          (#6=#:G138 NIL) (#7=#:G137 NIL) (|fcont| (PRF)) (#8=#:G136 NIL)
-          (|x| NIL) (#9=#:G135 NIL) (|u| NIL) (#10=#:G134 NIL)
+          (#6=#:G141 NIL) (#7=#:G140 NIL) (|fcont| (PRF)) (#8=#:G139 NIL)
+          (|x| NIL) (#9=#:G138 NIL) (|u| NIL) (#10=#:G137 NIL)
           (|flist| (|Factored| (|Polynomial| R)))
           (|denp| (|Fraction| (|Polynomial| R))) (|nump| #11=(|Polynomial| R))
           (|tp| (|Record| (|:| |sup| #11#) (|:| |inf| (|Polynomial| R))))
@@ -144,7 +144,7 @@
 
 (SDEFUN |MPRFF;pushup;PRFOVPRF;4| ((|f| (PRF)) (|x| (OV)) ($ (PRF)))
         (SPROG
-         ((|g| (|SparseUnivariatePolynomial| PRF)) (|v| (OV)) (#1=#:G148 NIL))
+         ((|g| (|SparseUnivariatePolynomial| PRF)) (|v| (OV)) (#1=#:G152 NIL))
          (SEQ
           (COND
            ((SPADCALL |f| (QREFELT $ 41))
@@ -212,7 +212,7 @@
          ($
           (|Record| (|:| |sup| (|Polynomial| R))
                     (|:| |inf| (|Polynomial| R)))))
-        (SPROG ((|g| (|Fraction| (|Polynomial| R))) (#1=#:G166 NIL) (|x| NIL))
+        (SPROG ((|g| (|Fraction| (|Polynomial| R))) (#1=#:G171 NIL) (|x| NIL))
                (SEQ
                 (COND
                  ((SPADCALL |p| (|spadConstant| $ 42) (QREFELT $ 81))
@@ -234,9 +234,9 @@
 
 (DECLAIM (NOTINLINE |MPolyCatRationalFunctionFactorizer;|)) 
 
-(DEFUN |MPolyCatRationalFunctionFactorizer| (&REST #1=#:G167)
+(DEFUN |MPolyCatRationalFunctionFactorizer| (&REST #1=#:G172)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G173)
            (RETURN
             (COND
              ((LETT #2#

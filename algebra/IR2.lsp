@@ -21,8 +21,8 @@
         ((|func| (|Mapping| F E)) (|ir| (|IntegrationResult| E))
          ($ (|IntegrationResult| F)))
         (SPROG
-         ((#1=#:G151 NIL) (|g| NIL) (#2=#:G150 NIL) (#3=#:G149 NIL) (|f| NIL)
-          (#4=#:G148 NIL))
+         ((#1=#:G153 NIL) (|g| NIL) (#2=#:G152 NIL) (#3=#:G151 NIL) (|f| NIL)
+          (#4=#:G150 NIL))
          (SEQ
           (SPADCALL (SPADCALL (SPADCALL |ir| (QREFELT $ 13)) |func|)
                     (PROGN
@@ -77,7 +77,7 @@
                           (|List|
                            (|Record| (|:| |coeff| F) (|:| |logand| F)))))
            "failed")))
-        (SPROG ((#1=#:G193 NIL) (|f| NIL) (#2=#:G192 NIL))
+        (SPROG ((#1=#:G196 NIL) (|f| NIL) (#2=#:G195 NIL))
                (SEQ
                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                       ('T
@@ -117,9 +117,9 @@
 
 (DECLAIM (NOTINLINE |IntegrationResultFunctions2;|)) 
 
-(DEFUN |IntegrationResultFunctions2| (&REST #1=#:G199)
+(DEFUN |IntegrationResultFunctions2| (&REST #1=#:G202)
   (SPROG NIL
-         (PROG (#2=#:G200)
+         (PROG (#2=#:G203)
            (RETURN
             (COND
              ((LETT #2#

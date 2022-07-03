@@ -40,7 +40,7 @@
         (SETELT_I8 |x| |i| |s|)) 
 
 (SDEFUN |I8VEC;fill!;$I$;9| ((|x| ($)) (|s| (|Integer|)) ($ ($)))
-        (SPROG ((#1=#:G2628 NIL) (|i| NIL))
+        (SPROG ((#1=#:G2728 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (QV_LEN_I8 |x|) 1)) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -52,7 +52,7 @@
 
 (DEFUN |I8Vector| ()
   (SPROG NIL
-         (PROG (#1=#:G2640)
+         (PROG (#1=#:G2740)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|I8Vector|))
@@ -68,7 +68,7 @@
 
 (DEFUN |I8Vector;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2638 NIL) (#2=#:G2637 NIL) (#3=#:G2636 NIL)
+   ((|dv$| NIL) ($ NIL) (#1=#:G2738 NIL) (#2=#:G2737 NIL) (#3=#:G2736 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|I8Vector|))

@@ -32,7 +32,7 @@
 (SDEFUN |UTSODETL;UTS2UP;UTSNniUP;2|
         ((|s| (UTS)) (|n| (|NonNegativeInteger|)) ($ (UP)))
         (SPROG
-         ((|xmcn| (UP)) (|ans| (UP)) (#1=#:G129 NIL) (|i| NIL) (|xmc| (UP)))
+         ((|xmcn| (UP)) (|ans| (UP)) (#1=#:G130 NIL) (|i| NIL) (|xmc| (UP)))
          (SEQ
           (LETT |xmc|
                 (SPADCALL (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 13))
@@ -56,9 +56,9 @@
 
 (SDEFUN |UTSODETL;LODO2FUN;LM;3| ((|op| (L)) ($ (|Mapping| UTS (|List| UTS))))
         (SPROG
-         ((|v| (|Vector| UTS)) (#1=#:G140 NIL) (#2=#:G142 NIL) (|i| NIL)
-          (#3=#:G141 NIL) (|n| (|NonNegativeInteger|)) (#4=#:G134 NIL)
-          (|a| (UTS)) (#5=#:G132 NIL))
+         ((|v| (|Vector| UTS)) (#1=#:G142 NIL) (#2=#:G144 NIL) (|i| NIL)
+          (#3=#:G143 NIL) (|n| (|NonNegativeInteger|)) (#4=#:G135 NIL)
+          (|a| (UTS)) (#5=#:G133 NIL))
          (SEQ
           (LETT |a|
                 (PROG2
@@ -105,7 +105,7 @@
           (RETURN (PROGN (|UTSODETL;fun| |v| |l1| $))))) 
 
 (SDEFUN |UTSODETL;fun| ((|v| (|Vector| UTS)) (|l| (|List| UTS)) ($ (UTS)))
-        (SPROG ((|ans| (UTS)) (#1=#:G146 NIL) (|b| NIL) (|i| NIL))
+        (SPROG ((|ans| (UTS)) (#1=#:G149 NIL) (|b| NIL) (|i| NIL))
                (SEQ (LETT |ans| (|spadConstant| $ 16))
                     (SEQ (LETT |i| 1) (LETT |b| NIL) (LETT #1# |l|) G190
                          (COND
@@ -124,7 +124,7 @@
                     (EXIT |ans|)))) 
 
 (SDEFUN |UTSODETL;RF2UTS;FUTS;5| ((|f| (|Fraction| UP)) ($ (UTS)))
-        (SPROG ((#1=#:G148 NIL))
+        (SPROG ((#1=#:G151 NIL))
                (SPADCALL
                 (SPADCALL (SPADCALL |f| (QREFELT $ 49)) (QREFELT $ 25))
                 (PROG2
@@ -140,9 +140,9 @@
 
 (DECLAIM (NOTINLINE |UTSodetools;|)) 
 
-(DEFUN |UTSodetools| (&REST #1=#:G151)
+(DEFUN |UTSodetools| (&REST #1=#:G154)
   (SPROG NIL
-         (PROG (#2=#:G152)
+         (PROG (#2=#:G155)
            (RETURN
             (COND
              ((LETT #2#

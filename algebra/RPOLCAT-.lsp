@@ -291,7 +291,7 @@
 
 (SDEFUN |RPOLCAT-;mainMonomials;SL;18| ((|p| (S)) ($ (|List| S)))
         (SPROG
-         ((#1=#:G348 NIL) (|m| NIL) (#2=#:G347 NIL)
+         ((#1=#:G349 NIL) (|m| NIL) (#2=#:G348 NIL)
           (|lm| (|List| (|SparseUnivariatePolynomial| S))) (|v| (V))
           (#3=#:G340 NIL))
          (SEQ
@@ -429,7 +429,7 @@
 
 (SDEFUN |RPOLCAT-;lazyPrem;2SVS;28| ((|a| (S)) (|b| (S)) (|v| (V)) ($ (S)))
         (SPROG
-         ((|test| (|Integer|)) (|term| (S)) (#1=#:G390 NIL) (|lcav| (S))
+         ((|test| (|Integer|)) (|term| (S)) (#1=#:G392 NIL) (|lcav| (S))
           (|lcbv| (S)) (|dav| #2=(|NonNegativeInteger|)) (|dbv| #2#))
          (SEQ
           (COND
@@ -630,8 +630,8 @@
           (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
                     (|:| |remainder| S))))
         (SPROG
-         ((#1=#:G439 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
-          (|term| (S)) (#2=#:G435 NIL) (#3=#:G429 NIL)
+         ((#1=#:G445 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
+          (|term| (S)) (#2=#:G441 NIL) (#3=#:G434 NIL)
           (|db| (|NonNegativeInteger|)) (|lcb| (S)) (|xb| (V)) (|xa| (V)))
          (SEQ
           (COND
@@ -733,8 +733,8 @@
           (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
                     (|:| |remainder| S))))
         (SPROG
-         ((#1=#:G453 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
-          (|term| (S)) (#2=#:G449 NIL) (|lcav| (S)) (|lcbv| (S))
+         ((#1=#:G460 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
+          (|term| (S)) (#2=#:G456 NIL) (|lcav| (S)) (|lcbv| (S))
           (|dav| #3=(|NonNegativeInteger|)) (|dbv| #3#))
          (SEQ
           (COND
@@ -827,8 +827,8 @@
           (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
                     (|:| |quotient| S) (|:| |remainder| S))))
         (SPROG
-         ((#1=#:G479 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| (S))
-          (|term| (S)) (#2=#:G475 NIL) (#3=#:G469 NIL)
+         ((#1=#:G488 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| (S))
+          (|term| (S)) (#2=#:G484 NIL) (#3=#:G477 NIL)
           (|db| (|NonNegativeInteger|)) (|lcb| (S)) (|xb| (V)) (|xa| (V)))
          (SEQ
           (COND
@@ -941,8 +941,8 @@
           (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
                     (|:| |quotient| S) (|:| |remainder| S))))
         (SPROG
-         ((#1=#:G493 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| (S))
-          (|term| (S)) (#2=#:G489 NIL) (|lcav| (S)) (|lcbv| (S))
+         ((#1=#:G503 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| (S))
+          (|term| (S)) (#2=#:G499 NIL) (|lcav| (S)) (|lcbv| (S))
           (|dav| #3=(|NonNegativeInteger|)) (|dbv| #3#))
          (SEQ
           (COND
@@ -1055,7 +1055,7 @@
                     (|:| |power| (|NonNegativeInteger|)))))
         (SPROG
          ((|test| (|Integer|)) (|pow| (|NonNegativeInteger|)) (|term| (S))
-          (#1=#:G519 NIL) (#2=#:G513 NIL) (|db| (|NonNegativeInteger|))
+          (#1=#:G531 NIL) (#2=#:G524 NIL) (|db| (|NonNegativeInteger|))
           (|lcb| (S)) (|xb| (V)) (|xa| (V)))
          (SEQ
           (COND
@@ -1241,7 +1241,7 @@
         (SPADCALL |r| |s| (QREFELT $ 124))) 
 
 (SDEFUN |RPOLCAT-;iexactQuo;3R;48| ((|r| (R)) (|s| (R)) ($ (R)))
-        (SPROG ((#1=#:G558 NIL))
+        (SPROG ((#1=#:G573 NIL))
                (PROG2 (LETT #1# (SPADCALL |r| |s| (QREFELT $ 126)))
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
@@ -1251,14 +1251,14 @@
         (SPADCALL |r| |s| (QREFELT $ 127))) 
 
 (SDEFUN |RPOLCAT-;exactQuotient;SRS;50| ((|p| (S)) (|r| (R)) ($ (S)))
-        (SPROG ((#1=#:G563 NIL))
+        (SPROG ((#1=#:G578 NIL))
                (PROG2 (LETT #1# (SPADCALL |p| |r| (QREFELT $ 128)))
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
                                  (|Union| (QREFELT $ 6) "failed") #1#)))) 
 
 (SDEFUN |RPOLCAT-;exactQuotient;3S;51| ((|a| (S)) (|b| (S)) ($ (S)))
-        (SPROG ((#1=#:G567 NIL))
+        (SPROG ((#1=#:G582 NIL))
                (COND
                 ((SPADCALL |b| (QREFELT $ 11))
                  (SPADCALL |a| (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 130)))
@@ -1269,7 +1269,7 @@
                                    (|Union| (QREFELT $ 6) "failed") #1#)))))) 
 
 (SDEFUN |RPOLCAT-;exactQuotient!;3S;52| ((|a| (S)) (|b| (S)) ($ (S)))
-        (SPROG ((#1=#:G572 NIL))
+        (SPROG ((#1=#:G587 NIL))
                (COND
                 ((SPADCALL |b| (QREFELT $ 11))
                  (SPADCALL |a| (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 133)))
@@ -1332,7 +1332,7 @@
 
 (SDEFUN |RPOLCAT-;mainContent;2S;61| ((|p| (S)) ($ (S)))
         (SPROG
-         ((#1=#:G590 NIL) (#2=#:G589 (S)) (#3=#:G591 (S)) (#4=#:G594 NIL)
+         ((#1=#:G605 NIL) (#2=#:G604 (S)) (#3=#:G606 (S)) (#4=#:G609 NIL)
           (#5=#:G119 NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 20)) |p|)
@@ -1355,7 +1355,7 @@
                   (COND (#1# #2#) (#6# (|spadConstant| $ 41))))))))) 
 
 (SDEFUN |RPOLCAT-;mainPrimitivePart;2S;62| ((|p| (S)) ($ (S)))
-        (SPROG ((#1=#:G596 NIL))
+        (SPROG ((#1=#:G611 NIL))
                (COND ((SPADCALL |p| (QREFELT $ 20)) |p|)
                      ('T
                       (QVELT
@@ -1373,7 +1373,7 @@
 
 (SDEFUN |RPOLCAT-;mainSquareFreePart;2S;63| ((|p| (S)) ($ (S)))
         (SPROG
-         ((|sfp| (|SparseUnivariatePolynomial| S)) (|v| (V)) (#1=#:G602 NIL))
+         ((|sfp| (|SparseUnivariatePolynomial| S)) (|v| (V)) (#1=#:G617 NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 11)) |p|)
                 ('T
@@ -1418,8 +1418,8 @@
 (SDEFUN |RPOLCAT-;localRetract| ((|p| (|Polynomial| R)) ($ (S)))
         (SPROG
          ((|newp| (S)) (|xvimvp| (S)) (|c| (S)) (|d| (|NonNegativeInteger|))
-          (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G620 NIL)
-          (|mvp| (|Symbol|)) (#2=#:G618 NIL))
+          (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G636 NIL)
+          (|mvp| (|Symbol|)) (#2=#:G634 NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT $ 172))
@@ -1467,8 +1467,8 @@
         ((|pq| (|Polynomial| (|Fraction| (|Integer|)))) ($ (S)))
         (SPROG
          ((|newp| (S)) (|xvimvp| (S)) (|c| (S)) (|d| (|NonNegativeInteger|))
-          (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G630 NIL)
-          (|mvp| (|Symbol|)) (#2=#:G628 NIL))
+          (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G647 NIL)
+          (|mvp| (|Symbol|)) (#2=#:G645 NIL))
          (SEQ
           (COND
            ((SPADCALL |pq| (QREFELT $ 185))
@@ -1518,8 +1518,8 @@
 (SDEFUN |RPOLCAT-;localRetractPZ| ((|pz| (|Polynomial| (|Integer|))) ($ (S)))
         (SPROG
          ((|newp| (S)) (|xvimvp| (S)) (|c| (S)) (|d| (|NonNegativeInteger|))
-          (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G640 NIL)
-          (|mvp| (|Symbol|)) (#2=#:G638 NIL))
+          (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G658 NIL)
+          (|mvp| (|Symbol|)) (#2=#:G656 NIL))
          (SEQ
           (COND
            ((SPADCALL |pz| (QREFELT $ 195))
@@ -2045,7 +2045,7 @@
 
 (DEFUN |RecursivePolynomialCategory&| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G615 NIL) (#2=#:G900 NIL) (|i| NIL) (#3=#:G899 NIL) (|pv$| NIL)
+   ((#1=#:G631 NIL) (#2=#:G922 NIL) (|i| NIL) (#3=#:G921 NIL) (|pv$| NIL)
     ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN

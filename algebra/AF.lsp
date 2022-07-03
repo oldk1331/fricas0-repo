@@ -136,7 +136,7 @@
         ((|p| (|SparseUnivariatePolynomial| F))
          ($ (|Union| (|SparseUnivariatePolynomial| R) "failed")))
         (SPROG
-         ((|ans| (|SparseUnivariatePolynomial| R)) (#1=#:G229 NIL)
+         ((|ans| (|SparseUnivariatePolynomial| R)) (#1=#:G230 NIL)
           (|r| (|Union| R "failed")))
          (SEQ
           (EXIT
@@ -153,7 +153,7 @@
                       (EXIT
                        (COND
                         ((QEQCAR |r| 1)
-                         (PROGN (LETT #1# (CONS 1 "failed")) (GO #2=#:G228)))
+                         (PROGN (LETT #1# (CONS 1 "failed")) (GO #2=#:G229)))
                         ('T
                          (SEQ
                           (LETT |ans|
@@ -239,7 +239,7 @@
         ((|expr| (F)) (|p| (|SparseUnivariatePolynomial| F)) (|x| (F)) ($ (F)))
         (SPROG
          ((|nexpr| (|SparseUnivariatePolynomial| F)) (|res| (F))
-          (#1=#:G256 NIL) (|i| NIL) (|xs| (|Symbol|)) (|a| (F))
+          (#1=#:G258 NIL) (|i| NIL) (|xs| (|Symbol|)) (|a| (F))
           (|k| (|Kernel| F)))
          (SEQ
           (COND
@@ -441,7 +441,7 @@
 
 (SDEFUN |AF;hackroot| ((|x| (F)) (|n| (|Integer|)) ($ (F)))
         (SPROG
-         ((#1=#:G400 NIL) (|rx| (|Union| (|Integer|) "failed"))
+         ((#1=#:G402 NIL) (|rx| (|Union| (|Integer|) "failed"))
           (|dx| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (SEQ
           (EXIT
@@ -471,7 +471,7 @@
                                    (SPADCALL (QCDR |rx|) (QREFELT $ 119)) |n|
                                    $)
                                   (QREFELT $ 49)))
-                           (GO #2=#:G398))))))))))
+                           (GO #2=#:G400))))))))))
               (COND
                ((SPADCALL |x| (SPADCALL (|spadConstant| $ 55) (QREFELT $ 50))
                           (QREFELT $ 75))
@@ -500,7 +500,7 @@
 
 (SDEFUN |AF;inroot| ((|l| (|List| F)) ($ (F)))
         (SPROG
-         ((|r| (|Union| R "failed")) (#1=#:G408 NIL) (|x| (F))
+         ((|r| (|Union| R "failed")) (#1=#:G410 NIL) (|x| (F))
           (|n| (|Integer|)))
          (SEQ
           (COND
@@ -517,7 +517,7 @@
                      (COND
                       ((OR (SPADCALL |x| (|spadConstant| $ 55) (QREFELT $ 75))
                            (EQL |n| 1))
-                       (PROGN (LETT #1# |x|) (GO #3=#:G405))))))
+                       (PROGN (LETT #1# |x|) (GO #3=#:G407))))))
                (LETT |r| (SPADCALL |x| (QREFELT $ 68)))
                (EXIT
                 (COND
@@ -529,11 +529,11 @@
         ((|x| (F)) (|n| (|Integer|)) (|num?| (|Boolean|)) (|den?| (|Boolean|))
          ($ (F)))
         (SPROG
-         ((#1=#:G410 NIL)
+         ((#1=#:G412 NIL)
           (|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (#2=#:G417 NIL) (#3=#:G415 NIL) (#4=#:G412 NIL)
+          (#2=#:G419 NIL) (#3=#:G417 NIL) (#4=#:G414 NIL)
           (|rd| #5=(|Union| (|Integer|) "failed")) (|rn| #5#))
          (SEQ
           (LETT |rn|
@@ -651,7 +651,7 @@
          ((|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (#1=#:G433 NIL))
+          (#1=#:G435 NIL))
          (SEQ
           (LETT |rec|
                 (SPADCALL |r|
@@ -691,7 +691,7 @@
 
 (SDEFUN |AF;minPoly;KSup;30|
         ((|k| (|Kernel| F)) ($ (|SparseUnivariatePolynomial| F)))
-        (SPROG ((#1=#:G444 NIL))
+        (SPROG ((#1=#:G446 NIL))
                (COND
                 ((SPADCALL |k| (QREFELT $ 13) (QREFELT $ 143))
                  (SPADCALL
@@ -755,9 +755,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicFunction;|)) 
 
-(DEFUN |AlgebraicFunction| (&REST #1=#:G457)
+(DEFUN |AlgebraicFunction| (&REST #1=#:G459)
   (SPROG NIL
-         (PROG (#2=#:G458)
+         (PROG (#2=#:G460)
            (RETURN
             (COND
              ((LETT #2#

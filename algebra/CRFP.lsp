@@ -2,7 +2,7 @@
 (SDEFUN |CRFP;complexZeros;UPRL;1|
         ((|p| (UP)) (|eps| (R)) ($ (|List| (|Complex| R))))
         (SPROG
-         ((#1=#:G142 NIL) (|linfac| NIL) (#2=#:G141 NIL)
+         ((#1=#:G143 NIL) (|linfac| NIL) (#2=#:G142 NIL)
           (|facs| (|Factored| UP)) (|eps0| (R)))
          (SEQ
           (LETT |eps0|
@@ -68,7 +68,7 @@
 (SDEFUN |CRFP;pleskenSplit;UPRBF;4|
         ((|poly| (UP)) (|eps| (R)) (|info| (|Boolean|)) ($ (|Factored| UP)))
         (SPROG
-         ((|fp| (|Factored| UP)) (#1=#:G165 NIL) (|fac| NIL)
+         ((|fp| (|Factored| UP)) (#1=#:G168 NIL) (|fac| NIL)
           (|notFoundSplit| (|Boolean|))
           (|split| (|Record| (|:| |factors| (|List| UP)) (|:| |error| R)))
           (|splits|
@@ -172,12 +172,12 @@
         ((|p| (UP))
          ($ (|Record| (|:| |start| UP) (|:| |factors| (|Factored| UP)))))
         (SPROG
-         ((|po| (|Integer|)) (|maxq| (R)) (#1=#:G184 NIL) (|qq| (R)) (|rd| (R))
-          (|r1| (R)) (#2=#:G188 NIL) (|q| NIL) (|j| NIL)
+         ((|po| (|Integer|)) (|maxq| (R)) (#1=#:G190 NIL) (|qq| (R)) (|rd| (R))
+          (|r1| (R)) (#2=#:G194 NIL) (|q| NIL) (|j| NIL)
           (|sP| (|Record| (|:| |start| UP) (|:| |factors| (|Factored| UP))))
           (|fp| (|Factored| UP)) (|centerIsRoot| (|Boolean|)) (|pp| (UP))
-          (|mD| (|NonNegativeInteger|)) (#3=#:G187 NIL) (|i| NIL)
-          (|lp| (|List| UP)) (#4=#:G186 NIL) (|v| NIL) (#5=#:G185 NIL)
+          (|mD| (|NonNegativeInteger|)) (#3=#:G193 NIL) (|i| NIL)
+          (|lp| (|List| UP)) (#4=#:G192 NIL) (|v| NIL) (#5=#:G191 NIL)
           (|listOfCenters| (|List| (|Complex| R))) (|startPoly| (UP))
           (|u| (|Complex| R)) (|eps| (R)))
          (SEQ (LETT |fp| (|spadConstant| $ 64))
@@ -335,7 +335,7 @@
                                                   (EXIT
                                                    (PROGN
                                                     (LETT #1# 1)
-                                                    (GO #7=#:G178)))))
+                                                    (GO #7=#:G184)))))
                                             ('T
                                              (SEQ
                                               (COND
@@ -365,7 +365,7 @@
                                     |fp|))))))))))))))))) 
 
 (SDEFUN |CRFP;norm;UPR;6| ((|p| (UP)) ($ (R)))
-        (SPROG ((|nm| (R)) (#1=#:G192 NIL) (|c| NIL))
+        (SPROG ((|nm| (R)) (#1=#:G199 NIL) (|c| NIL))
                (SEQ (LETT |nm| (|spadConstant| $ 45))
                     (SEQ (LETT |c| NIL)
                          (LETT #1# (SPADCALL |p| (QREFELT $ 95))) G190
@@ -386,12 +386,12 @@
 
 (SDEFUN |CRFP;graeffe;2UP;8| ((|p| (UP)) ($ (UP)))
         (SPROG
-         ((|aBack| #1=(|List| (|Complex| R))) (|gp| (UP)) (#2=#:G197 NIL)
+         ((|aBack| #1=(|List| (|Complex| R))) (|gp| (UP)) (#2=#:G207 NIL)
           (|const| (|Integer|)) (|aBackCopy| #1#)
           (|aForthCopy| (|List| (|Complex| R))) (|sum| (|Complex| R))
-          (#3=#:G204 NIL) (|aminus| NIL) (#4=#:G205 NIL) (|aplus| NIL)
+          (#3=#:G214 NIL) (|aminus| NIL) (#4=#:G215 NIL) (|aplus| NIL)
           (|aForth| (|List| (|Complex| R))) (|ak| (|Complex| R))
-          (#5=#:G203 NIL) (|k| NIL) (#6=#:G202 NIL)
+          (#5=#:G213 NIL) (|k| NIL) (#6=#:G212 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |p| (QREFELT $ 31))) (LETT |aForth| NIL)
               (SEQ (LETT |k| 0) (LETT #6# |n|) G190
@@ -531,8 +531,8 @@
 
 (SDEFUN |CRFP;reciprocalPolynomial;2UP;12| ((|p| (UP)) ($ (UP)))
         (SPROG
-         ((|sol| (UP)) (|lm| (|List| UP)) (#1=#:G219 NIL) (#2=#:G227 NIL)
-          (|i| NIL) (#3=#:G226 NIL) (|md| (|NonNegativeInteger|))
+         ((|sol| (UP)) (|lm| (|List| UP)) (#1=#:G231 NIL) (#2=#:G239 NIL)
+          (|i| NIL) (#3=#:G238 NIL) (|md| (|NonNegativeInteger|))
           (|d| (|NonNegativeInteger|)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 110)) (|spadConstant| $ 46))
@@ -573,7 +573,7 @@
           (|listOfFactors| (|List| UP)) (|nm| (R)) (|factor2| (UP))
           (|factor1| (UP))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (#1=#:G236 NIL) (|i| NIL))
+          (#1=#:G249 NIL) (|i| NIL))
          (SEQ (LETT |lfae| NIL)
               (SEQ (LETT |i| 1) (LETT #1# (SPADCALL |tp| (QREFELT $ 31))) G190
                    (COND
@@ -643,7 +643,7 @@
             (|Record| (|:| |factor| UP)
                       (|:| |exponent| (|NonNegativeInteger|)))))
           (|result| (|Factored| UP)) (|expOfFactor| (|NonNegativeInteger|))
-          (|newFactor| (UP)) (#1=#:G255 NIL) (|rec| NIL)
+          (|newFactor| (UP)) (#1=#:G270 NIL) (|rec| NIL)
           (|lof| (|List| (|OutputForm|))) (|split| (|Factored| UP))
           (|exponentOfp| (|NonNegativeInteger|)) (|p| (UP)) (|eps0| (R))
           (|d| (|NonNegativeInteger|)))
@@ -780,7 +780,7 @@
 (SDEFUN |CRFP;calculateScale| ((|p| (UP)) ($ (R)))
         (SPROG
          ((|rho| (R)) (|maxi| (R)) (|locmax| (R)) (|ic| (R)) (|rc| (R))
-          (|cof| (|Complex| R)) (|j| (|NonNegativeInteger|)) (#1=#:G270 NIL)
+          (|cof| (|Complex| R)) (|j| (|NonNegativeInteger|)) (#1=#:G288 NIL)
           (|mon| NIL) (|d| (|NonNegativeInteger|)))
          (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 31)))
               (LETT |maxi| (|spadConstant| $ 45))
@@ -904,9 +904,9 @@
 
 (DECLAIM (NOTINLINE |ComplexRootFindingPackage;|)) 
 
-(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G278)
+(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G296)
   (SPROG NIL
-         (PROG (#2=#:G279)
+         (PROG (#2=#:G297)
            (RETURN
             (COND
              ((LETT #2#

@@ -50,7 +50,7 @@
 (SDEFUN |IBPTOOLS;mapUnivariateIfCan;MSupU;3|
         ((|f| (|Mapping| #1=(|Union| K "failed") L))
          (|poly| (|SparseUnivariatePolynomial| L)) ($ (|Union| R "failed")))
-        (SPROG ((|ans| (R)) (#2=#:G154 NIL) (|lc| #1#))
+        (SPROG ((|ans| (R)) (#2=#:G157 NIL) (|lc| #1#))
                (SEQ
                 (EXIT
                  (SEQ (LETT |ans| (|spadConstant| $ 10))
@@ -67,7 +67,7 @@
                               ((QEQCAR |lc| 1)
                                (PROGN
                                 (LETT #2# (CONS 1 "failed"))
-                                (GO #3=#:G153)))
+                                (GO #3=#:G156)))
                               ('T
                                (SEQ
                                 (LETT |ans|
@@ -90,8 +90,8 @@
          (|mat| (|Matrix| (|SparseUnivariatePolynomial| L)))
          ($ (|Union| (|Matrix| R) "failed")))
         (SPROG
-         ((#1=#:G173 NIL) (|poly| (|Union| R "failed")) (#2=#:G175 NIL)
-          (|j| NIL) (#3=#:G174 NIL) (|i| NIL) (|matOut| (|Matrix| R))
+         ((#1=#:G178 NIL) (|poly| (|Union| R "failed")) (#2=#:G180 NIL)
+          (|j| NIL) (#3=#:G179 NIL) (|i| NIL) (|matOut| (|Matrix| R))
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -112,7 +112,7 @@
                                ((QEQCAR |poly| 1)
                                 (PROGN
                                  (LETT #1# (CONS 1 "failed"))
-                                 (GO #4=#:G172)))
+                                 (GO #4=#:G177)))
                                ('T
                                 (QSETAREF2O |matOut| |i| |j| (QCDR |poly|) 1
                                             1)))))
@@ -148,9 +148,9 @@
 
 (DECLAIM (NOTINLINE |IntegralBasisPolynomialTools;|)) 
 
-(DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G182)
+(DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G188)
   (SPROG NIL
-         (PROG (#2=#:G183)
+         (PROG (#2=#:G189)
            (RETURN
             (COND
              ((LETT #2#

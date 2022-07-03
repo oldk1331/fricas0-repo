@@ -48,8 +48,8 @@
 
 (SDEFUN |PSQFR;pthPower| ((|f| (P)) ($ (|Factored| P)))
         (SPROG
-         ((#1=#:G156 NIL) (|u| NIL) (#2=#:G155 NIL) (#3=#:G154 NIL)
-          (#4=#:G153 NIL) (|psqfr| (|Factored| P)) (|isSq| (|Boolean|))
+         ((#1=#:G158 NIL) (|u| NIL) (#2=#:G157 NIL) (#3=#:G156 NIL)
+          (#4=#:G155 NIL) (|psqfr| (|Factored| P)) (|isSq| (|Boolean|))
           (|proot| (P)) (|g| (|Union| P "failed")))
          (SEQ (LETT |proot| (|spadConstant| $ 24)) (LETT |isSq| NIL)
               (SEQ (LETT |g| (SPADCALL |f| (QREFELT $ 25)))
@@ -117,10 +117,10 @@
                          (|:| |factor| P)
                          (|:| |exponent| (|NonNegativeInteger|)))))
           (|sqp| #2=(|Factored| P)) (|cont| (P)) (|cont1| (P))
-          (|flistfin1| (|List| #1#)) (#3=#:G178 NIL) (|uu| NIL) (#4=#:G177 NIL)
-          (|listfin1| #2#) (|uexp| (|NonNegativeInteger|)) (#5=#:G176 NIL)
+          (|flistfin1| (|List| #1#)) (#3=#:G182 NIL) (|uu| NIL) (#4=#:G181 NIL)
+          (|listfin1| #2#) (|uexp| (|NonNegativeInteger|)) (#5=#:G180 NIL)
           (|u| NIL) (|squf| (|Factored| (|SparseUnivariatePolynomial| P)))
-          (|uf| (|SparseUnivariatePolynomial| P)) (#6=#:G158 NIL)
+          (|uf| (|SparseUnivariatePolynomial| P)) (#6=#:G160 NIL)
           (|mv| (|VarSet|)))
          (SEQ
           (COND ((NULL |lvar|) (|PSQFR;pthPower| |f| $))
@@ -265,9 +265,9 @@
             (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |factor| P)
                       (|:| |exponent| (|NonNegativeInteger|)))))
-          (#1=#:G199 NIL) (|u| NIL) (#2=#:G198 NIL)
+          (#1=#:G204 NIL) (|u| NIL) (#2=#:G203 NIL)
           (|squp| (|Factored| (|SparseUnivariatePolynomial| P)))
-          (|up| (|SparseUnivariatePolynomial| P)) (#3=#:G184 NIL) (|cont| (P))
+          (|up| (|SparseUnivariatePolynomial| P)) (#3=#:G188 NIL) (|cont| (P))
           (|mv| (|Union| |VarSet| "failed")))
          (SEQ (LETT |mv| (SPADCALL |p| (QREFELT $ 55)))
               (EXIT
@@ -337,9 +337,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialSquareFree;|)) 
 
-(DEFUN |PolynomialSquareFree| (&REST #1=#:G200)
+(DEFUN |PolynomialSquareFree| (&REST #1=#:G205)
   (SPROG NIL
-         (PROG (#2=#:G201)
+         (PROG (#2=#:G206)
            (RETURN
             (COND
              ((LETT #2#

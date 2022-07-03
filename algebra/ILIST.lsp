@@ -6,9 +6,9 @@
 
 (DECLAIM (NOTINLINE |IndexedList;|)) 
 
-(DEFUN |IndexedList| (&REST #1=#:G998)
+(DEFUN |IndexedList| (&REST #1=#:G1009)
   (SPROG NIL
-         (PROG (#2=#:G999)
+         (PROG (#2=#:G1010)
            (RETURN
             (COND
              ((LETT #2#
@@ -25,9 +25,9 @@
 
 (DEFUN |IndexedList;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G994 NIL) (#2=#:G995 NIL) (#3=#:G997 NIL) (#4=#:G996 NIL) (|pv$| NIL)
-    (#5=#:G991 NIL) (#6=#:G992 NIL) (#7=#:G993 NIL) ($ NIL) (|dv$| NIL)
-    (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G1005 NIL) (#2=#:G1006 NIL) (#3=#:G1008 NIL) (#4=#:G1007 NIL)
+    (|pv$| NIL) (#5=#:G1002 NIL) (#6=#:G1003 NIL) (#7=#:G1004 NIL) ($ NIL)
+    (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)

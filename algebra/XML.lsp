@@ -2,7 +2,7 @@
 (SDEFUN |XML;writeXml;XeSV;1|
         ((|content| (|XmlElement|)) (|filename| (|String|)) ($ (|Void|)))
         (SPROG
-         ((#1=#:G122 NIL) (|line| NIL) (|lines| (|List| (|String|)))
+         ((#1=#:G123 NIL) (|line| NIL) (|lines| (|List| (|String|)))
           (|s1| (|String|)) (|f1| (|TextFile|)))
          (SEQ
           (LETT |f1|
@@ -45,7 +45,7 @@
 
 (DEFUN |ExportXml| ()
   (SPROG NIL
-         (PROG (#1=#:G126)
+         (PROG (#1=#:G127)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ExportXml|))

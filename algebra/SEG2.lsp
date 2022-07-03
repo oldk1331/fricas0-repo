@@ -37,9 +37,9 @@
 
 (DECLAIM (NOTINLINE |SegmentFunctions2;|)) 
 
-(DEFUN |SegmentFunctions2| (&REST #1=#:G127)
+(DEFUN |SegmentFunctions2| (&REST #1=#:G129)
   (SPROG NIL
-         (PROG (#2=#:G128)
+         (PROG (#2=#:G130)
            (RETURN
             (COND
              ((LETT #2#

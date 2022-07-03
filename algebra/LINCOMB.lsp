@@ -14,13 +14,13 @@
         (SPROG
          ((|res3|
            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
-          (|bv| #1=(|Vector| F)) (|rp| (F)) (|c| (F)) (#2=#:G142 NIL)
+          (|bv| #1=(|Vector| F)) (|rp| (F)) (|c| (F)) (#2=#:G144 NIL)
           (|be| NIL) (|ppv| #1#) (|ppa| (F)) (|c1inv| (F))
           (|found| (|Boolean|))
           (|be1| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
           (|res2|
            (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
-          (#3=#:G141 NIL) (|nn| (|NonNegativeInteger|)))
+          (#3=#:G143 NIL) (|nn| (|NonNegativeInteger|)))
          (SEQ
           (COND ((NULL |ls|) (CONS (CONS 1 "failed") NIL))
                 (#4='T
@@ -89,7 +89,7 @@
 
 (SDEFUN |LINCOMB;lin_comb;VLF;2| ((|v| (|Vector| F)) (|lf| (|List| F)) ($ (F)))
         (SPROG
-         ((|res| (F)) (#1=#:G146 NIL) (|i| NIL) (#2=#:G147 NIL) (|f| NIL))
+         ((|res| (F)) (#1=#:G149 NIL) (|i| NIL) (#2=#:G150 NIL) (|f| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 16))
               (SEQ (LETT |f| NIL) (LETT #2# |lf|) (LETT |i| 1)
                    (LETT #1# (QVSIZE |v|)) G190
@@ -112,7 +112,7 @@
 (SDEFUN |LINCOMB;lin_comb;VLF;3|
         ((|v| (|Vector| (|Fraction| (|Integer|)))) (|lf| (|List| F)) ($ (F)))
         (SPROG
-         ((|res| (F)) (#1=#:G151 NIL) (|i| NIL) (#2=#:G152 NIL) (|f| NIL))
+         ((|res| (F)) (#1=#:G155 NIL) (|i| NIL) (#2=#:G156 NIL) (|f| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 16))
               (SEQ (LETT |f| NIL) (LETT #2# |lf|) (LETT |i| 1)
                    (LETT #1# (QVSIZE |v|)) G190
@@ -138,8 +138,8 @@
         ((|u| (|Vector| F)) (|v| (|Vector| F)) (|lw| (|List| (|Vector| F)))
          ($ (|Vector| F)))
         (SPROG
-         ((#1=#:G160 NIL) (|j| NIL) (|c| (F)) (#2=#:G158 NIL) (|i| NIL)
-          (#3=#:G159 NIL) (|w| NIL) (|n| (|NonNegativeInteger|))
+         ((#1=#:G166 NIL) (|j| NIL) (|c| (F)) (#2=#:G164 NIL) (|i| NIL)
+          (#3=#:G165 NIL) (|w| NIL) (|n| (|NonNegativeInteger|))
           (|res| (|Vector| F)))
          (SEQ (LETT |res| |v|) (LETT |n| (QVSIZE |res|))
               (SEQ (LETT |w| NIL) (LETT #3# |lw|) (LETT |i| 1)
@@ -181,7 +181,7 @@
         ((|v| (|Vector| F)) (|lf| (|List| (|Fraction| UP)))
          ($ (|Fraction| UP)))
         (SPROG
-         ((|res| (|Fraction| UP)) (#1=#:G166 NIL) (|i| NIL) (#2=#:G167 NIL)
+         ((|res| (|Fraction| UP)) (#1=#:G173 NIL) (|i| NIL) (#2=#:G174 NIL)
           (|f| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 45))
               (SEQ (LETT |f| NIL) (LETT #2# |lf|) (LETT |i| 1)
@@ -208,7 +208,7 @@
         ((|v| (|Vector| (|Fraction| (|Integer|))))
          (|lg| (|List| (|Fraction| UP))) ($ (|Fraction| UP)))
         (SPROG
-         ((|res| (|Fraction| UP)) (#1=#:G171 NIL) (|i| NIL) (#2=#:G172 NIL)
+         ((|res| (|Fraction| UP)) (#1=#:G179 NIL) (|i| NIL) (#2=#:G180 NIL)
           (|g| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 45))
               (SEQ (LETT |g| NIL) (LETT #2# |lg|) (LETT |i| 1)
@@ -239,8 +239,8 @@
         ((|v| (|Vector| F)) (|lf| (|List| (|LaurentPolynomial| F UP)))
          ($ (|LaurentPolynomial| F UP)))
         (SPROG
-         ((|res| (|LaurentPolynomial| F UP)) (#1=#:G176 NIL) (|i| NIL)
-          (#2=#:G177 NIL) (|f| NIL))
+         ((|res| (|LaurentPolynomial| F UP)) (#1=#:G185 NIL) (|i| NIL)
+          (#2=#:G186 NIL) (|f| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 55))
               (SEQ (LETT |f| NIL) (LETT #2# |lf|) (LETT |i| 1)
                    (LETT #1# (QVSIZE |v|)) G190
@@ -265,7 +265,7 @@
 (SDEFUN |LINCOMB;lin_comb;VLUP;9|
         ((|v| (|Vector| F)) (|lf| (|List| UP)) ($ (UP)))
         (SPROG
-         ((|res| (UP)) (#1=#:G181 NIL) (|i| NIL) (#2=#:G182 NIL) (|f| NIL))
+         ((|res| (UP)) (#1=#:G191 NIL) (|i| NIL) (#2=#:G192 NIL) (|f| NIL))
          (SEQ (LETT |res| (|spadConstant| $ 17))
               (SEQ (LETT |f| NIL) (LETT #2# |lf|) (LETT |i| 1)
                    (LETT #1# (QVSIZE |v|)) G190
@@ -287,9 +287,9 @@
 
 (DECLAIM (NOTINLINE |LinearCombinationUtilities;|)) 
 
-(DEFUN |LinearCombinationUtilities| (&REST #1=#:G183)
+(DEFUN |LinearCombinationUtilities| (&REST #1=#:G193)
   (SPROG NIL
-         (PROG (#2=#:G184)
+         (PROG (#2=#:G194)
            (RETURN
             (COND
              ((LETT #2#

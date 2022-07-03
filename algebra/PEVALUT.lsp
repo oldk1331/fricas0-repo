@@ -21,12 +21,12 @@
           (|ns| #2#) (|n| (|NonNegativeInteger|))
           (|exps| (|SortedExponentVector|)) (|nexps| (|SortedExponentVector|))
           (|coeffs| (|U32Vector|)) (|ncoeffs| (|U32Vector|))
-          (|nn| (|NonNegativeInteger|)) (#3=#:G138 NIL) (|t0| NIL)
+          (|nn| (|NonNegativeInteger|)) (#3=#:G141 NIL) (|t0| NIL)
           (|polu|
            #4=(|List|
                (|Record| (|:| |k| (|NonNegativeInteger|))
                          (|:| |c| (|Polynomial| (|Integer|))))))
-          (#5=#:G137 NIL)
+          (#5=#:G140 NIL)
           (|polr|
            (|Union| (|Integer|)
                     (|Record| (|:| |v| (|Symbol|)) (|:| |ts| #4#))))
@@ -37,7 +37,7 @@
                 (EXIT
                  (COND
                   ((QEQCAR |polr| 0)
-                   (PROGN (LETT #5# (QCDR |polr|)) (GO #6=#:G136)))
+                   (PROGN (LETT #5# (QCDR |polr|)) (GO #6=#:G139)))
                   ('T
                    (SEQ (LETT |polu| (QCDR (QCDR |polr|))) (LETT |i| 0)
                         (LETT |coeffs| (QVELT |pss| 1))
@@ -127,12 +127,12 @@
                                               (|:| |c|
                                                    (|Polynomial|
                                                     (|Integer|)))))))))
-          (#1=#:G158 NIL) (|t0| NIL)
+          (#1=#:G162 NIL) (|t0| NIL)
           (|xu|
            #2=(|List|
                (|Record| (|:| |k| (|NonNegativeInteger|))
                          (|:| |c| (|Polynomial| (|Integer|))))))
-          (#3=#:G157 NIL) (|vx| #4=(|Symbol|))
+          (#3=#:G161 NIL) (|vx| #4=(|Symbol|))
           (|polr|
            (|Union| (|Integer|) (|Record| (|:| |v| #4#) (|:| |ts| #2#)))))
          (SEQ
@@ -140,7 +140,7 @@
            (SEQ (LETT |polr| |pol|)
                 (EXIT
                  (COND
-                  ((QEQCAR |polr| 0) (PROGN (LETT #3# |pol|) (GO #5=#:G156)))
+                  ((QEQCAR |polr| 0) (PROGN (LETT #3# |pol|) (GO #5=#:G160)))
                   (#6='T
                    (SEQ (LETT |vx| (QCAR (QCDR |polr|)))
                         (EXIT
@@ -253,7 +253,7 @@
                                               (|:| |c|
                                                    (|Polynomial|
                                                     (|Integer|)))))))))
-          (#1=#:G188 NIL) (|t0| NIL)
+          (#1=#:G193 NIL) (|t0| NIL)
           (|xu|
            (|List|
             (|Record| (|:| |k| (|NonNegativeInteger|))
@@ -349,7 +349,7 @@
                                               (|:| |c|
                                                    (|Polynomial|
                                                     (|Integer|)))))))))
-          (#2=#:G210 NIL) (|t0| NIL)
+          (#2=#:G217 NIL) (|t0| NIL)
           (|xu|
            (|List|
             (|Record| (|:| |k| (|NonNegativeInteger|))
@@ -358,7 +358,7 @@
            (|List|
             (|Record| (|:| |k| (|NonNegativeInteger|))
                       (|:| |c| (|Polynomial| (|Integer|))))))
-          (|vxval| (|Integer|)) (#3=#:G209 NIL) (|vx| (|Symbol|))
+          (|vxval| (|Integer|)) (#3=#:G216 NIL) (|vx| (|Symbol|))
           (|xr|
            (|Union| (|Integer|)
                     (|Record| (|:| |v| (|Symbol|))
@@ -376,7 +376,7 @@
                   ((QEQCAR |xr| 0)
                    (PROGN
                     (LETT #3# (SPADCALL (QCDR |xr|) |p| (QREFELT $ 27)))
-                    (GO #4=#:G208)))
+                    (GO #4=#:G215)))
                   (#5='T
                    (SEQ (LETT |vx| (QCAR (QCDR |xr|)))
                         (EXIT
@@ -434,7 +434,7 @@
 
 (DEFUN |PolynomialEvaluationUtilities| ()
   (SPROG NIL
-         (PROG (#1=#:G212)
+         (PROG (#1=#:G219)
            (RETURN
             (COND
              ((LETT #1#

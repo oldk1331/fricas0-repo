@@ -76,7 +76,7 @@
 
 (SDEFUN |FFCGP;basis;PiV;8| ((|n| (|PositiveInteger|)) ($ (|Vector| $)))
         (SPROG
-         ((#1=#:G160 NIL) (#2=#:G166 NIL) (|i| NIL) (#3=#:G165 NIL)
+         ((#1=#:G161 NIL) (#2=#:G167 NIL) (|i| NIL) (#3=#:G166 NIL)
           (|m| (|Integer|)))
          (SEQ
           (COND
@@ -177,7 +177,7 @@
                       ('T (SPADCALL |u| (QREFELT $ 96)))))))) 
 
 (SDEFUN |FFCGP;coerce;GF$;16| ((|e| (GF)) ($ ($)))
-        (SPROG ((|log| (|Integer|)) (#1=#:G196 NIL))
+        (SPROG ((|log| (|Integer|)) (#1=#:G199 NIL))
                (SEQ
                 (COND ((SPADCALL |e| (QREFELT $ 98)) (|spadConstant| $ 27))
                       ('T
@@ -200,7 +200,7 @@
                          (SPADCALL |log| (QREFELT $ 18) (QREFELT $ 101))))))))) 
 
 (SDEFUN |FFCGP;retractIfCan;$U;17| ((|x| ($)) ($ (|Union| GF "failed")))
-        (SPROG ((#1=#:G205 NIL) (|u| (|Union| $ #2="failed")))
+        (SPROG ((#1=#:G208 NIL) (|u| (|Union| $ #2="failed")))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 42)) (CONS 0 (|spadConstant| $ 47)))
@@ -221,7 +221,7 @@
                                           (QREFELT $ 106)))))))))))) 
 
 (SDEFUN |FFCGP;retract;$GF;18| ((|x| ($)) ($ (GF)))
-        (SPROG ((#1=#:G217 NIL) (|a| (|Union| GF #2="failed")))
+        (SPROG ((#1=#:G220 NIL) (|a| (|Union| GF #2="failed")))
                (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 108)))
                     (EXIT
                      (COND
@@ -235,8 +235,8 @@
 
 (SDEFUN |FFCGP;basis;V;19| (($ (|Vector| $)))
         (SPROG
-         ((#1=#:G222 NIL) (#2=#:G225 NIL) (#3=#:G227 NIL) (|i| NIL)
-          (#4=#:G226 NIL))
+         ((#1=#:G226 NIL) (#2=#:G229 NIL) (#3=#:G231 NIL) (|i| NIL)
+          (#4=#:G230 NIL))
          (SEQ
           (PROGN
            (LETT #4# (GETREFV #5=(QREFELT $ 12)))
@@ -264,7 +264,7 @@
 (SDEFUN |FFCGP;discreteLog;2$U;21|
         ((|b| ($)) (|x| ($)) ($ (|Union| (|NonNegativeInteger|) "failed")))
         (SPROG
-         ((|e1| (|Record| (|:| |coef1| $) (|:| |coef2| $))) (#1=#:G236 NIL)
+         ((|e1| (|Record| (|:| |coef1| $) (|:| |coef2| $))) (#1=#:G240 NIL)
           (|e|
            (|Union| (|Record| (|:| |coef1| $) (|:| |coef2| $)) #2="failed")))
          (SEQ
@@ -398,9 +398,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldCyclicGroupExtensionByPolynomial;|)) 
 
-(DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial| (&REST #1=#:G294)
+(DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial| (&REST #1=#:G298)
   (SPROG NIL
-         (PROG (#2=#:G295)
+         (PROG (#2=#:G299)
            (RETURN
             (COND
              ((LETT #2#
@@ -424,7 +424,7 @@
 
 (DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G293 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G297 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 |#2|)

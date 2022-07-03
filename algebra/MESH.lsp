@@ -45,9 +45,9 @@
          (|vSeg| (|Segment| (|DoubleFloat|))) (|opts| (|List| (|DrawOption|)))
          ($ (|ThreeSpace| (|DoubleFloat|))))
         (SPROG
-         ((|space| #1#) (|aProp| (|SubSpaceComponentProperty|)) (#3=#:G141 NIL)
-          (|lProp| (|List| (|SubSpaceComponentProperty|))) (#4=#:G140 NIL)
-          (|l| NIL) (#5=#:G139 NIL) (|someV| #6=(|DoubleFloat|))
+         ((|space| #1#) (|aProp| (|SubSpaceComponentProperty|)) (#3=#:G145 NIL)
+          (|lProp| (|List| (|SubSpaceComponentProperty|))) (#4=#:G144 NIL)
+          (|l| NIL) (#5=#:G143 NIL) (|someV| #6=(|DoubleFloat|))
           (|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) (|someU| #6#)
           (|lp| (|List| (|Point| (|DoubleFloat|)))) (|pt| #2#) (|iu| NIL)
           (|iv| NIL) (|vstep| #7=(|DoubleFloat|)) (|ustep| #7#)
@@ -177,7 +177,7 @@
 
 (DEFUN |MeshCreationRoutinesForThreeDimensions| ()
   (SPROG NIL
-         (PROG (#1=#:G192)
+         (PROG (#1=#:G196)
            (RETURN
             (COND
              ((LETT #1#

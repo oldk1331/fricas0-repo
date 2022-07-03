@@ -110,8 +110,8 @@
 
 (SDEFUN |XRPOLY;lquo;3$;12| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPROG
-         ((|x| (|FreeModule| $ |VarSet|)) (|a| ($)) (#1=#:G194 NIL) (|t| NIL)
-          (#2=#:G193 NIL))
+         ((|x| (|FreeModule| $ |VarSet|)) (|a| ($)) (#1=#:G195 NIL) (|t| NIL)
+          (#2=#:G194 NIL))
          (SEQ
           (COND ((QEQCAR |p2| 0) (SPADCALL (QCDR |p2|) |p1| (QREFELT $ 48)))
                 ((QEQCAR |p1| 0)
@@ -153,8 +153,8 @@
         (SPROG
          ((|x| (|FreeModule| $ |VarSet|))
           (|lt| (|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $)))) (|r| ($))
-          (#1=#:G204 NIL) (|t| NIL) (#2=#:G203 NIL)
-          (|n1| (|NonNegativeInteger|)) (#3=#:G198 NIL))
+          (#1=#:G206 NIL) (|t| NIL) (#2=#:G205 NIL)
+          (|n1| (|NonNegativeInteger|)) (#3=#:G199 NIL))
          (SEQ
           (COND
            ((OR (EQL |n| 0) (QEQCAR |p| 0))
@@ -193,8 +193,8 @@
         ((|p| (|XDistributedPolynomial| |VarSet| R)) ($ ($)))
         (SPROG
          ((|x| (|FreeModule| $ |VarSet|))
-          (|r| (|XDistributedPolynomial| |VarSet| R)) (#1=#:G214 NIL) (|v| NIL)
-          (#2=#:G213 NIL) (|vl| (|List| |VarSet|)))
+          (|r| (|XDistributedPolynomial| |VarSet| R)) (#1=#:G217 NIL) (|v| NIL)
+          (#2=#:G216 NIL) (|vl| (|List| |VarSet|)))
          (SEQ
           (COND
            ((SPADCALL |p| (QREFELT $ 58))
@@ -230,8 +230,8 @@
 (SDEFUN |XRPOLY;sh;$Nni$;15| ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|lt| (|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $))))
-          (#1=#:G224 NIL) (|t| NIL) (#2=#:G223 NIL) (|p1| ($))
-          (|n1| (|NonNegativeInteger|)) (#3=#:G218 NIL))
+          (#1=#:G228 NIL) (|t| NIL) (#2=#:G227 NIL) (|p1| ($))
+          (|n1| (|NonNegativeInteger|)) (#3=#:G221 NIL))
          (SEQ
           (COND ((EQL |n| 0) (|spadConstant| $ 55))
                 ((QEQCAR |p| 0)
@@ -277,8 +277,8 @@
 
 (SDEFUN |XRPOLY;sh;3$;16| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPROG
-         ((|y| #1=(|FreeModule| $ |VarSet|)) (#2=#:G233 NIL) (|t| NIL)
-          (#3=#:G232 NIL) (|x| #1#) (#4=#:G231 NIL) (#5=#:G230 NIL)
+         ((|y| #1=(|FreeModule| $ |VarSet|)) (#2=#:G239 NIL) (|t| NIL)
+          (#3=#:G238 NIL) (|x| #1#) (#4=#:G237 NIL) (#5=#:G236 NIL)
           (|lt2| #6=(|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $))))
           (|lt1| #6#))
          (SEQ
@@ -399,7 +399,7 @@
 (SDEFUN |XRPOLY;coef1|
         ((|x| (|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $))))
          (|y| (|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $)))) ($ (R)))
-        (SPROG ((#1=#:G260 NIL))
+        (SPROG ((#1=#:G266 NIL))
                (SEQ
                 (EXIT
                  (COND ((OR (NULL |x|) (NULL |y|)) (|spadConstant| $ 15))
@@ -422,13 +422,13 @@
                        ('T
                         (PROGN
                          (LETT #1# (|XRPOLY;coef1| (CDR |x|) |y| $))
-                         (GO #2=#:G259)))))
+                         (GO #2=#:G265)))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |XRPOLY;outForm| ((|p| (|FreeModule| $ |VarSet|)) ($ (|OutputForm|)))
         (SPROG
-         ((|le| (|List| (|OutputForm|))) (#1=#:G268 NIL) (|t| NIL)
-          (#2=#:G267 NIL))
+         ((|le| (|List| (|OutputForm|))) (#1=#:G275 NIL) (|t| NIL)
+          (#2=#:G274 NIL))
          (SEQ
           (LETT |le|
                 (PROGN
@@ -562,7 +562,7 @@
 (SDEFUN |XRPOLY;expand;$Xdp;36|
         ((|p| ($)) ($ (|XDistributedPolynomial| |VarSet| R)))
         (SPROG
-         ((|ep| (|XDistributedPolynomial| |VarSet| R)) (#1=#:G318 NIL)
+         ((|ep| (|XDistributedPolynomial| |VarSet| R)) (#1=#:G327 NIL)
           (|t| NIL) (|lt| (|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $)))))
          (SEQ
           (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT $ 110)))
@@ -592,9 +592,9 @@
 
 (SDEFUN |XRPOLY;mirror;2$;37| ((|p| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G325 NIL) (#2=#:G324 ($)) (#3=#:G326 ($)) (#4=#:G331 NIL)
-          (#5=#:G119 NIL) (|lt1| (|List| $)) (#6=#:G330 NIL) (|t| NIL)
-          (#7=#:G329 NIL)
+         ((#1=#:G335 NIL) (#2=#:G334 ($)) (#3=#:G336 ($)) (#4=#:G341 NIL)
+          (#5=#:G119 NIL) (|lt1| (|List| $)) (#6=#:G340 NIL) (|t| NIL)
+          (#7=#:G339 NIL)
           (|lt| (|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $)))))
          (SEQ
           (COND ((QEQCAR |p| 0) |p|)
@@ -791,8 +791,8 @@
 
 (SDEFUN |XRPOLY;lquo;$VarSet$;48| ((|p| ($)) (|v| (|VarSet|)) ($ ($)))
         (SPROG
-         ((|x| (|FreeModule| $ |VarSet|)) (|a| ($)) (#1=#:G360 NIL) (|t| NIL)
-          (#2=#:G359 NIL))
+         ((|x| (|FreeModule| $ |VarSet|)) (|a| ($)) (#1=#:G371 NIL) (|t| NIL)
+          (#2=#:G370 NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) (|spadConstant| $ 14))
                 ('T
@@ -870,8 +870,8 @@
 
 (SDEFUN |XRPOLY;mindeg;$Fm;57| ((|p| ($)) ($ (|FreeMonoid| |VarSet|)))
         (SPROG
-         ((#1=#:G384 NIL) (#2=#:G383 #3=(|FreeMonoid| |VarSet|))
-          (#4=#:G385 #3#) (#5=#:G388 NIL) (|t| NIL))
+         ((#1=#:G395 NIL) (#2=#:G394 #3=(|FreeMonoid| |VarSet|))
+          (#4=#:G396 #3#) (#5=#:G399 NIL) (|t| NIL))
          (SEQ
           (COND
            ((QEQCAR |p| 0)
@@ -907,9 +907,9 @@
         (SPROG
          ((|rd| #2#)
           (|res| (|Record| (|:| |k| (|FreeMonoid| |VarSet|)) (|:| |c| R)))
-          (#3=#:G404 NIL) (|lm| (|List| #1#)) (|tp| (|FreeMonoid| |VarSet|))
+          (#3=#:G417 NIL) (|lm| (|List| #1#)) (|tp| (|FreeMonoid| |VarSet|))
           (|mt| (|Record| (|:| |k| (|FreeMonoid| |VarSet|)) (|:| |c| R)))
-          (#4=#:G403 NIL) (|t| NIL) (#5=#:G402 NIL)
+          (#4=#:G416 NIL) (|t| NIL) (#5=#:G415 NIL)
           (|lt| (|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $)))))
          (SEQ
           (COND ((QEQCAR |p| 0) (CONS (|spadConstant| $ 23) (QCDR |p|)))
@@ -958,8 +958,8 @@
 
 (SDEFUN |XRPOLY;maxdeg;$Fm;59| ((|p| ($)) ($ (|FreeMonoid| |VarSet|)))
         (SPROG
-         ((#1=#:G410 NIL) (#2=#:G409 #3=(|FreeMonoid| |VarSet|))
-          (#4=#:G411 #3#) (#5=#:G413 NIL) (|t| NIL))
+         ((#1=#:G423 NIL) (#2=#:G422 #3=(|FreeMonoid| |VarSet|))
+          (#4=#:G424 #3#) (#5=#:G426 NIL) (|t| NIL))
          (SEQ
           (COND
            ((QEQCAR |p| 0)
@@ -992,9 +992,9 @@
         (SPROG
          ((|rd| #2#)
           (|res| (|Record| (|:| |k| (|FreeMonoid| |VarSet|)) (|:| |c| R)))
-          (#3=#:G428 NIL) (|lm| (|List| #1#)) (|tp| (|FreeMonoid| |VarSet|))
+          (#3=#:G443 NIL) (|lm| (|List| #1#)) (|tp| (|FreeMonoid| |VarSet|))
           (|mt| (|Record| (|:| |k| (|FreeMonoid| |VarSet|)) (|:| |c| R)))
-          (#4=#:G427 NIL) (|t| NIL) (#5=#:G426 NIL)
+          (#4=#:G442 NIL) (|t| NIL) (#5=#:G441 NIL)
           (|lt| (|List| (|Record| (|:| |k| |VarSet|) (|:| |c| $)))))
          (SEQ
           (COND ((QEQCAR |p| 0) (CONS (|spadConstant| $ 23) (QCDR |p|)))
@@ -1046,8 +1046,8 @@
 
 (SDEFUN |XRPOLY;map;M2$;62| ((|fn| (|Mapping| R R)) (|p| ($)) ($ ($)))
         (SPROG
-         ((|x| (|FreeModule| $ |VarSet|)) (|a| ($)) (#1=#:G439 NIL) (|t| NIL)
-          (#2=#:G438 NIL))
+         ((|x| (|FreeModule| $ |VarSet|)) (|a| ($)) (#1=#:G455 NIL) (|t| NIL)
+          (#2=#:G454 NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) (CONS 0 (SPADCALL (QCDR |p|) |fn|)))
                 ('T
@@ -1084,8 +1084,8 @@
 
 (SDEFUN |XRPOLY;varList;$L;63| ((|p| ($)) ($ (|List| |VarSet|)))
         (SPROG
-         ((|lv| #1=(|List| |VarSet|)) (#2=#:G452 NIL) (|t| NIL) (#3=#:G451 NIL)
-          (#4=#:G445 NIL) (#5=#:G444 #1#) (#6=#:G446 #1#) (#7=#:G450 NIL))
+         ((|lv| #1=(|List| |VarSet|)) (#2=#:G469 NIL) (|t| NIL) (#3=#:G468 NIL)
+          (#4=#:G461 NIL) (#5=#:G460 #1#) (#6=#:G462 #1#) (#7=#:G467 NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) NIL)
                 (#8='T
@@ -1137,9 +1137,9 @@
 
 (DECLAIM (NOTINLINE |XRecursivePolynomial;|)) 
 
-(DEFUN |XRecursivePolynomial| (&REST #1=#:G454)
+(DEFUN |XRecursivePolynomial| (&REST #1=#:G471)
   (SPROG NIL
-         (PROG (#2=#:G455)
+         (PROG (#2=#:G472)
            (RETURN
             (COND
              ((LETT #2#
@@ -1158,7 +1158,7 @@
 
 (DEFUN |XRecursivePolynomial;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G453 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G470 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))

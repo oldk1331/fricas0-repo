@@ -175,7 +175,7 @@
 (SDEFUN |POLYROOT;rsplit|
         ((|l| (|List| P)) ($ (|Record| (|:| |coef| R) (|:| |poly| P))))
         (SPROG
-         ((|r| (R)) (|p| (P)) (|u| (|Union| R "failed")) (#1=#:G171 NIL)
+         ((|r| (R)) (|p| (P)) (|u| (|Union| R "failed")) (#1=#:G172 NIL)
           (|q| NIL))
          (SEQ (LETT |r| (|spadConstant| $ 11)) (LETT |p| (|spadConstant| $ 12))
               (SEQ (LETT |q| NIL) (LETT #1# |l|) G190
@@ -230,7 +230,7 @@
           (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                     (|:| |radicand| F))))
         (SPROG
-         ((|m| (|NonNegativeInteger|)) (#1=#:G186 NIL)
+         ((|m| (|NonNegativeInteger|)) (#1=#:G187 NIL)
           (|rd|
            #2=(|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                         (|:| |radicand| F)))
@@ -295,9 +295,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialRoots;|)) 
 
-(DEFUN |PolynomialRoots| (&REST #1=#:G189)
+(DEFUN |PolynomialRoots| (&REST #1=#:G190)
   (SPROG NIL
-         (PROG (#2=#:G190)
+         (PROG (#2=#:G191)
            (RETURN
             (COND
              ((LETT #2#

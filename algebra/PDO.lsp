@@ -45,9 +45,9 @@
 
 (DECLAIM (NOTINLINE |PartialDifferentialOperator;|)) 
 
-(DEFUN |PartialDifferentialOperator| (&REST #1=#:G161)
+(DEFUN |PartialDifferentialOperator| (&REST #1=#:G162)
   (SPROG NIL
-         (PROG (#2=#:G162)
+         (PROG (#2=#:G163)
            (RETURN
             (COND
              ((LETT #2#
@@ -68,7 +68,7 @@
 
 (DEFUN |PartialDifferentialOperator;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G158 NIL) (#2=#:G159 NIL) (#3=#:G160 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G159 NIL) (#2=#:G160 NIL) (#3=#:G161 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))

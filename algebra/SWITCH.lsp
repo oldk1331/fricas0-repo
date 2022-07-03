@@ -1,8 +1,8 @@
 
 (SDEFUN |SWITCH;coerce;$Of;1| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
-         ((|ran| (|List| (|OutputForm|))) (#1=#:G137 NIL) (|u| NIL)
-          (#2=#:G136 NIL) (|rat| (|OutputForm|)))
+         ((|ran| (|List| (|OutputForm|))) (#1=#:G138 NIL) (|u| NIL)
+          (#2=#:G137 NIL) (|rat| (|OutputForm|)))
          (SEQ (LETT |rat| (SPADCALL (QCAR |s|) (QREFELT $ 12)))
               (LETT |ran|
                     (PROGN
@@ -141,7 +141,7 @@
 
 (DEFUN |Switch| ()
   (SPROG NIL
-         (PROG (#1=#:G193)
+         (PROG (#1=#:G194)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Switch|))

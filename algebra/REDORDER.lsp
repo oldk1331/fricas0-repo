@@ -13,8 +13,8 @@
         ((|l| (L)) (|sols| (|List| F))
          ($ (|Record| (|:| |eq| L) (|:| |op| (|List| F)))))
         (SPROG
-         ((|rec| (|Record| (|:| |eq| L) (|:| |op| (|List| F)))) (#1=#:G128 NIL)
-          (|s| NIL) (#2=#:G127 NIL) (|neweq| (L)) (|sol| (F)))
+         ((|rec| (|Record| (|:| |eq| L) (|:| |op| (|List| F)))) (#1=#:G129 NIL)
+          (|s| NIL) (#2=#:G128 NIL) (|neweq| (L)) (|sol| (F)))
          (SEQ
           (COND ((NULL |sols|) (CONS |l| NIL))
                 ('T
@@ -79,8 +79,8 @@
 
 (SDEFUN |REDORDER;ReduceOrder;LFL;5| ((|eq| (L)) (|sol| (F)) ($ (L)))
         (SPROG
-         ((|ans| (L)) (#1=#:G142 NIL) (#2=#:G137 NIL) (|i| NIL) (|si| (F))
-          (#3=#:G141 NIL) (#4=#:G134 NIL) (|s| (|PrimitiveArray| F))
+         ((|ans| (L)) (#1=#:G146 NIL) (#2=#:G141 NIL) (|i| NIL) (|si| (F))
+          (#3=#:G145 NIL) (#4=#:G137 NIL) (|s| (|PrimitiveArray| F))
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |s|
@@ -119,9 +119,9 @@
 
 (DECLAIM (NOTINLINE |ReductionOfOrder;|)) 
 
-(DEFUN |ReductionOfOrder| (&REST #1=#:G143)
+(DEFUN |ReductionOfOrder| (&REST #1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#

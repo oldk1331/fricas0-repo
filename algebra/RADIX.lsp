@@ -128,7 +128,7 @@
         (SPADCALL (SPADCALL |a| (QREFELT $ 17)) (QREFELT $ 52))) 
 
 (SDEFUN |RADIX;wholePart;$I;23| ((|a| ($)) ($ (|Integer|)))
-        (SPROG ((|n0| (|Integer|)) (#1=#:G199 NIL) (|r| NIL))
+        (SPROG ((|n0| (|Integer|)) (#1=#:G200 NIL) (|r| NIL))
                (SEQ (LETT |n0| 0)
                     (SEQ (LETT |r| NIL) (LETT #1# (QVELT |a| 1)) G190
                          (COND
@@ -142,7 +142,7 @@
 (SDEFUN |RADIX;fractionPart;$F;24| ((|a| ($)) ($ (|Fraction| (|Integer|))))
         (SPROG
          ((|d| (|Integer|)) (|n| (|Integer|)) (|n1| (|Integer|))
-          (#1=#:G206 NIL) (|r| NIL) (|n0| (|Integer|)) (#2=#:G205 NIL))
+          (#1=#:G209 NIL) (|r| NIL) (|n0| (|Integer|)) (#2=#:G208 NIL))
          (SEQ (LETT |n0| 0)
               (SEQ (LETT |r| NIL) (LETT #2# (QVELT |a| 2)) G190
                    (COND
@@ -219,8 +219,8 @@
 
 (SDEFUN |RADIX;intgroup| ((|li| (|List| (|Integer|))) ($ (|OutputForm|)))
         (SPROG
-         ((#1=#:G234 NIL) (|i| NIL) (#2=#:G233 NIL) (#3=#:G232 NIL)
-          (#4=#:G231 NIL) (#5=#:G230 NIL) (#6=#:G229 NIL))
+         ((#1=#:G240 NIL) (|i| NIL) (#2=#:G239 NIL) (#3=#:G238 NIL)
+          (#4=#:G237 NIL) (#5=#:G236 NIL) (#6=#:G235 NIL))
          (SEQ
           (COND ((NULL |li|) (|error| "intgroup needs non-null list"))
                 ((NULL (CDR |li|))
@@ -301,7 +301,7 @@
                       (#1# |rex|)))))) 
 
 (SDEFUN |RADIX;checkRagits| ((|li| (|List| (|Integer|))) ($ (|Boolean|)))
-        (SPROG ((#1=#:G245 NIL) (|i| NIL))
+        (SPROG ((#1=#:G252 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| NIL) (LETT #1# |li|) G190
                      (COND
@@ -342,19 +342,19 @@
            (|List|
             #1=(|Record| (|:| |quotient| (|Integer|))
                          (|:| |remainder| (|Integer|)))))
-          (|ritscyc| (|List| (|Integer|))) (#2=#:G275 NIL) (|i| (|Integer|))
-          (|ritspfx| (|List| (|Integer|))) (#3=#:G274 NIL) (|c| (|Integer|))
+          (|ritscyc| (|List| (|Integer|))) (#2=#:G290 NIL) (|i| (|Integer|))
+          (|ritspfx| (|List| (|Integer|))) (#3=#:G289 NIL) (|c| (|Integer|))
           (|cfound| (|Boolean|))
           (|ritsn|
            #4=(|List|
                (|Record| (|:| |quotient| (|Integer|))
                          (|:| |remainder| (|Integer|)))))
-          (#5=#:G273 NIL)
+          (#5=#:G288 NIL)
           (|rn|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|))))
-          (#6=#:G272 NIL) (|p| #7=(|Integer|)) (|ritsi| #4#) (#8=#:G271 NIL)
-          (|n| #7#) (|qr2i| #1#) (|qrt| #1#) (|qr1i| #1#) (#9=#:G270 NIL)
+          (#6=#:G287 NIL) (|p| #7=(|Integer|)) (|ritsi| #4#) (#8=#:G286 NIL)
+          (|n| #7#) (|qr2i| #1#) (|qrt| #1#) (|qr1i| #1#) (#9=#:G285 NIL)
           (|qr| #1#))
          (SEQ (LETT |qr| (DIVIDE2 (* |bas| |num|) |den|)) (LETT |i| 0)
               (LETT |qr1i| (LETT |qr2i| |qr|)) (LETT |rits| (LIST |qr|))
@@ -420,9 +420,9 @@
 
 (DECLAIM (NOTINLINE |RadixExpansion;|)) 
 
-(DEFUN |RadixExpansion| (#1=#:G303)
+(DEFUN |RadixExpansion| (#1=#:G318)
   (SPROG NIL
-         (PROG (#2=#:G304)
+         (PROG (#2=#:G319)
            (RETURN
             (COND
              ((LETT #2#
@@ -438,7 +438,7 @@
                   (HREM |$ConstructorCache| '|RadixExpansion|)))))))))) 
 
 (DEFUN |RadixExpansion;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G302 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G317 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 |#1|)
           (LETT |dv$| (LIST '|RadixExpansion| DV$1))

@@ -5,7 +5,7 @@
           (|Record| (|:| |ppow| (|NonNegativeInteger|))
                     (|:| |pfree| (|Integer|)))))
         (SPROG
-         ((|n| (|NonNegativeInteger|)) (|a| #1#) (#2=#:G149 NIL)
+         ((|n| (|NonNegativeInteger|)) (|a| #1#) (#2=#:G150 NIL)
           (|x| (|Union| (|Integer|) #3="failed")))
          (SEQ
           (COND ((ZEROP |z|) (CONS 0 0))
@@ -362,9 +362,9 @@
 
 (DECLAIM (NOTINLINE |IntegerLocalizedAtPrime;|)) 
 
-(DEFUN |IntegerLocalizedAtPrime| (#1=#:G281)
+(DEFUN |IntegerLocalizedAtPrime| (#1=#:G282)
   (SPROG NIL
-         (PROG (#2=#:G282)
+         (PROG (#2=#:G283)
            (RETURN
             (COND
              ((LETT #2#

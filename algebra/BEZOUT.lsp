@@ -1,8 +1,8 @@
 
 (SDEFUN |BEZOUT;sylvesterMatrix;2UPM;1| ((|p| (UP)) (|q| (UP)) ($ (M)))
         (SPROG
-         ((#1=#:G139 NIL) (|i| NIL) (|q0| (UP))
-          (|deg| #2=(|NonNegativeInteger|)) (|coef| (R)) (#3=#:G138 NIL)
+         ((#1=#:G143 NIL) (|i| NIL) (|q0| (UP))
+          (|deg| #2=(|NonNegativeInteger|)) (|coef| (R)) (#3=#:G142 NIL)
           (|p0| (UP)) (|minC| (|Integer|)) (|minR| (|Integer|)) (|sylmat| (M))
           (|n| (|NonNegativeInteger|)) (|n2| #2#) (|n1| #2#))
          (SEQ
@@ -137,11 +137,11 @@
 
 (SDEFUN |BEZOUT;bezoutMatrix;2UPM;4| ((|p| (UP)) (|q| (UP)) ($ (M)))
         (SPROG
-         ((#1=#:G238 NIL) (|k| NIL) (#2=#:G237 NIL) (|i| NIL) (|p0| (UP))
-          (|c| (R)) (#3=#:G236 NIL) (|coef| (R))
-          (|deg| #4=(|NonNegativeInteger|)) (|q0| (UP)) (#5=#:G235 NIL)
-          (|bound| #6=(|Integer|)) (#7=#:G234 NIL) (|bezmat| (M))
-          (#8=#:G233 NIL) (#9=#:G232 NIL) (|maxC| (|Integer|))
+         ((#1=#:G253 NIL) (|k| NIL) (#2=#:G252 NIL) (|i| NIL) (|p0| (UP))
+          (|c| (R)) (#3=#:G251 NIL) (|coef| (R))
+          (|deg| #4=(|NonNegativeInteger|)) (|q0| (UP)) (#5=#:G250 NIL)
+          (|bound| #6=(|Integer|)) (#7=#:G249 NIL) (|bezmat| (M))
+          (#8=#:G248 NIL) (#9=#:G247 NIL) (|maxC| (|Integer|))
           (|maxR| (|Integer|)) (|minC| (|Integer|)) (|minR| (|Integer|))
           (|sylmat| (M)) (|m| #6#) (|m2| #6#) (|m1| #6#)
           (|n| (|NonNegativeInteger|)) (|n2| #4#) (|n1| #4#))
@@ -374,7 +374,7 @@
 
 (SDEFUN |BEZOUT;subresultant| ((|m| (M)) (|j| (|NonNegativeInteger|)) ($ (UP)))
         (SPROG
-         ((#1=#:G240 NIL) (#2=#:G239 (UP)) (#3=#:G241 (UP)) (#4=#:G244 NIL)
+         ((#1=#:G255 NIL) (#2=#:G254 (UP)) (#3=#:G256 (UP)) (#4=#:G259 NIL)
           (|k| NIL) (|x| (UP)))
          (SEQ
           (COND
@@ -406,8 +406,8 @@
 (SDEFUN |BEZOUT;subresultants;2UPIv;6|
         ((|p| (UP)) (|q| (UP)) ($ (|IndexedVector| UP (|Zero|))))
         (SPROG
-         ((#1=#:G251 NIL) (|i| NIL) (#2=#:G250 NIL)
-          (|j| (|NonNegativeInteger|)) (#3=#:G245 NIL) (|m| (M))
+         ((#1=#:G267 NIL) (|i| NIL) (#2=#:G266 NIL)
+          (|j| (|NonNegativeInteger|)) (#3=#:G260 NIL) (|m| (M))
           (|mindeg| (|NonNegativeInteger|)))
          (SEQ
           (LETT |mindeg|
@@ -442,7 +442,7 @@
         (SPADCALL (SPADCALL |f| |g| (QREFELT $ 47)) (QREFELT $ 53))) 
 
 (SDEFUN |BEZOUT;bezoutDiscriminant;UPR;8| ((|f| (UP)) ($ (R)))
-        (SPROG ((#1=#:G254 NIL) (|degMod4| (|Integer|)))
+        (SPROG ((#1=#:G270 NIL) (|degMod4| (|Integer|)))
                (SEQ (LETT |degMod4| (REM (SPADCALL |f| (QREFELT $ 16)) 4))
                     (COND
                      ((OR (EQL |degMod4| 0) (EQL |degMod4| 1))
@@ -494,9 +494,9 @@
 
 (DECLAIM (NOTINLINE |BezoutMatrix;|)) 
 
-(DEFUN |BezoutMatrix| (&REST #1=#:G261)
+(DEFUN |BezoutMatrix| (&REST #1=#:G277)
   (SPROG NIL
-         (PROG (#2=#:G262)
+         (PROG (#2=#:G278)
            (RETURN
             (COND
              ((LETT #2#

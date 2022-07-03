@@ -23,8 +23,8 @@
                      (|:| |sp| (|Integer|)))
            "failed")))
         (SPROG
-         ((|lm2| (|List| (|Polynomial| (|Integer|)))) (#1=#:G135 NIL) (|m| NIL)
-          (#2=#:G134 NIL))
+         ((|lm2| (|List| (|Polynomial| (|Integer|)))) (#1=#:G136 NIL) (|m| NIL)
+          (#2=#:G135 NIL))
          (SEQ
           (LETT |lm2|
                 (PROGN
@@ -94,7 +94,7 @@
 
 (DEFUN |ModularAlgebraicGcdTools4| ()
   (SPROG NIL
-         (PROG (#1=#:G157)
+         (PROG (#1=#:G158)
            (RETURN
             (COND
              ((LETT #1#

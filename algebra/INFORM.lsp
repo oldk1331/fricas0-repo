@@ -34,11 +34,11 @@
 
 (SDEFUN |INFORM;flatten;2$;10| ((|s| ($)) ($ ($)))
         (SPROG
-         ((#1=#:G153 NIL) (|u| NIL) (#2=#:G152 NIL) (#3=#:G151 NIL)
-          (#4=#:G150 NIL)
+         ((#1=#:G156 NIL) (|u| NIL) (#2=#:G155 NIL) (#3=#:G154 NIL)
+          (#4=#:G153 NIL)
           (|l2| (|List| (|Record| (|:| |lst| (|List| $)) (|:| |symb| $))))
-          (|n| (|NonNegativeInteger|)) (#5=#:G149 NIL) (|l| (|List| $))
-          (|x| NIL) (#6=#:G148 NIL) (|sy| (|Symbol|)))
+          (|n| (|NonNegativeInteger|)) (#5=#:G152 NIL) (|l| (|List| $))
+          (|x| NIL) (#6=#:G151 NIL) (|sy| (|Symbol|)))
          (SEQ
           (COND
            ((OR (SPADCALL |s| (QREFELT $ 27))
@@ -120,10 +120,10 @@
         ((|s| ($)) (|sy| (|Symbol|)) (|n| (|NonNegativeInteger|))
          ($ (|Record| (|:| |lst| (|List| $)) (|:| |symb| $))))
         (SPROG
-         ((#1=#:G166 NIL) (|u| NIL) (#2=#:G165 NIL) (#3=#:G164 NIL)
-          (#4=#:G163 NIL)
+         ((#1=#:G172 NIL) (|u| NIL) (#2=#:G171 NIL) (#3=#:G170 NIL)
+          (#4=#:G169 NIL)
           (|l2| (|List| (|Record| (|:| |lst| (|List| $)) (|:| |symb| $))))
-          (#5=#:G162 NIL) (|l| (|List| $)) (|x| NIL) (#6=#:G161 NIL) (|a| ($)))
+          (#5=#:G168 NIL) (|l| (|List| $)) (|x| NIL) (#6=#:G167 NIL) (|a| ($)))
          (SEQ
           (COND ((SPADCALL |s| (QREFELT $ 27)) (CONS NIL |s|))
                 ('T
@@ -204,7 +204,7 @@
               ('T (|error| "strsym: form is neither a string or symbol")))) 
 
 (SDEFUN |INFORM;unparse;$S;13| ((|x| ($)) ($ (|String|)))
-        (SPROG ((#1=#:G174 NIL) (|a| NIL) (#2=#:G173 NIL) (|s| ($)))
+        (SPROG ((#1=#:G181 NIL) (|a| NIL) (#2=#:G180 NIL) (|s| ($)))
                (SEQ
                 (COND
                  ((SPADCALL (LETT |s| (|unparseInputForm| |x|)) (QREFELT $ 27))
@@ -275,7 +275,7 @@
                              (QREFELT $ 56)))))))) 
 
 (SDEFUN |INFORM;tuplify| ((|l| (|List| (|Symbol|))) ($ ($)))
-        (SPROG ((#1=#:G187 NIL) (|x| NIL) (#2=#:G186 NIL))
+        (SPROG ((#1=#:G195 NIL) (|x| NIL) (#2=#:G194 NIL))
                (SEQ
                 (COND
                  ((NULL (CDR |l|)) (SPADCALL (|SPADfirst| |l|) (QREFELT $ 16)))
@@ -301,7 +301,7 @@
 
 (SDEFUN |INFORM;function;$LS$;20|
         ((|f| ($)) (|l| (|List| (|Symbol|))) (|name| (|Symbol|)) ($ ($)))
-        (SPROG ((#1=#:G192 NIL) (|x| NIL) (#2=#:G191 NIL) (|nn| ($)))
+        (SPROG ((#1=#:G201 NIL) (|x| NIL) (#2=#:G200 NIL) (|nn| ($)))
                (SEQ
                 (LETT |nn|
                       (SPADCALL
@@ -384,7 +384,7 @@
 
 (DEFUN |InputForm| ()
   (SPROG NIL
-         (PROG (#1=#:G202)
+         (PROG (#1=#:G211)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|InputForm|))
