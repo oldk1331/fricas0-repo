@@ -433,6 +433,8 @@
 ;   u is ["PrimitiveArray",:.] => PrimitiveArray Integer()
 ;   u is ["Matrix", :.] => Matrix Integer()
 ;   u is ["TwoDimensionalArray", :.] => TwoDimensionalArray Integer()
+;   u is ["PrimitiveTwoDimensionalArray", :.] =>
+;                        PrimitiveTwoDimensionalArray(Integer())
 ;   eval u
 
 (DEFUN |optCallEval| (|u|)
@@ -447,6 +449,8 @@
            ((AND (CONSP |u|) (EQ (CAR |u|) '|Matrix|)) (|Matrix| (|Integer|)))
            ((AND (CONSP |u|) (EQ (CAR |u|) '|TwoDimensionalArray|))
             (|TwoDimensionalArray| (|Integer|)))
+           ((AND (CONSP |u|) (EQ (CAR |u|) '|PrimitiveTwoDimensionalArray|))
+            (|PrimitiveTwoDimensionalArray| (|Integer|)))
            ('T (|eval| |u|))))))
 
 ; optCons (x is ["CONS",a,b]) ==
