@@ -1,7 +1,7 @@
 
 (SDEFUN |STEXPST;expre|
-        ((|r| |Coef|) (|e| |Stream| |Coef|) (|dx| |Stream| |Coef|)
-         ($ |Stream| |Coef|))
+        ((|r| (|Coef|)) (|e| (|Stream| |Coef|)) (|dx| (|Stream| |Coef|))
+         ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL |r| (CONS #'|STEXPST;expre!0| (VECTOR $ |dx| |e|))
                          (QREFELT $ 11)))) 
@@ -13,7 +13,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |e| |dx| (QREFELT $ 9)))))) 
 
-(SDEFUN |STEXPST;exp;2S;2| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STEXPST;exp;2S;2| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -53,7 +53,7 @@
             (|STEXPST;expre| (|spadConstant| $ 14) |y|
              (SPADCALL |z| (QREFELT $ 20)) $))))) 
 
-(SDEFUN |STEXPST;log;2S;3| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STEXPST;log;2S;3| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG ((|c| (|Coef|)))
                (SEQ
                 (COND

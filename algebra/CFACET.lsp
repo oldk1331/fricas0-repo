@@ -1,6 +1,7 @@
 
 (SDEFUN |CFACET;cubicalFacet;IL$;1|
-        ((|mul1| |Integer|) (|fac1| |List| (|Segment| (|Integer|))) ($ $))
+        ((|mul1| (|Integer|)) (|fac1| (|List| (|Segment| (|Integer|))))
+         ($ ($)))
         (SPROG
          ((|mul2| (|Integer|)) (|fac2| (|List| (|Segment| (|Integer|))))
           (|invert| (|Boolean|)) (|interv| (|Segment| (|Integer|)))
@@ -26,7 +27,7 @@
               (EXIT (CONS |mul2| |fac2|))))) 
 
 (SDEFUN |CFACET;cubicalFacet;IL$;2|
-        ((|mul1| |Integer|) (|fac1| |List| (|List| (|Integer|))) ($ $))
+        ((|mul1| (|Integer|)) (|fac1| (|List| (|List| (|Integer|)))) ($ ($)))
         (SPROG
          ((|fac2| (|List| (|Segment| (|Integer|))))
           (|interv| (|Segment| (|Integer|))) (#1=#:G155 NIL) (|x| NIL))
@@ -49,7 +50,7 @@
               (EXIT (CONS |mul1| |fac2|))))) 
 
 (SDEFUN |CFACET;cubicalFacet;I2$;3|
-        ((|mul1| |Integer|) (|fac1| |CubicalFacet|) ($ $))
+        ((|mul1| (|Integer|)) (|fac1| (|CubicalFacet|)) ($ ($)))
         (SPROG ((|fac2| (|List| (|Segment| (|Integer|)))))
                (SEQ (LETT |fac2| (SPADCALL |fac1| (QREFELT $ 22)))
                     (EXIT (CONS |mul1| |fac2|))))) 
@@ -57,9 +58,9 @@
 (PUT '|CFACET;getIntervals;$L;4| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |CFACET;getIntervals;$L;4|
-        ((|orf| $) ($ |List| (|Segment| (|Integer|)))) (QCDR |orf|)) 
+        ((|orf| ($)) ($ (|List| (|Segment| (|Integer|))))) (QCDR |orf|)) 
 
-(SDEFUN |CFACET;order;$Nni;5| ((|f| $) ($ |NonNegativeInteger|))
+(SDEFUN |CFACET;order;$Nni;5| ((|f| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|value| (|NonNegativeInteger|)) (#1=#:G159 NIL) (|hi| (|Integer|))
           (|lo| (|Integer|)) (#2=#:G164 NIL) (|seg| NIL)
@@ -83,14 +84,14 @@
 
 (PUT '|CFACET;getMult;$I;6| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |CFACET;getMult;$I;6| ((|orf| $) ($ |Integer|)) (QCAR |orf|)) 
+(SDEFUN |CFACET;getMult;$I;6| ((|orf| ($)) ($ (|Integer|))) (QCAR |orf|)) 
 
-(SDEFUN |CFACET;setMult;$I$;7| ((|orf| $) (|m| |Integer|) ($ $))
+(SDEFUN |CFACET;setMult;$I$;7| ((|orf| ($)) (|m| (|Integer|)) ($ ($)))
         (SPROG ((|fac2| (|List| (|Segment| (|Integer|)))))
                (SEQ (LETT |fac2| (SPADCALL |orf| (QREFELT $ 24)))
                     (EXIT (SPADCALL |m| |fac2| (QREFELT $ 14)))))) 
 
-(SDEFUN |CFACET;position;$LI;8| ((|e| $) (|lst| |List| $) ($ |Integer|))
+(SDEFUN |CFACET;position;$LI;8| ((|e| ($)) (|lst| (|List| $)) ($ (|Integer|)))
         (SPROG ((#1=#:G176 NIL) (|res| (|Integer|)) (#2=#:G177 NIL) (|x| NIL))
                (SEQ
                 (EXIT
@@ -112,7 +113,7 @@
                       (EXIT (PROGN (LETT #1# 0) (GO #3#)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |CFACET;product;3$;9| ((|a| $) (|b| $) ($ $))
+(SDEFUN |CFACET;product;3$;9| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((|bint| #1=(|List| (|Segment| (|Integer|)))) (|aint| #1#))
                (SEQ (LETT |aint| (SPADCALL |a| (QREFELT $ 24)))
                     (LETT |bint| (SPADCALL |b| (QREFELT $ 24)))
@@ -121,8 +122,8 @@
                                (QREFELT $ 14)))))) 
 
 (SDEFUN |CFACET;boundaryOneDimension|
-        ((|orf| $) (|dim| |NonNegativeInteger|) (|invert| |Boolean|)
-         ($ |List| $))
+        ((|orf| ($)) (|dim| (|NonNegativeInteger|)) (|invert| (|Boolean|))
+         ($ (|List| $)))
         (SPROG
          ((|res| (|List| $)) (|r2| ($)) (|r1| ($)) (|mult| (|Integer|))
           (|subFacet2| (|List| (|Segment| (|Integer|))))
@@ -169,7 +170,7 @@
               (LETT |r2| (SPADCALL |mult| |subFacet2| (QREFELT $ 14)))
               (LETT |res| (SPADCALL |res| |r2| (QREFELT $ 35))) (EXIT |res|)))) 
 
-(SDEFUN |CFACET;boundary;$L;11| ((|orf| $) ($ |List| $))
+(SDEFUN |CFACET;boundary;$L;11| ((|orf| ($)) ($ (|List| $)))
         (SPROG
          ((|invert| (|Boolean|)) (|res| (|List| $)) (#1=#:G197 NIL) (|dim| NIL)
           (|dims| (|List| (|NonNegativeInteger|))) (|hi| (|Integer|))
@@ -208,7 +209,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |CFACET;addIfNew| ((|lst| |List| $) (|orf| $) ($ |List| $))
+(SDEFUN |CFACET;addIfNew| ((|lst| (|List| $)) (|orf| ($)) ($ (|List| $)))
         (SPROG ((#1=#:G202 NIL))
                (SEQ
                 (EXIT
@@ -221,7 +222,8 @@
                   (EXIT (SPADCALL |lst| |orf| (QREFELT $ 35)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |CFACET;addIfNew2| ((|lst| |List| $) (|orfs| |List| $) ($ |List| $))
+(SDEFUN |CFACET;addIfNew2|
+        ((|lst| (|List| $)) (|orfs| (|List| $)) ($ (|List| $)))
         (SPROG ((|res| (|List| $)) (#1=#:G210 NIL) (|orf| NIL) (#2=#:G209 NIL))
                (SEQ
                 (EXIT
@@ -247,7 +249,7 @@
                 #3# (EXIT #2#)))) 
 
 (SDEFUN |CFACET;allSubsets;$NniL;14|
-        ((|orf| $) (|minDim| |NonNegativeInteger|) ($ |List| $))
+        ((|orf| ($)) (|minDim| (|NonNegativeInteger|)) ($ (|List| $)))
         (SPROG
          ((|res| (|List| $)) (|sub| (|List| $)) (|rHi1| ($))
           (|rHi| #1=(|List| (|Segment| (|Integer|)))) (|rLo1| ($)) (|rLo| #1#)
@@ -317,8 +319,8 @@
           #6# (EXIT #5#)))) 
 
 (SDEFUN |CFACET;allSubsets;$2NniL;15|
-        ((|orf| $) (|minDim| |NonNegativeInteger|)
-         (|maxDim| |NonNegativeInteger|) ($ |List| $))
+        ((|orf| ($)) (|minDim| (|NonNegativeInteger|))
+         (|maxDim| (|NonNegativeInteger|)) ($ (|List| $)))
         (SPROG
          ((|res2| (|List| $)) (#1=#:G229 NIL) (|y| NIL) (|res| (|List| $)))
          (SEQ (LETT |res| (SPADCALL |orf| |minDim| (QREFELT $ 46)))
@@ -335,14 +337,14 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |res2|)))) 
 
-(SDEFUN |CFACET;sameFace?;2$B;16| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |CFACET;sameFace?;2$B;16| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG ((|vertsb| #1=(|List| (|Segment| (|Integer|)))) (|vertsa| #1#))
                (SEQ (LETT |vertsa| (QCDR |a|)) (LETT |vertsb| (QCDR |b|))
                     (EXIT (NULL (SPADCALL |vertsa| |vertsb| (QREFELT $ 48))))))) 
 
 (SDEFUN |CFACET;ltLocal|
-        ((|a| |List| (|Segment| (|Integer|)))
-         (|b| |List| (|Segment| (|Integer|))) ($ |Boolean|))
+        ((|a| (|List| (|Segment| (|Integer|))))
+         (|b| (|List| (|Segment| (|Integer|)))) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G239 NIL) (|hib| #2=(|Integer|)) (|lob| #3=(|Integer|))
           (|hia| #2#) (|loa| #3#) (#4=#:G240 NIL) (|a1| NIL) (#5=#:G241 NIL)
@@ -376,12 +378,12 @@
             (EXIT NIL)))
           #6# (EXIT #1#)))) 
 
-(SDEFUN |CFACET;<;2$B;18| ((|ain| $) (|bin| $) ($ |Boolean|))
+(SDEFUN |CFACET;<;2$B;18| ((|ain| ($)) (|bin| ($)) ($ (|Boolean|)))
         (SPROG ((|b| #1=(|List| (|Segment| (|Integer|)))) (|a| #1#))
                (SEQ (LETT |a| (QCDR |ain|)) (LETT |b| (QCDR |bin|))
                     (EXIT (|CFACET;ltLocal| |a| |b| $))))) 
 
-(SDEFUN |CFACET;<=;2$B;19| ((|ain| $) (|bin| $) ($ |Boolean|))
+(SDEFUN |CFACET;<=;2$B;19| ((|ain| ($)) (|bin| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G246 NIL) (|b| #2=(|List| (|Segment| (|Integer|)))) (|a| #2#))
          (SEQ
@@ -393,7 +395,7 @@
                 (EXIT (|CFACET;ltLocal| |a| |b| $))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |CFACET;=;2$B;20| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |CFACET;=;2$B;20| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G251 NIL))
                (SEQ
                 (EXIT
@@ -404,7 +406,7 @@
                   (EXIT (SPADCALL (QCDR |a|) (QCDR |b|) (QREFELT $ 29)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |CFACET;coerce;$Of;21| ((|s| $) ($ |OutputForm|))
+(SDEFUN |CFACET;coerce;$Of;21| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|body| (|OutputForm|)) (|elements| (|List| (|OutputForm|)))
           (#1=#:G259 NIL) (|x| NIL) (#2=#:G258 NIL) (|prefix| (|OutputForm|))

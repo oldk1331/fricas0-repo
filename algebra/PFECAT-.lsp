@@ -1,5 +1,5 @@
 
-(SDEFUN |PFECAT-;charthRoot;SU;1| ((|f| S) ($ |Union| S "failed"))
+(SDEFUN |PFECAT-;charthRoot;SU;1| ((|f| (S)) ($ (|Union| S "failed")))
         (SPROG ((|ans| (|Union| (|Vector| S) "failed")) (|m| (|Matrix| S)))
                (SEQ
                 (COND
@@ -21,15 +21,15 @@
                                      (QREFELT $ 22))))))))))) 
 
 (SDEFUN |PFECAT-;solveLinearPolynomialEquation;LSupU;2|
-        ((|lf| |List| (|SparseUnivariatePolynomial| S))
-         (|g| |SparseUnivariatePolynomial| S)
-         ($ |Union| (|List| (|SparseUnivariatePolynomial| S)) "failed"))
+        ((|lf| (|List| (|SparseUnivariatePolynomial| S)))
+         (|g| (|SparseUnivariatePolynomial| S))
+         ($ (|Union| (|List| (|SparseUnivariatePolynomial| S)) "failed")))
         (SPADCALL |lf| |g| (QREFELT $ 27))) 
 
 (SDEFUN |PFECAT-;solveLinearPolynomialEquation;LSupU;3|
-        ((|lf| |List| (|SparseUnivariatePolynomial| S))
-         (|g| |SparseUnivariatePolynomial| S)
-         ($ |Union| (|List| (|SparseUnivariatePolynomial| S)) "failed"))
+        ((|lf| (|List| (|SparseUnivariatePolynomial| S)))
+         (|g| (|SparseUnivariatePolynomial| S))
+         ($ (|Union| (|List| (|SparseUnivariatePolynomial| S)) "failed")))
         (SPADCALL |lf| |g| (QREFELT $ 35))) 
 
 (DECLAIM (NOTINLINE |PolynomialFactorizationExplicit&;|)) 

@@ -1,11 +1,11 @@
 
-(SDEFUN |PORDER-;>=;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |PORDER-;>=;2SB;1| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (SPADCALL |y| |x| (QREFELT $ 8))) 
 
-(SDEFUN |PORDER-;>;2SB;2| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |PORDER-;>;2SB;2| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (SPADCALL |y| |x| (QREFELT $ 10))) 
 
-(SDEFUN |PORDER-;<;2SB;3| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |PORDER-;<;2SB;3| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (COND
          ((SPADCALL |x| |y| (QREFELT $ 8))
           (NULL (SPADCALL |y| |x| (QREFELT $ 8))))

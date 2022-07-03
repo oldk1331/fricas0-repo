@@ -1,48 +1,48 @@
 
 (PUT '|LMOPS;makeUnit;$;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |LMOPS;makeUnit;$;1| (($ $)) NIL) 
+(SDEFUN |LMOPS;makeUnit;$;1| (($ ($))) NIL) 
 
-(SDEFUN |LMOPS;size;$Nni;2| ((|l| $) ($ |NonNegativeInteger|))
+(SDEFUN |LMOPS;size;$Nni;2| ((|l| ($)) ($ (|NonNegativeInteger|)))
         (LENGTH (SPADCALL |l| (QREFELT $ 13)))) 
 
-(SDEFUN |LMOPS;coerce;S$;3| ((|s| S) ($ $)) (LIST (CONS |s| (QREFELT $ 8)))) 
+(SDEFUN |LMOPS;coerce;S$;3| ((|s| (S)) ($ ($))) (LIST (CONS |s| (QREFELT $ 8)))) 
 
-(SDEFUN |LMOPS;coerce;$Of;4| ((|l| $) ($ |OutputForm|))
+(SDEFUN |LMOPS;coerce;$Of;4| ((|l| ($)) ($ (|OutputForm|)))
         (SPADCALL |l| (QREFELT $ 18))) 
 
-(SDEFUN |LMOPS;makeTerm;SE$;5| ((|s| S) (|e| E) ($ $))
+(SDEFUN |LMOPS;makeTerm;SE$;5| ((|s| (S)) (|e| (E)) ($ ($)))
         (COND ((SPADCALL |e| (QREFELT $ 21)) (SPADCALL (QREFELT $ 10)))
               ('T (LIST (CONS |s| |e|))))) 
 
 (PUT '|LMOPS;makeMulti;L$;6| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |LMOPS;makeMulti;L$;6|
-        ((|l| |List| (|Record| (|:| |gen| S) (|:| |exp| E))) ($ $)) |l|) 
+        ((|l| (|List| (|Record| (|:| |gen| S) (|:| |exp| E)))) ($ ($))) |l|) 
 
-(SDEFUN |LMOPS;=;2$B;7| ((|f| $) (|g| $) ($ |Boolean|))
+(SDEFUN |LMOPS;=;2$B;7| ((|f| ($)) (|g| ($)) ($ (|Boolean|)))
         (SPADCALL |f| |g| (QREFELT $ 24))) 
 
 (PUT '|LMOPS;listOfMonoms;$L;8| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |LMOPS;listOfMonoms;$L;8|
-        ((|l| $) ($ |List| (|Record| (|:| |gen| S) (|:| |exp| E)))) |l|) 
+        ((|l| ($)) ($ (|List| (|Record| (|:| |gen| S) (|:| |exp| E))))) |l|) 
 
-(SDEFUN |LMOPS;nthExpon;$IE;9| ((|f| $) (|i| |Integer|) ($ E))
+(SDEFUN |LMOPS;nthExpon;$IE;9| ((|f| ($)) (|i| (|Integer|)) ($ (E)))
         (QCDR (SPADCALL |f| (+ (- |i| 1) (PROGN |f| 1)) (QREFELT $ 27)))) 
 
-(SDEFUN |LMOPS;nthFactor;$IS;10| ((|f| $) (|i| |Integer|) ($ S))
+(SDEFUN |LMOPS;nthFactor;$IS;10| ((|f| ($)) (|i| (|Integer|)) ($ (S)))
         (QCAR (SPADCALL |f| (+ (- |i| 1) (PROGN |f| 1)) (QREFELT $ 27)))) 
 
 (PUT '|LMOPS;reverse;2$;11| '|SPADreplace| 'REVERSE) 
 
-(SDEFUN |LMOPS;reverse;2$;11| ((|l| $) ($ $)) (REVERSE |l|)) 
+(SDEFUN |LMOPS;reverse;2$;11| ((|l| ($)) ($ ($))) (REVERSE |l|)) 
 
 (PUT '|LMOPS;reverse!;2$;12| '|SPADreplace| 'NREVERSE) 
 
-(SDEFUN |LMOPS;reverse!;2$;12| ((|l| $) ($ $)) (NREVERSE |l|)) 
+(SDEFUN |LMOPS;reverse!;2$;12| ((|l| ($)) ($ ($))) (NREVERSE |l|)) 
 
-(SDEFUN |LMOPS;mapGen;M2$;13| ((|f| |Mapping| S S) (|l| $) ($ $))
+(SDEFUN |LMOPS;mapGen;M2$;13| ((|f| (|Mapping| S S)) (|l| ($)) ($ ($)))
         (SPROG ((#1=#:G162 NIL) (|x| NIL) (#2=#:G161 NIL))
                (SEQ
                 (PROGN
@@ -59,7 +59,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |LMOPS;mapExpon;M2$;14| ((|f| |Mapping| E E) (|l| $) ($ $))
+(SDEFUN |LMOPS;mapExpon;M2$;14| ((|f| (|Mapping| E E)) (|l| ($)) ($ ($)))
         (SPROG
          ((|ans| (|List| (|Record| (|:| |gen| S) (|:| |exp| E)))) (|a| (E))
           (#1=#:G169 NIL) (|x| NIL))
@@ -78,9 +78,10 @@
               (EXIT (SPADCALL |ans| (QREFELT $ 31)))))) 
 
 (SDEFUN |LMOPS;outputForm;$2MIOf;15|
-        ((|l| $) (|op| |Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|))
-         (|opexp| |Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|))
-         (|id| |Integer|) ($ |OutputForm|))
+        ((|l| ($))
+         (|op| (|Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|)))
+         (|opexp| (|Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|)))
+         (|id| (|Integer|)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G179 NIL) (|p| NIL) (#2=#:G178 NIL))
                (SEQ
                 (COND ((NULL |l|) (SPADCALL |id| (QREFELT $ 38)))
@@ -116,7 +117,7 @@
                                     (EXIT (NREVERSE #2#)))))
                         (EXIT (SPADCALL |op| |l| (QREFELT $ 44))))))))) 
 
-(SDEFUN |LMOPS;retractIfCan;$U;16| ((|l| $) ($ |Union| S "failed"))
+(SDEFUN |LMOPS;retractIfCan;$U;16| ((|l| ($)) ($ (|Union| S "failed")))
         (SEQ
          (COND
           ((NULL (NULL |l|))
@@ -127,7 +128,7 @@
                (EXIT (CONS 0 (QCAR (|SPADfirst| |l|))))))))))
          (EXIT (CONS 1 "failed")))) 
 
-(SDEFUN |LMOPS;rightMult;$S$;17| ((|f| $) (|s| S) ($ $))
+(SDEFUN |LMOPS;rightMult;$S$;17| ((|f| ($)) (|s| (S)) ($ ($)))
         (SPROG ((|h| ($)))
                (SEQ
                 (COND ((NULL |f|) (SPADCALL |s| (QREFELT $ 16)))
@@ -148,7 +149,7 @@
                        (SPADCALL |f| (CONS |s| (QREFELT $ 8))
                                  (QREFELT $ 54))))))) 
 
-(SDEFUN |LMOPS;leftMult;S2$;18| ((|s| S) (|f| $) ($ $))
+(SDEFUN |LMOPS;leftMult;S2$;18| ((|s| (S)) (|f| ($)) ($ ($)))
         (COND ((NULL |f|) (SPADCALL |s| (QREFELT $ 16)))
               ((SPADCALL |s| (QCAR (|SPADfirst| |f|)) (QREFELT $ 50))
                (CONS

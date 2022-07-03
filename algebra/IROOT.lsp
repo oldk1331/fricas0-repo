@@ -1,14 +1,14 @@
 
-(SDEFUN |IROOT;perfectSquare?;IB;1| ((|a| I) ($ |Boolean|))
+(SDEFUN |IROOT;perfectSquare?;IB;1| ((|a| (I)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |a| (QREFELT $ 14)) 0)) 
 
 (SDEFUN |IROOT;perfectNthPower?;INniB;2|
-        ((|b| I) (|n| |NonNegativeInteger|) ($ |Boolean|))
+        ((|b| (I)) (|n| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |b| |n| (QREFELT $ 18)) 0)) 
 
 (SDEFUN |IROOT;perfectNthRoot;IR;3|
-        ((|n| I)
-         ($ |Record| (|:| |base| I) (|:| |exponent| (|NonNegativeInteger|))))
+        ((|n| (I))
+         ($ (|Record| (|:| |base| I) (|:| |exponent| (|NonNegativeInteger|)))))
         (SPROG
          ((|p| (|NonNegativeInteger|)) (#1=#:G144 NIL)
           (|e| (|NonNegativeInteger|)) (#2=#:G141 NIL)
@@ -69,7 +69,7 @@
                  (EXIT (CONS |n| |e|)))))))) 
 
 (SDEFUN |IROOT;approxNthRoot;INniI;4|
-        ((|a| I) (|n| |NonNegativeInteger|) ($ I))
+        ((|a| (I)) (|n| (|NonNegativeInteger|)) ($ (I)))
         (SPROG
          ((|z| (I)) (|y| (I)) (|xn| (I)) (|x| (I))
           (|n1| (|NonNegativeInteger|)) (#1=#:G151 NIL) (|l| (I)))
@@ -141,7 +141,7 @@
                       (EXIT |x|))))))))))) 
 
 (SDEFUN |IROOT;perfectNthRoot;INniU;5|
-        ((|b| I) (|n| |NonNegativeInteger|) ($ |Union| I "failed"))
+        ((|b| (I)) (|n| (|NonNegativeInteger|)) ($ (|Union| I "failed")))
         (SPROG ((|r| (I)))
                (COND
                 ((SPADCALL
@@ -151,7 +151,7 @@
                  (CONS 0 |r|))
                 ('T (CONS 1 "failed"))))) 
 
-(SDEFUN |IROOT;perfectSqrt;IU;6| ((|a| I) ($ |Union| I "failed"))
+(SDEFUN |IROOT;perfectSqrt;IU;6| ((|a| (I)) ($ (|Union| I "failed")))
         (SPROG ((|s| (I)))
                (COND
                 ((OR (SPADCALL |a| (|spadConstant| $ 7) (QREFELT $ 43))
@@ -170,7 +170,7 @@
                    (CONS 0 |s|))
                   ('T (CONS 1 "failed"))))))) 
 
-(SDEFUN |IROOT;approxSqrt;2I;7| ((|a| I) ($ I))
+(SDEFUN |IROOT;approxSqrt;2I;7| ((|a| (I)) ($ (I)))
         (SPROG
          ((|old| (I)) (|new| (I)) (|#G18| (I)) (|#G17| (I)) (|#G16| (I))
           (|#G15| (I)) (#1=#:G176 NIL) (|s| (I)) (|n| (I)))

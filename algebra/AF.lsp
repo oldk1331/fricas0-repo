@@ -1,13 +1,13 @@
 
-(SDEFUN |AF;belong?;BoB;1| ((|op| |BasicOperator|) ($ |Boolean|))
+(SDEFUN |AF;belong?;BoB;1| ((|op| (|BasicOperator|)) ($ (|Boolean|)))
         (COND ((SPADCALL |op| (QREFELT $ 8) (QREFELT $ 17)) 'T)
               ('T (SPADCALL |op| '|%root_sum| (QREFELT $ 18))))) 
 
-(SDEFUN |AF;dalg| ((|l| |List| F) ($ |OutputForm|))
+(SDEFUN |AF;dalg| ((|l| (|List| F)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |l| (QREFELT $ 21)) (QREFELT $ 23))) 
 
 (SDEFUN |AF;rootOf;SupSF;3|
-        ((|p| |SparseUnivariatePolynomial| F) (|x| |Symbol|) ($ F))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|n| (|SparseUnivariatePolynomial| F))
           (|f| (|Fraction| (|SparseUnivariatePolynomial| F)))
@@ -33,7 +33,7 @@
                      (SPADCALL |n| (SPADCALL |k| (QREFELT $ 30))
                                (QREFELT $ 31)))))))))))) 
 
-(SDEFUN |AF;dvalg| ((|l| |List| F) (|x| |Symbol|) ($ F))
+(SDEFUN |AF;dvalg| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG ((|alpha| (F)) (|p| (|SparseUnivariatePolynomial| F)))
                (SEQ
                 (LETT |p|
@@ -62,7 +62,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |s| |x| (QREFELT $ 44)))))) 
 
-(SDEFUN |AF;ialg| ((|l| |List| F) ($ F))
+(SDEFUN |AF;ialg| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|f| (|Fraction| (|SparseUnivariatePolynomial| F))) (|x| (F))
           (|p| (F)))
@@ -79,14 +79,14 @@
             ('T
              (SPADCALL (SPADCALL |f| (QREFELT $ 35)) |x| (QREFELT $ 31)))))))) 
 
-(SDEFUN |AF;operator;2Bo;6| ((|op| |BasicOperator|) ($ |BasicOperator|))
+(SDEFUN |AF;operator;2Bo;6| ((|op| (|BasicOperator|)) ($ (|BasicOperator|)))
         (COND ((SPADCALL |op| '|rootOf| (QREFELT $ 18)) (QREFELT $ 13))
               ((SPADCALL |op| '|nthRoot| (QREFELT $ 18)) (QREFELT $ 14))
               ((SPADCALL |op| '|%root_sum| (QREFELT $ 18)) (QREFELT $ 15))
               ('T (|error| "Unknown operator")))) 
 
 (SDEFUN |AF;inrootof;Sup2F;7|
-        ((|q| |SparseUnivariatePolynomial| F) (|x| F) ($ F))
+        ((|q| (|SparseUnivariatePolynomial| F)) (|x| (F)) ($ (F)))
         (SPROG
          ((#1=#:G217 NIL)
           (|r| (|Union| (|SparseUnivariatePolynomial| R) "failed"))
@@ -133,8 +133,8 @@
                           #3# (EXIT #1#))))))))))) 
 
 (SDEFUN |AF;UP2R|
-        ((|p| |SparseUnivariatePolynomial| F)
-         ($ |Union| (|SparseUnivariatePolynomial| R) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         ($ (|Union| (|SparseUnivariatePolynomial| R) "failed")))
         (SPROG
          ((|ans| (|SparseUnivariatePolynomial| R)) (#1=#:G229 NIL)
           (|r| (|Union| R "failed")))
@@ -169,7 +169,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |AF;inrootof;Sup2F;9|
-        ((|q| |SparseUnivariatePolynomial| F) (|x| F) ($ F))
+        ((|q| (|SparseUnivariatePolynomial| F)) (|x| (F)) ($ (F)))
         (SPROG ((|d| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((SPADCALL |q| (QREFELT $ 52)) (|spadConstant| $ 53))
@@ -193,7 +193,7 @@
                                           |x|)
                                          (QREFELT $ 43))))))))))) 
 
-(SDEFUN |AF;eqopalg| ((|k1| |Kernel| F) (|k2| |Kernel| F) ($ |Boolean|))
+(SDEFUN |AF;eqopalg| ((|k1| (|Kernel| F)) (|k2| (|Kernel| F)) ($ (|Boolean|)))
         (SPROG
          ((|lc2| #1=(|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|lc1| #1#)
@@ -236,7 +236,7 @@
                                (QREFELT $ 83)))))))))))) 
 
 (SDEFUN |AF;root_sum1|
-        ((|expr| F) (|p| |SparseUnivariatePolynomial| F) (|x| F) ($ F))
+        ((|expr| (F)) (|p| (|SparseUnivariatePolynomial| F)) (|x| (F)) ($ (F)))
         (SPROG
          ((|nexpr| (|SparseUnivariatePolynomial| F)) (|res| (F))
           (#1=#:G256 NIL) (|i| NIL) (|xs| (|Symbol|)) (|a| (F))
@@ -306,14 +306,15 @@
                       (QREFELT $ 75)))))) 
 
 (SDEFUN |AF;rootSum;FSupSF;12|
-        ((|expr| F) (|p| |SparseUnivariatePolynomial| F) (|s| |Symbol|) ($ F))
+        ((|expr| (F)) (|p| (|SparseUnivariatePolynomial| F)) (|s| (|Symbol|))
+         ($ (F)))
         (SPROG ((|k| (|Kernel| F)))
                (SEQ (LETT |k| (SPADCALL |s| (QREFELT $ 25)))
                     (EXIT
                      (|AF;root_sum1| |expr| |p| (SPADCALL |k| (QREFELT $ 30))
                       $))))) 
 
-(SDEFUN |AF;irootsum| ((|l| |List| F) ($ F))
+(SDEFUN |AF;irootsum| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|p| (|Fraction| (|SparseUnivariatePolynomial| F))) (|x| (F)))
                (SEQ
                 (LETT |p|
@@ -331,7 +332,7 @@
                    (|AF;root_sum1| (SPADCALL |l| 1 (QREFELT $ 73))
                     (SPADCALL |p| (QREFELT $ 35)) |x| $))))))) 
 
-(SDEFUN |AF;drootsum| ((|l| |List| F) ($ |OutputForm|))
+(SDEFUN |AF;drootsum| ((|l| (|List| F)) ($ (|OutputForm|)))
         (SPROG
          ((|p|
            (|SparseUnivariatePolynomial|
@@ -351,7 +352,7 @@
                       (SPADCALL 0 (QREFELT $ 106)) (QREFELT $ 107))
                      (QREFELT $ 108)))))) 
 
-(SDEFUN |AF;dvrootsum| ((|l| |List| F) (|x| |Symbol|) ($ F))
+(SDEFUN |AF;dvrootsum| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|nexpr| (F)) (|expr| (F)) (|dalpha| (F))
           (|p| (|SparseUnivariatePolynomial| F)) (|dvs| (|Symbol|))
@@ -394,9 +395,9 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |s| |x| (QREFELT $ 44)))))) 
 
-(SDEFUN |AF;lzero| ((|l| |List| F) ($ F)) (|spadConstant| $ 53)) 
+(SDEFUN |AF;lzero| ((|l| (|List| F)) ($ (F))) (|spadConstant| $ 53)) 
 
-(SDEFUN |AF;droot;LOf;17| ((|l| |List| F) ($ |OutputForm|))
+(SDEFUN |AF;droot;LOf;17| ((|l| (|List| F)) ($ (|OutputForm|)))
         (SPROG ((|n| (|Integer|)) (|x| (|OutputForm|)))
                (SEQ (LETT |x| (SPADCALL (|SPADfirst| |l|) (QREFELT $ 23)))
                     (LETT |n|
@@ -408,7 +409,7 @@
                             (SPADCALL |x| (SPADCALL |n| (QREFELT $ 106))
                                       (QREFELT $ 114)))))))) 
 
-(SDEFUN |AF;dvroot| ((|l| |List| F) ($ F))
+(SDEFUN |AF;dvroot| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|kf| (F)) (|n| (|Integer|)))
                (SEQ
                 (LETT |n|
@@ -418,7 +419,7 @@
                  (SPADCALL (SPADCALL |kf| (- 1 |n|) (QREFELT $ 118))
                            (SPADCALL |n| (QREFELT $ 119)) (QREFELT $ 49)))))) 
 
-(SDEFUN |AF;^;FFF;19| ((|x| F) (|q| |Fraction| (|Integer|)) ($ F))
+(SDEFUN |AF;^;FFF;19| ((|x| (F)) (|q| (|Fraction| (|Integer|))) ($ (F)))
         (SPROG
          ((|qr|
            (|Record| (|:| |quotient| (|Integer|))
@@ -438,7 +439,7 @@
                       (QCDR |qr|) (QREFELT $ 118))
                      (QREFELT $ 109)))))) 
 
-(SDEFUN |AF;hackroot| ((|x| F) (|n| |Integer|) ($ F))
+(SDEFUN |AF;hackroot| ((|x| (F)) (|n| (|Integer|)) ($ (F)))
         (SPROG
          ((#1=#:G400 NIL) (|rx| (|Union| (|Integer|) "failed"))
           (|dx| (|SparseMultivariatePolynomial| R (|Kernel| F))))
@@ -497,7 +498,7 @@
                          (QREFELT $ 43)))))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |AF;inroot| ((|l| |List| F) ($ F))
+(SDEFUN |AF;inroot| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|r| (|Union| R "failed")) (#1=#:G408 NIL) (|x| (F))
           (|n| (|Integer|)))
@@ -525,7 +526,8 @@
              #3# (EXIT #1#))))))) 
 
 (SDEFUN |AF;inroot0|
-        ((|x| F) (|n| |Integer|) (|num?| |Boolean|) (|den?| |Boolean|) ($ F))
+        ((|x| (F)) (|n| (|Integer|)) (|num?| (|Boolean|)) (|den?| (|Boolean|))
+         ($ (F)))
         (SPROG
          ((#1=#:G410 NIL)
           (|rec|
@@ -621,30 +623,30 @@
                 (QVELT |rec| 1) (QREFELT $ 49)))))
             (#6# (|AF;hackroot| |x| |n| $))))))) 
 
-(SDEFUN |AF;iroot;RIF;23| ((|r| R) (|n| |Integer|) ($ F))
+(SDEFUN |AF;iroot;RIF;23| ((|r| (R)) (|n| (|Integer|)) ($ (F)))
         (SPADCALL (SPADCALL |r| |n| (QREFELT $ 138)) (QREFELT $ 62))) 
 
-(SDEFUN |AF;iroot;RIF;24| ((|r| R) (|n| |Integer|) ($ F))
+(SDEFUN |AF;iroot;RIF;24| ((|r| (R)) (|n| (|Integer|)) ($ (F)))
         (SPADCALL (SPADCALL |r| |n| (QREFELT $ 138)) (QREFELT $ 62))) 
 
-(SDEFUN |AF;iroot;RIF;25| ((|r| R) (|n| |Integer|) ($ F))
+(SDEFUN |AF;iroot;RIF;25| ((|r| (R)) (|n| (|Integer|)) ($ (F)))
         (COND
          ((OR (ODDP |n|)
               (NULL (SPADCALL |r| (|spadConstant| $ 39) (QREFELT $ 139))))
           (SPADCALL (SPADCALL |r| |n| (QREFELT $ 138)) (QREFELT $ 62)))
          ('T (|AF;hackroot| (SPADCALL |r| (QREFELT $ 62)) |n| $)))) 
 
-(SDEFUN |AF;iroot;RIF;26| ((|r| R) (|n| |Integer|) ($ F))
+(SDEFUN |AF;iroot;RIF;26| ((|r| (R)) (|n| (|Integer|)) ($ (F)))
         (COND
          ((OR (ODDP |n|)
               (NULL (SPADCALL |r| (|spadConstant| $ 39) (QREFELT $ 139))))
           (SPADCALL (SPADCALL |r| |n| (QREFELT $ 138)) (QREFELT $ 62)))
          ('T (|AF;iroot0| |r| |n| $)))) 
 
-(SDEFUN |AF;iroot;RIF;27| ((|r| R) (|n| |Integer|) ($ F))
+(SDEFUN |AF;iroot;RIF;27| ((|r| (R)) (|n| (|Integer|)) ($ (F)))
         (|AF;iroot0| |r| |n| $)) 
 
-(SDEFUN |AF;iroot0| ((|r| R) (|n| |Integer|) ($ F))
+(SDEFUN |AF;iroot0| ((|r| (R)) (|n| (|Integer|)) ($ (F)))
         (SPROG
          ((|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
@@ -663,7 +665,7 @@
                      (|AF;hackroot| (QVELT |rec| 2) (QVELT |rec| 0) $)
                      (QREFELT $ 109)))))) 
 
-(SDEFUN |AF;definingPolynomial;2F;29| ((|x| F) ($ F))
+(SDEFUN |AF;definingPolynomial;2F;29| ((|x| (F)) ($ (F)))
         (SPROG ((|k| (|Kernel| F)) (|r| (|Union| (|Kernel| F) "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 142)))
                     (EXIT
@@ -688,7 +690,7 @@
                       (#1# (SPADCALL (QREFELT $ 111) |x| (QREFELT $ 144)))))))) 
 
 (SDEFUN |AF;minPoly;KSup;30|
-        ((|k| |Kernel| F) ($ |SparseUnivariatePolynomial| F))
+        ((|k| (|Kernel| F)) ($ (|SparseUnivariatePolynomial| F)))
         (SPROG ((#1=#:G444 NIL))
                (COND
                 ((SPADCALL |k| (QREFELT $ 13) (QREFELT $ 143))
@@ -722,7 +724,7 @@
                                      (QREFELT $ 146))
                            (QREFELT $ 147)))))) 
 
-(SDEFUN |AF;droot;LOf;31| ((|l| |List| F) ($ |OutputForm|))
+(SDEFUN |AF;droot;LOf;31| ((|l| (|List| F)) ($ (|OutputForm|)))
         (SPROG ((|n| (F)) (|x| (|OutputForm|)))
                (SEQ (LETT |x| (SPADCALL (|SPADfirst| |l|) (QREFELT $ 23)))
                     (LETT |n| (SPADCALL |l| (QREFELT $ 21)))
@@ -736,7 +738,7 @@
                                  (QREFELT $ 114)))))))) 
 
 (SDEFUN |AF;minPoly;KSup;32|
-        ((|k| |Kernel| F) ($ |SparseUnivariatePolynomial| F))
+        ((|k| (|Kernel| F)) ($ (|SparseUnivariatePolynomial| F)))
         (COND
          ((SPADCALL |k| (QREFELT $ 13) (QREFELT $ 143))
           (SPADCALL

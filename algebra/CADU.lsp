@@ -1,5 +1,5 @@
 
-(SDEFUN |CADU;squareFreeBasis;2L;1| ((|lpols| |List| P) ($ |List| P))
+(SDEFUN |CADU;squareFreeBasis;2L;1| ((|lpols| (|List| P)) ($ (|List| P)))
         (SPROG ((|sqpol| (P)) (|pol| (P)))
                (SEQ
                 (COND ((SPADCALL |lpols| NIL (QREFELT $ 10)) NIL)
@@ -14,7 +14,7 @@
                                     (SPADCALL (CDR |lpols|) (QREFELT $ 13)))
                               (QREFELT $ 14))))))))) 
 
-(SDEFUN |CADU;gcdBasisAdd| ((|p| P) (|lpols| |List| P) ($ |List| P))
+(SDEFUN |CADU;gcdBasisAdd| ((|p| (P)) (|lpols| (|List| P)) ($ (|List| P)))
         (SPROG ((|basis| (|List| P)) (|p1| (P)) (#1=#:G127 NIL) (|g| (P)))
                (SEQ
                 (COND ((EQL (SPADCALL |p| (QREFELT $ 16)) 0) |lpols|)
@@ -59,7 +59,7 @@
                                 (EXIT
                                  (|CADU;gcdBasisAdd| |g| |basis| $)))))))))))) 
 
-(SDEFUN |CADU;gcdBasis;2L;3| ((|lpols| |List| P) ($ |List| P))
+(SDEFUN |CADU;gcdBasis;2L;3| ((|lpols| (|List| P)) ($ (|List| P)))
         (SPROG ((|basis| (|List| P)))
                (SEQ
                 (COND ((<= (LENGTH |lpols|) 1) |lpols|)

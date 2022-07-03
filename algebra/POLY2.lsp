@@ -1,6 +1,6 @@
 
 (SDEFUN |POLY2;map;MPP;1|
-        ((|f| |Mapping| S R) (|p| |Polynomial| R) ($ |Polynomial| S))
+        ((|f| (|Mapping| S R)) (|p| (|Polynomial| R)) ($ (|Polynomial| S)))
         (SPROG NIL
                (SPADCALL (ELT $ 10) (CONS #'|POLY2;map;MPP;1!0| (VECTOR $ |f|))
                          |p| (QREFELT $ 16)))) 

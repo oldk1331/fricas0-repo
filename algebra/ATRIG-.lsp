@@ -1,12 +1,12 @@
 
-(SDEFUN |ATRIG-;asec;2S;1| ((|x| S) ($ S))
+(SDEFUN |ATRIG-;asec;2S;1| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 8)))
                     (EXIT
                      (COND ((QEQCAR |a| 1) (|error| "asec: no reciprocal"))
                            ('T (SPADCALL (QCDR |a|) (QREFELT $ 9)))))))) 
 
-(SDEFUN |ATRIG-;acsc;2S;2| ((|x| S) ($ S))
+(SDEFUN |ATRIG-;acsc;2S;2| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 8)))
                     (EXIT

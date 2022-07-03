@@ -1,8 +1,8 @@
 
-(SDEFUN |ODERED;matF2L| ((|m| |Matrix| F) ($ |Matrix| L))
+(SDEFUN |ODERED;matF2L| ((|m| (|Matrix| F)) ($ (|Matrix| L)))
         (SPADCALL (ELT $ 13) |m| (QREFELT $ 18))) 
 
-(SDEFUN |ODERED;get_sys| ((|l| LO) ($ |Matrix| L))
+(SDEFUN |ODERED;get_sys| ((|l| (LO)) ($ (|Matrix| L)))
         (SPROG
          ((|mdi| (|Matrix| L)) (|sys| #1=(|Matrix| L)) (#2=#:G129 NIL)
           (|i| NIL) (#3=#:G127 NIL) (#4=#:G128 NIL) (|j| NIL) (|md| #1#)
@@ -60,14 +60,15 @@
           (RETURN (PROGN (SPADCALL |diff| |f1| (QREFELT $ 23)))))) 
 
 (SDEFUN |ODERED;reduceLODE;LOAR;3|
-        ((|l| LO) (|g| A)
-         ($ |Record| (|:| |mat| (|Matrix| L)) (|:| |vec| (|Vector| F))))
+        ((|l| (LO)) (|g| (A))
+         ($ (|Record| (|:| |mat| (|Matrix| L)) (|:| |vec| (|Vector| F)))))
         (CONS (|ODERED;get_sys| |l| $) (SPADCALL |g| (QREFELT $ 43)))) 
 
 (SDEFUN |ODERED;reduceLODE;LOLR;4|
-        ((|l| LO) (|lg| |List| A)
-         ($ |Record| (|:| |mat| (|Matrix| L))
-          (|:| |vecs| (|List| (|Vector| F)))))
+        ((|l| (LO)) (|lg| (|List| A))
+         ($
+          (|Record| (|:| |mat| (|Matrix| L))
+                    (|:| |vecs| (|List| (|Vector| F))))))
         (SPROG ((#1=#:G138 NIL) (|g| NIL) (#2=#:G137 NIL))
                (SEQ
                 (CONS (|ODERED;get_sys| |l| $)

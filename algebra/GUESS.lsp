@@ -1,29 +1,31 @@
 
-(SDEFUN |GUESS;guessExpRat;LL;1| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessExpRat;LL;1| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 15))) 
 
 (SDEFUN |GUESS;guessExpRat;LLL;2|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPADCALL |list| |options| (QREFELT $ 15))) 
 
-(SDEFUN |GUESS;guessBinRat;LL;3| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessBinRat;LL;3| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 18))) 
 
 (SDEFUN |GUESS;guessBinRat;LLL;4|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPADCALL |list| |options| (QREFELT $ 18))) 
 
 (SDEFUN |GUESS;guessExpRat;SM;5|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPADCALL |q| (QREFELT $ 23))) 
 
 (SDEFUN |GUESS;guessBinRat;SM;6|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPADCALL |q| (QREFELT $ 25))) 
 
-(SDEFUN |GUESS;getVariables| ((|lF| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;getVariables| ((|lF| (|List| F)) ($ (|List| EXPRR)))
         (SPROG
          ((|lvar| (|List| (|Symbol|))) (|ll| (|List| (|List| (|Symbol|)))))
          (SEQ (LETT |lvar| NIL)
@@ -56,8 +58,8 @@
                   (QREFELT $ 37))) 
 
 (SDEFUN |GUESS;SUPS2SUPF|
-        ((|p| |SparseUnivariatePolynomial| S)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|p| (|SparseUnivariatePolynomial| S))
+         ($ (|SparseUnivariatePolynomial| F)))
         (COND ((|domainEqual| (QREFELT $ 6) (QREFELT $ 7)) |p|)
               ((|domainEqual| (QREFELT $ 6) (|Fraction| (QREFELT $ 7)))
                (SPADCALL (ELT $ 49) |p| (QREFELT $ 54)))
@@ -68,7 +70,8 @@
                           (QREFELT $ 42)))))) 
 
 (SDEFUN |GUESS;FilteredPartitionStream|
-        ((|options| |List| (|GuessOption|)) ($ |Stream| (|List| (|Integer|))))
+        ((|options| (|List| (|GuessOption|)))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPROG
          ((|s| (|Stream| (|List| (|Integer|))))
           (|s3| (|Stream| (|List| (|Integer|))))
@@ -224,9 +227,9 @@
              |z1| (QREFELT $ 77)))))) 
 
 (SDEFUN |GUESS;termAsEXPRR|
-        ((|f| EXPRR) (|xx| |Symbol|) (|partition| |List| (|Integer|))
-         (DX |Mapping| EXPRR EXPRR (|Symbol|) (|NonNegativeInteger|))
-         (D1X |Mapping| EXPRR (|Symbol|)) ($ EXPRR))
+        ((|f| (EXPRR)) (|xx| (|Symbol|)) (|partition| (|List| (|Integer|)))
+         (DX (|Mapping| EXPRR EXPRR (|Symbol|) (|NonNegativeInteger|)))
+         (D1X (|Mapping| EXPRR (|Symbol|))) ($ (EXPRR)))
         (SPROG
          ((|fl| (|List| EXPRR)) (#1=#:G298 NIL) (#2=#:G297 NIL) (#3=#:G306 NIL)
           (|part| NIL) (#4=#:G305 NIL) (|ll| (|List| (|List| (|Integer|)))))
@@ -275,8 +278,9 @@
                       (EXIT (SPADCALL (ELT $ 104) |fl| (QREFELT $ 106))))))))) 
 
 (SDEFUN |GUESS;termAsU32VectorDiff|
-        ((|f| |U32Vector|) (|partition| |List| (|Integer|)) (|prime| |Integer|)
-         (|degreeLoss| |NonNegativeInteger|) ($ |U32Vector|))
+        ((|f| (|U32Vector|)) (|partition| (|List| (|Integer|)))
+         (|prime| (|Integer|)) (|degreeLoss| (|NonNegativeInteger|))
+         ($ (|U32Vector|)))
         (SPROG
          ((|fl| (|List| (|U32Vector|))) (#1=#:G310 NIL) (#2=#:G309 NIL)
           (#3=#:G319 NIL) (|part| NIL) (#4=#:G318 NIL)
@@ -348,8 +352,9 @@
           (RETURN (PROGN (SPADCALL |f1| |f2| |d| |prime| (QREFELT $ 112)))))) 
 
 (SDEFUN |GUESS;termAsU32VectorShift|
-        ((|f| |U32Vector|) (|partition| |List| (|Integer|)) (|prime| |Integer|)
-         (|degreeLoss| |NonNegativeInteger|) ($ |U32Vector|))
+        ((|f| (|U32Vector|)) (|partition| (|List| (|Integer|)))
+         (|prime| (|Integer|)) (|degreeLoss| (|NonNegativeInteger|))
+         ($ (|U32Vector|)))
         (SPROG
          ((#1=#:G337 NIL) (|e| NIL) (#2=#:G336 NIL) (|i| NIL)
           (|r| (|U32Vector|)) (|fl| (|List| (|U32Vector|))) (#3=#:G322 NIL)
@@ -439,11 +444,13 @@
              (EXIT |r|))))))) 
 
 (SDEFUN |GUESS;termAsUFPSF|
-        ((|f| |UnivariateFormalPowerSeries| F) (|partition| |List| (|Integer|))
-         (DS |Mapping| (|UnivariateFormalPowerSeries| F)
-          (|UnivariateFormalPowerSeries| F) (|NonNegativeInteger|))
-         (D1 |UnivariateFormalPowerSeries| F)
-         ($ |UnivariateFormalPowerSeries| F))
+        ((|f| (|UnivariateFormalPowerSeries| F))
+         (|partition| (|List| (|Integer|)))
+         (DS
+          (|Mapping| (|UnivariateFormalPowerSeries| F)
+                     (|UnivariateFormalPowerSeries| F) (|NonNegativeInteger|)))
+         (D1 (|UnivariateFormalPowerSeries| F))
+         ($ (|UnivariateFormalPowerSeries| F)))
         (SPROG
          ((|fl| (|List| (|UnivariateFormalPowerSeries| F))) (#1=#:G346 NIL)
           (#2=#:G345 NIL) (#3=#:G354 NIL) (|part| NIL) (#4=#:G353 NIL)
@@ -493,11 +500,13 @@
                       (EXIT (SPADCALL (ELT $ 120) |fl| (QREFELT $ 123))))))))) 
 
 (SDEFUN |GUESS;termAsUFPSF2|
-        ((|f| |UnivariateFormalPowerSeries| F) (|partition| |List| (|Integer|))
-         (DS |Mapping| (|UnivariateFormalPowerSeries| F)
-          (|UnivariateFormalPowerSeries| F) (|NonNegativeInteger|))
-         (D1 |UnivariateFormalPowerSeries| F)
-         ($ |UnivariateFormalPowerSeries| F))
+        ((|f| (|UnivariateFormalPowerSeries| F))
+         (|partition| (|List| (|Integer|)))
+         (DS
+          (|Mapping| (|UnivariateFormalPowerSeries| F)
+                     (|UnivariateFormalPowerSeries| F) (|NonNegativeInteger|)))
+         (D1 (|UnivariateFormalPowerSeries| F))
+         ($ (|UnivariateFormalPowerSeries| F)))
         (SPROG
          ((|fl| (|List| (|UnivariateFormalPowerSeries| F))) (#1=#:G358 NIL)
           (#2=#:G366 NIL) (|part| NIL) (#3=#:G365 NIL)
@@ -555,19 +564,23 @@
                              (QREFELT $ 124))))))) 
 
 (SDEFUN |GUESS;termAsUFPSSUPF2|
-        ((|f| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         (|partition| |List| (|Integer|))
-         (DSF |Mapping|
+        ((|f|
           (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         (|partition| (|List| (|Integer|)))
+         (DSF
+          (|Mapping|
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|NonNegativeInteger|)))
+         (D1F
           (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-          (|NonNegativeInteger|))
-         (D1F |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         ($ |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         ($
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
         (SPROG
          ((|fl|
            (|List|
@@ -628,12 +641,13 @@
                              (QREFELT $ 130))))))) 
 
 (SDEFUN |GUESS;ADEguessStream|
-        ((|f| |UnivariateFormalPowerSeries| F)
-         (|partitions| |Stream| (|List| (|Integer|)))
-         (DS |Mapping| (|UnivariateFormalPowerSeries| F)
-          (|UnivariateFormalPowerSeries| F) (|NonNegativeInteger|))
-         (D1 |UnivariateFormalPowerSeries| F)
-         ($ |Stream| (|UnivariateFormalPowerSeries| F)))
+        ((|f| (|UnivariateFormalPowerSeries| F))
+         (|partitions| (|Stream| (|List| (|Integer|))))
+         (DS
+          (|Mapping| (|UnivariateFormalPowerSeries| F)
+                     (|UnivariateFormalPowerSeries| F) (|NonNegativeInteger|)))
+         (D1 (|UnivariateFormalPowerSeries| F))
+         ($ (|Stream| (|UnivariateFormalPowerSeries| F))))
         (SPROG NIL
                (SPADCALL (CONS #'|GUESS;ADEguessStream!0| (VECTOR $ D1 DS |f|))
                          |partitions| (QREFELT $ 142)))) 
@@ -647,12 +661,13 @@
           (RETURN (PROGN (|GUESS;termAsUFPSF| |f| |z1| DS D1 $))))) 
 
 (SDEFUN |GUESS;ADEguessStream2|
-        ((|f| |UnivariateFormalPowerSeries| F)
-         (|partitions| |Stream| (|List| (|Integer|)))
-         (DS |Mapping| (|UnivariateFormalPowerSeries| F)
-          (|UnivariateFormalPowerSeries| F) (|NonNegativeInteger|))
-         (D1 |UnivariateFormalPowerSeries| F)
-         ($ |Stream| (|UnivariateFormalPowerSeries| F)))
+        ((|f| (|UnivariateFormalPowerSeries| F))
+         (|partitions| (|Stream| (|List| (|Integer|))))
+         (DS
+          (|Mapping| (|UnivariateFormalPowerSeries| F)
+                     (|UnivariateFormalPowerSeries| F) (|NonNegativeInteger|)))
+         (D1 (|UnivariateFormalPowerSeries| F))
+         ($ (|Stream| (|UnivariateFormalPowerSeries| F))))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|GUESS;ADEguessStream2!0| (VECTOR $ D1 DS |f|))
@@ -667,10 +682,11 @@
           (RETURN (PROGN (|GUESS;termAsUFPSF2| |f| |z1| DS D1 $))))) 
 
 (SDEFUN |GUESS;guessModGenCached|
-        ((|cache| |PrimitiveArray| (|U32Vector|)) (|np| |NonNegativeInteger|)
-         (|sigma| |Integer|) (|addOne| |Boolean|) (|maxD| |NonNegativeInteger|)
-         (|prodl| |List| (|List| (|Integer|))) (|terml| |List| (|Integer|))
-         (|prime| |Integer|) ($ |Vector| (|U32Vector|)))
+        ((|cache| (|PrimitiveArray| (|U32Vector|)))
+         (|np| (|NonNegativeInteger|)) (|sigma| (|Integer|))
+         (|addOne| (|Boolean|)) (|maxD| (|NonNegativeInteger|))
+         (|prodl| (|List| (|List| (|Integer|)))) (|terml| (|List| (|Integer|)))
+         (|prime| (|Integer|)) ($ (|Vector| (|U32Vector|))))
         (SPROG
          ((#1=#:G399 NIL) (|i| NIL) (#2=#:G400 NIL) (|r| NIL)
           (|res| (|Vector| (|U32Vector|))) (#3=#:G397 NIL) (#4=#:G398 NIL)
@@ -734,14 +750,15 @@
           (EXIT |res|)))) 
 
 (SDEFUN |GUESS;DEPguessModGenCached|
-        ((|fl| |List| (|U32Vector|)) (|addOne| |Boolean|)
-         (|maxD| |NonNegativeInteger|) (|prodl| |List| (|List| (|Integer|)))
-         (|terml| |List| (|Integer|)) (|prime| |Integer|)
-         ($ |Vector| (|U32Vector|)))
+        ((|fl| (|List| (|U32Vector|))) (|addOne| (|Boolean|))
+         (|maxD| (|NonNegativeInteger|))
+         (|prodl| (|List| (|List| (|Integer|)))) (|terml| (|List| (|Integer|)))
+         (|prime| (|Integer|)) ($ (|Vector| (|U32Vector|))))
         (SPROG
-         ((#1=#:G405 NIL) (|i| NIL) (#2=#:G406 NIL) (|f| (|U32Vector|))
+         ((#1=#:G405 NIL) (|i| NIL) (#2=#:G406 NIL)
           (|cache| (|PrimitiveArray| (|U32Vector|)))
-          (|np| (|NonNegativeInteger|)) (|sigma| (|NonNegativeInteger|)))
+          (|np| (|NonNegativeInteger|)) (|sigma| (|NonNegativeInteger|))
+          (|f| (|U32Vector|)))
          (SEQ
           (COND
            ((< (LENGTH |fl|) (+ |maxD| 1))
@@ -751,8 +768,7 @@
                  (LETT |np| (LENGTH |prodl|))
                  (LETT |cache|
                        (MAKEARR1 (+ (+ |maxD| 1) |np|) (GETREFV_U32 0 0)))
-                 (SEQ (LETT |f| NIL) (LETT #2# |fl|) (LETT |i| 0)
-                      (LETT #1# |maxD|) G190
+                 (SEQ (LETT #2# |fl|) (LETT |i| 0) (LETT #1# |maxD|) G190
                       (COND
                        ((OR (|greater_SI| |i| #1#) (ATOM #2#)
                             (PROGN (LETT |f| (CAR #2#)) NIL))
@@ -765,10 +781,10 @@
                    |maxD| |prodl| |terml| |prime| $)))))))) 
 
 (SDEFUN |GUESS;ADEguessModGenCached|
-        ((|fl| |List| (|U32Vector|)) (|addOne| |Boolean|)
-         (|maxD| |NonNegativeInteger|) (|prodl| |List| (|List| (|Integer|)))
-         (|terml| |List| (|Integer|)) (|prime| |Integer|)
-         ($ |Vector| (|U32Vector|)))
+        ((|fl| (|List| (|U32Vector|))) (|addOne| (|Boolean|))
+         (|maxD| (|NonNegativeInteger|))
+         (|prodl| (|List| (|List| (|Integer|)))) (|terml| (|List| (|Integer|)))
+         (|prime| (|Integer|)) ($ (|Vector| (|U32Vector|))))
         (SPROG
          ((#1=#:G411 NIL) (|i| NIL) (|cache| (|PrimitiveArray| (|U32Vector|)))
           (|np| (|NonNegativeInteger|)) (|sigma| (|Integer|))
@@ -797,21 +813,25 @@
                    |maxD| |prodl| |terml| |prime| $)))))))) 
 
 (SDEFUN |GUESS;ADEtestGenCached|
-        ((|f| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         (|addOne| |Boolean|) (|maxD| |NonNegativeInteger|)
-         (|prodl| |List| (|List| (|Integer|))) (|terml| |List| (|Integer|))
-         (DSF |Mapping|
+        ((|f|
           (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         (|addOne| (|Boolean|)) (|maxD| (|NonNegativeInteger|))
+         (|prodl| (|List| (|List| (|Integer|)))) (|terml| (|List| (|Integer|)))
+         (DSF
+          (|Mapping|
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|NonNegativeInteger|)))
+         (D1F
           (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-          (|NonNegativeInteger|))
-         (D1F |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         ($ |Vector|
-          (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         ($
+          (|Vector|
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))))
         (SPROG
          ((#1=#:G425 NIL) (|i| NIL) (#2=#:G426 NIL) (|r| NIL)
           (|res|
@@ -890,7 +910,7 @@
               (EXIT |res|)))) 
 
 (SDEFUN |GUESS;multiplyExponents|
-        ((|f| |U32Vector|) (|n| |NonNegativeInteger|) ($ |U32Vector|))
+        ((|f| (|U32Vector|)) (|n| (|NonNegativeInteger|)) ($ (|U32Vector|)))
         (SPROG
          ((#1=#:G430 NIL) (|i| NIL) (|deg| (|Integer|)) (|f0| (|U32Vector|))
           (|nn| (|NonNegativeInteger|)))
@@ -905,10 +925,10 @@
               (EXIT |f0|)))) 
 
 (SDEFUN |GUESS;FEguessModGenCached|
-        ((|fl| |List| (|U32Vector|)) (|addOne| |Boolean|)
-         (|maxD| |NonNegativeInteger|) (|prodl| |List| (|List| (|Integer|)))
-         (|terml| |List| (|Integer|)) (|prime| |Integer|)
-         ($ |Vector| (|U32Vector|)))
+        ((|fl| (|List| (|U32Vector|))) (|addOne| (|Boolean|))
+         (|maxD| (|NonNegativeInteger|))
+         (|prodl| (|List| (|List| (|Integer|)))) (|terml| (|List| (|Integer|)))
+         (|prime| (|Integer|)) ($ (|Vector| (|U32Vector|))))
         (SPROG
          ((#1=#:G435 NIL) (|i| NIL) (|cache| (|PrimitiveArray| (|U32Vector|)))
           (|np| (|NonNegativeInteger|)) (|sigma| (|NonNegativeInteger|))
@@ -936,8 +956,8 @@
                    |maxD| |prodl| |terml| |prime| $)))))))) 
 
 (SDEFUN |GUESS;optimiseFactor|
-        ((|partition| |Partition|) (|partitions| |List| (|Partition|))
-         ($ |Union| (|List| (|Integer|)) "failed"))
+        ((|partition| (|Partition|)) (|partitions| (|List| (|Partition|)))
+         ($ (|Union| (|List| (|Integer|)) "failed")))
         (SPROG
          ((#1=#:G455 NIL) (|j| (|Integer|))
           (|r| (|Union| (|Partition|) "failed")) (#2=#:G456 NIL) (|p| NIL)
@@ -971,8 +991,9 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |GUESS;optimiseProducts1|
-        ((|p| |Partition|) (|prods0| |Reference| (|List| (|List| (|Integer|))))
-         (|parts0| |Reference| (|List| (|Partition|))) ($ |Void|))
+        ((|p| (|Partition|))
+         (|prods0| (|Reference| (|List| (|List| (|Integer|)))))
+         (|parts0| (|Reference| (|List| (|Partition|)))) ($ (|Void|)))
         (SPROG
          ((|lp0| (|NonNegativeInteger|))
           (|r| (|Union| (|List| (|Integer|)) "failed")))
@@ -1011,11 +1032,12 @@
                              (QREFELT $ 164)))))))))) 
 
 (SDEFUN |GUESS;optimiseProducts|
-        ((|partitions| |List| (|List| (|Integer|)))
-         ($ |Record| (|:| |addOne| (|Boolean|))
-          (|:| |maxDiff| (|NonNegativeInteger|))
-          (|:| |prods| (|List| (|List| (|Integer|))))
-          (|:| |terms| (|List| (|Integer|)))))
+        ((|partitions| (|List| (|List| (|Integer|))))
+         ($
+          (|Record| (|:| |addOne| (|Boolean|))
+                    (|:| |maxDiff| (|NonNegativeInteger|))
+                    (|:| |prods| (|List| (|List| (|Integer|))))
+                    (|:| |terms| (|List| (|Integer|))))))
         (SPROG
          ((#1=#:G473 NIL) (|terms0| (|List| (|Integer|))) (#2=#:G478 NIL)
           (|p| NIL) (|parts0| (|Reference| (|List| (|Partition|)))) (|i| NIL)
@@ -1088,9 +1110,10 @@
           #5# (EXIT #4#)))) 
 
 (SDEFUN |GUESS;ADEguessModOptimisedGen|
-        ((|partitions| |List| (|List| (|Integer|)))
-         ($ |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|)))
+        ((|partitions| (|List| (|List| (|Integer|))))
+         ($
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|))))
         (SPROG
          ((|r|
            (|Record| (|:| |addOne| (|Boolean|))
@@ -1112,9 +1135,10 @@
              (QVELT |r| 2) (QVELT |r| 3) |prime| $))))) 
 
 (SDEFUN |GUESS;FEguessModOptimisedGen|
-        ((|partitions| |List| (|List| (|Integer|)))
-         ($ |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|)))
+        ((|partitions| (|List| (|List| (|Integer|))))
+         ($
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|))))
         (SPROG
          ((|r|
            (|Record| (|:| |addOne| (|Boolean|))
@@ -1135,9 +1159,10 @@
              (QVELT |r| 2) (QVELT |r| 3) |prime| $))))) 
 
 (SDEFUN |GUESS;DEPguessModOptimisedGen|
-        ((|partitions| |List| (|List| (|Integer|)))
-         ($ |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|)))
+        ((|partitions| (|List| (|List| (|Integer|))))
+         ($
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|))))
         (SPROG
          ((|r|
            (|Record| (|:| |addOne| (|Boolean|))
@@ -1159,9 +1184,11 @@
              (QVELT |r| 2) (QVELT |r| 3) |prime| $))))) 
 
 (SDEFUN |GUESS;ADEguessModGen2|
-        ((|partitions| |List| (|List| (|Integer|))) (|d| |NonNegativeInteger|)
-         ($ |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|)))
+        ((|partitions| (|List| (|List| (|Integer|))))
+         (|d| (|NonNegativeInteger|))
+         ($
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|))))
         (SPROG NIL
                (SEQ
                 (CONS #'|GUESS;ADEguessModGen2!0|
@@ -1203,21 +1230,24 @@
                              (QREFELT $ 176)))))))))))) 
 
 (SDEFUN |GUESS;ADEtestOptimisedGen|
-        ((|partitions| |List| (|List| (|Integer|)))
-         (DSF |Mapping|
-          (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-          (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-          (|NonNegativeInteger|))
-         (D1F |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         ($ |Mapping|
-          (|Vector|
+        ((|partitions| (|List| (|List| (|Integer|))))
+         (DSF
+          (|Mapping|
            (|UnivariateFormalPowerSeries|
-            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|NonNegativeInteger|)))
+         (D1F
           (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         ($
+          (|Mapping|
+           (|Vector|
+            (|UnivariateFormalPowerSeries|
+             (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))))
         (SPROG
          ((|r|
            (|Record| (|:| |addOne| (|Boolean|))
@@ -1240,21 +1270,24 @@
              (QVELT |r| 2) (QVELT |r| 3) DSF D1F $))))) 
 
 (SDEFUN |GUESS;ADEtestGen2|
-        ((|partitions| |List| (|List| (|Integer|)))
-         (DSF |Mapping|
-          (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-          (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-          (|NonNegativeInteger|))
-         (D1F |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         ($ |Mapping|
-          (|Vector|
+        ((|partitions| (|List| (|List| (|Integer|))))
+         (DSF
+          (|Mapping|
            (|UnivariateFormalPowerSeries|
-            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+           (|NonNegativeInteger|)))
+         (D1F
           (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         ($
+          (|Mapping|
+           (|Vector|
+            (|UnivariateFormalPowerSeries|
+             (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+           (|UnivariateFormalPowerSeries|
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))))
         (SPROG NIL
                (SEQ
                 (CONS #'|GUESS;ADEtestGen2!0|
@@ -1288,10 +1321,10 @@
                      (QREFELT $ 177)))))))) 
 
 (SDEFUN |GUESS;ADEEXPRRStream|
-        ((|f| EXPRR) (|xx| |Symbol|)
-         (|partitions| |Stream| (|List| (|Integer|)))
-         (DX |Mapping| EXPRR EXPRR (|Symbol|) (|NonNegativeInteger|))
-         (D1X |Mapping| EXPRR (|Symbol|)) ($ |Stream| EXPRR))
+        ((|f| (EXPRR)) (|xx| (|Symbol|))
+         (|partitions| (|Stream| (|List| (|Integer|))))
+         (DX (|Mapping| EXPRR EXPRR (|Symbol|) (|NonNegativeInteger|)))
+         (D1X (|Mapping| EXPRR (|Symbol|))) ($ (|Stream| EXPRR)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|GUESS;ADEEXPRRStream!0| (VECTOR $ D1X DX |xx| |f|))
@@ -1307,8 +1340,8 @@
           (RETURN (PROGN (|GUESS;termAsEXPRR| |f| |xx| |z1| DX D1X $))))) 
 
 (SDEFUN |GUESS;ADEdegreeStream|
-        ((|partitions| |Stream| (|List| (|Integer|)))
-         ($ |Stream| (|NonNegativeInteger|)))
+        ((|partitions| (|Stream| (|List| (|Integer|))))
+         ($ (|Stream| (|NonNegativeInteger|))))
         (SPADCALL 0 (CONS #'|GUESS;ADEdegreeStream!0| $) |partitions|
                   (QREFELT $ 188))) 
 
@@ -1327,20 +1360,23 @@
                 |z2| (QREFELT $ 184)))) 
 
 (SDEFUN |GUESS;diffDX|
-        ((|expr| EXPRR) (|x| |Symbol|) (|n| |NonNegativeInteger|) ($ EXPRR))
+        ((|expr| (EXPRR)) (|x| (|Symbol|)) (|n| (|NonNegativeInteger|))
+         ($ (EXPRR)))
         (SPADCALL |expr| |x| |n| (QREFELT $ 189))) 
 
 (SDEFUN |GUESS;diffDS|
-        ((|s| |UnivariateFormalPowerSeries| F) (|n| |NonNegativeInteger|)
-         ($ |UnivariateFormalPowerSeries| F))
+        ((|s| (|UnivariateFormalPowerSeries| F)) (|n| (|NonNegativeInteger|))
+         ($ (|UnivariateFormalPowerSeries| F)))
         (SPADCALL |s| |n| (QREFELT $ 190))) 
 
 (SDEFUN |GUESS;diffDSF|
-        ((|s| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         (|n| |NonNegativeInteger|)
-         ($ |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+        ((|s|
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         (|n| (|NonNegativeInteger|))
+         ($
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
         (COND
          ((|HasSignature|
            (|SparseMultivariatePolynomial| (QREFELT $ 6)
@@ -1355,60 +1391,73 @@
           (SPADCALL |s| |n| (QREFELT $ 191))))) 
 
 (SDEFUN |GUESS;diffAX|
-        ((|l| |NonNegativeInteger|) (|x| |Symbol|) (|f| EXPRR) ($ EXPRR))
+        ((|l| (|NonNegativeInteger|)) (|x| (|Symbol|)) (|f| (EXPRR))
+         ($ (EXPRR)))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 45)) |l| (QREFELT $ 103))
                   |f| (QREFELT $ 104))) 
 
 (SDEFUN |GUESS;diffA|
-        ((|k| |NonNegativeInteger|) (|l| |NonNegativeInteger|)
-         (|f| |SparseUnivariatePolynomial| S) ($ S))
+        ((|k| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         (|f| (|SparseUnivariatePolynomial| S)) ($ (S)))
         (SPADCALL |k| |l| |f| (QREFELT $ 193))) 
 
 (SDEFUN |GUESS;diffAF|
-        ((|k| |NonNegativeInteger|) (|l| |NonNegativeInteger|)
-         (|f| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         ($ |SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+        ((|k| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         (|f|
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         ($ (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
         (SPADCALL |k| |l| |f| (QREFELT $ 195))) 
 
-(SDEFUN |GUESS;diffC| ((|total| |NonNegativeInteger|) ($ |List| S))
+(SDEFUN |GUESS;diffC| ((|total| (|NonNegativeInteger|)) ($ (|List| S)))
         (SPADCALL |total| (QREFELT $ 196))) 
 
-(SDEFUN |GUESS;diff1X| ((|x| |Symbol|) ($ EXPRR)) (|spadConstant| $ 197)) 
+(SDEFUN |GUESS;diff1X| ((|x| (|Symbol|)) ($ (EXPRR))) (|spadConstant| $ 197)) 
 
 (SDEFUN |GUESS;diffHP;LR;43|
-        ((|options| |List| (|GuessOption|))
-         ($ |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|options| (|List| (|GuessOption|)))
+         ($
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))))
         (SPROG
          ((|degrees| (|Stream| (|NonNegativeInteger|)))
           (|partitions| (|Stream| (|List| (|Integer|)))) (|dk| (|Symbol|)))
@@ -1496,7 +1545,7 @@
              (CONS (|function| |GUESS;diffDS|) $) (|spadConstant| $ 200) $))))) 
 
 (SDEFUN |GUESS;monomialAsEXPRR|
-        ((|fl0| |List| EXPRR) (|partition| |List| (|Integer|)) ($ EXPRR))
+        ((|fl0| (|List| EXPRR)) (|partition| (|List| (|Integer|))) ($ (EXPRR)))
         (SPROG
          ((|fl| (|List| EXPRR)) (#1=#:G586 NIL) (#2=#:G585 NIL) (#3=#:G594 NIL)
           (|part| NIL) (#4=#:G593 NIL) (|ll| (|List| (|List| (|Integer|)))))
@@ -1543,8 +1592,8 @@
                       (EXIT (SPADCALL (ELT $ 104) |fl| (QREFELT $ 106))))))))) 
 
 (SDEFUN |GUESS;DEPEXPRRStream|
-        ((|fl| |List| EXPRR) (|partitions| |Stream| (|List| (|Integer|)))
-         ($ |Stream| EXPRR))
+        ((|fl| (|List| EXPRR)) (|partitions| (|Stream| (|List| (|Integer|))))
+         ($ (|Stream| EXPRR)))
         (SPROG NIL
                (SPADCALL (CONS #'|GUESS;DEPEXPRRStream!0| (VECTOR $ |fl|))
                          |partitions| (QREFELT $ 181)))) 
@@ -1556,7 +1605,8 @@
           (RETURN (PROGN (|GUESS;monomialAsEXPRR| |fl| |z1| $))))) 
 
 (SDEFUN |GUESS;get_fnames|
-        ((|n| |Integer|) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|n| (|Integer|)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG
          ((#1=#:G609 NIL) (|sym| NIL) (#2=#:G608 NIL)
           (|syms| (|List| (|Symbol|))) (#3=#:G607 NIL) (|i| NIL)
@@ -1616,38 +1666,49 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |GUESS;algDepHP;LLR;47|
-        ((|lists| |List| (|List| F)) (|options| |List| (|GuessOption|))
-         ($ |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|lists| (|List| (|List| F))) (|options| (|List| (|GuessOption|)))
+         ($
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))))
         (SPROG
          ((|fakeDSF|
            (|Mapping|
@@ -1780,15 +1841,16 @@
              $))))) 
 
 (SDEFUN |GUESS;substDX|
-        ((|expr| EXPRR) (|x| |Symbol|) (|n| |NonNegativeInteger|) ($ EXPRR))
+        ((|expr| (EXPRR)) (|x| (|Symbol|)) (|n| (|NonNegativeInteger|))
+         ($ (EXPRR)))
         (SPADCALL |expr| (SPADCALL |x| (QREFELT $ 45))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 45)) (+ |n| 1)
                             (QREFELT $ 103))
                   (QREFELT $ 228))) 
 
 (SDEFUN |GUESS;substDS|
-        ((|s| |UnivariateFormalPowerSeries| F) (|n| |NonNegativeInteger|)
-         ($ |UnivariateFormalPowerSeries| F))
+        ((|s| (|UnivariateFormalPowerSeries| F)) (|n| (|NonNegativeInteger|))
+         ($ (|UnivariateFormalPowerSeries| F)))
         (SPROG ((#1=#:G644 NIL))
                (SPADCALL |s|
                          (PROG1 (LETT #1# (+ |n| 1))
@@ -1797,11 +1859,13 @@
                          (QREFELT $ 229)))) 
 
 (SDEFUN |GUESS;substDSF|
-        ((|s| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         (|n| |NonNegativeInteger|)
-         ($ |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+        ((|s|
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         (|n| (|NonNegativeInteger|))
+         ($
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
         (SPROG ((#1=#:G646 NIL))
                (SPADCALL |s|
                          (PROG1 (LETT #1# (+ |n| 1))
@@ -1810,38 +1874,49 @@
                          (QREFELT $ 230)))) 
 
 (SDEFUN |GUESS;substHP;LR;51|
-        ((|options| |List| (|GuessOption|))
-         ($ |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|options| (|List| (|GuessOption|)))
+         ($
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))))
         (SPROG
          ((|partitions| (|Stream| (|List| (|Integer|)))) (|dk| (|Symbol|)))
          (SEQ
@@ -1930,8 +2005,8 @@
 (SDEFUN |GUESS;substHP;LR;51!0| ((|c| NIL) ($ NIL)) (|spadConstant| $ 95)) 
 
 (SDEFUN |GUESS;qDiffDX|
-        ((|q| |Symbol|) (|expr| EXPRR) (|x| |Symbol|)
-         (|n| |NonNegativeInteger|) ($ EXPRR))
+        ((|q| (|Symbol|)) (|expr| (EXPRR)) (|x| (|Symbol|))
+         (|n| (|NonNegativeInteger|)) ($ (EXPRR)))
         (SPADCALL |expr| (SPADCALL |x| (QREFELT $ 45))
                   (SPADCALL
                    (SPADCALL (SPADCALL |q| (QREFELT $ 45)) |n| (QREFELT $ 103))
@@ -1939,8 +2014,8 @@
                   (QREFELT $ 228))) 
 
 (SDEFUN |GUESS;qDiffDS|
-        ((|q| |Symbol|) (|s| |UnivariateFormalPowerSeries| F)
-         (|n| |NonNegativeInteger|) ($ |UnivariateFormalPowerSeries| F))
+        ((|q| (|Symbol|)) (|s| (|UnivariateFormalPowerSeries| F))
+         (|n| (|NonNegativeInteger|)) ($ (|UnivariateFormalPowerSeries| F)))
         (SPROG NIL
                (SPADCALL (CONS #'|GUESS;qDiffDS!0| (VECTOR |n| $ |q|)) |s|
                          (QREFELT $ 235)))) 
@@ -1962,8 +2037,8 @@
                              (QREFELT $ 124))))))) 
 
 (SDEFUN |GUESS;qDiffDSV|
-        ((|f| |U32Vector|) (|n| |NonNegativeInteger|) (|prime| |Integer|)
-         (|q| |Integer|) ($ |U32Vector|))
+        ((|f| (|U32Vector|)) (|n| (|NonNegativeInteger|)) (|prime| (|Integer|))
+         (|q| (|Integer|)) ($ (|U32Vector|)))
         (SPROG
          ((Q (|Integer|)) (#1=#:G696 NIL) (|i| NIL) (|qn| (|Integer|))
           (|r| (|U32Vector|)) (#2=#:G689 NIL) (|d| (|Integer|)))
@@ -1999,12 +2074,14 @@
                       (EXIT |r|))))))) 
 
 (SDEFUN |GUESS;qDiffDSF|
-        ((|q| |Symbol|)
-         (|s| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         (|n| |NonNegativeInteger|)
-         ($ |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+        ((|q| (|Symbol|))
+         (|s|
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         (|n| (|NonNegativeInteger|))
+         ($
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
         (SPROG NIL
                (SPADCALL (CONS #'|GUESS;qDiffDSF!0| (VECTOR |n| $ |q|)) |s|
                          (QREFELT $ 238)))) 
@@ -2025,8 +2102,9 @@
                     (QREFELT $ 130))))))) 
 
 (SDEFUN |GUESS;termAsU32VectorqDiff|
-        ((|f| |U32Vector|) (|partition| |List| (|Integer|)) (|prime| |Integer|)
-         (|q| |Integer|) (|dl| |NonNegativeInteger|) ($ |U32Vector|))
+        ((|f| (|U32Vector|)) (|partition| (|List| (|Integer|)))
+         (|prime| (|Integer|)) (|q| (|Integer|)) (|dl| (|NonNegativeInteger|))
+         ($ (|U32Vector|)))
         (SPROG
          ((|fl| (|List| (|U32Vector|))) (#1=#:G703 NIL) (#2=#:G702 NIL)
           (#3=#:G713 NIL) (|part| NIL) (#4=#:G712 NIL)
@@ -2094,9 +2172,11 @@
           (RETURN (PROGN (SPADCALL |f1| |f2| |d| |prime| (QREFELT $ 112)))))) 
 
 (SDEFUN |GUESS;ADEguessModGenq|
-        ((|partitions| |List| (|List| (|Integer|))) (|d| |NonNegativeInteger|)
-         ($ |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|)))
+        ((|partitions| (|List| (|List| (|Integer|))))
+         (|d| (|NonNegativeInteger|))
+         ($
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|))))
         (SPROG NIL
                (SEQ
                 (CONS #'|GUESS;ADEguessModGenq!0|
@@ -2138,50 +2218,51 @@
                              (QREFELT $ 176)))))))))))) 
 
 (SDEFUN |GUESS;diffHP;SM;58|
-        ((|q| |Symbol|)
-         ($ |Mapping|
-          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-                    (|:| |guessStream|
-                         (|Mapping|
-                          (|Stream| (|UnivariateFormalPowerSeries| F))
-                          (|UnivariateFormalPowerSeries| F)))
-                    (|:| |guessModGen|
-                         (|Mapping|
-                          (|Mapping| (|Vector| (|U32Vector|))
-                                     (|List| (|U32Vector|)) (|Integer|)
-                                     (|Integer|))
-                          (|NonNegativeInteger|)))
-                    (|:| |testGen|
-                         (|Mapping|
+        ((|q| (|Symbol|))
+         ($
+          (|Mapping|
+           (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                     (|:| |guessStream|
                           (|Mapping|
-                           (|Vector|
+                           (|Stream| (|UnivariateFormalPowerSeries| F))
+                           (|UnivariateFormalPowerSeries| F)))
+                     (|:| |guessModGen|
+                          (|Mapping|
+                           (|Mapping| (|Vector| (|U32Vector|))
+                                      (|List| (|U32Vector|)) (|Integer|)
+                                      (|Integer|))
+                           (|NonNegativeInteger|)))
+                     (|:| |testGen|
+                          (|Mapping|
+                           (|Mapping|
+                            (|Vector|
+                             (|UnivariateFormalPowerSeries|
+                              (|SparseMultivariatePolynomial| F
+                                                              (|NonNegativeInteger|))))
                             (|UnivariateFormalPowerSeries|
                              (|SparseMultivariatePolynomial| F
                                                              (|NonNegativeInteger|))))
+                           (|List| (|PositiveInteger|))))
+                     (|:| |exprStream|
+                          (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                     (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                     (|:| A
+                          (|Mapping| S (|NonNegativeInteger|)
+                                     (|NonNegativeInteger|)
+                                     (|SparseUnivariatePolynomial| S)))
+                     (|:| AF
+                          (|Mapping|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|))
+                           (|NonNegativeInteger|) (|NonNegativeInteger|)
                            (|UnivariateFormalPowerSeries|
                             (|SparseMultivariatePolynomial| F
-                                                            (|NonNegativeInteger|))))
-                          (|List| (|PositiveInteger|))))
-                    (|:| |exprStream|
-                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-                    (|:| A
-                         (|Mapping| S (|NonNegativeInteger|)
-                                    (|NonNegativeInteger|)
-                                    (|SparseUnivariatePolynomial| S)))
-                    (|:| AF
-                         (|Mapping|
-                          (|SparseMultivariatePolynomial| F
-                                                          (|NonNegativeInteger|))
-                          (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|UnivariateFormalPowerSeries|
-                           (|SparseMultivariatePolynomial| F
-                                                           (|NonNegativeInteger|)))))
-                    (|:| AX
-                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
-                                    EXPRR))
-                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-          (|List| (|GuessOption|))))
+                                                            (|NonNegativeInteger|)))))
+                     (|:| AX
+                          (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                     EXPRR))
+                     (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
+           (|List| (|GuessOption|)))))
         (SPROG NIL (SEQ (CONS #'|GUESS;diffHP;SM;58!8| (VECTOR |q| $))))) 
 
 (SDEFUN |GUESS;diffHP;SM;58!8| ((|l1| NIL) ($$ NIL))
@@ -2311,14 +2392,16 @@
 (SDEFUN |GUESS;diffHP;SM;58!0| ((|c| NIL) ($ NIL)) (|spadConstant| $ 95)) 
 
 (SDEFUN |GUESS;ShiftSX|
-        ((|expr| EXPRR) (|x| |Symbol|) (|n| |NonNegativeInteger|) ($ EXPRR))
+        ((|expr| (EXPRR)) (|x| (|Symbol|)) (|n| (|NonNegativeInteger|))
+         ($ (EXPRR)))
         (SPADCALL |expr| (SPADCALL |x| (QREFELT $ 45))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 45))
                             (SPADCALL |n| (QREFELT $ 243)) (QREFELT $ 93))
                   (QREFELT $ 228))) 
 
 (SDEFUN |GUESS;ShiftSXGF|
-        ((|expr| EXPRR) (|x| |Symbol|) (|n| |NonNegativeInteger|) ($ EXPRR))
+        ((|expr| (EXPRR)) (|x| (|Symbol|)) (|n| (|NonNegativeInteger|))
+         ($ (EXPRR)))
         (SPROG ((|l| (|List| EXPRR)) (#1=#:G762 NIL) (|i| NIL) (#2=#:G761 NIL))
                (SEQ
                 (COND ((ZEROP |n|) |expr|)
@@ -2362,25 +2445,29 @@
                           (QREFELT $ 245))))))))) 
 
 (SDEFUN |GUESS;ShiftSS|
-        ((|s| |UnivariateFormalPowerSeries| F) (|n| |NonNegativeInteger|)
-         ($ |UnivariateFormalPowerSeries| F))
+        ((|s| (|UnivariateFormalPowerSeries| F)) (|n| (|NonNegativeInteger|))
+         ($ (|UnivariateFormalPowerSeries| F)))
         (SPADCALL |s| (SPADCALL (ELT $ 248) |n| (QREFELT $ 251)))) 
 
 (SDEFUN |GUESS;ShiftSF|
-        ((|s| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         (|n| |NonNegativeInteger|)
-         ($ |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+        ((|s|
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         (|n| (|NonNegativeInteger|))
+         ($
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
         (SPADCALL |s| (SPADCALL (ELT $ 252) |n| (QREFELT $ 255)))) 
 
 (SDEFUN |GUESS;ShiftAX|
-        ((|l| |NonNegativeInteger|) (|n| |Symbol|) (|f| EXPRR) ($ EXPRR))
+        ((|l| (|NonNegativeInteger|)) (|n| (|Symbol|)) (|f| (EXPRR))
+         ($ (EXPRR)))
         (SPADCALL (SPADCALL (SPADCALL |n| (QREFELT $ 45)) |l| (QREFELT $ 103))
                   |f| (QREFELT $ 104))) 
 
 (SDEFUN |GUESS;ShiftAXGF|
-        ((|l| |NonNegativeInteger|) (|x| |Symbol|) (|f| EXPRR) ($ EXPRR))
+        ((|l| (|NonNegativeInteger|)) (|x| (|Symbol|)) (|f| (EXPRR))
+         ($ (EXPRR)))
         (SPROG ((|s| (|List| EXPRR)) (#1=#:G773 NIL) (|i| NIL) (#2=#:G772 NIL))
                (SEQ
                 (COND ((ZEROP |l|) |f|)
@@ -2414,53 +2501,65 @@
                         (EXIT (SPADCALL (ELT $ 93) |s| (QREFELT $ 106))))))))) 
 
 (SDEFUN |GUESS;ShiftA|
-        ((|k| |NonNegativeInteger|) (|l| |NonNegativeInteger|)
-         (|f| |SparseUnivariatePolynomial| S) ($ S))
+        ((|k| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         (|f| (|SparseUnivariatePolynomial| S)) ($ (S)))
         (SPADCALL |k| |l| |f| (QREFELT $ 258))) 
 
 (SDEFUN |GUESS;ShiftAF|
-        ((|k| |NonNegativeInteger|) (|l| |NonNegativeInteger|)
-         (|f| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         ($ |SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+        ((|k| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         (|f|
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         ($ (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
         (SPADCALL |k| |l| |f| (QREFELT $ 259))) 
 
-(SDEFUN |GUESS;ShiftC| ((|total| |NonNegativeInteger|) ($ |List| S))
+(SDEFUN |GUESS;ShiftC| ((|total| (|NonNegativeInteger|)) ($ (|List| S)))
         (SPADCALL |total| (QREFELT $ 260))) 
 
 (SDEFUN |GUESS;shiftHP;LR;68|
-        ((|options| |List| (|GuessOption|))
-         ($ |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|options| (|List| (|GuessOption|)))
+         ($
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))))
         (SPROG
          ((|degrees| (|Stream| (|NonNegativeInteger|))) (|dk| (|Symbol|))
           (|partitions| (|Stream| (|List| (|Integer|)))))
@@ -2568,8 +2667,8 @@
              $))))) 
 
 (SDEFUN |GUESS;qShiftAX|
-        ((|q| |Symbol|) (|l| |NonNegativeInteger|) (|n| |Symbol|) (|f| EXPRR)
-         ($ EXPRR))
+        ((|q| (|Symbol|)) (|l| (|NonNegativeInteger|)) (|n| (|Symbol|))
+         (|f| (EXPRR)) ($ (EXPRR)))
         (SPADCALL
          (SPADCALL (SPADCALL |q| (QREFELT $ 45))
                    (SPADCALL |l| (SPADCALL |n| (QREFELT $ 45)) (QREFELT $ 275))
@@ -2577,26 +2676,29 @@
          |f| (QREFELT $ 104))) 
 
 (SDEFUN |GUESS;qShiftA|
-        ((|q| |Symbol|) (|k| |NonNegativeInteger|) (|l| |NonNegativeInteger|)
-         (|f| |SparseUnivariatePolynomial| S) ($ S))
+        ((|q| (|Symbol|)) (|k| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) (|f| (|SparseUnivariatePolynomial| S))
+         ($ (S)))
         (SPADCALL (SPADCALL |q| (QREFELT $ 277)) |k| |l| |f| (QREFELT $ 278))) 
 
 (SDEFUN |GUESS;qShiftAF|
-        ((|q| |Symbol|) (|k| |NonNegativeInteger|) (|l| |NonNegativeInteger|)
-         (|f| |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
-         ($ |SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
+        ((|q| (|Symbol|)) (|k| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|))
+         (|f|
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+         ($ (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
         (SPADCALL (SPADCALL (SPADCALL |q| (QREFELT $ 232)) (QREFELT $ 236)) |k|
                   |l| |f| (QREFELT $ 279))) 
 
 (SDEFUN |GUESS;qShiftC|
-        ((|q| |Symbol|) (|total| |NonNegativeInteger|) ($ |List| S))
+        ((|q| (|Symbol|)) (|total| (|NonNegativeInteger|)) ($ (|List| S)))
         (SPADCALL (SPADCALL |q| (QREFELT $ 277)) |total| (QREFELT $ 280))) 
 
 (SDEFUN |GUESS;qSubstUFPSF|
-        ((|q| |Symbol|) (|s| |UnivariateFormalPowerSeries| F)
-         (|maxMD| |NonNegativeInteger|)
-         ($ |List| (|UnivariateFormalPowerSeries| F)))
+        ((|q| (|Symbol|)) (|s| (|UnivariateFormalPowerSeries| F))
+         (|maxMD| (|NonNegativeInteger|))
+         ($ (|List| (|UnivariateFormalPowerSeries| F))))
         (SPROG ((#1=#:G818 NIL) (|i| NIL) (#2=#:G817 NIL))
                (SEQ
                 (PROGN
@@ -2621,8 +2723,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |GUESS;qSubstEXPRR|
-        ((|q| |Symbol|) (|xx| |Symbol|) (|s| EXPRR)
-         (|maxMD| |NonNegativeInteger|) ($ |List| EXPRR))
+        ((|q| (|Symbol|)) (|xx| (|Symbol|)) (|s| (EXPRR))
+         (|maxMD| (|NonNegativeInteger|)) ($ (|List| EXPRR)))
         (SPROG ((#1=#:G822 NIL) (|i| NIL) (#2=#:G821 NIL))
                (SEQ
                 (PROGN
@@ -2646,10 +2748,10 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |GUESS;ADEguessStreamMixShift|
-        ((|q| |Symbol|) (|f| |UnivariateFormalPowerSeries| F)
-         (|partitions| |Stream| (|List| (|Integer|)))
-         (|maxMD| |NonNegativeInteger|)
-         ($ |Stream| (|UnivariateFormalPowerSeries| F)))
+        ((|q| (|Symbol|)) (|f| (|UnivariateFormalPowerSeries| F))
+         (|partitions| (|Stream| (|List| (|Integer|))))
+         (|maxMD| (|NonNegativeInteger|))
+         ($ (|Stream| (|UnivariateFormalPowerSeries| F))))
         (SPROG ((|s| (|Stream| (|UnivariateFormalPowerSeries| F))))
                (SEQ
                 (LETT |s|
@@ -2677,11 +2779,12 @@
           (RETURN (PROGN (|GUESS;qSubstUFPSF| |q| |z1| |maxMD| $))))) 
 
 (SDEFUN |GUESS;ADEguessModGen2Mixed|
-        ((|partitions| |Stream| (|List| (|Integer|)))
-         (|dl| |NonNegativeInteger|) (|maxMD| |NonNegativeInteger|)
-         (|o| |NonNegativeInteger|)
-         ($ |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|)))
+        ((|partitions| (|Stream| (|List| (|Integer|))))
+         (|dl| (|NonNegativeInteger|)) (|maxMD| (|NonNegativeInteger|))
+         (|o| (|NonNegativeInteger|))
+         ($
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|))))
         (SPROG NIL
                (SEQ
                 (CONS #'|GUESS;ADEguessModGen2Mixed!0|
@@ -2870,8 +2973,9 @@
                                 (QREFELT $ 306)))))))))))) 
 
 (SDEFUN |GUESS;ADEdegreeStreamMixShift|
-        ((|partitions| |Stream| (|List| (|Integer|)))
-         (|maxMD| |NonNegativeInteger|) ($ |Stream| (|NonNegativeInteger|)))
+        ((|partitions| (|Stream| (|List| (|Integer|))))
+         (|maxMD| (|NonNegativeInteger|))
+         ($ (|Stream| (|NonNegativeInteger|))))
         (SPROG ((|s| (|Stream| (|NonNegativeInteger|))))
                (SEQ (LETT |s| (|GUESS;ADEdegreeStream| |partitions| $))
                     (EXIT
@@ -2897,14 +3001,15 @@
                           (EXIT (NREVERSE #2#)))))))))) 
 
 (SDEFUN |GUESS;ADEtestMixShiftGen|
-        ((|q| |Symbol|) (|partitions| |Stream| (|List| (|Integer|)))
-         (|maxMD| |NonNegativeInteger|) (|l| |List| (|PositiveInteger|))
-         ($ |Mapping|
-          (|Vector|
+        ((|q| (|Symbol|)) (|partitions| (|Stream| (|List| (|Integer|))))
+         (|maxMD| (|NonNegativeInteger|)) (|l| (|List| (|PositiveInteger|)))
+         ($
+          (|Mapping|
+           (|Vector|
+            (|UnivariateFormalPowerSeries|
+             (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
            (|UnivariateFormalPowerSeries|
-            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-          (|UnivariateFormalPowerSeries|
-           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
+            (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))))
         (SPROG NIL
                (SEQ
                 (CONS #'|GUESS;ADEtestMixShiftGen!0|
@@ -3080,9 +3185,9 @@
                              (QREFELT $ 177))))))))) 
 
 (SDEFUN |GUESS;ADEEXPRRStreamMixShift|
-        ((|q| |Symbol|) (|f| EXPRR) (|xx| |Symbol|)
-         (|partitions| |Stream| (|List| (|Integer|)))
-         (|maxMD| |NonNegativeInteger|) ($ |Stream| EXPRR))
+        ((|q| (|Symbol|)) (|f| (EXPRR)) (|xx| (|Symbol|))
+         (|partitions| (|Stream| (|List| (|Integer|))))
+         (|maxMD| (|NonNegativeInteger|)) ($ (|Stream| EXPRR)))
         (SPROG ((|s| (|Stream| EXPRR)))
                (SEQ
                 (LETT |s|
@@ -3104,38 +3209,49 @@
           (RETURN (PROGN (|GUESS;qSubstEXPRR| |q| |xx| |z1| |maxMD| $))))) 
 
 (SDEFUN |GUESS;shift_hp_aux|
-        ((|q| |Symbol|) (|l1| |List| (|GuessOption|))
-         ($ |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|q| (|Symbol|)) (|l1| (|List| (|GuessOption|)))
+         ($
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))))
         (SPROG
          ((|degrees| (|Stream| (|NonNegativeInteger|)))
           (|maxMD| (|NonNegativeInteger|))
@@ -3333,50 +3449,51 @@
              $))))) 
 
 (SDEFUN |GUESS;shiftHP;SM;81|
-        ((|q| |Symbol|)
-         ($ |Mapping|
-          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-                    (|:| |guessStream|
-                         (|Mapping|
-                          (|Stream| (|UnivariateFormalPowerSeries| F))
-                          (|UnivariateFormalPowerSeries| F)))
-                    (|:| |guessModGen|
-                         (|Mapping|
-                          (|Mapping| (|Vector| (|U32Vector|))
-                                     (|List| (|U32Vector|)) (|Integer|)
-                                     (|Integer|))
-                          (|NonNegativeInteger|)))
-                    (|:| |testGen|
-                         (|Mapping|
+        ((|q| (|Symbol|))
+         ($
+          (|Mapping|
+           (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                     (|:| |guessStream|
                           (|Mapping|
-                           (|Vector|
+                           (|Stream| (|UnivariateFormalPowerSeries| F))
+                           (|UnivariateFormalPowerSeries| F)))
+                     (|:| |guessModGen|
+                          (|Mapping|
+                           (|Mapping| (|Vector| (|U32Vector|))
+                                      (|List| (|U32Vector|)) (|Integer|)
+                                      (|Integer|))
+                           (|NonNegativeInteger|)))
+                     (|:| |testGen|
+                          (|Mapping|
+                           (|Mapping|
+                            (|Vector|
+                             (|UnivariateFormalPowerSeries|
+                              (|SparseMultivariatePolynomial| F
+                                                              (|NonNegativeInteger|))))
                             (|UnivariateFormalPowerSeries|
                              (|SparseMultivariatePolynomial| F
                                                              (|NonNegativeInteger|))))
+                           (|List| (|PositiveInteger|))))
+                     (|:| |exprStream|
+                          (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                     (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                     (|:| A
+                          (|Mapping| S (|NonNegativeInteger|)
+                                     (|NonNegativeInteger|)
+                                     (|SparseUnivariatePolynomial| S)))
+                     (|:| AF
+                          (|Mapping|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|))
+                           (|NonNegativeInteger|) (|NonNegativeInteger|)
                            (|UnivariateFormalPowerSeries|
                             (|SparseMultivariatePolynomial| F
-                                                            (|NonNegativeInteger|))))
-                          (|List| (|PositiveInteger|))))
-                    (|:| |exprStream|
-                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-                    (|:| A
-                         (|Mapping| S (|NonNegativeInteger|)
-                                    (|NonNegativeInteger|)
-                                    (|SparseUnivariatePolynomial| S)))
-                    (|:| AF
-                         (|Mapping|
-                          (|SparseMultivariatePolynomial| F
-                                                          (|NonNegativeInteger|))
-                          (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|UnivariateFormalPowerSeries|
-                           (|SparseMultivariatePolynomial| F
-                                                           (|NonNegativeInteger|)))))
-                    (|:| AX
-                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
-                                    EXPRR))
-                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-          (|List| (|GuessOption|))))
+                                                            (|NonNegativeInteger|)))))
+                     (|:| AX
+                          (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                     EXPRR))
+                     (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
+           (|List| (|GuessOption|)))))
         (SPROG NIL (CONS #'|GUESS;shiftHP;SM;81!0| (VECTOR $ |q|)))) 
 
 (SDEFUN |GUESS;shiftHP;SM;81!0| ((|l1| NIL) ($$ NIL))
@@ -3386,9 +3503,9 @@
           (RETURN (PROGN (|GUESS;shift_hp_aux| |q| |l1| $))))) 
 
 (SDEFUN |GUESS;makeEXPRR|
-        ((DAX |Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR)
-         (|x| |Symbol|) (|p| |SparseUnivariatePolynomial| F) (|expr| EXPRR)
-         ($ EXPRR))
+        ((DAX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
+         (|x| (|Symbol|)) (|p| (|SparseUnivariatePolynomial| F))
+         (|expr| (EXPRR)) ($ (EXPRR)))
         (COND ((SPADCALL |p| (QREFELT $ 324)) (|spadConstant| $ 246))
               ('T
                (SPADCALL
@@ -3401,13 +3518,14 @@
                 (QREFELT $ 93))))) 
 
 (SDEFUN |GUESS;list2UFPSF|
-        ((|list| |List| F) ($ |UnivariateFormalPowerSeries| F))
+        ((|list| (|List| F)) ($ (|UnivariateFormalPowerSeries| F)))
         (SPADCALL (SPADCALL |list| (QREFELT $ 329)) (QREFELT $ 330))) 
 
 (SDEFUN |GUESS;list2UFPSSUPF|
-        ((|list| |List| F)
-         ($ |UnivariateFormalPowerSeries|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+        ((|list| (|List| F))
+         ($
+          (|UnivariateFormalPowerSeries|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
         (SPROG
          ((|l2|
            (|Stream|
@@ -3451,20 +3569,21 @@
                          (QREFELT $ 336)))) 
 
 (SDEFUN |GUESS;SUPF2SUPSUPF|
-        ((|p| |SparseUnivariatePolynomial| F)
-         ($ |SparseUnivariatePolynomial|
-          (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         ($
+          (|SparseUnivariatePolynomial|
+           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
         (SPADCALL (ELT $ 236) |p| (QREFELT $ 344))) 
 
 (SDEFUN |GUESS;UFPSF2SUPF|
-        ((|f| |UnivariateFormalPowerSeries| F) (|deg| |NonNegativeInteger|)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|f| (|UnivariateFormalPowerSeries| F)) (|deg| (|NonNegativeInteger|))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPADCALL (SPADCALL |f| |deg| (QREFELT $ 346)) (QREFELT $ 347))) 
 
 (SDEFUN |GUESS;getListSUPF|
-        ((|s| |List| (|UnivariateFormalPowerSeries| F))
-         (|deg| |NonNegativeInteger|)
-         ($ |List| (|SparseUnivariatePolynomial| F)))
+        ((|s| (|List| (|UnivariateFormalPowerSeries| F)))
+         (|deg| (|NonNegativeInteger|))
+         ($ (|List| (|SparseUnivariatePolynomial| F))))
         (SPROG NIL
                (SPADCALL (CONS #'|GUESS;getListSUPF!0| (VECTOR $ |deg|)) |s|
                          (QREFELT $ 351)))) 
@@ -3476,42 +3595,53 @@
           (RETURN (PROGN (|GUESS;UFPSF2SUPF| |z1| |deg| $))))) 
 
 (SDEFUN |GUESS;guessInterpolateModular|
-        ((|lists| |List| (|List| F)) (|degs| |List| (|Integer|))
-         (|o| |NonNegativeInteger|) (|degreeLoss| |Integer|)
-         (|guessDegree| |NonNegativeInteger|)
-         (D |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|lists| (|List| (|List| F))) (|degs| (|List| (|Integer|)))
+         (|o| (|NonNegativeInteger|)) (|degreeLoss| (|Integer|))
+         (|guessDegree| (|NonNegativeInteger|))
+         (D
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-         (|options| |List| (|GuessOption|))
-         ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+         (|options| (|List| (|GuessOption|)))
+         ($ (|Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|))))
         (SPROG
          ((|check|
            (|Mapping| (|Union| "good" "reject" "no_solution")
@@ -3670,41 +3800,52 @@
             (|GUESS;checkInterpolant| |list| |o| |x| D |options| |sigma| $))))) 
 
 (SDEFUN |GUESS;guessInterpolateFFFG|
-        ((|lists| |List| (|List| F)) (|degs| |List| (|Integer|))
-         (|o| |NonNegativeInteger|) (|guessDegree| |NonNegativeInteger|)
-         (D |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| #1=(|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|lists| (|List| (|List| F))) (|degs| (|List| (|Integer|)))
+         (|o| (|NonNegativeInteger|)) (|guessDegree| (|NonNegativeInteger|))
+         (D
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          #1=(|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-         (|options| |List| (|GuessOption|))
-         ($ |Matrix| (|SparseUnivariatePolynomial| S)))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+         (|options| (|List| (|GuessOption|)))
+         ($ (|Matrix| (|SparseUnivariatePolynomial| S))))
         (SPROG
          ((#2=#:G1096 NIL) (#3=#:G1118 NIL) (|j| NIL) (|c| (S))
           (|cl| (|List| S)) (#4=#:G1117 NIL) (#5=#:G1116 NIL) (#6=#:G1115 NIL)
@@ -3986,42 +4127,53 @@
                            (EXIT |Mr|)))))))) 
 
 (SDEFUN |GUESS;guessInterpolate3|
-        ((|lists| |List| (|List| F)) (|o| |NonNegativeInteger|)
-         (|degreeLoss| |Integer|) (|guessDegree| |NonNegativeInteger|)
-         (D |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|lists| (|List| (|List| F))) (|o| (|NonNegativeInteger|))
+         (|degreeLoss| (|Integer|)) (|guessDegree| (|NonNegativeInteger|))
+         (D
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-         (|options| |List| (|GuessOption|))
-         (|vs| |Stream| (|List| (|Integer|)))
-         ($ |Stream| (|Matrix| (|SparseUnivariatePolynomial| S))))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+         (|options| (|List| (|GuessOption|)))
+         (|vs| (|Stream| (|List| (|Integer|))))
+         ($ (|Stream| (|Matrix| (|SparseUnivariatePolynomial| S)))))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -4092,48 +4244,59 @@
         (SPADCALL |x| (|spadConstant| $ 95) (QREFELT $ 402))) 
 
 (SDEFUN |GUESS;listDecr|
-        ((|l| |List| (|NonNegativeInteger|)) ($ |List| (|Integer|)))
+        ((|l| (|List| (|NonNegativeInteger|))) ($ (|List| (|Integer|))))
         (SPADCALL (CONS #'|GUESS;listDecr!0| $) |l| (QREFELT $ 411))) 
 
 (SDEFUN |GUESS;listDecr!0| ((|x| NIL) ($ NIL))
         (SPADCALL |x| (|spadConstant| $ 174) (QREFELT $ 183))) 
 
 (SDEFUN |GUESS;guessInterpolate2|
-        ((|lists| |List| (|List| F)) (|o| |NonNegativeInteger|)
-         (|degreeLoss| |Integer|) (|guessDegree| |NonNegativeInteger|)
-         (D |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|lists| (|List| (|List| F))) (|o| (|NonNegativeInteger|))
+         (|degreeLoss| (|Integer|)) (|guessDegree| (|NonNegativeInteger|))
+         (D
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-         (|options| |List| (|GuessOption|))
-         ($ |Stream| (|Matrix| (|SparseUnivariatePolynomial| S))))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+         (|options| (|List| (|GuessOption|)))
+         ($ (|Stream| (|Matrix| (|SparseUnivariatePolynomial| S)))))
         (SPROG
          ((|vs| (|Stream| (|List| (|Integer|))))
           (|vs0| (|Stream| (|List| (|NonNegativeInteger|))))
@@ -4160,9 +4323,9 @@
             |options| |vs| $))))) 
 
 (SDEFUN |GUESS;precCheck|
-        ((|list| |List| F) (|resi| |List| (|SparseUnivariatePolynomial| S))
-         (|options| |List| (|GuessOption|)) (|sigma| |Integer|)
-         (|bad| |Boolean|) ($ |Union| "good" "reject" "no_solution"))
+        ((|list| (|List| F)) (|resi| (|List| (|SparseUnivariatePolynomial| S)))
+         (|options| (|List| (|GuessOption|))) (|sigma| (|Integer|))
+         (|bad| (|Boolean|)) ($ (|Union| "good" "reject" "no_solution")))
         (SPROG
          ((#1=#:G1195 NIL) (#2=#:G1193 NIL) (|res2| (S)) (|p2val| (S))
           (|p2| (|SparseUnivariatePolynomial| S)) (#3=#:G1205 NIL) (|j| NIL)
@@ -4580,42 +4743,52 @@
           #22# (EXIT #1#)))) 
 
 (SDEFUN |GUESS;checkInterpolant|
-        ((|list| |List| F) (|o| |NonNegativeInteger|)
-         (|resi| |List| (|SparseUnivariatePolynomial| S))
-         (D |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|list| (|List| F)) (|o| (|NonNegativeInteger|))
+         (|resi| (|List| (|SparseUnivariatePolynomial| S)))
+         (D
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 #1=(|Vector|
-                     (|UnivariateFormalPowerSeries|
-                      (|SparseMultivariatePolynomial| F
-                                                      (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-         (|options| |List| (|GuessOption|)) (|sigma| |Integer|)
-         ($ |Union| "good" "reject" "no_solution"))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           #1=(|Vector|
+                               (|UnivariateFormalPowerSeries|
+                                (|SparseMultivariatePolynomial| F
+                                                                (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+         (|options| (|List| (|GuessOption|))) (|sigma| (|Integer|))
+         ($ (|Union| "good" "reject" "no_solution")))
         (SPROG
          ((#2=#:G1258 NIL) (#3=#:G1256 NIL) (|order| (|Integer|))
           (|c| (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
@@ -4802,40 +4975,52 @@
           #13# (EXIT #2#)))) 
 
 (SDEFUN |GUESS;wrapInterpolant|
-        ((|resi| |List| (|SparseUnivariatePolynomial| S))
-         (|exprList| |List| EXPRR) (|initials| |List| F)
-         (D |Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|resi| (|List| (|SparseUnivariatePolynomial| S)))
+         (|exprList| (|List| EXPRR)) (|initials| (|List| F))
+         (D
+          (|Record| (|:| |degreeStream| (|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-         (|op| |BasicOperator|) (|options| |List| (|GuessOption|)) ($ EXPRR))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| (|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+         (|op| (|BasicOperator|)) (|options| (|List| (|GuessOption|)))
+         ($ (EXPRR)))
         (SPROG
          ((|ex| (|List| EXPRR)) (#1=#:G1294 NIL) (|p| NIL) (#2=#:G1295 NIL)
           (|e| NIL) (#3=#:G1293 NIL) (|eq| (EXPRR)) (#4=#:G1291 NIL)
@@ -4916,39 +5101,50 @@
                 (#7# (|error| "wrapInterpolant: unsupported display kind"))))))) 
 
 (SDEFUN |GUESS;guessHPaux|
-        ((|lists| |List| (|List| F))
-         (D |Record| (|:| |degreeStream| #1=(|Stream| (|NonNegativeInteger|)))
-          (|:| |guessStream|
-               (|Mapping| (|Stream| (|UnivariateFormalPowerSeries| F))
+        ((|lists| (|List| (|List| F)))
+         (D
+          (|Record| (|:| |degreeStream| #1=(|Stream| (|NonNegativeInteger|)))
+                    (|:| |guessStream|
+                         (|Mapping|
+                          (|Stream| (|UnivariateFormalPowerSeries| F))
                           (|UnivariateFormalPowerSeries| F)))
-          (|:| |guessModGen|
-               (|Mapping|
-                (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-                           (|Integer|) (|Integer|))
-                (|NonNegativeInteger|)))
-          (|:| |testGen|
-               (|Mapping|
-                (|Mapping|
-                 (|Vector|
-                  (|UnivariateFormalPowerSeries|
-                   (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                 (|UnivariateFormalPowerSeries|
-                  (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-                (|List| (|PositiveInteger|))))
-          (|:| |exprStream| (|Mapping| #2=(|Stream| EXPRR) EXPRR (|Symbol|)))
-          (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
-          (|:| A
-               (|Mapping| S (|NonNegativeInteger|) (|NonNegativeInteger|)
-                          (|SparseUnivariatePolynomial| S)))
-          (|:| AF
-               (|Mapping|
-                (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))
-                (|NonNegativeInteger|) (|NonNegativeInteger|)
-                (|UnivariateFormalPowerSeries|
-                 (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (|:| AX (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|) EXPRR))
-          (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
-         (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+                    (|:| |guessModGen|
+                         (|Mapping|
+                          (|Mapping| (|Vector| (|U32Vector|))
+                                     (|List| (|U32Vector|)) (|Integer|)
+                                     (|Integer|))
+                          (|NonNegativeInteger|)))
+                    (|:| |testGen|
+                         (|Mapping|
+                          (|Mapping|
+                           (|Vector|
+                            (|UnivariateFormalPowerSeries|
+                             (|SparseMultivariatePolynomial| F
+                                                             (|NonNegativeInteger|))))
+                           (|UnivariateFormalPowerSeries|
+                            (|SparseMultivariatePolynomial| F
+                                                            (|NonNegativeInteger|))))
+                          (|List| (|PositiveInteger|))))
+                    (|:| |exprStream|
+                         (|Mapping| #2=(|Stream| EXPRR) EXPRR (|Symbol|)))
+                    (|:| |kind| (|Symbol|)) (|:| |qvar| (|Symbol|))
+                    (|:| A
+                         (|Mapping| S (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|SparseUnivariatePolynomial| S)))
+                    (|:| AF
+                         (|Mapping|
+                          (|SparseMultivariatePolynomial| F
+                                                          (|NonNegativeInteger|))
+                          (|NonNegativeInteger|) (|NonNegativeInteger|)
+                          (|UnivariateFormalPowerSeries|
+                           (|SparseMultivariatePolynomial| F
+                                                           (|NonNegativeInteger|)))))
+                    (|:| AX
+                         (|Mapping| EXPRR (|NonNegativeInteger|) (|Symbol|)
+                                    EXPRR))
+                    (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|)))))
+         (|options| (|List| (|GuessOption|))) ($ (|List| EXPRR)))
         (SPROG
          ((#3=#:G1366 NIL) (|reslist| (|List| EXPRR)) (|res| (EXPRR))
           (#4=#:G1368 NIL) (|i| NIL) (|exprList| (|List| EXPRR))
@@ -5280,8 +5476,8 @@
           #14# (EXIT #3#)))) 
 
 (SDEFUN |GUESS;processOptions|
-        ((|options| |List| (|GuessOption|))
-         ($ |List| (|List| (|GuessOption|))))
+        ((|options| (|List| (|GuessOption|)))
+         ($ (|List| (|List| (|GuessOption|)))))
         (SPROG
          ((#1=#:G1418 NIL) (#2=#:G1412 NIL) (#3=#:G1410 NIL) (#4=#:G1422 NIL)
           (#5=#:G1376 NIL) (|i| NIL) (#6=#:G1421 NIL)
@@ -5442,8 +5638,8 @@
           #16# (EXIT #1#)))) 
 
 (SDEFUN |GUESS;guessAlgDep;LLL;98|
-        ((|lists| |List| (|List| F)) (|options| |List| (|GuessOption|))
-         ($ |List| EXPRR))
+        ((|lists| (|List| (|List| F))) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG
          ((|lres| (|List| EXPRR)) (#1=#:G1438 NIL) (|res| (|List| EXPRR))
           (#2=#:G1440 NIL) (|opts| NIL)
@@ -5518,11 +5714,12 @@
           #7# (EXIT #1#)))) 
 
 (SDEFUN |GUESS;guessAlgDep;LL;99|
-        ((|lists| |List| (|List| F)) ($ |List| EXPRR))
+        ((|lists| (|List| (|List| F))) ($ (|List| EXPRR)))
         (SPADCALL |lists| NIL (QREFELT $ 498))) 
 
 (SDEFUN |GUESS;guessADE;LLL;100|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG
          ((|lres| (|List| EXPRR)) (#1=#:G1449 NIL) (|res| (|List| EXPRR))
           (#2=#:G1450 NIL) (|opts| NIL)
@@ -5555,27 +5752,30 @@
                 (EXIT (NREVERSE |lres|))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |GUESS;guessADE;LL;101| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessADE;LL;101| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 500))) 
 
 (SDEFUN |GUESS;guessAlg;LLL;102|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPADCALL |list| (CONS (SPADCALL (CONS 0 0) (QREFELT $ 502)) |options|)
                   (QREFELT $ 500))) 
 
-(SDEFUN |GUESS;guessAlg;LL;103| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessAlg;LL;103| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 503))) 
 
 (SDEFUN |GUESS;guessHolo;LLL;104|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPADCALL |list| (CONS (SPADCALL (CONS 0 1) (QREFELT $ 491)) |options|)
                   (QREFELT $ 500))) 
 
-(SDEFUN |GUESS;guessHolo;LL;105| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessHolo;LL;105| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 505))) 
 
 (SDEFUN |GUESS;guessPade;LLL;106|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG ((|opts| (|List| (|GuessOption|))))
                (SEQ
                 (LETT |opts|
@@ -5587,11 +5787,12 @@
                        (QREFELT $ 508)))
                 (EXIT (SPADCALL |list| |opts| (QREFELT $ 500)))))) 
 
-(SDEFUN |GUESS;guessPade;LL;107| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessPade;LL;107| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 509))) 
 
 (SDEFUN |GUESS;guessFE;LLL;108|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG
          ((|lres| (|List| EXPRR)) (#1=#:G1478 NIL) (|res| (|List| EXPRR))
           (#2=#:G1479 NIL) (|opts| NIL)
@@ -5624,12 +5825,12 @@
                 (EXIT (NREVERSE |lres|))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |GUESS;guessFE;LL;109| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessFE;LL;109| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 511))) 
 
 (SDEFUN |GUESS;guessADE;SM;110|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPROG NIL (SEQ (CONS #'|GUESS;guessADE;SM;110!0| (VECTOR |q| $))))) 
 
 (SDEFUN |GUESS;guessADE;SM;110!0| ((|list| NIL) (|options| NIL) ($$ NIL))
@@ -5673,8 +5874,8 @@
               #3# (EXIT #1#))))))) 
 
 (SDEFUN |GUESS;guessHolo;SM;111|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPROG NIL (CONS #'|GUESS;guessHolo;SM;111!0| (VECTOR |q| $)))) 
 
 (SDEFUN |GUESS;guessHolo;SM;111!0| ((|z1| NIL) (|z2| NIL) ($$ NIL))
@@ -5691,7 +5892,8 @@
                       (SPADCALL |q| (QREFELT $ 516))))))) 
 
 (SDEFUN |GUESS;guessRec;LLL;112|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG
          ((|lres| (|List| EXPRR)) (#1=#:G1503 NIL) (|res| (|List| EXPRR))
           (#2=#:G1504 NIL) (|opts| NIL)
@@ -5724,19 +5926,21 @@
                 (EXIT (NREVERSE |lres|))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |GUESS;guessRec;LL;113| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessRec;LL;113| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 518))) 
 
 (SDEFUN |GUESS;guessPRec;LLL;114|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPADCALL |list| (CONS (SPADCALL (CONS 0 1) (QREFELT $ 491)) |options|)
                   (QREFELT $ 518))) 
 
-(SDEFUN |GUESS;guessPRec;LL;115| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessPRec;LL;115| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 520))) 
 
 (SDEFUN |GUESS;guessRat;LLL;116|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG ((|opts| (|List| (|GuessOption|))))
                (SEQ
                 (LETT |opts|
@@ -5748,12 +5952,12 @@
                        (QREFELT $ 508)))
                 (EXIT (SPADCALL |list| |opts| (QREFELT $ 518)))))) 
 
-(SDEFUN |GUESS;guessRat;LL;117| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guessRat;LL;117| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| NIL (QREFELT $ 523))) 
 
 (SDEFUN |GUESS;guessRec;SM;118|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPROG NIL (SEQ (CONS #'|GUESS;guessRec;SM;118!0| (VECTOR |q| $))))) 
 
 (SDEFUN |GUESS;guessRec;SM;118!0| ((|list| NIL) (|options| NIL) ($$ NIL))
@@ -5797,8 +6001,8 @@
               #3# (EXIT #1#))))))) 
 
 (SDEFUN |GUESS;guessPRec;SM;119|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPROG NIL (CONS #'|GUESS;guessPRec;SM;119!0| (VECTOR |q| $)))) 
 
 (SDEFUN |GUESS;guessPRec;SM;119!0| ((|z1| NIL) (|z2| NIL) ($$ NIL))
@@ -5815,8 +6019,8 @@
                       (SPADCALL |q| (QREFELT $ 525))))))) 
 
 (SDEFUN |GUESS;guessRat;SM;120|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPROG NIL (CONS #'|GUESS;guessRat;SM;120!0| (VECTOR |q| $)))) 
 
 (SDEFUN |GUESS;guessRat;SM;120!0| ((|z1| NIL) (|z2| NIL) ($$ NIL))
@@ -5838,11 +6042,12 @@
                       (SPADCALL |q| (QREFELT $ 525))))))) 
 
 (SDEFUN |GUESS;guess;LLLLL;121|
-        ((|list| |List| F)
-         (|guessers| |List|
-          (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
-         (|ops| |List| (|Symbol|)) (|options| |List| (|GuessOption|))
-         ($ |List| EXPRR))
+        ((|list| (|List| F))
+         (|guessers|
+          (|List|
+           (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
+         (|ops| (|List| (|Symbol|))) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG
          ((|res| (|List| EXPRR)) (#1=#:G1639 NIL) (|guess| NIL)
           (|sumGuess| (|List| EXPRR)) (|summ| (EXPRR)) (|init| (EXPRR))
@@ -6102,20 +6307,22 @@
                                 (QREFELT $ 532))
                       (QREFELT $ 557)))))) 
 
-(SDEFUN |GUESS;guess;LL;122| ((|list| |List| F) ($ |List| EXPRR))
+(SDEFUN |GUESS;guess;LL;122| ((|list| (|List| F)) ($ (|List| EXPRR)))
         (SPADCALL |list| (LIST (ELT $ 523)) (LIST '|guessProduct| '|guessSum|)
                   NIL (QREFELT $ 549))) 
 
 (SDEFUN |GUESS;guess;LLL;123|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPADCALL |list| (LIST (ELT $ 523)) (LIST '|guessProduct| '|guessSum|)
                   |options| (QREFELT $ 549))) 
 
 (SDEFUN |GUESS;guess;LLLL;124|
-        ((|list| |List| F)
-         (|guessers| |List|
-          (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
-         (|ops| |List| (|Symbol|)) ($ |List| EXPRR))
+        ((|list| (|List| F))
+         (|guessers|
+          (|List|
+           (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
+         (|ops| (|List| (|Symbol|))) ($ (|List| EXPRR)))
         (SPADCALL |list| |guessers| |ops| NIL (QREFELT $ 549))) 
 
 (DECLAIM (NOTINLINE |Guess;|)) 

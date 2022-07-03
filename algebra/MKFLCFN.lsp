@@ -1,36 +1,37 @@
 
-(SDEFUN |MKFLCFN;streq?| ((|s| |InputForm|) (|st| |String|) ($ |Boolean|))
+(SDEFUN |MKFLCFN;streq?|
+        ((|s| (|InputForm|)) (|st| (|String|)) ($ (|Boolean|)))
         (SPADCALL |s| (SPADCALL (SPADCALL |st| (QREFELT $ 14)) (QREFELT $ 9))
                   (QREFELT $ 16))) 
 
 (SDEFUN |MKFLCFN;gencode|
-        ((|s| |String|) (|l| |List| (|InputForm|)) ($ |InputForm|))
+        ((|s| (|String|)) (|l| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPADCALL
          (CONS (SPADCALL (SPADCALL |s| (QREFELT $ 14)) (QREFELT $ 9)) |l|)
          (QREFELT $ 11))) 
 
 (SDEFUN |MKFLCFN;streqlist?|
-        ((|s| |InputForm|) (|l| |List| (|String|)) ($ |Boolean|))
+        ((|s| (|InputForm|)) (|l| (|List| (|String|))) ($ (|Boolean|)))
         (SPADCALL (SPADCALL (SPADCALL |s| (QREFELT $ 17)) (QREFELT $ 18)) |l|
                   (QREFELT $ 20))) 
 
-(SDEFUN |MKFLCFN;mkPretend| ((|form| |InputForm|) ($ |InputForm|))
+(SDEFUN |MKFLCFN;mkPretend| ((|form| (|InputForm|)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|pretend| (QREFELT $ 9)) |form| (QREFELT $ 12))
          (QREFELT $ 11))) 
 
-(SDEFUN |MKFLCFN;mkCTOR| ((|form| |InputForm|) ($ |InputForm|))
+(SDEFUN |MKFLCFN;mkCTOR| ((|form| (|InputForm|)) ($ (|InputForm|)))
         (SPADCALL (LIST (SPADCALL '|c_to_rf| (QREFELT $ 9)) |form|)
                   (QREFELT $ 11))) 
 
-(SDEFUN |MKFLCFN;mkLispCall| ((|name| |InputForm|) ($ |InputForm|))
+(SDEFUN |MKFLCFN;mkLispCall| ((|name| (|InputForm|)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|$elt| (QREFELT $ 9))
                (SPADCALL '|Lisp| (QREFELT $ 9)) |name|)
          (QREFELT $ 11))) 
 
 (SDEFUN |MKFLCFN;mkDefun|
-        ((|s| |InputForm|) (|lv| |List| (|InputForm|)) ($ |InputForm|))
+        ((|s| (|InputForm|)) (|lv| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPROG ((|fun| (|InputForm|)) (|name| (|InputForm|)))
                (SEQ
                 (LETT |name|
@@ -49,8 +50,8 @@
                 (EXIT |name|)))) 
 
 (SDEFUN |MKFLCFN;makeFloatFunction;S2SM;8|
-        ((|f| S) (|x| |Symbol|) (|y| |Symbol|)
-         ($ |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
+        ((|f| (S)) (|x| (|Symbol|)) (|y| (|Symbol|))
+         ($ (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
         (SPROG
          ((|spadform| (|InputForm|)) (|spadname| (|Symbol|))
           (|t| (|List| (|InputForm|))) (|name| (|InputForm|))
@@ -88,8 +89,8 @@
                                   (QREFELT $ 32)))))))))) 
 
 (SDEFUN |MKFLCFN;makeFloatFunction;SSM;9|
-        ((|f| S) (|var| |Symbol|)
-         ($ |Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+        ((|f| (S)) (|var| (|Symbol|))
+         ($ (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
         (SPROG
          ((|spadform| (|InputForm|)) (|spadname| (|Symbol|))
           (|t| (|List| (|InputForm|))) (|name| (|InputForm|))
@@ -125,8 +126,8 @@
                                   (QREFELT $ 37)))))))))) 
 
 (SDEFUN |MKFLCFN;mkLispList|
-        ((|l| |List| (|InputForm|))
-         ($ |Union| (|List| (|InputForm|)) "failed"))
+        ((|l| (|List| (|InputForm|)))
+         ($ (|Union| (|List| (|InputForm|)) "failed")))
         (SPROG
          ((|ans| (|List| (|InputForm|))) (#1=#:G168 NIL)
           (|u| (|Union| (|InputForm|) "failed")) (#2=#:G169 NIL) (|s| NIL))
@@ -149,7 +150,8 @@
                 (EXIT (CONS 0 (NREVERSE |ans|)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |MKFLCFN;mkLisp| ((|s| |InputForm|) ($ |Union| (|InputForm|) "failed"))
+(SDEFUN |MKFLCFN;mkLisp|
+        ((|s| (|InputForm|)) ($ (|Union| (|InputForm|) "failed")))
         (SPROG
          ((|b| (|DoubleFloat|)) (|e| #1=(|InputForm|)) (|a| #1#) (|ii| #1#)
           (|ll| (|List| (|InputForm|)))

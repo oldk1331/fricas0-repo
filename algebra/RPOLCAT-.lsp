@@ -1,5 +1,5 @@
 
-(SDEFUN |RPOLCAT-;coerce;SOf;1| ((|p| S) ($ |OutputForm|))
+(SDEFUN |RPOLCAT-;coerce;SOf;1| ((|p| (S)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G271 NIL) (|dp| (|NonNegativeInteger|)) (|tp| (S)) (|ip| (S)))
          (SEQ
@@ -110,7 +110,7 @@
                 (QREFELT $ 28)))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |RPOLCAT-;mvar;SV;2| ((|p| S) ($ V))
+(SDEFUN |RPOLCAT-;mvar;SV;2| ((|p| (S)) ($ (V)))
         (SPROG ((#1=#:G273 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 11))
@@ -121,7 +121,7 @@
                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 9)
                                    (|Union| (QREFELT $ 9) "failed") #1#)))))) 
 
-(SDEFUN |RPOLCAT-;mdeg;SNni;3| ((|p| S) ($ |NonNegativeInteger|))
+(SDEFUN |RPOLCAT-;mdeg;SNni;3| ((|p| (S)) ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G278 NIL))
                (COND ((SPADCALL |p| (QREFELT $ 11)) 0)
                      ('T
@@ -134,7 +134,7 @@
                                                   #1#))
                                 (QREFELT $ 34)))))) 
 
-(SDEFUN |RPOLCAT-;init;2S;4| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;init;2S;4| ((|p| (S)) ($ (S)))
         (SPROG ((|v| (V)) (#1=#:G283 NIL))
                (SEQ
                 (COND
@@ -152,12 +152,12 @@
                     (SPADCALL |p| |v| (SPADCALL |p| |v| (QREFELT $ 34))
                               (QREFELT $ 36))))))))) 
 
-(SDEFUN |RPOLCAT-;leadingCoefficient;SVS;5| ((|p| S) (|v| V) ($ S))
+(SDEFUN |RPOLCAT-;leadingCoefficient;SVS;5| ((|p| (S)) (|v| (V)) ($ (S)))
         (SPROG ((|d| (|NonNegativeInteger|)))
                (COND ((ZEROP (LETT |d| (SPADCALL |p| |v| (QREFELT $ 34)))) |p|)
                      ('T (SPADCALL |p| |v| |d| (QREFELT $ 36)))))) 
 
-(SDEFUN |RPOLCAT-;head;2S;6| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;head;2S;6| ((|p| (S)) ($ (S)))
         (SPROG ((|d| (|NonNegativeInteger|)) (|v| (V)) (#1=#:G291 NIL))
                (SEQ
                 (COND ((SPADCALL |p| (QREFELT $ 11)) |p|)
@@ -175,7 +175,7 @@
                          (SPADCALL (SPADCALL |p| |v| |d| (QREFELT $ 36)) |v|
                                    |d| (QREFELT $ 39))))))))) 
 
-(SDEFUN |RPOLCAT-;reductum;SVS;7| ((|p| S) (|v| V) ($ S))
+(SDEFUN |RPOLCAT-;reductum;SVS;7| ((|p| (S)) (|v| (V)) ($ (S)))
         (SPROG ((|d| (|NonNegativeInteger|)))
                (COND
                 ((ZEROP (LETT |d| (SPADCALL |p| |v| (QREFELT $ 34))))
@@ -186,11 +186,11 @@
                                      |d| (QREFELT $ 39))
                            (QREFELT $ 42)))))) 
 
-(SDEFUN |RPOLCAT-;tail;2S;8| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;tail;2S;8| ((|p| (S)) ($ (S)))
         (COND ((SPADCALL |p| (QREFELT $ 11)) (|spadConstant| $ 41))
               ('T (SPADCALL |p| (SPADCALL |p| (QREFELT $ 44)) (QREFELT $ 42))))) 
 
-(SDEFUN |RPOLCAT-;deepestTail;2S;9| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;deepestTail;2S;9| ((|p| (S)) ($ (S)))
         (COND ((SPADCALL |p| (QREFELT $ 11)) (|spadConstant| $ 41))
               ((OR (SPADCALL (SPADCALL |p| (QREFELT $ 19)) (QREFELT $ 11))
                    (SPADCALL (SPADCALL |p| (QREFELT $ 23))
@@ -200,36 +200,36 @@
                (SPADCALL |p| (QREFELT $ 19)))
               ('T (SPADCALL (SPADCALL |p| (QREFELT $ 19)) (QREFELT $ 47))))) 
 
-(SDEFUN |RPOLCAT-;iteratedInitials;SL;10| ((|p| S) ($ |List| S))
+(SDEFUN |RPOLCAT-;iteratedInitials;SL;10| ((|p| (S)) ($ (|List| S)))
         (SEQ
          (COND ((SPADCALL |p| (QREFELT $ 11)) NIL)
                ('T
                 (SEQ (LETT |p| (SPADCALL |p| (QREFELT $ 15)))
                      (EXIT (CONS |p| (SPADCALL |p| (QREFELT $ 50))))))))) 
 
-(SDEFUN |RPOLCAT-;localDeepestInitial| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;localDeepestInitial| ((|p| (S)) ($ (S)))
         (COND ((SPADCALL |p| (QREFELT $ 11)) |p|)
               ('T
                (|RPOLCAT-;localDeepestInitial| (SPADCALL |p| (QREFELT $ 15))
                 $)))) 
 
-(SDEFUN |RPOLCAT-;deepestInitial;2S;12| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;deepestInitial;2S;12| ((|p| (S)) ($ (S)))
         (COND
          ((SPADCALL |p| (QREFELT $ 11))
           (|error| "Error in deepestInitial from RPOLCAT : #1 is constant."))
          ('T (|RPOLCAT-;localDeepestInitial| (SPADCALL |p| (QREFELT $ 15)) $)))) 
 
-(SDEFUN |RPOLCAT-;monic?;SB;13| ((|p| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;monic?;SB;13| ((|p| (S)) ($ (|Boolean|)))
         (COND ((SPADCALL |p| (QREFELT $ 11)) NIL)
               ('T
                (QEQCAR (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 54))
                        0)))) 
 
-(SDEFUN |RPOLCAT-;quasiMonic?;SB;14| ((|p| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;quasiMonic?;SB;14| ((|p| (S)) ($ (|Boolean|)))
         (COND ((SPADCALL |p| (QREFELT $ 11)) NIL)
               ('T (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 11))))) 
 
-(SDEFUN |RPOLCAT-;mainMonomial;2S;15| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;mainMonomial;2S;15| ((|p| (S)) ($ (S)))
         (SPROG ((|v| (V)) (#1=#:G319 NIL))
                (SEQ
                 (COND
@@ -249,7 +249,7 @@
                               (SPADCALL |p| |v| (QREFELT $ 34))
                               (QREFELT $ 39))))))))) 
 
-(SDEFUN |RPOLCAT-;leastMonomial;2S;16| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;leastMonomial;2S;16| ((|p| (S)) ($ (S)))
         (SPROG ((|v| (V)) (#1=#:G326 NIL))
                (SEQ
                 (COND
@@ -269,7 +269,7 @@
                               (SPADCALL |p| |v| (QREFELT $ 58))
                               (QREFELT $ 39))))))))) 
 
-(SDEFUN |RPOLCAT-;mainCoefficients;SL;17| ((|p| S) ($ |List| S))
+(SDEFUN |RPOLCAT-;mainCoefficients;SL;17| ((|p| (S)) ($ (|List| S)))
         (SPROG ((|v| (V)) (#1=#:G333 NIL))
                (SEQ
                 (COND
@@ -289,7 +289,7 @@
                     (SPADCALL (SPADCALL |p| |v| (QREFELT $ 61))
                               (QREFELT $ 64))))))))) 
 
-(SDEFUN |RPOLCAT-;mainMonomials;SL;18| ((|p| S) ($ |List| S))
+(SDEFUN |RPOLCAT-;mainMonomials;SL;18| ((|p| (S)) ($ (|List| S)))
         (SPROG
          ((#1=#:G348 NIL) (|m| NIL) (#2=#:G347 NIL)
           (|lm| (|List| (|SparseUnivariatePolynomial| S))) (|v| (V))
@@ -327,7 +327,7 @@
                     (EXIT (NREVERSE #2#))))))))))) 
 
 (SDEFUN |RPOLCAT-;RittWuCompare;2SU;19|
-        ((|a| S) (|b| S) ($ |Union| (|Boolean|) #1="failed"))
+        ((|a| (S)) (|b| (S)) ($ (|Union| (|Boolean|) #1="failed")))
         (SPROG ((|lc| (|Union| (|Boolean|) #1#)))
                (SEQ
                 (COND
@@ -363,15 +363,15 @@
                                            (SPADCALL |b| (QREFELT $ 19))
                                            (QREFELT $ 71)))))))))))) 
 
-(SDEFUN |RPOLCAT-;infRittWu?;2SB;20| ((|a| S) (|b| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;infRittWu?;2SB;20| ((|a| (S)) (|b| (S)) ($ (|Boolean|)))
         (SPROG ((|lc| (|Union| (|Boolean|) "failed")))
                (SEQ (LETT |lc| (SPADCALL |a| |b| (QREFELT $ 71)))
                     (EXIT (COND ((QEQCAR |lc| 0) (QCDR |lc|)) ('T NIL)))))) 
 
-(SDEFUN |RPOLCAT-;supRittWu?;2SB;21| ((|a| S) (|b| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;supRittWu?;2SB;21| ((|a| (S)) (|b| (S)) ($ (|Boolean|)))
         (SPADCALL |b| |a| (QREFELT $ 74))) 
 
-(SDEFUN |RPOLCAT-;prem;3S;22| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;prem;3S;22| ((|a| (S)) (|b| (S)) ($ (S)))
         (SPROG
          ((|cP|
            (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
@@ -382,7 +382,7 @@
                 (SPADCALL (QVELT |cP| 0) (QVELT |cP| 1) (QREFELT $ 78))
                 (QVELT |cP| 2) (QREFELT $ 79)))))) 
 
-(SDEFUN |RPOLCAT-;pquo;3S;23| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;pquo;3S;23| ((|a| (S)) (|b| (S)) ($ (S)))
         (SPROG
          ((|c| (S))
           (|cPS|
@@ -393,7 +393,7 @@
                     (SPADCALL (QVELT |cPS| 0) (QVELT |cPS| 1) (QREFELT $ 78)))
               (EXIT (SPADCALL |c| (QVELT |cPS| 2) (QREFELT $ 79)))))) 
 
-(SDEFUN |RPOLCAT-;prem;2SVS;24| ((|a| S) (|b| S) (|v| V) ($ S))
+(SDEFUN |RPOLCAT-;prem;2SVS;24| ((|a| (S)) (|b| (S)) (|v| (V)) ($ (S)))
         (SPROG
          ((|cP|
            (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
@@ -404,7 +404,7 @@
                 (SPADCALL (QVELT |cP| 0) (QVELT |cP| 1) (QREFELT $ 78))
                 (QVELT |cP| 2) (QREFELT $ 79)))))) 
 
-(SDEFUN |RPOLCAT-;pquo;2SVS;25| ((|a| S) (|b| S) (|v| V) ($ S))
+(SDEFUN |RPOLCAT-;pquo;2SVS;25| ((|a| (S)) (|b| (S)) (|v| (V)) ($ (S)))
         (SPROG
          ((|c| (S))
           (|cPS|
@@ -415,7 +415,7 @@
                     (SPADCALL (QVELT |cPS| 0) (QVELT |cPS| 1) (QREFELT $ 78)))
               (EXIT (SPADCALL |c| (QVELT |cPS| 2) (QREFELT $ 79)))))) 
 
-(SDEFUN |RPOLCAT-;lazyPrem;3S;26| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;lazyPrem;3S;26| ((|a| (S)) (|b| (S)) ($ (S)))
         (SEQ
          (COND
           ((NULL (SPADCALL |b| (QREFELT $ 11)))
@@ -424,10 +424,10 @@
              (EXIT (SPADCALL |a| |b| (QREFELT $ 89)))))))
          (EXIT (QVELT (SPADCALL |a| |b| (QREFELT $ 77)) 2)))) 
 
-(SDEFUN |RPOLCAT-;lazyPquo;3S;27| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;lazyPquo;3S;27| ((|a| (S)) (|b| (S)) ($ (S)))
         (QVELT (SPADCALL |a| |b| (QREFELT $ 82)) 2)) 
 
-(SDEFUN |RPOLCAT-;lazyPrem;2SVS;28| ((|a| S) (|b| S) (|v| V) ($ S))
+(SDEFUN |RPOLCAT-;lazyPrem;2SVS;28| ((|a| (S)) (|b| (S)) (|v| (V)) ($ (S)))
         (SPROG
          ((|test| (|Integer|)) (|term| (S)) (#1=#:G390 NIL) (|lcav| (S))
           (|lcbv| (S)) (|dav| #2=(|NonNegativeInteger|)) (|dbv| #2#))
@@ -498,10 +498,10 @@
                                                 NIL (GO G190) G191 (EXIT NIL))
                                            (EXIT |a|))))))))))))))) 
 
-(SDEFUN |RPOLCAT-;lazyPquo;2SVS;29| ((|a| S) (|b| S) (|v| V) ($ S))
+(SDEFUN |RPOLCAT-;lazyPquo;2SVS;29| ((|a| (S)) (|b| (S)) (|v| (V)) ($ (S)))
         (QVELT (SPADCALL |a| |b| |v| (QREFELT $ 86)) 2)) 
 
-(SDEFUN |RPOLCAT-;headReduce;3S;30| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;headReduce;3S;30| ((|a| (S)) (|b| (S)) ($ (S)))
         (SPROG
          ((|lrc|
            (|Record| (|:| |polnum| S) (|:| |polden| S)
@@ -544,7 +544,7 @@
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT |a|))))))) 
 
-(SDEFUN |RPOLCAT-;initiallyReduce;3S;31| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;initiallyReduce;3S;31| ((|a| (S)) (|b| (S)) ($ (S)))
         (SPROG
          ((|ia| (S)) (|ma| (S)) (|ta| (S))
           (|iamodb|
@@ -625,9 +625,10 @@
                                     (QREFELT $ 100))))))))))))) 
 
 (SDEFUN |RPOLCAT-;lazyPremWithDefault;2SR;32|
-        ((|a| S) (|b| S)
-         ($ |Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
-          (|:| |remainder| S)))
+        ((|a| (S)) (|b| (S))
+         ($
+          (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
+                    (|:| |remainder| S))))
         (SPROG
          ((#1=#:G439 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
           (|term| (S)) (#2=#:G435 NIL) (#3=#:G429 NIL)
@@ -727,9 +728,10 @@
                                   |a|)))))))))))) 
 
 (SDEFUN |RPOLCAT-;lazyPremWithDefault;2SVR;33|
-        ((|a| S) (|b| S) (|v| V)
-         ($ |Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
-          (|:| |remainder| S)))
+        ((|a| (S)) (|b| (S)) (|v| (V))
+         ($
+          (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
+                    (|:| |remainder| S))))
         (SPROG
          ((#1=#:G453 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
           (|term| (S)) (#2=#:G449 NIL) (|lcav| (S)) (|lcbv| (S))
@@ -805,7 +807,8 @@
                                                |a|)))))))))))))))) 
 
 (SDEFUN |RPOLCAT-;pseudoDivide;2SR;34|
-        ((|a| S) (|b| S) ($ |Record| (|:| |quotient| S) (|:| |remainder| S)))
+        ((|a| (S)) (|b| (S))
+         ($ (|Record| (|:| |quotient| S) (|:| |remainder| S))))
         (SPROG
          ((|c| (S))
           (|cPS|
@@ -819,9 +822,10 @@
                      (SPADCALL |c| (QVELT |cPS| 3) (QREFELT $ 79))))))) 
 
 (SDEFUN |RPOLCAT-;lazyPseudoDivide;2SR;35|
-        ((|a| S) (|b| S)
-         ($ |Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
-          (|:| |quotient| S) (|:| |remainder| S)))
+        ((|a| (S)) (|b| (S))
+         ($
+          (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
+                    (|:| |quotient| S) (|:| |remainder| S))))
         (SPROG
          ((#1=#:G479 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| (S))
           (|term| (S)) (#2=#:G475 NIL) (#3=#:G469 NIL)
@@ -932,9 +936,10 @@
                                   |q| |a|)))))))))))) 
 
 (SDEFUN |RPOLCAT-;lazyPseudoDivide;2SVR;36|
-        ((|a| S) (|b| S) (|v| V)
-         ($ |Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
-          (|:| |quotient| S) (|:| |remainder| S)))
+        ((|a| (S)) (|b| (S)) (|v| (V))
+         ($
+          (|Record| (|:| |coef| S) (|:| |gap| (|NonNegativeInteger|))
+                    (|:| |quotient| S) (|:| |remainder| S))))
         (SPROG
          ((#1=#:G493 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| (S))
           (|term| (S)) (#2=#:G489 NIL) (|lcav| (S)) (|lcbv| (S))
@@ -1013,7 +1018,7 @@
                                                               #1#))
                                           |q| |a|)))))))))))))))) 
 
-(SDEFUN |RPOLCAT-;monicModulo;3S;37| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;monicModulo;3S;37| ((|a| (S)) (|b| (S)) ($ (S)))
         (SPROG ((|r1| (S)) (|rec| (|Union| S "failed")) (|ib| (S)))
                (SEQ
                 (COND
@@ -1044,9 +1049,10 @@
                                       (QREFELT $ 79))))))))))))) 
 
 (SDEFUN |RPOLCAT-;lazyResidueClass;2SR;38|
-        ((|a| S) (|b| S)
-         ($ |Record| (|:| |polnum| S) (|:| |polden| S)
-          (|:| |power| (|NonNegativeInteger|))))
+        ((|a| (S)) (|b| (S))
+         ($
+          (|Record| (|:| |polnum| S) (|:| |polden| S)
+                    (|:| |power| (|NonNegativeInteger|)))))
         (SPROG
          ((|test| (|Integer|)) (|pow| (|NonNegativeInteger|)) (|term| (S))
           (#1=#:G519 NIL) (#2=#:G513 NIL) (|db| (|NonNegativeInteger|))
@@ -1142,11 +1148,12 @@
                                 NIL (GO G190) G191 (EXIT NIL))))
                          (EXIT (VECTOR |a| |lcb| |pow|)))))))))))) 
 
-(SDEFUN |RPOLCAT-;reduced?;2SB;39| ((|a| S) (|b| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;reduced?;2SB;39| ((|a| (S)) (|b| (S)) ($ (|Boolean|)))
         (< (SPADCALL |a| (SPADCALL |b| (QREFELT $ 23)) (QREFELT $ 34))
            (SPADCALL |b| (QREFELT $ 22)))) 
 
-(SDEFUN |RPOLCAT-;reduced?;SLB;40| ((|p| S) (|lq| |List| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;reduced?;SLB;40|
+        ((|p| (S)) (|lq| (|List| S)) ($ (|Boolean|)))
         (SEQ
          (COND ((SPADCALL |p| (QREFELT $ 11)) 'T)
                ('T
@@ -1163,13 +1170,15 @@
                       (EXIT NIL))
                  (EXIT (NULL |lq|))))))) 
 
-(SDEFUN |RPOLCAT-;headReduced?;2SB;41| ((|a| S) (|b| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;headReduced?;2SB;41| ((|a| (S)) (|b| (S)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 44)) |b| (QREFELT $ 97))) 
 
-(SDEFUN |RPOLCAT-;headReduced?;SLB;42| ((|p| S) (|lq| |List| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;headReduced?;SLB;42|
+        ((|p| (S)) (|lq| (|List| S)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 44)) |lq| (QREFELT $ 116))) 
 
-(SDEFUN |RPOLCAT-;initiallyReduced?;2SB;43| ((|a| S) (|b| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;initiallyReduced?;2SB;43|
+        ((|a| (S)) (|b| (S)) ($ (|Boolean|)))
         (COND
          ((SPADCALL |b| (QREFELT $ 11))
           (|error|
@@ -1184,7 +1193,7 @@
          ('T (SPADCALL (SPADCALL |a| (QREFELT $ 15)) |b| (QREFELT $ 118))))) 
 
 (SDEFUN |RPOLCAT-;initiallyReduced?;SLB;44|
-        ((|p| S) (|lq| |List| S) ($ |Boolean|))
+        ((|p| (S)) (|lq| (|List| S)) ($ (|Boolean|)))
         (SEQ
          (COND ((SPADCALL |p| (QREFELT $ 11)) 'T)
                ('T
@@ -1201,7 +1210,7 @@
                       (EXIT NIL))
                  (EXIT (NULL |lq|))))))) 
 
-(SDEFUN |RPOLCAT-;normalized?;2SB;45| ((|a| S) (|b| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;normalized?;2SB;45| ((|a| (S)) (|b| (S)) ($ (|Boolean|)))
         (COND
          ((SPADCALL |b| (QREFELT $ 11))
           (|error|
@@ -1215,7 +1224,8 @@
           NIL)
          ('T (SPADCALL (SPADCALL |a| (QREFELT $ 15)) |b| (QREFELT $ 121))))) 
 
-(SDEFUN |RPOLCAT-;normalized?;SLB;46| ((|p| S) (|lq| |List| S) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;normalized?;SLB;46|
+        ((|p| (S)) (|lq| (|List| S)) ($ (|Boolean|)))
         (SEQ
          (SEQ G190
               (COND
@@ -1227,27 +1237,27 @@
               (EXIT NIL))
          (EXIT (NULL |lq|)))) 
 
-(SDEFUN |RPOLCAT-;iexactQuo;3R;47| ((|r| R) (|s| R) ($ R))
+(SDEFUN |RPOLCAT-;iexactQuo;3R;47| ((|r| (R)) (|s| (R)) ($ (R)))
         (SPADCALL |r| |s| (QREFELT $ 124))) 
 
-(SDEFUN |RPOLCAT-;iexactQuo;3R;48| ((|r| R) (|s| R) ($ R))
+(SDEFUN |RPOLCAT-;iexactQuo;3R;48| ((|r| (R)) (|s| (R)) ($ (R)))
         (SPROG ((#1=#:G558 NIL))
                (PROG2 (LETT #1# (SPADCALL |r| |s| (QREFELT $ 126)))
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                  (|Union| (QREFELT $ 7) "failed") #1#)))) 
 
-(SDEFUN |RPOLCAT-;exactQuo| ((|r| R) (|s| R) ($ R))
+(SDEFUN |RPOLCAT-;exactQuo| ((|r| (R)) (|s| (R)) ($ (R)))
         (SPADCALL |r| |s| (QREFELT $ 127))) 
 
-(SDEFUN |RPOLCAT-;exactQuotient;SRS;50| ((|p| S) (|r| R) ($ S))
+(SDEFUN |RPOLCAT-;exactQuotient;SRS;50| ((|p| (S)) (|r| (R)) ($ (S)))
         (SPROG ((#1=#:G563 NIL))
                (PROG2 (LETT #1# (SPADCALL |p| |r| (QREFELT $ 128)))
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
                                  (|Union| (QREFELT $ 6) "failed") #1#)))) 
 
-(SDEFUN |RPOLCAT-;exactQuotient;3S;51| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;exactQuotient;3S;51| ((|a| (S)) (|b| (S)) ($ (S)))
         (SPROG ((#1=#:G567 NIL))
                (COND
                 ((SPADCALL |b| (QREFELT $ 11))
@@ -1258,7 +1268,7 @@
                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
                                    (|Union| (QREFELT $ 6) "failed") #1#)))))) 
 
-(SDEFUN |RPOLCAT-;exactQuotient!;3S;52| ((|a| S) (|b| S) ($ S))
+(SDEFUN |RPOLCAT-;exactQuotient!;3S;52| ((|a| (S)) (|b| (S)) ($ (S)))
         (SPROG ((#1=#:G572 NIL))
                (COND
                 ((SPADCALL |b| (QREFELT $ 11))
@@ -1271,16 +1281,16 @@
                                          (|Union| (QREFELT $ 6) "failed")
                                          #1#))))))) 
 
-(SDEFUN |RPOLCAT-;primPartElseUnitCanonical;2S;53| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;primPartElseUnitCanonical;2S;53| ((|p| (S)) ($ (S)))
         (SPADCALL |p| (QREFELT $ 135))) 
 
-(SDEFUN |RPOLCAT-;primPartElseUnitCanonical!;2S;54| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;primPartElseUnitCanonical!;2S;54| ((|p| (S)) ($ (S)))
         (LETT |p| (SPADCALL |p| (QREFELT $ 135)))) 
 
-(SDEFUN |RPOLCAT-;primPartElseUnitCanonical;2S;55| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;primPartElseUnitCanonical;2S;55| ((|p| (S)) ($ (S)))
         (SPADCALL |p| (QREFELT $ 138))) 
 
-(SDEFUN |RPOLCAT-;primitivePart!;2S;56| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;primitivePart!;2S;56| ((|p| (S)) ($ (S)))
         (SPROG ((|cp| (R)))
                (SEQ
                 (COND ((SPADCALL |p| (QREFELT $ 20)) |p|)
@@ -1299,16 +1309,16 @@
                                        (QREFELT $ 135)))))))
                         (EXIT |p|))))))) 
 
-(SDEFUN |RPOLCAT-;primPartElseUnitCanonical!;2S;57| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;primPartElseUnitCanonical!;2S;57| ((|p| (S)) ($ (S)))
         (SPADCALL |p| (QREFELT $ 142))) 
 
-(SDEFUN |RPOLCAT-;primPartElseUnitCanonical;2S;58| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;primPartElseUnitCanonical;2S;58| ((|p| (S)) ($ (S)))
         (SPADCALL |p| (QREFELT $ 135))) 
 
-(SDEFUN |RPOLCAT-;primPartElseUnitCanonical!;2S;59| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;primPartElseUnitCanonical!;2S;59| ((|p| (S)) ($ (S)))
         (LETT |p| (SPADCALL |p| (QREFELT $ 135)))) 
 
-(SDEFUN |RPOLCAT-;gcd;RSR;60| ((|r| R) (|p| S) ($ R))
+(SDEFUN |RPOLCAT-;gcd;RSR;60| ((|r| (R)) (|p| (S)) ($ (R)))
         (COND
          ((OR (SPADCALL |r| (|spadConstant| $ 17) (QREFELT $ 140))
               (SPADCALL |p| (QREFELT $ 20)))
@@ -1320,7 +1330,7 @@
            (SPADCALL |r| (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 144))
            (SPADCALL |p| (QREFELT $ 19)) (QREFELT $ 144))))) 
 
-(SDEFUN |RPOLCAT-;mainContent;2S;61| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;mainContent;2S;61| ((|p| (S)) ($ (S)))
         (SPROG
          ((#1=#:G590 NIL) (#2=#:G589 (S)) (#3=#:G591 (S)) (#4=#:G594 NIL)
           (#5=#:G119 NIL))
@@ -1344,7 +1354,7 @@
                        (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) (#6# (|spadConstant| $ 41))))))))) 
 
-(SDEFUN |RPOLCAT-;mainPrimitivePart;2S;62| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;mainPrimitivePart;2S;62| ((|p| (S)) ($ (S)))
         (SPROG ((#1=#:G596 NIL))
                (COND ((SPADCALL |p| (QREFELT $ 20)) |p|)
                      ('T
@@ -1361,7 +1371,7 @@
                         (QREFELT $ 151))
                        1))))) 
 
-(SDEFUN |RPOLCAT-;mainSquareFreePart;2S;63| ((|p| S) ($ S))
+(SDEFUN |RPOLCAT-;mainSquareFreePart;2S;63| ((|p| (S)) ($ (S)))
         (SPROG
          ((|sfp| (|SparseUnivariatePolynomial| S)) (|v| (V)) (#1=#:G602 NIL))
          (SEQ
@@ -1379,7 +1389,7 @@
                                   (QREFELT $ 153)))
                   (EXIT (SPADCALL |sfp| |v| (QREFELT $ 154))))))))) 
 
-(SDEFUN |RPOLCAT-;convert;SP;64| ((|p| S) ($ |Polynomial| R))
+(SDEFUN |RPOLCAT-;convert;SP;64| ((|p| (S)) ($ (|Polynomial| R)))
         (SPROG ((|d| (|NonNegativeInteger|)) (|v| (V)))
                (SEQ
                 (COND
@@ -1402,10 +1412,10 @@
                                    (QREFELT $ 158))
                          (QREFELT $ 164))))))))) 
 
-(SDEFUN |RPOLCAT-;coerce;SP;65| ((|p| S) ($ |Polynomial| R))
+(SDEFUN |RPOLCAT-;coerce;SP;65| ((|p| (S)) ($ (|Polynomial| R)))
         (SPADCALL |p| (QREFELT $ 158))) 
 
-(SDEFUN |RPOLCAT-;localRetract| ((|p| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;localRetract| ((|p| (|Polynomial| R)) ($ (S)))
         (SPROG
          ((|newp| (S)) (|xvimvp| (S)) (|c| (S)) (|d| (|NonNegativeInteger|))
           (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G620 NIL)
@@ -1454,7 +1464,7 @@
                         (QREFELT $ 100))))))))) 
 
 (SDEFUN |RPOLCAT-;localRetractPQ|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ S))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|)))) ($ (S)))
         (SPROG
          ((|newp| (S)) (|xvimvp| (S)) (|c| (S)) (|d| (|NonNegativeInteger|))
           (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G630 NIL)
@@ -1505,7 +1515,7 @@
               (SPADCALL |newp| (|RPOLCAT-;localRetractPQ| |pq| $)
                         (QREFELT $ 100))))))))) 
 
-(SDEFUN |RPOLCAT-;localRetractPZ| ((|pz| |Polynomial| (|Integer|)) ($ S))
+(SDEFUN |RPOLCAT-;localRetractPZ| ((|pz| (|Polynomial| (|Integer|))) ($ (S)))
         (SPROG
          ((|newp| (S)) (|xvimvp| (S)) (|c| (S)) (|d| (|NonNegativeInteger|))
           (|vimvp| (V)) (|imvp| (|PositiveInteger|)) (#1=#:G640 NIL)
@@ -1556,7 +1566,7 @@
               (SPADCALL |newp| (|RPOLCAT-;localRetractPZ| |pz| $)
                         (QREFELT $ 100))))))))) 
 
-(SDEFUN |RPOLCAT-;retractable?| ((|p| |Polynomial| R) ($ |Boolean|))
+(SDEFUN |RPOLCAT-;retractable?| ((|p| (|Polynomial| R)) ($ (|Boolean|)))
         (SPROG ((|lvp| (|List| (|Symbol|))))
                (SEQ (LETT |lvp| (SPADCALL |p| (QREFELT $ 203)))
                     (SEQ G190
@@ -1573,7 +1583,7 @@
                     (EXIT (NULL |lvp|))))) 
 
 (SDEFUN |RPOLCAT-;retractablePQ?|
-        ((|p| |Polynomial| (|Fraction| (|Integer|))) ($ |Boolean|))
+        ((|p| (|Polynomial| (|Fraction| (|Integer|)))) ($ (|Boolean|)))
         (SPROG ((|lvp| (|List| (|Symbol|))))
                (SEQ (LETT |lvp| (SPADCALL |p| (QREFELT $ 205)))
                     (SEQ G190
@@ -1590,7 +1600,7 @@
                     (EXIT (NULL |lvp|))))) 
 
 (SDEFUN |RPOLCAT-;retractablePZ?|
-        ((|p| |Polynomial| (|Integer|)) ($ |Boolean|))
+        ((|p| (|Polynomial| (|Integer|))) ($ (|Boolean|)))
         (SPROG ((|lvp| (|List| (|Symbol|))))
                (SEQ (LETT |lvp| (SPADCALL |p| (QREFELT $ 206)))
                     (SEQ G190
@@ -1607,34 +1617,37 @@
                     (EXIT (NULL |lvp|))))) 
 
 (SDEFUN |RPOLCAT-;localRetractIfCan|
-        ((|p| |Polynomial| R) ($ |Union| S "failed"))
+        ((|p| (|Polynomial| R)) ($ (|Union| S "failed")))
         (COND ((NULL (|RPOLCAT-;retractable?| |p| $)) (CONS 1 "failed"))
               ('T (CONS 0 (|RPOLCAT-;localRetract| |p| $))))) 
 
 (SDEFUN |RPOLCAT-;localRetractIfCanPQ|
-        ((|p| |Polynomial| (|Fraction| (|Integer|))) ($ |Union| S "failed"))
+        ((|p| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|Union| S "failed")))
         (COND ((NULL (|RPOLCAT-;retractablePQ?| |p| $)) (CONS 1 "failed"))
               ('T (CONS 0 (|RPOLCAT-;localRetractPQ| |p| $))))) 
 
 (SDEFUN |RPOLCAT-;localRetractIfCanPZ|
-        ((|p| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|p| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (COND ((NULL (|RPOLCAT-;retractablePZ?| |p| $)) (CONS 1 "failed"))
               ('T (CONS 0 (|RPOLCAT-;localRetractPZ| |p| $))))) 
 
-(SDEFUN |RPOLCAT-;ZToR| ((|z| |Integer|) ($ R)) (SPADCALL |z| (QREFELT $ 197))) 
+(SDEFUN |RPOLCAT-;ZToR| ((|z| (|Integer|)) ($ (R)))
+        (SPADCALL |z| (QREFELT $ 197))) 
 
-(SDEFUN |RPOLCAT-;PZToPR| ((|pz| |Polynomial| (|Integer|)) ($ |Polynomial| R))
+(SDEFUN |RPOLCAT-;PZToPR|
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Polynomial| R)))
         (SPADCALL (CONS (|function| |RPOLCAT-;ZToR|) $) |pz| (QREFELT $ 209))) 
 
-(SDEFUN |RPOLCAT-;QToR| ((|q| |Fraction| (|Integer|)) ($ R))
+(SDEFUN |RPOLCAT-;QToR| ((|q| (|Fraction| (|Integer|))) ($ (R)))
         (SPADCALL |q| (QREFELT $ 188))) 
 
 (SDEFUN |RPOLCAT-;PQToPR|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ |Polynomial| R))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|)))) ($ (|Polynomial| R)))
         (SPADCALL (CONS (|function| |RPOLCAT-;QToR|) $) |pq| (QREFELT $ 212))) 
 
 (SDEFUN |RPOLCAT-;retract;PS;79|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ S))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|)))) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pq| (QREFELT $ 213)))
                     (EXIT
@@ -1644,35 +1657,36 @@
                       ('T (QCDR |rif|))))))) 
 
 (SDEFUN |RPOLCAT-;convert;PS;80|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ S))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|)))) ($ (S)))
         (SPADCALL |pq| (QREFELT $ 215))) 
 
-(SDEFUN |RPOLCAT-;ZToQ| ((|z| |Integer|) ($ |Fraction| (|Integer|)))
+(SDEFUN |RPOLCAT-;ZToQ| ((|z| (|Integer|)) ($ (|Fraction| (|Integer|))))
         (SPADCALL |z| (QREFELT $ 219))) 
 
-(SDEFUN |RPOLCAT-;RToQ| ((|r| R) ($ |Fraction| (|Integer|)))
+(SDEFUN |RPOLCAT-;RToQ| ((|r| (R)) ($ (|Fraction| (|Integer|))))
         (SPADCALL |r| (QREFELT $ 220))) 
 
 (SDEFUN |RPOLCAT-;PZToPQ|
-        ((|pz| |Polynomial| (|Integer|))
-         ($ |Polynomial| (|Fraction| (|Integer|))))
+        ((|pz| (|Polynomial| (|Integer|)))
+         ($ (|Polynomial| (|Fraction| (|Integer|)))))
         (SPADCALL (CONS (|function| |RPOLCAT-;ZToQ|) $) |pz| (QREFELT $ 222))) 
 
 (SDEFUN |RPOLCAT-;PRToPQ|
-        ((|pr| |Polynomial| R) ($ |Polynomial| (|Fraction| (|Integer|))))
+        ((|pr| (|Polynomial| R)) ($ (|Polynomial| (|Fraction| (|Integer|)))))
         (SPADCALL (CONS (|function| |RPOLCAT-;RToQ|) $) |pr| (QREFELT $ 224))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;85|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (SPROG ((|pq| (|Polynomial| (|Fraction| (|Integer|)))))
                (SEQ (LETT |pq| (|RPOLCAT-;PZToPQ| |pz| $))
                     (EXIT (SPADCALL |pq| (QREFELT $ 213)))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;86|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ |Union| S "failed"))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCanPQ| |pq| $)) 
 
-(SDEFUN |RPOLCAT-;convert;PS;87| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;87| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|lrif| (|Union| S "failed")))
                (SEQ (LETT |lrif| (|RPOLCAT-;localRetractIfCan| |pr| $))
                     (EXIT
@@ -1681,32 +1695,34 @@
                        (|error| "failed in convert: PR->% from RPOLCAT"))
                       ('T (QCDR |lrif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;88| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;88| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|pq| (|Polynomial| (|Fraction| (|Integer|)))))
                (SEQ (LETT |pq| (|RPOLCAT-;PRToPQ| |pr| $))
                     (EXIT (SPADCALL |pq| (QREFELT $ 215)))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;89|
-        ((|pr| |Polynomial| R) ($ |Union| S "failed"))
+        ((|pr| (|Polynomial| R)) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCan| |pr| $)) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;90|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ |Union| S "failed"))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCanPQ| |pq| $)) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;91|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ |Union| S "failed"))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|Union| S "failed")))
         (SPROG ((|pr| (|Polynomial| R)))
                (SEQ (LETT |pr| (|RPOLCAT-;PQToPR| |pq| $))
                     (EXIT (SPADCALL |pr| (QREFELT $ 229)))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;92|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (SPROG ((|pr| (|Polynomial| R)))
                (SEQ (LETT |pr| (|RPOLCAT-;PZToPR| |pz| $))
                     (EXIT (SPADCALL |pr| (QREFELT $ 229)))))) 
 
-(SDEFUN |RPOLCAT-;retract;PS;93| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;retract;PS;93| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pr| (QREFELT $ 229)))
                     (EXIT
@@ -1715,10 +1731,10 @@
                        (|error| "failed in retract: POLY Z -> % from RPOLCAT"))
                       ('T (QCDR |rif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;94| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;94| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPADCALL |pr| (QREFELT $ 231))) 
 
-(SDEFUN |RPOLCAT-;retract;PS;95| ((|pz| |Polynomial| (|Integer|)) ($ S))
+(SDEFUN |RPOLCAT-;retract;PS;95| ((|pz| (|Polynomial| (|Integer|))) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pz| (QREFELT $ 232)))
                     (EXIT
@@ -1727,15 +1743,17 @@
                        (|error| "failed in retract: POLY Z -> % from RPOLCAT"))
                       ('T (QCDR |rif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;96| ((|pz| |Polynomial| (|Integer|)) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;96| ((|pz| (|Polynomial| (|Integer|))) ($ (S)))
         (SPADCALL |pz| (QREFELT $ 234))) 
 
-(SDEFUN |RPOLCAT-;RToZ| ((|r| R) ($ |Integer|)) (SPADCALL |r| (QREFELT $ 237))) 
+(SDEFUN |RPOLCAT-;RToZ| ((|r| (R)) ($ (|Integer|)))
+        (SPADCALL |r| (QREFELT $ 237))) 
 
-(SDEFUN |RPOLCAT-;PRToPZ| ((|pr| |Polynomial| R) ($ |Polynomial| (|Integer|)))
+(SDEFUN |RPOLCAT-;PRToPZ|
+        ((|pr| (|Polynomial| R)) ($ (|Polynomial| (|Integer|))))
         (SPADCALL (CONS (|function| |RPOLCAT-;RToZ|) $) |pr| (QREFELT $ 239))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;99| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;99| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|lrif| (|Union| S "failed")))
                (SEQ (LETT |lrif| (|RPOLCAT-;localRetractIfCan| |pr| $))
                     (EXIT
@@ -1745,29 +1763,29 @@
                       ('T (QCDR |lrif|))))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;100|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCanPZ| |pz| $)) 
 
-(SDEFUN |RPOLCAT-;convert;PS;101| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;101| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|pz| (|Polynomial| (|Integer|))))
                (SEQ (LETT |pz| (|RPOLCAT-;PRToPZ| |pr| $))
                     (EXIT (SPADCALL |pz| (QREFELT $ 234)))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;102|
-        ((|pr| |Polynomial| R) ($ |Union| S "failed"))
+        ((|pr| (|Polynomial| R)) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCan| |pr| $)) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;103|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCanPZ| |pz| $)) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;104|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (SPROG ((|pr| (|Polynomial| R)))
                (SEQ (LETT |pr| (|RPOLCAT-;PZToPR| |pz| $))
                     (EXIT (SPADCALL |pr| (QREFELT $ 229)))))) 
 
-(SDEFUN |RPOLCAT-;retract;PS;105| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;retract;PS;105| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pr| (QREFELT $ 229)))
                     (EXIT
@@ -1776,23 +1794,25 @@
                        (|error| "failed in retract: POLY Z -> % from RPOLCAT"))
                       ('T (QCDR |rif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;106| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;106| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPADCALL |pr| (QREFELT $ 231))) 
 
-(SDEFUN |RPOLCAT-;ZToR| ((|z| |Integer|) ($ R)) (SPADCALL |z| (QREFELT $ 197))) 
+(SDEFUN |RPOLCAT-;ZToR| ((|z| (|Integer|)) ($ (R)))
+        (SPADCALL |z| (QREFELT $ 197))) 
 
-(SDEFUN |RPOLCAT-;PZToPR| ((|pz| |Polynomial| (|Integer|)) ($ |Polynomial| R))
+(SDEFUN |RPOLCAT-;PZToPR|
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Polynomial| R)))
         (SPADCALL (CONS (|function| |RPOLCAT-;ZToR|) $) |pz| (QREFELT $ 209))) 
 
-(SDEFUN |RPOLCAT-;QToR| ((|q| |Fraction| (|Integer|)) ($ R))
+(SDEFUN |RPOLCAT-;QToR| ((|q| (|Fraction| (|Integer|))) ($ (R)))
         (SPADCALL |q| (QREFELT $ 188))) 
 
 (SDEFUN |RPOLCAT-;PQToPR|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ |Polynomial| R))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|)))) ($ (|Polynomial| R)))
         (SPADCALL (CONS (|function| |RPOLCAT-;QToR|) $) |pq| (QREFELT $ 212))) 
 
 (SDEFUN |RPOLCAT-;retract;PS;111|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ S))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|)))) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pq| (QREFELT $ 213)))
                     (EXIT
@@ -1802,35 +1822,36 @@
                       ('T (QCDR |rif|))))))) 
 
 (SDEFUN |RPOLCAT-;convert;PS;112|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ S))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|)))) ($ (S)))
         (SPADCALL |pq| (QREFELT $ 215))) 
 
-(SDEFUN |RPOLCAT-;ZToQ| ((|z| |Integer|) ($ |Fraction| (|Integer|)))
+(SDEFUN |RPOLCAT-;ZToQ| ((|z| (|Integer|)) ($ (|Fraction| (|Integer|))))
         (SPADCALL |z| (QREFELT $ 219))) 
 
-(SDEFUN |RPOLCAT-;RToQ| ((|r| R) ($ |Fraction| (|Integer|)))
+(SDEFUN |RPOLCAT-;RToQ| ((|r| (R)) ($ (|Fraction| (|Integer|))))
         (SPADCALL |r| (QREFELT $ 220))) 
 
 (SDEFUN |RPOLCAT-;PZToPQ|
-        ((|pz| |Polynomial| (|Integer|))
-         ($ |Polynomial| (|Fraction| (|Integer|))))
+        ((|pz| (|Polynomial| (|Integer|)))
+         ($ (|Polynomial| (|Fraction| (|Integer|)))))
         (SPADCALL (CONS (|function| |RPOLCAT-;ZToQ|) $) |pz| (QREFELT $ 222))) 
 
 (SDEFUN |RPOLCAT-;PRToPQ|
-        ((|pr| |Polynomial| R) ($ |Polynomial| (|Fraction| (|Integer|))))
+        ((|pr| (|Polynomial| R)) ($ (|Polynomial| (|Fraction| (|Integer|)))))
         (SPADCALL (CONS (|function| |RPOLCAT-;RToQ|) $) |pr| (QREFELT $ 224))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;117|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (SPROG ((|pq| (|Polynomial| (|Fraction| (|Integer|)))))
                (SEQ (LETT |pq| (|RPOLCAT-;PZToPQ| |pz| $))
                     (EXIT (SPADCALL |pq| (QREFELT $ 213)))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;118|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ |Union| S "failed"))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCanPQ| |pq| $)) 
 
-(SDEFUN |RPOLCAT-;convert;PS;119| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;119| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|lrif| (|Union| S "failed")))
                (SEQ (LETT |lrif| (|RPOLCAT-;localRetractIfCan| |pr| $))
                     (EXIT
@@ -1839,32 +1860,34 @@
                        (|error| "failed in convert: PR->% from RPOLCAT"))
                       ('T (QCDR |lrif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;120| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;120| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|pq| (|Polynomial| (|Fraction| (|Integer|)))))
                (SEQ (LETT |pq| (|RPOLCAT-;PRToPQ| |pr| $))
                     (EXIT (SPADCALL |pq| (QREFELT $ 215)))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;121|
-        ((|pr| |Polynomial| R) ($ |Union| S "failed"))
+        ((|pr| (|Polynomial| R)) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCan| |pr| $)) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;122|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ |Union| S "failed"))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCanPQ| |pq| $)) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;123|
-        ((|pq| |Polynomial| (|Fraction| (|Integer|))) ($ |Union| S "failed"))
+        ((|pq| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|Union| S "failed")))
         (SPROG ((|pr| (|Polynomial| R)))
                (SEQ (LETT |pr| (|RPOLCAT-;PQToPR| |pq| $))
                     (EXIT (SPADCALL |pr| (QREFELT $ 229)))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;124|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (SPROG ((|pr| (|Polynomial| R)))
                (SEQ (LETT |pr| (|RPOLCAT-;PZToPR| |pz| $))
                     (EXIT (SPADCALL |pr| (QREFELT $ 229)))))) 
 
-(SDEFUN |RPOLCAT-;retract;PS;125| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;retract;PS;125| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pr| (QREFELT $ 229)))
                     (EXIT
@@ -1873,10 +1896,10 @@
                        (|error| "failed in retract: POLY Z -> % from RPOLCAT"))
                       ('T (QCDR |rif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;126| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;126| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPADCALL |pr| (QREFELT $ 231))) 
 
-(SDEFUN |RPOLCAT-;retract;PS;127| ((|pz| |Polynomial| (|Integer|)) ($ S))
+(SDEFUN |RPOLCAT-;retract;PS;127| ((|pz| (|Polynomial| (|Integer|))) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pz| (QREFELT $ 232)))
                     (EXIT
@@ -1885,15 +1908,17 @@
                        (|error| "failed in retract: POLY Z -> % from RPOLCAT"))
                       ('T (QCDR |rif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;128| ((|pz| |Polynomial| (|Integer|)) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;128| ((|pz| (|Polynomial| (|Integer|))) ($ (S)))
         (SPADCALL |pz| (QREFELT $ 234))) 
 
-(SDEFUN |RPOLCAT-;RToZ| ((|r| R) ($ |Integer|)) (SPADCALL |r| (QREFELT $ 237))) 
+(SDEFUN |RPOLCAT-;RToZ| ((|r| (R)) ($ (|Integer|)))
+        (SPADCALL |r| (QREFELT $ 237))) 
 
-(SDEFUN |RPOLCAT-;PRToPZ| ((|pr| |Polynomial| R) ($ |Polynomial| (|Integer|)))
+(SDEFUN |RPOLCAT-;PRToPZ|
+        ((|pr| (|Polynomial| R)) ($ (|Polynomial| (|Integer|))))
         (SPADCALL (CONS (|function| |RPOLCAT-;RToZ|) $) |pr| (QREFELT $ 239))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;131| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;131| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|lrif| (|Union| S "failed")))
                (SEQ (LETT |lrif| (|RPOLCAT-;localRetractIfCan| |pr| $))
                     (EXIT
@@ -1903,29 +1928,29 @@
                       ('T (QCDR |lrif|))))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;132|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCanPZ| |pz| $)) 
 
-(SDEFUN |RPOLCAT-;convert;PS;133| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;133| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|pz| (|Polynomial| (|Integer|))))
                (SEQ (LETT |pz| (|RPOLCAT-;PRToPZ| |pr| $))
                     (EXIT (SPADCALL |pz| (QREFELT $ 234)))))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;134|
-        ((|pr| |Polynomial| R) ($ |Union| S "failed"))
+        ((|pr| (|Polynomial| R)) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCan| |pr| $)) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;135|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCanPZ| |pz| $)) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;136|
-        ((|pz| |Polynomial| (|Integer|)) ($ |Union| S "failed"))
+        ((|pz| (|Polynomial| (|Integer|))) ($ (|Union| S "failed")))
         (SPROG ((|pr| (|Polynomial| R)))
                (SEQ (LETT |pr| (|RPOLCAT-;PZToPR| |pz| $))
                     (EXIT (SPADCALL |pr| (QREFELT $ 229)))))) 
 
-(SDEFUN |RPOLCAT-;retract;PS;137| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;retract;PS;137| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pr| (QREFELT $ 229)))
                     (EXIT
@@ -1934,14 +1959,14 @@
                        (|error| "failed in retract: POLY Z -> % from RPOLCAT"))
                       ('T (QCDR |rif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;138| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;138| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPADCALL |pr| (QREFELT $ 231))) 
 
 (SDEFUN |RPOLCAT-;retractIfCan;PU;139|
-        ((|pr| |Polynomial| R) ($ |Union| S "failed"))
+        ((|pr| (|Polynomial| R)) ($ (|Union| S "failed")))
         (|RPOLCAT-;localRetractIfCan| |pr| $)) 
 
-(SDEFUN |RPOLCAT-;retract;PS;140| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;retract;PS;140| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPROG ((|rif| (|Union| S "failed")))
                (SEQ (LETT |rif| (SPADCALL |pr| (QREFELT $ 229)))
                     (EXIT
@@ -1950,10 +1975,10 @@
                        (|error| "failed in retract: POLY Z -> % from RPOLCAT"))
                       ('T (QCDR |rif|))))))) 
 
-(SDEFUN |RPOLCAT-;convert;PS;141| ((|pr| |Polynomial| R) ($ S))
+(SDEFUN |RPOLCAT-;convert;PS;141| ((|pr| (|Polynomial| R)) ($ (S)))
         (SPADCALL |pr| (QREFELT $ 231))) 
 
-(SDEFUN |RPOLCAT-;convert;SS;142| ((|pol| S) ($ |String|))
+(SDEFUN |RPOLCAT-;convert;SS;142| ((|pol| (S)) ($ (|String|)))
         (SPROG
          ((|stpol| #1=(|String|)) (|n| (|Integer|)) (|sdpol| #1#)
           (|svpol| (|String|)) (|sipol| #1#) (|tpol| (S))

@@ -1,9 +1,9 @@
 
 (PUT '|VOID;void;$;1| '|SPADreplace| '|voidValue|) 
 
-(SDEFUN |VOID;void;$;1| (($ $)) (|voidValue|)) 
+(SDEFUN |VOID;void;$;1| (($ ($))) (|voidValue|)) 
 
-(SDEFUN |VOID;coerce;$Of;2| ((|v| $) ($ |OutputForm|))
+(SDEFUN |VOID;coerce;$Of;2| ((|v| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |Void;|)) 

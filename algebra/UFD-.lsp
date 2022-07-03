@@ -1,5 +1,5 @@
 
-(SDEFUN |UFD-;squareFreePart;2S;1| ((|x| S) ($ S))
+(SDEFUN |UFD-;squareFreePart;2S;1| ((|x| (S)) ($ (S)))
         (SPROG
          ((#1=#:G127 NIL) (#2=#:G126 (S)) (#3=#:G128 (S)) (#4=#:G130 NIL)
           (|f| NIL) (|s| (|Factored| S)))
@@ -21,7 +21,7 @@
             (COND (#1# #2#) ('T (|spadConstant| $ 16))))
            (QREFELT $ 15))))) 
 
-(SDEFUN |UFD-;prime?;SB;2| ((|x| S) ($ |Boolean|))
+(SDEFUN |UFD-;prime?;SB;2| ((|x| (S)) ($ (|Boolean|)))
         (EQL (SPADCALL (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 20)) 1)) 
 
 (DECLAIM (NOTINLINE |UniqueFactorizationDomain&;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |FEVALAB-;elt;SRS;1| ((|x| S) (|r| R) ($ S))
+(SDEFUN |FEVALAB-;elt;SRS;1| ((|x| (S)) (|r| (R)) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|FEVALAB-;elt;SRS;1!0| (VECTOR $ |r|)) |x|
                          (QREFELT $ 10)))) 
@@ -10,7 +10,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |y| |r| (QREFELT $ 8)))))) 
 
-(SDEFUN |FEVALAB-;eval;SLS;2| ((|x| S) (|l| |List| (|Equation| R)) ($ S))
+(SDEFUN |FEVALAB-;eval;SLS;2| ((|x| (S)) (|l| (|List| (|Equation| R))) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|FEVALAB-;eval;SLS;2!0| (VECTOR $ |l|)) |x|
                          (QREFELT $ 10)))) 
@@ -22,7 +22,7 @@
           (RETURN (PROGN (SPADCALL |y| |l| (QREFELT $ 13)))))) 
 
 (SDEFUN |FEVALAB-;eval;SLLS;3|
-        ((|x| S) (|ls| |List| (|Symbol|)) (|lv| |List| R) ($ S))
+        ((|x| (S)) (|ls| (|List| (|Symbol|))) (|lv| (|List| R)) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|FEVALAB-;eval;SLLS;3!0| (VECTOR $ |lv| |ls|))
                          |x| (QREFELT $ 10)))) 

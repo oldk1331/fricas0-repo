@@ -1,11 +1,12 @@
 
 (SDEFUN |NUMODE;rk4a;VI4FIMV;1|
-        ((|ystart| |Vector| (|Float|)) (|nvar| . #1=(|Integer|))
-         (|x1| . #2=(|Float|)) (|x2| |Float|) (|eps| |Float|) (|htry| |Float|)
-         (|nstep| |Integer|)
-         (|derivs| |Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
-          (|Float|))
-         ($ |Void|))
+        ((|ystart| (|Vector| (|Float|))) (|nvar| #1=(|Integer|))
+         (|x1| #2=(|Float|)) (|x2| (|Float|)) (|eps| (|Float|))
+         (|htry| (|Float|)) (|nstep| (|Integer|))
+         (|derivs|
+          (|Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
+                     (|Float|)))
+         ($ (|Void|)))
         (SPROG
          ((#3=#:G161 NIL) (|i| NIL) (#4=#:G157 NIL) (|x| #2#) (#5=#:G160 NIL)
           (#6=#:G159 NIL) (|iter| NIL) (#7=#:G158 NIL)
@@ -165,13 +166,15 @@
                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |NUMODE;rk4qc;VIFRFVMV;2|
-        ((|y| |Vector| (|Float|)) (|n| |Integer|) (|x| |Float|)
-         (|step| |Record| (|:| |to_try| (|Float|)) (|:| |did| (|Float|))
-          (|:| |next| (|Float|)))
-         (|eps| |Float|) (|yscal| |Vector| (|Float|))
-         (|derivs| |Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
-          (|Float|))
-         ($ |Void|))
+        ((|y| (|Vector| (|Float|))) (|n| (|Integer|)) (|x| (|Float|))
+         (|step|
+          (|Record| (|:| |to_try| (|Float|)) (|:| |did| (|Float|))
+                    (|:| |next| (|Float|))))
+         (|eps| (|Float|)) (|yscal| (|Vector| (|Float|)))
+         (|derivs|
+          (|Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
+                     (|Float|)))
+         ($ (|Void|)))
         (SPROG
          ((|t7| #1=(|Vector| (|Float|))) (#2=#:G176 NIL) (|t6| #1#)
           (#3=#:G174 NIL) (|t5| #1#) (#4=#:G172 NIL) (|t4| #1#) (#5=#:G170 NIL)
@@ -229,16 +232,18 @@
             |t1| |t2| |t3| |t4| |t5| |t6| $))))) 
 
 (SDEFUN |NUMODE;rk4qc;VIFRFVM7VV;3|
-        ((|y| |Vector| (|Float|)) (|n| |Integer|) (|x| |Float|)
-         (|step| |Record| (|:| |to_try| (|Float|)) (|:| |did| (|Float|))
-          (|:| |next| (|Float|)))
-         (|eps| |Float|) (|yscal| |Vector| (|Float|))
-         (|derivs| |Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
-          (|Float|))
-         (|t1| |Vector| (|Float|)) (|t2| |Vector| (|Float|))
-         (|t3| |Vector| (|Float|)) (|t4| |Vector| (|Float|))
-         (|t5| |Vector| (|Float|)) (|t6| |Vector| (|Float|))
-         (|dydx| |Vector| (|Float|)) ($ |Void|))
+        ((|y| (|Vector| (|Float|))) (|n| (|Integer|)) (|x| (|Float|))
+         (|step|
+          (|Record| (|:| |to_try| (|Float|)) (|:| |did| (|Float|))
+                    (|:| |next| (|Float|))))
+         (|eps| (|Float|)) (|yscal| (|Vector| (|Float|)))
+         (|derivs|
+          (|Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
+                     (|Float|)))
+         (|t1| (|Vector| (|Float|))) (|t2| (|Vector| (|Float|)))
+         (|t3| (|Vector| (|Float|))) (|t4| (|Vector| (|Float|)))
+         (|t5| (|Vector| (|Float|))) (|t6| (|Vector| (|Float|)))
+         (|dydx| (|Vector| (|Float|))) ($ (|Void|)))
         (SEQ (SPADCALL |dydx| |y| |x| |derivs|)
              (LETT |eps|
                    (SPADCALL (SPADCALL 1 0 10 (QREFELT $ 10)) |eps|
@@ -248,16 +253,19 @@
                |derivs| |t1| |t2| |t3| |t4| |t5| |t6| $)))) 
 
 (SDEFUN |NUMODE;rk4qclocal|
-        ((|y| |Vector| (|Float|)) (|dydx| |Vector| (|Float|))
-         (|n| . #1=(|Integer|)) (|x| . #2=(|Float|))
-         (|step| |Record| (|:| |to_try| #3=(|Float|)) (|:| |did| (|Float|))
-          (|:| |next| (|Float|)))
-         (|eps| |Float|) (|yscal| |Vector| (|Float|))
-         (|derivs| |Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
-          (|Float|))
-         (|t1| |Vector| (|Float|)) (|t2| |Vector| (|Float|))
-         (|t3| |Vector| (|Float|)) (|ysav| |Vector| (|Float|))
-         (|dysav| |Vector| (|Float|)) (|ytemp| |Vector| (|Float|)) ($ |Void|))
+        ((|y| (|Vector| (|Float|))) (|dydx| (|Vector| (|Float|)))
+         (|n| #1=(|Integer|)) (|x| #2=(|Float|))
+         (|step|
+          (|Record| (|:| |to_try| #3=(|Float|)) (|:| |did| (|Float|))
+                    (|:| |next| (|Float|))))
+         (|eps| (|Float|)) (|yscal| (|Vector| (|Float|)))
+         (|derivs|
+          (|Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
+                     (|Float|)))
+         (|t1| (|Vector| (|Float|))) (|t2| (|Vector| (|Float|)))
+         (|t3| (|Vector| (|Float|))) (|ysav| (|Vector| (|Float|)))
+         (|dysav| (|Vector| (|Float|))) (|ytemp| (|Vector| (|Float|)))
+         ($ (|Void|)))
         (SPROG
          ((#4=#:G212 NIL) (|i| NIL) (#5=#:G209 NIL) (|h| #3#)
           (|errmax| #6=(|Float|)) (#7=#:G211 NIL) (|hh| (|Float|))
@@ -367,11 +375,12 @@
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |NUMODE;rk4f;VI2FIMV;5|
-        ((|y| |Vector| (|Float|)) (|nvar| |Integer|) (|x1| . #1=(|Float|))
-         (|x2| |Float|) (|nstep| |Integer|)
-         (|derivs| |Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
-          (|Float|))
-         ($ |Void|))
+        ((|y| (|Vector| (|Float|))) (|nvar| (|Integer|)) (|x1| #1=(|Float|))
+         (|x2| (|Float|)) (|nstep| (|Integer|))
+         (|derivs|
+          (|Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
+                     (|Float|)))
+         ($ (|Void|)))
         (SPROG
          ((|x| #1#) (#2=#:G230 NIL) (|i| NIL) (|h| (|Float|))
           (|ynew| #3=(|Vector| (|Float|))) (#4=#:G222 NIL) (|dydx| #3#)
@@ -422,10 +431,12 @@
                 (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |NUMODE;rk4;VI2FMV;6|
-        ((|y| |Vector| (|Float|)) (|n| |Integer|) (|x| |Float|) (|h| |Float|)
-         (|derivs| |Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
-          (|Float|))
-         ($ |Void|))
+        ((|y| (|Vector| (|Float|))) (|n| (|Integer|)) (|x| (|Float|))
+         (|h| (|Float|))
+         (|derivs|
+          (|Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
+                     (|Float|)))
+         ($ (|Void|)))
         (SPROG
          ((|t4| #1=(|Vector| (|Float|))) (#2=#:G238 NIL) (|t3| #1#)
           (#3=#:G236 NIL) (|t2| #1#) (#4=#:G234 NIL) (|t1| #1#)
@@ -461,24 +472,27 @@
             $))))) 
 
 (SDEFUN |NUMODE;rk4;VI2FM4VV;7|
-        ((|y| |Vector| (|Float|)) (|n| |Integer|) (|x| |Float|) (|h| |Float|)
-         (|derivs| |Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
-          (|Float|))
-         (|t1| |Vector| (|Float|)) (|t2| |Vector| (|Float|))
-         (|t3| |Vector| (|Float|)) (|t4| |Vector| (|Float|)) ($ |Void|))
+        ((|y| (|Vector| (|Float|))) (|n| (|Integer|)) (|x| (|Float|))
+         (|h| (|Float|))
+         (|derivs|
+          (|Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
+                     (|Float|)))
+         (|t1| (|Vector| (|Float|))) (|t2| (|Vector| (|Float|)))
+         (|t3| (|Vector| (|Float|))) (|t4| (|Vector| (|Float|))) ($ (|Void|)))
         (SEQ (SPADCALL |t1| |y| |x| |derivs|)
              (EXIT
               (|NUMODE;rk4local| |y| |t1| |n| |x| |h| |y| |derivs| |t2| |t3|
                |t4| $)))) 
 
 (SDEFUN |NUMODE;rk4local|
-        ((|y| |Vector| (|Float|)) (|dydx| |Vector| (|Float|))
-         (|n| . #1=(|Integer|)) (|x| |Float|) (|h| |Float|)
-         (|yout| |Vector| (|Float|))
-         (|derivs| |Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
-          (|Float|))
-         (|yt| |Vector| (|Float|)) (|dyt| |Vector| (|Float|))
-         (|dym| |Vector| (|Float|)) ($ |Void|))
+        ((|y| (|Vector| (|Float|))) (|dydx| (|Vector| (|Float|)))
+         (|n| #1=(|Integer|)) (|x| (|Float|)) (|h| (|Float|))
+         (|yout| (|Vector| (|Float|)))
+         (|derivs|
+          (|Mapping| (|Void|) (|Vector| (|Float|)) (|Vector| (|Float|))
+                     (|Float|)))
+         (|yt| (|Vector| (|Float|))) (|dyt| (|Vector| (|Float|)))
+         (|dym| (|Vector| (|Float|))) ($ (|Void|)))
         (SPROG
          ((#2=#:G259 NIL) (|i| NIL) (#3=#:G258 NIL) (#4=#:G257 NIL)
           (#5=#:G256 NIL) (|m| #1#) (|xh| (|Float|)) (|h6| (|Float|))

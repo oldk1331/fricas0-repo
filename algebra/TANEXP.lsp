@@ -1,9 +1,10 @@
 
-(SDEFUN |TANEXP;m1toN| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |TANEXP;m1toN| ((|n| (|Integer|)) ($ (|Integer|)))
         (COND ((ODDP |n|) -1) ('T 1))) 
 
 (SDEFUN |TANEXP;tanAn;RPiSup;2|
-        ((|a| R) (|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| R))
+        ((|a| (R)) (|n| (|PositiveInteger|))
+         ($ (|SparseUnivariatePolynomial| R)))
         (SPROG ((|q| (|Fraction| (|SparseUnivariatePolynomial| R))))
                (SPADCALL
                 (SPADCALL |a|
@@ -12,7 +13,7 @@
                           (QREFELT $ 11))
                 (SPADCALL |q| (QREFELT $ 12)) (QREFELT $ 13)))) 
 
-(SDEFUN |TANEXP;tanNa;RIR;3| ((|a| R) (|n| |Integer|) ($ R))
+(SDEFUN |TANEXP;tanNa;RIR;3| ((|a| (R)) (|n| (|Integer|)) ($ (R)))
         (SPROG
          ((|t| (|Fraction| (|SparseUnivariatePolynomial| R))) (#1=#:G129 NIL))
          (COND ((ZEROP |n|) (|spadConstant| $ 16))
@@ -34,7 +35,7 @@
                  (SPADCALL (SPADCALL |t| (QREFELT $ 10)) |a| (QREFELT $ 20))
                  (QREFELT $ 21)))))) 
 
-(SDEFUN |TANEXP;tanSum;LR;4| ((|l| |List| R) ($ R))
+(SDEFUN |TANEXP;tanSum;LR;4| ((|l| (|List| R)) ($ (R)))
         (SPROG
          ((#1=#:G137 NIL) (#2=#:G136 (R)) (#3=#:G138 (R)) (#4=#:G143 NIL)
           (|i| NIL) (#5=#:G134 NIL) (#6=#:G133 (R)) (#7=#:G135 (R))
@@ -102,8 +103,8 @@
                     (QREFELT $ 21))))))))) 
 
 (SDEFUN |TANEXP;tanPIa|
-        ((|n| |PositiveInteger|)
-         ($ |Fraction| (|SparseUnivariatePolynomial| R)))
+        ((|n| (|PositiveInteger|))
+         ($ (|Fraction| (|SparseUnivariatePolynomial| R))))
         (SPROG
          ((#1=#:G148 NIL) (#2=#:G147 #3=(|SparseUnivariatePolynomial| R))
           (#4=#:G149 #3#) (#5=#:G153 NIL) (|i| NIL) (#6=#:G145 NIL)

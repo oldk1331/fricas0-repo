@@ -1,5 +1,5 @@
 
-(SDEFUN |QFORM;quadraticForm;Sm$;1| ((|m| |SquareMatrix| |n| K) ($ $))
+(SDEFUN |QFORM;quadraticForm;Sm$;1| ((|m| (|SquareMatrix| |n| K)) ($ ($)))
         (COND
          ((NULL (SPADCALL |m| (QREFELT $ 10)))
           (|error| "quadraticForm requires a symmetric matrix"))
@@ -7,14 +7,14 @@
 
 (PUT '|QFORM;matrix;$Sm;2| '|SPADreplace| '(XLAM (|q|) |q|)) 
 
-(SDEFUN |QFORM;matrix;$Sm;2| ((|q| $) ($ |SquareMatrix| |n| K)) |q|) 
+(SDEFUN |QFORM;matrix;$Sm;2| ((|q| ($)) ($ (|SquareMatrix| |n| K))) |q|) 
 
-(SDEFUN |QFORM;elt;$DpK;3| ((|q| $) (|v| |DirectProduct| |n| K) ($ K))
+(SDEFUN |QFORM;elt;$DpK;3| ((|q| ($)) (|v| (|DirectProduct| |n| K)) ($ (K)))
         (SPADCALL |v|
                   (SPADCALL (SPADCALL |q| (QREFELT $ 12)) |v| (QREFELT $ 14))
                   (QREFELT $ 15))) 
 
-(SDEFUN |QFORM;convert;$If;4| ((|q| $) ($ |InputForm|))
+(SDEFUN |QFORM;convert;$If;4| ((|q| ($)) ($ (|InputForm|)))
         (SPROG ((|qf| (|InputForm|)) (|mif| (|InputForm|)))
                (SEQ
                 (LETT |mif|

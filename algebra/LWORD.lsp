@@ -1,5 +1,5 @@
 
-(SDEFUN |LWORD;lyndon?;FmB;1| ((|w| |FreeMonoid| |VarSet|) ($ |Boolean|))
+(SDEFUN |LWORD;lyndon?;FmB;1| ((|w| (|FreeMonoid| |VarSet|)) ($ (|Boolean|)))
         (SPROG ((|f| (|FreeMonoid| |VarSet|)) (#1=#:G137 NIL))
                (SEQ
                 (EXIT
@@ -25,7 +25,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |LWORD;lyndonIfCan;FmU;2|
-        ((|w| |FreeMonoid| |VarSet|) ($ |Union| $ "failed"))
+        ((|w| (|FreeMonoid| |VarSet|)) ($ (|Union| $ "failed")))
         (SPROG ((|l| (|List| $)))
                (SEQ (LETT |l| (SPADCALL |w| (QREFELT $ 17)))
                     (EXIT
@@ -34,7 +34,7 @@
                        (CONS 0 (SPADCALL |l| (QREFELT $ 21))))
                       ('T (CONS 1 "failed"))))))) 
 
-(SDEFUN |LWORD;lyndon;Fm$;3| ((|w| |FreeMonoid| |VarSet|) ($ $))
+(SDEFUN |LWORD;lyndon;Fm$;3| ((|w| (|FreeMonoid| |VarSet|)) ($ ($)))
         (SPROG ((|l| (|List| $)))
                (SEQ (LETT |l| (SPADCALL |w| (QREFELT $ 17)))
                     (EXIT
@@ -43,15 +43,16 @@
                        (SPADCALL |l| (QREFELT $ 21)))
                       ('T (|error| "This word is not a Lyndon word"))))))) 
 
-(SDEFUN |LWORD;LetterList| ((|w| |FreeMonoid| |VarSet|) ($ |List| |VarSet|))
+(SDEFUN |LWORD;LetterList|
+        ((|w| (|FreeMonoid| |VarSet|)) ($ (|List| |VarSet|)))
         (COND ((SPADCALL |w| (|spadConstant| $ 9) (QREFELT $ 11)) NIL)
               ('T
                (CONS (SPADCALL |w| (QREFELT $ 25))
                      (|LWORD;LetterList| (SPADCALL |w| (QREFELT $ 12)) $))))) 
 
 (SDEFUN |LWORD;factor1|
-        ((|gauche| . #1=(|List| $)) (|x| $) (|droite| . #2=(|List| $))
-         ($ |List| $))
+        ((|gauche| #1=(|List| $)) (|x| ($)) (|droite| #2=(|List| $))
+         ($ (|List| $)))
         (SPROG ((#3=#:G157 NIL) (|g| #1#) (|d| #2#))
                (SEQ
                 (EXIT
@@ -99,7 +100,7 @@
                         (GO #4=#:G156)))))
                 #4# (EXIT #3#)))) 
 
-(SDEFUN |LWORD;factor;FmL;6| ((|w| |FreeMonoid| |VarSet|) ($ |List| $))
+(SDEFUN |LWORD;factor;FmL;6| ((|w| (|FreeMonoid| |VarSet|)) ($ (|List| $)))
         (SPROG ((|l| (|List| $)) (#1=#:G162 NIL) (|u| NIL) (#2=#:G161 NIL))
                (SEQ
                 (COND ((SPADCALL |w| (|spadConstant| $ 9) (QREFELT $ 11)) NIL)
@@ -128,7 +129,7 @@
                          (|LWORD;factor1| (SPADCALL |l| (QREFELT $ 31))
                           (SPADCALL |l| (QREFELT $ 21)) NIL $)))))))) 
 
-(SDEFUN |LWORD;<;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |LWORD;<;2$B;7| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|ly| #1=(|PositiveInteger|)) (|lx| #1#))
                (SEQ (LETT |lx| (SPADCALL |x| (QREFELT $ 36)))
                     (LETT |ly| (SPADCALL |y| (QREFELT $ 36)))
@@ -136,17 +137,17 @@
                      (COND ((EQL |lx| |ly|) (SPADCALL |x| |y| (QREFELT $ 29)))
                            ('T (< |lx| |ly|))))))) 
 
-(SDEFUN |LWORD;coerce;$Of;8| ((|x| $) ($ |OutputForm|))
+(SDEFUN |LWORD;coerce;$Of;8| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 38)) (QREFELT $ 40))
                   (QREFELT $ 41))) 
 
 (PUT '|LWORD;coerce;$Fm;9| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |LWORD;coerce;$Fm;9| ((|x| $) ($ |FreeMagma| |VarSet|)) |x|) 
+(SDEFUN |LWORD;coerce;$Fm;9| ((|x| ($)) ($ (|FreeMagma| |VarSet|))) |x|) 
 
 (SDEFUN |LWORD;LyndonWordsList1;LPiOda;10|
-        ((|vl| |List| |VarSet|) (|n| |PositiveInteger|)
-         ($ |OneDimensionalArray| (|List| $)))
+        ((|vl| (|List| |VarSet|)) (|n| (|PositiveInteger|))
+         ($ (|OneDimensionalArray| (|List| $))))
         (SPROG
          ((#1=#:G186 NIL) (|lbase1| (|List| $)) (#2=#:G194 NIL) (|b| NIL)
           (#3=#:G193 NIL) (|a| NIL) (#4=#:G192 NIL) (|i| NIL) (#5=#:G191 NIL)
@@ -294,7 +295,7 @@
           #11# (EXIT #1#)))) 
 
 (SDEFUN |LWORD;LyndonWordsList;LPiL;11|
-        ((|vl| |List| |VarSet|) (|n| |PositiveInteger|) ($ |List| $))
+        ((|vl| (|List| |VarSet|)) (|n| (|PositiveInteger|)) ($ (|List| $)))
         (SPROG
          ((#1=#:G196 NIL) (#2=#:G195 #3=(|List| $)) (#4=#:G197 #3#)
           (#5=#:G200 NIL) (|i| NIL) (|v| (|OneDimensionalArray| (|List| $))))

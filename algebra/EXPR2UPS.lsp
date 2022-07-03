@@ -1,6 +1,6 @@
 
 (SDEFUN |EXPR2UPS;performSubstitution|
-        ((|fcn| FE) (|x| |Symbol|) (|a| FE) ($ FE))
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) ($ (FE)))
         (SPROG ((|xFE| (FE)))
                (SEQ
                 (COND ((SPADCALL |a| (QREFELT $ 9)) |fcn|)
@@ -14,7 +14,8 @@
                                                  (QREFELT $ 14))
                                        (QREFELT $ 16))))))))) 
 
-(SDEFUN |EXPR2UPS;iTaylor| ((|fcn| FE) (|x| |Symbol|) (|a| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;iTaylor|
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) ($ (|Any|)))
         (SPROG
          ((|any1|
            (CATEGORY |package|
@@ -190,7 +191,7 @@
                                                                |x| |a|))
                                                         |any1|)))))))))))))) 
 
-(SDEFUN |EXPR2UPS;taylor;SA;3| ((|x| |Symbol|) ($ |Any|))
+(SDEFUN |EXPR2UPS;taylor;SA;3| ((|x| (|Symbol|)) ($ (|Any|)))
         (SPROG
          ((|any1|
            (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uts|))
@@ -233,7 +234,7 @@
                                    (LIST (LIST '|Any|) (|devaluate| |uts|))
                                    |any1|)))))) 
 
-(SDEFUN |EXPR2UPS;taylor;FEA;4| ((|fcn| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;taylor;FEA;4| ((|fcn| (FE)) ($ (|Any|)))
         (SPROG ((|vars| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |vars| (SPADCALL |fcn| (QREFELT $ 23))))
@@ -248,7 +249,7 @@
                            (QREFELT $ 24)))))) 
 
 (SDEFUN |EXPR2UPS;taylor;FENniA;5|
-        ((|fcn| FE) (|n| |NonNegativeInteger|) ($ |Any|))
+        ((|fcn| (FE)) (|n| (|NonNegativeInteger|)) ($ (|Any|)))
         (SPROG
          ((|series| (|uts|))
           (|any1|
@@ -312,7 +313,8 @@
                                                 (|devaluate| |uts|))
                                           |any1|))))))))) 
 
-(SDEFUN |EXPR2UPS;taylor;FEEA;6| ((|fcn| FE) (|eq| |Equation| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;taylor;FEEA;6|
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) ($ (|Any|)))
         (SPROG
          ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -330,7 +332,8 @@
                     $))))))))) 
 
 (SDEFUN |EXPR2UPS;taylor;FEENniA;7|
-        ((|fcn| FE) (|eq| |Equation| FE) (|n| |NonNegativeInteger|) ($ |Any|))
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) (|n| (|NonNegativeInteger|))
+         ($ (|Any|)))
         (SPROG
          ((|series| (|UnivariateTaylorSeries| FE |x| |a|))
           (|any1|
@@ -383,7 +386,8 @@
                                                   |a|))
                                            |any1|)))))))))) 
 
-(SDEFUN |EXPR2UPS;iLaurent| ((|fcn| FE) (|x| |Symbol|) (|a| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;iLaurent|
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) ($ (|Any|)))
         (SPROG
          ((#1=#:G196 NIL)
           (|any1|
@@ -536,7 +540,7 @@
                                                   |a|))
                                            |any1|)))))))))) 
 
-(SDEFUN |EXPR2UPS;laurent;SA;9| ((|x| |Symbol|) ($ |Any|))
+(SDEFUN |EXPR2UPS;laurent;SA;9| ((|x| (|Symbol|)) ($ (|Any|)))
         (SPROG
          ((|any1|
            (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |uls|))
@@ -571,7 +575,7 @@
                                    (LIST (LIST '|Any|) (|devaluate| |uls|))
                                    |any1|)))))) 
 
-(SDEFUN |EXPR2UPS;laurent;FEA;10| ((|fcn| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;laurent;FEA;10| ((|fcn| (FE)) ($ (|Any|)))
         (SPROG ((|vars| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |vars| (SPADCALL |fcn| (QREFELT $ 23))))
@@ -585,7 +589,7 @@
                             (|spadConstant| $ 17) (QREFELT $ 14))
                            (QREFELT $ 35)))))) 
 
-(SDEFUN |EXPR2UPS;laurent;FEIA;11| ((|fcn| FE) (|n| |Integer|) ($ |Any|))
+(SDEFUN |EXPR2UPS;laurent;FEIA;11| ((|fcn| (FE)) (|n| (|Integer|)) ($ (|Any|)))
         (SPROG
          ((|series| (|uls|))
           (|any1|
@@ -641,7 +645,8 @@
                                                 (|devaluate| |uls|))
                                           |any1|))))))))) 
 
-(SDEFUN |EXPR2UPS;laurent;FEEA;12| ((|fcn| FE) (|eq| |Equation| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;laurent;FEEA;12|
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) ($ (|Any|)))
         (SPROG
          ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -659,7 +664,7 @@
                     $))))))))) 
 
 (SDEFUN |EXPR2UPS;laurent;FEEIA;13|
-        ((|fcn| FE) (|eq| |Equation| FE) (|n| |Integer|) ($ |Any|))
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) (|n| (|Integer|)) ($ (|Any|)))
         (SPROG
          ((|series| (|UnivariateLaurentSeries| FE |x| |a|))
           (|any1|
@@ -711,7 +716,8 @@
                                                   |a|))
                                            |any1|)))))))))) 
 
-(SDEFUN |EXPR2UPS;iPuiseux| ((|fcn| FE) (|x| |Symbol|) (|a| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;iPuiseux|
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) ($ (|Any|)))
         (SPROG
          ((#1=#:G233 NIL)
           (|any1|
@@ -878,7 +884,7 @@
                                                   |a|))
                                            |any1|)))))))))) 
 
-(SDEFUN |EXPR2UPS;puiseux;SA;15| ((|x| |Symbol|) ($ |Any|))
+(SDEFUN |EXPR2UPS;puiseux;SA;15| ((|x| (|Symbol|)) ($ (|Any|)))
         (SPROG
          ((|any1|
            (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
@@ -915,7 +921,7 @@
                                    (LIST (LIST '|Any|) (|devaluate| |upxs|))
                                    |any1|)))))) 
 
-(SDEFUN |EXPR2UPS;puiseux;FEA;16| ((|fcn| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;puiseux;FEA;16| ((|fcn| (FE)) ($ (|Any|)))
         (SPROG ((|vars| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |vars| (SPADCALL |fcn| (QREFELT $ 23))))
@@ -930,7 +936,7 @@
                            (QREFELT $ 43)))))) 
 
 (SDEFUN |EXPR2UPS;puiseux;FEFA;17|
-        ((|fcn| FE) (|n| |Fraction| (|Integer|)) ($ |Any|))
+        ((|fcn| (FE)) (|n| (|Fraction| (|Integer|))) ($ (|Any|)))
         (SPROG
          ((|series| (|upxs|))
           (|any1|
@@ -989,7 +995,8 @@
                                                 (|devaluate| |upxs|))
                                           |any1|))))))))) 
 
-(SDEFUN |EXPR2UPS;puiseux;FEEA;18| ((|fcn| FE) (|eq| |Equation| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;puiseux;FEEA;18|
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) ($ (|Any|)))
         (SPROG
          ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -1007,8 +1014,8 @@
                     $))))))))) 
 
 (SDEFUN |EXPR2UPS;puiseux;FEEFA;19|
-        ((|fcn| FE) (|eq| |Equation| FE) (|n| |Fraction| (|Integer|))
-         ($ |Any|))
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) (|n| (|Fraction| (|Integer|)))
+         ($ (|Any|)))
         (SPROG
          ((|series| (|UnivariatePuiseuxSeries| FE |x| |a|))
           (|any1|
@@ -1062,7 +1069,8 @@
                                                   |a|))
                                            |any1|)))))))))) 
 
-(SDEFUN |EXPR2UPS;iSeries| ((|fcn| FE) (|x| |Symbol|) (|a| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;iSeries|
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) ($ (|Any|)))
         (SPROG
          ((|any1|
            (CATEGORY |package|
@@ -1311,7 +1319,7 @@
                                                            |x| |a|))
                                                     |any1|)))))))))) 
 
-(SDEFUN |EXPR2UPS;series;SA;21| ((|x| |Symbol|) ($ |Any|))
+(SDEFUN |EXPR2UPS;series;SA;21| ((|x| (|Symbol|)) ($ (|Any|)))
         (SPROG
          ((|any1|
            (CATEGORY |package| (SIGNATURE |coerce| ((|Any|) |upxs|))
@@ -1348,7 +1356,7 @@
                                    (LIST (LIST '|Any|) (|devaluate| |upxs|))
                                    |any1|)))))) 
 
-(SDEFUN |EXPR2UPS;series;FEA;22| ((|fcn| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;series;FEA;22| ((|fcn| (FE)) ($ (|Any|)))
         (SPROG ((|vars| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |vars| (SPADCALL |fcn| (QREFELT $ 23))))
@@ -1363,7 +1371,7 @@
                            (QREFELT $ 48)))))) 
 
 (SDEFUN |EXPR2UPS;series;FEFA;23|
-        ((|fcn| FE) (|n| |Fraction| (|Integer|)) ($ |Any|))
+        ((|fcn| (FE)) (|n| (|Fraction| (|Integer|))) ($ (|Any|)))
         (SPROG
          ((|series| (|upxs|))
           (|any1|
@@ -1422,7 +1430,8 @@
                                                 (|devaluate| |upxs|))
                                           |any1|))))))))) 
 
-(SDEFUN |EXPR2UPS;series;FEEA;24| ((|fcn| FE) (|eq| |Equation| FE) ($ |Any|))
+(SDEFUN |EXPR2UPS;series;FEEA;24|
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) ($ (|Any|)))
         (SPROG
          ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -1440,8 +1449,8 @@
                     $))))))))) 
 
 (SDEFUN |EXPR2UPS;series;FEEFA;25|
-        ((|fcn| FE) (|eq| |Equation| FE) (|n| |Fraction| (|Integer|))
-         ($ |Any|))
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) (|n| (|Fraction| (|Integer|)))
+         ($ (|Any|)))
         (SPROG
          ((|series| (|UnivariatePuiseuxSeries| FE |x| |a|))
           (|any1|

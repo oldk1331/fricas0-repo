@@ -1,7 +1,7 @@
 
 (SDEFUN |INTRF;infieldIntegrate;FSU;1|
-        ((|f| |Fraction| (|Polynomial| F)) (|x| |Symbol|)
-         ($ |Union| (|Fraction| (|Polynomial| F)) "failed"))
+        ((|f| (|Fraction| (|Polynomial| F))) (|x| (|Symbol|))
+         ($ (|Union| (|Fraction| (|Polynomial| F)) "failed")))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|INTRF;infieldIntegrate;FSU;1!0| (VECTOR $ |x|))
@@ -15,8 +15,8 @@
           (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 11)))))) 
 
 (SDEFUN |INTRF;internalIntegrate;FSIr;2|
-        ((|f| |Fraction| (|Polynomial| F)) (|x| |Symbol|)
-         ($ |IntegrationResult| (|Fraction| (|Polynomial| F))))
+        ((|f| (|Fraction| (|Polynomial| F))) (|x| (|Symbol|))
+         ($ (|IntegrationResult| (|Fraction| (|Polynomial| F)))))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|INTRF;internalIntegrate;FSIr;2!0| (VECTOR $ |x|))

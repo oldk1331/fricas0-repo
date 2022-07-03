@@ -1,5 +1,5 @@
 
-(SDEFUN |PDO;adjoint;2$;1| ((|x| $) ($ $))
+(SDEFUN |PDO;adjoint;2$;1| ((|x| ($)) ($ ($)))
         (SPROG
          ((|xu| (|Sup|)) (|res| ($)) (|sign| ($)) (|d| (|NonNegativeInteger|))
           (|v| (|Var|)) (#1=#:G128 NIL))

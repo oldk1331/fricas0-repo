@@ -1,12 +1,12 @@
 
-(SDEFUN |GSTBL;elt;$KeyEntry;1| ((|t| $) (|k| |Key|) ($ |Entry|))
+(SDEFUN |GSTBL;elt;$KeyEntry;1| ((|t| ($)) (|k| (|Key|)) ($ (|Entry|)))
         (SPROG ((|u| (|Union| |Entry| "failed")))
                (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (QREFELT $ 9)) ('T (QCDR |u|))))))) 
 
 (SDEFUN |GSTBL;setelt!;$Key2Entry;2|
-        ((|t| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
+        ((|t| ($)) (|k| (|Key|)) (|e| (|Entry|)) ($ (|Entry|)))
         (SEQ
          (COND
           ((SPADCALL |e| (QREFELT $ 9) (QREFELT $ 15))
@@ -14,7 +14,7 @@
           ('T (SPADCALL |t| |k| |e| (QREFELT $ 17)))))) 
 
 (SDEFUN |GSTBL;search;Key$U;3|
-        ((|k| |Key|) (|t| $) ($ |Union| |Entry| #1="failed"))
+        ((|k| (|Key|)) (|t| ($)) ($ (|Union| |Entry| #1="failed")))
         (SPROG ((|u| (|Union| |Entry| #1#)))
                (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12)))
                     (EXIT

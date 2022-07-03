@@ -1,12 +1,12 @@
 
-(SDEFUN |FFP;generator;$;1| (($ $))
+(SDEFUN |FFP;generator;$;1| (($ ($)))
         (SPADCALL (SPADCALL (|spadConstant| $ 30) 1 (QREFELT $ 31))
                   (QREFELT $ 32))) 
 
-(SDEFUN |FFP;norm;$GF;2| ((|x| $) ($ GF))
+(SDEFUN |FFP;norm;$GF;2| ((|x| ($)) ($ (GF)))
         (SPADCALL (QREFELT $ 7) (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 35))) 
 
-(SDEFUN |FFP;basis;PiV;3| ((|n| |PositiveInteger|) ($ |Vector| $))
+(SDEFUN |FFP;basis;PiV;3| ((|n| (|PositiveInteger|)) ($ (|Vector| $)))
         (SPROG ((#1=#:G133 NIL) (|i| NIL) (#2=#:G132 NIL) (|a| ($)))
                (SEQ
                 (COND
@@ -32,7 +32,7 @@
                            (EXIT (NREVERSE #2#))))
                      (QREFELT $ 45))))))))) 
 
-(SDEFUN |FFP;degree;$Pi;4| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |FFP;degree;$Pi;4| ((|x| ($)) ($ (|PositiveInteger|)))
         (SPROG
          ((#1=#:G136 NIL) (|y| ($)) (#2=#:G139 NIL) (|i| NIL)
           (|m| (|Matrix| GF)))
@@ -53,7 +53,7 @@
                                    '(|NonNegativeInteger|) #1#)))))) 
 
 (SDEFUN |FFP;minimalPolynomial;$Sup;5|
-        ((|x| $) ($ |SparseUnivariatePolynomial| GF))
+        ((|x| ($)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((#1=#:G143 NIL) (#2=#:G142 #3=(|SparseUnivariatePolynomial| GF))
           (#4=#:G144 #3#) (#5=#:G148 NIL) (|i| NIL) (|v| (|Vector| GF))
@@ -87,7 +87,7 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (COND (#1# #2#) ('T (|spadConstant| $ 62)))))))) 
 
-(SDEFUN |FFP;normal?;$B;6| ((|x| $) ($ |Boolean|))
+(SDEFUN |FFP;normal?;$B;6| ((|x| ($)) ($ (|Boolean|)))
         (SPROG ((|l| (|List| (|List| GF))) (|a| ($)) (#1=#:G153 NIL) (|i| NIL))
                (SEQ
                 (LETT |l|
@@ -113,65 +113,67 @@
                    'T)
                   ('T NIL)))))) 
 
-(SDEFUN |FFP;*;GF2$;7| ((|a| GF) (|x| $) ($ $))
+(SDEFUN |FFP;*;GF2$;7| ((|a| (GF)) (|x| ($)) ($ ($)))
         (SPADCALL |a| |x| (QREFELT $ 74))) 
 
-(SDEFUN |FFP;*;I2$;8| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |FFP;*;I2$;8| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL |n| |x| (QREFELT $ 76))) 
 
-(SDEFUN |FFP;-;2$;9| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 78))) 
+(SDEFUN |FFP;-;2$;9| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 78))) 
 
-(SDEFUN |FFP;random;$;10| (($ $)) (SPADCALL (QREFELT $ 80))) 
+(SDEFUN |FFP;random;$;10| (($ ($))) (SPADCALL (QREFELT $ 80))) 
 
-(SDEFUN |FFP;coordinates;$V;11| ((|x| $) ($ |Vector| GF))
+(SDEFUN |FFP;coordinates;$V;11| ((|x| ($)) ($ (|Vector| GF)))
         (SPADCALL |x| (QREFELT $ 82))) 
 
-(SDEFUN |FFP;represents;V$;12| ((|v| |Vector| GF) ($ $))
+(SDEFUN |FFP;represents;V$;12| ((|v| (|Vector| GF)) ($ ($)))
         (SPADCALL |v| (QREFELT $ 83))) 
 
-(SDEFUN |FFP;coerce;GF$;13| ((|x| GF) ($ $)) (SPADCALL |x| (QREFELT $ 85))) 
+(SDEFUN |FFP;coerce;GF$;13| ((|x| (GF)) ($ ($))) (SPADCALL |x| (QREFELT $ 85))) 
 
-(SDEFUN |FFP;definingPolynomial;Sup;14| (($ |SparseUnivariatePolynomial| GF))
+(SDEFUN |FFP;definingPolynomial;Sup;14| (($ (|SparseUnivariatePolynomial| GF)))
         (QREFELT $ 7)) 
 
-(SDEFUN |FFP;retract;$GF;15| ((|x| $) ($ GF)) (SPADCALL |x| (QREFELT $ 88))) 
+(SDEFUN |FFP;retract;$GF;15| ((|x| ($)) ($ (GF))) (SPADCALL |x| (QREFELT $ 88))) 
 
-(SDEFUN |FFP;retractIfCan;$U;16| ((|x| $) ($ |Union| GF "failed"))
+(SDEFUN |FFP;retractIfCan;$U;16| ((|x| ($)) ($ (|Union| GF "failed")))
         (SPADCALL |x| (QREFELT $ 91))) 
 
-(SDEFUN |FFP;index;Pi$;17| ((|x| |PositiveInteger|) ($ $))
+(SDEFUN |FFP;index;Pi$;17| ((|x| (|PositiveInteger|)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 93))) 
 
-(SDEFUN |FFP;lookup;$Pi;18| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |FFP;lookup;$Pi;18| ((|x| ($)) ($ (|PositiveInteger|)))
         (SPADCALL |x| (QREFELT $ 95))) 
 
-(SDEFUN |FFP;/;3$;19| ((|x| $) (|y| $) ($ $)) (SPADCALL |x| |y| (QREFELT $ 97))) 
+(SDEFUN |FFP;/;3$;19| ((|x| ($)) (|y| ($)) ($ ($)))
+        (SPADCALL |x| |y| (QREFELT $ 97))) 
 
-(SDEFUN |FFP;/;$GF$;20| ((|x| $) (|a| GF) ($ $))
+(SDEFUN |FFP;/;$GF$;20| ((|x| ($)) (|a| (GF)) ($ ($)))
         (SPADCALL |x| (SPADCALL |a| (QREFELT $ 86)) (QREFELT $ 98))) 
 
-(SDEFUN |FFP;*;3$;21| ((|x| $) (|y| $) ($ $))
+(SDEFUN |FFP;*;3$;21| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 100))) 
 
-(SDEFUN |FFP;+;3$;22| ((|x| $) (|y| $) ($ $))
+(SDEFUN |FFP;+;3$;22| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 101))) 
 
-(SDEFUN |FFP;-;3$;23| ((|x| $) (|y| $) ($ $))
+(SDEFUN |FFP;-;3$;23| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 103))) 
 
-(SDEFUN |FFP;=;2$B;24| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |FFP;=;2$B;24| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT $ 105))) 
 
-(SDEFUN |FFP;basis;V;25| (($ |Vector| $)) (SPADCALL (QREFELT $ 107))) 
+(SDEFUN |FFP;basis;V;25| (($ (|Vector| $))) (SPADCALL (QREFELT $ 107))) 
 
-(SDEFUN |FFP;Zero;$;26| (($ $)) (|spadConstant| $ 109)) 
+(SDEFUN |FFP;Zero;$;26| (($ ($))) (|spadConstant| $ 109)) 
 
-(SDEFUN |FFP;One;$;27| (($ $)) (|spadConstant| $ 111)) 
+(SDEFUN |FFP;One;$;27| (($ ($))) (|spadConstant| $ 111)) 
 
 (SDEFUN |FFP;factorsOfCyclicGroupSize;L;28|
-        (($ |List|
-          (|Record| (|:| |factor| (|Integer|))
-                    (|:| |exponent| (|NonNegativeInteger|)))))
+        (($
+          (|List|
+           (|Record| (|:| |factor| (|Integer|))
+                     (|:| |exponent| (|NonNegativeInteger|))))))
         (SEQ (COND ((NULL (QREFELT $ 20)) (|FFP;initializeElt| $)))
              (EXIT (QREFELT $ 20)))) 
 
@@ -179,12 +181,12 @@
      '(XLAM NIL (CONS 1 "polynomial"))) 
 
 (SDEFUN |FFP;representationType;U;29|
-        (($ |Union| "prime" "polynomial" "normal" "cyclic"))
+        (($ (|Union| "prime" "polynomial" "normal" "cyclic")))
         (CONS 1 "polynomial")) 
 
 (SDEFUN |FFP;tableForDiscreteLogarithm;IT;30|
-        ((|fac| |Integer|)
-         ($ |Table| (|PositiveInteger|) (|NonNegativeInteger|)))
+        ((|fac| (|Integer|))
+         ($ (|Table| (|PositiveInteger|) (|NonNegativeInteger|))))
         (SPROG
          ((|tbl|
            (|Union| (|Table| (|PositiveInteger|) (|NonNegativeInteger|))
@@ -204,15 +206,15 @@
                   "tableForDiscreteLogarithm: argument must be prime divisor of the order of the multiplicative group"))
                 ('T (QCDR |tbl|))))))) 
 
-(SDEFUN |FFP;primitiveElement;$;31| (($ $))
+(SDEFUN |FFP;primitiveElement;$;31| (($ ($)))
         (SEQ (COND ((QREFELT $ 24) (|FFP;initializeElt| $)))
              (EXIT (SPADCALL (QREFELT $ 22) (QREFELT $ 94))))) 
 
-(SDEFUN |FFP;normalElement;$;32| (($ $))
+(SDEFUN |FFP;normalElement;$;32| (($ ($)))
         (SEQ (COND ((QREFELT $ 24) (|FFP;initializeElt| $)))
              (EXIT (SPADCALL (QREFELT $ 21) (QREFELT $ 94))))) 
 
-(SDEFUN |FFP;initializeElt| (($ |Void|))
+(SDEFUN |FFP;initializeElt| (($ (|Void|)))
         (SPROG ((|nElt| ($)) (|pE| ($)))
                (SEQ
                 (SETELT $ 20
@@ -232,7 +234,7 @@
                 (SETELT $ 21 (SPADCALL |nElt| (QREFELT $ 96)))
                 (SETELT $ 24 NIL) (EXIT (SPADCALL (QREFELT $ 128)))))) 
 
-(SDEFUN |FFP;initializeLog| (($ |Void|))
+(SDEFUN |FFP;initializeLog| (($ (|Void|)))
         (SPROG
          ((#1=#:G217 NIL) (|a| ($)) (#2=#:G223 NIL) (#3=#:G211 NIL) (|i| NIL)
           (|tbl| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
@@ -288,19 +290,19 @@
                    (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
               (SETELT $ 23 NIL) (EXIT (SPADCALL (QREFELT $ 128)))))) 
 
-(SDEFUN |FFP;coerce;$Of;35| ((|e| $) ($ |OutputForm|))
+(SDEFUN |FFP;coerce;$Of;35| ((|e| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |e| (QREFELT $ 34)) (QREFELT $ 17) (QREFELT $ 136))) 
 
-(SDEFUN |FFP;extensionDegree;Pi;36| (($ |PositiveInteger|)) (QREFELT $ 12)) 
+(SDEFUN |FFP;extensionDegree;Pi;36| (($ (|PositiveInteger|))) (QREFELT $ 12)) 
 
-(SDEFUN |FFP;size;Nni;37| (($ |NonNegativeInteger|)) (+ (QREFELT $ 19) 1)) 
+(SDEFUN |FFP;size;Nni;37| (($ (|NonNegativeInteger|))) (+ (QREFELT $ 19) 1)) 
 
-(SDEFUN |FFP;inGroundField?;$B;38| ((|x| $) ($ |Boolean|))
+(SDEFUN |FFP;inGroundField?;$B;38| ((|x| ($)) ($ (|Boolean|)))
         (NULL
          (SPADCALL (SPADCALL |x| (QREFELT $ 92)) (CONS 1 "failed")
                    (QREFELT $ 140)))) 
 
-(SDEFUN |FFP;characteristic;Nni;39| (($ |NonNegativeInteger|))
+(SDEFUN |FFP;characteristic;Nni;39| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 142))) 
 
 (DECLAIM (NOTINLINE |FiniteFieldExtensionByPolynomial;|)) 

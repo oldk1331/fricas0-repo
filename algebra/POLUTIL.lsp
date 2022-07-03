@@ -1,10 +1,10 @@
 
 (SDEFUN |POLUTIL;sturmSequence;ThePolsL;1|
-        ((|p| |ThePols|) ($ |List| |ThePols|))
+        ((|p| (|ThePols|)) ($ (|List| |ThePols|)))
         (SPADCALL |p| (SPADCALL |p| (QREFELT $ 8)) (QREFELT $ 10))) 
 
 (SDEFUN |POLUTIL;sylvesterSequence;2ThePolsL;2|
-        ((|p1| |ThePols|) (|p2| |ThePols|) ($ |List| |ThePols|))
+        ((|p1| (|ThePols|)) (|p2| (|ThePols|)) ($ (|List| |ThePols|)))
         (SPROG
          ((|res| (|List| |ThePols|)) (#1=#:G140 NIL) (|term| NIL)
           (#2=#:G139 NIL) (|#G8| (|ThePols|)) (|#G7| (|ThePols|)))
@@ -48,7 +48,7 @@
               (EXIT (NREVERSE |res|))))) 
 
 (SDEFUN |POLUTIL;boundOfCauchy;ThePolsTheField;3|
-        ((|p| |ThePols|) ($ |TheField|))
+        ((|p| (|ThePols|)) ($ (|TheField|)))
         (SPROG
          ((#1=#:G143 NIL) (#2=#:G142 (|TheField|)) (#3=#:G144 (|TheField|))
           (#4=#:G149 NIL) (|t| NIL) (|l| (|List| |TheField|)) (#5=#:G148 NIL)
@@ -100,7 +100,7 @@
                             (QREFELT $ 31)))))))) 
 
 (SDEFUN |POLUTIL;sturmVariationsOf;LNni;4|
-        ((|l| |List| |TheField|) ($ |NonNegativeInteger|))
+        ((|l| (|List| |TheField|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|ll| (|List| |TheField|)) (|ln| (|TheField|)) (#1=#:G156 NIL)
           (|term| NIL) (|l1| (|TheField|)))
@@ -141,8 +141,8 @@
                                       (QREFELT $ 36))))))))))))))) 
 
 (SDEFUN |POLUTIL;lazyVariations;L2INni;5|
-        ((|l| |List| |TheField|) (|sl| |Integer|) (|sh| |Integer|)
-         ($ |NonNegativeInteger|))
+        ((|l| (|List| |TheField|)) (|sl| (|Integer|)) (|sh| (|Integer|))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((|s| (|Integer|)))
                (SEQ
                 (COND

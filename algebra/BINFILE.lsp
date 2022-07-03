@@ -1,6 +1,6 @@
 
 (SDEFUN |BINFILE;defstream|
-        ((|fn| |FileName|) (|mode| |String|) ($ |SExpression|))
+        ((|fn| (|FileName|)) (|mode| (|String|)) ($ (|SExpression|)))
         (COND
          ((EQUAL |mode| "input")
           (COND
@@ -28,18 +28,19 @@
                                  (QREFELT $ 12))
                        (SPADCALL |mode| (QREFELT $ 12)))))))) 
 
-(SDEFUN |BINFILE;open;FnS$;2| ((|fname| |FileName|) (|mode| |String|) ($ $))
+(SDEFUN |BINFILE;open;FnS$;2|
+        ((|fname| (|FileName|)) (|mode| (|String|)) ($ ($)))
         (SPROG ((|fstream| (|SExpression|)))
                (SEQ (LETT |fstream| (|BINFILE;defstream| |fname| |mode| $))
                     (EXIT (VECTOR |fname| |fstream| |mode|))))) 
 
-(SDEFUN |BINFILE;reopen!;$S$;3| ((|f| $) (|mode| |String|) ($ $))
+(SDEFUN |BINFILE;reopen!;$S$;3| ((|f| ($)) (|mode| (|String|)) ($ ($)))
         (SPROG ((|fname| (|FileName|)))
                (SEQ (LETT |fname| (QVELT |f| 0))
                     (QSETVELT |f| 1 (|BINFILE;defstream| |fname| |mode| $))
                     (QSETVELT |f| 2 |mode|) (EXIT |f|)))) 
 
-(SDEFUN |BINFILE;close!;2$;4| ((|f| $) ($ $))
+(SDEFUN |BINFILE;close!;2$;4| ((|f| ($)) ($ ($)))
         (SEQ
          (COND
           ((EQUAL (QVELT |f| 2) "output")
@@ -47,7 +48,7 @@
           ((EQUAL (QVELT |f| 2) "input") (SEQ (BINARY_CLOSE_INPUT) (EXIT |f|)))
           ('T (|error| "file must be in read or write state"))))) 
 
-(SDEFUN |BINFILE;read!;$Si;5| ((|f| $) ($ |SingleInteger|))
+(SDEFUN |BINFILE;read!;$Si;5| ((|f| ($)) ($ (|SingleInteger|)))
         (SEQ
          (COND
           ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 19))
@@ -57,7 +58,7 @@
                 (EXIT (BINARY_READBYTE))))))) 
 
 (SDEFUN |BINFILE;readIfCan!;$U;6|
-        ((|f| $) ($ |Union| (|SingleInteger|) "failed"))
+        ((|f| ($)) ($ (|Union| (|SingleInteger|) "failed")))
         (SPROG ((|n| (|SingleInteger|)))
                (SEQ
                 (COND
@@ -70,8 +71,7 @@
                         (COND ((|eql_SI| |n| -1) (CONS 1 "failed"))
                               (#1# (CONS 0 |n|)))))))))) 
 
-(SDEFUN |BINFILE;write!;$2Si;7|
-        ((|f| $) (|x| . #1=(|SingleInteger|)) ($ . #1#))
+(SDEFUN |BINFILE;write!;$2Si;7| ((|f| ($)) (|x| #1=(|SingleInteger|)) ($ #1#))
         (SEQ
          (COND
           ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 19))
@@ -80,14 +80,14 @@
            (|error| "integer cannot be represented as a byte"))
           ('T (SEQ (BINARY_PRINBYTE |x|) (EXIT |x|)))))) 
 
-(SDEFUN |BINFILE;position;$Si;8| ((|f| $) ($ |SingleInteger|))
+(SDEFUN |BINFILE;position;$Si;8| ((|f| ($)) ($ (|SingleInteger|)))
         (COND
          ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 19))
           (|error| "file must be in read state"))
          ('T (FILE-POSITION (QVELT |f| 1))))) 
 
 (SDEFUN |BINFILE;position!;$2Si;9|
-        ((|f| $) (|i| |SingleInteger|) ($ |SingleInteger|))
+        ((|f| ($)) (|i| (|SingleInteger|)) ($ (|SingleInteger|)))
         (SEQ
          (COND
           ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 19))

@@ -1,8 +1,9 @@
 
 (SDEFUN |CHARPOL2;danilewski;MR;1|
-        ((|m| |Matrix| F)
-         ($ |Record| (|:| |matrix| (|Matrix| F))
-          (|:| |block_list| (|List| (|Integer|)))))
+        ((|m| (|Matrix| F))
+         ($
+          (|Record| (|:| |matrix| (|Matrix| F))
+                    (|:| |block_list| (|List| (|Integer|))))))
         (SPROG
          ((#1=#:G155 NIL) (|j| NIL) (#2=#:G154 NIL) (|i| NIL) (|s| (F))
           (#3=#:G153 NIL) (#4=#:G152 NIL) (|val| (F)) (#5=#:G151 NIL)
@@ -190,7 +191,7 @@
                       (EXIT (CONS |m| (CONS 1 |blocks|)))))))))) 
 
 (SDEFUN |CHARPOL2;char_pol;MSup;2|
-        ((|m| |Matrix| F) ($ |SparseUnivariatePolynomial| F))
+        ((|m| (|Matrix| F)) ($ (|SparseUnivariatePolynomial| F)))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| F))
           (|res1| (|SparseUnivariatePolynomial| F)) (#1=#:G161 NIL)

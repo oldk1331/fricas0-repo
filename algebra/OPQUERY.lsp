@@ -2,7 +2,8 @@
 (PUT '|OPQUERY;getDatabase;SD;1| '|SPADreplace| '|getBrowseDatabase|) 
 
 (SDEFUN |OPQUERY;getDatabase;SD;1|
-        ((|s| |String|) ($ |Database| (|IndexCard|))) (|getBrowseDatabase| |s|)) 
+        ((|s| (|String|)) ($ (|Database| (|IndexCard|))))
+        (|getBrowseDatabase| |s|)) 
 
 (DECLAIM (NOTINLINE |OperationsQuery;|)) 
 

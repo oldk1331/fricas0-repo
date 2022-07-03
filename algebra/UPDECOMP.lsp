@@ -1,7 +1,7 @@
 
 (SDEFUN |UPDECOMP;rightFactorIfCan0|
-        ((|p| UP) (|dq| |NonNegativeInteger|) (|n| |NonNegativeInteger|)
-         (|lcq| R) ($ |Union| UP "failed"))
+        ((|p| (UP)) (|dq| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|))
+         (|lcq| (R)) ($ (|Union| UP "failed")))
         (SPROG
          ((|q| (UP)) (#1=#:G130 NIL) (#2=#:G140 NIL)
           (|cquo| (|Union| R "failed")) (|c| (R)) (#3=#:G142 NIL) (|i| NIL)
@@ -134,8 +134,8 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |UPDECOMP;rightFactorIfCan;UPNniRU;2|
-        ((|p| UP) (|dq| |NonNegativeInteger|) (|lcq| R)
-         ($ |Union| UP "failed"))
+        ((|p| (UP)) (|dq| (|NonNegativeInteger|)) (|lcq| (R))
+         ($ (|Union| UP "failed")))
         (SPROG
          ((|q| (UP)) (#1=#:G165 NIL) (|cu| #2=(|Union| R "failed")) (|c| (R))
           (#3=#:G167 NIL) (|j| NIL) (|k| (|NonNegativeInteger|))
@@ -348,11 +348,11 @@
           #7# (EXIT #1#)))) 
 
 (SDEFUN |UPDECOMP;monicRightFactorIfCan;UPNniU;3|
-        ((|p| UP) (|dq| |NonNegativeInteger|) ($ |Union| UP "failed"))
+        ((|p| (UP)) (|dq| (|NonNegativeInteger|)) ($ (|Union| UP "failed")))
         (SPADCALL |p| |dq| (|spadConstant| $ 10) (QREFELT $ 37))) 
 
 (SDEFUN |UPDECOMP;leftFactorIfCan;2UPU;4|
-        ((|f| UP) (|h| UP) ($ |Union| UP "failed"))
+        ((|f| (UP)) (|h| (UP)) ($ (|Union| UP "failed")))
         (SPROG
          ((|g| (UP)) (#1=#:G181 NIL) (|r| (UP))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
@@ -403,8 +403,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |UPDECOMP;monicDecomposeIfCan;UPU;5|
-        ((|f| UP)
-         ($ |Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed"))
+        ((|f| (UP))
+         ($ (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed")))
         (SPROG
          ((#1=#:G199 NIL) (|g| (|Union| UP "failed"))
           (|h| (|Union| UP "failed")) (#2=#:G200 NIL) (#3=#:G187 NIL)
@@ -457,7 +457,7 @@
                          (EXIT (CONS 1 "failed"))))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |UPDECOMP;monicCompleteDecompose;UPL;6| ((|f| UP) ($ |List| UP))
+(SDEFUN |UPDECOMP;monicCompleteDecompose;UPL;6| ((|f| (UP)) ($ (|List| UP)))
         (SPROG
          ((|lr| (|Record| (|:| |left| UP) (|:| |right| UP)))
           (|cf|
@@ -472,8 +472,8 @@
                                       (LIST (QCDR |lr|)) (QREFELT $ 52)))))))))) 
 
 (SDEFUN |UPDECOMP;decomposeIfCan;UPU;7|
-        ((|f| UP)
-         ($ |Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed"))
+        ((|f| (UP))
+         ($ (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed")))
         (SPROG
          ((|lr| (|Record| (|:| |left| UP) (|:| |right| UP)))
           (|res1|
@@ -492,7 +492,7 @@
                                    (SPADCALL |lc| (QCAR |lr|) (QREFELT $ 34))
                                    (QCDR |lr|))))))))))) 
 
-(SDEFUN |UPDECOMP;completeDecompose;UPL;8| ((|f| UP) ($ |List| UP))
+(SDEFUN |UPDECOMP;completeDecompose;UPL;8| ((|f| (UP)) ($ (|List| UP)))
         (SPROG ((|res1| (|List| UP)) (|lc| (R)))
                (SEQ (LETT |lc| (SPADCALL |f| (QREFELT $ 14)))
                     (LETT |f| (SPADCALL |f| |lc| (QREFELT $ 53)))

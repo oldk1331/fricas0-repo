@@ -1,5 +1,5 @@
 
-(SDEFUN |INEP;numeric| ((|r| K) ($ F))
+(SDEFUN |INEP;numeric| ((|r| (K)) ($ (F)))
         (COND
          ((|domainEqual| (QREFELT $ 6) (|Fraction| (|Integer|)))
           (COND
@@ -19,8 +19,8 @@
          ('T (|error| "unsupported coefficient type")))) 
 
 (SDEFUN |INEP;monicize|
-        ((|f| |SparseUnivariatePolynomial| K)
-         ($ |SparseUnivariatePolynomial| K))
+        ((|f| (|SparseUnivariatePolynomial| K))
+         ($ (|SparseUnivariatePolynomial| K)))
         (SPROG ((|a| (K)))
                (SEQ (LETT |a| (SPADCALL |f| (QREFELT $ 19)))
                     (EXIT
@@ -31,15 +31,15 @@
                                  (QREFELT $ 25)))))))) 
 
 (SDEFUN |INEP;reduction|
-        ((|u| |SparseUnivariatePolynomial| K)
-         (|p| |SparseUnivariatePolynomial| K)
-         ($ |SparseUnivariatePolynomial| K))
+        ((|u| (|SparseUnivariatePolynomial| K))
+         (|p| (|SparseUnivariatePolynomial| K))
+         ($ (|SparseUnivariatePolynomial| K)))
         (SPADCALL |u| |p| (QREFELT $ 26))) 
 
 (SDEFUN |INEP;merge|
-        ((|p| |SparseUnivariatePolynomial| K)
-         (|q| |SparseUnivariatePolynomial| K)
-         ($ |Union| (|SparseUnivariatePolynomial| K) "failed"))
+        ((|p| (|SparseUnivariatePolynomial| K))
+         (|q| (|SparseUnivariatePolynomial| K))
+         ($ (|Union| (|SparseUnivariatePolynomial| K) "failed")))
         (COND ((SPADCALL |p| |q| (QREFELT $ 27)) (CONS 0 |p|))
               ((SPADCALL |p| (|spadConstant| $ 30) (QREFELT $ 27))
                (CONS 0 |q|))
@@ -48,10 +48,10 @@
               ('T (CONS 1 "failed")))) 
 
 (SDEFUN |INEP;exactquo|
-        ((|u| |SparseUnivariatePolynomial| K)
-         (|v| |SparseUnivariatePolynomial| K)
-         (|p| |SparseUnivariatePolynomial| K)
-         ($ |Union| (|SparseUnivariatePolynomial| K) "failed"))
+        ((|u| (|SparseUnivariatePolynomial| K))
+         (|v| (|SparseUnivariatePolynomial| K))
+         (|p| (|SparseUnivariatePolynomial| K))
+         ($ (|Union| (|SparseUnivariatePolynomial| K) "failed")))
         (SPROG
          ((|val|
            (|Union|
@@ -64,8 +64,8 @@
                      ('T (CONS 0 (QCAR (QCDR |val|))))))))) 
 
 (SDEFUN |INEP;evalvect|
-        ((|vect| |Matrix| (|SparseUnivariatePolynomial| K)) (|alg| F)
-         ($ |Matrix| F))
+        ((|vect| (|Matrix| (|SparseUnivariatePolynomial| K))) (|alg| (F))
+         ($ (|Matrix| F)))
         (SPROG
          ((|v| (F)) (|polf| (|SparseUnivariatePolynomial| F)) (#1=#:G140 NIL)
           (|i| NIL) (|w| (|Matrix| F)) (|n| (|NonNegativeInteger|)))
@@ -84,18 +84,20 @@
               (EXIT |w|)))) 
 
 (SDEFUN |INEP;inteigen|
-        ((A |Matrix| K) (|p| |SparseUnivariatePolynomial| K)
-         (|fact| |Mapping| (|Factored| (|SparseUnivariatePolynomial| K))
-          (|SparseUnivariatePolynomial| K))
-         ($ |List|
-          (|Union|
-           (|Record| (|:| |outval| F) (|:| |outmult| (|Integer|))
-                     (|:| |outvect| (|List| (|Matrix| F))))
-           (|Record| (|:| |algpol| (|SparseUnivariatePolynomial| K))
-                     (|:| |almult| (|Integer|))
-                     (|:| |poleigen|
-                          (|List|
-                           (|Matrix| (|SparseUnivariatePolynomial| K))))))))
+        ((A (|Matrix| K)) (|p| (|SparseUnivariatePolynomial| K))
+         (|fact|
+          (|Mapping| (|Factored| (|SparseUnivariatePolynomial| K))
+                     (|SparseUnivariatePolynomial| K)))
+         ($
+          (|List|
+           (|Union|
+            (|Record| (|:| |outval| F) (|:| |outmult| (|Integer|))
+                      (|:| |outvect| (|List| (|Matrix| F))))
+            (|Record| (|:| |algpol| (|SparseUnivariatePolynomial| K))
+                      (|:| |almult| (|Integer|))
+                      (|:| |poleigen|
+                           (|List|
+                            (|Matrix| (|SparseUnivariatePolynomial| K)))))))))
         (SPROG
          ((|res|
            (|List|
@@ -385,7 +387,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |INEP;solve1;SupParL;8|
-        ((|up| |SparseUnivariatePolynomial| K) (|eps| |Par|) ($ |List| F))
+        ((|up| (|SparseUnivariatePolynomial| K)) (|eps| (|Par|))
+         ($ (|List| F)))
         (SPROG
          ((|upi| (|SparseUnivariatePolynomial| (|Integer|)))
           (|denom| #1=(|Integer|)) (#2=#:G189 NIL) (#3=#:G188 #1#)
@@ -413,7 +416,8 @@
           (EXIT (SPADCALL |upi| |eps| (QREFELT $ 81)))))) 
 
 (SDEFUN |INEP;solve1;SupParL;9|
-        ((|up| |SparseUnivariatePolynomial| K) (|eps| |Par|) ($ |List| F))
+        ((|up| (|SparseUnivariatePolynomial| K)) (|eps| (|Par|))
+         ($ (|List| F)))
         (SPROG
          ((|upgi| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
           (|denom| #1=(|Integer|)) (#2=#:G196 NIL) (#3=#:G195 #1#)
@@ -454,12 +458,14 @@
                   (QREFELT $ 86))) 
 
 (SDEFUN |INEP;innerEigenvectors;MParML;10|
-        ((A |Matrix| K) (|eps| |Par|)
-         (|fact| |Mapping| (|Factored| (|SparseUnivariatePolynomial| K))
-          (|SparseUnivariatePolynomial| K))
-         ($ |List|
-          (|Record| (|:| |outval| F) (|:| |outmult| (|Integer|))
-                    (|:| |outvect| (|List| (|Matrix| F))))))
+        ((A (|Matrix| K)) (|eps| (|Par|))
+         (|fact|
+          (|Mapping| (|Factored| (|SparseUnivariatePolynomial| K))
+                     (|SparseUnivariatePolynomial| K)))
+         ($
+          (|List|
+           (|Record| (|:| |outval| F) (|:| |outmult| (|Integer|))
+                     (|:| |outvect| (|List| (|Matrix| F)))))))
         (SPROG
          ((|sln|
            (|List|
@@ -546,7 +552,7 @@
               (EXIT |sln|)))) 
 
 (SDEFUN |INEP;charpol;MSup;11|
-        ((A |Matrix| K) ($ |SparseUnivariatePolynomial| K))
+        ((A (|Matrix| K)) ($ (|SparseUnivariatePolynomial| K)))
         (SPROG
          ((#1=#:G224 NIL) (|j| NIL) (#2=#:G223 NIL) (|i| NIL)
           (B (|Matrix| (|SparseUnivariatePolynomial| K)))

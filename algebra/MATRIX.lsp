@@ -1,27 +1,27 @@
 
 (PUT '|MATRIX;minRowIndex;$I;1| '|SPADreplace| '(XLAM (|x|) 1)) 
 
-(SDEFUN |MATRIX;minRowIndex;$I;1| ((|x| $) ($ |Integer|)) 1) 
+(SDEFUN |MATRIX;minRowIndex;$I;1| ((|x| ($)) ($ (|Integer|))) 1) 
 
 (PUT '|MATRIX;minColIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 1)) 
 
-(SDEFUN |MATRIX;minColIndex;$I;2| ((|x| $) ($ |Integer|)) 1) 
+(SDEFUN |MATRIX;minColIndex;$I;2| ((|x| ($)) ($ (|Integer|))) 1) 
 
 (PUT '|MATRIX;qelt;$2IR;3| '|SPADreplace|
      '(XLAM (|m| |i| |j|) (QAREF2O |m| |i| |j| 1 1))) 
 
-(SDEFUN |MATRIX;qelt;$2IR;3| ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) ($ R))
+(SDEFUN |MATRIX;qelt;$2IR;3| ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) ($ (R)))
         (QAREF2O |m| |i| |j| 1 1)) 
 
 (PUT '|MATRIX;qsetelt!;$2I2R;4| '|SPADreplace|
      '(XLAM (|m| |i| |j| |r|) (QSETAREF2O |m| |i| |j| |r| 1 1))) 
 
 (SDEFUN |MATRIX;qsetelt!;$2I2R;4|
-        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| R) ($ R))
+        ((|m| ($)) (|i| #1=(|Integer|)) (|j| #1#) (|r| (R)) ($ (R)))
         (QSETAREF2O |m| |i| |j| |r| 1 1)) 
 
 (SDEFUN |MATRIX;swapRows!;$2I$;5|
-        ((|x| $) (|i1| . #1=(|Integer|)) (|i2| . #1#) ($ $))
+        ((|x| ($)) (|i1| #1=(|Integer|)) (|i2| #1#) ($ ($)))
         (SPROG ((|t2| (R)) (|t1| (R)) (#2=#:G2220 NIL) (|j| NIL))
                (SEQ
                 (COND
@@ -44,7 +44,7 @@
                                (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))
                           (EXIT |x|))))))))) 
 
-(SDEFUN |MATRIX;copy;2$;6| ((|m| $) ($ $))
+(SDEFUN |MATRIX;copy;2$;6| ((|m| ($)) ($ ($)))
         (SPROG
          ((#1=#:G2226 NIL) (|j| NIL) (#2=#:G2225 NIL) (|i| NIL) (|ans| ($)))
          (SEQ (LETT |ans| (MAKE_MATRIX (ANROWS |m|) (ANCOLS |m|)))
@@ -65,28 +65,31 @@
                    (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
-(SDEFUN |MATRIX;determinant;$R;7| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 17))) 
+(SDEFUN |MATRIX;determinant;$R;7| ((|x| ($)) ($ (R)))
+        (SPADCALL |x| (QREFELT $ 17))) 
 
-(SDEFUN |MATRIX;minordet;$R;8| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 19))) 
+(SDEFUN |MATRIX;minordet;$R;8| ((|x| ($)) ($ (R)))
+        (SPADCALL |x| (QREFELT $ 19))) 
 
-(SDEFUN |MATRIX;rowEchelon;2$;9| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 21))) 
+(SDEFUN |MATRIX;rowEchelon;2$;9| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 21))) 
 
-(SDEFUN |MATRIX;rank;$Nni;10| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |MATRIX;rank;$Nni;10| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 24))) 
 
-(SDEFUN |MATRIX;nullity;$Nni;11| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |MATRIX;nullity;$Nni;11| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 26))) 
 
-(SDEFUN |MATRIX;nullSpace;$L;12| ((|x| $) ($ |List| (|Vector| R)))
+(SDEFUN |MATRIX;nullSpace;$L;12| ((|x| ($)) ($ (|List| (|Vector| R))))
         (SPADCALL |x| (QREFELT $ 29))) 
 
-(SDEFUN |MATRIX;inverse;$U;13| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |MATRIX;inverse;$U;13| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPADCALL |x| (QREFELT $ 32))) 
 
-(SDEFUN |MATRIX;invertIfCan;$U;14| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |MATRIX;invertIfCan;$U;14| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPADCALL |x| (QREFELT $ 35))) 
 
-(SDEFUN |MATRIX;diagonalMatrix;V$;15| ((|v| |Vector| R) ($ $))
+(SDEFUN |MATRIX;diagonalMatrix;V$;15| ((|v| (|Vector| R)) ($ ($)))
         (SPROG
          ((#1=#:G2247 NIL) (|i| NIL) (#2=#:G2248 NIL) (|j| NIL)
           (#3=#:G2249 NIL) (|k| NIL) (|ans| ($)) (|n| (|NonNegativeInteger|)))
@@ -109,7 +112,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
-(SDEFUN |MATRIX;convert;$If;16| ((|x| $) ($ |InputForm|))
+(SDEFUN |MATRIX;convert;$If;16| ((|x| ($)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|matrix| (QREFELT $ 43))
                (SPADCALL (SPADCALL |x| (QREFELT $ 45)) (QREFELT $ 46)))

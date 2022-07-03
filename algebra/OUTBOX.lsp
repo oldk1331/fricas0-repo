@@ -1,5 +1,5 @@
 
-(SDEFUN |OUTBOX;coerce;$Of;1| ((|x| $) ($ |OutputForm|))
+(SDEFUN |OUTBOX;coerce;$Of;1| ((|x| ($)) ($ (|OutputForm|)))
         (|coerceRe2E| |x|
                       (ELT
                        (|Record| (|:| |ht| (|NonNegativeInteger|))
@@ -10,40 +10,41 @@
 
 (PUT '|OUTBOX;empty;$;2| '|SPADreplace| '(XLAM NIL (VECTOR 0 0 0 NIL))) 
 
-(SDEFUN |OUTBOX;empty;$;2| (($ $)) (VECTOR 0 0 0 NIL)) 
+(SDEFUN |OUTBOX;empty;$;2| (($ ($))) (VECTOR 0 0 0 NIL)) 
 
-(SDEFUN |OUTBOX;box;S$;3| ((|s| |String|) ($ $))
+(SDEFUN |OUTBOX;box;S$;3| ((|s| (|String|)) ($ ($)))
         (VECTOR 1 0 (QCSIZE |s|) (LIST |s|))) 
 
 (PUT '|OUTBOX;height;$Nni;4| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 0))) 
 
-(SDEFUN |OUTBOX;height;$Nni;4| ((|box| $) ($ |NonNegativeInteger|))
+(SDEFUN |OUTBOX;height;$Nni;4| ((|box| ($)) ($ (|NonNegativeInteger|)))
         (QVELT |box| 0)) 
 
 (PUT '|OUTBOX;depth;$Nni;5| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 1))) 
 
-(SDEFUN |OUTBOX;depth;$Nni;5| ((|box| $) ($ |NonNegativeInteger|))
+(SDEFUN |OUTBOX;depth;$Nni;5| ((|box| ($)) ($ (|NonNegativeInteger|)))
         (QVELT |box| 1)) 
 
 (PUT '|OUTBOX;width;$Nni;6| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 2))) 
 
-(SDEFUN |OUTBOX;width;$Nni;6| ((|box| $) ($ |NonNegativeInteger|))
+(SDEFUN |OUTBOX;width;$Nni;6| ((|box| ($)) ($ (|NonNegativeInteger|)))
         (QVELT |box| 2)) 
 
 (PUT '|OUTBOX;lines;$L;7| '|SPADreplace| '(XLAM (|box|) (QVELT |box| 3))) 
 
-(SDEFUN |OUTBOX;lines;$L;7| ((|box| $) ($ |List| (|String|))) (QVELT |box| 3)) 
+(SDEFUN |OUTBOX;lines;$L;7| ((|box| ($)) ($ (|List| (|String|))))
+        (QVELT |box| 3)) 
 
-(SDEFUN |OUTBOX;empty?;$B;8| ((|box| $) ($ |Boolean|))
+(SDEFUN |OUTBOX;empty?;$B;8| ((|box| ($)) ($ (|Boolean|)))
         (COND
          ((ZEROP (SPADCALL |box| (QREFELT $ 12)))
           (ZEROP (SPADCALL |box| (QREFELT $ 13))))
          ('T NIL))) 
 
 (SDEFUN |OUTBOX;pad;4NniM;9|
-        ((|t| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         (|l| |NonNegativeInteger|) (|r| |NonNegativeInteger|)
-         ($ |Mapping| $ $))
+        ((|t| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) (|r| (|NonNegativeInteger|))
+         ($ (|Mapping| $ $)))
         (SPROG NIL
                (SEQ
                 (CONS #'|OUTBOX;pad;4NniM;9!0| (VECTOR |b| |t| |r| |l| $))))) 
@@ -118,7 +119,8 @@
                    (VECTOR |nh| |nd| |nw|
                            (SPADCALL |newLines| (QREFELT $ 32)))))))))) 
 
-(SDEFUN |OUTBOX;hcenter;NniM;10| ((|w| |NonNegativeInteger|) ($ |Mapping| $ $))
+(SDEFUN |OUTBOX;hcenter;NniM;10|
+        ((|w| (|NonNegativeInteger|)) ($ (|Mapping| $ $)))
         (SPROG NIL (SEQ (CONS #'|OUTBOX;hcenter;NniM;10!0| (VECTOR $ |w|))))) 
 
 (SDEFUN |OUTBOX;hcenter;NniM;10!0| ((|box| NIL) ($$ NIL))
@@ -158,7 +160,8 @@
                                              (QREFELT $ 34)))))))))))))) 
 
 (SDEFUN |OUTBOX;vconcat;LNniI$;11|
-        ((|lb| |List| $) (|h| |NonNegativeInteger|) (|adjust| |Integer|) ($ $))
+        ((|lb| (|List| $)) (|h| (|NonNegativeInteger|)) (|adjust| (|Integer|))
+         ($ ($)))
         (SPROG
          ((|d| (|Integer|)) (|newLines| (|List| (|String|))) (#1=#:G169 NIL)
           (|b| NIL) (#2=#:G168 NIL) (#3=#:G156 NIL) (#4=#:G167 NIL)
@@ -286,10 +289,10 @@
                          (#11# (VECTOR |h| |d| |w| |newLines|)))))))))) 
 
 (SDEFUN |OUTBOX;vconcat;LNni$;12|
-        ((|lb| |List| $) (|h| |NonNegativeInteger|) ($ $))
+        ((|lb| (|List| $)) (|h| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |lb| |h| 0 (QREFELT $ 51))) 
 
-(SDEFUN |OUTBOX;hconcat;L$;13| ((|lb| |List| $) ($ $))
+(SDEFUN |OUTBOX;hconcat;L$;13| ((|lb| (|List| $)) ($ ($)))
         (SPROG
          ((|newLines| (|List| (|String|))) (|wx| (|NonNegativeInteger|))
           (#1=#:G195 NIL) (|j| NIL) (|line| (|String|)) (|ix| (|Integer|))

@@ -1,14 +1,15 @@
 
 (SDEFUN |MEVAL2;degree;FpSNni;1|
-        ((|p| |FakePolynomial|) (|s| |Symbol|) ($ |NonNegativeInteger|))
+        ((|p| (|FakePolynomial|)) (|s| (|Symbol|)) ($ (|NonNegativeInteger|)))
         (SPADCALL |p| |s| (QREFELT $ 9))) 
 
 (SDEFUN |MEVAL2;ldegree;RSNni;2|
-        ((|p| |Record| (|:| |var| (|Symbol|))
-          (|:| |coef|
-               (|SparseUnivariatePolynomial|
-                (|Fraction| (|Polynomial| (|Integer|))))))
-         (|s| |Symbol|) ($ |NonNegativeInteger|))
+        ((|p|
+          (|Record| (|:| |var| (|Symbol|))
+                    (|:| |coef|
+                         (|SparseUnivariatePolynomial|
+                          (|Fraction| (|Polynomial| (|Integer|)))))))
+         (|s| (|Symbol|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|dp2| (|Polynomial| (|Integer|))) (|np2| (|Polynomial| (|Integer|)))
           (|p2| (|Fraction| (|Polynomial| (|Integer|))))
@@ -36,10 +37,11 @@
                                            (QREFELT $ 18))))))))))))))) 
 
 (SDEFUN |MEVAL2;eval1;FpSIRU;3|
-        ((|p| . #1=(|FakePolynomial|)) (|v| |Symbol|) (|pt| . #2=(|Integer|))
-         (|s| |Record| (|:| |prime| #2#) (|:| |eval1coeffbuf| (|U32Vector|))
-          (|:| |eval1expbuf| (|SortedExponentVector|)))
-         ($ |Union| #1# "failed"))
+        ((|p| #1=(|FakePolynomial|)) (|v| (|Symbol|)) (|pt| #2=(|Integer|))
+         (|s|
+          (|Record| (|:| |prime| #2#) (|:| |eval1coeffbuf| (|U32Vector|))
+                    (|:| |eval1expbuf| (|SortedExponentVector|))))
+         ($ (|Union| #1# "failed")))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|MEVAL2;eval1;FpSIRU;3!0| (VECTOR $ |s| |pt| |v|)) |p|
@@ -54,8 +56,8 @@
           (RETURN (PROGN (SPADCALL |c| |v| |pt| |s| (QREFELT $ 24)))))) 
 
 (SDEFUN |MEVAL2;modpreduction;FpIU;4|
-        ((|p| . #1=(|FakePolynomial|)) (|q| |Integer|)
-         ($ |Union| #1# "failed"))
+        ((|p| #1=(|FakePolynomial|)) (|q| (|Integer|))
+         ($ (|Union| #1# "failed")))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|MEVAL2;modpreduction;FpIU;4!0| (VECTOR $ |q|)) |p|
@@ -68,11 +70,12 @@
           (RETURN (PROGN (SPADCALL |c| |q| (QREFELT $ 30)))))) 
 
 (SDEFUN |MEVAL2;subst_vars;R2LFp;5|
-        ((|p| |Record| (|:| |var| (|Symbol|))
-          (|:| |coef|
-               (|SparseUnivariatePolynomial|
-                (|Fraction| (|Polynomial| (|Integer|))))))
-         (|ls1| . #1=(|List| (|Symbol|))) (|ls2| . #1#) ($ |FakePolynomial|))
+        ((|p|
+          (|Record| (|:| |var| (|Symbol|))
+                    (|:| |coef|
+                         (|SparseUnivariatePolynomial|
+                          (|Fraction| (|Polynomial| (|Integer|)))))))
+         (|ls1| #1=(|List| (|Symbol|))) (|ls2| #1#) ($ (|FakePolynomial|)))
         (SPROG
          ((|res1| (|FakePolynomial|))
           (|lm| (|List| (|Polynomial| (|Integer|)))) (#2=#:G161 NIL) (|v| NIL)
@@ -108,11 +111,13 @@
           (RETURN (PROGN (SPADCALL |c| |ls1| |lm| (QREFELT $ 36)))))) 
 
 (SDEFUN |MEVAL2;m_reduc|
-        ((|x1| |Fraction| (|Polynomial| (|Integer|)))
-         (|lmu| |List|
-          (|SparseUnivariatePolynomial|
-           (|Fraction| (|Polynomial| (|Integer|)))))
-         (|ls| |List| (|Symbol|)) ($ |Fraction| (|Polynomial| (|Integer|))))
+        ((|x1| (|Fraction| (|Polynomial| (|Integer|))))
+         (|lmu|
+          (|List|
+           (|SparseUnivariatePolynomial|
+            (|Fraction| (|Polynomial| (|Integer|))))))
+         (|ls| (|List| (|Symbol|)))
+         ($ (|Fraction| (|Polynomial| (|Integer|)))))
         (SPROG
          ((|q|
            (|SparseUnivariatePolynomial|
@@ -141,9 +146,9 @@
           (EXIT |x1|)))) 
 
 (SDEFUN |MEVAL2;trial_division;FpPLSLB;7|
-        ((|p| . #1=(|FakePolynomial|)) (|g| |Polynomial| (|Integer|))
-         (|lm| |List| #1#) (|v| . #2=(|Symbol|)) (|ls| |List| #2#)
-         ($ |Boolean|))
+        ((|p| #1=(|FakePolynomial|)) (|g| (|Polynomial| (|Integer|)))
+         (|lm| (|List| #1#)) (|v| #2=(|Symbol|)) (|ls| (|List| #2#))
+         ($ (|Boolean|)))
         (SPROG
          ((#3=#:G183 NIL)
           (|pu|

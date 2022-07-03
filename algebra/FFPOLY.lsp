@@ -1,5 +1,5 @@
 
-(SDEFUN |FFPOLY;get_deg_GF| (($ |PositiveInteger|))
+(SDEFUN |FFPOLY;get_deg_GF| (($ (|PositiveInteger|)))
         (SPROG
          ((#1=#:G168 NIL) (|n| (|PositiveInteger|))
           (|ss| (|NonNegativeInteger|)) (#2=#:G163 NIL))
@@ -29,9 +29,10 @@
                                '(|NonNegativeInteger|) #1#)))))) 
 
 (SDEFUN |FFPOLY;listToSUP|
-        ((|l| |List|
-          (|Record| (|:| |expnt| (|NonNegativeInteger|)) (|:| |coeff| GF)))
-         ($ |SparseUnivariatePolynomial| GF))
+        ((|l|
+          (|List|
+           (|Record| (|:| |expnt| (|NonNegativeInteger|)) (|:| |coeff| GF))))
+         ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((|newl|
            (|List|
@@ -52,8 +53,8 @@
           (EXIT |newl|)))) 
 
 (SDEFUN |FFPOLY;reducedQPowers;SupPa;3|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |PrimitiveArray| (|SparseUnivariatePolynomial| GF)))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($ (|PrimitiveArray| (|SparseUnivariatePolynomial| GF))))
         (SPROG
          ((|h| (|SparseUnivariatePolynomial| GF))
           (|g| (|SparseUnivariatePolynomial| GF)) (#1=#:G192 NIL) (|i| NIL)
@@ -125,8 +126,8 @@
                   (EXIT |qexp|)))))))) 
 
 (SDEFUN |FFPOLY;leastAffineMultiple;2Sup;4|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |SparseUnivariatePolynomial| GF))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((#1=#:G200 NIL) (#2=#:G199 #3=(|SparseUnivariatePolynomial| GF))
           (#4=#:G201 #3#) (#5=#:G203 NIL) (#6=#:G209 NIL) (|k| NIL)
@@ -211,7 +212,7 @@
                 (QREFELT $ 42)))))) 
 
 (SDEFUN |FFPOLY;numberOfIrreduciblePoly;2Pi;5|
-        ((|n| |PositiveInteger|) ($ |PositiveInteger|))
+        ((|n| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPROG
          ((#1=#:G212 NIL) (|lastd| (|PositiveInteger|)) (|sum| (|Integer|))
           (|qd| (|PositiveInteger|)) (#2=#:G215 NIL) (|d| NIL)
@@ -244,7 +245,7 @@
                                            '(|Integer|) #1#))))))))) 
 
 (SDEFUN |FFPOLY;numberOfPrimitivePoly;2Pi;6|
-        ((|n| |PositiveInteger|) ($ |PositiveInteger|))
+        ((|n| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPROG ((#1=#:G216 NIL))
                (PROG1
                    (LETT #1#
@@ -256,7 +257,7 @@
                                    #1#)))) 
 
 (SDEFUN |FFPOLY;numberOfNormalPoly;2Pi;7|
-        ((|n| . #1=(|PositiveInteger|)) ($ |PositiveInteger|))
+        ((|n| #1=(|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPROG
          ((|prod| (|Integer|)) (|qe| #2=(|PositiveInteger|))
           (|e| (|PositiveInteger|)) (#3=#:G337 NIL) (|d| NIL)
@@ -340,7 +341,7 @@
                                      |n|)))))))))))) 
 
 (SDEFUN |FFPOLY;primitive_i?|
-        ((|f| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|f| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G350 NIL) (#2=#:G351 NIL) (|expt| (|NonNegativeInteger|))
           (#3=#:G353 NIL) (|d| NIL) (|lfact| (|List| (|PositiveInteger|)))
@@ -433,7 +434,7 @@
           #8# (EXIT #2#)))) 
 
 (SDEFUN |FFPOLY;primitive?;SupB;9|
-        ((|f| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|f| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (COND
          ((OR (EQL (SPADCALL |f| (QREFELT $ 25)) 0)
               (OR
@@ -447,7 +448,7 @@
          ('T (|FFPOLY;primitive_i?| |f| $)))) 
 
 (SDEFUN |FFPOLY;normal?;SupB;10|
-        ((|f| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|f| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (SPROG
          ((|l| (|List| (|List| GF))) (#1=#:G370 NIL) (#2=#:G362 NIL) (|i| NIL)
           (#3=#:G369 NIL)
@@ -503,13 +504,13 @@
                                (#4# NIL)))))))))))) 
 
 (SDEFUN |FFPOLY;normal_and_primitive?|
-        ((|f| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|f| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (COND ((SPADCALL |f| (QREFELT $ 85)) (|FFPOLY;primitive_i?| |f| $))
               ('T NIL))) 
 
 (SDEFUN |FFPOLY;nextSubset|
-        ((|s| |List| (|NonNegativeInteger|)) (|bound| |NonNegativeInteger|)
-         ($ |Union| (|List| (|NonNegativeInteger|)) "failed"))
+        ((|s| (|List| (|NonNegativeInteger|))) (|bound| (|NonNegativeInteger|))
+         ($ (|Union| (|List| (|NonNegativeInteger|)) "failed")))
         (SPROG
          ((|j| NIL) (#1=#:G387 NIL) (|i| (|NonNegativeInteger|))
           (|firstOfs| #2=(|NonNegativeInteger|)) (|noGap| (|Boolean|))
@@ -572,8 +573,8 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |FFPOLY;lexSmaller?;2SupB;13|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         (|g| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         (|g| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (SPROG
          ((|g1| #1=(|SparseUnivariatePolynomial| GF)) (|f1| #1#)
           (#2=#:G398 NIL) (|k2| #3=(|NonNegativeInteger|)) (|k1| #3#)
@@ -667,7 +668,7 @@
                                      (EXIT NIL)))))))))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |FFPOLY;ll_cmp| ((|x1| GF) (|x2| GF) ($ |SingleInteger|))
+(SDEFUN |FFPOLY;ll_cmp| ((|x1| (GF)) (|x2| (GF)) ($ (|SingleInteger|)))
         (SPROG ((|k2| #1=(|PositiveInteger|)) (|k1| #1#))
                (SEQ
                 (COND
@@ -685,8 +686,8 @@
                 (EXIT (COND ((< |k1| |k2|) -1) ((< |k2| |k2|) 1) ('T 0)))))) 
 
 (SDEFUN |FFPOLY;clexSmaller?;2SupB;15|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         (|g| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         (|g| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (SPROG ((|s| (|SingleInteger|)) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (SPADCALL |f| (QREFELT $ 25)))
                     (EXIT
@@ -706,8 +707,8 @@
                                (#1# (SPADCALL |f| |g| (QREFELT $ 91)))))))))))) 
 
 (SDEFUN |FFPOLY;nlexSmaller?;2SupB;16|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         (|g| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         (|g| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (SPROG
          ((|s| (|SingleInteger|)) (#1=#:G407 NIL) (#2=#:G406 NIL)
           (|n| (|NonNegativeInteger|)))
@@ -739,8 +740,8 @@
                          (#3# (SPADCALL |f| |g| (QREFELT $ 91)))))))))))) 
 
 (SDEFUN |FFPOLY;cnlexSmaller?;2SupB;17|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         (|g| |SparseUnivariatePolynomial| GF) ($ |Boolean|))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         (|g| (|SparseUnivariatePolynomial| GF)) ($ (|Boolean|)))
         (SPROG ((|s| (|SingleInteger|)) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (SPADCALL |f| (QREFELT $ 25)))
                     (EXIT
@@ -760,9 +761,9 @@
                                (#1# (SPADCALL |f| |g| (QREFELT $ 93)))))))))))) 
 
 (SDEFUN |FFPOLY;vecs_to_pol|
-        ((|exp_v| |PrimitiveArray| (|NonNegativeInteger|))
-         (|coeff_v| |PrimitiveArray| GF) (|w| |NonNegativeInteger|)
-         ($ |SparseUnivariatePolynomial| GF))
+        ((|exp_v| (|PrimitiveArray| (|NonNegativeInteger|)))
+         (|coeff_v| (|PrimitiveArray| GF)) (|w| (|NonNegativeInteger|))
+         ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((|resl|
            (|List|
@@ -781,12 +782,12 @@
               (EXIT |resl|)))) 
 
 (SDEFUN |FFPOLY;do_weight|
-        ((|exp_v| |PrimitiveArray| (|NonNegativeInteger|))
-         (|ind_v| |PrimitiveArray| (|NonNegativeInteger|))
-         (|coeff_v| |PrimitiveArray| GF) (|min_i| . #1=(|NonNegativeInteger|))
-         (|max_i| |NonNegativeInteger|) (|w| |NonNegativeInteger|)
-         (|tp?| |Mapping| (|Boolean|) (|SparseUnivariatePolynomial| GF))
-         ($ |Union| (|SparseUnivariatePolynomial| GF) "failed"))
+        ((|exp_v| (|PrimitiveArray| (|NonNegativeInteger|)))
+         (|ind_v| (|PrimitiveArray| (|NonNegativeInteger|)))
+         (|coeff_v| (|PrimitiveArray| GF)) (|min_i| #1=(|NonNegativeInteger|))
+         (|max_i| (|NonNegativeInteger|)) (|w| (|NonNegativeInteger|))
+         (|tp?| (|Mapping| (|Boolean|) (|SparseUnivariatePolynomial| GF)))
+         ($ (|Union| (|SparseUnivariatePolynomial| GF) "failed")))
         (SPROG
          ((#2=#:G443 NIL) (#3=#:G444 NIL)
           (|pol| (|SparseUnivariatePolynomial| GF)) (#4=#:G441 NIL) (|i| #1#)
@@ -891,12 +892,12 @@
           #8# (EXIT #3#)))) 
 
 (SDEFUN |FFPOLY;do_weights|
-        ((|exp_v| |PrimitiveArray| (|NonNegativeInteger|))
-         (|ind_v| |PrimitiveArray| (|NonNegativeInteger|))
-         (|coeff_v| |PrimitiveArray| GF) (|min_i| |NonNegativeInteger|)
-         (|max_i| |NonNegativeInteger|) (|w| . #1=(|NonNegativeInteger|))
-         (|tp?| |Mapping| (|Boolean|) (|SparseUnivariatePolynomial| GF))
-         ($ |Union| (|SparseUnivariatePolynomial| GF) "failed"))
+        ((|exp_v| (|PrimitiveArray| (|NonNegativeInteger|)))
+         (|ind_v| (|PrimitiveArray| (|NonNegativeInteger|)))
+         (|coeff_v| (|PrimitiveArray| GF)) (|min_i| (|NonNegativeInteger|))
+         (|max_i| (|NonNegativeInteger|)) (|w| #1=(|NonNegativeInteger|))
+         (|tp?| (|Mapping| (|Boolean|) (|SparseUnivariatePolynomial| GF)))
+         ($ (|Union| (|SparseUnivariatePolynomial| GF) "failed")))
         (SPROG
          ((|i| (|NonNegativeInteger|)) (#2=#:G456 NIL) (|i1| NIL) (|w1| #1#)
           (#3=#:G455 NIL)
@@ -946,8 +947,8 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |FFPOLY;nextIrreduciblePoly;SupU;21|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |Union| (|SparseUnivariatePolynomial| GF) "failed"))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($ (|Union| (|SparseUnivariatePolynomial| GF) "failed")))
         (SPROG
          ((|ci| (GF)) (#1=#:G488 NIL) (|term| NIL) (|i| NIL)
           (|coeff_v| (|PrimitiveArray| GF))
@@ -1085,9 +1086,10 @@
                         (ELT $ 82) $))))))))))))) 
 
 (SDEFUN |FFPOLY;get_next_GF_generator|
-        ((|l| |NonNegativeInteger|) (|m1_to_n| GF)
-         ($ |Union| (|Record| (|:| |nl| (|PositiveInteger|)) (|:| |nc| GF))
-          "failed"))
+        ((|l| (|NonNegativeInteger|)) (|m1_to_n| (GF))
+         ($
+          (|Union| (|Record| (|:| |nl| (|PositiveInteger|)) (|:| |nc| GF))
+                   "failed")))
         (SPROG
          ((|l1| (|PositiveInteger|)) (#1=#:G498 NIL) (|c| (GF))
           (#2=#:G493 NIL))
@@ -1113,8 +1115,8 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |FFPOLY;nextPrimitivePoly;SupU;23|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |Union| (|SparseUnivariatePolynomial| GF) "failed"))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($ (|Union| (|SparseUnivariatePolynomial| GF) "failed")))
         (SPROG
          ((#1=#:G521 NIL)
           (|resu| (|Union| (|SparseUnivariatePolynomial| GF) "failed"))
@@ -1261,8 +1263,8 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |FFPOLY;nextNormalPoly;SupU;24|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |Union| (|SparseUnivariatePolynomial| GF) "failed"))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($ (|Union| (|SparseUnivariatePolynomial| GF) "failed")))
         (SPROG
          ((|a| (GF)) (#1=#:G545 NIL) (|la| (|NonNegativeInteger|))
           (#2=#:G553 NIL)
@@ -1408,8 +1410,8 @@
           #10# (EXIT #2#)))) 
 
 (SDEFUN |FFPOLY;nextNormalPrimitivePoly;SupU;25|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |Union| (|SparseUnivariatePolynomial| GF) "failed"))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($ (|Union| (|SparseUnivariatePolynomial| GF) "failed")))
         (SPROG
          ((|lc| (|NonNegativeInteger|)) (|a| (GF))
           (|la| (|NonNegativeInteger|)) (#1=#:G574 NIL) (#2=#:G585 NIL)
@@ -1633,12 +1635,12 @@
           #9# (EXIT #2#)))) 
 
 (SDEFUN |FFPOLY;nextPrimitiveNormalPoly;SupU;26|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |Union| (|SparseUnivariatePolynomial| GF) "failed"))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($ (|Union| (|SparseUnivariatePolynomial| GF) "failed")))
         (SPADCALL |f| (QREFELT $ 109))) 
 
 (SDEFUN |FFPOLY;createIrreduciblePoly;PiSup;27|
-        ((|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| GF))
+        ((|n| (|PositiveInteger|)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((#1=#:G420 NIL) (|kg| (GF)) (#2=#:G591 NIL) (#3=#:G589 NIL)
           (|l| (|PositiveInteger|)) (|dg| (|PositiveInteger|))
@@ -1729,7 +1731,7 @@
                                                   #1#)))))))))))))) 
 
 (SDEFUN |FFPOLY;createPrimitivePoly;PiSup;28|
-        ((|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| GF))
+        ((|n| (|PositiveInteger|)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((#1=#:G420 NIL) (|weight| (|NonNegativeInteger|))
           (|s| (|List| (|NonNegativeInteger|)))
@@ -1832,7 +1834,7 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |FFPOLY;createNormalPoly;PiSup;29|
-        ((|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| GF))
+        ((|n| (|PositiveInteger|)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG ((#1=#:G420 NIL) (#2=#:G614 NIL))
                (COND
                 ((EQL |n| 1)
@@ -1867,7 +1869,7 @@
                                    #1#)))))) 
 
 (SDEFUN |FFPOLY;createNormalPrimitivePoly;PiSup;30|
-        ((|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| GF))
+        ((|n| (|PositiveInteger|)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((#1=#:G420 NIL) (|pol| (|SparseUnivariatePolynomial| GF))
           (|res| (|Union| (|SparseUnivariatePolynomial| GF) "failed"))
@@ -1944,11 +1946,11 @@
                                               #1#)))))))))))))) 
 
 (SDEFUN |FFPOLY;createPrimitiveNormalPoly;PiSup;31|
-        ((|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| GF))
+        ((|n| (|PositiveInteger|)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPADCALL |n| (QREFELT $ 122))) 
 
 (SDEFUN |FFPOLY;random;PiSup;32|
-        ((|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| GF))
+        ((|n| (|PositiveInteger|)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((|polRepr|
            (|List|
@@ -1972,8 +1974,8 @@
               (EXIT (CONS (CONS |n| (|spadConstant| $ 16)) |polRepr|))))) 
 
 (SDEFUN |FFPOLY;random;2PiSup;33|
-        ((|m| . #1=(|PositiveInteger|)) (|n| . #2=(|PositiveInteger|))
-         ($ |SparseUnivariatePolynomial| GF))
+        ((|m| #1=(|PositiveInteger|)) (|n| #2=(|PositiveInteger|))
+         ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((#3=#:G634 NIL) (|d| (|NonNegativeInteger|)) (#4=#:G633 NIL)
           (|#G87| #1#) (|#G86| #2#))

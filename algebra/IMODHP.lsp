@@ -1,14 +1,16 @@
 
 (SDEFUN |IMODHP;eval1s|
-        ((|gvl| |List|
-          (|PrimitiveArray|
-           (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                     (|:| |denom| (|Polynomial| (|Integer|))))))
-         (|pt| |Integer|) (|var| |Symbol|)
-         (|pss| |Record| (|:| |prime| #1=(|Integer|))
-          (|:| |eval1coeffbuf| (|U32Vector|))
-          (|:| |eval1expbuf| (|SortedExponentVector|)))
-         ($ |Union| (|List| (|U32Vector|)) "failed"))
+        ((|gvl|
+          (|List|
+           (|PrimitiveArray|
+            (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                      (|:| |denom| (|Polynomial| (|Integer|)))))))
+         (|pt| (|Integer|)) (|var| (|Symbol|))
+         (|pss|
+          (|Record| (|:| |prime| #1=(|Integer|))
+                    (|:| |eval1coeffbuf| (|U32Vector|))
+                    (|:| |eval1expbuf| (|SortedExponentVector|))))
+         ($ (|Union| (|List| (|U32Vector|)) "failed")))
         (SPROG
          ((|resl| (|List| (|U32Vector|))) (|nlc| (|Integer|))
           (|dms| (|SingleInteger|)) (#2=#:G170 NIL) (|dm| #3=(|Integer|))
@@ -62,20 +64,23 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |IMODHP;eval2s|
-        ((|gvl| |List|
-          (|PrimitiveArray|
-           (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                     (|:| |denom| (|Polynomial| (|Integer|))))))
-         (|pt| |Integer|) (|var| |Symbol|)
-         (|pss| |Record| (|:| |prime| (|Integer|))
-          (|:| |eval1coeffbuf| (|U32Vector|))
-          (|:| |eval1expbuf| (|SortedExponentVector|)))
-         ($ |Union|
+        ((|gvl|
           (|List|
            (|PrimitiveArray|
             (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                      (|:| |denom| (|Polynomial| (|Integer|))))))
-          "failed"))
+                      (|:| |denom| (|Polynomial| (|Integer|)))))))
+         (|pt| (|Integer|)) (|var| (|Symbol|))
+         (|pss|
+          (|Record| (|:| |prime| (|Integer|))
+                    (|:| |eval1coeffbuf| (|U32Vector|))
+                    (|:| |eval1expbuf| (|SortedExponentVector|))))
+         ($
+          (|Union|
+           (|List|
+            (|PrimitiveArray|
+             (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                       (|:| |denom| (|Polynomial| (|Integer|))))))
+           "failed")))
         (SPROG
          ((|resl|
            (|List|
@@ -131,15 +136,16 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |IMODHP;eval3s|
-        ((|gvl| |List|
-          (|PrimitiveArray| (|Fraction| (|Polynomial| (|Integer|)))))
-         (|p| |Integer|)
-         ($ |Union|
-          (|List|
-           (|PrimitiveArray|
-            (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                      (|:| |denom| (|Polynomial| (|Integer|))))))
-          "failed"))
+        ((|gvl|
+          (|List| (|PrimitiveArray| (|Fraction| (|Polynomial| (|Integer|))))))
+         (|p| (|Integer|))
+         ($
+          (|Union|
+           (|List|
+            (|PrimitiveArray|
+             (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                       (|:| |denom| (|Polynomial| (|Integer|))))))
+           "failed")))
         (SPROG
          ((|resl|
            (|List|
@@ -192,9 +198,9 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |IMODHP;do_modular_solve0|
-        ((|gv| |Vector| (|U32Vector|)) (|ve| |Vector| (|Integer|))
-         (|sigma| |NonNegativeInteger|) (|pts| |U32Vector|) (|prime| |Integer|)
-         (|kind| |Symbol|) ($ |List| (|Any|)))
+        ((|gv| (|Vector| (|U32Vector|))) (|ve| (|Vector| (|Integer|)))
+         (|sigma| (|NonNegativeInteger|)) (|pts| (|U32Vector|))
+         (|prime| (|Integer|)) (|kind| (|Symbol|)) ($ (|List| (|Any|))))
         (COND
          ((OR (EQUAL |kind| '|diffHP|) (EQUAL |kind| '|qdiffHP|))
           (SPADCALL |gv| |ve| |sigma| |prime| (QREFELT $ 26)))
@@ -206,14 +212,15 @@
            "kind must be diffHP, qdiffHP, shiftHP, qshiftHP or qmixed")))) 
 
 (SDEFUN |IMODHP;do_modular_solve;VVNniUvISU;5|
-        ((|gv| |Vector| (|U32Vector|)) (|ve| |Vector| (|Integer|))
-         (|sigma| |NonNegativeInteger|) (|pts| |U32Vector|) (|prime| |Integer|)
-         (|kind| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |basis| #1=(|TwoDimensionalArray| (|U32Vector|)))
-                    (|:| |defects| (|Vector| (|Integer|)))
-                    (|:| |cinds| (|Vector| (|Integer|))))
-          "no_solution"))
+        ((|gv| (|Vector| (|U32Vector|))) (|ve| (|Vector| (|Integer|)))
+         (|sigma| (|NonNegativeInteger|)) (|pts| (|U32Vector|))
+         (|prime| (|Integer|)) (|kind| (|Symbol|))
+         ($
+          (|Union|
+           (|Record| (|:| |basis| #1=(|TwoDimensionalArray| (|U32Vector|)))
+                     (|:| |defects| (|Vector| (|Integer|)))
+                     (|:| |cinds| (|Vector| (|Integer|))))
+           "no_solution")))
         (SPROG
          ((#2=#:G246 NIL) (|j| (|Integer|)) (#3=#:G245 NIL) (#4=#:G253 NIL)
           (|i| NIL) (|cindk| (|Integer|)) (#5=#:G252 NIL) (|k| NIL)
@@ -367,8 +374,8 @@
           #15# (EXIT #2#)))) 
 
 (SDEFUN |IMODHP;compute_blocks|
-        ((|offsets| |Vector| (|Integer|)) (|rowlen| |Integer|)
-         (|nsols| |Integer|) ($ |Vector| (|Integer|)))
+        ((|offsets| (|Vector| (|Integer|))) (|rowlen| (|Integer|))
+         (|nsols| (|Integer|)) ($ (|Vector| (|Integer|))))
         (SPROG
          ((#1=#:G257 NIL) (|i| NIL) (|block_offsets| (|Vector| (|Integer|))))
          (SEQ (LETT |block_offsets| (MAKEARR1 |nsols| 0))
@@ -384,9 +391,9 @@
               (EXIT |block_offsets|)))) 
 
 (SDEFUN |IMODHP;merge_exponents;IVSevVSevL;7|
-        ((|nvars| |Integer|) (|offsets| |Vector| (|Integer|))
-         (|exps| |SortedExponentVector|) (|noffsets| |Vector| (|Integer|))
-         (|nexps| |SortedExponentVector|) ($ |List| (|List| (|Integer|))))
+        ((|nvars| (|Integer|)) (|offsets| (|Vector| (|Integer|)))
+         (|exps| (|SortedExponentVector|)) (|noffsets| (|Vector| (|Integer|)))
+         (|nexps| (|SortedExponentVector|)) ($ (|List| (|List| (|Integer|)))))
         (SPROG
          ((|j0| (|Integer|)) (|i0| (|Integer|)) (|j| (|Integer|))
           (|i| (|Integer|)) (|ci| (|Integer|)) (#1=#:G283 NIL)
@@ -501,12 +508,13 @@
           #8# (EXIT #4#)))) 
 
 (SDEFUN |IMODHP;merge2;I2LVSevVSevR;8|
-        ((|nvars| |Integer|) (|odl| |List| (|Integer|))
-         (|ndl| |List| (|Integer|)) (|ov1| |Vector| (|Integer|))
-         (|exps1| |SortedExponentVector|) (|ov2| |Vector| (|Integer|))
-         (|exps2| |SortedExponentVector|)
-         ($ |Record| (|:| |offsetdata| (|Vector| (|Integer|)))
-          (|:| |expdata| (|SortedExponentVector|))))
+        ((|nvars| (|Integer|)) (|odl| (|List| (|Integer|)))
+         (|ndl| (|List| (|Integer|))) (|ov1| (|Vector| (|Integer|)))
+         (|exps1| (|SortedExponentVector|)) (|ov2| (|Vector| (|Integer|)))
+         (|exps2| (|SortedExponentVector|))
+         ($
+          (|Record| (|:| |offsetdata| (|Vector| (|Integer|)))
+                    (|:| |expdata| (|SortedExponentVector|)))))
         (SPROG
          ((#1=#:G314 NIL) (|i| (|Integer|)) (|ci| (|Integer|))
           (|i00| (|Integer|)) (|i0| (|Integer|)) (|j0| (|Integer|))
@@ -604,18 +612,21 @@
               (EXIT (CONS |noffsets| |nexps|))))) 
 
 (SDEFUN |IMODHP;check_defects|
-        ((|va| |Vector| (|Integer|)) (|civ| |Vector| (|Integer|))
-         (|pss| |Record| (|:| |degree_bounds| (|Vector| (|Integer|)))
-          (|:| |pss_sigma| (|NonNegativeInteger|)) (|:| |points| (|U32Vector|))
-          (|:| |pss_qvar| (|Symbol|)) (|:| |pss_qval| (|Integer|))
-          (|:| |pss_kind| (|Symbol|)) (|:| |oldva| #1=(|Vector| (|Integer|)))
-          (|:| |oldciv| #2=(|Vector| (|Integer|))) (|:| |pss_m| (|Integer|))
-          (|:| |sol_cnt| #3=(|Integer|))
-          (|:| |pss1|
-               (|Record| (|:| |prime| (|Integer|))
-                         (|:| |eval1coeffbuf| (|U32Vector|))
-                         (|:| |eval1expbuf| (|SortedExponentVector|)))))
-         ($ |Union| "OK" "failed" "all_bad"))
+        ((|va| (|Vector| (|Integer|))) (|civ| (|Vector| (|Integer|)))
+         (|pss|
+          (|Record| (|:| |degree_bounds| (|Vector| (|Integer|)))
+                    (|:| |pss_sigma| (|NonNegativeInteger|))
+                    (|:| |points| (|U32Vector|)) (|:| |pss_qvar| (|Symbol|))
+                    (|:| |pss_qval| (|Integer|)) (|:| |pss_kind| (|Symbol|))
+                    (|:| |oldva| #1=(|Vector| (|Integer|)))
+                    (|:| |oldciv| #2=(|Vector| (|Integer|)))
+                    (|:| |pss_m| (|Integer|)) (|:| |sol_cnt| #3=(|Integer|))
+                    (|:| |pss1|
+                         (|Record| (|:| |prime| (|Integer|))
+                                   (|:| |eval1coeffbuf| (|U32Vector|))
+                                   (|:| |eval1expbuf|
+                                        (|SortedExponentVector|))))))
+         ($ (|Union| "OK" "failed" "all_bad")))
         (SPROG
          ((#4=#:G334 NIL) (#5=#:G333 NIL) (|is_bad| (|Boolean|))
           (|all_bad| (|Boolean|)) (#6=#:G335 NIL) (|i| NIL) (|ociv| #2#)
@@ -667,31 +678,37 @@
           #8# (EXIT #4#)))) 
 
 (SDEFUN |IMODHP;eval_and_solve|
-        ((|pt| |Integer|) (|vars| |List| (|Symbol|))
-         (|gvl| |List|
-          (|PrimitiveArray|
-           (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                     (|:| |denom| (|Polynomial| (|Integer|))))))
-         (|pss| |Record| (|:| |degree_bounds| #1=(|Vector| (|Integer|)))
-          (|:| |pss_sigma| (|NonNegativeInteger|)) (|:| |points| (|U32Vector|))
-          (|:| |pss_qvar| (|Symbol|)) (|:| |pss_qval| (|Integer|))
-          (|:| |pss_kind| (|Symbol|)) (|:| |oldva| (|Vector| (|Integer|)))
-          (|:| |oldciv| (|Vector| (|Integer|))) (|:| |pss_m| (|Integer|))
-          (|:| |sol_cnt| (|Integer|))
-          (|:| |pss1|
-               #2=(|Record| (|:| |prime| #3=(|Integer|))
-                            (|:| |eval1coeffbuf| (|U32Vector|))
-                            (|:| |eval1expbuf| (|SortedExponentVector|)))))
-         (|gen| |Mapping| #4=(|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         ($ |Union|
-          (|Record| (|:| |defects| (|Vector| (|Integer|)))
-                    (|:| |cinds| (|Vector| (|Integer|)))
-                    (|:| |rowlen| (|Integer|))
-                    (|:| |offsetdata| (|Vector| (|Integer|)))
-                    (|:| |expdata| (|SortedExponentVector|))
-                    (|:| |coeffdata| (|U32Vector|)))
-          "failed" "no_solution"))
+        ((|pt| (|Integer|)) (|vars| (|List| (|Symbol|)))
+         (|gvl|
+          (|List|
+           (|PrimitiveArray|
+            (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                      (|:| |denom| (|Polynomial| (|Integer|)))))))
+         (|pss|
+          (|Record| (|:| |degree_bounds| #1=(|Vector| (|Integer|)))
+                    (|:| |pss_sigma| (|NonNegativeInteger|))
+                    (|:| |points| (|U32Vector|)) (|:| |pss_qvar| (|Symbol|))
+                    (|:| |pss_qval| (|Integer|)) (|:| |pss_kind| (|Symbol|))
+                    (|:| |oldva| (|Vector| (|Integer|)))
+                    (|:| |oldciv| (|Vector| (|Integer|)))
+                    (|:| |pss_m| (|Integer|)) (|:| |sol_cnt| (|Integer|))
+                    (|:| |pss1|
+                         #2=(|Record| (|:| |prime| #3=(|Integer|))
+                                      (|:| |eval1coeffbuf| (|U32Vector|))
+                                      (|:| |eval1expbuf|
+                                           (|SortedExponentVector|))))))
+         (|gen|
+          (|Mapping| #4=(|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         ($
+          (|Union|
+           (|Record| (|:| |defects| (|Vector| (|Integer|)))
+                     (|:| |cinds| (|Vector| (|Integer|)))
+                     (|:| |rowlen| (|Integer|))
+                     (|:| |offsetdata| (|Vector| (|Integer|)))
+                     (|:| |expdata| (|SortedExponentVector|))
+                     (|:| |coeffdata| (|U32Vector|)))
+           "failed" "no_solution")))
         (SPROG
          ((#5=#:G374 NIL)
           (|ngvl|
@@ -908,32 +925,37 @@
           #21# (EXIT #5#)))) 
 
 (SDEFUN |IMODHP;do_poly_modular|
-        ((|vars| |List| (|Symbol|))
-         (|gvl| |List|
-          (|PrimitiveArray|
-           (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                     (|:| |denom| (|Polynomial| (|Integer|))))))
-         (|pss| |Record| (|:| |degree_bounds| (|Vector| (|Integer|)))
-          (|:| |pss_sigma| (|NonNegativeInteger|))
-          (|:| |points| #1=(|U32Vector|)) (|:| |pss_qvar| (|Symbol|))
-          (|:| |pss_qval| (|Integer|)) (|:| |pss_kind| (|Symbol|))
-          (|:| |oldva| (|Vector| (|Integer|)))
-          (|:| |oldciv| (|Vector| (|Integer|))) (|:| |pss_m| #2=(|Integer|))
-          (|:| |sol_cnt| (|Integer|))
-          (|:| |pss1|
-               (|Record| (|:| |prime| #3=(|Integer|))
-                         (|:| |eval1coeffbuf| (|U32Vector|))
-                         (|:| |eval1expbuf| (|SortedExponentVector|)))))
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         ($ |Union|
-          (|Record| (|:| |defects| (|Vector| (|Integer|)))
-                    (|:| |cinds| (|Vector| (|Integer|)))
-                    (|:| |rowlen| (|Integer|))
-                    (|:| |offsetdata| (|Vector| (|Integer|)))
-                    (|:| |expdata| (|SortedExponentVector|))
-                    (|:| |coeffdata| (|U32Vector|)))
-          "failed" "no_solution"))
+        ((|vars| (|List| (|Symbol|)))
+         (|gvl|
+          (|List|
+           (|PrimitiveArray|
+            (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                      (|:| |denom| (|Polynomial| (|Integer|)))))))
+         (|pss|
+          (|Record| (|:| |degree_bounds| (|Vector| (|Integer|)))
+                    (|:| |pss_sigma| (|NonNegativeInteger|))
+                    (|:| |points| #1=(|U32Vector|)) (|:| |pss_qvar| (|Symbol|))
+                    (|:| |pss_qval| (|Integer|)) (|:| |pss_kind| (|Symbol|))
+                    (|:| |oldva| (|Vector| (|Integer|)))
+                    (|:| |oldciv| (|Vector| (|Integer|)))
+                    (|:| |pss_m| #2=(|Integer|)) (|:| |sol_cnt| (|Integer|))
+                    (|:| |pss1|
+                         (|Record| (|:| |prime| #3=(|Integer|))
+                                   (|:| |eval1coeffbuf| (|U32Vector|))
+                                   (|:| |eval1expbuf|
+                                        (|SortedExponentVector|))))))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         ($
+          (|Union|
+           (|Record| (|:| |defects| (|Vector| (|Integer|)))
+                     (|:| |cinds| (|Vector| (|Integer|)))
+                     (|:| |rowlen| (|Integer|))
+                     (|:| |offsetdata| (|Vector| (|Integer|)))
+                     (|:| |expdata| (|SortedExponentVector|))
+                     (|:| |coeffdata| (|U32Vector|)))
+           "failed" "no_solution")))
         (SPROG
          ((#4=#:G431 NIL)
           (|rr|
@@ -1349,29 +1371,34 @@
           #15# (EXIT #4#)))) 
 
 (SDEFUN |IMODHP;do_poly_integer0|
-        ((|vars| |List| (|Symbol|))
-         (|gvl| |List|
-          (|PrimitiveArray| (|Fraction| (|Polynomial| (|Integer|)))))
-         (|pss| |Record| (|:| |degree_bounds| (|Vector| (|Integer|)))
-          (|:| |pss_sigma| (|NonNegativeInteger|)) (|:| |points| (|U32Vector|))
-          (|:| |pss_qvar| (|Symbol|)) (|:| |pss_qval| (|Integer|))
-          (|:| |pss_kind| (|Symbol|)) (|:| |oldva| (|Vector| (|Integer|)))
-          (|:| |oldciv| (|Vector| (|Integer|))) (|:| |pss_m| #1=(|Integer|))
-          (|:| |sol_cnt| (|Integer|))
-          (|:| |pss1|
-               #2=(|Record| (|:| |prime| (|Integer|))
-                            (|:| |eval1coeffbuf| (|U32Vector|))
-                            (|:| |eval1expbuf| (|SortedExponentVector|)))))
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         ($ |Union|
-          (|Record| (|:| |defects| (|Vector| (|Integer|)))
-                    (|:| |cinds| (|Vector| (|Integer|)))
-                    (|:| |rowlen| (|Integer|))
-                    (|:| |offsetdata| (|Vector| (|Integer|)))
-                    (|:| |expdata| (|SortedExponentVector|))
-                    (|:| |coeffdata| (|PrimitiveArray| (|Integer|))))
-          "no_solution"))
+        ((|vars| (|List| (|Symbol|)))
+         (|gvl|
+          (|List| (|PrimitiveArray| (|Fraction| (|Polynomial| (|Integer|))))))
+         (|pss|
+          (|Record| (|:| |degree_bounds| (|Vector| (|Integer|)))
+                    (|:| |pss_sigma| (|NonNegativeInteger|))
+                    (|:| |points| (|U32Vector|)) (|:| |pss_qvar| (|Symbol|))
+                    (|:| |pss_qval| (|Integer|)) (|:| |pss_kind| (|Symbol|))
+                    (|:| |oldva| (|Vector| (|Integer|)))
+                    (|:| |oldciv| (|Vector| (|Integer|)))
+                    (|:| |pss_m| #1=(|Integer|)) (|:| |sol_cnt| (|Integer|))
+                    (|:| |pss1|
+                         #2=(|Record| (|:| |prime| (|Integer|))
+                                      (|:| |eval1coeffbuf| (|U32Vector|))
+                                      (|:| |eval1expbuf|
+                                           (|SortedExponentVector|))))))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         ($
+          (|Union|
+           (|Record| (|:| |defects| (|Vector| (|Integer|)))
+                     (|:| |cinds| (|Vector| (|Integer|)))
+                     (|:| |rowlen| (|Integer|))
+                     (|:| |offsetdata| (|Vector| (|Integer|)))
+                     (|:| |expdata| (|SortedExponentVector|))
+                     (|:| |coeffdata| (|PrimitiveArray| (|Integer|))))
+           "no_solution")))
         (SPROG
          ((#3=#:G479 NIL)
           (|pp| (|Union| (|PrimitiveArray| (|Integer|)) "failed"))
@@ -1848,21 +1875,23 @@
           #12# (EXIT #3#)))) 
 
 (SDEFUN |IMODHP;do_poly_integer;LLVNniUv2SMU;13|
-        ((|vars| |List| (|Symbol|))
-         (|gvl| |List|
-          (|PrimitiveArray| (|Fraction| (|Polynomial| (|Integer|)))))
-         (|ve| |Vector| (|Integer|)) (|sigma| |NonNegativeInteger|)
-         (|pts| |U32Vector|) (|kind| |Symbol|) (|qvar| |Symbol|)
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         ($ |Union|
-          (|Record| (|:| |defects| (|Vector| (|Integer|)))
-                    (|:| |cinds| (|Vector| (|Integer|)))
-                    (|:| |rowlen| (|Integer|))
-                    (|:| |offsetdata| (|Vector| (|Integer|)))
-                    (|:| |expdata| (|SortedExponentVector|))
-                    (|:| |coeffdata| (|PrimitiveArray| (|Integer|))))
-          "no_solution"))
+        ((|vars| (|List| (|Symbol|)))
+         (|gvl|
+          (|List| (|PrimitiveArray| (|Fraction| (|Polynomial| (|Integer|))))))
+         (|ve| (|Vector| (|Integer|))) (|sigma| (|NonNegativeInteger|))
+         (|pts| (|U32Vector|)) (|kind| (|Symbol|)) (|qvar| (|Symbol|))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         ($
+          (|Union|
+           (|Record| (|:| |defects| (|Vector| (|Integer|)))
+                     (|:| |cinds| (|Vector| (|Integer|)))
+                     (|:| |rowlen| (|Integer|))
+                     (|:| |offsetdata| (|Vector| (|Integer|)))
+                     (|:| |expdata| (|SortedExponentVector|))
+                     (|:| |coeffdata| (|PrimitiveArray| (|Integer|))))
+           "no_solution")))
         (SPROG
          ((#1=#:G495 NIL)
           (|pss|

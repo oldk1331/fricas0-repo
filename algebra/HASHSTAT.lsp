@@ -1,21 +1,22 @@
 
 (PUT '|HASHSTAT;new;$;1| '|SPADreplace| '(XLAM NIL HASHSTATEBASIS)) 
 
-(SDEFUN |HASHSTAT;new;$;1| (($ $)) HASHSTATEBASIS) 
+(SDEFUN |HASHSTAT;new;$;1| (($ ($))) HASHSTATEBASIS) 
 
 (PUT '|HASHSTAT;value;$Si;2| '|SPADreplace| 'HASHSTATEMAKEFIXNUM) 
 
-(SDEFUN |HASHSTAT;value;$Si;2| ((|hs| $) ($ |SingleInteger|))
+(SDEFUN |HASHSTAT;value;$Si;2| ((|hs| ($)) ($ (|SingleInteger|)))
         (HASHSTATEMAKEFIXNUM |hs|)) 
 
 (PUT '|HASHSTAT;update!;$Si$;3| '|SPADreplace| 'HASHSTATEUPDATE) 
 
-(SDEFUN |HASHSTAT;update!;$Si$;3| ((|hs| $) (|i| |SingleInteger|) ($ $))
+(SDEFUN |HASHSTAT;update!;$Si$;3| ((|hs| ($)) (|i| (|SingleInteger|)) ($ ($)))
         (HASHSTATEUPDATE |hs| |i|)) 
 
 (PUT '|HASHSTAT;modulo| '|SPADreplace| 'HASHSTATEMOD) 
 
-(SDEFUN |HASHSTAT;modulo| ((|hs| $) (|i| |SingleInteger|) ($ |SingleInteger|))
+(SDEFUN |HASHSTAT;modulo|
+        ((|hs| ($)) (|i| (|SingleInteger|)) ($ (|SingleInteger|)))
         (HASHSTATEMOD |hs| |i|)) 
 
 (DECLAIM (NOTINLINE |HashState;|)) 

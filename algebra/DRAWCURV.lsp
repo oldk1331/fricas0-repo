@@ -1,7 +1,7 @@
 
 (SDEFUN |DRAWCURV;drawToScaleRanges|
-        ((|xVals| |Segment| (|Float|)) (|yVals| |Segment| (|Float|))
-         ($ |List| (|Segment| (|Float|))))
+        ((|xVals| (|Segment| (|Float|))) (|yVals| (|Segment| (|Float|)))
+         ($ (|List| (|Segment| (|Float|)))))
         (SPROG
          ((|pad| (|Float|)) (|yDiff| #1=(|Float|)) (|xDiff| #1#)
           (|yLo| #2=(|Float|)) (|yHi| #3=(|Float|)) (|xLo| #2#) (|xHi| #3#))
@@ -30,7 +30,7 @@
                                  (SPADCALL |yHi| |pad| (QREFELT $ 18))
                                  (QREFELT $ 19))))))))) 
 
-(SDEFUN |DRAWCURV;intConvert| ((|r| R) ($ |Integer|))
+(SDEFUN |DRAWCURV;intConvert| ((|r| (R)) ($ (|Integer|)))
         (SPROG ((|nn| (|Union| (|Integer|) "failed")))
                (SEQ (LETT |nn| (SPADCALL |r| (QREFELT $ 21)))
                     (EXIT
@@ -41,7 +41,7 @@
                       ('T (QCDR |nn|))))))) 
 
 (SDEFUN |DRAWCURV;polyEquation|
-        ((|eq| |Equation| |Ex|) ($ |Polynomial| (|Integer|)))
+        ((|eq| (|Equation| |Ex|)) ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((|rat| (|Fraction| (|Polynomial| R)))
           (|r| (|Union| (|Fraction| (|Polynomial| R)) "failed")) (|ff| (|Ex|)))
@@ -67,8 +67,8 @@
                                     (QREFELT $ 37)))))))))))) 
 
 (SDEFUN |DRAWCURV;makeObject;E2SLGi;4|
-        ((|eq| |Equation| |Ex|) (|x| |Symbol|) (|y| |Symbol|)
-         (|l| |List| (|DrawOption|)) ($ |GraphImage|))
+        ((|eq| (|Equation| |Ex|)) (|x| (|Symbol|)) (|y| (|Symbol|))
+         (|l| (|List| (|DrawOption|))) ($ (|GraphImage|)))
         (SPROG
          ((|crCol| (|Palette|)) (|ptCol| (|Palette|))
           (|scaledRanges| (|List| (|Segment| (|Float|))))
@@ -158,8 +158,8 @@
                          (SPADCALL (QREFELT $ 87)) |l| (QREFELT $ 90)))))) 
 
 (SDEFUN |DRAWCURV;draw;E2SLTdv;5|
-        ((|eq| |Equation| |Ex|) (|x| |Symbol|) (|y| |Symbol|)
-         (|l| |List| (|DrawOption|)) ($ |TwoDimensionalViewport|))
+        ((|eq| (|Equation| |Ex|)) (|x| (|Symbol|)) (|y| (|Symbol|))
+         (|l| (|List| (|DrawOption|))) ($ (|TwoDimensionalViewport|)))
         (SPROG ((|g| (|GraphImage|)))
                (SEQ (LETT |g| (SPADCALL |eq| |x| |y| |l| (QREFELT $ 91)))
                     (EXIT (SPADCALL |g| |l| (QREFELT $ 93)))))) 

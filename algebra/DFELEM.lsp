@@ -1,5 +1,5 @@
 
-(SDEFUN |DFELEM;log_plus_1;2Df;1| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |DFELEM;log_plus_1;2Df;1| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG ((|x2| (|DoubleFloat|)) (|x1| (|DoubleFloat|)))
                (SEQ (LETT |x1| (|add_DF| |x| 1.0))
                     (COND
@@ -13,7 +13,7 @@
                                          (QREFELT $ 19))))))) 
 
 (SDEFUN |DFELEM;atanh;2C;2|
-        ((|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|ri| (|DoubleFloat|)) (|t2| #1=(|DoubleFloat|))
           (|rr| (|DoubleFloat|)) (|t| (|DoubleFloat|)) (|sy| (|DoubleFloat|))

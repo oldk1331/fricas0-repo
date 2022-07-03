@@ -1,12 +1,12 @@
 
-(SDEFUN |GCDBAS;gcdBasis;2V;1| ((|v| |Vector| R) ($ |Vector| R))
+(SDEFUN |GCDBAS;gcdBasis;2V;1| ((|v| (|Vector| R)) ($ (|Vector| R)))
         (QCAR (SPADCALL |v| (QREFELT $ 9)))) 
 
 (SDEFUN |GCDBAS;splitNums|
-        ((|a| R) (|b| R)
-         ($ |Union|
-          (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R))
-          "failed"))
+        ((|a| (R)) (|b| (R))
+         ($
+          (|Union| (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R))
+                   "failed")))
         (SPROG ((|b1| (R)) (#1=#:G132 NIL) (|a1| (R)) (|cf| (R)))
                (SEQ (LETT |cf| (SPADCALL |a| |b| (QREFELT $ 11)))
                     (EXIT
@@ -38,9 +38,10 @@
                              (EXIT (CONS 0 (VECTOR |a1| |b1| |cf|)))))))))) 
 
 (SDEFUN |GCDBAS;gcdDecomposition;VR;3|
-        ((|v| |Vector| (|Fraction| R))
-         ($ |Record| (|:| |basis| #1=(|Vector| R))
-          (|:| |transform| #2=(|Matrix| (|Integer|)))))
+        ((|v| (|Vector| (|Fraction| R)))
+         ($
+          (|Record| (|:| |basis| #1=(|Vector| R))
+                    (|:| |transform| #2=(|Matrix| (|Integer|))))))
         (SPROG
          ((#3=#:G146 NIL) (|j| NIL) (#4=#:G145 NIL) (|i| NIL)
           (|ct| (|Matrix| (|Integer|))) (|m| (|NonNegativeInteger|))
@@ -87,9 +88,10 @@
               (EXIT (CONS |cb| |ct|))))) 
 
 (SDEFUN |GCDBAS;gcdDecomposition;VR;4|
-        ((|v| |Vector| R)
-         ($ |Record| (|:| |basis| #1=(|Vector| R))
-          (|:| |transform| #2=(|Matrix| (|Integer|)))))
+        ((|v| (|Vector| R))
+         ($
+          (|Record| (|:| |basis| #1=(|Vector| R))
+                    (|:| |transform| #2=(|Matrix| (|Integer|))))))
         (SPROG
          ((#3=#:G193 NIL) (|i| NIL) (#4=#:G192 NIL)
           (|nv| (|Vector| (|Integer|))) (|a| (R)) (#5=#:G191 NIL) (|l| NIL)

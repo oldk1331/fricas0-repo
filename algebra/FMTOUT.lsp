@@ -1,14 +1,14 @@
 
 (SDEFUN |FMTOUT;setFormats!;LV;1|
-        ((|l| |List| (|OutputFormatterCategory|)) ($ |Void|))
+        ((|l| (|List| (|OutputFormatterCategory|))) ($ (|Void|)))
         (SPADCALL (QREFELT $ 9) |l| (QREFELT $ 10))) 
 
 (PUT '|FMTOUT;convert;OfI$;2| '|SPADreplace| 'CONS) 
 
-(SDEFUN |FMTOUT;convert;OfI$;2| ((|e| |OutputForm|) (|n| |Integer|) ($ $))
-        (CONS |e| |n|)) 
+(SDEFUN |FMTOUT;convert;OfI$;2|
+        ((|e| (|OutputForm|)) (|n| (|Integer|)) ($ ($))) (CONS |e| |n|)) 
 
-(SDEFUN |FMTOUT;display;$V;3| ((|x| $) ($ |Void|))
+(SDEFUN |FMTOUT;display;$V;3| ((|x| ($)) ($ (|Void|)))
         (SPROG ((#1=#:G124 NIL) (F NIL))
                (SEQ (LETT F NIL)
                     (LETT #1# (SPADCALL (QREFELT $ 9) (QREFELT $ 16))) G190

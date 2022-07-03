@@ -1,6 +1,6 @@
 
 (SDEFUN |FR2;map;MFF;1|
-        ((|fn| |Mapping| S R) (|u| |Factored| R) ($ |Factored| S))
+        ((|fn| (|Mapping| S R)) (|u| (|Factored| R)) ($ (|Factored| S)))
         (SPROG
          ((|l|
            (|List|
@@ -33,7 +33,7 @@
           (EXIT (SPADCALL (|spadConstant| $ 15) |l| (QREFELT $ 19)))))) 
 
 (SDEFUN |FR2;map_preserving;MFF;2|
-        ((|fn| |Mapping| S R) (|u| |Factored| R) ($ |Factored| S))
+        ((|fn| (|Mapping| S R)) (|u| (|Factored| R)) ($ (|Factored| S)))
         (SPROG
          ((|nl|
            (|List|

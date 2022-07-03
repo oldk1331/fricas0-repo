@@ -1,5 +1,5 @@
 
-(SDEFUN |RETFROM-;retract;SA;1| ((|s| S) ($ A))
+(SDEFUN |RETFROM-;retract;SA;1| ((|s| (S)) ($ (A)))
         (SPROG ((|u| (|Union| A "failed")))
                (SEQ (LETT |u| (SPADCALL |s| (QREFELT $ 9)))
                     (EXIT

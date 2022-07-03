@@ -1,9 +1,10 @@
 
 (SDEFUN |INTHERTR;HermiteIntegrate;FMUPR;1|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP) (|d0| UP)
-         ($ |Record| (|:| |answer| (|Fraction| UP))
-          (|:| |logpart| (|Fraction| UP)) (|:| |specpart| (|Fraction| UP))
-          (|:| |polypart| UP)))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP)) (|d0| (UP))
+         ($
+          (|Record| (|:| |answer| (|Fraction| UP))
+                    (|:| |logpart| (|Fraction| UP))
+                    (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))))
         (SPROG
          ((|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
           (|hi|
@@ -26,16 +27,18 @@
                                  (QREFELT $ 16))))))) 
 
 (SDEFUN |INTHERTR;HermiteIntegrate;FMR;2|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |answer| (|Fraction| UP))
-          (|:| |logpart| (|Fraction| UP)) (|:| |specpart| (|Fraction| UP))
-          (|:| |polypart| UP)))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP))
+         ($
+          (|Record| (|:| |answer| (|Fraction| UP))
+                    (|:| |logpart| (|Fraction| UP))
+                    (|:| |specpart| (|Fraction| UP)) (|:| |polypart| UP))))
         (SPADCALL |f| |derivation| (|spadConstant| $ 20) (QREFELT $ 18))) 
 
 (SDEFUN |INTHERTR;normalHermiteIntegrate|
-        ((|f| |Fraction| UP) (|derivation| |Mapping| UP UP) (|d0| UP)
-         ($ |Record| (|:| |answer| (|Fraction| UP)) (|:| |lognum| UP)
-          (|:| |logden| UP)))
+        ((|f| (|Fraction| UP)) (|derivation| (|Mapping| UP UP)) (|d0| (UP))
+         ($
+          (|Record| (|:| |answer| (|Fraction| UP)) (|:| |lognum| UP)
+                    (|:| |logden| UP))))
         (SPROG
          ((|mult| (UP)) (|p| (UP)) (|a| (UP)) (#1=#:G133 NIL) (|qr_rem| (UP))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))

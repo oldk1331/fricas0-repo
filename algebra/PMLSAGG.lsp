@@ -1,7 +1,7 @@
 
 (SDEFUN |PMLSAGG;patternMatch;LP2Pmlr;1|
-        ((|l| L) (|p| |Pattern| S) (|r| |PatternMatchListResult| S R L)
-         ($ |PatternMatchListResult| S R L))
+        ((|l| (L)) (|p| (|Pattern| S)) (|r| (|PatternMatchListResult| S R L))
+         ($ (|PatternMatchListResult| S R L)))
         (SPROG ((|u| (|Union| (|List| (|Pattern| S)) "failed")))
                (SEQ (LETT |u| (SPADCALL |p| (QREFELT $ 11)))
                     (EXIT
@@ -9,9 +9,9 @@
                            ('T (|PMLSAGG;match| |l| (QCDR |u|) |r| 'T $))))))) 
 
 (SDEFUN |PMLSAGG;match|
-        ((|l| L) (|lp| |List| (|Pattern| S))
-         (|r| |PatternMatchListResult| S R L) (|new?| |Boolean|)
-         ($ |PatternMatchListResult| S R L))
+        ((|l| (L)) (|lp| (|List| (|Pattern| S)))
+         (|r| (|PatternMatchListResult| S R L)) (|new?| (|Boolean|))
+         ($ (|PatternMatchListResult| S R L)))
         (SPROG ((|p0| (|Pattern| S)))
                (SEQ
                 (COND

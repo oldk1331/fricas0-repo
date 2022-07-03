@@ -1,5 +1,5 @@
 
-(SDEFUN |DHMATRIX;identity;$;1| (($ $))
+(SDEFUN |DHMATRIX;identity;$;1| (($ ($)))
         (SPADCALL
          (LIST
           (LIST (|spadConstant| $ 7) (|spadConstant| $ 8) (|spadConstant| $ 8)
@@ -12,7 +12,7 @@
                 (|spadConstant| $ 7)))
          (QREFELT $ 10))) 
 
-(SDEFUN |DHMATRIX;*;$2P;2| ((|d| $) (|p| |Point| R) ($ |Point| R))
+(SDEFUN |DHMATRIX;*;$2P;2| ((|d| ($)) (|p| (|Point| R)) ($ (|Point| R)))
         (SPROG ((|v| (|Vector| R)))
                (SEQ (LETT |v| |p|)
                     (LETT |v|
@@ -25,7 +25,7 @@
                             (SPADCALL |v| 3 (QREFELT $ 16)))
                       (QREFELT $ 19)))))) 
 
-(SDEFUN |DHMATRIX;rotatex;R$;3| ((|degree| R) ($ $))
+(SDEFUN |DHMATRIX;rotatex;R$;3| ((|degree| (R)) ($ ($)))
         (SPROG ((|sinAngle| (R)) (|cosAngle| (R)) (|angle| (R)))
                (SEQ
                 (LETT |angle|
@@ -49,7 +49,7 @@
                          (|spadConstant| $ 8) (|spadConstant| $ 7)))
                   (QREFELT $ 10)))))) 
 
-(SDEFUN |DHMATRIX;rotatey;R$;4| ((|degree| R) ($ $))
+(SDEFUN |DHMATRIX;rotatey;R$;4| ((|degree| (R)) ($ ($)))
         (SPROG ((|sinAngle| (R)) (|cosAngle| (R)) (|angle| (R)))
                (SEQ
                 (LETT |angle|
@@ -72,7 +72,7 @@
                          (|spadConstant| $ 8) (|spadConstant| $ 7)))
                   (QREFELT $ 10)))))) 
 
-(SDEFUN |DHMATRIX;rotatez;R$;5| ((|degree| R) ($ $))
+(SDEFUN |DHMATRIX;rotatez;R$;5| ((|degree| (R)) ($ ($)))
         (SPROG ((|sinAngle| (R)) (|cosAngle| (R)) (|angle| (R)))
                (SEQ
                 (LETT |angle|
@@ -95,7 +95,8 @@
                          (|spadConstant| $ 8) (|spadConstant| $ 7)))
                   (QREFELT $ 10)))))) 
 
-(SDEFUN |DHMATRIX;scale;3R$;6| ((|scalex| R) (|scaley| R) (|scalez| R) ($ $))
+(SDEFUN |DHMATRIX;scale;3R$;6|
+        ((|scalex| (R)) (|scaley| (R)) (|scalez| (R)) ($ ($)))
         (SPADCALL
          (LIST
           (LIST |scalex| (|spadConstant| $ 8) (|spadConstant| $ 8)
@@ -108,7 +109,7 @@
                 (|spadConstant| $ 7)))
          (QREFELT $ 10))) 
 
-(SDEFUN |DHMATRIX;translate;3R$;7| ((|x| R) (|y| R) (|z| R) ($ $))
+(SDEFUN |DHMATRIX;translate;3R$;7| ((|x| (R)) (|y| (R)) (|z| (R)) ($ ($)))
         (SPADCALL
          (LIST
           (LIST (|spadConstant| $ 7) (|spadConstant| $ 8) (|spadConstant| $ 8)

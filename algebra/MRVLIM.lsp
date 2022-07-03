@@ -1,7 +1,7 @@
 
 (SDEFUN |MRVLIM;var_kers|
-        ((|e| |Expression| (|Integer|))
-         ($ |List| (|Kernel| (|Expression| (|Integer|)))))
+        ((|e| (|Expression| (|Integer|)))
+         ($ (|List| (|Kernel| (|Expression| (|Integer|))))))
         (SPROG ((#1=#:G166 NIL) (|kk| NIL) (#2=#:G165 NIL))
                (SEQ
                 (PROGN
@@ -23,12 +23,15 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |MRVLIM;mrv_normalize;ESRE;2|
-        ((|f| |Expression| (|Integer|)) (|x| |Symbol|)
-         (|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Expression| (|Integer|)))
+        ((|f| (|Expression| (|Integer|))) (|x| (|Symbol|))
+         (|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($ (|Expression| (|Integer|))))
         (SPROG
          ((#1=#:G202 NIL) (|nk| (|Expression| (|Integer|))) (|ss| (|Integer|))
           (|la| (|OrderedCompletion| (|Expression| (|Integer|))))
@@ -455,12 +458,15 @@
               (EXIT (SPADCALL |f| |rtf| |ntf| (QREFELT $ 35)))))) 
 
 (SDEFUN |MRVLIM;mrv_bounded1|
-        ((|e| |Expression| (|Integer|))
-         (|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Boolean|))
+        ((|e| (|Expression| (|Integer|)))
+         (|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($ (|Boolean|)))
         (SPROG
          ((|vde| (|List| (|Symbol|))) (|sde| (|Union| (|Integer|) "failed"))
           (|kk| (|Kernel| (|Expression| (|Integer|))))
@@ -533,11 +539,14 @@
                      (QVELT |state| 2) (QREFELT $ 87))))))))))) 
 
 (SDEFUN |MRVLIM;mrv_bounded|
-        ((|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Mapping| (|Boolean|) (|Expression| (|Integer|))))
+        ((|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($ (|Mapping| (|Boolean|) (|Expression| (|Integer|)))))
         (SPROG NIL (CONS #'|MRVLIM;mrv_bounded!0| (VECTOR $ |state|)))) 
 
 (SDEFUN |MRVLIM;mrv_bounded!0| ((|e| NIL) ($$ NIL))
@@ -547,11 +556,14 @@
           (RETURN (PROGN (|MRVLIM;mrv_bounded1| |e| |state| $))))) 
 
 (SDEFUN |MRVLIM;mrv_invertible|
-        ((|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Mapping| (|Boolean|) (|Expression| (|Integer|))))
+        ((|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($ (|Mapping| (|Boolean|) (|Expression| (|Integer|)))))
         (SPROG ((|var_syms| (|List| (|Symbol|))))
                (SEQ
                 (LETT |var_syms|
@@ -632,21 +644,25 @@
                                          ('T NIL)))))
                                      ('T NIL)))))))))))))))) 
 
-(SDEFUN |MRVLIM;mrv_zero| ((|e| |Expression| (|Integer|)) ($ |Boolean|))
+(SDEFUN |MRVLIM;mrv_zero| ((|e| (|Expression| (|Integer|))) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |e| (QREFELT $ 28)) (|spadConstant| $ 7)
                   (QREFELT $ 29))) 
 
 (SDEFUN |MRVLIM;expr_to_series;EKRU;7|
-        ((|e| |Expression| (|Integer|))
-         (|k| |Kernel| (|Expression| (|Integer|)))
-         (|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Union|
-          (|Record| (|:| |degree| (|OrderedExpression|))
-                    (|:| |coeff| (|Expression| (|Integer|))))
-          "failed"))
+        ((|e| (|Expression| (|Integer|)))
+         (|k| (|Kernel| (|Expression| (|Integer|))))
+         (|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($
+          (|Union|
+           (|Record| (|:| |degree| (|OrderedExpression|))
+                     (|:| |coeff| (|Expression| (|Integer|))))
+           "failed")))
         (SPROG
          ((#1=#:G273 NIL)
           (|vkers| (|List| (|Kernel| (|Expression| (|Integer|)))))
@@ -738,16 +754,20 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |MRVLIM;mrv_cmp;2KSRU;8|
-        ((|x| |Kernel| (|Expression| (|Integer|)))
-         (|y| |Kernel| (|Expression| (|Integer|))) (|v| |Symbol|)
-         (|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Union|
-          (|Record| (|:| |sign| (|Integer|))
-                    (|:| |coeff| (|Expression| (|Integer|))))
-          "failed"))
+        ((|x| (|Kernel| (|Expression| (|Integer|))))
+         (|y| (|Kernel| (|Expression| (|Integer|)))) (|v| (|Symbol|))
+         (|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($
+          (|Union|
+           (|Record| (|:| |sign| (|Integer|))
+                     (|:| |coeff| (|Expression| (|Integer|))))
+           "failed")))
         (SPROG
          ((|pp1| (|OrderedCompletion| (|Expression| (|Integer|))))
           (|ppu|
@@ -785,15 +805,19 @@
             (#1# (CONS 1 "failed"))))))) 
 
 (SDEFUN |MRVLIM;mrv_set;ESRU;9|
-        ((|e| |Expression| (|Integer|)) (|x| |Symbol|)
-         (|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Union|
-          (|Record| (|:| |lk| (|List| (|Kernel| (|Expression| (|Integer|)))))
-                    (|:| |lc| (|List| (|Expression| (|Integer|)))))
-          "failed"))
+        ((|e| (|Expression| (|Integer|))) (|x| (|Symbol|))
+         (|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($
+          (|Union|
+           (|Record| (|:| |lk| (|List| (|Kernel| (|Expression| (|Integer|)))))
+                     (|:| |lc| (|List| (|Expression| (|Integer|)))))
+           "failed")))
         (SPROG
          ((|res_c| (|List| (|Expression| (|Integer|))))
           (|res| (|List| #1=(|Kernel| (|Expression| (|Integer|)))))
@@ -857,9 +881,10 @@
           #6# (EXIT #4#)))) 
 
 (SDEFUN |MRVLIM;mrv_rewrite1|
-        ((|e| |Expression| (|Integer|))
-         (|lx| |List| (|Kernel| (|Expression| (|Integer|))))
-         (|ly| |List| (|Expression| (|Integer|))) ($ |Expression| (|Integer|)))
+        ((|e| (|Expression| (|Integer|)))
+         (|lx| (|List| (|Kernel| (|Expression| (|Integer|)))))
+         (|ly| (|List| (|Expression| (|Integer|))))
+         ($ (|Expression| (|Integer|))))
         (SPROG
          ((#1=#:G318 NIL) (|x| NIL) (#2=#:G319 NIL) (|y| NIL)
           (|rly| (|List| (|Expression| (|Integer|))))
@@ -881,10 +906,10 @@
               (EXIT |e|)))) 
 
 (SDEFUN |MRVLIM;mrv_rewrite0;ELL2E;11|
-        ((|e| |Expression| (|Integer|))
-         (|lx| |List| (|Kernel| (|Expression| (|Integer|))))
-         (|lc| |List| (|Expression| (|Integer|)))
-         (|x00| |Expression| (|Integer|)) ($ |Expression| (|Integer|)))
+        ((|e| (|Expression| (|Integer|)))
+         (|lx| (|List| (|Kernel| (|Expression| (|Integer|)))))
+         (|lc| (|List| (|Expression| (|Integer|))))
+         (|x00| (|Expression| (|Integer|))) ($ (|Expression| (|Integer|))))
         (SPROG
          ((|lxx| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|ly| (|List| (|Expression| (|Integer|))))
@@ -939,17 +964,21 @@
               (EXIT (|MRVLIM;mrv_rewrite1| |e| |lxx| |ly| $))))) 
 
 (SDEFUN |MRVLIM;mrv_rewrite;ELLSRU;12|
-        ((|e| |Expression| (|Integer|))
-         (|lx| |List| (|Kernel| (|Expression| (|Integer|))))
-         (|lc| |List| (|Expression| (|Integer|))) (|v| |Symbol|)
-         (|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Union|
-          (|Record| (|:| |degree| (|OrderedExpression|))
-                    (|:| |coeff| (|Expression| (|Integer|))))
-          "failed"))
+        ((|e| (|Expression| (|Integer|)))
+         (|lx| (|List| (|Kernel| (|Expression| (|Integer|)))))
+         (|lc| (|List| (|Expression| (|Integer|)))) (|v| (|Symbol|))
+         (|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($
+          (|Union|
+           (|Record| (|:| |degree| (|OrderedExpression|))
+                     (|:| |coeff| (|Expression| (|Integer|))))
+           "failed")))
         (SPROG
          ((|lxx| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|x00| (|Expression| (|Integer|)))
@@ -1079,12 +1108,15 @@
                     (#5# (|error| "limit failed"))))))))))) 
 
 (SDEFUN |MRVLIM;mrv_sign;ESRU;13|
-        ((|e| |Expression| (|Integer|)) (|v| |Symbol|)
-         (|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Union| (|Integer|) "failed"))
+        ((|e| (|Expression| (|Integer|))) (|v| (|Symbol|))
+         (|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($ (|Union| (|Integer|) "failed")))
         (SPROG
          ((|ss|
            (|Record| (|:| |degree| (|OrderedExpression|))
@@ -1125,12 +1157,16 @@
                                                                131))))))))))))))))) 
 
 (SDEFUN |MRVLIM;mrv_limit;ESRU;14|
-        ((|e| |Expression| (|Integer|)) (|v| |Symbol|)
-         (|state| |Record| (|:| |tan_syms| (|List| (|Symbol|)))
-          (|:| |atan_syms| (|List| (|Symbol|)))
-          (|:| |tan_kers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed"))
+        ((|e| (|Expression| (|Integer|))) (|v| (|Symbol|))
+         (|state|
+          (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
+                    (|:| |atan_syms| (|List| (|Symbol|)))
+                    (|:| |tan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))
+                    (|:| |atan_kers|
+                         (|List| (|Kernel| (|Expression| (|Integer|)))))))
+         ($
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed")))
         (SPROG
          ((|s| (|Integer|)) (|su| (|Union| (|Integer|) "failed"))
           (|deg| (|OrderedExpression|))
@@ -1223,8 +1259,9 @@
                                                            "Nonzero term has no sign")))))))))))))))))))))))))) 
 
 (SDEFUN |MRVLIM;mrv_limit1;ESU;15|
-        ((|e| |Expression| (|Integer|)) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed"))
+        ((|e| (|Expression| (|Integer|))) (|x| (|Symbol|))
+         ($
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed")))
         (SPROG
          ((|state|
            (|Record| (|:| |tan_syms| (|List| (|Symbol|)))
@@ -1238,17 +1275,20 @@
               (EXIT (SPADCALL |e| |x| |state| (QREFELT $ 44)))))) 
 
 (SDEFUN |MRVLIM;mrv_limit;EEU;16|
-        ((|e| |Expression| (|Integer|))
-         (|eq| |Equation| (|OrderedCompletion| (|Expression| (|Integer|))))
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-          (|Record|
-           (|:| |leftHandLimit|
-                (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-                         #1="failed"))
-           (|:| |rightHandLimit|
-                (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-                         #1#)))
-          "failed"))
+        ((|e| (|Expression| (|Integer|)))
+         (|eq| (|Equation| (|OrderedCompletion| (|Expression| (|Integer|)))))
+         ($
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Expression| (|Integer|)))
+                          #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Expression| (|Integer|)))
+                          #1#)))
+                   "failed")))
         (SPROG
          ((|var| (|Union| (|Symbol|) "failed"))
           (|f| (|Union| (|Expression| (|Integer|)) "failed")))
@@ -1269,17 +1309,20 @@
                                (QREFELT $ 147)))))))))))) 
 
 (SDEFUN |MRVLIM;mrv_limit2|
-        ((|e| |Expression| (|Integer|)) (|v| |Symbol|)
-         (|a| |OrderedCompletion| (|Expression| (|Integer|)))
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-          (|Record|
-           (|:| |leftHandLimit|
-                (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-                         #1="failed"))
-           (|:| |rightHandLimit|
-                (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-                         #1#)))
-          "failed"))
+        ((|e| (|Expression| (|Integer|))) (|v| (|Symbol|))
+         (|a| (|OrderedCompletion| (|Expression| (|Integer|))))
+         ($
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Expression| (|Integer|)))
+                          #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Expression| (|Integer|)))
+                          #1#)))
+                   "failed")))
         (SPROG
          ((|lr|
            #2=(|Union| (|OrderedCompletion| (|Expression| (|Integer|))) #1#))
@@ -1339,11 +1382,12 @@
                     (#3# (CONS 1 (CONS |ll| |lr|)))))))))))) 
 
 (SDEFUN |MRVLIM;subst_in_result|
-        ((|r| |Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-          #1="failed")
-         (|k| |Kernel| (|Expression| (|Integer|)))
-         (|f| |Expression| (|Integer|))
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|))) #1#))
+        ((|r|
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
+                   #1="failed"))
+         (|k| (|Kernel| (|Expression| (|Integer|))))
+         (|f| (|Expression| (|Integer|)))
+         ($ (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) #1#)))
         (SPROG ((|ru| (|Union| (|Expression| (|Integer|)) "failed")))
                (SEQ
                 (COND ((QEQCAR |r| 1) |r|)
@@ -1360,17 +1404,20 @@
                                            (QREFELT $ 116)))))))))))) 
 
 (SDEFUN |MRVLIM;mrv_limit;ESOcU;19|
-        ((|e| |Expression| (|Integer|)) (|v| |Symbol|)
-         (|a| |OrderedCompletion| (|Expression| (|Integer|)))
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-          (|Record|
-           (|:| |leftHandLimit|
-                (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-                         #1="failed"))
-           (|:| |rightHandLimit|
-                (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-                         #1#)))
-          #2="failed"))
+        ((|e| (|Expression| (|Integer|))) (|v| (|Symbol|))
+         (|a| (|OrderedCompletion| (|Expression| (|Integer|))))
+         ($
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Expression| (|Integer|)))
+                          #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Expression| (|Integer|)))
+                          #1#)))
+                   #2="failed")))
         (SPROG
          ((#3=#:G449 NIL)
           (|res2|
@@ -1435,9 +1482,10 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |MRVLIM;mrv_limit;EESU;20|
-        ((|e| |Expression| (|Integer|))
-         (|eq| |Equation| (|Expression| (|Integer|))) (|s| |String|)
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed"))
+        ((|e| (|Expression| (|Integer|)))
+         (|eq| (|Equation| (|Expression| (|Integer|)))) (|s| (|String|))
+         ($
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed")))
         (SPROG ((|f| (|Union| (|Symbol|) "failed")))
                (SEQ
                 (LETT |f|
@@ -1452,9 +1500,10 @@
                              (QREFELT $ 159)))))))) 
 
 (SDEFUN |MRVLIM;mrv_limit3|
-        ((|e| |Expression| (|Integer|)) (|v| |Symbol|)
-         (|a| |Expression| (|Integer|)) (|s| |String|)
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed"))
+        ((|e| (|Expression| (|Integer|))) (|v| (|Symbol|))
+         (|a| (|Expression| (|Integer|))) (|s| (|String|))
+         ($
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed")))
         (SPROG
          ((|et| (|Expression| (|Integer|)))
           (|delta| (|Expression| (|Integer|)))
@@ -1476,10 +1525,11 @@
               (EXIT (SPADCALL |et| |v| (QREFELT $ 137)))))) 
 
 (SDEFUN |MRVLIM;mrv_limit;ESESU;22|
-        ((|e| |Expression| (|Integer|)) (|v| |Symbol|)
-         (|a| |Expression| (|Integer|)) (|s| |String|)
-         ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|)))
-          #1="failed"))
+        ((|e| (|Expression| (|Integer|))) (|v| (|Symbol|))
+         (|a| (|Expression| (|Integer|))) (|s| (|String|))
+         ($
+          (|Union| (|OrderedCompletion| (|Expression| (|Integer|)))
+                   #1="failed")))
         (SPROG
          ((|res1|
            (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) #1#))

@@ -1,14 +1,15 @@
 
 (SDEFUN |AN;reducedSystem;MM;1|
-        ((|m| |Matrix| $) ($ |Matrix| (|Fraction| (|Integer|))))
+        ((|m| (|Matrix| $)) ($ (|Matrix| (|Fraction| (|Integer|)))))
         (SPROG ((|mz| (|Matrix| (|Integer|))))
                (SEQ (LETT |mz| (SPADCALL |m| (QREFELT $ 10)))
                     (EXIT (SPADCALL (ELT $ 13) |mz| (QREFELT $ 17)))))) 
 
 (SDEFUN |AN;reducedSystem;MVR;2|
-        ((|m| |Matrix| $) (|v| |Vector| $)
-         ($ |Record| (|:| |mat| (|Matrix| (|Fraction| (|Integer|))))
-          (|:| |vec| (|Vector| (|Fraction| (|Integer|))))))
+        ((|m| (|Matrix| $)) (|v| (|Vector| $))
+         ($
+          (|Record| (|:| |mat| (|Matrix| (|Fraction| (|Integer|))))
+                    (|:| |vec| (|Vector| (|Fraction| (|Integer|)))))))
         (SPROG
          ((|vq| (|Vector| (|Fraction| (|Integer|))))
           (|mq| (|Matrix| (|Fraction| (|Integer|))))
@@ -20,13 +21,13 @@
               (LETT |vq| (SPADCALL (ELT $ 13) (QCDR |mzr|) (QREFELT $ 25)))
               (EXIT (CONS |mq| |vq|))))) 
 
-(SDEFUN |AN;mainRatDenom| ((|f| $) ($ $)) (SPADCALL |f| (QREFELT $ 29))) 
+(SDEFUN |AN;mainRatDenom| ((|f| ($)) ($ ($))) (SPADCALL |f| (QREFELT $ 29))) 
 
 (SDEFUN |AN;findDenominator|
-        ((|z| . #1=(|SparseUnivariatePolynomial| $))
+        ((|z| #1=(|SparseUnivariatePolynomial| $))
          ($
-          . #2=(|Record| (|:| |num| (|SparseUnivariatePolynomial| $))
-                         (|:| |den| $))))
+          #2=(|Record| (|:| |num| (|SparseUnivariatePolynomial| $))
+                       (|:| |den| $))))
         (SPROG ((#3=#:G139 NIL) (|rec| #2#) (|zz| #1#) (|dd| ($)))
                (SEQ
                 (EXIT
@@ -66,16 +67,16 @@
                 #4# (EXIT #3#)))) 
 
 (SDEFUN |AN;makeUnivariate|
-        ((|p| |SparseMultivariatePolynomial| (|Integer|) (|Kernel| $))
-         (|k| |Kernel| $) ($ |SparseUnivariatePolynomial| $))
+        ((|p| (|SparseMultivariatePolynomial| (|Integer|) (|Kernel| $)))
+         (|k| (|Kernel| $)) ($ (|SparseUnivariatePolynomial| $)))
         (SPADCALL (ELT $ 39) (SPADCALL |p| |k| (QREFELT $ 49)) (QREFELT $ 53))) 
 
-(SDEFUN |AN;differentiate;2$;6| ((|x| $) ($ $)) (|spadConstant| $ 30)) 
+(SDEFUN |AN;differentiate;2$;6| ((|x| ($)) ($ ($))) (|spadConstant| $ 30)) 
 
-(SDEFUN |AN;zero?;$B;7| ((|a| $) ($ |Boolean|))
+(SDEFUN |AN;zero?;$B;7| ((|a| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 55)) (QREFELT $ 56))) 
 
-(SDEFUN |AN;one?;$B;8| ((|a| $) ($ |Boolean|))
+(SDEFUN |AN;one?;$B;8| ((|a| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |a| (QREFELT $ 55)) (|spadConstant| $ 58)
                     (QREFELT $ 59))
@@ -83,15 +84,15 @@
                     (QREFELT $ 59)))
          ('T NIL))) 
 
-(SDEFUN |AN;/;3$;9| ((|x| $) (|y| $) ($ $))
+(SDEFUN |AN;/;3$;9| ((|x| ($)) (|y| ($)) ($ ($)))
         (|AN;mainRatDenom| (SPADCALL |x| |y| (QREFELT $ 61)) $)) 
 
-(SDEFUN |AN;^;$I$;10| ((|x| $) (|n| |Integer|) ($ $))
+(SDEFUN |AN;^;$I$;10| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
         (COND
          ((< |n| 0) (|AN;mainRatDenom| (SPADCALL |x| |n| (QREFELT $ 63)) $))
          ('T (SPADCALL |x| |n| (QREFELT $ 63))))) 
 
-(SDEFUN |AN;trueEqual;2$B;11| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |AN;trueEqual;2$B;11| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
          ((|dg| (|NonNegativeInteger|))
           (|g| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
@@ -138,7 +139,7 @@
                                                      (QREFELT $
                                                               80))))))))))))))) 
 
-(SDEFUN |AN;norm;$K$;12| ((|z| $) (|k| |Kernel| $) ($ $))
+(SDEFUN |AN;norm;$K$;12| ((|z| ($)) (|k| (|Kernel| $)) ($ ($)))
         (SPROG
          ((|d| #1=(|SparseUnivariatePolynomial| $)) (|n| #1#)
           (|p| (|SparseUnivariatePolynomial| $)))
@@ -151,7 +152,7 @@
                (SPADCALL (SPADCALL |n| |p| (QREFELT $ 84))
                          (SPADCALL |d| |p| (QREFELT $ 84)) (QREFELT $ 62)))))) 
 
-(SDEFUN |AN;norm;$L$;13| ((|z| $) (|l| |List| (|Kernel| $)) ($ $))
+(SDEFUN |AN;norm;$L$;13| ((|z| ($)) (|l| (|List| (|Kernel| $))) ($ ($)))
         (SPROG ((#1=#:G162 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL) (LETT #1# |l|) G190
@@ -163,8 +164,8 @@
                 (EXIT |z|)))) 
 
 (SDEFUN |AN;norm;SupKSup;14|
-        ((|z| |SparseUnivariatePolynomial| $) (|k| |Kernel| $)
-         ($ |SparseUnivariatePolynomial| $))
+        ((|z| (|SparseUnivariatePolynomial| $)) (|k| (|Kernel| $))
+         ($ (|SparseUnivariatePolynomial| $)))
         (SPROG
          ((|zz|
            #1=(|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| $)))
@@ -194,8 +195,8 @@
            (PROGN (|AN;makeUnivariate| (SPADCALL |x| (QREFELT $ 55)) |k| $))))) 
 
 (SDEFUN |AN;norm;SupLSup;15|
-        ((|z| |SparseUnivariatePolynomial| $) (|l| |List| (|Kernel| $))
-         ($ |SparseUnivariatePolynomial| $))
+        ((|z| (|SparseUnivariatePolynomial| $)) (|l| (|List| (|Kernel| $)))
+         ($ (|SparseUnivariatePolynomial| $)))
         (SPROG ((#1=#:G169 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL) (LETT #1# |l|) G190
@@ -206,20 +207,20 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |z|)))) 
 
-(SDEFUN |AN;belong?;BoB;16| ((|op| |BasicOperator|) ($ |Boolean|))
+(SDEFUN |AN;belong?;BoB;16| ((|op| (|BasicOperator|)) ($ (|Boolean|)))
         (COND ((SPADCALL |op| (QREFELT $ 99)) 'T)
               ('T (SPADCALL |op| (QREFELT $ 7) (QREFELT $ 101))))) 
 
-(SDEFUN |AN;convert;$If;17| ((|x| $) ($ |InputForm|))
+(SDEFUN |AN;convert;$If;17| ((|x| ($)) ($ (|InputForm|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 104)) (QREFELT $ 106))) 
 
-(SDEFUN |AN;convert;$F;18| ((|x| $) ($ |Float|))
+(SDEFUN |AN;convert;$F;18| ((|x| ($)) ($ (|Float|)))
         (SPADCALL (SPADCALL (ELT $ 109) |x| (QREFELT $ 113)) (QREFELT $ 114))) 
 
-(SDEFUN |AN;convert;$Df;19| ((|x| $) ($ |DoubleFloat|))
+(SDEFUN |AN;convert;$Df;19| ((|x| ($)) ($ (|DoubleFloat|)))
         (SPADCALL (SPADCALL (ELT $ 117) |x| (QREFELT $ 121)) (QREFELT $ 122))) 
 
-(SDEFUN |AN;convert;$C;20| ((|x| $) ($ |Complex| (|Float|)))
+(SDEFUN |AN;convert;$C;20| ((|x| ($)) ($ (|Complex| (|Float|))))
         (SPADCALL (SPADCALL (ELT $ 125) |x| (QREFELT $ 129)) (QREFELT $ 130))) 
 
 (DECLAIM (NOTINLINE |AlgebraicNumber;|)) 

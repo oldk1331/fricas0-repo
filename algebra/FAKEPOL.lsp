@@ -1,17 +1,19 @@
 
 (SDEFUN |FAKEPOL;frac_out|
-        ((|fr| |Record| (|:| |numer| (|Polynomial| (|Integer|)))
-          (|:| |denom| (|Polynomial| (|Integer|))))
-         ($ |OutputForm|))
+        ((|fr|
+          (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                    (|:| |denom| (|Polynomial| (|Integer|)))))
+         ($ (|OutputForm|)))
         (SPADCALL (SPADCALL (QCAR |fr|) (QREFELT $ 9))
                   (SPADCALL (QCDR |fr|) (QREFELT $ 9)) (QREFELT $ 10))) 
 
 (SDEFUN |FAKEPOL;mon_out|
-        ((|mon| |Record| (|:| |deg| #1=(|NonNegativeInteger|))
-          (|:| |coef|
-               (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                         (|:| |denom| (|Polynomial| (|Integer|))))))
-         (|v| |Symbol|) ($ |OutputForm|))
+        ((|mon|
+          (|Record| (|:| |deg| #1=(|NonNegativeInteger|))
+                    (|:| |coef|
+                         (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                                   (|:| |denom| (|Polynomial| (|Integer|)))))))
+         (|v| (|Symbol|)) ($ (|OutputForm|)))
         (SPROG ((|pw| (|OutputForm|)) (|vo| (|OutputForm|)) (|d| #1#))
                (SEQ (LETT |d| (QCAR |mon|))
                     (EXIT
@@ -30,7 +32,7 @@
                                   (SPADCALL (|FAKEPOL;frac_out| (QCDR |mon|) $)
                                             |pw| (QREFELT $ 16)))))))))) 
 
-(SDEFUN |FAKEPOL;coerce;$Of;3| ((|p| $) ($ |OutputForm|))
+(SDEFUN |FAKEPOL;coerce;$Of;3| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|ol| (|List| (|OutputForm|))) (#1=#:G147 NIL) (|mon| NIL)
           (#2=#:G146 NIL)
@@ -68,9 +70,10 @@
                        (EXIT (SPADCALL (ELT $ 19) |ol| (QREFELT $ 22)))))))))) 
 
 (SDEFUN |FAKEPOL;ground;$R;4|
-        ((|p| $)
-         ($ |Record| (|:| |numer| (|Polynomial| (|Integer|)))
-          (|:| |denom| (|Polynomial| (|Integer|)))))
+        ((|p| ($))
+         ($
+          (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                    (|:| |denom| (|Polynomial| (|Integer|))))))
         (SPROG
          ((|r1|
            (|Record| (|:| |deg| (|NonNegativeInteger|))
@@ -99,8 +102,9 @@
                       (EXIT (QCDR |r1|))))))))) 
 
 (SDEFUN |FAKEPOL;map;M$U;5|
-        ((|f| |Mapping| (|Polynomial| (|Integer|)) (|Polynomial| (|Integer|)))
-         (|p| $) ($ |Union| $ "failed"))
+        ((|f|
+          (|Mapping| (|Polynomial| (|Integer|)) (|Polynomial| (|Integer|))))
+         (|p| ($)) ($ (|Union| $ "failed")))
         (SPROG
          ((|res1|
            #1=(|List|
@@ -163,12 +167,14 @@
           #6# (EXIT #4#)))) 
 
 (SDEFUN |FAKEPOL;map;MR$;6|
-        ((|f| |Mapping| (|Polynomial| (|Integer|)) (|Polynomial| (|Integer|)))
-         (|p| |Record| (|:| |var| (|Symbol|))
-          (|:| |coef|
-               (|SparseUnivariatePolynomial|
-                (|Fraction| (|Polynomial| (|Integer|))))))
-         ($ $))
+        ((|f|
+          (|Mapping| (|Polynomial| (|Integer|)) (|Polynomial| (|Integer|))))
+         (|p|
+          (|Record| (|:| |var| (|Symbol|))
+                    (|:| |coef|
+                         (|SparseUnivariatePolynomial|
+                          (|Fraction| (|Polynomial| (|Integer|)))))))
+         ($ ($)))
         (SPROG
          ((|res1|
            #1=(|List|
@@ -235,12 +241,14 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |FAKEPOL;map;M$U;7|
-        ((|f| |Mapping| (|Union| (|Polynomial| (|Integer|)) "failed")
-          (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                    (|:| |denom| (|Polynomial| (|Integer|)))))
-         (|p| $)
-         ($ |Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-          "failed"))
+        ((|f|
+          (|Mapping| (|Union| (|Polynomial| (|Integer|)) "failed")
+                     (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                               (|:| |denom| (|Polynomial| (|Integer|))))))
+         (|p| ($))
+         ($
+          (|Union| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
+                   "failed")))
         (SPROG
          ((|res0| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (#1=#:G202 NIL) (|c1u| (|Union| (|Polynomial| (|Integer|)) "failed"))
@@ -282,7 +290,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FAKEPOL;degree;$SNni;8|
-        ((|p| $) (|s| |Symbol|) ($ |NonNegativeInteger|))
+        ((|p| ($)) (|s| (|Symbol|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|res| (|NonNegativeInteger|))
           (|c1|
@@ -323,9 +331,10 @@
                            (EXIT |res|)))))))) 
 
 (SDEFUN |FAKEPOL;to_UP;$Sup;9|
-        ((|p| $)
-         ($ |SparseUnivariatePolynomial|
-          (|Fraction| (|Polynomial| (|Integer|)))))
+        ((|p| ($))
+         ($
+          (|SparseUnivariatePolynomial|
+           (|Fraction| (|Polynomial| (|Integer|))))))
         (SPROG
          ((|res0|
            (|SparseUnivariatePolynomial|
@@ -368,7 +377,8 @@
               (EXIT |res0|)))) 
 
 (SDEFUN |FAKEPOL;subst_var;$2L$;10|
-        ((|p| $) (|ls1| |List| (|Symbol|)) (|ls2| |List| (|Symbol|)) ($ $))
+        ((|p| ($)) (|ls1| (|List| (|Symbol|))) (|ls2| (|List| (|Symbol|)))
+         ($ ($)))
         (SPROG
          ((#1=#:G225 NIL) (#2=#:G226 NIL) (|s1| NIL) (#3=#:G227 NIL) (|s2| NIL)
           (|v1| (|Symbol|)) (|pr1| (|Rep|)))

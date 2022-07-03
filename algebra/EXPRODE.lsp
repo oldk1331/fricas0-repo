@@ -1,12 +1,12 @@
 
-(SDEFUN |EXPRODE;localInteger| ((|n| F) ($ F))
+(SDEFUN |EXPRODE;localInteger| ((|n| (F)) ($ (F)))
         (COND ((QREFELT $ 14) |n|)
               ('T (SPADCALL (QREFELT $ 13) |n| (QREFELT $ 15))))) 
 
-(SDEFUN |EXPRODE;diffRhs| ((|f| F) (|g| F) ($ F))
+(SDEFUN |EXPRODE;diffRhs| ((|f| (F)) (|g| (F)) ($ (F)))
         (|EXPRODE;diffRhsK| (SPADCALL |f| (QREFELT $ 17)) |g| $)) 
 
-(SDEFUN |EXPRODE;k2exquo| ((|k| |Kernel| F) ($ F))
+(SDEFUN |EXPRODE;k2exquo| ((|k| (|Kernel| F)) ($ (F)))
         (SPROG
          ((#1=#:G133 NIL) (|f| NIL) (#2=#:G132 NIL) (|op| (|BasicOperator|)))
          (SEQ
@@ -32,11 +32,11 @@
                       (QREFELT $ 25))))))) 
 
 (SDEFUN |EXPRODE;smp2exquo|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F)) ($ F))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) ($ (F)))
         (SPADCALL (CONS (|function| |EXPRODE;k2exquo|) $) (ELT $ 26) |p|
                   (QREFELT $ 31))) 
 
-(SDEFUN |EXPRODE;div2exquo| ((|f| F) ($ F))
+(SDEFUN |EXPRODE;div2exquo| ((|f| (F)) ($ (F)))
         (SPROG ((|d| (|SparseMultivariatePolynomial| R (|Kernel| F))))
                (SEQ (LETT |d| (SPADCALL |f| (QREFELT $ 33)))
                     (EXIT
@@ -49,7 +49,7 @@
                                  (|EXPRODE;smp2exquo| |d| $)
                                  (QREFELT $ 39)))))))) 
 
-(SDEFUN |EXPRODE;diffRhsK| ((|k| |Kernel| F) (|g| F) ($ F))
+(SDEFUN |EXPRODE;diffRhsK| ((|k| (|Kernel| F)) (|g| (F)) ($ (F)))
         (SPROG ((|h| (|Fraction| (|SparseUnivariatePolynomial| F))))
                (SEQ (LETT |h| (SPADCALL |g| |k| (QREFELT $ 41)))
                     (COND
@@ -70,7 +70,8 @@
                     (EXIT (|error| "Improper differential equation"))))) 
 
 (SDEFUN |EXPRODE;checkCompat|
-        ((|y| |BasicOperator|) (|eqx| |Equation| F) (|eqy| |Equation| F) ($ F))
+        ((|y| (|BasicOperator|)) (|eqx| (|Equation| F)) (|eqy| (|Equation| F))
+         ($ (F)))
         (COND
          ((SPADCALL (SPADCALL |eqy| (QREFELT $ 54))
                     (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 55))
@@ -79,7 +80,7 @@
           (SPADCALL |eqy| (QREFELT $ 55)))
          ('T (|error| "Improper initial value")))) 
 
-(SDEFUN |EXPRODE;findCompat| ((|yx| F) (|l| |List| (|Equation| F)) ($ F))
+(SDEFUN |EXPRODE;findCompat| ((|yx| (F)) (|l| (|List| (|Equation| F))) ($ (F)))
         (SPROG ((#1=#:G148 NIL) (#2=#:G149 NIL) (#3=#:G150 NIL) (|eq| NIL))
                (SEQ
                 (EXIT
@@ -107,7 +108,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |EXPRODE;findEq|
-        ((|k| |Kernel| F) (|x| |Symbol|) (|sys| |List| F) ($ F))
+        ((|k| (|Kernel| F)) (|x| (|Symbol|)) (|sys| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G155 NIL) (#2=#:G156 NIL) (#3=#:G157 NIL) (|eq| NIL))
                (SEQ
                 (EXIT
@@ -137,8 +138,8 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |EXPRODE;checkOrder1|
-        ((|diffeq| F) (|y| |BasicOperator|) (|yx| |Kernel| F) (|x| |Symbol|)
-         (|sy| F) ($ F))
+        ((|diffeq| (F)) (|y| (|BasicOperator|)) (|yx| (|Kernel| F))
+         (|x| (|Symbol|)) (|sy| (F)) ($ (F)))
         (|EXPRODE;div2exquo|
          (SPADCALL
           (|EXPRODE;diffRhs|
@@ -148,8 +149,8 @@
          $)) 
 
 (SDEFUN |EXPRODE;checkOrderN|
-        ((|diffeq| F) (|y| |BasicOperator|) (|yx| |Kernel| F) (|x| |Symbol|)
-         (|sy| F) (|n| |NonNegativeInteger|) ($ F))
+        ((|diffeq| (F)) (|y| (|BasicOperator|)) (|yx| (|Kernel| F))
+         (|x| (|Symbol|)) (|sy| (F)) (|n| (|NonNegativeInteger|)) ($ (F)))
         (SPROG
          ((|lv| (|List| F)) (|m| (F)) (|l| (|List| (|Kernel| F))) (|f| (F))
           (#1=#:G164 NIL) (|i| NIL))
@@ -204,7 +205,7 @@
                     $)))))))) 
 
 (SDEFUN |EXPRODE;checkSystem|
-        ((|diffeq| F) (|yx| |List| (|Kernel| F)) (|lv| |List| F) ($ F))
+        ((|diffeq| (F)) (|yx| (|List| (|Kernel| F))) (|lv| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G169 NIL) (#2=#:G170 NIL) (#3=#:G171 NIL) (|k| NIL))
                (SEQ
                 (EXIT
@@ -238,8 +239,8 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |EXPRODE;seriesSolve;LLELA;13|
-        ((|l| |List| (|Equation| F)) (|y| |List| (|BasicOperator|))
-         (|eqx| |Equation| F) (|eqy| |List| (|Equation| F)) ($ |Any|))
+        ((|l| (|List| (|Equation| F))) (|y| (|List| (|BasicOperator|)))
+         (|eqx| (|Equation| F)) (|eqy| (|List| (|Equation| F))) ($ (|Any|)))
         (SPROG ((#1=#:G175 NIL) (|deq| NIL) (#2=#:G174 NIL))
                (SEQ
                 (SPADCALL
@@ -262,8 +263,8 @@
                  |y| |eqx| |eqy| (QREFELT $ 73))))) 
 
 (SDEFUN |EXPRODE;seriesSolve;LLELA;14|
-        ((|l| |List| (|Equation| F)) (|y| |List| (|BasicOperator|))
-         (|eqx| |Equation| F) (|y0| |List| F) ($ |Any|))
+        ((|l| (|List| (|Equation| F))) (|y| (|List| (|BasicOperator|)))
+         (|eqx| (|Equation| F)) (|y0| (|List| F)) ($ (|Any|)))
         (SPROG ((#1=#:G180 NIL) (|deq| NIL) (#2=#:G179 NIL))
                (SEQ
                 (SPADCALL
@@ -286,8 +287,8 @@
                  |y| |eqx| |y0| (QREFELT $ 75))))) 
 
 (SDEFUN |EXPRODE;seriesSolve;LLELA;15|
-        ((|l| |List| F) (|ly| |List| (|BasicOperator|)) (|eqx| |Equation| F)
-         (|eqy| |List| (|Equation| F)) ($ |Any|))
+        ((|l| (|List| F)) (|ly| (|List| (|BasicOperator|)))
+         (|eqx| (|Equation| F)) (|eqy| (|List| (|Equation| F))) ($ (|Any|)))
         (SPROG ((#1=#:G184 NIL) (|y| NIL) (#2=#:G183 NIL))
                (SEQ
                 (SPADCALL |l| |ly| |eqx|
@@ -314,38 +315,38 @@
                           (QREFELT $ 75))))) 
 
 (SDEFUN |EXPRODE;seriesSolve;EBo2EA;16|
-        ((|diffeq| |Equation| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
-         (|eqy| |Equation| F) ($ |Any|))
+        ((|diffeq| (|Equation| F)) (|y| (|BasicOperator|))
+         (|eqx| (|Equation| F)) (|eqy| (|Equation| F)) ($ (|Any|)))
         (SPADCALL
          (SPADCALL (SPADCALL |diffeq| (QREFELT $ 54))
                    (SPADCALL |diffeq| (QREFELT $ 55)) (QREFELT $ 69))
          |y| |eqx| |eqy| (QREFELT $ 77))) 
 
 (SDEFUN |EXPRODE;seriesSolve;EBoEFA;17|
-        ((|diffeq| |Equation| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
-         (|y0| F) ($ |Any|))
+        ((|diffeq| (|Equation| F)) (|y| (|BasicOperator|))
+         (|eqx| (|Equation| F)) (|y0| (F)) ($ (|Any|)))
         (SPADCALL
          (SPADCALL (SPADCALL |diffeq| (QREFELT $ 54))
                    (SPADCALL |diffeq| (QREFELT $ 55)) (QREFELT $ 69))
          |y| |eqx| |y0| (QREFELT $ 79))) 
 
 (SDEFUN |EXPRODE;seriesSolve;EBoELA;18|
-        ((|diffeq| |Equation| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
-         (|y0| |List| F) ($ |Any|))
+        ((|diffeq| (|Equation| F)) (|y| (|BasicOperator|))
+         (|eqx| (|Equation| F)) (|y0| (|List| F)) ($ (|Any|)))
         (SPADCALL
          (SPADCALL (SPADCALL |diffeq| (QREFELT $ 54))
                    (SPADCALL |diffeq| (QREFELT $ 55)) (QREFELT $ 69))
          |y| |eqx| |y0| (QREFELT $ 81))) 
 
 (SDEFUN |EXPRODE;seriesSolve;FBo2EA;19|
-        ((|diffeq| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
-         (|eqy| |Equation| F) ($ |Any|))
+        ((|diffeq| (F)) (|y| (|BasicOperator|)) (|eqx| (|Equation| F))
+         (|eqy| (|Equation| F)) ($ (|Any|)))
         (SPADCALL |diffeq| |y| |eqx| (|EXPRODE;checkCompat| |y| |eqx| |eqy| $)
                   (QREFELT $ 79))) 
 
 (SDEFUN |EXPRODE;seriesSolve;FBoEFA;20|
-        ((|diffeq| F) (|y| |BasicOperator|) (|eqx| |Equation| F) (|y0| F)
-         ($ |Any|))
+        ((|diffeq| (F)) (|y| (|BasicOperator|)) (|eqx| (|Equation| F))
+         (|y0| (F)) ($ (|Any|)))
         (SPROG
          ((|center| (F)) (|f| (F)) (|yx| (|Kernel| F)) (|sy| (|Symbol|))
           (|x| (|Symbol|)) (#1=#:G190 NIL))
@@ -420,8 +421,8 @@
                                                               |center|)))))))) 
 
 (SDEFUN |EXPRODE;seriesSolve;FBoELA;21|
-        ((|diffeq| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
-         (|y0| |List| F) ($ |Any|))
+        ((|diffeq| (F)) (|y| (|BasicOperator|)) (|eqx| (|Equation| F))
+         (|y0| (|List| F)) ($ (|Any|)))
         (SPROG
          ((|center| (F)) (|f| (F)) (|yx| (|Kernel| F)) (|sy| (|Symbol|))
           (|x| (|Symbol|)) (#1=#:G196 NIL))
@@ -501,8 +502,8 @@
                                                               |center|)))))))) 
 
 (SDEFUN |EXPRODE;seriesSolve;LLELA;22|
-        ((|sys| |List| F) (|ly| |List| (|BasicOperator|)) (|eqx| |Equation| F)
-         (|l0| |List| F) ($ |Any|))
+        ((|sys| (|List| F)) (|ly| (|List| (|BasicOperator|)))
+         (|eqx| (|Equation| F)) (|l0| (|List| F)) ($ (|Any|)))
         (SPROG
          ((#1=#:G222 NIL) (|f| NIL) (#2=#:G221 NIL) (|center| (F))
           (|l| (|List| F)) (#3=#:G220 NIL) (|eq| NIL) (#4=#:G219 NIL)

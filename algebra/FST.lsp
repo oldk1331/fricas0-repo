@@ -1,5 +1,5 @@
 
-(SDEFUN |FST;=;2$B;1| ((|u| $) (|v| $) ($ |Boolean|))
+(SDEFUN |FST;=;2$B;1| ((|u| ($)) (|v| ($)) ($ (|Boolean|)))
         (SEQ (COND ((QEQCAR |u| 0) (COND ((QEQCAR |v| 0) (EXIT 'T)))))
              (COND ((QEQCAR |u| 1) (COND ((QEQCAR |v| 1) (EXIT 'T)))))
              (COND ((QEQCAR |u| 2) (COND ((QEQCAR |v| 2) (EXIT 'T)))))
@@ -9,7 +9,7 @@
              (COND ((QEQCAR |u| 6) (COND ((QEQCAR |v| 6) (EXIT 'T)))))
              (EXIT NIL))) 
 
-(SDEFUN |FST;coerce;$Of;2| ((|t| $) ($ |OutputForm|))
+(SDEFUN |FST;coerce;$Of;2| ((|t| ($)) ($ (|OutputForm|)))
         (COND ((QEQCAR |t| 0) (SPADCALL 'REAL (QREFELT $ 15)))
               ((QEQCAR |t| 1) (SPADCALL 'INTEGER (QREFELT $ 15)))
               ((QEQCAR |t| 2) (SPADCALL 'COMPLEX (QREFELT $ 15)))
@@ -18,16 +18,16 @@
               ((QEQCAR |t| 6) (SPADCALL (QREFELT $ 10) (QREFELT $ 15)))
               ('T (SPADCALL 'LOGICAL (QREFELT $ 15))))) 
 
-(SDEFUN |FST;coerce;$Se;3| ((|t| $) ($ |SExpression|))
+(SDEFUN |FST;coerce;$Se;3| ((|t| ($)) ($ (|SExpression|)))
         (SPADCALL (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 19))) 
 
-(SDEFUN |FST;coerce;$S;4| ((|t| $) ($ |Symbol|))
+(SDEFUN |FST;coerce;$S;4| ((|t| ($)) ($ (|Symbol|)))
         (COND ((QEQCAR |t| 0) '|real|) ((QEQCAR |t| 1) '|integer|)
               ((QEQCAR |t| 2) '|complex|) ((QEQCAR |t| 3) '|character|)
               ((QEQCAR |t| 5) (QREFELT $ 7)) ((QEQCAR |t| 5) (QREFELT $ 9))
               ('T '|logical|))) 
 
-(SDEFUN |FST;coerce;S$;5| ((|s| |Symbol|) ($ $))
+(SDEFUN |FST;coerce;S$;5| ((|s| (|Symbol|)) ($ ($)))
         (COND ((OR (EQUAL |s| '|real|) (EQUAL |s| 'REAL)) (CONS 0 "real"))
               ((OR (EQUAL |s| '|integer|) (EQUAL |s| 'INTEGER))
                (CONS 1 "integer"))
@@ -42,7 +42,7 @@
               ((OR (EQUAL |s| (QREFELT $ 9)) (EQUAL |s| (QREFELT $ 10)))
                (CONS 6 "double complex")))) 
 
-(SDEFUN |FST;coerce;S$;6| ((|s| |String|) ($ $))
+(SDEFUN |FST;coerce;S$;6| ((|s| (|String|)) ($ ($)))
         (COND ((EQUAL |s| "real") (CONS 0 #1="real"))
               ((EQUAL |s| "integer") (CONS 1 #2="integer"))
               ((EQUAL |s| "complex") (CONS 2 #3="complex"))
@@ -62,37 +62,37 @@
                 (SPADCALL (LIST |s| " is invalid as a Fortran Type")
                           (QREFELT $ 24)))))) 
 
-(SDEFUN |FST;coerce;$S;7| ((|t| $) ($ |String|))
+(SDEFUN |FST;coerce;$S;7| ((|t| ($)) ($ (|String|)))
         (SPADCALL (SPADCALL (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 26))
                   (QREFELT $ 27))) 
 
 (PUT '|FST;real?;$B;8| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 0))) 
 
-(SDEFUN |FST;real?;$B;8| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 0)) 
+(SDEFUN |FST;real?;$B;8| ((|t| ($)) ($ (|Boolean|))) (QEQCAR |t| 0)) 
 
 (PUT '|FST;double?;$B;9| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 5))) 
 
-(SDEFUN |FST;double?;$B;9| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 5)) 
+(SDEFUN |FST;double?;$B;9| ((|t| ($)) ($ (|Boolean|))) (QEQCAR |t| 5)) 
 
 (PUT '|FST;logical?;$B;10| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 4))) 
 
-(SDEFUN |FST;logical?;$B;10| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 4)) 
+(SDEFUN |FST;logical?;$B;10| ((|t| ($)) ($ (|Boolean|))) (QEQCAR |t| 4)) 
 
 (PUT '|FST;integer?;$B;11| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 1))) 
 
-(SDEFUN |FST;integer?;$B;11| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 1)) 
+(SDEFUN |FST;integer?;$B;11| ((|t| ($)) ($ (|Boolean|))) (QEQCAR |t| 1)) 
 
 (PUT '|FST;character?;$B;12| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 3))) 
 
-(SDEFUN |FST;character?;$B;12| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 3)) 
+(SDEFUN |FST;character?;$B;12| ((|t| ($)) ($ (|Boolean|))) (QEQCAR |t| 3)) 
 
 (PUT '|FST;complex?;$B;13| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 2))) 
 
-(SDEFUN |FST;complex?;$B;13| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 2)) 
+(SDEFUN |FST;complex?;$B;13| ((|t| ($)) ($ (|Boolean|))) (QEQCAR |t| 2)) 
 
 (PUT '|FST;doubleComplex?;$B;14| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 6))) 
 
-(SDEFUN |FST;doubleComplex?;$B;14| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 6)) 
+(SDEFUN |FST;doubleComplex?;$B;14| ((|t| ($)) ($ (|Boolean|))) (QEQCAR |t| 6)) 
 
 (DECLAIM (NOTINLINE |FortranScalarType;|)) 
 

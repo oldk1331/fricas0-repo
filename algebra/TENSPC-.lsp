@@ -1,5 +1,5 @@
 
-(SDEFUN |TENSPC-;tensor;2MS;1| ((|a| M) (|b| M) ($ S))
+(SDEFUN |TENSPC-;tensor;2MS;1| ((|a| (M)) (|b| (M)) ($ (S)))
         (COND ((EQL (QREFELT $ 7) 2) (SPADCALL (LIST |a| |b|) (QREFELT $ 11)))
               ('T (|error| "not of order 2!")))) 
 

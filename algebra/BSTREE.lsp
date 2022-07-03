@@ -1,5 +1,5 @@
 
-(SDEFUN |BSTREE;binarySearchTree;L$;1| ((|u| |List| S) ($ $))
+(SDEFUN |BSTREE;binarySearchTree;L$;1| ((|u| (|List| S)) ($ ($)))
         (SPROG ((#1=#:G128 NIL) (|x| NIL) (|tree| ($)))
                (SEQ
                 (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
@@ -15,7 +15,7 @@
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT |tree|))))))) 
 
-(SDEFUN |BSTREE;insert!;S2$;2| ((|x| S) (|t| $) ($ $))
+(SDEFUN |BSTREE;insert!;S2$;2| ((|x| (S)) (|t| ($)) ($ ($)))
         (SEQ
          (COND ((SPADCALL |t| (QREFELT $ 14)) (SPADCALL |x| (QREFELT $ 9)))
                ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 16))
@@ -34,7 +34,7 @@
                  (EXIT |t|)))))) 
 
 (SDEFUN |BSTREE;split;S$R;3|
-        ((|x| S) (|t| $) ($ |Record| (|:| |less| $) (|:| |greater| $)))
+        ((|x| (S)) (|t| ($)) ($ (|Record| (|:| |less| $) (|:| |greater| $))))
         (SPROG ((|a| (|Record| (|:| |less| $) (|:| |greater| $))))
                (SEQ
                 (COND
@@ -62,7 +62,7 @@
                                     (SPADCALL |t| (QREFELT $ 17))
                                     (QREFELT $ 24)))))))))) 
 
-(SDEFUN |BSTREE;insertRoot!;S2$;4| ((|x| S) (|t| $) ($ $))
+(SDEFUN |BSTREE;insertRoot!;S2$;4| ((|x| (S)) (|t| ($)) ($ ($)))
         (SPROG ((|a| (|Record| (|:| |less| $) (|:| |greater| $))))
                (SEQ (LETT |a| (SPADCALL |x| |t| (QREFELT $ 23)))
                     (EXIT

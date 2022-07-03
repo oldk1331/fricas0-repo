@@ -1,5 +1,5 @@
 
-(SDEFUN |UPOLYC2;map;MPRPS;1| ((|f| |Mapping| S R) (|p| PR) ($ PS))
+(SDEFUN |UPOLYC2;map;MPRPS;1| ((|f| (|Mapping| S R)) (|p| (PR)) ($ (PS)))
         (SPROG ((|ans| (|RepPS|)) (|nc| (S)))
                (SEQ (LETT |ans| NIL)
                     (SEQ G190
@@ -23,7 +23,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT (NREVERSE |ans|))))) 
 
-(SDEFUN |UPOLYC2;map;MPRPS;2| ((|f| |Mapping| S R) (|p| PR) ($ PS))
+(SDEFUN |UPOLYC2;map;MPRPS;2| ((|f| (|Mapping| S R)) (|p| (PR)) ($ (PS)))
         (SPROG ((|ans| (|RepPS|)) (|nc| (S)))
                (SEQ (LETT |ans| NIL)
                     (SEQ G190
@@ -47,7 +47,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT (NREVERSE |ans|))))) 
 
-(SDEFUN |UPOLYC2;map;MPRPS;3| ((|f| |Mapping| S R) (|p| PR) ($ PS))
+(SDEFUN |UPOLYC2;map;MPRPS;3| ((|f| (|Mapping| S R)) (|p| (PR)) ($ (PS)))
         (SPROG ((|ans| (PS)))
                (SEQ (LETT |ans| (|spadConstant| $ 25))
                     (SEQ G190

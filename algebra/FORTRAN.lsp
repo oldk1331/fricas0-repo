@@ -1,12 +1,12 @@
 
-(SDEFUN |FORTRAN;makeRep| ((|b| |List| (|FortranCode|)) ($ $))
+(SDEFUN |FORTRAN;makeRep| ((|b| (|List| (|FortranCode|))) ($ ($)))
         (CONS (SPADCALL (QREFELT $ 12)) |b|)) 
 
 (PUT '|FORTRAN;codeFrom| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |FORTRAN;codeFrom| ((|u| $) ($ |List| (|FortranCode|))) (QCDR |u|)) 
+(SDEFUN |FORTRAN;codeFrom| ((|u| ($)) ($ (|List| (|FortranCode|)))) (QCDR |u|)) 
 
-(SDEFUN |FORTRAN;outputAsFortran;$V;3| ((|p| $) ($ |Void|))
+(SDEFUN |FORTRAN;outputAsFortran;$V;3| ((|p| ($)) ($ (|Void|)))
         (SPROG
          ((#1=#:G148 NIL) (|expr| NIL) (|intrinsics| (|List| (|String|)))
           (|body| (|List| (|List| (|String|)))) (#2=#:G147 NIL) (|l| NIL)
@@ -46,11 +46,12 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL (SPADCALL 'END (QREFELT $ 36)) (QREFELT $ 37)))))) 
 
-(SDEFUN |FORTRAN;mkString| ((|l| |List| (|Symbol|)) ($ |String|))
+(SDEFUN |FORTRAN;mkString| ((|l| (|List| (|Symbol|))) ($ (|String|)))
         (SPADCALL (SPADCALL |l| (QREFELT $ 40)) (QREFELT $ 41))) 
 
 (SDEFUN |FORTRAN;checkVariables|
-        ((|user| |List| (|Symbol|)) (|target| |List| (|Symbol|)) ($ |Void|))
+        ((|user| (|List| (|Symbol|))) (|target| (|List| (|Symbol|)))
+         ($ (|Void|)))
         (SPROG ((|s2| #1=(|String|)) (|s1| #1#))
                (SEQ
                 (COND
@@ -70,7 +71,7 @@
                                      (SPADCALL |s2| (QREFELT $ 48))))))))
                  ('T (SPADCALL (QREFELT $ 49))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;6| ((|u| |Expression| (|MachineInteger|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;6| ((|u| (|Expression| (|MachineInteger|))) ($ ($)))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
                 (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 51))
@@ -81,7 +82,7 @@
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;7|
-        ((|u| |Equation| (|Expression| (|MachineInteger|))) ($ $))
+        ((|u| (|Equation| (|Expression| (|MachineInteger|)))) ($ ($)))
         (SPROG
          ((|eList| (|List| (|Equation| (|Expression| (|MachineInteger|)))))
           (#1=#:G173 NIL) (|w| NIL) (#2=#:G174 NIL) (|v| NIL) (#3=#:G172 NIL)
@@ -153,7 +154,7 @@
                              (QREFELT $ 65))
                    (QREFELT $ 54))))))))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;8| ((|u| |Expression| (|MachineFloat|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;8| ((|u| (|Expression| (|MachineFloat|))) ($ ($)))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
                 (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 68))
@@ -164,7 +165,7 @@
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;9|
-        ((|u| |Equation| (|Expression| (|MachineFloat|))) ($ $))
+        ((|u| (|Equation| (|Expression| (|MachineFloat|)))) ($ ($)))
         (SPROG
          ((|eList| (|List| (|Equation| (|Expression| (|MachineFloat|)))))
           (#1=#:G193 NIL) (|w| NIL) (#2=#:G194 NIL) (|v| NIL) (#3=#:G192 NIL)
@@ -236,7 +237,8 @@
                              (QREFELT $ 77))
                    (QREFELT $ 70))))))))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;10| ((|u| |Expression| (|MachineComplex|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;10|
+        ((|u| (|Expression| (|MachineComplex|))) ($ ($)))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
                 (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 80))
@@ -247,7 +249,7 @@
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;11|
-        ((|u| |Equation| (|Expression| (|MachineComplex|))) ($ $))
+        ((|u| (|Equation| (|Expression| (|MachineComplex|)))) ($ ($)))
         (SPROG
          ((|eList| (|List| (|Equation| (|Expression| (|MachineComplex|)))))
           (#1=#:G213 NIL) (|w| NIL) (#2=#:G214 NIL) (|v| NIL) (#3=#:G212 NIL)
@@ -322,21 +324,22 @@
 (PUT '|FORTRAN;coerce;R$;12| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
 (SDEFUN |FORTRAN;coerce;R$;12|
-        ((|u| |Record| (|:| |localSymbols| (|SymbolTable|))
-          (|:| |code| (|List| (|FortranCode|))))
-         ($ $))
+        ((|u|
+          (|Record| (|:| |localSymbols| (|SymbolTable|))
+                    (|:| |code| (|List| (|FortranCode|)))))
+         ($ ($)))
         |u|) 
 
-(SDEFUN |FORTRAN;coerce;$Of;13| ((|u| $) ($ |OutputForm|))
+(SDEFUN |FORTRAN;coerce;$Of;13| ((|u| ($)) ($ (|OutputForm|)))
         (SPADCALL (QREFELT $ 6) (QREFELT $ 36))) 
 
-(SDEFUN |FORTRAN;coerce;L$;14| ((|c| |List| (|FortranCode|)) ($ $))
+(SDEFUN |FORTRAN;coerce;L$;14| ((|c| (|List| (|FortranCode|))) ($ ($)))
         (|FORTRAN;makeRep| |c| $)) 
 
-(SDEFUN |FORTRAN;coerce;Fc$;15| ((|c| |FortranCode|) ($ $))
+(SDEFUN |FORTRAN;coerce;Fc$;15| ((|c| (|FortranCode|)) ($ ($)))
         (|FORTRAN;makeRep| (LIST |c|) $)) 
 
-(SDEFUN |FORTRAN;coerce;E$;16| ((|u| |Expression| (|Integer|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;16| ((|u| (|Expression| (|Integer|))) ($ ($)))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
                 (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 98))
@@ -347,7 +350,7 @@
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;17|
-        ((|u| |Equation| (|Expression| (|Integer|))) ($ $))
+        ((|u| (|Equation| (|Expression| (|Integer|)))) ($ ($)))
         (SPROG
          ((|eList| (|List| (|Equation| (|Expression| (|Integer|)))))
           (#1=#:G239 NIL) (|w| NIL) (#2=#:G240 NIL) (|v| NIL) (#3=#:G238 NIL)
@@ -420,7 +423,7 @@
                              (QREFELT $ 107))
                    (QREFELT $ 100))))))))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;18| ((|u| |Expression| (|Float|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;18| ((|u| (|Expression| (|Float|))) ($ ($)))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
                 (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 110))
@@ -431,7 +434,7 @@
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;19|
-        ((|u| |Equation| (|Expression| (|Float|))) ($ $))
+        ((|u| (|Equation| (|Expression| (|Float|)))) ($ ($)))
         (SPROG
          ((|eList| (|List| (|Equation| (|Expression| (|Float|)))))
           (#1=#:G259 NIL) (|w| NIL) (#2=#:G260 NIL) (|v| NIL) (#3=#:G258 NIL)
@@ -504,7 +507,8 @@
                              (QREFELT $ 119))
                    (QREFELT $ 112))))))))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;20| ((|u| |Expression| (|Complex| (|Float|))) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;20|
+        ((|u| (|Expression| (|Complex| (|Float|)))) ($ ($)))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
                 (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 122))
@@ -515,7 +519,7 @@
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;21|
-        ((|u| |Equation| (|Expression| (|Complex| (|Float|)))) ($ $))
+        ((|u| (|Equation| (|Expression| (|Complex| (|Float|))))) ($ ($)))
         (SPROG
          ((|eList| (|List| (|Equation| (|Expression| (|Complex| (|Float|))))))
           (#1=#:G279 NIL) (|w| NIL) (#2=#:G280 NIL) (|v| NIL) (#3=#:G278 NIL)

@@ -1,16 +1,19 @@
 
 (SDEFUN |LIMITRF;limit;FEU;1|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|eq| |Equation| (|Fraction| (|Polynomial| R)))
-         ($ |Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-          (|Record|
-           (|:| |leftHandLimit|
-                (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-                         #1="failed"))
-           (|:| |rightHandLimit|
-                (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-                         #1#)))
-          "failed"))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|eq| (|Equation| (|Fraction| (|Polynomial| R))))
+         ($
+          (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                          #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                          #1#)))
+                   "failed")))
         (SPROG
          ((|a| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
           (|xx| (|Union| (|Symbol|) "failed")))
@@ -28,9 +31,9 @@
                     $))))))))) 
 
 (SDEFUN |LIMITRF;complexLimit;FEOpc;2|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|eq| |Equation| (|Fraction| (|Polynomial| R)))
-         ($ |OnePointCompletion| (|Fraction| (|Polynomial| R))))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|eq| (|Equation| (|Fraction| (|Polynomial| R))))
+         ($ (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
         (SPROG
          ((|a| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
           (|xx| (|Union| (|Symbol|) "failed")))
@@ -48,17 +51,20 @@
                     (SPADCALL |a| (QREFELT $ 20)) $))))))))) 
 
 (SDEFUN |LIMITRF;limit;FEU;3|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|eq| |Equation| (|OrderedCompletion| (|Polynomial| R)))
-         ($ |Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-          (|Record|
-           (|:| |leftHandLimit|
-                (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-                         #1="failed"))
-           (|:| |rightHandLimit|
-                (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-                         #1#)))
-          "failed"))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|eq| (|Equation| (|OrderedCompletion| (|Polynomial| R))))
+         ($
+          (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                          #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                          #1#)))
+                   "failed")))
         (SPROG
          ((|a| (|OrderedCompletion| (|Fraction| (|Polynomial| R))))
           (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed"))
@@ -84,9 +90,9 @@
                           (EXIT (|LIMITRF;locallimit| |f| |x| |a| $))))))))))))) 
 
 (SDEFUN |LIMITRF;complexLimit;FEOpc;4|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|eq| |Equation| (|OnePointCompletion| (|Polynomial| R)))
-         ($ |OnePointCompletion| (|Fraction| (|Polynomial| R))))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|eq| (|Equation| (|OnePointCompletion| (|Polynomial| R))))
+         ($ (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
         (SPROG
          ((|a| (|OnePointCompletion| (|Fraction| (|Polynomial| R))))
           (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed"))
@@ -114,11 +120,12 @@
                             $))))))))))))) 
 
 (SDEFUN |LIMITRF;fLimit|
-        ((|n| |Integer|)
-         (|d| |SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))
-         (|a| |Fraction| (|Polynomial| R)) (|dir| |Integer|)
-         ($ |Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-          "failed"))
+        ((|n| (|Integer|))
+         (|d| (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
+         (|a| (|Fraction| (|Polynomial| R))) (|dir| (|Integer|))
+         ($
+          (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                   "failed")))
         (SPROG ((|si| (|Integer|)) (|s| (|Union| (|Integer|) "failed")))
                (SEQ
                 (LETT |s| (SPADCALL |d| |a| |dir| (ELT $ 45) (QREFELT $ 50)))
@@ -133,10 +140,11 @@
                                (#1# (CONS 0 (SPADCALL (QREFELT $ 53))))))))))))) 
 
 (SDEFUN |LIMITRF;finiteComplexLimit|
-        ((|f| |Fraction|
-          (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
-         (|a| |Fraction| (|Polynomial| R))
-         ($ |OnePointCompletion| (|Fraction| (|Polynomial| R))))
+        ((|f|
+          (|Fraction|
+           (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+         (|a| (|Fraction| (|Polynomial| R)))
+         ($ (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
         (SPROG ((|d| #1=(|Fraction| (|Polynomial| R))) (|n| #1#))
                (COND
                 ((SPADCALL
@@ -155,18 +163,22 @@
                  (SPADCALL (SPADCALL |n| |d| (QREFELT $ 62)) (QREFELT $ 20)))))) 
 
 (SDEFUN |LIMITRF;finiteLimit|
-        ((|f| |Fraction|
-          (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
-         (|a| |Fraction| (|Polynomial| R))
-         ($ |Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-          (|Record|
-           (|:| |leftHandLimit|
-                (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-                         #1="failed"))
-           (|:| |rightHandLimit|
-                (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-                         #1#)))
-          "failed"))
+        ((|f|
+          (|Fraction|
+           (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+         (|a| (|Fraction| (|Polynomial| R)))
+         ($
+          (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                          #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                          #1#)))
+                   "failed")))
         (SPROG
          ((|lhsl|
            #2=(|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
@@ -213,17 +225,20 @@
                             (QREFELT $ 14)))))))) 
 
 (SDEFUN |LIMITRF;locallimit|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         (|a| |OrderedCompletion| (|Fraction| (|Polynomial| R)))
-         ($ |Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-          (|Record|
-           (|:| |leftHandLimit|
-                (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-                         #1="failed"))
-           (|:| |rightHandLimit|
-                (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-                         #1#)))
-          "failed"))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         (|a| (|OrderedCompletion| (|Fraction| (|Polynomial| R))))
+         ($
+          (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                          #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union|
+                          (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                          #1#)))
+                   "failed")))
         (SPROG
          ((|si| (|Integer|)) (|sd| #2=(|Union| (|Integer|) "failed"))
           (|sn| #2#) (|dd| #3=(|NonNegativeInteger|)) (|dn| #3#)
@@ -287,10 +302,11 @@
                             (QREFELT $ 14))))))))))))) 
 
 (SDEFUN |LIMITRF;limit;FESU;9|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|eq| |Equation| (|Fraction| (|Polynomial| R))) (|st| |String|)
-         ($ |Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
-          "failed"))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|eq| (|Equation| (|Fraction| (|Polynomial| R)))) (|st| (|String|))
+         ($
+          (|Union| (|OrderedCompletion| (|Fraction| (|Polynomial| R)))
+                   "failed")))
         (SPROG
          ((|s| (|Union| (|Integer|) "failed"))
           (|d| #1=(|Fraction| (|Polynomial| R))) (|n| #1#)
@@ -337,9 +353,9 @@
                                      (QREFELT $ 14))))))))))))) 
 
 (SDEFUN |LIMITRF;locallimitcomplex|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         (|a| |OnePointCompletion| (|Fraction| (|Polynomial| R)))
-         ($ |OnePointCompletion| (|Fraction| (|Polynomial| R))))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         (|a| (|OnePointCompletion| (|Fraction| (|Polynomial| R))))
+         ($ (|OnePointCompletion| (|Fraction| (|Polynomial| R)))))
         (SPROG
          ((|dd| #1=(|NonNegativeInteger|)) (|dn| #1#)
           (|r| (|Union| (|Fraction| (|Polynomial| R)) "failed"))

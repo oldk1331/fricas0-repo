@@ -1,7 +1,7 @@
 
 (SDEFUN |MPC2;supMap|
-        ((|fn| |Mapping| S R) (|supr| |SparseUnivariatePolynomial| PR)
-         ($ |SparseUnivariatePolynomial| PS))
+        ((|fn| (|Mapping| S R)) (|supr| (|SparseUnivariatePolynomial| PR))
+         ($ (|SparseUnivariatePolynomial| PS)))
         (SPROG ((|c| (PS)))
                (SEQ
                 (COND
@@ -22,7 +22,7 @@
                      (|MPC2;supMap| |fn| (SPADCALL |supr| (QREFELT $ 28)) $)
                      (QREFELT $ 29))))))))) 
 
-(SDEFUN |MPC2;map;MPRPS;2| ((|fn| |Mapping| S R) (|pr| PR) ($ PS))
+(SDEFUN |MPC2;map;MPRPS;2| ((|fn| (|Mapping| S R)) (|pr| (PR)) ($ (PS)))
         (SPROG
          ((|supr| (|SparseUnivariatePolynomial| PR)) (|var| (|VarSet|))
           (|varu| (|Union| |VarSet| "failed")))

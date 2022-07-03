@@ -1,19 +1,20 @@
 
 (SDEFUN |DIRPROD2;map;MDpDp;1|
-        ((|f| |Mapping| B A) (|v| |DirectProduct| |dim| A)
-         ($ |DirectProduct| |dim| B))
+        ((|f| (|Mapping| B A)) (|v| (|DirectProduct| |dim| A))
+         ($ (|DirectProduct| |dim| B)))
         (SPADCALL (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 15))
                   (QREFELT $ 17))) 
 
 (SDEFUN |DIRPROD2;scan;MDpBDp;2|
-        ((|f| |Mapping| B A B) (|v| |DirectProduct| |dim| A) (|b| B)
-         ($ |DirectProduct| |dim| B))
+        ((|f| (|Mapping| B A B)) (|v| (|DirectProduct| |dim| A)) (|b| (B))
+         ($ (|DirectProduct| |dim| B)))
         (SPADCALL
          (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) |b| (QREFELT $ 20))
          (QREFELT $ 17))) 
 
 (SDEFUN |DIRPROD2;reduce;MDp2B;3|
-        ((|f| |Mapping| B A B) (|v| |DirectProduct| |dim| A) (|b| B) ($ B))
+        ((|f| (|Mapping| B A B)) (|v| (|DirectProduct| |dim| A)) (|b| (B))
+         ($ (B)))
         (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) |b| (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |DirectProductFunctions2;|)) 

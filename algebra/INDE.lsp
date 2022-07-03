@@ -1,11 +1,11 @@
 
-(SDEFUN |INDE;coerceOF| ((|t| |Term|) ($ |OutputForm|))
+(SDEFUN |INDE;coerceOF| ((|t| (|Term|)) ($ (|OutputForm|)))
         (COND ((EQL (QCDR |t|) 1) (SPADCALL (QCAR |t|) (QREFELT $ 10)))
               ('T
                (SPADCALL (SPADCALL (QCAR |t|) (QREFELT $ 10))
                          (SPADCALL (QCDR |t|) (QREFELT $ 12)) (QREFELT $ 13))))) 
 
-(SDEFUN |INDE;coerce;$Of;2| ((|x| $) ($ |OutputForm|))
+(SDEFUN |INDE;coerce;$Of;2| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G135 NIL) (|t| NIL) (#2=#:G134 NIL))
                (SEQ
                 (COND ((NULL |x|) (SPADCALL 1 (QREFELT $ 15)))

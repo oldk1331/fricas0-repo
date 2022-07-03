@@ -1,6 +1,6 @@
 
 (SDEFUN |FINGPKG;permutationRepresentation;GP;1|
-        ((|x| G) ($ |Permutation| (|Integer|)))
+        ((|x| (G)) ($ (|Permutation| (|Integer|))))
         (SPROG
          ((|p| (|Permutation| (|Integer|))) (|imag| (|List| (|Integer|)))
           (#1=#:G129 NIL) (|a| NIL) (#2=#:G128 NIL)
@@ -47,7 +47,8 @@
               (EXIT
                (LETT |p| (SPADCALL (LIST |preimag| |imag|) (QREFELT $ 15))))))) 
 
-(SDEFUN |FINGPKG;regularRepresentation;GM;2| ((|x| G) ($ |Matrix| (|Integer|)))
+(SDEFUN |FINGPKG;regularRepresentation;GM;2|
+        ((|x| (G)) ($ (|Matrix| (|Integer|))))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL (QREFELT $ 18)))
                     (EXIT

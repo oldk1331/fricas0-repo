@@ -1,6 +1,6 @@
 
 (SDEFUN |CMPLXRT;complexZeros;UPParL;1|
-        ((|p| UP) (|eps| |Par|) ($ |List| (|Complex| |Par|)))
+        ((|p| (UP)) (|eps| (|Par|)) ($ (|List| (|Complex| |Par|))))
         (SPROG
          ((|ris| (|List| (|Complex| |Par|))) (#1=#:G129 NIL) (|z| NIL)
           (#2=#:G128 NIL) (|lz| (|List| (|List| |Par|)))

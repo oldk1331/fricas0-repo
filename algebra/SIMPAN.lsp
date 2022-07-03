@@ -1,6 +1,6 @@
 
 (SDEFUN |SIMPAN;simplify;AnE;1|
-        ((|a| |AlgebraicNumber|) ($ |Expression| (|Integer|)))
+        ((|a| (|AlgebraicNumber|)) ($ (|Expression| (|Integer|))))
         (SPADCALL (SPADCALL |a| (QREFELT $ 8)) (QREFELT $ 10))) 
 
 (DECLAIM (NOTINLINE |SimplifyAlgebraicNumberConvertPackage;|)) 

@@ -7,6 +7,10 @@
 
 (DEFPARAMETER |$locVars| NIL)
 
+; DEFPARAMETER($function_args, nil)
+
+(DEFPARAMETER |$function_args| NIL)
+
 ; DEFPARAMETER($PrettyPrint, false)
 
 (DEFPARAMETER |$PrettyPrint| NIL)
@@ -352,7 +356,9 @@
 
 ; compTran(x) ==
 ;     $locVars : local := nil
-;     [x1, x2, :xl3] := comp_expand(x)
+;     [x1, x2, :xl3] := x
+;     $function_args : local := x2
+;     xl3 := comp_expand(xl3)
 ;     compTran1 (xl3)
 ;     [x3, :xlt3] := xl3
 ;     x3 :=
@@ -371,15 +377,16 @@
 ;     [x1, x2, x3]
 
 (DEFUN |compTran| (|x|)
-  (PROG (|$locVars| |lvars| |xlt3| |x3| |xl3| |x2| |x1| |LETTMP#1|)
-    (DECLARE (SPECIAL |$locVars|))
+  (PROG (|$function_args| |$locVars| |lvars| |xlt3| |x3| |xl3| |x2| |x1|)
+    (DECLARE (SPECIAL |$function_args| |$locVars|))
     (RETURN
      (PROGN
       (SETQ |$locVars| NIL)
-      (SETQ |LETTMP#1| (|comp_expand| |x|))
-      (SETQ |x1| (CAR |LETTMP#1|))
-      (SETQ |x2| (CADR . #1=(|LETTMP#1|)))
+      (SETQ |x1| (CAR |x|))
+      (SETQ |x2| (CADR . #1=(|x|)))
       (SETQ |xl3| (CDDR . #1#))
+      (SETQ |$function_args| |x2|)
+      (SETQ |xl3| (|comp_expand| |xl3|))
       (|compTran1| |xl3|)
       (SETQ |x3| (CAR |xl3|))
       (SETQ |xlt3| (CDR |xl3|))
@@ -406,7 +413,7 @@
 ;     $insideCapsuleFunctionIfTrue =>
 ;         sig := $signatureOfForm
 ;         spadTypes := [(ATOM(t) => [t]; t) for t in [:rest(sig), first(sig)]]
-;         [[a, :t] for a in args for t in spadTypes]
+;         [[a, t] for a in args for t in spadTypes]
 ;     args
 
 (DEFUN |addTypesToArgs| (|args|)
@@ -435,7 +442,7 @@
              ((OR (ATOM |bfVar#8|) (PROGN (SETQ |a| (CAR |bfVar#8|)) NIL)
                   (ATOM |bfVar#9|) (PROGN (SETQ |t| (CAR |bfVar#9|)) NIL))
               (RETURN (NREVERSE |bfVar#10|)))
-             (#1# (SETQ |bfVar#10| (CONS (CONS |a| |t|) |bfVar#10|))))
+             (#1# (SETQ |bfVar#10| (CONS (LIST |a| |t|) |bfVar#10|))))
             (SETQ |bfVar#8| (CDR |bfVar#8|))
             (SETQ |bfVar#9| (CDR |bfVar#9|))))
          NIL |args| NIL |spadTypes| NIL)))
@@ -641,14 +648,55 @@
 (DEFUN BADDO (OL)
   (PROG () (RETURN (ERROR (FORMAT NIL "BAD DO FORMAT~%~A" OL)))))
 
+; arg_type(v) ==
+;     p := position(v, $function_args)
+;     p < 0 => nil
+;     t := NTH(p, rest($signatureOfForm))
+;     [v, :t]
+
+(DEFUN |arg_type| (|v|)
+  (PROG (|p| |t|)
+    (RETURN
+     (PROGN
+      (SETQ |p| (|position| |v| |$function_args|))
+      (COND ((MINUSP |p|) NIL)
+            ('T
+             (PROGN
+              (SETQ |t| (NTH |p| (CDR |$signatureOfForm|)))
+              (CONS |v| |t|))))))))
+
+; has_typed_init(v) ==
+;     not($insideCapsuleFunctionIfTrue) => nil
+;     tv := ASSOC(v, $locVarsTypes) or arg_type(v)
+;     NULL(tv) => nil
+;     vt := [v, rest(tv)]
+;     GetLispValue(vt)
+
+(DEFUN |has_typed_init| (|v|)
+  (PROG (|tv| |vt|)
+    (RETURN
+     (COND ((NULL |$insideCapsuleFunctionIfTrue|) NIL)
+           (#1='T
+            (PROGN
+             (SETQ |tv| (OR (ASSOC |v| |$locVarsTypes|) (|arg_type| |v|)))
+             (COND ((NULL |tv|) NIL)
+                   (#1#
+                    (PROGN
+                     (SETQ |vt| (LIST |v| (CDR |tv|)))
+                     (|GetLispValue| |vt|))))))))))
+
 ; expandDO(vl, endtest, exitforms, body_forms) ==
 ;     vars := []
 ;     u_vars := []
 ;     u_vals := []
 ;     inits := []
 ;     for vi in vl repeat
-;         [v, init] := vi
+;         [v, :init_pom] := vi
 ;         not(IDENTP(v)) => BADDO(OL)
+;         NULL(init_pom) and has_typed_init(v) => "iterate"
+;         init :=
+;             NULL(init_pom) => nil
+;             first(init_pom)
 ;         vars := [v, :vars]
 ;         inits := [init, :inits]
 ;         if vi is [., ., u_val] then
@@ -666,8 +714,8 @@
 ;           u_vars3, ["GO", "G190"], "G191", exitforms]]
 
 (DEFUN |expandDO| (|vl| |endtest| |exitforms| |body_forms|)
-  (PROG (|vars| |u_vars| |u_vals| |inits| |v| |init| |ISTMP#1| |ISTMP#2|
-         |u_val| |u_vars3| |lets|)
+  (PROG (|vars| |u_vars| |u_vals| |inits| |v| |init_pom| |init| |ISTMP#1|
+         |ISTMP#2| |u_val| |u_vars3| |lets|)
     (RETURN
      (PROGN
       (SETQ |vars| NIL)
@@ -682,10 +730,14 @@
            (#1='T
             (PROGN
              (SETQ |v| (CAR |vi|))
-             (SETQ |init| (CADR |vi|))
+             (SETQ |init_pom| (CDR |vi|))
              (COND ((NULL (IDENTP |v|)) (BADDO OL))
+                   ((AND (NULL |init_pom|) (|has_typed_init| |v|)) '|iterate|)
                    (#1#
                     (PROGN
+                     (SETQ |init|
+                             (COND ((NULL |init_pom|) NIL)
+                                   (#1# (CAR |init_pom|))))
                      (SETQ |vars| (CONS |v| |vars|))
                      (SETQ |inits| (CONS |init| |inits|))
                      (COND
@@ -866,7 +918,7 @@
 ;                              ["PROGN", ["SETQ", first(U), ["CAR", G]],
 ;                                :APPEND(tt, [nil])]], :tests]
 ;             vl := [[G, CADR(U), ["CDR", G]], :vl]
-;             vl := [[first(U), nil], :vl]
+;             vl := [[first(U)], :vl]
 ;         op = "UNTIL" =>
 ;             G := GENSYM()
 ;             tests := [G, :tests]
@@ -1039,7 +1091,7 @@
                                              (APPEND |tt| (LIST NIL)))))
                                 |tests|))
                        (SETQ |vl| (CONS (LIST G (CADR U) (LIST 'CDR G)) |vl|))
-                       (SETQ |vl| (CONS (LIST (CAR U) NIL) |vl|))))
+                       (SETQ |vl| (CONS (LIST (CAR U)) |vl|))))
                      ((EQ |op| 'UNTIL)
                       (PROGN
                        (SETQ G (GENSYM))

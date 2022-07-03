@@ -1,7 +1,7 @@
 
 (PUT '|MSYSCMD;systemCommand;SV;1| '|SPADreplace| '|doSystemCommand|) 
 
-(SDEFUN |MSYSCMD;systemCommand;SV;1| ((|cmd| |String|) ($ |Void|))
+(SDEFUN |MSYSCMD;systemCommand;SV;1| ((|cmd| (|String|)) ($ (|Void|)))
         (|doSystemCommand| |cmd|)) 
 
 (DECLAIM (NOTINLINE |MoreSystemCommands;|)) 

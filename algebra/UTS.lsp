@@ -1,9 +1,9 @@
 
 (PUT '|UTS;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |UTS;stream| ((|x| $) ($ |Stream| |Coef|)) |x|) 
+(SDEFUN |UTS;stream| ((|x| ($)) ($ (|Stream| |Coef|))) |x|) 
 
-(SDEFUN |UTS;coerce;V$;2| ((|v| |Variable| |var|) ($ $))
+(SDEFUN |UTS;coerce;V$;2| ((|v| (|Variable| |var|)) ($ ($)))
         (COND
          ((SPADCALL (QREFELT $ 8) (QREFELT $ 11))
           (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 15)))
@@ -11,40 +11,42 @@
           (SPADCALL (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 15))
                     (SPADCALL (QREFELT $ 8) 0 (QREFELT $ 15)) (QREFELT $ 18))))) 
 
-(SDEFUN |UTS;coerce;I$;3| ((|n| |Integer|) ($ $))
+(SDEFUN |UTS;coerce;I$;3| ((|n| (|Integer|)) ($ ($)))
         (SPADCALL (SPADCALL |n| (QREFELT $ 22)) (QREFELT $ 23))) 
 
-(SDEFUN |UTS;coerce;Coef$;4| ((|r| |Coef|) ($ $)) (SPADCALL |r| (QREFELT $ 27))) 
+(SDEFUN |UTS;coerce;Coef$;4| ((|r| (|Coef|)) ($ ($)))
+        (SPADCALL |r| (QREFELT $ 27))) 
 
 (SDEFUN |UTS;monomial;CoefNni$;5|
-        ((|c| |Coef|) (|n| |NonNegativeInteger|) ($ $))
+        ((|c| (|Coef|)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |c| |n| (QREFELT $ 28))) 
 
 (PUT '|UTS;getExpon| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |UTS;getExpon|
-        ((|term| |Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|))
-         ($ |NonNegativeInteger|))
+        ((|term| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))
+         ($ (|NonNegativeInteger|)))
         (QCAR |term|)) 
 
 (PUT '|UTS;getCoef| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |UTS;getCoef|
-        ((|term| |Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|))
-         ($ |Coef|))
+        ((|term| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))
+         ($ (|Coef|)))
         (QCDR |term|)) 
 
 (PUT '|UTS;rec| '|SPADreplace| 'CONS) 
 
 (SDEFUN |UTS;rec|
-        ((|expon| |NonNegativeInteger|) (|coef| |Coef|)
-         ($ |Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))
+        ((|expon| (|NonNegativeInteger|)) (|coef| (|Coef|))
+         ($ (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|))))
         (CONS |expon| |coef|)) 
 
 (SDEFUN |UTS;recs|
-        ((|st| |Stream| |Coef|) (|n| |NonNegativeInteger|)
-         ($ |Stream|
-          (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|))))
+        ((|st| (|Stream| |Coef|)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Stream|
+           (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))))
         (SPROG NIL
                (SPADCALL (CONS #'|UTS;recs!0| (VECTOR |n| $ |st|))
                          (QREFELT $ 41)))) 
@@ -72,15 +74,17 @@
                                (QREFELT $ 39))))))))) 
 
 (SDEFUN |UTS;terms;$S;10|
-        ((|x| $)
-         ($ |Stream|
-          (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|))))
+        ((|x| ($))
+         ($
+          (|Stream|
+           (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))))
         (|UTS;recs| (|UTS;stream| |x| $) 0 $)) 
 
 (SDEFUN |UTS;recsToCoefs|
-        ((|st| |Stream|
-          (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))
-         (|n| |NonNegativeInteger|) ($ |Stream| |Coef|))
+        ((|st|
+          (|Stream|
+           (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|))))
+         (|n| (|NonNegativeInteger|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|UTS;recsToCoefs!0| (VECTOR |n| $ |st|))
@@ -119,15 +123,16 @@
                                         (QREFELT $ 49)))))))))))))) 
 
 (SDEFUN |UTS;series;S$;12|
-        ((|st| |Stream|
-          (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|)))
-         ($ $))
+        ((|st|
+          (|Stream|
+           (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| |Coef|))))
+         ($ ($)))
         (|UTS;recsToCoefs| |st| 0 $)) 
 
 (SDEFUN |UTS;stToPoly|
-        ((|st| |Stream| |Coef|) (|term| |Polynomial| |Coef|)
-         (|n| |NonNegativeInteger|) (|n0| |NonNegativeInteger|)
-         ($ |Polynomial| |Coef|))
+        ((|st| (|Stream| |Coef|)) (|term| (|Polynomial| |Coef|))
+         (|n| (|NonNegativeInteger|)) (|n0| (|NonNegativeInteger|))
+         ($ (|Polynomial| |Coef|)))
         (COND
          ((OR (> |n| |n0|) (SPADCALL |st| (QREFELT $ 29)))
           (|spadConstant| $ 53))
@@ -140,15 +145,15 @@
            (QREFELT $ 56))))) 
 
 (SDEFUN |UTS;polynomial;$NniP;14|
-        ((|x| $) (|n| |NonNegativeInteger|) ($ |Polynomial| |Coef|))
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (|Polynomial| |Coef|)))
         (|UTS;stToPoly| (|UTS;stream| |x| $)
          (SPADCALL (SPADCALL (QREFELT $ 7) (QREFELT $ 58))
                    (SPADCALL (QREFELT $ 8) (QREFELT $ 59)) (QREFELT $ 60))
          0 |n| $)) 
 
 (SDEFUN |UTS;polynomial;$2NniP;15|
-        ((|x| $) (|n1| . #1=(|NonNegativeInteger|)) (|n2| . #1#)
-         ($ |Polynomial| |Coef|))
+        ((|x| ($)) (|n1| #1=(|NonNegativeInteger|)) (|n2| #1#)
+         ($ (|Polynomial| |Coef|)))
         (SPROG ((|#G31| #1#) (|#G30| #1#))
                (SEQ
                 (COND
@@ -167,8 +172,8 @@
                   |n1| |n2| $))))) 
 
 (SDEFUN |UTS;univariatePolynomial;$NniUp;16|
-        ((|x| $) (|n| |NonNegativeInteger|)
-         ($ |UnivariatePolynomial| |var| |Coef|))
+        ((|x| ($)) (|n| (|NonNegativeInteger|))
+         ($ (|UnivariatePolynomial| |var| |Coef|)))
         (SPROG
          ((|st| ($)) (|term| (|UnivariatePolynomial| |var| |Coef|))
           (|ress| (|UnivariatePolynomial| |var| |Coef|)) (#1=#:G184 NIL)
@@ -235,7 +240,8 @@
                         (EXIT |ress|)))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |UTS;coerce;Up$;17| ((|p| |UnivariatePolynomial| |var| |Coef|) ($ $))
+(SDEFUN |UTS;coerce;Up$;17|
+        ((|p| (|UnivariatePolynomial| |var| |Coef|)) ($ ($)))
         (SPROG
          ((|st| (|Stream| |Coef|)) (#1=#:G198 NIL) (|i| NIL)
           (|oldDeg| (|NonNegativeInteger|)) (#2=#:G197 NIL)
@@ -293,8 +299,9 @@
                   (EXIT |st|))))))) 
 
 (SDEFUN |UTS;stToCoef|
-        ((|st| |Stream| |Coef|) (|term| |Coef|) (|n| |NonNegativeInteger|)
-         (|n0| |NonNegativeInteger|) ($ |Coef|))
+        ((|st| (|Stream| |Coef|)) (|term| (|Coef|))
+         (|n| (|NonNegativeInteger|)) (|n0| (|NonNegativeInteger|))
+         ($ (|Coef|)))
         (COND
          ((OR (> |n| |n0|) (SPADCALL |st| (QREFELT $ 29)))
           (|spadConstant| $ 16))
@@ -307,18 +314,18 @@
            (QREFELT $ 82))))) 
 
 (SDEFUN |UTS;approximate;$NniCoef;19|
-        ((|x| $) (|n| |NonNegativeInteger|) ($ |Coef|))
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (|Coef|)))
         (|UTS;stToCoef| (|UTS;stream| |x| $)
          (SPADCALL (SPADCALL (QREFELT $ 7) (QREFELT $ 83)) (QREFELT $ 8)
                    (QREFELT $ 84))
          0 |n| $)) 
 
-(SDEFUN |UTS;variable;$S;20| ((|x| $) ($ |Symbol|)) (QREFELT $ 7)) 
+(SDEFUN |UTS;variable;$S;20| ((|x| ($)) ($ (|Symbol|))) (QREFELT $ 7)) 
 
-(SDEFUN |UTS;center;$Coef;21| ((|s| $) ($ |Coef|)) (QREFELT $ 8)) 
+(SDEFUN |UTS;center;$Coef;21| ((|s| ($)) ($ (|Coef|))) (QREFELT $ 8)) 
 
 (SDEFUN |UTS;coefficient;$NniCoef;22|
-        ((|x| $) (|n| |NonNegativeInteger|) ($ |Coef|))
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (|Coef|)))
         (SPROG ((#1=#:G206 NIL) (|u| ($)))
                (SEQ (LETT |u| (|UTS;stream| |x| $))
                     (SEQ G190
@@ -341,23 +348,24 @@
                       (EXIT (|spadConstant| $ 16))))
                     (EXIT (SPADCALL |u| (QREFELT $ 31)))))) 
 
-(SDEFUN |UTS;elt;$NniCoef;23| ((|x| $) (|n| |NonNegativeInteger|) ($ |Coef|))
+(SDEFUN |UTS;elt;$NniCoef;23|
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (|Coef|)))
         (SPADCALL |x| |n| (QREFELT $ 89))) 
 
-(SDEFUN |UTS;map;M2$;24| ((|f| |Mapping| |Coef| |Coef|) (|x| $) ($ $))
+(SDEFUN |UTS;map;M2$;24| ((|f| (|Mapping| |Coef| |Coef|)) (|x| ($)) ($ ($)))
         (SPADCALL |f| |x| (QREFELT $ 92))) 
 
-(SDEFUN |UTS;eval;$CoefS;25| ((|x| $) (|r| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |UTS;eval;$CoefS;25| ((|x| ($)) (|r| (|Coef|)) ($ (|Stream| |Coef|)))
         (SPADCALL (|UTS;stream| |x| $)
                   (SPADCALL |r| (QREFELT $ 8) (QREFELT $ 84)) (QREFELT $ 94))) 
 
-(SDEFUN |UTS;differentiate;2$;26| ((|x| $) ($ $))
+(SDEFUN |UTS;differentiate;2$;26| ((|x| ($)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) (QREFELT $ 96))) 
 
-(SDEFUN |UTS;differentiate;$V$;27| ((|x| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |UTS;differentiate;$V$;27| ((|x| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 97))) 
 
-(SDEFUN |UTS;differentiate;$S$;28| ((|x| $) (|s| |Symbol|) ($ $))
+(SDEFUN |UTS;differentiate;$S$;28| ((|x| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG NIL
                (COND
                 ((EQUAL |s| (SPADCALL |x| (QREFELT $ 86)))
@@ -379,35 +387,36 @@
           (RETURN (PROGN (SPADCALL |y| |s| (QREFELT $ 99)))))) 
 
 (SDEFUN |UTS;multiplyCoefficients;M2$;29|
-        ((|f| |Mapping| |Coef| (|Integer|)) (|x| $) ($ $))
+        ((|f| (|Mapping| |Coef| (|Integer|))) (|x| ($)) ($ ($)))
         (SPADCALL |f| (|UTS;stream| |x| $) (QREFELT $ 104))) 
 
-(SDEFUN |UTS;lagrange;2$;30| ((|x| $) ($ $))
+(SDEFUN |UTS;lagrange;2$;30| ((|x| ($)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) (QREFELT $ 106))) 
 
-(SDEFUN |UTS;lambert;2$;31| ((|x| $) ($ $))
+(SDEFUN |UTS;lambert;2$;31| ((|x| ($)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) (QREFELT $ 108))) 
 
-(SDEFUN |UTS;oddlambert;2$;32| ((|x| $) ($ $))
+(SDEFUN |UTS;oddlambert;2$;32| ((|x| ($)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) (QREFELT $ 110))) 
 
-(SDEFUN |UTS;evenlambert;2$;33| ((|x| $) ($ $))
+(SDEFUN |UTS;evenlambert;2$;33| ((|x| ($)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) (QREFELT $ 112))) 
 
 (SDEFUN |UTS;generalLambert;$2I$;34|
-        ((|x| $) (|a| |Integer|) (|d| |Integer|) ($ $))
+        ((|x| ($)) (|a| (|Integer|)) (|d| (|Integer|)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) |a| |d| (QREFELT $ 114))) 
 
-(SDEFUN |UTS;extend;$Nni$;35| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |UTS;extend;$Nni$;35| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |x| (+ |n| 1) (QREFELT $ 116))) 
 
-(SDEFUN |UTS;complete;2$;36| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 118))) 
+(SDEFUN |UTS;complete;2$;36| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 118))) 
 
-(SDEFUN |UTS;truncate;$Nni$;37| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |UTS;truncate;$Nni$;37|
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) (+ |n| 1) (QREFELT $ 120))) 
 
 (SDEFUN |UTS;truncate;$2Nni$;38|
-        ((|x| $) (|n1| . #1=(|NonNegativeInteger|)) (|n2| . #1#) ($ $))
+        ((|x| ($)) (|n1| #1=(|NonNegativeInteger|)) (|n2| #1#) ($ ($)))
         (SPROG
          ((|st| ($)) (#2=#:G236 NIL) (|i| NIL) (|m| (|NonNegativeInteger|))
           (#3=#:G232 NIL) (|#G84| #1#) (|#G83| #1#))
@@ -435,45 +444,47 @@
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT |st|)))) 
 
-(SDEFUN |UTS;elt;3$;39| ((|x| $) (|y| $) ($ $))
+(SDEFUN |UTS;elt;3$;39| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) (|UTS;stream| |y| $) (QREFELT $ 124))) 
 
-(SDEFUN |UTS;revert;2$;40| ((|x| $) ($ $))
+(SDEFUN |UTS;revert;2$;40| ((|x| ($)) ($ ($)))
         (SPADCALL (|UTS;stream| |x| $) (QREFELT $ 126))) 
 
-(SDEFUN |UTS;multisect;2I2$;41| ((|a| |Integer|) (|b| |Integer|) (|x| $) ($ $))
+(SDEFUN |UTS;multisect;2I2$;41|
+        ((|a| (|Integer|)) (|b| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL |a| |b| (|UTS;stream| |x| $) (QREFELT $ 128))) 
 
 (SDEFUN |UTS;invmultisect;2I2$;42|
-        ((|a| |Integer|) (|b| |Integer|) (|x| $) ($ $))
+        ((|a| (|Integer|)) (|b| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL |a| |b| (|UTS;stream| |x| $) (QREFELT $ 130))) 
 
-(SDEFUN |UTS;multiplyExponents;$Pi$;43| ((|x| $) (|n| |PositiveInteger|) ($ $))
+(SDEFUN |UTS;multiplyExponents;$Pi$;43|
+        ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (SPADCALL |n| 0 |x| (QREFELT $ 131))) 
 
-(SDEFUN |UTS;quoByVar;2$;44| ((|x| $) ($ $))
+(SDEFUN |UTS;quoByVar;2$;44| ((|x| ($)) ($ ($)))
         (COND ((SPADCALL |x| (QREFELT $ 29)) (|spadConstant| $ 17))
               ('T (SPADCALL |x| (QREFELT $ 35))))) 
 
-(SDEFUN |UTS;unit?;$B;45| ((|x| $) ($ |Boolean|))
+(SDEFUN |UTS;unit?;$B;45| ((|x| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |x| 0 (QREFELT $ 89)) (QREFELT $ 135))) 
 
-(SDEFUN |UTS;^;$Coef$;46| ((|x| $) (|s| |Coef|) ($ $))
+(SDEFUN |UTS;^;$Coef$;46| ((|x| ($)) (|s| (|Coef|)) ($ ($)))
         (SPADCALL |s| (|UTS;stream| |x| $) (QREFELT $ 138))) 
 
-(SDEFUN |UTS;^;$Coef$;47| ((|x| $) (|s| |Coef|) ($ $))
+(SDEFUN |UTS;^;$Coef$;47| ((|x| ($)) (|s| (|Coef|)) ($ ($)))
         (SPADCALL |s| (|UTS;stream| |x| $) (QREFELT $ 140))) 
 
-(SDEFUN |UTS;coerce;F$;48| ((|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |UTS;coerce;F$;48| ((|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 141)) (QREFELT $ 23))) 
 
-(SDEFUN |UTS;integrate;2$;49| ((|x| $) ($ $))
+(SDEFUN |UTS;integrate;2$;49| ((|x| ($)) ($ ($)))
         (SPADCALL (|spadConstant| $ 16) (|UTS;stream| |x| $) (QREFELT $ 143))) 
 
-(SDEFUN |UTS;integrate;$V$;50| ((|x| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |UTS;integrate;$V$;50| ((|x| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 144))) 
 
-(SDEFUN |UTS;integrate;$S$;51| ((|x| $) (|s| |Symbol|) ($ $))
+(SDEFUN |UTS;integrate;$S$;51| ((|x| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG NIL
                (COND
                 ((EQUAL |s| (SPADCALL |x| (QREFELT $ 86)))
@@ -495,14 +506,15 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |y| |s| (QREFELT $ 149)))))) 
 
-(SDEFUN |UTS;integrateWithOneAnswer| ((|f| |Coef|) (|s| |Symbol|) ($ |Coef|))
+(SDEFUN |UTS;integrateWithOneAnswer|
+        ((|f| (|Coef|)) (|s| (|Symbol|)) ($ (|Coef|)))
         (SPROG ((|res| (|Union| |Coef| (|List| |Coef|))))
                (SEQ (LETT |res| (SPADCALL |f| |s| (QREFELT $ 153)))
                     (EXIT
                      (COND ((QEQCAR |res| 0) (QCDR |res|))
                            ('T (|SPADfirst| (QCDR |res|)))))))) 
 
-(SDEFUN |UTS;integrate;$S$;53| ((|x| $) (|s| |Symbol|) ($ $))
+(SDEFUN |UTS;integrate;$S$;53| ((|x| ($)) (|s| (|Symbol|)) ($ ($)))
         (SPROG NIL
                (COND
                 ((EQUAL |s| (SPADCALL |x| (QREFELT $ 86)))

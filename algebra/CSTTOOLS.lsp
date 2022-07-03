@@ -1,5 +1,5 @@
 
-(SDEFUN |CSTTOOLS;cycleElt;STU;1| ((|x| ST) ($ |Union| ST "failed"))
+(SDEFUN |CSTTOOLS;cycleElt;STU;1| ((|x| (ST)) ($ (|Union| ST "failed")))
         (SPROG ((#1=#:G138 NIL) (#2=#:G139 NIL) (|y| (ST)) (|i| NIL))
                (SEQ
                 (EXIT
@@ -35,7 +35,7 @@
                 #3# (EXIT #2#)))) 
 
 (SDEFUN |CSTTOOLS;computeCycleLength;STNni;2|
-        ((|cycElt| ST) ($ |NonNegativeInteger|))
+        ((|cycElt| (ST)) ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G144 NIL) (#2=#:G145 NIL) (|y| (ST)) (|i| NIL))
                (SEQ
                 (EXIT
@@ -59,7 +59,8 @@
                             (EXIT NIL)))))
                 #3# (EXIT #2#)))) 
 
-(SDEFUN |CSTTOOLS;computeCycleEntry;3ST;3| ((|x| ST) (|cycElt| ST) ($ ST))
+(SDEFUN |CSTTOOLS;computeCycleEntry;3ST;3|
+        ((|x| (ST)) (|cycElt| (ST)) ($ (ST)))
         (SPROG ((|y| (ST)) (#1=#:G151 NIL))
                (SEQ
                 (EXIT

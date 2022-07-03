@@ -1,7 +1,7 @@
 
 (SDEFUN |ELINSOL;lin_coeff|
-        ((|x| |SparseMultivariatePolynomial| R (|Kernel| F)) (|v| |Kernel| F)
-         ($ F))
+        ((|x| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+         (|v| (|Kernel| F)) ($ (F)))
         (SPROG
          ((|d| (|NonNegativeInteger|))
           (|ux|
@@ -16,7 +16,8 @@
                       (SPADCALL (SPADCALL |ux| (QREFELT $ 18))
                                 (QREFELT $ 20)))))))) 
 
-(SDEFUN |ELINSOL;F_to_LF| ((|x| F) (|vl| |List| (|Kernel| F)) ($ |List| F))
+(SDEFUN |ELINSOL;F_to_LF|
+        ((|x| (F)) (|vl| (|List| (|Kernel| F))) ($ (|List| F)))
         (SPROG
          ((#1=#:G145 NIL) (|v| NIL) (#2=#:G144 NIL)
           (|nx0| (|SparseMultivariatePolynomial| R (|Kernel| F)))
@@ -89,8 +90,8 @@
                 ('T (CONS (SPADCALL |nx0| (QREFELT $ 20)) |res0|))))))) 
 
 (SDEFUN |ELINSOL;lin_sol;LLU;3|
-        ((|eql| |List| F) (|vl| |List| (|Symbol|))
-         ($ |Union| (|List| F) "failed"))
+        ((|eql| (|List| F)) (|vl| (|List| (|Symbol|)))
+         ($ (|Union| (|List| F) "failed")))
         (SPROG
          ((#1=#:G155 NIL)
           (|ss|

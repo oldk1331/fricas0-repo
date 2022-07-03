@@ -1,69 +1,72 @@
 
-(SDEFUN |FSPECF;abs;2F;1| ((|x| F) ($ F))
+(SDEFUN |FSPECF;abs;2F;1| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 13) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;conjugate;2F;2| ((|x| F) ($ F))
+(SDEFUN |FSPECF;conjugate;2F;2| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 14) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;Gamma;2F;3| ((|x| F) ($ F))
+(SDEFUN |FSPECF;Gamma;2F;3| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 15) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;Gamma;3F;4| ((|a| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;Gamma;3F;4| ((|a| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 16) |a| |x| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;Beta;3F;5| ((|x| F) (|y| F) ($ F))
+(SDEFUN |FSPECF;Beta;3F;5| ((|x| (F)) (|y| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 17) |x| |y| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;digamma;2F;6| ((|x| F) ($ F))
+(SDEFUN |FSPECF;digamma;2F;6| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 18) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;polygamma;3F;7| ((|k| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;polygamma;3F;7| ((|k| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 19) |k| |x| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;besselJ;3F;8| ((|a| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;besselJ;3F;8| ((|a| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 20) |a| |x| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;besselY;3F;9| ((|a| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;besselY;3F;9| ((|a| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 21) |a| |x| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;besselI;3F;10| ((|a| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;besselI;3F;10| ((|a| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 22) |a| |x| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;besselK;3F;11| ((|a| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;besselK;3F;11| ((|a| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 23) |a| |x| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;airyAi;2F;12| ((|x| F) ($ F))
+(SDEFUN |FSPECF;airyAi;2F;12| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 24) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;airyAiPrime;2F;13| ((|x| F) ($ F))
+(SDEFUN |FSPECF;airyAiPrime;2F;13| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 25) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;airyBi;2F;14| ((|x| F) ($ F))
+(SDEFUN |FSPECF;airyBi;2F;14| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 26) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;airyBiPrime;2F;15| ((|x| F) ($ F))
+(SDEFUN |FSPECF;airyBiPrime;2F;15| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 27) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;lambertW;2F;16| ((|x| F) ($ F))
+(SDEFUN |FSPECF;lambertW;2F;16| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 28) |x| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;polylog;3F;17| ((|s| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;polylog;3F;17| ((|s| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 29) |s| |x| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;weierstrassP;4F;18| ((|g2| F) (|g3| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;weierstrassP;4F;18| ((|g2| (F)) (|g3| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 30) |g2| |g3| |x| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;weierstrassPPrime;4F;19| ((|g2| F) (|g3| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;weierstrassPPrime;4F;19|
+        ((|g2| (F)) (|g3| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 31) |g2| |g3| |x| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;weierstrassSigma;4F;20| ((|g2| F) (|g3| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;weierstrassSigma;4F;20|
+        ((|g2| (F)) (|g3| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 32) |g2| |g3| |x| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;weierstrassZeta;4F;21| ((|g2| F) (|g3| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;weierstrassZeta;4F;21|
+        ((|g2| (F)) (|g3| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 33) |g2| |g3| |x| (QREFELT $ 64))) 
 
 (SDEFUN |FSPECF;hypergeometricF;2L2F;22|
-        ((|a| |List| F) (|b| |List| F) (|z| F) ($ F))
+        ((|a| (|List| F)) (|b| (|List| F)) (|z| (F)) ($ (F)))
         (SPROG
          ((|q| (F)) (|p| (F)) (|nbi| #1=(|NonNegativeInteger|)) (|nai| #1#))
          (SEQ (LETT |nai| (LENGTH |a|)) (LETT |nbi| (LENGTH |b|))
@@ -82,8 +85,8 @@
                          (QREFELT $ 80)))))) 
 
 (SDEFUN |FSPECF;meijerG;4L2F;23|
-        ((|a| |List| F) (|b| |List| F) (|c| |List| F) (|d| |List| F) (|z| F)
-         ($ F))
+        ((|a| (|List| F)) (|b| (|List| F)) (|c| (|List| F)) (|d| (|List| F))
+         (|z| (F)) ($ (F)))
         (SPROG ((|m2| (F)) (|m1| (F)) (|n2| (F)) (|n1| (F)))
                (SEQ (LETT |n1| (SPADCALL (LENGTH |a|) (QREFELT $ 76)))
                     (LETT |n2| (SPADCALL (LENGTH |b|) (QREFELT $ 76)))
@@ -107,8 +110,8 @@
                                (QREFELT $ 80)))))) 
 
 (SDEFUN |FSPECF;grad2|
-        ((|l| |List| F) (|t| |Symbol|) (|op| |BasicOperator|)
-         (|d2| |Mapping| F F F) ($ F))
+        ((|l| (|List| F)) (|t| (|Symbol|)) (|op| (|BasicOperator|))
+         (|d2| (|Mapping| F F F)) ($ (F)))
         (SPROG ((|dm| (F)) (|x2| (F)) (|x1| (F)))
                (SEQ (LETT |x1| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |x2| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -129,8 +132,8 @@
                       (QREFELT $ 101)))))) 
 
 (SDEFUN |FSPECF;grad3|
-        ((|l| |List| F) (|t| |Symbol|) (|op| |BasicOperator|)
-         (|d3| |Mapping| F F F F) ($ F))
+        ((|l| (|List| F)) (|t| (|Symbol|)) (|op| (|BasicOperator|))
+         (|d3| (|Mapping| F F F F)) ($ (F)))
         (SPROG ((|dm2| (F)) (|dm1| (F)) (|x3| (F)) (|x2| (F)) (|x1| (F)))
                (SEQ (LETT |x1| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |x2| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -166,8 +169,8 @@
                       (QREFELT $ 101)))))) 
 
 (SDEFUN |FSPECF;grad4|
-        ((|l| |List| F) (|t| |Symbol|) (|op| |BasicOperator|)
-         (|d4| |Mapping| F F F F F) ($ F))
+        ((|l| (|List| F)) (|t| (|Symbol|)) (|op| (|BasicOperator|))
+         (|d4| (|Mapping| F F F F F)) ($ (F)))
         (SPROG
          ((|kd3| (F)) (|kd2| (F)) (|kd1| (F)) (|dm3| (F)) (|dm2| (F))
           (|dm1| (F)) (|x4| (F)) (|x3| (F)) (|x2| (F)) (|x1| (F)))
@@ -215,17 +218,18 @@
                           (SPADCALL |x1| |x2| |x3| |x4| |d4|) (QREFELT $ 100))
                 (QREFELT $ 101)))))) 
 
-(SDEFUN |FSPECF;weierstrassPInverse;4F;27| ((|g2| F) (|g3| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;weierstrassPInverse;4F;27|
+        ((|g2| (F)) (|g3| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 102) |g2| |g3| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eWeierstrassPInverse| ((|g2| F) (|g3| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eWeierstrassPInverse| ((|g2| (F)) (|g3| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 102) (LIST |g2| |g3| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elWeierstrassPInverse| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elWeierstrassPInverse| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eWeierstrassPInverse| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eWeierstrassPInverseGrad_g2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eWeierstrassPInverseGrad_g2| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|s2| (F)) (|s1| (F)) (|delta| (F)) (|wpi| (F)) (|z| (F)) (|g3| (F))
           (|g2| (F)))
@@ -269,7 +273,7 @@
                           (QREFELT $ 101))
                 (SPADCALL 4 |delta| (QREFELT $ 92)) (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;eWeierstrassPInverseGrad_g3| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eWeierstrassPInverseGrad_g3| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|s2| (F)) (|s1| (F)) (|delta| (F)) (|wpi| (F)) (|z| (F)) (|g3| (F))
           (|g2| (F)))
@@ -313,7 +317,7 @@
                           (QREFELT $ 101))
                 (SPADCALL 2 |delta| (QREFELT $ 92)) (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;eWeierstrassPInverseGrad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eWeierstrassPInverseGrad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|z| (F)) (|g3| (F)) (|g2| (F)))
                (SEQ (LETT |g2| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |g3| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -331,17 +335,17 @@
                                 (QREFELT $ 113))
                                (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;whittakerM;4F;33| ((|k| F) (|m| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;whittakerM;4F;33| ((|k| (F)) (|m| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 116) |k| |m| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eWhittakerM| ((|k| F) (|m| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eWhittakerM| ((|k| (F)) (|m| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 116) (LIST |k| |m| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elWhittakerM| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elWhittakerM| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eWhittakerM| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eWhittakerMGrad_z| ((|k| F) (|m| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eWhittakerMGrad_z| ((|k| (F)) (|m| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (QREFELT $ 87) (SPADCALL |k| |z| (QREFELT $ 109))
@@ -357,21 +361,21 @@
           |z| (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dWhittakerM| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dWhittakerM| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 116)
          (CONS (|function| |FSPECF;eWhittakerMGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;whittakerW;4F;38| ((|k| F) (|m| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;whittakerW;4F;38| ((|k| (F)) (|m| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 120) |k| |m| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eWhittakerW| ((|k| F) (|m| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eWhittakerW| ((|k| (F)) (|m| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 120) (LIST |k| |m| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elWhittakerW| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elWhittakerW| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eWhittakerW| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eWhittakerWGrad_z| ((|k| F) (|m| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eWhittakerWGrad_z| ((|k| (F)) (|m| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (QREFELT $ 87) (SPADCALL |k| |z| (QREFELT $ 109))
@@ -383,14 +387,14 @@
           |z| (QREFELT $ 109))
          (QREFELT $ 108))) 
 
-(SDEFUN |FSPECF;dWhittakerW| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dWhittakerW| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 120)
          (CONS (|function| |FSPECF;eWhittakerWGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;angerJ;3F;43| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;angerJ;3F;43| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 122) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eAngerJ| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eAngerJ| ((|v| (F)) (|z| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (SPADCALL
@@ -400,11 +404,11 @@
            (QREFELT $ 109)))
          ('T (SPADCALL (QREFELT $ 122) (LIST |v| |z|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elAngerJ| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elAngerJ| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eAngerJ| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eAngerJGrad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eAngerJGrad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -422,17 +426,17 @@
           (QREFELT $ 109))
          (QREFELT $ 108))) 
 
-(SDEFUN |FSPECF;dAngerJ| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dAngerJ| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 122)
          (CONS (|function| |FSPECF;eAngerJGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;eeAngerJ| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eeAngerJ| ((|l| (|List| F)) ($ (F)))
         (SPADCALL (QREFELT $ 122) |l| (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;weberE;3F;49| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;weberE;3F;49| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 126) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eWeberE| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eWeberE| ((|v| (F)) (|z| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (SPADCALL
@@ -448,11 +452,11 @@
            (QREFELT $ 109)))
          ('T (SPADCALL (QREFELT $ 126) (LIST |v| |z|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elWeberE| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elWeberE| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eWeberE| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eWeberEGrad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eWeberEGrad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -473,24 +477,24 @@
           (QREFELT $ 109))
          (QREFELT $ 108))) 
 
-(SDEFUN |FSPECF;dWeberE| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dWeberE| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 126)
          (CONS (|function| |FSPECF;eWeberEGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;eeWeberE| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eeWeberE| ((|l| (|List| F)) ($ (F)))
         (SPADCALL (QREFELT $ 126) |l| (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;struveH;3F;55| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;struveH;3F;55| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 130) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eStruveH| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eStruveH| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 130) (LIST |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elStruveH| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elStruveH| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eStruveH| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eStruveHGrad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eStruveHGrad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -511,21 +515,21 @@
           (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dStruveH| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dStruveH| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 130)
          (CONS (|function| |FSPECF;eStruveHGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;struveL;3F;60| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;struveL;3F;60| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 133) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eStruveL| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eStruveL| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 133) (LIST |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elStruveL| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elStruveL| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eStruveL| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eStruveLGrad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eStruveLGrad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL |v| (|spadConstant| $ 74) (QREFELT $ 101)) |z|
@@ -544,21 +548,21 @@
           (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dStruveL| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dStruveL| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 133)
          (CONS (|function| |FSPECF;eStruveLGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;hankelH1;3F;65| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;hankelH1;3F;65| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 135) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eHankelH1| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eHankelH1| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 135) (LIST |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elHankelH1| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elHankelH1| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eHankelH1| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eHankelH1Grad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eHankelH1Grad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL |v| (|spadConstant| $ 74) (QREFELT $ 101)) |z|
@@ -569,21 +573,21 @@
           (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dHankelH1| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dHankelH1| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 135)
          (CONS (|function| |FSPECF;eHankelH1Grad_z|) $) $)) 
 
-(SDEFUN |FSPECF;hankelH2;3F;70| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;hankelH2;3F;70| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 137) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eHankelH2| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eHankelH2| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 137) (LIST |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elHankelH2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elHankelH2| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eHankelH2| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eHankelH2Grad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eHankelH2Grad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL |v| (|spadConstant| $ 74) (QREFELT $ 101)) |z|
@@ -594,21 +598,21 @@
           (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dHankelH2| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dHankelH2| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 137)
          (CONS (|function| |FSPECF;eHankelH2Grad_z|) $) $)) 
 
-(SDEFUN |FSPECF;lommelS1;4F;75| ((|m| F) (|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;lommelS1;4F;75| ((|m| (F)) (|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 139) |m| |v| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eLommelS1| ((|m| F) (|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLommelS1| ((|m| (F)) (|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 139) (LIST |m| |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elLommelS1| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elLommelS1| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eLommelS1| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eLommelS1Grad_z| ((|m| F) (|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLommelS1Grad_z| ((|m| (F)) (|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -625,21 +629,21 @@
           (QREFELT $ 100))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dLommelS1| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dLommelS1| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 139)
          (CONS (|function| |FSPECF;eLommelS1Grad_z|) $) $)) 
 
-(SDEFUN |FSPECF;lommelS2;4F;80| ((|mu| F) (|nu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;lommelS2;4F;80| ((|mu| (F)) (|nu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 141) |mu| |nu| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eLommelS2| ((|mu| F) (|nu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLommelS2| ((|mu| (F)) (|nu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 141) (LIST |mu| |nu| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elLommelS2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elLommelS2| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eLommelS2| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eLommelS2Grad_z| ((|m| F) (|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLommelS2Grad_z| ((|m| (F)) (|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -656,24 +660,24 @@
           (QREFELT $ 100))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dLommelS2| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dLommelS2| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 141)
          (CONS (|function| |FSPECF;eLommelS2Grad_z|) $) $)) 
 
-(SDEFUN |FSPECF;kummerM;4F;85| ((|mu| F) (|nu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;kummerM;4F;85| ((|mu| (F)) (|nu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 143) |mu| |nu| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eKummerM| ((|a| F) (|b| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKummerM| ((|a| (F)) (|b| (F)) (|z| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 74))
          ('T (SPADCALL (QREFELT $ 143) (LIST |a| |b| |z|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elKummerM| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elKummerM| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eKummerM| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eKummerMGrad_z| ((|a| F) (|b| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKummerMGrad_z| ((|a| (F)) (|b| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -687,21 +691,21 @@
           (QREFELT $ 101))
          |z| (QREFELT $ 109))) 
 
-(SDEFUN |FSPECF;dKummerM| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dKummerM| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 143)
          (CONS (|function| |FSPECF;eKummerMGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;kummerU;4F;90| ((|a| F) (|b| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;kummerU;4F;90| ((|a| (F)) (|b| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 145) |a| |b| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eKummerU| ((|a| F) (|b| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKummerU| ((|a| (F)) (|b| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 145) (LIST |a| |b| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elKummerU| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elKummerU| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eKummerU| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eKummerUGrad_z| ((|a| F) (|b| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKummerUGrad_z| ((|a| (F)) (|b| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -712,21 +716,21 @@
           (QREFELT $ 108))
          |z| (QREFELT $ 109))) 
 
-(SDEFUN |FSPECF;dKummerU| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dKummerU| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 145)
          (CONS (|function| |FSPECF;eKummerUGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;legendreP;4F;95| ((|nu| F) (|mu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;legendreP;4F;95| ((|nu| (F)) (|mu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 147) |nu| |mu| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eLegendreP| ((|nu| F) (|mu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLegendreP| ((|nu| (F)) (|mu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 147) (LIST |nu| |mu| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elLegendreP| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elLegendreP| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eLegendreP| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eLegendrePGrad_z| ((|nu| F) (|mu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLegendrePGrad_z| ((|nu| (F)) (|mu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL |nu| |mu| (QREFELT $ 108)) (|spadConstant| $ 74)
@@ -740,21 +744,21 @@
           (SPADCALL |nu| |mu| |z| (QREFELT $ 148)) (QREFELT $ 100))
          (QREFELT $ 108))) 
 
-(SDEFUN |FSPECF;dLegendreP| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dLegendreP| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 147)
          (CONS (|function| |FSPECF;eLegendrePGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;legendreQ;4F;100| ((|nu| F) (|mu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;legendreQ;4F;100| ((|nu| (F)) (|mu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 149) |nu| |mu| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eLegendreQ| ((|nu| F) (|mu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLegendreQ| ((|nu| (F)) (|mu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 149) (LIST |nu| |mu| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elLegendreQ| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elLegendreQ| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eLegendreQ| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eLegendreQGrad_z| ((|nu| F) (|mu| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLegendreQGrad_z| ((|nu| (F)) (|mu| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL |nu| |mu| (QREFELT $ 108)) (|spadConstant| $ 74)
@@ -768,21 +772,21 @@
           (SPADCALL |nu| |mu| |z| (QREFELT $ 150)) (QREFELT $ 100))
          (QREFELT $ 108))) 
 
-(SDEFUN |FSPECF;dLegendreQ| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dLegendreQ| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 149)
          (CONS (|function| |FSPECF;eLegendreQGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;kelvinBei;3F;105| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;kelvinBei;3F;105| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 151) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eKelvinBei| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKelvinBei| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 151) (LIST |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elKelvinBei| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elKelvinBei| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eKelvinBei| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eKelvinBeiGrad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKelvinBeiGrad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (QREFELT $ 87)
@@ -800,21 +804,21 @@
           (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dKelvinBei| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dKelvinBei| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 151)
          (CONS (|function| |FSPECF;eKelvinBeiGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;kelvinBer;3F;110| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;kelvinBer;3F;110| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 154) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eKelvinBer| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKelvinBer| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 154) (LIST |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elKelvinBer| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elKelvinBer| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eKelvinBer| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eKelvinBerGrad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKelvinBerGrad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (QREFELT $ 87)
@@ -832,21 +836,21 @@
           (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dKelvinBer| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dKelvinBer| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 154)
          (CONS (|function| |FSPECF;eKelvinBerGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;kelvinKei;3F;115| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;kelvinKei;3F;115| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 155) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eKelvinKei| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKelvinKei| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 155) (LIST |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elKelvinKei| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elKelvinKei| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eKelvinKei| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eKelvinKeiGrad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKelvinKeiGrad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (QREFELT $ 87)
@@ -864,21 +868,21 @@
           (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dKelvinKei| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dKelvinKei| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 155)
          (CONS (|function| |FSPECF;eKelvinKeiGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;kelvinKer;3F;120| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;kelvinKer;3F;120| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 158) |v| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eKelvinKer| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKelvinKer| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 158) (LIST |v| |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elKelvinKer| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elKelvinKer| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eKelvinKer| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eKelvinKerGrad_z| ((|v| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eKelvinKerGrad_z| ((|v| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (QREFELT $ 87)
@@ -896,20 +900,20 @@
           (QREFELT $ 109))
          (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;dKelvinKer| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dKelvinKer| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 158)
          (CONS (|function| |FSPECF;eKelvinKerGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;ellipticK;2F;125| ((|m| F) ($ F))
+(SDEFUN |FSPECF;ellipticK;2F;125| ((|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 159) |m| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;eEllipticK| ((|m| F) ($ F))
+(SDEFUN |FSPECF;eEllipticK| ((|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 159) (LIST |m|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elEllipticK| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elEllipticK| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eEllipticK| (SPADCALL |l| 1 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;dEllipticK| ((|m| F) ($ F))
+(SDEFUN |FSPECF;dEllipticK| ((|m| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL (QREFELT $ 87)
                    (SPADCALL (SPADCALL |m| (QREFELT $ 161))
@@ -923,16 +927,16 @@
                    (QREFELT $ 100))
          (QREFELT $ 109))) 
 
-(SDEFUN |FSPECF;ellipticE;2F;129| ((|m| F) ($ F))
+(SDEFUN |FSPECF;ellipticE;2F;129| ((|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 166) |m| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;eEllipticE| ((|m| F) ($ F))
+(SDEFUN |FSPECF;eEllipticE| ((|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 166) (LIST |m|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elEllipticE| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elEllipticE| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eEllipticE| (SPADCALL |l| 1 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;dEllipticE| ((|m| F) ($ F))
+(SDEFUN |FSPECF;dEllipticE| ((|m| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL (QREFELT $ 87)
                    (SPADCALL (SPADCALL |m| (QREFELT $ 161))
@@ -940,10 +944,10 @@
                    (QREFELT $ 100))
          |m| (QREFELT $ 109))) 
 
-(SDEFUN |FSPECF;ellipticE;3F;133| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;ellipticE;3F;133| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 167) |z| |m| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eEllipticE2| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;eEllipticE2| ((|z| (F)) (|m| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 70))
@@ -951,11 +955,11 @@
           (|FSPECF;eEllipticE| |m| $))
          ('T (SPADCALL (QREFELT $ 167) (LIST |z| |m|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elEllipticE2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elEllipticE2| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eEllipticE2| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eEllipticE2Grad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eEllipticE2Grad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -974,7 +978,7 @@
                        (QREFELT $ 113))
                       (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;eEllipticE2Grad_m| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eEllipticE2Grad_m| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -987,14 +991,14 @@
                                 (QREFELT $ 100))
                       |m| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;inEllipticE2| ((|li| |List| (|InputForm|)) ($ |InputForm|))
+(SDEFUN |FSPECF;inEllipticE2| ((|li| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPADCALL (CONS (SPADCALL '|ellipticE| (QREFELT $ 171)) |li|)
                   (QREFELT $ 172))) 
 
-(SDEFUN |FSPECF;ellipticF;3F;139| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;ellipticF;3F;139| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 175) |z| |m| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eEllipticF| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;eEllipticF| ((|z| (F)) (|m| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 70))
@@ -1002,11 +1006,11 @@
           (SPADCALL |m| (QREFELT $ 160)))
          ('T (SPADCALL (QREFELT $ 175) (LIST |z| |m|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elEllipticF| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elEllipticF| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eEllipticF| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eEllipticFGrad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eEllipticFGrad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1029,7 +1033,7 @@
                                 (QREFELT $ 100))
                                (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;eEllipticFGrad_m| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eEllipticFGrad_m| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1071,20 +1075,20 @@
                       (SPADCALL (|spadConstant| $ 74) |m| (QREFELT $ 108))
                       (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;ellipticPi;4F;144| ((|z| F) (|n| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;ellipticPi;4F;144| ((|z| (F)) (|n| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 176) |z| |n| |m| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eEllipticPi| ((|z| F) (|n| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;eEllipticPi| ((|z| (F)) (|n| (F)) (|m| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 70))
          ('T (SPADCALL (QREFELT $ 176) (LIST |z| |n| |m|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elEllipticPi| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elEllipticPi| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eEllipticPi| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eEllipticPiGrad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eEllipticPiGrad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|n| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |n| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1117,7 +1121,7 @@
                                 (QREFELT $ 100))
                                (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;eEllipticPiGrad_n| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eEllipticPiGrad_n| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|t4| (F)) (|t3| (F)) (|t2| (F)) (|t1| (F)) (|m| (F)) (|n| (F))
           (|z| (F)))
@@ -1192,7 +1196,7 @@
                           |t4| (QREFELT $ 101))
                          (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;eEllipticPiGrad_m| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eEllipticPiGrad_m| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|t2| (F)) (|t1| (F)) (|m| (F)) (|n| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |n| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1233,10 +1237,10 @@
                                 (QREFELT $ 100))
                       (SPADCALL |n| |m| (QREFELT $ 108)) (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;jacobiSn;3F;150| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;jacobiSn;3F;150| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 178) |z| |m| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eJacobiSn| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;eJacobiSn| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPROG ((#1=#:G547 NIL) (|args| (|List| F)))
                (SEQ
                 (EXIT
@@ -1263,11 +1267,11 @@
                                (QREFELT $ 99)))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;elJacobiSn| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elJacobiSn| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eJacobiSn| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;jacobiGradHelper| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;jacobiGradHelper| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL |z|
                    (SPADCALL
@@ -1278,7 +1282,7 @@
                    (QREFELT $ 108))
          |m| (QREFELT $ 109))) 
 
-(SDEFUN |FSPECF;eJacobiSnGrad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiSnGrad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1287,7 +1291,7 @@
                                (SPADCALL |z| |m| (QREFELT $ 186))
                                (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;eJacobiSnGrad_m| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiSnGrad_m| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1309,20 +1313,20 @@
                                 (QREFELT $ 101))
                                (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;jacobiCn;3F;156| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;jacobiCn;3F;156| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 187) |z| |m| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eJacobiCn| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;eJacobiCn| ((|z| (F)) (|m| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 74))
          ('T (SPADCALL (QREFELT $ 187) (LIST |z| |m|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elJacobiCn| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elJacobiCn| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eJacobiCn| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eJacobiCnGrad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiCnGrad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1333,7 +1337,7 @@
                                 (QREFELT $ 100))
                       (QREFELT $ 110)))))) 
 
-(SDEFUN |FSPECF;eJacobiCnGrad_m| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiCnGrad_m| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1355,20 +1359,20 @@
                                 (QREFELT $ 108))
                                (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;jacobiDn;3F;161| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;jacobiDn;3F;161| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 188) |z| |m| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eJacobiDn| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;eJacobiDn| ((|z| (F)) (|m| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 74))
          ('T (SPADCALL (QREFELT $ 188) (LIST |z| |m|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elJacobiDn| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elJacobiDn| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eJacobiDn| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eJacobiDnGrad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiDnGrad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1380,7 +1384,7 @@
                        (SPADCALL |z| |m| (QREFELT $ 185)) (QREFELT $ 100))
                       (QREFELT $ 110)))))) 
 
-(SDEFUN |FSPECF;eJacobiDnGrad_m| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiDnGrad_m| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1402,20 +1406,20 @@
                                 (QREFELT $ 108))
                                (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;jacobiZeta;3F;166| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;jacobiZeta;3F;166| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 189) |z| |m| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eJacobiZeta| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;eJacobiZeta| ((|z| (F)) (|m| (F)) ($ (F)))
         (COND
          ((SPADCALL |z| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 70))
          ('T (SPADCALL (QREFELT $ 189) (LIST |z| |m|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elJacobiZeta| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elJacobiZeta| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eJacobiZeta| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eJacobiZetaGrad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiZetaGrad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|dn| (F)) (|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1427,7 +1431,7 @@
                                          (QREFELT $ 109))
                                (QREFELT $ 108)))))) 
 
-(SDEFUN |FSPECF;eJacobiZetaGrad_m| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiZetaGrad_m| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|res4| (F)) (|res3| (F)) (|res2| (F)) (|res1| (F)) (|dn| (F))
           (|er| (F)) (|ee| (F)) (|ek| (F)) (|m| (F)) (|z| (F)))
@@ -1492,17 +1496,17 @@
                           (QREFELT $ 108))
                 (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;jacobiTheta;3F;171| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;jacobiTheta;3F;171| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 191) |z| |m| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eJacobiTheta| ((|z| F) (|m| F) ($ F))
+(SDEFUN |FSPECF;eJacobiTheta| ((|z| (F)) (|m| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 191) (LIST |z| |m|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elJacobiTheta| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elJacobiTheta| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eJacobiTheta| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eJacobiThetaGrad_z| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiThetaGrad_z| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1511,7 +1515,7 @@
                                (SPADCALL |z| |m| (QREFELT $ 192))
                                (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;eJacobiThetaGrad_m| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;eJacobiThetaGrad_m| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|dm| (F)) (|m| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |m| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1525,20 +1529,20 @@
                                 |dm| |m|)
                                (QREFELT $ 99)))))) 
 
-(SDEFUN |FSPECF;lerchPhi;4F;176| ((|z| F) (|s| F) (|a| F) ($ F))
+(SDEFUN |FSPECF;lerchPhi;4F;176| ((|z| (F)) (|s| (F)) (|a| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 193) |z| |s| |a| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eLerchPhi| ((|z| F) (|s| F) (|a| F) ($ F))
+(SDEFUN |FSPECF;eLerchPhi| ((|z| (F)) (|s| (F)) (|a| (F)) ($ (F)))
         (COND
          ((SPADCALL |a| (|spadConstant| $ 74) (QREFELT $ 72))
           (SPADCALL (SPADCALL |s| |z| (QREFELT $ 63)) |z| (QREFELT $ 109)))
          ('T (SPADCALL (QREFELT $ 193) (LIST |z| |s| |a|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elLerchPhi| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elLerchPhi| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eLerchPhi| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;dLerchPhi| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dLerchPhi| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (SPROG ((|dm| (F)) (|da| (F)) (|dz| (F)) (|a| (F)) (|s| (F)) (|z| (F)))
                (SEQ (LETT |z| (SPADCALL |l| 1 (QREFELT $ 95)))
                     (LETT |s| (SPADCALL |l| 2 (QREFELT $ 95)))
@@ -1587,19 +1591,19 @@
                        |dz| (QREFELT $ 101))
                       |da| (QREFELT $ 101)))))) 
 
-(SDEFUN |FSPECF;riemannZeta;2F;180| ((|z| F) ($ F))
+(SDEFUN |FSPECF;riemannZeta;2F;180| ((|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 195) |z| (QREFELT $ 45))) 
 
-(SDEFUN |FSPECF;eRiemannZeta| ((|z| F) ($ F))
+(SDEFUN |FSPECF;eRiemannZeta| ((|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 195) (LIST |z|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;elRiemannZeta| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elRiemannZeta| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eRiemannZeta| (SPADCALL |l| 1 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;charlierC;4F;183| ((|n| F) (|a| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;charlierC;4F;183| ((|n| (F)) (|a| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 36) |n| |a| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eCharlierC| ((|n| F) (|a| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eCharlierC| ((|n| (F)) (|a| (F)) (|z| (F)) ($ (F)))
         (COND
          ((SPADCALL |n| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 74))
@@ -1607,14 +1611,14 @@
           (SPADCALL (SPADCALL |z| |a| (QREFELT $ 108)) |a| (QREFELT $ 109)))
          ('T (SPADCALL (QREFELT $ 36) (LIST |n| |a| |z|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elCharlierC| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elCharlierC| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eCharlierC| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;hermiteH;3F;186| ((|n| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;hermiteH;3F;186| ((|n| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 37) |n| |z| (QREFELT $ 49))) 
 
-(SDEFUN |FSPECF;eHermiteH| ((|n| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eHermiteH| ((|n| (F)) (|z| (F)) ($ (F)))
         (COND
          ((SPADCALL |n| (SPADCALL (|spadConstant| $ 74) (QREFELT $ 110))
                     (QREFELT $ 72))
@@ -1625,25 +1629,26 @@
           (SPADCALL (SPADCALL 2 (QREFELT $ 76)) |z| (QREFELT $ 100)))
          ('T (SPADCALL (QREFELT $ 37) (LIST |n| |z|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elHermiteH| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elHermiteH| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eHermiteH| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eHermiteHGrad_z| ((|n| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eHermiteHGrad_z| ((|n| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (SPADCALL (SPADCALL 2 (QREFELT $ 76)) |n| (QREFELT $ 100))
                   (SPADCALL
                    (SPADCALL |n| (|spadConstant| $ 74) (QREFELT $ 108)) |z|
                    (QREFELT $ 198))
                   (QREFELT $ 100))) 
 
-(SDEFUN |FSPECF;dHermiteH| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dHermiteH| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad2| |l| |t| (QREFELT $ 37)
          (CONS (|function| |FSPECF;eHermiteHGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;jacobiP;5F;191| ((|n| F) (|a| F) (|b| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;jacobiP;5F;191|
+        ((|n| (F)) (|a| (F)) (|b| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 38) |n| |a| |b| |z| (QREFELT $ 199))) 
 
-(SDEFUN |FSPECF;eJacobiP| ((|n| F) (|a| F) (|b| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eJacobiP| ((|n| (F)) (|a| (F)) (|b| (F)) (|z| (F)) ($ (F)))
         (COND
          ((SPADCALL |n| (SPADCALL (|spadConstant| $ 74) (QREFELT $ 110))
                     (QREFELT $ 72))
@@ -1664,12 +1669,13 @@
            (QREFELT $ 101)))
          ('T (SPADCALL (QREFELT $ 38) (LIST |n| |a| |b| |z|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elJacobiP| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elJacobiP| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eJacobiP| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95))
          (SPADCALL |l| 4 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eJacobiPGrad_z| ((|n| F) (|a| F) (|b| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eJacobiPGrad_z|
+        ((|n| (F)) (|a| (F)) (|b| (F)) (|z| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL (QREFELT $ 87)
                    (SPADCALL
@@ -1683,14 +1689,14 @@
                    (QREFELT $ 200))
          (QREFELT $ 100))) 
 
-(SDEFUN |FSPECF;dJacobiP| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dJacobiP| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad4| |l| |t| (QREFELT $ 38)
          (CONS (|function| |FSPECF;eJacobiPGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;laguerreL;4F;196| ((|n| F) (|a| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;laguerreL;4F;196| ((|n| (F)) (|a| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 39) |n| |a| |z| (QREFELT $ 64))) 
 
-(SDEFUN |FSPECF;eLaguerreL| ((|n| F) (|a| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLaguerreL| ((|n| (F)) (|a| (F)) (|z| (F)) ($ (F)))
         (COND
          ((SPADCALL |n| (SPADCALL (|spadConstant| $ 74) (QREFELT $ 110))
                     (QREFELT $ 72))
@@ -1702,23 +1708,24 @@
                     (QREFELT $ 108)))
          ('T (SPADCALL (QREFELT $ 39) (LIST |n| |a| |z|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elLaguerreL| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elLaguerreL| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eLaguerreL| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;eLaguerreLGrad_z| ((|n| F) (|a| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eLaguerreLGrad_z| ((|n| (F)) (|a| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (SPADCALL |n| (|spadConstant| $ 74) (QREFELT $ 108))
                   (SPADCALL |a| (|spadConstant| $ 74) (QREFELT $ 101)) |z|
                   (QREFELT $ 201))) 
 
-(SDEFUN |FSPECF;dLaguerreL| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dLaguerreL| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (|FSPECF;grad3| |l| |t| (QREFELT $ 39)
          (CONS (|function| |FSPECF;eLaguerreLGrad_z|) $) $)) 
 
-(SDEFUN |FSPECF;meixnerM;5F;201| ((|n| F) (|b| F) (|c| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;meixnerM;5F;201|
+        ((|n| (F)) (|b| (F)) (|c| (F)) (|z| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 40) |n| |b| |c| |z| (QREFELT $ 199))) 
 
-(SDEFUN |FSPECF;eMeixnerM| ((|n| F) (|b| F) (|c| F) (|z| F) ($ F))
+(SDEFUN |FSPECF;eMeixnerM| ((|n| (F)) (|b| (F)) (|c| (F)) (|z| (F)) ($ (F)))
         (COND
          ((SPADCALL |n| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 74))
@@ -1731,15 +1738,16 @@
            (|spadConstant| $ 74) (QREFELT $ 101)))
          ('T (SPADCALL (QREFELT $ 40) (LIST |n| |b| |c| |z|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;elMeixnerM| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;elMeixnerM| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;eMeixnerM| (SPADCALL |l| 1 (QREFELT $ 95))
          (SPADCALL |l| 2 (QREFELT $ 95)) (SPADCALL |l| 3 (QREFELT $ 95))
          (SPADCALL |l| 4 (QREFELT $ 95)) $)) 
 
-(SDEFUN |FSPECF;belong?;BoB;204| ((|op| |BasicOperator|) ($ |Boolean|))
+(SDEFUN |FSPECF;belong?;BoB;204| ((|op| (|BasicOperator|)) ($ (|Boolean|)))
         (SPADCALL |op| (QREFELT $ 8) (QREFELT $ 203))) 
 
-(SDEFUN |FSPECF;operator;2Bo;205| ((|op| |BasicOperator|) ($ |BasicOperator|))
+(SDEFUN |FSPECF;operator;2Bo;205|
+        ((|op| (|BasicOperator|)) ($ (|BasicOperator|)))
         (COND ((SPADCALL |op| '|abs| (QREFELT $ 205)) (QREFELT $ 13))
               ((SPADCALL |op| '|conjugate| (QREFELT $ 205)) (QREFELT $ 14))
               ((SPADCALL |op| '|Gamma| (QREFELT $ 205)) (QREFELT $ 15))
@@ -1810,11 +1818,11 @@
               ((SPADCALL |op| '|%erfis| (QREFELT $ 205)) (QREFELT $ 44))
               ('T (|error| "Not a special operator")))) 
 
-(SDEFUN |FSPECF;iGamma| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iGamma| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (|spadConstant| $ 74) (QREFELT $ 72)) |x|)
               ('T (SPADCALL (QREFELT $ 15) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iabs| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iabs| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 208)) (|spadConstant| $ 70))
               ((SPADCALL |x| (QREFELT $ 209)) (|spadConstant| $ 74))
               ((SPADCALL |x| (QREFELT $ 13) (QREFELT $ 180)) |x|)
@@ -1830,7 +1838,7 @@
                          (QREFELT $ 207)))
               ('T (SPADCALL (QREFELT $ 13) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iconjugate| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iconjugate| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 208)) (|spadConstant| $ 70))
               ((SPADCALL |x| (QREFELT $ 14) (QREFELT $ 180))
                (SPADCALL
@@ -1839,28 +1847,28 @@
               ((SPADCALL |x| (QREFELT $ 13) (QREFELT $ 180)) |x|)
               ('T (SPADCALL (QREFELT $ 14) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iBeta| ((|x| F) (|y| F) ($ F))
+(SDEFUN |FSPECF;iBeta| ((|x| (F)) (|y| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 17) (LIST |x| |y|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;idigamma| ((|x| F) ($ F))
+(SDEFUN |FSPECF;idigamma| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 18) |x| (QREFELT $ 207))) 
 
-(SDEFUN |FSPECF;iiipolygamma| ((|n| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;iiipolygamma| ((|n| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 19) (LIST |n| |x|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iiiBesselJ| ((|x| F) (|y| F) ($ F))
+(SDEFUN |FSPECF;iiiBesselJ| ((|x| (F)) (|y| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 20) (LIST |x| |y|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iiiBesselY| ((|x| F) (|y| F) ($ F))
+(SDEFUN |FSPECF;iiiBesselY| ((|x| (F)) (|y| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 21) (LIST |x| |y|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iiiBesselI| ((|x| F) (|y| F) ($ F))
+(SDEFUN |FSPECF;iiiBesselI| ((|x| (F)) (|y| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 22) (LIST |x| |y|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iiiBesselK| ((|x| F) (|y| F) ($ F))
+(SDEFUN |FSPECF;iiiBesselK| ((|x| (F)) (|y| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 23) (LIST |x| |y|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iAiryAi;2F;216| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iAiryAi;2F;216| ((|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |x| (QREFELT $ 208))
           (SPADCALL (|spadConstant| $ 74)
@@ -1871,7 +1879,7 @@
                     (QREFELT $ 109)))
          ('T (SPADCALL (QREFELT $ 24) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iAiryAiPrime;2F;217| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iAiryAiPrime;2F;217| ((|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |x| (QREFELT $ 208))
           (SPADCALL
@@ -1884,7 +1892,7 @@
            (QREFELT $ 110)))
          ('T (SPADCALL (QREFELT $ 25) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iAiryBi;2F;218| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iAiryBi;2F;218| ((|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |x| (QREFELT $ 208))
           (SPADCALL (|spadConstant| $ 74)
@@ -1895,7 +1903,7 @@
                     (QREFELT $ 109)))
          ('T (SPADCALL (QREFELT $ 26) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iAiryBiPrime;2F;219| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iAiryBiPrime;2F;219| ((|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |x| (QREFELT $ 208))
           (SPADCALL
@@ -1904,19 +1912,19 @@
            (SPADCALL (QREFELT $ 88) (QREFELT $ 48)) (QREFELT $ 109)))
          ('T (SPADCALL (QREFELT $ 27) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iAiryAi;2F;220| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iAiryAi;2F;220| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 24) |x| (QREFELT $ 207))) 
 
-(SDEFUN |FSPECF;iAiryAiPrime;2F;221| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iAiryAiPrime;2F;221| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 25) |x| (QREFELT $ 207))) 
 
-(SDEFUN |FSPECF;iAiryBi;2F;222| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iAiryBi;2F;222| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 26) |x| (QREFELT $ 207))) 
 
-(SDEFUN |FSPECF;iAiryBiPrime;2F;223| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iAiryBiPrime;2F;223| ((|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 27) |x| (QREFELT $ 207))) 
 
-(SDEFUN |FSPECF;iLambertW;2F;224| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iLambertW;2F;224| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 208)) (|spadConstant| $ 70))
               ((SPADCALL |x| (SPADCALL (|spadConstant| $ 74) (QREFELT $ 215))
                          (QREFELT $ 72))
@@ -1931,11 +1939,11 @@
                (SPADCALL (|spadConstant| $ 74) (QREFELT $ 110)))
               ('T (SPADCALL (QREFELT $ 28) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iLambertW;2F;225| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iLambertW;2F;225| ((|x| (F)) ($ (F)))
         (COND ((SPADCALL |x| (QREFELT $ 208)) (|spadConstant| $ 70))
               ('T (SPADCALL (QREFELT $ 28) |x| (QREFELT $ 207))))) 
 
-(SDEFUN |FSPECF;iiPolylog;3F;226| ((|s| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;iiPolylog;3F;226| ((|s| (F)) (|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |s| (|spadConstant| $ 74) (QREFELT $ 72))
           (SPADCALL
@@ -1947,7 +1955,7 @@
                     (QREFELT $ 218)))
          ('T (SPADCALL (QREFELT $ 29) (LIST |s| |x|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;iiPolylog;3F;227| ((|s| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;iiPolylog;3F;227| ((|s| (F)) (|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |s| (|spadConstant| $ 74) (QREFELT $ 72))
           (SPADCALL
@@ -1956,14 +1964,14 @@
            (QREFELT $ 110)))
          ('T (SPADCALL (QREFELT $ 29) (LIST |s| |x|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;iiPolylog;3F;228| ((|s| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;iiPolylog;3F;228| ((|s| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 29) (LIST |s| |x|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iPolylog| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iPolylog| ((|l| (|List| F)) ($ (F)))
         (SPADCALL (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220))
                   (QREFELT $ 219))) 
 
-(SDEFUN |FSPECF;iWeierstrassP| ((|g2| F) (|g3| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassP| ((|g2| (F)) (|g3| (F)) (|x| (F)) ($ (F)))
         (SPROG ((#1=#:G845 NIL) (|args| (|List| F)))
                (SEQ
                 (EXIT
@@ -1989,19 +1997,19 @@
                              (QREFELT $ 99)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;iWeierstrassPPrime| ((|g2| F) (|g3| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassPPrime| ((|g2| (F)) (|g3| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 31) (LIST |g2| |g3| |x|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iWeierstrassSigma| ((|g2| F) (|g3| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassSigma| ((|g2| (F)) (|g3| (F)) (|x| (F)) ($ (F)))
         (COND
          ((SPADCALL |x| (|spadConstant| $ 70) (QREFELT $ 72))
           (|spadConstant| $ 70))
          ('T (SPADCALL (QREFELT $ 32) (LIST |g2| |g3| |x|) (QREFELT $ 99))))) 
 
-(SDEFUN |FSPECF;iWeierstrassZeta| ((|g2| F) (|g3| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassZeta| ((|g2| (F)) (|g3| (F)) (|x| (F)) ($ (F)))
         (SPADCALL (QREFELT $ 33) (LIST |g2| |g3| |x|) (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iiabs;2F;234| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiabs;2F;234| ((|x| (F)) ($ (F)))
         (SPROG
          ((#1=#:G866 NIL) (|b| #2=(|Union| R "failed")) (|a| #2#)
           (|f| (|Fraction| (|Polynomial| R)))
@@ -2044,9 +2052,9 @@
                                (QREFELT $ 109)))))
                        #4# (EXIT #1#)))))))) 
 
-(SDEFUN |FSPECF;iiabs;2F;235| ((|x| F) ($ F)) (|FSPECF;iabs| |x| $)) 
+(SDEFUN |FSPECF;iiabs;2F;235| ((|x| (F)) ($ (F))) (|FSPECF;iabs| |x| $)) 
 
-(SDEFUN |FSPECF;iiconjugate;2F;236| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiconjugate;2F;236| ((|x| (F)) ($ (F)))
         (SPROG ((#1=#:G912 NIL))
                (SEQ
                 (EXIT
@@ -2103,7 +2111,7 @@
              (EXIT (|FSPECF;iconjugate| (SPADCALL |k| (QREFELT $ 240)) $))))))
          (EXIT (SPADCALL (ELT $ 242) |k| (QREFELT $ 244))))) 
 
-(SDEFUN |FSPECF;iiGamma;2F;237| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiGamma;2F;237| ((|x| (F)) ($ (F)))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 257)))
                     (EXIT
@@ -2112,7 +2120,7 @@
                             (SPADCALL (SPADCALL (QCDR |r|) (QREFELT $ 258))
                                       (QREFELT $ 230)))))))) 
 
-(SDEFUN |FSPECF;iiBeta;LF;238| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBeta;LF;238| ((|l| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G925 NIL) (|s| #2=(|Union| R "failed")) (|r| #2#))
                (SEQ
                 (EXIT
@@ -2144,7 +2152,7 @@
                              (QREFELT $ 230)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;iidigamma;2F;239| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iidigamma;2F;239| ((|x| (F)) ($ (F)))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 257)))
                     (EXIT
@@ -2153,7 +2161,7 @@
                             (SPADCALL (SPADCALL (QCDR |r|) (QREFELT $ 262))
                                       (QREFELT $ 230)))))))) 
 
-(SDEFUN |FSPECF;iipolygamma;LF;240| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iipolygamma;LF;240| ((|l| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G938 NIL) (|r| #2=(|Union| R "failed")) (|s| #2#))
                (SEQ
                 (EXIT
@@ -2185,7 +2193,7 @@
                              (QREFELT $ 230)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;iiBesselJ;LF;241| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBesselJ;LF;241| ((|l| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G946 NIL) (|s| #2=(|Union| R "failed")) (|r| #2#))
                (SEQ
                 (EXIT
@@ -2217,7 +2225,7 @@
                              (QREFELT $ 230)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;iiBesselY;LF;242| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBesselY;LF;242| ((|l| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G954 NIL) (|s| #2=(|Union| R "failed")) (|r| #2#))
                (SEQ
                 (EXIT
@@ -2249,7 +2257,7 @@
                              (QREFELT $ 230)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;iiBesselI;LF;243| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBesselI;LF;243| ((|l| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G962 NIL) (|s| #2=(|Union| R "failed")) (|r| #2#))
                (SEQ
                 (EXIT
@@ -2281,7 +2289,7 @@
                              (QREFELT $ 230)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;iiBesselK;LF;244| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBesselK;LF;244| ((|l| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G970 NIL) (|s| #2=(|Union| R "failed")) (|r| #2#))
                (SEQ
                 (EXIT
@@ -2313,7 +2321,7 @@
                              (QREFELT $ 230)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;iiAiryAi;2F;245| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiAiryAi;2F;245| ((|x| (F)) ($ (F)))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 257)))
                     (EXIT
@@ -2322,7 +2330,7 @@
                             (SPADCALL (SPADCALL (QCDR |r|) (QREFELT $ 274))
                                       (QREFELT $ 230)))))))) 
 
-(SDEFUN |FSPECF;iiAiryAiPrime;2F;246| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiAiryAiPrime;2F;246| ((|x| (F)) ($ (F)))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 257)))
                     (EXIT
@@ -2331,7 +2339,7 @@
                             (SPADCALL (SPADCALL (QCDR |r|) (QREFELT $ 276))
                                       (QREFELT $ 230)))))))) 
 
-(SDEFUN |FSPECF;iiAiryBi;2F;247| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiAiryBi;2F;247| ((|x| (F)) ($ (F)))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 257)))
                     (EXIT
@@ -2340,7 +2348,7 @@
                             (SPADCALL (SPADCALL (QCDR |r|) (QREFELT $ 278))
                                       (QREFELT $ 230)))))))) 
 
-(SDEFUN |FSPECF;iiAiryBiPrime;2F;248| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiAiryBiPrime;2F;248| ((|x| (F)) ($ (F)))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 257)))
                     (EXIT
@@ -2349,7 +2357,7 @@
                             (SPADCALL (SPADCALL (QCDR |r|) (QREFELT $ 280))
                                       (QREFELT $ 230)))))))) 
 
-(SDEFUN |FSPECF;iiGamma;2F;249| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiGamma;2F;249| ((|x| (F)) ($ (F)))
         (SPROG ((#1=#:G998 NIL) (|r| (|Union| (|Integer|) "failed")))
                (SEQ
                 (EXIT
@@ -2369,60 +2377,62 @@
                   (EXIT (|FSPECF;iGamma| |x| $))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FSPECF;iiGamma;2F;250| ((|x| F) ($ F)) (|FSPECF;iGamma| |x| $)) 
+(SDEFUN |FSPECF;iiGamma;2F;250| ((|x| (F)) ($ (F))) (|FSPECF;iGamma| |x| $)) 
 
-(SDEFUN |FSPECF;iiBeta;LF;251| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBeta;LF;251| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iBeta| (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220)) $)) 
 
-(SDEFUN |FSPECF;iidigamma;2F;252| ((|x| F) ($ F)) (|FSPECF;idigamma| |x| $)) 
+(SDEFUN |FSPECF;iidigamma;2F;252| ((|x| (F)) ($ (F))) (|FSPECF;idigamma| |x| $)) 
 
-(SDEFUN |FSPECF;iipolygamma;LF;253| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iipolygamma;LF;253| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iiipolygamma| (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220))
          $)) 
 
-(SDEFUN |FSPECF;iiBesselJ;LF;254| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBesselJ;LF;254| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iiiBesselJ| (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220))
          $)) 
 
-(SDEFUN |FSPECF;iiBesselY;LF;255| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBesselY;LF;255| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iiiBesselY| (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220))
          $)) 
 
-(SDEFUN |FSPECF;iiBesselI;LF;256| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBesselI;LF;256| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iiiBesselI| (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220))
          $)) 
 
-(SDEFUN |FSPECF;iiBesselK;LF;257| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiBesselK;LF;257| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iiiBesselK| (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220))
          $)) 
 
-(SDEFUN |FSPECF;iiAiryAi;2F;258| ((|x| F) ($ F)) (SPADCALL |x| (QREFELT $ 211))) 
+(SDEFUN |FSPECF;iiAiryAi;2F;258| ((|x| (F)) ($ (F)))
+        (SPADCALL |x| (QREFELT $ 211))) 
 
-(SDEFUN |FSPECF;iiAiryAiPrime;2F;259| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiAiryAiPrime;2F;259| ((|x| (F)) ($ (F)))
         (SPADCALL |x| (QREFELT $ 212))) 
 
-(SDEFUN |FSPECF;iiAiryBi;2F;260| ((|x| F) ($ F)) (SPADCALL |x| (QREFELT $ 213))) 
+(SDEFUN |FSPECF;iiAiryBi;2F;260| ((|x| (F)) ($ (F)))
+        (SPADCALL |x| (QREFELT $ 213))) 
 
-(SDEFUN |FSPECF;iiAiryBiPrime;2F;261| ((|x| F) ($ F))
+(SDEFUN |FSPECF;iiAiryBiPrime;2F;261| ((|x| (F)) ($ (F)))
         (SPADCALL |x| (QREFELT $ 214))) 
 
-(SDEFUN |FSPECF;iiWeierstrassP| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiWeierstrassP| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iWeierstrassP| (|SPADfirst| |l|)
          (SPADCALL |l| (QREFELT $ 220)) (SPADCALL |l| (QREFELT $ 285)) $)) 
 
-(SDEFUN |FSPECF;iiWeierstrassPPrime| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiWeierstrassPPrime| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iWeierstrassPPrime| (|SPADfirst| |l|)
          (SPADCALL |l| (QREFELT $ 220)) (SPADCALL |l| (QREFELT $ 285)) $)) 
 
-(SDEFUN |FSPECF;iiWeierstrassSigma| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiWeierstrassSigma| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iWeierstrassSigma| (|SPADfirst| |l|)
          (SPADCALL |l| (QREFELT $ 220)) (SPADCALL |l| (QREFELT $ 285)) $)) 
 
-(SDEFUN |FSPECF;iiWeierstrassZeta| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiWeierstrassZeta| ((|l| (|List| F)) ($ (F)))
         (|FSPECF;iWeierstrassZeta| (|SPADfirst| |l|)
          (SPADCALL |l| (QREFELT $ 220)) (SPADCALL |l| (QREFELT $ 285)) $)) 
 
-(SDEFUN |FSPECF;diff1| ((|op| |BasicOperator|) (|n| F) (|x| F) ($ F))
+(SDEFUN |FSPECF;diff1| ((|op| (|BasicOperator|)) (|n| (F)) (|x| (F)) ($ (F)))
         (SPROG ((|dm| (F)))
                (SEQ
                 (LETT |dm| (SPADCALL (SPADCALL (QREFELT $ 96)) (QREFELT $ 97)))
@@ -2432,7 +2442,7 @@
                                  |dm| |n|)
                            (QREFELT $ 99)))))) 
 
-(SDEFUN |FSPECF;iBesselJ| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;iBesselJ| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (SPROG ((|x| (F)) (|n| (F)))
                (SEQ (LETT |n| (|SPADfirst| |l|))
                     (LETT |x| (SPADCALL |l| (QREFELT $ 220)))
@@ -2455,7 +2465,7 @@
                        (QREFELT $ 100))
                       (QREFELT $ 101)))))) 
 
-(SDEFUN |FSPECF;iBesselY| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;iBesselY| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (SPROG ((|x| (F)) (|n| (F)))
                (SEQ (LETT |n| (|SPADfirst| |l|))
                     (LETT |x| (SPADCALL |l| (QREFELT $ 220)))
@@ -2478,7 +2488,7 @@
                        (QREFELT $ 100))
                       (QREFELT $ 101)))))) 
 
-(SDEFUN |FSPECF;iBesselI| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;iBesselI| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (SPROG ((|x| (F)) (|n| (F)))
                (SEQ (LETT |n| (|SPADfirst| |l|))
                     (LETT |x| (SPADCALL |l| (QREFELT $ 220)))
@@ -2501,7 +2511,7 @@
                        (QREFELT $ 100))
                       (QREFELT $ 101)))))) 
 
-(SDEFUN |FSPECF;iBesselK| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;iBesselK| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (SPROG ((|x| (F)) (|n| (F)))
                (SEQ (LETT |n| (|SPADfirst| |l|))
                     (LETT |x| (SPADCALL |l| (QREFELT $ 220)))
@@ -2524,7 +2534,7 @@
                        (QREFELT $ 100))
                       (QREFELT $ 108)))))) 
 
-(SDEFUN |FSPECF;dPolylog| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dPolylog| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (SPROG ((|x| (F)) (|s| (F)))
                (SEQ (LETT |s| (|SPADfirst| |l|))
                     (LETT |x| (SPADCALL |l| (QREFELT $ 220)))
@@ -2543,7 +2553,7 @@
                        |x| (QREFELT $ 109))
                       (QREFELT $ 101)))))) 
 
-(SDEFUN |FSPECF;ipolygamma| ((|l| |List| F) (|x| |Symbol|) ($ F))
+(SDEFUN |FSPECF;ipolygamma| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG ((|y| (F)) (|n| (F)))
                (SEQ
                 (COND
@@ -2562,7 +2572,7 @@
                                    |y| (QREFELT $ 53))
                                   (QREFELT $ 100))))))))) 
 
-(SDEFUN |FSPECF;iBetaGrad1| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iBetaGrad1| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|y| (F)) (|x| (F)))
                (SEQ (LETT |x| (|SPADfirst| |l|))
                     (LETT |y| (SPADCALL |l| (QREFELT $ 220)))
@@ -2575,7 +2585,7 @@
                                          (QREFELT $ 108))
                                (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;iBetaGrad2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iBetaGrad2| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|y| (F)) (|x| (F)))
                (SEQ (LETT |x| (|SPADfirst| |l|))
                     (LETT |y| (SPADCALL |l| (QREFELT $ 220)))
@@ -2588,7 +2598,7 @@
                                          (QREFELT $ 108))
                                (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;iGamma2| ((|l| |List| F) (|t| |Symbol|) ($ F))
+(SDEFUN |FSPECF;iGamma2| ((|l| (|List| F)) (|t| (|Symbol|)) ($ (F)))
         (SPROG ((|x| (F)) (|a| (F)))
                (SEQ (LETT |a| (|SPADfirst| |l|))
                     (LETT |x| (SPADCALL |l| (QREFELT $ 220)))
@@ -2609,11 +2619,11 @@
                        (QREFELT $ 100))
                       (QREFELT $ 108)))))) 
 
-(SDEFUN |FSPECF;inGamma2| ((|li| |List| (|InputForm|)) ($ |InputForm|))
+(SDEFUN |FSPECF;inGamma2| ((|li| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPADCALL (CONS (SPADCALL '|Gamma| (QREFELT $ 171)) |li|)
                   (QREFELT $ 172))) 
 
-(SDEFUN |FSPECF;dLambertW| ((|x| F) ($ F))
+(SDEFUN |FSPECF;dLambertW| ((|x| (F)) ($ (F)))
         (SPROG ((|lw| (F)))
                (SEQ (LETT |lw| (SPADCALL |x| (QREFELT $ 62)))
                     (EXIT
@@ -2624,7 +2634,7 @@
                                          (QREFELT $ 100))
                                (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassPGrad1| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassPGrad1| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|wp| (F)) (|delta| (F)) (|x| (F)) (|g3| (F)) (|g2| (F)))
                (SEQ (LETT |g2| (|SPADfirst| |l|))
                     (LETT |g3| (SPADCALL |l| (QREFELT $ 220)))
@@ -2677,7 +2687,7 @@
                        (QREFELT $ 101))
                       |delta| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassPGrad2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassPGrad2| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|wp| (F)) (|delta| (F)) (|x| (F)) (|g3| (F)) (|g2| (F)))
                (SEQ (LETT |g2| (|SPADfirst| |l|))
                     (LETT |g3| (SPADCALL |l| (QREFELT $ 220)))
@@ -2718,11 +2728,11 @@
                        (SPADCALL |g2| 2 (QREFELT $ 107)) (QREFELT $ 108))
                       |delta| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassPGrad3| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassPGrad3| ((|l| (|List| F)) ($ (F)))
         (SPADCALL (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220))
                   (SPADCALL |l| (QREFELT $ 285)) (QREFELT $ 66))) 
 
-(SDEFUN |FSPECF;iWeierstrassPPrimeGrad1| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassPPrimeGrad1| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|wpp2| (F)) (|wpp| (F)) (|wp| (F)) (|delta| (F)) (|x| (F))
           (|g3| (F)) (|g2| (F)))
@@ -2789,7 +2799,7 @@
                  (QREFELT $ 101))
                 |delta| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassPPrimeGrad2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassPPrimeGrad2| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|wpp2| (F)) (|wpp| (F)) (|wp| (F)) (|delta| (F)) (|x| (F))
           (|g3| (F)) (|g2| (F)))
@@ -2848,7 +2858,7 @@
                  (QREFELT $ 108))
                 |delta| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassPPrimeGrad3| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassPPrimeGrad3| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|g2| (F)))
                (SEQ (LETT |g2| (|SPADfirst| |l|))
                     (EXIT
@@ -2863,7 +2873,7 @@
                       (SPADCALL (QREFELT $ 87) |g2| (QREFELT $ 100))
                       (QREFELT $ 108)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassSigmaGrad1| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassSigmaGrad1| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|wsp2| (F)) (|wsp| (F)) (|wz| (F)) (|ws| (F)) (|delta| (F))
           (|x| (F)) (|g3| (F)) (|g2| (F)))
@@ -2918,7 +2928,7 @@
                           (QREFELT $ 100))
                 |delta| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassSigmaGrad2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassSigmaGrad2| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((|wsp2| (F)) (|wsp| (F)) (|wz| (F)) (|ws| (F)) (|delta| (F))
           (|x| (F)) (|g3| (F)) (|g2| (F)))
@@ -2969,7 +2979,7 @@
                           (QREFELT $ 100))
                 |delta| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassSigmaGrad3| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassSigmaGrad3| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|x| (F)) (|g3| (F)) (|g2| (F)))
                (SEQ (LETT |g2| (|SPADfirst| |l|))
                     (LETT |g3| (SPADCALL |l| (QREFELT $ 220)))
@@ -2979,7 +2989,7 @@
                                (SPADCALL |g2| |g3| |x| (QREFELT $ 67))
                                (QREFELT $ 100)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassZetaGrad1| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassZetaGrad1| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|wp| (F)) (|delta| (F)) (|x| (F)) (|g3| (F)) (|g2| (F)))
                (SEQ (LETT |g2| (|SPADfirst| |l|))
                     (LETT |g3| (SPADCALL |l| (QREFELT $ 220)))
@@ -3028,7 +3038,7 @@
                        (QREFELT $ 101))
                       |delta| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassZetaGrad2| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassZetaGrad2| ((|l| (|List| F)) ($ (F)))
         (SPROG ((|wp| (F)) (|delta| (F)) (|x| (F)) (|g3| (F)) (|g2| (F)))
                (SEQ (LETT |g2| (|SPADfirst| |l|))
                     (LETT |g3| (SPADCALL |l| (QREFELT $ 220)))
@@ -3073,20 +3083,21 @@
                        (QREFELT $ 108))
                       |delta| (QREFELT $ 109)))))) 
 
-(SDEFUN |FSPECF;iWeierstrassZetaGrad3| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iWeierstrassZetaGrad3| ((|l| (|List| F)) ($ (F)))
         (SPADCALL
          (SPADCALL (|SPADfirst| |l|) (SPADCALL |l| (QREFELT $ 220))
                    (SPADCALL |l| (QREFELT $ 285)) (QREFELT $ 65))
          (QREFELT $ 110))) 
 
-(SDEFUN |FSPECF;dconjugate| ((|lo| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |FSPECF;dconjugate| ((|lo| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |lo| 1 (QREFELT $ 293)) (QREFELT $ 294))) 
 
-(SDEFUN |FSPECF;get_int_listf| ((|lf| |List| F) ($ |List| (|Integer|)))
+(SDEFUN |FSPECF;get_int_listf| ((|lf| (|List| F)) ($ (|List| (|Integer|))))
         (SPADCALL (ELT $ 297) |lf| (QREFELT $ 301))) 
 
 (SDEFUN |FSPECF;replace_i|
-        ((|lp| |List| F) (|v| F) (|i| |NonNegativeInteger|) ($ |List| F))
+        ((|lp| (|List| F)) (|v| (F)) (|i| (|NonNegativeInteger|))
+         ($ (|List| F)))
         (SPROG ((#1=#:G1116 NIL))
                (SPADCALL
                 (SPADCALL |lp|
@@ -3097,7 +3108,7 @@
                           (QREFELT $ 302))
                 (CONS |v| (SPADCALL |lp| |i| (QREFELT $ 303))) (QREFELT $ 78)))) 
 
-(SDEFUN |FSPECF;iiHypergeometricF;LF;293| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiHypergeometricF;LF;293| ((|l| (|List| F)) ($ (F)))
         (SPROG
          ((#1=#:G1122 NIL) (#2=#:G1123 NIL) (|q| #3=(|Integer|)) (|p| #3#)
           (|pqi| (|List| (|Integer|))) (|pq| (|List| F))
@@ -3135,8 +3146,8 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |FSPECF;idvsum|
-        ((|op| |BasicOperator|) (|n| |Integer|) (|l| |List| F) (|x| |Symbol|)
-         ($ F))
+        ((|op| (|BasicOperator|)) (|n| (|Integer|)) (|l| (|List| F))
+         (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|res| (F)) (|nl| (|List| F)) (|dm| (F)) (#1=#:G1130 NIL) (|i| NIL)
           (#2=#:G1131 NIL) (|a| NIL))
@@ -3168,7 +3179,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |FSPECF;dvhypergeom| ((|l| . #1=(|List| F)) (|x| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dvhypergeom| ((|l| #1=(|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|aprod| (F)) (|nl| (|List| F)) (|nl1| (|List| F)) (|nl0| (|List| F))
           (|bprod| (F)) (|b| (F)) (#2=#:G1140 NIL) (|i| NIL) (|a| (F))
@@ -3224,7 +3235,7 @@
                          (QREFELT $ 101)))))) 
 
 (SDEFUN |FSPECF;add_pairs_to_list|
-        ((|lp| |List| (|List| F)) (|l| |List| F) ($ |List| F))
+        ((|lp| (|List| (|List| F))) (|l| (|List| F)) ($ (|List| F)))
         (SPROG ((#1=#:G1145 NIL) (|p| NIL))
                (SEQ
                 (SEQ (LETT |p| NIL) (LETT #1# |lp|) G190
@@ -3244,7 +3255,7 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |l|)))) 
 
-(SDEFUN |FSPECF;dvmeijer| ((|l| . #1=(|List| F)) (|x| |Symbol|) ($ F))
+(SDEFUN |FSPECF;dvmeijer| ((|l| #1=(|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG
          ((|om| (F)) (|nm| (F)) (|l2| (|List| F)) (|sign| (F)) (|na| (F))
           (|a| (F)) (|n2| (|Integer|)) (|n1| (|Integer|)) (|z| (F))
@@ -3304,8 +3315,8 @@
                          (QREFELT $ 101)))))) 
 
 (SDEFUN |FSPECF;get_if_list|
-        ((|n| |Integer|) (|lf| |List| (|InputForm|))
-         ($ |List| (|List| (|InputForm|))))
+        ((|n| (|Integer|)) (|lf| (|List| (|InputForm|)))
+         ($ (|List| (|List| (|InputForm|)))))
         (SPROG ((|a| (|List| (|InputForm|))) (#1=#:G1158 NIL) (|i| NIL))
                (SEQ (LETT |a| NIL)
                     (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -3319,8 +3330,8 @@
                     (EXIT (LIST |a| |lf|))))) 
 
 (SDEFUN |FSPECF;get_if_lists|
-        ((|ln| |List| (|Integer|)) (|lf| |List| (|InputForm|))
-         ($ |List| (|List| (|InputForm|))))
+        ((|ln| (|List| (|Integer|))) (|lf| (|List| (|InputForm|)))
+         ($ (|List| (|List| (|InputForm|)))))
         (SPROG
          ((|rl| (|List| (|List| (|InputForm|))))
           (|al| (|List| (|List| (|InputForm|)))) (#1=#:G1163 NIL) (|n| NIL))
@@ -3336,7 +3347,8 @@
               (LETT |rl| (NREVERSE |rl|)) (EXIT (CONS |lf| |rl|))))) 
 
 (SDEFUN |FSPECF;get_int_listi|
-        ((|n| |Integer|) (|lo| |List| (|InputForm|)) ($ |List| (|Integer|)))
+        ((|n| (|Integer|)) (|lo| (|List| (|InputForm|)))
+         ($ (|List| (|Integer|))))
         (SPROG
          ((|rl| (|List| (|Integer|))) (|p| (|Integer|)) (#1=#:G1169 NIL)
           (|i| NIL) (|n0| (|NonNegativeInteger|)) (#2=#:G1164 NIL))
@@ -3354,8 +3366,8 @@
           (LETT |rl| (NREVERSE |rl|)) (EXIT |rl|)))) 
 
 (SDEFUN |FSPECF;get_of_list|
-        ((|n| |Integer|) (|lo| |List| (|OutputForm|))
-         ($ |List| (|List| (|OutputForm|))))
+        ((|n| (|Integer|)) (|lo| (|List| (|OutputForm|)))
+         ($ (|List| (|List| (|OutputForm|)))))
         (SPROG ((|a| (|List| (|OutputForm|))) (#1=#:G1174 NIL) (|i| NIL))
                (SEQ (LETT |a| NIL)
                     (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -3366,8 +3378,8 @@
                     (LETT |a| (NREVERSE |a|)) (EXIT (LIST |a| |lo|))))) 
 
 (SDEFUN |FSPECF;get_of_lists|
-        ((|ln| |List| (|Integer|)) (|lo| |List| (|OutputForm|))
-         ($ |List| (|List| (|OutputForm|))))
+        ((|ln| (|List| (|Integer|))) (|lo| (|List| (|OutputForm|)))
+         ($ (|List| (|List| (|OutputForm|)))))
         (SPROG
          ((|rl| (|List| (|List| (|OutputForm|))))
           (|al| (|List| (|List| (|OutputForm|)))) (#1=#:G1179 NIL) (|n| NIL))
@@ -3383,7 +3395,8 @@
               (LETT |rl| (NREVERSE |rl|)) (EXIT (CONS |lo| |rl|))))) 
 
 (SDEFUN |FSPECF;get_int_listo|
-        ((|n| |Integer|) (|lo| |List| (|OutputForm|)) ($ |List| (|Integer|)))
+        ((|n| (|Integer|)) (|lo| (|List| (|OutputForm|)))
+         ($ (|List| (|Integer|))))
         (SPROG
          ((|rl| (|List| (|Integer|))) (|p| (|Integer|)) (#1=#:G1185 NIL)
           (|i| NIL) (|n0| (|NonNegativeInteger|)) (#2=#:G1180 NIL))
@@ -3401,7 +3414,8 @@
           (LETT |rl| (NREVERSE |rl|)) (EXIT |rl|)))) 
 
 (SDEFUN |FSPECF;dhyper0|
-        ((|op| |OutputForm|) (|lo| |List| (|OutputForm|)) ($ |OutputForm|))
+        ((|op| (|OutputForm|)) (|lo| (|List| (|OutputForm|)))
+         ($ (|OutputForm|)))
         (SPROG
          ((|z| (|OutputForm|)) (|b| #1=(|List| (|OutputForm|))) (|a| #1#)
           (|al| (|List| (|List| (|OutputForm|)))) (|pql| (|List| (|Integer|)))
@@ -3423,14 +3437,15 @@
                            (SPADCALL |b| (QREFELT $ 312)) |z|)
                      (QREFELT $ 313)))))) 
 
-(SDEFUN |FSPECF;dhyper| ((|lo| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |FSPECF;dhyper| ((|lo| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (|FSPECF;dhyper0| (SPADCALL '|hypergeometricF| (QREFELT $ 314)) |lo| $)) 
 
-(SDEFUN |FSPECF;ddhyper| ((|lo| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |FSPECF;ddhyper| ((|lo| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (|FSPECF;dhyper0| (|SPADfirst| |lo|) (CDR |lo|) $)) 
 
 (SDEFUN |FSPECF;dmeijer0|
-        ((|op| |OutputForm|) (|lo| |List| (|OutputForm|)) ($ |OutputForm|))
+        ((|op| (|OutputForm|)) (|lo| (|List| (|OutputForm|)))
+         ($ (|OutputForm|)))
         (SPROG
          ((|z| (|OutputForm|)) (|al| (|List| (|List| (|OutputForm|))))
           (|nl| (|List| (|Integer|))) (|n0| (|NonNegativeInteger|))
@@ -3451,13 +3466,13 @@
                                (LIST |z|) (QREFELT $ 318))
                      (QREFELT $ 313)))))) 
 
-(SDEFUN |FSPECF;dmeijer| ((|lo| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |FSPECF;dmeijer| ((|lo| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (|FSPECF;dmeijer0| (SPADCALL '|meijerG| (QREFELT $ 314)) |lo| $)) 
 
-(SDEFUN |FSPECF;ddmeijer| ((|lo| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |FSPECF;ddmeijer| ((|lo| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (|FSPECF;dmeijer0| (|SPADfirst| |lo|) (CDR |lo|) $)) 
 
-(SDEFUN |FSPECF;inhyper| ((|lf| |List| (|InputForm|)) ($ |InputForm|))
+(SDEFUN |FSPECF;inhyper| ((|lf| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPROG
          ((|li| (|List| #1=(|InputForm|))) (|zi| #1#) (|bi| #2=(|InputForm|))
           (|b| #3=(|List| (|InputForm|))) (|ai| #2#) (|a| #3#)
@@ -3475,7 +3490,7 @@
                           |bi| |zi|))
               (EXIT (SPADCALL |li| (QREFELT $ 172)))))) 
 
-(SDEFUN |FSPECF;inmeijer| ((|lf| |List| (|InputForm|)) ($ |InputForm|))
+(SDEFUN |FSPECF;inmeijer| ((|lf| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPROG
          ((|li| (|List| #1=(|InputForm|))) (|zi| #1#) (|di| #2=(|InputForm|))
           (|d| #3=(|List| (|InputForm|)))
@@ -3499,19 +3514,19 @@
                           |di| |zi|))
               (EXIT (SPADCALL |li| (QREFELT $ 172)))))) 
 
-(SDEFUN |FSPECF;iiHypergeometricF;LF;312| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiHypergeometricF;LF;312| ((|l| (|List| F)) ($ (F)))
         (SPADCALL (QREFELT $ 34) |l| (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;iiMeijerG| ((|l| |List| F) ($ F))
+(SDEFUN |FSPECF;iiMeijerG| ((|l| (|List| F)) ($ (F)))
         (SPADCALL (QREFELT $ 35) |l| (QREFELT $ 99))) 
 
-(SDEFUN |FSPECF;d_eis| ((|x| F) ($ F))
+(SDEFUN |FSPECF;d_eis| ((|x| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL (SPADCALL (QREFELT $ 42) |x| (QREFELT $ 207))
                    (QREFELT $ 110))
          (SPADCALL (|spadConstant| $ 74) |x| (QREFELT $ 109)) (QREFELT $ 101))) 
 
-(SDEFUN |FSPECF;d_erfs| ((|x| F) ($ F))
+(SDEFUN |FSPECF;d_erfs| ((|x| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL (SPADCALL 2 |x| (QREFELT $ 92))
                    (SPADCALL (QREFELT $ 43) |x| (QREFELT $ 207))
@@ -3521,7 +3536,7 @@
                    (QREFELT $ 109))
          (QREFELT $ 108))) 
 
-(SDEFUN |FSPECF;d_erfis| ((|x| F) ($ F))
+(SDEFUN |FSPECF;d_erfis| ((|x| (F)) ($ (F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL 2 |x| (QREFELT $ 92))

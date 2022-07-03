@@ -1,7 +1,7 @@
 
 (SDEFUN |APPRULE;applist|
-        ((|lrule| |List| (|RewriteRule| |Base| R F)) (|arglist| |List| F)
-         ($ |List| F))
+        ((|lrule| (|List| (|RewriteRule| |Base| R F))) (|arglist| (|List| F))
+         ($ (|List| F)))
         (SPROG ((#1=#:G130 NIL) (|arg| NIL) (#2=#:G129 NIL))
                (SEQ
                 (PROGN
@@ -17,9 +17,10 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |APPRULE;splitRules|
-        ((|l| |List| (|RewriteRule| |Base| R F))
-         ($ |Record| (|:| |lker| (|List| (|Kernel| F))) (|:| |lval| (|List| F))
-          (|:| |rl| (|List| (|RewriteRule| |Base| R F)))))
+        ((|l| (|List| (|RewriteRule| |Base| R F)))
+         ($
+          (|Record| (|:| |lker| (|List| (|Kernel| F))) (|:| |lval| (|List| F))
+                    (|:| |rl| (|List| (|RewriteRule| |Base| R F))))))
         (SPROG
          ((|lv| (|List| F)) (|lk| (|List| (|Kernel| F)))
           (|ncr| (|List| (|RewriteRule| |Base| R F)))
@@ -49,7 +50,7 @@
               (EXIT (VECTOR |lk| |lv| |ncr|))))) 
 
 (SDEFUN |APPRULE;applyRules;L2F;3|
-        ((|l| |List| (|RewriteRule| |Base| R F)) (|s| F) ($ F))
+        ((|l| (|List| (|RewriteRule| |Base| R F))) (|s| (F)) ($ (F)))
         (SPROG
          ((#1=#:G146 NIL) (|new| (F))
           (|rec|
@@ -73,8 +74,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |APPRULE;applyRules;LFPiF;4|
-        ((|l| |List| (|RewriteRule| |Base| R F)) (|s| F)
-         (|n| |PositiveInteger|) ($ F))
+        ((|l| (|List| (|RewriteRule| |Base| R F))) (|s| (F))
+         (|n| (|PositiveInteger|)) ($ (F)))
         (SPROG
          ((|rec|
            (|Record| (|:| |lker| (|List| (|Kernel| F))) (|:| |lval| (|List| F))
@@ -85,9 +86,9 @@
                 (QVELT |rec| 2) |s| |n| $))))) 
 
 (SDEFUN |APPRULE;localApply|
-        ((|lk| |List| (|Kernel| F)) (|lv| |List| F)
-         (|lrule| |List| (|RewriteRule| |Base| R F)) (|subject| F)
-         (|n| |PositiveInteger|) ($ F))
+        ((|lk| (|List| (|Kernel| F))) (|lv| (|List| F))
+         (|lrule| (|List| (|RewriteRule| |Base| R F))) (|subject| (F))
+         (|n| (|PositiveInteger|)) ($ (F)))
         (SPROG
          ((#1=#:G156 NIL) (|k| NIL) (#2=#:G157 NIL) (|v| NIL) (#3=#:G155 NIL)
           (|i| NIL))
@@ -112,8 +113,8 @@
           (EXIT |subject|)))) 
 
 (SDEFUN |APPRULE;rewrite|
-        ((|f| F) (|res| |PatternMatchResult| |Base| F) (|l| |List| (|Symbol|))
-         ($ F))
+        ((|f| (F)) (|res| (|PatternMatchResult| |Base| F))
+         (|l| (|List| (|Symbol|))) ($ (F)))
         (SPROG
          ((|lv| (|List| F)) (|lk| (|List| (|Kernel| F))) (#1=#:G163 NIL)
           (|rec| NIL))
@@ -131,10 +132,10 @@
               (EXIT (SPADCALL |f| |lk| |lv| (QREFELT $ 33)))))) 
 
 (SDEFUN |APPRULE;isitwithpred|
-        ((|subject| F) (|pat| |Pattern| |Base|)
-         (|vars| |List| (|Pattern| |Base|))
-         (|bad| |List| (|PatternMatchResult| |Base| F))
-         ($ |PatternMatchResult| |Base| F))
+        ((|subject| (F)) (|pat| (|Pattern| |Base|))
+         (|vars| (|List| (|Pattern| |Base|)))
+         (|bad| (|List| (|PatternMatchResult| |Base| F)))
+         ($ (|PatternMatchResult| |Base| F)))
         (SPROG
          ((#1=#:G168 NIL) (#2=#:G176 NIL) (|v| NIL) (#3=#:G165 NIL)
           (|u| (|PatternMatchResult| |Base| F)))
@@ -175,8 +176,8 @@
                $)))))))) 
 
 (SDEFUN |APPRULE;isit|
-        ((|subject| F) (|pat| |Pattern| |Base|)
-         ($ |PatternMatchResult| |Base| F))
+        ((|subject| (F)) (|pat| (|Pattern| |Base|))
+         ($ (|PatternMatchResult| |Base| F)))
         (SPROG ((#1=#:G181 NIL) (|l| (|List| (|Pattern| |Base|))) (|v| NIL))
                (SEQ
                 (COND
@@ -196,7 +197,7 @@
                             (QREFELT $ 37))))))) 
 
 (SDEFUN |APPRULE;app|
-        ((|lrule| |List| (|RewriteRule| |Base| R F)) (|subject| F) ($ F))
+        ((|lrule| (|List| (|RewriteRule| |Base| R F))) (|subject| (F)) ($ (F)))
         (SPROG
          ((#1=#:G206 NIL) (#2=#:G203 NIL) (#3=#:G201 NIL) (|f| (F))
           (|ee| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|))))

@@ -1,8 +1,9 @@
 
-(SDEFUN |ELTAGG-;qelt;SDomIm;1| ((|a| S) (|x| |Dom|) ($ |Im|))
+(SDEFUN |ELTAGG-;qelt;SDomIm;1| ((|a| (S)) (|x| (|Dom|)) ($ (|Im|)))
         (SPADCALL |a| |x| (QREFELT $ 9))) 
 
-(SDEFUN |ELTAGG-;qsetelt!;SDom2Im;2| ((|a| S) (|x| |Dom|) (|y| |Im|) ($ |Im|))
+(SDEFUN |ELTAGG-;qsetelt!;SDom2Im;2|
+        ((|a| (S)) (|x| (|Dom|)) (|y| (|Im|)) ($ (|Im|)))
         (SPADCALL |a| |x| |y| (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |EltableAggregate&;|)) 

@@ -1,6 +1,6 @@
 
 (SDEFUN |COMPLEX2;map;MCC;1|
-        ((|fn| |Mapping| S R) (|gr| |Complex| R) ($ |Complex| S))
+        ((|fn| (|Mapping| S R)) (|gr| (|Complex| R)) ($ (|Complex| S)))
         (SPADCALL (SPADCALL (SPADCALL |gr| (QREFELT $ 9)) |fn|)
                   (SPADCALL (SPADCALL |gr| (QREFELT $ 10)) |fn|)
                   (QREFELT $ 12))) 

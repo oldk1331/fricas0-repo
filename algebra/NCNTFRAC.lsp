@@ -1,5 +1,5 @@
 
-(SDEFUN |NCNTFRAC;cfc| ((|a| F) ($ |Stream| (|Integer|)))
+(SDEFUN |NCNTFRAC;cfc| ((|a| (F)) ($ (|Stream| (|Integer|))))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|NCNTFRAC;cfc!0| (VECTOR $ |a|))
@@ -29,7 +29,7 @@
                                      (QREFELT $ 15))))))))))) 
 
 (SDEFUN |NCNTFRAC;continuedFraction;FCf;2|
-        ((|a| F) ($ |ContinuedFraction| (|Integer|)))
+        ((|a| (F)) ($ (|ContinuedFraction| (|Integer|))))
         (SPROG ((|b| (F)) (|aa| (|Integer|)))
                (SEQ (LETT |aa| (SPADCALL |a| (QREFELT $ 8)))
                     (EXIT

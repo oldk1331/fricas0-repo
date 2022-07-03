@@ -1,5 +1,5 @@
 
-(SDEFUN |LIMITPS;is_exp_log| ((|fcn| FE) (|x| |Symbol|) ($ |Boolean|))
+(SDEFUN |LIMITPS;is_exp_log| ((|fcn| (FE)) (|x| (|Symbol|)) ($ (|Boolean|)))
         (SPROG ((#1=#:G303 NIL) (|nm| (|Symbol|)) (#2=#:G304 NIL) (|k| NIL))
                (SEQ
                 (EXIT
@@ -87,14 +87,14 @@
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |LIMITPS;noX?| ((|fcn| FE) (|x| |Symbol|) ($ |Boolean|))
+(SDEFUN |LIMITPS;noX?| ((|fcn| (FE)) (|x| (|Symbol|)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| (SPADCALL |fcn| (QREFELT $ 23)) (QREFELT $ 24)))) 
 
-(SDEFUN |LIMITPS;constant?| ((|fcn| FE) ($ |Boolean|))
+(SDEFUN |LIMITPS;constant?| ((|fcn| (FE)) ($ (|Boolean|)))
         (NULL (SPADCALL |fcn| (QREFELT $ 23)))) 
 
 (SDEFUN |LIMITPS;firstNonLogPtr|
-        ((|fcn| FE) (|x| |Symbol|) ($ |List| (|Kernel| FE)))
+        ((|fcn| (FE)) (|x| (|Symbol|)) ($ (|List| (|Kernel| FE))))
         (SPROG
          ((|list| (|List| (|Kernel| FE))) (#1=#:G316 NIL)
           (|ker| (|Kernel| FE)))
@@ -123,7 +123,8 @@
                 (EXIT NIL)))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |LIMITPS;finiteValueAtInfinity?| ((|ker| |Kernel| FE) ($ |Boolean|))
+(SDEFUN |LIMITPS;finiteValueAtInfinity?|
+        ((|ker| (|Kernel| FE)) ($ (|Boolean|)))
         (COND
          ((OR (SPADCALL |ker| '|erf| (QREFELT $ 26))
               (OR (SPADCALL |ker| '|sech| (QREFELT $ 26))
@@ -158,7 +159,7 @@
          ('T NIL))) 
 
 (SDEFUN |LIMITPS;finiteValueAtPlusInfinity?|
-        ((|ker| |Kernel| FE) ($ |Boolean|))
+        ((|ker| (|Kernel| FE)) ($ (|Boolean|)))
         (COND
          ((OR (|LIMITPS;finiteValueAtInfinity?| |ker| $)
               (OR (SPADCALL |ker| '|Ci| (QREFELT $ 26))
@@ -167,14 +168,14 @@
          ('T NIL))) 
 
 (SDEFUN |LIMITPS;finiteValueAtMinusInfinity?|
-        ((|ker| |Kernel| FE) ($ |Boolean|))
+        ((|ker| (|Kernel| FE)) ($ (|Boolean|)))
         (COND
          ((OR (|LIMITPS;finiteValueAtInfinity?| |ker| $)
               (SPADCALL |ker| '|airyBi| (QREFELT $ 26)))
           'T)
          ('T NIL))) 
 
-(SDEFUN |LIMITPS;knownValueAtInfinity?| ((|ker| |Kernel| FE) ($ |Boolean|))
+(SDEFUN |LIMITPS;knownValueAtInfinity?| ((|ker| (|Kernel| FE)) ($ (|Boolean|)))
         (COND
          ((OR (SPADCALL |ker| '|exp| (QREFELT $ 26))
               (OR (SPADCALL |ker| '|sinh| (QREFELT $ 26))
@@ -183,7 +184,8 @@
           'T)
          ('T NIL))) 
 
-(SDEFUN |LIMITPS;knownValueAtPlusInfinity?| ((|ker| |Kernel| FE) ($ |Boolean|))
+(SDEFUN |LIMITPS;knownValueAtPlusInfinity?|
+        ((|ker| (|Kernel| FE)) ($ (|Boolean|)))
         (COND
          ((OR (|LIMITPS;knownValueAtInfinity?| |ker| $)
               (OR (SPADCALL |ker| '|airyBi| (QREFELT $ 26))
@@ -193,11 +195,11 @@
          ('T NIL))) 
 
 (SDEFUN |LIMITPS;knownValueAtMinusInfinity?|
-        ((|ker| |Kernel| FE) ($ |Boolean|))
+        ((|ker| (|Kernel| FE)) ($ (|Boolean|)))
         (COND ((|LIMITPS;knownValueAtInfinity?| |ker| $) 'T) ('T NIL))) 
 
 (SDEFUN |LIMITPS;leftOrRight|
-        ((|fcn| FE) (|x| |Symbol|) (|limVal| FE) ($ |SingleInteger|))
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|limVal| (FE)) ($ (|SingleInteger|)))
         (SPROG
          ((|inf| (|SingleInteger|)) (|val| (|OrderedCompletion| FE))
           (|value| (|Union| (|OrderedCompletion| FE) "failed")))
@@ -220,8 +222,8 @@
                      (#1# |inf|)))))))))) 
 
 (SDEFUN |LIMITPS;specialLimit|
-        ((|fcn| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE) #1="failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OrderedCompletion| FE) #1="failed")))
         (SPROG
          ((#2=#:G373 NIL) (|den| (FE)) (|num| (FE)) (|finVal| (FE))
           (|valu| (|Union| FE "failed")) (|val| (|OrderedCompletion| FE))
@@ -311,8 +313,8 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;specialLimitNormalize|
-        ((|fcn| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE) #1="failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OrderedCompletion| FE) #1="failed")))
         (SPROG
          ((|lim| (|Union| FE "failed")) (|limm| (|OrderedCompletion| FE))
           (|limVal|
@@ -424,8 +426,8 @@
                                                    $))))))))))))))))))))))))))) 
 
 (SDEFUN |LIMITPS;specialLimit1|
-        ((|fcn| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE) #1="failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OrderedCompletion| FE) #1="failed")))
         (SPROG
          ((|limVal|
            (|Union| (|OrderedCompletion| FE)
@@ -494,8 +496,8 @@
                                       (CONS 0 (QCDR |limVal|)))))))))))))))))))) 
 
 (SDEFUN |LIMITPS;specialLimitKernel|
-        ((|ker| |Kernel| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE) #1="failed"))
+        ((|ker| (|Kernel| FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OrderedCompletion| FE) #1="failed")))
         (SPROG
          ((|val| (FE))
           (|kerValue|
@@ -870,8 +872,8 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;logOnlyLimit|
-        ((|coef| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|coef| (FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG ((|cc| (FE)) (|eq| (|Equation| FE)) (|vv| (|Symbol|)))
                (SEQ (LETT |vv| (SPADCALL (QREFELT $ 49)))
                     (LETT |eq|
@@ -895,12 +897,15 @@
                       ('T (|LIMITPS;limitPlus| |cc| |vv| $))))))) 
 
 (SDEFUN |LIMITPS;locallimit|
-        ((|fcn| FE) (|x| |Symbol|) (|a| |OrderedCompletion| FE)
-         ($ |Union| (|OrderedCompletion| FE)
-          (|Record|
-           (|:| |leftHandLimit| (|Union| (|OrderedCompletion| FE) #1="failed"))
-           (|:| |rightHandLimit| (|Union| (|OrderedCompletion| FE) #1#)))
-          "failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (|OrderedCompletion| FE))
+         ($
+          (|Union| (|OrderedCompletion| FE)
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1#)))
+                   "failed")))
         (SPROG
          ((|u| (|Union| (|OrderedCompletion| FE) #1#)) (|n| (|SingleInteger|))
           (|xK| (|Kernel| FE)))
@@ -931,7 +936,8 @@
                      (#2# (CONS 0 (QCDR |u|)))))))))))) 
 
 (SDEFUN |LIMITPS;localsubst|
-        ((|fcn| FE) (|k| |Kernel| FE) (|n| |Integer|) (|a| FE) ($ FE))
+        ((|fcn| (FE)) (|k| (|Kernel| FE)) (|n| (|Integer|)) (|a| (FE))
+         ($ (FE)))
         (SEQ
          (COND
           ((SPADCALL |a| (|spadConstant| $ 8) (QREFELT $ 21))
@@ -945,8 +951,8 @@
                     (QREFELT $ 41))))) 
 
 (SDEFUN |LIMITPS;locallimitcomplex|
-        ((|fcn| FE) (|x| |Symbol|) (|a| |OnePointCompletion| FE)
-         ($ |Union| (|OnePointCompletion| FE) "failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (|OnePointCompletion| FE))
+         ($ (|Union| (|OnePointCompletion| FE) "failed")))
         (SPROG ((|g| (|Union| FE "failed")) (|xK| (|Kernel| FE)))
                (SEQ
                 (LETT |xK|
@@ -966,8 +972,9 @@
                     |x| $))))))) 
 
 (SDEFUN |LIMITPS;subst_in_result|
-        ((|r| |Union| (|OrderedCompletion| FE) #1="failed") (|k| |Kernel| FE)
-         (|f| FE) ($ |Union| (|OrderedCompletion| FE) #1#))
+        ((|r| (|Union| (|OrderedCompletion| FE) #1="failed"))
+         (|k| (|Kernel| FE)) (|f| (FE))
+         ($ (|Union| (|OrderedCompletion| FE) #1#)))
         (SPROG ((|ru| (|Union| FE "failed")))
                (SEQ
                 (COND ((QEQCAR |r| 1) |r|)
@@ -983,10 +990,11 @@
                                            (QREFELT $ 43)))))))))))) 
 
 (SDEFUN |LIMITPS;limit2|
-        ((|fcn| FE) (|eq| |Equation| FE) (|str| |String|)
-         (|do_lim| |Mapping| (|Union| (|OrderedCompletion| FE) #1="failed") FE
-          (|Symbol|) FE (|String|))
-         ($ |Union| (|OrderedCompletion| FE) #1#))
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) (|str| (|String|))
+         (|do_lim|
+          (|Mapping| (|Union| (|OrderedCompletion| FE) #1="failed") FE
+                     (|Symbol|) FE (|String|)))
+         ($ (|Union| (|OrderedCompletion| FE) #1#)))
         (SPROG
          ((|a1| (FE)) (|knx| (|Kernel| FE)) (|a| (FE)) (|x| (|Symbol|))
           (|xx| (|Union| (|Symbol|) "failed")))
@@ -1018,8 +1026,8 @@
                     (#2# (SPADCALL |fcn| |x| |a| |str| |do_lim|))))))))))) 
 
 (SDEFUN |LIMITPS;limit3|
-        ((|fcn| FE) (|x| |Symbol|) (|a| FE) (|str| |String|)
-         ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|)) (|a| (FE)) (|str| (|String|))
+         ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG ((|xK| (|Kernel| FE)))
                (SEQ
                 (LETT |xK|
@@ -1031,8 +1039,8 @@
                   |x| $))))) 
 
 (SDEFUN |LIMITPS;limit;FEESU;23|
-        ((|fcn| FE) (|eq| |Equation| FE) (|str| |String|)
-         ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) (|str| (|String|))
+         ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (|LIMITPS;limit2| |fcn| |eq| |str|
          (CONS #'|LIMITPS;limit;FEESU;23!0| $) $)) 
 
@@ -1044,18 +1052,18 @@
          ('T (|LIMITPS;limit3| |f| |x| |a| |s| $)))) 
 
 (SDEFUN |LIMITPS;limit;FEESU;24|
-        ((|fcn| FE) (|eq| |Equation| FE) (|str| |String|)
-         ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) (|str| (|String|))
+         ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (|LIMITPS;limit2| |fcn| |eq| |str|
          (CONS (|function| |LIMITPS;limit3|) $) $)) 
 
 (SDEFUN |LIMITPS;limit;FEESU;25|
-        ((|fcn| FE) (|eq| |Equation| FE) (|str| |String|)
-         ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|fcn| (FE)) (|eq| (|Equation| FE)) (|str| (|String|))
+         ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (|LIMITPS;limit2| |fcn| |eq| |str|
          (CONS (|function| |LIMITPS;limit3|) $) $)) 
 
-(SDEFUN |LIMITPS;anyRootsOrAtrigs?| ((|fcn| FE) ($ |Boolean|))
+(SDEFUN |LIMITPS;anyRootsOrAtrigs?| ((|fcn| (FE)) ($ (|Boolean|)))
         (SPROG ((#1=#:G552 NIL) (#2=#:G553 NIL) (#3=#:G554 NIL) (|kernel| NIL))
                (SEQ
                 (EXIT
@@ -1089,8 +1097,8 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;complLimit|
-        ((|fcn| FE) (|x| |Symbol|)
-         ($ |Union| (|OnePointCompletion| FE) "failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OnePointCompletion| FE) "failed")))
         (SPROG
          ((|answer| (FE)) (|lim| (FE)) (#1=#:G582 NIL) (|uls| (|Uls|))
           (|lseries|
@@ -1450,7 +1458,7 @@
           #27# (EXIT #1#)))) 
 
 (SDEFUN |LIMITPS;okProblem?|
-        ((|function| |String|) (|problem| |String|) ($ |Boolean|))
+        ((|function| (|String|)) (|problem| (|String|)) ($ (|Boolean|)))
         (COND
          ((OR (EQUAL |function| "log") (EQUAL |function| "nth root"))
           (COND ((EQUAL |problem| "series of non-zero order") 'T)
@@ -1461,12 +1469,15 @@
                 (#1# (EQUAL |problem| "essential singularity")))))) 
 
 (SDEFUN |LIMITPS;poleLimit|
-        ((|order| |Fraction| (|Integer|)) (|coef| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE)
-          (|Record|
-           (|:| |leftHandLimit| (|Union| (|OrderedCompletion| FE) #1="failed"))
-           (|:| |rightHandLimit| (|Union| (|OrderedCompletion| FE) #1#)))
-          "failed"))
+        ((|order| (|Fraction| (|Integer|))) (|coef| (FE)) (|x| (|Symbol|))
+         ($
+          (|Union| (|OrderedCompletion| FE)
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1#)))
+                   "failed")))
         (SPROG
          ((|rtLim| (|OrderedCompletion| FE)) (|si| (|Integer|))
           (|s| (|Union| (|Integer|) "failed")))
@@ -1506,8 +1517,8 @@
            ('T (|error| "limit: can't evaluate limit")))))) 
 
 (SDEFUN |LIMITPS;poleLimitPlus|
-        ((|order| |Fraction| (|Integer|)) (|coef| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE) #1="failed"))
+        ((|order| (|Fraction| (|Integer|))) (|coef| (FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OrderedCompletion| FE) #1="failed")))
         (SPROG
          ((|tti| (|Integer|)) (|tt| #2=(|Union| (|Integer|) "failed"))
           (|t| (|Integer|)) (|ss| (|Integer|))
@@ -1592,12 +1603,15 @@
                                  (CONS 0 (SPADCALL (QREFELT $ 59)))))))))))))))) 
 
 (SDEFUN |LIMITPS;realLimit|
-        ((|fcn| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE)
-          (|Record|
-           (|:| |leftHandLimit| (|Union| (|OrderedCompletion| FE) #1="failed"))
-           (|:| |rightHandLimit| (|Union| (|OrderedCompletion| FE) #1#)))
-          "failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|))
+         ($
+          (|Union| (|OrderedCompletion| FE)
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1#)))
+                   "failed")))
         (SPROG
          ((|answer| (FE)) (|lim| (|Union| FE "failed")) (#2=#:G658 NIL)
           (|cl| (FE)) (|ordl| (|Integer|)) (|uls| (|Uls|))
@@ -2099,8 +2113,8 @@
           #32# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;xxpLimit|
-        ((|fcn| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
          ((|xxp|
            (|Union|
@@ -2168,8 +2182,8 @@
                                                     (ELT $ 9)))))))))) 
 
 (SDEFUN |LIMITPS;limitPlus|
-        ((|fcn| FE) (|x| |Symbol|)
-         ($ |Union| (|OrderedCompletion| FE) #1="failed"))
+        ((|fcn| (FE)) (|x| (|Symbol|))
+         ($ (|Union| (|OrderedCompletion| FE) #1="failed")))
         (SPROG
          ((|xLim| (|Union| (|OrderedCompletion| FE) #1#)) (|answer| (FE))
           (|lim| (|Union| FE "failed")) (#2=#:G698 NIL) (|cl| (FE))
@@ -2600,21 +2614,25 @@
           #31# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;limit1|
-        ((|fcn| FE) (|eq| |Equation| (|OrderedCompletion| FE))
-         (|do_lim| |Mapping|
-          #1=(|Union| (|OrderedCompletion| FE)
-                      (|Record|
-                       (|:| |leftHandLimit|
-                            (|Union| (|OrderedCompletion| FE) #2="failed"))
-                       (|:| |rightHandLimit|
-                            (|Union| (|OrderedCompletion| FE) #2#)))
-                      #3="failed")
-          FE (|Symbol|) (|OrderedCompletion| FE))
-         ($ |Union| (|OrderedCompletion| FE)
-          (|Record|
-           (|:| |leftHandLimit| (|Union| (|OrderedCompletion| FE) #2#))
-           (|:| |rightHandLimit| (|Union| (|OrderedCompletion| FE) #2#)))
-          #3#))
+        ((|fcn| (FE)) (|eq| (|Equation| (|OrderedCompletion| FE)))
+         (|do_lim|
+          (|Mapping|
+           #1=(|Union| (|OrderedCompletion| FE)
+                       (|Record|
+                        (|:| |leftHandLimit|
+                             (|Union| (|OrderedCompletion| FE) #2="failed"))
+                        (|:| |rightHandLimit|
+                             (|Union| (|OrderedCompletion| FE) #2#)))
+                       #3="failed")
+           FE (|Symbol|) (|OrderedCompletion| FE)))
+         ($
+          (|Union| (|OrderedCompletion| FE)
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #2#))
+                    (|:| |rightHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #2#)))
+                   #3#)))
         (SPROG
          ((#4=#:G718 NIL) (|res2| (|Union| (|OrderedCompletion| FE) #2#))
           (|res1| #1#) (|a1| (FE)) (|knx| (|Kernel| FE))
@@ -2699,12 +2717,15 @@
                       #7# (EXIT #4#)))))))))))) 
 
 (SDEFUN |LIMITPS;limit;FEEU;35|
-        ((|fcn| FE) (|eq| |Equation| (|OrderedCompletion| FE))
-         ($ |Union| (|OrderedCompletion| FE)
-          (|Record|
-           (|:| |leftHandLimit| (|Union| (|OrderedCompletion| FE) #1="failed"))
-           (|:| |rightHandLimit| (|Union| (|OrderedCompletion| FE) #1#)))
-          "failed"))
+        ((|fcn| (FE)) (|eq| (|Equation| (|OrderedCompletion| FE)))
+         ($
+          (|Union| (|OrderedCompletion| FE)
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1#)))
+                   "failed")))
         (|LIMITPS;limit1| |fcn| |eq| (CONS #'|LIMITPS;limit;FEEU;35!0| $) $)) 
 
 (SDEFUN |LIMITPS;limit;FEEU;35!0| ((|f| NIL) (|x| NIL) (|a| NIL) ($ NIL))
@@ -2714,28 +2735,34 @@
          ('T (|LIMITPS;locallimit| |f| |x| |a| $)))) 
 
 (SDEFUN |LIMITPS;limit;FEEU;36|
-        ((|fcn| FE) (|eq| |Equation| (|OrderedCompletion| FE))
-         ($ |Union| (|OrderedCompletion| FE)
-          (|Record|
-           (|:| |leftHandLimit| (|Union| (|OrderedCompletion| FE) #1="failed"))
-           (|:| |rightHandLimit| (|Union| (|OrderedCompletion| FE) #1#)))
-          "failed"))
+        ((|fcn| (FE)) (|eq| (|Equation| (|OrderedCompletion| FE)))
+         ($
+          (|Union| (|OrderedCompletion| FE)
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1#)))
+                   "failed")))
         (|LIMITPS;limit1| |fcn| |eq| (CONS (|function| |LIMITPS;locallimit|) $)
          $)) 
 
 (SDEFUN |LIMITPS;limit;FEEU;37|
-        ((|fcn| FE) (|eq| |Equation| (|OrderedCompletion| FE))
-         ($ |Union| (|OrderedCompletion| FE)
-          (|Record|
-           (|:| |leftHandLimit| (|Union| (|OrderedCompletion| FE) #1="failed"))
-           (|:| |rightHandLimit| (|Union| (|OrderedCompletion| FE) #1#)))
-          "failed"))
+        ((|fcn| (FE)) (|eq| (|Equation| (|OrderedCompletion| FE)))
+         ($
+          (|Union| (|OrderedCompletion| FE)
+                   (|Record|
+                    (|:| |leftHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1="failed"))
+                    (|:| |rightHandLimit|
+                         (|Union| (|OrderedCompletion| FE) #1#)))
+                   "failed")))
         (|LIMITPS;limit1| |fcn| |eq| (CONS (|function| |LIMITPS;locallimit|) $)
          $)) 
 
 (SDEFUN |LIMITPS;complexLimit;FEEU;38|
-        ((|fcn| FE) (|eq| |Equation| (|OnePointCompletion| FE))
-         ($ |Union| (|OnePointCompletion| FE) "failed"))
+        ((|fcn| (FE)) (|eq| (|Equation| (|OnePointCompletion| FE)))
+         ($ (|Union| (|OnePointCompletion| FE) "failed")))
         (SPROG
          ((#1=#:G755 NIL) (|res2| #2=(|Union| FE "failed"))
           (|res1| (|Union| (|OnePointCompletion| FE) "failed")) (|a1| (FE))

@@ -1,5 +1,5 @@
 
-(SDEFUN |FINITE-;random;S;1| (($ S))
+(SDEFUN |FINITE-;random;S;1| (($ (S)))
         (SPROG ((#1=#:G125 NIL))
                (SPADCALL
                 (PROG1 (LETT #1# (+ 1 (RANDOM (SPADCALL (QREFELT $ 9)))))
@@ -7,7 +7,7 @@
                                     '(|NonNegativeInteger|) #1#))
                 (QREFELT $ 11)))) 
 
-(SDEFUN |FINITE-;enumerate;L;2| (($ |List| S))
+(SDEFUN |FINITE-;enumerate;L;2| (($ (|List| S)))
         (SPROG ((#1=#:G128 NIL) (#2=#:G132 NIL) (|i| NIL) (#3=#:G131 NIL))
                (SEQ
                 (PROGN
@@ -29,13 +29,13 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                       (EXIT (NREVERSE #3#))))))) 
 
-(SDEFUN |FINITE-;convert;SIf;3| ((|x| S) ($ |InputForm|))
+(SDEFUN |FINITE-;convert;SIf;3| ((|x| (S)) ($ (|InputForm|)))
         (SPADCALL '|index|
                   (LIST
                    (SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 18)))
                   (QREFELT $ 22))) 
 
-(SDEFUN |FINITE-;smaller?;2SB;4| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |FINITE-;smaller?;2SB;4| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (< (SPADCALL |x| (QREFELT $ 15)) (SPADCALL |y| (QREFELT $ 15)))) 
 
 (DECLAIM (NOTINLINE |Finite&;|)) 

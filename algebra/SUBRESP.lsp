@@ -1,5 +1,5 @@
 
-(SDEFUN |SUBRESP;primitivePart;UPRUP;1| ((|p| UP) (|q| R) ($ UP))
+(SDEFUN |SUBRESP;primitivePart;UPRUP;1| ((|p| (UP)) (|q| (R)) ($ (UP)))
         (SPROG
          ((|rec| (|Record| (|:| |coef1| R) (|:| |coef2| R))) (#1=#:G131 NIL))
          (SEQ
@@ -37,7 +37,7 @@
                       (QREFELT $ 14)))))) 
 
 (SDEFUN |SUBRESP;subresultantVector;2UPPa;2|
-        ((|p1| UP) (|p2| UP) ($ |PrimitiveArray| UP))
+        ((|p1| (UP)) (|p2| (UP)) ($ (|PrimitiveArray| UP)))
         (SPROG
          ((|n| #1=(|NonNegativeInteger|)) (#2=#:G149 NIL) (|nextn| #1#)
           (|l| (|List| UP)) (F (UP)) (#3=#:G142 NIL) (#4=#:G137 NIL)

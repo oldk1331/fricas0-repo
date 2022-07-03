@@ -1,11 +1,12 @@
 
 (SDEFUN |MAGCDT2;pack_modulus;LLIU;1|
-        ((|lm| |List| (|Polynomial| (|Integer|))) (|lvz| |List| (|Symbol|))
-         (|p| |Integer|)
-         ($ |Union|
-          (|Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
-                    (|:| |sp| (|Integer|)))
-          "failed"))
+        ((|lm| (|List| (|Polynomial| (|Integer|)))) (|lvz| (|List| (|Symbol|)))
+         (|p| (|Integer|))
+         ($
+          (|Union|
+           (|Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+                     (|:| |sp| (|Integer|)))
+           "failed")))
         (SPROG ((|m| (|U32Vector|)) (|vz| (|Symbol|)))
                (SEQ
                 (COND
@@ -22,10 +23,11 @@
                        (EXIT (CONS 0 (VECTOR |vz| |m| |p|))))))))) 
 
 (SDEFUN |MAGCDT2;pack_exps;2IRSev;2|
-        ((|dg| . #1=(|Integer|)) (|msize| . #1#)
-         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
-          (|:| |sp| (|Integer|)))
-         ($ |SortedExponentVector|))
+        ((|dg| #1=(|Integer|)) (|msize| #1#)
+         (|mu|
+          (|Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+                    (|:| |sp| (|Integer|))))
+         ($ (|SortedExponentVector|)))
         (SPROG
          ((|ii| (|Integer|)) (#2=#:G147 NIL) (|j| NIL) (#3=#:G146 NIL)
           (|i| NIL) (|exps| (|SortedExponentVector|))
@@ -47,11 +49,12 @@
               (EXIT |exps|)))) 
 
 (SDEFUN |MAGCDT2;repack1;PaUvIRV;3|
-        ((|res0| |PrimitiveArray| (|U32Vector|)) (|coeffs| |U32Vector|)
-         (|dg| |Integer|)
-         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
-          (|:| |sp| (|Integer|)))
-         ($ |Void|))
+        ((|res0| (|PrimitiveArray| (|U32Vector|))) (|coeffs| (|U32Vector|))
+         (|dg| (|Integer|))
+         (|mu|
+          (|Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+                    (|:| |sp| (|Integer|))))
+         ($ (|Void|)))
         (SPROG
          ((|ii| (|Integer|)) (#1=#:G156 NIL) (|j| NIL) (|di| #2=(|Integer|))
           (|ci| (|U32Vector|)) (#3=#:G155 NIL) (|i| NIL) (|msize| #2#)
@@ -78,11 +81,12 @@
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |MAGCDT2;MPtoMPT;PSLRU;4|
-        ((|x| |Polynomial| (|Integer|)) (|ivx| . #1=(|Symbol|))
-         (|ivz| |List| #1#)
-         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
-          (|:| |sp| (|Integer|)))
-         ($ |Union| (|PrimitiveArray| (|U32Vector|)) "failed"))
+        ((|x| (|Polynomial| (|Integer|))) (|ivx| #1=(|Symbol|))
+         (|ivz| (|List| #1#))
+         (|mu|
+          (|Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+                    (|:| |sp| (|Integer|))))
+         ($ (|Union| (|PrimitiveArray| (|U32Vector|)) "failed")))
         (SPROG
          ((|xu| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|k| (|NonNegativeInteger|)) (|cl| (|Polynomial| (|Integer|)))
@@ -106,7 +110,7 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (CONS 0 |res|))))) 
 
-(SDEFUN |MAGCDT2;is_zero?| ((|v| |U32Vector|) ($ |Boolean|))
+(SDEFUN |MAGCDT2;is_zero?| ((|v| (|U32Vector|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G172 NIL) (#2=#:G173 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
@@ -129,11 +133,11 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |MAGCDT2;zero?;PaB;6|
-        ((|v| |PrimitiveArray| (|U32Vector|)) ($ |Boolean|))
+        ((|v| (|PrimitiveArray| (|U32Vector|))) ($ (|Boolean|)))
         (EQL (SPADCALL |v| (QREFELT $ 40)) -1)) 
 
 (SDEFUN |MAGCDT2;degree;PaI;7|
-        ((|v| |PrimitiveArray| (|U32Vector|)) ($ |Integer|))
+        ((|v| (|PrimitiveArray| (|U32Vector|))) ($ (|Integer|)))
         (SPROG
          ((#1=#:G179 NIL) (#2=#:G180 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
@@ -156,7 +160,7 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |MAGCDT2;leadingCoefficient|
-        ((|v| |PrimitiveArray| (|U32Vector|)) ($ |U32Vector|))
+        ((|v| (|PrimitiveArray| (|U32Vector|))) ($ (|U32Vector|)))
         (SPROG
          ((#1=#:G185 NIL) (#2=#:G186 NIL) (|pp| (|U32Vector|)) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
@@ -181,10 +185,11 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |MAGCDT2;canonicalIfCan;PaRU;9|
-        ((|x| |PrimitiveArray| (|U32Vector|))
-         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
-          (|:| |sp| (|Integer|)))
-         ($ |Union| (|PrimitiveArray| (|U32Vector|)) "failed"))
+        ((|x| (|PrimitiveArray| (|U32Vector|)))
+         (|mu|
+          (|Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+                    (|:| |sp| (|Integer|))))
+         ($ (|Union| (|PrimitiveArray| (|U32Vector|)) "failed")))
         (SPROG
          ((|npp| (|U32Vector|)) (|dnpp| #1=(|Integer|)) (|dpp| #1#)
           (|pp| (|U32Vector|)) (#2=#:G197 NIL) (|l| NIL)
@@ -222,10 +227,11 @@
                       (EXIT (CONS 0 |res|))))))))) 
 
 (SDEFUN |MAGCDT2;pseudoRem;2PaRPa;10|
-        ((|x| . #1=(|PrimitiveArray| (|U32Vector|))) (|y| . #1#)
-         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
-          (|:| |sp| (|Integer|)))
-         ($ |PrimitiveArray| (|U32Vector|)))
+        ((|x| #1=(|PrimitiveArray| (|U32Vector|))) (|y| #1#)
+         (|mu|
+          (|Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+                    (|:| |sp| (|Integer|))))
+         ($ (|PrimitiveArray| (|U32Vector|))))
         (SPROG
          ((|npp1| (|U32Vector|)) (|degnpp1| #2=(|Integer|)) (|degpp1| #2#)
           (|pp1| #3=(|U32Vector|)) (|dp2| #2#) (|dp1| #2#) (|pp2| #3#)

@@ -1,23 +1,25 @@
 
-(SDEFUN |MONOGEN-;convert;SUP;1| ((|x| S) ($ UP)) (SPADCALL |x| (QREFELT $ 9))) 
+(SDEFUN |MONOGEN-;convert;SUP;1| ((|x| (S)) ($ (UP)))
+        (SPADCALL |x| (QREFELT $ 9))) 
 
-(SDEFUN |MONOGEN-;convert;UPS;2| ((|p| UP) ($ S)) (SPADCALL |p| (QREFELT $ 11))) 
+(SDEFUN |MONOGEN-;convert;UPS;2| ((|p| (UP)) ($ (S)))
+        (SPADCALL |p| (QREFELT $ 11))) 
 
-(SDEFUN |MONOGEN-;generator;S;3| (($ S))
+(SDEFUN |MONOGEN-;generator;S;3| (($ (S)))
         (SPADCALL (SPADCALL (|spadConstant| $ 14) 1 (QREFELT $ 16))
                   (QREFELT $ 11))) 
 
-(SDEFUN |MONOGEN-;norm;SR;4| ((|x| S) ($ R))
+(SDEFUN |MONOGEN-;norm;SR;4| ((|x| (S)) ($ (R)))
         (SPADCALL (SPADCALL (QREFELT $ 18)) (SPADCALL |x| (QREFELT $ 9))
                   (QREFELT $ 19))) 
 
-(SDEFUN |MONOGEN-;retract;SR;5| ((|x| S) ($ R))
+(SDEFUN |MONOGEN-;retract;SR;5| ((|x| (S)) ($ (R)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 21))) 
 
-(SDEFUN |MONOGEN-;retractIfCan;SU;6| ((|x| S) ($ |Union| R "failed"))
+(SDEFUN |MONOGEN-;retractIfCan;SU;6| ((|x| (S)) ($ (|Union| R "failed")))
         (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 24))) 
 
-(SDEFUN |MONOGEN-;basis;V;7| (($ |Vector| S))
+(SDEFUN |MONOGEN-;basis;V;7| (($ (|Vector| S)))
         (SPROG ((#1=#:G140 NIL) (|i| NIL) (#2=#:G139 NIL) (#3=#:G136 NIL))
                (SEQ
                 (PROGN
@@ -40,15 +42,16 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                  #2#)))) 
 
-(SDEFUN |MONOGEN-;characteristicPolynomial;SUP;8| ((|x| S) ($ UP))
+(SDEFUN |MONOGEN-;characteristicPolynomial;SUP;8| ((|x| (S)) ($ (UP)))
         (SPADCALL |x| (QREFELT $ 31))) 
 
-(SDEFUN |MONOGEN-;reduce;FU;9| ((|x| |Fraction| UP) ($ |Union| S "failed"))
+(SDEFUN |MONOGEN-;reduce;FU;9| ((|x| (|Fraction| UP)) ($ (|Union| S "failed")))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 11))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 35)) (QREFELT $ 11))
                   (QREFELT $ 37))) 
 
-(SDEFUN |MONOGEN-;differentiate;SMS;10| ((|x| S) (|d| |Mapping| R R) ($ S))
+(SDEFUN |MONOGEN-;differentiate;SMS;10|
+        ((|x| (S)) (|d| (|Mapping| R R)) ($ (S)))
         (SPROG ((|yprime| (S)) (|p| (UP)))
                (SEQ (LETT |p| (SPADCALL (QREFELT $ 18)))
                     (LETT |yprime|
@@ -75,7 +78,7 @@
                       (QREFELT $ 45)))))) 
 
 (SDEFUN |MONOGEN-;derivationCoordinates;VMM;11|
-        ((|b| |Vector| S) (|d| |Mapping| R R) ($ |Matrix| R))
+        ((|b| (|Vector| S)) (|d| (|Mapping| R R)) ($ (|Matrix| R)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL
@@ -90,7 +93,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |d| (QREFELT $ 47)))))) 
 
-(SDEFUN |MONOGEN-;recip;SU;12| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |MONOGEN-;recip;SU;12| ((|x| (S)) ($ (|Union| S "failed")))
         (SPROG
          ((|bc|
            (|Union| (|Record| (|:| |coef1| UP) (|:| |coef2| UP)) "failed")))

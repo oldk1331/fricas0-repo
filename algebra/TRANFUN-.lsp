@@ -1,30 +1,30 @@
 
-(SDEFUN |TRANFUN-;pi;S;1| (($ S))
+(SDEFUN |TRANFUN-;pi;S;1| (($ (S)))
         (SPADCALL 2 (SPADCALL (|spadConstant| $ 7) (QREFELT $ 8))
                   (QREFELT $ 10))) 
 
-(SDEFUN |TRANFUN-;acsch;2S;2| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;acsch;2S;2| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 13)))
                     (EXIT
                      (COND ((QEQCAR |a| 1) (|error| "acsch: no reciprocal"))
                            ('T (SPADCALL (QCDR |a|) (QREFELT $ 14)))))))) 
 
-(SDEFUN |TRANFUN-;asech;2S;3| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;asech;2S;3| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 13)))
                     (EXIT
                      (COND ((QEQCAR |a| 1) (|error| "asech: no reciprocal"))
                            ('T (SPADCALL (QCDR |a|) (QREFELT $ 16)))))))) 
 
-(SDEFUN |TRANFUN-;acoth;2S;4| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;acoth;2S;4| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 13)))
                     (EXIT
                      (COND ((QEQCAR |a| 1) (|error| "acoth: no reciprocal"))
                            ('T (SPADCALL (QCDR |a|) (QREFELT $ 18)))))))) 
 
-(SDEFUN |TRANFUN-;asin;2S;5| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;asin;2S;5| ((|x| (S)) ($ (S)))
         (SPADCALL
          (SPADCALL |x|
                    (SPADCALL
@@ -34,19 +34,19 @@
                    (QREFELT $ 23))
          (QREFELT $ 24))) 
 
-(SDEFUN |TRANFUN-;acos;2S;6| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;acos;2S;6| ((|x| (S)) ($ (S)))
         (SPADCALL
          (SPADCALL (SPADCALL (QREFELT $ 26)) (SPADCALL 2 (QREFELT $ 28))
                    (QREFELT $ 23))
          (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 21))) 
 
-(SDEFUN |TRANFUN-;acot;2S;7| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;acot;2S;7| ((|x| (S)) ($ (S)))
         (SPADCALL
          (SPADCALL (SPADCALL (QREFELT $ 26)) (SPADCALL 2 (QREFELT $ 28))
                    (QREFELT $ 23))
          (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 21))) 
 
-(SDEFUN |TRANFUN-;asinh;2S;8| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;asinh;2S;8| ((|x| (S)) ($ (S)))
         (SPADCALL
          (SPADCALL |x|
                    (SPADCALL
@@ -56,7 +56,7 @@
                    (QREFELT $ 31))
          (QREFELT $ 32))) 
 
-(SDEFUN |TRANFUN-;acosh;2S;9| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;acosh;2S;9| ((|x| (S)) ($ (S)))
         (SPADCALL 2
                   (SPADCALL
                    (SPADCALL
@@ -74,7 +74,7 @@
                    (QREFELT $ 32))
                   (QREFELT $ 10))) 
 
-(SDEFUN |TRANFUN-;atanh;2S;10| ((|x| S) ($ S))
+(SDEFUN |TRANFUN-;atanh;2S;10| ((|x| (S)) ($ (S)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL (|spadConstant| $ 7) |x| (QREFELT $ 31))

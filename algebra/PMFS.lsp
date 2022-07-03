@@ -1,7 +1,7 @@
 
 (SDEFUN |PMFS;patternMatch;FP2Pmr;1|
-        ((|x| F) (|p| |Pattern| S) (|l| |PatternMatchResult| S F)
-         ($ |PatternMatchResult| S F))
+        ((|x| (F)) (|p| (|Pattern| S)) (|l| (|PatternMatchResult| S F))
+         ($ (|PatternMatchResult| S F)))
         (SPROG
          ((#1=#:G190 NIL)
           (|ex|

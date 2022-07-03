@@ -1,10 +1,12 @@
 
 (SDEFUN |INVLAPLA;inverseLaplace;F2SU;1|
-        ((|expr| F) (|ivar| |Symbol|) (|ovar| |Symbol|) ($ |Union| F "failed"))
+        ((|expr| (F)) (|ivar| (|Symbol|)) (|ovar| (|Symbol|))
+         ($ (|Union| F "failed")))
         (|INVLAPLA;ilt| |expr| |ivar| |ovar| $)) 
 
 (SDEFUN |INVLAPLA;freeOf?|
-        ((|p| |SparseUnivariatePolynomial| F) (|v| |Symbol|) ($ |Boolean|))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|v| (|Symbol|))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G134 NIL) (#2=#:G133 #3=(|Boolean|)) (#4=#:G135 #3#)
           (#5=#:G137 NIL) (|c| NIL))
@@ -24,7 +26,8 @@
            (COND (#1# #2#) ('T 'T)))))) 
 
 (SDEFUN |INVLAPLA;ilt|
-        ((|expr| F) (|var| |Symbol|) (|t| |Symbol|) ($ |Union| F "failed"))
+        ((|expr| (F)) (|var| (|Symbol|)) (|t| (|Symbol|))
+         ($ (|Union| F "failed")))
         (SPROG ((|r| (|Fraction| (|SparseUnivariatePolynomial| F))))
                (SEQ
                 (COND
@@ -56,7 +59,7 @@
                            $))))))))) 
 
 (SDEFUN |INVLAPLA;ilt1|
-        ((|r| |Fraction| (|SparseUnivariatePolynomial| F)) (|t| F) ($ F))
+        ((|r| (|Fraction| (|SparseUnivariatePolynomial| F))) (|t| (F)) ($ (F)))
         (SPROG
          ((|rsplit|
            (|Record|
@@ -80,7 +83,7 @@
                    (QREFELT $ 40))))))))) 
 
 (SDEFUN |INVLAPLA;iltsqfr|
-        ((|r| |Fraction| (|SparseUnivariatePolynomial| F)) (|t| F) ($ F))
+        ((|r| (|Fraction| (|SparseUnivariatePolynomial| F))) (|t| (F)) ($ (F)))
         (SPROG
          ((#1=#:G156 NIL) (#2=#:G155 (F)) (#3=#:G157 (F)) (#4=#:G163 NIL)
           (|a| NIL) (#5=#:G164 NIL) (|b| NIL)
@@ -150,8 +153,8 @@
                        (COND (#1# #2#) (#9# (|spadConstant| $ 17))))))))))))))) 
 
 (SDEFUN |INVLAPLA;iltirred|
-        ((|p| |SparseUnivariatePolynomial| F)
-         (|q| |SparseUnivariatePolynomial| F) (|t| F) ($ F))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         (|q| (|SparseUnivariatePolynomial| F)) (|t| (F)) ($ (F)))
         (SPROG
          ((#1=#:G170 NIL) (#2=#:G169 (F)) (#3=#:G171 (F)) (#4=#:G176 NIL)
           (|root| NIL) (|q1| (|SparseUnivariatePolynomial| F))

@@ -1,19 +1,22 @@
 
 (SDEFUN |FS2UPS2;ratIfCan|
-        ((|fcn| FE) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|fcn| (FE)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPADCALL |fcn| (QREFELT $ 17))) 
 
 (SDEFUN |FS2UPS2;check_inverse|
-        ((|coef| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Boolean|))
+        ((|coef| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($ (|Boolean|)))
         (SPROG ((#2=#:G335 NIL))
                (COND
                 ((QEQCAR (QVELT |opt_rec| 3) 0)
@@ -31,16 +34,19 @@
                 ('T 'T)))) 
 
 (SDEFUN |FS2UPS2;check_zero|
-        ((|coef| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Boolean|))
+        ((|coef| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($ (|Boolean|)))
         (SPROG ((#2=#:G342 NIL))
                (COND
                 ((QEQCAR (QVELT |opt_rec| 4) 0)
@@ -58,19 +64,24 @@
                 ('T (SPADCALL |coef| (|spadConstant| $ 19) (QREFELT $ 21)))))) 
 
 (SDEFUN |FS2UPS2;carefulNthRootIfCan|
-        ((|ups| UPS) (|n| |NonNegativeInteger|)
-         (|opt_rec| |Record| (|:| |pos_Check?| #1=(|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         (|rightOnly?| |Boolean|)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ups| (UPS)) (|n| (|NonNegativeInteger|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| #1=(|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         (|rightOnly?| (|Boolean|))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans| (|Union| UPS "failed")) (#3=#:G370 NIL)
           (|signum| (|Union| (|Integer|) "failed")) (#4=#:G369 NIL)
@@ -168,66 +179,82 @@
           #7# (EXIT #3#)))) 
 
 (SDEFUN |FS2UPS2;stateProblem|
-        ((|function| |String|) (|problem| |String|)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|function| (|String|)) (|problem| (|String|))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (CONS 1 (CONS |function| |problem|))) 
 
 (SDEFUN |FS2UPS2;exprToUPS;FEBUU;6|
-        ((|fcn| FE) (|posCheck?| |Boolean|)
-         (|atanFlag| |Union| "complex" "real: two sides" "real: left side"
-          "real: right side" "just do it")
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|posCheck?| (|Boolean|))
+         (|atanFlag|
+          (|Union| "complex" "real: two sides" "real: left side"
+                   "real: right side" "just do it"))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (|FS2UPS2;i_expr_to_PS| |fcn|
          (VECTOR |posCheck?| |atanFlag| (CONS 1 "none") (CONS 1 "none")
                  (CONS 1 "none") NIL (|spadConstant| $ 19))
          $)) 
 
 (SDEFUN |FS2UPS2;exprToPS;FEBUBFEU;7|
-        ((|fcn| FE) (|posCheck?| |Boolean|)
-         (|atanFlag| |Union| "complex" "real: two sides" "real: left side"
-          "real: right side" "just do it")
-         (|log_flag| |Boolean|) (|log_val| FE)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|posCheck?| (|Boolean|))
+         (|atanFlag|
+          (|Union| "complex" "real: two sides" "real: left side"
+                   "real: right side" "just do it"))
+         (|log_flag| (|Boolean|)) (|log_val| (FE))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (|FS2UPS2;i_expr_to_PS| |fcn|
          (VECTOR |posCheck?| |atanFlag| (CONS 1 "none") (CONS 1 "none")
                  (CONS 1 "none") |log_flag| |log_val|)
          $)) 
 
 (SDEFUN |FS2UPS2;exprToPS;FEBUBFE3MU;8|
-        ((|fcn| FE) (|posCheck?| |Boolean|)
-         (|atanFlag| |Union| "complex" "real: two sides" "real: left side"
-          "real: right side" "just do it")
-         (|log_flag| |Boolean|) (|log_val| FE)
-         (|coef_chk| |Mapping| (|Boolean|) FE)
-         (|inv_chk| |Mapping| (|Boolean|) FE)
-         (|zero_chk| |Mapping| (|Boolean|) FE)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|posCheck?| (|Boolean|))
+         (|atanFlag|
+          (|Union| "complex" "real: two sides" "real: left side"
+                   "real: right side" "just do it"))
+         (|log_flag| (|Boolean|)) (|log_val| (FE))
+         (|coef_chk| (|Mapping| (|Boolean|) FE))
+         (|inv_chk| (|Mapping| (|Boolean|) FE))
+         (|zero_chk| (|Mapping| (|Boolean|) FE))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (|FS2UPS2;i_expr_to_PS| |fcn|
          (VECTOR |posCheck?| |atanFlag| (CONS 0 |coef_chk|) (CONS 0 |inv_chk|)
                  (CONS 0 |zero_chk|) |log_flag| |log_val|)
          $)) 
 
 (SDEFUN |FS2UPS2;i_expr_to_PS|
-        ((|fcn| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ker| (|Union| (|Kernel| FE) #2="failed"))
           (|power| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|))))
@@ -286,18 +313,23 @@
                                           "exprToUPS: neither a sum, product, power, nor kernel"))))))))))))))))))))))) 
 
 (SDEFUN |FS2UPS2;polyToUPS|
-        ((|poly| |SparseUnivariatePolynomial| (|Polynomial| R))
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|poly| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans| (UPS)) (#2=#:G474 NIL) (#3=#:G460 NIL) (|coef| (FE))
           (|deg| (|NonNegativeInteger|)))
@@ -379,34 +411,41 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |FS2UPS2;listToUPS|
-        ((|list| |List| FE)
-         (|feToUPS| |Mapping|
-          #1=(|Union| (|:| |%series| UPS)
-                      (|:| |%problem|
-                           (|Record| (|:| |func| (|String|))
-                                     (|:| |prob| (|String|)))))
-          FE
+        ((|list| (|List| FE))
+         (|feToUPS|
+          (|Mapping|
+           #1=(|Union| (|:| |%series| UPS)
+                       (|:| |%problem|
+                            (|Record| (|:| |func| (|String|))
+                                      (|:| |prob| (|String|)))))
+           FE
+           (|Record| (|:| |pos_Check?| (|Boolean|))
+                     (|:| |atan_Flag|
+                          (|Union| #2="complex" #3="real: two sides"
+                                   #4="real: left side" #5="real: right side"
+                                   #6="just do it"))
+                     (|:| |coeff_check?|
+                          (|Union| (|Mapping| (|Boolean|) FE) #7="none"))
+                     (|:| |inv_check?|
+                          (|Union| (|Mapping| (|Boolean|) FE) #7#))
+                     (|:| |zero_check?|
+                          (|Union| (|Mapping| (|Boolean|) FE) #7#))
+                     (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))))
+         (|opt_rec|
           (|Record| (|:| |pos_Check?| (|Boolean|))
-                    (|:| |atan_Flag|
-                         (|Union| #2="complex" #3="real: two sides"
-                                  #4="real: left side" #5="real: right side"
-                                  #6="just do it"))
+                    (|:| |atan_Flag| (|Union| #2# #3# #4# #5# #6#))
                     (|:| |coeff_check?|
-                         (|Union| (|Mapping| (|Boolean|) FE) #7="none"))
+                         (|Union| (|Mapping| (|Boolean|) FE) #7#))
                     (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #7#))
                     (|:| |zero_check?|
                          (|Union| (|Mapping| (|Boolean|) FE) #7#))
                     (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag| (|Union| #2# #3# #4# #5# #6#))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #7#))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #7#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #7#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         (|ans| UPS) (|op| |Mapping| UPS UPS UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+         (|ans| (UPS)) (|op| (|Mapping| UPS UPS UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((#8=#:G485 NIL) (|term| #1#))
                (SEQ
                 (EXIT
@@ -428,9 +467,10 @@
                 #9# (EXIT #8#)))) 
 
 (SDEFUN |FS2UPS2;isNonTrivPower|
-        ((|fcn| FE)
-         ($ |Union| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|)))
-          "failed"))
+        ((|fcn| (FE))
+         ($
+          (|Union| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|)))
+                   "failed")))
         (SPROG
          ((|power| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|))))
           (|expt|
@@ -446,18 +486,23 @@
                                   (#1# (CONS 0 |power|))))))))))) 
 
 (SDEFUN |FS2UPS2;powerToUPS|
-        ((|fcn| FE) (|n| |Integer|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|n| (|Integer|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#2=#:G509 NIL) (|coef| (FE)) (|deg| (|Expon|)) (|ups| (UPS))
           (|deg1| (|Expon|)) (#3=#:G494 NIL) (#4=#:G500 NIL)
@@ -538,22 +583,26 @@
                         (CONS 0 (SPADCALL |ups| |n| (QREFELT $ 73))))))))))) 
 
 (SDEFUN |FS2UPS2;handle_args|
-        ((|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union|
-          (|Record| (|:| |osers| (|List| UPS)) (|:| |sers| (|List| UPS))
-                    (|:| |sere| (|List| FE)) (|:| |sers0| (|List| FE)))
-          (|Union| (|:| |%series| UPS)
-                   (|:| |%problem|
-                        (|Record| (|:| |func| (|String|))
-                                  (|:| |prob| (|String|)))))))
+        ((|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union|
+           (|Record| (|:| |osers| (|List| UPS)) (|:| |sers| (|List| UPS))
+                     (|:| |sere| (|List| FE)) (|:| |sers0| (|List| FE)))
+           (|Union| (|:| |%series| UPS)
+                    (|:| |%problem|
+                         (|Record| (|:| |func| (|String|))
+                                   (|:| |prob| (|String|))))))))
         (SPROG
          ((|lsers| (|List| UPS)) (|lsere| (|List| FE)) (|lcoef| (|List| FE))
           (|losers| (|List| UPS)) (|coef| (FE)) (#2=#:G526 NIL) (|ups| (UPS))
@@ -649,10 +698,12 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |FS2UPS2;do_taylor_via_deriv|
-        ((|nf| UPS) (|lsyms| |List| (|Symbol|)) (|lser| |List| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|nf| (UPS)) (|lsyms| (|List| (|Symbol|))) (|lser| (|List| UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ups| (UPS)) (|lders| (|List| (|Mapping| FE FE))) (#1=#:G541 NIL)
           (|sym| NIL) (#2=#:G540 NIL))
@@ -716,10 +767,12 @@
           (RETURN (PROGN (SPADCALL |c| |sym| (QREFELT $ 81)))))) 
 
 (SDEFUN |FS2UPS2;do_taylor_via_deriv2|
-        ((|nk| FE) (|lsyms| |List| (|Symbol|)) (|lser| |List| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|nk| (FE)) (|lsyms| (|List| (|Symbol|))) (|lser| (|List| UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ups| (UPS)) (|lders| (|List| (|Mapping| FE FE))) (#1=#:G555 NIL)
           (|sym| NIL) (#2=#:G554 NIL))
@@ -783,9 +836,10 @@
           (RETURN (PROGN (SPADCALL |c| |sym| (QREFELT $ 81)))))) 
 
 (SDEFUN |FS2UPS2;convert_args|
-        ((|lsers| |List| UPS) (|lsere| |List| FE) (|lser0| |List| FE)
-         ($ |Record| (|:| |nargs0| (|List| FE)) (|:| |sers| (|List| UPS))
-          (|:| |syms| (|List| (|Symbol|)))))
+        ((|lsers| (|List| UPS)) (|lsere| (|List| FE)) (|lser0| (|List| FE))
+         ($
+          (|Record| (|:| |nargs0| (|List| FE)) (|:| |sers| (|List| UPS))
+                    (|:| |syms| (|List| (|Symbol|))))))
         (SPROG
          ((|nargs| (|List| FE)) (|lser| (|List| UPS))
           (|lsyms| (|List| (|Symbol|))) (|nsym| (|Symbol|)) (#1=#:G561 NIL)
@@ -821,11 +875,13 @@
               (EXIT (VECTOR |nargs| |lser| |lsyms|))))) 
 
 (SDEFUN |FS2UPS2;do_ell|
-        ((|losers| |List| UPS) (|lsers| |List| UPS) (|lsere| |List| FE)
-         (|lser0| |List| FE) (|ef| |Mapping| UTS UTS (|List| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|losers| (|List| UPS)) (|lsers| (|List| UPS)) (|lsere| (|List| FE))
+         (|lser0| (|List| FE)) (|ef| (|Mapping| UTS UTS (|List| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|nres| (UPS))
           (|cargs|
@@ -849,11 +905,13 @@
           (RETURN (PROGN (SPADCALL |f| (QVELT |cargs| 0) |ef|))))) 
 
 (SDEFUN |FS2UPS2;do_ell2|
-        ((|losers| |List| UPS) (|lsers| |List| UPS) (|lsere| |List| FE)
-         (|lser0| |List| FE) (|ef| |Mapping| UTS UTS FE)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|losers| (|List| UPS)) (|lsers| (|List| UPS)) (|lsere| (|List| FE))
+         (|lser0| (|List| FE)) (|ef| (|Mapping| UTS UTS FE))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG NIL
                (|FS2UPS2;do_ell| |losers| |lsers| |lsere| |lser0|
                 (CONS #'|FS2UPS2;do_ell2!0| (VECTOR |ef| $)) $))) 
@@ -868,11 +926,13 @@
                       |ef|))))) 
 
 (SDEFUN |FS2UPS2;do_ell3|
-        ((|losers| |List| UPS) (|lsers| |List| UPS) (|lsere| |List| FE)
-         (|lser0| |List| FE) (|ef| |Mapping| UTS UTS FE FE)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|losers| (|List| UPS)) (|lsers| (|List| UPS)) (|lsere| (|List| FE))
+         (|lser0| (|List| FE)) (|ef| (|Mapping| UTS UTS FE FE))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG NIL
                (|FS2UPS2;do_ell| |losers| |lsers| |lsere| |lser0|
                 (CONS #'|FS2UPS2;do_ell3!0| (VECTOR |ef| $)) $))) 
@@ -886,7 +946,7 @@
             (SPADCALL |f| (SPADCALL |l| (|spadConstant| $ 98) (QREFELT $ 100))
                       (SPADCALL |l| 2 (QREFELT $ 100)) |ef|))))) 
 
-(SDEFUN |FS2UPS2;besselEq| ((|lc| |List| FE) (|z0| FE) ($ |List| UTS))
+(SDEFUN |FS2UPS2;besselEq| ((|lc| (|List| FE)) (|z0| (FE)) ($ (|List| UTS)))
         (SPROG ((|zvar| (UTS)) (|v| (UTS)))
                (SEQ
                 (LETT |v|
@@ -902,7 +962,7 @@
                                  (SPADCALL |v| 2 (QREFELT $ 105))
                                  (QREFELT $ 106))))))) 
 
-(SDEFUN |FS2UPS2;besselEqm| ((|lc| |List| FE) (|z0| FE) ($ |List| UTS))
+(SDEFUN |FS2UPS2;besselEqm| ((|lc| (|List| FE)) (|z0| (FE)) ($ (|List| UTS)))
         (SPROG ((|zvar| (UTS)) (|v| (UTS)))
                (SEQ
                 (LETT |v|
@@ -918,7 +978,7 @@
                                  (SPADCALL |v| 2 (QREFELT $ 105))
                                  (QREFELT $ 103))))))) 
 
-(SDEFUN |FS2UPS2;kelvinEq| ((|lc| |List| FE) (|z0| FE) ($ |List| UTS))
+(SDEFUN |FS2UPS2;kelvinEq| ((|lc| (|List| FE)) (|z0| (FE)) ($ (|List| UTS)))
         (SPROG ((|v2| (UTS)) (|zvar| (UTS)) (|v| (UTS)))
                (SEQ
                 (LETT |v|
@@ -950,7 +1010,7 @@
                         (SPADCALL |zvar| 4 (QREFELT $ 105))
                         (QREFELT $ 103))))))) 
 
-(SDEFUN |FS2UPS2;kummerEq| ((|lc| |List| FE) (|z0| FE) ($ |List| UTS))
+(SDEFUN |FS2UPS2;kummerEq| ((|lc| (|List| FE)) (|z0| (FE)) ($ (|List| UTS)))
         (SPROG ((|zvar| (UTS)) (|b| (UTS)) (|a| (UTS)))
                (SEQ
                 (LETT |a|
@@ -967,7 +1027,7 @@
                  (LIST |zvar| (SPADCALL |b| |zvar| (QREFELT $ 106))
                        (SPADCALL |a| (QREFELT $ 110))))))) 
 
-(SDEFUN |FS2UPS2;legendreEq| ((|lc| |List| FE) (|z0| FE) ($ |List| UTS))
+(SDEFUN |FS2UPS2;legendreEq| ((|lc| (|List| FE)) (|z0| (FE)) ($ (|List| UTS)))
         (SPROG ((|z2| (UTS)) (|zvar| (UTS)) (|mu| (UTS)) (|nu| (UTS)))
                (SEQ
                 (LETT |nu|
@@ -999,7 +1059,7 @@
                          |z2| (QREFELT $ 109))
                         |mu| (QREFELT $ 106))))))) 
 
-(SDEFUN |FS2UPS2;whittakerEq| ((|lc| |List| FE) (|z0| FE) ($ |List| UTS))
+(SDEFUN |FS2UPS2;whittakerEq| ((|lc| (|List| FE)) (|z0| (FE)) ($ (|List| UTS)))
         (SPROG ((|zvar| (UTS)) (|o4| (UTS)) (|m| (UTS)) (|k| (UTS)))
                (SEQ
                 (LETT |k|
@@ -1032,12 +1092,14 @@
                         (QREFELT $ 106))))))) 
 
 (SDEFUN |FS2UPS2;do_diff_eq|
-        ((|ker| |Kernel| FE) (|losers| |List| UPS) (|lsers| |List| UPS)
-         (|lsere| |List| FE) (|lser0| |List| FE)
-         (|getEq| |Mapping| #1=(|List| UTS) (|List| FE) FE)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|losers| (|List| UPS)) (|lsers| (|List| UPS))
+         (|lsere| (|List| FE)) (|lser0| (|List| FE))
+         (|getEq| (|Mapping| #1=(|List| UTS) (|List| FE) FE))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ups| (UPS)) (|lc| (|List| FE)) (#2=#:G599 NIL) (|c| NIL)
           (#3=#:G598 NIL) (|nker| (FE)) (#4=#:G597 NIL)
@@ -1141,24 +1203,29 @@
                            (|FS2UPS2;do_taylor_via_deriv| |ups| |lsyms| |lsers|
                             $))))))))))))) 
 
-(SDEFUN |FS2UPS2;lambertW0| ((|arg| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;lambertW0| ((|arg| (UPS)) ($ (UPS)))
         (SPADCALL (ELT $ 129) |arg| (QREFELT $ 97))) 
 
 (SDEFUN |FS2UPS2;do_weierstrass|
-        ((|losers| |List| UPS) (|lsers| |List| UPS) (|lsere| |List| FE)
-         (|lser0| |List| FE) (|ef| |Mapping| UTS FE FE UTS) (|k| |Integer|)
-         (|cz| |Integer|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|losers| (|List| UPS)) (|lsers| (|List| UPS)) (|lsere| (|List| FE))
+         (|lser0| (|List| FE)) (|ef| (|Mapping| UTS FE FE UTS))
+         (|k| (|Integer|)) (|cz| (|Integer|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#2=#:G611 NIL)
           (|nres2|
@@ -1239,7 +1306,7 @@
             (SPADCALL (SPADCALL |nargs| (|spadConstant| $ 132) (QREFELT $ 100))
                       (SPADCALL |nargs| 2 (QREFELT $ 100)) |f| |ef|))))) 
 
-(SDEFUN |FS2UPS2;make_taylor| ((|f| |Mapping| FE (|Integer|)) ($ UTS))
+(SDEFUN |FS2UPS2;make_taylor| ((|f| (|Mapping| FE (|Integer|))) ($ (UTS)))
         (SPROG
          ((|sc| (|Stream| FE)) (|genc| (|Mapping| FE FE))
           (|rn| (|Reference| (|Integer|))))
@@ -1265,7 +1332,7 @@
                                   (QREFELT $ 137))
                         (EXIT |val|))))))) 
 
-(SDEFUN |FS2UPS2;gen_erfs| ((|i| |Integer|) (|rv| |Reference| FE) ($ FE))
+(SDEFUN |FS2UPS2;gen_erfs| ((|i| (|Integer|)) (|rv| (|Reference| FE)) ($ (FE)))
         (SPROG ((|val| (FE)))
                (SEQ
                 (COND ((EQL |i| 1) (|spadConstant| $ 23))
@@ -1282,10 +1349,12 @@
                         (SPADCALL |rv| |val| (QREFELT $ 154)) (EXIT |val|))))))) 
 
 (SDEFUN |FS2UPS2;do_erfs|
-        ((|iups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|iups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((|lerfs| (UTS)) (|rv| (|Reference| FE)))
                (SEQ
                 (LETT |rv| (SPADCALL (|spadConstant| $ 23) (QREFELT $ 155)))
@@ -1304,7 +1373,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|FS2UPS2;gen_erfs| |i| |rv| $))))) 
 
-(SDEFUN |FS2UPS2;gen_erfis| ((|i| |Integer|) (|rv| |Reference| FE) ($ FE))
+(SDEFUN |FS2UPS2;gen_erfis|
+        ((|i| (|Integer|)) (|rv| (|Reference| FE)) ($ (FE)))
         (SPROG ((|val| (FE)))
                (SEQ
                 (COND ((EQL |i| 1) (|spadConstant| $ 23))
@@ -1321,10 +1391,12 @@
                         (SPADCALL |rv| |val| (QREFELT $ 154)) (EXIT |val|))))))) 
 
 (SDEFUN |FS2UPS2;do_erfis|
-        ((|iups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|iups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((|lerfs| (UTS)) (|rv| (|Reference| FE)))
                (SEQ
                 (LETT |rv| (SPADCALL (|spadConstant| $ 23) (QREFELT $ 155)))
@@ -1343,7 +1415,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|FS2UPS2;gen_erfis| |i| |rv| $))))) 
 
-(SDEFUN |FS2UPS2;gen_eis| ((|i| |Integer|) (|rv| |Reference| FE) ($ FE))
+(SDEFUN |FS2UPS2;gen_eis| ((|i| (|Integer|)) (|rv| (|Reference| FE)) ($ (FE)))
         (SPROG ((|val| (FE)))
                (SEQ
                 (COND ((EQL |i| 0) (|spadConstant| $ 19))
@@ -1357,10 +1429,12 @@
                         (SPADCALL |rv| |val| (QREFELT $ 154)) (EXIT |val|))))))) 
 
 (SDEFUN |FS2UPS2;do_eis|
-        ((|iups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|iups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((|leis| (UTS)) (|rv| (|Reference| FE)))
                (SEQ
                 (LETT |rv| (SPADCALL (|spadConstant| $ 23) (QREFELT $ 155)))
@@ -1376,7 +1450,7 @@
           (RETURN (PROGN (|FS2UPS2;gen_eis| |i| |rv| $))))) 
 
 (SDEFUN |FS2UPS2;replace_log|
-        ((|lc| FE) (|k| FE) (|lx| FE) (|ups1| UPS) ($ UPS))
+        ((|lc| (FE)) (|k| (FE)) (|lx| (FE)) (|ups1| (UPS)) ($ (UPS)))
         (SPROG ((|c1| (FE)))
                (SEQ
                 (LETT |c1|
@@ -1387,29 +1461,32 @@
                  (SPADCALL (SPADCALL |c1| (QREFELT $ 78))
                            (SPADCALL |ups1| (QREFELT $ 158)) (QREFELT $ 56)))))) 
 
-(SDEFUN |FS2UPS2;integt;2UTS;38| ((|f| UTS) ($ UTS))
+(SDEFUN |FS2UPS2;integt;2UTS;38| ((|f| (UTS)) ($ (UTS)))
         (SPADCALL |f| (QREFELT $ 160))) 
 
 (PUT '|FS2UPS2;integt;2UTS;39| '|SPADreplace|
      '(XLAM (|f|) (|error| "can not integrate"))) 
 
-(SDEFUN |FS2UPS2;integt;2UTS;39| ((|f| UTS) ($ UTS))
+(SDEFUN |FS2UPS2;integt;2UTS;39| ((|f| (UTS)) ($ (UTS)))
         (|error| "can not integrate")) 
 
-(SDEFUN |FS2UPS2;my_digamma;2FE;40| ((|xx| FE) ($ FE))
+(SDEFUN |FS2UPS2;my_digamma;2FE;40| ((|xx| (FE)) ($ (FE)))
         (SPADCALL |xx| (QREFELT $ 162))) 
 
 (PUT '|FS2UPS2;my_digamma;2FE;41| '|SPADreplace|
      '(XLAM (|xx|) (|error| "need digamma"))) 
 
-(SDEFUN |FS2UPS2;my_digamma;2FE;41| ((|xx| FE) ($ FE)) (|error| "need digamma")) 
+(SDEFUN |FS2UPS2;my_digamma;2FE;41| ((|xx| (FE)) ($ (FE)))
+        (|error| "need digamma")) 
 
 (SDEFUN |FS2UPS2;do_Ei00|
-        ((|xx| UTS) (|exx| UTS) (|lc| FE) (|k| FE) (|lx| FE) (|ups1| UPS)
-         (|ups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|xx| (UTS)) (|exx| (UTS)) (|lc| (FE)) (|k| (FE)) (|lx| (FE))
+         (|ups1| (UPS)) (|ups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|r2| (UPS)) (|r1| (UPS)) (|ei0| (UTS)) (|d_ei| (UTS))
           (|d_eiu| (|Union| UTS "failed")))
@@ -1438,10 +1515,12 @@
                         (CONS 0 (SPADCALL |r1| |r2| (QREFELT $ 56))))))))))) 
 
 (SDEFUN |FS2UPS2;do_Ei0|
-        ((|lc| FE) (|k| FE) (|lx| FE) (|ups1| UPS) (|ups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|lc| (FE)) (|k| (FE)) (|lx| (FE)) (|ups1| (UPS)) (|ups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((|exx| (UTS)) (|xx| (UTS)))
                (SEQ
                 (LETT |xx| (SPADCALL (|spadConstant| $ 23) 1 (QREFELT $ 102)))
@@ -1450,10 +1529,12 @@
                  (|FS2UPS2;do_Ei00| |xx| |exx| |lc| |k| |lx| |ups1| |ups| $))))) 
 
 (SDEFUN |FS2UPS2;do_Ci0|
-        ((|lc| FE) (|k| FE) (|lx| FE) (|ups1| UPS) (|ups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|lc| (FE)) (|k| (FE)) (|lx| (FE)) (|ups1| (UPS)) (|ups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((|cxx| (UTS)) (|xx| (UTS)))
                (SEQ
                 (LETT |xx| (SPADCALL (|spadConstant| $ 23) 1 (QREFELT $ 102)))
@@ -1462,10 +1543,12 @@
                  (|FS2UPS2;do_Ei00| |xx| |cxx| |lc| |k| |lx| |ups1| |ups| $))))) 
 
 (SDEFUN |FS2UPS2;do_Chi0|
-        ((|lc| FE) (|k| FE) (|lx| FE) (|ups1| UPS) (|ups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|lc| (FE)) (|k| (FE)) (|lx| (FE)) (|ups1| (UPS)) (|ups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((|chxx| (UTS)) (|xx| (UTS)))
                (SEQ
                 (LETT |xx| (SPADCALL (|spadConstant| $ 23) 1 (QREFELT $ 102)))
@@ -1475,10 +1558,12 @@
                   $))))) 
 
 (SDEFUN |FS2UPS2;do_dilog0|
-        ((|lc| FE) (|k| FE) (|lx| FE) (|ups1| UPS) (|ups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|lc| (FE)) (|k| (FE)) (|lx| (FE)) (|ups1| (UPS)) (|ups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|r2| (UPS)) (|lx2| (UTS)) (|lx1| (UTS))
           (|lx1u| (|Union| UTS "failed")) (|r1| (UPS)) (|l1| (UPS))
@@ -1509,7 +1594,7 @@
                            (EXIT
                             (CONS 0 (SPADCALL |r1| |r2| (QREFELT $ 56))))))))))) 
 
-(SDEFUN |FS2UPS2;gen_lg| ((|i| |Integer|) ($ FE))
+(SDEFUN |FS2UPS2;gen_lg| ((|i| (|Integer|)) ($ (FE)))
         (SPROG ((|k| (|Integer|)))
                (SEQ
                 (COND ((EQL |i| 0) (QREFELT $ 147))
@@ -1524,10 +1609,13 @@
                               (QREFELT $ 146))))))))) 
 
 (SDEFUN |FS2UPS2;do_log_gamma|
-        ((|lc| FE) (|k| FE) (|lx| FE) (|ups| UPS) (|ups1| UPS) (|iups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|lc| (FE)) (|k| (FE)) (|lx| (FE)) (|ups| (UPS)) (|ups1| (UPS))
+         (|iups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((|r2| (UPS)) (|r1| (UPS)) (|l1| (UPS)) (|lgs| (UTS)))
                (SEQ
                 (LETT |lgs|
@@ -1548,10 +1636,12 @@
                 (EXIT (CONS 0 (SPADCALL |r1| |r2| (QREFELT $ 56))))))) 
 
 (SDEFUN |FS2UPS2;do_digamma|
-        ((|lc| FE) (|k| FE) (|lx| FE) (|ups1| UPS) (|iups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|lc| (FE)) (|k| (FE)) (|lx| (FE)) (|ups1| (UPS)) (|iups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|r2| (UPS)) (|r1| (UPS)) (|l1| (UPS)) (|ldig| (UTS)) (|lgs| (UTS)))
          (SEQ
@@ -1578,10 +1668,12 @@
           (EXIT (CONS 0 (SPADCALL |r1| |r2| (QREFELT $ 56))))))) 
 
 (SDEFUN |FS2UPS2;do_polygamma_n|
-        ((|n| |Integer|) (|iups| UPS)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|n| (|Integer|)) (|iups| (UPS))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG ((|lpol| (UTS)) (#1=#:G671 NIL) (|i| NIL))
                (SEQ
                 (LETT |lpol|
@@ -1624,18 +1716,23 @@
                 (EXIT (CONS 0 (SPADCALL |lpol| |iups| (QREFELT $ 156))))))) 
 
 (SDEFUN |FS2UPS2;spec_to_UPS|
-        ((|ker| |Kernel| FE) (|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|nker| (FE)) (|nargs| (|List| FE))
           (|cargs|
@@ -2346,7 +2443,7 @@
                                    $))))))))))))
           #7# (EXIT #2#)))) 
 
-(SDEFUN |FS2UPS2;atan1;2UPS;52| ((|ups| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;atan1;2UPS;52| ((|ups| (UPS)) ($ (UPS)))
         (SPROG ((|yCoef| (FE)) (|y| (UPS)))
                (SEQ
                 (LETT |y|
@@ -2374,62 +2471,67 @@
                    (QREFELT $ 206))
                   (QREFELT $ 56)))))) 
 
-(SDEFUN |FS2UPS2;integ;2UPS;53| ((|f| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;integ;2UPS;53| ((|f| (UPS)) ($ (UPS)))
         (SPADCALL |f| (QREFELT $ 206))) 
 
-(SDEFUN |FS2UPS2;integ_df;3UPS;54| ((|f| UPS) (|xs| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;integ_df;3UPS;54| ((|f| (UPS)) (|xs| (UPS)) ($ (UPS)))
         (SPADCALL (SPADCALL (SPADCALL |xs| (QREFELT $ 204)) |f| (QREFELT $ 59))
                   (QREFELT $ 206))) 
 
 (PUT '|FS2UPS2;atan1;2UPS;55| '|SPADreplace|
      '(XLAM (|ups|) (|error| "atan1 called, but no integrate"))) 
 
-(SDEFUN |FS2UPS2;atan1;2UPS;55| ((|ups| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;atan1;2UPS;55| ((|ups| (UPS)) ($ (UPS)))
         (|error| "atan1 called, but no integrate")) 
 
 (PUT '|FS2UPS2;integ;2UPS;56| '|SPADreplace|
      '(XLAM (|f|) (|error| "integ called, but no integrate"))) 
 
-(SDEFUN |FS2UPS2;integ;2UPS;56| ((|f| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;integ;2UPS;56| ((|f| (UPS)) ($ (UPS)))
         (|error| "integ called, but no integrate")) 
 
 (PUT '|FS2UPS2;integ_df;3UPS;57| '|SPADreplace|
      '(XLAM (|f| |xs|) (|error| "integ_df called, but no integrate"))) 
 
-(SDEFUN |FS2UPS2;integ_df;3UPS;57| ((|f| UPS) (|xs| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;integ_df;3UPS;57| ((|f| (UPS)) (|xs| (UPS)) ($ (UPS)))
         (|error| "integ_df called, but no integrate")) 
 
 (PUT '|FS2UPS2;atan1;2UPS;58| '|SPADreplace|
      '(XLAM (|ups|) (|error| "atan1 called, but no integrate"))) 
 
-(SDEFUN |FS2UPS2;atan1;2UPS;58| ((|ups| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;atan1;2UPS;58| ((|ups| (UPS)) ($ (UPS)))
         (|error| "atan1 called, but no integrate")) 
 
 (PUT '|FS2UPS2;integ;2UPS;59| '|SPADreplace|
      '(XLAM (|f|) (|error| "integ called, but no integrate"))) 
 
-(SDEFUN |FS2UPS2;integ;2UPS;59| ((|f| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;integ;2UPS;59| ((|f| (UPS)) ($ (UPS)))
         (|error| "integ called, but no integrate")) 
 
 (PUT '|FS2UPS2;integ_df;3UPS;60| '|SPADreplace|
      '(XLAM (|f| |xs|) (|error| "integ_df called, but no integrate"))) 
 
-(SDEFUN |FS2UPS2;integ_df;3UPS;60| ((|f| UPS) (|xs| UPS) ($ UPS))
+(SDEFUN |FS2UPS2;integ_df;3UPS;60| ((|f| (UPS)) (|xs| (UPS)) ($ (UPS)))
         (|error| "integ_df called, but no integrate")) 
 
 (SDEFUN |FS2UPS2;do_prim|
-        ((|ker| |Kernel| FE) (|arg0| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|arg0| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#2=#:G1291 NIL)
           (|ns|
@@ -2463,18 +2565,23 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |FS2UPS2;prim_to_UPS|
-        ((|ker| |Kernel| FE) (|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|coef| (FE)) (#2=#:G1317 NIL) (|ups| (UPS)) (#3=#:G512 NIL)
           (|nsu|
@@ -2590,18 +2697,23 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |FS2UPS2;unknown_to_UPS|
-        ((|ker| |Kernel| FE) (|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|nker| (FE)) (|nargs| (|List| FE))
           (|cargs|
@@ -2641,18 +2753,23 @@
                              (QVELT |cargs| 2) (QVELT |cargs| 1) $))))))))) 
 
 (SDEFUN |FS2UPS2;kernelToUPS|
-        ((|ker| |Kernel| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#2=#:G1336 NIL) (|n| (|Integer|)) (|arg| (FE))
           (|op| (|BasicOperator|)) (|args| (|List| FE))
@@ -2724,18 +2841,23 @@
                           $))))))))))) 
 
 (SDEFUN |FS2UPS2;nthRootToUPS|
-        ((|arg| FE) (|n| |NonNegativeInteger|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE)) (|n| (|NonNegativeInteger|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans|
            (|Union| (|:| |%series| UPS)
@@ -2760,18 +2882,23 @@
                               (#2# (CONS 0 (CDR |ans|)))))))))))) 
 
 (SDEFUN |FS2UPS2;logToUPS|
-        ((|arg| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|logTerm| (FE)) (|lt| (UPS)) (#2=#:G1365 NIL) (#3=#:G1373 NIL)
           (#4=#:G1372 NIL) (|signum| (|Union| (|Integer|) "failed"))
@@ -2917,29 +3044,35 @@
                          #10# (EXIT #4#)))))))
           #9# (EXIT #3#)))) 
 
-(SDEFUN |FS2UPS2;localAbs;2FE;67| ((|fcn| FE) ($ FE))
+(SDEFUN |FS2UPS2;localAbs;2FE;67| ((|fcn| (FE)) ($ (FE)))
         (SPADCALL |fcn| (QREFELT $ 226))) 
 
-(SDEFUN |FS2UPS2;localAbs;2FE;68| ((|fcn| FE) ($ FE))
+(SDEFUN |FS2UPS2;localAbs;2FE;68| ((|fcn| (FE)) ($ (FE)))
         (SPADCALL (SPADCALL |fcn| |fcn| (QREFELT $ 144)) (QREFELT $ 150))) 
 
-(SDEFUN |FS2UPS2;signOfExpression| ((|arg| FE) ($ FE))
+(SDEFUN |FS2UPS2;signOfExpression| ((|arg| (FE)) ($ (FE)))
         (SPADCALL (SPADCALL |arg| (QREFELT $ 227)) |arg| (QREFELT $ 146))) 
 
 (SDEFUN |FS2UPS2;atanacot2|
-        ((|ups| UPS) (|coef| FE) (|ord| |Expon|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               #1=(|Union| "complex" "real: two sides" "real: left side"
-                           "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         (|plusMinus| |Integer|)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ups| (UPS)) (|coef| (FE)) (|ord| (|Expon|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         #1=(|Union| "complex" "real: two sides"
+                                     "real: left side" "real: right side"
+                                     "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         (|plusMinus| (|Integer|))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|cc| (FE)) (|n| (|Integer|)) (|left?| (|Boolean|))
           (|posNegPi2| (FE)) (|signum| (|Union| (|Integer|) "failed"))
@@ -3095,19 +3228,24 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |FS2UPS2;atancotToUPS|
-        ((|arg| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         (|plusMinus| |Integer|)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         (|plusMinus| (|Integer|))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|res1| (|Union| UPS "failed")) (#2=#:G1410 NIL) (#3=#:G1411 NIL)
           (|ord| (|Expon|)) (|coef| (FE)) (|ups| (UPS)) (#4=#:G512 NIL)
@@ -3189,19 +3327,24 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |FS2UPS2;applyIfCan|
-        ((|fcn| |Mapping| #1=(|Union| UPS "failed") UPS) (|arg| FE)
-         (|fcnName| |String|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (|Mapping| #1=(|Union| UPS "failed") UPS)) (|arg| (FE))
+         (|fcnName| (|String|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans| #1#)
           (|ups|
@@ -3222,18 +3365,23 @@
                              (#3# (CONS 0 (QCDR |ans|)))))))))))) 
 
 (SDEFUN |FS2UPS2;tranToUPS|
-        ((|ker| |Kernel| FE) (|arg| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|arg| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (COND
          ((SPADCALL |ker| '|sin| (QREFELT $ 218))
           (|FS2UPS2;applyIfCan| (ELT $ 234) |arg| "sin" |opt_rec| $))
@@ -3286,18 +3434,23 @@
          ('T (|FS2UPS2;unknown_to_UPS| |ker| (LIST |arg|) |opt_rec| $)))) 
 
 (SDEFUN |FS2UPS2;powToUPS2|
-        ((|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans| (|Union| UPS "failed"))
           (|expon|
@@ -3337,18 +3490,23 @@
                               (#2# (CONS 0 (QCDR |ans|)))))))))))))))) 
 
 (SDEFUN |FS2UPS2;powToUPS;LRU;75|
-        ((|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans1| (|Union| UPS #2="failed")) (|lbu| (|Union| UPS #2#))
           (|b1| (UPS)) (|eb| (|Expon|)) (|bs| (UPS))
@@ -3446,46 +3604,56 @@
                         (#3# (|FS2UPS2;powToUPS2| |args| |opt_rec| $))))))))))) 
 
 (SDEFUN |FS2UPS2;powToUPS;LRU;76|
-        ((|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (|FS2UPS2;powToUPS2| |args| |opt_rec| $)) 
 
 (SDEFUN |FS2UPS2;powToUPS;LRU;77|
-        ((|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (|FS2UPS2;powToUPS2| |args| |opt_rec| $)) 
 
-(SDEFUN |FS2UPS2;newElem| ((|f| FE) ($ FE))
+(SDEFUN |FS2UPS2;newElem| ((|f| (FE)) ($ (FE)))
         (SPADCALL (|FS2UPS2;smpElem| (SPADCALL |f| (QREFELT $ 259)) $)
                   (|FS2UPS2;smpElem| (SPADCALL |f| (QREFELT $ 260)) $)
                   (QREFELT $ 146))) 
 
 (SDEFUN |FS2UPS2;smpElem|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| FE)) ($ FE))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| FE))) ($ (FE)))
         (SPADCALL (CONS (|function| |FS2UPS2;k2Elem|) $) (ELT $ 113) |p|
                   (QREFELT $ 264))) 
 
-(SDEFUN |FS2UPS2;k2Elem| ((|k| |Kernel| FE) ($ FE))
+(SDEFUN |FS2UPS2;k2Elem| ((|k| (|Kernel| FE)) ($ (FE)))
         (SPROG
          ((|cosz| (FE)) (|sinz| (FE)) (|iez| (FE)) (|ez| (FE)) (|z| (FE))
           (|args| (|List| FE)) (#1=#:G1514 NIL) (|a| NIL) (#2=#:G1513 NIL))
@@ -3554,37 +3722,45 @@
                 (SPADCALL (SPADCALL |k| (QREFELT $ 119)) |args|
                           (QREFELT $ 269))))))))))) 
 
-(SDEFUN |FS2UPS2;contOnReals?| ((|fcn| |String|) ($ |Boolean|))
+(SDEFUN |FS2UPS2;contOnReals?| ((|fcn| (|String|)) ($ (|Boolean|)))
         (SPADCALL |fcn| (QREFELT $ 270) (QREFELT $ 273))) 
 
-(SDEFUN |FS2UPS2;bddOnReals?| ((|fcn| |String|) ($ |Boolean|))
+(SDEFUN |FS2UPS2;bddOnReals?| ((|fcn| (|String|)) ($ (|Boolean|)))
         (SPADCALL |fcn| (QREFELT $ 271) (QREFELT $ 273))) 
 
 (SDEFUN |FS2UPS2;exprToGenUPS;FEBUU;83|
-        ((|fcn| FE) (|posCheck?| |Boolean|)
-         (|atanFlag| |Union| "complex" "real: two sides" "real: left side"
-          "real: right side" "just do it")
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|posCheck?| (|Boolean|))
+         (|atanFlag|
+          (|Union| "complex" "real: two sides" "real: left side"
+                   "real: right side" "just do it"))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (|FS2UPS2;iExprToGenUPS| (|FS2UPS2;newElem| |fcn| $)
          (VECTOR |posCheck?| |atanFlag| (CONS 1 "none") (CONS 1 "none")
                  (CONS 1 "none") NIL (|spadConstant| $ 19))
          $)) 
 
 (SDEFUN |FS2UPS2;iExprToGenUPS|
-        ((|fcn| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ker| (|Union| (|Kernel| FE) #2="failed"))
           (|power| (|Record| (|:| |val| FE) (|:| |exponent| (|Integer|))))
@@ -3643,7 +3819,7 @@
                                          (|error|
                                           "exprToGenUPS: neither a sum, product, power, nor kernel"))))))))))))))))))))))) 
 
-(SDEFUN |FS2UPS2;opsInvolvingX| ((|fcn| FE) ($ |List| (|BasicOperator|)))
+(SDEFUN |FS2UPS2;opsInvolvingX| ((|fcn| (FE)) ($ (|List| (|BasicOperator|))))
         (SPROG
          ((|opList| (|List| #1=(|BasicOperator|))) (|op| #1#) (#2=#:G1558 NIL)
           (|k| NIL) (#3=#:G1557 NIL))
@@ -3676,7 +3852,8 @@
           (EXIT (SPADCALL |opList| (QREFELT $ 279)))))) 
 
 (SDEFUN |FS2UPS2;opInOpList?|
-        ((|name| |Symbol|) (|opList| |List| (|BasicOperator|)) ($ |Boolean|))
+        ((|name| (|Symbol|)) (|opList| (|List| (|BasicOperator|)))
+         ($ (|Boolean|)))
         (SPROG ((#1=#:G1563 NIL) (#2=#:G1564 NIL) (#3=#:G1565 NIL) (|op| NIL))
                (SEQ
                 (EXIT
@@ -3699,7 +3876,7 @@
                   (EXIT NIL)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |FS2UPS2;exponential?| ((|fcn| FE) ($ |Boolean|))
+(SDEFUN |FS2UPS2;exponential?| ((|fcn| (FE)) ($ (|Boolean|)))
         (SPROG ((|ker| (|Union| (|Kernel| FE) "failed")))
                (SEQ (LETT |ker| (SPADCALL |fcn| (QREFELT $ 61)))
                     (EXIT
@@ -3708,7 +3885,7 @@
                        (SPADCALL (QCDR |ker|) '|exp| (QREFELT $ 218)))
                       ('T NIL)))))) 
 
-(SDEFUN |FS2UPS2;productOfNonZeroes?| ((|fcn| FE) ($ |Boolean|))
+(SDEFUN |FS2UPS2;productOfNonZeroes?| ((|fcn| (FE)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G1581 NIL) (#2=#:G1582 NIL) (#3=#:G1583 NIL) (|term| NIL)
           (|prod| (|Union| (|List| FE) "failed")))
@@ -3755,18 +3932,23 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |FS2UPS2;powerToGenUPS|
-        ((|fcn| FE) (|n| |Integer|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (FE)) (|n| (|Integer|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|xOpList| (|List| (|BasicOperator|))) (|coef| (FE))
           (|deg| (|Expon|)) (|ups| (UPS)) (#2=#:G512 NIL) (#3=#:G1588 NIL)
@@ -3848,18 +4030,23 @@
                                $))))))))))))))) 
 
 (SDEFUN |FS2UPS2;kernelToGenUPS|
-        ((|ker| |Kernel| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#2=#:G1606 NIL) (|n| (|Integer|)) (|arg| (FE)) (|args| (|List| FE))
           (|sym| (|Union| (|Symbol|) "failed")))
@@ -3915,18 +4102,23 @@
                   "unknown kernel" $))))))) 
 
 (SDEFUN |FS2UPS2;nthRootToGenUPS|
-        ((|arg| FE) (|n| |NonNegativeInteger|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE)) (|n| (|NonNegativeInteger|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans|
            (|Union| (|:| |%series| UPS)
@@ -3951,18 +4143,23 @@
                               (#2# (CONS 0 (CDR |ans|)))))))))))) 
 
 (SDEFUN |FS2UPS2;logToGenUPS|
-        ((|arg| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|logTerm| (FE)) (|term1| (FE)) (|pow| (FE)) (|mon| (FE))
           (|negRat?| (|Boolean|))
@@ -4097,18 +4294,23 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |FS2UPS2;expToGenUPS|
-        ((|arg| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|arg| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ups|
            (|Union| (|:| |%series| UPS)
@@ -4121,18 +4323,23 @@
                      ('T (|FS2UPS2;expGenUPS| (CDR |ups|) |opt_rec| $))))))) 
 
 (SDEFUN |FS2UPS2;expGenUPS|
-        ((|ups| UPS)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ups| (UPS))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|result|
            (|Union| (|:| |%series| UPS)
@@ -4186,19 +4393,24 @@
                                           (QREFELT $ 59))))))))))))))))) 
 
 (SDEFUN |FS2UPS2;atancotToGenUPS|
-        ((|fe| FE) (|arg| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         (|plusMinus| |Integer|)
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fe| (FE)) (|arg| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         (|plusMinus| (|Integer|))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#2=#:G1655 NIL) (|ord| (|Expon|)) (|coef| (FE)) (|ups| (UPS))
           (#3=#:G512 NIL)
@@ -4260,19 +4472,24 @@
                   #5# (EXIT #2#)))))))) 
 
 (SDEFUN |FS2UPS2;genUPSApplyIfCan|
-        ((|fcn| |Mapping| (|Union| UPS #1="failed") UPS) (|arg| FE)
-         (|fcnName| |String|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fcn| (|Mapping| (|Union| UPS #1="failed") UPS)) (|arg| (FE))
+         (|fcnName| (|String|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((#3=#:G1658 NIL) (|xOpList| (|List| (|BasicOperator|))) (|lc| (FE))
           (|deg| (|Expon|)) (|ups| (UPS)) (#4=#:G512 NIL)
@@ -4348,19 +4565,24 @@
                                "x in constant coefficient" $))))))))))))))) 
 
 (SDEFUN |FS2UPS2;applyBddIfCan|
-        ((|fe| FE) (|fcn| |Mapping| #1=(|Union| UPS "failed") UPS) (|arg| FE)
-         (|fcnName| |String|)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|fe| (FE)) (|fcn| (|Mapping| #1=(|Union| UPS "failed") UPS))
+         (|arg| (FE)) (|fcnName| (|String|))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #2#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|ans| #1#)
           (|trouble|
@@ -4393,18 +4615,23 @@
                         (#3# (CONS 0 (QCDR |ans|)))))))))))) 
 
 (SDEFUN |FS2UPS2;tranToGenUPS|
-        ((|ker| |Kernel| FE) (|arg| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|ker| (|Kernel| FE)) (|arg| (FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (COND
          ((SPADCALL |ker| '|sin| (QREFELT $ 218))
           (|FS2UPS2;applyBddIfCan| (SPADCALL |ker| (QREFELT $ 212)) (ELT $ 234)
@@ -4444,18 +4671,23 @@
            "unknown kernel" $)))) 
 
 (SDEFUN |FS2UPS2;powToGenUPS|
-        ((|args| |List| FE)
-         (|opt_rec| |Record| (|:| |pos_Check?| (|Boolean|))
-          (|:| |atan_Flag|
-               (|Union| "complex" "real: two sides" "real: left side"
-                        "real: right side" "just do it"))
-          (|:| |coeff_check?| (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
-          (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |zero_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
-          (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE))
-         ($ |Union| (|:| |%series| UPS)
-          (|:| |%problem|
-               (|Record| (|:| |func| (|String|)) (|:| |prob| (|String|))))))
+        ((|args| (|List| FE))
+         (|opt_rec|
+          (|Record| (|:| |pos_Check?| (|Boolean|))
+                    (|:| |atan_Flag|
+                         (|Union| "complex" "real: two sides" "real: left side"
+                                  "real: right side" "just do it"))
+                    (|:| |coeff_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1="none"))
+                    (|:| |inv_check?| (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |zero_check?|
+                         (|Union| (|Mapping| (|Boolean|) FE) #1#))
+                    (|:| |log_x_replace| (|Boolean|)) (|:| |log_x_val| FE)))
+         ($
+          (|Union| (|:| |%series| UPS)
+                   (|:| |%problem|
+                        (|Record| (|:| |func| (|String|))
+                                  (|:| |prob| (|String|)))))))
         (SPROG
          ((|expon|
            (|Union| (|:| |%series| UPS)

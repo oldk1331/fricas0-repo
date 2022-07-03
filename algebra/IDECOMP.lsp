@@ -1,29 +1,36 @@
 
 (SDEFUN |IDECOMP;convertQF|
-        ((|a| |Fraction| (|Integer|))
-         ($ |Fraction| (|Polynomial| (|Integer|))))
+        ((|a| (|Fraction| (|Integer|)))
+         ($ (|Fraction| (|Polynomial| (|Integer|)))))
         (SPADCALL (SPADCALL (SPADCALL |a| (QREFELT $ 9)) (QREFELT $ 11))
                   (SPADCALL (SPADCALL |a| (QREFELT $ 12)) (QREFELT $ 11))
                   (QREFELT $ 13))) 
 
 (SDEFUN |IDECOMP;convertFQ|
-        ((|a| |Fraction| (|Polynomial| (|Integer|)))
-         ($ |Fraction| (|Integer|)))
+        ((|a| (|Fraction| (|Polynomial| (|Integer|))))
+         ($ (|Fraction| (|Integer|))))
         (SPADCALL (SPADCALL (SPADCALL |a| (QREFELT $ 15)) (QREFELT $ 16))
                   (SPADCALL (SPADCALL |a| (QREFELT $ 17)) (QREFELT $ 16))
                   (QREFELT $ 18))) 
 
 (SDEFUN |IDECOMP;internalForm|
-        ((I |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
-         ($ |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|))))))
+        ((I
+          (|PolynomialIdeal| (|Fraction| (|Integer|))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Integer|)))))
+         ($
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|)))))))
         (SPROG
          ((|nId|
            (|List|
@@ -60,16 +67,23 @@
                 ('T (SPADCALL |nId| (QREFELT $ 32)))))))) 
 
 (SDEFUN |IDECOMP;externalForm|
-        ((I |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         ($ |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))))
+        ((I
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         ($
+          (|PolynomialIdeal| (|Fraction| (|Integer|))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Integer|))))))
         (SPROG
          ((|nId|
            (|List|
@@ -106,24 +120,26 @@
                 ('T (SPADCALL |nId| (QREFELT $ 39)))))))) 
 
 (SDEFUN |IDECOMP;deleteunit|
-        ((|lI| |List|
-          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-                             (|DirectProduct| (|#| |vl|)
-                                              (|NonNegativeInteger|))
-                             (|OrderedVariableList| |vl|)
-                             (|DistributedMultivariatePolynomial| |vl|
-                                                                  (|Fraction|
-                                                                   (|Polynomial|
-                                                                    (|Integer|))))))
-         ($ |List|
-          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-                             (|DirectProduct| (|#| |vl|)
-                                              (|NonNegativeInteger|))
-                             (|OrderedVariableList| |vl|)
-                             (|DistributedMultivariatePolynomial| |vl|
-                                                                  (|Fraction|
-                                                                   (|Polynomial|
-                                                                    (|Integer|)))))))
+        ((|lI|
+          (|List|
+           (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                              (|DirectProduct| (|#| |vl|)
+                                               (|NonNegativeInteger|))
+                              (|OrderedVariableList| |vl|)
+                              (|DistributedMultivariatePolynomial| |vl|
+                                                                   (|Fraction|
+                                                                    (|Polynomial|
+                                                                     (|Integer|)))))))
+         ($
+          (|List|
+           (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                              (|DirectProduct| (|#| |vl|)
+                                               (|NonNegativeInteger|))
+                              (|OrderedVariableList| |vl|)
+                              (|DistributedMultivariatePolynomial| |vl|
+                                                                   (|Fraction|
+                                                                    (|Polynomial|
+                                                                     (|Integer|))))))))
         (SPROG ((#1=#:G177 NIL) (I NIL) (#2=#:G176 NIL))
                (SEQ
                 (PROGN
@@ -142,8 +158,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |IDECOMP;rearrange|
-        ((|vlist| |List| (|OrderedVariableList| |vl|))
-         ($ |List| (|OrderedVariableList| |vl|)))
+        ((|vlist| (|List| (|OrderedVariableList| |vl|)))
+         ($ (|List| (|OrderedVariableList| |vl|))))
         (COND ((SPADCALL |vlist| NIL (QREFELT $ 50)) |vlist|)
               ('T
                (SPADCALL (ELT $ 51)
@@ -154,19 +170,25 @@
                          (QREFELT $ 54))))) 
 
 (SDEFUN |IDECOMP;zeroRadComp|
-        ((I |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|truelist| |List| (|OrderedVariableList| |vl|))
-         ($ |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|))))))
+        ((I
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         (|truelist| (|List| (|OrderedVariableList| |vl|)))
+         ($
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|)))))))
         (SPROG
          ((|ris|
            #1=(|List|
@@ -371,31 +393,35 @@
 
 (SDEFUN |IDECOMP;goodPower|
         ((|s|
-          . #1=(|DistributedMultivariatePolynomial| |vl|
-                                                    (|Fraction|
-                                                     (|Polynomial|
-                                                      (|Integer|)))))
-         (I |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         ($ |Record|
-          (|:| |spol|
-               (|DistributedMultivariatePolynomial| |vl|
-                                                    (|Fraction|
-                                                     (|Polynomial|
-                                                      (|Integer|)))))
-          (|:| |id|
-               (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-                                  (|DirectProduct| (|#| |vl|)
-                                                   (|NonNegativeInteger|))
-                                  (|OrderedVariableList| |vl|)
-                                  (|DistributedMultivariatePolynomial| |vl|
-                                                                       (|Fraction|
-                                                                        (|Polynomial|
-                                                                         (|Integer|))))))))
+          #1=(|DistributedMultivariatePolynomial| |vl|
+                                                  (|Fraction|
+                                                   (|Polynomial|
+                                                    (|Integer|)))))
+         (I
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         ($
+          (|Record|
+           (|:| |spol|
+                (|DistributedMultivariatePolynomial| |vl|
+                                                     (|Fraction|
+                                                      (|Polynomial|
+                                                       (|Integer|)))))
+           (|:| |id|
+                (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                                   (|DirectProduct| (|#| |vl|)
+                                                    (|NonNegativeInteger|))
+                                   (|OrderedVariableList| |vl|)
+                                   (|DistributedMultivariatePolynomial| |vl|
+                                                                        (|Fraction|
+                                                                         (|Polynomial|
+                                                                          (|Integer|)))))))))
         (SPROG
          ((|f| #1#) (#2=#:G202 NIL) (|g| NIL) (#3=#:G201 NIL)
           (J
@@ -445,13 +471,16 @@
               (EXIT (CONS |f| JJ))))) 
 
 (SDEFUN |IDECOMP;zerodimcase|
-        ((J |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|truelist| |List| (|OrderedVariableList| |vl|)) ($ |Boolean|))
+        ((J
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         (|truelist| (|List| (|OrderedVariableList| |vl|))) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G214 NIL)
           (|Jd|
@@ -528,14 +557,17 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |IDECOMP;findvar|
-        ((J |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|truelist| |List| (|OrderedVariableList| |vl|))
-         ($ |OrderedVariableList| |vl|))
+        ((J
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         (|truelist| (|List| (|OrderedVariableList| |vl|)))
+         ($ (|OrderedVariableList| |vl|)))
         (SPROG
          ((|badvar| (|List| (|OrderedVariableList| |vl|)))
           (|lmonicvar| (|List| (|OrderedVariableList| |vl|)))
@@ -565,24 +597,27 @@
               (EXIT (|SPADfirst| |badvar|))))) 
 
 (SDEFUN |IDECOMP;reduceDim|
-        ((|flag| |Union| "zeroPrimDecomp" "zeroRadComp")
-         (J |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|truelist| |List| (|OrderedVariableList| |vl|))
+        ((|flag| (|Union| "zeroPrimDecomp" "zeroRadComp"))
+         (J
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         (|truelist| (|List| (|OrderedVariableList| |vl|)))
          ($
-          . #1=(|List|
-                (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-                                   (|DirectProduct| (|#| |vl|)
-                                                    (|NonNegativeInteger|))
-                                   (|OrderedVariableList| |vl|)
-                                   (|DistributedMultivariatePolynomial| |vl|
-                                                                        (|Fraction|
-                                                                         (|Polynomial|
-                                                                          (|Integer|))))))))
+          #1=(|List|
+              (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                                 (|DirectProduct| (|#| |vl|)
+                                                  (|NonNegativeInteger|))
+                                 (|OrderedVariableList| |vl|)
+                                 (|DistributedMultivariatePolynomial| |vl|
+                                                                      (|Fraction|
+                                                                       (|Polynomial|
+                                                                        (|Integer|))))))))
         (SPROG
          ((|res1|
            (|List|
@@ -803,14 +838,7 @@
                                    (EXIT |res1|))))))))))))))) 
 
 (SDEFUN |IDECOMP;zeroPrimDecomp|
-        ((I |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|truelist| |List| (|OrderedVariableList| |vl|))
-         ($ |List|
+        ((I
           (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
                              (|DirectProduct| (|#| |vl|)
                                               (|NonNegativeInteger|))
@@ -818,7 +846,18 @@
                              (|DistributedMultivariatePolynomial| |vl|
                                                                   (|Fraction|
                                                                    (|Polynomial|
-                                                                    (|Integer|)))))))
+                                                                    (|Integer|))))))
+         (|truelist| (|List| (|OrderedVariableList| |vl|)))
+         ($
+          (|List|
+           (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                              (|DirectProduct| (|#| |vl|)
+                                               (|NonNegativeInteger|))
+                              (|OrderedVariableList| |vl|)
+                              (|DistributedMultivariatePolynomial| |vl|
+                                                                   (|Fraction|
+                                                                    (|Polynomial|
+                                                                     (|Integer|))))))))
         (SPROG
          ((|ris|
            (|List|
@@ -927,14 +966,22 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |IDECOMP;radical;2Pi;13|
-        ((I |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
-         ($ |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))))
+        ((I
+          (|PolynomialIdeal| (|Fraction| (|Integer|))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Integer|)))))
+         ($
+          (|PolynomialIdeal| (|Fraction| (|Integer|))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Integer|))))))
         (SPROG
          ((#1=#:G268 NIL)
           (#2=#:G267
@@ -1008,11 +1055,15 @@
                   $))))))) 
 
 (SDEFUN |IDECOMP;pushdown|
-        ((|g| |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|))))
-         (|x| |OrderedVariableList| |vl|)
-         ($ |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|)))))
+        ((|g|
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|)))))
+         (|x| (|OrderedVariableList| |vl|))
+         ($
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|))))))
         (SPROG
          ((|rf|
            (|DistributedMultivariatePolynomial| |vl|
@@ -1041,11 +1092,15 @@
               (EXIT |rf|)))) 
 
 (SDEFUN |IDECOMP;pushdterm|
-        ((|t| |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|))))
-         (|x| |OrderedVariableList| |vl|) (|i| |Integer|)
-         ($ |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|)))))
+        ((|t|
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|)))))
+         (|x| (|OrderedVariableList| |vl|)) (|i| (|Integer|))
+         ($
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|))))))
         (SPROG
          ((#1=#:G279 NIL)
           (|newt|
@@ -1087,13 +1142,15 @@
 
 (SDEFUN |IDECOMP;pushup|
         ((|f|
-          . #1=(|DistributedMultivariatePolynomial| |vl|
-                                                    (|Fraction|
-                                                     (|Polynomial|
-                                                      (|Integer|)))))
-         (|x| |OrderedVariableList| |vl|)
-         ($ |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|)))))
+          #1=(|DistributedMultivariatePolynomial| |vl|
+                                                  (|Fraction|
+                                                   (|Polynomial|
+                                                    (|Integer|)))))
+         (|x| (|OrderedVariableList| |vl|))
+         ($
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|))))))
         (SPROG
          ((|rf|
            (|DistributedMultivariatePolynomial| |vl|
@@ -1136,18 +1193,22 @@
               (EXIT |rf|)))) 
 
 (SDEFUN |IDECOMP;trueden|
-        ((|c| |Polynomial| (|Integer|)) (|x| |Symbol|)
-         ($ |Polynomial| (|Integer|)))
+        ((|c| (|Polynomial| (|Integer|))) (|x| (|Symbol|))
+         ($ (|Polynomial| (|Integer|))))
         (COND
          ((EQL (SPADCALL |c| |x| (QREFELT $ 117)) 0) (|spadConstant| $ 111))
          ('T |c|))) 
 
 (SDEFUN |IDECOMP;pushuterm|
-        ((|t| |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|))))
-         (|xp| |Symbol|) (|x| |OrderedVariableList| |vl|)
-         ($ |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|)))))
+        ((|t|
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|)))))
+         (|xp| (|Symbol|)) (|x| (|OrderedVariableList| |vl|))
+         ($
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|))))))
         (SPADCALL
          (|IDECOMP;pushucoef|
           (SPADCALL (SPADCALL (SPADCALL |t| (QREFELT $ 95)) (QREFELT $ 15))
@@ -1162,10 +1223,12 @@
          (QREFELT $ 81))) 
 
 (SDEFUN |IDECOMP;pushucoef|
-        ((|c| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         (|x| |OrderedVariableList| |vl|)
-         ($ |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|)))))
+        ((|c| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|x| (|OrderedVariableList| |vl|))
+         ($
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|))))))
         (COND
          ((SPADCALL |c| (|spadConstant| $ 124) (QREFELT $ 125))
           (|spadConstant| $ 65))
@@ -1179,13 +1242,16 @@
            (QREFELT $ 70))))) 
 
 (SDEFUN |IDECOMP;is0dimprimary|
-        ((J |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|truelist| |List| (|OrderedVariableList| |vl|)) ($ |Boolean|))
+        ((J
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         (|truelist| (|List| (|OrderedVariableList| |vl|))) ($ (|Boolean|)))
         (SPROG
          ((JP
            (|List|
@@ -1315,23 +1381,27 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |IDECOMP;genPosLastVar|
-        ((J |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|truelist| |List| (|OrderedVariableList| |vl|))
-         ($ |Record| (|:| |changeval| (|List| (|Integer|)))
-          (|:| |genideal|
-               (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-                                  (|DirectProduct| (|#| |vl|)
-                                                   (|NonNegativeInteger|))
-                                  (|OrderedVariableList| |vl|)
-                                  (|DistributedMultivariatePolynomial| |vl|
-                                                                       (|Fraction|
-                                                                        (|Polynomial|
-                                                                         (|Integer|))))))))
+        ((J
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         (|truelist| (|List| (|OrderedVariableList| |vl|)))
+         ($
+          (|Record| (|:| |changeval| (|List| (|Integer|)))
+                    (|:| |genideal|
+                         (|PolynomialIdeal|
+                          (|Fraction| (|Polynomial| (|Integer|)))
+                          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
+                          (|OrderedVariableList| |vl|)
+                          (|DistributedMultivariatePolynomial| |vl|
+                                                               (|Fraction|
+                                                                (|Polynomial|
+                                                                 (|Integer|)))))))))
         (SPROG
          ((#1=#:G325 NIL) (|p| NIL) (#2=#:G324 NIL)
           (|val|
@@ -1407,20 +1477,26 @@
                       (QREFELT $ 31))))))) 
 
 (SDEFUN |IDECOMP;backGenPos|
-        ((I |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|lval| |List| (|Integer|))
-         (|truelist| |List| (|OrderedVariableList| |vl|))
-         ($ |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|))))))
+        ((I
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         (|lval| (|List| (|Integer|)))
+         (|truelist| (|List| (|OrderedVariableList| |vl|)))
+         ($
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|)))))))
         (SPROG
          ((#1=#:G347 NIL) (|p| NIL) (#2=#:G346 NIL)
           (|val|
@@ -1504,25 +1580,31 @@
                         (QREFELT $ 31))))))))) 
 
 (SDEFUN |IDECOMP;ismonic|
-        ((|f| |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Polynomial| (|Integer|))))
-         (|x| |OrderedVariableList| |vl|) ($ |Boolean|))
+        ((|f|
+          (|DistributedMultivariatePolynomial| |vl|
+                                               (|Fraction|
+                                                (|Polynomial| (|Integer|)))))
+         (|x| (|OrderedVariableList| |vl|)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL (SPADCALL |f| |x| (QREFELT $ 73)) (QREFELT $ 137))
                   (QREFELT $ 138))) 
 
 (SDEFUN |IDECOMP;testPower|
-        ((|uf| |SparseUnivariatePolynomial|
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         (|x| |OrderedVariableList| |vl|)
-         (J |PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl|
-                                               (|Fraction|
-                                                (|Polynomial| (|Integer|)))))
-         ($ |Boolean|))
+        ((|uf|
+          (|SparseUnivariatePolynomial|
+           (|DistributedMultivariatePolynomial| |vl|
+                                                (|Fraction|
+                                                 (|Polynomial| (|Integer|))))))
+         (|x| (|OrderedVariableList| |vl|))
+         (J
+          (|PolynomialIdeal| (|Fraction| (|Polynomial| (|Integer|)))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Polynomial|
+                                                                    (|Integer|))))))
+         ($ (|Boolean|)))
         (SPROG
          ((|g|
            (|DistributedMultivariatePolynomial| |vl|
@@ -1566,11 +1648,15 @@
           (EXIT (SPADCALL |g| J (QREFELT $ 132)))))) 
 
 (SDEFUN |IDECOMP;zeroDimPrime?;PiB;25|
-        ((I |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
-         ($ |Boolean|))
+        ((I
+          (|PolynomialIdeal| (|Fraction| (|Integer|))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Integer|)))))
+         ($ (|Boolean|)))
         (SPROG
          ((|lfact|
            (|List|
@@ -1668,26 +1754,35 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |IDECOMP;zeroDimPrimary?;PiB;26|
-        ((J |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
-         ($ |Boolean|))
-        (|IDECOMP;is0dimprimary| (|IDECOMP;internalForm| J $) (QREFELT $ 44) $)) 
-
-(SDEFUN |IDECOMP;primaryDecomp;PiL;27|
-        ((I |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
-         ($ |List|
+        ((J
           (|PolynomialIdeal| (|Fraction| (|Integer|))
                              (|DirectProduct| (|#| |vl|)
                                               (|NonNegativeInteger|))
                              (|OrderedVariableList| |vl|)
                              (|DistributedMultivariatePolynomial| |vl|
                                                                   (|Fraction|
-                                                                   (|Integer|))))))
+                                                                   (|Integer|)))))
+         ($ (|Boolean|)))
+        (|IDECOMP;is0dimprimary| (|IDECOMP;internalForm| J $) (QREFELT $ 44) $)) 
+
+(SDEFUN |IDECOMP;primaryDecomp;PiL;27|
+        ((I
+          (|PolynomialIdeal| (|Fraction| (|Integer|))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Integer|)))))
+         ($
+          (|List|
+           (|PolynomialIdeal| (|Fraction| (|Integer|))
+                              (|DirectProduct| (|#| |vl|)
+                                               (|NonNegativeInteger|))
+                              (|OrderedVariableList| |vl|)
+                              (|DistributedMultivariatePolynomial| |vl|
+                                                                   (|Fraction|
+                                                                    (|Integer|)))))))
         (SPROG
          ((#1=#:G377 NIL) (II NIL) (#2=#:G376 NIL)
           (|truelist| (|List| (|OrderedVariableList| |vl|))) (#3=#:G367 NIL)
@@ -1745,15 +1840,23 @@
                        (EXIT (NREVERSE #2#)))))))))) 
 
 (SDEFUN |IDECOMP;contract;PiLPi;28|
-        ((I |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
-         (|lvar| |List| (|OrderedVariableList| |vl|))
-         ($ |PolynomialIdeal| (|Fraction| (|Integer|))
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|OrderedVariableList| |vl|)
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))))
+        ((I
+          (|PolynomialIdeal| (|Fraction| (|Integer|))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Integer|)))))
+         (|lvar| (|List| (|OrderedVariableList| |vl|)))
+         ($
+          (|PolynomialIdeal| (|Fraction| (|Integer|))
+                             (|DirectProduct| (|#| |vl|)
+                                              (|NonNegativeInteger|))
+                             (|OrderedVariableList| |vl|)
+                             (|DistributedMultivariatePolynomial| |vl|
+                                                                  (|Fraction|
+                                                                   (|Integer|))))))
         (SPROG
          ((#1=#:G407 NIL) (|gg| NIL) (#2=#:G406 NIL)
           (|fullPol|

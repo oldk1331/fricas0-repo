@@ -1,7 +1,7 @@
 
 (SDEFUN |PARPC2;map;MPpcPpc;1|
-        ((|f| |Mapping| CF2 CF1) (|c| |ParametricPlaneCurve| CF1)
-         ($ |ParametricPlaneCurve| CF2))
+        ((|f| (|Mapping| CF2 CF1)) (|c| (|ParametricPlaneCurve| CF1))
+         ($ (|ParametricPlaneCurve| CF2)))
         (SPADCALL (SPADCALL (SPADCALL |c| 1 (QREFELT $ 10)) |f|)
                   (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|)
                   (QREFELT $ 12))) 

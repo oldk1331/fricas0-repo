@@ -1,32 +1,33 @@
 
-(SDEFUN |HELLFDIV;Zero;$;1| (($ $))
+(SDEFUN |HELLFDIV;Zero;$;1| (($ ($)))
         (SPADCALL (|spadConstant| $ 29) (QREFELT $ 30))) 
 
-(SDEFUN |HELLFDIV;divisor;R$;2| ((|g| R) ($ $))
+(SDEFUN |HELLFDIV;divisor;R$;2| ((|g| (R)) ($ ($)))
         (VECTOR (|spadConstant| $ 32) (|spadConstant| $ 33) |g| 'T)) 
 
 (PUT '|HELLFDIV;makeDivisor| '|SPADreplace|
      '(XLAM (|a| |b| |g|) (VECTOR |a| |b| |g| NIL))) 
 
-(SDEFUN |HELLFDIV;makeDivisor| ((|a| UP) (|b| UP) (|g| R) ($ $))
+(SDEFUN |HELLFDIV;makeDivisor| ((|a| (UP)) (|b| (UP)) (|g| (R)) ($ ($)))
         (VECTOR |a| |b| |g| NIL)) 
 
-(SDEFUN |HELLFDIV;princ?| ((|d| $) ($ |Boolean|))
+(SDEFUN |HELLFDIV;princ?| ((|d| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (QVELT |d| 0) (|spadConstant| $ 32) (QREFELT $ 35))
           (SPADCALL (QVELT |d| 1) (QREFELT $ 36)))
          ('T NIL))) 
 
 (SDEFUN |HELLFDIV;ideal;$Fi;5|
-        ((|d| $) ($ |FractionalIdeal| UP (|Fraction| UP) UPUP R))
+        ((|d| ($)) ($ (|FractionalIdeal| UP (|Fraction| UP) UPUP R)))
         (SPADCALL (SPADCALL (VECTOR (QVELT |d| 2)) (QREFELT $ 39))
                   (|HELLFDIV;mkIdeal| (QVELT |d| 0) (QVELT |d| 1) $)
                   (QREFELT $ 40))) 
 
 (SDEFUN |HELLFDIV;decompose;$R;6|
-        ((|d| $)
-         ($ |Record| (|:| |id| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
-          (|:| |principalPart| R)))
+        ((|d| ($))
+         ($
+          (|Record| (|:| |id| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
+                    (|:| |principalPart| R))))
         (CONS
          (SPADCALL
           (|HELLFDIV;makeDivisor| (QVELT |d| 0) (QVELT |d| 1)
@@ -35,7 +36,8 @@
          (QVELT |d| 2))) 
 
 (SDEFUN |HELLFDIV;mkIdeal|
-        ((|a| UP) (|b| UP) ($ |FractionalIdeal| UP (|Fraction| UP) UPUP R))
+        ((|a| (UP)) (|b| (UP))
+         ($ (|FractionalIdeal| UP (|Fraction| UP) UPUP R)))
         (SPADCALL
          (VECTOR (SPADCALL (SPADCALL |a| (QREFELT $ 45)) (QREFELT $ 46))
                  (SPADCALL
@@ -46,7 +48,7 @@
                   (QREFELT $ 51)))
          (QREFELT $ 39))) 
 
-(SDEFUN |HELLFDIV;+;3$;8| ((|d1| $) (|d2| $) ($ $))
+(SDEFUN |HELLFDIV;+;3$;8| ((|d1| ($)) (|d2| ($)) ($ ($)))
         (SPROG
          ((|dd| ($)) (|b| (UP)) (#1=#:G139 NIL) (|a| (UP)) (|h| #2=(|List| UP))
           (|d| (UP)) (|rec| (|Record| (|:| |coef| #2#) (|:| |generator| UP)))
@@ -105,7 +107,7 @@
                 (COND ((QVELT |d2| 3) (EXIT (SPADCALL |dd| (QREFELT $ 67)))))))
               (EXIT |dd|)))) 
 
-(SDEFUN |HELLFDIV;*;I2$;9| ((|n| |Integer|) (|d| $) ($ $))
+(SDEFUN |HELLFDIV;*;I2$;9| ((|n| (|Integer|)) (|d| ($)) ($ ($)))
         (COND ((ZEROP |n|) (|spadConstant| $ 31))
               ((< |n| 0)
                (SPADCALL (- |n|) (SPADCALL |d| (QREFELT $ 70)) (QREFELT $ 71)))
@@ -120,7 +122,7 @@
                 (QREFELT $ 68))))) 
 
 (SDEFUN |HELLFDIV;divisor;Fi$;10|
-        ((|i| |FractionalIdeal| UP (|Fraction| UP) UPUP R) ($ $))
+        ((|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R)) ($ ($)))
         (SPROG
          ((|w| (|Union| UP "failed")) (|u| (|Union| UP "failed")) (|h| (R))
           (|a| (R)) (|n| (|NonNegativeInteger|)) (|v| (|Vector| R)))
@@ -171,7 +173,7 @@
                             (#2# (|error| #1#))))))
                         (#2# (|error| #1#))))))))))))))) 
 
-(SDEFUN |HELLFDIV;polyIfCan| ((|a| R) ($ |Union| UP "failed"))
+(SDEFUN |HELLFDIV;polyIfCan| ((|a| (R)) ($ (|Union| UP "failed")))
         (SPROG
          ((|v| (|Union| UP "failed")) (|u| (|Union| (|Fraction| UP) "failed")))
          (SEQ (LETT |u| (SPADCALL |a| (QREFELT $ 81)))
@@ -183,7 +185,8 @@
                             (COND ((QEQCAR |v| 1) (CONS 1 "failed"))
                                   (#1# (CONS 0 (QCDR |v|)))))))))))) 
 
-(SDEFUN |HELLFDIV;redpolyIfCan| ((|h| R) (|a| UP) ($ |Union| UP "failed"))
+(SDEFUN |HELLFDIV;redpolyIfCan|
+        ((|h| (R)) (|a| (UP)) ($ (|Union| UP "failed")))
         (SPROG
          ((#1=#:G139 NIL)
           (|rec|
@@ -221,7 +224,7 @@
                                        (|Union| (QREFELT $ 7) "failed") #1#))
                      |a| (QREFELT $ 64)))))))))) 
 
-(SDEFUN |HELLFDIV;coerce;$Of;13| ((|d| $) ($ |OutputForm|))
+(SDEFUN |HELLFDIV;coerce;$Of;13| ((|d| ($)) ($ (|OutputForm|)))
         (SPROG ((|z| (|Boolean|)) (|g| (|OutputForm|)) (|r| (|OutputForm|)))
                (SEQ
                 (LETT |r|
@@ -242,7 +245,7 @@
                    (COND (|z| (QREFELT $ 28)) (#1='T |g|)))
                   (|z| |r|) (#1# (SPADCALL |r| |g| (QREFELT $ 99)))))))) 
 
-(SDEFUN |HELLFDIV;reduce;2$;14| ((|d| $) ($ $))
+(SDEFUN |HELLFDIV;reduce;2$;14| ((|d| ($)) ($ ($)))
         (SPROG
          ((|g| (R)) (|b0| (UP)) (|a0| (UP)) (#1=#:G139 NIL) (|b| (UP))
           (|a| (UP)))
@@ -311,14 +314,15 @@
                        (SPADCALL (|HELLFDIV;makeDivisor| |a0| |b0| |g| $)
                                  (QREFELT $ 67))))))))) 
 
-(SDEFUN |HELLFDIV;generator;$U;15| ((|d| $) ($ |Union| R "failed"))
+(SDEFUN |HELLFDIV;generator;$U;15| ((|d| ($)) ($ (|Union| R "failed")))
         (SEQ (LETT |d| (SPADCALL |d| (QREFELT $ 67)))
              (EXIT
               (COND ((|HELLFDIV;princ?| |d| $) (CONS 0 (QVELT |d| 2)))
                     ('T (CONS 1 "failed")))))) 
 
 (SDEFUN |HELLFDIV;generator;$ILU;16|
-        ((|d| $) (|k| |Integer|) (|lp| |List| UP) ($ |Union| R "failed"))
+        ((|d| ($)) (|k| (|Integer|)) (|lp| (|List| UP))
+         ($ (|Union| R "failed")))
         (SPROG
          ((|cp| (UP)) (#1=#:G139 NIL) (|cg| (UP)) (#2=#:G214 NIL) (|p| NIL))
          (SEQ (LETT |d| (SPADCALL |d| (QREFELT $ 67)))
@@ -356,7 +360,7 @@
                               (CONS 0 (QVELT |d| 2)))
                              (#3# (CONS 1 "failed"))))))))))) 
 
-(SDEFUN |HELLFDIV;-;2$;17| ((|d| $) ($ $))
+(SDEFUN |HELLFDIV;-;2$;17| ((|d| ($)) ($ ($)))
         (SPROG ((|di| ($)) (|a| (UP)))
                (SEQ (LETT |a| (QVELT |d| 0))
                     (LETT |di|
@@ -369,7 +373,7 @@
                            $))
                     (QSETVELT |di| 3 (QVELT |d| 3)) (EXIT |di|)))) 
 
-(SDEFUN |HELLFDIV;=;2$B;18| ((|d1| $) (|d2| $) ($ |Boolean|))
+(SDEFUN |HELLFDIV;=;2$B;18| ((|d1| ($)) (|d2| ($)) ($ (|Boolean|)))
         (SEQ (LETT |d1| (SPADCALL |d1| (QREFELT $ 67)))
              (LETT |d2| (SPADCALL |d2| (QREFELT $ 67)))
              (EXIT
@@ -381,7 +385,7 @@
                  (#1='T NIL)))
                (#1# NIL))))) 
 
-(SDEFUN |HELLFDIV;divisor;2F$;19| ((|a| F) (|b| F) ($ $))
+(SDEFUN |HELLFDIV;divisor;2F$;19| ((|a| (F)) (|b| (F)) ($ ($)))
         (SPROG ((|d| (UP)) (|x| (UP)))
                (SEQ
                 (LETT |x| (SPADCALL (|spadConstant| $ 18) 1 (QREFELT $ 110)))
@@ -400,7 +404,7 @@
                  (|HELLFDIV;makeDivisor| |d| (SPADCALL |b| (QREFELT $ 111))
                   (|spadConstant| $ 29) $))))) 
 
-(SDEFUN |HELLFDIV;intReduce| ((|h| R) (|b| UP) ($ R))
+(SDEFUN |HELLFDIV;intReduce| ((|h| (R)) (|b| (UP)) ($ (R)))
         (SPROG
          ((#1=#:G228 NIL) (#2=#:G230 NIL) (|i| NIL) (#3=#:G229 NIL)
           (|v| (|Vector| UP)))
@@ -425,7 +429,7 @@
                  #3#)
                 (|spadConstant| $ 32) (QREFELT $ 119)))))) 
 
-(SDEFUN |HELLFDIV;divisor;R2UP$;21| ((|h| R) (|a| UP) (|g| UP) ($ $))
+(SDEFUN |HELLFDIV;divisor;R2UP$;21| ((|h| (R)) (|a| (UP)) (|g| (UP)) ($ ($)))
         (SPROG
          ((|bb| (UP)) (#1=#:G139 NIL)
           (|rec|

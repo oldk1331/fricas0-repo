@@ -1,8 +1,8 @@
 
 (SDEFUN |ULS2;map;MUlsUls;1|
-        ((|f| |Mapping| |Coef2| |Coef1|)
-         (|ups| |UnivariateLaurentSeries| |Coef1| |var1| |cen1|)
-         ($ |UnivariateLaurentSeries| |Coef2| |var2| |cen2|))
+        ((|f| (|Mapping| |Coef2| |Coef1|))
+         (|ups| (|UnivariateLaurentSeries| |Coef1| |var1| |cen1|))
+         ($ (|UnivariateLaurentSeries| |Coef2| |var2| |cen2|)))
         (SPADCALL (SPADCALL |ups| (QREFELT $ 14))
                   (SPADCALL |f| (SPADCALL |ups| (QREFELT $ 16)) (QREFELT $ 20))
                   (QREFELT $ 22))) 

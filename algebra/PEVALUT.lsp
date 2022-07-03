@@ -1,10 +1,11 @@
 
 (SDEFUN |PEVALUT;eval1a;PIRI;1|
-        ((|pol| |Polynomial| (|Integer|)) (|pt| |Integer|)
-         (|pss| |Record| (|:| |prime| (|Integer|))
-          (|:| |eval1coeffbuf| (|U32Vector|))
-          (|:| |eval1expbuf| (|SortedExponentVector|)))
-         ($ |Integer|))
+        ((|pol| (|Polynomial| (|Integer|))) (|pt| (|Integer|))
+         (|pss|
+          (|Record| (|:| |prime| (|Integer|))
+                    (|:| |eval1coeffbuf| (|U32Vector|))
+                    (|:| |eval1expbuf| (|SortedExponentVector|))))
+         ($ (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (|pk| #1=(|SingleInteger|)) (|ptk| (|Integer|))
           (|ki| #2=(|SingleInteger|)) (|j| NIL) (|i| #1#)
@@ -95,11 +96,13 @@
           #6# (EXIT #5#)))) 
 
 (SDEFUN |PEVALUT;eval1;PSIRP;2|
-        ((|pol| |Polynomial| (|Integer|)) (|vv| |Symbol|) (|pt| |Integer|)
-         (|pss| |Record| (|:| |prime| (|Integer|))
-          (|:| |eval1coeffbuf| (|U32Vector|))
-          (|:| |eval1expbuf| (|SortedExponentVector|)))
-         ($ |Polynomial| (|Integer|)))
+        ((|pol| (|Polynomial| (|Integer|))) (|vv| (|Symbol|))
+         (|pt| (|Integer|))
+         (|pss|
+          (|Record| (|:| |prime| (|Integer|))
+                    (|:| |eval1coeffbuf| (|U32Vector|))
+                    (|:| |eval1expbuf| (|SortedExponentVector|))))
+         ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((|xr|
            (|Union| (|Integer|)
@@ -196,16 +199,19 @@
           #5# (EXIT #3#)))) 
 
 (SDEFUN |PEVALUT;eval1;RSIRU;3|
-        ((|pol| |Record| (|:| |numer| (|Polynomial| (|Integer|)))
-          (|:| |denom| (|Polynomial| (|Integer|))))
-         (|vv| |Symbol|) (|pt| |Integer|)
-         (|pss| |Record| (|:| |prime| (|Integer|))
-          (|:| |eval1coeffbuf| (|U32Vector|))
-          (|:| |eval1expbuf| (|SortedExponentVector|)))
-         ($ |Union|
+        ((|pol|
           (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                    (|:| |denom| (|Polynomial| (|Integer|))))
-          "failed"))
+                    (|:| |denom| (|Polynomial| (|Integer|)))))
+         (|vv| (|Symbol|)) (|pt| (|Integer|))
+         (|pss|
+          (|Record| (|:| |prime| (|Integer|))
+                    (|:| |eval1coeffbuf| (|U32Vector|))
+                    (|:| |eval1expbuf| (|SortedExponentVector|))))
+         ($
+          (|Union|
+           (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                     (|:| |denom| (|Polynomial| (|Integer|))))
+           "failed")))
         (SPROG ((|d| (|Polynomial| (|Integer|))))
                (SEQ
                 (LETT |d|
@@ -222,8 +228,8 @@
                           |d|)))))))) 
 
 (SDEFUN |PEVALUT;modpreduction;PIP;4|
-        ((|x| |Polynomial| (|Integer|)) (|p| |Integer|)
-         ($ |Polynomial| (|Integer|)))
+        ((|x| (|Polynomial| (|Integer|))) (|p| (|Integer|))
+         ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((|xr|
            (|Union| (|Integer|)
@@ -307,11 +313,12 @@
                       (EXIT |xr|)))))))) 
 
 (SDEFUN |PEVALUT;modpreduction;FIU;5|
-        ((|x| |Fraction| (|Polynomial| (|Integer|))) (|p| |Integer|)
-         ($ |Union|
-          (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                    (|:| |denom| (|Polynomial| (|Integer|))))
-          "failed"))
+        ((|x| (|Fraction| (|Polynomial| (|Integer|)))) (|p| (|Integer|))
+         ($
+          (|Union|
+           (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                     (|:| |denom| (|Polynomial| (|Integer|))))
+           "failed")))
         (SPROG ((|d| (|Polynomial| (|Integer|))))
                (SEQ
                 (LETT |d|
@@ -329,8 +336,8 @@
                           |d|)))))))) 
 
 (SDEFUN |PEVALUT;modpeval;PLL2I;6|
-        ((|x| |Polynomial| (|Integer|)) (|vars| |List| (|Symbol|))
-         (|pts| |List| (|Integer|)) (|p| |Integer|) ($ |Integer|))
+        ((|x| (|Polynomial| (|Integer|))) (|vars| (|List| (|Symbol|)))
+         (|pts| (|List| (|Integer|))) (|p| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((|res| #1=(|Integer|)) (|c0| (|Integer|)) (|kk| #1#)
           (|ptk| (|Integer|)) (|kk1| (|NonNegativeInteger|))

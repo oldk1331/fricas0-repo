@@ -2,35 +2,40 @@
 (PUT '|EXPEXPAN;coeff| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 0))) 
 
 (SDEFUN |EXPEXPAN;coeff|
-        ((|term| |Record|
-          (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expon|
-               (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expTerms|
-               (|List|
-                (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
-         ($ |UnivariatePuiseuxSeries| FE |var| |cen|))
+        ((|term|
+          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                    (|:| |%expon|
+                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                 |cen|))
+                    (|:| |%expTerms|
+                         (|List|
+                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                    (|:| |c| FE))))))
+         ($ (|UnivariatePuiseuxSeries| FE |var| |cen|)))
         (QVELT |term| 0)) 
 
 (PUT '|EXPEXPAN;exponent| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 1))) 
 
 (SDEFUN |EXPEXPAN;exponent|
-        ((|term| |Record|
-          (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expon|
-               (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
-          (|:| |%expTerms|
-               (|List|
-                (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| FE)))))
-         ($ |ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
+        ((|term|
+          (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+                    (|:| |%expon|
+                         (|ExponentialOfUnivariatePuiseuxSeries| FE |var|
+                                                                 |cen|))
+                    (|:| |%expTerms|
+                         (|List|
+                          (|Record| (|:| |k| (|Fraction| (|Integer|)))
+                                    (|:| |c| FE))))))
+         ($ (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|)))
         (QVELT |term| 1)) 
 
 (SDEFUN |EXPEXPAN;upxssingIfCan|
-        ((|f| $)
-         ($ |Union|
-          (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
-                                                               |cen|)
-          "failed"))
+        ((|f| ($))
+         ($
+          (|Union|
+           (|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
+                                                                |cen|)
+           "failed")))
         (COND
          ((SPADCALL (SPADCALL |f| (QREFELT $ 17)) (|spadConstant| $ 18)
                     (QREFELT $ 20))
@@ -38,8 +43,8 @@
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |EXPEXPAN;retractIfCan;$U;4|
-        ((|f| $)
-         ($ |Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed"))
+        ((|f| ($))
+         ($ (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed")))
         (SPROG
          ((|fff| (|Union| (|UnivariatePuiseuxSeries| FE |var| |cen|) "failed"))
           (|ff|
@@ -58,9 +63,9 @@
 
 (SDEFUN |EXPEXPAN;/;2Upswes$;5|
         ((|f|
-          . #1=(|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
-                                                                    |cen|))
-         (|g| . #1#) ($ $))
+          #1=(|UnivariatePuiseuxSeriesWithExponentialSingularity| R FE |var|
+                                                                  |cen|))
+         (|g| #1#) ($ ($)))
         (SPROG
          ((|rec|
            (|Union|
@@ -74,7 +79,7 @@
                       (SPADCALL |f| (SPADCALL (QCDR |rec|) (QREFELT $ 28))
                                 (QREFELT $ 29)))))))) 
 
-(SDEFUN |EXPEXPAN;/;3$;6| ((|f| $) (|g| $) ($ $))
+(SDEFUN |EXPEXPAN;/;3$;6| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG
          ((|rec|
            (|Union|
@@ -92,13 +97,13 @@
                    |f| (QREFELT $ 29)))))))) 
 
 (SDEFUN |EXPEXPAN;coerce;Ups$;7|
-        ((|f| |UnivariatePuiseuxSeries| FE |var| |cen|) ($ $))
+        ((|f| (|UnivariatePuiseuxSeries| FE |var| |cen|)) ($ ($)))
         (SPADCALL (SPADCALL |f| (QREFELT $ 35)) (QREFELT $ 28))) 
 
 (SDEFUN |EXPEXPAN;seriesQuotientLimit|
-        ((|num| |UnivariatePuiseuxSeries| FE |var| |cen|)
-         (|den| |UnivariatePuiseuxSeries| FE |var| |cen|)
-         ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|num| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+         (|den| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+         ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
          ((#1=#:G167 NIL) (|sig| (|Union| (|Integer|) "failed")) (|coef| (FE))
           (|ord| (|Fraction| (|Integer|)))
@@ -140,9 +145,9 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |EXPEXPAN;seriesQuotientInfinity|
-        ((|num| |UnivariatePuiseuxSeries| FE |var| |cen|)
-         (|den| |UnivariatePuiseuxSeries| FE |var| |cen|)
-         ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|num| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+         (|den| (|UnivariatePuiseuxSeries| FE |var| |cen|))
+         ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
          ((#1=#:G180 NIL) (|sig| (|Union| (|Integer|) "failed")) (|cc| (FE))
           (|denOrd| #2=(|Fraction| (|Integer|))) (|numOrd| #2#))
@@ -191,7 +196,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |EXPEXPAN;limitPlus;$U;10|
-        ((|f| $) ($ |Union| (|OrderedCompletion| FE) "failed"))
+        ((|f| ($)) ($ (|Union| (|OrderedCompletion| FE) "failed")))
         (SPROG
          ((#1=#:G204 NIL) (|sig| (|Union| (|Integer|) "failed"))
           (|expCoef| (FE))

@@ -1,15 +1,17 @@
 
-(SDEFUN |DISPLAY;bright;SL;1| ((|s| |String|) ($ |List| (|String|)))
+(SDEFUN |DISPLAY;bright;SL;1| ((|s| (|String|)) ($ (|List| (|String|))))
         (LIST (QREFELT $ 6) |s| (QREFELT $ 7))) 
 
-(SDEFUN |DISPLAY;bright;2L;2| ((|l| |List| (|String|)) ($ |List| (|String|)))
+(SDEFUN |DISPLAY;bright;2L;2|
+        ((|l| (|List| (|String|))) ($ (|List| (|String|))))
         (CONS (QREFELT $ 6)
               (SPADCALL |l| (SPADCALL (QREFELT $ 7) (QREFELT $ 12))
                         (QREFELT $ 13)))) 
 
-(SDEFUN |DISPLAY;newLine;S;3| (($ |String|)) (QREFELT $ 8)) 
+(SDEFUN |DISPLAY;newLine;S;3| (($ (|String|))) (QREFELT $ 8)) 
 
-(SDEFUN |DISPLAY;copies;I2S;4| ((|n| |Integer|) (|s| |String|) ($ |String|))
+(SDEFUN |DISPLAY;copies;I2S;4|
+        ((|n| (|Integer|)) (|s| (|String|)) ($ (|String|)))
         (SPROG ((|t| (|String|)))
                (SEQ
                 (COND ((< |n| 1) "") ((EQL |n| 1) |s|)
@@ -24,8 +26,8 @@
                           (#1# (SPADCALL (LIST |t| |t|) (QREFELT $ 19))))))))))) 
 
 (SDEFUN |DISPLAY;center0|
-        ((|len| |Integer|) (|wid| |Integer|) (|fill| |String|)
-         ($ |Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|))))
+        ((|len| (|Integer|)) (|wid| (|Integer|)) (|fill| (|String|))
+         ($ (|Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|)))))
         (SPROG ((|t| (|String|)) (|m| (|Integer|)))
                (SEQ
                 (COND ((OR (< |wid| 1) (>= |len| |wid|)) (CONS "" ""))
@@ -48,7 +50,8 @@
                                         (QREFELT $ 23)))))))))) 
 
 (SDEFUN |DISPLAY;center;SI2S;6|
-        ((|s| |String|) (|wid| |Integer|) (|fill| |String|) ($ |String|))
+        ((|s| (|String|)) (|wid| (|Integer|)) (|fill| (|String|))
+         ($ (|String|)))
         (SPROG
          ((|rec| (|Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|))))
           (|len| (|Integer|)))
@@ -70,8 +73,8 @@
                                           (QREFELT $ 19))))))))))))) 
 
 (SDEFUN |DISPLAY;center;LISL;7|
-        ((|l| |List| (|String|)) (|wid| |Integer|) (|fill| |String|)
-         ($ |List| (|String|)))
+        ((|l| (|List| (|String|))) (|wid| (|Integer|)) (|fill| (|String|))
+         ($ (|List| (|String|))))
         (SPROG
          ((|rec| (|Record| (|:| |lhs| (|String|)) (|:| |rhs| (|String|))))
           (|len| (|Integer|)))
@@ -92,17 +95,18 @@
                                                           (QREFELT $ 12))
                                                 (QREFELT $ 13)))))))))))))) 
 
-(SDEFUN |DISPLAY;say;SV;8| ((|s| |String|) ($ |Void|))
+(SDEFUN |DISPLAY;say;SV;8| ((|s| (|String|)) ($ (|Void|)))
         (SEQ (|sayBrightly| |s|) (EXIT (SPADCALL (QREFELT $ 28))))) 
 
-(SDEFUN |DISPLAY;say;LV;9| ((|l| |List| (|String|)) ($ |Void|))
+(SDEFUN |DISPLAY;say;LV;9| ((|l| (|List| (|String|))) ($ (|Void|)))
         (SEQ (|sayBrightly| |l|) (EXIT (SPADCALL (QREFELT $ 28))))) 
 
 (PUT '|DISPLAY;sayLength;SI;10| '|SPADreplace| 'QCSIZE) 
 
-(SDEFUN |DISPLAY;sayLength;SI;10| ((|s| |String|) ($ |Integer|)) (QCSIZE |s|)) 
+(SDEFUN |DISPLAY;sayLength;SI;10| ((|s| (|String|)) ($ (|Integer|)))
+        (QCSIZE |s|)) 
 
-(SDEFUN |DISPLAY;sayLength;LI;11| ((|l| |List| (|String|)) ($ |Integer|))
+(SDEFUN |DISPLAY;sayLength;LI;11| ((|l| (|List| (|String|))) ($ (|Integer|)))
         (SPROG ((|sum| (|Integer|)) (#1=#:G142 NIL) (|s| NIL))
                (SEQ (LETT |sum| 0)
                     (SEQ (LETT |s| NIL) (LETT #1# |l|) G190

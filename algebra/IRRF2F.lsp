@@ -1,37 +1,38 @@
 
 (SDEFUN |IRRF2F;toEF|
-        ((|i| |IntegrationResult| (|Fraction| (|Polynomial| R)))
-         ($ |IntegrationResult| (|Expression| R)))
+        ((|i| (|IntegrationResult| (|Fraction| (|Polynomial| R))))
+         ($ (|IntegrationResult| (|Expression| R))))
         (SPADCALL (ELT $ 9) |i| (QREFELT $ 14))) 
 
 (SDEFUN |IRRF2F;expand;IrSL;2|
-        ((|i| |IntegrationResult| (|Fraction| (|Polynomial| R))) (|x| |Symbol|)
-         ($ |List| (|Expression| R)))
+        ((|i| (|IntegrationResult| (|Fraction| (|Polynomial| R))))
+         (|x| (|Symbol|)) ($ (|List| (|Expression| R))))
         (SPADCALL (|IRRF2F;toEF| |i| $) |x| (QREFELT $ 18))) 
 
 (SDEFUN |IRRF2F;complexExpand;IrE;3|
-        ((|i| |IntegrationResult| (|Fraction| (|Polynomial| R)))
-         ($ |Expression| R))
+        ((|i| (|IntegrationResult| (|Fraction| (|Polynomial| R))))
+         ($ (|Expression| R)))
         (SPADCALL (|IRRF2F;toEF| |i| $) (QREFELT $ 20))) 
 
 (SDEFUN |IRRF2F;split;2Ir;4|
-        ((|i| |IntegrationResult| (|Fraction| (|Polynomial| R)))
-         ($ |IntegrationResult| (|Fraction| (|Polynomial| R))))
+        ((|i| (|IntegrationResult| (|Fraction| (|Polynomial| R))))
+         ($ (|IntegrationResult| (|Fraction| (|Polynomial| R)))))
         (SPADCALL (ELT $ 22) (SPADCALL (|IRRF2F;toEF| |i| $) (QREFELT $ 23))
                   (QREFELT $ 26))) 
 
 (SDEFUN |IRRF2F;complexIntegrate;FSE;5|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|) ($ |Expression| R))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         ($ (|Expression| R)))
         (SPADCALL (SPADCALL |f| |x| (QREFELT $ 29)) (QREFELT $ 21))) 
 
 (SDEFUN |IRRF2F;integrate;FSU;6|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         ($ |Union| (|Expression| R) (|List| (|Expression| R))))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         ($ (|Union| (|Expression| R) (|List| (|Expression| R)))))
         (CONS 0 (SPADCALL |f| |x| (QREFELT $ 30)))) 
 
 (SDEFUN |IRRF2F;integrate;FSU;7|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         ($ |Union| (|Expression| R) (|List| (|Expression| R))))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         ($ (|Union| (|Expression| R) (|List| (|Expression| R)))))
         (SPROG
          ((|l| (|List| (|Expression| R))) (#1=#:G140 NIL) (|g| NIL)
           (#2=#:G139 NIL))

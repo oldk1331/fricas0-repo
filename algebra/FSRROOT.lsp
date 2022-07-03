@@ -1,6 +1,7 @@
 
 (SDEFUN |FSRROOT;get_rational_roots;FKL;1|
-        ((|eq1f| F) (|k1| |Kernel| F) ($ |List| (|Fraction| (|Integer|))))
+        ((|eq1f| (F)) (|k1| (|Kernel| F))
+         ($ (|List| (|Fraction| (|Integer|)))))
         (SPROG ((|eq2p| (|SparseUnivariatePolynomial| F)))
                (SEQ
                 (LETT |eq2p|

@@ -2,13 +2,13 @@
 (PUT '|EXIT;coerce;$Of;1| '|SPADreplace|
      '(XLAM (|n|) (|error| "Cannot use an Exit value."))) 
 
-(SDEFUN |EXIT;coerce;$Of;1| ((|n| $) ($ |OutputForm|))
+(SDEFUN |EXIT;coerce;$Of;1| ((|n| ($)) ($ (|OutputForm|)))
         (|error| "Cannot use an Exit value.")) 
 
 (PUT '|EXIT;=;2$B;2| '|SPADreplace|
      '(XLAM (|n1| |n2|) (|error| "Cannot use an Exit value."))) 
 
-(SDEFUN |EXIT;=;2$B;2| ((|n1| $) (|n2| $) ($ |Boolean|))
+(SDEFUN |EXIT;=;2$B;2| ((|n1| ($)) (|n2| ($)) ($ (|Boolean|)))
         (|error| "Cannot use an Exit value.")) 
 
 (DECLAIM (NOTINLINE |Exit;|)) 

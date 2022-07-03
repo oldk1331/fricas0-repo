@@ -1,13 +1,13 @@
 
 (SDEFUN |KOVACIC;kovacic;3FU;1|
-        ((|a0| |Fraction| UP) (|a1| |Fraction| UP) (|a2| |Fraction| UP)
-         ($ |Union| (|SparseUnivariatePolynomial| (|Fraction| UP)) "failed"))
+        ((|a0| (|Fraction| UP)) (|a1| (|Fraction| UP)) (|a2| (|Fraction| UP))
+         ($ (|Union| (|SparseUnivariatePolynomial| (|Fraction| UP)) "failed")))
         (SPADCALL |a0| |a1| |a2| (ELT $ 9) (QREFELT $ 13))) 
 
 (SDEFUN |KOVACIC;kovacic;3FMU;2|
-        ((|a0| |Fraction| UP) (|a1| |Fraction| UP) (|a2| |Fraction| UP)
-         (|ezfactor| |Mapping| (|Factored| UP) UP)
-         ($ |Union| (|SparseUnivariatePolynomial| (|Fraction| UP)) "failed"))
+        ((|a0| (|Fraction| UP)) (|a1| (|Fraction| UP)) (|a2| (|Fraction| UP))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($ (|Union| (|SparseUnivariatePolynomial| (|Fraction| UP)) "failed")))
         (SPROG
          ((|lf|
            (|List|
@@ -44,11 +44,13 @@
               (EXIT (|KOVACIC;case2| |r| |lf| |ezfactor| $))))) 
 
 (SDEFUN |KOVACIC;case2|
-        ((|r| |Fraction| UP)
-         (|lf| |List|
-          (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))))
-         (|ezfactor| |Mapping| (|Factored| UP) UP)
-         ($ |Union| (|SparseUnivariatePolynomial| (|Fraction| UP)) "failed"))
+        ((|r| (|Fraction| UP))
+         (|lf|
+          (|List|
+           (|Record| (|:| |factor| UP)
+                     (|:| |exponent| (|NonNegativeInteger|)))))
+         (|ezfactor| (|Mapping| (|Factored| UP) UP))
+         ($ (|Union| (|SparseUnivariatePolynomial| (|Fraction| UP)) "failed")))
         (SPROG
          ((|b| (|Fraction| UP)) (|sol| (|List| (|Fraction| UP)))
           (|l2| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
@@ -96,9 +98,11 @@
                                   (QREFELT $ 46)))))))))))))) 
 
 (SDEFUN |KOVACIC;cannotCase2?|
-        ((|lf| |List|
-          (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))))
-         ($ |Boolean|))
+        ((|lf|
+          (|List|
+           (|Record| (|:| |factor| UP)
+                     (|:| |exponent| (|NonNegativeInteger|)))))
+         ($ (|Boolean|)))
         (SPROG ((#1=#:G155 NIL) (#2=#:G156 NIL) (#3=#:G157 NIL) (|rec| NIL))
                (SEQ
                 (EXIT

@@ -1,17 +1,17 @@
 
 (SDEFUN |ITFUN3;map;MItItIt;1|
-        ((|f| |Mapping| C A B) (|s1| |InfiniteTuple| A)
-         (|s2| |InfiniteTuple| B) ($ |InfiniteTuple| C))
+        ((|f| (|Mapping| C A B)) (|s1| (|InfiniteTuple| A))
+         (|s2| (|InfiniteTuple| B)) ($ (|InfiniteTuple| C)))
         (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
 
 (SDEFUN |ITFUN3;map;MSItS;2|
-        ((|f| |Mapping| C A B) (|s1| |Stream| A) (|s2| |InfiniteTuple| B)
-         ($ |Stream| C))
+        ((|f| (|Mapping| C A B)) (|s1| (|Stream| A)) (|s2| (|InfiniteTuple| B))
+         ($ (|Stream| C)))
         (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
 
 (SDEFUN |ITFUN3;map;MItSS;3|
-        ((|f| |Mapping| C A B) (|s1| |InfiniteTuple| A) (|s2| |Stream| B)
-         ($ |Stream| C))
+        ((|f| (|Mapping| C A B)) (|s1| (|InfiniteTuple| A)) (|s2| (|Stream| B))
+         ($ (|Stream| C)))
         (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |InfiniteTupleFunctions3;|)) 

@@ -1,13 +1,13 @@
 
 (SDEFUN |FFCGP;tableForDiscreteLogarithm;IT;1|
-        ((|fac| |Integer|)
-         ($ |Table| (|PositiveInteger|) (|NonNegativeInteger|)))
+        ((|fac| (|Integer|))
+         ($ (|Table| (|PositiveInteger|) (|NonNegativeInteger|))))
         (SPADCALL (QREFELT $ 36))) 
 
-(SDEFUN |FFCGP;getZechTable;Pa;2| (($ |PrimitiveArray| (|SingleInteger|)))
+(SDEFUN |FFCGP;getZechTable;Pa;2| (($ (|PrimitiveArray| (|SingleInteger|))))
         (QREFELT $ 20)) 
 
-(SDEFUN |FFCGP;order;$Pi;3| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |FFCGP;order;$Pi;3| ((|x| ($)) ($ (|PositiveInteger|)))
         (SPROG ((#1=#:G145 NIL))
                (COND
                 ((SPADCALL |x| (QREFELT $ 42))
@@ -19,7 +19,7 @@
                    (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                      '(|Integer|) #1#)))))) 
 
-(SDEFUN |FFCGP;primitive?;$B;4| ((|x| $) ($ |Boolean|))
+(SDEFUN |FFCGP;primitive?;$B;4| ((|x| ($)) ($ (|Boolean|)))
         (COND
          ((OR (SPADCALL |x| (QREFELT $ 42))
               (SPADCALL |x| (|spadConstant| $ 17) (QREFELT $ 45)))
@@ -28,7 +28,7 @@
           (COND ((SPADCALL (GCD |x| (QREFELT $ 18)) 1 (QREFELT $ 45)) 'T)
                 ('T NIL))))) 
 
-(SDEFUN |FFCGP;coordinates;$V;5| ((|x| $) ($ |Vector| GF))
+(SDEFUN |FFCGP;coordinates;$V;5| ((|x| ($)) ($ (|Vector| GF)))
         (SPROG
          ((|primElement|
            (|SimpleAlgebraicExtension| GF (|SparseUnivariatePolynomial| GF)
@@ -46,7 +46,7 @@
               (SPADCALL (SPADCALL |primElement| |x| (QREFELT $ 52))
                         (QREFELT $ 54))))))))) 
 
-(SDEFUN |FFCGP;+;3$;6| ((|x| $) (|y| $) ($ $))
+(SDEFUN |FFCGP;+;3$;6| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|d| (|Rep|)))
                (SEQ (COND ((QREFELT $ 32) (|FFCGP;initializeZech| $)))
                     (EXIT
@@ -70,11 +70,11 @@
                                                    (QAREF1 (QREFELT $ 20) |d|)
                                                    (QREFELT $ 18)))))))))))))) 
 
-(SDEFUN |FFCGP;initializeZech| (($ |Void|))
+(SDEFUN |FFCGP;initializeZech| (($ (|Void|)))
         (SEQ (SETELT $ 20 (SPADCALL (QREFELT $ 7) (QREFELT $ 59)))
              (SETELT $ 32 NIL) (EXIT (SPADCALL (QREFELT $ 61))))) 
 
-(SDEFUN |FFCGP;basis;PiV;8| ((|n| |PositiveInteger|) ($ |Vector| $))
+(SDEFUN |FFCGP;basis;PiV;8| ((|n| (|PositiveInteger|)) ($ (|Vector| $)))
         (SPROG
          ((#1=#:G160 NIL) (#2=#:G166 NIL) (|i| NIL) (#3=#:G165 NIL)
           (|m| (|Integer|)))
@@ -104,12 +104,12 @@
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                #3#)))))))) 
 
-(SDEFUN |FFCGP;*;I2$;9| ((|n| |Integer|) (|x| $) ($ $))
+(SDEFUN |FFCGP;*;I2$;9| ((|n| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |n| (QREFELT $ 69)) (QREFELT $ 70)) |x|
                   (QREFELT $ 71))) 
 
 (SDEFUN |FFCGP;minimalPolynomial;$Sup;10|
-        ((|a| $) ($ |SparseUnivariatePolynomial| GF))
+        ((|a| ($)) ($ (|SparseUnivariatePolynomial| GF)))
         (SPROG
          ((|f| (|SparseUnivariatePolynomial| $))
           (|p| (|SparseUnivariatePolynomial| GF)) (|g| (GF)) (|u| ($)))
@@ -148,9 +148,10 @@
           (EXIT |p|)))) 
 
 (SDEFUN |FFCGP;factorsOfCyclicGroupSize;L;11|
-        (($ |List|
-          (|Record| (|:| |factor| (|Integer|))
-                    (|:| |exponent| (|NonNegativeInteger|)))))
+        (($
+          (|List|
+           (|Record| (|:| |factor| (|Integer|))
+                     (|:| |exponent| (|NonNegativeInteger|))))))
         (SEQ (COND ((NULL (QREFELT $ 31)) (|FFCGP;initializeElt| $)))
              (EXIT (QREFELT $ 31)))) 
 
@@ -158,14 +159,15 @@
      '(XLAM NIL (CONS 3 "cyclic"))) 
 
 (SDEFUN |FFCGP;representationType;U;12|
-        (($ |Union| "prime" "polynomial" "normal" "cyclic")) (CONS 3 "cyclic")) 
+        (($ (|Union| "prime" "polynomial" "normal" "cyclic")))
+        (CONS 3 "cyclic")) 
 
-(SDEFUN |FFCGP;definingPolynomial;Sup;13| (($ |SparseUnivariatePolynomial| GF))
-        (QREFELT $ 7)) 
+(SDEFUN |FFCGP;definingPolynomial;Sup;13|
+        (($ (|SparseUnivariatePolynomial| GF))) (QREFELT $ 7)) 
 
-(SDEFUN |FFCGP;random;$;14| (($ $)) (|sub_SI| (RANDOM (QREFELT $ 14)) 1)) 
+(SDEFUN |FFCGP;random;$;14| (($ ($))) (|sub_SI| (RANDOM (QREFELT $ 14)) 1)) 
 
-(SDEFUN |FFCGP;represents;V$;15| ((|v| |Vector| GF) ($ $))
+(SDEFUN |FFCGP;represents;V$;15| ((|v| (|Vector| GF)) ($ ($)))
         (SPROG ((|u| (|FiniteFieldExtensionByPolynomial| GF |defpol|)))
                (SEQ (LETT |u| (SPADCALL |v| (QREFELT $ 93)))
                     (EXIT
@@ -174,7 +176,7 @@
                        (|spadConstant| $ 27))
                       ('T (SPADCALL |u| (QREFELT $ 96)))))))) 
 
-(SDEFUN |FFCGP;coerce;GF$;16| ((|e| GF) ($ $))
+(SDEFUN |FFCGP;coerce;GF$;16| ((|e| (GF)) ($ ($)))
         (SPROG ((|log| (|Integer|)) (#1=#:G196 NIL))
                (SEQ
                 (COND ((SPADCALL |e| (QREFELT $ 98)) (|spadConstant| $ 27))
@@ -197,7 +199,7 @@
                         (EXIT
                          (SPADCALL |log| (QREFELT $ 18) (QREFELT $ 101))))))))) 
 
-(SDEFUN |FFCGP;retractIfCan;$U;17| ((|x| $) ($ |Union| GF "failed"))
+(SDEFUN |FFCGP;retractIfCan;$U;17| ((|x| ($)) ($ (|Union| GF "failed")))
         (SPROG ((#1=#:G205 NIL) (|u| (|Union| $ #2="failed")))
                (SEQ
                 (COND
@@ -218,7 +220,7 @@
                                                             #1#))
                                           (QREFELT $ 106)))))))))))) 
 
-(SDEFUN |FFCGP;retract;$GF;18| ((|x| $) ($ GF))
+(SDEFUN |FFCGP;retract;$GF;18| ((|x| ($)) ($ (GF)))
         (SPROG ((#1=#:G217 NIL) (|a| (|Union| GF #2="failed")))
                (SEQ (LETT |a| (SPADCALL |x| (QREFELT $ 108)))
                     (EXIT
@@ -231,7 +233,7 @@
                          (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
                                          (|Union| (QREFELT $ 6) #2#) #1#)))))))) 
 
-(SDEFUN |FFCGP;basis;V;19| (($ |Vector| $))
+(SDEFUN |FFCGP;basis;V;19| (($ (|Vector| $)))
         (SPROG
          ((#1=#:G222 NIL) (#2=#:G225 NIL) (#3=#:G227 NIL) (|i| NIL)
           (#4=#:G226 NIL))
@@ -252,7 +254,7 @@
                 (GO G190) G191 (EXIT NIL))
            #4#)))) 
 
-(SDEFUN |FFCGP;inGroundField?;$B;20| ((|x| $) ($ |Boolean|))
+(SDEFUN |FFCGP;inGroundField?;$B;20| ((|x| ($)) ($ (|Boolean|)))
         (COND
          ((OR (SPADCALL |x| (QREFELT $ 42))
               (|eql_SI| (SPADCALL |x| (QREFELT $ 19) (QREFELT $ 111)) 0))
@@ -260,7 +262,7 @@
          ('T NIL))) 
 
 (SDEFUN |FFCGP;discreteLog;2$U;21|
-        ((|b| $) (|x| $) ($ |Union| (|NonNegativeInteger|) "failed"))
+        ((|b| ($)) (|x| ($)) ($ (|Union| (|NonNegativeInteger|) "failed")))
         (SPROG
          ((|e1| (|Record| (|:| |coef1| $) (|:| |coef2| $))) (#1=#:G236 NIL)
           (|e|
@@ -292,7 +294,7 @@
                              (SPADCALL (QCAR |e1|) (QREFELT $ 18)
                                        (QREFELT $ 111)))))))))))))) 
 
-(SDEFUN |FFCGP;-;2$;22| ((|x| $) ($ $))
+(SDEFUN |FFCGP;-;2$;22| ((|x| ($)) ($ ($)))
         (COND ((|eql_SI| |x| -1) -1) ((EQL (SPADCALL (QREFELT $ 120)) 2) |x|)
               ('T
                (|addmod_SI| |x| (|lshift_SI| (QREFELT $ 18) -1)
@@ -300,26 +302,26 @@
 
 (PUT '|FFCGP;generator;$;23| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |FFCGP;generator;$;23| (($ $)) 1) 
+(SDEFUN |FFCGP;generator;$;23| (($ ($))) 1) 
 
 (PUT '|FFCGP;createPrimitiveElement;$;24| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |FFCGP;createPrimitiveElement;$;24| (($ $)) 1) 
+(SDEFUN |FFCGP;createPrimitiveElement;$;24| (($ ($))) 1) 
 
 (PUT '|FFCGP;primitiveElement;$;25| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |FFCGP;primitiveElement;$;25| (($ $)) 1) 
+(SDEFUN |FFCGP;primitiveElement;$;25| (($ ($))) 1) 
 
-(SDEFUN |FFCGP;discreteLog;$Nni;26| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |FFCGP;discreteLog;$Nni;26| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (COND
          ((SPADCALL |x| (QREFELT $ 42)) (|error| "discrete logarithm error"))
          ('T |x|))) 
 
-(SDEFUN |FFCGP;normalElement;$;27| (($ $))
+(SDEFUN |FFCGP;normalElement;$;27| (($ ($)))
         (SEQ (COND ((QREFELT $ 33) (|FFCGP;initializeElt| $)))
              (EXIT (QREFELT $ 34)))) 
 
-(SDEFUN |FFCGP;initializeElt| (($ |Void|))
+(SDEFUN |FFCGP;initializeElt| (($ (|Void|)))
         (SEQ
          (SETELT $ 31
                  (SPADCALL (SPADCALL (QREFELT $ 18) (QREFELT $ 129))
@@ -327,26 +329,26 @@
          (SETELT $ 34 (SPADCALL (QREFELT $ 132))) (SETELT $ 33 NIL)
          (EXIT (SPADCALL (QREFELT $ 61))))) 
 
-(SDEFUN |FFCGP;extensionDegree;Pi;29| (($ |PositiveInteger|)) (QREFELT $ 12)) 
+(SDEFUN |FFCGP;extensionDegree;Pi;29| (($ (|PositiveInteger|))) (QREFELT $ 12)) 
 
-(SDEFUN |FFCGP;characteristic;Nni;30| (($ |NonNegativeInteger|))
+(SDEFUN |FFCGP;characteristic;Nni;30| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 133))) 
 
-(SDEFUN |FFCGP;lookup;$Pi;31| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |FFCGP;lookup;$Pi;31| ((|x| ($)) ($ (|PositiveInteger|)))
         (COND ((|eql_SI| |x| -1) (QREFELT $ 14)) ('T (|add_SI| |x| 1)))) 
 
-(SDEFUN |FFCGP;index;Pi$;32| ((|a| |PositiveInteger|) ($ $))
+(SDEFUN |FFCGP;index;Pi$;32| ((|a| (|PositiveInteger|)) ($ ($)))
         (|sub_SI| (SPADCALL |a| (QREFELT $ 14) (QREFELT $ 101)) 1)) 
 
 (PUT '|FFCGP;Zero;$;33| '|SPADreplace| '(XLAM NIL -1)) 
 
-(SDEFUN |FFCGP;Zero;$;33| (($ $)) -1) 
+(SDEFUN |FFCGP;Zero;$;33| (($ ($))) -1) 
 
 (PUT '|FFCGP;One;$;34| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |FFCGP;One;$;34| (($ $)) 0) 
+(SDEFUN |FFCGP;One;$;34| (($ ($))) 0) 
 
-(SDEFUN |FFCGP;coerce;$Of;35| ((|x| $) ($ |OutputForm|))
+(SDEFUN |FFCGP;coerce;$Of;35| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((|y| (|Integer|)))
                (SEQ
                 (COND ((|eql_SI| |x| -1) (SPADCALL "0" (QREFELT $ 137)))
@@ -360,31 +362,32 @@
 
 (PUT '|FFCGP;=;2$B;36| '|SPADreplace| '|eql_SI|) 
 
-(SDEFUN |FFCGP;=;2$B;36| ((|x| $) (|y| $) ($ |Boolean|)) (|eql_SI| |x| |y|)) 
+(SDEFUN |FFCGP;=;2$B;36| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
+        (|eql_SI| |x| |y|)) 
 
-(SDEFUN |FFCGP;*;3$;37| ((|x| $) (|y| $) ($ $))
+(SDEFUN |FFCGP;*;3$;37| ((|x| ($)) (|y| ($)) ($ ($)))
         (COND ((OR (|eql_SI| |x| -1) (|eql_SI| |y| -1)) -1)
               ('T (|addmod_SI| |x| |y| (QREFELT $ 18))))) 
 
-(SDEFUN |FFCGP;*;GF2$;38| ((|a| GF) (|x| $) ($ $))
+(SDEFUN |FFCGP;*;GF2$;38| ((|a| (GF)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 70)) |x| (QREFELT $ 71))) 
 
-(SDEFUN |FFCGP;/;$GF$;39| ((|x| $) (|a| GF) ($ $))
+(SDEFUN |FFCGP;/;$GF$;39| ((|x| ($)) (|a| (GF)) ($ ($)))
         (SPADCALL |x| (SPADCALL |a| (QREFELT $ 70)) (QREFELT $ 142))) 
 
-(SDEFUN |FFCGP;inv;2$;40| ((|x| $) ($ $))
+(SDEFUN |FFCGP;inv;2$;40| ((|x| ($)) ($ ($)))
         (COND ((SPADCALL |x| (QREFELT $ 42)) (|error| "inv: not invertible"))
               ((SPADCALL |x| (|spadConstant| $ 17) (QREFELT $ 45))
                (|spadConstant| $ 17))
               ('T (|sub_SI| (QREFELT $ 18) |x|)))) 
 
-(SDEFUN |FFCGP;^;$Pi$;41| ((|x| $) (|n| |PositiveInteger|) ($ $))
+(SDEFUN |FFCGP;^;$Pi$;41| ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (SPADCALL |x| |n| (QREFELT $ 145))) 
 
-(SDEFUN |FFCGP;^;$Nni$;42| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |FFCGP;^;$Nni$;42| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |x| |n| (QREFELT $ 145))) 
 
-(SDEFUN |FFCGP;^;$I$;43| ((|x| $) (|n| |Integer|) ($ $))
+(SDEFUN |FFCGP;^;$I$;43| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
         (SPROG ((|m| (|Rep|)))
                (SEQ (LETT |m| (SPADCALL |n| (QREFELT $ 18) (QREFELT $ 101)))
                     (EXIT

@@ -1,6 +1,6 @@
 
 (SDEFUN |IMATRIX;swapRows!;$2I$;1|
-        ((|x| $) (|i1| . #1=(|Integer|)) (|i2| . #1#) ($ $))
+        ((|x| ($)) (|i1| #1=(|Integer|)) (|i2| #1#) ($ ($)))
         (SPROG
          ((|t2| (R)) (|t1| (R)) (#2=#:G132 NIL) (|j| NIL) (|co| (|Integer|))
           (|ro| (|Integer|)))
@@ -26,24 +26,26 @@
                              (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))
                         (EXIT |x|))))))))) 
 
-(SDEFUN |IMATRIX;determinant;$R;2| ((|x| $) ($ R))
+(SDEFUN |IMATRIX;determinant;$R;2| ((|x| ($)) ($ (R)))
         (SPADCALL |x| (QREFELT $ 15))) 
 
-(SDEFUN |IMATRIX;minordet;$R;3| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 17))) 
+(SDEFUN |IMATRIX;minordet;$R;3| ((|x| ($)) ($ (R)))
+        (SPADCALL |x| (QREFELT $ 17))) 
 
-(SDEFUN |IMATRIX;rowEchelon;2$;4| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 19))) 
+(SDEFUN |IMATRIX;rowEchelon;2$;4| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 19))) 
 
-(SDEFUN |IMATRIX;rank;$Nni;5| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |IMATRIX;rank;$Nni;5| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 22))) 
 
-(SDEFUN |IMATRIX;nullity;$Nni;6| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |IMATRIX;nullity;$Nni;6| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 24))) 
 
 (SDEFUN |IMATRIX;nullSpace;$L;7|
-        ((|x| $) ($ |List| (|IndexedVector| R |mnRow|)))
+        ((|x| ($)) ($ (|List| (|IndexedVector| R |mnRow|))))
         (SPADCALL |x| (QREFELT $ 27))) 
 
-(SDEFUN |IMATRIX;inverse;$U;8| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |IMATRIX;inverse;$U;8| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPADCALL |x| (QREFELT $ 30))) 
 
 (DECLAIM (NOTINLINE |IndexedMatrix;|)) 

@@ -1,8 +1,8 @@
 
-(SDEFUN |DIFRING-;D;2S;1| ((|r| S) ($ S)) (SPADCALL |r| (QREFELT $ 7))) 
+(SDEFUN |DIFRING-;D;2S;1| ((|r| (S)) ($ (S))) (SPADCALL |r| (QREFELT $ 7))) 
 
 (SDEFUN |DIFRING-;differentiate;SNniS;2|
-        ((|r| S) (|n| |NonNegativeInteger|) ($ S))
+        ((|r| (S)) (|n| (|NonNegativeInteger|)) ($ (S)))
         (SPROG ((#1=#:G128 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -11,7 +11,7 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |r|)))) 
 
-(SDEFUN |DIFRING-;D;SNniS;3| ((|r| S) (|n| |NonNegativeInteger|) ($ S))
+(SDEFUN |DIFRING-;D;SNniS;3| ((|r| (S)) (|n| (|NonNegativeInteger|)) ($ (S)))
         (SPADCALL |r| |n| (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |DifferentialRing&;|)) 

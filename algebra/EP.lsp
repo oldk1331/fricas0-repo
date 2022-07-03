@@ -1,9 +1,12 @@
 
 (SDEFUN |EP;Ei_to_EiF|
-        ((|a| |Union| (|Fraction| (|Polynomial| R))
-          (|SuchThat| (|Symbol|) (|Polynomial| R)))
-         ($ |Union| (|Fraction| (|Polynomial| R))
-          (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+        ((|a|
+          (|Union| (|Fraction| (|Polynomial| R))
+                   (|SuchThat| (|Symbol|) (|Polynomial| R))))
+         ($
+          (|Union| (|Fraction| (|Polynomial| R))
+                   (|SparseUnivariatePolynomial|
+                    (|Fraction| (|Polynomial| R))))))
         (COND ((QEQCAR |a| 0) (CONS 0 (QCDR |a|)))
               ('T
                (CONS 1
@@ -14,22 +17,24 @@
                                (QREFELT $ 20)))))) 
 
 (SDEFUN |EP;get_x|
-        ((|a| |Union| (|Fraction| (|Polynomial| R))
-          (|SuchThat| (|Symbol|) (|Polynomial| R)))
-         ($ |Symbol|))
+        ((|a|
+          (|Union| (|Fraction| (|Polynomial| R))
+                   (|SuchThat| (|Symbol|) (|Polynomial| R))))
+         ($ (|Symbol|)))
         (COND ((QEQCAR |a| 0) (QREFELT $ 22))
               ('T (SPADCALL (QCDR |a|) (QREFELT $ 13))))) 
 
 (SDEFUN |EP;UP_to_F|
-        ((|p| |SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))
-         (|x| |Symbol|) ($ |Fraction| (|Polynomial| R)))
+        ((|p| (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
+         (|x| (|Symbol|)) ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL |p| (SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 9))
                   (QREFELT $ 24))) 
 
 (SDEFUN |EP;AV_to_M|
-        ((|v| |Vector|
-          (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
-         (|x| |Symbol|) ($ |Matrix| (|Fraction| (|Polynomial| R))))
+        ((|v|
+          (|Vector|
+           (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+         (|x| (|Symbol|)) ($ (|Matrix| (|Fraction| (|Polynomial| R)))))
         (SPROG ((#1=#:G135 NIL) (|i| NIL) (#2=#:G134 NIL))
                (SEQ
                 (SPADCALL
@@ -50,8 +55,8 @@
                  (QREFELT $ 30))))) 
 
 (SDEFUN |EP;characteristicPolynomial;MSP;5|
-        ((|m| |Matrix| (|Fraction| (|Polynomial| R))) (|x| |Symbol|)
-         ($ |Polynomial| R))
+        ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) (|x| (|Symbol|))
+         ($ (|Polynomial| R)))
         (SPADCALL
          (SPADCALL (SPADCALL |m| (QREFELT $ 32))
                    (SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 9))
@@ -59,14 +64,15 @@
          (QREFELT $ 33))) 
 
 (SDEFUN |EP;characteristicPolynomial;MP;6|
-        ((|m| |Matrix| (|Fraction| (|Polynomial| R))) ($ |Polynomial| R))
+        ((|m| (|Matrix| (|Fraction| (|Polynomial| R)))) ($ (|Polynomial| R)))
         (SPADCALL |m| (SPADCALL (QREFELT $ 21)) (QREFELT $ 34))) 
 
 (SDEFUN |EP;eigenvector;UML;7|
-        ((|a| |Union| (|Fraction| (|Polynomial| R))
-          (|SuchThat| (|Symbol|) (|Polynomial| R)))
-         (|m| |Matrix| (|Fraction| (|Polynomial| R)))
-         ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
+        ((|a|
+          (|Union| (|Fraction| (|Polynomial| R))
+                   (|SuchThat| (|Symbol|) (|Polynomial| R))))
+         (|m| (|Matrix| (|Fraction| (|Polynomial| R))))
+         ($ (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
          ((#1=#:G148 NIL) (|v| NIL) (#2=#:G147 NIL)
           (|res1|
@@ -90,11 +96,12 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |EP;generalizedEigenvector;UM2NniL;8|
-        ((|a| |Union| (|Fraction| (|Polynomial| R))
-          (|SuchThat| (|Symbol|) (|Polynomial| R)))
-         (|m| |Matrix| (|Fraction| (|Polynomial| R)))
-         (|k| |NonNegativeInteger|) (|g| |NonNegativeInteger|)
-         ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
+        ((|a|
+          (|Union| (|Fraction| (|Polynomial| R))
+                   (|SuchThat| (|Symbol|) (|Polynomial| R))))
+         (|m| (|Matrix| (|Fraction| (|Polynomial| R))))
+         (|k| (|NonNegativeInteger|)) (|g| (|NonNegativeInteger|))
+         ($ (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
          ((#1=#:G156 NIL) (|v| NIL) (#2=#:G155 NIL)
           (|res1|
@@ -119,14 +126,15 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |EP;generalizedEigenvector;RML;9|
-        ((|eif| |Record|
-          (|:| |eigval|
-               (|Union| (|Fraction| (|Polynomial| R))
-                        (|SuchThat| (|Symbol|) (|Polynomial| R))))
-          (|:| |eigmult| #1=(|NonNegativeInteger|))
-          (|:| |eigvec| (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
-         (|m| |Matrix| (|Fraction| (|Polynomial| R)))
-         ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
+        ((|eif|
+          (|Record|
+           (|:| |eigval|
+                (|Union| (|Fraction| (|Polynomial| R))
+                         (|SuchThat| (|Symbol|) (|Polynomial| R))))
+           (|:| |eigmult| #1=(|NonNegativeInteger|))
+           (|:| |eigvec| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))))
+         (|m| (|Matrix| (|Fraction| (|Polynomial| R))))
+         ($ (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG ((|g| (|NonNegativeInteger|)) (|k| #1#))
                (SEQ (LETT |k| (QVELT |eif| 1))
                     (LETT |g| (LENGTH (QVELT |eif| 2)))
@@ -137,11 +145,14 @@
                                       (QREFELT $ 44)))))))) 
 
 (SDEFUN |EP;EiF_to_Ei|
-        ((|a| |Union| (|Fraction| (|Polynomial| R))
-          (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
-         (|x| |Symbol|)
-         ($ |Union| (|Fraction| (|Polynomial| R))
-          (|SuchThat| (|Symbol|) (|Polynomial| R))))
+        ((|a|
+          (|Union| (|Fraction| (|Polynomial| R))
+                   (|SparseUnivariatePolynomial|
+                    (|Fraction| (|Polynomial| R)))))
+         (|x| (|Symbol|))
+         ($
+          (|Union| (|Fraction| (|Polynomial| R))
+                   (|SuchThat| (|Symbol|) (|Polynomial| R)))))
         (COND ((QEQCAR |a| 0) (CONS 0 (QCDR |a|)))
               ('T
                (CONS 1
@@ -154,10 +165,11 @@
                                (QREFELT $ 48)))))) 
 
 (SDEFUN |EP;eigenvalues;ML;11|
-        ((|m| |Matrix| (|Fraction| (|Polynomial| R)))
-         ($ |List|
-          (|Union| (|Fraction| (|Polynomial| R))
-                   (|SuchThat| (|Symbol|) (|Polynomial| R)))))
+        ((|m| (|Matrix| (|Fraction| (|Polynomial| R))))
+         ($
+          (|List|
+           (|Union| (|Fraction| (|Polynomial| R))
+                    (|SuchThat| (|Symbol|) (|Polynomial| R))))))
         (SPROG
          ((#1=#:G175 NIL) (|a| NIL) (#2=#:G174 NIL)
           (|res1|
@@ -181,14 +193,16 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |EP;eigenvectors;ML;12|
-        ((|m| |Matrix| (|Fraction| (|Polynomial| R)))
-         ($ |List|
-          (|Record|
-           (|:| |eigval|
-                (|Union| (|Fraction| (|Polynomial| R))
-                         (|SuchThat| (|Symbol|) (|Polynomial| R))))
-           (|:| |eigmult| (|NonNegativeInteger|))
-           (|:| |eigvec| (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))))
+        ((|m| (|Matrix| (|Fraction| (|Polynomial| R))))
+         ($
+          (|List|
+           (|Record|
+            (|:| |eigval|
+                 (|Union| (|Fraction| (|Polynomial| R))
+                          (|SuchThat| (|Symbol|) (|Polynomial| R))))
+            (|:| |eigmult| (|NonNegativeInteger|))
+            (|:| |eigvec|
+                 (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))))))
         (SPROG
          ((#1=#:G186 NIL) (|v| NIL) (#2=#:G185 NIL) (#3=#:G184 NIL) (|ri| NIL)
           (#4=#:G183 NIL)
@@ -244,14 +258,15 @@
                      (EXIT (NREVERSE #4#)))))))) 
 
 (SDEFUN |EP;generalizedEigenvectors;ML;13|
-        ((|m| |Matrix| (|Fraction| (|Polynomial| R)))
-         ($ |List|
-          (|Record|
-           (|:| |eigval|
-                (|Union| (|Fraction| (|Polynomial| R))
-                         (|SuchThat| (|Symbol|) (|Polynomial| R))))
-           (|:| |geneigvec|
-                (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))))
+        ((|m| (|Matrix| (|Fraction| (|Polynomial| R))))
+         ($
+          (|List|
+           (|Record|
+            (|:| |eigval|
+                 (|Union| (|Fraction| (|Polynomial| R))
+                          (|SuchThat| (|Symbol|) (|Polynomial| R))))
+            (|:| |geneigvec|
+                 (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))))))
         (SPROG
          ((#1=#:G198 NIL) (|v| NIL) (#2=#:G197 NIL) (#3=#:G196 NIL) (|ri| NIL)
           (#4=#:G195 NIL)

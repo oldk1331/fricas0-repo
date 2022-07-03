@@ -1,11 +1,11 @@
 
-(SDEFUN |PRODUCT;coerce;$Of;1| ((|x| $) ($ |OutputForm|))
+(SDEFUN |PRODUCT;coerce;$Of;1| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL
          (LIST (SPADCALL (QCAR |x|) (QREFELT $ 10))
                (SPADCALL (QCDR |x|) (QREFELT $ 11)))
          (QREFELT $ 13))) 
 
-(SDEFUN |PRODUCT;=;2$B;2| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PRODUCT;=;2$B;2| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 16))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 17)))
@@ -13,32 +13,32 @@
 
 (PUT '|PRODUCT;construct;AB$;3| '|SPADreplace| 'CONS) 
 
-(SDEFUN |PRODUCT;construct;AB$;3| ((|a| A) (|b| B) ($ $)) (CONS |a| |b|)) 
+(SDEFUN |PRODUCT;construct;AB$;3| ((|a| (A)) (|b| (B)) ($ ($))) (CONS |a| |b|)) 
 
 (PUT '|PRODUCT;first;$A;4| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |PRODUCT;first;$A;4| ((|x| $) ($ A)) (QCAR |x|)) 
+(SDEFUN |PRODUCT;first;$A;4| ((|x| ($)) ($ (A))) (QCAR |x|)) 
 
 (PUT '|PRODUCT;second;$B;5| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |PRODUCT;second;$B;5| ((|x| $) ($ B)) (QCDR |x|)) 
+(SDEFUN |PRODUCT;second;$B;5| ((|x| ($)) ($ (B))) (QCDR |x|)) 
 
-(SDEFUN |PRODUCT;One;$;6| (($ $))
+(SDEFUN |PRODUCT;One;$;6| (($ ($)))
         (SPADCALL (|spadConstant| $ 22) (|spadConstant| $ 23) (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;*;3$;7| ((|x| $) (|y| $) ($ $))
+(SDEFUN |PRODUCT;*;3$;7| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 25))
                   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 26))
                   (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;^;$Nni$;8| ((|x| $) (|p| |NonNegativeInteger|) ($ $))
+(SDEFUN |PRODUCT;^;$Nni$;8| ((|x| ($)) (|p| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) |p| (QREFELT $ 29))
                   (SPADCALL (QCDR |x|) |p| (QREFELT $ 30)) (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;size;Nni;9| (($ |NonNegativeInteger|))
+(SDEFUN |PRODUCT;size;Nni;9| (($ (|NonNegativeInteger|)))
         (* (SPADCALL (QREFELT $ 32)) (SPADCALL (QREFELT $ 33)))) 
 
-(SDEFUN |PRODUCT;index;Pi$;10| ((|n| |PositiveInteger|) ($ $))
+(SDEFUN |PRODUCT;index;Pi$;10| ((|n| (|PositiveInteger|)) ($ ($)))
         (SPROG ((#1=#:G136 NIL) (#2=#:G135 NIL))
                (SPADCALL
                 (SPADCALL
@@ -57,11 +57,11 @@
                  (QREFELT $ 37))
                 (QREFELT $ 19)))) 
 
-(SDEFUN |PRODUCT;random;$;11| (($ $))
+(SDEFUN |PRODUCT;random;$;11| (($ ($)))
         (SPADCALL (SPADCALL (QREFELT $ 39)) (SPADCALL (QREFELT $ 40))
                   (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;lookup;$Pi;12| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |PRODUCT;lookup;$Pi;12| ((|x| ($)) ($ (|PositiveInteger|)))
         (SPROG ((#1=#:G140 NIL))
                (PROG1
                    (LETT #1#
@@ -73,27 +73,28 @@
                                    #1#)))) 
 
 (SDEFUN |PRODUCT;hashUpdate!;Hs$Hs;13|
-        ((|s| |HashState|) (|x| $) ($ |HashState|))
+        ((|s| (|HashState|)) (|x| ($)) ($ (|HashState|)))
         (SPADCALL (SPADCALL |s| (SPADCALL |x| (QREFELT $ 20)) (QREFELT $ 46))
                   (SPADCALL |x| (QREFELT $ 21)) (QREFELT $ 47))) 
 
-(SDEFUN |PRODUCT;inv;2$;14| ((|x| $) ($ $))
+(SDEFUN |PRODUCT;inv;2$;14| ((|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 49))
                   (SPADCALL (QCDR |x|) (QREFELT $ 50)) (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;Zero;$;15| (($ $))
+(SDEFUN |PRODUCT;Zero;$;15| (($ ($)))
         (SPADCALL (|spadConstant| $ 52) (|spadConstant| $ 53) (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;+;3$;16| ((|x| $) (|y| $) ($ $))
+(SDEFUN |PRODUCT;+;3$;16| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 55))
                   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 56))
                   (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;*;Nni2$;17| ((|c| |NonNegativeInteger|) (|x| $) ($ $))
+(SDEFUN |PRODUCT;*;Nni2$;17| ((|c| (|NonNegativeInteger|)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |c| (QCAR |x|) (QREFELT $ 58))
                   (SPADCALL |c| (QCDR |x|) (QREFELT $ 59)) (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;subtractIfCan;2$U;18| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |PRODUCT;subtractIfCan;2$U;18|
+        ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|nb| (|Union| B #1="failed")) (|na| (|Union| A #1#)))
                (SEQ (LETT |na| (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 62)))
                     (EXIT
@@ -110,25 +111,25 @@
                                            (SPADCALL (QCDR |na|) (QCDR |nb|)
                                                      (QREFELT $ 19))))))))))))) 
 
-(SDEFUN |PRODUCT;-;2$;19| ((|x| $) ($ $))
+(SDEFUN |PRODUCT;-;2$;19| ((|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 65))
                   (SPADCALL (QCDR |x|) (QREFELT $ 66)) (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;-;3$;20| ((|x| $) (|y| $) ($ $))
+(SDEFUN |PRODUCT;-;3$;20| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 68))
                   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 69))
                   (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;*;I2$;21| ((|d| |Integer|) (|x| $) ($ $))
+(SDEFUN |PRODUCT;*;I2$;21| ((|d| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |d| (QCAR |x|) (QREFELT $ 72))
                   (SPADCALL |d| (QCDR |x|) (QREFELT $ 73)) (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;sup;3$;22| ((|x| $) (|y| $) ($ $))
+(SDEFUN |PRODUCT;sup;3$;22| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 75))
                   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 76))
                   (QREFELT $ 19))) 
 
-(SDEFUN |PRODUCT;<;2$B;23| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PRODUCT;<;2$B;23| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|yb| (B)) (|xb| (B)) (|ya| (A)) (|xa| (A)))
                (SEQ (LETT |xa| (QCAR |x|)) (LETT |ya| (QCAR |y|))
                     (EXIT
@@ -141,7 +142,7 @@
                                     (SPADCALL |xb| |yb| (QREFELT $ 79)))
                                    (#1# NIL)))))))))) 
 
-(SDEFUN |PRODUCT;smaller?;2$B;24| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PRODUCT;smaller?;2$B;24| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|yb| (B)) (|xb| (B)) (|ya| (A)) (|xa| (A)))
                (SEQ (LETT |xa| (QCAR |x|)) (LETT |ya| (QCAR |y|))
                     (EXIT

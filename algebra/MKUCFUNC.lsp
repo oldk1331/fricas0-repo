@@ -2,10 +2,10 @@
 (PUT '|MKUCFUNC;func| '|SPADreplace|
      '(XLAM (|name| |x|) (FUNCALL |name| |x| NIL))) 
 
-(SDEFUN |MKUCFUNC;func| ((|name| |Symbol|) (|x| D) ($ I))
+(SDEFUN |MKUCFUNC;func| ((|name| (|Symbol|)) (|x| (D)) ($ (I)))
         (FUNCALL |name| |x| NIL)) 
 
-(SDEFUN |MKUCFUNC;unaryFunction;SM;2| ((|name| |Symbol|) ($ |Mapping| I D))
+(SDEFUN |MKUCFUNC;unaryFunction;SM;2| ((|name| (|Symbol|)) ($ (|Mapping| I D)))
         (SPROG NIL (CONS #'|MKUCFUNC;unaryFunction;SM;2!0| (VECTOR $ |name|)))) 
 
 (SDEFUN |MKUCFUNC;unaryFunction;SM;2!0| ((|d1| NIL) ($$ NIL))
@@ -15,7 +15,7 @@
           (RETURN (PROGN (|MKUCFUNC;func| |name| |d1| $))))) 
 
 (SDEFUN |MKUCFUNC;compiledFunction;SSM;3|
-        ((|e| S) (|x| |Symbol|) ($ |Mapping| I D))
+        ((|e| (S)) (|x| (|Symbol|)) ($ (|Mapping| I D)))
         (SPROG ((|t| (|List| (|InputForm|))))
                (SEQ
                 (LETT |t|

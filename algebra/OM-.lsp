@@ -1,11 +1,12 @@
 
-(SDEFUN |OM-;OMwrite;SS;1| ((|x| S) ($ |String|))
+(SDEFUN |OM-;OMwrite;SS;1| ((|x| (S)) ($ (|String|)))
         (SPADCALL |x| 'T (QREFELT $ 9))) 
 
-(SDEFUN |OM-;OMwrite;OmdSV;2| ((|dev| |OpenMathDevice|) (|x| S) ($ |Void|))
+(SDEFUN |OM-;OMwrite;OmdSV;2|
+        ((|dev| (|OpenMathDevice|)) (|x| (S)) ($ (|Void|)))
         (SPADCALL |dev| |x| 'T (QREFELT $ 13))) 
 
-(SDEFUN |OM-;OMwrite;SBS;3| ((|x| S) (|wholeObj| |Boolean|) ($ |String|))
+(SDEFUN |OM-;OMwrite;SBS;3| ((|x| (S)) (|wholeObj| (|Boolean|)) ($ (|String|)))
         (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "") (LETT |sp| (OM-STRINGTOSTRINGPTR |s|))
                     (LETT |dev|

@@ -1,5 +1,6 @@
 
-(SDEFUN |RDEEFX;top_kernel| ((|f| F) (|g| F) (|x| |Symbol|) ($ |Kernel| F))
+(SDEFUN |RDEEFX;top_kernel|
+        ((|f| (F)) (|g| (F)) (|x| (|Symbol|)) ($ (|Kernel| F)))
         (SPROG
          ((|extra_tk| (|Boolean|)) (|tk| (|Kernel| F))
           (|htk| #1=(|NonNegativeInteger|)) (|hk| #1#) (#2=#:G345 NIL)
@@ -84,12 +85,14 @@
           (EXIT |tk|)))) 
 
 (SDEFUN |RDEEFX;genus0_if_can|
-        ((|k| |Kernel| F) (|kx| |Kernel| F)
-         ($ |Union|
-          (|Record| (|:| |coef1| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |coef2| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |exponent| (|NonNegativeInteger|)))
-          "failed"))
+        ((|k| (|Kernel| F)) (|kx| (|Kernel| F))
+         ($
+          (|Union|
+           (|Record|
+            (|:| |coef1| (|Fraction| (|SparseUnivariatePolynomial| F)))
+            (|:| |coef2| (|Fraction| (|SparseUnivariatePolynomial| F)))
+            (|:| |exponent| (|NonNegativeInteger|)))
+           "failed")))
         (SPROG
          ((|c1| (|Fraction| (|SparseUnivariatePolynomial| F))) (|d| (F))
           (|c| (F)) (|b| (F)) (|a| (F))
@@ -138,10 +141,11 @@
                  (EXIT (CONS 0 (VECTOR |c1| |r1rf| |n|))))))))) 
 
 (SDEFUN |RDEEFX;ei_int_alg|
-        ((|f| F) (|g| F) (|x| |Symbol|) (|k| |Kernel| F)
-         (|lk| |List| (|Kernel| F))
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|f| (F)) (|g| (F)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         (|lk| (|List| (|Kernel| F)))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|ansp| (F)) (|a1| (F)) (|r1| (F)) (|kf| (F))
           (|res1|
@@ -203,15 +207,16 @@
                       (EXIT (VECTOR |a1| |r1| |ansp| (QVELT |res1| 3)))))))))) 
 
 (SDEFUN |RDEEFX;UP_to_UPUP|
-        ((|p| |SparseUnivariatePolynomial| F)
-         ($ |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
+        ((|p| (|SparseUnivariatePolynomial| F))
+         ($ (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
         (SPADCALL (ELT $ 45) |p| (QREFELT $ 72))) 
 
 (SDEFUN |RDEEFX;get_uv0|
-        ((|tt| F) (|coeffs| |List| (|Integer|)) (|vlst| |List| F)
-         (|ulst| |List| F) (|k| |Kernel| F) (|x| |Symbol|)
-         ($ |Record| (|:| |u_part| F) (|:| |v_part| F)
-          (|:| |exponent| (|Integer|)) (|:| |coeff| (|Integer|))))
+        ((|tt| (F)) (|coeffs| (|List| (|Integer|))) (|vlst| (|List| F))
+         (|ulst| (|List| F)) (|k| (|Kernel| F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |u_part| F) (|:| |v_part| F)
+                    (|:| |exponent| (|Integer|)) (|:| |coeff| (|Integer|)))))
         (SPROG
          ((|kc| #1=(|Integer|)) (#2=#:G388 NIL) (|vi| NIL) (#3=#:G389 NIL)
           (|ki| NIL) (|kf| (F)) (|u| (F)) (#4=#:G386 NIL) (|ui| NIL)
@@ -320,12 +325,13 @@
           (EXIT (VECTOR |u| |v0| |ku| |kc|))))) 
 
 (SDEFUN |RDEEFX;get_uv|
-        ((|tt| F) (|vlst| |List| F) (|ulst| |List| F) (|k| |Kernel| F)
-         (|x| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |u_part| F) (|:| |v_part| F)
-                    (|:| |exponent| (|Integer|)) (|:| |coeff| (|Integer|)))
-          "failed"))
+        ((|tt| (F)) (|vlst| (|List| F)) (|ulst| (|List| F)) (|k| (|Kernel| F))
+         (|x| (|Symbol|))
+         ($
+          (|Union|
+           (|Record| (|:| |u_part| F) (|:| |v_part| F)
+                     (|:| |exponent| (|Integer|)) (|:| |coeff| (|Integer|)))
+           "failed")))
         (SPROG
          ((|d| #1=(|Integer|))
           (|cd| (|Record| (|:| |num| (|List| (|Integer|))) (|:| |den| #1#)))
@@ -366,19 +372,20 @@
                                  |ulst| |k| |x| $)))))))))))) 
 
 (SDEFUN |RDEEFX;handle_factor|
-        ((|gd| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|f1| |SparseUnivariatePolynomial| F) (|r0| |Integer|) (|u0| F)
-         (|vlst| |List| F) (|ulst| |List| F) (|k| |Kernel| F) (|x| |Symbol|)
-         (|known_dividing| |Boolean|)
-         ($ |Union|
-          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F))
-          "failed"))
+        ((|gd| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|f1| (|SparseUnivariatePolynomial| F)) (|r0| (|Integer|)) (|u0| (F))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|k| (|Kernel| F))
+         (|x| (|Symbol|)) (|known_dividing| (|Boolean|))
+         ($
+          (|Union|
+           (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F))
+           "failed")))
         (SPROG
          ((|ff1| #1=(|SparseUnivariatePolynomial| F)) (#2=#:G422 NIL)
           (|ff3| (|SparseUnivariatePolynomial| F)) (#3=#:G412 NIL) (|ff2| #1#)
@@ -556,12 +563,13 @@
                       (QREFELT $ 78)))))) 
 
 (SDEFUN |RDEEFX;z_basis|
-        ((|a| |Vector| (|Fraction| (|Integer|)))
-         (|b| |List| (|Vector| (|Fraction| (|Integer|))))
-         ($ |Union|
-          (|Record| (|:| |particular| (|Vector| (|Integer|)))
-                    (|:| |basis| (|List| (|Vector| (|Integer|)))))
-          "failed"))
+        ((|a| (|Vector| (|Fraction| (|Integer|))))
+         (|b| (|List| (|Vector| (|Fraction| (|Integer|)))))
+         ($
+          (|Union|
+           (|Record| (|:| |particular| (|Vector| (|Integer|)))
+                     (|:| |basis| (|List| (|Vector| (|Integer|)))))
+           "failed")))
         (SPROG
          ((#1=#:G430 NIL) (#2=#:G448 NIL) (|i| NIL)
           (|av| #3=(|Vector| (|Integer|))) (|ki| (|Integer|))
@@ -797,17 +805,18 @@
           #15# (EXIT #7#)))) 
 
 (SDEFUN |RDEEFX;lin_args|
-        ((|gd| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|vlst| |List| F) (|ulst| |List| F) (|x| |Symbol|)
-         ($ |List|
-          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |has_part2?| (|Boolean|))
-                    (|:| |ratpart2| (|Integer|)) (|:| |v_part2| F)
-                    (|:| |u_part2| F) (|:| |shift_part2| F))))
+        ((|gd| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |has_part2?| (|Boolean|))
+                     (|:| |ratpart2| (|Integer|)) (|:| |v_part2| F)
+                     (|:| |u_part2| F) (|:| |shift_part2| F)))))
         (SPROG
          ((|res|
            (|List|
@@ -1270,8 +1279,8 @@
                       (QREFELT $ 78)))))) 
 
 (SDEFUN |RDEEFX;get_rational_solutions|
-        ((|eq1| |Equation| (|Fraction| (|Polynomial| F))) (|s1| |Symbol|)
-         (|s2| |Symbol|) ($ |List| (|Fraction| (|Integer|))))
+        ((|eq1| (|Equation| (|Fraction| (|Polynomial| F)))) (|s1| (|Symbol|))
+         (|s2| (|Symbol|)) ($ (|List| (|Fraction| (|Integer|)))))
         (SPROG
          ((|eq1f| (F)) (|k1| (|Kernel| F)) (|eq1p| (|Polynomial| F))
           (|ru2| (|Union| (|Fraction| (|Integer|)) "failed"))
@@ -1327,8 +1336,8 @@
                      (EXIT (SPADCALL |eq1f| |k1| (QREFELT $ 167))))))))))))) 
 
 (SDEFUN |RDEEFX;F_to_FP|
-        ((|p| F) (|ls| |List| (|Symbol|)) (|lk| |List| (|Kernel| F))
-         ($ |Polynomial| F))
+        ((|p| (F)) (|ls| (|List| (|Symbol|))) (|lk| (|List| (|Kernel| F)))
+         ($ (|Polynomial| F)))
         (SPROG
          ((|pu1| (|SparseUnivariatePolynomial| (|Polynomial| F)))
           (|pu| (|SparseUnivariatePolynomial| F)) (|s1| (|Symbol|))
@@ -1358,10 +1367,11 @@
              (SPADCALL |lk| (QREFELT $ 170)) $))))) 
 
 (SDEFUN |RDEEFX;solve_poly_eqs|
-        ((|eqs| |List| F) (|s1| |Symbol|) (|s2| |Symbol|)
-         ($ |List|
-          (|Record| (|:| |ratpart| (|Fraction| (|Integer|)))
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F)))))
+        ((|eqs| (|List| F)) (|s1| (|Symbol|)) (|s2| (|Symbol|))
+         ($
+          (|List|
+           (|Record| (|:| |ratpart| (|Fraction| (|Integer|)))
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))))))
         (SPROG
          ((|res|
            (|List|
@@ -1461,16 +1471,17 @@
               (EXIT |res|)))) 
 
 (SDEFUN |RDEEFX;ei_args0|
-        ((|gd| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|vlst0| |List| F) (|ulst0| |List| F) (|x| |Symbol|)
-         ($ |List|
-          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F))))
+        ((|gd| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|vlst0| (|List| F)) (|ulst0| (|List| F)) (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F)))))
         (SPROG
          ((|res|
            (|List|
@@ -1482,14 +1493,6 @@
           (|vp| (F)) (|dega| (|Integer|))
           (|fac| (|SparseUnivariatePolynomial| F))
           (|ap| (|SparseUnivariatePolynomial| F)) (#1=#:G552 NIL)
-          (|res1|
-           (|Union|
-            (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-                      (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-                      (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                      (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                      (|:| |shift_part| F))
-            "failed"))
           (|res1l|
            (|List|
             (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
@@ -1501,7 +1504,16 @@
           (|ru| (|Union| (|Integer|) "failed")) (#3=#:G551 NIL) (|r0| NIL)
           (|degn1| (|NonNegativeInteger|)) (|degn| #4=(|NonNegativeInteger|))
           (|degd| #4#) (|ratl| (|List| (|Fraction| (|Integer|)))) (|eq1| (F))
-          (|nnp| #2#) (#5=#:G550 NIL) (|sol| NIL) (|r_bad| (|Integer|))
+          (|nnp| #2#)
+          (|res1|
+           (|Union|
+            (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                      (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                      (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                      (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                      (|:| |shift_part| F))
+            "failed"))
+          (#5=#:G550 NIL) (|sol| NIL) (|r_bad| (|Integer|))
           (|has_r_bad| (|Boolean|)) (|ccu| (|Union| (|Integer|) "failed"))
           (|cc| (F))
           (|lsol|
@@ -1658,8 +1670,7 @@
                                            (|RDEEFX;ei_args3| |gd| |nn| |denf|
                                             |k| |vlst| |ulst| |x| $))
                                      (EXIT
-                                      (SEQ (LETT |res1| NIL) (LETT #1# |res1l|)
-                                           G190
+                                      (SEQ (LETT #1# |res1l|) G190
                                            (COND
                                             ((OR (ATOM #1#)
                                                  (PROGN
@@ -1714,10 +1725,10 @@
               (EXIT |res|)))) 
 
 (SDEFUN |RDEEFX;ei_args1|
-        ((|gd| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F) (|t| |Kernel| F)
-         ($ |Factored| (|SparseUnivariatePolynomial| F)))
+        ((|gd| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|t| (|Kernel| F))
+         ($ (|Factored| (|SparseUnivariatePolynomial| F))))
         (SPROG ((|r| (F)))
                (SEQ
                 (LETT |r|
@@ -1733,17 +1744,19 @@
                   (QREFELT $ 126)))))) 
 
 (SDEFUN |RDEEFX;ei_args2|
-        ((|gd| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|f_res| |Factored| (|SparseUnivariatePolynomial| F)) (|k| |Kernel| F)
-         (|vlst| |List| F) (|ulst| |List| F) (|x| |Symbol|)
-         ($ |List|
-          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F))))
+        ((|gd| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|f_res| (|Factored| (|SparseUnivariatePolynomial| F)))
+         (|k| (|Kernel| F)) (|vlst| (|List| F)) (|ulst| (|List| F))
+         (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F)))))
         (SPROG
          ((|res|
            (|List|
@@ -1795,16 +1808,17 @@
               (EXIT |res|)))) 
 
 (SDEFUN |RDEEFX;ei_args3|
-        ((|gd| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|vlst| |List| F) (|ulst| |List| F) (|x| |Symbol|)
-         ($ |List|
-          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F))))
+        ((|gd| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F)))))
         (SPROG
          ((|f_res| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|t| (|Kernel| F)))
@@ -1815,16 +1829,17 @@
                 |x| $))))) 
 
 (SDEFUN |RDEEFX;ei_args|
-        ((|gd| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|vlst| |List| F) (|ulst| |List| F) (|x| |Symbol|)
-         ($ |List|
-          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F))))
+        ((|gd| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F)))))
         (SPROG
          ((|res1|
            (|List|
@@ -1848,37 +1863,41 @@
                   (EXIT |res1|))))))) 
 
 (SDEFUN |RDEEFX;my_exp|
-        ((|p| |SparseUnivariatePolynomial| F) (|n| |NonNegativeInteger|)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|n| (|NonNegativeInteger|))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPADCALL |p| |n| (QREFELT $ 195))) 
 
 (SDEFUN |RDEEFX;ei_candidate|
-        ((|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F) (|vlst| |List| F)
-         (|ulst| |List| F) (|k| |Kernel| F) (|x| |Symbol|) (|a| |Integer|)
-         (|tt| F)
-         (|res| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         ($ |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F))))
+        ((|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|vlst| (|List| F))
+         (|ulst| (|List| F)) (|k| (|Kernel| F)) (|x| (|Symbol|))
+         (|a| (|Integer|)) (|tt| (F))
+         (|res|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         ($
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F)))))
         (SPROG
          ((|uv|
            (|Record| (|:| |u_part| F) (|:| |v_part| F)
@@ -1922,20 +1941,22 @@
                                  |res|))))))))))))) 
 
 (SDEFUN |RDEEFX;special_ei_candidates|
-        ((|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F) (|vlst| |List| F)
-         (|ulst| |List| F) (|k| |Kernel| F) (|x| |Symbol|)
-         ($ |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F))))
+        ((|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|vlst| (|List| F))
+         (|ulst| (|List| F)) (|k| (|Kernel| F)) (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F)))))
         (SPROG
          ((|tt| (F)) (|a| (|Integer|)) (#1=#:G600 NIL)
           (|rcu| (|Union| (|Integer|) "failed")) (|lc| (F))
@@ -2068,34 +2089,39 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |RDEEFX;gamma_candidate|
-        ((|fnf| |Factored| (|SparseUnivariatePolynomial| F))
-         (|nf1| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|gden1| |SparseUnivariatePolynomial| F) (|gexp| |Integer|)
-         (|a| |Integer|) (|tt| F) (|f2| |SparseUnivariatePolynomial| F)
-         (|vlst| |List| F) (|ulst| |List| F) (|k| |Kernel| F) (|x| |Symbol|)
-         (|res| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         ($ |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F))))
+        ((|fnf| (|Factored| (|SparseUnivariatePolynomial| F)))
+         (|nf1| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|gden1| (|SparseUnivariatePolynomial| F)) (|gexp| (|Integer|))
+         (|a| (|Integer|)) (|tt| (F)) (|f2| (|SparseUnivariatePolynomial| F))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|k| (|Kernel| F))
+         (|x| (|Symbol|))
+         (|res|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         ($
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F)))))
         (SPROG
          ((|unf| (F)) (|nf2| (|SparseUnivariatePolynomial| F))
           (|m1| (|Integer|)) (#1=#:G622 NIL)
@@ -2266,7 +2292,7 @@
                                         |res|))))))))))))
           #13# (EXIT #1#)))) 
 
-(SDEFUN |RDEEFX;solve_for_ratios| ((|lc| |List| F) ($ |List| (|Integer|)))
+(SDEFUN |RDEEFX;solve_for_ratios| ((|lc| (|List| F)) ($ (|List| (|Integer|))))
         (SPROG
          ((|rl| (|List| (|Integer|))) (|li| (|Integer|))
           (|j| #1=(|NonNegativeInteger|)) (|jj| #1#) (|i| NIL)
@@ -2413,8 +2439,8 @@
                                         (EXIT |rl|)))))))))))) 
 
 (SDEFUN |RDEEFX;possible_sk|
-        ((|w0| F) (|f| F) (|tk| |Kernel| F) (|x| |Symbol|)
-         ($ |List| (|List| (|Fraction| (|Integer|)))))
+        ((|w0| (F)) (|f| (F)) (|tk| (|Kernel| F)) (|x| (|Symbol|))
+         ($ (|List| (|List| (|Fraction| (|Integer|))))))
         (SPROG
          ((|nwu| #1=(|SparseUnivariatePolynomial| F))
           (|dnw| #2=(|NonNegativeInteger|)) (|ss| (|Integer|)) (#3=#:G686 NIL)
@@ -2690,7 +2716,8 @@
                              (|spadConstant| $ 225))))))))))))
           #11# (EXIT #3#)))) 
 
-(SDEFUN |RDEEFX;possible_w| ((|f2| F) (|w1| F) (|x| |Symbol|) ($ |List| F))
+(SDEFUN |RDEEFX;possible_w|
+        ((|f2| (F)) (|w1| (F)) (|x| (|Symbol|)) ($ (|List| F)))
         (SPROG
          ((|w2| (F)) (#1=#:G704 NIL) (|lc_nw1| (F)) (|lc_nf2| (F))
           (|w2u2| (|Union| F "failed"))
@@ -2761,30 +2788,34 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |RDEEFX;gen_irr_log_cands|
-        ((|a| F) (|f| F) (|f2| F) (|w1| F) (|vlst| |List| F) (|ulst| |List| F)
-         (|k| |Kernel| F) (|x| |Symbol|)
-         (|res| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         ($ |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F))))
+        ((|a| (F)) (|f| (F)) (|f2| (F)) (|w1| (F)) (|vlst| (|List| F))
+         (|ulst| (|List| F)) (|k| (|Kernel| F)) (|x| (|Symbol|))
+         (|res|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         ($
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F)))))
         (SPROG
          ((|uu| (F)) (|ai| (F)) (#1=#:G738 NIL) (|i| NIL) (|tt| (F))
           (#2=#:G735 NIL) (|li| NIL) (#3=#:G736 NIL) (|vi| NIL) (#4=#:G737 NIL)
@@ -3326,31 +3357,35 @@
                                                                          |res|)))))))))))))))))))))))))))))))))))) 
 
 (SDEFUN |RDEEFX;irrational_gamma_candidates|
-        ((|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F) (|vlst| |List| F)
-         (|ulst| |List| F) (|k| |Kernel| F) (|x| |Symbol|)
-         (|res| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         ($ |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F))))
+        ((|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|vlst| (|List| F))
+         (|ulst| (|List| F)) (|k| (|Kernel| F)) (|x| (|Symbol|))
+         (|res|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         ($
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F)))))
         (SPROG
          ((|w1| (F)) (|a| (F)) (|rls| (|List| (|Integer|))) (#1=#:G776 NIL)
           (|li| NIL) (#2=#:G775 NIL) (|km| #3=(|Integer|)) (|s| #3#)
@@ -3597,33 +3632,37 @@
           #13# (EXIT #8#)))) 
 
 (SDEFUN |RDEEFX;gammas1|
-        ((|nf| |SparseUnivariatePolynomial| F) (|a| |Integer|)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|denf1| |SparseUnivariatePolynomial| F) (|gexp| |Integer|)
-         (|n2| |Integer|) (|vlst| |List| F) (|ulst| |List| F) (|k| |Kernel| F)
-         (|x| |Symbol|)
-         (|res| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         ($ |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F))))
+        ((|nf| (|SparseUnivariatePolynomial| F)) (|a| (|Integer|))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|denf1| (|SparseUnivariatePolynomial| F)) (|gexp| (|Integer|))
+         (|n2| (|Integer|)) (|vlst| (|List| F)) (|ulst| (|List| F))
+         (|k| (|Kernel| F)) (|x| (|Symbol|))
+         (|res|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         ($
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F)))))
         (SPROG
          ((|fnf| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|nf1| (|SparseUnivariatePolynomial| F)) (|cfac| (F))
@@ -3791,21 +3830,24 @@
                       (QREFELT $ 78)))))) 
 
 (SDEFUN |RDEEFX;special_candidates|
-        ((|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|denf1| |SparseUnivariatePolynomial| F) (|gexp| |Integer|)
-         (|vlst| |List| F) (|ulst| |List| F) (|k| |Kernel| F) (|x| |Symbol|)
-         ($ |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F))))
+        ((|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|denf1| (|SparseUnivariatePolynomial| F)) (|gexp| (|Integer|))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|k| (|Kernel| F))
+         (|x| (|Symbol|))
+         ($
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F)))))
         (SPROG
          ((|res1|
            (|List|
@@ -4111,22 +4153,25 @@
           #11# (EXIT #9#)))) 
 
 (SDEFUN |RDEEFX;finish_special_integrate2|
-        ((|rr1f| F) (|csol| |Vector| F) (|a1p| F) (|as| |Vector| F)
-         (|scands| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         (|denf| |SparseUnivariatePolynomial| F) (|gexp| |Integer|)
-         (|k| |Kernel| F)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|rr1f| (F)) (|csol| (|Vector| F)) (|a1p| (F)) (|as| (|Vector| F))
+         (|scands|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|gexp| (|Integer|))
+         (|k| (|Kernel| F))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|cand_prims| (|List| F)) (|ansp| (F)) (#1=#:G824 NIL) (|i| NIL))
          (SEQ (LETT |cand_prims| NIL) (LETT |ansp| (|spadConstant| $ 43))
@@ -4158,22 +4203,25 @@
               (EXIT (VECTOR |a1p| |rr1f| |ansp| 'T))))) 
 
 (SDEFUN |RDEEFX;finish_special_integrate|
-        ((|rr1f| F) (|a1p| F) (|vs| |Vector| F) (|as| |Vector| F)
-         (|scands| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         (|denf| |SparseUnivariatePolynomial| F) (|gexp| |Integer|)
-         (|k| |Kernel| F) (|x| |Symbol|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|rr1f| (F)) (|a1p| (F)) (|vs| (|Vector| F)) (|as| (|Vector| F))
+         (|scands|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|gexp| (|Integer|))
+         (|k| (|Kernel| F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|csol| (|Vector| F)) (|csolu| (|Union| (|Vector| F) "failed")))
          (SEQ
@@ -4201,10 +4249,10 @@
           (RETURN (PROGN (SPADCALL |c| |x| (QREFELT $ 62)))))) 
 
 (SDEFUN |RDEEFX;exp_lower_bound|
-        ((|nfp| |SparseUnivariatePolynomial| F) (|eta| F)
-         (|rr1| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|scoeffs| |List| (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|x| |Symbol|) (|lk| |List| (|Kernel| F)) ($ |Integer|))
+        ((|nfp| (|SparseUnivariatePolynomial| F)) (|eta| (F))
+         (|rr1| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|scoeffs| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|x| (|Symbol|)) (|lk| (|List| (|Kernel| F))) ($ (|Integer|)))
         (SPROG
          ((|min_deg| (|Integer|)) (|max_deg| (|Integer|))
           (|c_degs| (|List| (|NonNegativeInteger|))) (#1=#:G844 NIL)
@@ -4252,28 +4300,31 @@
           (RETURN (PROGN (SPADCALL |x| |x2| |x3| (QREFELT $ 250)))))) 
 
 (SDEFUN |RDEEFX;special_integrate2|
-        ((|nfp| |SparseUnivariatePolynomial| F)
-         (|denfp| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|ndenf| |SparseUnivariatePolynomial| F) (|f| F) (|k| |Kernel| F)
-         (|lk| |List| (|Kernel| F)) (|x| |Symbol|)
-         (|rr1| |Fraction| (|SparseUnivariatePolynomial| F)) (|a1| F) (|r1| F)
-         (|g| F)
-         (|scoeffs| |List| (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|scands| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         (|gexp| |Integer|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|nfp| (|SparseUnivariatePolynomial| F))
+         (|denfp| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|ndenf| (|SparseUnivariatePolynomial| F)) (|f| (F))
+         (|k| (|Kernel| F)) (|lk| (|List| (|Kernel| F))) (|x| (|Symbol|))
+         (|rr1| (|Fraction| (|SparseUnivariatePolynomial| F))) (|a1| (F))
+         (|r1| (F)) (|g| (F))
+         (|scoeffs| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|scands|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         (|gexp| (|Integer|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|as| (|Vector| F))
           (|part| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
@@ -4314,11 +4365,13 @@
                     (QCAR |part|) |as| |scands| |denf| |gexp| |k| $))))))))) 
 
 (SDEFUN |RDEEFX;do_spde1|
-        ((|rr1| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|nfp| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |Record| (|:| |ans| F) (|:| |defect| F) (|:| |sol?| (|Boolean|))))
+        ((|rr1| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|nfp| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Record| (|:| |ans| F) (|:| |defect| F) (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|def_f| (F)) (|af| (F)) (|r2| (|SparseUnivariatePolynomial| F))
           (|a1| #1=(|SparseUnivariatePolynomial| F))
@@ -4356,27 +4409,31 @@
                                               (QREFELT $ 111))))))))))) 
 
 (SDEFUN |RDEEFX;special_integrate1|
-        ((|nfp| . #1=(|SparseUnivariatePolynomial| F)) (|f| F) (|k| |Kernel| F)
-         (|lk| |List| (|Kernel| F)) (|x| |Symbol|)
-         (|rr1| |Fraction| (|SparseUnivariatePolynomial| F)) (|a1| F) (|r1| F)
-         (|g| F) (|ansp| F)
-         (|scoeffs| |List| (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|scands| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         (|gexp| |Integer|)
-         (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|nfp| #1=(|SparseUnivariatePolynomial| F)) (|f| (F))
+         (|k| (|Kernel| F)) (|lk| (|List| (|Kernel| F))) (|x| (|Symbol|))
+         (|rr1| (|Fraction| (|SparseUnivariatePolynomial| F))) (|a1| (F))
+         (|r1| (F)) (|g| (F)) (|ansp| (F))
+         (|scoeffs| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|scands|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         (|gexp| (|Integer|))
+         (|derivation|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|res3|
            (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
@@ -4510,11 +4567,11 @@
                            (SPADCALL |ansp| (QVELT |res3| 2) (QREFELT $ 73))
                            'T))))))))) 
 
-(SDEFUN |RDEEFX;mk_pow1| ((|u| F) (|i| |Integer|) ($ F))
+(SDEFUN |RDEEFX;mk_pow1| ((|u| (F)) (|i| (|Integer|)) ($ (F)))
         (SPADCALL |u| |i| (QREFELT $ 79))) 
 
 (SDEFUN |RDEEFX;mk_pow|
-        ((|uu| F) (|ulst| |List| F) (|v| |Vector| (|Integer|)) ($ F))
+        ((|uu| (F)) (|ulst| (|List| F)) (|v| (|Vector| (|Integer|))) ($ (F)))
         (SPROG
          ((|res2| (F)) (|lp| (|List| F)) (#1=#:G905 NIL) (|ui| NIL) (|i| NIL)
           (#2=#:G904 NIL) (|res| (F)))
@@ -4543,16 +4600,18 @@
           (EXIT (SPADCALL |res| |res2| (QREFELT $ 65)))))) 
 
 (SDEFUN |RDEEFX;quadratic_log_erf_integrate|
-        ((|nf| |SparseUnivariatePolynomial| F)
-         (|nfp| |SparseUnivariatePolynomial| F)
-         (|rr1| |Fraction| (|SparseUnivariatePolynomial| F)) (|a1| F) (|g| F)
-         (|ansp| F)
-         (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|vlst| |List| F) (|ulst| |List| F) (|k| |Kernel| F)
-         (|lk| |List| (|Kernel| F)) (|x| |Symbol|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|nf| (|SparseUnivariatePolynomial| F))
+         (|nfp| (|SparseUnivariatePolynomial| F))
+         (|rr1| (|Fraction| (|SparseUnivariatePolynomial| F))) (|a1| (F))
+         (|g| (F)) (|ansp| (F))
+         (|derivation|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|k| (|Kernel| F))
+         (|lk| (|List| (|Kernel| F))) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|as| (|Vector| F)) (|vc| #1=(|Vector| F)) (#2=#:G1038 NIL)
           (|ci| NIL) (#3=#:G1037 NIL)
@@ -5345,10 +5404,10 @@
              (QREFELT $ 196)))))) 
 
 (SDEFUN |RDEEFX;decompose1|
-        ((|num| |SparseUnivariatePolynomial| F)
-         (|den| |SparseUnivariatePolynomial| F)
-         (|eidens| |List| (|SparseUnivariatePolynomial| F))
-         ($ |List| (|SparseUnivariatePolynomial| F)))
+        ((|num| (|SparseUnivariatePolynomial| F))
+         (|den| (|SparseUnivariatePolynomial| F))
+         (|eidens| (|List| (|SparseUnivariatePolynomial| F)))
+         ($ (|List| (|SparseUnivariatePolynomial| F))))
         (SPROG
          ((|res| (|List| (|SparseUnivariatePolynomial| F)))
           (|f1| (|SparseUnivariatePolynomial| F)) (#1=#:G1042 NIL))
@@ -5378,9 +5437,10 @@
             ('T |res|)))))) 
 
 (SDEFUN |RDEEFX;get_trace|
-        ((|fu| |Fraction| (|SparseUnivariatePolynomial| F)) (|k| |Kernel| F)
-         (|rf1k| |Kernel| F) (|cfac| |SparseUnivariatePolynomial| F)
-         ($ |Fraction| (|SparseUnivariatePolynomial| F)))
+        ((|fu| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|k| (|Kernel| F)) (|rf1k| (|Kernel| F))
+         (|cfac| (|SparseUnivariatePolynomial| F))
+         ($ (|Fraction| (|SparseUnivariatePolynomial| F))))
         (SPROG
          ((|resd| (F)) (|fa| (|SparseUnivariatePolynomial| F)) (|f| (F))
           (|Sae|
@@ -5415,20 +5475,25 @@
           (EXIT (SPADCALL |resd| |k| (QREFELT $ 35)))))) 
 
 (SDEFUN |RDEEFX;solve_factor1|
-        ((|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|nfp| |SparseUnivariatePolynomial| F)
-         (|denfp| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|x| |Symbol|) (|einum| |SparseUnivariatePolynomial| F)
-         (|bpol| |SparseUnivariatePolynomial| F)
-         (|er| |Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-          (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-          (|:| |alg_part| (|SparseUnivariatePolynomial| F)) (|:| |u_part| F)
-          (|:| |exponent| (|Integer|)) (|:| |shift_part| F))
-         ($ |Record| (|:| |primpart| F)
-          (|:| |logpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |polypart| (|SparseUnivariatePolynomial| F))
-          (|:| |specpart| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+        ((|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|nfp| (|SparseUnivariatePolynomial| F))
+         (|denfp| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|x| (|Symbol|)) (|einum| (|SparseUnivariatePolynomial| F))
+         (|bpol| (|SparseUnivariatePolynomial| F))
+         (|er|
+          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                    (|:| |shift_part| F)))
+         ($
+          (|Record| (|:| |primpart| F)
+                    (|:| |logpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |polypart| (|SparseUnivariatePolynomial| F))
+                    (|:| |specpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F))))))
         (SPROG
          ((|poly_cor| (|SparseUnivariatePolynomial| F))
           (|poly_cor_rf| (|Fraction| (|SparseUnivariatePolynomial| F)))
@@ -5691,8 +5756,8 @@
                                            |sp_cor|))))))))))))))))) 
 
 (SDEFUN |RDEEFX;p_power_in_q|
-        ((|q| |SparseUnivariatePolynomial| F)
-         (|p| |SparseUnivariatePolynomial| F) ($ |Integer|))
+        ((|q| (|SparseUnivariatePolynomial| F))
+         (|p| (|SparseUnivariatePolynomial| F)) ($ (|Integer|)))
         (SPROG
          ((|nn| (|Integer|)) (#1=#:G1088 NIL)
           (|nqu| (|Union| (|SparseUnivariatePolynomial| F) "failed")))
@@ -5713,21 +5778,26 @@
               (EXIT |nn|)))) 
 
 (SDEFUN |RDEEFX;solve_linear_factor|
-        ((|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|nfp| |SparseUnivariatePolynomial| F)
-         (|denfp| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|x| |Symbol|) (|einum| |SparseUnivariatePolynomial| F)
-         (|er| |Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-          (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-          (|:| |alg_part| (|SparseUnivariatePolynomial| F)) (|:| |u_part| F)
-          (|:| |exponent| (|Integer|)) (|:| |shift_part| F)
-          (|:| |has_part2?| (|Boolean|)) (|:| |ratpart2| (|Integer|))
-          (|:| |v_part2| F) (|:| |u_part2| F) (|:| |shift_part2| F))
-         ($ |Record| (|:| |primpart| F)
-          (|:| |logpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |polypart| (|SparseUnivariatePolynomial| F))
-          (|:| |specpart| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+        ((|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|nfp| (|SparseUnivariatePolynomial| F))
+         (|denfp| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|x| (|Symbol|)) (|einum| (|SparseUnivariatePolynomial| F))
+         (|er|
+          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                    (|:| |shift_part| F) (|:| |has_part2?| (|Boolean|))
+                    (|:| |ratpart2| (|Integer|)) (|:| |v_part2| F)
+                    (|:| |u_part2| F) (|:| |shift_part2| F)))
+         ($
+          (|Record| (|:| |primpart| F)
+                    (|:| |logpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |polypart| (|SparseUnivariatePolynomial| F))
+                    (|:| |specpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F))))))
         (SPROG
          ((|dvr2|
            #1=(|Record| (|:| |quotient| (|SparseUnivariatePolynomial| F))
@@ -6036,15 +6106,18 @@
                                    (|spadConstant| $ 197)))))))))))))) 
 
 (SDEFUN |RDEEFX;linear_log_case|
-        ((|num| |SparseUnivariatePolynomial| F)
-         (|den| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|nfp| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|vlst| |List| F) (|ulst| |List| F) (|x| |Symbol|)
-         ($ |Record| (|:| |primpart| F)
-          (|:| |logpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |polypart| (|SparseUnivariatePolynomial| F))
-          (|:| |specpart| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+        ((|num| (|SparseUnivariatePolynomial| F))
+         (|den| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|nfp| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |primpart| F)
+                    (|:| |logpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |polypart| (|SparseUnivariatePolynomial| F))
+                    (|:| |specpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F))))))
         (SPROG
          ((|poly_cor| (|SparseUnivariatePolynomial| F))
           (|sp_cor| #1=(|Fraction| (|SparseUnivariatePolynomial| F)))
@@ -6130,25 +6203,29 @@
               (EXIT (VECTOR |ansp| |lp_cor| |poly_cor| |sp_cor|))))))))) 
 
 (SDEFUN |RDEEFX;handle_nonlinear_log|
-        ((|num| |SparseUnivariatePolynomial| F)
-         (|den| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|nfp| |SparseUnivariatePolynomial| F)
-         (|denfp| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|x| |Symbol|) (|vlst| |List| F) (|ulst| |List| F)
-         (|lei| |List|
-          (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F)))
-         (|dbasis| |Vector| (|SparseUnivariatePolynomial| F))
-         (|dtrans| |Matrix| (|Integer|))
-         ($ |Record| (|:| |primpart| F)
-          (|:| |logpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |polypart| (|SparseUnivariatePolynomial| F))
-          (|:| |specpart| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+        ((|num| (|SparseUnivariatePolynomial| F))
+         (|den| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|nfp| (|SparseUnivariatePolynomial| F))
+         (|denfp| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|x| (|Symbol|)) (|vlst| (|List| F)) (|ulst| (|List| F))
+         (|lei|
+          (|List|
+           (|Record| (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F))))
+         (|dbasis| (|Vector| (|SparseUnivariatePolynomial| F)))
+         (|dtrans| (|Matrix| (|Integer|)))
+         ($
+          (|Record| (|:| |primpart| F)
+                    (|:| |logpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |polypart| (|SparseUnivariatePolynomial| F))
+                    (|:| |specpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F))))))
         (SPROG
          ((|ar1|
            (|Record| (|:| |primpart| F)
@@ -6247,9 +6324,8 @@
                 (EXIT
                  (SEQ
                   (LETT |einums| (|RDEEFX;decompose1| |num| |den| |bpols| $))
-                  (SEQ (LETT |er| NIL) (LETT #8# |lei1|) (LETT |bpol| NIL)
-                       (LETT #7# |bpols|) (LETT |einum| NIL)
-                       (LETT #6# |einums|) G190
+                  (SEQ (LETT |er| NIL) (LETT #8# |lei1|) (LETT #7# |bpols|)
+                       (LETT |einum| NIL) (LETT #6# |einums|) G190
                        (COND
                         ((OR (ATOM #6#) (PROGN (LETT |einum| (CAR #6#)) NIL)
                              (ATOM #7#) (PROGN (LETT |bpol| (CAR #7#)) NIL)
@@ -6353,17 +6429,20 @@
                           (EXIT |ar1|)))))))))))) 
 
 (SDEFUN |RDEEFX;handle_logpart|
-        ((|num| |SparseUnivariatePolynomial| F)
-         (|den| |SparseUnivariatePolynomial| F)
-         (|nf| |SparseUnivariatePolynomial| F)
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|nfp| |SparseUnivariatePolynomial| F)
-         (|denfp| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|vlst| |List| F) (|ulst| |List| F) (|x| |Symbol|)
-         ($ |Record| (|:| |primpart| F)
-          (|:| |logpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |polypart| (|SparseUnivariatePolynomial| F))
-          (|:| |specpart| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+        ((|num| (|SparseUnivariatePolynomial| F))
+         (|den| (|SparseUnivariatePolynomial| F))
+         (|nf| (|SparseUnivariatePolynomial| F))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|nfp| (|SparseUnivariatePolynomial| F))
+         (|denfp| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|vlst| (|List| F)) (|ulst| (|List| F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |primpart| F)
+                    (|:| |logpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |polypart| (|SparseUnivariatePolynomial| F))
+                    (|:| |specpart|
+                         (|Fraction| (|SparseUnivariatePolynomial| F))))))
         (SPROG
          ((|poly_cor| (|SparseUnivariatePolynomial| F))
           (|sp_cor| #1=(|Fraction| (|SparseUnivariatePolynomial| F)))
@@ -6614,9 +6693,10 @@
                   (EXIT (VECTOR |ansp| |lp_cor| |poly_cor| |sp_cor|))))))))))))) 
 
 (SDEFUN |RDEEFX;gamma_denominator|
-        ((|denf| . #1=(|SparseUnivariatePolynomial| F)) (|k| |Kernel| F)
-         ($ |Record| (|:| |radicand| (|SparseUnivariatePolynomial| F))
-          (|:| |exponent| (|Integer|))))
+        ((|denf| #1=(|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         ($
+          (|Record| (|:| |radicand| (|SparseUnivariatePolynomial| F))
+                    (|:| |exponent| (|Integer|)))))
         (SPROG
          ((|gden1| (|SparseUnivariatePolynomial| F)) (#2=#:G1228 NIL)
           (#3=#:G1224 NIL) (#4=#:G1236 NIL) (|fac1| NIL) (#5=#:G1235 NIL)
@@ -6741,15 +6821,17 @@
                                (EXIT (CONS |gden1| |l1|))))))))))))) 
 
 (SDEFUN |RDEEFX;special_Hermite|
-        ((|r| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|nfp| |SparseUnivariatePolynomial| F)
-         (|ndenf| |SparseUnivariatePolynomial| F)
-         (|denfp| |SparseUnivariatePolynomial| F)
-         (|deriv| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |Record|
-          (|:| |answer| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |specpart| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+        ((|r| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|nfp| (|SparseUnivariatePolynomial| F))
+         (|ndenf| (|SparseUnivariatePolynomial| F))
+         (|denfp| (|SparseUnivariatePolynomial| F))
+         (|deriv|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Record|
+           (|:| |answer| (|Fraction| (|SparseUnivariatePolynomial| F)))
+           (|:| |specpart| (|Fraction| (|SparseUnivariatePolynomial| F))))))
         (SPROG
          ((|mult| (|SparseUnivariatePolynomial| F))
           (|denr| #1=(|SparseUnivariatePolynomial| F)) (#2=#:G1243 NIL)
@@ -6882,10 +6964,11 @@
           #5# (EXIT #4#)))) 
 
 (SDEFUN |RDEEFX;ei_int_log|
-        ((|f| F) (|ng| |SparseUnivariatePolynomial| F) (|x| |Symbol|)
-         (|k| |Kernel| F)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|f| (F)) (|ng| (|SparseUnivariatePolynomial| F)) (|x| (|Symbol|))
+         (|k| (|Kernel| F))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|is_sol| (|Boolean|)) (|rh| (F)) (|r1| (F))
           (|res2|
@@ -6909,7 +6992,7 @@
           (LETT |lk|
                 (PROGN
                  (LETT #2# NIL)
-                 (SEQ (LETT |k1| NIL) (LETT #1# |lk|) G190
+                 (SEQ (LETT #1# |lk|) G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT |k1| (CAR #1#)) NIL))
                         (GO G191)))
@@ -6973,10 +7056,11 @@
           (EXIT (VECTOR |r1| |rh| (QVELT |res2| 2) |is_sol|))))) 
 
 (SDEFUN |RDEEFX;ei_int_exp|
-        ((|f| F) (|ng| |SparseUnivariatePolynomial| F)
-         (|degs| |NonNegativeInteger|) (|x| |Symbol|) (|k| |Kernel| F)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|f| (F)) (|ng| (|SparseUnivariatePolynomial| F))
+         (|degs| (|NonNegativeInteger|)) (|x| (|Symbol|)) (|k| (|Kernel| F))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|is_sol| (|Boolean|)) (|rh| (F)) (|ansp| (F)) (|r1| (F)) (|kfm| (F))
           (|res1|
@@ -7030,19 +7114,23 @@
           (EXIT (VECTOR |r1| |rh| |ansp| |is_sol|))))) 
 
 (SDEFUN |RDEEFX;get_scoeff|
-        ((|scand| |Record| (|:| |degree| (|Integer|))
-          (|:| |factor| (|SparseUnivariatePolynomial| F)) (|:| |coeff| F)
-          (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-          (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-          (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |radicand| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |u_part| F) (|:| |exponent| (|Integer|)) (|:| |shift_part| F)
-          (|:| |a_val| F))
-         (|denf| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|der| |Mapping| #1=(|Fraction| (|SparseUnivariatePolynomial| F))
-          (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|res| |List| (|Fraction| (|SparseUnivariatePolynomial| F)))
-         ($ |List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+        ((|scand|
+          (|Record| (|:| |degree| (|Integer|))
+                    (|:| |factor| (|SparseUnivariatePolynomial| F))
+                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                    (|:| |v_part| F)
+                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |radicand|
+                         (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                    (|:| |shift_part| F) (|:| |a_val| F)))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|der|
+          (|Mapping| #1=(|Fraction| (|SparseUnivariatePolynomial| F))
+                     (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|res| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+         ($ (|List| (|Fraction| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|gt| #2=(|Fraction| (|SparseUnivariatePolynomial| F)))
           (|gt1| (|Fraction| (|SparseUnivariatePolynomial| F)))
@@ -7144,21 +7232,24 @@
                 ('T (|error| "unimplemented"))))))) 
 
 (SDEFUN |RDEEFX;get_scoeffs|
-        ((|scands| |List|
-          (|Record| (|:| |degree| (|Integer|))
-                    (|:| |factor| (|SparseUnivariatePolynomial| F))
-                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
-                    (|:| |v_part| F)
-                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |radicand|
-                         (|Fraction| (|SparseUnivariatePolynomial| F)))
-                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
-                    (|:| |shift_part| F) (|:| |a_val| F)))
-         (|denf| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         (|der| |Mapping| (|Fraction| (|SparseUnivariatePolynomial| F))
-          (|Fraction| (|SparseUnivariatePolynomial| F)))
-         ($ |List| (|Fraction| (|SparseUnivariatePolynomial| F))))
+        ((|scands|
+          (|List|
+           (|Record| (|:| |degree| (|Integer|))
+                     (|:| |factor| (|SparseUnivariatePolynomial| F))
+                     (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                     (|:| |v_part| F)
+                     (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                     (|:| |new_f|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |radicand|
+                          (|Fraction| (|SparseUnivariatePolynomial| F)))
+                     (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                     (|:| |shift_part| F) (|:| |a_val| F))))
+         (|denf| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         (|der|
+          (|Mapping| (|Fraction| (|SparseUnivariatePolynomial| F))
+                     (|Fraction| (|SparseUnivariatePolynomial| F))))
+         ($ (|List| (|Fraction| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|res| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
           (#1=#:G1283 NIL) (|scand| NIL))
@@ -7175,7 +7266,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (NREVERSE |res|))))) 
 
-(SDEFUN |RDEEFX;mk_erf1| ((|uc| F) (|ff| F) ($ F))
+(SDEFUN |RDEEFX;mk_erf1| ((|uc| (F)) (|ff| (F)) ($ (F)))
         (SPROG ((|uc1| (F)))
                (SEQ (LETT |uc1| (SPADCALL |uc| (QREFELT $ 346)))
                     (EXIT
@@ -7187,7 +7278,7 @@
                        (QREFELT $ 65))
                       |uc1| (QREFELT $ 67)))))) 
 
-(SDEFUN |RDEEFX;is_imaginary?| ((|c| F) ($ |Boolean|))
+(SDEFUN |RDEEFX;is_imaginary?| ((|c| (F)) ($ (|Boolean|)))
         (SPROG
          ((|dl| (|List| (|Complex| (|Integer|))))
           (|nl| (|List| (|Complex| (|Integer|))))
@@ -7213,7 +7304,7 @@
         (SPADCALL (SPADCALL |c1| (QREFELT $ 352)) (|spadConstant| $ 353)
                   (QREFELT $ 354))) 
 
-(SDEFUN |RDEEFX;mk_erf;3F;54| ((|uc| F) (|ff| F) ($ F))
+(SDEFUN |RDEEFX;mk_erf;3F;54| ((|uc| (F)) (|ff| (F)) ($ (F)))
         (SPROG ((|uc2| (F)) (|uc1| (F)) (|s| (F)) (|im| (F)))
                (SEQ
                 (COND
@@ -7257,21 +7348,24 @@
                                (QREFELT $ 65))
                      |uc2| (QREFELT $ 67))))))))) 
 
-(SDEFUN |RDEEFX;mk_erf;3F;55| ((|uc| F) (|ff| F) ($ F))
+(SDEFUN |RDEEFX;mk_erf;3F;55| ((|uc| (F)) (|ff| (F)) ($ (F)))
         (|RDEEFX;mk_erf1| |uc| |ff| $)) 
 
 (SDEFUN |RDEEFX;get_prims|
-        ((|scand| |Record| (|:| |degree| (|Integer|))
-          (|:| |factor| (|SparseUnivariatePolynomial| F)) (|:| |coeff| F)
-          (|:| |ratpart| (|Integer|)) (|:| |v_part| F)
-          (|:| |alg_part| (|SparseUnivariatePolynomial| F))
-          (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |radicand| (|Fraction| (|SparseUnivariatePolynomial| F)))
-          (|:| |u_part| F) (|:| |exponent| (|Integer|)) (|:| |shift_part| F)
-          (|:| |a_val| F))
-         (|denf| |SparseUnivariatePolynomial| F)
-         (|denf1| |SparseUnivariatePolynomial| F) (|gexp| |Integer|)
-         (|k| |Kernel| F) ($ |List| F))
+        ((|scand|
+          (|Record| (|:| |degree| (|Integer|))
+                    (|:| |factor| (|SparseUnivariatePolynomial| F))
+                    (|:| |coeff| F) (|:| |ratpart| (|Integer|))
+                    (|:| |v_part| F)
+                    (|:| |alg_part| (|SparseUnivariatePolynomial| F))
+                    (|:| |new_f| (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |radicand|
+                         (|Fraction| (|SparseUnivariatePolynomial| F)))
+                    (|:| |u_part| F) (|:| |exponent| (|Integer|))
+                    (|:| |shift_part| F) (|:| |a_val| F)))
+         (|denf| (|SparseUnivariatePolynomial| F))
+         (|denf1| (|SparseUnivariatePolynomial| F)) (|gexp| (|Integer|))
+         (|k| (|Kernel| F)) ($ (|List| F)))
         (SPROG
          ((|res| (|List| F)) (|f1| (F)) (#1=#:G1354 NIL) (|zz| NIL) (|f11| (F))
           (|ff| (F)) (|c1s| (F)) (|j1| (F)) (#2=#:G1353 NIL) (|j| NIL)
@@ -7418,10 +7512,12 @@
                 (#5# (|error| "unimplemented"))))))) 
 
 (SDEFUN |RDEEFX;ei_int_diff|
-        ((|f| F) (|g| F) (|gu| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|x| |Symbol|) (|k| |Kernel| F) (|lk| |List| (|Kernel| F))
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|f| (F)) (|g| (F))
+         (|gu| (|Fraction| (|SparseUnivariatePolynomial| F))) (|x| (|Symbol|))
+         (|k| (|Kernel| F)) (|lk| (|List| (|Kernel| F)))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|nres2|
            #1=(|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
@@ -7529,9 +7625,10 @@
                                 (QVELT |nres2| 3)))))))))))))))))) 
 
 (SDEFUN |RDEEFX;ei_int;I2FSR;58|
-        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+        ((|n| (|Integer|)) (|f| (F)) (|g| (F)) (|x| (|Symbol|))
+         ($
+          (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+                    (|:| |sol?| (|Boolean|)))))
         (SPROG
          ((|res3|
            (|Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)

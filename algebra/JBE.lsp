@@ -1,21 +1,22 @@
 
-(SDEFUN |JBE;coerce;JB$;1| ((|jv| JB) ($ $)) (SPADCALL |jv| (QREFELT $ 8))) 
+(SDEFUN |JBE;coerce;JB$;1| ((|jv| (JB)) ($ ($))) (SPADCALL |jv| (QREFELT $ 8))) 
 
 (PUT '|JBE;coerce;E$;2| '|SPADreplace| '(XLAM (|exp|) |exp|)) 
 
-(SDEFUN |JBE;coerce;E$;2| ((|exp| |Expression| (|Integer|)) ($ $)) |exp|) 
+(SDEFUN |JBE;coerce;E$;2| ((|exp| (|Expression| (|Integer|))) ($ ($))) |exp|) 
 
 (PUT '|JBE;coerce;$E;3| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
-(SDEFUN |JBE;coerce;$E;3| ((|f| $) ($ |Expression| (|Integer|))) |f|) 
+(SDEFUN |JBE;coerce;$E;3| ((|f| ($)) ($ (|Expression| (|Integer|)))) |f|) 
 
 (SDEFUN |JBE;coerce;Smp$;4|
-        ((|p| |SparseMultivariatePolynomial| (|Integer|) (|Kernel| $)) ($ $))
+        ((|p| (|SparseMultivariatePolynomial| (|Integer|) (|Kernel| $)))
+         ($ ($)))
         (SPADCALL |p| (|spadConstant| $ 13) (QREFELT $ 15))) 
 
 (SDEFUN |JBE;numerJP;$Smp;5|
-        ((|f| $)
-         ($ |SparseMultivariatePolynomial| (|Expression| (|Integer|)) JB))
+        ((|f| ($))
+         ($ (|SparseMultivariatePolynomial| (|Expression| (|Integer|)) JB)))
         (SPROG
          ((|res|
            (|SparseMultivariatePolynomial| (|Expression| (|Integer|)) JB))
@@ -78,8 +79,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |JBE;coerce;Smp$;6|
-        ((|p| |SparseMultivariatePolynomial| (|Expression| (|Integer|)) JB)
-         ($ $))
+        ((|p| (|SparseMultivariatePolynomial| (|Expression| (|Integer|)) JB))
+         ($ ($)))
         (SPROG
          ((|res| ($)) (|prod| ($)) (#1=#:G171 NIL) (|v| NIL) (#2=#:G169 NIL)
           (|mon| NIL) (#3=#:G170 NIL) (|co| NIL)
@@ -119,13 +120,13 @@
                    G191 (EXIT NIL))
               (EXIT |res|)))) 
 
-(SDEFUN |JBE;gcd;3$;7| ((|f1| $) (|f2| $) ($ $))
+(SDEFUN |JBE;gcd;3$;7| ((|f1| ($)) (|f2| ($)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL |f1| (QREFELT $ 19))
                    (SPADCALL |f2| (QREFELT $ 19)) (QREFELT $ 55))
          (QREFELT $ 16))) 
 
-(SDEFUN |JBE;exquo;2$U;8| ((|f1| $) (|f2| $) ($ |Union| $ "failed"))
+(SDEFUN |JBE;exquo;2$U;8| ((|f1| ($)) (|f2| ($)) ($ (|Union| $ "failed")))
         (SPROG
          ((|p|
            (|Union| (|SparseMultivariatePolynomial| (|Integer|) (|Kernel| $))
@@ -138,12 +139,12 @@
            (COND ((QEQCAR |p| 1) (CONS 1 "failed"))
                  ('T (CONS 0 (SPADCALL (QCDR |p|) (QREFELT $ 16))))))))) 
 
-(SDEFUN |JBE;recip;$U;9| ((|f| $) ($ |Union| $ "failed"))
+(SDEFUN |JBE;recip;$U;9| ((|f| ($)) ($ (|Union| $ "failed")))
         (CONS 0 (SPADCALL (|spadConstant| $ 36) |f| (QREFELT $ 60)))) 
 
 (SDEFUN |JBE;purge|
-        ((|l| |List| (|Kernel| $)) (|q| |NonNegativeInteger|)
-         ($ |List| (|Kernel| $)))
+        ((|l| (|List| (|Kernel| $))) (|q| (|NonNegativeInteger|))
+         ($ (|List| (|Kernel| $))))
         (SPROG ((#1=#:G188 NIL) (|k| NIL) (#2=#:G187 NIL))
                (SEQ
                 (PROGN
@@ -164,10 +165,10 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |JBE;dimrec|
-        ((|lmv| |List| (|List| (|Kernel| $))) (|indVars| |List| (|Kernel| $))
-         (|remVars| . #1=(|List| (|Kernel| $)))
-         (|sets| . #2=(|List| (|List| (|Kernel| $))))
-         ($ |List| (|List| (|Kernel| $))))
+        ((|lmv| (|List| (|List| (|Kernel| $))))
+         (|indVars| (|List| (|Kernel| $))) (|remVars| #1=(|List| (|Kernel| $)))
+         (|sets| #2=(|List| (|List| (|Kernel| $))))
+         ($ (|List| (|List| (|Kernel| $)))))
         (SPROG
          ((|res| #2#) (|elem| (|Boolean|)) (#3=#:G205 NIL) (|ik| NIL)
           (#4=#:G204 NIL) (#5=#:G202 NIL) (|m| NIL) (#6=#:G203 NIL)
@@ -234,8 +235,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |JBE;dimension;LSem2Nni;12|
-        ((|sys| |List| $) (|jm| |SparseEchelonMatrix| JB $)
-         (|q| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|sys| (|List| $)) (|jm| (|SparseEchelonMatrix| JB $))
+         (|q| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|dim| (|NonNegativeInteger|)) (#1=#:G216 NIL) (|ind| NIL)
           (|indSets| (|List| (|List| (|Kernel| $))))
@@ -293,8 +294,8 @@
               (EXIT (+ |dim0| |dim|))))) 
 
 (SDEFUN |JBE;orderDim;LSem2Nni;13|
-        ((|sys| |List| $) (|jm| |SparseEchelonMatrix| JB $)
-         (|q| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|sys| (|List| $)) (|jm| (|SparseEchelonMatrix| JB $))
+         (|q| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|dim| (|NonNegativeInteger|)) (#1=#:G227 NIL) (|ind| NIL)
           (|indSets| (|List| (|List| (|Kernel| $))))
@@ -354,8 +355,8 @@
               (EXIT (+ |dim0| |dim|))))) 
 
 (SDEFUN |JBE;simpSMP|
-        ((|p| |SparseMultivariatePolynomial| (|Integer|) (|Kernel| $))
-         ($ |SparseMultivariatePolynomial| (|Integer|) (|Kernel| $)))
+        ((|p| (|SparseMultivariatePolynomial| (|Integer|) (|Kernel| $)))
+         ($ (|SparseMultivariatePolynomial| (|Integer|) (|Kernel| $))))
         (SPROG
          ((|up|
            (|SparseUnivariatePolynomial|
@@ -410,24 +411,26 @@
                                                       (QREFELT $ 103)))))
                                          (#1# |p|))))))))))))))))) 
 
-(SDEFUN |JBE;simpOne;2$;15| ((|f| $) ($ $))
+(SDEFUN |JBE;simpOne;2$;15| ((|f| ($)) ($ ($)))
         (COND ((SPADCALL |f| (QREFELT $ 104)) (|spadConstant| $ 45))
               ('T
                (SPADCALL (|JBE;simpSMP| (SPADCALL |f| (QREFELT $ 19)) $)
                          (QREFELT $ 16))))) 
 
 (SDEFUN |JBE;greaterLD|
-        ((|r1| |Record| (|:| |Fun| $)
-          (|:| JMR
-               (|Record| (|:| |Indices| (|List| JB))
-                         (|:| |Entries| (|List| $))))
-          (|:| |Depend| (|List| (|NonNegativeInteger|))))
-         (|r2| |Record| (|:| |Fun| $)
-          (|:| JMR
-               (|Record| (|:| |Indices| #1=(|List| JB))
-                         (|:| |Entries| (|List| $))))
-          (|:| |Depend| (|List| (|NonNegativeInteger|))))
-         ($ |Boolean|))
+        ((|r1|
+          (|Record| (|:| |Fun| $)
+                    (|:| JMR
+                         (|Record| (|:| |Indices| (|List| JB))
+                                   (|:| |Entries| (|List| $))))
+                    (|:| |Depend| (|List| (|NonNegativeInteger|)))))
+         (|r2|
+          (|Record| (|:| |Fun| $)
+                    (|:| JMR
+                         (|Record| (|:| |Indices| #1=(|List| JB))
+                                   (|:| |Entries| (|List| $))))
+                    (|:| |Depend| (|List| (|NonNegativeInteger|)))))
+         ($ (|Boolean|)))
         (SPROG ((|ind2| #1#) (|ind1| #1#))
                (SEQ
                 (COND ((NULL (QCAR (QVELT |r1| 1))) NIL)
@@ -445,7 +448,7 @@
                                          (|SPADfirst| |ind2|)
                                          (QREFELT $ 107))))))))))) 
 
-(SDEFUN |JBE;groebner| ((|sys| |List| $) ($ |List| $))
+(SDEFUN |JBE;groebner| ((|sys| (|List| $)) ($ (|List| $)))
         (SPROG
          ((|gbase|
            (|List| (|SparseMultivariatePolynomial| (|Integer|) (|Kernel| $))))
@@ -460,19 +463,21 @@
               (EXIT (SPADCALL (ELT $ 16) |gbase| (QREFELT $ 119)))))) 
 
 (SDEFUN |JBE;groebnerSimp|
-        ((|sysL| |List|
-          (|Record| (|:| |Fun| $)
-                    (|:| JMR
-                         (|Record| (|:| |Indices| (|List| JB))
-                                   (|:| |Entries| (|List| $))))
-                    (|:| |Depend| (|List| (|NonNegativeInteger|)))))
-         (|ind| |List| JB)
-         ($ |List|
-          (|Record| (|:| |Fun| $)
-                    (|:| JMR
-                         (|Record| (|:| |Indices| (|List| JB))
-                                   (|:| |Entries| (|List| $))))
-                    (|:| |Depend| (|List| (|NonNegativeInteger|))))))
+        ((|sysL|
+          (|List|
+           (|Record| (|:| |Fun| $)
+                     (|:| JMR
+                          (|Record| (|:| |Indices| (|List| JB))
+                                    (|:| |Entries| (|List| $))))
+                     (|:| |Depend| (|List| (|NonNegativeInteger|))))))
+         (|ind| (|List| JB))
+         ($
+          (|List|
+           (|Record| (|:| |Fun| $)
+                     (|:| JMR
+                          (|Record| (|:| |Indices| (|List| JB))
+                                    (|:| |Entries| (|List| $))))
+                     (|:| |Depend| (|List| (|NonNegativeInteger|)))))))
         (SPROG
          ((#1=#:G269 NIL) (|fun| NIL) (|i| NIL) (#2=#:G268 NIL)
           (|resJM| (|SparseEchelonMatrix| JB $)) (#3=#:G267 NIL) (|eq| NIL)
@@ -542,19 +547,21 @@
                  (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |JBE;linearSimp|
-        ((|sysL| |List|
-          (|Record| (|:| |Fun| $)
-                    (|:| JMR
-                         (|Record| (|:| |Indices| (|List| JB))
-                                   (|:| |Entries| (|List| $))))
-                    (|:| |Depend| (|List| (|NonNegativeInteger|)))))
-         (|ind| |List| JB)
-         ($ |List|
-          (|Record| (|:| |Fun| $)
-                    (|:| JMR
-                         (|Record| (|:| |Indices| (|List| JB))
-                                   (|:| |Entries| (|List| $))))
-                    (|:| |Depend| (|List| (|NonNegativeInteger|))))))
+        ((|sysL|
+          (|List|
+           (|Record| (|:| |Fun| $)
+                     (|:| JMR
+                          (|Record| (|:| |Indices| (|List| JB))
+                                    (|:| |Entries| (|List| $))))
+                     (|:| |Depend| (|List| (|NonNegativeInteger|))))))
+         (|ind| (|List| JB))
+         ($
+          (|List|
+           (|Record| (|:| |Fun| $)
+                     (|:| JMR
+                          (|Record| (|:| |Indices| (|List| JB))
+                                    (|:| |Entries| (|List| $))))
+                     (|:| |Depend| (|List| (|NonNegativeInteger|)))))))
         (SPROG
          ((|res|
            (|List|
@@ -567,13 +574,7 @@
           (|newJMR|
            (|Record| (|:| |Indices| (|List| JB)) (|:| |Entries| (|List| $))))
           (|newFun| ($)) (#1=#:G291 NIL)
-          (|rec|
-           #2=(|Record| (|:| |Fun| $)
-                        (|:| JMR
-                             (|Record| (|:| |Indices| (|List| JB))
-                                       (|:| |Entries| (|List| $))))
-                        (|:| |Depend| (|List| (|NonNegativeInteger|)))))
-          (|sdep| (|List| (|NonNegativeInteger|))) (|ssub| ($)) (#3=#:G274 NIL)
+          (|sdep| (|List| (|NonNegativeInteger|))) (|ssub| ($)) (#2=#:G274 NIL)
           (|rsysL|
            (|List|
             (|Record| (|:| |Fun| $)
@@ -581,8 +582,15 @@
                            (|Record| (|:| |Indices| (|List| JB))
                                      (|:| |Entries| (|List| $))))
                       (|:| |Depend| (|List| (|NonNegativeInteger|))))))
-          (|sld| (JB)) (|srec| #2#) (|solved?| (|Boolean|))
-          (|s| (|Union| $ #4="failed")) (|ld| (JB)))
+          (|sld| (JB))
+          (|srec|
+           #3=(|Record| (|:| |Fun| $)
+                        (|:| JMR
+                             (|Record| (|:| |Indices| (|List| JB))
+                                       (|:| |Entries| (|List| $))))
+                        (|:| |Depend| (|List| (|NonNegativeInteger|)))))
+          (|solved?| (|Boolean|)) (|s| (|Union| $ #4="failed")) (|ld| (JB))
+          (|rec| #3#))
          (SEQ (LETT |solved?| NIL) (LETT |rsysL| NIL)
               (SEQ G190
                    (COND
@@ -609,12 +617,12 @@
                 (|solved?|
                  (SEQ
                   (LETT |ssub|
-                        (PROG2 (LETT #3# |s|)
-                            (QCDR #3#)
-                          (|check_union2| (QEQCAR #3# 0) $ (|Union| $ #4#)
-                                          #3#)))
+                        (PROG2 (LETT #2# |s|)
+                            (QCDR #2#)
+                          (|check_union2| (QEQCAR #2# 0) $ (|Union| $ #4#)
+                                          #2#)))
                   (LETT |res| (LIST |srec|)) (LETT |sdep| (QVELT |srec| 2))
-                  (SEQ (LETT |rec| NIL) (LETT #1# |rsysL|) G190
+                  (SEQ (LETT #1# |rsysL|) G190
                        (COND
                         ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#)) NIL))
                          (GO G191)))
@@ -648,19 +656,21 @@
                 ('T (|JBE;groebnerSimp| |rsysL| |ind| $))))))) 
 
 (SDEFUN |JBE;simpRec|
-        ((|sysL| |List|
-          (|Record| (|:| |Fun| $)
-                    (|:| JMR
-                         (|Record| (|:| |Indices| (|List| JB))
-                                   (|:| |Entries| (|List| $))))
-                    (|:| |Depend| (|List| (|NonNegativeInteger|)))))
-         (|ind| |List| JB)
-         ($ |List|
-          (|Record| (|:| |Fun| $)
-                    (|:| JMR
-                         (|Record| (|:| |Indices| (|List| JB))
-                                   (|:| |Entries| (|List| $))))
-                    (|:| |Depend| (|List| (|NonNegativeInteger|))))))
+        ((|sysL|
+          (|List|
+           (|Record| (|:| |Fun| $)
+                     (|:| JMR
+                          (|Record| (|:| |Indices| (|List| JB))
+                                    (|:| |Entries| (|List| $))))
+                     (|:| |Depend| (|List| (|NonNegativeInteger|))))))
+         (|ind| (|List| JB))
+         ($
+          (|List|
+           (|Record| (|:| |Fun| $)
+                     (|:| JMR
+                          (|Record| (|:| |Indices| (|List| JB))
+                                    (|:| |Entries| (|List| $))))
+                     (|:| |Depend| (|List| (|NonNegativeInteger|)))))))
         (SPROG
          ((|newSysL|
            (|List|
@@ -770,11 +780,13 @@
                                          (QREFELT $ 135))))))))))))) 
 
 (SDEFUN |JBE;simplify;LSemR;21|
-        ((|sys| |List| $) (|jm| |SparseEchelonMatrix| JB $)
-         ($ |Record| (|:| |Sys| (|List| $))
-          (|:| JM (|SparseEchelonMatrix| JB $))
-          (|:| |Depend|
-               (|Union| "failed" (|List| (|List| (|NonNegativeInteger|)))))))
+        ((|sys| (|List| $)) (|jm| (|SparseEchelonMatrix| JB $))
+         ($
+          (|Record| (|:| |Sys| (|List| $))
+                    (|:| JM (|SparseEchelonMatrix| JB $))
+                    (|:| |Depend|
+                         (|Union| "failed"
+                                  (|List| (|List| (|NonNegativeInteger|))))))))
         (SPROG
          ((|resDep| (|List| (|List| (|NonNegativeInteger|))))
           (|resSys| (|List| $)) (#1=#:G347 NIL) (|rec| NIL) (|i| NIL)
@@ -869,7 +881,7 @@
                    (VECTOR (SPADCALL |resSys| (QREFELT $ 153)) |resJM|
                            (CONS 1 (NREVERSE |resDep|))))))))))) 
 
-(SDEFUN |JBE;jetVariables;$L;22| ((|Phi| $) ($ |List| JB))
+(SDEFUN |JBE;jetVariables;$L;22| ((|Phi| ($)) ($ (|List| JB)))
         (SPROG
          ((JV (|List| JB)) (#1=#:G362 NIL)
           (|pmindex| (|List| (|NonNegativeInteger|))) (#2=#:G359 NIL)
@@ -1010,15 +1022,15 @@
                (SPADCALL (ELT $ 107) (SPADCALL JV (QREFELT $ 170))
                          (QREFELT $ 172)))))) 
 
-(SDEFUN |JBE;differentiate;$JB$;23| ((|fun| $) (|jv| JB) ($ $))
+(SDEFUN |JBE;differentiate;$JB$;23| ((|fun| ($)) (|jv| (JB)) ($ ($)))
         (SPROG ((|x| (|Symbol|)))
                (SEQ (LETT |x| (SPADCALL |jv| (QREFELT $ 174)))
                     (EXIT (SPADCALL |fun| |x| (QREFELT $ 175)))))) 
 
-(SDEFUN |JBE;differentiate;$S$;24| ((|fun| $) (|x| |Symbol|) ($ $))
+(SDEFUN |JBE;differentiate;$S$;24| ((|fun| ($)) (|x| (|Symbol|)) ($ ($)))
         (SPADCALL (SPADCALL |fun| (QREFELT $ 11)) |x| (QREFELT $ 177))) 
 
-(SDEFUN |JBE;subst;$JB2$;25| ((|f| $) (|jv| JB) (|exp| $) ($ $))
+(SDEFUN |JBE;subst;$JB2$;25| ((|f| ($)) (|jv| (JB)) (|exp| ($)) ($ ($)))
         (SPROG ((|res| ($)))
                (SEQ
                 (LETT |res|
@@ -1028,7 +1040,7 @@
                                 (QREFELT $ 182)))
                 (EXIT |res|)))) 
 
-(SDEFUN |JBE;solveFor;$JBU;26| ((|f| $) (|jv| JB) ($ |Union| $ "failed"))
+(SDEFUN |JBE;solveFor;$JBU;26| ((|f| ($)) (|jv| (JB)) ($ (|Union| $ "failed")))
         (SPROG
          ((|vquo| #1=(|List| (|Kernel| $))) (|vrem| #1#)
           (|md|
@@ -1061,12 +1073,12 @@
                         (SPADCALL (QCDR |md|) (QCAR |md|) (QREFELT $ 15))
                         (QREFELT $ 188))))))))) 
 
-(SDEFUN |JBE;kernel0| ((|op| |BasicOperator|) (|ls| |List| $) ($ $))
+(SDEFUN |JBE;kernel0| ((|op| (|BasicOperator|)) (|ls| (|List| $)) ($ ($)))
         (SPADCALL |op| |ls| (QREFELT $ 189))) 
 
-(SDEFUN |JBE;sy2jbe| ((|s| |Symbol|) ($ $)) (SPADCALL |s| (QREFELT $ 190))) 
+(SDEFUN |JBE;sy2jbe| ((|s| (|Symbol|)) ($ ($))) (SPADCALL |s| (QREFELT $ 190))) 
 
-(SDEFUN |JBE;hidedisp| ((|l| |List| $) ($ |OutputForm|))
+(SDEFUN |JBE;hidedisp| ((|l| (|List| $)) ($ (|OutputForm|)))
         (SPROG
          ((|op| (|OutputForm|)) (#1=#:G403 NIL) (|e| NIL) (#2=#:G402 NIL)
           (#3=#:G401 NIL) (|k| NIL) (|args| (|List| (|OutputForm|)))
@@ -1124,7 +1136,7 @@
            (COND ((NULL |args|) |op|)
                  (#6# (SPADCALL |op| |args| (QREFELT $ 200)))))))) 
 
-(SDEFUN |JBE;hidediff| ((|l| |List| $) (|x| |Symbol|) ($ $))
+(SDEFUN |JBE;hidediff| ((|l| (|List| $)) (|x| (|Symbol|)) ($ ($)))
         (SPROG
          ((|res| ($)) (|newarg| (|List| $)) (#1=#:G426 NIL) (|j| NIL)
           (#2=#:G425 NIL) (|da| ($)) (|k| NIL) (#3=#:G424 NIL) (|arg| NIL)
@@ -1250,7 +1262,8 @@
                            (EXIT |res|)))))))) 
 
 (SDEFUN |JBE;function;SLNni$;31|
-        ((|f| |Symbol|) (|arg| |List| $) (|show| |NonNegativeInteger|) ($ $))
+        ((|f| (|Symbol|)) (|arg| (|List| $)) (|show| (|NonNegativeInteger|))
+         ($ ($)))
         (SPROG ((|args| (|List| $)) (|op| (|BasicOperator|)))
                (SEQ (LETT |op| (SPADCALL |f| (QREFELT $ 203)))
                     (SPADCALL |op| '|%specialDisp|

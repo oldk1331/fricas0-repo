@@ -1,17 +1,17 @@
 
-(SDEFUN |JBP;jetVariables;$L;1| ((|p| $) ($ |List| JB))
+(SDEFUN |JBP;jetVariables;$L;1| ((|p| ($)) ($ (|List| JB)))
         (SPADCALL |p| (QREFELT $ 10))) 
 
-(SDEFUN |JBP;subst;$JB2$;2| ((|p| $) (|jv| JB) (|exp| $) ($ $))
+(SDEFUN |JBP;subst;$JB2$;2| ((|p| ($)) (|jv| (JB)) (|exp| ($)) ($ ($)))
         (SPADCALL |p| |jv| |exp| (QREFELT $ 12))) 
 
 (PUT '|JBP;numerator;2$;3| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(SDEFUN |JBP;numerator;2$;3| ((|l| $) ($ $)) |l|) 
+(SDEFUN |JBP;numerator;2$;3| ((|l| ($)) ($ ($))) |l|) 
 
-(SDEFUN |JBP;denominator;2$;4| ((|l| $) ($ $)) (|spadConstant| $ 15)) 
+(SDEFUN |JBP;denominator;2$;4| ((|l| ($)) ($ ($))) (|spadConstant| $ 15)) 
 
-(SDEFUN |JBP;solveFor;$JBU;5| ((|p| $) (|jv| JB) ($ |Union| $ "failed"))
+(SDEFUN |JBP;solveFor;$JBU;5| ((|p| ($)) (|jv| (JB)) ($ (|Union| $ "failed")))
         (SPROG ((|cc| (R)) (|c| ($)))
                (SEQ (LETT |c| (SPADCALL |p| |jv| (QREFELT $ 17)))
                     (EXIT
@@ -29,7 +29,7 @@
                                     (QREFELT $ 25))))))
                       ('T (CONS 1 "failed"))))))) 
 
-(SDEFUN |JBP;solveFor;$JBU;6| ((|p| $) (|jv| JB) ($ |Union| $ "failed"))
+(SDEFUN |JBP;solveFor;$JBU;6| ((|p| ($)) (|jv| (JB)) ($ (|Union| $ "failed")))
         (SPROG ((|rc| (|Union| R "failed")) (|cc| (R)) (|c| ($)))
                (SEQ (LETT |c| (SPADCALL |p| |jv| (QREFELT $ 17)))
                     (EXIT
@@ -48,7 +48,7 @@
                                            (QREFELT $ 25))))))))
                       (#1# (CONS 1 "failed"))))))) 
 
-(SDEFUN |JBP;groebner;2L;7| ((|lp| |List| $) ($ |List| $))
+(SDEFUN |JBP;groebner;2L;7| ((|lp| (|List| $)) ($ (|List| $)))
         (SPROG
          ((LJV (|List| JB)) (|lj| (|List| (|List| JB))) (#1=#:G149 NIL)
           (|p| NIL) (#2=#:G148 NIL))

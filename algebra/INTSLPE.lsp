@@ -1,9 +1,10 @@
 
 (SDEFUN |INTSLPE;solveLinearPolynomialEquation;LSupU;1|
-        ((|lp| |List| (|SparseUnivariatePolynomial| (|Integer|)))
-         (|p| |SparseUnivariatePolynomial| (|Integer|))
-         ($ |Union| (|List| (|SparseUnivariatePolynomial| (|Integer|)))
-          "failed"))
+        ((|lp| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
+         (|p| (|SparseUnivariatePolynomial| (|Integer|)))
+         ($
+          (|Union| (|List| (|SparseUnivariatePolynomial| (|Integer|)))
+                   "failed")))
         (SPROG
          ((|answer|
            (|Union| (|List| (|SparseUnivariatePolynomial| (|Integer|)))

@@ -1,7 +1,7 @@
 
 (SDEFUN |FRUTIL;refine;FMF;1|
-        ((|f| |Factored| R) (|func| |Mapping| #1=(|Factored| R) R)
-         ($ |Factored| R))
+        ((|f| (|Factored| R)) (|func| (|Mapping| #1=(|Factored| R) R))
+         ($ (|Factored| R)))
         (SPROG
          ((|l|
            (|List|

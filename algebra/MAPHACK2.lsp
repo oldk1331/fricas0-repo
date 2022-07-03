@@ -1,11 +1,11 @@
 
 (PUT '|MAPHACK2;arg1;ACA;1| '|SPADreplace| '(XLAM (|a| |c|) |a|)) 
 
-(SDEFUN |MAPHACK2;arg1;ACA;1| ((|a| A) (|c| C) ($ A)) |a|) 
+(SDEFUN |MAPHACK2;arg1;ACA;1| ((|a| (A)) (|c| (C)) ($ (A))) |a|) 
 
 (PUT '|MAPHACK2;arg2;A2C;2| '|SPADreplace| '(XLAM (|a| |c|) |c|)) 
 
-(SDEFUN |MAPHACK2;arg2;A2C;2| ((|a| A) (|c| C) ($ C)) |c|) 
+(SDEFUN |MAPHACK2;arg2;A2C;2| ((|a| (A)) (|c| (C)) ($ (C))) |c|) 
 
 (DECLAIM (NOTINLINE |MappingPackageInternalHacks2;|)) 
 

@@ -1,13 +1,13 @@
 
 (PUT '|INFCG;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |INFCG;rep| ((|x| $) ($ |Rep|)) |x|) 
+(SDEFUN |INFCG;rep| ((|x| ($)) ($ (|Rep|))) |x|) 
 
 (PUT '|INFCG;per| '|SPADreplace| '(XLAM (|r|) |r|)) 
 
-(SDEFUN |INFCG;per| ((|r| |Rep|) ($ $)) |r|) 
+(SDEFUN |INFCG;per| ((|r| (|Rep|)) ($ ($))) |r|) 
 
-(SDEFUN |INFCG;coerce;$Of;3| ((|x| $) ($ |OutputForm|))
+(SDEFUN |INFCG;coerce;$Of;3| ((|x| ($)) ($ (|OutputForm|)))
         (COND ((SPADCALL |x| (QREFELT $ 9)) (SPADCALL 1 (QREFELT $ 12)))
               ((EQL (|INFCG;rep| |x| $) 1)
                (SPADCALL (QREFELT $ 6) (QREFELT $ 14)))
@@ -16,33 +16,34 @@
                          (SPADCALL (|INFCG;rep| |x| $) (QREFELT $ 15))
                          (QREFELT $ 16))))) 
 
-(SDEFUN |INFCG;hashUpdate!;Hs$Hs;4|
-        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+(SDEFUN |INFCG;hashUpdate!;Hs$Hs;4| ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
         (HASHSTATEUPDATE |hs| (|INFCG;rep| |s| $))) 
 
-(SDEFUN |INFCG;convert;$Se;5| ((|x| $) ($ |SExpression|))
+(SDEFUN |INFCG;convert;$Se;5| ((|x| ($)) ($ (|SExpression|)))
         (SPADCALL (|INFCG;rep| |x| $) (QREFELT $ 21))) 
 
-(SDEFUN |INFCG;generator;$;6| (($ $)) (|INFCG;per| 1 $)) 
+(SDEFUN |INFCG;generator;$;6| (($ ($))) (|INFCG;per| 1 $)) 
 
-(SDEFUN |INFCG;generators;L;7| (($ |List| $)) (LIST (SPADCALL (QREFELT $ 23)))) 
+(SDEFUN |INFCG;generators;L;7| (($ (|List| $)))
+        (LIST (SPADCALL (QREFELT $ 23)))) 
 
-(SDEFUN |INFCG;exponent;$I;8| ((|x| $) ($ |Integer|)) (|INFCG;rep| |x| $)) 
+(SDEFUN |INFCG;exponent;$I;8| ((|x| ($)) ($ (|Integer|))) (|INFCG;rep| |x| $)) 
 
-(SDEFUN |INFCG;One;$;9| (($ $)) (|INFCG;per| 0 $)) 
+(SDEFUN |INFCG;One;$;9| (($ ($))) (|INFCG;per| 0 $)) 
 
-(SDEFUN |INFCG;one?;$B;10| ((|x| $) ($ |Boolean|)) (ZEROP (|INFCG;rep| |x| $))) 
+(SDEFUN |INFCG;one?;$B;10| ((|x| ($)) ($ (|Boolean|)))
+        (ZEROP (|INFCG;rep| |x| $))) 
 
-(SDEFUN |INFCG;*;3$;11| ((|x| $) (|y| $) ($ $))
+(SDEFUN |INFCG;*;3$;11| ((|x| ($)) (|y| ($)) ($ ($)))
         (|INFCG;per| (+ (|INFCG;rep| |x| $) (|INFCG;rep| |y| $)) $)) 
 
-(SDEFUN |INFCG;inv;2$;12| ((|x| $) ($ $))
+(SDEFUN |INFCG;inv;2$;12| ((|x| ($)) ($ ($)))
         (|INFCG;per| (- (|INFCG;rep| |x| $)) $)) 
 
-(SDEFUN |INFCG;=;2$B;13| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |INFCG;=;2$B;13| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (EQL (|INFCG;rep| |x| $) (|INFCG;rep| |y| $))) 
 
-(SDEFUN |INFCG;<;2$B;14| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |INFCG;<;2$B;14| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (< (|INFCG;rep| |x| $) (|INFCG;rep| |y| $))) 
 
 (DECLAIM (NOTINLINE |InfiniteCyclicGroup;|)) 

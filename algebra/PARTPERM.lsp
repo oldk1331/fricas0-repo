@@ -1,7 +1,7 @@
 
 (SDEFUN |PARTPERM;partitions;3IS;1|
-        ((M |Integer|) (N |Integer|) (|n| |Integer|)
-         ($ |Stream| (|List| (|Integer|))))
+        ((M (|Integer|)) (N (|Integer|)) (|n| (|Integer|))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPROG ((|c| (|Stream| (|List| (|Integer|)))))
                (SEQ
                 (COND
@@ -27,11 +27,11 @@
           (RETURN (PROGN (SPADCALL N |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;partitions;IS;2|
-        ((|n| |Integer|) ($ |Stream| (|List| (|Integer|))))
+        ((|n| (|Integer|)) ($ (|Stream| (|List| (|Integer|)))))
         (SPADCALL |n| |n| |n| (QREFELT $ 12))) 
 
 (SDEFUN |PARTPERM;partitions;2IS;3|
-        ((M |Integer|) (N |Integer|) ($ |Stream| (|List| (|Integer|))))
+        ((M (|Integer|)) (N (|Integer|)) ($ (|Stream| (|List| (|Integer|)))))
         (SPROG
          ((|aaa| (|List| (|Stream| (|List| (|Integer|))))) (#1=#:G142 NIL)
           (|i| NIL) (#2=#:G141 NIL))
@@ -50,8 +50,8 @@
           (EXIT (SPADCALL (SPADCALL |aaa| (QREFELT $ 19)) (QREFELT $ 21)))))) 
 
 (SDEFUN |PARTPERM;odd_partitions;3IS;4|
-        ((M |Integer|) (N |Integer|) (|n| |Integer|)
-         ($ |Stream| (|List| (|Integer|))))
+        ((M (|Integer|)) (N (|Integer|)) (|n| (|Integer|))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPROG ((|c| (|Stream| (|List| (|Integer|)))))
                (SEQ
                 (COND
@@ -78,12 +78,12 @@
           (RETURN (PROGN (SPADCALL N |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;odd_partitions;IS;5|
-        ((|n| |Integer|) ($ |Stream| (|List| (|Integer|))))
+        ((|n| (|Integer|)) ($ (|Stream| (|List| (|Integer|)))))
         (SPADCALL |n| |n| |n| (QREFELT $ 23))) 
 
 (SDEFUN |PARTPERM;distinct_partitions;3IS;6|
-        ((M |Integer|) (N |Integer|) (|n| |Integer|)
-         ($ |Stream| (|List| (|Integer|))))
+        ((M (|Integer|)) (N (|Integer|)) (|n| (|Integer|))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPROG ((|c| (|Stream| (|List| (|Integer|)))))
                (SEQ
                 (COND
@@ -110,11 +110,11 @@
           (RETURN (PROGN (SPADCALL N |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;distinct_partitions;IS;7|
-        ((|n| |Integer|) ($ |Stream| (|List| (|Integer|))))
+        ((|n| (|Integer|)) ($ (|Stream| (|List| (|Integer|)))))
         (SPADCALL |n| |n| |n| (QREFELT $ 25))) 
 
 (SDEFUN |PARTPERM;nogreq|
-        ((|n| |Integer|) (|x| |List| (|Integer|)) ($ |Integer|))
+        ((|n| (|Integer|)) (|x| (|List| (|Integer|))) ($ (|Integer|)))
         (SPROG
          ((#1=#:G158 NIL) (#2=#:G157 #3=(|Integer|)) (#4=#:G159 #3#)
           (#5=#:G161 NIL) (|i| NIL))
@@ -136,7 +136,7 @@
            (COND (#1# #2#) ('T 0)))))) 
 
 (SDEFUN |PARTPERM;conjugate;2L;9|
-        ((|x| |List| (|Integer|)) ($ |List| (|Integer|)))
+        ((|x| (|List| (|Integer|))) ($ (|List| (|Integer|))))
         (SPROG ((#1=#:G166 NIL) (|i| NIL) (#2=#:G165 NIL))
                (SEQ
                 (COND ((NULL |x|) NIL)
@@ -154,12 +154,13 @@
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |PARTPERM;conjugates;2S;10|
-        ((|z| |Stream| (|List| (|Integer|))) ($ |Stream| (|List| (|Integer|))))
+        ((|z| (|Stream| (|List| (|Integer|))))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPADCALL (ELT $ 27) |z| (QREFELT $ 14))) 
 
 (SDEFUN |PARTPERM;shuffle;2LS;11|
-        ((|x| |List| (|Integer|)) (|y| |List| (|Integer|))
-         ($ |Stream| (|List| (|Integer|))))
+        ((|x| (|List| (|Integer|))) (|y| (|List| (|Integer|)))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPROG NIL
                (COND
                 ((NULL |x|)
@@ -193,8 +194,8 @@
             (SPADCALL (SPADCALL |x| (QREFELT $ 29)) |l1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PARTPERM;shufflein;L2S;12|
-        ((|x| |List| (|Integer|)) (|yy| |Stream| (|List| (|Integer|)))
-         ($ |Stream| (|List| (|Integer|))))
+        ((|x| (|List| (|Integer|))) (|yy| (|Stream| (|List| (|Integer|))))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL (CONS #'|PARTPERM;shufflein;L2S;12!0| (VECTOR $ |x|))
@@ -207,7 +208,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |l1| (QREFELT $ 30)))))) 
 
-(SDEFUN |PARTPERM;rpt| ((|n| |Integer|) (|m| |Integer|) ($ |List| (|Integer|)))
+(SDEFUN |PARTPERM;rpt|
+        ((|n| (|Integer|)) (|m| (|Integer|)) ($ (|List| (|Integer|))))
         (SPROG ((#1=#:G190 NIL) (|i| NIL) (#2=#:G189 NIL))
                (SEQ
                 (PROGN
@@ -219,20 +221,20 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |PARTPERM;zrpt|
-        ((|x| |List| (|Integer|)) (|y| |List| (|Integer|))
-         ($ |Stream| (|List| (|Integer|))))
+        ((|x| (|List| (|Integer|))) (|y| (|List| (|Integer|)))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPADCALL (CONS (|function| |PARTPERM;rpt|) $)
                   (SPADCALL |x| (QREFELT $ 36)) (SPADCALL |y| (QREFELT $ 36))
                   (QREFELT $ 39))) 
 
 (SDEFUN |PARTPERM;sequences;2LS;15|
-        ((|x| |List| (|Integer|)) (|y| |List| (|Integer|))
-         ($ |Stream| (|List| (|Integer|))))
+        ((|x| (|List| (|Integer|))) (|y| (|List| (|Integer|)))
+         ($ (|Stream| (|List| (|Integer|)))))
         (SPADCALL (SPADCALL NIL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
                   (ELT $ 34) (|PARTPERM;zrpt| |x| |y| $) (QREFELT $ 41))) 
 
 (SDEFUN |PARTPERM;sequences;LS;16|
-        ((|x| |List| (|Integer|)) ($ |Stream| (|List| (|Integer|))))
+        ((|x| (|List| (|Integer|))) ($ (|Stream| (|List| (|Integer|)))))
         (SPROG ((#1=#:G200 NIL) (|i| NIL) (#2=#:G199 NIL))
                (SEQ
                 (SPADCALL |x|
@@ -246,7 +248,7 @@
                           (QREFELT $ 42))))) 
 
 (SDEFUN |PARTPERM;permutations;IS;17|
-        ((|n| |Integer|) ($ |Stream| (|List| (|Integer|))))
+        ((|n| (|Integer|)) ($ (|Stream| (|List| (|Integer|)))))
         (SPROG ((#1=#:G204 NIL) (|i| NIL) (#2=#:G203 NIL))
                (SEQ
                 (SPADCALL (|PARTPERM;rpt| |n| 1 $)

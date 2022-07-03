@@ -1,12 +1,12 @@
 
-(SDEFUN |SQMATRIX;Zero;$;1| (($ $)) (QREFELT $ 10)) 
+(SDEFUN |SQMATRIX;Zero;$;1| (($ ($))) (QREFELT $ 10)) 
 
-(SDEFUN |SQMATRIX;One;$;2| (($ $)) (QREFELT $ 13)) 
+(SDEFUN |SQMATRIX;One;$;2| (($ ($))) (QREFELT $ 13)) 
 
-(SDEFUN |SQMATRIX;characteristic;Nni;3| (($ |NonNegativeInteger|))
+(SDEFUN |SQMATRIX;characteristic;Nni;3| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 16))) 
 
-(SDEFUN |SQMATRIX;matrix;L$;4| ((|l| |List| (|List| R)) ($ $))
+(SDEFUN |SQMATRIX;matrix;L$;4| ((|l| (|List| (|List| R))) ($ ($)))
         (SPROG
          ((#1=#:G138 NIL) (|j| NIL) (#2=#:G139 NIL) (|r| NIL) (#3=#:G136 NIL)
           (|i| NIL) (#4=#:G137 NIL) (|ll| NIL) (|ans| (|Matrix| R))
@@ -58,29 +58,29 @@
              (EXIT |ans|))))))) 
 
 (SDEFUN |SQMATRIX;row;$IDp;5|
-        ((|x| $) (|i| |Integer|) ($ |DirectProduct| |ndim| R))
+        ((|x| ($)) (|i| (|Integer|)) ($ (|DirectProduct| |ndim| R)))
         (SPADCALL (SPADCALL |x| |i| (QREFELT $ 26)) (QREFELT $ 28))) 
 
 (SDEFUN |SQMATRIX;column;$IDp;6|
-        ((|x| $) (|j| |Integer|) ($ |DirectProduct| |ndim| R))
+        ((|x| ($)) (|j| (|Integer|)) ($ (|DirectProduct| |ndim| R)))
         (SPADCALL (SPADCALL |x| |j| (QREFELT $ 30)) (QREFELT $ 28))) 
 
-(SDEFUN |SQMATRIX;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
+(SDEFUN |SQMATRIX;coerce;$Of;7| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL |x| (QREFELT $ 33))) 
 
-(SDEFUN |SQMATRIX;scalarMatrix;R$;8| ((|r| R) ($ $))
+(SDEFUN |SQMATRIX;scalarMatrix;R$;8| ((|r| (R)) ($ ($)))
         (SPADCALL (QREFELT $ 6) |r| (QREFELT $ 35))) 
 
-(SDEFUN |SQMATRIX;diagonalMatrix;L$;9| ((|l| |List| R) ($ $))
+(SDEFUN |SQMATRIX;diagonalMatrix;L$;9| ((|l| (|List| R)) ($ ($)))
         (COND
          ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
           (|error| "diagonalMatrix: wrong number of entries in list"))
          ('T (SPADCALL |l| (QREFELT $ 37))))) 
 
-(SDEFUN |SQMATRIX;coerce;$M;10| ((|x| $) ($ |Matrix| R))
+(SDEFUN |SQMATRIX;coerce;$M;10| ((|x| ($)) ($ (|Matrix| R)))
         (SPADCALL |x| (QREFELT $ 39))) 
 
-(SDEFUN |SQMATRIX;squareMatrix;M$;11| ((|x| |Matrix| R) ($ $))
+(SDEFUN |SQMATRIX;squareMatrix;M$;11| ((|x| (|Matrix| R)) ($ ($)))
         (COND
          ((OR (SPADCALL (ANROWS |x|) (QREFELT $ 6) (QREFELT $ 19))
               (SPADCALL (ANCOLS |x|) (QREFELT $ 6) (QREFELT $ 19)))
@@ -88,27 +88,29 @@
          ('T (SPADCALL |x| (QREFELT $ 39))))) 
 
 (SDEFUN |SQMATRIX;*;$2Dp;12|
-        ((|x| $) (|v| . #1=(|DirectProduct| |ndim| R)) ($ . #1#))
+        ((|x| ($)) (|v| #1=(|DirectProduct| |ndim| R)) ($ #1#))
         (SPADCALL (SPADCALL |x| (SPADCALL |v| (QREFELT $ 42)) (QREFELT $ 43))
                   (QREFELT $ 28))) 
 
 (SDEFUN |SQMATRIX;*;Dp$Dp;13|
-        ((|v| . #1=(|DirectProduct| |ndim| R)) (|x| $) ($ . #1#))
+        ((|v| #1=(|DirectProduct| |ndim| R)) (|x| ($)) ($ #1#))
         (SPADCALL (SPADCALL (SPADCALL |v| (QREFELT $ 42)) |x| (QREFELT $ 45))
                   (QREFELT $ 28))) 
 
-(SDEFUN |SQMATRIX;determinant;$R;14| ((|x| $) ($ R))
+(SDEFUN |SQMATRIX;determinant;$R;14| ((|x| ($)) ($ (R)))
         (SPADCALL |x| (QREFELT $ 47))) 
 
-(SDEFUN |SQMATRIX;minordet;$R;15| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 49))) 
+(SDEFUN |SQMATRIX;minordet;$R;15| ((|x| ($)) ($ (R)))
+        (SPADCALL |x| (QREFELT $ 49))) 
 
-(SDEFUN |SQMATRIX;Pfaffian;$R;16| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 51))) 
+(SDEFUN |SQMATRIX;Pfaffian;$R;16| ((|x| ($)) ($ (R)))
+        (SPADCALL |x| (QREFELT $ 51))) 
 
-(SDEFUN |SQMATRIX;rowEchelon;2$;17| ((|x| $) ($ $))
+(SDEFUN |SQMATRIX;rowEchelon;2$;17| ((|x| ($)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 53))) 
 
 (SDEFUN |SQMATRIX;columnSpace;$L;18|
-        ((|x| $) ($ |List| (|DirectProduct| |ndim| R)))
+        ((|x| ($)) ($ (|List| (|DirectProduct| |ndim| R))))
         (SPROG ((#1=#:G160 NIL) (|c| NIL) (#2=#:G159 NIL))
                (SEQ
                 (PROGN
@@ -124,14 +126,14 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |SQMATRIX;rank;$Nni;19| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |SQMATRIX;rank;$Nni;19| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 59))) 
 
-(SDEFUN |SQMATRIX;nullity;$Nni;20| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |SQMATRIX;nullity;$Nni;20| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 61))) 
 
 (SDEFUN |SQMATRIX;nullSpace;$L;21|
-        ((|x| $) ($ |List| (|DirectProduct| |ndim| R)))
+        ((|x| ($)) ($ (|List| (|DirectProduct| |ndim| R))))
         (SPROG ((#1=#:G166 NIL) (|c| NIL) (#2=#:G165 NIL))
                (SEQ
                 (PROGN
@@ -147,27 +149,27 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |SQMATRIX;recip;$U;22| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |SQMATRIX;recip;$U;22| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|u| (|Union| (|Matrix| R) "failed")))
                (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 66)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                            ('T (CONS 0 (QCDR |u|)))))))) 
 
-(SDEFUN |SQMATRIX;inverse;$U;23| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |SQMATRIX;inverse;$U;23| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|u| (|Union| (|Matrix| R) "failed")))
                (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 68)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                            ('T (CONS 0 (QCDR |u|)))))))) 
 
-(SDEFUN |SQMATRIX;^;$I$;24| ((|x| $) (|n| |Integer|) ($ $))
+(SDEFUN |SQMATRIX;^;$I$;24| ((|x| ($)) (|n| (|Integer|)) ($ ($)))
         (SPADCALL |x| |n| (QREFELT $ 70))) 
 
-(SDEFUN |SQMATRIX;recip;$U;25| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |SQMATRIX;recip;$U;25| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPADCALL |x| (QREFELT $ 69))) 
 
-(SDEFUN |SQMATRIX;convert;$If;26| ((|x| $) ($ |InputForm|))
+(SDEFUN |SQMATRIX;convert;$If;26| ((|x| ($)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|squareMatrix| (QREFELT $ 74))
                (SPADCALL (SPADCALL |x| (QREFELT $ 40)) (QREFELT $ 75)))

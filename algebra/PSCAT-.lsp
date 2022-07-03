@@ -1,5 +1,5 @@
 
-(SDEFUN |PSCAT-;*;I2S;1| ((|n| |Integer|) (|ps| S) ($ S))
+(SDEFUN |PSCAT-;*;I2S;1| ((|n| (|Integer|)) (|ps| (S)) ($ (S)))
         (SPROG NIL
                (COND ((ZEROP |n|) (|spadConstant| $ 10))
                      ('T
@@ -12,7 +12,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |n| |r1| (QREFELT $ 12)))))) 
 
-(SDEFUN |PSCAT-;*;Coef2S;2| ((|r| |Coef|) (|ps| S) ($ S))
+(SDEFUN |PSCAT-;*;Coef2S;2| ((|r| (|Coef|)) (|ps| (S)) ($ (S)))
         (SPROG NIL
                (COND ((SPADCALL |r| (QREFELT $ 17)) (|spadConstant| $ 10))
                      ('T
@@ -25,7 +25,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |r| |r1| (QREFELT $ 18)))))) 
 
-(SDEFUN |PSCAT-;*;SCoefS;3| ((|ps| S) (|r| |Coef|) ($ S))
+(SDEFUN |PSCAT-;*;SCoefS;3| ((|ps| (S)) (|r| (|Coef|)) ($ (S)))
         (SPROG NIL
                (COND ((SPADCALL |r| (QREFELT $ 17)) (|spadConstant| $ 10))
                      ('T
@@ -38,10 +38,10 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 18)))))) 
 
-(SDEFUN |PSCAT-;-;2S;4| ((|ps| S) ($ S))
+(SDEFUN |PSCAT-;-;2S;4| ((|ps| (S)) ($ (S)))
         (SPADCALL (ELT $ 21) |ps| (QREFELT $ 14))) 
 
-(SDEFUN |PSCAT-;*;F2S;5| ((|r| |Fraction| (|Integer|)) (|ps| S) ($ S))
+(SDEFUN |PSCAT-;*;F2S;5| ((|r| (|Fraction| (|Integer|))) (|ps| (S)) ($ (S)))
         (SPROG NIL
                (COND ((SPADCALL |r| (QREFELT $ 24)) (|spadConstant| $ 10))
                      ('T
@@ -54,7 +54,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |r| |r1| (QREFELT $ 25)))))) 
 
-(SDEFUN |PSCAT-;*;SFS;6| ((|ps| S) (|r| |Fraction| (|Integer|)) ($ S))
+(SDEFUN |PSCAT-;*;SFS;6| ((|ps| (S)) (|r| (|Fraction| (|Integer|))) ($ (S)))
         (SPROG NIL
                (COND ((SPADCALL |r| (QREFELT $ 24)) (|spadConstant| $ 10))
                      ('T
@@ -67,7 +67,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 27)))))) 
 
-(SDEFUN |PSCAT-;/;SCoefS;7| ((|ps| S) (|r| |Coef|) ($ S))
+(SDEFUN |PSCAT-;/;SCoefS;7| ((|ps| (S)) (|r| (|Coef|)) ($ (S)))
         (SPROG NIL
                (SPADCALL (CONS #'|PSCAT-;/;SCoefS;7!0| (VECTOR $ |r|)) |ps|
                          (QREFELT $ 14)))) 

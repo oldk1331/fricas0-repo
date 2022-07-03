@@ -1,5 +1,5 @@
 
-(SDEFUN |ALGPKG;convVM| ((|v| |Vector| R) ($ |Matrix| R))
+(SDEFUN |ALGPKG;convVM| ((|v| (|Vector| R)) ($ (|Matrix| R)))
         (SPROG
          ((|z| (|Integer|)) (#1=#:G127 NIL) (|j| NIL) (#2=#:G126 NIL) (|i| NIL)
           (|cond| (|Matrix| R)))
@@ -23,14 +23,14 @@
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT |cond|)))) 
 
-(SDEFUN |ALGPKG;radicalOfLeftTraceForm;L;2| (($ |List| A))
+(SDEFUN |ALGPKG;radicalOfLeftTraceForm;L;2| (($ (|List| A)))
         (SPROG ((|ma| (|Matrix| R)))
                (SEQ (LETT |ma| (SPADCALL (QREFELT $ 23)))
                     (EXIT
                      (SPADCALL (ELT $ 24) (SPADCALL |ma| (QREFELT $ 26))
                                (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfLeftAnnihilator;AL;3| ((|a| A) ($ |List| A))
+(SDEFUN |ALGPKG;basisOfLeftAnnihilator;AL;3| ((|a| (A)) ($ (|List| A)))
         (SPROG
          ((|cond| (|Matrix| R)) (#1=#:G137 NIL) (#2=#:G139 NIL) (|i| NIL)
           (#3=#:G138 NIL) (|ca| (|Matrix| R)))
@@ -65,7 +65,7 @@
            (SPADCALL (ELT $ 24) (SPADCALL |cond| (QREFELT $ 26))
                      (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfRightAnnihilator;AL;4| ((|a| A) ($ |List| A))
+(SDEFUN |ALGPKG;basisOfRightAnnihilator;AL;4| ((|a| (A)) ($ (|List| A)))
         (SPROG
          ((|cond| (|Matrix| R)) (#1=#:G146 NIL) (#2=#:G148 NIL) (|i| NIL)
           (#3=#:G147 NIL) (|ca| (|Matrix| R)))
@@ -98,7 +98,7 @@
            (SPADCALL (ELT $ 24) (SPADCALL |cond| (QREFELT $ 26))
                      (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfLeftNucloid;L;5| (($ |List| (|Matrix| R)))
+(SDEFUN |ALGPKG;basisOfLeftNucloid;L;5| (($ (|List| (|Matrix| R))))
         (SPROG
          ((#1=#:G164 NIL) (|sol| NIL) (#2=#:G163 NIL) (|r2| (|Integer|))
           (|r1| (|Integer|)) (#3=#:G162 NIL) (|r| NIL) (|z| (|Integer|))
@@ -173,7 +173,7 @@
                  (SEQ (EXIT (LETT #2# (CONS (|ALGPKG;convVM| |sol| $) #2#))))
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
-(SDEFUN |ALGPKG;basisOfCommutingElements;L;6| (($ |List| A))
+(SDEFUN |ALGPKG;basisOfCommutingElements;L;6| (($ (|List| A)))
         (SPROG
          ((|cond| (|Matrix| R)) (|gam| (|Matrix| R)) (#1=#:G171 NIL)
           (#2=#:G173 NIL) (|i| NIL) (#3=#:G172 NIL))
@@ -203,7 +203,7 @@
            (SPADCALL (ELT $ 24) (SPADCALL |cond| (QREFELT $ 26))
                      (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfLeftNucleus;L;7| (($ |List| A))
+(SDEFUN |ALGPKG;basisOfLeftNucleus;L;7| (($ (|List| A)))
         (SPROG
          ((|entry| (R)) (#1=#:G188 NIL) (|l| NIL) (#2=#:G187 NIL) (|i| NIL)
           (|z| (|Integer|)) (#3=#:G186 NIL) (|s| NIL) (#4=#:G185 NIL) (|j| NIL)
@@ -296,7 +296,7 @@
            (SPADCALL (ELT $ 24) (SPADCALL |condi| (QREFELT $ 26))
                      (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfRightNucleus;L;8| (($ |List| A))
+(SDEFUN |ALGPKG;basisOfRightNucleus;L;8| (($ (|List| A)))
         (SPROG
          ((|entry| (R)) (#1=#:G203 NIL) (|l| NIL) (#2=#:G202 NIL) (|i| NIL)
           (|z| (|Integer|)) (#3=#:G201 NIL) (|s| NIL) (#4=#:G200 NIL) (|j| NIL)
@@ -389,7 +389,7 @@
            (SPADCALL (ELT $ 24) (SPADCALL |condo| (QREFELT $ 26))
                      (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfMiddleNucleus;L;9| (($ |List| A))
+(SDEFUN |ALGPKG;basisOfMiddleNucleus;L;9| (($ (|List| A)))
         (SPROG
          ((|entry| (R)) (#1=#:G218 NIL) (|l| NIL) (#2=#:G217 NIL) (|i| NIL)
           (|z| (|Integer|)) (#3=#:G216 NIL) (|s| NIL) (#4=#:G215 NIL) (|j| NIL)
@@ -482,7 +482,7 @@
            (SPADCALL (ELT $ 24) (SPADCALL |conda| (QREFELT $ 26))
                      (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfNucleus;L;10| (($ |List| A))
+(SDEFUN |ALGPKG;basisOfNucleus;L;10| (($ (|List| A)))
         (SPROG
          ((|ent| (R)) (|enter| (R)) (|entry| (R)) (#1=#:G234 NIL) (|l| NIL)
           (#2=#:G233 NIL) (|i| NIL) (|w| (|Integer|)) (|u| (|Integer|))
@@ -664,7 +664,7 @@
            (SPADCALL (ELT $ 24) (SPADCALL |condi| (QREFELT $ 26))
                      (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfCenter;L;11| (($ |List| A))
+(SDEFUN |ALGPKG;basisOfCenter;L;11| (($ (|List| A)))
         (SPROG
          ((D #1=(|Matrix| R)) (|enter| (R)) (|entry| (R)) (#2=#:G253 NIL)
           (|l| NIL) (#3=#:G252 NIL) (|i| NIL) (|u| (|Integer|))
@@ -830,7 +830,7 @@
                (SPADCALL (ELT $ 24) (SPADCALL D (QREFELT $ 26))
                          (QREFELT $ 30)))))) 
 
-(SDEFUN |ALGPKG;basisOfRightNucloid;L;12| (($ |List| (|Matrix| R)))
+(SDEFUN |ALGPKG;basisOfRightNucloid;L;12| (($ (|List| (|Matrix| R))))
         (SPROG
          ((#1=#:G269 NIL) (|sol| NIL) (#2=#:G268 NIL) (|r2| (|Integer|))
           (|r1| (|Integer|)) (#3=#:G267 NIL) (|r| NIL) (|z| (|Integer|))
@@ -905,7 +905,7 @@
                  (SEQ (EXIT (LETT #2# (CONS (|ALGPKG;convVM| |sol| $) #2#))))
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
-(SDEFUN |ALGPKG;basisOfCentroid;L;13| (($ |List| (|Matrix| R)))
+(SDEFUN |ALGPKG;basisOfCentroid;L;13| (($ (|List| (|Matrix| R))))
         (SPROG
          ((#1=#:G285 NIL) (|sol| NIL) (#2=#:G284 NIL) (|r2| (|Integer|))
           (|r1| (|Integer|)) (#3=#:G283 NIL) (|r| NIL) (|u| (|Integer|))
@@ -1000,7 +1000,7 @@
                  (SEQ (EXIT (LETT #2# (CONS (|ALGPKG;convVM| |sol| $) #2#))))
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
-(SDEFUN |ALGPKG;doubleRank;ANni;14| ((|x| A) ($ |NonNegativeInteger|))
+(SDEFUN |ALGPKG;doubleRank;ANni;14| ((|x| (A)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|enter| (R)) (|entry| (R)) (#1=#:G296 NIL) (|i| NIL)
           (|u| (|Integer|)) (|z| (|Integer|)) (#2=#:G295 NIL) (|j| NIL)
@@ -1059,7 +1059,7 @@
                (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |cond| (QREFELT $ 62)))))) 
 
-(SDEFUN |ALGPKG;weakBiRank;ANni;15| ((|x| A) ($ |NonNegativeInteger|))
+(SDEFUN |ALGPKG;weakBiRank;ANni;15| ((|x| (A)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|entry| (R)) (#1=#:G310 NIL) (|s| NIL) (#2=#:G309 NIL) (|l| NIL)
           (#3=#:G308 NIL) (|k| NIL) (|z| (|Integer|)) (#4=#:G307 NIL) (|j| NIL)
@@ -1141,7 +1141,7 @@
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |cond| (QREFELT $ 62)))))) 
 
-(SDEFUN |ALGPKG;biRank;ANni;16| ((|x| A) ($ |NonNegativeInteger|))
+(SDEFUN |ALGPKG;biRank;ANni;16| ((|x| (A)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|enter| (R)) (|entry| (R)) (#1=#:G333 NIL) (|i| NIL) (#2=#:G332 NIL)
           (|k| NIL) (|w| (|Integer|)) (|u| (|Integer|)) (#3=#:G331 NIL)
@@ -1275,7 +1275,7 @@
                (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |cond| (QREFELT $ 62)))))) 
 
-(SDEFUN |ALGPKG;leftRank;ANni;17| ((|x| A) ($ |NonNegativeInteger|))
+(SDEFUN |ALGPKG;leftRank;ANni;17| ((|x| (A)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|entry| (R)) (#1=#:G342 NIL) (|i| NIL) (#2=#:G341 NIL) (|j| NIL)
           (#3=#:G340 NIL) (|k| NIL) (|cond| (|Matrix| R)))
@@ -1314,7 +1314,7 @@
                (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |cond| (QREFELT $ 62)))))) 
 
-(SDEFUN |ALGPKG;rightRank;ANni;18| ((|x| A) ($ |NonNegativeInteger|))
+(SDEFUN |ALGPKG;rightRank;ANni;18| ((|x| (A)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|entry| (R)) (#1=#:G351 NIL) (|i| NIL) (#2=#:G350 NIL) (|j| NIL)
           (#3=#:G349 NIL) (|k| NIL) (|cond| (|Matrix| R)))
@@ -1353,10 +1353,10 @@
                (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |cond| (QREFELT $ 62)))))) 
 
-(SDEFUN |ALGPKG;basis;2V;19| ((|va| |Vector| A) ($ |Vector| A))
+(SDEFUN |ALGPKG;basis;2V;19| ((|va| (|Vector| A)) ($ (|Vector| A)))
         (SPROG
-         ((#1=#:G364 NIL) (#2=#:G366 NIL) (|j| (|Integer|)) (#3=#:G365 NIL)
-          (|finished?| (|Boolean|)) (|h| (|Integer|))
+         ((#1=#:G364 NIL) (#2=#:G366 NIL) (#3=#:G365 NIL)
+          (|finished?| (|Boolean|)) (|j| (|Integer|)) (|h| (|Integer|))
           (|lj| (|List| (|Integer|))) (|mCI| (|Integer|)) (|mRI| (|Integer|))
           (|m| (|Matrix| R)) (#4=#:G363 NIL) (|i| NIL) (|v| (|Vector| A)))
          (SEQ (LETT |v| (SPADCALL (ELT $ 69) |va| (QREFELT $ 72)))
@@ -1415,7 +1415,7 @@
                   (EXIT
                    (PROGN
                     (LETT #3# (GETREFV (SIZE #5=(REVERSE |lj|))))
-                    (SEQ (LETT |j| NIL) (LETT #2# #5#) (LETT #1# 0) G190
+                    (SEQ (LETT #2# #5#) (LETT #1# 0) G190
                          (COND
                           ((OR (ATOM #2#) (PROGN (LETT |j| (CAR #2#)) NIL))
                            (GO G191)))

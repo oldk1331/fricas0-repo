@@ -1,10 +1,10 @@
 
-(SDEFUN |NARNG-;associator;4S;1| ((|x| S) (|y| S) (|z| S) ($ S))
+(SDEFUN |NARNG-;associator;4S;1| ((|x| (S)) (|y| (S)) (|z| (S)) ($ (S)))
         (SPADCALL (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) |z| (QREFELT $ 7))
                   (SPADCALL |x| (SPADCALL |y| |z| (QREFELT $ 7)) (QREFELT $ 7))
                   (QREFELT $ 8))) 
 
-(SDEFUN |NARNG-;commutator;3S;2| ((|x| S) (|y| S) ($ S))
+(SDEFUN |NARNG-;commutator;3S;2| ((|x| (S)) (|y| (S)) ($ (S)))
         (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7))
                   (SPADCALL |y| |x| (QREFELT $ 7)) (QREFELT $ 8))) 
 

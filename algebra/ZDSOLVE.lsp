@@ -1,7 +1,9 @@
 
 (SDEFUN |ZDSOLVE;convert;NsmpNsmp;1|
-        ((|q| |NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))
-         ($ |NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
+        ((|q|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         ($
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|))))
         (SPROG
          ((|q2|
            (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
@@ -55,15 +57,17 @@
                             (QREFELT $ 35))))))))) 
 
 (SDEFUN |ZDSOLVE;squareFree;RcL;2|
-        ((|ts| |RegularChain| R |ls|)
-         ($ |List|
-          (|SquareFreeRegularTriangularSet| R
-                                            (|IndexedExponents|
-                                             (|OrderedVariableList| |ls2|))
-                                            (|OrderedVariableList| |ls2|)
-                                            (|NewSparseMultivariatePolynomial|
-                                             R
-                                             (|OrderedVariableList| |ls2|)))))
+        ((|ts| (|RegularChain| R |ls|))
+         ($
+          (|List|
+           (|SquareFreeRegularTriangularSet| R
+                                             (|IndexedExponents|
+                                              (|OrderedVariableList| |ls2|))
+                                             (|OrderedVariableList| |ls2|)
+                                             (|NewSparseMultivariatePolynomial|
+                                              R
+                                              (|OrderedVariableList|
+                                               |ls2|))))))
         (SPROG
          ((|toSee|
            (|List|
@@ -88,10 +92,7 @@
            (|List|
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls2|))))
-          (#1=#:G179 NIL)
-          (|q|
-           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
-          (#2=#:G178 NIL)
+          (#1=#:G179 NIL) (#2=#:G178 NIL)
           (|newts|
            (|SquareFreeRegularTriangularSet| R
                                              (|IndexedExponents|
@@ -100,6 +101,8 @@
                                              (|NewSparseMultivariatePolynomial|
                                               R
                                               (|OrderedVariableList| |ls2|))))
+          (|q|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
           (|st|
            (|SquareFreeRegularTriangularSet| R
                                              (|IndexedExponents|
@@ -238,8 +241,7 @@
                                            (LETT |newlq|
                                                  (PROGN
                                                   (LETT #2# NIL)
-                                                  (SEQ (LETT |q| NIL)
-                                                       (LETT #1# |lq|) G190
+                                                  (SEQ (LETT #1# |lq|) G190
                                                        (COND
                                                         ((OR (ATOM #1#)
                                                              (PROGN
@@ -272,8 +274,8 @@
               (EXIT |toSave|)))) 
 
 (SDEFUN |ZDSOLVE;triangSolve;L2BL;3|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         (|lextri?| |Boolean|) ($ |List| (|RegularChain| R |ls|)))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         (|lextri?| (|Boolean|)) ($ (|List| (|RegularChain| R |ls|))))
         (SPROG
          ((|lq|
            (|List|
@@ -298,17 +300,17 @@
                  ('T (SPADCALL |lq| 'T |info?| (QREFELT $ 66)))))))) 
 
 (SDEFUN |ZDSOLVE;triangSolve;LBL;4|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         ($ |List| (|RegularChain| R |ls|)))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         ($ (|List| (|RegularChain| R |ls|))))
         (SPADCALL |lp| |info?| NIL (QREFELT $ 68))) 
 
 (SDEFUN |ZDSOLVE;triangSolve;LL;5|
-        ((|lp| |List| (|Polynomial| R)) ($ |List| (|RegularChain| R |ls|)))
+        ((|lp| (|List| (|Polynomial| R))) ($ (|List| (|RegularChain| R |ls|))))
         (SPADCALL |lp| NIL (QREFELT $ 69))) 
 
 (SDEFUN |ZDSOLVE;convert;SupSup;6|
-        ((|u| |SparseUnivariatePolynomial| R)
-         ($ |SparseUnivariatePolynomial| (|RealClosure| (|Fraction| R))))
+        ((|u| (|SparseUnivariatePolynomial| R))
+         ($ (|SparseUnivariatePolynomial| (|RealClosure| (|Fraction| R)))))
         (SPROG
          ((|uu| (|SparseUnivariatePolynomial| (|RealClosure| (|Fraction| R)))))
          (SEQ
@@ -348,29 +350,36 @@
                                   (QREFELT $ 81))
                                  (QREFELT $ 85))))))))) 
 
-(SDEFUN |ZDSOLVE;coerceFromRtoRC| ((|r| R) ($ |RealClosure| (|Fraction| R)))
+(SDEFUN |ZDSOLVE;coerceFromRtoRC|
+        ((|r| (R)) ($ (|RealClosure| (|Fraction| R))))
         (SPADCALL (SPADCALL |r| (QREFELT $ 78)) (QREFELT $ 80))) 
 
 (SDEFUN |ZDSOLVE;convert;PP;8|
-        ((|p| |Polynomial| R) ($ |Polynomial| (|RealClosure| (|Fraction| R))))
+        ((|p| (|Polynomial| R))
+         ($ (|Polynomial| (|RealClosure| (|Fraction| R)))))
         (SPADCALL (CONS (|function| |ZDSOLVE;coerceFromRtoRC|) $) |p|
                   (QREFELT $ 91))) 
 
 (SDEFUN |ZDSOLVE;convert;NsmpP;9|
-        ((|q2| |NewSparseMultivariatePolynomial| R
-          (|OrderedVariableList| |ls2|))
-         ($ |Polynomial| (|RealClosure| (|Fraction| R))))
+        ((|q2|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
+         ($ (|Polynomial| (|RealClosure| (|Fraction| R)))))
         (SPROG ((|p| (|Polynomial| R)))
                (SEQ (LETT |p| (SPADCALL |q2| (QREFELT $ 93)))
                     (EXIT (SPADCALL |p| (QREFELT $ 92)))))) 
 
 (SDEFUN |ZDSOLVE;convert;SfrtsL;10|
-        ((|sts| |SquareFreeRegularTriangularSet| R
-          (|IndexedExponents| (|OrderedVariableList| |ls2|))
-          (|OrderedVariableList| |ls2|)
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|)))
-         ($ |List|
-          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls2|))))
+        ((|sts|
+          (|SquareFreeRegularTriangularSet| R
+                                            (|IndexedExponents|
+                                             (|OrderedVariableList| |ls2|))
+                                            (|OrderedVariableList| |ls2|)
+                                            (|NewSparseMultivariatePolynomial|
+                                             R (|OrderedVariableList| |ls2|))))
+         ($
+          (|List|
+           (|NewSparseMultivariatePolynomial| R
+                                              (|OrderedVariableList| |ls2|)))))
         (SPROG
          ((|lq2|
            (|List|
@@ -382,8 +391,8 @@
               (EXIT (CDR |lq2|))))) 
 
 (SDEFUN |ZDSOLVE;realSolve;RcL;11|
-        ((|ts| |RegularChain| R |ls|)
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|ts| (|RegularChain| R |ls|))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPROG
          ((|toSee|
            (|List|
@@ -504,9 +513,9 @@
               (EXIT |toSave|)))) 
 
 (SDEFUN |ZDSOLVE;realSolve;L3BL;12|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         (|check?| |Boolean|) (|lextri?| |Boolean|)
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         (|check?| (|Boolean|)) (|lextri?| (|Boolean|))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPROG
          ((#1=#:G244 NIL) (|prc| (|Polynomial| (|RealClosure| (|Fraction| R))))
           (#2=#:G255 NIL) (|rr| NIL) (#3=#:G256 NIL) (|symb| NIL)
@@ -697,24 +706,24 @@
           (EXIT |toSave|)))) 
 
 (SDEFUN |ZDSOLVE;realSolve;L2BL;13|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         (|check?| |Boolean|)
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         (|check?| (|Boolean|))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPADCALL |lp| |info?| |check?| NIL (QREFELT $ 109))) 
 
 (SDEFUN |ZDSOLVE;realSolve;LBL;14|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPADCALL |lp| |info?| NIL NIL (QREFELT $ 109))) 
 
 (SDEFUN |ZDSOLVE;realSolve;LL;15|
-        ((|lp| |List| (|Polynomial| R))
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|lp| (|List| (|Polynomial| R)))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPADCALL |lp| NIL NIL NIL (QREFELT $ 109))) 
 
 (SDEFUN |ZDSOLVE;positiveSolve;RcL;16|
-        ((|ts| |RegularChain| R |ls|)
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|ts| (|RegularChain| R |ls|))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPROG
          ((|toSee|
            (|List|
@@ -837,9 +846,9 @@
               (EXIT |toSave|)))) 
 
 (SDEFUN |ZDSOLVE;positiveSolve;L2BL;17|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         (|lextri?| |Boolean|)
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         (|lextri?| (|Boolean|))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPROG
          ((|toSee|
            (|List|
@@ -984,20 +993,21 @@
           (EXIT |toSave|)))) 
 
 (SDEFUN |ZDSOLVE;positiveSolve;LBL;18|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPADCALL |lp| |info?| NIL (QREFELT $ 115))) 
 
 (SDEFUN |ZDSOLVE;positiveSolve;LL;19|
-        ((|lp| |List| (|Polynomial| R))
-         ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
+        ((|lp| (|List| (|Polynomial| R)))
+         ($ (|List| (|List| (|RealClosure| (|Fraction| R))))))
         (SPADCALL |lp| NIL NIL (QREFELT $ 115))) 
 
 (SDEFUN |ZDSOLVE;univariateSolve;RcL;20|
-        ((|ts| |RegularChain| R |ls|)
-         ($ |List|
-          (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
-                    (|:| |coordinates| (|List| (|Polynomial| R))))))
+        ((|ts| (|RegularChain| R |ls|))
+         ($
+          (|List|
+           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
+                     (|:| |coordinates| (|List| (|Polynomial| R)))))))
         (SPROG
          ((|toSave|
            (|List|
@@ -1093,11 +1103,12 @@
               (EXIT |toSave|)))) 
 
 (SDEFUN |ZDSOLVE;univariateSolve;L3BL;21|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         (|check?| |Boolean|) (|lextri?| |Boolean|)
-         ($ |List|
-          (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
-                    (|:| |coordinates| (|List| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         (|check?| (|Boolean|)) (|lextri?| (|Boolean|))
+         ($
+          (|List|
+           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
+                     (|:| |coordinates| (|List| (|Polynomial| R)))))))
         (SPROG
          ((|toSave|
            (|List|
@@ -1290,25 +1301,28 @@
           (EXIT |toSave|)))) 
 
 (SDEFUN |ZDSOLVE;univariateSolve;L2BL;22|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         (|check?| |Boolean|)
-         ($ |List|
-          (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
-                    (|:| |coordinates| (|List| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         (|check?| (|Boolean|))
+         ($
+          (|List|
+           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
+                     (|:| |coordinates| (|List| (|Polynomial| R)))))))
         (SPADCALL |lp| |info?| |check?| NIL (QREFELT $ 142))) 
 
 (SDEFUN |ZDSOLVE;univariateSolve;LBL;23|
-        ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
-         ($ |List|
-          (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
-                    (|:| |coordinates| (|List| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|info?| (|Boolean|))
+         ($
+          (|List|
+           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
+                     (|:| |coordinates| (|List| (|Polynomial| R)))))))
         (SPADCALL |lp| |info?| NIL NIL (QREFELT $ 142))) 
 
 (SDEFUN |ZDSOLVE;univariateSolve;LL;24|
-        ((|lp| |List| (|Polynomial| R))
-         ($ |List|
-          (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
-                    (|:| |coordinates| (|List| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R)))
+         ($
+          (|List|
+           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
+                     (|:| |coordinates| (|List| (|Polynomial| R)))))))
         (SPADCALL |lp| NIL NIL NIL (QREFELT $ 142))) 
 
 (DECLAIM (NOTINLINE |ZeroDimensionalSolvePackage;|)) 

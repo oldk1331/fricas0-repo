@@ -1,11 +1,11 @@
 
-(SDEFUN |UPXSCCA-;zero?;SB;1| ((|x| S) ($ |Boolean|))
+(SDEFUN |UPXSCCA-;zero?;SB;1| ((|x| (S)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 11))) 
 
-(SDEFUN |UPXSCCA-;retract;SULS;2| ((|x| S) ($ ULS))
+(SDEFUN |UPXSCCA-;retract;SULS;2| ((|x| (S)) ($ (ULS)))
         (SPADCALL |x| (QREFELT $ 13))) 
 
-(SDEFUN |UPXSCCA-;retractIfCan;SU;3| ((|x| S) ($ |Union| ULS "failed"))
+(SDEFUN |UPXSCCA-;retractIfCan;SU;3| ((|x| (S)) ($ (|Union| ULS "failed")))
         (SPADCALL |x| (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructorCategory&;|)) 

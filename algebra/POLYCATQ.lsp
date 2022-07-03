@@ -1,14 +1,14 @@
 
 (SDEFUN |POLYCATQ;univariate;FVF;1|
-        ((|f| F) (|x| V) ($ |Fraction| (|SparseUnivariatePolynomial| F)))
+        ((|f| (F)) (|x| (V)) ($ (|Fraction| (|SparseUnivariatePolynomial| F))))
         (SPADCALL (|POLYCATQ;P2UP| (SPADCALL |f| (QREFELT $ 11)) |x| $)
                   (|POLYCATQ;P2UP| (SPADCALL |f| (QREFELT $ 12)) |x| $)
                   (QREFELT $ 15))) 
 
 (SDEFUN |POLYCATQ;univ_root|
-        ((|f| F) (|x| V) (|a| F) (|k| |Integer|)
-         (|modulus| |SparseUnivariatePolynomial| F)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|f| (F)) (|x| (V)) (|a| (F)) (|k| (|Integer|))
+         (|modulus| (|SparseUnivariatePolynomial| F))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPROG
          ((|nd| (F)) (|cofact| (|SparseUnivariatePolynomial| F))
           (|cf2| #1=(|SparseUnivariatePolynomial| F)) (#2=#:G133 NIL)
@@ -101,8 +101,8 @@
             |nd| (QREFELT $ 42)))))) 
 
 (SDEFUN |POLYCATQ;univariate;FV2Sup;3|
-        ((|f| F) (|x| V) (|modulus| |SparseUnivariatePolynomial| F)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|f| (F)) (|x| (V)) (|modulus| (|SparseUnivariatePolynomial| F))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPROG
          ((|bc|
            (|Union|
@@ -136,7 +136,7 @@
               |modulus| (QREFELT $ 20)))))))) 
 
 (SDEFUN |POLYCATQ;multivariate;FVF;4|
-        ((|f| |Fraction| (|SparseUnivariatePolynomial| F)) (|x| V) ($ F))
+        ((|f| (|Fraction| (|SparseUnivariatePolynomial| F))) (|x| (V)) ($ (F)))
         (SPROG ((|v| (F)))
                (SEQ
                 (LETT |v|
@@ -147,7 +147,7 @@
                   (SPADCALL (SPADCALL |f| (QREFELT $ 58)) |v| (QREFELT $ 57))
                   (QREFELT $ 49)))))) 
 
-(SDEFUN |POLYCATQ;mymerge| ((|l| |List| V) (|m| |List| V) ($ |List| V))
+(SDEFUN |POLYCATQ;mymerge| ((|l| (|List| V)) (|m| (|List| V)) ($ (|List| V)))
         (COND ((NULL |l|) |m|) ((NULL |m|) |l|)
               ((SPADCALL (|SPADfirst| |l|) (|SPADfirst| |m|) (QREFELT $ 60))
                (CONS (|SPADfirst| |l|)
@@ -157,15 +157,16 @@
               ('T
                (CONS (|SPADfirst| |m|) (|POLYCATQ;mymerge| |l| (CDR |m|) $))))) 
 
-(SDEFUN |POLYCATQ;variables;FL;6| ((|f| F) ($ |List| V))
+(SDEFUN |POLYCATQ;variables;FL;6| ((|f| (F)) ($ (|List| V)))
         (|POLYCATQ;mymerge|
          (SPADCALL (SPADCALL |f| (QREFELT $ 11)) (QREFELT $ 63))
          (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (QREFELT $ 63)) $)) 
 
 (SDEFUN |POLYCATQ;isPower;FU;7|
-        ((|f| F)
-         ($ |Union| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|)))
-          "failed"))
+        ((|f| (F))
+         ($
+          (|Union| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|)))
+                   "failed")))
         (SPROG
          ((|r|
            (|Record| (|:| |var| V) (|:| |exponent| (|NonNegativeInteger|))))
@@ -214,9 +215,10 @@
                                   (QCDR |r|)))))))))))))) 
 
 (SDEFUN |POLYCATQ;isExpt;FU;8|
-        ((|f| F)
-         ($ |Union| (|Record| (|:| |var| V) (|:| |exponent| (|Integer|)))
-          "failed"))
+        ((|f| (F))
+         ($
+          (|Union| (|Record| (|:| |var| V) (|:| |exponent| (|Integer|)))
+                   "failed")))
         (SPROG
          ((|r|
            (|Record| (|:| |var| V) (|:| |exponent| (|NonNegativeInteger|))))
@@ -251,7 +253,7 @@
                      (CONS 0 (CONS (QCAR |r|) (QCDR |r|))))
                     (#1# (CONS 1 "failed"))))))))))) 
 
-(SDEFUN |POLYCATQ;isTimes;FU;9| ((|f| F) ($ |Union| (|List| F) "failed"))
+(SDEFUN |POLYCATQ;isTimes;FU;9| ((|f| (F)) ($ (|Union| (|List| F) "failed")))
         (SPROG
          ((|d| (F)) (|den| (P)) (|l| (|Union| (|List| F) "failed"))
           (#1=#:G205 NIL) (|x| NIL) (#2=#:G204 NIL)
@@ -296,7 +298,7 @@
                       (CONS 0
                             (SPADCALL (QCDR |l|) |d| (QREFELT $ 80))))))))))))) 
 
-(SDEFUN |POLYCATQ;isPlus;FU;10| ((|f| F) ($ |Union| (|List| F) "failed"))
+(SDEFUN |POLYCATQ;isPlus;FU;10| ((|f| (F)) ($ (|Union| (|List| F) "failed")))
         (SPROG
          ((#1=#:G217 NIL) (|x| NIL) (#2=#:G216 NIL)
           (|s| (|Union| (|List| P) "failed")))
@@ -327,7 +329,7 @@
                                  (LETT #1# (CDR #1#)) (GO G190) G191
                                  (EXIT (NREVERSE #2#)))))))))))))) 
 
-(SDEFUN |POLYCATQ;mainVariable;FU;11| ((|f| F) ($ |Union| V "failed"))
+(SDEFUN |POLYCATQ;mainVariable;FU;11| ((|f| (F)) ($ (|Union| V "failed")))
         (SPROG ((|b| #1=(|Union| V "failed")) (|a| #1#))
                (SEQ
                 (LETT |a|
@@ -341,7 +343,8 @@
                               (SPADCALL (QCDR |a|) (QCDR |b|)
                                         (QREFELT $ 87))))))))) 
 
-(SDEFUN |POLYCATQ;P2UP| ((|p| P) (|x| V) ($ |SparseUnivariatePolynomial| F))
+(SDEFUN |POLYCATQ;P2UP|
+        ((|p| (P)) (|x| (V)) ($ (|SparseUnivariatePolynomial| F)))
         (SPADCALL (ELT $ 55) (SPADCALL |p| |x| (QREFELT $ 90)) (QREFELT $ 94))) 
 
 (DECLAIM (NOTINLINE |PolynomialCategoryQuotientFunctions;|)) 

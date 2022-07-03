@@ -1,18 +1,20 @@
 
 (PUT '|VECTOR;qelt;$IR;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
-(SDEFUN |VECTOR;qelt;$IR;1| ((|x| $) (|i| |Integer|) ($ R)) (QAREF1O |x| |i| 1)) 
+(SDEFUN |VECTOR;qelt;$IR;1| ((|x| ($)) (|i| (|Integer|)) ($ (R)))
+        (QAREF1O |x| |i| 1)) 
 
 (PUT '|VECTOR;qsetelt!;$I2R;2| '|SPADreplace|
      '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
 
-(SDEFUN |VECTOR;qsetelt!;$I2R;2| ((|x| $) (|i| |Integer|) (|s| R) ($ R))
+(SDEFUN |VECTOR;qsetelt!;$I2R;2|
+        ((|x| ($)) (|i| (|Integer|)) (|s| (R)) ($ (R)))
         (QSETAREF1O |x| |i| |s| 1)) 
 
-(SDEFUN |VECTOR;vector;L$;3| ((|l| |List| R) ($ $))
+(SDEFUN |VECTOR;vector;L$;3| ((|l| (|List| R)) ($ ($)))
         (SPADCALL |l| (QREFELT $ 11))) 
 
-(SDEFUN |VECTOR;convert;$If;4| ((|x| $) ($ |InputForm|))
+(SDEFUN |VECTOR;convert;$If;4| ((|x| ($)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|vector| (QREFELT $ 15))
                (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 17)))

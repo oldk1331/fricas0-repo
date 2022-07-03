@@ -1,14 +1,15 @@
 
-(SDEFUN |ULSCCAT-;zero?;SB;1| ((|x| S) ($ |Boolean|))
+(SDEFUN |ULSCCAT-;zero?;SB;1| ((|x| (S)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 11))) 
 
-(SDEFUN |ULSCCAT-;retract;SUTS;2| ((|x| S) ($ UTS))
+(SDEFUN |ULSCCAT-;retract;SUTS;2| ((|x| (S)) ($ (UTS)))
         (SPADCALL |x| (QREFELT $ 13))) 
 
-(SDEFUN |ULSCCAT-;retractIfCan;SU;3| ((|x| S) ($ |Union| UTS "failed"))
+(SDEFUN |ULSCCAT-;retractIfCan;SU;3| ((|x| (S)) ($ (|Union| UTS "failed")))
         (SPADCALL |x| (QREFELT $ 16))) 
 
-(SDEFUN |ULSCCAT-;laurent;ISS;4| ((|n| |Integer|) (|st| |Stream| |Coef|) ($ S))
+(SDEFUN |ULSCCAT-;laurent;ISS;4|
+        ((|n| (|Integer|)) (|st| (|Stream| |Coef|)) ($ (S)))
         (SPADCALL |n| (SPADCALL |st| (QREFELT $ 19)) (QREFELT $ 21))) 
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesConstructorCategory&;|)) 

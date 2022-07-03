@@ -1,19 +1,20 @@
 
 (PUT '|SMTS;coefficients;$S;1| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |SMTS;coefficients;$S;1| ((|s| $) ($ |Stream| SMP)) |s|) 
+(SDEFUN |SMTS;coefficients;$S;1| ((|s| ($)) ($ (|Stream| SMP))) |s|) 
 
 (PUT '|SMTS;series;S$;2| '|SPADreplace| '(XLAM (|st|) |st|)) 
 
-(SDEFUN |SMTS;series;S$;2| ((|st| |Stream| SMP) ($ $)) |st|) 
+(SDEFUN |SMTS;series;S$;2| ((|st| (|Stream| SMP)) ($ ($))) |st|) 
 
-(SDEFUN |SMTS;extend;$Nni$;3| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |SMTS;extend;$Nni$;3| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |x| (+ |n| 1) (QREFELT $ 16))) 
 
-(SDEFUN |SMTS;complete;2$;4| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 19))) 
+(SDEFUN |SMTS;complete;2$;4| ((|x| ($)) ($ ($))) (SPADCALL |x| (QREFELT $ 19))) 
 
 (SDEFUN |SMTS;evalstream|
-        ((|s| $) (|lv| |List| |Var|) (|lsmp| |List| SMP) ($ |Stream| SMP))
+        ((|s| ($)) (|lv| (|List| |Var|)) (|lsmp| (|List| SMP))
+         ($ (|Stream| SMP)))
         (SPROG NIL
                (SPADCALL (|spadConstant| $ 23) (ELT $ 24)
                          (SPADCALL
@@ -28,7 +29,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |z1| |lv| |lsmp| (QREFELT $ 27)))))) 
 
-(SDEFUN |SMTS;addvariable| ((|v| |Var|) (|s| |InnerTaylorSeries| |Coef|) ($ $))
+(SDEFUN |SMTS;addvariable|
+        ((|v| (|Var|)) (|s| (|InnerTaylorSeries| |Coef|)) ($ ($)))
         (SPROG ((|ints| (|Stream| (|NonNegativeInteger|))))
                (SEQ (LETT |ints| (SPADCALL 0 (QREFELT $ 35)))
                     (EXIT
@@ -45,7 +47,7 @@
                       (QREFELT $ 37)))))) 
 
 (SDEFUN |SMTS;coefficient;$NniSMP;7|
-        ((|x| $) (|n| |NonNegativeInteger|) ($ SMP))
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (SMP)))
         (SPROG ((#1=#:G162 NIL) (|u| (|Rep|)))
                (SEQ (LETT |u| |x|)
                     (SEQ G190
@@ -69,8 +71,8 @@
                     (EXIT (SPADCALL |u| (QREFELT $ 47)))))) 
 
 (SDEFUN |SMTS;coefficient;$LL$;8|
-        ((|s| $) (|lv| |List| |Var|) (|ln| |List| (|NonNegativeInteger|))
-         ($ $))
+        ((|s| ($)) (|lv| (|List| |Var|)) (|ln| (|List| (|NonNegativeInteger|)))
+         ($ ($)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|SMTS;coefficient;$LL$;8!0| (VECTOR $ |ln| |lv|))
@@ -86,7 +88,7 @@
           (RETURN (PROGN (SPADCALL |z1| |lv| |ln| (QREFELT $ 50)))))) 
 
 (SDEFUN |SMTS;coefficient;$IeCoef;9|
-        ((|s| $) (|m| |IndexedExponents| |Var|) ($ |Coef|))
+        ((|s| ($)) (|m| (|IndexedExponents| |Var|)) ($ (|Coef|)))
         (SPROG
          ((|n| (|NonNegativeInteger|)) (|mon| (|IndexedExponents| |Var|)))
          (SEQ (LETT |n| (SPADCALL (LETT |mon| |m|) (QREFELT $ 58)))
@@ -104,19 +106,19 @@
                (SPADCALL (SPADCALL |s| |n| (QREFELT $ 48)) |m|
                          (QREFELT $ 61)))))) 
 
-(SDEFUN |SMTS;coerce;Coef$;10| ((|r| |Coef|) ($ $))
+(SDEFUN |SMTS;coerce;Coef$;10| ((|r| (|Coef|)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 36)) 0 (QREFELT $ 63))) 
 
-(SDEFUN |SMTS;*;SMP2$;11| ((|smp| SMP) (|p| $) ($ $))
+(SDEFUN |SMTS;*;SMP2$;11| ((|smp| (SMP)) (|p| ($)) ($ ($)))
         (SPADCALL |smp| |p| (QREFELT $ 65))) 
 
-(SDEFUN |SMTS;*;Coef2$;12| ((|r| |Coef|) (|p| $) ($ $))
+(SDEFUN |SMTS;*;Coef2$;12| ((|r| (|Coef|)) (|p| ($)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 36)) |p| (QREFELT $ 65))) 
 
-(SDEFUN |SMTS;*;$Coef$;13| ((|p| $) (|r| |Coef|) ($ $))
+(SDEFUN |SMTS;*;$Coef$;13| ((|p| ($)) (|r| (|Coef|)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 36)) |p| (QREFELT $ 65))) 
 
-(SDEFUN |SMTS;mts| ((|p| SMP) ($ $))
+(SDEFUN |SMTS;mts| ((|p| (SMP)) ($ ($)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| SMP)) (|s| ($)) (|v| (|Var|))
           (|uv| (|Union| |Var| "failed")))
@@ -151,13 +153,13 @@
                                 NIL (GO G190) G191 (EXIT NIL))
                            (EXIT |s|)))))))) 
 
-(SDEFUN |SMTS;coerce;SMP$;15| ((|p| SMP) ($ $)) (|SMTS;mts| |p| $)) 
+(SDEFUN |SMTS;coerce;SMP$;15| ((|p| (SMP)) ($ ($))) (|SMTS;mts| |p| $)) 
 
-(SDEFUN |SMTS;coerce;Var$;16| ((|v| |Var|) ($ $))
+(SDEFUN |SMTS;coerce;Var$;16| ((|v| (|Var|)) ($ ($)))
         (SPADCALL (SPADCALL |v| (QREFELT $ 82)) (QREFELT $ 81))) 
 
 (SDEFUN |SMTS;monomial;$VarNni$;17|
-        ((|r| $) (|v| |Var|) (|n| |NonNegativeInteger|) ($ $))
+        ((|r| ($)) (|v| (|Var|)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |r|
                   (SPADCALL
                    (SPADCALL (|spadConstant| $ 84) |v| |n| (QREFELT $ 37)) |n|
@@ -165,8 +167,8 @@
                   (QREFELT $ 78))) 
 
 (SDEFUN |SMTS;monomial;$LL$;18|
-        ((|r| $) (|lv| |List| |Var|) (|ln| |List| (|NonNegativeInteger|))
-         ($ $))
+        ((|r| ($)) (|lv| (|List| |Var|)) (|ln| (|List| (|NonNegativeInteger|)))
+         ($ ($)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (SPADCALL (ELT $ 51) |ln| 0 (QREFELT $ 85)))
                     (EXIT
@@ -178,14 +180,15 @@
                                (QREFELT $ 78)))))) 
 
 (SDEFUN |SMTS;monomial;CoefIe$;19|
-        ((|r| |Coef|) (|d| |IndexedExponents| |Var|) ($ $))
+        ((|r| (|Coef|)) (|d| (|IndexedExponents| |Var|)) ($ ($)))
         (SPROG ((|mp| (SMP)))
                (SEQ (LETT |mp| (SPADCALL |r| |d| (QREFELT $ 88)))
                     (EXIT
                      (SPADCALL |mp| (SPADCALL |mp| (QREFELT $ 89))
                                (QREFELT $ 63)))))) 
 
-(SDEFUN |SMTS;substvar| ((|p| SMP) (|vl| |List| |Var|) (|q| |List| $) ($ $))
+(SDEFUN |SMTS;substvar|
+        ((|p| (SMP)) (|vl| (|List| |Var|)) (|q| (|List| $)) ($ ($)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| SMP)) (|s| ($)) (|c| (SMP))
           (|v| (|Var|)) (|uv| (|Union| |Var| "failed")))
@@ -255,7 +258,8 @@
                                        (SPADCALL |q| (QREFELT $ 95))
                                        $)))))))))))))) 
 
-(SDEFUN |SMTS;sortmfirst| ((|p| SMP) (|vl| |List| |Var|) (|q| |List| $) ($ $))
+(SDEFUN |SMTS;sortmfirst|
+        ((|p| (SMP)) (|vl| (|List| |Var|)) (|q| (|List| $)) ($ ($)))
         (SPROG
          ((|nq| (|List| $)) (#1=#:G223 NIL) (|i| NIL) (#2=#:G222 NIL)
           (|nlv| (|List| |Var|)))
@@ -280,8 +284,8 @@
               (EXIT (|SMTS;substvar| |p| |nlv| |nq| $))))) 
 
 (SDEFUN |SMTS;csubst;LLM;22|
-        ((|vl| |List| |Var|) (|q| |List| (|Stream| SMP))
-         ($ |Mapping| (|Stream| SMP) SMP))
+        ((|vl| (|List| |Var|)) (|q| (|List| (|Stream| SMP)))
+         ($ (|Mapping| (|Stream| SMP) SMP)))
         (SPROG NIL (CONS #'|SMTS;csubst;LLM;22!0| (VECTOR $ |q| |vl|)))) 
 
 (SDEFUN |SMTS;csubst;LLM;22!0| ((|p1| NIL) ($$ NIL))
@@ -291,13 +295,14 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|SMTS;sortmfirst| |p1| |vl| |q| $))))) 
 
-(SDEFUN |SMTS;restCheck| ((|s| |Stream| SMP) ($ |Stream| SMP))
+(SDEFUN |SMTS;restCheck| ((|s| (|Stream| SMP)) ($ (|Stream| SMP)))
         (COND ((SPADCALL |s| (QREFELT $ 44)) |s|)
               ((NULL (SPADCALL (SPADCALL |s| (QREFELT $ 47)) (QREFELT $ 104)))
                (|error| "eval: constant coefficient should be 0"))
               ('T (SPADCALL |s| (QREFELT $ 105))))) 
 
-(SDEFUN |SMTS;eval;$LL$;24| ((|s| $) (|v| |List| |Var|) (|q| |List| $) ($ $))
+(SDEFUN |SMTS;eval;$LL$;24|
+        ((|s| ($)) (|v| (|List| |Var|)) (|q| (|List| $)) ($ ($)))
         (SPROG
          ((|nq| (|List| (|Stream| SMP))) (#1=#:G238 NIL) (|i| NIL)
           (#2=#:G237 NIL))
@@ -327,7 +332,7 @@
                          (QREFELT $ 109))
                (QREFELT $ 110))))))))) 
 
-(SDEFUN |SMTS;substmts| ((|v| |Var|) (|p| SMP) (|q| $) ($ $))
+(SDEFUN |SMTS;substmts| ((|v| (|Var|)) (|p| (SMP)) (|q| ($)) ($ ($)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| SMP)) (|ss| ($)) (|c| (SMP))
           (|d| (|NonNegativeInteger|)))
@@ -350,11 +355,12 @@
               (EXIT |ss|)))) 
 
 (SDEFUN |SMTS;subststream|
-        ((|v| |Var|) (|p| SMP) (|q| |Stream| SMP) ($ |Stream| SMP))
+        ((|v| (|Var|)) (|p| (SMP)) (|q| (|Stream| SMP)) ($ (|Stream| SMP)))
         (|SMTS;substmts| |v| |p| |q| $)) 
 
 (SDEFUN |SMTS;comp1|
-        ((|v| |Var|) (|r| |Stream| SMP) (|t| |Stream| SMP) ($ |Stream| SMP))
+        ((|v| (|Var|)) (|r| (|Stream| SMP)) (|t| (|Stream| SMP))
+         ($ (|Stream| SMP)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL (CONS #'|SMTS;comp1!0| (VECTOR $ |t| |v|)) |r|
@@ -369,7 +375,8 @@
           (RETURN (PROGN (|SMTS;subststream| |v| |p1| |t| $))))) 
 
 (SDEFUN |SMTS;comp|
-        ((|v| |Var|) (|s| |Stream| SMP) (|t| |Stream| SMP) ($ |Stream| SMP))
+        ((|v| (|Var|)) (|s| (|Stream| SMP)) (|t| (|Stream| SMP))
+         ($ (|Stream| SMP)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|SMTS;comp!0| (VECTOR |v| |t| $ |s|))
@@ -411,10 +418,10 @@
                                                    $)
                                                   (QREFELT $ 114)))))))))))))) 
 
-(SDEFUN |SMTS;eval;$Var2$;29| ((|s| $) (|v| |Var|) (|t| $) ($ $))
+(SDEFUN |SMTS;eval;$Var2$;29| ((|s| ($)) (|v| (|Var|)) (|t| ($)) ($ ($)))
         (|SMTS;comp| |v| |s| |t| $)) 
 
-(SDEFUN |SMTS;differentiate;$Var$;30| ((|s| $) (|v| |Var|) ($ $))
+(SDEFUN |SMTS;differentiate;$Var$;30| ((|s| ($)) (|v| (|Var|)) ($ ($)))
         (SPROG NIL
                (COND ((SPADCALL |s| (QREFELT $ 44)) (|spadConstant| $ 21))
                      ('T
@@ -430,12 +437,12 @@
 
 (PUT '|SMTS;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |SMTS;stream| ((|x| $) ($ |Rep|)) |x|) 
+(SDEFUN |SMTS;stream| ((|x| ($)) ($ (|Rep|))) |x|) 
 
-(SDEFUN |SMTS;^;$F$;32| ((|x| $) (|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |SMTS;^;$F$;32| ((|x| ($)) (|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPADCALL |r| (|SMTS;stream| |x| $) (QREFELT $ 121))) 
 
-(SDEFUN |SMTS;*;F2$;33| ((|r| |Fraction| (|Integer|)) (|x| $) ($ $))
+(SDEFUN |SMTS;*;F2$;33| ((|r| (|Fraction| (|Integer|))) (|x| ($)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|SMTS;*;F2$;33!0| (VECTOR $ |r|))
                          (|SMTS;stream| |x| $) (QREFELT $ 124)))) 
@@ -446,7 +453,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |r| |z1| (QREFELT $ 123)))))) 
 
-(SDEFUN |SMTS;*;$F$;34| ((|x| $) (|r| |Fraction| (|Integer|)) ($ $))
+(SDEFUN |SMTS;*;$F$;34| ((|x| ($)) (|r| (|Fraction| (|Integer|))) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|SMTS;*;$F$;34!0| (VECTOR $ |r|))
                          (|SMTS;stream| |x| $) (QREFELT $ 124)))) 
@@ -457,85 +464,85 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |z1| |r| (QREFELT $ 126)))))) 
 
-(SDEFUN |SMTS;exp;2$;35| ((|x| $) ($ $))
+(SDEFUN |SMTS;exp;2$;35| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 129))) 
 
-(SDEFUN |SMTS;log;2$;36| ((|x| $) ($ $))
+(SDEFUN |SMTS;log;2$;36| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 131))) 
 
-(SDEFUN |SMTS;sin;2$;37| ((|x| $) ($ $))
+(SDEFUN |SMTS;sin;2$;37| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 133))) 
 
-(SDEFUN |SMTS;cos;2$;38| ((|x| $) ($ $))
+(SDEFUN |SMTS;cos;2$;38| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 135))) 
 
-(SDEFUN |SMTS;tan;2$;39| ((|x| $) ($ $))
+(SDEFUN |SMTS;tan;2$;39| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 137))) 
 
-(SDEFUN |SMTS;cot;2$;40| ((|x| $) ($ $))
+(SDEFUN |SMTS;cot;2$;40| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 139))) 
 
-(SDEFUN |SMTS;sec;2$;41| ((|x| $) ($ $))
+(SDEFUN |SMTS;sec;2$;41| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 141))) 
 
-(SDEFUN |SMTS;csc;2$;42| ((|x| $) ($ $))
+(SDEFUN |SMTS;csc;2$;42| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 143))) 
 
-(SDEFUN |SMTS;asin;2$;43| ((|x| $) ($ $))
+(SDEFUN |SMTS;asin;2$;43| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 145))) 
 
-(SDEFUN |SMTS;acos;2$;44| ((|x| $) ($ $))
+(SDEFUN |SMTS;acos;2$;44| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 147))) 
 
-(SDEFUN |SMTS;atan;2$;45| ((|x| $) ($ $))
+(SDEFUN |SMTS;atan;2$;45| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 149))) 
 
-(SDEFUN |SMTS;acot;2$;46| ((|x| $) ($ $))
+(SDEFUN |SMTS;acot;2$;46| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 151))) 
 
-(SDEFUN |SMTS;asec;2$;47| ((|x| $) ($ $))
+(SDEFUN |SMTS;asec;2$;47| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 153))) 
 
-(SDEFUN |SMTS;acsc;2$;48| ((|x| $) ($ $))
+(SDEFUN |SMTS;acsc;2$;48| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 155))) 
 
-(SDEFUN |SMTS;sinh;2$;49| ((|x| $) ($ $))
+(SDEFUN |SMTS;sinh;2$;49| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 157))) 
 
-(SDEFUN |SMTS;cosh;2$;50| ((|x| $) ($ $))
+(SDEFUN |SMTS;cosh;2$;50| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 159))) 
 
-(SDEFUN |SMTS;tanh;2$;51| ((|x| $) ($ $))
+(SDEFUN |SMTS;tanh;2$;51| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 161))) 
 
-(SDEFUN |SMTS;coth;2$;52| ((|x| $) ($ $))
+(SDEFUN |SMTS;coth;2$;52| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 163))) 
 
-(SDEFUN |SMTS;sech;2$;53| ((|x| $) ($ $))
+(SDEFUN |SMTS;sech;2$;53| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 165))) 
 
-(SDEFUN |SMTS;csch;2$;54| ((|x| $) ($ $))
+(SDEFUN |SMTS;csch;2$;54| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 167))) 
 
-(SDEFUN |SMTS;asinh;2$;55| ((|x| $) ($ $))
+(SDEFUN |SMTS;asinh;2$;55| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 169))) 
 
-(SDEFUN |SMTS;acosh;2$;56| ((|x| $) ($ $))
+(SDEFUN |SMTS;acosh;2$;56| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 171))) 
 
-(SDEFUN |SMTS;atanh;2$;57| ((|x| $) ($ $))
+(SDEFUN |SMTS;atanh;2$;57| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 173))) 
 
-(SDEFUN |SMTS;acoth;2$;58| ((|x| $) ($ $))
+(SDEFUN |SMTS;acoth;2$;58| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 175))) 
 
-(SDEFUN |SMTS;asech;2$;59| ((|x| $) ($ $))
+(SDEFUN |SMTS;asech;2$;59| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 177))) 
 
-(SDEFUN |SMTS;acsch;2$;60| ((|x| $) ($ $))
+(SDEFUN |SMTS;acsch;2$;60| ((|x| ($)) ($ ($)))
         (SPADCALL (|SMTS;stream| |x| $) (QREFELT $ 179))) 
 
-(SDEFUN |SMTS;intsmp| ((|v| |Var|) (|p| SMP) ($ SMP))
+(SDEFUN |SMTS;intsmp| ((|v| (|Var|)) (|p| (SMP)) ($ (SMP)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| SMP)) (|ss| (SMP)) (|c| (SMP))
           (|d| (|NonNegativeInteger|)))
@@ -561,7 +568,7 @@
               (EXIT |ss|)))) 
 
 (SDEFUN |SMTS;fintegrate;MVarCoef$;62|
-        ((|f| |Mapping| $) (|v| |Var|) (|r| |Coef|) ($ $))
+        ((|f| (|Mapping| $)) (|v| (|Var|)) (|r| (|Coef|)) ($ ($)))
         (SPROG NIL
                (SPADCALL (SPADCALL |r| (QREFELT $ 36))
                          (SPADCALL
@@ -588,7 +595,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|SMTS;intsmp| |v| |z1| $))))) 
 
-(SDEFUN |SMTS;integrate;$VarCoef$;63| ((|s| $) (|v| |Var|) (|r| |Coef|) ($ $))
+(SDEFUN |SMTS;integrate;$VarCoef$;63|
+        ((|s| ($)) (|v| (|Var|)) (|r| (|Coef|)) ($ ($)))
         (SPROG NIL
                (SPADCALL (SPADCALL |r| (QREFELT $ 36))
                          (SPADCALL
@@ -603,10 +611,10 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|SMTS;intsmp| |v| |z1| $))))) 
 
-(SDEFUN |SMTS;integrate;$Var$;64| ((|s| $) (|v| |Var|) ($ $))
+(SDEFUN |SMTS;integrate;$Var$;64| ((|s| ($)) (|v| (|Var|)) ($ ($)))
         (SPADCALL |s| |v| (|spadConstant| $ 22) (QREFELT $ 185))) 
 
-(SDEFUN |SMTS;tout| ((|p| SMP) ($ |OutputForm|))
+(SDEFUN |SMTS;tout| ((|p| (SMP)) ($ (|OutputForm|)))
         (SPROG ((|pe| (|OutputForm|)))
                (SEQ (LETT |pe| (SPADCALL |p| (QREFELT $ 188)))
                     (EXIT
@@ -615,9 +623,9 @@
 
 (PUT '|SMTS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
-(SDEFUN |SMTS;showAll?| (($ |Boolean|)) |$streamsShowAll|) 
+(SDEFUN |SMTS;showAll?| (($ (|Boolean|))) |$streamsShowAll|) 
 
-(SDEFUN |SMTS;coerce;$Of;67| ((|s| $) ($ |OutputForm|))
+(SDEFUN |SMTS;coerce;$Of;67| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu| ($)) (|uu1| ($)) (|n| NIL)
           (#1=#:G381 NIL) (|count| (|NonNegativeInteger|)))
@@ -708,7 +716,7 @@
                          (SPADCALL (ELT $ 200) (NREVERSE |l|)
                                    (QREFELT $ 203)))))))))))) 
 
-(SDEFUN |SMTS;/;$Coef$;68| ((|p| $) (|r| |Coef|) ($ $))
+(SDEFUN |SMTS;/;$Coef$;68| ((|p| ($)) (|r| (|Coef|)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|SMTS;/;$Coef$;68!0| (VECTOR $ |r|))
                          (|SMTS;stream| |p| $) (QREFELT $ 124)))) 

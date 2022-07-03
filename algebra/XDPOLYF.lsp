@@ -1,6 +1,7 @@
 
 (SDEFUN |XDPOLYF;hankelIndices;XdpL;1|
-        ((|p| |XDistributedPolynomial| VAR F) ($ |List| (|FreeMonoid| VAR)))
+        ((|p| (|XDistributedPolynomial| VAR F))
+         ($ (|List| (|FreeMonoid| VAR))))
         (SPROG
          ((|lst_col| (|List| #1=(|FreeMonoid| VAR))) (|u| #1#) (#2=#:G139 NIL)
           (|k| NIL) (#3=#:G138 NIL) (|f| NIL) (|lst_row| (|List| #1#))
@@ -61,7 +62,7 @@
                 (QREFELT $ 20)))))) 
 
 (SDEFUN |XDPOLYF;hankelMatrix;XdpM;2|
-        ((|p| |XDistributedPolynomial| VAR F) ($ |Matrix| F))
+        ((|p| (|XDistributedPolynomial| VAR F)) ($ (|Matrix| F)))
         (SPROG
          ((|j| #1=(|Integer|)) (|i| #1#) (|v| (|FreeMonoid| VAR))
           (#2=#:G142 NIL) (|u| (|FreeMonoid| VAR)) (#3=#:G153 NIL) (|k| NIL)
@@ -136,7 +137,7 @@
               (EXIT |mtx_wrk|)))) 
 
 (SDEFUN |XDPOLYF;hankelMatrix;XdpVARM;3|
-        ((|p| |XDistributedPolynomial| VAR F) (|x| VAR) ($ |Matrix| F))
+        ((|p| (|XDistributedPolynomial| VAR F)) (|x| (VAR)) ($ (|Matrix| F)))
         (SPROG
          ((|u| (|FreeMonoid| VAR)) (|j| #1=(|Integer|)) (|i| #1#)
           (|v| (|FreeMonoid| VAR)) (#2=#:G156 NIL) (#3=#:G169 NIL) (|k| NIL)
@@ -216,9 +217,11 @@
               (EXIT |mtx_wrk|)))) 
 
 (SDEFUN |XDPOLYF;hankelSystem;XdpR;4|
-        ((|p| |XDistributedPolynomial| VAR F)
-         ($ |Record| (|:| |rows| (|List| (|FreeMonoid| VAR)))
-          (|:| |cols| (|List| (|FreeMonoid| VAR))) (|:| H (|Matrix| F))))
+        ((|p| (|XDistributedPolynomial| VAR F))
+         ($
+          (|Record| (|:| |rows| (|List| (|FreeMonoid| VAR)))
+                    (|:| |cols| (|List| (|FreeMonoid| VAR)))
+                    (|:| H (|Matrix| F)))))
         (SPROG
          ((|j| #1=(|Integer|)) (|i| #1#) (|v| (|FreeMonoid| VAR))
           (#2=#:G182 NIL) (|u| #3=(|FreeMonoid| VAR)) (#4=#:G199 NIL) (|k| NIL)
@@ -229,8 +232,7 @@
           (#8=#:G195 NIL) (#9=#:G194 NIL) (#10=#:G193 NIL) (#11=#:G192 NIL))
          (SEQ (LETT |lst_row| (LIST (|spadConstant| $ 9)))
               (LETT |lst_col| (LIST (|spadConstant| $ 9)))
-              (SEQ (LETT |m| NIL) (LETT #11# (SPADCALL |p| (QREFELT $ 12)))
-                   G190
+              (SEQ (LETT #11# (SPADCALL |p| (QREFELT $ 12))) G190
                    (COND
                     ((OR (ATOM #11#) (PROGN (LETT |m| (CAR #11#)) NIL))
                      (GO G191)))
@@ -351,9 +353,11 @@
               (EXIT (VECTOR |lst_row| |lst_col| |mtx_wrk|))))) 
 
 (SDEFUN |XDPOLYF;display;ROf;5|
-        ((|sys| |Record| (|:| |rows| (|List| (|FreeMonoid| VAR)))
-          (|:| |cols| (|List| (|FreeMonoid| VAR))) (|:| H (|Matrix| F)))
-         ($ |OutputForm|))
+        ((|sys|
+          (|Record| (|:| |rows| (|List| (|FreeMonoid| VAR)))
+                    (|:| |cols| (|List| (|FreeMonoid| VAR)))
+                    (|:| H (|Matrix| F))))
+         ($ (|OutputForm|)))
         (SPROG
          ((|lst_wrk| (|List| (|OutputForm|))) (#1=#:G209 NIL) (|j| NIL)
           (#2=#:G208 NIL) (|i| NIL) (#3=#:G207 NIL)
@@ -402,8 +406,8 @@
               (EXIT (SPADCALL |mtx| (QREFELT $ 54)))))) 
 
 (SDEFUN |XDPOLYF;findNonZeroEntry;M2NniL;6|
-        ((A |Matrix| F) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         ($ |List| (|NonNegativeInteger|)))
+        ((A (|Matrix| F)) (|i| (|NonNegativeInteger|))
+         (|j| (|NonNegativeInteger|)) ($ (|List| (|NonNegativeInteger|))))
         (SPROG
          ((#1=#:G218 NIL) (#2=#:G217 NIL) (|col_nz| #3=(|NonNegativeInteger|))
           (|row_nz| #3#) (|flg_nz| (|Boolean|)) (#4=#:G220 NIL) (|k| NIL)
@@ -442,8 +446,8 @@
               (EXIT (LIST |row_nz| |col_nz|))))) 
 
 (SDEFUN |XDPOLYF;addRows!|
-        ((A |Matrix| F) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|alpha| F) ($ |Matrix| F))
+        ((A (|Matrix| F)) (|i| (|NonNegativeInteger|))
+         (|j| (|NonNegativeInteger|)) (|alpha| (F)) ($ (|Matrix| F)))
         (SPROG ((#1=#:G224 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| 1) (LETT #1# (ANCOLS A)) G190
@@ -460,7 +464,7 @@
                 (EXIT A)))) 
 
 (SDEFUN |XDPOLYF;minimalMatrix;MNniM;8|
-        ((A |Matrix| F) (|r| |NonNegativeInteger|) ($ |Matrix| F))
+        ((A (|Matrix| F)) (|r| (|NonNegativeInteger|)) ($ (|Matrix| F)))
         (SPROG
          ((|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
           (#1=#:G232 NIL) (#2=#:G240 NIL) (|i| NIL) (#3=#:G239 NIL) (|j| NIL)
@@ -519,7 +523,7 @@
               (EXIT (SPADCALL A 1 |m| 1 |n| (QREFELT $ 62)))))) 
 
 (SDEFUN |XDPOLYF;transformationMatrices;ML;9|
-        ((A |Matrix| F) ($ |List| (|Matrix| F)))
+        ((A (|Matrix| F)) ($ (|List| (|Matrix| F))))
         (SPROG
          ((#1=#:G260 NIL) (|k| NIL) (#2=#:G259 NIL) (#3=#:G258 NIL)
           (|beta| (F)) (|idx| (|List| (|NonNegativeInteger|))) (#4=#:G257 NIL)
@@ -615,10 +619,10 @@
               (EXIT (LIST P Q))))) 
 
 (SDEFUN |XDPOLYF;minimalRepresentation;XdpR;10|
-        ((|p| |XDistributedPolynomial| VAR F)
-         ($ |Record| (|:| |alpha| (|Matrix| F))
-          (|:| |mu| (|List| (|Matrix| F))) (|:| |var| (|List| VAR))
-          (|:| |beta| (|Matrix| F))))
+        ((|p| (|XDistributedPolynomial| VAR F))
+         ($
+          (|Record| (|:| |alpha| (|Matrix| F)) (|:| |mu| (|List| (|Matrix| F)))
+                    (|:| |var| (|List| VAR)) (|:| |beta| (|Matrix| F)))))
         (SPROG
          ((|mu_lst| (|List| (|Matrix| F))) (|mu_wrk| #1=(|Matrix| F))
           (H (|Matrix| F)) (#2=#:G270 NIL) (|sym| NIL) (|var_lst| (|List| VAR))

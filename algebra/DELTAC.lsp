@@ -1,7 +1,7 @@
 
 (SDEFUN |DELTAC;dim1todim0|
-        ((|dim1| |List| (|List| (|Integer|))) (|n| . #1=(|NonNegativeInteger|))
-         ($ |List| (|List| (|Integer|))))
+        ((|dim1| (|List| (|List| (|Integer|)))) (|n| #1=(|NonNegativeInteger|))
+         ($ (|List| (|List| (|Integer|)))))
         (SPROG
          ((|res| (|List| (|List| (|Integer|)))) (#2=#:G155 NIL) (|x| NIL)
           (#3=#:G154 NIL) (|m3| (|NonNegativeInteger|)) (#4=#:G142 NIL)
@@ -65,8 +65,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |DELTAC;deltaComplex;LNniL$;2|
-        ((|v| |List| VS) (|numPoints| |NonNegativeInteger|)
-         (|f| |List| (|List| (|List| (|Integer|)))) ($ $))
+        ((|v| (|List| VS)) (|numPoints| (|NonNegativeInteger|))
+         (|f| (|List| (|List| (|List| (|Integer|))))) ($ ($)))
         (SPROG
          ((|fp| (|List| (|List| (|List| (|Integer|)))))
           (|f0| (|List| (|List| (|Integer|)))))
@@ -78,11 +78,11 @@
           (EXIT (CONS |v| |fp|))))) 
 
 (SDEFUN |DELTAC;deltaComplex;Fsc$;3|
-        ((|fsc| |FiniteSimplicialComplex| VS) ($ $))
+        ((|fsc| (|FiniteSimplicialComplex| VS)) ($ ($)))
         (SPADCALL |fsc| NIL (QREFELT $ 22))) 
 
 (SDEFUN |DELTAC;deltaComplex;FscB$;4|
-        ((|fsc| |FiniteSimplicialComplex| VS) (|trace| |Boolean|) ($ $))
+        ((|fsc| (|FiniteSimplicialComplex| VS)) (|trace| (|Boolean|)) ($ ($)))
         (SPROG
          ((|vs| #1=(|List| VS)) (|previousFaceList| (|List| (|OrientedFacet|)))
           (|faceMaps| (|List| (|List| (|List| (|Integer|)))))
@@ -387,7 +387,8 @@
                  (QREFELT $ 33))))
               (EXIT (CONS |vs| |faceMaps|))))) 
 
-(SDEFUN |DELTAC;deltaComplex;Fcc$;5| ((|fsc| |FiniteCubicalComplex| VS) ($ $))
+(SDEFUN |DELTAC;deltaComplex;Fcc$;5|
+        ((|fsc| (|FiniteCubicalComplex| VS)) ($ ($)))
         (SPROG
          ((|fp| (|List| (|List| (|List| (|Integer|)))))
           (|f0| (|List| (|List| (|Integer|)))) (|m| (|NonNegativeInteger|))
@@ -506,7 +507,7 @@
               (EXIT (CONS |vs| |fp|))))) 
 
 (SDEFUN |DELTAC;link;2Nni$;6|
-        ((|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|) ($ $))
+        ((|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|simp| (|List| (|List| (|List| (|Integer|)))))
           (|points| (|List| (|List| (|Integer|)))) (|vs| (|List| VS)))
@@ -516,8 +517,8 @@
               (EXIT (CONS |vs| |simp|))))) 
 
 (SDEFUN |DELTAC;triangle;3Nni$;7|
-        ((|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         (|c| |NonNegativeInteger|) ($ $))
+        ((|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         (|c| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|simp| (|List| #1=(|List| (|List| (|Integer|))))) (|points| #1#)
           (|triangles| (|List| (|List| (|Integer|))))
@@ -531,7 +532,8 @@
               (EXIT (CONS |vs| |simp|))))) 
 
 (SDEFUN |DELTAC;faceMap;$NniL;8|
-        ((|s| $) (|n| |NonNegativeInteger|) ($ |List| (|List| (|Integer|))))
+        ((|s| ($)) (|n| (|NonNegativeInteger|))
+         ($ (|List| (|List| (|Integer|)))))
         (SPROG
          ((#1=#:G220 NIL) (|maps1| (|List| (|List| (|List| (|Integer|))))))
          (SEQ
@@ -543,7 +545,7 @@
                 (EXIT (SPADCALL |maps1| |n| (QREFELT $ 65)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |DELTAC;chain;$Cc;9| ((|s| $) ($ |ChainComplex|))
+(SDEFUN |DELTAC;chain;$Cc;9| ((|s| ($)) ($ (|ChainComplex|)))
         (SPROG
          ((|res| (|List| (|Matrix| (|Integer|)))) (|m| (|Matrix| (|Integer|)))
           (|n_rows| (|NonNegativeInteger|)) (|ele| (|Integer|))
@@ -600,23 +602,23 @@
               (LETT |res| (CONS |m| |res|))
               (EXIT (SPADCALL (NREVERSE |res|) (QREFELT $ 72)))))) 
 
-(SDEFUN |DELTAC;coChain;$Ccc;10| ((|s| $) ($ |CoChainComplex| VS))
+(SDEFUN |DELTAC;coChain;$Ccc;10| ((|s| ($)) ($ (|CoChainComplex| VS)))
         (SPADCALL (SPADCALL |s| (QREFELT $ 73)) (QREFELT $ 75))) 
 
-(SDEFUN |DELTAC;homology;$L;11| ((|a| $) ($ |List| (|Homology|)))
+(SDEFUN |DELTAC;homology;$L;11| ((|a| ($)) ($ (|List| (|Homology|))))
         (SPROG ((|cc| (|ChainComplex|)))
                (SEQ (LETT |cc| (SPADCALL |a| (QREFELT $ 73)))
                     (SPADCALL |cc| (QREFELT $ 77))
                     (EXIT (SPADCALL |cc| (QREFELT $ 79)))))) 
 
-(SDEFUN |DELTAC;coHomology;$L;12| ((|a| $) ($ |List| (|Homology|)))
+(SDEFUN |DELTAC;coHomology;$L;12| ((|a| ($)) ($ (|List| (|Homology|))))
         (SPROG ((|cc| (|CoChainComplex| VS)))
                (SEQ (LETT |cc| (SPADCALL |a| (QREFELT $ 76)))
                     (SPADCALL |cc| (QREFELT $ 81))
                     (EXIT (SPADCALL |cc| (QREFELT $ 82)))))) 
 
 (SDEFUN |DELTAC;oneSkeleton;$Ug;13|
-        ((|s| $) ($ |UndirectedGraph| (|NonNegativeInteger|)))
+        ((|s| ($)) ($ (|UndirectedGraph| (|NonNegativeInteger|))))
         (SPROG
          ((|nodes|
            (|List|
@@ -769,8 +771,8 @@
           #7# (EXIT #5#)))) 
 
 (SDEFUN |DELTAC;linksInTree|
-        ((|res| |List| (|List| (|Integer|))) (|a| |Tree| (|Integer|))
-         ($ |List| (|List| (|Integer|))))
+        ((|res| (|List| (|List| (|Integer|)))) (|a| (|Tree| (|Integer|)))
+         ($ (|List| (|List| (|Integer|)))))
         (SPROG
          ((#1=#:G257 NIL) (|x| NIL) (|newLink| (|List| #2=(|Integer|)))
           (|toNode| #2#) (#3=#:G256 NIL) (|fromNode| #2#))
@@ -794,8 +796,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |DELTAC;containsEdge?|
-        ((|edge| |List| (|Integer|)) (|edges| |List| (|List| (|Integer|)))
-         ($ |Boolean|))
+        ((|edge| (|List| (|Integer|))) (|edges| (|List| (|List| (|Integer|))))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G268 NIL) (|t2| #2=(|Integer|)) (|s2| #2#) (#3=#:G269 NIL)
           (|e| NIL) (|t| #2#) (|s| #2#))
@@ -830,12 +832,12 @@
             (EXIT NIL)))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |DELTAC;fundamentalGroup;$Gp;16| ((|s| $) ($ |GroupPresentation|))
+(SDEFUN |DELTAC;fundamentalGroup;$Gp;16| ((|s| ($)) ($ (|GroupPresentation|)))
         (SPADCALL |s| 'T NIL (QREFELT $ 99))) 
 
 (SDEFUN |DELTAC;fundamentalGroup;$2BGp;17|
-        ((|s| $) (|simplify| |Boolean|) (|trace| |Boolean|)
-         ($ |GroupPresentation|))
+        ((|s| ($)) (|simplify| (|Boolean|)) (|trace| (|Boolean|))
+         ($ (|GroupPresentation|)))
         (SPROG
          ((#1=#:G283 NIL) (|gp| (|GroupPresentation|))
           (|generators| (|List| (|NonNegativeInteger|))) (#2=#:G290 NIL)
@@ -977,7 +979,7 @@
           #10# (EXIT #1#)))) 
 
 (SDEFUN |DELTAC;equalSimplex|
-        ((|a| |List| (|Integer|)) (|b| |List| (|Integer|)) ($ |Boolean|))
+        ((|a| (|List| (|Integer|))) (|b| (|List| (|Integer|))) ($ (|Boolean|)))
         (SPROG
          ((|offset| (|Integer|)) (#1=#:G298 NIL) (#2=#:G299 NIL) (|n| NIL)
           (|fst| (|Integer|)) (|len| (|NonNegativeInteger|)))
@@ -1006,7 +1008,7 @@
                 (EXIT 'T)))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |DELTAC;=;2$B;19| ((|a| $) (|b| $) ($ |Boolean|))
+(SDEFUN |DELTAC;=;2$B;19| ((|a| ($)) (|b| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G303 NIL) (|len| (|NonNegativeInteger|))
           (|bs| #2=(|List| (|List| (|List| (|Integer|))))) (|as| #2#))
@@ -1020,7 +1022,7 @@
                 (EXIT 'T)))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |DELTAC;coerce;$Of;20| ((|s| $) ($ |OutputForm|))
+(SDEFUN |DELTAC;coerce;$Of;20| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|tabNum| (|Integer|)) (|res| (|OutputForm|)) (|row| (|OutputForm|))
           (#1=#:G310 NIL) (|a| NIL) (#2=#:G309 NIL))
@@ -1054,7 +1056,7 @@
                 (EXIT |res|)))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |DELTAC;coerce;$Fsc;21| ((|s| $) ($ |FiniteSimplicialComplex| VS))
+(SDEFUN |DELTAC;coerce;$Fsc;21| ((|s| ($)) ($ (|FiniteSimplicialComplex| VS)))
         (SPROG ((#1=#:G312 NIL))
                (PROG2 (LETT #1# (SPADCALL |s| (QREFELT $ 123)))
                    (QCDR #1#)

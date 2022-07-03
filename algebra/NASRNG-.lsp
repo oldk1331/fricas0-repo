@@ -1,5 +1,5 @@
 
-(SDEFUN |NASRNG-;antiCommutator;3S;1| ((|x| S) (|y| S) ($ S))
+(SDEFUN |NASRNG-;antiCommutator;3S;1| ((|x| (S)) (|y| (S)) ($ (S)))
         (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7))
                   (SPADCALL |y| |x| (QREFELT $ 7)) (QREFELT $ 8))) 
 

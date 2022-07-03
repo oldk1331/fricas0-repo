@@ -1,16 +1,16 @@
 
-(SDEFUN |VARIABLE;coerce;$S;1| ((|x| $) ($ |Symbol|)) (QREFELT $ 6)) 
+(SDEFUN |VARIABLE;coerce;$S;1| ((|x| ($)) ($ (|Symbol|))) (QREFELT $ 6)) 
 
-(SDEFUN |VARIABLE;coerce;$Of;2| ((|x| $) ($ |OutputForm|))
+(SDEFUN |VARIABLE;coerce;$Of;2| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 
 
-(SDEFUN |VARIABLE;variable;S;3| (($ |Symbol|)) (QREFELT $ 6)) 
+(SDEFUN |VARIABLE;variable;S;3| (($ (|Symbol|))) (QREFELT $ 6)) 
 
 (PUT '|VARIABLE;=;2$B;4| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
-(SDEFUN |VARIABLE;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|)) 'T) 
+(SDEFUN |VARIABLE;=;2$B;4| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) 'T) 
 
-(SDEFUN |VARIABLE;latex;$S;5| ((|x| $) ($ |String|))
+(SDEFUN |VARIABLE;latex;$S;5| ((|x| ($)) ($ (|String|)))
         (SPADCALL (QREFELT $ 6) (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |Variable;|)) 

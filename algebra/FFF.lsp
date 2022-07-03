@@ -1,10 +1,12 @@
 
 (SDEFUN |FFF;createLowComplexityNormalBasis;PiU;1|
-        ((|n| |PositiveInteger|)
-         ($ |Union| (|SparseUnivariatePolynomial| GF)
-          (|Vector|
-           (|List|
-            (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))))
+        ((|n| (|PositiveInteger|))
+         ($
+          (|Union| (|SparseUnivariatePolynomial| GF)
+                   (|Vector|
+                    (|List|
+                     (|Record| (|:| |value| GF)
+                               (|:| |index| (|SingleInteger|))))))))
         (SPROG
          ((|u|
            (|Union|
@@ -18,12 +20,13 @@
                      ('T (CONS 1 (QCDR |u|)))))))) 
 
 (SDEFUN |FFF;createLowComplexityTable;PiU;2|
-        ((|n| |PositiveInteger|)
-         ($ |Union|
-          (|Vector|
-           (|List|
-            #1=(|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
-          "failed"))
+        ((|n| (|PositiveInteger|))
+         ($
+          (|Union|
+           (|Vector|
+            (|List|
+             #1=(|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
+           "failed")))
         (SPROG
          ((|l|
            (|List|
@@ -518,9 +521,11 @@
                        (EXIT (CONS 0 |multtable|))))))))) 
 
 (SDEFUN |FFF;sizeMultiplication;VNni;3|
-        ((|m| |Vector|
-          (|List| (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
-         ($ |NonNegativeInteger|))
+        ((|m|
+          (|Vector|
+           (|List|
+            (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((|s| (|NonNegativeInteger|)) (#1=#:G201 NIL) (|i| NIL))
                (SEQ (LETT |s| 0)
                     (SEQ (LETT |i| 1) (LETT #1# (QVSIZE |m|)) G190
@@ -535,10 +540,11 @@
                     (EXIT |s|)))) 
 
 (SDEFUN |FFF;createMultiplicationTable;SupV;4|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |Vector|
-          (|List|
-           #1=(|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($
+          (|Vector|
+           (|List|
+            #1=(|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))))
         (SPROG
          ((|l|
            (|List|
@@ -700,8 +706,8 @@
                           (EXIT |multtable|)))))))))))) 
 
 (SDEFUN |FFF;createZechTable;SupPa;5|
-        ((|f| |SparseUnivariatePolynomial| GF)
-         ($ |PrimitiveArray| (|SingleInteger|)))
+        ((|f| (|SparseUnivariatePolynomial| GF))
+         ($ (|PrimitiveArray| (|SingleInteger|))))
         (SPROG
          ((|a|
            #1=(|SimpleAlgebraicExtension| GF (|SparseUnivariatePolynomial| GF)
@@ -853,9 +859,11 @@
                   (EXIT |zechlog|)))))))) 
 
 (SDEFUN |FFF;createMultiplicationMatrix;VM;6|
-        ((|m| |Vector|
-          (|List| (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
-         ($ |Matrix| GF))
+        ((|m|
+          (|Vector|
+           (|List|
+            (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
+         ($ (|Matrix| GF)))
         (SPROG
          ((#1=#:G249 NIL) (|t| NIL) (#2=#:G248 NIL) (|i| NIL)
           (|mat| (|Matrix| GF)) (|n| (|NonNegativeInteger|)))

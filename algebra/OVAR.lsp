@@ -1,30 +1,30 @@
 
-(SDEFUN |OVAR;convert;$S;1| ((|s1| $) ($ |Symbol|))
+(SDEFUN |OVAR;convert;$S;1| ((|s1| ($)) ($ (|Symbol|)))
         (SPADCALL (QREFELT $ 6) |s1| (QREFELT $ 12))) 
 
-(SDEFUN |OVAR;coerce;$Of;2| ((|s1| $) ($ |OutputForm|))
+(SDEFUN |OVAR;coerce;$Of;2| ((|s1| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 15))) 
 
-(SDEFUN |OVAR;convert;$If;3| ((|s1| $) ($ |InputForm|))
+(SDEFUN |OVAR;convert;$If;3| ((|s1| ($)) ($ (|InputForm|)))
         (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 18))) 
 
-(SDEFUN |OVAR;convert;$P;4| ((|s1| $) ($ |Pattern| (|Integer|)))
+(SDEFUN |OVAR;convert;$P;4| ((|s1| ($)) ($ (|Pattern| (|Integer|))))
         (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 21))) 
 
-(SDEFUN |OVAR;convert;$P;5| ((|s1| $) ($ |Pattern| (|Float|)))
+(SDEFUN |OVAR;convert;$P;5| ((|s1| ($)) ($ (|Pattern| (|Float|))))
         (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 24))) 
 
 (PUT '|OVAR;index;Pi$;6| '|SPADreplace| '(XLAM (|i|) |i|)) 
 
-(SDEFUN |OVAR;index;Pi$;6| ((|i| |PositiveInteger|) ($ $)) |i|) 
+(SDEFUN |OVAR;index;Pi$;6| ((|i| (|PositiveInteger|)) ($ ($))) |i|) 
 
 (PUT '|OVAR;lookup;$Pi;7| '|SPADreplace| '(XLAM (|j|) |j|)) 
 
-(SDEFUN |OVAR;lookup;$Pi;7| ((|j| $) ($ |PositiveInteger|)) |j|) 
+(SDEFUN |OVAR;lookup;$Pi;7| ((|j| ($)) ($ (|PositiveInteger|))) |j|) 
 
-(SDEFUN |OVAR;size;Nni;8| (($ |NonNegativeInteger|)) (LENGTH (QREFELT $ 6))) 
+(SDEFUN |OVAR;size;Nni;8| (($ (|NonNegativeInteger|))) (LENGTH (QREFELT $ 6))) 
 
-(SDEFUN |OVAR;variable;SU;9| ((|exp| |Symbol|) ($ |Union| $ "failed"))
+(SDEFUN |OVAR;variable;SU;9| ((|exp| (|Symbol|)) ($ (|Union| $ "failed")))
         (SPROG
          ((#1=#:G138 NIL) (#2=#:G131 NIL) (|i| NIL) (#3=#:G139 NIL)
           (|exp2| NIL))
@@ -55,17 +55,16 @@
 
 (PUT '|OVAR;<;2$B;10| '|SPADreplace| '(XLAM (|s1| |s2|) (< |s2| |s1|))) 
 
-(SDEFUN |OVAR;<;2$B;10| ((|s1| $) (|s2| $) ($ |Boolean|)) (< |s2| |s1|)) 
+(SDEFUN |OVAR;<;2$B;10| ((|s1| ($)) (|s2| ($)) ($ (|Boolean|))) (< |s2| |s1|)) 
 
 (PUT '|OVAR;=;2$B;11| '|SPADreplace| 'EQL) 
 
-(SDEFUN |OVAR;=;2$B;11| ((|s1| $) (|s2| $) ($ |Boolean|)) (EQL |s1| |s2|)) 
+(SDEFUN |OVAR;=;2$B;11| ((|s1| ($)) (|s2| ($)) ($ (|Boolean|))) (EQL |s1| |s2|)) 
 
-(SDEFUN |OVAR;latex;$S;12| ((|x| $) ($ |String|))
+(SDEFUN |OVAR;latex;$S;12| ((|x| ($)) ($ (|String|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 37))) 
 
-(SDEFUN |OVAR;hashUpdate!;Hs$Hs;13|
-        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+(SDEFUN |OVAR;hashUpdate!;Hs$Hs;13| ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
         (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (DECLAIM (NOTINLINE |OrderedVariableList;|)) 

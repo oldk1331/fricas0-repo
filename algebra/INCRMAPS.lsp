@@ -1,11 +1,11 @@
 
-(SDEFUN |INCRMAPS;increment;M;1| (($ |Mapping| R R))
+(SDEFUN |INCRMAPS;increment;M;1| (($ (|Mapping| R R)))
         (CONS #'|INCRMAPS;increment;M;1!0| $)) 
 
 (SDEFUN |INCRMAPS;increment;M;1!0| ((|x| NIL) ($ NIL))
         (SPADCALL (|spadConstant| $ 7) |x| (QREFELT $ 8))) 
 
-(SDEFUN |INCRMAPS;incrementBy;RM;2| ((|n| R) ($ |Mapping| R R))
+(SDEFUN |INCRMAPS;incrementBy;RM;2| ((|n| (R)) ($ (|Mapping| R R)))
         (SPROG NIL (CONS #'|INCRMAPS;incrementBy;RM;2!0| (VECTOR $ |n|)))) 
 
 (SDEFUN |INCRMAPS;incrementBy;RM;2!0| ((|x| NIL) ($$ NIL))

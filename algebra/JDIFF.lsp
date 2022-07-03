@@ -1,18 +1,19 @@
 
-(SDEFUN |JDIFF;d;JB$;1| ((|jb| JB) ($ $))
+(SDEFUN |JDIFF;d;JB$;1| ((|jb| (JB)) ($ ($)))
         (CONS (LIST (|spadConstant| $ 9)) (LIST |jb|))) 
 
-(SDEFUN |JDIFF;dX;Pi$;2| ((|i| |PositiveInteger|) ($ $))
+(SDEFUN |JDIFF;dX;Pi$;2| ((|i| (|PositiveInteger|)) ($ ($)))
         (SPADCALL (SPADCALL |i| (QREFELT $ 12)) (QREFELT $ 10))) 
 
-(SDEFUN |JDIFF;dU;Pi$;3| ((|i| |PositiveInteger|) ($ $))
+(SDEFUN |JDIFF;dU;Pi$;3| ((|i| (|PositiveInteger|)) ($ ($)))
         (SPADCALL (SPADCALL |i| (QREFELT $ 14)) (QREFELT $ 10))) 
 
 (SDEFUN |JDIFF;dP;PiL$;4|
-        ((|i| |PositiveInteger|) (|mu| |List| (|NonNegativeInteger|)) ($ $))
+        ((|i| (|PositiveInteger|)) (|mu| (|List| (|NonNegativeInteger|)))
+         ($ ($)))
         (SPADCALL (SPADCALL |i| |mu| (QREFELT $ 17)) (QREFELT $ 10))) 
 
-(SDEFUN |JDIFF;monom| ((|c| D) (|jb| JB) ($ |OutputForm|))
+(SDEFUN |JDIFF;monom| ((|c| (D)) (|jb| (JB)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |c| (QREFELT $ 20))
           (SPADCALL (SPADCALL "d" (QREFELT $ 23))
@@ -23,7 +24,7 @@
                               (SPADCALL |jb| (QREFELT $ 24)) (QREFELT $ 25))
                     (QREFELT $ 27))))) 
 
-(SDEFUN |JDIFF;coerce;$Of;6| ((|om| $) ($ |OutputForm|))
+(SDEFUN |JDIFF;coerce;$Of;6| ((|om| ($)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G152 NIL) (|c| NIL) (#2=#:G153 NIL) (|jb| NIL) (#3=#:G151 NIL))
          (SEQ
@@ -50,13 +51,13 @@
                             (GO G190) G191 (EXIT (NREVERSE #3#))))
                       (QREFELT $ 32))))))) 
 
-(SDEFUN |JDIFF;coefficients;$L;7| ((|om| $) ($ |List| D))
+(SDEFUN |JDIFF;coefficients;$L;7| ((|om| ($)) ($ (|List| D)))
         (SPADCALL (QCAR |om|) (QREFELT $ 35))) 
 
-(SDEFUN |JDIFF;differentials;$L;8| ((|om| $) ($ |List| JB))
+(SDEFUN |JDIFF;differentials;$L;8| ((|om| ($)) ($ (|List| JB)))
         (SPADCALL (QCDR |om|) (QREFELT $ 38))) 
 
-(SDEFUN |JDIFF;coefficient;$JBD;9| ((|om| $) (|jb| JB) ($ D))
+(SDEFUN |JDIFF;coefficient;$JBD;9| ((|om| ($)) (|jb| (JB)) ($ (D)))
         (SPROG ((|pos| (|Integer|)))
                (SEQ (LETT |pos| (SPADCALL |jb| (QCDR |om|) (QREFELT $ 41)))
                     (EXIT
@@ -64,17 +65,17 @@
                       ((< |pos| (PROGN (QCDR |om|) 1)) (|spadConstant| $ 28))
                       ('T (SPADCALL (QCAR |om|) |pos| (QREFELT $ 42)))))))) 
 
-(SDEFUN |JDIFF;copy;2$;10| ((|om| $) ($ $))
+(SDEFUN |JDIFF;copy;2$;10| ((|om| ($)) ($ ($)))
         (CONS (SPADCALL (QCAR |om|) (QREFELT $ 35))
               (SPADCALL (QCDR |om|) (QREFELT $ 38)))) 
 
 (PUT '|JDIFF;Zero;$;11| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
-(SDEFUN |JDIFF;Zero;$;11| (($ $)) (CONS NIL NIL)) 
+(SDEFUN |JDIFF;Zero;$;11| (($ ($))) (CONS NIL NIL)) 
 
-(SDEFUN |JDIFF;zero?;$B;12| ((|om| $) ($ |Boolean|)) (NULL (QCDR |om|))) 
+(SDEFUN |JDIFF;zero?;$B;12| ((|om| ($)) ($ (|Boolean|))) (NULL (QCDR |om|))) 
 
-(SDEFUN |JDIFF;-;2$;13| ((|om| $) ($ $))
+(SDEFUN |JDIFF;-;2$;13| ((|om| ($)) ($ ($)))
         (SPROG ((#1=#:G164 NIL) (|c| NIL) (#2=#:G163 NIL))
                (SEQ
                 (CONS
@@ -91,7 +92,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QCDR |om|))))) 
 
-(SDEFUN |JDIFF;+;3$;14| ((|om1| $) (|om2| $) ($ $))
+(SDEFUN |JDIFF;+;3$;14| ((|om1| ($)) (|om2| ($)) ($ ($)))
         (SPROG
          ((|lj2| (|List| JB)) (|lc2| (|List| D)) (|resJ| (|List| JB))
           (|resC| (|List| D)) (|sum| (D)) (#1=#:G181 NIL) (|c1| NIL)
@@ -153,7 +154,7 @@
                              (SPADCALL (NREVERSE |resJ|) |lj2|
                                        (QREFELT $ 55)))))))))) 
 
-(SDEFUN |JDIFF;*;D2$;15| ((|f| D) (|om| $) ($ $))
+(SDEFUN |JDIFF;*;D2$;15| ((|f| (D)) (|om| ($)) ($ ($)))
         (SPROG ((#1=#:G187 NIL) (|c| NIL) (#2=#:G186 NIL))
                (SEQ
                 (COND ((SPADCALL |f| (QREFELT $ 53)) (|spadConstant| $ 46))
@@ -175,7 +176,7 @@
                               (EXIT (NREVERSE #2#))))
                         (QCDR |om|))))))) 
 
-(SDEFUN |JDIFF;d;D$;16| ((|f| D) ($ $))
+(SDEFUN |JDIFF;d;D$;16| ((|f| (D)) ($ ($)))
         (SPROG
          ((|Co| (|List| D)) (#1=#:G193 NIL) (|jv| NIL) (#2=#:G192 NIL)
           (JV (|List| JB)))
@@ -202,7 +203,8 @@
                                    (EXIT (NREVERSE #2#)))))
                        (EXIT (CONS |Co| JV))))))))) 
 
-(SDEFUN |JDIFF;eval;$JvfD;17| ((|om| $) (|v| |JetVectorField| JB D) ($ D))
+(SDEFUN |JDIFF;eval;$JvfD;17|
+        ((|om| ($)) (|v| (|JetVectorField| JB D)) ($ (D)))
         (SPROG
          ((|lj2| (|List| JB)) (|lc2| (|List| D)) (|res| (D)) (#1=#:G206 NIL)
           (|c1| NIL) (#2=#:G207 NIL) (|j1| NIL))
@@ -252,7 +254,8 @@
                   G191 (EXIT NIL))
              (EXIT |res|))))))) 
 
-(SDEFUN |JDIFF;contract;Jvf$D;18| ((|v| |JetVectorField| JB D) (|om| $) ($ D))
+(SDEFUN |JDIFF;contract;Jvf$D;18|
+        ((|v| (|JetVectorField| JB D)) (|om| ($)) ($ (D)))
         (SPADCALL |om| |v| (QREFELT $ 66))) 
 
 (DECLAIM (NOTINLINE |JetDifferential;|)) 

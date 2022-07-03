@@ -1,7 +1,7 @@
 
 (SDEFUN |EXPRTUBE;getVariable|
-        ((|x| |Expression| (|Integer|)) (|y| |Expression| (|Integer|))
-         (|z| |Expression| (|Integer|)) ($ |Symbol|))
+        ((|x| (|Expression| (|Integer|))) (|y| (|Expression| (|Integer|)))
+         (|z| (|Expression| (|Integer|))) ($ (|Symbol|)))
         (SPROG
          ((|t2| #1=(|Symbol|)) (|t1| #1#) (|varList3| #2=(|List| (|Symbol|)))
           (|varList2| #2#) (|varList1| #2#))
@@ -69,12 +69,12 @@
                                   (EXIT |t1|)))))))))))))))) 
 
 (SDEFUN |EXPRTUBE;tubePlot;3EMSMISTp;2|
-        ((|x| |Expression| (|Integer|)) (|y| |Expression| (|Integer|))
-         (|z| |Expression| (|Integer|))
-         (|colorFcn| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|))
-         (|radFcn| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) (|n| |Integer|)
-         (|string| |String|) ($ |TubePlot| (|Plot3D|)))
+        ((|x| (|Expression| (|Integer|))) (|y| (|Expression| (|Integer|)))
+         (|z| (|Expression| (|Integer|)))
+         (|colorFcn| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|radFcn| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|n| (|Integer|)) (|string| (|String|)) ($ (|TubePlot| (|Plot3D|))))
         (SPROG
          ((|loopList| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|lps| (|List| (|Point| (|DoubleFloat|))))
@@ -193,22 +193,22 @@
                              (QREFELT $ 40))))))))) 
 
 (SDEFUN |EXPRTUBE;tubePlot;3EMSMITp;3|
-        ((|x| |Expression| (|Integer|)) (|y| |Expression| (|Integer|))
-         (|z| |Expression| (|Integer|))
-         (|colorFcn| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|))
-         (|radFcn| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) (|n| |Integer|)
-         ($ |TubePlot| (|Plot3D|)))
+        ((|x| (|Expression| (|Integer|))) (|y| (|Expression| (|Integer|)))
+         (|z| (|Expression| (|Integer|)))
+         (|colorFcn| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|)))
+         (|radFcn| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|n| (|Integer|)) ($ (|TubePlot| (|Plot3D|))))
         (SPADCALL |x| |y| |z| |colorFcn| |tRange| |radFcn| |n| "open"
                   (QREFELT $ 42))) 
 
 (PUT '|EXPRTUBE;project| '|SPADreplace| '(XLAM (|x| |y|) |x|)) 
 
 (SDEFUN |EXPRTUBE;project|
-        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) ($ |DoubleFloat|)) |x|) 
+        ((|x| (|DoubleFloat|)) (|y| (|DoubleFloat|)) ($ (|DoubleFloat|))) |x|) 
 
 (SDEFUN |EXPRTUBE;constantToUnaryFunction;DfM;5|
-        ((|x| |DoubleFloat|) ($ |Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+        ((|x| (|DoubleFloat|)) ($ (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
         (SPROG NIL
                (CONS #'|EXPRTUBE;constantToUnaryFunction;DfM;5!0|
                      (VECTOR $ |x|)))) 
@@ -220,20 +220,20 @@
           (RETURN (PROGN (|EXPRTUBE;project| |x| |s| $))))) 
 
 (SDEFUN |EXPRTUBE;tubePlot;3EMSDfISTp;6|
-        ((|x| |Expression| (|Integer|)) (|y| |Expression| (|Integer|))
-         (|z| |Expression| (|Integer|))
-         (|colorFcn| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|)) (|rad| |DoubleFloat|)
-         (|n| |Integer|) (|s| |String|) ($ |TubePlot| (|Plot3D|)))
+        ((|x| (|Expression| (|Integer|))) (|y| (|Expression| (|Integer|)))
+         (|z| (|Expression| (|Integer|)))
+         (|colorFcn| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|))) (|rad| (|DoubleFloat|))
+         (|n| (|Integer|)) (|s| (|String|)) ($ (|TubePlot| (|Plot3D|))))
         (SPADCALL |x| |y| |z| |colorFcn| |tRange|
                   (SPADCALL |rad| (QREFELT $ 44)) |n| |s| (QREFELT $ 42))) 
 
 (SDEFUN |EXPRTUBE;tubePlot;3EMSDfITp;7|
-        ((|x| |Expression| (|Integer|)) (|y| |Expression| (|Integer|))
-         (|z| |Expression| (|Integer|))
-         (|colorFcn| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
-         (|tRange| |Segment| (|DoubleFloat|)) (|rad| |DoubleFloat|)
-         (|n| |Integer|) ($ |TubePlot| (|Plot3D|)))
+        ((|x| (|Expression| (|Integer|))) (|y| (|Expression| (|Integer|)))
+         (|z| (|Expression| (|Integer|)))
+         (|colorFcn| (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|tRange| (|Segment| (|DoubleFloat|))) (|rad| (|DoubleFloat|))
+         (|n| (|Integer|)) ($ (|TubePlot| (|Plot3D|))))
         (SPADCALL |x| |y| |z| |colorFcn| |tRange| |rad| |n| "open"
                   (QREFELT $ 45))) 
 

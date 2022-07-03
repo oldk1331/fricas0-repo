@@ -1,9 +1,9 @@
 
 (PUT '|UDGRPH;isDirected?;B;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |UDGRPH;isDirected?;B;1| (($ |Boolean|)) NIL) 
+(SDEFUN |UDGRPH;isDirected?;B;1| (($ (|Boolean|))) NIL) 
 
-(SDEFUN |UDGRPH;undirectedGraph;L$;2| ((|ob| |List| S) ($ $))
+(SDEFUN |UDGRPH;undirectedGraph;L$;2| ((|ob| (|List| S)) ($ ($)))
         (SPROG
          ((|objs|
            (|List|
@@ -27,34 +27,38 @@
      '(XLAM (|ob|) (CONS |ob| NIL))) 
 
 (SDEFUN |UDGRPH;undirectedGraph;L$;3|
-        ((|ob| |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|))))
-         ($ $))
+        ((|ob|
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)))))
+         ($ ($)))
         (CONS |ob| NIL)) 
 
 (PUT '|UDGRPH;undirectedGraph;LL$;4| '|SPADreplace| 'CONS) 
 
 (SDEFUN |UDGRPH;undirectedGraph;LL$;4|
-        ((|ob| |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|))))
-         (|ar| |List|
-          (|Record| (|:| |name| (|String|))
-                    (|:| |arrType| (|NonNegativeInteger|))
-                    (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))
-                    (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                    (|:| |map| (|List| (|NonNegativeInteger|)))))
-         ($ $))
+        ((|ob|
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|)))))
+         (|ar|
+          (|List|
+           (|Record| (|:| |name| (|String|))
+                     (|:| |arrType| (|NonNegativeInteger|))
+                     (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|))
+                     (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                     (|:| |map| (|List| (|NonNegativeInteger|))))))
+         ($ ($)))
         (CONS |ob| |ar|)) 
 
 (SDEFUN |UDGRPH;undirectedGraph;LL$;5|
-        ((|obs| |List| S)
-         (|ars| |List|
-          (|Record| (|:| |fromOb| (|NonNegativeInteger|))
-                    (|:| |toOb| (|NonNegativeInteger|))))
-         ($ $))
+        ((|obs| (|List| S))
+         (|ars|
+          (|List|
+           (|Record| (|:| |fromOb| (|NonNegativeInteger|))
+                     (|:| |toOb| (|NonNegativeInteger|)))))
+         ($ ($)))
         (SPROG
          ((|edges|
            (|List|
@@ -109,7 +113,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |nodes| |edges|))))) 
 
-(SDEFUN |UDGRPH;undirectedGraph;Fp$;6| ((|poset| |FinitePoset| S) ($ $))
+(SDEFUN |UDGRPH;undirectedGraph;Fp$;6| ((|poset| (|FinitePoset| S)) ($ ($)))
         (SPROG
          ((|ars|
            (|List|
@@ -151,7 +155,8 @@
               (EXIT (SPADCALL |obs| |ars| (QREFELT $ 25)))))) 
 
 (SDEFUN |UDGRPH;undirectedGraph;LL$;7|
-        ((|objs| |List| S) (|am| |List| (|List| (|NonNegativeInteger|))) ($ $))
+        ((|objs| (|List| S)) (|am| (|List| (|List| (|NonNegativeInteger|))))
+         ($ ($)))
         (SPROG
          ((|ar|
            (|List|
@@ -208,7 +213,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ar|))))) 
 
-(SDEFUN |UDGRPH;addObject!;$S$;8| ((|s| $) (|n| S) ($ $))
+(SDEFUN |UDGRPH;addObject!;$S$;8| ((|s| ($)) (|n| (S)) ($ ($)))
         (SPROG
          ((|obj|
            (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
@@ -228,10 +233,11 @@
               (EXIT |s|)))) 
 
 (SDEFUN |UDGRPH;addObject!;$R$;9|
-        ((|s| $)
-         (|n| |Record| (|:| |value| S) (|:| |posX| #1=(|NonNegativeInteger|))
-          (|:| |posY| #1#))
-         ($ $))
+        ((|s| ($))
+         (|n|
+          (|Record| (|:| |value| S) (|:| |posX| #1=(|NonNegativeInteger|))
+                    (|:| |posY| #1#)))
+         ($ ($)))
         (SPROG
          ((|obs|
            (|List|
@@ -248,12 +254,14 @@
               (EXIT |s|)))) 
 
 (SDEFUN |UDGRPH;addArrow!;$R$;10|
-        ((|s| $)
-         (|ar| |Record| (|:| |name| (|String|))
-          (|:| |arrType| #1=(|NonNegativeInteger|)) (|:| |fromOb| #1#)
-          (|:| |toOb| #1#) (|:| |xOffset| #2=(|Integer|)) (|:| |yOffset| #2#)
-          (|:| |map| (|List| #1#)))
-         ($ $))
+        ((|s| ($))
+         (|ar|
+          (|Record| (|:| |name| (|String|))
+                    (|:| |arrType| #1=(|NonNegativeInteger|))
+                    (|:| |fromOb| #1#) (|:| |toOb| #1#)
+                    (|:| |xOffset| #2=(|Integer|)) (|:| |yOffset| #2#)
+                    (|:| |map| (|List| #1#))))
+         ($ ($)))
         (SEQ
          (PROGN
           (RPLACD |s| (SPADCALL (QCDR |s|) |ar| (QREFELT $ 22)))
@@ -261,8 +269,8 @@
          (EXIT |s|))) 
 
 (SDEFUN |UDGRPH;addArrow!;$S2Nni$;11|
-        ((|s| $) (|nm| |String|) (|n1| . #1=(|NonNegativeInteger|))
-         (|n2| . #1#) ($ $))
+        ((|s| ($)) (|nm| (|String|)) (|n1| #1=(|NonNegativeInteger|))
+         (|n2| #1#) ($ ($)))
         (SPROG
          ((|a|
            (|Record| (|:| |name| (|String|))
@@ -275,8 +283,8 @@
               (EXIT (SPADCALL |s| |a| (QREFELT $ 43)))))) 
 
 (SDEFUN |UDGRPH;addArrow!;$S2NniL$;12|
-        ((|s| $) (|nm| |String|) (|n1| . #1=(|NonNegativeInteger|))
-         (|n2| . #1#) (|mp| |List| #1#) ($ $))
+        ((|s| ($)) (|nm| (|String|)) (|n1| #1=(|NonNegativeInteger|))
+         (|n2| #1#) (|mp| (|List| #1#)) ($ ($)))
         (SPROG
          ((|a|
            (|Record| (|:| |name| (|String|))
@@ -291,21 +299,23 @@
 (PUT '|UDGRPH;getVertices;$L;13| '|SPADreplace| 'QCAR) 
 
 (SDEFUN |UDGRPH;getVertices;$L;13|
-        ((|s| $)
-         ($ |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)))))
+        ((|s| ($))
+         ($
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|))))))
         (QCAR |s|)) 
 
 (SDEFUN |UDGRPH;getArrows;$L;14|
-        ((|s| $)
-         ($ |List|
-          #1=(|Record| (|:| |name| (|String|))
-                       (|:| |arrType| (|NonNegativeInteger|))
-                       (|:| |fromOb| (|NonNegativeInteger|))
-                       (|:| |toOb| (|NonNegativeInteger|))
-                       (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
-                       (|:| |map| (|List| (|NonNegativeInteger|))))))
+        ((|s| ($))
+         ($
+          (|List|
+           #1=(|Record| (|:| |name| (|String|))
+                        (|:| |arrType| (|NonNegativeInteger|))
+                        (|:| |fromOb| (|NonNegativeInteger|))
+                        (|:| |toOb| (|NonNegativeInteger|))
+                        (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
+                        (|:| |map| (|List| (|NonNegativeInteger|)))))))
         (SPROG
          ((|as|
            (|List|
@@ -344,9 +354,9 @@
 
 (PUT '|UDGRPH;initial;$;15| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
-(SDEFUN |UDGRPH;initial;$;15| (($ $)) (CONS NIL NIL)) 
+(SDEFUN |UDGRPH;initial;$;15| (($ ($))) (CONS NIL NIL)) 
 
-(SDEFUN |UDGRPH;terminal;S$;16| ((|a| S) ($ $))
+(SDEFUN |UDGRPH;terminal;S$;16| ((|a| (S)) ($ ($)))
         (SPROG
          ((|ar|
            (|Record| (|:| |name| (|String|))
@@ -363,7 +373,7 @@
               (EXIT (CONS (LIST |o|) (LIST |ar|)))))) 
 
 (SDEFUN |UDGRPH;cycleOpen;LS$;17|
-        ((|objs| |List| S) (|arrowName| |String|) ($ $))
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -407,7 +417,7 @@
               (EXIT (CONS |obs| |ars|))))) 
 
 (SDEFUN |UDGRPH;cycleClosed;LS$;18|
-        ((|objs| |List| S) (|arrowName| |String|) ($ $))
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -452,7 +462,8 @@
                    (LETT |obn| (|inc_SI| |obn|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |UDGRPH;unit;LS$;19| ((|objs| |List| S) (|arrowName| |String|) ($ $))
+(SDEFUN |UDGRPH;unit;LS$;19|
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -489,7 +500,8 @@
                    (LETT |obn| (|inc_SI| |obn|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |UDGRPH;kgraph;LS$;20| ((|objs| |List| S) (|arrowName| |String|) ($ $))
+(SDEFUN |UDGRPH;kgraph;LS$;20|
+        ((|objs| (|List| S)) (|arrowName| (|String|)) ($ ($)))
         (SPROG
          ((|arn| (|Integer|))
           (|ars|
@@ -539,7 +551,7 @@
                    (LETT |obn| (|inc_SI| |obn|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |obs| |ars|))))) 
 
-(SDEFUN |UDGRPH;+;3$;21| ((|a| $) (|b| $) ($ $))
+(SDEFUN |UDGRPH;+;3$;21| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|la|
            (|List|
@@ -581,7 +593,7 @@
               (LETT |la| (SPADCALL (QCDR |a|) |lb| (QREFELT $ 57)))
               (EXIT (CONS |lo| |la|))))) 
 
-(SDEFUN |UDGRPH;merge;3$;22| ((|a| $) (|b| $) ($ $))
+(SDEFUN |UDGRPH;merge;3$;22| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG
          ((|la|
            (|List|
@@ -664,11 +676,12 @@
           (EXIT (CONS |mergedObjects| |la|))))) 
 
 (SDEFUN |UDGRPH;objProd|
-        ((|a| $) (|b| $)
-         ($ |List|
-          (|Record| (|:| |value| (|Product| S S))
-                    (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)))))
+        ((|a| ($)) (|b| ($))
+         ($
+          (|List|
+           (|Record| (|:| |value| (|Product| S S))
+                     (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|))))))
         (SPROG
          ((|newObjs|
            (|List|
@@ -728,8 +741,8 @@
               (EXIT |newObjs|)))) 
 
 (SDEFUN |UDGRPH;indexProd|
-        ((|aObj| $) (|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
-         ($ |NonNegativeInteger|))
+        ((|aObj| ($)) (|a| (|NonNegativeInteger|)) (|b| (|NonNegativeInteger|))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G313 NIL))
                (+ |a|
                   (*
@@ -739,7 +752,7 @@
                    (LENGTH (QCAR |aObj|)))))) 
 
 (SDEFUN |UDGRPH;*;2$Ug;25|
-        ((|a| $) (|b| $) ($ |UndirectedGraph| (|Product| S S)))
+        ((|a| ($)) (|b| ($)) ($ (|UndirectedGraph| (|Product| S S))))
         (SPROG
          ((|newArrs|
            (|List|
@@ -815,7 +828,7 @@
                          (QREFELT $ 74)))))) 
 
 (SDEFUN |UDGRPH;cartesian;2$Ug;26|
-        ((|a| $) (|b| $) ($ |UndirectedGraph| (|Product| S S)))
+        ((|a| ($)) (|b| ($)) ($ (|UndirectedGraph| (|Product| S S))))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1029,10 +1042,11 @@
                          (QREFELT $ 74)))))) 
 
 (SDEFUN |UDGRPH;closedObjProd|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S)
-         ($ |List|
-          (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
-                    (|:| |posY| (|NonNegativeInteger|)))))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S))
+         ($
+          (|List|
+           (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
+                     (|:| |posY| (|NonNegativeInteger|))))))
         (SPROG
          ((|newObjs|
            (|List|
@@ -1088,7 +1102,7 @@
               (EXIT |newObjs|)))) 
 
 (SDEFUN |UDGRPH;closedTensor;2$M$;28|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S) ($ $))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S)) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1164,7 +1178,7 @@
                          (QREFELT $ 17)))))) 
 
 (SDEFUN |UDGRPH;closedCartesian;2$M$;29|
-        ((|a| $) (|b| $) (|f| |Mapping| S S S) ($ $))
+        ((|a| ($)) (|b| ($)) (|f| (|Mapping| S S S)) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1378,8 +1392,8 @@
                          (QREFELT $ 17)))))) 
 
 (SDEFUN |UDGRPH;map;$LL2I$;30|
-        ((|s| $) (|m| |List| (|NonNegativeInteger|)) (|newOb| |List| S)
-         (|offsetX| . #1=(|Integer|)) (|offsetY| . #1#) ($ $))
+        ((|s| ($)) (|m| (|List| (|NonNegativeInteger|))) (|newOb| (|List| S))
+         (|offsetX| #1=(|Integer|)) (|offsetY| #1#) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1462,8 +1476,8 @@
           (EXIT (CONS |newObjs| |newArrs|))))) 
 
 (SDEFUN |UDGRPH;mapContra;$LL2I$;31|
-        ((|s| $) (|m| |List| (|NonNegativeInteger|)) (|newOb| |List| S)
-         (|offsetX| . #1=(|Integer|)) (|offsetY| . #1#) ($ $))
+        ((|s| ($)) (|m| (|List| (|NonNegativeInteger|))) (|newOb| (|List| S))
+         (|offsetX| #1=(|Integer|)) (|offsetY| #1#) ($ ($)))
         (SPROG
          ((|newArrs|
            (|List|
@@ -1545,10 +1559,10 @@
                (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS |newObjs| |newArrs|))))) 
 
-(SDEFUN |UDGRPH;coerce;Fp$;32| ((|poset| |FinitePoset| S) ($ $))
+(SDEFUN |UDGRPH;coerce;Fp$;32| ((|poset| (|FinitePoset| S)) ($ ($)))
         (SPADCALL |poset| (QREFELT $ 31))) 
 
-(SDEFUN |UDGRPH;coerce;$Of;33| ((|n| $) ($ |OutputForm|))
+(SDEFUN |UDGRPH;coerce;$Of;33| ((|n| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|arrows| #1=(|OutputForm|)) (|laof| (|List| (|OutputForm|)))
           (#2=#:G462 NIL) (|ar| NIL) (#3=#:G461 NIL) (#4=#:G458 NIL)
@@ -1620,8 +1634,8 @@
           #7# (EXIT #4#)))) 
 
 (SDEFUN |UDGRPH;subdiagramSvg;S$2BV;34|
-        ((|sc| |Scene| (|SCartesian| 2)) (|n| $)
-         (|dispArrowName| . #1=(|Boolean|)) (|deep| . #1#) ($ |Void|))
+        ((|sc| (|Scene| (|SCartesian| 2))) (|n| ($))
+         (|dispArrowName| #1=(|Boolean|)) (|deep| #1#) ($ (|Void|)))
         (SPROG
          ((#2=#:G480 NIL) (|s| (|String|))
           (|arrNode| (|Scene| (|SCartesian| 2))) (|offset| (|SCartesian| 2))
@@ -1762,7 +1776,8 @@
           #13# (EXIT #2#)))) 
 
 (SDEFUN |UDGRPH;diagramSvg;S$BV;35|
-        ((|fileName| |String|) (|n| $) (|dispArrowName| |Boolean|) ($ |Void|))
+        ((|fileName| (|String|)) (|n| ($)) (|dispArrowName| (|Boolean|))
+         ($ (|Void|)))
         (SPROG
          ((|sc| (|Scene| (|SCartesian| 2)))
           (|view| (|SBoundary| (|SCartesian| 2))))
@@ -1778,7 +1793,8 @@
           (EXIT (SPADCALL |sc| |fileName| (QREFELT $ 113)))))) 
 
 (SDEFUN |UDGRPH;diagramSvg2;S$BV;36|
-        ((|fileName| |String|) (|n| $) (|dispArrowName| |Boolean|) ($ |Void|))
+        ((|fileName| (|String|)) (|n| ($)) (|dispArrowName| (|Boolean|))
+         ($ (|Void|)))
         (SPROG
          ((|sc| (|Scene| (|SCartesian| 2)))
           (|view| (|SBoundary| (|SCartesian| 2))))

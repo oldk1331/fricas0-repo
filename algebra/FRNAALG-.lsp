@@ -1,7 +1,7 @@
 
 (SDEFUN |FRNAALG-;min_poly_from_matrix|
-        ((|mx| |Matrix| (|Polynomial| R)) (|x| |Matrix| (|Polynomial| R))
-         ($ |SparseUnivariatePolynomial| (|Polynomial| R)))
+        ((|mx| (|Matrix| (|Polynomial| R))) (|x| (|Matrix| (|Polynomial| R)))
+         ($ (|SparseUnivariatePolynomial| (|Polynomial| R))))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| (|Polynomial| R)))
           (#1=#:G136 NIL) (|i| NIL)
@@ -35,7 +35,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |FRNAALG-;rank_polynomial|
-        ((|left| |Boolean|) ($ |SparseUnivariatePolynomial| (|Polynomial| R)))
+        ((|left| (|Boolean|))
+         ($ (|SparseUnivariatePolynomial| (|Polynomial| R))))
         (SPROG
          ((|cijk| (R)) (|mxjk| (|Polynomial| R)) (#1=#:G153 NIL) (|k| NIL)
           (#2=#:G152 NIL) (|j| NIL) (|mo| (|Polynomial| R)) (#3=#:G151 NIL)
@@ -117,16 +118,17 @@
               (EXIT (|FRNAALG-;min_poly_from_matrix| |mx| |x| $))))) 
 
 (SDEFUN |FRNAALG-;leftRankPolynomial;Sup;3|
-        (($ |SparseUnivariatePolynomial| (|Polynomial| R)))
+        (($ (|SparseUnivariatePolynomial| (|Polynomial| R))))
         (|FRNAALG-;rank_polynomial| 'T $)) 
 
 (SDEFUN |FRNAALG-;rightRankPolynomial;Sup;4|
-        (($ |SparseUnivariatePolynomial| (|Polynomial| R)))
+        (($ (|SparseUnivariatePolynomial| (|Polynomial| R))))
         (|FRNAALG-;rank_polynomial| NIL $)) 
 
 (SDEFUN |FRNAALG-;leftUnitsInternal|
-        (($ |Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
-          (|:| |basis| (|List| (|Vector| R)))))
+        (($
+          (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+                    (|:| |basis| (|List| (|Vector| R))))))
         (SPROG
          ((#1=#:G165 NIL) (|j| NIL) (|addOn| (R)) (|z| (|Integer|))
           (#2=#:G164 NIL) (|i| NIL) (#3=#:G163 NIL) (|k| NIL)
@@ -170,7 +172,7 @@
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |cond| |rhs| (QREFELT $ 57)))))) 
 
-(SDEFUN |FRNAALG-;leftUnit;U;6| (($ |Union| S "failed"))
+(SDEFUN |FRNAALG-;leftUnit;U;6| (($ (|Union| S "failed")))
         (SPROG
          ((#1=#:G171 NIL)
           (|res|
@@ -195,8 +197,9 @@
                         (QREFELT $ 61))))))))) 
 
 (SDEFUN |FRNAALG-;leftUnits;U;7|
-        (($ |Union| (|Record| (|:| |particular| S) (|:| |basis| (|List| S)))
-          "failed"))
+        (($
+          (|Union| (|Record| (|:| |particular| S) (|:| |basis| (|List| S)))
+                   "failed")))
         (SPROG
          ((#1=#:G185 NIL)
           (|res|
@@ -224,8 +227,9 @@
                                   (QREFELT $ 68)))))))))) 
 
 (SDEFUN |FRNAALG-;rightUnitsInternal|
-        (($ |Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
-          (|:| |basis| (|List| (|Vector| R)))))
+        (($
+          (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+                    (|:| |basis| (|List| (|Vector| R))))))
         (SPROG
          ((#1=#:G204 NIL) (|j| NIL) (|addOn| (R)) (|z| (|Integer|))
           (#2=#:G203 NIL) (|i| NIL) (#3=#:G202 NIL) (|k| NIL)
@@ -269,7 +273,7 @@
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |condo| |rhs| (QREFELT $ 57)))))) 
 
-(SDEFUN |FRNAALG-;rightUnit;U;9| (($ |Union| S "failed"))
+(SDEFUN |FRNAALG-;rightUnit;U;9| (($ (|Union| S "failed")))
         (SPROG
          ((#1=#:G210 NIL)
           (|res|
@@ -295,8 +299,9 @@
                         (QREFELT $ 61))))))))) 
 
 (SDEFUN |FRNAALG-;rightUnits;U;10|
-        (($ |Union| (|Record| (|:| |particular| S) (|:| |basis| (|List| S)))
-          "failed"))
+        (($
+          (|Union| (|Record| (|:| |particular| S) (|:| |basis| (|List| S)))
+                   "failed")))
         (SPROG
          ((#1=#:G221 NIL)
           (|res|
@@ -324,7 +329,7 @@
                         (SPADCALL (ELT $ 61) (QCDR |res|)
                                   (QREFELT $ 68)))))))))) 
 
-(SDEFUN |FRNAALG-;unit;U;11| (($ |Union| S "failed"))
+(SDEFUN |FRNAALG-;unit;U;11| (($ (|Union| S "failed")))
         (SPROG
          ((#1=#:G237 NIL)
           (|res|
@@ -397,40 +402,42 @@
                                           #1#))
                         (QREFELT $ 61))))))))) 
 
-(SDEFUN |FRNAALG-;apply;M2S;12| ((|m| |Matrix| R) (|a| S) ($ S))
+(SDEFUN |FRNAALG-;apply;M2S;12| ((|m| (|Matrix| R)) (|a| (S)) ($ (S)))
         (SPROG ((|v| (|Vector| R)))
                (SEQ (LETT |v| (SPADCALL |a| (QREFELT $ 75)))
                     (LETT |v| (SPADCALL |m| |v| (QREFELT $ 76)))
                     (EXIT (SPADCALL |v| (QREFELT $ 77)))))) 
 
-(SDEFUN |FRNAALG-;structuralConstants;V;13| (($ |Vector| (|Matrix| R)))
+(SDEFUN |FRNAALG-;structuralConstants;V;13| (($ (|Vector| (|Matrix| R))))
         (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 31))) 
 
-(SDEFUN |FRNAALG-;conditionsForIdempotents;L;14| (($ |List| (|Polynomial| R)))
+(SDEFUN |FRNAALG-;conditionsForIdempotents;L;14|
+        (($ (|List| (|Polynomial| R))))
         (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 81))) 
 
-(SDEFUN |FRNAALG-;leftTraceMatrix;M;15| (($ |Matrix| R))
+(SDEFUN |FRNAALG-;leftTraceMatrix;M;15| (($ (|Matrix| R)))
         (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 83))) 
 
-(SDEFUN |FRNAALG-;rightTraceMatrix;M;16| (($ |Matrix| R))
+(SDEFUN |FRNAALG-;rightTraceMatrix;M;16| (($ (|Matrix| R)))
         (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 85))) 
 
-(SDEFUN |FRNAALG-;leftDiscriminant;R;17| (($ R))
+(SDEFUN |FRNAALG-;leftDiscriminant;R;17| (($ (R)))
         (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 87))) 
 
-(SDEFUN |FRNAALG-;rightDiscriminant;R;18| (($ R))
+(SDEFUN |FRNAALG-;rightDiscriminant;R;18| (($ (R)))
         (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 89))) 
 
-(SDEFUN |FRNAALG-;leftRegularRepresentation;SM;19| ((|x| S) ($ |Matrix| R))
+(SDEFUN |FRNAALG-;leftRegularRepresentation;SM;19| ((|x| (S)) ($ (|Matrix| R)))
         (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 91))) 
 
-(SDEFUN |FRNAALG-;rightRegularRepresentation;SM;20| ((|x| S) ($ |Matrix| R))
+(SDEFUN |FRNAALG-;rightRegularRepresentation;SM;20|
+        ((|x| (S)) ($ (|Matrix| R)))
         (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 93))) 
 
-(SDEFUN |FRNAALG-;coordinates;SV;21| ((|x| S) ($ |Vector| R))
+(SDEFUN |FRNAALG-;coordinates;SV;21| ((|x| (S)) ($ (|Vector| R)))
         (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 95))) 
 
-(SDEFUN |FRNAALG-;represents;VS;22| ((|v| |Vector| R) ($ S))
+(SDEFUN |FRNAALG-;represents;VS;22| ((|v| (|Vector| R)) ($ (S)))
         (SPADCALL |v| (SPADCALL (QREFELT $ 29)) (QREFELT $ 97))) 
 
 (DECLAIM (NOTINLINE |FramedNonAssociativeAlgebra&;|)) 

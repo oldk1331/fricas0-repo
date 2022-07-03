@@ -1,6 +1,6 @@
 
 (SDEFUN |EFULS;nthRootUTS|
-        ((|uts| UTS) (|n| |Integer|) ($ |Union| UTS "failed"))
+        ((|uts| (UTS)) (|n| (|Integer|)) ($ (|Union| UTS "failed")))
         (COND
          ((OR
            (SPADCALL (SPADCALL |uts| 0 (QREFELT $ 15)) (|spadConstant| $ 16)
@@ -14,7 +14,8 @@
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |EFULS;nthRootIfCan;ULSNniU;2|
-        ((|uls| ULS) (|nn| |NonNegativeInteger|) ($ |Union| ULS "failed"))
+        ((|uls| (ULS)) (|nn| (|NonNegativeInteger|))
+         ($ (|Union| ULS "failed")))
         (SPROG
          ((|root| (|Union| UTS "failed")) (|uts| (UTS))
           (|k| (|Union| (|Integer|) "failed")) (|coef| (|Coef|))
@@ -69,7 +70,8 @@
                                                         (QREFELT $ 34))
                                               (QREFELT $ 32))))))))))))))))) 
 
-(SDEFUN |EFULS;^;ULSFULS;3| ((|uls| ULS) (|r| |Fraction| (|Integer|)) ($ ULS))
+(SDEFUN |EFULS;^;ULSFULS;3|
+        ((|uls| (ULS)) (|r| (|Fraction| (|Integer|))) ($ (ULS)))
         (SPROG
          ((|uts| (UTS)) (|k| (|Union| (|Integer|) "failed")) (|coef| (|Coef|))
           (|deg| (|Integer|)) (|den| (|Integer|)) (|num| (|Integer|)))
@@ -120,7 +122,7 @@
                                  (QREFELT $ 32)))))))))))))) 
 
 (SDEFUN |EFULS;applyIfCan|
-        ((|fcn| |Mapping| UTS UTS) (|uls| ULS) ($ |Union| ULS "failed"))
+        ((|fcn| (|Mapping| UTS UTS)) (|uls| (ULS)) ($ (|Union| ULS "failed")))
         (SPROG ((|uts| (|Union| UTS "failed")))
                (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT $ 42)))
                     (EXIT
@@ -130,52 +132,52 @@
                                   (SPADCALL (SPADCALL (QCDR |uts|) |fcn|)
                                             (QREFELT $ 34))))))))) 
 
-(SDEFUN |EFULS;expIfCan;ULSU;5| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;expIfCan;ULSU;5| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 43) |uls| $)) 
 
-(SDEFUN |EFULS;sinIfCan;ULSU;6| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;sinIfCan;ULSU;6| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 45) |uls| $)) 
 
-(SDEFUN |EFULS;cosIfCan;ULSU;7| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;cosIfCan;ULSU;7| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 47) |uls| $)) 
 
-(SDEFUN |EFULS;asinIfCan;ULSU;8| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;asinIfCan;ULSU;8| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 49) |uls| $)) 
 
-(SDEFUN |EFULS;acosIfCan;ULSU;9| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;acosIfCan;ULSU;9| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 51) |uls| $)) 
 
-(SDEFUN |EFULS;asecIfCan;ULSU;10| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;asecIfCan;ULSU;10| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 53) |uls| $)) 
 
-(SDEFUN |EFULS;acscIfCan;ULSU;11| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;acscIfCan;ULSU;11| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 55) |uls| $)) 
 
-(SDEFUN |EFULS;sinhIfCan;ULSU;12| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;sinhIfCan;ULSU;12| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 57) |uls| $)) 
 
-(SDEFUN |EFULS;coshIfCan;ULSU;13| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;coshIfCan;ULSU;13| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 59) |uls| $)) 
 
-(SDEFUN |EFULS;asinhIfCan;ULSU;14| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;asinhIfCan;ULSU;14| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 61) |uls| $)) 
 
-(SDEFUN |EFULS;acoshIfCan;ULSU;15| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;acoshIfCan;ULSU;15| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 63) |uls| $)) 
 
-(SDEFUN |EFULS;atanhIfCan;ULSU;16| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;atanhIfCan;ULSU;16| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 65) |uls| $)) 
 
-(SDEFUN |EFULS;acothIfCan;ULSU;17| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;acothIfCan;ULSU;17| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 67) |uls| $)) 
 
-(SDEFUN |EFULS;asechIfCan;ULSU;18| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;asechIfCan;ULSU;18| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 69) |uls| $)) 
 
-(SDEFUN |EFULS;acschIfCan;ULSU;19| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;acschIfCan;ULSU;19| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (|EFULS;applyIfCan| (ELT $ 71) |uls| $)) 
 
-(SDEFUN |EFULS;logIfCan;ULSU;20| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;logIfCan;ULSU;20| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (SPROG ((|ts| (UTS)) (|uts| (|Union| UTS "failed")))
                (SEQ (LETT |uts| (SPADCALL |uls| (QREFELT $ 42)))
                     (EXIT
@@ -191,7 +193,7 @@
                              (SPADCALL (SPADCALL |ts| (QREFELT $ 73))
                                        (QREFELT $ 34))))))))) 
 
-(SDEFUN |EFULS;tanIfCan;ULSU;21| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;tanIfCan;ULSU;21| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (SPROG
          ((|cosInv| (|Union| ULS "failed"))
           (|sc|
@@ -221,7 +223,7 @@
                                        (QREFELT $ 34))
                                       (QCDR |cosInv|) (QREFELT $ 32))))))))))))) 
 
-(SDEFUN |EFULS;cotIfCan;ULSU;22| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;cotIfCan;ULSU;22| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (SPROG
          ((|sinInv| (|Union| ULS "failed"))
           (|sc|
@@ -251,7 +253,7 @@
                                        (QREFELT $ 34))
                                       (QCDR |sinInv|) (QREFELT $ 32))))))))))))) 
 
-(SDEFUN |EFULS;secIfCan;ULSU;23| ((|uls| ULS) ($ |Union| ULS #1="failed"))
+(SDEFUN |EFULS;secIfCan;ULSU;23| ((|uls| (ULS)) ($ (|Union| ULS #1="failed")))
         (SPROG ((|cosInv| (|Union| ULS "failed")) (|cos| (|Union| ULS #1#)))
                (SEQ (LETT |cos| (SPADCALL |uls| (QREFELT $ 48)))
                     (EXIT
@@ -264,7 +266,7 @@
                               (COND ((QEQCAR |cosInv| 1) (CONS 1 "failed"))
                                     (#2# (CONS 0 (QCDR |cosInv|)))))))))))) 
 
-(SDEFUN |EFULS;cscIfCan;ULSU;24| ((|uls| ULS) ($ |Union| ULS #1="failed"))
+(SDEFUN |EFULS;cscIfCan;ULSU;24| ((|uls| (ULS)) ($ (|Union| ULS #1="failed")))
         (SPROG ((|sinInv| (|Union| ULS "failed")) (|sin| (|Union| ULS #1#)))
                (SEQ (LETT |sin| (SPADCALL |uls| (QREFELT $ 46)))
                     (EXIT
@@ -277,7 +279,7 @@
                               (COND ((QEQCAR |sinInv| 1) (CONS 1 "failed"))
                                     (#2# (CONS 0 (QCDR |sinInv|)))))))))))) 
 
-(SDEFUN |EFULS;atanIfCan;ULSU;25| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;atanIfCan;ULSU;25| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (SPROG
          ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G302 NIL)
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
@@ -358,7 +360,7 @@
             #3# (EXIT #2#)))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |EFULS;acotIfCan;ULSU;26| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;acotIfCan;ULSU;26| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (SPROG
          ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G316 NIL)
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
@@ -423,7 +425,7 @@
             #3# (EXIT #2#)))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |EFULS;tanhIfCan;ULSU;27| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;tanhIfCan;ULSU;27| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (SPROG
          ((|coshInv| (|Union| ULS "failed"))
           (|sc|
@@ -454,7 +456,7 @@
                                       (QCDR |coshInv|)
                                       (QREFELT $ 32))))))))))))) 
 
-(SDEFUN |EFULS;cothIfCan;ULSU;28| ((|uls| ULS) ($ |Union| ULS "failed"))
+(SDEFUN |EFULS;cothIfCan;ULSU;28| ((|uls| (ULS)) ($ (|Union| ULS "failed")))
         (SPROG
          ((|sinhInv| (|Union| ULS "failed"))
           (|sc|
@@ -485,7 +487,7 @@
                                       (QCDR |sinhInv|)
                                       (QREFELT $ 32))))))))))))) 
 
-(SDEFUN |EFULS;sechIfCan;ULSU;29| ((|uls| ULS) ($ |Union| ULS #1="failed"))
+(SDEFUN |EFULS;sechIfCan;ULSU;29| ((|uls| (ULS)) ($ (|Union| ULS #1="failed")))
         (SPROG ((|coshInv| (|Union| ULS "failed")) (|cosh| (|Union| ULS #1#)))
                (SEQ (LETT |cosh| (SPADCALL |uls| (QREFELT $ 60)))
                     (EXIT
@@ -498,7 +500,7 @@
                               (COND ((QEQCAR |coshInv| 1) (CONS 1 "failed"))
                                     (#2# (CONS 0 (QCDR |coshInv|)))))))))))) 
 
-(SDEFUN |EFULS;cschIfCan;ULSU;30| ((|uls| ULS) ($ |Union| ULS #1="failed"))
+(SDEFUN |EFULS;cschIfCan;ULSU;30| ((|uls| (ULS)) ($ (|Union| ULS #1="failed")))
         (SPROG ((|sinhInv| (|Union| ULS "failed")) (|sinh| (|Union| ULS #1#)))
                (SEQ (LETT |sinh| (SPADCALL |uls| (QREFELT $ 58)))
                     (EXIT
@@ -512,8 +514,8 @@
                                     (#2# (CONS 0 (QCDR |sinhInv|)))))))))))) 
 
 (SDEFUN |EFULS;applyOrError|
-        ((|fcn| |Mapping| #1=(|Union| ULS "failed") ULS) (|name| |String|)
-         (|uls| ULS) ($ ULS))
+        ((|fcn| (|Mapping| #1=(|Union| ULS "failed") ULS)) (|name| (|String|))
+         (|uls| (ULS)) ($ (ULS)))
         (SPROG ((|ans| #1#))
                (SEQ (LETT |ans| (SPADCALL |uls| |fcn|))
                     (EXIT
@@ -523,79 +525,79 @@
                         (STRCONC |name| " of function with singularity")))
                       ('T (QCDR |ans|))))))) 
 
-(SDEFUN |EFULS;exp;2ULS;32| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;exp;2ULS;32| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 44) "exp" |uls| $)) 
 
-(SDEFUN |EFULS;log;2ULS;33| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;log;2ULS;33| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 74) "log" |uls| $)) 
 
-(SDEFUN |EFULS;sin;2ULS;34| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;sin;2ULS;34| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 46) "sin" |uls| $)) 
 
-(SDEFUN |EFULS;cos;2ULS;35| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;cos;2ULS;35| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 48) "cos" |uls| $)) 
 
-(SDEFUN |EFULS;tan;2ULS;36| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;tan;2ULS;36| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 82) "tan" |uls| $)) 
 
-(SDEFUN |EFULS;cot;2ULS;37| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;cot;2ULS;37| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 83) "cot" |uls| $)) 
 
-(SDEFUN |EFULS;sec;2ULS;38| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;sec;2ULS;38| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 84) "sec" |uls| $)) 
 
-(SDEFUN |EFULS;csc;2ULS;39| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;csc;2ULS;39| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 85) "csc" |uls| $)) 
 
-(SDEFUN |EFULS;asin;2ULS;40| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;asin;2ULS;40| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 50) "asin" |uls| $)) 
 
-(SDEFUN |EFULS;acos;2ULS;41| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;acos;2ULS;41| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 52) "acos" |uls| $)) 
 
-(SDEFUN |EFULS;asec;2ULS;42| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;asec;2ULS;42| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 54) "asec" |uls| $)) 
 
-(SDEFUN |EFULS;acsc;2ULS;43| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;acsc;2ULS;43| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 56) "acsc" |uls| $)) 
 
-(SDEFUN |EFULS;sinh;2ULS;44| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;sinh;2ULS;44| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 58) "sinh" |uls| $)) 
 
-(SDEFUN |EFULS;cosh;2ULS;45| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;cosh;2ULS;45| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 60) "cosh" |uls| $)) 
 
-(SDEFUN |EFULS;tanh;2ULS;46| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;tanh;2ULS;46| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 109) "tanh" |uls| $)) 
 
-(SDEFUN |EFULS;coth;2ULS;47| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;coth;2ULS;47| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 110) "coth" |uls| $)) 
 
-(SDEFUN |EFULS;sech;2ULS;48| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;sech;2ULS;48| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 111) "sech" |uls| $)) 
 
-(SDEFUN |EFULS;csch;2ULS;49| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;csch;2ULS;49| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 112) "csch" |uls| $)) 
 
-(SDEFUN |EFULS;asinh;2ULS;50| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;asinh;2ULS;50| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 62) "asinh" |uls| $)) 
 
-(SDEFUN |EFULS;acosh;2ULS;51| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;acosh;2ULS;51| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 64) "acosh" |uls| $)) 
 
-(SDEFUN |EFULS;atanh;2ULS;52| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;atanh;2ULS;52| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 66) "atanh" |uls| $)) 
 
-(SDEFUN |EFULS;acoth;2ULS;53| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;acoth;2ULS;53| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 68) "acoth" |uls| $)) 
 
-(SDEFUN |EFULS;asech;2ULS;54| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;asech;2ULS;54| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 70) "asech" |uls| $)) 
 
-(SDEFUN |EFULS;acsch;2ULS;55| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;acsch;2ULS;55| ((|uls| (ULS)) ($ (ULS)))
         (|EFULS;applyOrError| (ELT $ 72) "acsch" |uls| $)) 
 
-(SDEFUN |EFULS;atan;2ULS;56| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;atan;2ULS;56| ((|uls| (ULS)) ($ (ULS)))
         (SPROG
          ((|z| (|Union| ULS "failed")) (|cc| (|Coef|))
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
@@ -673,7 +675,7 @@
                              (QREFELT $ 99)))))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |EFULS;acot;2ULS;57| ((|uls| ULS) ($ ULS))
+(SDEFUN |EFULS;acot;2ULS;57| ((|uls| (ULS)) ($ (ULS)))
         (SPROG
          ((|z| (|Union| ULS "failed")) (|cc| (|Coef|))
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))

@@ -1,6 +1,6 @@
 
 (SDEFUN |SYMANA;ansatz;Jvf;1|
-        (($ |JetVectorField| JB1 (|JetBundleExpression| JB1)))
+        (($ (|JetVectorField| JB1 (|JetBundleExpression| JB1))))
         (SPROG
          ((|res| (|JetVectorField| JB1 (|JetBundleExpression| JB1)))
           (#1=#:G148 NIL) (|f| (|JetBundleExpression| JB1)) (|s| (|Symbol|))
@@ -50,8 +50,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |SYMANA;transform;JbeJbe;2|
-        ((|f| |JetBundleExpression| JB1)
-         ($ |JetBundleExpression| (|JetBundleSymAna| JB1 |xi| |eta|)))
+        ((|f| (|JetBundleExpression| JB1))
+         ($ (|JetBundleExpression| (|JetBundleSymAna| JB1 |xi| |eta|))))
         (SPROG
          ((|g| (|Expression| (|Integer|)))
           (|SubL| (|List| (|Kernel| (|Expression| (|Integer|)))))
@@ -291,8 +291,9 @@
               (EXIT (SPADCALL |g| (QREFELT $ 74)))))) 
 
 (SDEFUN |SYMANA;detSys;LL;3|
-        ((|sys| |List| (|JetBundleExpression| JB1))
-         ($ |List| (|JetBundleExpression| (|JetBundleSymAna| JB1 |xi| |eta|))))
+        ((|sys| (|List| (|JetBundleExpression| JB1)))
+         ($
+          (|List| (|JetBundleExpression| (|JetBundleSymAna| JB1 |xi| |eta|)))))
         (SPROG
          ((#1=#:G214 NIL) (|eq| NIL) (#2=#:G213 NIL)
           (|ds| (|List| (|JetBundleExpression| JB1))) (#3=#:G212 NIL)
@@ -327,9 +328,9 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |SYMANA;detSys;LJvfL;4|
-        ((|sys| |List| (|JetBundleExpression| JB1))
-         (|vf| |JetVectorField| JB1 (|JetBundleExpression| JB1))
-         ($ |List| (|JetBundleExpression| JB1)))
+        ((|sys| (|List| (|JetBundleExpression| JB1)))
+         (|vf| (|JetVectorField| JB1 (|JetBundleExpression| JB1)))
+         ($ (|List| (|JetBundleExpression| JB1))))
         (SPROG ((#1=#:G218 NIL) (|eq| NIL) (#2=#:G217 NIL))
                (SEQ
                 (SPADCALL |sys|
@@ -350,9 +351,9 @@
                           |vf| (QREFELT $ 77))))) 
 
 (SDEFUN |SYMANA;detSys;LLJvfL;5|
-        ((|sys| |List| (|JetBundleExpression| JB1)) (|sjb| |List| JB1)
-         (|vf| |JetVectorField| JB1 (|JetBundleExpression| JB1))
-         ($ |List| (|JetBundleExpression| JB1)))
+        ((|sys| (|List| (|JetBundleExpression| JB1))) (|sjb| (|List| JB1))
+         (|vf| (|JetVectorField| JB1 (|JetBundleExpression| JB1)))
+         ($ (|List| (|JetBundleExpression| JB1))))
         (SPROG
          ((#1=#:G280 NIL) (|co| NIL) (#2=#:G279 NIL)
           (|conds| (|List| (|Expression| (|Integer|))))
@@ -464,8 +465,9 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |SYMANA;ncDetSys;LL;6|
-        ((|sys| |List| (|JetBundleExpression| JB1))
-         ($ |List| (|JetBundleExpression| (|JetBundleSymAna| JB1 |xi| |eta|))))
+        ((|sys| (|List| (|JetBundleExpression| JB1)))
+         ($
+          (|List| (|JetBundleExpression| (|JetBundleSymAna| JB1 |xi| |eta|)))))
         (SPROG
          ((#1=#:G288 NIL) (|eq| NIL) (#2=#:G287 NIL)
           (|ds| (|List| (|JetBundleExpression| JB1))) (#3=#:G286 NIL)
@@ -500,9 +502,9 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |SYMANA;ncDetSys;LJvfL;7|
-        ((|sys| |List| (|JetBundleExpression| JB1))
-         (|vf| |JetVectorField| JB1 (|JetBundleExpression| JB1))
-         ($ |List| (|JetBundleExpression| JB1)))
+        ((|sys| (|List| (|JetBundleExpression| JB1)))
+         (|vf| (|JetVectorField| JB1 (|JetBundleExpression| JB1)))
+         ($ (|List| (|JetBundleExpression| JB1))))
         (SPROG ((#1=#:G292 NIL) (|eq| NIL) (#2=#:G291 NIL))
                (SEQ
                 (SPADCALL |sys|
@@ -523,9 +525,9 @@
                           |vf| (QREFELT $ 107))))) 
 
 (SDEFUN |SYMANA;ncDetSys;LLJvfL;8|
-        ((|sys| |List| (|JetBundleExpression| JB1)) (|sjb| |List| JB1)
-         (|vf| |JetVectorField| JB1 (|JetBundleExpression| JB1))
-         ($ |List| (|JetBundleExpression| JB1)))
+        ((|sys| (|List| (|JetBundleExpression| JB1))) (|sjb| (|List| JB1))
+         (|vf| (|JetVectorField| JB1 (|JetBundleExpression| JB1)))
+         ($ (|List| (|JetBundleExpression| JB1))))
         (SPROG
          ((|isc| #1=(|List| (|JetBundleExpression| JB1))) (|ijb| (|List| JB1))
           (|cond| (|JetBundleExpression| JB1)) (|jv| (JB1)) (#2=#:G304 NIL)
@@ -539,8 +541,7 @@
          (SEQ (LETT |dirs| (SPADCALL |vf| (QREFELT $ 110)))
               (LETT |coeffs| (SPADCALL |vf| (QREFELT $ 111))) (LETT |Xi| NIL)
               (LETT |tmp| NIL) (LETT |ind1| NIL) (LETT |ind2| NIL)
-              (SEQ (LETT |co| NIL) (LETT #12# |coeffs|) (LETT |jv| NIL)
-                   (LETT #11# |dirs|) G190
+              (SEQ (LETT |co| NIL) (LETT #12# |coeffs|) (LETT #11# |dirs|) G190
                    (COND
                     ((OR (ATOM #11#) (PROGN (LETT |jv| (CAR #11#)) NIL)
                          (ATOM #12#) (PROGN (LETT |co| (CAR #12#)) NIL))

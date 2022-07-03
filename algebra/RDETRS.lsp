@@ -1,12 +1,13 @@
 
 (SDEFUN |RDETRS;monomRDEsys;3FMU;1|
-        ((|f| |Fraction| UP) (|g1| |Fraction| UP) (|g2| |Fraction| UP)
-         (|derivation| |Mapping| UP UP)
-         ($ |Union|
-          (|Record| (|:| |a| UP) (|:| |b| (|Fraction| UP)) (|:| |h| UP)
-                    (|:| |c1| (|Fraction| UP)) (|:| |c2| (|Fraction| UP))
-                    (|:| |t| UP))
-          "failed"))
+        ((|f| (|Fraction| UP)) (|g1| (|Fraction| UP)) (|g2| (|Fraction| UP))
+         (|derivation| (|Mapping| UP UP))
+         ($
+          (|Union|
+           (|Record| (|:| |a| UP) (|:| |b| (|Fraction| UP)) (|:| |h| UP)
+                     (|:| |c1| (|Fraction| UP)) (|:| |c2| (|Fraction| UP))
+                     (|:| |t| UP))
+           "failed")))
         (SPROG
          ((|u| (|Union| UP #1="failed")) (|aa| (UP)) (|tt| (UP))
           (#2=#:G148 NIL) (|gg| (UP)) (|e| (UP)) (|d| (UP)))
@@ -56,8 +57,8 @@
                                 |tt|)))))))) 
 
 (SDEFUN |RDETRS;baseRDEsys;3FU;2|
-        ((|f| |Fraction| UP) (|g1| |Fraction| UP) (|g2| |Fraction| UP)
-         ($ |Union| (|List| (|Fraction| UP)) "failed"))
+        ((|f| (|Fraction| UP)) (|g1| (|Fraction| UP)) (|g2| (|Fraction| UP))
+         ($ (|Union| (|List| (|Fraction| UP)) "failed")))
         (SPROG
          ((|l| (|List| UP)) (|v| (|Union| (|List| UP) "failed"))
           (|n| (|Integer|)) (|cc2| (UP)) (|cc1| (UP)) (|bb| (UP))
@@ -125,10 +126,11 @@
          (SPADCALL |z3| (QREFELT $ 27)) |z4| |z5| |z6| (ELT $ 14) $)) 
 
 (SDEFUN |RDETRS;diophant|
-        ((|a| UP) (|b| UP) (|c| UP) (|d1| UP) (|d2| UP)
-         ($ |Union|
-          (|Record| (|:| |z1| UP) (|:| |z2| UP) (|:| |r1| UP) (|:| |r2| UP))
-          "failed"))
+        ((|a| (UP)) (|b| (UP)) (|c| (UP)) (|d1| (UP)) (|d2| (UP))
+         ($
+          (|Union|
+           (|Record| (|:| |z1| UP) (|:| |z2| UP) (|:| |r1| UP) (|:| |r2| UP))
+           "failed")))
         (SPROG
          ((|qr2| #1=(|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
           (|qr1| #1#) (|v| (|Vector| UP))
@@ -174,11 +176,12 @@
                                (QCDR |qr1|) (QCDR |qr2|))))))))))) 
 
 (SDEFUN |RDETRS;SPDEsys|
-        ((|a| UP) (|b| UP) (|h| UP) (|c1| UP) (|c2| UP) (|n| |Integer|)
-         (|derivation| |Mapping| UP UP)
-         (|degradation| |Mapping| (|Union| (|List| UP) #1="failed") F F F UP UP
-          (|Integer|))
-         ($ |Union| (|List| UP) #1#))
+        ((|a| (UP)) (|b| (UP)) (|h| (UP)) (|c1| (UP)) (|c2| (UP))
+         (|n| (|Integer|)) (|derivation| (|Mapping| UP UP))
+         (|degradation|
+          (|Mapping| (|Union| (|List| UP) #1="failed") F F F UP UP
+                     (|Integer|)))
+         ($ (|Union| (|List| UP) #1#)))
         (SPROG
          ((#2=#:G227 NIL) (|rh| #3=(|Union| F "failed")) (|rb| #3#) (|ra| (F))
           (|l| (|List| UP)) (|v| (|Union| (|List| UP) #1#))
@@ -325,8 +328,9 @@
                    #10# (EXIT #5#)))))))) 
 
 (SDEFUN |RDETRS;DSPDEsys|
-        ((|a| F) (|b| UP) (|h| UP) (|c1| UP) (|c2| UP) (|n| |Integer|)
-         (|derivation| |Mapping| UP UP) ($ |Union| (|List| UP) "failed"))
+        ((|a| (F)) (|b| (UP)) (|h| (UP)) (|c1| (UP)) (|c2| (UP))
+         (|n| (|Integer|)) (|derivation| (|Mapping| UP UP))
+         ($ (|Union| (|List| UP) "failed")))
         (SPROG
          ((|det| (F)) (|lh| (F)) (|lb| (F)) (|hh| (|Integer|))
           (|bb| (|Integer|)))
@@ -382,11 +386,12 @@
            (PROGN (|RDETRS;DSPDEhdom| |z1| |z2| |z3| |z4| |z5| |hh| $))))) 
 
 (SDEFUN |RDETRS;DSPDEsys0|
-        ((|a| F) (|b| UP) (|h| UP) (|c1| UP) (|c2| UP) (|lb| F) (|lh| F)
-         (|n| |Integer|) (|derivation| |Mapping| UP UP)
-         (|getlc| |Mapping| #1=(|Union| (|List| UP) #2="failed") UP UP F F
-          (|NonNegativeInteger|))
-         ($ |Union| (|List| UP) #2#))
+        ((|a| (F)) (|b| (UP)) (|h| (UP)) (|c1| (UP)) (|c2| (UP)) (|lb| (F))
+         (|lh| (F)) (|n| (|Integer|)) (|derivation| (|Mapping| UP UP))
+         (|getlc|
+          (|Mapping| #1=(|Union| (|List| UP) #2="failed") UP UP F F
+                     (|NonNegativeInteger|)))
+         ($ (|Union| (|List| UP) #2#)))
         (SPROG
          ((|ans2| (UP)) (|ans1| (UP)) (|q2| (UP)) (|q1| (UP))
           (|lq| (|List| UP)) (#3=#:G253 NIL) (#4=#:G254 NIL) (|u| #1#)
@@ -466,8 +471,9 @@
           #6# (EXIT #4#)))) 
 
 (SDEFUN |RDETRS;DSPDEmix|
-        ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
-         (|d| |Integer|) (|det| F) ($ |Union| (|List| UP) "failed"))
+        ((|c1| (UP)) (|c2| (UP)) (|lb| (F)) (|lh| (F))
+         (|n| (|NonNegativeInteger|)) (|d| (|Integer|)) (|det| (F))
+         ($ (|Union| (|List| UP) "failed")))
         (SPROG
          ((|q2| (F)) (|q1| (F)) (|rh2| (F)) (#1=#:G264 NIL)
           (|d2| #2=(|Integer|)) (|rh1| (F)) (|d1| #2#))
@@ -517,8 +523,9 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |RDETRS;DSPDEhdom|
-        ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
-         (|d| |Integer|) ($ |Union| (|List| UP) "failed"))
+        ((|c1| (UP)) (|c2| (UP)) (|lb| (F)) (|lh| (F))
+         (|n| (|NonNegativeInteger|)) (|d| (|Integer|))
+         ($ (|Union| (|List| UP) "failed")))
         (SPROG
          ((|q2| (UP)) (#1=#:G274 NIL) (|d2| #2=(|Integer|)) (|q1| (UP))
           (|d1| #2#))
@@ -561,8 +568,9 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |RDETRS;DSPDEbdom|
-        ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
-         (|d| |Integer|) ($ |Union| (|List| UP) "failed"))
+        ((|c1| (UP)) (|c2| (UP)) (|lb| (F)) (|lh| (F))
+         (|n| (|NonNegativeInteger|)) (|d| (|Integer|))
+         ($ (|Union| (|List| UP) "failed")))
         (SPROG
          ((|q2| (UP)) (#1=#:G284 NIL) (|d1| #2=(|Integer|)) (|q1| (UP))
           (|d2| #2#))
@@ -607,7 +615,8 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |RDETRS;getBound|
-        ((|a| UP) (|b| UP) (|h| UP) (|c1| UP) (|c2| UP) ($ |Integer|))
+        ((|a| (UP)) (|b| (UP)) (|h| (UP)) (|c1| (UP)) (|c2| (UP))
+         ($ (|Integer|)))
         (SPROG
          ((|n| (|Union| (|Integer|) "failed")) (|db| (|Integer|))
           (|bb| (|Integer|)) (|hh| (|Integer|)) (|dc| (|Integer|))

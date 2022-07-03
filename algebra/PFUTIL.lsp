@@ -1,5 +1,6 @@
 
-(SDEFUN |PFUTIL;decompose;UP2L;1| ((|nn| UP) (|dens| |List| UP) ($ |List| UP))
+(SDEFUN |PFUTIL;decompose;UP2L;1|
+        ((|nn| (UP)) (|dens| (|List| UP)) ($ (|List| UP)))
         (SPROG
          ((#1=#:G134 NIL) (|res| (|List| UP)) (#2=#:G138 NIL) (|c| NIL)
           (#3=#:G137 NIL) (|fden| NIL) (|pfr| (|PartialFraction| UP))

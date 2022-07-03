@@ -1,12 +1,12 @@
 
-(SDEFUN |DEQUEUE;bottom;$S;1| ((|d| $) ($ S))
+(SDEFUN |DEQUEUE;bottom;$S;1| ((|d| ($)) ($ (S)))
         (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
               ('T (SPADCALL (SPADCALL |d| (QREFELT $ 11)) (QREFELT $ 12))))) 
 
-(SDEFUN |DEQUEUE;dequeue;L$;2| ((|d| |List| S) ($ $))
+(SDEFUN |DEQUEUE;dequeue;L$;2| ((|d| (|List| S)) ($ ($)))
         (SPADCALL |d| (QREFELT $ 14))) 
 
-(SDEFUN |DEQUEUE;extractBottom!;$S;3| ((|d| $) ($ S))
+(SDEFUN |DEQUEUE;extractBottom!;$S;3| ((|d| ($)) ($ (S)))
         (SPROG
          ((|r| (S)) (|q| (|List| S)) (#1=#:G128 NIL) (|n| (|Integer|))
           (|p| (|List| S)))
@@ -29,19 +29,19 @@
                   (LETT |r| (|SPADfirst| (CDR |q|)))
                   (SPADCALL |q| '|rest| NIL (QREFELT $ 20)) (EXIT |r|)))))))) 
 
-(SDEFUN |DEQUEUE;extractTop!;$S;4| ((|d| $) ($ S))
+(SDEFUN |DEQUEUE;extractTop!;$S;4| ((|d| ($)) ($ (S)))
         (SPROG ((|e| (S)))
                (SEQ (LETT |e| (SPADCALL |d| (QREFELT $ 22)))
                     (SPADCALL |d| (CDR (SPADCALL |d| (QREFELT $ 11)))
                               (QREFELT $ 16))
                     (EXIT |e|)))) 
 
-(SDEFUN |DEQUEUE;insertTop!;S$S;5| ((|e| S) (|d| $) ($ S))
+(SDEFUN |DEQUEUE;insertTop!;S$S;5| ((|e| (S)) (|d| ($)) ($ (S)))
         (SEQ
          (SPADCALL |d| (CONS |e| (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 16))
          (EXIT |e|))) 
 
-(SDEFUN |DEQUEUE;insertBottom!;S$S;6| ((|e| S) (|d| $) ($ S))
+(SDEFUN |DEQUEUE;insertBottom!;S$S;6| ((|e| (S)) (|d| ($)) ($ (S)))
         (SEQ
          (COND
           ((SPADCALL |d| (QREFELT $ 9))
@@ -51,18 +51,18 @@
                      (SPADCALL |e| (QREFELT $ 25)) (QREFELT $ 20))))
          (EXIT |e|))) 
 
-(SDEFUN |DEQUEUE;top;$S;7| ((|d| $) ($ S))
+(SDEFUN |DEQUEUE;top;$S;7| ((|d| ($)) ($ (S)))
         (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
               ('T (|SPADfirst| (SPADCALL |d| (QREFELT $ 11)))))) 
 
-(SDEFUN |DEQUEUE;reverse!;2$;8| ((|d| $) ($ $))
+(SDEFUN |DEQUEUE;reverse!;2$;8| ((|d| ($)) ($ ($)))
         (SEQ
          (SPADCALL |d| (REVERSE (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 16))
          (EXIT |d|))) 
 
-(SDEFUN |DEQUEUE;pop!;$S;9| ((|d| $) ($ S)) (SPADCALL |d| (QREFELT $ 23))) 
+(SDEFUN |DEQUEUE;pop!;$S;9| ((|d| ($)) ($ (S))) (SPADCALL |d| (QREFELT $ 23))) 
 
-(SDEFUN |DEQUEUE;push!;S$S;10| ((|e| S) (|d| $) ($ S))
+(SDEFUN |DEQUEUE;push!;S$S;10| ((|e| (S)) (|d| ($)) ($ (S)))
         (SPADCALL |e| |d| (QREFELT $ 24))) 
 
 (DECLAIM (NOTINLINE |Dequeue;|)) 

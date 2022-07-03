@@ -2,11 +2,11 @@
 (PUT '|MKBCFUNC;func| '|SPADreplace|
      '(XLAM (|name| |x| |y|) (FUNCALL |name| |x| |y| NIL))) 
 
-(SDEFUN |MKBCFUNC;func| ((|name| |Symbol|) (|x| D1) (|y| D2) ($ I))
+(SDEFUN |MKBCFUNC;func| ((|name| (|Symbol|)) (|x| (D1)) (|y| (D2)) ($ (I)))
         (FUNCALL |name| |x| |y| NIL)) 
 
 (SDEFUN |MKBCFUNC;binaryFunction;SM;2|
-        ((|name| |Symbol|) ($ |Mapping| I D1 D2))
+        ((|name| (|Symbol|)) ($ (|Mapping| I D1 D2)))
         (SPROG NIL (CONS #'|MKBCFUNC;binaryFunction;SM;2!0| (VECTOR $ |name|)))) 
 
 (SDEFUN |MKBCFUNC;binaryFunction;SM;2!0| ((|d1| NIL) (|d2| NIL) ($$ NIL))
@@ -16,7 +16,7 @@
           (RETURN (PROGN (|MKBCFUNC;func| |name| |d1| |d2| $))))) 
 
 (SDEFUN |MKBCFUNC;compiledFunction;S2SM;3|
-        ((|e| S) (|x| |Symbol|) (|y| |Symbol|) ($ |Mapping| I D1 D2))
+        ((|e| (S)) (|x| (|Symbol|)) (|y| (|Symbol|)) ($ (|Mapping| I D1 D2)))
         (SPROG ((|t| (|List| (|InputForm|))))
                (SEQ
                 (LETT |t|

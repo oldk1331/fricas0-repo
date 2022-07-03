@@ -1,10 +1,12 @@
 
 (SDEFUN |GROEBSOL;testPower|
-        ((|uf| |SparseUnivariatePolynomial|
-          (|DistributedMultivariatePolynomial| |lv| F))
-         (|x| |OrderedVariableList| |lv|)
-         (|lpol| |List| (|DistributedMultivariatePolynomial| |lv| F))
-         ($ |Union| (|DistributedMultivariatePolynomial| |lv| F) #1="failed"))
+        ((|uf|
+          (|SparseUnivariatePolynomial|
+           (|DistributedMultivariatePolynomial| |lv| F)))
+         (|x| (|OrderedVariableList| |lv|))
+         (|lpol| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+         ($
+          (|Union| (|DistributedMultivariatePolynomial| |lv| F) #1="failed")))
         (SPROG
          ((|g| (|DistributedMultivariatePolynomial| |lv| F))
           (|linp|
@@ -88,10 +90,11 @@
                                               (QREFELT $ 30))))))))))))) 
 
 (SDEFUN |GROEBSOL;testGenPos|
-        ((|lpol| |List| (|DistributedMultivariatePolynomial| |lv| F))
-         (|lvar| |List| (|OrderedVariableList| |lv|))
-         ($ |Union| (|List| (|DistributedMultivariatePolynomial| |lv| F))
-          "failed"))
+        ((|lpol| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+         (|lvar| (|List| (|OrderedVariableList| |lv|)))
+         ($
+          (|Union| (|List| (|DistributedMultivariatePolynomial| |lv| F))
+                   "failed")))
         (SPROG
          ((#1=#:G158 NIL) (|rlvar| (|List| (|OrderedVariableList| |lv|)))
           (|newlpol| (|List| #2=(|DistributedMultivariatePolynomial| |lv| F)))
@@ -110,7 +113,7 @@
                        ('T
                         (SEQ (LETT |rlvar| (CDR (REVERSE |lvar|)))
                              (LETT |newlpol| (LIST |f|))
-                             (SEQ (LETT |f| NIL) (LETT #3# (CDR |rlpol|)) G190
+                             (SEQ (LETT #3# (CDR |rlpol|)) G190
                                   (COND
                                    ((OR (ATOM #3#)
                                         (PROGN (LETT |f| (CAR #3#)) NIL))
@@ -158,16 +161,17 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |GROEBSOL;genPos|
-        ((|lp| |List| (|DistributedMultivariatePolynomial| |lv| F))
-         (|lvar| |List| (|OrderedVariableList| |lv|))
-         ($ |Record|
-          (|:| |polys|
-               (|List|
-                (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
-          (|:| |lpolys| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
-          (|:| |coord| (|List| (|Integer|)))
-          (|:| |univp|
-               (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))
+        ((|lp| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+         (|lvar| (|List| (|OrderedVariableList| |lv|)))
+         ($
+          (|Record|
+           (|:| |polys|
+                (|List|
+                 (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+           (|:| |lpolys| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+           (|:| |coord| (|List| (|Integer|)))
+           (|:| |univp|
+                (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))))
         (SPROG
          ((#1=#:G145 NIL) (|testfail| (|Boolean|))
           (|gb1|
@@ -299,11 +303,12 @@
                         (QREFELT $ 42))))))) 
 
 (SDEFUN |GROEBSOL;genericPosition;LLR;4|
-        ((|lp| |List| (|DistributedMultivariatePolynomial| |lv| F))
-         (|lvar| |List| (|OrderedVariableList| |lv|))
-         ($ |Record|
-          (|:| |dpolys| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
-          (|:| |coords| (|List| (|Integer|)))))
+        ((|lp| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+         (|lvar| (|List| (|OrderedVariableList| |lv|)))
+         ($
+          (|Record|
+           (|:| |dpolys| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+           (|:| |coords| (|List| (|Integer|))))))
         (SPROG
          ((|nans|
            (|Record|
@@ -319,12 +324,13 @@
               (EXIT (CONS (QVELT |nans| 1) (QVELT |nans| 2)))))) 
 
 (SDEFUN |GROEBSOL;select|
-        ((|lup| |List|
-          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+        ((|lup|
+          (|List|
+           (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))
          ($
-          . #1=(|List|
-                (|List|
-                 (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))))
+          #1=(|List|
+              (|List|
+               (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))))
         (SPROG
          ((#2=#:G184 NIL) (#3=#:G183 #1#) (#4=#:G185 #1#) (#5=#:G190 NIL)
           (|lsel| NIL) (#6=#:G189 NIL) (#7=#:G188 NIL) (|f| NIL))
@@ -362,9 +368,10 @@
              (COND (#2# #3#) (#8# NIL)))))))) 
 
 (SDEFUN |GROEBSOL;findCompon|
-        ((|leq| |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         (|lvar| |List| (|OrderedVariableList| |lv|))
-         ($ |List| (|List| (|DistributedMultivariatePolynomial| |lv| F))))
+        ((|leq|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         (|lvar| (|List| (|OrderedVariableList| |lv|)))
+         ($ (|List| (|List| (|DistributedMultivariatePolynomial| |lv| F)))))
         (SPROG
          ((#1=#:G215 NIL) (|ll| NIL) (#2=#:G214 NIL)
           (|ans|
@@ -587,8 +594,9 @@
                                            (EXIT (NREVERSE #2#)))))))))))))))) 
 
 (SDEFUN |GROEBSOL;zeroDim?|
-        ((|lp| |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         (|lvar| . #1=(|List| (|OrderedVariableList| |lv|))) ($ |Boolean|))
+        ((|lp|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         (|lvar| #1=(|List| (|OrderedVariableList| |lv|))) ($ (|Boolean|)))
         (SPROG
          ((|lvint1| #1#) (|x| (|OrderedVariableList| |lv|)) (#2=#:G218 NIL)
           (|g| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
@@ -647,9 +655,9 @@
                                    (EXIT (NULL |lvint1|)))))))))))) 
 
 (SDEFUN |GROEBSOL;groebSolve;LLL;8|
-        ((|leq| |List| (|DistributedMultivariatePolynomial| |lv| F))
-         (|lvar| |List| (|OrderedVariableList| |lv|))
-         ($ |List| (|List| (|DistributedMultivariatePolynomial| |lv| F))))
+        ((|leq| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+         (|lvar| (|List| (|OrderedVariableList| |lv|)))
+         ($ (|List| (|List| (|DistributedMultivariatePolynomial| |lv| F)))))
         (SPROG
          ((|result|
            (|List| (|List| (|DistributedMultivariatePolynomial| |lv| F))))
@@ -751,7 +759,7 @@
                        (LETT #5# (CDR #5#)) (GO G190) G191
                        (EXIT (NREVERSE #6#))))
                  $))
-          (SEQ (LETT |tfact| NIL) (LETT #2# |lfact|) G190
+          (SEQ (LETT #2# |lfact|) G190
                (COND
                 ((OR (ATOM #2#) (PROGN (LETT |tfact| (CAR #2#)) NIL))
                  (GO G191)))
@@ -773,11 +781,13 @@
           (EXIT |result|)))) 
 
 (SDEFUN |GROEBSOL;testDim;LLU;9|
-        ((|leq| |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         (|lvar| |List| (|OrderedVariableList| |lv|))
-         ($ |Union|
-          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-          "failed"))
+        ((|leq|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         (|lvar| (|List| (|OrderedVariableList| |lv|)))
+         ($
+          (|Union|
+           (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
+           "failed")))
         (SPROG
          ((|leq1|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))

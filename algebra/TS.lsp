@@ -1,6 +1,6 @@
 
 (SDEFUN |TS;polynomial;$NniP;1|
-        ((|s| $) (|n| |NonNegativeInteger|) ($ |Polynomial| |Coef|))
+        ((|s| ($)) (|n| (|NonNegativeInteger|)) ($ (|Polynomial| |Coef|)))
         (SPROG ((|sum| (|Polynomial| |Coef|)) (#1=#:G125 NIL) (|i| NIL))
                (SEQ (LETT |sum| (|spadConstant| $ 9))
                     (SEQ (LETT |i| 0) (LETT #1# |n|) G190

@@ -1,15 +1,15 @@
 
-(SDEFUN |SKSMP;D;Var$;1| ((|v| |Var|) ($ $))
+(SDEFUN |SKSMP;D;Var$;1| ((|v| (|Var|)) ($ ($)))
         (SPADCALL (|spadConstant| $ 10) |v| 1 (QREFELT $ 13))) 
 
-(SDEFUN |SKSMP;Delta;S$;2| ((|s| |Symbol|) ($ $))
+(SDEFUN |SKSMP;Delta;S$;2| ((|s| (|Symbol|)) ($ ($)))
         (SPROG ((|vu| (|Union| |Var| "failed")))
                (SEQ (LETT |vu| (SPADCALL |s| (QREFELT $ 17)))
                     (EXIT
                      (COND ((QEQCAR |vu| 1) (|error| "missing variable"))
                            ('T (SPADCALL (QCDR |vu|) (QREFELT $ 14)))))))) 
 
-(SDEFUN |SKSMP;lift_map| ((|f| |Mapping| R R) ($ |Mapping| $ $))
+(SDEFUN |SKSMP;lift_map| ((|f| (|Mapping| R R)) ($ (|Mapping| $ $)))
         (SPROG NIL (CONS #'|SKSMP;lift_map!0| (VECTOR $ |f|)))) 
 
 (SDEFUN |SKSMP;lift_map!0| ((|x| NIL) ($$ NIL))
@@ -18,7 +18,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 28)))))) 
 
-(SDEFUN |SKSMP;lift_morphism| ((|m| |Automorphism| R) ($ |Automorphism| $))
+(SDEFUN |SKSMP;lift_morphism| ((|m| (|Automorphism| R)) ($ (|Automorphism| $)))
         (SPROG NIL
                (SPADCALL
                 (|SKSMP;lift_map|
@@ -41,7 +41,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |m| |x| (QREFELT $ 30)))))) 
 
-(SDEFUN |SKSMP;*;3$;5| ((|x| $) (|y| $) ($ $))
+(SDEFUN |SKSMP;*;3$;5| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((|ru| (|Upol|)) (|yu| (|Upol|)) (|xu| (|Upol|)) (|v| (|Var|))
           (#1=#:G149 NIL))
@@ -66,10 +66,10 @@
                              (QREFELT $ 42)))
              (EXIT (SPADCALL |ru| |v| (QREFELT $ 43))))))))) 
 
-(SDEFUN |SKSMP;*;$R$;6| ((|x| $) (|r| R) ($ $))
+(SDEFUN |SKSMP;*;$R$;6| ((|x| ($)) (|r| (R)) ($ ($)))
         (SPADCALL |x| (SPADCALL |r| (QREFELT $ 45)) (QREFELT $ 44))) 
 
-(SDEFUN |SKSMP;exquo;2$U;7| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |SKSMP;exquo;2$U;7| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG
          ((|res| ($)) (|cc| ($)) (#1=#:G172 NIL)
           (|cu| (|Union| (|SparseMultivariatePolynomial| R |Var|) "failed"))
@@ -125,7 +125,7 @@
                   (EXIT (CONS 0 |res|))))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |SKSMP;^;$Pi$;8| ((|x| $) (|n| |PositiveInteger|) ($ $))
+(SDEFUN |SKSMP;^;$Pi$;8| ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (SPROG ((|res| ($)) (#1=#:G176 NIL) (|i| NIL))
                (SEQ (LETT |res| |x|)
                     (SEQ (LETT |i| 2) (LETT #1# |n|) G190
@@ -136,11 +136,11 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |res|)))) 
 
-(SDEFUN |SKSMP;^;$Nni$;9| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |SKSMP;^;$Nni$;9| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (COND ((EQL |n| 0) (|spadConstant| $ 10))
               ('T (SPADCALL |x| |n| (QREFELT $ 57))))) 
 
-(SDEFUN |SKSMP;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
+(SDEFUN |SKSMP;coerce;$Of;10| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G179 NIL))
                (SEQ
                 (COND

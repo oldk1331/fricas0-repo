@@ -1,38 +1,38 @@
 
-(SDEFUN |BTREE;=;2$B;1| ((|t1| $) (|t2| $) ($ |Boolean|))
+(SDEFUN |BTREE;=;2$B;1| ((|t1| ($)) (|t2| ($)) ($ (|Boolean|)))
         (SPADCALL |t1| |t2| (QREFELT $ 9))) 
 
 (PUT '|BTREE;empty;$;2| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |BTREE;empty;$;2| (($ $)) NIL) 
+(SDEFUN |BTREE;empty;$;2| (($ ($))) NIL) 
 
-(SDEFUN |BTREE;node;$S2$;3| ((|l| $) (|v| S) (|r| $) ($ $))
+(SDEFUN |BTREE;node;$S2$;3| ((|l| ($)) (|v| (S)) (|r| ($)) ($ ($)))
         (CONS (SPADCALL |v| |l| (QREFELT $ 14)) |r|)) 
 
-(SDEFUN |BTREE;binaryTree;$S2$;4| ((|l| $) (|v| S) (|r| $) ($ $))
+(SDEFUN |BTREE;binaryTree;$S2$;4| ((|l| ($)) (|v| (S)) (|r| ($)) ($ ($)))
         (SPADCALL |l| |v| |r| (QREFELT $ 15))) 
 
-(SDEFUN |BTREE;binaryTree;S$;5| ((|v| S) ($ $))
+(SDEFUN |BTREE;binaryTree;S$;5| ((|v| (S)) ($ ($)))
         (SPADCALL (SPADCALL (QREFELT $ 11)) |v| (SPADCALL (QREFELT $ 11))
                   (QREFELT $ 15))) 
 
 (PUT '|BTREE;empty?;$B;6| '|SPADreplace| 'NULL) 
 
-(SDEFUN |BTREE;empty?;$B;6| ((|t| $) ($ |Boolean|)) (NULL |t|)) 
+(SDEFUN |BTREE;empty?;$B;6| ((|t| ($)) ($ (|Boolean|))) (NULL |t|)) 
 
-(SDEFUN |BTREE;right;2$;7| ((|t| $) ($ $))
+(SDEFUN |BTREE;right;2$;7| ((|t| ($)) ($ ($)))
         (COND ((SPADCALL |t| (QREFELT $ 18)) (|error| "binaryTree:no right"))
               ('T (CDR |t|)))) 
 
-(SDEFUN |BTREE;left;2$;8| ((|t| $) ($ $))
+(SDEFUN |BTREE;left;2$;8| ((|t| ($)) ($ ($)))
         (COND ((SPADCALL |t| (QREFELT $ 18)) (|error| "binaryTree:no left"))
               ('T (SPADCALL (|SPADfirst| |t|) (QREFELT $ 20))))) 
 
-(SDEFUN |BTREE;value;$S;9| ((|t| $) ($ S))
+(SDEFUN |BTREE;value;$S;9| ((|t| ($)) ($ (S)))
         (COND ((SPADCALL |t| (QREFELT $ 18)) (|error| "binaryTree:no value"))
               ('T (SPADCALL (|SPADfirst| |t|) (QREFELT $ 22))))) 
 
-(SDEFUN |BTREE;setvalue!;$2S;10| ((|t| $) (|nd| S) ($ S))
+(SDEFUN |BTREE;setvalue!;$2S;10| ((|t| ($)) (|nd| (S)) ($ (S)))
         (SEQ
          (COND
           ((SPADCALL |t| (QREFELT $ 18))
@@ -41,7 +41,7 @@
            (SEQ (SPADCALL (|SPADfirst| |t|) |nd| (QREFELT $ 24))
                 (EXIT |nd|)))))) 
 
-(SDEFUN |BTREE;setleft!;3$;11| ((|t1| $) (|t2| $) ($ $))
+(SDEFUN |BTREE;setleft!;3$;11| ((|t1| ($)) (|t2| ($)) ($ ($)))
         (SEQ
          (COND
           ((SPADCALL |t1| (QREFELT $ 18))
@@ -50,7 +50,7 @@
            (SEQ (SPADCALL (|SPADfirst| |t1|) |t2| (QREFELT $ 26))
                 (EXIT |t1|)))))) 
 
-(SDEFUN |BTREE;setright!;3$;12| ((|t1| $) (|t2| $) ($ $))
+(SDEFUN |BTREE;setright!;3$;12| ((|t1| ($)) (|t2| ($)) ($ ($)))
         (COND
          ((SPADCALL |t1| (QREFELT $ 18))
           (|error| "binaryTree:no right to set"))

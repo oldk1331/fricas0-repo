@@ -1,21 +1,23 @@
 
 (SDEFUN |DEFINTRF;integrate;FSbU;1|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|s| |SegmentBinding| (|OrderedCompletion| (|Expression| R)))
-         ($ |Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
-          (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
-          (|:| |fail| "failed") (|:| |pole| "potentialPole")))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|s| (|SegmentBinding| (|OrderedCompletion| (|Expression| R))))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
+                   (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (|DEFINTRF;int| |f| (SPADCALL |s| (QREFELT $ 9))
          (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 13))
          (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 14)) NIL $)) 
 
 (SDEFUN |DEFINTRF;nopole|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         (|a| |OrderedCompletion| (|Expression| R))
-         (|b| |OrderedCompletion| (|Expression| R))
-         ($ |Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
-          (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
-          (|:| |fail| #1="failed") (|:| |pole| "potentialPole")))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         (|a| (|OrderedCompletion| (|Expression| R)))
+         (|b| (|OrderedCompletion| (|Expression| R)))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
+                   (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
+                   (|:| |fail| #1="failed") (|:| |pole| "potentialPole"))))
         (SPROG
          ((|ans| (|List| (|OrderedCompletion| (|Expression| R))))
           (#2=#:G144 NIL)
@@ -61,12 +63,14 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |DEFINTRF;integrate;FSbU;3|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|s| |SegmentBinding|
-          (|OrderedCompletion| (|Fraction| (|Polynomial| R))))
-         ($ |Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
-          (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
-          (|:| |fail| "failed") (|:| |pole| "potentialPole")))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|s|
+          (|SegmentBinding|
+           (|OrderedCompletion| (|Fraction| (|Polynomial| R)))))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
+                   (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (|DEFINTRF;int| |f| (SPADCALL |s| (QREFELT $ 31))
          (SPADCALL (ELT $ 32)
                    (SPADCALL (SPADCALL |s| (QREFELT $ 34)) (QREFELT $ 36))
@@ -77,13 +81,15 @@
          NIL $)) 
 
 (SDEFUN |DEFINTRF;integrate;FSbSU;4|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|s| |SegmentBinding|
-          (|OrderedCompletion| (|Fraction| (|Polynomial| R))))
-         (|str| |String|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
-          (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
-          (|:| |fail| "failed") (|:| |pole| "potentialPole")))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|s|
+          (|SegmentBinding|
+           (|OrderedCompletion| (|Fraction| (|Polynomial| R)))))
+         (|str| (|String|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
+                   (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (|DEFINTRF;int| |f| (SPADCALL |s| (QREFELT $ 31))
          (SPADCALL (ELT $ 32)
                    (SPADCALL (SPADCALL |s| (QREFELT $ 34)) (QREFELT $ 36))
@@ -94,24 +100,26 @@
          (SPADCALL |str| (QREFELT $ 43)) $)) 
 
 (SDEFUN |DEFINTRF;integrate;FSbSU;5|
-        ((|f| |Fraction| (|Polynomial| R))
-         (|s| |SegmentBinding| (|OrderedCompletion| (|Expression| R)))
-         (|str| |String|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
-          (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
-          (|:| |fail| "failed") (|:| |pole| "potentialPole")))
+        ((|f| (|Fraction| (|Polynomial| R)))
+         (|s| (|SegmentBinding| (|OrderedCompletion| (|Expression| R))))
+         (|str| (|String|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
+                   (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
+                   (|:| |fail| "failed") (|:| |pole| "potentialPole"))))
         (|DEFINTRF;int| |f| (SPADCALL |s| (QREFELT $ 9))
          (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 13))
          (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 14))
          (SPADCALL |str| (QREFELT $ 43)) $)) 
 
 (SDEFUN |DEFINTRF;int|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         (|a| |OrderedCompletion| (|Expression| R))
-         (|b| |OrderedCompletion| (|Expression| R)) (|ignor?| |Boolean|)
-         ($ |Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
-          (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
-          (|:| |fail| "failed") (|:| |pole| #1="potentialPole")))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         (|a| (|OrderedCompletion| (|Expression| R)))
+         (|b| (|OrderedCompletion| (|Expression| R))) (|ignor?| (|Boolean|))
+         ($
+          (|Union| (|:| |f1| (|OrderedCompletion| (|Expression| R)))
+                   (|:| |f2| (|List| (|OrderedCompletion| (|Expression| R))))
+                   (|:| |fail| "failed") (|:| |pole| #1="potentialPole"))))
         (SPROG ((|z| (|Union| (|Boolean|) "failed")))
                (SEQ
                 (COND

@@ -1,8 +1,8 @@
 
 (SDEFUN |PMSYM;patternMatch;SP2Pmr;1|
-        ((|s| |Symbol|) (|p| |Pattern| S)
-         (|l| |PatternMatchResult| S (|Symbol|))
-         ($ |PatternMatchResult| S (|Symbol|)))
+        ((|s| (|Symbol|)) (|p| (|Pattern| S))
+         (|l| (|PatternMatchResult| S (|Symbol|)))
+         ($ (|PatternMatchResult| S (|Symbol|))))
         (SPROG ((#1=#:G131 NIL) (|u| (|Union| (|Symbol|) "failed")))
                (SEQ
                 (COND

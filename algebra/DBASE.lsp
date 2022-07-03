@@ -1,10 +1,10 @@
 
 (PUT '|DBASE;coerce;L$;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(SDEFUN |DBASE;coerce;L$;1| ((|u| |List| S) ($ $)) |u|) 
+(SDEFUN |DBASE;coerce;L$;1| ((|u| (|List| S)) ($ ($))) |u|) 
 
 (SDEFUN |DBASE;elt;$SDl;2|
-        ((|data| $) (|s| |Symbol|) ($ |DataList| (|String|)))
+        ((|data| ($)) (|s| (|Symbol|)) ($ (|DataList| (|String|))))
         (SPROG ((#1=#:G123 NIL) (|x| NIL) (#2=#:G122 NIL))
                (SEQ
                 (SPADCALL
@@ -22,7 +22,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 14))))) 
 
-(SDEFUN |DBASE;elt;$Qe$;3| ((|data| $) (|eq| |QueryEquation|) ($ $))
+(SDEFUN |DBASE;elt;$Qe$;3| ((|data| ($)) (|eq| (|QueryEquation|)) ($ ($)))
         (SPROG
          ((#1=#:G128 NIL) (|x| NIL) (#2=#:G127 NIL) (|val| (|String|))
           (|field| (|Symbol|)))
@@ -45,16 +45,16 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))))) 
 
-(SDEFUN |DBASE;+;3$;4| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DBASE;+;3$;4| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL |x| |y| (QREFELT $ 20)) (QREFELT $ 21))) 
 
-(SDEFUN |DBASE;-;3$;5| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DBASE;-;3$;5| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 24)) |y| (QREFELT $ 26))) 
 
-(SDEFUN |DBASE;coerce;$Of;6| ((|data| $) ($ |OutputForm|))
+(SDEFUN |DBASE;coerce;$Of;6| ((|data| ($)) ($ (|OutputForm|)))
         (SPADCALL (LENGTH |data|) (QREFELT $ 30))) 
 
-(SDEFUN |DBASE;display;$V;7| ((|data| $) ($ |Void|))
+(SDEFUN |DBASE;display;$V;7| ((|data| ($)) ($ (|Void|)))
         (SPROG ((#1=#:G134 NIL) (|x| NIL))
                (SEQ (LETT |x| NIL) (LETT #1# |data|) G190
                     (COND
@@ -63,7 +63,7 @@
                     (SEQ (EXIT (SPADCALL |x| (QREFELT $ 33))))
                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))) 
 
-(SDEFUN |DBASE;fullDisplay;$V;8| ((|data| $) ($ |Void|))
+(SDEFUN |DBASE;fullDisplay;$V;8| ((|data| ($)) ($ (|Void|)))
         (SPROG ((#1=#:G137 NIL) (|x| NIL))
                (SEQ (LETT |x| NIL) (LETT #1# |data|) G190
                     (COND
@@ -73,7 +73,8 @@
                     (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |DBASE;fullDisplay;$2PiV;9|
-        ((|data| $) (|n| |PositiveInteger|) (|m| |PositiveInteger|) ($ |Void|))
+        ((|data| ($)) (|n| (|PositiveInteger|)) (|m| (|PositiveInteger|))
+         ($ (|Void|)))
         (SPROG ((#1=#:G140 NIL) (|x| NIL) (#2=#:G141 NIL) (|i| NIL))
                (SEQ (LETT |i| 1) (LETT #2# |m|) (LETT |x| NIL)
                     (LETT #1# |data|) G190

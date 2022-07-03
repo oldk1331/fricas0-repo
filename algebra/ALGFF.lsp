@@ -1,46 +1,46 @@
 
-(SDEFUN |ALGFF;branchPointAtInfinity?;B;1| (($ |Boolean|))
+(SDEFUN |ALGFF;branchPointAtInfinity?;B;1| (($ (|Boolean|)))
         (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
              (EXIT (QREFELT $ 11)))) 
 
-(SDEFUN |ALGFF;discriminant;F;2| (($ |Fraction| UP))
+(SDEFUN |ALGFF;discriminant;F;2| (($ (|Fraction| UP)))
         (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
              (EXIT (QREFELT $ 14)))) 
 
-(SDEFUN |ALGFF;integralBasis;V;3| (($ |Vector| $))
+(SDEFUN |ALGFF;integralBasis;V;3| (($ (|Vector| $)))
         (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
              (EXIT (|ALGFF;vect| (QREFELT $ 23) $)))) 
 
-(SDEFUN |ALGFF;integralBasisAtInfinity;V;4| (($ |Vector| $))
+(SDEFUN |ALGFF;integralBasisAtInfinity;V;4| (($ (|Vector| $)))
         (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
              (EXIT (|ALGFF;vect| (QREFELT $ 26) $)))) 
 
-(SDEFUN |ALGFF;integralMatrix;M;5| (($ |Matrix| (|Fraction| UP)))
+(SDEFUN |ALGFF;integralMatrix;M;5| (($ (|Matrix| (|Fraction| UP))))
         (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
              (EXIT (QREFELT $ 23)))) 
 
-(SDEFUN |ALGFF;inverseIntegralMatrix;M;6| (($ |Matrix| (|Fraction| UP)))
+(SDEFUN |ALGFF;inverseIntegralMatrix;M;6| (($ (|Matrix| (|Fraction| UP))))
         (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
              (EXIT (QREFELT $ 25)))) 
 
-(SDEFUN |ALGFF;integralMatrixAtInfinity;M;7| (($ |Matrix| (|Fraction| UP)))
+(SDEFUN |ALGFF;integralMatrixAtInfinity;M;7| (($ (|Matrix| (|Fraction| UP))))
         (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
              (EXIT (QREFELT $ 26)))) 
 
-(SDEFUN |ALGFF;branchPoint?;FB;8| ((|a| F) ($ |Boolean|))
+(SDEFUN |ALGFF;branchPoint?;FB;8| ((|a| (F)) ($ (|Boolean|)))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 30)) (QREFELT $ 37)) |a|
                    (QREFELT $ 38))
          (QREFELT $ 39))) 
 
-(SDEFUN |ALGFF;definingPolynomial;UPUP;9| (($ UPUP)) (QREFELT $ 9)) 
+(SDEFUN |ALGFF;definingPolynomial;UPUP;9| (($ (UPUP))) (QREFELT $ 9)) 
 
 (SDEFUN |ALGFF;inverseIntegralMatrixAtInfinity;M;10|
-        (($ |Matrix| (|Fraction| UP)))
+        (($ (|Matrix| (|Fraction| UP))))
         (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
              (EXIT (QREFELT $ 27)))) 
 
-(SDEFUN |ALGFF;vect| ((|m| |Matrix| (|Fraction| UP)) ($ |Vector| $))
+(SDEFUN |ALGFF;vect| ((|m| (|Matrix| (|Fraction| UP))) ($ (|Vector| $)))
         (SPROG ((#1=#:G144 NIL) (#2=#:G146 NIL) (|i| NIL) (#3=#:G145 NIL))
                (SEQ
                 (PROGN
@@ -61,13 +61,14 @@
                  #3#)))) 
 
 (SDEFUN |ALGFF;integralCoordinates;$R;12|
-        ((|f| $) ($ |Record| (|:| |num| (|Vector| UP)) (|:| |den| UP)))
+        ((|f| ($)) ($ (|Record| (|:| |num| (|Vector| UP)) (|:| |den| UP))))
         (SPADCALL
          (SPADCALL (SPADCALL |f| (QREFELT $ 48)) (SPADCALL (QREFELT $ 35))
                    (QREFELT $ 49))
          (QREFELT $ 52))) 
 
-(SDEFUN |ALGFF;knownInfBasis;NniV;13| ((|d| |NonNegativeInteger|) ($ |Void|))
+(SDEFUN |ALGFF;knownInfBasis;NniV;13|
+        ((|d| (|NonNegativeInteger|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G163 NIL) (|j| NIL) (#2=#:G162 NIL) (|i| NIL)
           (|invib| #3=(|Matrix| (|Fraction| UP))) (|ib| #3#) (#4=#:G159 NIL)
@@ -132,7 +133,7 @@
                    (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))))))
           (EXIT (SPADCALL (QREFELT $ 64)))))) 
 
-(SDEFUN |ALGFF;getInfBasis| (($ |Void|))
+(SDEFUN |ALGFF;getInfBasis| (($ (|Void|)))
         (SPROG
          ((#1=#:G186 NIL) (|j| NIL) (#2=#:G185 NIL) (|i| NIL)
           (|invib2| #3=(|Matrix| (|Fraction| UP))) (|ib2| #3#) (#4=#:G184 NIL)
@@ -279,7 +280,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |s| |x| (QREFELT $ 67)))))) 
 
-(SDEFUN |ALGFF;startUp| ((|b| |Boolean|) ($ |Void|))
+(SDEFUN |ALGFF;startUp| ((|b| (|Boolean|)) ($ (|Void|)))
         (SPROG
          ((|dsc| (|Fraction| UP)) (|dsc0| (|Fraction| UP)) (#1=#:G205 NIL)
           (|j| NIL) (#2=#:G204 NIL) (|i| NIL)
@@ -415,8 +416,8 @@
                   (EXIT (SPADCALL (QREFELT $ 64)))))))))) 
 
 (SDEFUN |ALGFF;integralDerivationMatrix;MR;16|
-        ((|d| |Mapping| UP UP)
-         ($ |Record| (|:| |num| (|Matrix| UP)) (|:| |den| UP)))
+        ((|d| (|Mapping| UP UP))
+         ($ (|Record| (|:| |num| (|Matrix| UP)) (|:| |den| UP))))
         (SPROG
          ((#1=#:G218 NIL) (#2=#:G220 NIL) (|i| NIL) (#3=#:G219 NIL)
           (|w| (|Vector| $)))
@@ -445,13 +446,14 @@
                  (SPADCALL (QREFELT $ 35)) (QREFELT $ 84))
                 (QREFELT $ 106)))))) 
 
-(SDEFUN |ALGFF;integralRepresents;VUP$;17| ((|v| |Vector| UP) (|d| UP) ($ $))
+(SDEFUN |ALGFF;integralRepresents;VUP$;17|
+        ((|v| (|Vector| UP)) (|d| (UP)) ($ ($)))
         (SPADCALL
          (SPADCALL (SPADCALL (SPADCALL |v| |d| (QREFELT $ 109)) (QREFELT $ 48))
                    (SPADCALL (QREFELT $ 34)) (QREFELT $ 49))
          (QREFELT $ 47))) 
 
-(SDEFUN |ALGFF;branchPoint?;UPB;18| ((|p| UP) ($ |Boolean|))
+(SDEFUN |ALGFF;branchPoint?;UPB;18| ((|p| (UP)) ($ (|Boolean|)))
         (SPROG ((|r| (|Union| F "failed")))
                (SEQ (COND ((QREFELT $ 10) (|ALGFF;startUp| NIL $)))
                     (LETT |r| (SPADCALL |p| (QREFELT $ 112)))

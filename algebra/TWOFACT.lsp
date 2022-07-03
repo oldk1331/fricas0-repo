@@ -1,8 +1,8 @@
 
 (SDEFUN |TWOFACT;pthRoot|
-        ((|poly| |SparseUnivariatePolynomial| F) (|p| |NonNegativeInteger|)
-         (|PthRootPow| |NonNegativeInteger|)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|poly| (|SparseUnivariatePolynomial| F)) (|p| (|NonNegativeInteger|))
+         (|PthRootPow| (|NonNegativeInteger|))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPROG ((|tmp| (|Union| (|SparseUnivariatePolynomial| F) "failed")))
                (SEQ
                 (LETT |tmp|
@@ -23,22 +23,25 @@
           (RETURN (PROGN (SPADCALL |x| |PthRootPow| (QREFELT $ 8)))))) 
 
 (SDEFUN |TWOFACT;tryTwoFactor;SupF;2|
-        ((|m| |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
-         ($ |Factored|
-          (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
+        ((|m| (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (|TWOFACT;doTwoFactor| |m| NIL $)) 
 
 (SDEFUN |TWOFACT;generalTwoFactor;SupF;3|
-        ((|m| |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
-         ($ |Factored|
-          (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
+        ((|m| (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (|TWOFACT;doTwoFactor| |m| 'T $)) 
 
 (SDEFUN |TWOFACT;doTwoFactor|
-        ((|m| |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
-         (|do_ext| |Boolean|)
-         ($ |Factored|
-          (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
+        ((|m| (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
+         (|do_ext| (|Boolean|))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((|ll|
            (|List|
@@ -402,19 +405,21 @@
           (RETURN (PROGN (|TWOFACT;pthRoot| |x| |p| |PthRootPow| $))))) 
 
 (SDEFUN |TWOFACT;twoFactor;SupIF;5|
-        ((|m| |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
-         (|dx| |Integer|)
-         ($ |Factored|
-          (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
+        ((|m| (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
+         (|dx| (|Integer|))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (SPADCALL |m| |dx| 'T (QREFELT $ 62))) 
 
 (SDEFUN |TWOFACT;doExtension1|
         ((|m|
-          . #1=(|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
-         (|n| |PositiveInteger|) (|dx| |Integer|)
-         (|extField| |FiniteAlgebraicExtensionField| F)
-         ($ |Factored|
-          (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
+          #1=(|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
+         (|n| (|PositiveInteger|)) (|dx| (|Integer|))
+         (|extField| (|FiniteAlgebraicExtensionField| F))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((#2=#:G229 NIL)
           (#3=#:G228
@@ -802,10 +807,11 @@
                     (COND (#2# #3#) (#25# (|spadConstant| $ 73)))))))))))) 
 
 (SDEFUN |TWOFACT;doExtension|
-        ((|m| |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
-         (|dx| |Integer|)
-         ($ |Factored|
-          (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
+        ((|m| (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
+         (|dx| (|Integer|))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((#1=#:G251 NIL) (#2=#:G252 NIL)
           (|res1|
@@ -851,10 +857,11 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |TWOFACT;doFactor;SupIBF;8|
-        ((|m| |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
-         (|dx| |Integer|) (|do_ext| |Boolean|)
-         ($ |Factored|
-          (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
+        ((|m| (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
+         (|dx| (|Integer|)) (|do_ext| (|Boolean|))
+         ($
+          (|Factored|
+           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))))
         (SPROG
          ((#1=#:G269 NIL)
           (#2=#:G268

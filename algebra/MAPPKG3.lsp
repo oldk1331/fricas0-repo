@@ -1,6 +1,6 @@
 
 (SDEFUN |MAPPKG3;curryRight;MBM;1|
-        ((|fabc| |Mapping| C A B) (|b| B) ($ |Mapping| C A))
+        ((|fabc| (|Mapping| C A B)) (|b| (B)) ($ (|Mapping| C A)))
         (SPROG NIL (CONS #'|MAPPKG3;curryRight;MBM;1!0| (VECTOR |fabc| |b|)))) 
 
 (SDEFUN |MAPPKG3;curryRight;MBM;1!0| ((|a| NIL) ($$ NIL))
@@ -10,7 +10,7 @@
           (RETURN (PROGN (SPADCALL |a| |b| |fabc|))))) 
 
 (SDEFUN |MAPPKG3;curryLeft;MAM;2|
-        ((|fabc| |Mapping| C A B) (|a| A) ($ |Mapping| C B))
+        ((|fabc| (|Mapping| C A B)) (|a| (A)) ($ (|Mapping| C B)))
         (SPROG NIL (CONS #'|MAPPKG3;curryLeft;MAM;2!0| (VECTOR |fabc| |a|)))) 
 
 (SDEFUN |MAPPKG3;curryLeft;MAM;2!0| ((|b| NIL) ($$ NIL))
@@ -20,26 +20,27 @@
           (RETURN (PROGN (SPADCALL |a| |b| |fabc|))))) 
 
 (SDEFUN |MAPPKG3;constantRight;MM;3|
-        ((|fac| |Mapping| C A) ($ |Mapping| C A B))
+        ((|fac| (|Mapping| C A)) ($ (|Mapping| C A B)))
         (CONS #'|MAPPKG3;constantRight;MM;3!0| |fac|)) 
 
 (SDEFUN |MAPPKG3;constantRight;MM;3!0| ((|a| NIL) (|b| NIL) (|fac| NIL))
         (SPADCALL |a| |fac|)) 
 
-(SDEFUN |MAPPKG3;constantLeft;MM;4| ((|fbc| |Mapping| C B) ($ |Mapping| C A B))
+(SDEFUN |MAPPKG3;constantLeft;MM;4|
+        ((|fbc| (|Mapping| C B)) ($ (|Mapping| C A B)))
         (CONS #'|MAPPKG3;constantLeft;MM;4!0| |fbc|)) 
 
 (SDEFUN |MAPPKG3;constantLeft;MM;4!0| ((|a| NIL) (|b| NIL) (|fbc| NIL))
         (SPADCALL |b| |fbc|)) 
 
-(SDEFUN |MAPPKG3;twist;MM;5| ((|fabc| |Mapping| C A B) ($ |Mapping| C B A))
+(SDEFUN |MAPPKG3;twist;MM;5| ((|fabc| (|Mapping| C A B)) ($ (|Mapping| C B A)))
         (CONS #'|MAPPKG3;twist;MM;5!0| |fabc|)) 
 
 (SDEFUN |MAPPKG3;twist;MM;5!0| ((|b| NIL) (|a| NIL) (|fabc| NIL))
         (SPADCALL |a| |b| |fabc|)) 
 
 (SDEFUN |MAPPKG3;*;MMM;6|
-        ((|fbc| |Mapping| C B) (|fab| |Mapping| B A) ($ |Mapping| C A))
+        ((|fbc| (|Mapping| C B)) (|fab| (|Mapping| B A)) ($ (|Mapping| C A)))
         (SPROG NIL (CONS #'|MAPPKG3;*;MMM;6!0| (VECTOR $ |fab| |fbc|)))) 
 
 (SDEFUN |MAPPKG3;*;MMM;6!0| ((|a| NIL) ($$ NIL))

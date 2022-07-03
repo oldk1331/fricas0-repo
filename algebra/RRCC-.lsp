@@ -1,18 +1,19 @@
 
 (SDEFUN |RRCC-;zero?;ThePolsSB;1|
-        ((|toTest| |ThePols|) (|rootChar| S) ($ |Boolean|))
+        ((|toTest| (|ThePols|)) (|rootChar| (S)) ($ (|Boolean|)))
         (EQL (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0)) 
 
 (SDEFUN |RRCC-;negative?;ThePolsSB;2|
-        ((|toTest| |ThePols|) (|rootChar| S) ($ |Boolean|))
+        ((|toTest| (|ThePols|)) (|rootChar| (S)) ($ (|Boolean|)))
         (< (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0)) 
 
 (SDEFUN |RRCC-;positive?;ThePolsSB;3|
-        ((|toTest| |ThePols|) (|rootChar| S) ($ |Boolean|))
+        ((|toTest| (|ThePols|)) (|rootChar| (S)) ($ (|Boolean|)))
         (> (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0)) 
 
 (SDEFUN |RRCC-;rootOf;ThePolsPiU;4|
-        ((|pol| |ThePols|) (|n| |PositiveInteger|) ($ |Union| S "failed"))
+        ((|pol| (|ThePols|)) (|n| (|PositiveInteger|))
+         ($ (|Union| S "failed")))
         (SPROG ((|liste| (|List| S)))
                (SEQ (LETT |liste| (SPADCALL |pol| (QREFELT $ 16)))
                     (EXIT
@@ -21,7 +22,8 @@
                             (CONS 0 (SPADCALL |liste| |n| (QREFELT $ 18))))))))) 
 
 (SDEFUN |RRCC-;recip;ThePolsSU;5|
-        ((|toInv| |ThePols|) (|rootChar| S) ($ |Union| |ThePols| #1="failed"))
+        ((|toInv| (|ThePols|)) (|rootChar| (S))
+         ($ (|Union| |ThePols| #1="failed")))
         (SPROG
          ((|d|
            (|Record| (|:| |coef| (|List| |ThePols|))

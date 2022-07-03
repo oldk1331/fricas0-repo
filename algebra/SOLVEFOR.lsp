@@ -1,9 +1,9 @@
 
 (PUT '|SOLVEFOR;part| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |SOLVEFOR;part| ((|s| F) ($ F)) |s|) 
+(SDEFUN |SOLVEFOR;part| ((|s| (F)) ($ (F))) |s|) 
 
-(SDEFUN |SOLVEFOR;sqrt2| ((|s| F) ($ F))
+(SDEFUN |SOLVEFOR;sqrt2| ((|s| (F)) ($ (F)))
         (SPROG
          ((|res|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
@@ -21,7 +21,7 @@
                             (QREFELT $ 19)))))
            ('T (SPADCALL |s| (SPADCALL 1 2 (QREFELT $ 17)) (QREFELT $ 18))))))) 
 
-(SDEFUN |SOLVEFOR;intsolve| ((|u| UP) ($ |List| F))
+(SDEFUN |SOLVEFOR;intsolve| ((|u| (UP)) ($ (|List| F)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ
                 (LETT |u|
@@ -55,7 +55,7 @@
                    (|error|
                     "All sqfr factors of polynomial must be of degree < 5"))))))) 
 
-(SDEFUN |SOLVEFOR;solve;UPL;4| ((|u| UP) ($ |List| F))
+(SDEFUN |SOLVEFOR;solve;UPL;4| ((|u| (UP)) ($ (|List| F)))
         (SPROG
          ((|ls| (|List| F)) (#1=#:G140 NIL) (|i| NIL) (|lsf| (|List| F))
           (#2=#:G139 NIL) (|f| NIL))
@@ -81,7 +81,7 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |ls|)))) 
 
-(SDEFUN |SOLVEFOR;particularSolution;UPF;5| ((|u| UP) ($ F))
+(SDEFUN |SOLVEFOR;particularSolution;UPF;5| ((|u| (UP)) ($ (F)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ
                 (LETT |u|
@@ -115,36 +115,36 @@
                    (|error|
                     "All sqfr factors of polynomial must be of degree < 5"))))))) 
 
-(SDEFUN |SOLVEFOR;needDegree| ((|n| |Integer|) (|u| UP) ($ |Boolean|))
+(SDEFUN |SOLVEFOR;needDegree| ((|n| (|Integer|)) (|u| (UP)) ($ (|Boolean|)))
         (COND ((EQL (SPADCALL |u| (QREFELT $ 28)) |n|) 'T)
               ('T
                (|error|
                 (STRCONC "Polynomial must be of degree " (STRINGIMAGE |n|)))))) 
 
-(SDEFUN |SOLVEFOR;needLcoef| ((|cn| F) ($ |Boolean|))
+(SDEFUN |SOLVEFOR;needLcoef| ((|cn| (F)) ($ (|Boolean|)))
         (COND ((SPADCALL |cn| (|spadConstant| $ 31) (QREFELT $ 45)) 'T)
               ('T (|error| "Leading coefficient must not be 0.")))) 
 
-(SDEFUN |SOLVEFOR;needChar0| (($ |Boolean|))
+(SDEFUN |SOLVEFOR;needChar0| (($ (|Boolean|)))
         (COND ((EQL (SPADCALL (QREFELT $ 46)) 0) 'T)
               ('T
                (|error|
                 "Formula defined only for fields of characteristic 0.")))) 
 
-(SDEFUN |SOLVEFOR;linear;UPL;9| ((|u| UP) ($ |List| F))
+(SDEFUN |SOLVEFOR;linear;UPL;9| ((|u| (UP)) ($ (|List| F)))
         (SEQ (|SOLVEFOR;needDegree| 1 |u| $)
              (EXIT
               (SPADCALL (SPADCALL |u| 1 (QREFELT $ 29))
                         (SPADCALL |u| 0 (QREFELT $ 29)) (QREFELT $ 33))))) 
 
-(SDEFUN |SOLVEFOR;quadratic;UPL;10| ((|u| UP) ($ |List| F))
+(SDEFUN |SOLVEFOR;quadratic;UPL;10| ((|u| (UP)) ($ (|List| F)))
         (SEQ (|SOLVEFOR;needDegree| 2 |u| $)
              (EXIT
               (SPADCALL (SPADCALL |u| 2 (QREFELT $ 29))
                         (SPADCALL |u| 1 (QREFELT $ 29))
                         (SPADCALL |u| 0 (QREFELT $ 29)) (QREFELT $ 34))))) 
 
-(SDEFUN |SOLVEFOR;cubic;UPL;11| ((|u| UP) ($ |List| F))
+(SDEFUN |SOLVEFOR;cubic;UPL;11| ((|u| (UP)) ($ (|List| F)))
         (SEQ (|SOLVEFOR;needDegree| 3 |u| $)
              (EXIT
               (SPADCALL (SPADCALL |u| 3 (QREFELT $ 29))
@@ -152,7 +152,7 @@
                         (SPADCALL |u| 1 (QREFELT $ 29))
                         (SPADCALL |u| 0 (QREFELT $ 29)) (QREFELT $ 35))))) 
 
-(SDEFUN |SOLVEFOR;quartic;UPL;12| ((|u| UP) ($ |List| F))
+(SDEFUN |SOLVEFOR;quartic;UPL;12| ((|u| (UP)) ($ (|List| F)))
         (SEQ (|SOLVEFOR;needDegree| 4 |u| $)
              (EXIT
               (SPADCALL (SPADCALL |u| 4 (QREFELT $ 29))
@@ -161,23 +161,24 @@
                         (SPADCALL |u| 1 (QREFELT $ 29))
                         (SPADCALL |u| 0 (QREFELT $ 29)) (QREFELT $ 36))))) 
 
-(SDEFUN |SOLVEFOR;equ| ((|x| F) (|y| F) ($ |Boolean|))
+(SDEFUN |SOLVEFOR;equ| ((|x| (F)) (|y| (F)) ($ (|Boolean|)))
         (COND
          ((QEQCAR (SPADCALL (SPADCALL |x| |y| (QREFELT $ 51)) (QREFELT $ 53))
                   1)
           'T)
          ('T NIL))) 
 
-(SDEFUN |SOLVEFOR;linear;2FL;14| ((|c1| F) (|c0| F) ($ |List| F))
+(SDEFUN |SOLVEFOR;linear;2FL;14| ((|c1| (F)) (|c0| (F)) ($ (|List| F)))
         (SEQ (|SOLVEFOR;needLcoef| |c1| $)
              (EXIT
               (LIST
                (SPADCALL (SPADCALL |c0| |c1| (QREFELT $ 54)) (QREFELT $ 55)))))) 
 
-(SDEFUN |SOLVEFOR;aLinear;3F;15| ((|c1| F) (|c0| F) ($ F))
+(SDEFUN |SOLVEFOR;aLinear;3F;15| ((|c1| (F)) (|c0| (F)) ($ (F)))
         (|SPADfirst| (SPADCALL |c1| |c0| (QREFELT $ 33)))) 
 
-(SDEFUN |SOLVEFOR;quadratic;3FL;16| ((|c2| F) (|c1| F) (|c0| F) ($ |List| F))
+(SDEFUN |SOLVEFOR;quadratic;3FL;16|
+        ((|c2| (F)) (|c1| (F)) (|c0| (F)) ($ (|List| F)))
         (SPROG ((D (F)))
                (SEQ (|SOLVEFOR;needLcoef| |c2| $) (|SOLVEFOR;needChar0| $)
                     (EXIT
@@ -219,7 +220,7 @@
                            (SPADCALL 2 |c2| (QREFELT $ 59))
                            (QREFELT $ 54))))))))))) 
 
-(SDEFUN |SOLVEFOR;aQuadratic;4F;17| ((|c2| F) (|c1| F) (|c0| F) ($ F))
+(SDEFUN |SOLVEFOR;aQuadratic;4F;17| ((|c2| (F)) (|c1| (F)) (|c0| (F)) ($ (F)))
         (SPROG ((D (F)))
                (SEQ (|SOLVEFOR;needLcoef| |c2| $) (|SOLVEFOR;needChar0| $)
                     (EXIT
@@ -251,7 +252,7 @@
                           (QREFELT $ 54)))))))))) 
 
 (SDEFUN |SOLVEFOR;cubic;4FL;18|
-        ((|c3| F) (|c2| F) (|c1| F) (|c0| F) ($ |List| F))
+        ((|c3| (F)) (|c2| (F)) (|c1| (F)) (|c0| (F)) ($ (|List| F)))
         (SPROG
          ((#1=#:G184 NIL) (|u| NIL) (#2=#:G183 NIL) (S (F)) (D (F)) (R (F))
           (Q (F)) (#3=#:G182 NIL) (#4=#:G181 NIL) (P (F)) (#5=#:G180 NIL)
@@ -416,7 +417,8 @@
                                  (LETT #1# (CDR #1#)) (GO G190) G191
                                  (EXIT (NREVERSE #2#)))))))))))))))) 
 
-(SDEFUN |SOLVEFOR;aCubic;5F;19| ((|c3| F) (|c2| F) (|c1| F) (|c0| F) ($ F))
+(SDEFUN |SOLVEFOR;aCubic;5F;19|
+        ((|c3| (F)) (|c2| (F)) (|c1| (F)) (|c0| (F)) ($ (F)))
         (SPROG
          ((S (F)) (D (F)) (R (F)) (Q (F)) (P (F)) (|a3| (F)) (|a2| (F))
           (|a1| (F)))
@@ -504,7 +506,7 @@
                                      (QREFELT $ 51)))))))))))))) 
 
 (SDEFUN |SOLVEFOR;quartic;5FL;20|
-        ((|c4| F) (|c3| F) (|c2| F) (|c1| F) (|c0| F) ($ |List| F))
+        ((|c4| (F)) (|c3| (F)) (|c2| (F)) (|c1| (F)) (|c0| (F)) ($ (|List| F)))
         (SPROG
          ((#1=#:G196 NIL) (|s| NIL) (#2=#:G195 NIL) (|slist| (|List| F))
           (|rt| (F)) (|t0| (F)) (|r| (F)) (|q| (F)) (|p| (F)) (|a4| (F))
@@ -667,7 +669,7 @@
                              (EXIT (NREVERSE #2#)))))))))))) 
 
 (SDEFUN |SOLVEFOR;aQuartic;6F;21|
-        ((|c4| F) (|c3| F) (|c2| F) (|c1| F) (|c0| F) ($ F))
+        ((|c4| (F)) (|c3| (F)) (|c2| (F)) (|c1| (F)) (|c0| (F)) ($ (F)))
         (SPROG
          ((|s| (F)) (|rt| (F)) (|t0| (F)) (|r| (F)) (|q| (F)) (|p| (F))
           (|a4| (F)) (|a3| (F)) (|a2| (F)) (|a1| (F)))

@@ -1,5 +1,5 @@
 
-(SDEFUN |INFSP;numeric| ((|r| K) ($ F))
+(SDEFUN |INFSP;numeric| ((|r| (K)) ($ (F)))
         (SPROG ((|gr| (|Complex| (|Integer|))))
                (SEQ
                 (COND
@@ -31,8 +31,8 @@
                  ('T (|error| "case not handled")))))) 
 
 (SDEFUN |INFSP;makeEq;LLL;2|
-        ((|nres| |List| F) (|lv| |List| (|Symbol|))
-         ($ |List| (|Equation| (|Polynomial| F))))
+        ((|nres| (|List| F)) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|Equation| (|Polynomial| F)))))
         (SPROG
          ((#1=#:G134 NIL) (|x| NIL) (#2=#:G135 NIL) (|r| NIL) (#3=#:G133 NIL))
          (SEQ
@@ -56,8 +56,8 @@
                 G191 (EXIT (NREVERSE #3#))))))) 
 
 (SDEFUN |INFSP;evaluate|
-        ((|pol| |Polynomial| K) (|xvar| |Symbol|) (|zvar| |Symbol|) (|z| F)
-         ($ F))
+        ((|pol| (|Polynomial| K)) (|xvar| (|Symbol|)) (|zvar| (|Symbol|))
+         (|z| (F)) ($ (F)))
         (SPROG
          ((|upol| (|SparseUnivariatePolynomial| (|Polynomial| F)))
           (|rpp| (|Polynomial| F)))
@@ -75,17 +75,18 @@
             (SPADCALL (SPADCALL |upol| (QREFELT $ 47)) (QREFELT $ 46))
             (QREFELT $ 48)))))) 
 
-(SDEFUN |INFSP;myConvert| ((|eps| |Par|) ($ |Fraction| (|Integer|)))
+(SDEFUN |INFSP;myConvert| ((|eps| (|Par|)) ($ (|Fraction| (|Integer|))))
         (COND ((|domainEqual| (QREFELT $ 8) (|Fraction| (|Integer|))) |eps|)
               ((|domainEqual| (QREFELT $ 8) (|Float|))
                (SPADCALL |eps| (QREFELT $ 49))))) 
 
 (SDEFUN |INFSP;innerSolve1;PParL;5|
-        ((|pol| |Polynomial| K) (|eps| |Par|) ($ |List| F))
+        ((|pol| (|Polynomial| K)) (|eps| (|Par|)) ($ (|List| F)))
         (SPADCALL (SPADCALL |pol| (QREFELT $ 51)) |eps| (QREFELT $ 52))) 
 
 (SDEFUN |INFSP;innerSolve1;SupParL;6|
-        ((|upol| |SparseUnivariatePolynomial| K) (|eps| |Par|) ($ |List| F))
+        ((|upol| (|SparseUnivariatePolynomial| K)) (|eps| (|Par|))
+         ($ (|List| F)))
         (SPROG
          ((#1=#:G151 NIL) (|x| NIL) (#2=#:G150 NIL)
           (|z|
@@ -155,7 +156,7 @@
               (#5='T (|error| "improper arguments to INFSP"))))
             (#5# (|error| "improper arguments to INFSP"))))))) 
 
-(SDEFUN |INFSP;K_to_CI| ((|x| K) ($ |Complex| (|Interval| (|Float|))))
+(SDEFUN |INFSP;K_to_CI| ((|x| (K)) ($ (|Complex| (|Interval| (|Float|)))))
         (COND
          ((|domainEqual| (QREFELT $ 6) (|Integer|))
           (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 70))
@@ -169,7 +170,7 @@
            (QREFELT $ 73)))
          ('T (|error| "improper arguments to INFSP")))) 
 
-(SDEFUN |INFSP;F_to_CI| ((|x| F) ($ |Complex| (|Interval| (|Float|))))
+(SDEFUN |INFSP;F_to_CI| ((|x| (F)) ($ (|Complex| (|Interval| (|Float|)))))
         (COND
          ((|domainEqual| (QREFELT $ 7) (|Float|))
           (SPADCALL (SPADCALL |x| (QREFELT $ 74)) (|spadConstant| $ 71)
@@ -188,7 +189,7 @@
          ('T (|error| "improper arguments to INFSP")))) 
 
 (SDEFUN |INFSP;F_to_CI1|
-        ((|x| F) (|eps| |Float|) ($ |Complex| (|Interval| (|Float|))))
+        ((|x| (F)) (|eps| (|Float|)) ($ (|Complex| (|Interval| (|Float|)))))
         (SPROG
          ((|fuzz| (|Complex| (|Interval| (|Float|))))
           (|fuzz1| (|Interval| (|Float|))))
@@ -208,14 +209,14 @@
                  ('T (|error| "improper arguments to INFSP"))))
           (EXIT (SPADCALL (|INFSP;F_to_CI| |x| $) |fuzz| (QREFELT $ 81)))))) 
 
-(SDEFUN |INFSP;iF_to_Float| ((|x| |Interval| (|Float|)) ($ |Float|))
+(SDEFUN |INFSP;iF_to_Float| ((|x| (|Interval| (|Float|))) ($ (|Float|)))
         (SPADCALL
          (SPADCALL (SPADCALL |x| (QREFELT $ 82)) (SPADCALL |x| (QREFELT $ 83))
                    (QREFELT $ 84))
          2 (QREFELT $ 85))) 
 
 (SDEFUN |INFSP;iF_to_RN|
-        ((|x| |Interval| (|Float|)) ($ |Fraction| (|Integer|)))
+        ((|x| (|Interval| (|Float|))) ($ (|Fraction| (|Integer|))))
         (SPROG
          ((|bx| (|PositiveInteger|)) (|ex| (|Integer|)) (|mx| (|Integer|))
           (|fx| (|Float|)))
@@ -229,7 +230,7 @@
                                    (QREFELT $ 90))
                          (QREFELT $ 91)))))) 
 
-(SDEFUN |INFSP;CI_to_F| ((|x| |Complex| (|Interval| (|Float|))) ($ F))
+(SDEFUN |INFSP;CI_to_F| ((|x| (|Complex| (|Interval| (|Float|)))) ($ (F)))
         (SPROG ((|ix| (|Interval| (|Float|))) (|rx| (|Interval| (|Float|))))
                (SEQ (LETT |rx| (SPADCALL |x| (QREFELT $ 92)))
                     (LETT |ix| (SPADCALL |x| (QREFELT $ 93)))
@@ -249,9 +250,9 @@
                       ('T (|error| "improper arguments to INFSP"))))))) 
 
 (SDEFUN |INFSP;ieval0|
-        ((|pol| |Polynomial| K) (|xvar| |Symbol|) (|zvar| |Symbol|)
-         (|z| |Complex| (|Interval| (|Float|)))
-         ($ |Union| (|Complex| (|Interval| (|Float|))) "failed"))
+        ((|pol| (|Polynomial| K)) (|xvar| (|Symbol|)) (|zvar| (|Symbol|))
+         (|z| (|Complex| (|Interval| (|Float|))))
+         ($ (|Union| (|Complex| (|Interval| (|Float|))) "failed")))
         (SPROG
          ((|iden| (|Union| (|Complex| (|Interval| (|Float|))) "failed"))
           (|upol|
@@ -280,16 +281,16 @@
                          (QCDR |iden|) (QREFELT $ 108))))))))) 
 
 (SDEFUN |INFSP;ieval|
-        ((|pol| |Polynomial| K) (|xvar| |Symbol|) (|zvar| |Symbol|) (|z| F)
-         (|eps| |Float|)
-         ($ |Union| (|Complex| (|Interval| (|Float|))) "failed"))
+        ((|pol| (|Polynomial| K)) (|xvar| (|Symbol|)) (|zvar| (|Symbol|))
+         (|z| (F)) (|eps| (|Float|))
+         ($ (|Union| (|Complex| (|Interval| (|Float|))) "failed")))
         (SPROG ((|nz| (|Complex| (|Interval| (|Float|)))))
                (SEQ (LETT |nz| (|INFSP;F_to_CI1| |z| |eps| $))
                     (EXIT (|INFSP;ieval0| |pol| |xvar| |zvar| |nz| $))))) 
 
 (SDEFUN |INFSP;findGenZeros|
-        ((|lp| |List| (|Polynomial| K)) (|rlvar| |List| (|Symbol|))
-         (|eps| |Par|) ($ |List| (|List| F)))
+        ((|lp| (|List| (|Polynomial| K))) (|rlvar| (|List| (|Symbol|)))
+         (|eps| (|Par|)) ($ (|List| (|List| F))))
         (SPROG
          ((|ebits| (|PositiveInteger|)) (|etol| (|Integer|)) (#1=#:G187 NIL)
           (|sol| (|List| (|List| F))) (|sol1| (|List| F)) (#2=#:G186 NIL)
@@ -423,7 +424,7 @@
           #7# (EXIT #1#)))) 
 
 (SDEFUN |INFSP;oldCoord|
-        ((|numres| |List| F) (|lval| |List| (|Integer|)) ($ |List| F))
+        ((|numres| (|List| F)) (|lval| (|List| (|Integer|))) ($ (|List| F)))
         (SPROG
          ((#1=#:G192 NIL) (#2=#:G191 (F)) (#3=#:G193 (F)) (#4=#:G196 NIL)
           (|n| NIL) (#5=#:G197 NIL) (|nr| NIL) (|rnumres| (|List| F)))
@@ -468,8 +469,8 @@
               (EXIT (REVERSE |rnumres|))))) 
 
 (SDEFUN |INFSP;innerSolve2|
-        ((|lp| |List| (|Polynomial| K)) (|lv| |List| (|Symbol|)) (|eps| |Par|)
-         ($ |List| (|List| F)))
+        ((|lp| (|List| (|Polynomial| K))) (|lv| (|List| (|Symbol|)))
+         (|eps| (|Par|)) ($ (|List| (|List| F))))
         (SPROG
          ((|p1| (|Polynomial| K)) (|p0| (|Polynomial| K))
           (|vec|
@@ -509,8 +510,8 @@
                 $))))) 
 
 (SDEFUN |INFSP;innerSolve;2LLParL;18|
-        ((|lp| |List| (|Polynomial| K)) (|ld| |List| (|Polynomial| K))
-         (|lv| |List| (|Symbol|)) (|eps| |Par|) ($ |List| (|List| F)))
+        ((|lp| (|List| (|Polynomial| K))) (|ld| (|List| (|Polynomial| K)))
+         (|lv| (|List| (|Symbol|))) (|eps| (|Par|)) ($ (|List| (|List| F))))
         (SPROG
          ((|result| (|List| (|List| F))) (#1=#:G347 NIL) (|r| NIL)
           (#2=#:G346 NIL) (|lris| #3=(|List| (|List| F)))

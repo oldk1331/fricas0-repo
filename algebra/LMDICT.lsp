@@ -1,5 +1,5 @@
 
-(SDEFUN |LMDICT;coerce;$Of;1| ((|s| $) ($ |OutputForm|))
+(SDEFUN |LMDICT;coerce;$Of;1| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G140 NIL) (|x| NIL) (#2=#:G139 NIL))
                (SEQ
                 (SPADCALL (SPADCALL "dictionary" (QREFELT $ 10))
@@ -20,21 +20,21 @@
                                 (EXIT (NREVERSE #2#))))
                           (QREFELT $ 15))))) 
 
-(SDEFUN |LMDICT;#;$Nni;2| ((|s| $) ($ |NonNegativeInteger|))
+(SDEFUN |LMDICT;#;$Nni;2| ((|s| ($)) ($ (|NonNegativeInteger|)))
         (LENGTH (SPADCALL |s| (QREFELT $ 12)))) 
 
-(SDEFUN |LMDICT;copy;2$;3| ((|s| $) ($ $))
+(SDEFUN |LMDICT;copy;2$;3| ((|s| ($)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |s| (QREFELT $ 12)) (QREFELT $ 19))
                   (QREFELT $ 20))) 
 
-(SDEFUN |LMDICT;empty?;$B;4| ((|s| $) ($ |Boolean|))
+(SDEFUN |LMDICT;empty?;$B;4| ((|s| ($)) ($ (|Boolean|)))
         (NULL (SPADCALL |s| (QREFELT $ 12)))) 
 
-(SDEFUN |LMDICT;dictionary;$;5| (($ $)) (SPADCALL NIL (QREFELT $ 20))) 
+(SDEFUN |LMDICT;dictionary;$;5| (($ ($))) (SPADCALL NIL (QREFELT $ 20))) 
 
-(SDEFUN |LMDICT;empty;$;6| (($ $)) (SPADCALL NIL (QREFELT $ 25))) 
+(SDEFUN |LMDICT;empty;$;6| (($ ($))) (SPADCALL NIL (QREFELT $ 25))) 
 
-(SDEFUN |LMDICT;dictionary;L$;7| ((|ls| |List| S) ($ $))
+(SDEFUN |LMDICT;dictionary;L$;7| ((|ls| (|List| S)) ($ ($)))
         (SPROG ((#1=#:G150 NIL) (|x| NIL) (|lmd| ($)))
                (SEQ
                 (COND ((NULL |ls|) (SPADCALL (QREFELT $ 26)))
@@ -51,28 +51,28 @@
                                  (EXIT NIL))
                             (EXIT |lmd|))))))) 
 
-(SDEFUN |LMDICT;convert;$If;8| ((|lmd| $) ($ |InputForm|))
+(SDEFUN |LMDICT;convert;$If;8| ((|lmd| ($)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|dictionary| (QREFELT $ 30))
                (SPADCALL (SPADCALL |lmd| (QREFELT $ 12)) (QREFELT $ 31)))
          (QREFELT $ 32))) 
 
-(SDEFUN |LMDICT;map;M2$;9| ((|f| |Mapping| S S) (|s| $) ($ $))
+(SDEFUN |LMDICT;map;M2$;9| ((|f| (|Mapping| S S)) (|s| ($)) ($ ($)))
         (SPADCALL (SPADCALL |f| (SPADCALL |s| (QREFELT $ 12)) (QREFELT $ 35))
                   (QREFELT $ 20))) 
 
-(SDEFUN |LMDICT;map!;M2$;10| ((|f| |Mapping| S S) (|s| $) ($ $))
+(SDEFUN |LMDICT;map!;M2$;10| ((|f| (|Mapping| S S)) (|s| ($)) ($ ($)))
         (SPADCALL (SPADCALL |f| (SPADCALL |s| (QREFELT $ 12)) (QREFELT $ 37))
                   (QREFELT $ 20))) 
 
-(SDEFUN |LMDICT;parts;$L;11| ((|s| $) ($ |List| S))
+(SDEFUN |LMDICT;parts;$L;11| ((|s| ($)) ($ (|List| S)))
         (SPADCALL |s| (QREFELT $ 39))) 
 
-(SDEFUN |LMDICT;sub| ((|x| S) (|y| S) (|z| S) ($ S))
+(SDEFUN |LMDICT;sub| ((|x| (S)) (|y| (S)) (|z| (S)) ($ (S)))
         (COND ((SPADCALL |z| |x| (QREFELT $ 40)) |y|) ('T |z|))) 
 
 (SDEFUN |LMDICT;insert!;S$Nni$;13|
-        ((|x| S) (|s| $) (|n| |NonNegativeInteger|) ($ $))
+        ((|x| (S)) (|s| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G161 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -81,7 +81,7 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |s|)))) 
 
-(SDEFUN |LMDICT;substitute;2S2$;14| ((|x| S) (|y| S) (|s| $) ($ $))
+(SDEFUN |LMDICT;substitute;2S2$;14| ((|x| (S)) (|y| (S)) (|s| ($)) ($ ($)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL
@@ -96,15 +96,15 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|LMDICT;sub| |x| |y| |z1| $))))) 
 
-(SDEFUN |LMDICT;removeDuplicates!;2$;15| ((|s| $) ($ $))
+(SDEFUN |LMDICT;removeDuplicates!;2$;15| ((|s| ($)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |s| (QREFELT $ 12)) (QREFELT $ 43))
                   (QREFELT $ 20))) 
 
-(SDEFUN |LMDICT;inspect;$S;16| ((|s| $) ($ S))
+(SDEFUN |LMDICT;inspect;$S;16| ((|s| ($)) ($ (S)))
         (COND ((SPADCALL |s| (QREFELT $ 23)) (|error| "empty dictionary"))
               ('T (|SPADfirst| (SPADCALL |s| (QREFELT $ 12)))))) 
 
-(SDEFUN |LMDICT;extract!;$S;17| ((|s| $) ($ S))
+(SDEFUN |LMDICT;extract!;$S;17| ((|s| ($)) ($ (S)))
         (SPROG ((|x| (S)) (|p| (|List| S)))
                (SEQ
                 (COND
@@ -116,7 +116,7 @@
                           (LETT |p| (SPADCALL |s| (QREFELT $ 12)))))
                    (SPADCALL |s| (CDR |p|) (QREFELT $ 46)) (EXIT |x|))))))) 
 
-(SDEFUN |LMDICT;duplicates?;$B;18| ((|s| $) ($ |Boolean|))
+(SDEFUN |LMDICT;duplicates?;$B;18| ((|s| ($)) ($ (|Boolean|)))
         (SPROG ((|q| (|List| S)) (|p| (|List| S)) (#1=#:G177 NIL))
                (SEQ
                 (EXIT
@@ -139,7 +139,8 @@
                              (EXIT NIL)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LMDICT;remove!;M2$;19| ((|p| |Mapping| (|Boolean|) S) (|lmd| $) ($ $))
+(SDEFUN |LMDICT;remove!;M2$;19|
+        ((|p| (|Mapping| (|Boolean|) S)) (|lmd| ($)) ($ ($)))
         (SPROG ((#1=#:G182 NIL) (|x| NIL))
                (SEQ
                 (SEQ (LETT |x| NIL)
@@ -158,16 +159,18 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |lmd|)))) 
 
-(SDEFUN |LMDICT;select!;M2$;20| ((|p| |Mapping| (|Boolean|) S) (|lmd| $) ($ $))
+(SDEFUN |LMDICT;select!;M2$;20|
+        ((|p| (|Mapping| (|Boolean|) S)) (|lmd| ($)) ($ ($)))
         (SPADCALL (CONS #'|LMDICT;select!;M2$;20!0| |p|) |lmd| (QREFELT $ 52))) 
 
 (SDEFUN |LMDICT;select!;M2$;20!0| ((|z1| NIL) (|p| NIL))
         (NULL (SPADCALL |z1| |p|))) 
 
 (SDEFUN |LMDICT;duplicates;$L;21|
-        ((|lmd| $)
-         ($ |List|
-          (|Record| (|:| |entry| S) (|:| |count| (|NonNegativeInteger|)))))
+        ((|lmd| ($))
+         ($
+          (|List|
+           (|Record| (|:| |entry| S) (|:| |count| (|NonNegativeInteger|))))))
         (SPROG
          ((|ld|
            (|List|
@@ -190,11 +193,11 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT |ld|)))) 
 
-(SDEFUN |LMDICT;=;2$B;22| ((|s| $) (|t| $) ($ |Boolean|))
+(SDEFUN |LMDICT;=;2$B;22| ((|s| ($)) (|t| ($)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |s| (QREFELT $ 12)) (SPADCALL |t| (QREFELT $ 12))
                   (QREFELT $ 58))) 
 
-(SDEFUN |LMDICT;remove!;S2$;23| ((|x| S) (|s| $) ($ $))
+(SDEFUN |LMDICT;remove!;S2$;23| ((|x| (S)) (|s| ($)) ($ ($)))
         (SPROG ((|q| (|List| S)) (|p| (|List| S)))
                (SEQ (LETT |p| (SPADCALL |s| (QREFELT $ 39)))
                     (SEQ G190
@@ -236,7 +239,7 @@
                                  (SPADCALL |p| '|rest| |q| (QREFELT $ 62))
                                  (EXIT |s|)))))))) 
 
-(SDEFUN |LMDICT;insert!;S2$;24| ((|x| S) (|s| $) ($ $))
+(SDEFUN |LMDICT;insert!;S2$;24| ((|x| (S)) (|s| ($)) ($ ($)))
         (SPROG ((|q| (|List| S)) (|p| (|List| S)))
                (SEQ (LETT |p| (SPADCALL |s| (QREFELT $ 39)))
                     (COND
@@ -259,14 +262,14 @@
                     (SPADCALL |p| '|rest| (CONS |x| |q|) (QREFELT $ 62))
                     (EXIT |s|)))) 
 
-(SDEFUN |LMDICT;remove!;S2$;25| ((|x| S) (|s| $) ($ $))
+(SDEFUN |LMDICT;remove!;S2$;25| ((|x| (S)) (|s| ($)) ($ ($)))
         (SEQ
          (SPADCALL |s|
                    (SPADCALL |x| (SPADCALL |s| (QREFELT $ 12)) (QREFELT $ 64))
                    (QREFELT $ 46))
          (EXIT |s|))) 
 
-(SDEFUN |LMDICT;=;2$B;26| ((|s| $) (|t| $) ($ |Boolean|))
+(SDEFUN |LMDICT;=;2$B;26| ((|s| ($)) (|t| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G224 NIL) (|x| (S)) (|a| ($)))
                (SEQ
                 (EXIT
@@ -287,7 +290,7 @@
                       (EXIT 'T)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LMDICT;insert!;S2$;27| ((|x| S) (|s| $) ($ $))
+(SDEFUN |LMDICT;insert!;S2$;27| ((|x| (S)) (|s| ($)) ($ ($)))
         (SPROG ((|p| (|List| S)) (#1=#:G231 NIL))
                (SEQ
                 (EXIT

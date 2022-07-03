@@ -1,5 +1,5 @@
 
-(SDEFUN |FRNAAF2;map;MARAS;1| ((|fn| |Mapping| S R) (|u| AR) ($ AS))
+(SDEFUN |FRNAAF2;map;MARAS;1| ((|fn| (|Mapping| S R)) (|u| (AR)) ($ (AS)))
         (SPROG
          ((#1=#:G124 NIL) (#2=#:G126 NIL) (|i| NIL) (#3=#:G125 NIL)
           (|ba| (|Vector| AS)) (|vs| (|Vector| S)) (|vr| (|Vector| R)))

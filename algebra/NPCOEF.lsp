@@ -1,14 +1,15 @@
 
 (SDEFUN |NPCOEF;npcoef;SupLLR;1|
-        ((|u| |SparseUnivariatePolynomial| P) (|factlist| |List| BP)
-         (|leadlist| |List| P)
-         ($ |Record| (|:| |deter| (|List| (|SparseUnivariatePolynomial| P)))
-          (|:| |dterm|
-               (|List|
-                (|List|
-                 (|Record| (|:| |expt| (|NonNegativeInteger|))
-                           (|:| |pcoef| P)))))
-          (|:| |nfacts| (|List| BP)) (|:| |nlead| (|List| P))))
+        ((|u| (|SparseUnivariatePolynomial| P)) (|factlist| (|List| BP))
+         (|leadlist| (|List| P))
+         ($
+          (|Record| (|:| |deter| (|List| (|SparseUnivariatePolynomial| P)))
+                    (|:| |dterm|
+                         (|List|
+                          (|List|
+                           (|Record| (|:| |expt| (|NonNegativeInteger|))
+                                     (|:| |pcoef| P)))))
+                    (|:| |nfacts| (|List| BP)) (|:| |nlead| (|List| P)))))
         (SPROG
          ((|detcoef|
            (|List|
@@ -274,17 +275,19 @@
           #24# (EXIT #3#)))) 
 
 (SDEFUN |NPCOEF;check|
-        ((|tterm| |Record| (|:| |coefu| P)
-          (|:| |detfacts|
-               #1=(|List|
-                   (|List|
-                    (|Record| (|:| |expt| (|NonNegativeInteger|))
-                              (|:| |pcoef| P))))))
-         (|ulist| |Vector| P)
-         ($ |Union|
-          (|Record| (|:| |valexp| (|NonNegativeInteger|)) (|:| |valcoef| P)
-                    (|:| |posit| (|NonNegativeInteger|)))
-          "failed" "reject"))
+        ((|tterm|
+          (|Record| (|:| |coefu| P)
+                    (|:| |detfacts|
+                         #1=(|List|
+                             (|List|
+                              (|Record| (|:| |expt| (|NonNegativeInteger|))
+                                        (|:| |pcoef| P)))))))
+         (|ulist| (|Vector| P))
+         ($
+          (|Union|
+           (|Record| (|:| |valexp| (|NonNegativeInteger|)) (|:| |valcoef| P)
+                     (|:| |posit| (|NonNegativeInteger|)))
+           "failed" "reject")))
         (SPROG
          ((|pp| (|Union| P "failed")) (|poselt| #2=(|NonNegativeInteger|))
           (#3=#:G196 NIL) (|doit| #2#) (|cfu| (P)) (|cu1| (P)) (#4=#:G205 NIL)
@@ -350,14 +353,17 @@
                 (#5# (CONS 1 "failed"))))))) 
 
 (SDEFUN |NPCOEF;buildvect|
-        ((|lvterm| |List|
-          (|List|
-           (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P))))
-         (|n| |NonNegativeInteger|)
-         ($ |Vector|
+        ((|lvterm|
           (|List|
            (|List|
-            (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P))))))
+            (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P)))))
+         (|n| (|NonNegativeInteger|))
+         ($
+          (|Vector|
+           (|List|
+            (|List|
+             (|Record| (|:| |expt| (|NonNegativeInteger|))
+                       (|:| |pcoef| P)))))))
         (SPROG
          ((#1=#:G224 NIL) (#2=#:G223 NIL) (#3=#:G222 NIL) (|i| NIL)
           (|nexp| (|NonNegativeInteger|)) (#4=#:G221 NIL) (|term| NIL)
@@ -406,32 +412,30 @@
                                                   (SPADCALL
                                                    (PROGN
                                                     (LETT #2# NIL)
-                                                    (SEQ (LETT |lvterm| NIL)
-                                                         (LETT #1#
-                                                               (SPADCALL
-                                                                |vtable| |i|
-                                                                (QREFELT $
-                                                                         64)))
-                                                         G190
-                                                         (COND
-                                                          ((OR (ATOM #1#)
-                                                               (PROGN
-                                                                (LETT |lvterm|
-                                                                      (CAR
-                                                                       #1#))
-                                                                NIL))
-                                                           (GO G191)))
-                                                         (SEQ
-                                                          (EXIT
-                                                           (LETT #2#
-                                                                 (CONS
-                                                                  (CONS |term|
-                                                                        |lvterm|)
-                                                                  #2#))))
-                                                         (LETT #1# (CDR #1#))
-                                                         (GO G190) G191
-                                                         (EXIT
-                                                          (NREVERSE #2#))))
+                                                    (SEQ
+                                                     (LETT #1#
+                                                           (SPADCALL |vtable|
+                                                                     |i|
+                                                                     (QREFELT $
+                                                                              64)))
+                                                     G190
+                                                     (COND
+                                                      ((OR (ATOM #1#)
+                                                           (PROGN
+                                                            (LETT |lvterm|
+                                                                  (CAR #1#))
+                                                            NIL))
+                                                       (GO G191)))
+                                                     (SEQ
+                                                      (EXIT
+                                                       (LETT #2#
+                                                             (CONS
+                                                              (CONS |term|
+                                                                    |lvterm|)
+                                                              #2#))))
+                                                     (LETT #1# (CDR #1#))
+                                                     (GO G190) G191
+                                                     (EXIT (NREVERSE #2#))))
                                                    (SPADCALL |ntable|
                                                              (+ |nexp| |i|)
                                                              (QREFELT $ 64))
@@ -443,15 +447,16 @@
                       (EXIT |ntable|)))))))) 
 
 (SDEFUN |NPCOEF;buildtable|
-        ((|vu| |Vector| P) (|lvect| |List| (|List| (|NonNegativeInteger|)))
-         (|leadlist| |List| P)
-         ($ |List|
-          (|Record| (|:| |coefu| P)
-                    (|:| |detfacts|
-                         (|List|
+        ((|vu| (|Vector| P)) (|lvect| (|List| (|List| (|NonNegativeInteger|))))
+         (|leadlist| (|List| P))
+         ($
+          (|List|
+           (|Record| (|:| |coefu| P)
+                     (|:| |detfacts|
                           (|List|
-                           (|Record| (|:| |expt| (|NonNegativeInteger|))
-                                     (|:| |pcoef| P))))))))
+                           (|List|
+                            (|Record| (|:| |expt| (|NonNegativeInteger|))
+                                      (|:| |pcoef| P)))))))))
         (SPROG
          ((|table|
            (|List|
@@ -543,22 +548,25 @@
               (EXIT |table|)))) 
 
 (SDEFUN |NPCOEF;modify|
-        ((|tablecoef| |List|
-          (|Record| (|:| |coefu| P)
-                    (|:| |detfacts|
-                         (|List|
+        ((|tablecoef|
+          (|List|
+           (|Record| (|:| |coefu| P)
+                     (|:| |detfacts|
                           (|List|
-                           (|Record| (|:| |expt| (|NonNegativeInteger|))
-                                     (|:| |pcoef| P)))))))
-         (|cfter| |Record| (|:| |valexp| (|NonNegativeInteger|))
-          (|:| |valcoef| P) (|:| |posit| (|NonNegativeInteger|)))
-         ($ |List|
-          (|Record| (|:| |coefu| P)
-                    (|:| |detfacts|
-                         (|List|
+                           (|List|
+                            (|Record| (|:| |expt| (|NonNegativeInteger|))
+                                      (|:| |pcoef| P))))))))
+         (|cfter|
+          (|Record| (|:| |valexp| (|NonNegativeInteger|)) (|:| |valcoef| P)
+                    (|:| |posit| (|NonNegativeInteger|))))
+         ($
+          (|List|
+           (|Record| (|:| |coefu| P)
+                     (|:| |detfacts|
                           (|List|
-                           (|Record| (|:| |expt| (|NonNegativeInteger|))
-                                     (|:| |pcoef| P))))))))
+                           (|List|
+                            (|Record| (|:| |expt| (|NonNegativeInteger|))
+                                      (|:| |pcoef| P)))))))))
         (SPROG
          ((|lterase| (|List| (|NonNegativeInteger|)))
           (|ctdet|
@@ -752,16 +760,17 @@
                    (LETT #18# (CDR #18#)) (GO G190) G191 (EXIT NIL))
               (EXIT |tablecoef|)))) 
 
-(SDEFUN |NPCOEF;listexp| ((|up| BP) ($ |List| (|NonNegativeInteger|)))
+(SDEFUN |NPCOEF;listexp| ((|up| (BP)) ($ (|List| (|NonNegativeInteger|))))
         (COND ((EQL (SPADCALL |up| (QREFELT $ 70)) 0) (LIST 0))
               ('T
                (CONS (SPADCALL |up| (QREFELT $ 70))
                      (|NPCOEF;listexp| (SPADCALL |up| (QREFELT $ 71)) $))))) 
 
 (SDEFUN |NPCOEF;constructp|
-        ((|lterm| |List|
-          (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P)))
-         ($ |SparseUnivariatePolynomial| P))
+        ((|lterm|
+          (|List|
+           (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P))))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPROG
          ((#1=#:G305 NIL) (#2=#:G304 #3=(|SparseUnivariatePolynomial| P))
           (#4=#:G306 #3#) (#5=#:G308 NIL) (|term| NIL))

@@ -1,25 +1,26 @@
 
-(SDEFUN |FSAGG-;<=;2AB;1| ((|s| A) (|t| A) ($ |Boolean|))
+(SDEFUN |FSAGG-;<=;2AB;1| ((|s| (A)) (|t| (A)) ($ (|Boolean|)))
         (SPADCALL |s| (SPADCALL |s| |t| (QREFELT $ 8)) (QREFELT $ 10))) 
 
-(SDEFUN |FSAGG-;<;2AB;2| ((|s| A) (|t| A) ($ |Boolean|))
+(SDEFUN |FSAGG-;<;2AB;2| ((|s| (A)) (|t| (A)) ($ (|Boolean|)))
         (COND
          ((< (SPADCALL |s| (QREFELT $ 13)) (SPADCALL |t| (QREFELT $ 13)))
           (SPADCALL |s| |t| (QREFELT $ 14)))
          ('T NIL))) 
 
-(SDEFUN |FSAGG-;=;2AB;3| ((|s| A) (|t| A) ($ |Boolean|))
+(SDEFUN |FSAGG-;=;2AB;3| ((|s| (A)) (|t| (A)) ($ (|Boolean|)))
         (COND
          ((EQL (SPADCALL |s| (QREFELT $ 13)) (SPADCALL |t| (QREFELT $ 13)))
           (SPADCALL (SPADCALL |s| |t| (QREFELT $ 16)) (QREFELT $ 17)))
          ('T NIL))) 
 
-(SDEFUN |FSAGG-;set;LA;4| ((|l| |List| S) ($ A)) (SPADCALL |l| (QREFELT $ 20))) 
+(SDEFUN |FSAGG-;set;LA;4| ((|l| (|List| S)) ($ (A)))
+        (SPADCALL |l| (QREFELT $ 20))) 
 
-(SDEFUN |FSAGG-;cardinality;ANni;5| ((|s| A) ($ |NonNegativeInteger|))
+(SDEFUN |FSAGG-;cardinality;ANni;5| ((|s| (A)) ($ (|NonNegativeInteger|)))
         (SPADCALL |s| (QREFELT $ 13))) 
 
-(SDEFUN |FSAGG-;construct;LA;6| ((|l| |List| S) ($ A))
+(SDEFUN |FSAGG-;construct;LA;6| ((|l| (|List| S)) ($ (A)))
         (SPROG ((|s| (A)) (#1=#:G143 NIL) (|x| NIL))
                (SEQ (LETT |s| (SPADCALL (QREFELT $ 23)))
                     (SEQ (LETT |x| NIL) (LETT #1# |l|) G190
@@ -31,10 +32,10 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |s|)))) 
 
-(SDEFUN |FSAGG-;count;SANni;7| ((|x| S) (|s| A) ($ |NonNegativeInteger|))
+(SDEFUN |FSAGG-;count;SANni;7| ((|x| (S)) (|s| (A)) ($ (|NonNegativeInteger|)))
         (COND ((SPADCALL |x| |s| (QREFELT $ 26)) 1) ('T 0))) 
 
-(SDEFUN |FSAGG-;subset?;2AB;8| ((|s| A) (|t| A) ($ |Boolean|))
+(SDEFUN |FSAGG-;subset?;2AB;8| ((|s| (A)) (|t| (A)) ($ (|Boolean|)))
         (SPROG NIL
                (COND
                 ((<= (SPADCALL |s| (QREFELT $ 13))
@@ -49,7 +50,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |t| (QREFELT $ 26)))))) 
 
-(SDEFUN |FSAGG-;coerce;AOf;9| ((|s| A) ($ |OutputForm|))
+(SDEFUN |FSAGG-;coerce;AOf;9| ((|s| (A)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G153 NIL) (|x| NIL) (#2=#:G152 NIL))
                (SEQ
                 (SPADCALL
@@ -67,7 +68,7 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 35))))) 
 
-(SDEFUN |FSAGG-;intersect;3A;10| ((|s| A) (|t| A) ($ A))
+(SDEFUN |FSAGG-;intersect;3A;10| ((|s| (A)) (|t| (A)) ($ (A)))
         (SPROG ((|i| (A)) (#1=#:G157 NIL) (|x| NIL))
                (SEQ (LETT |i| (SPADCALL (QREFELT $ 23)))
                     (SEQ (LETT |x| NIL)
@@ -83,7 +84,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |i|)))) 
 
-(SDEFUN |FSAGG-;difference;3A;11| ((|s| A) (|t| A) ($ A))
+(SDEFUN |FSAGG-;difference;3A;11| ((|s| (A)) (|t| (A)) ($ (A)))
         (SPROG ((|m| (A)) (#1=#:G161 NIL) (|x| NIL))
                (SEQ (LETT |m| (SPADCALL |s| (QREFELT $ 38)))
                     (SEQ (LETT |x| NIL)
@@ -96,7 +97,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |m|)))) 
 
-(SDEFUN |FSAGG-;symmetricDifference;3A;12| ((|s| A) (|t| A) ($ A))
+(SDEFUN |FSAGG-;symmetricDifference;3A;12| ((|s| (A)) (|t| (A)) ($ (A)))
         (SPROG ((|d| (A)) (#1=#:G166 NIL) (|x| NIL))
                (SEQ (LETT |d| (SPADCALL |s| (QREFELT $ 38)))
                     (SEQ (LETT |x| NIL)
@@ -114,7 +115,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |d|)))) 
 
-(SDEFUN |FSAGG-;union;3A;13| ((|s| A) (|t| A) ($ A))
+(SDEFUN |FSAGG-;union;3A;13| ((|s| (A)) (|t| (A)) ($ (A)))
         (SPROG ((|u| (A)) (#1=#:G170 NIL) (|x| NIL))
                (SEQ (LETT |u| (SPADCALL |s| (QREFELT $ 38)))
                     (SEQ (LETT |x| NIL)
@@ -127,7 +128,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |u|)))) 
 
-(SDEFUN |FSAGG-;universe;A;14| (($ A))
+(SDEFUN |FSAGG-;universe;A;14| (($ (A)))
         (SPROG ((#1=#:G172 NIL) (#2=#:G176 NIL) (|i| NIL) (#3=#:G175 NIL))
                (SEQ
                 (SPADCALL
@@ -151,13 +152,13 @@
                        (EXIT (NREVERSE #3#))))
                  (QREFELT $ 46))))) 
 
-(SDEFUN |FSAGG-;complement;2A;15| ((|s| A) ($ A))
+(SDEFUN |FSAGG-;complement;2A;15| ((|s| (A)) ($ (A)))
         (SPADCALL (SPADCALL (QREFELT $ 48)) |s| (QREFELT $ 16))) 
 
-(SDEFUN |FSAGG-;size;Nni;16| (($ |NonNegativeInteger|))
+(SDEFUN |FSAGG-;size;Nni;16| (($ (|NonNegativeInteger|)))
         (EXPT 2 (SPADCALL (QREFELT $ 43)))) 
 
-(SDEFUN |FSAGG-;index;PiA;17| ((|i| |PositiveInteger|) ($ A))
+(SDEFUN |FSAGG-;index;PiA;17| ((|i| (|PositiveInteger|)) ($ (A)))
         (SPROG
          ((#1=#:G180 NIL) (#2=#:G185 NIL) (|j| NIL) (#3=#:G184 NIL)
           (|l| (|Integer|)))
@@ -190,7 +191,7 @@
                         (EXIT (NREVERSE #3#))))
                   (QREFELT $ 46)))))))) 
 
-(SDEFUN |FSAGG-;lookup;APi;18| ((|s| A) ($ |PositiveInteger|))
+(SDEFUN |FSAGG-;lookup;APi;18| ((|s| (A)) ($ (|PositiveInteger|)))
         (SPROG
          ((|n| (|PositiveInteger|)) (#1=#:G187 NIL) (#2=#:G191 NIL) (|x| NIL))
          (SEQ (LETT |n| 1)
@@ -213,21 +214,21 @@
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
               (EXIT |n|)))) 
 
-(SDEFUN |FSAGG-;max;AS;19| ((|s| A) ($ S))
+(SDEFUN |FSAGG-;max;AS;19| ((|s| (A)) ($ (S)))
         (SPROG ((|l| (|List| S)))
                (COND
                 ((NULL (LETT |l| (SPADCALL |s| (QREFELT $ 28))))
                  (|error| "Empty set"))
                 ('T (SPADCALL (ELT $ 56) |l| (QREFELT $ 58)))))) 
 
-(SDEFUN |FSAGG-;min;AS;20| ((|s| A) ($ S))
+(SDEFUN |FSAGG-;min;AS;20| ((|s| (A)) ($ (S)))
         (SPROG ((|l| (|List| S)))
                (COND
                 ((NULL (LETT |l| (SPADCALL |s| (QREFELT $ 28))))
                  (|error| "Empty set"))
                 ('T (SPADCALL (ELT $ 60) |l| (QREFELT $ 58)))))) 
 
-(SDEFUN |FSAGG-;smaller?;2AB;21| ((|s1| A) (|s2| A) ($ |Boolean|))
+(SDEFUN |FSAGG-;smaller?;2AB;21| ((|s1| (A)) (|s2| (A)) ($ (|Boolean|)))
         (SPROG ((|ls2| #1=(|List| S)) (|ls1| #1#))
                (SEQ
                 (LETT |ls1|

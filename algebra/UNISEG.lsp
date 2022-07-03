@@ -1,45 +1,45 @@
 
-(SDEFUN |UNISEG;segment;S$;1| ((|a| S) ($ $)) (CONS 0 (CONS |a| 1))) 
+(SDEFUN |UNISEG;segment;S$;1| ((|a| (S)) ($ ($))) (CONS 0 (CONS |a| 1))) 
 
-(SDEFUN |UNISEG;segment;2S$;2| ((|a| S) (|b| S) ($ $))
+(SDEFUN |UNISEG;segment;2S$;2| ((|a| (S)) (|b| (S)) ($ ($)))
         (CONS 1 (SPADCALL |a| |b| (QREFELT $ 10)))) 
 
-(SDEFUN |UNISEG;BY;$I$;3| ((|s| $) (|i| |Integer|) ($ $))
+(SDEFUN |UNISEG;BY;$I$;3| ((|s| ($)) (|i| (|Integer|)) ($ ($)))
         (COND
          ((QEQCAR |s| 1) (CONS 1 (SPADCALL (QCDR |s|) |i| (QREFELT $ 13))))
          ('T (CONS 0 (CONS (SPADCALL |s| (QREFELT $ 14)) |i|))))) 
 
-(SDEFUN |UNISEG;low;$S;4| ((|s| $) ($ S))
+(SDEFUN |UNISEG;low;$S;4| ((|s| ($)) ($ (S)))
         (COND ((QEQCAR |s| 0) (QCAR (QCDR |s|)))
               ('T (SPADCALL (QCDR |s|) (QREFELT $ 16))))) 
 
 (PUT '|UNISEG;hasHi;$B;5| '|SPADreplace| '(XLAM (|s|) (QEQCAR |s| 1))) 
 
-(SDEFUN |UNISEG;hasHi;$B;5| ((|s| $) ($ |Boolean|)) (QEQCAR |s| 1)) 
+(SDEFUN |UNISEG;hasHi;$B;5| ((|s| ($)) ($ (|Boolean|))) (QEQCAR |s| 1)) 
 
-(SDEFUN |UNISEG;high;$S;6| ((|s| $) ($ S))
+(SDEFUN |UNISEG;high;$S;6| ((|s| ($)) ($ (S)))
         (COND
          ((NULL (SPADCALL |s| (QREFELT $ 18)))
           (|error| "high: segment has no upper bound"))
          ('T (SPADCALL (QCDR |s|) (QREFELT $ 19))))) 
 
-(SDEFUN |UNISEG;incr;$I;7| ((|s| $) ($ |Integer|))
+(SDEFUN |UNISEG;incr;$I;7| ((|s| ($)) ($ (|Integer|)))
         (COND ((QEQCAR |s| 0) (QCDR (QCDR |s|)))
               ('T (SPADCALL (QCDR |s|) (QREFELT $ 21))))) 
 
-(SDEFUN |UNISEG;SEGMENT;S$;8| ((|a| S) ($ $)) (SPADCALL |a| (QREFELT $ 8))) 
+(SDEFUN |UNISEG;SEGMENT;S$;8| ((|a| (S)) ($ ($))) (SPADCALL |a| (QREFELT $ 8))) 
 
-(SDEFUN |UNISEG;SEGMENT;2S$;9| ((|a| S) (|b| S) ($ $))
+(SDEFUN |UNISEG;SEGMENT;2S$;9| ((|a| (S)) (|b| (S)) ($ ($)))
         (SPADCALL |a| |b| (QREFELT $ 11))) 
 
-(SDEFUN |UNISEG;coerce;S$;10| ((|sg| |Segment| S) ($ $))
+(SDEFUN |UNISEG;coerce;S$;10| ((|sg| (|Segment| S)) ($ ($)))
         (SPADCALL (SPADCALL |sg| (QREFELT $ 16)) (SPADCALL |sg| (QREFELT $ 19))
                   (QREFELT $ 11))) 
 
-(SDEFUN |UNISEG;convert;S$;11| ((|a| S) ($ $))
+(SDEFUN |UNISEG;convert;S$;11| ((|a| (S)) ($ ($)))
         (CONS 1 (SPADCALL |a| (QREFELT $ 26)))) 
 
-(SDEFUN |UNISEG;=;2$B;12| ((|s1| $) (|s2| $) ($ |Boolean|))
+(SDEFUN |UNISEG;=;2$B;12| ((|s1| ($)) (|s2| ($)) ($ (|Boolean|)))
         (COND
          ((QEQCAR |s1| 0)
           (COND
@@ -55,7 +55,7 @@
            (#1# NIL)))
          (#1# NIL))) 
 
-(SDEFUN |UNISEG;coerce;$Of;13| ((|s| $) ($ |OutputForm|))
+(SDEFUN |UNISEG;coerce;$Of;13| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|inc| (|Integer|)) (|seg| (|OutputForm|)) (|e| (|OutputForm|)))
          (SEQ
@@ -79,7 +79,7 @@
                             (SPADCALL |inc| (QREFELT $ 37))
                             (QREFELT $ 38)))))))) 
 
-(SDEFUN |UNISEG;convert;$If;14| ((|s| $) ($ |InputForm|))
+(SDEFUN |UNISEG;convert;$If;14| ((|s| ($)) ($ (|InputForm|)))
         (SPROG ((|seg| (|InputForm|)))
                (SEQ
                 (COND ((QEQCAR |s| 1) (SPADCALL (QCDR |s|) (QREFELT $ 41)))
@@ -102,7 +102,7 @@
                                                  (QREFELT $ 47)))
                                           (QREFELT $ 46))))))))))) 
 
-(SDEFUN |UNISEG;+;S2$;15| ((|i| S) (|s| $) ($ $))
+(SDEFUN |UNISEG;+;S2$;15| ((|i| (S)) (|s| ($)) ($ ($)))
         (COND
          ((QEQCAR |s| 1) (CONS 1 (SPADCALL |i| (QCDR |s|) (QREFELT $ 49))))
          ('T
@@ -111,7 +111,7 @@
                  (SPADCALL |i| (SPADCALL |s| (QREFELT $ 14)) (QREFELT $ 50))
                  (SPADCALL |s| (QREFELT $ 22))))))) 
 
-(SDEFUN |UNISEG;+;$S$;16| ((|s| $) (|i| S) ($ $))
+(SDEFUN |UNISEG;+;$S$;16| ((|s| ($)) (|i| (S)) ($ ($)))
         (COND
          ((QEQCAR |s| 1) (CONS 1 (SPADCALL (QCDR |s|) |i| (QREFELT $ 52))))
          ('T
@@ -120,7 +120,7 @@
                  (SPADCALL (SPADCALL |s| (QREFELT $ 14)) |i| (QREFELT $ 50))
                  (SPADCALL |s| (QREFELT $ 22))))))) 
 
-(SDEFUN |UNISEG;-;$S$;17| ((|s| $) (|i| S) ($ $))
+(SDEFUN |UNISEG;-;$S$;17| ((|s| ($)) (|i| (S)) ($ ($)))
         (COND
          ((QEQCAR |s| 1) (CONS 1 (SPADCALL (QCDR |s|) |i| (QREFELT $ 54))))
          ('T
@@ -129,13 +129,13 @@
                  (SPADCALL (SPADCALL |s| (QREFELT $ 14)) |i| (QREFELT $ 55))
                  (SPADCALL |s| (QREFELT $ 22))))))) 
 
-(SDEFUN |UNISEG;expand;$S;18| ((|s| $) ($ |Stream| S))
+(SDEFUN |UNISEG;expand;$S;18| ((|s| ($)) ($ (|Stream| S)))
         (SPADCALL (LIST |s|) (QREFELT $ 59))) 
 
-(SDEFUN |UNISEG;map;M$S;19| ((|f| |Mapping| S S) (|s| $) ($ |Stream| S))
+(SDEFUN |UNISEG;map;M$S;19| ((|f| (|Mapping| S S)) (|s| ($)) ($ (|Stream| S)))
         (SPADCALL |f| (SPADCALL |s| (QREFELT $ 60)) (QREFELT $ 62))) 
 
-(SDEFUN |UNISEG;expand;LS;20| ((|ls| |List| $) ($ |Stream| S))
+(SDEFUN |UNISEG;expand;LS;20| ((|ls| (|List| $)) ($ (|Stream| S)))
         (SPROG
          ((|st| (|Stream| S)) (|s| ($)) (|lb| (|List| (|Segment| S)))
           (|ns| (|Segment| S)))

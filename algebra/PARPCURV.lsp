@@ -2,11 +2,11 @@
 (PUT '|PARPCURV;curve;2ComponentFunction$;1| '|SPADreplace| 'CONS) 
 
 (SDEFUN |PARPCURV;curve;2ComponentFunction$;1|
-        ((|x| |ComponentFunction|) (|y| |ComponentFunction|) ($ $))
+        ((|x| (|ComponentFunction|)) (|y| (|ComponentFunction|)) ($ ($)))
         (CONS |x| |y|)) 
 
 (SDEFUN |PARPCURV;coordinate;$NniComponentFunction;2|
-        ((|c| $) (|n| |NonNegativeInteger|) ($ |ComponentFunction|))
+        ((|c| ($)) (|n| (|NonNegativeInteger|)) ($ (|ComponentFunction|)))
         (COND ((EQL |n| 1) (QCAR |c|)) ((EQL |n| 2) (QCDR |c|))
               ('T (|error| "coordinate: index out of bounds")))) 
 

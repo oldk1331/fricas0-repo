@@ -1,6 +1,7 @@
 
 (SDEFUN |IBPTOOLS;mapUnivariate;MSupR;1|
-        ((|f| |Mapping| K L) (|poly| |SparseUnivariatePolynomial| L) ($ R))
+        ((|f| (|Mapping| K L)) (|poly| (|SparseUnivariatePolynomial| L))
+         ($ (R)))
         (SPROG ((|ans| (R)))
                (SEQ (LETT |ans| (|spadConstant| $ 10))
                     (SEQ G190
@@ -23,7 +24,8 @@
                     (EXIT |ans|)))) 
 
 (SDEFUN |IBPTOOLS;mapUnivariate;MRSup;2|
-        ((|f| |Mapping| L K) (|poly| R) ($ |SparseUnivariatePolynomial| L))
+        ((|f| (|Mapping| L K)) (|poly| (R))
+         ($ (|SparseUnivariatePolynomial| L)))
         (SPROG ((|ans| (|SparseUnivariatePolynomial| L)))
                (SEQ (LETT |ans| (|spadConstant| $ 22))
                     (SEQ G190
@@ -46,8 +48,8 @@
                     (EXIT |ans|)))) 
 
 (SDEFUN |IBPTOOLS;mapUnivariateIfCan;MSupU;3|
-        ((|f| |Mapping| #1=(|Union| K "failed") L)
-         (|poly| |SparseUnivariatePolynomial| L) ($ |Union| R "failed"))
+        ((|f| (|Mapping| #1=(|Union| K "failed") L))
+         (|poly| (|SparseUnivariatePolynomial| L)) ($ (|Union| R "failed")))
         (SPROG ((|ans| (R)) (#2=#:G154 NIL) (|lc| #1#))
                (SEQ
                 (EXIT
@@ -84,9 +86,9 @@
                 #3# (EXIT #2#)))) 
 
 (SDEFUN |IBPTOOLS;mapMatrixIfCan;MMU;4|
-        ((|f| |Mapping| (|Union| K "failed") L)
-         (|mat| |Matrix| (|SparseUnivariatePolynomial| L))
-         ($ |Union| (|Matrix| R) "failed"))
+        ((|f| (|Mapping| (|Union| K "failed") L))
+         (|mat| (|Matrix| (|SparseUnivariatePolynomial| L)))
+         ($ (|Union| (|Matrix| R) "failed")))
         (SPROG
          ((#1=#:G173 NIL) (|poly| (|Union| R "failed")) (#2=#:G175 NIL)
           (|j| NIL) (#3=#:G174 NIL) (|i| NIL) (|matOut| (|Matrix| R))
@@ -121,8 +123,8 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |IBPTOOLS;mapBivariate;MUPSup;5|
-        ((|f| |Mapping| L K) (|poly| UP)
-         ($ |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| L)))
+        ((|f| (|Mapping| L K)) (|poly| (UP))
+         ($ (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| L))))
         (SPROG
          ((|ans|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| L))))

@@ -1,29 +1,32 @@
 
-(SDEFUN |PATRES;new;$;1| (($ $)) (CONS 0 (SPADCALL (QREFELT $ 10)))) 
+(SDEFUN |PATRES;new;$;1| (($ ($))) (CONS 0 (SPADCALL (QREFELT $ 10)))) 
 
 (PUT '|PATRES;failed;$;2| '|SPADreplace| '(XLAM NIL (CONS 1 "failed"))) 
 
-(SDEFUN |PATRES;failed;$;2| (($ $)) (CONS 1 "failed")) 
+(SDEFUN |PATRES;failed;$;2| (($ ($))) (CONS 1 "failed")) 
 
 (PUT '|PATRES;failed?;$B;3| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
 
-(SDEFUN |PATRES;failed?;$B;3| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 1)) 
+(SDEFUN |PATRES;failed?;$B;3| ((|x| ($)) ($ (|Boolean|))) (QEQCAR |x| 1)) 
 
-(SDEFUN |PATRES;insertMatch;PS2$;4| ((|p| |Pattern| R) (|x| S) (|l| $) ($ $))
+(SDEFUN |PATRES;insertMatch;PS2$;4|
+        ((|p| (|Pattern| R)) (|x| (S)) (|l| ($)) ($ ($)))
         (CONS 0
               (SPADCALL (CONS (SPADCALL |p| (QREFELT $ 17)) |x|) (QCDR |l|)
                         (QREFELT $ 19)))) 
 
 (SDEFUN |PATRES;construct;L$;5|
-        ((|l| |List| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| S))) ($ $))
+        ((|l| (|List| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| S))))
+         ($ ($)))
         (CONS 0 (SPADCALL |l| (QREFELT $ 22)))) 
 
 (SDEFUN |PATRES;destruct;$L;6|
-        ((|l| $) ($ |List| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| S))))
+        ((|l| ($))
+         ($ (|List| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| S)))))
         (SPADCALL (QCDR |l|) (QREFELT $ 24))) 
 
 (SDEFUN |PATRES;satisfy?;$PU;7|
-        ((|r| $) (|p| |Pattern| R) ($ |Union| (|Boolean|) "failed"))
+        ((|r| ($)) (|p| (|Pattern| R)) ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((|lv| (|List| S)) (#1=#:G166 NIL) (|u| (|Union| S "failed"))
           (#2=#:G168 NIL) (|v| NIL) (#3=#:G167 NIL)
@@ -65,7 +68,7 @@
                        (EXIT (CONS 0 (SPADCALL |lv| |p| (QREFELT $ 32))))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |PATRES;union;3$;8| ((|x| $) (|y| $) ($ $))
+(SDEFUN |PATRES;union;3$;8| ((|x| ($)) (|y| ($)) ($ ($)))
         (COND
          ((OR (SPADCALL |x| (QREFELT $ 14)) (SPADCALL |y| (QREFELT $ 14)))
           (SPADCALL (QREFELT $ 12)))
@@ -74,19 +77,19 @@
                 (SPADCALL (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 35))
                           (QREFELT $ 36)))))) 
 
-(SDEFUN |PATRES;=;2$B;9| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |PATRES;=;2$B;9| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND ((SPADCALL |x| (QREFELT $ 14)) (SPADCALL |y| (QREFELT $ 14)))
               ((SPADCALL |y| (QREFELT $ 14)) NIL)
               ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 38))))) 
 
-(SDEFUN |PATRES;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
+(SDEFUN |PATRES;coerce;$Of;10| ((|x| ($)) ($ (|OutputForm|)))
         (COND
          ((SPADCALL |x| (QREFELT $ 14))
           (SPADCALL "Does not match" (QREFELT $ 42)))
          ('T (SPADCALL (SPADCALL |x| (QREFELT $ 25)) (QREFELT $ 43))))) 
 
 (SDEFUN |PATRES;addMatchRestricted;PS$S$;11|
-        ((|p| |Pattern| R) (|x| S) (|l| $) (|ident| S) ($ $))
+        ((|p| (|Pattern| R)) (|x| (S)) (|l| ($)) (|ident| (S)) ($ ($)))
         (SEQ
          (COND
           ((NULL (SPADCALL |p| (QREFELT $ 45)))
@@ -95,7 +98,8 @@
              (EXIT (SPADCALL (QREFELT $ 12)))))))
          (EXIT (SPADCALL |p| |x| |l| (QREFELT $ 47))))) 
 
-(SDEFUN |PATRES;addMatch;PS2$;12| ((|p| |Pattern| R) (|x| S) (|l| $) ($ $))
+(SDEFUN |PATRES;addMatch;PS2$;12|
+        ((|p| (|Pattern| R)) (|x| (S)) (|l| ($)) ($ ($)))
         (SPROG
          ((|r| (|Union| S "failed")) (|sy| (|Symbol|))
           (|al| (|AssociationList| (|Symbol|) S)))
@@ -114,7 +118,7 @@
                         ('T (SPADCALL (QREFELT $ 12))))))))))) 
 
 (SDEFUN |PATRES;getMatch;P$U;13|
-        ((|p| |Pattern| R) (|l| $) ($ |Union| S "failed"))
+        ((|p| (|Pattern| R)) (|l| ($)) ($ (|Union| S "failed")))
         (COND ((SPADCALL |l| (QREFELT $ 14)) (CONS 1 "failed"))
               ('T
                (SPADCALL (SPADCALL |p| (QREFELT $ 17)) (QCDR |l|)

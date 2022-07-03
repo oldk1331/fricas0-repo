@@ -1,53 +1,53 @@
 
-(SDEFUN |RADFF;discriminant;F;1| (($ |Fraction| UP))
+(SDEFUN |RADFF;discriminant;F;1| (($ (|Fraction| UP)))
         (SEQ (COND ((QREFELT $ 17) (|RADFF;startUp| NIL $)))
              (EXIT (QREFELT $ 19)))) 
 
-(SDEFUN |RADFF;radcand| (($ UP))
+(SDEFUN |RADFF;radcand| (($ (UP)))
         (SEQ (COND ((QREFELT $ 17) (|RADFF;startUp| NIL $)))
              (EXIT (QREFELT $ 21)))) 
 
-(SDEFUN |RADFF;integralBasis;V;3| (($ |Vector| $))
+(SDEFUN |RADFF;integralBasis;V;3| (($ (|Vector| $)))
         (SEQ (COND ((QREFELT $ 17) (|RADFF;startUp| NIL $)))
              (EXIT (|RADFF;diag| (QREFELT $ 24) $)))) 
 
-(SDEFUN |RADFF;integralBasisAtInfinity;V;4| (($ |Vector| $))
+(SDEFUN |RADFF;integralBasisAtInfinity;V;4| (($ (|Vector| $)))
         (SEQ (COND ((QREFELT $ 17) (|RADFF;startUp| NIL $)))
              (EXIT (|RADFF;diag| (QREFELT $ 26) $)))) 
 
-(SDEFUN |RADFF;basisvec| (($ |Vector| (|Fraction| UP)))
+(SDEFUN |RADFF;basisvec| (($ (|Vector| (|Fraction| UP))))
         (SEQ (COND ((QREFELT $ 17) (|RADFF;startUp| NIL $)))
              (EXIT (QREFELT $ 24)))) 
 
-(SDEFUN |RADFF;integralMatrix;M;6| (($ |Matrix| (|Fraction| UP)))
+(SDEFUN |RADFF;integralMatrix;M;6| (($ (|Matrix| (|Fraction| UP))))
         (SPADCALL (|RADFF;basisvec| $) (QREFELT $ 37))) 
 
-(SDEFUN |RADFF;integralMatrixAtInfinity;M;7| (($ |Matrix| (|Fraction| UP)))
+(SDEFUN |RADFF;integralMatrixAtInfinity;M;7| (($ (|Matrix| (|Fraction| UP))))
         (SEQ (COND ((QREFELT $ 17) (|RADFF;startUp| NIL $)))
              (EXIT (SPADCALL (QREFELT $ 26) (QREFELT $ 37))))) 
 
-(SDEFUN |RADFF;inverseIntegralMatrix;M;8| (($ |Matrix| (|Fraction| UP)))
+(SDEFUN |RADFF;inverseIntegralMatrix;M;8| (($ (|Matrix| (|Fraction| UP))))
         (SEQ (COND ((QREFELT $ 17) (|RADFF;startUp| NIL $)))
              (EXIT (SPADCALL (QREFELT $ 25) (QREFELT $ 37))))) 
 
 (SDEFUN |RADFF;inverseIntegralMatrixAtInfinity;M;9|
-        (($ |Matrix| (|Fraction| UP)))
+        (($ (|Matrix| (|Fraction| UP))))
         (SEQ (COND ((QREFELT $ 17) (|RADFF;startUp| NIL $)))
              (EXIT (SPADCALL (QREFELT $ 27) (QREFELT $ 37))))) 
 
-(SDEFUN |RADFF;definingPolynomial;UPUP;10| (($ UPUP)) (QREFELT $ 23)) 
+(SDEFUN |RADFF;definingPolynomial;UPUP;10| (($ (UPUP))) (QREFELT $ 23)) 
 
-(SDEFUN |RADFF;ramified?;FB;11| ((|point| F) ($ |Boolean|))
+(SDEFUN |RADFF;ramified?;FB;11| ((|point| (F)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL (|RADFF;radcand| $) |point| (QREFELT $ 43))
                   (QREFELT $ 45))) 
 
-(SDEFUN |RADFF;branchPointAtInfinity?;B;12| (($ |Boolean|))
+(SDEFUN |RADFF;branchPointAtInfinity?;B;12| (($ (|Boolean|)))
         (QEQCAR
          (SPADCALL (SPADCALL (|RADFF;radcand| $) (QREFELT $ 47)) (QREFELT $ 10)
                    (QREFELT $ 49))
          1)) 
 
-(SDEFUN |RADFF;elliptic;U;13| (($ |Union| UP "failed"))
+(SDEFUN |RADFF;elliptic;U;13| (($ (|Union| UP "failed")))
         (SEQ
          (COND
           ((EQL (QREFELT $ 10) 2)
@@ -56,7 +56,7 @@
              (EXIT (CONS 0 (|RADFF;radcand| $)))))))
          (EXIT (CONS 1 "failed")))) 
 
-(SDEFUN |RADFF;hyperelliptic;U;14| (($ |Union| UP "failed"))
+(SDEFUN |RADFF;hyperelliptic;U;14| (($ (|Union| UP "failed")))
         (SEQ
          (COND
           ((EQL (QREFELT $ 10) 2)
@@ -65,7 +65,7 @@
              (EXIT (CONS 0 (|RADFF;radcand| $)))))))
          (EXIT (CONS 1 "failed")))) 
 
-(SDEFUN |RADFF;diag| ((|v| |Vector| (|Fraction| UP)) ($ |Vector| $))
+(SDEFUN |RADFF;diag| ((|v| (|Vector| (|Fraction| UP))) ($ (|Vector| $)))
         (SPROG ((#1=#:G171 NIL) (|i| NIL) (#2=#:G170 NIL))
                (SEQ
                 (PROGN
@@ -83,7 +83,8 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                  #2#)))) 
 
-(SDEFUN |RADFF;integralRepresents;VUP$;16| ((|v| |Vector| UP) (|d| UP) ($ $))
+(SDEFUN |RADFF;integralRepresents;VUP$;16|
+        ((|v| (|Vector| UP)) (|d| (UP)) ($ ($)))
         (SPROG
          ((#1=#:G175 NIL) (#2=#:G177 NIL) (|i| NIL) (#3=#:G176 NIL)
           (|ib| (|Vector| (|Fraction| UP))))
@@ -109,7 +110,7 @@
                 (QREFELT $ 57)))))) 
 
 (SDEFUN |RADFF;integralCoordinates;$R;17|
-        ((|f| $) ($ |Record| (|:| |num| (|Vector| UP)) (|:| |den| UP)))
+        ((|f| ($)) ($ (|Record| (|:| |num| (|Vector| UP)) (|:| |den| UP))))
         (SPROG
          ((#1=#:G182 NIL) (#2=#:G184 NIL) (|i| NIL) (#3=#:G183 NIL)
           (|ib| (|Vector| (|Fraction| UP))) (|v| (|Vector| (|Fraction| UP))))
@@ -135,8 +136,8 @@
                 (QREFELT $ 64)))))) 
 
 (SDEFUN |RADFF;integralDerivationMatrix;MR;18|
-        ((|d| |Mapping| UP UP)
-         ($ |Record| (|:| |num| (|Matrix| UP)) (|:| |den| UP)))
+        ((|d| (|Mapping| UP UP))
+         ($ (|Record| (|:| |num| (|Matrix| UP)) (|:| |den| UP))))
         (SPROG
          ((|cd| (|Record| (|:| |num| (|Vector| UP)) (|:| |den| UP)))
           (#1=#:G193 NIL) (#2=#:G195 NIL) (|i| NIL) (#3=#:G194 NIL)
@@ -173,7 +174,8 @@
                  (QREFELT $ 64)))
           (EXIT (CONS (SPADCALL (QCAR |cd|) (QREFELT $ 72)) (QCDR |cd|)))))) 
 
-(SDEFUN |RADFF;iBasis| ((|p| UP) (|d| |NonNegativeInteger|) ($ |Vector| UP))
+(SDEFUN |RADFF;iBasis|
+        ((|p| (UP)) (|d| (|NonNegativeInteger|)) ($ (|Vector| UP)))
         (SPROG
          ((#1=#:G198 NIL) (#2=#:G197 (UP)) (#3=#:G199 (UP)) (#4=#:G205 NIL)
           (|j| NIL) (#5=#:G204 NIL) (|i| NIL) (#6=#:G203 NIL)
@@ -217,8 +219,8 @@
             #6#))))) 
 
 (SDEFUN |RADFF;fullVector|
-        ((|p| |Factored| UP) (|m| |NonNegativeInteger|)
-         ($ |PrimitiveArray| UP))
+        ((|p| (|Factored| UP)) (|m| (|NonNegativeInteger|))
+         ($ (|PrimitiveArray| UP)))
         (SPROG
          ((|u|
            (|Union|
@@ -258,8 +260,8 @@
           (RETURN (PROGN (SPADCALL (QCDR |s|) |i| (QREFELT $ 87)))))) 
 
 (SDEFUN |RADFF;inftyBasis|
-        ((|p| |Fraction| UP) (|m| |NonNegativeInteger|)
-         ($ |Vector| (|Fraction| UP)))
+        ((|p| (|Fraction| UP)) (|m| (|NonNegativeInteger|))
+         ($ (|Vector| (|Fraction| UP))))
         (SPROG
          ((|b| (|Fraction| UP)) (#1=#:G222 NIL) (|i| NIL)
           (|w| (|Vector| (|Fraction| UP))) (|v| (|Vector| UP))
@@ -307,8 +309,8 @@
                   (EXIT |w|)))))))) 
 
 (SDEFUN |RADFF;charPintbas|
-        ((|p| UPUP) (|c| |Fraction| UP) (|v| |Vector| (|Fraction| UP))
-         (|w| |Vector| (|Fraction| UP)) ($ |Void|))
+        ((|p| (UPUP)) (|c| (|Fraction| UP)) (|v| (|Vector| (|Fraction| UP)))
+         (|w| (|Vector| (|Fraction| UP))) ($ (|Void|)))
         (SPROG
          ((|a| (|Fraction| UP)) (#1=#:G230 NIL) (|i| NIL) (#2=#:G231 NIL)
           (|j| NIL) (#3=#:G232 NIL) (|k| NIL)
@@ -383,7 +385,7 @@
                       (GO G190) G191 (EXIT NIL))
                  (EXIT (SPADCALL (QREFELT $ 113))))))))) 
 
-(SDEFUN |RADFF;charPStartUp| (($ |Void|))
+(SDEFUN |RADFF;charPStartUp| (($ (|Void|)))
         (SPROG
          ((|r| (|Record| (|:| |coef| (|Fraction| UP)) (|:| |poly| UPUP)))
           (|invmod| (UPUP)) (|x| (|Fraction| UP)))
@@ -409,7 +411,7 @@
                 (SPADCALL (QCAR |r|) |x| (QREFELT $ 96)) (QREFELT $ 26)
                 (QREFELT $ 27) $))))) 
 
-(SDEFUN |RADFF;startUp| ((|b| |Boolean|) ($ |Void|))
+(SDEFUN |RADFF;startUp| ((|b| (|Boolean|)) ($ (|Void|)))
         (SPROG
          ((|dsc| (|Fraction| UP)) (#1=#:G247 NIL)
           (#2=#:G246 #3=(|Fraction| UP)) (#4=#:G248 #3#) (#5=#:G251 NIL)
@@ -454,7 +456,7 @@
                        (SPADCALL |dsc| (QREFELT $ 121)) (QREFELT $ 55)))
               (EXIT (SPADCALL (QREFELT $ 113)))))) 
 
-(SDEFUN |RADFF;char0StartUp| (($ |Void|))
+(SDEFUN |RADFF;char0StartUp| (($ (|Void|)))
         (SPROG
          ((|a| (|Fraction| UP)) (|invden| (|Fraction| UP)) (#1=#:G258 NIL)
           (|i| NIL) (|infb| (|Vector| (|Fraction| UP))) (|ib| (|Vector| UP))
@@ -494,7 +496,7 @@
                        (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
                   (EXIT (SPADCALL (QREFELT $ 113)))))))))) 
 
-(SDEFUN |RADFF;ramified?;UPB;26| ((|p| UP) ($ |Boolean|))
+(SDEFUN |RADFF;ramified?;UPB;26| ((|p| (UP)) ($ (|Boolean|)))
         (SPROG ((|r| (|Union| F "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 123)))
                     (EXIT
@@ -505,7 +507,7 @@
                         (SPADCALL (|RADFF;radcand| $) |p| (QREFELT $ 125))
                         0))))))) 
 
-(SDEFUN |RADFF;singular?;UPB;27| ((|p| UP) ($ |Boolean|))
+(SDEFUN |RADFF;singular?;UPB;27| ((|p| (UP)) ($ (|Boolean|)))
         (SPROG ((|r| (|Union| F "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 123)))
                     (EXIT
@@ -518,7 +520,7 @@
                                   (QREFELT $ 125))
                         0))))))) 
 
-(SDEFUN |RADFF;branchPoint?;UPB;28| ((|p| UP) ($ |Boolean|))
+(SDEFUN |RADFF;branchPoint?;UPB;28| ((|p| (UP)) ($ (|Boolean|)))
         (SPROG ((|q| (|Union| UP "failed")) (|r| (|Union| F "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 123)))
                     (EXIT
@@ -536,7 +538,7 @@
                                    1))
                           (#1# NIL)))))))))) 
 
-(SDEFUN |RADFF;singular?;FB;29| ((|point| F) ($ |Boolean|))
+(SDEFUN |RADFF;singular?;FB;29| ((|point| (F)) ($ (|Boolean|)))
         (SPROG ((#1=#:G285 NIL))
                (COND
                 ((SPADCALL
@@ -560,7 +562,7 @@
                   (QREFELT $ 45)))
                 ('T NIL)))) 
 
-(SDEFUN |RADFF;branchPoint?;FB;30| ((|point| F) ($ |Boolean|))
+(SDEFUN |RADFF;branchPoint?;FB;30| ((|point| (F)) ($ (|Boolean|)))
         (SPROG ((#1=#:G290 NIL))
                (COND
                 ((SPADCALL

@@ -1,33 +1,33 @@
 
 (PUT '|INS-;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |INS-;characteristic;Nni;1| (($ |NonNegativeInteger|)) 0) 
+(SDEFUN |INS-;characteristic;Nni;1| (($ (|NonNegativeInteger|))) 0) 
 
-(SDEFUN |INS-;differentiate;2S;2| ((|x| S) ($ S)) (|spadConstant| $ 9)) 
+(SDEFUN |INS-;differentiate;2S;2| ((|x| (S)) ($ (S))) (|spadConstant| $ 9)) 
 
-(SDEFUN |INS-;even?;SB;3| ((|x| S) ($ |Boolean|))
+(SDEFUN |INS-;even?;SB;3| ((|x| (S)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| (QREFELT $ 12)))) 
 
-(SDEFUN |INS-;positive?;SB;4| ((|x| S) ($ |Boolean|))
+(SDEFUN |INS-;positive?;SB;4| ((|x| (S)) ($ (|Boolean|)))
         (SPADCALL |x| (|spadConstant| $ 9) (QREFELT $ 14))) 
 
 (PUT '|INS-;copy;2S;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |INS-;copy;2S;5| ((|x| S) ($ S)) |x|) 
+(SDEFUN |INS-;copy;2S;5| ((|x| (S)) ($ (S))) |x|) 
 
-(SDEFUN |INS-;bit?;2SB;6| ((|x| S) (|i| S) ($ |Boolean|))
+(SDEFUN |INS-;bit?;2SB;6| ((|x| (S)) (|i| (S)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |x| (SPADCALL |i| (QREFELT $ 17)) (QREFELT $ 18))
                   (QREFELT $ 12))) 
 
-(SDEFUN |INS-;mask;2S;7| ((|n| S) ($ S))
+(SDEFUN |INS-;mask;2S;7| ((|n| (S)) ($ (S)))
         (SPADCALL (SPADCALL (|spadConstant| $ 20) |n| (QREFELT $ 18))
                   (QREFELT $ 21))) 
 
 (PUT '|INS-;rational?;SB;8| '|SPADreplace| '(XLAM (|x|) 'T)) 
 
-(SDEFUN |INS-;rational?;SB;8| ((|x| S) ($ |Boolean|)) 'T) 
+(SDEFUN |INS-;rational?;SB;8| ((|x| (S)) ($ (|Boolean|))) 'T) 
 
-(SDEFUN |INS-;euclideanSize;SNni;9| ((|x| S) ($ |NonNegativeInteger|))
+(SDEFUN |INS-;euclideanSize;SNni;9| ((|x| (S)) ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G151 NIL) (#2=#:G150 NIL))
                (COND
                 ((SPADCALL |x| (|spadConstant| $ 9) (QREFELT $ 24))
@@ -41,44 +41,46 @@
                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                      '(|Integer|) #1#)))))) 
 
-(SDEFUN |INS-;convert;SF;10| ((|x| S) ($ |Float|))
+(SDEFUN |INS-;convert;SF;10| ((|x| (S)) ($ (|Float|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 30))) 
 
-(SDEFUN |INS-;convert;SDf;11| ((|x| S) ($ |DoubleFloat|))
+(SDEFUN |INS-;convert;SDf;11| ((|x| (S)) ($ (|DoubleFloat|)))
         (FLOAT (SPADCALL |x| (QREFELT $ 27)) MOST-POSITIVE-DOUBLE-FLOAT)) 
 
-(SDEFUN |INS-;convert;SIf;12| ((|x| S) ($ |InputForm|))
+(SDEFUN |INS-;convert;SIf;12| ((|x| (S)) ($ (|InputForm|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 35))) 
 
-(SDEFUN |INS-;retract;SI;13| ((|x| S) ($ |Integer|))
+(SDEFUN |INS-;retract;SI;13| ((|x| (S)) ($ (|Integer|)))
         (SPADCALL |x| (QREFELT $ 27))) 
 
-(SDEFUN |INS-;convert;SP;14| ((|x| S) ($ |Pattern| (|Integer|)))
+(SDEFUN |INS-;convert;SP;14| ((|x| (S)) ($ (|Pattern| (|Integer|))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 39))) 
 
-(SDEFUN |INS-;factor;SF;15| ((|x| S) ($ |Factored| S))
+(SDEFUN |INS-;factor;SF;15| ((|x| (S)) ($ (|Factored| S)))
         (SPADCALL |x| (QREFELT $ 43))) 
 
-(SDEFUN |INS-;squareFree;SF;16| ((|x| S) ($ |Factored| S))
+(SDEFUN |INS-;squareFree;SF;16| ((|x| (S)) ($ (|Factored| S)))
         (SPADCALL |x| (QREFELT $ 46))) 
 
-(SDEFUN |INS-;prime?;SB;17| ((|x| S) ($ |Boolean|))
+(SDEFUN |INS-;prime?;SB;17| ((|x| (S)) ($ (|Boolean|)))
         (SPADCALL |x| (QREFELT $ 49))) 
 
-(SDEFUN |INS-;factorial;2S;18| ((|x| S) ($ S)) (SPADCALL |x| (QREFELT $ 52))) 
+(SDEFUN |INS-;factorial;2S;18| ((|x| (S)) ($ (S)))
+        (SPADCALL |x| (QREFELT $ 52))) 
 
-(SDEFUN |INS-;binomial;3S;19| ((|n| S) (|m| S) ($ S))
+(SDEFUN |INS-;binomial;3S;19| ((|n| (S)) (|m| (S)) ($ (S)))
         (SPADCALL |n| |m| (QREFELT $ 54))) 
 
-(SDEFUN |INS-;permutation;3S;20| ((|n| S) (|m| S) ($ S))
+(SDEFUN |INS-;permutation;3S;20| ((|n| (S)) (|m| (S)) ($ (S)))
         (SPADCALL |n| |m| (QREFELT $ 56))) 
 
-(SDEFUN |INS-;retractIfCan;SU;21| ((|x| S) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |INS-;retractIfCan;SU;21|
+        ((|x| (S)) ($ (|Union| (|Integer|) "failed")))
         (CONS 0 (SPADCALL |x| (QREFELT $ 27)))) 
 
-(SDEFUN |INS-;init;S;22| (($ S)) (|spadConstant| $ 9)) 
+(SDEFUN |INS-;init;S;22| (($ (S))) (|spadConstant| $ 9)) 
 
-(SDEFUN |INS-;nextItem;SU;23| ((|n| S) ($ |Union| S "failed"))
+(SDEFUN |INS-;nextItem;SU;23| ((|n| (S)) ($ (|Union| S "failed")))
         (COND ((SPADCALL |n| (QREFELT $ 61)) (CONS 0 (|spadConstant| $ 20)))
               ((SPADCALL |n| (|spadConstant| $ 9) (QREFELT $ 14))
                (CONS 0 (SPADCALL |n| (QREFELT $ 17))))
@@ -86,19 +88,19 @@
                (CONS 0 (SPADCALL (|spadConstant| $ 20) |n| (QREFELT $ 62)))))) 
 
 (SDEFUN |INS-;patternMatch;SP2Pmr;24|
-        ((|x| S) (|p| |Pattern| (|Integer|))
-         (|l| |PatternMatchResult| (|Integer|) S)
-         ($ |PatternMatchResult| (|Integer|) S))
+        ((|x| (S)) (|p| (|Pattern| (|Integer|)))
+         (|l| (|PatternMatchResult| (|Integer|) S))
+         ($ (|PatternMatchResult| (|Integer|) S)))
         (SPADCALL |x| |p| |l| (QREFELT $ 67))) 
 
-(SDEFUN |INS-;rational;SF;25| ((|x| S) ($ |Fraction| (|Integer|)))
+(SDEFUN |INS-;rational;SF;25| ((|x| (S)) ($ (|Fraction| (|Integer|))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 71))) 
 
 (SDEFUN |INS-;rationalIfCan;SU;26|
-        ((|x| S) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|x| (S)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (CONS 0 (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 71)))) 
 
-(SDEFUN |INS-;symmetricRemainder;3S;27| ((|x| S) (|n| S) ($ S))
+(SDEFUN |INS-;symmetricRemainder;3S;27| ((|x| (S)) (|n| (S)) ($ (S)))
         (SPROG ((|r| (S)))
                (SEQ (LETT |r| (SPADCALL |x| |n| (QREFELT $ 75)))
                     (EXIT
@@ -124,7 +126,7 @@
                            (SPADCALL |r| |n| (QREFELT $ 78)))
                           (#1# |r|)))))))))) 
 
-(SDEFUN |INS-;invmod;3S;28| ((|a| S) (|b| S) ($ S))
+(SDEFUN |INS-;invmod;3S;28| ((|a| (S)) (|b| (S)) ($ (S)))
         (SPROG
          ((|d1| (S)) (|d| (S)) (|c1| (S)) (|c| (S)) (|r1| (S)) (|r| (S))
           (|q| (S)))
@@ -155,7 +157,7 @@
               (#1='T |c1|)))
             (#1# (|error| "inverse does not exist"))))))) 
 
-(SDEFUN |INS-;powmod;4S;29| ((|x| S) (|n| S) (|p| S) ($ S))
+(SDEFUN |INS-;powmod;4S;29| ((|x| (S)) (|n| (S)) (|p| (S)) ($ (S)))
         (SPROG ((|z| (S)) (#1=#:G212 NIL) (|y| (S)))
                (SEQ
                 (EXIT

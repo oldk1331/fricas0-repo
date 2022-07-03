@@ -1,5 +1,5 @@
 
-(SDEFUN |TOPSP;createThreeSpace;Ts;1| (($ |ThreeSpace| (|DoubleFloat|)))
+(SDEFUN |TOPSP;createThreeSpace;Ts;1| (($ (|ThreeSpace| (|DoubleFloat|))))
         (SPADCALL (QREFELT $ 7))) 
 
 (DECLAIM (NOTINLINE |TopLevelThreeSpace;|)) 

@@ -1,9 +1,10 @@
 
 (SDEFUN |TABLBUMP;bumprow;MLLR;1|
-        ((|cf| |Mapping| (|Boolean|) S S) (|x| |List| S)
-         (|lls| |List| (|List| S))
-         ($ |Record| (|:| |fs| (|Boolean|)) (|:| |sd| (|List| S))
-          (|:| |td| (|List| (|List| S)))))
+        ((|cf| (|Mapping| (|Boolean|) S S)) (|x| (|List| S))
+         (|lls| (|List| (|List| S)))
+         ($
+          (|Record| (|:| |fs| (|Boolean|)) (|:| |sd| (|List| S))
+                    (|:| |td| (|List| (|List| S))))))
         (SPROG
          ((|rw|
            (|Record| (|:| |fs| (|Boolean|)) (|:| |sd| (|List| S))
@@ -34,8 +35,9 @@
                                          (QVELT |rw| 2)))))))))))))) 
 
 (SDEFUN |TABLBUMP;bumptab;ML2L;2|
-        ((|cf| |Mapping| (|Boolean|) S S) (|x| |List| S)
-         (|llls| |List| (|List| (|List| S))) ($ |List| (|List| (|List| S))))
+        ((|cf| (|Mapping| (|Boolean|) S S)) (|x| (|List| S))
+         (|llls| (|List| (|List| (|List| S))))
+         ($ (|List| (|List| (|List| S)))))
         (SPROG
          ((|rw|
            (|Record| (|:| |fs| (|Boolean|)) (|:| |sd| (|List| S))
@@ -56,16 +58,17 @@
                     (#1# (CONS (QVELT |rw| 2) (CDR |llls|))))))))))) 
 
 (SDEFUN |TABLBUMP;bumptab1;L2L;3|
-        ((|x| |List| S) (|llls| |List| (|List| (|List| S)))
-         ($ |List| (|List| (|List| S))))
+        ((|x| (|List| S)) (|llls| (|List| (|List| (|List| S))))
+         ($ (|List| (|List| (|List| S)))))
         (SPADCALL (ELT $ 17) |x| |llls| (QREFELT $ 15))) 
 
 (SDEFUN |TABLBUMP;tab1;LL;4|
-        ((|lls| |List| (|List| S)) ($ |List| (|List| (|List| S))))
+        ((|lls| (|List| (|List| S))) ($ (|List| (|List| (|List| S)))))
         (SPADCALL NIL (ELT $ 18) (SPADCALL |lls| (QREFELT $ 20))
                   (QREFELT $ 23))) 
 
-(SDEFUN |TABLBUMP;lexorder| ((|p1| |List| S) (|p2| |List| S) ($ |Boolean|))
+(SDEFUN |TABLBUMP;lexorder|
+        ((|p1| (|List| S)) (|p2| (|List| S)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |p1| 1 (QREFELT $ 9))
                     (SPADCALL |p2| 1 (QREFELT $ 9)) (QREFELT $ 25))
@@ -75,13 +78,14 @@
           (SPADCALL (SPADCALL |p1| 1 (QREFELT $ 9))
                     (SPADCALL |p2| 1 (QREFELT $ 9)) (QREFELT $ 17))))) 
 
-(SDEFUN |TABLBUMP;lex;2L;6| ((|lp| |List| (|List| S)) ($ |List| (|List| S)))
+(SDEFUN |TABLBUMP;lex;2L;6|
+        ((|lp| (|List| (|List| S))) ($ (|List| (|List| S))))
         (SPADCALL (CONS #'|TABLBUMP;lex;2L;6!0| $) |lp| (QREFELT $ 27))) 
 
 (SDEFUN |TABLBUMP;lex;2L;6!0| ((|s1| NIL) (|s2| NIL) ($ NIL))
         (|TABLBUMP;lexorder| |s1| |s2| $)) 
 
-(SDEFUN |TABLBUMP;slex;LL;7| ((|ls| |List| S) ($ |List| (|List| S)))
+(SDEFUN |TABLBUMP;slex;LL;7| ((|ls| (|List| S)) ($ (|List| (|List| S))))
         (SPROG
          ((#1=#:G155 NIL) (|i| NIL) (#2=#:G156 NIL) (|j| NIL) (#3=#:G154 NIL))
          (SEQ
@@ -99,7 +103,7 @@
                  G191 (EXIT (NREVERSE #3#))))
            (QREFELT $ 28))))) 
 
-(SDEFUN |TABLBUMP;inverse;2L;8| ((|ls| |List| S) ($ |List| S))
+(SDEFUN |TABLBUMP;inverse;2L;8| ((|ls| (|List| S)) ($ (|List| S)))
         (SPROG
          ((#1=#:G161 NIL) (#2=#:G163 NIL) (|i| NIL) (#3=#:G164 NIL) (|j| NIL)
           (#4=#:G162 NIL) (|lss| NIL) (#5=#:G160 NIL))
@@ -131,18 +135,20 @@
                  (EXIT (LETT #5# (CONS (SPADCALL |lss| 2 (QREFELT $ 9)) #5#))))
                 (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #5#))))))) 
 
-(SDEFUN |TABLBUMP;tab;LT;9| ((|ls| |List| S) ($ |Tableau| (|List| S)))
+(SDEFUN |TABLBUMP;tab;LT;9| ((|ls| (|List| S)) ($ (|Tableau| (|List| S))))
         (SPADCALL (SPADCALL (SPADCALL |ls| (QREFELT $ 30)) (QREFELT $ 24))
                   (QREFELT $ 33))) 
 
 (SDEFUN |TABLBUMP;maxrow;LLL3LR;10|
-        ((|n| |List| S) (|a| |List| (|List| (|List| S)))
-         (|b| |List| (|List| S)) (|c| |List| (|List| (|List| S)))
-         (|d| |List| (|List| (|List| S))) (|llls| |List| (|List| (|List| S)))
-         ($ |Record| (|:| |f1| (|List| S))
-          (|:| |f2| (|List| (|List| (|List| S))))
-          (|:| |f3| (|List| (|List| S)))
-          (|:| |f4| (|List| (|List| (|List| S))))))
+        ((|n| (|List| S)) (|a| (|List| (|List| (|List| S))))
+         (|b| (|List| (|List| S))) (|c| (|List| (|List| (|List| S))))
+         (|d| (|List| (|List| (|List| S))))
+         (|llls| (|List| (|List| (|List| S))))
+         ($
+          (|Record| (|:| |f1| (|List| S))
+                    (|:| |f2| (|List| (|List| (|List| S))))
+                    (|:| |f3| (|List| (|List| S)))
+                    (|:| |f4| (|List| (|List| (|List| S)))))))
         (SPROG ((|rst| (|List| (|List| S))) (|fst| (|List| S)))
                (SEQ
                 (COND
@@ -165,18 +171,19 @@
                                     (CDR |llls|) (QREFELT $ 37))))))))))) 
 
 (SDEFUN |TABLBUMP;mr;LR;11|
-        ((|llls| |List| (|List| (|List| S)))
-         ($ |Record| (|:| |f1| (|List| S))
-          (|:| |f2| (|List| (|List| (|List| S))))
-          (|:| |f3| (|List| (|List| S)))
-          (|:| |f4| (|List| (|List| (|List| S))))))
+        ((|llls| (|List| (|List| (|List| S))))
+         ($
+          (|Record| (|:| |f1| (|List| S))
+                    (|:| |f2| (|List| (|List| (|List| S))))
+                    (|:| |f3| (|List| (|List| S)))
+                    (|:| |f4| (|List| (|List| (|List| S)))))))
         (SPADCALL (|SPADfirst| (|SPADfirst| |llls|)) NIL
                   (CDR (|SPADfirst| |llls|)) (CDR |llls|) NIL |llls|
                   (QREFELT $ 37))) 
 
 (SDEFUN |TABLBUMP;untab;LLL;12|
-        ((|lp| |List| (|List| S)) (|llls| |List| (|List| (|List| S)))
-         ($ |List| (|List| S)))
+        ((|lp| (|List| (|List| S))) (|llls| (|List| (|List| (|List| S))))
+         ($ (|List| (|List| S))))
         (SPROG
          ((|rv| (|List| (|List| (|List| S))))
           (|rc|
@@ -207,7 +214,7 @@
         (SPADCALL |s2| |s1| (QREFELT $ 17))) 
 
 (SDEFUN |TABLBUMP;bat1;LL;13|
-        ((|llls| |List| (|List| (|List| S))) ($ |List| (|List| S)))
+        ((|llls| (|List| (|List| (|List| S)))) ($ (|List| (|List| S))))
         (SPROG ((#1=#:G184 NIL) (|lls| NIL) (#2=#:G183 NIL))
                (SEQ
                 (SPADCALL NIL
@@ -225,7 +232,7 @@
                           (QREFELT $ 40))))) 
 
 (SDEFUN |TABLBUMP;bat;TL;14|
-        ((|tb| |Tableau| (|List| S)) ($ |List| (|List| S)))
+        ((|tb| (|Tableau| (|List| S))) ($ (|List| (|List| S))))
         (SPADCALL (SPADCALL |tb| (QREFELT $ 42)) (QREFELT $ 41))) 
 
 (DECLAIM (NOTINLINE |TableauxBumpers;|)) 

@@ -1,13 +1,14 @@
 
 (SDEFUN |MULDEP;solveOverQ|
-        ((|m| |Matrix| (|Fraction| (|Integer|)))
-         (|v| |Vector| (|Fraction| (|Integer|)))
-         ($ |Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
+        ((|m| (|Matrix| (|Fraction| (|Integer|))))
+         (|v| (|Vector| (|Fraction| (|Integer|))))
+         ($ (|Union| (|Vector| (|Fraction| (|Integer|))) "failed")))
         (SPADCALL |m| |v| (QREFELT $ 10))) 
 
 (SDEFUN |MULDEP;logDependenceQ;LFU;2|
-        ((|lq| |List| (|Fraction| (|Integer|))) (|q| |Fraction| (|Integer|))
-         ($ |Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
+        ((|lq| (|List| (|Fraction| (|Integer|))))
+         (|q| (|Fraction| (|Integer|)))
+         ($ (|Union| (|Vector| (|Fraction| (|Integer|))) "failed")))
         (SPROG
          ((|qv| #1=(|Vector| (|Fraction| (|Integer|)))) (#2=#:G143 NIL)
           (|i| NIL) (#3=#:G142 NIL) (|m| (|Matrix| (|Fraction| (|Integer|))))

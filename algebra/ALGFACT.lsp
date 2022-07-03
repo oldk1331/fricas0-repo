@@ -1,24 +1,26 @@
 
 (SDEFUN |ALGFACT;liftpoly|
-        ((|p| |SparseUnivariatePolynomial| (|Fraction| (|Integer|))) ($ UP))
+        ((|p| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+         ($ (UP)))
         (SPADCALL (ELT $ 9) |p| (QREFELT $ 13))) 
 
 (SDEFUN |ALGFACT;downpoly|
-        ((|p| UP) ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|p| (UP))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPADCALL (ELT $ 14) |p| (QREFELT $ 17))) 
 
 (SDEFUN |ALGFACT;ifactor|
-        ((|p| |SparseUnivariatePolynomial| (|AlgebraicNumber|))
-         (|l| |List| (|Kernel| (|AlgebraicNumber|)))
-         ($ |Factored| (|SparseUnivariatePolynomial| (|AlgebraicNumber|))))
+        ((|p| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
+         (|l| (|List| (|Kernel| (|AlgebraicNumber|))))
+         ($ (|Factored| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))))
         (|ALGFACT;fact| |p| |l| $)) 
 
-(SDEFUN |ALGFACT;factor;UPF;4| ((|p| UP) ($ |Factored| UP))
+(SDEFUN |ALGFACT;factor;UPF;4| ((|p| (UP)) ($ (|Factored| UP)))
         (|ALGFACT;fact| |p|
          (SPADCALL (SPADCALL |p| (QREFELT $ 19)) (QREFELT $ 22)) $)) 
 
 (SDEFUN |ALGFACT;factor;UPLF;5|
-        ((|p| UP) (|l| |List| (|AlgebraicNumber|)) ($ |Factored| UP))
+        ((|p| (UP)) (|l| (|List| (|AlgebraicNumber|))) ($ (|Factored| UP)))
         (|ALGFACT;fact| |p|
          (SPADCALL
           (SPADCALL (SPADCALL |l| (SPADCALL |p| (QREFELT $ 19)) (QREFELT $ 25))
@@ -26,7 +28,7 @@
           (QREFELT $ 22))
          $)) 
 
-(SDEFUN |ALGFACT;split;UPF;6| ((|p| UP) ($ |Factored| UP))
+(SDEFUN |ALGFACT;split;UPF;6| ((|p| (UP)) ($ (|Factored| UP)))
         (SPROG
          ((#1=#:G132 NIL) (#2=#:G131 #3=(|Factored| UP)) (#4=#:G133 #3#)
           (#5=#:G136 NIL) (|fc| NIL) (|fp| (|Factored| UP)))
@@ -58,7 +60,7 @@
                          (QREFELT $ 35)))))) 
 
 (SDEFUN |ALGFACT;extend|
-        ((|p| UP) (|n| |NonNegativeInteger|) ($ |Factored| UP))
+        ((|p| (UP)) (|n| (|NonNegativeInteger|)) ($ (|Factored| UP)))
         (SPROG ((#1=#:G138 NIL) (|q| (UP)))
                (SEQ
                 (COND
@@ -88,7 +90,7 @@
                                |n| (QREFELT $ 49))
                               (QREFELT $ 33))))))))) 
 
-(SDEFUN |ALGFACT;doublyTransitive?;UPB;8| ((|p| UP) ($ |Boolean|))
+(SDEFUN |ALGFACT;doublyTransitive?;UPB;8| ((|p| (UP)) ($ (|Boolean|)))
         (SPROG ((#1=#:G144 NIL))
                (COND
                 ((|ALGFACT;irred?| |p| $)
@@ -109,7 +111,7 @@
                   $))
                 ('T NIL)))) 
 
-(SDEFUN |ALGFACT;irred?| ((|p| UP) ($ |Boolean|))
+(SDEFUN |ALGFACT;irred?| ((|p| (UP)) ($ (|Boolean|)))
         (SPROG
          ((|fp|
            (|List|
@@ -125,8 +127,8 @@
             ('T NIL)))))) 
 
 (SDEFUN |ALGFACT;fact|
-        ((|p| UP) (|l| |List| #1=(|Kernel| (|AlgebraicNumber|)))
-         ($ |Factored| UP))
+        ((|p| (UP)) (|l| (|List| #1=(|Kernel| (|AlgebraicNumber|))))
+         ($ (|Factored| UP)))
         (SPROG
          ((#2=#:G167 NIL) (#3=#:G166 #4=(|Factored| UP)) (#5=#:G168 #4#)
           (#6=#:G176 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))

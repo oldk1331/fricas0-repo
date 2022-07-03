@@ -1,8 +1,8 @@
 
-(SDEFUN |FPS-;float;2IS;1| ((|ma| |Integer|) (|ex| |Integer|) ($ S))
+(SDEFUN |FPS-;float;2IS;1| ((|ma| (|Integer|)) (|ex| (|Integer|)) ($ (S)))
         (SPADCALL |ma| |ex| (SPADCALL (QREFELT $ 8)) (QREFELT $ 10))) 
 
-(SDEFUN |FPS-;digits;Pi;2| (($ |PositiveInteger|))
+(SDEFUN |FPS-;digits;Pi;2| (($ (|PositiveInteger|)))
         (SPROG ((#1=#:G134 NIL))
                (PROG1
                    (LETT #1#
@@ -13,11 +13,11 @@
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
                                    #1#)))) 
 
-(SDEFUN |FPS-;toString;SS;3| ((|x| S) ($ |String|))
+(SDEFUN |FPS-;toString;SS;3| ((|x| (S)) ($ (|String|)))
         (SPADCALL |x| (QREFELT $ 17))) 
 
 (SDEFUN |FPS-;toString;SNniS;4|
-        ((|x| S) (|n| |NonNegativeInteger|) ($ |String|))
+        ((|x| (S)) (|n| (|NonNegativeInteger|)) ($ (|String|)))
         (SPROG
          ((|res| (|List| (|String|))) (|x2| (S)) (|tenn| (S)) (|x0| (S))
           (|x1| (S)))

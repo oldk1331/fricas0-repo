@@ -1,6 +1,6 @@
 
 (SDEFUN |GALPOLYU;factorsOfDegree;PiFL;1|
-        ((|d| |PositiveInteger|) (|r| |Factored| UP) ($ |List| UP))
+        ((|d| (|PositiveInteger|)) (|r| (|Factored| UP)) ($ (|List| UP)))
         (SPROG
          ((|lfact| (|List| UP)) (#1=#:G127 NIL) (|i| NIL) (#2=#:G126 NIL)
           (|fr| NIL))
@@ -25,7 +25,7 @@
               (EXIT |lfact|)))) 
 
 (SDEFUN |GALPOLYU;factorOfDegree;PiFUP;2|
-        ((|d| |PositiveInteger|) (|r| |Factored| UP) ($ UP))
+        ((|d| (|PositiveInteger|)) (|r| (|Factored| UP)) ($ (UP)))
         (SPROG ((#1=#:G133 NIL) (|factor| (UP)) (#2=#:G134 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -47,7 +47,7 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |GALPOLYU;degreePartition;FM;3|
-        ((|r| |Factored| UP) ($ |Multiset| (|NonNegativeInteger|)))
+        ((|r| (|Factored| UP)) ($ (|Multiset| (|NonNegativeInteger|))))
         (SPROG ((#1=#:G139 NIL) (|i| NIL) (#2=#:G138 NIL))
                (SEQ
                 (SPADCALL
@@ -67,11 +67,11 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 22))))) 
 
-(SDEFUN |GALPOLYU;monic?;UPB;4| ((|p| UP) ($ |Boolean|))
+(SDEFUN |GALPOLYU;monic?;UPB;4| ((|p| (UP)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 24)) (|spadConstant| $ 25)
                   (QREFELT $ 27))) 
 
-(SDEFUN |GALPOLYU;reverse;2UP;5| ((|p| UP) ($ UP))
+(SDEFUN |GALPOLYU;reverse;2UP;5| ((|p| (UP)) ($ (UP)))
         (SPROG
          ((|r| (UP)) (#1=#:G141 NIL) (#2=#:G145 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
@@ -96,7 +96,7 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 
-(SDEFUN |GALPOLYU;scaleRoots;UPRUP;6| ((|p| UP) (|c| R) ($ UP))
+(SDEFUN |GALPOLYU;scaleRoots;UPRUP;6| ((|p| (UP)) (|c| (R)) ($ (UP)))
         (SPROG ((|mc| (R)) (|r| (UP)) (|i| NIL) (|n| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((SPADCALL |c| (|spadConstant| $ 25) (QREFELT $ 27)) |p|)
@@ -133,7 +133,7 @@
                                          (EXIT NIL))
                                     (EXIT |r|))))))))))) 
 
-(SDEFUN |GALPOLYU;shiftRoots;UPRUP;7| ((|p| UP) (|c| R) ($ UP))
+(SDEFUN |GALPOLYU;shiftRoots;UPRUP;7| ((|p| (UP)) (|c| (R)) ($ (UP)))
         (SPADCALL (SPADCALL (ELT $ 37) |p| (QREFELT $ 41))
                   (SPADCALL (SPADCALL (|spadConstant| $ 25) 1 (QREFELT $ 30))
                             (SPADCALL |c| (QREFELT $ 37)) (QREFELT $ 42))

@@ -1,17 +1,17 @@
 
 (PUT '|SUCH;construct;S1S2$;1| '|SPADreplace| 'CONS) 
 
-(SDEFUN |SUCH;construct;S1S2$;1| ((|o| S1) (|c| S2) ($ $)) (CONS |o| |c|)) 
+(SDEFUN |SUCH;construct;S1S2$;1| ((|o| (S1)) (|c| (S2)) ($ ($))) (CONS |o| |c|)) 
 
 (PUT '|SUCH;lhs;$S1;2| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |SUCH;lhs;$S1;2| ((|st| $) ($ S1)) (QCAR |st|)) 
+(SDEFUN |SUCH;lhs;$S1;2| ((|st| ($)) ($ (S1))) (QCAR |st|)) 
 
 (PUT '|SUCH;rhs;$S2;3| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |SUCH;rhs;$S2;3| ((|st| $) ($ S2)) (QCDR |st|)) 
+(SDEFUN |SUCH;rhs;$S2;3| ((|st| ($)) ($ (S2))) (QCDR |st|)) 
 
-(SDEFUN |SUCH;coerce;$Of;4| ((|w| $) ($ |OutputForm|))
+(SDEFUN |SUCH;coerce;$Of;4| ((|w| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL '|\|| (QREFELT $ 14))
                   (SPADCALL (QCAR |w|) (QREFELT $ 15))
                   (SPADCALL (QCDR |w|) (QREFELT $ 16)) (QREFELT $ 17))) 

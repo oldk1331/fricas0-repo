@@ -1,15 +1,15 @@
 
 (SDEFUN |LLINDEP;csolve_pol;MLL;1|
-        ((|csolve| |Mapping| (|List| (|Vector| Q)) (|Matrix| F))
-         (|lp| |List| UP) ($ |List| (|Vector| Q)))
+        ((|csolve| (|Mapping| (|List| (|Vector| Q)) (|Matrix| F)))
+         (|lp| (|List| UP)) ($ (|List| (|Vector| Q))))
         (SPROG ((|rs1| (|Matrix| F)) (|m1| (|Matrix| UP)))
                (SEQ (LETT |m1| (SPADCALL (LIST |lp|) (QREFELT $ 11)))
                     (LETT |rs1| (SPADCALL |m1| (QREFELT $ 14)))
                     (EXIT (SPADCALL |rs1| |csolve|))))) 
 
 (SDEFUN |LLINDEP;csolve_rf;MLL;2|
-        ((|csolve| |Mapping| (|List| (|Vector| Q)) (|Matrix| F))
-         (|lrf| |List| (|Fraction| UP)) ($ |List| (|Vector| Q)))
+        ((|csolve| (|Mapping| (|List| (|Vector| Q)) (|Matrix| F)))
+         (|lrf| (|List| (|Fraction| UP))) ($ (|List| (|Vector| Q))))
         (SPROG
          ((|rs2| (|Matrix| F)) (|rs1| (|Matrix| UP))
           (|m1| (|Matrix| (|Fraction| UP))))
@@ -19,8 +19,8 @@
               (EXIT (SPADCALL |rs2| |csolve|))))) 
 
 (SDEFUN |LLINDEP;csolve_rmat;MML;3|
-        ((|csolve| |Mapping| (|List| (|Vector| Q)) (|Matrix| F))
-         (|mrf| |Matrix| (|Fraction| UP)) ($ |List| (|Vector| Q)))
+        ((|csolve| (|Mapping| (|List| (|Vector| Q)) (|Matrix| F)))
+         (|mrf| (|Matrix| (|Fraction| UP))) ($ (|List| (|Vector| Q))))
         (SPROG ((|rs2| (|Matrix| F)) (|rs1| (|Matrix| UP)))
                (SEQ (LETT |rs1| (SPADCALL |mrf| (QREFELT $ 23)))
                     (LETT |rs2| (SPADCALL |rs1| (QREFELT $ 14)))

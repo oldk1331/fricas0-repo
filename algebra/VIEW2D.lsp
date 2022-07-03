@@ -1,5 +1,5 @@
 
-(SDEFUN |VIEW2D;checkViewport| ((|viewport| $) ($ |Boolean|))
+(SDEFUN |VIEW2D;checkViewport| ((|viewport| ($)) ($ (|Boolean|)))
         (SPROG ((|i| (|Integer|)))
                (SEQ (|sockSendInt| |$ViewportServer| (QVELT |viewport| 0))
                     (LETT |i| (|sockGetInt| |$ViewportServer|))
@@ -12,22 +12,22 @@
                               "This viewport has already been closed!"))))
                       ('T 'T)))))) 
 
-(SDEFUN |VIEW2D;doOptions| ((|v| |Rep|) ($ |Void|))
+(SDEFUN |VIEW2D;doOptions| ((|v| (|Rep|)) ($ (|Void|)))
         (QSETVELT |v| 3 (SPADCALL (QVELT |v| 7) "FriCAS2D" (QREFELT $ 15)))) 
 
 (PUT '|VIEW2D;options;$L;3| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 7))) 
 
-(SDEFUN |VIEW2D;options;$L;3| ((|viewport| $) ($ |List| (|DrawOption|)))
+(SDEFUN |VIEW2D;options;$L;3| ((|viewport| ($)) ($ (|List| (|DrawOption|))))
         (QVELT |viewport| 7)) 
 
 (SDEFUN |VIEW2D;options;$L$;4|
-        ((|viewport| $) (|opts| |List| (|DrawOption|)) ($ $))
+        ((|viewport| ($)) (|opts| (|List| (|DrawOption|))) ($ ($)))
         (SEQ (QSETVELT |viewport| 7 |opts|) (EXIT |viewport|))) 
 
 (SDEFUN |VIEW2D;putGraph;$GiPiV;5|
-        ((|viewport| $) (|aGraph| |GraphImage|) (|which| |PositiveInteger|)
-         ($ |Void|))
+        ((|viewport| ($)) (|aGraph| (|GraphImage|))
+         (|which| (|PositiveInteger|)) ($ (|Void|)))
         (SEQ
          (COND
           ((OR (> |which| 9) (< |which| 1))
@@ -38,7 +38,7 @@
                     (QREFELT $ 21))))) 
 
 (SDEFUN |VIEW2D;getGraph;$PiGi;6|
-        ((|viewport| $) (|which| |PositiveInteger|) ($ |GraphImage|))
+        ((|viewport| ($)) (|which| (|PositiveInteger|)) ($ (|GraphImage|)))
         (SPROG ((#1=#:G183 NIL))
                (SEQ
                 (COND
@@ -64,40 +64,42 @@
      '(XLAM (|viewport|) (QVELT |viewport| 2))) 
 
 (SDEFUN |VIEW2D;graphStates;$V;7|
-        ((|viewport| $)
-         ($ |Vector|
-          (|Record| (|:| |scaleX| (|DoubleFloat|))
-                    (|:| |scaleY| (|DoubleFloat|))
-                    (|:| |deltaX| (|DoubleFloat|))
-                    (|:| |deltaY| (|DoubleFloat|)) (|:| |points| (|Integer|))
-                    (|:| |connect| (|Integer|)) (|:| |spline| (|Integer|))
-                    (|:| |axes| (|Integer|)) (|:| |axesColor| (|Palette|))
-                    (|:| |units| (|Integer|)) (|:| |unitsColor| (|Palette|))
-                    (|:| |showing| (|Integer|)))))
+        ((|viewport| ($))
+         ($
+          (|Vector|
+           (|Record| (|:| |scaleX| (|DoubleFloat|))
+                     (|:| |scaleY| (|DoubleFloat|))
+                     (|:| |deltaX| (|DoubleFloat|))
+                     (|:| |deltaY| (|DoubleFloat|)) (|:| |points| (|Integer|))
+                     (|:| |connect| (|Integer|)) (|:| |spline| (|Integer|))
+                     (|:| |axes| (|Integer|)) (|:| |axesColor| (|Palette|))
+                     (|:| |units| (|Integer|)) (|:| |unitsColor| (|Palette|))
+                     (|:| |showing| (|Integer|))))))
         (QVELT |viewport| 2)) 
 
 (PUT '|VIEW2D;graphs;$V;8| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 1))) 
 
 (SDEFUN |VIEW2D;graphs;$V;8|
-        ((|viewport| $) ($ |Vector| (|Union| (|GraphImage|) "undefined")))
+        ((|viewport| ($)) ($ (|Vector| (|Union| (|GraphImage|) "undefined"))))
         (QVELT |viewport| 1)) 
 
 (PUT '|VIEW2D;key;$I;9| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 0))) 
 
-(SDEFUN |VIEW2D;key;$I;9| ((|viewport| $) ($ |Integer|)) (QVELT |viewport| 0)) 
+(SDEFUN |VIEW2D;key;$I;9| ((|viewport| ($)) ($ (|Integer|)))
+        (QVELT |viewport| 0)) 
 
 (SDEFUN |VIEW2D;dimensions;$2Nni2PiV;10|
-        ((|viewport| $) (|ViewX| |NonNegativeInteger|)
-         (|ViewY| |NonNegativeInteger|) (|ViewWidth| |PositiveInteger|)
-         (|ViewHeight| |PositiveInteger|) ($ |Void|))
+        ((|viewport| ($)) (|ViewX| (|NonNegativeInteger|))
+         (|ViewY| (|NonNegativeInteger|)) (|ViewWidth| (|PositiveInteger|))
+         (|ViewHeight| (|PositiveInteger|)) ($ (|Void|)))
         (SEQ (QSETVELT |viewport| 4 (CONS |ViewX| |ViewY|))
              (EXIT (QSETVELT |viewport| 5 (CONS |ViewWidth| |ViewHeight|))))) 
 
 (SDEFUN |VIEW2D;move;$2NniV;11|
-        ((|viewport| $) (|xLoc| |NonNegativeInteger|)
-         (|yLoc| |NonNegativeInteger|) ($ |Void|))
+        ((|viewport| ($)) (|xLoc| (|NonNegativeInteger|))
+         (|yLoc| (|NonNegativeInteger|)) ($ (|Void|)))
         (SPROG ((#1=#:G206 NIL))
                (SEQ
                 (EXIT
@@ -125,8 +127,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;update;$GiPiV;12|
-        ((|viewport| $) (|graph| |GraphImage|) (|slot| |PositiveInteger|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graph| (|GraphImage|)) (|slot| (|PositiveInteger|))
+         ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 32)) 0 (QREFELT $ 36))
@@ -143,8 +145,8 @@
           ('T (SPADCALL (QREFELT $ 39)))))) 
 
 (SDEFUN |VIEW2D;resize;$2PiV;13|
-        ((|viewport| $) (|xSize| |PositiveInteger|) (|ySize| |PositiveInteger|)
-         ($ |Void|))
+        ((|viewport| ($)) (|xSize| (|PositiveInteger|))
+         (|ySize| (|PositiveInteger|)) ($ (|Void|)))
         (SPROG ((#1=#:G218 NIL))
                (SEQ
                 (EXIT
@@ -172,8 +174,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;translate;$Pi2FV;14|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|)
-         (|xTranslateF| |Float|) (|yTranslateF| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|xTranslateF| (|Float|)) (|yTranslateF| (|Float|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G224 NIL) (|yTranslate| #2=(|DoubleFloat|)) (|xTranslate| #2#))
          (SEQ
@@ -213,8 +215,8 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;scale;$Pi2FV;15|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|xScaleF| |Float|)
-         (|yScaleF| |Float|) ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|xScaleF| (|Float|)) (|yScaleF| (|Float|)) ($ (|Void|)))
         (SPROG ((#1=#:G230 NIL) (|yScale| #2=(|DoubleFloat|)) (|xScale| #2#))
                (SEQ
                 (EXIT
@@ -256,7 +258,7 @@
                           (GO #3=#:G228)))))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |VIEW2D;viewport2D;$;16| (($ $))
+(SDEFUN |VIEW2D;viewport2D;$;16| (($ ($)))
         (VECTOR 0 (MAKEARR1 9 (CONS 1 "undefined"))
                 (MAKEARR1 9 (MOVEVEC (MAKE_VEC 12) (QREFELT $ 11))) "FriCAS2D"
                 (CONS (SPADCALL (SPADCALL (QREFELT $ 49)) 1 (QREFELT $ 50))
@@ -266,7 +268,7 @@
                 (LIST 0) NIL)) 
 
 (SDEFUN |VIEW2D;makeViewport2D;GiL$;17|
-        ((|g| |GraphImage|) (|opts| |List| (|DrawOption|)) ($ $))
+        ((|g| (|GraphImage|)) (|opts| (|List| (|DrawOption|))) ($ ($)))
         (SPROG ((|viewport| ($)))
                (SEQ (LETT |viewport| (SPADCALL (QREFELT $ 54)))
                     (SPADCALL (QVELT |viewport| 1) 1 (CONS 0 |g|)
@@ -274,11 +276,12 @@
                     (QSETVELT |viewport| 7 |opts|)
                     (EXIT (|VIEW2D;makeViewport2D0| |viewport| $))))) 
 
-(SDEFUN |VIEW2D;makeViewport2D;2$;18| ((|viewport| $) ($ $))
+(SDEFUN |VIEW2D;makeViewport2D;2$;18| ((|viewport| ($)) ($ ($)))
         (|VIEW2D;makeViewport2D0| (MOVEVEC (MAKE_VEC 8) |viewport|) $)) 
 
 (SDEFUN |VIEW2D;send_graphs|
-        ((|vg| |Vector| (|Union| (|GraphImage|) #1="undefined")) ($ |Void|))
+        ((|vg| (|Vector| (|Union| (|GraphImage|) #1="undefined")))
+         ($ (|Void|)))
         (SPROG
          ((|g| (|GraphImage|)) (|gu| (|Union| (|GraphImage|) #1#))
           (#2=#:G258 NIL) (|i| NIL))
@@ -295,7 +298,7 @@
                                    (SPADCALL |g| (QREFELT $ 57))))))))))
               (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))) 
 
-(SDEFUN |VIEW2D;makeViewport2D0| ((|viewportDollar| $) ($ $))
+(SDEFUN |VIEW2D;makeViewport2D0| ((|viewportDollar| ($)) ($ ($)))
         (SPROG
          ((|hueShade| (|Integer|))
           (|gs|
@@ -373,17 +376,18 @@
               (EXIT |viewport|)))) 
 
 (SDEFUN |VIEW2D;graphState;$Pi4Df4IPIPIV;21|
-        ((|viewport| $) (|num| |PositiveInteger|) (|sX| |DoubleFloat|)
-         (|sY| |DoubleFloat|) (|dX| |DoubleFloat|) (|dY| |DoubleFloat|)
-         (|Points| |Integer|) (|Lines| |Integer|) (|Spline| |Integer|)
-         (|Axes| |Integer|) (|AxesColor| |Palette|) (|Units| |Integer|)
-         (|UnitsColor| |Palette|) (|Showing| |Integer|) ($ |Void|))
+        ((|viewport| ($)) (|num| (|PositiveInteger|)) (|sX| (|DoubleFloat|))
+         (|sY| (|DoubleFloat|)) (|dX| (|DoubleFloat|)) (|dY| (|DoubleFloat|))
+         (|Points| (|Integer|)) (|Lines| (|Integer|)) (|Spline| (|Integer|))
+         (|Axes| (|Integer|)) (|AxesColor| (|Palette|)) (|Units| (|Integer|))
+         (|UnitsColor| (|Palette|)) (|Showing| (|Integer|)) ($ (|Void|)))
         (SPADCALL (QVELT |viewport| 2) |num|
                   (VECTOR |sX| |sY| |dX| |dY| |Points| |Lines| |Spline| |Axes|
                           |AxesColor| |Units| |UnitsColor| |Showing|)
                   (QREFELT $ 65))) 
 
-(SDEFUN |VIEW2D;title;$SV;22| ((|viewport| $) (|Title| |String|) ($ |Void|))
+(SDEFUN |VIEW2D;title;$SV;22|
+        ((|viewport| ($)) (|Title| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G278 NIL))
                (SEQ
                 (EXIT
@@ -408,7 +412,7 @@
                           (GO #2=#:G276)))))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |VIEW2D;reset;$V;23| ((|viewport| $) ($ |Void|))
+(SDEFUN |VIEW2D;reset;$V;23| ((|viewport| ($)) ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 32)) 0 (QREFELT $ 36))
@@ -422,8 +426,8 @@
           ('T (SPADCALL (QREFELT $ 39)))))) 
 
 (SDEFUN |VIEW2D;axes;$PiSV;24|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G289 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
@@ -457,8 +461,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;axes;$PiPV;25|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|color| |Palette|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|color| (|Palette|)) ($ (|Void|)))
         (SPROG ((#1=#:G295 NIL) (|hueShade| (|Integer|)))
                (SEQ
                 (EXIT
@@ -499,8 +503,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;units;$PiSV;26|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G301 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
@@ -534,8 +538,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;units;$PiPV;27|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|color| |Palette|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|color| (|Palette|)) ($ (|Void|)))
         (SPROG ((#1=#:G307 NIL) (|hueShade| (|Integer|)))
                (SEQ
                 (EXIT
@@ -576,8 +580,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;connect;$PiSV;28|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G313 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
@@ -611,8 +615,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;points;$PiSV;29|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G319 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
@@ -646,8 +650,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;region;$PiSV;30|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G325 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
@@ -681,8 +685,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;show;$PiSV;31|
-        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
-         ($ |Void|))
+        ((|viewport| ($)) (|graphIndex| (|PositiveInteger|))
+         (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G331 NIL) (|status| (|Integer|)))
                (SEQ
                 (EXIT
@@ -716,7 +720,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |VIEW2D;controlPanel;$SV;32|
-        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        ((|viewport| ($)) (|onOff| (|String|)) ($ (|Void|)))
         (SPROG ((#1=#:G337 NIL))
                (SEQ
                 (EXIT
@@ -745,7 +749,7 @@
                       (GO #4=#:G335)))))))
                 #4# (EXIT #1#)))) 
 
-(SDEFUN |VIEW2D;close;$V;33| ((|viewport| $) ($ |Void|))
+(SDEFUN |VIEW2D;close;$V;33| ((|viewport| ($)) ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 32)) 0 (QREFELT $ 36))
@@ -758,7 +762,7 @@
                         (EXIT (QSETVELT |viewport| 0 0))))))))
           ('T (SPADCALL (QREFELT $ 39)))))) 
 
-(SDEFUN |VIEW2D;coerce;$Of;34| ((|viewport| $) ($ |OutputForm|))
+(SDEFUN |VIEW2D;coerce;$Of;34| ((|viewport| ($)) ($ (|OutputForm|)))
         (COND
          ((EQL (SPADCALL |viewport| (QREFELT $ 32)) 0)
           (SPADCALL
@@ -774,18 +778,18 @@
            (QREFELT $ 83))))) 
 
 (SDEFUN |VIEW2D;write;$3S;35|
-        ((|viewport| $) (|Filename| |String|) (|aThingToWrite| |String|)
-         ($ |String|))
+        ((|viewport| ($)) (|Filename| (|String|)) (|aThingToWrite| (|String|))
+         ($ (|String|)))
         (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 86))) 
 
 (SDEFUN |VIEW2D;write;$2S;36|
-        ((|viewport| $) (|Filename| |String|) ($ |String|))
+        ((|viewport| ($)) (|Filename| (|String|)) ($ (|String|)))
         (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 88))
                   (QREFELT $ 86))) 
 
 (SDEFUN |VIEW2D;write;$SLS;37|
-        ((|viewport| $) (|Filename| |String|)
-         (|thingsToWrite| |List| (|String|)) ($ |String|))
+        ((|viewport| ($)) (|Filename| (|String|))
+         (|thingsToWrite| (|List| (|String|))) ($ (|String|)))
         (SPROG
          ((#1=#:G358 NIL) (|writeTypeInt| (|Integer|)) (#2=#:G359 NIL)
           (|aTypeOfFile| NIL) (|m| (|Integer|)) (|avail| (|List| (|String|)))

@@ -1,5 +1,6 @@
 
-(SDEFUN |STREAM2;mapp| ((|f| |Mapping| B A) (|x| |Stream| A) ($ |Stream| B))
+(SDEFUN |STREAM2;mapp|
+        ((|f| (|Mapping| B A)) (|x| (|Stream| A)) ($ (|Stream| B)))
         (SPROG NIL
                (SPADCALL (CONS #'|STREAM2;mapp!0| (VECTOR |f| $ |x|))
                          (QREFELT $ 19)))) 
@@ -19,7 +20,7 @@
                              (QREFELT $ 17)))))))) 
 
 (SDEFUN |STREAM2;map;MSS;2|
-        ((|f| |Mapping| B A) (|x| |Stream| A) ($ |Stream| B))
+        ((|f| (|Mapping| B A)) (|x| (|Stream| A)) ($ (|Stream| B)))
         (COND ((SPADCALL |x| (QREFELT $ 20)) (SPADCALL (QREFELT $ 12)))
               ((SPADCALL |x| (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 21))
                (SPADCALL (LIST (SPADCALL (SPADCALL |x| (QREFELT $ 13)) |f|))
@@ -27,7 +28,7 @@
               ('T (|STREAM2;mapp| |f| |x| $)))) 
 
 (SDEFUN |STREAM2;scan;BMSS;3|
-        ((|b| B) (|h| |Mapping| B A B) (|x| |Stream| A) ($ |Stream| B))
+        ((|b| (B)) (|h| (|Mapping| B A B)) (|x| (|Stream| A)) ($ (|Stream| B)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -58,7 +59,7 @@
                                   (QREFELT $ 17)))))))))))) 
 
 (SDEFUN |STREAM2;reduce;BMSB;4|
-        ((|b| B) (|h| |Mapping| B A B) (|x| |Stream| A) ($ B))
+        ((|b| (B)) (|h| (|Mapping| B A B)) (|x| (|Stream| A)) ($ (B)))
         (COND ((SPADCALL |x| (QREFELT $ 10)) |b|)
               ('T
                (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 13)) |b| |h|) |h|

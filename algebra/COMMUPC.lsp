@@ -1,5 +1,5 @@
 
-(SDEFUN |COMMUPC;swap;2UPUP;1| ((|poly| UPUP) ($ UPUP))
+(SDEFUN |COMMUPC;swap;2UPUP;1| ((|poly| (UPUP)) ($ (UPUP)))
         (SPROG ((|ans| (UPUP)))
                (SEQ (LETT |ans| (|spadConstant| $ 9))
                     (SEQ G190
@@ -20,7 +20,8 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |ans|)))) 
 
-(SDEFUN |COMMUPC;makePoly| ((|poly| UP) (|d| |NonNegativeInteger|) ($ UPUP))
+(SDEFUN |COMMUPC;makePoly|
+        ((|poly| (UP)) (|d| (|NonNegativeInteger|)) ($ (UPUP)))
         (SPROG ((|ans| (UPUP)))
                (SEQ (LETT |ans| (|spadConstant| $ 9))
                     (SEQ G190

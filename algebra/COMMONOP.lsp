@@ -1,5 +1,5 @@
 
-(SDEFUN |COMMONOP;operator;SBo;1| ((|s| |Symbol|) ($ |BasicOperator|))
+(SDEFUN |COMMONOP;operator;SBo;1| ((|s| (|Symbol|)) ($ (|BasicOperator|)))
         (SPROG ((#1=#:G124 NIL) (#2=#:G125 NIL) (#3=#:G126 NIL) (|op| NIL))
                (SEQ
                 (EXIT
@@ -27,29 +27,31 @@
                       (EXIT (SPADCALL |s| (QREFELT $ 43)))))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |COMMONOP;dpi| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |COMMONOP;dpi| ((|l| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (SPADCALL '|%pi| (QREFELT $ 161))) 
 
-(SDEFUN |COMMONOP;dfact| ((|x| |OutputForm|) ($ |OutputForm|))
+(SDEFUN |COMMONOP;dfact| ((|x| (|OutputForm|)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL '! (QREFELT $ 161))
                   (COND ((ATOM |x|) |x|) ('T (SPADCALL |x| (QREFELT $ 162))))
                   (QREFELT $ 163))) 
 
-(SDEFUN |COMMONOP;dquote| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |COMMONOP;dquote| ((|l| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL (|SPADfirst| |l|) (QREFELT $ 164)) (CDR |l|)
                   (QREFELT $ 166))) 
 
-(SDEFUN |COMMONOP;dgamma| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |COMMONOP;dgamma| ((|l| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL '|Gamma| (QREFELT $ 161)) |l| (QREFELT $ 166))) 
 
-(SDEFUN |COMMONOP;dEllipticE2| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
+(SDEFUN |COMMONOP;dEllipticE2|
+        ((|l| (|List| (|OutputForm|))) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL '|ellipticE| (QREFELT $ 161)) |l| (QREFELT $ 166))) 
 
 (SDEFUN |COMMONOP;setDummyVar|
-        ((|op| |BasicOperator|) (|n| |NonNegativeInteger|) ($ |BasicOperator|))
+        ((|op| (|BasicOperator|)) (|n| (|NonNegativeInteger|))
+         ($ (|BasicOperator|)))
         (SPADCALL |op| '|%dummyVar| |n| (QREFELT $ 168))) 
 
-(SDEFUN |COMMONOP;dexp| ((|x| |OutputForm|) ($ |OutputForm|))
+(SDEFUN |COMMONOP;dexp| ((|x| (|OutputForm|)) ($ (|OutputForm|)))
         (SPROG ((|e| (|OutputForm|)))
                (SEQ (LETT |e| (SPADCALL '|%e| (QREFELT $ 161)))
                     (EXIT
@@ -59,7 +61,7 @@
                        |e|)
                       ('T (SPADCALL |e| |x| (QREFELT $ 171)))))))) 
 
-(SDEFUN |COMMONOP;inputdefsum| ((|a| |List| (|InputForm|)) ($ |InputForm|))
+(SDEFUN |COMMONOP;inputdefsum| ((|a| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPROG ((|eq| #1=(|InputForm|)) (|seg| #1#))
                (SEQ
                 (LETT |seg|
@@ -79,7 +81,8 @@
                         (SPADCALL |a| 1 (QREFELT $ 176)) |eq|)
                   (QREFELT $ 177)))))) 
 
-(SDEFUN |COMMONOP;inputdefprod| ((|a| |List| (|InputForm|)) ($ |InputForm|))
+(SDEFUN |COMMONOP;inputdefprod|
+        ((|a| (|List| (|InputForm|))) ($ (|InputForm|)))
         (SPROG ((|eq| #1=(|InputForm|)) (|seg| #1#))
                (SEQ
                 (LETT |seg|
@@ -99,7 +102,7 @@
                         (SPADCALL |a| 1 (QREFELT $ 176)) |eq|)
                   (QREFELT $ 177)))))) 
 
-(SDEFUN |COMMONOP;startUp| ((|b| |Boolean|) ($ |Void|))
+(SDEFUN |COMMONOP;startUp| ((|b| (|Boolean|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G198 NIL) (|op| NIL) (#2=#:G197 NIL) (#3=#:G196 NIL)
           (#4=#:G195 NIL) (#5=#:G194 NIL) (#6=#:G193 NIL) (#7=#:G192 NIL)

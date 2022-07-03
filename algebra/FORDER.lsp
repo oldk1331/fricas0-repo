@@ -1,6 +1,6 @@
 
 (SDEFUN |FORDER;order;FdNni;1|
-        ((|d| |FiniteDivisor| F UP UPUP R) ($ |NonNegativeInteger|))
+        ((|d| (|FiniteDivisor| F UP UPUP R)) ($ (|NonNegativeInteger|)))
         (SPROG ((|dd| (|FiniteDivisor| F UP UPUP R)) (#1=#:G124 NIL) (|i| NIL))
                (SEQ
                 (EXIT

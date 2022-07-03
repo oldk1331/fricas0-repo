@@ -1,5 +1,6 @@
 
-(SDEFUN |GUESSEB;ord1| ((|x| |List| (|Integer|)) (|i| |Integer|) ($ |Integer|))
+(SDEFUN |GUESSEB;ord1|
+        ((|x| (|List| (|Integer|))) (|i| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((#1=#:G169 NIL) (|k| NIL) (#2=#:G168 NIL) (#3=#:G167 NIL) (|j| NIL)
           (#4=#:G166 NIL) (#5=#:G165 NIL) (#6=#:G164 NIL) (|n| (|Integer|)))
@@ -68,7 +69,8 @@
                                    (EXIT (NREVERSE #4#))))
                              0 (QREFELT $ 18)))))))) 
 
-(SDEFUN |GUESSEB;ord2| ((|x| |List| (|Integer|)) (|i| |Integer|) ($ |Integer|))
+(SDEFUN |GUESSEB;ord2|
+        ((|x| (|List| (|Integer|))) (|i| (|Integer|)) ($ (|Integer|)))
         (SPROG ((#1=#:G177 NIL) (|j| NIL) (#2=#:G176 NIL) (|n| (|Integer|)))
                (SEQ
                 (COND
@@ -98,7 +100,8 @@
                                (SPADCALL |x| (+ |n| 1) (QREFELT $ 15))))))))
                  ('T (|GUESSEB;ord1| |x| |i| $)))))) 
 
-(SDEFUN |GUESSEB;deg1| ((|x| |List| (|Integer|)) (|i| |Integer|) ($ |Integer|))
+(SDEFUN |GUESSEB;deg1|
+        ((|x| (|List| (|Integer|))) (|i| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((#1=#:G194 NIL) (|k| NIL) (#2=#:G193 NIL) (#3=#:G192 NIL) (|j| NIL)
           (#4=#:G191 NIL) (#5=#:G190 NIL) (#6=#:G189 NIL) (|m| (|Integer|)))
@@ -172,7 +175,8 @@
                                    (EXIT (NREVERSE #4#))))
                              0 (QREFELT $ 18)))))))) 
 
-(SDEFUN |GUESSEB;deg2| ((|x| |List| (|Integer|)) (|i| |Integer|) ($ |Integer|))
+(SDEFUN |GUESSEB;deg2|
+        ((|x| (|List| (|Integer|))) (|i| (|Integer|)) ($ (|Integer|)))
         (SPROG ((#1=#:G201 NIL) (|j| NIL) (#2=#:G200 NIL) (|m| (|Integer|)))
                (SEQ (LETT |m| (- (LENGTH |x|) 3))
                     (EXIT
@@ -198,8 +202,8 @@
                             (SPADCALL |x| (+ |m| 1) (QREFELT $ 15))))))))) 
 
 (SDEFUN |GUESSEB;checkResult|
-        ((|res| EXPRR) (|n| |Symbol|) (|l| |Integer|) (|list| |List| F)
-         ($ |NonNegativeInteger|))
+        ((|res| (EXPRR)) (|n| (|Symbol|)) (|l| (|Integer|)) (|list| (|List| F))
+         ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G208 NIL) (#2=#:G203 NIL) (|num| (EXPRR)) (#3=#:G202 NIL)
           (|den| (EXPRR)) (|i| NIL))
@@ -245,8 +249,8 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |GUESSEB;SUPS2SUPF|
-        ((|p| |SparseUnivariatePolynomial| S)
-         ($ |SparseUnivariatePolynomial| F))
+        ((|p| (|SparseUnivariatePolynomial| S))
+         ($ (|SparseUnivariatePolynomial| F)))
         (COND ((|domainEqual| (QREFELT $ 6) (QREFELT $ 7)) |p|)
               ((|domainEqual| (QREFELT $ 6) (|Fraction| (QREFELT $ 7)))
                (SPADCALL (ELT $ 35) |p| (QREFELT $ 40)))
@@ -257,11 +261,12 @@
                  " equal to Fraction S" (QREFELT $ 42)))))) 
 
 (SDEFUN |GUESSEB;F2FPOLYS|
-        ((|p| F)
-         ($ |Fraction|
-          (|SparseMultivariatePolynomial| S
-                                          (|OrderedVariableList|
-                                           (|construct| '|a1| 'A)))))
+        ((|p| (F))
+         ($
+          (|Fraction|
+           (|SparseMultivariatePolynomial| S
+                                           (|OrderedVariableList|
+                                            (|construct| '|a1| 'A))))))
         (COND
          ((|domainEqual| (QREFELT $ 6) (QREFELT $ 7))
           (SPADCALL (SPADCALL |p| (QREFELT $ 44)) (QREFELT $ 46)))
@@ -275,7 +280,7 @@
                      " equal to Fraction S" (QREFELT $ 42)))))) 
 
 (SDEFUN |GUESSEB;SUPF2EXPRR|
-        ((|xx| |Symbol|) (|p| |SparseUnivariatePolynomial| F) ($ EXPRR))
+        ((|xx| (|Symbol|)) (|p| (|SparseUnivariatePolynomial| F)) ($ (EXPRR)))
         (COND ((SPADCALL |p| (QREFELT $ 53)) (|spadConstant| $ 26))
               ('T
                (SPADCALL
@@ -288,17 +293,21 @@
                 (QREFELT $ 60))))) 
 
 (SDEFUN |GUESSEB;FSUPF2EXPRR|
-        ((|xx| |Symbol|) (|p| |Fraction| (|SparseUnivariatePolynomial| F))
-         ($ EXPRR))
+        ((|xx| (|Symbol|)) (|p| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         ($ (EXPRR)))
         (SPADCALL (|GUESSEB;SUPF2EXPRR| |xx| (SPADCALL |p| (QREFELT $ 62)) $)
                   (|GUESSEB;SUPF2EXPRR| |xx| (SPADCALL |p| (QREFELT $ 63)) $)
                   (QREFELT $ 32))) 
 
 (SDEFUN |GUESSEB;POLYS2POLYF|
-        ((|p| |SparseMultivariatePolynomial| S
-          (|OrderedVariableList| (|construct| '|a1| 'A)))
-         ($ |SparseMultivariatePolynomial| F
-          (|OrderedVariableList| (|construct| '|a1| 'A))))
+        ((|p|
+          (|SparseMultivariatePolynomial| S
+                                          (|OrderedVariableList|
+                                           (|construct| '|a1| 'A))))
+         ($
+          (|SparseMultivariatePolynomial| F
+                                          (|OrderedVariableList|
+                                           (|construct| '|a1| 'A)))))
         (COND ((|domainEqual| (QREFELT $ 6) (QREFELT $ 7)) |p|)
               ((|domainEqual| (QREFELT $ 6) (|Fraction| (QREFELT $ 7)))
                (SPADCALL (ELT $ 35) |p| (QREFELT $ 65)))
@@ -309,11 +318,12 @@
                  " equal to Fraction S" (QREFELT $ 42)))))) 
 
 (SDEFUN |GUESSEB;SUPPOLYS2SUPF|
-        ((|p| |SparseUnivariatePolynomial|
-          (|SparseMultivariatePolynomial| S
-                                          (|OrderedVariableList|
-                                           (|construct| '|a1| 'A))))
-         (|a1v| F) (|Av| F) ($ |SparseUnivariatePolynomial| F))
+        ((|p|
+          (|SparseUnivariatePolynomial|
+           (|SparseMultivariatePolynomial| S
+                                           (|OrderedVariableList|
+                                            (|construct| '|a1| 'A)))))
+         (|a1v| (F)) (|Av| (F)) ($ (|SparseUnivariatePolynomial| F)))
         (SPROG
          ((|lc|
            (|SparseMultivariatePolynomial| F
@@ -341,16 +351,18 @@
                     (QREFELT $ 79))))))))) 
 
 (SDEFUN |GUESSEB;SUPFPOLYS2FSUPPOLYS|
-        ((|p| |SparseUnivariatePolynomial|
-          (|Fraction|
-           (|SparseMultivariatePolynomial| S
-                                           (|OrderedVariableList|
-                                            (|construct| '|a1| 'A)))))
-         ($ |Fraction|
+        ((|p|
           (|SparseUnivariatePolynomial|
-           (|SparseMultivariatePolynomial| S
-                                           (|OrderedVariableList|
-                                            (|construct| '|a1| 'A))))))
+           (|Fraction|
+            (|SparseMultivariatePolynomial| S
+                                            (|OrderedVariableList|
+                                             (|construct| '|a1| 'A))))))
+         ($
+          (|Fraction|
+           (|SparseUnivariatePolynomial|
+            (|SparseMultivariatePolynomial| S
+                                            (|OrderedVariableList|
+                                             (|construct| '|a1| 'A)))))))
         (SPROG
          ((|pden|
            (|SparseUnivariatePolynomial|
@@ -393,19 +405,24 @@
 
 (PUT '|GUESSEB;defaultD| '|SPADreplace| '(XLAM (|expr|) |expr|)) 
 
-(SDEFUN |GUESSEB;defaultD| ((|expr| EXPRR) ($ EXPRR)) |expr|) 
+(SDEFUN |GUESSEB;defaultD| ((|expr| (EXPRR)) ($ (EXPRR))) |expr|) 
 
-(SDEFUN |GUESSEB;DN2DL| ((DN |Mapping| EXPRR EXPRR) (|i| |Integer|) ($ F))
+(SDEFUN |GUESSEB;DN2DL|
+        ((DN (|Mapping| EXPRR EXPRR)) (|i| (|Integer|)) ($ (F)))
         (SPADCALL (SPADCALL (SPADCALL |i| (QREFELT $ 22)) DN) (QREFELT $ 9))) 
 
 (SDEFUN |GUESSEB;evalResultant|
-        ((|p1| |SparseMultivariatePolynomial| S
-          (|OrderedVariableList| (|construct| '|a1| 'A)))
-         (|p2| |SparseMultivariatePolynomial| S
-          (|OrderedVariableList| (|construct| '|a1| 'A)))
-         (|o| |Integer|) (|d| |Integer|)
-         (|va1| |OrderedVariableList| (|construct| '|a1| 'A))
-         (|vA| |OrderedVariableList| (|construct| '|a1| 'A)) ($ |List| S))
+        ((|p1|
+          (|SparseMultivariatePolynomial| S
+                                          (|OrderedVariableList|
+                                           (|construct| '|a1| 'A))))
+         (|p2|
+          (|SparseMultivariatePolynomial| S
+                                          (|OrderedVariableList|
+                                           (|construct| '|a1| 'A))))
+         (|o| (|Integer|)) (|d| (|Integer|))
+         (|va1| (|OrderedVariableList| (|construct| '|a1| 'A)))
+         (|vA| (|OrderedVariableList| (|construct| '|a1| 'A))) ($ (|List| S)))
         (SPROG
          ((|res| (|List| S)) (#1=#:G231 NIL) (#2=#:G229 NIL) (|lead| (S))
           (#3=#:G227 NIL) (#4=#:G225 NIL) (|d2atk| #5=(|NonNegativeInteger|))
@@ -491,14 +508,15 @@
               (EXIT (REVERSE |res|))))) 
 
 (SDEFUN |GUESSEB;p_subst|
-        ((|xm| |Integer|) (|i| |Integer|)
-         (|va1| |OrderedVariableList| (|construct| '|a1| 'A))
-         (|vA| |OrderedVariableList| (|construct| '|a1| 'A))
-         (|basis| |Mapping| EXPRR EXPRR)
-         ($ |Fraction|
-          (|SparseMultivariatePolynomial| S
-                                          (|OrderedVariableList|
-                                           (|construct| '|a1| 'A)))))
+        ((|xm| (|Integer|)) (|i| (|Integer|))
+         (|va1| (|OrderedVariableList| (|construct| '|a1| 'A)))
+         (|vA| (|OrderedVariableList| (|construct| '|a1| 'A)))
+         (|basis| (|Mapping| EXPRR EXPRR))
+         ($
+          (|Fraction|
+           (|SparseMultivariatePolynomial| S
+                                           (|OrderedVariableList|
+                                            (|construct| '|a1| 'A))))))
         (SPADCALL (SPADCALL (SPADCALL |vA| (QREFELT $ 105)) (QREFELT $ 106))
                   (SPADCALL
                    (SPADCALL (SPADCALL |va1| (QREFELT $ 105)) (QREFELT $ 106))
@@ -510,8 +528,8 @@
                   (QREFELT $ 109))) 
 
 (SDEFUN |GUESSEB;p2_subst|
-        ((|xm| |Integer|) (|i| |Symbol|) (|a1v| F) (|Av| F)
-         (|basis| |Mapping| EXPRR EXPRR) ($ EXPRR))
+        ((|xm| (|Integer|)) (|i| (|Symbol|)) (|a1v| (F)) (|Av| (F))
+         (|basis| (|Mapping| EXPRR EXPRR)) ($ (EXPRR)))
         (SPADCALL (SPADCALL |Av| (QREFELT $ 10))
                   (SPADCALL (SPADCALL |a1v| (QREFELT $ 10))
                             (SPADCALL
@@ -522,9 +540,9 @@
                   (QREFELT $ 60))) 
 
 (SDEFUN |GUESSEB;guessExpRatAux|
-        ((|xx| |Symbol|) (|list| |List| F) (|basis| |Mapping| EXPRR EXPRR)
-         (|xValues| |List| (|Integer|)) (|options| |List| (|GuessOption|))
-         ($ |List| EXPRR))
+        ((|xx| (|Symbol|)) (|list| (|List| F))
+         (|basis| (|Mapping| EXPRR EXPRR)) (|xValues| (|List| (|Integer|)))
+         (|options| (|List| (|GuessOption|))) ($ (|List| EXPRR)))
         (SPROG
          ((#1=#:G297 NIL) (|res| (|List| EXPRR)) (|res4| (EXPRR))
           (|denr| #2=(|SparseUnivariatePolynomial| F)) (|numr| #2#)
@@ -909,8 +927,8 @@
              (QREFELT $ 108)))))) 
 
 (SDEFUN |GUESSEB;guessExpRatAux0|
-        ((|list| |List| F) (|basis| |Mapping| EXPRR EXPRR)
-         (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|basis| (|Mapping| EXPRR EXPRR))
+         (|options| (|List| (|GuessOption|))) ($ (|List| EXPRR)))
         (SPROG
          ((|res| (|List| EXPRR)) (#1=#:G322 NIL) (|f| NIL) (#2=#:G321 NIL)
           (|xValues| (|List| (|Integer|))) (|newlist| (|List| F))
@@ -1031,13 +1049,14 @@
                       (QREFELT $ 169)))))) 
 
 (SDEFUN |GUESSEB;guessExpRat;LLL;20|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (|GUESSEB;guessExpRatAux0| |list|
          (CONS (|function| |GUESSEB;defaultD|) $) |options| $)) 
 
 (SDEFUN |GUESSEB;guessExpRat;SM;21|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPROG NIL (CONS #'|GUESSEB;guessExpRat;SM;21!1| (VECTOR |q| $)))) 
 
 (SDEFUN |GUESSEB;guessExpRat;SM;21!1| ((|z1| NIL) (|z2| NIL) ($$ NIL))
@@ -1060,12 +1079,14 @@
             (SPADCALL (SPADCALL |q| (QREFELT $ 21)) |i1| (QREFELT $ 161)))))) 
 
 (SDEFUN |GUESSEB;binExt|
-        ((|i| |Integer|) (|va1| |OrderedVariableList| (|construct| '|a1| 'A))
-         (|vA| |OrderedVariableList| (|construct| '|a1| 'A))
-         ($ |Fraction|
-          (|SparseMultivariatePolynomial| S
-                                          (|OrderedVariableList|
-                                           (|construct| '|a1| 'A)))))
+        ((|i| (|Integer|))
+         (|va1| (|OrderedVariableList| (|construct| '|a1| 'A)))
+         (|vA| (|OrderedVariableList| (|construct| '|a1| 'A)))
+         ($
+          (|Fraction|
+           (|SparseMultivariatePolynomial| S
+                                           (|OrderedVariableList|
+                                            (|construct| '|a1| 'A))))))
         (SPROG
          ((|num|
            (|SparseMultivariatePolynomial| S
@@ -1106,7 +1127,8 @@
                      (SPADCALL (SPADCALL |i| (QREFELT $ 185)) (QREFELT $ 178))
                      (QREFELT $ 52)))))) 
 
-(SDEFUN |GUESSEB;binExtEXPR| ((|i| |Symbol|) (|a1v| F) (|Av| F) ($ EXPRR))
+(SDEFUN |GUESSEB;binExtEXPR|
+        ((|i| (|Symbol|)) (|a1v| (F)) (|Av| (F)) ($ (EXPRR)))
         (SPADCALL
          (SPADCALL (SPADCALL |Av| (QREFELT $ 10))
                    (SPADCALL (SPADCALL |a1v| (QREFELT $ 10))
@@ -1115,17 +1137,19 @@
          (SPADCALL |i| (QREFELT $ 21)) (QREFELT $ 186))) 
 
 (SDEFUN |GUESSEB;guessBinRatAux|
-        ((|xx| |Symbol|) (|list| |List| F) (|basis| |Mapping| EXPRR EXPRR)
-         (|ext| |Mapping|
-          (|Fraction|
-           (|SparseMultivariatePolynomial| S
-                                           (|OrderedVariableList|
-                                            (|construct| '|a1| 'A))))
-          (|Integer|) (|OrderedVariableList| (|construct| '|a1| 'A))
-          (|OrderedVariableList| (|construct| '|a1| 'A)))
-         (|extEXPR| |Mapping| EXPRR (|Symbol|) F F)
-         (|xValues| |List| (|Integer|)) (|options| |List| (|GuessOption|))
-         ($ |List| EXPRR))
+        ((|xx| (|Symbol|)) (|list| (|List| F))
+         (|basis| (|Mapping| EXPRR EXPRR))
+         (|ext|
+          (|Mapping|
+           (|Fraction|
+            (|SparseMultivariatePolynomial| S
+                                            (|OrderedVariableList|
+                                             (|construct| '|a1| 'A))))
+           (|Integer|) (|OrderedVariableList| (|construct| '|a1| 'A))
+           (|OrderedVariableList| (|construct| '|a1| 'A))))
+         (|extEXPR| (|Mapping| EXPRR (|Symbol|) F F))
+         (|xValues| (|List| (|Integer|))) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (SPROG
          ((#1=#:G367 NIL) (|res| (|List| EXPRR)) (|res4| (EXPRR))
           (|denr| #2=(|SparseUnivariatePolynomial| F)) (|numr| #2#)
@@ -1472,16 +1496,17 @@
              (QREFELT $ 187)))))) 
 
 (SDEFUN |GUESSEB;guessBinRatAux0|
-        ((|list| |List| F) (|basis| |Mapping| EXPRR EXPRR)
-         (|ext| |Mapping|
-          (|Fraction|
-           (|SparseMultivariatePolynomial| S
-                                           (|OrderedVariableList|
-                                            (|construct| '|a1| 'A))))
-          (|Integer|) (|OrderedVariableList| (|construct| '|a1| 'A))
-          (|OrderedVariableList| (|construct| '|a1| 'A)))
-         (|extEXPR| |Mapping| EXPRR (|Symbol|) F F)
-         (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|basis| (|Mapping| EXPRR EXPRR))
+         (|ext|
+          (|Mapping|
+           (|Fraction|
+            (|SparseMultivariatePolynomial| S
+                                            (|OrderedVariableList|
+                                             (|construct| '|a1| 'A))))
+           (|Integer|) (|OrderedVariableList| (|construct| '|a1| 'A))
+           (|OrderedVariableList| (|construct| '|a1| 'A))))
+         (|extEXPR| (|Mapping| EXPRR (|Symbol|) F F))
+         (|options| (|List| (|GuessOption|))) ($ (|List| EXPRR)))
         (SPROG
          ((|res| (|List| EXPRR)) (#1=#:G398 NIL) (|f| NIL) (#2=#:G397 NIL)
           (|xValues| (|List| (|Integer|))) (|newlist| (|List| F))
@@ -1602,13 +1627,14 @@
                       (QREFELT $ 169)))))) 
 
 (SDEFUN |GUESSEB;guessBinRat;LLL;26|
-        ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
+        ((|list| (|List| F)) (|options| (|List| (|GuessOption|)))
+         ($ (|List| EXPRR)))
         (|GUESSEB;guessBinRatAux0| |list|
          (CONS (|function| |GUESSEB;defaultD|) $)
          (CONS (|function| |GUESSEB;binExt|) $)
          (CONS (|function| |GUESSEB;binExtEXPR|) $) |options| $)) 
 
-(SDEFUN |GUESSEB;qD| ((|q| |Symbol|) ($ |Mapping| EXPRR EXPRR))
+(SDEFUN |GUESSEB;qD| ((|q| (|Symbol|)) ($ (|Mapping| EXPRR EXPRR)))
         (SPROG NIL (CONS #'|GUESSEB;qD!0| (VECTOR $ |q|)))) 
 
 (SDEFUN |GUESSEB;qD!0| ((|z1| NIL) ($$ NIL))
@@ -1620,13 +1646,14 @@
             (SPADCALL (SPADCALL |q| (QREFELT $ 21)) |z1| (QREFELT $ 161)))))) 
 
 (SDEFUN |GUESSEB;qBinExtAux|
-        ((|q| |Symbol|) (|i| |Integer|)
-         (|va1| |OrderedVariableList| (|construct| '|a1| 'A))
-         (|vA| |OrderedVariableList| (|construct| '|a1| 'A))
-         ($ |Fraction|
-          (|SparseMultivariatePolynomial| S
-                                          (|OrderedVariableList|
-                                           (|construct| '|a1| 'A)))))
+        ((|q| (|Symbol|)) (|i| (|Integer|))
+         (|va1| (|OrderedVariableList| (|construct| '|a1| 'A)))
+         (|vA| (|OrderedVariableList| (|construct| '|a1| 'A)))
+         ($
+          (|Fraction|
+           (|SparseMultivariatePolynomial| S
+                                           (|OrderedVariableList|
+                                            (|construct| '|a1| 'A))))))
         (SPROG
          ((|fl|
            (|List|
@@ -1679,14 +1706,15 @@
                      (QREFELT $ 193)))))) 
 
 (SDEFUN |GUESSEB;qBinExt|
-        ((|q| |Symbol|)
-         ($ |Mapping|
-          (|Fraction|
-           (|SparseMultivariatePolynomial| S
-                                           (|OrderedVariableList|
-                                            (|construct| '|a1| 'A))))
-          (|Integer|) (|OrderedVariableList| (|construct| '|a1| 'A))
-          (|OrderedVariableList| (|construct| '|a1| 'A))))
+        ((|q| (|Symbol|))
+         ($
+          (|Mapping|
+           (|Fraction|
+            (|SparseMultivariatePolynomial| S
+                                            (|OrderedVariableList|
+                                             (|construct| '|a1| 'A))))
+           (|Integer|) (|OrderedVariableList| (|construct| '|a1| 'A))
+           (|OrderedVariableList| (|construct| '|a1| 'A)))))
         (SPROG NIL (CONS #'|GUESSEB;qBinExt!0| (VECTOR $ |q|)))) 
 
 (SDEFUN |GUESSEB;qBinExt!0| ((|z1| NIL) (|z2| NIL) (|z3| NIL) ($$ NIL))
@@ -1696,7 +1724,7 @@
           (RETURN (PROGN (|GUESSEB;qBinExtAux| |q| |z1| |z2| |z3| $))))) 
 
 (SDEFUN |GUESSEB;qBinExtEXPRaux|
-        ((|q| |Symbol|) (|i| |Symbol|) (|a1v| F) (|Av| F) ($ EXPRR))
+        ((|q| (|Symbol|)) (|i| (|Symbol|)) (|a1v| (F)) (|Av| (F)) ($ (EXPRR)))
         (SPROG ((|l| (|Symbol|)))
                (SEQ (LETT |l| '|l|)
                     (EXIT
@@ -1732,7 +1760,7 @@
                       (QREFELT $ 199)))))) 
 
 (SDEFUN |GUESSEB;qBinExtEXPR|
-        ((|q| |Symbol|) ($ |Mapping| EXPRR (|Symbol|) F F))
+        ((|q| (|Symbol|)) ($ (|Mapping| EXPRR (|Symbol|) F F)))
         (SPROG NIL (CONS #'|GUESSEB;qBinExtEXPR!0| (VECTOR $ |q|)))) 
 
 (SDEFUN |GUESSEB;qBinExtEXPR!0| ((|z1| NIL) (|z2| NIL) (|z3| NIL) ($$ NIL))
@@ -1742,8 +1770,8 @@
           (RETURN (PROGN (|GUESSEB;qBinExtEXPRaux| |q| |z1| |z2| |z3| $))))) 
 
 (SDEFUN |GUESSEB;guessBinRat;SM;32|
-        ((|q| |Symbol|)
-         ($ |Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|))))
+        ((|q| (|Symbol|))
+         ($ (|Mapping| (|List| EXPRR) (|List| F) (|List| (|GuessOption|)))))
         (SPROG NIL (CONS #'|GUESSEB;guessBinRat;SM;32!0| (VECTOR $ |q|)))) 
 
 (SDEFUN |GUESSEB;guessBinRat;SM;32!0| ((|z1| NIL) (|z2| NIL) ($$ NIL))

@@ -1,6 +1,6 @@
 
 (SDEFUN |EXPRSOL;replaceDiffs;FBoSF;1|
-        ((|expr| F) (|op| |BasicOperator|) (|sy| |Symbol|) ($ F))
+        ((|expr| (F)) (|op| (|BasicOperator|)) (|sy| (|Symbol|)) ($ (F)))
         (SPROG
          ((|differentiand| (F)) (|args| (|List| F)) (|arg| (F)) (#1=#:G128 NIL)
           (|k| NIL) (|lk| (|List| (|Kernel| F))))
@@ -68,8 +68,8 @@
               (EXIT |expr|)))) 
 
 (SDEFUN |EXPRSOL;seriesSolve;FBoSLUTSF;2|
-        ((|expr| F) (|op| |BasicOperator|) (|sy| |Symbol|) (|l| |List| F)
-         ($ UTSF))
+        ((|expr| (F)) (|op| (|BasicOperator|)) (|sy| (|Symbol|))
+         (|l| (|List| F)) ($ (UTSF)))
         (SPROG ((|f| (|Mapping| UTSSMPF UTSSMPF UTSSMPF)) (|ex| (F)))
                (SEQ (LETT |ex| (SPADCALL |expr| |op| |sy| (QREFELT $ 28)))
                     (LETT |f|

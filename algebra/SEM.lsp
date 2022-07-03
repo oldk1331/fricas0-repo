@@ -1,8 +1,10 @@
 
 (SDEFUN |SEM;greater|
-        ((|r1| |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))
-         (|r2| |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))
-         ($ |Boolean|))
+        ((|r1|
+          (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+         (|r2|
+          (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+         ($ (|Boolean|)))
         (COND ((NULL (QCAR |r1|)) NIL) ((NULL (QCAR |r2|)) 'T)
               ('T
                (SPADCALL (|SPADfirst| (QCAR |r2|)) (|SPADfirst| (QCAR |r1|))
@@ -10,33 +12,34 @@
 
 (PUT '|SEM;ncols;$Nni;2| '|SPADreplace| '(XLAM (A) (QVELT A 0))) 
 
-(SDEFUN |SEM;ncols;$Nni;2| ((A $) ($ |NonNegativeInteger|)) (QVELT A 0)) 
+(SDEFUN |SEM;ncols;$Nni;2| ((A ($)) ($ (|NonNegativeInteger|))) (QVELT A 0)) 
 
 (PUT '|SEM;nrows;$Nni;3| '|SPADreplace| '(XLAM (A) (QVELT A 1))) 
 
-(SDEFUN |SEM;nrows;$Nni;3| ((A $) ($ |NonNegativeInteger|)) (QVELT A 1)) 
+(SDEFUN |SEM;nrows;$Nni;3| ((A ($)) ($ (|NonNegativeInteger|))) (QVELT A 1)) 
 
-(SDEFUN |SEM;allIndices;$L;4| ((A $) ($ |List| C))
+(SDEFUN |SEM;allIndices;$L;4| ((A ($)) ($ (|List| C)))
         (SPADCALL (QVELT A 2) (QREFELT $ 22))) 
 
 (SDEFUN |SEM;row;$IR;5|
-        ((A $) (|i| |Integer|)
-         ($ |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+        ((A ($)) (|i| (|Integer|))
+         ($ (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))))
         (QAREF1O (QVELT A 3) |i| 1)) 
 
 (SDEFUN |SEM;setRow!;$IRV;6|
-        ((A $) (|i| |Integer|)
-         (|r| |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))
-         ($ |Void|))
+        ((A ($)) (|i| (|Integer|))
+         (|r| (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+         ($ (|Void|)))
         (SEQ (QSETAREF1O (QVELT A 3) |i| |r| 1)
              (EXIT (SPADCALL (QREFELT $ 28))))) 
 
 (SDEFUN |SEM;setRow!;$ILLV;7|
-        ((A $) (|i| |Integer|) (|inds| |List| C) (|ents| |List| D) ($ |Void|))
+        ((A ($)) (|i| (|Integer|)) (|inds| (|List| C)) (|ents| (|List| D))
+         ($ (|Void|)))
         (SEQ (QSETAREF1O (QVELT A 3) |i| (CONS |inds| |ents|) 1)
              (EXIT (SPADCALL (QREFELT $ 28))))) 
 
-(SDEFUN |SEM;new;LI$;8| ((|inds| |List| C) (|n| |Integer|) ($ $))
+(SDEFUN |SEM;new;LI$;8| ((|inds| (|List| C)) (|n| (|Integer|)) ($ ($)))
         (SPROG
          ((#1=#:G207 NIL) (#2=#:G209 NIL) (|i| NIL) (#3=#:G208 NIL)
           (#4=#:G204 NIL))
@@ -60,7 +63,7 @@
                         (GO G190) G191 (EXIT NIL))
                    #3#))))) 
 
-(SDEFUN |SEM;elt;$ICD;9| ((A $) (|i| |Integer|) (|c| C) ($ D))
+(SDEFUN |SEM;elt;$ICD;9| ((A ($)) (|i| (|Integer|)) (|c| (C)) ($ (D)))
         (SPROG
          ((|pos| (|Integer|))
           (|r|
@@ -72,7 +75,7 @@
                      ('T (SPADCALL (QCDR |r|) |pos| (QREFELT $ 35)))))))) 
 
 (SDEFUN |SEM;setelt!;$ICDV;10|
-        ((A $) (|i| |Integer|) (|c| C) (|d| D) ($ |Void|))
+        ((A ($)) (|i| (|Integer|)) (|c| (C)) (|d| (D)) ($ (|Void|)))
         (SPROG
          ((|j| (|Integer|)) (#1=#:G217 NIL) (|ind| NIL) (|pos| (|Integer|))
           (|r|
@@ -102,7 +105,7 @@
               (QSETAREF1O (QVELT A 3) |i| |r| 1)
               (EXIT (SPADCALL (QREFELT $ 28)))))) 
 
-(SDEFUN |SEM;coerce;$M;11| ((A $) ($ |Matrix| D))
+(SDEFUN |SEM;coerce;$M;11| ((A ($)) ($ (|Matrix| D)))
         (SPROG
          ((|ents| (|List| D)) (|inds| (|List| C)) (#1=#:G229 NIL) (|ind| NIL)
           (|j| NIL) (#2=#:G228 NIL) (|r| NIL) (|i| NIL) (AA (|Matrix| D)))
@@ -145,12 +148,12 @@
                   G191 (EXIT NIL))
              (EXIT AA))))))) 
 
-(SDEFUN |SEM;coerce;$Of;12| ((A $) ($ |OutputForm|))
+(SDEFUN |SEM;coerce;$Of;12| ((A ($)) ($ (|OutputForm|)))
         (COND
          ((ZEROP (QVELT A 0)) (SPADCALL (|spadConstant| $ 34) (QREFELT $ 48)))
          ('T (SPADCALL (SPADCALL A (QREFELT $ 46)) (QREFELT $ 49))))) 
 
-(SDEFUN |SEM;copy;2$;13| ((A $) ($ $))
+(SDEFUN |SEM;copy;2$;13| ((A ($)) ($ ($)))
         (SPROG
          ((|r|
            (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
@@ -173,7 +176,7 @@
                (VECTOR (QVELT A 0) (QVELT A 1)
                        (SPADCALL (QVELT A 2) (QREFELT $ 22)) |resRows|))))) 
 
-(SDEFUN |SEM;elimZeroCols!;$V;14| ((A $) ($ |Void|))
+(SDEFUN |SEM;elimZeroCols!;$V;14| ((A ($)) ($ (|Void|)))
         (SPROG ((|newInds| (|List| C)) (#1=#:G242 NIL) (|r| NIL))
                (SEQ (LETT |newInds| NIL)
                     (SEQ (LETT |r| NIL)
@@ -195,7 +198,8 @@
 (SDEFUN |SEM;elimZeroCols!;$V;14!0| ((|x| NIL) (|y| NIL) ($ NIL))
         (SPADCALL |y| |x| (QREFELT $ 16))) 
 
-(SDEFUN |SEM;purge!;$MV;15| ((A $) (|crit| |Mapping| (|Boolean|) C) ($ |Void|))
+(SDEFUN |SEM;purge!;$MV;15|
+        ((A ($)) (|crit| (|Mapping| (|Boolean|) C)) ($ (|Void|)))
         (SPROG
          ((|newEnts| (|List| D)) (|newInds| (|List| C)) (#1=#:G258 NIL)
           (|c| NIL) (#2=#:G259 NIL) (|e| NIL)
@@ -254,7 +258,7 @@
               (EXIT (SPADCALL (QREFELT $ 28)))))) 
 
 (SDEFUN |SEM;sortedPurge!;$MV;16|
-        ((A $) (|crit| |Mapping| (|Boolean|) C) ($ |Void|))
+        ((A ($)) (|crit| (|Mapping| (|Boolean|) C)) ($ (|Void|)))
         (SPROG
          ((|r|
            (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
@@ -294,7 +298,7 @@
                    (LETT |l| (|inc_SI| |l|)) (GO G190) G191 (EXIT NIL))))))
           (EXIT (SPADCALL (QREFELT $ 28)))))) 
 
-(SDEFUN |SEM;deleteRow!;$IV;17| ((A $) (|i| |Integer|) ($ |Void|))
+(SDEFUN |SEM;deleteRow!;$IV;17| ((A ($)) (|i| (|Integer|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G282 NIL) (|l| NIL) (#2=#:G281 NIL)
           (|resRows|
@@ -328,9 +332,9 @@
                   (EXIT (SPADCALL (QREFELT $ 28))))))))) 
 
 (SDEFUN |SEM;consRow!;$RV;18|
-        ((A $)
-         (|r| |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))
-         ($ |Void|))
+        ((A ($))
+         (|r| (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+         ($ (|Void|)))
         (SPROG
          ((|newInds| (|List| C))
           (|newRows|
@@ -358,9 +362,9 @@
         (SPADCALL |y| |x| (QREFELT $ 16))) 
 
 (SDEFUN |SEM;appendRow!;$RV;19|
-        ((A $)
-         (|r| |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))
-         ($ |Void|))
+        ((A ($))
+         (|r| (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+         ($ (|Void|)))
         (SPROG
          ((|newInds| (|List| C))
           (|newRows|
@@ -389,7 +393,8 @@
 (SDEFUN |SEM;appendRow!;$RV;19!0| ((|x| NIL) (|y| NIL) ($ NIL))
         (SPADCALL |y| |x| (QREFELT $ 16))) 
 
-(SDEFUN |SEM;extract;$2I$;20| ((A $) (|i1| |Integer|) (|i2| |Integer|) ($ $))
+(SDEFUN |SEM;extract;$2I$;20|
+        ((A ($)) (|i1| (|Integer|)) (|i2| (|Integer|)) ($ ($)))
         (SPROG
          ((|newInds| (|List| C)) (#1=#:G300 NIL) (|i| NIL)
           (|resRows|
@@ -420,7 +425,7 @@
 (SDEFUN |SEM;extract;$2I$;20!0| ((|x| NIL) (|y| NIL) ($ NIL))
         (SPADCALL |y| |x| (QREFELT $ 16))) 
 
-(SDEFUN |SEM;join;3$;21| ((A1 $) (A2 $) ($ $))
+(SDEFUN |SEM;join;3$;21| ((A1 ($)) (A2 ($)) ($ ($)))
         (SPROG
          ((#1=#:G314 NIL) (|l| NIL) (#2=#:G313 NIL)
           (|newRows|
@@ -453,7 +458,7 @@
 (SDEFUN |SEM;join;3$;21!0| ((|x| NIL) (|y| NIL) ($ NIL))
         (SPADCALL |y| |x| (QREFELT $ 16))) 
 
-(SDEFUN |SEM;horizJoin;3$;22| ((A1 $) (A2 $) ($ $))
+(SDEFUN |SEM;horizJoin;3$;22| ((A1 ($)) (A2 ($)) ($ ($)))
         (SPROG
          ((|r2|
            #1=(|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
@@ -483,7 +488,7 @@
              (EXIT |res|))))))) 
 
 (SDEFUN |SEM;horizSplit;$CR;23|
-        ((A $) (|c| C) ($ |Record| (|:| |Left| $) (|:| |Right| $)))
+        ((A ($)) (|c| (C)) ($ (|Record| (|:| |Left| $) (|:| |Right| $))))
         (SPROG
          ((|le| (|List| D)) (|li| #1=(|List| C)) (|re| (|List| D))
           (|ri| (|List| C))
@@ -560,11 +565,13 @@
                           (EXIT (CONS LA RA))))))))))))) 
 
 (SDEFUN |SEM;addRows|
-        ((|d1| D)
-         (|r1| |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))
-         (|d2| D)
-         (|r2| |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))
-         ($ |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+        ((|d1| (D))
+         (|r1|
+          (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+         (|d2| (D))
+         (|r2|
+          (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+         ($ (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))))
         (SPROG
          ((|resE| (|List| D)) (|resI| (|List| C)) (|lent2| (|List| D))
           (|lind2| (|List| C)) (|sum| (D)) (#1=#:G376 NIL) (|c1| NIL)
@@ -713,7 +720,8 @@
                  (EXIT (CONS |resI| |resE|)))))))) 
 
 (SDEFUN |SEM;pivot;$IR;25|
-        ((A $) (|i| |Integer|) ($ |Record| (|:| |Index| C) (|:| |Entry| D)))
+        ((A ($)) (|i| (|Integer|))
+         ($ (|Record| (|:| |Index| C) (|:| |Entry| D))))
         (SPROG
          ((|r|
            (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))))
@@ -725,8 +733,8 @@
                             (|SPADfirst| (QCDR |r|))))))))) 
 
 (SDEFUN |SEM;pivots;$R;26|
-        ((A $)
-         ($ |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+        ((A ($))
+         ($ (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))))
         (SPROG
          ((|resE| (|List| D)) (|resI| (|List| C)) (#1=#:G387 NIL) (|r| NIL))
          (SEQ (LETT |resI| NIL) (LETT |resE| NIL)
@@ -748,9 +756,11 @@
               (EXIT (CONS (NREVERSE |resI|) (NREVERSE |resE|)))))) 
 
 (SDEFUN |SEM;rowEchelon;$R;27|
-        ((AA $)
-         ($ |Record| (|:| |Ech| $) (|:| |Lt| (|Matrix| D))
-          (|:| |Pivots| (|List| D)) (|:| |Rank| (|NonNegativeInteger|))))
+        ((AA ($))
+         ($
+          (|Record| (|:| |Ech| $) (|:| |Lt| (|Matrix| D))
+                    (|:| |Pivots| (|List| D))
+                    (|:| |Rank| (|NonNegativeInteger|)))))
         (SPROG
          ((|rk| (|NonNegativeInteger|)) (#1=#:G443 NIL) (|l| NIL)
           (#2=#:G442 NIL) (|f| (D)) (#3=#:G441 NIL)
@@ -1004,7 +1014,7 @@
               (COND ((NULL |finished?|) (LETT |rk| (QVELT A 1))))
               (EXIT (VECTOR A |LTr| |Pivs| |rk|))))) 
 
-(SDEFUN |SEM;setGcdMode;2S;28| ((|s| |Symbol|) ($ |Symbol|))
+(SDEFUN |SEM;setGcdMode;2S;28| ((|s| (|Symbol|)) ($ (|Symbol|)))
         (SPROG ((|tmp| (|Symbol|)))
                (SEQ (LETT |tmp| (QREFELT $ 14))
                     (COND
@@ -1012,7 +1022,7 @@
                       (EXIT (SEQ (SETELT $ 14 |s|) (EXIT |tmp|)))))
                     (EXIT (|error| "unknown gcd mode"))))) 
 
-(SDEFUN |SEM;randomGCD| ((|le| |List| D) ($ D))
+(SDEFUN |SEM;randomGCD| ((|le| (|List| D)) ($ (D)))
         (SPROG
          ((|l| (|List| D)) (|tmp| (|Union| D "failed")) (#1=#:G463 NIL)
           (|e| NIL) (|h| (D)) (|g| (D)) (#2=#:G462 NIL) (|f| (D)))
@@ -1077,7 +1087,7 @@
                          (#3# (|SEM;randomGCD| |l| $))))))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |SEM;iteratedGCD| ((|le| |List| D) ($ D))
+(SDEFUN |SEM;iteratedGCD| ((|le| (|List| D)) ($ (D)))
         (SPROG ((|l| (|List| D)) (|res| (D)))
                (SEQ
                 (LETT |res|
@@ -1098,11 +1108,12 @@
                 (EXIT |res|)))) 
 
 (SDEFUN |SEM;makePrimitive|
-        ((|r| |Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D)))
-         ($ |Record| (|:| GCD D)
-          (|:| |Row|
-               (|Record| (|:| |Indices| (|List| C))
-                         (|:| |Entries| (|List| D))))))
+        ((|r| (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
+         ($
+          (|Record| (|:| GCD D)
+                    (|:| |Row|
+                         (|Record| (|:| |Indices| (|List| C))
+                                   (|:| |Entries| (|List| D)))))))
         (SPROG
          ((|le| (|List| D)) (#1=#:G473 NIL) (#2=#:G481 NIL) (|e| NIL)
           (#3=#:G480 NIL) (|g| (D)))
@@ -1153,9 +1164,11 @@
                       (EXIT (CONS |g| (CONS (QCAR |r|) |le|)))))))))))))) 
 
 (SDEFUN |SEM;primitiveRowEchelon;$R;32|
-        ((AA $)
-         ($ |Record| (|:| |Ech| $) (|:| |Lt| (|Matrix| (|Fraction| D)))
-          (|:| |Pivots| (|List| D)) (|:| |Rank| (|NonNegativeInteger|))))
+        ((AA ($))
+         ($
+          (|Record| (|:| |Ech| $) (|:| |Lt| (|Matrix| (|Fraction| D)))
+                    (|:| |Pivots| (|List| D))
+                    (|:| |Rank| (|NonNegativeInteger|)))))
         (SPROG
          ((|rk| (|NonNegativeInteger|)) (#1=#:G543 NIL) (|l| NIL)
           (#2=#:G542 NIL) (|fd| (|Fraction| D)) (#3=#:G541 NIL)
@@ -1450,7 +1463,7 @@
               (COND ((NULL |finished?|) (LETT |rk| (QVELT A 1))))
               (EXIT (VECTOR A |LTr| |Pivs| |rk|))))) 
 
-(SDEFUN |SEM;*;M2$;33| ((LM |Matrix| D) (AA $) ($ $))
+(SDEFUN |SEM;*;M2$;33| ((LM (|Matrix| D)) (AA ($)) ($ ($)))
         (SPROG
          ((|r|
            (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
@@ -1563,7 +1576,7 @@
                       (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
                  (EXIT |res|))))))) 
 
-(SDEFUN |SEM;mult| ((|f| |Fraction| D) (|d| D) ($ D))
+(SDEFUN |SEM;mult| ((|f| (|Fraction| D)) (|d| (D)) ($ (D)))
         (SPROG ((|tmp| (|Union| D "failed")) (|res| (D)))
                (SEQ
                 (LETT |res|
@@ -1576,7 +1589,7 @@
                  (COND ((QEQCAR |tmp| 1) (|error| "cannot divide in mult"))
                        ('T (QCDR |tmp|))))))) 
 
-(SDEFUN |SEM;*;M2$;35| ((LM |Matrix| (|Fraction| D)) (AA $) ($ $))
+(SDEFUN |SEM;*;M2$;35| ((LM (|Matrix| (|Fraction| D))) (AA ($)) ($ ($)))
         (SPROG
          ((|r|
            (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))

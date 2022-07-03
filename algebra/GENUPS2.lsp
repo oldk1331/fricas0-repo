@@ -1,6 +1,6 @@
 
 (SDEFUN |GENUPS2;taylor;MEA;1|
-        ((|f| |Mapping| FE (|Integer|)) (|eq| |Equation| FE) ($ |Any|))
+        ((|f| (|Mapping| FE (|Integer|))) (|eq| (|Equation| FE)) ($ (|Any|)))
         (SPROG
          ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -15,8 +15,8 @@
                   (EXIT (SPADCALL |f| |x| |a| (QREFELT $ 16)))))))))) 
 
 (SDEFUN |GENUPS2;taylor;MEUsA;2|
-        ((|f| |Mapping| FE (|Integer|)) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|NonNegativeInteger|)) ($ |Any|))
+        ((|f| (|Mapping| FE (|Integer|))) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|NonNegativeInteger|))) ($ (|Any|)))
         (SPROG
          ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -31,8 +31,8 @@
                   (EXIT (SPADCALL |f| |x| |a| |seg| (QREFELT $ 19)))))))))) 
 
 (SDEFUN |GENUPS2;laurent;MEUsA;3|
-        ((|f| |Mapping| FE (|Integer|)) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|Integer|)) ($ |Any|))
+        ((|f| (|Mapping| FE (|Integer|))) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|Integer|))) ($ (|Any|)))
         (SPROG
          ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -47,9 +47,9 @@
                   (EXIT (SPADCALL |f| |x| |a| |seg| (QREFELT $ 22)))))))))) 
 
 (SDEFUN |GENUPS2;puiseux;MEUsFA;4|
-        ((|f| |Mapping| FE (|Fraction| (|Integer|))) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|Fraction| (|Integer|)))
-         (|r| |Fraction| (|Integer|)) ($ |Any|))
+        ((|f| (|Mapping| FE (|Fraction| (|Integer|)))) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|Fraction| (|Integer|))))
+         (|r| (|Fraction| (|Integer|))) ($ (|Any|)))
         (SPROG
          ((|a| (FE)) (|x| (|Symbol|)) (|xx| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -64,7 +64,7 @@
                   (EXIT (SPADCALL |f| |x| |a| |seg| |r| (QREFELT $ 27)))))))))) 
 
 (SDEFUN |GENUPS2;series;MEA;5|
-        ((|f| |Mapping| FE (|Integer|)) (|eq| |Equation| FE) ($ |Any|))
+        ((|f| (|Mapping| FE (|Integer|))) (|eq| (|Equation| FE)) ($ (|Any|)))
         (SPROG NIL
                (SPADCALL (CONS #'|GENUPS2;series;MEA;5!0| (VECTOR |f| $)) |eq|
                          (SPADCALL (|spadConstant| $ 33) (QREFELT $ 34))
@@ -77,8 +77,8 @@
           (RETURN (PROGN (SPADCALL (SPADCALL |r| (QREFELT $ 30)) |f|))))) 
 
 (SDEFUN |GENUPS2;series;MEUsA;6|
-        ((|f| |Mapping| FE (|Integer|)) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|Integer|)) ($ |Any|))
+        ((|f| (|Mapping| FE (|Integer|))) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|Integer|))) ($ (|Any|)))
         (SPROG ((|ratSeg| (|UniversalSegment| (|Fraction| (|Integer|)))))
                (SEQ (LETT |ratSeg| (SPADCALL (ELT $ 37) |seg| (QREFELT $ 40)))
                     (EXIT
@@ -93,13 +93,13 @@
           (RETURN (PROGN (SPADCALL (SPADCALL |r| (QREFELT $ 30)) |f|))))) 
 
 (SDEFUN |GENUPS2;series;MEUsFA;7|
-        ((|f| |Mapping| FE (|Fraction| (|Integer|))) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|Fraction| (|Integer|)))
-         (|r| |Fraction| (|Integer|)) ($ |Any|))
+        ((|f| (|Mapping| FE (|Fraction| (|Integer|)))) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|Fraction| (|Integer|))))
+         (|r| (|Fraction| (|Integer|))) ($ (|Any|)))
         (SPADCALL |f| |eq| |seg| |r| (QREFELT $ 28))) 
 
 (SDEFUN |GENUPS2;taylor;FESEA;8|
-        ((|an| FE) (|n| |Symbol|) (|eq| |Equation| FE) ($ |Any|))
+        ((|an| (FE)) (|n| (|Symbol|)) (|eq| (|Equation| FE)) ($ (|Any|)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|GENUPS2;taylor;FESEA;8!0| (VECTOR $ |n| |an|)) |eq|
@@ -118,8 +118,8 @@
                       (QREFELT $ 48)))))) 
 
 (SDEFUN |GENUPS2;taylor;FESEUsA;9|
-        ((|an| FE) (|n| |Symbol|) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|NonNegativeInteger|)) ($ |Any|))
+        ((|an| (FE)) (|n| (|Symbol|)) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|NonNegativeInteger|))) ($ (|Any|)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|GENUPS2;taylor;FESEUsA;9!0| (VECTOR $ |n| |an|)) |eq|
@@ -138,8 +138,8 @@
                       (QREFELT $ 48)))))) 
 
 (SDEFUN |GENUPS2;laurent;FESEUsA;10|
-        ((|an| FE) (|n| |Symbol|) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|Integer|)) ($ |Any|))
+        ((|an| (FE)) (|n| (|Symbol|)) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|Integer|))) ($ (|Any|)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|GENUPS2;laurent;FESEUsA;10!0| (VECTOR $ |n| |an|))
@@ -158,9 +158,9 @@
                       (QREFELT $ 48)))))) 
 
 (SDEFUN |GENUPS2;puiseux;FESEUsFA;11|
-        ((|an| FE) (|n| |Symbol|) (|eq| |Equation| FE)
-         (|r0| |UniversalSegment| (|Fraction| (|Integer|)))
-         (|m| |Fraction| (|Integer|)) ($ |Any|))
+        ((|an| (FE)) (|n| (|Symbol|)) (|eq| (|Equation| FE))
+         (|r0| (|UniversalSegment| (|Fraction| (|Integer|))))
+         (|m| (|Fraction| (|Integer|))) ($ (|Any|)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|GENUPS2;puiseux;FESEUsFA;11!0| (VECTOR $ |n| |an|))
@@ -179,13 +179,13 @@
                       (QREFELT $ 48)))))) 
 
 (SDEFUN |GENUPS2;series;FESEA;12|
-        ((|an| FE) (|n| |Symbol|) (|eq| |Equation| FE) ($ |Any|))
+        ((|an| (FE)) (|n| (|Symbol|)) (|eq| (|Equation| FE)) ($ (|Any|)))
         (SPADCALL |an| |n| |eq| (SPADCALL (|spadConstant| $ 33) (QREFELT $ 34))
                   (|spadConstant| $ 35) (QREFELT $ 53))) 
 
 (SDEFUN |GENUPS2;series;FESEUsA;13|
-        ((|an| FE) (|n| |Symbol|) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|Integer|)) ($ |Any|))
+        ((|an| (FE)) (|n| (|Symbol|)) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|Integer|))) ($ (|Any|)))
         (SPROG ((|ratSeg| (|UniversalSegment| (|Fraction| (|Integer|)))))
                (SEQ (LETT |ratSeg| (SPADCALL (ELT $ 37) |seg| (QREFELT $ 40)))
                     (EXIT
@@ -193,9 +193,9 @@
                                (QREFELT $ 53)))))) 
 
 (SDEFUN |GENUPS2;series;FESEUsFA;14|
-        ((|an| FE) (|n| |Symbol|) (|eq| |Equation| FE)
-         (|seg| |UniversalSegment| (|Fraction| (|Integer|)))
-         (|r| |Fraction| (|Integer|)) ($ |Any|))
+        ((|an| (FE)) (|n| (|Symbol|)) (|eq| (|Equation| FE))
+         (|seg| (|UniversalSegment| (|Fraction| (|Integer|))))
+         (|r| (|Fraction| (|Integer|))) ($ (|Any|)))
         (SPADCALL |an| |n| |eq| |seg| |r| (QREFELT $ 53))) 
 
 (DECLAIM (NOTINLINE |GenerateUnivariatePowerSeries2;|)) 

@@ -1,15 +1,15 @@
 
 (PUT '|OFTOOL;atom?;OfB;1| '|SPADreplace| 'ATOM) 
 
-(SDEFUN |OFTOOL;atom?;OfB;1| ((|x| |OutputForm|) ($ |Boolean|)) (ATOM |x|)) 
+(SDEFUN |OFTOOL;atom?;OfB;1| ((|x| (|OutputForm|)) ($ (|Boolean|))) (ATOM |x|)) 
 
-(SDEFUN |OFTOOL;atom_to_string;OfS;2| ((|x| |OutputForm|) ($ |String|))
+(SDEFUN |OFTOOL;atom_to_string;OfS;2| ((|x| (|OutputForm|)) ($ (|String|)))
         (COND ((SPADCALL |x| (QREFELT $ 9)) (SPADCALL |x| (QREFELT $ 12)))
               ((SPADCALL |x| (QREFELT $ 13)) (STRINGIMAGE |x|))
               ((SPADCALL |x| (QREFELT $ 14)) |x|)
               ('T (|error| "unrecognized kind of atom")))) 
 
-(SDEFUN |OFTOOL;empty?;OfB;3| ((|x| |OutputForm|) ($ |Boolean|))
+(SDEFUN |OFTOOL;empty?;OfB;3| ((|x| (|OutputForm|)) ($ (|Boolean|)))
         (SPROG ((|op| (|OutputForm|)))
                (SEQ
                 (COND
@@ -25,39 +25,41 @@
 
 (PUT '|OFTOOL;integer?;OfB;4| '|SPADreplace| 'INTEGERP) 
 
-(SDEFUN |OFTOOL;integer?;OfB;4| ((|x| |OutputForm|) ($ |Boolean|))
+(SDEFUN |OFTOOL;integer?;OfB;4| ((|x| (|OutputForm|)) ($ (|Boolean|)))
         (INTEGERP |x|)) 
 
-(SDEFUN |OFTOOL;integer;OfI;5| ((|x| |OutputForm|) ($ |Integer|))
+(SDEFUN |OFTOOL;integer;OfI;5| ((|x| (|OutputForm|)) ($ (|Integer|)))
         (COND ((SPADCALL |x| (QREFELT $ 13)) |x|)
               ('T (|error| "not an integer")))) 
 
 (PUT '|OFTOOL;symbol?;OfB;6| '|SPADreplace| 'SYMBOLP) 
 
-(SDEFUN |OFTOOL;symbol?;OfB;6| ((|x| |OutputForm|) ($ |Boolean|)) (SYMBOLP |x|)) 
+(SDEFUN |OFTOOL;symbol?;OfB;6| ((|x| (|OutputForm|)) ($ (|Boolean|)))
+        (SYMBOLP |x|)) 
 
-(SDEFUN |OFTOOL;symbol;OfS;7| ((|x| |OutputForm|) ($ |Symbol|))
+(SDEFUN |OFTOOL;symbol;OfS;7| ((|x| (|OutputForm|)) ($ (|Symbol|)))
         (COND ((SPADCALL |x| (QREFELT $ 9)) |x|) ('T (|error| "not a symbol")))) 
 
 (PUT '|OFTOOL;string?;OfB;8| '|SPADreplace| 'STRINGP) 
 
-(SDEFUN |OFTOOL;string?;OfB;8| ((|x| |OutputForm|) ($ |Boolean|)) (STRINGP |x|)) 
+(SDEFUN |OFTOOL;string?;OfB;8| ((|x| (|OutputForm|)) ($ (|Boolean|)))
+        (STRINGP |x|)) 
 
-(SDEFUN |OFTOOL;string;OfS;9| ((|x| |OutputForm|) ($ |String|))
+(SDEFUN |OFTOOL;string;OfS;9| ((|x| (|OutputForm|)) ($ (|String|)))
         (COND ((SPADCALL |x| (QREFELT $ 14)) |x|)
               ('T (|error| "not a string")))) 
 
-(SDEFUN |OFTOOL;operator;2Of;10| ((|x| |OutputForm|) ($ |OutputForm|))
+(SDEFUN |OFTOOL;operator;2Of;10| ((|x| (|OutputForm|)) ($ (|OutputForm|)))
         (COND ((SPADCALL |x| (QREFELT $ 8)) (|error| "is an atom"))
               ('T (|SPADfirst| |x|)))) 
 
 (SDEFUN |OFTOOL;arguments;OfL;11|
-        ((|x| |OutputForm|) ($ |List| (|OutputForm|)))
+        ((|x| (|OutputForm|)) ($ (|List| (|OutputForm|))))
         (COND ((SPADCALL |x| (QREFELT $ 8)) (|error| "is an atom"))
               ('T (CDR |x|)))) 
 
 (SDEFUN |OFTOOL;has_op?;OfSB;12|
-        ((|expr| |OutputForm|) (|op| |Symbol|) ($ |Boolean|))
+        ((|expr| (|OutputForm|)) (|op| (|Symbol|)) ($ (|Boolean|)))
         (SPROG ((|e1| (|OutputForm|)))
                (SEQ
                 (COND ((SPADCALL |expr| (QREFELT $ 8)) NIL)
@@ -66,13 +68,13 @@
                             (EXIT (EQ |e1| |op|)))))))) 
 
 (SDEFUN |OFTOOL;is_symbol?;OfSB;13|
-        ((|expr| |OutputForm|) (|op| |Symbol|) ($ |Boolean|))
+        ((|expr| (|OutputForm|)) (|op| (|Symbol|)) ($ (|Boolean|)))
         (COND ((NULL (SPADCALL |expr| (QREFELT $ 9))) NIL)
               ('T (EQUAL (SPADCALL |expr| (QREFELT $ 22)) |op|)))) 
 
 (SDEFUN |OFTOOL;flaten_op|
-        ((|s| |Symbol|) (|l| . #1=(|List| (|OutputForm|)))
-         ($ |List| (|OutputForm|)))
+        ((|s| (|Symbol|)) (|l| #1=(|List| (|OutputForm|)))
+         ($ (|List| (|OutputForm|))))
         (SPROG
          ((|res| (|List| (|OutputForm|))) (|ll| (|List| #1#))
           (|t1| (|OutputForm|)) (|t| (|OutputForm|)))
@@ -109,10 +111,11 @@
 (PUT '|OFTOOL;construct;OfLOf;15| '|SPADreplace| 'CONS) 
 
 (SDEFUN |OFTOOL;construct;OfLOf;15|
-        ((|op| |OutputForm|) (|args| |List| (|OutputForm|)) ($ |OutputForm|))
+        ((|op| (|OutputForm|)) (|args| (|List| (|OutputForm|)))
+         ($ (|OutputForm|)))
         (CONS |op| |args|)) 
 
-(SDEFUN |OFTOOL;precondition;2Of;16| ((|x| |OutputForm|) ($ |OutputForm|))
+(SDEFUN |OFTOOL;precondition;2Of;16| ((|x| (|OutputForm|)) ($ (|OutputForm|)))
         (SPROG
          ((|a11| #1=(|OutputForm|)) (|args1| #2=(|List| (|OutputForm|)))
           (|op1| #3=(|OutputForm|)) (|op| #3#) (|a2| (|OutputForm|)) (|a1| #1#)

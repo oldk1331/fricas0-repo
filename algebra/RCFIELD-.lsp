@@ -1,19 +1,19 @@
 
-(SDEFUN |RCFIELD-;sqrt;2S;1| ((|a| S) ($ S)) (SPADCALL |a| 2 (QREFELT $ 8))) 
+(SDEFUN |RCFIELD-;sqrt;2S;1| ((|a| (S)) ($ (S))) (SPADCALL |a| 2 (QREFELT $ 8))) 
 
-(SDEFUN |RCFIELD-;sqrt;FS;2| ((|a| |Fraction| (|Integer|)) ($ S))
+(SDEFUN |RCFIELD-;sqrt;FS;2| ((|a| (|Fraction| (|Integer|))) ($ (S)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 11)) 2 (QREFELT $ 8))) 
 
-(SDEFUN |RCFIELD-;sqrt;IS;3| ((|a| |Integer|) ($ S))
+(SDEFUN |RCFIELD-;sqrt;IS;3| ((|a| (|Integer|)) ($ (S)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 14)) 2 (QREFELT $ 8))) 
 
 (PUT '|RCFIELD-;characteristic;Nni;4| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |RCFIELD-;characteristic;Nni;4| (($ |NonNegativeInteger|)) 0) 
+(SDEFUN |RCFIELD-;characteristic;Nni;4| (($ (|NonNegativeInteger|))) 0) 
 
 (SDEFUN |RCFIELD-;rootOf;SupPiOfU;5|
-        ((|pol| |SparseUnivariatePolynomial| S) (|n| |PositiveInteger|)
-         (|o| |OutputForm|) ($ |Union| S "failed"))
+        ((|pol| (|SparseUnivariatePolynomial| S)) (|n| (|PositiveInteger|))
+         (|o| (|OutputForm|)) ($ (|Union| S "failed")))
         (SPROG ((|r| (|Union| S "failed")))
                (SEQ (LETT |r| (SPADCALL |pol| |n| (QREFELT $ 20)))
                     (EXIT
@@ -24,8 +24,8 @@
                                             (QREFELT $ 22))))))))) 
 
 (SDEFUN |RCFIELD-;rootOf;SupPiU;6|
-        ((|pol| |SparseUnivariatePolynomial| S) (|n| |PositiveInteger|)
-         ($ |Union| S "failed"))
+        ((|pol| (|SparseUnivariatePolynomial| S)) (|n| (|PositiveInteger|))
+         ($ (|Union| S "failed")))
         (SPROG ((|liste| (|List| S)))
                (SEQ (LETT |liste| (SPADCALL |pol| (QREFELT $ 25)))
                     (EXIT
@@ -33,7 +33,7 @@
                            ('T
                             (CONS 0 (SPADCALL |liste| |n| (QREFELT $ 27))))))))) 
 
-(SDEFUN |RCFIELD-;sqrt;SPiS;7| ((|x| S) (|n| |PositiveInteger|) ($ S))
+(SDEFUN |RCFIELD-;sqrt;SPiS;7| ((|x| (S)) (|n| (|PositiveInteger|)) ($ (S)))
         (SPROG ((|r| (|Union| S "failed")))
                (SEQ
                 (COND ((EQL |n| 1) |x|)
@@ -74,7 +74,7 @@
                                            (QREFELT $ 42))
                                           (QREFELT $ 40))))))))))) 
 
-(SDEFUN |RCFIELD-;^;SFS;8| ((|x| S) (|rn| |Fraction| (|Integer|)) ($ S))
+(SDEFUN |RCFIELD-;^;SFS;8| ((|x| (S)) (|rn| (|Fraction| (|Integer|))) ($ (S)))
         (SPROG ((#1=#:G169 NIL))
                (SPADCALL
                 (SPADCALL |x| (SPADCALL |rn| (QREFELT $ 44)) (QREFELT $ 45))
@@ -83,7 +83,7 @@
                                     #1#))
                 (QREFELT $ 8)))) 
 
-(SDEFUN |RCFIELD-;nthRoot;SIS;9| ((|x| S) (|n| |Integer|) ($ S))
+(SDEFUN |RCFIELD-;nthRoot;SIS;9| ((|x| (S)) (|n| (|Integer|)) ($ (S)))
         (SPROG ((#1=#:G173 NIL) (#2=#:G171 NIL))
                (COND ((ZEROP |n|) |x|)
                      ((MINUSP |n|)
@@ -104,23 +104,23 @@
                                 (QREFELT $ 8)))))) 
 
 (SDEFUN |RCFIELD-;allRootsOf;SupL;10|
-        ((|p| |SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
-         ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+         ($ (|List| S)))
         (SPADCALL (SPADCALL (ELT $ 11) |p| (QREFELT $ 53)) (QREFELT $ 25))) 
 
 (SDEFUN |RCFIELD-;allRootsOf;SupL;11|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|))) ($ (|List| S)))
         (SPADCALL (SPADCALL (ELT $ 14) |p| (QREFELT $ 58)) (QREFELT $ 25))) 
 
-(SDEFUN |RCFIELD-;allRootsOf;PL;12| ((|p| |Polynomial| S) ($ |List| S))
+(SDEFUN |RCFIELD-;allRootsOf;PL;12| ((|p| (|Polynomial| S)) ($ (|List| S)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 61)) (QREFELT $ 25))) 
 
 (SDEFUN |RCFIELD-;allRootsOf;PL;13|
-        ((|p| |Polynomial| (|Fraction| (|Integer|))) ($ |List| S))
+        ((|p| (|Polynomial| (|Fraction| (|Integer|)))) ($ (|List| S)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 65)) (QREFELT $ 66))) 
 
 (SDEFUN |RCFIELD-;allRootsOf;PL;14|
-        ((|p| |Polynomial| (|Integer|)) ($ |List| S))
+        ((|p| (|Polynomial| (|Integer|))) ($ (|List| S)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 69)) (QREFELT $ 70))) 
 
 (DECLAIM (NOTINLINE |RealClosedField&;|)) 

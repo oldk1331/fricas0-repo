@@ -1,6 +1,7 @@
 
 (SDEFUN |BOP1;evaluate;BoMBo;1|
-        ((|op| |BasicOperator|) (|func| |Mapping| A A) ($ |BasicOperator|))
+        ((|op| (|BasicOperator|)) (|func| (|Mapping| A A))
+         ($ (|BasicOperator|)))
         (SPROG NIL
                (SPADCALL |op|
                          (CONS #'|BOP1;evaluate;BoMBo;1!0| (VECTOR |func| $))
@@ -13,7 +14,8 @@
           (RETURN (PROGN (SPADCALL (SPADCALL |l1| (QREFELT $ 11)) |func|))))) 
 
 (SDEFUN |BOP1;evaluate;BoU;2|
-        ((|op| |BasicOperator|) ($ |Union| (|Mapping| A (|List| A)) "failed"))
+        ((|op| (|BasicOperator|))
+         ($ (|Union| (|Mapping| A (|List| A)) "failed")))
         (SPROG ((|func| (|Union| (|None|) "failed")))
                (SEQ (LETT |func| (SPADCALL |op| (QREFELT $ 7) (QREFELT $ 19)))
                     (EXIT
@@ -21,7 +23,7 @@
                            ('T (CONS 0 (QCDR |func|)))))))) 
 
 (SDEFUN |BOP1;evaluate;BoLU;3|
-        ((|op| |BasicOperator|) (|args| |List| A) ($ |Union| A "failed"))
+        ((|op| (|BasicOperator|)) (|args| (|List| A)) ($ (|Union| A "failed")))
         (SPROG ((|func| (|Union| (|None|) "failed")))
                (SEQ (LETT |func| (SPADCALL |op| (QREFELT $ 7) (QREFELT $ 19)))
                     (EXIT
@@ -29,13 +31,13 @@
                            ('T (CONS 0 (SPADCALL |args| (QCDR |func|))))))))) 
 
 (SDEFUN |BOP1;evaluate;BoMBo;4|
-        ((|op| |BasicOperator|) (|func| |Mapping| A (|List| A))
-         ($ |BasicOperator|))
+        ((|op| (|BasicOperator|)) (|func| (|Mapping| A (|List| A)))
+         ($ (|BasicOperator|)))
         (SPADCALL |op| (QREFELT $ 7) |func| (QREFELT $ 25))) 
 
 (SDEFUN |BOP1;derivative;BoU;5|
-        ((|op| |BasicOperator|)
-         ($ |Union| (|List| (|Mapping| A (|List| A))) "failed"))
+        ((|op| (|BasicOperator|))
+         ($ (|Union| (|List| (|Mapping| A (|List| A))) "failed")))
         (SPROG ((|func| (|Union| (|None|) "failed")))
                (SEQ (LETT |func| (SPADCALL |op| (QREFELT $ 9) (QREFELT $ 19)))
                     (EXIT
@@ -43,12 +45,12 @@
                            ('T (CONS 0 (QCDR |func|)))))))) 
 
 (SDEFUN |BOP1;derivative;BoLBo;6|
-        ((|op| |BasicOperator|) (|grad| |List| (|Mapping| A (|List| A)))
-         ($ |BasicOperator|))
+        ((|op| (|BasicOperator|)) (|grad| (|List| (|Mapping| A (|List| A))))
+         ($ (|BasicOperator|)))
         (SPADCALL |op| (QREFELT $ 9) |grad| (QREFELT $ 25))) 
 
 (SDEFUN |BOP1;derivative;BoMBo;7|
-        ((|op| |BasicOperator|) (|f| |Mapping| A A) ($ |BasicOperator|))
+        ((|op| (|BasicOperator|)) (|f| (|Mapping| A A)) ($ (|BasicOperator|)))
         (SPROG NIL
                (COND
                 ((OR (SPADCALL |op| (QREFELT $ 31))
@@ -69,15 +71,17 @@
 (PUT '|BOP1;cdisp| '|SPADreplace| '(XLAM (|a| |l|) |a|)) 
 
 (SDEFUN |BOP1;cdisp|
-        ((|a| |OutputForm|) (|l| |List| (|OutputForm|)) ($ |OutputForm|)) |a|) 
+        ((|a| (|OutputForm|)) (|l| (|List| (|OutputForm|))) ($ (|OutputForm|)))
+        |a|) 
 
 (PUT '|BOP1;csex| '|SPADreplace| '(XLAM (|a| |l|) |a|)) 
 
 (SDEFUN |BOP1;csex|
-        ((|a| |InputForm|) (|l| |List| (|InputForm|)) ($ |InputForm|)) |a|) 
+        ((|a| (|InputForm|)) (|l| (|List| (|InputForm|))) ($ (|InputForm|)))
+        |a|) 
 
 (SDEFUN |BOP1;eqconst?|
-        ((|a| |BasicOperator|) (|b| |BasicOperator|) ($ |Boolean|))
+        ((|a| (|BasicOperator|)) (|b| (|BasicOperator|)) ($ (|Boolean|)))
         (SPROG ((|vb| #1=(|Union| (|None|) "failed")) (|va| #1#))
                (SEQ (LETT |va| (SPADCALL |a| (QREFELT $ 8) (QREFELT $ 19)))
                     (EXIT
@@ -94,7 +98,7 @@
                           (#2# NIL)))))))))) 
 
 (SDEFUN |BOP1;ltconst?|
-        ((|a| |BasicOperator|) (|b| |BasicOperator|) ($ |Boolean|))
+        ((|a| (|BasicOperator|)) (|b| (|BasicOperator|)) ($ (|Boolean|)))
         (SPROG ((|vb| #1=(|Union| (|None|) "failed")) (|va| #1#))
                (SEQ (LETT |va| (SPADCALL |a| (QREFELT $ 8) (QREFELT $ 19)))
                     (EXIT
@@ -110,7 +114,7 @@
                            (SPADCALL (QCDR |va|) (QCDR |vb|) (QREFELT $ 36)))
                           (#2# NIL)))))))))) 
 
-(SDEFUN |BOP1;constOp| ((|a| A) ($ |BasicOperator|))
+(SDEFUN |BOP1;constOp| ((|a| (A)) ($ (|BasicOperator|)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL (SPADCALL (QREFELT $ 42) (QREFELT $ 43))
@@ -125,7 +129,7 @@
           (RETURN (PROGN (|BOP1;cdisp| (SPADCALL |a| (QREFELT $ 45)) |l1| $))))) 
 
 (SDEFUN |BOP1;constantOpIfCan;BoU;13|
-        ((|op| |BasicOperator|) ($ |Union| A "failed"))
+        ((|op| (|BasicOperator|)) ($ (|Union| A "failed")))
         (SPROG ((#1=#:G348 NIL) (|u| (|Union| (|None|) "failed")))
                (SEQ
                 (EXIT
@@ -143,7 +147,7 @@
                   (EXIT (CONS 1 "failed"))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |BOP1;constantOperator;ABo;14| ((|a| A) ($ |BasicOperator|))
+(SDEFUN |BOP1;constantOperator;ABo;14| ((|a| (A)) ($ (|BasicOperator|)))
         (SPROG NIL
                (SPADCALL (|BOP1;constOp| |a| $)
                          (CONS #'|BOP1;constantOperator;ABo;14!0|
@@ -156,7 +160,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|BOP1;csex| (SPADCALL |a| (QREFELT $ 51)) |l1| $))))) 
 
-(SDEFUN |BOP1;constantOperator;ABo;15| ((|a| A) ($ |BasicOperator|))
+(SDEFUN |BOP1;constantOperator;ABo;15| ((|a| (A)) ($ (|BasicOperator|)))
         (|BOP1;constOp| |a| $)) 
 
 (DECLAIM (NOTINLINE |BasicOperatorFunctions1;|)) 

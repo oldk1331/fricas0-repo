@@ -1,6 +1,6 @@
 
 (SDEFUN |SIMPCF;sphereSolid;NniFsc;1|
-        ((|dim| |NonNegativeInteger|) ($ |FiniteSimplicialComplex| VS))
+        ((|dim| (|NonNegativeInteger|)) ($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|))))
           (#1=#:G123 NIL) (|n| NIL) (#2=#:G122 NIL))
@@ -17,18 +17,18 @@
           (LETT |vs1| NIL) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
 (SDEFUN |SIMPCF;sphereSurface;NniFsc;2|
-        ((|dim| |NonNegativeInteger|) ($ |FiniteSimplicialComplex| VS))
+        ((|dim| (|NonNegativeInteger|)) ($ (|FiniteSimplicialComplex| VS)))
         (SPROG ((|s| (|FiniteSimplicialComplex| VS)))
                (SEQ (LETT |s| (SPADCALL |dim| (QREFELT $ 12)))
                     (EXIT (SPADCALL |s| (QREFELT $ 13)))))) 
 
-(SDEFUN |SIMPCF;line;Fsc;3| (($ |FiniteSimplicialComplex| VS))
+(SDEFUN |SIMPCF;line;Fsc;3| (($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ (LETT |v1| (LIST (LIST 1 2))) (LETT |vs1| NIL)
               (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;torusSurface;Fsc;4| (($ |FiniteSimplicialComplex| VS))
+(SDEFUN |SIMPCF;torusSurface;Fsc;4| (($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
@@ -39,7 +39,7 @@
                       (LIST 5 6 7) (LIST 1 5 7)))
           (LETT |vs1| NIL) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;band;Fsc;5| (($ |FiniteSimplicialComplex| VS))
+(SDEFUN |SIMPCF;band;Fsc;5| (($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
@@ -48,7 +48,7 @@
                       (LIST 3 4 5) (LIST 4 5 6)))
           (LETT |vs1| NIL) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;moebiusBand;Fsc;6| (($ |FiniteSimplicialComplex| VS))
+(SDEFUN |SIMPCF;moebiusBand;Fsc;6| (($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
@@ -58,7 +58,7 @@
           (LETT |vs1| NIL) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
 (SDEFUN |SIMPCF;projectiveSpace;IFsc;7|
-        ((|n| |Integer|) ($ |FiniteSimplicialComplex| VS))
+        ((|n| (|Integer|)) ($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
@@ -68,7 +68,7 @@
                       (LIST 3 4 6) (LIST 3 5 6)))
           (LETT |vs1| NIL) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;kleinBottle;Fsc;8| (($ |FiniteSimplicialComplex| VS))
+(SDEFUN |SIMPCF;kleinBottle;Fsc;8| (($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
@@ -79,7 +79,7 @@
                       (LIST 4 6 7) (LIST 6 7 1) (LIST 3 6 1) (LIST 3 6 8)))
           (LETT |vs1| NIL) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;dunceHat;Fsc;9| (($ |FiniteSimplicialComplex| VS))
+(SDEFUN |SIMPCF;dunceHat;Fsc;9| (($ (|FiniteSimplicialComplex| VS)))
         (SPROG
          ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ

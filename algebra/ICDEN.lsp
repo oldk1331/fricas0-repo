@@ -1,5 +1,5 @@
 
-(SDEFUN |ICDEN;clearDenominator;BA;1| ((|l| B) ($ A))
+(SDEFUN |ICDEN;clearDenominator;BA;1| ((|l| (B)) ($ (A)))
         (SPROG ((|d| (R)))
                (SEQ (LETT |d| (SPADCALL |l| (QREFELT $ 10)))
                     (EXIT
@@ -16,7 +16,7 @@
             (SPADCALL (SPADCALL |d| |x| (QREFELT $ 12)) (QREFELT $ 13)))))) 
 
 (SDEFUN |ICDEN;splitDenominator;BR;2|
-        ((|l| B) ($ |Record| (|:| |num| A) (|:| |den| R)))
+        ((|l| (B)) ($ (|Record| (|:| |num| A) (|:| |den| R))))
         (SPROG ((|d| (R)))
                (SEQ (LETT |d| (SPADCALL |l| (QREFELT $ 10)))
                     (EXIT
@@ -34,11 +34,11 @@
            (PROGN
             (SPADCALL (SPADCALL |d| |x| (QREFELT $ 12)) (QREFELT $ 13)))))) 
 
-(SDEFUN |ICDEN;commonDenominator;BR;3| ((|l| B) ($ R))
+(SDEFUN |ICDEN;commonDenominator;BR;3| ((|l| (B)) ($ (R)))
         (SPADCALL (ELT $ 20) (SPADCALL (ELT $ 21) |l| (QREFELT $ 16))
                   (|spadConstant| $ 22) (QREFELT $ 24))) 
 
-(SDEFUN |ICDEN;commonDenominator;BR;4| ((|l| B) ($ R))
+(SDEFUN |ICDEN;commonDenominator;BR;4| ((|l| (B)) ($ (R)))
         (SPADCALL (ELT $ 11) (SPADCALL (ELT $ 21) |l| (QREFELT $ 16))
                   (|spadConstant| $ 22) (QREFELT $ 24))) 
 

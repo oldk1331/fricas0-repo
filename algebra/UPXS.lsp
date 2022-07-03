@@ -1,19 +1,19 @@
 
 (PUT '|UPXS;getExpon| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |UPXS;getExpon| ((|pxs| $) ($ |Fraction| (|Integer|))) (QCAR |pxs|)) 
+(SDEFUN |UPXS;getExpon| ((|pxs| ($)) ($ (|Fraction| (|Integer|)))) (QCAR |pxs|)) 
 
-(SDEFUN |UPXS;variable;$S;2| ((|upxs| $) ($ |Symbol|)) (QREFELT $ 7)) 
+(SDEFUN |UPXS;variable;$S;2| ((|upxs| ($)) ($ (|Symbol|))) (QREFELT $ 7)) 
 
-(SDEFUN |UPXS;center;$Coef;3| ((|upxs| $) ($ |Coef|)) (QREFELT $ 8)) 
+(SDEFUN |UPXS;center;$Coef;3| ((|upxs| ($)) ($ (|Coef|))) (QREFELT $ 8)) 
 
 (SDEFUN |UPXS;coerce;Uts$;4|
-        ((|uts| |UnivariateTaylorSeries| |Coef| |var| |cen|) ($ $))
+        ((|uts| (|UnivariateTaylorSeries| |Coef| |var| |cen|)) ($ ($)))
         (SPADCALL (SPADCALL |uts| (QREFELT $ 15)) (QREFELT $ 16))) 
 
 (SDEFUN |UPXS;retractIfCan;$U;5|
-        ((|upxs| $)
-         ($ |Union| (|UnivariateTaylorSeries| |Coef| |var| |cen|) "failed"))
+        ((|upxs| ($))
+         ($ (|Union| (|UnivariateTaylorSeries| |Coef| |var| |cen|) "failed")))
         (SPROG
          ((|ulsIfCan|
            (|Union| (|UnivariateLaurentSeries| |Coef| |var| |cen|) "failed")))
@@ -22,7 +22,7 @@
                (COND ((QEQCAR |ulsIfCan| 1) (CONS 1 "failed"))
                      ('T (SPADCALL (QCDR |ulsIfCan|) (QREFELT $ 21)))))))) 
 
-(SDEFUN |UPXS;coerce;V$;6| ((|v| |Variable| |var|) ($ $))
+(SDEFUN |UPXS;coerce;V$;6| ((|v| (|Variable| |var|)) ($ ($)))
         (COND
          ((SPADCALL (QREFELT $ 8) (QREFELT $ 24))
           (SPADCALL (|spadConstant| $ 25) (|spadConstant| $ 28)
@@ -34,13 +34,14 @@
            (SPADCALL (QREFELT $ 8) (|spadConstant| $ 32) (QREFELT $ 29))
            (QREFELT $ 33))))) 
 
-(SDEFUN |UPXS;differentiate;$V$;7| ((|upxs| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |UPXS;differentiate;$V$;7|
+        ((|upxs| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |upxs| (QREFELT $ 36))) 
 
-(SDEFUN |UPXS;integrate;$V$;8| ((|upxs| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |UPXS;integrate;$V$;8| ((|upxs| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |upxs| (QREFELT $ 38))) 
 
-(SDEFUN |UPXS;roundDown| ((|rn| |Fraction| (|Integer|)) ($ |Integer|))
+(SDEFUN |UPXS;roundDown| ((|rn| (|Fraction| (|Integer|))) ($ (|Integer|)))
         (SPROG ((|n| (|Integer|)) (|num| (|Integer|)) (|den| (|Integer|)))
                (SEQ (LETT |den| (SPADCALL |rn| (QREFELT $ 41)))
                     (EXIT
@@ -55,8 +56,9 @@
                               (COND ((PLUSP |num|) |n|) (#1# (- |n| 1))))))))))) 
 
 (SDEFUN |UPXS;stToCoef|
-        ((|st| |Stream| |Coef|) (|term| |Coef|) (|n| |NonNegativeInteger|)
-         (|n0| |NonNegativeInteger|) ($ |Coef|))
+        ((|st| (|Stream| |Coef|)) (|term| (|Coef|))
+         (|n| (|NonNegativeInteger|)) (|n0| (|NonNegativeInteger|))
+         ($ (|Coef|)))
         (COND
          ((OR (> |n| |n0|) (SPADCALL |st| (QREFELT $ 44)))
           (|spadConstant| $ 30))
@@ -69,8 +71,8 @@
            (QREFELT $ 50))))) 
 
 (SDEFUN |UPXS;approximateLaurent|
-        ((|x| |UnivariateLaurentSeries| |Coef| |var| |cen|) (|term| |Coef|)
-         (|n| |Integer|) ($ |Coef|))
+        ((|x| (|UnivariateLaurentSeries| |Coef| |var| |cen|)) (|term| (|Coef|))
+         (|n| (|Integer|)) ($ (|Coef|)))
         (SPROG
          ((|app| (|Coef|)) (#1=#:G163 NIL) (|m| (|Integer|)) (|e| (|Integer|)))
          (SEQ (LETT |m| (- |n| (LETT |e| (SPADCALL |x| (QREFELT $ 51)))))
@@ -99,7 +101,7 @@
                                          (QREFELT $ 48)))))))))))) 
 
 (SDEFUN |UPXS;approximate;$FCoef;12|
-        ((|x| $) (|r| |Fraction| (|Integer|)) ($ |Coef|))
+        ((|x| ($)) (|r| (|Fraction| (|Integer|))) ($ (|Coef|)))
         (SPROG ((|term| (|Coef|)) (|e| (|Fraction| (|Integer|))))
                (SEQ (LETT |e| (SPADCALL |x| (QREFELT $ 56)))
                     (LETT |term|
@@ -116,8 +118,8 @@
                       $))))) 
 
 (SDEFUN |UPXS;termOutput|
-        ((|k| |Fraction| (|Integer|)) (|c| |Coef|) (|vv| |OutputForm|)
-         ($ |OutputForm|))
+        ((|k| (|Fraction| (|Integer|))) (|c| (|Coef|)) (|vv| (|OutputForm|))
+         ($ (|OutputForm|)))
         (SPROG ((|mon| (|OutputForm|)))
                (SEQ
                 (COND
@@ -146,11 +148,11 @@
 
 (PUT '|UPXS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
-(SDEFUN |UPXS;showAll?| (($ |Boolean|)) |$streamsShowAll|) 
+(SDEFUN |UPXS;showAll?| (($ (|Boolean|))) |$streamsShowAll|) 
 
 (SDEFUN |UPXS;termsToOutputForm|
-        ((|m| |Fraction| (|Integer|)) (|rat| |Fraction| (|Integer|))
-         (|uu| |Stream| |Coef|) (|xxx| |OutputForm|) ($ |OutputForm|))
+        ((|m| (|Fraction| (|Integer|))) (|rat| (|Fraction| (|Integer|)))
+         (|uu| (|Stream| |Coef|)) (|xxx| (|OutputForm|)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu1| (|Stream| |Coef|)) (|n| NIL)
           (#1=#:G195 NIL) (|count| (|NonNegativeInteger|)))
@@ -258,7 +260,7 @@
                          (SPADCALL (ELT $ 80) (NREVERSE |l|)
                                    (QREFELT $ 83)))))))))))) 
 
-(SDEFUN |UPXS;coerce;$Of;16| ((|upxs| $) ($ |OutputForm|))
+(SDEFUN |UPXS;coerce;$Of;16| ((|upxs| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|xxx| (|OutputForm|)) (|p| (|Stream| |Coef|))
           (|m| (|Fraction| (|Integer|)))

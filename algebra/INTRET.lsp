@@ -1,11 +1,12 @@
 
-(SDEFUN |INTRET;integer;SI;1| ((|s| S) ($ |Integer|))
+(SDEFUN |INTRET;integer;SI;1| ((|s| (S)) ($ (|Integer|)))
         (SPADCALL |s| (QREFELT $ 8))) 
 
-(SDEFUN |INTRET;integer?;SB;2| ((|s| S) ($ |Boolean|))
+(SDEFUN |INTRET;integer?;SB;2| ((|s| (S)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |s| (QREFELT $ 11)) 0)) 
 
-(SDEFUN |INTRET;integerIfCan;SU;3| ((|s| S) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |INTRET;integerIfCan;SU;3|
+        ((|s| (S)) ($ (|Union| (|Integer|) "failed")))
         (SPADCALL |s| (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |IntegerRetractions;|)) 

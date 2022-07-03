@@ -1,5 +1,5 @@
 
-(SDEFUN |SPFUTS;lambertW0;2UTS;1| ((|x| UTS) ($ UTS))
+(SDEFUN |SPFUTS;lambertW0;2UTS;1| ((|x| (UTS)) ($ (UTS)))
         (SPROG ((|dx| (UTS)))
                (SEQ (LETT |dx| (SPADCALL |x| (QREFELT $ 8)))
                     (EXIT
@@ -43,12 +43,12 @@
               (QREFELT $ 15))
              (QREFELT $ 22)))))) 
 
-(SDEFUN |SPFUTS;compose| ((|s| |Stream| |Coef|) (|x| UTS) ($ UTS))
+(SDEFUN |SPFUTS;compose| ((|s| (|Stream| |Coef|)) (|x| (UTS)) ($ (UTS)))
         (SPADCALL (SPADCALL |s| (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 30))
                   (QREFELT $ 12))) 
 
 (SDEFUN |SPFUTS;p_re|
-        ((|k| |Integer|) (|lcr| |List| |Coef|) ($ |Stream| |Coef|))
+        ((|k| (|Integer|)) (|lcr| (|List| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|SPFUTS;p_re!0| (VECTOR |k| $ |lcr|))
@@ -112,7 +112,8 @@
                               (SPADCALL |ck| |lcr| (QREFELT $ 44)) $)
                              (QREFELT $ 45))))))))) 
 
-(SDEFUN |SPFUTS;p_stream| ((|g2| |Coef|) (|g3| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |SPFUTS;p_stream|
+        ((|g2| (|Coef|)) (|g3| (|Coef|)) ($ (|Stream| |Coef|)))
         (SPROG
          ((|c28| (|Coef|)) (|c20| (|Coef|)) (|c5| (|Coef|)) (|c4| (|Coef|))
           (|c2| (|Coef|)))
@@ -141,12 +142,12 @@
                      (QREFELT $ 45)))))) 
 
 (SDEFUN |SPFUTS;weierstrassP0;2Coef2UTS;5|
-        ((|g2| |Coef|) (|g3| |Coef|) (|x| UTS) ($ UTS))
+        ((|g2| (|Coef|)) (|g3| (|Coef|)) (|x| (UTS)) ($ (UTS)))
         (|SPFUTS;compose| (|SPFUTS;p_stream| |g2| |g3| $)
          (SPADCALL |x| |x| (QREFELT $ 15)) $)) 
 
 (SDEFUN |SPFUTS;weierstrassPPrime0;2Coef2UTS;6|
-        ((|g2| |Coef|) (|g3| |Coef|) (|x| UTS) ($ UTS))
+        ((|g2| (|Coef|)) (|g3| (|Coef|)) (|x| (UTS)) ($ (UTS)))
         (SPADCALL (SPADCALL (+ 1 1) |x| (QREFELT $ 49))
                   (|SPFUTS;compose|
                    (SPADCALL (|SPFUTS;p_stream| |g2| |g3| $) (QREFELT $ 50))
@@ -154,7 +155,7 @@
                   (QREFELT $ 15))) 
 
 (SDEFUN |SPFUTS;weierstrassZeta0;2Coef2UTS;7|
-        ((|g2| |Coef|) (|g3| |Coef|) (|x| UTS) ($ UTS))
+        ((|g2| (|Coef|)) (|g3| (|Coef|)) (|x| (UTS)) ($ (UTS)))
         (SPROG ((|ps2| (|Stream| |Coef|)))
                (SEQ
                 (LETT |ps2|
@@ -170,7 +171,7 @@
                   (QREFELT $ 13)))))) 
 
 (SDEFUN |SPFUTS;weierstrassSigma0;2Coef2UTS;8|
-        ((|g2| |Coef|) (|g3| |Coef|) (|x| UTS) ($ UTS))
+        ((|g2| (|Coef|)) (|g3| (|Coef|)) (|x| (UTS)) ($ (UTS)))
         (SPROG
          ((|lsigma| #1=(|Stream| |Coef|)) (|zs| #1#) (|ps2| (|Stream| |Coef|)))
          (SEQ

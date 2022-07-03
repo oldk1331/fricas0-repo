@@ -1,18 +1,18 @@
 
 (SDEFUN |GOPT;maxLevel;U$;1|
-        ((|d| |Union| (|NonNegativeInteger|) "arbitrary") ($ $))
+        ((|d| (|Union| (|NonNegativeInteger|) "arbitrary")) ($ ($)))
         (CONS '|maxLevel| (SPADCALL |d| (QREFELT $ 10)))) 
 
 (SDEFUN |GOPT;maxDerivative;U$;2|
-        ((|d| |Union| (|NonNegativeInteger|) "arbitrary") ($ $))
+        ((|d| (|Union| (|NonNegativeInteger|) "arbitrary")) ($ ($)))
         (CONS '|maxDerivative| (SPADCALL |d| (QREFELT $ 10)))) 
 
 (SDEFUN |GOPT;maxShift;U$;3|
-        ((|d| |Union| (|NonNegativeInteger|) "arbitrary") ($ $))
+        ((|d| (|Union| (|NonNegativeInteger|) "arbitrary")) ($ ($)))
         (SPADCALL |d| (QREFELT $ 12))) 
 
 (SDEFUN |GOPT;maxSubst;U$;4|
-        ((|d| |Union| (|PositiveInteger|) "arbitrary") ($ $))
+        ((|d| (|Union| (|PositiveInteger|) "arbitrary")) ($ ($)))
         (SPROG ((#1=#:G144 NIL))
                (COND
                 ((QEQCAR |d| 0)
@@ -25,70 +25,70 @@
                 ('T (SPADCALL (CONS 1 (QCDR |d|)) (QREFELT $ 12)))))) 
 
 (SDEFUN |GOPT;maxDegree;U$;5|
-        ((|d| |Union| (|NonNegativeInteger|) "arbitrary") ($ $))
+        ((|d| (|Union| (|NonNegativeInteger|) "arbitrary")) ($ ($)))
         (CONS '|maxDegree| (SPADCALL |d| (QREFELT $ 10)))) 
 
-(SDEFUN |GOPT;maxMixedDegree;Nni$;6| ((|d| |NonNegativeInteger|) ($ $))
+(SDEFUN |GOPT;maxMixedDegree;Nni$;6| ((|d| (|NonNegativeInteger|)) ($ ($)))
         (CONS '|maxMixedDegree| (SPADCALL |d| (QREFELT $ 19)))) 
 
-(SDEFUN |GOPT;allDegrees;B$;7| ((|d| |Boolean|) ($ $))
+(SDEFUN |GOPT;allDegrees;B$;7| ((|d| (|Boolean|)) ($ ($)))
         (CONS '|allDegrees| (SPADCALL |d| (QREFELT $ 23)))) 
 
 (SDEFUN |GOPT;maxPower;U$;8|
-        ((|d| |Union| (|PositiveInteger|) "arbitrary") ($ $))
+        ((|d| (|Union| (|PositiveInteger|) "arbitrary")) ($ ($)))
         (CONS '|maxPower| (SPADCALL |d| (QREFELT $ 26)))) 
 
-(SDEFUN |GOPT;safety;Nni$;9| ((|d| |NonNegativeInteger|) ($ $))
+(SDEFUN |GOPT;safety;Nni$;9| ((|d| (|NonNegativeInteger|)) ($ ($)))
         (CONS '|safety| (SPADCALL |d| (QREFELT $ 19)))) 
 
 (SDEFUN |GOPT;homogeneous;U$;10|
-        ((|d| |Union| (|PositiveInteger|) (|Boolean|)) ($ $))
+        ((|d| (|Union| (|PositiveInteger|) (|Boolean|))) ($ ($)))
         (CONS '|homogeneous| (SPADCALL |d| (QREFELT $ 31)))) 
 
 (SDEFUN |GOPT;Somos;U$;11|
-        ((|d| |Union| (|PositiveInteger|) (|Boolean|)) ($ $))
+        ((|d| (|Union| (|PositiveInteger|) (|Boolean|))) ($ ($)))
         (CONS '|Somos| (SPADCALL |d| (QREFELT $ 31)))) 
 
-(SDEFUN |GOPT;debug;B$;12| ((|d| |Boolean|) ($ $))
+(SDEFUN |GOPT;debug;B$;12| ((|d| (|Boolean|)) ($ ($)))
         (CONS '|debug| (SPADCALL |d| (QREFELT $ 23)))) 
 
 (SDEFUN |GOPT;check;U$;13|
-        ((|d| |Union| "skip" "MonteCarlo" "deterministic") ($ $))
+        ((|d| (|Union| "skip" "MonteCarlo" "deterministic")) ($ ($)))
         (CONS '|check| (SPADCALL |d| (QREFELT $ 37)))) 
 
-(SDEFUN |GOPT;checkExtraValues;B$;14| ((|d| |Boolean|) ($ $))
+(SDEFUN |GOPT;checkExtraValues;B$;14| ((|d| (|Boolean|)) ($ ($)))
         (CONS '|checkExtraValues| (SPADCALL |d| (QREFELT $ 23)))) 
 
-(SDEFUN |GOPT;one;B$;15| ((|d| |Boolean|) ($ $))
+(SDEFUN |GOPT;one;B$;15| ((|d| (|Boolean|)) ($ ($)))
         (CONS '|one| (SPADCALL |d| (QREFELT $ 23)))) 
 
-(SDEFUN |GOPT;functionName;S$;16| ((|d| |Symbol|) ($ $))
+(SDEFUN |GOPT;functionName;S$;16| ((|d| (|Symbol|)) ($ ($)))
         (CONS '|functionName| (SPADCALL |d| (QREFELT $ 43)))) 
 
-(SDEFUN |GOPT;functionNames;L$;17| ((|d| |List| (|Symbol|)) ($ $))
+(SDEFUN |GOPT;functionNames;L$;17| ((|d| (|List| (|Symbol|))) ($ ($)))
         (CONS '|functionNames| (SPADCALL |d| (QREFELT $ 47)))) 
 
-(SDEFUN |GOPT;variableName;S$;18| ((|d| |Symbol|) ($ $))
+(SDEFUN |GOPT;variableName;S$;18| ((|d| (|Symbol|)) ($ ($)))
         (CONS '|variableName| (SPADCALL |d| (QREFELT $ 43)))) 
 
-(SDEFUN |GOPT;indexName;S$;19| ((|d| |Symbol|) ($ $))
+(SDEFUN |GOPT;indexName;S$;19| ((|d| (|Symbol|)) ($ ($)))
         (CONS '|indexName| (SPADCALL |d| (QREFELT $ 43)))) 
 
-(SDEFUN |GOPT;displayKind;S$;20| ((|d| |Symbol|) ($ $))
+(SDEFUN |GOPT;displayKind;S$;20| ((|d| (|Symbol|)) ($ ($)))
         (CONS '|displayKind| (SPADCALL |d| (QREFELT $ 43)))) 
 
-(SDEFUN |GOPT;coerce;$Of;21| ((|x| $) ($ |OutputForm|))
+(SDEFUN |GOPT;coerce;$Of;21| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 53))
                   (SPADCALL (QCDR |x|) (QREFELT $ 54)) (QREFELT $ 55))) 
 
-(SDEFUN |GOPT;=;2$B;22| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |GOPT;=;2$B;22| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((EQUAL (QCAR |x|) (QCAR |y|))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 57)))
          ('T NIL))) 
 
 (SDEFUN |GOPT;option;LSU;23|
-        ((|l| |List| $) (|s| |Symbol|) ($ |Union| (|Any|) "failed"))
+        ((|l| (|List| $)) (|s| (|Symbol|)) ($ (|Union| (|Any|) "failed")))
         (SPROG ((#1=#:G206 NIL) (#2=#:G207 NIL) (#3=#:G208 NIL) (|x| NIL))
                (SEQ
                 (EXIT

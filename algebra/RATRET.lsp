@@ -1,12 +1,12 @@
 
-(SDEFUN |RATRET;rational;SF;1| ((|s| S) ($ |Fraction| (|Integer|)))
+(SDEFUN |RATRET;rational;SF;1| ((|s| (S)) ($ (|Fraction| (|Integer|))))
         (SPADCALL |s| (QREFELT $ 8))) 
 
-(SDEFUN |RATRET;rational?;SB;2| ((|s| S) ($ |Boolean|))
+(SDEFUN |RATRET;rational?;SB;2| ((|s| (S)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |s| (QREFELT $ 11)) 0)) 
 
 (SDEFUN |RATRET;rationalIfCan;SU;3|
-        ((|s| S) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|s| (S)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPADCALL |s| (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |RationalRetractions;|)) 

@@ -1,6 +1,6 @@
 
 (SDEFUN |MPC3;map;MPR1PR2;1|
-        ((|f| |Mapping| |Vars2| |Vars1|) (|p| PR1) ($ PR2))
+        ((|f| (|Mapping| |Vars2| |Vars1|)) (|p| (PR1)) ($ (PR2)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| PR1)) (|ans| (PR2))
           (|x2| (|Vars2|)) (|c| (R)) (|x1| (|Union| |Vars1| "failed")))

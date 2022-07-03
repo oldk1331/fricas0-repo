@@ -1,25 +1,26 @@
 
-(SDEFUN |DLIST;elt;$unique$;1| ((|x| $) (T3 "unique") ($ $))
+(SDEFUN |DLIST;elt;$unique$;1| ((|x| ($)) (T3 ("unique")) ($ ($)))
         (SPADCALL |x| (QREFELT $ 7))) 
 
-(SDEFUN |DLIST;elt;$sort$;2| ((|x| $) (T4 "sort") ($ $))
+(SDEFUN |DLIST;elt;$sort$;2| ((|x| ($)) (T4 ("sort")) ($ ($)))
         (SPADCALL |x| (QREFELT $ 10))) 
 
-(SDEFUN |DLIST;elt;$countNni;3| ((|x| $) (T5 "count") ($ |NonNegativeInteger|))
+(SDEFUN |DLIST;elt;$countNni;3|
+        ((|x| ($)) (T5 ("count")) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 14))) 
 
 (PUT '|DLIST;coerce;L$;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DLIST;coerce;L$;4| ((|x| |List| S) ($ $)) |x|) 
+(SDEFUN |DLIST;coerce;L$;4| ((|x| (|List| S)) ($ ($))) |x|) 
 
 (PUT '|DLIST;coerce;$L;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |DLIST;coerce;$L;5| ((|x| $) ($ |List| S)) |x|) 
+(SDEFUN |DLIST;coerce;$L;5| ((|x| ($)) ($ (|List| S))) |x|) 
 
-(SDEFUN |DLIST;coerce;$Of;6| ((|x| $) ($ |OutputForm|))
+(SDEFUN |DLIST;coerce;$Of;6| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 20))) 
 
-(SDEFUN |DLIST;datalist;L$;7| ((|x| |List| S) ($ $))
+(SDEFUN |DLIST;datalist;L$;7| ((|x| (|List| S)) ($ ($)))
         (SPADCALL |x| (QREFELT $ 17))) 
 
 (DECLAIM (NOTINLINE |DataList;|)) 

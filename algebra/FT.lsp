@@ -1,5 +1,5 @@
 
-(SDEFUN |FT;coerce;$Of;1| ((|a| $) ($ |OutputForm|))
+(SDEFUN |FT;coerce;$Of;1| ((|a| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G134 NIL) (|u| NIL) (#2=#:G133 NIL) (|t| (|OutputForm|)))
                (SEQ
                 (COND
@@ -49,22 +49,22 @@
 (PUT '|FT;scalarTypeOf;$U;2| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 0))) 
 
 (SDEFUN |FT;scalarTypeOf;$U;2|
-        ((|u| $)
-         ($ |Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void")))
+        ((|u| ($))
+         ($ (|Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void"))))
         (QVELT |u| 0)) 
 
 (PUT '|FT;dimensionsOf;$L;3| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 1))) 
 
-(SDEFUN |FT;dimensionsOf;$L;3| ((|u| $) ($ |List| (|Polynomial| (|Integer|))))
-        (QVELT |u| 1)) 
+(SDEFUN |FT;dimensionsOf;$L;3|
+        ((|u| ($)) ($ (|List| (|Polynomial| (|Integer|))))) (QVELT |u| 1)) 
 
 (PUT '|FT;external?;$B;4| '|SPADreplace| '(XLAM (|u|) (QVELT |u| 2))) 
 
-(SDEFUN |FT;external?;$B;4| ((|u| $) ($ |Boolean|)) (QVELT |u| 2)) 
+(SDEFUN |FT;external?;$B;4| ((|u| ($)) ($ (|Boolean|))) (QVELT |u| 2)) 
 
 (SDEFUN |FT;construct;ULB$;5|
-        ((|t| |Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void"))
-         (|d| |List| (|Symbol|)) (|e| |Boolean|) ($ $))
+        ((|t| (|Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void")))
+         (|d| (|List| (|Symbol|))) (|e| (|Boolean|)) ($ ($)))
         (SPROG ((#1=#:G147 NIL) (|l| NIL) (#2=#:G146 NIL))
                (SEQ
                 (COND
@@ -97,8 +97,8 @@
                          |e|))))) 
 
 (SDEFUN |FT;construct;ULB$;6|
-        ((|t| |Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void"))
-         (|d| |List| (|Polynomial| (|Integer|))) (|e| |Boolean|) ($ $))
+        ((|t| (|Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void")))
+         (|d| (|List| (|Polynomial| (|Integer|)))) (|e| (|Boolean|)) ($ ($)))
         (SEQ
          (COND
           (|e|
@@ -112,28 +112,28 @@
              (EXIT (|error| "VOID objects must be EXTERNAL"))))))
          (EXIT (VECTOR |t| |d| |e|)))) 
 
-(SDEFUN |FT;coerce;Fst$;7| ((|u| |FortranScalarType|) ($ $))
+(SDEFUN |FT;coerce;Fst$;7| ((|u| (|FortranScalarType|)) ($ ($)))
         (SPADCALL (CONS 0 |u|) NIL NIL (QREFELT $ 28))) 
 
-(SDEFUN |FT;fortranReal;$;8| (($ $))
+(SDEFUN |FT;fortranReal;$;8| (($ ($)))
         (SPADCALL (SPADCALL "real" (QREFELT $ 31)) (QREFELT $ 30))) 
 
-(SDEFUN |FT;fortranDouble;$;9| (($ $))
+(SDEFUN |FT;fortranDouble;$;9| (($ ($)))
         (SPADCALL (SPADCALL "double precision" (QREFELT $ 31)) (QREFELT $ 30))) 
 
-(SDEFUN |FT;fortranInteger;$;10| (($ $))
+(SDEFUN |FT;fortranInteger;$;10| (($ ($)))
         (SPADCALL (SPADCALL "integer" (QREFELT $ 31)) (QREFELT $ 30))) 
 
-(SDEFUN |FT;fortranComplex;$;11| (($ $))
+(SDEFUN |FT;fortranComplex;$;11| (($ ($)))
         (SPADCALL (SPADCALL "complex" (QREFELT $ 31)) (QREFELT $ 30))) 
 
-(SDEFUN |FT;fortranDoubleComplex;$;12| (($ $))
+(SDEFUN |FT;fortranDoubleComplex;$;12| (($ ($)))
         (SPADCALL (SPADCALL "double complex" (QREFELT $ 31)) (QREFELT $ 30))) 
 
-(SDEFUN |FT;fortranCharacter;$;13| (($ $))
+(SDEFUN |FT;fortranCharacter;$;13| (($ ($)))
         (SPADCALL (SPADCALL "character" (QREFELT $ 31)) (QREFELT $ 30))) 
 
-(SDEFUN |FT;fortranLogical;$;14| (($ $))
+(SDEFUN |FT;fortranLogical;$;14| (($ ($)))
         (SPADCALL (SPADCALL "logical" (QREFELT $ 31)) (QREFELT $ 30))) 
 
 (DECLAIM (NOTINLINE |FortranType;|)) 

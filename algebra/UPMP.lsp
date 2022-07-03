@@ -1,5 +1,5 @@
 
-(SDEFUN |UPMP;noKaratsuba;3U;1| ((|a| U) (|b| U) ($ U))
+(SDEFUN |UPMP;noKaratsuba;3U;1| ((|a| (U)) (|b| (U)) ($ (U)))
         (SPROG ((|res| (U)) (#1=#:G141 NIL) (|u| NIL) (|lu| (|List| U)))
                (SEQ
                 (COND ((SPADCALL |a| (QREFELT $ 9)) |a|)
@@ -31,7 +31,7 @@
                                  (EXIT NIL))
                             (EXIT |res|))))))) 
 
-(SDEFUN |UPMP;karatsubaOnce;3U;2| ((|a| U) (|b| U) ($ U))
+(SDEFUN |UPMP;karatsubaOnce;3U;2| ((|a| (U)) (|b| (U)) ($ (U)))
         (SPROG
          ((|w| (U)) (|v| (U)) (|u| (U)) (|lb| (U)) (|hb| (U))
           (|rec| (|Record| (|:| |quotient| U) (|:| |remainder| U))) (|la| (U))
@@ -78,8 +78,8 @@
                            (QREFELT $ 26)))))))) 
 
 (SDEFUN |UPMP;karatsuba;2U2NniU;3|
-        ((|a| U) (|b| U) (|l| |NonNegativeInteger|) (|k| |NonNegativeInteger|)
-         ($ U))
+        ((|a| (U)) (|b| (U)) (|l| (|NonNegativeInteger|))
+         (|k| (|NonNegativeInteger|)) ($ (U)))
         (SPROG
          ((|w| (U)) (|v| (U)) (|u| (U)) (|lb| (U)) (|hb| (U))
           (|rec| (|Record| (|:| |quotient| U) (|:| |remainder| U))) (|la| (U))

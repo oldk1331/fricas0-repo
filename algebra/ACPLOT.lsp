@@ -1,21 +1,21 @@
 
-(SDEFUN |ACPLOT;NFtoSF| ((|x| |Float|) ($ |DoubleFloat|))
+(SDEFUN |ACPLOT;NFtoSF| ((|x| (|Float|)) ($ (|DoubleFloat|)))
         (|add_DF| 0.0 (SPADCALL |x| (QREFELT $ 22)))) 
 
 (SDEFUN |ACPLOT;makePt|
-        ((|xx| |DoubleFloat|) (|yy| . #1=(|DoubleFloat|))
-         ($ |Point| (|DoubleFloat|)))
+        ((|xx| (|DoubleFloat|)) (|yy| #1=(|DoubleFloat|))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG ((|l| (|List| #1#)))
                (SPADCALL (LETT |l| (LIST |xx| |yy|)) (QREFELT $ 25)))) 
 
 (SDEFUN |ACPLOT;swapCoords|
-        ((|pt| |Point| (|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
+        ((|pt| (|Point| (|DoubleFloat|))) ($ (|Point| (|DoubleFloat|))))
         (|ACPLOT;makePt| (SPADCALL |pt| (QREFELT $ 27))
          (SPADCALL |pt| (QREFELT $ 28)) $)) 
 
 (SDEFUN |ACPLOT;samePlottedPt?|
-        ((|p0| |Point| (|DoubleFloat|)) (|p1| |Point| (|DoubleFloat|))
-         ($ |Boolean|))
+        ((|p0| (|Point| (|DoubleFloat|))) (|p1| (|Point| (|DoubleFloat|)))
+         ($ (|Boolean|)))
         (SPROG
          ((|y1| #1=(|DoubleFloat|)) (|x1| #2=(|DoubleFloat|)) (|y0| #1#)
           (|x0| #2#))
@@ -30,9 +30,9 @@
                 ('T NIL)))))) 
 
 (SDEFUN |ACPLOT;findPtOnList|
-        ((|pt| |Point| (|DoubleFloat|))
-         (|pointList| |List| (|Point| (|DoubleFloat|)))
-         ($ |Union| (|Point| (|DoubleFloat|)) "failed"))
+        ((|pt| (|Point| (|DoubleFloat|)))
+         (|pointList| (|List| (|Point| (|DoubleFloat|))))
+         ($ (|Union| (|Point| (|DoubleFloat|)) "failed")))
         (SPROG ((#1=#:G205 NIL) (#2=#:G206 NIL) (#3=#:G207 NIL) (|point| NIL))
                (SEQ
                 (EXIT
@@ -61,52 +61,62 @@
 (PUT '|ACPLOT;makeCorners| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |ACPLOT;makeCorners|
-        ((|xMinSF| |DoubleFloat|) (|xMaxSF| |DoubleFloat|)
-         (|yMinSF| |DoubleFloat|) (|yMaxSF| |DoubleFloat|)
-         ($ |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|))))
+        ((|xMinSF| (|DoubleFloat|)) (|xMaxSF| (|DoubleFloat|))
+         (|yMinSF| (|DoubleFloat|)) (|yMaxSF| (|DoubleFloat|))
+         ($
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|)))))
         (VECTOR |xMinSF| |xMaxSF| |yMinSF| |yMaxSF|)) 
 
 (PUT '|ACPLOT;getXMin| '|SPADreplace| '(XLAM (|corners|) (QVELT |corners| 0))) 
 
 (SDEFUN |ACPLOT;getXMin|
-        ((|corners| |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|)))
-         ($ |DoubleFloat|))
+        ((|corners|
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|))))
+         ($ (|DoubleFloat|)))
         (QVELT |corners| 0)) 
 
 (PUT '|ACPLOT;getXMax| '|SPADreplace| '(XLAM (|corners|) (QVELT |corners| 1))) 
 
 (SDEFUN |ACPLOT;getXMax|
-        ((|corners| |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|)))
-         ($ |DoubleFloat|))
+        ((|corners|
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|))))
+         ($ (|DoubleFloat|)))
         (QVELT |corners| 1)) 
 
 (PUT '|ACPLOT;getYMin| '|SPADreplace| '(XLAM (|corners|) (QVELT |corners| 2))) 
 
 (SDEFUN |ACPLOT;getYMin|
-        ((|corners| |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|)))
-         ($ |DoubleFloat|))
+        ((|corners|
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|))))
+         ($ (|DoubleFloat|)))
         (QVELT |corners| 2)) 
 
 (PUT '|ACPLOT;getYMax| '|SPADreplace| '(XLAM (|corners|) (QVELT |corners| 3))) 
 
 (SDEFUN |ACPLOT;getYMax|
-        ((|corners| |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|)))
-         ($ |DoubleFloat|))
+        ((|corners|
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|))))
+         ($ (|DoubleFloat|)))
         (QVELT |corners| 3)) 
 
 (SDEFUN |ACPLOT;SFPolyToUPoly|
-        ((|p| |Polynomial| (|DoubleFloat|))
-         ($ |SparseUnivariatePolynomial| (|DoubleFloat|)))
+        ((|p| (|Polynomial| (|DoubleFloat|)))
+         ($ (|SparseUnivariatePolynomial| (|DoubleFloat|))))
         (COND ((SPADCALL |p| (QREFELT $ 31)) (|spadConstant| $ 33))
               ('T
                (SPADCALL
@@ -116,8 +126,8 @@
                 (QREFELT $ 39))))) 
 
 (SDEFUN |ACPLOT;RNPolyToUPoly|
-        ((|p| |Polynomial| (|Fraction| (|Integer|)))
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|p| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (COND ((SPADCALL |p| (QREFELT $ 41)) (|spadConstant| $ 43))
               ('T
                (SPADCALL
@@ -127,27 +137,27 @@
                 (QREFELT $ 49))))) 
 
 (SDEFUN |ACPLOT;coerceCoefsToSFs|
-        ((|p| |Polynomial| (|Integer|)) ($ |Polynomial| (|DoubleFloat|)))
+        ((|p| (|Polynomial| (|Integer|))) ($ (|Polynomial| (|DoubleFloat|))))
         (SPADCALL (ELT $ 50) |p| (QREFELT $ 54))) 
 
 (SDEFUN |ACPLOT;coerceCoefsToRNs|
-        ((|p| |Polynomial| (|Integer|))
-         ($ |Polynomial| (|Fraction| (|Integer|))))
+        ((|p| (|Polynomial| (|Integer|)))
+         ($ (|Polynomial| (|Fraction| (|Integer|)))))
         (SPADCALL (ELT $ 55) |p| (QREFELT $ 58))) 
 
-(SDEFUN |ACPLOT;RNtoSF| ((|r| |Fraction| (|Integer|)) ($ |DoubleFloat|))
+(SDEFUN |ACPLOT;RNtoSF| ((|r| (|Fraction| (|Integer|))) ($ (|DoubleFloat|)))
         (SPADCALL |r| (QREFELT $ 59))) 
 
-(SDEFUN |ACPLOT;RNtoNF| ((|r| |Fraction| (|Integer|)) ($ |Float|))
+(SDEFUN |ACPLOT;RNtoNF| ((|r| (|Fraction| (|Integer|))) ($ (|Float|)))
         (SPADCALL |r| (QREFELT $ 60))) 
 
-(SDEFUN |ACPLOT;SFtoNF| ((|x| |DoubleFloat|) ($ |Float|))
+(SDEFUN |ACPLOT;SFtoNF| ((|x| (|DoubleFloat|)) ($ (|Float|)))
         (SPADCALL |x| (QREFELT $ 61))) 
 
 (SDEFUN |ACPLOT;listPtsOnHorizBdry|
-        ((|pRN| |Polynomial| (|Fraction| (|Integer|))) (|y| |Symbol|)
-         (|y0| |Fraction| (|Integer|)) (|xMinNF| |Float|) (|xMaxNF| |Float|)
-         ($ |List| (|Point| (|DoubleFloat|))))
+        ((|pRN| (|Polynomial| (|Fraction| (|Integer|)))) (|y| (|Symbol|))
+         (|y0| (|Fraction| (|Integer|))) (|xMinNF| (|Float|))
+         (|xMaxNF| (|Float|)) ($ (|List| (|Point| (|DoubleFloat|)))))
         (SPROG
          ((|pointList| (|List| (|Point| (|DoubleFloat|)))) (#1=#:G232 NIL)
           (|root| NIL) (|roots| (|List| (|Float|)))
@@ -175,9 +185,9 @@
               (EXIT |pointList|)))) 
 
 (SDEFUN |ACPLOT;listPtsOnVertBdry|
-        ((|pRN| |Polynomial| (|Fraction| (|Integer|))) (|x| |Symbol|)
-         (|x0| |Fraction| (|Integer|)) (|yMinNF| |Float|) (|yMaxNF| |Float|)
-         ($ |List| (|Point| (|DoubleFloat|))))
+        ((|pRN| (|Polynomial| (|Fraction| (|Integer|)))) (|x| (|Symbol|))
+         (|x0| (|Fraction| (|Integer|))) (|yMinNF| (|Float|))
+         (|yMaxNF| (|Float|)) ($ (|List| (|Point| (|DoubleFloat|)))))
         (SPROG
          ((|pointList| (|List| (|Point| (|DoubleFloat|)))) (#1=#:G236 NIL)
           (|root| NIL) (|roots| (|List| (|Float|)))
@@ -205,9 +215,9 @@
               (EXIT |pointList|)))) 
 
 (SDEFUN |ACPLOT;listPtsInRect|
-        ((|points| |List| (|List| (|Float|))) (|xMin| |Float|) (|xMax| |Float|)
-         (|yMin| |Float|) (|yMax| |Float|)
-         ($ |List| (|Point| (|DoubleFloat|))))
+        ((|points| (|List| (|List| (|Float|)))) (|xMin| (|Float|))
+         (|xMax| (|Float|)) (|yMin| (|Float|)) (|yMax| (|Float|))
+         ($ (|List| (|Point| (|DoubleFloat|)))))
         (SPROG
          ((|pointList| (|List| (|Point| (|DoubleFloat|)))) (|yy| (|Float|))
           (|xx| (|Float|)) (#1=#:G241 NIL) (|point| NIL))
@@ -237,8 +247,8 @@
               (EXIT |pointList|)))) 
 
 (SDEFUN |ACPLOT;ptsSuchThat?|
-        ((|points| |List| (|List| (|Float|)))
-         (|pred| |Mapping| (|Boolean|) (|List| (|Float|))) ($ |Boolean|))
+        ((|points| (|List| (|List| (|Float|))))
+         (|pred| (|Mapping| (|Boolean|) (|List| (|Float|)))) ($ (|Boolean|)))
         (SPROG ((#1=#:G246 NIL) (#2=#:G247 NIL) (|point| NIL))
                (SEQ
                 (EXIT
@@ -257,8 +267,8 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |ACPLOT;inRect?|
-        ((|point| |List| (|Float|)) (|xMinNF| |Float|) (|xMaxNF| |Float|)
-         (|yMinNF| |Float|) (|yMaxNF| |Float|) ($ |Boolean|))
+        ((|point| (|List| (|Float|))) (|xMinNF| (|Float|)) (|xMaxNF| (|Float|))
+         (|yMinNF| (|Float|)) (|yMaxNF| (|Float|)) ($ (|Boolean|)))
         (SPROG ((|yy| (|Float|)) (|xx| (|Float|)))
                (SEQ (LETT |xx| (|SPADfirst| |point|))
                     (LETT |yy| (SPADCALL |point| (QREFELT $ 69)))
@@ -275,8 +285,8 @@
                       (#1# NIL)))))) 
 
 (SDEFUN |ACPLOT;onHorzSeg?|
-        ((|point| |List| (|Float|)) (|xMinNF| |Float|) (|xMaxNF| |Float|)
-         (|yNF| |Float|) ($ |Boolean|))
+        ((|point| (|List| (|Float|))) (|xMinNF| (|Float|)) (|xMaxNF| (|Float|))
+         (|yNF| (|Float|)) ($ (|Boolean|)))
         (SPROG ((|yy| (|Float|)) (|xx| (|Float|)))
                (SEQ (LETT |xx| (|SPADfirst| |point|))
                     (LETT |yy| (SPADCALL |point| (QREFELT $ 69)))
@@ -290,8 +300,8 @@
                       (#1# NIL)))))) 
 
 (SDEFUN |ACPLOT;onVertSeg?|
-        ((|point| |List| (|Float|)) (|yMinNF| |Float|) (|yMaxNF| |Float|)
-         (|xNF| |Float|) ($ |Boolean|))
+        ((|point| (|List| (|Float|))) (|yMinNF| (|Float|)) (|yMaxNF| (|Float|))
+         (|xNF| (|Float|)) ($ (|Boolean|)))
         (SPROG ((|yy| (|Float|)) (|xx| (|Float|)))
                (SEQ (LETT |xx| (|SPADfirst| |point|))
                     (LETT |yy| (SPADCALL |point| (QREFELT $ 69)))
@@ -305,10 +315,11 @@
                       (#1# NIL)))))) 
 
 (SDEFUN |ACPLOT;newX|
-        ((|vtanPts| |List| (|List| (|Float|)))
-         (|singPts| |List| (|List| (|Float|))) (|yMinNF| |Float|)
-         (|yMaxNF| |Float|) (|xNF| |Float|) (|xRN| |Fraction| (|Integer|))
-         (|horizInc| |Fraction| (|Integer|)) ($ |Fraction| (|Integer|)))
+        ((|vtanPts| (|List| (|List| (|Float|))))
+         (|singPts| (|List| (|List| (|Float|)))) (|yMinNF| (|Float|))
+         (|yMaxNF| (|Float|)) (|xNF| (|Float|))
+         (|xRN| (|Fraction| (|Integer|))) (|horizInc| (|Fraction| (|Integer|)))
+         ($ (|Fraction| (|Integer|))))
         (SPROG
          ((|goo| (|Mapping| (|Boolean|) (|List| (|Float|))))
           (|foo| (|Mapping| (|Boolean|) (|List| (|Float|))))
@@ -363,10 +374,11 @@
             (|ACPLOT;inRect?| |x| |xLftNF| |xRtNF| |yMinNF| |yMaxNF| $))))) 
 
 (SDEFUN |ACPLOT;newY|
-        ((|htanPts| |List| (|List| (|Float|)))
-         (|singPts| |List| (|List| (|Float|))) (|xMinNF| |Float|)
-         (|xMaxNF| |Float|) (|yNF| |Float|) (|yRN| |Fraction| (|Integer|))
-         (|vertInc| |Fraction| (|Integer|)) ($ |Fraction| (|Integer|)))
+        ((|htanPts| (|List| (|List| (|Float|))))
+         (|singPts| (|List| (|List| (|Float|)))) (|xMinNF| (|Float|))
+         (|xMaxNF| (|Float|)) (|yNF| (|Float|))
+         (|yRN| (|Fraction| (|Integer|))) (|vertInc| (|Fraction| (|Integer|)))
+         ($ (|Fraction| (|Integer|))))
         (SPROG
          ((|goo| (|Mapping| (|Boolean|) (|List| (|Float|))))
           (|foo| (|Mapping| (|Boolean|) (|List| (|Float|))))
@@ -421,9 +433,9 @@
             (|ACPLOT;inRect?| |x| |xMinNF| |xMaxNF| |yBotNF| |yTopNF| $))))) 
 
 (SDEFUN |ACPLOT;makeSketch;P2S2S$;27|
-        ((|p| |Polynomial| (|Integer|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|xRange| |Segment| (|Fraction| (|Integer|)))
-         (|yRange| |Segment| (|Fraction| (|Integer|))) ($ $))
+        ((|p| (|Polynomial| (|Integer|))) (|x| (|Symbol|)) (|y| (|Symbol|))
+         (|xRange| (|Segment| (|Fraction| (|Integer|))))
+         (|yRange| (|Segment| (|Fraction| (|Integer|)))) ($ ($)))
         (SPROG
          ((|varList| (|List| (|Symbol|))) (|yMax| #1=(|Fraction| (|Integer|)))
           (|yMin| #2=(|Fraction| (|Integer|))) (|xMax| #1#) (|xMin| #2#))
@@ -481,10 +493,10 @@
                               |xMax| |yMin| |yMax| $))))))))))))))) 
 
 (SDEFUN |ACPLOT;makeOneVarSketch|
-        ((|p| |Polynomial| (|Integer|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|xMin| |Fraction| (|Integer|)) (|xMax| |Fraction| (|Integer|))
-         (|yMin| |Fraction| (|Integer|)) (|yMax| |Fraction| (|Integer|))
-         (|var| |Symbol|) ($ $))
+        ((|p| (|Polynomial| (|Integer|))) (|x| (|Symbol|)) (|y| (|Symbol|))
+         (|xMin| (|Fraction| (|Integer|))) (|xMax| (|Fraction| (|Integer|)))
+         (|yMin| (|Fraction| (|Integer|))) (|yMax| (|Fraction| (|Integer|)))
+         (|var| (|Symbol|)) ($ ($)))
         (SPROG
          ((|bran| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|branch| (|List| #1=(|Point| (|DoubleFloat|))))
@@ -585,9 +597,10 @@
                        |bran|))))))))) 
 
 (SDEFUN |ACPLOT;makeLineSketch|
-        ((|p| |Polynomial| (|Integer|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|xMin| |Fraction| (|Integer|)) (|xMax| |Fraction| (|Integer|))
-         (|yMin| |Fraction| (|Integer|)) (|yMax| |Fraction| (|Integer|)) ($ $))
+        ((|p| (|Polynomial| (|Integer|))) (|x| (|Symbol|)) (|y| (|Symbol|))
+         (|xMin| (|Fraction| (|Integer|))) (|xMax| (|Fraction| (|Integer|)))
+         (|yMin| (|Fraction| (|Integer|))) (|yMax| (|Fraction| (|Integer|)))
+         ($ ($)))
         (SPROG
          ((|bran| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|branch| (|List| (|Point| (|DoubleFloat|))))
@@ -682,8 +695,8 @@
                        (VECTOR |lf| |rt| |bt| |tp|) |htans| |vtans| |bran|))))) 
 
 (SDEFUN |ACPLOT;singValBetween?|
-        ((|xCurrent| |DoubleFloat|) (|xNext| |DoubleFloat|)
-         (|xSingList| |List| (|DoubleFloat|)) ($ |Boolean|))
+        ((|xCurrent| (|DoubleFloat|)) (|xNext| (|DoubleFloat|))
+         (|xSingList| (|List| (|DoubleFloat|))) ($ (|Boolean|)))
         (SPROG ((#1=#:G308 NIL) (#2=#:G309 NIL) (#3=#:G310 NIL) (|xVal| NIL))
                (SEQ
                 (EXIT
@@ -709,15 +722,17 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |ACPLOT;segmentInfo|
-        ((|f| |Mapping| #1=(|DoubleFloat|) (|DoubleFloat|))
-         (|lo| |DoubleFloat|) (|hi| |DoubleFloat|)
-         (|botList| |List| (|DoubleFloat|)) (|topList| |List| (|DoubleFloat|))
-         (|singList| |List| (|DoubleFloat|)) (|minSF| |DoubleFloat|)
-         (|maxSF| |DoubleFloat|)
-         ($ |Record| (|:| |seg| (|Segment| (|DoubleFloat|)))
-          (|:| |left| (|DoubleFloat|))
-          (|:| |lowerVals| (|List| (|DoubleFloat|)))
-          (|:| |upperVals| (|List| (|DoubleFloat|)))))
+        ((|f| (|Mapping| #1=(|DoubleFloat|) (|DoubleFloat|)))
+         (|lo| (|DoubleFloat|)) (|hi| (|DoubleFloat|))
+         (|botList| (|List| (|DoubleFloat|)))
+         (|topList| (|List| (|DoubleFloat|)))
+         (|singList| (|List| (|DoubleFloat|))) (|minSF| (|DoubleFloat|))
+         (|maxSF| (|DoubleFloat|))
+         ($
+          (|Record| (|:| |seg| (|Segment| (|DoubleFloat|)))
+                    (|:| |left| (|DoubleFloat|))
+                    (|:| |lowerVals| (|List| (|DoubleFloat|)))
+                    (|:| |upperVals| (|List| (|DoubleFloat|))))))
         (SPROG
          ((#2=#:G334 NIL) (|val| #1#) (|nextFrom| #3=(|String|))
           (|nxt| #4=(|DoubleFloat|)) (|top| #4#) (|bot| #4#)
@@ -824,11 +839,11 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |ACPLOT;makeRatFcnSketch|
-        ((|p| |Polynomial| (|Integer|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|xMin| . #1=(|Fraction| (|Integer|)))
-         (|xMax| . #2=(|Fraction| (|Integer|)))
-         (|yMin| . #3=(|Fraction| (|Integer|)))
-         (|yMax| . #4=(|Fraction| (|Integer|))) (|depVar| |Symbol|) ($ $))
+        ((|p| (|Polynomial| (|Integer|))) (|x| (|Symbol|)) (|y| (|Symbol|))
+         (|xMin| #1=(|Fraction| (|Integer|)))
+         (|xMax| #2=(|Fraction| (|Integer|)))
+         (|yMin| #3=(|Fraction| (|Integer|)))
+         (|yMax| #4=(|Fraction| (|Integer|))) (|depVar| (|Symbol|)) ($ ($)))
         (SPROG
          ((|bran| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|curve| (|List| (|Point| (|DoubleFloat|)))) (|RFPlot| (|Plot|))
@@ -1350,9 +1365,10 @@
                       (QREFELT $ 99)))))) 
 
 (SDEFUN |ACPLOT;makeGeneralSketch|
-        ((|pol| |Polynomial| (|Integer|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|xMin| |Fraction| (|Integer|)) (|xMax| |Fraction| (|Integer|))
-         (|yMin| |Fraction| (|Integer|)) (|yMax| |Fraction| (|Integer|)) ($ $))
+        ((|pol| (|Polynomial| (|Integer|))) (|x| (|Symbol|)) (|y| (|Symbol|))
+         (|xMin| (|Fraction| (|Integer|))) (|xMax| (|Fraction| (|Integer|)))
+         (|yMin| (|Fraction| (|Integer|))) (|yMax| (|Fraction| (|Integer|)))
+         ($ ($)))
         (SPROG
          ((|bran| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|bdPts|
@@ -1591,7 +1607,7 @@
             (|ACPLOT;inRect?| |s| |xMinNF| |xMaxNF| |yMinNF| |yMaxNF| $))))) 
 
 (SDEFUN |ACPLOT;refine;$Df$;34|
-        ((|plot| $) (|stepFraction| |DoubleFloat|) ($ $))
+        ((|plot| ($)) (|stepFraction| (|DoubleFloat|)) ($ ($)))
         (SPROG
          ((|vtans| (|List| (|Point| (|DoubleFloat|))))
           (|htans| (|List| (|Point| (|DoubleFloat|))))
@@ -1658,19 +1674,24 @@
                        |vtans| |bran|))))) 
 
 (SDEFUN |ACPLOT;traceBranches|
-        ((|pSF| |Polynomial| (|DoubleFloat|))
-         (|dpdxSF| |Polynomial| (|DoubleFloat|))
-         (|dpdySF| |Polynomial| (|DoubleFloat|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|corners| |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|)))
-         (|delta| |DoubleFloat|) (|err| |DoubleFloat|)
-         (|bound| |PositiveInteger|) (|crits| |List| (|Point| (|DoubleFloat|)))
-         (|bdPts| |Record| (|:| |left| #1=(|List| (|Point| (|DoubleFloat|))))
-          (|:| |right| #2=(|List| (|Point| (|DoubleFloat|))))
-          (|:| |bottom| #3=(|List| (|Point| (|DoubleFloat|))))
-          (|:| |top| #4=(|List| (|Point| (|DoubleFloat|)))))
-         ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|pSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdxSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdySF| (|Polynomial| (|DoubleFloat|))) (|x| (|Symbol|))
+         (|y| (|Symbol|))
+         (|corners|
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|))))
+         (|delta| (|DoubleFloat|)) (|err| (|DoubleFloat|))
+         (|bound| (|PositiveInteger|))
+         (|crits| (|List| (|Point| (|DoubleFloat|))))
+         (|bdPts|
+          (|Record| (|:| |left| #1=(|List| (|Point| (|DoubleFloat|))))
+                    (|:| |right| #2=(|List| (|Point| (|DoubleFloat|))))
+                    (|:| |bottom| #3=(|List| (|Point| (|DoubleFloat|))))
+                    (|:| |top| #4=(|List| (|Point| (|DoubleFloat|))))))
+         ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|bran| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|segInfo| (|List| (|List| (|Point| (|DoubleFloat|)))))
@@ -1712,12 +1733,14 @@
               (EXIT |bran|)))) 
 
 (SDEFUN |ACPLOT;dummyFirstPt|
-        ((|p1| |Point| (|DoubleFloat|)) (|dpdxSF| |Polynomial| (|DoubleFloat|))
-         (|dpdySF| |Polynomial| (|DoubleFloat|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|lf| |List| (|Point| (|DoubleFloat|)))
-         (|rt| |List| (|Point| (|DoubleFloat|)))
-         (|bt| |List| (|Point| (|DoubleFloat|)))
-         (|tp| |List| (|Point| (|DoubleFloat|))) ($ |Point| (|DoubleFloat|)))
+        ((|p1| (|Point| (|DoubleFloat|)))
+         (|dpdxSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdySF| (|Polynomial| (|DoubleFloat|))) (|x| (|Symbol|))
+         (|y| (|Symbol|)) (|lf| (|List| (|Point| (|DoubleFloat|))))
+         (|rt| (|List| (|Point| (|DoubleFloat|))))
+         (|bt| (|List| (|Point| (|DoubleFloat|))))
+         (|tp| (|List| (|Point| (|DoubleFloat|))))
+         ($ (|Point| (|DoubleFloat|))))
         (SPROG
          ((|py| #1=(|DoubleFloat|)) (|px| #1#) (|one| (|DoubleFloat|))
           (|zero| (|DoubleFloat|)) (|y1| (|DoubleFloat|))
@@ -1755,17 +1778,21 @@
                   $))))))) 
 
 (SDEFUN |ACPLOT;listPtsOnSegment|
-        ((|pSF| |Polynomial| (|DoubleFloat|))
-         (|dpdxSF| |Polynomial| (|DoubleFloat|))
-         (|dpdySF| |Polynomial| (|DoubleFloat|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|p0| |Point| (|DoubleFloat|)) (|p1| . #1=(|Point| (|DoubleFloat|)))
-         (|corners| |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|)))
-         (|delta| |DoubleFloat|) (|err| |DoubleFloat|)
-         (|bound| |PositiveInteger|) (|crits| |List| (|Point| (|DoubleFloat|)))
-         (|bdry| |List| (|Point| (|DoubleFloat|)))
-         ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|pSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdxSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdySF| (|Polynomial| (|DoubleFloat|))) (|x| (|Symbol|))
+         (|y| (|Symbol|)) (|p0| (|Point| (|DoubleFloat|)))
+         (|p1| #1=(|Point| (|DoubleFloat|)))
+         (|corners|
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|))))
+         (|delta| (|DoubleFloat|)) (|err| (|DoubleFloat|))
+         (|bound| (|PositiveInteger|))
+         (|crits| (|List| (|Point| (|DoubleFloat|))))
+         (|bdry| (|List| (|Point| (|DoubleFloat|))))
+         ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|pointList| (|List| #1#)) (#2=#:G469 NIL)
           (|p2| #3=(|Point| (|DoubleFloat|)))
@@ -1826,17 +1853,20 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |ACPLOT;listPtsOnLoop|
-        ((|pSF| |Polynomial| (|DoubleFloat|))
-         (|dpdxSF| |Polynomial| (|DoubleFloat|))
-         (|dpdySF| |Polynomial| (|DoubleFloat|)) (|x| |Symbol|) (|y| |Symbol|)
-         (|p1| . #1=(|Point| (|DoubleFloat|)))
-         (|corners| |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|)))
-         (|delta| |DoubleFloat|) (|err| |DoubleFloat|)
-         (|bound| |PositiveInteger|) (|crits| |List| (|Point| (|DoubleFloat|)))
-         (|bdry| |List| (|Point| (|DoubleFloat|)))
-         ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|pSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdxSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdySF| (|Polynomial| (|DoubleFloat|))) (|x| (|Symbol|))
+         (|y| (|Symbol|)) (|p1| #1=(|Point| (|DoubleFloat|)))
+         (|corners|
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|))))
+         (|delta| (|DoubleFloat|)) (|err| (|DoubleFloat|))
+         (|bound| (|PositiveInteger|))
+         (|crits| (|List| (|Point| (|DoubleFloat|))))
+         (|bdry| (|List| (|Point| (|DoubleFloat|))))
+         ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|pointList| (|List| #1#)) (#2=#:G483 NIL)
           (|p2| #3=(|Point| (|DoubleFloat|)))
@@ -1920,19 +1950,23 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |ACPLOT;computeNextPt|
-        ((|pSF| |Polynomial| (|DoubleFloat|))
-         (|dpdxSF| |Polynomial| (|DoubleFloat|))
-         (|dpdySF| |Polynomial| (|DoubleFloat|)) (|x| . #1=(|Symbol|))
-         (|y| |Symbol|) (|p0| |Point| (|DoubleFloat|))
-         (|p1| |Point| (|DoubleFloat|))
-         (|corners| |Record| (|:| |minXVal| (|DoubleFloat|))
-          (|:| |maxXVal| (|DoubleFloat|)) (|:| |minYVal| (|DoubleFloat|))
-          (|:| |maxYVal| (|DoubleFloat|)))
-         (|delta| |DoubleFloat|) (|err| |DoubleFloat|)
-         (|bound| |PositiveInteger|) (|crits| |List| (|Point| (|DoubleFloat|)))
-         (|bdry| |List| (|Point| (|DoubleFloat|)))
-         ($ |Record| (|:| |newPt| (|Point| (|DoubleFloat|)))
-          (|:| |type| (|String|))))
+        ((|pSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdxSF| (|Polynomial| (|DoubleFloat|)))
+         (|dpdySF| (|Polynomial| (|DoubleFloat|))) (|x| #1=(|Symbol|))
+         (|y| (|Symbol|)) (|p0| (|Point| (|DoubleFloat|)))
+         (|p1| (|Point| (|DoubleFloat|)))
+         (|corners|
+          (|Record| (|:| |minXVal| (|DoubleFloat|))
+                    (|:| |maxXVal| (|DoubleFloat|))
+                    (|:| |minYVal| (|DoubleFloat|))
+                    (|:| |maxYVal| (|DoubleFloat|))))
+         (|delta| (|DoubleFloat|)) (|err| (|DoubleFloat|))
+         (|bound| (|PositiveInteger|))
+         (|crits| (|List| (|Point| (|DoubleFloat|))))
+         (|bdry| (|List| (|Point| (|DoubleFloat|))))
+         ($
+          (|Record| (|:| |newPt| (|Point| (|DoubleFloat|)))
+                    (|:| |type| (|String|)))))
         (SPROG
          ((|critPt| #2=(|Union| (|Point| (|DoubleFloat|)) #3="failed"))
           (|bdryPt| #2#) (|pt| #4=(|Point| (|DoubleFloat|)))
@@ -2048,7 +2082,7 @@
                  (#14# (SEQ (LETT |yLo| |y2Approx|) (EXIT (LETT |yHi| |y1|)))))
                 (LETT |x2Approxx| |x2Approx|) (LETT |y2Approxx| |y2Approx|)
                 (LETT |xPointList| NIL) (LETT |yPointList| NIL)
-                (SEQ (LETT |pt| NIL) (LETT #11# |crits|) G190
+                (SEQ (LETT #11# |crits|) G190
                      (COND
                       ((OR (ATOM #11#) (PROGN (LETT |pt| (CAR #11#)) NIL))
                        (GO G191)))
@@ -2525,9 +2559,9 @@
           #15# (EXIT #6#)))) 
 
 (SDEFUN |ACPLOT;newtonApprox|
-        ((|f| |SparseUnivariatePolynomial| (|DoubleFloat|))
-         (|a0| . #1=(|DoubleFloat|)) (|err| |DoubleFloat|)
-         (|bound| |PositiveInteger|) ($ |Union| (|DoubleFloat|) "failed"))
+        ((|f| (|SparseUnivariatePolynomial| (|DoubleFloat|)))
+         (|a0| #1=(|DoubleFloat|)) (|err| (|DoubleFloat|))
+         (|bound| (|PositiveInteger|)) ($ (|Union| (|DoubleFloat|) "failed")))
         (SPROG
          ((|i| (|PositiveInteger|)) (|newApprox| (|DoubleFloat|))
           (|oldApprox| #1#) (#2=#:G554 NIL)
@@ -2571,10 +2605,10 @@
      '(XLAM (|acplot|) (QVELT |acplot| 10))) 
 
 (SDEFUN |ACPLOT;listBranches;$L;41|
-        ((|acplot| $) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|acplot| ($)) ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (QVELT |acplot| 10)) 
 
-(SDEFUN |ACPLOT;coerce;$Of;42| ((|acplot| $) ($ |OutputForm|))
+(SDEFUN |ACPLOT;coerce;$Of;42| ((|acplot| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|ff| (|OutputForm|)) (|f| (|List| (|OutputForm|)))
           (|ll| (|List| (|OutputForm|))) (#1=#:G563 NIL) (|p| NIL)

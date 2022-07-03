@@ -1,5 +1,5 @@
 
-(SDEFUN |PLEQN;inconsistent?;LB;1| ((|pl| |List| GR) ($ |Boolean|))
+(SDEFUN |PLEQN;inconsistent?;LB;1| ((|pl| (|List| GR)) ($ (|Boolean|)))
         (SPROG ((#1=#:G157 NIL) (#2=#:G158 NIL) (#3=#:G159 NIL) (|p| NIL))
                (SEQ
                 (EXIT
@@ -23,7 +23,7 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |PLEQN;inconsistent?;LB;2|
-        ((|pl| |List| (|Polynomial| R)) ($ |Boolean|))
+        ((|pl| (|List| (|Polynomial| R))) ($ (|Boolean|)))
         (SPROG ((#1=#:G164 NIL) (#2=#:G165 NIL) (#3=#:G166 NIL) (|p| NIL))
                (SEQ
                 (EXIT
@@ -47,12 +47,16 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |PLEQN;B1solve;RR;3|
-        ((|sys| |Record| (|:| |mat| (|Matrix| (|Fraction| (|Polynomial| R))))
-          (|:| |vec| (|List| (|Fraction| (|Polynomial| R))))
-          (|:| |rank| (|NonNegativeInteger|)) (|:| |rows| (|List| (|Integer|)))
-          (|:| |cols| (|List| (|Integer|))))
-         ($ |Record| (|:| |partsol| (|Vector| (|Fraction| (|Polynomial| R))))
-          (|:| |basis| (|List| (|Vector| (|Fraction| (|Polynomial| R)))))))
+        ((|sys|
+          (|Record| (|:| |mat| (|Matrix| (|Fraction| (|Polynomial| R))))
+                    (|:| |vec| (|List| (|Fraction| (|Polynomial| R))))
+                    (|:| |rank| (|NonNegativeInteger|))
+                    (|:| |rows| (|List| (|Integer|)))
+                    (|:| |cols| (|List| (|Integer|)))))
+         ($
+          (|Record| (|:| |partsol| (|Vector| (|Fraction| (|Polynomial| R))))
+                    (|:| |basis|
+                         (|List| (|Vector| (|Fraction| (|Polynomial| R))))))))
         (SPROG
          ((|pbas| (|List| (|Vector| (|Fraction| (|Polynomial| R)))))
           (|pb| #1=(|Vector| (|Fraction| (|Polynomial| R)))) (#2=#:G191 NIL)
@@ -180,18 +184,22 @@
               (EXIT (CONS |p| |pbas|))))) 
 
 (SDEFUN |PLEQN;regime;RMLL2NniIR;4|
-        ((|y| |Record| (|:| |det| GR) (|:| |rows| #1=(|List| (|Integer|)))
-          (|:| |cols| #2=(|List| (|Integer|))))
-         (|coef| |Matrix| GR) (|w| |List| (|Fraction| (|Polynomial| R)))
-         (|psbf| |List| (|List| GR)) (|rk| |NonNegativeInteger|)
-         (|rkmax| |NonNegativeInteger|) (|mode| |Integer|)
-         ($ |Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-          (|:| |wcond| (|List| (|Polynomial| R)))
-          (|:| |bsoln|
-               (|Record|
-                (|:| |partsol| (|Vector| (|Fraction| (|Polynomial| R))))
-                (|:| |basis|
-                     (|List| (|Vector| (|Fraction| (|Polynomial| R)))))))))
+        ((|y|
+          (|Record| (|:| |det| GR) (|:| |rows| #1=(|List| (|Integer|)))
+                    (|:| |cols| #2=(|List| (|Integer|)))))
+         (|coef| (|Matrix| GR)) (|w| (|List| (|Fraction| (|Polynomial| R))))
+         (|psbf| (|List| (|List| GR))) (|rk| (|NonNegativeInteger|))
+         (|rkmax| (|NonNegativeInteger|)) (|mode| (|Integer|))
+         ($
+          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                    (|:| |wcond| (|List| (|Polynomial| R)))
+                    (|:| |bsoln|
+                         (|Record|
+                          (|:| |partsol|
+                               (|Vector| (|Fraction| (|Polynomial| R))))
+                          (|:| |basis|
+                               (|List|
+                                (|Vector| (|Fraction| (|Polynomial| R))))))))))
         (SPROG
          ((|test|
            (|Record| (|:| |sysok| (|Boolean|)) (|:| |z0| (|List| GR))
@@ -413,22 +421,24 @@
           #23# (EXIT #5#)))) 
 
 (SDEFUN |PLEQN;bsolve;MLNniSIR;5|
-        ((|coeff| |Matrix| GR) (|w| |List| (|Fraction| (|Polynomial| R)))
-         (|h| |NonNegativeInteger|) (|outname| |String|) (|mode| |Integer|)
-         ($ |Record|
-          (|:| |rgl|
-               (|List|
-                (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                          (|:| |wcond| (|List| (|Polynomial| R)))
-                          (|:| |bsoln|
-                               (|Record|
-                                (|:| |partsol|
-                                     (|Vector| (|Fraction| (|Polynomial| R))))
-                                (|:| |basis|
-                                     (|List|
-                                      (|Vector|
-                                       (|Fraction| (|Polynomial| R))))))))))
-          (|:| |rgsz| (|Integer|))))
+        ((|coeff| (|Matrix| GR)) (|w| (|List| (|Fraction| (|Polynomial| R))))
+         (|h| (|NonNegativeInteger|)) (|outname| (|String|))
+         (|mode| (|Integer|))
+         ($
+          (|Record|
+           (|:| |rgl|
+                (|List|
+                 (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                           (|:| |wcond| (|List| (|Polynomial| R)))
+                           (|:| |bsoln|
+                                (|Record|
+                                 (|:| |partsol|
+                                      (|Vector| (|Fraction| (|Polynomial| R))))
+                                 (|:| |basis|
+                                      (|List|
+                                       (|Vector|
+                                        (|Fraction| (|Polynomial| R))))))))))
+           (|:| |rgsz| (|Integer|)))))
         (SPROG
          ((|count| (|Integer|))
           (|lrec3|
@@ -579,7 +589,7 @@
                       (COND (|filemode| (SPADCALL |rksoln| (QREFELT $ 86))))
                       (EXIT (CONS |lrec3| |count|))))))))) 
 
-(SDEFUN |PLEQN;factorset;GRL;6| ((|y| GR) ($ |List| GR))
+(SDEFUN |PLEQN;factorset;GRL;6| ((|y| (GR)) ($ (|List| GR)))
         (SPROG ((#1=#:G255 NIL) (|j| NIL) (#2=#:G254 NIL))
                (SEQ
                 (COND ((SPADCALL |y| (QREFELT $ 11)) NIL)
@@ -599,15 +609,16 @@
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |PLEQN;ParCondList;MNniL;7|
-        ((|mat| |Matrix| GR) (|h| |NonNegativeInteger|)
-         ($ |List|
-          #1=(|Record| (|:| |rank| (|NonNegativeInteger|))
-                       (|:| |eqns|
-                            (|List|
-                             (|Record| (|:| |det| GR)
-                                       (|:| |rows| (|List| (|Integer|)))
-                                       (|:| |cols| (|List| (|Integer|))))))
-                       (|:| |fgb| #2=(|List| GR)))))
+        ((|mat| (|Matrix| GR)) (|h| (|NonNegativeInteger|))
+         ($
+          (|List|
+           #1=(|Record| (|:| |rank| (|NonNegativeInteger|))
+                        (|:| |eqns|
+                             (|List|
+                              (|Record| (|:| |det| GR)
+                                        (|:| |rows| (|List| (|Integer|)))
+                                        (|:| |cols| (|List| (|Integer|))))))
+                        (|:| |fgb| #2=(|List| GR))))))
         (SPROG
          ((|rcl|
            (|List|
@@ -707,13 +718,16 @@
               (EXIT |rcl|)))) 
 
 (SDEFUN |PLEQN;redpps;RLR;8|
-        ((|pps| |Record|
-          (|:| |partsol| (|Vector| (|Fraction| (|Polynomial| R))))
-          (|:| |basis| (|List| (|Vector| (|Fraction| (|Polynomial| R))))))
-         (|zz| |List| GR)
-         ($ |Record|
-          (|:| |partsol| #1=(|Vector| (|Fraction| (|Polynomial| R))))
-          (|:| |basis| #2=(|List| (|Vector| (|Fraction| (|Polynomial| R)))))))
+        ((|pps|
+          (|Record| (|:| |partsol| (|Vector| (|Fraction| (|Polynomial| R))))
+                    (|:| |basis|
+                         (|List| (|Vector| (|Fraction| (|Polynomial| R)))))))
+         (|zz| (|List| GR))
+         ($
+          (|Record| (|:| |partsol| #1=(|Vector| (|Fraction| (|Polynomial| R))))
+                    (|:| |basis|
+                         #2=(|List|
+                             (|Vector| (|Fraction| (|Polynomial| R))))))))
         (SPROG
          ((#3=#:G292 NIL) (|i| NIL)
           (|pbj| (|Vector| (|Fraction| (|Polynomial| R)))) (#4=#:G291 NIL)
@@ -816,7 +830,7 @@
               (EXIT (CONS |pv| |pb|))))) 
 
 (SDEFUN |PLEQN;dmp2rfi;MM;9|
-        ((|mat| |Matrix| GR) ($ |Matrix| (|Fraction| (|Polynomial| R))))
+        ((|mat| (|Matrix| GR)) ($ (|Matrix| (|Fraction| (|Polynomial| R)))))
         (SPROG
          ((#1=#:G298 NIL) (|j| NIL) (#2=#:G297 NIL) (|i| NIL)
           (|nmat| (|Matrix| (|Fraction| (|Polynomial| R))))
@@ -842,7 +856,7 @@
               (EXIT |nmat|)))) 
 
 (SDEFUN |PLEQN;dmp2rfi;LL;10|
-        ((|vl| |List| GR) ($ |List| (|Fraction| (|Polynomial| R))))
+        ((|vl| (|List| GR)) ($ (|List| (|Fraction| (|Polynomial| R)))))
         (SPROG ((#1=#:G302 NIL) (|v| NIL) (#2=#:G301 NIL))
                (SEQ
                 (PROGN
@@ -858,49 +872,55 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |PLEQN;psolve;MLL;11|
-        ((|mat| |Matrix| GR) (|w| |List| GR)
-         ($ |List|
-          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                    (|:| |wcond| (|List| (|Polynomial| R)))
-                    (|:| |bsoln|
-                         (|Record|
-                          (|:| |partsol|
-                               (|Vector| (|Fraction| (|Polynomial| R))))
-                          (|:| |basis|
-                               (|List|
-                                (|Vector| (|Fraction| (|Polynomial| R))))))))))
+        ((|mat| (|Matrix| GR)) (|w| (|List| GR))
+         ($
+          (|List|
+           (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                     (|:| |wcond| (|List| (|Polynomial| R)))
+                     (|:| |bsoln|
+                          (|Record|
+                           (|:| |partsol|
+                                (|Vector| (|Fraction| (|Polynomial| R))))
+                           (|:| |basis|
+                                (|List|
+                                 (|Vector|
+                                  (|Fraction| (|Polynomial| R)))))))))))
         (QCAR
          (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 111)) 1 "nofile" 1
                    (QREFELT $ 88)))) 
 
 (SDEFUN |PLEQN;psolve;MLL;12|
-        ((|mat| |Matrix| GR) (|w| |List| (|Symbol|))
-         ($ |List|
-          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                    (|:| |wcond| (|List| (|Polynomial| R)))
-                    (|:| |bsoln|
-                         (|Record|
-                          (|:| |partsol|
-                               (|Vector| (|Fraction| (|Polynomial| R))))
-                          (|:| |basis|
-                               (|List|
-                                (|Vector| (|Fraction| (|Polynomial| R))))))))))
+        ((|mat| (|Matrix| GR)) (|w| (|List| (|Symbol|)))
+         ($
+          (|List|
+           (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                     (|:| |wcond| (|List| (|Polynomial| R)))
+                     (|:| |bsoln|
+                          (|Record|
+                           (|:| |partsol|
+                                (|Vector| (|Fraction| (|Polynomial| R))))
+                           (|:| |basis|
+                                (|List|
+                                 (|Vector|
+                                  (|Fraction| (|Polynomial| R)))))))))))
         (QCAR
          (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 115)) 1 "nofile" 2
                    (QREFELT $ 88)))) 
 
 (SDEFUN |PLEQN;psolve;ML;13|
-        ((|mat| |Matrix| GR)
-         ($ |List|
-          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                    (|:| |wcond| (|List| (|Polynomial| R)))
-                    (|:| |bsoln|
-                         (|Record|
-                          (|:| |partsol|
-                               (|Vector| (|Fraction| (|Polynomial| R))))
-                          (|:| |basis|
-                               (|List|
-                                (|Vector| (|Fraction| (|Polynomial| R))))))))))
+        ((|mat| (|Matrix| GR))
+         ($
+          (|List|
+           (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                     (|:| |wcond| (|List| (|Polynomial| R)))
+                     (|:| |bsoln|
+                          (|Record|
+                           (|:| |partsol|
+                                (|Vector| (|Fraction| (|Polynomial| R))))
+                           (|:| |basis|
+                                (|List|
+                                 (|Vector|
+                                  (|Fraction| (|Polynomial| R)))))))))))
         (SPROG ((#1=#:G316 NIL) (|i| NIL) (#2=#:G315 NIL))
                (SEQ
                 (QCAR
@@ -918,49 +938,56 @@
                            1 "nofile" 3 (QREFELT $ 88)))))) 
 
 (SDEFUN |PLEQN;psolve;MLPiL;14|
-        ((|mat| |Matrix| GR) (|w| |List| GR) (|h| |PositiveInteger|)
-         ($ |List|
-          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                    (|:| |wcond| (|List| (|Polynomial| R)))
-                    (|:| |bsoln|
-                         (|Record|
-                          (|:| |partsol|
-                               (|Vector| (|Fraction| (|Polynomial| R))))
-                          (|:| |basis|
-                               (|List|
-                                (|Vector| (|Fraction| (|Polynomial| R))))))))))
+        ((|mat| (|Matrix| GR)) (|w| (|List| GR)) (|h| (|PositiveInteger|))
+         ($
+          (|List|
+           (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                     (|:| |wcond| (|List| (|Polynomial| R)))
+                     (|:| |bsoln|
+                          (|Record|
+                           (|:| |partsol|
+                                (|Vector| (|Fraction| (|Polynomial| R))))
+                           (|:| |basis|
+                                (|List|
+                                 (|Vector|
+                                  (|Fraction| (|Polynomial| R)))))))))))
         (QCAR
          (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 111)) |h| "nofile" 4
                    (QREFELT $ 88)))) 
 
 (SDEFUN |PLEQN;psolve;MLPiL;15|
-        ((|mat| |Matrix| GR) (|w| |List| (|Symbol|)) (|h| |PositiveInteger|)
-         ($ |List|
-          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                    (|:| |wcond| (|List| (|Polynomial| R)))
-                    (|:| |bsoln|
-                         (|Record|
-                          (|:| |partsol|
-                               (|Vector| (|Fraction| (|Polynomial| R))))
-                          (|:| |basis|
-                               (|List|
-                                (|Vector| (|Fraction| (|Polynomial| R))))))))))
+        ((|mat| (|Matrix| GR)) (|w| (|List| (|Symbol|)))
+         (|h| (|PositiveInteger|))
+         ($
+          (|List|
+           (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                     (|:| |wcond| (|List| (|Polynomial| R)))
+                     (|:| |bsoln|
+                          (|Record|
+                           (|:| |partsol|
+                                (|Vector| (|Fraction| (|Polynomial| R))))
+                           (|:| |basis|
+                                (|List|
+                                 (|Vector|
+                                  (|Fraction| (|Polynomial| R)))))))))))
         (QCAR
          (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 115)) |h| "nofile" 5
                    (QREFELT $ 88)))) 
 
 (SDEFUN |PLEQN;psolve;MPiL;16|
-        ((|mat| |Matrix| GR) (|h| |PositiveInteger|)
-         ($ |List|
-          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                    (|:| |wcond| (|List| (|Polynomial| R)))
-                    (|:| |bsoln|
-                         (|Record|
-                          (|:| |partsol|
-                               (|Vector| (|Fraction| (|Polynomial| R))))
-                          (|:| |basis|
-                               (|List|
-                                (|Vector| (|Fraction| (|Polynomial| R))))))))))
+        ((|mat| (|Matrix| GR)) (|h| (|PositiveInteger|))
+         ($
+          (|List|
+           (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                     (|:| |wcond| (|List| (|Polynomial| R)))
+                     (|:| |bsoln|
+                          (|Record|
+                           (|:| |partsol|
+                                (|Vector| (|Fraction| (|Polynomial| R))))
+                           (|:| |basis|
+                                (|List|
+                                 (|Vector|
+                                  (|Fraction| (|Polynomial| R)))))))))))
         (SPROG ((#1=#:G329 NIL) (|i| NIL) (#2=#:G328 NIL))
                (SEQ
                 (QCAR
@@ -978,21 +1005,21 @@
                            |h| "nofile" 6 (QREFELT $ 88)))))) 
 
 (SDEFUN |PLEQN;psolve;MLSI;17|
-        ((|mat| |Matrix| GR) (|w| |List| GR) (|outname| |String|)
-         ($ |Integer|))
+        ((|mat| (|Matrix| GR)) (|w| (|List| GR)) (|outname| (|String|))
+         ($ (|Integer|)))
         (QCDR
          (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 111)) 1 |outname| 7
                    (QREFELT $ 88)))) 
 
 (SDEFUN |PLEQN;psolve;MLSI;18|
-        ((|mat| |Matrix| GR) (|w| |List| (|Symbol|)) (|outname| |String|)
-         ($ |Integer|))
+        ((|mat| (|Matrix| GR)) (|w| (|List| (|Symbol|))) (|outname| (|String|))
+         ($ (|Integer|)))
         (QCDR
          (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 115)) 1 |outname| 8
                    (QREFELT $ 88)))) 
 
 (SDEFUN |PLEQN;psolve;MSI;19|
-        ((|mat| |Matrix| GR) (|outname| |String|) ($ |Integer|))
+        ((|mat| (|Matrix| GR)) (|outname| (|String|)) ($ (|Integer|)))
         (SPROG ((#1=#:G339 NIL) (|i| NIL) (#2=#:G338 NIL))
                (SEQ
                 (QCDR
@@ -1010,7 +1037,7 @@
                            1 |outname| 9 (QREFELT $ 88)))))) 
 
 (SDEFUN |PLEQN;nextSublist;2IL;20|
-        ((|n| |Integer|) (|k| |Integer|) ($ |List| (|List| (|Integer|))))
+        ((|n| (|Integer|)) (|k| (|Integer|)) ($ (|List| (|List| (|Integer|)))))
         (SPROG
          ((|mslist| (|List| (|List| (|Integer|)))) (#1=#:G343 NIL) (|ms| NIL))
          (SEQ
@@ -1038,22 +1065,22 @@
                              (QREFELT $ 128))))))))) 
 
 (SDEFUN |PLEQN;psolve;MLPiSI;21|
-        ((|mat| |Matrix| GR) (|w| |List| GR) (|h| |PositiveInteger|)
-         (|outname| |String|) ($ |Integer|))
+        ((|mat| (|Matrix| GR)) (|w| (|List| GR)) (|h| (|PositiveInteger|))
+         (|outname| (|String|)) ($ (|Integer|)))
         (QCDR
          (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 111)) |h| |outname| 10
                    (QREFELT $ 88)))) 
 
 (SDEFUN |PLEQN;psolve;MLPiSI;22|
-        ((|mat| |Matrix| GR) (|w| |List| (|Symbol|)) (|h| |PositiveInteger|)
-         (|outname| |String|) ($ |Integer|))
+        ((|mat| (|Matrix| GR)) (|w| (|List| (|Symbol|)))
+         (|h| (|PositiveInteger|)) (|outname| (|String|)) ($ (|Integer|)))
         (QCDR
          (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 115)) |h| |outname| 11
                    (QREFELT $ 88)))) 
 
 (SDEFUN |PLEQN;psolve;MPiSI;23|
-        ((|mat| |Matrix| GR) (|h| |PositiveInteger|) (|outname| |String|)
-         ($ |Integer|))
+        ((|mat| (|Matrix| GR)) (|h| (|PositiveInteger|)) (|outname| (|String|))
+         ($ (|Integer|)))
         (SPROG ((#1=#:G353 NIL) (|i| NIL) (#2=#:G352 NIL))
                (SEQ
                 (QCDR
@@ -1071,9 +1098,10 @@
                            |h| |outname| 12 (QREFELT $ 88)))))) 
 
 (SDEFUN |PLEQN;hasoln;2LR;24|
-        ((|zro| |List| GR) (|nzro| |List| GR)
-         ($ |Record| (|:| |sysok| (|Boolean|)) (|:| |z0| (|List| GR))
-          (|:| |n0| (|List| GR))))
+        ((|zro| (|List| GR)) (|nzro| (|List| GR))
+         ($
+          (|Record| (|:| |sysok| (|Boolean|)) (|:| |z0| (|List| GR))
+                    (|:| |n0| (|List| GR)))))
         (SPROG
          ((#1=#:G386 NIL) (|p| NIL) (#2=#:G385 NIL) (#3=#:G384 NIL)
           (#4=#:G383 NIL) (#5=#:G361 NIL) (#6=#:G360 (GR)) (#7=#:G362 (GR))
@@ -1294,7 +1322,7 @@
                                                |nzro|)))))))))))))))))))))))) 
 
 (SDEFUN |PLEQN;se2rfi;LL;25|
-        ((|w| |List| (|Symbol|)) ($ |List| (|Fraction| (|Polynomial| R))))
+        ((|w| (|List| (|Symbol|))) ($ (|List| (|Fraction| (|Polynomial| R)))))
         (SPROG ((#1=#:G390 NIL) (|wi| NIL) (#2=#:G389 NIL))
                (SEQ
                 (PROGN
@@ -1315,7 +1343,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |PLEQN;pr2dmp;PGR;26| ((|p| |Polynomial| R) ($ GR))
+(SDEFUN |PLEQN;pr2dmp;PGR;26| ((|p| (|Polynomial| R)) ($ (GR)))
         (COND
          ((SPADCALL |p| (QREFELT $ 15))
           (SPADCALL (SPADCALL |p| (QREFELT $ 136)) (QREFELT $ 137)))
@@ -1324,17 +1352,19 @@
                                   (QREFELT $ 9))))) 
 
 (SDEFUN |PLEQN;wrregime;LSI;27|
-        ((|lrec3| |List|
-          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                    (|:| |wcond| (|List| (|Polynomial| R)))
-                    (|:| |bsoln|
-                         (|Record|
-                          (|:| |partsol|
-                               (|Vector| (|Fraction| (|Polynomial| R))))
-                          (|:| |basis|
-                               (|List|
-                                (|Vector| (|Fraction| (|Polynomial| R)))))))))
-         (|outname| |String|) ($ |Integer|))
+        ((|lrec3|
+          (|List|
+           (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                     (|:| |wcond| (|List| (|Polynomial| R)))
+                     (|:| |bsoln|
+                          (|Record|
+                           (|:| |partsol|
+                                (|Vector| (|Fraction| (|Polynomial| R))))
+                           (|:| |basis|
+                                (|List|
+                                 (|Vector|
+                                  (|Fraction| (|Polynomial| R))))))))))
+         (|outname| (|String|)) ($ (|Integer|)))
         (SPROG
          ((|count| (|Integer|)) (#1=#:G398 NIL) (|rec3| NIL)
           (|rksoln|
@@ -1362,7 +1392,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (SPADCALL |rksoln| (QREFELT $ 86)) (EXIT |count|)))) 
 
-(SDEFUN |PLEQN;dmp2rfi;GRF;28| ((|p| GR) ($ |Fraction| (|Polynomial| R)))
+(SDEFUN |PLEQN;dmp2rfi;GRF;28| ((|p| (GR)) ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL (CONS #'|PLEQN;dmp2rfi;GRF;28!0| $)
                   (CONS #'|PLEQN;dmp2rfi;GRF;28!1| $) |p| (QREFELT $ 145))) 
 
@@ -1373,17 +1403,19 @@
         (SPADCALL (SPADCALL |v1| (QREFELT $ 139)) (QREFELT $ 140))) 
 
 (SDEFUN |PLEQN;rdregime;SL;29|
-        ((|inname| |String|)
-         ($ |List|
-          (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
-                    (|:| |wcond| (|List| (|Polynomial| R)))
-                    (|:| |bsoln|
-                         (|Record|
-                          (|:| |partsol|
-                               (|Vector| (|Fraction| (|Polynomial| R))))
-                          (|:| |basis|
-                               (|List|
-                                (|Vector| (|Fraction| (|Polynomial| R))))))))))
+        ((|inname| (|String|))
+         ($
+          (|List|
+           (|Record| (|:| |eqzro| (|List| GR)) (|:| |neqzro| (|List| GR))
+                     (|:| |wcond| (|List| (|Polynomial| R)))
+                     (|:| |bsoln|
+                          (|Record|
+                           (|:| |partsol|
+                                (|Vector| (|Fraction| (|Polynomial| R))))
+                           (|:| |basis|
+                                (|List|
+                                 (|Vector|
+                                  (|Fraction| (|Polynomial| R)))))))))))
         (SPROG
          ((|rec3|
            (|Union|
@@ -1482,15 +1514,16 @@
           (SPADCALL |infile| (QREFELT $ 86)) (EXIT |rksoln|)))) 
 
 (SDEFUN |PLEQN;maxrank;LNni;30|
-        ((|rcl| |List|
-          (|Record| (|:| |rank| #1=(|NonNegativeInteger|))
-                    (|:| |eqns|
-                         (|List|
-                          (|Record| (|:| |det| GR)
-                                    (|:| |rows| (|List| (|Integer|)))
-                                    (|:| |cols| (|List| (|Integer|))))))
-                    (|:| |fgb| (|List| GR))))
-         ($ |NonNegativeInteger|))
+        ((|rcl|
+          (|List|
+           (|Record| (|:| |rank| #1=(|NonNegativeInteger|))
+                     (|:| |eqns|
+                          (|List|
+                           (|Record| (|:| |det| GR)
+                                     (|:| |rows| (|List| (|Integer|)))
+                                     (|:| |cols| (|List| (|Integer|))))))
+                     (|:| |fgb| (|List| GR)))))
+         ($ (|NonNegativeInteger|)))
         (SPROG
          ((#2=#:G412 NIL) (#3=#:G411 #1#) (#4=#:G413 #1#) (#5=#:G416 NIL)
           (|j| NIL))
@@ -1513,15 +1546,16 @@
                   (COND (#2# #3#) (#6# (|IdentityError| '|max|))))))))) 
 
 (SDEFUN |PLEQN;minrank;LNni;31|
-        ((|rcl| |List|
-          (|Record| (|:| |rank| #1=(|NonNegativeInteger|))
-                    (|:| |eqns|
-                         (|List|
-                          (|Record| (|:| |det| GR)
-                                    (|:| |rows| (|List| (|Integer|)))
-                                    (|:| |cols| (|List| (|Integer|))))))
-                    (|:| |fgb| (|List| GR))))
-         ($ |NonNegativeInteger|))
+        ((|rcl|
+          (|List|
+           (|Record| (|:| |rank| #1=(|NonNegativeInteger|))
+                     (|:| |eqns|
+                          (|List|
+                           (|Record| (|:| |det| GR)
+                                     (|:| |rows| (|List| (|Integer|)))
+                                     (|:| |cols| (|List| (|Integer|))))))
+                     (|:| |fgb| (|List| GR)))))
+         ($ (|NonNegativeInteger|)))
         (SPROG
          ((#2=#:G419 NIL) (#3=#:G418 #1#) (#4=#:G420 #1#) (#5=#:G423 NIL)
           (|j| NIL))
@@ -1544,7 +1578,7 @@
                   (COND (#2# #3#) (#6# (|IdentityError| '|min|))))))))) 
 
 (SDEFUN |PLEQN;minset;2L;32|
-        ((|lset| |List| (|List| GR)) ($ |List| (|List| GR)))
+        ((|lset| (|List| (|List| GR))) ($ (|List| (|List| GR))))
         (SPROG ((#1=#:G429 NIL) (|x| NIL) (#2=#:G428 NIL))
                (SEQ
                 (COND ((NULL |lset|) |lset|)
@@ -1563,7 +1597,7 @@
                              (LETT #1# (CDR #1#)) (GO G190) G191
                              (EXIT (NREVERSE #2#))))))))) 
 
-(SDEFUN |PLEQN;sqfree;2GR;33| ((|p| GR) ($ GR))
+(SDEFUN |PLEQN;sqfree;2GR;33| ((|p| (GR)) ($ (GR)))
         (SPROG
          ((#1=#:G432 NIL) (#2=#:G431 (GR)) (#3=#:G433 (GR)) (#4=#:G435 NIL)
           (|j| NIL))
@@ -1586,10 +1620,11 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 19))))))) 
 
 (SDEFUN |PLEQN;ParCond;MNniL;34|
-        ((|mat| |Matrix| GR) (|k| . #1=(|NonNegativeInteger|))
-         ($ |List|
-          #2=(|Record| (|:| |det| GR) (|:| |rows| (|List| (|Integer|)))
-                       (|:| |cols| (|List| (|Integer|))))))
+        ((|mat| (|Matrix| GR)) (|k| #1=(|NonNegativeInteger|))
+         ($
+          (|List|
+           #2=(|Record| (|:| |det| GR) (|:| |rows| (|List| (|Integer|)))
+                        (|:| |cols| (|List| (|Integer|)))))))
         (SPROG
          ((|DetEqn|
            (|List|
@@ -1688,7 +1723,7 @@
                   (SPADCALL (QVELT |z2| 0) (QREFELT $ 157)) (QREFELT $ 158))) 
 
 (SDEFUN |PLEQN;overset?;LLB;35|
-        ((|p| |List| GR) (|qlist| |List| (|List| GR)) ($ |Boolean|))
+        ((|p| (|List| GR)) (|qlist| (|List| (|List| GR))) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G451 NIL) (#2=#:G450 #3=(|Boolean|)) (#4=#:G452 #3#)
           (#5=#:G455 NIL) (|q| NIL))
@@ -1714,7 +1749,7 @@
                   (COND (#1# #2#) (#6# NIL)))))))) 
 
 (SDEFUN |PLEQN;redmat;MLM;36|
-        ((|mat| |Matrix| GR) (|psb| |List| GR) ($ |Matrix| GR))
+        ((|mat| (|Matrix| GR)) (|psb| (|List| GR)) ($ (|Matrix| GR)))
         (SPROG
          ((|p| (GR)) (#1=#:G462 NIL) (|j| NIL) (#2=#:G461 NIL) (|i| NIL)
           (|newmat| (|Matrix| GR)) (|n| (|NonNegativeInteger|))

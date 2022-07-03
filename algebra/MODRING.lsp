@@ -1,70 +1,70 @@
 
 (PUT '|MODRING;modulus;$Mod;1| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |MODRING;modulus;$Mod;1| ((|x| $) ($ |Mod|)) (QCDR |x|)) 
+(SDEFUN |MODRING;modulus;$Mod;1| ((|x| ($)) ($ (|Mod|))) (QCDR |x|)) 
 
 (PUT '|MODRING;coerce;$R;2| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |MODRING;coerce;$R;2| ((|x| $) ($ R)) (QCAR |x|)) 
+(SDEFUN |MODRING;coerce;$R;2| ((|x| ($)) ($ (R))) (QCAR |x|)) 
 
-(SDEFUN |MODRING;coerce;I$;3| ((|i| |Integer|) ($ $))
+(SDEFUN |MODRING;coerce;I$;3| ((|i| (|Integer|)) ($ ($)))
         (CONS (SPADCALL |i| (QREFELT $ 15)) (|spadConstant| $ 18))) 
 
-(SDEFUN |MODRING;*;I2$;4| ((|i| |Integer|) (|x| $) ($ $))
+(SDEFUN |MODRING;*;I2$;4| ((|i| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |i| (QREFELT $ 19)) |x| (QREFELT $ 20))) 
 
-(SDEFUN |MODRING;coerce;$Of;5| ((|x| $) ($ |OutputForm|))
+(SDEFUN |MODRING;coerce;$Of;5| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL (QCAR |x|) (QREFELT $ 23))) 
 
-(SDEFUN |MODRING;reduce;RMod$;6| ((|a| R) (|m| |Mod|) ($ $))
+(SDEFUN |MODRING;reduce;RMod$;6| ((|a| (R)) (|m| (|Mod|)) ($ ($)))
         (CONS (SPADCALL |a| |m| (QREFELT $ 8)) |m|)) 
 
-(SDEFUN |MODRING;characteristic;Nni;7| (($ |NonNegativeInteger|))
+(SDEFUN |MODRING;characteristic;Nni;7| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 27))) 
 
-(SDEFUN |MODRING;Zero;$;8| (($ $))
+(SDEFUN |MODRING;Zero;$;8| (($ ($)))
         (CONS (|spadConstant| $ 17) (|spadConstant| $ 18))) 
 
-(SDEFUN |MODRING;One;$;9| (($ $))
+(SDEFUN |MODRING;One;$;9| (($ ($)))
         (CONS (|spadConstant| $ 29) (|spadConstant| $ 18))) 
 
-(SDEFUN |MODRING;zero?;$B;10| ((|x| $) ($ |Boolean|))
+(SDEFUN |MODRING;zero?;$B;10| ((|x| ($)) ($ (|Boolean|)))
         (SPADCALL (QCAR |x|) (QREFELT $ 32))) 
 
-(SDEFUN |MODRING;one?;$B;11| ((|x| $) ($ |Boolean|))
+(SDEFUN |MODRING;one?;$B;11| ((|x| ($)) ($ (|Boolean|)))
         (SPADCALL (QCAR |x|) (|spadConstant| $ 29) (QREFELT $ 34))) 
 
-(SDEFUN |MODRING;newmodulo| ((|m1| |Mod|) (|m2| |Mod|) ($ |Mod|))
+(SDEFUN |MODRING;newmodulo| ((|m1| (|Mod|)) (|m2| (|Mod|)) ($ (|Mod|)))
         (SPROG ((|r| (|Union| |Mod| "failed")))
                (SEQ (LETT |r| (SPADCALL |m1| |m2| (QREFELT $ 9)))
                     (EXIT
                      (COND ((QEQCAR |r| 1) (|error| "incompatible moduli"))
                            ('T (QCDR |r|))))))) 
 
-(SDEFUN |MODRING;=;2$B;13| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |MODRING;=;2$B;13| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 34)) 'T)
               ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 36)) NIL)
               ('T
                (SPADCALL (QCAR (SPADCALL |x| |y| (QREFELT $ 37)))
                          (|spadConstant| $ 17) (QREFELT $ 34))))) 
 
-(SDEFUN |MODRING;+;3$;14| ((|x| $) (|y| $) ($ $))
+(SDEFUN |MODRING;+;3$;14| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 39))
                   (|MODRING;newmodulo| (QCDR |x|) (QCDR |y|) $) (QREFELT $ 25))) 
 
-(SDEFUN |MODRING;-;3$;15| ((|x| $) (|y| $) ($ $))
+(SDEFUN |MODRING;-;3$;15| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 41))
                   (|MODRING;newmodulo| (QCDR |x|) (QCDR |y|) $) (QREFELT $ 25))) 
 
-(SDEFUN |MODRING;-;2$;16| ((|x| $) ($ $))
+(SDEFUN |MODRING;-;2$;16| ((|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 42)) (QCDR |x|)
                   (QREFELT $ 25))) 
 
-(SDEFUN |MODRING;*;3$;17| ((|x| $) (|y| $) ($ $))
+(SDEFUN |MODRING;*;3$;17| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 44))
                   (|MODRING;newmodulo| (QCDR |x|) (QCDR |y|) $) (QREFELT $ 25))) 
 
-(SDEFUN |MODRING;exQuo;2$U;18| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |MODRING;exQuo;2$U;18| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|r| (|Union| R "failed")) (|xm| (|Mod|)))
                (SEQ (LETT |xm| (QCDR |x|))
                     (COND
@@ -76,7 +76,7 @@
                      (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
                            ('T (CONS 0 (CONS (QCDR |r|) |xm|)))))))) 
 
-(SDEFUN |MODRING;recip;$U;19| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |MODRING;recip;$U;19| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ
                 (LETT |r|
@@ -86,7 +86,7 @@
                  (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
                        ('T (CONS 0 (CONS (QCDR |r|) (QCDR |x|))))))))) 
 
-(SDEFUN |MODRING;inv;2$;20| ((|x| $) ($ $))
+(SDEFUN |MODRING;inv;2$;20| ((|x| ($)) ($ ($)))
         (SPROG ((|u| (|Union| $ "failed")))
                (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 48)))
                     (EXIT

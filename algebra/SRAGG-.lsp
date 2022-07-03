@@ -1,20 +1,20 @@
 
-(SDEFUN |SRAGG-;trim;SCcS;1| ((|s| S) (|cc| |CharacterClass|) ($ S))
+(SDEFUN |SRAGG-;trim;SCcS;1| ((|s| (S)) (|cc| (|CharacterClass|)) ($ (S)))
         (SPADCALL (SPADCALL |s| |cc| (QREFELT $ 8)) |cc| (QREFELT $ 9))) 
 
-(SDEFUN |SRAGG-;lowerCase;2S;2| ((|s| S) ($ S))
+(SDEFUN |SRAGG-;lowerCase;2S;2| ((|s| (S)) ($ (S)))
         (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 12))) 
 
-(SDEFUN |SRAGG-;upperCase;2S;3| ((|s| S) ($ S))
+(SDEFUN |SRAGG-;upperCase;2S;3| ((|s| (S)) ($ (S)))
         (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 14))) 
 
-(SDEFUN |SRAGG-;prefix?;2SB;4| ((|s| S) (|t| S) ($ |Boolean|))
+(SDEFUN |SRAGG-;prefix?;2SB;4| ((|s| (S)) (|t| (S)) ($ (|Boolean|)))
         (SPADCALL |s| |t| (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 19))) 
 
-(SDEFUN |SRAGG-;coerce;CS;5| ((|c| |Character|) ($ S))
+(SDEFUN |SRAGG-;coerce;CS;5| ((|c| (|Character|)) ($ (S)))
         (SPADCALL 1 |c| (QREFELT $ 23))) 
 
-(SDEFUN |SRAGG-;elt;3S;6| ((|s| S) (|t| S) ($ S))
+(SDEFUN |SRAGG-;elt;3S;6| ((|s| (S)) (|t| (S)) ($ (S)))
         (SPADCALL |s| |t| (QREFELT $ 25))) 
 
 (DECLAIM (NOTINLINE |StringAggregate&;|)) 

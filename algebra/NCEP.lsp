@@ -1,7 +1,7 @@
 
 (SDEFUN |NCEP;characteristicPolynomial;MP;1|
-        ((|m| |Matrix| (|Complex| (|Fraction| (|Integer|))))
-         ($ |Polynomial| (|Complex| (|Fraction| (|Integer|)))))
+        ((|m| (|Matrix| (|Complex| (|Fraction| (|Integer|)))))
+         ($ (|Polynomial| (|Complex| (|Fraction| (|Integer|))))))
         (SPROG ((|x| (|Symbol|)))
                (SEQ (LETT |x| (SPADCALL (QREFELT $ 8)))
                     (EXIT
@@ -9,21 +9,22 @@
                                (QREFELT $ 14)))))) 
 
 (SDEFUN |NCEP;characteristicPolynomial;MSP;2|
-        ((A |Matrix| (|Complex| (|Fraction| (|Integer|)))) (|x| |Symbol|)
-         ($ |Polynomial| (|Complex| (|Fraction| (|Integer|)))))
+        ((A (|Matrix| (|Complex| (|Fraction| (|Integer|))))) (|x| (|Symbol|))
+         ($ (|Polynomial| (|Complex| (|Fraction| (|Integer|))))))
         (SPADCALL (SPADCALL A (QREFELT $ 12)) |x| (QREFELT $ 14))) 
 
 (SDEFUN |NCEP;complexEigenvalues;MParL;3|
-        ((|m| |Matrix| (|Complex| (|Fraction| (|Integer|)))) (|eps| |Par|)
-         ($ |List| (|Complex| |Par|)))
+        ((|m| (|Matrix| (|Complex| (|Fraction| (|Integer|))))) (|eps| (|Par|))
+         ($ (|List| (|Complex| |Par|))))
         (SPADCALL (SPADCALL |m| (QREFELT $ 12)) |eps| (QREFELT $ 18))) 
 
 (SDEFUN |NCEP;complexEigenvectors;MParL;4|
-        ((|m| |Matrix| (|Complex| (|Fraction| (|Integer|)))) (|eps| |Par|)
-         ($ |List|
-          (|Record| (|:| |outval| (|Complex| |Par|))
-                    (|:| |outmult| (|Integer|))
-                    (|:| |outvect| (|List| (|Matrix| (|Complex| |Par|)))))))
+        ((|m| (|Matrix| (|Complex| (|Fraction| (|Integer|))))) (|eps| (|Par|))
+         ($
+          (|List|
+           (|Record| (|:| |outval| (|Complex| |Par|))
+                     (|:| |outmult| (|Integer|))
+                     (|:| |outvect| (|List| (|Matrix| (|Complex| |Par|))))))))
         (SPADCALL |m| |eps| (ELT $ 23) (QREFELT $ 27))) 
 
 (DECLAIM (NOTINLINE |NumericComplexEigenPackage;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |MCDEN;clearDenominator;MM;1| ((|m| |Matrix| Q) ($ |Matrix| R))
+(SDEFUN |MCDEN;clearDenominator;MM;1| ((|m| (|Matrix| Q)) ($ (|Matrix| R)))
         (SPROG ((|d| (R)))
                (SEQ (LETT |d| (SPADCALL |m| (QREFELT $ 9)))
                     (EXIT
@@ -16,7 +16,8 @@
             (SPADCALL (SPADCALL |d| |x| (QREFELT $ 10)) (QREFELT $ 11)))))) 
 
 (SDEFUN |MCDEN;splitDenominator;MR;2|
-        ((|m| |Matrix| Q) ($ |Record| (|:| |num| (|Matrix| R)) (|:| |den| R)))
+        ((|m| (|Matrix| Q))
+         ($ (|Record| (|:| |num| (|Matrix| R)) (|:| |den| R))))
         (SPROG ((|d| (R)))
                (SEQ (LETT |d| (SPADCALL |m| (QREFELT $ 9)))
                     (EXIT
@@ -34,12 +35,12 @@
            (PROGN
             (SPADCALL (SPADCALL |d| |x| (QREFELT $ 10)) (QREFELT $ 11)))))) 
 
-(SDEFUN |MCDEN;commonDenominator;MR;3| ((|m| |Matrix| Q) ($ R))
+(SDEFUN |MCDEN;commonDenominator;MR;3| ((|m| (|Matrix| Q)) ($ (R)))
         (SPADCALL
          (SPADCALL (ELT $ 19) (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24))
          (QREFELT $ 26))) 
 
-(SDEFUN |MCDEN;commonDenominator;MR;4| ((|m| |Matrix| Q) ($ R))
+(SDEFUN |MCDEN;commonDenominator;MR;4| ((|m| (|Matrix| Q)) ($ (R)))
         (SPADCALL (ELT $ 27)
                   (SPADCALL (ELT $ 19) (SPADCALL |m| (QREFELT $ 21))
                             (QREFELT $ 24))

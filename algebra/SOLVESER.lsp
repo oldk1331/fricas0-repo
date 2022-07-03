@@ -1,9 +1,9 @@
 
 (SDEFUN |SOLVESER;unvectorise;VFIF;1|
-        ((|vect| |Vector| (|Expression| R))
-         (|var| |Fraction| (|SparseUnivariatePolynomial| (|Expression| R)))
-         (|n| |Integer|)
-         ($ |Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
+        ((|vect| (|Vector| (|Expression| R)))
+         (|var| (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
+         (|n| (|Integer|))
+         ($ (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R)))))
         (SPROG
          ((|polyvar|
            (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
@@ -41,10 +41,10 @@
               (EXIT |polyvar|)))) 
 
 (SDEFUN |SOLVESER;decomposeFunc;4F;2|
-        ((|exprf| |Fraction| (|SparseUnivariatePolynomial| (|Expression| R)))
-         (|exprg| |Fraction| (|SparseUnivariatePolynomial| (|Expression| R)))
-         (|newH| |Fraction| (|SparseUnivariatePolynomial| (|Expression| R)))
-         ($ |Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
+        ((|exprf| (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
+         (|exprg| (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
+         (|newH| (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
+         ($ (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R)))))
         (SPROG
          ((|newF| (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
           (#1=#:G137 NIL)
@@ -100,12 +100,13 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |SOLVESER;subsSolve|
-        ((F |SparseUnivariatePolynomial| (|Expression| R))
-         (|DegF| |NonNegativeInteger|)
-         (G1 |SparseUnivariatePolynomial| (|Expression| R))
-         (G2 |SparseUnivariatePolynomial| (|Expression| R)) (M |Integer|)
-         (HH |Fraction| (|SparseUnivariatePolynomial| (|Expression| R)))
-         ($ |Union| (|SparseUnivariatePolynomial| (|Expression| R)) "failed"))
+        ((F (|SparseUnivariatePolynomial| (|Expression| R)))
+         (|DegF| (|NonNegativeInteger|))
+         (G1 (|SparseUnivariatePolynomial| (|Expression| R)))
+         (G2 (|SparseUnivariatePolynomial| (|Expression| R))) (M (|Integer|))
+         (HH (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
+         ($
+          (|Union| (|SparseUnivariatePolynomial| (|Expression| R)) "failed")))
         (SPROG
          ((|resul| (|SparseUnivariatePolynomial| (|Expression| R)))
           (|solvevarlist| (|Vector| (|Expression| R))) (#1=#:G191 NIL)

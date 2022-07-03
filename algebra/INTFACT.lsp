@@ -1,5 +1,5 @@
 
-(SDEFUN |INTFACT;squareFree;IF;1| ((|n| I) ($ |Factored| I))
+(SDEFUN |INTFACT;squareFree;IF;1| ((|n| (I)) ($ (|Factored| I)))
         (SPROG
          ((|y|
            #1=(|List|
@@ -90,7 +90,7 @@
                     (EXIT (SPADCALL |u| |y| (QREFELT $ 26)))))))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |INTFACT;PollardSmallFactor;IU;2| ((|n| I) ($ |Union| I "failed"))
+(SDEFUN |INTFACT;PollardSmallFactor;IU;2| ((|n| (I)) ($ (|Union| I "failed")))
         (SPROG
          ((G (I)) (|x| (I)) (|y| (I)) (#1=#:G175 NIL) (#2=#:G174 NIL) (|i| NIL)
           (|l| (I)) (|ys| (I)) (#3=#:G173 NIL) (|r| (I)) (|k| (I)) (|q| (I))
@@ -257,7 +257,7 @@
                (COND ((SPADCALL G |n| (QREFELT $ 33)) (CONS 1 "failed"))
                      ('T (CONS 0 G))))))) 
 
-(SDEFUN |INTFACT;PollardSmallFactor20| ((|n| I) ($ |Union| I "failed"))
+(SDEFUN |INTFACT;PollardSmallFactor20| ((|n| (I)) ($ (|Union| I "failed")))
         (SPROG ((#1=#:G183 NIL) (|r| (|Union| I "failed")) (|i| NIL))
                (SEQ
                 (EXIT
@@ -273,7 +273,7 @@
                   (EXIT |r|)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |INTFACT;BasicSieve| ((|r| I) (|lim| I) ($ |Factored| I))
+(SDEFUN |INTFACT;BasicSieve| ((|r| (I)) (|lim| (I)) ($ (|Factored| I)))
         (SPROG
          ((|d| (I))
           (|ls|
@@ -344,7 +344,7 @@
                   (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |INTFACT;BasicMethod;IF;5| ((|n| I) ($ |Factored| I))
+(SDEFUN |INTFACT;BasicMethod;IF;5| ((|n| (I)) ($ (|Factored| I)))
         (SPROG ((|x| (|Factored| I)) (|u| (I)) (|m| (I)))
                (SEQ
                 (COND
@@ -365,7 +365,7 @@
                 (EXIT
                  (SPADCALL |u| (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 26)))))) 
 
-(SDEFUN |INTFACT;factor;IF;6| ((|m| I) ($ |Factored| I))
+(SDEFUN |INTFACT;factor;IF;6| ((|m| (I)) ($ (|Factored| I)))
         (SPROG
          ((|flb|
            (|List|

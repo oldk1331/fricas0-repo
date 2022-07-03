@@ -1,15 +1,16 @@
 
-(SDEFUN |ALGMANIP;ratDenom;2F;1| ((|x| F) ($ F))
+(SDEFUN |ALGMANIP;ratDenom;2F;1| ((|x| (F)) ($ (F)))
         (|ALGMANIP;innerRF| |x|
          (|ALGMANIP;algkernels| (SPADCALL |x| (QREFELT $ 15)) $) $)) 
 
-(SDEFUN |ALGMANIP;ratDenom;FLF;2| ((|x| F) (|l| |List| (|Kernel| F)) ($ F))
+(SDEFUN |ALGMANIP;ratDenom;FLF;2|
+        ((|x| (F)) (|l| (|List| (|Kernel| F))) ($ (F)))
         (|ALGMANIP;innerRF| |x| (|ALGMANIP;algkernels| |l| $) $)) 
 
-(SDEFUN |ALGMANIP;ratDenom;3F;3| ((|x| F) (|y| F) ($ F))
+(SDEFUN |ALGMANIP;ratDenom;3F;3| ((|x| (F)) (|y| (F)) ($ (F)))
         (SPADCALL |x| (LIST |y|) (QREFELT $ 20))) 
 
-(SDEFUN |ALGMANIP;ratDenom;FLF;4| ((|x| F) (|l| |List| F) ($ F))
+(SDEFUN |ALGMANIP;ratDenom;FLF;4| ((|x| (F)) (|l| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G137 NIL) (|y| NIL) (#2=#:G136 NIL))
                (SEQ
                 (SPADCALL |x|
@@ -30,7 +31,7 @@
                           (QREFELT $ 18))))) 
 
 (SDEFUN |ALGMANIP;algkernels|
-        ((|l| |List| (|Kernel| F)) ($ |List| (|Kernel| F)))
+        ((|l| (|List| (|Kernel| F))) ($ (|List| (|Kernel| F))))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|ALGMANIP;algkernels!0| (VECTOR (QREFELT $ 8) $)) |l|
@@ -45,13 +46,14 @@
             (SPADCALL (SPADCALL |z1| (QREFELT $ 25)) ALGOP (QREFELT $ 27)))))) 
 
 (SDEFUN |ALGMANIP;rootkernels|
-        ((|l| |List| (|Kernel| F)) ($ |List| (|Kernel| F)))
+        ((|l| (|List| (|Kernel| F))) ($ (|List| (|Kernel| F))))
         (SPADCALL (CONS #'|ALGMANIP;rootkernels!0| $) |l| (QREFELT $ 31))) 
 
 (SDEFUN |ALGMANIP;rootkernels!0| ((|z1| NIL) ($ NIL))
         (SPADCALL (SPADCALL |z1| (QREFELT $ 25)) '|nthRoot| (QREFELT $ 30))) 
 
-(SDEFUN |ALGMANIP;ratPoly;FSup;7| ((|x| F) ($ |SparseUnivariatePolynomial| F))
+(SDEFUN |ALGMANIP;ratPoly;FSup;7|
+        ((|x| (F)) ($ (|SparseUnivariatePolynomial| F)))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -69,7 +71,7 @@
           (QREFELT $ 13) (QREFELT $ 41))
          (QREFELT $ 43))) 
 
-(SDEFUN |ALGMANIP;rootSplit;2F;8| ((|x| F) ($ F))
+(SDEFUN |ALGMANIP;rootSplit;2F;8| ((|x| (F)) ($ (F)))
         (SPROG
          ((#1=#:G147 NIL) (|k| NIL) (#2=#:G146 NIL)
           (|lk| (|List| (|Kernel| F))))
@@ -91,7 +93,7 @@
                            (EXIT (NREVERSE #2#))))
                      (QREFELT $ 46)))))) 
 
-(SDEFUN |ALGMANIP;rootExpand| ((|k| |Kernel| F) ($ F))
+(SDEFUN |ALGMANIP;rootExpand| ((|k| (|Kernel| F)) ($ (F)))
         (SPROG ((|op| (|BasicOperator|)) (|n| (F)) (|x| (F)))
                (SEQ (LETT |x| (|SPADfirst| (SPADCALL |k| (QREFELT $ 48))))
                     (LETT |n|
@@ -110,7 +112,7 @@
                                 |n| (QREFELT $ 51))
                       (QREFELT $ 52)))))) 
 
-(SDEFUN |ALGMANIP;innerRF| ((|x| F) (|ll| |List| (|Kernel| F)) ($ F))
+(SDEFUN |ALGMANIP;innerRF| ((|x| (F)) (|ll| (|List| (|Kernel| F))) ($ (F)))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| F)) (#1=#:G196 NIL) (|kk| NIL)
           (#2=#:G195 NIL) (#3=#:G191 NIL) (#4=#:G192 NIL) (#5=#:G194 NIL)
@@ -246,8 +248,8 @@
           (RETURN (PROGN (|ALGMANIP;innerRF| |z1| |ll| $))))) 
 
 (SDEFUN |ALGMANIP;fp_root|
-        ((|fp| |Factored| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-         (|op| |BasicOperator|) (|n| |NonNegativeInteger|) ($ F))
+        ((|fp| (|Factored| (|SparseMultivariatePolynomial| R (|Kernel| F))))
+         (|op| (|BasicOperator|)) (|n| (|NonNegativeInteger|)) ($ (F)))
         (SPROG
          ((|res| (F)) (|rr| (F)) (|ce| (|NonNegativeInteger|))
           (|ne| (|NonNegativeInteger|)) (#1=#:G202 NIL) (#2=#:G200 NIL)
@@ -322,8 +324,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |ALGMANIP;pol_root|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F))
-         (|op| |BasicOperator|) (|n| |NonNegativeInteger|) ($ F))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+         (|op| (|BasicOperator|)) (|n| (|NonNegativeInteger|)) ($ (F)))
         (SPROG
          ((|pp| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (#1=#:G209 NIL) (|cp| (R)))
@@ -352,7 +354,7 @@
                  |op| |n| $)
                 (QREFELT $ 86)))))) 
 
-(SDEFUN |ALGMANIP;root_factor_k| ((|k| |Kernel| F) ($ F))
+(SDEFUN |ALGMANIP;root_factor_k| ((|k| (|Kernel| F)) ($ (F)))
         (SPROG
          ((|op| (|BasicOperator|)) (|n| (|NonNegativeInteger|)) (#1=#:G213 NIL)
           (|nf| (F)) (|x| (F)))
@@ -370,7 +372,7 @@
                 (|ALGMANIP;pol_root| (SPADCALL |x| (QREFELT $ 38)) |op| |n| $)
                 (QREFELT $ 52)))))) 
 
-(SDEFUN |ALGMANIP;rootFactor;2F;14| ((|x| F) ($ F))
+(SDEFUN |ALGMANIP;rootFactor;2F;14| ((|x| (F)) ($ (F)))
         (SPROG
          ((#1=#:G220 NIL) (|k| NIL) (#2=#:G219 NIL)
           (|lk| (|List| (|Kernel| F))))
@@ -394,7 +396,8 @@
                      (QREFELT $ 46)))))) 
 
 (SDEFUN |ALGMANIP;rootKerSimp;BoFNniF;15|
-        ((|op| |BasicOperator|) (|x| F) (|n| |NonNegativeInteger|) ($ F))
+        ((|op| (|BasicOperator|)) (|x| (F)) (|n| (|NonNegativeInteger|))
+         ($ (F)))
         (SPROG ((|r| (|Union| R "failed")))
                (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 101)))
                     (EXIT
@@ -405,14 +408,16 @@
                       ('T (|ALGMANIP;inroot| |op| |x| |n| $))))))) 
 
 (SDEFUN |ALGMANIP;rootKerSimp;BoFNniF;16|
-        ((|op| |BasicOperator|) (|x| F) (|n| |NonNegativeInteger|) ($ F))
+        ((|op| (|BasicOperator|)) (|x| (F)) (|n| (|NonNegativeInteger|))
+         ($ (F)))
         (|ALGMANIP;inroot| |op| |x| |n| $)) 
 
 (SDEFUN |ALGMANIP;breakup|
-        ((|l| |List| (|Kernel| F))
-         ($ |List|
-          (|Record| (|:| |ker| (|List| (|Kernel| F)))
-                    (|:| |exponent| (|List| (|Integer|))))))
+        ((|l| (|List| (|Kernel| F)))
+         ($
+          (|List|
+           (|Record| (|:| |ker| (|List| (|Kernel| F)))
+                     (|:| |exponent| (|List| (|Integer|)))))))
         (SPROG
          ((|ll|
            (|List|
@@ -460,7 +465,7 @@
                        (CONS (CONS (CONS |k| |same|) (CONS |n| |expo|))
                              |ll|)))))))) 
 
-(SDEFUN |ALGMANIP;rootProduct;2F;18| ((|x| F) ($ F))
+(SDEFUN |ALGMANIP;rootProduct;2F;18| ((|x| (F)) ($ (F)))
         (SPROG
          ((|lv| (|List| F)) (#1=#:G237 NIL) (#2=#:G246 NIL) (|m| NIL)
           (#3=#:G245 NIL) (|k| (|Kernel| F)) (|n| (|Integer|))
@@ -524,7 +529,7 @@
           (EXIT (SPADCALL |x| (QREFELT $ 110)))))) 
 
 (SDEFUN |ALGMANIP;rootPower1|
-        ((|x| F) (|lk| |List| (|Kernel| F)) (|nlk| |List| F) ($ F))
+        ((|x| (F)) (|lk| (|List| (|Kernel| F))) (|nlk| (|List| F)) ($ (F)))
         (SPROG ((#1=#:G251 NIL) (|k| NIL))
                (SEQ (LETT |x| (SPADCALL |x| |lk| |nlk| (QREFELT $ 46)))
                     (SEQ (LETT |k| NIL)
@@ -547,7 +552,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |x|)))) 
 
-(SDEFUN |ALGMANIP;rootPower;2F;20| ((|x| F) ($ F))
+(SDEFUN |ALGMANIP;rootPower;2F;20| ((|x| (F)) ($ (F)))
         (SPROG
          ((|nlk| (|List| F)) (|lk| (|List| (|Kernel| F))) (|nk| (F))
           (|nargs| (|List| F)) (#1=#:G258 NIL) (|k| NIL))
@@ -578,8 +583,8 @@
           (RETURN (PROGN (|ALGMANIP;rootPower1| |k1| |lk| |nlk| $))))) 
 
 (SDEFUN |ALGMANIP;radeval|
-        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F)) (|k| |Kernel| F)
-         ($ F))
+        ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+         (|k| (|Kernel| F)) ($ (F)))
         (SPROG
          ((|q|
            (|SparseUnivariatePolynomial|
@@ -665,7 +670,8 @@
                      |ans| (QREFELT $ 123)))))) 
 
 (SDEFUN |ALGMANIP;inroot|
-        ((|op| |BasicOperator|) (|x| F) (|n| |NonNegativeInteger|) ($ F))
+        ((|op| (|BasicOperator|)) (|x| (F)) (|n| (|NonNegativeInteger|))
+         ($ (F)))
         (SPROG
          ((#1=#:G299 NIL)
           (|qr|
@@ -755,7 +761,8 @@
                   #4# (EXIT #2#))))))) 
 
 (SDEFUN |ALGMANIP;sroot|
-        ((|k| |Kernel| F) (|lk| |List| (|Kernel| F)) (|nlk| |List| F) ($ F))
+        ((|k| (|Kernel| F)) (|lk| (|List| (|Kernel| F))) (|nlk| (|List| F))
+         ($ (F)))
         (SPROG
          ((|pr|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
@@ -782,7 +789,7 @@
                                (QVELT |pr| 0) (QREFELT $ 103))
                      (QREFELT $ 86)))))) 
 
-(SDEFUN |ALGMANIP;rootSimp;2F;24| ((|x| F) ($ F))
+(SDEFUN |ALGMANIP;rootSimp;2F;24| ((|x| (F)) ($ (F)))
         (SPROG
          ((|nlk| (|List| F)) (|lk| (|List| (|Kernel| F))) (|nk| (F))
           (#1=#:G312 NIL) (|k| NIL) (|tk| (|List| (|Kernel| F))))

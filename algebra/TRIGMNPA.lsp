@@ -1,6 +1,6 @@
 
 (SDEFUN |TRIGMNPA;ker2explogs|
-        ((|k| |Kernel| FG) (|l| |List| (|Kernel| FG)) ($ FG))
+        ((|k| (|Kernel| FG)) (|l| (|List| (|Kernel| FG))) ($ (FG)))
         (SPROG
          ((|e| (FG)) (|z| (FG)) (|args| (|List| FG)) (#1=#:G135 NIL) (|a| NIL)
           (#2=#:G134 NIL) (|kf| (FG)))
@@ -79,14 +79,14 @@
                                    (QREFELT $ 40)))))))))))) 
 
 (SDEFUN |TRIGMNPA;trigs2explogs;FGLFG;2|
-        ((|f| FG) (|l| |List| (|Kernel| FG)) ($ FG))
+        ((|f| (FG)) (|l| (|List| (|Kernel| FG))) ($ (FG)))
         (SPADCALL (|TRIGMNPA;smp2explogs| (SPADCALL |f| (QREFELT $ 42)) |l| $)
                   (|TRIGMNPA;smp2explogs| (SPADCALL |f| (QREFELT $ 43)) |l| $)
                   (QREFELT $ 33))) 
 
 (SDEFUN |TRIGMNPA;smp2explogs|
-        ((|p| |SparseMultivariatePolynomial| G (|Kernel| FG))
-         (|l| |List| (|Kernel| FG)) ($ FG))
+        ((|p| (|SparseMultivariatePolynomial| G (|Kernel| FG)))
+         (|l| (|List| (|Kernel| FG))) ($ (FG)))
         (SPROG NIL
                (SPADCALL (CONS #'|TRIGMNPA;smp2explogs!0| (VECTOR $ |l|))
                          (ELT $ 10) |p| (QREFELT $ 48)))) 

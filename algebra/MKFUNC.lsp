@@ -1,17 +1,19 @@
 
-(SDEFUN |MKFUNC;function;S2S;1| ((|s| S) (|name| |Symbol|) ($ |Symbol|))
+(SDEFUN |MKFUNC;function;S2S;1| ((|s| (S)) (|name| (|Symbol|)) ($ (|Symbol|)))
         (SPADCALL |s| |name| NIL (QREFELT $ 9))) 
 
 (SDEFUN |MKFUNC;function;S3S;2|
-        ((|s| S) (|name| |Symbol|) (|x| |Symbol|) ($ |Symbol|))
+        ((|s| (S)) (|name| (|Symbol|)) (|x| (|Symbol|)) ($ (|Symbol|)))
         (SPADCALL |s| |name| (LIST |x|) (QREFELT $ 9))) 
 
 (SDEFUN |MKFUNC;function;S4S;3|
-        ((|s| S) (|name| |Symbol|) (|x| |Symbol|) (|y| |Symbol|) ($ |Symbol|))
+        ((|s| (S)) (|name| (|Symbol|)) (|x| (|Symbol|)) (|y| (|Symbol|))
+         ($ (|Symbol|)))
         (SPADCALL |s| |name| (LIST |x| |y|) (QREFELT $ 9))) 
 
 (SDEFUN |MKFUNC;function;SSLS;4|
-        ((|s| S) (|name| |Symbol|) (|args| |List| (|Symbol|)) ($ |Symbol|))
+        ((|s| (S)) (|name| (|Symbol|)) (|args| (|List| (|Symbol|)))
+         ($ (|Symbol|)))
         (SEQ
          (SPADCALL
           (SPADCALL (SPADCALL |s| (QREFELT $ 14)) |args| |name| (QREFELT $ 15))

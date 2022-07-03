@@ -1,19 +1,19 @@
 
 (PUT '|RNS-;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |RNS-;characteristic;Nni;1| (($ |NonNegativeInteger|)) 0) 
+(SDEFUN |RNS-;characteristic;Nni;1| (($ (|NonNegativeInteger|))) 0) 
 
-(SDEFUN |RNS-;fractionPart;2S;2| ((|x| S) ($ S))
+(SDEFUN |RNS-;fractionPart;2S;2| ((|x| (S)) ($ (S)))
         (SPADCALL |x| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 10))) 
 
-(SDEFUN |RNS-;truncate;2S;3| ((|x| S) ($ S))
+(SDEFUN |RNS-;truncate;2S;3| ((|x| (S)) ($ (S)))
         (COND
          ((SPADCALL |x| (QREFELT $ 13))
           (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 15))
                     (QREFELT $ 14)))
          ('T (SPADCALL |x| (QREFELT $ 15))))) 
 
-(SDEFUN |RNS-;round;2S;4| ((|x| S) ($ S))
+(SDEFUN |RNS-;round;2S;4| ((|x| (S)) ($ (S)))
         (COND
          ((SPADCALL |x| (QREFELT $ 13))
           (SPADCALL
@@ -30,17 +30,17 @@
                      (QREFELT $ 21))
            (QREFELT $ 9))))) 
 
-(SDEFUN |RNS-;norm;2S;5| ((|x| S) ($ S)) (SPADCALL |x| (QREFELT $ 23))) 
+(SDEFUN |RNS-;norm;2S;5| ((|x| (S)) ($ (S))) (SPADCALL |x| (QREFELT $ 23))) 
 
-(SDEFUN |RNS-;coerce;FS;6| ((|x| |Fraction| (|Integer|)) ($ S))
+(SDEFUN |RNS-;coerce;FS;6| ((|x| (|Fraction| (|Integer|))) ($ (S)))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 19))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 19))
                   (QREFELT $ 20))) 
 
-(SDEFUN |RNS-;convert;SP;7| ((|x| S) ($ |Pattern| (|Float|)))
+(SDEFUN |RNS-;convert;SP;7| ((|x| (S)) ($ (|Pattern| (|Float|))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QREFELT $ 32))) 
 
-(SDEFUN |RNS-;floor;2S;8| ((|x| S) ($ S))
+(SDEFUN |RNS-;floor;2S;8| ((|x| (S)) ($ (S)))
         (SPROG ((|x1| (S)))
                (SEQ
                 (LETT |x1|
@@ -51,7 +51,7 @@
                         (SPADCALL |x1| (|spadConstant| $ 17) (QREFELT $ 10)))
                        ('T |x1|)))))) 
 
-(SDEFUN |RNS-;ceiling;2S;9| ((|x| S) ($ S))
+(SDEFUN |RNS-;ceiling;2S;9| ((|x| (S)) ($ (S)))
         (SPROG ((|x1| (S)))
                (SEQ
                 (LETT |x1|
@@ -63,9 +63,9 @@
                        ('T |x1|)))))) 
 
 (SDEFUN |RNS-;patternMatch;SP2Pmr;10|
-        ((|x| S) (|p| |Pattern| (|Float|))
-         (|l| |PatternMatchResult| (|Float|) S)
-         ($ |PatternMatchResult| (|Float|) S))
+        ((|x| (S)) (|p| (|Pattern| (|Float|)))
+         (|l| (|PatternMatchResult| (|Float|) S))
+         ($ (|PatternMatchResult| (|Float|) S)))
         (SPROG ((|r| (|Union| (|Float|) "failed")))
                (SEQ
                 (COND

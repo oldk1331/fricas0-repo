@@ -1,7 +1,7 @@
 
 (SDEFUN |TSEREXPP;rescale|
-        ((|p| UPS) (|r0| |Fraction| (|Integer|)) (|rn| |Fraction| (|Integer|))
-         ($ ULS))
+        ((|p| (UPS)) (|r0| (|Fraction| (|Integer|)))
+         (|rn| (|Fraction| (|Integer|))) ($ (ULS)))
         (SPROG ((|s| (|PositiveInteger|)) (#1=#:G119 NIL))
                (SEQ
                 (LETT |s|
@@ -15,9 +15,10 @@
                  (SPADCALL (SPADCALL |p| (QREFELT $ 14)) |s| (QREFELT $ 16)))))) 
 
 (SDEFUN |TSEREXPP;common_rep|
-        ((|lp| |List| UPS)
-         ($ |Record| (|:| |laus| (|List| ULS))
-          (|:| |rpow| (|Fraction| (|Integer|)))))
+        ((|lp| (|List| UPS))
+         ($
+          (|Record| (|:| |laus| (|List| ULS))
+                    (|:| |rpow| (|Fraction| (|Integer|))))))
         (SPROG
          ((#1=#:G164 NIL) (|p| NIL) (#2=#:G165 NIL) (|r| NIL) (#3=#:G163 NIL)
           (|rn| (|Fraction| (|Integer|))) (#4=#:G162 NIL) (#5=#:G161 NIL)
@@ -84,8 +85,8 @@
             |rn|))))) 
 
 (SDEFUN |TSEREXPP;taylor_via_deriv;UPSLLUPS;3|
-        ((|f| UPS) (|lx| |List| UPS) (|ld| |List| (|Mapping| |Coef| |Coef|))
-         ($ UPS))
+        ((|f| (UPS)) (|lx| (|List| UPS))
+         (|ld| (|List| (|Mapping| |Coef| |Coef|))) ($ (UPS)))
         (SPROG
          ((|lres| (ULS)) (|lla| (|List| ULS))
           (|nrep|
@@ -99,7 +100,7 @@
               (EXIT (SPADCALL (QCDR |nrep|) |lres| (QREFELT $ 29)))))) 
 
 (SDEFUN |TSEREXPP;taylor_via_lode;LUPSLUPS;4|
-        ((|la| |List| UTS) (|z| UPS) (|lc| |List| |Coef|) ($ UPS))
+        ((|la| (|List| UTS)) (|z| (UPS)) (|lc| (|List| |Coef|)) ($ (UPS)))
         (SPROG
          ((|lres| (ULS)) (|lau| (ULS))
           (|nrep|
@@ -111,7 +112,7 @@
               (EXIT (SPADCALL (QCDR |nrep|) |lres| (QREFELT $ 29)))))) 
 
 (SDEFUN |TSEREXPP;applyTaylor;M2UPS;5|
-        ((|g| |Mapping| UTS UTS) (|f| UPS) ($ UPS))
+        ((|g| (|Mapping| UTS UTS)) (|f| (UPS)) ($ (UPS)))
         (SPROG
          ((|lres| (ULS))
           (|nrep|
@@ -122,7 +123,7 @@
                     (SPADCALL |g| (|SPADfirst| (QCAR |nrep|)) (QREFELT $ 37)))
               (EXIT (SPADCALL (QCDR |nrep|) |lres| (QREFELT $ 29)))))) 
 
-(SDEFUN |TSEREXPP;apply_taylor;UTS2UPS;6| ((|g| UTS) (|f| UPS) ($ UPS))
+(SDEFUN |TSEREXPP;apply_taylor;UTS2UPS;6| ((|g| (UTS)) (|f| (UPS)) ($ (UPS)))
         (SPROG
          ((|lres| (ULS))
           (|nrep|

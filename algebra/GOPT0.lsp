@@ -1,7 +1,7 @@
 
 (SDEFUN |GOPT0;maxLevel;LU;1|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| (|NonNegativeInteger|) "arbitrary"))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| (|NonNegativeInteger|) "arbitrary")))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|maxLevel| (QREFELT $ 10)))
                     (EXIT
@@ -9,8 +9,8 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
 
 (SDEFUN |GOPT0;maxDerivative;LU;2|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| (|NonNegativeInteger|) "arbitrary"))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| (|NonNegativeInteger|) "arbitrary")))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|maxDerivative| (QREFELT $ 10)))
                     (EXIT
@@ -18,13 +18,13 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
 
 (SDEFUN |GOPT0;maxShift;LU;3|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| (|NonNegativeInteger|) "arbitrary"))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| (|NonNegativeInteger|) "arbitrary")))
         (SPADCALL |l| (QREFELT $ 17))) 
 
 (SDEFUN |GOPT0;maxSubst;LU;4|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| (|PositiveInteger|) "arbitrary"))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| (|PositiveInteger|) "arbitrary")))
         (SPROG
          ((#1=#:G156 NIL) (|d| (|Union| (|NonNegativeInteger|) "arbitrary")))
          (SEQ (LETT |d| (SPADCALL |l| (QREFELT $ 17)))
@@ -38,8 +38,8 @@
                 ('T (CONS 1 (QCDR |d|)))))))) 
 
 (SDEFUN |GOPT0;maxDegree;LU;5|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| (|NonNegativeInteger|) "arbitrary"))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| (|NonNegativeInteger|) "arbitrary")))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|maxDegree| (QREFELT $ 10)))
                     (EXIT
@@ -47,7 +47,7 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 14)))))))) 
 
 (SDEFUN |GOPT0;maxMixedDegree;LNni;6|
-        ((|l| |List| (|GuessOption|)) ($ |NonNegativeInteger|))
+        ((|l| (|List| (|GuessOption|))) ($ (|NonNegativeInteger|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ
                 (LETT |opt| (SPADCALL |l| '|maxMixedDegree| (QREFELT $ 10)))
@@ -55,7 +55,8 @@
                  (COND ((QEQCAR |opt| 1) 0)
                        ('T (SPADCALL (QCDR |opt|) (QREFELT $ 24)))))))) 
 
-(SDEFUN |GOPT0;allDegrees;LB;7| ((|l| |List| (|GuessOption|)) ($ |Boolean|))
+(SDEFUN |GOPT0;allDegrees;LB;7|
+        ((|l| (|List| (|GuessOption|))) ($ (|Boolean|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|allDegrees| (QREFELT $ 10)))
                     (EXIT
@@ -63,8 +64,8 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
 (SDEFUN |GOPT0;maxPower;LU;8|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| (|PositiveInteger|) "arbitrary"))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| (|PositiveInteger|) "arbitrary")))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|maxPower| (QREFELT $ 10)))
                     (EXIT
@@ -72,7 +73,7 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 31)))))))) 
 
 (SDEFUN |GOPT0;safety;LNni;9|
-        ((|l| |List| (|GuessOption|)) ($ |NonNegativeInteger|))
+        ((|l| (|List| (|GuessOption|))) ($ (|NonNegativeInteger|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|safety| (QREFELT $ 10)))
                     (EXIT
@@ -80,8 +81,8 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 24)))))))) 
 
 (SDEFUN |GOPT0;check;LU;10|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| "skip" "MonteCarlo" "deterministic"))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| "skip" "MonteCarlo" "deterministic")))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|check| (QREFELT $ 10)))
                     (EXIT
@@ -89,7 +90,7 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 36)))))))) 
 
 (SDEFUN |GOPT0;checkExtraValues;LB;11|
-        ((|l| |List| (|GuessOption|)) ($ |Boolean|))
+        ((|l| (|List| (|GuessOption|))) ($ (|Boolean|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ
                 (LETT |opt| (SPADCALL |l| '|checkExtraValues| (QREFELT $ 10)))
@@ -97,14 +98,14 @@
                  (COND ((QEQCAR |opt| 1) 'T)
                        ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
-(SDEFUN |GOPT0;one;LB;12| ((|l| |List| (|GuessOption|)) ($ |Boolean|))
+(SDEFUN |GOPT0;one;LB;12| ((|l| (|List| (|GuessOption|))) ($ (|Boolean|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|one| (QREFELT $ 10)))
                     (EXIT
                      (COND ((QEQCAR |opt| 1) 'T)
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
-(SDEFUN |GOPT0;debug;LB;13| ((|l| |List| (|GuessOption|)) ($ |Boolean|))
+(SDEFUN |GOPT0;debug;LB;13| ((|l| (|List| (|GuessOption|))) ($ (|Boolean|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|debug| (QREFELT $ 10)))
                     (EXIT
@@ -112,8 +113,8 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
 (SDEFUN |GOPT0;homogeneous;LU;14|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| (|PositiveInteger|) (|Boolean|)))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| (|PositiveInteger|) (|Boolean|))))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|homogeneous| (QREFELT $ 10)))
                     (EXIT
@@ -121,22 +122,24 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 43)))))))) 
 
 (SDEFUN |GOPT0;Somos;LU;15|
-        ((|l| |List| (|GuessOption|))
-         ($ |Union| (|PositiveInteger|) (|Boolean|)))
+        ((|l| (|List| (|GuessOption|)))
+         ($ (|Union| (|PositiveInteger|) (|Boolean|))))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|Somos| (QREFELT $ 10)))
                     (EXIT
                      (COND ((QEQCAR |opt| 1) (CONS 1 NIL))
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 43)))))))) 
 
-(SDEFUN |GOPT0;variableName;LS;16| ((|l| |List| (|GuessOption|)) ($ |Symbol|))
+(SDEFUN |GOPT0;variableName;LS;16|
+        ((|l| (|List| (|GuessOption|))) ($ (|Symbol|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|variableName| (QREFELT $ 10)))
                     (EXIT
                      (COND ((QEQCAR |opt| 1) '|x|)
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
 
-(SDEFUN |GOPT0;functionName;LS;17| ((|l| |List| (|GuessOption|)) ($ |Symbol|))
+(SDEFUN |GOPT0;functionName;LS;17|
+        ((|l| (|List| (|GuessOption|))) ($ (|Symbol|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|functionName| (QREFELT $ 10)))
                     (EXIT
@@ -144,21 +147,22 @@
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
 
 (SDEFUN |GOPT0;functionNames;LL;18|
-        ((|l| |List| (|GuessOption|)) ($ |List| (|Symbol|)))
+        ((|l| (|List| (|GuessOption|))) ($ (|List| (|Symbol|))))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|functionNames| (QREFELT $ 10)))
                     (EXIT
                      (COND ((QEQCAR |opt| 1) NIL)
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 52)))))))) 
 
-(SDEFUN |GOPT0;indexName;LS;19| ((|l| |List| (|GuessOption|)) ($ |Symbol|))
+(SDEFUN |GOPT0;indexName;LS;19| ((|l| (|List| (|GuessOption|))) ($ (|Symbol|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|indexName| (QREFELT $ 10)))
                     (EXIT
                      (COND ((QEQCAR |opt| 1) '|n|)
                            ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
 
-(SDEFUN |GOPT0;displayKind;LS;20| ((|l| |List| (|GuessOption|)) ($ |Symbol|))
+(SDEFUN |GOPT0;displayKind;LS;20|
+        ((|l| (|List| (|GuessOption|))) ($ (|Symbol|)))
         (SPROG ((|opt| (|Union| (|Any|) "failed")))
                (SEQ (LETT |opt| (SPADCALL |l| '|displayKind| (QREFELT $ 10)))
                     (EXIT
@@ -167,7 +171,8 @@
                        (|error| "GuessOption: displayKind not set"))
                       ('T (SPADCALL (QCDR |opt|) (QREFELT $ 47)))))))) 
 
-(SDEFUN |GOPT0;checkOptions;LV;21| ((|l| |List| (|GuessOption|)) ($ |Void|))
+(SDEFUN |GOPT0;checkOptions;LV;21|
+        ((|l| (|List| (|GuessOption|))) ($ (|Void|)))
         (SPROG
          ((|Somo| (|Union| (|PositiveInteger|) (|Boolean|)))
           (|homo| (|Union| (|PositiveInteger|) (|Boolean|)))

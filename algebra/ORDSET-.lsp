@@ -1,20 +1,20 @@
 
-(SDEFUN |ORDSET-;smaller?;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ORDSET-;smaller?;2SB;1| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT $ 8))) 
 
-(SDEFUN |ORDSET-;max;3S;2| ((|x| S) (|y| S) ($ S))
+(SDEFUN |ORDSET-;max;3S;2| ((|x| (S)) (|y| (S)) ($ (S)))
         (COND ((SPADCALL |x| |y| (QREFELT $ 10)) |x|) ('T |y|))) 
 
-(SDEFUN |ORDSET-;min;3S;3| ((|x| S) (|y| S) ($ S))
+(SDEFUN |ORDSET-;min;3S;3| ((|x| (S)) (|y| (S)) ($ (S)))
         (COND ((SPADCALL |x| |y| (QREFELT $ 10)) |y|) ('T |x|))) 
 
-(SDEFUN |ORDSET-;>;2SB;4| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ORDSET-;>;2SB;4| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (SPADCALL |y| |x| (QREFELT $ 8))) 
 
-(SDEFUN |ORDSET-;>=;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ORDSET-;>=;2SB;5| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| |y| (QREFELT $ 8)))) 
 
-(SDEFUN |ORDSET-;<=;2SB;6| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ORDSET-;<=;2SB;6| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (NULL (SPADCALL |y| |x| (QREFELT $ 8)))) 
 
 (DECLAIM (NOTINLINE |OrderedSet&;|)) 

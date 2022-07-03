@@ -1,7 +1,7 @@
 
 (SDEFUN |MODHP;VSUPI_to_VPA;VIV;1|
-        ((|vps| |Vector| (|SparseUnivariatePolynomial| (|Integer|)))
-         (|p| |Integer|) ($ |Vector| (|U32Vector|)))
+        ((|vps| (|Vector| (|SparseUnivariatePolynomial| (|Integer|))))
+         (|p| (|Integer|)) ($ (|Vector| (|U32Vector|))))
         (SPROG
          ((#1=#:G154 NIL) (|i| NIL) (|vpa| (|Vector| (|U32Vector|)))
           (|m| (|NonNegativeInteger|)))
@@ -19,9 +19,9 @@
               (EXIT |vpa|)))) 
 
 (SDEFUN |MODHP;SUPPI_to_PA|
-        ((|poli| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         (|vars| |List| (|Symbol|)) (|pts| |List| (|Integer|)) (|p| |Integer|)
-         ($ |U32Vector|))
+        ((|poli| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         (|vars| (|List| (|Symbol|))) (|pts| (|List| (|Integer|)))
+         (|p| (|Integer|)) ($ (|U32Vector|)))
         (SPROG
          ((|nlc| (|Integer|)) (|m| #1=(|NonNegativeInteger|))
           (|pa| (|U32Vector|)) (|n| #1#))
@@ -40,10 +40,10 @@
               (EXIT |pa|)))) 
 
 (SDEFUN |MODHP;VSUPPI_to_VPA;VLLIV;3|
-        ((|vps| |Vector|
-          (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
-         (|vars| |List| (|Symbol|)) (|pts| |List| (|Integer|)) (|p| |Integer|)
-         ($ |Vector| (|U32Vector|)))
+        ((|vps|
+          (|Vector| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
+         (|vars| (|List| (|Symbol|))) (|pts| (|List| (|Integer|)))
+         (|p| (|Integer|)) ($ (|Vector| (|U32Vector|))))
         (SPROG
          ((#1=#:G163 NIL) (|i| NIL) (|vpa| (|Vector| (|U32Vector|)))
           (|m| (|NonNegativeInteger|)))
@@ -62,8 +62,8 @@
               (EXIT |vpa|)))) 
 
 (SDEFUN |MODHP;LLFI_to_LPA;L2IU;4|
-        ((|llfi| |List| (|List| (|Fraction| (|Integer|)))) (|n| |Integer|)
-         (|prime| |Integer|) ($ |Union| (|List| (|U32Vector|)) "failed"))
+        ((|llfi| (|List| (|List| (|Fraction| (|Integer|))))) (|n| (|Integer|))
+         (|prime| (|Integer|)) ($ (|Union| (|List| (|U32Vector|)) "failed")))
         (SPROG
          ((|resl| (|List| (|U32Vector|))) (|nlc| (|Integer|))
           (|dms| (|SingleInteger|)) (#1=#:G177 NIL) (|dm| #2=(|Integer|))
@@ -115,9 +115,10 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |MODHP;LLFPI_to_LPA;LILLIU;5|
-        ((|llfi| |List| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
-         (|n| |Integer|) (|vars| |List| (|Symbol|)) (|pts| |List| (|Integer|))
-         (|prime| |Integer|) ($ |Union| (|List| (|U32Vector|)) "failed"))
+        ((|llfi| (|List| (|List| (|Fraction| (|Polynomial| (|Integer|))))))
+         (|n| (|Integer|)) (|vars| (|List| (|Symbol|)))
+         (|pts| (|List| (|Integer|))) (|prime| (|Integer|))
+         ($ (|Union| (|List| (|U32Vector|)) "failed")))
         (SPROG
          ((|resl| (|List| (|U32Vector|))) (|nlc| (|Integer|))
           (|dms| (|SingleInteger|)) (#1=#:G191 NIL) (|dm| #2=(|Integer|))
@@ -172,9 +173,9 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |MODHP;PPFtoPA|
-        ((|pfi| |SparseUnivariatePolynomial| (|Integer|))
-         (|sigma| |NonNegativeInteger|) (|psi| |SingleInteger|)
-         ($ |Union| (|U32Vector|) "failed"))
+        ((|pfi| (|SparseUnivariatePolynomial| (|Integer|)))
+         (|sigma| (|NonNegativeInteger|)) (|psi| (|SingleInteger|))
+         ($ (|Union| (|U32Vector|) "failed")))
         (SPROG
          ((|nc| (|Integer|)) (|nlcq| (|Integer|)) (|m| (|NonNegativeInteger|))
           (|prime| (|Integer|)) (|pa| (|U32Vector|)))
@@ -194,9 +195,9 @@
               (EXIT (CONS 0 |pa|))))) 
 
 (SDEFUN |MODHP;LPPFtoVPA|
-        ((|lpi| |List| (|SparseUnivariatePolynomial| (|Integer|)))
-         (|sigma| |NonNegativeInteger|) (|psi| |SingleInteger|)
-         ($ |Union| (|Vector| (|U32Vector|)) "failed"))
+        ((|lpi| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
+         (|sigma| (|NonNegativeInteger|)) (|psi| (|SingleInteger|))
+         ($ (|Union| (|Vector| (|U32Vector|)) "failed")))
         (SPROG
          ((#1=#:G211 NIL) (|vpp| (|Union| (|U32Vector|) "failed"))
           (#2=#:G212 NIL) (|i| NIL) (#3=#:G213 NIL) (|p| NIL)
@@ -227,16 +228,17 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |MODHP;intpoly_to_PFI|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|))
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|)))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPADCALL (ELT $ 50) |p| (QREFELT $ 54))) 
 
 (SDEFUN |MODHP;check_sol1a;VLM3IUv;9|
-        ((|nres| |Vector| (|U32Vector|)) (|gv0| |List| (|U32Vector|))
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         (|sigma| |Integer|) (|qval| |Integer|) (|p| |Integer|)
-         ($ |U32Vector|))
+        ((|nres| (|Vector| (|U32Vector|))) (|gv0| (|List| (|U32Vector|)))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         (|sigma| (|Integer|)) (|qval| (|Integer|)) (|p| (|Integer|))
+         ($ (|U32Vector|)))
         (SPROG
          ((#1=#:G219 NIL) (|i| NIL) (|res| (|U32Vector|))
           (|gvp| (|Vector| (|U32Vector|))) (|m| (|NonNegativeInteger|)))
@@ -254,15 +256,18 @@
               (EXIT |res|)))) 
 
 (SDEFUN |MODHP;HP_solve_I;LLSNniMMU;10|
-        ((|list| |List| (|List| (|Fraction| (|Integer|))))
-         (|degs| |List| (|Integer|)) (|kind| |Symbol|)
-         (|sigma| |NonNegativeInteger|)
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         (|check| |Mapping| (|Union| #1="good" #2="reject" #3="no_solution")
-          (|List| (|SparseUnivariatePolynomial| (|Integer|))))
-         ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|Boolean|)))
+        ((|list| (|List| (|List| (|Fraction| (|Integer|)))))
+         (|degs| (|List| (|Integer|))) (|kind| (|Symbol|))
+         (|sigma| (|NonNegativeInteger|))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         (|check|
+          (|Mapping| (|Union| #1="good" #2="reject" #3="no_solution")
+                     (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
+         ($
+          (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
+                   (|Boolean|))))
         (SPROG
          ((#4=#:G311 NIL) (#5=#:G324 NIL) (|l| NIL) (#6=#:G323 NIL) (|i| NIL)
           (|mress| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|))))
@@ -1037,8 +1042,8 @@
           #31# (EXIT #4#)))) 
 
 (SDEFUN |MODHP;get_variables2|
-        ((|llpi| |List| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
-         ($ |List| (|Symbol|)))
+        ((|llpi| (|List| (|List| (|Fraction| (|Polynomial| (|Integer|))))))
+         ($ (|List| (|Symbol|))))
         (SPROG
          ((|res| (|List| (|Symbol|))) (#1=#:G331 NIL) (|p| NIL) (#2=#:G330 NIL)
           (|lpi| NIL))
@@ -1072,10 +1077,10 @@
               (EXIT |res|)))) 
 
 (SDEFUN |MODHP;unpack_poly;LSevPa2ISup;12|
-        ((|vars| |List| (|Symbol|)) (|exps| |SortedExponentVector|)
-         (|coeffs| |PrimitiveArray| (|Integer|)) (|lo| |Integer|)
-         (|hi| |Integer|)
-         ($ |SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+        ((|vars| (|List| (|Symbol|))) (|exps| (|SortedExponentVector|))
+         (|coeffs| (|PrimitiveArray| (|Integer|))) (|lo| (|Integer|))
+         (|hi| (|Integer|))
+         ($ (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (#1=#:G343 NIL) (|i| (|Integer|)) (|term| (|Polynomial| (|Integer|)))
@@ -1166,15 +1171,17 @@
               (EXIT |res|)))) 
 
 (SDEFUN |MODHP;intpoly_to_PFPI|
-        ((|p| |SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))
-         ($ |SparseUnivariatePolynomial|
-          (|Fraction| (|Polynomial| (|Integer|)))))
+        ((|p| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+         ($
+          (|SparseUnivariatePolynomial|
+           (|Fraction| (|Polynomial| (|Integer|))))))
         (SPADCALL (ELT $ 121) |p| (QREFELT $ 125))) 
 
 (SDEFUN |MODHP;PFPI_to_PFI|
-        ((|p| |SparseUnivariatePolynomial|
-          (|Fraction| (|Polynomial| (|Integer|))))
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|p|
+          (|SparseUnivariatePolynomial|
+           (|Fraction| (|Polynomial| (|Integer|)))))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|iq| (|Fraction| (|Integer|)))
@@ -1196,8 +1203,8 @@
               (EXIT |res|)))) 
 
 (SDEFUN |MODHP;PI_to_PPI|
-        ((|p| |SparseUnivariatePolynomial| (|Integer|))
-         ($ |SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+        ((|p| (|SparseUnivariatePolynomial| (|Integer|)))
+         ($ (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|mq| (|Polynomial| (|Integer|))) (|q| (|Integer|))
@@ -1218,8 +1225,9 @@
               (EXIT |res|)))) 
 
 (SDEFUN |MODHP;LPI_to_LPPI|
-        ((|lp| |List| (|SparseUnivariatePolynomial| (|Integer|)))
-         ($ |List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
+        ((|lp| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
+         ($
+          (|List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))))
         (SPROG ((#1=#:G363 NIL) (|p| NIL) (#2=#:G362 NIL))
                (SEQ
                 (PROGN
@@ -1234,16 +1242,21 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |MODHP;trivial_poly_solve|
-        ((|list| |List| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
-         (|degs| |List| (|Integer|)) (|kind| |Symbol|)
-         (|sigma| |NonNegativeInteger|)
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         (|check| |Mapping| (|Union| "good" "reject" "no_solution")
-          (|List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
-         ($ |Union|
-          (|Matrix| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
-          (|Boolean|)))
+        ((|list| (|List| (|List| (|Fraction| (|Polynomial| (|Integer|))))))
+         (|degs| (|List| (|Integer|))) (|kind| (|Symbol|))
+         (|sigma| (|NonNegativeInteger|))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         (|check|
+          (|Mapping| (|Union| "good" "reject" "no_solution")
+                     (|List|
+                      (|SparseUnivariatePolynomial|
+                       (|Polynomial| (|Integer|))))))
+         ($
+          (|Union|
+           (|Matrix| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+           (|Boolean|))))
         (SPROG
          ((#1=#:G393 NIL) (|j| NIL) (#2=#:G392 NIL) (|i| NIL)
           (|res|
@@ -1343,8 +1356,8 @@
           (RETURN (PROGN (SPADCALL (|MODHP;LPI_to_LPPI| |x| $) |check|))))) 
 
 (SDEFUN |MODHP;get_variables;L2SL;18|
-        ((|list| |List| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
-         (|kind| |Symbol|) (|qvar| |Symbol|) ($ |List| (|Symbol|)))
+        ((|list| (|List| (|List| (|Fraction| (|Polynomial| (|Integer|))))))
+         (|kind| (|Symbol|)) (|qvar| (|Symbol|)) ($ (|List| (|Symbol|))))
         (SPROG ((|vars| (|List| (|Symbol|))))
                (SEQ (LETT |vars| (|MODHP;get_variables2| |list| $))
                     (COND
@@ -1358,16 +1371,21 @@
                     (EXIT (SPADCALL |vars| (QREFELT $ 138)))))) 
 
 (SDEFUN |MODHP;HP_solve_P;LL2SNniMMU;19|
-        ((|list| |List| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
-         (|degs| |List| (|Integer|)) (|kind| |Symbol|) (|qvar| |Symbol|)
-         (|sigma| |NonNegativeInteger|)
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         (|check| |Mapping| #1=(|Union| "good" "reject" "no_solution")
-          (|List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
-         ($ |Union|
-          (|Matrix| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
-          (|Boolean|)))
+        ((|list| (|List| (|List| (|Fraction| (|Polynomial| (|Integer|))))))
+         (|degs| (|List| (|Integer|))) (|kind| (|Symbol|)) (|qvar| (|Symbol|))
+         (|sigma| (|NonNegativeInteger|))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         (|check|
+          (|Mapping| #1=(|Union| "good" "reject" "no_solution")
+                     (|List|
+                      (|SparseUnivariatePolynomial|
+                       (|Polynomial| (|Integer|))))))
+         ($
+          (|Union|
+           (|Matrix| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+           (|Boolean|))))
         (SPROG
          ((#2=#:G452 NIL) (#3=#:G461 NIL) (|l| NIL) (#4=#:G460 NIL) (|i| NIL)
           (|mress|
@@ -1625,14 +1643,18 @@
           #20# (EXIT #2#)))) 
 
 (SDEFUN |MODHP;HP_solve_M;LLSINniMMU;20|
-        ((|list| |List| (|List| (|Integer|))) (|degs| |List| (|Integer|))
-         (|kind| |Symbol|) (|prime| |Integer|) (|sigma| |NonNegativeInteger|)
-         (|gen| |Mapping| #1=(|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         (|check| |Mapping| #2=(|Union| "good" "reject" "no_solution")
-          (|List| (|SparseUnivariatePolynomial| (|Integer|))))
-         ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|Boolean|)))
+        ((|list| (|List| (|List| (|Integer|)))) (|degs| (|List| (|Integer|)))
+         (|kind| (|Symbol|)) (|prime| (|Integer|))
+         (|sigma| (|NonNegativeInteger|))
+         (|gen|
+          (|Mapping| #1=(|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         (|check|
+          (|Mapping| #2=(|Union| "good" "reject" "no_solution")
+                     (|List| (|SparseUnivariatePolynomial| (|Integer|)))))
+         ($
+          (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
+                   (|Boolean|))))
         (SPROG
          ((#3=#:G494 NIL) (#4=#:G504 NIL) (|l| NIL) (#5=#:G503 NIL) (|i| NIL)
           (|mress| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|))))
@@ -1811,32 +1833,40 @@
           #20# (EXIT #3#)))) 
 
 (SDEFUN |MODHP;HP_solve_A;LLSNniMMU;21|
-        ((|list| |List| (|List| (|AlgebraicNumber|)))
-         (|degs| |List| (|Integer|)) (|kind| |Symbol|)
-         (|sigma| |NonNegativeInteger|)
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         (|check| |Mapping| (|Union| "good" "reject" "no_solution")
-          (|List| (|SparseUnivariatePolynomial| (|AlgebraicNumber|))))
-         ($ |Union|
-          (|Matrix| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
-          (|Boolean|)))
+        ((|list| (|List| (|List| (|AlgebraicNumber|))))
+         (|degs| (|List| (|Integer|))) (|kind| (|Symbol|))
+         (|sigma| (|NonNegativeInteger|))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         (|check|
+          (|Mapping| (|Union| "good" "reject" "no_solution")
+                     (|List|
+                      (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))))
+         ($
+          (|Union|
+           (|Matrix| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
+           (|Boolean|))))
         (CONS 1 'T)) 
 
 (SDEFUN |MODHP;HP_solve_PA;LL2SNniMMU;22|
-        ((|list| |List|
-          (|List| (|Fraction| (|Polynomial| (|AlgebraicNumber|)))))
-         (|degs| |List| (|Integer|)) (|kind| |Symbol|) (|qvar| |Symbol|)
-         (|sigma| |NonNegativeInteger|)
-         (|gen| |Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
-          (|Integer|) (|Integer|))
-         (|check| |Mapping| (|Union| "good" "reject" "no_solution")
-          (|List|
-           (|SparseUnivariatePolynomial| (|Polynomial| (|AlgebraicNumber|)))))
-         ($ |Union|
-          (|Matrix|
-           (|SparseUnivariatePolynomial| (|Polynomial| (|AlgebraicNumber|))))
-          (|Boolean|)))
+        ((|list|
+          (|List| (|List| (|Fraction| (|Polynomial| (|AlgebraicNumber|))))))
+         (|degs| (|List| (|Integer|))) (|kind| (|Symbol|)) (|qvar| (|Symbol|))
+         (|sigma| (|NonNegativeInteger|))
+         (|gen|
+          (|Mapping| (|Vector| (|U32Vector|)) (|List| (|U32Vector|))
+                     (|Integer|) (|Integer|)))
+         (|check|
+          (|Mapping| (|Union| "good" "reject" "no_solution")
+                     (|List|
+                      (|SparseUnivariatePolynomial|
+                       (|Polynomial| (|AlgebraicNumber|))))))
+         ($
+          (|Union|
+           (|Matrix|
+            (|SparseUnivariatePolynomial| (|Polynomial| (|AlgebraicNumber|))))
+           (|Boolean|))))
         (CONS 1 'T)) 
 
 (DECLAIM (NOTINLINE |ModularHermitePade;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |FMCAT-;smaller?;2AB;1| ((|p| A) (|q| A) ($ |Boolean|))
+(SDEFUN |FMCAT-;smaller?;2AB;1| ((|p| (A)) (|q| (A)) ($ (|Boolean|)))
         (SPROG ((#1=#:G137 NIL))
                (SEQ
                 (EXIT

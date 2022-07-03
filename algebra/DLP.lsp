@@ -1,7 +1,7 @@
 
 (SDEFUN |DLP;shanksDiscLogAlgorithm;2MNniU;1|
-        ((|logbase| M) (|c| M) (|p| |NonNegativeInteger|)
-         ($ |Union| (|NonNegativeInteger|) "failed"))
+        ((|logbase| (M)) (|c| (M)) (|p| (|NonNegativeInteger|))
+         ($ (|Union| (|NonNegativeInteger|) "failed")))
         (SPROG
          ((|a| (M)) (|disclog| (|Integer|)) (|found| (|Boolean|))
           (|rho| (|Union| (|NonNegativeInteger|) "failed")) (#1=#:G141 NIL)

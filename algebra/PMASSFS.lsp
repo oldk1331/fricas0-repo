@@ -1,8 +1,8 @@
 
-(SDEFUN |PMASSFS;mkk| ((|op| |BasicOperator|) ($ F))
+(SDEFUN |PMASSFS;mkk| ((|op| (|BasicOperator|)) ($ (F)))
         (SPADCALL |op| NIL (QREFELT $ 10))) 
 
-(SDEFUN |PMASSFS;ass| ((|k| |Kernel| F) (|s| |Symbol|) ($ F))
+(SDEFUN |PMASSFS;ass| ((|k| (|Kernel| F)) (|s| (|Symbol|)) ($ (F)))
         (SPROG ((|op| (|BasicOperator|)))
                (COND
                 ((SPADCALL (LETT |op| (SPADCALL |k| (QREFELT $ 12))) |s|
@@ -13,19 +13,19 @@
                   (SPADCALL (SPADCALL |op| (QREFELT $ 18)) |s| (QREFELT $ 19))
                   $))))) 
 
-(SDEFUN |PMASSFS;constant;2F;3| ((|x| F) ($ F))
+(SDEFUN |PMASSFS;constant;2F;3| ((|x| (F)) ($ (F)))
         (COND
          ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
           (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmconstant| $))
          ('T (|error| "constant must be applied to symbols only")))) 
 
-(SDEFUN |PMASSFS;optional;2F;4| ((|x| F) ($ F))
+(SDEFUN |PMASSFS;optional;2F;4| ((|x| (F)) ($ (F)))
         (COND
          ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
           (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmoptional| $))
          ('T (|error| "optional must be applied to symbols only")))) 
 
-(SDEFUN |PMASSFS;multiple;2F;5| ((|x| F) ($ F))
+(SDEFUN |PMASSFS;multiple;2F;5| ((|x| (F)) ($ (F)))
         (COND
          ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
           (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmmultiple| $))

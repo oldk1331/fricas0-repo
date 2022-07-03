@@ -2,14 +2,15 @@
 (PUT '|GENUSER;terms;$S;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (SDEFUN |GENUSER;terms;$S;1|
-        ((|x| $) ($ |Stream| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))))
+        ((|x| ($))
+         ($ (|Stream| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|)))))
         |x|) 
 
-(SDEFUN |GENUSER;center;$Coef;2| ((|x| $) ($ |Coef|)) (QREFELT $ 9)) 
+(SDEFUN |GENUSER;center;$Coef;2| ((|x| ($)) ($ (|Coef|))) (QREFELT $ 9)) 
 
-(SDEFUN |GENUSER;variable;$S;3| ((|x| $) ($ |Symbol|)) (QREFELT $ 8)) 
+(SDEFUN |GENUSER;variable;$S;3| ((|x| ($)) ($ (|Symbol|))) (QREFELT $ 8)) 
 
-(SDEFUN |GENUSER;pole?;$B;4| ((|x| $) ($ |Boolean|))
+(SDEFUN |GENUSER;pole?;$B;4| ((|x| ($)) ($ (|Boolean|)))
         (SEQ
          (COND ((SPADCALL |x| (QREFELT $ 18)) NIL)
                ('T
@@ -19,24 +20,26 @@
                   (SPADCALL (SPADCALL |x| (QREFELT $ 23)) (|spadConstant| $ 21)
                             (QREFELT $ 24)))))))) 
 
-(SDEFUN |GENUSER;Zero;$;5| (($ $)) (SPADCALL (QREFELT $ 26))) 
+(SDEFUN |GENUSER;Zero;$;5| (($ ($))) (SPADCALL (QREFELT $ 26))) 
 
-(SDEFUN |GENUSER;One;$;6| (($ $))
+(SDEFUN |GENUSER;One;$;6| (($ ($)))
         (SPADCALL (CONS (|spadConstant| $ 21) (|spadConstant| $ 27))
                   (SPADCALL (QREFELT $ 26)) (QREFELT $ 28))) 
 
-(SDEFUN |GENUSER;reductum;2$;7| ((|x| $) ($ $))
+(SDEFUN |GENUSER;reductum;2$;7| ((|x| ($)) ($ ($)))
         (COND ((SPADCALL |x| (QREFELT $ 18)) |x|)
               ('T (SPADCALL |x| (QREFELT $ 30))))) 
 
-(SDEFUN |GENUSER;characteristic;Nni;8| (($ |NonNegativeInteger|))
+(SDEFUN |GENUSER;characteristic;Nni;8| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 33))) 
 
-(SDEFUN |GENUSER;monomial;CoefExpon$;9| ((|ci| |Coef|) (|ki| |Expon|) ($ $))
+(SDEFUN |GENUSER;monomial;CoefExpon$;9|
+        ((|ci| (|Coef|)) (|ki| (|Expon|)) ($ ($)))
         (SPADCALL (CONS |ki| |ci|) (SPADCALL (QREFELT $ 26)) (QREFELT $ 28))) 
 
 (SDEFUN |GENUSER;termOutput|
-        ((|ki| |Expon|) (|ci| |Coef|) (|vv| |OutputForm|) ($ |OutputForm|))
+        ((|ki| (|Expon|)) (|ci| (|Coef|)) (|vv| (|OutputForm|))
+         ($ (|OutputForm|)))
         (SPROG ((|mon| (|OutputForm|)))
                (SEQ
                 (COND
@@ -63,7 +66,7 @@
                       (SPADCALL (SPADCALL |ci| (QREFELT $ 38)) |mon|
                                 (QREFELT $ 45))))))))))) 
 
-(SDEFUN |GENUSER;coerce;$Of;11| ((|x| $) ($ |OutputForm|))
+(SDEFUN |GENUSER;coerce;$Of;11| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|xs| (|Rep|))
           (|ti| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))) (#1=#:G214 NIL)
@@ -122,17 +125,18 @@
                      (SPADCALL (ELT $ 57) (NREVERSE |l|)
                                (QREFELT $ 60)))))))))))) 
 
-(SDEFUN |GENUSER;degree;$Expon;12| ((|x| $) ($ |Expon|))
+(SDEFUN |GENUSER;degree;$Expon;12| ((|x| ($)) ($ (|Expon|)))
         (COND ((SPADCALL |x| (QREFELT $ 18)) (|spadConstant| $ 21))
               ('T (QCAR (SPADCALL |x| (QREFELT $ 50)))))) 
 
-(SDEFUN |GENUSER;map;M2$;13| ((|fn| |Mapping| |Coef| |Coef|) (|x| $) ($ $))
+(SDEFUN |GENUSER;map;M2$;13|
+        ((|fn| (|Mapping| |Coef| |Coef|)) (|x| ($)) ($ ($)))
         (SPADCALL (CONS #'|GENUSER;map;M2$;13!0| |fn|) |x| (QREFELT $ 63))) 
 
 (SDEFUN |GENUSER;map;M2$;13!0| ((|ti| NIL) (|fn| NIL))
         (CONS (QCAR |ti|) (SPADCALL (QCDR |ti|) |fn|))) 
 
-(SDEFUN |GENUSER;*;Coef2$;14| ((|c1| |Coef|) (|x| $) ($ $))
+(SDEFUN |GENUSER;*;Coef2$;14| ((|c1| (|Coef|)) (|x| ($)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|GENUSER;*;Coef2$;14!0| (VECTOR $ |c1|)) |x|
                          (QREFELT $ 63)))) 
@@ -146,7 +150,7 @@
             (CONS (QCAR |ti|) (SPADCALL (QCDR |ti|) |c1| (QREFELT $ 66))))))) 
 
 (SDEFUN |GENUSER;multiplyExponents;$Pi$;15|
-        ((|x| $) (|n| |PositiveInteger|) ($ $))
+        ((|x| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|GENUSER;multiplyExponents;$Pi$;15!0| (VECTOR $ |n|))
@@ -160,13 +164,13 @@
            (PROGN
             (CONS (SPADCALL |n| (QCAR |ti|) (QREFELT $ 69)) (QCDR |ti|)))))) 
 
-(SDEFUN |GENUSER;-;2$;16| ((|x| $) ($ $))
+(SDEFUN |GENUSER;-;2$;16| ((|x| ($)) ($ ($)))
         (SPADCALL (CONS #'|GENUSER;-;2$;16!0| $) |x| (QREFELT $ 63))) 
 
 (SDEFUN |GENUSER;-;2$;16!0| ((|ti| NIL) ($ NIL))
         (CONS (QCAR |ti|) (SPADCALL (QCDR |ti|) (QREFELT $ 43)))) 
 
-(SDEFUN |GENUSER;+;3$;17| ((|x| $) (|y| $) ($ $))
+(SDEFUN |GENUSER;+;3$;17| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|GENUSER;+;3$;17!0| (VECTOR |y| $ |x|))
@@ -214,7 +218,7 @@
                                               (QREFELT $ 72))
                                     (QREFELT $ 28)))))))))))))) 
 
-(SDEFUN |GENUSER;-;3$;18| ((|x| $) (|y| $) ($ $))
+(SDEFUN |GENUSER;-;3$;18| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|GENUSER;-;3$;18!0| (VECTOR |y| $ |x|))
@@ -259,7 +263,7 @@
                                          (QREFELT $ 76))
                                (QREFELT $ 28)))))))))))))) 
 
-(SDEFUN |GENUSER;*;3$;19| ((|x| $) (|y| $) ($ $))
+(SDEFUN |GENUSER;*;3$;19| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|GENUSER;*;3$;19!0| (VECTOR |y| $ |x|))
@@ -299,7 +303,7 @@
                              (QREFELT $ 28)))))))))))) 
 
 (SDEFUN |GENUSER;exquo1|
-        ((|x| $) (|y| $) (|cyinv| |Coef|) (|ky| |Expon|) ($ $))
+        ((|x| ($)) (|y| ($)) (|cyinv| (|Coef|)) (|ky| (|Expon|)) ($ ($)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -346,7 +350,7 @@
                                                |y| |cyinv| |ky| $)
                                               (QREFELT $ 28)))))))))))))))) 
 
-(SDEFUN |GENUSER;exquo2| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |GENUSER;exquo2| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG
          ((#1=#:G354 NIL) (#2=#:G352 NIL)
           (|tx| #3=(|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))) (|n| NIL)
@@ -423,13 +427,13 @@
                              $)))))))))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |GENUSER;exquo;2$U;22| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |GENUSER;exquo;2$U;22| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (|GENUSER;exquo2| |x| |y| $)) 
 
-(SDEFUN |GENUSER;recip;$U;23| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |GENUSER;recip;$U;23| ((|x| ($)) ($ (|Union| $ "failed")))
         (|GENUSER;exquo2| (|spadConstant| $ 29) |x| $)) 
 
-(SDEFUN |GENUSER;/;3$;24| ((|x| $) (|y| $) ($ $))
+(SDEFUN |GENUSER;/;3$;24| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|resu| (|Union| $ "failed")))
                (SEQ (LETT |resu| (SPADCALL |x| |y| (QREFELT $ 83)))
                     (EXIT
@@ -439,7 +443,7 @@
                       ('T (QCDR |resu|))))))) 
 
 (SDEFUN |GENUSER;infsum1|
-        ((|stx| |Stream| $) (|k1| |Expon|) (|c1| |Coef|) ($ $))
+        ((|stx| (|Stream| $)) (|k1| (|Expon|)) (|c1| (|Coef|)) ($ ($)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -492,7 +496,7 @@
                                                  $)
                                                 (QREFELT $ 72)))))))))))))))))) 
 
-(SDEFUN |GENUSER;infsum;S$;26| ((|stx| |Stream| $) ($ $))
+(SDEFUN |GENUSER;infsum;S$;26| ((|stx| (|Stream| $)) ($ ($)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|GENUSER;infsum;S$;26!0| (VECTOR $ |stx|))
@@ -525,7 +529,7 @@
                                               (QREFELT $ 72)))))))))))))))) 
 
 (SDEFUN |GENUSER;apply_taylor1|
-        ((|stc| |Stream| |Coef|) (|x| $) (|xn| $) ($ |Stream| $))
+        ((|stc| (|Stream| |Coef|)) (|x| ($)) (|xn| ($)) ($ (|Stream| $)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -554,7 +558,7 @@
                                        (SPADCALL |x| |xn| (QREFELT $ 79)) $)
                                       (QREFELT $ 97)))))))))))) 
 
-(SDEFUN |GENUSER;removeZeros;$Expon$;28| ((|x| $) (|ki| |Expon|) ($ $))
+(SDEFUN |GENUSER;removeZeros;$Expon$;28| ((|x| ($)) (|ki| (|Expon|)) ($ ($)))
         (SPROG
          ((|xs| (|Rep|)) (#1=#:G420 NIL)
           (|tx| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))))
@@ -585,7 +589,8 @@
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |GENUSER;apply_taylor;S2$;29| ((|stc| |Stream| |Coef|) (|x| $) ($ $))
+(SDEFUN |GENUSER;apply_taylor;S2$;29|
+        ((|stc| (|Stream| |Coef|)) (|x| ($)) ($ ($)))
         (SPROG
          ((|xs| (|Rep|)) (#1=#:G431 NIL)
           (|tx| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))))
@@ -630,7 +635,7 @@
                 (#3#
                  (|error| "apply_taylor: x does not have positive order"))))))) 
 
-(SDEFUN |GENUSER;=;2$B;30| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |GENUSER;=;2$B;30| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG
          ((|st| (|Rep|)) (#1=#:G439 NIL)
           (|tst| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))) (#2=#:G440 NIL)
@@ -659,7 +664,7 @@
                 (EXIT (SPADCALL |st| (QREFELT $ 18)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |GENUSER;order;$2Expon;31| ((|x| $) (|ki| |Expon|) ($ |Expon|))
+(SDEFUN |GENUSER;order;$2Expon;31| ((|x| ($)) (|ki| (|Expon|)) ($ (|Expon|)))
         (SPROG
          ((|xs| (|Rep|)) (#1=#:G449 NIL)
           (|tx| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))))
@@ -691,7 +696,7 @@
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |GENUSER;order;$Expon;32| ((|x| $) ($ |Expon|))
+(SDEFUN |GENUSER;order;$Expon;32| ((|x| ($)) ($ (|Expon|)))
         (SPROG
          ((|xs| (|Rep|)) (#1=#:G457 NIL)
           (|tx| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))))
@@ -721,7 +726,7 @@
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |GENUSER;extend;$Expon$;33| ((|x| $) (|ki| |Expon|) ($ $))
+(SDEFUN |GENUSER;extend;$Expon$;33| ((|x| ($)) (|ki| (|Expon|)) ($ ($)))
         (SPROG
          ((|xs| (|Rep|)) (#1=#:G465 NIL)
           (|tx| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))))
@@ -747,7 +752,7 @@
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |GENUSER;truncate;$Expon$;34| ((|x| $) (|ki| |Expon|) ($ $))
+(SDEFUN |GENUSER;truncate;$Expon$;34| ((|x| ($)) (|ki| (|Expon|)) ($ ($)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -781,7 +786,7 @@
                                              (QREFELT $ 28))))))))))))))) 
 
 (SDEFUN |GENUSER;truncate;$2Expon$;35|
-        ((|x| $) (|k1| |Expon|) (|k2| |Expon|) ($ $))
+        ((|x| ($)) (|k1| (|Expon|)) (|k2| (|Expon|)) ($ ($)))
         (SPROG
          ((|xs| (|Rep|)) (#1=#:G488 NIL)
           (|tx| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))) (#2=#:G489 NIL)
@@ -820,9 +825,11 @@
             (EXIT (SPADCALL |xs| |k2| (QREFELT $ 104)))))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |GENUSER;complete;2$;36| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 106))) 
+(SDEFUN |GENUSER;complete;2$;36| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 106))) 
 
-(SDEFUN |GENUSER;coefficient;$ExponCoef;37| ((|x| $) (|ki| |Expon|) ($ |Coef|))
+(SDEFUN |GENUSER;coefficient;$ExponCoef;37|
+        ((|x| ($)) (|ki| (|Expon|)) ($ (|Coef|)))
         (SPROG
          ((|xs| (|Rep|)) (#1=#:G498 NIL)
           (|tx| (|Record| (|:| |k| |Expon|) (|:| |c| |Coef|))))
@@ -854,18 +861,18 @@
                       NIL (GO G190) G191 (EXIT NIL)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |GENUSER;elt;$ExponCoef;38| ((|x| $) (|ki| |Expon|) ($ |Coef|))
+(SDEFUN |GENUSER;elt;$ExponCoef;38| ((|x| ($)) (|ki| (|Expon|)) ($ (|Coef|)))
         (SPADCALL |x| |ki| (QREFELT $ 108))) 
 
-(SDEFUN |GENUSER;leadingMonomial;2$;39| ((|x| $) ($ $))
+(SDEFUN |GENUSER;leadingMonomial;2$;39| ((|x| ($)) ($ ($)))
         (COND ((SPADCALL |x| (QREFELT $ 18)) (|spadConstant| $ 20))
               ('T
                (SPADCALL (SPADCALL |x| (QREFELT $ 110))
                          (SPADCALL (QREFELT $ 26)) (QREFELT $ 28))))) 
 
 (SDEFUN |GENUSER;apply_or_error|
-        ((|fn| |Mapping| #1=(|Union| $ "failed") $) (|xs| |String|) (|x| $)
-         ($ $))
+        ((|fn| (|Mapping| #1=(|Union| $ "failed") $)) (|xs| (|String|))
+         (|x| ($)) ($ ($)))
         (SPROG ((|resu| #1#))
                (SEQ (LETT |resu| (SPADCALL |x| |fn|))
                     (EXIT
@@ -873,85 +880,85 @@
                       ((QEQCAR |resu| 1) (|error| (STRCONC |xs| ": failed")))
                       ('T (QCDR |resu|))))))) 
 
-(SDEFUN |GENUSER;exp;2$;41| ((|x| $) ($ $))
+(SDEFUN |GENUSER;exp;2$;41| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 114) "exp" |x| $)) 
 
-(SDEFUN |GENUSER;log;2$;42| ((|x| $) ($ $))
+(SDEFUN |GENUSER;log;2$;42| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 116) "log" |x| $)) 
 
-(SDEFUN |GENUSER;sin;2$;43| ((|x| $) ($ $))
+(SDEFUN |GENUSER;sin;2$;43| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 118) "sin" |x| $)) 
 
-(SDEFUN |GENUSER;cos;2$;44| ((|x| $) ($ $))
+(SDEFUN |GENUSER;cos;2$;44| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 120) "cos" |x| $)) 
 
-(SDEFUN |GENUSER;tan;2$;45| ((|x| $) ($ $))
+(SDEFUN |GENUSER;tan;2$;45| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 122) "tan" |x| $)) 
 
-(SDEFUN |GENUSER;cot;2$;46| ((|x| $) ($ $))
+(SDEFUN |GENUSER;cot;2$;46| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 124) "cot" |x| $)) 
 
-(SDEFUN |GENUSER;sec;2$;47| ((|x| $) ($ $))
+(SDEFUN |GENUSER;sec;2$;47| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 126) "sec" |x| $)) 
 
-(SDEFUN |GENUSER;csc;2$;48| ((|x| $) ($ $))
+(SDEFUN |GENUSER;csc;2$;48| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 128) "csc" |x| $)) 
 
-(SDEFUN |GENUSER;asin;2$;49| ((|x| $) ($ $))
+(SDEFUN |GENUSER;asin;2$;49| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 130) "asin" |x| $)) 
 
-(SDEFUN |GENUSER;acos;2$;50| ((|x| $) ($ $))
+(SDEFUN |GENUSER;acos;2$;50| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 132) "acos" |x| $)) 
 
-(SDEFUN |GENUSER;atan;2$;51| ((|x| $) ($ $))
+(SDEFUN |GENUSER;atan;2$;51| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 134) "atan" |x| $)) 
 
-(SDEFUN |GENUSER;acot;2$;52| ((|x| $) ($ $))
+(SDEFUN |GENUSER;acot;2$;52| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 136) "acot" |x| $)) 
 
-(SDEFUN |GENUSER;asec;2$;53| ((|x| $) ($ $))
+(SDEFUN |GENUSER;asec;2$;53| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 138) "asec" |x| $)) 
 
-(SDEFUN |GENUSER;acsc;2$;54| ((|x| $) ($ $))
+(SDEFUN |GENUSER;acsc;2$;54| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 140) "acsc" |x| $)) 
 
-(SDEFUN |GENUSER;sinh;2$;55| ((|x| $) ($ $))
+(SDEFUN |GENUSER;sinh;2$;55| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 142) "sinh" |x| $)) 
 
-(SDEFUN |GENUSER;cosh;2$;56| ((|x| $) ($ $))
+(SDEFUN |GENUSER;cosh;2$;56| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 144) "cosh" |x| $)) 
 
-(SDEFUN |GENUSER;tanh;2$;57| ((|x| $) ($ $))
+(SDEFUN |GENUSER;tanh;2$;57| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 146) "tanh" |x| $)) 
 
-(SDEFUN |GENUSER;coth;2$;58| ((|x| $) ($ $))
+(SDEFUN |GENUSER;coth;2$;58| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 148) "coth" |x| $)) 
 
-(SDEFUN |GENUSER;sech;2$;59| ((|x| $) ($ $))
+(SDEFUN |GENUSER;sech;2$;59| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 150) "sech" |x| $)) 
 
-(SDEFUN |GENUSER;csch;2$;60| ((|x| $) ($ $))
+(SDEFUN |GENUSER;csch;2$;60| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 152) "csch" |x| $)) 
 
-(SDEFUN |GENUSER;asinh;2$;61| ((|x| $) ($ $))
+(SDEFUN |GENUSER;asinh;2$;61| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 154) "asinh" |x| $)) 
 
-(SDEFUN |GENUSER;acosh;2$;62| ((|x| $) ($ $))
+(SDEFUN |GENUSER;acosh;2$;62| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 156) "acosh" |x| $)) 
 
-(SDEFUN |GENUSER;atanh;2$;63| ((|x| $) ($ $))
+(SDEFUN |GENUSER;atanh;2$;63| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 158) "atanh" |x| $)) 
 
-(SDEFUN |GENUSER;acoth;2$;64| ((|x| $) ($ $))
+(SDEFUN |GENUSER;acoth;2$;64| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 160) "acoth" |x| $)) 
 
-(SDEFUN |GENUSER;asech;2$;65| ((|x| $) ($ $))
+(SDEFUN |GENUSER;asech;2$;65| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 162) "asech" |x| $)) 
 
-(SDEFUN |GENUSER;acsch;2$;66| ((|x| $) ($ $))
+(SDEFUN |GENUSER;acsch;2$;66| ((|x| ($)) ($ ($)))
         (|GENUSER;apply_or_error| (ELT $ 164) "acsch" |x| $)) 
 
-(SDEFUN |GENUSER;pi;$;67| (($ $))
+(SDEFUN |GENUSER;pi;$;67| (($ ($)))
         (SPADCALL (SPADCALL (QREFELT $ 166)) (|spadConstant| $ 21)
                   (QREFELT $ 35))) 
 

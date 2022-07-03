@@ -1,8 +1,8 @@
 
-(SDEFUN |GUESSF1;F2EXPRR;FE;1| ((|p| F) ($ |Expression| (|Integer|)))
+(SDEFUN |GUESSF1;F2EXPRR;FE;1| ((|p| (F)) ($ (|Expression| (|Integer|))))
         (SPADCALL (SPADCALL |p| (QREFELT $ 8)) (QREFELT $ 10))) 
 
-(SDEFUN |GUESSF1;EXPRR2F;EF;2| ((|p| |Expression| (|Integer|)) ($ F))
+(SDEFUN |GUESSF1;EXPRR2F;EF;2| ((|p| (|Expression| (|Integer|))) ($ (F)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |GuessFiniteFunctions;|)) 

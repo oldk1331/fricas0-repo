@@ -1,16 +1,16 @@
 
 (SDEFUN |OMPKG;OMunhandledSymbol;2SE;1|
-        ((|u| |String|) (|v| |String|) ($ |Exit|))
+        ((|u| (|String|)) (|v| (|String|)) ($ (|Exit|)))
         (|error|
          (SPADCALL
           (LIST "FriCAS is unable to process the symbol " |u| " from CD " |v|
                 ".")
           (QREFELT $ 8)))) 
 
-(SDEFUN |OMPKG;OMread;OmdA;2| ((|dev| |OpenMathDevice|) ($ |Any|))
+(SDEFUN |OMPKG;OMread;OmdA;2| ((|dev| (|OpenMathDevice|)) ($ (|Any|)))
         (SPADCALL (OM-READ |dev|) (QREFELT $ 13))) 
 
-(SDEFUN |OMPKG;OMreadFile;SA;3| ((|filename| |String|) ($ |Any|))
+(SDEFUN |OMPKG;OMreadFile;SA;3| ((|filename| (|String|)) ($ (|Any|)))
         (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)))
                (SEQ
                 (LETT |dev|
@@ -19,7 +19,7 @@
                 (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 13)))
                 (SPADCALL |dev| (QREFELT $ 20)) (EXIT |res|)))) 
 
-(SDEFUN |OMPKG;OMreadStr;SA;4| ((|str| |String|) ($ |Any|))
+(SDEFUN |OMPKG;OMreadStr;SA;4| ((|str| (|String|)) ($ (|Any|)))
         (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)) (|strp| (|None|)))
                (SEQ (LETT |strp| (OM-STRINGTOSTRINGPTR |str|))
                     (LETT |dev|
@@ -30,18 +30,18 @@
 
 (PUT '|OMPKG;OMlistCDs;L;5| '|SPADreplace| 'OM-LISTCDS) 
 
-(SDEFUN |OMPKG;OMlistCDs;L;5| (($ |List| (|String|))) (OM-LISTCDS)) 
+(SDEFUN |OMPKG;OMlistCDs;L;5| (($ (|List| (|String|)))) (OM-LISTCDS)) 
 
 (PUT '|OMPKG;OMlistSymbols;SL;6| '|SPADreplace| 'OM-LISTSYMBOLS) 
 
-(SDEFUN |OMPKG;OMlistSymbols;SL;6| ((|cd| |String|) ($ |List| (|String|)))
+(SDEFUN |OMPKG;OMlistSymbols;SL;6| ((|cd| (|String|)) ($ (|List| (|String|))))
         (OM-LISTSYMBOLS |cd|)) 
 
-(SDEFUN |OMPKG;OMsupportsCD?;SB;7| ((|cd| |String|) ($ |Boolean|))
+(SDEFUN |OMPKG;OMsupportsCD?;SB;7| ((|cd| (|String|)) ($ (|Boolean|)))
         (NULL (SPADCALL (OM-SUPPORTSCD |cd|) (QREFELT $ 29)))) 
 
 (SDEFUN |OMPKG;OMsupportsSymbol?;2SB;8|
-        ((|cd| |String|) (|name| |String|) ($ |Boolean|))
+        ((|cd| (|String|)) (|name| (|String|)) ($ (|Boolean|)))
         (NULL (SPADCALL (OM-SUPPORTSSYMBOL |cd| |name|) (QREFELT $ 29)))) 
 
 (DECLAIM (NOTINLINE |OpenMathPackage;|)) 

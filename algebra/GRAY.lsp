@@ -1,6 +1,6 @@
 
 (SDEFUN |GRAY;firstSubsetGray;PiV;1|
-        ((|n| |PositiveInteger|) ($ |Vector| (|Vector| (|Integer|))))
+        ((|n| (|PositiveInteger|)) ($ (|Vector| (|Vector| (|Integer|)))))
         (SPROG
          ((#1=#:G123 NIL) (|i| NIL) (|vv| (|Vector| (|Vector| (|Integer|)))))
          (SEQ (LETT |vv| (MAKEARR1 2 #()))
@@ -16,8 +16,8 @@
               (EXIT |vv|)))) 
 
 (SDEFUN |GRAY;nextSubsetGray;VPiV;2|
-        ((|vv| |Vector| (|Vector| (|Integer|))) (|n| |PositiveInteger|)
-         ($ |Vector| (|Vector| (|Integer|))))
+        ((|vv| (|Vector| (|Vector| (|Integer|)))) (|n| (|PositiveInteger|))
+         ($ (|Vector| (|Vector| (|Integer|)))))
         (SPROG
          ((|c| (|Integer|)) (|lab| #1=(|Vector| (|Integer|))) (|subs| #1#))
          (SEQ (LETT |subs| (SPADCALL |vv| 1 (QREFELT $ 10)))

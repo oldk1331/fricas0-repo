@@ -1,5 +1,5 @@
 
-(SDEFUN |QCMPACK;squareFreeFactors| ((|lp| |List| P) ($ |List| P))
+(SDEFUN |QCMPACK;squareFreeFactors| ((|lp| (|List| P)) ($ (|List| P)))
         (SPROG
          ((|lsflp| (|List| P)) (|lsfp| (|List| P)) (#1=#:G185 NIL) (|p| NIL))
          (SEQ (LETT |lsflp| NIL)
@@ -17,7 +17,8 @@
                          (QREFELT $ 19)))))) 
 
 (SDEFUN |QCMPACK;startTable!;3SV;2|
-        ((|ok| |String|) (|ko| |String|) (|domainName| |String|) ($ |Void|))
+        ((|ok| (|String|)) (|ko| (|String|)) (|domainName| (|String|))
+         ($ (|Void|)))
         (SEQ (SPADCALL (QREFELT $ 23))
              (COND
               ((NULL (SPADCALL |ok| (QREFELT $ 25)))
@@ -29,11 +30,12 @@
                (SPADCALL |domainName| (QREFELT $ 27))))
              (EXIT (SPADCALL (QREFELT $ 28))))) 
 
-(SDEFUN |QCMPACK;stopTable!;V;3| (($ |Void|))
+(SDEFUN |QCMPACK;stopTable!;V;3| (($ (|Void|)))
         (SEQ (COND ((SPADCALL (QREFELT $ 30)) (SPADCALL (QREFELT $ 31))))
              (EXIT (SPADCALL (QREFELT $ 32))))) 
 
-(SDEFUN |QCMPACK;supDimElseRittWu?;2TSB;4| ((|ts| TS) (|us| TS) ($ |Boolean|))
+(SDEFUN |QCMPACK;supDimElseRittWu?;2TSB;4|
+        ((|ts| (TS)) (|us| (TS)) ($ (|Boolean|)))
         (SPROG ((|lp2| #1=(|List| P)) (|lp1| #1#))
                (SEQ
                 (COND
@@ -61,11 +63,12 @@
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT (NULL (NULL |lp1|))))))))) 
 
-(SDEFUN |QCMPACK;algebraicSort;2L;5| ((|lts| |List| TS) ($ |List| TS))
+(SDEFUN |QCMPACK;algebraicSort;2L;5| ((|lts| (|List| TS)) ($ (|List| TS)))
         (SEQ (LETT |lts| (SPADCALL |lts| (QREFELT $ 39)))
              (EXIT (SPADCALL (ELT $ 37) |lts| (QREFELT $ 41))))) 
 
-(SDEFUN |QCMPACK;moreAlgebraic?;2TSB;6| ((|ts| TS) (|us| TS) ($ |Boolean|))
+(SDEFUN |QCMPACK;moreAlgebraic?;2TSB;6|
+        ((|ts| (TS)) (|us| (TS)) ($ (|Boolean|)))
         (SPROG ((#1=#:G213 NIL) (#2=#:G214 NIL) (#3=#:G215 NIL) (|p| NIL))
                (SEQ
                 (EXIT
@@ -100,7 +103,7 @@
                     (EXIT 'T)))))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |QCMPACK;subTriSet?;2TSB;7| ((|ts| TS) (|us| TS) ($ |Boolean|))
+(SDEFUN |QCMPACK;subTriSet?;2TSB;7| ((|ts| (TS)) (|us| (TS)) ($ (|Boolean|)))
         (SPROG ((#1=#:G217 NIL) (#2=#:G220 NIL))
                (COND ((SPADCALL |ts| (QREFELT $ 43)) 'T)
                      ((OR (SPADCALL |us| (QREFELT $ 43))
@@ -142,7 +145,7 @@
                      ('T NIL)))) 
 
 (SDEFUN |QCMPACK;internalSubPolSet?;2LB;8|
-        ((|lp1| |List| P) (|lp2| |List| P) ($ |Boolean|))
+        ((|lp1| (|List| P)) (|lp2| (|List| P)) ($ (|Boolean|)))
         (COND ((NULL |lp1|) 'T) ((NULL |lp2|) NIL)
               ((SPADCALL (|SPADfirst| |lp1|) (|SPADfirst| |lp2|)
                          (QREFELT $ 56))
@@ -153,19 +156,19 @@
               ('T (SPADCALL |lp1| (CDR |lp2|) (QREFELT $ 57))))) 
 
 (SDEFUN |QCMPACK;subPolSet?;2LB;9|
-        ((|lp1| |List| P) (|lp2| |List| P) ($ |Boolean|))
+        ((|lp1| (|List| P)) (|lp2| (|List| P)) ($ (|Boolean|)))
         (SEQ (LETT |lp1| (SPADCALL (ELT $ 16) |lp1| (QREFELT $ 19)))
              (LETT |lp2| (SPADCALL (ELT $ 16) |lp2| (QREFELT $ 19)))
              (EXIT (SPADCALL |lp1| |lp2| (QREFELT $ 57))))) 
 
 (SDEFUN |QCMPACK;infRittWu?;2LB;10|
-        ((|lp1| |List| P) (|lp2| |List| P) ($ |Boolean|))
+        ((|lp1| (|List| P)) (|lp2| (|List| P)) ($ (|Boolean|)))
         (SEQ (LETT |lp1| (SPADCALL (ELT $ 16) |lp1| (QREFELT $ 19)))
              (LETT |lp2| (SPADCALL (ELT $ 16) |lp2| (QREFELT $ 19)))
              (EXIT (SPADCALL |lp1| |lp2| (QREFELT $ 59))))) 
 
 (SDEFUN |QCMPACK;internalInfRittWu?;2LB;11|
-        ((|lp1| |List| P) (|lp2| |List| P) ($ |Boolean|))
+        ((|lp1| (|List| P)) (|lp2| (|List| P)) ($ (|Boolean|)))
         (COND ((NULL |lp1|) (NULL (NULL |lp2|))) ((NULL |lp2|) NIL)
               ((SPADCALL (|SPADfirst| |lp1|) (|SPADfirst| |lp2|)
                          (QREFELT $ 16))
@@ -176,15 +179,15 @@
               ('T (SPADCALL (CDR |lp1|) (CDR |lp2|) (QREFELT $ 60))))) 
 
 (SDEFUN |QCMPACK;subCase?;2RB;12|
-        ((|lpwt1| |Record| (|:| |val| (|List| P)) (|:| |tower| TS))
-         (|lpwt2| |Record| (|:| |val| (|List| P)) (|:| |tower| TS))
-         ($ |Boolean|))
+        ((|lpwt1| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
+         (|lpwt2| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
+         ($ (|Boolean|)))
         (COND
          ((NULL (SPADCALL (QCAR |lpwt2|) (QCAR |lpwt1|) (QREFELT $ 57))) NIL)
          ('T (SPADCALL (QCDR |lpwt1|) (QCDR |lpwt2|) (QREFELT $ 61))))) 
 
 (SDEFUN |QCMPACK;internalSubQuasiComponent?;2TSU;13|
-        ((|ts| TS) (|us| TS) ($ |Union| (|Boolean|) "failed"))
+        ((|ts| (TS)) (|us| (TS)) ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((#1=#:G275 NIL) (#2=#:G278 NIL) (#3=#:G281 NIL) (|p| NIL)
           (|lsfp| (|List| P)) (#4=#:G276 NIL) (#5=#:G280 NIL) (#6=#:G277 NIL)
@@ -272,7 +275,7 @@
           #9# (EXIT #2#)))) 
 
 (SDEFUN |QCMPACK;subQuasiComponent?;2TSB;14|
-        ((|ts| TS) (|us| TS) ($ |Boolean|))
+        ((|ts| (TS)) (|us| (TS)) ($ (|Boolean|)))
         (SPROG
          ((|b| (|Boolean|)) (|ubf| (|Union| (|Boolean|) "failed"))
           (|e| (|Union| (|Boolean|) "failed"))
@@ -289,7 +292,7 @@
                            (SPADCALL |k| |b| (QREFELT $ 73)) (EXIT |b|)))))))) 
 
 (SDEFUN |QCMPACK;subQuasiComponent?;TSLB;15|
-        ((|ts| TS) (|lus| |List| TS) ($ |Boolean|))
+        ((|ts| (TS)) (|lus| (|List| TS)) ($ (|Boolean|)))
         (SPROG ((#1=#:G293 NIL) (#2=#:G294 NIL) (#3=#:G295 NIL) (|us| NIL))
                (SEQ
                 (EXIT
@@ -313,8 +316,8 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |QCMPACK;removeSuperfluousCases;2L;16|
-        ((|cases| |List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
-         ($ |List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
+        ((|cases| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
+         ($ (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))))
         (SPROG
          ((|toSee| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
           (|headmaxcases|
@@ -392,7 +395,7 @@
         (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 37))) 
 
 (SDEFUN |QCMPACK;removeSuperfluousQuasiComponents;2L;17|
-        ((|lts| |List| TS) ($ |List| TS))
+        ((|lts| (|List| TS)) ($ (|List| TS)))
         (SPROG
          ((|toSee| (|List| TS)) (|headmaxlts| #1=(|List| TS))
           (|copymaxlts| (|List| TS)) (|maxlts| #1#) (|toSave| (|List| TS))
@@ -468,7 +471,7 @@
                                 NIL (GO G190) G191 (EXIT NIL))
                            (EXIT (SPADCALL |maxlts| (QREFELT $ 42)))))))))) 
 
-(SDEFUN |QCMPACK;removeAssociates| ((|lp| |List| P) ($ |List| P))
+(SDEFUN |QCMPACK;removeAssociates| ((|lp| (|List| P)) ($ (|List| P)))
         (SPROG ((#1=#:G345 NIL) (|p| NIL) (#2=#:G344 NIL))
                (SEQ
                 (SPADCALL
@@ -486,12 +489,14 @@
                  (QREFELT $ 17))))) 
 
 (SDEFUN |QCMPACK;branchIfCan;LTSL5BU;19|
-        ((|leq| |List| P) (|ts| TS) (|lineq| |List| P) (|b1| |Boolean|)
-         (|b2| |Boolean|) (|b3| |Boolean|) (|b4| |Boolean|) (|b5| |Boolean|)
-         ($ |Union|
-          (|Record| (|:| |eq| (|List| P)) (|:| |tower| TS)
-                    (|:| |ineq| (|List| P)))
-          "failed"))
+        ((|leq| (|List| P)) (|ts| (TS)) (|lineq| (|List| P)) (|b1| (|Boolean|))
+         (|b2| (|Boolean|)) (|b3| (|Boolean|)) (|b4| (|Boolean|))
+         (|b5| (|Boolean|))
+         ($
+          (|Union|
+           (|Record| (|:| |eq| (|List| P)) (|:| |tower| TS)
+                     (|:| |ineq| (|List| P)))
+           "failed")))
         (SPROG
          ((|newleq| (|List| P)) (#1=#:G384 NIL) (|newp| (P)) (#2=#:G366 NIL)
           (|g| (P)) (#3=#:G388 NIL) (|q| NIL) (#4=#:G387 NIL) (|p| NIL)
@@ -624,12 +629,14 @@
           #10# (EXIT #1#)))) 
 
 (SDEFUN |QCMPACK;prepareDecompose;LL2BL;20|
-        ((|lp| |List| P) (|lts| |List| TS) (|b1| |Boolean|) (|b2| |Boolean|)
-         ($ |List|
-          (|Record| (|:| |eq| #1=(|List| P)) (|:| |tower| TS)
-                    (|:| |ineq| #2=(|List| P)))))
+        ((|lp| (|List| P)) (|lts| (|List| TS)) (|b1| (|Boolean|))
+         (|b2| (|Boolean|))
+         ($
+          (|List|
+           (|Record| (|:| |eq| #1=(|List| P)) (|:| |tower| TS)
+                     (|:| |ineq| #2=(|List| P))))))
         (SPROG
-         ((#3=#:G427 NIL) (|ts| (TS)) (#4=#:G426 NIL)
+         ((#3=#:G427 NIL) (#4=#:G426 NIL)
           (|toSee|
            (|List|
             (|Record| (|:| |eq| (|List| P)) (|:| |tower| TS)
@@ -645,9 +652,10 @@
                (|Record| (|:| |eq| (|List| P)) (|:| |tower| TS)
                          (|:| |ineq| (|List| P)))
                "failed"))
-          (|lineq| #2#) (|leq| #1#) (|ubf2| #6#) (|ubf1| #6#) (#7=#:G425 NIL)
-          (|branch| NIL) (#8=#:G424 NIL) (|f| NIL) (|lsfp| (|List| P))
-          (#9=#:G423 NIL) (|p| NIL) (#10=#:G422 NIL) (#11=#:G421 NIL))
+          (|lineq| #2#) (|leq| #1#) (|ubf2| #6#) (|ubf1| #6#) (|ts| (TS))
+          (#7=#:G425 NIL) (|branch| NIL) (#8=#:G424 NIL) (|f| NIL)
+          (|lsfp| (|List| P)) (#9=#:G423 NIL) (|p| NIL) (#10=#:G422 NIL)
+          (#11=#:G421 NIL))
          (SEQ
           (LETT |lp|
                 (SPADCALL (ELT $ 16)
@@ -667,7 +675,7 @@
                           (LETT |toSee|
                                 (PROGN
                                  (LETT #11# NIL)
-                                 (SEQ (LETT |ts| NIL) (LETT #10# |lts|) G190
+                                 (SEQ (LETT #10# |lts|) G190
                                       (COND
                                        ((OR (ATOM #10#)
                                             (PROGN (LETT |ts| (CAR #10#)) NIL))
@@ -865,7 +873,7 @@
                     (#12#
                      (PROGN
                       (LETT #4# NIL)
-                      (SEQ (LETT |ts| NIL) (LETT #3# |lts|) G190
+                      (SEQ (LETT #3# |lts|) G190
                            (COND
                             ((OR (ATOM #3#) (PROGN (LETT |ts| (CAR #3#)) NIL))
                              (GO G191)))

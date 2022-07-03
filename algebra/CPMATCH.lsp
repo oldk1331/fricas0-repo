@@ -1,5 +1,5 @@
 
-(SDEFUN |CPMATCH;makeComplex| ((|p| |Polynomial| S) ($ CS))
+(SDEFUN |CPMATCH;makeComplex| ((|p| (|Polynomial| S)) ($ (CS)))
         (SPROG
          ((|rcoef| (S)) (|icoef| (S)) (|up| (|SparseUnivariatePolynomial| S)))
          (SEQ (LETT |up| (SPADCALL |p| (QREFELT $ 14)))
@@ -14,15 +14,16 @@
                                       (QREFELT $ 20)))
                       (EXIT (SPADCALL |rcoef| |icoef| (QREFELT $ 21)))))))))) 
 
-(SDEFUN |CPMATCH;makePoly| ((|cs| CS) ($ |Polynomial| S))
+(SDEFUN |CPMATCH;makePoly| ((|cs| (CS)) ($ (|Polynomial| S)))
         (SPADCALL (SPADCALL (SPADCALL |cs| (QREFELT $ 22)) (QREFELT $ 23))
                   (SPADCALL (SPADCALL |cs| (QREFELT $ 24)) (QREFELT $ 12)
                             (QREFELT $ 25))
                   (QREFELT $ 26))) 
 
 (SDEFUN |CPMATCH;patternMatch;CSP2Pmr;3|
-        ((|cs| CS) (|pat| |Pattern| R) (|result| |PatternMatchResult| R CS)
-         ($ |PatternMatchResult| R CS))
+        ((|cs| (CS)) (|pat| (|Pattern| R))
+         (|result| (|PatternMatchResult| R CS))
+         ($ (|PatternMatchResult| R CS)))
         (COND
          ((SPADCALL (SPADCALL |cs| (QREFELT $ 24)) (QREFELT $ 28))
           (SPADCALL (SPADCALL |cs| (QREFELT $ 22)) |pat| |result|

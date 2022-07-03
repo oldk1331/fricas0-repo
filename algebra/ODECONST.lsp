@@ -1,7 +1,7 @@
 
 (SDEFUN |ODECONST;constDsolve;LFSR;1|
-        ((|op| L) (|g| F) (|x| |Symbol|)
-         ($ |Record| (|:| |particular| F) (|:| |basis| (|List| F))))
+        ((|op| (L)) (|g| (F)) (|x| (|Symbol|))
+         ($ (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))))
         (SPROG ((#1=#:G126 NIL) (|b| (|List| F)))
                (SEQ
                 (LETT |b|
@@ -26,7 +26,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |f1| |x| (QREFELT $ 12)))))) 
 
-(SDEFUN |ODECONST;homoBasis| ((|op| L) (|x| F) ($ |List| F))
+(SDEFUN |ODECONST;homoBasis| ((|op| (L)) (|x| (F)) ($ (|List| F)))
         (SPROG
          ((|b| (|List| F)) (#1=#:G137 NIL) (|ff| NIL)
           (|fp| (|Factored| (|SparseUnivariatePolynomial| F)))
@@ -63,8 +63,8 @@
               (EXIT |b|)))) 
 
 (SDEFUN |ODECONST;basisSol|
-        ((|p| |SparseUnivariatePolynomial| F) (|n| |Integer|) (|x| F)
-         ($ |List| F))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|n| (|Integer|)) (|x| (F))
+         ($ (|List| F)))
         (SPROG
          ((|xn| (F)) (|l| (|List| F)) (#1=#:G146 NIL) (|f| NIL) (#2=#:G145 NIL)
           (#3=#:G144 NIL) (|i| NIL) (|ll| (|List| F)))
@@ -112,7 +112,7 @@
                            (EXIT |l|)))))))) 
 
 (SDEFUN |ODECONST;basisSqfr|
-        ((|p| |SparseUnivariatePolynomial| F) (|x| F) ($ |List| F))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|x| (F)) ($ (|List| F)))
         (SPROG
          ((#1=#:G151 NIL) (|a| NIL) (#2=#:G150 NIL)
           (|d| (|NonNegativeInteger|)))
@@ -149,11 +149,11 @@
                        (EXIT (NREVERSE #2#)))))))))) 
 
 (SDEFUN |ODECONST;quadSol|
-        ((|p| |SparseUnivariatePolynomial| F) (|x| F) ($ |List| F))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|x| (F)) ($ (|List| F)))
         (SPROG
-         ((#1=#:G163 NIL) (|a| (F)) (#2=#:G162 NIL) (#3=#:G161 NIL) (|i| (F))
-          (|r| (F)) (|y| (F)) (|u| (|Union| (|Integer|) "failed"))
-          (|delta| (F)) (|c| (F)) (|b| (F)))
+         ((#1=#:G163 NIL) (#2=#:G162 NIL) (#3=#:G161 NIL) (|i| (F)) (|r| (F))
+          (|y| (F)) (|u| (|Union| (|Integer|) "failed")) (|delta| (F))
+          (|c| (F)) (|a| (F)) (|b| (F)))
          (SEQ
           (EXIT
            (SEQ
@@ -205,7 +205,7 @@
             (EXIT
              (PROGN
               (LETT #2# NIL)
-              (SEQ (LETT |a| NIL) (LETT #1# (SPADCALL |p| (QREFELT $ 66))) G190
+              (SEQ (LETT #1# (SPADCALL |p| (QREFELT $ 66))) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#)) NIL))
                      (GO G191)))

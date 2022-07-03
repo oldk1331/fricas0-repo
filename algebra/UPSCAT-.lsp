@@ -1,18 +1,18 @@
 
-(SDEFUN |UPSCAT-;degree;SExpon;1| ((|f| S) ($ |Expon|))
+(SDEFUN |UPSCAT-;degree;SExpon;1| ((|f| (S)) ($ (|Expon|)))
         (SPADCALL |f| (QREFELT $ 9))) 
 
-(SDEFUN |UPSCAT-;leadingCoefficient;SCoef;2| ((|f| S) ($ |Coef|))
+(SDEFUN |UPSCAT-;leadingCoefficient;SCoef;2| ((|f| (S)) ($ (|Coef|)))
         (SPADCALL |f| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 11))) 
 
-(SDEFUN |UPSCAT-;leadingMonomial;2S;3| ((|f| S) ($ S))
+(SDEFUN |UPSCAT-;leadingMonomial;2S;3| ((|f| (S)) ($ (S)))
         (SPROG ((|ord| (|Expon|)))
                (SEQ (LETT |ord| (SPADCALL |f| (QREFELT $ 9)))
                     (EXIT
                      (SPADCALL (SPADCALL |f| |ord| (QREFELT $ 11)) |ord|
                                (QREFELT $ 13)))))) 
 
-(SDEFUN |UPSCAT-;reductum;2S;4| ((|f| S) ($ S))
+(SDEFUN |UPSCAT-;reductum;2S;4| ((|f| (S)) ($ (S)))
         (SPADCALL |f| (SPADCALL |f| (QREFELT $ 15)) (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |UnivariatePowerSeriesCategory&;|)) 

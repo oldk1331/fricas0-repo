@@ -1,14 +1,14 @@
 
-(SDEFUN |EAB;=;2$B;1| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |EAB;=;2$B;1| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT $ 8))) 
 
-(SDEFUN |EAB;<;2$B;2| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |EAB;<;2$B;2| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND ((NULL |x|) (NULL (NULL |y|))) ((NULL |y|) NIL)
               ((EQL (|SPADfirst| |x|) (|SPADfirst| |y|))
                (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 10)))
               ('T (> (|SPADfirst| |x|) (|SPADfirst| |y|))))) 
 
-(SDEFUN |EAB;coerce;L$;3| ((|li| |List| (|Integer|)) ($ $))
+(SDEFUN |EAB;coerce;L$;3| ((|li| (|List| (|Integer|))) ($ ($)))
         (SPROG ((#1=#:G137 NIL) (|x| NIL))
                (SEQ
                 (SEQ (LETT |x| NIL) (LETT #1# |li|) G190
@@ -25,7 +25,7 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                 (EXIT |li|)))) 
 
-(SDEFUN |EAB;degree;$Nni;4| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |EAB;degree;$Nni;4| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G144 NIL) (#2=#:G142 NIL) (#3=#:G141 #4=(|Integer|))
           (#5=#:G143 #4#) (#6=#:G146 NIL) (#7=#:G119 NIL))
@@ -50,10 +50,10 @@
             (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|) '(|Integer|)
                               #1#))))) 
 
-(SDEFUN |EAB;exponents;$L;5| ((|x| $) ($ |List| (|Integer|)))
+(SDEFUN |EAB;exponents;$L;5| ((|x| ($)) ($ (|List| (|Integer|))))
         (SPADCALL |x| (QREFELT $ 17))) 
 
-(SDEFUN |EAB;Nul;Nni$;6| ((|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |EAB;Nul;Nni$;6| ((|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G151 NIL) (|i| NIL) (#2=#:G150 NIL))
                (SEQ
                 (PROGN
@@ -64,7 +64,7 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |EAB;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
+(SDEFUN |EAB;coerce;$Of;7| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL |x| (QREFELT $ 21))) 
 
 (DECLAIM (NOTINLINE |ExtAlgBasis;|)) 

@@ -1,25 +1,26 @@
 
 (SDEFUN |PATMATCH;ist|
-        ((|s| |Subject|) (|p| |Pat|) ($ |PatternMatchResult| |Base| |Subject|))
+        ((|s| (|Subject|)) (|p| (|Pat|))
+         ($ (|PatternMatchResult| |Base| |Subject|)))
         (SPADCALL |s| (SPADCALL |p| (QREFELT $ 10)) (SPADCALL (QREFELT $ 12))
                   (QREFELT $ 14))) 
 
 (SDEFUN |PATMATCH;is?;SubjectPatB;2|
-        ((|s| |Subject|) (|p| |Pat|) ($ |Boolean|))
+        ((|s| (|Subject|)) (|p| (|Pat|)) ($ (|Boolean|)))
         (NULL (SPADCALL (|PATMATCH;ist| |s| |p| $) (QREFELT $ 16)))) 
 
 (SDEFUN |PATMATCH;is?;LPatB;3|
-        ((|s| |List| |Subject|) (|p| |Pat|) ($ |Boolean|))
+        ((|s| (|List| |Subject|)) (|p| (|Pat|)) ($ (|Boolean|)))
         (NULL (SPADCALL (SPADCALL |s| |p| (QREFELT $ 20)) (QREFELT $ 21)))) 
 
 (SDEFUN |PATMATCH;Is;LPatPmlr;4|
-        ((|s| |List| |Subject|) (|p| |Pat|)
-         ($ |PatternMatchListResult| |Base| |Subject| (|List| |Subject|)))
+        ((|s| (|List| |Subject|)) (|p| (|Pat|))
+         ($ (|PatternMatchListResult| |Base| |Subject| (|List| |Subject|))))
         (SPADCALL |s| (SPADCALL |p| (QREFELT $ 10)) (SPADCALL (QREFELT $ 23))
                   (QREFELT $ 25))) 
 
 (SDEFUN |PATMATCH;Is;SubjectPatL;5|
-        ((|s| |Subject|) (|p| |Pat|) ($ |List| (|Equation| |Subject|)))
+        ((|s| (|Subject|)) (|p| (|Pat|)) ($ (|List| (|Equation| |Subject|))))
         (SPROG
          ((#1=#:G134 NIL) (|rec| NIL) (#2=#:G133 NIL)
           (|r| (|PatternMatchResult| |Base| |Subject|)))
@@ -46,8 +47,8 @@
                   (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |PATMATCH;Is;SubjectPatL;6|
-        ((|s| |Subject|) (|p| |Pat|)
-         ($ |List| (|Equation| (|Polynomial| |Subject|))))
+        ((|s| (|Subject|)) (|p| (|Pat|))
+         ($ (|List| (|Equation| (|Polynomial| |Subject|)))))
         (SPROG
          ((#1=#:G140 NIL) (|rec| NIL) (#2=#:G139 NIL)
           (|r| (|PatternMatchResult| |Base| |Subject|)))
@@ -75,7 +76,8 @@
                   (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |PATMATCH;Is;SubjectPatPmr;7|
-        ((|s| |Subject|) (|p| |Pat|) ($ |PatternMatchResult| |Base| |Subject|))
+        ((|s| (|Subject|)) (|p| (|Pat|))
+         ($ (|PatternMatchResult| |Base| |Subject|)))
         (|PATMATCH;ist| |s| |p| $)) 
 
 (DECLAIM (NOTINLINE |PatternMatch;|)) 

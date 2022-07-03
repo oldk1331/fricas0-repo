@@ -1,6 +1,6 @@
 
 (SDEFUN |POLYLIFT;map;MMPS;1|
-        ((|fv| |Mapping| S |Vars|) (|fc| |Mapping| S R) (|p| P) ($ S))
+        ((|fv| (|Mapping| S |Vars|)) (|fc| (|Mapping| S R)) (|p| (P)) ($ (S)))
         (SPROG
          ((|ans| (S)) (|pow0| (S)) (|i0| #1=(|NonNegativeInteger|)) (|pow| (S))
           (|i| #1#) (#2=#:G136 NIL) (|mon| NIL) (|lc0| (S))
@@ -75,7 +75,7 @@
                       (EXIT |ans|)))))))) 
 
 (SDEFUN |POLYLIFT;map;MMPS;2|
-        ((|fv| |Mapping| S |Vars|) (|fc| |Mapping| S R) (|p| P) ($ S))
+        ((|fv| (|Mapping| S |Vars|)) (|fc| (|Mapping| S R)) (|p| (P)) ($ (S)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| P)) (|ans| (S)) (|t| (S))
           (|x1| (|Union| |Vars| "failed")))

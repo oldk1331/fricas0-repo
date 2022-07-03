@@ -1,7 +1,7 @@
 
 (SDEFUN |PGROEB;lexGroebner;LLL;1|
-        ((|lp| |List| (|Polynomial| F)) (|lv| |List| (|Symbol|))
-         ($ |List| (|Polynomial| F)))
+        ((|lp| (|List| (|Polynomial| F))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|Polynomial| F))))
         (SPROG
          ((#1=#:G126 NIL) (|pp| NIL) (#2=#:G125 NIL) (|gb| (|List| |DPoly|))
           (|b| (|List| |DPoly|)) (#3=#:G124 NIL) (|pol| NIL) (#4=#:G123 NIL)
@@ -117,8 +117,8 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |PGROEB;totalGroebner;LLL;2|
-        ((|lp| |List| (|Polynomial| F)) (|lv| |List| (|Symbol|))
-         ($ |List| (|Polynomial| F)))
+        ((|lp| (|List| (|Polynomial| F))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|Polynomial| F))))
         (SPROG
          ((#1=#:G134 NIL) (|pp| NIL) (#2=#:G133 NIL) (|gb| (|List| |HDPoly|))
           (|b| (|List| |HDPoly|)) (#3=#:G132 NIL) (|pol| NIL) (#4=#:G131 NIL)

@@ -1,8 +1,8 @@
 
 (SDEFUN |DRAWCX;makeArrow|
-        ((|p1| |Point| (|DoubleFloat|)) (|p2| |Point| (|DoubleFloat|))
-         (|len| |DoubleFloat|) (|arg| |DoubleFloat|)
-         ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|p1| (|Point| (|DoubleFloat|))) (|p2| (|Point| (|DoubleFloat|)))
+         (|len| (|DoubleFloat|)) (|arg| (|DoubleFloat|))
+         ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|p4| #1=(|Point| (|DoubleFloat|))) (|p3| #1#)
           (|s2| #2=(|DoubleFloat|)) (|c2| #3=(|DoubleFloat|)) (|s1| #2#)
@@ -33,15 +33,16 @@
                      (QREFELT $ 16)))
               (EXIT (LIST (LIST |p1| |p2| |p3|) (LIST |p2| |p4|)))))) 
 
-(SDEFUN |DRAWCX;clipFun| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |DRAWCX;clipFun| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (|min_DF| (|max_DF| |x| (|minus_DF| (QREFELT $ 10))) (QREFELT $ 10))) 
 
 (SDEFUN |DRAWCX;drawComplex;M2SBTdv;3|
-        ((|f| |Mapping| #1=(|Complex| (|DoubleFloat|))
-          (|Complex| (|DoubleFloat|)))
-         (|realRange| |Segment| (|DoubleFloat|))
-         (|imagRange| |Segment| (|DoubleFloat|)) (|arrows?| |Boolean|)
-         ($ |ThreeDimensionalViewport|))
+        ((|f|
+          (|Mapping| #1=(|Complex| (|DoubleFloat|))
+                     (|Complex| (|DoubleFloat|))))
+         (|realRange| (|Segment| (|DoubleFloat|)))
+         (|imagRange| (|Segment| (|DoubleFloat|))) (|arrows?| (|Boolean|))
+         ($ (|ThreeDimensionalViewport|)))
         (SPROG
          ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G151 NIL) (|a| NIL)
           (|arrow| (|List| (|List| (|Point| (|DoubleFloat|)))))
@@ -186,11 +187,12 @@
           (EXIT (SPADCALL |space| "Complex Function" (QREFELT $ 36)))))) 
 
 (SDEFUN |DRAWCX;drawComplexVectorField;M2STdv;4|
-        ((|f| |Mapping| #1=(|Complex| (|DoubleFloat|))
-          (|Complex| (|DoubleFloat|)))
-         (|realRange| |Segment| (|DoubleFloat|))
-         (|imagRange| |Segment| (|DoubleFloat|))
-         ($ |ThreeDimensionalViewport|))
+        ((|f|
+          (|Mapping| #1=(|Complex| (|DoubleFloat|))
+                     (|Complex| (|DoubleFloat|))))
+         (|realRange| (|Segment| (|DoubleFloat|)))
+         (|imagRange| (|Segment| (|DoubleFloat|)))
+         ($ (|ThreeDimensionalViewport|)))
         (SPROG
          ((|real| #2=(|DoubleFloat|)) (|imag| #2#) (#3=#:G161 NIL) (|a| NIL)
           (|arrow| (|List| (|List| (|Point| (|DoubleFloat|)))))
@@ -259,14 +261,14 @@
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |space| "Complex Vector Field" (QREFELT $ 36)))))) 
 
-(SDEFUN |DRAWCX;setRealSteps;2I;5| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |DRAWCX;setRealSteps;2I;5| ((|n| (|Integer|)) ($ (|Integer|)))
         (SETELT $ 8 |n|)) 
 
-(SDEFUN |DRAWCX;setImagSteps;2I;6| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |DRAWCX;setImagSteps;2I;6| ((|n| (|Integer|)) ($ (|Integer|)))
         (SETELT $ 9 |n|)) 
 
-(SDEFUN |DRAWCX;setClipValue;2Df;7| ((|clip| |DoubleFloat|) ($ |DoubleFloat|))
-        (SETELT $ 10 |clip|)) 
+(SDEFUN |DRAWCX;setClipValue;2Df;7|
+        ((|clip| (|DoubleFloat|)) ($ (|DoubleFloat|))) (SETELT $ 10 |clip|)) 
 
 (DECLAIM (NOTINLINE |DrawComplex;|)) 
 

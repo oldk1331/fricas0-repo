@@ -1,16 +1,16 @@
 
-(SDEFUN |ANY1;retractable?;AB;1| ((|a| |Any|) ($ |Boolean|))
+(SDEFUN |ANY1;retractable?;AB;1| ((|a| (|Any|)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |a| (QREFELT $ 10)) (QREFELT $ 7) (QREFELT $ 12))) 
 
-(SDEFUN |ANY1;coerce;SA;2| ((|s| S) ($ |Any|))
+(SDEFUN |ANY1;coerce;SA;2| ((|s| (S)) ($ (|Any|)))
         (SPADCALL (QREFELT $ 7) (SPADCALL |s| (QREFELT $ 16)) (QREFELT $ 17))) 
 
-(SDEFUN |ANY1;retractIfCan;AU;3| ((|a| |Any|) ($ |Union| S "failed"))
+(SDEFUN |ANY1;retractIfCan;AU;3| ((|a| (|Any|)) ($ (|Union| S "failed")))
         (COND
          ((SPADCALL |a| (QREFELT $ 13)) (CONS 0 (SPADCALL |a| (QREFELT $ 19))))
          ('T (CONS 1 "failed")))) 
 
-(SDEFUN |ANY1;retract;AS;4| ((|a| |Any|) ($ S))
+(SDEFUN |ANY1;retract;AS;4| ((|a| (|Any|)) ($ (S)))
         (COND ((SPADCALL |a| (QREFELT $ 13)) (SPADCALL |a| (QREFELT $ 19)))
               ('T (|error| "Cannot retract value.")))) 
 

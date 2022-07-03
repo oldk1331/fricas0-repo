@@ -1,5 +1,5 @@
 
-(SDEFUN |HB;lfunc;3I;1| ((|d| |Integer|) (|n| |Integer|) ($ |Integer|))
+(SDEFUN |HB;lfunc;3I;1| ((|d| (|Integer|)) (|n| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((|res| (|Integer|)) (#1=#:G146 NIL) (|sum| (|Integer|))
           (#2=#:G149 NIL) (|m| NIL))
@@ -32,13 +32,13 @@
                               |n|))))))))) 
 
 (SDEFUN |HB;inHallBasis?;4IB;2|
-        ((|n| |Integer|) (|i| |Integer|) (|j| |Integer|) (|l| |Integer|)
-         ($ |Boolean|))
+        ((|n| (|Integer|)) (|i| (|Integer|)) (|j| (|Integer|))
+         (|l| (|Integer|)) ($ (|Boolean|)))
         (COND ((>= |i| |j|) NIL) ((OR (<= |j| |n|) (<= |l| |i|)) 'T) ('T NIL))) 
 
 (SDEFUN |HB;basis;2NniV;3|
-        ((|n| |NonNegativeInteger|) (|c| |NonNegativeInteger|)
-         ($ |Vector| (|List| (|Integer|))))
+        ((|n| (|NonNegativeInteger|)) (|c| (|NonNegativeInteger|))
+         ($ (|Vector| (|List| (|Integer|)))))
         (SPROG
          ((|numComms| #1=(|Integer|)) (|cW| (|Integer|))
           (|leftIndex| (|NonNegativeInteger|)) (|newNumComms| #1#)

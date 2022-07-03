@@ -2,13 +2,13 @@
 (PUT '|FOP;topFortranOutputStack;S;1| '|SPADreplace|
      '(XLAM NIL (STRINGIMAGE |$fortranOutputFile|))) 
 
-(SDEFUN |FOP;topFortranOutputStack;S;1| (($ |String|))
+(SDEFUN |FOP;topFortranOutputStack;S;1| (($ (|String|)))
         (STRINGIMAGE |$fortranOutputFile|)) 
 
-(SDEFUN |FOP;pushFortranOutputStack;FnV;2| ((|fn| |FileName|) ($ |Void|))
+(SDEFUN |FOP;pushFortranOutputStack;FnV;2| ((|fn| (|FileName|)) ($ (|Void|)))
         (SPADCALL (SPADCALL |fn| (QREFELT $ 12)) (QREFELT $ 14))) 
 
-(SDEFUN |FOP;pushFortranOutputStack;SV;3| ((|fn| |String|) ($ |Void|))
+(SDEFUN |FOP;pushFortranOutputStack;SV;3| ((|fn| (|String|)) ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (QREFELT $ 8) (QREFELT $ 17))
@@ -27,7 +27,7 @@
           (QREFELT $ 24))
          (EXIT (SPADCALL (QREFELT $ 25))))) 
 
-(SDEFUN |FOP;popFortranOutputStack;V;4| (($ |Void|))
+(SDEFUN |FOP;popFortranOutputStack;V;4| (($ (|Void|)))
         (SEQ
          (COND
           ((NULL (SPADCALL (QREFELT $ 8) (QREFELT $ 17)))
@@ -43,10 +43,11 @@
           (QREFELT $ 24))
          (EXIT (SPADCALL (QREFELT $ 25))))) 
 
-(SDEFUN |FOP;clearFortranOutputStack;S;5| (($ |Stack| (|String|)))
+(SDEFUN |FOP;clearFortranOutputStack;S;5| (($ (|Stack| (|String|))))
         (SETELT $ 8 (SPADCALL (QREFELT $ 7)))) 
 
-(SDEFUN |FOP;showFortranOutputStack;S;6| (($ |Stack| (|String|))) (QREFELT $ 8)) 
+(SDEFUN |FOP;showFortranOutputStack;S;6| (($ (|Stack| (|String|))))
+        (QREFELT $ 8)) 
 
 (DECLAIM (NOTINLINE |FortranOutputStackPackage;|)) 
 

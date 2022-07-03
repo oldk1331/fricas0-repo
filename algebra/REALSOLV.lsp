@@ -1,7 +1,7 @@
 
 (SDEFUN |REALSOLV;prn2rfi|
-        ((|p| |Polynomial| (|Fraction| (|Integer|)))
-         ($ |Fraction| (|Polynomial| (|Integer|))))
+        ((|p| (|Polynomial| (|Fraction| (|Integer|))))
+         ($ (|Fraction| (|Polynomial| (|Integer|)))))
         (SPADCALL (ELT $ 8) (CONS #'|REALSOLV;prn2rfi!0| $) |p| (QREFELT $ 19))) 
 
 (SDEFUN |REALSOLV;prn2rfi!0| ((|x| NIL) ($ NIL))
@@ -10,22 +10,23 @@
                   (QREFELT $ 14))) 
 
 (SDEFUN |REALSOLV;pi2rfi|
-        ((|p| |Polynomial| (|Integer|))
-         ($ |Fraction| (|Polynomial| (|Integer|))))
+        ((|p| (|Polynomial| (|Integer|)))
+         ($ (|Fraction| (|Polynomial| (|Integer|)))))
         (SPADCALL |p| (QREFELT $ 21))) 
 
 (SDEFUN |REALSOLV;solve;PFL;3|
-        ((|p| |Polynomial| (|Fraction| (|Integer|))) (|eps| |Float|)
-         ($ |List| (|Float|)))
+        ((|p| (|Polynomial| (|Fraction| (|Integer|)))) (|eps| (|Float|))
+         ($ (|List| (|Float|))))
         (SPADCALL (|REALSOLV;prn2rfi| |p| $) |eps| (QREFELT $ 25))) 
 
 (SDEFUN |REALSOLV;solve;PFL;4|
-        ((|p| |Polynomial| (|Integer|)) (|eps| |Float|) ($ |List| (|Float|)))
+        ((|p| (|Polynomial| (|Integer|))) (|eps| (|Float|))
+         ($ (|List| (|Float|))))
         (SPADCALL (SPADCALL |p| (QREFELT $ 21)) |eps| (QREFELT $ 25))) 
 
 (SDEFUN |REALSOLV;realSolve;LLFL;5|
-        ((|lp| |List| (|Polynomial| (|Integer|))) (|lv| |List| (|Symbol|))
-         (|eps| |Float|) ($ |List| (|List| (|Float|))))
+        ((|lp| (|List| (|Polynomial| (|Integer|)))) (|lv| (|List| (|Symbol|)))
+         (|eps| (|Float|)) ($ (|List| (|List| (|Float|)))))
         (SPADCALL
          (SPADCALL (CONS (|function| |REALSOLV;pi2rfi|) $) |lp| (QREFELT $ 32))
          |lv| |eps| (QREFELT $ 35))) 

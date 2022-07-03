@@ -1,5 +1,5 @@
 
-(SDEFUN |BTOURN;binaryTournament;L$;1| ((|u| |List| S) ($ $))
+(SDEFUN |BTOURN;binaryTournament;L$;1| ((|u| (|List| S)) ($ ($)))
         (SPROG ((#1=#:G126 NIL) (|x| NIL) (|tree| ($)))
                (SEQ
                 (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
@@ -15,7 +15,7 @@
                              (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                         (EXIT |tree|))))))) 
 
-(SDEFUN |BTOURN;insert!;S2$;2| ((|x| S) (|t| $) ($ $))
+(SDEFUN |BTOURN;insert!;S2$;2| ((|x| (S)) (|t| ($)) ($ ($)))
         (SEQ
          (COND ((SPADCALL |t| (QREFELT $ 14)) (SPADCALL |x| (QREFELT $ 9)))
                ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 16))

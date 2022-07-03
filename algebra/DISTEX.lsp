@@ -1,5 +1,5 @@
 
-(SDEFUN |DISTEX;gaussianDistribution;RD;1| ((|a| R) ($ |Distribution| R))
+(SDEFUN |DISTEX;gaussianDistribution;RD;1| ((|a| (R)) ($ (|Distribution| R)))
         (SPROG ((|cumu| (|Stream| R)))
                (SEQ
                 (LETT |cumu|
@@ -11,14 +11,14 @@
                 (EXIT
                  (SPADCALL (SPADCALL |cumu| (QREFELT $ 16)) (QREFELT $ 17)))))) 
 
-(SDEFUN |DISTEX;poissonDistribution;RD;2| ((|a| R) ($ |Distribution| R))
+(SDEFUN |DISTEX;poissonDistribution;RD;2| ((|a| (R)) ($ (|Distribution| R)))
         (SPROG ((|cumu| (|Stream| R)))
                (SEQ (LETT |cumu| (SPADCALL (LIST |a|) (QREFELT $ 13)))
                     (EXIT
                      (SPADCALL (SPADCALL |cumu| (QREFELT $ 16))
                                (QREFELT $ 17)))))) 
 
-(SDEFUN |DISTEX;wignerDistribution;RD;3| ((|a| R) ($ |Distribution| R))
+(SDEFUN |DISTEX;wignerDistribution;RD;3| ((|a| (R)) ($ (|Distribution| R)))
         (SPROG ((|cumu| (|Stream| R)))
                (SEQ
                 (LETT |cumu|
@@ -30,21 +30,23 @@
                 (EXIT
                  (SPADCALL (SPADCALL |cumu| (QREFELT $ 16)) (QREFELT $ 20)))))) 
 
-(SDEFUN |DISTEX;freePoissonDistribution;RD;4| ((|a| R) ($ |Distribution| R))
+(SDEFUN |DISTEX;freePoissonDistribution;RD;4|
+        ((|a| (R)) ($ (|Distribution| R)))
         (SPROG ((|cumu| (|Stream| R)))
                (SEQ (LETT |cumu| (SPADCALL (LIST |a|) (QREFELT $ 13)))
                     (EXIT
                      (SPADCALL (SPADCALL |cumu| (QREFELT $ 16))
                                (QREFELT $ 20)))))) 
 
-(SDEFUN |DISTEX;bernoulliDistribution01;RD;5| ((|a| R) ($ |Distribution| R))
+(SDEFUN |DISTEX;bernoulliDistribution01;RD;5|
+        ((|a| (R)) ($ (|Distribution| R)))
         (SPROG ((|mom| (|Stream| R)))
                (SEQ (LETT |mom| (SPADCALL (LIST |a|) (QREFELT $ 13)))
                     (EXIT
                      (SPADCALL (SPADCALL |mom| (QREFELT $ 16))
                                (QREFELT $ 23)))))) 
 
-(SDEFUN |DISTEX;arcsineDistribution;RD;6| ((|a| R) ($ |Distribution| R))
+(SDEFUN |DISTEX;arcsineDistribution;RD;6| ((|a| (R)) ($ (|Distribution| R)))
         (SPROG
          ((|mgf| (|Stream| R)) (#1=#:G130 NIL)
           (|half| (|Fraction| (|Integer|))))

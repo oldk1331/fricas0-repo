@@ -1,5 +1,5 @@
 
-(SDEFUN |TEMUTL;stripC| ((|s| |String|) (|u| |String|) ($ |String|))
+(SDEFUN |TEMUTL;stripC| ((|s| (|String|)) (|u| (|String|)) ($ (|String|)))
         (SPROG ((|i| (|Integer|)))
                (SEQ (LETT |i| (SPADCALL |u| |s| 1 (QREFELT $ 10)))
                     (EXIT
@@ -8,11 +8,11 @@
                             (SPADCALL |s| (SPADCALL |i| (QREFELT $ 13))
                                       (QREFELT $ 14)))))))) 
 
-(SDEFUN |TEMUTL;stripCommentsAndBlanks;2S;2| ((|s| |String|) ($ |String|))
+(SDEFUN |TEMUTL;stripCommentsAndBlanks;2S;2| ((|s| (|String|)) ($ (|String|)))
         (SPADCALL (|TEMUTL;stripC| (|TEMUTL;stripC| |s| "++" $) "--" $)
                   (|STR_to_CHAR| " ") (QREFELT $ 16))) 
 
-(SDEFUN |TEMUTL;interpretString;SA;3| ((|s| |String|) ($ |Any|))
+(SDEFUN |TEMUTL;interpretString;SA;3| ((|s| (|String|)) ($ (|Any|)))
         (SPADCALL (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |TemplateUtilities;|)) 

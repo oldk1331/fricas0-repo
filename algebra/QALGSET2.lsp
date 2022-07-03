@@ -1,8 +1,9 @@
 
 (SDEFUN |QALGSET2;f|
-        ((|v| |OrderedVariableList| |vl|)
-         ($ |DistributedMultivariatePolynomial| |newvl|
-          (|Fraction| (|Integer|))))
+        ((|v| (|OrderedVariableList| |vl|))
+         ($
+          (|DistributedMultivariatePolynomial| |newvl|
+                                               (|Fraction| (|Integer|)))))
         (SPROG ((#1=#:G124 NIL))
                (SPADCALL
                 (PROG2
@@ -19,8 +20,9 @@
                 (QREFELT $ 18)))) 
 
 (SDEFUN |QALGSET2;g|
-        ((|v| |OrderedVariableList| |newvl|)
-         ($ |DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
+        ((|v| (|OrderedVariableList| |newvl|))
+         ($
+          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))))
         (SPROG ((#1=#:G128 NIL))
                (COND
                 ((SPADCALL |v| (QREFELT $ 14) (QREFELT $ 20))
@@ -41,20 +43,23 @@
                   (QREFELT $ 25)))))) 
 
 (SDEFUN |QALGSET2;npoly|
-        ((|p| |DistributedMultivariatePolynomial| |vl|
-          (|Fraction| (|Integer|)))
-         ($ |DistributedMultivariatePolynomial| |newvl|
-          (|Fraction| (|Integer|))))
+        ((|p|
+          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
+         ($
+          (|DistributedMultivariatePolynomial| |newvl|
+                                               (|Fraction| (|Integer|)))))
         (SPADCALL (CONS #'|QALGSET2;npoly!0| $) (ELT $ 27) |p| (QREFELT $ 31))) 
 
 (SDEFUN |QALGSET2;npoly!0| ((|z1| NIL) ($ NIL)) (|QALGSET2;f| |z1| $)) 
 
 (SDEFUN |QALGSET2;oldpoly|
-        ((|q| |DistributedMultivariatePolynomial| |newvl|
-          (|Fraction| (|Integer|)))
-         ($ |Union|
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))
-          "failed"))
+        ((|q|
+          (|DistributedMultivariatePolynomial| |newvl|
+                                               (|Fraction| (|Integer|))))
+         ($
+          (|Union|
+           (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))
+           "failed")))
         (SPROG ((|x| (|Union| (|OrderedVariableList| |newvl|) "failed")))
                (SEQ (LETT |x| (SPADCALL |q| (QREFELT $ 33)))
                     (EXIT
@@ -73,14 +78,22 @@
 (SDEFUN |QALGSET2;oldpoly!0| ((|z1| NIL) ($ NIL)) (|QALGSET2;g| |z1| $)) 
 
 (SDEFUN |QALGSET2;radicalSimplify;2Qas;5|
-        ((|x| |QuasiAlgebraicSet| (|Fraction| (|Integer|))
-          (|OrderedVariableList| |vl|)
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
-         ($ |QuasiAlgebraicSet| (|Fraction| (|Integer|))
-          (|OrderedVariableList| |vl|)
-          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
-          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))))
+        ((|x|
+          (|QuasiAlgebraicSet| (|Fraction| (|Integer|))
+                               (|OrderedVariableList| |vl|)
+                               (|DirectProduct| (|#| |vl|)
+                                                (|NonNegativeInteger|))
+                               (|DistributedMultivariatePolynomial| |vl|
+                                                                    (|Fraction|
+                                                                     (|Integer|)))))
+         ($
+          (|QuasiAlgebraicSet| (|Fraction| (|Integer|))
+                               (|OrderedVariableList| |vl|)
+                               (|DirectProduct| (|#| |vl|)
+                                                (|NonNegativeInteger|))
+                               (|DistributedMultivariatePolynomial| |vl|
+                                                                    (|Fraction|
+                                                                     (|Integer|))))))
         (SPROG
          ((|y|
            (|QuasiAlgebraicSet| (|Fraction| (|Integer|))

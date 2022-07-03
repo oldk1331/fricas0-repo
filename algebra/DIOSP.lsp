@@ -1,10 +1,12 @@
 
 (SDEFUN |DIOSP;dioSolve;ER;1|
-        ((|eq| |Equation| (|Polynomial| (|Integer|)))
-         ($ |Record| (|:| |varOrder| (|List| (|Symbol|)))
-          (|:| |inhom|
-               (|Union| (|List| (|Vector| (|NonNegativeInteger|))) "failed"))
-          (|:| |hom| (|List| (|Vector| (|NonNegativeInteger|))))))
+        ((|eq| (|Equation| (|Polynomial| (|Integer|))))
+         ($
+          (|Record| (|:| |varOrder| (|List| (|Symbol|)))
+                    (|:| |inhom|
+                         (|Union| (|List| (|Vector| (|NonNegativeInteger|)))
+                                  "failed"))
+                    (|:| |hom| (|List| (|Vector| (|NonNegativeInteger|)))))))
         (SPROG
          ((|vars| (|List| (|Symbol|))) (#1=#:G150 NIL) (|x| NIL)
           (#2=#:G149 NIL) (|ihs| #3=(|List| (|Vector| (|NonNegativeInteger|))))
@@ -68,13 +70,14 @@
                    |hs|))))) 
 
 (SDEFUN |DIOSP;initializeGraph|
-        ((|mon| |List| (|Polynomial| (|Integer|))) (|c| |Integer|)
-         ($ |Record|
-          (|:| |vn|
-               (|Vector|
-                (|Record| (|:| |vert| (|Vector| (|Integer|)))
-                          (|:| |is_free| (|Boolean|)))))
-          (|:| |dim| (|NonNegativeInteger|)) (|:| |zeroNode| (|Integer|))))
+        ((|mon| (|List| (|Polynomial| (|Integer|)))) (|c| (|Integer|))
+         ($
+          (|Record|
+           (|:| |vn|
+                (|Vector|
+                 (|Record| (|:| |vert| (|Vector| (|Integer|)))
+                           (|:| |is_free| (|Boolean|)))))
+           (|:| |dim| (|NonNegativeInteger|)) (|:| |zeroNode| (|Integer|)))))
         (SPROG
          ((#1=#:G163 NIL) (#2=#:G165 NIL) (|i| NIL) (#3=#:G164 NIL)
           (|n| (|Integer|)) (|m| (|Integer|)) (|k| (|NonNegativeInteger|))
@@ -118,10 +121,11 @@
             |k| (- 1 |m|)))))) 
 
 (SDEFUN |DIOSP;createNode|
-        ((|ind| |Integer|) (|coeffs| |Vector| (|Integer|))
-         (|k| |NonNegativeInteger|) (|zeroNode| |Integer|)
-         ($ |Record| (|:| |vert| (|Vector| (|Integer|)))
-          (|:| |is_free| (|Boolean|))))
+        ((|ind| (|Integer|)) (|coeffs| (|Vector| (|Integer|)))
+         (|k| (|NonNegativeInteger|)) (|zeroNode| (|Integer|))
+         ($
+          (|Record| (|:| |vert| (|Vector| (|Integer|)))
+                    (|:| |is_free| (|Boolean|)))))
         (SPROG
          ((#1=#:G173 NIL) (#2=#:G172 NIL) (#3=#:G174 NIL) (|i| NIL)
           (|v| (|Vector| (|Integer|))))
@@ -163,15 +167,16 @@
               (EXIT (CONS |v| 'T))))) 
 
 (SDEFUN |DIOSP;findSolutions|
-        ((|sol| |Vector| (|NonNegativeInteger|)) (|ind| |Integer|)
-         (|m| |Integer|) (|n| . #1=(|Integer|))
-         (|graph| |Record|
-          (|:| |vn|
-               (|Vector|
-                (|Record| (|:| |vert| #2=(|Vector| (|Integer|)))
-                          (|:| |is_free| (|Boolean|)))))
-          (|:| |dim| (|NonNegativeInteger|)) (|:| |zeroNode| (|Integer|)))
-         (|flag| |Boolean|) ($ |List| (|Vector| (|NonNegativeInteger|))))
+        ((|sol| (|Vector| (|NonNegativeInteger|))) (|ind| (|Integer|))
+         (|m| (|Integer|)) (|n| #1=(|Integer|))
+         (|graph|
+          (|Record|
+           (|:| |vn|
+                (|Vector|
+                 (|Record| (|:| |vert| #2=(|Vector| (|Integer|)))
+                           (|:| |is_free| (|Boolean|)))))
+           (|:| |dim| (|NonNegativeInteger|)) (|:| |zeroNode| (|Integer|))))
+         (|flag| (|Boolean|)) ($ (|List| (|Vector| (|NonNegativeInteger|)))))
         (SPROG
          ((|sols| (|List| (|Vector| (|NonNegativeInteger|))))
           (|s| (|List| (|Vector| (|NonNegativeInteger|))))
@@ -243,14 +248,15 @@
                 (#4# |sols|)))))) 
 
 (SDEFUN |DIOSP;verifyMinimality|
-        ((|sol| |Vector| (|NonNegativeInteger|))
-         (|graph| |Record|
-          (|:| |vn|
-               (|Vector|
-                (|Record| (|:| |vert| (|Vector| (|Integer|)))
-                          (|:| |is_free| (|Boolean|)))))
-          (|:| |dim| (|NonNegativeInteger|)) (|:| |zeroNode| (|Integer|)))
-         (|flag| |Boolean|) ($ |Boolean|))
+        ((|sol| (|Vector| (|NonNegativeInteger|)))
+         (|graph|
+          (|Record|
+           (|:| |vn|
+                (|Vector|
+                 (|Record| (|:| |vert| (|Vector| (|Integer|)))
+                           (|:| |is_free| (|Boolean|)))))
+           (|:| |dim| (|NonNegativeInteger|)) (|:| |zeroNode| (|Integer|))))
+         (|flag| (|Boolean|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G192 NIL) (|x| (|NonNegativeInteger|))
           (|i| (|NonNegativeInteger|)))
@@ -279,15 +285,16 @@
             (|DIOSP;verifySolution| |sol| (QVELT |graph| 2) 1 1 |graph| $)))))) 
 
 (SDEFUN |DIOSP;verifySolution|
-        ((|sol| |Vector| (|NonNegativeInteger|)) (|ind| |Integer|)
-         (|m| |Integer|) (|n| . #1=(|Integer|))
-         (|graph| |Record|
-          (|:| |vn|
-               (|Vector|
-                (|Record| (|:| |vert| #2=(|Vector| (|Integer|)))
-                          (|:| |is_free| (|Boolean|)))))
-          (|:| |dim| (|NonNegativeInteger|)) (|:| |zeroNode| (|Integer|)))
-         ($ |Boolean|))
+        ((|sol| (|Vector| (|NonNegativeInteger|))) (|ind| (|Integer|))
+         (|m| (|Integer|)) (|n| #1=(|Integer|))
+         (|graph|
+          (|Record|
+           (|:| |vn|
+                (|Vector|
+                 (|Record| (|:| |vert| #2=(|Vector| (|Integer|)))
+                           (|:| |is_free| (|Boolean|)))))
+           (|:| |dim| (|NonNegativeInteger|)) (|:| |zeroNode| (|Integer|))))
+         ($ (|Boolean|)))
         (SPROG
          ((#3=#:G208 NIL) (|flag| (|Boolean|)) (#4=#:G198 NIL)
           (|x| (|NonNegativeInteger|)) (#5=#:G209 NIL) (|i| NIL) (|k| #1#)

@@ -1,6 +1,6 @@
 
 (SDEFUN |UTS2;map;MUTS1UTS2;1|
-        ((|f| |Mapping| |Coef2| |Coef1|) (|uts| UTS1) ($ UTS2))
+        ((|f| (|Mapping| |Coef2| |Coef1|)) (|uts| (UTS1)) ($ (UTS2)))
         (SPADCALL (SPADCALL |f| (SPADCALL |uts| (QREFELT $ 11)) (QREFELT $ 15))
                   (QREFELT $ 16))) 
 

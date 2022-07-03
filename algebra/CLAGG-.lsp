@@ -1,23 +1,26 @@
 
 (SDEFUN |CLAGG-;find;MAU;1|
-        ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |Union| S "failed"))
+        ((|f| (|Mapping| (|Boolean|) S)) (|c| (A)) ($ (|Union| S "failed")))
         (SPADCALL |f| (SPADCALL |c| (QREFELT $ 9)) (QREFELT $ 12))) 
 
-(SDEFUN |CLAGG-;reduce;MAS;2| ((|f| |Mapping| S S S) (|x| A) ($ S))
+(SDEFUN |CLAGG-;reduce;MAS;2| ((|f| (|Mapping| S S S)) (|x| (A)) ($ (S)))
         (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 15))) 
 
-(SDEFUN |CLAGG-;reduce;MA2S;3| ((|f| |Mapping| S S S) (|x| A) (|s| S) ($ S))
+(SDEFUN |CLAGG-;reduce;MA2S;3|
+        ((|f| (|Mapping| S S S)) (|x| (A)) (|s| (S)) ($ (S)))
         (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) |s| (QREFELT $ 17))) 
 
-(SDEFUN |CLAGG-;remove;M2A;4| ((|f| |Mapping| (|Boolean|) S) (|x| A) ($ A))
+(SDEFUN |CLAGG-;remove;M2A;4|
+        ((|f| (|Mapping| (|Boolean|) S)) (|x| (A)) ($ (A)))
         (SPADCALL (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 19))
                   (QREFELT $ 20))) 
 
-(SDEFUN |CLAGG-;select;M2A;5| ((|f| |Mapping| (|Boolean|) S) (|x| A) ($ A))
+(SDEFUN |CLAGG-;select;M2A;5|
+        ((|f| (|Mapping| (|Boolean|) S)) (|x| (A)) ($ (A)))
         (SPADCALL (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 22))
                   (QREFELT $ 20))) 
 
-(SDEFUN |CLAGG-;remove;S2A;6| ((|s| S) (|x| A) ($ A))
+(SDEFUN |CLAGG-;remove;S2A;6| ((|s| (S)) (|x| (A)) ($ (A)))
         (SPROG NIL
                (SPADCALL (CONS #'|CLAGG-;remove;S2A;6!0| (VECTOR $ |s|)) |x|
                          (QREFELT $ 26)))) 
@@ -29,14 +32,14 @@
           (RETURN (PROGN (SPADCALL |y| |s| (QREFELT $ 25)))))) 
 
 (SDEFUN |CLAGG-;reduce;MA3S;7|
-        ((|f| |Mapping| S S S) (|x| A) (|s1| S) (|s2| S) ($ S))
+        ((|f| (|Mapping| S S S)) (|x| (A)) (|s1| (S)) (|s2| (S)) ($ (S)))
         (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) |s1| |s2| (QREFELT $ 28))) 
 
-(SDEFUN |CLAGG-;removeDuplicates;2A;8| ((|x| A) ($ A))
+(SDEFUN |CLAGG-;removeDuplicates;2A;8| ((|x| (A)) ($ (A)))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 30))
                   (QREFELT $ 20))) 
 
-(SDEFUN |CLAGG-;convert;AIf;9| ((|x| A) ($ |InputForm|))
+(SDEFUN |CLAGG-;convert;AIf;9| ((|x| (A)) ($ (|InputForm|)))
         (SPROG
          ((|a_form| (|InputForm|)) (|l_form| (|List| (|InputForm|)))
           (|p_form| (|List| (|InputForm|))) (#1=#:G158 NIL) (|el| NIL)

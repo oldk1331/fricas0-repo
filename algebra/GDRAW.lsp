@@ -1,7 +1,8 @@
 
 (SDEFUN |GDRAW;gnuDraw;ESbSLV;1|
-        ((|f| |Expression| (|Float|)) (|segbind| |SegmentBinding| (|Float|))
-         (|filename| |String|) (|opts| |List| (|DrawOption|)) ($ |Void|))
+        ((|f| (|Expression| (|Float|)))
+         (|segbind| (|SegmentBinding| (|Float|))) (|filename| (|String|))
+         (|opts| (|List| (|DrawOption|))) ($ (|Void|)))
         (SPROG
          ((#1=#:G125 NIL) (|p| NIL) (#2=#:G124 NIL) (|p1| NIL)
           (|p2| (|List| (|List| (|Point| (|DoubleFloat|)))))
@@ -50,8 +51,8 @@
           (EXIT (SPADCALL |f1| (QREFELT $ 34)))))) 
 
 (SDEFUN |GDRAW;gnuDraw;2LSLV;2|
-        ((|l1| |List| (|DoubleFloat|)) (|l2| |List| (|DoubleFloat|))
-         (|filename| |String|) (|opts| |List| (|DrawOption|)) ($ |Void|))
+        ((|l1| (|List| (|DoubleFloat|))) (|l2| (|List| (|DoubleFloat|)))
+         (|filename| (|String|)) (|opts| (|List| (|DrawOption|))) ($ (|Void|)))
         (SPROG
          ((#1=#:G136 NIL) (|p| NIL) (#2=#:G135 NIL) (|p1| NIL)
           (|p2| (|List| (|List| (|Point| (|DoubleFloat|)))))
@@ -117,21 +118,23 @@
           (EXIT (SPADCALL |f1| (QREFELT $ 34)))))) 
 
 (SDEFUN |GDRAW;gnuDraw;ESbSV;3|
-        ((|f| |Expression| (|Float|)) (|segbind| |SegmentBinding| (|Float|))
-         (|filename| |String|) ($ |Void|))
+        ((|f| (|Expression| (|Float|)))
+         (|segbind| (|SegmentBinding| (|Float|))) (|filename| (|String|))
+         ($ (|Void|)))
         (SPADCALL |f| |segbind| |filename| (LIST (SPADCALL "" (QREFELT $ 43)))
                   (QREFELT $ 36))) 
 
 (SDEFUN |GDRAW;gnuDraw;2LSV;4|
-        ((|l1| |List| (|DoubleFloat|)) (|l2| |List| (|DoubleFloat|))
-         (|filename| |String|) ($ |Void|))
+        ((|l1| (|List| (|DoubleFloat|))) (|l2| (|List| (|DoubleFloat|)))
+         (|filename| (|String|)) ($ (|Void|)))
         (SPADCALL |l1| |l2| |filename| (LIST (SPADCALL "" (QREFELT $ 43)))
                   (QREFELT $ 41))) 
 
 (SDEFUN |GDRAW;gnuDraw;E2SbSLV;5|
-        ((|f| |Expression| (|Float|)) (|segbind1| |SegmentBinding| (|Float|))
-         (|segbind2| |SegmentBinding| (|Float|)) (|filename| |String|)
-         (|opts| |List| (|DrawOption|)) ($ |Void|))
+        ((|f| (|Expression| (|Float|)))
+         (|segbind1| (|SegmentBinding| (|Float|)))
+         (|segbind2| (|SegmentBinding| (|Float|))) (|filename| (|String|))
+         (|opts| (|List| (|DrawOption|))) ($ (|Void|)))
         (SPROG
          ((#1=#:G145 NIL) (|p| NIL) (#2=#:G144 NIL) (|p1| NIL)
           (|p2| (|List| (|List| (|Point| (|DoubleFloat|)))))
@@ -185,9 +188,10 @@
           (EXIT (SPADCALL |f1| (QREFELT $ 34)))))) 
 
 (SDEFUN |GDRAW;gnuDraw;E2SbSV;6|
-        ((|f| |Expression| (|Float|)) (|segbind1| |SegmentBinding| (|Float|))
-         (|segbind2| |SegmentBinding| (|Float|)) (|filename| |String|)
-         ($ |Void|))
+        ((|f| (|Expression| (|Float|)))
+         (|segbind1| (|SegmentBinding| (|Float|)))
+         (|segbind2| (|SegmentBinding| (|Float|))) (|filename| (|String|))
+         ($ (|Void|)))
         (SPADCALL |f| |segbind1| |segbind2| |filename|
                   (LIST (SPADCALL "" (QREFELT $ 43))) (QREFELT $ 49))) 
 

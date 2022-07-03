@@ -1,6 +1,7 @@
 
 (SDEFUN |EFUPXS;nthRootIfCan;UPXSNniU;1|
-        ((|upxs| UPXS) (|n| |NonNegativeInteger|) ($ |Union| UPXS #1="failed"))
+        ((|upxs| (UPXS)) (|n| (|NonNegativeInteger|))
+         ($ (|Union| UPXS #1="failed")))
         (SPROG
          ((|ulsRoot| (|Union| ULS #1#)) (|uls| (ULS)) (|coef| (|Coef|))
           (|deg| (|Integer|)) (|r| (|Fraction| (|Integer|))))
@@ -50,7 +51,7 @@
                                      (QREFELT $ 33)))))))))))) 
 
 (SDEFUN |EFUPXS;^;UPXSFUPXS;2|
-        ((|upxs| UPXS) (|q| |Fraction| (|Integer|)) ($ UPXS))
+        ((|upxs| (UPXS)) (|q| (|Fraction| (|Integer|))) ($ (UPXS)))
         (SPROG
          ((|ulsPow| (ULS)) (|coef| (|Coef|)) (|deg| (|Integer|)) (|uls| (ULS))
           (|r| (|Fraction| (|Integer|))) (|den| (|Integer|))
@@ -98,8 +99,8 @@
                                       (QREFELT $ 33)))))))))) 
 
 (SDEFUN |EFUPXS;applyIfCan|
-        ((|fcn| |Mapping| #1=(|Union| ULS "failed") ULS) (|upxs| UPXS)
-         ($ |Union| UPXS "failed"))
+        ((|fcn| (|Mapping| #1=(|Union| ULS "failed") ULS)) (|upxs| (UPXS))
+         ($ (|Union| UPXS "failed")))
         (SPROG ((|uls| #1#))
                (SEQ
                 (LETT |uls| (SPADCALL (SPADCALL |upxs| (QREFELT $ 15)) |fcn|))
@@ -110,73 +111,90 @@
                               (SPADCALL (SPADCALL |upxs| (QREFELT $ 14))
                                         (QCDR |uls|) (QREFELT $ 27))))))))) 
 
-(SDEFUN |EFUPXS;expIfCan;UPXSU;4| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;expIfCan;UPXSU;4| ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 41) |upxs| $)) 
 
-(SDEFUN |EFUPXS;logIfCan;UPXSU;5| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;logIfCan;UPXSU;5| ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 43) |upxs| $)) 
 
-(SDEFUN |EFUPXS;sinIfCan;UPXSU;6| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;sinIfCan;UPXSU;6| ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 45) |upxs| $)) 
 
-(SDEFUN |EFUPXS;cosIfCan;UPXSU;7| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;cosIfCan;UPXSU;7| ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 47) |upxs| $)) 
 
-(SDEFUN |EFUPXS;tanIfCan;UPXSU;8| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;tanIfCan;UPXSU;8| ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 49) |upxs| $)) 
 
-(SDEFUN |EFUPXS;cotIfCan;UPXSU;9| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;cotIfCan;UPXSU;9| ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 51) |upxs| $)) 
 
-(SDEFUN |EFUPXS;secIfCan;UPXSU;10| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;secIfCan;UPXSU;10|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 53) |upxs| $)) 
 
-(SDEFUN |EFUPXS;cscIfCan;UPXSU;11| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;cscIfCan;UPXSU;11|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 55) |upxs| $)) 
 
-(SDEFUN |EFUPXS;atanIfCan;UPXSU;12| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;atanIfCan;UPXSU;12|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 57) |upxs| $)) 
 
-(SDEFUN |EFUPXS;acotIfCan;UPXSU;13| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;acotIfCan;UPXSU;13|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 59) |upxs| $)) 
 
-(SDEFUN |EFUPXS;sinhIfCan;UPXSU;14| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;sinhIfCan;UPXSU;14|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 61) |upxs| $)) 
 
-(SDEFUN |EFUPXS;coshIfCan;UPXSU;15| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;coshIfCan;UPXSU;15|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 63) |upxs| $)) 
 
-(SDEFUN |EFUPXS;tanhIfCan;UPXSU;16| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;tanhIfCan;UPXSU;16|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 65) |upxs| $)) 
 
-(SDEFUN |EFUPXS;cothIfCan;UPXSU;17| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;cothIfCan;UPXSU;17|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 67) |upxs| $)) 
 
-(SDEFUN |EFUPXS;sechIfCan;UPXSU;18| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;sechIfCan;UPXSU;18|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 69) |upxs| $)) 
 
-(SDEFUN |EFUPXS;cschIfCan;UPXSU;19| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;cschIfCan;UPXSU;19|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 71) |upxs| $)) 
 
-(SDEFUN |EFUPXS;asinhIfCan;UPXSU;20| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;asinhIfCan;UPXSU;20|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 73) |upxs| $)) 
 
-(SDEFUN |EFUPXS;acoshIfCan;UPXSU;21| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;acoshIfCan;UPXSU;21|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 75) |upxs| $)) 
 
-(SDEFUN |EFUPXS;atanhIfCan;UPXSU;22| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;atanhIfCan;UPXSU;22|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 77) |upxs| $)) 
 
-(SDEFUN |EFUPXS;acothIfCan;UPXSU;23| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;acothIfCan;UPXSU;23|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 79) |upxs| $)) 
 
-(SDEFUN |EFUPXS;asechIfCan;UPXSU;24| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;asechIfCan;UPXSU;24|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 81) |upxs| $)) 
 
-(SDEFUN |EFUPXS;acschIfCan;UPXSU;25| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;acschIfCan;UPXSU;25|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (|EFUPXS;applyIfCan| (ELT $ 83) |upxs| $)) 
 
-(SDEFUN |EFUPXS;asinIfCan;UPXSU;26| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;asinIfCan;UPXSU;26|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (SPROG ((|cc| (UPXS)) (|coef| (|Coef|)))
                (SEQ
                 (COND
@@ -230,7 +248,8 @@
                                         (QREFELT $ 101))))))
                      (#1# (CONS 1 "failed")))))))))) 
 
-(SDEFUN |EFUPXS;acosIfCan;UPXSU;27| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;acosIfCan;UPXSU;27|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (SPROG ((|cc| (UPXS)))
                (SEQ
                 (COND
@@ -269,7 +288,8 @@
                                      (QREFELT $ 98))
                                     (QREFELT $ 101)))))))))) 
 
-(SDEFUN |EFUPXS;asecIfCan;UPXSU;28| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;asecIfCan;UPXSU;28|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (SPROG ((|rec| (|Union| UPXS "failed")) (|f| (UPXS)) (|cc| (UPXS)))
                (SEQ
                 (COND
@@ -309,7 +329,8 @@
                                             (QREFELT $ 98))
                                            (QREFELT $ 101)))))))))))) 
 
-(SDEFUN |EFUPXS;acscIfCan;UPXSU;29| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;acscIfCan;UPXSU;29|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (SPROG ((|rec| (|Union| UPXS "failed")) (|f| (UPXS)) (|cc| (UPXS)))
                (SEQ
                 (COND
@@ -351,7 +372,8 @@
                                             (QREFELT $ 98))
                                            (QREFELT $ 101)))))))))))) 
 
-(SDEFUN |EFUPXS;asinhIfCan;UPXSU;30| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;asinhIfCan;UPXSU;30|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (COND
          ((OR
            (SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
@@ -374,7 +396,8 @@
                            (QREFELT $ 101))
                  (QREFELT $ 112)))))) 
 
-(SDEFUN |EFUPXS;acoshIfCan;UPXSU;31| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;acoshIfCan;UPXSU;31|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (COND
          ((QREFELT $ 10)
           (COND
@@ -393,7 +416,8 @@
                    (QREFELT $ 112))))))
          (#1# (CONS 1 "failed")))) 
 
-(SDEFUN |EFUPXS;asechIfCan;UPXSU;32| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;asechIfCan;UPXSU;32|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (SPROG ((|rec| (|Union| UPXS "failed")))
                (SEQ
                 (COND
@@ -426,7 +450,8 @@
                                         (QREFELT $ 112))))))))))
                  (#1# (CONS 1 "failed")))))) 
 
-(SDEFUN |EFUPXS;acschIfCan;UPXSU;33| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+(SDEFUN |EFUPXS;acschIfCan;UPXSU;33|
+        ((|upxs| (UPXS)) ($ (|Union| UPXS "failed")))
         (SPROG ((|rec| (|Union| UPXS "failed")))
                (SEQ
                 (COND
@@ -460,8 +485,8 @@
                  (#1# (CONS 1 "failed")))))) 
 
 (SDEFUN |EFUPXS;applyOrError|
-        ((|fcn| |Mapping| #1=(|Union| UPXS "failed") UPXS) (|name| |String|)
-         (|upxs| UPXS) ($ UPXS))
+        ((|fcn| (|Mapping| #1=(|Union| UPXS "failed") UPXS))
+         (|name| (|String|)) (|upxs| (UPXS)) ($ (UPXS)))
         (SPROG ((|ans| #1#))
                (SEQ (LETT |ans| (SPADCALL |upxs| |fcn|))
                     (EXIT
@@ -471,82 +496,82 @@
                         (STRCONC |name| " of function with singularity")))
                       ('T (QCDR |ans|))))))) 
 
-(SDEFUN |EFUPXS;exp;2UPXS;35| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;exp;2UPXS;35| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 42) "exp" |upxs| $)) 
 
-(SDEFUN |EFUPXS;log;2UPXS;36| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;log;2UPXS;36| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 44) "log" |upxs| $)) 
 
-(SDEFUN |EFUPXS;sin;2UPXS;37| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;sin;2UPXS;37| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 46) "sin" |upxs| $)) 
 
-(SDEFUN |EFUPXS;cos;2UPXS;38| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;cos;2UPXS;38| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 48) "cos" |upxs| $)) 
 
-(SDEFUN |EFUPXS;tan;2UPXS;39| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;tan;2UPXS;39| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 50) "tan" |upxs| $)) 
 
-(SDEFUN |EFUPXS;cot;2UPXS;40| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;cot;2UPXS;40| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 52) "cot" |upxs| $)) 
 
-(SDEFUN |EFUPXS;sec;2UPXS;41| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;sec;2UPXS;41| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 54) "sec" |upxs| $)) 
 
-(SDEFUN |EFUPXS;csc;2UPXS;42| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;csc;2UPXS;42| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 56) "csc" |upxs| $)) 
 
-(SDEFUN |EFUPXS;asin;2UPXS;43| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;asin;2UPXS;43| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 102) "asin" |upxs| $)) 
 
-(SDEFUN |EFUPXS;acos;2UPXS;44| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;acos;2UPXS;44| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 105) "acos" |upxs| $)) 
 
-(SDEFUN |EFUPXS;atan;2UPXS;45| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;atan;2UPXS;45| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 58) "atan" |upxs| $)) 
 
-(SDEFUN |EFUPXS;acot;2UPXS;46| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;acot;2UPXS;46| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 60) "acot" |upxs| $)) 
 
-(SDEFUN |EFUPXS;asec;2UPXS;47| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;asec;2UPXS;47| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 109) "asec" |upxs| $)) 
 
-(SDEFUN |EFUPXS;acsc;2UPXS;48| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;acsc;2UPXS;48| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 111) "acsc" |upxs| $)) 
 
-(SDEFUN |EFUPXS;sinh;2UPXS;49| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;sinh;2UPXS;49| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 62) "sinh" |upxs| $)) 
 
-(SDEFUN |EFUPXS;cosh;2UPXS;50| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;cosh;2UPXS;50| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 64) "cosh" |upxs| $)) 
 
-(SDEFUN |EFUPXS;tanh;2UPXS;51| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;tanh;2UPXS;51| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 66) "tanh" |upxs| $)) 
 
-(SDEFUN |EFUPXS;coth;2UPXS;52| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;coth;2UPXS;52| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 68) "coth" |upxs| $)) 
 
-(SDEFUN |EFUPXS;sech;2UPXS;53| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;sech;2UPXS;53| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 70) "sech" |upxs| $)) 
 
-(SDEFUN |EFUPXS;csch;2UPXS;54| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;csch;2UPXS;54| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 72) "csch" |upxs| $)) 
 
-(SDEFUN |EFUPXS;asinh;2UPXS;55| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;asinh;2UPXS;55| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 74) "asinh" |upxs| $)) 
 
-(SDEFUN |EFUPXS;acosh;2UPXS;56| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;acosh;2UPXS;56| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 76) "acosh" |upxs| $)) 
 
-(SDEFUN |EFUPXS;atanh;2UPXS;57| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;atanh;2UPXS;57| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 78) "atanh" |upxs| $)) 
 
-(SDEFUN |EFUPXS;acoth;2UPXS;58| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;acoth;2UPXS;58| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 80) "acoth" |upxs| $)) 
 
-(SDEFUN |EFUPXS;asech;2UPXS;59| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;asech;2UPXS;59| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 82) "asech" |upxs| $)) 
 
-(SDEFUN |EFUPXS;acsch;2UPXS;60| ((|upxs| UPXS) ($ UPXS))
+(SDEFUN |EFUPXS;acsch;2UPXS;60| ((|upxs| (UPXS)) ($ (UPXS)))
         (|EFUPXS;applyOrError| (ELT $ 84) "acsch" |upxs| $)) 
 
 (DECLAIM (NOTINLINE |ElementaryFunctionsUnivariatePuiseuxSeries;|)) 

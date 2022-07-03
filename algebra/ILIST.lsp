@@ -1,7 +1,7 @@
 
-(SDEFUN |ILIST;minIndex;$I;1| ((|x| $) ($ |Integer|)) (QREFELT $ 7)) 
+(SDEFUN |ILIST;minIndex;$I;1| ((|x| ($)) ($ (|Integer|))) (QREFELT $ 7)) 
 
-(SDEFUN |ILIST;maxIndex;$I;2| ((|x| $) ($ |Integer|))
+(SDEFUN |ILIST;maxIndex;$I;2| ((|x| ($)) ($ (|Integer|)))
         (- (+ (QREFELT $ 7) (SPADCALL |x| (QREFELT $ 11))) 1)) 
 
 (DECLAIM (NOTINLINE |IndexedList;|)) 

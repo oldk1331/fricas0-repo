@@ -1,20 +1,23 @@
 
 (PUT '|AGG-;eq?;2SB;1| '|SPADreplace| 'EQ) 
 
-(SDEFUN |AGG-;eq?;2SB;1| ((|a| S) (|b| S) ($ |Boolean|)) (EQ |a| |b|)) 
+(SDEFUN |AGG-;eq?;2SB;1| ((|a| (S)) (|b| (S)) ($ (|Boolean|))) (EQ |a| |b|)) 
 
-(SDEFUN |AGG-;sample;S;2| (($ S)) (SPADCALL (QREFELT $ 9))) 
+(SDEFUN |AGG-;sample;S;2| (($ (S))) (SPADCALL (QREFELT $ 9))) 
 
-(SDEFUN |AGG-;empty?;SB;3| ((|a| S) ($ |Boolean|))
+(SDEFUN |AGG-;empty?;SB;3| ((|a| (S)) ($ (|Boolean|)))
         (EQL (SPADCALL |a| (QREFELT $ 12)) 0)) 
 
-(SDEFUN |AGG-;less?;SNniB;4| ((|a| S) (|n| |NonNegativeInteger|) ($ |Boolean|))
+(SDEFUN |AGG-;less?;SNniB;4|
+        ((|a| (S)) (|n| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (< (SPADCALL |a| (QREFELT $ 12)) |n|)) 
 
-(SDEFUN |AGG-;more?;SNniB;5| ((|a| S) (|n| |NonNegativeInteger|) ($ |Boolean|))
+(SDEFUN |AGG-;more?;SNniB;5|
+        ((|a| (S)) (|n| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (> (SPADCALL |a| (QREFELT $ 12)) |n|)) 
 
-(SDEFUN |AGG-;size?;SNniB;6| ((|a| S) (|n| |NonNegativeInteger|) ($ |Boolean|))
+(SDEFUN |AGG-;size?;SNniB;6|
+        ((|a| (S)) (|n| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (EQL (SPADCALL |a| (QREFELT $ 12)) |n|)) 
 
 (DECLAIM (NOTINLINE |Aggregate&;|)) 

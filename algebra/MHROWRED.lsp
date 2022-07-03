@@ -1,16 +1,17 @@
 
-(SDEFUN |MHROWRED;nonzero?| ((|v| |Vector| R) ($ |Boolean|))
+(SDEFUN |MHROWRED;nonzero?| ((|v| (|Vector| R)) ($ (|Boolean|)))
         (SPADCALL (CONS #'|MHROWRED;nonzero?!0| $) |v| (QREFELT $ 12))) 
 
 (SDEFUN |MHROWRED;nonzero?!0| ((|s| NIL) ($ NIL))
         (SPADCALL |s| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
 (SDEFUN |MHROWRED;non0|
-        ((|v| |Vector| R) (|rown| |Integer|)
-         ($ |Union|
-          #1=(|Record| (|:| |val| R) (|:| |cl| (|Integer|))
-                       (|:| |rw| (|Integer|)))
-          "failed"))
+        ((|v| (|Vector| R)) (|rown| (|Integer|))
+         ($
+          (|Union|
+           #1=(|Record| (|:| |val| R) (|:| |cl| (|Integer|))
+                        (|:| |rw| (|Integer|)))
+           "failed")))
         (SPROG
          ((#2=#:G152 NIL) (|ans| #1#) (|allZero| (|Boolean|)) (#3=#:G153 NIL)
           (|i| NIL))
@@ -42,7 +43,7 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |MHROWRED;mkMat|
-        ((|x| |Matrix| R) (|l| |List| (|Integer|)) ($ |Matrix| R))
+        ((|x| (|Matrix| R)) (|l| (|List| (|Integer|))) ($ (|Matrix| R)))
         (SPROG
          ((|ll| (|List| (|List| R))) (#1=#:G171 NIL) (|i| NIL) (#2=#:G170 NIL))
          (SEQ
@@ -72,9 +73,10 @@
            (#3# (SPADCALL |ll| (QREFELT $ 26))))))) 
 
 (SDEFUN |MHROWRED;diagSubMatrix|
-        ((|x| |Matrix| R)
-         ($ |Union| (|Record| (|:| |val| R) (|:| |mat| (|Matrix| R)))
-          "failed"))
+        ((|x| (|Matrix| R))
+         ($
+          (|Union| (|Record| (|:| |val| R) (|:| |mat| (|Matrix| R)))
+                   "failed")))
         (SPROG
          ((#1=#:G220 NIL) (#2=#:G221 NIL) (#3=#:G232 NIL) (|r| NIL)
           (#4=#:G231 NIL) (#5=#:G230 NIL) (|z| NIL) (#6=#:G229 NIL)
@@ -222,7 +224,7 @@
             (EXIT (CONS 1 "failed"))))
           #16# (EXIT #2#)))) 
 
-(SDEFUN |MHROWRED;determinantOfMinor| ((|x| |Matrix| R) ($ R))
+(SDEFUN |MHROWRED;determinantOfMinor| ((|x| (|Matrix| R)) ($ (R)))
         (SPROG
          ((#1=#:G241 NIL) (#2=#:G242 NIL) (|j| (|Integer|)) (|d| (R))
           (#3=#:G247 NIL) (|n| (|Integer|)) (|i| NIL)
@@ -306,8 +308,8 @@
           #8# (EXIT #2#)))) 
 
 (SDEFUN |MHROWRED;enumerateBinomial|
-        ((|l| |List| (|Integer|)) (|m| |Integer|) (|i| |Integer|)
-         ($ |List| (|Integer|)))
+        ((|l| (|List| (|Integer|))) (|m| (|Integer|)) (|i| (|Integer|))
+         ($ (|List| (|Integer|))))
         (SPROG
          ((#1=#:G253 NIL) (|b| (|Integer|)) (#2=#:G254 NIL) (|n| (|Integer|))
           (|j| NIL) (|m1| (|Integer|)))
@@ -340,7 +342,7 @@
                     (EXIT (|error| "Should not happen"))))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |MHROWRED;rowEch;2M;7| ((|x| |Matrix| R) ($ |Matrix| R))
+(SDEFUN |MHROWRED;rowEch;2M;7| ((|x| (|Matrix| R)) ($ (|Matrix| R)))
         (SPROG
          ((|d| (R))
           (|u|
@@ -359,7 +361,7 @@
                  (SPADCALL (QCDR (QCDR |u|)) (QCAR (QCDR |u|))
                            (QREFELT $ 41)))))))) 
 
-(SDEFUN |MHROWRED;vconc| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
+(SDEFUN |MHROWRED;vconc| ((|y| (|Matrix| R)) (|m| (R)) ($ (|Matrix| R)))
         (SPROG NIL
                (SPADCALL (SPADCALL (MAKEARR1 (ANCOLS |y|) |m|) (QREFELT $ 43))
                          (SPADCALL (CONS #'|MHROWRED;vconc!0| (VECTOR $ |m|))
@@ -372,7 +374,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |s| |m| (QREFELT $ 44)))))) 
 
-(SDEFUN |MHROWRED;order| ((|m| R) (|p| R) ($ |Integer|))
+(SDEFUN |MHROWRED;order| ((|m| (R)) (|p| (R)) ($ (|Integer|)))
         (SPROG ((#1=#:G271 NIL) (|mm| (|Union| R "failed")) (|i| NIL))
                (SEQ
                 (EXIT
@@ -390,7 +392,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |MHROWRED;normalizedDivide;2RR;10|
-        ((|n| R) (|d| R) ($ |Record| (|:| |quotient| R) (|:| |remainder| R)))
+        ((|n| (R)) (|d| (R))
+         ($ (|Record| (|:| |quotient| R) (|:| |remainder| R))))
         (SPROG ((|qr| (|Record| (|:| |quotient| R) (|:| |remainder| R))))
                (SEQ (LETT |qr| (SPADCALL |n| |d| (QREFELT $ 51)))
                     (EXIT
@@ -424,10 +427,12 @@
                         (EXIT |qr|)))))))) 
 
 (SDEFUN |MHROWRED;normalizedDivide;2RR;11|
-        ((|n| R) (|d| R) ($ |Record| (|:| |quotient| R) (|:| |remainder| R)))
+        ((|n| (R)) (|d| (R))
+         ($ (|Record| (|:| |quotient| R) (|:| |remainder| R))))
         (SPADCALL |n| |d| (QREFELT $ 51))) 
 
-(SDEFUN |MHROWRED;rowEchLocal;MRM;12| ((|x| |Matrix| R) (|p| R) ($ |Matrix| R))
+(SDEFUN |MHROWRED;rowEchLocal;MRM;12|
+        ((|x| (|Matrix| R)) (|p| (R)) ($ (|Matrix| R)))
         (SPROG
          ((|d| (R))
           (|u|
@@ -447,7 +452,7 @@
                            (QREFELT $ 58)))))))) 
 
 (SDEFUN |MHROWRED;rowEchelonLocal;M2RM;13|
-        ((|y| |Matrix| R) (|m| R) (|p| R) ($ |Matrix| R))
+        ((|y| (|Matrix| R)) (|m| (R)) (|p| (R)) ($ (|Matrix| R)))
         (SPROG
          ((|i| #1=(|Integer|)) (#2=#:G322 NIL) (|k1| NIL)
           (|qr| (|Record| (|:| |quotient| R) (|:| |remainder| R)))
@@ -622,13 +627,15 @@
            #14# (EXIT #11#))
           (EXIT |x|)))) 
 
-(SDEFUN |MHROWRED;rowEchelon;MRM;14| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
+(SDEFUN |MHROWRED;rowEchelon;MRM;14|
+        ((|y| (|Matrix| R)) (|m| (R)) ($ (|Matrix| R)))
         (|MHROWRED;rowEchelon1| |y| |m| $)) 
 
-(SDEFUN |MHROWRED;rowEchelon1| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
+(SDEFUN |MHROWRED;rowEchelon1| ((|y| (|Matrix| R)) (|m| (R)) ($ (|Matrix| R)))
         (SPADCALL (|MHROWRED;vconc| |y| |m| $) (QREFELT $ 40))) 
 
-(SDEFUN |MHROWRED;rowEchelon;MRM;16| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
+(SDEFUN |MHROWRED;rowEchelon;MRM;16|
+        ((|y| (|Matrix| R)) (|m| (R)) ($ (|Matrix| R)))
         (SPROG
          ((|m1| (R)) (|d| (R)) (|nc| (|NonNegativeInteger|))
           (|nr| (|NonNegativeInteger|)))
@@ -641,7 +648,7 @@
                       (EXIT (|MHROWRED;rowEchelon1| |y| |m1| $))))
                 ('T (|MHROWRED;rowEchelon1| |y| |m| $))))))) 
 
-(SDEFUN |MHROWRED;rowEchelon1| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
+(SDEFUN |MHROWRED;rowEchelon1| ((|y| (|Matrix| R)) (|m| (R)) ($ (|Matrix| R)))
         (SPROG
          ((|i| #1=(|Integer|)) (#2=#:G361 NIL) (|k1| NIL)
           (|qr| (|Record| (|:| |quotient| R) (|:| |remainder| R)))

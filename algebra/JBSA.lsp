@@ -1,5 +1,5 @@
 
-(SDEFUN |JBSA;setNotation;2S;1| ((|s| |Symbol|) ($ |Symbol|))
+(SDEFUN |JBSA;setNotation;2S;1| ((|s| (|Symbol|)) ($ (|Symbol|)))
         (SEQ
          (SPADCALL
           (SPADCALL "only repeated index notation possible" (QREFELT $ 34))
@@ -8,43 +8,46 @@
 
 (PUT '|JBSA;getNotation;S;2| '|SPADreplace| '(XLAM NIL '|Repeated|)) 
 
-(SDEFUN |JBSA;getNotation;S;2| (($ |Symbol|)) '|Repeated|) 
+(SDEFUN |JBSA;getNotation;S;2| (($ (|Symbol|))) '|Repeated|) 
 
-(SDEFUN |JBSA;multiIndex;$L;3| ((|jv| $) ($ |List| (|NonNegativeInteger|)))
+(SDEFUN |JBSA;multiIndex;$L;3| ((|jv| ($)) ($ (|List| (|NonNegativeInteger|))))
         (SPADCALL |jv| (QREFELT $ 40))) 
 
-(SDEFUN |JBSA;index;$Pi;4| ((|jv| $) ($ |PositiveInteger|))
+(SDEFUN |JBSA;index;$Pi;4| ((|jv| ($)) ($ (|PositiveInteger|)))
         (SPADCALL |jv| (QREFELT $ 42))) 
 
-(SDEFUN |JBSA;type;$S;5| ((|jv| $) ($ |Symbol|)) (SPADCALL |jv| (QREFELT $ 44))) 
+(SDEFUN |JBSA;type;$S;5| ((|jv| ($)) ($ (|Symbol|)))
+        (SPADCALL |jv| (QREFELT $ 44))) 
 
-(SDEFUN |JBSA;X;Pi$;6| ((|up| |PositiveInteger|) ($ $))
+(SDEFUN |JBSA;X;Pi$;6| ((|up| (|PositiveInteger|)) ($ ($)))
         (SPADCALL |up| (QREFELT $ 46))) 
 
-(SDEFUN |JBSA;U;Pi$;7| ((|up| |PositiveInteger|) ($ $))
+(SDEFUN |JBSA;U;Pi$;7| ((|up| (|PositiveInteger|)) ($ ($)))
         (SPADCALL |up| (QREFELT $ 48))) 
 
 (SDEFUN |JBSA;Pm;PiL$;8|
-        ((|up| |PositiveInteger|) (|lo| |List| (|NonNegativeInteger|)) ($ $))
+        ((|up| (|PositiveInteger|)) (|lo| (|List| (|NonNegativeInteger|)))
+         ($ ($)))
         (SPADCALL |up| |lo| (QREFELT $ 50))) 
 
-(SDEFUN |JBSA;coerce;S$;9| ((|s| |Symbol|) ($ $)) (SPADCALL |s| (QREFELT $ 52))) 
+(SDEFUN |JBSA;coerce;S$;9| ((|s| (|Symbol|)) ($ ($)))
+        (SPADCALL |s| (QREFELT $ 52))) 
 
-(SDEFUN |JBSA;D;SL$;10| ((|u| |Symbol|) (|der| |List| (|Symbol|)) ($ $))
+(SDEFUN |JBSA;D;SL$;10| ((|u| (|Symbol|)) (|der| (|List| (|Symbol|))) ($ ($)))
         (SPADCALL |u| |der| (QREFELT $ 54))) 
 
-(SDEFUN |JBSA;One;$;11| (($ $)) (|spadConstant| $ 56)) 
+(SDEFUN |JBSA;One;$;11| (($ ($))) (|spadConstant| $ 56)) 
 
-(SDEFUN |JBSA;numIndVar;Pi;12| (($ |PositiveInteger|))
+(SDEFUN |JBSA;numIndVar;Pi;12| (($ (|PositiveInteger|)))
         (+ (QREFELT $ 11) (QREFELT $ 13))) 
 
-(SDEFUN |JBSA;numDepVar;Pi;13| (($ |PositiveInteger|))
+(SDEFUN |JBSA;numDepVar;Pi;13| (($ (|PositiveInteger|)))
         (+ (QREFELT $ 11) (QREFELT $ 13))) 
 
-(SDEFUN |JBSA;name;$S;14| ((|jv| $) ($ |Symbol|))
+(SDEFUN |JBSA;name;$S;14| ((|jv| ($)) ($ (|Symbol|)))
         (SPADCALL |jv| (QREFELT $ 59))) 
 
-(SDEFUN |JBSA;coerce;$E;15| ((|jv| $) ($ |Expression| (|Integer|)))
+(SDEFUN |JBSA;coerce;$E;15| ((|jv| ($)) ($ (|Expression| (|Integer|))))
         (SPADCALL |jv| (QREFELT $ 62))) 
 
 (DECLAIM (NOTINLINE |JetBundleSymAna;|)) 

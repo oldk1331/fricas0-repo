@@ -1,5 +1,5 @@
 
-(SDEFUN |UPSQFREE;squareFreePart;2P;1| ((|p| P) ($ P))
+(SDEFUN |UPSQFREE;squareFreePart;2P;1| ((|p| (P)) ($ (P)))
         (SPROG ((#1=#:G133 NIL))
                (PROG2
                    (LETT #1#
@@ -11,7 +11,7 @@
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                  (|Union| (QREFELT $ 7) "failed") #1#)))) 
 
-(SDEFUN |UPSQFREE;squareFreePart;2P;2| ((|p| P) ($ P))
+(SDEFUN |UPSQFREE;squareFreePart;2P;2| ((|p| (P)) ($ (P)))
         (SPROG
          ((#1=#:G138 NIL) (#2=#:G137 (P)) (#3=#:G139 (P)) (#4=#:G141 NIL)
           (|f| NIL) (|s| (|Factored| P)))
@@ -34,21 +34,25 @@
            (QREFELT $ 20))))) 
 
 (SDEFUN |UPSQFREE;BumInSepFFE;2R;3|
-        ((|ffe| |Record|
-          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |factor| P) (|:| |exponent| (|NonNegativeInteger|)))
-         ($ |Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
-          (|:| |exponent| (|NonNegativeInteger|))))
+        ((|ffe|
+          (|Record|
+           (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+           (|:| |factor| P) (|:| |exponent| (|NonNegativeInteger|))))
+         ($
+          (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
+                    (|:| |exponent| (|NonNegativeInteger|)))))
         (VECTOR (CONS 1 "sqfr")
                 (SPADCALL (ELT $ 22) (QVELT |ffe| 1) (QREFELT $ 24))
                 (* (SPADCALL (QREFELT $ 26)) (QVELT |ffe| 2)))) 
 
 (SDEFUN |UPSQFREE;BumInSepFFE;2R;4|
-        ((|ffe| |Record|
-          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |factor| P) (|:| |exponent| (|NonNegativeInteger|)))
-         ($ |Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
-          (|:| |exponent| (|NonNegativeInteger|))))
+        ((|ffe|
+          (|Record|
+           (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+           (|:| |factor| P) (|:| |exponent| (|NonNegativeInteger|))))
+         ($
+          (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
+                    (|:| |exponent| (|NonNegativeInteger|)))))
         (SPROG ((|nthrp| (|Union| P "failed")) (|np| (P)))
                (SEQ
                 (LETT |np|
@@ -64,17 +68,19 @@
                            (* (SPADCALL (QREFELT $ 26)) (QVELT |ffe| 2))))))))) 
 
 (SDEFUN |UPSQFREE;BumInSepFFE;2R;5|
-        ((|ffe| |Record|
-          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |factor| P) (|:| |exponent| (|NonNegativeInteger|)))
-         ($ |Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
-          (|:| |exponent| (|NonNegativeInteger|))))
+        ((|ffe|
+          (|Record|
+           (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+           (|:| |factor| P) (|:| |exponent| (|NonNegativeInteger|))))
+         ($
+          (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
+                    (|:| |exponent| (|NonNegativeInteger|)))))
         (VECTOR (CONS 0 "nil")
                 (SPADCALL (QVELT |ffe| 1) (SPADCALL (QREFELT $ 26))
                           (QREFELT $ 28))
                 (QVELT |ffe| 2))) 
 
-(SDEFUN |UPSQFREE;squareFree;PF;6| ((|p| P) ($ |Factored| P))
+(SDEFUN |UPSQFREE;squareFree;PF;6| ((|p| (P)) ($ (|Factored| P)))
         (SPROG
          ((#1=#:G188 NIL)
           (|lffe|
@@ -181,10 +187,10 @@
                                  (QREFELT $ 35)))))))))) 
 
 (SDEFUN |UPSQFREE;squareFree1|
-        ((|p| P)
+        ((|p| (P))
          ($
-          . #1=(|Record| (|:| |f_list| (|List| P))
-                         (|:| |e_list| (|List| (|NonNegativeInteger|))))))
+          #1=(|Record| (|:| |f_list| (|List| P))
+                       (|:| |e_list| (|List| (|NonNegativeInteger|))))))
         (SPROG
          ((|res_le| (|List| (|NonNegativeInteger|))) (|res_lf| (|List| P))
           (#2=#:G220 NIL) (|f| NIL) (#3=#:G221 NIL) (|e| NIL)
@@ -301,7 +307,7 @@
                       (LETT |rec_el| (QCDR |res1|)) (LETT |res_lf| NIL)
                       (LETT |res_le| NIL)
                       (SEQ (LETT |rec_e| NIL) (LETT #8# |rec_el|)
-                           (LETT |rec_f| NIL) (LETT #7# |rec_fl|) G190
+                           (LETT #7# |rec_fl|) G190
                            (COND
                             ((OR (ATOM #7#)
                                  (PROGN (LETT |rec_f| (CAR #7#)) NIL)
@@ -393,7 +399,7 @@
                        (CONS (NREVERSE |res_lf|)
                              (NREVERSE |res_le|)))))))))))))) 
 
-(SDEFUN |UPSQFREE;squareFree;PF;8| ((|p| P) ($ |Factored| P))
+(SDEFUN |UPSQFREE;squareFree;PF;8| ((|p| (P)) ($ (|Factored| P)))
         (SPROG
          ((|fl|
            (|List|
@@ -427,7 +433,7 @@
               (EXIT
                (SPADCALL (SPADCALL |u| (QREFELT $ 42)) |fl| (QREFELT $ 35)))))) 
 
-(SDEFUN |UPSQFREE;squareFree;PF;9| ((|p| P) ($ |Factored| P))
+(SDEFUN |UPSQFREE;squareFree;PF;9| ((|p| (P)) ($ (|Factored| P)))
         (SPROG
          ((|lffe|
            (|List|

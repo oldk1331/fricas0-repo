@@ -1,13 +1,13 @@
 
 (SDEFUN |LINDEP;aNonZeroSolution|
-        ((|m| |Matrix| S) ($ |Union| (|Vector| S) "failed"))
+        ((|m| (|Matrix| S)) ($ (|Union| (|Vector| S) "failed")))
         (SPROG ((|ns| (|List| (|Vector| S))))
                (COND
                 ((NULL (LETT |ns| (SPADCALL |m| (QREFELT $ 10))))
                  (CONS 1 "failed"))
                 ('T (CONS 0 (|SPADfirst| |ns|)))))) 
 
-(SDEFUN |LINDEP;linearlyDependent?;VB;2| ((|v| |Vector| R) ($ |Boolean|))
+(SDEFUN |LINDEP;linearlyDependent?;VB;2| ((|v| (|Vector| R)) ($ (|Boolean|)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (COND ((ZEROP (LETT |n| (QVSIZE |v|))) 'T)
                      ((EQL |n| 1)
@@ -22,7 +22,7 @@
                         (QREFELT $ 24))))))) 
 
 (SDEFUN |LINDEP;linearDependence;VU;3|
-        ((|v| |Vector| R) ($ |Union| (|Vector| S) "failed"))
+        ((|v| (|Vector| R)) ($ (|Union| (|Vector| S) "failed")))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (COND ((ZEROP (LETT |n| (QVSIZE |v|))) (CONS 0 (MAKE-ARRAY 0)))
                      ((EQL |n| 1)
@@ -39,23 +39,25 @@
                        $))))) 
 
 (SDEFUN |LINDEP;solveLinear;VRR;4|
-        ((|v| |Vector| R) (|c| R)
-         ($ |Record| (|:| |particular| (|Union| (|Vector| S) "failed"))
-          (|:| |basis| (|List| (|Vector| S)))))
+        ((|v| (|Vector| R)) (|c| (R))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Vector| S) "failed"))
+                    (|:| |basis| (|List| (|Vector| S))))))
         (SPADCALL (SPADCALL |v| (QREFELT $ 20)) (MAKEARR1 1 |c|)
                   (QREFELT $ 29))) 
 
 (SDEFUN |LINDEP;solveLinear;MVR;5|
-        ((|m| |Matrix| R) (|v| |Vector| R)
-         ($ |Record| (|:| |particular| (|Union| (|Vector| S) "failed"))
-          (|:| |basis| (|List| (|Vector| S)))))
+        ((|m| (|Matrix| R)) (|v| (|Vector| R))
+         ($
+          (|Record| (|:| |particular| (|Union| (|Vector| S) "failed"))
+                    (|:| |basis| (|List| (|Vector| S))))))
         (SPROG
          ((|sys| (|Record| (|:| |mat| (|Matrix| S)) (|:| |vec| (|Vector| S)))))
          (SEQ (LETT |sys| (SPADCALL |m| |v| (QREFELT $ 33)))
               (EXIT (SPADCALL (QCAR |sys|) (QCDR |sys|) (QREFELT $ 36)))))) 
 
 (SDEFUN |LINDEP;particularSolution;VRU;6|
-        ((|v| |Vector| R) (|c| R) ($ |Union| (|Vector| S) "failed"))
+        ((|v| (|Vector| R)) (|c| (R)) ($ (|Union| (|Vector| S) "failed")))
         (COND
          ((SPADCALL |c| (QREFELT $ 18))
           (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| $ 37))))
@@ -63,25 +65,28 @@
          ('T (QCAR (SPADCALL |v| |c| (QREFELT $ 30)))))) 
 
 (SDEFUN |LINDEP;particularSolution;MVU;7|
-        ((|m| |Matrix| R) (|v| |Vector| R) ($ |Union| (|Vector| S) "failed"))
+        ((|m| (|Matrix| R)) (|v| (|Vector| R))
+         ($ (|Union| (|Vector| S) "failed")))
         (COND
          ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT $ 40)) (QREFELT $ 41))
           (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| $ 37))))
          ('T (QCAR (SPADCALL |m| |v| (QREFELT $ 29)))))) 
 
 (SDEFUN |LINDEP;solveLinear;VRR;8|
-        ((|v| |Vector| R) (|c| R)
-         ($ |Record|
-          (|:| |particular| (|Union| (|Vector| (|Fraction| S)) "failed"))
-          (|:| |basis| (|List| (|Vector| (|Fraction| S))))))
+        ((|v| (|Vector| R)) (|c| (R))
+         ($
+          (|Record|
+           (|:| |particular| (|Union| (|Vector| (|Fraction| S)) "failed"))
+           (|:| |basis| (|List| (|Vector| (|Fraction| S)))))))
         (SPADCALL (SPADCALL |v| (QREFELT $ 20)) (MAKEARR1 1 |c|)
                   (QREFELT $ 45))) 
 
 (SDEFUN |LINDEP;solveLinear;MVR;9|
-        ((|m| |Matrix| R) (|v| |Vector| R)
-         ($ |Record|
-          (|:| |particular| (|Union| (|Vector| (|Fraction| S)) "failed"))
-          (|:| |basis| (|List| (|Vector| (|Fraction| S))))))
+        ((|m| (|Matrix| R)) (|v| (|Vector| R))
+         ($
+          (|Record|
+           (|:| |particular| (|Union| (|Vector| (|Fraction| S)) "failed"))
+           (|:| |basis| (|List| (|Vector| (|Fraction| S)))))))
         (SPROG
          ((|sys| (|Record| (|:| |mat| (|Matrix| S)) (|:| |vec| (|Vector| S)))))
          (SEQ (LETT |sys| (SPADCALL |m| |v| (QREFELT $ 33)))
@@ -91,8 +96,8 @@
                          (QREFELT $ 57)))))) 
 
 (SDEFUN |LINDEP;particularSolution;VRU;10|
-        ((|v| |Vector| R) (|c| R)
-         ($ |Union| (|Vector| (|Fraction| S)) "failed"))
+        ((|v| (|Vector| R)) (|c| (R))
+         ($ (|Union| (|Vector| (|Fraction| S)) "failed")))
         (COND
          ((SPADCALL |c| (QREFELT $ 18))
           (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| $ 58))))
@@ -100,8 +105,8 @@
          ('T (QCAR (SPADCALL |v| |c| (QREFELT $ 46)))))) 
 
 (SDEFUN |LINDEP;particularSolution;MVU;11|
-        ((|m| |Matrix| R) (|v| |Vector| R)
-         ($ |Union| (|Vector| (|Fraction| S)) "failed"))
+        ((|m| (|Matrix| R)) (|v| (|Vector| R))
+         ($ (|Union| (|Vector| (|Fraction| S)) "failed")))
         (COND
          ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT $ 40)) (QREFELT $ 41))
           (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| $ 58))))

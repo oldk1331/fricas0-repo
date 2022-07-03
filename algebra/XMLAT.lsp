@@ -1,14 +1,15 @@
 
-(SDEFUN |XMLAT;xmlAttribute;2S$;1| ((|name| |String|) (|value| |String|) ($ $))
+(SDEFUN |XMLAT;xmlAttribute;2S$;1|
+        ((|name| (|String|)) (|value| (|String|)) ($ ($)))
         (CONS |name| (LIST |value|))) 
 
 (PUT '|XMLAT;xmlAttribute;SL$;2| '|SPADreplace| 'CONS) 
 
 (SDEFUN |XMLAT;xmlAttribute;SL$;2|
-        ((|name| |String|) (|values| |List| (|String|)) ($ $))
+        ((|name| (|String|)) (|values| (|List| (|String|))) ($ ($)))
         (CONS |name| |values|)) 
 
-(SDEFUN |XMLAT;coerce;$S;3| ((|rp| $) ($ |String|))
+(SDEFUN |XMLAT;coerce;$S;3| ((|rp| ($)) ($ (|String|)))
         (SPROG ((|val| (|String|)) (#1=#:G127 NIL) (|vn| NIL))
                (SEQ (LETT |val| "")
                     (SEQ (LETT |vn| NIL) (LETT #1# (QCDR |rp|)) G190
@@ -32,7 +33,7 @@
                                       (QREFELT $ 15)))
                       (QREFELT $ 12)))))) 
 
-(SDEFUN |XMLAT;outputVRML;$TfV;4| ((|rp| $) (|f1| |TextFile|) ($ |Void|))
+(SDEFUN |XMLAT;outputVRML;$TfV;4| ((|rp| ($)) (|f1| (|TextFile|)) ($ (|Void|)))
         (SPROG ((|val| (|String|)) (#1=#:G132 NIL) (|vn| NIL))
                (SEQ (LETT |val| "")
                     (SEQ (LETT |vn| NIL) (LETT #1# (QCDR |rp|)) G190

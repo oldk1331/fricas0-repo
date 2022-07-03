@@ -1,25 +1,26 @@
 
-(SDEFUN |FRETRCT-;coerce;IA;1| ((|n| |Integer|) ($ A))
+(SDEFUN |FRETRCT-;coerce;IA;1| ((|n| (|Integer|)) ($ (A)))
         (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))) 
 
-(SDEFUN |FRETRCT-;retract;AI;2| ((|r| A) ($ |Integer|))
+(SDEFUN |FRETRCT-;retract;AI;2| ((|r| (A)) ($ (|Integer|)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 12)) (QREFELT $ 13))) 
 
-(SDEFUN |FRETRCT-;retractIfCan;AU;3| ((|r| A) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |FRETRCT-;retractIfCan;AU;3|
+        ((|r| (A)) ($ (|Union| (|Integer|) "failed")))
         (SPROG ((|u| (|Union| S "failed")))
                (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 16)))
                     (EXIT
                      (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                            ('T (SPADCALL (QCDR |u|) (QREFELT $ 18)))))))) 
 
-(SDEFUN |FRETRCT-;coerce;FA;4| ((|n| |Fraction| (|Integer|)) ($ A))
+(SDEFUN |FRETRCT-;coerce;FA;4| ((|n| (|Fraction| (|Integer|))) ($ (A)))
         (SPADCALL (SPADCALL |n| (QREFELT $ 21)) (QREFELT $ 10))) 
 
-(SDEFUN |FRETRCT-;retract;AF;5| ((|r| A) ($ |Fraction| (|Integer|)))
+(SDEFUN |FRETRCT-;retract;AF;5| ((|r| (A)) ($ (|Fraction| (|Integer|))))
         (SPADCALL (SPADCALL |r| (QREFELT $ 12)) (QREFELT $ 23))) 
 
 (SDEFUN |FRETRCT-;retractIfCan;AU;6|
-        ((|r| A) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|r| (A)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (SPROG ((|u| (|Union| S "failed")))
                (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 16)))
                     (EXIT

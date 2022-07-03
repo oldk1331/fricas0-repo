@@ -2,33 +2,36 @@
 (PUT '|CDFVEC;qelt;$IC;1| '|SPADreplace| 'CDELT) 
 
 (SDEFUN |CDFVEC;qelt;$IC;1|
-        ((|x| $) (|i| |Integer|) ($ |Complex| (|DoubleFloat|))) (CDELT |x| |i|)) 
+        ((|x| ($)) (|i| (|Integer|)) ($ (|Complex| (|DoubleFloat|))))
+        (CDELT |x| |i|)) 
 
 (PUT '|CDFVEC;qsetelt!;$I2C;2| '|SPADreplace| 'CDSETELT) 
 
 (SDEFUN |CDFVEC;qsetelt!;$I2C;2|
-        ((|x| $) (|i| |Integer|) (|s| . #1=(|Complex| (|DoubleFloat|)))
-         ($ . #1#))
+        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|Complex| (|DoubleFloat|)))
+         ($ #1#))
         (CDSETELT |x| |i| |s|)) 
 
 (PUT '|CDFVEC;#;$Nni;3| '|SPADreplace| 'CDLEN) 
 
-(SDEFUN |CDFVEC;#;$Nni;3| ((|x| $) ($ |NonNegativeInteger|)) (CDLEN |x|)) 
+(SDEFUN |CDFVEC;#;$Nni;3| ((|x| ($)) ($ (|NonNegativeInteger|))) (CDLEN |x|)) 
 
 (PUT '|CDFVEC;minIndex;$I;4| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(SDEFUN |CDFVEC;minIndex;$I;4| ((|x| $) ($ |Integer|)) 0) 
+(SDEFUN |CDFVEC;minIndex;$I;4| ((|x| ($)) ($ (|Integer|))) 0) 
 
 (PUT '|CDFVEC;empty;$;5| '|SPADreplace| '(XLAM NIL (MAKE_CDOUBLE_VECTOR 0))) 
 
-(SDEFUN |CDFVEC;empty;$;5| (($ $)) (MAKE_CDOUBLE_VECTOR 0)) 
+(SDEFUN |CDFVEC;empty;$;5| (($ ($))) (MAKE_CDOUBLE_VECTOR 0)) 
 
 (PUT '|CDFVEC;qnew;I$;6| '|SPADreplace| 'MAKE_CDOUBLE_VECTOR) 
 
-(SDEFUN |CDFVEC;qnew;I$;6| ((|n| |Integer|) ($ $)) (MAKE_CDOUBLE_VECTOR |n|)) 
+(SDEFUN |CDFVEC;qnew;I$;6| ((|n| (|Integer|)) ($ ($)))
+        (MAKE_CDOUBLE_VECTOR |n|)) 
 
 (SDEFUN |CDFVEC;new;NniC$;7|
-        ((|n| |NonNegativeInteger|) (|x| |Complex| (|DoubleFloat|)) ($ $))
+        ((|n| (|NonNegativeInteger|)) (|x| (|Complex| (|DoubleFloat|)))
+         ($ ($)))
         (SPROG ((|res| ($)))
                (SEQ (LETT |res| (MAKE_CDOUBLE_VECTOR |n|))
                     (EXIT (SPADCALL |res| |x| (QREFELT $ 15)))))) 
@@ -36,28 +39,31 @@
 (PUT '|CDFVEC;qelt;$IC;8| '|SPADreplace| 'CDELT) 
 
 (SDEFUN |CDFVEC;qelt;$IC;8|
-        ((|x| $) (|i| |Integer|) ($ |Complex| (|DoubleFloat|))) (CDELT |x| |i|)) 
+        ((|x| ($)) (|i| (|Integer|)) ($ (|Complex| (|DoubleFloat|))))
+        (CDELT |x| |i|)) 
 
 (PUT '|CDFVEC;elt;$IC;9| '|SPADreplace| 'CDELT) 
 
 (SDEFUN |CDFVEC;elt;$IC;9|
-        ((|x| $) (|i| |Integer|) ($ |Complex| (|DoubleFloat|))) (CDELT |x| |i|)) 
+        ((|x| ($)) (|i| (|Integer|)) ($ (|Complex| (|DoubleFloat|))))
+        (CDELT |x| |i|)) 
 
 (PUT '|CDFVEC;qsetelt!;$I2C;10| '|SPADreplace| 'CDSETELT) 
 
 (SDEFUN |CDFVEC;qsetelt!;$I2C;10|
-        ((|x| $) (|i| |Integer|) (|s| . #1=(|Complex| (|DoubleFloat|)))
-         ($ . #1#))
+        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|Complex| (|DoubleFloat|)))
+         ($ #1#))
         (CDSETELT |x| |i| |s|)) 
 
 (PUT '|CDFVEC;setelt!;$I2C;11| '|SPADreplace| 'CDSETELT) 
 
 (SDEFUN |CDFVEC;setelt!;$I2C;11|
-        ((|x| $) (|i| |Integer|) (|s| . #1=(|Complex| (|DoubleFloat|)))
-         ($ . #1#))
+        ((|x| ($)) (|i| (|Integer|)) (|s| #1=(|Complex| (|DoubleFloat|)))
+         ($ #1#))
         (CDSETELT |x| |i| |s|)) 
 
-(SDEFUN |CDFVEC;fill!;$C$;12| ((|x| $) (|s| |Complex| (|DoubleFloat|)) ($ $))
+(SDEFUN |CDFVEC;fill!;$C$;12|
+        ((|x| ($)) (|s| (|Complex| (|DoubleFloat|))) ($ ($)))
         (SPROG ((#1=#:G2848 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0) (LETT #1# (|sub_SI| (CDLEN |x|) 1)) G190

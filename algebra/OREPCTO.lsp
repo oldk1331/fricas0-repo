@@ -1,7 +1,7 @@
 
 (SDEFUN |OREPCTO;times;2CAMC;1|
-        ((|x| C) (|y| C) (|sigma| |Automorphism| R) (|delta| |Mapping| R R)
-         ($ C))
+        ((|x| (C)) (|y| (C)) (|sigma| (|Automorphism| R))
+         (|delta| (|Mapping| R R)) ($ (C)))
         (COND ((SPADCALL |y| (QREFELT $ 9)) (|spadConstant| $ 10))
               ('T
                (QCAR
@@ -9,8 +9,9 @@
                  |delta| $))))) 
 
 (SDEFUN |OREPCTO;times2|
-        ((|n| |NonNegativeInteger|) (|x| C) (|y| C) (|sigma| |Automorphism| R)
-         (|delta| |Mapping| R R) ($ |Record| (|:| |prod| C) (|:| |yton| C)))
+        ((|n| (|NonNegativeInteger|)) (|x| (C)) (|y| (C))
+         (|sigma| (|Automorphism| R)) (|delta| (|Mapping| R R))
+         ($ (|Record| (|:| |prod| C) (|:| |yton| C))))
         (SPROG
          ((|y1| (C)) (|z| (C)) (|b| (R)) (|m| (|NonNegativeInteger|))
           (|pp| (|Record| (|:| |prod| C) (|:| |yton| C))) (|x1| (C))
@@ -71,8 +72,8 @@
                         (#1# (CONS (QCAR |pp|) |z|))))))))))) 
 
 (SDEFUN |OREPCTO;apply;C2RAMR;3|
-        ((|p| C) (|c| R) (|x| R) (|sigma| |Automorphism| R)
-         (|delta| |Mapping| R R) ($ R))
+        ((|p| (C)) (|c| (R)) (|x| (R)) (|sigma| (|Automorphism| R))
+         (|delta| (|Mapping| R R)) ($ (R)))
         (SPROG ((|xn| (R)) (|w| (R)) (#1=#:G151 NIL) (|i| NIL))
                (SEQ (LETT |w| (|spadConstant| $ 20)) (LETT |xn| |x|)
                     (SEQ (LETT |i| 0) (LETT #1# (SPADCALL |p| (QREFELT $ 12)))
@@ -96,8 +97,8 @@
                     (EXIT |w|)))) 
 
 (SDEFUN |OREPCTO;localLeftDivide|
-        ((|a| C) (|b| C) (|sigma| |Automorphism| R) (|b1| R)
-         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        ((|a| (C)) (|b| (C)) (|sigma| (|Automorphism| R)) (|b1| (R))
+         ($ (|Record| (|:| |quotient| C) (|:| |remainder| C))))
         (SPROG
          ((|qr| (|Record| (|:| |quotient| C) (|:| |remainder| C))) (|a1| (C))
           (|q| (C)) (#1=#:G161 NIL)
@@ -143,8 +144,8 @@
              #3# (EXIT #1#))))))) 
 
 (SDEFUN |OREPCTO;localRightDivide|
-        ((|a| C) (|b| C) (|sigma| |Automorphism| R) (|b1| R)
-         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        ((|a| (C)) (|b| (C)) (|sigma| (|Automorphism| R)) (|b1| (R))
+         ($ (|Record| (|:| |quotient| C) (|:| |remainder| C))))
         (SPROG
          ((|qr| (|Record| (|:| |quotient| C) (|:| |remainder| C))) (|a1| (C))
           (|q| (C)) (#1=#:G171 NIL)
@@ -192,8 +193,8 @@
              #3# (EXIT #1#))))))) 
 
 (SDEFUN |OREPCTO;monicLeftDivide;2CAR;6|
-        ((|a| C) (|b| C) (|sigma| |Automorphism| R)
-         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        ((|a| (C)) (|b| (C)) (|sigma| (|Automorphism| R))
+         ($ (|Record| (|:| |quotient| C) (|:| |remainder| C))))
         (SPROG ((#1=#:G174 NIL) (|u| (R)))
                (COND
                 ((SPADCALL (LETT |u| (SPADCALL |b| (QREFELT $ 21)))
@@ -207,8 +208,8 @@
                 ('T (|error| "monicLeftDivide: divisor is not monic"))))) 
 
 (SDEFUN |OREPCTO;monicRightDivide;2CAR;7|
-        ((|a| C) (|b| C) (|sigma| |Automorphism| R)
-         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        ((|a| (C)) (|b| (C)) (|sigma| (|Automorphism| R))
+         ($ (|Record| (|:| |quotient| C) (|:| |remainder| C))))
         (SPROG ((#1=#:G181 NIL) (|u| (R)))
                (COND
                 ((SPADCALL (LETT |u| (SPADCALL |b| (QREFELT $ 21)))
@@ -222,14 +223,14 @@
                 ('T (|error| "monicRightDivide: divisor is not monic"))))) 
 
 (SDEFUN |OREPCTO;leftDivide;2CAR;8|
-        ((|a| C) (|b| C) (|sigma| |Automorphism| R)
-         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        ((|a| (C)) (|b| (C)) (|sigma| (|Automorphism| R))
+         ($ (|Record| (|:| |quotient| C) (|:| |remainder| C))))
         (|OREPCTO;localLeftDivide| |a| |b| |sigma|
          (SPADCALL (SPADCALL |b| (QREFELT $ 21)) (QREFELT $ 41)) $)) 
 
 (SDEFUN |OREPCTO;rightDivide;2CAR;9|
-        ((|a| C) (|b| C) (|sigma| |Automorphism| R)
-         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        ((|a| (C)) (|b| (C)) (|sigma| (|Automorphism| R))
+         ($ (|Record| (|:| |quotient| C) (|:| |remainder| C))))
         (|OREPCTO;localRightDivide| |a| |b| |sigma|
          (SPADCALL (SPADCALL |b| (QREFELT $ 21)) (QREFELT $ 41)) $)) 
 

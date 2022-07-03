@@ -1,7 +1,7 @@
 
 (SDEFUN |RDIV;order;FdUPUPMNni;1|
-        ((|d| |FiniteDivisor| F1 UP UPUP R) (|pp| UPUP) (|f| |Mapping| F2 F1)
-         ($ |NonNegativeInteger|))
+        ((|d| (|FiniteDivisor| F1 UP UPUP R)) (|pp| (UPUP))
+         (|f| (|Mapping| F2 F1)) ($ (|NonNegativeInteger|)))
         (SPROG ((|r| (|Union| (|Fraction| UP) "failed")))
                (SEQ
                 (LETT |r|
@@ -19,8 +19,8 @@
                          (SPADCALL |pp| (QREFELT $ 20)) |f| $))))))) 
 
 (SDEFUN |RDIV;algOrder|
-        ((|d| |FiniteDivisor| F1 UP UPUP R) (|modulus| UPUP)
-         (|reduce| |Mapping| F2 F1) ($ |NonNegativeInteger|))
+        ((|d| (|FiniteDivisor| F1 UP UPUP R)) (|modulus| (UPUP))
+         (|reduce| (|Mapping| F2 F1)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|curve|
            (|Join|
@@ -109,9 +109,9 @@
                                                           |curve|))))))) 
 
 (SDEFUN |RDIV;rootOrder|
-        ((|d| |FiniteDivisor| F1 UP UPUP R) (|radicand| UP)
-         (|n| |NonNegativeInteger|) (|reduce| |Mapping| F2 F1)
-         ($ |NonNegativeInteger|))
+        ((|d| (|FiniteDivisor| F1 UP UPUP R)) (|radicand| (UP))
+         (|n| (|NonNegativeInteger|)) (|reduce| (|Mapping| F2 F1))
+         ($ (|NonNegativeInteger|)))
         (SPROG
          ((|curve|
            (|FunctionFieldCategory| F2 (|SparseUnivariatePolynomial| F2)

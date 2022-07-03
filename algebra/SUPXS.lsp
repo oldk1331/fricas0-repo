@@ -1,13 +1,14 @@
 
 (PUT '|SUPXS;getExpon| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |SUPXS;getExpon| ((|pxs| $) ($ |Fraction| (|Integer|))) (QCAR |pxs|)) 
+(SDEFUN |SUPXS;getExpon| ((|pxs| ($)) ($ (|Fraction| (|Integer|))))
+        (QCAR |pxs|)) 
 
-(SDEFUN |SUPXS;variable;$S;2| ((|x| $) ($ |Symbol|)) (QREFELT $ 7)) 
+(SDEFUN |SUPXS;variable;$S;2| ((|x| ($)) ($ (|Symbol|))) (QREFELT $ 7)) 
 
-(SDEFUN |SUPXS;center;$Coef;3| ((|x| $) ($ |Coef|)) (QREFELT $ 8)) 
+(SDEFUN |SUPXS;center;$Coef;3| ((|x| ($)) ($ (|Coef|))) (QREFELT $ 8)) 
 
-(SDEFUN |SUPXS;coerce;V$;4| ((|v| |Variable| |var|) ($ $))
+(SDEFUN |SUPXS;coerce;V$;4| ((|v| (|Variable| |var|)) ($ ($)))
         (COND
          ((SPADCALL (QREFELT $ 8) (QREFELT $ 14))
           (SPADCALL (|spadConstant| $ 15) (|spadConstant| $ 18)
@@ -20,13 +21,14 @@
            (QREFELT $ 23))))) 
 
 (SDEFUN |SUPXS;coerce;Suts$;5|
-        ((|uts| |SparseUnivariateTaylorSeries| |Coef| |var| |cen|) ($ $))
+        ((|uts| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)) ($ ($)))
         (SPADCALL (SPADCALL |uts| (QREFELT $ 28)) (QREFELT $ 29))) 
 
 (SDEFUN |SUPXS;retractIfCan;$U;6|
-        ((|upxs| $)
-         ($ |Union| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
-          "failed"))
+        ((|upxs| ($))
+         ($
+          (|Union| (|SparseUnivariateTaylorSeries| |Coef| |var| |cen|)
+                   "failed")))
         (SPROG
          ((|uls|
            (|Union| (|SparseUnivariateLaurentSeries| |Coef| |var| |cen|)
@@ -36,13 +38,14 @@
                (COND ((QEQCAR |uls| 1) (CONS 1 "failed"))
                      ('T (SPADCALL (QCDR |uls|) (QREFELT $ 34)))))))) 
 
-(SDEFUN |SUPXS;differentiate;$V$;7| ((|upxs| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |SUPXS;differentiate;$V$;7|
+        ((|upxs| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |upxs| (QREFELT $ 36))) 
 
-(SDEFUN |SUPXS;integrate;$V$;8| ((|upxs| $) (|v| |Variable| |var|) ($ $))
+(SDEFUN |SUPXS;integrate;$V$;8| ((|upxs| ($)) (|v| (|Variable| |var|)) ($ ($)))
         (SPADCALL |upxs| (QREFELT $ 38))) 
 
-(SDEFUN |SUPXS;coerce;$Of;9| ((|x| $) ($ |OutputForm|))
+(SDEFUN |SUPXS;coerce;$Of;9| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|degr| (|Integer|)) (|count| (|NonNegativeInteger|))
           (|nx| (|Union| (|Integer|) "failed"))

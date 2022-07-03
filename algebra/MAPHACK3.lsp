@@ -1,6 +1,6 @@
 
 (SDEFUN |MAPHACK3;comp;MMAC;1|
-        ((|g| |Mapping| C B) (|h| |Mapping| B A) (|x| A) ($ C))
+        ((|g| (|Mapping| C B)) (|h| (|Mapping| B A)) (|x| (A)) ($ (C)))
         (SPADCALL (SPADCALL |x| |h|) |g|)) 
 
 (DECLAIM (NOTINLINE |MappingPackageInternalHacks3;|)) 

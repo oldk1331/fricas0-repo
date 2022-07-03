@@ -1,21 +1,21 @@
 
-(SDEFUN |UDPO;userOrdered?;B;1| (($ |Boolean|))
+(SDEFUN |UDPO;userOrdered?;B;1| (($ (|Boolean|)))
         (COND ((NULL (QREFELT $ 7)) (NULL (NULL (QREFELT $ 8)))) ('T 'T))) 
 
 (SDEFUN |UDPO;getOrder;R;2|
-        (($ |Record| (|:| |low| (|List| S)) (|:| |high| (|List| S))))
+        (($ (|Record| (|:| |low| (|List| S)) (|:| |high| (|List| S)))))
         (CONS (QREFELT $ 7) (QREFELT $ 8))) 
 
-(SDEFUN |UDPO;setOrder;LV;3| ((|l| |List| S) ($ |Void|))
+(SDEFUN |UDPO;setOrder;LV;3| ((|l| (|List| S)) ($ (|Void|)))
         (SPADCALL NIL |l| (QREFELT $ 15))) 
 
-(SDEFUN |UDPO;setOrder;2LV;4| ((|l| |List| S) (|h| |List| S) ($ |Void|))
+(SDEFUN |UDPO;setOrder;2LV;4| ((|l| (|List| S)) (|h| (|List| S)) ($ (|Void|)))
         (SEQ (SETELT $ 7 (SPADCALL |l| (QREFELT $ 17)))
              (SETELT $ 8 (SPADCALL |h| (QREFELT $ 17)))
              (EXIT (SPADCALL (QREFELT $ 18))))) 
 
 (SDEFUN |UDPO;less?;2SMB;5|
-        ((|a| S) (|b| S) (|f| |Mapping| (|Boolean|) S S) ($ |Boolean|))
+        ((|a| (S)) (|b| (S)) (|f| (|Mapping| (|Boolean|) S S)) ($ (|Boolean|)))
         (SPROG ((|u| (|Union| (|Boolean|) "failed")))
                (SEQ (LETT |u| (SPADCALL |a| |b| (QREFELT $ 20)))
                     (EXIT
@@ -23,7 +23,7 @@
                            ('T (QCDR |u|))))))) 
 
 (SDEFUN |UDPO;largest;LMS;6|
-        ((|x| |List| S) (|f| |Mapping| (|Boolean|) S S) ($ S))
+        ((|x| (|List| S)) (|f| (|Mapping| (|Boolean|) S S)) ($ (S)))
         (SPROG ((|a| (S)))
                (SEQ
                 (COND ((NULL |x|) (|error| "largest: empty list"))
@@ -37,7 +37,8 @@
                                |a|)
                               (#1# (|SPADfirst| |x|)))))))))) 
 
-(SDEFUN |UDPO;less?;2SU;7| ((|a| S) (|b| S) ($ |Union| (|Boolean|) "failed"))
+(SDEFUN |UDPO;less?;2SU;7|
+        ((|a| (S)) (|b| (S)) ($ (|Union| (|Boolean|) "failed")))
         (SPROG
          ((|bb| #1=(|Boolean|)) (#2=#:G156 NIL) (|aa| #1#) (#3=#:G158 NIL)
           (|x| NIL) (#4=#:G157 NIL))
@@ -81,10 +82,10 @@
                    ('T (CONS 1 "failed"))))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |UDPO;more?;2SB;8| ((|a| S) (|b| S) ($ |Boolean|))
+(SDEFUN |UDPO;more?;2SB;8| ((|a| (S)) (|b| (S)) ($ (|Boolean|)))
         (NULL (SPADCALL |a| |b| (ELT $ 26) (QREFELT $ 22)))) 
 
-(SDEFUN |UDPO;largest;LS;9| ((|x| |List| S) ($ S))
+(SDEFUN |UDPO;largest;LS;9| ((|x| (|List| S)) ($ (S)))
         (SPADCALL |x| (ELT $ 26) (QREFELT $ 23))) 
 
 (DECLAIM (NOTINLINE |UserDefinedPartialOrdering;|)) 

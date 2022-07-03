@@ -1,30 +1,31 @@
 
 (SDEFUN |MEVAL1;degree;PSNni;1|
-        ((|p| |Polynomial| (|Integer|)) (|s| |Symbol|)
-         ($ |NonNegativeInteger|))
+        ((|p| (|Polynomial| (|Integer|))) (|s| (|Symbol|))
+         ($ (|NonNegativeInteger|)))
         (SPADCALL |p| |s| (QREFELT $ 9))) 
 
 (SDEFUN |MEVAL1;ldegree;PSNni;2|
-        ((|p| |Polynomial| (|Integer|)) (|s| |Symbol|)
-         ($ |NonNegativeInteger|))
+        ((|p| (|Polynomial| (|Integer|))) (|s| (|Symbol|))
+         ($ (|NonNegativeInteger|)))
         (SPADCALL |p| |s| (QREFELT $ 9))) 
 
 (SDEFUN |MEVAL1;eval1;PSIRU;3|
-        ((|p| . #1=(|Polynomial| (|Integer|))) (|v| |Symbol|)
-         (|pt| . #2=(|Integer|))
-         (|s| |Record| (|:| |prime| #2#) (|:| |eval1coeffbuf| (|U32Vector|))
-          (|:| |eval1expbuf| (|SortedExponentVector|)))
-         ($ |Union| #1# "failed"))
+        ((|p| #1=(|Polynomial| (|Integer|))) (|v| (|Symbol|))
+         (|pt| #2=(|Integer|))
+         (|s|
+          (|Record| (|:| |prime| #2#) (|:| |eval1coeffbuf| (|U32Vector|))
+                    (|:| |eval1expbuf| (|SortedExponentVector|))))
+         ($ (|Union| #1# "failed")))
         (CONS 0 (SPADCALL |p| |v| |pt| |s| (QREFELT $ 15)))) 
 
 (SDEFUN |MEVAL1;modpreduction;PIU;4|
-        ((|p| . #1=(|Polynomial| (|Integer|))) (|q| |Integer|)
-         ($ |Union| #1# "failed"))
+        ((|p| #1=(|Polynomial| (|Integer|))) (|q| (|Integer|))
+         ($ (|Union| #1# "failed")))
         (CONS 0 (SPADCALL |p| |q| (QREFELT $ 18)))) 
 
 (SDEFUN |MEVAL1;subst_vars;P2LP;5|
-        ((|p| |Polynomial| (|Integer|)) (|ls1| . #1=(|List| (|Symbol|)))
-         (|ls2| . #1#) ($ |Polynomial| (|Integer|)))
+        ((|p| (|Polynomial| (|Integer|))) (|ls1| #1=(|List| (|Symbol|)))
+         (|ls2| #1#) ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((|lm| (|List| (|Polynomial| (|Integer|)))) (#2=#:G137 NIL) (|v| NIL)
           (#3=#:G136 NIL))
@@ -48,9 +49,9 @@
           (EXIT (SPADCALL |p| |ls1| |lm| (QREFELT $ 24)))))) 
 
 (SDEFUN |MEVAL1;trial_division;2PLSLB;6|
-        ((|p| . #1=(|Polynomial| (|Integer|))) (|g| |Polynomial| (|Integer|))
-         (|lm| |List| #1#) (|v| . #2=(|Symbol|)) (|ls| |List| #2#)
-         ($ |Boolean|))
+        ((|p| #1=(|Polynomial| (|Integer|))) (|g| (|Polynomial| (|Integer|)))
+         (|lm| (|List| #1#)) (|v| #2=(|Symbol|)) (|ls| (|List| #2#))
+         ($ (|Boolean|)))
         (SPROG ((#3=#:G141 NIL) (|m| NIL) (#4=#:G140 NIL))
                (SEQ
                 (SPADCALL |p| |g|

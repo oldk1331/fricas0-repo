@@ -1,16 +1,16 @@
 
-(SDEFUN |INTALG;F2UPR| ((|f| F) ($ |SparseUnivariatePolynomial| R))
+(SDEFUN |INTALG;F2UPR| ((|f| (F)) ($ (|SparseUnivariatePolynomial| R)))
         (SPADCALL (|INTALG;F2R| |f| $) (QREFELT $ 20))) 
 
-(SDEFUN |INTALG;F2R| ((|f| F) ($ R))
+(SDEFUN |INTALG;F2R| ((|f| (F)) ($ (R)))
         (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 21)) (QREFELT $ 23))
                   (QREFELT $ 24))) 
 
 (SDEFUN |INTALG;IRF_to_IR|
-        ((|irf| |IntegrationResult| F) ($ |IntegrationResult| R))
+        ((|irf| (|IntegrationResult| F)) ($ (|IntegrationResult| R)))
         (SPADCALL (CONS (|function| |INTALG;F2R|) $) |irf| (QREFELT $ 29))) 
 
-(SDEFUN |INTALG;R_to_F| ((|f| R) ($ |Union| F "failed"))
+(SDEFUN |INTALG;R_to_F| ((|f| (R)) ($ (|Union| F "failed")))
         (SPROG
          ((|f2| (UP)) (|u2| (|Union| UP "failed")) (|f1| (|Fraction| UP))
           (|u1| (|Union| (|Fraction| UP) "failed")))
@@ -29,9 +29,9 @@
                                                    (QREFELT $ 35)))))))))))))) 
 
 (SDEFUN |INTALG;algintexp|
-        ((|f| R) (|derivation| |Mapping| UP UP)
-         (|rec_int| |Mapping| #1=(|IntegrationResult| F) F)
-         ($ |IntegrationResult| R))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP))
+         (|rec_int| (|Mapping| #1=(|IntegrationResult| F) F))
+         ($ (|IntegrationResult| R)))
         (SPROG
          ((|u|
            (|Union|
@@ -111,9 +111,9 @@
                                        (QREFELT $ 69)))))))))))))))) 
 
 (SDEFUN |INTALG;algintprim|
-        ((|f| R) (|derivation| |Mapping| UP UP)
-         (|rec_int| |Mapping| #1=(|IntegrationResult| F) F)
-         ($ |IntegrationResult| R))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP))
+         (|rec_int| (|Mapping| #1=(|IntegrationResult| F) F))
+         ($ (|IntegrationResult| R)))
         (SPROG
          ((|u|
            (|Union|
@@ -155,20 +155,23 @@
                                        (QREFELT $ 69)))))))))))))))) 
 
 (SDEFUN |INTALG;find_multiples|
-        ((|f1| |Record| (|:| |factor| UP)
-          (|:| |exponent| (|NonNegativeInteger|)))
-         (|lp| |List|
+        ((|f1|
           (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))))
-         ($ |Record|
-          (|:| |result1|
-               (|List|
-                (|Record| (|:| |factor| UP)
-                          (|:| |exponent| (|NonNegativeInteger|))
-                          (|:| |coeff| (|Fraction| (|Integer|))))))
-          (|:| |result2|
-               (|List|
-                (|Record| (|:| |factor| UP)
-                          (|:| |exponent| (|NonNegativeInteger|)))))))
+         (|lp|
+          (|List|
+           (|Record| (|:| |factor| UP)
+                     (|:| |exponent| (|NonNegativeInteger|)))))
+         ($
+          (|Record|
+           (|:| |result1|
+                (|List|
+                 (|Record| (|:| |factor| UP)
+                           (|:| |exponent| (|NonNegativeInteger|))
+                           (|:| |coeff| (|Fraction| (|Integer|))))))
+           (|:| |result2|
+                (|List|
+                 (|Record| (|:| |factor| UP)
+                           (|:| |exponent| (|NonNegativeInteger|))))))))
         (SPROG
          ((|res|
            (|List|
@@ -318,30 +321,33 @@
               (LETT |res| (NREVERSE |res|)) (EXIT (CONS |res| |rr|))))) 
 
 (SDEFUN |INTALG;handle_multiples1|
-        ((|rec| |Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
-          (|:| |gd| UP))
-         (|lp| |List|
-          (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
-                    (|:| |coeff| #1=(|Fraction| (|Integer|)))))
-         (|cc| |Integer|)
-         ($ |Record|
-          (|:| |result1|
-               (|List|
-                (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                          (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                          (|:| |logand| (|SparseUnivariatePolynomial| R)))))
-          (|:| |result2|
-               (|List|
-                (|Record| (|:| |factor| UP)
-                          (|:| |exponent| (|NonNegativeInteger|))
-                          (|:| |coeff| (|Fraction| (|Integer|)))
-                          (|:| |scalar| F)
-                          (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
-          (|:| |result3|
-               (|List|
-                (|Record| (|:| |factor| UP)
-                          (|:| |exponent| (|NonNegativeInteger|))
-                          (|:| |coeff| (|Fraction| (|Integer|))))))))
+        ((|rec|
+          (|Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
+                    (|:| |gd| UP)))
+         (|lp|
+          (|List|
+           (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
+                     (|:| |coeff| #1=(|Fraction| (|Integer|))))))
+         (|cc| (|Integer|))
+         ($
+          (|Record|
+           (|:| |result1|
+                (|List|
+                 (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                           (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                           (|:| |logand| (|SparseUnivariatePolynomial| R)))))
+           (|:| |result2|
+                (|List|
+                 (|Record| (|:| |factor| UP)
+                           (|:| |exponent| (|NonNegativeInteger|))
+                           (|:| |coeff| (|Fraction| (|Integer|)))
+                           (|:| |scalar| F)
+                           (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
+           (|:| |result3|
+                (|List|
+                 (|Record| (|:| |factor| UP)
+                           (|:| |exponent| (|NonNegativeInteger|))
+                           (|:| |coeff| (|Fraction| (|Integer|)))))))))
         (SPROG
          ((|llg|
            (|List|
@@ -428,30 +434,33 @@
               (EXIT (VECTOR |llg| |nlp| NIL))))) 
 
 (SDEFUN |INTALG;handle_multiples|
-        ((|rec| |Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
-          (|:| |gd| UP))
-         (|lp| |List|
-          #1=(|Record| (|:| |factor| UP)
-                       (|:| |exponent| (|NonNegativeInteger|))
-                       (|:| |coeff| #2=(|Fraction| (|Integer|)))))
-         ($ |Record|
-          (|:| |result1|
-               (|List|
-                (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                          (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                          (|:| |logand| (|SparseUnivariatePolynomial| R)))))
-          (|:| |result2|
-               (|List|
-                (|Record| (|:| |factor| UP)
-                          (|:| |exponent| (|NonNegativeInteger|))
-                          (|:| |coeff| (|Fraction| (|Integer|)))
-                          (|:| |scalar| F)
-                          (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
-          (|:| |result3|
-               (|List|
-                (|Record| (|:| |factor| UP)
-                          (|:| |exponent| (|NonNegativeInteger|))
-                          (|:| |coeff| (|Fraction| (|Integer|))))))))
+        ((|rec|
+          (|Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
+                    (|:| |gd| UP)))
+         (|lp|
+          (|List|
+           #1=(|Record| (|:| |factor| UP)
+                        (|:| |exponent| (|NonNegativeInteger|))
+                        (|:| |coeff| #2=(|Fraction| (|Integer|))))))
+         ($
+          (|Record|
+           (|:| |result1|
+                (|List|
+                 (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                           (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                           (|:| |logand| (|SparseUnivariatePolynomial| R)))))
+           (|:| |result2|
+                (|List|
+                 (|Record| (|:| |factor| UP)
+                           (|:| |exponent| (|NonNegativeInteger|))
+                           (|:| |coeff| (|Fraction| (|Integer|)))
+                           (|:| |scalar| F)
+                           (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
+           (|:| |result3|
+                (|List|
+                 (|Record| (|:| |factor| UP)
+                           (|:| |exponent| (|NonNegativeInteger|))
+                           (|:| |coeff| (|Fraction| (|Integer|)))))))))
         (SPROG
          ((#3=#:G295 NIL)
           (|ff|
@@ -561,7 +570,7 @@
             (SPADCALL (QVELT |x| 2) (SPADCALL |nfac| (QREFELT $ 119))
                       (QREFELT $ 120)))))) 
 
-(SDEFUN |INTALG;get_coeffs0| ((|lp| |List| UP) ($ |List| F))
+(SDEFUN |INTALG;get_coeffs0| ((|lp| (|List| UP)) ($ (|List| F)))
         (SPROG ((|res| (|List| F)) (#1=#:G302 NIL) (|p| NIL))
                (SEQ (LETT |res| NIL)
                     (SEQ (LETT |p| NIL) (LETT #1# |lp|) G190
@@ -576,7 +585,7 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |res|)))) 
 
-(SDEFUN |INTALG;get_coeffs1| ((|pp| UPUP) ($ |List| UP))
+(SDEFUN |INTALG;get_coeffs1| ((|pp| (UPUP)) ($ (|List| UP)))
         (SPROG
          ((|dlp| #1=(|List| UP)) (|nlp| #1#) (|lp| (|List| (|Fraction| UP))))
          (SEQ (LETT |lp| (SPADCALL |pp| (QREFELT $ 130)))
@@ -585,9 +594,10 @@
               (EXIT (SPADCALL |nlp| |dlp| (QREFELT $ 137)))))) 
 
 (SDEFUN |INTALG;get_coeffs|
-        ((|rec| |Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
-          (|:| |gd| UP))
-         ($ |List| F))
+        ((|rec|
+          (|Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
+                    (|:| |gd| UP)))
+         ($ (|List| F)))
         (SPROG ((|dlp| #1=(|List| UP)) (|nlp| #1#) (|clp| (|List| UP)))
                (SEQ
                 (LETT |clp|
@@ -604,29 +614,31 @@
                   $))))) 
 
 (SDEFUN |INTALG;classify_divisors|
-        ((|rec| |Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
-          (|:| |gd| UP))
-         (|r| UP)
-         ($ |Record|
-          (|:| |result1|
-               (|List|
-                (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                          (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                          (|:| |logand| (|SparseUnivariatePolynomial| R)))))
-          (|:| |result2|
-               (|List|
+        ((|rec|
+          (|Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
+                    (|:| |gd| UP)))
+         (|r| (UP))
+         ($
+          (|Record|
+           (|:| |result1|
                 (|List|
-                 (|Record| (|:| |factor| UP)
-                           (|:| |exponent| (|NonNegativeInteger|))
-                           (|:| |coeff| (|Fraction| (|Integer|)))
-                           (|:| |scalar| F)
-                           (|:| |divisor| (|FiniteDivisor| F UP UPUP R))))))
-          (|:| |result3|
-               (|List|
+                 (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                           (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                           (|:| |logand| (|SparseUnivariatePolynomial| R)))))
+           (|:| |result2|
                 (|List|
-                 (|Record| (|:| |factor| UP)
-                           (|:| |exponent| (|NonNegativeInteger|))
-                           (|:| |coeff| (|Fraction| (|Integer|)))))))))
+                 (|List|
+                  (|Record| (|:| |factor| UP)
+                            (|:| |exponent| (|NonNegativeInteger|))
+                            (|:| |coeff| (|Fraction| (|Integer|)))
+                            (|:| |scalar| F)
+                            (|:| |divisor| (|FiniteDivisor| F UP UPUP R))))))
+           (|:| |result3|
+                (|List|
+                 (|List|
+                  (|Record| (|:| |factor| UP)
+                            (|:| |exponent| (|NonNegativeInteger|))
+                            (|:| |coeff| (|Fraction| (|Integer|))))))))))
         (SPROG
          ((|nlm2|
            (|List|
@@ -735,16 +747,18 @@
               (EXIT (VECTOR |llg| |nlm1| |nlm2|))))) 
 
 (SDEFUN |INTALG;get_lf|
-        ((|ll1| |List|
+        ((|ll1|
           (|List|
-           (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
-                     (|:| |coeff| (|Fraction| (|Integer|))) (|:| |scalar| F)
-                     (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
-         (|ll2| |List|
+           (|List|
+            (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
+                      (|:| |coeff| (|Fraction| (|Integer|))) (|:| |scalar| F)
+                      (|:| |divisor| (|FiniteDivisor| F UP UPUP R))))))
+         (|ll2|
           (|List|
-           (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
-                     (|:| |coeff| (|Fraction| (|Integer|))))))
-         ($ |List| UP))
+           (|List|
+            (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
+                      (|:| |coeff| (|Fraction| (|Integer|)))))))
+         ($ (|List| UP)))
         (SPROG
          ((#1=#:G340 NIL) (|peq| NIL) (#2=#:G339 NIL) (#3=#:G338 NIL)
           (#4=#:G337 NIL))
@@ -776,16 +790,18 @@
                        (EXIT (NREVERSE #2#)))))))))) 
 
 (SDEFUN |INTALG;get_la|
-        ((|ll1| |List|
+        ((|ll1|
           (|List|
-           (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
-                     (|:| |coeff| (|Fraction| (|Integer|))) (|:| |scalar| F)
-                     (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
-         (|ll2| |List|
+           (|List|
+            (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
+                      (|:| |coeff| (|Fraction| (|Integer|))) (|:| |scalar| F)
+                      (|:| |divisor| (|FiniteDivisor| F UP UPUP R))))))
+         (|ll2|
           (|List|
-           (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
-                     (|:| |coeff| (|Fraction| (|Integer|))))))
-         ($ |List| F))
+           (|List|
+            (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
+                      (|:| |coeff| (|Fraction| (|Integer|)))))))
+         ($ (|List| F)))
         (SPROG ((#1=#:G346 NIL) (|lfac| NIL) (#2=#:G345 NIL))
                (SEQ
                 (PROGN
@@ -806,18 +822,21 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |INTALG;get_ld|
-        ((|rec| |Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
-          (|:| |gd| UP))
-         (|ll1| |List|
+        ((|rec|
+          (|Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
+                    (|:| |gd| UP)))
+         (|ll1|
           (|List|
-           (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
-                     (|:| |coeff| (|Fraction| (|Integer|))) (|:| |scalar| F)
-                     (|:| |divisor| (|FiniteDivisor| F UP UPUP R)))))
-         (|ll2| |List|
+           (|List|
+            (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
+                      (|:| |coeff| (|Fraction| (|Integer|))) (|:| |scalar| F)
+                      (|:| |divisor| (|FiniteDivisor| F UP UPUP R))))))
+         (|ll2|
           (|List|
-           (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
-                     (|:| |coeff| (|Fraction| (|Integer|))))))
-         ($ |List| (|FiniteDivisor| F UP UPUP R)))
+           (|List|
+            (|Record| (|:| |factor| UP) (|:| |exponent| (|NonNegativeInteger|))
+                      (|:| |coeff| (|Fraction| (|Integer|)))))))
+         ($ (|List| (|FiniteDivisor| F UP UPUP R))))
         (SPROG
          ((#1=#:G362 NIL) (|peq| NIL) (#2=#:G361 NIL) (#3=#:G360 NIL) (|a| NIL)
           (#4=#:G359 NIL))
@@ -857,13 +876,14 @@
                        (EXIT (NREVERSE #2#)))))))))) 
 
 (SDEFUN |INTALG;palglogint|
-        ((|f| R) (|derivation| |Mapping| UP UP)
-         ($ |Union|
-          (|List|
-           (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                     (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                     (|:| |logand| (|SparseUnivariatePolynomial| R))))
-          "failed"))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP))
+         ($
+          (|Union|
+           (|List|
+            (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                      (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                      (|:| |logand| (|SparseUnivariatePolynomial| R))))
+           "failed")))
         (SPROG
          ((|tr1u|
            (|Union|
@@ -1265,15 +1285,17 @@
                                                                    115))))))))))))))))))))))))) 
 
 (SDEFUN |INTALG;do_root|
-        ((|q| UP)
-         (|rec| |Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
-          (|:| |gd| UP))
-         ($ |Union|
-          (|List|
-           (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                     (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                     (|:| |logand| (|SparseUnivariatePolynomial| R))))
-          "failed"))
+        ((|q| (UP))
+         (|rec|
+          (|Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
+                    (|:| |gd| UP)))
+         ($
+          (|Union|
+           (|List|
+            (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                      (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                      (|:| |logand| (|SparseUnivariatePolynomial| R))))
+           "failed")))
         (SPROG
          ((|rc|
            (|Union|
@@ -1322,17 +1344,18 @@
                               (QREFELT $ 113))
                              (QCDR (QCDR |rc|)) |alpha| $)))))))) 
 
-(SDEFUN |INTALG;UP2SUP| ((|p| UP) ($ |SparseUnivariatePolynomial| F))
+(SDEFUN |INTALG;UP2SUP| ((|p| (UP)) ($ (|SparseUnivariatePolynomial| F)))
         (SPADCALL (LIST #'|INTALG;UP2SUP!0|) |p| (QREFELT $ 167))) 
 
 (SDEFUN |INTALG;UP2SUP!0| ((|x| NIL) ($$ NIL)) |x|) 
 
-(SDEFUN |INTALG;SUP2UP| ((|p| |SparseUnivariatePolynomial| F) ($ UP))
+(SDEFUN |INTALG;SUP2UP| ((|p| (|SparseUnivariatePolynomial| F)) ($ (UP)))
         (SPADCALL (LIST #'|INTALG;SUP2UP!0|) |p| (QREFELT $ 169))) 
 
 (SDEFUN |INTALG;SUP2UP!0| ((|x| NIL) ($$ NIL)) |x|) 
 
-(SDEFUN |INTALG;varRoot?| ((|p| UP) (|derivation| |Mapping| F F) ($ |Boolean|))
+(SDEFUN |INTALG;varRoot?|
+        ((|p| (UP)) (|derivation| (|Mapping| F F)) ($ (|Boolean|)))
         (SPROG ((#1=#:G471 NIL) (#2=#:G472 NIL) (#3=#:G473 NIL) (|c| NIL))
                (SEQ
                 (EXIT
@@ -1358,10 +1381,11 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |INTALG;pLogDeriv|
-        ((|log| |Record| (|:| |scalar| (|Fraction| (|Integer|)))
-          (|:| |coeff| (|SparseUnivariatePolynomial| R))
-          (|:| |logand| (|SparseUnivariatePolynomial| R)))
-         (|derivation| |Mapping| R R) ($ R))
+        ((|log|
+          (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                    (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                    (|:| |logand| (|SparseUnivariatePolynomial| R))))
+         (|derivation| (|Mapping| R R)) ($ (R)))
         (SPROG
          ((|ans| (R)) (|algans| #1=(|SparseUnivariatePolynomial| R))
           (#2=#:G500 NIL) (|i| NIL)
@@ -1440,7 +1464,7 @@
                                (QREFELT $ 182))))))))))))))))) 
 
 (SDEFUN |INTALG;R2UP|
-        ((|f| R) (|k| |Kernel| F) ($ |SparseUnivariatePolynomial| R))
+        ((|f| (R)) (|k| (|Kernel| F)) ($ (|SparseUnivariatePolynomial| R)))
         (SPROG ((|g| (F)) (|y| (F)) (|x| (F)))
                (SEQ (LETT |x| (SPADCALL (QREFELT $ 17) (QREFELT $ 192)))
                     (LETT |g|
@@ -1471,7 +1495,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |f1| |x| (QREFELT $ 194)))))) 
 
-(SDEFUN |INTALG;univ| ((|f| F) (|k| |Kernel| F) ($ |Fraction| UP))
+(SDEFUN |INTALG;univ| ((|f| (F)) (|k| (|Kernel| F)) ($ (|Fraction| UP)))
         (SPROG ((|g| (|Fraction| (|SparseUnivariatePolynomial| F))))
                (SEQ (LETT |g| (SPADCALL |f| |k| (QREFELT $ 205)))
                     (EXIT
@@ -1480,7 +1504,8 @@
                       (|INTALG;SUP2UP| (SPADCALL |g| (QREFELT $ 208)) $)
                       (QREFELT $ 46)))))) 
 
-(SDEFUN |INTALG;rlift| ((|f| F) (|kx| |Kernel| F) (|ky| |Kernel| F) ($ R))
+(SDEFUN |INTALG;rlift|
+        ((|f| (F)) (|kx| (|Kernel| F)) (|ky| (|Kernel| F)) ($ (R)))
         (SPROG ((|uf| (|Fraction| (|SparseUnivariatePolynomial| F))))
                (SEQ (LETT |uf| (SPADCALL |f| |ky| (QREFELT $ 205)))
                     (EXIT
@@ -1497,14 +1522,16 @@
           (RETURN (PROGN (|INTALG;univ| |x1| |kx| $))))) 
 
 (SDEFUN |INTALG;trace1|
-        ((|q| UP) (|la| |List| F) (|ld| |List| (|FiniteDivisor| F UP UPUP R))
-         (|v1| |FiniteDivisor| F UP UPUP R) (|alpha| F) (|b| F)
-         ($ |Union|
-          (|List|
-           (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                     (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                     (|:| |logand| (|SparseUnivariatePolynomial| R))))
-          "failed"))
+        ((|q| (UP)) (|la| (|List| F))
+         (|ld| (|List| (|FiniteDivisor| F UP UPUP R)))
+         (|v1| (|FiniteDivisor| F UP UPUP R)) (|alpha| (F)) (|b| (F))
+         ($
+          (|Union|
+           (|List|
+            (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                      (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                      (|:| |logand| (|SparseUnivariatePolynomial| R))))
+           "failed")))
         (SPROG
          ((|rc|
            (|Union|
@@ -1576,11 +1603,13 @@
                     (QCDR (QCDR |rc|)) |alpha| $)))))))) 
 
 (SDEFUN |INTALG;mkLog|
-        ((|q| UP) (|scalr| |Fraction| (|Integer|)) (|lgd| R) (|alpha| F)
-         ($ |List|
-          (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                    (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                    (|:| |logand| (|SparseUnivariatePolynomial| R)))))
+        ((|q| (UP)) (|scalr| (|Fraction| (|Integer|))) (|lgd| (R))
+         (|alpha| (F))
+         ($
+          (|List|
+           (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                     (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                     (|:| |logand| (|SparseUnivariatePolynomial| R))))))
         (COND
          ((<= (SPADCALL |q| (QREFELT $ 75)) 1)
           (LIST
@@ -1598,7 +1627,8 @@
                     $)))))) 
 
 (SDEFUN |INTALG;palgintegrate;RMIr;28|
-        ((|f| R) (|derivation| |Mapping| UP UP) ($ |IntegrationResult| R))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP))
+         ($ (|IntegrationResult| R)))
         (SPROG
          ((|difFirstKind| (R)) (#1=#:G587 NIL) (#2=#:G586 (R)) (#3=#:G588 (R))
           (#4=#:G595 NIL) (|lg| NIL) (#5=#:G594 NIL)
@@ -1694,9 +1724,9 @@
           (RETURN (PROGN (SPADCALL |x1| |derivation| (QREFELT $ 226)))))) 
 
 (SDEFUN |INTALG;algintegrate;RMMIr;29|
-        ((|f| R) (|derivation| |Mapping| UP UP)
-         (|rec_int| |Mapping| (|IntegrationResult| F) F)
-         ($ |IntegrationResult| R))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP))
+         (|rec_int| (|Mapping| (|IntegrationResult| F) F))
+         ($ (|IntegrationResult| R)))
         (SPROG
          ((#1=#:G609 NIL) (|xx| (|Union| UP "failed")) (|x'| (UP)) (|x| (UP)))
          (SEQ
@@ -1727,13 +1757,15 @@
               #2# (EXIT #1#)))))))) 
 
 (SDEFUN |INTALG;try_logs|
-        ((|f| R) (|derivation| |Mapping| UP UP) (|r| UP) (|lp| |List| UP)
-         ($ |Union|
-          (|List|
-           (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                     (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                     (|:| |logand| (|SparseUnivariatePolynomial| R))))
-          "failed"))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP)) (|r| (UP))
+         (|lp| (|List| UP))
+         ($
+          (|Union|
+           (|List|
+            (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                      (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                      (|:| |logand| (|SparseUnivariatePolynomial| R))))
+           "failed")))
         (SPROG
          ((|llg|
            (|List|
@@ -1802,13 +1834,14 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |INTALG;alglogint|
-        ((|f| R) (|derivation| |Mapping| UP UP)
-         ($ |Union|
-          (|List|
-           (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
-                     (|:| |coeff| (|SparseUnivariatePolynomial| R))
-                     (|:| |logand| (|SparseUnivariatePolynomial| R))))
-          "failed"))
+        ((|f| (R)) (|derivation| (|Mapping| UP UP))
+         ($
+          (|Union|
+           (|List|
+            (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
+                      (|:| |coeff| (|SparseUnivariatePolynomial| R))
+                      (|:| |logand| (|SparseUnivariatePolynomial| R))))
+           "failed")))
         (SPROG
          ((|diff1| (R)) (#1=#:G631 NIL) (#2=#:G630 (R)) (#3=#:G632 (R))
           (#4=#:G639 NIL) (|lg| NIL)

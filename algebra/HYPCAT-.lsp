@@ -1,5 +1,5 @@
 
-(SDEFUN |HYPCAT-;csch;2S;1| ((|x| S) ($ S))
+(SDEFUN |HYPCAT-;csch;2S;1| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ
                 (LETT |a|
@@ -8,7 +8,7 @@
                  (COND ((QEQCAR |a| 1) (|error| "csch: no reciprocal"))
                        ('T (QCDR |a|))))))) 
 
-(SDEFUN |HYPCAT-;sech;2S;2| ((|x| S) ($ S))
+(SDEFUN |HYPCAT-;sech;2S;2| ((|x| (S)) ($ (S)))
         (SPROG ((|a| (|Union| S "failed")))
                (SEQ
                 (LETT |a|
@@ -17,15 +17,15 @@
                  (COND ((QEQCAR |a| 1) (|error| "sech: no reciprocal"))
                        ('T (QCDR |a|))))))) 
 
-(SDEFUN |HYPCAT-;tanh;2S;3| ((|x| S) ($ S))
+(SDEFUN |HYPCAT-;tanh;2S;3| ((|x| (S)) ($ (S)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (SPADCALL |x| (QREFELT $ 13))
                   (QREFELT $ 14))) 
 
-(SDEFUN |HYPCAT-;coth;2S;4| ((|x| S) ($ S))
+(SDEFUN |HYPCAT-;coth;2S;4| ((|x| (S)) ($ (S)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |x| (QREFELT $ 16))
                   (QREFELT $ 14))) 
 
-(SDEFUN |HYPCAT-;cosh;2S;5| ((|x| S) ($ S))
+(SDEFUN |HYPCAT-;cosh;2S;5| ((|x| (S)) ($ (S)))
         (SPROG ((#1=#:G142 NIL) (|e| (S)))
                (SEQ (LETT |e| (SPADCALL |x| (QREFELT $ 18)))
                     (EXIT
@@ -47,7 +47,7 @@
                                         (|Union| (QREFELT $ 6) #2#) #1#))
                       (QREFELT $ 14)))))) 
 
-(SDEFUN |HYPCAT-;sinh;2S;6| ((|x| S) ($ S))
+(SDEFUN |HYPCAT-;sinh;2S;6| ((|x| (S)) ($ (S)))
         (SPROG ((#1=#:G147 NIL) (|e| (S)))
                (SEQ (LETT |e| (SPADCALL |x| (QREFELT $ 18)))
                     (EXIT

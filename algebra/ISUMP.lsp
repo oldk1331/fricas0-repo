@@ -1,8 +1,10 @@
 
 (SDEFUN |ISUMP;pmul|
-        ((|c| P) (|p| |SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
-         ($ |Record| (|:| |num| (|SparseUnivariatePolynomial| P))
-          (|:| |den| (|Integer|))))
+        ((|c| (P))
+         (|p| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+         ($
+          (|Record| (|:| |num| (|SparseUnivariatePolynomial| P))
+                    (|:| |den| (|Integer|)))))
         (SPROG
          ((|pn| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|rec| (|Record| (|:| |num| #1#) (|:| |den| (|Integer|)))))
@@ -22,8 +24,8 @@
             (SPADCALL (SPADCALL |x| (QREFELT $ 16)) |c| (QREFELT $ 17)))))) 
 
 (SDEFUN |ISUMP;sum;PVSR;2|
-        ((|p| P) (|v| V) (|s| |Segment| P)
-         ($ |Record| (|:| |num| P) (|:| |den| (|Integer|))))
+        ((|p| (P)) (|v| (V)) (|s| (|Segment| P))
+         ($ (|Record| (|:| |num| P) (|:| |den| (|Integer|)))))
         (SPROG ((|indef| (|Record| (|:| |num| P) (|:| |den| (|Integer|)))))
                (SEQ (LETT |indef| (SPADCALL |p| |v| (QREFELT $ 23)))
                     (EXIT
@@ -40,7 +42,8 @@
                       (QCDR |indef|)))))) 
 
 (SDEFUN |ISUMP;sum;PVR;3|
-        ((|p| P) (|v| V) ($ |Record| (|:| |num| P) (|:| |den| (|Integer|))))
+        ((|p| (P)) (|v| (V))
+         ($ (|Record| (|:| |num| P) (|:| |den| (|Integer|)))))
         (SPROG
          ((|vp| #1=(|SparseUnivariatePolynomial| P)) (#2=#:G132 NIL)
           (#3=#:G131 #1#) (#4=#:G133 #1#) (#5=#:G135 NIL) (#6=#:G139 NIL)

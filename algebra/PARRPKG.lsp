@@ -1,7 +1,7 @@
 
 (SDEFUN |PARRPKG;nextMotzkinRow|
-        ((|vv| . #1=(|List| R)) (|aa| |Stream| R) (|bb| |Stream| R)
-         (|cc| |Stream| R) ($ |List| R))
+        ((|vv| #1=(|List| R)) (|aa| (|Stream| R)) (|bb| (|Stream| R))
+         (|cc| (|Stream| R)) ($ (|List| R)))
         (SPROG
          ((|vvnew| (|List| R)) (|vva| (|List| R)) (|vi| (R)) (|vvc| (|List| R))
           (|vvb| #1#))
@@ -47,8 +47,8 @@
               (EXIT (LETT |vvnew| (NREVERSE |vvnew|)))))) 
 
 (SDEFUN |PARRPKG;nextJacobiRow|
-        ((|vv| . #1=(|List| R)) (|bb| |Stream| R) (|cc| |Stream| R)
-         ($ |List| R))
+        ((|vv| #1=(|List| R)) (|bb| (|Stream| R)) (|cc| (|Stream| R))
+         ($ (|List| R)))
         (SPROG
          ((|vvnew| (|List| R)) (|vva| (|List| R)) (|vi| (R)) (|vvc| (|List| R))
           (|vvb| #1#))
@@ -83,8 +83,8 @@
               (EXIT (LETT |vvnew| (NREVERSE |vvnew|)))))) 
 
 (SDEFUN |PARRPKG;motzkinPathArray;3SS;3|
-        ((|aa| |Stream| R) (|bb| |Stream| R) (|cc| |Stream| R)
-         ($ |Stream| (|List| R)))
+        ((|aa| (|Stream| R)) (|bb| (|Stream| R)) (|cc| (|Stream| R))
+         ($ (|Stream| (|List| R))))
         (SPROG ((|start| (|List| R)))
                (SEQ (LETT |start| (LIST (|spadConstant| $ 14)))
                     (EXIT
@@ -102,7 +102,7 @@
           (RETURN (PROGN (|PARRPKG;nextMotzkinRow| |vv| |aa| |bb| |cc| $))))) 
 
 (SDEFUN |PARRPKG;jacobiPathArray;2SS;4|
-        ((|bb| |Stream| R) (|cc| |Stream| R) ($ |Stream| (|List| R)))
+        ((|bb| (|Stream| R)) (|cc| (|Stream| R)) ($ (|Stream| (|List| R))))
         (SPROG ((|start| (|List| R)))
                (SEQ (LETT |start| (LIST (|spadConstant| $ 14)))
                     (EXIT
@@ -118,7 +118,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|PARRPKG;nextJacobiRow| |vv| |bb| |cc| $))))) 
 
-(SDEFUN |PARRPKG;bottom;SS;5| ((|x| |Stream| (|List| R)) ($ |Stream| R))
+(SDEFUN |PARRPKG;bottom;SS;5| ((|x| (|Stream| (|List| R))) ($ (|Stream| R)))
         (SPADCALL (ELT $ 21) |x| (QREFELT $ 24))) 
 
 (DECLAIM (NOTINLINE |PathArrayPackage;|)) 

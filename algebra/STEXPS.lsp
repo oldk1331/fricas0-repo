@@ -1,9 +1,9 @@
 
-(SDEFUN |STEXPS;zro| (($ |Stream| |Coef|)) (SPADCALL (QREFELT $ 8))) 
+(SDEFUN |STEXPS;zro| (($ (|Stream| |Coef|))) (SPADCALL (QREFELT $ 8))) 
 
 (SDEFUN |STEXPS;stmult|
-        ((|n0| |Integer|) (|x0| |Stream| |Coef|) (|y0| |Stream| |Coef|)
-         (|ll0| |List| |Coef|) ($ |Stream| |Coef|))
+        ((|n0| (|Integer|)) (|x0| (|Stream| |Coef|)) (|y0| (|Stream| |Coef|))
+         (|ll0| (|List| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SEQ
                 (SPADCALL
@@ -95,7 +95,7 @@
               #4# (EXIT #2#))))))) 
 
 (SDEFUN |STEXPS;*;3S;3|
-        ((|x| |Stream| |Coef|) (|y| |Stream| |Coef|) ($ |Stream| |Coef|))
+        ((|x| (|Stream| |Coef|)) (|y| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL (CONS #'|STEXPS;*;3S;3!0| (VECTOR |x| $ |y|))
                          (QREFELT $ 37)))) 
@@ -114,19 +114,20 @@
               (|STEXPS;stmult| (SPADCALL (|spadConstant| $ 20) (QREFELT $ 38))
                |x| |y| NIL $))))))) 
 
-(SDEFUN |STEXPS;deriv;2S;4| ((|f| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STEXPS;deriv;2S;4| ((|f| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (COND ((SPADCALL |f| (QREFELT $ 10)) (|STEXPS;zro| $))
               ('T (SPADCALL |f| (QREFELT $ 15))))) 
 
 (SDEFUN |STEXPS;integrate;Coef2S;5|
-        ((|a| |Coef|) (|x| |Stream| |Coef|) ($ |Stream| |Coef|))
+        ((|a| (|Coef|)) (|x| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPADCALL |a| |x| (QREFELT $ 34))) 
 
 (SDEFUN |STEXPS;lazyIntegrate;CoefMS;6|
-        ((|s| |Coef|) (|xf| |Mapping| (|Stream| |Coef|)) ($ |Stream| |Coef|))
+        ((|s| (|Coef|)) (|xf| (|Mapping| (|Stream| |Coef|)))
+         ($ (|Stream| |Coef|)))
         (SPADCALL |s| (SPADCALL |xf| (QREFELT $ 37)) (QREFELT $ 34))) 
 
-(SDEFUN |STEXPS;exp00| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STEXPS;exp00| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (COND
                 ((SPADCALL |z| (QREFELT $ 10))
@@ -156,10 +157,10 @@
            (PROGN
             (SPADCALL |y| (SPADCALL |z| (QREFELT $ 40)) (QREFELT $ 39)))))) 
 
-(SDEFUN |STEXPS;exp0;2S;8| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STEXPS;exp0;2S;8| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (|STEXPS;exp00| (SPADCALL (|spadConstant| $ 11) |z| (QREFELT $ 44)) $)) 
 
-(SDEFUN |STEXPS;log1;2S;9| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+(SDEFUN |STEXPS;log1;2S;9| ((|z| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (COND ((SPADCALL |z| (QREFELT $ 10)) (|STEXPS;zro| $))
                      ('T

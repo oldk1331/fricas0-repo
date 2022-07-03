@@ -1,6 +1,6 @@
 
 (SDEFUN |SEQU2;map;MSS;1|
-        ((|f| |Mapping| R2 R1) (|x| |Sequence| R1) ($ |Sequence| R2))
+        ((|f| (|Mapping| R2 R1)) (|x| (|Sequence| R1)) ($ (|Sequence| R2)))
         (SPADCALL (SPADCALL |f| (SPADCALL |x| (QREFELT $ 10)) (QREFELT $ 14))
                   (QREFELT $ 16))) 
 

@@ -2,32 +2,34 @@
 (PUT '|NSUP;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (SDEFUN |NSUP;rep|
-        ((|s| $)
-         ($ |List| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R))))
+        ((|s| ($))
+         ($ (|List| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R)))))
         |s|) 
 
 (PUT '|NSUP;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
 (SDEFUN |NSUP;per|
-        ((|l| |List| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R)))
-         ($ $))
+        ((|l| (|List| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R))))
+         ($ ($)))
         |l|) 
 
 (PUT '|NSUP;coerce;$Sup;3| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(SDEFUN |NSUP;coerce;$Sup;3| ((|p| $) ($ |SparseUnivariatePolynomial| R)) |p|) 
+(SDEFUN |NSUP;coerce;$Sup;3| ((|p| ($)) ($ (|SparseUnivariatePolynomial| R)))
+        |p|) 
 
 (PUT '|NSUP;coerce;Sup$;4| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(SDEFUN |NSUP;coerce;Sup$;4| ((|p| |SparseUnivariatePolynomial| R) ($ $)) |p|) 
+(SDEFUN |NSUP;coerce;Sup$;4| ((|p| (|SparseUnivariatePolynomial| R)) ($ ($)))
+        |p|) 
 
 (PUT '|NSUP;retractIfCan;$U;5| '|SPADreplace| '(XLAM (|p|) (CONS 0 |p|))) 
 
 (SDEFUN |NSUP;retractIfCan;$U;5|
-        ((|p| $) ($ |Union| (|SparseUnivariatePolynomial| R) "failed"))
+        ((|p| ($)) ($ (|Union| (|SparseUnivariatePolynomial| R) "failed")))
         (CONS 0 |p|)) 
 
-(SDEFUN |NSUP;monicModulo;3$;6| ((|x| $) (|y| $) ($ $))
+(SDEFUN |NSUP;monicModulo;3$;6| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((#1=#:G167 NIL)
           (|xx|
@@ -85,9 +87,10 @@
                               (EXIT (|NSUP;per| |xx| $)))))))))))) 
 
 (SDEFUN |NSUP;lazyResidueClass;2$R;7|
-        ((|x| $) (|y| $)
-         ($ |Record| (|:| |polnum| $) (|:| |polden| R)
-          (|:| |power| (|NonNegativeInteger|))))
+        ((|x| ($)) (|y| ($))
+         ($
+          (|Record| (|:| |polnum| $) (|:| |polden| R)
+                    (|:| |power| (|NonNegativeInteger|)))))
         (SPROG
          ((#1=#:G181 NIL) (|pow| (|NonNegativeInteger|))
           (|xx|
@@ -147,7 +150,7 @@
                                (VECTOR (|NSUP;per| |xx| $) |co|
                                        |pow|)))))))))))) 
 
-(SDEFUN |NSUP;lazyPseudoRemainder;3$;8| ((|x| $) (|y| $) ($ $))
+(SDEFUN |NSUP;lazyPseudoRemainder;3$;8| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((#1=#:G195 NIL)
           (|xx|
@@ -209,9 +212,10 @@
                          (EXIT (|NSUP;per| |xx| $)))))))))))) 
 
 (SDEFUN |NSUP;lazyPseudoDivide;2$R;9|
-        ((|x| $) (|y| $)
-         ($ |Record| (|:| |coef| R) (|:| |gap| (|NonNegativeInteger|))
-          (|:| |quotient| $) (|:| |remainder| $)))
+        ((|x| ($)) (|y| ($))
+         ($
+          (|Record| (|:| |coef| R) (|:| |gap| (|NonNegativeInteger|))
+                    (|:| |quotient| $) (|:| |remainder| $))))
         (SPROG
          ((#1=#:G211 NIL) (|pow| (|NonNegativeInteger|)) (#2=#:G200 NIL)
           (|xx|
@@ -290,7 +294,7 @@
                   (VECTOR |co| |pow| (|NSUP;per| (REVERSE |qq|) $)
                           (|NSUP;per| |xx| $))))))))) 
 
-(SDEFUN |NSUP;lazyPseudoQuotient;3$;10| ((|x| $) (|y| $) ($ $))
+(SDEFUN |NSUP;lazyPseudoQuotient;3$;10| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((#1=#:G225 NIL)
           (|xx|
@@ -347,21 +351,21 @@
                   #3# (EXIT #1#))
                  (EXIT (|NSUP;per| (REVERSE |qq|) $)))))))) 
 
-(SDEFUN |NSUP;subResultantGcd;3$;11| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |NSUP;subResultantGcd;3$;11| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPADCALL |p1| |p2| (QREFELT $ 34))) 
 
-(SDEFUN |NSUP;subResultantsChain;2$L;12| ((|p1| $) (|p2| $) ($ |List| $))
+(SDEFUN |NSUP;subResultantsChain;2$L;12| ((|p1| ($)) (|p2| ($)) ($ (|List| $)))
         (SPADCALL |p1| |p2| (QREFELT $ 37))) 
 
-(SDEFUN |NSUP;lastSubResultant;3$;13| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |NSUP;lastSubResultant;3$;13| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPADCALL |p1| |p2| (QREFELT $ 40))) 
 
-(SDEFUN |NSUP;resultant;2$R;14| ((|p1| $) (|p2| $) ($ R))
+(SDEFUN |NSUP;resultant;2$R;14| ((|p1| ($)) (|p2| ($)) ($ (R)))
         (SPADCALL |p1| |p2| (QREFELT $ 42))) 
 
 (SDEFUN |NSUP;extendedResultant;2$R;15|
-        ((|p1| $) (|p2| $)
-         ($ |Record| (|:| |resultant| R) (|:| |coef1| $) (|:| |coef2| $)))
+        ((|p1| ($)) (|p2| ($))
+         ($ (|Record| (|:| |resultant| R) (|:| |coef1| $) (|:| |coef2| $))))
         (SPROG
          ((|re|
            (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |resultant| R))))
@@ -369,33 +373,35 @@
               (EXIT (VECTOR (QVELT |re| 2) (QVELT |re| 0) (QVELT |re| 1)))))) 
 
 (SDEFUN |NSUP;halfExtendedResultant1;2$R;16|
-        ((|p1| $) (|p2| $) ($ |Record| (|:| |resultant| R) (|:| |coef1| $)))
+        ((|p1| ($)) (|p2| ($))
+         ($ (|Record| (|:| |resultant| R) (|:| |coef1| $))))
         (SPROG ((|re| (|Record| (|:| |coef1| $) (|:| |resultant| R))))
                (SEQ (LETT |re| (SPADCALL |p1| |p2| (QREFELT $ 49)))
                     (EXIT (CONS (QCDR |re|) (QCAR |re|)))))) 
 
 (SDEFUN |NSUP;halfExtendedResultant2;2$R;17|
-        ((|p1| $) (|p2| $) ($ |Record| (|:| |resultant| R) (|:| |coef2| $)))
+        ((|p1| ($)) (|p2| ($))
+         ($ (|Record| (|:| |resultant| R) (|:| |coef2| $))))
         (SPROG ((|re| (|Record| (|:| |coef2| $) (|:| |resultant| R))))
                (SEQ (LETT |re| (SPADCALL |p1| |p2| (QREFELT $ 53)))
                     (EXIT (CONS (QCDR |re|) (QCAR |re|)))))) 
 
 (SDEFUN |NSUP;extendedSubResultantGcd;2$R;18|
-        ((|p1| $) (|p2| $)
-         ($ |Record| (|:| |gcd| $) (|:| |coef1| $) (|:| |coef2| $)))
+        ((|p1| ($)) (|p2| ($))
+         ($ (|Record| (|:| |gcd| $) (|:| |coef1| $) (|:| |coef2| $))))
         (SPROG
          ((|re| (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |gcd| $))))
          (SEQ (LETT |re| (SPADCALL |p1| |p2| (QREFELT $ 57)))
               (EXIT (VECTOR (QVELT |re| 2) (QVELT |re| 0) (QVELT |re| 1)))))) 
 
 (SDEFUN |NSUP;halfExtendedSubResultantGcd1;2$R;19|
-        ((|p1| $) (|p2| $) ($ |Record| (|:| |gcd| $) (|:| |coef1| $)))
+        ((|p1| ($)) (|p2| ($)) ($ (|Record| (|:| |gcd| $) (|:| |coef1| $))))
         (SPROG ((|re| (|Record| (|:| |coef1| $) (|:| |gcd| $))))
                (SEQ (LETT |re| (SPADCALL |p1| |p2| (QREFELT $ 61)))
                     (EXIT (CONS (QCDR |re|) (QCAR |re|)))))) 
 
 (SDEFUN |NSUP;halfExtendedSubResultantGcd2;2$R;20|
-        ((|p1| $) (|p2| $) ($ |Record| (|:| |gcd| $) (|:| |coef2| $)))
+        ((|p1| ($)) (|p2| ($)) ($ (|Record| (|:| |gcd| $) (|:| |coef2| $))))
         (SPROG ((|re| (|Record| (|:| |coef2| $) (|:| |gcd| $))))
                (SEQ (LETT |re| (SPADCALL |p1| |p2| (QREFELT $ 65)))
                     (EXIT (CONS (QCDR |re|) (QCAR |re|)))))) 

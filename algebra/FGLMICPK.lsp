@@ -1,7 +1,8 @@
 
 (SDEFUN |FGLMICPK;zeroDim?|
-        ((|lq2| |List| (|HomogeneousDistributedMultivariatePolynomial| |ls| R))
-         ($ |Boolean|))
+        ((|lq2|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |ls| R)))
+         ($ (|Boolean|)))
         (SPROG
          ((|lv| (|List| (|OrderedVariableList| |ls|)))
           (|x| (|OrderedVariableList| |ls|)) (#1=#:G126 NIL)
@@ -71,7 +72,7 @@
                   (EXIT (NULL |lv|))))))))) 
 
 (SDEFUN |FGLMICPK;zeroDimensional?;LB;2|
-        ((|lq1| |List| (|Polynomial| R)) ($ |Boolean|))
+        ((|lq1| (|List| (|Polynomial| R))) ($ (|Boolean|)))
         (SPROG
          ((|lq2|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |ls| R)))
@@ -92,8 +93,8 @@
           (EXIT (|FGLMICPK;zeroDim?| |lq2| $))))) 
 
 (SDEFUN |FGLMICPK;fglmIfCan;LU;3|
-        ((|lq1| |List| (|Polynomial| R))
-         ($ |Union| (|List| (|Polynomial| R)) "failed"))
+        ((|lq1| (|List| (|Polynomial| R)))
+         ($ (|Union| (|List| (|Polynomial| R)) "failed")))
         (SPROG
          ((#1=#:G158 NIL) (|q3| NIL) (#2=#:G157 NIL)
           (|lq3| (|List| (|DistributedMultivariatePolynomial| |ls| R)))
@@ -132,7 +133,7 @@
           (EXIT (CONS 0 |lq1|))))) 
 
 (SDEFUN |FGLMICPK;groebner;2L;4|
-        ((|lq1| |List| (|Polynomial| R)) ($ |List| (|Polynomial| R)))
+        ((|lq1| (|List| (|Polynomial| R))) ($ (|List| (|Polynomial| R))))
         (SPROG
          ((#1=#:G174 NIL) (|q3| NIL) (#2=#:G173 NIL)
           (|lq3| (|List| (|DistributedMultivariatePolynomial| |ls| R)))

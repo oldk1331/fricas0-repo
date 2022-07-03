@@ -1,5 +1,5 @@
 
-(SDEFUN |RNG-;annihilate?;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |RNG-;annihilate?;2SB;1| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |Rng&;|)) 

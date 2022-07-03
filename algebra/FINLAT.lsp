@@ -1,39 +1,39 @@
 
 (PUT '|FINLAT;finiteLattice;Nni$;1| '|SPADreplace| '(XLAM (|index|) |index|)) 
 
-(SDEFUN |FINLAT;finiteLattice;Nni$;1| ((|index| |NonNegativeInteger|) ($ $))
-        |index|) 
+(SDEFUN |FINLAT;finiteLattice;Nni$;1|
+        ((|index| (|NonNegativeInteger|)) ($ ($))) |index|) 
 
-(SDEFUN |FINLAT;index;Pi$;2| ((|n| |PositiveInteger|) ($ $))
+(SDEFUN |FINLAT;index;Pi$;2| ((|n| (|PositiveInteger|)) ($ ($)))
         (SPADCALL (- |n| 1) (QREFELT $ 10))) 
 
 (PUT '|FINLAT;lookup;$Pi;3| '|SPADreplace| '(XLAM (|el|) (+ |el| 1))) 
 
-(SDEFUN |FINLAT;lookup;$Pi;3| ((|el| $) ($ |PositiveInteger|)) (+ |el| 1)) 
+(SDEFUN |FINLAT;lookup;$Pi;3| ((|el| ($)) ($ (|PositiveInteger|))) (+ |el| 1)) 
 
-(SDEFUN |FINLAT;size;Nni;4| (($ |NonNegativeInteger|))
+(SDEFUN |FINLAT;size;Nni;4| (($ (|NonNegativeInteger|)))
         (LENGTH (SPADCALL (QREFELT $ 7) (QREFELT $ 16)))) 
 
-(SDEFUN |FINLAT;finiteLattice;S$;5| ((|obj| S) ($ $))
+(SDEFUN |FINLAT;finiteLattice;S$;5| ((|obj| (S)) ($ ($)))
         (SPADCALL (QREFELT $ 7) |obj| (QREFELT $ 18))) 
 
-(SDEFUN |FINLAT;/\\;3$;6| ((|a| $) (|b| $) ($ $))
+(SDEFUN |FINLAT;/\\;3$;6| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPADCALL (QREFELT $ 7) |a| |b| (QREFELT $ 20))) 
 
-(SDEFUN |FINLAT;\\/;3$;7| ((|a| $) (|b| $) ($ $))
+(SDEFUN |FINLAT;\\/;3$;7| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPADCALL (QREFELT $ 7) |a| |b| (QREFELT $ 22))) 
 
 (PUT '|FINLAT;hash;$Si;8| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |FINLAT;hash;$Si;8| ((|s| $) ($ |SingleInteger|)) 0) 
+(SDEFUN |FINLAT;hash;$Si;8| ((|s| ($)) ($ (|SingleInteger|))) 0) 
 
-(SDEFUN |FINLAT;=;2$B;9| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |FINLAT;=;2$B;9| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT $ 27))) 
 
-(SDEFUN |FINLAT;~=;2$B;10| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |FINLAT;~=;2$B;10| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| |y| (QREFELT $ 27)))) 
 
-(SDEFUN |FINLAT;coerce;$Of;11| ((|s| $) ($ |OutputForm|))
+(SDEFUN |FINLAT;coerce;$Of;11| ((|s| ($)) ($ (|OutputForm|)))
         (SPROG ((|obj| (S)) (|index| (|NonNegativeInteger|)))
                (SEQ (LETT |index| |s|)
                     (LETT |obj|

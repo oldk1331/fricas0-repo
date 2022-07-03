@@ -1,19 +1,20 @@
 
-(SDEFUN |LAMBDA;lambda;Nni$;1| ((|n1| |NonNegativeInteger|) ($ $))
+(SDEFUN |LAMBDA;lambda;Nni$;1| ((|n1| (|NonNegativeInteger|)) ($ ($)))
         (CONS 0 (LIST |n1|))) 
 
 (PUT '|LAMBDA;lambda;UT$;2| '|SPADreplace| '(XLAM (|var|) (CONS 1 |var|))) 
 
-(SDEFUN |LAMBDA;lambda;UT$;2| ((|var| UT) ($ $)) (CONS 1 |var|)) 
+(SDEFUN |LAMBDA;lambda;UT$;2| ((|var| (UT)) ($ ($))) (CONS 1 |var|)) 
 
-(SDEFUN |LAMBDA;lambda;3$;3| ((|x| $) (|y| $) ($ $)) (CONS 2 (CONS |x| |y|))) 
+(SDEFUN |LAMBDA;lambda;3$;3| ((|x| ($)) (|y| ($)) ($ ($)))
+        (CONS 2 (CONS |x| |y|))) 
 
-(SDEFUN |LAMBDA;lambda;$UT$;4| ((|x| $) (|t1| UT) ($ $))
+(SDEFUN |LAMBDA;lambda;$UT$;4| ((|x| ($)) (|t1| (UT)) ($ ($)))
         (SPROG ((|lt| ($)))
                (SEQ (LETT |lt| (CONS 3 (CONS |x| |t1|)))
                     (EXIT (SPADCALL |lt| (QREFELT $ 12)))))) 
 
-(SDEFUN |LAMBDA;getChildren;$L;5| ((|n| $) ($ |List| $))
+(SDEFUN |LAMBDA;getChildren;$L;5| ((|n| ($)) ($ (|List| $)))
         (SPROG ((#1=#:G189 NIL) (#2=#:G172 NIL))
                (SEQ
                 (EXIT
@@ -57,26 +58,26 @@
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;atom?;$B;6| ((|n| $) ($ |Boolean|))
+(SDEFUN |LAMBDA;atom?;$B;6| ((|n| ($)) ($ (|Boolean|)))
         (COND ((QEQCAR |n| 0) 'T) ('T (QEQCAR |n| 1)))) 
 
 (PUT '|LAMBDA;isCompound?;$B;7| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 2))) 
 
-(SDEFUN |LAMBDA;isCompound?;$B;7| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 2)) 
+(SDEFUN |LAMBDA;isCompound?;$B;7| ((|n| ($)) ($ (|Boolean|))) (QEQCAR |n| 2)) 
 
 (PUT '|LAMBDA;isLambda?;$B;8| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 3))) 
 
-(SDEFUN |LAMBDA;isLambda?;$B;8| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 3)) 
+(SDEFUN |LAMBDA;isLambda?;$B;8| ((|n| ($)) ($ (|Boolean|))) (QEQCAR |n| 3)) 
 
 (PUT '|LAMBDA;isBoundNode?;$B;9| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 0))) 
 
-(SDEFUN |LAMBDA;isBoundNode?;$B;9| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 0)) 
+(SDEFUN |LAMBDA;isBoundNode?;$B;9| ((|n| ($)) ($ (|Boolean|))) (QEQCAR |n| 0)) 
 
 (PUT '|LAMBDA;isFreeNode?;$B;10| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 1))) 
 
-(SDEFUN |LAMBDA;isFreeNode?;$B;10| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 1)) 
+(SDEFUN |LAMBDA;isFreeNode?;$B;10| ((|n| ($)) ($ (|Boolean|))) (QEQCAR |n| 1)) 
 
-(SDEFUN |LAMBDA;getBoundValue;$Nni;11| ((|n| $) ($ |NonNegativeInteger|))
+(SDEFUN |LAMBDA;getBoundValue;$Nni;11| ((|n| ($)) ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G198 NIL))
                (SEQ
                 (EXIT
@@ -87,7 +88,7 @@
                   (EXIT 0)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;getVariable;$UT;12| ((|n| $) ($ UT))
+(SDEFUN |LAMBDA;getVariable;$UT;12| ((|n| ($)) ($ (UT)))
         (SPROG ((#1=#:G202 NIL) (#2=#:G172 NIL))
                (SEQ
                 (EXIT
@@ -125,7 +126,7 @@
                   (EXIT (SPADCALL "error" (QREFELT $ 24)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;freeVariable?| ((|n| $) (|s| UT) ($ |Boolean|))
+(SDEFUN |LAMBDA;freeVariable?| ((|n| ($)) (|s| (UT)) ($ (|Boolean|)))
         (SPROG ((#1=#:G216 NIL))
                (SEQ
                 (EXIT
@@ -152,7 +153,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;freeVariable?|
-        ((|n| $) (|i| |NonNegativeInteger|) ($ |Boolean|))
+        ((|n| ($)) (|i| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (SPROG ((#1=#:G230 NIL))
                (SEQ
                 (EXIT
@@ -179,7 +180,7 @@
                   (EXIT 'T)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;free?;$B;15| ((|n| $) ($ |Boolean|))
+(SDEFUN |LAMBDA;free?;$B;15| ((|n| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G234 NIL))
                (SEQ
                 (EXIT
@@ -199,8 +200,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;parseLambdaTerm|
-        ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| #1=(|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|p1| #1#) (|ex| ($))
           (|r2| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
@@ -247,8 +248,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |LAMBDA;parseBracketTerm|
-        ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| #1=(|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|p1| #1#) (#2=#:G266 NIL) (|ch| (|Character|)) (|trm| ($))
           (|r2| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
@@ -284,8 +285,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |LAMBDA;parseVariableTerm|
-        ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| #1=(|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|ch| (|Character|)) (#2=#:G282 NIL) (|p1| #1#)
           (|inx| (|NonNegativeInteger|)))
@@ -338,8 +339,8 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |LAMBDA;parseTerm;SNniR;19|
-        ((|t1| |String|) (|pin| |NonNegativeInteger|)
-         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        ((|t1| (|String|)) (|pin| (|NonNegativeInteger|))
+         ($ (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
         (SPROG
          ((|res| ($)) (|p1| (|NonNegativeInteger|))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
@@ -394,7 +395,7 @@
                 (EXIT (CONS |res| |p1|))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;parseLambda;S$;20| ((|t1| |String|) ($ $))
+(SDEFUN |LAMBDA;parseLambda;S$;20| ((|t1| (|String|)) ($ ($)))
         (SPROG
          ((|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
           (#1=#:G302 NIL))
@@ -409,7 +410,7 @@
           (EXIT (QCAR |r|))))) 
 
 (SDEFUN |LAMBDA;toStringConven;$LS;21|
-        ((|n| $) (|boundL| |List| (|String|)) ($ |String|))
+        ((|n| ($)) (|boundL| (|List| (|String|))) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|boundL2| (|List| (|String|)))
           (|varName| (|String|)) (#1=#:G314 NIL) (|i| (|NonNegativeInteger|)))
@@ -465,7 +466,7 @@
                 (EXIT |s|)))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;toString;$S;22| ((|n| $) ($ |String|))
+(SDEFUN |LAMBDA;toString;$S;22| ((|n| ($)) ($ (|String|)))
         (SPROG ((|s| (|String|)))
                (SEQ (LETT |s| "")
                     (COND
@@ -496,7 +497,7 @@
                              (QREFELT $ 48)))))
                     (EXIT |s|)))) 
 
-(SDEFUN |LAMBDA;subst;4$;23| ((|n| $) (|a| $) (|b| $) ($ $))
+(SDEFUN |LAMBDA;subst;4$;23| ((|n| ($)) (|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((#1=#:G329 NIL) (#2=#:G172 NIL))
                (SEQ
                 (EXIT
@@ -569,7 +570,8 @@
                   (EXIT |n|)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;bindTerm| ((|n| $) (|i| |NonNegativeInteger|) (|s| UT) ($ $))
+(SDEFUN |LAMBDA;bindTerm|
+        ((|n| ($)) (|i| (|NonNegativeInteger|)) (|s| (UT)) ($ ($)))
         (SPROG ((#1=#:G341 NIL) (#2=#:G171 NIL) (#3=#:G170 NIL))
                (SEQ
                 (EXIT
@@ -696,7 +698,7 @@
                   (EXIT |n|)))
                 #4# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;bind;2$;25| ((|n| $) ($ $))
+(SDEFUN |LAMBDA;bind;2$;25| ((|n| ($)) ($ ($)))
         (SPROG ((#1=#:G345 NIL))
                (SEQ
                 (EXIT
@@ -714,7 +716,8 @@
                   (EXIT |n|)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;unbindTerm| ((|n| $) (|i| |NonNegativeInteger|) (|s| UT) ($ $))
+(SDEFUN |LAMBDA;unbindTerm|
+        ((|n| ($)) (|i| (|NonNegativeInteger|)) (|s| (UT)) ($ ($)))
         (SPROG ((#1=#:G357 NIL) (#2=#:G171 NIL) (#3=#:G172 NIL))
                (SEQ
                 (EXIT
@@ -853,7 +856,7 @@
                   (EXIT |n|)))
                 #4# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;unbind;2$;27| ((|n| $) ($ $))
+(SDEFUN |LAMBDA;unbind;2$;27| ((|n| ($)) ($ ($)))
         (SPROG ((#1=#:G361 NIL))
                (SEQ
                 (EXIT
@@ -871,7 +874,7 @@
                   (EXIT |n|)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;redux;2$;28| ((|n| $) ($ $))
+(SDEFUN |LAMBDA;redux;2$;28| ((|n| ($)) ($ ($)))
         (SPROG
          ((#1=#:G375 NIL) (|boundVarName| (|String|)) (#2=#:G172 NIL)
           (|term2| ($)) (|term1| ($)))
@@ -937,7 +940,7 @@
             (EXIT |n|)))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;=;2$B;29| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |LAMBDA;=;2$B;29| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G394 NIL))
                (SEQ
                 (EXIT
@@ -987,7 +990,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;toOutputFormConven|
-        ((|n| $) (|boundL| |List| (|String|)) ($ |OutputForm|))
+        ((|n| ($)) (|boundL| (|List| (|String|))) ($ (|OutputForm|)))
         (SPROG
          ((|s| (|OutputForm|)) (|boundL2| (|List| (|String|)))
           (|varName| (|String|)) (#1=#:G404 NIL) (|i| (|NonNegativeInteger|)))
@@ -1050,7 +1053,7 @@
                 (EXIT |s|)))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |LAMBDA;coerce;$Of;31| ((|n| $) ($ |OutputForm|))
+(SDEFUN |LAMBDA;coerce;$Of;31| ((|n| ($)) ($ (|OutputForm|)))
         (|LAMBDA;toOutputFormConven| |n| NIL $)) 
 
 (DECLAIM (NOTINLINE |Lambda;|)) 

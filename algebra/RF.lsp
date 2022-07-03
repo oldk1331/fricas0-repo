@@ -1,47 +1,50 @@
 
-(SDEFUN |RF;coerce;RF;1| ((|r| R) ($ |Fraction| (|Polynomial| R)))
+(SDEFUN |RF;coerce;RF;1| ((|r| (R)) ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL (SPADCALL |r| (QREFELT $ 8)) (QREFELT $ 10))) 
 
 (SDEFUN |RF;variables;FL;2|
-        ((|f| |Fraction| (|Polynomial| R)) ($ |List| (|Symbol|)))
+        ((|f| (|Fraction| (|Polynomial| R))) ($ (|List| (|Symbol|))))
         (SPADCALL |f| (QREFELT $ 14))) 
 
 (SDEFUN |RF;mainVariable;FU;3|
-        ((|f| |Fraction| (|Polynomial| R)) ($ |Union| (|Symbol|) "failed"))
+        ((|f| (|Fraction| (|Polynomial| R))) ($ (|Union| (|Symbol|) "failed")))
         (SPADCALL |f| (QREFELT $ 17))) 
 
 (SDEFUN |RF;univariate;FSF;4|
-        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
-         ($ |Fraction|
-          (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+        ((|f| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|))
+         ($
+          (|Fraction|
+           (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))))
         (SPADCALL |f| |x| (QREFELT $ 21))) 
 
 (SDEFUN |RF;multivariate;FSF;5|
-        ((|f| |Fraction|
-          (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
-         (|x| |Symbol|) ($ |Fraction| (|Polynomial| R)))
+        ((|f|
+          (|Fraction|
+           (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R)))))
+         (|x| (|Symbol|)) ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL |f| |x| (QREFELT $ 23))) 
 
 (SDEFUN |RF;eval;FS2F;6|
-        ((|x| |Fraction| (|Polynomial| R)) (|s| |Symbol|)
-         (|y| |Fraction| (|Polynomial| R)) ($ |Fraction| (|Polynomial| R)))
+        ((|x| (|Fraction| (|Polynomial| R))) (|s| (|Symbol|))
+         (|y| (|Fraction| (|Polynomial| R))) ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL |x| (LIST |s|) (LIST |y|) (QREFELT $ 26))) 
 
 (SDEFUN |RF;eval;FEF;7|
-        ((|x| |Fraction| (|Polynomial| R))
-         (|eq| |Equation| (|Fraction| (|Polynomial| R)))
-         ($ |Fraction| (|Polynomial| R)))
+        ((|x| (|Fraction| (|Polynomial| R)))
+         (|eq| (|Equation| (|Fraction| (|Polynomial| R))))
+         ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL |x| (LIST |eq|) (QREFELT $ 29))) 
 
 (SDEFUN |RF;foo|
-        ((|ls| |List| (|Symbol|)) (|lv| |List| (|Fraction| (|Polynomial| R)))
-         (|x| |Symbol|) ($ |Fraction| (|Polynomial| R)))
+        ((|ls| (|List| (|Symbol|)))
+         (|lv| (|List| (|Fraction| (|Polynomial| R)))) (|x| (|Symbol|))
+         ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL |ls| |lv| |x| (SPADCALL |x| (QREFELT $ 32)) (QREFELT $ 34))) 
 
 (SDEFUN |RF;eval;FLF;9|
-        ((|x| |Fraction| (|Polynomial| R))
-         (|l| |List| (|Equation| (|Fraction| (|Polynomial| R))))
-         ($ |Fraction| (|Polynomial| R)))
+        ((|x| (|Fraction| (|Polynomial| R)))
+         (|l| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
+         ($ (|Fraction| (|Polynomial| R))))
         (SPROG
          ((#1=#:G136 NIL) (|eq| NIL) (#2=#:G135 NIL) (#3=#:G134 NIL)
           (#4=#:G133 NIL))
@@ -77,17 +80,17 @@
                     (QREFELT $ 26))))) 
 
 (SDEFUN |RF;eval;FLLF;10|
-        ((|x| |Fraction| (|Polynomial| R)) (|ls| |List| (|Symbol|))
-         (|lv| |List| (|Fraction| (|Polynomial| R)))
-         ($ |Fraction| (|Polynomial| R)))
+        ((|x| (|Fraction| (|Polynomial| R))) (|ls| (|List| (|Symbol|)))
+         (|lv| (|List| (|Fraction| (|Polynomial| R))))
+         ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL (|RF;peval| (SPADCALL |x| (QREFELT $ 38)) |ls| |lv| $)
                   (|RF;peval| (SPADCALL |x| (QREFELT $ 39)) |ls| |lv| $)
                   (QREFELT $ 40))) 
 
 (SDEFUN |RF;peval|
-        ((|p| |Polynomial| R) (|ls| |List| (|Symbol|))
-         (|lv| |List| (|Fraction| (|Polynomial| R)))
-         ($ |Fraction| (|Polynomial| R)))
+        ((|p| (|Polynomial| R)) (|ls| (|List| (|Symbol|)))
+         (|lv| (|List| (|Fraction| (|Polynomial| R))))
+         ($ (|Fraction| (|Polynomial| R))))
         (SPROG NIL
                (SPADCALL (CONS #'|RF;peval!0| (VECTOR $ |lv| |ls|)) (ELT $ 11)
                          |p| (QREFELT $ 44)))) 

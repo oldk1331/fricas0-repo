@@ -1,10 +1,10 @@
 
-(SDEFUN |RFDIST;uniform01;F;1| (($ |Float|))
+(SDEFUN |RFDIST;uniform01;F;1| (($ (|Float|)))
         (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 13)) (QREFELT $ 11))
                   (QREFELT $ 12) (QREFELT $ 14))) 
 
 (SDEFUN |RFDIST;uniform;2FM;2|
-        ((|a| |Float|) (|b| |Float|) ($ |Mapping| (|Float|)))
+        ((|a| (|Float|)) (|b| (|Float|)) ($ (|Mapping| (|Float|))))
         (SPROG NIL (CONS #'|RFDIST;uniform;2FM;2!0| (VECTOR |b| $ |a|)))) 
 
 (SDEFUN |RFDIST;uniform;2FM;2!0| (($$ NIL))
@@ -20,7 +20,7 @@
                                 (QREFELT $ 17))
                       (QREFELT $ 18)))))) 
 
-(SDEFUN |RFDIST;exponential1;F;3| (($ |Float|))
+(SDEFUN |RFDIST;exponential1;F;3| (($ (|Float|)))
         (SPROG ((|u| (|Float|)))
                (SEQ (LETT |u| (|spadConstant| $ 21))
                     (SEQ G190
@@ -34,7 +34,8 @@
                     (EXIT
                      (SPADCALL (SPADCALL |u| (QREFELT $ 24)) (QREFELT $ 25)))))) 
 
-(SDEFUN |RFDIST;exponential;FM;4| ((|mean| |Float|) ($ |Mapping| (|Float|)))
+(SDEFUN |RFDIST;exponential;FM;4|
+        ((|mean| (|Float|)) ($ (|Mapping| (|Float|))))
         (SPROG NIL (CONS #'|RFDIST;exponential;FM;4!0| (VECTOR $ |mean|)))) 
 
 (SDEFUN |RFDIST;exponential;FM;4!0| (($$ NIL))
@@ -44,7 +45,7 @@
           (RETURN
            (PROGN (SPADCALL |mean| (SPADCALL (QREFELT $ 26)) (QREFELT $ 17)))))) 
 
-(SDEFUN |RFDIST;normal01;F;5| (($ |Float|))
+(SDEFUN |RFDIST;normal01;F;5| (($ (|Float|)))
         (SPROG ((|s| (|Float|)) (|v2| #1=(|Float|)) (|v1| #1#))
                (SEQ (LETT |s| (SPADCALL 2 (QREFELT $ 11)))
                     (SEQ G190
@@ -83,7 +84,7 @@
                                (QREFELT $ 17)))))) 
 
 (SDEFUN |RFDIST;normal;2FM;6|
-        ((|mean| |Float|) (|stdev| |Float|) ($ |Mapping| (|Float|)))
+        ((|mean| (|Float|)) (|stdev| (|Float|)) ($ (|Mapping| (|Float|))))
         (SPROG NIL (CONS #'|RFDIST;normal;2FM;6!0| (VECTOR $ |stdev| |mean|)))) 
 
 (SDEFUN |RFDIST;normal;2FM;6!0| (($$ NIL))
@@ -99,7 +100,7 @@
                       (QREFELT $ 18)))))) 
 
 (SDEFUN |RFDIST;chiSquare1;NniF;7|
-        ((|dgfree| |NonNegativeInteger|) ($ |Float|))
+        ((|dgfree| (|NonNegativeInteger|)) ($ (|Float|)))
         (SPROG ((|x| (|Float|)) (#1=#:G139 NIL) (|i| NIL))
                (SEQ (LETT |x| (|spadConstant| $ 21))
                     (SEQ (LETT |i| 1) (LETT #1# (QUOTIENT2 |dgfree| 2)) G190
@@ -123,7 +124,7 @@
                     (EXIT |x|)))) 
 
 (SDEFUN |RFDIST;chiSquare;NniM;8|
-        ((|dgfree| |NonNegativeInteger|) ($ |Mapping| (|Float|)))
+        ((|dgfree| (|NonNegativeInteger|)) ($ (|Mapping| (|Float|))))
         (SPROG NIL (CONS #'|RFDIST;chiSquare;NniM;8!0| (VECTOR $ |dgfree|)))) 
 
 (SDEFUN |RFDIST;chiSquare;NniM;8!0| (($$ NIL))
@@ -133,8 +134,8 @@
           (RETURN (PROGN (SPADCALL |dgfree| (QREFELT $ 37)))))) 
 
 (SDEFUN |RFDIST;Beta;2NniM;9|
-        ((|dgfree1| |NonNegativeInteger|) (|dgfree2| |NonNegativeInteger|)
-         ($ |Mapping| (|Float|)))
+        ((|dgfree1| (|NonNegativeInteger|)) (|dgfree2| (|NonNegativeInteger|))
+         ($ (|Mapping| (|Float|))))
         (SPROG NIL
                (SEQ
                 (CONS #'|RFDIST;Beta;2NniM;9!0|
@@ -155,8 +156,8 @@
                                    (QREFELT $ 14))))))))) 
 
 (SDEFUN |RFDIST;F;2NniM;10|
-        ((|dgfree1| |NonNegativeInteger|) (|dgfree2| |NonNegativeInteger|)
-         ($ |Mapping| (|Float|)))
+        ((|dgfree1| (|NonNegativeInteger|)) (|dgfree2| (|NonNegativeInteger|))
+         ($ (|Mapping| (|Float|))))
         (SPROG NIL
                (SEQ
                 (CONS #'|RFDIST;F;2NniM;10!0| (VECTOR |dgfree2| $ |dgfree1|))))) 
@@ -177,7 +178,7 @@
                                    (QREFELT $ 14))))))))) 
 
 (SDEFUN |RFDIST;t;NniM;11|
-        ((|dgfree| |NonNegativeInteger|) ($ |Mapping| (|Float|)))
+        ((|dgfree| (|NonNegativeInteger|)) ($ (|Mapping| (|Float|))))
         (SPROG NIL (SEQ (CONS #'|RFDIST;t;NniM;11!0| (VECTOR |dgfree| $))))) 
 
 (SDEFUN |RFDIST;t;NniM;11!0| (($$ NIL))

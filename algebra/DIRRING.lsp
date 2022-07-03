@@ -1,26 +1,27 @@
 
 (PUT '|DIRRING;per| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
-(SDEFUN |DIRRING;per| ((|f| |Rep|) ($ $)) |f|) 
+(SDEFUN |DIRRING;per| ((|f| (|Rep|)) ($ ($))) |f|) 
 
 (PUT '|DIRRING;rep| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(SDEFUN |DIRRING;rep| ((|a| $) ($ |Rep|)) |a|) 
+(SDEFUN |DIRRING;rep| ((|a| ($)) ($ (|Rep|))) |a|) 
 
-(SDEFUN |DIRRING;elt;$PiCoef;3| ((|a| $) (|n| |PositiveInteger|) ($ |Coef|))
+(SDEFUN |DIRRING;elt;$PiCoef;3|
+        ((|a| ($)) (|n| (|PositiveInteger|)) ($ (|Coef|)))
         (SPROG ((|f| (|Mapping| |Coef| (|PositiveInteger|))))
                (SEQ (LETT |f| (QCAR (|DIRRING;rep| |a| $)))
                     (EXIT (SPADCALL |n| |f|))))) 
 
 (SDEFUN |DIRRING;coerce;$M;4|
-        ((|a| $) ($ |Mapping| |Coef| (|PositiveInteger|)))
+        ((|a| ($)) ($ (|Mapping| |Coef| (|PositiveInteger|))))
         (QCAR (|DIRRING;rep| |a| $))) 
 
 (SDEFUN |DIRRING;coerce;M$;5|
-        ((|f| |Mapping| |Coef| (|PositiveInteger|)) ($ $))
+        ((|f| (|Mapping| |Coef| (|PositiveInteger|))) ($ ($)))
         (|DIRRING;per| (LIST |f|) $)) 
 
-(SDEFUN |DIRRING;coerce;$S;6| ((|a| $) ($ |Stream| |Coef|))
+(SDEFUN |DIRRING;coerce;$S;6| ((|a| ($)) ($ (|Stream| |Coef|)))
         (SPROG ((|f| (|Mapping| |Coef| (|PositiveInteger|))))
                (SEQ (LETT |f| (QCAR (|DIRRING;rep| |a| $)))
                     (EXIT
@@ -35,7 +36,7 @@
                                     #1#))
                 |f|))) 
 
-(SDEFUN |DIRRING;coerce;S$;7| ((|f| |Stream| |Coef|) ($ $))
+(SDEFUN |DIRRING;coerce;S$;7| ((|f| (|Stream| |Coef|)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|DIRRING;coerce;S$;7!0| (VECTOR $ |f|))
                          (QREFELT $ 12)))) 
@@ -46,27 +47,27 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |f| |n| (QREFELT $ 25)))))) 
 
-(SDEFUN |DIRRING;coerce;$Of;8| ((|f| $) ($ |OutputForm|))
+(SDEFUN |DIRRING;coerce;$Of;8| ((|f| ($)) ($ (|OutputForm|)))
         (SPADCALL (SPADCALL |f| (QREFELT $ 24)) (QREFELT $ 28))) 
 
-(SDEFUN |DIRRING;One;$;9| (($ $))
+(SDEFUN |DIRRING;One;$;9| (($ ($)))
         (SPADCALL (CONS #'|DIRRING;One;$;9!0| $) (QREFELT $ 12))) 
 
 (SDEFUN |DIRRING;One;$;9!0| ((|n| NIL) ($ NIL))
         (COND ((SPADCALL |n| (QREFELT $ 31)) (|spadConstant| $ 14))
               ('T (|spadConstant| $ 32)))) 
 
-(SDEFUN |DIRRING;Zero;$;10| (($ $))
+(SDEFUN |DIRRING;Zero;$;10| (($ ($)))
         (SPADCALL (CONS #'|DIRRING;Zero;$;10!0| $) (QREFELT $ 12))) 
 
 (SDEFUN |DIRRING;Zero;$;10!0| ((|n| NIL) ($ NIL)) (|spadConstant| $ 32)) 
 
-(SDEFUN |DIRRING;zeta;$;11| (($ $))
+(SDEFUN |DIRRING;zeta;$;11| (($ ($)))
         (SPADCALL (CONS #'|DIRRING;zeta;$;11!0| $) (QREFELT $ 12))) 
 
 (SDEFUN |DIRRING;zeta;$;11!0| ((|n| NIL) ($ NIL)) (|spadConstant| $ 14)) 
 
-(SDEFUN |DIRRING;+;3$;12| ((|f| $) (|g| $) ($ $))
+(SDEFUN |DIRRING;+;3$;12| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|DIRRING;+;3$;12!0| (VECTOR |g| $ |f|))
                          (QREFELT $ 12)))) 
@@ -81,7 +82,7 @@
             (SPADCALL (SPADCALL |f| |n| (QREFELT $ 9))
                       (SPADCALL |g| |n| (QREFELT $ 9)) (QREFELT $ 35)))))) 
 
-(SDEFUN |DIRRING;-;2$;13| ((|f| $) ($ $))
+(SDEFUN |DIRRING;-;2$;13| ((|f| ($)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|DIRRING;-;2$;13!0| (VECTOR $ |f|))
                          (QREFELT $ 12)))) 
@@ -93,7 +94,7 @@
           (RETURN
            (PROGN (SPADCALL (SPADCALL |f| |n| (QREFELT $ 9)) (QREFELT $ 37)))))) 
 
-(SDEFUN |DIRRING;*;I2$;14| ((|a| |Integer|) (|f| $) ($ $))
+(SDEFUN |DIRRING;*;I2$;14| ((|a| (|Integer|)) (|f| ($)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|DIRRING;*;I2$;14!0| (VECTOR $ |f| |a|))
                          (QREFELT $ 12)))) 
@@ -107,7 +108,7 @@
            (PROGN
             (SPADCALL |a| (SPADCALL |f| |n| (QREFELT $ 9)) (QREFELT $ 39)))))) 
 
-(SDEFUN |DIRRING;*;Coef2$;15| ((|a| |Coef|) (|f| $) ($ $))
+(SDEFUN |DIRRING;*;Coef2$;15| ((|a| (|Coef|)) (|f| ($)) ($ ($)))
         (SPROG NIL
                (SPADCALL (CONS #'|DIRRING;*;Coef2$;15!0| (VECTOR $ |f| |a|))
                          (QREFELT $ 12)))) 
@@ -121,7 +122,7 @@
            (PROGN
             (SPADCALL |a| (SPADCALL |f| |n| (QREFELT $ 9)) (QREFELT $ 41)))))) 
 
-(SDEFUN |DIRRING;*;3$;16| ((|f| $) (|g| $) ($ $))
+(SDEFUN |DIRRING;*;3$;16| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG ((|conv| (|Mapping| |Coef| (|PositiveInteger|))))
                (SEQ
                 (LETT |conv| (CONS #'|DIRRING;*;3$;16!0| (VECTOR |g| |f| $)))
@@ -176,12 +177,12 @@
                               (EXIT (NREVERSE #4#))))
                         (|spadConstant| $ 32) (QREFELT $ 50)))))))) 
 
-(SDEFUN |DIRRING;unit?;$B;17| ((|a| $) ($ |Boolean|))
+(SDEFUN |DIRRING;unit?;$B;17| ((|a| ($)) ($ (|Boolean|)))
         (NULL
          (QEQCAR (SPADCALL (SPADCALL |a| 1 (QREFELT $ 9)) (QREFELT $ 53)) 1))) 
 
 (SDEFUN |DIRRING;qrecip|
-        ((|f| $) (|f1inv| |Coef|) (|n| |PositiveInteger|) ($ |Coef|))
+        ((|f| ($)) (|f1inv| (|Coef|)) (|n| (|PositiveInteger|)) ($ (|Coef|)))
         (SPROG
          ((#1=#:G221 NIL) (#2=#:G220 NIL) (#3=#:G226 NIL) (|d| NIL)
           (#4=#:G225 NIL))
@@ -239,7 +240,7 @@
                             (QREFELT $ 41))
                   (QREFELT $ 37))))))) 
 
-(SDEFUN |DIRRING;recip;$U;19| ((|f| $) ($ |Union| $ #1="failed"))
+(SDEFUN |DIRRING;recip;$U;19| ((|f| ($)) ($ (|Union| $ #1="failed")))
         (SPROG
          ((|mp| (|Mapping| |Coef| (|PositiveInteger|)))
           (|f1inv| (|Union| |Coef| #1#)))
@@ -263,7 +264,7 @@
           (RETURN (PROGN (|DIRRING;qrecip| |f| (QCDR |f1inv|) |n| $))))) 
 
 (SDEFUN |DIRRING;multiplicative?;$PiB;20|
-        ((|a| $) (|n| |PositiveInteger|) ($ |Boolean|))
+        ((|a| ($)) (|n| (|PositiveInteger|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G270 NIL) (#2=#:G264 NIL) (|rl| (|List| |Coef|))
           (#3=#:G240 NIL) (#4=#:G239 NIL) (#5=#:G273 NIL) (|f| NIL)
@@ -333,7 +334,7 @@
           #8# (EXIT #1#)))) 
 
 (SDEFUN |DIRRING;additive?;$PiB;21|
-        ((|a| $) (|n| |PositiveInteger|) ($ |Boolean|))
+        ((|a| ($)) (|n| (|PositiveInteger|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G306 NIL) (#2=#:G300 NIL) (|rl| (|List| |Coef|))
           (#3=#:G276 NIL) (#4=#:G275 NIL) (#5=#:G309 NIL) (|f| NIL)

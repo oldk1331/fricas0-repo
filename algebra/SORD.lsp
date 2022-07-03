@@ -1,34 +1,35 @@
 
-(SDEFUN |SORD;Zero;$;1| (($ $)) (|spadConstant| $ 7)) 
+(SDEFUN |SORD;Zero;$;1| (($ ($))) (|spadConstant| $ 7)) 
 
-(SDEFUN |SORD;One;$;2| (($ $)) (|spadConstant| $ 9)) 
+(SDEFUN |SORD;One;$;2| (($ ($))) (|spadConstant| $ 9)) 
 
-(SDEFUN |SORD;omega;$;3| (($ $))
+(SDEFUN |SORD;omega;$;3| (($ ($)))
         (SPADCALL 1 (|spadConstant| $ 10) (QREFELT $ 12))) 
 
-(SDEFUN |SORD;omegapower;2$;4| ((|p| $) ($ $)) (SPADCALL 1 |p| (QREFELT $ 12))) 
+(SDEFUN |SORD;omegapower;2$;4| ((|p| ($)) ($ ($)))
+        (SPADCALL 1 |p| (QREFELT $ 12))) 
 
-(SDEFUN |SORD;zero?;$B;5| ((|p| $) ($ |Boolean|)) (SPADCALL |p| (QREFELT $ 16))) 
+(SDEFUN |SORD;zero?;$B;5| ((|p| ($)) ($ (|Boolean|)))
+        (SPADCALL |p| (QREFELT $ 16))) 
 
-(SDEFUN |SORD;one?;$B;6| ((|p| $) ($ |Boolean|))
+(SDEFUN |SORD;one?;$B;6| ((|p| ($)) ($ (|Boolean|)))
         (SPADCALL |p| (|spadConstant| $ 10) (QREFELT $ 18))) 
 
-(SDEFUN |SORD;=;2$B;7| ((|p1| $) (|p2| $) ($ |Boolean|))
+(SDEFUN |SORD;=;2$B;7| ((|p1| ($)) (|p2| ($)) ($ (|Boolean|)))
         (SPADCALL |p1| |p2| (QREFELT $ 18))) 
 
-(SDEFUN |SORD;hashUpdate!;Hs$Hs;8|
-        ((|hs| . #1=(|HashState|)) (|p| $) ($ . #1#))
+(SDEFUN |SORD;hashUpdate!;Hs$Hs;8| ((|hs| #1=(|HashState|)) (|p| ($)) ($ #1#))
         (COND ((SPADCALL |p| (QREFELT $ 17)) (HASHSTATEUPDATE |hs| 6672))
               ('T (SPADCALL |hs| |p| (QREFELT $ 22))))) 
 
-(SDEFUN |SORD;coerce;Nni$;9| ((|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |SORD;coerce;Nni$;9| ((|n| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |n| (|spadConstant| $ 8) (QREFELT $ 12))) 
 
 (SDEFUN |SORD;retractIfCan;$U;10|
-        ((|x| $) ($ |Union| (|NonNegativeInteger|) "failed"))
+        ((|x| ($)) ($ (|Union| (|NonNegativeInteger|) "failed")))
         (SPADCALL |x| (QREFELT $ 26))) 
 
-(SDEFUN |SORD;<;2$B;11| ((|o1| $) (|o2| $) ($ |Boolean|))
+(SDEFUN |SORD;<;2$B;11| ((|o1| ($)) (|o2| ($)) ($ (|Boolean|)))
         (SPROG ((|p2| (|Rep|)) (|p1| (|Rep|)))
                (SEQ (LETT |p1| |o1|) (LETT |p2| |o2|)
                     (EXIT
@@ -42,16 +43,17 @@
                       ((SPADCALL |p2| (QREFELT $ 28)) NIL)
                       (#1# (SPADCALL |p1| |p2| (QREFELT $ 30)))))))) 
 
-(SDEFUN |SORD;+;3$;12| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |SORD;+;3$;12| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPADCALL |p1| |p2| (QREFELT $ 32))) 
 
-(SDEFUN |SORD;*;3$;13| ((|p1| $) (|p2| $) ($ $))
+(SDEFUN |SORD;*;3$;13| ((|p1| ($)) (|p2| ($)) ($ ($)))
         (SPADCALL |p1| |p2| (QREFELT $ 34))) 
 
-(SDEFUN |SORD;subtractIfCan;2$U;14| ((|o1| $) (|o2| $) ($ |Union| $ "failed"))
+(SDEFUN |SORD;subtractIfCan;2$U;14|
+        ((|o1| ($)) (|o2| ($)) ($ (|Union| $ "failed")))
         (SPADCALL |o1| |o2| (QREFELT $ 37))) 
 
-(SDEFUN |SORD;ordinalAdd;3$;15| ((|o1| $) (|o2| $) ($ $))
+(SDEFUN |SORD;ordinalAdd;3$;15| ((|o1| ($)) (|o2| ($)) ($ ($)))
         (SPROG
          ((|p2| (|Rep|)) (#1=#:G155 NIL) (|t| NIL) (|p1| (|Rep|))
           (|lt| (|List| |Rep|)) (|e| ($)))
@@ -84,7 +86,7 @@
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                       (EXIT |p2|)))))))) 
 
-(SDEFUN |SORD;integerPart;$Nni;16| ((|o| $) ($ |NonNegativeInteger|))
+(SDEFUN |SORD;integerPart;$Nni;16| ((|o| ($)) ($ (|NonNegativeInteger|)))
         (SPROG ((|p| (|Rep|)))
                (SEQ (LETT |p| |o|)
                     (SEQ G190
@@ -95,7 +97,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT (SPADCALL |p| (QREFELT $ 29)))))) 
 
-(SDEFUN |SORD;limitPart;2$;17| ((|o| $) ($ $))
+(SDEFUN |SORD;limitPart;2$;17| ((|o| ($)) ($ ($)))
         (SPROG ((#1=#:G160 NIL))
                (PROG2
                    (LETT #1#
@@ -106,7 +108,7 @@
                    (QCDR #1#)
                  (|check_union2| (QEQCAR #1# 0) $ (|Union| $ "failed") #1#)))) 
 
-(SDEFUN |SORD;ordinalMul;3$;18| ((|o1| $) (|o2| $) ($ $))
+(SDEFUN |SORD;ordinalMul;3$;18| ((|o1| ($)) (|o2| ($)) ($ ($)))
         (SPROG ((|lo| ($)) (|hi| ($)) (|e| ($)))
                (SEQ (LETT |e| (SPADCALL |o1| (QREFELT $ 39)))
                     (LETT |hi|
@@ -127,7 +129,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |e| |x| (QREFELT $ 43)))))) 
 
-(SDEFUN |SORD;sub_one| ((|o| $) ($ $))
+(SDEFUN |SORD;sub_one| ((|o| ($)) ($ ($)))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ
                 (COND
@@ -140,7 +142,7 @@
                          (#1='T (SPADCALL (- |n| 1) (QREFELT $ 24)))))))
                  (#1# |o|))))) 
 
-(SDEFUN |SORD;infinite_power| ((|o1| $) (|o2| $) ($ $))
+(SDEFUN |SORD;infinite_power| ((|o1| ($)) (|o2| ($)) ($ ($)))
         (SPROG ((|e1| ($)))
                (SEQ
                 (COND
@@ -161,7 +163,8 @@
                                      (QREFELT $ 48))
                            (QREFELT $ 14))))))))))) 
 
-(SDEFUN |SORD;finite_ordinal_power| ((|o| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |SORD;finite_ordinal_power|
+        ((|o| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((|n1| (|NonNegativeInteger|)) (|e| ($)))
                (SEQ
                 (COND ((EQL |n| 0) (|spadConstant| $ 10)) ((EQL |n| 1) |o|)
@@ -183,18 +186,18 @@
                                        (QREFELT $ 14))
                                       |o| (QREFELT $ 50))))))))))))) 
 
-(SDEFUN |SORD;ordinalPower;3$;22| ((|o1| $) (|o2| $) ($ $))
+(SDEFUN |SORD;ordinalPower;3$;22| ((|o1| ($)) (|o2| ($)) ($ ($)))
         (SPADCALL (|SORD;infinite_power| |o1| (SPADCALL |o2| (QREFELT $ 45)) $)
                   (|SORD;finite_ordinal_power| |o1|
                    (SPADCALL |o2| (QREFELT $ 44)) $)
                   (QREFELT $ 50))) 
 
-(SDEFUN |SORD;^;3$;23| ((|o1| $) (|o2| $) ($ $))
+(SDEFUN |SORD;^;3$;23| ((|o1| ($)) (|o2| ($)) ($ ($)))
         (SPADCALL (|SORD;infinite_power| |o1| (SPADCALL |o2| (QREFELT $ 45)) $)
                   (SPADCALL |o1| (SPADCALL |o2| (QREFELT $ 44)) (QREFELT $ 53))
                   (QREFELT $ 35))) 
 
-(SDEFUN |SORD;coerce;$Of;24| ((|o| $) ($ |OutputForm|))
+(SDEFUN |SORD;coerce;$Of;24| ((|o| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|l1| #1=(|OutputForm|))
           (|mon| #2=(|OutputForm|)) (|co| #1#) (|p| (|Rep|)) (|e| ($))

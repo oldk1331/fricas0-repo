@@ -1,5 +1,6 @@
 
-(SDEFUN |BITS;bits;NniB$;1| ((|n| |NonNegativeInteger|) (|b| |Boolean|) ($ $))
+(SDEFUN |BITS;bits;NniB$;1|
+        ((|n| (|NonNegativeInteger|)) (|b| (|Boolean|)) ($ ($)))
         (SPADCALL |n| |b| (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |Bits;|)) 

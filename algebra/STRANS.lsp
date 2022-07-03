@@ -1,5 +1,5 @@
 
-(SDEFUN |STRANS;STransform1;DUTSR;1| ((|x| |Distribution| R) ($ UTSR))
+(SDEFUN |STRANS;STransform1;DUTSR;1| ((|x| (|Distribution| R)) ($ (UTSR)))
         (SPROG
          ((|res| (|Sequence| R)) (|chi| (|Stream| R)) (|mom| (|Stream| R)))
          (SEQ
@@ -21,7 +21,7 @@
               (EXIT
                (SPADCALL (SPADCALL |res| (QREFELT $ 14)) (QREFELT $ 26)))))))))) 
 
-(SDEFUN |STRANS;STransform2;DUPSR;2| ((|x| |Distribution| R) ($ UPSR))
+(SDEFUN |STRANS;STransform2;DUPSR;2| ((|x| (|Distribution| R)) ($ (UPSR)))
         (SPROG
          ((S2 (ULSR)) (|res2| (UTSR)) (|chi2| (|Stream| R))
           (|mom2| (|Stream| R)) (|mom| (|Stream| R)))
@@ -43,7 +43,7 @@
                           (SPADCALL 0 |res2| (QREFELT $ 34)) (QREFELT $ 35)))
           (EXIT (SPADCALL (SPADCALL 1 2 (QREFELT $ 32)) S2 (QREFELT $ 36)))))) 
 
-(SDEFUN |STRANS;STransform;DUPSR;3| ((|x| |Distribution| R) ($ UPSR))
+(SDEFUN |STRANS;STransform;DUPSR;3| ((|x| (|Distribution| R)) ($ (UPSR)))
         (SPROG
          ((S (UTSR)) (|res| (|Sequence| R)) (|chi| #1=(|Stream| R))
           (|mom| (|Stream| R)) (S2 (ULSR)) (|res2| (UTSR)) (|chi2| #1#)
@@ -85,7 +85,7 @@
                          (QREFELT $ 36)))))))))) 
 
 (SDEFUN |STRANS;distributionBySTransform;UPSRD;4|
-        ((S UPSR) ($ |Distribution| R))
+        ((S (UPSR)) ($ (|Distribution| R)))
         (SPROG ((|taylS| (UTSR)) (|laurS| (ULSR)))
                (SEQ (LETT |laurS| (SPADCALL S (QREFELT $ 40)))
                     (LETT |taylS| (SPADCALL |laurS| (QREFELT $ 41)))

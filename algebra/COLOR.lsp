@@ -1,9 +1,9 @@
 
-(SDEFUN |COLOR;*;Df2$;1| ((|f| |DoubleFloat|) (|c| $) ($ $))
+(SDEFUN |COLOR;*;Df2$;1| ((|f| (|DoubleFloat|)) (|c| ($)) ($ ($)))
         (COND ((|zero?_DF| |f|) |c|)
               ('T (CONS (QCAR |c|) (|mul_DF| |f| (QCDR |c|)))))) 
 
-(SDEFUN |COLOR;+;3$;2| ((|x| $) (|y| $) ($ $))
+(SDEFUN |COLOR;+;3$;2| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((|ans| #1=(|Integer|)) (|offset| (|Integer|)) (|diff| #1#)
           (|moreThanHalf| (|Boolean|)) (|xHueSmaller| (|Boolean|)) (|c| ($)))
@@ -44,38 +44,38 @@
                    ((> |ans| 27) (LETT |ans| (- |ans| 27))))
              (EXIT (CONS |ans| 1.0)))))))) 
 
-(SDEFUN |COLOR;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |COLOR;=;2$B;3| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND ((EQL (QCAR |x|) (QCAR |y|)) (|eql_DF| (QCDR |x|) (QCDR |y|)))
               ('T NIL))) 
 
 (PUT '|COLOR;red;$;4| '|SPADreplace| '(XLAM NIL (CONS 1 1.0))) 
 
-(SDEFUN |COLOR;red;$;4| (($ $)) (CONS 1 1.0)) 
+(SDEFUN |COLOR;red;$;4| (($ ($))) (CONS 1 1.0)) 
 
 (PUT '|COLOR;yellow;$;5| '|SPADreplace| '(XLAM NIL (CONS 11 1.0))) 
 
-(SDEFUN |COLOR;yellow;$;5| (($ $)) (CONS 11 1.0)) 
+(SDEFUN |COLOR;yellow;$;5| (($ ($))) (CONS 11 1.0)) 
 
 (PUT '|COLOR;green;$;6| '|SPADreplace| '(XLAM NIL (CONS 14 1.0))) 
 
-(SDEFUN |COLOR;green;$;6| (($ $)) (CONS 14 1.0)) 
+(SDEFUN |COLOR;green;$;6| (($ ($))) (CONS 14 1.0)) 
 
 (PUT '|COLOR;blue;$;7| '|SPADreplace| '(XLAM NIL (CONS 22 1.0))) 
 
-(SDEFUN |COLOR;blue;$;7| (($ $)) (CONS 22 1.0)) 
+(SDEFUN |COLOR;blue;$;7| (($ ($))) (CONS 22 1.0)) 
 
 (PUT '|COLOR;hue;$I;8| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |COLOR;hue;$I;8| ((|c| $) ($ |Integer|)) (QCAR |c|)) 
+(SDEFUN |COLOR;hue;$I;8| ((|c| ($)) ($ (|Integer|))) (QCAR |c|)) 
 
-(SDEFUN |COLOR;*;Pi2$;9| ((|i| |PositiveInteger|) (|c| $) ($ $))
+(SDEFUN |COLOR;*;Pi2$;9| ((|i| (|PositiveInteger|)) (|c| ($)) ($ ($)))
         (SPADCALL (FLOAT |i| MOST-POSITIVE-DOUBLE-FLOAT) |c| (QREFELT $ 8))) 
 
 (PUT '|COLOR;numberOfHues;Pi;10| '|SPADreplace| '(XLAM NIL 27)) 
 
-(SDEFUN |COLOR;numberOfHues;Pi;10| (($ |PositiveInteger|)) 27) 
+(SDEFUN |COLOR;numberOfHues;Pi;10| (($ (|PositiveInteger|))) 27) 
 
-(SDEFUN |COLOR;color;I$;11| ((|i| |Integer|) ($ $))
+(SDEFUN |COLOR;color;I$;11| ((|i| (|Integer|)) ($ ($)))
         (SEQ
          (COND
           ((OR (< |i| 0) (> |i| 27))
@@ -83,7 +83,7 @@
             (STRCONC "Color should be in the range 1.." (STRINGIMAGE 27)))))
          (EXIT (CONS |i| 1.0)))) 
 
-(SDEFUN |COLOR;coerce;$Of;12| ((|c| $) ($ |OutputForm|))
+(SDEFUN |COLOR;coerce;$Of;12| ((|c| ($)) ($ (|OutputForm|)))
         (SPADCALL
          (LIST (SPADCALL "Hue: " (QREFELT $ 27))
                (SPADCALL (QCAR |c|) (QREFELT $ 28))

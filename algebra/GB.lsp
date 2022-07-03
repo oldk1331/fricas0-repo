@@ -1,5 +1,5 @@
 
-(SDEFUN |GB;monicize| ((|p| |Dpol|) ($ |Dpol|))
+(SDEFUN |GB;monicize| ((|p| (|Dpol|)) ($ (|Dpol|)))
         (SPROG ((|lc| (|Dom|)))
                (SEQ (LETT |lc| (SPADCALL |p| (QREFELT $ 9)))
                     (EXIT
@@ -11,13 +11,13 @@
                                  (QREFELT $ 15)))))))) 
 
 (SDEFUN |GB;normalForm;DpolLDpol;2|
-        ((|p| |Dpol|) (|l| |List| |Dpol|) ($ |Dpol|))
+        ((|p| (|Dpol|)) (|l| (|List| |Dpol|)) ($ (|Dpol|)))
         (SPADCALL |p|
                   (SPADCALL (CONS (|function| |GB;monicize|) $) |l|
                             (QREFELT $ 18))
                   (QREFELT $ 20))) 
 
-(SDEFUN |GB;groebner;2L;3| ((|Pol| |List| |Dpol|) ($ |List| |Dpol|))
+(SDEFUN |GB;groebner;2L;3| ((|Pol| (|List| |Dpol|)) ($ (|List| |Dpol|)))
         (SPROG ((#1=#:G128 NIL) (|x| NIL) (#2=#:G127 NIL))
                (SEQ
                 (COND ((SPADCALL |Pol| NIL (QREFELT $ 22)) |Pol|)
@@ -55,7 +55,7 @@
                   (QREFELT $ 28))) 
 
 (SDEFUN |GB;groebner;LSL;4|
-        ((|Pol| |List| |Dpol|) (|xx1| |String|) ($ |List| |Dpol|))
+        ((|Pol| (|List| |Dpol|)) (|xx1| (|String|)) ($ (|List| |Dpol|)))
         (SPROG ((#1=#:G136 NIL) (|x| NIL) (#2=#:G135 NIL))
                (SEQ
                 (COND ((SPADCALL |Pol| NIL (QREFELT $ 22)) |Pol|)
@@ -115,8 +115,8 @@
                   (QREFELT $ 28))) 
 
 (SDEFUN |GB;groebner;L2SL;5|
-        ((|Pol| |List| |Dpol|) (|xx1| |String|) (|xx2| |String|)
-         ($ |List| |Dpol|))
+        ((|Pol| (|List| |Dpol|)) (|xx1| (|String|)) (|xx2| (|String|))
+         ($ (|List| |Dpol|)))
         (SPROG ((#1=#:G147 NIL) (|x| NIL) (#2=#:G146 NIL))
                (SEQ
                 (COND ((SPADCALL |Pol| NIL (QREFELT $ 22)) |Pol|)

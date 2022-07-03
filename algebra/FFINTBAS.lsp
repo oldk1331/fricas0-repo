@@ -1,5 +1,5 @@
 
-(SDEFUN |FFINTBAS;squaredFactors| ((|px| R) ($ R))
+(SDEFUN |FFINTBAS;squaredFactors| ((|px| (R)) ($ (R)))
         (SPROG
          ((#1=#:G128 NIL) (#2=#:G127 (R)) (#3=#:G129 (R)) (#4=#:G132 NIL)
           (|ffe| NIL))
@@ -25,9 +25,10 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 16))))))) 
 
 (SDEFUN |FFINTBAS;iIntegralBasis|
-        ((|tfm| |Matrix| R) (|disc| R) (|sing| R)
-         ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        ((|tfm| (|Matrix| R)) (|disc| (R)) (|sing| (R))
+         ($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((#1=#:G136 NIL) (#2=#:G144 NIL) (|oldIndex| (R)) (|indexChange| (R))
           (|rbinv| #3=(|Matrix| R)) (|rbden| (R)) (|rb| #3#) (|g| (R))
@@ -134,8 +135,9 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |FFINTBAS;integralBasis;R;3|
-        (($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        (($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((|sing| (R)) (|disc| (R)) (|tfm| (|Matrix| R))
           (|p| (|NonNegativeInteger|)) (|n| (|PositiveInteger|)))
@@ -153,9 +155,10 @@
               (EXIT (|FFINTBAS;iIntegralBasis| |tfm| |disc| |sing| $))))) 
 
 (SDEFUN |FFINTBAS;localIntegralBasis;RR;4|
-        ((|prime| R)
-         ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        ((|prime| (R))
+         ($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((|disc| (R)) (|tfm| (|Matrix| R)) (|p| (|NonNegativeInteger|))
           (|n| (|PositiveInteger|)))

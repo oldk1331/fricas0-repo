@@ -1,5 +1,5 @@
 
-(SDEFUN |FMAGMA;=;2$B;1| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |FMAGMA;=;2$B;1| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((QEQCAR |x| 0)
           (COND
@@ -8,7 +8,7 @@
          ((QEQCAR |y| 1) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 11)))
          (#1# NIL))) 
 
-(SDEFUN |FMAGMA;varList;$L;2| ((|x| $) ($ |List| |VarSet|))
+(SDEFUN |FMAGMA;varList;$L;2| ((|x| ($)) ($ (|List| |VarSet|)))
         (SPROG ((|lv| (|List| |VarSet|)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (LIST (QCDR |x|)))
@@ -21,44 +21,44 @@
                                (QREFELT $ 15)))
                         (EXIT (SPADCALL |lv| (QREFELT $ 16))))))))) 
 
-(SDEFUN |FMAGMA;left;2$;3| ((|x| $) ($ $))
+(SDEFUN |FMAGMA;left;2$;3| ((|x| ($)) ($ ($)))
         (COND ((QEQCAR |x| 0) (|error| "x has only one entry"))
               ('T (QCAR (QCDR |x|))))) 
 
-(SDEFUN |FMAGMA;right;2$;4| ((|x| $) ($ $))
+(SDEFUN |FMAGMA;right;2$;4| ((|x| ($)) ($ ($)))
         (COND ((QEQCAR |x| 0) (|error| "x has only one entry"))
               ('T (QCDR (QCDR |x|))))) 
 
 (PUT '|FMAGMA;retractable?;$B;5| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
 
-(SDEFUN |FMAGMA;retractable?;$B;5| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 0)) 
+(SDEFUN |FMAGMA;retractable?;$B;5| ((|x| ($)) ($ (|Boolean|))) (QEQCAR |x| 0)) 
 
-(SDEFUN |FMAGMA;retract;$VarSet;6| ((|x| $) ($ |VarSet|))
+(SDEFUN |FMAGMA;retract;$VarSet;6| ((|x| ($)) ($ (|VarSet|)))
         (COND ((QEQCAR |x| 0) (QCDR |x|)) ('T (|error| "Not retractable")))) 
 
-(SDEFUN |FMAGMA;retractIfCan;$U;7| ((|x| $) ($ |Union| |VarSet| "failed"))
+(SDEFUN |FMAGMA;retractIfCan;$U;7| ((|x| ($)) ($ (|Union| |VarSet| "failed")))
         (COND ((SPADCALL |x| (QREFELT $ 19)) (CONS 0 (QCDR |x|)))
               ('T (CONS 1 "failed")))) 
 
 (PUT '|FMAGMA;coerce;VarSet$;8| '|SPADreplace| '(XLAM (|l|) (CONS 0 |l|))) 
 
-(SDEFUN |FMAGMA;coerce;VarSet$;8| ((|l| |VarSet|) ($ $)) (CONS 0 |l|)) 
+(SDEFUN |FMAGMA;coerce;VarSet$;8| ((|l| (|VarSet|)) ($ ($))) (CONS 0 |l|)) 
 
-(SDEFUN |FMAGMA;mirror;2$;9| ((|x| $) ($ $))
+(SDEFUN |FMAGMA;mirror;2$;9| ((|x| ($)) ($ ($)))
         (COND ((QEQCAR |x| 0) |x|)
               ('T
                (CONS 1
                      (CONS (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 24))
                            (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 24))))))) 
 
-(SDEFUN |FMAGMA;coerce;$Fm;10| ((|x| $) ($ |FreeMonoid| |VarSet|))
+(SDEFUN |FMAGMA;coerce;$Fm;10| ((|x| ($)) ($ (|FreeMonoid| |VarSet|)))
         (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 26)))
               ('T
                (SPADCALL (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 27))
                          (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 27))
                          (QREFELT $ 28))))) 
 
-(SDEFUN |FMAGMA;coerce;$Of;11| ((|x| $) ($ |OutputForm|))
+(SDEFUN |FMAGMA;coerce;$Of;11| ((|x| ($)) ($ (|OutputForm|)))
         (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 30)))
               ('T
                (SPADCALL
@@ -66,13 +66,13 @@
                       (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 31)))
                 (QREFELT $ 33))))) 
 
-(SDEFUN |FMAGMA;*;3$;12| ((|x| $) (|y| $) ($ $)) (CONS 1 (CONS |x| |y|))) 
+(SDEFUN |FMAGMA;*;3$;12| ((|x| ($)) (|y| ($)) ($ ($))) (CONS 1 (CONS |x| |y|))) 
 
-(SDEFUN |FMAGMA;first;$VarSet;13| ((|x| $) ($ |VarSet|))
+(SDEFUN |FMAGMA;first;$VarSet;13| ((|x| ($)) ($ (|VarSet|)))
         (COND ((QEQCAR |x| 0) (QCDR |x|))
               ('T (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 35))))) 
 
-(SDEFUN |FMAGMA;rest;2$;14| ((|x| $) ($ $))
+(SDEFUN |FMAGMA;rest;2$;14| ((|x| ($)) ($ ($)))
         (SPROG ((|lx| ($)))
                (SEQ
                 (COND
@@ -86,13 +86,13 @@
                                      (CONS (SPADCALL |lx| (QREFELT $ 36))
                                            (QCDR (QCDR |x|))))))))))))) 
 
-(SDEFUN |FMAGMA;length;$Pi;15| ((|x| $) ($ |PositiveInteger|))
+(SDEFUN |FMAGMA;length;$Pi;15| ((|x| ($)) ($ (|PositiveInteger|)))
         (COND ((QEQCAR |x| 0) 1)
               ('T
                (+ (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 38))
                   (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 38)))))) 
 
-(SDEFUN |FMAGMA;recursif| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |FMAGMA;recursif| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (COND
          ((QEQCAR |x| 0)
           (COND
@@ -106,7 +106,7 @@
            (#1#
             (SPADCALL (QCAR (QCDR |x|)) (QCAR (QCDR |y|)) (QREFELT $ 40))))))) 
 
-(SDEFUN |FMAGMA;lexico;2$B;17| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |FMAGMA;lexico;2$B;17| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|fy| (|VarSet|)) (|fx| (|VarSet|)))
                (SEQ
                 (COND
@@ -132,7 +132,7 @@
                                     (QREFELT $ 42)))
                          (#1# (SPADCALL |fx| |fy| (QREFELT $ 39))))))))))) 
 
-(SDEFUN |FMAGMA;<;2$B;18| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |FMAGMA;<;2$B;18| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|ly| #1=(|PositiveInteger|)) (|lx| #1#))
                (SEQ (LETT |lx| (SPADCALL |x| (QREFELT $ 38)))
                     (LETT |ly| (SPADCALL |y| (QREFELT $ 38)))

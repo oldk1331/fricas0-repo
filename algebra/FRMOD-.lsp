@@ -1,11 +1,11 @@
 
-(SDEFUN |FRMOD-;convert;SV;1| ((|x| S) ($ |Vector| R))
+(SDEFUN |FRMOD-;convert;SV;1| ((|x| (S)) ($ (|Vector| R)))
         (SPADCALL |x| (QREFELT $ 9))) 
 
-(SDEFUN |FRMOD-;convert;VS;2| ((|v| |Vector| R) ($ S))
+(SDEFUN |FRMOD-;convert;VS;2| ((|v| (|Vector| R)) ($ (S)))
         (SPADCALL |v| (QREFELT $ 11))) 
 
-(SDEFUN |FRMOD-;coordinates;VM;3| ((|v| |Vector| S) ($ |Matrix| R))
+(SDEFUN |FRMOD-;coordinates;VM;3| ((|v| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG ((#1=#:G131 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
                (SEQ
                 (LETT |m|
@@ -24,7 +24,7 @@
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |m|)))) 
 
-(SDEFUN |FRMOD-;index;PiS;4| ((|i| |PositiveInteger|) ($ S))
+(SDEFUN |FRMOD-;index;PiS;4| ((|i| (|PositiveInteger|)) ($ (S)))
         (SPROG
          ((|l| (|List| R)) (|i1| #1=(|Integer|)) (|ii| (|Integer|))
           (|#G11|
@@ -46,7 +46,7 @@
                    (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL (SPADCALL |l| (QREFELT $ 27)) (QREFELT $ 11)))))) 
 
-(SDEFUN |FRMOD-;lookup;SPi;5| ((|x| S) ($ |PositiveInteger|))
+(SDEFUN |FRMOD-;lookup;SPi;5| ((|x| (S)) ($ (|PositiveInteger|)))
         (SPROG
          ((|res| (|Integer|)) (#1=#:G141 NIL) (|i| NIL)
           (|m| (|NonNegativeInteger|)) (|v| (|Vector| R)))
@@ -65,10 +65,10 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (+ |res| 1))))) 
 
-(SDEFUN |FRMOD-;size;Nni;6| (($ |NonNegativeInteger|))
+(SDEFUN |FRMOD-;size;Nni;6| (($ (|NonNegativeInteger|)))
         (EXPT (SPADCALL (QREFELT $ 24)) (SPADCALL (QREFELT $ 14)))) 
 
-(SDEFUN |FRMOD-;random;S;7| (($ S))
+(SDEFUN |FRMOD-;random;S;7| (($ (S)))
         (SPROG ((#1=#:G145 NIL) (#2=#:G147 NIL) (|i| NIL) (#3=#:G146 NIL))
                (SEQ
                 (SPADCALL

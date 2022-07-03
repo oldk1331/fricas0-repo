@@ -1,7 +1,7 @@
 
 (SDEFUN |MAGCD2;algebraicGcd1a|
-        ((|x| MP) (|y| MP) (|mu| MD) (|vx| |Symbol|) (|lvz| |List| (|Symbol|))
-         ($ |Union| MPT "failed"))
+        ((|x| (MP)) (|y| (MP)) (|mu| (MD)) (|vx| (|Symbol|))
+         (|lvz| (|List| (|Symbol|))) ($ (|Union| MPT "failed")))
         (SPROG
          ((|yu| (MPT)) (|xu| (MPT)) (#1=#:G160 NIL) (|w1| (MPT))
           (|yuu| #2=(|Union| MPT "failed")) (|xuu| #2#))
@@ -46,8 +46,8 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |MAGCD2;compare_coeff1|
-        ((|nv| |Integer|) (|exps| |SortedExponentVector|)
-         (|nexps| |SortedExponentVector|) ($ |Integer|))
+        ((|nv| (|Integer|)) (|exps| (|SortedExponentVector|))
+         (|nexps| (|SortedExponentVector|)) ($ (|Integer|)))
         (SPROG
          ((#1=#:G166 NIL) (#2=#:G167 NIL) (#3=#:G168 NIL) (|i| NIL)
           (|nn| #4=(|Integer|)) (|ne| #4#))
@@ -78,24 +78,27 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |MAGCD2;algebraicGcd1|
-        ((|x| MP) (|y| MP) (|lm| |List| MP)
-         (|pss| |Record| (|:| |degx| (|Integer|)) (|:| |degy| (|Integer|))
-          (|:| |degg| (|Integer|)) (|:| |sizem| #1=(|Integer|))
-          (|:| |sldeg| (|List| (|Integer|)))
-          (|:| |expdata| (|SortedExponentVector|))
-          (|:| |coeffdata| (|U32Vector|)) (|:| |svx| #2=(|Symbol|))
-          (|:| |svz| #3=(|List| (|Symbol|)))
-          (|:| |offsetdata| #4=(|Vector| (|Integer|)))
-          (|:| |pss1|
-               (|Record| (|:| |prime| #5=(|Integer|))
-                         (|:| |eval1coeffbuf| (|U32Vector|))
-                         (|:| |eval1expbuf| (|SortedExponentVector|)))))
-         ($ |Union|
-          (|Record| (|:| |nvars| (|Integer|))
-                    (|:| |offsetdata| (|Vector| (|Integer|)))
+        ((|x| (MP)) (|y| (MP)) (|lm| (|List| MP))
+         (|pss|
+          (|Record| (|:| |degx| (|Integer|)) (|:| |degy| (|Integer|))
+                    (|:| |degg| (|Integer|)) (|:| |sizem| #1=(|Integer|))
+                    (|:| |sldeg| (|List| (|Integer|)))
                     (|:| |expdata| (|SortedExponentVector|))
-                    (|:| |coeffdata| (|U32Vector|)))
-          "failed"))
+                    (|:| |coeffdata| (|U32Vector|)) (|:| |svx| #2=(|Symbol|))
+                    (|:| |svz| #3=(|List| (|Symbol|)))
+                    (|:| |offsetdata| #4=(|Vector| (|Integer|)))
+                    (|:| |pss1|
+                         (|Record| (|:| |prime| #5=(|Integer|))
+                                   (|:| |eval1coeffbuf| (|U32Vector|))
+                                   (|:| |eval1expbuf|
+                                        (|SortedExponentVector|))))))
+         ($
+          (|Union|
+           (|Record| (|:| |nvars| (|Integer|))
+                     (|:| |offsetdata| (|Vector| (|Integer|)))
+                     (|:| |expdata| (|SortedExponentVector|))
+                     (|:| |coeffdata| (|U32Vector|)))
+           "failed")))
         (SPROG
          ((|offsets| #4#) (|nsize| (|NonNegativeInteger|)) (|msize| #1#)
           (|dg| (|Integer|)) (|res1| (MPT)) (|pres| (|Union| MPT "failed"))
@@ -154,25 +157,27 @@
                                                                       6))))))))))))))))))) 
 
 (SDEFUN |MAGCD2;algebraicGcd2|
-        ((|x| MP) (|y| MP) (|lm| |List| MP) (|lv| |List| (|Symbol|))
-         (|pss| |Record| (|:| |degx| #1=(|Integer|))
-          (|:| |degy| #2=(|Integer|)) (|:| |degg| #3=(|Integer|))
-          (|:| |sizem| (|Integer|)) (|:| |sldeg| (|List| (|Integer|)))
-          (|:| |expdata| (|SortedExponentVector|))
-          (|:| |coeffdata| (|U32Vector|)) (|:| |svx| #4=(|Symbol|))
-          (|:| |svz| (|List| (|Symbol|)))
-          (|:| |offsetdata| #5=(|Vector| (|Integer|)))
-          (|:| |pss1|
-               #6=(|Record| (|:| |prime| #7=(|Integer|))
-                            (|:| |eval1coeffbuf| (|U32Vector|))
-                            (|:| |eval1expbuf| (|SortedExponentVector|)))))
+        ((|x| (MP)) (|y| (MP)) (|lm| (|List| MP)) (|lv| (|List| (|Symbol|)))
+         (|pss|
+          (|Record| (|:| |degx| #1=(|Integer|)) (|:| |degy| #2=(|Integer|))
+                    (|:| |degg| #3=(|Integer|)) (|:| |sizem| (|Integer|))
+                    (|:| |sldeg| (|List| (|Integer|)))
+                    (|:| |expdata| (|SortedExponentVector|))
+                    (|:| |coeffdata| (|U32Vector|)) (|:| |svx| #4=(|Symbol|))
+                    (|:| |svz| (|List| (|Symbol|)))
+                    (|:| |offsetdata| #5=(|Vector| (|Integer|)))
+                    (|:| |pss1|
+                         #6=(|Record| (|:| |prime| #7=(|Integer|))
+                                      (|:| |eval1coeffbuf| (|U32Vector|))
+                                      (|:| |eval1expbuf|
+                                           (|SortedExponentVector|))))))
          ($
-          . #8=(|Union|
-                (|Record| (|:| |nvars| (|Integer|))
-                          (|:| |offsetdata| (|Vector| (|Integer|)))
-                          (|:| |expdata| (|SortedExponentVector|))
-                          (|:| |coeffdata| (|U32Vector|)))
-                "failed")))
+          #8=(|Union|
+              (|Record| (|:| |nvars| (|Integer|))
+                        (|:| |offsetdata| (|Vector| (|Integer|)))
+                        (|:| |expdata| (|SortedExponentVector|))
+                        (|:| |coeffdata| (|U32Vector|)))
+              "failed")))
         (SPROG
          ((#9=#:G231 NIL)
           (|pp|
@@ -648,9 +653,9 @@
           #23# (EXIT #9#)))) 
 
 (SDEFUN |MAGCD2;reconstruct3|
-        ((|lv| |List| (|Symbol|)) (|vx| |Symbol|) (|lvz| |List| (|Symbol|))
-         (|exps| |SortedExponentVector|) (|pp| |PrimitiveArray| (|Integer|))
-         ($ |Polynomial| (|Integer|)))
+        ((|lv| (|List| (|Symbol|))) (|vx| (|Symbol|))
+         (|lvz| (|List| (|Symbol|))) (|exps| (|SortedExponentVector|))
+         (|pp| (|PrimitiveArray| (|Integer|))) ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((|pres| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|nlv| (|List| (|Symbol|))))
@@ -661,19 +666,21 @@
               (EXIT (SPADCALL |pres| |vx| (QREFELT $ 63)))))) 
 
 (SDEFUN |MAGCD2;algebraicGcd3a|
-        ((|x| MP) (|y| MP) (|lm| |List| MP) (|lv| |List| (|Symbol|))
-         (|pss| |Record| (|:| |degx| #1=(|Integer|))
-          (|:| |degy| #2=(|Integer|)) (|:| |degg| #3=(|Integer|))
-          (|:| |sizem| (|Integer|)) (|:| |sldeg| (|List| (|Integer|)))
-          (|:| |expdata| (|SortedExponentVector|))
-          (|:| |coeffdata| (|U32Vector|)) (|:| |svx| #4=(|Symbol|))
-          (|:| |svz| #5=(|List| (|Symbol|)))
-          (|:| |offsetdata| #6=(|Vector| (|Integer|)))
-          (|:| |pss1|
-               #7=(|Record| (|:| |prime| (|Integer|))
-                            (|:| |eval1coeffbuf| (|U32Vector|))
-                            (|:| |eval1expbuf| (|SortedExponentVector|)))))
-         ($ |Polynomial| (|Integer|)))
+        ((|x| (MP)) (|y| (MP)) (|lm| (|List| MP)) (|lv| (|List| (|Symbol|)))
+         (|pss|
+          (|Record| (|:| |degx| #1=(|Integer|)) (|:| |degy| #2=(|Integer|))
+                    (|:| |degg| #3=(|Integer|)) (|:| |sizem| (|Integer|))
+                    (|:| |sldeg| (|List| (|Integer|)))
+                    (|:| |expdata| (|SortedExponentVector|))
+                    (|:| |coeffdata| (|U32Vector|)) (|:| |svx| #4=(|Symbol|))
+                    (|:| |svz| #5=(|List| (|Symbol|)))
+                    (|:| |offsetdata| #6=(|Vector| (|Integer|)))
+                    (|:| |pss1|
+                         #7=(|Record| (|:| |prime| (|Integer|))
+                                      (|:| |eval1coeffbuf| (|U32Vector|))
+                                      (|:| |eval1expbuf|
+                                           (|SortedExponentVector|))))))
+         ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((#8=#:G280 NIL) (|res| (|Polynomial| (|Integer|)))
           (|pp| (|Union| (|PrimitiveArray| (|Integer|)) "failed"))
@@ -1101,9 +1108,9 @@
           #17# (EXIT #8#)))) 
 
 (SDEFUN |MAGCD2;algebraicGcd;2PTLLSLP;7|
-        ((|x| PT) (|y| PT) (|lm| |List| PT) (|lv| |List| (|Symbol|))
-         (|vx| |Symbol|) (|lvz| |List| (|Symbol|))
-         ($ |Polynomial| (|Integer|)))
+        ((|x| (PT)) (|y| (PT)) (|lm| (|List| PT)) (|lv| (|List| (|Symbol|)))
+         (|vx| (|Symbol|)) (|lvz| (|List| (|Symbol|)))
+         ($ (|Polynomial| (|Integer|))))
         (SPROG
          ((|sval| (|List| (|Polynomial| (|Integer|)))) (#1=#:G310 NIL)
           (|v| NIL) (#2=#:G309 NIL) (|ress| (|Polynomial| (|Integer|)))

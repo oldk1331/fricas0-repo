@@ -1,28 +1,28 @@
 
 (PUT '|SAOS;create;$;1| '|SPADreplace| '(XLAM NIL "?")) 
 
-(SDEFUN |SAOS;create;$;1| (($ $)) "?") 
+(SDEFUN |SAOS;create;$;1| (($ ($))) "?") 
 
 (PUT '|SAOS;<;2$B;2| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
 
-(SDEFUN |SAOS;<;2$B;2| ((|a| $) (|b| $) ($ |Boolean|)) NIL) 
+(SDEFUN |SAOS;<;2$B;2| ((|a| ($)) (|b| ($)) ($ (|Boolean|))) NIL) 
 
-(SDEFUN |SAOS;coerce;$Of;3| ((|a| $) ($ |OutputForm|))
+(SDEFUN |SAOS;coerce;$Of;3| ((|a| ($)) ($ (|OutputForm|)))
         (SPADCALL "?" (QREFELT $ 11))) 
 
 (PUT '|SAOS;=;2$B;4| '|SPADreplace| '(XLAM (|a| |b|) 'T)) 
 
-(SDEFUN |SAOS;=;2$B;4| ((|a| $) (|b| $) ($ |Boolean|)) 'T) 
+(SDEFUN |SAOS;=;2$B;4| ((|a| ($)) (|b| ($)) ($ (|Boolean|))) 'T) 
 
 (PUT '|SAOS;min;3$;5| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
 
-(SDEFUN |SAOS;min;3$;5| ((|a| $) (|b| $) ($ $)) |a|) 
+(SDEFUN |SAOS;min;3$;5| ((|a| ($)) (|b| ($)) ($ ($))) |a|) 
 
 (PUT '|SAOS;max;3$;6| '|SPADreplace| '(XLAM (|a| |b|) |a|)) 
 
-(SDEFUN |SAOS;max;3$;6| ((|a| $) (|b| $) ($ $)) |a|) 
+(SDEFUN |SAOS;max;3$;6| ((|a| ($)) (|b| ($)) ($ ($))) |a|) 
 
-(SDEFUN |SAOS;convert;$S;7| ((|a| $) ($ |Symbol|))
+(SDEFUN |SAOS;convert;$S;7| ((|a| ($)) ($ (|Symbol|)))
         (SPADCALL "?" (QREFELT $ 17))) 
 
 (DECLAIM (NOTINLINE |SingletonAsOrderedSet;|)) 

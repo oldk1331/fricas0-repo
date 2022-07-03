@@ -1,5 +1,5 @@
 
-(SDEFUN |MPRFF;factor;PRFF;1| ((|p| PRF) ($ |Factored| PRF))
+(SDEFUN |MPRFF;factor;PRFF;1| ((|p| (PRF)) ($ (|Factored| PRF)))
         (SPROG
          ((#1=#:G130 NIL) (#2=#:G129 #3=(|Factored| PRF)) (#4=#:G131 #3#)
           (#5=#:G139 NIL) (|ff| NIL)
@@ -104,7 +104,7 @@
                           (COND (#1# #2#) (#12# (|spadConstant| $ 37))))
                          (QREFELT $ 38)))))) 
 
-(SDEFUN |MPRFF;pushdown;PRFOVPRF;2| ((|g| PRF) (|x| OV) ($ PRF))
+(SDEFUN |MPRFF;pushdown;PRFOVPRF;2| ((|g| (PRF)) (|x| (OV)) ($ (PRF)))
         (SPROG ((|ug| (|SparseUnivariatePolynomial| PRF)) (|rf| (PRF)))
                (SEQ
                 (COND ((SPADCALL |g| (QREFELT $ 41)) |g|)
@@ -129,7 +129,7 @@
                             (EXIT |rf|))))))) 
 
 (SDEFUN |MPRFF;pushdterm;SupOVPRF;3|
-        ((|t| |SparseUnivariatePolynomial| PRF) (|x| OV) ($ PRF))
+        ((|t| (|SparseUnivariatePolynomial| PRF)) (|x| (OV)) ($ (PRF)))
         (SPROG
          ((|cf| (|Fraction| (|Polynomial| R))) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL |t| (QREFELT $ 54)))
@@ -142,7 +142,7 @@
               (EXIT
                (SPADCALL |cf| (SPADCALL |t| (QREFELT $ 61)) (QREFELT $ 32)))))) 
 
-(SDEFUN |MPRFF;pushup;PRFOVPRF;4| ((|f| PRF) (|x| OV) ($ PRF))
+(SDEFUN |MPRFF;pushup;PRFOVPRF;4| ((|f| (PRF)) (|x| (OV)) ($ (PRF)))
         (SPROG
          ((|g| (|SparseUnivariatePolynomial| PRF)) (|v| (OV)) (#1=#:G148 NIL))
          (SEQ
@@ -170,7 +170,7 @@
           (RETURN (PROGN (SPADCALL |y| |x| (QREFELT $ 31)))))) 
 
 (SDEFUN |MPRFF;pushuconst;FOVPRF;5|
-        ((|r| |Fraction| (|Polynomial| R)) (|x| OV) ($ PRF))
+        ((|r| (|Fraction| (|Polynomial| R))) (|x| (OV)) ($ (PRF)))
         (SPROG ((|xs| (|Symbol|)))
                (SEQ (LETT |xs| (SPADCALL |x| (QREFELT $ 58)))
                     (EXIT
@@ -193,7 +193,8 @@
                         (QREFELT $ 32)))))))) 
 
 (SDEFUN |MPRFF;pushucoef;SupOVPRF;6|
-        ((|c| |SparseUnivariatePolynomial| (|Polynomial| R)) (|x| OV) ($ PRF))
+        ((|c| (|SparseUnivariatePolynomial| (|Polynomial| R))) (|x| (OV))
+         ($ (PRF)))
         (COND
          ((SPADCALL |c| (|spadConstant| $ 75) (QREFELT $ 76))
           (|spadConstant| $ 42))
@@ -207,9 +208,10 @@
            (QREFELT $ 51))))) 
 
 (SDEFUN |MPRFF;totalfract;PRFR;7|
-        ((|p| PRF)
-         ($ |Record| (|:| |sup| (|Polynomial| R))
-          (|:| |inf| (|Polynomial| R))))
+        ((|p| (PRF))
+         ($
+          (|Record| (|:| |sup| (|Polynomial| R))
+                    (|:| |inf| (|Polynomial| R)))))
         (SPROG ((|g| (|Fraction| (|Polynomial| R))) (#1=#:G166 NIL) (|x| NIL))
                (SEQ
                 (COND

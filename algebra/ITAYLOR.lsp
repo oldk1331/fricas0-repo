@@ -1,19 +1,19 @@
 
 (PUT '|ITAYLOR;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |ITAYLOR;stream| ((|x| $) ($ |Stream| |Coef|)) |x|) 
+(SDEFUN |ITAYLOR;stream| ((|x| ($)) ($ (|Stream| |Coef|))) |x|) 
 
 (PUT '|ITAYLOR;series;S$;2| '|SPADreplace| '(XLAM (|st|) |st|)) 
 
-(SDEFUN |ITAYLOR;series;S$;2| ((|st| |Stream| |Coef|) ($ $)) |st|) 
+(SDEFUN |ITAYLOR;series;S$;2| ((|st| (|Stream| |Coef|)) ($ ($))) |st|) 
 
-(SDEFUN |ITAYLOR;Zero;$;3| (($ $))
+(SDEFUN |ITAYLOR;Zero;$;3| (($ ($)))
         (SPADCALL (|spadConstant| $ 11) (QREFELT $ 13))) 
 
-(SDEFUN |ITAYLOR;One;$;4| (($ $))
+(SDEFUN |ITAYLOR;One;$;4| (($ ($)))
         (SPADCALL (|spadConstant| $ 15) (QREFELT $ 13))) 
 
-(SDEFUN |ITAYLOR;=;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |ITAYLOR;=;2$B;5| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG
          ((|st| (|Stream| |Coef|)) (#1=#:G134 NIL) (#2=#:G135 NIL) (|i| NIL)
           (|n| (|Integer|)))
@@ -37,39 +37,39 @@
             (EXIT (SPADCALL |st| (QREFELT $ 18)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |ITAYLOR;coefficients;$S;6| ((|x| $) ($ |Stream| |Coef|))
+(SDEFUN |ITAYLOR;coefficients;$S;6| ((|x| ($)) ($ (|Stream| |Coef|)))
         (|ITAYLOR;stream| |x| $)) 
 
-(SDEFUN |ITAYLOR;+;3$;7| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ITAYLOR;+;3$;7| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (|ITAYLOR;stream| |x| $) (|ITAYLOR;stream| |y| $)
                   (QREFELT $ 24))) 
 
-(SDEFUN |ITAYLOR;-;3$;8| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ITAYLOR;-;3$;8| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (|ITAYLOR;stream| |x| $) (|ITAYLOR;stream| |y| $)
                   (QREFELT $ 26))) 
 
-(SDEFUN |ITAYLOR;*;3$;9| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ITAYLOR;*;3$;9| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL (|ITAYLOR;stream| |x| $) (|ITAYLOR;stream| |y| $)
                   (QREFELT $ 27))) 
 
-(SDEFUN |ITAYLOR;-;2$;10| ((|x| $) ($ $))
+(SDEFUN |ITAYLOR;-;2$;10| ((|x| ($)) ($ ($)))
         (SPADCALL (|ITAYLOR;stream| |x| $) (QREFELT $ 29))) 
 
-(SDEFUN |ITAYLOR;*;I2$;11| ((|i| |Integer|) (|x| $) ($ $))
+(SDEFUN |ITAYLOR;*;I2$;11| ((|i| (|Integer|)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |i| (QREFELT $ 32)) (|ITAYLOR;stream| |x| $)
                   (QREFELT $ 33))) 
 
-(SDEFUN |ITAYLOR;*;$I$;12| ((|x| $) (|i| |Integer|) ($ $))
+(SDEFUN |ITAYLOR;*;$I$;12| ((|x| ($)) (|i| (|Integer|)) ($ ($)))
         (SPADCALL (|ITAYLOR;stream| |x| $) (SPADCALL |i| (QREFELT $ 32))
                   (QREFELT $ 35))) 
 
-(SDEFUN |ITAYLOR;*;Coef2$;13| ((|c| |Coef|) (|x| $) ($ $))
+(SDEFUN |ITAYLOR;*;Coef2$;13| ((|c| (|Coef|)) (|x| ($)) ($ ($)))
         (SPADCALL |c| (|ITAYLOR;stream| |x| $) (QREFELT $ 33))) 
 
-(SDEFUN |ITAYLOR;*;$Coef$;14| ((|x| $) (|c| |Coef|) ($ $))
+(SDEFUN |ITAYLOR;*;$Coef$;14| ((|x| ($)) (|c| (|Coef|)) ($ ($)))
         (SPADCALL (|ITAYLOR;stream| |x| $) |c| (QREFELT $ 35))) 
 
-(SDEFUN |ITAYLOR;recip;$U;15| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |ITAYLOR;recip;$U;15| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|rec| (|Union| (|Stream| |Coef|) "failed")))
                (SEQ
                 (LETT |rec| (SPADCALL (|ITAYLOR;stream| |x| $) (QREFELT $ 40)))
@@ -77,7 +77,7 @@
                  (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
                        ('T (CONS 0 (SPADCALL (QCDR |rec|) (QREFELT $ 9))))))))) 
 
-(SDEFUN |ITAYLOR;exquo;2$U;16| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |ITAYLOR;exquo;2$U;16| ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|quot| (|Union| (|Stream| |Coef|) "failed")))
                (SEQ
                 (LETT |quot|
@@ -87,7 +87,7 @@
                  (COND ((QEQCAR |quot| 1) (CONS 1 "failed"))
                        ('T (CONS 0 (SPADCALL (QCDR |quot|) (QREFELT $ 9))))))))) 
 
-(SDEFUN |ITAYLOR;^;$Nni$;17| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |ITAYLOR;^;$Nni$;17| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G165 NIL))
                (COND ((EQL |n| 0) (|spadConstant| $ 14))
                      ('T
@@ -99,16 +99,16 @@
                                                     #1#))
                                 (QREFELT $ 47)))))) 
 
-(SDEFUN |ITAYLOR;characteristic;Nni;18| (($ |NonNegativeInteger|))
+(SDEFUN |ITAYLOR;characteristic;Nni;18| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 50))) 
 
 (PUT '|ITAYLOR;pole?;$B;19| '|SPADreplace| '(XLAM (|x|) NIL)) 
 
-(SDEFUN |ITAYLOR;pole?;$B;19| ((|x| $) ($ |Boolean|)) NIL) 
+(SDEFUN |ITAYLOR;pole?;$B;19| ((|x| ($)) ($ (|Boolean|))) NIL) 
 
 (SDEFUN |ITAYLOR;iOrder|
-        ((|st| |Stream| |Coef|) (|n| |NonNegativeInteger|)
-         (|n0| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|st| (|Stream| |Coef|)) (|n| (|NonNegativeInteger|))
+         (|n0| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (COND ((OR (EQL |n| |n0|) (SPADCALL |st| (QREFELT $ 18))) |n0|)
               ('T
                (COND
@@ -118,12 +118,12 @@
                 ('T |n|))))) 
 
 (SDEFUN |ITAYLOR;order;$2Nni;21|
-        ((|x| $) (|n| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (|ITAYLOR;iOrder| (|ITAYLOR;stream| |x| $) 0 |n| $)) 
 
 (SDEFUN |ITAYLOR;iOrder2|
-        ((|st| |Stream| |Coef|) (|n| |NonNegativeInteger|)
-         ($ |NonNegativeInteger|))
+        ((|st| (|Stream| |Coef|)) (|n| (|NonNegativeInteger|))
+         ($ (|NonNegativeInteger|)))
         (COND
          ((SPADCALL |st| (QREFELT $ 18))
           (|error| "order: series has infinite order"))
@@ -131,7 +131,7 @@
           (|ITAYLOR;iOrder2| (SPADCALL |st| (QREFELT $ 21)) (+ |n| 1) $))
          ('T |n|))) 
 
-(SDEFUN |ITAYLOR;order;$Nni;23| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |ITAYLOR;order;$Nni;23| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (|ITAYLOR;iOrder2| (|ITAYLOR;stream| |x| $) 0 $)) 
 
 (DECLAIM (NOTINLINE |InnerTaylorSeries;|)) 

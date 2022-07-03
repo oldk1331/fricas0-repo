@@ -1,11 +1,13 @@
 
-(SDEFUN |CVMP;imbedFP| ((|r| R) ($ |Fraction| (|Polynomial| R)))
+(SDEFUN |CVMP;imbedFP| ((|r| (R)) ($ (|Fraction| (|Polynomial| R))))
         (SPADCALL (SPADCALL |r| (QREFELT $ 8)) (QREFELT $ 10))) 
 
-(SDEFUN |CVMP;imbedP| ((|r| R) ($ |Polynomial| R)) (SPADCALL |r| (QREFELT $ 8))) 
+(SDEFUN |CVMP;imbedP| ((|r| (R)) ($ (|Polynomial| R)))
+        (SPADCALL |r| (QREFELT $ 8))) 
 
 (SDEFUN |CVMP;coerceP;VV;3|
-        ((|g| |Vector| (|Matrix| R)) ($ |Vector| (|Matrix| (|Polynomial| R))))
+        ((|g| (|Vector| (|Matrix| R)))
+         ($ (|Vector| (|Matrix| (|Polynomial| R)))))
         (SPROG
          ((|l| (|List| (|Matrix| (|Polynomial| R))))
           (|m2| (|Matrix| (|Polynomial| R))) (#1=#:G126 NIL) (|m| NIL)
@@ -24,8 +26,8 @@
               (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 21)))))) 
 
 (SDEFUN |CVMP;coerce;VV;4|
-        ((|g| |Vector| (|Matrix| R))
-         ($ |Vector| (|Matrix| (|Fraction| (|Polynomial| R)))))
+        ((|g| (|Vector| (|Matrix| R)))
+         ($ (|Vector| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
          ((|l| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))
           (|m3| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G132 NIL)

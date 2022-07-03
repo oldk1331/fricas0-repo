@@ -1,7 +1,7 @@
 
 (SDEFUN |TSEREXP-;taylor_via_deriv;CoefLLPS;1|
-        ((|f| |Coef|) (|lx| |List| PS) (|ld| |List| (|Mapping| |Coef| |Coef|))
-         ($ PS))
+        ((|f| (|Coef|)) (|lx| (|List| PS))
+         (|ld| (|List| (|Mapping| |Coef| |Coef|))) ($ (PS)))
         (SPADCALL (SPADCALL |f| (|spadConstant| $ 12) (QREFELT $ 13)) |lx| |ld|
                   (QREFELT $ 17))) 
 

@@ -1,33 +1,31 @@
 
 (PUT '|SARGND;spnt;2Df$;1| '|SPADreplace| 'CONS) 
 
-(SDEFUN |SARGND;spnt;2Df$;1| ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) ($ $))
+(SDEFUN |SARGND;spnt;2Df$;1| ((|a| #1=(|DoubleFloat|)) (|b| #1#) ($ ($)))
         (CONS |a| |b|)) 
 
 (PUT '|SARGND;spnt;3Df$;2| '|SPADreplace| '(XLAM (|a| |b| |c|) (CONS |a| |b|))) 
 
 (SDEFUN |SARGND;spnt;3Df$;2|
-        ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) (|c| . #1#) ($ $))
-        (CONS |a| |b|)) 
+        ((|a| #1=(|DoubleFloat|)) (|b| #1#) (|c| #1#) ($ ($))) (CONS |a| |b|)) 
 
 (PUT '|SARGND;svec;2Df$;3| '|SPADreplace| 'CONS) 
 
-(SDEFUN |SARGND;svec;2Df$;3| ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) ($ $))
+(SDEFUN |SARGND;svec;2Df$;3| ((|a| #1=(|DoubleFloat|)) (|b| #1#) ($ ($)))
         (CONS |a| |b|)) 
 
 (PUT '|SARGND;svec;3Df$;4| '|SPADreplace| '(XLAM (|a| |b| |c|) (CONS |a| |b|))) 
 
 (SDEFUN |SARGND;svec;3Df$;4|
-        ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) (|c| . #1#) ($ $))
-        (CONS |a| |b|)) 
+        ((|a| #1=(|DoubleFloat|)) (|b| #1#) (|c| #1#) ($ ($))) (CONS |a| |b|)) 
 
-(SDEFUN |SARGND;min;3$;5| ((|a| $) (|b| $) ($ $))
+(SDEFUN |SARGND;min;3$;5| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((|im| #1=(|DoubleFloat|)) (|re| #1#))
                (SEQ (LETT |re| (|min_DF| (QCAR |a|) (QCAR |b|)))
                     (LETT |im| (|min_DF| (QCDR |a|) (QCDR |b|)))
                     (EXIT (CONS |re| |im|))))) 
 
-(SDEFUN |SARGND;max;3$;6| ((|a| $) (|b| $) ($ $))
+(SDEFUN |SARGND;max;3$;6| ((|a| ($)) (|b| ($)) ($ ($)))
         (SPROG ((|im| #1=(|DoubleFloat|)) (|re| #1#))
                (SEQ (LETT |re| (|max_DF| (QCAR |a|) (QCAR |b|)))
                     (LETT |im| (|max_DF| (QCDR |a|) (QCDR |b|)))
@@ -35,17 +33,17 @@
 
 (PUT '|SARGND;dimension;$Pi;7| '|SPADreplace| '(XLAM (|p|) 2)) 
 
-(SDEFUN |SARGND;dimension;$Pi;7| ((|p| $) ($ |PositiveInteger|)) 2) 
+(SDEFUN |SARGND;dimension;$Pi;7| ((|p| ($)) ($ (|PositiveInteger|))) 2) 
 
-(SDEFUN |SARGND;nan?| ((|x| |DoubleFloat|) ($ |Boolean|))
+(SDEFUN |SARGND;nan?| ((|x| (|DoubleFloat|)) ($ (|Boolean|)))
         (SPADCALL |x| |x| (QREFELT $ 17))) 
 
-(SDEFUN |SARGND;Pnan?;$B;9| ((|p| $) ($ |Boolean|))
+(SDEFUN |SARGND;Pnan?;$B;9| ((|p| ($)) ($ (|Boolean|)))
         (COND
          ((OR (|SARGND;nan?| (QCAR |p|) $) (|SARGND;nan?| (QCDR |p|) $)) 'T)
          ('T NIL))) 
 
-(SDEFUN |SARGND;unitVector;2$;10| ((|p| $) ($ $))
+(SDEFUN |SARGND;unitVector;2$;10| ((|p| ($)) ($ ($)))
         (SPROG ((|factor| (|DoubleFloat|)))
                (SEQ
                 (LETT |factor|
@@ -57,31 +55,34 @@
                  (CONS (|div_DF| (QCAR |p|) |factor|)
                        (|div_DF| (QCDR |p|) |factor|)))))) 
 
-(SDEFUN |SARGND;distanceSquared;2$Df;11| ((|p1| $) (|p2| $) ($ |DoubleFloat|))
+(SDEFUN |SARGND;distanceSquared;2$Df;11|
+        ((|p1| ($)) (|p2| ($)) ($ (|DoubleFloat|)))
         (|add_DF| (|expt_DF_I| (|sub_DF| (QCAR |p1|) (QCAR |p2|)) 2)
                   (|expt_DF_I| (|sub_DF| (QCDR |p1|) (QCDR |p2|)) 2))) 
 
-(SDEFUN |SARGND;parallel;2$Df;12| ((|x| $) (|y| $) ($ |DoubleFloat|))
+(SDEFUN |SARGND;parallel;2$Df;12| ((|x| ($)) (|y| ($)) ($ (|DoubleFloat|)))
         (|add_DF| (|mul_DF| (QCAR |x|) (QCAR |y|))
                   (|mul_DF| (QCDR |x|) (QCDR |y|)))) 
 
 (PUT '|SARGND;perpendicular;3$;13| '|SPADreplace|
      '(XLAM (|x| |y|) (CONS 0.0 1.0))) 
 
-(SDEFUN |SARGND;perpendicular;3$;13| ((|x| $) (|y| $) ($ $)) (CONS 0.0 1.0)) 
+(SDEFUN |SARGND;perpendicular;3$;13| ((|x| ($)) (|y| ($)) ($ ($)))
+        (CONS 0.0 1.0)) 
 
-(SDEFUN |SARGND;*;Df2$;14| ((|s| |DoubleFloat|) (|x| $) ($ $))
+(SDEFUN |SARGND;*;Df2$;14| ((|s| (|DoubleFloat|)) (|x| ($)) ($ ($)))
         (CONS (|mul_DF| (QCAR |x|) |s|) (|mul_DF| (QCDR |x|) |s|))) 
 
-(SDEFUN |SARGND;+;3$;15| ((|x| $) (|y| $) ($ $))
+(SDEFUN |SARGND;+;3$;15| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS (|add_DF| (QCAR |x|) (QCAR |y|))
               (|add_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(SDEFUN |SARGND;-;3$;16| ((|x| $) (|y| $) ($ $))
+(SDEFUN |SARGND;-;3$;16| ((|x| ($)) (|y| ($)) ($ ($)))
         (CONS (|sub_DF| (QCAR |x|) (QCAR |y|))
               (|sub_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(SDEFUN |SARGND;inBounds?;3$B;17| ((|pt| $) (|mns| $) (|mxs| $) ($ |Boolean|))
+(SDEFUN |SARGND;inBounds?;3$B;17|
+        ((|pt| ($)) (|mns| ($)) (|mxs| ($)) ($ (|Boolean|)))
         (COND
          ((OR (|less_DF| (QCAR |pt|) (QCAR |mns|))
               (OR (SPADCALL (QCAR |pt|) (QCAR |mxs|) (QREFELT $ 27))
@@ -91,46 +92,49 @@
 
 (PUT '|SARGND;screenCoordX;$Df;18| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |SARGND;screenCoordX;$Df;18| ((|pt| $) ($ |DoubleFloat|)) (QCAR |pt|)) 
+(SDEFUN |SARGND;screenCoordX;$Df;18| ((|pt| ($)) ($ (|DoubleFloat|)))
+        (QCAR |pt|)) 
 
 (PUT '|SARGND;screenCoordY;$Df;19| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |SARGND;screenCoordY;$Df;19| ((|pt| $) ($ |DoubleFloat|)) (QCDR |pt|)) 
+(SDEFUN |SARGND;screenCoordY;$Df;19| ((|pt| ($)) ($ (|DoubleFloat|)))
+        (QCDR |pt|)) 
 
 (PUT '|SARGND;screenCoordZ;$Df;20| '|SPADreplace| '(XLAM (|pt|) 0.0)) 
 
-(SDEFUN |SARGND;screenCoordZ;$Df;20| ((|pt| $) ($ |DoubleFloat|)) 0.0) 
+(SDEFUN |SARGND;screenCoordZ;$Df;20| ((|pt| ($)) ($ (|DoubleFloat|))) 0.0) 
 
-(SDEFUN |SARGND;screenCoords;$L;21| ((|pt| $) ($ |List| (|DoubleFloat|)))
+(SDEFUN |SARGND;screenCoords;$L;21| ((|pt| ($)) ($ (|List| (|DoubleFloat|))))
         (LIST (QCAR |pt|) (QCDR |pt|))) 
 
-(SDEFUN |SARGND;extendedCoords;$L;22| ((|pt| $) ($ |List| (|DoubleFloat|)))
+(SDEFUN |SARGND;extendedCoords;$L;22| ((|pt| ($)) ($ (|List| (|DoubleFloat|))))
         (LIST (QCAR |pt|) (QCDR |pt|))) 
 
-(SDEFUN |SARGND;toPoint;2$;23| ((|p| $) ($ $)) (CONS (QCAR |p|) (QCDR |p|))) 
+(SDEFUN |SARGND;toPoint;2$;23| ((|p| ($)) ($ ($))) (CONS (QCAR |p|) (QCDR |p|))) 
 
-(SDEFUN |SARGND;toVector;2$;24| ((|p| $) ($ $)) (CONS (QCAR |p|) (QCDR |p|))) 
+(SDEFUN |SARGND;toVector;2$;24| ((|p| ($)) ($ ($)))
+        (CONS (QCAR |p|) (QCDR |p|))) 
 
 (PUT '|SARGND;isPoint?;$B;25| '|SPADreplace| '(XLAM (|p|) 'T)) 
 
-(SDEFUN |SARGND;isPoint?;$B;25| ((|p| $) ($ |Boolean|)) 'T) 
+(SDEFUN |SARGND;isPoint?;$B;25| ((|p| ($)) ($ (|Boolean|))) 'T) 
 
 (PUT '|SARGND;isVector?;$B;26| '|SPADreplace| '(XLAM (|p|) 'T)) 
 
-(SDEFUN |SARGND;isVector?;$B;26| ((|p| $) ($ |Boolean|)) 'T) 
+(SDEFUN |SARGND;isVector?;$B;26| ((|p| ($)) ($ (|Boolean|))) 'T) 
 
-(SDEFUN |SARGND;coerce;$C;27| ((|me| $) ($ |Complex| (|DoubleFloat|)))
+(SDEFUN |SARGND;coerce;$C;27| ((|me| ($)) ($ (|Complex| (|DoubleFloat|))))
         (SPADCALL (QCAR |me|) (QCDR |me|) (QREFELT $ 40))) 
 
-(SDEFUN |SARGND;coerce;C$;28| ((|cmpx| |Complex| (|DoubleFloat|)) ($ $))
+(SDEFUN |SARGND;coerce;C$;28| ((|cmpx| (|Complex| (|DoubleFloat|))) ($ ($)))
         (CONS (SPADCALL |cmpx| (QREFELT $ 42))
               (SPADCALL |cmpx| (QREFELT $ 43)))) 
 
 (PUT '|SARGND;hash;$Si;29| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |SARGND;hash;$Si;29| ((|s| $) ($ |SingleInteger|)) 0) 
+(SDEFUN |SARGND;hash;$Si;29| ((|s| ($)) ($ (|SingleInteger|))) 0) 
 
-(SDEFUN |SARGND;=;2$B;30| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |SARGND;=;2$B;30| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G174 NIL))
                (SEQ
                 (EXIT
@@ -144,10 +148,10 @@
                   (EXIT 'T)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |SARGND;~=;2$B;31| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |SARGND;~=;2$B;31| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| |y| (QREFELT $ 47)))) 
 
-(SDEFUN |SARGND;coerce;$Of;32| ((|pt| $) ($ |OutputForm|))
+(SDEFUN |SARGND;coerce;$Of;32| ((|pt| ($)) ($ (|OutputForm|)))
         (COND
          ((|less_DF| (QCDR |pt|) 0.0)
           (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT $ 50))

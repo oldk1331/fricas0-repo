@@ -1,5 +1,6 @@
 
-(SDEFUN |STR;qelt| ((|m| $) (|i| |Integer|) (|j| |Integer|) ($ |DoubleFloat|))
+(SDEFUN |STR;qelt|
+        ((|m| ($)) (|i| (|Integer|)) (|j| (|Integer|)) ($ (|DoubleFloat|)))
         (SPROG ((#1=#:G123 NIL))
                (QAREF1
                 (QAREF1
@@ -22,7 +23,7 @@
                  |i|)
                 |j|))) 
 
-(SDEFUN |STR;stransform;L$;2| ((|m| |List| (|List| (|DoubleFloat|))) ($ $))
+(SDEFUN |STR;stransform;L$;2| ((|m| (|List| (|List| (|DoubleFloat|)))) ($ ($)))
         (SPROG
          ((|j| NIL) (|i| NIL)
           (|arr| (|PrimitiveArray| (|PrimitiveArray| (|DoubleFloat|)))))
@@ -70,12 +71,13 @@
 
 (PUT '|STR;stransform;M$;3| '|SPADreplace| '(XLAM (|gen|) (CONS 1 |gen|))) 
 
-(SDEFUN |STR;stransform;M$;3| ((|gen| |Mapping| PT PT) ($ $)) (CONS 1 |gen|)) 
+(SDEFUN |STR;stransform;M$;3| ((|gen| (|Mapping| PT PT)) ($ ($)))
+        (CONS 1 |gen|)) 
 
 (SDEFUN |STR;stransform;M$;4|
-        ((|cpx| |Mapping| (|Complex| (|DoubleFloat|))
-          (|Complex| (|DoubleFloat|)))
-         ($ $))
+        ((|cpx|
+          (|Mapping| (|Complex| (|DoubleFloat|)) (|Complex| (|DoubleFloat|))))
+         ($ ($)))
         (SPROG ((|pp| (|Mapping| PT PT)))
                (SEQ
                 (LETT |pp| (CONS #'|STR;stransform;M$;4!0| (VECTOR |cpx| $)))
@@ -90,13 +92,13 @@
             (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 20)) |cpx|)
                       (QREFELT $ 21)))))) 
 
-(SDEFUN |STR;stransform;L$;5| ((|m| |List| (|DoubleFloat|)) ($ $))
+(SDEFUN |STR;stransform;L$;5| ((|m| (|List| (|DoubleFloat|))) ($ ($)))
         (CONS 2 (SPADCALL |m| (QREFELT $ 25)))) 
 
 (SDEFUN |STR;stranslate;6Df$;6|
-        ((|offsetx| |DoubleFloat|) (|offsety| |DoubleFloat|)
-         (|offsetz| |DoubleFloat|) (|scalex| |DoubleFloat|)
-         (|scaley| |DoubleFloat|) (|scalez| |DoubleFloat|) ($ $))
+        ((|offsetx| (|DoubleFloat|)) (|offsety| (|DoubleFloat|))
+         (|offsetz| (|DoubleFloat|)) (|scalex| (|DoubleFloat|))
+         (|scaley| (|DoubleFloat|)) (|scalez| (|DoubleFloat|)) ($ ($)))
         (SPROG
          ((#1=#:G161 NIL) (|pp| (|Mapping| PT PT)) (|trConf| (CA))
           (CA
@@ -192,10 +194,10 @@
 
 (PUT '|STR;identity;$;7| '|SPADreplace| '(XLAM NIL (CONS 3 "iden"))) 
 
-(SDEFUN |STR;identity;$;7| (($ $)) (CONS 3 "iden")) 
+(SDEFUN |STR;identity;$;7| (($ ($))) (CONS 3 "iden")) 
 
 (SDEFUN |STR;applyTransPt2|
-        ((|tr| $) (|inpt| |SCartesian| 2) ($ |SCartesian| 2))
+        ((|tr| ($)) (|inpt| (|SCartesian| 2)) ($ (|SCartesian| 2)))
         (SPROG
          ((|b| #1=(|DoubleFloat|)) (#2=#:G123 NIL) (|a| #1#)
           (|vin| (|List| (|DoubleFloat|))) (#3=#:G170 NIL))
@@ -367,7 +369,7 @@
           #4# (EXIT #3#)))) 
 
 (SDEFUN |STR;applyTransPt3|
-        ((|tr| $) (|inpt| |SCartesian| 3) ($ |SCartesian| 3))
+        ((|tr| ($)) (|inpt| (|SCartesian| 3)) ($ (|SCartesian| 3)))
         (SPROG
          ((|c| #1=(|DoubleFloat|)) (#2=#:G123 NIL) (|b| #1#) (|a| #1#)
           (|vin| (|List| (|DoubleFloat|))) (#3=#:G178 NIL))
@@ -688,7 +690,7 @@
             (EXIT (SPADCALL |a| |b| |c| (QREFELT $ 46)))))
           #4# (EXIT #3#)))) 
 
-(SDEFUN |STR;applyTransCx| ((|tr| $) (|inpt| |SArgand|) ($ |SArgand|))
+(SDEFUN |STR;applyTransCx| ((|tr| ($)) (|inpt| (|SArgand|)) ($ (|SArgand|)))
         (SPROG
          ((|res| (PT)) (|f| (|Mapping| PT PT)) (#1=#:G124 NIL) (#2=#:G182 NIL))
          (SEQ
@@ -724,7 +726,7 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |STR;applyTransConf2|
-        ((|tr| $) (|inpt| |SConformal| 2) ($ |SConformal| 2))
+        ((|tr| ($)) (|inpt| (|SConformal| 2)) ($ (|SConformal| 2)))
         (SPROG
          ((|res| (|SConformal| 2)) (|conjugation| (CA)) (|trConf| (CA))
           (#1=#:G125 NIL) (|ptConf| (CA))
@@ -798,7 +800,7 @@
             (LETT |res| |conjugation|) (EXIT (SPADCALL |res| (QREFELT $ 49)))))
           #4# (EXIT #3#)))) 
 
-(SDEFUN |STR;xform;$2PT;12| ((|tr| $) (|inpt| PT) ($ PT))
+(SDEFUN |STR;xform;$2PT;12| ((|tr| ($)) (|inpt| (PT)) ($ (PT)))
         (SEQ
          (COND
           ((EQUAL (QREFELT $ 6) (|SCartesian| 2))
@@ -813,7 +815,7 @@
            (SEQ (|error| "invalid point type in transform")
                 (EXIT (SPADCALL 0.0 0.0 (QREFELT $ 43)))))))) 
 
-(SDEFUN |STR;compound2| ((|tr| $) (|inpt| $) ($ $))
+(SDEFUN |STR;compound2| ((|tr| ($)) (|inpt| ($)) ($ ($)))
         (SPROG
          ((#1=#:G198 NIL) (#2=#:G123 NIL) (|j| NIL) (|i| NIL)
           (|arr| (|PrimitiveArray| (|PrimitiveArray| (|DoubleFloat|)))))
@@ -989,7 +991,7 @@
                 (EXIT (PROGN (LETT #1# (CONS 0 |arr|)) (GO #4=#:G197)))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |STR;compound3| ((|tr| $) (|inpt| $) ($ $))
+(SDEFUN |STR;compound3| ((|tr| ($)) (|inpt| ($)) ($ ($)))
         (SPROG
          ((#1=#:G208 NIL) (#2=#:G123 NIL) (|j| NIL) (|i| NIL)
           (|arr| (|PrimitiveArray| (|PrimitiveArray| (|DoubleFloat|)))))
@@ -1217,7 +1219,7 @@
                 (EXIT (PROGN (LETT #1# (CONS 0 |arr|)) (GO #4=#:G207)))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |STR;compoundConf2| ((|tr| $) (|inpt| $) ($ $))
+(SDEFUN |STR;compoundConf2| ((|tr| ($)) (|inpt| ($)) ($ ($)))
         (SPROG
          ((#1=#:G211 NIL) (|resConf| (CA)) (|inptConf| (CA)) (#2=#:G125 NIL)
           (|trConf| (CA))
@@ -1291,7 +1293,7 @@
             (EXIT (PROGN (LETT #1# (CONS 2 |resConf|)) (GO #5=#:G210)))))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |STR;compound;3$;16| ((|tr| $) (|inpt| $) ($ $))
+(SDEFUN |STR;compound;3$;16| ((|tr| ($)) (|inpt| ($)) ($ ($)))
         (SPROG
          ((#1=#:G222 NIL) (|fn| (|Mapping| PT PT)) (|in2| (|Mapping| PT PT))
           (|in1| (|Mapping| PT PT)))
@@ -1334,7 +1336,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |STR;outputArray|
-        ((|x| |PrimitiveArray| (|DoubleFloat|)) ($ |OutputForm|))
+        ((|x| (|PrimitiveArray| (|DoubleFloat|))) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G231 NIL) (|i| NIL) (#2=#:G230 NIL)
           (|m| (|NonNegativeInteger|)))
@@ -1355,8 +1357,8 @@
                 (QREFELT $ 56)))))) 
 
 (SDEFUN |STR;outputMatrix|
-        ((|x| |PrimitiveArray| (|PrimitiveArray| (|DoubleFloat|)))
-         ($ |OutputForm|))
+        ((|x| (|PrimitiveArray| (|PrimitiveArray| (|DoubleFloat|))))
+         ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|List| (|OutputForm|)))) (#1=#:G243 NIL) (|j| NIL)
           (#2=#:G242 NIL) (#3=#:G241 NIL) (|i| NIL) (#4=#:G240 NIL)
@@ -1392,7 +1394,7 @@
                           (EXIT (NREVERSE #4#)))))
               (EXIT (SPADCALL |l| (QREFELT $ 58)))))) 
 
-(SDEFUN |STR;coerce;$Of;19| ((|tr| $) ($ |OutputForm|))
+(SDEFUN |STR;coerce;$Of;19| ((|tr| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G125 NIL) (#2=#:G246 NIL) (#3=#:G123 NIL))
                (SEQ
                 (EXIT

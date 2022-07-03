@@ -1,9 +1,9 @@
 
 (PUT '|GDMP;zero?;$B;1| '|SPADreplace| 'NULL) 
 
-(SDEFUN |GDMP;zero?;$B;1| ((|p| $) ($ |Boolean|)) (NULL |p|)) 
+(SDEFUN |GDMP;zero?;$B;1| ((|p| ($)) ($ (|Boolean|))) (NULL |p|)) 
 
-(SDEFUN |GDMP;totalDegree;$Nni;2| ((|p| $) ($ |NonNegativeInteger|))
+(SDEFUN |GDMP;totalDegree;$Nni;2| ((|p| ($)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G147 NIL) (#2=#:G146 #3=(|NonNegativeInteger|)) (#4=#:G148 #3#)
           (#5=#:G153 NIL) (|t| NIL))
@@ -29,8 +29,8 @@
                   (COND (#1# #2#) (#6# (|IdentityError| '|max|))))))))) 
 
 (SDEFUN |GDMP;monomial;$OvlNni$;3|
-        ((|p| $) (|v| |OrderedVariableList| |vl|) (|e| |NonNegativeInteger|)
-         ($ $))
+        ((|p| ($)) (|v| (|OrderedVariableList| |vl|))
+         (|e| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((#1=#:G158 NIL) (#2=#:G160 NIL) (|z| NIL) (#3=#:G159 NIL)
           (|locv| (|PositiveInteger|)))
@@ -60,10 +60,10 @@
                                    (QREFELT $ 28))
                          (QREFELT $ 29)))))) 
 
-(SDEFUN |GDMP;coerce;Ovl$;4| ((|v| |OrderedVariableList| |vl|) ($ $))
+(SDEFUN |GDMP;coerce;Ovl$;4| ((|v| (|OrderedVariableList| |vl|)) ($ ($)))
         (SPADCALL (|spadConstant| $ 25) |v| 1 (QREFELT $ 30))) 
 
-(SDEFUN |GDMP;listCoef| ((|p| $) ($ |List| R))
+(SDEFUN |GDMP;listCoef| ((|p| ($)) ($ (|List| R)))
         (SPROG ((#1=#:G166 NIL) (|rec| NIL) (#2=#:G165 NIL))
                (SEQ
                 (PROGN
@@ -77,7 +77,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |GDMP;mainVariable;$U;6|
-        ((|p| $) ($ |Union| (|OrderedVariableList| |vl|) #1="failed"))
+        ((|p| ($)) ($ (|Union| (|OrderedVariableList| |vl|) #1="failed")))
         (SPROG
          ((#2=#:G178 NIL) (|vv| (|OrderedVariableList| |vl|)) (#3=#:G168 NIL)
           (#4=#:G179 NIL) (|v| NIL))
@@ -110,20 +110,21 @@
                    (EXIT (CONS 1 "failed"))))))
           #5# (EXIT #2#)))) 
 
-(SDEFUN |GDMP;ground?;$B;7| ((|p| $) ($ |Boolean|))
+(SDEFUN |GDMP;ground?;$B;7| ((|p| ($)) ($ (|Boolean|)))
         (QEQCAR (SPADCALL |p| (QREFELT $ 37)) 1)) 
 
-(SDEFUN |GDMP;retract;$R;8| ((|p| $) ($ R))
+(SDEFUN |GDMP;retract;$R;8| ((|p| ($)) ($ (R)))
         (COND ((NULL (SPADCALL |p| (QREFELT $ 38))) (|error| "not a constant"))
               ('T (SPADCALL |p| (QREFELT $ 39))))) 
 
-(SDEFUN |GDMP;retractIfCan;$U;9| ((|p| $) ($ |Union| R "failed"))
+(SDEFUN |GDMP;retractIfCan;$U;9| ((|p| ($)) ($ (|Union| R "failed")))
         (COND
          ((SPADCALL |p| (QREFELT $ 38)) (CONS 0 (SPADCALL |p| (QREFELT $ 39))))
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |GDMP;degree;$OvlNni;10|
-        ((|p| $) (|v| |OrderedVariableList| |vl|) ($ |NonNegativeInteger|))
+        ((|p| ($)) (|v| (|OrderedVariableList| |vl|))
+         ($ (|NonNegativeInteger|)))
         (SPROG
          ((|res| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
           (|t| (|Term|)) (|locv| (|PositiveInteger|)))
@@ -143,17 +144,18 @@
                       (EXIT |res|))))))) 
 
 (SDEFUN |GDMP;minimumDegree;$OvlNni;11|
-        ((|p| $) (|v| |OrderedVariableList| |vl|) ($ |NonNegativeInteger|))
+        ((|p| ($)) (|v| (|OrderedVariableList| |vl|))
+         ($ (|NonNegativeInteger|)))
         (SPADCALL (SPADCALL |p| |v| (QREFELT $ 46)) (QREFELT $ 48))) 
 
 (SDEFUN |GDMP;differentiate;$Ovl$;12|
-        ((|p| $) (|v| |OrderedVariableList| |vl|) ($ $))
+        ((|p| ($)) (|v| (|OrderedVariableList| |vl|)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |p| |v| (QREFELT $ 46)) (QREFELT $ 50))
                   |v| (QREFELT $ 51))) 
 
 (SDEFUN |GDMP;degree;$LL;13|
-        ((|p| $) (|lv| |List| (|OrderedVariableList| |vl|))
-         ($ |List| (|NonNegativeInteger|)))
+        ((|p| ($)) (|lv| (|List| (|OrderedVariableList| |vl|)))
+         ($ (|List| (|NonNegativeInteger|))))
         (SPROG ((#1=#:G206 NIL) (|v| NIL) (#2=#:G205 NIL))
                (SEQ
                 (PROGN
@@ -170,8 +172,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |GDMP;minimumDegree;$LL;14|
-        ((|p| $) (|lv| |List| (|OrderedVariableList| |vl|))
-         ($ |List| (|NonNegativeInteger|)))
+        ((|p| ($)) (|lv| (|List| (|OrderedVariableList| |vl|)))
+         ($ (|List| (|NonNegativeInteger|))))
         (SPROG ((#1=#:G210 NIL) (|v| NIL) (#2=#:G209 NIL))
                (SEQ
                 (PROGN
@@ -187,17 +189,17 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |GDMP;numberOfMonomials;$Nni;15| ((|p| $) ($ |NonNegativeInteger|))
+(SDEFUN |GDMP;numberOfMonomials;$Nni;15| ((|p| ($)) ($ (|NonNegativeInteger|)))
         (SPROG ((|l| (|Rep|)))
                (SEQ (LETT |l| |p|)
                     (EXIT (COND ((NULL |l|) 1) ('T (LENGTH |l|))))))) 
 
-(SDEFUN |GDMP;monomial?;$B;16| ((|p| $) ($ |Boolean|))
+(SDEFUN |GDMP;monomial?;$B;16| ((|p| ($)) ($ (|Boolean|)))
         (SPROG ((|l| (|Rep|)))
                (SEQ (LETT |l| |p|)
                     (EXIT (COND ((NULL |l|) 'T) ('T (NULL (CDR |l|)))))))) 
 
-(SDEFUN |GDMP;maxNorm| ((|p| $) ($ R))
+(SDEFUN |GDMP;maxNorm| ((|p| ($)) ($ (R)))
         (SPROG ((|m| (R)) (#1=#:G219 NIL) (|r| NIL) (|l| (|List| R)))
                (SEQ (LETT |l| NIL) (LETT |m| (|spadConstant| $ 59))
                     (SEQ (LETT |r| NIL) (LETT #1# (|GDMP;listCoef| |p| $)) G190
@@ -214,11 +216,11 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |m|)))) 
 
-(SDEFUN |GDMP;/;$R$;18| ((|p| $) (|r| R) ($ $))
+(SDEFUN |GDMP;/;$R$;18| ((|p| ($)) (|r| (R)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 62)) |p| (QREFELT $ 63))) 
 
 (SDEFUN |GDMP;variables;$L;19|
-        ((|p| $) ($ |List| (|OrderedVariableList| |vl|)))
+        ((|p| ($)) ($ (|List| (|OrderedVariableList| |vl|))))
         (SPROG
          ((#1=#:G229 NIL) (#2=#:G235 NIL) (|i| NIL) (#3=#:G234 NIL)
           (#4=#:G233 NIL) (|tdeg| (E))
@@ -267,7 +269,7 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                      (EXIT (NREVERSE #3#)))))))) 
 
-(SDEFUN |GDMP;reorder;$L$;20| ((|p| $) (|perm| |List| (|Integer|)) ($ $))
+(SDEFUN |GDMP;reorder;$L$;20| ((|p| ($)) (|perm| (|List| (|Integer|))) ($ ($)))
         (SPROG
          ((|q| ($)) (#1=#:G245 NIL) (#2=#:G247 NIL) (|j| NIL) (#3=#:G246 NIL)
           (#4=#:G244 NIL) (|term| NIL) (#5=#:G243 NIL))
@@ -324,8 +326,8 @@
         (SPADCALL (QCAR |z1|) (QCAR |z2|) (QREFELT $ 73))) 
 
 (SDEFUN |GDMP;univariate;$OvlSup;21|
-        ((|p| $) (|v| |OrderedVariableList| |vl|)
-         ($ |SparseUnivariatePolynomial| $))
+        ((|p| ($)) (|v| (|OrderedVariableList| |vl|))
+         ($ (|SparseUnivariatePolynomial| $)))
         (SPROG
          ((|nexp| (E)) (|deg| (|NonNegativeInteger|)) (#1=#:G254 NIL)
           (#2=#:G256 NIL) (|i| NIL) (#3=#:G255 NIL)
@@ -374,16 +376,16 @@
                         (QREFELT $ 80))))))))) 
 
 (SDEFUN |GDMP;eval;$Ovl2$;22|
-        ((|p| $) (|v| |OrderedVariableList| |vl|) (|val| $) ($ $))
+        ((|p| ($)) (|v| (|OrderedVariableList| |vl|)) (|val| ($)) ($ ($)))
         (SPADCALL (SPADCALL |p| |v| (QREFELT $ 46)) |val| (QREFELT $ 81))) 
 
 (SDEFUN |GDMP;eval;$OvlR$;23|
-        ((|p| $) (|v| |OrderedVariableList| |vl|) (|val| R) ($ $))
+        ((|p| ($)) (|v| (|OrderedVariableList| |vl|)) (|val| (R)) ($ ($)))
         (SPADCALL |p| |v| (SPADCALL |val| (QREFELT $ 83)) (QREFELT $ 82))) 
 
 (SDEFUN |GDMP;eval;$LL$;24|
-        ((|p| $) (|lv| |List| (|OrderedVariableList| |vl|)) (|lval| |List| R)
-         ($ $))
+        ((|p| ($)) (|lv| (|List| (|OrderedVariableList| |vl|)))
+         (|lval| (|List| R)) ($ ($)))
         (COND ((SPADCALL |lv| NIL (QREFELT $ 85)) |p|)
               ('T
                (SPADCALL
@@ -393,8 +395,8 @@
                 (CDR |lv|) (CDR |lval|) (QREFELT $ 87))))) 
 
 (SDEFUN |GDMP;evalSortedVarlist|
-        ((|p| $) (|Lvar| |List| (|OrderedVariableList| |vl|))
-         (|Lpval| |List| $) ($ $))
+        ((|p| ($)) (|Lvar| (|List| (|OrderedVariableList| |vl|)))
+         (|Lpval| (|List| $)) ($ ($)))
         (SPROG
          ((|pts| (|SparseUnivariatePolynomial| $)) (|pval| ($))
           (|mvar| (|OrderedVariableList| |vl|))
@@ -442,8 +444,8 @@
           (RETURN (PROGN (|GDMP;evalSortedVarlist| |x| |Lvar| |Lpval| $))))) 
 
 (SDEFUN |GDMP;eval;$LL$;26|
-        ((|p| $) (|Lvar| |List| (|OrderedVariableList| |vl|))
-         (|Lpval| |List| $) ($ $))
+        ((|p| ($)) (|Lvar| (|List| (|OrderedVariableList| |vl|)))
+         (|Lpval| (|List| $)) ($ ($)))
         (SPROG
          ((|nlpval| (|List| $)) (#1=#:G272 NIL) (|mvar| NIL) (#2=#:G271 NIL)
           (|nlvar| (|List| (|OrderedVariableList| |vl|))))
@@ -478,8 +480,8 @@
               (EXIT (|GDMP;evalSortedVarlist| |p| |nlvar| |nlpval| $))))) 
 
 (SDEFUN |GDMP;multivariate;SupOvl$;27|
-        ((|p1| |SparseUnivariatePolynomial| $) (|v| |OrderedVariableList| |vl|)
-         ($ $))
+        ((|p1| (|SparseUnivariatePolynomial| $))
+         (|v| (|OrderedVariableList| |vl|)) ($ ($)))
         (COND
          ((SPADCALL (|spadConstant| $ 78) |p1| (QREFELT $ 105))
           (|spadConstant| $ 16))
@@ -494,7 +496,8 @@
            (SPADCALL (SPADCALL |p1| (QREFELT $ 109)) |v| (QREFELT $ 51))
            (QREFELT $ 110))))) 
 
-(SDEFUN |GDMP;univariate;$Sup;28| ((|p| $) ($ |SparseUnivariatePolynomial| R))
+(SDEFUN |GDMP;univariate;$Sup;28|
+        ((|p| ($)) ($ (|SparseUnivariatePolynomial| R)))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| $))
           (|ans| (|SparseUnivariatePolynomial| R))
@@ -528,8 +531,8 @@
                       (EXIT |ans|)))))))) 
 
 (SDEFUN |GDMP;multivariate;SupOvl$;29|
-        ((|p| |SparseUnivariatePolynomial| R) (|v| |OrderedVariableList| |vl|)
-         ($ $))
+        ((|p| (|SparseUnivariatePolynomial| R))
+         (|v| (|OrderedVariableList| |vl|)) ($ ($)))
         (COND
          ((SPADCALL (|spadConstant| $ 113) |p| (QREFELT $ 118))
           (|spadConstant| $ 16))
@@ -542,7 +545,7 @@
            (SPADCALL (SPADCALL |p| (QREFELT $ 121)) |v| (QREFELT $ 122))
            (QREFELT $ 110))))) 
 
-(SDEFUN |GDMP;content;$R;30| ((|p| $) ($ R))
+(SDEFUN |GDMP;content;$R;30| ((|p| ($)) ($ (R)))
         (SPROG
          ((#1=#:G287 NIL) (#2=#:G286 (R)) (#3=#:G288 (R)) (#4=#:G291 NIL)
           (|t| NIL))
@@ -565,7 +568,7 @@
                        (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                   (COND (#1# #2#) (#5# (|spadConstant| $ 59))))))))) 
 
-(SDEFUN |GDMP;gcd;3$;31| ((|p| $) (|q| $) ($ $))
+(SDEFUN |GDMP;gcd;3$;31| ((|p| ($)) (|q| ($)) ($ ($)))
         (SPROG
          ((|r| (R)) (|qv| #1=(|Union| (|OrderedVariableList| |vl|) "failed"))
           (|pv| #1#))
@@ -615,10 +618,10 @@
                                     (QREFELT $ 129))
                           (QCDR |pv|) (QREFELT $ 51)))))))))))) 
 
-(SDEFUN |GDMP;gcd;3$;32| ((|p| $) (|q| $) ($ $))
+(SDEFUN |GDMP;gcd;3$;32| ((|p| ($)) (|q| ($)) ($ ($)))
         (SPADCALL |p| |q| (QREFELT $ 131))) 
 
-(SDEFUN |GDMP;gcd;3$;33| ((|p| $) (|q| $) ($ $))
+(SDEFUN |GDMP;gcd;3$;33| ((|p| ($)) (|q| ($)) ($ ($)))
         (SPROG
          ((|r| (R)) (|qv| #1=(|Union| (|OrderedVariableList| |vl|) "failed"))
           (|pv| #1#))
@@ -668,7 +671,7 @@
                                     (QREFELT $ 129))
                           (QCDR |pv|) (QREFELT $ 51)))))))))))) 
 
-(SDEFUN |GDMP;coerce;$Of;34| ((|p| $) ($ |OutputForm|))
+(SDEFUN |GDMP;coerce;$Of;34| ((|p| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|lt| (|List| #1=(|OutputForm|))) (|l| (|List| #1#)) (#2=#:G328 NIL)
           (|i| NIL) (#3=#:G327 NIL) (|t| NIL) (|vl1| (|List| (|OutputForm|)))

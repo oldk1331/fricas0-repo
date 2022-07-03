@@ -1,14 +1,15 @@
 
 (PUT '|TABLEAU;tableau;L$;1| '|SPADreplace| '(XLAM (|lls|) |lls|)) 
 
-(SDEFUN |TABLEAU;tableau;L$;1| ((|lls| |List| (|List| S)) ($ $)) |lls|) 
+(SDEFUN |TABLEAU;tableau;L$;1| ((|lls| (|List| (|List| S))) ($ ($))) |lls|) 
 
 (PUT '|TABLEAU;listOfLists;$L;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |TABLEAU;listOfLists;$L;2| ((|x| $) ($ |List| (|List| S))) |x|) 
+(SDEFUN |TABLEAU;listOfLists;$L;2| ((|x| ($)) ($ (|List| (|List| S)))) |x|) 
 
 (SDEFUN |TABLEAU;makeupv|
-        ((|n| |NonNegativeInteger|) (|ls| |List| S) ($ |List| (|OutputForm|)))
+        ((|n| (|NonNegativeInteger|)) (|ls| (|List| S))
+         ($ (|List| (|OutputForm|))))
         (SPROG
          ((#1=#:G125 NIL) (|i| NIL) (#2=#:G126 NIL) (|s| NIL)
           (|v| (|List| (|OutputForm|))))
@@ -31,7 +32,7 @@
                G191 (EXIT NIL))
           (EXIT |v|)))) 
 
-(SDEFUN |TABLEAU;maketab| ((|lls| |List| (|List| S)) ($ |OutputForm|))
+(SDEFUN |TABLEAU;maketab| ((|lls| (|List| (|List| S))) ($ (|OutputForm|)))
         (SPROG
          ((|ll| (|List| (|OutputForm|))) (#1=#:G133 NIL) (|i| NIL)
           (#2=#:G132 NIL) (|sz| (|NonNegativeInteger|)))
@@ -60,7 +61,7 @@
                                    (EXIT (NREVERSE #2#)))))))))
           (EXIT (SPADCALL |ll| (QREFELT $ 24)))))) 
 
-(SDEFUN |TABLEAU;coerce;$Of;5| ((|x| $) ($ |OutputForm|))
+(SDEFUN |TABLEAU;coerce;$Of;5| ((|x| ($)) ($ (|OutputForm|)))
         (|TABLEAU;maketab| (SPADCALL |x| (QREFELT $ 10)) $)) 
 
 (DECLAIM (NOTINLINE |Tableau;|)) 

@@ -1,7 +1,7 @@
 
 (SDEFUN |SUP2;map;MSupSup;1|
-        ((|f| |Mapping| S R) (|p| |SparseUnivariatePolynomial| R)
-         ($ |SparseUnivariatePolynomial| S))
+        ((|f| (|Mapping| S R)) (|p| (|SparseUnivariatePolynomial| R))
+         ($ (|SparseUnivariatePolynomial| S)))
         (SPADCALL |f| |p| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |SparseUnivariatePolynomialFunctions2;|)) 

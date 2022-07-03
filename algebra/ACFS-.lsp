@@ -1,33 +1,33 @@
 
-(SDEFUN |ACFS-;rootOf;2S;1| ((|p| S) ($ S))
+(SDEFUN |ACFS-;rootOf;2S;1| ((|p| (S)) ($ (S)))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 9))))
                  (|error| "rootOf: constant expression"))
                 ('T (SPADCALL |p| (|SPADfirst| |l|) (QREFELT $ 11)))))) 
 
-(SDEFUN |ACFS-;rootsOf;SL;2| ((|p| S) ($ |List| S))
+(SDEFUN |ACFS-;rootsOf;SL;2| ((|p| (S)) ($ (|List| S)))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 9))))
                  (|error| "rootsOf: constant expression"))
                 ('T (SPADCALL |p| (|SPADfirst| |l|) (QREFELT $ 14)))))) 
 
-(SDEFUN |ACFS-;zeroOf;2S;3| ((|p| S) ($ S))
+(SDEFUN |ACFS-;zeroOf;2S;3| ((|p| (S)) ($ (S)))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 9))))
                  (|error| "zeroOf: constant expression"))
                 ('T (SPADCALL |p| (|SPADfirst| |l|) (QREFELT $ 16)))))) 
 
-(SDEFUN |ACFS-;zerosOf;SL;4| ((|p| S) ($ |List| S))
+(SDEFUN |ACFS-;zerosOf;SL;4| ((|p| (S)) ($ (|List| S)))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 9))))
                  (|error| "zerosOf: constant expression"))
                 ('T (SPADCALL |p| (|SPADfirst| |l|) (QREFELT $ 18)))))) 
 
-(SDEFUN |ACFS-;zeroOf;SSS;5| ((|p| S) (|x| |Symbol|) ($ S))
+(SDEFUN |ACFS-;zeroOf;SSS;5| ((|p| (S)) (|x| (|Symbol|)) ($ (S)))
         (SPROG
          ((|n| (|SparseUnivariatePolynomial| S))
           (|f| (|Fraction| (|SparseUnivariatePolynomial| S))))
@@ -46,7 +46,7 @@
              (|error| "zeroOf: constant expression"))
             ('T (SPADCALL |n| |x| (QREFELT $ 32)))))))) 
 
-(SDEFUN |ACFS-;rootOf;SSS;6| ((|p| S) (|x| |Symbol|) ($ S))
+(SDEFUN |ACFS-;rootOf;SSS;6| ((|p| (S)) (|x| (|Symbol|)) ($ (S)))
         (SPROG
          ((|n| (|SparseUnivariatePolynomial| S))
           (|f| (|Fraction| (|SparseUnivariatePolynomial| S))))
@@ -65,7 +65,7 @@
              (|error| "rootOf: constant expression"))
             ('T (SPADCALL |n| |x| (QREFELT $ 34)))))))) 
 
-(SDEFUN |ACFS-;zerosOf;SSL;7| ((|p| S) (|x| |Symbol|) ($ |List| S))
+(SDEFUN |ACFS-;zerosOf;SSL;7| ((|p| (S)) (|x| (|Symbol|)) ($ (|List| S)))
         (SPROG
          ((|n| (|SparseUnivariatePolynomial| S))
           (|f| (|Fraction| (|SparseUnivariatePolynomial| S))))
@@ -83,7 +83,7 @@
             ((EQL (SPADCALL |n| (QREFELT $ 30)) 0) NIL)
             ('T (SPADCALL |n| |x| (QREFELT $ 36)))))))) 
 
-(SDEFUN |ACFS-;rootsOf;SSL;8| ((|p| S) (|x| |Symbol|) ($ |List| S))
+(SDEFUN |ACFS-;rootsOf;SSL;8| ((|p| (S)) (|x| (|Symbol|)) ($ (|List| S)))
         (SPROG
          ((|n| (|SparseUnivariatePolynomial| S))
           (|f| (|Fraction| (|SparseUnivariatePolynomial| S))))
@@ -102,7 +102,8 @@
             ('T (SPADCALL |n| |x| (QREFELT $ 38)))))))) 
 
 (SDEFUN |ACFS-;rootsOf;SupSL;9|
-        ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| S)) (|y| (|Symbol|))
+         ($ (|List| S)))
         (SPROG ((|r| (|Union| S "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 41)))
                     (EXIT
@@ -111,7 +112,8 @@
                       ('T (SPADCALL |p| |y| (QREFELT $ 43)))))))) 
 
 (SDEFUN |ACFS-;zerosOf;SupSL;10|
-        ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| S)) (|y| (|Symbol|))
+         ($ (|List| S)))
         (SPROG ((|r| (|Union| S "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 41)))
                     (EXIT
@@ -120,7 +122,7 @@
                       ('T (SPADCALL |p| |y| (QREFELT $ 45)))))))) 
 
 (SDEFUN |ACFS-;zeroOf;SupSS;11|
-        ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ S))
+        ((|p| (|SparseUnivariatePolynomial| S)) (|y| (|Symbol|)) ($ (S)))
         (SPROG ((|r| (|Union| S "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 41)))
                     (EXIT

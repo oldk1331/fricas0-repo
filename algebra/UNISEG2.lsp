@@ -1,7 +1,7 @@
 
 (SDEFUN |UNISEG2;map;MUsUs;1|
-        ((|f| |Mapping| S R) (|u| |UniversalSegment| R)
-         ($ |UniversalSegment| S))
+        ((|f| (|Mapping| S R)) (|u| (|UniversalSegment| R))
+         ($ (|UniversalSegment| S)))
         (SPROG ((|s| (S)))
                (SEQ (LETT |s| (SPADCALL (SPADCALL |u| (QREFELT $ 9)) |f|))
                     (EXIT
@@ -13,7 +13,7 @@
                       ('T (SPADCALL |s| (QREFELT $ 15)))))))) 
 
 (SDEFUN |UNISEG2;map;MUsS;2|
-        ((|f| |Mapping| S R) (|u| |UniversalSegment| R) ($ |Stream| S))
+        ((|f| (|Mapping| S R)) (|u| (|UniversalSegment| R)) ($ (|Stream| S)))
         (SPADCALL |f| (SPADCALL |u| (QREFELT $ 19)) (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |UniversalSegmentFunctions2;|)) 

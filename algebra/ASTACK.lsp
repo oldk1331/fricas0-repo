@@ -1,13 +1,13 @@
 
-(SDEFUN |ASTACK;#;$Nni;1| ((|s| $) ($ |NonNegativeInteger|))
+(SDEFUN |ASTACK;#;$Nni;1| ((|s| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |s| (QREFELT $ 9))) 
 
-(SDEFUN |ASTACK;=;2$B;2| ((|s| $) (|t| $) ($ |Boolean|))
+(SDEFUN |ASTACK;=;2$B;2| ((|s| ($)) (|t| ($)) ($ (|Boolean|)))
         (SPADCALL |s| |t| (QREFELT $ 12))) 
 
-(SDEFUN |ASTACK;copy;2$;3| ((|s| $) ($ $)) (SPADCALL |s| (QREFELT $ 14))) 
+(SDEFUN |ASTACK;copy;2$;3| ((|s| ($)) ($ ($))) (SPADCALL |s| (QREFELT $ 14))) 
 
-(SDEFUN |ASTACK;coerce;$Of;4| ((|d| $) ($ |OutputForm|))
+(SDEFUN |ASTACK;coerce;$Of;4| ((|d| ($)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G130 NIL) (|i| NIL) (#2=#:G129 NIL)
           (|n| (|NonNegativeInteger|)))
@@ -34,23 +34,24 @@
                               (EXIT (NREVERSE #2#))))
                         (QREFELT $ 24))))))))) 
 
-(SDEFUN |ASTACK;empty?;$B;5| ((|s| $) ($ |Boolean|))
+(SDEFUN |ASTACK;empty?;$B;5| ((|s| ($)) ($ (|Boolean|)))
         (SPADCALL |s| (QREFELT $ 26))) 
 
-(SDEFUN |ASTACK;extract!;$S;6| ((|s| $) ($ S)) (SPADCALL |s| (QREFELT $ 27))) 
+(SDEFUN |ASTACK;extract!;$S;6| ((|s| ($)) ($ (S)))
+        (SPADCALL |s| (QREFELT $ 27))) 
 
-(SDEFUN |ASTACK;inspect;$S;7| ((|s| $) ($ S)) (SPADCALL |s| (QREFELT $ 29))) 
+(SDEFUN |ASTACK;inspect;$S;7| ((|s| ($)) ($ (S))) (SPADCALL |s| (QREFELT $ 29))) 
 
-(SDEFUN |ASTACK;insert!;S2$;8| ((|e| S) (|s| $) ($ $))
+(SDEFUN |ASTACK;insert!;S2$;8| ((|e| (S)) (|s| ($)) ($ ($)))
         (SEQ (SPADCALL |e| |s| (QREFELT $ 31)) (EXIT |s|))) 
 
-(SDEFUN |ASTACK;parts;$L;9| ((|s| $) ($ |List| S))
+(SDEFUN |ASTACK;parts;$L;9| ((|s| ($)) ($ (|List| S)))
         (REVERSE (SPADCALL |s| (QREFELT $ 33)))) 
 
-(SDEFUN |ASTACK;push!;S$S;10| ((|e| S) (|s| $) ($ S))
+(SDEFUN |ASTACK;push!;S$S;10| ((|e| (S)) (|s| ($)) ($ (S)))
         (SEQ (SPADCALL |s| |e| (QREFELT $ 35)) (EXIT |e|))) 
 
-(SDEFUN |ASTACK;pop!;$S;11| ((|s| $) ($ S))
+(SDEFUN |ASTACK;pop!;$S;11| ((|s| ($)) ($ (S)))
         (SPROG ((|r| (S)) (|m| (|Integer|)))
                (SEQ
                 (COND ((SPADCALL |s| (QREFELT $ 16)) (|error| "empty stack")))
@@ -58,26 +59,26 @@
                 (LETT |r| (SPADCALL |s| |m| (QREFELT $ 21)))
                 (SPADCALL |s| |m| (QREFELT $ 37)) (EXIT |r|)))) 
 
-(SDEFUN |ASTACK;top;$S;12| ((|s| $) ($ S))
+(SDEFUN |ASTACK;top;$S;12| ((|s| ($)) ($ (S)))
         (COND ((SPADCALL |s| (QREFELT $ 16)) (|error| "empty stack"))
               ('T (SPADCALL |s| (SPADCALL |s| (QREFELT $ 36)) (QREFELT $ 21))))) 
 
-(SDEFUN |ASTACK;construct;L$;13| ((|l| |List| S) ($ $))
+(SDEFUN |ASTACK;construct;L$;13| ((|l| (|List| S)) ($ ($)))
         (SPADCALL (REVERSE |l|) (QREFELT $ 38))) 
 
-(SDEFUN |ASTACK;arrayStack;L$;14| ((|l| |List| S) ($ $))
+(SDEFUN |ASTACK;arrayStack;L$;14| ((|l| (|List| S)) ($ ($)))
         (SPADCALL |l| (QREFELT $ 39))) 
 
-(SDEFUN |ASTACK;empty;$;15| (($ $)) (SPADCALL (QREFELT $ 41))) 
+(SDEFUN |ASTACK;empty;$;15| (($ ($))) (SPADCALL (QREFELT $ 41))) 
 
-(SDEFUN |ASTACK;map;M2$;16| ((|f| |Mapping| S S) (|s| $) ($ $))
+(SDEFUN |ASTACK;map;M2$;16| ((|f| (|Mapping| S S)) (|s| ($)) ($ ($)))
         (SPADCALL |f| |s| (QREFELT $ 44))) 
 
-(SDEFUN |ASTACK;map!;M2$;17| ((|f| |Mapping| S S) (|s| $) ($ $))
+(SDEFUN |ASTACK;map!;M2$;17| ((|f| (|Mapping| S S)) (|s| ($)) ($ ($)))
         (SPADCALL |f| |s| (QREFELT $ 46))) 
 
 (SDEFUN |ASTACK;hashUpdate!;Hs$Hs;18|
-        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+        ((|hs| #1=(|HashState|)) (|s| ($)) ($ #1#))
         (SPADCALL |hs| |s| (QREFELT $ 49))) 
 
 (DECLAIM (NOTINLINE |ArrayStack;|)) 

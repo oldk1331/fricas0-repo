@@ -1,8 +1,8 @@
 
-(SDEFUN |SUMFS;newk| (($ |Kernel| F))
+(SDEFUN |SUMFS;newk| (($ (|Kernel| F)))
         (SPADCALL (SPADCALL (QREFELT $ 9)) (QREFELT $ 11))) 
 
-(SDEFUN |SUMFS;sum;FSbF;2| ((|x| F) (|s| |SegmentBinding| F) ($ F))
+(SDEFUN |SUMFS;sum;FSbF;2| ((|x| (F)) (|s| (|SegmentBinding| F)) ($ (F)))
         (SPROG ((|u| (|Union| F "failed")) (|k| (|Kernel| F)))
                (SEQ
                 (LETT |k|
@@ -25,7 +25,7 @@
                                    (QREFELT $ 23))
                          (QREFELT $ 25)))))))) 
 
-(SDEFUN |SUMFS;sum;FSF;3| ((|x| F) (|v| |Symbol|) ($ F))
+(SDEFUN |SUMFS;sum;FSF;3| ((|x| (F)) (|v| (|Symbol|)) ($ (F)))
         (SPROG ((|u| (|Union| F "failed")))
                (SEQ
                 (LETT |u|
@@ -34,7 +34,7 @@
                  (COND ((QEQCAR |u| 1) (SPADCALL |x| |v| (QREFELT $ 27)))
                        ('T (QCDR |u|))))))) 
 
-(SDEFUN |SUMFS;notRF?| ((|f| F) (|k| |Kernel| F) ($ |Boolean|))
+(SDEFUN |SUMFS;notRF?| ((|f| (F)) (|k| (|Kernel| F)) ($ (|Boolean|)))
         (SPROG ((#1=#:G142 NIL) (#2=#:G143 NIL) (#3=#:G144 NIL) (|kk| NIL))
                (SEQ
                 (EXIT
@@ -63,7 +63,8 @@
                   (EXIT NIL)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |SUMFS;innersum| ((|x| F) (|k| |Kernel| F) ($ |Union| F "failed"))
+(SDEFUN |SUMFS;innersum|
+        ((|x| (F)) (|k| (|Kernel| F)) ($ (|Union| F "failed")))
         (SPROG ((|u| (|Union| F "failed")) (|f| (F)) (|x1| (F)))
                (SEQ
                 (COND

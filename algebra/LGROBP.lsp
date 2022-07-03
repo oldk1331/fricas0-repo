@@ -1,7 +1,7 @@
 
 (SDEFUN |LGROBP;reduceRow|
-        ((M |Matrix| F) (|v| |Vector| F) (|lastRow| |Integer|)
-         (|pivots| |Vector| (|Integer|)) ($ |Vector| F))
+        ((M (|Matrix| F)) (|v| (|Vector| F)) (|lastRow| (|Integer|))
+         (|pivots| (|Vector| (|Integer|))) ($ (|Vector| F)))
         (SPROG
          ((|a1| (F)) (#1=#:G130 NIL) (#2=#:G140 NIL) (|kk| NIL) (#3=#:G139 NIL)
           (|vk| (F)) (|b| (F)) (|k| (|Integer|)) (|mj| (|Vector| F))
@@ -80,13 +80,13 @@
               (EXIT |v|)))) 
 
 (SDEFUN |LGROBP;rRedPol|
-        ((|f| |HomogeneousDistributedMultivariatePolynomial| |lv| F)
-         (B |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
+        ((|f| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
+         (B (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
          ($
-          . #1=(|Record|
-                (|:| |poly|
-                     (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-                (|:| |mult| F))))
+          #1=(|Record|
+              (|:| |poly|
+                   (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
+              (|:| |mult| F))))
         (SPROG
          ((|ggm| #1#)
           (|gg| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
@@ -114,8 +114,8 @@
                                   (QREFELT $ 22))))))))))) 
 
 (SDEFUN |LGROBP;totolex;LL;3|
-        ((B |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         ($ |List| (|DistributedMultivariatePolynomial| |lv| F)))
+        ((B (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         ($ (|List| (|DistributedMultivariatePolynomial| |lv| F))))
         (SPROG
          ((|nBasis| (|List| #1=(|DistributedMultivariatePolynomial| |lv| F)))
           (|i| (|NonNegativeInteger|))
@@ -328,10 +328,10 @@
               (EXIT |result|)))) 
 
 (SDEFUN |LGROBP;minPol;LOvlHdmp;4|
-        ((|oldBasis| |List|
-          (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         (|x| |OrderedVariableList| |lv|)
-         ($ |HomogeneousDistributedMultivariatePolynomial| |lv| F))
+        ((|oldBasis|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         (|x| (|OrderedVariableList| |lv|))
+         ($ (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
         (SPROG
          ((|algBasis|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))
@@ -339,12 +339,12 @@
               (EXIT (SPADCALL |oldBasis| |algBasis| |x| (QREFELT $ 67)))))) 
 
 (SDEFUN |LGROBP;minPol;2LOvlHdmp;5|
-        ((|oldBasis| |List|
-          (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         (|algBasis| |List|
-          (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         (|x| |OrderedVariableList| |lv|)
-         ($ |HomogeneousDistributedMultivariatePolynomial| |lv| F))
+        ((|oldBasis|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         (|algBasis|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         (|x| (|OrderedVariableList| |lv|))
+         ($ (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
         (SPROG
          ((#1=#:G195 NIL)
           (|g| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
@@ -486,8 +486,8 @@
           #9# (EXIT #1#)))) 
 
 (SDEFUN |LGROBP;transform;DmpHdmp;6|
-        ((|dpol| |DistributedMultivariatePolynomial| |lv| F)
-         ($ |HomogeneousDistributedMultivariatePolynomial| |lv| F))
+        ((|dpol| (|DistributedMultivariatePolynomial| |lv| F))
+         ($ (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
         (COND
          ((SPADCALL |dpol| (|spadConstant| $ 61) (QREFELT $ 72))
           (|spadConstant| $ 32))
@@ -503,8 +503,8 @@
            (QREFELT $ 38))))) 
 
 (SDEFUN |LGROBP;computeBasis;2L;7|
-        ((B |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         ($ |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+        ((B (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         ($ (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))
         (SPROG
          ((|result|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
@@ -544,10 +544,12 @@
           (EXIT |result|)))) 
 
 (SDEFUN |LGROBP;intcompBasis;Ovl3L;8|
-        ((|x| |OrderedVariableList| |lv|)
-         (|lr| |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         (|mB| |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         ($ |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+        ((|x| (|OrderedVariableList| |lv|))
+         (|lr|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         (|mB|
+          (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         ($ (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))
         (SPROG
          ((|part|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
@@ -578,9 +580,9 @@
                                  (QREFELT $ 83))))))))) 
 
 (SDEFUN |LGROBP;coord;HdmpLV;9|
-        ((|f| |HomogeneousDistributedMultivariatePolynomial| |lv| F)
-         (B |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         ($ |Vector| F))
+        ((|f| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
+         (B (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         ($ (|Vector| F)))
         (SPROG
          ((|i| (|Integer|)) (|lcf| (F))
           (|lf| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
@@ -607,9 +609,9 @@
               (EXIT |vv|)))) 
 
 (SDEFUN |LGROBP;anticoord;LDmpLDmp;10|
-        ((|vv| |List| F) (|mf| |DistributedMultivariatePolynomial| |lv| F)
-         (B |List| (|DistributedMultivariatePolynomial| |lv| F))
-         ($ |DistributedMultivariatePolynomial| |lv| F))
+        ((|vv| (|List| F)) (|mf| (|DistributedMultivariatePolynomial| |lv| F))
+         (B (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+         ($ (|DistributedMultivariatePolynomial| |lv| F)))
         (SPROG ((#1=#:G224 NIL) (|f| NIL) (#2=#:G225 NIL) (|c| NIL))
                (SEQ
                 (SEQ (LETT |c| NIL) (LETT #2# |vv|) (LETT |f| NIL) (LETT #1# B)
@@ -628,9 +630,9 @@
                 (EXIT |mf|)))) 
 
 (SDEFUN |LGROBP;choosemon;DmpLDmp;11|
-        ((|mf| |DistributedMultivariatePolynomial| |lv| F)
-         (|nB| |List| (|DistributedMultivariatePolynomial| |lv| F))
-         ($ |DistributedMultivariatePolynomial| |lv| F))
+        ((|mf| (|DistributedMultivariatePolynomial| |lv| F))
+         (|nB| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+         ($ (|DistributedMultivariatePolynomial| |lv| F)))
         (SPROG
          ((#1=#:G229 NIL) (|dx| (|NonNegativeInteger|)) (#2=#:G235 NIL)
           (|xx| (|DistributedMultivariatePolynomial| |lv| F)) (#3=#:G236 NIL)
@@ -678,10 +680,11 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |LGROBP;linGenPos;LR;12|
-        ((B |List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-         ($ |Record|
-          (|:| |gblist| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
-          (|:| |gvlist| (|List| (|Integer|)))))
+        ((B (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
+         ($
+          (|Record|
+           (|:| |gblist| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+           (|:| |gvlist| (|List| (|Integer|))))))
         (SPROG
          ((|nBasis| (|List| #1=(|DistributedMultivariatePolynomial| |lv| F)))
           (|i| (|NonNegativeInteger|))
@@ -689,9 +692,9 @@
           (|result| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
           (|antc| #2=(|DistributedMultivariatePolynomial| |lv| F))
           (#3=#:G261 NIL) (#4=#:G260 #2#) (#5=#:G262 #2#) (#6=#:G276 NIL)
-          (|c| (|Integer|)) (#7=#:G277 NIL) (|b| NIL) (|cordlist| (|List| F))
-          (#8=#:G275 NIL) (|j| (|NonNegativeInteger|)) (#9=#:G274 NIL)
-          (|lm| (|Vector| F)) (#10=#:G273 NIL)
+          (#7=#:G277 NIL) (|b| NIL) (|cordlist| (|List| F)) (#8=#:G275 NIL)
+          (|j| (|NonNegativeInteger|)) (#9=#:G274 NIL) (|lm| (|Vector| F))
+          (#10=#:G273 NIL)
           (|orecfmon|
            (|Record|
             (|:| |poly|
@@ -710,10 +713,10 @@
           (#13=#:G243 NIL)
           (#14=#:G242 #15=(|DistributedMultivariatePolynomial| |lv| F))
           (#16=#:G244 #15#) (#17=#:G271 NIL) (|r| NIL) (#18=#:G272 NIL)
-          (|vv| NIL) (|rval| (|List| (|Integer|))) (#19=#:G270 NIL) (|ii| NIL)
-          (|pivots| (|Vector| (|Integer|))) (|linmat| (|Matrix| F))
-          (|ndim1| (|NonNegativeInteger|)) (|ndim| (|PositiveInteger|))
-          (#20=#:G238 NIL)
+          (|vv| NIL) (|rval| (|List| (|Integer|))) (|c| (|Integer|))
+          (#19=#:G270 NIL) (|ii| NIL) (|pivots| (|Vector| (|Integer|)))
+          (|linmat| (|Matrix| F)) (|ndim1| (|NonNegativeInteger|))
+          (|ndim| (|PositiveInteger|)) (#20=#:G238 NIL)
           (|vBasis|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))
          (SEQ (LETT |result| NIL) (LETT |ltresult| NIL)
@@ -896,7 +899,6 @@
                                (LETT #3# NIL)
                                (SEQ (LETT |b| NIL)
                                     (LETT #7# (CONS |firstmon| |nBasis|))
-                                    (LETT |c| NIL)
                                     (LETT #6# (REVERSE |cordlist|)) G190
                                     (COND
                                      ((OR (ATOM #6#)
@@ -942,10 +944,11 @@
               (EXIT (CONS |result| |rval|))))) 
 
 (SDEFUN |LGROBP;groebgen;LR;13|
-        ((L |List| (|DistributedMultivariatePolynomial| |lv| F))
-         ($ |Record|
-          (|:| |glbase| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
-          (|:| |glval| (|List| (|Integer|)))))
+        ((L (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+         ($
+          (|Record|
+           (|:| |glbase| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
+           (|:| |glval| (|List| (|Integer|))))))
         (SPROG
          ((LL (|List| (|DistributedMultivariatePolynomial| |lv| F)))
           (#1=#:G292 NIL) (|f| NIL) (#2=#:G291 NIL)

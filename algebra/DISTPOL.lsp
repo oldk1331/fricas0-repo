@@ -1,5 +1,5 @@
 
-(SDEFUN |DISTPOL;eval;DUPSS;1| ((|x| |Distribution| R) (|p| UPS) ($ S))
+(SDEFUN |DISTPOL;eval;DUPSS;1| ((|x| (|Distribution| R)) (|p| (UPS)) ($ (S)))
         (SPROG ((|res| (S)))
                (SEQ
                 (COND
@@ -28,11 +28,12 @@
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT |res|))))))) 
 
-(SDEFUN |DISTPOL;integrate;UPSDS;2| ((|p| UPS) (|x| |Distribution| R) ($ S))
+(SDEFUN |DISTPOL;integrate;UPSDS;2|
+        ((|p| (UPS)) (|x| (|Distribution| R)) ($ (S)))
         (SPADCALL |x| |p| (QREFELT $ 23))) 
 
 (SDEFUN |DISTPOL;apply;UPSDD;3|
-        ((|p| UPS) (|x| |Distribution| R) ($ |Distribution| S))
+        ((|p| (UPS)) (|x| (|Distribution| R)) ($ (|Distribution| S)))
         (SPROG ((|mompx| (|Stream| S)) (IN (|Stream| (|Integer|))))
                (SEQ
                 (LETT IN

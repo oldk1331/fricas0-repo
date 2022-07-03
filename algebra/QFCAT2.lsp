@@ -1,5 +1,5 @@
 
-(SDEFUN |QFCAT2;map;MRS;1| ((|f| |Mapping| B A) (|r| R) ($ S))
+(SDEFUN |QFCAT2;map;MRS;1| ((|f| (|Mapping| B A)) (|r| (R)) ($ (S)))
         (SPADCALL (SPADCALL (SPADCALL |r| (QREFELT $ 10)) |f|)
                   (SPADCALL (SPADCALL |r| (QREFELT $ 11)) |f|) (QREFELT $ 12))) 
 

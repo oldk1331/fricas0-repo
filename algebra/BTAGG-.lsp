@@ -1,20 +1,20 @@
 
-(SDEFUN |BTAGG-;not;2S;1| ((|v| S) ($ S))
+(SDEFUN |BTAGG-;not;2S;1| ((|v| (S)) ($ (S)))
         (SPADCALL (ELT $ 8) |v| (QREFELT $ 10))) 
 
-(SDEFUN |BTAGG-;~;2S;2| ((|v| S) ($ S))
+(SDEFUN |BTAGG-;~;2S;2| ((|v| (S)) ($ (S)))
         (SPADCALL (ELT $ 12) |v| (QREFELT $ 10))) 
 
-(SDEFUN |BTAGG-;/\\;3S;3| ((|v| S) (|u| S) ($ S))
+(SDEFUN |BTAGG-;/\\;3S;3| ((|v| (S)) (|u| (S)) ($ (S)))
         (SPADCALL (ELT $ 14) |v| |u| (QREFELT $ 16))) 
 
-(SDEFUN |BTAGG-;\\/;3S;4| ((|v| S) (|u| S) ($ S))
+(SDEFUN |BTAGG-;\\/;3S;4| ((|v| (S)) (|u| (S)) ($ (S)))
         (SPADCALL (ELT $ 18) |v| |u| (QREFELT $ 16))) 
 
-(SDEFUN |BTAGG-;nand;3S;5| ((|v| S) (|u| S) ($ S))
+(SDEFUN |BTAGG-;nand;3S;5| ((|v| (S)) (|u| (S)) ($ (S)))
         (SPADCALL (ELT $ 20) |v| |u| (QREFELT $ 16))) 
 
-(SDEFUN |BTAGG-;nor;3S;6| ((|v| S) (|u| S) ($ S))
+(SDEFUN |BTAGG-;nor;3S;6| ((|v| (S)) (|u| (S)) ($ (S)))
         (SPADCALL (ELT $ 22) |v| |u| (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |BitAggregate&;|)) 

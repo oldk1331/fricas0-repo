@@ -1,18 +1,18 @@
 
-(SDEFUN |ORDRING-;positive?;SB;1| ((|x| S) ($ |Boolean|))
+(SDEFUN |ORDRING-;positive?;SB;1| ((|x| (S)) ($ (|Boolean|)))
         (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
-(SDEFUN |ORDRING-;negative?;SB;2| ((|x| S) ($ |Boolean|))
+(SDEFUN |ORDRING-;negative?;SB;2| ((|x| (S)) ($ (|Boolean|)))
         (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 11))) 
 
-(SDEFUN |ORDRING-;sign;SI;3| ((|x| S) ($ |Integer|))
+(SDEFUN |ORDRING-;sign;SI;3| ((|x| (S)) ($ (|Integer|)))
         (COND ((SPADCALL |x| (QREFELT $ 13)) 1)
               ((SPADCALL |x| (QREFELT $ 14)) -1)
               ((SPADCALL |x| (QREFELT $ 16)) 0)
               ('T
                (|error| "x satisfies neither positive?, negative? or zero?")))) 
 
-(SDEFUN |ORDRING-;abs;2S;4| ((|x| S) ($ S))
+(SDEFUN |ORDRING-;abs;2S;4| ((|x| (S)) ($ (S)))
         (COND ((SPADCALL |x| (QREFELT $ 13)) |x|)
               ((SPADCALL |x| (QREFELT $ 14)) (SPADCALL |x| (QREFELT $ 19)))
               ((SPADCALL |x| (QREFELT $ 16)) (|spadConstant| $ 7))

@@ -1,6 +1,6 @@
 
 (SDEFUN |JGB;convert1|
-        ((|p| P) ($ . #1=(|DistributedJetBundlePolynomial| R JB LJV E)))
+        ((|p| (P)) ($ #1=(|DistributedJetBundlePolynomial| R JB LJV E)))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| P))
           (|res| (|DistributedJetBundlePolynomial| R JB LJV E))
@@ -46,7 +46,7 @@
                       (EXIT |res|)))))))) 
 
 (SDEFUN |JGB;convert2|
-        ((|p| |DistributedJetBundlePolynomial| R JB LJV E) ($ P))
+        ((|p| (|DistributedJetBundlePolynomial| R JB LJV E)) ($ (P)))
         (SPROG
          ((|up|
            (|SparseUnivariatePolynomial|
@@ -79,7 +79,7 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT |res|)))))))) 
 
-(SDEFUN |JGB;groebner;2L;3| ((|lp| |List| P) ($ |List| P))
+(SDEFUN |JGB;groebner;2L;3| ((|lp| (|List| P)) ($ (|List| P)))
         (SPROG
          ((#1=#:G150 NIL) (|dp| NIL) (#2=#:G149 NIL)
           (|gb| (|List| (|DistributedJetBundlePolynomial| R JB LJV E)))

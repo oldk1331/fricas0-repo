@@ -1,6 +1,7 @@
 
 (SDEFUN |MRF2;map;MMrMr;1|
-        ((|fn| |Mapping| S R) (|u| |MonoidRing| R M) ($ |MonoidRing| S M))
+        ((|fn| (|Mapping| S R)) (|u| (|MonoidRing| R M))
+         ($ (|MonoidRing| S M)))
         (SPROG ((|res| (|MonoidRing| S M)) (#1=#:G124 NIL) (|te| NIL))
                (SEQ (LETT |res| (|spadConstant| $ 10))
                     (SEQ (LETT |te| NIL)

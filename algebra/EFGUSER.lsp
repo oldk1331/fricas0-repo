@@ -1,7 +1,7 @@
 
 (SDEFUN |EFGUSER;apply_taylor1|
-        ((|ft| |Mapping| (|Stream| |Coef|) (|Stream| |Coef|)) (|x| PS)
-         ($ |Union| PS "failed"))
+        ((|ft| (|Mapping| (|Stream| |Coef|) (|Stream| |Coef|))) (|x| (PS))
+         ($ (|Union| PS "failed")))
         (SPROG
          ((|fxu| (|Union| (|Stream| |Coef|) "failed")) (|s1| (|Stream| |Coef|))
           (|c0| (|Coef|)))
@@ -35,7 +35,7 @@
                                           (QREFELT $ 26))))))))))))) 
 
 (SDEFUN |EFGUSER;nthRootIfCan;PSNniU;2|
-        ((|x| PS) (|n| |NonNegativeInteger|) ($ |Union| PS "failed"))
+        ((|x| (PS)) (|n| (|NonNegativeInteger|)) ($ (|Union| PS "failed")))
         (SPROG
          ((|res1| (|Union| PS "failed")) (|x1| (PS)) (|c0| (|Coef|))
           (|ord| (|Expon|)) (|i| NIL))
@@ -111,7 +111,7 @@
             (SPADCALL (SPADCALL (|spadConstant| $ 40) |n| (QREFELT $ 41)) |s|
                       (QREFELT $ 42)))))) 
 
-(SDEFUN |EFGUSER;expIfCan;PSU;3| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;expIfCan;PSU;3| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG ((|c1| (|Coef|)) (|expx| (|Stream| |Coef|)))
                (SEQ
                 (LETT |x| (SPADCALL |x| (|spadConstant| $ 11) (QREFELT $ 12)))
@@ -147,12 +147,12 @@
                                        (QREFELT $ 50))))
                       (#1# (CONS 1 "failed"))))))))))) 
 
-(SDEFUN |EFGUSER;logIfCan;PSU;4| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;logIfCan;PSU;4| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 52) |x| $)) 
 
 (SDEFUN |EFGUSER;sincos|
-        ((|x| PS)
-         ($ |Union| (|Record| (|:| |sin| PS) (|:| |cos| PS)) "failed"))
+        ((|x| (PS))
+         ($ (|Union| (|Record| (|:| |sin| PS) (|:| |cos| PS)) "failed")))
         (SPROG
          ((|cc1| (|Coef|)) (|sc1| (|Coef|)) (|cx1| (PS)) (|sx1| (PS))
           (|x1| (PS)) (|c1| (|Coef|))
@@ -201,7 +201,7 @@
                                         (QREFELT $ 25)))))))
                     (#1# (CONS 1 "failed"))))))))))) 
 
-(SDEFUN |EFGUSER;sinIfCan;PSU;6| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;sinIfCan;PSU;6| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc| (|Union| (|Record| (|:| |sin| PS) (|:| |cos| PS)) "failed")))
          (SEQ (LETT |usc| (|EFGUSER;sincos| |x| $))
@@ -209,7 +209,7 @@
                (COND ((QEQCAR |usc| 1) (CONS 1 "failed"))
                      ('T (CONS 0 (QCAR (QCDR |usc|))))))))) 
 
-(SDEFUN |EFGUSER;cosIfCan;PSU;7| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;cosIfCan;PSU;7| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc| (|Union| (|Record| (|:| |sin| PS) (|:| |cos| PS)) "failed")))
          (SEQ (LETT |usc| (|EFGUSER;sincos| |x| $))
@@ -217,7 +217,7 @@
                (COND ((QEQCAR |usc| 1) (CONS 1 "failed"))
                      ('T (CONS 0 (QCDR (QCDR |usc|))))))))) 
 
-(SDEFUN |EFGUSER;tanIfCan;PSU;8| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;tanIfCan;PSU;8| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc| (|Union| (|Record| (|:| |sin| PS) (|:| |cos| PS)) "failed")))
          (SEQ (LETT |usc| (|EFGUSER;sincos| |x| $))
@@ -227,7 +227,7 @@
                       (SPADCALL (QCAR (QCDR |usc|)) (QCDR (QCDR |usc|))
                                 (QREFELT $ 61)))))))) 
 
-(SDEFUN |EFGUSER;cotIfCan;PSU;9| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;cotIfCan;PSU;9| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc| (|Union| (|Record| (|:| |sin| PS) (|:| |cos| PS)) "failed")))
          (SEQ (LETT |usc| (|EFGUSER;sincos| |x| $))
@@ -237,7 +237,7 @@
                       (SPADCALL (QCDR (QCDR |usc|)) (QCAR (QCDR |usc|))
                                 (QREFELT $ 61)))))))) 
 
-(SDEFUN |EFGUSER;secIfCan;PSU;10| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;secIfCan;PSU;10| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc| (|Union| (|Record| (|:| |sin| PS) (|:| |cos| PS)) "failed")))
          (SEQ (LETT |usc| (|EFGUSER;sincos| |x| $))
@@ -247,7 +247,7 @@
                       (SPADCALL (|spadConstant| $ 22) (QCDR (QCDR |usc|))
                                 (QREFELT $ 61)))))))) 
 
-(SDEFUN |EFGUSER;cscIfCan;PSU;11| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;cscIfCan;PSU;11| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc| (|Union| (|Record| (|:| |sin| PS) (|:| |cos| PS)) "failed")))
          (SEQ (LETT |usc| (|EFGUSER;sincos| |x| $))
@@ -257,27 +257,27 @@
                       (SPADCALL (|spadConstant| $ 22) (QCAR (QCDR |usc|))
                                 (QREFELT $ 61)))))))) 
 
-(SDEFUN |EFGUSER;asinIfCan;PSU;12| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;asinIfCan;PSU;12| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 66) |x| $)) 
 
-(SDEFUN |EFGUSER;acosIfCan;PSU;13| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;acosIfCan;PSU;13| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 68) |x| $)) 
 
-(SDEFUN |EFGUSER;atanIfCan;PSU;14| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;atanIfCan;PSU;14| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 70) |x| $)) 
 
-(SDEFUN |EFGUSER;acotIfCan;PSU;15| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;acotIfCan;PSU;15| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 72) |x| $)) 
 
-(SDEFUN |EFGUSER;asecIfCan;PSU;16| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;asecIfCan;PSU;16| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 74) |x| $)) 
 
-(SDEFUN |EFGUSER;acscIfCan;PSU;17| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;acscIfCan;PSU;17| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 76) |x| $)) 
 
 (SDEFUN |EFGUSER;sinhcosh|
-        ((|x| PS)
-         ($ |Union| (|Record| (|:| |sinh| PS) (|:| |cosh| PS)) "failed"))
+        ((|x| (PS))
+         ($ (|Union| (|Record| (|:| |sinh| PS) (|:| |cosh| PS)) "failed")))
         (SPROG
          ((|cc1| (|Coef|)) (|sc1| (|Coef|)) (|cx1| (PS)) (|sx1| (PS))
           (|x1| (PS)) (|c1| (|Coef|))
@@ -326,7 +326,7 @@
                                         (QREFELT $ 58)))))))
                     (#1# (CONS 1 "failed"))))))))))) 
 
-(SDEFUN |EFGUSER;sinhIfCan;PSU;19| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;sinhIfCan;PSU;19| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc|
            (|Union| (|Record| (|:| |sinh| PS) (|:| |cosh| PS)) "failed")))
@@ -335,7 +335,7 @@
                (COND ((QEQCAR |usc| 1) (CONS 1 "failed"))
                      ('T (CONS 0 (QCAR (QCDR |usc|))))))))) 
 
-(SDEFUN |EFGUSER;coshIfCan;PSU;20| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;coshIfCan;PSU;20| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc|
            (|Union| (|Record| (|:| |sinh| PS) (|:| |cosh| PS)) "failed")))
@@ -344,7 +344,7 @@
                (COND ((QEQCAR |usc| 1) (CONS 1 "failed"))
                      ('T (CONS 0 (QCDR (QCDR |usc|))))))))) 
 
-(SDEFUN |EFGUSER;tanhIfCan;PSU;21| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;tanhIfCan;PSU;21| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc|
            (|Union| (|Record| (|:| |sinh| PS) (|:| |cosh| PS)) "failed")))
@@ -355,7 +355,7 @@
                       (SPADCALL (QCAR (QCDR |usc|)) (QCDR (QCDR |usc|))
                                 (QREFELT $ 61)))))))) 
 
-(SDEFUN |EFGUSER;cothIfCan;PSU;22| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;cothIfCan;PSU;22| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc|
            (|Union| (|Record| (|:| |sinh| PS) (|:| |cosh| PS)) "failed")))
@@ -366,7 +366,7 @@
                       (SPADCALL (QCDR (QCDR |usc|)) (QCAR (QCDR |usc|))
                                 (QREFELT $ 61)))))))) 
 
-(SDEFUN |EFGUSER;sechIfCan;PSU;23| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;sechIfCan;PSU;23| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc|
            (|Union| (|Record| (|:| |sinh| PS) (|:| |cosh| PS)) "failed")))
@@ -377,7 +377,7 @@
                       (SPADCALL (|spadConstant| $ 22) (QCDR (QCDR |usc|))
                                 (QREFELT $ 61)))))))) 
 
-(SDEFUN |EFGUSER;cschIfCan;PSU;24| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;cschIfCan;PSU;24| ((|x| (PS)) ($ (|Union| PS "failed")))
         (SPROG
          ((|usc|
            (|Union| (|Record| (|:| |sinh| PS) (|:| |cosh| PS)) "failed")))
@@ -388,28 +388,30 @@
                       (SPADCALL (|spadConstant| $ 22) (QCAR (QCDR |usc|))
                                 (QREFELT $ 61)))))))) 
 
-(SDEFUN |EFGUSER;asinhIfCan;PSU;25| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;asinhIfCan;PSU;25| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 88) |x| $)) 
 
-(SDEFUN |EFGUSER;acoshIfCan;PSU;26| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;acoshIfCan;PSU;26| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 90) |x| $)) 
 
-(SDEFUN |EFGUSER;atanhIfCan;PSU;27| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;atanhIfCan;PSU;27| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 92) |x| $)) 
 
-(SDEFUN |EFGUSER;acothIfCan;PSU;28| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;acothIfCan;PSU;28| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 94) |x| $)) 
 
-(SDEFUN |EFGUSER;asechIfCan;PSU;29| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;asechIfCan;PSU;29| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 96) |x| $)) 
 
-(SDEFUN |EFGUSER;acschIfCan;PSU;30| ((|x| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;acschIfCan;PSU;30| ((|x| (PS)) ($ (|Union| PS "failed")))
         (|EFGUSER;apply_taylor1| (ELT $ 98) |x| $)) 
 
-(SDEFUN |EFGUSER;do_quo;2PSU;31| ((|x| PS) (|y| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;do_quo;2PSU;31|
+        ((|x| (PS)) (|y| (PS)) ($ (|Union| PS "failed")))
         (SPADCALL |x| |y| (QREFELT $ 101))) 
 
-(SDEFUN |EFGUSER;do_quo;2PSU;32| ((|x| PS) (|y| PS) ($ |Union| PS "failed"))
+(SDEFUN |EFGUSER;do_quo;2PSU;32|
+        ((|x| (PS)) (|y| (PS)) ($ (|Union| PS "failed")))
         (SPROG ((|yinv| (|Union| PS "failed")))
                (SEQ (LETT |yinv| (SPADCALL |y| (QREFELT $ 102)))
                     (EXIT

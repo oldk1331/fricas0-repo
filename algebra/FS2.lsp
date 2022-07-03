@@ -1,7 +1,7 @@
 
 (SDEFUN |FS2;smpmap|
-        ((|fn| |Mapping| S R)
-         (|p| |SparseMultivariatePolynomial| R (|Kernel| A)) ($ B))
+        ((|fn| (|Mapping| S R))
+         (|p| (|SparseMultivariatePolynomial| R (|Kernel| A))) ($ (B)))
         (SPROG NIL
                (SPADCALL (CONS #'|FS2;smpmap!1| (VECTOR |fn| $))
                          (CONS #'|FS2;smpmap!2| (VECTOR $ |fn|)) |p|
@@ -29,12 +29,12 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |fn| |z| (QREFELT $ 11)))))) 
 
-(SDEFUN |FS2;map;MAB;2| ((|f| |Mapping| S R) (|x| A) ($ B))
+(SDEFUN |FS2;map;MAB;2| ((|f| (|Mapping| S R)) (|x| (A)) ($ (B)))
         (SPADCALL (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT $ 23)) $)
                   (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT $ 24)) $)
                   (QREFELT $ 25))) 
 
-(SDEFUN |FS2;map;MAB;3| ((|f| |Mapping| S R) (|x| A) ($ B))
+(SDEFUN |FS2;map;MAB;3| ((|f| (|Mapping| S R)) (|x| (A)) ($ (B)))
         (SPROG ((#1=#:G156 NIL))
                (SPADCALL (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT $ 23)) $)
                          (PROG2
@@ -49,7 +49,7 @@
                                            #1#))
                          (QREFELT $ 28)))) 
 
-(SDEFUN |FS2;map;MAB;4| ((|f| |Mapping| S R) (|x| A) ($ B))
+(SDEFUN |FS2;map;MAB;4| ((|f| (|Mapping| S R)) (|x| (A)) ($ (B)))
         (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT $ 23)) $)) 
 
 (DECLAIM (NOTINLINE |FunctionSpaceFunctions2;|)) 

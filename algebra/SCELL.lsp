@@ -2,17 +2,18 @@
 (PUT '|SCELL;samplePoint;$TheField;1| '|SPADreplace|
      '(XLAM (|c|) (QVELT |c| 0))) 
 
-(SDEFUN |SCELL;samplePoint;$TheField;1| ((|c| $) ($ |TheField|)) (QVELT |c| 0)) 
+(SDEFUN |SCELL;samplePoint;$TheField;1| ((|c| ($)) ($ (|TheField|)))
+        (QVELT |c| 0)) 
 
 (PUT '|SCELL;hasDimension?;$B;2| '|SPADreplace| '(XLAM (|c|) (QVELT |c| 1))) 
 
-(SDEFUN |SCELL;hasDimension?;$B;2| ((|c| $) ($ |Boolean|)) (QVELT |c| 1)) 
+(SDEFUN |SCELL;hasDimension?;$B;2| ((|c| ($)) ($ (|Boolean|))) (QVELT |c| 1)) 
 
 (PUT '|SCELL;variableOf;$S;3| '|SPADreplace| '(XLAM (|c|) (QVELT |c| 2))) 
 
-(SDEFUN |SCELL;variableOf;$S;3| ((|c| $) ($ |Symbol|)) (QVELT |c| 2)) 
+(SDEFUN |SCELL;variableOf;$S;3| ((|c| ($)) ($ (|Symbol|))) (QVELT |c| 2)) 
 
-(SDEFUN |SCELL;coerce;$Of;4| ((|c| $) ($ |OutputForm|))
+(SDEFUN |SCELL;coerce;$Of;4| ((|c| ($)) ($ (|OutputForm|)))
         (SPROG ((|o| (|OutputForm|)))
                (SEQ
                 (LETT |o|
@@ -24,8 +25,8 @@
                            (QREFELT $ 20)))))) 
 
 (SDEFUN |SCELL;separate|
-        ((|liste| |List| |TheField|) (|left| |TheField|) (|right| |TheField|)
-         ($ |List| |TheField|))
+        ((|liste| (|List| |TheField|)) (|left| (|TheField|))
+         (|right| (|TheField|)) ($ (|List| |TheField|)))
         (SPROG
          ((|new_left| (|TheField|)) (|new_right| (|TheField|))
           (|lr| (|List| |TheField|)) (|sg| (|Integer|)) (|nbe| (|TheField|))
@@ -177,15 +178,16 @@
 (PUT '|SCELL;pointToCell| '|SPADreplace| 'VECTOR) 
 
 (SDEFUN |SCELL;pointToCell|
-        ((|sp| |TheField|) (|hasDim?| |Boolean|) (|varName| |Symbol|) ($ $))
+        ((|sp| (|TheField|)) (|hasDim?| (|Boolean|)) (|varName| (|Symbol|))
+         ($ ($)))
         (VECTOR |sp| |hasDim?| |varName|)) 
 
 (SDEFUN |SCELL;allSimpleCells;ThePolsSL;7|
-        ((|p| |ThePols|) (|var| |Symbol|) ($ |List| $))
+        ((|p| (|ThePols|)) (|var| (|Symbol|)) ($ (|List| $)))
         (SPADCALL (LIST |p|) |var| (QREFELT $ 36))) 
 
 (SDEFUN |SCELL;allSimpleCells;LSL;8|
-        ((|lp| |List| |ThePols|) (|var| |Symbol|) ($ |List| $))
+        ((|lp| (|List| |ThePols|)) (|var| (|Symbol|)) ($ (|List| $)))
         (SPROG
          ((|l1| (|List| |TheField|)) (|res| (|List| $))
           (|l| #1=(|List| |TheField|)) (#2=#:G155 NIL) (#3=#:G154 #1#)

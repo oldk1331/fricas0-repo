@@ -1,22 +1,23 @@
 
 (PUT '|SBOUND;nullBoundary;$;1| '|SPADreplace| '(XLAM NIL (CONS 0 "none"))) 
 
-(SDEFUN |SBOUND;nullBoundary;$;1| (($ $)) (CONS 0 "none")) 
+(SDEFUN |SBOUND;nullBoundary;$;1| (($ ($))) (CONS 0 "none")) 
 
-(SDEFUN |SBOUND;boxBoundary;2PT$;2| ((|c1| PT) (|c2| PT) ($ $))
+(SDEFUN |SBOUND;boxBoundary;2PT$;2| ((|c1| (PT)) (|c2| (PT)) ($ ($)))
         (CONS 1
               (VECTOR '|box| (SPADCALL |c1| |c2| (QREFELT $ 9))
                       (SPADCALL |c1| |c2| (QREFELT $ 10))))) 
 
-(SDEFUN |SBOUND;ellipseBoundary;2PT$;3| ((|c1| PT) (|c2| PT) ($ $))
+(SDEFUN |SBOUND;ellipseBoundary;2PT$;3| ((|c1| (PT)) (|c2| (PT)) ($ ($)))
         (CONS 1 (VECTOR '|ellipoid| |c1| |c2|))) 
 
-(SDEFUN |SBOUND;union;L$;4| ((|x| |List| $) ($ $)) (CONS 2 (CONS '|union| |x|))) 
+(SDEFUN |SBOUND;union;L$;4| ((|x| (|List| $)) ($ ($)))
+        (CONS 2 (CONS '|union| |x|))) 
 
-(SDEFUN |SBOUND;intersection;L$;5| ((|x| |List| $) ($ $))
+(SDEFUN |SBOUND;intersection;L$;5| ((|x| (|List| $)) ($ ($)))
         (CONS 2 (CONS '|intersection| |x|))) 
 
-(SDEFUN |SBOUND;sunion;3$;6| ((|x| $) (|y| $) ($ $))
+(SDEFUN |SBOUND;sunion;3$;6| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((|ymax| (PT)) (#1=#:G140 NIL) (|ymin| (PT)) (|xmax| (PT))
           (|xmin| (PT)) (#2=#:G172 NIL) (|res| ($)) (#3=#:G174 NIL) (|ptr| NIL)
@@ -523,7 +524,7 @@
                                (SPADCALL |xmax| |ymax| (QREFELT $ 10)))))))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |SBOUND;extendToPoint;$PT$;7| ((|n| $) (|p| PT) ($ $))
+(SDEFUN |SBOUND;extendToPoint;$PT$;7| ((|n| ($)) (|p| (PT)) ($ ($)))
         (SPROG
          ((|xmax| (PT)) (|xmin| (PT)) (#1=#:G186 NIL) (|res| ($))
           (#2=#:G187 NIL) (|ptr| NIL) (|pa| (|List| $)) (#3=#:G141 NIL))
@@ -590,7 +591,7 @@
                            (SPADCALL |xmax| |p| (QREFELT $ 10)))))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |SBOUND;containsPoint?;$PTB;8| ((|n| $) (|p| PT) ($ |Boolean|))
+(SDEFUN |SBOUND;containsPoint?;$PTB;8| ((|n| ($)) (|p| (PT)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G140 NIL) (#2=#:G197 NIL) (|rDist| #3=(|DoubleFloat|))
           (|pDist| #3#) (|pRel| (PT)) (#4=#:G198 NIL) (|sub| NIL)
@@ -870,7 +871,7 @@
                            (QREFELT $ 35)))))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |SBOUND;lineIntersect;$2PT;9| ((|n| $) (|p| PT) ($ PT))
+(SDEFUN |SBOUND;lineIntersect;$2PT;9| ((|n| ($)) (|p| (PT)) ($ (PT)))
         (SPROG
          ((|y| #1=(|DoubleFloat|)) (|x| #1#) (|yp| #2=(|DoubleFloat|))
           (|xp| #3=(|DoubleFloat|)) (|b| #2#) (|a| #3#) (|rad| (PT))
@@ -1140,9 +1141,9 @@
 
 (PUT '|SBOUND;isNull?;$B;10| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 0))) 
 
-(SDEFUN |SBOUND;isNull?;$B;10| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 0)) 
+(SDEFUN |SBOUND;isNull?;$B;10| ((|n| ($)) ($ (|Boolean|))) (QEQCAR |n| 0)) 
 
-(SDEFUN |SBOUND;isEllipse?;$B;11| ((|n| $) ($ |Boolean|))
+(SDEFUN |SBOUND;isEllipse?;$B;11| ((|n| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G220 NIL))
                (SEQ
                 (EXIT
@@ -1153,7 +1154,7 @@
                   (EXIT (EQUAL (QVELT (CDR |n|) 0) '|ellipoid|))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |SBOUND;isBox?;$B;12| ((|n| $) ($ |Boolean|))
+(SDEFUN |SBOUND;isBox?;$B;12| ((|n| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G228 NIL))
                (SEQ
                 (EXIT
@@ -1164,7 +1165,7 @@
                   (EXIT (EQUAL (QVELT (CDR |n|) 0) '|box|))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |SBOUND;getMin;$PT;13| ((|n| $) ($ PT))
+(SDEFUN |SBOUND;getMin;$PT;13| ((|n| ($)) ($ (PT)))
         (SPROG ((#1=#:G140 NIL) (#2=#:G233 NIL))
                (SEQ
                 (EXIT
@@ -1261,7 +1262,7 @@
                     1))))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |SBOUND;getMax;$PT;14| ((|n| $) ($ PT))
+(SDEFUN |SBOUND;getMax;$PT;14| ((|n| ($)) ($ (PT)))
         (SPROG ((#1=#:G140 NIL) (#2=#:G238 NIL))
                (SEQ
                 (EXIT
@@ -1358,7 +1359,7 @@
                     2))))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |SBOUND;getCentre;$PT;15| ((|n| $) ($ PT))
+(SDEFUN |SBOUND;getCentre;$PT;15| ((|n| ($)) ($ (PT)))
         (SPROG ((#1=#:G140 NIL) (#2=#:G243 NIL))
                (SEQ
                 (EXIT
@@ -1464,7 +1465,7 @@
                              (QREFELT $ 38)))))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |SBOUND;link;2$L;16| ((|m| $) (|n| $) ($ |List| PT))
+(SDEFUN |SBOUND;link;2$L;16| ((|m| ($)) (|n| ($)) ($ (|List| PT)))
         (SPROG ((|bn| (PT)) (|bm| (PT)))
                (SEQ
                 (LETT |bm|
@@ -1475,7 +1476,7 @@
                                 (QREFELT $ 42)))
                 (EXIT (LIST |bm| |bn|))))) 
 
-(SDEFUN |SBOUND;coerce;$Of;17| ((|n| $) ($ |OutputForm|))
+(SDEFUN |SBOUND;coerce;$Of;17| ((|n| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|sub| (|OutputForm|)) (#1=#:G256 NIL) (#2=#:G141 NIL) (|x| NIL)
           (#3=#:G255 NIL) (#4=#:G254 NIL) (#5=#:G140 NIL) (|s| (|OutputForm|))

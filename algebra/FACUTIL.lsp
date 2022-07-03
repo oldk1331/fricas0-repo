@@ -1,7 +1,7 @@
 
 (SDEFUN |FACUTIL;lowerPolynomial;SupSup;1|
-        ((|f| |SparseUnivariatePolynomial| P)
-         ($ |SparseUnivariatePolynomial| R))
+        ((|f| (|SparseUnivariatePolynomial| P))
+         ($ (|SparseUnivariatePolynomial| R)))
         (COND ((SPADCALL |f| (QREFELT $ 12)) (|spadConstant| $ 14))
               ('T
                (SPADCALL
@@ -12,8 +12,8 @@
                 (QREFELT $ 22))))) 
 
 (SDEFUN |FACUTIL;raisePolynomial;SupSup;2|
-        ((|u| |SparseUnivariatePolynomial| R)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|u| (|SparseUnivariatePolynomial| R))
+         ($ (|SparseUnivariatePolynomial| P)))
         (COND ((SPADCALL |u| (QREFELT $ 23)) (|spadConstant| $ 24))
               ('T
                (SPADCALL
@@ -24,8 +24,8 @@
                 (QREFELT $ 31))))) 
 
 (SDEFUN |FACUTIL;completeEval;SupLLSup;3|
-        ((|f| |SparseUnivariatePolynomial| P) (|lvar| |List| OV)
-         (|lval| |List| R) ($ |SparseUnivariatePolynomial| R))
+        ((|f| (|SparseUnivariatePolynomial| P)) (|lvar| (|List| OV))
+         (|lval| (|List| R)) ($ (|SparseUnivariatePolynomial| R)))
         (COND ((SPADCALL |f| (QREFELT $ 12)) (|spadConstant| $ 14))
               ('T
                (SPADCALL
@@ -40,8 +40,8 @@
                 (QREFELT $ 22))))) 
 
 (SDEFUN |FACUTIL;degree;SupLL;4|
-        ((|f| |SparseUnivariatePolynomial| P) (|lvar| |List| OV)
-         ($ . #1=(|List| (|NonNegativeInteger|))))
+        ((|f| (|SparseUnivariatePolynomial| P)) (|lvar| (|List| OV))
+         ($ #1=(|List| (|NonNegativeInteger|))))
         (SPROG
          ((|ldeg| #1#) (#2=#:G129 NIL) (#3=#:G128 #4=(|NonNegativeInteger|))
           (#5=#:G130 #4#) (#6=#:G136 NIL) (|fc| NIL) (#7=#:G135 NIL) (|xx| NIL)
@@ -90,7 +90,7 @@
                            (EXIT (NREVERSE #8#))))))))) 
 
 (SDEFUN |FACUTIL;variables;SupL;5|
-        ((|f| |SparseUnivariatePolynomial| P) ($ |List| OV))
+        ((|f| (|SparseUnivariatePolynomial| P)) ($ (|List| OV)))
         (SPROG
          ((#1=#:G138 NIL) (#2=#:G137 #3=(|List| OV)) (#4=#:G139 #3#)
           (#5=#:G141 NIL) (|cf| NIL))
@@ -109,14 +109,15 @@
                 (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T (|IdentityError| '|setUnion|))))))) 
 
-(SDEFUN |FACUTIL;ran;IR;6| ((|k| |Integer|) ($ R)) (SPADCALL (QREFELT $ 44))) 
+(SDEFUN |FACUTIL;ran;IR;6| ((|k| (|Integer|)) ($ (R)))
+        (SPADCALL (QREFELT $ 44))) 
 
-(SDEFUN |FACUTIL;ran;IR;7| ((|k| |Integer|) ($ R))
+(SDEFUN |FACUTIL;ran;IR;7| ((|k| (|Integer|)) ($ (R)))
         (SPADCALL (- (RANDOM (+ (* 2 |k|) 1)) |k|) (QREFELT $ 47))) 
 
 (SDEFUN |FACUTIL;normalDeriv;SupISup;8|
-        ((|f| |SparseUnivariatePolynomial| P) (|m| |Integer|)
-         ($ |SparseUnivariatePolynomial| P))
+        ((|f| (|SparseUnivariatePolynomial| P)) (|m| (|Integer|))
+         ($ (|SparseUnivariatePolynomial| P)))
         (SPROG
          ((|n| #1=(|Integer|)) (|ris| (|SparseUnivariatePolynomial| P))
           (#2=#:G146 NIL) (|n1| #1#) (|k| (|Integer|))

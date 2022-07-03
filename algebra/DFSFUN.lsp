@@ -2,65 +2,66 @@
 (PUT '|DFSFUN;polygamma;Nni2C;1| '|SPADreplace| '|c_psi|) 
 
 (SDEFUN |DFSFUN;polygamma;Nni2C;1|
-        ((|k| |NonNegativeInteger|) (|z| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|k| (|NonNegativeInteger|)) (|z| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (|c_psi| |k| |z|)) 
 
 (PUT '|DFSFUN;polygamma;Nni2Df;2| '|SPADreplace| '|r_psi|) 
 
 (SDEFUN |DFSFUN;polygamma;Nni2Df;2|
-        ((|k| |NonNegativeInteger|) (|x| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|k| (|NonNegativeInteger|)) (|x| (|DoubleFloat|))
+         ($ (|DoubleFloat|)))
         (|r_psi| |k| |x|)) 
 
 (PUT '|DFSFUN;besselJ;3C;3| '|SPADreplace| '|c_besselj|) 
 
 (SDEFUN |DFSFUN;besselJ;3C;3|
-        ((|v| |Complex| (|DoubleFloat|)) (|z| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (|c_besselj| |v| |z|)) 
 
 (PUT '|DFSFUN;besselJ;3Df;4| '|SPADreplace| '|r_besselj|) 
 
 (SDEFUN |DFSFUN;besselJ;3Df;4|
-        ((|n| |DoubleFloat|) (|x| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (|r_besselj| |n| |x|)) 
 
 (PUT '|DFSFUN;besselI;3C;5| '|SPADreplace| '|c_besseli|) 
 
 (SDEFUN |DFSFUN;besselI;3C;5|
-        ((|v| |Complex| (|DoubleFloat|)) (|z| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (|c_besseli| |v| |z|)) 
 
 (PUT '|DFSFUN;besselI;3Df;6| '|SPADreplace| '|r_besseli|) 
 
 (SDEFUN |DFSFUN;besselI;3Df;6|
-        ((|n| |DoubleFloat|) (|x| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (|r_besseli| |n| |x|)) 
 
 (PUT '|DFSFUN;hypergeometric0F1;3C;7| '|SPADreplace| '|c_hyper0f1|) 
 
 (SDEFUN |DFSFUN;hypergeometric0F1;3C;7|
-        ((|a| |Complex| (|DoubleFloat|)) (|z| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|a| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (|c_hyper0f1| |a| |z|)) 
 
 (SDEFUN |DFSFUN;hypergeometric0F1;3Df;8|
-        ((|n| |DoubleFloat|) (|x| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPADCALL
          (SPADCALL (SPADCALL |n| (QREFELT $ 16)) (SPADCALL |x| (QREFELT $ 16))
                    (QREFELT $ 15))
          (QREFELT $ 17))) 
 
-(SDEFUN |DFSFUN;digamma;2Df;9| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |DFSFUN;digamma;2Df;9| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPADCALL 0 |x| (QREFELT $ 10))) 
 
 (SDEFUN |DFSFUN;digamma;2C;10|
-        ((|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPADCALL 0 |z| (QREFELT $ 8))) 
 
 (SDEFUN |DFSFUN;besselY;3Df;11|
-        ((|n| |DoubleFloat|) (|x| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG ((|vp| (|DoubleFloat|)))
                (SEQ
                 (COND
@@ -76,8 +77,8 @@
                   (|sin_DF| |vp|)))))) 
 
 (SDEFUN |DFSFUN;besselY;3C;12|
-        ((|v| |Complex| (|DoubleFloat|)) (|z| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (SPROG ((|vp| (|Complex| (|DoubleFloat|))))
                (SEQ
                 (COND
@@ -97,7 +98,7 @@
                   (SPADCALL |vp| (QREFELT $ 35)) (QREFELT $ 36)))))) 
 
 (SDEFUN |DFSFUN;besselK;3Df;13|
-        ((|n| |DoubleFloat|) (|x| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG
          ((|ahalf| (|DoubleFloat|)) (|vp| (|DoubleFloat|))
           (|p| (|DoubleFloat|)))
@@ -116,8 +117,8 @@
             (|sin_DF| |vp|)))))) 
 
 (SDEFUN |DFSFUN;besselK;3C;14|
-        ((|v| |Complex| (|DoubleFloat|)) (|z| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|ahalf| (|Complex| (|DoubleFloat|)))
           (|vp| (|Complex| (|DoubleFloat|))) (|p| (|Complex| (|DoubleFloat|))))
@@ -142,7 +143,7 @@
                       (QREFELT $ 31))
             (SPADCALL |vp| (QREFELT $ 35)) (QREFELT $ 36)))))) 
 
-(SDEFUN |DFSFUN;airyAi;2Df;15| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |DFSFUN;airyAi;2Df;15| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG
          ((|eta| (|DoubleFloat|)) (|athird| (|DoubleFloat|)) (#1=#:G146 NIL)
           (|ahalf| (|DoubleFloat|)))
@@ -176,7 +177,7 @@
                       (SPADCALL |athird| |eta| (QREFELT $ 12)))))))) 
 
 (SDEFUN |DFSFUN;airyAi;2C;16|
-        ((|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|eta| (|Complex| (|DoubleFloat|)))
           (|athird| (|Complex| (|DoubleFloat|))) (#1=#:G151 NIL)
@@ -217,7 +218,7 @@
              (SPADCALL |athird| |eta| (QREFELT $ 11)) (QREFELT $ 29))
             (QREFELT $ 31)))))) 
 
-(SDEFUN |DFSFUN;airyBi;2Df;17| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |DFSFUN;airyBi;2Df;17| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG
          ((|eta| (|DoubleFloat|)) (|athird| (|DoubleFloat|)) (#1=#:G156 NIL)
           (|ahalf| (|DoubleFloat|)))
@@ -251,7 +252,7 @@
                       (SPADCALL |athird| |eta| (QREFELT $ 12)))))))) 
 
 (SDEFUN |DFSFUN;airyBi;2C;18|
-        ((|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|eta| (|Complex| (|DoubleFloat|)))
           (|athird| (|Complex| (|DoubleFloat|))) (#1=#:G161 NIL)

@@ -1,18 +1,18 @@
 
-(SDEFUN |EUCDOM-;sizeLess?;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |EUCDOM-;sizeLess?;2SB;1| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (COND ((SPADCALL |y| (QREFELT $ 8)) NIL)
               ((SPADCALL |x| (QREFELT $ 8)) 'T)
               ('T
                (< (SPADCALL |x| (QREFELT $ 10))
                   (SPADCALL |y| (QREFELT $ 10)))))) 
 
-(SDEFUN |EUCDOM-;quo;3S;2| ((|x| S) (|y| S) ($ S))
+(SDEFUN |EUCDOM-;quo;3S;2| ((|x| (S)) (|y| (S)) ($ (S)))
         (QCAR (SPADCALL |x| |y| (QREFELT $ 13)))) 
 
-(SDEFUN |EUCDOM-;rem;3S;3| ((|x| S) (|y| S) ($ S))
+(SDEFUN |EUCDOM-;rem;3S;3| ((|x| (S)) (|y| (S)) ($ (S)))
         (QCDR (SPADCALL |x| |y| (QREFELT $ 13)))) 
 
-(SDEFUN |EUCDOM-;exquo;2SU;4| ((|x| S) (|y| S) ($ |Union| S "failed"))
+(SDEFUN |EUCDOM-;exquo;2SU;4| ((|x| (S)) (|y| (S)) ($ (|Union| S "failed")))
         (SPROG ((|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S))))
                (SEQ
                 (COND ((SPADCALL |y| (QREFELT $ 8)) (CONS 1 "failed"))
@@ -24,7 +24,7 @@
                                (CONS 0 (QCAR |qr|)))
                               (#1# (CONS 1 "failed")))))))))) 
 
-(SDEFUN |EUCDOM-;gcd;3S;5| ((|x| S) (|y| S) ($ S))
+(SDEFUN |EUCDOM-;gcd;3S;5| ((|x| (S)) (|y| (S)) ($ (S)))
         (SPROG ((|#G14| (S)) (|#G13| (S)))
                (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 18)))
                     (LETT |y| (SPADCALL |y| (QREFELT $ 18)))
@@ -43,8 +43,8 @@
                     (EXIT |x|)))) 
 
 (SDEFUN |EUCDOM-;unitNormalizeIdealElt|
-        ((|s| |Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S))
-         ($ |Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S)))
+        ((|s| (|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S)))
+         ($ (|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S))))
         (SPROG
          ((|a| (S)) (|c| (S)) (|u| (S))
           (|#G16|
@@ -63,9 +63,8 @@
                           (SPADCALL |a| (QVELT |s| 1) (QREFELT $ 25)) |c|))))))) 
 
 (SDEFUN |EUCDOM-;extendedEuclidean;2SR;7|
-        ((|x| S) (|y| S)
-         ($
-          . #1=(|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S))))
+        ((|x| (S)) (|y| (S))
+         ($ #1=(|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S))))
         (SPROG
          ((|s1|
            #2=(|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S)))
@@ -126,8 +125,8 @@
                    (EXIT |s1|)))))))) 
 
 (SDEFUN |EUCDOM-;extendedEuclidean;3SU;8|
-        ((|x| S) (|y| S) (|z| S)
-         ($ |Union| (|Record| (|:| |coef1| S) (|:| |coef2| S)) "failed"))
+        ((|x| (S)) (|y| (S)) (|z| (S))
+         ($ (|Union| (|Record| (|:| |coef1| S) (|:| |coef2| S)) "failed")))
         (SPROG
          ((|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S)))
           (|w| (|Union| S "failed"))
@@ -166,8 +165,8 @@
                                         (QREFELT $ 29))))))))))))))) 
 
 (SDEFUN |EUCDOM-;principalIdeal;LR;9|
-        ((|l| |List| S)
-         ($ |Record| (|:| |coef| (|List| S)) (|:| |generator| S)))
+        ((|l| (|List| S))
+         ($ (|Record| (|:| |coef| (|List| S)) (|:| |generator| S))))
         (SPROG
          ((#1=#:G212 NIL) (|vv| NIL) (#2=#:G211 NIL)
           (|u| (|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S)))
@@ -213,7 +212,7 @@
                    (QVELT |u| 2))))))))) 
 
 (SDEFUN |EUCDOM-;expressIdealMember;LSU;10|
-        ((|l| |List| S) (|z| S) ($ |Union| (|List| S) "failed"))
+        ((|l| (|List| S)) (|z| (S)) ($ (|Union| (|List| S) "failed")))
         (SPROG
          ((#1=#:G230 NIL) (|v| NIL) (#2=#:G229 NIL) (|q| (|Union| S "failed"))
           (|pid| (|Record| (|:| |coef| (|List| S)) (|:| |generator| S)))
@@ -258,7 +257,7 @@
                                      (EXIT (NREVERSE #2#)))))))))))))) 
 
 (SDEFUN |EUCDOM-;multiEuclidean;LSU;11|
-        ((|l| |List| S) (|z| S) ($ |Union| (|List| S) #1="failed"))
+        ((|l| (|List| S)) (|z| (S)) ($ (|Union| (|List| S) #1="failed")))
         (SPROG
          ((|v2| #2=(|Union| (|List| S) #1#)) (|v1| #2#)
           (|u| (|Union| (|Record| (|:| |coef1| S) (|:| |coef2| S)) "failed"))

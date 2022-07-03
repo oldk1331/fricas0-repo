@@ -1,7 +1,7 @@
 
 (SDEFUN |NLINSOL;solveInField;LL;1|
-        ((|l| |List| (|Polynomial| R))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|l| (|List| (|Polynomial| R)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG
          ((#1=#:G125 NIL) (#2=#:G124 #3=(|List| (|Symbol|))) (#4=#:G126 #3#)
           (#5=#:G128 NIL) (|p| NIL))
@@ -26,8 +26,8 @@
                     (QREFELT $ 13))))) 
 
 (SDEFUN |NLINSOL;solve;LL;2|
-        ((|l| |List| (|Polynomial| R))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|l| (|List| (|Polynomial| R)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG
          ((#1=#:G130 NIL) (#2=#:G129 #3=(|List| (|Symbol|))) (#4=#:G131 #3#)
           (#5=#:G133 NIL) (|p| NIL))
@@ -52,8 +52,8 @@
                     (QREFELT $ 15))))) 
 
 (SDEFUN |NLINSOL;solve;LLL;3|
-        ((|lp| |List| (|Polynomial| R)) (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG ((#1=#:G137 NIL) (|sol| NIL) (#2=#:G136 NIL))
                (SEQ
                 (SPADCALL
@@ -72,9 +72,9 @@
                  (QREFELT $ 18))))) 
 
 (SDEFUN |NLINSOL;addRoot|
-        ((|eq| |Equation| (|Fraction| (|Polynomial| R)))
-         (|l| |List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|eq| (|Equation| (|Fraction| (|Polynomial| R))))
+         (|l| (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG ((#1=#:G141 NIL) (|sol| NIL) (#2=#:G140 NIL))
                (SEQ
                 (PROGN
@@ -88,9 +88,9 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |NLINSOL;evalSol|
-        ((|ls| |List| (|Equation| (|Fraction| (|Polynomial| R))))
-         (|l| |List| (|Equation| (|Fraction| (|Polynomial| R))))
-         ($ |List| (|Equation| (|Fraction| (|Polynomial| R)))))
+        ((|ls| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
+         (|l| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
+         ($ (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
         (SPROG ((#1=#:G145 NIL) (|eq| NIL) (#2=#:G144 NIL))
                (SEQ
                 (PROGN
@@ -113,8 +113,8 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |NLINSOL;allRoots|
-        ((|l| |List| (|Polynomial| R))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|l| (|List| (|Polynomial| R)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG
          ((#1=#:G154 NIL) (|a| NIL) (#2=#:G153 NIL)
           (|s| (|Fraction| (|Polynomial| R))) (#3=#:G147 NIL)
@@ -168,8 +168,8 @@
                         (QREFELT $ 18))))))))) 
 
 (SDEFUN |NLINSOL;expandSol|
-        ((|l| |List| (|Equation| (|Fraction| (|Polynomial| R))))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|l| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG
          ((#1=#:G176 NIL) (|z| NIL) (#2=#:G175 NIL) (#3=#:G173 NIL)
           (|luniv| (|List| (|Polynomial| R))) (|r| (|Union| R "failed"))
@@ -255,7 +255,7 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |NLINSOL;RIfCan|
-        ((|f| |Fraction| (|Polynomial| R)) ($ |Union| R "failed"))
+        ((|f| (|Fraction| (|Polynomial| R))) ($ (|Union| R "failed")))
         (SPROG ((#1=#:G184 NIL) (|d| #2=(|Union| R "failed")) (|n| #2#))
                (SEQ
                 (EXIT
@@ -284,28 +284,28 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |NLINSOL;solve;LL;9|
-        ((|l| |List| (|Polynomial| R))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|l| (|List| (|Polynomial| R)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPADCALL |l| (QREFELT $ 14))) 
 
 (SDEFUN |NLINSOL;solve;LLL;10|
-        ((|lp| |List| (|Polynomial| R)) (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPADCALL |lp| |lv| (QREFELT $ 13))) 
 
 (SDEFUN |NLINSOL;solveInField;LLL;11|
-        ((|lp| |List| (|Polynomial| R)) (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPADCALL |lp| |lv| (QREFELT $ 49))) 
 
 (SDEFUN |NLINSOL;solveInField;LLL;12|
-        ((|lp| |List| (|Polynomial| R)) (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPADCALL |lp| |lv| (QREFELT $ 51))) 
 
 (SDEFUN |NLINSOL;solveInField;LLL;13|
-        ((|lp| |List| (|Polynomial| R)) (|lv| |List| (|Symbol|))
-         ($ |List| (|List| (|Equation| (|Fraction| (|Polynomial| R))))))
+        ((|lp| (|List| (|Polynomial| R))) (|lv| (|List| (|Symbol|)))
+         ($ (|List| (|List| (|Equation| (|Fraction| (|Polynomial| R)))))))
         (SPROG ((#1=#:G192 NIL) (|p| NIL) (#2=#:G191 NIL))
                (SEQ
                 (SPADCALL

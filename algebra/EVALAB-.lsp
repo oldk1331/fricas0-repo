@@ -1,8 +1,9 @@
 
-(SDEFUN |EVALAB-;eval;SES;1| ((|f| S) (|eq| |Equation| R) ($ S))
+(SDEFUN |EVALAB-;eval;SES;1| ((|f| (S)) (|eq| (|Equation| R)) ($ (S)))
         (SPADCALL |f| (LIST |eq|) (QREFELT $ 9))) 
 
-(SDEFUN |EVALAB-;eval;S2LS;2| ((|f| S) (|xs| |List| R) (|vs| |List| R) ($ S))
+(SDEFUN |EVALAB-;eval;S2LS;2|
+        ((|f| (S)) (|xs| (|List| R)) (|vs| (|List| R)) ($ (S)))
         (SPROG
          ((#1=#:G130 NIL) (|x| NIL) (#2=#:G131 NIL) (|v| NIL) (#3=#:G129 NIL))
          (SEQ

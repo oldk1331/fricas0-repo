@@ -1,5 +1,6 @@
 
-(SDEFUN |NTPOLFN;cyclotomic;Nni2R;1| ((|k| |NonNegativeInteger|) (|x| R) ($ R))
+(SDEFUN |NTPOLFN;cyclotomic;Nni2R;1|
+        ((|k| (|NonNegativeInteger|)) (|x| (R)) ($ (R)))
         (SPROG
          ((|r| (R)) (|p| (|SparseUnivariatePolynomial| (|Integer|)))
           (|c| (|Integer|)) (|d| (|NonNegativeInteger|)))
@@ -21,7 +22,8 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 
-(SDEFUN |NTPOLFN;eulerE;Nni2R;2| ((|k| |NonNegativeInteger|) (|x| R) ($ R))
+(SDEFUN |NTPOLFN;eulerE;Nni2R;2|
+        ((|k| (|NonNegativeInteger|)) (|x| (R)) ($ (R)))
         (SPROG
          ((|r| (R))
           (|p| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
@@ -44,7 +46,8 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 
-(SDEFUN |NTPOLFN;bernoulliB;Nni2R;3| ((|k| |NonNegativeInteger|) (|x| R) ($ R))
+(SDEFUN |NTPOLFN;bernoulliB;Nni2R;3|
+        ((|k| (|NonNegativeInteger|)) (|x| (R)) ($ (R)))
         (SPROG
          ((|r| (R))
           (|p| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))

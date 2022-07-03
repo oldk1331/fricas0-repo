@@ -1,8 +1,8 @@
 
 (SDEFUN |LLLRED;gram_step|
-        ((|k| |Integer|) (N |Integer|) (|bm| |Matrix| (|Integer|))
-         (|bsm| |Matrix| (|Float|)) (|mu| |Matrix| (|Float|))
-         (|nbs| |Vector| (|Float|)) (|v1| |Vector| (|Float|)) ($ |Void|))
+        ((|k| (|Integer|)) (N (|Integer|)) (|bm| (|Matrix| (|Integer|)))
+         (|bsm| (|Matrix| (|Float|))) (|mu| (|Matrix| (|Float|)))
+         (|nbs| (|Vector| (|Float|))) (|v1| (|Vector| (|Float|))) ($ (|Void|)))
         (SPROG
          ((#1=#:G131 NIL) (|i| NIL) (#2=#:G130 NIL) (|v2| (|Vector| (|Float|)))
           (#3=#:G129 NIL) (|j| NIL) (#4=#:G128 NIL))
@@ -54,8 +54,8 @@
                          (QREFELT $ 15)))))) 
 
 (SDEFUN |LLLRED;extendedLLL!;MNniM;2|
-        ((L |Matrix| (|Integer|)) (N |NonNegativeInteger|)
-         ($ |Matrix| (|Integer|)))
+        ((L (|Matrix| (|Integer|))) (N (|NonNegativeInteger|))
+         ($ (|Matrix| (|Integer|))))
         (SPROG
          ((|k| (|NonNegativeInteger|)) (|tmp| (|Float|)) (#1=#:G155 NIL)
           (|i| NIL) (#2=#:G154 NIL) (|bs2| #3=(|Vector| (|Float|))) (|bs1| #3#)
@@ -271,9 +271,10 @@
               (EXIT |bm|)))) 
 
 (SDEFUN |LLLRED;extendedLLL;MR;3|
-        ((L |Matrix| (|Integer|))
-         ($ |Record| (|:| |lll| (|Matrix| (|Integer|)))
-          (|:| |trf| (|Matrix| (|Integer|)))))
+        ((L (|Matrix| (|Integer|)))
+         ($
+          (|Record| (|:| |lll| (|Matrix| (|Integer|)))
+                    (|:| |trf| (|Matrix| (|Integer|))))))
         (SPROG
          ((#1=#:G171 NIL) (|j| NIL) (#2=#:G170 NIL) (#3=#:G169 NIL) (|i| NIL)
           (|t| #4=(|Matrix| (|Integer|))) (|l| #4#)
@@ -319,12 +320,13 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |l| |t|))))) 
 
-(SDEFUN |LLLRED;LLL;2M;4| ((L |Matrix| (|Integer|)) ($ |Matrix| (|Integer|)))
+(SDEFUN |LLLRED;LLL;2M;4|
+        ((L (|Matrix| (|Integer|))) ($ (|Matrix| (|Integer|))))
         (SPADCALL (SPADCALL L (QREFELT $ 40)) (ANCOLS L) (QREFELT $ 37))) 
 
 (SDEFUN |LLLRED;find_relation;LNniL;5|
-        ((|la| |List| (|Float|)) (|k| |NonNegativeInteger|)
-         ($ |List| (|Integer|)))
+        ((|la| (|List| (|Float|))) (|k| (|NonNegativeInteger|))
+         ($ (|List| (|Integer|))))
         (SPROG
          ((#1=#:G181 NIL) (|i| NIL) (#2=#:G180 NIL)
           (|res| (|Matrix| (|Integer|))) (#3=#:G178 NIL) (#4=#:G179 NIL)

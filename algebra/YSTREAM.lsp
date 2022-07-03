@@ -1,6 +1,6 @@
 
 (SDEFUN |YSTREAM;Y;MS;1|
-        ((|f| |Mapping| #1=(|Stream| A) (|Stream| A)) ($ |Stream| A))
+        ((|f| (|Mapping| #1=(|Stream| A) (|Stream| A))) ($ (|Stream| A)))
         (SPROG ((|j| #1#) (|y| (|Stream| A)))
                (SEQ (LETT |y| (CONS (QREFELT $ 7) 0))
                     (LETT |j| (SPADCALL |y| |f|))
@@ -8,8 +8,8 @@
                     (RPLACD |y| (SPADCALL |j| (QREFELT $ 10))) (EXIT |y|)))) 
 
 (SDEFUN |YSTREAM;Y;MIL;2|
-        ((|g| |Mapping| #1=(|List| (|Stream| A)) (|List| (|Stream| A)))
-         (|n| |Integer|) ($ |List| (|Stream| A)))
+        ((|g| (|Mapping| #1=(|List| (|Stream| A)) (|List| (|Stream| A))))
+         (|n| (|Integer|)) ($ (|List| (|Stream| A))))
         (SPROG
          ((#2=#:G130 NIL) (|xi| NIL) (#3=#:G131 NIL) (|ji| NIL) (|j| #1#)
           (|x| (|List| (|Stream| A))) (#4=#:G129 NIL) (|i| NIL)

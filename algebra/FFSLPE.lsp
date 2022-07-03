@@ -1,6 +1,6 @@
 
 (SDEFUN |FFSLPE;solveLinearPolynomialEquation;LFPPU;1|
-        ((|lp| |List| FPP) (|p| FPP) ($ |Union| (|List| FPP) "failed"))
+        ((|lp| (|List| FPP)) (|p| (FPP)) ($ (|Union| (|List| FPP) "failed")))
         (SPROG
          ((|answer| (|Union| (|List| FPP) "failed")) (#1=#:G129 NIL)
           (#2=#:G132 NIL) (|ans| (|Union| (|Vector| (|List| FPP)) #3="failed"))

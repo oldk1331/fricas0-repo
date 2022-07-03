@@ -1,12 +1,12 @@
 
-(SDEFUN |JBX;coerce;JB$;1| ((|jv| JB) ($ $))
+(SDEFUN |JBX;coerce;JB$;1| ((|jv| (JB)) ($ ($)))
         (COND
          ((SPADCALL (SPADCALL |jv| (QREFELT $ 9)) '|Indep| (QREFELT $ 11))
           (|error| "Only functions of independent variables allowed"))
          ('T (SPADCALL |jv| (QREFELT $ 12))))) 
 
 (SDEFUN |JBX;retractIfCan;JbeU;2|
-        ((|p| |JetBundleExpression| JB) ($ |Union| $ "failed"))
+        ((|p| (|JetBundleExpression| JB)) ($ (|Union| $ "failed")))
         (SPROG ((#1=#:G136 NIL) (|jv| NIL) (#2=#:G135 NIL))
                (SEQ
                 (COND
@@ -32,7 +32,7 @@
                   (CONS 0 |p|))
                  ('T (CONS 1 "failed")))))) 
 
-(SDEFUN |JBX;retract;Jbe$;3| ((|p| |JetBundleExpression| JB) ($ $))
+(SDEFUN |JBX;retract;Jbe$;3| ((|p| (|JetBundleExpression| JB)) ($ ($)))
         (SPROG ((|px| (|Union| $ "failed")))
                (SEQ (LETT |px| (SPADCALL |p| (QREFELT $ 21)))
                     (EXIT

@@ -1,5 +1,5 @@
 
-(SDEFUN |BBTREE;setleaves!;$L$;1| ((|t| $) (|u| |List| S) ($ $))
+(SDEFUN |BBTREE;setleaves!;$L$;1| ((|t| ($)) (|u| (|List| S)) ($ ($)))
         (SPROG
          ((|acc| (|List| S)) (#1=#:G137 NIL) (|i| NIL)
           (|m| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)))
@@ -28,7 +28,7 @@
                       (EXIT |t|)))))))) 
 
 (SDEFUN |BBTREE;balancedBinaryTree;NniS$;2|
-        ((|n| |NonNegativeInteger|) (|val| S) ($ $))
+        ((|n| (|NonNegativeInteger|)) (|val| (S)) ($ ($)))
         (SPROG ((|m| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((EQL |n| 0) (SPADCALL (QREFELT $ 15)))
@@ -44,7 +44,7 @@
                                                  (QREFELT $ 18))
                                        (QREFELT $ 16))))))))) 
 
-(SDEFUN |BBTREE;mapUp!;$MS;3| ((|x| $) (|fn| |Mapping| S S S) ($ S))
+(SDEFUN |BBTREE;mapUp!;$MS;3| ((|x| ($)) (|fn| (|Mapping| S S S)) ($ (S)))
         (COND
          ((SPADCALL |x| (QREFELT $ 9))
           (|error| "mapUp! called on a null tree"))
@@ -60,7 +60,7 @@
                     (QREFELT $ 28))))) 
 
 (SDEFUN |BBTREE;mapUp!;2$M$;4|
-        ((|x| $) (|y| $) (|fn| |Mapping| S S S S S) ($ $))
+        ((|x| ($)) (|y| ($)) (|fn| (|Mapping| S S S S S)) ($ ($)))
         (SEQ
          (COND
           ((OR (SPADCALL |x| (QREFELT $ 9)) (SPADCALL |y| (QREFELT $ 9)))
@@ -94,7 +94,8 @@
                         (QREFELT $ 28))
               (EXIT |x|)))))))) 
 
-(SDEFUN |BBTREE;mapDown!;$SM$;5| ((|x| $) (|p| S) (|fn| |Mapping| S S S) ($ $))
+(SDEFUN |BBTREE;mapDown!;$SM$;5|
+        ((|x| ($)) (|p| (S)) (|fn| (|Mapping| S S S)) ($ ($)))
         (SEQ
          (COND ((SPADCALL |x| (QREFELT $ 9)) |x|)
                ('T
@@ -112,7 +113,7 @@
                  (EXIT |x|)))))) 
 
 (SDEFUN |BBTREE;mapDown!;$SM$;6|
-        ((|x| $) (|p| S) (|fn| |Mapping| (|List| S) S S S) ($ $))
+        ((|x| ($)) (|p| (S)) (|fn| (|Mapping| (|List| S) S S S)) ($ ($)))
         (SPROG ((|u| (|List| S)))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 9)) |x|)

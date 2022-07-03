@@ -1,29 +1,29 @@
 
 (SDEFUN |SCNP;namedPoints;LL$;1|
-        ((|ptin| |List| PT) (|nmin| |List| (|String|)) ($ $))
+        ((|ptin| (|List| PT)) (|nmin| (|List| (|String|))) ($ ($)))
         (CONS 0 (CONS |ptin| |nmin|))) 
 
 (SDEFUN |SCNP;namedPoints;LL$;2|
-        ((|scin| |List| (|Scene| PT)) (|nmin| |List| (|String|)) ($ $))
+        ((|scin| (|List| (|Scene| PT))) (|nmin| (|List| (|String|))) ($ ($)))
         (CONS 1 (CONS |scin| |nmin|))) 
 
 (SDEFUN |SCNP;namedBranch;LL$;3|
-        ((|chin| |List| $) (|nmin| |List| (|String|)) ($ $))
+        ((|chin| (|List| $)) (|nmin| (|List| (|String|))) ($ ($)))
         (CONS 2 (CONS |chin| |nmin|))) 
 
 (PUT '|SCNP;isPointLeaf?;$B;4| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 0))) 
 
-(SDEFUN |SCNP;isPointLeaf?;$B;4| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 0)) 
+(SDEFUN |SCNP;isPointLeaf?;$B;4| ((|n| ($)) ($ (|Boolean|))) (QEQCAR |n| 0)) 
 
 (PUT '|SCNP;isNodeLeaf?;$B;5| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 1))) 
 
-(SDEFUN |SCNP;isNodeLeaf?;$B;5| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 1)) 
+(SDEFUN |SCNP;isNodeLeaf?;$B;5| ((|n| ($)) ($ (|Boolean|))) (QEQCAR |n| 1)) 
 
 (PUT '|SCNP;isNodeBranch?;$B;6| '|SPADreplace| '(XLAM (|n|) (QEQCAR |n| 2))) 
 
-(SDEFUN |SCNP;isNodeBranch?;$B;6| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 2)) 
+(SDEFUN |SCNP;isNodeBranch?;$B;6| ((|n| ($)) ($ (|Boolean|))) (QEQCAR |n| 2)) 
 
-(SDEFUN |SCNP;getNames;$L;7| ((|n| $) ($ |List| (|String|)))
+(SDEFUN |SCNP;getNames;$L;7| ((|n| ($)) ($ (|List| (|String|))))
         (SPROG ((#1=#:G142 NIL) (#2=#:G162 NIL))
                (SEQ
                 (EXIT
@@ -61,7 +61,7 @@
                                       #1#))))))
                 #3# (EXIT #2#)))) 
 
-(SDEFUN |SCNP;findPoint;$SPT;8| ((|n| $) (|ptName| |String|) ($ PT))
+(SDEFUN |SCNP;findPoint;$SPT;8| ((|n| ($)) (|ptName| (|String|)) ($ (PT)))
         (SPROG
          ((#1=#:G171 NIL) (#2=#:G140 NIL) (|s| (|String|)) (#3=#:G172 NIL)
           (|sNum| NIL) (|fst| ($)) (|c| (|List| $)) (#4=#:G142 NIL))
@@ -225,7 +225,8 @@
             (EXIT (SPADCALL 0 0 (QREFELT $ 23)))))
           #5# (EXIT #1#)))) 
 
-(SDEFUN |SCNP;addPoints!;$S2$;9| ((|n| $) (|ptName| |String|) (|pts| $) ($ $))
+(SDEFUN |SCNP;addPoints!;$S2$;9|
+        ((|n| ($)) (|ptName| (|String|)) (|pts| ($)) ($ ($)))
         (SPROG ((#1=#:G142 NIL))
                (SEQ
                 (COND
@@ -350,7 +351,7 @@
                 (EXIT |pts|)))) 
 
 (SDEFUN |SCNP;addNode!;$SS$;10|
-        ((|n| $) (|ptName| |String|) (|sc| |Scene| PT) ($ $))
+        ((|n| ($)) (|ptName| (|String|)) (|sc| (|Scene| PT)) ($ ($)))
         (SPROG
          ((#1=#:G141 NIL) (#2=#:G183 NIL) (#3=#:G142 NIL) (|fst| ($))
           (|c| (|List| $)) (|scnd| ($)))
@@ -659,7 +660,8 @@
             (EXIT |n|)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |SCNP;findNode;$SS;11| ((|n| $) (|ptName| |String|) ($ |Scene| PT))
+(SDEFUN |SCNP;findNode;$SS;11|
+        ((|n| ($)) (|ptName| (|String|)) ($ (|Scene| PT)))
         (SPROG
          ((#1=#:G190 NIL) (#2=#:G141 NIL) (#3=#:G191 NIL) (|name| NIL)
           (#4=#:G192 NIL) (|namei| NIL) (|fst| ($)) (|c| (|List| $))
@@ -831,7 +833,7 @@
             (EXIT (|error| "findNode - cant find"))))
           #6# (EXIT #1#)))) 
 
-(SDEFUN |SCNP;toString;$S;12| ((|n| $) ($ |String|))
+(SDEFUN |SCNP;toString;$S;12| ((|n| ($)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (#1=#:G212 NIL) (|l1| NIL) (#2=#:G213 NIL)
           (|ptr| NIL) (#3=#:G210 NIL) (|lst| NIL) (#4=#:G211 NIL)
@@ -966,9 +968,9 @@
 
 (PUT '|SCNP;hash;$Si;13| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(SDEFUN |SCNP;hash;$Si;13| ((|s| $) ($ |SingleInteger|)) 0) 
+(SDEFUN |SCNP;hash;$Si;13| ((|s| ($)) ($ (|SingleInteger|))) 0) 
 
-(SDEFUN |SCNP;=;2$B;14| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |SCNP;=;2$B;14| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G226 NIL))
                (SEQ
                 (EXIT
@@ -1006,10 +1008,10 @@
                   (EXIT NIL)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |SCNP;~=;2$B;15| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |SCNP;~=;2$B;15| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (NULL (SPADCALL |x| |y| (QREFELT $ 46)))) 
 
-(SDEFUN |SCNP;coerce;$Of;16| ((|n| $) ($ |OutputForm|))
+(SDEFUN |SCNP;coerce;$Of;16| ((|n| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|s| (|OutputForm|)) (#1=#:G247 NIL) (|l1| NIL) (#2=#:G248 NIL)
           (|ptr| NIL) (#3=#:G245 NIL) (|lst| NIL) (#4=#:G246 NIL)

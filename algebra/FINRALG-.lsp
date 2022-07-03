@@ -1,9 +1,9 @@
 
-(SDEFUN |FINRALG-;discriminant;VR;1| ((|v| |Vector| S) ($ R))
+(SDEFUN |FINRALG-;discriminant;VR;1| ((|v| (|Vector| S)) ($ (R)))
         (SPADCALL (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 12))) 
 
 (SDEFUN |FINRALG-;coordinates;2VM;2|
-        ((|v| |Vector| S) (|b| |Vector| S) ($ |Matrix| R))
+        ((|v| (|Vector| S)) (|b| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG ((#1=#:G130 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
                (SEQ
                 (LETT |m|
@@ -23,7 +23,8 @@
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |m|)))) 
 
-(SDEFUN |FINRALG-;represents;VVS;3| ((|v| |Vector| R) (|b| |Vector| S) ($ S))
+(SDEFUN |FINRALG-;represents;VVS;3|
+        ((|v| (|Vector| R)) (|b| (|Vector| S)) ($ (S)))
         (SPROG
          ((#1=#:G132 NIL) (#2=#:G131 (S)) (#3=#:G133 (S)) (#4=#:G136 NIL)
           (|i| NIL) (|m| (|Integer|)))
@@ -47,7 +48,7 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (COND (#1# #2#) ('T (|spadConstant| $ 29)))))))) 
 
-(SDEFUN |FINRALG-;traceMatrix;VM;4| ((|v| |Vector| S) ($ |Matrix| R))
+(SDEFUN |FINRALG-;traceMatrix;VM;4| ((|v| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG
          ((#1=#:G143 NIL) (|j| NIL) (#2=#:G142 NIL) (#3=#:G141 NIL) (|i| NIL)
           (#4=#:G140 NIL))
@@ -84,7 +85,7 @@
            (QREFELT $ 34))))) 
 
 (SDEFUN |FINRALG-;regularRepresentation;SVM;5|
-        ((|x| S) (|b| |Vector| S) ($ |Matrix| R))
+        ((|x| (S)) (|b| (|Vector| S)) ($ (|Matrix| R)))
         (SPROG ((#1=#:G149 NIL) (|i| NIL) (#2=#:G148 NIL) (|m| (|Integer|)))
                (SEQ (LETT |m| (- (SPADCALL |b| (QREFELT $ 17)) 1))
                     (EXIT

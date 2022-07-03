@@ -1,9 +1,9 @@
 
-(SDEFUN |RADCAT-;sqrt;2S;1| ((|x| S) ($ S))
+(SDEFUN |RADCAT-;sqrt;2S;1| ((|x| (S)) ($ (S)))
         (SPADCALL |x| (SPADCALL (SPADCALL 2 (QREFELT $ 9)) (QREFELT $ 10))
                   (QREFELT $ 11))) 
 
-(SDEFUN |RADCAT-;nthRoot;SIS;2| ((|x| S) (|n| |Integer|) ($ S))
+(SDEFUN |RADCAT-;nthRoot;SIS;2| ((|x| (S)) (|n| (|Integer|)) ($ (S)))
         (SPADCALL |x| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))
                   (QREFELT $ 11))) 
 

@@ -1,20 +1,21 @@
 
-(SDEFUN |ALGSC;recip;$U;1| ((|x| $) ($ |Union| $ "failed"))
+(SDEFUN |ALGSC;recip;$U;1| ((|x| ($)) ($ (|Union| $ "failed")))
         (SPADCALL |x| (QREFELT $ 13))) 
 
-(SDEFUN |ALGSC;*;Sm2$;2| ((|m| |SquareMatrix| |n| R) (|x| $) ($ $))
+(SDEFUN |ALGSC;*;Sm2$;2| ((|m| (|SquareMatrix| |n| R)) (|x| ($)) ($ ($)))
         (SPADCALL (SPADCALL |m| (QREFELT $ 17)) |x| (QREFELT $ 18))) 
 
-(SDEFUN |ALGSC;coerce;V$;3| ((|v| |Vector| R) ($ $))
+(SDEFUN |ALGSC;coerce;V$;3| ((|v| (|Vector| R)) ($ ($)))
         (SPADCALL |v| (QREFELT $ 21))) 
 
-(SDEFUN |ALGSC;structuralConstants;V;4| (($ |Vector| (|Matrix| R)))
+(SDEFUN |ALGSC;structuralConstants;V;4| (($ (|Vector| (|Matrix| R))))
         (QREFELT $ 9)) 
 
-(SDEFUN |ALGSC;coordinates;$V;5| ((|x| $) ($ |Vector| R))
+(SDEFUN |ALGSC;coordinates;$V;5| ((|x| ($)) ($ (|Vector| R)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 27))) 
 
-(SDEFUN |ALGSC;coordinates;$VV;6| ((|x| $) (|b| |Vector| $) ($ |Vector| R))
+(SDEFUN |ALGSC;coordinates;$VV;6|
+        ((|x| ($)) (|b| (|Vector| $)) ($ (|Vector| R)))
         (SPROG
          ((#1=#:G153 NIL)
           (|res|
@@ -57,7 +58,7 @@
                                (|Union| (|Vector| (QREFELT $ 6)) "failed")
                                #1#)))))))) 
 
-(SDEFUN |ALGSC;basis;V;7| (($ |Vector| $))
+(SDEFUN |ALGSC;basis;V;7| (($ (|Vector| $)))
         (SPROG
          ((#1=#:G159 NIL) (#2=#:G162 NIL) (#3=#:G164 NIL) (|i| NIL)
           (#4=#:G163 NIL))
@@ -78,14 +79,14 @@
                 (GO G190) G191 (EXIT NIL))
            #4#)))) 
 
-(SDEFUN |ALGSC;someBasis;V;8| (($ |Vector| $)) (SPADCALL (QREFELT $ 40))) 
+(SDEFUN |ALGSC;someBasis;V;8| (($ (|Vector| $))) (SPADCALL (QREFELT $ 40))) 
 
-(SDEFUN |ALGSC;rank;Pi;9| (($ |PositiveInteger|)) (QREFELT $ 7)) 
+(SDEFUN |ALGSC;rank;Pi;9| (($ (|PositiveInteger|))) (QREFELT $ 7)) 
 
-(SDEFUN |ALGSC;elt;$IR;10| ((|x| $) (|i| |Integer|) ($ R))
+(SDEFUN |ALGSC;elt;$IR;10| ((|x| ($)) (|i| (|Integer|)) ($ (R)))
         (SPADCALL |x| |i| (QREFELT $ 46))) 
 
-(SDEFUN |ALGSC;coerce;$Of;11| ((|x| $) ($ |OutputForm|))
+(SDEFUN |ALGSC;coerce;$Of;11| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G175 NIL) (|le| (|List| (|OutputForm|))) (|coef| (R))
           (#2=#:G176 NIL) (|i| NIL))
@@ -132,7 +133,7 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                  (EXIT (SPADCALL (ELT $ 60) |le| (QREFELT $ 63))))))))) 
 
-(SDEFUN |ALGSC;*;3$;12| ((|x| $) (|y| $) ($ $))
+(SDEFUN |ALGSC;*;3$;12| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG
          ((|h| (R)) (#1=#:G185 NIL) (|j| NIL) (#2=#:G184 NIL) (|i| NIL)
           (#3=#:G183 NIL) (|k| NIL) (|v| (|Vector| R)))
@@ -175,7 +176,7 @@
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |v| (QREFELT $ 21)))))) 
 
-(SDEFUN |ALGSC;alternative?;B;13| (($ |Boolean|))
+(SDEFUN |ALGSC;alternative?;B;13| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G213 NIL) (#2=#:G217 NIL) (|res| (R)) (#3=#:G231 NIL) (|l| NIL)
           (#4=#:G230 NIL) (|r| NIL) (#5=#:G214 NIL) (#6=#:G229 NIL)
@@ -654,7 +655,7 @@
             (EXIT 'T)))
           #20# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;associative?;B;14| (($ |Boolean|))
+(SDEFUN |ALGSC;associative?;B;14| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G241 NIL) (#2=#:G242 NIL) (|res| (R)) (#3=#:G247 NIL) (|l| NIL)
           (#4=#:G246 NIL) (|r| NIL) (#5=#:G245 NIL) (|k| NIL) (#6=#:G244 NIL)
@@ -758,7 +759,7 @@
             (SPADCALL "algebra is associative" (QREFELT $ 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;antiAssociative?;B;15| (($ |Boolean|))
+(SDEFUN |ALGSC;antiAssociative?;B;15| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G257 NIL) (#2=#:G258 NIL) (|res| (R)) (#3=#:G263 NIL) (|l| NIL)
           (#4=#:G262 NIL) (|r| NIL) (#5=#:G261 NIL) (|k| NIL) (#6=#:G260 NIL)
@@ -862,7 +863,7 @@
             (SPADCALL "algebra is anti-associative" (QREFELT $ 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;commutative?;B;16| (($ |Boolean|))
+(SDEFUN |ALGSC;commutative?;B;16| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G271 NIL) (#2=#:G272 NIL) (#3=#:G275 NIL) (|k| NIL)
           (#4=#:G274 NIL) (|j| NIL) (#5=#:G273 NIL) (|i| NIL))
@@ -912,7 +913,7 @@
             (SPADCALL "algebra is commutative" (QREFELT $ 76)) (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;antiCommutative?;B;17| (($ |Boolean|))
+(SDEFUN |ALGSC;antiCommutative?;B;17| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G283 NIL) (#2=#:G284 NIL) (#3=#:G287 NIL) (|k| NIL)
           (#4=#:G286 NIL) (|j| NIL) (#5=#:G285 NIL) (|i| NIL))
@@ -971,7 +972,7 @@
             (SPADCALL "algebra is anti-commutative" (QREFELT $ 76)) (EXIT 'T)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;leftAlternative?;B;18| (($ |Boolean|))
+(SDEFUN |ALGSC;leftAlternative?;B;18| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G297 NIL) (#2=#:G298 NIL) (|res| (R)) (#3=#:G303 NIL) (|l| NIL)
           (#4=#:G302 NIL) (|r| NIL) (#5=#:G301 NIL) (|k| NIL) (#6=#:G300 NIL)
@@ -1110,7 +1111,7 @@
             (SPADCALL "algebra is left alternative" (QREFELT $ 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;rightAlternative?;B;19| (($ |Boolean|))
+(SDEFUN |ALGSC;rightAlternative?;B;19| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G313 NIL) (#2=#:G314 NIL) (|res| (R)) (#3=#:G319 NIL) (|l| NIL)
           (#4=#:G318 NIL) (|r| NIL) (#5=#:G317 NIL) (|k| NIL) (#6=#:G316 NIL)
@@ -1250,7 +1251,7 @@
             (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;flexible?;B;20| (($ |Boolean|))
+(SDEFUN |ALGSC;flexible?;B;20| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G329 NIL) (#2=#:G330 NIL) (|res| (R)) (#3=#:G335 NIL) (|l| NIL)
           (#4=#:G334 NIL) (|r| NIL) (#5=#:G333 NIL) (|k| NIL) (#6=#:G332 NIL)
@@ -1396,7 +1397,7 @@
             (SPADCALL "algebra is flexible" (QREFELT $ 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;lieAdmissible?;B;21| (($ |Boolean|))
+(SDEFUN |ALGSC;lieAdmissible?;B;21| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G345 NIL) (#2=#:G346 NIL) (|res| (R)) (#3=#:G351 NIL) (|l| NIL)
           (#4=#:G350 NIL) (|r| NIL) (#5=#:G349 NIL) (|k| NIL) (#6=#:G348 NIL)
@@ -1594,7 +1595,7 @@
             (SPADCALL "algebra is Lie admissible" (QREFELT $ 76)) (EXIT 'T)))
           #8# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;jordanAdmissible?;B;22| (($ |Boolean|))
+(SDEFUN |ALGSC;jordanAdmissible?;B;22| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G368 NIL) (#2=#:G369 NIL) (|res| (R)) (#3=#:G376 NIL) (|r| NIL)
           (#4=#:G375 NIL) (|l| NIL) (#5=#:G374 NIL) (|t| NIL) (#6=#:G373 NIL)
@@ -2350,7 +2351,7 @@
               (EXIT 'T)))))
           #10# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;jordanAlgebra?;B;23| (($ |Boolean|))
+(SDEFUN |ALGSC;jordanAlgebra?;B;23| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G395 NIL) (#2=#:G396 NIL) (|res| (R)) (#3=#:G403 NIL) (|s| NIL)
           (#4=#:G402 NIL) (|r| NIL) (#5=#:G401 NIL) (|t| NIL) (#6=#:G400 NIL)
@@ -2787,7 +2788,7 @@
                   (EXIT NIL)))))
           #10# (EXIT #2#)))) 
 
-(SDEFUN |ALGSC;jacobiIdentity?;B;24| (($ |Boolean|))
+(SDEFUN |ALGSC;jacobiIdentity?;B;24| (($ (|Boolean|)))
         (SPROG
          ((#1=#:G413 NIL) (#2=#:G414 NIL) (|res| (R)) (#3=#:G419 NIL) (|s| NIL)
           (#4=#:G418 NIL) (|r| NIL) (#5=#:G417 NIL) (|k| NIL) (#6=#:G416 NIL)

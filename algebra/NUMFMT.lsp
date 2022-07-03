@@ -1,13 +1,13 @@
 
-(SDEFUN |NUMFMT;replaceD| ((|c| |Character|) ($ |Character|))
+(SDEFUN |NUMFMT;replaceD| ((|c| (|Character|)) ($ (|Character|)))
         (COND ((|eql_SI| |c| (|STR_to_CHAR| "D")) (|STR_to_CHAR| "E"))
               ('T |c|))) 
 
-(SDEFUN |NUMFMT;replaced| ((|c| |Character|) ($ |Character|))
+(SDEFUN |NUMFMT;replaced| ((|c| (|Character|)) ($ (|Character|)))
         (COND ((|eql_SI| |c| (|STR_to_CHAR| "d")) (|STR_to_CHAR| "E"))
               ('T |c|))) 
 
-(SDEFUN |NUMFMT;contract| ((|s| |String|) ($ |String|))
+(SDEFUN |NUMFMT;contract| ((|s| (|String|)) ($ (|String|)))
         (SPROG ((|ls| (|List| (|String|))))
                (SEQ
                 (LETT |s|
@@ -19,7 +19,7 @@
                 (LETT |ls| (SPADCALL |s| (|STR_to_CHAR| " ") (QREFELT $ 11)))
                 (EXIT (LETT |s| (SPADCALL |ls| (QREFELT $ 12))))))) 
 
-(SDEFUN |NUMFMT;check| ((|s| |String|) ($ |Boolean|))
+(SDEFUN |NUMFMT;check| ((|s| (|String|)) ($ (|Boolean|)))
         (COND
          ((NUMBERP (READ-FROM-STRING |s|))
           (COND
@@ -29,7 +29,7 @@
            (#1# 'T)))
          (#1# NIL))) 
 
-(SDEFUN |NUMFMT;ScanFloatIgnoreSpaces;SF;5| ((|s| |String|) ($ |Float|))
+(SDEFUN |NUMFMT;ScanFloatIgnoreSpaces;SF;5| ((|s| (|String|)) ($ (|Float|)))
         (SPROG ((|res| (|Union| (|Float|) "failed")))
                (SEQ (LETT |res| (SPADCALL |s| (QREFELT $ 21)))
                     (EXIT
@@ -37,7 +37,7 @@
                            ('T (QCDR |res|))))))) 
 
 (SDEFUN |NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6|
-        ((|s| |String|) ($ |Union| (|Float|) "failed"))
+        ((|s| (|String|)) ($ (|Union| (|Float|) "failed")))
         (SPROG
          ((|f| (|Integer|)) (|sCheck| (|SExpression|)) (|sex| (|SExpression|)))
          (SEQ (LETT |s| (|NUMFMT;contract| |s| $))
@@ -63,13 +63,13 @@
 
 (PUT '|NUMFMT;FormatArabic;PiS;7| '|SPADreplace| 'STRINGIMAGE) 
 
-(SDEFUN |NUMFMT;FormatArabic;PiS;7| ((|n| |PositiveInteger|) ($ |String|))
+(SDEFUN |NUMFMT;FormatArabic;PiS;7| ((|n| (|PositiveInteger|)) ($ (|String|)))
         (STRINGIMAGE |n|)) 
 
-(SDEFUN |NUMFMT;ScanArabic;SPi;8| ((|s| |String|) ($ |PositiveInteger|))
+(SDEFUN |NUMFMT;ScanArabic;SPi;8| ((|s| (|String|)) ($ (|PositiveInteger|)))
         (SPADCALL |s| (QREFELT $ 47))) 
 
-(SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| |PositiveInteger|) ($ |String|))
+(SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| (|PositiveInteger|)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|mm| (|String|)) (#1=#:G178 NIL) (|j| NIL)
           (#2=#:G177 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
@@ -208,7 +208,7 @@
                                                           (EXIT
                                                            |s|)))))))))))))))))))) 
 
-(SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| |String|) ($ |PositiveInteger|))
+(SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| (|String|)) ($ (|PositiveInteger|)))
         (SPROG
          ((#1=#:G189 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
           (|n| (|Integer|)) (#2=#:G192 NIL) (|i| (|Integer|))
@@ -306,7 +306,7 @@
 (PUT '|NUMFMT;FormatRadix;2IS;11| '|SPADreplace| '|write_to_string_radix|) 
 
 (SDEFUN |NUMFMT;FormatRadix;2IS;11|
-        ((|n| |Integer|) (|r| |Integer|) ($ |String|))
+        ((|n| (|Integer|)) (|r| (|Integer|)) ($ (|String|)))
         (|write_to_string_radix| |n| |r|)) 
 
 (DECLAIM (NOTINLINE |NumberFormats;|)) 

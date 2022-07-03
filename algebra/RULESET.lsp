@@ -1,20 +1,23 @@
 
-(SDEFUN |RULESET;ruleset;L$;1| ((|l| |List| (|RewriteRule| |Base| R F)) ($ $))
+(SDEFUN |RULESET;ruleset;L$;1|
+        ((|l| (|List| (|RewriteRule| |Base| R F))) ($ ($)))
         (SPADCALL |l| (QREFELT $ 11))) 
 
-(SDEFUN |RULESET;coerce;$Of;2| ((|x| $) ($ |OutputForm|))
+(SDEFUN |RULESET;coerce;$Of;2| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL |x| (QREFELT $ 14))) 
 
-(SDEFUN |RULESET;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |RULESET;=;2$B;3| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT $ 17))) 
 
-(SDEFUN |RULESET;elt;$2F;4| ((|x| $) (|f| F) ($ F))
+(SDEFUN |RULESET;elt;$2F;4| ((|x| ($)) (|f| (F)) ($ (F)))
         (SPADCALL (SPADCALL |x| (QREFELT $ 19)) |f| (QREFELT $ 21))) 
 
-(SDEFUN |RULESET;elt;$FPiF;5| ((|r| $) (|s| F) (|n| |PositiveInteger|) ($ F))
+(SDEFUN |RULESET;elt;$FPiF;5|
+        ((|r| ($)) (|s| (F)) (|n| (|PositiveInteger|)) ($ (F)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 19)) |s| |n| (QREFELT $ 24))) 
 
-(SDEFUN |RULESET;rules;$L;6| ((|x| $) ($ |List| (|RewriteRule| |Base| R F)))
+(SDEFUN |RULESET;rules;$L;6|
+        ((|x| ($)) ($ (|List| (|RewriteRule| |Base| R F))))
         (SPADCALL |x| (QREFELT $ 26))) 
 
 (DECLAIM (NOTINLINE |Ruleset;|)) 

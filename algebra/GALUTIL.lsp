@@ -1,5 +1,5 @@
 
-(SDEFUN |GALUTIL;safeFloor;RI;1| ((|x| R) ($ |Integer|))
+(SDEFUN |GALUTIL;safeFloor;RI;1| ((|x| (R)) ($ (|Integer|)))
         (SPROG ((|shift| (|Integer|)))
                (SEQ
                 (SEQ
@@ -17,7 +17,7 @@
                 (EXIT
                  (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 17)))))) 
 
-(SDEFUN |GALUTIL;safeCeiling;RI;2| ((|x| R) ($ |Integer|))
+(SDEFUN |GALUTIL;safeCeiling;RI;2| ((|x| (R)) ($ (|Integer|)))
         (SPROG ((|shift| (|Integer|)))
                (SEQ
                 (SEQ
@@ -36,7 +36,7 @@
                  (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 17)))))) 
 
 (SDEFUN |GALUTIL;safetyMargin;2Nni;3|
-        ((|n| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|n| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG ((|#G7| (|NonNegativeInteger|)) (|#G6| (|NonNegativeInteger|)))
                (SEQ
                 (PROGN
@@ -46,10 +46,10 @@
                  (LETT |n| |#G7|))
                 (EXIT |n|)))) 
 
-(SDEFUN |GALUTIL;safetyMargin;Nni;4| (($ |NonNegativeInteger|)) (QREFELT $ 7)) 
+(SDEFUN |GALUTIL;safetyMargin;Nni;4| (($ (|NonNegativeInteger|))) (QREFELT $ 7)) 
 
 (SDEFUN |GALUTIL;pascalTriangle;NniIR;5|
-        ((|n| |NonNegativeInteger|) (|r| |Integer|) ($ R))
+        ((|n| (|NonNegativeInteger|)) (|r| (|Integer|)) ($ (R)))
         (SPROG
          ((#1=#:G133 NIL) (#2=#:G132 NIL) (#3=#:G143 NIL) (|j| NIL)
           (#4=#:G142 NIL) (|i| NIL) (|mq| #5=(|Integer|))
@@ -131,7 +131,7 @@
                                 (SPADCALL |n| |r| (QREFELT $ 29))))))))))))) 
 
 (SDEFUN |GALUTIL;rangePascalTriangle;2Nni;6|
-        ((|n| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        ((|n| (|NonNegativeInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|#G18| (|NonNegativeInteger|)) (|#G17| (|NonNegativeInteger|))
           (|dq| #1=(|Integer|))
@@ -167,13 +167,13 @@
            (LETT |n| |#G18|))
           (EXIT |n|)))) 
 
-(SDEFUN |GALUTIL;rangePascalTriangle;Nni;7| (($ |NonNegativeInteger|))
+(SDEFUN |GALUTIL;rangePascalTriangle;Nni;7| (($ (|NonNegativeInteger|)))
         (QREFELT $ 28)) 
 
-(SDEFUN |GALUTIL;sizePascalTriangle;Nni;8| (($ |NonNegativeInteger|))
+(SDEFUN |GALUTIL;sizePascalTriangle;Nni;8| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 26) (QREFELT $ 35))) 
 
-(SDEFUN |GALUTIL;fillPascalTriangle;V;9| (($ |Void|))
+(SDEFUN |GALUTIL;fillPascalTriangle;V;9| (($ (|Void|)))
         (SPADCALL (QREFELT $ 28) 2 (QREFELT $ 29))) 
 
 (DECLAIM (NOTINLINE |GaloisGroupUtilities;|)) 

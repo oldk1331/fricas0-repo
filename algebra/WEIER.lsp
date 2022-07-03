@@ -1,6 +1,7 @@
 
 (SDEFUN |WEIER;transback|
-        ((|smps| |Stream| (|TaylorSeries| R)) ($ |List| (|TaylorSeries| R)))
+        ((|smps| (|Stream| (|TaylorSeries| R)))
+         ($ (|List| (|TaylorSeries| R))))
         (COND
          ((OR (SPADCALL |smps| (QREFELT $ 9))
               (SPADCALL (SPADCALL |smps| (QREFELT $ 12)) (QREFELT $ 13)))
@@ -20,8 +21,8 @@
               ('T (SPADCALL |ss| (QREFELT $ 16))))) 
 
 (SDEFUN |WEIER;streamlikeUniv|
-        ((|p| |SparseUnivariatePolynomial| (|Polynomial| R))
-         (|n| |NonNegativeInteger|) ($ |Stream| (|Polynomial| R)))
+        ((|p| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+         (|n| (|NonNegativeInteger|)) ($ (|Stream| (|Polynomial| R))))
         (SPROG ((#1=#:G134 NIL))
                (COND
                 ((EQL |n| 0)
@@ -38,8 +39,8 @@
                            (QREFELT $ 34)))))) 
 
 (SDEFUN |WEIER;transpose|
-        ((|s| |Stream| (|Stream| (|Polynomial| R)))
-         ($ |Stream| (|Stream| (|Polynomial| R))))
+        ((|s| (|Stream| (|Stream| (|Polynomial| R))))
+         ($ (|Stream| (|Stream| (|Polynomial| R)))))
         (SPROG NIL
                (SPADCALL (CONS #'|WEIER;transpose!0| (VECTOR $ |s|))
                          (QREFELT $ 41)))) 
@@ -61,8 +62,8 @@
                              (QREFELT $ 39)))))))) 
 
 (SDEFUN |WEIER;sts2stst|
-        ((|var| |Symbol|) (|sts| |Stream| (|Polynomial| R))
-         ($ |Stream| (|Stream| (|Polynomial| R))))
+        ((|var| (|Symbol|)) (|sts| (|Stream| (|Polynomial| R)))
+         ($ (|Stream| (|Stream| (|Polynomial| R)))))
         (SPROG ((|si0| (|Stream| (|NonNegativeInteger|))))
                (SEQ (LETT |si0| (SPADCALL 0 (QREFELT $ 45)))
                     (EXIT
@@ -82,13 +83,14 @@
         (|WEIER;streamlikeUniv| |x| |y| $)) 
 
 (SDEFUN |WEIER;tp|
-        ((|v| |Symbol|) (|sts| |Stream| (|Polynomial| R))
-         ($ |Stream| (|Stream| (|Polynomial| R))))
+        ((|v| (|Symbol|)) (|sts| (|Stream| (|Polynomial| R)))
+         ($ (|Stream| (|Stream| (|Polynomial| R)))))
         (|WEIER;transpose| (|WEIER;sts2stst| |v| |sts| $) $)) 
 
 (SDEFUN |WEIER;maptake|
-        ((|n| |NonNegativeInteger|) (|p| |Stream| (|Stream| (|Polynomial| R)))
-         ($ |Stream| (|TaylorSeries| R)))
+        ((|n| (|NonNegativeInteger|))
+         (|p| (|Stream| (|Stream| (|Polynomial| R))))
+         ($ (|Stream| (|TaylorSeries| R))))
         (SPROG NIL
                (SPADCALL (CONS #'|WEIER;maptake!0| (VECTOR $ |n|)) |p|
                          (QREFELT $ 28)))) 
@@ -100,8 +102,9 @@
           (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 57)))))) 
 
 (SDEFUN |WEIER;mapdrop|
-        ((|n| |NonNegativeInteger|) (|p| |Stream| (|Stream| (|Polynomial| R)))
-         ($ |Stream| (|TaylorSeries| R)))
+        ((|n| (|NonNegativeInteger|))
+         (|p| (|Stream| (|Stream| (|Polynomial| R))))
+         ($ (|Stream| (|TaylorSeries| R))))
         (SPROG NIL
                (SPADCALL (CONS #'|WEIER;mapdrop!0| (VECTOR $ |n|)) |p|
                          (QREFELT $ 28)))) 
@@ -113,8 +116,8 @@
           (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 25)))))) 
 
 (SDEFUN |WEIER;weier|
-        ((|v| |Symbol|) (|sts| |Stream| (|Polynomial| R))
-         ($ |Stream| (|TaylorSeries| R)))
+        ((|v| (|Symbol|)) (|sts| (|Stream| (|Polynomial| R)))
+         ($ (|Stream| (|TaylorSeries| R))))
         (SPROG
          ((|q| (|Stream| (|TaylorSeries| R))) (|f| (|Stream| (|Polynomial| R)))
           (|e| (|Union| (|Stream| (|Polynomial| R)) "failed"))
@@ -170,9 +173,9 @@
                (|WEIER;maptake| |a| (SPADCALL |p| |q| (QREFELT $ 69)) $))))) 
 
 (SDEFUN |WEIER;qq|
-        ((|a| |NonNegativeInteger|) (|e| |TaylorSeries| R)
-         (|p| |Stream| (|TaylorSeries| R)) (|c| |Stream| (|TaylorSeries| R))
-         ($ |Stream| (|TaylorSeries| R)))
+        ((|a| (|NonNegativeInteger|)) (|e| (|TaylorSeries| R))
+         (|p| (|Stream| (|TaylorSeries| R)))
+         (|c| (|Stream| (|TaylorSeries| R))) ($ (|Stream| (|TaylorSeries| R))))
         (SPADCALL |e|
                   (SPADCALL (SPADCALL |e| (QREFELT $ 70))
                             (|WEIER;mapdrop| |a|
@@ -181,10 +184,11 @@
                   (QREFELT $ 72))) 
 
 (SDEFUN |WEIER;qqq|
-        ((|a| |NonNegativeInteger|) (|e| |TaylorSeries| R)
-         (|p| |Stream| (|TaylorSeries| R))
-         ($ |Mapping| (|Stream| (|TaylorSeries| R))
-          (|Stream| (|TaylorSeries| R))))
+        ((|a| (|NonNegativeInteger|)) (|e| (|TaylorSeries| R))
+         (|p| (|Stream| (|TaylorSeries| R)))
+         ($
+          (|Mapping| (|Stream| (|TaylorSeries| R))
+                     (|Stream| (|TaylorSeries| R)))))
         (SPROG NIL (CONS #'|WEIER;qqq!0| (VECTOR $ |p| |e| |a|)))) 
 
 (SDEFUN |WEIER;qqq!0| ((|s| NIL) ($$ NIL))
@@ -196,12 +200,13 @@
           (RETURN (PROGN (|WEIER;qq| |a| |e| |p| |s| $))))) 
 
 (SDEFUN |WEIER;wei|
-        ((|v| |Symbol|) (|s| |TaylorSeries| R) ($ |Stream| (|TaylorSeries| R)))
+        ((|v| (|Symbol|)) (|s| (|TaylorSeries| R))
+         ($ (|Stream| (|TaylorSeries| R))))
         (|WEIER;weier| |v| |s| $)) 
 
 (SDEFUN |WEIER;weierstrass;STsL;12|
-        ((|v| |Symbol|) (|smps| |TaylorSeries| R)
-         ($ |List| (|TaylorSeries| R)))
+        ((|v| (|Symbol|)) (|smps| (|TaylorSeries| R))
+         ($ (|List| (|TaylorSeries| R))))
         (COND
          ((SPADCALL (SPADCALL |smps| (|spadConstant| $ 74) (QREFELT $ 75))
                     (|spadConstant| $ 29) (QREFELT $ 76))

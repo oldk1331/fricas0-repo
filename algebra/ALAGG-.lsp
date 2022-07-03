@@ -1,5 +1,5 @@
 
-(SDEFUN |ALAGG-;coerce;SOf;1| ((|u| S) ($ |OutputForm|))
+(SDEFUN |ALAGG-;coerce;SOf;1| ((|u| (S)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (#1=#:G134 NIL) (|r| NIL)
           (#2=#:G133 NIL))

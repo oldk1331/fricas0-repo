@@ -1,11 +1,12 @@
 
-(SDEFUN |LIB;library;Fn$;1| ((|f| |FileName|) ($ $))
+(SDEFUN |LIB;library;Fn$;1| ((|f| (|FileName|)) ($ ($)))
         (SPADCALL |f| (QREFELT $ 8))) 
 
-(SDEFUN |LIB;elt;$SA;2| ((|f| $) (|v| |Symbol|) ($ |Any|))
+(SDEFUN |LIB;elt;$SA;2| ((|f| ($)) (|v| (|Symbol|)) ($ (|Any|)))
         (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) (QREFELT $ 14))) 
 
-(SDEFUN |LIB;setelt!;$S2A;3| ((|f| $) (|v| |Symbol|) (|val| |Any|) ($ |Any|))
+(SDEFUN |LIB;setelt!;$S2A;3|
+        ((|f| ($)) (|v| (|Symbol|)) (|val| (|Any|)) ($ (|Any|)))
         (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) |val| (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |Library;|)) 

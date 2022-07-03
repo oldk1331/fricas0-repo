@@ -1,6 +1,6 @@
 
 (SDEFUN |KAFILE;defstream|
-        ((|fn| |FileName|) (|mode| |String|) ($ |SExpression|))
+        ((|fn| (|FileName|)) (|mode| (|String|)) ($ (|SExpression|)))
         (COND
          ((EQUAL |mode| "input") (|rMkIstream| (SPADCALL |fn| (QREFELT $ 11))))
          ((EQUAL |mode| "output")
@@ -13,16 +13,17 @@
                                  (QREFELT $ 13))
                        (SPADCALL |mode| (QREFELT $ 13)))))))) 
 
-(SDEFUN |KAFILE;=;2$B;2| ((|f1| $) (|f2| $) ($ |Boolean|))
+(SDEFUN |KAFILE;=;2$B;2| ((|f1| ($)) (|f2| ($)) ($ (|Boolean|)))
         (SPADCALL (QVELT |f1| 0) (QVELT |f2| 0) (QREFELT $ 15))) 
 
-(SDEFUN |KAFILE;coerce;$Of;3| ((|f| $) ($ |OutputForm|))
+(SDEFUN |KAFILE;coerce;$Of;3| ((|f| ($)) ($ (|OutputForm|)))
         (SPADCALL (QVELT |f| 0) (QREFELT $ 17))) 
 
-(SDEFUN |KAFILE;open;Fn$;4| ((|fname| |FileName|) ($ $))
+(SDEFUN |KAFILE;open;Fn$;4| ((|fname| (|FileName|)) ($ ($)))
         (SPADCALL |fname| "either" (QREFELT $ 19))) 
 
-(SDEFUN |KAFILE;open;FnS$;5| ((|fname| |FileName|) (|mode| |String|) ($ $))
+(SDEFUN |KAFILE;open;FnS$;5|
+        ((|fname| (|FileName|)) (|mode| (|String|)) ($ ($)))
         (COND
          ((EQUAL |mode| "either")
           (COND
@@ -33,7 +34,7 @@
                       (QREFELT $ 22)))))
          (#1# (VECTOR |fname| (|KAFILE;defstream| |fname| |mode| $) |mode|)))) 
 
-(SDEFUN |KAFILE;reopen!;$S$;6| ((|f| $) (|mode| |String|) ($ $))
+(SDEFUN |KAFILE;reopen!;$S$;6| ((|f| ($)) (|mode| (|String|)) ($ ($)))
         (SEQ (SPADCALL |f| (QREFELT $ 23))
              (COND
               ((SPADCALL |mode| "closed" (QREFELT $ 24))
@@ -42,7 +43,7 @@
                 (EXIT (QSETVELT |f| 2 |mode|)))))
              (EXIT |f|))) 
 
-(SDEFUN |KAFILE;close!;2$;7| ((|f| $) ($ $))
+(SDEFUN |KAFILE;close!;2$;7| ((|f| ($)) ($ ($)))
         (SEQ
          (COND
           ((SPADCALL (QVELT |f| 2) "closed" (QREFELT $ 24))
@@ -50,7 +51,7 @@
          (EXIT |f|))) 
 
 (SDEFUN |KAFILE;read!;$R;8|
-        ((|f| $) ($ |Record| (|:| |key| (|String|)) (|:| |entry| |Entry|)))
+        ((|f| ($)) ($ (|Record| (|:| |key| (|String|)) (|:| |entry| |Entry|))))
         (SPROG ((|k| (|String|)) (|ix| (|Integer|)) (|ks| (|List| (|Symbol|))))
                (SEQ
                 (COND
@@ -82,9 +83,9 @@
                                       (SPADRREAD |k| (QVELT |f| 1)))))))))))))) 
 
 (SDEFUN |KAFILE;write!;$2R;9|
-        ((|f| $)
-         (|pr| . #1=(|Record| (|:| |key| (|String|)) (|:| |entry| |Entry|)))
-         ($ . #1#))
+        ((|f| ($))
+         (|pr| #1=(|Record| (|:| |key| (|String|)) (|:| |entry| |Entry|)))
+         ($ #1#))
         (SEQ
          (COND
           ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 24))
@@ -99,18 +100,18 @@
 
 (PUT '|KAFILE;name;$Fn;10| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
-(SDEFUN |KAFILE;name;$Fn;10| ((|f| $) ($ |FileName|)) (QVELT |f| 0)) 
+(SDEFUN |KAFILE;name;$Fn;10| ((|f| ($)) ($ (|FileName|))) (QVELT |f| 0)) 
 
 (PUT '|KAFILE;iomode;$S;11| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
-(SDEFUN |KAFILE;iomode;$S;11| ((|f| $) ($ |String|)) (QVELT |f| 2)) 
+(SDEFUN |KAFILE;iomode;$S;11| ((|f| ($)) ($ (|String|))) (QVELT |f| 2)) 
 
-(SDEFUN |KAFILE;empty;$;12| (($ $))
+(SDEFUN |KAFILE;empty;$;12| (($ ($)))
         (SPROG ((|fn| (|FileName|)))
                (SEQ (LETT |fn| (SPADCALL "" "kaf" "sdata" (QREFELT $ 34)))
                     (EXIT (SPADCALL |fn| (QREFELT $ 20)))))) 
 
-(SDEFUN |KAFILE;keys;$L;13| ((|f| $) ($ |List| (|String|)))
+(SDEFUN |KAFILE;keys;$L;13| ((|f| ($)) ($ (|List| (|String|))))
         (SPROG
          ((#1=#:G178 NIL) (|n| NIL) (#2=#:G177 NIL)
           (|l| (|List| (|SExpression|))))
@@ -126,22 +127,22 @@
                      (LETT #1# (CDR #1#)) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))))) 
 
-(SDEFUN |KAFILE;#;$Nni;14| ((|f| $) ($ |NonNegativeInteger|))
+(SDEFUN |KAFILE;#;$Nni;14| ((|f| ($)) ($ (|NonNegativeInteger|)))
         (LENGTH (SPADCALL |f| (QREFELT $ 37)))) 
 
-(SDEFUN |KAFILE;elt;$SEntry;15| ((|f| $) (|k| |String|) ($ |Entry|))
+(SDEFUN |KAFILE;elt;$SEntry;15| ((|f| ($)) (|k| (|String|)) ($ (|Entry|)))
         (SEQ (SPADCALL |f| "input" (QREFELT $ 22))
              (EXIT (SPADRREAD |k| (QVELT |f| 1))))) 
 
 (SDEFUN |KAFILE;setelt!;$S2Entry;16|
-        ((|f| $) (|k| |String|) (|e| |Entry|) ($ |Entry|))
+        ((|f| ($)) (|k| (|String|)) (|e| (|Entry|)) ($ (|Entry|)))
         (SEQ (SPADCALL |f| "output" (QREFELT $ 22))
              (UNWIND-PROTECT (SPADCALL |f| (CONS |k| |e|) (QREFELT $ 31))
                (SPADCALL |f| (QREFELT $ 23)))
              (SPADCALL |f| (QREFELT $ 23)) (EXIT |e|))) 
 
 (SDEFUN |KAFILE;search;S$U;17|
-        ((|k| |String|) (|f| $) ($ |Union| |Entry| "failed"))
+        ((|k| (|String|)) (|f| ($)) ($ (|Union| |Entry| "failed")))
         (SEQ
          (COND
           ((NULL (SPADCALL |k| (SPADCALL |f| (QREFELT $ 37)) (QREFELT $ 42)))
@@ -151,7 +152,7 @@
                 (EXIT (CONS 0 (SPADRREAD |k| (QVELT |f| 1))))))))) 
 
 (SDEFUN |KAFILE;remove!;S$U;18|
-        ((|k| |String|) (|f| $) ($ |Union| |Entry| #1="failed"))
+        ((|k| (|String|)) (|f| ($)) ($ (|Union| |Entry| #1="failed")))
         (SPROG ((|result| (|Union| |Entry| #1#)))
                (SEQ (LETT |result| (SPADCALL |k| |f| (QREFELT $ 44)))
                     (EXIT
@@ -162,7 +163,7 @@
                                              (LIST |k|))
                                  (EXIT |result|)))))))) 
 
-(SDEFUN |KAFILE;pack!;2$;19| ((|f| $) ($ $))
+(SDEFUN |KAFILE;pack!;2$;19| ((|f| ($)) ($ ($)))
         (SEQ (SPADCALL |f| (QREFELT $ 23)) (EXIT |f|))) 
 
 (DECLAIM (NOTINLINE |KeyedAccessFile;|)) 

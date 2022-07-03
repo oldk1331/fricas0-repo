@@ -1,7 +1,8 @@
 
-(SDEFUN |OREPCAT-;coerce;RS;1| ((|x| R) ($ S)) (SPADCALL |x| 0 (QREFELT $ 11))) 
+(SDEFUN |OREPCAT-;coerce;RS;1| ((|x| (R)) ($ (S)))
+        (SPADCALL |x| 0 (QREFELT $ 11))) 
 
-(SDEFUN |OREPCAT-;coefficients;SL;2| ((|l| S) ($ |List| R))
+(SDEFUN |OREPCAT-;coefficients;SL;2| ((|l| (S)) ($ (|List| R)))
         (SPROG ((|ans| (|List| R)))
                (SEQ (LETT |ans| NIL)
                     (SEQ G190
@@ -16,7 +17,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |ans|)))) 
 
-(SDEFUN |OREPCAT-;*;R2S;3| ((|a| R) (|y| S) ($ S))
+(SDEFUN |OREPCAT-;*;R2S;3| ((|a| (R)) (|y| (S)) ($ (S)))
         (SPROG ((|z| (S)))
                (SEQ (LETT |z| (|spadConstant| $ 8))
                     (SEQ G190
@@ -39,14 +40,14 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |z|)))) 
 
-(SDEFUN |OREPCAT-;retractIfCan;SU;4| ((|x| S) ($ |Union| R "failed"))
+(SDEFUN |OREPCAT-;retractIfCan;SU;4| ((|x| (S)) ($ (|Union| R "failed")))
         (COND
          ((OR (SPADCALL |x| (QREFELT $ 23))
               (ZEROP (SPADCALL |x| (QREFELT $ 20))))
           (CONS 0 (SPADCALL |x| (QREFELT $ 15))))
          ('T (CONS 1 "failed")))) 
 
-(SDEFUN |OREPCAT-;exquo;SRU;5| ((|l| S) (|a| R) ($ |Union| S "failed"))
+(SDEFUN |OREPCAT-;exquo;SRU;5| ((|l| (S)) (|a| (R)) ($ (|Union| S "failed")))
         (SPROG ((|ans| (S)) (#1=#:G170 NIL) (|u| (|Union| R "failed")))
                (SEQ
                 (EXIT
@@ -83,10 +84,10 @@
                       (EXIT (CONS 0 |ans|))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |OREPCAT-;content;SR;6| ((|l| S) ($ R))
+(SDEFUN |OREPCAT-;content;SR;6| ((|l| (S)) ($ (R)))
         (SPADCALL (SPADCALL |l| (QREFELT $ 29)) (QREFELT $ 31))) 
 
-(SDEFUN |OREPCAT-;primitivePart;2S;7| ((|l| S) ($ S))
+(SDEFUN |OREPCAT-;primitivePart;2S;7| ((|l| (S)) ($ (S)))
         (SPROG ((#1=#:G173 NIL))
                (PROG2
                    (LETT #1#
@@ -96,60 +97,61 @@
                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
                                  (|Union| (QREFELT $ 6) "failed") #1#)))) 
 
-(SDEFUN |OREPCAT-;leftQuotient;3S;8| ((|a| S) (|b| S) ($ S))
+(SDEFUN |OREPCAT-;leftQuotient;3S;8| ((|a| (S)) (|b| (S)) ($ (S)))
         (QCAR (SPADCALL |a| |b| (QREFELT $ 37)))) 
 
-(SDEFUN |OREPCAT-;leftRemainder;3S;9| ((|a| S) (|b| S) ($ S))
+(SDEFUN |OREPCAT-;leftRemainder;3S;9| ((|a| (S)) (|b| (S)) ($ (S)))
         (QCDR (SPADCALL |a| |b| (QREFELT $ 37)))) 
 
 (SDEFUN |OREPCAT-;leftExtendedGcd;2SR;10|
-        ((|a| S) (|b| S)
-         ($ |Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S)))
+        ((|a| (S)) (|b| (S))
+         ($ (|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S))))
         (|OREPCAT-;extended| |a| |b| (CONS (|function| |OREPCAT-;leftEEA|) $)
          $)) 
 
-(SDEFUN |OREPCAT-;rightLcm;3S;11| ((|a| S) (|b| S) ($ S))
+(SDEFUN |OREPCAT-;rightLcm;3S;11| ((|a| (S)) (|b| (S)) ($ (S)))
         (|OREPCAT-;nclcm| |a| |b| (CONS (|function| |OREPCAT-;leftEEA|) $) $)) 
 
-(SDEFUN |OREPCAT-;rightQuotient;3S;12| ((|a| S) (|b| S) ($ S))
+(SDEFUN |OREPCAT-;rightQuotient;3S;12| ((|a| (S)) (|b| (S)) ($ (S)))
         (QCAR (SPADCALL |a| |b| (QREFELT $ 43)))) 
 
-(SDEFUN |OREPCAT-;rightRemainder;3S;13| ((|a| S) (|b| S) ($ S))
+(SDEFUN |OREPCAT-;rightRemainder;3S;13| ((|a| (S)) (|b| (S)) ($ (S)))
         (QCDR (SPADCALL |a| |b| (QREFELT $ 43)))) 
 
 (SDEFUN |OREPCAT-;rightExtendedGcd;2SR;14|
-        ((|a| S) (|b| S)
-         ($ |Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S)))
+        ((|a| (S)) (|b| (S))
+         ($ (|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S))))
         (|OREPCAT-;extended| |a| |b| (CONS (|function| |OREPCAT-;rightEEA|) $)
          $)) 
 
-(SDEFUN |OREPCAT-;leftLcm;3S;15| ((|a| S) (|b| S) ($ S))
+(SDEFUN |OREPCAT-;leftLcm;3S;15| ((|a| (S)) (|b| (S)) ($ (S)))
         (|OREPCAT-;nclcm| |a| |b| (CONS (|function| |OREPCAT-;rightEEA|) $) $)) 
 
 (SDEFUN |OREPCAT-;leftExactQuotient;2SU;16|
-        ((|a| S) (|b| S) ($ |Union| S "failed"))
+        ((|a| (S)) (|b| (S)) ($ (|Union| S "failed")))
         (|OREPCAT-;exactQuotient| (SPADCALL |a| |b| (QREFELT $ 37)) $)) 
 
 (SDEFUN |OREPCAT-;rightExactQuotient;2SU;17|
-        ((|a| S) (|b| S) ($ |Union| S "failed"))
+        ((|a| (S)) (|b| (S)) ($ (|Union| S "failed")))
         (|OREPCAT-;exactQuotient| (SPADCALL |a| |b| (QREFELT $ 43)) $)) 
 
-(SDEFUN |OREPCAT-;rightGcd;3S;18| ((|a| S) (|b| S) ($ S))
+(SDEFUN |OREPCAT-;rightGcd;3S;18| ((|a| (S)) (|b| (S)) ($ (S)))
         (|OREPCAT-;ncgcd| |a| |b| (ELT $ 50) $)) 
 
-(SDEFUN |OREPCAT-;leftGcd;3S;19| ((|a| S) (|b| S) ($ S))
+(SDEFUN |OREPCAT-;leftGcd;3S;19| ((|a| (S)) (|b| (S)) ($ (S)))
         (|OREPCAT-;ncgcd| |a| |b| (ELT $ 52) $)) 
 
 (SDEFUN |OREPCAT-;exactQuotient|
-        ((|qr| |Record| (|:| |quotient| S) (|:| |remainder| S))
-         ($ |Union| S "failed"))
+        ((|qr| (|Record| (|:| |quotient| S) (|:| |remainder| S)))
+         ($ (|Union| S "failed")))
         (COND ((SPADCALL (QCDR |qr|) (QREFELT $ 23)) (CONS 0 (QCAR |qr|)))
               ('T (CONS 1 "failed")))) 
 
 (SDEFUN |OREPCAT-;leftEEA|
-        ((|a| S) (|b| S)
-         ($ |Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
-          (|:| |lcm| S)))
+        ((|a| (S)) (|b| (S))
+         ($
+          (|Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
+                    (|:| |lcm| S))))
         (SPROG
          ((|v| (S)) (|v0| (S)) (|#G45| (S)) (|#G44| (S)) (|u| (S)) (|u0| (S))
           (|#G43| (S)) (|#G42| (S)) (|#G41| (S)) (|#G40| (S))
@@ -189,7 +191,8 @@
               (EXIT
                (VECTOR |a| |u0| |v0| (SPADCALL |a0| |u| (QREFELT $ 55))))))) 
 
-(SDEFUN |OREPCAT-;ncgcd| ((|a| S) (|b| S) (|ncrem| |Mapping| S S S) ($ S))
+(SDEFUN |OREPCAT-;ncgcd|
+        ((|a| (S)) (|b| (S)) (|ncrem| (|Mapping| S S S)) ($ (S)))
         (SPROG ((|#G50| (S)) (|#G49| (S)))
                (SEQ
                 (COND ((SPADCALL |a| (QREFELT $ 23)) |b|)
@@ -216,12 +219,13 @@
                         (EXIT |a|))))))) 
 
 (SDEFUN |OREPCAT-;extended|
-        ((|a| S) (|b| S)
-         (|eea| |Mapping|
-          #1=(|Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
-                       (|:| |lcm| S))
-          S S)
-         ($ |Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S)))
+        ((|a| (S)) (|b| (S))
+         (|eea|
+          (|Mapping|
+           #1=(|Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
+                        (|:| |lcm| S))
+           S S))
+         ($ (|Record| (|:| |coef1| S) (|:| |coef2| S) (|:| |generator| S))))
         (SPROG ((|rec| #1#))
                (SEQ
                 (COND
@@ -242,12 +246,13 @@
                                 (QVELT |rec| 0))))))))) 
 
 (SDEFUN |OREPCAT-;nclcm|
-        ((|a| S) (|b| S)
-         (|eea| |Mapping|
-          #1=(|Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
-                       (|:| |lcm| S))
-          S S)
-         ($ S))
+        ((|a| (S)) (|b| (S))
+         (|eea|
+          (|Mapping|
+           #1=(|Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
+                        (|:| |lcm| S))
+           S S))
+         ($ (S)))
         (SPROG ((|rec| #1#))
                (SEQ
                 (COND
@@ -264,9 +269,10 @@
                          (EXIT (QVELT |rec| 3)))))))))) 
 
 (SDEFUN |OREPCAT-;right_ext_ext_GCD;2SR;25|
-        ((|a| S) (|b| S)
-         ($ |Record| (|:| |generator| S) (|:| |coef1| S) (|:| |coef2| S)
-          (|:| |coefu| S) (|:| |coefv| S)))
+        ((|a| (S)) (|b| (S))
+         ($
+          (|Record| (|:| |generator| S) (|:| |coef1| S) (|:| |coef2| S)
+                    (|:| |coefu| S) (|:| |coefv| S))))
         (SPROG
          ((|v| (S)) (|v0| (S)) (|#G65| (S)) (|#G64| (S)) (|u| (S)) (|u0| (S))
           (|#G63| (S)) (|#G62| (S)) (|#G61| (S)) (|#G60| (S))
@@ -306,9 +312,10 @@
               (EXIT (VECTOR |a| |u0| |v0| |u| |v|))))) 
 
 (SDEFUN |OREPCAT-;rightEEA|
-        ((|a| S) (|b| S)
-         ($ |Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
-          (|:| |lcm| S)))
+        ((|a| (S)) (|b| (S))
+         ($
+          (|Record| (|:| |gcd| S) (|:| |coef1| S) (|:| |coef2| S)
+                    (|:| |lcm| S))))
         (SPROG
          ((|v| (S)) (|u| (S)) (|d| (S)) (|c| (S)) (|g| (S))
           (|#G68|

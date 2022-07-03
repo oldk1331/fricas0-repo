@@ -1,7 +1,7 @@
 
-(SDEFUN |TEX;new;$;1| (($ $)) (VECTOR (LIST "$$") (LIST "") (LIST "$$"))) 
+(SDEFUN |TEX;new;$;1| (($ ($))) (VECTOR (LIST "$$") (LIST "") (LIST "$$"))) 
 
-(SDEFUN |TEX;newWithNum| ((|stepNum| |Integer|) ($ $))
+(SDEFUN |TEX;newWithNum| ((|stepNum| (|Integer|)) ($ ($)))
         (SPROG ((|num| (|String|)))
                (SEQ
                 (LETT |num|
@@ -9,7 +9,7 @@
                                ")"))
                 (EXIT (VECTOR (LIST "$$") (LIST "") (LIST |num| "$$")))))) 
 
-(SDEFUN |TEX;coerce;Of$;3| ((|expr| |OutputForm|) ($ $))
+(SDEFUN |TEX;coerce;Of$;3| ((|expr| (|OutputForm|)) ($ ($)))
         (SPROG ((|f| ($)))
                (SEQ (LETT |f| (SPADCALL (QREFELT $ 22)))
                     (QSETVELT |f| 1
@@ -22,7 +22,7 @@
                     (EXIT |f|)))) 
 
 (SDEFUN |TEX;convert;OfI$;4|
-        ((|expr| |OutputForm|) (|stepNum| |Integer|) ($ $))
+        ((|expr| (|OutputForm|)) (|stepNum| (|Integer|)) ($ ($)))
         (SPROG ((|f| ($)))
                (SEQ (LETT |f| (|TEX;newWithNum| |stepNum| $))
                     (QSETVELT |f| 1
@@ -36,9 +36,9 @@
 
 (PUT '|TEX;sayExpr| '|SPADreplace| '|sayTeX|) 
 
-(SDEFUN |TEX;sayExpr| ((|s| |String|) ($ |Void|)) (|sayTeX| |s|)) 
+(SDEFUN |TEX;sayExpr| ((|s| (|String|)) ($ (|Void|))) (|sayTeX| |s|)) 
 
-(SDEFUN |TEX;display;$IV;6| ((|f| $) (|len| |Integer|) ($ |Void|))
+(SDEFUN |TEX;display;$IV;6| ((|f| ($)) (|len| (|Integer|)) ($ (|Void|)))
         (SPROG
          ((#1=#:G239 NIL) (|s| NIL) (#2=#:G238 NIL) (|t| NIL) (#3=#:G237 NIL)
           (#4=#:G236 NIL))
@@ -68,43 +68,43 @@
                (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL (QREFELT $ 30)))))) 
 
-(SDEFUN |TEX;display;$V;7| ((|f| $) ($ |Void|))
+(SDEFUN |TEX;display;$V;7| ((|f| ($)) ($ (|Void|)))
         (SPADCALL |f| $LINELENGTH (QREFELT $ 31))) 
 
 (PUT '|TEX;prologue;$L;8| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
-(SDEFUN |TEX;prologue;$L;8| ((|f| $) ($ |List| (|String|))) (QVELT |f| 0)) 
+(SDEFUN |TEX;prologue;$L;8| ((|f| ($)) ($ (|List| (|String|)))) (QVELT |f| 0)) 
 
 (PUT '|TEX;tex;$L;9| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 1))) 
 
-(SDEFUN |TEX;tex;$L;9| ((|f| $) ($ |List| (|String|))) (QVELT |f| 1)) 
+(SDEFUN |TEX;tex;$L;9| ((|f| ($)) ($ (|List| (|String|)))) (QVELT |f| 1)) 
 
 (PUT '|TEX;epilogue;$L;10| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
-(SDEFUN |TEX;epilogue;$L;10| ((|f| $) ($ |List| (|String|))) (QVELT |f| 2)) 
+(SDEFUN |TEX;epilogue;$L;10| ((|f| ($)) ($ (|List| (|String|)))) (QVELT |f| 2)) 
 
 (PUT '|TEX;setPrologue!;$2L;11| '|SPADreplace|
      '(XLAM (|f| |l|) (QSETVELT |f| 0 |l|))) 
 
 (SDEFUN |TEX;setPrologue!;$2L;11|
-        ((|f| $) (|l| |List| (|String|)) ($ |List| (|String|)))
+        ((|f| ($)) (|l| (|List| (|String|))) ($ (|List| (|String|))))
         (QSETVELT |f| 0 |l|)) 
 
 (PUT '|TEX;setTex!;$2L;12| '|SPADreplace|
      '(XLAM (|f| |l|) (QSETVELT |f| 1 |l|))) 
 
 (SDEFUN |TEX;setTex!;$2L;12|
-        ((|f| $) (|l| |List| (|String|)) ($ |List| (|String|)))
+        ((|f| ($)) (|l| (|List| (|String|))) ($ (|List| (|String|))))
         (QSETVELT |f| 1 |l|)) 
 
 (PUT '|TEX;setEpilogue!;$2L;13| '|SPADreplace|
      '(XLAM (|f| |l|) (QSETVELT |f| 2 |l|))) 
 
 (SDEFUN |TEX;setEpilogue!;$2L;13|
-        ((|f| $) (|l| |List| (|String|)) ($ |List| (|String|)))
+        ((|f| ($)) (|l| (|List| (|String|))) ($ (|List| (|String|))))
         (QSETVELT |f| 2 |l|)) 
 
-(SDEFUN |TEX;coerce;$Of;14| ((|f| $) ($ |OutputForm|))
+(SDEFUN |TEX;coerce;$Of;14| ((|f| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|l| (|List| (|String|))) (#1=#:G256 NIL) (|s| NIL) (#2=#:G255 NIL)
           (|t| NIL) (#3=#:G254 NIL) (#4=#:G253 NIL))
@@ -138,7 +138,7 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 40)))))) 
 
-(SDEFUN |TEX;ungroup| ((|str| |String|) ($ |String|))
+(SDEFUN |TEX;ungroup| ((|str| (|String|)) ($ (|String|)))
         (SPROG
          ((|u| (|UniversalSegment| (|Integer|))) (|rbrace| #1=(|Character|))
           (|lbrace| #1#) (|len| (|Integer|)))
@@ -163,7 +163,7 @@
                                                  (QREFELT $ 47)))))))))
                            (EXIT |str|)))))))) 
 
-(SDEFUN |TEX;postcondition| ((|str| |String|) ($ |String|))
+(SDEFUN |TEX;postcondition| ((|str| (|String|)) ($ (|String|)))
         (SPROG
          ((#1=#:G269 NIL) (|i| NIL) (|minus| #2=(|Character|)) (|plus| #2#)
           (|len| (|Integer|)))
@@ -192,7 +192,8 @@
                        (EXIT |str|)))))))) 
 
 (SDEFUN |TEX;lineConcat|
-        ((|line| |String|) (|lines| |List| (|String|)) ($ |List| (|String|)))
+        ((|line| (|String|)) (|lines| (|List| (|String|)))
+         ($ (|List| (|String|))))
         (SPROG ((|length| (|NonNegativeInteger|)))
                (SEQ (LETT |length| (QCSIZE |line|))
                     (COND
@@ -218,12 +219,12 @@
                     (EXIT |lines|)))) 
 
 (SDEFUN |TEX;splitLong|
-        ((|str| |String|) (|len| |Integer|) ($ |List| (|String|)))
+        ((|str| (|String|)) (|len| (|Integer|)) ($ (|List| (|String|))))
         (SEQ (COND ((< |len| 20) (LETT |len| $LINELENGTH)))
              (EXIT (|TEX;splitLong1| |str| |len| $)))) 
 
 (SDEFUN |TEX;splitLong1|
-        ((|str| |String|) (|len| |Integer|) ($ |List| (|String|)))
+        ((|str| (|String|)) (|len| (|Integer|)) ($ (|List| (|String|))))
         (SPROG
          ((|l| (|List| (|String|))) (|s| (|String|)) (|ls| (|Integer|))
           (|ownLine| (|Boolean|)) (|u| (|UniversalSegment| (|Integer|)))
@@ -304,20 +305,20 @@
               (COND ((> |ls| 0) (LETT |l| (|TEX;lineConcat| |s| |l| $))))
               (EXIT (REVERSE |l|))))) 
 
-(SDEFUN |TEX;group| ((|str| |String|) ($ |String|))
+(SDEFUN |TEX;group| ((|str| (|String|)) ($ (|String|)))
         (SPADCALL (LIST "{" |str| "}") (QREFELT $ 53))) 
 
-(SDEFUN |TEX;addBraces| ((|str| |String|) ($ |String|))
+(SDEFUN |TEX;addBraces| ((|str| (|String|)) ($ (|String|)))
         (SPADCALL (LIST "\\left\\{ " |str| " \\right\\}") (QREFELT $ 53))) 
 
-(SDEFUN |TEX;addBrackets| ((|str| |String|) ($ |String|))
+(SDEFUN |TEX;addBrackets| ((|str| (|String|)) ($ (|String|)))
         (SPADCALL (LIST "\\left[ " |str| " \\right]") (QREFELT $ 53))) 
 
-(SDEFUN |TEX;parenthesize| ((|str| |String|) ($ |String|))
+(SDEFUN |TEX;parenthesize| ((|str| (|String|)) ($ (|String|)))
         (SPADCALL (LIST "\\left( " |str| " \\right)") (QREFELT $ 53))) 
 
 (SDEFUN |TEX;format_prime|
-        ((|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
+        ((|args| (|List| (|OutputForm|))) (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|narg2| #1=(|OutputForm|)) (|k| (|NonNegativeInteger|))
           (#2=#:G315 NIL) (|j| NIL) (#3=#:G314 NIL) (|i| NIL)
@@ -389,8 +390,8 @@
           (RETURN (PROGN (SPADCALL |c| |c_char| (QREFELT $ 58)))))) 
 
 (SDEFUN |TEX;formatSpecial|
-        ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
-         ($ |String|))
+        ((|op| (|Symbol|)) (|args| (|List| (|OutputForm|)))
+         (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|tmp| (|String|)) (|prescript| (|Boolean|))
           (|form| (|List| (|String|))) (#1=#:G367 NIL) (|u| NIL)
@@ -711,8 +712,8 @@
                        (QREFELT $ 53)))))))) 
 
 (SDEFUN |TEX;formatPlex|
-        ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
-         ($ |String|))
+        ((|op| (|Symbol|)) (|args| (|List| (|OutputForm|)))
+         (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|hold| (|String|)) (|n| (|Integer|))
           (|opPrec| (|Integer|)) (|p| (|Integer|)))
@@ -781,7 +782,7 @@
                          (LETT |s| (|TEX;parenthesize| |s| $))))
                        (EXIT (|TEX;group| |s| $))))))))) 
 
-(SDEFUN |TEX;formatMatrix| ((|args| |List| (|OutputForm|)) ($ |String|))
+(SDEFUN |TEX;formatMatrix| ((|args| (|List| (|OutputForm|))) ($ (|String|)))
         (SPROG ((|cols| (|String|)) (#1=#:G386 NIL) (|i| NIL))
                (SEQ (LETT |cols| "{")
                     (SEQ (LETT |i| 1)
@@ -806,8 +807,8 @@
                       $))))) 
 
 (SDEFUN |TEX;formatFunction|
-        ((|op| |OutputForm|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
-         ($ |String|))
+        ((|op| (|OutputForm|)) (|args| (|List| (|OutputForm|)))
+         (|prec| (|Integer|)) ($ (|String|)))
         (SPROG ((|ops| (|String|)))
                (SEQ (LETT |ops| (|TEX;formatExpr| |op| (QREFELT $ 9) $))
                     (EXIT
@@ -821,7 +822,7 @@
                        (QREFELT $ 53))
                       $))))) 
 
-(SDEFUN |TEX;formatNullary| ((|op| |Symbol|) ($ |String|))
+(SDEFUN |TEX;formatNullary| ((|op| (|Symbol|)) ($ (|String|)))
         (COND ((EQUAL |op| 'NOTHING) "")
               ('T
                (|TEX;group|
@@ -830,7 +831,8 @@
                 $)))) 
 
 (SDEFUN |TEX;formatUnary|
-        ((|op| |Symbol|) (|arg| |OutputForm|) (|prec| |Integer|) ($ |String|))
+        ((|op| (|Symbol|)) (|arg| (|OutputForm|)) (|prec| (|Integer|))
+         ($ (|String|)))
         (SPROG ((|s| (|String|)) (|opPrec| (|Integer|)) (|p| (|Integer|)))
                (SEQ (LETT |p| (SPADCALL |op| (QREFELT $ 10) (QREFELT $ 68)))
                     (EXIT
@@ -853,8 +855,8 @@
                                (#1# (|TEX;group| |s| $))))))))))) 
 
 (SDEFUN |TEX;formatBinary|
-        ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
-         ($ |String|))
+        ((|op| (|Symbol|)) (|args| (|List| (|OutputForm|)))
+         (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|ops| (|String|)) (|s2| #1=(|String|)) (|s1| #1#)
           (|opPrec| (|Integer|)) (|p| (|Integer|)))
@@ -909,14 +911,14 @@
                          $))))))))) 
 
 (SDEFUN |TEX;formatNary|
-        ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
-         (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
+        ((|op| (|Symbol|)) (|sep| (|String|)) (|opprec| (|Integer|))
+         (|args| (|List| (|OutputForm|))) (|prec| (|Integer|)) ($ (|String|)))
         (|TEX;group|
          (|TEX;formatNaryNoGroup| |op| |sep| |opprec| |args| |prec| $) $)) 
 
 (SDEFUN |TEX;formatNaryNoGroup|
-        ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
-         (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
+        ((|op| (|Symbol|)) (|sep| (|String|)) (|opprec| (|Integer|))
+         (|args| (|List| (|OutputForm|))) (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G412 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
@@ -973,7 +975,7 @@
                                  (#2# |s|))))))))))))) 
 
 (SDEFUN |TEX;formatExpr|
-        ((|expr| |OutputForm|) (|prec| |Integer|) ($ |String|))
+        ((|expr| (|OutputForm|)) (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|op| #1=(|Symbol|)) (|nargs| (|Integer|))
           (|args| (|List| (|OutputForm|))) (|opf| (|OutputForm|))

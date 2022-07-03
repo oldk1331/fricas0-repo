@@ -1,5 +1,5 @@
 
-(SDEFUN |BGAGG-;construct;LA;1| ((|l| |List| S) ($ A))
+(SDEFUN |BGAGG-;construct;LA;1| ((|l| (|List| S)) ($ (A)))
         (SPROG ((|x| (A)) (#1=#:G129 NIL) (|s| NIL))
                (SEQ (LETT |x| (SPADCALL (QREFELT $ 8)))
                     (SEQ (LETT |s| NIL) (LETT #1# |l|) G190

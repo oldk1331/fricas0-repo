@@ -1,17 +1,17 @@
 
 (PUT '|OEXPR;retract;E$;1| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
-(SDEFUN |OEXPR;retract;E$;1| ((|e| |Expression| (|Integer|)) ($ $)) |e|) 
+(SDEFUN |OEXPR;retract;E$;1| ((|e| (|Expression| (|Integer|))) ($ ($))) |e|) 
 
 (PUT '|OEXPR;coerce;$E;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |OEXPR;coerce;$E;2| ((|x| $) ($ |Expression| (|Integer|))) |x|) 
+(SDEFUN |OEXPR;coerce;$E;2| ((|x| ($)) ($ (|Expression| (|Integer|)))) |x|) 
 
 (SDEFUN |OEXPR;retractIfCan;EU;3|
-        ((|x| |Expression| (|Integer|)) ($ |Union| $ "failed"))
+        ((|x| (|Expression| (|Integer|))) ($ (|Union| $ "failed")))
         (CONS 0 (SPADCALL |x| (QREFELT $ 7)))) 
 
-(SDEFUN |OEXPR;<;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |OEXPR;<;2$B;4| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|s| (|Union| (|Integer|) "failed")) (|di| ($)))
                (SEQ (LETT |di| (SPADCALL |y| |x| (QREFELT $ 11)))
                     (EXIT

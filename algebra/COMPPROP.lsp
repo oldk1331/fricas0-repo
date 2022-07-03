@@ -1,23 +1,23 @@
 
 (PUT '|COMPPROP;closed?;$B;1| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |COMPPROP;closed?;$B;1| ((|p| $) ($ |Boolean|)) (QCAR |p|)) 
+(SDEFUN |COMPPROP;closed?;$B;1| ((|p| ($)) ($ (|Boolean|))) (QCAR |p|)) 
 
 (PUT '|COMPPROP;solid?;$B;2| '|SPADreplace| 'QCDR) 
 
-(SDEFUN |COMPPROP;solid?;$B;2| ((|p| $) ($ |Boolean|)) (QCDR |p|)) 
+(SDEFUN |COMPPROP;solid?;$B;2| ((|p| ($)) ($ (|Boolean|))) (QCDR |p|)) 
 
-(SDEFUN |COMPPROP;close;$2B;3| ((|p| $) (|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |COMPPROP;close;$2B;3| ((|p| ($)) (|b| (|Boolean|)) ($ (|Boolean|)))
         (PROGN (RPLACA |p| |b|) (QCAR |p|))) 
 
-(SDEFUN |COMPPROP;solid;$2B;4| ((|p| $) (|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |COMPPROP;solid;$2B;4| ((|p| ($)) (|b| (|Boolean|)) ($ (|Boolean|)))
         (PROGN (RPLACD |p| |b|) (QCDR |p|))) 
 
 (PUT '|COMPPROP;new;$;5| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
-(SDEFUN |COMPPROP;new;$;5| (($ $)) (CONS NIL NIL)) 
+(SDEFUN |COMPPROP;new;$;5| (($ ($))) (CONS NIL NIL)) 
 
-(SDEFUN |COMPPROP;copy;2$;6| ((|p| $) ($ $))
+(SDEFUN |COMPPROP;copy;2$;6| ((|p| ($)) ($ ($)))
         (SPROG ((|annuderOne| ($)))
                (SEQ (LETT |annuderOne| (SPADCALL (QREFELT $ 12)))
                     (SPADCALL |annuderOne| (SPADCALL |p| (QREFELT $ 8))
@@ -26,7 +26,7 @@
                               (QREFELT $ 11))
                     (EXIT |annuderOne|)))) 
 
-(SDEFUN |COMPPROP;coerce;$Of;7| ((|p| $) ($ |OutputForm|))
+(SDEFUN |COMPPROP;coerce;$Of;7| ((|p| ($)) ($ (|OutputForm|)))
         (SPADCALL
          (LIST (SPADCALL "Component is " (QREFELT $ 16))
                (SPADCALL

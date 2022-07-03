@@ -1,15 +1,15 @@
 
-(SDEFUN |INFPROD0;infiniteProduct;2UTS;1| ((|x| UTS) ($ UTS))
+(SDEFUN |INFPROD0;infiniteProduct;2UTS;1| ((|x| (UTS)) ($ (UTS)))
         (SPADCALL |x| 1 1 (QREFELT $ 11))) 
 
-(SDEFUN |INFPROD0;evenInfiniteProduct;2UTS;2| ((|x| UTS) ($ UTS))
+(SDEFUN |INFPROD0;evenInfiniteProduct;2UTS;2| ((|x| (UTS)) ($ (UTS)))
         (SPADCALL |x| 2 2 (QREFELT $ 11))) 
 
-(SDEFUN |INFPROD0;oddInfiniteProduct;2UTS;3| ((|x| UTS) ($ UTS))
+(SDEFUN |INFPROD0;oddInfiniteProduct;2UTS;3| ((|x| (UTS)) ($ (UTS)))
         (SPADCALL |x| 1 2 (QREFELT $ 11))) 
 
 (SDEFUN |INFPROD0;generalInfiniteProduct;UTS2IUTS;4|
-        ((|x| UTS) (|a| |Integer|) (|d| |Integer|) ($ UTS))
+        ((|x| (UTS)) (|a| (|Integer|)) (|d| (|Integer|)) ($ (UTS)))
         (SPADCALL
          (SPADCALL (SPADCALL |x| (QREFELT $ 16)) |a| |d| (QREFELT $ 18))
          (QREFELT $ 19))) 

@@ -1,5 +1,6 @@
 
-(SDEFUN |CHARPOL;characteristicPolynomial;M2R;1| ((A |Matrix| R) (|v| R) ($ R))
+(SDEFUN |CHARPOL;characteristicPolynomial;M2R;1|
+        ((A (|Matrix| R)) (|v| (R)) ($ (R)))
         (SPROG
          ((#1=#:G127 NIL) (|j| NIL) (#2=#:G126 NIL) (|i| NIL) (B (|Matrix| R))
           (|dimA| (|NonNegativeInteger|)))

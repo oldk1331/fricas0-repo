@@ -1,6 +1,6 @@
 
 (SDEFUN |RFSSPLIT;alg_split_root0;FKIL;1|
-        ((|f| F) (|r| |Kernel| F) (|n| |Integer|) ($ |List| F))
+        ((|f| (F)) (|r| (|Kernel| F)) (|n| (|Integer|)) ($ (|List| F)))
         (SPROG
          ((#1=#:G133 NIL) (|i| NIL) (#2=#:G132 NIL)
           (|q| (|SparseUnivariatePolynomial| F)) (|f1| (F)) (|f0| (F))
@@ -57,8 +57,8 @@
                     (EXIT (NREVERSE #2#))))))))))) 
 
 (SDEFUN |RFSSPLIT;alg_split_root2|
-        ((|lf| |List| F) (|r| |Kernel| F) (|n| |Integer|)
-         ($ |List| (|List| F)))
+        ((|lf| (|List| F)) (|r| (|Kernel| F)) (|n| (|Integer|))
+         ($ (|List| (|List| F))))
         (SPROG
          ((|res| (|List| (|List| F))) (|resi| (|List| F))
           (|nlf1| #1=(|List| (|List| F))) (|lf1| (|List| F)) (#2=#:G144 NIL)
@@ -94,10 +94,11 @@
           (EXIT (NREVERSE |res|))))) 
 
 (SDEFUN |RFSSPLIT;alg_split_roots;L2KL;3|
-        ((|lf| |List| F) (|r1| |Kernel| F) (|r2| |Kernel| F)
-         ($ |List|
-          (|Record| (|:| |funs| (|List| F)) (|:| |nroot| F)
-                    (|:| |npow1| (|Integer|)) (|:| |npow2| (|Integer|)))))
+        ((|lf| (|List| F)) (|r1| (|Kernel| F)) (|r2| (|Kernel| F))
+         ($
+          (|List|
+           (|Record| (|:| |funs| (|List| F)) (|:| |nroot| F)
+                     (|:| |npow1| (|Integer|)) (|:| |npow2| (|Integer|))))))
         (SPROG
          ((|res|
            (|List|

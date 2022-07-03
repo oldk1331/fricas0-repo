@@ -1,12 +1,12 @@
 
-(SDEFUN |SCPKG;matrix2Vector| ((|m| |Matrix| R) ($ |Vector| R))
+(SDEFUN |SCPKG;matrix2Vector| ((|m| (|Matrix| R)) ($ (|Vector| R)))
         (SPROG ((|li| (|List| R)) (|lili| (|List| (|List| R))))
                (SEQ (LETT |lili| (SPADCALL |m| (QREFELT $ 9)))
                     (LETT |li| (SPADCALL (ELT $ 11) |lili| (QREFELT $ 13)))
                     (EXIT (SPADCALL |li| (QREFELT $ 15)))))) 
 
 (SDEFUN |SCPKG;coordinates;MLV;2|
-        ((|x| |Matrix| R) (|b| |List| (|Matrix| R)) ($ |Vector| R))
+        ((|x| (|Matrix| R)) (|b| (|List| (|Matrix| R))) ($ (|Vector| R)))
         (SPROG
          ((#1=#:G141 NIL)
           (|res|
@@ -54,7 +54,7 @@
                                #1#)))))))) 
 
 (SDEFUN |SCPKG;structuralConstants;LV;3|
-        ((|b| |List| (|Matrix| R)) ($ |Vector| (|Matrix| R)))
+        ((|b| (|List| (|Matrix| R))) ($ (|Vector| (|Matrix| R))))
         (SPROG
          ((#1=#:G159 NIL) (|k| NIL) (|covec| (|Vector| R)) (#2=#:G158 NIL)
           (|j| NIL) (#3=#:G157 NIL) (|i| NIL) (|sC| (|Vector| (|Matrix| R)))
@@ -107,8 +107,8 @@
           (EXIT |sC|)))) 
 
 (SDEFUN |SCPKG;structuralConstants;LMV;4|
-        ((|ls| |List| (|Symbol|)) (|mt| |Matrix| (|Polynomial| R))
-         ($ |Vector| (|Matrix| (|Polynomial| R))))
+        ((|ls| (|List| (|Symbol|))) (|mt| (|Matrix| (|Polynomial| R)))
+         ($ (|Vector| (|Matrix| (|Polynomial| R)))))
         (SPROG
          ((|lscopy| (|List| (|Symbol|)))
           (|gamma| (|List| (|Matrix| (|Polynomial| R)))) (|c| (|Polynomial| R))
@@ -155,8 +155,9 @@
               (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 46)))))) 
 
 (SDEFUN |SCPKG;structuralConstants;LMV;5|
-        ((|ls| |List| (|Symbol|)) (|mt| |Matrix| (|Fraction| (|Polynomial| R)))
-         ($ |Vector| (|Matrix| (|Fraction| (|Polynomial| R)))))
+        ((|ls| (|List| (|Symbol|)))
+         (|mt| (|Matrix| (|Fraction| (|Polynomial| R))))
+         ($ (|Vector| (|Matrix| (|Fraction| (|Polynomial| R))))))
         (SPROG
          ((|lscopy| (|List| (|Symbol|)))
           (|gamma| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))

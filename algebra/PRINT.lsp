@@ -1,5 +1,5 @@
 
-(SDEFUN |PRINT;print;OfV;1| ((|x| |OutputForm|) ($ |Void|))
+(SDEFUN |PRINT;print;OfV;1| ((|x| (|OutputForm|)) ($ (|Void|)))
         (SPADCALL |x| (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |PrintPackage;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |TRIMAT;UpTriBddDenomInv;MRM;1| ((A M) (|denom| R) ($ M))
+(SDEFUN |TRIMAT;UpTriBddDenomInv;MRM;1| ((A (M)) (|denom| (R)) ($ (M)))
         (SPROG
          ((#1=#:G120 NIL) (#2=#:G130 NIL) (#3=#:G129 (R)) (#4=#:G131 (R))
           (#5=#:G140 NIL) (|k| NIL) (#6=#:G139 NIL) (|j| NIL) (#7=#:G138 NIL)
@@ -102,7 +102,7 @@
                (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL))
           (EXIT AI)))) 
 
-(SDEFUN |TRIMAT;LowTriBddDenomInv;MRM;2| ((A M) (|denom| R) ($ M))
+(SDEFUN |TRIMAT;LowTriBddDenomInv;MRM;2| ((A (M)) (|denom| (R)) ($ (M)))
         (SPROG
          ((#1=#:G142 NIL) (#2=#:G152 NIL) (#3=#:G151 (R)) (#4=#:G153 (R))
           (#5=#:G162 NIL) (|k| NIL) (#6=#:G161 NIL) (|j| NIL) (#7=#:G160 NIL)

@@ -1,5 +1,6 @@
 
-(SDEFUN |POLTOPOL;variable1| ((|xx| |Symbol|) ($ |OrderedVariableList| |lv|))
+(SDEFUN |POLTOPOL;variable1|
+        ((|xx| (|Symbol|)) ($ (|OrderedVariableList| |lv|)))
         (SPROG ((#1=#:G120 NIL))
                (PROG2 (LETT #1# (SPADCALL |xx| (QREFELT $ 11)))
                    (QCDR #1#)
@@ -10,29 +11,30 @@
                                  #1#)))) 
 
 (SDEFUN |POLTOPOL;pToHdmp;PHdmp;2|
-        ((|pol| |Polynomial| R)
-         ($ |HomogeneousDistributedMultivariatePolynomial| |lv| R))
+        ((|pol| (|Polynomial| R))
+         ($ (|HomogeneousDistributedMultivariatePolynomial| |lv| R)))
         (SPADCALL (CONS (|function| |POLTOPOL;variable1|) $) |pol|
                   (QREFELT $ 16))) 
 
 (SDEFUN |POLTOPOL;hdmpToP;HdmpP;3|
-        ((|hdpol| |HomogeneousDistributedMultivariatePolynomial| |lv| R)
-         ($ |Polynomial| R))
+        ((|hdpol| (|HomogeneousDistributedMultivariatePolynomial| |lv| R))
+         ($ (|Polynomial| R)))
         (SPADCALL (ELT $ 18) |hdpol| (QREFELT $ 21))) 
 
 (SDEFUN |POLTOPOL;dmpToP;DmpP;4|
-        ((|dpol| |DistributedMultivariatePolynomial| |lv| R)
-         ($ |Polynomial| R))
+        ((|dpol| (|DistributedMultivariatePolynomial| |lv| R))
+         ($ (|Polynomial| R)))
         (SPADCALL (ELT $ 18) |dpol| (QREFELT $ 25))) 
 
 (SDEFUN |POLTOPOL;pToDmp;PDmp;5|
-        ((|pol| |Polynomial| R) ($ |DistributedMultivariatePolynomial| |lv| R))
+        ((|pol| (|Polynomial| R))
+         ($ (|DistributedMultivariatePolynomial| |lv| R)))
         (SPADCALL (CONS (|function| |POLTOPOL;variable1|) $) |pol|
                   (QREFELT $ 28))) 
 
 (SDEFUN |POLTOPOL;dmpToHdmp;DmpHdmp;6|
-        ((|dpol| |DistributedMultivariatePolynomial| |lv| R)
-         ($ |HomogeneousDistributedMultivariatePolynomial| |lv| R))
+        ((|dpol| (|DistributedMultivariatePolynomial| |lv| R))
+         ($ (|HomogeneousDistributedMultivariatePolynomial| |lv| R)))
         (COND
          ((SPADCALL |dpol| (|spadConstant| $ 31) (QREFELT $ 33))
           (|spadConstant| $ 34))
@@ -48,8 +50,8 @@
            (QREFELT $ 45))))) 
 
 (SDEFUN |POLTOPOL;hdmpToDmp;HdmpDmp;7|
-        ((|hdpol| |HomogeneousDistributedMultivariatePolynomial| |lv| R)
-         ($ |DistributedMultivariatePolynomial| |lv| R))
+        ((|hdpol| (|HomogeneousDistributedMultivariatePolynomial| |lv| R))
+         ($ (|DistributedMultivariatePolynomial| |lv| R)))
         (SPROG ((|dd| (|DirectProduct| (|#| |lv|) (|NonNegativeInteger|))))
                (SEQ
                 (COND

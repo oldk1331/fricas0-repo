@@ -1,94 +1,98 @@
 
 (PUT '|LIST;#;$Nni;1| '|SPADreplace| 'LENGTH) 
 
-(SDEFUN |LIST;#;$Nni;1| ((|x| $) ($ |NonNegativeInteger|)) (LENGTH |x|)) 
+(SDEFUN |LIST;#;$Nni;1| ((|x| ($)) ($ (|NonNegativeInteger|))) (LENGTH |x|)) 
 
 (PUT '|LIST;cons;S2$;2| '|SPADreplace| 'CONS) 
 
-(SDEFUN |LIST;cons;S2$;2| ((|s| S) (|x| $) ($ $)) (CONS |s| |x|)) 
+(SDEFUN |LIST;cons;S2$;2| ((|s| (S)) (|x| ($)) ($ ($))) (CONS |s| |x|)) 
 
 (PUT '|LIST;concat;S2$;3| '|SPADreplace| 'CONS) 
 
-(SDEFUN |LIST;concat;S2$;3| ((|s| S) (|x| $) ($ $)) (CONS |s| |x|)) 
+(SDEFUN |LIST;concat;S2$;3| ((|s| (S)) (|x| ($)) ($ ($))) (CONS |s| |x|)) 
 
 (PUT '|LIST;eq?;2$B;4| '|SPADreplace| 'EQ) 
 
-(SDEFUN |LIST;eq?;2$B;4| ((|x| $) (|y| $) ($ |Boolean|)) (EQ |x| |y|)) 
+(SDEFUN |LIST;eq?;2$B;4| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) (EQ |x| |y|)) 
 
 (PUT '|LIST;first;$S;5| '|SPADreplace| '|SPADfirst|) 
 
-(SDEFUN |LIST;first;$S;5| ((|x| $) ($ S)) (|SPADfirst| |x|)) 
+(SDEFUN |LIST;first;$S;5| ((|x| ($)) ($ (S))) (|SPADfirst| |x|)) 
 
 (PUT '|LIST;elt;$firstS;6| '|SPADreplace|
      '(XLAM (|x| "first") (|SPADfirst| |x|))) 
 
-(SDEFUN |LIST;elt;$firstS;6| ((|x| $) (T11 "first") ($ S)) (|SPADfirst| |x|)) 
+(SDEFUN |LIST;elt;$firstS;6| ((|x| ($)) (T11 ("first")) ($ (S)))
+        (|SPADfirst| |x|)) 
 
 (PUT '|LIST;empty;$;7| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |LIST;empty;$;7| (($ $)) NIL) 
+(SDEFUN |LIST;empty;$;7| (($ ($))) NIL) 
 
 (PUT '|LIST;empty?;$B;8| '|SPADreplace| 'NULL) 
 
-(SDEFUN |LIST;empty?;$B;8| ((|x| $) ($ |Boolean|)) (NULL |x|)) 
+(SDEFUN |LIST;empty?;$B;8| ((|x| ($)) ($ (|Boolean|))) (NULL |x|)) 
 
 (PUT '|LIST;rest;2$;9| '|SPADreplace| 'CDR) 
 
-(SDEFUN |LIST;rest;2$;9| ((|x| $) ($ $)) (CDR |x|)) 
+(SDEFUN |LIST;rest;2$;9| ((|x| ($)) ($ ($))) (CDR |x|)) 
 
 (PUT '|LIST;elt;$rest$;10| '|SPADreplace| '(XLAM (|x| "rest") (CDR |x|))) 
 
-(SDEFUN |LIST;elt;$rest$;10| ((|x| $) (T12 "rest") ($ $)) (CDR |x|)) 
+(SDEFUN |LIST;elt;$rest$;10| ((|x| ($)) (T12 ("rest")) ($ ($))) (CDR |x|)) 
 
 (PUT '|LIST;qsetfirst!;$2S;11| '|SPADreplace| '|qset_first|) 
 
-(SDEFUN |LIST;qsetfirst!;$2S;11| ((|x| $) (|s| S) ($ S)) (|qset_first| |x| |s|)) 
+(SDEFUN |LIST;qsetfirst!;$2S;11| ((|x| ($)) (|s| (S)) ($ (S)))
+        (|qset_first| |x| |s|)) 
 
-(SDEFUN |LIST;setfirst!;$2S;12| ((|x| $) (|s| S) ($ S))
+(SDEFUN |LIST;setfirst!;$2S;12| ((|x| ($)) (|s| (S)) ($ (S)))
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_first| |x| |s|)))) 
 
-(SDEFUN |LIST;setelt!;$first2S;13| ((|x| $) (T13 "first") (|s| S) ($ S))
+(SDEFUN |LIST;setelt!;$first2S;13|
+        ((|x| ($)) (T13 ("first")) (|s| (S)) ($ (S)))
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_first| |x| |s|)))) 
 
 (PUT '|LIST;qsetrest!;3$;14| '|SPADreplace| '|qset_rest|) 
 
-(SDEFUN |LIST;qsetrest!;3$;14| ((|x| $) (|y| $) ($ $)) (|qset_rest| |x| |y|)) 
+(SDEFUN |LIST;qsetrest!;3$;14| ((|x| ($)) (|y| ($)) ($ ($)))
+        (|qset_rest| |x| |y|)) 
 
-(SDEFUN |LIST;setrest!;3$;15| ((|x| $) (|y| $) ($ $))
+(SDEFUN |LIST;setrest!;3$;15| ((|x| ($)) (|y| ($)) ($ ($)))
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_rest| |x| |y|)))) 
 
-(SDEFUN |LIST;setelt!;$rest2$;16| ((|x| $) (T14 "rest") (|y| $) ($ $))
+(SDEFUN |LIST;setelt!;$rest2$;16| ((|x| ($)) (T14 ("rest")) (|y| ($)) ($ ($)))
         (COND ((NULL |x|) (|error| "Cannot update an empty list"))
               ('T (|qset_rest| |x| |y|)))) 
 
 (PUT '|LIST;construct;2$;17| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(SDEFUN |LIST;construct;2$;17| ((|l| |List| S) ($ $)) |l|) 
+(SDEFUN |LIST;construct;2$;17| ((|l| (|List| S)) ($ ($))) |l|) 
 
 (PUT '|LIST;parts;2$;18| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |LIST;parts;2$;18| ((|s| $) ($ |List| S)) |s|) 
+(SDEFUN |LIST;parts;2$;18| ((|s| ($)) ($ (|List| S))) |s|) 
 
 (PUT '|LIST;reverse!;2$;19| '|SPADreplace| 'NREVERSE) 
 
-(SDEFUN |LIST;reverse!;2$;19| ((|x| $) ($ $)) (NREVERSE |x|)) 
+(SDEFUN |LIST;reverse!;2$;19| ((|x| ($)) ($ ($))) (NREVERSE |x|)) 
 
 (PUT '|LIST;reverse;2$;20| '|SPADreplace| 'REVERSE) 
 
-(SDEFUN |LIST;reverse;2$;20| ((|x| $) ($ $)) (REVERSE |x|)) 
+(SDEFUN |LIST;reverse;2$;20| ((|x| ($)) ($ ($))) (REVERSE |x|)) 
 
 (PUT '|LIST;minIndex;$I;21| '|SPADreplace| '(XLAM (|x|) 1)) 
 
-(SDEFUN |LIST;minIndex;$I;21| ((|x| $) ($ |Integer|)) 1) 
+(SDEFUN |LIST;minIndex;$I;21| ((|x| ($)) ($ (|Integer|))) 1) 
 
 (PUT '|LIST;maxIndex;$I;22| '|SPADreplace| 'LENGTH) 
 
-(SDEFUN |LIST;maxIndex;$I;22| ((|x| $) ($ |Integer|)) (LENGTH |x|)) 
+(SDEFUN |LIST;maxIndex;$I;22| ((|x| ($)) ($ (|Integer|))) (LENGTH |x|)) 
 
-(SDEFUN |LIST;first;$Nni$;23| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |LIST;first;$Nni$;23| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((|l| ($)) (#1=#:G1483 NIL) (|i| NIL))
                (SEQ (LETT |l| NIL)
                     (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -105,7 +109,7 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT (NREVERSE |l|))))) 
 
-(SDEFUN |LIST;rest;$Nni$;24| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |LIST;rest;$Nni$;24| ((|x| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G1489 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -115,7 +119,7 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
-(SDEFUN |LIST;copy;2$;25| ((|x| $) ($ $))
+(SDEFUN |LIST;copy;2$;25| ((|x| ($)) ($ ($)))
         (SPROG ((|y| ($)) (|i| NIL))
                (SEQ (LETT |y| NIL)
                     (SEQ (LETT |i| 0) G190
@@ -131,7 +135,7 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT (NREVERSE |y|))))) 
 
-(SDEFUN |LIST;leaves;2$;26| ((|x| $) ($ |List| S))
+(SDEFUN |LIST;leaves;2$;26| ((|x| ($)) ($ (|List| S)))
         (SPROG ((#1=#:G1502 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -157,7 +161,7 @@
                              (EXIT NIL)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LIST;coerce;$Of;27| ((|x| $) ($ |OutputForm|))
+(SDEFUN |LIST;coerce;$Of;27| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|z| (|List| (|OutputForm|))) (|y| (|List| (|OutputForm|)))
           (|s| ($)))
@@ -197,7 +201,7 @@
                                    (QREFELT $ 52))
                          (QREFELT $ 48)))))))))) 
 
-(SDEFUN |LIST;=;2$B;28| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |LIST;=;2$B;28| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G1520 NIL))
                (SEQ
                 (EXIT
@@ -223,7 +227,7 @@
                          (EXIT (COND ((NULL |x|) (NULL |y|)) (#2# NIL)))))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |LIST;member?;S$B;29| ((|s| S) (|x| $) ($ |Boolean|))
+(SDEFUN |LIST;member?;S$B;29| ((|s| (S)) (|x| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G1526 NIL))
                (SEQ
                 (EXIT
@@ -239,7 +243,7 @@
                   (EXIT NIL)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |LIST;latex;$S;30| ((|x| $) ($ |String|))
+(SDEFUN |LIST;latex;$S;30| ((|x| ($)) ($ (|String|)))
         (SPROG ((|s| (|String|)))
                (SEQ (LETT |s| "\\left[")
                     (SEQ G190 (COND ((NULL (NULL (NULL |x|))) (GO G191)))
@@ -255,7 +259,8 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT (STRCONC |s| " \\right]"))))) 
 
-(SDEFUN |LIST;hashUpdate!;Hs$Hs;31| ((|s| |HashState|) (|x| $) ($ |HashState|))
+(SDEFUN |LIST;hashUpdate!;Hs$Hs;31|
+        ((|s| (|HashState|)) (|x| ($)) ($ (|HashState|)))
         (SEQ
          (SEQ G190 (COND ((NULL (NULL (NULL |x|))) (GO G191)))
               (SEQ (LETT |s| (SPADCALL |s| (QCAR |x|) (QREFELT $ 62)))
@@ -263,7 +268,7 @@
               NIL (GO G190) G191 (EXIT NIL))
          (EXIT |s|))) 
 
-(SDEFUN |LIST;concat!;3$;32| ((|x| $) (|y| $) ($ $))
+(SDEFUN |LIST;concat!;3$;32| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPROG ((|z| ($)))
                (SEQ
                 (COND ((NULL |x|) |y|)
@@ -276,7 +281,7 @@
                                  (GO G190) G191 (EXIT NIL))
                             (|qset_rest| |z| |y|) (EXIT |x|))))))) 
 
-(SDEFUN |LIST;removeDuplicates!;2$;33| ((|l| $) ($ $))
+(SDEFUN |LIST;removeDuplicates!;2$;33| ((|l| ($)) ($ ($)))
         (SPROG ((|pp| ($)) (|pr| ($)) (|p| ($)) (|f| (S)))
                (SEQ (LETT |p| |l|)
                     (SEQ G190 (COND ((NULL (NULL (NULL |p|))) (GO G191)))
@@ -299,11 +304,12 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |l|)))) 
 
-(SDEFUN |LIST;sort!;M2$;34| ((|f| |Mapping| (|Boolean|) S S) (|l| $) ($ $))
+(SDEFUN |LIST;sort!;M2$;34|
+        ((|f| (|Mapping| (|Boolean|) S S)) (|l| ($)) ($ ($)))
         (|LIST;mergeSort| |f| |l| (LENGTH |l|) $)) 
 
 (SDEFUN |LIST;merge!;M3$;35|
-        ((|f| |Mapping| (|Boolean|) S S) (|p| $) (|q| $) ($ $))
+        ((|f| (|Mapping| (|Boolean|) S S)) (|p| ($)) (|q| ($)) ($ ($)))
         (SPROG ((|t| ($)) (|r| ($)))
                (SEQ
                 (COND ((NULL |p|) |q|) ((NULL |q|) |p|)
@@ -336,7 +342,7 @@
                         (|qset_rest| |t| (COND ((NULL |p|) |q|) (#1# |p|)))
                         (EXIT |r|))))))) 
 
-(SDEFUN |LIST;split!;$Nni$;36| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |LIST;split!;$Nni$;36| ((|p| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((|q| ($)) (#1=#:G1570 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "index out of range"))
@@ -353,7 +359,7 @@
                         (EXIT |q|))))))) 
 
 (SDEFUN |LIST;mergeSort|
-        ((|f| |Mapping| (|Boolean|) S S) (|p| $) (|n| |Integer|) ($ $))
+        ((|f| (|Mapping| (|Boolean|) S S)) (|p| ($)) (|n| (|Integer|)) ($ ($)))
         (SPROG ((|q| ($)) (|l| (|NonNegativeInteger|)) (#1=#:G1574 NIL))
                (SEQ
                 (COND
@@ -375,10 +381,10 @@
                          (LETT |q| (|LIST;mergeSort| |f| |q| (- |n| |l|) $))
                          (EXIT (SPADCALL |f| |p| |q| (QREFELT $ 68)))))))))) 
 
-(SDEFUN |LIST;append;3$;38| ((|l| $) (|t| $) ($ $))
+(SDEFUN |LIST;append;3$;38| ((|l| ($)) (|t| ($)) ($ ($)))
         (SPADCALL |l| |t| (QREFELT $ 70))) 
 
-(SDEFUN |LIST;tails;$L;39| ((|x| $) ($ |List| $))
+(SDEFUN |LIST;tails;$L;39| ((|x| ($)) ($ (|List| $)))
         (SPROG ((#1=#:G1588 NIL) (|i| NIL) (#2=#:G1587 NIL))
                (SEQ
                 (PROGN
@@ -392,7 +398,7 @@
                       (LETT |i| (|inc_SI| |i|)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |LIST;writeOMList| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
+(SDEFUN |LIST;writeOMList| ((|dev| (|OpenMathDevice|)) (|x| ($)) ($ (|Void|)))
         (SEQ (SPADCALL |dev| (QREFELT $ 75))
              (SPADCALL |dev| "list1" "list" (QREFELT $ 76))
              (SEQ G190 (COND ((NULL (NULL (NULL |x|))) (GO G191)))
@@ -402,15 +408,16 @@
              (EXIT (SPADCALL |dev| (QREFELT $ 78))))) 
 
 (SDEFUN |LIST;OMwrite;Omd$BV;41|
-        ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|x| ($)) (|wholeObj| (|Boolean|))
+         ($ (|Void|)))
         (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 79))))
              (|LIST;writeOMList| |dev| |x| $)
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 80))))))) 
 
-(SDEFUN |LIST;setUnion;3$;42| ((|l1| $) (|l2| $) ($ $))
+(SDEFUN |LIST;setUnion;3$;42| ((|l1| ($)) (|l2| ($)) ($ ($)))
         (SPADCALL (SPADCALL |l1| |l2| (QREFELT $ 70)) (QREFELT $ 82))) 
 
-(SDEFUN |LIST;setIntersection;3$;43| ((|l1| $) (|l2| $) ($ $))
+(SDEFUN |LIST;setIntersection;3$;43| ((|l1| ($)) (|l2| ($)) ($ ($)))
         (SPROG ((|u| ($)))
                (SEQ (LETT |u| NIL) (LETT |l1| (SPADCALL |l1| (QREFELT $ 82)))
                     (SEQ G190 (COND ((NULL (NULL (NULL |l1|))) (GO G191)))
@@ -422,7 +429,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |u|)))) 
 
-(SDEFUN |LIST;setDifference;3$;44| ((|l1| $) (|l2| $) ($ $))
+(SDEFUN |LIST;setDifference;3$;44| ((|l1| ($)) (|l2| ($)) ($ ($)))
         (SPROG ((|lu| ($)) (|l11| (S)))
                (SEQ (LETT |l1| (SPADCALL |l1| (QREFELT $ 82)))
                     (EXIT
@@ -445,7 +452,7 @@
                                       NIL (GO G190) G191 (EXIT NIL))
                                  (EXIT |lu|)))))))) 
 
-(SDEFUN |LIST;map!;M2$;45| ((|f| |Mapping| S S) (|l| $) ($ $))
+(SDEFUN |LIST;map!;M2$;45| ((|f| (|Mapping| S S)) (|l| ($)) ($ ($)))
         (SPROG ((|y| ($)))
                (SEQ (LETT |y| |l|)
                     (SEQ G190 (COND ((NULL (NULL (NULL |l|))) (GO G191)))
@@ -456,7 +463,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |y|)))) 
 
-(SDEFUN |LIST;convert;$If;46| ((|x| $) ($ |InputForm|))
+(SDEFUN |LIST;convert;$If;46| ((|x| ($)) ($ (|InputForm|)))
         (SPROG ((#1=#:G1628 NIL) (|a| NIL) (#2=#:G1627 NIL))
                (SEQ
                 (SPADCALL

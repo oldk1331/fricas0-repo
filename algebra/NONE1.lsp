@@ -1,7 +1,7 @@
 
 (PUT '|NONE1;coerce;SN;1| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |NONE1;coerce;SN;1| ((|s| S) ($ |None|)) |s|) 
+(SDEFUN |NONE1;coerce;SN;1| ((|s| (S)) ($ (|None|))) |s|) 
 
 (DECLAIM (NOTINLINE |NoneFunctions1;|)) 
 

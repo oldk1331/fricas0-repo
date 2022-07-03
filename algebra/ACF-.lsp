@@ -1,34 +1,36 @@
 
-(SDEFUN |ACF-;zeroOf;SupS;1| ((|p| |SparseUnivariatePolynomial| S) ($ S))
+(SDEFUN |ACF-;zeroOf;SupS;1| ((|p| (|SparseUnivariatePolynomial| S)) ($ (S)))
         (SPROG ((|x| (|Symbol|)))
                (|ACF-;assign| (LETT |x| (SPADCALL (QREFELT $ 8)))
                 (SPADCALL |p| |x| (QREFELT $ 10)) $))) 
 
-(SDEFUN |ACF-;rootOf;SupS;2| ((|p| |SparseUnivariatePolynomial| S) ($ S))
+(SDEFUN |ACF-;rootOf;SupS;2| ((|p| (|SparseUnivariatePolynomial| S)) ($ (S)))
         (SPROG ((|x| (|Symbol|)))
                (|ACF-;assign| (LETT |x| (SPADCALL (QREFELT $ 8)))
                 (SPADCALL |p| |x| (QREFELT $ 12)) $))) 
 
 (SDEFUN |ACF-;zerosOf;SupL;3|
-        ((|p| |SparseUnivariatePolynomial| S) ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| S)) ($ (|List| S)))
         (SPADCALL |p| (SPADCALL (QREFELT $ 8)) (QREFELT $ 15))) 
 
 (SDEFUN |ACF-;rootsOf;SupL;4|
-        ((|p| |SparseUnivariatePolynomial| S) ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| S)) ($ (|List| S)))
         (SPADCALL |p| (SPADCALL (QREFELT $ 8)) (QREFELT $ 17))) 
 
 (SDEFUN |ACF-;rootsOf;SupSL;5|
-        ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| S)) (|y| (|Symbol|))
+         ($ (|List| S)))
         (|ACF-;allroots| |p| |y| (ELT $ 12) $)) 
 
 (SDEFUN |ACF-;zerosOf;SupSL;6|
-        ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| S)) (|y| (|Symbol|))
+         ($ (|List| S)))
         (|ACF-;allroots| |p| |y| (ELT $ 10) $)) 
 
-(SDEFUN |ACF-;assign| ((|x| |Symbol|) (|f| S) ($ S))
+(SDEFUN |ACF-;assign| ((|x| (|Symbol|)) (|f| (S)) ($ (S)))
         (SEQ (|assignSymbol| |x| |f| (QREFELT $ 6)) (EXIT |f|))) 
 
-(SDEFUN |ACF-;zeroOf;PS;8| ((|p| |Polynomial| S) ($ S))
+(SDEFUN |ACF-;zeroOf;PS;8| ((|p| (|Polynomial| S)) ($ (S)))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 23))))
@@ -37,7 +39,7 @@
                  (SPADCALL (SPADCALL |p| (QREFELT $ 25)) (|SPADfirst| |l|)
                            (QREFELT $ 10)))))) 
 
-(SDEFUN |ACF-;rootOf;PS;9| ((|p| |Polynomial| S) ($ S))
+(SDEFUN |ACF-;rootOf;PS;9| ((|p| (|Polynomial| S)) ($ (S)))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 23))))
@@ -46,7 +48,7 @@
                  (SPADCALL (SPADCALL |p| (QREFELT $ 25)) (|SPADfirst| |l|)
                            (QREFELT $ 12)))))) 
 
-(SDEFUN |ACF-;zerosOf;PL;10| ((|p| |Polynomial| S) ($ |List| S))
+(SDEFUN |ACF-;zerosOf;PL;10| ((|p| (|Polynomial| S)) ($ (|List| S)))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 23))))
@@ -55,7 +57,7 @@
                  (SPADCALL (SPADCALL |p| (QREFELT $ 25)) (|SPADfirst| |l|)
                            (QREFELT $ 15)))))) 
 
-(SDEFUN |ACF-;rootsOf;PL;11| ((|p| |Polynomial| S) ($ |List| S))
+(SDEFUN |ACF-;rootsOf;PL;11| ((|p| (|Polynomial| S)) ($ (|List| S)))
         (SPROG ((|l| (|List| (|Symbol|))))
                (COND
                 ((NULL (LETT |l| (SPADCALL |p| (QREFELT $ 23))))
@@ -65,7 +67,7 @@
                            (QREFELT $ 17)))))) 
 
 (SDEFUN |ACF-;zeroOf;SupSS;12|
-        ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|) ($ S))
+        ((|p| (|SparseUnivariatePolynomial| S)) (|y| (|Symbol|)) ($ (S)))
         (SPROG
          ((|r| (|Union| S "failed")) (|b| (S)) (|a| (S))
           (|d| (|NonNegativeInteger|)))
@@ -109,9 +111,9 @@
                               |d| (QREFELT $ 53))))))))))))))) 
 
 (SDEFUN |ACF-;binomialRoots|
-        ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|)
-         (|fn| |Mapping| S (|SparseUnivariatePolynomial| S) (|Symbol|))
-         ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| S)) (|y| (|Symbol|))
+         (|fn| (|Mapping| S (|SparseUnivariatePolynomial| S) (|Symbol|)))
+         ($ (|List| S)))
         (SPROG
          ((#1=#:G209 NIL) (#2=#:G203 NIL) (|i| NIL) (#3=#:G208 NIL)
           (|beta| (S)) (|x| (|Symbol|))
@@ -158,9 +160,9 @@
                           (EXIT (NREVERSE #3#)))))))))))) 
 
 (SDEFUN |ACF-;allroots|
-        ((|p| |SparseUnivariatePolynomial| S) (|y| |Symbol|)
-         (|fn| |Mapping| S (|SparseUnivariatePolynomial| S) (|Symbol|))
-         ($ |List| S))
+        ((|p| (|SparseUnivariatePolynomial| S)) (|y| (|Symbol|))
+         (|fn| (|Mapping| S (|SparseUnivariatePolynomial| S) (|Symbol|)))
+         ($ (|List| S)))
         (SPROG
          ((|ans| (|List| S)) (#1=#:G240 NIL)
           (|q| (|SparseUnivariatePolynomial| S)) (|alpha| (S)) (|x| (|Symbol|))

@@ -1,12 +1,12 @@
 
 (SDEFUN |PFOQ;torsion?;FdB;1|
-        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
-         ($ |Boolean|))
+        ((|d| (|FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R))
+         ($ (|Boolean|)))
         (QEQCAR (SPADCALL |d| (QREFELT $ 11)) 0)) 
 
 (SDEFUN |PFOQ;ratcurve|
-        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
-         (|modulus| UPUP) (|disc| |Integer|) ($ |NonNegativeInteger|))
+        ((|d| (|FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R))
+         (|modulus| (UPUP)) (|disc| (|Integer|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|m| #1=(|NonNegativeInteger|)) (|n| #1#) (|p| (|PositiveInteger|))
           (|bad| (|Integer|)) (|r| (|Fraction| (|Integer|)))
@@ -56,8 +56,9 @@
                    (EXIT (COND ((EQL |n| |m|) |n|) (#2# 0)))))))))) 
 
 (SDEFUN |PFOQ;rat|
-        ((|pp| UPUP) (|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
-         (|p| |PositiveInteger|) ($ |NonNegativeInteger|))
+        ((|pp| (UPUP))
+         (|d| (|FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R))
+         (|p| (|PositiveInteger|)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
@@ -105,8 +106,8 @@
              (|compiledLookupCheck| '/ (LIST '$ '$ '$) |gf|)))))) 
 
 (SDEFUN |PFOQ;possibleOrder|
-        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
-         ($ |NonNegativeInteger|))
+        ((|d| (|FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R))
+         ($ (|NonNegativeInteger|)))
         (SPROG ((|r| (UPUP)))
                (SEQ
                 (COND
@@ -126,8 +127,8 @@
                      $)))))))) 
 
 (SDEFUN |PFOQ;order;FdU;5|
-        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
-         ($ |Union| (|NonNegativeInteger|) "failed"))
+        ((|d| (|FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R))
+         ($ (|Union| (|NonNegativeInteger|) "failed")))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (COND
                 ((OR
@@ -143,10 +144,11 @@
                 ('T (CONS 0 |n|))))) 
 
 (SDEFUN |PFOQ;torsionIfCan;FdU;6|
-        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
-         ($ |Union|
-          (|Record| (|:| |order| (|NonNegativeInteger|)) (|:| |function| R))
-          "failed"))
+        ((|d| (|FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R))
+         ($
+          (|Union|
+           (|Record| (|:| |order| (|NonNegativeInteger|)) (|:| |function| R))
+           "failed")))
         (SPROG ((|g| (|Union| R "failed")) (|n| (|NonNegativeInteger|)))
                (SEQ
                 (COND

@@ -1,6 +1,7 @@
 
 (SDEFUN |DIFEXT-;differentiate;SMNniS;1|
-        ((|x| S) (|derivation| |Mapping| R R) (|n| |NonNegativeInteger|) ($ S))
+        ((|x| (S)) (|derivation| (|Mapping| R R)) (|n| (|NonNegativeInteger|))
+         ($ (S)))
         (SPROG ((#1=#:G130 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1) (LETT #1# |n|) G190
@@ -11,17 +12,18 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
-(SDEFUN |DIFEXT-;D;SMS;2| ((|x| S) (|derivation| |Mapping| R R) ($ S))
+(SDEFUN |DIFEXT-;D;SMS;2| ((|x| (S)) (|derivation| (|Mapping| R R)) ($ (S)))
         (SPADCALL |x| |derivation| (QREFELT $ 9))) 
 
 (SDEFUN |DIFEXT-;D;SMNniS;3|
-        ((|x| S) (|derivation| |Mapping| R R) (|n| |NonNegativeInteger|) ($ S))
+        ((|x| (S)) (|derivation| (|Mapping| R R)) (|n| (|NonNegativeInteger|))
+         ($ (S)))
         (SPADCALL |x| |derivation| |n| (QREFELT $ 13))) 
 
-(SDEFUN |DIFEXT-;differentiate;2S;4| ((|x| S) ($ S))
+(SDEFUN |DIFEXT-;differentiate;2S;4| ((|x| (S)) ($ (S)))
         (SPADCALL |x| (ELT $ 15) (QREFELT $ 9))) 
 
-(SDEFUN |DIFEXT-;differentiate;SSS;5| ((|x| S) (|v| |Symbol|) ($ S))
+(SDEFUN |DIFEXT-;differentiate;SSS;5| ((|x| (S)) (|v| (|Symbol|)) ($ (S)))
         (SPROG NIL
                (SPADCALL |x|
                          (CONS #'|DIFEXT-;differentiate;SSS;5!0|

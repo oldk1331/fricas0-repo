@@ -1,8 +1,8 @@
 
 (SDEFUN |PNTHEORY;MonicQuotient|
-        ((|a| |SparseUnivariatePolynomial| (|Integer|))
-         (|b| |SparseUnivariatePolynomial| (|Integer|))
-         ($ |SparseUnivariatePolynomial| (|Integer|)))
+        ((|a| (|SparseUnivariatePolynomial| (|Integer|)))
+         (|b| (|SparseUnivariatePolynomial| (|Integer|)))
+         ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
          ((|da| #1=(|NonNegativeInteger|))
           (|q| (|SparseUnivariatePolynomial| (|Integer|)))
@@ -35,12 +35,12 @@
                  (EXIT |q|))))))) 
 
 (SDEFUN |PNTHEORY;cyclotomic;ISup;2|
-        ((|n| |Integer|) ($ |SparseUnivariatePolynomial| (|Integer|)))
+        ((|n| (|Integer|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPADCALL |n| (QREFELT $ 35))) 
 
 (SDEFUN |PNTHEORY;euler;ISup;3|
-        ((|n| |Integer|)
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|n| (|Integer|))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|c| (|Fraction| (|Integer|))) (#2=#:G144 NIL)
@@ -99,8 +99,8 @@
                   (EXIT |p|))))))) 
 
 (SDEFUN |PNTHEORY;bernoulli;ISup;4|
-        ((|n| |Integer|)
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|n| (|Integer|))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|c| (|Fraction| (|Integer|)))
@@ -148,7 +148,7 @@
              (EXIT |p|))))))) 
 
 (SDEFUN |PNTHEORY;fixedDivisor;SupI;5|
-        ((|a| |SparseUnivariatePolynomial| (|Integer|)) ($ |Integer|))
+        ((|a| (|SparseUnivariatePolynomial| (|Integer|))) ($ (|Integer|)))
         (SPROG
          ((|g| (|Integer|)) (#1=#:G161 NIL) (|k| NIL)
           (|d| (|NonNegativeInteger|)))
@@ -167,7 +167,7 @@
               (EXIT |g|)))) 
 
 (SDEFUN |PNTHEORY;hermite;ISup;6|
-        ((|n| |Integer|) ($ |SparseUnivariatePolynomial| (|Integer|)))
+        ((|n| (|Integer|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
           (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G28| #1#)
@@ -213,8 +213,8 @@
              (QSETVELT (QREFELT $ 21) 2 |q|) (EXIT |p|))))))) 
 
 (SDEFUN |PNTHEORY;legendre;ISup;7|
-        ((|n| |Integer|)
-         ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        ((|n| (|Integer|))
+         ($ (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|p| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
@@ -268,7 +268,7 @@
              (QSETVELT (QREFELT $ 23) 2 |q|) (EXIT |p|))))))) 
 
 (SDEFUN |PNTHEORY;laguerre;ISup;8|
-        ((|n| |Integer|) ($ |SparseUnivariatePolynomial| (|Integer|)))
+        ((|n| (|Integer|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
           (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G44| #1#)
@@ -316,7 +316,7 @@
              (QSETVELT (QREFELT $ 22) 2 |q|) (EXIT |p|))))))) 
 
 (SDEFUN |PNTHEORY;chebyshevT;ISup;9|
-        ((|n| |Integer|) ($ |SparseUnivariatePolynomial| (|Integer|)))
+        ((|n| (|Integer|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
           (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G52| #1#)
@@ -361,7 +361,7 @@
              (QSETVELT (QREFELT $ 24) 2 |q|) (EXIT |p|))))))) 
 
 (SDEFUN |PNTHEORY;chebyshevU;ISup;10|
-        ((|n| |Integer|) ($ |SparseUnivariatePolynomial| (|Integer|)))
+        ((|n| (|Integer|)) ($ (|SparseUnivariatePolynomial| (|Integer|))))
         (SPROG
          ((|q| (|SparseUnivariatePolynomial| (|Integer|)))
           (|p| #1=(|SparseUnivariatePolynomial| (|Integer|))) (|#G60| #1#)

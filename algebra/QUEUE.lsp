@@ -1,5 +1,5 @@
 
-(SDEFUN |QUEUE;enqueue!;S$S;1| ((|e| S) (|q| $) ($ S))
+(SDEFUN |QUEUE;enqueue!;S$S;1| ((|e| (S)) (|q| ($)) ($ (S)))
         (SEQ
          (COND
           ((NULL (SPADCALL |q| (QREFELT $ 9)))
@@ -9,10 +9,10 @@
                      (SPADCALL |e| (QREFELT $ 10)) (QREFELT $ 13))))
          (EXIT |e|))) 
 
-(SDEFUN |QUEUE;insert!;S2$;2| ((|e| S) (|q| $) ($ $))
+(SDEFUN |QUEUE;insert!;S2$;2| ((|e| (S)) (|q| ($)) ($ ($)))
         (SEQ (SPADCALL |e| |q| (QREFELT $ 14)) (EXIT |q|))) 
 
-(SDEFUN |QUEUE;dequeue!;$S;3| ((|q| $) ($ S))
+(SDEFUN |QUEUE;dequeue!;$S;3| ((|q| ($)) ($ (S)))
         (SPROG ((|e| (S)))
                (SEQ
                 (COND ((SPADCALL |q| (QREFELT $ 17)) (|error| "empty queue"))
@@ -23,9 +23,9 @@
                                   (QREFELT $ 11))
                         (EXIT |e|))))))) 
 
-(SDEFUN |QUEUE;extract!;$S;4| ((|q| $) ($ S)) (SPADCALL |q| (QREFELT $ 18))) 
+(SDEFUN |QUEUE;extract!;$S;4| ((|q| ($)) ($ (S))) (SPADCALL |q| (QREFELT $ 18))) 
 
-(SDEFUN |QUEUE;rotate!;2$;5| ((|q| $) ($ $))
+(SDEFUN |QUEUE;rotate!;2$;5| ((|q| ($)) ($ ($)))
         (SEQ
          (COND ((SPADCALL |q| (QREFELT $ 17)) |q|)
                ('T
@@ -33,17 +33,18 @@
                  (SPADCALL (SPADCALL |q| (QREFELT $ 18)) |q| (QREFELT $ 14))
                  (EXIT |q|)))))) 
 
-(SDEFUN |QUEUE;front;$S;6| ((|q| $) ($ S))
+(SDEFUN |QUEUE;front;$S;6| ((|q| ($)) ($ (S)))
         (COND ((SPADCALL |q| (QREFELT $ 17)) (|error| "empty queue"))
               ('T (|SPADfirst| (SPADCALL |q| (QREFELT $ 9)))))) 
 
-(SDEFUN |QUEUE;inspect;$S;7| ((|q| $) ($ S)) (SPADCALL |q| (QREFELT $ 21))) 
+(SDEFUN |QUEUE;inspect;$S;7| ((|q| ($)) ($ (S))) (SPADCALL |q| (QREFELT $ 21))) 
 
-(SDEFUN |QUEUE;back;$S;8| ((|q| $) ($ S))
+(SDEFUN |QUEUE;back;$S;8| ((|q| ($)) ($ (S)))
         (COND ((SPADCALL |q| (QREFELT $ 17)) (|error| "empty queue"))
               ('T (SPADCALL (SPADCALL |q| (QREFELT $ 9)) (QREFELT $ 23))))) 
 
-(SDEFUN |QUEUE;queue;L$;9| ((|q| |List| S) ($ $)) (SPADCALL |q| (QREFELT $ 25))) 
+(SDEFUN |QUEUE;queue;L$;9| ((|q| (|List| S)) ($ ($)))
+        (SPADCALL |q| (QREFELT $ 25))) 
 
 (DECLAIM (NOTINLINE |Queue;|)) 
 

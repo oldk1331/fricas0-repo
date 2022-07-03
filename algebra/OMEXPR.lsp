@@ -1,7 +1,7 @@
 
 (SDEFUN |OMEXPR;outputOMArith1|
-        ((|dev| |OpenMathDevice|) (|sym| |String|)
-         (|args| |List| (|Expression| R)) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|sym| (|String|))
+         (|args| (|List| (|Expression| R))) ($ (|Void|)))
         (SPROG ((#1=#:G141 NIL) (|arg| NIL))
                (SEQ (SPADCALL |dev| (QREFELT $ 16))
                     (SPADCALL |dev| "arith1" |sym| (QREFELT $ 18))
@@ -14,8 +14,8 @@
                     (EXIT (SPADCALL |dev| (QREFELT $ 22)))))) 
 
 (SDEFUN |OMEXPR;outputOMLambda|
-        ((|dev| |OpenMathDevice|) (|ex| |Expression| R) (|var| |Expression| R)
-         ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|ex| (|Expression| R))
+         (|var| (|Expression| R)) ($ (|Void|)))
         (SEQ (SPADCALL |dev| (QREFELT $ 23))
              (SPADCALL |dev| "fns1" "lambda" (QREFELT $ 18))
              (SPADCALL |dev| (QREFELT $ 24))
@@ -25,8 +25,8 @@
              (EXIT (SPADCALL |dev| (QREFELT $ 26))))) 
 
 (SDEFUN |OMEXPR;outputOMInterval|
-        ((|dev| |OpenMathDevice|) (|lo| |Expression| R) (|hi| |Expression| R)
-         ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|lo| (|Expression| R))
+         (|hi| (|Expression| R)) ($ (|Void|)))
         (SEQ (SPADCALL |dev| (QREFELT $ 16))
              (SPADCALL |dev| "interval1" "interval" (QREFELT $ 18))
              (SPADCALL |dev| |lo| NIL (QREFELT $ 21))
@@ -34,8 +34,8 @@
              (EXIT (SPADCALL |dev| (QREFELT $ 22))))) 
 
 (SDEFUN |OMEXPR;outputOMIntInterval|
-        ((|dev| |OpenMathDevice|) (|lo| |Expression| R) (|hi| |Expression| R)
-         ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|lo| (|Expression| R))
+         (|hi| (|Expression| R)) ($ (|Void|)))
         (SEQ (SPADCALL |dev| (QREFELT $ 16))
              (SPADCALL |dev| "interval1" "integer_interval" (QREFELT $ 18))
              (SPADCALL |dev| |lo| NIL (QREFELT $ 21))
@@ -43,7 +43,8 @@
              (EXIT (SPADCALL |dev| (QREFELT $ 22))))) 
 
 (SDEFUN |OMEXPR;outputOMBinomial|
-        ((|dev| |OpenMathDevice|) (|args| |List| (|Expression| R)) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|args| (|List| (|Expression| R)))
+         ($ (|Void|)))
         (SPROG ((#1=#:G152 NIL) (|arg| NIL))
                (SEQ
                 (COND
@@ -63,14 +64,16 @@
                        (EXIT (SPADCALL |dev| (QREFELT $ 22))))))))) 
 
 (SDEFUN |OMEXPR;outputOMPower|
-        ((|dev| |OpenMathDevice|) (|args| |List| (|Expression| R)) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|args| (|List| (|Expression| R)))
+         ($ (|Void|)))
         (COND
          ((NULL (EQL (LENGTH |args|) 2))
           (|error| "Wrong number of arguments to power"))
          ('T (|OMEXPR;outputOMArith1| |dev| "power" |args| $)))) 
 
 (SDEFUN |OMEXPR;outputOMDefsum|
-        ((|dev| |OpenMathDevice|) (|args| |List| (|Expression| R)) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|args| (|List| (|Expression| R)))
+         ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (LENGTH |args|) 5 (QREFELT $ 28))
@@ -89,7 +92,8 @@
                 (EXIT (SPADCALL |dev| (QREFELT $ 22)))))))) 
 
 (SDEFUN |OMEXPR;outputOMDefprod|
-        ((|dev| |OpenMathDevice|) (|args| |List| (|Expression| R)) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|args| (|List| (|Expression| R)))
+         ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (LENGTH |args|) 5 (QREFELT $ 28))
@@ -108,7 +112,8 @@
                 (EXIT (SPADCALL |dev| (QREFELT $ 22)))))))) 
 
 (SDEFUN |OMEXPR;outputOMDefint|
-        ((|dev| |OpenMathDevice|) (|args| |List| (|Expression| R)) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|args| (|List| (|Expression| R)))
+         ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (LENGTH |args|) 5 (QREFELT $ 28))
@@ -127,7 +132,8 @@
                 (EXIT (SPADCALL |dev| (QREFELT $ 22)))))))) 
 
 (SDEFUN |OMEXPR;outputOMInt|
-        ((|dev| |OpenMathDevice|) (|args| |List| (|Expression| R)) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|args| (|List| (|Expression| R)))
+         ($ (|Void|)))
         (SEQ
          (COND
           ((SPADCALL (LENGTH |args|) 3 (QREFELT $ 28))
@@ -143,8 +149,8 @@
                 (EXIT (SPADCALL |dev| (QREFELT $ 22)))))))) 
 
 (SDEFUN |OMEXPR;outputOMFunction|
-        ((|dev| |OpenMathDevice|) (|op| |Symbol|)
-         (|args| |List| (|Expression| R)) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|op| (|Symbol|))
+         (|args| (|List| (|Expression| R))) ($ (|Void|)))
         (SPROG
          ((#1=#:G183 NIL) (|arg| NIL)
           (|omOp|
@@ -209,7 +215,7 @@
                              (SPADCALL |op| (QREFELT $ 38)))))))))))) 
 
 (SDEFUN |OMEXPR;outputOMExpr|
-        ((|dev| |OpenMathDevice|) (|ex| |Expression| R) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|ex| (|Expression| R)) ($ (|Void|)))
         (SPROG
          ((|k| (|Kernel| (|Expression| R))) (#1=#:G210 NIL)
           (|z|
@@ -311,7 +317,7 @@
              #2# (EXIT #1#))))))) 
 
 (SDEFUN |OMEXPR;OMwrite;EBS;13|
-        ((|ex| |Expression| R) (|wholeObj| |Boolean|) ($ |String|))
+        ((|ex| (|Expression| R)) (|wholeObj| (|Boolean|)) ($ (|String|)))
         (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "") (LETT |sp| (OM-STRINGTOSTRINGPTR |s|))
                     (LETT |dev|
@@ -322,23 +328,23 @@
                     (LETT |s| (OM-STRINGPTRTOSTRING |sp|)) (EXIT |s|)))) 
 
 (SDEFUN |OMEXPR;OMwrite;OmdEV;14|
-        ((|dev| |OpenMathDevice|) (|ex| |Expression| R) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|ex| (|Expression| R)) ($ (|Void|)))
         (SEQ (SPADCALL |dev| (QREFELT $ 69))
              (|OMEXPR;outputOMExpr| |dev| |ex| $)
              (EXIT (SPADCALL |dev| (QREFELT $ 70))))) 
 
 (SDEFUN |OMEXPR;OMwrite;OmdEBV;15|
-        ((|dev| |OpenMathDevice|) (|ex| |Expression| R) (|wholeObj| |Boolean|)
-         ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|ex| (|Expression| R))
+         (|wholeObj| (|Boolean|)) ($ (|Void|)))
         (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 69))))
              (|OMEXPR;outputOMExpr| |dev| |ex| $)
              (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 70))))))) 
 
 (SDEFUN |OMEXPR;OMwrite;OmdEV;16|
-        ((|dev| |OpenMathDevice|) (|ex| |Expression| R) ($ |Void|))
+        ((|dev| (|OpenMathDevice|)) (|ex| (|Expression| R)) ($ (|Void|)))
         (SPADCALL |dev| |ex| 'T (QREFELT $ 21))) 
 
-(SDEFUN |OMEXPR;OMwrite;ES;17| ((|ex| |Expression| R) ($ |String|))
+(SDEFUN |OMEXPR;OMwrite;ES;17| ((|ex| (|Expression| R)) ($ (|String|)))
         (SPADCALL |ex| 'T (QREFELT $ 68))) 
 
 (DECLAIM (NOTINLINE |ExpressionToOpenMath;|)) 

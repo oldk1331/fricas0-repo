@@ -1,11 +1,11 @@
 
-(SDEFUN |PMASS;constant;SE;1| ((|x| |Symbol|) ($ |Expression| (|Integer|)))
+(SDEFUN |PMASS;constant;SE;1| ((|x| (|Symbol|)) ($ (|Expression| (|Integer|))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 10))) 
 
-(SDEFUN |PMASS;multiple;SE;2| ((|x| |Symbol|) ($ |Expression| (|Integer|)))
+(SDEFUN |PMASS;multiple;SE;2| ((|x| (|Symbol|)) ($ (|Expression| (|Integer|))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 12))) 
 
-(SDEFUN |PMASS;optional;SE;3| ((|x| |Symbol|) ($ |Expression| (|Integer|)))
+(SDEFUN |PMASS;optional;SE;3| ((|x| (|Symbol|)) ($ (|Expression| (|Integer|))))
         (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |PatternMatchAssertions;|)) 

@@ -1,5 +1,5 @@
 
-(SDEFUN |MATLIN;rowAllZeroes?| ((|x| M) (|i| |Integer|) ($ |Boolean|))
+(SDEFUN |MATLIN;rowAllZeroes?| ((|x| (M)) (|i| (|Integer|)) ($ (|Boolean|)))
         (SPROG ((#1=#:G144 NIL) (#2=#:G145 NIL) (#3=#:G146 NIL) (|j| NIL))
                (SEQ
                 (EXIT
@@ -22,7 +22,7 @@
                   (EXIT 'T)))
                 #4# (EXIT #2#)))) 
 
-(SDEFUN |MATLIN;colAllZeroes?| ((|x| M) (|j| |Integer|) ($ |Boolean|))
+(SDEFUN |MATLIN;colAllZeroes?| ((|x| (M)) (|j| (|Integer|)) ($ (|Boolean|)))
         (SPROG ((#1=#:G151 NIL) (#2=#:G152 NIL) (#3=#:G153 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -46,8 +46,9 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |MATLIN;minorDet|
-        ((|x| M) (|m| |Integer|) (|l| |List| (|Integer|)) (|i| |Integer|)
-         (|v| |PrimitiveArray| (|Union| R #1="uncomputed")) ($ R))
+        ((|x| (M)) (|m| (|Integer|)) (|l| (|List| (|Integer|)))
+         (|i| (|Integer|)) (|v| (|PrimitiveArray| (|Union| R #1="uncomputed")))
+         ($ (R)))
         (SPROG
          ((|j| (|Integer|)) (|rl| (|List| (|Integer|))) (|pos| (|Boolean|))
           (#2=#:G179 NIL) (|ans| (R)) (|md| (R)) (#3=#:G166 NIL)
@@ -120,7 +121,7 @@
                                    NIL (GO G190) G191 (EXIT NIL)))))))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |MATLIN;minordet;MR;4| ((|x| M) ($ R))
+(SDEFUN |MATLIN;minordet;MR;4| ((|x| (M)) ($ (R)))
         (SPROG
          ((#1=#:G194 NIL) (|i| NIL) (#2=#:G193 NIL) (#3=#:G192 NIL)
           (|maxC| (|Integer|)) (|minR| (|Integer|))
@@ -164,7 +165,8 @@
                          (EXIT (NREVERSE #2#))))
                    0 |v| $)))))))) 
 
-(SDEFUN |MATLIN;elRow1!;M2IM;5| ((|m| M) (|i| |Integer|) (|j| |Integer|) ($ M))
+(SDEFUN |MATLIN;elRow1!;M2IM;5|
+        ((|m| (M)) (|i| (|Integer|)) (|j| (|Integer|)) ($ (M)))
         (SPROG ((|vec| (|Row|)))
                (SEQ (LETT |vec| (SPADCALL |m| |i| (QREFELT $ 32)))
                     (SPADCALL |m| |i| (SPADCALL |m| |j| (QREFELT $ 32))
@@ -172,7 +174,7 @@
                     (SPADCALL |m| |j| |vec| (QREFELT $ 33)) (EXIT |m|)))) 
 
 (SDEFUN |MATLIN;elRow2!;MR2IM;6|
-        ((|m| M) (|a| R) (|i| |Integer|) (|j| |Integer|) ($ M))
+        ((|m| (M)) (|a| (R)) (|i| (|Integer|)) (|j| (|Integer|)) ($ (M)))
         (SPROG ((|vec| (|Row|)))
                (SEQ
                 (LETT |vec|
@@ -191,7 +193,7 @@
           (RETURN (PROGN (SPADCALL |a| |r1| (QREFELT $ 22)))))) 
 
 (SDEFUN |MATLIN;elColumn2!;MR2IM;7|
-        ((|m| M) (|a| R) (|i| |Integer|) (|j| |Integer|) ($ M))
+        ((|m| (M)) (|a| (R)) (|i| (|Integer|)) (|j| (|Integer|)) ($ (M)))
         (SPROG ((|vec| (|Col|)))
                (SEQ
                 (LETT |vec|
@@ -209,7 +211,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |a| |r1| (QREFELT $ 22)))))) 
 
-(SDEFUN |MATLIN;fractionFreeGauss!;2M;8| ((|x| M) ($ M))
+(SDEFUN |MATLIN;fractionFreeGauss!;2M;8| ((|x| (M)) ($ (M)))
         (SPROG
          ((#1=#:G240 NIL) (|j| NIL) (|lasti| #2=(|Integer|)) (#3=#:G232 NIL)
           (#4=#:G234 NIL) (|i| #5=(|Integer|)) (|b| (R)) (#6=#:G215 NIL)
@@ -447,7 +449,7 @@
                                         G191 (EXIT NIL))))))
                            (EXIT |x|)))))))) 
 
-(SDEFUN |MATLIN;lastStep| ((|x| M) ($ M))
+(SDEFUN |MATLIN;lastStep| ((|x| (M)) ($ (M)))
         (SPROG
          ((|iCol| #1=(|Integer|)) (#2=#:G245 NIL) (|ss| (R)) (#3=#:G242 NIL)
           (#4=#:G241 (R)) (#5=#:G243 (R)) (#6=#:G254 NIL) (|k| NIL)
@@ -528,7 +530,7 @@
               (EXIT
                (SPADCALL |x| |minR| |maxR| |maxC1| |exCol| (QREFELT $ 54)))))) 
 
-(SDEFUN |MATLIN;invertIfCan;MU;10| ((|y| M) ($ |Union| M "failed"))
+(SDEFUN |MATLIN;invertIfCan;MU;10| ((|y| (M)) ($ (|Union| M "failed")))
         (SPROG
          ((|den| (|Union| R "failed"))
           (|adjRec| (|Record| (|:| |adjMat| M) (|:| |detMat| R)))
@@ -550,7 +552,7 @@
                                          (QREFELT $ 58)))))))))))) 
 
 (SDEFUN |MATLIN;adjoint;MR;11|
-        ((|y| M) ($ |Record| (|:| |adjMat| M) (|:| |detMat| R)))
+        ((|y| (M)) ($ (|Record| (|:| |adjMat| M) (|:| |detMat| R))))
         (SPROG
          ((|det| (R)) (|ffr| (M)) (|x| (M)) (|maxC| (|Integer|))
           (|maxR| (|Integer|)) (|nr| (|NonNegativeInteger|)))
@@ -572,24 +574,25 @@
                  (LETT |det| (SPADCALL |ffr| |maxR| |maxC| (QREFELT $ 51)))
                  (EXIT (CONS (|MATLIN;lastStep| |ffr| $) |det|)))))))) 
 
-(SDEFUN |MATLIN;rowEchelon;2M;12| ((|y| M) ($ M)) (SPADCALL |y| (QREFELT $ 65))) 
+(SDEFUN |MATLIN;rowEchelon;2M;12| ((|y| (M)) ($ (M)))
+        (SPADCALL |y| (QREFELT $ 65))) 
 
-(SDEFUN |MATLIN;rank;MNni;13| ((|y| M) ($ |NonNegativeInteger|))
+(SDEFUN |MATLIN;rank;MNni;13| ((|y| (M)) ($ (|NonNegativeInteger|)))
         (SPADCALL |y| (QREFELT $ 67))) 
 
-(SDEFUN |MATLIN;nullity;MNni;14| ((|y| M) ($ |NonNegativeInteger|))
+(SDEFUN |MATLIN;nullity;MNni;14| ((|y| (M)) ($ (|NonNegativeInteger|)))
         (SPADCALL |y| (QREFELT $ 69))) 
 
-(SDEFUN |MATLIN;determinant;MR;15| ((|y| M) ($ R))
+(SDEFUN |MATLIN;determinant;MR;15| ((|y| (M)) ($ (R)))
         (SPADCALL |y| (QREFELT $ 71))) 
 
-(SDEFUN |MATLIN;inverse;MU;16| ((|y| M) ($ |Union| M "failed"))
+(SDEFUN |MATLIN;inverse;MU;16| ((|y| (M)) ($ (|Union| M "failed")))
         (SPADCALL |y| (QREFELT $ 73))) 
 
-(SDEFUN |MATLIN;nullSpace;ML;17| ((|y| M) ($ |List| |Col|))
+(SDEFUN |MATLIN;nullSpace;ML;17| ((|y| (M)) ($ (|List| |Col|)))
         (SPADCALL |y| (QREFELT $ 76))) 
 
-(SDEFUN |MATLIN;nullSpace;ML;18| ((|y| M) ($ |List| |Col|))
+(SDEFUN |MATLIN;nullSpace;ML;18| ((|y| (M)) ($ (|List| |Col|)))
         (SPROG ((#1=#:G286 NIL) (|v| NIL) (#2=#:G285 NIL))
                (SEQ
                 (PROGN
@@ -618,10 +621,10 @@
 
 (SDEFUN |MATLIN;nullSpace;ML;18!0| ((|r1| NIL) ($$ NIL)) |r1|) 
 
-(SDEFUN |MATLIN;nullSpace;ML;19| ((|m| M) ($ |List| |Col|))
+(SDEFUN |MATLIN;nullSpace;ML;19| ((|m| (M)) ($ (|List| |Col|)))
         (SPADCALL |m| (QREFELT $ 88))) 
 
-(SDEFUN |MATLIN;determinant;MR;20| ((|y| M) ($ R))
+(SDEFUN |MATLIN;determinant;MR;20| ((|y| (M)) ($ (R)))
         (SPROG ((|fm| (M)) (|ndim| (|NonNegativeInteger|)))
                (SEQ
                 (COND
@@ -639,7 +642,7 @@
                               (SPADCALL |fm| (QREFELT $ 12))
                               (QREFELT $ 51))))))))) 
 
-(SDEFUN |MATLIN;rank;MNni;21| ((|x| M) ($ |NonNegativeInteger|))
+(SDEFUN |MATLIN;rank;MNni;21| ((|x| (M)) ($ (|NonNegativeInteger|)))
         (SPROG
          ((|rk| (|NonNegativeInteger|)) (#1=#:G293 NIL) (|i| (|Integer|))
           (|y| (M)) (|rh| (|NonNegativeInteger|)))
@@ -671,7 +674,7 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |rk|)))) 
 
-(SDEFUN |MATLIN;nullity;MNni;22| ((|x| M) ($ |NonNegativeInteger|))
+(SDEFUN |MATLIN;nullity;MNni;22| ((|x| (M)) ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G298 NIL))
                (PROG1
                    (LETT #1#
@@ -681,7 +684,8 @@
                                    '(|Integer|) #1#)))) 
 
 (SDEFUN |MATLIN;normalizedDivide;2RR;23|
-        ((|n| R) (|d| R) ($ |Record| (|:| |quotient| R) (|:| |remainder| R)))
+        ((|n| (R)) (|d| (R))
+         ($ (|Record| (|:| |quotient| R) (|:| |remainder| R))))
         (SPROG ((|qr| (|Record| (|:| |quotient| R) (|:| |remainder| R))))
                (SEQ (LETT |qr| (SPADCALL |n| |d| (QREFELT $ 91)))
                     (EXIT
@@ -715,10 +719,11 @@
                         (EXIT |qr|)))))))) 
 
 (SDEFUN |MATLIN;normalizedDivide;2RR;24|
-        ((|n| R) (|d| R) ($ |Record| (|:| |quotient| R) (|:| |remainder| R)))
+        ((|n| (R)) (|d| (R))
+         ($ (|Record| (|:| |quotient| R) (|:| |remainder| R))))
         (SPADCALL |n| |d| (QREFELT $ 91))) 
 
-(SDEFUN |MATLIN;rowEchelon;2M;25| ((|y| M) ($ M))
+(SDEFUN |MATLIN;rowEchelon;2M;25| ((|y| (M)) ($ (M)))
         (SPROG
          ((|i| #1=(|Integer|)) (#2=#:G343 NIL) (|k1| NIL)
           (|qr| (|Record| (|:| |quotient| R) (|:| |remainder| R)))
@@ -978,7 +983,7 @@
                #11# (EXIT #9#))
               (EXIT |x|)))) 
 
-(SDEFUN |MATLIN;determinant;MR;26| ((|x| M) ($ R))
+(SDEFUN |MATLIN;determinant;MR;26| ((|x| (M)) ($ (R)))
         (SPADCALL |x| (QREFELT $ 31))) 
 
 (DECLAIM (NOTINLINE |MatrixLinearAlgebraFunctions;|)) 

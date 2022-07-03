@@ -1,11 +1,12 @@
 
 (SDEFUN |PAN2EXPR;coerce;PE;1|
-        ((|p| |Polynomial| (|AlgebraicNumber|)) ($ |Expression| (|Integer|)))
+        ((|p| (|Polynomial| (|AlgebraicNumber|)))
+         ($ (|Expression| (|Integer|))))
         (SPADCALL (ELT $ 8) (ELT $ 10) |p| (QREFELT $ 15))) 
 
 (SDEFUN |PAN2EXPR;coerce;FE;2|
-        ((|rf| |Fraction| (|Polynomial| (|AlgebraicNumber|)))
-         ($ |Expression| (|Integer|)))
+        ((|rf| (|Fraction| (|Polynomial| (|AlgebraicNumber|))))
+         ($ (|Expression| (|Integer|))))
         (SPADCALL (SPADCALL (SPADCALL |rf| (QREFELT $ 18)) (QREFELT $ 16))
                   (SPADCALL (SPADCALL |rf| (QREFELT $ 19)) (QREFELT $ 16))
                   (QREFELT $ 20))) 

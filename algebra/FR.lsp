@@ -1,5 +1,5 @@
 
-(SDEFUN |FR;convert;$If;1| ((|x| $) ($ |InputForm|))
+(SDEFUN |FR;convert;$If;1| ((|x| ($)) ($ (|InputForm|)))
         (SPROG
          ((|l| (|List| (|InputForm|))) (|iFun| (|List| (|InputForm|)))
           (|iExpon| (|InputForm|)) (|iFactor| (|InputForm|)) (#1=#:G216 NIL)
@@ -76,44 +76,48 @@
                              (SPADCALL (SPADCALL '* (QREFELT $ 27)) |l|
                                        (QREFELT $ 30))))))))))))))) 
 
-(SDEFUN |FR;nilFactor;RNni$;2| ((|r| R) (|i| |NonNegativeInteger|) ($ $))
+(SDEFUN |FR;nilFactor;RNni$;2| ((|r| (R)) (|i| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |r| |i| (CONS 0 "nil") (QREFELT $ 35))) 
 
-(SDEFUN |FR;sqfrFactor;RNni$;3| ((|r| R) (|i| |NonNegativeInteger|) ($ $))
+(SDEFUN |FR;sqfrFactor;RNni$;3|
+        ((|r| (R)) (|i| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |r| |i| (CONS 1 "sqfr") (QREFELT $ 35))) 
 
 (SDEFUN |FR;irreducibleFactor;RNni$;4|
-        ((|r| R) (|i| |NonNegativeInteger|) ($ $))
+        ((|r| (R)) (|i| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |r| |i| (CONS 2 "irred") (QREFELT $ 35))) 
 
-(SDEFUN |FR;primeFactor;RNni$;5| ((|r| R) (|i| |NonNegativeInteger|) ($ $))
+(SDEFUN |FR;primeFactor;RNni$;5|
+        ((|r| (R)) (|i| (|NonNegativeInteger|)) ($ ($)))
         (SPADCALL |r| |i| (CONS 3 "prime") (QREFELT $ 35))) 
 
-(SDEFUN |FR;unit?;$B;6| ((|u| $) ($ |Boolean|))
+(SDEFUN |FR;unit?;$B;6| ((|u| ($)) ($ (|Boolean|)))
         (COND ((NULL (QCDR |u|)) (NULL (SPADCALL (QCAR |u|) (QREFELT $ 40))))
               ('T NIL))) 
 
 (PUT '|FR;factorList;$L;7| '|SPADreplace| 'QCDR) 
 
 (SDEFUN |FR;factorList;$L;7|
-        ((|u| $)
-         ($ |List|
-          (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
-                    (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|)))))
+        ((|u| ($))
+         ($
+          (|List|
+           (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                     (|:| |factor| R)
+                     (|:| |exponent| (|NonNegativeInteger|))))))
         (QCDR |u|)) 
 
 (PUT '|FR;unit;$R;8| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |FR;unit;$R;8| ((|u| $) ($ R)) (QCAR |u|)) 
+(SDEFUN |FR;unit;$R;8| ((|u| ($)) ($ (R))) (QCAR |u|)) 
 
-(SDEFUN |FR;numberOfFactors;$Nni;9| ((|u| $) ($ |NonNegativeInteger|))
+(SDEFUN |FR;numberOfFactors;$Nni;9| ((|u| ($)) ($ (|NonNegativeInteger|)))
         (LENGTH (QCDR |u|))) 
 
-(SDEFUN |FR;Zero;$;10| (($ $))
+(SDEFUN |FR;Zero;$;10| (($ ($)))
         (CONS (|spadConstant| $ 15)
               (LIST (VECTOR (CONS 0 "nil") (|spadConstant| $ 45) 1)))) 
 
-(SDEFUN |FR;zero?;$B;11| ((|u| $) ($ |Boolean|))
+(SDEFUN |FR;zero?;$B;11| ((|u| ($)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (QCDR |u|) 1 (QREFELT $ 46))
           (COND
@@ -125,9 +129,9 @@
            (#1# NIL)))
          (#1# NIL))) 
 
-(SDEFUN |FR;One;$;12| (($ $)) (CONS (|spadConstant| $ 15) NIL)) 
+(SDEFUN |FR;One;$;12| (($ ($))) (CONS (|spadConstant| $ 15) NIL)) 
 
-(SDEFUN |FR;one?;$B;13| ((|u| $) ($ |Boolean|))
+(SDEFUN |FR;one?;$B;13| ((|u| ($)) ($ (|Boolean|)))
         (COND
          ((NULL (QCDR |u|))
           (SPADCALL (QCAR |u|) (|spadConstant| $ 15) (QREFELT $ 17)))
@@ -136,29 +140,33 @@
 (PUT '|FR;mkFF| '|SPADreplace| 'CONS) 
 
 (SDEFUN |FR;mkFF|
-        ((|r| R)
-         (|x| |List|
-          (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
-                    (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|))))
-         ($ $))
+        ((|r| (R))
+         (|x|
+          (|List|
+           (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                     (|:| |factor| R)
+                     (|:| |exponent| (|NonNegativeInteger|)))))
+         ($ ($)))
         (CONS |r| |x|)) 
 
-(SDEFUN |FR;coerce;I$;15| ((|j| |Integer|) ($ $))
+(SDEFUN |FR;coerce;I$;15| ((|j| (|Integer|)) ($ ($)))
         (SPADCALL (SPADCALL |j| (QREFELT $ 49)) (QREFELT $ 50))) 
 
-(SDEFUN |FR;characteristic;Nni;16| (($ |NonNegativeInteger|))
+(SDEFUN |FR;characteristic;Nni;16| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 52))) 
 
-(SDEFUN |FR;*;I2$;17| ((|i| |Integer|) (|u| $) ($ $))
+(SDEFUN |FR;*;I2$;17| ((|i| (|Integer|)) (|u| ($)) ($ ($)))
         (SPADCALL (SPADCALL |i| (QREFELT $ 51)) |u| (QREFELT $ 54))) 
 
-(SDEFUN |FR;*;R2$;18| ((|r| R) (|u| $) ($ $))
+(SDEFUN |FR;*;R2$;18| ((|r| (R)) (|u| ($)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 50)) |u| (QREFELT $ 54))) 
 
 (SDEFUN |FR;factors;$L;19|
-        ((|u| $)
-         ($ |List|
-          (|Record| (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|)))))
+        ((|u| ($))
+         ($
+          (|List|
+           (|Record| (|:| |factor| R)
+                     (|:| |exponent| (|NonNegativeInteger|))))))
         (SPROG ((#1=#:G292 NIL) (|fe| NIL) (#2=#:G291 NIL))
                (SEQ
                 (PROGN
@@ -176,7 +184,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |FR;expand;$R;20| ((|u| $) ($ R))
+(SDEFUN |FR;expand;$R;20| ((|u| ($)) ($ (R)))
         (SPROG
          ((#1=#:G295 NIL) (#2=#:G294 (R)) (#3=#:G296 (R)) (#4=#:G298 NIL)
           (|y| NIL))
@@ -204,12 +212,13 @@
                     (QREFELT $ 61))))) 
 
 (SDEFUN |FR;makeFR;RL$;21|
-        ((|u| R)
-         (|x| |List|
-          (|Record|
-           (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-           (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|))))
-         ($ $))
+        ((|u| (R))
+         (|x|
+          (|List|
+           (|Record|
+            (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+            (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|)))))
+         ($ ($)))
         (SPROG
          ((|f|
            #5=(|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
@@ -300,13 +309,13 @@
 
 (PUT '|FR;rational?;$B;22| '|SPADreplace| '(XLAM (|x|) 'T)) 
 
-(SDEFUN |FR;rational?;$B;22| ((|x| $) ($ |Boolean|)) 'T) 
+(SDEFUN |FR;rational?;$B;22| ((|x| ($)) ($ (|Boolean|))) 'T) 
 
 (SDEFUN |FR;rationalIfCan;$U;23|
-        ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        ((|x| ($)) ($ (|Union| (|Fraction| (|Integer|)) "failed")))
         (CONS 0 (SPADCALL |x| (QREFELT $ 71)))) 
 
-(SDEFUN |FR;rational;$F;24| ((|x| $) ($ |Fraction| (|Integer|)))
+(SDEFUN |FR;rational;$F;24| ((|x| ($)) ($ (|Fraction| (|Integer|))))
         (SPROG
          ((#1=#:G339 NIL) (#2=#:G338 #3=(|Fraction| (|Integer|)))
           (#4=#:G340 #3#) (#5=#:G342 NIL) (|f| NIL))
@@ -336,10 +345,10 @@
                      (COND (#1# #2#) ('T (|spadConstant| $ 78))))
                     (QREFELT $ 79))))) 
 
-(SDEFUN |FR;elt;3$;25| ((|x| $) (|v| $) ($ $))
+(SDEFUN |FR;elt;3$;25| ((|x| ($)) (|v| ($)) ($ ($)))
         (SPADCALL |x| (SPADCALL |v| (QREFELT $ 62)) (QREFELT $ 80))) 
 
-(SDEFUN |FR;eval;$L$;26| ((|x| $) (|l| |List| (|Equation| $)) ($ $))
+(SDEFUN |FR;eval;$L$;26| ((|x| ($)) (|l| (|List| (|Equation| $))) ($ ($)))
         (SPROG ((#1=#:G347 NIL) (|e| NIL) (#2=#:G346 NIL))
                (SEQ
                 (SPADCALL |x|
@@ -368,7 +377,7 @@
                           (QREFELT $ 88))))) 
 
 (SDEFUN |FR;eval;$LL$;27|
-        ((|x| $) (|ls| |List| (|Symbol|)) (|lv| |List| $) ($ $))
+        ((|x| ($)) (|ls| (|List| (|Symbol|))) (|lv| (|List| $)) ($ ($)))
         (SPROG ((#1=#:G351 NIL) (|v| NIL) (#2=#:G350 NIL))
                (SEQ
                 (SPADCALL |x| |ls|
@@ -388,7 +397,7 @@
                                 (EXIT (NREVERSE #2#))))
                           (QREFELT $ 93))))) 
 
-(SDEFUN |FR;convert;$F;28| ((|x| $) ($ |Float|))
+(SDEFUN |FR;convert;$F;28| ((|x| ($)) ($ (|Float|)))
         (SPROG
          ((#1=#:G358 NIL) (#2=#:G357 #3=(|Float|)) (#4=#:G359 #3#)
           (#5=#:G361 NIL) (|f| NIL))
@@ -416,7 +425,7 @@
                      (COND (#1# #2#) ('T (|spadConstant| $ 99))))
                     (QREFELT $ 98))))) 
 
-(SDEFUN |FR;convert;$Df;29| ((|x| $) ($ |DoubleFloat|))
+(SDEFUN |FR;convert;$Df;29| ((|x| ($)) ($ (|DoubleFloat|)))
         (SPROG
          ((#1=#:G368 NIL) (#2=#:G367 #3=(|DoubleFloat|)) (#4=#:G369 #3#)
           (#5=#:G371 NIL) (|f| NIL))
@@ -442,7 +451,7 @@
                           (LETT #5# (CDR #5#)) (GO G190) G191 (EXIT NIL))
                      (COND (#1# #2#) ('T 1.0))))))) 
 
-(SDEFUN |FR;*;3$;30| ((|u| $) (|v| $) ($ $))
+(SDEFUN |FR;*;3$;30| ((|u| ($)) (|v| ($)) ($ ($)))
         (SPROG
          ((|res|
            (|List|
@@ -512,7 +521,7 @@
                                     (QREFELT $ 61))
                           |res| $)))))))))) 
 
-(SDEFUN |FR;^;$Nni$;31| ((|u| $) (|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |FR;^;$Nni$;31| ((|u| ($)) (|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG ((#1=#:G407 NIL) (|x| NIL) (#2=#:G406 NIL))
                (SEQ
                 (COND ((EQL |n| 0) (|spadConstant| $ 43)) ((EQL |n| 1) |u|)
@@ -539,7 +548,7 @@
                               (EXIT (NREVERSE #2#))))
                         $)))))) 
 
-(SDEFUN |FR;coerce;$Of;32| ((|x| $) ($ |OutputForm|))
+(SDEFUN |FR;coerce;$Of;32| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|e| (|OutputForm|)) (|l| (|List| (|OutputForm|))) (#1=#:G424 NIL)
           (|rec| NIL)
@@ -601,18 +610,20 @@
                                    (QREFELT $ 106))
                          |e| (QREFELT $ 109))))))))))))))) 
 
-(SDEFUN |FR;retract;$R;33| ((|u| $) ($ R)) (SPADCALL |u| (QREFELT $ 62))) 
+(SDEFUN |FR;retract;$R;33| ((|u| ($)) ($ (R))) (SPADCALL |u| (QREFELT $ 62))) 
 
-(SDEFUN |FR;retractIfCan;$U;34| ((|u| $) ($ |Union| R "failed"))
+(SDEFUN |FR;retractIfCan;$U;34| ((|u| ($)) ($ (|Union| R "failed")))
         (CONS 0 (SPADCALL |u| (QREFELT $ 62)))) 
 
 (SDEFUN |FR;LispLessP|
-        ((|y| |Record|
-          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|)))
-         (|y1| |Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
-          (|:| |exponent| (|NonNegativeInteger|)))
-         ($ |Boolean|))
+        ((|y|
+          (|Record|
+           (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+           (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|))))
+         (|y1|
+          (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                    (|:| |exponent| (|NonNegativeInteger|))))
+         ($ (|Boolean|)))
         (COND
          ((QREFELT $ 32)
           (SPADCALL (QVELT |y| 1) (QVELT |y1| 1) (QREFELT $ 117)))
@@ -621,23 +632,23 @@
          ('T (NULL (GGREATERP (QVELT |y| 1) (QVELT |y1| 1)))))) 
 
 (SDEFUN |FR;stricterFlag|
-        ((|fl1| |Union| #1="nil" #2="sqfr" #3="irred" #4="prime")
-         (|fl2| |Union| #1# #2# #3# #4#) ($ |Union| #1# #2# #3# #4#))
+        ((|fl1| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+         (|fl2| (|Union| #1# #2# #3# #4#)) ($ (|Union| #1# #2# #3# #4#)))
         (COND ((QEQCAR |fl1| 3) |fl1|)
               ((QEQCAR |fl1| 2) (COND ((QEQCAR |fl2| 3) |fl2|) (#5='T |fl1|)))
               ((QEQCAR |fl1| 1) (COND ((QEQCAR |fl2| 0) |fl1|) (#5# |fl2|)))
               (#5# |fl2|))) 
 
-(SDEFUN |FR;coerce;R$;37| ((|r| R) ($ $)) (SPADCALL |r| (QREFELT $ 121))) 
+(SDEFUN |FR;coerce;R$;37| ((|r| (R)) ($ ($))) (SPADCALL |r| (QREFELT $ 121))) 
 
-(SDEFUN |FR;coerce;R$;38| ((|r| R) ($ $))
+(SDEFUN |FR;coerce;R$;38| ((|r| (R)) ($ ($)))
         (COND ((SPADCALL |r| (QREFELT $ 40)) (|spadConstant| $ 44))
               ((SPADCALL |r| (QREFELT $ 122)) (|FR;mkFF| |r| NIL $))
               ((|HasCategory| (QREFELT $ 6) '(|Field|))
                (|error| "zero divisor in a field"))
               ('T (SPADCALL (SPADCALL |r| (QREFELT $ 124)) (QREFELT $ 67))))) 
 
-(SDEFUN |FR;coerce;R$;39| ((|r| R) ($ $))
+(SDEFUN |FR;coerce;R$;39| ((|r| (R)) ($ ($)))
         (COND
          ((SPADCALL |r| (|spadConstant| $ 15) (QREFELT $ 17))
           (|spadConstant| $ 43))
@@ -647,7 +658,7 @@
             (LIST (VECTOR (CONS 0 "nil") |r| 1)) $)
            (QREFELT $ 67))))) 
 
-(SDEFUN |FR;=;2$B;40| ((|u| $) (|v| $) ($ |Boolean|))
+(SDEFUN |FR;=;2$B;40| ((|u| ($)) (|v| ($)) ($ (|Boolean|)))
         (SPROG
          ((|lv|
            #1=(|List|
@@ -690,14 +701,14 @@
                   (EXIT (COND ((NULL |lu|) (NULL |lv|)) (#8# NIL)))))))
           #9# (EXIT #6#)))) 
 
-(SDEFUN |FR;-;2$;41| ((|u| $) ($ $))
+(SDEFUN |FR;-;2$;41| ((|u| ($)) ($ ($)))
         (COND ((SPADCALL |u| (QREFELT $ 47)) |u|)
               ('T
                (|FR;mkFF|
                 (SPADCALL (SPADCALL |u| (QREFELT $ 12)) (QREFELT $ 127))
                 (SPADCALL |u| (QREFELT $ 11)) $)))) 
 
-(SDEFUN |FR;recip;$U;42| ((|u| $) ($ |Union| $ #1="failed"))
+(SDEFUN |FR;recip;$U;42| ((|u| ($)) ($ (|Union| $ #1="failed")))
         (SPROG ((|r| (|Union| R #1#)))
                (SEQ
                 (COND
@@ -713,8 +724,8 @@
                           ('T (CONS 0 (|FR;mkFF| (QCDR |r|) NIL $))))))))))) 
 
 (SDEFUN |FR;flagFactor;RNniU$;43|
-        ((|r| R) (|i| |NonNegativeInteger|)
-         (|fl| |Union| "nil" "sqfr" "irred" "prime") ($ $))
+        ((|r| (R)) (|i| (|NonNegativeInteger|))
+         (|fl| (|Union| "nil" "sqfr" "irred" "prime")) ($ ($)))
         (COND ((ZEROP |i|) (|spadConstant| $ 43))
               ((SPADCALL |r| (QREFELT $ 40)) (|spadConstant| $ 44))
               ('T
@@ -723,7 +734,7 @@
                  $)
                 (QREFELT $ 67))))) 
 
-(SDEFUN |FR;differentiate;$M$;44| ((|u| $) (|deriv| |Mapping| R R) ($ $))
+(SDEFUN |FR;differentiate;$M$;44| ((|u| ($)) (|deriv| (|Mapping| R R)) ($ ($)))
         (SPROG
          ((#1=#:G494 NIL) (#2=#:G493 ($)) (#3=#:G495 ($)) (#4=#:G497 NIL)
           (#5=#:G502 NIL) (|fact| NIL) (|ans| ($)))
@@ -772,7 +783,7 @@
                       (COND (#1# #2#) ('T (|spadConstant| $ 44))))
                      (QREFELT $ 134)))))) 
 
-(SDEFUN |FR;map;M2$;45| ((|fn| |Mapping| R R) (|u| $) ($ $))
+(SDEFUN |FR;map;M2$;45| ((|fn| (|Mapping| R R)) (|u| ($)) ($ ($)))
         (SPROG
          ((|l|
            (|List|
@@ -804,7 +815,7 @@
                        (EXIT (NREVERSE #2#))))))
           (EXIT (SPADCALL (|spadConstant| $ 15) |l| (QREFELT $ 68)))))) 
 
-(SDEFUN |FR;mergeFactors;3$;46| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FR;mergeFactors;3$;46| ((|f| ($)) (|g| ($)) ($ ($)))
         (|FR;mkFF|
          (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (SPADCALL |g| (QREFELT $ 12))
                    (QREFELT $ 61))
@@ -813,7 +824,7 @@
                    (QREFELT $ 138))
          $)) 
 
-(SDEFUN |FR;exquo;2$U;47| ((|u| $) (|v| $) ($ |Union| $ #1="failed"))
+(SDEFUN |FR;exquo;2$U;47| ((|u| ($)) (|v| ($)) ($ (|Union| $ #1="failed")))
         (SPROG
          ((#2=#:G551 NIL)
           (|lu|
@@ -911,8 +922,8 @@
           #12# (EXIT #2#)))) 
 
 (SDEFUN |FR;unitNormal;$R;48|
-        ((|u| $)
-         ($ |Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $)))
+        ((|u| ($))
+         ($ (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))))
         (SPROG
          ((|vl|
            (|List|
@@ -966,7 +977,7 @@
                            (|FR;mkFF| (|spadConstant| $ 15) (NREVERSE |vl|) $)
                            (|FR;mkFF| |as| NIL $)))))))))) 
 
-(SDEFUN |FR;unitNormalize;2$;49| ((|u| $) ($ $))
+(SDEFUN |FR;unitNormalize;2$;49| ((|u| ($)) ($ ($)))
         (SPROG
          ((|uca|
            (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))))
@@ -978,7 +989,7 @@
                           (QREFELT $ 61))
                 (SPADCALL (QVELT |uca| 1) (QREFELT $ 11)) $))))) 
 
-(SDEFUN |FR;+;3$;50| ((|u| $) (|v| $) ($ $))
+(SDEFUN |FR;+;3$;50| ((|u| ($)) (|v| ($)) ($ ($)))
         (SPROG ((#1=#:G578 NIL) (|eu1| (R)) (|u1| ($)))
                (SEQ
                 (COND ((SPADCALL |u| (QREFELT $ 47)) |v|)
@@ -1012,10 +1023,12 @@
                               |u1| (QREFELT $ 56))))))))) 
 
 (SDEFUN |FR;all_primes|
-        ((|lf| |List|
-          (|Record| (|:| |flag| #1=(|Union| "nil" "sqfr" "irred" "prime"))
-                    (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|))))
-         ($ |Boolean|))
+        ((|lf|
+          (|List|
+           (|Record| (|:| |flag| #1=(|Union| "nil" "sqfr" "irred" "prime"))
+                     (|:| |factor| R)
+                     (|:| |exponent| (|NonNegativeInteger|)))))
+         ($ (|Boolean|)))
         (SPROG ((#2=#:G594 NIL) (|fg| #1#) (#3=#:G595 NIL) (|f| NIL))
                (SEQ
                 (EXIT
@@ -1036,10 +1049,12 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |FR;all_sqf|
-        ((|lf| |List|
-          (|Record| (|:| |flag| #1=(|Union| "nil" "sqfr" "irred" "prime"))
-                    (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|))))
-         ($ |Boolean|))
+        ((|lf|
+          (|List|
+           (|Record| (|:| |flag| #1=(|Union| "nil" "sqfr" "irred" "prime"))
+                     (|:| |factor| R)
+                     (|:| |exponent| (|NonNegativeInteger|)))))
+         ($ (|Boolean|)))
         (SPROG ((#2=#:G606 NIL) (|fg| #1#) (#3=#:G607 NIL) (|f| NIL))
                (SEQ
                 (EXIT
@@ -1058,14 +1073,16 @@
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |FR;gcd1|
-        ((|lu| |List|
-          (|Record|
-           (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-           (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|))))
-         (|lv| |List|
-          (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
-                    (|:| |exponent| (|NonNegativeInteger|))))
-         ($ $))
+        ((|lu|
+          (|List|
+           (|Record|
+            (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+            (|:| |factor| R) (|:| |exponent| (|NonNegativeInteger|)))))
+         (|lv|
+          (|List|
+           (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                     (|:| |exponent| (|NonNegativeInteger|)))))
+         ($ ($)))
         (SPROG
          ((|res|
            (|List|
@@ -1185,7 +1202,7 @@
                           (QREFELT $ 64)))
           (EXIT (|FR;mkFF| (|spadConstant| $ 15) |res| $))))) 
 
-(SDEFUN |FR;gcd;3$;54| ((|u| $) (|v| $) ($ $))
+(SDEFUN |FR;gcd;3$;54| ((|u| ($)) (|v| ($)) ($ ($)))
         (SPROG
          ((#1=#:G667 NIL)
           (|res|
@@ -1271,7 +1288,7 @@
                          (|FR;mkFF| (|spadConstant| $ 15) (NREVERSE |res|)
                           $)))))))))) 
 
-(SDEFUN |FR;+;3$;55| ((|u| $) (|v| $) ($ $))
+(SDEFUN |FR;+;3$;55| ((|u| ($)) (|v| ($)) ($ ($)))
         (COND ((SPADCALL |u| (QREFELT $ 47)) |v|)
               ((SPADCALL |v| (QREFELT $ 47)) |u|)
               ('T
@@ -1280,7 +1297,7 @@
                           (SPADCALL |v| (QREFELT $ 62)) (QREFELT $ 145))
                 1 (QREFELT $ 38))))) 
 
-(SDEFUN |FR;prime?;$B;56| ((|u| $) ($ |Boolean|))
+(SDEFUN |FR;prime?;$B;56| ((|u| ($)) ($ (|Boolean|)))
         (SPROG
          ((|l|
            (|List|

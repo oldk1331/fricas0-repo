@@ -1,8 +1,8 @@
 
-(SDEFUN |LODOCAT-;D;S;1| (($ S))
+(SDEFUN |LODOCAT-;D;S;1| (($ (S)))
         (SPADCALL (|spadConstant| $ 9) 1 (QREFELT $ 11))) 
 
-(SDEFUN |LODOCAT-;m1monom| ((|n| |NonNegativeInteger|) ($ S))
+(SDEFUN |LODOCAT-;m1monom| ((|n| (|NonNegativeInteger|)) ($ (S)))
         (SPROG ((|a| (A)))
                (SEQ
                 (LETT |a|
@@ -12,7 +12,7 @@
                        ('T (|spadConstant| $ 9))))
                 (EXIT (SPADCALL |a| |n| (QREFELT $ 11)))))) 
 
-(SDEFUN |LODOCAT-;adjoint;2S;3| ((|a| S) ($ S))
+(SDEFUN |LODOCAT-;adjoint;2S;3| ((|a| (S)) ($ (S)))
         (SPROG ((|ans| (S)))
                (SEQ (LETT |ans| (|spadConstant| $ 14))
                     (SEQ G190
@@ -36,7 +36,7 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |ans|)))) 
 
-(SDEFUN |LODOCAT-;symmetricSquare;2S;4| ((|l| S) ($ S))
+(SDEFUN |LODOCAT-;symmetricSquare;2S;4| ((|l| (S)) ($ (S)))
         (SPADCALL |l| 2 (QREFELT $ 25))) 
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorCategory&;|)) 

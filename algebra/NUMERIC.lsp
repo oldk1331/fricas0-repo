@@ -1,7 +1,7 @@
 
 (SDEFUN |NUMERIC;complexNumericIfCan;PU;1|
-        ((|p| |Polynomial| (|Complex| S))
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|p| (|Polynomial| (|Complex| S)))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG ((|p'| (|Union| (|Complex| S) "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 9)))
                     (EXIT
@@ -10,8 +10,8 @@
                             (CONS 0 (SPADCALL (QCDR |p'|) (QREFELT $ 12))))))))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;PPiU;2|
-        ((|p| |Polynomial| (|Complex| S)) (|n| |PositiveInteger|)
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|p| (|Polynomial| (|Complex| S))) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG ((|p'| (|Union| (|Complex| S) "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 9)))
                     (EXIT
@@ -22,7 +22,7 @@
                                             (QREFELT $ 16))))))))) 
 
 (SDEFUN |NUMERIC;numericIfCan;PU;3|
-        ((|p| |Polynomial| S) ($ |Union| (|Float|) "failed"))
+        ((|p| (|Polynomial| S)) ($ (|Union| (|Float|) "failed")))
         (SPROG ((|p'| (|Union| S "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 20)))
                     (EXIT
@@ -31,7 +31,7 @@
                             (CONS 0 (SPADCALL (QCDR |p'|) (QREFELT $ 22))))))))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;PU;4|
-        ((|p| |Polynomial| S) ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|p| (|Polynomial| S)) ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG ((|p'| (|Union| S "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 20)))
                     (EXIT
@@ -40,8 +40,8 @@
                             (CONS 0 (SPADCALL (QCDR |p'|) (QREFELT $ 25))))))))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;PPiU;5|
-        ((|p| |Polynomial| S) (|n| |PositiveInteger|)
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|p| (|Polynomial| S)) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG ((|p'| (|Union| S "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 20)))
                     (EXIT
@@ -52,8 +52,8 @@
                                             (QREFELT $ 27))))))))) 
 
 (SDEFUN |NUMERIC;numericIfCan;PPiU;6|
-        ((|p| |Polynomial| S) (|n| |PositiveInteger|)
-         ($ |Union| (|Float|) "failed"))
+        ((|p| (|Polynomial| S)) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Float|) "failed")))
         (SPROG
          ((|ans| (|Union| (|Float|) "failed")) (|old| (|PositiveInteger|)))
          (SEQ (LETT |old| (SPADCALL |n| (QREFELT $ 29)))
@@ -61,7 +61,7 @@
               (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
 (SDEFUN |NUMERIC;numericIfCan;FU;7|
-        ((|f| |Fraction| (|Polynomial| S)) ($ |Union| (|Float|) "failed"))
+        ((|f| (|Fraction| (|Polynomial| S))) ($ (|Union| (|Float|) "failed")))
         (SPROG ((|den| #1=(|Union| (|Float|) "failed")) (|num| #1#))
                (SEQ
                 (LETT |num|
@@ -81,8 +81,8 @@
                                                  (QREFELT $ 34))))))))))))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;FU;8|
-        ((|f| |Fraction| (|Polynomial| S))
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|f| (|Fraction| (|Polynomial| S)))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG
          ((|den| #1=(|Union| (|Complex| (|Float|)) "failed")) (|num| #1#))
          (SEQ
@@ -102,8 +102,8 @@
                                            (QREFELT $ 36))))))))))))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;FPiU;9|
-        ((|f| |Fraction| (|Polynomial| S)) (|n| |PositiveInteger|)
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|f| (|Fraction| (|Polynomial| S))) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG
          ((|den| #1=(|Union| (|Complex| (|Float|)) "failed")) (|num| #1#))
          (SEQ
@@ -124,8 +124,8 @@
                                            (QREFELT $ 36))))))))))))) 
 
 (SDEFUN |NUMERIC;numericIfCan;FPiU;10|
-        ((|f| |Fraction| (|Polynomial| S)) (|n| |PositiveInteger|)
-         ($ |Union| (|Float|) "failed"))
+        ((|f| (|Fraction| (|Polynomial| S))) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Float|) "failed")))
         (SPROG
          ((|ans| (|Union| (|Float|) "failed")) (|old| (|PositiveInteger|)))
          (SEQ (LETT |old| (SPADCALL |n| (QREFELT $ 29)))
@@ -133,8 +133,8 @@
               (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;FU;11|
-        ((|f| |Fraction| (|Polynomial| (|Complex| S)))
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|f| (|Fraction| (|Polynomial| (|Complex| S))))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG
          ((|den| #1=(|Union| (|Complex| (|Float|)) "failed")) (|num| #1#))
          (SEQ
@@ -154,8 +154,9 @@
                                            (QREFELT $ 36))))))))))))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;FPiU;12|
-        ((|f| |Fraction| (|Polynomial| (|Complex| S))) (|n| |PositiveInteger|)
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|f| (|Fraction| (|Polynomial| (|Complex| S))))
+         (|n| (|PositiveInteger|))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG
          ((|den| #1=(|Union| (|Complex| (|Float|)) "failed")) (|num| #1#))
          (SEQ
@@ -176,17 +177,17 @@
                                            (QREFELT $ 36))))))))))))) 
 
 (SDEFUN |NUMERIC;numericIfCan;EU;13|
-        ((|x| |Expression| S) ($ |Union| (|Float|) "failed"))
+        ((|x| (|Expression| S)) ($ (|Union| (|Float|) "failed")))
         (|trappedSpadEvalUnion|
          (SPADCALL (SPADCALL (ELT $ 45) |x| (QREFELT $ 50)) (QREFELT $ 51)))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;EU;14|
-        ((|x| |Expression| S) ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|x| (|Expression| S)) ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPADCALL (SPADCALL (ELT $ 53) |x| (QREFELT $ 57)) (QREFELT $ 58))) 
 
 (SDEFUN |NUMERIC;numericIfCan;EPiU;15|
-        ((|x| |Expression| S) (|n| |PositiveInteger|)
-         ($ |Union| (|Float|) "failed"))
+        ((|x| (|Expression| S)) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Float|) "failed")))
         (SPROG ((|old| (|PositiveInteger|)))
                (SEQ (LETT |old| (SPADCALL (QREFELT $ 60)))
                     (EXIT
@@ -196,8 +197,8 @@
                       (SPADCALL |old| (QREFELT $ 61))))))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;EPiU;16|
-        ((|x| |Expression| S) (|n| |PositiveInteger|)
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|x| (|Expression| S)) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG
          ((|ans| (|Union| (|Complex| (|Float|)) "failed"))
           (|x'| (|Expression| (|Complex| S))) (|old| (|PositiveInteger|)))
@@ -207,13 +208,13 @@
               (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;EU;17|
-        ((|x| |Expression| (|Complex| S))
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|x| (|Expression| (|Complex| S)))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPADCALL (SPADCALL (ELT $ 64) |x| (QREFELT $ 68)) (QREFELT $ 69))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;EPiU;18|
-        ((|x| |Expression| (|Complex| S)) (|n| |PositiveInteger|)
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|x| (|Expression| (|Complex| S))) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG
          ((|ans| (|Union| (|Complex| (|Float|)) "failed"))
           (|x'| (|Expression| (|Complex| (|Float|))))
@@ -223,19 +224,19 @@
               (LETT |ans| (SPADCALL |x'| (QREFELT $ 69)))
               (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
-(SDEFUN |NUMERIC;convert| ((|x| |Complex| S) ($ |Complex| (|Float|)))
+(SDEFUN |NUMERIC;convert| ((|x| (|Complex| S)) ($ (|Complex| (|Float|))))
         (SPADCALL (ELT $ 45) |x| (QREFELT $ 72))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;EU;20|
-        ((|x| |Expression| (|Complex| S))
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|x| (|Expression| (|Complex| S)))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPADCALL
          (SPADCALL (CONS (|function| |NUMERIC;convert|) $) |x| (QREFELT $ 68))
          (QREFELT $ 69))) 
 
 (SDEFUN |NUMERIC;complexNumericIfCan;EPiU;21|
-        ((|x| |Expression| (|Complex| S)) (|n| |PositiveInteger|)
-         ($ |Union| (|Complex| (|Float|)) "failed"))
+        ((|x| (|Expression| (|Complex| S))) (|n| (|PositiveInteger|))
+         ($ (|Union| (|Complex| (|Float|)) "failed")))
         (SPROG
          ((|ans| (|Union| (|Complex| (|Float|)) "failed"))
           (|x'| (|Expression| (|Complex| (|Float|))))
@@ -247,28 +248,28 @@
               (LETT |ans| (SPADCALL |x'| (QREFELT $ 69)))
               (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
-(SDEFUN |NUMERIC;numeric;SF;22| ((|s| S) ($ |Float|))
+(SDEFUN |NUMERIC;numeric;SF;22| ((|s| (S)) ($ (|Float|)))
         (SPADCALL |s| (QREFELT $ 45))) 
 
-(SDEFUN |NUMERIC;complexNumeric;SC;23| ((|s| S) ($ |Complex| (|Float|)))
+(SDEFUN |NUMERIC;complexNumeric;SC;23| ((|s| (S)) ($ (|Complex| (|Float|))))
         (SPADCALL |s| (QREFELT $ 73))) 
 
 (SDEFUN |NUMERIC;complexNumeric;SPiC;24|
-        ((|s| S) (|n| |PositiveInteger|) ($ |Complex| (|Float|)))
+        ((|s| (S)) (|n| (|PositiveInteger|)) ($ (|Complex| (|Float|))))
         (SPROG ((|ans| (|Complex| (|Float|))) (|old| (|PositiveInteger|)))
                (SEQ (LETT |old| (SPADCALL |n| (QREFELT $ 29)))
                     (LETT |ans| (SPADCALL |s| (QREFELT $ 25)))
                     (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
-(SDEFUN |NUMERIC;complexNumeric;SC;25| ((|s| S) ($ |Complex| (|Float|)))
+(SDEFUN |NUMERIC;complexNumeric;SC;25| ((|s| (S)) ($ (|Complex| (|Float|))))
         (SPADCALL (SPADCALL |s| (QREFELT $ 45)) (QREFELT $ 74))) 
 
 (SDEFUN |NUMERIC;complexNumeric;SPiC;26|
-        ((|s| S) (|n| |PositiveInteger|) ($ |Complex| (|Float|)))
+        ((|s| (S)) (|n| (|PositiveInteger|)) ($ (|Complex| (|Float|))))
         (SPADCALL (SPADCALL |s| |n| (QREFELT $ 75)) (QREFELT $ 74))) 
 
 (SDEFUN |NUMERIC;complexNumeric;PC;27|
-        ((|p| |Polynomial| (|Complex| S)) ($ |Complex| (|Float|)))
+        ((|p| (|Polynomial| (|Complex| S))) ($ (|Complex| (|Float|))))
         (SPROG ((|p'| (|Union| (|Complex| S) "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 9)))
                     (EXIT
@@ -279,8 +280,8 @@
                       ('T (SPADCALL (QCDR |p'|) (QREFELT $ 12)))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;PPiC;28|
-        ((|p| |Polynomial| (|Complex| S)) (|n| |PositiveInteger|)
-         ($ |Complex| (|Float|)))
+        ((|p| (|Polynomial| (|Complex| S))) (|n| (|PositiveInteger|))
+         ($ (|Complex| (|Float|))))
         (SPROG ((|p'| (|Union| (|Complex| S) "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 9)))
                     (EXIT
@@ -291,29 +292,31 @@
                       ('T (SPADCALL (QCDR |p'|) |n| (QREFELT $ 16)))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;CC;29|
-        ((|s| |Complex| S) ($ |Complex| (|Float|)))
+        ((|s| (|Complex| S)) ($ (|Complex| (|Float|))))
         (SPADCALL |s| (QREFELT $ 64))) 
 
 (SDEFUN |NUMERIC;complexNumeric;CPiC;30|
-        ((|s| |Complex| S) (|n| |PositiveInteger|) ($ |Complex| (|Float|)))
+        ((|s| (|Complex| S)) (|n| (|PositiveInteger|))
+         ($ (|Complex| (|Float|))))
         (SPROG ((|ans| (|Complex| (|Float|))) (|old| (|PositiveInteger|)))
                (SEQ (LETT |old| (SPADCALL |n| (QREFELT $ 29)))
                     (LETT |ans| (SPADCALL |s| (QREFELT $ 12)))
                     (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
 (SDEFUN |NUMERIC;complexNumeric;CC;31|
-        ((|s| |Complex| S) ($ |Complex| (|Float|)))
+        ((|s| (|Complex| S)) ($ (|Complex| (|Float|))))
         (SPADCALL |s| (QREFELT $ 64))) 
 
 (SDEFUN |NUMERIC;complexNumeric;CPiC;32|
-        ((|s| |Complex| S) (|n| |PositiveInteger|) ($ |Complex| (|Float|)))
+        ((|s| (|Complex| S)) (|n| (|PositiveInteger|))
+         ($ (|Complex| (|Float|))))
         (SPROG ((|ans| (|Complex| (|Float|))) (|old| (|PositiveInteger|)))
                (SEQ (LETT |old| (SPADCALL |n| (QREFELT $ 29)))
                     (LETT |ans| (SPADCALL |s| (QREFELT $ 12)))
                     (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
 (SDEFUN |NUMERIC;complexNumeric;CC;33|
-        ((|s| |Complex| S) ($ |Complex| (|Float|)))
+        ((|s| (|Complex| S)) ($ (|Complex| (|Float|))))
         (SPROG ((|s'| (|Union| S "failed")))
                (SEQ (LETT |s'| (SPADCALL |s| (QREFELT $ 78)))
                     (EXIT
@@ -324,7 +327,8 @@
                       ('T (SPADCALL (QCDR |s'|) (QREFELT $ 25)))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;CPiC;34|
-        ((|s| |Complex| S) (|n| |PositiveInteger|) ($ |Complex| (|Float|)))
+        ((|s| (|Complex| S)) (|n| (|PositiveInteger|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|ans| (|Complex| (|Float|))) (|old| (|PositiveInteger|))
           (|s'| (|Union| S "failed")))
@@ -339,13 +343,14 @@
                       (LETT |ans| (SPADCALL (QCDR |s'|) (QREFELT $ 25)))
                       (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))))))) 
 
-(SDEFUN |NUMERIC;numeric;SPiF;35| ((|s| S) (|n| |PositiveInteger|) ($ |Float|))
+(SDEFUN |NUMERIC;numeric;SPiF;35|
+        ((|s| (S)) (|n| (|PositiveInteger|)) ($ (|Float|)))
         (SPROG ((|ans| (|Float|)) (|old| (|PositiveInteger|)))
                (SEQ (LETT |old| (SPADCALL |n| (QREFELT $ 29)))
                     (LETT |ans| (SPADCALL |s| (QREFELT $ 22)))
                     (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
-(SDEFUN |NUMERIC;numeric;PF;36| ((|p| |Polynomial| S) ($ |Float|))
+(SDEFUN |NUMERIC;numeric;PF;36| ((|p| (|Polynomial| S)) ($ (|Float|)))
         (SPROG ((|p'| (|Union| S "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 20)))
                     (EXIT
@@ -356,7 +361,7 @@
                       ('T (SPADCALL (QCDR |p'|) (QREFELT $ 22)))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;PC;37|
-        ((|p| |Polynomial| S) ($ |Complex| (|Float|)))
+        ((|p| (|Polynomial| S)) ($ (|Complex| (|Float|))))
         (SPROG ((|p'| (|Union| S "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 20)))
                     (EXIT
@@ -367,7 +372,8 @@
                       ('T (SPADCALL (QCDR |p'|) (QREFELT $ 25)))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;PPiC;38|
-        ((|p| |Polynomial| S) (|n| |PositiveInteger|) ($ |Complex| (|Float|)))
+        ((|p| (|Polynomial| S)) (|n| (|PositiveInteger|))
+         ($ (|Complex| (|Float|))))
         (SPROG ((|p'| (|Union| S "failed")))
                (SEQ (LETT |p'| (SPADCALL |p| (QREFELT $ 20)))
                     (EXIT
@@ -378,51 +384,54 @@
                       ('T (SPADCALL (QCDR |p'|) |n| (QREFELT $ 27)))))))) 
 
 (SDEFUN |NUMERIC;numeric;PPiF;39|
-        ((|p| |Polynomial| S) (|n| |PositiveInteger|) ($ |Float|))
+        ((|p| (|Polynomial| S)) (|n| (|PositiveInteger|)) ($ (|Float|)))
         (SPROG ((|ans| (|Float|)) (|old| (|PositiveInteger|)))
                (SEQ (LETT |old| (SPADCALL |n| (QREFELT $ 29)))
                     (LETT |ans| (SPADCALL |p| (QREFELT $ 79)))
                     (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
-(SDEFUN |NUMERIC;numeric;FF;40| ((|f| |Fraction| (|Polynomial| S)) ($ |Float|))
+(SDEFUN |NUMERIC;numeric;FF;40|
+        ((|f| (|Fraction| (|Polynomial| S))) ($ (|Float|)))
         (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) (QREFELT $ 79))
                   (SPADCALL (SPADCALL |f| (QREFELT $ 33)) (QREFELT $ 79))
                   (QREFELT $ 34))) 
 
 (SDEFUN |NUMERIC;complexNumeric;FC;41|
-        ((|f| |Fraction| (|Polynomial| S)) ($ |Complex| (|Float|)))
+        ((|f| (|Fraction| (|Polynomial| S))) ($ (|Complex| (|Float|))))
         (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) (QREFELT $ 80))
                   (SPADCALL (SPADCALL |f| (QREFELT $ 33)) (QREFELT $ 80))
                   (QREFELT $ 36))) 
 
 (SDEFUN |NUMERIC;complexNumeric;FPiC;42|
-        ((|f| |Fraction| (|Polynomial| S)) (|n| |PositiveInteger|)
-         ($ |Complex| (|Float|)))
+        ((|f| (|Fraction| (|Polynomial| S))) (|n| (|PositiveInteger|))
+         ($ (|Complex| (|Float|))))
         (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) |n| (QREFELT $ 81))
                   (SPADCALL (SPADCALL |f| (QREFELT $ 33)) |n| (QREFELT $ 81))
                   (QREFELT $ 36))) 
 
 (SDEFUN |NUMERIC;numeric;FPiF;43|
-        ((|f| |Fraction| (|Polynomial| S)) (|n| |PositiveInteger|) ($ |Float|))
+        ((|f| (|Fraction| (|Polynomial| S))) (|n| (|PositiveInteger|))
+         ($ (|Float|)))
         (SPROG ((|ans| (|Float|)) (|old| (|PositiveInteger|)))
                (SEQ (LETT |old| (SPADCALL |n| (QREFELT $ 29)))
                     (LETT |ans| (SPADCALL |f| (QREFELT $ 83)))
                     (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|)))) 
 
 (SDEFUN |NUMERIC;complexNumeric;FC;44|
-        ((|f| |Fraction| (|Polynomial| (|Complex| S))) ($ |Complex| (|Float|)))
+        ((|f| (|Fraction| (|Polynomial| (|Complex| S))))
+         ($ (|Complex| (|Float|))))
         (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 41)) (QREFELT $ 76))
                   (SPADCALL (SPADCALL |f| (QREFELT $ 42)) (QREFELT $ 76))
                   (QREFELT $ 36))) 
 
 (SDEFUN |NUMERIC;complexNumeric;FPiC;45|
-        ((|f| |Fraction| (|Polynomial| (|Complex| S))) (|n| |PositiveInteger|)
-         ($ |Complex| (|Float|)))
+        ((|f| (|Fraction| (|Polynomial| (|Complex| S))))
+         (|n| (|PositiveInteger|)) ($ (|Complex| (|Float|))))
         (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 41)) |n| (QREFELT $ 77))
                   (SPADCALL (SPADCALL |f| (QREFELT $ 42)) |n| (QREFELT $ 77))
                   (QREFELT $ 36))) 
 
-(SDEFUN |NUMERIC;numeric;EF;46| ((|x| |Expression| S) ($ |Float|))
+(SDEFUN |NUMERIC;numeric;EF;46| ((|x| (|Expression| S)) ($ (|Float|)))
         (SPROG ((|x'| (|Union| (|Float|) "failed")))
                (SEQ
                 (LETT |x'|
@@ -436,7 +445,7 @@
                   ('T (QCDR |x'|))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;EC;47|
-        ((|x| |Expression| S) ($ |Complex| (|Float|)))
+        ((|x| (|Expression| S)) ($ (|Complex| (|Float|))))
         (SPROG ((|x'| (|Union| (|Complex| (|Float|)) "failed")))
                (SEQ
                 (LETT |x'|
@@ -450,7 +459,7 @@
                   ('T (QCDR |x'|))))))) 
 
 (SDEFUN |NUMERIC;numeric;EPiF;48|
-        ((|x| |Expression| S) (|n| |PositiveInteger|) ($ |Float|))
+        ((|x| (|Expression| S)) (|n| (|PositiveInteger|)) ($ (|Float|)))
         (SPROG
          ((|ans| (|Union| (|Float|) "failed")) (|x'| (|Expression| (|Float|)))
           (|old| (|PositiveInteger|)))
@@ -466,7 +475,8 @@
                 ('T (QCDR |ans|))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;EPiC;49|
-        ((|x| |Expression| S) (|n| |PositiveInteger|) ($ |Complex| (|Float|)))
+        ((|x| (|Expression| S)) (|n| (|PositiveInteger|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|ans| (|Union| (|Complex| (|Float|)) "failed"))
           (|x'| (|Expression| (|Complex| (|Float|))))
@@ -483,7 +493,7 @@
                 ('T (QCDR |ans|))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;EC;50|
-        ((|x| |Expression| (|Complex| S)) ($ |Complex| (|Float|)))
+        ((|x| (|Expression| (|Complex| S))) ($ (|Complex| (|Float|))))
         (SPROG ((|x'| (|Union| (|Complex| (|Float|)) "failed")))
                (SEQ
                 (LETT |x'|
@@ -497,8 +507,8 @@
                   ('T (QCDR |x'|))))))) 
 
 (SDEFUN |NUMERIC;complexNumeric;EPiC;51|
-        ((|x| |Expression| (|Complex| S)) (|n| |PositiveInteger|)
-         ($ |Complex| (|Float|)))
+        ((|x| (|Expression| (|Complex| S))) (|n| (|PositiveInteger|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|ans| (|Union| (|Complex| (|Float|)) "failed"))
           (|x'| (|Expression| (|Complex| (|Float|))))

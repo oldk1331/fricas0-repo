@@ -1,7 +1,8 @@
 
-(SDEFUN |GALFACT;useEisensteinCriterion?;B;1| (($ |Boolean|)) (QREFELT $ 11)) 
+(SDEFUN |GALFACT;useEisensteinCriterion?;B;1| (($ (|Boolean|))) (QREFELT $ 11)) 
 
-(SDEFUN |GALFACT;useEisensteinCriterion;2B;2| ((|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |GALFACT;useEisensteinCriterion;2B;2|
+        ((|b| (|Boolean|)) ($ (|Boolean|)))
         (SPROG ((|#G5| (|Boolean|)) (|#G4| (|Boolean|)))
                (SEQ
                 (PROGN
@@ -11,11 +12,11 @@
                  (LETT |b| |#G5|))
                 (EXIT |b|)))) 
 
-(SDEFUN |GALFACT;tryFunctionalDecomposition?;B;3| (($ |Boolean|))
+(SDEFUN |GALFACT;tryFunctionalDecomposition?;B;3| (($ (|Boolean|)))
         (QREFELT $ 10)) 
 
 (SDEFUN |GALFACT;tryFunctionalDecomposition;2B;4|
-        ((|b| |Boolean|) ($ |Boolean|))
+        ((|b| (|Boolean|)) ($ (|Boolean|)))
         (SPROG ((|#G8| (|Boolean|)) (|#G7| (|Boolean|)))
                (SEQ
                 (PROGN
@@ -25,9 +26,9 @@
                  (LETT |b| |#G8|))
                 (EXIT |b|)))) 
 
-(SDEFUN |GALFACT;useSingleFactorBound?;B;5| (($ |Boolean|)) (QREFELT $ 9)) 
+(SDEFUN |GALFACT;useSingleFactorBound?;B;5| (($ (|Boolean|))) (QREFELT $ 9)) 
 
-(SDEFUN |GALFACT;useSingleFactorBound;2B;6| ((|b| |Boolean|) ($ |Boolean|))
+(SDEFUN |GALFACT;useSingleFactorBound;2B;6| ((|b| (|Boolean|)) ($ (|Boolean|)))
         (SPROG ((|#G11| (|Boolean|)) (|#G10| (|Boolean|)))
                (SEQ
                 (PROGN
@@ -37,10 +38,10 @@
                  (LETT |b| |#G11|))
                 (EXIT |b|)))) 
 
-(SDEFUN |GALFACT;stopMusserTrials;Pi;7| (($ |PositiveInteger|)) (QREFELT $ 8)) 
+(SDEFUN |GALFACT;stopMusserTrials;Pi;7| (($ (|PositiveInteger|))) (QREFELT $ 8)) 
 
 (SDEFUN |GALFACT;stopMusserTrials;2Pi;8|
-        ((|n| |PositiveInteger|) ($ |PositiveInteger|))
+        ((|n| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPROG ((|#G14| (|PositiveInteger|)) (|#G13| (|PositiveInteger|)))
                (SEQ
                 (PROGN
@@ -50,10 +51,10 @@
                  (LETT |n| |#G14|))
                 (EXIT |n|)))) 
 
-(SDEFUN |GALFACT;musserTrials;Pi;9| (($ |PositiveInteger|)) (QREFELT $ 7)) 
+(SDEFUN |GALFACT;musserTrials;Pi;9| (($ (|PositiveInteger|))) (QREFELT $ 7)) 
 
 (SDEFUN |GALFACT;musserTrials;2Pi;10|
-        ((|n| |PositiveInteger|) ($ |PositiveInteger|))
+        ((|n| (|PositiveInteger|)) ($ (|PositiveInteger|)))
         (SPROG ((|#G17| (|PositiveInteger|)) (|#G16| (|PositiveInteger|)))
                (SEQ
                 (PROGN
@@ -63,7 +64,7 @@
                  (LETT |n| |#G17|))
                 (EXIT |n|)))) 
 
-(SDEFUN |GALFACT;eisensteinIrreducible?;UPB;11| ((|f| UP) ($ |Boolean|))
+(SDEFUN |GALFACT;eisensteinIrreducible?;UPB;11| ((|f| (UP)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G196 NIL) (#2=#:G197 NIL) (|p| NIL) (|rf| (UP))
           (|tc| #3=(|Integer|)) (|lc| #3#) (|c| (|Integer|)))
@@ -115,9 +116,9 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |GALFACT;numberOfFactors;LNni;12|
-        ((|ddlist| |List|
-          (|Record| (|:| |factor| UP) (|:| |degree| (|Integer|))))
-         ($ |NonNegativeInteger|))
+        ((|ddlist|
+          (|List| (|Record| (|:| |factor| UP) (|:| |degree| (|Integer|)))))
+         ($ (|NonNegativeInteger|)))
         (SPROG
          ((|n| (|NonNegativeInteger|)) (#1=#:G199 NIL) (|d| (|Integer|))
           (#2=#:G206 NIL) (|dd| NIL))
@@ -144,8 +145,8 @@
               (EXIT |n|)))) 
 
 (SDEFUN |GALFACT;shiftSet|
-        ((|s| |Set| (|NonNegativeInteger|)) (|shift| |NonNegativeInteger|)
-         ($ |Set| (|NonNegativeInteger|)))
+        ((|s| (|Set| (|NonNegativeInteger|))) (|shift| (|NonNegativeInteger|))
+         ($ (|Set| (|NonNegativeInteger|))))
         (SPROG NIL
                (SPADCALL (CONS #'|GALFACT;shiftSet!0| (VECTOR $ |shift|)) |s|
                          (QREFELT $ 46)))) 
@@ -156,15 +157,15 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |e| |shift| (QREFELT $ 43)))))) 
 
-(SDEFUN |GALFACT;reductum| ((|n| |Integer|) ($ |Integer|))
+(SDEFUN |GALFACT;reductum| ((|n| (|Integer|)) ($ (|Integer|)))
         (- |n| (ASH 1 (- (INTEGER-LENGTH |n|) 1)))) 
 
-(SDEFUN |GALFACT;seed| ((|level| |Integer|) ($ |Integer|))
+(SDEFUN |GALFACT;seed| ((|level| (|Integer|)) ($ (|Integer|)))
         (- (ASH 1 |level|) 1)) 
 
 (SDEFUN |GALFACT;nextRecNum|
-        ((|levels| |NonNegativeInteger|) (|level| |Integer|) (|n| |Integer|)
-         ($ |Union| (|Integer|) "End of level"))
+        ((|levels| (|NonNegativeInteger|)) (|level| (|Integer|))
+         (|n| (|Integer|)) ($ (|Union| (|Integer|) "End of level")))
         (SPROG
          ((|b| (|Integer|)) (|lr| #1=(|Integer|)) (#2=#:G219 NIL) (|l| #1#))
          (SEQ
@@ -201,7 +202,7 @@
           #3# (EXIT #2#)))) 
 
 (SDEFUN |GALFACT;fullSet|
-        ((|n| |NonNegativeInteger|) ($ |Set| (|NonNegativeInteger|)))
+        ((|n| (|NonNegativeInteger|)) ($ (|Set| (|NonNegativeInteger|))))
         (SPROG ((#1=#:G223 NIL) (|i| NIL) (#2=#:G222 NIL))
                (SEQ
                 (SPADCALL
@@ -215,8 +216,8 @@
                  (QREFELT $ 49))))) 
 
 (SDEFUN |GALFACT;is_mod_coprime?|
-        ((|pol1| UP) (|pol2| UP) (|p| |Integer|) (|small| |Boolean|)
-         ($ |Boolean|))
+        ((|pol1| (UP)) (|pol2| (UP)) (|p| (|Integer|)) (|small| (|Boolean|))
+         ($ (|Boolean|)))
         (SPROG ((|vg| (|U32Vector|)) (|v2| #1=(|U32Vector|)) (|v1| #1#))
                (SEQ
                 (COND
@@ -236,9 +237,9 @@
                              (QREFELT $ 39)))))))) 
 
 (SDEFUN |GALFACT;add_degs|
-        ((|deg1| |NonNegativeInteger|) (|deg2| |NonNegativeInteger|)
-         (|res| |List| (|NonNegativeInteger|))
-         ($ |List| (|NonNegativeInteger|)))
+        ((|deg1| (|NonNegativeInteger|)) (|deg2| (|NonNegativeInteger|))
+         (|res| (|List| (|NonNegativeInteger|)))
+         ($ (|List| (|NonNegativeInteger|))))
         (SPROG ((#1=#:G229 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |deg2| 0) |res|)
@@ -252,8 +253,8 @@
                         (EXIT |res|))))))) 
 
 (SDEFUN |GALFACT;do_separate|
-        ((|sfl| |List| (|Mapping| #1=(|List| (|U32Vector|)))) (|c| |Integer|)
-         ($ |List| UP))
+        ((|sfl| (|List| (|Mapping| #1=(|List| (|U32Vector|)))))
+         (|c| (|Integer|)) ($ (|List| UP)))
         (SPROG
          ((|res| (|List| UP)) (#2=#:G236 NIL) (|v| NIL) (|vl| #1#)
           (#3=#:G235 NIL) (|sf| NIL))
@@ -281,9 +282,10 @@
               (EXIT (CONS (SPADCALL |c| (QREFELT $ 62)) |res|))))) 
 
 (SDEFUN |GALFACT;do_ddfact|
-        ((|pol| UP) (|p| |Integer|) (|small| |Boolean|)
-         ($ |Record| (|:| |dd_list| (|List| (|NonNegativeInteger|)))
-          (|:| |separate_factors| (|Mapping| (|List| UP)))))
+        ((|pol| (UP)) (|p| (|Integer|)) (|small| (|Boolean|))
+         ($
+          (|Record| (|:| |dd_list| (|List| (|NonNegativeInteger|)))
+                    (|:| |separate_factors| (|Mapping| (|List| UP))))))
         (SPROG
          ((|degs| (|List| (|NonNegativeInteger|))) (#1=#:G247 NIL)
           (#2=#:G254 NIL) (|rl| NIL)
@@ -374,8 +376,8 @@
           (RETURN (PROGN (|GALFACT;do_separate| |sfl| |c| $))))) 
 
 (SDEFUN |GALFACT;modularFactor;UPSR;22|
-        ((|p| UP) (|d| |Set| (|NonNegativeInteger|))
-         ($ |Record| (|:| |prime| (|Integer|)) (|:| |factors| (|List| UP))))
+        ((|p| (UP)) (|d| (|Set| (|NonNegativeInteger|)))
+         ($ (|Record| (|:| |prime| (|Integer|)) (|:| |factors| (|List| UP)))))
         (SPROG
          ((|fl| (|List| UP)) (|cprime| (|Integer|)) (|res_prime| (|Integer|))
           (|dd_res|
@@ -383,10 +385,9 @@
                         (|:| |separate_factors| (|Mapping| (|List| UP)))))
           (|nf| (|NonNegativeInteger|)) (|nf1| (|NonNegativeInteger|))
           (#2=#:G271 NIL) (|s| (|Set| (|NonNegativeInteger|))) (#3=#:G273 NIL)
-          (|degfact| (|NonNegativeInteger|))
           (|ddlist| (|List| (|NonNegativeInteger|))) (|dd_res1| #1#)
           (|small| (|Boolean|)) (#4=#:G272 NIL) (|i| NIL) (|diffp| (UP))
-          (|degp| #5=(|NonNegativeInteger|))
+          (|degp| #5=(|NonNegativeInteger|)) (|degfact| (|NonNegativeInteger|))
           (|dirred| (|Set| (|NonNegativeInteger|))) (|n| #5#))
          (SEQ
           (EXIT
@@ -444,8 +445,7 @@
                                      $))
                               (LETT |ddlist| (QCAR |dd_res1|))
                               (LETT |s| (SPADCALL (LIST 0) (QREFELT $ 49)))
-                              (SEQ (LETT |degfact| NIL) (LETT #3# |ddlist|)
-                                   G190
+                              (SEQ (LETT #3# |ddlist|) G190
                                    (COND
                                     ((OR (ATOM #3#)
                                          (PROGN
@@ -494,9 +494,9 @@
           #6# (EXIT #2#)))) 
 
 (SDEFUN |GALFACT;degreePartition;LM;23|
-        ((|ddlist| |List|
-          (|Record| (|:| |factor| UP) (|:| |degree| (|Integer|))))
-         ($ |Multiset| (|NonNegativeInteger|)))
+        ((|ddlist|
+          (|List| (|Record| (|:| |factor| UP) (|:| |degree| (|Integer|)))))
+         ($ (|Multiset| (|NonNegativeInteger|))))
         (SPROG
          ((|dp| (|Multiset| (|NonNegativeInteger|)))
           (|dd| #1=(|NonNegativeInteger|)) (#2=#:G275 NIL) (|d| #1#)
@@ -526,8 +526,8 @@
               (EXIT |dp|)))) 
 
 (SDEFUN |GALFACT;sel_set|
-        ((|d| |Set| (|NonNegativeInteger|)) (|n| |NonNegativeInteger|)
-         (|m| |NonNegativeInteger|) ($ |Set| (|NonNegativeInteger|)))
+        ((|d| (|Set| (|NonNegativeInteger|))) (|n| (|NonNegativeInteger|))
+         (|m| (|NonNegativeInteger|)) ($ (|Set| (|NonNegativeInteger|))))
         (SPROG ((|nm| (|NonNegativeInteger|)))
                (SEQ
                 (COND ((EQL |n| 0) (SPADCALL (LIST 0) (QREFELT $ 49)))
@@ -552,8 +552,8 @@
              ('T NIL)))))) 
 
 (SDEFUN |GALFACT;henselfact|
-        ((|f| UP) (|pdecomp| |Boolean|) (|d| |Set| (|NonNegativeInteger|))
-         ($ . #1=(|List| UP)))
+        ((|f| (UP)) (|pdecomp| (|Boolean|))
+         (|d| (|Set| (|NonNegativeInteger|))) ($ #1=(|List| UP)))
         (SPROG
          ((#2=#:G296 NIL) (#3=#:G295 #1#) (#4=#:G297 #1#) (#5=#:G302 NIL)
           (|g| NIL) (|d1| (|Set| (|NonNegativeInteger|)))
@@ -632,14 +632,15 @@
                       (COND (#2# #3#) (#10# NIL))))))))))
           #9# (EXIT #8#)))) 
 
-(SDEFUN |GALFACT;henselfact1| ((|f| UP) (|pdecomp| |Boolean|) ($ |List| UP))
+(SDEFUN |GALFACT;henselfact1|
+        ((|f| (UP)) (|pdecomp| (|Boolean|)) ($ (|List| UP)))
         (|GALFACT;henselfact| |f| |pdecomp|
          (|GALFACT;fullSet| (SPADCALL |f| (QREFELT $ 39)) $) $)) 
 
 (SDEFUN |GALFACT;completeFactor|
-        ((|f| UP) (|lf| |List| UP) (|cprime| |Integer|)
-         (|pk| |PositiveInteger|) (|r| |NonNegativeInteger|)
-         (|d| |Set| (|NonNegativeInteger|)) ($ |List| UP))
+        ((|f| (UP)) (|lf| (|List| UP)) (|cprime| (|Integer|))
+         (|pk| (|PositiveInteger|)) (|r| (|NonNegativeInteger|))
+         (|d| (|Set| (|NonNegativeInteger|))) ($ (|List| UP)))
         (SPROG
          ((|level| (|Integer|)) (|found?| (|Boolean|))
           (|levels| (|NonNegativeInteger|))
@@ -1038,8 +1039,8 @@
           (RETURN (PROGN (SPADCALL |x| |degg| (QREFELT $ 90)))))) 
 
 (SDEFUN |GALFACT;divideSet|
-        ((|s| |Set| (|NonNegativeInteger|)) (|n| |NonNegativeInteger|)
-         ($ |Set| (|NonNegativeInteger|)))
+        ((|s| (|Set| (|NonNegativeInteger|))) (|n| (|NonNegativeInteger|))
+         ($ (|Set| (|NonNegativeInteger|))))
         (SPROG
          ((|l| (|List| (|NonNegativeInteger|)))
           (|ee| (|Union| (|NonNegativeInteger|) "failed")) (#1=#:G379 NIL)
@@ -1059,8 +1060,9 @@
               (EXIT (SPADCALL |l| (QREFELT $ 49)))))) 
 
 (SDEFUN |GALFACT;btwFactor|
-        ((|f| UP) (|d| |Set| (|NonNegativeInteger|)) (|r| |NonNegativeInteger|)
-         (|pdecomp| |Boolean|) ($ . #1=(|List| UP)))
+        ((|f| (UP)) (|d| (|Set| (|NonNegativeInteger|)))
+         (|r| (|NonNegativeInteger|)) (|pdecomp| (|Boolean|))
+         ($ #1=(|List| UP)))
         (SPROG
          ((#2=#:G433 NIL) (|i| NIL) (|lf| #3=(|List| UP)) (#4=#:G432 NIL)
           (|fact| NIL) (#5=#:G431 NIL) (#6=#:G419 NIL) (|lfg| #1#)
@@ -1268,11 +1270,13 @@
           #18# (EXIT #13#)))) 
 
 (SDEFUN |GALFACT;makeFR;RF;30|
-        ((|flist| |Record| (|:| |contp| (|Integer|))
-          (|:| |factors|
-               (|List|
-                (|Record| (|:| |irr| UP) (|:| |pow| (|NonNegativeInteger|))))))
-         ($ |Factored| UP))
+        ((|flist|
+          (|Record| (|:| |contp| (|Integer|))
+                    (|:| |factors|
+                         (|List|
+                          (|Record| (|:| |irr| UP)
+                                    (|:| |pow| (|NonNegativeInteger|)))))))
+         ($ (|Factored| UP)))
         (SPROG
          ((|fflist|
            (|List|
@@ -1313,7 +1317,7 @@
                 (SPADCALL (SPADCALL |ctp| (QREFELT $ 136)) (QREFELT $ 62))
                 |fflist| (QREFELT $ 140)))))) 
 
-(SDEFUN |GALFACT;quadratic| ((|p| UP) ($ |List| UP))
+(SDEFUN |GALFACT;quadratic| ((|p| (UP)) ($ (|List| UP)))
         (SPROG
          ((#1=#:G456 NIL) (|f| (UP)) (|b| (|Integer|)) (|a| (|Integer|))
           (|d| (|Integer|)) (|r| (|Union| (|Integer|) "failed")))
@@ -1350,7 +1354,7 @@
                                                               "failed")
                                                      #1#)))))))))))) 
 
-(SDEFUN |GALFACT;isPowerOf2| ((|n| |Integer|) ($ |Boolean|))
+(SDEFUN |GALFACT;isPowerOf2| ((|n| (|Integer|)) ($ (|Boolean|)))
         (SPROG
          ((|qr|
            (|Record| (|:| |quotient| (|Integer|))
@@ -1364,7 +1368,7 @@
                              (#1# (|GALFACT;isPowerOf2| (QCAR |qr|) $)))))))))) 
 
 (SDEFUN |GALFACT;subMinusX|
-        ((|supPol| |SparseUnivariatePolynomial| (|Integer|)) ($ UP))
+        ((|supPol| (|SparseUnivariatePolynomial| (|Integer|))) ($ (UP)))
         (SPROG ((|minusX| (|SparseUnivariatePolynomial| (|Integer|))))
                (SEQ (LETT |minusX| (SPADCALL -1 1 (QREFELT $ 149)))
                     (EXIT
@@ -1372,18 +1376,19 @@
                                (QREFELT $ 61)))))) 
 
 (SDEFUN |GALFACT;gen_fact1|
-        ((|f| UP)
-         ($ |Union|
-          (|Record| (|:| |f| UP) (|:| |contp| (|Integer|))
-                    (|:| |factors|
-                         (|List|
-                          (|Record| (|:| |irr| UP)
-                                    (|:| |pow| (|NonNegativeInteger|))))))
-          (|Record| (|:| |contp| (|Integer|))
-                    (|:| |factors|
-                         (|List|
-                          (|Record| (|:| |irr| UP)
-                                    (|:| |pow| (|NonNegativeInteger|))))))))
+        ((|f| (UP))
+         ($
+          (|Union|
+           (|Record| (|:| |f| UP) (|:| |contp| (|Integer|))
+                     (|:| |factors|
+                          (|List|
+                           (|Record| (|:| |irr| UP)
+                                     (|:| |pow| (|NonNegativeInteger|))))))
+           (|Record| (|:| |contp| (|Integer|))
+                     (|:| |factors|
+                          (|List|
+                           (|Record| (|:| |irr| UP)
+                                     (|:| |pow| (|NonNegativeInteger|)))))))))
         (SPROG
          ((|factorlist|
            (|List|
@@ -1472,12 +1477,13 @@
                          (#4# (CONS 0 (VECTOR |f| |c| |factorlist|)))))))))))) 
 
 (SDEFUN |GALFACT;henselFact;UPBR;35|
-        ((|f| UP) (|sqf| |Boolean|)
-         ($ |Record| (|:| |contp| (|Integer|))
-          (|:| |factors|
-               (|List|
-                (|Record| (|:| |irr| UP)
-                          (|:| |pow| (|NonNegativeInteger|)))))))
+        ((|f| (UP)) (|sqf| (|Boolean|))
+         ($
+          (|Record| (|:| |contp| (|Integer|))
+                    (|:| |factors|
+                         (|List|
+                          (|Record| (|:| |irr| UP)
+                                    (|:| |pow| (|NonNegativeInteger|))))))))
         (SPROG
          ((|factorlist|
            (|List|
@@ -1604,13 +1610,14 @@
                            (EXIT (CONS |c| |factorlist|))))))))))))) 
 
 (SDEFUN |GALFACT;btwFact;UPBSNniR;36|
-        ((|f| UP) (|sqf| |Boolean|) (|fd| |Set| (|NonNegativeInteger|))
-         (|r| |NonNegativeInteger|)
-         ($ |Record| (|:| |contp| (|Integer|))
-          (|:| |factors|
-               (|List|
-                (|Record| (|:| |irr| UP)
-                          (|:| |pow| (|NonNegativeInteger|)))))))
+        ((|f| (UP)) (|sqf| (|Boolean|)) (|fd| (|Set| (|NonNegativeInteger|)))
+         (|r| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |contp| (|Integer|))
+                    (|:| |factors|
+                         (|List|
+                          (|Record| (|:| |irr| UP)
+                                    (|:| |pow| (|NonNegativeInteger|))))))))
         (SPROG
          ((|maxd| (|NonNegativeInteger|)) (#1=#:G532 NIL)
           (|factorlist|
@@ -1840,7 +1847,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |x| |d| (QREFELT $ 90)))))) 
 
-(SDEFUN |GALFACT;factor;UPF;37| ((|f| UP) ($ |Factored| UP))
+(SDEFUN |GALFACT;factor;UPF;37| ((|f| (UP)) ($ (|Factored| UP)))
         (SPADCALL
          (COND
           ((QREFELT $ 9)
@@ -1851,8 +1858,8 @@
          (QREFELT $ 143))) 
 
 (SDEFUN |GALFACT;errorsum?|
-        ((|d| |NonNegativeInteger|) (|ld| |List| #1=(|NonNegativeInteger|))
-         ($ |Boolean|))
+        ((|d| (|NonNegativeInteger|)) (|ld| (|List| #1=(|NonNegativeInteger|)))
+         ($ (|Boolean|)))
         (SPROG
          ((#2=#:G548 NIL) (#3=#:G547 #1#) (#4=#:G549 #1#) (#5=#:G552 NIL)
           (#6=#:G119 NIL))
@@ -1875,7 +1882,8 @@
                  (COND (#2# #3#) ('T 0)))))))) 
 
 (SDEFUN |GALFACT;makeSet|
-        ((|ld| |List| (|NonNegativeInteger|)) ($ |Set| (|NonNegativeInteger|)))
+        ((|ld| (|List| (|NonNegativeInteger|)))
+         ($ (|Set| (|NonNegativeInteger|))))
         (SPROG ((|s| (|Set| (|NonNegativeInteger|))) (#1=#:G556 NIL) (|d| NIL))
                (SEQ (LETT |s| (SPADCALL (LIST 0) (QREFELT $ 49)))
                     (SEQ (LETT |d| NIL) (LETT #1# |ld|) G190
@@ -1891,8 +1899,8 @@
                     (EXIT |s|)))) 
 
 (SDEFUN |GALFACT;factor;UPLNniF;40|
-        ((|f| UP) (|ld| |List| (|NonNegativeInteger|))
-         (|r| |NonNegativeInteger|) ($ |Factored| UP))
+        ((|f| (UP)) (|ld| (|List| (|NonNegativeInteger|)))
+         (|r| (|NonNegativeInteger|)) ($ (|Factored| UP)))
         (COND
          ((|GALFACT;errorsum?| (SPADCALL |f| (QREFELT $ 39)) |ld| $)
           (|error| "factor: Bad arguments"))
@@ -1902,19 +1910,19 @@
            (QREFELT $ 143))))) 
 
 (SDEFUN |GALFACT;factor;UPNniF;41|
-        ((|f| UP) (|r| |NonNegativeInteger|) ($ |Factored| UP))
+        ((|f| (UP)) (|r| (|NonNegativeInteger|)) ($ (|Factored| UP)))
         (SPADCALL
          (SPADCALL |f| NIL (|GALFACT;fullSet| (SPADCALL |f| (QREFELT $ 39)) $)
                    |r| (QREFELT $ 168))
          (QREFELT $ 143))) 
 
 (SDEFUN |GALFACT;factor;UPLF;42|
-        ((|f| UP) (|ld| |List| (|NonNegativeInteger|)) ($ |Factored| UP))
+        ((|f| (UP)) (|ld| (|List| (|NonNegativeInteger|))) ($ (|Factored| UP)))
         (SPADCALL |f| |ld| 2 (QREFELT $ 170))) 
 
 (SDEFUN |GALFACT;factor;UP2NniF;43|
-        ((|f| UP) (|d| |NonNegativeInteger|) (|r| |NonNegativeInteger|)
-         ($ |Factored| UP))
+        ((|f| (UP)) (|d| (|NonNegativeInteger|)) (|r| (|NonNegativeInteger|))
+         ($ (|Factored| UP)))
         (SPROG ((|n| (|Union| (|NonNegativeInteger|) "failed")))
                (SEQ
                 (LETT |n|
@@ -1926,7 +1934,7 @@
                         (SPADCALL |f| (SPADCALL (QCDR |n|) |d| (QREFELT $ 173))
                                   |r| (QREFELT $ 170)))))))) 
 
-(SDEFUN |GALFACT;factorSquareFree;UPF;44| ((|f| UP) ($ |Factored| UP))
+(SDEFUN |GALFACT;factorSquareFree;UPF;44| ((|f| (UP)) ($ (|Factored| UP)))
         (SPADCALL
          (COND
           ((QREFELT $ 9)
@@ -1936,8 +1944,8 @@
          (QREFELT $ 143))) 
 
 (SDEFUN |GALFACT;factorSquareFree;UPLNniF;45|
-        ((|f| UP) (|ld| |List| (|NonNegativeInteger|))
-         (|r| |NonNegativeInteger|) ($ |Factored| UP))
+        ((|f| (UP)) (|ld| (|List| (|NonNegativeInteger|)))
+         (|r| (|NonNegativeInteger|)) ($ (|Factored| UP)))
         (COND
          ((|GALFACT;errorsum?| (SPADCALL |f| (QREFELT $ 39)) |ld| $)
           (|error| "factorSquareFree: Bad arguments"))
@@ -1947,19 +1955,19 @@
            (QREFELT $ 143))))) 
 
 (SDEFUN |GALFACT;factorSquareFree;UPNniF;46|
-        ((|f| UP) (|r| |NonNegativeInteger|) ($ |Factored| UP))
+        ((|f| (UP)) (|r| (|NonNegativeInteger|)) ($ (|Factored| UP)))
         (SPADCALL
          (SPADCALL |f| 'T (|GALFACT;fullSet| (SPADCALL |f| (QREFELT $ 39)) $)
                    |r| (QREFELT $ 168))
          (QREFELT $ 143))) 
 
 (SDEFUN |GALFACT;factorSquareFree;UPLF;47|
-        ((|f| UP) (|ld| |List| (|NonNegativeInteger|)) ($ |Factored| UP))
+        ((|f| (UP)) (|ld| (|List| (|NonNegativeInteger|))) ($ (|Factored| UP)))
         (SPADCALL |f| |ld| 2 (QREFELT $ 176))) 
 
 (SDEFUN |GALFACT;factorSquareFree;UP2NniF;48|
-        ((|f| UP) (|d| |NonNegativeInteger|) (|r| |NonNegativeInteger|)
-         ($ |Factored| UP))
+        ((|f| (UP)) (|d| (|NonNegativeInteger|)) (|r| (|NonNegativeInteger|))
+         ($ (|Factored| UP)))
         (SPROG ((|n| (|Union| (|NonNegativeInteger|) "failed")))
                (SEQ
                 (LETT |n|
@@ -1973,8 +1981,9 @@
                              (QREFELT $ 176)))))))) 
 
 (SDEFUN |GALFACT;factorOfDegree;PiUPLNniBU;49|
-        ((|d| |PositiveInteger|) (|p| UP) (|ld| |List| (|NonNegativeInteger|))
-         (|r| |NonNegativeInteger|) (|sqf| |Boolean|) ($ |Union| UP "failed"))
+        ((|d| (|PositiveInteger|)) (|p| (UP))
+         (|ld| (|List| (|NonNegativeInteger|))) (|r| (|NonNegativeInteger|))
+         (|sqf| (|Boolean|)) ($ (|Union| UP "failed")))
         (SPROG
          ((#1=#:G589 NIL) (#2=#:G590 NIL) (#3=#:G591 NIL) (|f| NIL)
           (|lf|
@@ -2021,24 +2030,25 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |GALFACT;factorOfDegree;PiUPLNniU;50|
-        ((|d| |PositiveInteger|) (|p| UP) (|ld| |List| (|NonNegativeInteger|))
-         (|r| |NonNegativeInteger|) ($ |Union| UP "failed"))
+        ((|d| (|PositiveInteger|)) (|p| (UP))
+         (|ld| (|List| (|NonNegativeInteger|))) (|r| (|NonNegativeInteger|))
+         ($ (|Union| UP "failed")))
         (SPADCALL |d| |p| |ld| |r| NIL (QREFELT $ 181))) 
 
 (SDEFUN |GALFACT;factorOfDegree;PiUPNniU;51|
-        ((|d| |PositiveInteger|) (|p| UP) (|r| |NonNegativeInteger|)
-         ($ |Union| UP "failed"))
+        ((|d| (|PositiveInteger|)) (|p| (UP)) (|r| (|NonNegativeInteger|))
+         ($ (|Union| UP "failed")))
         (SPADCALL |d| |p|
                   (SPADCALL (SPADCALL |p| (QREFELT $ 39)) 1 (QREFELT $ 173))
                   |r| NIL (QREFELT $ 181))) 
 
 (SDEFUN |GALFACT;factorOfDegree;PiUPLU;52|
-        ((|d| |PositiveInteger|) (|p| UP) (|ld| |List| (|NonNegativeInteger|))
-         ($ |Union| UP "failed"))
+        ((|d| (|PositiveInteger|)) (|p| (UP))
+         (|ld| (|List| (|NonNegativeInteger|))) ($ (|Union| UP "failed")))
         (SPADCALL |d| |p| |ld| 2 NIL (QREFELT $ 181))) 
 
 (SDEFUN |GALFACT;factorOfDegree;PiUPU;53|
-        ((|d| |PositiveInteger|) (|p| UP) ($ |Union| UP "failed"))
+        ((|d| (|PositiveInteger|)) (|p| (UP)) ($ (|Union| UP "failed")))
         (SPADCALL |d| |p|
                   (SPADCALL (SPADCALL |p| (QREFELT $ 39)) 1 (QREFELT $ 173)) 2
                   NIL (QREFELT $ 181))) 

@@ -10,13 +10,14 @@
                        (DELASC #1# (|get| #2# #3# |$CategoryFrame|)))
                       |$CategoryFrame|))) 
 
-(SDEFUN |NNRAT;sup;3$;1| ((|x| $) (|y| $) ($ $))
+(SDEFUN |NNRAT;sup;3$;1| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 10))) 
 
-(SDEFUN |NNRAT;inf;3$;2| ((|x| $) (|y| $) ($ $))
+(SDEFUN |NNRAT;inf;3$;2| ((|x| ($)) (|y| ($)) ($ ($)))
         (SPADCALL |x| |y| (QREFELT $ 12))) 
 
-(SDEFUN |NNRAT;subtractIfCan;2$U;3| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+(SDEFUN |NNRAT;subtractIfCan;2$U;3|
+        ((|x| ($)) (|y| ($)) ($ (|Union| $ "failed")))
         (SPROG ((|c| (|Fraction| (|Integer|))))
                (SEQ (LETT |c| (SPADCALL |x| |y| (QREFELT $ 14)))
                     (EXIT

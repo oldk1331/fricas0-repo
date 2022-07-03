@@ -1,5 +1,5 @@
 
-(SDEFUN |COMPLPAT;convert;CSP;1| ((|cs| CS) ($ |Pattern| R))
+(SDEFUN |COMPLPAT;convert;CSP;1| ((|cs| (CS)) ($ (|Pattern| R)))
         (COND
          ((SPADCALL (SPADCALL |cs| (QREFELT $ 14)) (QREFELT $ 15))
           (SPADCALL (SPADCALL |cs| (QREFELT $ 16)) (QREFELT $ 17)))

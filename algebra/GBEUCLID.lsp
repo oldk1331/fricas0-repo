@@ -1,10 +1,10 @@
 
 (SDEFUN |GBEUCLID;euclideanGroebner;2L;1|
-        ((|Pol| |List| |Dpol|) ($ |List| |Dpol|))
+        ((|Pol| (|List| |Dpol|)) ($ (|List| |Dpol|)))
         (|GBEUCLID;eminGbasis| (|GBEUCLID;strongGbasis| |Pol| 0 0 $) $)) 
 
 (SDEFUN |GBEUCLID;euclideanGroebner;LSL;2|
-        ((|Pol| |List| |Dpol|) (|xx1| |String|) ($ |List| |Dpol|))
+        ((|Pol| (|List| |Dpol|)) (|xx1| (|String|)) ($ (|List| |Dpol|)))
         (SEQ
          (COND
           ((EQUAL |xx1| "redcrit")
@@ -27,8 +27,8 @@
                 (EXIT NIL)))))) 
 
 (SDEFUN |GBEUCLID;euclideanGroebner;L2SL;3|
-        ((|Pol| |List| |Dpol|) (|xx1| |String|) (|xx2| |String|)
-         ($ |List| |Dpol|))
+        ((|Pol| (|List| |Dpol|)) (|xx1| (|String|)) (|xx2| (|String|))
+         ($ (|List| |Dpol|)))
         (SEQ
          (COND
           ((EQUAL |xx1| "redcrit")
@@ -75,8 +75,8 @@
          (SPADCALL (SPADCALL "   " (QREFELT $ 14)) (QREFELT $ 16)) (EXIT NIL))) 
 
 (SDEFUN |GBEUCLID;strongGbasis|
-        ((|Pol| |List| |Dpol|) (|xx1| |Integer|) (|xx2| . #1=(|Integer|))
-         ($ |List| |Dpol|))
+        ((|Pol| (|List| |Dpol|)) (|xx1| (|Integer|)) (|xx2| #1=(|Integer|))
+         ($ (|List| |Dpol|)))
         (SPROG
          ((|xx| #1#) (|ala| (|Integer|)) (H (|List| |Dpol|))
           (D
@@ -331,13 +331,15 @@
          ('T NIL))) 
 
 (SDEFUN |GBEUCLID;ecritMondd1|
-        ((|e| |Expon|) (|c| |Dom|)
-         (D2 |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+        ((|e| (|Expon|)) (|c| (|Dom|))
+         (D2
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))))
         (SPROG
          ((|x|
            (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
@@ -359,7 +361,7 @@
                                (|GBEUCLID;ecritMondd1| |e| |c| (CDR D2)
                                 $))))))))))) 
 
-(SDEFUN |GBEUCLID;ecredPol| ((|h| |Dpol|) (F |List| |Dpol|) ($ |Dpol|))
+(SDEFUN |GBEUCLID;ecredPol| ((|h| (|Dpol|)) (F (|List| |Dpol|)) ($ (|Dpol|)))
         (SPROG ((|h0| (|Dpol|)))
                (SEQ (LETT |h0| (|spadConstant| $ 39))
                     (EXIT
@@ -391,12 +393,14 @@
                              (EXIT |h0|)))))))) 
 
 (SDEFUN |GBEUCLID;ecritMTondd1|
-        ((|dd1| |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+        ((|dd1|
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))))
         (SPROG
          ((|f2|
            #1=(|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
@@ -446,13 +450,15 @@
                                              $))))))))))))))) 
 
 (SDEFUN |GBEUCLID;ecritBonD|
-        ((|h| |Dpol|)
-         (D |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+        ((|h| (|Dpol|))
+         (D
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))))
         (SPROG
          ((|x2| (|Dpol|)) (|x1| (|Dpol|))
           (|x|
@@ -476,7 +482,8 @@
                          (CONS |x|
                                (|GBEUCLID;ecritBonD| |h| (CDR D) $))))))))))) 
 
-(SDEFUN |GBEUCLID;eupdatF| ((|h| |Dpol|) (F |List| |Dpol|) ($ |List| |Dpol|))
+(SDEFUN |GBEUCLID;eupdatF|
+        ((|h| (|Dpol|)) (F (|List| |Dpol|)) ($ (|List| |Dpol|)))
         (SPROG ((|f1| (|Dpol|)))
                (SEQ
                 (COND ((NULL F) NIL)
@@ -495,8 +502,8 @@
                                       $))))))))))) 
 
 (SDEFUN |GBEUCLID;updatH|
-        ((|h| |Dpol|) (H |List| |Dpol|) (|Hh| |List| |Dpol|)
-         (|Hhh| |List| |Dpol|) ($ |List| |Dpol|))
+        ((|h| (|Dpol|)) (H (|List| |Dpol|)) (|Hh| (|List| |Dpol|))
+         (|Hhh| (|List| |Dpol|)) ($ (|List| |Dpol|)))
         (SPROG
          ((|hp| (|Dpol|)) (|hpp| (|List| |Dpol|)) (#1=#:G256 NIL)
           (|plc|
@@ -571,7 +578,8 @@
                               $))))))))
                       (EXIT (|GBEUCLID;updatH| |h| (CDR H) |Hh| |Hhh| $)))))))) 
 
-(SDEFUN |GBEUCLID;crithdelH| ((|h| |Dpol|) (H |List| |Dpol|) ($ |List| |Dpol|))
+(SDEFUN |GBEUCLID;crithdelH|
+        ((|h| (|Dpol|)) (H (|List| |Dpol|)) ($ (|List| |Dpol|)))
         (SPROG
          ((#1=#:G266 NIL)
           (|plc|
@@ -621,7 +629,7 @@
                          (CONS |h1|
                                (|GBEUCLID;crithdelH| |h| (CDR H) $))))))))))) 
 
-(SDEFUN |GBEUCLID;eminGbasis| ((F |List| |Dpol|) ($ . #1=(|List| |Dpol|)))
+(SDEFUN |GBEUCLID;eminGbasis| ((F (|List| |Dpol|)) ($ #1=(|List| |Dpol|)))
         (SPROG ((|newbas| #1#))
                (SEQ
                 (COND ((NULL F) NIL)
@@ -632,7 +640,8 @@
                               (|GBEUCLID;ecredPol| (|SPADfirst| F) |newbas| $)
                               |newbas|)))))))) 
 
-(SDEFUN |GBEUCLID;ecrithinH| ((|h| |Dpol|) (H |List| |Dpol|) ($ |Boolean|))
+(SDEFUN |GBEUCLID;ecrithinH|
+        ((|h| (|Dpol|)) (H (|List| |Dpol|)) ($ (|Boolean|)))
         (SPROG ((|h1| (|Dpol|)))
                (SEQ
                 (COND ((NULL H) 'T)
@@ -649,9 +658,10 @@
                               (#1# (|GBEUCLID;ecrithinH| |h| (CDR H) $)))))))))) 
 
 (SDEFUN |GBEUCLID;esPol|
-        ((|p| |Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-          (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))
-         ($ |Dpol|))
+        ((|p|
+          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
+         ($ (|Dpol|)))
         (SPROG
          ((#1=#:G283 NIL) (#2=#:G280 NIL) (|lij| (|Dom|)) (|fj| (|Dpol|))
           (|fi| (|Dpol|)) (|Tij| (|Expon|)))
@@ -709,7 +719,8 @@
                 (QREFELT $ 57)))))) 
 
 (SDEFUN |GBEUCLID;eRed|
-        ((|s| |Dpol|) (H |List| |Dpol|) (|Hh| |List| |Dpol|) ($ |Dpol|))
+        ((|s| (|Dpol|)) (H (|List| |Dpol|)) (|Hh| (|List| |Dpol|))
+         ($ (|Dpol|)))
         (SPROG
          ((|q1| (|Dom|))
           (|sdf1| (|Record| (|:| |quotient| |Dom|) (|:| |remainder| |Dom|)))
@@ -759,9 +770,10 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |GBEUCLID;ecritT|
-        ((|p| |Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-          (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))
-         ($ |Boolean|))
+        ((|p|
+          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
+         ($ (|Boolean|)))
         (SPROG ((|cj| (|Dom|)) (|ci| (|Dom|)) (|pj| (|Dpol|)) (|pi| (|Dpol|)))
                (SEQ (LETT |pi| (QVELT |p| 2)) (LETT |pj| (QVELT |p| 3))
                     (LETT |ci| (SPADCALL |pi| (QREFELT $ 23)))
@@ -779,7 +791,8 @@
                       ('T NIL)))))) 
 
 (SDEFUN |GBEUCLID;ecritM|
-        ((|e1| |Expon|) (|c1| |Dom|) (|e2| |Expon|) (|c2| |Dom|) ($ |Boolean|))
+        ((|e1| (|Expon|)) (|c1| (|Dom|)) (|e2| (|Expon|)) (|c2| (|Dom|))
+         ($ (|Boolean|)))
         (SPROG ((#1=#:G309 NIL) (|en| (|Union| |Expon| "failed")))
                (SEQ
                 (EXIT
@@ -794,8 +807,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |GBEUCLID;ecritB|
-        ((|eh| |Expon|) (|ch| |Dom|) (|ei| |Expon|) (|ci| |Dom|) (|ek| |Expon|)
-         (|ck| |Dom|) ($ |Boolean|))
+        ((|eh| (|Expon|)) (|ch| (|Dom|)) (|ei| (|Expon|)) (|ci| (|Dom|))
+         (|ek| (|Expon|)) (|ck| (|Dom|)) ($ (|Boolean|)))
         (SPROG ((|cik| (|Dom|)) (|eik| (|Expon|)))
                (SEQ (LETT |eik| (SPADCALL |ei| |ek| (QREFELT $ 27)))
                     (LETT |cik| (SPADCALL |ci| |ck| (QREFELT $ 28)))
@@ -815,11 +828,11 @@
                       (#1# NIL)))))) 
 
 (SDEFUN |GBEUCLID;euclideanNormalForm;DpolLDpol;19|
-        ((|p1| |Dpol|) (|lp| |List| |Dpol|) ($ |Dpol|))
+        ((|p1| (|Dpol|)) (|lp| (|List| |Dpol|)) ($ (|Dpol|)))
         (|GBEUCLID;eRed| |p1| |lp| |lp| $)) 
 
 (SDEFUN |GBEUCLID;sortin|
-        ((|p1| |Dpol|) (|lp| |List| |Dpol|) ($ |List| |Dpol|))
+        ((|p1| (|Dpol|)) (|lp| (|List| |Dpol|)) ($ (|List| |Dpol|)))
         (SPROG ((|ep1| (|Expon|)) (|elf1| (|Expon|)) (|f1| (|Dpol|)))
                (SEQ
                 (COND ((NULL |lp|) (LIST |p1|))
@@ -844,15 +857,18 @@
                             (EXIT (CONS |p1| |lp|)))))))) 
 
 (SDEFUN |GBEUCLID;updatD|
-        ((D1 |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
-         (D2 |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
-         ($ |List|
-          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+        ((D1
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+         (D2
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
+         ($
+          (|List|
+           (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                     (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))))
         (SPROG
          ((|dl2|
            #1=(|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
@@ -871,7 +887,7 @@
                         (#2#
                          (CONS |dl2| (|GBEUCLID;updatD| D1 (CDR D2) $))))))))))) 
 
-(SDEFUN |GBEUCLID;lepol| ((|p1| |Dpol|) ($ |Integer|))
+(SDEFUN |GBEUCLID;lepol| ((|p1| (|Dpol|)) ($ (|Integer|)))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| 0)
                     (SEQ G190
@@ -886,14 +902,14 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |n|)))) 
 
-(SDEFUN |GBEUCLID;prinb| ((|n| |Integer|) ($ |Void|))
+(SDEFUN |GBEUCLID;prinb| ((|n| (|Integer|)) ($ (|Void|)))
         (SPROG ((#1=#:G329 NIL) (|i| NIL))
                (SEQ (LETT |i| 1) (LETT #1# |n|) G190
                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                     (SEQ (EXIT (SPADCALL "    " (QREFELT $ 63))))
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL)))) 
 
-(SDEFUN |GBEUCLID;prinshINFO| ((|h| |Dpol|) ($ |Void|))
+(SDEFUN |GBEUCLID;prinshINFO| ((|h| (|Dpol|)) ($ (|Void|)))
         (SEQ (|GBEUCLID;prinb| 2 $)
              (SPADCALL " reduced Critpair - Polynom :" (QREFELT $ 63))
              (|GBEUCLID;prinb| 2 $)
@@ -901,10 +917,11 @@
              (EXIT (|GBEUCLID;prinb| 2 $)))) 
 
 (SDEFUN |GBEUCLID;prindINFO|
-        ((|cp| |Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
-          (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))
-         (|ps| |Dpol|) (|ph| |Dpol|) (|i1| |Integer|) (|i2| |Integer|)
-         (|n| |Integer|) ($ |Integer|))
+        ((|cp|
+          (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
+                    (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
+         (|ps| (|Dpol|)) (|ph| (|Dpol|)) (|i1| (|Integer|)) (|i2| (|Integer|))
+         (|n| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((|ll|
            (|List|
@@ -1005,7 +1022,7 @@
                   (SPADCALL (SPADCALL |ll| (QREFELT $ 67)) (QREFELT $ 16))
                   (|GBEUCLID;prinb| 1 $) (EXIT |n|)))))))) 
 
-(SDEFUN |GBEUCLID;prinpolINFO| ((|pl| |List| |Dpol|) ($ |Void|))
+(SDEFUN |GBEUCLID;prinpolINFO| ((|pl| (|List| |Dpol|)) ($ (|Void|)))
         (SPROG ((|n| (|Integer|)))
                (SEQ (LETT |n| (LENGTH |pl|)) (|GBEUCLID;prinb| 1 $)
                     (EXIT

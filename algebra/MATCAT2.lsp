@@ -1,5 +1,5 @@
 
-(SDEFUN |MATCAT2;map;MM1M2;1| ((|f| |Mapping| R2 R1) (|m| M1) ($ M2))
+(SDEFUN |MATCAT2;map;MM1M2;1| ((|f| (|Mapping| R2 R1)) (|m| (M1)) ($ (M2)))
         (SPROG
          ((#1=#:G126 NIL) (|j| NIL) (#2=#:G127 NIL) (|l| NIL) (#3=#:G124 NIL)
           (|i| NIL) (#4=#:G125 NIL) (|k| NIL) (|ans| (M2)))
@@ -33,8 +33,8 @@
           (EXIT |ans|)))) 
 
 (SDEFUN |MATCAT2;map;MM1U;2|
-        ((|f| |Mapping| (|Union| R2 "failed") R1) (|m| M1)
-         ($ |Union| M2 "failed"))
+        ((|f| (|Mapping| (|Union| R2 "failed") R1)) (|m| (M1))
+         ($ (|Union| M2 "failed")))
         (SPROG
          ((#1=#:G132 NIL) (#2=#:G146 NIL) (|r| (|Union| R2 #3="failed"))
           (#4=#:G149 NIL) (|j| NIL) (#5=#:G150 NIL) (|l| NIL) (#6=#:G147 NIL)
@@ -86,7 +86,7 @@
           #8# (EXIT #2#)))) 
 
 (SDEFUN |MATCAT2;reduce;MM12R2;3|
-        ((|f| |Mapping| R2 R1 R2) (|m| M1) (|ident| R2) ($ R2))
+        ((|f| (|Mapping| R2 R1 R2)) (|m| (M1)) (|ident| (R2)) ($ (R2)))
         (SPROG ((|s| (R2)) (#1=#:G157 NIL) (|j| NIL) (#2=#:G156 NIL) (|i| NIL))
                (SEQ (LETT |s| |ident|)
                     (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 20)))

@@ -1,7 +1,7 @@
 
 (SDEFUN |UTSODE;stFunc1;MM;1|
-        ((|f| |Mapping| UTS UTS)
-         ($ |Mapping| (|Stream| |Coef|) (|Stream| |Coef|)))
+        ((|f| (|Mapping| UTS UTS))
+         ($ (|Mapping| (|Stream| |Coef|) (|Stream| |Coef|))))
         (SPROG NIL (CONS #'|UTSODE;stFunc1;MM;1!0| (VECTOR |f| $)))) 
 
 (SDEFUN |UTSODE;stFunc1;MM;1!0| ((|s| NIL) ($$ NIL))
@@ -14,8 +14,8 @@
                       (QREFELT $ 10)))))) 
 
 (SDEFUN |UTSODE;stFunc2;MM;2|
-        ((|f| |Mapping| UTS UTS UTS)
-         ($ |Mapping| (|Stream| |Coef|) (|Stream| |Coef|) (|Stream| |Coef|)))
+        ((|f| (|Mapping| UTS UTS UTS))
+         ($ (|Mapping| (|Stream| |Coef|) (|Stream| |Coef|) (|Stream| |Coef|))))
         (SPROG NIL (CONS #'|UTSODE;stFunc2;MM;2!0| (VECTOR |f| $)))) 
 
 (SDEFUN |UTSODE;stFunc2;MM;2!0| ((|s1| NIL) (|s2| NIL) ($$ NIL))
@@ -30,8 +30,8 @@
              (QREFELT $ 10)))))) 
 
 (SDEFUN |UTSODE;stFuncN;MM;3|
-        ((|f| |Mapping| UTS (|List| UTS))
-         ($ |Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|))))
+        ((|f| (|Mapping| UTS (|List| UTS)))
+         ($ (|Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|)))))
         (SPROG NIL (CONS #'|UTSODE;stFuncN;MM;3!0| (VECTOR |f| $)))) 
 
 (SDEFUN |UTSODE;stFuncN;MM;3!0| ((|ls| NIL) ($$ NIL))
@@ -44,8 +44,9 @@
                       (QREFELT $ 10)))))) 
 
 (SDEFUN |UTSODE;divloopre|
-        ((|hx| |Coef|) (|tx| |Stream| |Coef|) (|hy| |Coef|)
-         (|ty| |Stream| |Coef|) (|c| |Stream| |Coef|) ($ |Stream| |Coef|))
+        ((|hx| (|Coef|)) (|tx| (|Stream| |Coef|)) (|hy| (|Coef|))
+         (|ty| (|Stream| |Coef|)) (|c| (|Stream| |Coef|))
+         ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|UTSODE;divloopre!0|
@@ -71,8 +72,8 @@
                       (QREFELT $ 30)))))) 
 
 (SDEFUN |UTSODE;divloop|
-        ((|hx| |Coef|) (|tx| |Stream| |Coef|) (|hy| |Coef|)
-         (|ty| |Stream| |Coef|) ($ |Stream| |Coef|))
+        ((|hx| (|Coef|)) (|tx| (|Stream| |Coef|)) (|hy| (|Coef|))
+         (|ty| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL
                 (CONS #'|UTSODE;divloop!0| (VECTOR $ |ty| |hy| |tx| |hx|))
@@ -88,7 +89,7 @@
           (RETURN (PROGN (|UTSODE;divloopre| |hx| |tx| |hy| |ty| |s| $))))) 
 
 (SDEFUN |UTSODE;sdiv|
-        ((|x| |Stream| |Coef|) (|y| |Stream| |Coef|) ($ |Stream| |Coef|))
+        ((|x| (|Stream| |Coef|)) (|y| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SEQ
                 (SPADCALL (CONS #'|UTSODE;sdiv!0| (VECTOR |y| $ |x|))
@@ -130,15 +131,15 @@
                                       (|UTSODE;divloop| |hx| |tx| (QCDR |rhy|)
                                        |ty| $))))))))))))))))) 
 
-(SDEFUN |UTSODE;fixedPointExquo;3UTS;7| ((|f| UTS) (|g| UTS) ($ UTS))
+(SDEFUN |UTSODE;fixedPointExquo;3UTS;7| ((|f| (UTS)) (|g| (UTS)) ($ (UTS)))
         (SPADCALL
          (|UTSODE;sdiv| (SPADCALL |f| (QREFELT $ 10))
           (SPADCALL |g| (QREFELT $ 10)) $)
          (QREFELT $ 9))) 
 
 (SDEFUN |UTSODE;ode1re|
-        ((|f| |Mapping| (|Stream| |Coef|) (|Stream| |Coef|)) (|c| |Coef|)
-         (|y| |Stream| |Coef|) ($ |Stream| |Coef|))
+        ((|f| (|Mapping| (|Stream| |Coef|) (|Stream| |Coef|))) (|c| (|Coef|))
+         (|y| (|Stream| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL |c| (CONS #'|UTSODE;ode1re!0| (VECTOR |f| |y|))
                          (QREFELT $ 45)))) 
@@ -150,8 +151,8 @@
           (RETURN (PROGN (SPADCALL |y| |f|))))) 
 
 (SDEFUN |UTSODE;iOde1|
-        ((|f| |Mapping| (|Stream| |Coef|) (|Stream| |Coef|)) (|c| |Coef|)
-         ($ |Stream| |Coef|))
+        ((|f| (|Mapping| (|Stream| |Coef|) (|Stream| |Coef|))) (|c| (|Coef|))
+         ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL (CONS #'|UTSODE;iOde1!0| (VECTOR $ |c| |f|))
                          (QREFELT $ 34)))) 
@@ -164,13 +165,15 @@
           (RETURN (PROGN (|UTSODE;ode1re| |f| |c| |s| $))))) 
 
 (SDEFUN |UTSODE;ode1;MCoefUTS;10|
-        ((|f| |Mapping| UTS UTS) (|c| |Coef|) ($ UTS))
+        ((|f| (|Mapping| UTS UTS)) (|c| (|Coef|)) ($ (UTS)))
         (SPADCALL (|UTSODE;iOde1| (SPADCALL |f| (QREFELT $ 13)) |c| $)
                   (QREFELT $ 9))) 
 
 (SDEFUN |UTSODE;ode2re|
-        ((|f| |Mapping| (|Stream| |Coef|) (|Stream| |Coef|) (|Stream| |Coef|))
-         (|c0| |Coef|) (|c1| |Coef|) (|y| |Stream| |Coef|) ($ |Stream| |Coef|))
+        ((|f|
+          (|Mapping| (|Stream| |Coef|) (|Stream| |Coef|) (|Stream| |Coef|)))
+         (|c0| (|Coef|)) (|c1| (|Coef|)) (|y| (|Stream| |Coef|))
+         ($ (|Stream| |Coef|)))
         (SPROG ((|yi| (|Stream| |Coef|)))
                (SEQ
                 (LETT |yi|
@@ -191,8 +194,9 @@
           (RETURN (PROGN (SPADCALL |y| (SPADCALL |y| (QREFELT $ 47)) |f|))))) 
 
 (SDEFUN |UTSODE;iOde2|
-        ((|f| |Mapping| (|Stream| |Coef|) (|Stream| |Coef|) (|Stream| |Coef|))
-         (|c0| |Coef|) (|c1| |Coef|) ($ |Stream| |Coef|))
+        ((|f|
+          (|Mapping| (|Stream| |Coef|) (|Stream| |Coef|) (|Stream| |Coef|)))
+         (|c0| (|Coef|)) (|c1| (|Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (SPADCALL (CONS #'|UTSODE;iOde2!0| (VECTOR $ |c1| |c0| |f|))
                          (QREFELT $ 34)))) 
@@ -206,14 +210,15 @@
           (RETURN (PROGN (|UTSODE;ode2re| |f| |c0| |c1| |s| $))))) 
 
 (SDEFUN |UTSODE;ode2;M2CoefUTS;13|
-        ((|f| |Mapping| UTS UTS UTS) (|c0| |Coef|) (|c1| |Coef|) ($ UTS))
+        ((|f| (|Mapping| UTS UTS UTS)) (|c0| (|Coef|)) (|c1| (|Coef|))
+         ($ (UTS)))
         (SPADCALL (|UTSODE;iOde2| (SPADCALL |f| (QREFELT $ 16)) |c0| |c1| $)
                   (QREFELT $ 9))) 
 
 (SDEFUN |UTSODE;odeNre|
-        ((|f| |Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|)))
-         (|cl| |List| |Coef|) (|yl| |List| (|Stream| |Coef|))
-         ($ |List| (|Stream| |Coef|)))
+        ((|f| (|Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|))))
+         (|cl| (|List| |Coef|)) (|yl| (|List| (|Stream| |Coef|)))
+         ($ (|List| (|Stream| |Coef|))))
         (SPROG
          ((|yil| (|List| (|Stream| |Coef|))) (#1=#:G208 NIL) (|c| NIL)
           (#2=#:G209 NIL) (|y| NIL) (#3=#:G207 NIL))
@@ -241,8 +246,8 @@
 (SDEFUN |UTSODE;odeNre!0| ((|y| NIL)) |y|) 
 
 (SDEFUN |UTSODE;iOde|
-        ((|f| |Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|)))
-         (|cl| |List| |Coef|) ($ |Stream| |Coef|))
+        ((|f| (|Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|))))
+         (|cl| (|List| |Coef|)) ($ (|Stream| |Coef|)))
         (SPROG NIL
                (|SPADfirst|
                 (SPADCALL (CONS #'|UTSODE;iOde!0| (VECTOR $ |cl| |f|))
@@ -256,15 +261,15 @@
           (RETURN (PROGN (|UTSODE;odeNre| |f| |cl| |ls| $))))) 
 
 (SDEFUN |UTSODE;ode;MLUTS;16|
-        ((|f| |Mapping| UTS (|List| UTS)) (|cl| |List| |Coef|) ($ UTS))
+        ((|f| (|Mapping| UTS (|List| UTS))) (|cl| (|List| |Coef|)) ($ (UTS)))
         (SPADCALL (|UTSODE;iOde| (SPADCALL |f| (QREFELT $ 24)) |cl| $)
                   (QREFELT $ 9))) 
 
 (SDEFUN |UTSODE;simulre|
-        ((|cst| |List| |Coef|)
-         (|lsf| |List|
-          (|Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|))))
-         (|c| |List| (|Stream| |Coef|)) ($ |List| (|Stream| |Coef|)))
+        ((|cst| (|List| |Coef|))
+         (|lsf|
+          (|List| (|Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|)))))
+         (|c| (|List| (|Stream| |Coef|))) ($ (|List| (|Stream| |Coef|))))
         (SPROG
          ((#1=#:G229 NIL) (|csti| NIL) (#2=#:G230 NIL) (|lsfi| NIL)
           (#3=#:G228 NIL))
@@ -304,10 +309,10 @@
              |lsfi|))))) 
 
 (SDEFUN |UTSODE;iMpsode|
-        ((|cs| |List| |Coef|)
-         (|lsts| |List|
-          (|Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|))))
-         ($ |List| (|Stream| |Coef|)))
+        ((|cs| (|List| |Coef|))
+         (|lsts|
+          (|List| (|Mapping| (|Stream| |Coef|) (|List| (|Stream| |Coef|)))))
+         ($ (|List| (|Stream| |Coef|))))
         (SPROG NIL
                (SPADCALL (CONS #'|UTSODE;iMpsode!0| (VECTOR $ |lsts| |cs|))
                          (LENGTH |cs|) (QREFELT $ 52)))) 
@@ -320,8 +325,8 @@
           (RETURN (PROGN (|UTSODE;simulre| |cs| |lsts| |ls| $))))) 
 
 (SDEFUN |UTSODE;mpsode;LLL;19|
-        ((|cs| |List| |Coef|) (|lsts| |List| (|Mapping| UTS (|List| UTS)))
-         ($ |List| UTS))
+        ((|cs| (|List| |Coef|)) (|lsts| (|List| (|Mapping| UTS (|List| UTS))))
+         ($ (|List| UTS)))
         (SPROG
          ((|stSol| (|List| (|Stream| |Coef|))) (#1=#:G241 NIL) (|lst| NIL)
           (#2=#:G240 NIL))

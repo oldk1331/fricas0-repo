@@ -1,5 +1,6 @@
 
-(SDEFUN |DERHAM;totalDifferential;E$;1| ((|f| |Expression| |CoefRing|) ($ $))
+(SDEFUN |DERHAM;totalDifferential;E$;1|
+        ((|f| (|Expression| |CoefRing|)) ($ ($)))
         (SPROG ((|divs| (|List| $)) (#1=#:G128 NIL) (|i| NIL) (#2=#:G127 NIL))
                (SEQ
                 (LETT |divs|
@@ -23,10 +24,10 @@
                             (EXIT (NREVERSE #2#)))))
                 (EXIT (SPADCALL (ELT $ 19) |divs| (QREFELT $ 22)))))) 
 
-(SDEFUN |DERHAM;termDiff| ((|r| |Expression| |CoefRing|) (|e| $) ($ $))
+(SDEFUN |DERHAM;termDiff| ((|r| (|Expression| |CoefRing|)) (|e| ($)) ($ ($)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 23)) |e| (QREFELT $ 24))) 
 
-(SDEFUN |DERHAM;exteriorDifferential;2$;3| ((|x| $) ($ $))
+(SDEFUN |DERHAM;exteriorDifferential;2$;3| ((|x| ($)) ($ ($)))
         (COND
          ((SPADCALL |x| (|spadConstant| $ 25) (QREFELT $ 28))
           (|spadConstant| $ 25))
@@ -37,7 +38,7 @@
            (SPADCALL (SPADCALL |x| (QREFELT $ 31)) (QREFELT $ 32))
            (QREFELT $ 19))))) 
 
-(SDEFUN |DERHAM;d| ((|s| |Symbol|) ($ |Symbol|))
+(SDEFUN |DERHAM;d| ((|s| (|Symbol|)) ($ (|Symbol|)))
         (SPROG ((|ds| (|Symbol|)))
                (SEQ
                 (LETT |ds|
@@ -52,7 +53,7 @@
                  (SPADCALL |ds| (SPADCALL |s| (QREFELT $ 40))
                            (QREFELT $ 41)))))) 
 
-(SDEFUN |DERHAM;displayList| ((|x| |ExtAlgBasis|) ($ |OutputForm|))
+(SDEFUN |DERHAM;displayList| ((|x| (|ExtAlgBasis|)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G141 NIL) (|i| NIL) (#2=#:G140 NIL)
           (|le| (|List| (|Integer|))))
@@ -79,7 +80,8 @@
                          (QREFELT $ 52)))))) 
 
 (SDEFUN |DERHAM;makeTerm|
-        ((|r| |Expression| |CoefRing|) (|x| |ExtAlgBasis|) ($ |OutputForm|))
+        ((|r| (|Expression| |CoefRing|)) (|x| (|ExtAlgBasis|))
+         ($ (|OutputForm|)))
         (COND
          ((SPADCALL |x| (SPADCALL (QREFELT $ 9) (QREFELT $ 53)) (QREFELT $ 54))
           (SPADCALL |r| (QREFELT $ 55)))
@@ -92,13 +94,14 @@
 (PUT '|DERHAM;terms| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (SDEFUN |DERHAM;terms|
-        ((|a| $)
-         ($ |List|
-          (|Record| (|:| |k| (|ExtAlgBasis|))
-                    (|:| |c| (|Expression| |CoefRing|)))))
+        ((|a| ($))
+         ($
+          (|List|
+           (|Record| (|:| |k| (|ExtAlgBasis|))
+                     (|:| |c| (|Expression| |CoefRing|))))))
         |a|) 
 
-(SDEFUN |DERHAM;coerce;$Of;8| ((|a| $) ($ |OutputForm|))
+(SDEFUN |DERHAM;coerce;$Of;8| ((|a| ($)) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G154 NIL) (|t| NIL) (#2=#:G153 NIL)
           (|ta|

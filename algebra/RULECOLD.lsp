@@ -1,14 +1,14 @@
 
-(SDEFUN |RULECOLD;name;$S;1| ((|r| $) ($ |Symbol|)) (QREFELT $ 6)) 
+(SDEFUN |RULECOLD;name;$S;1| ((|r| ($)) ($ (|Symbol|))) (QREFELT $ 6)) 
 
-(SDEFUN |RULECOLD;coerce;$Of;2| ((|r| $) ($ |OutputForm|))
+(SDEFUN |RULECOLD;coerce;$Of;2| ((|r| ($)) ($ (|OutputForm|)))
         (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 
 
 (PUT '|RULECOLD;=;2$B;3| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
-(SDEFUN |RULECOLD;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|)) 'T) 
+(SDEFUN |RULECOLD;=;2$B;3| ((|x| ($)) (|y| ($)) ($ (|Boolean|))) 'T) 
 
-(SDEFUN |RULECOLD;latex;$S;4| ((|x| $) ($ |String|))
+(SDEFUN |RULECOLD;latex;$S;4| ((|x| ($)) ($ (|String|)))
         (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
 
 (DECLAIM (NOTINLINE |RuleCalled;|)) 

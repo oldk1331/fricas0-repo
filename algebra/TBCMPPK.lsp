@@ -1,9 +1,10 @@
 
-(SDEFUN |TBCMPPK;initTable!;V;1| (($ |Void|))
+(SDEFUN |TBCMPPK;initTable!;V;1| (($ (|Void|)))
         (SEQ (SETELT $ 8 'T) (SETELT $ 11 (SPADCALL (QREFELT $ 10)))
              (EXIT (SPADCALL (QREFELT $ 19))))) 
 
-(SDEFUN |TBCMPPK;printInfo!;2SV;2| ((|s1| |String|) (|s2| |String|) ($ |Void|))
+(SDEFUN |TBCMPPK;printInfo!;2SV;2|
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SEQ
          (COND
           ((OR (SPADCALL |s1| (QREFELT $ 23)) (SPADCALL |s2| (QREFELT $ 23)))
@@ -17,7 +18,7 @@
              (|error|
               "in printInfo!()$TBCMPPK: not allowed to use hashtable"))))))) 
 
-(SDEFUN |TBCMPPK;startStats!;SV;3| ((|s| |String|) ($ |Void|))
+(SDEFUN |TBCMPPK;startStats!;SV;3| ((|s| (|String|)) ($ (|Void|)))
         (SEQ
          (COND ((SPADCALL |s| (QREFELT $ 23)) (SPADCALL (QREFELT $ 19)))
                ((QREFELT $ 8)
@@ -27,7 +28,7 @@
                 (|error|
                  "in startStats!()$TBCMPPK: not allowed to use hashtable"))))) 
 
-(SDEFUN |TBCMPPK;printStats!;V;4| (($ |Void|))
+(SDEFUN |TBCMPPK;printStats!;V;4| (($ (|Void|)))
         (SPROG ((|n| (|NonNegativeInteger|)) (|title| (|String|)))
                (SEQ
                 (COND
@@ -55,7 +56,7 @@
                   (|error|
                    "in printStats!()$TBCMPPK: not allowed to use hashtable")))))) 
 
-(SDEFUN |TBCMPPK;clearTable!;V;5| (($ |Void|))
+(SDEFUN |TBCMPPK;clearTable!;V;5| (($ (|Void|)))
         (SEQ
          (COND
           ((QREFELT $ 8)
@@ -67,14 +68,14 @@
            (|error|
             "in clearTable!()$TBCMPPK: not allowed to use hashtable"))))) 
 
-(SDEFUN |TBCMPPK;usingTable?;B;6| (($ |Boolean|)) (QREFELT $ 8)) 
+(SDEFUN |TBCMPPK;usingTable?;B;6| (($ (|Boolean|))) (QREFELT $ 8)) 
 
-(SDEFUN |TBCMPPK;printingInfo?;B;7| (($ |Boolean|)) (QREFELT $ 12)) 
+(SDEFUN |TBCMPPK;printingInfo?;B;7| (($ (|Boolean|))) (QREFELT $ 12)) 
 
-(SDEFUN |TBCMPPK;makingStats?;B;8| (($ |Boolean|)) (QREFELT $ 13)) 
+(SDEFUN |TBCMPPK;makingStats?;B;8| (($ (|Boolean|))) (QREFELT $ 13)) 
 
 (SDEFUN |TBCMPPK;extractIfCan;KeyU;9|
-        ((|k| |Key|) ($ |Union| |Entry| "failed"))
+        ((|k| (|Key|)) ($ (|Union| |Entry| "failed")))
         (SPROG ((#1=#:G145 NIL) (|s| (|Union| |Entry| "failed")))
                (SEQ
                 (EXIT
@@ -96,7 +97,8 @@
                   (#3# (CONS 1 "failed"))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |TBCMPPK;insert!;KeyEntryV;10| ((|k| |Key|) (|e| |Entry|) ($ |Void|))
+(SDEFUN |TBCMPPK;insert!;KeyEntryV;10|
+        ((|k| (|Key|)) (|e| (|Entry|)) ($ (|Void|)))
         (SEQ
          (COND
           ((QREFELT $ 8)

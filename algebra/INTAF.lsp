@@ -1,16 +1,18 @@
 
 (SDEFUN |INTAF;UPUP2F1|
-        ((|p| |SparseUnivariatePolynomial|
-          (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|t| |Fraction| (|SparseUnivariatePolynomial| F))
-         (|cf| |Fraction| (|SparseUnivariatePolynomial| F)) (|kx| |Kernel| F)
-         (|k| |Kernel| F) ($ F))
+        ((|p|
+          (|SparseUnivariatePolynomial|
+           (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|t| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|cf| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|kx| (|Kernel| F)) (|k| (|Kernel| F)) ($ (F)))
         (|INTAF;UPUP2F0| (SPADCALL |p| |t| |cf| (QREFELT $ 11)) |kx| |k| $)) 
 
 (SDEFUN |INTAF;UPUP2F0|
-        ((|p| |SparseUnivariatePolynomial|
-          (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|kx| |Kernel| F) (|k| |Kernel| F) ($ F))
+        ((|p|
+          (|SparseUnivariatePolynomial|
+           (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|kx| (|Kernel| F)) (|k| (|Kernel| F)) ($ (F)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL (CONS #'|INTAF;UPUP2F0!0| (VECTOR $ |kx|)) |p|
@@ -24,18 +26,20 @@
           (RETURN (PROGN (SPADCALL |x1| |kx| (QREFELT $ 14)))))) 
 
 (SDEFUN |INTAF;F2UPUP|
-        ((|f| F) (|kx| |Kernel| F) (|k| |Kernel| F)
-         (|p| |SparseUnivariatePolynomial| F)
-         ($ |SparseUnivariatePolynomial|
-          (|Fraction| (|SparseUnivariatePolynomial| F))))
+        ((|f| (F)) (|kx| (|Kernel| F)) (|k| (|Kernel| F))
+         (|p| (|SparseUnivariatePolynomial| F))
+         ($
+          (|SparseUnivariatePolynomial|
+           (|Fraction| (|SparseUnivariatePolynomial| F)))))
         (|INTAF;UP2UPUP| (SPADCALL |f| |k| |p| (QREFELT $ 22)) |kx| $)) 
 
 (SDEFUN |INTAF;rootintegrate|
-        ((|f| F) (|t| |Kernel| F) (|k| |Kernel| F)
-         (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|rec_int| |Mapping| (|IntegrationResult| F) F)
-         ($ |IntegrationResult| F))
+        ((|f| (F)) (|t| (|Kernel| F)) (|k| (|Kernel| F))
+         (|derivation|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|rec_int| (|Mapping| (|IntegrationResult| F) F))
+         ($ (|IntegrationResult| F)))
         (SPROG
          ((|curve|
            (|FunctionFieldCategory| F (|SparseUnivariatePolynomial| F)
@@ -177,11 +181,12 @@
              (QCAR |r1|) |t| |k| $))))) 
 
 (SDEFUN |INTAF;algintegrate|
-        ((|f| F) (|t| |Kernel| F) (|k| |Kernel| F)
-         (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|rec_int| |Mapping| (|IntegrationResult| F) F)
-         ($ |IntegrationResult| F))
+        ((|f| (F)) (|t| (|Kernel| F)) (|k| (|Kernel| F))
+         (|derivation|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|rec_int| (|Mapping| (|IntegrationResult| F) F))
+         ($ (|IntegrationResult| F)))
         (SPROG
          ((|curve|
            (|Join|
@@ -302,26 +307,28 @@
              (QCAR |r1|) |t| |k| $))))) 
 
 (SDEFUN |INTAF;rootcurve|
-        ((|lf| |List| F) (|t| |Kernel| F) (|k| |Kernel| F)
-         (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |Record|
-          (|:| |funs|
-               (|List|
-                (|SparseUnivariatePolynomial|
-                 (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (|:| |irec|
-               (|Record|
-                (|:| |coef| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                (|:| |poly|
-                     (|SparseUnivariatePolynomial|
-                      (|Fraction| (|SparseUnivariatePolynomial| F))))))
-          (|:| |curve_dom|
-               (|FunctionFieldCategory| F (|SparseUnivariatePolynomial| F)
-                                        (|SparseUnivariatePolynomial|
-                                         (|Fraction|
-                                          (|SparseUnivariatePolynomial|
-                                           F)))))))
+        ((|lf| (|List| F)) (|t| (|Kernel| F)) (|k| (|Kernel| F))
+         (|derivation|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Record|
+           (|:| |funs|
+                (|List|
+                 (|SparseUnivariatePolynomial|
+                  (|Fraction| (|SparseUnivariatePolynomial| F)))))
+           (|:| |irec|
+                (|Record|
+                 (|:| |coef| (|Fraction| (|SparseUnivariatePolynomial| F)))
+                 (|:| |poly|
+                      (|SparseUnivariatePolynomial|
+                       (|Fraction| (|SparseUnivariatePolynomial| F))))))
+           (|:| |curve_dom|
+                (|FunctionFieldCategory| F (|SparseUnivariatePolynomial| F)
+                                         (|SparseUnivariatePolynomial|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            F))))))))
         (SPROG
          ((|curve|
            (|FunctionFieldCategory| F (|SparseUnivariatePolynomial| F)
@@ -410,26 +417,28 @@
           (EXIT (VECTOR |lf1| |r1| |curve|))))) 
 
 (SDEFUN |INTAF;algcurve|
-        ((|lf| |List| F) (|t| |Kernel| F) (|k| |Kernel| F)
-         (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         ($ |Record|
-          (|:| |funs|
-               (|List|
-                (|SparseUnivariatePolynomial|
-                 (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (|:| |irec|
-               (|Record|
-                (|:| |coef| (|Fraction| (|SparseUnivariatePolynomial| F)))
-                (|:| |poly|
-                     (|SparseUnivariatePolynomial|
-                      (|Fraction| (|SparseUnivariatePolynomial| F))))))
-          (|:| |curve_dom|
-               (|FunctionFieldCategory| F (|SparseUnivariatePolynomial| F)
-                                        (|SparseUnivariatePolynomial|
-                                         (|Fraction|
-                                          (|SparseUnivariatePolynomial|
-                                           F)))))))
+        ((|lf| (|List| F)) (|t| (|Kernel| F)) (|k| (|Kernel| F))
+         (|derivation|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         ($
+          (|Record|
+           (|:| |funs|
+                (|List|
+                 (|SparseUnivariatePolynomial|
+                  (|Fraction| (|SparseUnivariatePolynomial| F)))))
+           (|:| |irec|
+                (|Record|
+                 (|:| |coef| (|Fraction| (|SparseUnivariatePolynomial| F)))
+                 (|:| |poly|
+                      (|SparseUnivariatePolynomial|
+                       (|Fraction| (|SparseUnivariatePolynomial| F))))))
+           (|:| |curve_dom|
+                (|FunctionFieldCategory| F (|SparseUnivariatePolynomial| F)
+                                         (|SparseUnivariatePolynomial|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            F))))))))
         (SPROG
          ((|curve|
            (|Join|
@@ -494,25 +503,28 @@
           (EXIT (VECTOR |lf1| |r1| |curve|))))) 
 
 (SDEFUN |INTAF;algextint;2KMMMMLL;8|
-        ((|t| |Kernel| F) (|y| |Kernel| F)
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|ext| |Mapping|
-          (|List|
-           (|Record|
-            (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-            (|:| |coeffs| (|Vector| F))))
-          (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
-         (|rde| |Mapping|
-          (|List|
-           (|Record|
-            (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
-            (|:| |coeffs| (|Vector| F))))
-          (|Fraction| (|SparseUnivariatePolynomial| F))
-          (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
-         (|csolve| |Mapping| (|List| (|Vector| F)) (|Matrix| F))
-         (|lg| |List| F)
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|t| (|Kernel| F)) (|y| (|Kernel| F))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|ext|
+          (|Mapping|
+           (|List|
+            (|Record|
+             (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+             (|:| |coeffs| (|Vector| F))))
+           (|List| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+         (|rde|
+          (|Mapping|
+           (|List|
+            (|Record|
+             (|:| |ratpart| (|Fraction| (|SparseUnivariatePolynomial| F)))
+             (|:| |coeffs| (|Vector| F))))
+           (|Fraction| (|SparseUnivariatePolynomial| F))
+           (|List| (|Fraction| (|SparseUnivariatePolynomial| F)))))
+         (|csolve| (|Mapping| (|List| (|Vector| F)) (|Matrix| F)))
+         (|lg| (|List| F))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G194 NIL) (|be| NIL) (#2=#:G193 NIL)
           (|res1|
@@ -720,12 +732,13 @@
                  (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |INTAF;algextint_base;2KMMLL;9|
-        ((|x| |Kernel| F) (|y| |Kernel| F)
-         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|csolve| |Mapping| (|List| (|Vector| F)) (|Matrix| F))
-         (|lg| |List| F)
-         ($ |List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
+        ((|x| (|Kernel| F)) (|y| (|Kernel| F))
+         (|der|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|csolve| (|Mapping| (|List| (|Vector| F)) (|Matrix| F)))
+         (|lg| (|List| F))
+         ($ (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))))
         (SPROG
          ((#1=#:G218 NIL) (|be| NIL) (#2=#:G217 NIL)
           (|res1|
@@ -937,9 +950,10 @@
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |INTAF;UP2UPUP|
-        ((|p| |SparseUnivariatePolynomial| F) (|k| |Kernel| F)
-         ($ |SparseUnivariatePolynomial|
-          (|Fraction| (|SparseUnivariatePolynomial| F))))
+        ((|p| (|SparseUnivariatePolynomial| F)) (|k| (|Kernel| F))
+         ($
+          (|SparseUnivariatePolynomial|
+           (|Fraction| (|SparseUnivariatePolynomial| F)))))
         (SPROG NIL
                (SPADCALL (CONS #'|INTAF;UP2UPUP!0| (VECTOR $ |k|)) |p|
                          (QREFELT $ 57)))) 
@@ -951,10 +965,11 @@
           (RETURN (PROGN (SPADCALL |x1| |k| (QREFELT $ 54)))))) 
 
 (SDEFUN |INTAF;UPUP2F|
-        ((|p| |SparseUnivariatePolynomial|
-          (|Fraction| (|SparseUnivariatePolynomial| F)))
-         (|cf| |Fraction| (|SparseUnivariatePolynomial| F)) (|t| |Kernel| F)
-         (|k| |Kernel| F) ($ F))
+        ((|p|
+          (|SparseUnivariatePolynomial|
+           (|Fraction| (|SparseUnivariatePolynomial| F))))
+         (|cf| (|Fraction| (|SparseUnivariatePolynomial| F)))
+         (|t| (|Kernel| F)) (|k| (|Kernel| F)) ($ (F)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL (CONS #'|INTAF;UPUP2F!0| (VECTOR $ |t|)) |p|
@@ -970,11 +985,12 @@
           (RETURN (PROGN (SPADCALL |x1| |t| (QREFELT $ 14)))))) 
 
 (SDEFUN |INTAF;algint;F2KMMIr;12|
-        ((|f| F) (|t| |Kernel| F) (|y| |Kernel| F)
-         (|derivation| |Mapping| (|SparseUnivariatePolynomial| F)
-          (|SparseUnivariatePolynomial| F))
-         (|rec_int| |Mapping| (|IntegrationResult| F) F)
-         ($ |IntegrationResult| F))
+        ((|f| (F)) (|t| (|Kernel| F)) (|y| (|Kernel| F))
+         (|derivation|
+          (|Mapping| (|SparseUnivariatePolynomial| F)
+                     (|SparseUnivariatePolynomial| F)))
+         (|rec_int| (|Mapping| (|IntegrationResult| F) F))
+         ($ (|IntegrationResult| F)))
         (COND
          ((SPADCALL |y| '|nthRoot| (QREFELT $ 39))
           (|INTAF;rootintegrate| |f| |t| |y| |derivation| |rec_int| $))

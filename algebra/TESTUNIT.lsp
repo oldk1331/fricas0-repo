@@ -1,6 +1,6 @@
 
 (SDEFUN |TESTUNIT;interpretFunction1|
-        ((|f| |Symbol|) (|info| |String|) (|arg| |String|) ($ |Any|))
+        ((|f| (|Symbol|)) (|info| (|String|)) (|arg| (|String|)) ($ (|Any|)))
         (SPROG
          ((|info_f| (|InputForm|)) (|ff| (|InputForm|)) (|if1| (|InputForm|)))
          (SEQ (LETT |if1| (SPADCALL |arg| (QREFELT $ 8)))
@@ -10,8 +10,8 @@
                          (QREFELT $ 14)))))) 
 
 (SDEFUN |TESTUNIT;interpretFunction2|
-        ((|f| |Symbol|) (|info| |String|) (|arg1| |String|) (|arg2| |String|)
-         ($ |Any|))
+        ((|f| (|Symbol|)) (|info| (|String|)) (|arg1| (|String|))
+         (|arg2| (|String|)) ($ (|Any|)))
         (SPROG
          ((|info_f| (|InputForm|)) (|ff| (|InputForm|))
           (|if2| #1=(|InputForm|)) (|if1| #1#))
@@ -24,7 +24,7 @@
                 (QREFELT $ 14)))))) 
 
 (SDEFUN |TESTUNIT;testEquals;2SV;3|
-        ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -42,7 +42,7 @@
                 (EXIT (SPADCALL (QREFELT $ 19)))))) 
 
 (SDEFUN |TESTUNIT;xftestEquals;2SV;4|
-        ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -60,7 +60,7 @@
                 (EXIT (SPADCALL (QREFELT $ 22)))))) 
 
 (SDEFUN |TESTUNIT;testRealEquals;2SV;5|
-        ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -78,7 +78,7 @@
                 (EXIT (SPADCALL (QREFELT $ 19)))))) 
 
 (SDEFUN |TESTUNIT;xftestRealEquals;2SV;6|
-        ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -96,7 +96,7 @@
                 (EXIT (SPADCALL (QREFELT $ 22)))))) 
 
 (SDEFUN |TESTUNIT;testComplexEquals;2SV;7|
-        ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -114,7 +114,7 @@
                 (EXIT (SPADCALL (QREFELT $ 19)))))) 
 
 (SDEFUN |TESTUNIT;xftestComplexEquals;2SV;8|
-        ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -132,7 +132,7 @@
                 (EXIT (SPADCALL (QREFELT $ 22)))))) 
 
 (SDEFUN |TESTUNIT;testNotEquals;2SV;9|
-        ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -150,7 +150,7 @@
                 (EXIT (SPADCALL (QREFELT $ 19)))))) 
 
 (SDEFUN |TESTUNIT;xftestNotEquals;2SV;10|
-        ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        ((|s1| (|String|)) (|s2| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -167,7 +167,7 @@
                  |s2| $)
                 (EXIT (SPADCALL (QREFELT $ 22)))))) 
 
-(SDEFUN |TESTUNIT;testTrue;SV;11| ((|s| |String|) ($ |Void|))
+(SDEFUN |TESTUNIT;testTrue;SV;11| ((|s| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -177,7 +177,7 @@
                 (|TESTUNIT;interpretFunction1| '|testTrueAux| |inp| |s| $)
                 (EXIT (SPADCALL (QREFELT $ 19)))))) 
 
-(SDEFUN |TESTUNIT;xftestTrue;SV;12| ((|s| |String|) ($ |Void|))
+(SDEFUN |TESTUNIT;xftestTrue;SV;12| ((|s| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|
@@ -187,7 +187,7 @@
                 (|TESTUNIT;interpretFunction1| '|xftestTrueAux| |inp| |s| $)
                 (EXIT (SPADCALL (QREFELT $ 22)))))) 
 
-(SDEFUN |TESTUNIT;testLibraryError;SV;13| ((|s| |String|) ($ |Void|))
+(SDEFUN |TESTUNIT;testLibraryError;SV;13| ((|s| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ (SPADCALL (QREFELT $ 32))
                     (LETT |inp|
@@ -198,7 +198,7 @@
                      (|TESTUNIT;interpretFunction1| '|testLibraryErrorAux|
                       |inp| |s| $))))) 
 
-(SDEFUN |TESTUNIT;xftestLibraryError;SV;14| ((|s| |String|) ($ |Void|))
+(SDEFUN |TESTUNIT;xftestLibraryError;SV;14| ((|s| (|String|)) ($ (|Void|)))
         (SPROG ((|inp| (|String|)))
                (SEQ
                 (LETT |inp|

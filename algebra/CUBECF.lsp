@@ -1,6 +1,7 @@
 
 (SDEFUN |CUBECF;sphereSolid;NniFcc;1|
-        ((|dim| |NonNegativeInteger|) ($ |FiniteCubicalComplex| (|Integer|)))
+        ((|dim| (|NonNegativeInteger|))
+         ($ (|FiniteCubicalComplex| (|Integer|))))
         (SPROG
          ((|r| (ASIMP)) (|vs1| (|List| (|Integer|)))
           (|v1| (|List| (|List| (|List| (|Integer|))))) (#1=#:G124 NIL)
@@ -57,20 +58,21 @@
               (EXIT |r|)))) 
 
 (SDEFUN |CUBECF;sphereSurface;NniFcc;2|
-        ((|dim| |NonNegativeInteger|) ($ |FiniteCubicalComplex| (|Integer|)))
+        ((|dim| (|NonNegativeInteger|))
+         ($ (|FiniteCubicalComplex| (|Integer|))))
         (SPROG
          ((|r| (|FiniteCubicalComplex| (|Integer|)))
           (|s| (|FiniteCubicalComplex| (|Integer|))))
          (SEQ (LETT |s| (SPADCALL |dim| (QREFELT $ 8)))
               (LETT |r| (SPADCALL |s| (QREFELT $ 9))) (EXIT |r|)))) 
 
-(SDEFUN |CUBECF;torusSurface;Fcc;3| (($ |FiniteCubicalComplex| (|Integer|)))
+(SDEFUN |CUBECF;torusSurface;Fcc;3| (($ (|FiniteCubicalComplex| (|Integer|))))
         (SPROG ((|b| #1=(|FiniteCubicalComplex| (|Integer|))) (|a| #1#))
                (SEQ (LETT |a| (SPADCALL 2 (QREFELT $ 10)))
                     (LETT |b| (SPADCALL 2 (QREFELT $ 10)))
                     (EXIT (SPADCALL |a| |b| (QREFELT $ 11)))))) 
 
-(SDEFUN |CUBECF;band;Fcc;4| (($ |FiniteCubicalComplex| (|Integer|)))
+(SDEFUN |CUBECF;band;Fcc;4| (($ (|FiniteCubicalComplex| (|Integer|))))
         (SPROG
          ((|b| (ASIMP)) (|vs1| (|List| (|Integer|)))
           (|v1| (|List| (|List| (|List| (|Integer|)))))
@@ -119,7 +121,8 @@
               (EXIT (SPADCALL |a| |b| (QREFELT $ 11)))))) 
 
 (SDEFUN |CUBECF;projectiveSpace;NniFcc;5|
-        ((|dim| |NonNegativeInteger|) ($ |FiniteCubicalComplex| (|Integer|)))
+        ((|dim| (|NonNegativeInteger|))
+         ($ (|FiniteCubicalComplex| (|Integer|))))
         (SPROG
          ((|r| (ASIMP)) (|vs1| (|List| (|Integer|)))
           (|v1| (|List| (|List| (|List| (|Integer|)))))

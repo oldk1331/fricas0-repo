@@ -1,5 +1,5 @@
 
-(SDEFUN |NEWTON;differences| ((|yl| |List| F) ($ |List| F))
+(SDEFUN |NEWTON;differences| ((|yl| (|List| F)) ($ (|List| F)))
         (SPROG
          ((#1=#:G123 NIL) (|y1| NIL) (#2=#:G124 NIL) (|y2| NIL)
           (#3=#:G122 NIL))
@@ -19,7 +19,8 @@
                 G191 (EXIT (NREVERSE #3#))))))) 
 
 (SDEFUN |NEWTON;newtonAux|
-        ((|k| F) (|fact| F) (|yl| |List| F) ($ |SparseUnivariatePolynomial| F))
+        ((|k| (F)) (|fact| (F)) (|yl| (|List| F))
+         ($ (|SparseUnivariatePolynomial| F)))
         (SPROG ((#1=#:G126 NIL))
                (COND
                 ((NULL (CDR |yl|))
@@ -54,7 +55,7 @@
                   (QREFELT $ 24)))))) 
 
 (SDEFUN |NEWTON;newton;LSup;3|
-        ((|yl| |List| F) ($ |SparseUnivariatePolynomial| F))
+        ((|yl| (|List| F)) ($ (|SparseUnivariatePolynomial| F)))
         (|NEWTON;newtonAux| (|spadConstant| $ 8) (|spadConstant| $ 8) |yl| $)) 
 
 (DECLAIM (NOTINLINE |NewtonInterpolation;|)) 

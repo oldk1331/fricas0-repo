@@ -1,8 +1,8 @@
 
-(SDEFUN |PCDEN;commonDenominator;PR;1| ((|p| P) ($ R))
+(SDEFUN |PCDEN;commonDenominator;PR;1| ((|p| (P)) ($ (R)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 12)) (QREFELT $ 14))) 
 
-(SDEFUN |PCDEN;clearDenominator;2P;2| ((|p| P) ($ P))
+(SDEFUN |PCDEN;clearDenominator;2P;2| ((|p| (P)) ($ (P)))
         (SPROG ((|d| (R)))
                (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 15)))
                     (EXIT
@@ -21,7 +21,7 @@
              (QREFELT $ 18)))))) 
 
 (SDEFUN |PCDEN;splitDenominator;PR;3|
-        ((|p| P) ($ |Record| (|:| |num| P) (|:| |den| R)))
+        ((|p| (P)) ($ (|Record| (|:| |num| P) (|:| |den| R))))
         (SPROG ((|d| (R)))
                (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 15)))
                     (EXIT

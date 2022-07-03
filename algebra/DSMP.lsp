@@ -1,6 +1,6 @@
 
 (SDEFUN |DSMP;retractIfCan;$U;1|
-        ((|p| $) ($ |Union| (|SparseMultivariatePolynomial| R S) "failed"))
+        ((|p| ($)) ($ (|Union| (|SparseMultivariatePolynomial| R S) "failed")))
         (COND
          ((ZEROP (SPADCALL |p| (QREFELT $ 10)))
           (CONS 0
@@ -11,7 +11,8 @@
 (SDEFUN |DSMP;retractIfCan;$U;1!0| ((|x| NIL) ($ NIL))
         (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 13))) 
 
-(SDEFUN |DSMP;coerce;Smp$;2| ((|p| |SparseMultivariatePolynomial| R S) ($ $))
+(SDEFUN |DSMP;coerce;Smp$;2|
+        ((|p| (|SparseMultivariatePolynomial| R S)) ($ ($)))
         (SPADCALL (CONS #'|DSMP;coerce;Smp$;2!0| $) (ELT $ 23) |p|
                   (QREFELT $ 27))) 
 

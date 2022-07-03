@@ -1,6 +1,6 @@
 
 (SDEFUN |SORTPAK;bubbleSort!;AMA;1|
-        ((|m| A) (|f| |Mapping| (|Boolean|) S S) ($ A))
+        ((|m| (A)) (|f| (|Mapping| (|Boolean|) S S)) ($ (A)))
         (SPROG
          ((#1=#:G130 NIL) (|j| NIL) (#2=#:G129 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
@@ -23,7 +23,7 @@
               (EXIT |m|)))) 
 
 (SDEFUN |SORTPAK;insertionSort!;AMA;2|
-        ((|m| A) (|f| |Mapping| (|Boolean|) S S) ($ A))
+        ((|m| (A)) (|f| (|Mapping| (|Boolean|) S S)) ($ (A)))
         (SPROG ((|j| (|NonNegativeInteger|)) (#1=#:G137 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 2) (LETT #1# (SPADCALL |m| (QREFELT $ 9))) G190
@@ -48,14 +48,14 @@
                      (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |m|)))) 
 
-(SDEFUN |SORTPAK;bubbleSort!;2A;3| ((|m| A) ($ A))
+(SDEFUN |SORTPAK;bubbleSort!;2A;3| ((|m| (A)) ($ (A)))
         (SPADCALL |m| (ELT $ 18) (QREFELT $ 15))) 
 
-(SDEFUN |SORTPAK;insertionSort!;2A;4| ((|m| A) ($ A))
+(SDEFUN |SORTPAK;insertionSort!;2A;4| ((|m| (A)) ($ (A)))
         (SPADCALL |m| (ELT $ 18) (QREFELT $ 16))) 
 
 (SDEFUN |SORTPAK;bubbleSort!;AMA;5|
-        ((|m| A) (|fn| |Mapping| (|Boolean|) S S) ($ A))
+        ((|m| (A)) (|fn| (|Mapping| (|Boolean|) S S)) ($ (A)))
         (SPROG ((|l| (A)) (|x| (S)) (|r| (A)))
                (SEQ
                 (COND ((SPADCALL |m| (QREFELT $ 21)) |m|)

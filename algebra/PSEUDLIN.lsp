@@ -1,5 +1,5 @@
 
-(SDEFUN |PSEUDLIN;inv| ((|m| |Matrix| K) ($ |Matrix| K))
+(SDEFUN |PSEUDLIN;inv| ((|m| (|Matrix| K)) ($ (|Matrix| K)))
         (SPROG ((#1=#:G124 NIL))
                (PROG2 (LETT #1# (SPADCALL |m| (QREFELT $ 9)))
                    (QCDR #1#)
@@ -8,8 +8,8 @@
                                  #1#)))) 
 
 (SDEFUN |PSEUDLIN;changeBase;2MAMM;2|
-        ((M |Matrix| K) (A |Matrix| K) (|sig| |Automorphism| K)
-         (|der| |Mapping| K K) ($ |Matrix| K))
+        ((M (|Matrix| K)) (A (|Matrix| K)) (|sig| (|Automorphism| K))
+         (|der| (|Mapping| K K)) ($ (|Matrix| K)))
         (SPROG NIL
                (SPADCALL (|PSEUDLIN;inv| A $)
                          (SPADCALL
@@ -29,16 +29,18 @@
           (RETURN (PROGN (SPADCALL |sig| |k1| (QREFELT $ 11)))))) 
 
 (SDEFUN |PSEUDLIN;normalForm;MAMR;3|
-        ((M |Matrix| K) (|sig| |Automorphism| K) (|der| |Mapping| K K)
-         ($ |Record| (|:| R (|Matrix| K)) (|:| A (|Matrix| K))
-          (|:| |Ainv| (|Matrix| K))))
+        ((M (|Matrix| K)) (|sig| (|Automorphism| K)) (|der| (|Mapping| K K))
+         ($
+          (|Record| (|:| R (|Matrix| K)) (|:| A (|Matrix| K))
+                    (|:| |Ainv| (|Matrix| K)))))
         (|PSEUDLIN;normalForm0| M |sig| (SPADCALL |sig| (QREFELT $ 17)) |der|
          $)) 
 
 (SDEFUN |PSEUDLIN;companionBlocks;MLL;4|
-        ((R |Matrix| K) (|lw| |List| (|Vector| K))
-         ($ |List|
-          (|Record| (|:| C (|Matrix| K)) (|:| |lg| (|List| (|Vector| K))))))
+        ((R (|Matrix| K)) (|lw| (|List| (|Vector| K)))
+         ($
+          (|List|
+           (|Record| (|:| C (|Matrix| K)) (|:| |lg| (|List| (|Vector| K)))))))
         (SPROG
          ((|i| #1=(|Integer|))
           (|l|
@@ -99,10 +101,11 @@
               (EXIT |l|)))) 
 
 (SDEFUN |PSEUDLIN;normalForm0|
-        ((M |Matrix| K) (|sig| |Automorphism| K) (|siginv| |Automorphism| K)
-         (|der| |Mapping| K K)
-         ($ |Record| (|:| R (|Matrix| K)) (|:| A (|Matrix| K))
-          (|:| |Ainv| (|Matrix| K))))
+        ((M (|Matrix| K)) (|sig| (|Automorphism| K))
+         (|siginv| (|Automorphism| K)) (|der| (|Mapping| K K))
+         ($
+          (|Record| (|:| R (|Matrix| K)) (|:| A (|Matrix| K))
+                    (|:| |Ainv| (|Matrix| K)))))
         (SPROG
          ((|i| (|Integer|)) (|Binv| (|Matrix| K)) (B (|Matrix| K))
           (E (|Matrix| K)) (#1=#:G207 NIL) (#2=#:G209 NIL) (|k| NIL)
@@ -313,7 +316,7 @@
           #10# (EXIT #6#)))) 
 
 (SDEFUN |PSEUDLIN;mulMatrix|
-        ((N |Integer|) (|i| |Integer|) (|a| K) ($ |Matrix| K))
+        ((N (|Integer|)) (|i| (|Integer|)) (|a| (K)) ($ (|Matrix| K)))
         (SPROG
          ((M (|Matrix| K)) (#1=#:G213 NIL) (#2=#:G215 NIL) (|j| NIL)
           (#3=#:G214 NIL))
@@ -333,7 +336,8 @@
           (SPADCALL M |i| |i| |a| (QREFELT $ 42)) (EXIT M)))) 
 
 (SDEFUN |PSEUDLIN;addMatrix|
-        ((N |Integer|) (|i| |Integer|) (|k| |Integer|) (|a| K) ($ |Matrix| K))
+        ((N (|Integer|)) (|i| (|Integer|)) (|k| (|Integer|)) (|a| (K))
+         ($ (|Matrix| K)))
         (SPROG
          ((A (|Matrix| K)) (#1=#:G219 NIL) (#2=#:G221 NIL) (|j| NIL)
           (#3=#:G220 NIL))
@@ -353,7 +357,7 @@
           (SPADCALL A |i| |k| |a| (QREFELT $ 42)) (EXIT A)))) 
 
 (SDEFUN |PSEUDLIN;permutationMatrix|
-        ((N |Integer|) (|i| |Integer|) (|k| |Integer|) ($ |Matrix| K))
+        ((N (|Integer|)) (|i| (|Integer|)) (|k| (|Integer|)) ($ (|Matrix| K)))
         (SPROG
          ((P (|Matrix| K)) (#1=#:G225 NIL) (#2=#:G227 NIL) (|j| NIL)
           (#3=#:G226 NIL))

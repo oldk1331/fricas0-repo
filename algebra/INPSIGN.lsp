@@ -1,8 +1,8 @@
 
 (SDEFUN |INPSIGN;signAround;UPRMU;1|
-        ((|p| UP) (|x| R)
-         (|rsign| |Mapping| (|Union| (|Integer|) #1="failed") R)
-         ($ |Union| (|Integer|) #1#))
+        ((|p| (UP)) (|x| (R))
+         (|rsign| (|Mapping| (|Union| (|Integer|) #1="failed") R))
+         ($ (|Union| (|Integer|) #1#)))
         (SPROG ((|ul| #2=(|Union| (|Integer|) #1#)) (|ur| #2#))
                (SEQ (LETT |ur| (SPADCALL |p| |x| 1 |rsign| (QREFELT $ 13)))
                     (EXIT
@@ -20,9 +20,9 @@
                                ('T |ur|)))))))))) 
 
 (SDEFUN |INPSIGN;signAround;UPRIMU;2|
-        ((|p| UP) (|x| R) (|dir| |Integer|)
-         (|rsign| |Mapping| (|Union| (|Integer|) #1="failed") R)
-         ($ |Union| (|Integer|) #1#))
+        ((|p| (UP)) (|x| (R)) (|dir| (|Integer|))
+         (|rsign| (|Mapping| (|Union| (|Integer|) #1="failed") R))
+         ($ (|Union| (|Integer|) #1#)))
         (SPROG ((|u| (|Union| (|Integer|) #1#)) (|r| (R)))
                (SEQ
                 (COND ((SPADCALL |p| (QREFELT $ 16)) (CONS 0 0))
@@ -38,9 +38,9 @@
                       (#2# (SPADCALL |r| |rsign|)))))) 
 
 (SDEFUN |INPSIGN;signAround;UPIMU;3|
-        ((|p| UP) (|dir| |Integer|)
-         (|rsign| |Mapping| (|Union| (|Integer|) #1="failed") R)
-         ($ |Union| (|Integer|) #1#))
+        ((|p| (UP)) (|dir| (|Integer|))
+         (|rsign| (|Mapping| (|Union| (|Integer|) #1="failed") R))
+         ($ (|Union| (|Integer|) #1#)))
         (SPROG ((|u| (|Union| (|Integer|) #1#)))
                (SEQ
                 (COND ((SPADCALL |p| (QREFELT $ 16)) (CONS 0 0))

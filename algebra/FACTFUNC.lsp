@@ -1,8 +1,9 @@
 
 (SDEFUN |FACTFUNC;nthRoot;FNniR;1|
-        ((|ff| |Factored| M) (|n| |NonNegativeInteger|)
-         ($ |Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| M)
-          (|:| |radicand| (|List| M))))
+        ((|ff| (|Factored| M)) (|n| (|NonNegativeInteger|))
+         ($
+          (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| M)
+                    (|:| |radicand| (|List| M)))))
         (SPROG
          ((#1=#:G137 NIL) (|radi| (|List| M)) (|coeff| (M))
           (|qr|
@@ -83,9 +84,10 @@
               (EXIT (VECTOR |n| |coeff| |radi|))))) 
 
 (SDEFUN |FACTFUNC;log;FL;2|
-        ((|ff| |Factored| M)
-         ($ |List|
-          (|Record| (|:| |coef| (|NonNegativeInteger|)) (|:| |logand| M))))
+        ((|ff| (|Factored| M))
+         ($
+          (|List|
+           (|Record| (|:| |coef| (|NonNegativeInteger|)) (|:| |logand| M)))))
         (SPROG ((#1=#:G149 NIL) (|term| NIL) (#2=#:G148 NIL) (|ans| (M)))
                (SEQ (LETT |ans| (SPADCALL |ff| (QREFELT $ 9)))
                     (EXIT

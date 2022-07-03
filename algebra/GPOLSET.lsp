@@ -1,31 +1,31 @@
 
-(SDEFUN |GPOLSET;construct;L$;1| ((|lp| |List| P) ($ $))
+(SDEFUN |GPOLSET;construct;L$;1| ((|lp| (|List| P)) ($ ($)))
         (SPADCALL |lp| (QREFELT $ 12))) 
 
-(SDEFUN |GPOLSET;copy;2$;2| ((|ps| $) ($ $))
+(SDEFUN |GPOLSET;copy;2$;2| ((|ps| ($)) ($ ($)))
         (SPADCALL (SPADCALL (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 15))
                   (QREFELT $ 13))) 
 
 (PUT '|GPOLSET;empty;$;3| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |GPOLSET;empty;$;3| (($ $)) NIL) 
+(SDEFUN |GPOLSET;empty;$;3| (($ ($))) NIL) 
 
 (PUT '|GPOLSET;parts;$L;4| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
 
-(SDEFUN |GPOLSET;parts;$L;4| ((|ps| $) ($ |List| P)) |ps|) 
+(SDEFUN |GPOLSET;parts;$L;4| ((|ps| ($)) ($ (|List| P))) |ps|) 
 
-(SDEFUN |GPOLSET;map;M2$;5| ((|f| |Mapping| P P) (|ps| $) ($ $))
+(SDEFUN |GPOLSET;map;M2$;5| ((|f| (|Mapping| P P)) (|ps| ($)) ($ ($)))
         (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 20))
                   (QREFELT $ 13))) 
 
-(SDEFUN |GPOLSET;map!;M2$;6| ((|f| |Mapping| P P) (|ps| $) ($ $))
+(SDEFUN |GPOLSET;map!;M2$;6| ((|f| (|Mapping| P P)) (|ps| ($)) ($ ($)))
         (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 22))
                   (QREFELT $ 13))) 
 
-(SDEFUN |GPOLSET;member?;P$B;7| ((|p| P) (|ps| $) ($ |Boolean|))
+(SDEFUN |GPOLSET;member?;P$B;7| ((|p| (P)) (|ps| ($)) ($ (|Boolean|)))
         (SPADCALL |p| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 25))) 
 
-(SDEFUN |GPOLSET;=;2$B;8| ((|ps1| $) (|ps2| $) ($ |Boolean|))
+(SDEFUN |GPOLSET;=;2$B;8| ((|ps1| ($)) (|ps2| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G136 NIL) (|p| NIL) (#2=#:G135 NIL) (#3=#:G134 NIL)
           (#4=#:G133 NIL))
@@ -55,7 +55,7 @@
             (QREFELT $ 28))
            (QREFELT $ 29))))) 
 
-(SDEFUN |GPOLSET;coerce;$Of;9| ((|ps| $) ($ |OutputForm|))
+(SDEFUN |GPOLSET;coerce;$Of;9| ((|ps| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G143 NIL) (|p| NIL) (#2=#:G142 NIL) (|lp| (|List| P)))
                (SEQ
                 (LETT |lp|
@@ -76,7 +76,7 @@
                         (EXIT (NREVERSE #2#))))
                   (QREFELT $ 37)))))) 
 
-(SDEFUN |GPOLSET;mvar;$VarSet;10| ((|ps| $) ($ |VarSet|))
+(SDEFUN |GPOLSET;mvar;$VarSet;10| ((|ps| ($)) ($ (|VarSet|)))
         (SPROG ((|lv| (|List| |VarSet|)))
                (SEQ
                 (COND
@@ -91,14 +91,15 @@
                            "Error from GPOLSET in mvar : every polynomial in #1 is constant"))
                          (#1# (SPADCALL (ELT $ 42) |lv| (QREFELT $ 44))))))))))) 
 
-(SDEFUN |GPOLSET;retractIfCan;LU;11| ((|lp| |List| P) ($ |Union| $ "failed"))
+(SDEFUN |GPOLSET;retractIfCan;LU;11|
+        ((|lp| (|List| P)) ($ (|Union| $ "failed")))
         (CONS 0 (SPADCALL |lp| (QREFELT $ 13)))) 
 
 (PUT '|GPOLSET;coerce;$L;12| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
 
-(SDEFUN |GPOLSET;coerce;$L;12| ((|ps| $) ($ |List| P)) |ps|) 
+(SDEFUN |GPOLSET;coerce;$L;12| ((|ps| ($)) ($ (|List| P))) |ps|) 
 
-(SDEFUN |GPOLSET;convert;L$;13| ((|lp| |List| P) ($ $))
+(SDEFUN |GPOLSET;convert;L$;13| ((|lp| (|List| P)) ($ ($)))
         (SPADCALL |lp| (QREFELT $ 13))) 
 
 (DECLAIM (NOTINLINE |GeneralPolynomialSet;|)) 

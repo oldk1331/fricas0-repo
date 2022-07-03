@@ -1,5 +1,5 @@
 
-(SDEFUN |FMTLATEX;coerce;$Of;1| ((|x| $) ($ |OutputForm|))
+(SDEFUN |FMTLATEX;coerce;$Of;1| ((|x| ($)) ($ (|OutputForm|)))
         (|coerceRe2E| |x|
                       (ELT
                        (|Record| (|:| |prolog| (|OutputBox|))
@@ -7,17 +7,19 @@
                                  (|:| |epilog| (|OutputBox|)))
                        0))) 
 
-(SDEFUN |FMTLATEX;defaultPrologue;SOb;2| ((|label| |String|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;defaultPrologue;SOb;2|
+        ((|label| (|String|)) ($ (|OutputBox|)))
         (SPADCALL
          (SPADCALL (LIST "\\begin{fricasmath}{" |label| "}") (QREFELT $ 10))
          (QREFELT $ 12))) 
 
-(SDEFUN |FMTLATEX;defaultEpilogue;SOb;3| ((|label| |String|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;defaultEpilogue;SOb;3|
+        ((|label| (|String|)) ($ (|OutputBox|)))
         (SPADCALL "\\end{fricasmath}" (QREFELT $ 12))) 
 
 (SDEFUN |FMTLATEX;parenthesize;2S2Ob;4|
-        ((|left| . #1=(|String|)) (|right| . #1#) (|b| |OutputBox|)
-         ($ |OutputBox|))
+        ((|left| #1=(|String|)) (|right| #1#) (|b| (|OutputBox|))
+         ($ (|OutputBox|)))
         (SEQ
          (COND
           ((EQUAL |left| "(")
@@ -30,7 +32,7 @@
                  (SPADCALL |right| (QREFELT $ 12)))
            (QREFELT $ 15))))) 
 
-(SDEFUN |FMTLATEX;texEscapeString| ((|s| |String|) ($ |String|))
+(SDEFUN |FMTLATEX;texEscapeString| ((|s| (|String|)) ($ (|String|)))
         (SPROG
          ((|str| (|String|)) (|n| (|Integer|)) (|p| (|Integer|))
           (|cc| (|CharacterClass|)))
@@ -75,39 +77,42 @@
                                                          (QREFELT $ 22))
                                                (QREFELT $ 23))))))))))) 
 
-(SDEFUN |FMTLATEX;braceBox| ((|b| |OutputBox|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;braceBox| ((|b| (|OutputBox|)) ($ (|OutputBox|)))
         (SPADCALL "{" "}" |b| (QREFELT $ 16))) 
 
-(SDEFUN |FMTLATEX;tex1| ((|cmd| |String|) (|b| |OutputBox|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;tex1|
+        ((|cmd| (|String|)) (|b| (|OutputBox|)) ($ (|OutputBox|)))
         (SPADCALL
          (LIST (SPADCALL |cmd| (QREFELT $ 12)) (|FMTLATEX;braceBox| |b| $))
          (QREFELT $ 15))) 
 
-(SDEFUN |FMTLATEX;tex1Escape| ((|cmd| |String|) (|s| |String|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;tex1Escape|
+        ((|cmd| (|String|)) (|s| (|String|)) ($ (|OutputBox|)))
         (|FMTLATEX;tex1| |cmd|
          (SPADCALL (|FMTLATEX;texEscapeString| |s| $) (QREFELT $ 12)) $)) 
 
 (SDEFUN |FMTLATEX;tex2|
-        ((|cmd| |String|) (|b1| |OutputBox|) (|b2| |OutputBox|)
-         ($ |OutputBox|))
+        ((|cmd| (|String|)) (|b1| (|OutputBox|)) (|b2| (|OutputBox|))
+         ($ (|OutputBox|)))
         (SPADCALL
          (LIST (|FMTLATEX;tex1| |cmd| |b1| $) (|FMTLATEX;braceBox| |b2| $))
          (QREFELT $ 15))) 
 
-(SDEFUN |FMTLATEX;formatFloat;SOb;10| ((|s| |String|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;formatFloat;SOb;10| ((|s| (|String|)) ($ (|OutputBox|)))
         (SPADCALL (SPADCALL (|STR_to_CHAR| "_") |s| (QREFELT $ 28))
                   (QREFELT $ 12))) 
 
-(SDEFUN |FMTLATEX;formatString;SOb;11| ((|s| |String|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;formatString;SOb;11| ((|s| (|String|)) ($ (|OutputBox|)))
         (|FMTLATEX;tex1Escape| "\\STRING" |s| $)) 
 
-(SDEFUN |FMTLATEX;formatSymbol;SOb;12| ((|s| |String|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;formatSymbol;SOb;12| ((|s| (|String|)) ($ (|OutputBox|)))
         (|FMTLATEX;tex1Escape| "\\SYMBOL" |s| $)) 
 
-(SDEFUN |FMTLATEX;formatFunctionSymbol;SOb;13| ((|s| |String|) ($ |OutputBox|))
+(SDEFUN |FMTLATEX;formatFunctionSymbol;SOb;13|
+        ((|s| (|String|)) ($ (|OutputBox|)))
         (|FMTLATEX;tex1Escape| "\\FUN" |s| $)) 
 
-(SDEFUN |FMTLATEX;integralArgument| ((|a| |OutputForm|) ($ |OutputForm|))
+(SDEFUN |FMTLATEX;integralArgument| ((|a| (|OutputForm|)) ($ (|OutputForm|)))
         (SPROG
          ((|op3| (|OutputForm|)) (|op2| #1=(|OutputForm|))
           (|args| (|List| (|OutputForm|))) (|op| #1#))
@@ -145,8 +150,8 @@
                                           (QREFELT $ 45))))))))))))) 
 
 (SDEFUN |FMTLATEX;integral;IM;15|
-        ((|p| |Integer|)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| (|Integer|))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL (SEQ (CONS #'|FMTLATEX;integral;IM;15!0| (VECTOR |p| $))))) 
 
 (SDEFUN |FMTLATEX;integral;IM;15!0| ((|prec| NIL) (|args| NIL) ($$ NIL))
@@ -186,8 +191,8 @@
                                (QREFELT $ 51))))))))) 
 
 (SDEFUN |FMTLATEX;operatorWithLimits|
-        ((|s| |String|) (|p| |Integer|)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|s| (|String|)) (|p| (|Integer|))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL
                (SEQ
                 (CONS #'|FMTLATEX;operatorWithLimits!0| (VECTOR |s| |p| $))))) 
@@ -234,17 +239,18 @@
                                (QREFELT $ 51))))))))) 
 
 (SDEFUN |FMTLATEX;sum;IM;17|
-        ((|p| |Integer|)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| (|Integer|))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (|FMTLATEX;operatorWithLimits| "\\sum" |p| $)) 
 
 (SDEFUN |FMTLATEX;product;IM;18|
-        ((|p| |Integer|)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| (|Integer|))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (|FMTLATEX;operatorWithLimits| "\\prod" |p| $)) 
 
 (SDEFUN |FMTLATEX;theMap;ILOb;19|
-        ((|prec| |Integer|) (|args| |List| (|OutputForm|)) ($ |OutputBox|))
+        ((|prec| (|Integer|)) (|args| (|List| (|OutputForm|)))
+         ($ (|OutputBox|)))
         (SPROG
          ((|p2| (|Integer|)) (|p1| (|Integer|)) (|s| (|String|))
           (|b| (|OutputBox|)) (|a| (|OutputForm|)))
@@ -275,9 +281,9 @@
                 $))))) 
 
 (SDEFUN |FMTLATEX;overbar;I2M;20|
-        ((|p| . #1=(|Integer|))
-         (|hh| |Mapping| (|OutputBox|) #1# (|List| (|OutputForm|)))
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| #1=(|Integer|))
+         (|hh| (|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL (CONS #'|FMTLATEX;overbar;I2M;20!0| (VECTOR |hh| $ |p|)))) 
 
 (SDEFUN |FMTLATEX;overbar;I2M;20!0| ((|prec| NIL) (|args| NIL) ($$ NIL))
@@ -293,8 +299,8 @@
                       (QREFELT $ 51)))))) 
 
 (SDEFUN |FMTLATEX;box;2M;21|
-        ((|hh| |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|hh| (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL (CONS #'|FMTLATEX;box;2M;21!0| (VECTOR |hh| $)))) 
 
 (SDEFUN |FMTLATEX;box;2M;21!0| ((|prec| NIL) (|args| NIL) ($$ NIL))
@@ -311,10 +317,10 @@
              $))))) 
 
 (SDEFUN |FMTLATEX;nthRoot;I3M;22|
-        ((|p| . #1=(|Integer|))
-         (|h1| . #2=(|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
-         (|h2| . #2#)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| #1=(|Integer|))
+         (|h1| #2=(|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
+         (|h2| #2#)
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL
                (SEQ
                 (CONS #'|FMTLATEX;nthRoot;I3M;22!0| (VECTOR |h2| |h1| $ |p|))))) 
@@ -353,8 +359,8 @@
                                (QREFELT $ 51))))))))) 
 
 (SDEFUN |FMTLATEX;scripts;IM;23|
-        ((|p| |Integer|)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| (|Integer|))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL (SEQ (CONS #'|FMTLATEX;scripts;IM;23!0| (VECTOR |p| $))))) 
 
 (SDEFUN |FMTLATEX;scripts;IM;23!0| ((|prec| NIL) (|args| NIL) ($$ NIL))
@@ -414,8 +420,8 @@
                                (QREFELT $ 51))))))))) 
 
 (SDEFUN |FMTLATEX;subscript;IM;24|
-        ((|p| |Integer|)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| (|Integer|))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL (SEQ (CONS #'|FMTLATEX;subscript;IM;24!0| (VECTOR |p| $))))) 
 
 (SDEFUN |FMTLATEX;subscript;IM;24!0| ((|prec| NIL) (|args| NIL) ($$ NIL))
@@ -441,8 +447,8 @@
                                (QREFELT $ 51))))))))) 
 
 (SDEFUN |FMTLATEX;altsupersub;IM;25|
-        ((|p| |Integer|)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| (|Integer|))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL
                (SEQ (CONS #'|FMTLATEX;altsupersub;IM;25!0| (VECTOR |p| $))))) 
 
@@ -486,8 +492,8 @@
                          (QREFELT $ 51))))))))) 
 
 (SDEFUN |FMTLATEX;prime;IM;26|
-        ((|p| |Integer|)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| (|Integer|))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL (SEQ (CONS #'|FMTLATEX;prime;IM;26!0| (VECTOR |p| $))))) 
 
 (SDEFUN |FMTLATEX;prime;IM;26!0| ((|prec| NIL) (|args| NIL) ($$ NIL))
@@ -513,10 +519,10 @@
                                (QREFELT $ 51))))))))) 
 
 (SDEFUN |FMTLATEX;aux2|
-        ((|s| |String|) (|p| |Integer|)
-         (|h1| |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))
-         (|h2| |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|s| (|String|)) (|p| (|Integer|))
+         (|h1| (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+         (|h2| (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL (CONS #'|FMTLATEX;aux2!0| (VECTOR |h2| |h1| |s| $ |p|)))) 
 
 (SDEFUN |FMTLATEX;aux2!0| ((|prec| NIL) (|args| NIL) ($$ NIL))
@@ -541,28 +547,29 @@
                       (QREFELT $ 51)))))) 
 
 (SDEFUN |FMTLATEX;power;I3M;28|
-        ((|p| . #1=(|Integer|))
-         (|h1| . #2=(|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
-         (|h2| . #2#)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| #1=(|Integer|))
+         (|h1| #2=(|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
+         (|h2| #2#)
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (|FMTLATEX;aux2| "\\SUPER" |p| |h1| |h2| $)) 
 
 (SDEFUN |FMTLATEX;fraction;I3M;29|
-        ((|p| . #1=(|Integer|))
-         (|h1| . #2=(|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
-         (|h2| . #2#)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| #1=(|Integer|))
+         (|h1| #2=(|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
+         (|h2| #2#)
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (|FMTLATEX;aux2| "\\frac" |p| |h1| |h2| $)) 
 
 (SDEFUN |FMTLATEX;slash;I3M;30|
-        ((|p| . #1=(|Integer|))
-         (|h1| . #2=(|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
-         (|h2| . #2#)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|p| #1=(|Integer|))
+         (|h1| #2=(|Mapping| (|OutputBox|) #1# (|List| (|OutputForm|))))
+         (|h2| #2#)
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (|FMTLATEX;aux2| "\\SLASH" |p| |h1| |h2| $)) 
 
 (SDEFUN |FMTLATEX;binomial;ILOb;31|
-        ((|prec| |Integer|) (|args| |List| (|OutputForm|)) ($ |OutputBox|))
+        ((|prec| (|Integer|)) (|args| (|List| (|OutputForm|)))
+         ($ (|OutputBox|)))
         (SPROG ((|b2| #1=(|OutputBox|)) (|b1| #1#))
                (SEQ
                 (LETT |b1|
@@ -574,7 +581,8 @@
                 (EXIT (|FMTLATEX;tex2| "\\binom" |b1| |b2| $))))) 
 
 (SDEFUN |FMTLATEX;zag;ILOb;32|
-        ((|prec| |Integer|) (|args| |List| (|OutputForm|)) ($ |OutputBox|))
+        ((|prec| (|Integer|)) (|args| (|List| (|OutputForm|)))
+         ($ (|OutputBox|)))
         (SPROG ((|b2| #1=(|OutputBox|)) (|b1| #1#))
                (SEQ
                 (LETT |b1|
@@ -586,9 +594,9 @@
                 (EXIT (|FMTLATEX;tex2| "\\ZAG" |b1| |b2| $))))) 
 
 (SDEFUN |FMTLATEX;environment;3S2M;33|
-        ((|env| |String|) (|x| |String|) (|sep| |String|)
-         (|h| |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|env| (|String|)) (|x| (|String|)) (|sep| (|String|))
+         (|h| (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPROG NIL
                (SEQ
                 (CONS #'|FMTLATEX;environment;3S2M;33!0|
@@ -630,18 +638,18 @@
                                   (QREFELT $ 15)))))))))))) 
 
 (SDEFUN |FMTLATEX;vconcat;2M;34|
-        ((|h| |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|h| (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPADCALL "VCONCAT" "" "\\\\" |h| (QREFELT $ 95))) 
 
 (SDEFUN |FMTLATEX;pile;2M;35|
-        ((|h| |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|h| (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SPADCALL "PILE" "" "\\\\" |h| (QREFELT $ 95))) 
 
 (SDEFUN |FMTLATEX;matrix;2SM;36|
-        ((|left| . #1=(|String|)) (|right| . #1#)
-         ($ |Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
+        ((|left| #1=(|String|)) (|right| #1#)
+         ($ (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
         (SEQ (CONS #'|FMTLATEX;matrix;2SM;36!0| $))) 
 
 (SDEFUN |FMTLATEX;matrix;2SM;36!0| ((|prec| NIL) (|args| NIL) ($ NIL))
@@ -669,10 +677,12 @@
                                      (QREFELT $ 95))))))) 
 
 (SDEFUN |FMTLATEX;setOperatorHandlers!|
-        ((|oh| |OperatorHandlers|
-          (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))
-         ($ |OperatorHandlers|
-          (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
+        ((|oh|
+          (|OperatorHandlers|
+           (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
+         ($
+          (|OperatorHandlers|
+           (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
         (SPROG ((#1=#:G670 NIL))
                (SEQ
                 (EXIT
@@ -1185,8 +1195,9 @@
                 #6# (EXIT #1#)))) 
 
 (SDEFUN |FMTLATEX;operatorHandlers;Oh;38|
-        (($ |OperatorHandlers|
-          (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|)))))
+        (($
+          (|OperatorHandlers|
+           (|Mapping| (|OutputBox|) (|Integer|) (|List| (|OutputForm|))))))
         (QREFELT $ 111)) 
 
 (DECLAIM (NOTINLINE |FormatLaTeX;|)) 

@@ -1,7 +1,7 @@
 
 (SDEFUN |RDEEFS;basecase|
-        ((|nfp| F) (|g1| F) (|g2| F) (|k| |Kernel| F)
-         ($ |Union| (|List| F) "failed"))
+        ((|nfp| (F)) (|g1| (F)) (|g2| (F)) (|k| (|Kernel| F))
+         ($ (|Union| (|List| F) "failed")))
         (SPROG
          ((|l| (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))
           (|ans|
@@ -24,18 +24,21 @@
                                          (QREFELT $ 17)))))))))))) 
 
 (SDEFUN |RDEEFS;rischDEsys;I3FSMMU;2|
-        ((|n| |Integer|) (|f| F) (|g1| F) (|g2| F) (|x| |Symbol|)
-         (|limint| |Mapping|
-          #1=(|Union|
-              (|Record| (|:| |mainpart| F)
-                        (|:| |limitedlogs|
-                             (|List|
-                              (|Record| (|:| |coeff| F) (|:| |logand| F)))))
-              "failed")
-          F (|List| F))
-         (|extint| |Mapping|
-          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed") F F)
-         ($ |Union| (|List| F) "failed"))
+        ((|n| (|Integer|)) (|f| (F)) (|g1| (F)) (|g2| (F)) (|x| (|Symbol|))
+         (|limint|
+          (|Mapping|
+           #1=(|Union|
+               (|Record| (|:| |mainpart| F)
+                         (|:| |limitedlogs|
+                              (|List|
+                               (|Record| (|:| |coeff| F) (|:| |logand| F)))))
+               "failed")
+           F (|List| F)))
+         (|extint|
+          (|Mapping|
+           (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed") F
+           F))
+         ($ (|Union| (|List| F) "failed")))
         (SPROG
          ((|k| (|Kernel| F)) (|vl| (|List| (|Kernel| F))) (|y2| (F)) (|y1| (F))
           (#2=#:G168 NIL) (|u2| #1#) (|u1| #1#) (|nfp| (F)))

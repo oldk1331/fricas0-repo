@@ -1,5 +1,5 @@
 
-(SDEFUN |FAXF-;represents;VS;1| ((|v| |Vector| F) ($ S))
+(SDEFUN |FAXF-;represents;VS;1| ((|v| (|Vector| F)) ($ (S)))
         (SPROG ((|a| (S)) (#1=#:G137 NIL) (|i| NIL) (|b| (|Vector| S)))
                (SEQ (LETT |a| (|spadConstant| $ 8))
                     (LETT |b| (SPADCALL (QREFELT $ 10)))
@@ -19,10 +19,10 @@
 
 (PUT '|FAXF-;transcendenceDegree;Nni;2| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |FAXF-;transcendenceDegree;Nni;2| (($ |NonNegativeInteger|)) 0) 
+(SDEFUN |FAXF-;transcendenceDegree;Nni;2| (($ (|NonNegativeInteger|))) 0) 
 
 (SDEFUN |FAXF-;extensionDegree;Opc;3|
-        (($ |OnePointCompletion| (|PositiveInteger|)))
+        (($ (|OnePointCompletion| (|PositiveInteger|))))
         (SPROG ((#1=#:G140 NIL))
                (SPADCALL
                 (PROG1 (LETT #1# (QVSIZE (SPADCALL (QREFELT $ 10))))
@@ -31,10 +31,10 @@
                 (QREFELT $ 24)))) 
 
 (SDEFUN |FAXF-;degree;SOpc;4|
-        ((|a| S) ($ |OnePointCompletion| (|PositiveInteger|)))
+        ((|a| (S)) ($ (|OnePointCompletion| (|PositiveInteger|))))
         (SPADCALL (SPADCALL |a| (QREFELT $ 26)) (QREFELT $ 24))) 
 
-(SDEFUN |FAXF-;coordinates;VM;5| ((|v| |Vector| S) ($ |Matrix| F))
+(SDEFUN |FAXF-;coordinates;VM;5| ((|v| (|Vector| S)) ($ (|Matrix| F)))
         (SPROG ((#1=#:G146 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| F)))
                (SEQ
                 (LETT |m|
@@ -55,19 +55,19 @@
 
 (PUT '|FAXF-;algebraic?;SB;6| '|SPADreplace| '(XLAM (|a|) 'T)) 
 
-(SDEFUN |FAXF-;algebraic?;SB;6| ((|a| S) ($ |Boolean|)) 'T) 
+(SDEFUN |FAXF-;algebraic?;SB;6| ((|a| (S)) ($ (|Boolean|))) 'T) 
 
 (PUT '|FAXF-;transcendent?;SB;7| '|SPADreplace| '(XLAM (|a|) NIL)) 
 
-(SDEFUN |FAXF-;transcendent?;SB;7| ((|a| S) ($ |Boolean|)) NIL) 
+(SDEFUN |FAXF-;transcendent?;SB;7| ((|a| (S)) ($ (|Boolean|))) NIL) 
 
-(SDEFUN |FAXF-;extensionDegree;Pi;8| (($ |PositiveInteger|))
+(SDEFUN |FAXF-;extensionDegree;Pi;8| (($ (|PositiveInteger|)))
         (SPROG ((#1=#:G149 NIL))
                (PROG1 (LETT #1# (QVSIZE (SPADCALL (QREFELT $ 10))))
                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                    '(|NonNegativeInteger|) #1#)))) 
 
-(SDEFUN |FAXF-;trace;SF;9| ((|a| S) ($ F))
+(SDEFUN |FAXF-;trace;SF;9| ((|a| (S)) ($ (F)))
         (SPROG ((|abs| (F)) (#1=#:G154 NIL) (|i| NIL) (|b| (|Vector| S)))
                (SEQ (LETT |b| (SPADCALL (QREFELT $ 10)))
                     (LETT |abs| (|spadConstant| $ 28))
@@ -90,7 +90,7 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |abs|)))) 
 
-(SDEFUN |FAXF-;norm;SF;10| ((|a| S) ($ F))
+(SDEFUN |FAXF-;norm;SF;10| ((|a| (S)) ($ (F)))
         (SPROG
          ((#1=#:G158 NIL) (|i| NIL) (|m| (|Matrix| F)) (|b| (|Vector| S)))
          (SEQ (LETT |b| (SPADCALL (QREFELT $ 10)))
@@ -111,7 +111,7 @@
               (EXIT (SPADCALL |m| (QREFELT $ 41)))))) 
 
 (SDEFUN |FAXF-;linearAssociatedExp;SSupS;11|
-        ((|x| S) (|f| |SparseUnivariatePolynomial| F) ($ S))
+        ((|x| (S)) (|f| (|SparseUnivariatePolynomial| F)) ($ (S)))
         (SPROG ((|y| (S)) (|erg| (S)) (#1=#:G163 NIL) (|i| NIL))
                (SEQ (LETT |erg| (|spadConstant| $ 8)) (LETT |y| |x|)
                     (SEQ (LETT |i| 0) (LETT #1# (SPADCALL |f| (QREFELT $ 44)))
@@ -128,7 +128,8 @@
                     (EXIT |erg|)))) 
 
 (SDEFUN |FAXF-;linearAssociatedLog;2SU;12|
-        ((|b| S) (|x| S) ($ |Union| (|SparseUnivariatePolynomial| F) "failed"))
+        ((|b| (S)) (|x| (S))
+         ($ (|Union| (|SparseUnivariatePolynomial| F) "failed")))
         (SPROG
          ((|p| #1=(|SparseUnivariatePolynomial| F)) (#2=#:G173 NIL)
           (#3=#:G172 #1#) (#4=#:G174 #1#) (#5=#:G183 NIL) (|i| NIL)
@@ -206,7 +207,7 @@
                (#8# (CONS 0 |p|)))))))))) 
 
 (SDEFUN |FAXF-;linearAssociatedLog;SSup;13|
-        ((|x| S) ($ |SparseUnivariatePolynomial| F))
+        ((|x| (S)) ($ (|SparseUnivariatePolynomial| F)))
         (SPROG ((#1=#:G185 NIL))
                (PROG2
                    (LETT #1#
@@ -221,7 +222,7 @@
                                  #1#)))) 
 
 (SDEFUN |FAXF-;linearAssociatedOrder;SSup;14|
-        ((|x| S) ($ |SparseUnivariatePolynomial| F))
+        ((|x| (S)) ($ (|SparseUnivariatePolynomial| F)))
         (SPROG
          ((#1=#:G191 NIL) (#2=#:G190 #3=(|SparseUnivariatePolynomial| F))
           (#4=#:G192 #3#) (#5=#:G196 NIL) (|i| NIL) (|v| (|Vector| F))
@@ -267,11 +268,12 @@
                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                (COND (#1# #2#) (#7# (|spadConstant| $ 49))))))))))) 
 
-(SDEFUN |FAXF-;charthRoot;SU;15| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |FAXF-;charthRoot;SU;15| ((|x| (S)) ($ (|Union| S "failed")))
         (CONS 0 (SPADCALL |x| (QREFELT $ 77)))) 
 
 (SDEFUN |FAXF-;minimalPolynomial;SPiSup;16|
-        ((|a| S) (|n| |PositiveInteger|) ($ |SparseUnivariatePolynomial| S))
+        ((|a| (S)) (|n| (|PositiveInteger|))
+         ($ (|SparseUnivariatePolynomial| S)))
         (SPROG ((|u| (S)) (|f| (|SparseUnivariatePolynomial| S)))
                (SEQ
                 (COND
@@ -303,7 +305,7 @@
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT |f|))))))) 
 
-(SDEFUN |FAXF-;norm;SPiS;17| ((|e| S) (|s| |PositiveInteger|) ($ S))
+(SDEFUN |FAXF-;norm;SPiS;17| ((|e| (S)) (|s| (|PositiveInteger|)) ($ (S)))
         (SPROG
          ((#1=#:G211 NIL) (|pow| (|Integer|))
           (|qr|
@@ -328,7 +330,7 @@
                  (|error|
                   "norm: second argument must divide degree of extension"))))))) 
 
-(SDEFUN |FAXF-;trace;SPiS;18| ((|e| S) (|s| |PositiveInteger|) ($ S))
+(SDEFUN |FAXF-;trace;SPiS;18| ((|e| (S)) (|s| (|PositiveInteger|)) ($ (S)))
         (SPROG
          ((|a| (S)) (#1=#:G220 NIL) (|i| NIL) (|q| (|NonNegativeInteger|))
           (|qr|
@@ -356,10 +358,10 @@
                  (|error|
                   "trace: second argument must divide degree of extension"))))))) 
 
-(SDEFUN |FAXF-;size;Nni;19| (($ |NonNegativeInteger|))
+(SDEFUN |FAXF-;size;Nni;19| (($ (|NonNegativeInteger|)))
         (EXPT (SPADCALL (QREFELT $ 90)) (SPADCALL (QREFELT $ 12)))) 
 
-(SDEFUN |FAXF-;createNormalElement;S;20| (($ S))
+(SDEFUN |FAXF-;createNormalElement;S;20| (($ (S)))
         (SPROG
          ((#1=#:G229 NIL) (#2=#:G230 NIL) (|res| (S)) (#3=#:G223 NIL)
           (|i| NIL))
@@ -399,7 +401,7 @@
               (EXIT |res|)))))
           #4# (EXIT #2#)))) 
 
-(SDEFUN |FAXF-;normal?;SB;21| ((|x| S) ($ |Boolean|))
+(SDEFUN |FAXF-;normal?;SB;21| ((|x| (S)) ($ (|Boolean|)))
         (SPROG
          ((|f| #1=(|SparseUnivariatePolynomial| S)) (#2=#:G232 NIL)
           (#3=#:G231 #1#) (#4=#:G233 #1#) (#5=#:G236 NIL) (|i| NIL)
@@ -434,7 +436,7 @@
              'T)
             (#6# NIL)))))) 
 
-(SDEFUN |FAXF-;degree;SPi;22| ((|a| S) ($ |PositiveInteger|))
+(SDEFUN |FAXF-;degree;SPi;22| ((|a| (S)) ($ (|PositiveInteger|)))
         (SPROG ((|deg| (|PositiveInteger|)) (|y| (S)))
                (SEQ (LETT |y| (SPADCALL |a| (QREFELT $ 46))) (LETT |deg| 1)
                     (SEQ G190

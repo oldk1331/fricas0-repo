@@ -1,12 +1,13 @@
 
-(SDEFUN |OMSERVER;OMreceive;OmcA;1| ((|conn| |OpenMathConnection|) ($ |Any|))
+(SDEFUN |OMSERVER;OMreceive;OmcA;1|
+        ((|conn| (|OpenMathConnection|)) ($ (|Any|)))
         (SPROG ((|dev| (|OpenMathDevice|)))
                (SEQ (LETT |dev| (SPADCALL |conn| (QREFELT $ 8)))
                     (SPADCALL |dev| (SPADCALL (QREFELT $ 10)) (QREFELT $ 12))
                     (EXIT (SPADCALL |dev| (QREFELT $ 15)))))) 
 
 (SDEFUN |OMSERVER;OMsend;OmcAV;2|
-        ((|conn| |OpenMathConnection|) (|value| |Any|) ($ |Void|))
+        ((|conn| (|OpenMathConnection|)) (|value| (|Any|)) ($ (|Void|)))
         (SPROG ((#1=#:G132 NIL) (|dev| (|OpenMathDevice|)))
                (SEQ (LETT |dev| (SPADCALL |conn| (QREFELT $ 17)))
                     (SPADCALL |dev| (SPADCALL (QREFELT $ 18)) (QREFELT $ 12))
@@ -38,7 +39,8 @@
                         #2# (EXIT #1#)))))))) 
 
 (SDEFUN |OMSERVER;OMserve;2SiV;3|
-        ((|portNum| |SingleInteger|) (|timeout| |SingleInteger|) ($ |Void|))
+        ((|portNum| (|SingleInteger|)) (|timeout| (|SingleInteger|))
+         ($ (|Void|)))
         (SPROG ((|val| (|Any|)) (|conn| (|OpenMathConnection|)))
                (SEQ (LETT |conn| (SPADCALL |timeout| (QREFELT $ 45)))
                     (SPADCALL |conn| |portNum| (QREFELT $ 46))

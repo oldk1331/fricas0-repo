@@ -1,5 +1,5 @@
 
-(SDEFUN |NORMRETR;normFactors;ExtPL;1| ((|p| |ExtP|) ($ |List| |ExtP|))
+(SDEFUN |NORMRETR;normFactors;ExtPL;1| ((|p| (|ExtP|)) ($ (|List| |ExtP|)))
         (SPROG
          ((|facs| (|List| |ExtP|)) (#1=#:G124 NIL) (#2=#:G125 NIL) (|i| NIL))
          (SEQ
@@ -18,7 +18,7 @@
                 (EXIT |facs|)))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |NORMRETR;Frobenius;2ExtP;2| ((|ff| |ExtP|) ($ |ExtP|))
+(SDEFUN |NORMRETR;Frobenius;2ExtP;2| ((|ff| (|ExtP|)) ($ (|ExtP|)))
         (SPROG ((|fft| (|ExtP|)))
                (SEQ (LETT |fft| (|spadConstant| $ 16))
                     (SEQ G190
@@ -43,10 +43,11 @@
                     (EXIT |fft|)))) 
 
 (SDEFUN |NORMRETR;retractIfCan;ExtPU;3|
-        ((|ff| |ExtP|)
-         ($ |Union|
-          (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
-          "failed"))
+        ((|ff| (|ExtP|))
+         ($
+          (|Union|
+           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
+           "failed")))
         (SPROG
          ((|fft|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))

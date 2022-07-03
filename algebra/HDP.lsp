@@ -1,5 +1,5 @@
 
-(SDEFUN |HDP;<;2$B;1| ((|v1| $) (|v2| $) ($ |Boolean|))
+(SDEFUN |HDP;<;2$B;1| ((|v1| ($)) (|v2| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G129 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)) (#2=#:G130 NIL))
          (SEQ

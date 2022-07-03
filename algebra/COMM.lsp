@@ -1,5 +1,5 @@
 
-(SDEFUN |COMM;=;2$B;1| ((|x| $) (|y| $) ($ |Boolean|))
+(SDEFUN |COMM;=;2$B;1| ((|x| ($)) (|y| ($)) ($ (|Boolean|)))
         (SPROG ((|yy| (P)) (|xx| (P)))
                (SEQ
                 (COND
@@ -22,12 +22,13 @@
                             ('T NIL)))))))))
                 (EXIT NIL)))) 
 
-(SDEFUN |COMM;mkcomm;I$;2| ((|i| |Integer|) ($ $))
+(SDEFUN |COMM;mkcomm;I$;2| ((|i| (|Integer|)) ($ ($)))
         (CONS 0 (SPADCALL |i| (QREFELT $ 12)))) 
 
-(SDEFUN |COMM;mkcomm;3$;3| ((|x| $) (|y| $) ($ $)) (CONS 1 (CONS |x| |y|))) 
+(SDEFUN |COMM;mkcomm;3$;3| ((|x| ($)) (|y| ($)) ($ ($)))
+        (CONS 1 (CONS |x| |y|))) 
 
-(SDEFUN |COMM;coerce;$Of;4| ((|x| $) ($ |OutputForm|))
+(SDEFUN |COMM;coerce;$Of;4| ((|x| ($)) ($ (|OutputForm|)))
         (SPROG ((|xx| (P)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 16)))

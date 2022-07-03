@@ -1,5 +1,6 @@
 
-(SDEFUN |MCALCFN;localGradient| ((|v| F) (|xlist| |List| S) ($ |Vector| F))
+(SDEFUN |MCALCFN;localGradient|
+        ((|v| (F)) (|xlist| (|List| S)) ($ (|Vector| F)))
         (SPROG ((#1=#:G122 NIL) (|x| NIL) (#2=#:G121 NIL))
                (SEQ
                 (SPADCALL
@@ -17,12 +18,14 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 13))))) 
 
-(SDEFUN |MCALCFN;gradient;FFLASV;2| ((|v| F) (|xflas| FLAS) ($ |Vector| F))
+(SDEFUN |MCALCFN;gradient;FFLASV;2|
+        ((|v| (F)) (|xflas| (FLAS)) ($ (|Vector| F)))
         (SPROG ((|xlist| (|List| S)))
                (SEQ (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15)))
                     (EXIT (|MCALCFN;localGradient| |v| |xlist| $))))) 
 
-(SDEFUN |MCALCFN;localDivergence| ((|vf| |Vector| F) (|xlist| |List| S) ($ F))
+(SDEFUN |MCALCFN;localDivergence|
+        ((|vf| (|Vector| F)) (|xlist| (|List| S)) ($ (F)))
         (SPROG
          ((|ans| (F)) (#1=#:G129 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
           (#2=#:G125 NIL))
@@ -47,7 +50,8 @@
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT |ans|)))) 
 
-(SDEFUN |MCALCFN;divergence;FLAFFLASF;4| ((|vf| FLAF) (|xflas| FLAS) ($ F))
+(SDEFUN |MCALCFN;divergence;FLAFFLASF;4|
+        ((|vf| (FLAF)) (|xflas| (FLAS)) ($ (F)))
         (SPROG
          ((|ans| (F)) (#1=#:G134 NIL) (|i| NIL) (|n| (|NonNegativeInteger|))
           (#2=#:G130 NIL) (|xlist| (|List| S)))
@@ -72,13 +76,14 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
-(SDEFUN |MCALCFN;laplacian;FFLASF;5| ((|v| F) (|xflas| FLAS) ($ F))
+(SDEFUN |MCALCFN;laplacian;FFLASF;5| ((|v| (F)) (|xflas| (FLAS)) ($ (F)))
         (SPROG ((|gv| (|Vector| F)) (|xlist| (|List| S)))
                (SEQ (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15)))
                     (LETT |gv| (|MCALCFN;localGradient| |v| |xlist| $))
                     (EXIT (|MCALCFN;localDivergence| |gv| |xlist| $))))) 
 
-(SDEFUN |MCALCFN;hessian;FFLASM;6| ((|v| F) (|xflas| FLAS) ($ |Matrix| F))
+(SDEFUN |MCALCFN;hessian;FFLASM;6|
+        ((|v| (F)) (|xflas| (FLAS)) ($ (|Matrix| F)))
         (SPROG
          ((#1=#:G144 NIL) (|x| NIL) (#2=#:G143 NIL) (#3=#:G142 NIL) (|y| NIL)
           (#4=#:G141 NIL) (|xlist| (|List| S)))
@@ -117,7 +122,7 @@
                 (QREFELT $ 29)))))) 
 
 (SDEFUN |MCALCFN;jacobian;FLAFFLASM;7|
-        ((|vf| FLAF) (|xflas| FLAS) ($ |Matrix| F))
+        ((|vf| (FLAF)) (|xflas| (FLAS)) ($ (|Matrix| F)))
         (SPROG
          ((#1=#:G152 NIL) (|x| NIL) (#2=#:G151 NIL) (#3=#:G150 NIL) (|i| NIL)
           (#4=#:G149 NIL) (|xlist| (|List| S)))
@@ -156,7 +161,8 @@
                 (QREFELT $ 29)))))) 
 
 (SDEFUN |MCALCFN;bandedHessian;FFLASNniM;8|
-        ((|v| F) (|xflas| FLAS) (|k| |NonNegativeInteger|) ($ |Matrix| F))
+        ((|v| (F)) (|xflas| (FLAS)) (|k| (|NonNegativeInteger|))
+         ($ (|Matrix| F)))
         (SPROG
          ((#1=#:G160 NIL) (|j| NIL) (#2=#:G159 NIL) (|iw| NIL) (#3=#:G158 NIL)
           (|bandM| (|Matrix| F)) (|n| (|NonNegativeInteger|))
@@ -198,7 +204,7 @@
               (EXIT |bandM|)))) 
 
 (SDEFUN |MCALCFN;jacobian;FLAFFLASM;9|
-        ((|vf| FLAF) (|xflas| FLAS) ($ |Matrix| F))
+        ((|vf| (FLAF)) (|xflas| (FLAS)) ($ (|Matrix| F)))
         (SPROG
          ((#1=#:G168 NIL) (|x| NIL) (#2=#:G167 NIL) (#3=#:G166 NIL) (|i| NIL)
           (#4=#:G165 NIL) (|xlist| (|List| S)))
@@ -237,8 +243,8 @@
                 (QREFELT $ 29)))))) 
 
 (SDEFUN |MCALCFN;bandedJacobian;FLAFFLAS2NniM;10|
-        ((|vf| FLAF) (|xflas| FLAS) (|kl| |NonNegativeInteger|)
-         (|ku| |NonNegativeInteger|) ($ |Matrix| F))
+        ((|vf| (FLAF)) (|xflas| (FLAS)) (|kl| (|NonNegativeInteger|))
+         (|ku| (|NonNegativeInteger|)) ($ (|Matrix| F)))
         (SPROG
          ((#1=#:G180 NIL) (|j| NIL) (#2=#:G179 NIL) (|iw| NIL) (#3=#:G178 NIL)
           (#4=#:G177 NIL) (#5=#:G176 NIL) (|bandM| (|Matrix| F))

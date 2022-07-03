@@ -1,5 +1,5 @@
 
-(SDEFUN |REPDB;double;Pi2S;1| ((|n| |PositiveInteger|) (|x| S) ($ S))
+(SDEFUN |REPDB;double;Pi2S;1| ((|n| (|PositiveInteger|)) (|x| (S)) ($ (S)))
         (COND ((EQL |n| 1) |x|)
               ((ODDP |n|)
                (SPADCALL |x|

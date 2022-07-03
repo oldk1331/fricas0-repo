@@ -1,7 +1,7 @@
 
 (SDEFUN |DSTCFPG;JContinuedFraction;DUpCf;1|
-        ((|x| |Distribution| R) (|zz| |UnivariatePolynomial| |z| R)
-         ($ |ContinuedFraction| (|UnivariatePolynomial| |z| R)))
+        ((|x| (|Distribution| R)) (|zz| (|UnivariatePolynomial| |z| R))
+         ($ (|ContinuedFraction| (|UnivariatePolynomial| |z| R))))
         (SPROG
          ((|bn1| #1=(|Stream| (|UnivariatePolynomial| |z| R))) (|an1| #1#)
           (|jac| (|Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R)))))
@@ -34,9 +34,9 @@
                       (QREFELT $ 17)))))) 
 
 (SDEFUN |DSTCFPG;JContinuedFraction;DUpCf;2|
-        ((|x| |Distribution| R)
-         (|zz| |UnivariatePolynomial| |z| (|Fraction| R))
-         ($ |ContinuedFraction| (|UnivariatePolynomial| |z| (|Fraction| R))))
+        ((|x| (|Distribution| R))
+         (|zz| (|UnivariatePolynomial| |z| (|Fraction| R)))
+         ($ (|ContinuedFraction| (|UnivariatePolynomial| |z| (|Fraction| R)))))
         (SPROG
          ((|bn1| #1=(|Stream| (|UnivariatePolynomial| |z| (|Fraction| R))))
           (|an1| #1#)

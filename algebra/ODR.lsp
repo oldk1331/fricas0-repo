@@ -1,23 +1,23 @@
 
 (PUT '|ODR;coerce;R$;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(SDEFUN |ODR;coerce;R$;1| ((|u| R) ($ $)) |u|) 
+(SDEFUN |ODR;coerce;R$;1| ((|u| (R)) ($ ($))) |u|) 
 
 (PUT '|ODR;coerce;$R;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(SDEFUN |ODR;coerce;$R;2| ((|p| $) ($ R)) |p|) 
+(SDEFUN |ODR;coerce;$R;2| ((|p| ($)) ($ (R))) |p|) 
 
-(SDEFUN |ODR;differentiate;2$;3| ((|p| $) ($ $))
+(SDEFUN |ODR;differentiate;2$;3| ((|p| ($)) ($ ($)))
         (SPADCALL |p| (QREFELT $ 8) (QREFELT $ 12))) 
 
-(SDEFUN |ODR;/;3$;4| ((|p| $) (|q| $) ($ $))
+(SDEFUN |ODR;/;3$;4| ((|p| ($)) (|q| ($)) ($ ($)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (SPADCALL |q| (QREFELT $ 11))
                   (QREFELT $ 14))) 
 
-(SDEFUN |ODR;^;$I$;5| ((|p| $) (|n| |Integer|) ($ $))
+(SDEFUN |ODR;^;$I$;5| ((|p| ($)) (|n| (|Integer|)) ($ ($)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 11)) |n| (QREFELT $ 17))) 
 
-(SDEFUN |ODR;inv;2$;6| ((|p| $) ($ $))
+(SDEFUN |ODR;inv;2$;6| ((|p| ($)) ($ ($)))
         (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (QREFELT $ 19))) 
 
 (DECLAIM (NOTINLINE |OrdinaryDifferentialRing;|)) 

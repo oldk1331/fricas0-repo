@@ -1,29 +1,29 @@
 
-(SDEFUN |FFCAT-;Q2RF| ((|q| |Fraction| F) ($ |Fraction| UP))
+(SDEFUN |FFCAT-;Q2RF| ((|q| (|Fraction| F)) ($ (|Fraction| UP)))
         (SPADCALL (SPADCALL (SPADCALL |q| (QREFELT $ 11)) (QREFELT $ 12))
                   (SPADCALL (SPADCALL |q| (QREFELT $ 13)) (QREFELT $ 12))
                   (QREFELT $ 15))) 
 
-(SDEFUN |FFCAT-;infOrder| ((|f| |Fraction| UP) ($ |Integer|))
+(SDEFUN |FFCAT-;infOrder| ((|f| (|Fraction| UP)) ($ (|Integer|)))
         (- (SPADCALL (SPADCALL |f| (QREFELT $ 16)) (QREFELT $ 18))
            (SPADCALL (SPADCALL |f| (QREFELT $ 19)) (QREFELT $ 18)))) 
 
-(SDEFUN |FFCAT-;integral?;SB;3| ((|f| S) ($ |Boolean|))
+(SDEFUN |FFCAT-;integral?;SB;3| ((|f| (S)) ($ (|Boolean|)))
         (SPADCALL (QCDR (SPADCALL |f| (QREFELT $ 21))) (QREFELT $ 23))) 
 
-(SDEFUN |FFCAT-;integral?;SFB;4| ((|f| S) (|a| F) ($ |Boolean|))
+(SDEFUN |FFCAT-;integral?;SFB;4| ((|f| (S)) (|a| (F)) ($ (|Boolean|)))
         (SPADCALL
          (SPADCALL (QCDR (SPADCALL |f| (QREFELT $ 21))) |a| (QREFELT $ 25))
          (|spadConstant| $ 26) (QREFELT $ 27))) 
 
-(SDEFUN |FFCAT-;absolutelyIrreducible?;B;5| (($ |Boolean|))
+(SDEFUN |FFCAT-;absolutelyIrreducible?;B;5| (($ (|Boolean|)))
         (EQL (SPADCALL (QREFELT $ 29)) 1)) 
 
 (SDEFUN |FFCAT-;yCoordinates;SR;6|
-        ((|f| S) ($ |Record| (|:| |num| (|Vector| UP)) (|:| |den| UP)))
+        ((|f| (S)) ($ (|Record| (|:| |num| (|Vector| UP)) (|:| |den| UP))))
         (SPADCALL (SPADCALL |f| (QREFELT $ 32)) (QREFELT $ 34))) 
 
-(SDEFUN |FFCAT-;hyperelliptic;U;7| (($ |Union| UP "failed"))
+(SDEFUN |FFCAT-;hyperelliptic;U;7| (($ (|Union| UP "failed")))
         (SPROG
          ((|p| (UP)) (|v| (|Union| UP "failed"))
           (|u| (|Union| (|Fraction| UP) "failed")) (|f| (UPUP)))
@@ -59,9 +59,10 @@
                         ('T (CONS 0 |p|)))))))))))))) 
 
 (SDEFUN |FFCAT-;algSplitSimple;SMR;8|
-        ((|f| S) (|derivation| |Mapping| UP UP)
-         ($ |Record| (|:| |num| S) (|:| |den| UP) (|:| |derivden| UP)
-          (|:| |gd| UP)))
+        ((|f| (S)) (|derivation| (|Mapping| UP UP))
+         ($
+          (|Record| (|:| |num| S) (|:| |den| UP) (|:| |derivden| UP)
+                    (|:| |gd| UP))))
         (SPROG
          ((|dd| (UP)) (#1=#:G165 NIL) (|g| (UP))
           (|cd| (|Record| (|:| |num| UPUP) (|:| |den| UP))))
@@ -90,7 +91,7 @@
             (SPADCALL |dd| (SPADCALL (SPADCALL (QREFELT $ 59)) (QREFELT $ 60))
                       (QREFELT $ 52))))))) 
 
-(SDEFUN |FFCAT-;elliptic;U;9| (($ |Union| UP "failed"))
+(SDEFUN |FFCAT-;elliptic;U;9| (($ (|Union| UP "failed")))
         (SPROG ((|p| (UP)) (|u| (|Union| UP "failed")))
                (SEQ (LETT |u| (SPADCALL (QREFELT $ 64)))
                     (EXIT
@@ -103,7 +104,7 @@
                        (CONS 1 "failed"))
                       ('T (CONS 0 |p|))))))) 
 
-(SDEFUN |FFCAT-;rationalPoint?;2FB;10| ((|x| F) (|y| F) ($ |Boolean|))
+(SDEFUN |FFCAT-;rationalPoint?;2FB;10| ((|x| (F)) (|y| (F)) ($ (|Boolean|)))
         (SPADCALL
          (SPADCALL
           (SPADCALL (SPADCALL (QREFELT $ 36))
@@ -113,12 +114,12 @@
           (QREFELT $ 68))
          (QREFELT $ 69))) 
 
-(SDEFUN |FFCAT-;UP2P| ((|p| UP) (|x| |Polynomial| F) ($ |Polynomial| F))
+(SDEFUN |FFCAT-;UP2P| ((|p| (UP)) (|x| (|Polynomial| F)) ($ (|Polynomial| F)))
         (SPADCALL (SPADCALL (ELT $ 72) |p| (QREFELT $ 76)) |x| (QREFELT $ 77))) 
 
 (SDEFUN |FFCAT-;UPUP2P|
-        ((|p| UPUP) (|x| |Polynomial| F) (|y| |Polynomial| F)
-         ($ |Polynomial| F))
+        ((|p| (UPUP)) (|x| (|Polynomial| F)) (|y| (|Polynomial| F))
+         ($ (|Polynomial| F)))
         (SPROG NIL
                (SPADCALL
                 (SPADCALL (CONS #'|FFCAT-;UPUP2P!0| (VECTOR |x| $)) |p|
@@ -132,7 +133,7 @@
           (RETURN (PROGN (|FFCAT-;UP2P| (SPADCALL |s| (QREFELT $ 60)) |x| $))))) 
 
 (SDEFUN |FFCAT-;nonSingularModel;SL;13|
-        ((|u| |Symbol|) ($ |List| (|Polynomial| F)))
+        ((|u| (|Symbol|)) ($ (|List| (|Polynomial| F))))
         (SPROG
          ((#1=#:G191 NIL) (|v| NIL) (#2=#:G192 NIL) (|i| NIL) (#3=#:G190 NIL)
           (|y| (|Symbol|)) (|x| (|Symbol|)) (|vars| (|List| (|Symbol|)))
@@ -208,7 +209,7 @@
               (SPADCALL (SPADCALL |s| |y| (QREFELT $ 91)) (QREFELT $ 92)))
              ('T NIL)))))) 
 
-(SDEFUN |FFCAT-;ispoint| ((|p| UPUP) (|x| F) (|y| F) ($ |List| F))
+(SDEFUN |FFCAT-;ispoint| ((|p| (UPUP)) (|x| (F)) (|y| (F)) ($ (|List| F)))
         (SPROG ((|jhd| (|Fraction| UP)))
                (SEQ
                 (LETT |jhd|
@@ -227,7 +228,7 @@
                    (LIST |x| |y|))
                   ('T NIL)))))) 
 
-(SDEFUN |FFCAT-;rationalPoints;L;15| (($ |List| (|List| F)))
+(SDEFUN |FFCAT-;rationalPoints;L;15| (($ (|List| (|List| F))))
         (SPROG
          ((|pt| (|List| F)) (#1=#:G198 NIL) (#2=#:G196 NIL) (#3=#:G207 NIL)
           (|y| NIL) (#4=#:G206 NIL) (#5=#:G205 NIL) (|x| NIL) (#6=#:G204 NIL)
@@ -280,7 +281,7 @@
                       (EXIT (NREVERSE #6#))))
                 (QREFELT $ 112)))))) 
 
-(SDEFUN |FFCAT-;intvalue| ((|v| |Vector| UP) (|x| F) (|y| F) ($ F))
+(SDEFUN |FFCAT-;intvalue| ((|v| (|Vector| UP)) (|x| (F)) (|y| (F)) ($ (F)))
         (SPROG
          ((#1=#:G219 NIL) (|d| (F)) (|n| (F)) (#2=#:G213 NIL) (#3=#:G212 (F))
           (#4=#:G214 (F)) (#5=#:G216 NIL) (#6=#:G225 NIL) (|i| NIL)
@@ -361,7 +362,7 @@
                                        (|Union| (QREFELT $ 7) "failed")
                                        #1#))))))))))) 
 
-(SDEFUN |FFCAT-;elt;S3F;17| ((|f| S) (|x| F) (|y| F) ($ F))
+(SDEFUN |FFCAT-;elt;S3F;17| ((|f| (S)) (|x| (F)) (|y| (F)) ($ (F)))
         (SPROG
          ((#1=#:G229 NIL) (|d| (F)) (|n| (F))
           (|rec| (|Record| (|:| |num| (|Vector| UP)) (|:| |den| UP))))
@@ -382,7 +383,7 @@
                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
                                    (|Union| (QREFELT $ 7) "failed") #1#)))))))) 
 
-(SDEFUN |FFCAT-;primitivePart;2S;18| ((|f| S) ($ S))
+(SDEFUN |FFCAT-;primitivePart;2S;18| ((|f| (S)) ($ (S)))
         (SPROG
          ((#1=#:G241 NIL) (#2=#:G243 NIL) (|i| NIL) (#3=#:G242 NIL) (|d| (UP))
           (#4=#:G240 NIL) (#5=#:G239 NIL)
@@ -427,7 +428,8 @@
                  #3#)
                 (QREFELT $ 131)))))) 
 
-(SDEFUN |FFCAT-;reduceBasisAtInfinity;2V;19| ((|b| |Vector| S) ($ |Vector| S))
+(SDEFUN |FFCAT-;reduceBasisAtInfinity;2V;19|
+        ((|b| (|Vector| S)) ($ (|Vector| S)))
         (SPROG
          ((|f| (S)) (|j| NIL) (#1=#:G250 NIL) (#2=#:G249 NIL) (|i| NIL)
           (#3=#:G248 NIL) (|x| (|Fraction| UP)))
@@ -466,7 +468,7 @@
                   (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT (NREVERSE #3#))))
             (QREFELT $ 138)))))) 
 
-(SDEFUN |FFCAT-;complementaryBasis;2V;20| ((|b| |Vector| S) ($ |Vector| S))
+(SDEFUN |FFCAT-;complementaryBasis;2V;20| ((|b| (|Vector| S)) ($ (|Vector| S)))
         (SPROG
          ((#1=#:G257 NIL) (#2=#:G259 NIL) (|i| NIL) (#3=#:G258 NIL)
           (|m| (|Matrix| (|Fraction| UP))) (#4=#:G252 NIL))
@@ -500,7 +502,7 @@
                  (GO G190) G191 (EXIT NIL))
             #3#))))) 
 
-(SDEFUN |FFCAT-;integralAtInfinity?;SB;21| ((|f| S) ($ |Boolean|))
+(SDEFUN |FFCAT-;integralAtInfinity?;SB;21| ((|f| (S)) ($ (|Boolean|)))
         (NULL
          (SPADCALL (CONS #'|FFCAT-;integralAtInfinity?;SB;21!0| $)
                    (SPADCALL (SPADCALL |f| (QREFELT $ 32))
@@ -511,7 +513,7 @@
         (SPADCALL (|FFCAT-;infOrder| |s| $) (|spadConstant| $ 145)
                   (QREFELT $ 146))) 
 
-(SDEFUN |FFCAT-;pol_order_at_p| ((|f| UP) (|p| UP) ($ |Integer|))
+(SDEFUN |FFCAT-;pol_order_at_p| ((|f| (UP)) (|p| (UP)) ($ (|Integer|)))
         (SPROG
          ((|k1| (|Integer|)) (#1=#:G273 NIL) (|k| (|Integer|)) (#2=#:G264 NIL)
           (|qu| (|Union| UP #3="failed")))
@@ -548,11 +550,13 @@
                 (EXIT |k|)))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |FFCAT-;rf_order_at_p| ((|f| |Fraction| UP) (|p| UP) ($ |Integer|))
+(SDEFUN |FFCAT-;rf_order_at_p|
+        ((|f| (|Fraction| UP)) (|p| (UP)) ($ (|Integer|)))
         (- (|FFCAT-;pol_order_at_p| (SPADCALL |f| (QREFELT $ 19)) |p| $)
            (|FFCAT-;pol_order_at_p| (SPADCALL |f| (QREFELT $ 16)) |p| $))) 
 
-(SDEFUN |FFCAT-;special_order;SLI;24| ((|f| S) (|lp| |List| UP) ($ |Integer|))
+(SDEFUN |FFCAT-;special_order;SLI;24|
+        ((|f| (S)) (|lp| (|List| UP)) ($ (|Integer|)))
         (SPROG
          ((|k| (|Integer|)) (#1=#:G278 NIL) (|p| NIL) (|nf| (|Fraction| UP)))
          (SEQ (LETT |nf| (SPADCALL |f| (QREFELT $ 152))) (LETT |k| 0)
@@ -566,10 +570,10 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (+ |k| (|FFCAT-;infOrder| |nf| $)))))) 
 
-(SDEFUN |FFCAT-;numberOfComponents;Nni;25| (($ |NonNegativeInteger|))
+(SDEFUN |FFCAT-;numberOfComponents;Nni;25| (($ (|NonNegativeInteger|)))
         (SPADCALL (ELT $ 137) (SPADCALL (QREFELT $ 82)) (QREFELT $ 156))) 
 
-(SDEFUN |FFCAT-;represents;VUPS;26| ((|v| |Vector| UP) (|d| UP) ($ S))
+(SDEFUN |FFCAT-;represents;VUPS;26| ((|v| (|Vector| UP)) (|d| (UP)) ($ (S)))
         (SPROG ((#1=#:G283 NIL) (#2=#:G285 NIL) (|i| NIL) (#3=#:G284 NIL))
                (SEQ
                 (SPADCALL
@@ -591,7 +595,7 @@
                   #3#)
                  (QREFELT $ 131))))) 
 
-(SDEFUN |FFCAT-;genus;Nni;27| (($ |NonNegativeInteger|))
+(SDEFUN |FFCAT-;genus;Nni;27| (($ (|NonNegativeInteger|)))
         (SPROG
          ((#1=#:G289 NIL) (|dd| (|Integer|)) (#2=#:G287 NIL) (|d| (|Integer|))
           (|ds| (|Fraction| UP)))
@@ -632,7 +636,7 @@
                                    '(|Integer|) #1#)))))) 
 
 (SDEFUN |FFCAT-;repOrder|
-        ((|m| |Matrix| (|Fraction| UP)) (|i| |Integer|) ($ |Integer|))
+        ((|m| (|Matrix| (|Fraction| UP))) (|i| (|Integer|)) ($ (|Integer|)))
         (SPROG
          ((|ans| (|Integer|)) (|nostart| (|Boolean|)) (#1=#:G296 NIL) (|j| NIL)
           (|r| (|Vector| (|Fraction| UP))))
@@ -659,7 +663,7 @@
                    (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL))
               (EXIT (COND (|nostart| (|error| "Null row")) ('T |ans|)))))) 
 
-(SDEFUN |FFCAT-;infValue| ((|f| |Fraction| UP) ($ |Fraction| F))
+(SDEFUN |FFCAT-;infValue| ((|f| (|Fraction| UP)) ($ (|Fraction| F)))
         (SPROG ((|n| (|Integer|)))
                (SEQ
                 (COND ((SPADCALL |f| (QREFELT $ 69)) (|spadConstant| $ 171))
@@ -678,7 +682,7 @@
                                     (|error|
                                      "f not locally integral at infinity")))))))))) 
 
-(SDEFUN |FFCAT-;rfmonom| ((|n| |Integer|) ($ |Fraction| UP))
+(SDEFUN |FFCAT-;rfmonom| ((|n| (|Integer|)) ($ (|Fraction| UP)))
         (SPROG ((#1=#:G302 NIL) (#2=#:G301 NIL))
                (COND
                 ((< |n| 0)
@@ -703,8 +707,8 @@
                   (QREFELT $ 55)))))) 
 
 (SDEFUN |FFCAT-;kmin|
-        ((|m| |Matrix| (|Fraction| UP)) (|v| |Vector| (|Fraction| F))
-         ($ |Record| (|:| |pos| (|Integer|)) (|:| |km| (|Integer|))))
+        ((|m| (|Matrix| (|Fraction| UP))) (|v| (|Vector| (|Fraction| F)))
+         ($ (|Record| (|:| |pos| (|Integer|)) (|:| |km| (|Integer|)))))
         (SPROG
          ((|i0| (|Integer|)) (|k| (|Integer|)) (|nostart| (|Boolean|))
           (|nk| (|Integer|)) (#1=#:G311 NIL) (|i| NIL) (|ii| (|Integer|)))
@@ -733,7 +737,8 @@
                (COND (|nostart| (|error| "vector v has only zero entries"))
                      ('T (CONS |i0| |k|))))))) 
 
-(SDEFUN |FFCAT-;normalizeAtInfinity;2V;32| ((|w| |Vector| S) ($ |Vector| S))
+(SDEFUN |FFCAT-;normalizeAtInfinity;2V;32|
+        ((|w| (|Vector| S)) ($ (|Vector| S)))
         (SPROG
          ((#1=#:G318 NIL) (#2=#:G317 (S)) (#3=#:G319 (S)) (#4=#:G331 NIL)
           (|i| NIL)
@@ -860,7 +865,7 @@
                       NIL (GO G190) G191 (EXIT NIL)))))
           #13# (EXIT #5#)))) 
 
-(SDEFUN |FFCAT-;integral?;SUPB;33| ((|f| S) (|p| UP) ($ |Boolean|))
+(SDEFUN |FFCAT-;integral?;SUPB;33| ((|f| (S)) (|p| (UP)) ($ (|Boolean|)))
         (SPROG ((|r| (|Union| F "failed")))
                (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 189)))
                     (EXIT
@@ -873,7 +878,8 @@
                                   (QREFELT $ 54))
                         1))))))) 
 
-(SDEFUN |FFCAT-;differentiate;SMS;34| ((|f| S) (|d| |Mapping| UP UP) ($ S))
+(SDEFUN |FFCAT-;differentiate;SMS;34|
+        ((|f| (S)) (|d| (|Mapping| UP UP)) ($ (S)))
         (SPROG NIL
                (SPADCALL |f|
                          (CONS #'|FFCAT-;differentiate;SMS;34!0|

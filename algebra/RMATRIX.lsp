@@ -1,10 +1,10 @@
 
-(SDEFUN |RMATRIX;Zero;$;1| (($ $)) (QREFELT $ 10)) 
+(SDEFUN |RMATRIX;Zero;$;1| (($ ($))) (QREFELT $ 10)) 
 
-(SDEFUN |RMATRIX;coerce;$Of;2| ((|x| $) ($ |OutputForm|))
+(SDEFUN |RMATRIX;coerce;$Of;2| ((|x| ($)) ($ (|OutputForm|)))
         (SPADCALL |x| (QREFELT $ 13))) 
 
-(SDEFUN |RMATRIX;matrix;L$;3| ((|l| |List| (|List| R)) ($ $))
+(SDEFUN |RMATRIX;matrix;L$;3| ((|l| (|List| (|List| R))) ($ ($)))
         (SPROG
          ((#1=#:G136 NIL) (|j| NIL) (#2=#:G137 NIL) (|r| NIL) (#3=#:G134 NIL)
           (|i| NIL) (#4=#:G135 NIL) (|ll| NIL) (|ans| (|Matrix| R))
@@ -56,26 +56,28 @@
              (EXIT |ans|))))))) 
 
 (SDEFUN |RMATRIX;row;$IDp;4|
-        ((|x| $) (|i| |Integer|) ($ |DirectProduct| |n| R))
+        ((|x| ($)) (|i| (|Integer|)) ($ (|DirectProduct| |n| R)))
         (SPADCALL (SPADCALL |x| |i| (QREFELT $ 24)) (QREFELT $ 26))) 
 
 (SDEFUN |RMATRIX;column;$IDp;5|
-        ((|x| $) (|j| |Integer|) ($ |DirectProduct| |m| R))
+        ((|x| ($)) (|j| (|Integer|)) ($ (|DirectProduct| |m| R)))
         (SPADCALL (SPADCALL |x| |j| (QREFELT $ 28)) (QREFELT $ 30))) 
 
-(SDEFUN |RMATRIX;coerce;$M;6| ((|x| $) ($ |Matrix| R))
+(SDEFUN |RMATRIX;coerce;$M;6| ((|x| ($)) ($ (|Matrix| R)))
         (SPADCALL |x| (QREFELT $ 32))) 
 
-(SDEFUN |RMATRIX;rectangularMatrix;M$;7| ((|x| |Matrix| R) ($ $))
+(SDEFUN |RMATRIX;rectangularMatrix;M$;7| ((|x| (|Matrix| R)) ($ ($)))
         (COND
          ((OR (SPADCALL (ANROWS |x|) (QREFELT $ 6) (QREFELT $ 17))
               (SPADCALL (ANCOLS |x|) (QREFELT $ 7) (QREFELT $ 17)))
           (|error| "rectangularMatrix: matrix of bad dimensions"))
          ('T (SPADCALL |x| (QREFELT $ 32))))) 
 
-(SDEFUN |RMATRIX;rowEchelon;2$;8| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 35))) 
+(SDEFUN |RMATRIX;rowEchelon;2$;8| ((|x| ($)) ($ ($)))
+        (SPADCALL |x| (QREFELT $ 35))) 
 
-(SDEFUN |RMATRIX;columnSpace;$L;9| ((|x| $) ($ |List| (|DirectProduct| |m| R)))
+(SDEFUN |RMATRIX;columnSpace;$L;9|
+        ((|x| ($)) ($ (|List| (|DirectProduct| |m| R))))
         (SPROG ((#1=#:G149 NIL) (|c| NIL) (#2=#:G148 NIL))
                (SEQ
                 (PROGN
@@ -91,13 +93,14 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |RMATRIX;rank;$Nni;10| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |RMATRIX;rank;$Nni;10| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 41))) 
 
-(SDEFUN |RMATRIX;nullity;$Nni;11| ((|x| $) ($ |NonNegativeInteger|))
+(SDEFUN |RMATRIX;nullity;$Nni;11| ((|x| ($)) ($ (|NonNegativeInteger|)))
         (SPADCALL |x| (QREFELT $ 43))) 
 
-(SDEFUN |RMATRIX;nullSpace;$L;12| ((|x| $) ($ |List| (|DirectProduct| |m| R)))
+(SDEFUN |RMATRIX;nullSpace;$L;12|
+        ((|x| ($)) ($ (|List| (|DirectProduct| |m| R))))
         (SPROG ((#1=#:G155 NIL) (|c| NIL) (#2=#:G154 NIL))
                (SEQ
                 (PROGN
@@ -113,7 +116,7 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
-(SDEFUN |RMATRIX;convert;$If;13| ((|x| $) ($ |InputForm|))
+(SDEFUN |RMATRIX;convert;$If;13| ((|x| ($)) ($ (|InputForm|)))
         (SPADCALL
          (LIST (SPADCALL '|rectangularMatrix| (QREFELT $ 49))
                (SPADCALL (SPADCALL |x| (QREFELT $ 33)) (QREFELT $ 50)))

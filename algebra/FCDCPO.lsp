@@ -1,7 +1,7 @@
 
 (SDEFUN |FCDCPO;meet;$3Nni;1|
-        ((|s| $) (|a| . #1=(|NonNegativeInteger|)) (|b| . #1#)
-         ($ |NonNegativeInteger|))
+        ((|s| ($)) (|a| #1=(|NonNegativeInteger|)) (|b| #1#)
+         ($ (|NonNegativeInteger|)))
         (SPROG
          ((#2=#:G120 NIL) (|res| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ (LETT |res| (SPADCALL |s| |a| |b| (QREFELT $ 9)))

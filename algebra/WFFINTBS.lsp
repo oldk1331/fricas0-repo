@@ -1,5 +1,5 @@
 
-(SDEFUN |WFFINTBS;listSquaredFactors| ((|px| R) ($ |List| R))
+(SDEFUN |WFFINTBS;listSquaredFactors| ((|px| (R)) ($ (|List| R)))
         (SPROG
          ((|ans| (|List| R)) (#1=#:G133 NIL) (|f| NIL)
           (|factored| (|Factored| R)))
@@ -18,10 +18,11 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |WFFINTBS;iLocalIntegralBasis|
-        ((|bas| |Vector| F) (|pows| |Vector| F) (|tfm| |Matrix| R)
-         (|matrixOut| |Matrix| R) (|disc| R) (|prime| R)
-         ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R)) (|:| |discr| R)))
+        ((|bas| (|Vector| F)) (|pows| (|Vector| F)) (|tfm| (|Matrix| R))
+         (|matrixOut| (|Matrix| R)) (|disc| (R)) (|prime| (R))
+         ($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)) (|:| |discr| R))))
         (SPROG
          ((#1=#:G162 NIL) (#2=#:G163 NIL) (|oldIndex| (R)) (|indexChange| (R))
           (|rbinv| #3=(|Matrix| R)) (|rbden| (R)) (|rb| #3#) (|index| (R))
@@ -400,8 +401,9 @@
           #14# (EXIT #2#)))) 
 
 (SDEFUN |WFFINTBS;integralBasis;R;3|
-        (($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        (($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((|runningRbinv| #1=(|Matrix| R)) (|runningRb| #1#)
           (|runningRbden| (R)) (|mat| (|Matrix| R)) (|disc| (R)) (|rbden| (R))
@@ -483,9 +485,10 @@
                                    |runningRbinv|))))))))))))) 
 
 (SDEFUN |WFFINTBS;localIntegralBasis;RR;4|
-        ((|prime| R)
-         ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
-          (|:| |basisInv| (|Matrix| R))))
+        ((|prime| (R))
+         ($
+          (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
+                    (|:| |basisInv| (|Matrix| R)))))
         (SPROG
          ((|lb|
            (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)

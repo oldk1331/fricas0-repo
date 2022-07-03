@@ -1,40 +1,40 @@
 
 (PUT '|REGSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(SDEFUN |REGSET;rep| ((|s| $) ($ |List| P)) |s|) 
+(SDEFUN |REGSET;rep| ((|s| ($)) ($ (|List| P))) |s|) 
 
 (PUT '|REGSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(SDEFUN |REGSET;per| ((|l| |List| P) ($ $)) |l|) 
+(SDEFUN |REGSET;per| ((|l| (|List| P)) ($ ($))) |l|) 
 
-(SDEFUN |REGSET;copy;2$;3| ((|ts| $) ($ $))
+(SDEFUN |REGSET;copy;2$;3| ((|ts| ($)) ($ ($)))
         (|REGSET;per| (SPADCALL (|REGSET;rep| |ts| $) (QREFELT $ 11)) $)) 
 
-(SDEFUN |REGSET;empty;$;4| (($ $)) (|REGSET;per| NIL $)) 
+(SDEFUN |REGSET;empty;$;4| (($ ($))) (|REGSET;per| NIL $)) 
 
-(SDEFUN |REGSET;empty?;$B;5| ((|ts| $) ($ |Boolean|))
+(SDEFUN |REGSET;empty?;$B;5| ((|ts| ($)) ($ (|Boolean|)))
         (NULL (|REGSET;rep| |ts| $))) 
 
-(SDEFUN |REGSET;parts;$L;6| ((|ts| $) ($ |List| P)) (|REGSET;rep| |ts| $)) 
+(SDEFUN |REGSET;parts;$L;6| ((|ts| ($)) ($ (|List| P))) (|REGSET;rep| |ts| $)) 
 
-(SDEFUN |REGSET;members;$L;7| ((|ts| $) ($ |List| P)) (|REGSET;rep| |ts| $)) 
+(SDEFUN |REGSET;members;$L;7| ((|ts| ($)) ($ (|List| P))) (|REGSET;rep| |ts| $)) 
 
-(SDEFUN |REGSET;map;M2$;8| ((|f| |Mapping| P P) (|ts| $) ($ $))
+(SDEFUN |REGSET;map;M2$;8| ((|f| (|Mapping| P P)) (|ts| ($)) ($ ($)))
         (SPADCALL (SPADCALL |f| (|REGSET;rep| |ts| $) (QREFELT $ 19))
                   (QREFELT $ 20))) 
 
-(SDEFUN |REGSET;map!;M2$;9| ((|f| |Mapping| P P) (|ts| $) ($ $))
+(SDEFUN |REGSET;map!;M2$;9| ((|f| (|Mapping| P P)) (|ts| ($)) ($ ($)))
         (SPADCALL (SPADCALL |f| (|REGSET;rep| |ts| $) (QREFELT $ 22))
                   (QREFELT $ 20))) 
 
-(SDEFUN |REGSET;member?;P$B;10| ((|p| P) (|ts| $) ($ |Boolean|))
+(SDEFUN |REGSET;member?;P$B;10| ((|p| (P)) (|ts| ($)) ($ (|Boolean|)))
         (SPADCALL |p| (|REGSET;rep| |ts| $) (QREFELT $ 24))) 
 
 (PUT '|REGSET;roughUnitIdeal?;$B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
 
-(SDEFUN |REGSET;roughUnitIdeal?;$B;11| ((|ts| $) ($ |Boolean|)) NIL) 
+(SDEFUN |REGSET;roughUnitIdeal?;$B;11| ((|ts| ($)) ($ (|Boolean|))) NIL) 
 
-(SDEFUN |REGSET;coerce;$Of;12| ((|ts| $) ($ |OutputForm|))
+(SDEFUN |REGSET;coerce;$Of;12| ((|ts| ($)) ($ (|OutputForm|)))
         (SPROG ((#1=#:G179 NIL) (|p| NIL) (#2=#:G178 NIL) (|lp| (|List| P)))
                (SEQ (LETT |lp| (REVERSE (|REGSET;rep| |ts| $)))
                     (EXIT
@@ -53,26 +53,26 @@
                             (EXIT (NREVERSE #2#))))
                       (QREFELT $ 30)))))) 
 
-(SDEFUN |REGSET;mvar;$V;13| ((|ts| $) ($ V))
+(SDEFUN |REGSET;mvar;$V;13| ((|ts| ($)) ($ (V)))
         (COND
          ((SPADCALL |ts| (QREFELT $ 15)) (|error| "mvar$REGSET: #1 is empty"))
          ('T (SPADCALL (|SPADfirst| (|REGSET;rep| |ts| $)) (QREFELT $ 32))))) 
 
-(SDEFUN |REGSET;first;$U;14| ((|ts| $) ($ |Union| P "failed"))
+(SDEFUN |REGSET;first;$U;14| ((|ts| ($)) ($ (|Union| P "failed")))
         (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
               ('T (CONS 0 (|SPADfirst| (|REGSET;rep| |ts| $)))))) 
 
-(SDEFUN |REGSET;last;$U;15| ((|ts| $) ($ |Union| P "failed"))
+(SDEFUN |REGSET;last;$U;15| ((|ts| ($)) ($ (|Union| P "failed")))
         (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
               ('T (CONS 0 (SPADCALL (|REGSET;rep| |ts| $) (QREFELT $ 36)))))) 
 
-(SDEFUN |REGSET;rest;$U;16| ((|ts| $) ($ |Union| $ "failed"))
+(SDEFUN |REGSET;rest;$U;16| ((|ts| ($)) ($ (|Union| $ "failed")))
         (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
               ('T (CONS 0 (|REGSET;per| (CDR (|REGSET;rep| |ts| $)) $))))) 
 
-(SDEFUN |REGSET;coerce;$L;17| ((|ts| $) ($ |List| P)) (|REGSET;rep| |ts| $)) 
+(SDEFUN |REGSET;coerce;$L;17| ((|ts| ($)) ($ (|List| P))) (|REGSET;rep| |ts| $)) 
 
-(SDEFUN |REGSET;collectUpper;$V$;18| ((|ts| $) (|v| V) ($ $))
+(SDEFUN |REGSET;collectUpper;$V$;18| ((|ts| ($)) (|v| (V)) ($ ($)))
         (SPROG ((|lp| (|List| P)) (|newlp| (|List| P)))
                (SEQ
                 (COND ((SPADCALL |ts| (QREFELT $ 15)) |ts|)
@@ -96,7 +96,7 @@
                                  NIL (GO G190) G191 (EXIT NIL))
                             (EXIT (|REGSET;per| (REVERSE |newlp|) $)))))))) 
 
-(SDEFUN |REGSET;collectUnder;$V$;19| ((|ts| $) (|v| V) ($ $))
+(SDEFUN |REGSET;collectUnder;$V$;19| ((|ts| ($)) (|v| (V)) ($ ($)))
         (SPROG ((|lp| (|List| P)))
                (SEQ
                 (COND ((SPADCALL |ts| (QREFELT $ 15)) |ts|)
@@ -116,7 +116,7 @@
                                  (GO G190) G191 (EXIT NIL))
                             (EXIT (|REGSET;per| |lp| $)))))))) 
 
-(SDEFUN |REGSET;construct;L$;20| ((|lp| |List| P) ($ $))
+(SDEFUN |REGSET;construct;L$;20| ((|lp| (|List| P)) ($ ($)))
         (SPROG ((|ts| ($)) (|eif| (|Union| $ "failed")))
                (SEQ (LETT |ts| (|REGSET;per| NIL $))
                     (EXIT
@@ -142,7 +142,8 @@
                                   NIL (GO G190) G191 (EXIT NIL))
                              (EXIT |ts|)))))))) 
 
-(SDEFUN |REGSET;extendIfCan;$PU;21| ((|ts| $) (|p| P) ($ |Union| $ "failed"))
+(SDEFUN |REGSET;extendIfCan;$PU;21|
+        ((|ts| ($)) (|p| (P)) ($ (|Union| $ "failed")))
         (SEQ
          (COND ((SPADCALL |p| (QREFELT $ 49)) (CONS 1 "failed"))
                ((SPADCALL |ts| (QREFELT $ 15))
@@ -158,7 +159,7 @@
                   (CONS 0 (|REGSET;per| (CONS |p| (|REGSET;rep| |ts| $)) $)))
                  ('T (CONS 1 "failed"))))))) 
 
-(SDEFUN |REGSET;removeZero;P$P;22| ((|p| P) (|ts| $) ($ P))
+(SDEFUN |REGSET;removeZero;P$P;22| ((|p| (P)) (|ts| ($)) ($ (P)))
         (SPROG
          ((|q| (P)) (#1=#:G249 NIL) (#2=#:G239 NIL) (|ts_v-| ($)) (|v| (V)))
          (SEQ
@@ -222,7 +223,7 @@
                                           (QREFELT $ 64)))))))))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |REGSET;internalAugment;P2$;23| ((|p| P) (|ts| $) ($ $))
+(SDEFUN |REGSET;internalAugment;P2$;23| ((|p| (P)) (|ts| ($)) ($ ($)))
         (COND
          ((SPADCALL |p| (QREFELT $ 49))
           (|error| "in internalAugment$REGSET: ground? #1"))
@@ -230,7 +231,7 @@
           (SPADCALL (SPADCALL |p| |ts| NIL NIL NIL NIL NIL (QREFELT $ 66))
                     (QREFELT $ 68))))) 
 
-(SDEFUN |REGSET;internalAugment;L2$;24| ((|lp| |List| P) (|ts| $) ($ $))
+(SDEFUN |REGSET;internalAugment;L2$;24| ((|lp| (|List| P)) (|ts| ($)) ($ ($)))
         (COND ((NULL |lp|) |ts|)
               ('T
                (SPADCALL (CDR |lp|)
@@ -238,9 +239,9 @@
                          (QREFELT $ 70))))) 
 
 (SDEFUN |REGSET;internalAugment;P$5BL;25|
-        ((|p| P) (|ts| $) (|rem?| |Boolean|) (|red?| |Boolean|)
-         (|prim?| |Boolean|) (|sqfr?| |Boolean|) (|extend?| |Boolean|)
-         ($ |List| $))
+        ((|p| (P)) (|ts| ($)) (|rem?| (|Boolean|)) (|red?| (|Boolean|))
+         (|prim?| (|Boolean|)) (|sqfr?| (|Boolean|)) (|extend?| (|Boolean|))
+         ($ (|List| $)))
         (SPROG
          ((#1=#:G263 NIL) (|us| NIL) (#2=#:G262 NIL) (|lts| (|List| $))
           (#3=#:G261 NIL) (|f| NIL) (#4=#:G260 NIL) (|lsfp| (|List| P))
@@ -304,7 +305,7 @@
                        (LETT #1# (CDR #1#)) (GO G190) G191
                        (EXIT (NREVERSE #2#)))))))))) 
 
-(SDEFUN |REGSET;augment;P$L;26| ((|p| P) (|ts| $) ($ |List| $))
+(SDEFUN |REGSET;augment;P$L;26| ((|p| (P)) (|ts| ($)) ($ (|List| $)))
         (COND
          ((SPADCALL |p| (QREFELT $ 49))
           (|error| "in augment$REGSET: ground? #1"))
@@ -312,7 +313,7 @@
           (|error| "in augment$REGSET: bad #1"))
          ('T (SPADCALL |p| |ts| 'T 'T 'T 'T 'T (QREFELT $ 66))))) 
 
-(SDEFUN |REGSET;extend;P$L;27| ((|p| P) (|ts| $) ($ |List| $))
+(SDEFUN |REGSET;extend;P$L;27| ((|p| (P)) (|ts| ($)) ($ (|List| $)))
         (SPROG
          ((|lts| (|List| $)) (#1=#:G272 NIL) (|us| NIL) (|split| (|List| $))
           (|v| (V)))
@@ -343,47 +344,49 @@
                       (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                  (EXIT |lts|))))))) 
 
-(SDEFUN |REGSET;invertible?;P$B;28| ((|p| P) (|ts| $) ($ |Boolean|))
+(SDEFUN |REGSET;invertible?;P$B;28| ((|p| (P)) (|ts| ($)) ($ (|Boolean|)))
         (SPADCALL |p| |ts| (QREFELT $ 83))) 
 
 (SDEFUN |REGSET;invertible?;P$L;29|
-        ((|p| P) (|ts| $)
-         ($ |List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| $))))
+        ((|p| (P)) (|ts| ($))
+         ($ (|List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| $)))))
         (SPADCALL |p| |ts| (QREFELT $ 86))) 
 
-(SDEFUN |REGSET;invertibleSet;P$L;30| ((|p| P) (|ts| $) ($ |List| $))
+(SDEFUN |REGSET;invertibleSet;P$L;30| ((|p| (P)) (|ts| ($)) ($ (|List| $)))
         (SPADCALL |p| |ts| (QREFELT $ 90))) 
 
 (SDEFUN |REGSET;lastSubResultant;2P$L;31|
-        ((|p1| P) (|p2| P) (|ts| $)
-         ($ |List| (|Record| (|:| |val| P) (|:| |tower| $))))
+        ((|p1| (P)) (|p2| (P)) (|ts| ($))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| $)))))
         (SPADCALL |p1| |p2| |ts| (QREFELT $ 93))) 
 
 (SDEFUN |REGSET;squareFreePart;P$L;32|
-        ((|p| P) (|ts| $) ($ |List| (|Record| (|:| |val| P) (|:| |tower| $))))
+        ((|p| (P)) (|ts| ($))
+         ($ (|List| (|Record| (|:| |val| P) (|:| |tower| $)))))
         (SPADCALL |p| |ts| (QREFELT $ 97))) 
 
-(SDEFUN |REGSET;intersect;P$L;33| ((|p| P) (|ts| $) ($ |List| $))
+(SDEFUN |REGSET;intersect;P$L;33| ((|p| (P)) (|ts| ($)) ($ (|List| $)))
         (SPADCALL (LIST |p|) (LIST |ts|) NIL NIL (QREFELT $ 100))) 
 
 (SDEFUN |REGSET;intersect;L2L;34|
-        ((|lp| |List| P) (|lts| |List| $) ($ |List| $))
+        ((|lp| (|List| P)) (|lts| (|List| $)) ($ (|List| $)))
         (SPADCALL |lp| |lts| NIL NIL (QREFELT $ 100))) 
 
-(SDEFUN |REGSET;zeroSetSplit;LL;35| ((|lp| |List| P) ($ |List| $))
+(SDEFUN |REGSET;zeroSetSplit;LL;35| ((|lp| (|List| P)) ($ (|List| $)))
         (SPADCALL |lp| 'T NIL (QREFELT $ 103))) 
 
 (SDEFUN |REGSET;zeroSetSplit;LBL;36|
-        ((|lp| |List| P) (|clos?| |Boolean|) ($ |List| $))
+        ((|lp| (|List| P)) (|clos?| (|Boolean|)) ($ (|List| $)))
         (SPADCALL |lp| |clos?| NIL (QREFELT $ 103))) 
 
 (SDEFUN |REGSET;zeroSetSplit;L2BL;37|
-        ((|lp| |List| P) (|clos?| |Boolean|) (|info?| |Boolean|) ($ |List| $))
+        ((|lp| (|List| P)) (|clos?| (|Boolean|)) (|info?| (|Boolean|))
+         ($ (|List| $)))
         (SPADCALL |lp| 'T |clos?| |info?| 'T (QREFELT $ 106))) 
 
 (SDEFUN |REGSET;zeroSetSplit;L4BL;38|
-        ((|lp| |List| P) (|hash?| |Boolean|) (|clos?| |Boolean|)
-         (|info?| |Boolean|) (|prep?| |Boolean|) ($ |List| $))
+        ((|lp| (|List| P)) (|hash?| (|Boolean|)) (|clos?| (|Boolean|))
+         (|info?| (|Boolean|)) (|prep?| (|Boolean|)) ($ (|List| $)))
         (SPROG
          ((|lts| (|List| $)) (|dom3| #1=(|String|)) (|dom2| #1#) (|dom1| #1#)
           (|#G94| #2=(|String|)) (|#G93| #2#) (|#G92| #2#)
@@ -440,8 +443,8 @@
           (EXIT |lts|)))) 
 
 (SDEFUN |REGSET;internalZeroSetSplit;L3BL;39|
-        ((|lp| |List| P) (|clos?| |Boolean|) (|info?| |Boolean|)
-         (|prep?| |Boolean|) ($ |List| $))
+        ((|lp| (|List| P)) (|clos?| (|Boolean|)) (|info?| (|Boolean|))
+         (|prep?| (|Boolean|)) ($ (|List| $)))
         (SPROG
          ((|lts| #1=(|List| $)) (#2=#:G310 NIL) (|p| NIL) (|ts| ($))
           (|pp| (|Record| (|:| |val| (|List| P)) (|:| |towers| #1#))))
@@ -479,7 +482,7 @@
                                 (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                            (EXIT |lts|)))))))))))) 
 
-(SDEFUN |REGSET;largeSystem?| ((|lp| |List| P) ($ |Boolean|))
+(SDEFUN |REGSET;largeSystem?| ((|lp| (|List| P)) ($ (|Boolean|)))
         (SPROG ((|lts| (|List| $)))
                (SEQ
                 (COND ((> (LENGTH |lp|) 16) 'T) ((< (LENGTH |lp|) 13) NIL)
@@ -491,25 +494,25 @@
                                  (SPADCALL |lp| |lts| (QREFELT $ 123)))
                               3)))))))) 
 
-(SDEFUN |REGSET;smallSystem?| ((|lp| |List| P) ($ |Boolean|))
+(SDEFUN |REGSET;smallSystem?| ((|lp| (|List| P)) ($ (|Boolean|)))
         (< (LENGTH |lp|) 5)) 
 
-(SDEFUN |REGSET;mediumSystem?| ((|lp| |List| P) ($ |Boolean|))
+(SDEFUN |REGSET;mediumSystem?| ((|lp| (|List| P)) ($ (|Boolean|)))
         (SPROG ((|lts| (|List| $)))
                (SEQ (LETT |lts| NIL)
                     (EXIT
                      (< (- (SPADCALL |lp| |lts| (QREFELT $ 123)) (LENGTH |lp|))
                         2))))) 
 
-(SDEFUN |REGSET;lin?| ((|p| P) ($ |Boolean|))
+(SDEFUN |REGSET;lin?| ((|p| (P)) ($ (|Boolean|)))
         (COND
          ((SPADCALL (SPADCALL |p| (QREFELT $ 52)) (QREFELT $ 49))
           (EQL (SPADCALL |p| (QREFELT $ 124)) 1))
          ('T NIL))) 
 
 (SDEFUN |REGSET;pre_process;L2BR;44|
-        ((|lp| |List| P) (|clos?| |Boolean|) (|info?| |Boolean|)
-         ($ |Record| (|:| |val| (|List| P)) (|:| |towers| (|List| $))))
+        ((|lp| (|List| P)) (|clos?| (|Boolean|)) (|info?| (|Boolean|))
+         ($ (|Record| (|:| |val| (|List| P)) (|:| |towers| (|List| $)))))
         (SPROG
          ((#1=#:G363 NIL) (|lp2| (|List| P)) (|lts| (|List| $)) (#2=#:G376 NIL)
           (|p| NIL) (|lp3| (|List| P)) (#3=#:G375 NIL) (|lp4| (|List| P))

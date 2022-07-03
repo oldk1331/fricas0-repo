@@ -1,5 +1,5 @@
 
-(SDEFUN |GRIMAGE;numberCheck| ((|nums| |Point| (|DoubleFloat|)) ($ |Void|))
+(SDEFUN |GRIMAGE;numberCheck| ((|nums| (|Point| (|DoubleFloat|))) ($ (|Void|)))
         (SPROG ((#1=#:G141 NIL) (#2=#:G137 NIL) (#3=#:G142 NIL) (|i| NIL))
                (SEQ
                 (EXIT
@@ -24,7 +24,7 @@
                       (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))
                 #4# (EXIT #1#)))) 
 
-(SDEFUN |GRIMAGE;doOptions| ((|g| |Rep|) ($ |Void|))
+(SDEFUN |GRIMAGE;doOptions| ((|g| (|Rep|)) ($ (|Void|)))
         (SPROG
          ((|lu| (|List| (|Float|))) (|lr| (|List| (|Segment| (|Float|)))))
          (SEQ
@@ -71,9 +71,9 @@
             (#1# (QSETVELT |g| 2 NIL))))))) 
 
 (SDEFUN |GRIMAGE;putColorInfo;LLL;3|
-        ((|llp| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|listOfPalettes| |List| (|Palette|))
-         ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|llp| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|listOfPalettes| (|List| (|Palette|)))
+         ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|llp2| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|lp2| (|List| (|Point| (|DoubleFloat|))))
@@ -96,7 +96,7 @@
                         (LETT |daShade|
                               (FLOAT (SPADCALL |pal| (QREFELT $ 34))
                                      MOST-POSITIVE-DOUBLE-FLOAT))
-                        (SEQ (LETT |p| NIL) (LETT #1# |lp|) G190
+                        (SEQ (LETT #1# |lp|) G190
                              (COND
                               ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#)) NIL))
                                (GO G191)))
@@ -128,7 +128,7 @@
                    G191 (EXIT NIL))
               (EXIT (NREVERSE |llp2|))))) 
 
-(SDEFUN |GRIMAGE;graph| ((|demRanges| |List| (|Segment| (|Float|))) ($ $))
+(SDEFUN |GRIMAGE;graph| ((|demRanges| (|List| (|Segment| (|Float|)))) ($ ($)))
         (SPROG ((|demRangesSF| (|List| (|Segment| (|DoubleFloat|)))))
                (SEQ
                 (COND
@@ -160,7 +160,7 @@
                    (EXIT (VECTOR 0 |demRangesSF| NIL NIL NIL NIL NIL NIL)))))))) 
 
 (SDEFUN |GRIMAGE;scaleStep|
-        ((|range_seg| |Segment| (|DoubleFloat|)) ($ |DoubleFloat|))
+        ((|range_seg| (|Segment| (|DoubleFloat|))) ($ (|DoubleFloat|)))
         (SPROG
          ((|scaleDown| (|DoubleFloat|)) (|numerals| (|String|))
           (|tryStep| (|DoubleFloat|)) (|range| (|DoubleFloat|))
@@ -193,13 +193,13 @@
             (FLOAT (EXPT 10 |adjust|) MOST-POSITIVE-DOUBLE-FLOAT)))))) 
 
 (SDEFUN |GRIMAGE;figureUnits|
-        ((|ranges| |List| (|Segment| (|DoubleFloat|)))
-         ($ |List| (|DoubleFloat|)))
+        ((|ranges| (|List| (|Segment| (|DoubleFloat|))))
+         ($ (|List| (|DoubleFloat|))))
         (LIST (|GRIMAGE;scaleStep| (|SPADfirst| |ranges|) $)
               (|GRIMAGE;scaleStep| (SPADCALL |ranges| (QREFELT $ 48)) $))) 
 
 (SDEFUN |GRIMAGE;roundRange|
-        ((|range| |Segment| (|DoubleFloat|)) ($ |Segment| (|DoubleFloat|)))
+        ((|range| (|Segment| (|DoubleFloat|))) ($ (|Segment| (|DoubleFloat|))))
         (SPROG
          ((|high| (|DoubleFloat|)) (|low| (|DoubleFloat|))
           (|single_eps| (|DoubleFloat|)))
@@ -226,17 +226,17 @@
               (EXIT (SPADCALL |low| |high| (QREFELT $ 49)))))) 
 
 (SDEFUN |GRIMAGE;roundRanges|
-        ((|ranges| |List| (|Segment| (|DoubleFloat|)))
-         ($ |List| (|Segment| (|DoubleFloat|))))
+        ((|ranges| (|List| (|Segment| (|DoubleFloat|))))
+         ($ (|List| (|Segment| (|DoubleFloat|)))))
         (LIST (|GRIMAGE;roundRange| (|SPADfirst| |ranges|) $)
               (|GRIMAGE;roundRange| (SPADCALL |ranges| (QREFELT $ 48)) $))) 
 
 (SDEFUN |GRIMAGE;plotLists|
-        ((|graf| |Rep|)
-         (|listOfListsOfPoints| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|listOfPointColors| |List| (|Palette|))
-         (|listOfLineColors| |List| (|Palette|))
-         (|listOfPointSizes| |List| (|PositiveInteger|)) ($ $))
+        ((|graf| (|Rep|))
+         (|listOfListsOfPoints| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|listOfPointColors| (|List| (|Palette|)))
+         (|listOfLineColors| (|List| (|Palette|)))
+         (|listOfPointSizes| (|List| (|PositiveInteger|))) ($ ($)))
         (SPROG
          ((#1=#:G204 NIL) (|givenLen| #2=(|NonNegativeInteger|))
           (#3=#:G194 NIL) (#4=#:G184 NIL) (|len| #2#) (#5=#:G209 NIL) (|l| NIL)
@@ -333,14 +333,14 @@
                                           (QREFELT $ 67)))))))
               (EXIT |graf|)))) 
 
-(SDEFUN |GRIMAGE;sendGraphImage;$V;10| ((|graf| $) ($ |Void|))
+(SDEFUN |GRIMAGE;sendGraphImage;$V;10| ((|graf| ($)) ($ (|Void|)))
         (SPROG
          ((|hueShade| (|Integer|)) (|aPoint| #1=(|Point| (|DoubleFloat|)))
           (#2=#:G226 NIL) (|p| NIL) (#3=#:G222 NIL) (|aList| NIL)
           (#4=#:G223 NIL) (|pColor| NIL) (#5=#:G224 NIL) (|lColor| NIL)
-          (#6=#:G225 NIL) (|s| (|NonNegativeInteger|))
-          (|tonto| (|List| (|Segment| (|DoubleFloat|))))
-          (|transform| (|Mapping| #1# (|Point| (|DoubleFloat|)))))
+          (#6=#:G225 NIL) (|tonto| (|List| (|Segment| (|DoubleFloat|))))
+          (|transform| (|Mapping| #1# (|Point| (|DoubleFloat|))))
+          (|s| (|NonNegativeInteger|)))
          (SEQ (|GRIMAGE;doOptions| |graf| $)
               (LETT |s| (LENGTH (QVELT |graf| 3)))
               (EXIT
@@ -389,10 +389,10 @@
                   (|sockSendFloat| |$ViewportServer|
                                    (SPADCALL (QVELT |graf| 2) (QREFELT $ 76)))
                   (|sockSendInt| |$ViewportServer| |s|)
-                  (SEQ (LETT |s| NIL) (LETT #6# (QVELT |graf| 6))
-                       (LETT |lColor| NIL) (LETT #5# (QVELT |graf| 5))
-                       (LETT |pColor| NIL) (LETT #4# (QVELT |graf| 4))
-                       (LETT |aList| NIL) (LETT #3# (QVELT |graf| 3)) G190
+                  (SEQ (LETT #6# (QVELT |graf| 6)) (LETT |lColor| NIL)
+                       (LETT #5# (QVELT |graf| 5)) (LETT |pColor| NIL)
+                       (LETT #4# (QVELT |graf| 4)) (LETT |aList| NIL)
+                       (LETT #3# (QVELT |graf| 3)) G190
                        (COND
                         ((OR (ATOM #3#) (PROGN (LETT |aList| (CAR #3#)) NIL)
                              (ATOM #4#) (PROGN (LETT |pColor| (CAR #4#)) NIL)
@@ -455,16 +455,17 @@
 
 (PUT '|GRIMAGE;key;$I;11| '|SPADreplace| '(XLAM (|graf|) (QVELT |graf| 0))) 
 
-(SDEFUN |GRIMAGE;key;$I;11| ((|graf| $) ($ |Integer|)) (QVELT |graf| 0)) 
+(SDEFUN |GRIMAGE;key;$I;11| ((|graf| ($)) ($ (|Integer|))) (QVELT |graf| 0)) 
 
 (PUT '|GRIMAGE;pointLists;$L;12| '|SPADreplace|
      '(XLAM (|graf|) (QVELT |graf| 3))) 
 
 (SDEFUN |GRIMAGE;pointLists;$L;12|
-        ((|graf| $) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        ((|graf| ($)) ($ (|List| (|List| (|Point| (|DoubleFloat|))))))
         (QVELT |graf| 3)) 
 
-(SDEFUN |GRIMAGE;ranges;$L;13| ((|graf| $) ($ |List| (|Segment| (|Float|))))
+(SDEFUN |GRIMAGE;ranges;$L;13|
+        ((|graf| ($)) ($ (|List| (|Segment| (|Float|)))))
         (COND ((NULL (QVELT |graf| 1)) NIL)
               ('T
                (LIST
@@ -490,8 +491,8 @@
                  (QREFELT $ 89)))))) 
 
 (SDEFUN |GRIMAGE;ranges;$2L;14|
-        ((|graf| $) (|rangesList| |List| (|Segment| (|Float|)))
-         ($ |List| (|Segment| (|Float|))))
+        ((|graf| ($)) (|rangesList| (|List| (|Segment| (|Float|))))
+         ($ (|List| (|Segment| (|Float|)))))
         (SEQ
          (QSETVELT |graf| 1
                    (LIST
@@ -517,7 +518,7 @@
                      (QREFELT $ 25))))
          (EXIT |rangesList|))) 
 
-(SDEFUN |GRIMAGE;units;$L;15| ((|graf| $) ($ |List| (|Float|)))
+(SDEFUN |GRIMAGE;units;$L;15| ((|graf| ($)) ($ (|List| (|Float|))))
         (COND ((NULL (QVELT |graf| 2)) NIL)
               ('T
                (LIST
@@ -527,7 +528,7 @@
                           (QREFELT $ 88)))))) 
 
 (SDEFUN |GRIMAGE;units;$2L;16|
-        ((|graf| $) (|unitsToBe| |List| (|Float|)) ($ |List| (|Float|)))
+        ((|graf| ($)) (|unitsToBe| (|List| (|Float|))) ($ (|List| (|Float|))))
         (SEQ
          (QSETVELT |graf| 2
                    (LIST
@@ -537,10 +538,10 @@
                               (QREFELT $ 22))))
          (EXIT |unitsToBe|))) 
 
-(SDEFUN |GRIMAGE;graphImage;$;17| (($ $)) (|GRIMAGE;graph| NIL $)) 
+(SDEFUN |GRIMAGE;graphImage;$;17| (($ ($))) (|GRIMAGE;graph| NIL $)) 
 
 (SDEFUN |GRIMAGE;makeGraphImage;L$;18|
-        ((|llp| |List| (|List| (|Point| (|DoubleFloat|)))) ($ $))
+        ((|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) ($ ($)))
         (SPROG
          ((#1=#:G248 NIL) (|i| NIL) (#2=#:G247 NIL) (#3=#:G246 NIL)
           (#4=#:G245 NIL) (#5=#:G244 NIL) (|l| (|Integer|)) (#6=#:G243 NIL))
@@ -576,16 +577,16 @@
                     (QREFELT $ 95))))) 
 
 (SDEFUN |GRIMAGE;makeGraphImage;L2LL$;19|
-        ((|llp| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|lpc| |List| (|Palette|)) (|llc| |List| (|Palette|))
-         (|lps| |List| (|PositiveInteger|)) ($ $))
+        ((|llp| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|lpc| (|List| (|Palette|))) (|llc| (|List| (|Palette|)))
+         (|lps| (|List| (|PositiveInteger|))) ($ ($)))
         (SPADCALL |llp| |lpc| |llc| |lps| NIL (QREFELT $ 97))) 
 
 (SDEFUN |GRIMAGE;makeGraphImage;L2LLL$;20|
-        ((|llp| |List| (|List| (|Point| (|DoubleFloat|))))
-         (|lpc| |List| (|Palette|)) (|llc| |List| (|Palette|))
-         (|lps| |List| (|PositiveInteger|)) (|opts| |List| (|DrawOption|))
-         ($ $))
+        ((|llp| (|List| (|List| (|Point| (|DoubleFloat|)))))
+         (|lpc| (|List| (|Palette|))) (|llc| (|List| (|Palette|)))
+         (|lps| (|List| (|PositiveInteger|))) (|opts| (|List| (|DrawOption|)))
+         ($ ($)))
         (SPROG
          ((|aPoint| #1=(|Point| (|DoubleFloat|))) (#2=#:G257 NIL) (|p| NIL)
           (#3=#:G256 NIL) (|aList| NIL)
@@ -614,9 +615,9 @@
           (EXIT |graf|)))) 
 
 (SDEFUN |GRIMAGE;component;$L2PPiV;21|
-        ((|graf| $) (|ListOfPoints| |List| (|Point| (|DoubleFloat|)))
-         (|PointColor| |Palette|) (|LineColor| |Palette|)
-         (|PointSize| |PositiveInteger|) ($ |Void|))
+        ((|graf| ($)) (|ListOfPoints| (|List| (|Point| (|DoubleFloat|))))
+         (|PointColor| (|Palette|)) (|LineColor| (|Palette|))
+         (|PointSize| (|PositiveInteger|)) ($ (|Void|)))
         (SEQ
          (QSETVELT |graf| 3
                    (SPADCALL (QVELT |graf| 3) (LIST |ListOfPoints|)
@@ -633,19 +634,20 @@
                               (QREFELT $ 100)))))) 
 
 (SDEFUN |GRIMAGE;component;$PV;22|
-        ((|graf| $) (|aPoint| |Point| (|DoubleFloat|)) ($ |Void|))
+        ((|graf| ($)) (|aPoint| (|Point| (|DoubleFloat|))) ($ (|Void|)))
         (SPADCALL |graf| |aPoint| (SPADCALL (QREFELT $ 58))
                   (SPADCALL (QREFELT $ 62)) (SPADCALL (QREFELT $ 63))
                   (QREFELT $ 103))) 
 
 (SDEFUN |GRIMAGE;component;$P2PPiV;23|
-        ((|graf| $) (|aPoint| |Point| (|DoubleFloat|)) (|PointColor| |Palette|)
-         (|LineColor| |Palette|) (|PointSize| |PositiveInteger|) ($ |Void|))
+        ((|graf| ($)) (|aPoint| (|Point| (|DoubleFloat|)))
+         (|PointColor| (|Palette|)) (|LineColor| (|Palette|))
+         (|PointSize| (|PositiveInteger|)) ($ (|Void|)))
         (SPADCALL |graf| (LIST |aPoint|) |PointColor| |LineColor| |PointSize|
                   (QREFELT $ 102))) 
 
 (SDEFUN |GRIMAGE;appendPoint;$PV;24|
-        ((|graf| $) (|aPoint| |Point| (|DoubleFloat|)) ($ |Void|))
+        ((|graf| ($)) (|aPoint| (|Point| (|DoubleFloat|))) ($ (|Void|)))
         (SPROG ((|num| (|Integer|)))
                (SEQ (LETT |num| (- (LENGTH (QVELT |graf| 3)) 1))
                     (EXIT
@@ -660,13 +662,13 @@
                                  (QREFELT $ 107)))))))) 
 
 (SDEFUN |GRIMAGE;point;$PPV;25|
-        ((|graf| $) (|aPoint| |Point| (|DoubleFloat|)) (|PointColor| |Palette|)
-         ($ |Void|))
+        ((|graf| ($)) (|aPoint| (|Point| (|DoubleFloat|)))
+         (|PointColor| (|Palette|)) ($ (|Void|)))
         (SPADCALL |graf| |aPoint| |PointColor| (SPADCALL (QREFELT $ 62))
                   (SPADCALL (QREFELT $ 63)) (QREFELT $ 103))) 
 
 (SDEFUN |GRIMAGE;coerce;L$;26|
-        ((|llp| |List| (|List| (|Point| (|DoubleFloat|)))) ($ $))
+        ((|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) ($ ($)))
         (SPROG
          ((#1=#:G275 NIL) (|i| NIL) (#2=#:G274 NIL) (#3=#:G273 NIL)
           (#4=#:G272 NIL) (#5=#:G271 NIL) (|l| (|Integer|)) (#6=#:G270 NIL))
@@ -701,7 +703,7 @@
                           (EXIT (NREVERSE #2#))))
                     (QREFELT $ 95))))) 
 
-(SDEFUN |GRIMAGE;coerce;$Of;27| ((|graf| $) ($ |OutputForm|))
+(SDEFUN |GRIMAGE;coerce;$Of;27| ((|graf| ($)) ($ (|OutputForm|)))
         (SPROG ((|p| (|NonNegativeInteger|)))
                (SPADCALL
                 (LIST (SPADCALL "Graph with " (QREFELT $ 112))

@@ -1,31 +1,31 @@
 
 (SDEFUN |ENTIRER-;unitNormal;SR;1|
-        ((|x| S)
-         ($ |Record| (|:| |unit| S) (|:| |canonical| S) (|:| |associate| S)))
+        ((|x| (S))
+         ($ (|Record| (|:| |unit| S) (|:| |canonical| S) (|:| |associate| S))))
         (VECTOR (|spadConstant| $ 7) |x| (|spadConstant| $ 7))) 
 
-(SDEFUN |ENTIRER-;unitCanonical;2S;2| ((|x| S) ($ S))
+(SDEFUN |ENTIRER-;unitCanonical;2S;2| ((|x| (S)) ($ (S)))
         (QVELT (SPADCALL |x| (QREFELT $ 10)) 1)) 
 
-(SDEFUN |ENTIRER-;recip;SU;3| ((|x| S) ($ |Union| S "failed"))
+(SDEFUN |ENTIRER-;recip;SU;3| ((|x| (S)) ($ (|Union| S "failed")))
         (COND ((SPADCALL |x| (QREFELT $ 13)) (CONS 1 "failed"))
               ('T (SPADCALL (|spadConstant| $ 7) |x| (QREFELT $ 15))))) 
 
-(SDEFUN |ENTIRER-;unit?;SB;4| ((|x| S) ($ |Boolean|))
+(SDEFUN |ENTIRER-;unit?;SB;4| ((|x| (S)) ($ (|Boolean|)))
         (NULL (QEQCAR (SPADCALL |x| (QREFELT $ 17)) 1))) 
 
-(SDEFUN |ENTIRER-;associates?;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ENTIRER-;associates?;2SB;5| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (SPADCALL (QVELT (SPADCALL |x| (QREFELT $ 10)) 1)
                   (QVELT (SPADCALL |y| (QREFELT $ 10)) 1) (QREFELT $ 19))) 
 
-(SDEFUN |ENTIRER-;associates?;2SB;6| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ENTIRER-;associates?;2SB;6| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (COND ((SPADCALL |x| (QREFELT $ 13)) (SPADCALL |y| (QREFELT $ 13)))
               ((OR (SPADCALL |y| (QREFELT $ 13))
                    (QEQCAR (SPADCALL |x| |y| (QREFELT $ 15)) 1))
                NIL)
               ('T (NULL (QEQCAR (SPADCALL |y| |x| (QREFELT $ 15)) 1))))) 
 
-(SDEFUN |ENTIRER-;annihilate?;2SB;7| ((|x| S) (|y| S) ($ |Boolean|))
+(SDEFUN |ENTIRER-;annihilate?;2SB;7| ((|x| (S)) (|y| (S)) ($ (|Boolean|)))
         (COND ((SPADCALL |x| (QREFELT $ 13)) 'T)
               ('T (SPADCALL |y| (QREFELT $ 13))))) 
 

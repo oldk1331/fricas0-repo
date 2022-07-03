@@ -1,5 +1,5 @@
 
-(SDEFUN |LODOOPS;vec2LODO| ((|v| |Vector| A) ($ L))
+(SDEFUN |LODOOPS;vec2LODO| ((|v| (|Vector| A)) ($ (L)))
         (SPROG
          ((#1=#:G121 NIL) (#2=#:G120 (L)) (#3=#:G122 (L)) (#4=#:G123 NIL)
           (#5=#:G125 NIL) (|i| NIL))
@@ -24,7 +24,8 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 20))))))) 
 
 (SDEFUN |LODOOPS;symmetricPower;LNniML;2|
-        ((|l| L) (|m| |NonNegativeInteger|) (|diff| |Mapping| A A) ($ L))
+        ((|l| (L)) (|m| (|NonNegativeInteger|)) (|diff| (|Mapping| A A))
+         ($ (L)))
         (SPROG
          ((#1=#:G126 NIL)
           (|a|
@@ -58,16 +59,17 @@
 
 (SDEFUN |LODOOPS;killer|
         ((|u|
-          . #1=(|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
-                                                           (|OrderlyDifferentialVariable|
-                                                            (|Symbol|))))
-         (|m| |NonNegativeInteger|)
-         (|lvar| |List| (|OrderlyDifferentialVariable| (|Symbol|)))
-         (|lval| |List|
-          (|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
-                                                      (|OrderlyDifferentialVariable|
-                                                       (|Symbol|))))
-         (|diff| |Mapping| A A) ($ L))
+          #1=(|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                         (|OrderlyDifferentialVariable|
+                                                          (|Symbol|))))
+         (|m| (|NonNegativeInteger|))
+         (|lvar| (|List| (|OrderlyDifferentialVariable| (|Symbol|))))
+         (|lval|
+          (|List|
+           (|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                       (|OrderlyDifferentialVariable|
+                                                        (|Symbol|)))))
+         (|diff| (|Mapping| A A)) ($ (L)))
         (SPROG
          ((|lu| (|List| #1#)) (#2=#:G144 NIL) (|l| (|List| (|Vector| A)))
           (|mat| (|Matrix| A)) (#3=#:G145 NIL) (|q| NIL))
@@ -97,7 +99,7 @@
           #4# (EXIT #2#)))) 
 
 (SDEFUN |LODOOPS;symmetricProduct;2LML;4|
-        ((|l1| L) (|l2| L) (|diff| |Mapping| A A) ($ L))
+        ((|l1| (L)) (|l2| (L)) (|diff| (|Mapping| A A)) ($ (L)))
         (SPROG
          ((|b|
            #1=(|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
@@ -136,7 +138,7 @@
                 (* |n1| |n2|) (LIST |un| |vn|) (LIST |a| |b|) |diff| $))))) 
 
 (SDEFUN |LODOOPS;directSum;2LML;5|
-        ((|l1| L) (|l2| L) (|diff| |Mapping| A A) ($ L))
+        ((|l1| (L)) (|l2| (L)) (|diff| (|Mapping| A A)) ($ (L)))
         (SPROG
          ((|b|
            #1=(|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
@@ -175,9 +177,11 @@
                 (+ |n1| |n2|) (LIST |un| |vn|) (LIST |a| |b|) |diff| $))))) 
 
 (SDEFUN |LODOOPS;applyLODO|
-        ((|l| L) (|v| |OrderlyDifferentialVariable| (|Symbol|))
-         ($ |DifferentialSparseMultivariatePolynomial| A (|Symbol|)
-          (|OrderlyDifferentialVariable| (|Symbol|))))
+        ((|l| (L)) (|v| (|OrderlyDifferentialVariable| (|Symbol|)))
+         ($
+          (|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                      (|OrderlyDifferentialVariable|
+                                                       (|Symbol|)))))
         (SPROG
          ((|p|
            (|DifferentialSparseMultivariatePolynomial| A (|Symbol|)

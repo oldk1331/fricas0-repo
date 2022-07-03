@@ -1,5 +1,5 @@
 
-(SDEFUN |DPMM;*;R2$;1| ((|r| R) (|x| $) ($ $))
+(SDEFUN |DPMM;*;R2$;1| ((|r| (R)) (|x| ($)) ($ ($)))
         (SPROG ((#1=#:G121 NIL) (#2=#:G123 NIL) (|i| NIL) (#3=#:G122 NIL))
                (SEQ
                 (PROGN
@@ -16,7 +16,7 @@
                       (GO G190) G191 (EXIT NIL))
                  #3#)))) 
 
-(SDEFUN |DPMM;*;M2$;2| ((|m| M) (|x| $) ($ $))
+(SDEFUN |DPMM;*;M2$;2| ((|m| (M)) (|x| ($)) ($ ($)))
         (SPROG
          ((#1=#:G125 NIL) (#2=#:G124 (S)) (#3=#:G126 (S)) (#4=#:G132 NIL)
           (|j| NIL) (#5=#:G129 NIL) (#6=#:G131 NIL) (|i| NIL) (#7=#:G130 NIL))

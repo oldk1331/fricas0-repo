@@ -1,13 +1,13 @@
 
-(SDEFUN |TOOLSIGN;nonQsign;RU;1| ((|r| R) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |TOOLSIGN;nonQsign;RU;1| ((|r| (R)) ($ (|Union| (|Integer|) "failed")))
         (SPADCALL (SPADCALL |r| (QREFELT $ 9)) (QREFELT $ 12))) 
 
 (PUT '|TOOLSIGN;nonQsign;RU;2| '|SPADreplace| '(XLAM (|r|) (CONS 1 "failed"))) 
 
-(SDEFUN |TOOLSIGN;nonQsign;RU;2| ((|r| R) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |TOOLSIGN;nonQsign;RU;2| ((|r| (R)) ($ (|Union| (|Integer|) "failed")))
         (CONS 1 "failed")) 
 
-(SDEFUN |TOOLSIGN;sign;RU;3| ((|r| R) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |TOOLSIGN;sign;RU;3| ((|r| (R)) ($ (|Union| (|Integer|) "failed")))
         (SPROG ((|u| (|Union| (|Fraction| (|Integer|)) "failed")))
                (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 15)))
                     (EXIT
@@ -16,7 +16,7 @@
                        (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 18))))
                       ('T (SPADCALL |r| (QREFELT $ 13)))))))) 
 
-(SDEFUN |TOOLSIGN;sign;RU;4| ((|r| R) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |TOOLSIGN;sign;RU;4| ((|r| (R)) ($ (|Union| (|Integer|) "failed")))
         (SPROG ((|u| (|Union| (|Integer|) "failed")))
                (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 20)))
                     (EXIT
@@ -24,7 +24,7 @@
                            ('T
                             (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 21))))))))) 
 
-(SDEFUN |TOOLSIGN;sign;RU;5| ((|r| R) ($ |Union| (|Integer|) "failed"))
+(SDEFUN |TOOLSIGN;sign;RU;5| ((|r| (R)) ($ (|Union| (|Integer|) "failed")))
         (COND ((SPADCALL |r| (QREFELT $ 23)) (CONS 0 0))
               ((SPADCALL |r| (|spadConstant| $ 24) (QREFELT $ 25)) (CONS 0 1))
               (#1='T
@@ -34,7 +34,7 @@
                  (CONS 0 -1))
                 (#1# (CONS 1 "failed")))))) 
 
-(SDEFUN |TOOLSIGN;direction;SI;6| ((|st| |String|) ($ |Integer|))
+(SDEFUN |TOOLSIGN;direction;SI;6| ((|st| (|String|)) ($ (|Integer|)))
         (COND ((EQUAL |st| "right") 1) ((EQUAL |st| "left") -1)
               ('T (|error| "Unknown option")))) 
 

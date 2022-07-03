@@ -1,115 +1,129 @@
 
-(SDEFUN |FDALG;characteristic;Nni;1| (($ |NonNegativeInteger|))
+(SDEFUN |FDALG;characteristic;Nni;1| (($ (|NonNegativeInteger|)))
         (SPADCALL (QREFELT $ 10))) 
 
 (SDEFUN |FDALG;qeltA|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|j| |NonNegativeInteger|) (|l| |NonNegativeInteger|) ($ F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) ($ (F)))
         (SPADCALL |p| (+ 1 |i|) (+ 1 |j|) |l| (QREFELT $ 13))) 
 
 (SDEFUN |FDALG;qeltv|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|l| |NonNegativeInteger|) ($ F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|)) ($ (F)))
         (SPADCALL |p| (+ 1 |i|) 1 |l| (QREFELT $ 13))) 
 
 (SDEFUN |FDALG;qeltu|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|j| |NonNegativeInteger|)
-         (|l| |NonNegativeInteger|) ($ F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|j| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|)) ($ (F)))
         (SPADCALL |p| 1 (+ 1 |j|) |l| (QREFELT $ 13))) 
 
 (SDEFUN |FDALG;qlstA|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|j| |NonNegativeInteger|) ($ |List| F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ (|List| F)))
         (SPADCALL |p| (+ 1 |i|) (+ 1 |j|) (QREFELT $ 17))) 
 
 (SDEFUN |FDALG;qsetu!|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|l| |NonNegativeInteger|) (|alpha| F) ($ F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         (|alpha| (F)) ($ (F)))
         (SPADCALL |p| 1 (+ 1 |i|) |l| |alpha| (QREFELT $ 18))) 
 
 (SDEFUN |FDALG;qsetA!|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|j| |NonNegativeInteger|) (|l| |NonNegativeInteger|) (|alpha| F)
-         ($ F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) (|alpha| (F)) ($ (F)))
         (SPADCALL |p| (+ 1 |i|) (+ 1 |j|) |l| |alpha| (QREFELT $ 18))) 
 
 (SDEFUN |FDALG;qsetv!|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|l| |NonNegativeInteger|) (|alpha| F) ($ F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         (|alpha| (F)) ($ (F)))
         (SPADCALL |p| (+ 1 |i|) 1 |l| |alpha| (QREFELT $ 18))) 
 
 (SDEFUN |FDALG;qmtxu|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|j1| |NonNegativeInteger|)
-         (|j2| |NonNegativeInteger|) (|l| |NonNegativeInteger|) ($ |Matrix| F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|j1| (|NonNegativeInteger|)) (|j2| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) ($ (|Matrix| F)))
         (SPADCALL |p| 1 1 (+ 1 |j1|) (+ 1 |j2|) |l| (QREFELT $ 20))) 
 
 (SDEFUN |FDALG;qmtxA|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i1| |NonNegativeInteger|)
-         (|i2| |NonNegativeInteger|) (|j1| |NonNegativeInteger|)
-         (|j2| |NonNegativeInteger|) (|l| |NonNegativeInteger|) ($ |Matrix| F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i1| (|NonNegativeInteger|)) (|i2| (|NonNegativeInteger|))
+         (|j1| (|NonNegativeInteger|)) (|j2| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) ($ (|Matrix| F)))
         (SPADCALL |p| (+ 1 |i1|) (+ 1 |i2|) (+ 1 |j1|) (+ 1 |j2|) |l|
                   (QREFELT $ 20))) 
 
 (SDEFUN |FDALG;qmtxv|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i1| |NonNegativeInteger|)
-         (|i2| |NonNegativeInteger|) (|l| |NonNegativeInteger|) ($ |Matrix| F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i1| (|NonNegativeInteger|)) (|i2| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) ($ (|Matrix| F)))
         (SPADCALL |p| (+ 1 |i1|) (+ 1 |i2|) 1 1 |l| (QREFELT $ 20))) 
 
 (SDEFUN |FDALG;qscalev!|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i1| |NonNegativeInteger|)
-         (|i2| |NonNegativeInteger|) (|l| |NonNegativeInteger|) (|alpha| F)
-         ($ |LinearMultivariateMatrixPencil| F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i1| (|NonNegativeInteger|)) (|i2| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) (|alpha| (F))
+         ($ (|LinearMultivariateMatrixPencil| F)))
         (SPADCALL |p| (+ 1 |i1|) (+ 1 |i2|) 1 1 |l| |alpha| (QREFELT $ 21))) 
 
-(SDEFUN |FDALG;qscale!| ((|f| $) (|alpha| F) ($ $))
+(SDEFUN |FDALG;qscale!| ((|f| ($)) (|alpha| (F)) ($ ($)))
         (SEQ
          (SPADCALL (QVELT |f| 2) (+ 1 1) (+ 1 (QVELT |f| 0)) 1 1 1 |alpha|
                    (QREFELT $ 21))
          (EXIT |f|))) 
 
 (SDEFUN |FDALG;qsetmtxu!|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|j| |NonNegativeInteger|)
-         (|l| |NonNegativeInteger|) (|a| |Matrix| F) ($ |Matrix| F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|j| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         (|a| (|Matrix| F)) ($ (|Matrix| F)))
         (SPADCALL |p| 1 (+ 1 |j|) |l| |a| (QREFELT $ 22))) 
 
 (SDEFUN |FDALG;qsetmtxA!|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|j| |NonNegativeInteger|) (|l| |NonNegativeInteger|) (|a| |Matrix| F)
-         ($ |Matrix| F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) (|a| (|Matrix| F)) ($ (|Matrix| F)))
         (SPADCALL |p| (+ 1 |i|) (+ 1 |j|) |l| |a| (QREFELT $ 22))) 
 
 (SDEFUN |FDALG;qsetmtxv!|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|l| |NonNegativeInteger|) (|a| |Matrix| F) ($ |Matrix| F))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         (|a| (|Matrix| F)) ($ (|Matrix| F)))
         (SPADCALL |p| (+ 1 |i|) 1 |l| |a| (QREFELT $ 22))) 
 
 (SDEFUN |FDALG;qzeroA?|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i| |NonNegativeInteger|)
-         (|j| |NonNegativeInteger|) ($ |Boolean|))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPADCALL |p| (+ 1 |i|) (+ 1 |j|) (QREFELT $ 24))) 
 
 (SDEFUN |FDALG;qzeromtxA?|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i1| |NonNegativeInteger|)
-         (|i2| |NonNegativeInteger|) (|j1| |NonNegativeInteger|)
-         (|j2| |NonNegativeInteger|) ($ |Boolean|))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i1| (|NonNegativeInteger|)) (|i2| (|NonNegativeInteger|))
+         (|j1| (|NonNegativeInteger|)) (|j2| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPADCALL |p| (+ 1 |i1|) (+ 1 |i2|) (+ 1 |j1|) (+ 1 |j2|)
                   (QREFELT $ 25))) 
 
 (SDEFUN |FDALG;qsemizeroA?|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i1| |NonNegativeInteger|)
-         (|i2| |NonNegativeInteger|) (|j1| |NonNegativeInteger|)
-         (|j2| |NonNegativeInteger|) (|l| |NonNegativeInteger|) ($ |Boolean|))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i1| (|NonNegativeInteger|)) (|i2| (|NonNegativeInteger|))
+         (|j1| (|NonNegativeInteger|)) (|j2| (|NonNegativeInteger|))
+         (|l| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (SPADCALL |p| (+ 1 |i1|) (+ 1 |i2|) (+ 1 |j1|) (+ 1 |j2|) |l|
                   (QREFELT $ 26))) 
 
 (SDEFUN |FDALG;qzerov?|
-        ((|p| |LinearMultivariateMatrixPencil| F) (|i1| |NonNegativeInteger|)
-         (|i2| |NonNegativeInteger|) ($ |Boolean|))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|i1| (|NonNegativeInteger|)) (|i2| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPADCALL |p| (+ 1 |i1|) (+ 1 |i2|) 1 1 (QREFELT $ 25))) 
 
 (SDEFUN |FDALG;interval;2NniL;21|
-        ((|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         ($ |List| (|NonNegativeInteger|)))
+        ((|i_min| (|NonNegativeInteger|)) (|i_max| (|NonNegativeInteger|))
+         ($ (|List| (|NonNegativeInteger|))))
         (SPROG
          ((|lst_wrk| (|List| (|NonNegativeInteger|))) (#1=#:G386 NIL)
           (|k| NIL))
@@ -120,7 +134,7 @@
                    (LETT |k| (+ |k| -1)) (GO G190) G191 (EXIT NIL))
               (EXIT |lst_wrk|)))) 
 
-(SDEFUN |FDALG;qnew;Nni$;22| ((|n| |NonNegativeInteger|) ($ $))
+(SDEFUN |FDALG;qnew;Nni$;22| ((|n| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|flg_ref| #1=(|Boolean|)) (|flg_min| #1#)
           (|lp| (|LinearMultivariateMatrixPencil| F))
@@ -134,7 +148,8 @@
               (EXIT (VECTOR |n| |lst_new| |lp| |flg_min| |flg_ref| 'T 'T 'T))))) 
 
 (SDEFUN |FDALG;qnew;NniL$;23|
-        ((|n| |NonNegativeInteger|) (|lst| |List| (|FreeMonoid| VAR)) ($ $))
+        ((|n| (|NonNegativeInteger|)) (|lst| (|List| (|FreeMonoid| VAR)))
+         ($ ($)))
         (SPROG
          ((|flg_ref| #1=(|Boolean|)) (|flg_min| #1#)
           (|lp| (|LinearMultivariateMatrixPencil| F))
@@ -151,8 +166,8 @@
           (EXIT (VECTOR |n| |lst_new| |lp| |flg_min| |flg_ref| 'T 'T 'T))))) 
 
 (SDEFUN |FDALG;new;LmmpL$;24|
-        ((|lp| |LinearMultivariateMatrixPencil| F)
-         (|lst| |List| (|FreeMonoid| VAR)) ($ $))
+        ((|lp| (|LinearMultivariateMatrixPencil| F))
+         (|lst| (|List| (|FreeMonoid| VAR))) ($ ($)))
         (SPROG
          ((|flg_ref| #1=(|Boolean|)) (|flg_min| #1#)
           (|n| (|NonNegativeInteger|)) (#2=#:G394 NIL) (#3=#:G399 NIL)
@@ -192,7 +207,8 @@
               (LETT |flg_min| NIL) (LETT |flg_ref| NIL)
               (EXIT (VECTOR |n| |lst| |lp| |flg_min| |flg_ref| 'T 'T 'T))))))))) 
 
-(SDEFUN |FDALG;getSupport| ((|var| |List| VAR) ($ |List| (|FreeMonoid| VAR)))
+(SDEFUN |FDALG;getSupport|
+        ((|var| (|List| VAR)) ($ (|List| (|FreeMonoid| VAR))))
         (SPROG
          ((#1=#:G405 NIL) (|k| NIL) (|lst_mon| (|List| (|FreeMonoid| VAR))))
          (SEQ
@@ -210,7 +226,7 @@
                (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
           (EXIT |lst_mon|)))) 
 
-(SDEFUN |FDALG;new;F$;26| ((|c| F) ($ $))
+(SDEFUN |FDALG;new;F$;26| ((|c| (F)) ($ ($)))
         (SPROG ((|als| ($)) (#1=#:G409 NIL))
                (SEQ
                 (EXIT
@@ -227,7 +243,7 @@
                   (QSETVELT |als| 3 'T) (QSETVELT |als| 4 'T) (EXIT |als|)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;new;FmF$;27| ((|m| |FreeMonoid| VAR) (|c| F) ($ $))
+(SDEFUN |FDALG;new;FmF$;27| ((|m| (|FreeMonoid| VAR)) (|c| (F)) ($ ($)))
         (SPROG
          ((#1=#:G427 NIL) (|k| NIL) (|l| (|NonNegativeInteger|))
           (#2=#:G426 NIL) (|i| NIL) (|pos| (|NonNegativeInteger|))
@@ -285,7 +301,7 @@
                  (EXIT (|FDALG;qsetv!| (QVELT |als| 2) |n| 1 |c| $)))))
           (QSETVELT |als| 3 'T) (QSETVELT |als| 4 'T) (EXIT |als|)))) 
 
-(SDEFUN |FDALG;Zero;$;28| (($ $))
+(SDEFUN |FDALG;Zero;$;28| (($ ($)))
         (SPROG ((|als| ($)))
                (SEQ (LETT |als| (SPADCALL 1 (QREFELT $ 32)))
                     (|FDALG;qsetA!| (QVELT |als| 2) 1 1 1 (|spadConstant| $ 15)
@@ -294,7 +310,7 @@
                     (QSETVELT |als| 5 NIL) (QSETVELT |als| 6 NIL)
                     (QSETVELT |als| 7 NIL) (EXIT |als|)))) 
 
-(SDEFUN |FDALG;One;$;29| (($ $))
+(SDEFUN |FDALG;One;$;29| (($ ($)))
         (SPROG ((|als| ($)))
                (SEQ (LETT |als| (SPADCALL 1 (QREFELT $ 32)))
                     (|FDALG;qsetA!| (QVELT |als| 2) 1 1 1 (|spadConstant| $ 15)
@@ -305,7 +321,7 @@
                     (QSETVELT |als| 5 NIL) (QSETVELT |als| 6 NIL)
                     (QSETVELT |als| 7 NIL) (EXIT |als|)))) 
 
-(SDEFUN |FDALG;copy;2$;30| ((|f| $) ($ $))
+(SDEFUN |FDALG;copy;2$;30| ((|f| ($)) ($ ($)))
         (SPROG
          ((|supp_new| (|List| (|FreeMonoid| VAR)))
           (|lmmp_new| (|LinearMultivariateMatrixPencil| F)))
@@ -315,7 +331,7 @@
                (VECTOR (QVELT |f| 0) |supp_new| |lmmp_new| (QVELT |f| 3)
                        (QVELT |f| 4) 'T (QVELT |f| 6) (QVELT |f| 7)))))) 
 
-(SDEFUN |FDALG;copy;$F$;31| ((|f| $) (|alpha| F) ($ $))
+(SDEFUN |FDALG;copy;$F$;31| ((|f| ($)) (|alpha| (F)) ($ ($)))
         (SPROG
          ((|supp_new| (|List| (|FreeMonoid| VAR)))
           (|lmmp_new| (|LinearMultivariateMatrixPencil| F)) (#1=#:G439 NIL))
@@ -335,41 +351,41 @@
                      (QVELT |f| 4) 'T (QVELT |f| 6) (QVELT |f| 7)))))
           #2# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;coerce;Fm$;32| ((|m| |FreeMonoid| VAR) ($ $))
+(SDEFUN |FDALG;coerce;Fm$;32| ((|m| (|FreeMonoid| VAR)) ($ ($)))
         (SPADCALL |m| (|spadConstant| $ 15) (QREFELT $ 59))) 
 
-(SDEFUN |FDALG;coerce;F$;33| ((|c| F) ($ $))
+(SDEFUN |FDALG;coerce;F$;33| ((|c| (F)) ($ ($)))
         (SPADCALL (|spadConstant| $ 14) |c| (QREFELT $ 62))) 
 
-(SDEFUN |FDALG;enableDebugOutput;2$;34| ((|f| $) ($ $))
+(SDEFUN |FDALG;enableDebugOutput;2$;34| ((|f| ($)) ($ ($)))
         (SEQ (QSETVELT |f| 6 'T) (EXIT |f|))) 
 
-(SDEFUN |FDALG;disableDebugOutput;2$;35| ((|f| $) ($ $))
+(SDEFUN |FDALG;disableDebugOutput;2$;35| ((|f| ($)) ($ ($)))
         (SEQ (QSETVELT |f| 6 NIL) (EXIT |f|))) 
 
-(SDEFUN |FDALG;toggleDebugOutput;2$;36| ((|f| $) ($ $))
+(SDEFUN |FDALG;toggleDebugOutput;2$;36| ((|f| ($)) ($ ($)))
         (SEQ (QSETVELT |f| 6 (NULL (QVELT |f| 6))) (EXIT |f|))) 
 
-(SDEFUN |FDALG;enableAlternativeOutput;2$;37| ((|f| $) ($ $))
+(SDEFUN |FDALG;enableAlternativeOutput;2$;37| ((|f| ($)) ($ ($)))
         (SEQ (QSETVELT |f| 7 'T) (EXIT |f|))) 
 
-(SDEFUN |FDALG;disableAlternativeOutput;2$;38| ((|f| $) ($ $))
+(SDEFUN |FDALG;disableAlternativeOutput;2$;38| ((|f| ($)) ($ ($)))
         (SEQ (QSETVELT |f| 7 NIL) (EXIT |f|))) 
 
-(SDEFUN |FDALG;toggleAlternativeOutput;2$;39| ((|f| $) ($ $))
+(SDEFUN |FDALG;toggleAlternativeOutput;2$;39| ((|f| ($)) ($ ($)))
         (SEQ (QSETVELT |f| 7 (NULL (QVELT |f| 7))) (EXIT |f|))) 
 
 (PUT '|FDALG;minimal?;$B;40| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 3))) 
 
-(SDEFUN |FDALG;minimal?;$B;40| ((|f| $) ($ |Boolean|)) (QVELT |f| 3)) 
+(SDEFUN |FDALG;minimal?;$B;40| ((|f| ($)) ($ (|Boolean|))) (QVELT |f| 3)) 
 
 (PUT '|FDALG;mutable?;$B;41| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 5))) 
 
-(SDEFUN |FDALG;mutable?;$B;41| ((|f| $) ($ |Boolean|)) (QVELT |f| 5)) 
+(SDEFUN |FDALG;mutable?;$B;41| ((|f| ($)) ($ (|Boolean|))) (QVELT |f| 5)) 
 
 (SDEFUN |FDALG;qregular?;$2NniB;42|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         ($ |Boolean|))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G464 NIL) (#2=#:G465 NIL) (|i| NIL) (|lst_ele| (|List| F)))
          (SEQ
@@ -397,8 +413,8 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;scalar?;$2NniB;43|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         ($ |Boolean|))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPROG
          ((#1=#:G472 NIL) (|flg_wrk| (|Boolean|)) (#2=#:G473 NIL) (|k| NIL)
           (|a_lst| (|List| F)))
@@ -424,8 +440,8 @@
               (EXIT |flg_wrk|)))) 
 
 (SDEFUN |FDALG;zero?;$2NniB;44|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         ($ |Boolean|))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPROG ((|flg_wrk| (|Boolean|)))
                (SEQ
                 (LETT |flg_wrk|
@@ -436,7 +452,7 @@
                        ('T NIL)))
                 (EXIT |flg_wrk|)))) 
 
-(SDEFUN |FDALG;scalar?;$B;45| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;scalar?;$B;45| ((|f| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G484 NIL) (#2=#:G485 NIL) (|k| NIL))
                (SEQ
                 (EXIT
@@ -459,7 +475,7 @@
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;regular?;$B;46| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;regular?;$B;46| ((|f| ($)) ($ (|Boolean|)))
         (SPROG ((|flg_wrk| (|Boolean|)) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT |n| (QVELT |f| 0)) (LETT |flg_wrk| NIL)
                     (COND
@@ -470,7 +486,7 @@
                       (LETT |flg_wrk| 'T)))
                     (EXIT |flg_wrk|)))) 
 
-(SDEFUN |FDALG;polynomialForm?| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;polynomialForm?| ((|f| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G498 NIL) (#2=#:G500 NIL) (|i| NIL) (|lst_ele| (|List| F))
           (#3=#:G499 NIL) (|k| NIL))
@@ -508,26 +524,26 @@
             (EXIT 'T)))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;polynomial?;$B;48| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;polynomial?;$B;48| ((|f| ($)) ($ (|Boolean|)))
         (|FDALG;polynomialForm?| |f| $)) 
 
 (PUT '|FDALG;dimension;$Nni;49| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
-(SDEFUN |FDALG;dimension;$Nni;49| ((|f| $) ($ |NonNegativeInteger|))
+(SDEFUN |FDALG;dimension;$Nni;49| ((|f| ($)) ($ (|NonNegativeInteger|)))
         (QVELT |f| 0)) 
 
-(SDEFUN |FDALG;variables;$L;50| ((|f| $) ($ |List| (|FreeMonoid| VAR)))
+(SDEFUN |FDALG;variables;$L;50| ((|f| ($)) ($ (|List| (|FreeMonoid| VAR))))
         (SPADCALL (QVELT |f| 1) (QREFELT $ 61))) 
 
-(SDEFUN |FDALG;elt;$NniF;51| ((|f| $) (|i| |NonNegativeInteger|) ($ F))
+(SDEFUN |FDALG;elt;$NniF;51| ((|f| ($)) (|i| (|NonNegativeInteger|)) ($ (F)))
         (COND
          ((OR (< |i| 1) (> |i| (QVELT |f| 0)))
           (|error| "FDALG: elt(%,i) - index out of range."))
          ('T (|FDALG;qeltv| (QVELT |f| 2) |i| 1 $)))) 
 
 (SDEFUN |FDALG;qelt;$2NniXdp;52|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         ($ |XDistributedPolynomial| VAR F))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ (|XDistributedPolynomial| VAR F)))
         (SPROG
          ((|a_tmp| (|XDistributedPolynomial| VAR F)) (#1=#:G511 NIL) (|k| NIL))
          (SEQ (LETT |a_tmp| (|spadConstant| $ 90))
@@ -550,8 +566,8 @@
               (EXIT |a_tmp|)))) 
 
 (SDEFUN |FDALG;elt;$2NniXdp;53|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         ($ |XDistributedPolynomial| VAR F))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ (|XDistributedPolynomial| VAR F)))
         (COND
          ((OR (< |i| 1)
               (OR (OR (> |i| (QVELT |f| 0)) (< |j| 1)) (> |j| (QVELT |f| 0))))
@@ -559,7 +575,7 @@
          ('T (SPADCALL |f| |i| |j| (QREFELT $ 95))))) 
 
 (SDEFUN |FDALG;setelt!;$Nni2F;54|
-        ((|f| $) (|i| |NonNegativeInteger|) (|alpha| F) ($ F))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|alpha| (F)) ($ (F)))
         (SPROG ((|v_old| (F)))
                (SEQ
                 (COND
@@ -578,9 +594,9 @@
                        (EXIT |alpha|))))))) 
 
 (SDEFUN |FDALG;setelt!;$2Nni2Xdp;55|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|p| |XDistributedPolynomial| VAR F)
-         ($ |XDistributedPolynomial| VAR F))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|p| (|XDistributedPolynomial| VAR F))
+         ($ (|XDistributedPolynomial| VAR F)))
         (SPROG
          ((|p_new| #1=(|List| F)) (|pos| (|NonNegativeInteger|))
           (#2=#:G528 NIL) (#3=#:G535 NIL) (|mon| NIL) (#4=#:G534 NIL) (|k| NIL)
@@ -649,11 +665,11 @@
                  (QSETVELT |f| 3 NIL)))
                (EXIT |p|))))))))) 
 
-(SDEFUN |FDALG;vector;$M;56| ((|f| $) ($ |Matrix| F))
+(SDEFUN |FDALG;vector;$M;56| ((|f| ($)) ($ (|Matrix| F)))
         (|FDALG;qmtxv| (QVELT |f| 2) 1 (QVELT |f| 0) 1 $)) 
 
 (SDEFUN |FDALG;vector;$M;57|
-        ((|f| $) ($ |Matrix| (|XDistributedPolynomial| VAR F)))
+        ((|f| ($)) ($ (|Matrix| (|XDistributedPolynomial| VAR F))))
         (SPROG
          ((#1=#:G541 NIL) (|i| NIL)
           (|v_wrk| (|Matrix| (|XDistributedPolynomial| VAR F)))
@@ -672,7 +688,8 @@
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
               (EXIT |v_wrk|)))) 
 
-(SDEFUN |FDALG;matrix;$FmM;58| ((|f| $) (|m| |FreeMonoid| VAR) ($ |Matrix| F))
+(SDEFUN |FDALG;matrix;$FmM;58|
+        ((|f| ($)) (|m| (|FreeMonoid| VAR)) ($ (|Matrix| F)))
         (SPROG ((|pos| (|NonNegativeInteger|)) (#1=#:G542 NIL))
                (SEQ
                 (LETT |pos|
@@ -690,7 +707,7 @@
                     |pos| $))))))) 
 
 (SDEFUN |FDALG;matrix;$M;59|
-        ((|f| $) ($ |Matrix| (|XDistributedPolynomial| VAR F)))
+        ((|f| ($)) ($ (|Matrix| (|XDistributedPolynomial| VAR F))))
         (SPROG
          ((#1=#:G554 NIL) (|j| NIL) (#2=#:G553 NIL) (|i| NIL)
           (|A_tmp| (|Matrix| F)) (#3=#:G552 NIL) (|k| NIL)
@@ -733,7 +750,7 @@
               (EXIT |A_wrk|)))) 
 
 (SDEFUN |FDALG;appendSupport!;$L$;60|
-        ((|f| $) (|lst| |List| (|FreeMonoid| VAR)) ($ $))
+        ((|f| ($)) (|lst| (|List| (|FreeMonoid| VAR))) ($ ($)))
         (SPROG
          ((|lst_new| (|List| (|FreeMonoid| VAR)))
           (|pos| (|NonNegativeInteger|)) (#1=#:G555 NIL) (#2=#:G561 NIL)
@@ -767,10 +784,11 @@
 (PUT '|FDALG;pencil;$Lmmp;61| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
 (SDEFUN |FDALG;pencil;$Lmmp;61|
-        ((|f| $) ($ |LinearMultivariateMatrixPencil| F)) (QVELT |f| 2)) 
+        ((|f| ($)) ($ (|LinearMultivariateMatrixPencil| F))) (QVELT |f| 2)) 
 
 (SDEFUN |FDALG;qswapRows!;$2Nni$;62|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ ($)))
         (SEQ
          (COND
           ((NULL (EQL |i| |j|))
@@ -778,7 +796,8 @@
          (EXIT |f|))) 
 
 (SDEFUN |FDALG;swapRows!;$2Nni$;63|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ ($)))
         (SEQ
          (COND
           ((OR (< |i| 1)
@@ -792,8 +811,8 @@
             (QSETVELT |f| 4 NIL) (EXIT |f|)))))) 
 
 (SDEFUN |FDALG;qaddRows!;$2NniF$;64|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|alpha| (F)) ($ ($)))
         (SEQ
          (COND
           ((NULL (EQL |i| |j|))
@@ -802,8 +821,8 @@
          (EXIT |f|))) 
 
 (SDEFUN |FDALG;addRowsColumns!;$2NniF$;65|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|alpha| (F)) ($ ($)))
         (SEQ
          (COND
           ((EQL |i| |j|)
@@ -827,8 +846,8 @@
               (COND ((< |i| |j|) (QSETVELT |f| 4 NIL))) (EXIT |f|)))))))) 
 
 (SDEFUN |FDALG;addColumnsRows!;$2NniF$;66|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|alpha| (F)) ($ ($)))
         (SEQ
          (COND
           ((EQL |i| |j|)
@@ -852,8 +871,8 @@
               (EXIT |f|)))))))) 
 
 (SDEFUN |FDALG;addRows!;$2NniF$;67|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|alpha| (F)) ($ ($)))
         (SEQ
          (COND
           ((EQL |i| |j|)
@@ -870,12 +889,12 @@
             (COND ((< |i| |j|) (QSETVELT |f| 4 NIL))) (EXIT |f|)))))) 
 
 (SDEFUN |FDALG;qmultiplyRow!|
-        ((|f| $) (|i| |NonNegativeInteger|) (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|alpha| (F)) ($ ($)))
         (SEQ (SPADCALL (QVELT |f| 2) (+ 1 |i|) |alpha| (QREFELT $ 124))
              (EXIT |f|))) 
 
 (SDEFUN |FDALG;multiplyRow!;$NniF$;69|
-        ((|f| $) (|i| |NonNegativeInteger|) (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|alpha| (F)) ($ ($)))
         (SPROG ((#1=#:G600 NIL))
                (SEQ
                 (EXIT
@@ -900,12 +919,12 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;qmultiplyColumn!|
-        ((|f| $) (|i| |NonNegativeInteger|) (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|alpha| (F)) ($ ($)))
         (SEQ (SPADCALL (QVELT |f| 2) (+ 1 |i|) |alpha| (QREFELT $ 126))
              (EXIT |f|))) 
 
 (SDEFUN |FDALG;multiplyColumn!;$NniF$;71|
-        ((|f| $) (|i| |NonNegativeInteger|) (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|alpha| (F)) ($ ($)))
         (SPROG ((#1=#:G610 NIL))
                (SEQ
                 (EXIT
@@ -931,7 +950,8 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;qswapColumns!;$2Nni$;72|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ ($)))
         (SEQ
          (COND
           ((NULL (EQL |i| |j|))
@@ -939,7 +959,8 @@
          (EXIT |f|))) 
 
 (SDEFUN |FDALG;swapColumns!;$2Nni$;73|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ ($)))
         (SEQ
          (COND
           ((OR (< |i| 1)
@@ -957,7 +978,8 @@
             (QSETVELT |f| 4 NIL) (EXIT |f|)))))) 
 
 (SDEFUN |FDALG;swapRowsColumns!;$2Nni$;74|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         ($ ($)))
         (SEQ
          (COND
           ((OR (< |i| 1)
@@ -978,8 +1000,8 @@
             (QSETVELT |f| 4 NIL) (EXIT |f|)))))) 
 
 (SDEFUN |FDALG;addColumns!;$2NniF$;75|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|alpha| (F)) ($ ($)))
         (SEQ
          (COND
           ((EQL |i| |j|)
@@ -1001,8 +1023,8 @@
               (COND ((> |i| |j|) (QSETVELT |f| 4 NIL))) (EXIT |f|)))))))) 
 
 (SDEFUN |FDALG;qaddColumns!;$2NniF$;76|
-        ((|f| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
-         (|alpha| F) ($ $))
+        ((|f| ($)) (|i| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
+         (|alpha| (F)) ($ ($)))
         (SEQ
          (COND
           ((NULL (EQL |i| |j|))
@@ -1011,8 +1033,8 @@
          (EXIT |f|))) 
 
 (SDEFUN |FDALG;removeRowsColumns;$2L$;77|
-        ((|f| $) (|lst_row| |List| (|NonNegativeInteger|))
-         (|lst_col| |List| (|NonNegativeInteger|)) ($ $))
+        ((|f| ($)) (|lst_row| (|List| (|NonNegativeInteger|)))
+         (|lst_col| (|List| (|NonNegativeInteger|))) ($ ($)))
         (SPROG
          ((|f_new| ($)) (|lst_c| #1=(|List| (|NonNegativeInteger|)))
           (|lst_r| #1#))
@@ -1046,8 +1068,8 @@
         (SPADCALL |a| (|spadConstant| $ 135) (QREFELT $ 136))) 
 
 (SDEFUN |FDALG;insertRowsColumns;$2L$;78|
-        ((|f| $) (|lst_row| |List| (|NonNegativeInteger|))
-         (|lst_col| |List| (|NonNegativeInteger|)) ($ $))
+        ((|f| ($)) (|lst_row| (|List| (|NonNegativeInteger|)))
+         (|lst_col| (|List| (|NonNegativeInteger|))) ($ ($)))
         (SPROG
          ((#1=#:G647 NIL) (|k| NIL) (|f_new| ($))
           (|lst_c| #2=(|List| (|NonNegativeInteger|))) (|lst_r| #2#))
@@ -1088,23 +1110,25 @@
         (SPADCALL |a| (|spadConstant| $ 135) (QREFELT $ 136))) 
 
 (SDEFUN |FDALG;qzero?;$4NniB;79|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|j_min| |NonNegativeInteger|) (|j_max| |NonNegativeInteger|)
-         ($ |Boolean|))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) (|j_min| (|NonNegativeInteger|))
+         (|j_max| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (SPADCALL (QVELT |f| 2) (+ 1 |i_min|) (+ 1 |i_max|) (+ 1 |j_min|)
                   (+ 1 |j_max|) (QREFELT $ 25))) 
 
 (SDEFUN |FDALG;qzero?;$5NniB;80|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|j_min| |NonNegativeInteger|) (|j_max| |NonNegativeInteger|)
-         (|l| |NonNegativeInteger|) ($ |Boolean|))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) (|j_min| (|NonNegativeInteger|))
+         (|j_max| (|NonNegativeInteger|)) (|l| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPADCALL (QVELT |f| 2) (+ 1 |i_min|) (+ 1 |i_max|) (+ 1 |j_min|)
                   (+ 1 |j_max|) |l| (QREFELT $ 147))) 
 
 (SDEFUN |FDALG;qzero?;$4NniFmB;81|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|j_min| |NonNegativeInteger|) (|j_max| |NonNegativeInteger|)
-         (|m| |FreeMonoid| VAR) ($ |Boolean|))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) (|j_min| (|NonNegativeInteger|))
+         (|j_max| (|NonNegativeInteger|)) (|m| (|FreeMonoid| VAR))
+         ($ (|Boolean|)))
         (SPROG ((|l| (|NonNegativeInteger|)) (#1=#:G652 NIL))
                (SEQ
                 (LETT |l|
@@ -1118,7 +1142,7 @@
                            (+ 1 |j_min|) (+ 1 |j_max|) |l| (QREFELT $ 147)))))) 
 
 (SDEFUN |FDALG;blockStructure;$M;82|
-        ((|f| $) ($ |Matrix| (|NonNegativeInteger|)))
+        ((|f| ($)) ($ (|Matrix| (|NonNegativeInteger|))))
         (SPROG
          ((|sze_tmp| (|NonNegativeInteger|)) (#1=#:G673 NIL) (#2=#:G682 NIL)
           (|k| NIL) (#3=#:G671 NIL) (#4=#:G681 NIL) (#5=#:G670 NIL)
@@ -1228,7 +1252,7 @@
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
               (EXIT |blo_mtx|)))) 
 
-(SDEFUN |FDALG;refined?;$B;83| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;refined?;$B;83| ((|f| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G687 NIL) (|blo_mtx| (|Matrix| (|NonNegativeInteger|))))
                (SEQ
                 (EXIT
@@ -1241,11 +1265,11 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;qblockElimination|
-        ((|f| $) (|rsrc| |List| (|NonNegativeInteger|))
-         (|rdst| |List| (|NonNegativeInteger|)) (|flg_u| |Boolean|)
-         (|csrc| |List| (|NonNegativeInteger|))
-         (|cdst| |List| (|NonNegativeInteger|)) (|flg_v| |Boolean|)
-         ($ |List| (|Matrix| F)))
+        ((|f| ($)) (|rsrc| (|List| (|NonNegativeInteger|)))
+         (|rdst| (|List| (|NonNegativeInteger|))) (|flg_u| (|Boolean|))
+         (|csrc| (|List| (|NonNegativeInteger|)))
+         (|cdst| (|List| (|NonNegativeInteger|))) (|flg_v| (|Boolean|))
+         ($ (|List| (|Matrix| F))))
         (SPROG
          ((|lst_trn| (|List| (|Matrix| F)))
           (|col_ext| (|List| (|NonNegativeInteger|)))
@@ -1287,11 +1311,11 @@
         (SPADCALL |a| (|spadConstant| $ 135) (QREFELT $ 136))) 
 
 (SDEFUN |FDALG;blockElimination;$2LB2LBL;85|
-        ((|f| $) (|rsrc| |List| (|NonNegativeInteger|))
-         (|rdst| |List| (|NonNegativeInteger|)) (|flg_u| |Boolean|)
-         (|csrc| |List| (|NonNegativeInteger|))
-         (|cdst| |List| (|NonNegativeInteger|)) (|flg_v| |Boolean|)
-         ($ |List| (|Matrix| F)))
+        ((|f| ($)) (|rsrc| (|List| (|NonNegativeInteger|)))
+         (|rdst| (|List| (|NonNegativeInteger|))) (|flg_u| (|Boolean|))
+         (|csrc| (|List| (|NonNegativeInteger|)))
+         (|cdst| (|List| (|NonNegativeInteger|))) (|flg_v| (|Boolean|))
+         ($ (|List| (|Matrix| F))))
         (SPROG
          ((#1=#:G730 NIL) (|k| NIL) (|lst_trn| (|List| (|Matrix| F)))
           (|flg_col| #2=(|Boolean|)) (|flg_row| #2#)
@@ -1361,18 +1385,18 @@
                   "FDALG: blockElimination(f, ...) - row index out of range."))))))) 
 
 (SDEFUN |FDALG;blockElimination;$4LL;86|
-        ((|f| $) (|rsrc| |List| (|NonNegativeInteger|))
-         (|rdst| |List| (|NonNegativeInteger|))
-         (|csrc| |List| (|NonNegativeInteger|))
-         (|cdst| |List| (|NonNegativeInteger|)) ($ |List| (|Matrix| F)))
+        ((|f| ($)) (|rsrc| (|List| (|NonNegativeInteger|)))
+         (|rdst| (|List| (|NonNegativeInteger|)))
+         (|csrc| (|List| (|NonNegativeInteger|)))
+         (|cdst| (|List| (|NonNegativeInteger|))) ($ (|List| (|Matrix| F))))
         (SPADCALL |f| |rsrc| |rdst| 'T |csrc| |cdst| 'T (QREFELT $ 165))) 
 
 (SDEFUN |FDALG;toMatrix|
-        ((|p| |LinearMultivariateMatrixPencil| F)
-         (|lst| |List| (|FreeMonoid| VAR)) (|r_min| |NonNegativeInteger|)
-         (|r_max| |NonNegativeInteger|) (|c_min| |NonNegativeInteger|)
-         (|c_max| |NonNegativeInteger|)
-         ($ |Matrix| (|XDistributedPolynomial| VAR F)))
+        ((|p| (|LinearMultivariateMatrixPencil| F))
+         (|lst| (|List| (|FreeMonoid| VAR))) (|r_min| (|NonNegativeInteger|))
+         (|r_max| (|NonNegativeInteger|)) (|c_min| (|NonNegativeInteger|))
+         (|c_max| (|NonNegativeInteger|))
+         ($ (|Matrix| (|XDistributedPolynomial| VAR F))))
         (SPROG
          ((#1=#:G744 NIL) (|j| NIL) (#2=#:G743 NIL) (|i| NIL)
           (|A_tmp| (|Matrix| F)) (#3=#:G742 NIL) (|k| NIL)
@@ -1430,7 +1454,7 @@
              (EXIT |A_wrk|))))))) 
 
 (SDEFUN |FDALG;display;$LOf;88|
-        ((|f| $) (|sym| |List| (|Symbol|)) ($ |OutputForm|))
+        ((|f| ($)) (|sym| (|List| (|Symbol|))) ($ (|OutputForm|)))
         (SPROG
          ((#1=#:G750 NIL) (|k| NIL) (|lst| (|List| (|List| (|OutputForm|))))
           (|sym_wrk| (|Symbol|)) (|n| (|NonNegativeInteger|)))
@@ -1453,7 +1477,8 @@
                (SPADCALL |f| (SPADCALL |lst| (QREFELT $ 177))
                          (QREFELT $ 178)))))) 
 
-(SDEFUN |FDALG;display;$2Of;89| ((|f| $) (|sol| |OutputForm|) ($ |OutputForm|))
+(SDEFUN |FDALG;display;$2Of;89|
+        ((|f| ($)) (|sol| (|OutputForm|)) ($ (|OutputForm|)))
         (SPROG
          ((|als_of| (|OutputForm|))
           (|mtx_v| #1=(|Matrix| (|XDistributedPolynomial| VAR F)))
@@ -1472,7 +1497,7 @@
                      (SPADCALL |mtx_v| (QREFELT $ 181)) (QREFELT $ 183)))
               (EXIT |als_of|)))) 
 
-(SDEFUN |FDALG;admissibleLinearSystem;$Of;90| ((|f| $) ($ |OutputForm|))
+(SDEFUN |FDALG;admissibleLinearSystem;$Of;90| ((|f| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|als_of| (|OutputForm|)) (#1=#:G763 NIL) (|j| NIL)
           (|row_a| (|List| (|OutputForm|))) (#2=#:G762 NIL) (|i| NIL)
@@ -1527,7 +1552,7 @@
               (EXIT |als_of|)))) 
 
 (SDEFUN |FDALG;linearization;$M;91|
-        ((|f| $) ($ |Matrix| (|XDistributedPolynomial| VAR F)))
+        ((|f| ($)) ($ (|Matrix| (|XDistributedPolynomial| VAR F))))
         (SPROG
          ((#1=#:G768 NIL) (|k| NIL)
           (|L_wrk| (|Matrix| (|XDistributedPolynomial| VAR F))))
@@ -1546,7 +1571,7 @@
                (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
           (EXIT |L_wrk|)))) 
 
-(SDEFUN |FDALG;linearization;$M;92| ((|f| $) ($ |Matrix| $))
+(SDEFUN |FDALG;linearization;$M;92| ((|f| ($)) ($ (|Matrix| $)))
         (SPROG
          ((#1=#:G779 NIL) (|l| NIL)
           (|lp_new| (|LinearMultivariateMatrixPencil| F)) (|als| ($))
@@ -1622,7 +1647,7 @@
               (EXIT |L_wrk|)))) 
 
 (SDEFUN |FDALG;representation;$L;93|
-        ((|f| $) ($ |List| (|Matrix| (|XDistributedPolynomial| VAR F))))
+        ((|f| ($)) ($ (|List| (|Matrix| (|XDistributedPolynomial| VAR F)))))
         (SPROG
          ((|mtx_v| #1=(|Matrix| (|XDistributedPolynomial| VAR F)))
           (|mtx_A| #1#) (|mtx_u| #1#) (|n| (|NonNegativeInteger|)))
@@ -1638,17 +1663,17 @@
                      (+ 1 |n|) 1 1 $))
               (EXIT (LIST |mtx_u| |mtx_A| |mtx_v|))))) 
 
-(SDEFUN |FDALG;*;$M$;94| ((|f| $) (U |Matrix| F) ($ $))
+(SDEFUN |FDALG;*;$M$;94| ((|f| ($)) (U (|Matrix| F)) ($ ($)))
         (SPROG ((|f_new| ($)))
                (SEQ (LETT |f_new| (SPADCALL |f| (QREFELT $ 51)))
                     (EXIT (SPADCALL |f_new| U (QREFELT $ 199)))))) 
 
-(SDEFUN |FDALG;*;M2$;95| ((T$ |Matrix| F) (|f| $) ($ $))
+(SDEFUN |FDALG;*;M2$;95| ((T$ (|Matrix| F)) (|f| ($)) ($ ($)))
         (SPROG ((|f_new| ($)))
                (SEQ (LETT |f_new| (SPADCALL |f| (QREFELT $ 51)))
                     (EXIT (SPADCALL |f_new| T$ (QREFELT $ 201)))))) 
 
-(SDEFUN |FDALG;transformationMatrix;$M;96| ((|f| $) ($ |Matrix| F))
+(SDEFUN |FDALG;transformationMatrix;$M;96| ((|f| ($)) ($ (|Matrix| F)))
         (SPROG ((#1=#:G789 NIL) (|k| NIL) (|trf_mtx| (|Matrix| F)))
                (SEQ
                 (LETT |trf_mtx|
@@ -1663,7 +1688,7 @@
                      (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
                 (EXIT |trf_mtx|)))) 
 
-(SDEFUN |FDALG;transformRows!;$M$;97| ((|f| $) (T$ |Matrix| F) ($ $))
+(SDEFUN |FDALG;transformRows!;$M$;97| ((|f| ($)) (T$ (|Matrix| F)) ($ ($)))
         (SPROG ((|trf_mtx| (|Matrix| F)))
                (SEQ
                 (COND
@@ -1686,7 +1711,7 @@
                     (SPADCALL (QVELT |f| 2) |trf_mtx| (QREFELT $ 206))
                     (QSETVELT |f| 4 NIL) (EXIT |f|)))))))) 
 
-(SDEFUN |FDALG;transformColumns!;$M$;98| ((|f| $) (U |Matrix| F) ($ $))
+(SDEFUN |FDALG;transformColumns!;$M$;98| ((|f| ($)) (U (|Matrix| F)) ($ ($)))
         (SPROG
          ((|trf_mtx| (|Matrix| F)) (#1=#:G806 NIL) (|flg_wrk| (|Boolean|))
           (#2=#:G807 NIL) (|j| NIL))
@@ -1732,7 +1757,7 @@
                   (SPADCALL (QVELT |f| 2) |trf_mtx| (QREFELT $ 208))
                   (QSETVELT |f| 4 NIL) (EXIT |f|)))))))) 
 
-(SDEFUN |FDALG;normalizeRHS!;2$;99| ((|f| $) ($ $))
+(SDEFUN |FDALG;normalizeRHS!;2$;99| ((|f| ($)) ($ ($)))
         (SPROG
          ((|i_ref| (|NonNegativeInteger|)) (|v_ref| (F)) (|v_wrk| (F))
           (|i| NIL))
@@ -1756,7 +1781,7 @@
                    (LETT |i| (+ |i| -1)) (GO G190) G191 (EXIT NIL))
               (EXIT |f|)))) 
 
-(SDEFUN |FDALG;normalizePLS!;2$;100| ((|f| $) ($ $))
+(SDEFUN |FDALG;normalizePLS!;2$;100| ((|f| ($)) ($ ($)))
         (SPROG
          ((|a_wrk| (F)) (#1=#:G828 NIL) (|i_wrk| NIL) (#2=#:G825 NIL)
           (|i_ref| (|NonNegativeInteger|)) (#3=#:G827 NIL) (#4=#:G826 NIL)
@@ -1818,7 +1843,7 @@
                    (LETT |j_wrk| (|inc_SI| |j_wrk|)) (GO G190) G191 (EXIT NIL))
               (EXIT |f|)))) 
 
-(SDEFUN |FDALG;normalizeDIAG!;2$;101| ((|f| $) ($ $))
+(SDEFUN |FDALG;normalizeDIAG!;2$;101| ((|f| ($)) ($ ($)))
         (SPROG
          ((#1=#:G837 NIL) (#2=#:G839 NIL) (|l| NIL) (|a_lst| (|List| F))
           (#3=#:G838 NIL) (|i| NIL))
@@ -1855,7 +1880,7 @@
                (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
           (EXIT |f|)))) 
 
-(SDEFUN |FDALG;normalize!;2$;102| ((|f| $) ($ $))
+(SDEFUN |FDALG;normalize!;2$;102| ((|f| ($)) ($ ($)))
         (SPROG
          ((#1=#:G850 NIL) (|i_max| (|NonNegativeInteger|)) (#2=#:G851 NIL)
           (|k| NIL) (|i_ref| (|NonNegativeInteger|))
@@ -1902,7 +1927,7 @@
               (EXIT |f|)))) 
 
 (SDEFUN |FDALG;regularMatrix|
-        ((|f| $) ($ |Matrix| (|XDistributedPolynomial| VAR F)))
+        ((|f| ($)) ($ (|Matrix| (|XDistributedPolynomial| VAR F))))
         (SPROG
          ((#1=#:G857 NIL) (|i| NIL)
           (|Q_wrk| (|Matrix| (|XDistributedPolynomial| VAR F)))
@@ -1929,7 +1954,7 @@
                  (EXIT |Q_wrk|))))))) 
 
 (SDEFUN |FDALG;polynomial;$Xdp;104|
-        ((|f| $) ($ |XDistributedPolynomial| VAR F))
+        ((|f| ($)) ($ (|XDistributedPolynomial| VAR F)))
         (SPROG
          ((|p_wrk| (|XDistributedPolynomial| VAR F))
           (|s_wrk| (|Matrix| (|XDistributedPolynomial| VAR F))))
@@ -1937,7 +1962,7 @@
               (EXIT (LETT |p_wrk| (QAREF2O |s_wrk| 1 1 1 1)))))) 
 
 (SDEFUN |FDALG;solutionVector;$M;105|
-        ((|f| $) ($ |Matrix| (|XDistributedPolynomial| VAR F)))
+        ((|f| ($)) ($ (|Matrix| (|XDistributedPolynomial| VAR F))))
         (SPROG
          ((|p_wrk| (|XDistributedPolynomial| VAR F)) (#1=#:G867 NIL) (|j| NIL)
           (|i| NIL) (|s_wrk| (|Matrix| (|XDistributedPolynomial| VAR F)))
@@ -1972,8 +1997,8 @@
                  (EXIT |s_wrk|))))))) 
 
 (SDEFUN |FDALG;solutionVector;$NniM;106|
-        ((|f| $) (|k| |NonNegativeInteger|)
-         ($ |Matrix| (|XDistributedPolynomial| VAR F)))
+        ((|f| ($)) (|k| (|NonNegativeInteger|))
+         ($ (|Matrix| (|XDistributedPolynomial| VAR F))))
         (SPROG
          ((|s_wrk| (|Matrix| (|XDistributedPolynomial| VAR F)))
           (|v_wrk| (|Matrix| (|XDistributedPolynomial| VAR F))) (#1=#:G872 NIL)
@@ -1995,7 +2020,7 @@
               (EXIT |s_wrk|)))) 
 
 (SDEFUN |FDALG;columnSpan;$S;107|
-        ((|f| $) ($ |Stream| (|Matrix| (|XDistributedPolynomial| VAR F))))
+        ((|f| ($)) ($ (|Stream| (|Matrix| (|XDistributedPolynomial| VAR F)))))
         (SPROG
          ((|fnc|
            (|Mapping| (|Matrix| (|XDistributedPolynomial| VAR F))
@@ -2017,7 +2042,7 @@
           (RETURN (PROGN (SPADCALL |Q_wrk| |v| (QREFELT $ 221)))))) 
 
 (SDEFUN |FDALG;rowSpan;$S;108|
-        ((|f| $) ($ |Stream| (|Matrix| (|XDistributedPolynomial| VAR F))))
+        ((|f| ($)) ($ (|Stream| (|Matrix| (|XDistributedPolynomial| VAR F)))))
         (SPROG
          ((|fnc|
            (|Mapping| (|Matrix| (|XDistributedPolynomial| VAR F))
@@ -2039,7 +2064,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |u| |Q_wrk| (QREFELT $ 221)))))) 
 
-(SDEFUN |FDALG;scaleALS;$F$;109| ((|f| $) (|alpha| F) ($ $))
+(SDEFUN |FDALG;scaleALS;$F$;109| ((|f| ($)) (|alpha| (F)) ($ ($)))
         (SPROG ((#1=#:G884 NIL))
                (SEQ
                 (EXIT
@@ -2052,7 +2077,7 @@
                   (EXIT (SPADCALL |f| |alpha| (QREFELT $ 62)))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;addALS;3$;110| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FDALG;addALS;3$;110| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG
          ((|pos| (|NonNegativeInteger|)) (#1=#:G893 NIL)
           (|mon| (|FreeMonoid| VAR)) (#2=#:G901 NIL) (|k| NIL) (#3=#:G890 NIL)
@@ -2133,7 +2158,7 @@
             (EXIT |als|)))
           #7# (EXIT #6#)))) 
 
-(SDEFUN |FDALG;multiplyALS;3$;111| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FDALG;multiplyALS;3$;111| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG
          ((|pos| (|NonNegativeInteger|)) (#1=#:G908 NIL)
           (|mon| (|FreeMonoid| VAR)) (#2=#:G916 NIL) (|k| NIL) (#3=#:G905 NIL)
@@ -2211,7 +2236,7 @@
             (EXIT |als|)))
           #7# (EXIT #6#)))) 
 
-(SDEFUN |FDALG;invertALS;2$;112| ((|f| $) ($ $))
+(SDEFUN |FDALG;invertALS;2$;112| ((|f| ($)) ($ ($)))
         (SPROG
          ((#1=#:G920 NIL) (|k| NIL) (|f_inv| ($)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (QVELT |f| 0))
@@ -2240,7 +2265,7 @@
               (QSETVELT |f_inv| 4 NIL) (QSETVELT |f_inv| 3 NIL)
               (EXIT |f_inv|)))) 
 
-(SDEFUN |FDALG;invertSTD;2$;113| ((|f| $) ($ $))
+(SDEFUN |FDALG;invertSTD;2$;113| ((|f| ($)) ($ ($)))
         (SPROG
          ((|blo_mtx| (|Matrix| (|NonNegativeInteger|))) (#1=#:G924 NIL)
           (#2=#:G923 NIL) (#3=#:G931 NIL) (|k| NIL) (|U_wrk| #4=(|Matrix| F))
@@ -2305,7 +2330,7 @@
                 (QSETVELT |f_inv| 4 'T)))
               (EXIT |f_inv|)))) 
 
-(SDEFUN |FDALG;factors;$L;114| ((|f| $) ($ |List| $))
+(SDEFUN |FDALG;factors;$L;114| ((|f| ($)) ($ (|List| $)))
         (SPROG
          ((|lst_fct| (|List| $)) (|n| (|NonNegativeInteger|)) (|als| ($))
           (#1=#:G962 NIL) (|l| NIL) (|f_2| ($)) (|f_1| ($)) (#2=#:G961 NIL)
@@ -2486,7 +2511,7 @@
                 (EXIT |lst_fct|)))
           #9# (EXIT #8#)))) 
 
-(SDEFUN |FDALG;summands;$L;115| ((|f| $) ($ |List| $))
+(SDEFUN |FDALG;summands;$L;115| ((|f| ($)) ($ (|List| $)))
         (SPROG
          ((|lst_sum| (|List| $)) (|n| (|NonNegativeInteger|)) (|als| ($))
           (|u_tmp| (F)) (#1=#:G992 NIL) (|j| NIL) (|f_2| ($)) (#2=#:G988 NIL)
@@ -2650,7 +2675,7 @@
           #10# (EXIT #9#)))) 
 
 (SDEFUN |FDALG;ratexprPolynomial|
-        ((|p| |XDistributedPolynomial| VAR F) ($ |OutputForm|))
+        ((|p| (|XDistributedPolynomial| VAR F)) ($ (|OutputForm|)))
         (SPROG
          ((|out_wrk| (|OutputForm|)) (|sup_wrk| (|List| (|FreeMonoid| VAR))))
          (SEQ (LETT |sup_wrk| (SPADCALL |p| (QREFELT $ 245)))
@@ -2663,9 +2688,9 @@
                 (LETT |out_wrk| (SPADCALL |out_wrk| (QREFELT $ 246)))))
               (EXIT |out_wrk|)))) 
 
-(SDEFUN |FDALG;leftFamily;$L;117| ((|f| $) ($ |List| (|OutputForm|)))
+(SDEFUN |FDALG;leftFamily;$L;117| ((|f| ($)) ($ (|List| (|OutputForm|))))
         (SPROG
-         ((#1=#:G1020 NIL) (|j| (|NonNegativeInteger|)) (|flg_wrk| (|Boolean|))
+         ((#1=#:G1020 NIL) (|flg_wrk| (|Boolean|)) (|j| (|NonNegativeInteger|))
           (|i| NIL) (|s_lst| (|List| (|OutputForm|))) (#2=#:G1019 NIL)
           (#3=#:G1018 NIL) (|p_wrk| (|List| (|XDistributedPolynomial| VAR F)))
           (|a_idx| (|List| (|List| (|NonNegativeInteger|))))
@@ -2835,41 +2860,36 @@
                                                 (QREFELT $ 259))
                                       (EXIT (LETT |flg_wrk| 'T)))))
                                    (EXIT
-                                    (SEQ (LETT |j| NIL)
-                                         (LETT #1#
-                                               (CDR
-                                                (SPADCALL |a_idx| |i|
-                                                          (QREFELT $ 255))))
-                                         G190
-                                         (COND
-                                          ((OR (ATOM #1#)
-                                               (PROGN
-                                                (LETT |j| (CAR #1#))
-                                                NIL))
-                                           (GO G191)))
-                                         (SEQ
-                                          (EXIT
-                                           (SPADCALL |s_lst| |i|
-                                                     (SPADCALL
-                                                      (SPADCALL |s_lst| |i|
-                                                                (QREFELT $
-                                                                         261))
-                                                      (SPADCALL
-                                                       (|FDALG;ratexprPolynomial|
-                                                        (SPADCALL
-                                                         (SPADCALL |f| |i| |j|
-                                                                   (QREFELT $
-                                                                            96))
-                                                         (QREFELT $ 190))
-                                                        $)
-                                                       (SPADCALL |s_lst| |j|
-                                                                 (QREFELT $
-                                                                          261))
-                                                       (QREFELT $ 182))
-                                                      (QREFELT $ 262))
-                                                     (QREFELT $ 259))))
-                                         (LETT #1# (CDR #1#)) (GO G190) G191
-                                         (EXIT NIL))))))
+                                    (SEQ
+                                     (LETT #1#
+                                           (CDR
+                                            (SPADCALL |a_idx| |i|
+                                                      (QREFELT $ 255))))
+                                     G190
+                                     (COND
+                                      ((OR (ATOM #1#)
+                                           (PROGN (LETT |j| (CAR #1#)) NIL))
+                                       (GO G191)))
+                                     (SEQ
+                                      (EXIT
+                                       (SPADCALL |s_lst| |i|
+                                                 (SPADCALL
+                                                  (SPADCALL |s_lst| |i|
+                                                            (QREFELT $ 261))
+                                                  (SPADCALL
+                                                   (|FDALG;ratexprPolynomial|
+                                                    (SPADCALL
+                                                     (SPADCALL |f| |i| |j|
+                                                               (QREFELT $ 96))
+                                                     (QREFELT $ 190))
+                                                    $)
+                                                   (SPADCALL |s_lst| |j|
+                                                             (QREFELT $ 261))
+                                                   (QREFELT $ 182))
+                                                  (QREFELT $ 262))
+                                                 (QREFELT $ 259))))
+                                     (LETT #1# (CDR #1#)) (GO G190) G191
+                                     (EXIT NIL))))))
                                 (COND
                                  ((NULL
                                    (SPADCALL
@@ -2903,7 +2923,7 @@
                       (EXIT |s_lst|)))))))) 
 
 (SDEFUN |FDALG;ratexprInverse;$BOf;118|
-        ((|f| $) (|flg| |Boolean|) ($ |OutputForm|))
+        ((|f| ($)) (|flg| (|Boolean|)) ($ (|OutputForm|)))
         (SPROG
          ((|o_wrk| (|OutputForm|)) (#1=#:G1041 NIL) (|g| NIL) (#2=#:G1040 NIL)
           (|sym_r| (|OutputForm|)) (|sym_d| (|OutputForm|))
@@ -3019,7 +3039,7 @@
                 (EXIT |o_wrk|)))
           #3# (EXIT #2#)))) 
 
-(SDEFUN |FDALG;ratexpr;$Of;119| ((|f| $) ($ |OutputForm|))
+(SDEFUN |FDALG;ratexpr;$Of;119| ((|f| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|out_of| (|OutputForm|)) (#1=#:G1050 NIL) (#2=#:G1052 NIL)
           (|sum| NIL) (#3=#:G1051 NIL) (|fct| NIL) (|sum_f| (|List| $))
@@ -3072,7 +3092,7 @@
                 (EXIT |out_of|)))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;coerce;$Of;120| ((|f| $) ($ |OutputForm|))
+(SDEFUN |FDALG;coerce;$Of;120| ((|f| ($)) ($ (|OutputForm|)))
         (SPROG
          ((|lst_of| (|List| (|OutputForm|))) (|rex_of| (|OutputForm|))
           (|flg_of| (|OutputForm|)) (|sym_R| (|OutputForm|))
@@ -3118,7 +3138,8 @@
                        (EXIT (LETT |lst_of| (CONS |rex_of| |lst_of|))))))))
               (EXIT (SPADCALL |lst_of| (QREFELT $ 271)))))) 
 
-(SDEFUN |FDALG;leftFactor;$Nni$;121| ((|f| $) (|k| |NonNegativeInteger|) ($ $))
+(SDEFUN |FDALG;leftFactor;$Nni$;121|
+        ((|f| ($)) (|k| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((#1=#:G1079 NIL) (|l| NIL) (|f_1| ($)) (|f_wrk| ($)) (#2=#:G1078 NIL)
           (|trn_wrk| (|List| (|Matrix| F)))
@@ -3189,7 +3210,7 @@
           #5# (EXIT #2#)))) 
 
 (SDEFUN |FDALG;rightFactor;$Nni$;122|
-        ((|f| $) (|k| |NonNegativeInteger|) ($ $))
+        ((|f| ($)) (|k| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((#1=#:G1095 NIL) (|l| NIL) (|m| (|NonNegativeInteger|))
           (#2=#:G1090 NIL) (|f_2| ($)) (|f_wrk| ($)) (#3=#:G1094 NIL)
@@ -3268,9 +3289,10 @@
           #6# (EXIT #3#)))) 
 
 (SDEFUN |FDALG;qfactorizationTransformations|
-        ((|f| $) (|k_rows| |NonNegativeInteger|)
-         (|k_cols| |NonNegativeInteger|)
-         (|sol| |List| (|Equation| (|Polynomial| F))) ($ |List| (|Matrix| F)))
+        ((|f| ($)) (|k_rows| (|NonNegativeInteger|))
+         (|k_cols| (|NonNegativeInteger|))
+         (|sol| (|List| (|Equation| (|Polynomial| F))))
+         ($ (|List| (|Matrix| F))))
         (SPROG
          ((|col_Q| #1=(|List| (|NonNegativeInteger|))) (|row_Q| #1#)
           (|col_P| #1#) (#2=#:G1099 NIL) (#3=#:G1098 NIL) (|row_P| #1#)
@@ -3301,7 +3323,7 @@
                          (QREFELT $ 276)))))) 
 
 (SDEFUN |FDALG;factorize;$NniL;124|
-        ((|f| $) (|k| |NonNegativeInteger|) ($ |List| $))
+        ((|f| ($)) (|k| (|NonNegativeInteger|)) ($ (|List| $)))
         (SPROG
          ((#1=#:G1124 NIL) (|l| NIL) (|f_2| ($)) (|f_1| ($))
           (|n_2| (|NonNegativeInteger|)) (#2=#:G1118 NIL)
@@ -3415,7 +3437,7 @@
                   (EXIT (LIST |f_1| |f_2|))))))
           #10# (EXIT #5#)))) 
 
-(SDEFUN |FDALG;factor;$L;125| ((|f| $) ($ |List| $))
+(SDEFUN |FDALG;factor;$L;125| ((|f| ($)) ($ (|List| $)))
         (SPROG
          ((|lst_fct| (|List| $)) (#1=#:G1140 NIL) (#2=#:G1139 NIL)
           (|elt_tmp| ($)) (|flg_irr| (|Boolean|)) (|lst_tmp| (|List| $))
@@ -3508,9 +3530,10 @@
                  (EXIT (SPADCALL |lst_fct| (QREFELT $ 282))))))))) 
 
 (SDEFUN |FDALG;factorizationTransformations;$2NniLL;126|
-        ((|f| $) (|k_rows| |NonNegativeInteger|)
-         (|k_cols| |NonNegativeInteger|)
-         (|sol| |List| (|Equation| (|Polynomial| F))) ($ |List| (|Matrix| F)))
+        ((|f| ($)) (|k_rows| (|NonNegativeInteger|))
+         (|k_cols| (|NonNegativeInteger|))
+         (|sol| (|List| (|Equation| (|Polynomial| F))))
+         ($ (|List| (|Matrix| F))))
         (SPROG
          ((|lst_trn| (|List| (|Matrix| F)))
           (|col_Q| #1=(|List| (|NonNegativeInteger|))) (|row_Q| #1#)
@@ -3548,8 +3571,8 @@
                           (+ 1 |n|) (+ 1 1) (+ 1 |n|) (QREFELT $ 163))))))) 
 
 (SDEFUN |FDALG;factorizationEquations;$2NniL;127|
-        ((|f| $) (|k_rows| |NonNegativeInteger|)
-         (|k_cols| |NonNegativeInteger|) ($ |List| (|Polynomial| F)))
+        ((|f| ($)) (|k_rows| (|NonNegativeInteger|))
+         (|k_cols| (|NonNegativeInteger|)) ($ (|List| (|Polynomial| F))))
         (SPROG
          ((|lst_eqn| (|List| (|Polynomial| F)))
           (|cex2| (|List| (|NonNegativeInteger|)))
@@ -3590,8 +3613,8 @@
               (EXIT |lst_eqn|)))) 
 
 (SDEFUN |FDALG;factorizationGroebner;$2NniL;128|
-        ((|f| $) (|k_rows| |NonNegativeInteger|)
-         (|k_cols| |NonNegativeInteger|) ($ |List| (|Polynomial| F)))
+        ((|f| ($)) (|k_rows| (|NonNegativeInteger|))
+         (|k_cols| (|NonNegativeInteger|)) ($ (|List| (|Polynomial| F))))
         (SPROG
          ((|lst_gro| (|List| (|Polynomial| F))) (#1=#:G1169 NIL) (|eqn| NIL)
           (#2=#:G1168 NIL) (|bas_gro| (|List| |tDMP|))
@@ -3738,9 +3761,9 @@
               (EXIT |lst_gro|)))) 
 
 (SDEFUN |FDALG;factorizationSolve;$2NniL;129|
-        ((|f| $) (|k_rows| |NonNegativeInteger|)
-         (|k_cols| |NonNegativeInteger|)
-         ($ |List| (|List| (|Equation| (|Polynomial| F)))))
+        ((|f| ($)) (|k_rows| (|NonNegativeInteger|))
+         (|k_cols| (|NonNegativeInteger|))
+         ($ (|List| (|List| (|Equation| (|Polynomial| F))))))
         (SPROG
          ((|lst_sol| (|List| (|List| (|Equation| (|Polynomial| F)))))
           (#1=#:G1176 NIL)
@@ -3771,7 +3794,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;refineUR!;$Nni$;130|
-        ((|f| $) (|k_rows| |NonNegativeInteger|) ($ $))
+        ((|f| ($)) (|k_rows| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((|trn_wrk| (|List| (|Matrix| F)))
           (|lst_3| #1=(|List| (|NonNegativeInteger|))) (|lst_1| #1#)
@@ -3865,7 +3888,7 @@
                 (EXIT |f|)))
           #8# (EXIT #7#)))) 
 
-(SDEFUN |FDALG;refineUR!;2$;131| ((|f| $) ($ $))
+(SDEFUN |FDALG;refineUR!;2$;131| ((|f| ($)) ($ ($)))
         (SPROG
          ((#1=#:G1200 NIL) (#2=#:G1195 NIL) (|k| NIL) (#3=#:G1199 NIL)
           (|n| (|NonNegativeInteger|)))
@@ -3885,7 +3908,7 @@
                 (EXIT |f|)))
           #4# (EXIT #3#)))) 
 
-(SDEFUN |FDALG;extendedALS;2$;132| ((|f| $) ($ $))
+(SDEFUN |FDALG;extendedALS;2$;132| ((|f| ($)) ($ ($)))
         (SPROG ((|f_new| ($)))
                (SEQ
                 (LETT |f_new|
@@ -3901,7 +3924,7 @@
                 (|FDALG;qsetu!| (QVELT |f_new| 2) 2 1 (|spadConstant| $ 50) $)
                 (QSETVELT |f_new| 4 (QVELT |f| 4)) (EXIT |f_new|)))) 
 
-(SDEFUN |FDALG;normalALS;2$;133| ((|f| $) ($ $))
+(SDEFUN |FDALG;normalALS;2$;133| ((|f| ($)) ($ ($)))
         (SPROG
          ((|als| ($)) (#1=#:G1222 NIL) (|k| NIL) (|a_ref| (F))
           (|i_ref| (|NonNegativeInteger|)) (#2=#:G1214 NIL)
@@ -4006,8 +4029,8 @@
           #9# (EXIT #6#)))) 
 
 (SDEFUN |FDALG;leftMinimization;$2Nni$;134|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         ($ $))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((#1=#:G1230 NIL) (|g| ($)) (|trn_wrk| (|List| (|Matrix| F)))
           (|lst_2| (|List| (|NonNegativeInteger|))) (#2=#:G1232 NIL) (|i| NIL)
@@ -4053,8 +4076,8 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;rightMinimization;$2Nni$;135|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         ($ $))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((#1=#:G1244 NIL) (|g| ($)) (|trn_wrk| (|List| (|Matrix| F)))
           (|lst_2| (|List| (|NonNegativeInteger|))) (|i| NIL) (#2=#:G1237 NIL)
@@ -4099,7 +4122,7 @@
                   (EXIT |g|)))))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;minimize;2$;136| ((|f| $) ($ $))
+(SDEFUN |FDALG;minimize;2$;136| ((|f| ($)) ($ ($)))
         (SPROG
          ((|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
           (|blo_mtx| (|Matrix| (|NonNegativeInteger|)))
@@ -4208,7 +4231,7 @@
                 (SEQ (QSETVELT |als| 3 'T) (EXIT (QSETVELT |als| 4 'T)))))
               (EXIT |als|)))) 
 
-(SDEFUN |FDALG;addMIN;3$;137| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FDALG;addMIN;3$;137| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG ((|als| ($)))
                (SEQ
                 (LETT |als|
@@ -4216,7 +4239,7 @@
                                 (QREFELT $ 305)))
                 (SPADCALL |als| (QREFELT $ 213)) (EXIT |als|)))) 
 
-(SDEFUN |FDALG;multiplyMIN;3$;138| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FDALG;multiplyMIN;3$;138| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG ((|als| ($)))
                (SEQ
                 (LETT |als|
@@ -4224,44 +4247,44 @@
                                 (QREFELT $ 305)))
                 (SPADCALL |als| (QREFELT $ 213)) (EXIT |als|)))) 
 
-(SDEFUN |FDALG;*;I2$;139| ((|gamma| |Integer|) (|f| $) ($ $))
+(SDEFUN |FDALG;*;I2$;139| ((|gamma| (|Integer|)) (|f| ($)) ($ ($)))
         (SPADCALL |f| (SPADCALL |gamma| (QREFELT $ 308)) (QREFELT $ 230))) 
 
-(SDEFUN |FDALG;*;F2$;140| ((|alpha| F) (|f| $) ($ $))
+(SDEFUN |FDALG;*;F2$;140| ((|alpha| (F)) (|f| ($)) ($ ($)))
         (SPADCALL |f| |alpha| (QREFELT $ 230))) 
 
-(SDEFUN |FDALG;*;$F$;141| ((|f| $) (|alpha| F) ($ $))
+(SDEFUN |FDALG;*;$F$;141| ((|f| ($)) (|alpha| (F)) ($ ($)))
         (SPADCALL |f| |alpha| (QREFELT $ 230))) 
 
-(SDEFUN |FDALG;*;3$;142| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FDALG;*;3$;142| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPADCALL |f| |g| (QREFELT $ 307))) 
 
-(SDEFUN |FDALG;-;$F$;143| ((|f| $) (|alpha| F) ($ $))
+(SDEFUN |FDALG;-;$F$;143| ((|f| ($)) (|alpha| (F)) ($ ($)))
         (SPADCALL |f|
                   (SPADCALL (SPADCALL |alpha| (QREFELT $ 64)) (QREFELT $ 313))
                   (QREFELT $ 306))) 
 
-(SDEFUN |FDALG;+;$F$;144| ((|f| $) (|alpha| F) ($ $))
+(SDEFUN |FDALG;+;$F$;144| ((|f| ($)) (|alpha| (F)) ($ ($)))
         (SPADCALL |f| (SPADCALL |alpha| (QREFELT $ 64)) (QREFELT $ 306))) 
 
-(SDEFUN |FDALG;-;F2$;145| ((|alpha| F) (|f| $) ($ $))
+(SDEFUN |FDALG;-;F2$;145| ((|alpha| (F)) (|f| ($)) ($ ($)))
         (SPADCALL (SPADCALL |alpha| (QREFELT $ 64))
                   (SPADCALL |f| (QREFELT $ 313)) (QREFELT $ 306))) 
 
-(SDEFUN |FDALG;+;F2$;146| ((|alpha| F) (|f| $) ($ $))
+(SDEFUN |FDALG;+;F2$;146| ((|alpha| (F)) (|f| ($)) ($ ($)))
         (SPADCALL (SPADCALL |alpha| (QREFELT $ 64)) |f| (QREFELT $ 306))) 
 
-(SDEFUN |FDALG;-;3$;147| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FDALG;-;3$;147| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPADCALL |f| (SPADCALL |g| (QREFELT $ 313)) (QREFELT $ 306))) 
 
-(SDEFUN |FDALG;+;3$;148| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FDALG;+;3$;148| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPADCALL |f| |g| (QREFELT $ 306))) 
 
-(SDEFUN |FDALG;-;2$;149| ((|f| $) ($ $))
+(SDEFUN |FDALG;-;2$;149| ((|f| ($)) ($ ($)))
         (SPADCALL |f| (SPADCALL (|spadConstant| $ 15) (QREFELT $ 58))
                   (QREFELT $ 62))) 
 
-(SDEFUN |FDALG;/;$F$;150| ((|f| $) (|alpha| F) ($ $))
+(SDEFUN |FDALG;/;$F$;150| ((|f| ($)) (|alpha| (F)) ($ ($)))
         (COND
          ((SPADCALL |alpha| (QREFELT $ 48))
           (|error| "FDALG: f / alpha - division by zero."))
@@ -4270,7 +4293,7 @@
                     (SPADCALL (|spadConstant| $ 15) |alpha| (QREFELT $ 209))
                     (QREFELT $ 62))))) 
 
-(SDEFUN |FDALG;^;$Pi$;151| ((|f| $) (|n| |PositiveInteger|) ($ $))
+(SDEFUN |FDALG;^;$Pi$;151| ((|f| ($)) (|n| (|PositiveInteger|)) ($ ($)))
         (SPROG ((|f_wrk| ($)) (#1=#:G1292 NIL) (|k| NIL))
                (SEQ (LETT |f_wrk| |f|)
                     (SEQ (LETT |k| 2) (LETT #1# |n|) G190
@@ -4282,7 +4305,7 @@
                          (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |f_wrk|)))) 
 
-(SDEFUN |FDALG;standardVector?| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;standardVector?| ((|f| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G1294 NIL))
                (|FDALG;qzerov?| (QVELT |f| 2) 1
                 (PROG1 (LETT #1# (- (QVELT |f| 0) 1))
@@ -4290,7 +4313,7 @@
                                     '(|Integer|) #1#))
                 $))) 
 
-(SDEFUN |FDALG;standardFirstColumn?| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;standardFirstColumn?| ((|f| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G1303 NIL) (#2=#:G1304 NIL) (|l| NIL) (|a_ref| (|List| F))
           (|n| (|NonNegativeInteger|)))
@@ -4318,7 +4341,7 @@
                 (EXIT 'T)))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;standardLastRow?| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;standardLastRow?| ((|f| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G1313 NIL) (#2=#:G1308 NIL) (#3=#:G1314 NIL) (|l| NIL)
           (|a_ref| (|List| F)) (|n| (|NonNegativeInteger|)))
@@ -4351,7 +4374,7 @@
                 (EXIT 'T)))
           #4# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;invertMIN;2$;155| ((|f| $) ($ $))
+(SDEFUN |FDALG;invertMIN;2$;155| ((|f| ($)) ($ ($)))
         (SPROG
          ((|f_inv| ($)) (#1=#:G1340 NIL) (#2=#:G1334 NIL) (#3=#:G1348 NIL)
           (|k| NIL) (#4=#:G1332 NIL) (#5=#:G1347 NIL) (|U_wrk| #6=(|Matrix| F))
@@ -4594,7 +4617,7 @@
             (SPADCALL |f_inv| (QREFELT $ 213)) (EXIT |f_inv|)))
           #19# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;inverse;2$;156| ((|f| $) ($ $))
+(SDEFUN |FDALG;inverse;2$;156| ((|f| ($)) ($ ($)))
         (SEQ
          (COND
           ((NULL (QVELT |f| 3))
@@ -4605,13 +4628,13 @@
                  (SPADCALL (SPADCALL |f| (QREFELT $ 265)) 4
                            (QREFELT $ 324)))))))) 
 
-(SDEFUN |FDALG;inv;2$;157| ((|f| $) ($ $))
+(SDEFUN |FDALG;inv;2$;157| ((|f| ($)) ($ ($)))
         (COND
          ((NULL (QVELT |f| 3))
           (|error| "FDALG: inv(f) - system is not minimal."))
          ('T (SPADCALL (SPADCALL |f| (QREFELT $ 265)) (QREFELT $ 326))))) 
 
-(SDEFUN |FDALG;/;F2$;158| ((|alpha| F) (|f| $) ($ $))
+(SDEFUN |FDALG;/;F2$;158| ((|alpha| (F)) (|f| ($)) ($ ($)))
         (SPROG ((|f_inv| ($)) (#1=#:G1358 NIL))
                (SEQ
                 (EXIT
@@ -4629,7 +4652,7 @@
                   (EXIT |f_inv|)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;/;3$;159| ((|f| $) (|g| $) ($ $))
+(SDEFUN |FDALG;/;3$;159| ((|f| ($)) (|g| ($)) ($ ($)))
         (SPROG ((|f_inv| ($)))
                (SEQ
                 (COND
@@ -4645,7 +4668,7 @@
                                 (QREFELT $ 326)))
                 (EXIT (SPADCALL |f| |f_inv| (QREFELT $ 307)))))) 
 
-(SDEFUN |FDALG;^;$I$;160| ((|f| $) (|n| |Integer|) ($ $))
+(SDEFUN |FDALG;^;$I$;160| ((|f| ($)) (|n| (|Integer|)) ($ ($)))
         (SPROG ((#1=#:G1368 NIL) (#2=#:G1364 NIL) (|g| ($)))
                (SEQ
                 (EXIT
@@ -4671,8 +4694,10 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;qrefinementTransformations|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|sol| |List| (|Equation| (|Polynomial| F))) ($ |List| (|Matrix| F)))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|))
+         (|sol| (|List| (|Equation| (|Polynomial| F))))
+         ($ (|List| (|Matrix| F))))
         (SPROG
          ((|col_Q| #1=(|List| (|NonNegativeInteger|))) (|row_Q| #1#)
           (|col_P| #1#) (#2=#:G1370 NIL) (|row_P| #1#)
@@ -4699,8 +4724,10 @@
                          (QREFELT $ 276)))))) 
 
 (SDEFUN |FDALG;refinementTransformations;$2NniLL;162|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|sol| |List| (|Equation| (|Polynomial| F))) ($ |List| (|Matrix| F)))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|))
+         (|sol| (|List| (|Equation| (|Polynomial| F))))
+         ($ (|List| (|Matrix| F))))
         (SPROG
          ((|lst_trn| (|List| (|Matrix| F)))
           (|col_Q| #1=(|List| (|NonNegativeInteger|))) (|row_Q| #1#)
@@ -4734,9 +4761,10 @@
                           (+ 1 |n|) (+ 1 1) (+ 1 |n|) (QREFELT $ 163))))))) 
 
 (SDEFUN |FDALG;refinementEquations;$3Nni2BL;163|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|k_rows| |NonNegativeInteger|) (|flg_u| |Boolean|)
-         (|flg_r| |Boolean|) ($ |List| (|Polynomial| F)))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) (|k_rows| (|NonNegativeInteger|))
+         (|flg_u| (|Boolean|)) (|flg_r| (|Boolean|))
+         ($ (|List| (|Polynomial| F))))
         (SPROG
          ((|lst_eqn| (|List| (|Polynomial| F)))
           (|cex2| (|List| (|NonNegativeInteger|)))
@@ -4812,9 +4840,10 @@
           (EXIT |lst_eqn|)))) 
 
 (SDEFUN |FDALG;refinementGroebner;$3Nni2BL;164|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|k_rows| |NonNegativeInteger|) (|flg_1| |Boolean|)
-         (|flg_2| |Boolean|) ($ |List| (|Polynomial| F)))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) (|k_rows| (|NonNegativeInteger|))
+         (|flg_1| (|Boolean|)) (|flg_2| (|Boolean|))
+         ($ (|List| (|Polynomial| F))))
         (SPROG
          ((|lst_gro| (|List| (|Polynomial| F))) (#1=#:G1401 NIL) (|eqn| NIL)
           (#2=#:G1400 NIL) (|bas_gro| (|List| |tDMP|))
@@ -4953,9 +4982,10 @@
           (EXIT |lst_gro|)))) 
 
 (SDEFUN |FDALG;refinementSolve;$3Nni2BL;165|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|k_rows| |NonNegativeInteger|) (|flg_u| |Boolean|)
-         (|flg_r| |Boolean|) ($ |List| (|List| (|Equation| (|Polynomial| F)))))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) (|k_rows| (|NonNegativeInteger|))
+         (|flg_u| (|Boolean|)) (|flg_r| (|Boolean|))
+         ($ (|List| (|List| (|Equation| (|Polynomial| F))))))
         (SPROG
          ((|lst_sol| (|List| (|List| (|Equation| (|Polynomial| F)))))
           (#1=#:G1408 NIL)
@@ -4988,8 +5018,9 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;qrefinedGroebner?|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         (|i| |NonNegativeInteger|) ($ |Boolean|))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) (|i| (|NonNegativeInteger|))
+         ($ (|Boolean|)))
         (SPROG ((#1=#:G1414 NIL) (|groe| (|List| (|Polynomial| F))))
                (SEQ
                 (EXIT
@@ -5008,7 +5039,7 @@
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;qrefined?|
-        ((|f| $) (|max_sze| |NonNegativeInteger|) ($ |Boolean|))
+        ((|f| ($)) (|max_sze| (|NonNegativeInteger|)) ($ (|Boolean|)))
         (SPROG
          ((|flg_ref| (|Boolean|)) (#1=#:G1424 NIL) (#2=#:G1426 NIL)
           (#3=#:G1417 NIL) (|i| NIL) (|m| (|NonNegativeInteger|))
@@ -5054,13 +5085,13 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |FDALG;setRefined!;$Nni$;168|
-        ((|f| $) (|max_sze| |NonNegativeInteger|) ($ $))
+        ((|f| ($)) (|max_sze| (|NonNegativeInteger|)) ($ ($)))
         (SEQ (COND ((|FDALG;qrefined?| |f| |max_sze| $) (QSETVELT |f| 4 'T)))
              (EXIT |f|))) 
 
 (SDEFUN |FDALG;refinePERM!|
-        ((|f| $) (|i_min| |NonNegativeInteger|) (|i_max| |NonNegativeInteger|)
-         ($ $))
+        ((|f| ($)) (|i_min| (|NonNegativeInteger|))
+         (|i_max| (|NonNegativeInteger|)) ($ ($)))
         (SPROG
          ((#1=#:G1441 NIL) (|flg_tmp| (|Boolean|)) (#2=#:G1444 NIL) (|j| NIL)
           (#3=#:G1442 NIL) (#4=#:G1432 NIL) (#5=#:G1443 NIL) (#6=#:G1431 NIL)
@@ -5115,7 +5146,7 @@
                    #8# (EXIT #1#))))))
               (EXIT |f|)))) 
 
-(SDEFUN |FDALG;refine!;$B$;170| ((|f| $) (|flg| |Boolean|) ($ $))
+(SDEFUN |FDALG;refine!;$B$;170| ((|f| ($)) (|flg| (|Boolean|)) ($ ($)))
         (SPROG
          ((|blo_mtx| (|Matrix| (|NonNegativeInteger|))) (#1=#:G1471 NIL)
           (|lst_trn| (|List| (|Matrix| F)))
@@ -5271,10 +5302,10 @@
                 (SPADCALL |f| (QREFELT $ 213)) (QSETVELT |f| 4 'T) (EXIT |f|)))
           #10# (EXIT #7#)))) 
 
-(SDEFUN |FDALG;refine!;2$;171| ((|f| $) ($ $))
+(SDEFUN |FDALG;refine!;2$;171| ((|f| ($)) ($ ($)))
         (SPADCALL |f| 'T (QREFELT $ 323))) 
 
-(SDEFUN |FDALG;rank;$Nni;172| ((|f| $) ($ |NonNegativeInteger|))
+(SDEFUN |FDALG;rank;$Nni;172| ((|f| ($)) ($ (|NonNegativeInteger|)))
         (SPROG ((#1=#:G1486 NIL) (|als| ($)))
                (SEQ
                 (EXIT
@@ -5301,7 +5332,7 @@
                   (EXIT (QVELT |als| 0))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;zero?;$B;173| ((|f| $) ($ |Boolean|))
+(SDEFUN |FDALG;zero?;$B;173| ((|f| ($)) ($ (|Boolean|)))
         (SPROG ((#1=#:G1494 NIL) (|als| ($)))
                (SEQ
                 (EXIT
@@ -5331,7 +5362,7 @@
                   (EXIT NIL)))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;=;2$B;174| ((|f| $) (|g| $) ($ |Boolean|))
+(SDEFUN |FDALG;=;2$B;174| ((|f| ($)) (|g| ($)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G1509 NIL) (|trn_wrk| (|List| (|Matrix| F)))
           (|lst_2| #2=(|List| (|NonNegativeInteger|))) (|lst_1| #2#)
@@ -5371,10 +5402,12 @@
             (EXIT (SPADCALL |als| (QREFELT $ 338)))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |FDALG;coerce;$Xdp;175| ((|f| $) ($ |XDistributedPolynomial| VAR F))
+(SDEFUN |FDALG;coerce;$Xdp;175|
+        ((|f| ($)) ($ (|XDistributedPolynomial| VAR F)))
         (SPADCALL |f| (QREFELT $ 217))) 
 
-(SDEFUN |FDALG;coerce;Xdp$;176| ((|p| |XDistributedPolynomial| VAR F) ($ $))
+(SDEFUN |FDALG;coerce;Xdp$;176|
+        ((|p| (|XDistributedPolynomial| VAR F)) ($ ($)))
         (SPROG ((|f_wrk| ($)) (#1=#:G1515 NIL) (|trm| NIL))
                (SEQ (LETT |f_wrk| (|spadConstant| $ 49))
                     (SEQ (LETT |trm| NIL)

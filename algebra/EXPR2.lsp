@@ -1,6 +1,6 @@
 
 (SDEFUN |EXPR2;map;MEE;1|
-        ((|f| |Mapping| S R) (|r| |Expression| R) ($ |Expression| S))
+        ((|f| (|Mapping| S R)) (|r| (|Expression| R)) ($ (|Expression| S)))
         (SPADCALL |f| |r| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |ExpressionFunctions2;|)) 

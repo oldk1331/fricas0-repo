@@ -1,5 +1,5 @@
 
-(SDEFUN |TMFORM;CorkFunc| (($ |HashTable| (|SingleInteger|) (|String|) "EQ"))
+(SDEFUN |TMFORM;CorkFunc| (($ (|HashTable| (|SingleInteger|) (|String|) "EQ")))
         (SPADCALL
          (LIST (CONS 60 "<less>") (CONS 62 "<gtr>") (CONS 160 "<varspace>")
                (CONS 162 "<cent>") (CONS 163 "<sterling>")
@@ -383,7 +383,7 @@
                (CONS 120791 "<b-9>"))
          (QREFELT $ 9))) 
 
-(SDEFUN |TMFORM;coerce;OfS;2| ((|expr| |OutputForm|) ($ |String|))
+(SDEFUN |TMFORM;coerce;OfS;2| ((|expr| (|OutputForm|)) ($ (|String|)))
         (SPROG ((|s| (|String|)))
                (SEQ
                 (LETT |s|
@@ -395,9 +395,9 @@
 
 (PUT '|TMFORM;sayExpr| '|SPADreplace| '|sayTexmacs|) 
 
-(SDEFUN |TMFORM;sayExpr| ((|s| |String|) ($ |Void|)) (|sayTexmacs| |s|)) 
+(SDEFUN |TMFORM;sayExpr| ((|s| (|String|)) ($ (|Void|))) (|sayTexmacs| |s|)) 
 
-(SDEFUN |TMFORM;coerceL;OfS;4| ((|expr| |OutputForm|) ($ |String|))
+(SDEFUN |TMFORM;coerceL;OfS;4| ((|expr| (|OutputForm|)) ($ (|String|)))
         (SPROG ((|s| (|String|)))
                (SEQ
                 (LETT |s|
@@ -408,16 +408,16 @@
                 (|TMFORM;sayExpr| "scheme: (with \"mode\" \"math\"" $)
                 (|TMFORM;sayExpr| |s| $) (|TMFORM;sayExpr| ")" $) (EXIT |s|)))) 
 
-(SDEFUN |TMFORM;display;SV;5| ((|texmacs| |String|) ($ |Void|))
+(SDEFUN |TMFORM;display;SV;5| ((|texmacs| (|String|)) ($ (|Void|)))
         (SEQ (|TMFORM;sayExpr| "scheme: (with \"mode\" \"math\"" $)
              (|TMFORM;sayExpr| |texmacs| $) (|TMFORM;sayExpr| ")" $)
              (EXIT (SPADCALL (QREFELT $ 33))))) 
 
 (PUT '|TMFORM;ungroup| '|SPADreplace| '(XLAM (|str|) |str|)) 
 
-(SDEFUN |TMFORM;ungroup| ((|str| |String|) ($ |String|)) |str|) 
+(SDEFUN |TMFORM;ungroup| ((|str| (|String|)) ($ (|String|))) |str|) 
 
-(SDEFUN |TMFORM;postcondition| ((|str| |String|) ($ |String|))
+(SDEFUN |TMFORM;postcondition| ((|str| (|String|)) ($ (|String|)))
         (SPROG
          ((|uend| #1=(|UniversalSegment| (|Integer|))) (|ustart| #1#)
           (|pos| (|Integer|)) (|plusminus| (|String|)) (|len| (|Integer|)))
@@ -441,17 +441,18 @@
               (EXIT |str|)))) 
 
 (SDEFUN |TMFORM;optionalWrap|
-        ((|s| |String|) (|expr| |OutputForm|) (|prec| |Integer|) ($ |String|))
+        ((|s| (|String|)) (|expr| (|OutputForm|)) (|prec| (|Integer|))
+         ($ (|String|)))
         (SPROG ((|tmp| (|String|)))
                (SEQ (LETT |tmp| (|TMFORM;formatExpr| |expr| |prec| $))
                     (COND ((OR (EQUAL |tmp| "") (EQUAL |tmp| " ")) (EXIT "")))
                     (EXIT
                      (SPADCALL (LIST "(" |s| " " |tmp| ")") (QREFELT $ 41)))))) 
 
-(SDEFUN |TMFORM;group| ((|str| |String|) ($ |String|))
+(SDEFUN |TMFORM;group| ((|str| (|String|)) ($ (|String|)))
         (SPADCALL (LIST "(concat " |str| ")") (QREFELT $ 41))) 
 
-(SDEFUN |TMFORM;cork| ((|x| |SingleInteger|) ($ |String|))
+(SDEFUN |TMFORM;cork| ((|x| (|SingleInteger|)) ($ (|String|)))
         (SPROG ((|s| (|String|)) (|res| (|Union| (|String|) "failed")))
                (SEQ (LETT |res| (SPADCALL |x| (QREFELT $ 10) (QREFELT $ 44)))
                     (EXIT
@@ -466,7 +467,7 @@
                         (#1='T (NUM2USTR |x|))))
                       (#1# (QCDR |res|))))))) 
 
-(SDEFUN |TMFORM;utf2cork| ((|str| |String|) ($ |String|))
+(SDEFUN |TMFORM;utf2cork| ((|str| (|String|)) ($ (|String|)))
         (SPROG ((#1=#:G224 NIL) (|i| NIL) (#2=#:G223 NIL))
                (SEQ
                 (SPADCALL
@@ -481,18 +482,18 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 41))))) 
 
-(SDEFUN |TMFORM;addBraces| ((|str| |String|) ($ |String|))
+(SDEFUN |TMFORM;addBraces| ((|str| (|String|)) ($ (|String|)))
         (SPADCALL (LIST " \"{\" " |str| " \"}\" ") (QREFELT $ 41))) 
 
-(SDEFUN |TMFORM;addBrackets| ((|str| |String|) ($ |String|))
+(SDEFUN |TMFORM;addBrackets| ((|str| (|String|)) ($ (|String|)))
         (SPADCALL (LIST " \"[\" " |str| " \"]\" ") (QREFELT $ 41))) 
 
-(SDEFUN |TMFORM;parenthesize| ((|str| |String|) ($ |String|))
+(SDEFUN |TMFORM;parenthesize| ((|str| (|String|)) ($ (|String|)))
         (SPADCALL (LIST " \"(\" " |str| " \")\" ") (QREFELT $ 41))) 
 
 (SDEFUN |TMFORM;formatSpecial|
-        ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
-         ($ |String|))
+        ((|op| (|Symbol|)) (|args| (|List| (|OutputForm|)))
+         (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|tmp| (|String|)) (|base| (|String|)) (|prescript| (|Boolean|)))
          (SEQ (LETT |prescript| NIL)
@@ -725,8 +726,8 @@
                        (QREFELT $ 41)))))))) 
 
 (SDEFUN |TMFORM;formatPlex|
-        ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
-         ($ |String|))
+        ((|op| (|Symbol|)) (|args| (|List| (|OutputForm|)))
+         (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|t1| #1=(|String|)) (|t2| (|String|)) (|body| #1#)
           (|ops| (|String|)) (|n| (|Integer|)) (|opPrec| (|Integer|))
@@ -815,7 +816,7 @@
                        (EXIT |s|)))))))) 
 
 (SDEFUN |TMFORM;formatIntBody|
-        ((|body| |OutputForm|) (|opPrec| |Integer|) ($ |String|))
+        ((|body| (|OutputForm|)) (|opPrec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((#1=#:G286 NIL) (|bvarS| (|String|))
           (|bvarL| #2=(|List| (|OutputForm|))) (|bvar| (|OutputForm|))
@@ -868,7 +869,7 @@
             (EXIT (|TMFORM;formatExpr| |body| |opPrec| $))))
           #3# (EXIT #1#)))) 
 
-(SDEFUN |TMFORM;formatMatrix| ((|args| |List| (|OutputForm|)) ($ |String|))
+(SDEFUN |TMFORM;formatMatrix| ((|args| (|List| (|OutputForm|))) ($ (|String|)))
         (|TMFORM;group|
          (SPADCALL
           (LIST "(matrix (tformat (table (row (cell "
@@ -879,8 +880,8 @@
          $)) 
 
 (SDEFUN |TMFORM;formatFunction|
-        ((|op| |OutputForm|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
-         ($ |String|))
+        ((|op| (|OutputForm|)) (|args| (|List| (|OutputForm|)))
+         (|prec| (|Integer|)) ($ (|String|)))
         (SPROG ((|ops| (|String|)))
                (SEQ (LETT |ops| (|TMFORM;formatExpr| |op| (QREFELT $ 13) $))
                     (EXIT
@@ -894,7 +895,7 @@
                        (QREFELT $ 41))
                       $))))) 
 
-(SDEFUN |TMFORM;formatNullary| ((|op| |Symbol|) ($ |String|))
+(SDEFUN |TMFORM;formatNullary| ((|op| (|Symbol|)) ($ (|String|)))
         (COND ((EQUAL |op| 'NOTHING) "\"\"")
               ('T
                (|TMFORM;group|
@@ -903,7 +904,8 @@
                 $)))) 
 
 (SDEFUN |TMFORM;formatUnary|
-        ((|op| |Symbol|) (|arg| |OutputForm|) (|prec| |Integer|) ($ |String|))
+        ((|op| (|Symbol|)) (|arg| (|OutputForm|)) (|prec| (|Integer|))
+         ($ (|String|)))
         (SPROG ((|s| (|String|)) (|opPrec| (|Integer|)) (|p| (|Integer|)))
                (SEQ (LETT |p| (SPADCALL |op| (QREFELT $ 14) (QREFELT $ 56)))
                     (EXIT
@@ -930,8 +932,8 @@
                                (#1# (|TMFORM;group| |s| $))))))))))) 
 
 (SDEFUN |TMFORM;formatBinary|
-        ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
-         ($ |String|))
+        ((|op| (|Symbol|)) (|args| (|List| (|OutputForm|)))
+         (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|ops| (|String|)) (|s2| #1=(|String|)) (|s1| #1#)
           (|opPrec| (|Integer|)) (|p| (|Integer|)))
@@ -1003,14 +1005,14 @@
                          $))))))))) 
 
 (SDEFUN |TMFORM;formatNary|
-        ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
-         (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
+        ((|op| (|Symbol|)) (|sep| (|String|)) (|opprec| (|Integer|))
+         (|args| (|List| (|OutputForm|))) (|prec| (|Integer|)) ($ (|String|)))
         (|TMFORM;group|
          (|TMFORM;formatNaryNoGroup| |op| |sep| |opprec| |args| |prec| $) $)) 
 
 (SDEFUN |TMFORM;formatNaryNoGroup|
-        ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
-         (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
+        ((|op| (|Symbol|)) (|sep| (|String|)) (|opprec| (|Integer|))
+         (|args| (|List| (|OutputForm|))) (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G317 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
@@ -1085,7 +1087,7 @@
                                   (|TMFORM;parenthesize| |s| $))
                                  (#2# |s|))))))))))))) 
 
-(SDEFUN |TMFORM;formatZag| ((|args| |List| (|OutputForm|)) ($ |String|))
+(SDEFUN |TMFORM;formatZag| ((|args| (|List| (|OutputForm|))) ($ (|String|)))
         (SPROG ((|tmpZag| (|List| (|OutputForm|))))
                (SEQ
                 (COND
@@ -1135,7 +1137,7 @@
                                 (QREFELT $ 60))))))))))) 
 
 (SDEFUN |TMFORM;formatExpr|
-        ((|expr| |OutputForm|) (|prec| |Integer|) ($ |String|))
+        ((|expr| (|OutputForm|)) (|prec| (|Integer|)) ($ (|String|)))
         (SPROG
          ((|op| #1=(|Symbol|)) (|nargs| (|Integer|))
           (|args| (|List| (|OutputForm|))) (|opf| (|OutputForm|))

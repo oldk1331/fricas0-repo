@@ -1,9 +1,9 @@
 
 (PUT '|COORDSYS;cartesian;2P;1| '|SPADreplace| '(XLAM (|pt|) |pt|)) 
 
-(SDEFUN |COORDSYS;cartesian;2P;1| ((|pt| |Point| R) ($ |Point| R)) |pt|) 
+(SDEFUN |COORDSYS;cartesian;2P;1| ((|pt| (|Point| R)) ($ (|Point| R))) |pt|) 
 
-(SDEFUN |COORDSYS;polar;2P;2| ((|pt0| |Point| R) ($ |Point| R))
+(SDEFUN |COORDSYS;polar;2P;2| ((|pt0| (|Point| R)) ($ (|Point| R)))
         (SPROG ((|theta| (R)) (|r| (R)) (|pt| (|Point| R)))
                (SEQ (LETT |pt| (SPADCALL |pt0| (QREFELT $ 9)))
                     (LETT |r| (SPADCALL |pt0| 1 (QREFELT $ 12)))
@@ -18,10 +18,10 @@
                               (QREFELT $ 15))
                     (EXIT |pt|)))) 
 
-(SDEFUN |COORDSYS;cylindrical;2P;3| ((|pt0| |Point| R) ($ |Point| R))
+(SDEFUN |COORDSYS;cylindrical;2P;3| ((|pt0| (|Point| R)) ($ (|Point| R)))
         (SPADCALL |pt0| (QREFELT $ 17))) 
 
-(SDEFUN |COORDSYS;spherical;2P;4| ((|pt0| |Point| R) ($ |Point| R))
+(SDEFUN |COORDSYS;spherical;2P;4| ((|pt0| (|Point| R)) ($ (|Point| R)))
         (SPROG ((|phi| (R)) (|theta| (R)) (|r| (R)) (|pt| (|Point| R)))
                (SEQ (LETT |pt| (SPADCALL |pt0| (QREFELT $ 9)))
                     (LETT |r| (SPADCALL |pt0| 1 (QREFELT $ 12)))
@@ -47,7 +47,7 @@
                               (QREFELT $ 15))
                     (EXIT |pt|)))) 
 
-(SDEFUN |COORDSYS;parabolic;2P;5| ((|pt0| |Point| R) ($ |Point| R))
+(SDEFUN |COORDSYS;parabolic;2P;5| ((|pt0| (|Point| R)) ($ (|Point| R)))
         (SPROG ((|v| (R)) (|u| (R)) (|pt| (|Point| R)))
                (SEQ (LETT |pt| (SPADCALL |pt0| (QREFELT $ 9)))
                     (LETT |u| (SPADCALL |pt0| 1 (QREFELT $ 12)))
@@ -63,10 +63,10 @@
                               (QREFELT $ 15))
                     (EXIT |pt|)))) 
 
-(SDEFUN |COORDSYS;parabolicCylindrical;2P;6| ((|pt0| |Point| R) ($ |Point| R))
-        (SPADCALL |pt0| (QREFELT $ 23))) 
+(SDEFUN |COORDSYS;parabolicCylindrical;2P;6|
+        ((|pt0| (|Point| R)) ($ (|Point| R))) (SPADCALL |pt0| (QREFELT $ 23))) 
 
-(SDEFUN |COORDSYS;paraboloidal;2P;7| ((|pt0| |Point| R) ($ |Point| R))
+(SDEFUN |COORDSYS;paraboloidal;2P;7| ((|pt0| (|Point| R)) ($ (|Point| R)))
         (SPROG ((|phi| (R)) (|v| (R)) (|u| (R)) (|pt| (|Point| R)))
                (SEQ (LETT |pt| (SPADCALL |pt0| (QREFELT $ 9)))
                     (LETT |u| (SPADCALL |pt0| 1 (QREFELT $ 12)))
@@ -92,7 +92,7 @@
                     (EXIT |pt|)))) 
 
 (SDEFUN |COORDSYS;elliptic;RM;8|
-        ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
+        ((|a| (R)) ($ (|Mapping| (|Point| R) (|Point| R))))
         (SPROG NIL (SEQ (CONS #'|COORDSYS;elliptic;RM;8!0| (VECTOR |a| $))))) 
 
 (SDEFUN |COORDSYS;elliptic;RM;8!0| ((|x| NIL) ($$ NIL))
@@ -124,11 +124,11 @@
                         (EXIT |pt|))))))) 
 
 (SDEFUN |COORDSYS;ellipticCylindrical;RM;9|
-        ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
+        ((|a| (R)) ($ (|Mapping| (|Point| R) (|Point| R))))
         (SPADCALL |a| (QREFELT $ 32))) 
 
 (SDEFUN |COORDSYS;prolateSpheroidal;RM;10|
-        ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
+        ((|a| (R)) ($ (|Mapping| (|Point| R) (|Point| R))))
         (SPROG NIL
                (SEQ
                 (CONS #'|COORDSYS;prolateSpheroidal;RM;10!0| (VECTOR |a| $))))) 
@@ -178,7 +178,7 @@
                         (EXIT |pt|))))))) 
 
 (SDEFUN |COORDSYS;oblateSpheroidal;RM;11|
-        ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
+        ((|a| (R)) ($ (|Mapping| (|Point| R) (|Point| R))))
         (SPROG NIL
                (SEQ
                 (CONS #'|COORDSYS;oblateSpheroidal;RM;11!0| (VECTOR |a| $))))) 
@@ -228,7 +228,7 @@
                         (EXIT |pt|))))))) 
 
 (SDEFUN |COORDSYS;bipolar;RM;12|
-        ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
+        ((|a| (R)) ($ (|Mapping| (|Point| R) (|Point| R))))
         (SPROG NIL (SEQ (CONS #'|COORDSYS;bipolar;RM;12!0| (VECTOR |a| $))))) 
 
 (SDEFUN |COORDSYS;bipolar;RM;12!0| ((|x| NIL) ($$ NIL))
@@ -264,11 +264,11 @@
                         (EXIT |pt|))))))) 
 
 (SDEFUN |COORDSYS;bipolarCylindrical;RM;13|
-        ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
+        ((|a| (R)) ($ (|Mapping| (|Point| R) (|Point| R))))
         (SPADCALL |a| (QREFELT $ 36))) 
 
 (SDEFUN |COORDSYS;toroidal;RM;14|
-        ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
+        ((|a| (R)) ($ (|Mapping| (|Point| R) (|Point| R))))
         (SPROG NIL (SEQ (CONS #'|COORDSYS;toroidal;RM;14!0| (VECTOR |a| $))))) 
 
 (SDEFUN |COORDSYS;toroidal;RM;14!0| ((|x| NIL) ($$ NIL))
@@ -320,7 +320,7 @@
                         (EXIT |pt|))))))) 
 
 (SDEFUN |COORDSYS;conical;2RM;15|
-        ((|a| R) (|b| R) ($ |Mapping| (|Point| R) (|Point| R)))
+        ((|a| (R)) (|b| (R)) ($ (|Mapping| (|Point| R) (|Point| R))))
         (SPROG NIL
                (SEQ (CONS #'|COORDSYS;conical;2RM;15!0| (VECTOR |b| |a| $))))) 
 

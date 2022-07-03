@@ -1,7 +1,7 @@
 
 (SDEFUN |RINTERP;interpolate;2L2NniF;1|
-        ((|xlist| |List| F) (|ylist| |List| F) (|m| |NonNegativeInteger|)
-         (|k| |NonNegativeInteger|) ($ |Fraction| (|Polynomial| F)))
+        ((|xlist| (|List| F)) (|ylist| (|List| F)) (|m| (|NonNegativeInteger|))
+         (|k| (|NonNegativeInteger|)) ($ (|Fraction| (|Polynomial| F))))
         (SPROG
          ((|reslist| (|List| (|List| (|Polynomial| F)))) (#1=#:G154 NIL)
           (|i| NIL) (#2=#:G153 NIL) (#3=#:G152 NIL) (#4=#:G151 NIL)

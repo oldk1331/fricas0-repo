@@ -1,19 +1,20 @@
 
 (PUT '|HASHTBL;keys;$L;1| '|SPADreplace| 'HKEYS) 
 
-(SDEFUN |HASHTBL;keys;$L;1| ((|t| $) ($ |List| |Key|)) (HKEYS |t|)) 
+(SDEFUN |HASHTBL;keys;$L;1| ((|t| ($)) ($ (|List| |Key|))) (HKEYS |t|)) 
 
 (PUT '|HASHTBL;#;$Nni;2| '|SPADreplace| 'HCOUNT) 
 
-(SDEFUN |HASHTBL;#;$Nni;2| ((|t| $) ($ |NonNegativeInteger|)) (HCOUNT |t|)) 
+(SDEFUN |HASHTBL;#;$Nni;2| ((|t| ($)) ($ (|NonNegativeInteger|))) (HCOUNT |t|)) 
 
 (PUT '|HASHTBL;setelt!;$Key2Entry;3| '|SPADreplace| 'HPUT) 
 
 (SDEFUN |HASHTBL;setelt!;$Key2Entry;3|
-        ((|t| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|)) (HPUT |t| |k| |e|)) 
+        ((|t| ($)) (|k| (|Key|)) (|e| (|Entry|)) ($ (|Entry|)))
+        (HPUT |t| |k| |e|)) 
 
 (SDEFUN |HASHTBL;remove!;Key$U;4|
-        ((|k| |Key|) (|t| $) ($ |Union| |Entry| "failed"))
+        ((|k| (|Key|)) (|t| ($)) ($ (|Union| |Entry| "failed")))
         (SPROG ((|r| (|None|)))
                (SEQ (LETT |r| (HGET2 |t| |k| (QREFELT $ 9)))
                     (COND
@@ -21,10 +22,10 @@
                       (EXIT (SEQ (HREM |t| |k|) (EXIT (CONS 0 |r|))))))
                     (EXIT (CONS 1 "failed"))))) 
 
-(SDEFUN |HASHTBL;empty;$;5| (($ $)) (MAKE_HASHTABLE (INTERN (QREFELT $ 8)))) 
+(SDEFUN |HASHTBL;empty;$;5| (($ ($))) (MAKE_HASHTABLE (INTERN (QREFELT $ 8)))) 
 
 (SDEFUN |HASHTBL;search;Key$U;6|
-        ((|k| |Key|) (|t| $) ($ |Union| |Entry| "failed"))
+        ((|k| (|Key|)) (|t| ($)) ($ (|Union| |Entry| "failed")))
         (SPROG ((|r| (|None|)))
                (SEQ (LETT |r| (HGET2 |t| |k| (QREFELT $ 9)))
                     (COND ((NULL (EQ |r| (QREFELT $ 9))) (EXIT (CONS 0 |r|))))

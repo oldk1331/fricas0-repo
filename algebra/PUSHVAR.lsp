@@ -1,11 +1,11 @@
 
-(SDEFUN |PUSHVAR;pushdown;PPROVPPR;1| ((|g| PPR) (|x| OV) ($ PPR))
+(SDEFUN |PUSHVAR;pushdown;PPROVPPR;1| ((|g| (PPR)) (|x| (OV)) ($ (PPR)))
         (SPADCALL |g| |x|
                   (SPADCALL (|spadConstant| $ 13) (SPADCALL |x| (QREFELT $ 15))
                             1 (QREFELT $ 17))
                   (QREFELT $ 18))) 
 
-(SDEFUN |PUSHVAR;pushdown;PPRLPPR;2| ((|g| PPR) (|lv| |List| OV) ($ PPR))
+(SDEFUN |PUSHVAR;pushdown;PPRLPPR;2| ((|g| (PPR)) (|lv| (|List| OV)) ($ (PPR)))
         (SPROG
          ((|vals| (|List| (|Polynomial| R))) (#1=#:G128 NIL) (|x| NIL)
           (#2=#:G127 NIL))
@@ -30,7 +30,7 @@
           (EXIT (SPADCALL |g| |lv| |vals| (QREFELT $ 22)))))) 
 
 (SDEFUN |PUSHVAR;map;M2PPR;3|
-        ((|f| |Mapping| PPR (|Polynomial| R)) (|p| PPR) ($ PPR))
+        ((|f| (|Mapping| PPR (|Polynomial| R))) (|p| (PPR)) ($ (PPR)))
         (SPROG ((|v| (OV)) (#1=#:G130 NIL))
                (SEQ
                 (COND
@@ -57,7 +57,8 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 30)))))) 
 
-(SDEFUN |PUSHVAR;pushupCoef| ((|c| |Polynomial| R) (|lv| |List| OV) ($ PPR))
+(SDEFUN |PUSHVAR;pushupCoef|
+        ((|c| (|Polynomial| R)) (|lv| (|List| OV)) ($ (PPR)))
         (SPROG
          ((|uc| (|SparseUnivariatePolynomial| (|Polynomial| R))) (|ppr| (PPR))
           (|v2| (|Union| OV "failed")) (|v| (|Symbol|)) (#1=#:G148 NIL))
@@ -124,7 +125,7 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT |ppr|))))))))))) 
 
-(SDEFUN |PUSHVAR;pushup;PPROVPPR;5| ((|f| PPR) (|x| OV) ($ PPR))
+(SDEFUN |PUSHVAR;pushup;PPROVPPR;5| ((|f| (PPR)) (|x| (OV)) ($ (PPR)))
         (SPROG NIL
                (SPADCALL (CONS #'|PUSHVAR;pushup;PPROVPPR;5!0| (VECTOR $ |x|))
                          |f| (QREFELT $ 30)))) 
@@ -135,7 +136,7 @@
           (LETT $ (QREFELT $$ 0))
           (RETURN (PROGN (|PUSHVAR;pushupCoef| |y| (LIST |x|) $))))) 
 
-(SDEFUN |PUSHVAR;pushup;PPRLPPR;6| ((|g| PPR) (|lv| |List| OV) ($ PPR))
+(SDEFUN |PUSHVAR;pushup;PPRLPPR;6| ((|g| (PPR)) (|lv| (|List| OV)) ($ (PPR)))
         (SPROG NIL
                (SPADCALL (CONS #'|PUSHVAR;pushup;PPRLPPR;6!0| (VECTOR $ |lv|))
                          |g| (QREFELT $ 30)))) 

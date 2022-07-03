@@ -1,6 +1,7 @@
 
 (SDEFUN |FSFUN;bernoulli_gamma_series|
-        ((|z| |Complex| (|Float|)) (|n| |Integer|) ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) (|n| (|Integer|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|s| #1=(|Complex| (|Float|))) (|bk| (|Float|)) (|kinv| (|Float|))
           (|zk| #2=(|Complex| (|Float|))) (#3=#:G157 NIL) (|k| NIL)
@@ -39,7 +40,8 @@
                    (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL))
               (EXIT |s|)))) 
 
-(SDEFUN |FSFUN;logGamma_a1| ((|z| |Complex| (|Float|)) ($ |Complex| (|Float|)))
+(SDEFUN |FSFUN;logGamma_a1|
+        ((|z| (|Complex| (|Float|))) ($ (|Complex| (|Float|))))
         (SPADCALL
          (SPADCALL
           (SPADCALL
@@ -57,7 +59,8 @@
          (QREFELT $ 23))) 
 
 (SDEFUN |FSFUN;logGamma_asymptotic|
-        ((|z| |Complex| (|Float|)) (|n| |Integer|) ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) (|n| (|Integer|))
+         ($ (|Complex| (|Float|))))
         (SPROG ((|lg1| (|Complex| (|Float|))))
                (SEQ (LETT |lg1| (|FSFUN;logGamma_a1| |z| $))
                     (EXIT
@@ -65,8 +68,8 @@
                                (QREFELT $ 23)))))) 
 
 (SDEFUN |FSFUN;gamma_series|
-        ((|z| |Complex| (|Float|)) (|l| |Float|) (|n| |Integer|)
-         ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) (|l| (|Float|)) (|n| (|Integer|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|s| #1=(|Complex| (|Float|))) (|tk| #1#) (#2=#:G165 NIL) (|k| NIL))
          (SEQ
@@ -99,7 +102,8 @@
                       (QREFELT $ 22))
                      (QREFELT $ 9)))))) 
 
-(SDEFUN |FSFUN;Gamma;2C;5| ((|z| |Complex| (|Float|)) ($ |Complex| (|Float|)))
+(SDEFUN |FSFUN;Gamma;2C;5|
+        ((|z| (|Complex| (|Float|))) ($ (|Complex| (|Float|))))
         (SPROG
          ((|result| (|Complex| (|Float|))) (|l1| (|PositiveInteger|))
           (#1=#:G176 NIL) (|llog| (|PositiveInteger|)) (#2=#:G174 NIL)
@@ -275,8 +279,8 @@
            (#7# (|error| "Gamma can only handle base 2 Float-s")))))) 
 
 (SDEFUN |FSFUN;logGamma_lift|
-        ((|z| |Complex| (|Float|)) (|lg2| |Complex| (|Float|))
-         ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) (|lg2| (|Complex| (|Float|)))
+         ($ (|Complex| (|Float|))))
         (SPROG ((|k| (|Float|)) (|lg2i| (|Float|)))
                (SEQ (LETT |lg2i| (SPADCALL |lg2| (QREFELT $ 55)))
                     (LETT |k|
@@ -303,7 +307,7 @@
                                (QREFELT $ 23)))))) 
 
 (SDEFUN |FSFUN;logGamma;2C;7|
-        ((|z| |Complex| (|Float|)) ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) ($ (|Complex| (|Float|))))
         (SPROG
          ((|result| #1=(|Complex| (|Float|))) (|l1| (|PositiveInteger|))
           (#2=#:G191 NIL) (|l| (|PositiveInteger|)) (|abs_z| #3=(|Float|))
@@ -424,11 +428,11 @@
                          (EXIT |result|)))))))))))
            (#4# (|error| "Gamma can only handle base 2 Float-s")))))) 
 
-(SDEFUN |FSFUN;Gamma;2F;8| ((|x| |Float|) ($ |Float|))
+(SDEFUN |FSFUN;Gamma;2F;8| ((|x| (|Float|)) ($ (|Float|)))
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 45))
                   (QREFELT $ 36))) 
 
-(SDEFUN |FSFUN;logGamma;2F;9| ((|x| |Float|) ($ |Float|))
+(SDEFUN |FSFUN;logGamma;2F;9| ((|x| (|Float|)) ($ (|Float|)))
         (COND
          ((SPADCALL |x| (|spadConstant| $ 58) (QREFELT $ 62))
           (|error| "Argument to logGamma <= 0"))
@@ -437,8 +441,8 @@
                     (QREFELT $ 36))))) 
 
 (SDEFUN |FSFUN;Beta;3C;10|
-        ((|x| |Complex| (|Float|)) (|y| |Complex| (|Float|))
-         ($ |Complex| (|Float|)))
+        ((|x| (|Complex| (|Float|))) (|y| (|Complex| (|Float|)))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|res| (|Complex| (|Float|))) (|l1| (|PositiveInteger|))
           (|l0| (|PositiveInteger|)))
@@ -458,29 +462,30 @@
                  (SPADCALL |l0| (QREFELT $ 40)) (EXIT |res|)))
            ('T (|error| "Beta can only handle base 2 Float-s")))))) 
 
-(SDEFUN |FSFUN;Beta;3F;11| ((|x| |Float|) (|y| |Float|) ($ |Float|))
+(SDEFUN |FSFUN;Beta;3F;11| ((|x| (|Float|)) (|y| (|Float|)) ($ (|Float|)))
         (SPADCALL
          (SPADCALL (SPADCALL |x| (QREFELT $ 22)) (SPADCALL |y| (QREFELT $ 22))
                    (QREFELT $ 64))
          (QREFELT $ 36))) 
 
-(SDEFUN |FSFUN;rabs;2F;12| ((|r| |Float|) ($ |Float|))
+(SDEFUN |FSFUN;rabs;2F;12| ((|r| (|Float|)) ($ (|Float|)))
         (SPADCALL |r| (QREFELT $ 66))) 
 
-(SDEFUN |FSFUN;rabs;CF;13| ((|r| |Complex| (|Float|)) ($ |Float|))
+(SDEFUN |FSFUN;rabs;CF;13| ((|r| (|Complex| (|Float|))) ($ (|Float|)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 47)) (QREFELT $ 36))) 
 
 (PUT '|FSFUN;rabs;2Df;14| '|SPADreplace| '|abs_DF|) 
 
-(SDEFUN |FSFUN;rabs;2Df;14| ((|r| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |FSFUN;rabs;2Df;14| ((|r| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (|abs_DF| |r|)) 
 
-(SDEFUN |FSFUN;rabs;CDf;15| ((|r| |Complex| (|DoubleFloat|)) ($ |DoubleFloat|))
+(SDEFUN |FSFUN;rabs;CDf;15|
+        ((|r| (|Complex| (|DoubleFloat|))) ($ (|DoubleFloat|)))
         (SPADCALL (SPADCALL |r| (QREFELT $ 72)) (QREFELT $ 73))) 
 
 (SDEFUN |FSFUN;digamma_euler_maclaurin|
-        ((|a| |Complex| (|Float|)) (|n| |Integer|) (|m| |Integer|)
-         ($ |Complex| (|Float|)))
+        ((|a| (|Complex| (|Float|))) (|n| (|Integer|)) (|m| (|Integer|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|res| (|Complex| (|Float|))) (|bk| (|Float|))
           (|ns1| (|Complex| (|Float|))) (|kfac| (|Float|)) (#1=#:G212 NIL)
@@ -535,7 +540,8 @@
               (EXIT (SPADCALL |res| (QREFELT $ 75)))))) 
 
 (SDEFUN |FSFUN;digamma_aux|
-        ((|a| |Complex| (|Float|)) (|l| |Integer|) ($ |Complex| (|Float|)))
+        ((|a| (|Complex| (|Float|))) (|l| (|Integer|))
+         ($ (|Complex| (|Float|))))
         (SPROG ((|abs_a| (|Float|)))
                (SEQ
                 (LETT |abs_a|
@@ -552,7 +558,7 @@
                     (+ (QUOTIENT2 |l| 6) 1) $))))))) 
 
 (SDEFUN |FSFUN;digamma;2C;18|
-        ((|a| |Complex| (|Float|)) ($ |Complex| (|Float|)))
+        ((|a| (|Complex| (|Float|))) ($ (|Complex| (|Float|))))
         (SPROG
          ((|ap| (|Complex| (|Float|))) (|r_pi| (|Float|))
           (|a1| (|Complex| (|Float|))) (|re_aint| (|Float|))
@@ -613,14 +619,15 @@
                          (EXIT (|FSFUN;digamma_aux| |a| |l| $)))))))
                 (SPADCALL |l0| (QREFELT $ 40))))))) 
 
-(SDEFUN |FSFUN;digamma;2F;19| ((|z| |Float|) ($ |Float|))
+(SDEFUN |FSFUN;digamma;2F;19| ((|z| (|Float|)) ($ (|Float|)))
         (SPADCALL
          (SPADCALL (SPADCALL |z| (|spadConstant| $ 58) (QREFELT $ 59))
                    (QREFELT $ 79))
          (QREFELT $ 36))) 
 
 (SDEFUN |FSFUN;li2_series|
-        ((|z| |Complex| (|Float|)) (|prec| |Integer|) ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) (|prec| (|Integer|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|res| (|Complex| (|Float|))) (|ck| (|Float|)) (|k2| (|Integer|))
           (|k| (|Integer|)) (#1=#:G227 NIL) (|i| NIL) (|n| (|Integer|))
@@ -671,7 +678,8 @@
                          (QREFELT $ 9)))))) 
 
 (SDEFUN |FSFUN;li2_aux|
-        ((|z| |Complex| (|Float|)) (|prec| |Integer|) ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) (|prec| (|Integer|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|lz1| #1=(|Complex| (|Float|))) (|nz1| #2=(|Float|)) (|lz| #1#)
           (|lmz| #1#) (|pi_fac| (|Float|)) (|rpi| (|Float|))
@@ -851,7 +859,8 @@
                                 (#3#
                                  (|FSFUN;li2_series| |z| |prec| $))))))))))))))) 
 
-(SDEFUN |FSFUN;li2;2C;22| ((|z| |Complex| (|Float|)) ($ |Complex| (|Float|)))
+(SDEFUN |FSFUN;li2;2C;22|
+        ((|z| (|Complex| (|Float|))) ($ (|Complex| (|Float|))))
         (SPROG ((|prec| (|PositiveInteger|)) (|obits| (|PositiveInteger|)))
                (SEQ (LETT |obits| (SPADCALL (QREFELT $ 35)))
                     (LETT |prec| (+ |obits| 5))
@@ -862,7 +871,8 @@
                       (SPADCALL |obits| (QREFELT $ 40))))))) 
 
 (SDEFUN |FSFUN;dilog_aux|
-        ((|z| |Complex| (|Float|)) (|prec| |Integer|) ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) (|prec| (|Integer|))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|res| (|Complex| (|Float|))) (|lz1| #1=(|Complex| (|Float|)))
           (|lz| #1#) (|pi_fac| (|Float|)) (|rpi| (|Float|)) (|nz| (|Float|)))
@@ -904,7 +914,8 @@
                   (SPADCALL (|spadConstant| $ 7) |z| (QREFELT $ 24)) |prec|
                   $))))))) 
 
-(SDEFUN |FSFUN;dilog;2C;24| ((|z| |Complex| (|Float|)) ($ |Complex| (|Float|)))
+(SDEFUN |FSFUN;dilog;2C;24|
+        ((|z| (|Complex| (|Float|))) ($ (|Complex| (|Float|))))
         (SPROG ((|prec| (|PositiveInteger|)) (|obits| (|PositiveInteger|)))
                (SEQ (LETT |obits| (SPADCALL (QREFELT $ 35)))
                     (LETT |prec| (+ |obits| 5))
@@ -915,7 +926,7 @@
                       (SPADCALL |obits| (QREFELT $ 40))))))) 
 
 (SDEFUN |FSFUN;lambert_via_newton1;4F;25|
-        ((|x| |Float|) (|w| |Float|) (|eps| |Float|) ($ |Float|))
+        ((|x| (|Float|)) (|w| (|Float|)) (|eps| (|Float|)) ($ (|Float|)))
         (SPROG
          ((|odw| (|Float|)) (#1=#:G251 NIL) (|dw| (|Float|)) (|ew| (|Float|)))
          (SEQ
@@ -943,7 +954,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_via_newton2;4F;26|
-        ((|lz| |Float|) (|w| |Float|) (|eps| |Float|) ($ |Float|))
+        ((|lz| (|Float|)) (|w| (|Float|)) (|eps| (|Float|)) ($ (|Float|)))
         (SPROG
          ((|odw| (|Float|)) (#1=#:G256 NIL) (|dw| (|Float|)) (|lw| (|Float|)))
          (SEQ
@@ -972,7 +983,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_inverse_series;3F;27|
-        ((|h| |Float|) (|h2| |Float|) ($ |Float|))
+        ((|h| (|Float|)) (|h2| (|Float|)) ($ (|Float|)))
         (SPROG ((|res| (|Float|)) (|h4| #1=(|Float|)) (|h3| #1#))
                (SEQ
                 (LETT |res|
@@ -1018,8 +1029,8 @@
                            (QREFELT $ 51)))))) 
 
 (SDEFUN |FSFUN;lambert_via_newton1;2CFC;28|
-        ((|x| |Complex| (|Float|)) (|w| |Complex| (|Float|)) (|eps| |Float|)
-         ($ |Complex| (|Float|)))
+        ((|x| (|Complex| (|Float|))) (|w| (|Complex| (|Float|)))
+         (|eps| (|Float|)) ($ (|Complex| (|Float|))))
         (SPROG
          ((|odw| (|Float|)) (#1=#:G263 NIL) (|dw| (|Complex| (|Float|)))
           (|ew| (|Complex| (|Float|))))
@@ -1048,8 +1059,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_via_newton2;2CFC;29|
-        ((|lz| |Complex| (|Float|)) (|w| |Complex| (|Float|)) (|eps| |Float|)
-         ($ |Complex| (|Float|)))
+        ((|lz| (|Complex| (|Float|))) (|w| (|Complex| (|Float|)))
+         (|eps| (|Float|)) ($ (|Complex| (|Float|))))
         (SPROG
          ((|odw| (|Float|)) (#1=#:G268 NIL) (|dw| (|Complex| (|Float|)))
           (|lw| (|Complex| (|Float|))))
@@ -1079,8 +1090,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_inverse_series;3C;30|
-        ((|h| |Complex| (|Float|)) (|h2| |Complex| (|Float|))
-         ($ |Complex| (|Float|)))
+        ((|h| (|Complex| (|Float|))) (|h2| (|Complex| (|Float|)))
+         ($ (|Complex| (|Float|))))
         (SPROG
          ((|res| (|Complex| (|Float|))) (|h4| #1=(|Complex| (|Float|)))
           (|h3| #1#))
@@ -1128,8 +1139,8 @@
                      (QREFELT $ 24)))))) 
 
 (SDEFUN |FSFUN;lambert_via_newton1;4Df;31|
-        ((|x| |DoubleFloat|) (|w| |DoubleFloat|) (|eps| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|x| (|DoubleFloat|)) (|w| (|DoubleFloat|)) (|eps| (|DoubleFloat|))
+         ($ (|DoubleFloat|)))
         (SPROG
          ((|odw| (|DoubleFloat|)) (#1=#:G275 NIL) (|dw| (|DoubleFloat|))
           (|ew| (|DoubleFloat|)))
@@ -1153,8 +1164,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_via_newton2;4Df;32|
-        ((|lz| |DoubleFloat|) (|w| |DoubleFloat|) (|eps| |DoubleFloat|)
-         ($ |DoubleFloat|))
+        ((|lz| (|DoubleFloat|)) (|w| (|DoubleFloat|)) (|eps| (|DoubleFloat|))
+         ($ (|DoubleFloat|)))
         (SPROG
          ((|odw| (|DoubleFloat|)) (#1=#:G280 NIL) (|dw| (|DoubleFloat|))
           (|lw| (|DoubleFloat|)))
@@ -1178,7 +1189,7 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_inverse_series;3Df;33|
-        ((|h| |DoubleFloat|) (|h2| |DoubleFloat|) ($ |DoubleFloat|))
+        ((|h| (|DoubleFloat|)) (|h2| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG ((|res| (|DoubleFloat|)) (|h4| #1=(|DoubleFloat|)) (|h3| #1#))
                (SEQ
                 (LETT |res|
@@ -1219,8 +1230,8 @@
                             |h2|)))))) 
 
 (SDEFUN |FSFUN;lambert_via_newton1;2CDfC;34|
-        ((|x| |Complex| (|DoubleFloat|)) (|w| |Complex| (|DoubleFloat|))
-         (|eps| |DoubleFloat|) ($ |Complex| (|DoubleFloat|)))
+        ((|x| (|Complex| (|DoubleFloat|))) (|w| (|Complex| (|DoubleFloat|)))
+         (|eps| (|DoubleFloat|)) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|odw| (|DoubleFloat|)) (#1=#:G287 NIL)
           (|dw| (|Complex| (|DoubleFloat|)))
@@ -1250,8 +1261,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_via_newton2;2CDfC;35|
-        ((|lz| |Complex| (|DoubleFloat|)) (|w| |Complex| (|DoubleFloat|))
-         (|eps| |DoubleFloat|) ($ |Complex| (|DoubleFloat|)))
+        ((|lz| (|Complex| (|DoubleFloat|))) (|w| (|Complex| (|DoubleFloat|)))
+         (|eps| (|DoubleFloat|)) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|odw| (|DoubleFloat|)) (#1=#:G292 NIL)
           (|dw| (|Complex| (|DoubleFloat|)))
@@ -1282,8 +1293,8 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_inverse_series;3C;36|
-        ((|h| |Complex| (|DoubleFloat|)) (|h2| |Complex| (|DoubleFloat|))
-         ($ |Complex| (|DoubleFloat|)))
+        ((|h| (|Complex| (|DoubleFloat|))) (|h2| (|Complex| (|DoubleFloat|)))
+         ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|res| (|Complex| (|DoubleFloat|)))
           (|h4| #1=(|Complex| (|DoubleFloat|))) (|h3| #1#))
@@ -1330,7 +1341,7 @@
                       |h2| (QREFELT $ 108))
                      (QREFELT $ 101)))))) 
 
-(SDEFUN |FSFUN;lambertW;2Df;37| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
+(SDEFUN |FSFUN;lambertW;2Df;37| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG
          ((|eps| (|DoubleFloat|)) (|ax| (|DoubleFloat|)) (|h| (|DoubleFloat|))
           (|h2| (|DoubleFloat|)) (|e1| (|DoubleFloat|)) (|w| (|DoubleFloat|))
@@ -1417,7 +1428,7 @@
                                               (QREFELT $ 95))))))))))))))))) 
 
 (SDEFUN |FSFUN;lambertW;2C;38|
-        ((|x| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        ((|x| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPROG
          ((|eps| (|DoubleFloat|)) (|w| #1=(|Complex| (|DoubleFloat|)))
           (|y| (|Complex| (|DoubleFloat|))) (|h| (|Complex| (|DoubleFloat|)))
@@ -1516,7 +1527,7 @@
                                 (SPADCALL |x| |w| |eps|
                                           (QREFELT $ 104))))))))))))) 
 
-(SDEFUN |FSFUN;lambertW;2F;39| ((|x| |Float|) ($ |Float|))
+(SDEFUN |FSFUN;lambertW;2F;39| ((|x| (|Float|)) ($ (|Float|)))
         (SPROG
          ((|eps| (|Float|)) (|w| (|Float|)) (|y| #1=(|Float|)) (|w1| (|Float|))
           (|h| (|Float|)) (|h2| (|Float|)) (|e1| (|Float|))
@@ -1642,7 +1653,7 @@
                                               (QREFELT $ 89))))))))))))))))) 
 
 (SDEFUN |FSFUN;lambertW;2C;40|
-        ((|z| |Complex| (|Float|)) ($ |Complex| (|Float|)))
+        ((|z| (|Complex| (|Float|))) ($ (|Complex| (|Float|))))
         (SPROG
          ((|w1| (|Complex| (|Float|))) (|h| (|Complex| (|Float|)))
           (|h2| (|Complex| (|Float|))) (|e1| (|Float|))

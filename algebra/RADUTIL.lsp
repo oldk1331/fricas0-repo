@@ -1,6 +1,6 @@
 
 (SDEFUN |RADUTIL;radix;FIA;1|
-        ((|q| |Fraction| (|Integer|)) (|b| |Integer|) ($ |Any|))
+        ((|q| (|Fraction| (|Integer|))) (|b| (|Integer|)) ($ (|Any|)))
         (SPADCALL
          (SPADCALL |q|
                    (|compiledLookupCheck| '|coerce|

@@ -1,9 +1,10 @@
 
-(SDEFUN |LAPLACE;laplace;F2SF;1| ((|f| F) (|t| |Symbol|) (|s| |Symbol|) ($ F))
+(SDEFUN |LAPLACE;laplace;F2SF;1|
+        ((|f| (F)) (|t| (|Symbol|)) (|s| (|Symbol|)) ($ (F)))
         (|LAPLACE;locallaplace| (SPADCALL |f| |t| (QREFELT $ 15)) |t|
          (SPADCALL |t| (QREFELT $ 16)) |s| (SPADCALL |s| (QREFELT $ 16)) $)) 
 
-(SDEFUN |LAPLACE;algebraic?| ((|f| F) (|t| |Symbol|) ($ |Boolean|))
+(SDEFUN |LAPLACE;algebraic?| ((|f| (F)) (|t| (|Symbol|)) ($ (|Boolean|)))
         (SPROG
          ((#1=#:G164 NIL) (#2=#:G165 NIL) (#3=#:G168 NIL) (|k| NIL)
           (|m| (|NonNegativeInteger|)) (#4=#:G167 NIL) (#5=#:G166 NIL)
@@ -51,7 +52,7 @@
             (EXIT NIL)))
           #6# (EXIT #2#)))) 
 
-(SDEFUN |LAPLACE;dvlap| ((|l| |List| F) (|x| |Symbol|) ($ F))
+(SDEFUN |LAPLACE;dvlap| ((|l| (|List| F)) (|x| (|Symbol|)) ($ (F)))
         (SPROG ((|e| (F)) (|v| (|Symbol|)) (|l3| (F)) (|l2| (F)) (|l1| (F)))
                (SEQ (LETT |l1| (|SPADfirst| |l|))
                     (LETT |l2| (SPADCALL |l| (QREFELT $ 33)))
@@ -83,8 +84,8 @@
                           $))))))))) 
 
 (SDEFUN |LAPLACE;isLinear|
-        ((|f| F) (|t| |Symbol|)
-         ($ |Union| (|Record| (|:| |const| F) (|:| |nconst| F)) "failed"))
+        ((|f| (F)) (|t| (|Symbol|))
+         ($ (|Union| (|Record| (|:| |const| F) (|:| |nconst| F)) "failed")))
         (SPROG
          ((|c| (F)) (|b| (F)) (#1=#:G185 NIL) (|d| (|Union| F "failed"))
           (|ff| (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -123,9 +124,10 @@
           #2# (EXIT #1#)))) 
 
 (SDEFUN |LAPLACE;atn|
-        ((|f| F) (|t| |Symbol|)
-         ($ |Union| (|Record| (|:| |coef| F) (|:| |deg| (|PositiveInteger|)))
-          #1="failed"))
+        ((|f| (F)) (|t| (|Symbol|))
+         ($
+          (|Union| (|Record| (|:| |coef| F) (|:| |deg| (|PositiveInteger|)))
+                   #1="failed")))
         (SPROG
          ((#2=#:G209 NIL) (|c| (F)) (|d| (|NonNegativeInteger|))
           (|r| (|Record| (|:| |coef| F) (|:| |deg| (|PositiveInteger|))))
@@ -215,7 +217,7 @@
           #8# (EXIT #6#)))) 
 
 (SDEFUN |LAPLACE;is_root|
-        ((|k| |Kernel| F) (|t| |Symbol|) ($ |Union| F "failed"))
+        ((|k| (|Kernel| F)) (|t| (|Symbol|)) ($ (|Union| F "failed")))
         (SPROG ((|a| (F)) (|args| (|List| F)))
                (SEQ
                 (COND
@@ -239,10 +241,10 @@
                  ('T (CONS 1 "failed")))))) 
 
 (SDEFUN |LAPLACE;athalf|
-        ((|f| F) (|t| |Symbol|)
-         ($ |Union|
-          (|Record| (|:| |coef| F) (|:| |deg| (|NonNegativeInteger|)))
-          "failed"))
+        ((|f| (F)) (|t| (|Symbol|))
+         ($
+          (|Union| (|Record| (|:| |coef| F) (|:| |deg| (|NonNegativeInteger|)))
+                   "failed")))
         (SPROG
          ((|vv| (|Record| (|:| |coef| F) (|:| |deg| (|PositiveInteger|))))
           (|v|
@@ -321,9 +323,10 @@
                                             (CONS 1 "failed"))))))))))))))))))) 
 
 (SDEFUN |LAPLACE;aexp|
-        ((|f| F) (|t| |Symbol|)
-         ($ |Union| (|Record| (|:| |coef| F) (|:| |coef1| F) (|:| |coef0| F))
-          #1="failed"))
+        ((|f| (F)) (|t| (|Symbol|))
+         ($
+          (|Union| (|Record| (|:| |coef| F) (|:| |coef1| F) (|:| |coef0| F))
+                   #1="failed")))
         (SPROG
          ((#2=#:G271 NIL) (#3=#:G272 NIL)
           (|rec| (|Record| (|:| |coef| F) (|:| |coef1| F) (|:| |coef0| F)))
@@ -451,7 +454,7 @@
                       (EXIT (CONS 1 "failed"))))))))))
           #7# (EXIT #3#)))) 
 
-(SDEFUN |LAPLACE;mkPlus| ((|f| F) ($ |Union| (|List| F) "failed"))
+(SDEFUN |LAPLACE;mkPlus| ((|f| (F)) ($ (|Union| (|List| F) "failed")))
         (SPROG
          ((#1=#:G285 NIL) (|p| NIL) (#2=#:G284 NIL)
           (|d| (|SparseMultivariatePolynomial| R (|Kernel| F)))
@@ -482,7 +485,7 @@
                                     (LETT #1# (CDR #1#)) (GO G190) G191
                                     (EXIT (NREVERSE #2#))))))))))))) 
 
-(SDEFUN |LAPLACE;tdenom| ((|f| F) (|t| F) ($ |Union| F "failed"))
+(SDEFUN |LAPLACE;tdenom| ((|f| (F)) (|t| (F)) ($ (|Union| F "failed")))
         (COND
          ((QEQCAR
            (SPADCALL (SPADCALL |f| (QREFELT $ 91))
@@ -492,8 +495,8 @@
          ('T (CONS 0 (SPADCALL |t| |f| (QREFELT $ 36)))))) 
 
 (SDEFUN |LAPLACE;intlaplace|
-        ((|f| F) (|ss| F) (|g| F) (|v| |Symbol|) (|vv| F)
-         ($ |Union| F "failed"))
+        ((|f| (F)) (|ss| (F)) (|g| (F)) (|v| (|Symbol|)) (|vv| (F))
+         ($ (|Union| F "failed")))
         (SPROG
          ((|l1| #1=(|SingleInteger|)) (|u1| #1#) (|ll| (|OrderedCompletion| F))
           (|uu| (|OrderedCompletion| F))
@@ -555,7 +558,8 @@
           #7# (EXIT #4#)))) 
 
 (SDEFUN |LAPLACE;lapkernel|
-        ((|f| F) (|t| |Symbol|) (|tt| F) (|ss| F) ($ |Union| F "failed"))
+        ((|f| (F)) (|t| (|Symbol|)) (|tt| (F)) (|ss| (F))
+         ($ (|Union| F "failed")))
         (SPROG
          ((|op| (|BasicOperator|)) (|a| (F)) (|s| (|Symbol|)) (|fint| (F))
           (|arg| (|List| F)) (|k| (|Union| (|Kernel| F) "failed")))
@@ -685,7 +689,8 @@
                     (EXIT (CONS 1 "failed"))))))))))) 
 
 (SDEFUN |LAPLACE;locallaplace|
-        ((|f| F) (|t| |Symbol|) (|tt| F) (|s| |Symbol|) (|ss| F) ($ F))
+        ((|f| (F)) (|t| (|Symbol|)) (|tt| (F)) (|s| (|Symbol|)) (|ss| (F))
+         ($ (F)))
         (SPROG
          ((|x| (|Union| F "failed")) (|res1| (F))
           (|vv2| (|Record| (|:| |coef| F) (|:| |deg| (|NonNegativeInteger|))))
@@ -703,8 +708,8 @@
            (|Union| (|Record| (|:| |coef| F) (|:| |deg| (|PositiveInteger|)))
                     "failed"))
           (|rec| (|Record| (|:| |const| F) (|:| |nconst| F))) (#1=#:G337 NIL)
-          (#2=#:G336 (F)) (#3=#:G338 (F)) (#4=#:G360 NIL) (|g| (F))
-          (|u| (|Union| (|List| F) "failed")) (|vvv| (F)))
+          (#2=#:G336 (F)) (#3=#:G338 (F)) (#4=#:G360 NIL)
+          (|u| (|Union| (|List| F) "failed")) (|g| (F)) (|vvv| (F)))
          (SEQ
           (COND ((SPADCALL |f| (QREFELT $ 80)) (|spadConstant| $ 78))
                 ((SPADCALL |f| (|spadConstant| $ 61) (QREFELT $ 119))
@@ -735,8 +740,7 @@
                                 ((QEQCAR |u| 0)
                                  (PROGN
                                   (LETT #1# NIL)
-                                  (SEQ (LETT |g| NIL) (LETT #4# (QCDR |u|))
-                                       G190
+                                  (SEQ (LETT #4# (QCDR |u|)) G190
                                        (COND
                                         ((OR (ATOM #4#)
                                              (PROGN (LETT |g| (CAR #4#)) NIL))
