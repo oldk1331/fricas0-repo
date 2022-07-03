@@ -764,15 +764,10 @@
 ; NRTcompiledLookup(op,sig,dom) ==
 ;   if CONTAINED('_#,sig) then
 ;       sig := [NRTtypeHack t for t in sig]
-;   hashCode? sig =>   compiledLookupCheck(op,sig,dom)
-;   (fn := compiledLookup(op,sig,dom)) => fn
-;   percentHash :=
-;       VECP dom => hashType(dom.0, 0)
-;       getDomainHash dom
-;   compiledLookupCheck(op, hashType(['Mapping,:sig], percentHash), dom)
+;   compiledLookupCheck(op,sig,dom)
 
 (DEFUN |NRTcompiledLookup| (|op| |sig| |dom|)
-  (PROG (|fn| |percentHash|)
+  (PROG ()
     (RETURN
      (PROGN
       (COND
@@ -784,19 +779,11 @@
                      ((OR (ATOM |bfVar#21|)
                           (PROGN (SETQ |t| (CAR |bfVar#21|)) NIL))
                       (RETURN (NREVERSE |bfVar#22|)))
-                     (#1='T
+                     ('T
                       (SETQ |bfVar#22| (CONS (|NRTtypeHack| |t|) |bfVar#22|))))
                     (SETQ |bfVar#21| (CDR |bfVar#21|))))
                  NIL |sig| NIL))))
-      (COND ((|hashCode?| |sig|) (|compiledLookupCheck| |op| |sig| |dom|))
-            ((SETQ |fn| (|compiledLookup| |op| |sig| |dom|)) |fn|)
-            (#1#
-             (PROGN
-              (SETQ |percentHash|
-                      (COND ((VECP |dom|) (|hashType| (ELT |dom| 0) 0))
-                            (#1# (|getDomainHash| |dom|))))
-              (|compiledLookupCheck| |op|
-               (|hashType| (CONS '|Mapping| |sig|) |percentHash|) |dom|))))))))
+      (|compiledLookupCheck| |op| |sig| |dom|)))))
 
 ; compiledLookup(op, sig, dollar) ==
 ;   if not isDomain dollar then dollar := NRTevalDomain dollar
