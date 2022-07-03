@@ -1,7 +1,7 @@
 (progn (load "./interp-proclaims.lisp"))
 (load #-:ecl "util" #+:ecl "./util.lisp")
 (in-package "BOOT")
-(progn (setq boot::|$build_date|    "Sun Jul  3 04:31:06 PM HKT 2022")        (setq boot::|$build_version| "FriCAS 2021-03-06"))
+(progn (setq boot::|$build_date|    "Sun Jul  3 04:32:35 PM HKT 2022")        (setq boot::|$build_version| "FriCAS 2021-03-06"))
 #+:ecl(setf fricas-lisp::*fricas-initial-lisp-objects* (append fricas-lisp::*fricas-initial-lisp-objects*  (quote (
  "../boot/initial-env.fasl"  "../boot/ptyout.fasl"  "../boot/btincl2.fasl"  "../boot/btscan2.fasl"  "../boot/typrops.fasl"  "../boot/btpile2.fasl"  "../boot/typars.fasl"  "../boot/tytree1.fasl"
 ))))
