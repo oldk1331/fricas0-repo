@@ -85,7 +85,6 @@
 
 ; lookupInTable(op,sig,dollar,[domain,table]) ==
 ;   success := false
-;   someMatch := false
 ;   while not success for [sig1, :code] in QLASSQ(op, table) repeat
 ;     success :=
 ;       null compareSig(sig,sig1,dollar.0,domain) => false
@@ -97,13 +96,12 @@
 ;   success
 
 (DEFUN |lookupInTable| (|op| |sig| |dollar| |bfVar#5|)
-  (PROG (|domain| |table| |success| |someMatch| |sig1| |code| |loc| |slot|)
+  (PROG (|domain| |table| |success| |sig1| |code| |loc| |slot|)
     (RETURN
      (PROGN
       (SETQ |domain| (CAR |bfVar#5|))
       (SETQ |table| (CADR |bfVar#5|))
       (SETQ |success| NIL)
-      (SETQ |someMatch| NIL)
       ((LAMBDA (|bfVar#4| |bfVar#3|)
          (LOOP
           (COND

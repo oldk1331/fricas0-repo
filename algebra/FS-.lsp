@@ -2126,11 +2126,15 @@
                 (QSETREFV $ 262
                           (CONS (|dispatchFunction| |FS-;isMult;SU;105|) $)))))
              (COND
-              ((|HasCategory| |#2| '(|ConvertibleTo| (|Pattern| (|Integer|))))
+              ((|HasCategory|
+                (|SparseMultivariatePolynomial| |#2| (|Kernel| |#1|))
+                '(|ConvertibleTo| (|Pattern| (|Integer|))))
                (QSETREFV $ 256
                          (CONS (|dispatchFunction| |FS-;convert;SP;106|) $))))
              (COND
-              ((|HasCategory| |#2| '(|ConvertibleTo| (|Pattern| (|Float|))))
+              ((|HasCategory|
+                (|SparseMultivariatePolynomial| |#2| (|Kernel| |#1|))
+                '(|ConvertibleTo| (|Pattern| (|Float|))))
                (QSETREFV $ 259
                          (CONS (|dispatchFunction| |FS-;convert;SP;107|)
                                $)))))))
