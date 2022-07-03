@@ -575,7 +575,7 @@
               (|Record| (|:| |quotient| 23) (|:| |remainder| 23)) (150 . =)
               (156 . ~=) (|Union| 94 '#1="failed") (|Matrix| $)
               (|Union| $ '"failed") (|InputForm|) (|Pattern| 103)
-              (|Pattern| 23) (|Equation| 23) (|List| 89) (|Symbol|) (|List| 91)
+              (|Pattern| 23) (|List| 90) (|Equation| 23) (|Symbol|) (|List| 91)
               (|Record| (|:| |mat| 95) (|:| |vec| (|Vector| 23))) (|Vector| $)
               (|Matrix| 23) (|List| 8) (|PatternMatchResult| 103 $)
               (|PatternMatchResult| 23 $) (|Factored| 100)
@@ -616,21 +616,20 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 25
-                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
-                                  15 16 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0 0 7
-                                  0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 19 20 0 0
-                                  0 0 2 6 10 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10
-                                  12 13 14 17 18))
+                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 7 0 0 0 0 3 4 15 16
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0 0 7 0
+                                  7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 19 20 0 0 0
+                                  0 2 6 10 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 12
+                                  13 14 17 18))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL
-                |FullyLinearlyExplicitOver&| |DifferentialExtension&|
-                |DivisionRing&| NIL NIL |OrderedRing&| NIL |Algebra&|
-                |Algebra&| |EntireRing&| |Algebra&| NIL NIL
+                |DifferentialExtension&| |DivisionRing&| NIL NIL |OrderedRing&|
+                |Algebra&| |Algebra&| |EntireRing&| |Algebra&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL |Rng&| NIL
-                |Module&| |Module&| |Module&| NIL NIL NIL NIL
-                |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
+                |FullyLinearlyExplicitOver&| |Module&| |Module&| |Module&| NIL
+                NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |OrderedSet&| |FullyEvalableOver&| |Magma&|
@@ -644,15 +643,15 @@
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|)
                  (|OrderedIntegralDomain|) (|IntegralDomain|)
-                 (|FullyLinearlyExplicitOver| 23) (|DifferentialExtension| 23)
-                 (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
-                 (|OrderedRing|) (|LinearlyExplicitOver| 23) (|Algebra| 23)
-                 (|Algebra| 16) (|EntireRing|) (|Algebra| $$)
+                 (|DifferentialExtension| 23) (|DivisionRing|)
+                 (|CommutativeRing|) (|LeftOreRing|) (|OrderedRing|)
+                 (|Algebra| 23) (|Algebra| 16) (|EntireRing|) (|Algebra| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|PartialDifferentialRing| 91) (|DifferentialRing|) (|Ring|)
-                 (|Rng|) (|SemiRing|) (|Module| 23) (|Module| 16) (|Module| $$)
-                 (|SemiRng|) (|BiModule| 23 23) (|BiModule| 16 16)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|)
+                 (|Rng|) (|SemiRing|) (|FullyLinearlyExplicitOver| 23)
+                 (|Module| 23) (|Module| 16) (|Module| $$) (|SemiRng|)
+                 (|LinearlyExplicitOver| 23) (|BiModule| 23 23)
+                 (|BiModule| 16 16) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|OrderedAbelianGroup|) (|RightModule| 23) (|LeftModule| 23)
                  (|RightModule| 16) (|LeftModule| 16) (|LeftModule| $$)
                  (|NonAssociativeRng|) (|RightModule| $$)
@@ -707,12 +706,12 @@
                                     2 0 0 34 34 63 1 23 23 0 53 1 1 99 100 1 1
                                     1 99 100 1 1 0 107 0 1 3 0 109 0 0 0 1 2 0
                                     111 0 0 1 2 0 85 0 0 1 2 0 110 72 0 1 2 13
-                                    0 0 89 1 2 13 0 0 90 1 3 13 0 0 34 34 1 3
-                                    13 0 0 23 23 1 3 12 0 0 91 23 1 3 12 0 0 92
+                                    0 0 89 1 3 13 0 0 23 23 1 2 13 0 0 90 1 3
+                                    13 0 0 34 34 1 3 12 0 0 91 23 1 3 12 0 0 92
                                     34 1 1 0 8 0 1 2 14 0 0 23 1 2 0 112 0 0 1
-                                    2 16 0 0 8 1 1 16 0 0 11 3 15 0 0 92 96 1 2
-                                    15 0 0 92 1 3 15 0 0 91 8 1 2 15 0 0 91 1 3
-                                    0 0 0 106 8 1 2 0 0 0 106 1 1 0 0 0 1 1 0
+                                    2 16 0 0 8 1 1 16 0 0 11 3 15 0 0 91 8 1 3
+                                    15 0 0 92 96 1 2 15 0 0 91 1 2 15 0 0 92 1
+                                    2 0 0 0 106 1 3 0 0 0 106 8 1 1 0 0 0 1 1 0
                                     23 0 39 1 0 34 0 61 1 5 86 0 1 1 17 87 0 1
                                     1 18 88 0 1 1 6 103 0 1 1 6 104 0 1 1 26 83
                                     84 1 2 0 0 0 0 1 1 2 0 91 1 1 0 16 0 17 1 0
@@ -721,12 +720,12 @@
                                     1 2 0 13 0 0 1 2 0 0 0 0 1 2 0 13 0 0 1 1 7
                                     0 0 1 2 0 0 0 23 1 2 0 0 0 8 1 2 0 0 0 116
                                     1 0 0 0 10 0 0 0 12 2 16 0 0 8 1 1 16 0 0 1
-                                    3 15 0 0 91 8 1 3 15 0 0 92 96 1 2 15 0 0
-                                    91 1 2 15 0 0 92 1 3 0 0 0 106 8 1 2 0 0 0
-                                    106 1 2 8 13 0 0 1 2 8 13 0 0 1 2 0 13 0 0
-                                    14 2 8 13 0 0 1 2 8 13 0 0 33 2 0 0 23 23
-                                    31 2 0 0 0 0 29 1 0 0 0 15 2 0 0 0 0 22 2 0
-                                    0 0 0 20 2 0 0 0 23 1 2 0 0 23 0 25 2 0 0
-                                    16 0 1 2 0 0 0 16 1 2 0 0 8 0 1 2 0 0 0 0
-                                    27 2 0 0 116 0 1)))))
+                                    3 15 0 0 92 96 1 2 15 0 0 92 1 3 15 0 0 91
+                                    8 1 2 15 0 0 91 1 2 0 0 0 106 1 3 0 0 0 106
+                                    8 1 2 8 13 0 0 1 2 8 13 0 0 1 2 0 13 0 0 14
+                                    2 8 13 0 0 1 2 8 13 0 0 33 2 0 0 23 23 31 2
+                                    0 0 0 0 29 1 0 0 0 15 2 0 0 0 0 22 2 0 0 0
+                                    0 20 2 21 0 0 23 1 2 0 0 0 23 1 2 0 0 23 0
+                                    25 2 0 0 16 0 1 2 0 0 0 16 1 2 0 0 8 0 1 2
+                                    0 0 0 0 27 2 0 0 116 0 1)))))
            '|lookupComplete|)) 

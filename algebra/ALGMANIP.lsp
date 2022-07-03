@@ -673,7 +673,7 @@
         ((|op| (|BasicOperator|)) (|x| (F)) (|n| (|NonNegativeInteger|))
          ($ (F)))
         (SPROG
-         ((#1=#:G312 NIL)
+         ((#1=#:G325 NIL)
           (|qr|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|))))
@@ -684,7 +684,7 @@
            (|Union|
             (|Record| (|:| |var| (|Kernel| F)) (|:| |exponent| (|Integer|)))
             "failed"))
-          (#2=#:G316 NIL)
+          (#2=#:G329 NIL)
           (|num| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (SEQ
           (COND ((SPADCALL |x| (|spadConstant| $ 68) (QREFELT $ 104)) |x|)
@@ -718,7 +718,7 @@
                                         (QREFELT $ 74))
                                        |n| $)
                                       (QREFELT $ 37)))
-                               (GO #4=#:G314))))))))
+                               (GO #4=#:G327))))))))
                     (LETT |u| (SPADCALL |x| |op| (QREFELT $ 132)))
                     (EXIT
                      (COND
@@ -767,7 +767,7 @@
          ((|pr|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (#1=#:G317 NIL) (|narg1| (F)) (|arg| (|List| F)))
+          (#1=#:G330 NIL) (|narg1| (F)) (|arg| (|List| F)))
          (SEQ
           (LETT |narg1|
                 (SPADCALL
@@ -792,7 +792,7 @@
 (SDEFUN |ALGMANIP;rootSimp;2F;24| ((|x| (F)) ($ (F)))
         (SPROG
          ((|nlk| (|List| F)) (|lk| (|List| (|Kernel| F))) (|nk| (F))
-          (#1=#:G326 NIL) (|k| NIL) (|tk| (|List| (|Kernel| F))))
+          (#1=#:G339 NIL) (|k| NIL) (|tk| (|List| (|Kernel| F))))
          (SEQ
           (LETT |tk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $))
           (LETT |lk| NIL) (LETT |nlk| NIL)
@@ -807,9 +807,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicManipulations;|)) 
 
-(DEFUN |AlgebraicManipulations| (&REST #1=#:G327)
+(DEFUN |AlgebraicManipulations| (&REST #1=#:G340)
   (SPROG NIL
-         (PROG (#2=#:G328)
+         (PROG (#2=#:G341)
            (RETURN
             (COND
              ((LETT #2#

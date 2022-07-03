@@ -636,26 +636,26 @@
               (|Variable| (NRTEVAL (QREFELT $ 7))) |ULS;coerce;V$;3|
               (33 . |differentiate|) |ULS;differentiate;$V$;4|
               (38 . |integrate|) (43 . |integrate|) (|Union| 39 '#1="failed")
-              (|Matrix| $) (|InputForm|) (|Pattern| 47) (|Pattern| 16)
+              (|Matrix| $) (|InputForm|) (|Pattern| 46) (|Pattern| 16)
               (|UnivariateTaylorSeries| 6 (NRTEVAL (QREFELT $ 7))
                                         (NRTEVAL (QREFELT $ 8)))
               (|List| 32) (|List| 35) (|Equation| 32) (|List| 9) (|Matrix| 16)
               (|Record| (|:| |mat| 37) (|:| |vec| (|Vector| 16))) (|Vector| $)
-              (|PatternMatchResult| 47 $) (|PatternMatchResult| 16 $)
-              (|Factored| 43) (|SparseUnivariatePolynomial| $)
-              (|Union| 45 '#1#) (|List| 43) (|DoubleFloat|) (|Float|)
-              (|Fraction| 16) (|Union| 48 '#2="failed") (|Union| 16 '#2#)
+              (|PatternMatchResult| 46 $) (|PatternMatchResult| 16 $)
+              (|Union| 43 '#1#) (|List| 44) (|SparseUnivariatePolynomial| $)
+              (|Factored| 44) (|Float|) (|DoubleFloat|)
+              (|Union| 49 '#2="failed") (|Fraction| 16) (|Union| 16 '#2#)
               (|Union| 9 '#2#) (|Union| $ '"failed") (|NonNegativeInteger|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|List| 53) (|Record| (|:| |k| 16) (|:| |c| 6)) (|List| 56)
-              (|Mapping| 32 32) (|Matrix| 32)
-              (|Record| (|:| |mat| 59) (|:| |vec| (|Vector| 32)))
+              (|Mapping| 32 32)
+              (|Record| (|:| |mat| 60) (|:| |vec| (|Vector| 32))) (|Matrix| 32)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|List| $) (|Union| 62 '"failed")
-              (|Record| (|:| |coef| 62) (|:| |generator| $))
+              (|List| $) (|Record| (|:| |coef| 62) (|:| |generator| $))
+              (|Union| 62 '"failed")
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 66 '"failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 67 '"failed")
               (|Factored| $) (|Fraction| (|Polynomial| 6)) (|Stream| 6)
               (|Union| 32 '"failed") (|Mapping| 6 16) (|Stream| 56)
               (|PositiveInteger|) (|Mapping| 6 6) (|HashState|) (|String|)
@@ -665,10 +665,10 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 52
-                                '(0 0 2 0 2 0 2 32 0 2 2 0 2 6 25 2 2 24 6 2 2
-                                  20 24 25 50 34 7 2 40 41 2 13 52 39 52 0 20
-                                  24 50 2 0 0 0 43 50 6 2 0 0 0 0 0 50 50 6 2 2
-                                  52 48 6 47 39 39 6 0 0 51 39 28 2 0 0 29 9 2
+                                '(0 0 2 0 2 0 2 32 0 2 2 0 2 6 25 2 2 24 6 2 20
+                                  24 25 50 34 7 2 40 41 52 39 52 0 20 24 50 2 2
+                                  0 0 0 43 50 6 2 2 13 0 0 0 0 0 50 50 6 2 52 2
+                                  13 48 6 47 39 39 6 0 0 51 39 28 2 0 0 29 9 2
                                   16 17 0 0 50 24 3 5 8 8 11 2 0 0 0 0 1 50 50
                                   50 50 50 50 24 25 2 2 43 3 4 5 5 28 8 8 10 11
                                   12 14 15 2))
@@ -679,12 +679,12 @@
                 |PolynomialFactorizationExplicit&| |PowerSeriesCategory&| NIL
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
                 NIL NIL NIL |DivisionRing&| NIL |OrderedRing&|
-                |DifferentialExtension&| |FullyLinearlyExplicitOver&|
-                |Algebra&| |Algebra&| |EntireRing&| |Algebra&| NIL NIL
-                |Algebra&| |PartialDifferentialRing&| |DifferentialRing&| NIL
-                NIL NIL NIL |Rng&| NIL |Module&| |Module&| |Module&| |Module&|
-                NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL
-                NIL NIL NIL NIL NIL NIL |NonAssociativeRng&| |AbelianGroup&|
+                |DifferentialExtension&| |Algebra&| |Algebra&| |EntireRing&|
+                |Algebra&| NIL NIL |Algebra&| |PartialDifferentialRing&|
+                |DifferentialRing&| NIL NIL |Rng&| NIL |Module&| |Module&|
+                |Module&| |Module&| |FullyLinearlyExplicitOver&| NIL NIL NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
+                NIL NIL NIL NIL |NonAssociativeRng&| NIL NIL |AbelianGroup&|
                 NIL NIL NIL NIL NIL |NonAssociativeSemiRng&| NIL
                 |AbelianMonoid&| |MagmaWithUnit&| |OrderedSet&| NIL |Magma&|
                 |AbelianSemiGroup&| NIL NIL |FullyEvalableOver&| NIL NIL
@@ -712,40 +712,39 @@
                  (|OrderedIntegralDomain|) (|IntegralDomain|) (|LeftOreRing|)
                  (|DivisionRing|) (|CommutativeRing|) (|OrderedRing|)
                  (|DifferentialExtension| (|UnivariateTaylorSeries| 6 7 8))
-                 (|FullyLinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
-                 (|Algebra| 6) (|Algebra| $$) (|EntireRing|) (|Algebra| 48)
+                 (|Algebra| 6) (|Algebra| $$) (|EntireRing|) (|Algebra| 49)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|Algebra| (|UnivariateTaylorSeries| 6 7 8))
-                 (|PartialDifferentialRing| 9) (|DifferentialRing|)
-                 (|LinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
-                 (|LinearlyExplicitOver| 16) (|Ring|) (|SemiRing|) (|Rng|)
-                 (|SemiRng|) (|Module| 6) (|Module| $$) (|Module| 48)
-                 (|Module| (|UnivariateTaylorSeries| 6 7 8))
+                 (|PartialDifferentialRing| 9) (|DifferentialRing|) (|Ring|)
+                 (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 6) (|Module| $$)
+                 (|Module| 49) (|Module| (|UnivariateTaylorSeries| 6 7 8))
+                 (|FullyLinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
                  (|IndexedProductCategory| 6 16) (|BiModule| 6 6)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|BiModule| 48 48)
+                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|BiModule| 49 49)
                  (|OrderedAbelianGroup|)
                  (|BiModule| (|UnivariateTaylorSeries| 6 7 8)
                              (|UnivariateTaylorSeries| 6 7 8))
-                 (|AbelianProductCategory| 6) (|LeftModule| 6)
-                 (|RightModule| 6) (|RightModule| $$) (|LeftModule| $$)
-                 (|LeftModule| 48) (|RightModule| 48)
+                 (|LinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
+                 (|LinearlyExplicitOver| 16) (|AbelianProductCategory| 6)
+                 (|LeftModule| 6) (|RightModule| 6) (|RightModule| $$)
+                 (|LeftModule| $$) (|LeftModule| 49) (|RightModule| 49)
                  (|OrderedCancellationAbelianMonoid|)
                  (|LeftModule| (|UnivariateTaylorSeries| 6 7 8))
+                 (|NonAssociativeRng|)
                  (|RightModule| (|UnivariateTaylorSeries| 6 7 8))
-                 (|NonAssociativeRng|) (|AbelianGroup|)
-                 (|OrderedAbelianMonoid|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|)
-                 (|OrderedAbelianSemiGroup|) (|NonAssociativeSemiRng|)
-                 (|SemiGroup|) (|AbelianMonoid|) (|MagmaWithUnit|)
-                 (|OrderedSet|)
+                 (|RightModule| 16) (|AbelianGroup|) (|OrderedAbelianMonoid|)
+                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
+                 (|Monoid|) (|OrderedAbelianSemiGroup|)
+                 (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
+                 (|MagmaWithUnit|) (|OrderedSet|)
                  (|FullyPatternMatchable| (|UnivariateTaylorSeries| 6 7 8))
                  (|Magma|) (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
                  (|FullyEvalableOver| (|UnivariateTaylorSeries| 6 7 8))
-                 (|PatternMatchable| 47) (|PatternMatchable| 16)
+                 (|PatternMatchable| 46) (|PatternMatchable| 16)
                  (|RetractableTo| (|UnivariateTaylorSeries| 6 7 8))
                  (|SetCategory|) (|TranscendentalFunctionCategory|)
                  (|CommutativeStar|) (|RetractableTo| 9) (|RealConstant|)
-                 (|RetractableTo| 48) (|RetractableTo| 16)
+                 (|RetractableTo| 49) (|RetractableTo| 16)
                  (|Evalable| (|UnivariateTaylorSeries| 6 7 8))
                  (|Patternable| (|UnivariateTaylorSeries| 6 7 8))
                  (|CoercibleFrom| (|UnivariateTaylorSeries| 6 7 8))
@@ -758,8 +757,8 @@
                  (|ElementaryFunctionCategory|) (|RadicalCategory|)
                  (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|unitsKnown|) (|CoercibleFrom| 9)
-                 (|ConvertibleTo| 29) (|ConvertibleTo| 46) (|ConvertibleTo| 47)
-                 (|PartialOrder|) (|CoercibleFrom| 48) (|CoercibleFrom| 16)
+                 (|ConvertibleTo| 29) (|ConvertibleTo| 47) (|ConvertibleTo| 46)
+                 (|PartialOrder|) (|CoercibleFrom| 49) (|CoercibleFrom| 16)
                  (|InnerEvalable| 9 (|UnivariateTaylorSeries| 6 7 8))
                  (|InnerEvalable| (|UnivariateTaylorSeries| 6 7 8)
                                   (|UnivariateTaylorSeries| 6 7 8))

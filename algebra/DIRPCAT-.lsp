@@ -220,7 +220,7 @@
               (|PositiveInteger|) (123 . |index|) (128 . |setelt!|)
               (135 . |directProduct|) (140 . |index|) (145 . |elt|)
               (151 . |lookup|) (156 . |lookup|) (|Fraction| 9) (|OutputForm|)
-              (|Symbol|) (|List| 56) (|List| 13)
+              (|List| 58) (|List| 13) (|Symbol|)
               (|Record| (|:| |mat| 60) (|:| |vec| (|Vector| 9))) (|Matrix| 9))
            '#(|size| 161 |reducedSystem| 165 |lookup| 176 |index| 181
               |differentiate| 186 |coerce| 192 |characteristic| 197)
@@ -235,6 +235,9 @@
                                      T)
                                    '((|coerce| (|#1| (|Integer|))) T)
                                    '((|coerce| ((|OutputForm|) |#1|)) T)
+                                   '((|characteristic|
+                                      ((|NonNegativeInteger|)))
+                                     T)
                                    '((|differentiate|
                                       (|#1| |#1| (|Mapping| |#3| |#3|)))
                                      T)
@@ -259,9 +262,6 @@
                                       (|#1| |#1| (|NonNegativeInteger|)))
                                      T)
                                    '((|differentiate| (|#1| |#1|)) T)
-                                   '((|characteristic|
-                                      ((|NonNegativeInteger|)))
-                                     T)
                                    '((|reducedSystem|
                                       ((|Matrix| |#3|) (|Matrix| |#1|)))
                                      T)

@@ -755,7 +755,7 @@
 (SDEFUN |UPOLYC-;elt;S2F;43|
         ((|p| (S)) (|f| (|Fraction| S)) ($ (|Fraction| S)))
         (SPROG
-         ((|ans| (|Fraction| S)) (#1=#:G402 NIL) (|n| (|NonNegativeInteger|)))
+         ((|ans| (|Fraction| S)) (#1=#:G403 NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 9)) (|spadConstant| $ 156))
                 (#2='T
@@ -809,7 +809,7 @@
 (SDEFUN |UPOLYC-;order;2SNni;44|
         ((|p| (S)) (|q| (S)) ($ (|NonNegativeInteger|)))
         (SPROG
-         ((|ans| (|NonNegativeInteger|)) (#1=#:G418 NIL)
+         ((|ans| (|NonNegativeInteger|)) (#1=#:G419 NIL)
           (|u| (|Union| S "failed")))
          (SEQ
           (EXIT
@@ -826,7 +826,7 @@
                              (EXIT
                               (COND
                                ((QEQCAR |u| 1)
-                                (PROGN (LETT #1# |ans|) (GO #2=#:G417)))
+                                (PROGN (LETT #1# |ans|) (GO #2=#:G418)))
                                ('T
                                 (SEQ (LETT |p| (QCDR |u|))
                                      (EXIT (LETT |ans| (+ |ans| 1))))))))
@@ -877,7 +877,7 @@
         ((|x| (S)) (|y| (S))
          ($ (|Record| (|:| |quotient| S) (|:| |remainder| S))))
         (SPROG
-         ((|quot| (S)) (|n| (|NonNegativeInteger|)) (#1=#:G433 NIL) (|f| (R))
+         ((|quot| (S)) (|n| (|NonNegativeInteger|)) (#1=#:G434 NIL) (|f| (R))
           (|lc| (R)))
          (SEQ
           (COND

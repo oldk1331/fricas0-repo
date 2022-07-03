@@ -22,7 +22,7 @@
                                    (COND (|LinearlyExplicitOver;CAT|)
                                          ('T
                                           (LETT |LinearlyExplicitOver;CAT|
-                                                (|Join| (|Ring|)
+                                                (|Join| (|RightModule| '|t#1|)
                                                         (|mkCategory|
                                                          '(((|reducedSystem|
                                                              ((|Matrix| |t#1|)

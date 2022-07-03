@@ -336,8 +336,8 @@
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) ($ (F)))
         (SPROG
          ((|coef| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-          (#1=#:G248 NIL) (|u| NIL) (#2=#:G247 NIL) (|exponent| (F))
-          (|d| (|NonNegativeInteger|)) (#3=#:G246 NIL) (|k| NIL)
+          (#1=#:G250 NIL) (|u| NIL) (#2=#:G249 NIL) (|exponent| (F))
+          (|d| (|NonNegativeInteger|)) (#3=#:G248 NIL) (|k| NIL)
           (|lpow| (|List| (|Kernel| F))) (|lk| (|List| (|Kernel| F))))
          (SEQ (LETT |lk| (SPADCALL |p| (QREFELT $ 88)))
               (EXIT
@@ -432,7 +432,7 @@
 
 (SDEFUN |TRMANIP;expandPower;2F;9| ((|f| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G256 NIL) (|k| NIL) (#2=#:G255 NIL)
+         ((#1=#:G258 NIL) (|k| NIL) (#2=#:G257 NIL)
           (|l| (|List| (|Kernel| F))))
          (SEQ
           (LETT |l|
@@ -463,7 +463,7 @@
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F)))
          (|l| (|List| (|Kernel| F))) ($ (F)))
         (SPROG
-         ((|exponent| (F)) (#1=#:G265 NIL) (|k0| NIL)
+         ((|exponent| (F)) (#1=#:G267 NIL) (|k0| NIL)
           (|lk| (|List| (|Kernel| F))) (|a| (F)) (|arg| (|List| F))
           (|k| (|Kernel| F)))
          (SEQ
@@ -687,9 +687,9 @@
 
 (SDEFUN |TRMANIP;simplifyExp;2F;48| ((|x| (F)) ($ (F)))
         (SPROG
-         ((#1=#:G346 NIL) (|term| (F)) (#2=#:G350 NIL) (|k1| NIL)
-          (#3=#:G347 NIL) (#4=#:G349 NIL) (|h| (|NonNegativeInteger|))
-          (|args| (|List| F)) (|op| (|BasicOperator|)) (#5=#:G348 NIL)
+         ((#1=#:G348 NIL) (|term| (F)) (#2=#:G352 NIL) (|k1| NIL)
+          (#3=#:G349 NIL) (#4=#:G351 NIL) (|h| (|NonNegativeInteger|))
+          (|args| (|List| F)) (|op| (|BasicOperator|)) (#5=#:G350 NIL)
           (|k2| NIL) (|lk2| #6=(|List| (|Kernel| F))) (|lk1| #6#)
           (|q1| #7=(|SparseMultivariatePolynomial| R (|Kernel| F))) (|p1| #7#)
           (|q| (F)) (|p| (F)))
@@ -749,7 +749,7 @@
                                       (EXIT
                                        (PROGN
                                         (LETT #3# 1)
-                                        (GO #8=#:G336))))))))
+                                        (GO #8=#:G338))))))))
                                  (LETT #4# (CDR #4#)) (GO G190) G191
                                  (EXIT NIL)))
                            #8# (EXIT #3#))))
@@ -798,7 +798,7 @@
                                          (EXIT
                                           (PROGN
                                            (LETT #1# 1)
-                                           (GO #9=#:G341))))))))))
+                                           (GO #9=#:G343))))))))))
                                   (LETT #2# (CDR #2#)) (GO G190) G191
                                   (EXIT NIL)))
                             #9# (EXIT #1#))))))
@@ -819,8 +819,8 @@
           (|den|
            #1=(|SparseUnivariatePolynomial|
                (|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (|num| #1#) (|arg| (|List| F)) (#2=#:G361 NIL) (|x| NIL)
-          (#3=#:G360 NIL) (|op| (|BasicOperator|)) (|k| (|Kernel| F))
+          (|num| #1#) (|arg| (|List| F)) (#2=#:G363 NIL) (|x| NIL)
+          (#3=#:G362 NIL) (|op| (|BasicOperator|)) (|k| (|Kernel| F))
           (|m| (|Union| (|Kernel| F) "failed")))
          (SEQ (LETT |m| (SPADCALL |f| (QREFELT $ 155)))
               (EXIT
@@ -940,7 +940,7 @@
 (SDEFUN |TRMANIP;exlog|
         ((|p| (|SparseMultivariatePolynomial| R (|Kernel| F))) ($ (F)))
         (SPROG
-         ((#1=#:G373 NIL) (#2=#:G372 (F)) (#3=#:G374 (F)) (#4=#:G376 NIL)
+         ((#1=#:G375 NIL) (#2=#:G374 (F)) (#3=#:G376 (F)) (#4=#:G378 NIL)
           (|r| NIL))
          (SEQ
           (PROGN
@@ -968,7 +968,7 @@
 
 (SDEFUN |TRMANIP;logexpand| ((|k| (|Kernel| F)) ($ (F)))
         (SPROG
-         ((#1=#:G383 NIL) (#2=#:G382 NIL) (|x| (F)) (|op| (|BasicOperator|)))
+         ((#1=#:G385 NIL) (#2=#:G384 NIL) (|x| (F)) (|op| (|BasicOperator|)))
          (SEQ
           (COND
            ((SPADCALL (LETT |op| (SPADCALL |k| (QREFELT $ 63)))
@@ -1003,7 +1003,7 @@
 
 (SDEFUN |TRMANIP;kerexpand| ((|k| (|Kernel| F)) ($ (F)))
         (SPROG
-         ((#1=#:G406 NIL) (#2=#:G405 NIL) (#3=#:G404 NIL) (#4=#:G403 NIL)
+         ((#1=#:G408 NIL) (#2=#:G407 NIL) (#3=#:G406 NIL) (#4=#:G405 NIL)
           (|ctb| (F)) (|cta| (F)) (|tb| (F)) (|ta| (F)) (|a| (F)) (|b| (F))
           (|den| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|num| (|SparseMultivariatePolynomial| R (|Kernel| F))) (|x| (F))
@@ -1208,9 +1208,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalManipulations;|)) 
 
-(DEFUN |TranscendentalManipulations| (&REST #1=#:G451)
+(DEFUN |TranscendentalManipulations| (&REST #1=#:G453)
   (SPROG NIL
-         (PROG (#2=#:G452)
+         (PROG (#2=#:G454)
            (RETURN
             (COND
              ((LETT #2#

@@ -27,24 +27,24 @@
           (|Matrix|
            (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))))
         (SPROG
-         ((#1=#:G160 NIL) (|j| NIL) (|i1| #2=(|NonNegativeInteger|))
-          (#3=#:G159 NIL) (|i| NIL)
+         ((#1=#:G161 NIL) (|j| NIL) (|i1| #2=(|NonNegativeInteger|))
+          (#3=#:G160 NIL) (|i| NIL)
           (|res|
            (|Matrix|
             (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
-          (|n1| #2#) (#4=#:G158 NIL) (|n| (|NonNegativeInteger|))
+          (|n1| #2#) (#4=#:G159 NIL) (|n| (|NonNegativeInteger|))
           (|res1|
            (|Matrix|
             (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
-          (C (|List| (|Expression| (|Integer|)))) (#5=#:G157 NIL)
-          (#6=#:G156 NIL) (|vd| (|Vector| (|Integer|))) (#7=#:G155 NIL)
-          (|ei| NIL) (#8=#:G154 NIL)
+          (C (|List| (|Expression| (|Integer|)))) (#5=#:G158 NIL)
+          (#6=#:G157 NIL) (|vd| (|Vector| (|Integer|))) (#7=#:G156 NIL)
+          (|ei| NIL) (#8=#:G155 NIL)
           (|lpp|
            (|List| (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
           (|pp| (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (#9=#:G130 NIL)
+          (#9=#:G131 NIL)
           (|pp1| (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
-          (#10=#:G153 NIL) (#11=#:G152 NIL) (|v| NIL)
+          (#10=#:G154 NIL) (#11=#:G153 NIL) (|v| NIL)
           (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (QVSIZE (|SPADfirst| |lv|))) (LETT |lpp| NIL)
               (SEQ (LETT |v| NIL) (LETT #11# |lv|) G190
@@ -147,7 +147,7 @@
 
 (DEFUN |VectorHermitePadeSolver| ()
   (SPROG NIL
-         (PROG (#1=#:G162)
+         (PROG (#1=#:G163)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|VectorHermitePadeSolver|))

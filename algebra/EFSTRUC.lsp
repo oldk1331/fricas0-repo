@@ -2365,12 +2365,12 @@
         ((|twr| (|List| (|Kernel| F))) (|eta| (F)) (|x| (|Symbol|))
          ($ (|Union| F "failed")))
         (SPROG
-         ((#1=#:G840 NIL) (#2=#:G839 (F)) (#3=#:G841 (F)) (#4=#:G852 NIL)
-          (|i| NIL) (#5=#:G853 NIL) (|yy| NIL) (|g| (F)) (#6=#:G813 NIL)
-          (#7=#:G812 (F)) (#8=#:G814 (F)) (#9=#:G850 NIL) (#10=#:G851 NIL)
+         ((#1=#:G843 NIL) (#2=#:G842 (F)) (#3=#:G844 (F)) (#4=#:G855 NIL)
+          (|i| NIL) (#5=#:G856 NIL) (|yy| NIL) (|g| (F)) (#6=#:G813 NIL)
+          (#7=#:G812 (F)) (#8=#:G814 (F)) (#9=#:G853 NIL) (#10=#:G854 NIL)
           (|v| (|Vector| (|Fraction| (|Integer|))))
           (|c| (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
-          (#11=#:G849 NIL) (|fns| (|List| F)) (#12=#:G848 NIL))
+          (#11=#:G852 NIL) (|fns| (|List| F)) (#12=#:G851 NIL))
          (SEQ
           (LETT |c|
                 (SPADCALL
@@ -2480,7 +2480,7 @@
           (|pr|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (|n| (|NonNegativeInteger|)) (#1=#:G854 NIL))
+          (|n| (|NonNegativeInteger|)) (#1=#:G857 NIL))
          (SEQ
           (LETT |n|
                 (PROG1
@@ -2542,8 +2542,8 @@
           (|Union| (|:| |vec| (|Vector| (|Fraction| (|Integer|))))
                    (|:| |func| F) (|:| |fail| (|Boolean|)))))
         (SPROG
-         ((#1=#:G890 NIL) (#2=#:G889 #3=(|Integer|)) (#4=#:G891 #3#)
-          (#5=#:G894 NIL) (|r| NIL))
+         ((#1=#:G893 NIL) (#2=#:G892 #3=(|Integer|)) (#4=#:G894 #3#)
+          (#5=#:G897 NIL) (|r| NIL))
          (SEQ
           (COND
            ((NULL
@@ -2598,18 +2598,18 @@
           (|Record| (|:| |funcs| (|List| F)) (|:| |kers| (|List| (|Kernel| F)))
                     (|:| |vals| (|List| F)))))
         (SPROG
-         ((|nlf| (|List| F)) (#2=#:G924 NIL) (|f| NIL) (#3=#:G923 NIL)
-          (|h| (F)) (#4=#:G908 NIL) (#5=#:G907 (F)) (#6=#:G909 (F))
-          (#7=#:G921 NIL) (|a| NIL) (#8=#:G922 NIL) (|z| NIL)
-          (|l| (|List| #1#)) (#9=#:G920 NIL) (|kk| NIL) (#10=#:G919 NIL)
-          (|lv| (|List| (|Fraction| (|Integer|)))) (#11=#:G918 NIL) (|i| NIL)
-          (#12=#:G917 NIL) (|v0| (|Integer|))
+         ((|nlf| (|List| F)) (#2=#:G927 NIL) (|f| NIL) (#3=#:G926 NIL)
+          (|h| (F)) (#4=#:G911 NIL) (#5=#:G910 (F)) (#6=#:G912 (F))
+          (#7=#:G924 NIL) (|a| NIL) (#8=#:G925 NIL) (|z| NIL)
+          (|l| (|List| #1#)) (#9=#:G923 NIL) (|kk| NIL) (#10=#:G922 NIL)
+          (|lv| (|List| (|Fraction| (|Integer|)))) (#11=#:G921 NIL) (|i| NIL)
+          (#12=#:G920 NIL) (|v0| (|Integer|))
           (|rec|
            (|Union|
             (|Record| (|:| |index| (|Integer|)) (|:| |ker| (|Kernel| F)))
             "failed"))
-          (|g| (F)) (#13=#:G897 NIL) (#14=#:G896 (F)) (#15=#:G898 (F))
-          (#16=#:G915 NIL) (#17=#:G916 NIL) (|fns| (|List| F)) (|y| (F)))
+          (|g| (F)) (#13=#:G900 NIL) (#14=#:G899 (F)) (#15=#:G901 (F))
+          (#16=#:G918 NIL) (#17=#:G919 NIL) (|fns| (|List| F)) (|y| (F)))
          (SEQ (LETT |y| (|SPADfirst| (SPADCALL |k| (QREFELT $ 32))))
               (LETT |fns| (|EFSTRUC;toY| |lk| $))
               (LETT |g|
@@ -2761,7 +2761,7 @@
 
 (SDEFUN |EFSTRUC;normalize;LLL;55|
         ((|lf| (|List| F)) (|lx| (|List| (|Symbol|))) ($ (|List| F)))
-        (SPROG ((|lf2| (|List| F)) (#1=#:G934 NIL) (|f| NIL) (#2=#:G933 NIL))
+        (SPROG ((|lf2| (|List| F)) (#1=#:G937 NIL) (|f| NIL) (#2=#:G936 NIL))
                (SEQ
                 (LETT |lf2|
                       (PROGN
@@ -2787,10 +2787,10 @@
           (|Union| (|:| |vec| (|Vector| (|Fraction| (|Integer|))))
                    (|:| |func| F) (|:| |fail| (|Boolean|)))))
         (SPROG
-         ((#1=#:G976 NIL) (#2=#:G978 NIL) (#3=#:G969 NIL) (#4=#:G968 (F))
-          (#5=#:G970 (F)) (#6=#:G980 NIL) (|i| NIL)
-          (|r| (|Union| (|Integer|) "failed")) (|m| (F)) (#7=#:G979 NIL)
-          (|x| NIL) (#8=#:G977 NIL) (|n| (F)))
+         ((#1=#:G982 NIL) (#2=#:G984 NIL) (#3=#:G975 NIL) (#4=#:G974 (F))
+          (#5=#:G976 (F)) (#6=#:G986 NIL) (|i| NIL)
+          (|r| (|Union| (|Integer|) "failed")) (|m| (F)) (#7=#:G985 NIL)
+          (|x| NIL) (#8=#:G983 NIL) (|n| (F)))
          (SEQ
           (EXIT
            (SEQ
@@ -2812,7 +2812,7 @@
                                  (SPADCALL
                                   (SPADCALL (QCDR |r|) (QREFELT $ 203))
                                   (QREFELT $ 13))))
-                     (GO #9=#:G974))))))))
+                     (GO #9=#:G980))))))))
               (SEQ (LETT |x| NIL) (LETT #7# |l|) G190
                    (COND
                     ((OR (ATOM #7#) (PROGN (LETT |x| (CAR #7#)) NIL))
@@ -2877,9 +2877,9 @@
                                                                         71))))
                                                 (SPADCALL |x| (QREFELT $ 88))
                                                 (QREFELT $ 107))))
-                                   (GO #10=#:G975)))
+                                   (GO #10=#:G981)))
                                  ('T (|error| "bad order of factorials"))))
-                          (GO #11=#:G972)))))))
+                          (GO #11=#:G978)))))))
                     #11# (EXIT #1#))
                    (LETT #7# (CDR #7#)) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS 2 'T))))
@@ -2888,7 +2888,7 @@
 
 (SDEFUN |EFSTRUC;normalize;LLL;57|
         ((|lf| (|List| F)) (|lx| (|List| (|Symbol|))) ($ (|List| F)))
-        (SPROG ((|lf2| (|List| F)) (#1=#:G987 NIL) (|f| NIL) (#2=#:G986 NIL))
+        (SPROG ((|lf2| (|List| F)) (#1=#:G993 NIL) (|f| NIL) (#2=#:G992 NIL))
                (SEQ
                 (LETT |lf2|
                       (PROGN
@@ -2907,9 +2907,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionStructurePackage;|)) 
 
-(DEFUN |ElementaryFunctionStructurePackage| (&REST #1=#:G988)
+(DEFUN |ElementaryFunctionStructurePackage| (&REST #1=#:G994)
   (SPROG NIL
-         (PROG (#2=#:G989)
+         (PROG (#2=#:G995)
            (RETURN
             (COND
              ((LETT #2#
