@@ -490,11 +490,11 @@
 (SDEFUN |SEM;horizSplit;$CR;23|
         ((A ($)) (|c| (C)) ($ (|Record| (|:| |Left| $) (|:| |Right| $))))
         (SPROG
-         ((|le| (|List| D)) (|li| #1=(|List| C)) (|re| (|List| D))
+         ((|le| (|List| D)) (|li| (|List| C)) (|re| (|List| D))
           (|ri| (|List| C))
           (|r|
            (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
-          (#2=#:G337 NIL) (|i| NIL) (RA ($)) (LA ($)) (|linds| #1#)
+          (#1=#:G337 NIL) (|i| NIL) (RA ($)) (LA ($)) (|linds| (|List| C))
           (|rinds| (|List| C)))
          (SEQ (LETT |rinds| (SPADCALL A (QREFELT $ 23))) (LETT |linds| NIL)
               (SEQ G190
@@ -512,21 +512,21 @@
                (COND
                 ((NULL |linds|)
                  (CONS (SPADCALL |linds| (QVELT A 1) (QREFELT $ 32)) A))
-                (#3='T
+                (#2='T
                  (SEQ (LETT |linds| (NREVERSE |linds|))
                       (EXIT
                        (COND
                         ((NULL |rinds|)
                          (CONS A
                                (SPADCALL |rinds| (QVELT A 1) (QREFELT $ 32))))
-                        (#3#
+                        (#2#
                          (SEQ
                           (LETT LA
                                 (SPADCALL |linds| (QVELT A 1) (QREFELT $ 32)))
                           (LETT RA
                                 (SPADCALL |rinds| (QVELT A 1) (QREFELT $ 32)))
-                          (SEQ (LETT |i| 1) (LETT #2# (QVELT A 1)) G190
-                               (COND ((|greater_SI| |i| #2#) (GO G191)))
+                          (SEQ (LETT |i| 1) (LETT #1# (QVELT A 1)) G190
+                               (COND ((|greater_SI| |i| #1#) (GO G191)))
                                (SEQ (LETT |r| (SPADCALL A |i| (QREFELT $ 26)))
                                     (LETT |ri| (QCAR |r|))
                                     (LETT |re| (QCDR |r|)) (LETT |li| NIL)

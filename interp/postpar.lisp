@@ -314,7 +314,7 @@
       NIL))))
 
 ; postMakeCons l ==
-;   null l => nil
+;   null l => ["empty"]
 ;   l is [[":",a],:l'] =>
 ;     l' => ['append,postTran a,postMakeCons l']
 ;     postTran a
@@ -323,7 +323,7 @@
 (DEFUN |postMakeCons| (|l|)
   (PROG (|ISTMP#1| |ISTMP#2| |a| |l'|)
     (RETURN
-     (COND ((NULL |l|) NIL)
+     (COND ((NULL |l|) (LIST '|empty|))
            ((AND (CONSP |l|)
                  (PROGN
                   (SETQ |ISTMP#1| (CAR |l|))
