@@ -39,34 +39,20 @@
         ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (|r_besseli| |n| |x|)) 
 
-(PUT '|DFSFUN;hypergeometric0F1;3C;7| '|SPADreplace| '|c_hyper0f1|) 
-
-(SDEFUN |DFSFUN;hypergeometric0F1;3C;7|
-        ((|a| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
-         ($ (|Complex| (|DoubleFloat|))))
-        (|c_hyper0f1| |a| |z|)) 
-
-(SDEFUN |DFSFUN;hypergeometric0F1;3Df;8|
-        ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
-        (SPADCALL
-         (SPADCALL (SPADCALL |n| (QREFELT $ 16)) (SPADCALL |x| (QREFELT $ 16))
-                   (QREFELT $ 15))
-         (QREFELT $ 17))) 
-
-(SDEFUN |DFSFUN;digamma;2Df;9| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
+(SDEFUN |DFSFUN;digamma;2Df;7| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPADCALL 0 |x| (QREFELT $ 10))) 
 
-(SDEFUN |DFSFUN;digamma;2C;10|
+(SDEFUN |DFSFUN;digamma;2C;8|
         ((|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
         (SPADCALL 0 |z| (QREFELT $ 8))) 
 
-(SDEFUN |DFSFUN;besselY;3Df;11|
+(SDEFUN |DFSFUN;besselY;3Df;9|
         ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG ((|vp| (|DoubleFloat|)))
                (SEQ
                 (COND
-                 ((SPADCALL |n| (QREFELT $ 25))
-                  (LETT |n| (|add_DF| |n| (QREFELT $ 22)))))
+                 ((SPADCALL |n| (QREFELT $ 21))
+                  (LETT |n| (|add_DF| |n| (QREFELT $ 18)))))
                 (LETT |vp|
                       (|mul_DF| |n| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)))
                 (EXIT
@@ -76,36 +62,36 @@
                    (SPADCALL (|minus_DF| |n|) |x| (QREFELT $ 12)))
                   (|sin_DF| |vp|)))))) 
 
-(SDEFUN |DFSFUN;besselY;3C;12|
+(SDEFUN |DFSFUN;besselY;3C;10|
         ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
          ($ (|Complex| (|DoubleFloat|))))
         (SPROG ((|vp| (|Complex| (|DoubleFloat|))))
                (SEQ
                 (COND
-                 ((SPADCALL |v| (QREFELT $ 28))
+                 ((SPADCALL |v| (QREFELT $ 24))
                   (LETT |v|
-                        (SPADCALL |v| (SPADCALL (QREFELT $ 22) (QREFELT $ 16))
-                                  (QREFELT $ 29)))))
+                        (SPADCALL |v| (SPADCALL (QREFELT $ 18) (QREFELT $ 25))
+                                  (QREFELT $ 26)))))
                 (LETT |vp|
-                      (SPADCALL |v| (SPADCALL (QREFELT $ 30)) (QREFELT $ 31)))
+                      (SPADCALL |v| (SPADCALL (QREFELT $ 27)) (QREFELT $ 28)))
                 (EXIT
                  (SPADCALL
                   (SPADCALL
-                   (SPADCALL (SPADCALL |vp| (QREFELT $ 32))
-                             (SPADCALL |v| |z| (QREFELT $ 11)) (QREFELT $ 31))
-                   (SPADCALL (SPADCALL |v| (QREFELT $ 33)) |z| (QREFELT $ 11))
-                   (QREFELT $ 34))
-                  (SPADCALL |vp| (QREFELT $ 35)) (QREFELT $ 36)))))) 
+                   (SPADCALL (SPADCALL |vp| (QREFELT $ 29))
+                             (SPADCALL |v| |z| (QREFELT $ 11)) (QREFELT $ 28))
+                   (SPADCALL (SPADCALL |v| (QREFELT $ 30)) |z| (QREFELT $ 11))
+                   (QREFELT $ 31))
+                  (SPADCALL |vp| (QREFELT $ 32)) (QREFELT $ 33)))))) 
 
-(SDEFUN |DFSFUN;besselK;3Df;13|
+(SDEFUN |DFSFUN;besselK;3Df;11|
         ((|n| (|DoubleFloat|)) (|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
         (SPROG
          ((|ahalf| (|DoubleFloat|)) (|vp| (|DoubleFloat|))
           (|p| (|DoubleFloat|)))
          (SEQ
           (COND
-           ((SPADCALL |n| (QREFELT $ 25))
-            (LETT |n| (|add_DF| |n| (QREFELT $ 22)))))
+           ((SPADCALL |n| (QREFELT $ 21))
+            (LETT |n| (|add_DF| |n| (QREFELT $ 18)))))
           (LETT |p| (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT))
           (LETT |vp| (|mul_DF| |n| |p|))
           (LETT |ahalf| (|div_DF| 1.0 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
@@ -116,7 +102,7 @@
                                 (SPADCALL |n| |x| (QREFELT $ 14))))
             (|sin_DF| |vp|)))))) 
 
-(SDEFUN |DFSFUN;besselK;3C;14|
+(SDEFUN |DFSFUN;besselK;3C;12|
         ((|v| (|Complex| (|DoubleFloat|))) (|z| (|Complex| (|DoubleFloat|)))
          ($ (|Complex| (|DoubleFloat|))))
         (SPROG
@@ -124,180 +110,30 @@
           (|vp| (|Complex| (|DoubleFloat|))) (|p| (|Complex| (|DoubleFloat|))))
          (SEQ
           (COND
-           ((SPADCALL |v| (QREFELT $ 28))
+           ((SPADCALL |v| (QREFELT $ 24))
             (LETT |v|
-                  (SPADCALL |v| (SPADCALL (QREFELT $ 22) (QREFELT $ 16))
-                            (QREFELT $ 29)))))
-          (LETT |p| (SPADCALL (QREFELT $ 30)))
-          (LETT |vp| (SPADCALL |v| |p| (QREFELT $ 31)))
+                  (SPADCALL |v| (SPADCALL (QREFELT $ 18) (QREFELT $ 25))
+                            (QREFELT $ 26)))))
+          (LETT |p| (SPADCALL (QREFELT $ 27)))
+          (LETT |vp| (SPADCALL |v| |p| (QREFELT $ 28)))
           (LETT |ahalf|
-                (SPADCALL (|spadConstant| $ 38) (SPADCALL 2 (QREFELT $ 41))
-                          (QREFELT $ 36)))
+                (SPADCALL (|spadConstant| $ 35) (SPADCALL 2 (QREFELT $ 38))
+                          (QREFELT $ 33)))
           (EXIT
            (SPADCALL
-            (SPADCALL (SPADCALL |p| |ahalf| (QREFELT $ 31))
+            (SPADCALL (SPADCALL |p| |ahalf| (QREFELT $ 28))
                       (SPADCALL
-                       (SPADCALL (SPADCALL |v| (QREFELT $ 33)) |z|
+                       (SPADCALL (SPADCALL |v| (QREFELT $ 30)) |z|
                                  (QREFELT $ 13))
-                       (SPADCALL |v| |z| (QREFELT $ 13)) (QREFELT $ 34))
-                      (QREFELT $ 31))
-            (SPADCALL |vp| (QREFELT $ 35)) (QREFELT $ 36)))))) 
-
-(SDEFUN |DFSFUN;airyAi;2Df;15| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
-        (SPROG
-         ((|eta| (|DoubleFloat|)) (|athird| (|DoubleFloat|)) (#1=#:G146 NIL)
-          (|ahalf| (|DoubleFloat|)))
-         (SEQ
-          (LETT |ahalf|
-                (PROG2
-                    (LETT #1#
-                          (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (QREFELT $ 44)))
-                    (QCDR #1#)
-                  (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
-                                  (|Union| (|DoubleFloat|) #2="failed") #1#)))
-          (LETT |athird|
-                (PROG2
-                    (LETT #1#
-                          (SPADCALL (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (QREFELT $ 44)))
-                    (QCDR #1#)
-                  (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
-                                  (|Union| (|DoubleFloat|) #2#) #1#)))
-          (LETT |eta|
-                (|mul_DF| (SPADCALL 2 |athird| (QREFELT $ 46))
-                          (SPADCALL (|minus_DF| |x|)
-                                    (SPADCALL 3 |ahalf| (QREFELT $ 46))
-                                    (QREFELT $ 47))))
-          (EXIT
-           (|mul_DF|
-            (|mul_DF| (SPADCALL (|minus_DF| |x|) |ahalf| (QREFELT $ 47))
-                      |athird|)
-            (|add_DF| (SPADCALL (|minus_DF| |athird|) |eta| (QREFELT $ 12))
-                      (SPADCALL |athird| |eta| (QREFELT $ 12)))))))) 
-
-(SDEFUN |DFSFUN;airyAi;2C;16|
-        ((|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
-        (SPROG
-         ((|eta| (|Complex| (|DoubleFloat|)))
-          (|athird| (|Complex| (|DoubleFloat|))) (#1=#:G151 NIL)
-          (|ahalf| (|Complex| (|DoubleFloat|))))
-         (SEQ
-          (LETT |ahalf|
-                (PROG2
-                    (LETT #1#
-                          (SPADCALL (SPADCALL 2 (QREFELT $ 41))
-                                    (QREFELT $ 49)))
-                    (QCDR #1#)
-                  (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                  (|Union| (|Complex| (|DoubleFloat|))
-                                           #2="failed")
-                                  #1#)))
-          (LETT |athird|
-                (PROG2
-                    (LETT #1#
-                          (SPADCALL (SPADCALL 3 (QREFELT $ 41))
-                                    (QREFELT $ 49)))
-                    (QCDR #1#)
-                  (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                  (|Union| (|Complex| (|DoubleFloat|)) #2#)
-                                  #1#)))
-          (LETT |eta|
-                (SPADCALL (SPADCALL 2 |athird| (QREFELT $ 50))
-                          (SPADCALL (SPADCALL |z| (QREFELT $ 33))
-                                    (SPADCALL 3 |ahalf| (QREFELT $ 50))
-                                    (QREFELT $ 51))
-                          (QREFELT $ 31)))
-          (EXIT
-           (SPADCALL
-            (SPADCALL
-             (SPADCALL (SPADCALL |z| (QREFELT $ 33)) |ahalf| (QREFELT $ 51))
-             |athird| (QREFELT $ 31))
-            (SPADCALL
-             (SPADCALL (SPADCALL |athird| (QREFELT $ 33)) |eta| (QREFELT $ 11))
-             (SPADCALL |athird| |eta| (QREFELT $ 11)) (QREFELT $ 29))
-            (QREFELT $ 31)))))) 
-
-(SDEFUN |DFSFUN;airyBi;2Df;17| ((|x| (|DoubleFloat|)) ($ (|DoubleFloat|)))
-        (SPROG
-         ((|eta| (|DoubleFloat|)) (|athird| (|DoubleFloat|)) (#1=#:G156 NIL)
-          (|ahalf| (|DoubleFloat|)))
-         (SEQ
-          (LETT |ahalf|
-                (PROG2
-                    (LETT #1#
-                          (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (QREFELT $ 44)))
-                    (QCDR #1#)
-                  (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
-                                  (|Union| (|DoubleFloat|) #2="failed") #1#)))
-          (LETT |athird|
-                (PROG2
-                    (LETT #1#
-                          (SPADCALL (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                    (QREFELT $ 44)))
-                    (QCDR #1#)
-                  (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
-                                  (|Union| (|DoubleFloat|) #2#) #1#)))
-          (LETT |eta|
-                (|mul_DF| (SPADCALL 2 |athird| (QREFELT $ 46))
-                          (SPADCALL (|minus_DF| |x|)
-                                    (SPADCALL 3 |ahalf| (QREFELT $ 46))
-                                    (QREFELT $ 47))))
-          (EXIT
-           (|mul_DF|
-            (SPADCALL (|minus_DF| (|mul_DF| |x| |athird|)) |ahalf|
-                      (QREFELT $ 47))
-            (|sub_DF| (SPADCALL (|minus_DF| |athird|) |eta| (QREFELT $ 12))
-                      (SPADCALL |athird| |eta| (QREFELT $ 12)))))))) 
-
-(SDEFUN |DFSFUN;airyBi;2C;18|
-        ((|z| (|Complex| (|DoubleFloat|))) ($ (|Complex| (|DoubleFloat|))))
-        (SPROG
-         ((|eta| (|Complex| (|DoubleFloat|)))
-          (|athird| (|Complex| (|DoubleFloat|))) (#1=#:G161 NIL)
-          (|ahalf| (|Complex| (|DoubleFloat|))))
-         (SEQ
-          (LETT |ahalf|
-                (PROG2
-                    (LETT #1#
-                          (SPADCALL (SPADCALL 2 (QREFELT $ 41))
-                                    (QREFELT $ 49)))
-                    (QCDR #1#)
-                  (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                  (|Union| (|Complex| (|DoubleFloat|))
-                                           #2="failed")
-                                  #1#)))
-          (LETT |athird|
-                (PROG2
-                    (LETT #1#
-                          (SPADCALL (SPADCALL 3 (QREFELT $ 41))
-                                    (QREFELT $ 49)))
-                    (QCDR #1#)
-                  (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                  (|Union| (|Complex| (|DoubleFloat|)) #2#)
-                                  #1#)))
-          (LETT |eta|
-                (SPADCALL (SPADCALL 2 |athird| (QREFELT $ 50))
-                          (SPADCALL (SPADCALL |z| (QREFELT $ 33))
-                                    (SPADCALL 3 |ahalf| (QREFELT $ 50))
-                                    (QREFELT $ 51))
-                          (QREFELT $ 31)))
-          (EXIT
-           (SPADCALL
-            (SPADCALL
-             (SPADCALL (SPADCALL |z| |athird| (QREFELT $ 31)) (QREFELT $ 33))
-             |ahalf| (QREFELT $ 51))
-            (SPADCALL
-             (SPADCALL (SPADCALL |athird| (QREFELT $ 33)) |eta| (QREFELT $ 11))
-             (SPADCALL |athird| |eta| (QREFELT $ 11)) (QREFELT $ 34))
-            (QREFELT $ 31)))))) 
+                       (SPADCALL |v| |z| (QREFELT $ 13)) (QREFELT $ 31))
+                      (QREFELT $ 28))
+            (SPADCALL |vp| (QREFELT $ 32)) (QREFELT $ 33)))))) 
 
 (DECLAIM (NOTINLINE |DoubleFloatSpecialFunctions;|)) 
 
 (DEFUN |DoubleFloatSpecialFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G166)
+         (PROG (#1=#:G144)
            (RETURN
             (COND
              ((LETT #1#
@@ -322,14 +158,14 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|DoubleFloatSpecialFunctions|))
-          (LETT $ (GETREFV 55))
+          (LETT $ (GETREFV 40))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|DoubleFloatSpecialFunctions| NIL
                       (CONS 1 $))
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 22
+          (QSETREFV $ 18
                     (|expt_DF_I| (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT) -7))
           $))) 
 
@@ -339,21 +175,16 @@
               |DFSFUN;polygamma;Nni2C;1| (|DoubleFloat|)
               |DFSFUN;polygamma;Nni2Df;2| |DFSFUN;besselJ;3C;3|
               |DFSFUN;besselJ;3Df;4| |DFSFUN;besselI;3C;5|
-              |DFSFUN;besselI;3Df;6| |DFSFUN;hypergeometric0F1;3C;7|
-              (0 . |coerce|) (5 . |retract|) |DFSFUN;hypergeometric0F1;3Df;8|
-              (10 . |Zero|) |DFSFUN;digamma;2Df;9| |DFSFUN;digamma;2C;10|
-              '|fuzz| (|Boolean|) (|IntegerRetractions| 9) (14 . |integer?|)
-              |DFSFUN;besselY;3Df;11| (|IntegerRetractions| 6)
-              (19 . |integer?|) (24 . +) (30 . |pi|) (34 . *) (40 . |cos|)
-              (45 . -) (50 . -) (56 . |sin|) (61 . /) |DFSFUN;besselY;3C;12|
-              (67 . |One|) |DFSFUN;besselK;3Df;13| (|Integer|) (71 . |coerce|)
-              |DFSFUN;besselK;3C;14| (|Union| $ '"failed") (76 . |recip|)
-              (|PositiveInteger|) (81 . *) (87 . ^) |DFSFUN;airyAi;2Df;15|
-              (93 . |recip|) (98 . *) (104 . ^) |DFSFUN;airyAi;2C;16|
-              |DFSFUN;airyBi;2Df;17| |DFSFUN;airyBi;2C;18|)
-           '#(|polygamma| 110 |hypergeometric0F1| 122 |digamma| 134 |besselY|
-              144 |besselK| 156 |besselJ| 168 |besselI| 180 |airyBi| 192
-              |airyAi| 202)
+              |DFSFUN;besselI;3Df;6| (0 . |Zero|) |DFSFUN;digamma;2Df;7|
+              |DFSFUN;digamma;2C;8| '|fuzz| (|Boolean|)
+              (|IntegerRetractions| 9) (4 . |integer?|) |DFSFUN;besselY;3Df;9|
+              (|IntegerRetractions| 6) (9 . |integer?|) (14 . |coerce|)
+              (19 . +) (25 . |pi|) (29 . *) (35 . |cos|) (40 . -) (45 . -)
+              (51 . |sin|) (56 . /) |DFSFUN;besselY;3C;10| (62 . |One|)
+              |DFSFUN;besselK;3Df;11| (|Integer|) (66 . |coerce|)
+              |DFSFUN;besselK;3C;12|)
+           '#(|polygamma| 71 |digamma| 83 |besselY| 93 |besselK| 105 |besselJ|
+              117 |besselI| 129)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -411,43 +242,19 @@
                                  ((|Complex| (|DoubleFloat|))
                                   (|Complex| (|DoubleFloat|))
                                   (|Complex| (|DoubleFloat|))))
-                                T)
-                              '((|airyAi|
-                                 ((|Complex| (|DoubleFloat|))
-                                  (|Complex| (|DoubleFloat|))))
-                                T)
-                              '((|airyAi| ((|DoubleFloat|) (|DoubleFloat|))) T)
-                              '((|airyBi| ((|DoubleFloat|) (|DoubleFloat|))) T)
-                              '((|airyBi|
-                                 ((|Complex| (|DoubleFloat|))
-                                  (|Complex| (|DoubleFloat|))))
-                                T)
-                              '((|hypergeometric0F1|
-                                 ((|DoubleFloat|) (|DoubleFloat|)
-                                  (|DoubleFloat|)))
-                                T)
-                              '((|hypergeometric0F1|
-                                 ((|Complex| (|DoubleFloat|))
-                                  (|Complex| (|DoubleFloat|))
-                                  (|Complex| (|DoubleFloat|))))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 54
-                                            '(1 6 0 9 16 1 6 9 0 17 0 6 0 19 1
-                                              24 23 9 25 1 27 23 6 28 2 6 0 0 0
-                                              29 0 6 0 30 2 6 0 0 0 31 1 6 0 0
-                                              32 1 6 0 0 33 2 6 0 0 0 34 1 6 0
-                                              0 35 2 6 0 0 0 36 0 6 0 38 1 6 0
-                                              40 41 1 9 43 0 44 2 9 0 45 0 46 2
-                                              9 0 0 0 47 1 6 43 0 49 2 6 0 45 0
-                                              50 2 6 0 0 0 51 2 0 6 7 6 8 2 0 9
-                                              7 9 10 2 0 6 6 6 15 2 0 9 9 9 18
-                                              1 0 6 6 21 1 0 9 9 20 2 0 9 9 9
-                                              26 2 0 6 6 6 37 2 0 9 9 9 39 2 0
-                                              6 6 6 42 2 0 6 6 6 11 2 0 9 9 9
-                                              12 2 0 9 9 9 14 2 0 6 6 6 13 1 0
-                                              9 9 53 1 0 6 6 54 1 0 6 6 52 1 0
-                                              9 9 48)))))
+                        (|makeByteWordVec2| 39
+                                            '(0 6 0 15 1 20 19 9 21 1 23 19 6
+                                              24 1 6 0 9 25 2 6 0 0 0 26 0 6 0
+                                              27 2 6 0 0 0 28 1 6 0 0 29 1 6 0
+                                              0 30 2 6 0 0 0 31 1 6 0 0 32 2 6
+                                              0 0 0 33 0 6 0 35 1 6 0 37 38 2 0
+                                              9 7 9 10 2 0 6 7 6 8 1 0 9 9 16 1
+                                              0 6 6 17 2 0 9 9 9 22 2 0 6 6 6
+                                              34 2 0 6 6 6 39 2 0 9 9 9 36 2 0
+                                              6 6 6 11 2 0 9 9 9 12 2 0 9 9 9
+                                              14 2 0 6 6 6 13)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DoubleFloatSpecialFunctions| 'NILADIC T) 
