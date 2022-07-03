@@ -1664,18 +1664,17 @@
                              (LETT |x_ord| (SPADCALL |xRefer| (QREFELT $ 42)))
                              (EXIT
                               (COND
-                               ((OR
-                                 (SPADCALL (SPADCALL |x_ord| (QREFELT $ 64))
-                                           (|spadConstant| $ 107)
-                                           (QREFELT $ 103))
-                                 (NULL
-                                  (SPADCALL
-                                   (SPADCALL |yOrd|
-                                             (SPADCALL |x_ord| (QREFELT $ 53))
-                                             (QREFELT $ 104))
-                                   |n| (QREFELT $ 80))))
-                                (PROGN (LETT #1# |$NoValue|) (GO #3=#:G795)))
-                               ('T (SPADCALL |x| (QREFELT $ 46))))))
+                               ((SPADCALL (SPADCALL |x_ord| (QREFELT $ 64))
+                                          (|spadConstant| $ 107)
+                                          (QREFELT $ 103))
+                                (PROGN (LETT #1# 1) (GO #3=#:G795)))
+                               ((SPADCALL
+                                 (SPADCALL |yOrd|
+                                           (SPADCALL |x_ord| (QREFELT $ 53))
+                                           (QREFELT $ 104))
+                                 |n| (QREFELT $ 80))
+                                (SPADCALL |x| (QREFELT $ 46)))
+                               ('T (PROGN (LETT #1# |$NoValue|) (GO #3#))))))
                             NIL (GO G190) G191 (EXIT NIL)))
                       #3# (EXIT #1#))
                      (EXIT

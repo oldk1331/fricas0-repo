@@ -322,7 +322,7 @@
 ;         RPLACSTR(line, x, n := #string, string, 0, n)
 ;         d
 ;   appChar(string, x, y, nconc(d,
-;             [[y, :make_full_CVEC(10 + $LINELENGTH + $MARGIN, " ")]]))
+;             [[y, :make_full_CVEC(10 + $LINELENGTH + $MARGIN)]]))
 
 (DEFUN |appChar| (|string| |x| |y| |d|)
   (PROG (|line| |n|)
@@ -339,8 +339,8 @@
          (NCONC |d|
                 (LIST
                  (CONS |y|
-                       (|make_full_CVEC| (+ (+ 10 $LINELENGTH) $MARGIN)
-                        '| |)))))))))))
+                       (|make_full_CVEC|
+                        (+ (+ 10 $LINELENGTH) $MARGIN))))))))))))
 
 ; mathprintWithNumber x ==
 ;   ioHook("startAlgebraOutput")

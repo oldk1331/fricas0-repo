@@ -345,7 +345,7 @@
                                      (#5='T
                                       (SEQ
                                        (LETT |res|
-                                             (|make_full_CVEC|
+                                             (|make_full_CVEC2|
                                               (* |n| (QCSIZE |prime_str|))
                                               (|STR_to_CHAR| " ")))
                                        (LETT |k| 1)

@@ -322,9 +322,7 @@
                                     (SEQ
                                      (COND
                                       ((EQL |entry| -1)
-                                       (PROGN
-                                        (LETT #4# |$NoValue|)
-                                        (GO #5=#:G241))))
+                                       (PROGN (LETT #4# 1) (GO #5=#:G241))))
                                      (EXIT (LETT |noresult| NIL))))
                                    ('T
                                     (SEQ (LETT |ee| (QAREF1O |grpv| |entry| 1))
@@ -775,7 +773,7 @@
                             (EXIT
                              (COND
                               ((SPADCALL |k1| 1 (QREFELT $ 23))
-                               (PROGN (LETT #6# |$NoValue|) (GO #8=#:G336))))))
+                               (PROGN (LETT #6# 1) (GO #8=#:G336))))))
                        (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))
                  #8# (EXIT #6#))
                 (LETT |gpsgs| NIL) (LETT |words2| NIL)
@@ -791,7 +789,7 @@
                             (SPADCALL (SPADCALL |group| |jj| (QREFELT $ 44))
                                       |i| (QREFELT $ 72))
                             |i| (QREFELT $ 23))
-                           (PROGN (LETT #4# |$NoValue|) (GO #9=#:G339))))))
+                           (PROGN (LETT #4# 1) (GO #9=#:G339))))))
                        (LETT |jj| (|inc_SI| |jj|)) (GO G190) G191 (EXIT NIL)))
                  #9# (EXIT #4#))
                 (SEQ (LETT |k| 1) (LETT #3# |gplength|) G190
@@ -1293,7 +1291,7 @@
                                                             '(|Integer|) #8#)))
                                                    (EXIT
                                                     (PROGN
-                                                     (LETT #7# |$NoValue|)
+                                                     (LETT #7# 1)
                                                      (GO #20=#:G404))))))))
                                           (LETT #9#
                                                 (PROG1 (CDR #9#)
@@ -1378,7 +1376,7 @@
                                                                           32)))
                                                  (EXIT
                                                   (PROGN
-                                                   (LETT #2# |$NoValue|)
+                                                   (LETT #2# 1)
                                                    (GO #21=#:G416))))))))
                                             (LETT |i| (|inc_SI| |i|)) (GO G190)
                                             G191 (EXIT NIL)))
@@ -1827,9 +1825,7 @@
                                   (EXIT
                                    (COND
                                     ((NULL |blp|)
-                                     (PROGN
-                                      (LETT #3# |$NoValue|)
-                                      (GO #6=#:G512)))
+                                     (PROGN (LETT #3# 1) (GO #6=#:G512)))
                                     ('T
                                      (SEQ (LETT |p1| (|SPADfirst| |blp|))
                                           (EXIT

@@ -233,9 +233,7 @@
                                  (EXIT
                                   (COND
                                    ((EQL (SPADCALL |lw2| (QREFELT $ 20)) 0)
-                                    (PROGN
-                                     (LETT #4# |$NoValue|)
-                                     (GO #5=#:G197)))
+                                    (PROGN (LETT #4# 1) (GO #5=#:G197)))
                                    ('T
                                     (SEQ
                                      (LETT |rf|
@@ -1573,9 +1571,7 @@
                                  ((NULL |rf|)
                                   (SEQ (LETT |res| (CONS |p| |res|))
                                        (EXIT
-                                        (PROGN
-                                         (LETT #4# |$NoValue|)
-                                         (GO #8=#:G431)))))
+                                        (PROGN (LETT #4# 1) (GO #8=#:G431)))))
                                  ('T
                                   (SEQ
                                    (LETT |fu|

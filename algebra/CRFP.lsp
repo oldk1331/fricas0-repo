@@ -334,7 +334,7 @@
                                              (SEQ (LETT |po| |j|)
                                                   (EXIT
                                                    (PROGN
-                                                    (LETT #1# |$NoValue|)
+                                                    (LETT #1# 1)
                                                     (GO #7=#:G178)))))
                                             ('T
                                              (SEQ

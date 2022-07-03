@@ -66,7 +66,7 @@
                                         (COND
                                          ((QEQCAR |u| 1)
                                           (PROGN
-                                           (LETT #1# |$NoValue|)
+                                           (LETT #1# 1)
                                            (GO #4=#:G161))))))
                                       (LETT |xx|
                                             (|NSUP;rep|
@@ -79,9 +79,7 @@
                                       (EXIT
                                        (COND
                                         ((NULL |xx|)
-                                         (PROGN
-                                          (LETT #1# |$NoValue|)
-                                          (GO #4#))))))
+                                         (PROGN (LETT #1# 1) (GO #4#))))))
                                      NIL (GO G190) G191 (EXIT NIL)))
                                #4# (EXIT #1#))
                               (EXIT (|NSUP;per| |xx| $)))))))))))) 
@@ -125,7 +123,7 @@
                                         (COND
                                          ((QEQCAR |u| 1)
                                           (PROGN
-                                           (LETT #1# |$NoValue|)
+                                           (LETT #1# 1)
                                            (GO #4=#:G174))))))
                                       (LETT |xx|
                                             (|NSUP;rep|
@@ -142,9 +140,7 @@
                                       (EXIT
                                        (COND
                                         ((NULL |xx|)
-                                         (PROGN
-                                          (LETT #1# |$NoValue|)
-                                          (GO #4#))))))
+                                         (PROGN (LETT #1# 1) (GO #4#))))))
                                      NIL (GO G190) G191 (EXIT NIL)))
                                #4# (EXIT #1#))
                               (EXIT
@@ -194,9 +190,7 @@
                                   (EXIT
                                    (COND
                                     ((QEQCAR |u| 1)
-                                     (PROGN
-                                      (LETT #1# |$NoValue|)
-                                      (GO #4=#:G187))))))
+                                     (PROGN (LETT #1# 1) (GO #4=#:G187))))))
                                  (LETT |xx|
                                        (|NSUP;rep|
                                         (SPADCALL
@@ -209,7 +203,7 @@
                                  (EXIT
                                   (COND
                                    ((NULL |xx|)
-                                    (PROGN (LETT #1# |$NoValue|) (GO #4#))))))
+                                    (PROGN (LETT #1# 1) (GO #4#))))))
                                 NIL (GO G190) G191 (EXIT NIL)))
                           #4# (EXIT #1#))
                          (EXIT (|NSUP;per| |xx| $)))))))))))) 
@@ -263,7 +257,7 @@
                           (EXIT
                            (COND
                             ((QEQCAR |u| 1)
-                             (PROGN (LETT #1# |$NoValue|) (GO #5=#:G204))))))
+                             (PROGN (LETT #1# 1) (GO #5=#:G204))))))
                          (LETT |qq|
                                (CONS
                                 (CONS (QCDR |u|) (QCDR (|SPADfirst| |xx|)))
@@ -289,9 +283,7 @@
                                                   (|NonNegativeInteger|) #4#)
                                                  #2#)))
                          (EXIT
-                          (COND
-                           ((NULL |xx|)
-                            (PROGN (LETT #1# |$NoValue|) (GO #5#))))))
+                          (COND ((NULL |xx|) (PROGN (LETT #1# 1) (GO #5#))))))
                         NIL (GO G190) G191 (EXIT NIL)))
                   #5# (EXIT #1#))
                  (EXIT
@@ -333,7 +325,7 @@
                           (EXIT
                            (COND
                             ((QEQCAR |u| 1)
-                             (PROGN (LETT #1# |$NoValue|) (GO #3=#:G219))))))
+                             (PROGN (LETT #1# 1) (GO #3=#:G219))))))
                          (LETT |qq|
                                (CONS
                                 (CONS (QCDR |u|) (QCDR (|SPADfirst| |xx|)))
@@ -350,9 +342,7 @@
                                  (QREFELT $ 19))
                                 $))
                          (EXIT
-                          (COND
-                           ((NULL |xx|)
-                            (PROGN (LETT #1# |$NoValue|) (GO #3#))))))
+                          (COND ((NULL |xx|) (PROGN (LETT #1# 1) (GO #3#))))))
                         NIL (GO G190) G191 (EXIT NIL)))
                   #3# (EXIT #1#))
                  (EXIT (|NSUP;per| (REVERSE |qq|) $)))))))) 

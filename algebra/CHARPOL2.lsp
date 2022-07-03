@@ -66,8 +66,7 @@
                                                                 NIL)
                                                           (EXIT
                                                            (PROGN
-                                                            (LETT #7#
-                                                                  |$NoValue|)
+                                                            (LETT #7# 1)
                                                             (GO
                                                              #10=#:G127))))))))
                                                      (LETT |kk|

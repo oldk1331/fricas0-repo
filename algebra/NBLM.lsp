@@ -570,7 +570,7 @@
                                                  (COND
                                                   ((< |vdi| (+ |vdj| |d|))
                                                    (PROGN
-                                                    (LETT #2# |$NoValue|)
+                                                    (LETT #2# 1)
                                                     (GO #6=#:G260)))
                                                   ('T
                                                    (SEQ

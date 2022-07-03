@@ -6220,7 +6220,7 @@
                                          (COND
                                           ((EQL |esum| 2)
                                            (PROGN
-                                            (LETT #9# |$NoValue|)
+                                            (LETT #9# 1)
                                             (GO #12=#:G1132)))
                                           ('T (LETT |j0| |j|)))))))))
                                (LETT |j| (|inc_SI| |j|)) (GO G190) G191
@@ -6481,7 +6481,7 @@
                            (COND
                             ((SPADCALL (QVELT |ar1| 1) (|spadConstant| $ 197)
                                        (QREFELT $ 339))
-                             (PROGN (LETT #10# |$NoValue|) (GO #14=#:G1178)))
+                             (PROGN (LETT #10# 1) (GO #14=#:G1178)))
                             ('T
                              (SEQ
                               (LETT |lp|
@@ -6491,7 +6491,7 @@
                                (COND
                                 ((SPADCALL |lp| (|spadConstant| $ 197)
                                            (QREFELT $ 339))
-                                 (PROGN (LETT #10# |$NoValue|) (GO #14#)))
+                                 (PROGN (LETT #10# 1) (GO #14#)))
                                 ('T
                                  (SEQ
                                   (LETT |num| (SPADCALL |lp| (QREFELT $ 38)))

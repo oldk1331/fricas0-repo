@@ -41,10 +41,7 @@
                       ((SPADCALL (SPADCALL |kf| |d|) (|spadConstant| $ 14)
                                  (QREFELT $ 15))
                        (SEQ (LETT |is_const| NIL)
-                            (EXIT
-                             (PROGN
-                              (LETT #5# |$NoValue|)
-                              (GO #11=#:G128))))))))
+                            (EXIT (PROGN (LETT #5# 1) (GO #11=#:G128))))))))
                    (LETT #6# (CDR #6#)) (GO G190) G191 (EXIT NIL)))
              #11# (EXIT #5#))
             (EXIT

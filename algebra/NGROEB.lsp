@@ -160,8 +160,7 @@
                                    (|spadConstant| $ 35) (QREFELT $ 38))
                          (SEQ (LETT D NIL)
                               (LETT |basPols| (|NGROEB;updatF| |h| 0 NIL $))
-                              (EXIT
-                               (PROGN (LETT #6# |$NoValue|) (GO #11=#:G174)))))
+                              (EXIT (PROGN (LETT #6# 1) (GO #11=#:G174)))))
                         ('T
                          (SEQ
                           (LETT D1

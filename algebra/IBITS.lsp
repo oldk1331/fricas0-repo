@@ -14,8 +14,8 @@
           (|f| #2=(|Character|)) (|t| #2#))
          (SEQ (LETT |t| (|STR_to_CHAR| "1")) (LETT |f| (|STR_to_CHAR| "0"))
               (LETT |s|
-                    (|make_full_CVEC| (SPADCALL |v| (QREFELT $ 10))
-                                      (SPADCALL (QREFELT $ 12))))
+                    (|make_full_CVEC2| (SPADCALL |v| (QREFELT $ 10))
+                                       (SPADCALL (QREFELT $ 12))))
               (SEQ (LETT |j| (QREFELT $ 6))
                    (LETT |i| (SPADCALL |s| (QREFELT $ 14)))
                    (LETT #1# (SPADCALL |s| (QREFELT $ 15))) G190

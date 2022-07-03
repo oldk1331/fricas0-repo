@@ -1163,9 +1163,6 @@
 ;   c in '((Field) (EuclideanDomain)) and ofCategory(t,'(IntegralDomain))=>
 ;       [$QuotientField, t]
 ;
-;   c = '(Field) and t = $Symbol =>
-;       [$QuotientField, ['Fraction, $Integer]]
-;
 ;   (t is [t0]) and (sd := getImmediateSuperDomain(t0)) and sd ~= t0 =>
 ;     resolveTCat(sd,c)
 ;
@@ -1186,8 +1183,6 @@
            ((AND (|member| |c| '((|Field|) (|EuclideanDomain|)))
                  (|ofCategory| |t| '(|IntegralDomain|)))
             (LIST |$QuotientField| |t|))
-           ((AND (EQUAL |c| '(|Field|)) (EQUAL |t| |$Symbol|))
-            (LIST |$QuotientField| (LIST '|Fraction| |$Integer|)))
            ((AND (CONSP |t|) (EQ (CDR |t|) NIL)
                  (PROGN (SETQ |t0| (CAR |t|)) #1='T)
                  (SETQ |sd| (|getImmediateSuperDomain| |t0|))

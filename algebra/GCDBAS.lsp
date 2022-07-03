@@ -160,9 +160,7 @@
                                     (EXIT
                                      (COND
                                       ((SPADCALL |a| (QREFELT $ 13))
-                                       (PROGN
-                                        (LETT #12# |$NoValue|)
-                                        (GO #15=#:G176)))
+                                       (PROGN (LETT #12# 1) (GO #15=#:G176)))
                                       ('T
                                        (SEQ
                                         (LETT |sr1|

@@ -400,13 +400,13 @@
 
 (SDEFUN |OUTFORM;dot;$Nni$;79| ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
         (SPROG ((|s| (|String|)))
-               (SEQ (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| ".")))
+               (SEQ (LETT |s| (|make_full_CVEC2| |nn| (|STR_to_CHAR| ".")))
                     (EXIT
                      (SPADCALL |a| (|OUTFORM;sform| |s| $) (QREFELT $ 78)))))) 
 
 (SDEFUN |OUTFORM;prime;$Nni$;80| ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
         (SPROG ((|s| (|String|)))
-               (SEQ (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| ",")))
+               (SEQ (LETT |s| (|make_full_CVEC2| |nn| (|STR_to_CHAR| ",")))
                     (EXIT
                      (|OUTFORM;add_prime| |a| (|OUTFORM;sform| |s| $) $))))) 
 

@@ -401,9 +401,7 @@
                                          (SPADCALL (QCAR |tx|) |ky|
                                                    (QREFELT $ 81))
                                          0)
-                                        (PROGN
-                                         (LETT #2# |$NoValue|)
-                                         (GO #7=#:G348)))
+                                        (PROGN (LETT #2# 1) (GO #7=#:G348)))
                                        ((NULL
                                          (SPADCALL (QCDR |tx|)
                                                    (|spadConstant| $ 19)
@@ -599,17 +597,17 @@
                       (EXIT
                        (COND
                         ((SPADCALL |xs| (QREFELT $ 18))
-                         (PROGN (LETT #1# |$NoValue|) (GO #2=#:G426)))
+                         (PROGN (LETT #1# 1) (GO #2=#:G426)))
                         ('T
                          (SEQ (LETT |tx| (SPADCALL |xs| (QREFELT $ 50)))
                               (EXIT
                                (COND
-                                ((OR
-                                  (SPADCALL (|spadConstant| $ 21) (QCAR |tx|)
-                                            (QREFELT $ 24))
-                                  (NULL
-                                   (SPADCALL (QCDR |tx|) (|spadConstant| $ 19)
-                                             (QREFELT $ 42))))
+                                ((SPADCALL (|spadConstant| $ 21) (QCAR |tx|)
+                                           (QREFELT $ 24))
+                                 (PROGN (LETT #1# 1) (GO #2#)))
+                                ((NULL
+                                  (SPADCALL (QCDR |tx|) (|spadConstant| $ 19)
+                                            (QREFELT $ 42)))
                                  (PROGN (LETT #1# |$NoValue|) (GO #2#)))
                                 ('T
                                  (LETT |xs|

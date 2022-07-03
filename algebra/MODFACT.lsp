@@ -629,7 +629,7 @@
                                        (PROGN
                                         (LETT #3#
                                               (PROGN
-                                               (LETT #4# |$NoValue|)
+                                               (LETT #4# 1)
                                                (GO #16=#:G235)))
                                         (GO #17=#:G234)))))))
                               #17# (EXIT #3#))
@@ -638,7 +638,7 @@
                       (EXIT
                        (COND
                         ((>= |i| (QUOTIENT2 |n| 2))
-                         (PROGN (LETT #2# |$NoValue|) (GO #18=#:G237)))
+                         (PROGN (LETT #2# 1) (GO #18=#:G237)))
                         ('T
                          (LETT |pk|
                                (SPADCALL |pk| |pmat2| |xp2| |l1| |l2| |rdata|

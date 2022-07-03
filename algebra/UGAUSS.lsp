@@ -27,7 +27,7 @@
                                 (SEQ (LETT |pv| (QAREF2O |m| |i| |l| 1 1))
                                      (EXIT
                                       (COND
-                                       ((OR (EQL |pv| 1) (EQL |pv| -1))
+                                       ((EQL |pv| 1)
                                         (SEQ
                                          (SPADCALL |pivotsj| |i| |l|
                                                    (QREFELT $ 11))
@@ -36,7 +36,17 @@
                                          (EXIT
                                           (PROGN
                                            (LETT #4# |$NoValue|)
-                                           (GO #7=#:G132))))))))))))
+                                           (GO #7=#:G132)))))
+                                       ((EQL |pv| -1)
+                                        (SEQ
+                                         (SPADCALL |pivotsj| |i| |l|
+                                                   (QREFELT $ 11))
+                                         (SPADCALL |pivotsk| |l| |i|
+                                                   (QREFELT $ 11))
+                                         (EXIT
+                                          (PROGN
+                                           (LETT #4# 1)
+                                           (GO #7#))))))))))))
                             (LETT |l| (|inc_SI| |l|)) (GO G190) G191
                             (EXIT NIL)))
                       #7# (EXIT #4#))
@@ -116,7 +126,7 @@
                                      (SEQ (LETT |pv| (QAREF2O |m| |i| |l| 1 1))
                                           (EXIT
                                            (COND
-                                            ((OR (EQL |pv| 1) (EQL |pv| -1))
+                                            ((EQL |pv| 1)
                                              (SEQ
                                               (SPADCALL |pivotsj| |i| |l|
                                                         (QREFELT $ 11))
@@ -125,7 +135,17 @@
                                               (EXIT
                                                (PROGN
                                                 (LETT #5# |$NoValue|)
-                                                (GO #8=#:G153))))))))))))
+                                                (GO #8=#:G153)))))
+                                            ((EQL |pv| -1)
+                                             (SEQ
+                                              (SPADCALL |pivotsj| |i| |l|
+                                                        (QREFELT $ 11))
+                                              (SPADCALL |pivotsk| |l| |i|
+                                                        (QREFELT $ 11))
+                                              (EXIT
+                                               (PROGN
+                                                (LETT #5# 1)
+                                                (GO #8#))))))))))))
                                  (LETT |l| (|inc_SI| |l|)) (GO G190) G191
                                  (EXIT NIL)))
                            #8# (EXIT #5#))

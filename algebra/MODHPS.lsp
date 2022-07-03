@@ -1901,8 +1901,7 @@
                                                               (LETT |ord| |i|)
                                                               (EXIT
                                                                (PROGN
-                                                                (LETT #5#
-                                                                      |$NoValue|)
+                                                                (LETT #5# 1)
                                                                 (GO
                                                                  #9=#:G1141))))))))
                                                          (LETT |i|
@@ -1971,7 +1970,7 @@
                                                                   (EXIT
                                                                    (PROGN
                                                                     (LETT #3#
-                                                                          |$NoValue|)
+                                                                          1)
                                                                     (GO
                                                                      #11=#:G1147)))))
                                                                 ('T

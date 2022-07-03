@@ -195,8 +195,7 @@
                                  (EXIT (LETT |xx| 2)))))
                               (LETT |basPols|
                                     (SPADCALL |h| 0 NIL (QREFELT $ 34)))
-                              (EXIT
-                               (PROGN (LETT #6# |$NoValue|) (GO #13=#:G191)))))
+                              (EXIT (PROGN (LETT #6# 1) (GO #13=#:G191)))))
                         ('T
                          (SEQ
                           (LETT D1

@@ -778,8 +778,7 @@
                                                               (QCDR |Ecart|)
                                                               (QREFELT $ 12))
                                                              (PROGN
-                                                              (LETT #4#
-                                                                    |$NoValue|)
+                                                              (LETT #4# 1)
                                                               (GO #13=#:G267)))
                                                             ('T
                                                              (SEQ

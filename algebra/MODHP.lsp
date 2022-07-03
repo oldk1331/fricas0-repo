@@ -451,8 +451,7 @@
                                                                      (EXIT
                                                                       (PROGN
                                                                        (LETT
-                                                                        #23#
-                                                                        |$NoValue|)
+                                                                        #23# 1)
                                                                        (GO
                                                                         #32=#:G252)))))
                                                                    ((>
@@ -472,8 +471,7 @@
                                                                      (EXIT
                                                                       (PROGN
                                                                        (LETT
-                                                                        #23#
-                                                                        |$NoValue|)
+                                                                        #23# 1)
                                                                        (GO
                                                                         #32#)))))
                                                                    ((<
@@ -493,8 +491,7 @@
                                                                      (EXIT
                                                                       (PROGN
                                                                        (LETT
-                                                                        #23#
-                                                                        |$NoValue|)
+                                                                        #23# 1)
                                                                        (GO
                                                                         #32#)))))
                                                                    ((>
@@ -514,8 +511,7 @@
                                                                      (EXIT
                                                                       (PROGN
                                                                        (LETT
-                                                                        #23#
-                                                                        |$NoValue|)
+                                                                        #23# 1)
                                                                        (GO
                                                                         #32#))))))))
                                                                 (LETT |i|

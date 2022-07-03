@@ -295,8 +295,7 @@
                                                          ((< (QCDR |lpfact|)
                                                              |exp0|)
                                                           (PROGN
-                                                           (LETT #4#
-                                                                 |$NoValue|)
+                                                           (LETT #4# 1)
                                                            (GO #19=#:G186)))
                                                          ('T
                                                           (SEQ
@@ -349,8 +348,7 @@
                                                                    (QREFELT $
                                                                             71))
                                                                   (PROGN
-                                                                   (LETT #4#
-                                                                         |$NoValue|)
+                                                                   (LETT #4# 1)
                                                                    (GO #19#)))
                                                                  ('T
                                                                   (SEQ

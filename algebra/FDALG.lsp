@@ -1790,7 +1790,7 @@
                                                       (QREFELT $ 115))))
                                           (EXIT
                                            (PROGN
-                                            (LETT #2# |$NoValue|)
+                                            (LETT #2# 1)
                                             (GO #5=#:G817))))))))))
                                (LETT |i_wrk| (+ |i_wrk| 1)) (GO G190) G191
                                (EXIT NIL)))
@@ -1891,9 +1891,7 @@
                                        (SPADCALL |blo_mtx| |k| 2
                                                  (QREFELT $ 184)))
                                  (EXIT
-                                  (PROGN
-                                   (LETT #1# |$NoValue|)
-                                   (GO #3=#:G845))))))))
+                                  (PROGN (LETT #1# 1) (GO #3=#:G845))))))))
                             (LETT |k| (|inc_SI| |k|)) (GO G190) G191
                             (EXIT NIL)))
                       #3# (EXIT #1#))
@@ -2585,7 +2583,7 @@
                                      (SEQ (LETT |idx_u| |j|)
                                           (EXIT
                                            (PROGN
-                                            (LETT #2# |$NoValue|)
+                                            (LETT #2# 1)
                                             (GO #11=#:G973))))))))
                                  (LETT |j| (|inc_SI| |j|)) (GO G190) G191
                                  (EXIT NIL)))
@@ -3489,7 +3487,7 @@
                                                               (QREFELT $ 281)))
                                                        (EXIT
                                                         (PROGN
-                                                         (LETT #2# |$NoValue|)
+                                                         (LETT #2# 1)
                                                          (GO #6=#:G1132))))))))
                                               (LETT |k| (|inc_SI| |k|))
                                               (GO G190) G191 (EXIT NIL)))
@@ -3825,9 +3823,7 @@
                                       (SPADCALL |blo_mtx| (+ |k| 1) 1
                                                 (QREFELT $ 184)))))
                               (EXIT
-                               (PROGN
-                                (LETT #2# |$NoValue|)
-                                (GO #9=#:G1183))))))))))
+                               (PROGN (LETT #2# 1) (GO #9=#:G1183))))))))))
                        (LETT |k| (|inc_SI| |k|)) (GO G190) G191 (EXIT NIL)))
                  #9# (EXIT #2#))
                 (LETT |lst_1|
@@ -3962,7 +3958,7 @@
                         (COND
                          ((>= (SPADCALL |blo_mtx| |k| 2 (QREFELT $ 184))
                               |i_ref|)
-                          (PROGN (LETT #4# |$NoValue|) (GO #10=#:G1211))))
+                          (PROGN (LETT #4# 1) (GO #10=#:G1211))))
                         (EXIT
                          (LETT |i_max|
                                (SPADCALL |blo_mtx| |k| 2 (QREFELT $ 184)))))
@@ -5095,9 +5091,7 @@
                              (SEQ (SPADCALL |f| |i| |i_max| (QREFELT $ 115))
                                   (LETT |flg_tmp| 'T)
                                   (EXIT
-                                   (PROGN
-                                    (LETT #3# |$NoValue|)
-                                    (GO #7=#:G1435))))))))
+                                   (PROGN (LETT #3# 1) (GO #7=#:G1435))))))))
                          (LETT |i| (+ |i| 1)) (GO G190) G191 (EXIT NIL)))
                    #7# (EXIT #3#))))))
               (COND
@@ -5116,9 +5110,7 @@
                              (SEQ (SPADCALL |f| |j| |i_min| (QREFELT $ 129))
                                   (LETT |flg_tmp| 'T)
                                   (EXIT
-                                   (PROGN
-                                    (LETT #1# |$NoValue|)
-                                    (GO #8=#:G1438))))))))
+                                   (PROGN (LETT #1# 1) (GO #8=#:G1438))))))))
                          (LETT |j| (+ |j| 1)) (GO G190) G191 (EXIT NIL)))
                    #8# (EXIT #1#))))))
               (EXIT |f|)))) 
@@ -5266,7 +5258,7 @@
                                                          (QREFELT $ 208))
                                                (EXIT
                                                 (PROGN
-                                                 (LETT #1# |$NoValue|)
+                                                 (LETT #1# 1)
                                                  (GO #11=#:G1464))))))))
                                           (LETT |i| (|inc_SI| |i|)) (GO G190)
                                           G191 (EXIT NIL)))

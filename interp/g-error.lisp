@@ -279,13 +279,9 @@
 (DEFUN TOP () (PROG () (RETURN (|returnToTopLevel|))))
 
 ; returnToTopLevel() ==
-;   SETQ(CHR, "ENDOFLINECHR")
-;   SETQ(TOK, 'END_UNIT)
 ;   TOPLEVEL()
 
-(DEFUN |returnToTopLevel| ()
-  (PROG ()
-    (RETURN (PROGN (SETQ CHR 'ENDOFLINECHR) (SETQ TOK 'END_UNIT) (TOPLEVEL)))))
+(DEFUN |returnToTopLevel| () (PROG () (RETURN (TOPLEVEL))))
 
 ; TOPLEVEL() ==
 ;     THROW('top_level, 'restart)

@@ -122,9 +122,7 @@
                                        (SPADCALL |s| |i| (QREFELT $ 18))
                                        (SPADCALL (QREFELT $ 35))
                                        (QREFELT $ 19))
-                                      (PROGN
-                                       (LETT #2# |$NoValue|)
-                                       (GO #8=#:G184))))))
+                                      (PROGN (LETT #2# 1) (GO #8=#:G184))))))
                               NIL (GO G190) G191 (EXIT NIL)))
                         #8# (EXIT #2#))
                        (COND

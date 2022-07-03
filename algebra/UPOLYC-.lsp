@@ -499,7 +499,7 @@
                           (EXIT
                            (COND
                             ((QEQCAR |u| 1)
-                             (PROGN (LETT #2# |$NoValue|) (GO #5=#:G335))))))
+                             (PROGN (LETT #2# 1) (GO #5=#:G335))))))
                          (LETT |p|
                                (SPADCALL
                                 (SPADCALL |c2| (SPADCALL |p| (QREFELT $ 55))

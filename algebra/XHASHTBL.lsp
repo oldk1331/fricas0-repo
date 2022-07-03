@@ -21,10 +21,7 @@
                          (COND
                           ((EQ |mk| (QREFELT $ 9))
                            (SEQ (LETT |deletedPosition?| 'T)
-                                (EXIT
-                                 (PROGN
-                                  (LETT #2# |$NoValue|)
-                                  (GO #3=#:G136)))))
+                                (EXIT (PROGN (LETT #2# 1) (GO #3=#:G136)))))
                           ((SPADCALL |k| |mk| (QREFELT $ 17))
                            (PROGN (LETT #1# |p|) (GO #4=#:G147)))
                           ('T

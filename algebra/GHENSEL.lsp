@@ -415,8 +415,7 @@
                                                   ('T (|spadConstant| $ 20))))
                                            (QREFELT $ 41)))
                            (QREFELT $ 55))
-                          (EXIT
-                           (PROGN (LETT #1# |$NoValue|) (GO #12=#:G301)))))))
+                          (EXIT (PROGN (LETT #1# 1) (GO #12=#:G301)))))))
                       (LETT |fln| |nfln|)
                       (EXIT
                        (LETT |Modulus|

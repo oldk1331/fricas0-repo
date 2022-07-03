@@ -238,12 +238,11 @@
                              $))
                       (LETT |i| (* |i| (SPADCALL |dum| 1 (QREFELT $ 33))))
                       (EXIT
-                       (COND
-                        ((EQL |i| 0)
-                         (PROGN (LETT #2# |$NoValue|) (GO #6=#:G272)))
-                        ('T
-                         (SPADCALL |dum2| |j| (SPADCALL |dum| 2 (QREFELT $ 33))
-                                   (QREFELT $ 34))))))
+                       (COND ((EQL |i| 0) (PROGN (LETT #2# 1) (GO #6=#:G272)))
+                             ('T
+                              (SPADCALL |dum2| |j|
+                                        (SPADCALL |dum| 2 (QREFELT $ 33))
+                                        (QREFELT $ 34))))))
                      (LETT |j| (|inc_SI| |j|)) (GO G190) G191 (EXIT NIL)))
                #6# (EXIT #2#))
               (EXIT

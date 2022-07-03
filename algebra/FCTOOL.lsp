@@ -1482,7 +1482,7 @@
 
 (SDEFUN |FCTOOL;make_spaces| ((|x| |Integer|) ($ |String|))
         (SPROG ((#1=#:G555 NIL))
-               (|make_full_CVEC|
+               (|make_full_CVEC2|
                 (PROG1 (LETT #1# |x|)
                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                     '(|Integer|) #1#))
@@ -1516,9 +1516,7 @@
                                         (EXIT
                                          (COND
                                           ((NULL |f|)
-                                           (PROGN
-                                            (LETT #2# |$NoValue|)
-                                            (GO #3=#:G562)))
+                                           (PROGN (LETT #2# 1) (GO #3=#:G562)))
                                           ('T
                                            (LETT |ff| (|SPADfirst| |f|)))))))
                                   ('T
