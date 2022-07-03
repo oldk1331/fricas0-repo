@@ -1099,13 +1099,10 @@
        (#1# NIL))))))
 
 ; evalIsntPredicate(value,pattern,mode) ==
-;   evalIsPredicate(value,pattern,mode) => NIL
-;   'TRUE
+;     not(evalIsPredicate(value,pattern,mode))
 
 (DEFUN |evalIsntPredicate| (|value| |pattern| |mode|)
-  (PROG ()
-    (RETURN
-     (COND ((|evalIsPredicate| |value| |pattern| |mode|) NIL) ('T 'TRUE)))))
+  (PROG () (RETURN (NULL (|evalIsPredicate| |value| |pattern| |mode|)))))
 
 ; removeConstruct pat ==
 ;   -- removes the "construct" from the beginning of patterns
