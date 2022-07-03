@@ -1,5 +1,5 @@
 
-(2070512 . 3865830084)       
+(2070512 . 3865830173)       
 (((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|Vector| *4))
        (|ofCategory| *4 (|LinearlyExplicitOver| (|Integer|)))
