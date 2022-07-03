@@ -1,5 +1,5 @@
 
-(3160635 . 3865822804)       
+(3160635 . 3865822943)       
 (|OneDimensionalArrayAggregate&| A S) 
 ((|constructor|
   (NIL
@@ -37861,7 +37861,7 @@ NIL
    "\\spad{purge!(A,{} crit)} eliminates all columns belonging to an index \\spad{c} such that \\spad{crit(c)} yields \\spad{true}."))
  (|elimZeroCols!|
   (((|Void|) $)
-   "\\spad{elimZeroCols!(A)} removes columns which contain only zeros. This effects basically only the value of \\spad{allIndices(A)}."))
+   "\\spad{elimZeroCols!(A)} removes columns which contain only zeros. This affects basically only the value of \\spad{allIndices(A)}."))
  (|allIndices|
   (((|List| |#1|) $)
    "\\spad{allIndices(A)} returns all indices used for enumerating the columns of the matrix \\spad{A}."))
