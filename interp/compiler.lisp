@@ -222,8 +222,7 @@
 
 ; comp2(x,m,e) ==
 ;   [y,m',e]:= comp3(x,m,e) or return nil
-;   --if null atom y and isDomainForm(y,e) then e := addDomain(x,e)
-;         --line commented out to prevent adding derived domain forms
+;   -- needed to bootstrap ffcat
 ;   m ~= m' and isDomainForm(m',e) => [y, m', addDomain(m', e)]
 ;         --isDomainForm test needed to prevent error while compiling Ring
 ;   [y,m',e]
