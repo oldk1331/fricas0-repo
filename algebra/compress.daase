@@ -1,6 +1,6 @@
 
-(30 . 3865821724)            
-(5208 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(30 . 3865821814)            
+(5209 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -835,17 +835,17 @@
  |variationOfParameters| |addVertex| |boolWordPermute| |reindex| |subtract|
  |sameFace?| |isSubsetOf?| |allSubsets| |getIndexesSigned| |getIndexes|
  |orientedFacetIfCan| |orientedFacetSigned| |orientedFacetUnsigned|
- |orientedFacet| |operator| |arguments| |has_op?| |is_symbol?| |precondition|
- |OMmakeConn| |OMcloseConn| |OMconnInDevice| |OMconnOutDevice| |OMconnectTCP|
- |OMbindTCP| |OMopenFile| |OMopenString| |OMclose| |OMsetEncoding| |OMputApp|
- |OMputAtp| |OMputAttr| |OMputBind| |OMputBVar| |OMputError| |OMputObject|
- |OMputEndApp| |OMputEndAtp| |OMputEndAttr| |OMputEndBind| |OMputEndBVar|
- |OMputEndError| |OMputEndObject| |OMputInteger| |OMputFloat| |OMputVariable|
- |OMputString| |OMputSymbol| |OMgetApp| |OMgetAtp| |OMgetAttr| |OMgetBind|
- |OMgetBVar| |OMgetError| |OMgetObject| |OMgetEndApp| |OMgetEndAtp|
- |OMgetEndAttr| |OMgetEndBind| |OMgetEndBVar| |OMgetEndError| |OMgetEndObject|
- |OMgetInteger| |OMgetFloat| |OMgetVariable| |OMgetString| |OMgetSymbol|
- |OMgetType| |OMencodingBinary| |OMencodingSGML| |OMencodingXML|
+ |orientedFacet| |atom_to_string| |operator| |arguments| |has_op?| |is_symbol?|
+ |precondition| |OMmakeConn| |OMcloseConn| |OMconnInDevice| |OMconnOutDevice|
+ |OMconnectTCP| |OMbindTCP| |OMopenFile| |OMopenString| |OMclose|
+ |OMsetEncoding| |OMputApp| |OMputAtp| |OMputAttr| |OMputBind| |OMputBVar|
+ |OMputError| |OMputObject| |OMputEndApp| |OMputEndAtp| |OMputEndAttr|
+ |OMputEndBind| |OMputEndBVar| |OMputEndError| |OMputEndObject| |OMputInteger|
+ |OMputFloat| |OMputVariable| |OMputString| |OMputSymbol| |OMgetApp| |OMgetAtp|
+ |OMgetAttr| |OMgetBind| |OMgetBVar| |OMgetError| |OMgetObject| |OMgetEndApp|
+ |OMgetEndAtp| |OMgetEndAttr| |OMgetEndBind| |OMgetEndBVar| |OMgetEndError|
+ |OMgetEndObject| |OMgetInteger| |OMgetFloat| |OMgetVariable| |OMgetString|
+ |OMgetSymbol| |OMgetType| |OMencodingBinary| |OMencodingSGML| |OMencodingXML|
  |OMencodingUnknown| |omError| |errorInfo| |errorKind| |OMReadError?|
  |OMUnknownSymbol?| |OMUnknownCD?| |OMParseError?| |OMwrite| |OMread|
  |OMreadFile| |OMreadStr| |OMlistCDs| |OMlistSymbols| |OMsupportsCD?|
