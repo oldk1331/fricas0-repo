@@ -19,64 +19,70 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|FreeLieAlgebra;CAT|)
-                                    ('T
-                                     (LETT |FreeLieAlgebra;CAT|
-                                           (|Join| (|LieAlgebra| '|t#2|)
-                                                   (|mkCategory|
-                                                    '(((|coef|
-                                                        (|t#2|
-                                                         (|XRecursivePolynomial|
-                                                          |t#1| |t#2|)
-                                                         $))
-                                                       T)
-                                                      ((|coerce| ($ |t#1|)) T)
-                                                      ((|coerce|
-                                                        ((|XDistributedPolynomial|
-                                                          |t#1| |t#2|)
-                                                         $))
-                                                       T)
-                                                      ((|coerce|
-                                                        ((|XRecursivePolynomial|
-                                                          |t#1| |t#2|)
-                                                         $))
-                                                       T)
-                                                      ((|degree|
-                                                        ((|NonNegativeInteger|)
-                                                         $))
-                                                       T)
-                                                      ((|lquo|
-                                                        ((|XRecursivePolynomial|
-                                                          |t#1| |t#2|)
-                                                         (|XRecursivePolynomial|
-                                                          |t#1| |t#2|)
-                                                         $))
-                                                       T)
-                                                      ((|rquo|
-                                                        ((|XRecursivePolynomial|
-                                                          |t#1| |t#2|)
-                                                         (|XRecursivePolynomial|
-                                                          |t#1| |t#2|)
-                                                         $))
-                                                       T)
-                                                      ((|LiePoly|
-                                                        ($
-                                                         (|LyndonWord| |t#1|)))
-                                                       T)
-                                                      ((|mirror| ($ $)) T)
-                                                      ((|trunc|
-                                                        ($ $
-                                                         (|NonNegativeInteger|)))
-                                                       T)
-                                                      ((|varList|
-                                                        ((|List| |t#1|) $))
-                                                       T)
-                                                      ((|eval| ($ $ |t#1| $))
-                                                       T)
-                                                      ((|eval|
-                                                        ($ $ (|List| |t#1|)
-                                                         (|List| $)))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|FreeLieAlgebra;CAT|)
+                                         ('T
+                                          (LETT |FreeLieAlgebra;CAT|
+                                                (|Join| (|LieAlgebra| '|t#2|)
+                                                        (|mkCategory|
+                                                         '(((|coef|
+                                                             (|t#2|
+                                                              (|XRecursivePolynomial|
+                                                               |t#1| |t#2|)
+                                                              $))
+                                                            T)
+                                                           ((|coerce|
+                                                             ($ |t#1|))
+                                                            T)
+                                                           ((|coerce|
+                                                             ((|XDistributedPolynomial|
+                                                               |t#1| |t#2|)
+                                                              $))
+                                                            T)
+                                                           ((|coerce|
+                                                             ((|XRecursivePolynomial|
+                                                               |t#1| |t#2|)
+                                                              $))
+                                                            T)
+                                                           ((|degree|
+                                                             ((|NonNegativeInteger|)
+                                                              $))
+                                                            T)
+                                                           ((|lquo|
+                                                             ((|XRecursivePolynomial|
+                                                               |t#1| |t#2|)
+                                                              (|XRecursivePolynomial|
+                                                               |t#1| |t#2|)
+                                                              $))
+                                                            T)
+                                                           ((|rquo|
+                                                             ((|XRecursivePolynomial|
+                                                               |t#1| |t#2|)
+                                                              (|XRecursivePolynomial|
+                                                               |t#1| |t#2|)
+                                                              $))
+                                                            T)
+                                                           ((|LiePoly|
+                                                             ($
+                                                              (|LyndonWord|
+                                                               |t#1|)))
+                                                            T)
+                                                           ((|mirror| ($ $)) T)
+                                                           ((|trunc|
+                                                             ($ $
+                                                              (|NonNegativeInteger|)))
+                                                            T)
+                                                           ((|varList|
+                                                             ((|List| |t#1|)
+                                                              $))
+                                                            T)
+                                                           ((|eval|
+                                                             ($ $ |t#1| $))
+                                                            T)
+                                                           ((|eval|
+                                                             ($ $
+                                                              (|List| |t#1|)
+                                                              (|List| $)))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FreeLieAlgebra| |t#1| |t#2|))))) 

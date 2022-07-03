@@ -19,14 +19,15 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|OrderedMultisetAggregate;CAT|)
-                                    ('T
-                                     (LETT |OrderedMultisetAggregate;CAT|
-                                           (|Join| (|MultisetAggregate| '|t#1|)
-                                                   (|PriorityQueueAggregate|
-                                                    '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|min| (|t#1| $)) T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|OrderedMultisetAggregate;CAT|)
+                                         ('T
+                                          (LETT |OrderedMultisetAggregate;CAT|
+                                                (|Join|
+                                                 (|MultisetAggregate| '|t#1|)
+                                                 (|PriorityQueueAggregate|
+                                                  '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|min| (|t#1| $)) T)) NIL
+                                                  NIL NIL)))))))
            (SETELT #1# 0 (LIST '|OrderedMultisetAggregate| |t#1|))))) 

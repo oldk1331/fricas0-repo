@@ -18,10 +18,11 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|BiModule;CAT|)
-                                    ('T
-                                     (LETT |BiModule;CAT|
-                                           (|Join| (|LeftModule| '|t#1|)
-                                                   (|RightModule| '|t#2|)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|BiModule;CAT|)
+                                         ('T
+                                          (LETT |BiModule;CAT|
+                                                (|Join| (|LeftModule| '|t#1|)
+                                                        (|RightModule|
+                                                         '|t#2|)))))))
            (SETELT #1# 0 (LIST '|BiModule| |t#1| |t#2|))))) 

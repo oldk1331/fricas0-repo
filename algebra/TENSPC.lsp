@@ -20,19 +20,23 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
-                    (COND (|TensorPowerCategory;CAT|)
-                          ('T
-                           (LETT |TensorPowerCategory;CAT|
-                                 (|Join| (|Module| '|t#2|)
-                                         (|mkCategory|
-                                          '(((|tensor| ($ (|List| |t#3|))) T))
-                                          '(((|Algebra| |t#2|)
-                                             (|has| |t#3| (|Algebra| |t#2|)))
-                                            ((|TensorProductCategory| |t#2|
-                                                                      |t#3|
-                                                                      |t#3|)
-                                             T))
-                                          NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3|)
+                                   (LIST |t#1| |t#2| |t#3|)
+                                   (COND (|TensorPowerCategory;CAT|)
+                                         ('T
+                                          (LETT |TensorPowerCategory;CAT|
+                                                (|Join| (|Module| '|t#2|)
+                                                        (|mkCategory|
+                                                         '(((|tensor|
+                                                             ($
+                                                              (|List| |t#3|)))
+                                                            T))
+                                                         '(((|Algebra| |t#2|)
+                                                            (|has| |t#3|
+                                                                   (|Algebra|
+                                                                    |t#2|)))
+                                                           ((|TensorProductCategory|
+                                                             |t#2| |t#3| |t#3|)
+                                                            T))
+                                                         NIL NIL)))))))
            (SETELT #1# 0 (LIST '|TensorPowerCategory| |t#1| |t#2| |t#3|))))) 

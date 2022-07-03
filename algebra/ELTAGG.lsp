@@ -19,24 +19,25 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|EltableAggregate;CAT|)
-                                    ('T
-                                     (LETT |EltableAggregate;CAT|
-                                           (|Join| (|Eltable| '|t#1| '|t#2|)
-                                                   (|mkCategory|
-                                                    '(((|elt|
-                                                        (|t#2| $ |t#1| |t#2|))
-                                                       T)
-                                                      ((|qelt| (|t#2| $ |t#1|))
-                                                       T)
-                                                      ((|setelt!|
-                                                        (|t#2| $ |t#1| |t#2|))
-                                                       (|has| $
-                                                              (|shallowlyMutable|)))
-                                                      ((|qsetelt!|
-                                                        (|t#2| $ |t#1| |t#2|))
-                                                       (|has| $
-                                                              (|shallowlyMutable|))))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|EltableAggregate;CAT|)
+                                         ('T
+                                          (LETT |EltableAggregate;CAT|
+                                                (|Join|
+                                                 (|Eltable| '|t#1| '|t#2|)
+                                                 (|mkCategory|
+                                                  '(((|elt|
+                                                      (|t#2| $ |t#1| |t#2|))
+                                                     T)
+                                                    ((|qelt| (|t#2| $ |t#1|))
+                                                     T)
+                                                    ((|setelt!|
+                                                      (|t#2| $ |t#1| |t#2|))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|qsetelt!|
+                                                      (|t#2| $ |t#1| |t#2|))
+                                                     (|has| $
+                                                            (|shallowlyMutable|))))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|EltableAggregate| |t#1| |t#2|))))) 

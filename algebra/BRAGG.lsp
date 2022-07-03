@@ -19,25 +19,29 @@
   (SPROG ((#1=#:G150 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|BinaryRecursiveAggregate;CAT|)
-                                    ('T
-                                     (LETT |BinaryRecursiveAggregate;CAT|
-                                           (|Join|
-                                            (|RecursiveAggregate| '|t#1|)
-                                            (|mkCategory|
-                                             '(((|left| ($ $)) T)
-                                               ((|elt| ($ $ "left")) T)
-                                               ((|right| ($ $)) T)
-                                               ((|elt| ($ $ "right")) T)
-                                               ((|setelt!| ($ $ "left" $))
-                                                (|has| $ (|shallowlyMutable|)))
-                                               ((|setleft!| ($ $ $))
-                                                (|has| $ (|shallowlyMutable|)))
-                                               ((|setelt!| ($ $ "right" $))
-                                                (|has| $ (|shallowlyMutable|)))
-                                               ((|setright!| ($ $ $))
-                                                (|has| $
-                                                       (|shallowlyMutable|))))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|BinaryRecursiveAggregate;CAT|)
+                                         ('T
+                                          (LETT |BinaryRecursiveAggregate;CAT|
+                                                (|Join|
+                                                 (|RecursiveAggregate| '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|left| ($ $)) T)
+                                                    ((|elt| ($ $ "left")) T)
+                                                    ((|right| ($ $)) T)
+                                                    ((|elt| ($ $ "right")) T)
+                                                    ((|setelt!| ($ $ "left" $))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|setleft!| ($ $ $))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|setelt!|
+                                                      ($ $ "right" $))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|setright!| ($ $ $))
+                                                     (|has| $
+                                                            (|shallowlyMutable|))))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|BinaryRecursiveAggregate| |t#1|))))) 

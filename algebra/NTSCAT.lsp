@@ -25,16 +25,18 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4|)
-                                (LIST |t#1| |t#2| |t#3| |t#4|))
-                    (COND (|NormalizedTriangularSetCategory;CAT|)
-                          ('T
-                           (LETT |NormalizedTriangularSetCategory;CAT|
-                                 (|Join|
-                                  (|RegularTriangularSetCategory| '|t#1| '|t#2|
-                                                                  '|t#3|
-                                                                  '|t#4|)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3| |t#4|)
+                                   (LIST |t#1| |t#2| |t#3| |t#4|)
+                                   (COND
+                                    (|NormalizedTriangularSetCategory;CAT|)
+                                    ('T
+                                     (LETT
+                                      |NormalizedTriangularSetCategory;CAT|
+                                      (|Join|
+                                       (|RegularTriangularSetCategory| '|t#1|
+                                                                       '|t#2|
+                                                                       '|t#3|
+                                                                       '|t#4|)))))))
            (SETELT #1# 0
                    (LIST '|NormalizedTriangularSetCategory| |t#1| |t#2| |t#3|
                          |t#4|))))) 

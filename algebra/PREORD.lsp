@@ -18,16 +18,16 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|Preorder;CAT|)
-                                    ('T
-                                     (LETT |Preorder;CAT|
-                                           (|Join| (|FiniteGraph| '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|le|
-                                                        ((|Boolean|) $
-                                                         (|NonNegativeInteger|)
-                                                         (|NonNegativeInteger|)))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|Preorder;CAT|)
+                                         ('T
+                                          (LETT |Preorder;CAT|
+                                                (|Join| (|FiniteGraph| '|t#1|)
+                                                        (|mkCategory|
+                                                         '(((|le|
+                                                             ((|Boolean|) $
+                                                              (|NonNegativeInteger|)
+                                                              (|NonNegativeInteger|)))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|Preorder| |t#1|))))) 

@@ -19,29 +19,33 @@
   (SPROG ((#1=#:G126 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|TableAggregate;CAT|)
-                                    ('T
-                                     (LETT |TableAggregate;CAT|
-                                           (|Join|
-                                            (|KeyedDictionary| '|t#1| '|t#2|)
-                                            (|IndexedAggregate| '|t#1| '|t#2|)
-                                            (|mkCategory|
-                                             '(((|setelt!|
-                                                 (|t#2| $ |t#1| |t#2|))
-                                                T)
-                                               ((|table| ($)) T)
-                                               ((|table|
-                                                 ($
-                                                  (|List|
-                                                   (|Record| (|:| |key| |t#1|)
-                                                             (|:| |entry|
-                                                                  |t#2|)))))
-                                                T)
-                                               ((|map|
-                                                 ($
-                                                  (|Mapping| |t#2| |t#2| |t#2|)
-                                                  $ $))
-                                                T))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|TableAggregate;CAT|)
+                                         ('T
+                                          (LETT |TableAggregate;CAT|
+                                                (|Join|
+                                                 (|KeyedDictionary| '|t#1|
+                                                                    '|t#2|)
+                                                 (|IndexedAggregate| '|t#1|
+                                                                     '|t#2|)
+                                                 (|mkCategory|
+                                                  '(((|setelt!|
+                                                      (|t#2| $ |t#1| |t#2|))
+                                                     T)
+                                                    ((|table| ($)) T)
+                                                    ((|table|
+                                                      ($
+                                                       (|List|
+                                                        (|Record|
+                                                         (|:| |key| |t#1|)
+                                                         (|:| |entry|
+                                                              |t#2|)))))
+                                                     T)
+                                                    ((|map|
+                                                      ($
+                                                       (|Mapping| |t#2| |t#2|
+                                                                  |t#2|)
+                                                       $ $))
+                                                     T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|TableAggregate| |t#1| |t#2|))))) 

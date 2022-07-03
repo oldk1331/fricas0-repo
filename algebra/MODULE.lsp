@@ -17,10 +17,11 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|Module;CAT|)
-                                    ('T
-                                     (LETT |Module;CAT|
-                                           (|Join|
-                                            (|BiModule| '|t#1| '|t#1|)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|Module;CAT|)
+                                         ('T
+                                          (LETT |Module;CAT|
+                                                (|Join|
+                                                 (|BiModule| '|t#1|
+                                                             '|t#1|)))))))
            (SETELT #1# 0 (LIST '|Module| |t#1|))))) 

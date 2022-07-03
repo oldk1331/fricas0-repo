@@ -19,24 +19,26 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|DoublyLinkedAggregate;CAT|)
-                                    ('T
-                                     (LETT |DoublyLinkedAggregate;CAT|
-                                           (|Join|
-                                            (|RecursiveAggregate| '|t#1|)
-                                            (|mkCategory|
-                                             '(((|last| (|t#1| $)) T)
-                                               ((|head| ($ $)) T)
-                                               ((|tail| ($ $)) T)
-                                               ((|previous| ($ $)) T)
-                                               ((|next| ($ $)) T)
-                                               ((|concat!| ($ $ $))
-                                                (|has| $ (|shallowlyMutable|)))
-                                               ((|setprevious!| ($ $ $))
-                                                (|has| $ (|shallowlyMutable|)))
-                                               ((|setnext!| ($ $ $))
-                                                (|has| $
-                                                       (|shallowlyMutable|))))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|DoublyLinkedAggregate;CAT|)
+                                         ('T
+                                          (LETT |DoublyLinkedAggregate;CAT|
+                                                (|Join|
+                                                 (|RecursiveAggregate| '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|last| (|t#1| $)) T)
+                                                    ((|head| ($ $)) T)
+                                                    ((|tail| ($ $)) T)
+                                                    ((|previous| ($ $)) T)
+                                                    ((|next| ($ $)) T)
+                                                    ((|concat!| ($ $ $))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|setprevious!| ($ $ $))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|setnext!| ($ $ $))
+                                                     (|has| $
+                                                            (|shallowlyMutable|))))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DoublyLinkedAggregate| |t#1|))))) 

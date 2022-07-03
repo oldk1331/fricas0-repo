@@ -21,19 +21,24 @@
   (SPROG ((#1=#:G124 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3|) (LIST |t#1| |t#2| |t#3|))
-                    (COND (|PowerSeriesCategory;CAT|)
-                          ('T
-                           (LETT |PowerSeriesCategory;CAT|
-                                 (|Join| (|AbelianMonoidRing| '|t#1| '|t#2|)
-                                         (|VariablesCommuteWithCoefficients|)
-                                         (|mkCategory|
-                                          '(((|leadingMonomial| ($ $)) T)
-                                            ((|leadingCoefficient| (|t#1| $))
-                                             T)
-                                            ((|degree| (|t#2| $)) T)
-                                            ((|pole?| ((|Boolean|) $)) T)
-                                            ((|complete| ($ $)) T))
-                                          NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3|)
+                                   (LIST |t#1| |t#2| |t#3|)
+                                   (COND (|PowerSeriesCategory;CAT|)
+                                         ('T
+                                          (LETT |PowerSeriesCategory;CAT|
+                                                (|Join|
+                                                 (|AbelianMonoidRing| '|t#1|
+                                                                      '|t#2|)
+                                                 (|VariablesCommuteWithCoefficients|)
+                                                 (|mkCategory|
+                                                  '(((|leadingMonomial| ($ $))
+                                                     T)
+                                                    ((|leadingCoefficient|
+                                                      (|t#1| $))
+                                                     T)
+                                                    ((|degree| (|t#2| $)) T)
+                                                    ((|pole?| ((|Boolean|) $))
+                                                     T)
+                                                    ((|complete| ($ $)) T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|PowerSeriesCategory| |t#1| |t#2| |t#3|))))) 

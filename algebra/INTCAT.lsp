@@ -18,43 +18,59 @@
   (SPROG ((#1=#:G120 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (|sublisV|
-                               (MAKE_PAIRS '(#2=#:G119) (LIST '(|Integer|)))
-                               (COND (|IntervalCategory;CAT|)
-                                     ('T
-                                      (LETT |IntervalCategory;CAT|
-                                            (|Join| (|GcdDomain|)
-                                                    (|OrderedSet|)
-                                                    (|TranscendentalFunctionCategory|)
-                                                    (|RadicalCategory|)
-                                                    (|RetractableTo| '#2#)
-                                                    (|Approximate|)
-                                                    (|mkCategory|
-                                                     '(((|interval|
-                                                         ($ |t#1| |t#1|))
-                                                        T)
-                                                       ((|qinterval|
-                                                         ($ |t#1| |t#1|))
-                                                        T)
-                                                       ((|interval| ($ |t#1|))
-                                                        T)
-                                                       ((|interval|
-                                                         ($
-                                                          (|Fraction|
-                                                           (|Integer|))))
-                                                        T)
-                                                       ((|inf| (|t#1| $)) T)
-                                                       ((|sup| (|t#1| $)) T)
-                                                       ((|width| (|t#1| $)) T)
-                                                       ((|positive?|
-                                                         ((|Boolean|) $))
-                                                        T)
-                                                       ((|negative?|
-                                                         ((|Boolean|) $))
-                                                        T)
-                                                       ((|contains?|
-                                                         ((|Boolean|) $ |t#1|))
-                                                        T))
-                                                     NIL NIL NIL))))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (|subst_in_cat| '(#2=#:G119)
+                                                   (LIST '(|Integer|))
+                                                   (COND
+                                                    (|IntervalCategory;CAT|)
+                                                    ('T
+                                                     (LETT
+                                                      |IntervalCategory;CAT|
+                                                      (|Join| (|GcdDomain|)
+                                                              (|OrderedSet|)
+                                                              (|TranscendentalFunctionCategory|)
+                                                              (|RadicalCategory|)
+                                                              (|RetractableTo|
+                                                               '#2#)
+                                                              (|Approximate|)
+                                                              (|mkCategory|
+                                                               '(((|interval|
+                                                                   ($ |t#1|
+                                                                    |t#1|))
+                                                                  T)
+                                                                 ((|qinterval|
+                                                                   ($ |t#1|
+                                                                    |t#1|))
+                                                                  T)
+                                                                 ((|interval|
+                                                                   ($ |t#1|))
+                                                                  T)
+                                                                 ((|interval|
+                                                                   ($
+                                                                    (|Fraction|
+                                                                     (|Integer|))))
+                                                                  T)
+                                                                 ((|inf|
+                                                                   (|t#1| $))
+                                                                  T)
+                                                                 ((|sup|
+                                                                   (|t#1| $))
+                                                                  T)
+                                                                 ((|width|
+                                                                   (|t#1| $))
+                                                                  T)
+                                                                 ((|positive?|
+                                                                   ((|Boolean|)
+                                                                    $))
+                                                                  T)
+                                                                 ((|negative?|
+                                                                   ((|Boolean|)
+                                                                    $))
+                                                                  T)
+                                                                 ((|contains?|
+                                                                   ((|Boolean|)
+                                                                    $ |t#1|))
+                                                                  T))
+                                                               NIL NIL
+                                                               NIL))))))))
            (SETELT #1# 0 (LIST '|IntervalCategory| |t#1|))))) 

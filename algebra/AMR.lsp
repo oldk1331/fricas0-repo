@@ -19,57 +19,61 @@
   (SPROG ((#1=#:G122 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|AbelianMonoidRing;CAT|)
-                                    ('T
-                                     (LETT |AbelianMonoidRing;CAT|
-                                           (|Join| (|SemiRng|)
-                                                   (|BiModule| '|t#1| '|t#1|)
-                                                   (|IndexedProductCategory|
-                                                    '|t#1| '|t#2|)
-                                                   (|mkCategory|
-                                                    '(((|degree| (|t#2| $)) T)
-                                                      ((|coefficient|
-                                                        (|t#1| $ |t#2|))
-                                                       T)
-                                                      ((/ ($ $ |t#1|))
-                                                       (|has| |t#1|
-                                                              (|Field|))))
-                                                    '(((|SemiRing|)
-                                                       (|has| |t#1|
-                                                              (|SemiRing|)))
-                                                      ((|Ring|)
-                                                       (|has| |t#1| (|Ring|)))
-                                                      ((|CommutativeRing|)
-                                                       (AND
-                                                        (|has| |t#1|
-                                                               (|CommutativeRing|))
-                                                        (|has| $
-                                                               (|VariablesCommuteWithCoefficients|))))
-                                                      ((|Algebra| |t#1|)
-                                                       (AND
-                                                        (|has| |t#1|
-                                                               (|CommutativeRing|))
-                                                        (|has| $
-                                                               (|VariablesCommuteWithCoefficients|))))
-                                                      ((|CharacteristicZero|)
-                                                       (|has| |t#1|
-                                                              (|CharacteristicZero|)))
-                                                      ((|CharacteristicNonZero|)
-                                                       (|has| |t#1|
-                                                              (|CharacteristicNonZero|)))
-                                                      ((|IntegralDomain|)
-                                                       (AND
-                                                        (|has| |t#1|
-                                                               (|IntegralDomain|))
-                                                        (|has| $
-                                                               (|VariablesCommuteWithCoefficients|))))
-                                                      ((|Algebra|
-                                                        (|Fraction|
-                                                         (|Integer|)))
-                                                       (|has| |t#1|
-                                                              (|Algebra|
-                                                               (|Fraction|
-                                                                (|Integer|))))))
-                                                    NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|AbelianMonoidRing;CAT|)
+                                         ('T
+                                          (LETT |AbelianMonoidRing;CAT|
+                                                (|Join| (|SemiRng|)
+                                                        (|BiModule| '|t#1|
+                                                                    '|t#1|)
+                                                        (|IndexedProductCategory|
+                                                         '|t#1| '|t#2|)
+                                                        (|mkCategory|
+                                                         '(((|degree|
+                                                             (|t#2| $))
+                                                            T)
+                                                           ((|coefficient|
+                                                             (|t#1| $ |t#2|))
+                                                            T)
+                                                           ((/ ($ $ |t#1|))
+                                                            (|has| |t#1|
+                                                                   (|Field|))))
+                                                         '(((|SemiRing|)
+                                                            (|has| |t#1|
+                                                                   (|SemiRing|)))
+                                                           ((|Ring|)
+                                                            (|has| |t#1|
+                                                                   (|Ring|)))
+                                                           ((|CommutativeRing|)
+                                                            (AND
+                                                             (|has| |t#1|
+                                                                    (|CommutativeRing|))
+                                                             (|has| $
+                                                                    (|VariablesCommuteWithCoefficients|))))
+                                                           ((|Algebra| |t#1|)
+                                                            (AND
+                                                             (|has| |t#1|
+                                                                    (|CommutativeRing|))
+                                                             (|has| $
+                                                                    (|VariablesCommuteWithCoefficients|))))
+                                                           ((|CharacteristicZero|)
+                                                            (|has| |t#1|
+                                                                   (|CharacteristicZero|)))
+                                                           ((|CharacteristicNonZero|)
+                                                            (|has| |t#1|
+                                                                   (|CharacteristicNonZero|)))
+                                                           ((|IntegralDomain|)
+                                                            (AND
+                                                             (|has| |t#1|
+                                                                    (|IntegralDomain|))
+                                                             (|has| $
+                                                                    (|VariablesCommuteWithCoefficients|))))
+                                                           ((|Algebra|
+                                                             (|Fraction|
+                                                              (|Integer|)))
+                                                            (|has| |t#1|
+                                                                   (|Algebra|
+                                                                    (|Fraction|
+                                                                     (|Integer|))))))
+                                                         NIL NIL)))))))
            (SETELT #1# 0 (LIST '|AbelianMonoidRing| |t#1| |t#2|))))) 

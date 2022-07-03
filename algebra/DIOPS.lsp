@@ -18,35 +18,40 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|DictionaryOperations;CAT|)
-                                    ('T
-                                     (LETT |DictionaryOperations;CAT|
-                                           (|Join| (|BagAggregate| '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|dictionary| ($)) T)
-                                                      ((|dictionary|
-                                                        ($ (|List| |t#1|)))
-                                                       T)
-                                                      ((|remove!| ($ |t#1| $))
-                                                       (AND
-                                                        (|has| |t#1|
-                                                               (|BasicType|))
-                                                        (|has| $
-                                                               (|finiteAggregate|))))
-                                                      ((|remove!|
-                                                        ($
-                                                         (|Mapping| (|Boolean|)
-                                                                    |t#1|)
-                                                         $))
-                                                       (|has| $
-                                                              (|finiteAggregate|)))
-                                                      ((|select!|
-                                                        ($
-                                                         (|Mapping| (|Boolean|)
-                                                                    |t#1|)
-                                                         $))
-                                                       (|has| $
-                                                              (|finiteAggregate|))))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|DictionaryOperations;CAT|)
+                                         ('T
+                                          (LETT |DictionaryOperations;CAT|
+                                                (|Join| (|BagAggregate| '|t#1|)
+                                                        (|mkCategory|
+                                                         '(((|dictionary| ($))
+                                                            T)
+                                                           ((|dictionary|
+                                                             ($
+                                                              (|List| |t#1|)))
+                                                            T)
+                                                           ((|remove!|
+                                                             ($ |t#1| $))
+                                                            (AND
+                                                             (|has| |t#1|
+                                                                    (|BasicType|))
+                                                             (|has| $
+                                                                    (|finiteAggregate|))))
+                                                           ((|remove!|
+                                                             ($
+                                                              (|Mapping|
+                                                               (|Boolean|)
+                                                               |t#1|)
+                                                              $))
+                                                            (|has| $
+                                                                   (|finiteAggregate|)))
+                                                           ((|select!|
+                                                             ($
+                                                              (|Mapping|
+                                                               (|Boolean|)
+                                                               |t#1|)
+                                                              $))
+                                                            (|has| $
+                                                                   (|finiteAggregate|))))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DictionaryOperations| |t#1|))))) 

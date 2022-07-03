@@ -17,11 +17,12 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (|Join|
-                               (|mkCategory|
-                                '(((|eval| ($ $ |t#1| |t#2|)) T)
-                                  ((|eval| ($ $ (|List| |t#1|) (|List| |t#2|)))
-                                   T))
-                                NIL NIL NIL))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (|Join|
+                                    (|mkCategory|
+                                     '(((|eval| ($ $ |t#1| |t#2|)) T)
+                                       ((|eval|
+                                         ($ $ (|List| |t#1|) (|List| |t#2|)))
+                                        T))
+                                     NIL NIL NIL))))
            (SETELT #1# 0 (LIST '|InnerEvalable| |t#1| |t#2|))))) 

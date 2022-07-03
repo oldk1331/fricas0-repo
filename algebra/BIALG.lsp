@@ -18,11 +18,11 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|Bialgebra;CAT|)
-                                    ('T
-                                     (LETT |Bialgebra;CAT|
-                                           (|Join| (|Algebra| '|t#1|)
-                                                   (|Coalgebra| '|t#1|
-                                                                '|t#2|)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|Bialgebra;CAT|)
+                                         ('T
+                                          (LETT |Bialgebra;CAT|
+                                                (|Join| (|Algebra| '|t#1|)
+                                                        (|Coalgebra| '|t#1|
+                                                                     '|t#2|)))))))
            (SETELT #1# 0 (LIST '|Bialgebra| |t#1| |t#2|))))) 

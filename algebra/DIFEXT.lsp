@@ -19,41 +19,41 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|DifferentialExtension;CAT|)
-                                    ('T
-                                     (LETT |DifferentialExtension;CAT|
-                                           (|Join| (|Ring|)
-                                                   (|mkCategory|
-                                                    '(((|differentiate|
-                                                        ($ $
-                                                         (|Mapping| |t#1|
-                                                                    |t#1|)))
-                                                       T)
-                                                      ((|differentiate|
-                                                        ($ $
-                                                         (|Mapping| |t#1|
-                                                                    |t#1|)
-                                                         (|NonNegativeInteger|)))
-                                                       T)
-                                                      ((D
-                                                        ($ $
-                                                         (|Mapping| |t#1|
-                                                                    |t#1|)))
-                                                       T)
-                                                      ((D
-                                                        ($ $
-                                                         (|Mapping| |t#1|
-                                                                    |t#1|)
-                                                         (|NonNegativeInteger|)))
-                                                       T))
-                                                    '(((|DifferentialRing|)
-                                                       (|has| |t#1|
-                                                              (|DifferentialRing|)))
-                                                      ((|PartialDifferentialRing|
-                                                        (|Symbol|))
-                                                       (|has| |t#1|
-                                                              (|PartialDifferentialRing|
-                                                               (|Symbol|)))))
-                                                    NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|DifferentialExtension;CAT|)
+                                         ('T
+                                          (LETT |DifferentialExtension;CAT|
+                                                (|Join| (|Ring|)
+                                                        (|mkCategory|
+                                                         '(((|differentiate|
+                                                             ($ $
+                                                              (|Mapping| |t#1|
+                                                                         |t#1|)))
+                                                            T)
+                                                           ((|differentiate|
+                                                             ($ $
+                                                              (|Mapping| |t#1|
+                                                                         |t#1|)
+                                                              (|NonNegativeInteger|)))
+                                                            T)
+                                                           ((D
+                                                             ($ $
+                                                              (|Mapping| |t#1|
+                                                                         |t#1|)))
+                                                            T)
+                                                           ((D
+                                                             ($ $
+                                                              (|Mapping| |t#1|
+                                                                         |t#1|)
+                                                              (|NonNegativeInteger|)))
+                                                            T))
+                                                         '(((|DifferentialRing|)
+                                                            (|has| |t#1|
+                                                                   (|DifferentialRing|)))
+                                                           ((|PartialDifferentialRing|
+                                                             (|Symbol|))
+                                                            (|has| |t#1|
+                                                                   (|PartialDifferentialRing|
+                                                                    (|Symbol|)))))
+                                                         NIL NIL)))))))
            (SETELT #1# 0 (LIST '|DifferentialExtension| |t#1|))))) 

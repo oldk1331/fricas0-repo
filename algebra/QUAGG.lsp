@@ -18,20 +18,24 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|QueueAggregate;CAT|)
-                                    ('T
-                                     (LETT |QueueAggregate;CAT|
-                                           (|Join| (|BagAggregate| '|t#1|)
-                                                   (|finiteAggregate|)
-                                                   (|mkCategory|
-                                                    '(((|enqueue!|
-                                                        (|t#1| |t#1| $))
-                                                       T)
-                                                      ((|dequeue!| (|t#1| $))
-                                                       T)
-                                                      ((|rotate!| ($ $)) T)
-                                                      ((|front| (|t#1| $)) T)
-                                                      ((|back| (|t#1| $)) T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|QueueAggregate;CAT|)
+                                         ('T
+                                          (LETT |QueueAggregate;CAT|
+                                                (|Join| (|BagAggregate| '|t#1|)
+                                                        (|finiteAggregate|)
+                                                        (|mkCategory|
+                                                         '(((|enqueue!|
+                                                             (|t#1| |t#1| $))
+                                                            T)
+                                                           ((|dequeue!|
+                                                             (|t#1| $))
+                                                            T)
+                                                           ((|rotate!| ($ $))
+                                                            T)
+                                                           ((|front| (|t#1| $))
+                                                            T)
+                                                           ((|back| (|t#1| $))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|QueueAggregate| |t#1|))))) 

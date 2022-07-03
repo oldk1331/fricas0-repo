@@ -21,14 +21,15 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4| |t#5|)
-                                (LIST |t#1| |t#2| |t#3| |t#4| |t#5|))
-                    (|Join|
-                     (|mkCategory|
-                      '(((|eval| (|t#5| |t#4| (|Mapping| |t#5| |t#2| |t#3|)))
-                         T))
-                      NIL NIL NIL))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3| |t#4| |t#5|)
+                                   (LIST |t#1| |t#2| |t#3| |t#4| |t#5|)
+                                   (|Join|
+                                    (|mkCategory|
+                                     '(((|eval|
+                                         (|t#5| |t#4|
+                                          (|Mapping| |t#5| |t#2| |t#3|)))
+                                        T))
+                                     NIL NIL NIL))))
            (SETELT #1# 0
                    (LIST '|TensorProductProperty| |t#1| |t#2| |t#3| |t#4|
                          |t#5|))))) 

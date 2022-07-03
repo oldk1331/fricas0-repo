@@ -19,10 +19,11 @@
   (SPROG ((#1=#:G124 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|FramedNonAssociativeAlgebra;CAT|)
-                                    ('T
-                                     (LETT |FramedNonAssociativeAlgebra;CAT|
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|FramedNonAssociativeAlgebra;CAT|)
+                                         ('T
+                                          (LETT
+                                           |FramedNonAssociativeAlgebra;CAT|
                                            (|Join|
                                             (|FiniteRankNonAssociativeAlgebra|
                                              '|t#1|)

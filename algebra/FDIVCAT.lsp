@@ -23,60 +23,77 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV|
-                    (MAKE_PAIRS '(|t#1| |t#2| |t#3| |t#4|)
-                                (LIST |t#1| |t#2| |t#3| |t#4|))
-                    (COND (|FiniteDivisorCategory;CAT|)
-                          ('T
-                           (LETT |FiniteDivisorCategory;CAT|
-                                 (|Join| (|AbelianGroup|)
-                                         (|mkCategory|
-                                          '(((|ideal|
-                                              ((|FractionalIdeal| |t#2|
-                                                                  (|Fraction|
-                                                                   |t#2|)
-                                                                  |t#3| |t#4|)
-                                               $))
-                                             T)
-                                            ((|divisor|
-                                              ($
-                                               (|FractionalIdeal| |t#2|
-                                                                  (|Fraction|
-                                                                   |t#2|)
-                                                                  |t#3|
-                                                                  |t#4|)))
-                                             T)
-                                            ((|divisor| ($ |t#4|)) T)
-                                            ((|divisor| ($ |t#1| |t#1|)) T)
-                                            ((|divisor|
-                                              ($ |t#1| |t#1| (|Integer|)))
-                                             T)
-                                            ((|decompose|
-                                              ((|Record|
-                                                (|:| |id|
-                                                     (|FractionalIdeal| |t#2|
-                                                                        (|Fraction|
-                                                                         |t#2|)
-                                                                        |t#3|
-                                                                        |t#4|))
-                                                (|:| |principalPart| |t#4|))
-                                               $))
-                                             T)
-                                            ((|reduce| ($ $)) T)
-                                            ((|principal?| ((|Boolean|) $)) T)
-                                            ((|generator|
-                                              ((|Union| |t#4| "failed") $))
-                                             T)
-                                            ((|generator|
-                                              ((|Union| |t#4| "failed") $
-                                               (|Integer|) (|List| |t#2|)))
-                                             T)
-                                            ((|divisor| ($ |t#4| |t#2| |t#2|))
-                                             T)
-                                            ((|divisor|
-                                              ($ |t#4| |t#2| |t#2| |t#2|
-                                               |t#1|))
-                                             T))
-                                          NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2| |t#3| |t#4|)
+                                   (LIST |t#1| |t#2| |t#3| |t#4|)
+                                   (COND (|FiniteDivisorCategory;CAT|)
+                                         ('T
+                                          (LETT |FiniteDivisorCategory;CAT|
+                                                (|Join| (|AbelianGroup|)
+                                                        (|mkCategory|
+                                                         '(((|ideal|
+                                                             ((|FractionalIdeal|
+                                                               |t#2|
+                                                               (|Fraction|
+                                                                |t#2|)
+                                                               |t#3| |t#4|)
+                                                              $))
+                                                            T)
+                                                           ((|divisor|
+                                                             ($
+                                                              (|FractionalIdeal|
+                                                               |t#2|
+                                                               (|Fraction|
+                                                                |t#2|)
+                                                               |t#3| |t#4|)))
+                                                            T)
+                                                           ((|divisor|
+                                                             ($ |t#4|))
+                                                            T)
+                                                           ((|divisor|
+                                                             ($ |t#1| |t#1|))
+                                                            T)
+                                                           ((|divisor|
+                                                             ($ |t#1| |t#1|
+                                                              (|Integer|)))
+                                                            T)
+                                                           ((|decompose|
+                                                             ((|Record|
+                                                               (|:| |id|
+                                                                    (|FractionalIdeal|
+                                                                     |t#2|
+                                                                     (|Fraction|
+                                                                      |t#2|)
+                                                                     |t#3|
+                                                                     |t#4|))
+                                                               (|:|
+                                                                |principalPart|
+                                                                |t#4|))
+                                                              $))
+                                                            T)
+                                                           ((|reduce| ($ $)) T)
+                                                           ((|principal?|
+                                                             ((|Boolean|) $))
+                                                            T)
+                                                           ((|generator|
+                                                             ((|Union| |t#4|
+                                                                       "failed")
+                                                              $))
+                                                            T)
+                                                           ((|generator|
+                                                             ((|Union| |t#4|
+                                                                       "failed")
+                                                              $ (|Integer|)
+                                                              (|List| |t#2|)))
+                                                            T)
+                                                           ((|divisor|
+                                                             ($ |t#4| |t#2|
+                                                              |t#2|))
+                                                            T)
+                                                           ((|divisor|
+                                                             ($ |t#4| |t#2|
+                                                              |t#2| |t#2|
+                                                              |t#1|))
+                                                            T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|FiniteDivisorCategory| |t#1| |t#2| |t#3| |t#4|))))) 

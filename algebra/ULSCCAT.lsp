@@ -25,29 +25,31 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND
-                               (|UnivariateLaurentSeriesConstructorCategory;CAT|)
-                               ('T
-                                (LETT
-                                 |UnivariateLaurentSeriesConstructorCategory;CAT|
-                                 (|Join|
-                                  (|UnivariateLaurentSeriesCategory| '|t#1|)
-                                  (|RetractableTo| '|t#2|)
-                                  (|mkCategory|
-                                   '(((|laurent| ($ (|Integer|) |t#2|)) T)
-                                     ((|degree| ((|Integer|) $)) T)
-                                     ((|taylorRep| (|t#2| $)) T)
-                                     ((|removeZeroes| ($ $)) T)
-                                     ((|removeZeroes| ($ (|Integer|) $)) T)
-                                     ((|coerce| ($ |t#2|)) T)
-                                     ((|taylor| (|t#2| $)) T)
-                                     ((|taylorIfCan|
-                                       ((|Union| |t#2| "failed") $))
-                                      T))
-                                   '(((|QuotientFieldCategory| |t#2|)
-                                      (|has| |t#1| (|Field|))))
-                                   NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND
+                                    (|UnivariateLaurentSeriesConstructorCategory;CAT|)
+                                    ('T
+                                     (LETT
+                                      |UnivariateLaurentSeriesConstructorCategory;CAT|
+                                      (|Join|
+                                       (|UnivariateLaurentSeriesCategory|
+                                        '|t#1|)
+                                       (|RetractableTo| '|t#2|)
+                                       (|mkCategory|
+                                        '(((|laurent| ($ (|Integer|) |t#2|)) T)
+                                          ((|degree| ((|Integer|) $)) T)
+                                          ((|taylorRep| (|t#2| $)) T)
+                                          ((|removeZeroes| ($ $)) T)
+                                          ((|removeZeroes| ($ (|Integer|) $))
+                                           T)
+                                          ((|coerce| ($ |t#2|)) T)
+                                          ((|taylor| (|t#2| $)) T)
+                                          ((|taylorIfCan|
+                                            ((|Union| |t#2| "failed") $))
+                                           T))
+                                        '(((|QuotientFieldCategory| |t#2|)
+                                           (|has| |t#1| (|Field|))))
+                                        NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|UnivariateLaurentSeriesConstructorCategory| |t#1|
                          |t#2|))))) 

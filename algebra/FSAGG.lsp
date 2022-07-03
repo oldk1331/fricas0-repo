@@ -18,29 +18,30 @@
   (SPROG ((#1=#:G126 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|FiniteSetAggregate;CAT|)
-                                    ('T
-                                     (LETT |FiniteSetAggregate;CAT|
-                                           (|Join| (|Dictionary| '|t#1|)
-                                                   (|SetAggregate| '|t#1|)
-                                                   (|finiteAggregate|)
-                                                   (|mkCategory|
-                                                    '(((|cardinality|
-                                                        ((|NonNegativeInteger|)
-                                                         $))
-                                                       T)
-                                                      ((|complement| ($ $))
-                                                       (|has| |t#1|
-                                                              (|Finite|)))
-                                                      ((|universe| ($))
-                                                       (|has| |t#1|
-                                                              (|Finite|))))
-                                                    '(((|Finite|)
-                                                       (|has| |t#1|
-                                                              (|Finite|)))
-                                                      ((|Comparable|)
-                                                       (|has| |t#1|
-                                                              (|Comparable|))))
-                                                    NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|FiniteSetAggregate;CAT|)
+                                         ('T
+                                          (LETT |FiniteSetAggregate;CAT|
+                                                (|Join| (|Dictionary| '|t#1|)
+                                                        (|SetAggregate| '|t#1|)
+                                                        (|finiteAggregate|)
+                                                        (|mkCategory|
+                                                         '(((|cardinality|
+                                                             ((|NonNegativeInteger|)
+                                                              $))
+                                                            T)
+                                                           ((|complement|
+                                                             ($ $))
+                                                            (|has| |t#1|
+                                                                   (|Finite|)))
+                                                           ((|universe| ($))
+                                                            (|has| |t#1|
+                                                                   (|Finite|))))
+                                                         '(((|Finite|)
+                                                            (|has| |t#1|
+                                                                   (|Finite|)))
+                                                           ((|Comparable|)
+                                                            (|has| |t#1|
+                                                                   (|Comparable|))))
+                                                         NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FiniteSetAggregate| |t#1|))))) 

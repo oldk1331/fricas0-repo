@@ -18,16 +18,17 @@
   (SPROG ((#1=#:G172 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|ListAggregate;CAT|)
-                                    ('T
-                                     (LETT |ListAggregate;CAT|
-                                           (|Join| (|StreamAggregate| '|t#1|)
-                                                   (|FiniteLinearAggregate|
-                                                    '|t#1|)
-                                                   (|ExtensibleLinearAggregate|
-                                                    '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|list| ($ |t#1|)) T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|ListAggregate;CAT|)
+                                         ('T
+                                          (LETT |ListAggregate;CAT|
+                                                (|Join|
+                                                 (|StreamAggregate| '|t#1|)
+                                                 (|FiniteLinearAggregate|
+                                                  '|t#1|)
+                                                 (|ExtensibleLinearAggregate|
+                                                  '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|list| ($ |t#1|)) T)) NIL
+                                                  NIL NIL)))))))
            (SETELT #1# 0 (LIST '|ListAggregate| |t#1|))))) 

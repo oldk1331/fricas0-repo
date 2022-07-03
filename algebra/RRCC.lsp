@@ -23,8 +23,9 @@
   (SPROG ((#1=#:G123 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|RealRootCharacterizationCategory;CAT|)
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND
+                                    (|RealRootCharacterizationCategory;CAT|)
                                     ('T
                                      (LETT
                                       |RealRootCharacterizationCategory;CAT|

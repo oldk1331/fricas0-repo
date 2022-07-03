@@ -18,11 +18,11 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|MultisetAggregate;CAT|)
-                                    ('T
-                                     (LETT |MultisetAggregate;CAT|
-                                           (|Join| (|MultiDictionary| '|t#1|)
-                                                   (|SetAggregate|
-                                                    '|t#1|)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|MultisetAggregate;CAT|)
+                                         ('T
+                                          (LETT |MultisetAggregate;CAT|
+                                                (|Join|
+                                                 (|MultiDictionary| '|t#1|)
+                                                 (|SetAggregate| '|t#1|)))))))
            (SETELT #1# 0 (LIST '|MultisetAggregate| |t#1|))))) 

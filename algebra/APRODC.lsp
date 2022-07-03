@@ -17,17 +17,17 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (|Join|
-                               (|mkCategory| NIL
-                                             '(((|AbelianMonoid|)
-                                                (|has| |t#1|
-                                                       (|AbelianMonoid|)))
-                                               ((|CancellationAbelianMonoid|)
-                                                (|has| |t#1|
-                                                       (|CancellationAbelianMonoid|)))
-                                               ((|AbelianGroup|)
-                                                (|has| |t#1|
-                                                       (|AbelianGroup|))))
-                                             NIL NIL))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (|Join|
+                                    (|mkCategory| NIL
+                                                  '(((|AbelianMonoid|)
+                                                     (|has| |t#1|
+                                                            (|AbelianMonoid|)))
+                                                    ((|CancellationAbelianMonoid|)
+                                                     (|has| |t#1|
+                                                            (|CancellationAbelianMonoid|)))
+                                                    ((|AbelianGroup|)
+                                                     (|has| |t#1|
+                                                            (|AbelianGroup|))))
+                                                  NIL NIL))))
            (SETELT #1# 0 (LIST '|AbelianProductCategory| |t#1|))))) 

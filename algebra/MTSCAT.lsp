@@ -23,70 +23,85 @@
   (SPROG ((#1=#:G120 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (|sublisV|
-                               (MAKE_PAIRS '(#2=#:G119)
-                                           (LIST '(|IndexedExponents| |t#2|)))
-                               (COND (|MultivariateTaylorSeriesCategory;CAT|)
-                                     ('T
-                                      (LETT
-                                       |MultivariateTaylorSeriesCategory;CAT|
-                                       (|Join|
-                                        (|PartialDifferentialRing| '|t#2|)
-                                        (|PowerSeriesCategory| '|t#1| '#2#
-                                                               '|t#2|)
-                                        (|InnerEvalable| '|t#2| '$)
-                                        (|Evalable| '$)
-                                        (|mkCategory|
-                                         '(((|coefficient|
-                                             ($ $ |t#2|
-                                              (|NonNegativeInteger|)))
-                                            T)
-                                           ((|coefficient|
-                                             ($ $ (|List| |t#2|)
-                                              (|List| (|NonNegativeInteger|))))
-                                            T)
-                                           ((|extend|
-                                             ($ $ (|NonNegativeInteger|)))
-                                            T)
-                                           ((|monomial|
-                                             ($ $ |t#2|
-                                              (|NonNegativeInteger|)))
-                                            T)
-                                           ((|monomial|
-                                             ($ $ (|List| |t#2|)
-                                              (|List| (|NonNegativeInteger|))))
-                                            T)
-                                           ((|order|
-                                             ((|NonNegativeInteger|) $ |t#2|))
-                                            T)
-                                           ((|order|
-                                             ((|NonNegativeInteger|) $ |t#2|
-                                              (|NonNegativeInteger|)))
-                                            T)
-                                           ((|polynomial|
-                                             ((|Polynomial| |t#1|) $
-                                              (|NonNegativeInteger|)))
-                                            T)
-                                           ((|polynomial|
-                                             ((|Polynomial| |t#1|) $
-                                              (|NonNegativeInteger|)
-                                              (|NonNegativeInteger|)))
-                                            T)
-                                           ((|integrate| ($ $ |t#2|))
-                                            (|has| |t#1|
-                                                   (|Algebra|
-                                                    (|Fraction|
-                                                     (|Integer|))))))
-                                         '(((|RadicalCategory|)
-                                            (|has| |t#1|
-                                                   (|Algebra|
-                                                    (|Fraction| (|Integer|)))))
-                                           ((|TranscendentalFunctionCategory|)
-                                            (|has| |t#1|
-                                                   (|Algebra|
-                                                    (|Fraction|
-                                                     (|Integer|))))))
-                                         NIL NIL))))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (|subst_in_cat| '(#2=#:G119)
+                                                   (LIST
+                                                    '(|IndexedExponents|
+                                                      |t#2|))
+                                                   (COND
+                                                    (|MultivariateTaylorSeriesCategory;CAT|)
+                                                    ('T
+                                                     (LETT
+                                                      |MultivariateTaylorSeriesCategory;CAT|
+                                                      (|Join|
+                                                       (|PartialDifferentialRing|
+                                                        '|t#2|)
+                                                       (|PowerSeriesCategory|
+                                                        '|t#1| '#2# '|t#2|)
+                                                       (|InnerEvalable| '|t#2|
+                                                                        '$)
+                                                       (|Evalable| '$)
+                                                       (|mkCategory|
+                                                        '(((|coefficient|
+                                                            ($ $ |t#2|
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|coefficient|
+                                                            ($ $ (|List| |t#2|)
+                                                             (|List|
+                                                              (|NonNegativeInteger|))))
+                                                           T)
+                                                          ((|extend|
+                                                            ($ $
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|monomial|
+                                                            ($ $ |t#2|
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|monomial|
+                                                            ($ $ (|List| |t#2|)
+                                                             (|List|
+                                                              (|NonNegativeInteger|))))
+                                                           T)
+                                                          ((|order|
+                                                            ((|NonNegativeInteger|)
+                                                             $ |t#2|))
+                                                           T)
+                                                          ((|order|
+                                                            ((|NonNegativeInteger|)
+                                                             $ |t#2|
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|polynomial|
+                                                            ((|Polynomial|
+                                                              |t#1|)
+                                                             $
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|polynomial|
+                                                            ((|Polynomial|
+                                                              |t#1|)
+                                                             $
+                                                             (|NonNegativeInteger|)
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|integrate|
+                                                            ($ $ |t#2|))
+                                                           (|has| |t#1|
+                                                                  (|Algebra|
+                                                                   (|Fraction|
+                                                                    (|Integer|))))))
+                                                        '(((|RadicalCategory|)
+                                                           (|has| |t#1|
+                                                                  (|Algebra|
+                                                                   (|Fraction|
+                                                                    (|Integer|)))))
+                                                          ((|TranscendentalFunctionCategory|)
+                                                           (|has| |t#1|
+                                                                  (|Algebra|
+                                                                   (|Fraction|
+                                                                    (|Integer|))))))
+                                                        NIL NIL))))))))
            (SETELT #1# 0
                    (LIST '|MultivariateTaylorSeriesCategory| |t#1| |t#2|))))) 

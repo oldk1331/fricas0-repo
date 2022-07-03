@@ -19,35 +19,35 @@
   (SPROG ((#1=#:G123 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|FreeModuleCategory;CAT|)
-                                    ('T
-                                     (LETT |FreeModuleCategory;CAT|
-                                           (|Join| (|BiModule| '|t#1| '|t#1|)
-                                                   (|IndexedDirectProductCategory|
-                                                    '|t#1| '|t#2|)
-                                                   (|mkCategory|
-                                                    '(((|coefficients|
-                                                        ((|List| |t#1|) $))
-                                                       T)
-                                                      ((|support|
-                                                        ((|List| |t#2|) $))
-                                                       T)
-                                                      ((|monomials|
-                                                        ((|List| $) $))
-                                                       T)
-                                                      ((|coefficient|
-                                                        (|t#1| $ |t#2|))
-                                                       T)
-                                                      ((|linearExtend|
-                                                        (|t#1|
-                                                         (|Mapping| |t#1|
-                                                                    |t#2|)
-                                                         $))
-                                                       (|has| |t#1|
-                                                              (|CommutativeRing|))))
-                                                    '(((|Module| |t#1|)
-                                                       (|has| |t#1|
-                                                              (|CommutativeRing|))))
-                                                    NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|FreeModuleCategory;CAT|)
+                                         ('T
+                                          (LETT |FreeModuleCategory;CAT|
+                                                (|Join|
+                                                 (|BiModule| '|t#1| '|t#1|)
+                                                 (|IndexedDirectProductCategory|
+                                                  '|t#1| '|t#2|)
+                                                 (|mkCategory|
+                                                  '(((|coefficients|
+                                                      ((|List| |t#1|) $))
+                                                     T)
+                                                    ((|support|
+                                                      ((|List| |t#2|) $))
+                                                     T)
+                                                    ((|monomials|
+                                                      ((|List| $) $))
+                                                     T)
+                                                    ((|coefficient|
+                                                      (|t#1| $ |t#2|))
+                                                     T)
+                                                    ((|linearExtend|
+                                                      (|t#1|
+                                                       (|Mapping| |t#1| |t#2|)
+                                                       $))
+                                                     (|has| |t#1|
+                                                            (|CommutativeRing|))))
+                                                  '(((|Module| |t#1|)
+                                                     (|has| |t#1|
+                                                            (|CommutativeRing|))))
+                                                  NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FreeModuleCategory| |t#1| |t#2|))))) 

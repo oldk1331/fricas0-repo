@@ -18,25 +18,28 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|MultiDictionary;CAT|)
-                                    ('T
-                                     (LETT |MultiDictionary;CAT|
-                                           (|Join|
-                                            (|DictionaryOperations| '|t#1|)
-                                            (|mkCategory|
-                                             '(((|insert!|
-                                                 ($ |t#1| $
-                                                  (|NonNegativeInteger|)))
-                                                T)
-                                               ((|removeDuplicates!| ($ $)) T)
-                                               ((|duplicates|
-                                                 ((|List|
-                                                   (|Record|
-                                                    (|:| |entry| |t#1|)
-                                                    (|:| |count|
-                                                         (|NonNegativeInteger|))))
-                                                  $))
-                                                T))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|MultiDictionary;CAT|)
+                                         ('T
+                                          (LETT |MultiDictionary;CAT|
+                                                (|Join|
+                                                 (|DictionaryOperations|
+                                                  '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|insert!|
+                                                      ($ |t#1| $
+                                                       (|NonNegativeInteger|)))
+                                                     T)
+                                                    ((|removeDuplicates!|
+                                                      ($ $))
+                                                     T)
+                                                    ((|duplicates|
+                                                      ((|List|
+                                                        (|Record|
+                                                         (|:| |entry| |t#1|)
+                                                         (|:| |count|
+                                                              (|NonNegativeInteger|))))
+                                                       $))
+                                                     T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|MultiDictionary| |t#1|))))) 

@@ -20,21 +20,21 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|SegmentExpansionCategory;CAT|)
-                                    ('T
-                                     (LETT |SegmentExpansionCategory;CAT|
-                                           (|Join| (|SegmentCategory| '|t#1|)
-                                                   (|mkCategory|
-                                                    '(((|expand|
-                                                        (|t#2| (|List| $)))
-                                                       T)
-                                                      ((|expand| (|t#2| $)) T)
-                                                      ((|map|
-                                                        (|t#2|
-                                                         (|Mapping| |t#1|
-                                                                    |t#1|)
-                                                         $))
-                                                       T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|SegmentExpansionCategory;CAT|)
+                                         ('T
+                                          (LETT |SegmentExpansionCategory;CAT|
+                                                (|Join|
+                                                 (|SegmentCategory| '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|expand|
+                                                      (|t#2| (|List| $)))
+                                                     T)
+                                                    ((|expand| (|t#2| $)) T)
+                                                    ((|map|
+                                                      (|t#2|
+                                                       (|Mapping| |t#1| |t#1|)
+                                                       $))
+                                                     T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|SegmentExpansionCategory| |t#1| |t#2|))))) 

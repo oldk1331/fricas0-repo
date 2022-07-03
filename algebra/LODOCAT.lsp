@@ -24,27 +24,28 @@
   (SPROG ((#1=#:G120 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND
-                               (|LinearOrdinaryDifferentialOperatorCategory;CAT|)
-                               ('T
-                                (LETT
-                                 |LinearOrdinaryDifferentialOperatorCategory;CAT|
-                                 (|Join|
-                                  (|UnivariateSkewPolynomialCategory| '|t#1|)
-                                  (|Eltable| '|t#1| '|t#1|)
-                                  (|mkCategory|
-                                   '(((D ($)) T) ((|adjoint| ($ $)) T)
-                                     ((|symmetricProduct| ($ $ $))
-                                      (|has| |t#1| (|Field|)))
-                                     ((|symmetricPower|
-                                       ($ $ (|NonNegativeInteger|)))
-                                      (|has| |t#1| (|Field|)))
-                                     ((|symmetricSquare| ($ $))
-                                      (|has| |t#1| (|Field|)))
-                                     ((|directSum| ($ $ $))
-                                      (|has| |t#1| (|Field|))))
-                                   NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND
+                                    (|LinearOrdinaryDifferentialOperatorCategory;CAT|)
+                                    ('T
+                                     (LETT
+                                      |LinearOrdinaryDifferentialOperatorCategory;CAT|
+                                      (|Join|
+                                       (|UnivariateSkewPolynomialCategory|
+                                        '|t#1|)
+                                       (|Eltable| '|t#1| '|t#1|)
+                                       (|mkCategory|
+                                        '(((D ($)) T) ((|adjoint| ($ $)) T)
+                                          ((|symmetricProduct| ($ $ $))
+                                           (|has| |t#1| (|Field|)))
+                                          ((|symmetricPower|
+                                            ($ $ (|NonNegativeInteger|)))
+                                           (|has| |t#1| (|Field|)))
+                                          ((|symmetricSquare| ($ $))
+                                           (|has| |t#1| (|Field|)))
+                                          ((|directSum| ($ $ $))
+                                           (|has| |t#1| (|Field|))))
+                                        NIL NIL NIL)))))))
            (SETELT #1# 0
                    (LIST '|LinearOrdinaryDifferentialOperatorCategory|
                          |t#1|))))) 

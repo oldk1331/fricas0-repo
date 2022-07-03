@@ -19,15 +19,15 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|GradedAlgebra;CAT|)
-                                    ('T
-                                     (LETT |GradedAlgebra;CAT|
-                                           (|Join|
-                                            (|GradedModule| '|t#1| '|t#2|)
-                                            (|RetractableTo| '|t#1|)
-                                            (|mkCategory|
-                                             '(((|One| ($) |constant|) T)
-                                               ((|product| ($ $ $)) T))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|GradedAlgebra;CAT|)
+                                         ('T
+                                          (LETT |GradedAlgebra;CAT|
+                                                (|Join|
+                                                 (|GradedModule| '|t#1| '|t#2|)
+                                                 (|RetractableTo| '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|One| ($) |constant|) T)
+                                                    ((|product| ($ $ $)) T))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|GradedAlgebra| |t#1| |t#2|))))) 

@@ -19,37 +19,47 @@
   (SPROG ((#1=#:G122 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|IndexedAggregate;CAT|)
-                                    ('T
-                                     (LETT |IndexedAggregate;CAT|
-                                           (|Join|
-                                            (|HomogeneousAggregate| '|t#2|)
-                                            (|EltableAggregate| '|t#1| '|t#2|)
-                                            (|mkCategory|
-                                             '(((|entries| ((|List| |t#2|) $))
-                                                T)
-                                               ((|index?|
-                                                 ((|Boolean|) |t#1| $))
-                                                T)
-                                               ((|indices| ((|List| |t#1|) $))
-                                                T)
-                                               ((|entry?|
-                                                 ((|Boolean|) |t#2| $))
-                                                (AND
-                                                 (|has| $ (|finiteAggregate|))
-                                                 (|has| |t#2| (|BasicType|))))
-                                               ((|maxIndex| (|t#1| $))
-                                                (|has| |t#1| (|OrderedSet|)))
-                                               ((|minIndex| (|t#1| $))
-                                                (|has| |t#1| (|OrderedSet|)))
-                                               ((|first| (|t#2| $))
-                                                (|has| |t#1| (|OrderedSet|)))
-                                               ((|fill!| ($ $ |t#2|))
-                                                (|has| $ (|shallowlyMutable|)))
-                                               ((|swap!|
-                                                 ((|Void|) $ |t#1| |t#1|))
-                                                (|has| $
-                                                       (|shallowlyMutable|))))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|IndexedAggregate;CAT|)
+                                         ('T
+                                          (LETT |IndexedAggregate;CAT|
+                                                (|Join|
+                                                 (|HomogeneousAggregate|
+                                                  '|t#2|)
+                                                 (|EltableAggregate| '|t#1|
+                                                                     '|t#2|)
+                                                 (|mkCategory|
+                                                  '(((|entries|
+                                                      ((|List| |t#2|) $))
+                                                     T)
+                                                    ((|index?|
+                                                      ((|Boolean|) |t#1| $))
+                                                     T)
+                                                    ((|indices|
+                                                      ((|List| |t#1|) $))
+                                                     T)
+                                                    ((|entry?|
+                                                      ((|Boolean|) |t#2| $))
+                                                     (AND
+                                                      (|has| $
+                                                             (|finiteAggregate|))
+                                                      (|has| |t#2|
+                                                             (|BasicType|))))
+                                                    ((|maxIndex| (|t#1| $))
+                                                     (|has| |t#1|
+                                                            (|OrderedSet|)))
+                                                    ((|minIndex| (|t#1| $))
+                                                     (|has| |t#1|
+                                                            (|OrderedSet|)))
+                                                    ((|first| (|t#2| $))
+                                                     (|has| |t#1|
+                                                            (|OrderedSet|)))
+                                                    ((|fill!| ($ $ |t#2|))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|swap!|
+                                                      ((|Void|) $ |t#1| |t#1|))
+                                                     (|has| $
+                                                            (|shallowlyMutable|))))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|IndexedAggregate| |t#1| |t#2|))))) 

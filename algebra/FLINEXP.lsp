@@ -19,17 +19,18 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|FullyLinearlyExplicitOver;CAT|)
-                                    ('T
-                                     (LETT |FullyLinearlyExplicitOver;CAT|
-                                           (|Join|
-                                            (|LinearlyExplicitOver| '|t#1|)
-                                            (|mkCategory| NIL
-                                                          '(((|LinearlyExplicitOver|
-                                                              (|Integer|))
-                                                             (|has| |t#1|
-                                                                    (|LinearlyExplicitOver|
-                                                                     (|Integer|)))))
-                                                          NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|FullyLinearlyExplicitOver;CAT|)
+                                         ('T
+                                          (LETT |FullyLinearlyExplicitOver;CAT|
+                                                (|Join|
+                                                 (|LinearlyExplicitOver|
+                                                  '|t#1|)
+                                                 (|mkCategory| NIL
+                                                               '(((|LinearlyExplicitOver|
+                                                                   (|Integer|))
+                                                                  (|has| |t#1|
+                                                                         (|LinearlyExplicitOver|
+                                                                          (|Integer|)))))
+                                                               NIL NIL)))))))
            (SETELT #1# 0 (LIST '|FullyLinearlyExplicitOver| |t#1|))))) 

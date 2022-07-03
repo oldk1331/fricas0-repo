@@ -18,35 +18,52 @@
   (SPROG ((#1=#:G124 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (COND (|RecursiveAggregate;CAT|)
-                                    ('T
-                                     (LETT |RecursiveAggregate;CAT|
-                                           (|Join|
-                                            (|HomogeneousAggregate| '|t#1|)
-                                            (|mkCategory|
-                                             '(((|children| ((|List| $) $)) T)
-                                               ((|nodes| ((|List| $) $)) T)
-                                               ((|leaf?| ((|Boolean|) $)) T)
-                                               ((|value| (|t#1| $)) T)
-                                               ((|elt| (|t#1| $ "value")) T)
-                                               ((|cyclic?| ((|Boolean|) $)) T)
-                                               ((|leaves| ((|List| |t#1|) $))
-                                                T)
-                                               ((|distance| ((|Integer|) $ $))
-                                                T)
-                                               ((|child?| ((|Boolean|) $ $))
-                                                (|has| |t#1| (|BasicType|)))
-                                               ((|node?| ((|Boolean|) $ $))
-                                                (|has| |t#1| (|BasicType|)))
-                                               ((|setchildren!|
-                                                 ($ $ (|List| $)))
-                                                (|has| $ (|shallowlyMutable|)))
-                                               ((|setelt!|
-                                                 (|t#1| $ "value" |t#1|))
-                                                (|has| $ (|shallowlyMutable|)))
-                                               ((|setvalue!| (|t#1| $ |t#1|))
-                                                (|has| $
-                                                       (|shallowlyMutable|))))
-                                             NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (COND (|RecursiveAggregate;CAT|)
+                                         ('T
+                                          (LETT |RecursiveAggregate;CAT|
+                                                (|Join|
+                                                 (|HomogeneousAggregate|
+                                                  '|t#1|)
+                                                 (|mkCategory|
+                                                  '(((|children|
+                                                      ((|List| $) $))
+                                                     T)
+                                                    ((|nodes| ((|List| $) $))
+                                                     T)
+                                                    ((|leaf?| ((|Boolean|) $))
+                                                     T)
+                                                    ((|value| (|t#1| $)) T)
+                                                    ((|elt| (|t#1| $ "value"))
+                                                     T)
+                                                    ((|cyclic?|
+                                                      ((|Boolean|) $))
+                                                     T)
+                                                    ((|leaves|
+                                                      ((|List| |t#1|) $))
+                                                     T)
+                                                    ((|distance|
+                                                      ((|Integer|) $ $))
+                                                     T)
+                                                    ((|child?|
+                                                      ((|Boolean|) $ $))
+                                                     (|has| |t#1|
+                                                            (|BasicType|)))
+                                                    ((|node?|
+                                                      ((|Boolean|) $ $))
+                                                     (|has| |t#1|
+                                                            (|BasicType|)))
+                                                    ((|setchildren!|
+                                                      ($ $ (|List| $)))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|setelt!|
+                                                      (|t#1| $ "value" |t#1|))
+                                                     (|has| $
+                                                            (|shallowlyMutable|)))
+                                                    ((|setvalue!|
+                                                      (|t#1| $ |t#1|))
+                                                     (|has| $
+                                                            (|shallowlyMutable|))))
+                                                  NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|RecursiveAggregate| |t#1|))))) 

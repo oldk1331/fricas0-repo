@@ -20,136 +20,181 @@
   (SPROG ((#1=#:G165 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (|sublisV|
-                               (MAKE_PAIRS '(#2=#:G163 #3=#:G164)
-                                           (LIST '(|NonNegativeInteger|)
-                                                 '(|SingletonAsOrderedSet|)))
-                               (COND (|UnivariatePolynomialCategory;CAT|)
-                                     ('T
-                                      (LETT |UnivariatePolynomialCategory;CAT|
-                                            (|Join|
-                                             (|PolynomialCategory| '|t#1| '#2#
-                                                                   '#3#)
-                                             (|Eltable| '|t#1| '|t#1|)
-                                             (|Eltable| '$ '$)
-                                             (|mkCategory|
-                                              '(((|vectorise|
-                                                  ((|Vector| |t#1|) $
-                                                   (|NonNegativeInteger|)))
-                                                 T)
-                                                ((|unvectorise|
-                                                  ($ (|Vector| |t#1|)))
-                                                 T)
-                                                ((|makeSUP|
-                                                  ((|SparseUnivariatePolynomial|
-                                                    |t#1|)
-                                                   $))
-                                                 T)
-                                                ((|unmakeSUP|
-                                                  ($
-                                                   (|SparseUnivariatePolynomial|
-                                                    |t#1|)))
-                                                 T)
-                                                ((|multiplyExponents|
-                                                  ($ $ (|NonNegativeInteger|)))
-                                                 T)
-                                                ((|divideExponents|
-                                                  ((|Union| $ "failed") $
-                                                   (|NonNegativeInteger|)))
-                                                 T)
-                                                ((|shiftLeft|
-                                                  ($ $ (|NonNegativeInteger|)))
-                                                 T)
-                                                ((|monicDivide|
-                                                  ((|Record| (|:| |quotient| $)
-                                                             (|:| |remainder|
-                                                                  $))
-                                                   $ $))
-                                                 (|has| |t#1| (|Ring|)))
-                                                ((|karatsubaDivide|
-                                                  ((|Record| (|:| |quotient| $)
-                                                             (|:| |remainder|
-                                                                  $))
-                                                   $ (|NonNegativeInteger|)))
-                                                 (|has| |t#1| (|Ring|)))
-                                                ((|shiftRight|
-                                                  ($ $ (|NonNegativeInteger|)))
-                                                 (|has| |t#1| (|Ring|)))
-                                                ((|pseudoRemainder| ($ $ $))
-                                                 (|has| |t#1| (|Ring|)))
-                                                ((|differentiate|
-                                                  ($ $ (|Mapping| |t#1| |t#1|)
-                                                   $))
-                                                 (|has| |t#1| (|Ring|)))
-                                                ((|discriminant| (|t#1| $))
-                                                 (|has| |t#1|
-                                                        (|CommutativeRing|)))
-                                                ((|resultant| (|t#1| $ $))
-                                                 (|has| |t#1|
-                                                        (|CommutativeRing|)))
-                                                ((|elt|
-                                                  ((|Fraction| $)
-                                                   (|Fraction| $)
-                                                   (|Fraction| $)))
-                                                 (|has| |t#1|
-                                                        (|IntegralDomain|)))
-                                                ((|order|
-                                                  ((|NonNegativeInteger|) $ $))
-                                                 (|has| |t#1|
-                                                        (|IntegralDomain|)))
-                                                ((|subResultantGcd| ($ $ $))
-                                                 (|has| |t#1|
-                                                        (|IntegralDomain|)))
-                                                ((|composite|
-                                                  ((|Union| $ "failed") $ $))
-                                                 (|has| |t#1|
-                                                        (|IntegralDomain|)))
-                                                ((|composite|
-                                                  ((|Union| (|Fraction| $)
-                                                            "failed")
-                                                   (|Fraction| $) $))
-                                                 (|has| |t#1|
-                                                        (|IntegralDomain|)))
-                                                ((|pseudoQuotient| ($ $ $))
-                                                 (|has| |t#1|
-                                                        (|IntegralDomain|)))
-                                                ((|pseudoDivide|
-                                                  ((|Record| (|:| |coef| |t#1|)
-                                                             (|:| |quotient| $)
-                                                             (|:| |remainder|
-                                                                  $))
-                                                   $ $))
-                                                 (|has| |t#1|
-                                                        (|IntegralDomain|)))
-                                                ((|separate|
-                                                  ((|Record|
-                                                    (|:| |primePart| $)
-                                                    (|:| |commonPart| $))
-                                                   $ $))
-                                                 (|has| |t#1| (|GcdDomain|)))
-                                                ((|elt|
-                                                  (|t#1| (|Fraction| $) |t#1|))
-                                                 (|has| |t#1| (|Field|)))
-                                                ((|integrate| ($ $))
-                                                 (|has| |t#1|
-                                                        (|Algebra|
-                                                         (|Fraction|
-                                                          (|Integer|))))))
-                                              '(((|DifferentialRing|)
-                                                 (|has| |t#1| (|Ring|)))
-                                                ((|DifferentialExtension|
-                                                  |t#1|)
-                                                 (|has| |t#1| (|Ring|)))
-                                                ((|StepThrough|)
-                                                 (|has| |t#1| (|StepThrough|)))
-                                                ((|Eltable| (|Fraction| $)
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (|subst_in_cat| '(#2=#:G163 #3=#:G164)
+                                                   (LIST
+                                                    '(|NonNegativeInteger|)
+                                                    '(|SingletonAsOrderedSet|))
+                                                   (COND
+                                                    (|UnivariatePolynomialCategory;CAT|)
+                                                    ('T
+                                                     (LETT
+                                                      |UnivariatePolynomialCategory;CAT|
+                                                      (|Join|
+                                                       (|PolynomialCategory|
+                                                        '|t#1| '#2# '#3#)
+                                                       (|Eltable| '|t#1|
+                                                                  '|t#1|)
+                                                       (|Eltable| '$ '$)
+                                                       (|mkCategory|
+                                                        '(((|vectorise|
+                                                            ((|Vector| |t#1|) $
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|unvectorise|
+                                                            ($
+                                                             (|Vector| |t#1|)))
+                                                           T)
+                                                          ((|makeSUP|
+                                                            ((|SparseUnivariatePolynomial|
+                                                              |t#1|)
+                                                             $))
+                                                           T)
+                                                          ((|unmakeSUP|
+                                                            ($
+                                                             (|SparseUnivariatePolynomial|
+                                                              |t#1|)))
+                                                           T)
+                                                          ((|multiplyExponents|
+                                                            ($ $
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|divideExponents|
+                                                            ((|Union| $
+                                                                      "failed")
+                                                             $
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|shiftLeft|
+                                                            ($ $
+                                                             (|NonNegativeInteger|)))
+                                                           T)
+                                                          ((|monicDivide|
+                                                            ((|Record|
+                                                              (|:| |quotient|
+                                                                   $)
+                                                              (|:| |remainder|
+                                                                   $))
+                                                             $ $))
+                                                           (|has| |t#1|
+                                                                  (|Ring|)))
+                                                          ((|karatsubaDivide|
+                                                            ((|Record|
+                                                              (|:| |quotient|
+                                                                   $)
+                                                              (|:| |remainder|
+                                                                   $))
+                                                             $
+                                                             (|NonNegativeInteger|)))
+                                                           (|has| |t#1|
+                                                                  (|Ring|)))
+                                                          ((|shiftRight|
+                                                            ($ $
+                                                             (|NonNegativeInteger|)))
+                                                           (|has| |t#1|
+                                                                  (|Ring|)))
+                                                          ((|pseudoRemainder|
+                                                            ($ $ $))
+                                                           (|has| |t#1|
+                                                                  (|Ring|)))
+                                                          ((|differentiate|
+                                                            ($ $
+                                                             (|Mapping| |t#1|
+                                                                        |t#1|)
+                                                             $))
+                                                           (|has| |t#1|
+                                                                  (|Ring|)))
+                                                          ((|discriminant|
+                                                            (|t#1| $))
+                                                           (|has| |t#1|
+                                                                  (|CommutativeRing|)))
+                                                          ((|resultant|
+                                                            (|t#1| $ $))
+                                                           (|has| |t#1|
+                                                                  (|CommutativeRing|)))
+                                                          ((|elt|
+                                                            ((|Fraction| $)
+                                                             (|Fraction| $)
+                                                             (|Fraction| $)))
+                                                           (|has| |t#1|
+                                                                  (|IntegralDomain|)))
+                                                          ((|order|
+                                                            ((|NonNegativeInteger|)
+                                                             $ $))
+                                                           (|has| |t#1|
+                                                                  (|IntegralDomain|)))
+                                                          ((|subResultantGcd|
+                                                            ($ $ $))
+                                                           (|has| |t#1|
+                                                                  (|IntegralDomain|)))
+                                                          ((|composite|
+                                                            ((|Union| $
+                                                                      "failed")
+                                                             $ $))
+                                                           (|has| |t#1|
+                                                                  (|IntegralDomain|)))
+                                                          ((|composite|
+                                                            ((|Union|
+                                                              (|Fraction| $)
+                                                              "failed")
+                                                             (|Fraction| $) $))
+                                                           (|has| |t#1|
+                                                                  (|IntegralDomain|)))
+                                                          ((|pseudoQuotient|
+                                                            ($ $ $))
+                                                           (|has| |t#1|
+                                                                  (|IntegralDomain|)))
+                                                          ((|pseudoDivide|
+                                                            ((|Record|
+                                                              (|:| |coef|
+                                                                   |t#1|)
+                                                              (|:| |quotient|
+                                                                   $)
+                                                              (|:| |remainder|
+                                                                   $))
+                                                             $ $))
+                                                           (|has| |t#1|
+                                                                  (|IntegralDomain|)))
+                                                          ((|separate|
+                                                            ((|Record|
+                                                              (|:| |primePart|
+                                                                   $)
+                                                              (|:| |commonPart|
+                                                                   $))
+                                                             $ $))
+                                                           (|has| |t#1|
+                                                                  (|GcdDomain|)))
+                                                          ((|elt|
+                                                            (|t#1|
+                                                             (|Fraction| $)
+                                                             |t#1|))
+                                                           (|has| |t#1|
+                                                                  (|Field|)))
+                                                          ((|integrate| ($ $))
+                                                           (|has| |t#1|
+                                                                  (|Algebra|
+                                                                   (|Fraction|
+                                                                    (|Integer|))))))
+                                                        '(((|DifferentialRing|)
+                                                           (|has| |t#1|
+                                                                  (|Ring|)))
+                                                          ((|DifferentialExtension|
+                                                            |t#1|)
+                                                           (|has| |t#1|
+                                                                  (|Ring|)))
+                                                          ((|StepThrough|)
+                                                           (|has| |t#1|
+                                                                  (|StepThrough|)))
+                                                          ((|Eltable|
+                                                            (|Fraction| $)
                                                             (|Fraction| $))
-                                                 (|has| |t#1|
-                                                        (|IntegralDomain|)))
-                                                ((|EuclideanDomain|)
-                                                 (|has| |t#1| (|Field|)))
-                                                ((|additiveValuation|)
-                                                 (|has| |t#1| (|Field|))))
-                                              NIL NIL))))))))
+                                                           (|has| |t#1|
+                                                                  (|IntegralDomain|)))
+                                                          ((|EuclideanDomain|)
+                                                           (|has| |t#1|
+                                                                  (|Field|)))
+                                                          ((|additiveValuation|)
+                                                           (|has| |t#1|
+                                                                  (|Field|))))
+                                                        NIL NIL))))))))
            (SETELT #1# 0 (LIST '|UnivariatePolynomialCategory| |t#1|))))) 

@@ -685,10 +685,10 @@
 ;       for u in $extraParms repeat
 ;         formals := [first u, :formals]
 ;         actuals:=[MKQ CDR u,:actuals]
-;       body := ['sublisV, ['MAKE_PAIRS, ['QUOTE, formals],
-;                                        ['LIST, :actuals]], body]
+;       body := ['subst_in_cat, ['QUOTE, formals],
+;                                        ['LIST, :actuals], body]
 ;     if argl then body:=  -- always subst for args after extraparms
-;         ['sublisV, ['MAKE_PAIRS, ['QUOTE, sargl], ['LIST, :sargl]], body]
+;         ['subst_in_cat, ['QUOTE, sargl], ['LIST, :sargl], body]
 ;     -- FIXME: generate call to 'devaluate' only for domains
 ;     body:=
 ;         ['PROG1, ['LET, g:= GENSYM(), body],
@@ -828,17 +828,13 @@
             (SETQ |bfVar#29| (CDR |bfVar#29|))))
          |$extraParms| NIL)
         (SETQ |body|
-                (LIST '|sublisV|
-                      (LIST 'MAKE_PAIRS (LIST 'QUOTE |formals|)
-                            (CONS 'LIST |actuals|))
-                      |body|))))
+                (LIST '|subst_in_cat| (LIST 'QUOTE |formals|)
+                      (CONS 'LIST |actuals|) |body|))))
       (COND
        (|argl|
         (SETQ |body|
-                (LIST '|sublisV|
-                      (LIST 'MAKE_PAIRS (LIST 'QUOTE |sargl|)
-                            (CONS 'LIST |sargl|))
-                      |body|))))
+                (LIST '|subst_in_cat| (LIST 'QUOTE |sargl|)
+                      (CONS 'LIST |sargl|) |body|))))
       (SETQ |body|
               (LIST 'PROG1 (LIST 'LET (SETQ |g| (GENSYM)) |body|)
                     (LIST 'SETELT |g| 0 (|mkConstructor| |sform|))))

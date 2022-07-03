@@ -18,19 +18,22 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1| |t#2|) (LIST |t#1| |t#2|))
-                              (COND (|GradedModule;CAT|)
-                                    ('T
-                                     (LETT |GradedModule;CAT|
-                                           (|Join| (|SetCategory|)
-                                                   (|mkCategory|
-                                                    '(((|degree| (|t#2| $)) T)
-                                                      ((|Zero| ($) |constant|)
-                                                       T)
-                                                      ((* ($ |t#1| $)) T)
-                                                      ((* ($ $ |t#1|)) T)
-                                                      ((- ($ $)) T)
-                                                      ((+ ($ $ $)) T)
-                                                      ((- ($ $ $)) T))
-                                                    NIL NIL NIL)))))))
+                   (|subst_in_cat| '(|t#1| |t#2|) (LIST |t#1| |t#2|)
+                                   (COND (|GradedModule;CAT|)
+                                         ('T
+                                          (LETT |GradedModule;CAT|
+                                                (|Join| (|SetCategory|)
+                                                        (|mkCategory|
+                                                         '(((|degree|
+                                                             (|t#2| $))
+                                                            T)
+                                                           ((|Zero| ($)
+                                                                    |constant|)
+                                                            T)
+                                                           ((* ($ |t#1| $)) T)
+                                                           ((* ($ $ |t#1|)) T)
+                                                           ((- ($ $)) T)
+                                                           ((+ ($ $ $)) T)
+                                                           ((- ($ $ $)) T))
+                                                         NIL NIL NIL)))))))
            (SETELT #1# 0 (LIST '|GradedModule| |t#1| |t#2|))))) 

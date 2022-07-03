@@ -16,20 +16,20 @@
   (SPROG ((#1=#:G119 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (MAKE_PAIRS '(|t#1|) (LIST |t#1|))
-                              (|Join|
-                               (|mkCategory| NIL
-                                             '(((|ConvertibleTo|
-                                                 (|Pattern| (|Integer|)))
-                                                (|has| |t#1|
-                                                       (|ConvertibleTo|
-                                                        (|Pattern|
-                                                         (|Integer|)))))
-                                               ((|ConvertibleTo|
-                                                 (|Pattern| (|Float|)))
-                                                (|has| |t#1|
-                                                       (|ConvertibleTo|
-                                                        (|Pattern|
-                                                         (|Float|))))))
-                                             NIL NIL))))
+                   (|subst_in_cat| '(|t#1|) (LIST |t#1|)
+                                   (|Join|
+                                    (|mkCategory| NIL
+                                                  '(((|ConvertibleTo|
+                                                      (|Pattern| (|Integer|)))
+                                                     (|has| |t#1|
+                                                            (|ConvertibleTo|
+                                                             (|Pattern|
+                                                              (|Integer|)))))
+                                                    ((|ConvertibleTo|
+                                                      (|Pattern| (|Float|)))
+                                                     (|has| |t#1|
+                                                            (|ConvertibleTo|
+                                                             (|Pattern|
+                                                              (|Float|))))))
+                                                  NIL NIL))))
            (SETELT #1# 0 (LIST '|Patternable| |t#1|))))) 
