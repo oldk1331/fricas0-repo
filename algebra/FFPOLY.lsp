@@ -1918,7 +1918,7 @@
                            (SPADCALL
                             (SPADCALL
                              (SPADCALL
-                              "weird, can not find normal and primitve"
+                              "weird, can not find normal and primitive"
                               "poly with a{n-1} = -1" (QREFELT $ 117))
                              (QREFELT $ 119))
                             (QREFELT $ 121))
