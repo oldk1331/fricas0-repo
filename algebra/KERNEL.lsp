@@ -457,15 +457,15 @@
                                              (LIST
                                               (|HasCategory| |#1|
                                                              '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              (|HasCategory| |#1|
+                                                             '(|ConvertibleTo|
                                                                (|Pattern|
                                                                 (|Float|))))
                                               (|HasCategory| |#1|
                                                              '(|ConvertibleTo|
                                                                (|Pattern|
-                                                                (|Integer|))))
-                                              (|HasCategory| |#1|
-                                                             '(|ConvertibleTo|
-                                                               (|InputForm|)))))))
+                                                                (|Integer|))))))))
           (|haddProp| |$ConstructorCache| '|Kernel| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
@@ -480,15 +480,15 @@
           (QSETREFV $ 23 '|%specialInput|)
           (SPADCALL (QREFELT $ 25))
           (COND
-           ((|testBitVector| |pv$| 3)
+           ((|testBitVector| |pv$| 1)
             (QSETREFV $ 78
                       (CONS (|dispatchFunction| |KERNEL;convert;$If;22|) $))))
           (COND
-           ((|testBitVector| |pv$| 2)
+           ((|testBitVector| |pv$| 3)
             (QSETREFV $ 85
                       (CONS (|dispatchFunction| |KERNEL;convert;$P;23|) $))))
           (COND
-           ((|testBitVector| |pv$| 1)
+           ((|testBitVector| |pv$| 2)
             (QSETREFV $ 90
                       (CONS (|dispatchFunction| |KERNEL;convert;$P;24|) $))))
           $))) 
@@ -529,15 +529,16 @@
               |hash| 305 |convert| 310 |coerce| 325 |argument| 330 >= 335 > 341
               = 347 <= 353 < 359)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 0 0 0 1 2 3))
+           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 0 0 0 0 1 2 3))
                  (CONS
-                  '#(|OrderedSet&| NIL NIL NIL |SetCategory&| |PartialOrder&|
-                     |BasicType&| NIL NIL NIL NIL)
+                  '#(NIL |OrderedSet&| NIL NIL NIL |SetCategory&|
+                     |PartialOrder&| |BasicType&| NIL NIL NIL NIL)
                   (CONS
-                   '#((|OrderedSet|) (|CachableSet|) (|Comparable|)
-                      (|Patternable| 6) (|SetCategory|) (|PartialOrder|)
-                      (|BasicType|) (|CoercibleTo| 55) (|ConvertibleTo| 75)
-                      (|ConvertibleTo| 79) (|ConvertibleTo| 69))
+                   '#((|KernelCategory| 6) (|OrderedSet|) (|CachableSet|)
+                      (|Comparable|) (|Patternable| 6) (|SetCategory|)
+                      (|PartialOrder|) (|BasicType|) (|CoercibleTo| 55)
+                      (|ConvertibleTo| 69) (|ConvertibleTo| 75)
+                      (|ConvertibleTo| 79))
                    (|makeByteWordVec2| 93
                                        '(0 24 14 25 2 7 26 0 27 28 2 7 26 0 0
                                          30 1 7 27 0 32 2 7 0 27 11 34 2 7 0 0
@@ -556,10 +557,10 @@
                                          90 2 0 26 0 0 1 1 0 41 0 42 2 0 26 0 0
                                          1 2 0 14 0 11 15 1 0 11 0 13 1 0 7 0 8
                                          1 0 27 0 33 2 0 0 0 0 1 2 0 0 0 0 1 1
-                                         0 92 0 1 1 0 0 27 37 3 0 0 7 9 11 36 2
+                                         0 92 0 1 3 0 0 7 9 11 36 1 0 0 27 37 2
                                          0 26 0 27 29 2 0 26 0 7 31 1 0 11 0 12
-                                         2 0 91 91 0 1 1 0 93 0 1 1 3 69 0 78 1
-                                         1 75 0 90 1 2 79 0 85 1 0 55 0 63 1 0
+                                         2 0 91 91 0 1 1 0 93 0 1 1 1 69 0 78 1
+                                         2 75 0 90 1 3 79 0 85 1 0 55 0 63 1 0
                                          9 0 10 2 0 26 0 0 1 2 0 26 0 0 1 2 0
                                          26 0 0 51 2 0 26 0 0 1 2 0 26 0 0
                                          52)))))

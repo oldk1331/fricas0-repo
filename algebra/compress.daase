@@ -1,6 +1,6 @@
 
-(30 . 3865824889)            
-(5227 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(30 . 3865824977)            
+(5228 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -214,22 +214,22 @@
  |JetBundleXExpression| |JetCoordinateTransformation| |JetDifferentialEquation|
  |JetDifferential| |JFriCASSupport| |JetGroebner| |JetLazyFunction|
  |JoinSemilattice| |AssociatedJordanAlgebra| |JetVectorField| |KeyedAccessFile|
- |KeyedDictionary&| |KeyedDictionary| |Kernel| |KernelFunctions2| |CoercibleTo|
- |CoercibleFrom| |ConvertibleFrom| |ConvertibleTo| |Kovacic| |LocalAlgebra|
- |LeftAlgebra&| |LeftAlgebra| |Lambda| |LaplaceTransform| |Lattice|
- |LatticeJoinOfMeets| |LatticeMeetOfJoins| |LaurentPolynomial|
- |LazardSetSolvingPackage| |LeadingCoefDetermination| |LieExponentials|
- |LexTriangularPackage| |LiouvillianFunction| |LiouvillianFunctionCategory|
- |LinGroebnerPackage| |Library| |AssociatedLieAlgebra| |LieAlgebra&|
- |LieAlgebra| |PowerSeriesLimitPackage| |RationalFunctionLimitPackage|
- |LinearCombinationUtilities| |LinearDependence| |LinearlyExplicitOver|
- |LinearMultivariateMatrixPencil| |List| |ListFunctions2| |ListToMap|
- |ListFunctions3| |ListPackage| |LiftLinearDependence| |LLLReduction|
- |ListMultiDictionary| |LeftModule| |ListMonoidOps| |LinearAggregate&|
- |LinearAggregate| |Localize| |ElementaryFunctionLODESolver|
- |LinearOrdinaryDifferentialOperator| |LinearOrdinaryDifferentialOperator1|
- |LinearOrdinaryDifferentialOperator2| |LinearOrdinaryDifferentialOperator3|
- |LinearOrdinaryDifferentialOperator3Aux|
+ |KeyedDictionary&| |KeyedDictionary| |KernelCategory| |Kernel|
+ |KernelFunctions2| |CoercibleTo| |CoercibleFrom| |ConvertibleFrom|
+ |ConvertibleTo| |Kovacic| |LocalAlgebra| |LeftAlgebra&| |LeftAlgebra| |Lambda|
+ |LaplaceTransform| |Lattice| |LatticeJoinOfMeets| |LatticeMeetOfJoins|
+ |LaurentPolynomial| |LazardSetSolvingPackage| |LeadingCoefDetermination|
+ |LieExponentials| |LexTriangularPackage| |LiouvillianFunction|
+ |LiouvillianFunctionCategory| |LinGroebnerPackage| |Library|
+ |AssociatedLieAlgebra| |LieAlgebra&| |LieAlgebra| |PowerSeriesLimitPackage|
+ |RationalFunctionLimitPackage| |LinearCombinationUtilities| |LinearDependence|
+ |LinearlyExplicitOver| |LinearMultivariateMatrixPencil| |List|
+ |ListFunctions2| |ListToMap| |ListFunctions3| |ListPackage|
+ |LiftLinearDependence| |LLLReduction| |ListMultiDictionary| |LeftModule|
+ |ListMonoidOps| |LinearAggregate&| |LinearAggregate| |Localize|
+ |ElementaryFunctionLODESolver| |LinearOrdinaryDifferentialOperator|
+ |LinearOrdinaryDifferentialOperator1| |LinearOrdinaryDifferentialOperator2|
+ |LinearOrdinaryDifferentialOperator3| |LinearOrdinaryDifferentialOperator3Aux|
  |LinearOrdinaryDifferentialOperatorCategory&|
  |LinearOrdinaryDifferentialOperatorCategory| |LODOConvertions|
  |LinearOrdinaryDifferentialOperatorFactorizer|
