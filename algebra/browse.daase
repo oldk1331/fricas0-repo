@@ -1,5 +1,5 @@
 
-(3153731 . 3865827292)       
+(3154059 . 3865827385)       
 (|OneDimensionalArrayAggregate&| A S) 
 ((|constructor|
   (NIL
@@ -48056,9 +48056,9 @@ NIL
  (|monomial?|
   (((|Boolean|) $)
    "\\spad{monomial?(x)} returns \\spad{true} if \\spad{x} is a monomial"))
- (|monom|
-  (($ (|FreeMonoid| |#1|) |#2|)
-   "\\spad{monom(w,{} r)} returns the product of the word \\spad{w} by the coefficient \\spad{r}."))
+ (|monomial|
+  (($ |#2| (|FreeMonoid| |#1|))
+   "\\spad{monomial(r,{} w)} returns the product of the word \\spad{w} by the coefficient \\spad{r}."))
  (|rquo|
   (($ $ $)
    "\\spad{rquo(x,{} y)} returns the right simplification of \\spad{x} by \\spad{y}.")
@@ -48240,7 +48240,10 @@ NIL
   (NIL
    "\\indented{2}{This type supports multivariate polynomials} whose set of variables is \\spadtype{Symbol}. The representation is recursive. The coefficient ring may be non-commutative and the variables do not commute. However,{} coefficients and variables commute."))) 
 ((|HasCategory| |#1| '(|CommutativeRing|))
- (|HasCategory| |#1| '(|noZeroDivisors|))) 
+ (|HasCategory| |#1| '(|noZeroDivisors|))
+ (|HasCategory| (|FreeMonoid| (|Symbol|)) '(|Comparable|))
+ (AND (|HasCategory| |#1| '(|Comparable|))
+      (|HasCategory| (|FreeMonoid| (|Symbol|)) '(|Comparable|)))) 
 (|XPolynomialsCat| |vl| R) 
 ((|constructor|
   (NIL
@@ -48313,7 +48316,10 @@ NIL
   (((|XDistributedPolynomial| |#1| |#2|) $)
    "\\spad{expand(p)} returns \\spad{p} in distributed form."))) 
 ((|HasCategory| |#2| '(|CommutativeRing|))
- (|HasCategory| |#2| '(|noZeroDivisors|))) 
+ (|HasCategory| |#2| '(|noZeroDivisors|))
+ (|HasCategory| (|FreeMonoid| |#1|) '(|Comparable|))
+ (AND (|HasCategory| |#2| '(|Comparable|))
+      (|HasCategory| (|FreeMonoid| |#1|) '(|Comparable|)))) 
 (|ParadoxicalCombinatorsForStreams| A) 
 ((|constructor|
   (NIL "This package implements fixed-point computations on streams."))
@@ -48473,24 +48479,24 @@ NIL
 NIL 
 NIL 
 NIL 
-((|Category| NIL 3153716 3153721 3153726) (|Union| NIL 3153701 3153706 3153711)
- (|Record| NIL 3153686 3153691 3153696) (|Mapping| NIL 3153671 3153676 3153681)
- (|Enumeration| NIL 3153656 3153661 3153666)
- (|IntegerMod| "ZMOD.spad" 3153510 3153530 3153651)
- (|IntegerLinearDependence| "ZLINDEP.spad" 3151391 3151422 3153505)
- (|ZeroDimensionalSolvePackage| "ZDSOLVE.spad" 3140280 3140326 3151386)
- (|ParadoxicalCombinatorsForStreams| "YSTREAM.spad" 3139731 3139771 3140275)
- (|XRecursivePolynomial| "XRPOLY.spad" 3138968 3139005 3139644)
- (|XPolynomialRing| "XPR.spad" 3136606 3136631 3138677)
- (|XPolynomialsCat| "XPOLYC.spad" 3135962 3135990 3136601)
- (|XPolynomial| "XPOLY.spad" 3135561 3135580 3135875)
- (|XPolynomialFactor| "XPFACT.spad" 3134808 3134838 3135500)
- (|XPBWPolynomial| "XPBWPOLY.spad" 3133231 3133262 3134453)
- (|XmlElement| "XMLEL.spad" 3131913 3131929 3133226)
- (|XmlAttribute| "XMLAT.spad" 3130988 3131006 3131908)
- (|ExportXml| "XML.spad" 3130268 3130283 3130983)
- (|XHashTable| "XHASHTBL.spad" 3126795 3126825 3127360)
- (|XFreeAlgebra| "XFALG.spad" 3123777 3123802 3126790)
+((|Category| NIL 3154044 3154049 3154054) (|Union| NIL 3154029 3154034 3154039)
+ (|Record| NIL 3154014 3154019 3154024) (|Mapping| NIL 3153999 3154004 3154009)
+ (|Enumeration| NIL 3153984 3153989 3153994)
+ (|IntegerMod| "ZMOD.spad" 3153838 3153858 3153979)
+ (|IntegerLinearDependence| "ZLINDEP.spad" 3151719 3151750 3153833)
+ (|ZeroDimensionalSolvePackage| "ZDSOLVE.spad" 3140608 3140654 3151714)
+ (|ParadoxicalCombinatorsForStreams| "YSTREAM.spad" 3140059 3140099 3140603)
+ (|XRecursivePolynomial| "XRPOLY.spad" 3139141 3139178 3139817)
+ (|XPolynomialRing| "XPR.spad" 3136779 3136804 3138850)
+ (|XPolynomialsCat| "XPOLYC.spad" 3136135 3136163 3136774)
+ (|XPolynomial| "XPOLY.spad" 3135567 3135586 3135881)
+ (|XPolynomialFactor| "XPFACT.spad" 3134814 3134844 3135506)
+ (|XPBWPolynomial| "XPBWPOLY.spad" 3133237 3133268 3134459)
+ (|XmlElement| "XMLEL.spad" 3131919 3131935 3133232)
+ (|XmlAttribute| "XMLAT.spad" 3130994 3131012 3131914)
+ (|ExportXml| "XML.spad" 3130274 3130289 3130989)
+ (|XHashTable| "XHASHTBL.spad" 3126801 3126831 3127366)
+ (|XFreeAlgebra| "XFALG.spad" 3123777 3123802 3126796)
  (|ExtensionField| "XF.spad" 3122199 3122221 3123772)
  (|ExtensionField&| "XF.spad" 3120492 3120517 3122068)
  (|XExponentialPackage| "XEXPPKG.spad" 3119803 3119845 3120487)
