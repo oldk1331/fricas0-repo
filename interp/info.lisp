@@ -719,7 +719,7 @@
 ;       --    were passed
 ;
 ;       --we are adding a principal descendant of what was already known
-;       --    $e:= augModemapsFromCategory(name,name,nil,catvec,$e)
+;       --    $e:= augModemapsFromCategory(name,nil,catvec,$e)
 ;       --    SAY("augmenting ",name,": ",cat)
 ;       --    put(name, "value", (vval, cat, venv), $e)
 ;       member(cat,first ocatvec.4) or
@@ -731,9 +731,9 @@
 ;       -- so make sure it really is (and not only the extra view we add)
 ;       e := addDomain(name, e)
 ;       if ATOM(name) then
-;           e := augModemapsFromCategory(name, name, name, cat, e)
+;           e := augModemapsFromCategory(name, name, cat, e)
 ;       else
-;           e := augModemapsFromCategory(name, name, nil, cat, e)
+;           e := augModemapsFromCategory(name, nil, cat, e)
 ;       SAY("augmenting ",name,": ",cat)
 ;       e := put(name, "value", [vval, mkJoin(cat, vmode), venv], e)
 ;     SAY("extension of ",vval," to ",cat," ignored")
@@ -891,11 +891,11 @@
                             ((ATOM |name|)
                              (SETQ |e|
                                      (|augModemapsFromCategory| |name| |name|
-                                      |name| |cat| |e|)))
+                                      |cat| |e|)))
                             (#1#
                              (SETQ |e|
-                                     (|augModemapsFromCategory| |name| |name|
-                                      NIL |cat| |e|))))
+                                     (|augModemapsFromCategory| |name| NIL
+                                      |cat| |e|))))
                            (SAY '|augmenting | |name| '|: | |cat|)
                            (SETQ |e|
                                    (|put| |name| '|value|

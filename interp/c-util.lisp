@@ -1001,10 +1001,13 @@
 
 (DEFUN |isFalse| () (PROG () (RETURN NIL)))
 
-; isFluid s == atom s and "$"=(PNAME s).(0)
+; isFluid s == SYMBOLP(s) and #(n := PNAME(s)) > 0 and "$" = n.0
 
 (DEFUN |isFluid| (|s|)
-  (PROG () (RETURN (AND (ATOM |s|) (EQ '$ (ELT (PNAME |s|) 0))))))
+  (PROG (|n|)
+    (RETURN
+     (AND (SYMBOLP |s|) (< 0 (LENGTH (SETQ |n| (PNAME |s|))))
+          (EQ '$ (ELT |n| 0))))))
 
 ; isFunction(x,e) ==
 ;   get(x,"modemap",e) or GETL(x,"SPECIAL") or x="case" or getmode(x,e) is [
