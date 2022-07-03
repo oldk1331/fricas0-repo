@@ -1,6 +1,6 @@
 
-(30 . 3865821635)            
-(5210 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(30 . 3865821724)            
+(5208 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -722,11 +722,11 @@
  |expextint| |diffextint| |unkextint| |monologextint| |polylog_int|
  |extendedint| |logextint| |splitConstant| |pmComplexintegrate| |pmintegrate|
  |infieldint| |integerIfCan| |internalIntegrate| |infieldIntegrate| |varselect|
- |kmax| |ksec| |vark| |removeConstantTerm| |mkPrim| |intPatternMatch|
- |primintegrate| |expintegrate| |lambintegrate| |monomialIntegrate|
- |monomialIntPoly| |inverseLaplace| |leadingTerm| |constructOrdered|
- |leadingSupport| |quadraticNonResidue| |iprint| |elem?| |notelem| |logpart|
- |ratpart| |mkAnswer| |perfectNthPower?| |perfectNthRoot| |approxNthRoot|
+ |kmax| |ksec| |vark| |removeConstantTerm| |mkPrim| |primintegrate|
+ |expintegrate| |lambintegrate| |monomialIntegrate| |monomialIntPoly|
+ |inverseLaplace| |leadingTerm| |constructOrdered| |leadingSupport|
+ |quadraticNonResidue| |iprint| |elem?| |notelem| |logpart| |ratpart|
+ |mkAnswer| |perfectNthPower?| |perfectNthRoot| |approxNthRoot|
  |perfectSquare?| |perfectSqrt| |approxSqrt| |generateIrredPoly|
  |complexExpand| |complexIntegrate| |dimensionOfIrreducibleRepresentation|
  |irreducibleRepresentation| |checkRur| |cAcsch| |cAsech| |cAcoth| |cAtanh|
@@ -1143,26 +1143,26 @@
  |reduced?| |normalized?| |quasiComponent| |initials| |basicSet| |infRittWu?|
  |getCurve| |listLoops| |closed?| |open?| |setClosed| |tube| |point|
  |unitVector| |cosSinInfo| |loopPoints| |select| |generalTwoFactor|
- |tryTwoFactor| |generalSqFr| |twoFactor| |doFactor| |diagramSvg2|
- |undirectedGraph| |setOrder| |getOrder| |less?| |userOrdered?| |largest|
- |more?| |setVariableOrder| |getVariableOrder| |resetVariableOrder| |prime?|
- |hadamard| |pre_gauss| |pre_smith| |pre_lr| |rationalFunction| |taylorIfCan|
- |taylor| |removeZeroes| |taylorRep| |hasHi| |segment| SEGMENT
- |commonDenominator| |clearDenominator| |splitDenominator|
- |monicRightFactorIfCan| |rightFactorIfCan| |leftFactorIfCan|
- |monicDecomposeIfCan| |monicCompleteDecompose| |decomposeIfCan|
- |completeDecompose| |divideIfCan| |noKaratsuba| |karatsubaOnce| |karatsuba|
- |separate| |pseudoDivide| |pseudoQuotient| |composite| |subResultantGcd|
- |resultant| |discriminant| |pseudoRemainder| |shiftRight| |karatsubaDivide|
- |monicDivide| |shiftLeft| |divideExponents| |unmakeSUP| |makeSUP|
- |unvectorise| |vectorise| |eval| |extend| |approximate| |truncate| |order|
- |center| |terms| |squareFreePart| |BumInSepFFE| |multiplyExponents|
- |laurentIfCan| |laurent| |laurentRep| |rationalPower| |puiseux| |dominantTerm|
- |limitPlus| |split!| |setlast!| |qsetrest!| |setrest!| |setelt!| |qsetfirst!|
- |setfirst!| |cycleSplit!| |concat!| |cycleTail| |cycleLength| |cycleEntry|
- |third| |second| |tail| |last| |rest| |elt| |first| |concat| |invmultisect|
- |multisect| |revert| |generalLambert| |evenlambert| |oddlambert| |lambert|
- |lagrange| |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
+ |tryTwoFactor| |twoFactor| |doFactor| |diagramSvg2| |undirectedGraph|
+ |setOrder| |getOrder| |less?| |userOrdered?| |largest| |more?|
+ |setVariableOrder| |getVariableOrder| |resetVariableOrder| |prime?| |hadamard|
+ |pre_gauss| |pre_smith| |pre_lr| |rationalFunction| |taylorIfCan| |taylor|
+ |removeZeroes| |taylorRep| |hasHi| |segment| SEGMENT |commonDenominator|
+ |clearDenominator| |splitDenominator| |monicRightFactorIfCan|
+ |rightFactorIfCan| |leftFactorIfCan| |monicDecomposeIfCan|
+ |monicCompleteDecompose| |decomposeIfCan| |completeDecompose| |divideIfCan|
+ |noKaratsuba| |karatsubaOnce| |karatsuba| |separate| |pseudoDivide|
+ |pseudoQuotient| |composite| |subResultantGcd| |resultant| |discriminant|
+ |pseudoRemainder| |shiftRight| |karatsubaDivide| |monicDivide| |shiftLeft|
+ |divideExponents| |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval|
+ |extend| |approximate| |truncate| |order| |center| |terms| |squareFreePart|
+ |BumInSepFFE| |multiplyExponents| |laurentIfCan| |laurent| |laurentRep|
+ |rationalPower| |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!|
+ |qsetrest!| |setrest!| |setelt!| |qsetfirst!| |setfirst!| |cycleSplit!|
+ |concat!| |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail|
+ |last| |rest| |elt| |first| |concat| |invmultisect| |multisect| |revert|
+ |generalLambert| |evenlambert| |oddlambert| |lambert| |lagrange|
+ |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
  |multiplyCoefficients| |quoByVar| |coefficients| |series| |stFunc1| |stFunc2|
  |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP
  LODO2FUN RF2UTS |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType|
