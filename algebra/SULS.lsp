@@ -835,33 +835,22 @@
                                                                    '(|Integer|)
                                                                    (|devaluate|
                                                                     |#1|)))))
-                                        (OR
-                                         (AND #2#
-                                              (|HasCategory| |#1|
-                                                             '(|AlgebraicallyClosedFunctionSpace|
-                                                               (|Integer|)))
-                                              (|HasCategory| |#1|
-                                                             '(|PrimitiveFunctionCategory|))
-                                              (|HasCategory| |#1|
-                                                             '(|TranscendentalFunctionCategory|)))
-                                         (AND #2#
-                                              (|HasSignature| |#1|
-                                                              (LIST
-                                                               '|integrate|
-                                                               (LIST
-                                                                (|devaluate|
-                                                                 |#1|)
-                                                                (|devaluate|
-                                                                 |#1|)
-                                                                '(|Symbol|))))
-                                              (|HasSignature| |#1|
-                                                              (LIST
-                                                               '|variables|
-                                                               (LIST
-                                                                '(|List|
-                                                                  (|Symbol|))
-                                                                (|devaluate|
-                                                                 |#1|))))))))))
+                                        (AND #2#
+                                             (|HasSignature| |#1|
+                                                             (LIST '|integrate|
+                                                                   (LIST
+                                                                    (|devaluate|
+                                                                     |#1|)
+                                                                    (|devaluate|
+                                                                     |#1|)
+                                                                    '(|Symbol|))))
+                                             (|HasSignature| |#1|
+                                                             (LIST '|variables|
+                                                                   (LIST
+                                                                    '(|List|
+                                                                      (|Symbol|))
+                                                                    (|devaluate|
+                                                                     |#1|)))))))))
     (|haddProp| |$ConstructorCache| '|SparseUnivariateLaurentSeries|
                 (LIST DV$1 DV$2 DV$3) (CONS 1 $))
     (|stuffDomainSlots| $)
@@ -1102,16 +1091,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 52
-                                '(0 0 2 2 0 2 32 0 2 2 0 2 6 25 2 2 24 6 2 2 20
-                                  24 25 50 34 7 2 40 41 2 13 52 39 52 0 20 24
-                                  50 2 0 0 0 43 50 6 2 0 0 0 0 0 50 50 6 2 2 52
-                                  48 6 47 39 39 6 0 0 51 39 28 2 0 0 29 9 2 16
-                                  17 0 0 24 50 3 5 8 8 11 2 0 0 0 0 1 24 25 2 2
-                                  50 50 50 50 50 50 43 3 4 5 5 28 8 8 10 11 12
-                                  14 15 2))
+                                '(0 0 2 0 2 0 2 32 0 2 2 0 2 6 25 2 2 24 6 2 2
+                                  20 24 25 50 34 7 2 40 41 2 13 52 39 52 0 20
+                                  24 50 2 0 0 0 43 50 6 2 0 0 0 0 0 50 50 6 2 2
+                                  52 48 6 47 39 39 6 0 0 51 39 28 2 0 0 29 9 2
+                                  16 17 0 0 50 24 3 5 8 8 11 2 0 0 0 0 1 50 50
+                                  50 50 50 50 24 25 2 2 43 3 4 5 5 28 8 8 10 11
+                                  12 14 15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&|
-                |UnivariateLaurentSeriesCategory&| |QuotientFieldCategory&|
+                |UnivariateLaurentSeriesCategory&| |QuotientFieldCategory&| NIL
                 |Field&| |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| |PowerSeriesCategory&| NIL
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
@@ -1125,15 +1114,15 @@
                 NIL NIL NIL NIL NIL |NonAssociativeSemiRng&| NIL
                 |AbelianMonoid&| |MagmaWithUnit&| |OrderedSet&| NIL |Magma&|
                 |AbelianSemiGroup&| NIL NIL |FullyEvalableOver&| NIL NIL
-                |RetractableTo&| |SetCategory&| NIL
-                |TranscendentalFunctionCategory&| |RetractableTo&| NIL
+                |RetractableTo&| |SetCategory&|
+                |TranscendentalFunctionCategory&| NIL |RetractableTo&| NIL
                 |RetractableTo&| |RetractableTo&| |Evalable&| NIL NIL NIL
-                |BasicType&| NIL NIL NIL NIL NIL NIL
-                |TrigonometricFunctionCategory&|
+                |BasicType&| NIL NIL |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
-                |RadicalCategory&| NIL NIL NIL NIL NIL |PartialOrder&| NIL NIL
-                |InnerEvalable&| |InnerEvalable&| NIL NIL NIL NIL)
+                |RadicalCategory&| NIL NIL NIL NIL NIL NIL NIL NIL NIL
+                |PartialOrder&| NIL NIL |InnerEvalable&| |InnerEvalable&| NIL
+                NIL NIL NIL)
              (CONS
               '#((|UnivariateLaurentSeriesConstructorCategory| 6
                                                                (|SparseUnivariateTaylorSeries|
@@ -1141,8 +1130,9 @@
                  (|UnivariateLaurentSeriesCategory| 6)
                  (|QuotientFieldCategory|
                   (|SparseUnivariateTaylorSeries| 6 7 8))
-                 (|Field|) (|UnivariatePowerSeriesCategory| 6 17)
-                 (|EuclideanDomain|) (|PolynomialFactorizationExplicit|)
+                 (|UnivariateSeriesWithRationalExponents| 6 17) (|Field|)
+                 (|UnivariatePowerSeriesCategory| 6 17) (|EuclideanDomain|)
+                 (|PolynomialFactorizationExplicit|)
                  (|PowerSeriesCategory| 6 17 (|SingletonAsOrderedSet|))
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
                  (|AbelianMonoidRing| 6 17) (|GcdDomain|)
@@ -1184,23 +1174,24 @@
                  (|FullyEvalableOver| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|PatternMatchable| 169) (|PatternMatchable| 17)
                  (|RetractableTo| (|SparseUnivariateTaylorSeries| 6 7 8))
-                 (|SetCategory|) (|CommutativeStar|)
-                 (|TranscendentalFunctionCategory|) (|RetractableTo| 10)
-                 (|RealConstant|) (|RetractableTo| 126) (|RetractableTo| 17)
+                 (|SetCategory|) (|TranscendentalFunctionCategory|)
+                 (|CommutativeStar|) (|RetractableTo| 10) (|RealConstant|)
+                 (|RetractableTo| 126) (|RetractableTo| 17)
                  (|Evalable| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|Patternable| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|CoercibleFrom| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
-                 (|CoercibleTo| 147) (|Eltable| $$ $$) (|TwoSidedRecip|)
-                 (|noZeroDivisors|) (|canonicalUnitNormal|)
-                 (|canonicalsClosed|) (|TrigonometricFunctionCategory|)
+                 (|CoercibleTo| 147) (|Eltable| $$ $$)
+                 (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|) (|RadicalCategory|)
-                 (|unitsKnown|) (|CoercibleFrom| 10) (|ConvertibleTo| 152)
-                 (|ConvertibleTo| 168) (|ConvertibleTo| 169) (|PartialOrder|)
-                 (|CoercibleFrom| 126) (|CoercibleFrom| 17)
+                 (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|canonicalsClosed|) (|unitsKnown|) (|CoercibleFrom| 10)
+                 (|ConvertibleTo| 152) (|ConvertibleTo| 168)
+                 (|ConvertibleTo| 169) (|PartialOrder|) (|CoercibleFrom| 126)
+                 (|CoercibleFrom| 17)
                  (|InnerEvalable| 10 (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|InnerEvalable| (|SparseUnivariateTaylorSeries| 6 7 8)
                                   (|SparseUnivariateTaylorSeries| 6 7 8))
@@ -1251,8 +1242,8 @@
                                     0 1 1 8 17 0 1 1 3 10 0 1 1 0 26 0 131 1 0
                                     0 0 34 2 0 0 17 0 35 2 2 0 0 0 1 1 18 0 0 1
                                     1 13 159 151 1 2 13 160 151 161 1 1 2 176
-                                    151 1 2 2 177 151 161 1 1 59 46 0 48 3 23
-                                    55 0 17 17 67 2 23 55 0 17 65 2 2 0 0 0 1 1
+                                    151 1 2 2 177 151 161 1 1 59 46 0 48 2 23
+                                    55 0 17 65 3 23 55 0 17 17 67 2 2 0 0 0 1 1
                                     2 181 179 1 1 2 13 0 1 1 6 13 0 1 1 0 13 0
                                     25 0 49 0 1 3 16 162 0 153 162 1 3 17 163 0
                                     154 163 1 2 0 17 0 17 24 1 0 17 0 1 2 61 13
@@ -1263,11 +1254,11 @@
                                     2 2 0 175 0 1 2 0 0 190 0 1 1 49 0 0 72 1
                                     59 46 0 1 2 59 0 0 39 1 2 0 0 0 189 1 1 18
                                     134 0 1 1 18 17 0 1 1 0 0 0 1 1 0 6 0 1 2 2
-                                    178 0 0 1 1 2 0 179 1 2 2 0 0 0 1 2 0 0 17
+                                    178 0 0 1 2 2 0 0 0 1 1 2 0 179 1 2 0 0 17
                                     26 33 2 0 0 17 187 1 1 0 192 0 1 1 2 0 0 1
                                     2 53 0 0 10 1 2 49 0 0 22 71 1 49 0 0 70 0
                                     9 0 1 2 0 191 191 0 1 1 0 193 0 1 2 2 165
-                                    165 165 1 1 2 0 179 1 2 2 0 0 0 1 1 36 0 0
+                                    165 165 1 2 2 0 0 0 1 1 2 0 179 1 1 36 0 0
                                     1 1 35 26 0 1 1 32 164 165 1 1 32 164 165 1
                                     1 2 186 0 1 3 2 184 0 0 0 1 2 2 185 0 0 1 2
                                     0 0 0 17 145 2 57 46 0 0 49 2 2 180 179 0 1

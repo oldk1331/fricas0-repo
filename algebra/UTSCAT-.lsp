@@ -426,45 +426,17 @@
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#2|
-                                                             '(|AlgebraicallyClosedFunctionSpace|
-                                                               (|Integer|)))
-                                              (|HasCategory| |#2|
-                                                             '(|PrimitiveFunctionCategory|))
-                                              (|HasCategory| |#2|
-                                                             '(|TranscendentalFunctionCategory|))
-                                              (|HasSignature| |#2|
-                                                              (LIST
-                                                               '|variables|
-                                                               (LIST
-                                                                '(|List|
-                                                                  (|Symbol|))
-                                                                (|devaluate|
-                                                                 |#2|))))
-                                              (|HasSignature| |#2|
-                                                              (LIST
-                                                               '|integrate|
-                                                               (LIST
-                                                                (|devaluate|
-                                                                 |#2|)
-                                                                (|devaluate|
-                                                                 |#2|)
-                                                                '(|Symbol|))))
-                                              (|HasCategory| |#2|
-                                                             '(|Algebra|
-                                                               (|Fraction|
-                                                                (|Integer|))))
-                                              (|HasCategory| |#2|
                                                              '(|Field|))))))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 7)
+           ((|testBitVector| |pv$| 1)
             (QSETREFV $ 51
                       (CONS (|dispatchFunction| |UTSCAT-;^;SCoefS;6|) $))))
           (COND
-           ((|testBitVector| |pv$| 6)
+           ((|HasCategory| |#2| '(|Algebra| (|Fraction| (|Integer|))))
             (COND
              ((|HasCategory| |#2| '(|CommutativeRing|))
               (PROGN
@@ -631,40 +603,45 @@
                        (CONS
                         '#((|Join|
                             (|mkCategory|
-                             (LIST
-                              '((^ (|#1| |#1| (|Fraction| (|Integer|)))) T)
-                              '((|tan| (|#1| |#1|)) T) '((|sin| (|#1| |#1|)) T)
-                              '((|sec| (|#1| |#1|)) T) '((|csc| (|#1| |#1|)) T)
-                              '((|cot| (|#1| |#1|)) T) '((|cos| (|#1| |#1|)) T)
-                              '((|acos| (|#1| |#1|)) T)
-                              '((|acot| (|#1| |#1|)) T)
-                              '((|acsc| (|#1| |#1|)) T)
-                              '((|asec| (|#1| |#1|)) T)
-                              '((|asin| (|#1| |#1|)) T)
-                              '((|atan| (|#1| |#1|)) T)
-                              '((|cosh| (|#1| |#1|)) T)
-                              '((|coth| (|#1| |#1|)) T)
-                              '((|csch| (|#1| |#1|)) T)
-                              '((|sech| (|#1| |#1|)) T)
-                              '((|sinh| (|#1| |#1|)) T)
-                              '((|tanh| (|#1| |#1|)) T)
-                              '((|acosh| (|#1| |#1|)) T)
-                              '((|acoth| (|#1| |#1|)) T)
-                              '((|acsch| (|#1| |#1|)) T)
-                              '((|asech| (|#1| |#1|)) T)
-                              '((|asinh| (|#1| |#1|)) T)
-                              '((|atanh| (|#1| |#1|)) T)
-                              '((|log| (|#1| |#1|)) T) '((|exp| (|#1| |#1|)) T)
-                              '((^ (|#1| |#1| |#1|)) T)
-                              '((^ (|#1| |#1| |#2|)) T)
-                              '((|zero?| ((|Boolean|) |#1|)) T)
-                              '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
-                              '((|coerce| (|#1| (|Integer|))) T)
-                              '((|coerce| (|#1| |#1|)) T)
-                              '((|coerce| (|#1| |#2|)) T)
-                              '((|coerce| (|#1| (|Fraction| (|Integer|)))) T)
-                              '((^ (|#1| |#1| (|PositiveInteger|))) T)
-                              '((|coerce| ((|OutputForm|) |#1|)) T))
+                             (LIST '((^ (|#1| |#1| |#2|)) T)
+                                   '((^ (|#1| |#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((|tan| (|#1| |#1|)) T)
+                                   '((|sin| (|#1| |#1|)) T)
+                                   '((|sec| (|#1| |#1|)) T)
+                                   '((|csc| (|#1| |#1|)) T)
+                                   '((|cot| (|#1| |#1|)) T)
+                                   '((|cos| (|#1| |#1|)) T)
+                                   '((|acos| (|#1| |#1|)) T)
+                                   '((|acot| (|#1| |#1|)) T)
+                                   '((|acsc| (|#1| |#1|)) T)
+                                   '((|asec| (|#1| |#1|)) T)
+                                   '((|asin| (|#1| |#1|)) T)
+                                   '((|atan| (|#1| |#1|)) T)
+                                   '((|cosh| (|#1| |#1|)) T)
+                                   '((|coth| (|#1| |#1|)) T)
+                                   '((|csch| (|#1| |#1|)) T)
+                                   '((|sech| (|#1| |#1|)) T)
+                                   '((|sinh| (|#1| |#1|)) T)
+                                   '((|tanh| (|#1| |#1|)) T)
+                                   '((|acosh| (|#1| |#1|)) T)
+                                   '((|acoth| (|#1| |#1|)) T)
+                                   '((|acsch| (|#1| |#1|)) T)
+                                   '((|asech| (|#1| |#1|)) T)
+                                   '((|asinh| (|#1| |#1|)) T)
+                                   '((|atanh| (|#1| |#1|)) T)
+                                   '((|log| (|#1| |#1|)) T)
+                                   '((|exp| (|#1| |#1|)) T)
+                                   '((^ (|#1| |#1| |#1|)) T)
+                                   '((|zero?| ((|Boolean|) |#1|)) T)
+                                   '((^ (|#1| |#1| (|NonNegativeInteger|))) T)
+                                   '((|coerce| (|#1| (|Integer|))) T)
+                                   '((|coerce| (|#1| |#1|)) T)
+                                   '((|coerce| (|#1| |#2|)) T)
+                                   '((|coerce| (|#1| (|Fraction| (|Integer|))))
+                                     T)
+                                   '((^ (|#1| |#1| (|PositiveInteger|))) T)
+                                   '((|coerce| ((|OutputForm|) |#1|)) T))
                              (LIST) NIL NIL)))
                         (|makeByteWordVec2| 143
                                             '(1 6 8 0 9 1 8 10 0 11 1 8 7 0 12

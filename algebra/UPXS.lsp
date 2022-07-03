@@ -349,11 +349,11 @@
                                                                  |#1|)))))
                                         (|HasCategory| (|Fraction| (|Integer|))
                                                        '(|SemiGroup|))
-                                        (|HasCategory| |#1| '(|Field|))
                                         (|HasCategory| |#1|
                                                        '(|Algebra|
                                                          (|Fraction|
                                                           (|Integer|))))
+                                        (|HasCategory| |#1| '(|Field|))
                                         (|HasCategory| (|Fraction| (|Integer|))
                                                        '(|Comparable|))
                                         (LETT #5#
@@ -386,39 +386,26 @@
                                                                 (|devaluate|
                                                                  |#1|)
                                                                 '(|Symbol|)))))
-                                        (OR
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|AlgebraicallyClosedFunctionSpace|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|PrimitiveFunctionCategory|))
-                                          (|HasCategory| |#1|
-                                                         '(|TranscendentalFunctionCategory|)))
-                                         (AND
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasSignature| |#1|
-                                                          (LIST '|integrate|
-                                                                (LIST
-                                                                 (|devaluate|
-                                                                  |#1|)
-                                                                 (|devaluate|
-                                                                  |#1|)
-                                                                 '(|Symbol|))))
-                                          (|HasSignature| |#1|
-                                                          (LIST '|variables|
-                                                                (LIST
-                                                                 '(|List|
-                                                                   (|Symbol|))
-                                                                 (|devaluate|
-                                                                  |#1|))))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         (|HasSignature| |#1|
+                                                         (LIST '|integrate|
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Symbol|))))
+                                         (|HasSignature| |#1|
+                                                         (LIST '|variables|
+                                                               (LIST
+                                                                '(|List|
+                                                                  (|Symbol|))
+                                                                (|devaluate|
+                                                                 |#1|)))))
                                         (LETT #4#
                                               (|HasCategory| |#1|
                                                              '(|IntegralDomain|)))
@@ -599,7 +586,7 @@
       (QSETREFV $ 37
                 (CONS (|dispatchFunction| |UPXS;differentiate;$V$;7|) $))))
     (COND
-     ((|testBitVector| |pv$| 7)
+     ((|testBitVector| |pv$| 6)
       (QSETREFV $ 39 (CONS (|dispatchFunction| |UPXS;integrate;$V$;8|) $))))
     (COND
      ((|HasSignature| |#1|
@@ -646,26 +633,25 @@
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Record| (|:| |k| 27) (|:| |c| 6)) (|List| 92)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Record| (|:| |coef| 78) (|:| |generator| $))
               (|SparseUnivariatePolynomial| $) (|Union| 78 '"failed")
+              (|Record| (|:| |coef| 78) (|:| |generator| $))
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 99 '"failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 100 '"failed") (|Factored| $) (|Stream| 92)
-              (|PositiveInteger|) (|Mapping| 6 6) (|String|) (|SingleInteger|)
-              (|HashState|))
+              (|Factored| $) (|Stream| 92) (|PositiveInteger|) (|Mapping| 6 6)
+              (|String|) (|SingleInteger|) (|HashState|))
            '#(|variable| 303 |retractIfCan| 308 |rationalPower| 318 |monomial|
               323 |laurentRep| 329 |integrate| 334 |differentiate| 345 |coerce|
               356 |center| 376 |approximate| 381 |Zero| 387 |One| 391 + 395)
            'NIL
            (CONS
             (|makeByteWordVec2| 27
-                                '(0 0 6 0 6 0 6 6 0 6 16 6 15 6 1 2 10 4 3 15
-                                  16 7 21 18 21 0 10 15 7 0 0 0 20 7 0 0 0 0 0
-                                  21 7 7 27 26 18 18 0 0 25 18 0 0 0 0 0 15 7 0
-                                  0 0 0 0 5 20 15 16 6 6 7 7 7 7 7 7))
+                                '(0 0 0 7 0 7 0 7 7 0 7 16 7 15 7 1 2 10 4 3 15
+                                  16 6 21 18 21 0 10 15 6 0 0 0 20 6 0 0 0 0 0
+                                  21 6 6 27 26 18 18 0 0 25 18 0 0 0 0 0 6 15 0
+                                  0 0 0 0 5 6 6 6 6 6 6 20 15 16 7 7))
             (CONS
-             '#(|UnivariatePuiseuxSeriesConstructorCategory&| NIL |Field&|
+             '#(|UnivariatePuiseuxSeriesConstructorCategory&| NIL NIL |Field&|
                 |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
                 |PowerSeriesCategory&| NIL |UniqueFactorizationDomain&|
                 |AbelianMonoidRing&| |GcdDomain&| NIL NIL NIL |DivisionRing&|
@@ -676,17 +662,17 @@
                 |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL
                 |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
                 |Magma&| |AbelianSemiGroup&| |RetractableTo&| |RetractableTo&|
-                |SetCategory&| NIL |TranscendentalFunctionCategory&| NIL NIL
-                NIL |BasicType&| NIL NIL NIL NIL NIL NIL NIL
-                |TrigonometricFunctionCategory&|
+                |SetCategory&| |TranscendentalFunctionCategory&| NIL NIL NIL
+                NIL |BasicType&| NIL NIL |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
-                |RadicalCategory&|)
+                |RadicalCategory&| NIL NIL NIL NIL NIL)
              (CONS
               '#((|UnivariatePuiseuxSeriesConstructorCategory| 6
                                                                (|UnivariateLaurentSeries|
                                                                 6 7 8))
-                 (|UnivariatePuiseuxSeriesCategory| 6) (|Field|)
+                 (|UnivariatePuiseuxSeriesCategory| 6)
+                 (|UnivariateSeriesWithRationalExponents| 6 27) (|Field|)
                  (|UnivariatePowerSeriesCategory| 6 27) (|EuclideanDomain|)
                  (|PowerSeriesCategory| 6 27 (|SingletonAsOrderedSet|))
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
@@ -707,18 +693,19 @@
                  (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
                  (|RetractableTo| (|UnivariateTaylorSeries| 6 7 8))
                  (|RetractableTo| (|UnivariateLaurentSeries| 6 7 8))
-                 (|SetCategory|) (|CommutativeStar|)
-                 (|TranscendentalFunctionCategory|)
+                 (|SetCategory|) (|TranscendentalFunctionCategory|)
+                 (|CommutativeStar|)
                  (|CoercibleFrom| (|UnivariateTaylorSeries| 6 7 8))
                  (|CoercibleFrom| (|UnivariateLaurentSeries| 6 7 8))
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
-                 (|CoercibleTo| 63) (|Eltable| $$ $$) (|unitsKnown|)
-                 (|TwoSidedRecip|) (|noZeroDivisors|) (|canonicalUnitNormal|)
-                 (|canonicalsClosed|) (|TrigonometricFunctionCategory|)
+                 (|CoercibleTo| 63) (|Eltable| $$ $$)
+                 (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
-                 (|ElementaryFunctionCategory|) (|RadicalCategory|))
+                 (|ElementaryFunctionCategory|) (|RadicalCategory|)
+                 (|unitsKnown|) (|TwoSidedRecip|) (|noZeroDivisors|)
+                 (|canonicalUnitNormal|) (|canonicalsClosed|))
               (|makeByteWordVec2| 87
                                   '(1 14 0 13 15 1 0 0 14 16 1 0 18 0 19 1 14
                                     20 0 21 1 6 23 0 24 0 6 0 25 0 0 0 26 0 27
@@ -738,7 +725,7 @@
                                     0 0 78 79 2 63 0 0 0 80 2 82 63 81 0 83 2
                                     14 0 40 0 84 2 63 0 0 0 85 1 63 0 0 86 1 0
                                     10 0 11 1 0 20 0 22 1 0 18 0 19 1 0 27 0 56
-                                    2 0 0 6 27 29 1 0 14 0 59 2 7 0 0 34 39 1 7
+                                    2 0 0 6 27 29 1 0 14 0 59 2 6 0 0 34 39 1 6
                                     0 0 38 1 3 0 0 36 2 0 0 0 34 37 1 0 0 34 35
                                     1 0 0 13 17 1 0 0 14 16 1 0 63 0 87 1 0 6 0
                                     12 2 12 6 0 27 61 0 33 0 31 0 31 0 26 2 0 0

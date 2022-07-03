@@ -1,6 +1,6 @@
 
-(30 . 3865823298)            
-(5218 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(30 . 3865823386)            
+(5219 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -348,20 +348,21 @@
  |Quaternion| |GeneralQuaternion| |QuaternionCategory&| |QuaternionCategory|
  |QuaternionCategoryFunctions2| |Queue| |RadicalCategory&| |RadicalCategory|
  |RadicalFunctionField| |RadixExpansion| |RadixUtilities| |RandomNumberSource|
- |RationalFactorize| |RationalRetractions| |RecursiveAggregate&|
- |RecursiveAggregate| |RealClosedField&| |RealClosedField| |RDEaux|
- |ElementaryRischDESystem| |ElementaryRischDEX| |ElementaryRischDEX2|
- |ParametricRischDE| |TranscendentalRischDESystem| |RandomDistributions|
- |ReducedDivisor| |RealConstant| |RealZeroPackage| |RealZeroPackageQ|
- |RealSolvePackage| |RealClosure| |RecurrenceOperator| |ReductionOfOrder|
- |Reference| |RegularTriangularSet| |RadicalEigenPackage|
- |RepresentationPackage1| |RepresentationPackage2| |RepeatedDoubling|
- |RepeatedSquaring| |ResolveLatticeCompletion| |ResidueRing| |Result|
- |RetractableFrom&| |RetractableFrom| |RetractableTo&| |RetractableTo|
- |RetractSolvePackage| |RationalFunction| |RandomFloatDistributions|
- |RationalFunctionFactor| |RootFSSplit| |RegularChain|
- |RandomIntegerDistributions| |Ring| |RationalInterpolation|
- |RectangularMatrixCategory&| |RectangularMatrixCategory| |RectangularMatrix|
+ |RationalFactorize| |UnivariateSeriesWithRationalExponents|
+ |RationalRetractions| |RecursiveAggregate&| |RecursiveAggregate|
+ |RealClosedField&| |RealClosedField| |RDEaux| |ElementaryRischDESystem|
+ |ElementaryRischDEX| |ElementaryRischDEX2| |ParametricRischDE|
+ |TranscendentalRischDESystem| |RandomDistributions| |ReducedDivisor|
+ |RealConstant| |RealZeroPackage| |RealZeroPackageQ| |RealSolvePackage|
+ |RealClosure| |RecurrenceOperator| |ReductionOfOrder| |Reference|
+ |RegularTriangularSet| |RadicalEigenPackage| |RepresentationPackage1|
+ |RepresentationPackage2| |RepeatedDoubling| |RepeatedSquaring|
+ |ResolveLatticeCompletion| |ResidueRing| |Result| |RetractableFrom&|
+ |RetractableFrom| |RetractableTo&| |RetractableTo| |RetractSolvePackage|
+ |RationalFunction| |RandomFloatDistributions| |RationalFunctionFactor|
+ |RootFSSplit| |RegularChain| |RandomIntegerDistributions| |Ring|
+ |RationalInterpolation| |RectangularMatrixCategory&|
+ |RectangularMatrixCategory| |RectangularMatrix|
  |RectangularMatrixCategoryFunctions2| |RightModule| |Rng&| |Rng|
  |RealNumberSystem&| |RealNumberSystem| |RightOpenIntervalRootCharacterization|
  |RomanNumeral| |RecursivePolynomialCategory&| |RecursivePolynomialCategory|
@@ -1163,42 +1164,43 @@
  |laurentIfCan| |laurent| |laurentRep| |rationalPower| |puiseux| |dominantTerm|
  |limitPlus| |split!| |setlast!| |qsetrest!| |setrest!| |setelt!| |qsetfirst!|
  |setfirst!| |cycleSplit!| |concat!| |cycleTail| |cycleLength| |cycleEntry|
- |third| |second| |tail| |last| |rest| |elt| |first| |concat| |invmultisect|
- |multisect| |revert| |generalLambert| |evenlambert| |oddlambert| |lambert|
- |lagrange| |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
- |multiplyCoefficients| |quoByVar| |coefficients| |series| |stFunc1| |stFunc2|
- |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP
- LODO2FUN RF2UTS |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType|
- |getName| |var| |variable| |add_slots| |repack_polys| |empty| |chinese_update|
- |hensel_update| |rational_reconstruction| |remove_denoms| |reconstruct|
- |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector| |scan|
- |reduce| |hp_solve| |graphCurves| |drawCurves| |update| |show| |scale|
- |connect| |region| |points| |units| |getGraph| |putGraph| |graphs|
- |graphStates| |graphState| |makeViewport2D| |viewport2D| |getPickedPoints|
- |key| |close| |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|
- |showClipRegion| |showRegion| |hitherPlane| |eyeDistance| |perspective|
- |translate| |zoom| |rotate| |drawStyle| |outlineRender| |diagonals| |axes|
- |controlPanel| |viewpoint| |dimensions| |title| |resize| |move| |options|
- |modifyPointData| |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
- |viewDeltaXDefault| |viewZoomDefault| |viewPhiDefault| |viewThetaDefault|
- |pointColorDefault| |lineColorDefault| |axesColorDefault| |unitsColorDefault|
- |pointSizeDefault| |viewPosDefault| |viewSizeDefault| |viewDefaults|
- |viewWriteDefault| |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault|
- |tubePointsDefault| |tubeRadiusDefault| |void| |coordinates|
- |coordinatesIfCan| |member?| |complementSpace| |canonicalBasis| |Zero|
- |subspace?| |isBasis?| |rank| |intBasis| + |sumBasis| |columnSpace|
- |nullSpace| |basis| |weierstrass| |integralBasis| |localIntegralBasis|
- |weightedDistanceMatrix| |closedCartesian| |closedTensor| |cartesian|
- |routeArrowWeight| |routeNodeWeight| |distanceWeighted| |addWArrow!|
- |weightedGraph| |changeWeightLevel| |characteristicSerie| |characteristicSet|
- |medialSet| |hankelIndices| |hankelMatrix| |hankelSystem| |display|
- |minimalMatrix| |findNonZeroEntry| |transformationMatrices|
- |minimalRepresentation| |Hausdorff| |Frobenius| |transcendenceDegree|
- |extensionDegree| |inGroundField?| |transcendent?| |algebraic?| |varList| |sh|
- |mirror| |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml|
- |writeVRML| |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp|
- |product| |LiePolyIfCan| |homo_fact| |top_split| |left_ext_GCD| |ldivide|
- |lift1| |factor| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
+ |third| |second| |tail| |last| |rest| |elt| |first| |concat| |integrate|
+ |invmultisect| |multisect| |revert| |generalLambert| |evenlambert|
+ |oddlambert| |lambert| |lagrange| |differentiate| |univariatePolynomial| ^
+ |polynomial| |multiplyCoefficients| |quoByVar| |coefficients| |series|
+ |stFunc1| |stFunc2| |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode|
+ UP2UTS UTS2UP LODO2FUN RF2UTS |seriesSolve| = |parseVarTerm| |parseVar|
+ |toString| |getType| |getName| |var| |variable| |add_slots| |repack_polys|
+ |empty| |chinese_update| |hensel_update| |rational_reconstruction|
+ |remove_denoms| |reconstruct| |length| |cross| |outerProduct| |dot| - |zero?|
+ |zero| |vector| |scan| |reduce| |hp_solve| |graphCurves| |drawCurves| |update|
+ |show| |scale| |connect| |region| |points| |units| |getGraph| |putGraph|
+ |graphs| |graphStates| |graphState| |makeViewport2D| |viewport2D|
+ |getPickedPoints| |key| |close| |write| |colorDef| |reset| |intensity|
+ |lighting| |clipSurface| |showClipRegion| |showRegion| |hitherPlane|
+ |eyeDistance| |perspective| |translate| |zoom| |rotate| |drawStyle|
+ |outlineRender| |diagonals| |axes| |controlPanel| |viewpoint| |dimensions|
+ |title| |resize| |move| |options| |modifyPointData| |subspace|
+ |makeViewport3D| |viewport3D| |viewDeltaYDefault| |viewDeltaXDefault|
+ |viewZoomDefault| |viewPhiDefault| |viewThetaDefault| |pointColorDefault|
+ |lineColorDefault| |axesColorDefault| |unitsColorDefault| |pointSizeDefault|
+ |viewPosDefault| |viewSizeDefault| |viewDefaults| |viewWriteDefault|
+ |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault| |tubePointsDefault|
+ |tubeRadiusDefault| |void| |coordinates| |coordinatesIfCan| |member?|
+ |complementSpace| |canonicalBasis| |Zero| |subspace?| |isBasis?| |rank|
+ |intBasis| + |sumBasis| |columnSpace| |nullSpace| |basis| |weierstrass|
+ |integralBasis| |localIntegralBasis| |weightedDistanceMatrix|
+ |closedCartesian| |closedTensor| |cartesian| |routeArrowWeight|
+ |routeNodeWeight| |distanceWeighted| |addWArrow!| |weightedGraph|
+ |changeWeightLevel| |characteristicSerie| |characteristicSet| |medialSet|
+ |hankelIndices| |hankelMatrix| |hankelSystem| |display| |minimalMatrix|
+ |findNonZeroEntry| |transformationMatrices| |minimalRepresentation|
+ |Hausdorff| |Frobenius| |transcendenceDegree| |extensionDegree|
+ |inGroundField?| |transcendent?| |algebraic?| |varList| |sh| |mirror|
+ |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml| |writeVRML|
+ |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp| |product|
+ |LiePolyIfCan| |homo_fact| |top_split| |left_ext_GCD| |ldivide| |lift1|
+ |factor| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
  |constant?| |coef| |reductum| |mindeg| |maxdeg| |coerce| |#| |map| *
  |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
  |realSolve| |positiveSolve| |squareFree| |convert| |linearlyDependentOverZ?|
