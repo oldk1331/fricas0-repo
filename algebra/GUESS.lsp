@@ -6049,15 +6049,15 @@
          (|ops| (|List| (|Symbol|))) (|options| (|List| (|GuessOption|)))
          ($ (|List| EXPRR)))
         (SPROG
-         ((|res| (|List| EXPRR)) (#1=#:G1639 NIL) (|guess| NIL)
+         ((|res| (|List| EXPRR)) (#1=#:G1635 NIL) (|guess| NIL)
           (|sumGuess| (|List| EXPRR)) (|summ| (EXPRR)) (|init| (EXPRR))
-          (#2=#:G1638 NIL) (|var| (|Symbol|)) (|sumList| (|List| F))
-          (#3=#:G1637 NIL) (|i| NIL) (#4=#:G1636 NIL) (#5=#:G1630 NIL)
-          (#6=#:G1635 NIL) (|prodGuess| (|List| EXPRR)) (|prod| (EXPRR))
-          (#7=#:G1634 NIL) (|prodList| (|List| F)) (#8=#:G1633 NIL)
-          (#9=#:G1632 NIL)
+          (#2=#:G1634 NIL) (|var| (|Symbol|)) (|sumList| (|List| F))
+          (#3=#:G1633 NIL) (|i| NIL) (#4=#:G1632 NIL) (#5=#:G1626 NIL)
+          (#6=#:G1631 NIL) (|prodGuess| (|List| EXPRR)) (|prod| (EXPRR))
+          (#7=#:G1630 NIL) (|prodList| (|List| F)) (#8=#:G1629 NIL)
+          (#9=#:G1628 NIL)
           (|newMaxLevel| (|Union| (|NonNegativeInteger|) "arbitrary"))
-          (#10=#:G1551 NIL) (#11=#:G1631 NIL) (|guesser| NIL)
+          (#10=#:G1551 NIL) (#11=#:G1627 NIL) (|guesser| NIL)
           (|len| (|PositiveInteger|)) (#12=#:G1547 NIL) (|xx| (EXPRR)))
          (SEQ
           (EXIT
@@ -6079,7 +6079,7 @@
                       (PROG1 (LETT #12# (LENGTH |list|))
                         (|check_subtype2| (> #12# 0) '(|PositiveInteger|)
                                           '(|NonNegativeInteger|) #12#)))
-                (COND ((<= |len| 1) (PROGN (LETT #5# |res|) (GO #13=#:G1629))))
+                (COND ((<= |len| 1) (PROGN (LETT #5# |res|) (GO #13=#:G1625))))
                 (SEQ (LETT |guesser| NIL) (LETT #11# |guessers|) G190
                      (COND
                       ((OR (ATOM #11#) (PROGN (LETT |guesser| (CAR #11#)) NIL))
@@ -6327,9 +6327,9 @@
 
 (DECLAIM (NOTINLINE |Guess;|)) 
 
-(DEFUN |Guess| (&REST #1=#:G1647)
+(DEFUN |Guess| (&REST #1=#:G1643)
   (SPROG NIL
-         (PROG (#2=#:G1648)
+         (PROG (#2=#:G1644)
            (RETURN
             (COND
              ((LETT #2#

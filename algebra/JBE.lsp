@@ -421,13 +421,13 @@
         ((|r1|
           (|Record| (|:| |Fun| $)
                     (|:| JMR
-                         (|Record| (|:| |Indices| (|List| JB))
+                         (|Record| (|:| |Indices| #1=(|List| JB))
                                    (|:| |Entries| (|List| $))))
                     (|:| |Depend| (|List| (|NonNegativeInteger|)))))
          (|r2|
           (|Record| (|:| |Fun| $)
                     (|:| JMR
-                         (|Record| (|:| |Indices| #1=(|List| JB))
+                         (|Record| (|:| |Indices| (|List| JB))
                                    (|:| |Entries| (|List| $))))
                     (|:| |Depend| (|List| (|NonNegativeInteger|)))))
          ($ (|Boolean|)))
