@@ -1,0 +1,102 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFUN |FRETRCT-;coerce;IA;1| (|n| $)
+  (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))) 
+
+(DEFUN |FRETRCT-;retract;AI;2| (|r| $)
+  (SPADCALL (SPADCALL |r| (QREFELT $ 12)) (QREFELT $ 13))) 
+
+(DEFUN |FRETRCT-;retractIfCan;AU;3| (|r| $)
+  (PROG (|u|)
+    (RETURN
+     (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 16)) |FRETRCT-;retractIfCan;AU;3|)
+          (EXIT
+           (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                 ('T (SPADCALL (QCDR |u|) (QREFELT $ 18))))))))) 
+
+(DEFUN |FRETRCT-;coerce;FA;4| (|n| $)
+  (SPADCALL (SPADCALL |n| (QREFELT $ 21)) (QREFELT $ 10))) 
+
+(DEFUN |FRETRCT-;retract;AF;5| (|r| $)
+  (SPADCALL (SPADCALL |r| (QREFELT $ 12)) (QREFELT $ 23))) 
+
+(DEFUN |FRETRCT-;retractIfCan;AU;6| (|r| $)
+  (PROG (|u|)
+    (RETURN
+     (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 16)) |FRETRCT-;retractIfCan;AU;6|)
+          (EXIT
+           (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                 ('T (SPADCALL (QCDR |u|) (QREFELT $ 26))))))))) 
+
+(DEFUN |FullyRetractableTo&| (|#1| |#2|)
+  (PROG (|pv$| $ |dv$| DV$2 DV$1)
+    (RETURN
+     (PROGN
+      (LETT DV$1 (|devaluate| |#1|) . #1=(|FullyRetractableTo&|))
+      (LETT DV$2 (|devaluate| |#2|) . #1#)
+      (LETT |dv$| (LIST '|FullyRetractableTo&| DV$1 DV$2) . #1#)
+      (LETT $ (GETREFV 28) . #1#)
+      (QSETREFV $ 0 |dv$|)
+      (QSETREFV $ 3
+                (LETT |pv$|
+                      (|buildPredVector| 0 0
+                                         (LIST
+                                          (|HasCategory| |#2|
+                                                         '(|RetractableTo|
+                                                           (|Fraction|
+                                                            (|Integer|))))
+                                          (|HasCategory| |#2|
+                                                         '(|RetractableTo|
+                                                           (|Integer|)))))
+                      . #1#))
+      (|stuffDomainSlots| $)
+      (QSETREFV $ 6 |#1|)
+      (QSETREFV $ 7 |#2|)
+      (SETF |pv$| (QREFELT $ 3))
+      (COND ((|domainEqual| |#2| (|Integer|)))
+            ((|testBitVector| |pv$| 2)
+             (PROGN
+              (QSETREFV $ 11
+                        (CONS (|dispatchFunction| |FRETRCT-;coerce;IA;1|) $))
+              (QSETREFV $ 14
+                        (CONS (|dispatchFunction| |FRETRCT-;retract;AI;2|) $))
+              (QSETREFV $ 19
+                        (CONS (|dispatchFunction| |FRETRCT-;retractIfCan;AU;3|)
+                              $)))))
+      (COND ((|domainEqual| |#2| (|Fraction| (|Integer|))))
+            ((|testBitVector| |pv$| 1)
+             (PROGN
+              (QSETREFV $ 22
+                        (CONS (|dispatchFunction| |FRETRCT-;coerce;FA;4|) $))
+              (QSETREFV $ 24
+                        (CONS (|dispatchFunction| |FRETRCT-;retract;AF;5|) $))
+              (QSETREFV $ 27
+                        (CONS (|dispatchFunction| |FRETRCT-;retractIfCan;AU;6|)
+                              $)))))
+      $)))) 
+
+(MAKEPROP '|FullyRetractableTo&| '|infovec|
+          (LIST
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Integer|)
+              (0 . |coerce|) (5 . |coerce|) (10 . |coerce|) (15 . |retract|)
+              (20 . |retract|) (25 . |retract|) (|Union| 7 '#1="failed")
+              (30 . |retractIfCan|) (|Union| 8 '#1#) (35 . |retractIfCan|)
+              (40 . |retractIfCan|) (|Fraction| 8) (45 . |coerce|)
+              (50 . |coerce|) (55 . |retract|) (60 . |retract|)
+              (|Union| 20 '#1#) (65 . |retractIfCan|) (70 . |retractIfCan|))
+           '#(|retractIfCan| 75 |retract| 85 |coerce| 95) 'NIL
+           (CONS (|makeByteWordVec2| 1 'NIL)
+                 (CONS '#()
+                       (CONS '#()
+                             (|makeByteWordVec2| 27
+                                                 '(1 7 0 8 9 1 6 0 7 10 1 0 0 8
+                                                   11 1 6 7 0 12 1 7 8 0 13 1 0
+                                                   8 0 14 1 6 15 0 16 1 7 17 0
+                                                   18 1 0 17 0 19 1 7 0 20 21 1
+                                                   0 0 20 22 1 7 20 0 23 1 0 20
+                                                   0 24 1 7 25 0 26 1 0 25 0 27
+                                                   1 0 17 0 19 1 0 25 0 27 1 0
+                                                   8 0 14 1 0 20 0 24 1 0 0 8
+                                                   11 1 0 0 20 22)))))
+           '|lookupComplete|)) 

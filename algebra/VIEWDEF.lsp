@@ -1,0 +1,277 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFUN |VIEWDEF;viewPosDefault;L;1| ($)
+  (LIST (SPADCALL (QREFELT $ 27) (QREFELT $ 50))
+        (SPADCALL (QREFELT $ 28) (QREFELT $ 50)))) 
+
+(DEFUN |VIEWDEF;viewPosDefault;2L;2| (|l| $)
+  (COND
+   ((< (SPADCALL |l| (QREFELT $ 53)) 2)
+    (|error| "viewPosDefault expects a list with two elements"))
+   ('T
+    (LIST (SPADCALL (QREFELT $ 27) (|SPADfirst| |l|) (QREFELT $ 54))
+          (SPADCALL (QREFELT $ 28) (SPADCALL |l| (QREFELT $ 55))
+                    (QREFELT $ 54)))))) 
+
+(DEFUN |VIEWDEF;viewSizeDefault;L;3| ($)
+  (LIST (SPADCALL (QREFELT $ 29) (QREFELT $ 57))
+        (SPADCALL (QREFELT $ 30) (QREFELT $ 57)))) 
+
+(DEFUN |VIEWDEF;viewSizeDefault;2L;4| (|l| $)
+  (COND
+   ((< (LENGTH |l|) 2)
+    (|error| "viewSizeDefault expects a list with two elements"))
+   ('T
+    (LIST (SPADCALL (QREFELT $ 29) (|SPADfirst| |l|) (QREFELT $ 60))
+          (SPADCALL (QREFELT $ 30) (SPADCALL |l| (QREFELT $ 61))
+                    (QREFELT $ 60)))))) 
+
+(DEFUN |VIEWDEF;viewDefaults;V;5| ($)
+  (SEQ
+   (SETELT $ 12
+           (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
+                     (QREFELT $ 11)))
+   (SETELT $ 15
+           (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 13)) (QREFELT $ 14))
+                     (QREFELT $ 11)))
+   (SETELT $ 17
+           (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 16))
+                     (QREFELT $ 11)))
+   (SETELT $ 19
+           (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 18)) (QREFELT $ 16))
+                     (QREFELT $ 11)))
+   (SETELT $ 23 (SPADCALL 3 (QREFELT $ 22)))
+   (SETELT $ 27 (SPADCALL 0 (QREFELT $ 26)))
+   (SETELT $ 28 (SPADCALL 0 (QREFELT $ 26)))
+   (SETELT $ 29 (SPADCALL 400 (QREFELT $ 22)))
+   (EXIT (SETELT $ 30 (SPADCALL 427 (QREFELT $ 22)))))) 
+
+(DEFUN |VIEWDEF;pointColorDefault;P;6| ($)
+  (SPADCALL (QREFELT $ 12) (QREFELT $ 65))) 
+
+(DEFUN |VIEWDEF;pointColorDefault;2P;7| (|p| $)
+  (SPADCALL (QREFELT $ 12) |p| (QREFELT $ 67))) 
+
+(DEFUN |VIEWDEF;lineColorDefault;P;8| ($)
+  (SPADCALL (QREFELT $ 15) (QREFELT $ 65))) 
+
+(DEFUN |VIEWDEF;lineColorDefault;2P;9| (|p| $)
+  (SPADCALL (QREFELT $ 15) |p| (QREFELT $ 67))) 
+
+(DEFUN |VIEWDEF;axesColorDefault;P;10| ($)
+  (SPADCALL (QREFELT $ 17) (QREFELT $ 65))) 
+
+(DEFUN |VIEWDEF;axesColorDefault;2P;11| (|p| $)
+  (SPADCALL (QREFELT $ 17) |p| (QREFELT $ 67))) 
+
+(DEFUN |VIEWDEF;unitsColorDefault;P;12| ($)
+  (SPADCALL (QREFELT $ 19) (QREFELT $ 65))) 
+
+(DEFUN |VIEWDEF;unitsColorDefault;2P;13| (|p| $)
+  (SPADCALL (QREFELT $ 19) |p| (QREFELT $ 67))) 
+
+(DEFUN |VIEWDEF;pointSizeDefault;Pi;14| ($)
+  (SPADCALL (QREFELT $ 23) (QREFELT $ 57))) 
+
+(DEFUN |VIEWDEF;pointSizeDefault;2Pi;15| (|x| $)
+  (SPADCALL (QREFELT $ 23) |x| (QREFELT $ 60))) 
+
+(DEFUN |VIEWDEF;var1StepsDefault;Pi;16| ($)
+  (SPADCALL (QREFELT $ 35) (QREFELT $ 57))) 
+
+(DEFUN |VIEWDEF;var1StepsDefault;2Pi;17| (|i| $)
+  (SPADCALL (QREFELT $ 35) |i| (QREFELT $ 60))) 
+
+(DEFUN |VIEWDEF;var2StepsDefault;Pi;18| ($)
+  (SPADCALL (QREFELT $ 36) (QREFELT $ 57))) 
+
+(DEFUN |VIEWDEF;var2StepsDefault;2Pi;19| (|i| $)
+  (SPADCALL (QREFELT $ 36) |i| (QREFELT $ 60))) 
+
+(DEFUN |VIEWDEF;tubePointsDefault;Pi;20| ($)
+  (SPADCALL (QREFELT $ 37) (QREFELT $ 57))) 
+
+(DEFUN |VIEWDEF;tubePointsDefault;2Pi;21| (|i| $)
+  (SPADCALL (QREFELT $ 37) |i| (QREFELT $ 60))) 
+
+(DEFUN |VIEWDEF;tubeRadiusDefault;Df;22| ($)
+  (SPADCALL (QREFELT $ 45) (QREFELT $ 83))) 
+
+(DEFUN |VIEWDEF;tubeRadiusDefault;FDf;23| (|f| $)
+  (SPADCALL (QREFELT $ 45) (SPADCALL |f| (QREFELT $ 42)) (QREFELT $ 85))) 
+
+(PUT '|VIEWDEF;viewWriteAvailable;L;24| '|SPADreplace|
+     '(XLAM NIL (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE"))) 
+
+(DEFUN |VIEWDEF;viewWriteAvailable;L;24| ($)
+  (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE")) 
+
+(DEFUN |VIEWDEF;viewWriteDefault;L;25| ($)
+  (SPADCALL (QREFELT $ 34) (QREFELT $ 88))) 
+
+(DEFUN |VIEWDEF;viewWriteDefault;2L;26| (|listOfThings| $)
+  (PROG (|thingsToWrite| |writeTypeInt| #1=#:G161 |aTypeOfFile|)
+    (RETURN
+     (SEQ (LETT |thingsToWrite| NIL . #2=(|VIEWDEF;viewWriteDefault;2L;26|))
+          (SEQ (LETT |aTypeOfFile| NIL . #2#) (LETT #1# |listOfThings| . #2#)
+               G190
+               (COND
+                ((OR (ATOM #1#)
+                     (PROGN (LETT |aTypeOfFile| (CAR #1#) . #2#) NIL))
+                 (GO G191)))
+               (SEQ
+                (LETT |writeTypeInt|
+                      (SPADCALL (SPADCALL |aTypeOfFile| (QREFELT $ 91))
+                                (SPADCALL (QREFELT $ 87)) (QREFELT $ 92))
+                      . #2#)
+                (EXIT
+                 (COND
+                  ((< |writeTypeInt| 0)
+                   (|sayBrightly|
+                    (LIST "  > "
+                          (STRCONC |aTypeOfFile|
+                                   " is not a valid file type for writing a viewport"))))
+                  ('T
+                   (LETT |thingsToWrite|
+                         (APPEND |thingsToWrite| (LIST |aTypeOfFile|))
+                         . #2#)))))
+               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+          (EXIT (SPADCALL (QREFELT $ 34) |thingsToWrite| (QREFELT $ 93))))))) 
+
+(DEFUN |ViewDefaultsPackage| ()
+  (PROG ()
+    (RETURN
+     (PROG (#1=#:G163)
+       (RETURN
+        (COND
+         ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|)
+                . #2=(|ViewDefaultsPackage|))
+          (|CDRwithIncrement| (CDAR #1#)))
+         ('T
+          (UNWIND-PROTECT
+              (PROG1
+                  (CDDAR
+                   (HPUT |$ConstructorCache| '|ViewDefaultsPackage|
+                         (LIST (CONS NIL (CONS 1 (|ViewDefaultsPackage;|))))))
+                (LETT #1# T . #2#))
+            (COND
+             ((NOT #1#)
+              (HREM |$ConstructorCache| '|ViewDefaultsPackage|))))))))))) 
+
+(DEFUN |ViewDefaultsPackage;| ()
+  (PROG (|dv$| $ |pv$|)
+    (RETURN
+     (PROGN
+      (LETT |dv$| '(|ViewDefaultsPackage|) . #1=(|ViewDefaultsPackage|))
+      (LETT $ (GETREFV 95) . #1#)
+      (QSETREFV $ 0 |dv$|)
+      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+      (|haddProp| |$ConstructorCache| '|ViewDefaultsPackage| NIL (CONS 1 $))
+      (|stuffDomainSlots| $)
+      (SETF |pv$| (QREFELT $ 3))
+      (QSETREFV $ 12
+                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
+                          (QREFELT $ 11)))
+      (QSETREFV $ 15
+                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 13)) (QREFELT $ 14))
+                          (QREFELT $ 11)))
+      (QSETREFV $ 17
+                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 16))
+                          (QREFELT $ 11)))
+      (QSETREFV $ 19
+                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 18)) (QREFELT $ 16))
+                          (QREFELT $ 11)))
+      (QSETREFV $ 23 (SPADCALL 3 (QREFELT $ 22)))
+      (QSETREFV $ 27 (SPADCALL 0 (QREFELT $ 26)))
+      (QSETREFV $ 28 (SPADCALL 0 (QREFELT $ 26)))
+      (QSETREFV $ 29 (SPADCALL 400 (QREFELT $ 22)))
+      (QSETREFV $ 30 (SPADCALL 400 (QREFELT $ 22)))
+      (QSETREFV $ 34 (SPADCALL NIL (QREFELT $ 33)))
+      (QSETREFV $ 35 (SPADCALL 27 (QREFELT $ 22)))
+      (QSETREFV $ 36 (SPADCALL 27 (QREFELT $ 22)))
+      (QSETREFV $ 37 (SPADCALL 6 (QREFELT $ 22)))
+      (QSETREFV $ 45
+                (SPADCALL
+                 (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 40)) (QREFELT $ 42))
+                 (QREFELT $ 44)))
+      (QSETREFV $ 49 (SPADCALL 'NIL (QREFELT $ 48)))
+      $)))) 
+
+(MAKEPROP '|ViewDefaultsPackage| '|infovec|
+          (LIST
+           '#(NIL NIL NIL NIL NIL NIL (|Color|) (0 . |red|) (|Palette|)
+              (4 . |bright|) (|Reference| 8) (9 . |ref|) '|defaultPointColor|
+              (14 . |green|) (18 . |pastel|) '|defaultLineColor| (23 . |dim|)
+              '|defaultAxesColor| (28 . |yellow|) '|defaultUnitsColor|
+              (|PositiveInteger|) (|Reference| 20) (32 . |ref|)
+              '|defaultPointSize| (|NonNegativeInteger|) (|Reference| 24)
+              (37 . |ref|) '|defaultXPos| '|defaultYPos| '|defaultWidth|
+              '|defaultHeight| (|List| 90) (|Reference| 31) (42 . |ref|)
+              '|defaultThingsToWrite| '|defaultVar1Steps| '|defaultVar2Steps|
+              '|defaultTubePoints| (|Integer|) (|Float|) (47 . |float|)
+              (|DoubleFloat|) (54 . |convert|) (|Reference| 41) (59 . |ref|)
+              '|defaultTubeRadius| (|Boolean|) (|Reference| 46) (64 . |ref|)
+              '|defaultClosed| (69 . |elt|) (|List| 24)
+              |VIEWDEF;viewPosDefault;L;1| (74 . |#|) (79 . |setelt|)
+              (85 . |last|) |VIEWDEF;viewPosDefault;2L;2| (90 . |elt|)
+              (|List| 20) |VIEWDEF;viewSizeDefault;L;3| (95 . |setelt|)
+              (101 . |last|) |VIEWDEF;viewSizeDefault;2L;4| (|Void|)
+              |VIEWDEF;viewDefaults;V;5| (106 . |elt|)
+              |VIEWDEF;pointColorDefault;P;6| (111 . |setelt|)
+              |VIEWDEF;pointColorDefault;2P;7| |VIEWDEF;lineColorDefault;P;8|
+              |VIEWDEF;lineColorDefault;2P;9| |VIEWDEF;axesColorDefault;P;10|
+              |VIEWDEF;axesColorDefault;2P;11| |VIEWDEF;unitsColorDefault;P;12|
+              |VIEWDEF;unitsColorDefault;2P;13|
+              |VIEWDEF;pointSizeDefault;Pi;14|
+              |VIEWDEF;pointSizeDefault;2Pi;15|
+              |VIEWDEF;var1StepsDefault;Pi;16|
+              |VIEWDEF;var1StepsDefault;2Pi;17|
+              |VIEWDEF;var2StepsDefault;Pi;18|
+              |VIEWDEF;var2StepsDefault;2Pi;19|
+              |VIEWDEF;tubePointsDefault;Pi;20|
+              |VIEWDEF;tubePointsDefault;2Pi;21| (117 . |elt|)
+              |VIEWDEF;tubeRadiusDefault;Df;22| (122 . |setelt|)
+              |VIEWDEF;tubeRadiusDefault;FDf;23|
+              |VIEWDEF;viewWriteAvailable;L;24| (128 . |elt|)
+              |VIEWDEF;viewWriteDefault;L;25| (|String|) (133 . |upperCase|)
+              (138 . |position|) (144 . |setelt|)
+              |VIEWDEF;viewWriteDefault;2L;26|)
+           '#(|viewWriteDefault| 150 |viewWriteAvailable| 159 |viewSizeDefault|
+              163 |viewPosDefault| 172 |viewDefaults| 181 |var2StepsDefault|
+              185 |var1StepsDefault| 194 |unitsColorDefault| 203
+              |tubeRadiusDefault| 212 |tubePointsDefault| 221
+              |pointSizeDefault| 230 |pointColorDefault| 239 |lineColorDefault|
+              248 |axesColorDefault| 257)
+           'NIL
+           (CONS (|makeByteWordVec2| 1 'NIL)
+                 (CONS '#()
+                       (CONS '#()
+                             (|makeByteWordVec2| 94
+                                                 '(0 6 0 7 1 8 0 6 9 1 10 0 8
+                                                   11 0 6 0 13 1 8 0 6 14 1 8 0
+                                                   6 16 0 6 0 18 1 21 0 20 22 1
+                                                   25 0 24 26 1 32 0 31 33 3 39
+                                                   0 38 38 20 40 1 39 41 0 42 1
+                                                   43 0 41 44 1 47 0 46 48 1 25
+                                                   24 0 50 1 51 24 0 53 2 25 24
+                                                   0 24 54 1 51 24 0 55 1 21 20
+                                                   0 57 2 21 20 0 20 60 1 58 20
+                                                   0 61 1 10 8 0 65 2 10 8 0 8
+                                                   67 1 43 41 0 83 2 43 41 0 41
+                                                   85 1 32 31 0 88 1 90 0 0 91
+                                                   2 31 38 90 0 92 2 32 31 0 31
+                                                   93 0 0 31 89 1 0 31 31 94 0
+                                                   0 31 87 0 0 58 59 1 0 58 58
+                                                   62 0 0 51 52 1 0 51 51 56 0
+                                                   0 63 64 0 0 20 79 1 0 20 20
+                                                   80 0 0 20 77 1 0 20 20 78 0
+                                                   0 8 73 1 0 8 8 74 0 0 41 84
+                                                   1 0 41 39 86 0 0 20 81 1 0
+                                                   20 20 82 0 0 20 75 1 0 20 20
+                                                   76 0 0 8 66 1 0 8 8 68 0 0 8
+                                                   69 1 0 8 8 70 1 0 8 8 72 0 0
+                                                   8 71)))))
+           '|lookupComplete|)) 
+
+(MAKEPROP '|ViewDefaultsPackage| 'NILADIC T) 

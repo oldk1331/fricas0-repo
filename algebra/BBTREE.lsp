@@ -1,0 +1,268 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFUN |BBTREE;leaf?;$B;1| (|x| $)
+  (COND
+   ((OR (SPADCALL |x| (QREFELT $ 9))
+        (NULL (SPADCALL (SPADCALL |x| (QREFELT $ 10)) (QREFELT $ 9))))
+    'NIL)
+   ('T (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 9))))) 
+
+(DEFUN |BBTREE;setleaves!;$L$;2| (|t| |u| $)
+  (PROG (|acc| |i| |m| |n|)
+    (RETURN
+     (SEQ (LETT |n| (LENGTH |u|) . #1=(|BBTREE;setleaves!;$L$;2|))
+          (EXIT
+           (COND
+            ((EQL |n| 0)
+             (COND ((SPADCALL |t| (QREFELT $ 9)) |t|)
+                   (#2='T
+                    (|error|
+                     "the tree and list must have the same number of elements"))))
+            ((EQL |n| 1)
+             (SEQ (SPADCALL |t| (|SPADfirst| |u|) (QREFELT $ 13)) (EXIT |t|)))
+            (#2#
+             (SEQ (LETT |m| (QUOTIENT2 |n| 2) . #1#) (LETT |acc| NIL . #1#)
+                  (SEQ (LETT |i| 1 . #1#) G190
+                       (COND ((|greater_SI| |i| |m|) (GO G191)))
+                       (SEQ (LETT |acc| (CONS (|SPADfirst| |u|) |acc|) . #1#)
+                            (EXIT (LETT |u| (CDR |u|) . #1#)))
+                       (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                       (EXIT NIL))
+                  (SPADCALL (SPADCALL |t| (QREFELT $ 10)) (NREVERSE |acc|)
+                            (QREFELT $ 15))
+                  (SPADCALL (SPADCALL |t| (QREFELT $ 11)) |u| (QREFELT $ 15))
+                  (EXIT |t|))))))))) 
+
+(DEFUN |BBTREE;balancedBinaryTree;NniS$;3| (|n| |val| $)
+  (PROG (|m|)
+    (RETURN
+     (SEQ
+      (COND ((EQL |n| 0) (SPADCALL (QREFELT $ 16)))
+            ((EQL |n| 1)
+             (SPADCALL (SPADCALL (QREFELT $ 16)) |val|
+                       (SPADCALL (QREFELT $ 16)) (QREFELT $ 17)))
+            ('T
+             (SEQ
+              (LETT |m| (QUOTIENT2 |n| 2) |BBTREE;balancedBinaryTree;NniS$;3|)
+              (EXIT
+               (SPADCALL (SPADCALL |m| |val| (QREFELT $ 19)) |val|
+                         (SPADCALL (- |n| |m|) |val| (QREFELT $ 19))
+                         (QREFELT $ 17)))))))))) 
+
+(DEFUN |BBTREE;mapUp!;$MS;4| (|x| |fn| $)
+  (COND ((SPADCALL |x| (QREFELT $ 9)) (|error| "mapUp! called on a null tree"))
+        ((SPADCALL |x| (QREFELT $ 12)) (SPADCALL |x| '|value| (QREFELT $ 21)))
+        ('T
+         (SPADCALL |x| '|value|
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23)) |fn|
+                              (QREFELT $ 25))
+                    (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27)) |fn|
+                              (QREFELT $ 25))
+                    |fn|)
+                   (QREFELT $ 28))))) 
+
+(DEFUN |BBTREE;mapUp!;2$M$;5| (|x| |y| |fn| $)
+  (SEQ
+   (COND
+    ((SPADCALL |x| (QREFELT $ 9)) (|error| "mapUp! is called on a null tree"))
+    ((SPADCALL |x| (QREFELT $ 12))
+     (COND ((SPADCALL |y| (QREFELT $ 12)) |x|)
+           (#1='T (|error| "balanced binary trees are incompatible"))))
+    ((SPADCALL |y| (QREFELT $ 12))
+     (|error| "balanced binary trees are incompatible"))
+    (#1#
+     (SEQ
+      (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23))
+                (SPADCALL |y| '|left| (QREFELT $ 23)) |fn| (QREFELT $ 30))
+      (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27))
+                (SPADCALL |y| '|right| (QREFELT $ 27)) |fn| (QREFELT $ 30))
+      (SPADCALL |x| '|value|
+                (SPADCALL
+                 (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23)) '|value|
+                           (QREFELT $ 21))
+                 (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27)) '|value|
+                           (QREFELT $ 21))
+                 (SPADCALL (SPADCALL |y| '|left| (QREFELT $ 23)) '|value|
+                           (QREFELT $ 21))
+                 (SPADCALL (SPADCALL |y| '|right| (QREFELT $ 27)) '|value|
+                           (QREFELT $ 21))
+                 |fn|)
+                (QREFELT $ 28))
+      (EXIT |x|)))))) 
+
+(DEFUN |BBTREE;mapDown!;$SM$;6| (|x| |p| |fn| $)
+  (SEQ
+   (COND ((SPADCALL |x| (QREFELT $ 9)) |x|)
+         ('T
+          (SEQ
+           (SPADCALL |x| '|value|
+                     (SPADCALL |p| (SPADCALL |x| '|value| (QREFELT $ 21)) |fn|)
+                     (QREFELT $ 28))
+           (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23))
+                     (SPADCALL |x| '|value| (QREFELT $ 21)) |fn|
+                     (QREFELT $ 31))
+           (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27))
+                     (SPADCALL |x| '|value| (QREFELT $ 21)) |fn|
+                     (QREFELT $ 31))
+           (EXIT |x|)))))) 
+
+(DEFUN |BBTREE;mapDown!;$SM$;7| (|x| |p| |fn| $)
+  (PROG (|u|)
+    (RETURN
+     (SEQ
+      (COND ((SPADCALL |x| (QREFELT $ 9)) |x|)
+            (#1='T
+             (SEQ (SPADCALL |x| '|value| |p| (QREFELT $ 28))
+                  (EXIT
+                   (COND ((SPADCALL |x| (QREFELT $ 12)) |x|)
+                         (#1#
+                          (SEQ
+                           (LETT |u|
+                                 (SPADCALL
+                                  (SPADCALL
+                                   (SPADCALL |x| '|left| (QREFELT $ 23))
+                                   '|value| (QREFELT $ 21))
+                                  (SPADCALL
+                                   (SPADCALL |x| '|right| (QREFELT $ 27))
+                                   '|value| (QREFELT $ 21))
+                                  |p| |fn|)
+                                 |BBTREE;mapDown!;$SM$;7|)
+                           (SPADCALL (SPADCALL |x| '|left| (QREFELT $ 23))
+                                     (SPADCALL |u| 1 (QREFELT $ 33)) |fn|
+                                     (QREFELT $ 35))
+                           (SPADCALL (SPADCALL |x| '|right| (QREFELT $ 27))
+                                     (SPADCALL |u| 2 (QREFELT $ 33)) |fn|
+                                     (QREFELT $ 35))
+                           (EXIT |x|)))))))))))) 
+
+(DEFUN |BalancedBinaryTree| (#1=#:G195)
+  (PROG ()
+    (RETURN
+     (PROG (#2=#:G196)
+       (RETURN
+        (COND
+         ((LETT #2#
+                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                           (HGET |$ConstructorCache|
+                                                 '|BalancedBinaryTree|)
+                                           '|domainEqualList|)
+                . #3=(|BalancedBinaryTree|))
+          (|CDRwithIncrement| #2#))
+         ('T
+          (UNWIND-PROTECT
+              (PROG1 (|BalancedBinaryTree;| #1#) (LETT #2# T . #3#))
+            (COND
+             ((NOT #2#)
+              (HREM |$ConstructorCache| '|BalancedBinaryTree|))))))))))) 
+
+(DEFUN |BalancedBinaryTree;| (|#1|)
+  (PROG (|pv$| #1=#:G193 #2=#:G194 $ |dv$| DV$1)
+    (RETURN
+     (PROGN
+      (LETT DV$1 (|devaluate| |#1|) . #3=(|BalancedBinaryTree|))
+      (LETT |dv$| (LIST '|BalancedBinaryTree| DV$1) . #3#)
+      (LETT $ (GETREFV 47) . #3#)
+      (QSETREFV $ 0 |dv$|)
+      (QSETREFV $ 3
+                (LETT |pv$|
+                      (|buildPredVector| 0 0
+                                         (LIST
+                                          (LETT #2#
+                                                (|HasCategory| |#1|
+                                                               '(|SetCategory|))
+                                                . #3#)
+                                          (AND
+                                           (|HasCategory| |#1|
+                                                          (LIST '|Evalable|
+                                                                (|devaluate|
+                                                                 |#1|)))
+                                           #2#)
+                                          (LETT #1#
+                                                (|HasCategory| |#1|
+                                                               '(|CoercibleTo|
+                                                                 (|OutputForm|)))
+                                                . #3#)
+                                          (OR #1#
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#1|)))
+                                               #2#))))
+                      . #3#))
+      (|haddProp| |$ConstructorCache| '|BalancedBinaryTree| (LIST DV$1)
+                  (CONS 1 $))
+      (|stuffDomainSlots| $)
+      (QSETREFV $ 6 |#1|)
+      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16))
+      (AND #2# (|HasCategory| $ '(|finiteAggregate|))
+           (|augmentPredVector| $ 32))
+      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
+      (SETF |pv$| (QREFELT $ 3))
+      (QSETREFV $ 7 (|BinaryTree| |#1|))
+      $)))) 
+
+(MAKEPROP '|BalancedBinaryTree| '|infovec|
+          (LIST
+           '#(NIL NIL NIL NIL NIL (|BinaryTree| 6) (|local| |#1|) '|Rep|
+              (|Boolean|) (0 . |empty?|) (5 . |left|) (10 . |right|)
+              |BBTREE;leaf?;$B;1| (15 . |setvalue!|) (|List| 6)
+              |BBTREE;setleaves!;$L$;2| (21 . |empty|) (25 . |node|)
+              (|NonNegativeInteger|) |BBTREE;balancedBinaryTree;NniS$;3|
+              '|value| (32 . |elt|) '|left| (38 . |elt|) (|Mapping| 6 6 6)
+              |BBTREE;mapUp!;$MS;4| '|right| (44 . |elt|) (50 . |setelt|)
+              (|Mapping| 6 6 6 6 6) |BBTREE;mapUp!;2$M$;5|
+              |BBTREE;mapDown!;$SM$;6| (|Integer|) (57 . |elt|)
+              (|Mapping| 14 6 6 6) |BBTREE;mapDown!;$SM$;7| (|List| 37)
+              (|Equation| 6) (|Mapping| 8 6) '"right" '"left" (|List| $)
+              '"value" (|Mapping| 6 6) (|OutputForm|) (|SingleInteger|)
+              (|String|))
+           '#(~= 63 |value| 69 |size?| 74 |setvalue!| 80 |setright!| 86
+              |setleft!| 92 |setleaves!| 98 |setelt| 104 |setchildren!| 125
+              |sample| 131 |right| 135 |parts| 140 |nodes| 145 |node?| 150
+              |node| 156 |more?| 163 |members| 169 |member?| 174 |mapUp!| 180
+              |mapDown!| 193 |map!| 207 |map| 213 |less?| 219 |left| 225
+              |leaves| 230 |leaf?| 235 |latex| 240 |hash| 245 |every?| 250
+              |eval| 256 |eq?| 282 |empty?| 288 |empty| 293 |elt| 297
+              |distance| 315 |cyclic?| 321 |count| 326 |copy| 338 |coerce| 343
+              |children| 348 |child?| 353 |balancedBinaryTree| 359 |any?| 365 =
+              371 |#| 377)
+           'NIL
+           (CONS (|makeByteWordVec2| 4 '(0 0 0 0 0 2 1 0 0 0 2 1 4))
+                 (CONS
+                  '#(|BinaryTreeCategory&| |BinaryRecursiveAggregate&|
+                     |RecursiveAggregate&| |HomogeneousAggregate&| |Aggregate&|
+                     |Evalable&| |SetCategory&| NIL NIL NIL |InnerEvalable&|
+                     |BasicType&| NIL)
+                  (CONS
+                   '#((|BinaryTreeCategory| 6) (|BinaryRecursiveAggregate| 6)
+                      (|RecursiveAggregate| 6) (|HomogeneousAggregate| 6)
+                      (|Aggregate|) (|Evalable| 6) (|SetCategory|) (|Type|)
+                      (|finiteAggregate|) (|shallowlyMutable|)
+                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 44))
+                   (|makeByteWordVec2| 46
+                                       '(1 0 8 0 9 1 0 0 0 10 1 0 0 0 11 2 0 6
+                                         0 6 13 0 0 0 16 3 0 0 0 6 0 17 2 0 6 0
+                                         20 21 2 0 0 0 22 23 2 0 0 0 26 27 3 0
+                                         6 0 20 6 28 2 14 6 0 32 33 2 1 8 0 0 1
+                                         1 0 6 0 1 2 0 8 0 18 1 2 7 6 0 6 13 2
+                                         7 0 0 0 1 2 7 0 0 0 1 2 0 0 0 14 15 3
+                                         7 0 0 39 0 1 3 7 0 0 40 0 1 3 7 6 0 42
+                                         6 1 2 7 0 0 41 1 0 0 0 1 1 0 0 0 11 1
+                                         5 14 0 1 1 0 41 0 1 2 1 8 0 0 1 3 0 0
+                                         0 6 0 17 2 0 8 0 18 1 1 5 14 0 1 2 6 8
+                                         6 0 1 3 0 0 0 0 29 30 2 0 6 0 24 25 3
+                                         0 0 0 6 34 35 3 0 0 0 6 24 31 2 7 0 43
+                                         0 1 2 0 0 43 0 1 2 0 8 0 18 1 1 0 0 0
+                                         10 1 0 14 0 1 1 0 8 0 12 1 1 46 0 1 1
+                                         1 45 0 1 2 5 8 38 0 1 3 2 0 0 14 14 1
+                                         3 2 0 0 6 6 1 2 2 0 0 36 1 2 2 0 0 37
+                                         1 2 0 8 0 0 1 1 0 8 0 9 0 0 0 16 2 0 0
+                                         0 39 1 2 0 0 0 40 1 2 0 6 0 42 1 2 0
+                                         32 0 0 1 1 0 8 0 1 2 6 18 6 0 1 2 5 18
+                                         38 0 1 1 0 0 0 1 1 3 44 0 1 1 0 41 0 1
+                                         2 1 8 0 0 1 2 0 0 18 6 19 2 5 8 38 0 1
+                                         2 1 8 0 0 1 1 5 18 0 1)))))
+           '|lookupComplete|)) 

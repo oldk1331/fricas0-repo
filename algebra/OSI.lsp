@@ -1,0 +1,81 @@
+
+(/VERSIONCHECK 2) 
+
+(PUT '|OSI;=;2$B;1| '|SPADreplace| 'EQL) 
+
+(DEFUN |OSI;=;2$B;1| (|x| |y| $) (EQL |x| |y|)) 
+
+(PUT '|OSI;<;2$B;2| '|SPADreplace| '<) 
+
+(DEFUN |OSI;<;2$B;2| (|x| |y| $) (< |x| |y|)) 
+
+(PUT '|OSI;coerce;I$;3| '|SPADreplace| '(XLAM (|i|) |i|)) 
+
+(DEFUN |OSI;coerce;I$;3| (|i| $) |i|) 
+
+(PUT '|OSI;value;$I;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
+
+(DEFUN |OSI;value;$I;4| (|x| $) |x|) 
+
+(DEFUN |OSI;coerce;$Of;5| (|x| $)
+  (SPADCALL (SPADCALL '|e| (QREFELT $ 15)) (SPADCALL |x| (QREFELT $ 16))
+            (QREFELT $ 17))) 
+
+(DEFUN |OrdSetInts| ()
+  (PROG ()
+    (RETURN
+     (PROG (#1=#:G131)
+       (RETURN
+        (COND
+         ((LETT #1# (HGET |$ConstructorCache| '|OrdSetInts|)
+                . #2=(|OrdSetInts|))
+          (|CDRwithIncrement| (CDAR #1#)))
+         ('T
+          (UNWIND-PROTECT
+              (PROG1
+                  (CDDAR
+                   (HPUT |$ConstructorCache| '|OrdSetInts|
+                         (LIST (CONS NIL (CONS 1 (|OrdSetInts;|))))))
+                (LETT #1# T . #2#))
+            (COND ((NOT #1#) (HREM |$ConstructorCache| '|OrdSetInts|))))))))))) 
+
+(DEFUN |OrdSetInts;| ()
+  (PROG (|dv$| $ |pv$|)
+    (RETURN
+     (PROGN
+      (LETT |dv$| '(|OrdSetInts|) . #1=(|OrdSetInts|))
+      (LETT $ (GETREFV 21) . #1#)
+      (QSETREFV $ 0 |dv$|)
+      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+      (|haddProp| |$ConstructorCache| '|OrdSetInts| NIL (CONS 1 $))
+      (|stuffDomainSlots| $)
+      (SETF |pv$| (QREFELT $ 3))
+      (QSETREFV $ 6 (|Integer|))
+      $)))) 
+
+(MAKEPROP '|OrdSetInts| '|infovec|
+          (LIST
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) |OSI;=;2$B;1|
+              |OSI;<;2$B;2| (|Integer|) |OSI;coerce;I$;3| |OSI;value;$I;4|
+              (|OutputForm|) (|Symbol|) (0 . |coerce|) (5 . |coerce|)
+              (10 . |sub|) |OSI;coerce;$Of;5| (|String|) (|SingleInteger|))
+           '#(~= 16 |value| 22 |smaller?| 27 |min| 33 |max| 39 |latex| 45
+              |hash| 50 |coerce| 55 >= 65 > 71 = 77 <= 83 < 89)
+           'NIL
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
+                 (CONS
+                  '#(|OrderedSet&| NIL |SetCategory&| |BasicType&|
+                     |PartialOrder&| NIL)
+                  (CONS
+                   '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
+                      (|BasicType|) (|PartialOrder|) (|CoercibleTo| 13))
+                   (|makeByteWordVec2| 20
+                                       '(1 14 13 0 15 1 6 13 0 16 2 13 0 0 0 17
+                                         2 0 7 0 0 1 1 0 10 0 12 2 0 7 0 0 1 2
+                                         0 0 0 0 1 2 0 0 0 0 1 1 0 19 0 1 1 0
+                                         20 0 1 1 0 0 10 11 1 0 13 0 18 2 0 7 0
+                                         0 1 2 0 7 0 0 1 2 0 7 0 0 8 2 0 7 0 0
+                                         1 2 0 7 0 0 9)))))
+           '|lookupComplete|)) 
+
+(MAKEPROP '|OrdSetInts| 'NILADIC T) 

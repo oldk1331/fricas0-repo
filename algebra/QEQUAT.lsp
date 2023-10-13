@@ -1,0 +1,70 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFUN |QEQUAT;coerce;$Of;1| (|u| $)
+  (SPADCALL (SPADCALL (QCAR |u|) (QREFELT $ 9))
+            (SPADCALL (QCDR |u|) (QREFELT $ 11)) (QREFELT $ 12))) 
+
+(PUT '|QEQUAT;equation;SS$;2| '|SPADreplace| 'CONS) 
+
+(DEFUN |QEQUAT;equation;SS$;2| (|x| |s| $) (CONS |x| |s|)) 
+
+(PUT '|QEQUAT;variable;$S;3| '|SPADreplace| 'QCAR) 
+
+(DEFUN |QEQUAT;variable;$S;3| (|q| $) (QCAR |q|)) 
+
+(PUT '|QEQUAT;value;$S;4| '|SPADreplace| 'QCDR) 
+
+(DEFUN |QEQUAT;value;$S;4| (|q| $) (QCDR |q|)) 
+
+(DEFUN |QueryEquation| ()
+  (PROG ()
+    (RETURN
+     (PROG (#1=#:G132)
+       (RETURN
+        (COND
+         ((LETT #1# (HGET |$ConstructorCache| '|QueryEquation|)
+                . #2=(|QueryEquation|))
+          (|CDRwithIncrement| (CDAR #1#)))
+         ('T
+          (UNWIND-PROTECT
+              (PROG1
+                  (CDDAR
+                   (HPUT |$ConstructorCache| '|QueryEquation|
+                         (LIST (CONS NIL (CONS 1 (|QueryEquation;|))))))
+                (LETT #1# T . #2#))
+            (COND
+             ((NOT #1#) (HREM |$ConstructorCache| '|QueryEquation|))))))))))) 
+
+(DEFUN |QueryEquation;| ()
+  (PROG (|dv$| $ |pv$|)
+    (RETURN
+     (PROGN
+      (LETT |dv$| '(|QueryEquation|) . #1=(|QueryEquation|))
+      (LETT $ (GETREFV 17) . #1#)
+      (QSETREFV $ 0 |dv$|)
+      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+      (|haddProp| |$ConstructorCache| '|QueryEquation| NIL (CONS 1 $))
+      (|stuffDomainSlots| $)
+      (SETF |pv$| (QREFELT $ 3))
+      (QSETREFV $ 6 (|Record| (|:| |var| (|Symbol|)) (|:| |val| (|String|))))
+      $)))) 
+
+(MAKEPROP '|QueryEquation| '|infovec|
+          (LIST
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|OutputForm|) (|Symbol|)
+              (0 . |coerce|) (|String|) (5 . |coerce|) (10 . =)
+              |QEQUAT;coerce;$Of;1| |QEQUAT;equation;SS$;2|
+              |QEQUAT;variable;$S;3| |QEQUAT;value;$S;4|)
+           '#(|variable| 16 |value| 21 |equation| 26 |coerce| 32) 'NIL
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS '#((|CoercibleTo| 7))
+                             (|makeByteWordVec2| 16
+                                                 '(1 8 7 0 9 1 10 7 0 11 2 7 0
+                                                   0 0 12 1 0 8 0 15 1 0 10 0
+                                                   16 2 0 0 8 10 14 1 0 7 0
+                                                   13)))))
+           '|lookupComplete|)) 
+
+(MAKEPROP '|QueryEquation| 'NILADIC T) 

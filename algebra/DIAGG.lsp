@@ -1,0 +1,29 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFPARAMETER |Dictionary;CAT| 'NIL) 
+
+(DEFPARAMETER |Dictionary;AL| 'NIL) 
+
+(DEFUN |Dictionary| (#1=#:G130)
+  (LET (#2=#:G131)
+    (COND ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |Dictionary;AL|)) (CDR #2#))
+          (T
+           (SETQ |Dictionary;AL|
+                   (|cons5| (CONS #3# (SETQ #2# (|Dictionary;| #1#)))
+                            |Dictionary;AL|))
+           #2#)))) 
+
+(DEFUN |Dictionary;| (|t#1|)
+  (PROG (#1=#:G129)
+    (RETURN
+     (PROG1
+         (LETT #1#
+               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                          (COND (|Dictionary;CAT|)
+                                ('T
+                                 (LETT |Dictionary;CAT|
+                                       (|Join| (|DictionaryOperations| '|t#1|))
+                                       . #2=(|Dictionary|)))))
+               . #2#)
+       (SETELT #1# 0 (LIST '|Dictionary| (|devaluate| |t#1|))))))) 

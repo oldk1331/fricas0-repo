@@ -1,0 +1,34 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFPARAMETER |BiModule;CAT| 'NIL) 
+
+(DEFPARAMETER |BiModule;AL| 'NIL) 
+
+(DEFUN |BiModule| (&REST #1=#:G126)
+  (LET (#2=#:G127)
+    (COND
+     ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |BiModule;AL|)) (CDR #2#))
+     (T
+      (SETQ |BiModule;AL|
+              (|cons5| (CONS #3# (SETQ #2# (APPLY #'|BiModule;| #1#)))
+                       |BiModule;AL|))
+      #2#)))) 
+
+(DEFUN |BiModule;| (|t#1| |t#2|)
+  (PROG (#1=#:G125)
+    (RETURN
+     (PROG1
+         (LETT #1#
+               (|sublisV|
+                (PAIR '(|t#1| |t#2|)
+                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                (COND (|BiModule;CAT|)
+                      ('T
+                       (LETT |BiModule;CAT|
+                             (|Join| (|LeftModule| '|t#1|)
+                                     (|RightModule| '|t#2|))
+                             . #2=(|BiModule|)))))
+               . #2#)
+       (SETELT #1# 0
+               (LIST '|BiModule| (|devaluate| |t#1|) (|devaluate| |t#2|))))))) 

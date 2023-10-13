@@ -1,0 +1,2158 @@
+ 
+; )package "BOOT"
+ 
+(IN-PACKAGE "BOOT")
+ 
+; continue() == FIN comp($x,$m,$f)
+ 
+(DEFUN |continue| () (PROG () (RETURN (FIN (|comp| |$x| |$m| |$f|)))))
+ 
+; LEVEL(:l) == APPLY('level,l)
+ 
+(DEFUN LEVEL (&REST |l|) (PROG () (RETURN (APPLY '|level| |l|))))
+ 
+; level(:l) ==
+;   null l => same()
+;   l is [n] and INTEGERP n => displayComp ($level:= n)
+;   SAY '"Correct format: (level n) where n is the level you want to go to"
+ 
+(DEFUN |level| (&REST |l|)
+  (PROG (|n|)
+    (RETURN
+     (COND ((NULL |l|) (|same|))
+           ((AND (CONSP |l|) (EQ (CDR |l|) NIL)
+                 (PROGN (SETQ |n| (CAR |l|)) #1='T) (INTEGERP |n|))
+            (|displayComp| (SETQ |$level| |n|)))
+           (#1#
+            (SAY
+             "Correct format: (level n) where n is the level you want to go to"))))))
+ 
+; UP() == up()
+ 
+(DEFUN UP () (PROG () (RETURN (|up|))))
+ 
+; up() == displayComp ($level:= $level-1)
+ 
+(DEFUN |up| ()
+  (PROG () (RETURN (|displayComp| (SETQ |$level| (- |$level| 1))))))
+ 
+; SAME() == same()
+ 
+(DEFUN SAME () (PROG () (RETURN (|same|))))
+ 
+; same() == displayComp $level
+ 
+(DEFUN |same| () (PROG () (RETURN (|displayComp| |$level|))))
+ 
+; DOWN() == down()
+ 
+(DEFUN DOWN () (PROG () (RETURN (|down|))))
+ 
+; down() == displayComp ($level:= $level+1)
+ 
+(DEFUN |down| ()
+  (PROG () (RETURN (|displayComp| (SETQ |$level| (+ |$level| 1))))))
+ 
+; displaySemanticErrors() ==
+;   n:= #($semanticErrorStack:= REMDUP $semanticErrorStack)
+;   n=0 => nil
+;   l:= NREVERSE $semanticErrorStack
+;   $semanticErrorStack:= nil
+;   sayBrightly bright '"  Semantic Errors:"
+;   displaySemanticError(l,CUROUTSTREAM)
+;   sayBrightly '" "
+;   displayWarnings()
+ 
+(DEFUN |displaySemanticErrors| ()
+  (PROG (|l| |n|)
+    (RETURN
+     (PROGN
+      (SETQ |n|
+              (LENGTH
+               (SETQ |$semanticErrorStack| (REMDUP |$semanticErrorStack|))))
+      (COND ((EQL |n| 0) NIL)
+            ('T
+             (PROGN
+              (SETQ |l| (NREVERSE |$semanticErrorStack|))
+              (SETQ |$semanticErrorStack| NIL)
+              (|sayBrightly| (|bright| "  Semantic Errors:"))
+              (|displaySemanticError| |l| CUROUTSTREAM)
+              (|sayBrightly| " ")
+              (|displayWarnings|))))))))
+ 
+; displaySemanticError(l,stream) ==
+;   for x in l for i in 1.. repeat
+;     sayBrightly2(['"      [", i, '"] ", :first x], stream)
+ 
+(DEFUN |displaySemanticError| (|l| |stream|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#1| |x| |i|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#1|) (PROGN (SETQ |x| (CAR |bfVar#1|)) NIL))
+           (RETURN NIL))
+          ('T
+           (|sayBrightly2| (CONS "      [" (CONS |i| (CONS "] " (CAR |x|))))
+            |stream|)))
+         (SETQ |bfVar#1| (CDR |bfVar#1|))
+         (SETQ |i| (+ |i| 1))))
+      |l| NIL 1))))
+ 
+; displayWarnings() ==
+;   n:= #($warningStack:= REMDUP $warningStack)
+;   n=0 => nil
+;   sayBrightly bright '"  Warnings:"
+;   l := NREVERSE $warningStack
+;   displayWarning(l,CUROUTSTREAM)
+;   $warningStack:= nil
+;   sayBrightly '" "
+ 
+(DEFUN |displayWarnings| ()
+  (PROG (|l| |n|)
+    (RETURN
+     (PROGN
+      (SETQ |n| (LENGTH (SETQ |$warningStack| (REMDUP |$warningStack|))))
+      (COND ((EQL |n| 0) NIL)
+            ('T
+             (PROGN
+              (|sayBrightly| (|bright| "  Warnings:"))
+              (SETQ |l| (NREVERSE |$warningStack|))
+              (|displayWarning| |l| CUROUTSTREAM)
+              (SETQ |$warningStack| NIL)
+              (|sayBrightly| " "))))))))
+ 
+; displayWarning(l,stream) ==
+;   for x in l for i in 1.. repeat
+;     sayBrightly2(['"      [", i, '"] ", :x], stream)
+ 
+(DEFUN |displayWarning| (|l| |stream|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#2| |x| |i|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#2|) (PROGN (SETQ |x| (CAR |bfVar#2|)) NIL))
+           (RETURN NIL))
+          ('T
+           (|sayBrightly2| (CONS "      [" (CONS |i| (CONS "] " |x|)))
+            |stream|)))
+         (SETQ |bfVar#2| (CDR |bfVar#2|))
+         (SETQ |i| (+ |i| 1))))
+      |l| NIL 1))))
+ 
+; displayComp level ==
+;   $bright:= " << "
+;   $dim:= " >> "
+;   if $insideCapsuleFunctionIfTrue=true then
+;     sayBrightly ['"error in function",'%b,$op,'%d,'%l]
+;   --mathprint removeZeroOne mkErrorExpr level
+;   pp removeZeroOne mkErrorExpr level
+;   sayBrightly ['"****** level",'%b,level,'%d,'" ******"]
+;   [$x, $m, $f, $exitModeStack] := $s.(level - 1)
+;   ($X:=$x;$M:=$m;$F:=$f)
+;   SAY("$x:= ",$x)
+;   SAY("$m:= ",$m)
+;   SAY "$f:="
+;   F_,PRINT_-ONE $f
+;   nil
+ 
+(DEFUN |displayComp| (|level|)
+  (PROG (|LETTMP#1|)
+    (RETURN
+     (PROGN
+      (SETQ |$bright| '| << |)
+      (SETQ |$dim| '| >> |)
+      (COND
+       ((EQUAL |$insideCapsuleFunctionIfTrue| T)
+        (|sayBrightly| (LIST "error in function" '|%b| |$op| '|%d| '|%l|))))
+      (|pp| (|removeZeroOne| (|mkErrorExpr| |level|)))
+      (|sayBrightly| (LIST "****** level" '|%b| |level| '|%d| " ******"))
+      (SETQ |LETTMP#1| (ELT |$s| (- |level| 1)))
+      (SETQ |$x| (CAR |LETTMP#1|))
+      (SETQ |$m| (CADR . #1=(|LETTMP#1|)))
+      (SETQ |$f| (CADDR . #1#))
+      (SETQ |$exitModeStack| (CADDDR . #1#))
+      (SETQ $X |$x|)
+      (SETQ $M |$m|)
+      (SETQ $F |$f|)
+      (SAY '|$x:= | |$x|)
+      (SAY '|$m:= | |$m|)
+      (SAY '|$f:=|)
+      (|F,PRINT-ONE| |$f|)
+      NIL))))
+ 
+; mkErrorExpr level ==
+;   bracket ASSOCLEFT DROP(level-#$s,$s) where
+;     bracket l ==
+;       #l<2 => l
+;       l is [a,b] =>
+;         highlight(b,a) where
+;           highlight(b,a) ==
+;             atom b =>
+;               substitute(var,b,a) where
+;                 var:= INTERN STRCONC(STRINGIMAGE $bright,STRINGIMAGE b,STRINGIMAGE $dim)
+;             highlight1(b,a) where
+;               highlight1(b,a) ==
+;                 atom a => a
+;                 a is [ =b,:c] => [$bright,b,$dim,:c]
+;                 [highlight1(b,first a),:highlight1(b,rest a)]
+;       substitute(bracket rest l,first rest l,first l)
+ 
+(DEFUN |mkErrorExpr| (|level|)
+  (PROG ()
+    (RETURN
+     (|mkErrorExpr,bracket|
+      (ASSOCLEFT (DROP (- |level| (LENGTH |$s|)) |$s|))))))
+(DEFUN |mkErrorExpr,bracket| (|l|)
+  (PROG (|a| |ISTMP#1| |b|)
+    (RETURN
+     (COND ((< (LENGTH |l|) 2) |l|)
+           ((AND (CONSP |l|)
+                 (PROGN
+                  (SETQ |a| (CAR |l|))
+                  (SETQ |ISTMP#1| (CDR |l|))
+                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                       (PROGN (SETQ |b| (CAR |ISTMP#1|)) #1='T))))
+            (|mkErrorExpr,highlight| |b| |a|))
+           (#1#
+            (|substitute| (|mkErrorExpr,bracket| (CDR |l|)) (CAR (CDR |l|))
+             (CAR |l|)))))))
+(DEFUN |mkErrorExpr,highlight| (|b| |a|)
+  (PROG (|var|)
+    (RETURN
+     (COND
+      ((ATOM |b|)
+       (PROGN
+        (SETQ |var|
+                (INTERN
+                 (STRCONC (STRINGIMAGE |$bright|) (STRINGIMAGE |b|)
+                  (STRINGIMAGE |$dim|))))
+        (|substitute| |var| |b| |a|)))
+      ('T (|mkErrorExpr,highlight1| |b| |a|))))))
+(DEFUN |mkErrorExpr,highlight1| (|b| |a|)
+  (PROG (|c|)
+    (RETURN
+     (COND ((ATOM |a|) |a|)
+           ((AND (CONSP |a|) (EQUAL (CAR |a|) |b|)
+                 (PROGN (SETQ |c| (CDR |a|)) #1='T))
+            (CONS |$bright| (CONS |b| (CONS |$dim| |c|))))
+           (#1#
+            (CONS (|mkErrorExpr,highlight1| |b| (CAR |a|))
+                  (|mkErrorExpr,highlight1| |b| (CDR |a|))))))))
+ 
+; errorRef s == stackWarning ['%b,s,'%d,'"has no value"]
+ 
+(DEFUN |errorRef| (|s|)
+  (PROG () (RETURN (|stackWarning| (LIST '|%b| |s| '|%d| "has no value")))))
+ 
+; unErrorRef s == unStackWarning ['%b,s,'%d,'"has no value"]
+ 
+(DEFUN |unErrorRef| (|s|)
+  (PROG () (RETURN (|unStackWarning| (LIST '|%b| |s| '|%d| "has no value")))))
+ 
+; consProplistOf(var,proplist,prop,val) ==
+;   semchkProplist(var,proplist,prop,val)
+;   $InteractiveMode and (u:= assoc(prop,proplist)) =>
+;     RPLACD(u,val)
+;     proplist
+;   [[prop,:val],:proplist]
+ 
+(DEFUN |consProplistOf| (|var| |proplist| |prop| |val|)
+  (PROG (|u|)
+    (RETURN
+     (PROGN
+      (|semchkProplist| |var| |proplist| |prop| |val|)
+      (COND
+       ((AND |$InteractiveMode| (SETQ |u| (|assoc| |prop| |proplist|)))
+        (PROGN (RPLACD |u| |val|) |proplist|))
+       ('T (CONS (CONS |prop| |val|) |proplist|)))))))
+ 
+; warnLiteral x ==
+;   stackSemanticError(['%b,x,'%d,
+;     '"is BOTH a variable and a literal"],nil)
+ 
+(DEFUN |warnLiteral| (|x|)
+  (PROG ()
+    (RETURN
+     (|stackSemanticError|
+      (LIST '|%b| |x| '|%d| "is BOTH a variable and a literal") NIL))))
+ 
+; intersectionEnvironment(e,e') ==
+;   ce:= makeCommonEnvironment(e,e')
+;   ic:= intersectionContour(deltaContour(e,ce),deltaContour(e',ce))
+;   e'':= (ic => addContour(ic,ce); ce)
+ 
+(DEFUN |intersectionEnvironment| (|e| |e'|)
+  (PROG (|ce| |ic| |e''|)
+    (RETURN
+     (PROGN
+      (SETQ |ce| (|makeCommonEnvironment| |e| |e'|))
+      (SETQ |ic|
+              (|intersectionContour| (|deltaContour| |e| |ce|)
+               (|deltaContour| |e'| |ce|)))
+      (SETQ |e''| (COND (|ic| (|addContour| |ic| |ce|)) ('T |ce|)))))))
+ 
+; deltaContour([[c,:cl],:el],[[c',:cl'],:el']) ==
+;   not el=el' => systemError '"deltaContour" --a cop out for now
+;   eliminateDuplicatePropertyLists contourDifference(c,c') where
+;     contourDifference(c,c') == [first x for x in tails c while (x~=c')]
+;     eliminateDuplicatePropertyLists contour ==
+;       contour is [[x,:.],:contour'] =>
+;         LASSOC(x,contour') =>
+;                                --save some CONSing if possible
+;           [first contour,:DELLASOS(x,eliminateDuplicatePropertyLists contour')]
+;         [first contour,:eliminateDuplicatePropertyLists contour']
+;       nil
+ 
+(DEFUN |deltaContour| (|bfVar#4| |bfVar#5|)
+  (PROG (|c'| |cl'| |el'| |c| |cl| |el|)
+    (RETURN
+     (PROGN
+      (SETQ |c'| (CAAR . #1=(|bfVar#5|)))
+      (SETQ |cl'| (CDAR . #1#))
+      (SETQ |el'| (CDR |bfVar#5|))
+      (SETQ |c| (CAAR . #2=(|bfVar#4|)))
+      (SETQ |cl| (CDAR . #2#))
+      (SETQ |el| (CDR |bfVar#4|))
+      (COND ((EQUAL (NULL |el|) |el'|) (|systemError| "deltaContour"))
+            ('T
+             (|deltaContour,eliminateDuplicatePropertyLists|
+              (|deltaContour,contourDifference| |c| |c'|))))))))
+(DEFUN |deltaContour,contourDifference| (|c| |c'|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#3| |x|)
+        (LOOP
+         (COND ((OR (ATOM |x|) (EQUAL |x| |c'|)) (RETURN (NREVERSE |bfVar#3|)))
+               ('T (SETQ |bfVar#3| (CONS (CAR |x|) |bfVar#3|))))
+         (SETQ |x| (CDR |x|))))
+      NIL |c|))))
+(DEFUN |deltaContour,eliminateDuplicatePropertyLists| (|contour|)
+  (PROG (|ISTMP#1| |x| |contour'|)
+    (RETURN
+     (COND
+      ((AND (CONSP |contour|)
+            (PROGN
+             (SETQ |ISTMP#1| (CAR |contour|))
+             (AND (CONSP |ISTMP#1|) (PROGN (SETQ |x| (CAR |ISTMP#1|)) #1='T)))
+            (PROGN (SETQ |contour'| (CDR |contour|)) #1#))
+       (COND
+        ((LASSOC |x| |contour'|)
+         (CONS (CAR |contour|)
+               (DELLASOS |x|
+                (|deltaContour,eliminateDuplicatePropertyLists| |contour'|))))
+        (#1#
+         (CONS (CAR |contour|)
+               (|deltaContour,eliminateDuplicatePropertyLists| |contour'|)))))
+      (#1# NIL)))))
+ 
+; intersectionContour(c,c') ==
+;   $var: local := nil
+;   computeIntersection(c,c') where
+;     computeIntersection(c,c') ==
+;       varlist:= REMDUP ASSOCLEFT c
+;       varlist':= REMDUP ASSOCLEFT c'
+;       interVars:= intersection(varlist,varlist')
+;       unionVars:= union(varlist,varlist')
+;       diffVars:= setDifference(unionVars,interVars)
+;       modeAssoc:= buildModeAssoc(diffVars,c,c')
+;       [:modeAssoc,:
+;         [[x,:proplist]
+;           for [x,:y] in c | member(x,interVars) and
+;             (proplist:= interProplist(y,LASSOC($var:= x,c')))]]
+;     interProplist(p,p') ==
+;                             --p is new proplist; p' is old one
+;       [:modeCompare(p,p'),:[pair' for pair in p | (pair':= compare(pair,p'))]]
+;     buildModeAssoc(varlist,c,c') ==
+;       [[x,:mp] for x in varlist | (mp:= modeCompare(LASSOC(x,c),LASSOC(x,c')))]
+;     compare(pair is [prop,:val],p') ==
+;       --1. if the property-value pair are identical, accept it immediately
+;       pair=(pair':= assoc(prop,p')) => pair
+;       --2. if property="value" and modes are unifiable, give intersection
+;       --       property="value" but value=genSomeVariable)()
+;       (val':= IFCDR pair') and prop = "value" and
+;         (m:= unifiable(val.mode,val'.mode)) => ["value",genSomeVariable(),m,nil]
+;             --this tells us that an undeclared variable received
+;             --two different values but with identical modes
+;       --3. property="mode" is covered by modeCompare
+;       prop="mode" => nil
+;     modeCompare(p,p') ==
+;       pair:= assoc("mode",p) =>
+;         pair':= assoc("mode",p') =>
+;           m'':= unifiable(rest pair,rest pair') => LIST ["mode",:m'']
+;           stackSemanticError(['%b,$var,'%d,"has two modes: "],nil)
+;        --stackWarning ("mode for",'%b,$var,'%d,"introduced conditionally")
+;         LIST ["conditionalmode",:rest pair]
+;         --LIST pair
+;        --stackWarning ("mode for",'%b,$var,'%d,"introduced conditionally")
+;       pair':= assoc("mode",p') => LIST ["conditionalmode",:rest pair']
+;         --LIST pair'
+;     unifiable(m1,m2) ==
+;       m1=m2 => m1
+;         --we may need to add code to coerce up to tagged unions
+;         --but this can not be done here, but should be done by compIf
+;       m:=
+;         m1 is ["Union",:.] =>
+;           m2 is ["Union",:.] => ["Union",:S_+(rest m1,rest m2)]
+;           ["Union",:S_+(rest m1,[m2])]
+;         m2 is ["Union",:.] => ["Union",:S_+(rest m2,[m1])]
+;         ["Union",m1,m2]
+;       for u in getDomainsInScope $e repeat
+;         if u is ["Union",:u'] and (and/[member(v,u') for v in rest m]) then
+;           return m
+ 
+(DEFUN |intersectionContour| (|c| |c'|)
+  (PROG (|$var|)
+    (DECLARE (SPECIAL |$var|))
+    (RETURN
+     (PROGN
+      (SETQ |$var| NIL)
+      (|intersectionContour,computeIntersection| |c| |c'|)))))
+(DEFUN |intersectionContour,computeIntersection| (|c| |c'|)
+  (PROG (|varlist| |varlist'| |interVars| |unionVars| |diffVars| |modeAssoc|
+         |x| |y| |proplist|)
+    (RETURN
+     (PROGN
+      (SETQ |varlist| (REMDUP (ASSOCLEFT |c|)))
+      (SETQ |varlist'| (REMDUP (ASSOCLEFT |c'|)))
+      (SETQ |interVars| (|intersection| |varlist| |varlist'|))
+      (SETQ |unionVars| (|union| |varlist| |varlist'|))
+      (SETQ |diffVars| (SETDIFFERENCE |unionVars| |interVars|))
+      (SETQ |modeAssoc|
+              (|intersectionContour,buildModeAssoc| |diffVars| |c| |c'|))
+      (APPEND |modeAssoc|
+              ((LAMBDA (|bfVar#8| |bfVar#7| |bfVar#6|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#7|)
+                        (PROGN (SETQ |bfVar#6| (CAR |bfVar#7|)) NIL))
+                    (RETURN (NREVERSE |bfVar#8|)))
+                   (#1='T
+                    (AND (CONSP |bfVar#6|)
+                         (PROGN
+                          (SETQ |x| (CAR |bfVar#6|))
+                          (SETQ |y| (CDR |bfVar#6|))
+                          #1#)
+                         (|member| |x| |interVars|)
+                         (SETQ |proplist|
+                                 (|intersectionContour,interProplist| |y|
+                                  (LASSOC (SETQ |$var| |x|) |c'|)))
+                         (SETQ |bfVar#8|
+                                 (CONS (CONS |x| |proplist|) |bfVar#8|)))))
+                  (SETQ |bfVar#7| (CDR |bfVar#7|))))
+               NIL |c| NIL))))))
+(DEFUN |intersectionContour,interProplist| (|p| |p'|)
+  (PROG (|pair'|)
+    (RETURN
+     (APPEND (|intersectionContour,modeCompare| |p| |p'|)
+             ((LAMBDA (|bfVar#10| |bfVar#9| |pair|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#9|)
+                       (PROGN (SETQ |pair| (CAR |bfVar#9|)) NIL))
+                   (RETURN (NREVERSE |bfVar#10|)))
+                  ('T
+                   (AND
+                    (SETQ |pair'| (|intersectionContour,compare| |pair| |p'|))
+                    (SETQ |bfVar#10| (CONS |pair'| |bfVar#10|)))))
+                 (SETQ |bfVar#9| (CDR |bfVar#9|))))
+              NIL |p| NIL)))))
+(DEFUN |intersectionContour,buildModeAssoc| (|varlist| |c| |c'|)
+  (PROG (|mp|)
+    (RETURN
+     ((LAMBDA (|bfVar#12| |bfVar#11| |x|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#11|) (PROGN (SETQ |x| (CAR |bfVar#11|)) NIL))
+           (RETURN (NREVERSE |bfVar#12|)))
+          ('T
+           (AND
+            (SETQ |mp|
+                    (|intersectionContour,modeCompare| (LASSOC |x| |c|)
+                     (LASSOC |x| |c'|)))
+            (SETQ |bfVar#12| (CONS (CONS |x| |mp|) |bfVar#12|)))))
+         (SETQ |bfVar#11| (CDR |bfVar#11|))))
+      NIL |varlist| NIL))))
+(DEFUN |intersectionContour,compare| (|pair| |p'|)
+  (PROG (|prop| |val| |pair'| |val'| |m|)
+    (RETURN
+     (PROGN
+      (SETQ |prop| (CAR |pair|))
+      (SETQ |val| (CDR |pair|))
+      (COND ((EQUAL |pair| (SETQ |pair'| (|assoc| |prop| |p'|))) |pair|)
+            ((AND (SETQ |val'| (IFCDR |pair'|)) (EQ |prop| '|value|)
+                  (SETQ |m|
+                          (|intersectionContour,unifiable| (CADR |val|)
+                           (CADR |val'|))))
+             (LIST '|value| (|genSomeVariable|) |m| NIL))
+            ((EQ |prop| '|mode|) NIL))))))
+(DEFUN |intersectionContour,modeCompare| (|p| |p'|)
+  (PROG (|pair| |pair'| |m''|)
+    (RETURN
+     (COND
+      ((SETQ |pair| (|assoc| '|mode| |p|))
+       (COND
+        ((SETQ |pair'| (|assoc| '|mode| |p'|))
+         (COND
+          ((SETQ |m''|
+                   (|intersectionContour,unifiable| (CDR |pair|)
+                    (CDR |pair'|)))
+           (LIST (CONS '|mode| |m''|)))
+          (#1='T
+           (|stackSemanticError| (LIST '|%b| |$var| '|%d| '|has two modes: |)
+            NIL))))
+        (#1# (LIST (CONS '|conditionalmode| (CDR |pair|))))))
+      ((SETQ |pair'| (|assoc| '|mode| |p'|))
+       (LIST (CONS '|conditionalmode| (CDR |pair'|))))))))
+(DEFUN |intersectionContour,unifiable| (|m1| |m2|)
+  (PROG (|m| |u'|)
+    (RETURN
+     (COND ((EQUAL |m1| |m2|) |m1|)
+           (#1='T
+            (PROGN
+             (SETQ |m|
+                     (COND
+                      ((AND (CONSP |m1|) (EQ (CAR |m1|) '|Union|))
+                       (COND
+                        ((AND (CONSP |m2|) (EQ (CAR |m2|) '|Union|))
+                         (CONS '|Union| (S+ (CDR |m1|) (CDR |m2|))))
+                        (#1# (CONS '|Union| (S+ (CDR |m1|) (LIST |m2|))))))
+                      ((AND (CONSP |m2|) (EQ (CAR |m2|) '|Union|))
+                       (CONS '|Union| (S+ (CDR |m2|) (LIST |m1|))))
+                      (#1# (LIST '|Union| |m1| |m2|))))
+             ((LAMBDA (|bfVar#13| |u|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#13|)
+                       (PROGN (SETQ |u| (CAR |bfVar#13|)) NIL))
+                   (RETURN NIL))
+                  (#1#
+                   (COND
+                    ((AND (CONSP |u|) (EQ (CAR |u|) '|Union|)
+                          (PROGN (SETQ |u'| (CDR |u|)) #1#)
+                          ((LAMBDA (|bfVar#15| |bfVar#14| |v|)
+                             (LOOP
+                              (COND
+                               ((OR (ATOM |bfVar#14|)
+                                    (PROGN (SETQ |v| (CAR |bfVar#14|)) NIL))
+                                (RETURN |bfVar#15|))
+                               (#1#
+                                (PROGN
+                                 (SETQ |bfVar#15| (|member| |v| |u'|))
+                                 (COND ((NOT |bfVar#15|) (RETURN NIL))))))
+                              (SETQ |bfVar#14| (CDR |bfVar#14|))))
+                           T (CDR |m|) NIL))
+                     (RETURN |m|)))))
+                 (SETQ |bfVar#13| (CDR |bfVar#13|))))
+              (|getDomainsInScope| |$e|) NIL)))))))
+ 
+; addContour(c,E is [cur,:tail]) ==
+;   [NCONC(fn(c,E),cur),:tail] where
+;     fn(c,e) ==
+;         for [x,:proplist] in c repeat
+;            fn1(x,proplist,getProplist(x,e)) where
+;               fn1(x,p,ee) ==
+;                 for pv in p repeat fn3(x,pv,ee) where
+;                  fn3(x,pv,e) ==
+;                    [p,:v]:=pv
+;                    if member(x,$getPutTrace) then
+;                      pp([x,"has",pv])
+;                    if p="conditionalmode" then
+;                      RPLACA(pv,"mode")
+;                      --check for conflicts with earlier mode
+;                      if vv:=LASSOC("mode",e) then
+;                         if v ~=vv then
+;                           stackWarning ["The conditional modes ",
+;                                      v," and ",vv," conflict"]
+;         LIST c
+ 
+(DEFUN |addContour| (|c| E)
+  (PROG (|cur| |tail|)
+    (RETURN
+     (PROGN
+      (SETQ |cur| (CAR E))
+      (SETQ |tail| (CDR E))
+      (CONS (NCONC (|addContour,fn| |c| E) |cur|) |tail|)))))
+(DEFUN |addContour,fn| (|c| |e|)
+  (PROG (|x| |proplist|)
+    (RETURN
+     (PROGN
+      ((LAMBDA (|bfVar#17| |bfVar#16|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#17|)
+                (PROGN (SETQ |bfVar#16| (CAR |bfVar#17|)) NIL))
+            (RETURN NIL))
+           (#1='T
+            (AND (CONSP |bfVar#16|)
+                 (PROGN
+                  (SETQ |x| (CAR |bfVar#16|))
+                  (SETQ |proplist| (CDR |bfVar#16|))
+                  #1#)
+                 (|addContour,fn1| |x| |proplist| (|getProplist| |x| |e|)))))
+          (SETQ |bfVar#17| (CDR |bfVar#17|))))
+       |c| NIL)
+      (LIST |c|)))))
+(DEFUN |addContour,fn1| (|x| |p| |ee|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#18| |pv|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#18|) (PROGN (SETQ |pv| (CAR |bfVar#18|)) NIL))
+           (RETURN NIL))
+          ('T (|addContour,fn3| |x| |pv| |ee|)))
+         (SETQ |bfVar#18| (CDR |bfVar#18|))))
+      |p| NIL))))
+(DEFUN |addContour,fn3| (|x| |pv| |e|)
+  (PROG (|p| |v| |vv|)
+    (RETURN
+     (PROGN
+      (SETQ |p| (CAR |pv|))
+      (SETQ |v| (CDR |pv|))
+      (COND ((|member| |x| |$getPutTrace|) (|pp| (LIST |x| '|has| |pv|))))
+      (COND
+       ((EQ |p| '|conditionalmode|) (RPLACA |pv| '|mode|)
+        (COND
+         ((SETQ |vv| (LASSOC '|mode| |e|))
+          (COND
+           ((NOT (EQUAL |v| |vv|))
+            (|stackWarning|
+             (LIST '|The conditional modes | |v| '| and | |vv|
+                   '| conflict|))))))))))))
+ 
+; makeCommonEnvironment(e,e') ==
+;   interE makeSameLength(e,e') where  --$ie:=
+;     interE [e,e'] ==
+;       rest e=rest e' => [interLocalE makeSameLength(first e,first e'),:rest e]
+;       interE [rest e,rest e']
+;     interLocalE [le,le'] ==
+;       rest le=rest le' =>
+;         [interC makeSameLength(first le,first le'),:rest le]
+;       interLocalE [rest le,rest le']
+;     interC [c,c'] ==
+;       c=c' => c
+;       interC [rest c,rest c']
+;     makeSameLength(x,y) ==
+;       fn(x,y,#x,#y) where
+;         fn(x,y,nx,ny) ==
+;           nx>ny => fn(rest x,y,nx-1,ny)
+;           nx<ny => fn(x,rest y,nx,ny-1)
+;           [x,y]
+ 
+(DEFUN |makeCommonEnvironment| (|e| |e'|)
+  (PROG ()
+    (RETURN
+     (|makeCommonEnvironment,interE|
+      (|makeCommonEnvironment,makeSameLength| |e| |e'|)))))
+(DEFUN |makeCommonEnvironment,interE| (|bfVar#19|)
+  (PROG (|e| |e'|)
+    (RETURN
+     (PROGN
+      (SETQ |e| (CAR |bfVar#19|))
+      (SETQ |e'| (CADR |bfVar#19|))
+      (COND
+       ((EQUAL (CDR |e|) (CDR |e'|))
+        (CONS
+         (|makeCommonEnvironment,interLocalE|
+          (|makeCommonEnvironment,makeSameLength| (CAR |e|) (CAR |e'|)))
+         (CDR |e|)))
+       ('T (|makeCommonEnvironment,interE| (LIST (CDR |e|) (CDR |e'|)))))))))
+(DEFUN |makeCommonEnvironment,interLocalE| (|bfVar#20|)
+  (PROG (|le| |le'|)
+    (RETURN
+     (PROGN
+      (SETQ |le| (CAR |bfVar#20|))
+      (SETQ |le'| (CADR |bfVar#20|))
+      (COND
+       ((EQUAL (CDR |le|) (CDR |le'|))
+        (CONS
+         (|makeCommonEnvironment,interC|
+          (|makeCommonEnvironment,makeSameLength| (CAR |le|) (CAR |le'|)))
+         (CDR |le|)))
+       ('T
+        (|makeCommonEnvironment,interLocalE|
+         (LIST (CDR |le|) (CDR |le'|)))))))))
+(DEFUN |makeCommonEnvironment,interC| (|bfVar#21|)
+  (PROG (|c| |c'|)
+    (RETURN
+     (PROGN
+      (SETQ |c| (CAR |bfVar#21|))
+      (SETQ |c'| (CADR |bfVar#21|))
+      (COND ((EQUAL |c| |c'|) |c|)
+            ('T
+             (|makeCommonEnvironment,interC| (LIST (CDR |c|) (CDR |c'|)))))))))
+(DEFUN |makeCommonEnvironment,makeSameLength| (|x| |y|)
+  (PROG ()
+    (RETURN (|makeCommonEnvironment,fn| |x| |y| (LENGTH |x|) (LENGTH |y|)))))
+(DEFUN |makeCommonEnvironment,fn| (|x| |y| |nx| |ny|)
+  (PROG ()
+    (RETURN
+     (COND
+      ((< |ny| |nx|)
+       (|makeCommonEnvironment,fn| (CDR |x|) |y| (- |nx| 1) |ny|))
+      ((< |nx| |ny|)
+       (|makeCommonEnvironment,fn| |x| (CDR |y|) |nx| (- |ny| 1)))
+      ('T (LIST |x| |y|))))))
+ 
+; printEnv E ==
+;   for x in E for i in 1.. repeat
+;     for y in x for j in 1.. repeat
+;       SAY('"******CONTOUR ",j,'", LEVEL ",i,'":******")
+;       for z in y repeat
+;         TERPRI()
+;         SAY("Properties Of: ",first z)
+;         for u in rest z repeat
+;           PRIN0 first u
+;           printString ": "
+;           PRETTYPRINT tran(rest u,first u) where
+;             tran(val,prop) ==
+;               prop="value" => DROP(-1,val)
+;               val
+ 
+(DEFUN |printEnv| (E)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#22| |x| |i|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#22|) (PROGN (SETQ |x| (CAR |bfVar#22|)) NIL))
+           (RETURN NIL))
+          (#1='T
+           ((LAMBDA (|bfVar#23| |y| |j|)
+              (LOOP
+               (COND
+                ((OR (ATOM |bfVar#23|) (PROGN (SETQ |y| (CAR |bfVar#23|)) NIL))
+                 (RETURN NIL))
+                (#1#
+                 (PROGN
+                  (SAY "******CONTOUR " |j| ", LEVEL " |i| ":******")
+                  ((LAMBDA (|bfVar#24| |z|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#24|)
+                            (PROGN (SETQ |z| (CAR |bfVar#24|)) NIL))
+                        (RETURN NIL))
+                       (#1#
+                        (PROGN
+                         (TERPRI)
+                         (SAY '|Properties Of: | (CAR |z|))
+                         ((LAMBDA (|bfVar#25| |u|)
+                            (LOOP
+                             (COND
+                              ((OR (ATOM |bfVar#25|)
+                                   (PROGN (SETQ |u| (CAR |bfVar#25|)) NIL))
+                               (RETURN NIL))
+                              (#1#
+                               (PROGN
+                                (PRIN0 (CAR |u|))
+                                (|printString| '|: |)
+                                (PRETTYPRINT
+                                 (|printEnv,tran| (CDR |u|) (CAR |u|))))))
+                             (SETQ |bfVar#25| (CDR |bfVar#25|))))
+                          (CDR |z|) NIL))))
+                      (SETQ |bfVar#24| (CDR |bfVar#24|))))
+                   |y| NIL))))
+               (SETQ |bfVar#23| (CDR |bfVar#23|))
+               (SETQ |j| (+ |j| 1))))
+            |x| NIL 1)))
+         (SETQ |bfVar#22| (CDR |bfVar#22|))
+         (SETQ |i| (+ |i| 1))))
+      E NIL 1))))
+(DEFUN |printEnv,tran| (|val| |prop|)
+  (PROG ()
+    (RETURN (COND ((EQ |prop| '|value|) (DROP (- 1) |val|)) ('T |val|)))))
+ 
+; prEnv E ==
+;   for x in E for i in 1.. repeat
+;     for y in x for j in 1.. repeat
+;       SAY('"******CONTOUR ",j,'", LEVEL ",i,'":******")
+;       for z in y | not LASSOC("modemap",rest z) repeat
+;         TERPRI()
+;         SAY("Properties Of: ",first z)
+;         for u in rest z repeat
+;           PRIN0 first u
+;           printString ": "
+;           PRETTYPRINT tran(rest u,first u) where
+;             tran(val,prop) ==
+;               prop="value" => DROP(-1,val)
+;               val
+ 
+(DEFUN |prEnv| (E)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#26| |x| |i|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#26|) (PROGN (SETQ |x| (CAR |bfVar#26|)) NIL))
+           (RETURN NIL))
+          (#1='T
+           ((LAMBDA (|bfVar#27| |y| |j|)
+              (LOOP
+               (COND
+                ((OR (ATOM |bfVar#27|) (PROGN (SETQ |y| (CAR |bfVar#27|)) NIL))
+                 (RETURN NIL))
+                (#1#
+                 (PROGN
+                  (SAY "******CONTOUR " |j| ", LEVEL " |i| ":******")
+                  ((LAMBDA (|bfVar#28| |z|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#28|)
+                            (PROGN (SETQ |z| (CAR |bfVar#28|)) NIL))
+                        (RETURN NIL))
+                       (#1#
+                        (AND (NULL (LASSOC '|modemap| (CDR |z|)))
+                             (PROGN
+                              (TERPRI)
+                              (SAY '|Properties Of: | (CAR |z|))
+                              ((LAMBDA (|bfVar#29| |u|)
+                                 (LOOP
+                                  (COND
+                                   ((OR (ATOM |bfVar#29|)
+                                        (PROGN
+                                         (SETQ |u| (CAR |bfVar#29|))
+                                         NIL))
+                                    (RETURN NIL))
+                                   (#1#
+                                    (PROGN
+                                     (PRIN0 (CAR |u|))
+                                     (|printString| '|: |)
+                                     (PRETTYPRINT
+                                      (|prEnv,tran| (CDR |u|) (CAR |u|))))))
+                                  (SETQ |bfVar#29| (CDR |bfVar#29|))))
+                               (CDR |z|) NIL)))))
+                      (SETQ |bfVar#28| (CDR |bfVar#28|))))
+                   |y| NIL))))
+               (SETQ |bfVar#27| (CDR |bfVar#27|))
+               (SETQ |j| (+ |j| 1))))
+            |x| NIL 1)))
+         (SETQ |bfVar#26| (CDR |bfVar#26|))
+         (SETQ |i| (+ |i| 1))))
+      E NIL 1))))
+(DEFUN |prEnv,tran| (|val| |prop|)
+  (PROG ()
+    (RETURN (COND ((EQ |prop| '|value|) (DROP (- 1) |val|)) ('T |val|)))))
+ 
+; prModemaps E ==
+;   listOfOperatorsSeenSoFar:= nil
+;   for x in E for i in 1.. repeat
+;     for y in x for j in 1.. repeat
+;       for z in y | null member(first z,listOfOperatorsSeenSoFar) and
+;         (modemap:= LASSOC("modemap",rest z)) repeat
+;           listOfOperatorsSeenSoFar:= [first z,:listOfOperatorsSeenSoFar]
+;           TERPRI()
+;           PRIN0 first z
+;           printString ": "
+;           PRETTYPRINT modemap
+ 
+(DEFUN |prModemaps| (E)
+  (PROG (|listOfOperatorsSeenSoFar| |modemap|)
+    (RETURN
+     (PROGN
+      (SETQ |listOfOperatorsSeenSoFar| NIL)
+      ((LAMBDA (|bfVar#30| |x| |i|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#30|) (PROGN (SETQ |x| (CAR |bfVar#30|)) NIL))
+            (RETURN NIL))
+           (#1='T
+            ((LAMBDA (|bfVar#31| |y| |j|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#31|)
+                      (PROGN (SETQ |y| (CAR |bfVar#31|)) NIL))
+                  (RETURN NIL))
+                 (#1#
+                  ((LAMBDA (|bfVar#32| |z|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#32|)
+                            (PROGN (SETQ |z| (CAR |bfVar#32|)) NIL))
+                        (RETURN NIL))
+                       (#1#
+                        (AND
+                         (NULL (|member| (CAR |z|) |listOfOperatorsSeenSoFar|))
+                         (SETQ |modemap| (LASSOC '|modemap| (CDR |z|)))
+                         (PROGN
+                          (SETQ |listOfOperatorsSeenSoFar|
+                                  (CONS (CAR |z|) |listOfOperatorsSeenSoFar|))
+                          (TERPRI)
+                          (PRIN0 (CAR |z|))
+                          (|printString| '|: |)
+                          (PRETTYPRINT |modemap|)))))
+                      (SETQ |bfVar#32| (CDR |bfVar#32|))))
+                   |y| NIL)))
+                (SETQ |bfVar#31| (CDR |bfVar#31|))
+                (SETQ |j| (+ |j| 1))))
+             |x| NIL 1)))
+          (SETQ |bfVar#30| (CDR |bfVar#30|))
+          (SETQ |i| (+ |i| 1))))
+       E NIL 1)))))
+ 
+; prTriple T ==
+;    SAY '"Code:"
+;    pp T.0
+;    SAY '"Mode:"
+;    pp T.1
+ 
+(DEFUN |prTriple| (T$)
+  (PROG ()
+    (RETURN
+     (PROGN (SAY "Code:") (|pp| (ELT T$ 0)) (SAY "Mode:") (|pp| (ELT T$ 1))))))
+ 
+; TrimCF() ==
+;   new:= nil
+;   old:= CAAR $CategoryFrame
+;   for u in old repeat
+;     if not ASSQ(first u,new) then
+;       uold:= rest u
+;       unew:= nil
+;       for v in uold repeat if not ASSQ(first v,unew) then unew:= [v,:unew]
+;       new:= [[first u,:NREVERSE unew],:new]
+;   $CategoryFrame:= [[NREVERSE new]]
+;   nil
+ 
+(DEFUN |TrimCF| ()
+  (PROG (|unew| |uold| |old| |new|)
+    (RETURN
+     (PROGN
+      (SETQ |new| NIL)
+      (SETQ |old| (CAAR |$CategoryFrame|))
+      ((LAMBDA (|bfVar#33| |u|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#33|) (PROGN (SETQ |u| (CAR |bfVar#33|)) NIL))
+            (RETURN NIL))
+           (#1='T
+            (COND
+             ((NULL (ASSQ (CAR |u|) |new|)) (SETQ |uold| (CDR |u|))
+              (SETQ |unew| NIL)
+              ((LAMBDA (|bfVar#34| |v|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#34|)
+                        (PROGN (SETQ |v| (CAR |bfVar#34|)) NIL))
+                    (RETURN NIL))
+                   (#1#
+                    (COND
+                     ((NULL (ASSQ (CAR |v|) |unew|))
+                      (SETQ |unew| (CONS |v| |unew|))))))
+                  (SETQ |bfVar#34| (CDR |bfVar#34|))))
+               |uold| NIL)
+              (SETQ |new| (CONS (CONS (CAR |u|) (NREVERSE |unew|)) |new|))))))
+          (SETQ |bfVar#33| (CDR |bfVar#33|))))
+       |old| NIL)
+      (SETQ |$CategoryFrame| (LIST (LIST (NREVERSE |new|))))
+      NIL))))
+ 
+; isConstantId(name,e) ==
+;   IDENTP name =>
+;     pl:= getProplist(name,e) =>
+;       (LASSOC("value",pl) or LASSOC("mode",pl) => false; true)
+;     true
+;   false
+ 
+(DEFUN |isConstantId| (|name| |e|)
+  (PROG (|pl|)
+    (RETURN
+     (COND
+      ((IDENTP |name|)
+       (COND
+        ((SETQ |pl| (|getProplist| |name| |e|))
+         (COND ((OR (LASSOC '|value| |pl|) (LASSOC '|mode| |pl|)) NIL)
+               (#1='T T)))
+        (#1# T)))
+      (#1# NIL)))))
+ 
+; isFalse() == nil
+ 
+(DEFUN |isFalse| () (PROG () (RETURN NIL)))
+ 
+; isFluid s == atom s and "$"=(PNAME s).(0)
+ 
+(DEFUN |isFluid| (|s|)
+  (PROG () (RETURN (AND (ATOM |s|) (EQ '$ (ELT (PNAME |s|) 0))))))
+ 
+; isFunction(x,e) ==
+;   get(x,"modemap",e) or GETL(x,"SPECIAL") or x="case" or getmode(x,e) is [
+;     "Mapping",:.]
+ 
+(DEFUN |isFunction| (|x| |e|)
+  (PROG (|ISTMP#1|)
+    (RETURN
+     (OR (|get| |x| '|modemap| |e|) (GETL |x| 'SPECIAL) (EQ |x| '|case|)
+         (PROGN
+          (SETQ |ISTMP#1| (|getmode| |x| |e|))
+          (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|)))))))
+ 
+; isLiteral(x,e) == get(x,"isLiteral",e)
+ 
+(DEFUN |isLiteral| (|x| |e|) (PROG () (RETURN (|get| |x| '|isLiteral| |e|))))
+ 
+; makeLiteral(x,e) == put(x,"isLiteral","true",e)
+ 
+(DEFUN |makeLiteral| (|x| |e|)
+  (PROG () (RETURN (|put| |x| '|isLiteral| '|true| |e|))))
+ 
+; isSomeDomainVariable s ==
+;   IDENTP s and #(x:= PNAME s)>2 and x.(0)="#" and x.(1)="#"
+ 
+(DEFUN |isSomeDomainVariable| (|s|)
+  (PROG (|x|)
+    (RETURN
+     (AND (IDENTP |s|) (< 2 (LENGTH (SETQ |x| (PNAME |s|))))
+          (EQ (ELT |x| 0) '|#|) (EQ (ELT |x| 1) '|#|)))))
+ 
+; isSubset(x,y,e) ==
+;   x="$" and y="Rep" or x=y or
+;     LASSOC(opOf x, GETL(opOf y,"Subsets")) or
+;       LASSOC(opOf x,get(opOf y,"SubDomain",e)) or
+;         opOf(y)='Type
+ 
+(DEFUN |isSubset| (|x| |y| |e|)
+  (PROG ()
+    (RETURN
+     (OR (AND (EQ |x| '$) (EQ |y| '|Rep|)) (EQUAL |x| |y|)
+         (LASSOC (|opOf| |x|) (GETL (|opOf| |y|) '|Subsets|))
+         (LASSOC (|opOf| |x|) (|get| (|opOf| |y|) '|SubDomain| |e|))
+         (EQ (|opOf| |y|) '|Type|)))))
+ 
+; isDomainInScope(domain,e) ==
+;   domainList:= getDomainsInScope e
+;   atom domain =>
+;     MEMQ(domain,domainList) => true
+;     not IDENTP domain or isSomeDomainVariable domain => true
+;     false
+;   (name:= first domain)="Category" => true
+;   ASSQ(name,domainList) => true
+; --   null CDR domain or domainMember(domain,domainList) => true
+; --   false
+;   isFunctor name => false
+;   true --is not a functor
+ 
+(DEFUN |isDomainInScope| (|domain| |e|)
+  (PROG (|domainList| |name|)
+    (RETURN
+     (PROGN
+      (SETQ |domainList| (|getDomainsInScope| |e|))
+      (COND
+       ((ATOM |domain|)
+        (COND ((MEMQ |domain| |domainList|) T)
+              ((OR (NULL (IDENTP |domain|)) (|isSomeDomainVariable| |domain|))
+               T)
+              (#1='T NIL)))
+       ((EQ (SETQ |name| (CAR |domain|)) '|Category|) T)
+       ((ASSQ |name| |domainList|) T) ((|isFunctor| |name|) NIL) (#1# T))))))
+ 
+; isSymbol x == IDENTP x
+ 
+(DEFUN |isSymbol| (|x|) (PROG () (RETURN (IDENTP |x|))))
+ 
+; isSimple x ==
+;   atom x => true
+;   x is [op,:argl] and
+;     isSideEffectFree op and (and/[isSimple y for y in argl])
+ 
+(DEFUN |isSimple| (|x|)
+  (PROG (|op| |argl|)
+    (RETURN
+     (COND ((ATOM |x|) T)
+           (#1='T
+            (AND (CONSP |x|)
+                 (PROGN (SETQ |op| (CAR |x|)) (SETQ |argl| (CDR |x|)) #1#)
+                 (|isSideEffectFree| |op|)
+                 ((LAMBDA (|bfVar#36| |bfVar#35| |y|)
+                    (LOOP
+                     (COND
+                      ((OR (ATOM |bfVar#35|)
+                           (PROGN (SETQ |y| (CAR |bfVar#35|)) NIL))
+                       (RETURN |bfVar#36|))
+                      (#1#
+                       (PROGN
+                        (SETQ |bfVar#36| (|isSimple| |y|))
+                        (COND ((NOT |bfVar#36|) (RETURN NIL))))))
+                     (SETQ |bfVar#35| (CDR |bfVar#35|))))
+                  T |argl| NIL)))))))
+ 
+; isSideEffectFree op ==
+;   constructor? op or member(op,$SideEffectFreeFunctionList) or
+;     op is ["elt",.,op'] and isSideEffectFree op'
+ 
+(DEFUN |isSideEffectFree| (|op|)
+  (PROG (|ISTMP#1| |ISTMP#2| |op'|)
+    (RETURN
+     (OR (|constructor?| |op|) (|member| |op| |$SideEffectFreeFunctionList|)
+         (AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+              (PROGN
+               (SETQ |ISTMP#1| (CDR |op|))
+               (AND (CONSP |ISTMP#1|)
+                    (PROGN
+                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                     (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                          (PROGN (SETQ |op'| (CAR |ISTMP#2|)) 'T)))))
+              (|isSideEffectFree| |op'|))))))
+ 
+; isAlmostSimple x ==
+;   --returns (<new predicate> . <list of assignments>) or nil
+;   $assignmentList: local --$assigmentList is only used in this function
+;   transform:=
+;     fn x where
+;       fn x ==
+;         atom x or null rest x => x
+;         [op,y,:l]:= x
+;         op="has" => x
+;         op="is" => x
+;         op="LET" =>
+;           IDENTP y => (setAssignment LIST x; y)
+;           true => (setAssignment [["LET",g:= genVariable(),:l],["LET",y,g]]; g)
+;         isSideEffectFree op => [op, :mapInto(rest x, function fn)]
+;         true => $assignmentList:= "failed"
+;       setAssignment x ==
+;         $assignmentList="failed" => nil
+;         $assignmentList:= [:$assignmentList,:x]
+;   $assignmentList="failed" => nil
+;   wrapSEQExit [:$assignmentList,transform]
+ 
+(DEFUN |isAlmostSimple| (|x|)
+  (PROG (|$assignmentList| |transform|)
+    (DECLARE (SPECIAL |$assignmentList|))
+    (RETURN
+     (PROGN
+      (SETQ |$assignmentList| NIL)
+      (SETQ |transform| (|isAlmostSimple,fn| |x|))
+      (COND ((EQ |$assignmentList| '|failed|) NIL)
+            ('T
+             (|wrapSEQExit|
+              (APPEND |$assignmentList| (CONS |transform| NIL)))))))))
+(DEFUN |isAlmostSimple,fn| (|x|)
+  (PROG (|op| |y| |l| |g|)
+    (RETURN
+     (COND ((OR (ATOM |x|) (NULL (CDR |x|))) |x|)
+           ('T
+            (PROGN
+             (SETQ |op| (CAR |x|))
+             (SETQ |y| (CADR |x|))
+             (SETQ |l| (CDDR |x|))
+             (COND ((EQ |op| '|has|) |x|) ((EQ |op| '|is|) |x|)
+                   ((EQ |op| 'LET)
+                    (COND
+                     ((IDENTP |y|)
+                      (PROGN (|isAlmostSimple,setAssignment| (LIST |x|)) |y|))
+                     (T
+                      (PROGN
+                       (|isAlmostSimple,setAssignment|
+                        (LIST (CONS 'LET (CONS (SETQ |g| (|genVariable|)) |l|))
+                              (LIST 'LET |y| |g|)))
+                       |g|))))
+                   ((|isSideEffectFree| |op|)
+                    (CONS |op| (|mapInto| (CDR |x|) #'|isAlmostSimple,fn|)))
+                   (T (SETQ |$assignmentList| '|failed|)))))))))
+(DEFUN |isAlmostSimple,setAssignment| (|x|)
+  (PROG ()
+    (RETURN
+     (COND ((EQ |$assignmentList| '|failed|) NIL)
+           ('T (SETQ |$assignmentList| (APPEND |$assignmentList| |x|)))))))
+ 
+; incExitLevel u ==
+;   adjExitLevel(u,1,1)
+;   u
+ 
+(DEFUN |incExitLevel| (|u|)
+  (PROG () (RETURN (PROGN (|adjExitLevel| |u| 1 1) |u|))))
+ 
+; decExitLevel u ==
+;   (adjExitLevel(u,1,-1); removeExit0 u) where
+;     removeExit0 x ==
+;       atom x => x
+;       x is ["exit",0,u] => removeExit0 u
+;       [removeExit0 first x,:removeExit0 rest x]
+ 
+(DEFUN |decExitLevel| (|u|)
+  (PROG ()
+    (RETURN
+     (PROGN (|adjExitLevel| |u| 1 (- 1)) (|decExitLevel,removeExit0| |u|)))))
+(DEFUN |decExitLevel,removeExit0| (|x|)
+  (PROG (|ISTMP#1| |ISTMP#2| |u|)
+    (RETURN
+     (COND ((ATOM |x|) |x|)
+           ((AND (CONSP |x|) (EQ (CAR |x|) '|exit|)
+                 (PROGN
+                  (SETQ |ISTMP#1| (CDR |x|))
+                  (AND (CONSP |ISTMP#1|) (EQUAL (CAR |ISTMP#1|) 0)
+                       (PROGN
+                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                             (PROGN (SETQ |u| (CAR |ISTMP#2|)) #1='T))))))
+            (|decExitLevel,removeExit0| |u|))
+           (#1#
+            (CONS (|decExitLevel,removeExit0| (CAR |x|))
+                  (|decExitLevel,removeExit0| (CDR |x|))))))))
+ 
+; adjExitLevel(x,seqnum,inc) ==
+;   atom x => x
+;   x is [op,:l] and MEMQ(op,'(SEQ REPEAT COLLECT)) =>
+;     for u in l repeat adjExitLevel(u,seqnum+1,inc)
+;   x is ["exit",n,u] =>
+;     (adjExitLevel(u,seqnum,inc); seqnum>n => x; rplac(CADR x,n+inc))
+;   x is [op,:l] => for u in l repeat adjExitLevel(u,seqnum,inc)
+ 
+(DEFUN |adjExitLevel| (|x| |seqnum| |inc|)
+  (PROG (|op| |l| |ISTMP#1| |n| |ISTMP#2| |u|)
+    (RETURN
+     (COND ((ATOM |x|) |x|)
+           ((AND (CONSP |x|)
+                 (PROGN (SETQ |op| (CAR |x|)) (SETQ |l| (CDR |x|)) #1='T)
+                 (MEMQ |op| '(SEQ REPEAT COLLECT)))
+            ((LAMBDA (|bfVar#37| |u|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#37|)
+                      (PROGN (SETQ |u| (CAR |bfVar#37|)) NIL))
+                  (RETURN NIL))
+                 (#1# (|adjExitLevel| |u| (+ |seqnum| 1) |inc|)))
+                (SETQ |bfVar#37| (CDR |bfVar#37|))))
+             |l| NIL))
+           ((AND (CONSP |x|) (EQ (CAR |x|) '|exit|)
+                 (PROGN
+                  (SETQ |ISTMP#1| (CDR |x|))
+                  (AND (CONSP |ISTMP#1|)
+                       (PROGN
+                        (SETQ |n| (CAR |ISTMP#1|))
+                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                             (PROGN (SETQ |u| (CAR |ISTMP#2|)) #1#))))))
+            (PROGN
+             (|adjExitLevel| |u| |seqnum| |inc|)
+             (COND ((< |n| |seqnum|) |x|)
+                   (#1# (|rplac| (CADR |x|) (+ |n| |inc|))))))
+           ((AND (CONSP |x|)
+                 (PROGN (SETQ |op| (CAR |x|)) (SETQ |l| (CDR |x|)) #1#))
+            ((LAMBDA (|bfVar#38| |u|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#38|)
+                      (PROGN (SETQ |u| (CAR |bfVar#38|)) NIL))
+                  (RETURN NIL))
+                 (#1# (|adjExitLevel| |u| |seqnum| |inc|)))
+                (SETQ |bfVar#38| (CDR |bfVar#38|))))
+             |l| NIL))))))
+ 
+; wrapSEQExit l ==
+;   null rest l => first l
+;   [:c,x]:= [incExitLevel u for u in l]
+;   ["SEQ",:c,["exit",1,x]]
+ 
+(DEFUN |wrapSEQExit| (|l|)
+  (PROG (|LETTMP#1| |LETTMP#2| |x| |c|)
+    (RETURN
+     (COND ((NULL (CDR |l|)) (CAR |l|))
+           (#1='T
+            (PROGN
+             (SETQ |LETTMP#1|
+                     ((LAMBDA (|bfVar#40| |bfVar#39| |u|)
+                        (LOOP
+                         (COND
+                          ((OR (ATOM |bfVar#39|)
+                               (PROGN (SETQ |u| (CAR |bfVar#39|)) NIL))
+                           (RETURN (NREVERSE |bfVar#40|)))
+                          (#1#
+                           (SETQ |bfVar#40|
+                                   (CONS (|incExitLevel| |u|) |bfVar#40|))))
+                         (SETQ |bfVar#39| (CDR |bfVar#39|))))
+                      NIL |l| NIL))
+             (SETQ |LETTMP#2| (REVERSE |LETTMP#1|))
+             (SETQ |x| (CAR |LETTMP#2|))
+             (SETQ |c| (NREVERSE (CDR |LETTMP#2|)))
+             (CONS 'SEQ (APPEND |c| (CONS (LIST '|exit| 1 |x|) NIL)))))))))
+ 
+; removeEnv t == [t.expr,t.mode,$EmptyEnvironment]  -- t is a triple
+ 
+(DEFUN |removeEnv| (|t|)
+  (PROG () (RETURN (LIST (CAR |t|) (CADR |t|) |$EmptyEnvironment|))))
+ 
+; makeNonAtomic x ==
+;   atom x => [x]
+;   x
+ 
+(DEFUN |makeNonAtomic| (|x|)
+  (PROG () (RETURN (COND ((ATOM |x|) (LIST |x|)) ('T |x|)))))
+ 
+; flatten(l,key) ==
+;   null l => nil
+;   first l is [k,:r] and k=key => [:r,:flatten(rest l,key)]
+;   [first l,:flatten(rest l,key)]
+ 
+(DEFUN |flatten| (|l| |key|)
+  (PROG (|ISTMP#1| |k| |r|)
+    (RETURN
+     (COND ((NULL |l|) NIL)
+           ((AND
+             (PROGN
+              (SETQ |ISTMP#1| (CAR |l|))
+              (AND (CONSP |ISTMP#1|)
+                   (PROGN
+                    (SETQ |k| (CAR |ISTMP#1|))
+                    (SETQ |r| (CDR |ISTMP#1|))
+                    #1='T)))
+             (EQUAL |k| |key|))
+            (APPEND |r| (|flatten| (CDR |l|) |key|)))
+           (#1# (CONS (CAR |l|) (|flatten| (CDR |l|) |key|)))))))
+ 
+; genDomainVar() ==
+;   $Index:= $Index+1
+;   INTERNL('"#D", STRINGIMAGE $Index)
+ 
+(DEFUN |genDomainVar| ()
+  (PROG ()
+    (RETURN
+     (PROGN
+      (SETQ |$Index| (+ |$Index| 1))
+      (INTERNL "#D" (STRINGIMAGE |$Index|))))))
+ 
+; genVariable() ==
+;   INTERNL('"#G", STRINGIMAGE ($genSDVar:= $genSDVar+1))
+ 
+(DEFUN |genVariable| ()
+  (PROG ()
+    (RETURN (INTERNL "#G" (STRINGIMAGE (SETQ |$genSDVar| (+ |$genSDVar| 1)))))))
+ 
+; genSomeVariable() ==
+;   INTERNL('"##", STRINGIMAGE ($genSDVar:= $genSDVar+1))
+ 
+(DEFUN |genSomeVariable| ()
+  (PROG ()
+    (RETURN (INTERNL "##" (STRINGIMAGE (SETQ |$genSDVar| (+ |$genSDVar| 1)))))))
+ 
+; listOfIdentifiersIn x ==
+;   IDENTP x => [x]
+;   x is [op,:l] => REMDUP ("append"/[listOfIdentifiersIn y for y in l])
+;   nil
+ 
+(DEFUN |listOfIdentifiersIn| (|x|)
+  (PROG (|op| |l|)
+    (RETURN
+     (COND ((IDENTP |x|) (LIST |x|))
+           ((AND (CONSP |x|)
+                 (PROGN (SETQ |op| (CAR |x|)) (SETQ |l| (CDR |x|)) #1='T))
+            (REMDUP
+             ((LAMBDA (|bfVar#42| |bfVar#41| |y|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#41|)
+                       (PROGN (SETQ |y| (CAR |bfVar#41|)) NIL))
+                   (RETURN |bfVar#42|))
+                  (#1#
+                   (SETQ |bfVar#42|
+                           (APPEND |bfVar#42| (|listOfIdentifiersIn| |y|)))))
+                 (SETQ |bfVar#41| (CDR |bfVar#41|))))
+              NIL |l| NIL)))
+           (#1# NIL)))))
+ 
+; mapInto(x,fn) == [FUNCALL(fn,y) for y in x]
+ 
+(DEFUN |mapInto| (|x| |fn|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#44| |bfVar#43| |y|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#43|) (PROGN (SETQ |y| (CAR |bfVar#43|)) NIL))
+           (RETURN (NREVERSE |bfVar#44|)))
+          ('T (SETQ |bfVar#44| (CONS (FUNCALL |fn| |y|) |bfVar#44|))))
+         (SETQ |bfVar#43| (CDR |bfVar#43|))))
+      NIL |x| NIL))))
+ 
+; numOfOccurencesOf(x,y) ==
+;   fn(x,y,0) where
+;     fn(x,y,n) ==
+;       null y => 0
+;       x=y => n+1
+;       atom y => n
+;       fn(x,first y,n)+fn(x,rest y,n)
+ 
+(DEFUN |numOfOccurencesOf| (|x| |y|)
+  (PROG () (RETURN (|numOfOccurencesOf,fn| |x| |y| 0))))
+(DEFUN |numOfOccurencesOf,fn| (|x| |y| |n|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL |y|) 0) ((EQUAL |x| |y|) (+ |n| 1)) ((ATOM |y|) |n|)
+           ('T
+            (+ (|numOfOccurencesOf,fn| |x| (CAR |y|) |n|)
+               (|numOfOccurencesOf,fn| |x| (CDR |y|) |n|)))))))
+ 
+; compilerMessage x ==
+;   $PrintCompilerMessageIfTrue => APPLY("SAY",x)
+ 
+(DEFUN |compilerMessage| (|x|)
+  (PROG ()
+    (RETURN
+     (COND (|$PrintCompilerMessageIfTrue| (IDENTITY (APPLY 'SAY |x|)))))))
+ 
+; printDashedLine() ==
+;   SAY
+;    '"--------------------------------------------------------------------------"
+ 
+(DEFUN |printDashedLine| ()
+  (PROG ()
+    (RETURN
+     (SAY
+      "--------------------------------------------------------------------------"))))
+ 
+; stackSemanticError(msg,expr) ==
+;   BUMPERRORCOUNT "semantic"
+;   if $insideCapsuleFunctionIfTrue then msg:= [$op,": ",:msg]
+;   if atom msg then msg:= LIST msg
+;   entry:= [msg,expr]
+;   if not member(entry,$semanticErrorStack) then $semanticErrorStack:=
+;     [entry,:$semanticErrorStack]
+;   $scanIfTrue and $insideCapsuleFunctionIfTrue=true and #$semanticErrorStack-
+;     $initCapsuleErrorCount>3 => THROW("compCapsuleBody",nil)
+;   nil
+ 
+(DEFUN |stackSemanticError| (|msg| |expr|)
+  (PROG (|entry|)
+    (RETURN
+     (PROGN
+      (BUMPERRORCOUNT '|semantic|)
+      (COND
+       (|$insideCapsuleFunctionIfTrue|
+        (SETQ |msg| (CONS |$op| (CONS '|: | |msg|)))))
+      (COND ((ATOM |msg|) (SETQ |msg| (LIST |msg|))))
+      (SETQ |entry| (LIST |msg| |expr|))
+      (COND
+       ((NULL (|member| |entry| |$semanticErrorStack|))
+        (SETQ |$semanticErrorStack| (CONS |entry| |$semanticErrorStack|))))
+      (COND
+       ((AND |$scanIfTrue| (EQUAL |$insideCapsuleFunctionIfTrue| T)
+             (< 3 (- (LENGTH |$semanticErrorStack|) |$initCapsuleErrorCount|)))
+        (THROW '|compCapsuleBody| NIL))
+       ('T NIL))))))
+ 
+; stackWarning msg ==
+;   if $insideCapsuleFunctionIfTrue then msg:= [$op,": ",:msg]
+;   if not member(msg,$warningStack) then $warningStack:= [msg,:$warningStack]
+;   nil
+ 
+(DEFUN |stackWarning| (|msg|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (COND
+       (|$insideCapsuleFunctionIfTrue|
+        (SETQ |msg| (CONS |$op| (CONS '|: | |msg|)))))
+      (COND
+       ((NULL (|member| |msg| |$warningStack|))
+        (SETQ |$warningStack| (CONS |msg| |$warningStack|))))
+      NIL))))
+ 
+; unStackWarning msg ==
+;   if $insideCapsuleFunctionIfTrue then msg:= [$op,": ",:msg]
+;   $warningStack:= EFFACE(msg,$warningStack)
+;   nil
+ 
+(DEFUN |unStackWarning| (|msg|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (COND
+       (|$insideCapsuleFunctionIfTrue|
+        (SETQ |msg| (CONS |$op| (CONS '|: | |msg|)))))
+      (SETQ |$warningStack| (EFFACE |msg| |$warningStack|))
+      NIL))))
+ 
+; stackMessage msg ==
+;   $compErrorMessageStack:= [msg,:$compErrorMessageStack]
+;   nil
+ 
+(DEFUN |stackMessage| (|msg|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (SETQ |$compErrorMessageStack| (CONS |msg| |$compErrorMessageStack|))
+      NIL))))
+ 
+; stackMessageIfNone msg ==
+;   --used in situations such as compForm where the earliest message is wanted
+;   if null $compErrorMessageStack then $compErrorMessageStack:=
+;     [msg,:$compErrorMessageStack]
+;   nil
+ 
+(DEFUN |stackMessageIfNone| (|msg|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (COND
+       ((NULL |$compErrorMessageStack|)
+        (SETQ |$compErrorMessageStack| (CONS |msg| |$compErrorMessageStack|))))
+      NIL))))
+ 
+; stackAndThrow msg ==
+;   $compErrorMessageStack:= [msg,:$compErrorMessageStack]
+;   THROW("compOrCroak",nil)
+ 
+(DEFUN |stackAndThrow| (|msg|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (SETQ |$compErrorMessageStack| (CONS |msg| |$compErrorMessageStack|))
+      (THROW '|compOrCroak| NIL)))))
+ 
+; printString x == PRINTEXP (STRINGP x => x; PNAME x)
+ 
+(DEFUN |printString| (|x|)
+  (PROG () (RETURN (PRINTEXP (COND ((STRINGP |x|) |x|) ('T (PNAME |x|)))))))
+ 
+; printAny x == if atom x then printString x else PRIN0 x
+ 
+(DEFUN |printAny| (|x|)
+  (PROG () (RETURN (COND ((ATOM |x|) (|printString| |x|)) ('T (PRIN0 |x|))))))
+ 
+; printSignature(before,op,[target,:argSigList]) ==
+;   printString before
+;   printString op
+;   printString ": _("
+;   if argSigList then
+;     printAny first argSigList
+;     for m in rest argSigList repeat (printString ","; printAny m)
+;   printString "_) -> "
+;   printAny target
+;   TERPRI()
+ 
+(DEFUN |printSignature| (|before| |op| |bfVar#46|)
+  (PROG (|target| |argSigList|)
+    (RETURN
+     (PROGN
+      (SETQ |target| (CAR |bfVar#46|))
+      (SETQ |argSigList| (CDR |bfVar#46|))
+      (|printString| |before|)
+      (|printString| |op|)
+      (|printString| '|: (|)
+      (COND
+       (|argSigList| (|printAny| (CAR |argSigList|))
+        ((LAMBDA (|bfVar#45| |m|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#45|) (PROGN (SETQ |m| (CAR |bfVar#45|)) NIL))
+              (RETURN NIL))
+             ('T (PROGN (|printString| '|,|) (|printAny| |m|))))
+            (SETQ |bfVar#45| (CDR |bfVar#45|))))
+         (CDR |argSigList|) NIL)))
+      (|printString| '|) -> |)
+      (|printAny| |target|)
+      (TERPRI)))))
+ 
+; pmatch(s,p) == pmatchWithSl(s,p,"ok")
+ 
+(DEFUN |pmatch| (|s| |p|) (PROG () (RETURN (|pmatchWithSl| |s| |p| '|ok|))))
+ 
+; pmatchWithSl(s,p,al) ==
+;   s=$EmptyMode => nil
+;   s=p => al
+;   v:= assoc(p,al) => s=rest v or al
+;   MEMQ(p,$PatternVariableList) => [[p,:s],:al]
+;   null atom p and null atom s and (al':= pmatchWithSl(first s,first p,al)) and
+;     pmatchWithSl(rest s,rest p,al')
+ 
+(DEFUN |pmatchWithSl| (|s| |p| |al|)
+  (PROG (|v| |al'|)
+    (RETURN
+     (COND ((EQUAL |s| |$EmptyMode|) NIL) ((EQUAL |s| |p|) |al|)
+           ((SETQ |v| (|assoc| |p| |al|)) (OR (EQUAL |s| (CDR |v|)) |al|))
+           ((MEMQ |p| |$PatternVariableList|) (CONS (CONS |p| |s|) |al|))
+           ('T
+            (AND (NULL (ATOM |p|)) (NULL (ATOM |s|))
+                 (SETQ |al'| (|pmatchWithSl| (CAR |s|) (CAR |p|) |al|))
+                 (|pmatchWithSl| (CDR |s|) (CDR |p|) |al'|)))))))
+ 
+; elapsedTime() ==
+;   currentTime:= TEMPUS_-FUGIT()
+;   elapsedSeconds:= (currentTime-$previousTime)*1.0/$timerTicksPerSecond
+;   $previousTime:= currentTime
+;   elapsedSeconds
+ 
+(DEFUN |elapsedTime| ()
+  (PROG (|elapsedSeconds| |currentTime|)
+    (RETURN
+     (PROGN
+      (SETQ |currentTime| (TEMPUS-FUGIT))
+      (SETQ |elapsedSeconds|
+              (/ (* (- |currentTime| |$previousTime|) 1.0)
+                 |$timerTicksPerSecond|))
+      (SETQ |$previousTime| |currentTime|)
+      |elapsedSeconds|))))
+ 
+; addStats([a,b],[c,d]) == [a+c,b+d]
+ 
+(DEFUN |addStats| (|bfVar#47| |bfVar#48|)
+  (PROG (|c| |d| |a| |b|)
+    (RETURN
+     (PROGN
+      (SETQ |c| (CAR |bfVar#48|))
+      (SETQ |d| (CADR |bfVar#48|))
+      (SETQ |a| (CAR |bfVar#47|))
+      (SETQ |b| (CADR |bfVar#47|))
+      (LIST (+ |a| |c|) (+ |b| |d|))))))
+ 
+; printStats [byteCount,elapsedSeconds] ==
+;   timeString := normalizeStatAndStringify elapsedSeconds
+;   if byteCount = 0 then SAY('"Time: ",timeString,'" SEC.") else
+;     SAY('"Size: ",byteCount,'" BYTES     Time: ",timeString,'" SEC.")
+;   TERPRI()
+;   nil
+ 
+(DEFUN |printStats| (|bfVar#49|)
+  (PROG (|byteCount| |elapsedSeconds| |timeString|)
+    (RETURN
+     (PROGN
+      (SETQ |byteCount| (CAR |bfVar#49|))
+      (SETQ |elapsedSeconds| (CADR |bfVar#49|))
+      (SETQ |timeString| (|normalizeStatAndStringify| |elapsedSeconds|))
+      (COND ((EQL |byteCount| 0) (SAY "Time: " |timeString| " SEC."))
+            ('T
+             (SAY "Size: " |byteCount| " BYTES     Time: " |timeString|
+              " SEC.")))
+      (TERPRI)
+      NIL))))
+ 
+; extendsCategoryForm(domain,form,form') ==
+;   --is domain of category form also of category form'?
+;   --domain is only used for ensuring that X being a Ring means that it
+;   --satisfies (Algebra X)
+;   form=form' => true
+;   form=$Category => nil
+;   form' is ["Join",:l] => and/[extendsCategoryForm(domain,form,x) for x in l]
+;   form' is ["CATEGORY",.,:l] =>
+;     and/[extendsCategoryForm(domain,form,x) for x in l]
+;   form is ["Join",:l] => or/[extendsCategoryForm(domain,x,form') for x in l]
+;   form is ["CATEGORY",.,:l] =>
+;     member(form',l) or
+;       stackWarning ["not known that ",form'," is of mode ",form] or true
+;   isCategoryForm(form,$EmptyEnvironment) =>
+;           --Constructs the associated vector
+;     formVec:=(compMakeCategoryObject(form,$e)).expr
+;             --Must be $e to pick up locally bound domains
+;     form' is ["SIGNATURE",op,args,:.] =>
+;         assoc([op,args],formVec.(1)) or
+;             assoc(SUBSTQ(domain,"$",[op,args]),
+;                   SUBSTQ(domain,"$",formVec.(1)))
+;     form' is ["ATTRIBUTE",at] => BREAK()
+;     form' is ["IF",:.] => true --temporary hack so comp won't fail
+;     -- Are we dealing with an Aldor category?  If so use the "has" function ...
+;     # formVec = 1 => newHasTest(form,form')
+;     catvlist:= formVec.4
+;     member(form',first catvlist) or
+;      member(form',SUBSTQ(domain,"$",first catvlist)) or
+;       (or/
+;         [extendsCategoryForm(domain,SUBSTQ(domain,"$",cat),form')
+;           for [cat,:.] in CADR catvlist])
+;   nil
+ 
+(DEFUN |extendsCategoryForm| (|domain| |form| |form'|)
+  (PROG (|l| |ISTMP#1| |formVec| |op| |ISTMP#2| |args| |at| |catvlist| |cat|)
+    (RETURN
+     (COND ((EQUAL |form| |form'|) T) ((EQUAL |form| |$Category|) NIL)
+           ((AND (CONSP |form'|) (EQ (CAR |form'|) '|Join|)
+                 (PROGN (SETQ |l| (CDR |form'|)) #1='T))
+            ((LAMBDA (|bfVar#51| |bfVar#50| |x|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#50|)
+                      (PROGN (SETQ |x| (CAR |bfVar#50|)) NIL))
+                  (RETURN |bfVar#51|))
+                 (#1#
+                  (PROGN
+                   (SETQ |bfVar#51|
+                           (|extendsCategoryForm| |domain| |form| |x|))
+                   (COND ((NOT |bfVar#51|) (RETURN NIL))))))
+                (SETQ |bfVar#50| (CDR |bfVar#50|))))
+             T |l| NIL))
+           ((AND (CONSP |form'|) (EQ (CAR |form'|) 'CATEGORY)
+                 (PROGN
+                  (SETQ |ISTMP#1| (CDR |form'|))
+                  (AND (CONSP |ISTMP#1|)
+                       (PROGN (SETQ |l| (CDR |ISTMP#1|)) #1#))))
+            ((LAMBDA (|bfVar#53| |bfVar#52| |x|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#52|)
+                      (PROGN (SETQ |x| (CAR |bfVar#52|)) NIL))
+                  (RETURN |bfVar#53|))
+                 (#1#
+                  (PROGN
+                   (SETQ |bfVar#53|
+                           (|extendsCategoryForm| |domain| |form| |x|))
+                   (COND ((NOT |bfVar#53|) (RETURN NIL))))))
+                (SETQ |bfVar#52| (CDR |bfVar#52|))))
+             T |l| NIL))
+           ((AND (CONSP |form|) (EQ (CAR |form|) '|Join|)
+                 (PROGN (SETQ |l| (CDR |form|)) #1#))
+            ((LAMBDA (|bfVar#55| |bfVar#54| |x|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#54|)
+                      (PROGN (SETQ |x| (CAR |bfVar#54|)) NIL))
+                  (RETURN |bfVar#55|))
+                 (#1#
+                  (PROGN
+                   (SETQ |bfVar#55|
+                           (|extendsCategoryForm| |domain| |x| |form'|))
+                   (COND (|bfVar#55| (RETURN |bfVar#55|))))))
+                (SETQ |bfVar#54| (CDR |bfVar#54|))))
+             NIL |l| NIL))
+           ((AND (CONSP |form|) (EQ (CAR |form|) 'CATEGORY)
+                 (PROGN
+                  (SETQ |ISTMP#1| (CDR |form|))
+                  (AND (CONSP |ISTMP#1|)
+                       (PROGN (SETQ |l| (CDR |ISTMP#1|)) #1#))))
+            (OR (|member| |form'| |l|)
+                (|stackWarning|
+                 (LIST '|not known that | |form'| '| is of mode | |form|))
+                T))
+           ((|isCategoryForm| |form| |$EmptyEnvironment|)
+            (PROGN
+             (SETQ |formVec| (CAR (|compMakeCategoryObject| |form| |$e|)))
+             (COND
+              ((AND (CONSP |form'|) (EQ (CAR |form'|) 'SIGNATURE)
+                    (PROGN
+                     (SETQ |ISTMP#1| (CDR |form'|))
+                     (AND (CONSP |ISTMP#1|)
+                          (PROGN
+                           (SETQ |op| (CAR |ISTMP#1|))
+                           (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                           (AND (CONSP |ISTMP#2|)
+                                (PROGN (SETQ |args| (CAR |ISTMP#2|)) #1#))))))
+               (OR (|assoc| (LIST |op| |args|) (ELT |formVec| 1))
+                   (|assoc| (SUBSTQ |domain| '$ (LIST |op| |args|))
+                    (SUBSTQ |domain| '$ (ELT |formVec| 1)))))
+              ((AND (CONSP |form'|) (EQ (CAR |form'|) 'ATTRIBUTE)
+                    (PROGN
+                     (SETQ |ISTMP#1| (CDR |form'|))
+                     (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                          (PROGN (SETQ |at| (CAR |ISTMP#1|)) #1#))))
+               (BREAK))
+              ((AND (CONSP |form'|) (EQ (CAR |form'|) 'IF)) T)
+              ((EQL (LENGTH |formVec|) 1) (|newHasTest| |form| |form'|))
+              (#1#
+               (PROGN
+                (SETQ |catvlist| (ELT |formVec| 4))
+                (OR (|member| |form'| (CAR |catvlist|))
+                    (|member| |form'| (SUBSTQ |domain| '$ (CAR |catvlist|)))
+                    ((LAMBDA (|bfVar#58| |bfVar#57| |bfVar#56|)
+                       (LOOP
+                        (COND
+                         ((OR (ATOM |bfVar#57|)
+                              (PROGN (SETQ |bfVar#56| (CAR |bfVar#57|)) NIL))
+                          (RETURN |bfVar#58|))
+                         (#1#
+                          (AND (CONSP |bfVar#56|)
+                               (PROGN (SETQ |cat| (CAR |bfVar#56|)) #1#)
+                               (PROGN
+                                (SETQ |bfVar#58|
+                                        (|extendsCategoryForm| |domain|
+                                         (SUBSTQ |domain| '$ |cat|) |form'|))
+                                (COND (|bfVar#58| (RETURN |bfVar#58|)))))))
+                        (SETQ |bfVar#57| (CDR |bfVar#57|))))
+                     NIL (CADR |catvlist|) NIL)))))))
+           (#1# NIL)))))
+ 
+; getmode(x,e) ==
+;   prop:=getProplist(x,e)
+;   u := QLASSQ("value", prop) => u.mode
+;   QLASSQ("mode", prop)
+ 
+(DEFUN |getmode| (|x| |e|)
+  (PROG (|prop| |u|)
+    (RETURN
+     (PROGN
+      (SETQ |prop| (|getProplist| |x| |e|))
+      (COND ((SETQ |u| (QLASSQ '|value| |prop|)) (CADR |u|))
+            ('T (QLASSQ '|mode| |prop|)))))))
+ 
+; getmodeOrMapping(x,e) ==
+;   u:= getmode(x,e) => u
+;   (u:= get(x,"modemap",e)) is [[[.,:map],.],:.] => ["Mapping",:map]
+;   nil
+ 
+(DEFUN |getmodeOrMapping| (|x| |e|)
+  (PROG (|u| |ISTMP#1| |ISTMP#2| |ISTMP#3| |map| |ISTMP#4|)
+    (RETURN
+     (COND ((SETQ |u| (|getmode| |x| |e|)) |u|)
+           ((PROGN
+             (SETQ |ISTMP#1| (SETQ |u| (|get| |x| '|modemap| |e|)))
+             (AND (CONSP |ISTMP#1|)
+                  (PROGN
+                   (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                   (AND (CONSP |ISTMP#2|)
+                        (PROGN
+                         (SETQ |ISTMP#3| (CAR |ISTMP#2|))
+                         (AND (CONSP |ISTMP#3|)
+                              (PROGN (SETQ |map| (CDR |ISTMP#3|)) #1='T)))
+                        (PROGN
+                         (SETQ |ISTMP#4| (CDR |ISTMP#2|))
+                         (AND (CONSP |ISTMP#4|) (EQ (CDR |ISTMP#4|) NIL)))))))
+            (CONS '|Mapping| |map|))
+           (#1# NIL)))))
+ 
+; substituteOp(op',op,x) ==
+;   atom x => x
+;   [(op=(f:= first x) => op'; f),:[substituteOp(op',op,y) for y in rest x]]
+ 
+(DEFUN |substituteOp| (|op'| |op| |x|)
+  (PROG (|f|)
+    (RETURN
+     (COND ((ATOM |x|) |x|)
+           (#1='T
+            (CONS (COND ((EQUAL |op| (SETQ |f| (CAR |x|))) |op'|) (#1# |f|))
+                  ((LAMBDA (|bfVar#60| |bfVar#59| |y|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#59|)
+                            (PROGN (SETQ |y| (CAR |bfVar#59|)) NIL))
+                        (RETURN (NREVERSE |bfVar#60|)))
+                       (#1#
+                        (SETQ |bfVar#60|
+                                (CONS (|substituteOp| |op'| |op| |y|)
+                                      |bfVar#60|))))
+                      (SETQ |bfVar#59| (CDR |bfVar#59|))))
+                   NIL (CDR |x|) NIL)))))))
+ 
+; sublisV(p,e) ==
+;   (atom p => e; suba(p,e)) where
+;     suba(p,e) ==
+;       STRINGP e => e
+;       -- no need to descend vectors unless they are categories
+;       --REFVECP e => LIST2REFVEC [suba(p,e.i) for i in 0..MAXINDEX e]
+;       isCategory e => LIST2REFVEC [suba(p,e.i) for i in 0..MAXINDEX e]
+;       atom e => (y:= ASSQ(e,p) => rest y; e)
+;       u:= suba(p,QCAR e)
+;       v:= suba(p,QCDR e)
+;       EQ(QCAR e,u) and EQ(QCDR e,v) => e
+;       [u,:v]
+ 
+(DEFUN |sublisV| (|p| |e|)
+  (PROG () (RETURN (COND ((ATOM |p|) |e|) ('T (|sublisV,suba| |p| |e|))))))
+(DEFUN |sublisV,suba| (|p| |e|)
+  (PROG (|y| |u| |v|)
+    (RETURN
+     (COND ((STRINGP |e|) |e|)
+           ((|isCategory| |e|)
+            (LIST2REFVEC
+             ((LAMBDA (|bfVar#62| |bfVar#61| |i|)
+                (LOOP
+                 (COND ((> |i| |bfVar#61|) (RETURN (NREVERSE |bfVar#62|)))
+                       (#1='T
+                        (SETQ |bfVar#62|
+                                (CONS (|sublisV,suba| |p| (ELT |e| |i|))
+                                      |bfVar#62|))))
+                 (SETQ |i| (+ |i| 1))))
+              NIL (MAXINDEX |e|) 0)))
+           ((ATOM |e|) (COND ((SETQ |y| (ASSQ |e| |p|)) (CDR |y|)) (#1# |e|)))
+           (#1#
+            (PROGN
+             (SETQ |u| (|sublisV,suba| |p| (QCAR |e|)))
+             (SETQ |v| (|sublisV,suba| |p| (QCDR |e|)))
+             (COND ((AND (EQ (QCAR |e|) |u|) (EQ (QCDR |e|) |v|)) |e|)
+                   (#1# (CONS |u| |v|)))))))))
+ 
+; _?MODEMAPS x == _?modemaps x
+ 
+(DEFUN ?MODEMAPS (|x|) (PROG () (RETURN (|?modemaps| |x|))))
+ 
+; _?modemaps x ==
+;   env:=
+;     $insideCapsuleFunctionIfTrue=true => $CapsuleModemapFrame
+;     $f
+;   x="all" => displayModemaps env
+;   -- displayOpModemaps(x,old2NewModemaps get(x,"modemap",env))
+;   displayOpModemaps(x,get(x,"modemap",env))
+ 
+(DEFUN |?modemaps| (|x|)
+  (PROG (|env|)
+    (RETURN
+     (PROGN
+      (SETQ |env|
+              (COND
+               ((EQUAL |$insideCapsuleFunctionIfTrue| T)
+                |$CapsuleModemapFrame|)
+               (#1='T |$f|)))
+      (COND ((EQ |x| '|all|) (|displayModemaps| |env|))
+            (#1# (|displayOpModemaps| |x| (|get| |x| '|modemap| |env|))))))))
+ 
+; old2NewModemaps x ==
+; --  [[dcSig,pred] for [dcSig,[pred,:.],:.] in x]
+;   x is [dcSig,[pred,:.],:.]  =>  [dcSig,pred]
+;   x
+ 
+(DEFUN |old2NewModemaps| (|x|)
+  (PROG (|dcSig| |ISTMP#1| |ISTMP#2| |pred|)
+    (RETURN
+     (COND
+      ((AND (CONSP |x|)
+            (PROGN
+             (SETQ |dcSig| (CAR |x|))
+             (SETQ |ISTMP#1| (CDR |x|))
+             (AND (CONSP |ISTMP#1|)
+                  (PROGN
+                   (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                   (AND (CONSP |ISTMP#2|)
+                        (PROGN (SETQ |pred| (CAR |ISTMP#2|)) #1='T))))))
+       (LIST |dcSig| |pred|))
+      (#1# |x|)))))
+ 
+; traceUp() ==
+;   atom $x => sayBrightly "$x is an atom"
+;   for y in rest $x repeat
+;     u:= comp(y,$EmptyMode,$f) =>
+;       sayBrightly [y,'" ==> mode",'%b,u.mode,'%d]
+;     sayBrightly [y,'" does not compile"]
+ 
+(DEFUN |traceUp| ()
+  (PROG (|u|)
+    (RETURN
+     (COND ((ATOM |$x|) (|sayBrightly| '|$x is an atom|))
+           (#1='T
+            ((LAMBDA (|bfVar#63| |y|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#63|)
+                      (PROGN (SETQ |y| (CAR |bfVar#63|)) NIL))
+                  (RETURN NIL))
+                 (#1#
+                  (COND
+                   ((SETQ |u| (|comp| |y| |$EmptyMode| |$f|))
+                    (|sayBrightly|
+                     (LIST |y| " ==> mode" '|%b| (CADR |u|) '|%d|)))
+                   (#1# (|sayBrightly| (LIST |y| " does not compile"))))))
+                (SETQ |bfVar#63| (CDR |bfVar#63|))))
+             (CDR |$x|) NIL))))))
+ 
+; _?M x == _?m x
+ 
+(DEFUN ?M (|x|) (PROG () (RETURN (|?m| |x|))))
+ 
+; _?m x ==
+;   u:= comp(x,$EmptyMode,$f) => u.mode
+;   nil
+ 
+(DEFUN |?m| (|x|)
+  (PROG (|u|)
+    (RETURN
+     (COND ((SETQ |u| (|comp| |x| |$EmptyMode| |$f|)) (CADR |u|)) ('T NIL)))))
+ 
+; traceDown() ==
+;   mmList:= getFormModemaps($x,$f) =>
+;     for mm in mmList repeat if u:= qModemap mm then return u
+;   sayBrightly "no modemaps for $x"
+ 
+(DEFUN |traceDown| ()
+  (PROG (|u| |mmList|)
+    (RETURN
+     (COND
+      ((SETQ |mmList| (|getFormModemaps| |$x| |$f|))
+       ((LAMBDA (|bfVar#64| |mm|)
+          (LOOP
+           (COND
+            ((OR (ATOM |bfVar#64|) (PROGN (SETQ |mm| (CAR |bfVar#64|)) NIL))
+             (RETURN NIL))
+            (#1='T (COND ((SETQ |u| (|qModemap| |mm|)) (RETURN |u|)))))
+           (SETQ |bfVar#64| (CDR |bfVar#64|))))
+        |mmList| NIL))
+      (#1# (|sayBrightly| '|no modemaps for $x|))))))
+ 
+; qModemap mm ==
+;   sayBrightly ['%b,"modemap",'%d,:formatModemap mm]
+;   [[dc,target,:sl],[pred,:.]]:= mm
+;   and/[qArg(a,m) for a in rest $x for m in sl] => target
+;   sayBrightly ['%b,"fails",'%d,'%l]
+ 
+(DEFUN |qModemap| (|mm|)
+  (PROG (|dc| |target| |sl| |pred|)
+    (RETURN
+     (PROGN
+      (|sayBrightly|
+       (CONS '|%b| (CONS '|modemap| (CONS '|%d| (|formatModemap| |mm|)))))
+      (SETQ |dc| (CAAR . #1=(|mm|)))
+      (SETQ |target| (CADAR . #1#))
+      (SETQ |sl| (CDDAR . #1#))
+      (SETQ |pred| (CAADR |mm|))
+      (COND
+       (((LAMBDA (|bfVar#67| |bfVar#65| |a| |bfVar#66| |m|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#65|) (PROGN (SETQ |a| (CAR |bfVar#65|)) NIL)
+                  (ATOM |bfVar#66|) (PROGN (SETQ |m| (CAR |bfVar#66|)) NIL))
+              (RETURN |bfVar#67|))
+             (#2='T
+              (PROGN
+               (SETQ |bfVar#67| (|qArg| |a| |m|))
+               (COND ((NOT |bfVar#67|) (RETURN NIL))))))
+            (SETQ |bfVar#65| (CDR |bfVar#65|))
+            (SETQ |bfVar#66| (CDR |bfVar#66|))))
+         T (CDR |$x|) NIL |sl| NIL)
+        |target|)
+       (#2# (|sayBrightly| (LIST '|%b| '|fails| '|%d| '|%l|))))))))
+ 
+; qArg(a,m) ==
+;   yesOrNo:=
+;     u:= comp(a,m,$f) => "yes"
+;     "no"
+;   sayBrightly [a," --> ",m,'%b,yesOrNo,'%d]
+;   yesOrNo="yes"
+ 
+(DEFUN |qArg| (|a| |m|)
+  (PROG (|u| |yesOrNo|)
+    (RETURN
+     (PROGN
+      (SETQ |yesOrNo|
+              (COND ((SETQ |u| (|comp| |a| |m| |$f|)) '|yes|) ('T '|no|)))
+      (|sayBrightly| (LIST |a| '| --> | |m| '|%b| |yesOrNo| '|%d|))
+      (EQ |yesOrNo| '|yes|)))))
+ 
+; _?COMP x == _?comp x
+ 
+(DEFUN ?COMP (|x|) (PROG () (RETURN (|?comp| |x|))))
+ 
+; _?comp x ==
+;   msg:=
+;     u:= comp(x,$EmptyMode,$f) =>
+;       [MAKESTRING "compiles to mode",'%b,u.mode,'%d]
+;     nil
+;   sayBrightly msg
+ 
+(DEFUN |?comp| (|x|)
+  (PROG (|u| |msg|)
+    (RETURN
+     (PROGN
+      (SETQ |msg|
+              (COND
+               ((SETQ |u| (|comp| |x| |$EmptyMode| |$f|))
+                (LIST (MAKESTRING '|compiles to mode|) '|%b| (CADR |u|) '|%d|))
+               ('T NIL)))
+      (|sayBrightly| |msg|)))))
+ 
+; _?domains() == pp getDomainsInScope $f
+ 
+(DEFUN |?domains| () (PROG () (RETURN (|pp| (|getDomainsInScope| |$f|)))))
+ 
+; _?DOMAINS() == ?domains()
+ 
+(DEFUN ?DOMAINS () (PROG () (RETURN (|?domains|))))
+ 
+; _?mode x == displayProplist(x,[["mode",:getmode(x,$f)]])
+ 
+(DEFUN |?mode| (|x|)
+  (PROG ()
+    (RETURN
+     (|displayProplist| |x| (LIST (CONS '|mode| (|getmode| |x| |$f|)))))))
+ 
+; _?MODE x == _?mode x
+ 
+(DEFUN ?MODE (|x|) (PROG () (RETURN (|?mode| |x|))))
+ 
+; _?properties x == displayProplist(x,getProplist(x,$f))
+ 
+(DEFUN |?properties| (|x|)
+  (PROG () (RETURN (|displayProplist| |x| (|getProplist| |x| |$f|)))))
+ 
+; _?PROPERTIES x == _?properties x
+ 
+(DEFUN ?PROPERTIES (|x|) (PROG () (RETURN (|?properties| |x|))))
+ 
+; _?value x == displayProplist(x,[["value",:get(x,"value",$f)]])
+ 
+(DEFUN |?value| (|x|)
+  (PROG ()
+    (RETURN
+     (|displayProplist| |x| (LIST (CONS '|value| (|get| |x| '|value| |$f|)))))))
+ 
+; _?VALUE x == _?value x
+ 
+(DEFUN ?VALUE (|x|) (PROG () (RETURN (|?value| |x|))))
+ 
+; displayProplist(x,alist) ==
+;   sayBrightly ["properties of",'%b,x,'%d,":"]
+;   fn alist where
+;     fn alist ==
+;       alist is [[prop,:val],:l] =>
+;         if prop="value" then val:= [val.expr,val.mode,'"..."]
+;         sayBrightly ["   ",'%b,prop,'%d,": ",val]
+;         fn deleteAssoc(prop,l)
+ 
+(DEFUN |displayProplist| (|x| |alist|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|sayBrightly| (LIST '|properties of| '|%b| |x| '|%d| '|:|))
+      (|displayProplist,fn| |alist|)))))
+(DEFUN |displayProplist,fn| (|alist|)
+  (PROG (|ISTMP#1| |prop| |val| |l|)
+    (RETURN
+     (COND
+      ((AND (CONSP |alist|)
+            (PROGN
+             (SETQ |ISTMP#1| (CAR |alist|))
+             (AND (CONSP |ISTMP#1|)
+                  (PROGN
+                   (SETQ |prop| (CAR |ISTMP#1|))
+                   (SETQ |val| (CDR |ISTMP#1|))
+                   #1='T)))
+            (PROGN (SETQ |l| (CDR |alist|)) #1#))
+       (IDENTITY
+        (PROGN
+         (COND
+          ((EQ |prop| '|value|)
+           (SETQ |val| (LIST (CAR |val|) (CADR |val|) "..."))))
+         (|sayBrightly| (LIST '|   | '|%b| |prop| '|%d| '|: | |val|))
+         (|displayProplist,fn| (|deleteAssoc| |prop| |l|)))))))))
+ 
+; displayModemaps E ==
+;   listOfOperatorsSeenSoFar:= nil
+;   for x in E for i in 1.. repeat
+;     for y in x for j in 1.. repeat
+;       for z in y | null member(first z,listOfOperatorsSeenSoFar) and
+;         (modemaps:= LASSOC("modemap",rest z)) repeat
+;           listOfOperatorsSeenSoFar:= [first z,:listOfOperatorsSeenSoFar]
+;           displayOpModemaps(first z,modemaps)
+ 
+(DEFUN |displayModemaps| (E)
+  (PROG (|listOfOperatorsSeenSoFar| |modemaps|)
+    (RETURN
+     (PROGN
+      (SETQ |listOfOperatorsSeenSoFar| NIL)
+      ((LAMBDA (|bfVar#68| |x| |i|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#68|) (PROGN (SETQ |x| (CAR |bfVar#68|)) NIL))
+            (RETURN NIL))
+           (#1='T
+            ((LAMBDA (|bfVar#69| |y| |j|)
+               (LOOP
+                (COND
+                 ((OR (ATOM |bfVar#69|)
+                      (PROGN (SETQ |y| (CAR |bfVar#69|)) NIL))
+                  (RETURN NIL))
+                 (#1#
+                  ((LAMBDA (|bfVar#70| |z|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#70|)
+                            (PROGN (SETQ |z| (CAR |bfVar#70|)) NIL))
+                        (RETURN NIL))
+                       (#1#
+                        (AND
+                         (NULL (|member| (CAR |z|) |listOfOperatorsSeenSoFar|))
+                         (SETQ |modemaps| (LASSOC '|modemap| (CDR |z|)))
+                         (PROGN
+                          (SETQ |listOfOperatorsSeenSoFar|
+                                  (CONS (CAR |z|) |listOfOperatorsSeenSoFar|))
+                          (|displayOpModemaps| (CAR |z|) |modemaps|)))))
+                      (SETQ |bfVar#70| (CDR |bfVar#70|))))
+                   |y| NIL)))
+                (SETQ |bfVar#69| (CDR |bfVar#69|))
+                (SETQ |j| (+ |j| 1))))
+             |x| NIL 1)))
+          (SETQ |bfVar#68| (CDR |bfVar#68|))
+          (SETQ |i| (+ |i| 1))))
+       E NIL 1)))))

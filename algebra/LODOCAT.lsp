@@ -1,0 +1,55 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFPARAMETER |LinearOrdinaryDifferentialOperatorCategory;CAT| 'NIL) 
+
+(DEFPARAMETER |LinearOrdinaryDifferentialOperatorCategory;AL| 'NIL) 
+
+(DEFUN |LinearOrdinaryDifferentialOperatorCategory| (#1=#:G127)
+  (LET (#2=#:G128)
+    (COND
+     ((SETQ #2#
+              (|assoc| #3=(|devaluate| #1#)
+                       |LinearOrdinaryDifferentialOperatorCategory;AL|))
+      (CDR #2#))
+     (T
+      (SETQ |LinearOrdinaryDifferentialOperatorCategory;AL|
+              (|cons5|
+               (CONS #3#
+                     (SETQ #2#
+                             (|LinearOrdinaryDifferentialOperatorCategory;|
+                              #1#)))
+               |LinearOrdinaryDifferentialOperatorCategory;AL|))
+      #2#)))) 
+
+(DEFUN |LinearOrdinaryDifferentialOperatorCategory;| (|t#1|)
+  (PROG (#1=#:G126)
+    (RETURN
+     (PROG1
+         (LETT #1#
+               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                          (COND
+                           (|LinearOrdinaryDifferentialOperatorCategory;CAT|)
+                           ('T
+                            (LETT
+                             |LinearOrdinaryDifferentialOperatorCategory;CAT|
+                             (|Join|
+                              (|UnivariateSkewPolynomialCategory| '|t#1|)
+                              (|Eltable| '|t#1| '|t#1|)
+                              (|mkCategory|
+                               '(((D ($)) T) ((|adjoint| ($ $)) T)
+                                 ((|symmetricProduct| ($ $ $))
+                                  (|has| |t#1| (|Field|)))
+                                 ((|symmetricPower|
+                                   ($ $ (|NonNegativeInteger|)))
+                                  (|has| |t#1| (|Field|)))
+                                 ((|symmetricSquare| ($ $))
+                                  (|has| |t#1| (|Field|)))
+                                 ((|directSum| ($ $ $))
+                                  (|has| |t#1| (|Field|))))
+                               NIL '((|NonNegativeInteger|)) NIL))
+                             . #2=(|LinearOrdinaryDifferentialOperatorCategory|)))))
+               . #2#)
+       (SETELT #1# 0
+               (LIST '|LinearOrdinaryDifferentialOperatorCategory|
+                     (|devaluate| |t#1|))))))) 

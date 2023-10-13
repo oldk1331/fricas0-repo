@@ -1,0 +1,30 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFPARAMETER |CombinatorialOpsCategory;AL| 'NIL) 
+
+(DEFUN |CombinatorialOpsCategory| ()
+  (LET (#:G127)
+    (COND (|CombinatorialOpsCategory;AL|)
+          (T
+           (SETQ |CombinatorialOpsCategory;AL|
+                   (|CombinatorialOpsCategory;|)))))) 
+
+(DEFUN |CombinatorialOpsCategory;| ()
+  (PROG (#1=#:G125)
+    (RETURN
+     (PROG1
+         (LETT #1#
+               (|Join| (|CombinatorialFunctionCategory|)
+                       (|mkCategory|
+                        '(((|factorials| ($ $)) T)
+                          ((|factorials| ($ $ (|Symbol|))) T)
+                          ((|summation| ($ $ (|Symbol|))) T)
+                          ((|summation| ($ $ (|SegmentBinding| $))) T)
+                          ((|product| ($ $ (|Symbol|))) T)
+                          ((|product| ($ $ (|SegmentBinding| $))) T))
+                        NIL '((|SegmentBinding| $) (|Symbol|)) NIL))
+               |CombinatorialOpsCategory|)
+       (SETELT #1# 0 '(|CombinatorialOpsCategory|)))))) 
+
+(MAKEPROP '|CombinatorialOpsCategory| 'NILADIC T) 

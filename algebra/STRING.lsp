@@ -1,0 +1,219 @@
+
+(/VERSIONCHECK 2) 
+
+(PUT '|STRING;ucodeToString;I$;1| '|SPADreplace| 'NUM2USTR) 
+
+(DEFUN |STRING;ucodeToString;I$;1| (|n| $) (NUM2USTR |n|)) 
+
+(PUT '|STRING;string;I$;2| '|SPADreplace| 'STRINGIMAGE) 
+
+(DEFUN |STRING;string;I$;2| (|n| $) (STRINGIMAGE |n|)) 
+
+(DEFUN |STRING;OMwrite;2$;3| (|x| $)
+  (PROG (|s| |dev| |sp|)
+    (RETURN
+     (SEQ (LETT |s| "" . #1=(|STRING;OMwrite;2$;3|))
+          (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
+          (LETT |dev| (SPADCALL |sp| (SPADCALL (QREFELT $ 10)) (QREFELT $ 13))
+                . #1#)
+          (SPADCALL |dev| (QREFELT $ 15)) (SPADCALL |dev| |x| (QREFELT $ 16))
+          (SPADCALL |dev| (QREFELT $ 17)) (SPADCALL |dev| (QREFELT $ 18))
+          (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|))))) 
+
+(DEFUN |STRING;OMwrite;$B$;4| (|x| |wholeObj| $)
+  (PROG (|s| |dev| |sp|)
+    (RETURN
+     (SEQ (LETT |s| "" . #1=(|STRING;OMwrite;$B$;4|))
+          (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
+          (LETT |dev| (SPADCALL |sp| (SPADCALL (QREFELT $ 10)) (QREFELT $ 13))
+                . #1#)
+          (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 15))))
+          (SPADCALL |dev| |x| (QREFELT $ 16))
+          (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))
+          (SPADCALL |dev| (QREFELT $ 18))
+          (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|))))) 
+
+(DEFUN |STRING;OMwrite;Omd$V;5| (|dev| |x| $)
+  (SEQ (SPADCALL |dev| (QREFELT $ 15)) (SPADCALL |dev| |x| (QREFELT $ 16))
+       (EXIT (SPADCALL |dev| (QREFELT $ 17))))) 
+
+(DEFUN |STRING;OMwrite;Omd$BV;6| (|dev| |x| |wholeObj| $)
+  (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 15))))
+       (SPADCALL |dev| |x| (QREFELT $ 16))
+       (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))))) 
+
+(PUT '|STRING;convert;$If;7| '|SPADreplace| '(XLAM (|x|) |x|)) 
+
+(DEFUN |STRING;convert;$If;7| (|x| $) |x|) 
+
+(PUT '|STRING;qelt;$IC;8| '|SPADreplace| 'STR_ELT1) 
+
+(DEFUN |STRING;qelt;$IC;8| (|s| |i| $) (STR_ELT1 |s| |i|)) 
+
+(PUT '|STRING;qsetelt!;$I2C;9| '|SPADreplace| 'STR_SETELT1) 
+
+(DEFUN |STRING;qsetelt!;$I2C;9| (|s| |i| |c| $) (STR_SETELT1 |s| |i| |c|)) 
+
+(DEFUN |String| ()
+  (PROG ()
+    (RETURN
+     (PROG (#1=#:G1876)
+       (RETURN
+        (COND
+         ((LETT #1# (HGET |$ConstructorCache| '|String|) . #2=(|String|))
+          (|CDRwithIncrement| (CDAR #1#)))
+         ('T
+          (UNWIND-PROTECT
+              (PROG1
+                  (CDDAR
+                   (HPUT |$ConstructorCache| '|String|
+                         (LIST (CONS NIL (CONS 1 (|String;|))))))
+                (LETT #1# T . #2#))
+            (COND ((NOT #1#) (HREM |$ConstructorCache| '|String|))))))))))) 
+
+(DEFUN |String;| ()
+  (PROG (|dv$| $ #1=#:G1872 #2=#:G1873 |pv$| #3=#:G1874)
+    (RETURN
+     (PROGN
+      (LETT |dv$| '(|String|) . #4=(|String|))
+      (LETT $ (GETREFV 44) . #4#)
+      (QSETREFV $ 0 |dv$|)
+      (QSETREFV $ 3
+                (LETT |pv$|
+                      (|buildPredVector| 0 0
+                                         (LIST
+                                          (|HasCategory| (|Character|)
+                                                         '(|ConvertibleTo|
+                                                           (|InputForm|)))
+                                          (|HasCategory| (|Character|)
+                                                         '(|OrderedSet|))
+                                          (|HasCategory| (|Integer|)
+                                                         '(|OrderedSet|))
+                                          (LETT #1#
+                                                (|HasCategory| (|Character|)
+                                                               '(|SetCategory|))
+                                                . #4#)
+                                          (LETT #2#
+                                                (AND
+                                                 (|HasCategory| (|Character|)
+                                                                '(|Evalable|
+                                                                  (|Character|)))
+                                                 (|HasCategory| (|Character|)
+                                                                '(|SetCategory|)))
+                                                . #4#)
+                                          (OR
+                                           (AND
+                                            (|HasCategory| (|Character|)
+                                                           '(|Evalable|
+                                                             (|Character|)))
+                                            (|HasCategory| (|Character|)
+                                                           '(|OrderedSet|)))
+                                           #2#)))
+                      . #4#))
+      (|haddProp| |$ConstructorCache| '|String| NIL (CONS 1 $))
+      (|stuffDomainSlots| $)
+      (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
+           (|augmentPredVector| $ 64))
+      (AND #3# #1# (|augmentPredVector| $ 128))
+      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 256))
+      (AND (|HasCategory| $ '(|shallowlyMutable|))
+           (|HasCategory| (|Character|) '(|OrderedSet|))
+           (|augmentPredVector| $ 512))
+      (SETF |pv$| (QREFELT $ 3))
+      $)))) 
+
+(MAKEPROP '|String| '|infovec|
+          (LIST
+           '#(NIL NIL NIL NIL NIL (|IndexedString| (NRTEVAL 1)) (|Integer|)
+              |STRING;ucodeToString;I$;1| |STRING;string;I$;2|
+              (|OpenMathEncoding|) (0 . |OMencodingXML|) (|String|)
+              (|OpenMathDevice|) (4 . |OMopenString|) (|Void|)
+              (10 . |OMputObject|) (15 . |OMputString|) (21 . |OMputEndObject|)
+              (26 . |OMclose|) |STRING;OMwrite;2$;3| (|Boolean|)
+              |STRING;OMwrite;$B$;4| |STRING;OMwrite;Omd$V;5|
+              |STRING;OMwrite;Omd$BV;6| (|InputForm|) |STRING;convert;$If;7|
+              (|Character|) |STRING;qelt;$IC;8| |STRING;qsetelt!;$I2C;9|
+              (|List| 26) (|List| 31) (|Equation| 26) (|Mapping| 26 26 26)
+              (|NonNegativeInteger|) (|Mapping| 20 26) (|Mapping| 20 26 26)
+              (|UniversalSegment| 6) (|Mapping| 26 26) (|SingleInteger|)
+              (|OutputForm|) (|CharacterClass|) (|List| $)
+              (|Union| 26 '"failed") (|List| 6))
+           '#(~= 31 |upperCase!| 37 |upperCase| 42 |ucodeToString| 47 |trim| 52
+              |swap!| 64 |suffix?| 71 |substring?| 77 |string| 84 |split| 89
+              |sorted?| 101 |sort!| 112 |sort| 123 |smaller?| 134 |size?| 140
+              |setelt| 146 |select| 160 |sample| 166 |rightTrim| 170 |reverse!|
+              182 |reverse| 187 |replace| 192 |removeDuplicates| 199 |remove|
+              204 |reduce| 216 |qsetelt!| 237 |qelt| 244 |prefix?| 250
+              |position| 256 |parts| 289 |new| 294 |more?| 300 |minIndex| 306
+              |min| 311 |merge| 317 |members| 330 |member?| 335 |maxIndex| 341
+              |max| 346 |match?| 352 |match| 359 |map!| 366 |map| 372
+              |lowerCase!| 385 |lowerCase| 390 |less?| 395 |leftTrim| 401
+              |latex| 413 |insert| 418 |indices| 432 |index?| 437 |hash| 443
+              |first| 448 |find| 453 |fill!| 459 |every?| 465 |eval| 471 |eq?|
+              497 |entry?| 503 |entries| 509 |empty?| 514 |empty| 519 |elt| 523
+              |delete| 548 |count| 560 |copyInto!| 572 |copy| 579 |convert| 584
+              |construct| 589 |concat| 594 |coerce| 617 |any?| 627 |OMwrite|
+              633 >= 657 > 663 = 669 <= 675 < 681 |#| 687)
+           'NIL
+           (CONS
+            (|makeByteWordVec2| 6
+                                '(0 0 0 0 0 0 0 2 0 2 0 0 0 6 0 0 0 0 0 0 0 6 1
+                                  2))
+            (CONS
+             '#(NIL |StringAggregate&| |OneDimensionalArrayAggregate&|
+                |FiniteLinearAggregate&| |LinearAggregate&| |IndexedAggregate&|
+                |Collection&| |OrderedSet&| |HomogeneousAggregate&| NIL
+                |SetCategory&| |Aggregate&| |EltableAggregate&| |Evalable&| NIL
+                NIL |BasicType&| NIL NIL NIL NIL |InnerEvalable&| NIL
+                |PartialOrder&|)
+             (CONS
+              '#((|StringCategory|) (|StringAggregate|)
+                 (|OneDimensionalArrayAggregate| 26)
+                 (|FiniteLinearAggregate| 26) (|LinearAggregate| 26)
+                 (|IndexedAggregate| 6 26) (|Collection| 26) (|OrderedSet|)
+                 (|HomogeneousAggregate| 26) (|Comparable|) (|SetCategory|)
+                 (|Aggregate|) (|EltableAggregate| 6 26) (|Evalable| 26)
+                 (|OpenMath|) (|CoercibleTo| 39) (|BasicType|)
+                 (|shallowlyMutable|) (|finiteAggregate|) (|Type|)
+                 (|Eltable| 6 26) (|InnerEvalable| 26 26) (|ConvertibleTo| 24)
+                 (|PartialOrder|))
+              (|makeByteWordVec2| 43
+                                  '(0 9 0 10 2 12 0 11 9 13 1 12 14 0 15 2 12
+                                    14 0 11 16 1 12 14 0 17 1 12 14 0 18 2 0 20
+                                    0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 6 7 2 0 0 0
+                                    40 1 2 0 0 0 26 1 3 9 14 0 6 6 1 2 0 20 0 0
+                                    1 3 0 20 0 0 6 1 1 0 0 6 8 2 0 41 0 40 1 2
+                                    0 41 0 26 1 1 2 20 0 1 2 0 20 35 0 1 1 10 0
+                                    0 1 2 9 0 35 0 1 1 2 0 0 1 2 0 0 35 0 1 2 2
+                                    20 0 0 1 2 0 20 0 33 1 3 9 26 0 36 26 1 3 9
+                                    26 0 6 26 1 2 7 0 34 0 1 0 0 0 1 2 0 0 0 26
+                                    1 2 0 0 0 40 1 1 9 0 0 1 1 0 0 0 1 3 0 0 0
+                                    36 0 1 1 8 0 0 1 2 8 0 26 0 1 2 7 0 34 0 1
+                                    4 8 26 32 0 26 26 1 3 7 26 32 0 26 1 2 7 26
+                                    32 0 1 3 9 26 0 6 26 28 2 0 26 0 6 27 2 0
+                                    20 0 0 1 2 4 6 26 0 1 3 4 6 26 0 6 1 3 0 6
+                                    40 0 6 1 3 0 6 0 0 6 1 2 0 6 34 0 1 1 7 29
+                                    0 1 2 0 0 33 26 1 2 0 20 0 33 1 1 3 6 0 1 2
+                                    2 0 0 0 1 2 2 0 0 0 1 3 0 0 35 0 0 1 1 7 29
+                                    0 1 2 8 20 26 0 1 1 3 6 0 1 2 2 0 0 0 1 3 0
+                                    20 0 0 26 1 3 0 33 0 0 26 1 2 9 0 37 0 1 3
+                                    0 0 32 0 0 1 2 0 0 37 0 1 1 0 0 0 1 1 0 0 0
+                                    1 2 0 20 0 33 1 2 0 0 0 40 1 2 0 0 0 26 1 1
+                                    0 11 0 1 3 0 0 0 0 6 1 3 0 0 26 0 6 1 1 0
+                                    43 0 1 2 0 20 6 0 1 1 0 38 0 1 1 3 26 0 1 2
+                                    0 42 34 0 1 2 9 0 0 26 1 2 7 20 34 0 1 3 5
+                                    0 0 29 29 1 3 5 0 0 26 26 1 2 5 0 0 30 1 2
+                                    5 0 0 31 1 2 0 20 0 0 1 2 8 20 26 0 1 1 0
+                                    29 0 1 1 0 20 0 1 0 0 0 1 2 0 0 0 0 1 2 0 0
+                                    0 36 1 3 0 26 0 6 26 1 2 0 26 0 6 1 2 0 0 0
+                                    6 1 2 0 0 0 36 1 2 8 33 26 0 1 2 7 33 34 0
+                                    1 3 9 0 0 0 6 1 1 0 0 0 1 1 1 24 0 25 1 0 0
+                                    29 1 2 0 0 0 0 1 1 0 0 41 1 2 0 0 26 0 1 2
+                                    0 0 0 26 1 1 0 39 0 1 1 0 0 26 1 2 7 20 34
+                                    0 1 3 0 14 12 0 20 23 2 0 11 0 20 21 2 0 14
+                                    12 0 22 1 0 11 0 19 2 2 20 0 0 1 2 2 20 0 0
+                                    1 2 0 20 0 0 1 2 2 20 0 0 1 2 2 20 0 0 1 1
+                                    7 33 0 1)))))
+           '|lookupComplete|)) 
+
+(MAKEPROP '|String| 'NILADIC T) 

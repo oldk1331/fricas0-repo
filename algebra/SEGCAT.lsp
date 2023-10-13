@@ -1,0 +1,47 @@
+
+(/VERSIONCHECK 2) 
+
+(DEFPARAMETER |SegmentCategory;CAT| 'NIL) 
+
+(DEFPARAMETER |SegmentCategory;AL| 'NIL) 
+
+(DEFUN |SegmentCategory| (#1=#:G126)
+  (LET (#2=#:G127)
+    (COND
+     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |SegmentCategory;AL|)) (CDR #2#))
+     (T
+      (SETQ |SegmentCategory;AL|
+              (|cons5| (CONS #3# (SETQ #2# (|SegmentCategory;| #1#)))
+                       |SegmentCategory;AL|))
+      #2#)))) 
+
+(DEFUN |SegmentCategory;| (|t#1|)
+  (PROG (#1=#:G125)
+    (RETURN
+     (PROG1
+         (LETT #1#
+               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                          (COND (|SegmentCategory;CAT|)
+                                ('T
+                                 (LETT |SegmentCategory;CAT|
+                                       (|Join| (|Type|)
+                                               (|mkCategory|
+                                                '(((SEGMENT ($ |t#1| |t#1|)) T)
+                                                  ((BY ($ $ (|Integer|))) T)
+                                                  ((|lo| (|t#1| $)) T)
+                                                  ((|hi| (|t#1| $)) T)
+                                                  ((|low| (|t#1| $)) T)
+                                                  ((|high| (|t#1| $)) T)
+                                                  ((|incr| ((|Integer|) $)) T)
+                                                  ((|segment| ($ |t#1| |t#1|))
+                                                   T)
+                                                  ((|convert| ($ |t#1|)) T))
+                                                '(((|ConvertibleTo|
+                                                    (|InputForm|))
+                                                   (|has| |t#1|
+                                                          (|ConvertibleTo|
+                                                           (|InputForm|)))))
+                                                '((|Integer|)) NIL))
+                                       . #2=(|SegmentCategory|)))))
+               . #2#)
+       (SETELT #1# 0 (LIST '|SegmentCategory| (|devaluate| |t#1|))))))) 

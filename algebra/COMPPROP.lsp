@@ -1,0 +1,94 @@
+
+(/VERSIONCHECK 2) 
+
+(PUT '|COMPPROP;closed?;$B;1| '|SPADreplace| 'QCAR) 
+
+(DEFUN |COMPPROP;closed?;$B;1| (|p| $) (QCAR |p|)) 
+
+(PUT '|COMPPROP;solid?;$B;2| '|SPADreplace| 'QCDR) 
+
+(DEFUN |COMPPROP;solid?;$B;2| (|p| $) (QCDR |p|)) 
+
+(DEFUN |COMPPROP;close;$2B;3| (|p| |b| $) (PROGN (RPLACA |p| |b|) (QCAR |p|))) 
+
+(DEFUN |COMPPROP;solid;$2B;4| (|p| |b| $) (PROGN (RPLACD |p| |b|) (QCDR |p|))) 
+
+(DEFUN |COMPPROP;new;$;5| ($) (CONS 'NIL 'NIL)) 
+
+(DEFUN |COMPPROP;copy;2$;6| (|p| $)
+  (PROG (|annuderOne|)
+    (RETURN
+     (SEQ (LETT |annuderOne| (SPADCALL (QREFELT $ 12)) |COMPPROP;copy;2$;6|)
+          (SPADCALL |annuderOne| (SPADCALL |p| (QREFELT $ 8)) (QREFELT $ 10))
+          (SPADCALL |annuderOne| (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 11))
+          (EXIT |annuderOne|))))) 
+
+(DEFUN |COMPPROP;coerce;$Of;7| (|p| $)
+  (SPADCALL
+   (LIST "Component is "
+         (COND ((SPADCALL |p| (QREFELT $ 8)) "") (#1='T "not ")) "closed, "
+         (COND ((SPADCALL |p| (QREFELT $ 9)) "") (#1# "not ")) "solid")
+   (QREFELT $ 16))) 
+
+(DEFUN |SubSpaceComponentProperty| ()
+  (PROG ()
+    (RETURN
+     (PROG (#1=#:G140)
+       (RETURN
+        (COND
+         ((LETT #1# (HGET |$ConstructorCache| '|SubSpaceComponentProperty|)
+                . #2=(|SubSpaceComponentProperty|))
+          (|CDRwithIncrement| (CDAR #1#)))
+         ('T
+          (UNWIND-PROTECT
+              (PROG1
+                  (CDDAR
+                   (HPUT |$ConstructorCache| '|SubSpaceComponentProperty|
+                         (LIST
+                          (CONS NIL (CONS 1 (|SubSpaceComponentProperty;|))))))
+                (LETT #1# T . #2#))
+            (COND
+             ((NOT #1#)
+              (HREM |$ConstructorCache| '|SubSpaceComponentProperty|))))))))))) 
+
+(DEFUN |SubSpaceComponentProperty;| ()
+  (PROG (|dv$| $ |pv$|)
+    (RETURN
+     (PROGN
+      (LETT |dv$| '(|SubSpaceComponentProperty|)
+            . #1=(|SubSpaceComponentProperty|))
+      (LETT $ (GETREFV 20) . #1#)
+      (QSETREFV $ 0 |dv$|)
+      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+      (|haddProp| |$ConstructorCache| '|SubSpaceComponentProperty| NIL
+                  (CONS 1 $))
+      (|stuffDomainSlots| $)
+      (SETF |pv$| (QREFELT $ 3))
+      (QSETREFV $ 6
+                (|Record| (|:| |closed| (|Boolean|))
+                          (|:| |solid| (|Boolean|))))
+      $)))) 
+
+(MAKEPROP '|SubSpaceComponentProperty| '|infovec|
+          (LIST
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|)
+              |COMPPROP;closed?;$B;1| |COMPPROP;solid?;$B;2|
+              |COMPPROP;close;$2B;3| |COMPPROP;solid;$2B;4| |COMPPROP;new;$;5|
+              |COMPPROP;copy;2$;6| (|List| $) (|OutputForm|) (0 . |hconcat|)
+              |COMPPROP;coerce;$Of;7| (|SingleInteger|) (|String|))
+           '#(~= 5 |solid?| 11 |solid| 16 |new| 22 |latex| 26 |hash| 31 |copy|
+              36 |coerce| 41 |closed?| 46 |close| 51 = 57)
+           'NIL
+           (CONS (|makeByteWordVec2| 1 '(0 0 0))
+                 (CONS '#(|SetCategory&| |BasicType&| NIL)
+                       (CONS
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 15))
+                        (|makeByteWordVec2| 19
+                                            '(1 15 0 14 16 2 0 7 0 0 1 1 0 7 0
+                                              9 2 0 7 0 7 11 0 0 0 12 1 0 19 0
+                                              1 1 0 18 0 1 1 0 0 0 13 1 0 15 0
+                                              17 1 0 7 0 8 2 0 7 0 7 10 2 0 7 0
+                                              0 1)))))
+           '|lookupComplete|)) 
+
+(MAKEPROP '|SubSpaceComponentProperty| 'NILADIC T) 
