@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4530 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4532 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -503,61 +503,62 @@
  |cond| |returns| |call| |comment| |continue| |goto| |repeatUntilLoop|
  |whileLoop| |forLoop| |sin?| |zeroVector| |zeroSquareMatrix|
  |identitySquareMatrix| |lSpaceBasis| |finiteBasis| |principal?| |divisor|
- |weierstrassHalfPeriods| |landen1| |landen2| |landen| |kprod| |sn2|
- |useNagFunctions| |rationalPoints| |nonSingularModel| |algSplitSimple|
- |hyperelliptic| |elliptic| |integralDerivationMatrix| |integralRepresents|
- |integralCoordinates| |yCoordinates| |inverseIntegralMatrixAtInfinity|
- |integralMatrixAtInfinity| |inverseIntegralMatrix| |integralMatrix|
- |reduceBasisAtInfinity| |normalizeAtInfinity| |complementaryBasis| |integral?|
- |integralAtInfinity?| |integralBasisAtInfinity| |ramified?|
- |ramifiedAtInfinity?| |singular?| |singularAtInfinity?| |branchPoint?|
- |branchPointAtInfinity?| |rationalPoint?| |absolutelyIrreducible?| |genus|
- |getZechTable| |createZechTable| |createMultiplicationTable|
- |createMultiplicationMatrix| |createLowComplexityTable|
- |createLowComplexityNormalBasis| |fffg| |generalCoefficient| |ShiftAction|
- |ShiftC| |DiffAction| |DiffC| |qShiftAction| |qShiftC| |genVectorStream|
- |genVectorStream2| |generalInterpolation| |representationType|
- |createPrimitiveElement| |tableForDiscreteLogarithm|
- |factorsOfCyclicGroupSize| |sizeMultiplication| |getMultiplicationMatrix|
- |getMultiplicationTable| |primitive?| |numberOfIrreduciblePoly|
- |numberOfPrimitivePoly| |numberOfNormalPoly| |createIrreduciblePoly|
- |createPrimitivePoly| |createNormalPoly| |createNormalPrimitivePoly|
- |createPrimitiveNormalPoly| |nextIrreduciblePoly| |nextPrimitivePoly|
- |nextNormalPoly| |nextNormalPrimitivePoly| |nextPrimitiveNormalPoly|
- |leastAffineMultiple| |reducedQPowers| |rootOfIrreduciblePoly| |flush|
- |write!| |read!| |iomode| |reopen!| |open| |rightUnit| |leftUnit|
- |rightMinimalPolynomial| |leftMinimalPolynomial| |associatorDependence|
- |lieAlgebra?| |jordanAlgebra?| |noncommutativeJordanAlgebra?|
- |jordanAdmissible?| |lieAdmissible?| |jacobiIdentity?| |powerAssociative?|
- |alternative?| |flexible?| |rightAlternative?| |leftAlternative?|
- |antiAssociative?| |associative?| |antiCommutative?| |commutative?|
- |rightCharacteristicPolynomial| |leftCharacteristicPolynomial| |rightNorm|
- |leftNorm| |rightTrace| |leftTrace| |someBasis| |sort!| |copyInto!| |sorted?|
- |LiePoly| |quickSort| |heapSort| |shellSort| |outputSpacing| |outputGeneral|
- |outputFixed| |outputFloating| |exp1| |log10| |log2| |rationalApproximation|
- |relerror| |complexSolve| |complexRoots| |realRoots| |support| |writable?|
- |readable?| |exists?| |extension| |directory| |filename| |shallowExpand|
- |deepExpand| |clearFortranOutputStack| |showFortranOutputStack|
- |popFortranOutputStack| |pushFortranOutputStack| |topFortranOutputStack|
- |setFormula!| |formula| |linkToFortran| |setLegalFortranSourceExtensions|
- |fracPart| |polyPart| |fullPartialFraction| |primeFrobenius| |discreteLog|
- |decreasePrecision| |increasePrecision| |bits| |unitNormalize| |unit|
- |flagFactor| |sqfrFactor| |primeFactor| |nthFlag| |nthExponent|
- |irreducibleFactor| |nilFactor| |regularRepresentation| |traceMatrix|
- |randomLC| |minimize| |module| |rightRegularRepresentation|
- |leftRegularRepresentation| |rightTraceMatrix| |leftTraceMatrix|
- |rightDiscriminant| |leftDiscriminant| |represents| |mergeFactors| |isMult|
- |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS| |localAbs| |universe|
- |complement| |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma|
- |rabs| |lambert_via_newton1| |lambert_via_newton2| |lambert_inverse_series|
- |iiGamma| |iiabs| |iiBeta| |iidigamma| |iipolygamma| |iiBesselJ| |iiBesselY|
- |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime|
- |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime| |iiHypergeometricF|
- |iiPolylog| |bringDown| |newReduc| |logical?| |character?| |doubleComplex?|
- |complex?| |double?| |ffactor| |qfactor| |UP2ifCan| |anfactor|
- |fortranCharacter| |fortranDoubleComplex| |fortranComplex| |fortranLogical|
- |fortranInteger| |fortranDouble| |fortranReal| |external?| |dimensionsOf|
- |scalarTypeOf| |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
+ |weierstrassHalfPeriods| |weierstrassInvariants| |modularInvariantJ| |landen1|
+ |landen2| |landen| |kprod| |sn2| |useNagFunctions| |rationalPoints|
+ |nonSingularModel| |algSplitSimple| |hyperelliptic| |elliptic|
+ |integralDerivationMatrix| |integralRepresents| |integralCoordinates|
+ |yCoordinates| |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
+ |inverseIntegralMatrix| |integralMatrix| |reduceBasisAtInfinity|
+ |normalizeAtInfinity| |complementaryBasis| |integral?| |integralAtInfinity?|
+ |integralBasisAtInfinity| |ramified?| |ramifiedAtInfinity?| |singular?|
+ |singularAtInfinity?| |branchPoint?| |branchPointAtInfinity?| |rationalPoint?|
+ |absolutelyIrreducible?| |genus| |getZechTable| |createZechTable|
+ |createMultiplicationTable| |createMultiplicationMatrix|
+ |createLowComplexityTable| |createLowComplexityNormalBasis| |fffg|
+ |generalCoefficient| |ShiftAction| |ShiftC| |DiffAction| |DiffC|
+ |qShiftAction| |qShiftC| |genVectorStream| |genVectorStream2|
+ |generalInterpolation| |representationType| |createPrimitiveElement|
+ |tableForDiscreteLogarithm| |factorsOfCyclicGroupSize| |sizeMultiplication|
+ |getMultiplicationMatrix| |getMultiplicationTable| |primitive?|
+ |numberOfIrreduciblePoly| |numberOfPrimitivePoly| |numberOfNormalPoly|
+ |createIrreduciblePoly| |createPrimitivePoly| |createNormalPoly|
+ |createNormalPrimitivePoly| |createPrimitiveNormalPoly| |nextIrreduciblePoly|
+ |nextPrimitivePoly| |nextNormalPoly| |nextNormalPrimitivePoly|
+ |nextPrimitiveNormalPoly| |leastAffineMultiple| |reducedQPowers|
+ |rootOfIrreduciblePoly| |flush| |write!| |read!| |iomode| |reopen!| |open|
+ |rightUnit| |leftUnit| |rightMinimalPolynomial| |leftMinimalPolynomial|
+ |associatorDependence| |lieAlgebra?| |jordanAlgebra?|
+ |noncommutativeJordanAlgebra?| |jordanAdmissible?| |lieAdmissible?|
+ |jacobiIdentity?| |powerAssociative?| |alternative?| |flexible?|
+ |rightAlternative?| |leftAlternative?| |antiAssociative?| |associative?|
+ |antiCommutative?| |commutative?| |rightCharacteristicPolynomial|
+ |leftCharacteristicPolynomial| |rightNorm| |leftNorm| |rightTrace| |leftTrace|
+ |someBasis| |sort!| |copyInto!| |sorted?| |LiePoly| |quickSort| |heapSort|
+ |shellSort| |outputSpacing| |outputGeneral| |outputFixed| |outputFloating|
+ |exp1| |log10| |log2| |rationalApproximation| |relerror| |complexSolve|
+ |complexRoots| |realRoots| |support| |writable?| |readable?| |exists?|
+ |extension| |directory| |filename| |shallowExpand| |deepExpand|
+ |clearFortranOutputStack| |showFortranOutputStack| |popFortranOutputStack|
+ |pushFortranOutputStack| |topFortranOutputStack| |setFormula!| |formula|
+ |linkToFortran| |setLegalFortranSourceExtensions| |fracPart| |polyPart|
+ |fullPartialFraction| |primeFrobenius| |discreteLog| |decreasePrecision|
+ |increasePrecision| |bits| |unitNormalize| |unit| |flagFactor| |sqfrFactor|
+ |primeFactor| |nthFlag| |nthExponent| |irreducibleFactor| |nilFactor|
+ |regularRepresentation| |traceMatrix| |randomLC| |minimize| |module|
+ |rightRegularRepresentation| |leftRegularRepresentation| |rightTraceMatrix|
+ |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant| |represents|
+ |mergeFactors| |isMult| |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS|
+ |localAbs| |universe| |complement| |cardinality| |internalIntegrate0|
+ |makeCos| |makeSin| |logGamma| |rabs| |lambert_via_newton1|
+ |lambert_via_newton2| |lambert_inverse_series| |iiGamma| |iiabs| |iiBeta|
+ |iidigamma| |iipolygamma| |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK|
+ |iiAiryAi| |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime|
+ |iAiryBi| |iAiryBiPrime| |iiHypergeometricF| |iiPolylog| |bringDown|
+ |newReduc| |logical?| |character?| |doubleComplex?| |complex?| |double?|
+ |ffactor| |qfactor| |UP2ifCan| |anfactor| |fortranCharacter|
+ |fortranDoubleComplex| |fortranComplex| |fortranLogical| |fortranInteger|
+ |fortranDouble| |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
+ |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
  |useEisensteinCriterion?| |useEisensteinCriterion| |eisensteinIrreducible?|
