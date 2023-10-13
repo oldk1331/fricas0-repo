@@ -1379,47 +1379,31 @@
            (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |res|))))) 
 
-(DEFUN |WGRPH;weightedDistanceMatrix;$M;37| (|s| $)
-  (PROG (|m| #1=#:G548 |u| #2=#:G547 #3=#:G546 |v| #4=#:G545)
+(DEFUN |WGRPH;weightedDistanceMatrix;$Tda;37| (|s| $)
+  (PROG (|v| |u| |m| |n|)
     (RETURN
      (SEQ
-      (LETT |m|
-            (PROGN
-             (LETT #4# NIL . #5=(|WGRPH;weightedDistanceMatrix;$M;37|))
-             (SEQ (LETT |v| 1 . #5#)
-                  (LETT #3# (LENGTH (SPADCALL |s| (QREFELT $ 45))) . #5#) G190
-                  (COND ((|greater_SI| |v| #3#) (GO G191)))
+      (LETT |n| (LENGTH (SPADCALL |s| (QREFELT $ 45)))
+            . #1=(|WGRPH;weightedDistanceMatrix;$Tda;37|))
+      (LETT |m| (SPADCALL |n| |n| (CONS 0 (|spadConstant| $ 9)) (QREFELT $ 98))
+            . #1#)
+      (SEQ (LETT |u| 1 . #1#) G190 (COND ((|greater_SI| |u| |n|) (GO G191)))
+           (SEQ
+            (EXIT
+             (SEQ (LETT |v| 1 . #1#) G190
+                  (COND ((|greater_SI| |v| |n|) (GO G191)))
                   (SEQ
                    (EXIT
-                    (LETT #4#
-                          (CONS
-                           (PROGN
-                            (LETT #2# NIL . #5#)
-                            (SEQ (LETT |u| 1 . #5#)
-                                 (LETT #1#
-                                       (LENGTH (SPADCALL |s| (QREFELT $ 45)))
-                                       . #5#)
-                                 G190 (COND ((|greater_SI| |u| #1#) (GO G191)))
-                                 (SEQ
-                                  (EXIT
-                                   (LETT #2#
-                                         (CONS
-                                          (SPADCALL |s| |u| |v| (QREFELT $ 94))
-                                          #2#)
-                                         . #5#)))
-                                 (LETT |u| (|inc_SI| |u|) . #5#) (GO G190) G191
-                                 (EXIT (NREVERSE #2#))))
-                           #4#)
-                          . #5#)))
-                  (LETT |v| (|inc_SI| |v|) . #5#) (GO G190) G191
-                  (EXIT (NREVERSE #4#))))
-            . #5#)
-      (EXIT (SPADCALL |m| (QREFELT $ 99))))))) 
+                    (QSETAREF2O |m| |u| |v|
+                                (SPADCALL |s| |u| |v| (QREFELT $ 94)) 1 1)))
+                  (LETT |v| (|inc_SI| |v|) . #1#) (GO G190) G191 (EXIT NIL))))
+           (LETT |u| (|inc_SI| |u|) . #1#) (GO G190) G191 (EXIT NIL))
+      (EXIT |m|))))) 
 
-(DEFUN |WeightedGraph| (&REST #1=#:G549)
+(DEFUN |WeightedGraph| (&REST #1=#:G544)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G550)
+     (PROG (#2=#:G545)
        (RETURN
         (COND
          ((LETT #2#
@@ -1443,7 +1427,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|WeightedGraph|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|WeightedGraph| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 109) . #1#)
+      (LETT $ (GETREFV 108) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|WeightedGraph| (LIST DV$1 DV$2)
@@ -1511,38 +1495,38 @@
               |WGRPH;routeNodes;$2NniL;30| (195 . |getArrowIndex|)
               |WGRPH;routeArrowWeight;$LW;36| |WGRPH;routeArrows;$2NniL;32|
               (|Union| 7 '"disjoint") |WGRPH;distanceWeighted;$2NniU;33|
-              (202 . +) (208 . |elt|) (|List| (|List| 93)) (|Matrix| 93)
-              (214 . |matrix|) |WGRPH;weightedDistanceMatrix;$M;37| (|Void|)
-              (|Matrix| 25) (|Matrix| 27) (|List| (|Loop|)) (|List| 106)
-              (|Tree| 25) (|OutputForm|) (|SingleInteger|))
-           '#(~= 219 |weightedGraph| 225 |weightedDistanceMatrix| 253 |unit|
-              258 |toString| 264 |terminal| 269 |spanningTreeNode| 274
-              |spanningTreeArrow| 280 |spanningForestNode| 286
-              |spanningForestArrow| 291 |routeNodes| 296 |routeNodeWeight| 303
-              |routeArrows| 309 |routeArrowWeight| 316 |outDegree| 322
-              |nodeToNode| 328 |nodeToArrow| 334 |nodeFromNode| 340
-              |nodeFromArrow| 346 |min| 352 |merge| 363 |max| 369 |mapContra|
-              380 |map| 389 |looseEquals| 398 |loopsNodes| 404 |loopsAtNode|
-              409 |loopsArrows| 415 |latex| 420 |laplacianMatrix| 425 |kgraph|
-              430 |isGreaterThan?| 436 |isFunctional?| 443 |isFixPoint?| 448
-              |isDirected?| 454 |isDirectSuccessor?| 458 |isAcyclic?| 465
-              |initial| 470 |incidenceMatrix| 474 |inDegree| 479 |hash| 485
-              |getVertices| 490 |getVertexIndex| 495 |getArrows| 501
-              |getArrowIndex| 506 |distanceWeighted| 513 |distanceMatrix| 520
-              |distance| 525 |diagramWidth| 532 |diagramSvg| 537
-              |diagramHeight| 544 |cycleOpen| 549 |cycleClosed| 555 |createY|
-              561 |createX| 567 |createWidth| 573 |coerce| 578 |closedTensor|
-              588 |closedCartesian| 595 |cartesian| 602 |arrowsToNode| 608
-              |arrowsToArrow| 614 |arrowsFromNode| 620 |arrowsFromArrow| 626
-              |arrowName| 632 |adjacencyMatrix| 639 |addWArrow!| 644
-              |addObject!| 653 |addArrow!| 665 = 681 + 687 * 693)
+              (202 . +) (208 . |elt|) (|TwoDimensionalArray| 93) (214 . |new|)
+              |WGRPH;weightedDistanceMatrix;$Tda;37| (|Void|) (|Matrix| 25)
+              (|Matrix| 27) (|List| (|Loop|)) (|List| 105) (|Tree| 25)
+              (|OutputForm|) (|SingleInteger|))
+           '#(~= 221 |weightedGraph| 227 |weightedDistanceMatrix| 255 |unit|
+              260 |toString| 266 |terminal| 271 |spanningTreeNode| 276
+              |spanningTreeArrow| 282 |spanningForestNode| 288
+              |spanningForestArrow| 293 |routeNodes| 298 |routeNodeWeight| 305
+              |routeArrows| 311 |routeArrowWeight| 318 |outDegree| 324
+              |nodeToNode| 330 |nodeToArrow| 336 |nodeFromNode| 342
+              |nodeFromArrow| 348 |min| 354 |merge| 365 |max| 371 |mapContra|
+              382 |map| 391 |looseEquals| 400 |loopsNodes| 406 |loopsAtNode|
+              411 |loopsArrows| 417 |latex| 422 |laplacianMatrix| 427 |kgraph|
+              432 |isGreaterThan?| 438 |isFunctional?| 445 |isFixPoint?| 450
+              |isDirected?| 456 |isDirectSuccessor?| 460 |isAcyclic?| 467
+              |initial| 472 |incidenceMatrix| 476 |inDegree| 481 |hash| 487
+              |getVertices| 492 |getVertexIndex| 497 |getArrows| 503
+              |getArrowIndex| 508 |distanceWeighted| 515 |distanceMatrix| 522
+              |distance| 527 |diagramWidth| 534 |diagramSvg| 539
+              |diagramHeight| 546 |cycleOpen| 551 |cycleClosed| 557 |createY|
+              563 |createX| 569 |createWidth| 575 |coerce| 580 |closedTensor|
+              590 |closedCartesian| 597 |cartesian| 604 |arrowsToNode| 610
+              |arrowsToArrow| 616 |arrowsFromNode| 622 |arrowsFromArrow| 628
+              |arrowName| 634 |adjacencyMatrix| 641 |addWArrow!| 646
+              |addObject!| 655 |addArrow!| 667 = 683 + 689 * 695)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|FiniteGraph&| |SetCategory&| NIL |BasicType&|)
                        (CONS
                         '#((|FiniteGraph| 6) (|SetCategory|)
-                           (|CoercibleTo| 107) (|BasicType|))
-                        (|makeByteWordVec2| 108
+                           (|CoercibleTo| 106) (|BasicType|))
+                        (|makeByteWordVec2| 107
                                             '(0 7 0 9 2 16 0 0 15 18 2 13 0 0
                                               12 19 2 10 6 0 25 26 2 0 27 27 27
                                               28 2 0 27 27 27 29 2 31 30 0 25
@@ -1559,38 +1543,38 @@
                                               2 27 36 0 0 84 2 30 36 0 0 85 2
                                               30 36 0 0 86 2 7 36 0 0 88 3 0 27
                                               0 27 27 90 2 7 0 0 0 95 2 16 15 0
-                                              25 96 1 98 0 97 99 2 0 36 0 0 1 2
-                                              0 0 10 31 35 2 0 0 13 16 17 2 0 0
-                                              21 23 24 1 0 0 13 14 1 0 0 10 11
-                                              1 0 98 0 100 2 0 0 10 40 53 1 0
-                                              40 0 1 1 0 0 6 49 2 0 106 0 27 1
-                                              2 0 106 0 27 1 1 0 105 0 1 1 0
-                                              105 0 1 3 0 30 0 27 27 89 2 0 7 0
-                                              30 87 3 0 30 0 27 27 92 2 0 7 0
+                                              25 96 3 97 0 27 27 93 98 2 0 36 0
+                                              0 1 2 0 0 10 31 35 2 0 0 13 16 17
+                                              2 0 0 21 23 24 1 0 0 13 14 1 0 0
+                                              10 11 1 0 97 0 99 2 0 0 10 40 53
+                                              1 0 40 0 1 1 0 0 6 49 2 0 105 0
+                                              27 1 2 0 105 0 27 1 1 0 104 0 1 1
+                                              0 104 0 1 3 0 30 0 27 27 89 2 0 7
+                                              0 30 87 3 0 30 0 27 27 92 2 0 7 0
                                               30 91 2 0 27 0 27 1 2 0 30 0 27 1
                                               2 0 30 0 27 1 2 0 30 0 27 1 2 0
                                               30 0 27 1 2 0 27 0 30 1 1 0 27 0
                                               1 2 0 0 0 0 61 1 0 27 0 1 2 0 27
                                               0 30 1 5 0 0 0 30 10 25 25 83 5 0
                                               0 0 30 10 25 25 82 2 0 36 0 0 1 1
-                                              0 104 0 1 2 0 104 0 27 1 1 0 104
-                                              0 1 1 0 40 0 1 1 0 102 0 1 2 0 0
+                                              0 103 0 1 2 0 103 0 27 1 1 0 103
+                                              0 1 1 0 40 0 1 1 0 101 0 1 2 0 0
                                               10 40 55 3 0 36 0 27 27 1 1 0 36
                                               0 1 2 0 36 0 27 1 0 0 36 1 3 0 36
                                               0 27 27 69 1 0 36 0 1 0 0 0 48 1
-                                              0 102 0 1 2 0 27 0 27 1 1 0 108 0
+                                              0 101 0 1 2 0 27 0 27 1 1 0 107 0
                                               1 1 0 21 0 45 2 0 27 0 6 1 1 0 23
                                               0 47 3 0 27 0 27 27 90 3 0 93 0
-                                              27 27 94 1 0 102 0 1 3 0 25 0 27
-                                              27 1 1 0 27 0 62 3 0 101 40 0 36
+                                              27 27 94 1 0 101 0 1 3 0 25 0 27
+                                              27 1 1 0 27 0 62 3 0 100 40 0 36
                                               1 1 0 27 0 63 2 0 0 10 40 51 2 0
                                               0 10 40 52 2 0 27 27 27 29 2 0 27
-                                              27 27 28 1 0 27 27 1 1 0 107 0 1
-                                              1 0 107 0 1 3 0 0 0 0 77 78 3 0 0
+                                              27 27 28 1 0 27 27 1 1 0 106 0 1
+                                              1 0 106 0 1 3 0 0 0 0 77 78 3 0 0
                                               0 0 77 79 2 0 73 0 0 76 2 0 30 0
                                               27 1 2 0 30 0 27 1 2 0 30 0 27 1
                                               2 0 30 0 27 1 3 0 40 0 27 27 70 1
-                                              0 103 0 1 5 0 0 0 40 27 27 7 41 2
+                                              0 102 0 1 5 0 0 0 40 27 27 7 41 2
                                               0 0 0 6 38 2 0 0 0 20 39 4 0 0 0
                                               40 6 6 1 4 0 0 0 40 27 27 42 2 0
                                               36 0 0 1 2 0 0 0 0 58 2 0 73 0 0

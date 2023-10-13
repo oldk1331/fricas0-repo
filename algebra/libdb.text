@@ -9749,7 +9749,7 @@ oweight`2`n`(A,S)->NonNegativeInteger`xDifferentialPolynomialCategory&(A,R,S,V,E
 oweight`2`x`(_$,NonNegativeInteger)->_$`dBasicOperator``1187317
 oweight`2`x`(_$,S)->NonNegativeInteger`cDifferentialPolynomialCategory(R,S,V,E)``1187390
 oweighted`1`n`(List(Record(value:S,weight:Integer)))->()->S`pRandomDistributions(S)``1187629
-oweightedDistanceMatrix`1`n`(_$)->Matrix(Union(W,"disjoint"))`dWeightedGraph(S,W)``1187669
+oweightedDistanceMatrix`1`n`(_$)->TwoDimensionalArray(Union(W,"disjoint"))`dWeightedGraph(S,W)``1187669
 oweightedGraph`1`n`(List(Record(value:S,posX:NonNegativeInteger,posY:NonNegativeInteger,weight:W)))->_$`dWeightedGraph(S,W)``1187708
 oweightedGraph`1`n`(List(S))->_$`dWeightedGraph(S,W)``1187812
 oweightedGraph`2`n`(List(Record(value:S,posX:NonNegativeInteger,posY:NonNegativeInteger)),List(Record(name:String,arrType:NonNegativeInteger,fromOb:NonNegativeInteger,toOb:NonNegativeInteger,xOffset:Integer,yOffset:Integer)))->_$`dWeightedGraph(S,W)``1188083
