@@ -979,7 +979,7 @@
 81705`\spad{adaptive(true)} turns adaptive plotting on; \spad{adaptive(false)} turns adaptive plotting off.
 81764`\spad{adaptive(l,{}b)} takes the list of draw options,{} \spad{l},{} and checks the list to see if it contains the option \spad{adaptive}. If the option does not exist the value,{} \spad{b} is returned.
 81844`\spad{adaptive3D?()} determines whether plotting be done adaptively.
-81889`\spad{addArrow!(s,{} nm,{} n1,{} n2)} adds an arrow to this graph \spad{s},{} where: \spad{nm} is the name of the arrow \spad{n1} is the index of the start object \spad{n2} is the index of the end object
+81889`\spad{addArrow!(s,{} nm,{} n1,{} n2)} adds an arrow to the graph \spad{s},{} where: \spad{nm} is the name of the arrow \spad{n1} is the index of the start object \spad{n2} is the index of the end object
 81982`\spad{addArrow!(s,{} nm,{} o1,{} o2)} adds an arrow to the graph \spad{s},{} where: \spad{nm} is the name of the arrow \spad{o1} is the start object \spad{o2} is the end object
 82185`a convenience function which combines createArrows2Din2D with addChild!
 82304`\spad{addBadValue(p,{} v)} adds \spad{v} to the list of "bad values" for \spad{p}. Note: \spad{p} is not allowed to match any of its "bad values".
@@ -2657,7 +2657,7 @@
 275185`\spad{displayKind(d)} specifies kind of the result: generating function,{} recurrence or equation. This option should not be set by the user,{} but rather by the \spad{HP}-specification.
 275236`returns the distance between the points \spad{p1} and \spad{p2} there are 2 metrics associated with any SPointCategory the underlying space and the space that it is embedded in this is the distance in the underlying space.
 275410`\spad{distance(u,{}v)} returns the path length (an integer) from node \spad{u} to \spad{v}.
-275472`\spad{distance(s,{} a,{} b)} gives the shortest distance between nodes 'a' and \spad{'b'} as a number of hops. 0 if 'a' = \spad{'b'} \spad{-1} if it is not possible to go from 'a' to \spad{'b'}
+275472`\spad{distance(s,{} a,{} b)} gives the shortest distance between nodes 'a' and \spad{'b'} as a number of hops. 0 if 'a' = \spad{'b'},{} \spad{-1} if it is not possible to go from 'a' to \spad{'b'}
 275649`gives matrix of distances between vertices. Element a_{\spad{i},{} \spad{j}} is the distance from \spad{i} to \spad{j}. Distance matrices are related to adjacency matrices,{} with the differences that: a) the latter only provides the information which vertices are connected \indented{3}{but does not tell about costs or distances between the vertices} \spad{b}) adjacency matrix only tells us about directly connected \indented{3}{vertices 
 275649`--while distance matrix also considers indirect connections.}
 275778`returns the distance between the points \spad{p1} and \spad{p2} there are 2 metrics associated with any SPointCategory the underlying space and the space that it is embedded in this is the distance in the underlying space.
