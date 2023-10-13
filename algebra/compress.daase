@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4537 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4539 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -326,7 +326,7 @@
  |RuleCalled| |Ruleset| |RationalUnivariateRepresentationPackage|
  |SimpleAlgebraicExtension| |SimpleAlgebraicExtensionAlgFactor|
  |SAERationalFunctionAlgFactor| |SingletonAsOrderedSet| |SArgand| |SortedCache|
- |Scene| |SceneIFS| |SceneNamedPoints| |SConformal|
+ |ScanningUtilities| |Scene| |SceneIFS| |SceneNamedPoints| |SConformal|
  |StructuralConstantsPackage| |SCartesian| |SequentialDifferentialPolynomial|
  |SequentialDifferentialVariable| |Segment| |SegmentFunctions2|
  |SegmentBinding| |SegmentBindingFunctions2| |SegmentCategory|
@@ -862,29 +862,30 @@
  |toseLastSubResultant| |toseInvertible?| |toseInvertibleSet|
  |toseSquareFreePart| |quotedOperators| |pattern| |suchThat| |rule| |rules|
  |ruleset| |rur| |create| |clearCache| |linearSearch| |enterInCache|
- |createSceneRoot| |createSceneGroup| |addSceneGroup| |createSceneLine|
- |addSceneLine| |createSceneLines| |addSceneLines| |createSceneArrows|
- |addSceneArrows| |createSceneArrow| |addSceneArrow| |createSceneNamedPoints|
- |addSceneNamedPoints| |createSceneIFS| |addSceneIFS| |createSceneBox|
- |addSceneBox| |createSceneText| |addSceneText| |createSceneClip|
- |addSceneClip| |createSceneGrid| |addSceneGrid| |createScenePattern|
- |addScenePattern| |createSceneRuler| |addSceneRuler| |createSceneMaterial|
- |addSceneMaterial| |createSceneTransform| |addSceneTransform|
- |createPlot1Din2D| |addPlot1Din2D| |createPlot1Din2Dparametric|
- |addPlot1Din2Dparametric| |createPlot1Din3Dparametric|
- |addPlot1Din3Dparametric| |createPlot2Din3D| |addPlot2Din3D|
- |createPlot2Din3Dparametric| |addPlot2Din3Dparametric| |createArrows2Din2D|
- |addArrows2Din2D| |addChild!| |removeChild!| |setTransform!| |toSVG| |toX3D|
- |toObj| |writeSvg| |writeSvgQuantised| |writeX3d| |writeObj| |smesh|
- |singleFace| |subdivide| |sierpinskiDivide| |displayIFS| |stube| |curveLoops|
- |indexes| |pointList| |testIFS| |namedPoints| |isLeaf?| |getNames| |findPoint|
- |normalisePoint| |structuralConstants| |equation| |incr| |high| |low| |hi|
- |lo| BY |horizSplit| |horizJoin| |join| |pivots| |pivot| |primitiveRowEchelon|
- |setGcdMode| |rowEchelon| |extract| |appendRow!| |consRow!| |deleteRow!|
- |setRow!| |row| |setelt!| |sortedPurge!| |purge!| |elimZeroCols!| |allIndices|
- |nrows| |ncols| |dilate| |firstn| |stream| |sequence| |apply| |union|
- |subset?| |symmetricDifference| |difference| |intersect| |set| |brace| |latex|
- |hash| |delta| |enumerate| |setOfMinN| |elements| |replaceKthElement|
+ |parse_integer| |createSceneRoot| |createSceneGroup| |addSceneGroup|
+ |createSceneLine| |addSceneLine| |createSceneLines| |addSceneLines|
+ |createSceneArrows| |addSceneArrows| |createSceneArrow| |addSceneArrow|
+ |createSceneNamedPoints| |addSceneNamedPoints| |createSceneIFS| |addSceneIFS|
+ |createSceneBox| |addSceneBox| |createSceneText| |addSceneText|
+ |createSceneClip| |addSceneClip| |createSceneGrid| |addSceneGrid|
+ |createScenePattern| |addScenePattern| |createSceneRuler| |addSceneRuler|
+ |createSceneMaterial| |addSceneMaterial| |createSceneTransform|
+ |addSceneTransform| |createPlot1Din2D| |addPlot1Din2D|
+ |createPlot1Din2Dparametric| |addPlot1Din2Dparametric|
+ |createPlot1Din3Dparametric| |addPlot1Din3Dparametric| |createPlot2Din3D|
+ |addPlot2Din3D| |createPlot2Din3Dparametric| |addPlot2Din3Dparametric|
+ |createArrows2Din2D| |addArrows2Din2D| |addChild!| |removeChild!|
+ |setTransform!| |toSVG| |toX3D| |toObj| |writeSvg| |writeSvgQuantised|
+ |writeX3d| |writeObj| |smesh| |singleFace| |subdivide| |sierpinskiDivide|
+ |displayIFS| |stube| |curveLoops| |indexes| |pointList| |testIFS|
+ |namedPoints| |isLeaf?| |getNames| |findPoint| |normalisePoint|
+ |structuralConstants| |equation| |incr| |high| |low| |hi| |lo| BY |horizSplit|
+ |horizJoin| |join| |pivots| |pivot| |primitiveRowEchelon| |setGcdMode|
+ |rowEchelon| |extract| |appendRow!| |consRow!| |deleteRow!| |setRow!| |row|
+ |setelt!| |sortedPurge!| |purge!| |elimZeroCols!| |allIndices| |nrows| |ncols|
+ |dilate| |firstn| |stream| |sequence| |apply| |union| |subset?|
+ |symmetricDifference| |difference| |intersect| |set| |brace| |latex| |hash|
+ |delta| |enumerate| |setOfMinN| |elements| |replaceKthElement|
  |incrementKthElement| |cdr| |car| |expr| |float| |integer| |symbol| |destruct|
  |float?| |integer?| |symbol?| |string?| |list?| |pair?| |null?| |eq| |fortran|
  |startTable!| |stopTable!| |supDimElseRittWu?| |algebraicSort|

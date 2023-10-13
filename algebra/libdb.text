@@ -6829,6 +6829,7 @@ oparse`1`n`(String)->_$`dInputForm``820876
 oparseIL`1`n`(String)->_$`dILogic``820958
 oparseIL2`2`n`(String,NonNegativeInteger)->Record(rft:_$,pout:NonNegativeInteger)`dILogic``821169
 oparseILTerm`2`n`(String,NonNegativeInteger)->Record(rft:_$,pout:NonNegativeInteger)`dILogic``821418
+oparse_integer`1`n`(String)->Integer`pScanningUtilities``0
 oparseLambda`1`n`(String)->_$`dLambda(UT)``821567
 oparseSki`1`n`(String)->_$`dSKICombinators(UT)``822151
 oparseTerm`2`n`(String,NonNegativeInteger)->Record(rft:_$,pout:NonNegativeInteger)`dLambda(UT)``822195
@@ -10141,6 +10142,7 @@ pRepresentationPackage2`1`x`(Ring)->etc`(R)`REP2`1268371
 pResolveLatticeCompletion`1`x`(Type)->etc`(S)`RESLATC`1268940
 pRetractSolvePackage`2`n`(Q:IntegralDomain,R:Join(IntegralDomain,etc))->etc`(Q,R)`RETSOL`1269038
 pSAERationalFunctionAlgFactor`3`x`(UP:UnivariatePolynomialCategory(Fraction(Polynomial(Integer))),SAE:Join(Field,etc),UPA:UnivariatePolynomialCategory(SAE))->etc`(UP,SAE,UPA)`SAERFFC`1269189
+pScanningUtilities`0`n`()->etc``SCANUTIL`0
 pScriptFormulaFormat1`1`x`(SetCategory)->etc`(S)`FORMULA1`1269323
 pSegmentBindingFunctions2`2`x`(Type,S:Type)->etc`(R,S)`SEGBIND2`1269488
 pSegmentFunctions2`2`x`(Type,S:Type)->etc`(R,S)`SEG2`1269590
