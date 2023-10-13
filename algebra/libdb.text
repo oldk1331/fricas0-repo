@@ -5270,8 +5270,8 @@ olambertW`1`x`(Complex(DoubleFloat))->Complex(DoubleFloat)`pFloatSpecialFunction
 olambertW`1`x`(Complex(Float))->Complex(Float)`pFloatSpecialFunctions``614719
 olambertW`1`x`(DoubleFloat)->DoubleFloat`pFloatSpecialFunctions``614779
 olambertW`1`x`(Float)->Float`pFloatSpecialFunctions``614839
-olanden1`1`x`(Complex(Float))->List(Complex(Float))`pFloatEllipticFunctions``614899
-olanden1`1`x`(Float)->List(Float)`pFloatEllipticFunctions``614920
+olanden1`2`x`(Complex(Float),List(Complex(Float)))->List(Complex(Float))`pFloatEllipticFunctions``614899
+olanden1`2`x`(Float,List(Float))->List(Float)`pFloatEllipticFunctions``614920
 olanden2`3`x`(Complex(Float),List(Complex(Float)),Float)->List(Complex(Float))`pFloatEllipticFunctions``614941
 olanden2`3`x`(Float,List(Float),Float)->List(Float)`pFloatEllipticFunctions``614962
 olanden`2`x`(Complex(Float),Float)->List(Complex(Float))`pFloatEllipticFunctions``614983
