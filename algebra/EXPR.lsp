@@ -587,8 +587,8 @@
 
 (DEFUN |EXPR;jacobiTheta;3$;118| (|q| |z| $) (SPADCALL |q| |z| (QREFELT $ 317))) 
 
-(DEFUN |EXPR;lerchPhi;4$;119| (|a| |b| |z| $)
-  (SPADCALL |a| |b| |z| (QREFELT $ 319))) 
+(DEFUN |EXPR;lerchPhi;4$;119| (|z| |s| |a| $)
+  (SPADCALL |z| |s| |a| (QREFELT $ 319))) 
 
 (DEFUN |EXPR;riemannZeta;2$;120| (|z| $) (SPADCALL |z| (QREFELT $ 321))) 
 

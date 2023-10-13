@@ -1297,7 +1297,7 @@
   (COND
    ((SPADCALL |a| (|spadConstant| $ 63) (QREFELT $ 61))
     (SPADCALL (SPADCALL |s| |z| (QREFELT $ 52)) |z| (QREFELT $ 99)))
-   ('T (SPADCALL (QREFELT $ 183) (LIST |a| |s| |z|) (QREFELT $ 91))))) 
+   ('T (SPADCALL (QREFELT $ 183) (LIST |z| |s| |a|) (QREFELT $ 91))))) 
 
 (DEFUN |FSPECF;elLerchPhi| (|l| $)
   (|FSPECF;eLerchPhi| (SPADCALL |l| 1 (QREFELT $ 89))

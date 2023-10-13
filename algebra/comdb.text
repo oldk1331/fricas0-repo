@@ -4378,7 +4378,7 @@
 476072`\spad{length(v)} computes the sqrt(dot(\spad{v},{}\spad{v})),{} \spadignore{i.e.} the magnitude
 476158`\spad{lepol }\undocumented
 476241`\spad{lerchPhi(z,{} s,{} a)} is the Lerch Phi function
-476306`\spad{lerchPhi(a,{} b,{} z)} is the Lerch Phi function.
+476306`\spad{lerchPhi(z,{} s,{} a)} is the Lerch Phi function.
 476668`\spad{less?(a,{} b)} compares \spad{a} and \spad{b} in the partial ordering induced by setOrder.
 476749`\spad{less?(u,{}n)} tests if \spad{u} has less than \spad{n} elements.
 476812`\spad{less?(a,{} b,{} fn)} compares \spad{a} and \spad{b} in the partial ordering induced by setOrder,{} and returns \spad{fn(a,{} b)} if \spad{a} and \spad{b} are not comparable in that ordering.

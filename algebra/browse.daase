@@ -30290,7 +30290,7 @@ NIL
    "\\spad{hypergeometricF(la,{} lb,{} z)} is the generalized hypergeometric function."))
  (|riemannZeta| (($ $) "\\spad{riemannZeta(z)} is the Riemann Zeta function."))
  (|lerchPhi|
-  (($ $ $ $) "\\spad{lerchPhi(a,{} b,{} z)} is the Lerch Phi function."))
+  (($ $ $ $) "\\spad{lerchPhi(z,{} s,{} a)} is the Lerch Phi function."))
  (|jacobiTheta|
   (($ $ $) "\\spad{jacobiTheta(q,{} z)} is the third Jacobi Theta function."))
  (|jacobiZeta|
