@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4532 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4536 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -924,7 +924,8 @@
  |legendreP| |legendreQ| |kelvinBei| |kelvinBer| |kelvinKei| |kelvinKer|
  |ellipticK| |ellipticE| |ellipticF| |ellipticPi| |jacobiSn| |jacobiCn|
  |jacobiDn| |jacobiZeta| |jacobiTheta| |lerchPhi| |riemannZeta|
- |hypergeometricF| |meijerG| |lambertW0| |subNode?| |infLex?| |setEmpty!|
+ |hypergeometricF| |meijerG| |lambertW0| |weierstrassP0| |weierstrassPPrime0|
+ |weierstrassZeta0| |weierstrassSigma0| |subNode?| |infLex?| |setEmpty!|
  |setStatus!| |setCondition!| |setValue!| |copy| |status| |condition| |value|
  |splitNodeOf!| |remove!| |remove| |subNodeOf?| |nodeOf?| |result| |conditions|
  |updateStatus!| |extractSplittingLeaf| |extendedCoords| |screenCoords|
