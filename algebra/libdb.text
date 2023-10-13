@@ -2429,7 +2429,7 @@ ocontinuedFraction`1`x`(F)->ContinuedFraction(Integer)`pNumericContinuedFraction
 ocontinuedFraction`1`x`(Fraction(R))->_$`dContinuedFraction(R)``321067
 ocontinuedFraction`3`x`(R,Stream(R),Stream(R))->_$`dContinuedFraction(R)``321215
 ocontract`2`n`(JetVectorField(JB,D),_$)->D`dJetDifferential(JB,D)``321453
-ocontract`2`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))),List(OrderedVariableList(vl)))->PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer)))`pIdealDecompositionPackage(vl,nv)``321574
+ocontract`2`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))),List(OrderedVariableList(vl)))->PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer)))`pIdealDecompositionPackage(vl)``321574
 ocontract`3`x`(_$,Integer,Integer)->_$`dCartesianTensor(minix,dim,R)``321675
 ocontract`4`x`(_$,Integer,_$,Integer)->_$`dCartesianTensor(minix,dim,R)``322027
 ocontractSolve`2`x`(Equation(Fraction(Polynomial(R))),Symbol)->SuchThat(List(Expression(R)),List(Equation(Expression(R))))`pRadicalSolvePackage(R)``322494
@@ -7086,7 +7086,7 @@ opresuper`2`n`(_$,_$)->_$`dOutputForm``855846
 opretendOfType`1`n`(InputForm)->InputForm`pInputFormFunctions1(R)``855934
 oprevious`1`x`(_$)->_$`cDoublyLinkedAggregate(S)``856024
 oprevPrime`1`x`(I)->I`pIntegerPrimesPackage(I)``856211
-oprimaryDecomp`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->List(PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))`pIdealDecompositionPackage(vl,nv)``856295
+oprimaryDecomp`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->List(PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))`pIdealDecompositionPackage(vl)``856295
 oprime`1`n`(_$)->_$`dOutputForm``856411
 oprime?`1`n`(S)->Boolean`xComplexCategory&(S,R)``0
 oprime?`1`n`(S)->Boolean`xField&(S)``0
@@ -7095,7 +7095,7 @@ oprime?`1`n`(S)->Boolean`xUniqueFactorizationDomain&(S)``0
 oprime?`1`x`(_$)->Boolean`cUniqueFactorizationDomain``856503
 oprime?`1`x`(Complex(Integer))->Boolean`pGaussianFactorizationPackage``856667
 oprime?`1`x`(I)->Boolean`pIntegerPrimesPackage(I)``856748
-oprime?`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->Boolean`pIdealDecompositionPackage(vl,nv)``857953
+oprime?`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->Boolean`pIdealDecompositionPackage(vl)``857953
 oprime`2`n`(_$,NonNegativeInteger)->_$`dOutputForm``858015
 oprimeFactor`2`x`(R,Integer)->_$`dFactored(R)``858097
 oprimeFrobenius`1`n`(S)->S`xFieldOfPrimeCharacteristic&(S)``0
@@ -7307,14 +7307,14 @@ orabs`1`x`(Complex(Float))->Float`pFloatSpecialFunctions``885168
 orabs`1`x`(DoubleFloat)->DoubleFloat`pFloatSpecialFunctions``885188
 orabs`1`x`(Float)->Float`pFloatEllipticFunctions``885208
 orabs`1`x`(Float)->Float`pFloatSpecialFunctions``885229
-oradical`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer)))`pIdealDecompositionPackage(vl,nv)``885249
+oradical`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer)))`pIdealDecompositionPackage(vl)``885249
 oradicalEigenvalues`1`x`(Matrix(Fraction(Polynomial(Integer))))->List(Expression(Integer))`pRadicalEigenPackage``885317
 oradicalEigenvector`2`x`(Expression(Integer),Matrix(Fraction(Polynomial(Integer))))->List(Matrix(Expression(Integer)))`pRadicalEigenPackage``885471
 oradicalEigenvectors`1`x`(Matrix(Fraction(Polynomial(Integer))))->List(Record(radval:Expression(Integer),radmult:Integer,radvect:List(Matrix(Expression(Integer)))))`pRadicalEigenPackage``885671
 oradicalOfLeftTraceForm`0`x`()->List(A)`pAlgebraPackage(R,A)``885852
 oradicalRoots`2`x`(Fraction(Polynomial(R)),Symbol)->List(Expression(R))`pRadicalSolvePackage(R)``886090
 oradicalRoots`2`x`(List(Fraction(Polynomial(R))),List(Symbol))->List(List(Expression(R)))`pRadicalSolvePackage(R)``886244
-oradicalSimplify`1`n`(QuasiAlgebraicSet(Fraction(Integer),OrderedVariableList(vl),DirectProduct(nv,NonNegativeInteger),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->QuasiAlgebraicSet(Fraction(Integer),OrderedVariableList(vl),DirectProduct(nv,NonNegativeInteger),DistributedMultivariatePolynomial(vl,Fraction(Integer)))`pQuasiAlgebraicSet2(vl,nv)``886424
+oradicalSimplify`1`n`(QuasiAlgebraicSet(Fraction(Integer),OrderedVariableList(vl),DirectProduct(#(vl),NonNegativeInteger),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->QuasiAlgebraicSet(Fraction(Integer),OrderedVariableList(vl),DirectProduct(#(vl),NonNegativeInteger),DistributedMultivariatePolynomial(vl,Fraction(Integer)))`pQuasiAlgebraicSet2(vl)``886424
 oradicalSolve`1`x`(Equation(Fraction(Polynomial(R))))->List(Equation(Expression(R)))`pRadicalSolvePackage(R)``886742
 oradicalSolve`1`x`(Fraction(Polynomial(R)))->List(Equation(Expression(R)))`pRadicalSolvePackage(R)``886939
 oradicalSolve`1`x`(List(Equation(Fraction(Polynomial(R)))))->List(List(Equation(Expression(R))))`pRadicalSolvePackage(R)``887105
@@ -9677,8 +9677,8 @@ ozeroDim?`1`x`(_$)->Boolean`dPolynomialIdeal(F,Expon,VarSet,DPoly)``1175323
 ozeroDim?`2`x`(_$,List(VarSet))->Boolean`dPolynomialIdeal(F,Expon,VarSet,DPoly)``1175540
 ozeroDimensional?`1`n`(List(NewSparseMultivariatePolynomial(R,OrderedVariableList(ls))))->Boolean`pLexTriangularPackage(R,ls)``1175710
 ozeroDimensional?`1`n`(List(Polynomial(R)))->Boolean`pFGLMIfCanPackage(R,ls)``1175903
-ozeroDimPrimary?`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->Boolean`pIdealDecompositionPackage(vl,nv)``1176089
-ozeroDimPrime?`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(nv,NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->Boolean`pIdealDecompositionPackage(vl,nv)``1176176
+ozeroDimPrimary?`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->Boolean`pIdealDecompositionPackage(vl)``1176089
+ozeroDimPrime?`1`x`(PolynomialIdeal(Fraction(Integer),DirectProduct(#(vl),NonNegativeInteger),OrderedVariableList(vl),DistributedMultivariatePolynomial(vl,Fraction(Integer))))->Boolean`pIdealDecompositionPackage(vl)``1176176
 ozeroMatrix`3`n`(NonNegativeInteger,NonNegativeInteger,NonNegativeInteger)->_$`dThreeDimensionalMatrix(R)`has(R,Ring)`1176261
 ozeroMatrix`3`n`(Symbol,Polynomial(Integer),Polynomial(Integer))->FortranCode`pFortranCodePackage1``1176333
 ozeroMatrix`3`n`(Symbol,SegmentBinding(Polynomial(Integer)),SegmentBinding(Polynomial(Integer)))->FortranCode`pFortranCodePackage1``1176431
@@ -9891,7 +9891,7 @@ pGuessPolynomialInteger`0`x`()->etc``GUESSPI`1214626
 pHallBasis`0`x`()->etc``HB`1214716
 pHankelPackage`1`n`(Ring)->etc`(R)`HANKP`1215290
 pHeuGcd`1`n`(UnivariatePolynomialCategory(Integer))->etc`(BP)`HEUGCD`1215334
-pIdealDecompositionPackage`2`x`(List(Symbol),nv:NonNegativeInteger)->etc`(vl,nv)`IDECOMP`1215496
+pIdealDecompositionPackage`1`x`(List(Symbol))->etc`(vl)`IDECOMP`1215496
 pIncrementingMaps`1`n`(Join(Monoid,etc))->etc`(R)`INCRMAPS`1215805
 pInfiniteProductCharacteristicZero`2`x`(Coef:Join(IntegralDomain,etc),UTS:UnivariateTaylorSeriesCategory(Coef))->etc`(Coef,UTS)`INFPROD0`1215879
 pInfiniteProductFiniteField`4`x`(K:Join(Field,etc),UP:UnivariatePolynomialCategory(K),Coef:MonogenicAlgebra(K,UP),UTS:UnivariateTaylorSeriesCategory(Coef))->etc`(K,UP,Coef,UTS)`INPRODFF`1215999
@@ -10090,7 +10090,7 @@ pPseudoRemainderSequence`2`n`(R:IntegralDomain,polR:UnivariatePolynomialCategory
 pPureAlgebraicIntegration`3`n`(R:Join(GcdDomain,etc),F:Join(FunctionSpace(R),etc),L:SetCategory)->etc`(R,F,L)`INTPAF`1256660
 pPureAlgebraicLODE`4`n`(F:Join(Field,etc),UP:UnivariatePolynomialCategory(F),UPUP:UnivariatePolynomialCategory(Fraction(UP)),R:FunctionFieldCategory(F,UP,UPUP))->etc`(F,UP,UPUP,R)`ODEPAL`1256829
 pPushVariables`4`n`(R:Ring,E:OrderedAbelianMonoidSup,OV:Join(OrderedSet,etc),PPR:PolynomialCategory(Polynomial(R),E,OV))->etc`(R,E,OV,PPR)`PUSHVAR`1256922
-pQuasiAlgebraicSet2`2`n`(List(Symbol),nv:NonNegativeInteger)->etc`(vl,nv)`QALGSET2`1256958
+pQuasiAlgebraicSet2`1`n`(List(Symbol))->etc`(vl)`QALGSET2`1256958
 pQuasiComponentPackage`5`x`(R:GcdDomain,E:OrderedAbelianMonoidSup,V:OrderedSet,P:RecursivePolynomialCategory(R,E,V),TS:RegularTriangularSetCategory(R,E,V,P))->etc`(R,E,V,P,TS)`QCMPACK`1258212
 pQuaternionCategoryFunctions2`4`x`(QuaternionCategory(R),R:CommutativeRing,QS:QuaternionCategory(S),S:CommutativeRing)->etc`(QR,R,QS,S)`QUATCT2`1258951
 pQuotientFieldCategoryFunctions2`4`x`(A:IntegralDomain,B:IntegralDomain,R:QuotientFieldCategory(A),S:QuotientFieldCategory(B))->etc`(A,B,R,S)`QFCAT2`1259148
