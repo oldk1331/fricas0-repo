@@ -2623,7 +2623,7 @@
      (SEQ
       (EXIT
        (SEQ (LETT |n| (LENGTH |l|) . #4=(|FSPECF;iiHypergeometricF;LF;257|))
-            (LETT |z| (SPADCALL |l| (- |n| 3) (QREFELT $ 89)) . #4#)
+            (LETT |z| (SPADCALL |l| (- |n| 2) (QREFELT $ 89)) . #4#)
             (COND
              ((SPADCALL |z| (|spadConstant| $ 59) (QREFELT $ 61))
               (SEQ
