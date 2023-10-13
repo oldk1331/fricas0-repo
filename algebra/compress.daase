@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4536 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4537 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -902,9 +902,9 @@
  |unrankImproperPartitions0| |unrankImproperPartitions1| |subresultantSequence|
  |SturmHabichtSequence| |SturmHabichtCoefficients| |SturmHabicht|
  |countRealRoots| |SturmHabichtMultiple| |countRealRootsMultiple| |Or| |And|
- |Not| |xor| |not| |min| |max| ~ |/\\| |\\/| |depth| |top| |pop!| |push!|
- |redux| |freeVariable?| |getVariable| |isS?| |isK?| |isI?| |variable?| |atom?|
- |getChildren| |parseTerm| |parseSki| S K I |ski| |Pfaffian| |minordet|
+ |Not| |xor| |not| |min| |max| |qconvert| ~ |/\\| |\\/| |depth| |top| |pop!|
+ |push!| |redux| |freeVariable?| |getVariable| |isS?| |isK?| |isI?| |variable?|
+ |atom?| |getChildren| |parseTerm| |parseSki| S K I |ski| |Pfaffian| |minordet|
  |determinant| |diagonalProduct| |trace| |diagonal| |diagonalMatrix|
  |scalarMatrix| |hermite| |completeHermite| |smith| |completeSmith|
  |diophantineSystem| |remap_variables| |csubst| |particularSolution| |mapSolve|
