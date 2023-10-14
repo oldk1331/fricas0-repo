@@ -174,7 +174,7 @@
                     (GO G191)))
                   (SEQ
                    (EXIT
-                    (COND ((ZEROP |i|) (|error| '|errsmg1|))
+                    (COND ((ZEROP |i|) (|error| |errsmg1|))
                           ('T
                            (LETT |lop|
                                  (CONS

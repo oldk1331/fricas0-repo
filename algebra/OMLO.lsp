@@ -12,7 +12,8 @@
 (DEFUN |OMLO;*;3$;3| (|x| |y| $) (SPADCALL |y| |x| (QREFELT $ 11))) 
 
 (DEFUN |OMLO;coerce;$Of;4| (|x| $)
-  (SPADCALL '|op| (LIST (SPADCALL |x| (QREFELT $ 14))) (QREFELT $ 16))) 
+  (SPADCALL (SPADCALL '|op| (QREFELT $ 15))
+            (LIST (SPADCALL |x| (QREFELT $ 16))) (QREFELT $ 18))) 
 
 (DEFUN |OppositeMonogenicLinearOperator| (&REST #1=#:G132)
   (PROG ()
@@ -44,7 +45,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|OppositeMonogenicLinearOperator|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|OppositeMonogenicLinearOperator| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 25) . #1#)
+      (LETT $ (GETREFV 27) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -69,16 +70,16 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#1|) (|local| |#2|)
               '|Rep| |OMLO;op;P$;1| |OMLO;po;$P;2| (0 . *) |OMLO;*;3$;3|
-              (|OutputForm|) (6 . |coerce|) (|List| $) (11 . |prefix|)
-              |OMLO;coerce;$Of;4| (|NonNegativeInteger|) (|Integer|)
-              (|Union| $ '"failed") (|Boolean|) (|PositiveInteger|)
-              (|SingleInteger|) (|String|))
-           '#(~= 17 |zero?| 23 |subtractIfCan| 28 |sample| 34 |reductum| 38
-              |recip| 43 |po| 48 |op| 53 |one?| 58 |monomial| 63
-              |minimumDegree| 69 |leadingCoefficient| 74 |latex| 79 |hash| 84
-              |differentiate| 89 |degree| 100 |coerce| 105 |coefficient| 120
-              |characteristic| 126 ^ 130 |Zero| 142 |One| 146 D 150 = 161 - 167
-              + 178 * 184)
+              (|OutputForm|) (|Symbol|) (6 . |coerce|) (11 . |coerce|)
+              (|List| $) (16 . |prefix|) |OMLO;coerce;$Of;4|
+              (|NonNegativeInteger|) (|Integer|) (|Union| $ '"failed")
+              (|Boolean|) (|PositiveInteger|) (|SingleInteger|) (|String|))
+           '#(~= 22 |zero?| 28 |subtractIfCan| 33 |sample| 39 |reductum| 43
+              |recip| 48 |po| 53 |op| 58 |one?| 63 |monomial| 68
+              |minimumDegree| 74 |leadingCoefficient| 79 |latex| 84 |hash| 89
+              |differentiate| 94 |degree| 105 |coerce| 110 |coefficient| 125
+              |characteristic| 131 ^ 135 |Zero| 147 |One| 151 D 155 = 166 - 172
+              + 183 * 189)
            'NIL
            (CONS
             (|makeByteWordVec2| 2
@@ -96,16 +97,17 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 13))
-              (|makeByteWordVec2| 24
-                                  '(2 5 0 0 0 11 1 5 13 0 14 2 13 0 0 15 16 2 0
-                                    21 0 0 1 1 0 21 0 1 2 0 20 0 0 1 0 0 0 1 1
-                                    0 0 0 1 1 0 20 0 1 1 0 5 0 10 1 0 0 5 9 1 0
-                                    21 0 1 2 0 0 7 18 1 1 0 18 0 1 1 0 7 0 1 1
-                                    0 24 0 1 1 0 23 0 1 2 2 0 0 18 1 1 2 0 0 1
-                                    1 0 18 0 1 1 1 0 7 1 1 0 0 19 1 1 0 13 0 17
-                                    2 0 7 0 18 1 0 0 18 1 2 0 0 0 18 1 2 0 0 0
-                                    22 1 0 0 0 1 0 0 0 1 2 2 0 0 18 1 1 2 0 0 1
-                                    2 0 21 0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0
-                                    0 1 2 0 0 7 0 1 2 0 0 0 7 1 2 0 0 0 0 12 2
-                                    0 0 19 0 1 2 0 0 18 0 1 2 0 0 22 0 1)))))
+              (|makeByteWordVec2| 26
+                                  '(2 5 0 0 0 11 1 14 13 0 15 1 5 13 0 16 2 13
+                                    0 0 17 18 2 0 23 0 0 1 1 0 23 0 1 2 0 22 0
+                                    0 1 0 0 0 1 1 0 0 0 1 1 0 22 0 1 1 0 5 0 10
+                                    1 0 0 5 9 1 0 23 0 1 2 0 0 7 20 1 1 0 20 0
+                                    1 1 0 7 0 1 1 0 26 0 1 1 0 25 0 1 2 2 0 0
+                                    20 1 1 2 0 0 1 1 0 20 0 1 1 1 0 7 1 1 0 0
+                                    21 1 1 0 13 0 19 2 0 7 0 20 1 0 0 20 1 2 0
+                                    0 0 20 1 2 0 0 0 24 1 0 0 0 1 0 0 0 1 2 2 0
+                                    0 20 1 1 2 0 0 1 2 0 23 0 0 1 2 0 0 0 0 1 1
+                                    0 0 0 1 2 0 0 0 0 1 2 0 0 7 0 1 2 0 0 0 7 1
+                                    2 0 0 0 0 12 2 0 0 21 0 1 2 0 0 20 0 1 2 0
+                                    0 24 0 1)))))
            '|lookupComplete|)) 

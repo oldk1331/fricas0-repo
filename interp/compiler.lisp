@@ -1158,7 +1158,7 @@
 ;       not isFunction(s,e) and null ($compForModeIfTrue=true) then errorRef s
 ;     [s,m',e] --s is a declared argument
 ;   MEMQ(s,$FormalMapVariableList) => stackMessage ["no mode found for",s]
-;   m = $OutputForm or m = $Symbol => [['QUOTE,s],m,e]
+;   -- m = $OutputForm or m = $Symbol => [['QUOTE,s],m,e]
 ;   not isFunction(s,e) => errorRef s
  
 (DEFUN |compSymbol| (|s| |m| |e|)
@@ -1187,8 +1187,6 @@
              (LIST |s| |m'| |e|)))
            ((MEMQ |s| |$FormalMapVariableList|)
             (|stackMessage| (LIST '|no mode found for| |s|)))
-           ((OR (EQUAL |m| |$OutputForm|) (EQUAL |m| |$Symbol|))
-            (LIST (LIST 'QUOTE |s|) |m| |e|))
            ((NULL (|isFunction| |s| |e|)) (|errorRef| |s|))))))
  
 ; convertOrCroak(T,m) ==

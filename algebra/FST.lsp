@@ -20,13 +20,7 @@
         ('T (SPADCALL 'LOGICAL (QREFELT $ 15))))) 
 
 (DEFUN |FST;coerce;$Se;3| (|t| $)
-  (COND ((QEQCAR |t| 0) (SPADCALL '|real| (QREFELT $ 18)))
-        ((QEQCAR |t| 1) (SPADCALL '|integer| (QREFELT $ 18)))
-        ((QEQCAR |t| 2) (SPADCALL '|complex| (QREFELT $ 18)))
-        ((QEQCAR |t| 3) (SPADCALL '|character| (QREFELT $ 18)))
-        ((QEQCAR |t| 5) (SPADCALL (QREFELT $ 7) (QREFELT $ 18)))
-        ((QEQCAR |t| 6) (SPADCALL (QREFELT $ 9) (QREFELT $ 18)))
-        ('T (SPADCALL '|logical| (QREFELT $ 18))))) 
+  (SPADCALL (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 19))) 
 
 (DEFUN |FST;coerce;$S;4| (|t| $)
   (COND ((QEQCAR |t| 0) '|real|) ((QEQCAR |t| 1) '|integer|)
@@ -43,7 +37,7 @@
         ((OR (EQUAL |s| '|logical|) (EQUAL |s| 'LOGICAL)) (CONS 4 "logical"))
         ((OR (EQUAL |s| (QREFELT $ 7)) (EQUAL |s| (QREFELT $ 8)))
          (CONS 5 "double precision"))
-        ((OR (EQUAL |s| (QREFELT $ 9)) (EQUAL |s| '|upperDoubleCOmplexSymbol|))
+        ((OR (EQUAL |s| (QREFELT $ 9)) (EQUAL |s| (QREFELT $ 10)))
          (CONS 6 "double complex")))) 
 
 (DEFUN |FST;coerce;S$;6| (|s| $)
@@ -97,7 +91,7 @@
 (DEFUN |FortranScalarType| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G161)
+     (PROG (#1=#:G181)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FortranScalarType|)
@@ -145,8 +139,8 @@
               '|upperDoubleSymbol| '|doubleComplexSymbol|
               '|upperDoubleComplexSymbol| (|Boolean|) |FST;=;2$B;1|
               (|OutputForm|) (|Symbol|) (0 . |coerce|) |FST;coerce;$Of;2|
-              (|SExpression|) (5 . |convert|) |FST;coerce;$Se;3|
-              |FST;coerce;$S;4| |FST;coerce;S$;5| (|List| $) (|String|)
+              |FST;coerce;$S;4| (|SExpression|) (5 . |convert|)
+              |FST;coerce;$Se;3| |FST;coerce;S$;5| (|List| $) (|String|)
               (10 . |concat|) (15 . |coerce|) |FST;coerce;S$;6|
               |FST;real?;$B;7| |FST;double?;$B;8| |FST;logical?;$B;9|
               |FST;integer?;$B;10| |FST;character?;$B;11| |FST;complex?;$B;12|
@@ -158,12 +152,12 @@
                  (CONS '#(NIL)
                        (CONS '#((|CoercibleTo| 13))
                              (|makeByteWordVec2| 33
-                                                 '(1 14 13 0 15 1 17 0 14 18 1
+                                                 '(1 14 13 0 15 1 18 0 14 19 1
                                                    23 0 22 24 1 23 13 0 25 1 0
                                                    11 0 27 1 0 11 0 29 1 0 11 0
                                                    30 1 0 11 0 33 1 0 11 0 28 1
-                                                   0 11 0 32 1 0 17 0 19 1 0 0
-                                                   14 21 1 0 14 0 20 1 0 13 0
+                                                   0 11 0 32 1 0 18 0 20 1 0 0
+                                                   14 21 1 0 14 0 17 1 0 13 0
                                                    16 1 0 0 23 26 1 0 11 0 31 2
                                                    0 11 0 0 12)))))
            '|lookupComplete|)) 

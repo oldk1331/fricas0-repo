@@ -13,7 +13,7 @@
   (SPADCALL (CDR (CDR |jv|)) (QREFELT $ 22))) 
 
 (DEFUN |JBUNDLE;index;$Pi;4| (|jv| $)
-  (PROG (#1=#:G139)
+  (PROG (#1=#:G142)
     (RETURN
      (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)) |JBUNDLE;index;$Pi;4|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
@@ -27,7 +27,7 @@
                  ((EQL |t| 2) '|Dep|) ('T '|Deriv|))))))) 
 
 (DEFUN |JBUNDLE;CheckZeroIndex| (|il| $)
-  (PROG (#1=#:G147 #2=#:G148 |i|)
+  (PROG (#1=#:G150 #2=#:G151 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -52,7 +52,7 @@
    ('T (LIST 1 |up|)))) 
 
 (DEFUN |JBUNDLE;U;Pi$;8| (|up| $)
-  (PROG (#1=#:G153 |i| #2=#:G152)
+  (PROG (#1=#:G156 |i| #2=#:G155)
     (RETURN
      (SEQ
       (COND
@@ -79,7 +79,7 @@
    ('T (CONS 3 (CONS |up| |lo|))))) 
 
 (DEFUN |JBUNDLE;coerce;S$;10| (|s| $)
-  (PROG (#1=#:G161 #2=#:G158 |pos|)
+  (PROG (#1=#:G164 #2=#:G161 |pos|)
     (RETURN
      (SEQ
       (LETT |pos| (SPADCALL |s| (QREFELT $ 6) (QREFELT $ 37))
@@ -104,7 +104,7 @@
           (QREFELT $ 31))))))))) 
 
 (DEFUN |JBUNDLE;D;SL$;11| (|u| |der| $)
-  (PROG (#1=#:G169 |lower| #2=#:G165 |pos| #3=#:G173 |d| |up|)
+  (PROG (#1=#:G172 |lower| #2=#:G168 |pos| #3=#:G176 |d| |up|)
     (RETURN
      (SEQ
       (LETT |up| (SPADCALL |u| (QREFELT $ 7) (QREFELT $ 37))
@@ -147,60 +147,61 @@
 (DEFUN |JBUNDLE;One;$;12| ($) (LIST 0 1)) 
 
 (DEFUN |JBUNDLE;numIndVar;Pi;13| ($)
-  (PROG (#1=#:G175)
+  (PROG (#1=#:G178)
     (RETURN
      (PROG1 (LETT #1# (QREFELT $ 8) |JBUNDLE;numIndVar;Pi;13|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
 
 (DEFUN |JBUNDLE;numDepVar;Pi;14| ($)
-  (PROG (#1=#:G177)
+  (PROG (#1=#:G180)
     (RETURN
      (PROG1 (LETT #1# (QREFELT $ 9) |JBUNDLE;numDepVar;Pi;14|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
 
 (DEFUN |JBUNDLE;name;$S;15| (|jv| $)
-  (PROG (|lower| #1=#:G184 |j| |res| |mu| |i| |jt|)
+  (PROG (|lower| #1=#:G188 |j| |res| |mu| |i| |jt|)
     (RETURN
      (SEQ
-      (LETT |jt| (SPADCALL |jv| (QREFELT $ 27)) . #2=(|JBUNDLE;name;$S;15|))
-      (EXIT
-       (COND ((EQUAL |jt| '|Const|) '|1|)
-             (#3='T
-              (SEQ (LETT |i| (SPADCALL |jv| (QREFELT $ 26)) . #2#)
-                   (EXIT
-                    (COND
-                     ((EQUAL |jt| '|Indep|) (QAREF1O (QREFELT $ 13) |i| 1))
-                     ((EQUAL |jt| '|Dep|) (QAREF1O (QREFELT $ 14) |i| 1))
-                     (#3#
-                      (SEQ (LETT |mu| (SPADCALL |jv| (QREFELT $ 47)) . #2#)
-                           (LETT |res| (QAREF1O (QREFELT $ 14) |i| 1) . #2#)
-                           (LETT |lower| NIL . #2#)
-                           (SEQ (LETT |j| NIL . #2#) (LETT #1# |mu| . #2#) G190
-                                (COND
-                                 ((OR (ATOM #1#)
-                                      (PROGN (LETT |j| (CAR #1#) . #2#) NIL))
-                                  (GO G191)))
-                                (SEQ
-                                 (EXIT
-                                  (LETT |lower|
-                                        (CONS
-                                         (SPADCALL
-                                          (QAREF1O (QREFELT $ 13) |j| 1)
-                                          (QREFELT $ 48))
-                                         |lower|)
-                                        . #2#)))
-                                (LETT #1# (CDR #1#) . #2#) (GO G190) G191
-                                (EXIT NIL))
-                           (LETT |lower| (NREVERSE |lower|) . #2#)
-                           (EXIT
-                            (SPADCALL |res| |lower| (QREFELT $ 50))))))))))))))) 
+      (COND
+       ((EQUAL
+         (LETT |jt| (SPADCALL |jv| (QREFELT $ 27)) . #2=(|JBUNDLE;name;$S;15|))
+         '|Const|)
+        '|1|)
+       (#3='T
+        (SEQ (LETT |i| (SPADCALL |jv| (QREFELT $ 26)) . #2#)
+             (EXIT
+              (COND ((EQUAL |jt| '|Indep|) (QAREF1O (QREFELT $ 13) |i| 1))
+                    ((EQUAL |jt| '|Dep|) (QAREF1O (QREFELT $ 14) |i| 1))
+                    (#3#
+                     (SEQ (LETT |mu| (SPADCALL |jv| (QREFELT $ 47)) . #2#)
+                          (LETT |res| (QAREF1O (QREFELT $ 14) |i| 1) . #2#)
+                          (LETT |lower| NIL . #2#)
+                          (SEQ (LETT |j| NIL . #2#) (LETT #1# |mu| . #2#) G190
+                               (COND
+                                ((OR (ATOM #1#)
+                                     (PROGN (LETT |j| (CAR #1#) . #2#) NIL))
+                                 (GO G191)))
+                               (SEQ
+                                (EXIT
+                                 (LETT |lower|
+                                       (CONS
+                                        (SPADCALL
+                                         (QAREF1O (QREFELT $ 13) |j| 1)
+                                         (QREFELT $ 48))
+                                        |lower|)
+                                       . #2#)))
+                               (LETT #1# (CDR #1#) . #2#) (GO G190) G191
+                               (EXIT NIL))
+                          (LETT |lower| (NREVERSE |lower|) . #2#)
+                          (EXIT
+                           (SPADCALL |res| |lower| (QREFELT $ 50)))))))))))))) 
 
 (PUT '|JBUNDLE;opdisp| '|SPADreplace| '|SPADfirst|) 
 
 (DEFUN |JBUNDLE;opdisp| (|l| $) (|SPADfirst| |l|)) 
 
 (DEFUN |JBUNDLE;coerce;$E;17| (|jv| $)
-  (PROG (|arg| #1=#:G192 |i| #2=#:G191 |jop| |tmp| |opname|)
+  (PROG (|arg| #1=#:G196 |i| #2=#:G195 |jop| |tmp| |opname|)
     (RETURN
      (SEQ
       (COND
@@ -240,10 +241,10 @@
                . #3#)
          (EXIT (SPADCALL |jop| |arg| (QREFELT $ 72)))))))))) 
 
-(DEFUN |JetBundle| (&REST #1=#:G199)
+(DEFUN |JetBundle| (&REST #1=#:G203)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G200)
+     (PROG (#2=#:G204)
        (RETURN
         (COND
          ((LETT #2#

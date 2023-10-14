@@ -52,9 +52,11 @@
                   (COND
                    ((EQL (SPADCALL |l| (QREFELT $ 27)) 2)
                     (COND
-                     ((SPADCALL (|SPADfirst| |l1|) 'QUOTE (QREFELT $ 28))
+                     ((SPADCALL (|SPADfirst| |l1|)
+                                (SPADCALL 'QUOTE (QREFELT $ 29))
+                                (QREFELT $ 30))
                       (EXIT
-                       (SPADCALL (|SPADfirst| (CDR |l1|)) (QREFELT $ 29)))))))
+                       (SPADCALL (|SPADfirst| (CDR |l1|)) (QREFELT $ 31)))))))
                   (EXIT
                    (SPADCALL (SPADCALL |l1| (QREFELT $ 23))
                              (QREFELT $ 24)))))))))) 
@@ -98,7 +100,7 @@
 (DEFUN |SEXOF;float?;$B;11| (|b| $) (FLOATP |b|)) 
 
 (DEFUN |SEXOF;destruct;$L;12| (|b| $)
-  (COND ((SPADCALL |b| (QREFELT $ 33)) |b|) ('T (|error| "Non-list")))) 
+  (COND ((SPADCALL |b| (QREFELT $ 35)) |b|) ('T (|error| "Non-list")))) 
 
 (DEFUN |SEXOF;string;$Str;13| (|b| $)
   (COND ((STRINGP |b|) |b|) ('T (|error| "Non-string")))) 
@@ -153,7 +155,7 @@
 (DEFUN |SEXOF;#;$I;26| (|b| $) (LENGTH |b|)) 
 
 (DEFUN |SEXOF;elt;$I$;27| (|b| |i| $)
-  (SPADCALL (SPADCALL |b| (QREFELT $ 19)) |i| (QREFELT $ 52))) 
+  (SPADCALL (SPADCALL |b| (QREFELT $ 19)) |i| (QREFELT $ 54))) 
 
 (DEFUN |SEXOF;elt;$L$;28| (|b| |li| $)
   (PROG (#1=#:G184 |i|)
@@ -165,7 +167,7 @@
            (SEQ
             (EXIT
              (LETT |b|
-                   (SPADCALL (SPADCALL |b| (QREFELT $ 19)) |i| (QREFELT $ 52))
+                   (SPADCALL (SPADCALL |b| (QREFELT $ 19)) |i| (QREFELT $ 54))
                    . #2#)))
            (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |b|))))) 
@@ -200,7 +202,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT DV$5 (|devaluate| |#5|) . #1#)
       (LETT |dv$| (LIST '|SExpressionOf| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-      (LETT $ (GETREFV 58) . #1#)
+      (LETT $ (GETREFV 60) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|SExpressionOf|
@@ -223,43 +225,43 @@
               |SEXOF;atom?;$B;5| |SEXOF;cdr;2$;25| |SEXOF;destruct;$L;12|
               |SEXOF;coerce;$Of;1| (|List| 15) (5 . |concat!|)
               (11 . |blankSeparate|) (16 . |paren|) (|NonNegativeInteger|)
-              (|List| $$) (21 . |#|) (26 . =) (32 . |quote|) |SEXOF;=;2$B;2|
-              |SEXOF;eq;2$B;3| |SEXOF;pair?;$B;6| |SEXOF;list?;$B;7|
-              |SEXOF;string?;$B;8| |SEXOF;symbol?;$B;9| |SEXOF;integer?;$B;10|
-              |SEXOF;float?;$B;11| |SEXOF;string;$Str;13|
-              |SEXOF;symbol;$Sym;14| |SEXOF;float;$Flt;15|
-              |SEXOF;integer;$Int;16| |SEXOF;expr;$Expr;17|
-              |SEXOF;convert;L$;18| |SEXOF;convert;Str$;19|
-              |SEXOF;convert;Sym$;20| |SEXOF;convert;Int$;21|
-              |SEXOF;convert;Flt$;22| |SEXOF;convert;Expr$;23|
-              |SEXOF;car;2$;24| (|Integer|) |SEXOF;#;$I;26| (37 . |elt|)
-              |SEXOF;elt;$I$;27| (|List| 50) |SEXOF;elt;$L$;28| (|String|)
-              (|SingleInteger|))
-           '#(~= 43 |symbol?| 49 |symbol| 54 |string?| 59 |string| 64 |pair?|
-              69 |null?| 74 |list?| 79 |latex| 84 |integer?| 89 |integer| 94
-              |hash| 99 |float?| 104 |float| 109 |expr| 114 |eq| 119 |elt| 125
-              |destruct| 137 |convert| 142 |coerce| 172 |cdr| 177 |car| 182
-              |atom?| 187 = 192 |#| 198)
+              (|List| $$) (21 . |#|) (|Symbol|) (26 . |coerce|) (31 . =)
+              (37 . |quote|) |SEXOF;=;2$B;2| |SEXOF;eq;2$B;3|
+              |SEXOF;pair?;$B;6| |SEXOF;list?;$B;7| |SEXOF;string?;$B;8|
+              |SEXOF;symbol?;$B;9| |SEXOF;integer?;$B;10| |SEXOF;float?;$B;11|
+              |SEXOF;string;$Str;13| |SEXOF;symbol;$Sym;14|
+              |SEXOF;float;$Flt;15| |SEXOF;integer;$Int;16|
+              |SEXOF;expr;$Expr;17| |SEXOF;convert;L$;18|
+              |SEXOF;convert;Str$;19| |SEXOF;convert;Sym$;20|
+              |SEXOF;convert;Int$;21| |SEXOF;convert;Flt$;22|
+              |SEXOF;convert;Expr$;23| |SEXOF;car;2$;24| (|Integer|)
+              |SEXOF;#;$I;26| (42 . |elt|) |SEXOF;elt;$I$;27| (|List| 52)
+              |SEXOF;elt;$L$;28| (|String|) (|SingleInteger|))
+           '#(~= 48 |symbol?| 54 |symbol| 59 |string?| 64 |string| 69 |pair?|
+              74 |null?| 79 |list?| 84 |latex| 89 |integer?| 94 |integer| 99
+              |hash| 104 |float?| 109 |float| 114 |expr| 119 |eq| 124 |elt| 130
+              |destruct| 142 |convert| 147 |coerce| 177 |cdr| 182 |car| 187
+              |atom?| 192 = 197 |#| 203)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SExpressionCategory| 6 7 8 9 10) (|SetCategory|)
                            (|BasicType|) (|CoercibleTo| 15))
-                        (|makeByteWordVec2| 57
+                        (|makeByteWordVec2| 59
                                             '(1 15 0 14 16 2 21 0 0 0 22 1 15 0
-                                              14 23 1 15 0 0 24 1 26 25 0 27 2
-                                              15 12 0 0 28 1 15 0 0 29 2 26 2 0
-                                              50 52 2 0 12 0 0 1 1 0 12 0 35 1
-                                              0 7 0 39 1 0 12 0 34 1 0 6 0 38 1
-                                              0 12 0 32 1 0 12 0 13 1 0 12 0 33
-                                              1 0 56 0 1 1 0 12 0 36 1 0 8 0 41
-                                              1 0 57 0 1 1 0 12 0 37 1 0 9 0 40
-                                              1 0 10 0 42 2 0 12 0 0 31 2 0 0 0
-                                              54 55 2 0 0 0 50 53 1 0 14 0 19 1
-                                              0 0 9 47 1 0 0 10 48 1 0 0 7 45 1
-                                              0 0 8 46 1 0 0 14 43 1 0 0 6 44 1
-                                              0 15 0 20 1 0 0 0 18 1 0 0 0 49 1
-                                              0 12 0 17 2 0 12 0 0 30 1 0 50 0
-                                              51)))))
+                                              14 23 1 15 0 0 24 1 26 25 0 27 1
+                                              28 15 0 29 2 15 12 0 0 30 1 15 0
+                                              0 31 2 26 2 0 52 54 2 0 12 0 0 1
+                                              1 0 12 0 37 1 0 7 0 41 1 0 12 0
+                                              36 1 0 6 0 40 1 0 12 0 34 1 0 12
+                                              0 13 1 0 12 0 35 1 0 58 0 1 1 0
+                                              12 0 38 1 0 8 0 43 1 0 59 0 1 1 0
+                                              12 0 39 1 0 9 0 42 1 0 10 0 44 2
+                                              0 12 0 0 33 2 0 0 0 56 57 2 0 0 0
+                                              52 55 1 0 14 0 19 1 0 0 9 49 1 0
+                                              0 10 50 1 0 0 7 47 1 0 0 8 48 1 0
+                                              0 14 45 1 0 0 6 46 1 0 15 0 20 1
+                                              0 0 0 18 1 0 0 0 51 1 0 12 0 17 2
+                                              0 12 0 0 32 1 0 52 0 53)))))
            '|lookupComplete|)) 

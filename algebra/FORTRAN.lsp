@@ -45,7 +45,8 @@
                  (GO G191)))
                (SEQ (EXIT (|displayLines1| |expr|))) (LETT #1# (CDR #1#) . #4#)
                (GO G190) G191 (EXIT NIL))
-          (|dispStatement| 'END) (EXIT (SPADCALL (QREFELT $ 34))))))) 
+          (|dispStatement| (SPADCALL 'END (QREFELT $ 28)))
+          (EXIT (SPADCALL (QREFELT $ 34))))))) 
 
 (DEFUN |FORTRAN;mkString| (|l| $)
   (SPADCALL (SPADCALL (SPADCALL |l| (QREFELT $ 30)) (QREFELT $ 37))

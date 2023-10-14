@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |M3D;matrixConcat3D;S3$;1| (|dir| |mat1| |mat2| $)
-  (PROG (|retVal| #1=#:G141 |j| |temp| #2=#:G140 |i| #3=#:G139 |matRep2|
+  (PROG (|retVal| #1=#:G153 |j| |temp| #2=#:G152 |i| #3=#:G151 |matRep2|
          |matRep1| |kDim2| |jDim2| |iDim2| |kDim1| |jDim1| |iDim1| |mat2Dim|
          |mat1Dim|)
     (RETURN
@@ -174,7 +174,7 @@
    (QREFELT $ 15))) 
 
 (DEFUN |M3D;identityMatrix;Nni$;8| (|iLength| $)
-  (PROG (|row2| |row1| #1=#:G155 |count| |row2empty| |row1empty| |retValueRep|)
+  (PROG (|row2| |row1| #1=#:G167 |count| |row2empty| |row1empty| |retValueRep|)
     (RETURN
      (SEQ
       (LETT |retValueRep|
@@ -252,8 +252,8 @@
       (LETT |resultMatrix| |row3| . #1#) (EXIT |resultMatrix|))))) 
 
 (DEFUN |M3D;construct;L$;10| (|listRep| $)
-  (PROG (|resultMatrix| |element| |k| |j| |i| |row3| |row2| |row1| #1=#:G166
-         #2=#:G181 |subSubList| #3=#:G180 |subList| |kLength| |jLength|
+  (PROG (|resultMatrix| |element| |k| |j| |i| |row3| |row2| |row1| #1=#:G178
+         #2=#:G193 |subSubList| #3=#:G192 |subList| |kLength| |jLength|
          |iLength|)
     (RETURN
      (SEQ
@@ -351,10 +351,10 @@
                   (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
              (LETT |resultMatrix| |row3| . #4#) (EXIT |resultMatrix|)))))))) 
 
-(DEFUN |ThreeDimensionalMatrix| (#1=#:G186)
+(DEFUN |ThreeDimensionalMatrix| (#1=#:G198)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G187)
+     (PROG (#2=#:G199)
        (RETURN
         (COND
          ((LETT #2#
@@ -372,7 +372,7 @@
               (HREM |$ConstructorCache| '|ThreeDimensionalMatrix|))))))))))) 
 
 (DEFUN |ThreeDimensionalMatrix;| (|#1|)
-  (PROG (|pv$| #1=#:G184 #2=#:G185 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G196 #2=#:G197 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|ThreeDimensionalMatrix|))

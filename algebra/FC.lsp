@@ -148,7 +148,11 @@
                (APPEND |expr| (|FC;getElseIf| |elseBranch| $)))
               ('T
                (SEQ
-                (LETT |expr| (APPEND |expr| (|getStatement| 'ELSE NIL)) . #2#)
+                (LETT |expr|
+                      (APPEND |expr|
+                              (|getStatement| (SPADCALL 'ELSE (QREFELT $ 19))
+                                              NIL))
+                      . #2#)
                 (EXIT
                  (LETT |expr| (APPEND |expr| (|FC;getBody| |elseBranch| $))
                        . #2#))))))))
@@ -253,10 +257,13 @@
           (LETT |expr| (APPEND |expr| (|FC;getElseIf| |elseBranch| $)) . #1#))
          ('T
           (LETT |expr|
-                (APPEND |expr| (|getStatement| 'ELSE NIL)
+                (APPEND |expr|
+                        (|getStatement| (SPADCALL 'ELSE (QREFELT $ 19)) NIL)
                         (|FC;getBody| |elseBranch| $))
                 . #1#)))))
-      (EXIT (APPEND |expr| (|getStatement| 'ENDIF NIL))))))) 
+      (EXIT
+       (APPEND |expr|
+               (|getStatement| (SPADCALL 'ENDIF (QREFELT $ 19)) NIL))))))) 
 
 (DEFUN |FC;getComment| (|rec| $)
   (PROG (#1=#:G260 |c| #2=#:G259)
