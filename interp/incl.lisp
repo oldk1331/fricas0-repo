@@ -12,21 +12,9 @@
  
 (DEFUN |%origin| (|x|) (PROG () (RETURN (LIST #'|porigin| |x|))))
  
-; porigin x ==
-;     (STRINGP x => x; pfname x)
+; porigin x == x
  
-(DEFUN |porigin| (|x|)
-  (PROG () (RETURN (COND ((STRINGP |x|) |x|) ('T (|pfname| |x|))))))
- 
-; %fname x ==
-;     [function pfname, x]
- 
-(DEFUN |%fname| (|x|) (PROG () (RETURN (LIST #'|pfname| |x|))))
- 
-; pfname x ==
-;     PathnameString x
- 
-(DEFUN |pfname| (|x|) (PROG () (RETURN (|PathnameString| |x|))))
+(DEFUN |porigin| (|x|) (PROG () (RETURN |x|)))
  
 ; ppos p ==
 ;     pfNoPosition? p => ['"no position"]
@@ -498,15 +486,15 @@
      (|xlMsg| |eb| |str| |lno| (ELT |ufos| 0)
       (LIST (|inclmsgFileCycle| |ufos| |fn|) '|error|)))))
  
-; xlNoSuchFile(eb, str, lno, ufos, fn) ==
+; xlNoFile(eb, str, lno, ufos) ==
 ;           xlMsg(eb, str, lno,ufos.0,
-;               [inclmsgNoSuchFile(fn), "error"])
+;               [inclmsgNoFile(), "error"])
  
-(DEFUN |xlNoSuchFile| (|eb| |str| |lno| |ufos| |fn|)
+(DEFUN |xlNoFile| (|eb| |str| |lno| |ufos|)
   (PROG ()
     (RETURN
      (|xlMsg| |eb| |str| |lno| (ELT |ufos| 0)
-      (LIST (|inclmsgNoSuchFile| |fn|) '|error|)))))
+      (LIST (|inclmsgNoFile|) '|error|)))))
  
 ; xlCannotRead(eb, str, lno, ufos, fn) ==
 ;           xlMsg(eb, str, lno,ufos.0,
@@ -659,7 +647,7 @@
 ;                      cons(xlSkip(eb,str,lno,ufos.0), Rest s)
 ;                 fn1 := inclFname(str, info)
 ;                 not fn1 =>
-;                     cons(xlNoSuchFile(eb, str, lno,ufos,fn),Rest s)
+;                     cons(xlNoFile(eb, str, lno, ufos), Rest s)
 ;                 not PROBE_-FILE fn1 =>
 ;                     cons(xlCannotRead(eb, str, lno,ufos,fn1),Rest s)
 ;                 incActive?(fn1,ufos) =>
@@ -806,8 +794,7 @@
               (SETQ |fn1| (|inclFname| |str| |info|))
               (COND
                ((NULL |fn1|)
-                (CONS (|xlNoSuchFile| |eb| |str| |lno| |ufos| |fn|)
-                      (|Rest| |s|)))
+                (CONS (|xlNoFile| |eb| |str| |lno| |ufos|) (|Rest| |s|)))
                ((NULL (PROBE-FILE |fn1|))
                 (CONS (|xlCannotRead| |eb| |str| |lno| |ufos| |fn1|)
                       (|Rest| |s|)))
@@ -1049,17 +1036,16 @@
       (LIST 'S2CI0009
             (LIST (|%id| |found|) (|%id| |context|) (|%origin| |ufo|)))))))
  
-; inclmsgNoSuchFile fn ==
-;     ['S2CI0010, [%fname fn]]
+; inclmsgNoFile() ==
+;     ['S2CI0010, []]
  
-(DEFUN |inclmsgNoSuchFile| (|fn|)
-  (PROG () (RETURN (LIST 'S2CI0010 (LIST (|%fname| |fn|))))))
+(DEFUN |inclmsgNoFile| () (PROG () (RETURN (LIST 'S2CI0010 NIL))))
  
 ; inclmsgCannotRead fn ==
-;     ['S2CI0011, [%fname fn]]
+;     ['S2CI0011, [fn]]
  
 (DEFUN |inclmsgCannotRead| (|fn|)
-  (PROG () (RETURN (LIST 'S2CI0011 (LIST (|%fname| |fn|))))))
+  (PROG () (RETURN (LIST 'S2CI0011 (LIST |fn|)))))
  
 ; inclmsgIfBug() ==
 ;     ['S2CB0002, []]
