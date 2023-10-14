@@ -287,7 +287,7 @@
        |opAlist| NIL)))))
  
 ; saveUsersHashTable() ==
-;   _$ERASE('USERS,'DATABASE)
+;   erase_lib(['USERS, 'DATABASE])
 ;   stream:= writeLib('USERS,'DATABASE)
 ;   for k in MSORT HKEYS $usersTb repeat
 ;     rwrite(k, HGET($usersTb, k), stream)
@@ -297,7 +297,7 @@
   (PROG (|stream|)
     (RETURN
      (PROGN
-      ($ERASE 'USERS 'DATABASE)
+      (|erase_lib| (LIST 'USERS 'DATABASE))
       (SETQ |stream| (|writeLib| 'USERS 'DATABASE))
       ((LAMBDA (|bfVar#22| |k|)
          (LOOP
@@ -310,7 +310,7 @@
       (RSHUT |stream|)))))
  
 ; saveDependentsHashTable() ==
-;   _$ERASE('DEPENDENTS,'DATABASE)
+;   erase_lib(['DEPENDENTS, 'DATABASE])
 ;   stream:= writeLib('DEPENDENTS,'DATABASE)
 ;   for k in MSORT HKEYS $depTb repeat
 ;     rwrite(k, HGET($depTb, k), stream)
@@ -320,7 +320,7 @@
   (PROG (|stream|)
     (RETURN
      (PROGN
-      ($ERASE 'DEPENDENTS 'DATABASE)
+      (|erase_lib| (LIST 'DEPENDENTS 'DATABASE))
       (SETQ |stream| (|writeLib| 'DEPENDENTS 'DATABASE))
       ((LAMBDA (|bfVar#23| |k|)
          (LOOP
@@ -334,7 +334,7 @@
  
 ; getUsersOfConstructor(con) ==
 ;   stream := readLib('USERS, 'DATABASE)
-;   val := rread(con, stream, nil)
+;   val := rread(con, stream)
 ;   RSHUT stream
 ;   val
  
@@ -343,13 +343,13 @@
     (RETURN
      (PROGN
       (SETQ |stream| (|readLib| 'USERS 'DATABASE))
-      (SETQ |val| (|rread| |con| |stream| NIL))
+      (SETQ |val| (|rread| |con| |stream|))
       (RSHUT |stream|)
       |val|))))
  
 ; getDependentsOfConstructor(con) ==
 ;   stream := readLib('DEPENDENTS, 'DATABASE)
-;   val := rread(con, stream, nil)
+;   val := rread(con, stream)
 ;   RSHUT stream
 ;   val
  
@@ -358,7 +358,7 @@
     (RETURN
      (PROGN
       (SETQ |stream| (|readLib| 'DEPENDENTS 'DATABASE))
-      (SETQ |val| (|rread| |con| |stream| NIL))
+      (SETQ |val| (|rread| |con| |stream|))
       (RSHUT |stream|)
       |val|))))
  

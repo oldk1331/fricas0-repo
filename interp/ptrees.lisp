@@ -3,6 +3,92 @@
  
 (IN-PACKAGE "BOOT")
  
+; ncTag x ==
+;    not PAIRP x => ncBug('S2CB0031,[])
+;    x := QCAR x
+;    IDENTP x => x
+;    not PAIRP x => ncBug('S2CB0031,[])
+;    QCAR x
+ 
+(DEFUN |ncTag| (|x|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL (CONSP |x|)) (|ncBug| 'S2CB0031 NIL))
+           (#1='T
+            (PROGN
+             (SETQ |x| (QCAR |x|))
+             (COND ((IDENTP |x|) |x|)
+                   ((NULL (CONSP |x|)) (|ncBug| 'S2CB0031 NIL))
+                   (#1# (QCAR |x|)))))))))
+ 
+; ncAlist x ==
+;    not PAIRP x => ncBug('S2CB0031,[])
+;    x := QCAR x
+;    IDENTP x => NIL
+;    not PAIRP x => ncBug('S2CB0031,[])
+;    QCDR x
+ 
+(DEFUN |ncAlist| (|x|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL (CONSP |x|)) (|ncBug| 'S2CB0031 NIL))
+           (#1='T
+            (PROGN
+             (SETQ |x| (QCAR |x|))
+             (COND ((IDENTP |x|) NIL)
+                   ((NULL (CONSP |x|)) (|ncBug| 'S2CB0031 NIL))
+                   (#1# (QCDR |x|)))))))))
+ 
+; ncEltQ(x,k) ==
+;    r := ASSQ(k,ncAlist x)
+;    NULL r => ncBug ('S2CB0007,[k])
+;    rest r
+ 
+(DEFUN |ncEltQ| (|x| |k|)
+  (PROG (|r|)
+    (RETURN
+     (PROGN
+      (SETQ |r| (ASSQ |k| (|ncAlist| |x|)))
+      (COND ((NULL |r|) (|ncBug| 'S2CB0007 (LIST |k|))) ('T (CDR |r|)))))))
+ 
+; ncPutQ(x,k,v) ==
+;    LISTP k =>
+;       for key in k for val in v repeat ncPutQ(x,key,val)
+;       v
+;    r := ASSQ(k,ncAlist x)
+;    if NULL r then
+;       r := CONS( CONS(k,v), ncAlist x)
+;       RPLACA(x,CONS(ncTag x,r))
+;    else
+;       RPLACD(r,v)
+;    v
+ 
+(DEFUN |ncPutQ| (|x| |k| |v|)
+  (PROG (|r|)
+    (RETURN
+     (COND
+      ((LISTP |k|)
+       (PROGN
+        ((LAMBDA (|bfVar#1| |key| |bfVar#2| |val|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#1|) (PROGN (SETQ |key| (CAR |bfVar#1|)) NIL)
+                  (ATOM |bfVar#2|) (PROGN (SETQ |val| (CAR |bfVar#2|)) NIL))
+              (RETURN NIL))
+             (#1='T (|ncPutQ| |x| |key| |val|)))
+            (SETQ |bfVar#1| (CDR |bfVar#1|))
+            (SETQ |bfVar#2| (CDR |bfVar#2|))))
+         |k| NIL |v| NIL)
+        |v|))
+      (#1#
+       (PROGN
+        (SETQ |r| (ASSQ |k| (|ncAlist| |x|)))
+        (COND
+         ((NULL |r|) (SETQ |r| (CONS (CONS |k| |v|) (|ncAlist| |x|)))
+          (RPLACA |x| (CONS (|ncTag| |x|) |r|)))
+         (#1# (RPLACD |r| |v|)))
+        |v|))))))
+ 
 ; tokConstruct(hd,tok,:pos)==
 ;          a:=cons(hd,tok)
 ;          IFCAR pos =>
@@ -238,13 +324,13 @@
 (DEFUN |pfWDec| (|doc| |name|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#2| |bfVar#1| |i|)
+     ((LAMBDA (|bfVar#4| |bfVar#3| |i|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#1|) (PROGN (SETQ |i| (CAR |bfVar#1|)) NIL))
-           (RETURN (NREVERSE |bfVar#2|)))
-          ('T (SETQ |bfVar#2| (CONS (|pfWDeclare| |i| |doc|) |bfVar#2|))))
-         (SETQ |bfVar#1| (CDR |bfVar#1|))))
+          ((OR (ATOM |bfVar#3|) (PROGN (SETQ |i| (CAR |bfVar#3|)) NIL))
+           (RETURN (NREVERSE |bfVar#4|)))
+          ('T (SETQ |bfVar#4| (CONS (|pfWDeclare| |i| |doc|) |bfVar#4|))))
+         (SETQ |bfVar#3| (CDR |bfVar#3|))))
       NIL (|pfParts| |name|) NIL))))
  
 ; pfTweakIf form==
@@ -482,13 +568,13 @@
 (DEFUN |pfSpread| (|l| |t|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#4| |bfVar#3| |i|)
+     ((LAMBDA (|bfVar#6| |bfVar#5| |i|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#3|) (PROGN (SETQ |i| (CAR |bfVar#3|)) NIL))
-           (RETURN (NREVERSE |bfVar#4|)))
-          ('T (SETQ |bfVar#4| (CONS (|pfTyped| |i| |t|) |bfVar#4|))))
-         (SETQ |bfVar#3| (CDR |bfVar#3|))))
+          ((OR (ATOM |bfVar#5|) (PROGN (SETQ |i| (CAR |bfVar#5|)) NIL))
+           (RETURN (NREVERSE |bfVar#6|)))
+          ('T (SETQ |bfVar#6| (CONS (|pfTyped| |i| |t|) |bfVar#6|))))
+         (SETQ |bfVar#5| (CDR |bfVar#5|))))
       NIL |l| NIL))))
  
 ; pfTupleList form== pfParts pfTupleParts form
@@ -1520,13 +1606,13 @@
        ((|pfTuple?| |form|)
         (LIST
          (|pfListOf|
-          ((LAMBDA (|bfVar#6| |bfVar#5| |i|)
+          ((LAMBDA (|bfVar#8| |bfVar#7| |i|)
              (LOOP
               (COND
-               ((OR (ATOM |bfVar#5|) (PROGN (SETQ |i| (CAR |bfVar#5|)) NIL))
-                (RETURN (NREVERSE |bfVar#6|)))
-               (#1# (SETQ |bfVar#6| (CONS (|pfTaggedToTyped| |i|) |bfVar#6|))))
-              (SETQ |bfVar#5| (CDR |bfVar#5|))))
+               ((OR (ATOM |bfVar#7|) (PROGN (SETQ |i| (CAR |bfVar#7|)) NIL))
+                (RETURN (NREVERSE |bfVar#8|)))
+               (#1# (SETQ |bfVar#8| (CONS (|pfTaggedToTyped| |i|) |bfVar#8|))))
+              (SETQ |bfVar#7| (CDR |bfVar#7|))))
            NIL (|pf0TupleParts| |form|) NIL))
          NIL |rt|))
        ((|pfDefinition?| |form|)
@@ -1536,16 +1622,16 @@
          (SETQ |ls| (|pfFlattenApp| |form|))
          (SETQ |op| (|pfTaggedToTyped1| (CAR |ls|)))
          (SETQ |args|
-                 ((LAMBDA (|bfVar#8| |bfVar#7| |i|)
+                 ((LAMBDA (|bfVar#10| |bfVar#9| |i|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#7|)
-                           (PROGN (SETQ |i| (CAR |bfVar#7|)) NIL))
-                       (RETURN (NREVERSE |bfVar#8|)))
+                      ((OR (ATOM |bfVar#9|)
+                           (PROGN (SETQ |i| (CAR |bfVar#9|)) NIL))
+                       (RETURN (NREVERSE |bfVar#10|)))
                       (#1#
-                       (SETQ |bfVar#8|
-                               (CONS (|pfTransformArg| |i|) |bfVar#8|))))
-                     (SETQ |bfVar#7| (CDR |bfVar#7|))))
+                       (SETQ |bfVar#10|
+                               (CONS (|pfTransformArg| |i|) |bfVar#10|))))
+                     (SETQ |bfVar#9| (CDR |bfVar#9|))))
                   NIL (CDR |ls|) NIL))
          (LIST (|pfListOf| (LIST |op|)) |args| |rt|)))
        (#1# (|npTrapForm| |form|)))))))
@@ -1579,13 +1665,13 @@
               (COND ((|pfTuple?| |args|) (|pf0TupleParts| |args|))
                     (#1='T (LIST |args|))))
       (|pfListOf|
-       ((LAMBDA (|bfVar#10| |bfVar#9| |i|)
+       ((LAMBDA (|bfVar#12| |bfVar#11| |i|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#9|) (PROGN (SETQ |i| (CAR |bfVar#9|)) NIL))
-             (RETURN (NREVERSE |bfVar#10|)))
-            (#1# (SETQ |bfVar#10| (CONS (|pfTaggedToTyped1| |i|) |bfVar#10|))))
-           (SETQ |bfVar#9| (CDR |bfVar#9|))))
+            ((OR (ATOM |bfVar#11|) (PROGN (SETQ |i| (CAR |bfVar#11|)) NIL))
+             (RETURN (NREVERSE |bfVar#12|)))
+            (#1# (SETQ |bfVar#12| (CONS (|pfTaggedToTyped1| |i|) |bfVar#12|))))
+           (SETQ |bfVar#11| (CDR |bfVar#11|))))
         NIL |argl| NIL))))))
  
 ; pfCheckMacroOut form ==
@@ -1606,16 +1692,16 @@
              (SETQ |ls| (|pfFlattenApp| |form|))
              (SETQ |op| (|pfCheckId| (CAR |ls|)))
              (SETQ |args|
-                     ((LAMBDA (|bfVar#12| |bfVar#11| |i|)
+                     ((LAMBDA (|bfVar#14| |bfVar#13| |i|)
                         (LOOP
                          (COND
-                          ((OR (ATOM |bfVar#11|)
-                               (PROGN (SETQ |i| (CAR |bfVar#11|)) NIL))
-                           (RETURN (NREVERSE |bfVar#12|)))
+                          ((OR (ATOM |bfVar#13|)
+                               (PROGN (SETQ |i| (CAR |bfVar#13|)) NIL))
+                           (RETURN (NREVERSE |bfVar#14|)))
                           (#1='T
-                           (SETQ |bfVar#12|
-                                   (CONS (|pfCheckArg| |i|) |bfVar#12|))))
-                         (SETQ |bfVar#11| (CDR |bfVar#11|))))
+                           (SETQ |bfVar#14|
+                                   (CONS (|pfCheckArg| |i|) |bfVar#14|))))
+                         (SETQ |bfVar#13| (CDR |bfVar#13|))))
                       NIL (CDR |ls|) NIL))
              (LIST |op| |args|)))
            (#1# (|npTrapForm| |form|))))))
@@ -1632,13 +1718,13 @@
               (COND ((|pfTuple?| |args|) (|pf0TupleParts| |args|))
                     (#1='T (LIST |args|))))
       (|pfListOf|
-       ((LAMBDA (|bfVar#14| |bfVar#13| |i|)
+       ((LAMBDA (|bfVar#16| |bfVar#15| |i|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#13|) (PROGN (SETQ |i| (CAR |bfVar#13|)) NIL))
-             (RETURN (NREVERSE |bfVar#14|)))
-            (#1# (SETQ |bfVar#14| (CONS (|pfCheckId| |i|) |bfVar#14|))))
-           (SETQ |bfVar#13| (CDR |bfVar#13|))))
+            ((OR (ATOM |bfVar#15|) (PROGN (SETQ |i| (CAR |bfVar#15|)) NIL))
+             (RETURN (NREVERSE |bfVar#16|)))
+            (#1# (SETQ |bfVar#16| (CONS (|pfCheckId| |i|) |bfVar#16|))))
+           (SETQ |bfVar#15| (CDR |bfVar#15|))))
         NIL |argl| NIL))))))
  
 ; pfCheckId form==   if not pfId? form then npTrapForm(form) else form
@@ -1707,28 +1793,28 @@
                       (SETQ |a| (|pfApplicationArg| |pform|))
                       (COND ((|pfTuple?| |a|) (|pf0TupleParts| |a|))
                             (#1='T (LIST |a|)))))
-             ((LAMBDA (|bfVar#16| |bfVar#15| |p|)
+             ((LAMBDA (|bfVar#18| |bfVar#17| |p|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#15|)
-                       (PROGN (SETQ |p| (CAR |bfVar#15|)) NIL))
-                   (RETURN (NREVERSE |bfVar#16|)))
+                  ((OR (ATOM |bfVar#17|)
+                       (PROGN (SETQ |p| (CAR |bfVar#17|)) NIL))
+                   (RETURN (NREVERSE |bfVar#18|)))
                   (#1#
-                   (SETQ |bfVar#16| (CONS (|pfSexpr,strip| |p|) |bfVar#16|))))
-                 (SETQ |bfVar#15| (CDR |bfVar#15|))))
+                   (SETQ |bfVar#18| (CONS (|pfSexpr,strip| |p|) |bfVar#18|))))
+                 (SETQ |bfVar#17| (CDR |bfVar#17|))))
               NIL (CONS (|pfApplicationOp| |pform|) |args|) NIL)))
            (#1#
             (CONS (|pfAbSynOp| |pform|)
-                  ((LAMBDA (|bfVar#18| |bfVar#17| |p|)
+                  ((LAMBDA (|bfVar#20| |bfVar#19| |p|)
                      (LOOP
                       (COND
-                       ((OR (ATOM |bfVar#17|)
-                            (PROGN (SETQ |p| (CAR |bfVar#17|)) NIL))
-                        (RETURN (NREVERSE |bfVar#18|)))
+                       ((OR (ATOM |bfVar#19|)
+                            (PROGN (SETQ |p| (CAR |bfVar#19|)) NIL))
+                        (RETURN (NREVERSE |bfVar#20|)))
                        (#1#
-                        (SETQ |bfVar#18|
-                                (CONS (|pfSexpr,strip| |p|) |bfVar#18|))))
-                      (SETQ |bfVar#17| (CDR |bfVar#17|))))
+                        (SETQ |bfVar#20|
+                                (CONS (|pfSexpr,strip| |p|) |bfVar#20|))))
+                      (SETQ |bfVar#19| (CDR |bfVar#19|))))
                    NIL (|pfParts| |pform|) NIL)))))))
  
 ; pfCopyWithPos( pform , pos ) ==
@@ -1743,14 +1829,14 @@
        (|pfLeaf| (|pfAbSynOp| |pform|) (|tokPart| |pform|) |pos|))
       (#1='T
        (|pfTree| (|pfAbSynOp| |pform|)
-        ((LAMBDA (|bfVar#20| |bfVar#19| |p|)
+        ((LAMBDA (|bfVar#22| |bfVar#21| |p|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#19|) (PROGN (SETQ |p| (CAR |bfVar#19|)) NIL))
-              (RETURN (NREVERSE |bfVar#20|)))
+             ((OR (ATOM |bfVar#21|) (PROGN (SETQ |p| (CAR |bfVar#21|)) NIL))
+              (RETURN (NREVERSE |bfVar#22|)))
              (#1#
-              (SETQ |bfVar#20| (CONS (|pfCopyWithPos| |p| |pos|) |bfVar#20|))))
-            (SETQ |bfVar#19| (CDR |bfVar#19|))))
+              (SETQ |bfVar#22| (CONS (|pfCopyWithPos| |p| |pos|) |bfVar#22|))))
+            (SETQ |bfVar#21| (CDR |bfVar#21|))))
          NIL (|pfParts| |pform|) NIL)))))))
  
 ; pfMapParts(f, pform) ==
@@ -1771,29 +1857,29 @@
             (PROGN
              (SETQ |parts0| (|pfParts| |pform|))
              (SETQ |parts1|
-                     ((LAMBDA (|bfVar#22| |bfVar#21| |p|)
+                     ((LAMBDA (|bfVar#24| |bfVar#23| |p|)
                         (LOOP
                          (COND
-                          ((OR (ATOM |bfVar#21|)
-                               (PROGN (SETQ |p| (CAR |bfVar#21|)) NIL))
-                           (RETURN (NREVERSE |bfVar#22|)))
+                          ((OR (ATOM |bfVar#23|)
+                               (PROGN (SETQ |p| (CAR |bfVar#23|)) NIL))
+                           (RETURN (NREVERSE |bfVar#24|)))
                           (#1#
-                           (SETQ |bfVar#22|
-                                   (CONS (FUNCALL |f| |p|) |bfVar#22|))))
-                         (SETQ |bfVar#21| (CDR |bfVar#21|))))
+                           (SETQ |bfVar#24|
+                                   (CONS (FUNCALL |f| |p|) |bfVar#24|))))
+                         (SETQ |bfVar#23| (CDR |bfVar#23|))))
                       NIL |parts0| NIL))
              (SETQ |same| T)
-             ((LAMBDA (|bfVar#23| |p0| |bfVar#24| |p1|)
+             ((LAMBDA (|bfVar#25| |p0| |bfVar#26| |p1|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#23|)
-                       (PROGN (SETQ |p0| (CAR |bfVar#23|)) NIL)
-                       (ATOM |bfVar#24|)
-                       (PROGN (SETQ |p1| (CAR |bfVar#24|)) NIL) (NOT |same|))
+                  ((OR (ATOM |bfVar#25|)
+                       (PROGN (SETQ |p0| (CAR |bfVar#25|)) NIL)
+                       (ATOM |bfVar#26|)
+                       (PROGN (SETQ |p1| (CAR |bfVar#26|)) NIL) (NOT |same|))
                    (RETURN NIL))
                   (#1# (SETQ |same| (EQ |p0| |p1|))))
-                 (SETQ |bfVar#23| (CDR |bfVar#23|))
-                 (SETQ |bfVar#24| (CDR |bfVar#24|))))
+                 (SETQ |bfVar#25| (CDR |bfVar#25|))
+                 (SETQ |bfVar#26| (CDR |bfVar#26|))))
               |parts0| NIL |parts1| NIL)
              (COND (|same| |pform|)
                    (#1# (|pfTree| (|pfAbSynOp| |pform|) |parts1|)))))))))
@@ -1818,15 +1904,15 @@
     (RETURN
      (COND ((NULL (|pfTuple?| |pform|)) (LIST |pform|))
            (#1='T
-            ((LAMBDA (|bfVar#26| |bfVar#25| |p|)
+            ((LAMBDA (|bfVar#28| |bfVar#27| |p|)
                (LOOP
                 (COND
-                 ((OR (ATOM |bfVar#25|)
-                      (PROGN (SETQ |p| (CAR |bfVar#25|)) NIL))
-                  (RETURN (NREVERSE |bfVar#26|)))
+                 ((OR (ATOM |bfVar#27|)
+                      (PROGN (SETQ |p| (CAR |bfVar#27|)) NIL))
+                  (RETURN (NREVERSE |bfVar#28|)))
                  (#1#
-                  (SETQ |bfVar#26|
+                  (SETQ |bfVar#28|
                           (APPEND (REVERSE (|pf0FlattenSyntacticTuple| |p|))
-                                  |bfVar#26|))))
-                (SETQ |bfVar#25| (CDR |bfVar#25|))))
+                                  |bfVar#28|))))
+                (SETQ |bfVar#27| (CDR |bfVar#27|))))
              NIL (|pf0TupleParts| |pform|) NIL))))))

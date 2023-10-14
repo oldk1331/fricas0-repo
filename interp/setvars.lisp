@@ -1641,7 +1641,7 @@
 ;     if (ptype := pathnameType fn) then
 ;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;       ft := ptype
-;     filename := $FILEP(fn, ft)
+;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
 ;     (testStream := MAKE_-OUTSTREAM(filename)) =>
@@ -1718,7 +1718,7 @@
                      (STRCONC (|pathnameDirectory| |fn|)
                       (|pathnameName| |fn|)))
              (SETQ |ft| |ptype|)))
-           (SETQ |filename| ($FILEP |fn| |ft|))
+           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
                  ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
                   (PROGN
@@ -1948,7 +1948,7 @@
 ;     if (ptype := pathnameType fn) then
 ;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;       ft := ptype
-;     filename := $FILEP(fn, ft)
+;     filename := make_full_namestring([fn, ft])
 ;     null filename => sayKeyedMsg("S2IV0003",[fn,ft])
 ;     (testStream := makeStream(append,filename)) =>
 ;       SHUT $fortranOutputStream
@@ -2037,7 +2037,7 @@
                      (STRCONC (|pathnameDirectory| |fn|)
                       (|pathnameName| |fn|)))
              (SETQ |ft| |ptype|)))
-           (SETQ |filename| ($FILEP |fn| |ft|))
+           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
                  ((SETQ |testStream| (|makeStream| APPEND |filename|))
                   (PROGN
@@ -2148,7 +2148,7 @@
 ;     if (ptype := pathnameType fn) then
 ;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;       ft := ptype
-;     filename := $FILEP(fn, ft)
+;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
 ;     (testStream := MAKE_-OUTSTREAM(filename)) =>
@@ -2225,7 +2225,7 @@
                      (STRCONC (|pathnameDirectory| |fn|)
                       (|pathnameName| |fn|)))
              (SETQ |ft| |ptype|)))
-           (SETQ |filename| ($FILEP |fn| |ft|))
+           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
                  ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
                   (PROGN
@@ -2328,7 +2328,7 @@
 ;     if (ptype := pathnameType fn) then
 ;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;       ft := ptype
-;     filename := $FILEP(fn, ft)
+;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
 ;     (testStream := MAKE_-OUTSTREAM(filename)) =>
@@ -2405,7 +2405,7 @@
                      (STRCONC (|pathnameDirectory| |fn|)
                       (|pathnameName| |fn|)))
              (SETQ |ft| |ptype|)))
-           (SETQ |filename| ($FILEP |fn| |ft|))
+           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
                  ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
                   (PROGN
@@ -2508,7 +2508,7 @@
 ;     if (ptype := pathnameType fn) then
 ;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;       ft := ptype
-;     filename := $FILEP(fn, ft)
+;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
 ;     (testStream := MAKE_-OUTSTREAM(filename)) =>
@@ -2585,7 +2585,7 @@
                      (STRCONC (|pathnameDirectory| |fn|)
                       (|pathnameName| |fn|)))
              (SETQ |ft| |ptype|)))
-           (SETQ |filename| ($FILEP |fn| |ft|))
+           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
                  ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
                   (PROGN
@@ -2687,7 +2687,7 @@
 ;     if (ptype := pathnameType fn) then
 ;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;       ft := ptype
-;     filename := $FILEP(fn, ft)
+;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
 ;     (testStream := MAKE_-OUTSTREAM(filename)) =>
@@ -2764,7 +2764,7 @@
                      (STRCONC (|pathnameDirectory| |fn|)
                       (|pathnameName| |fn|)))
              (SETQ |ft| |ptype|)))
-           (SETQ |filename| ($FILEP |fn| |ft|))
+           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
                  ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
                   (PROGN
@@ -2868,7 +2868,7 @@
 ;     if (ptype := pathnameType fn) then
 ;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;       ft := ptype
-;     filename := $FILEP(fn, ft)
+;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
 ;     (testStream := MAKE_-OUTSTREAM(filename)) =>
@@ -2945,7 +2945,7 @@
                      (STRCONC (|pathnameDirectory| |fn|)
                       (|pathnameName| |fn|)))
              (SETQ |ft| |ptype|)))
-           (SETQ |filename| ($FILEP |fn| |ft|))
+           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
                  ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
                   (PROGN
@@ -3051,7 +3051,7 @@
 ;     if (ptype := pathnameType fn) then
 ;       fn := STRCONC(pathnameDirectory fn,pathnameName fn)
 ;       ft := ptype
-;     filename := $FILEP(fn, ft)
+;     filename := make_full_namestring([fn, ft])
 ;     null filename =>
 ;       sayKeyedMsg("S2IV0003",[fn,ft])
 ;     (testStream := MAKE_-OUTSTREAM(filename)) =>
@@ -3128,7 +3128,7 @@
                      (STRCONC (|pathnameDirectory| |fn|)
                       (|pathnameName| |fn|)))
              (SETQ |ft| |ptype|)))
-           (SETQ |filename| ($FILEP |fn| |ft|))
+           (SETQ |filename| (|make_full_namestring| (LIST |fn| |ft|)))
            (COND ((NULL |filename|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|)))
                  ((SETQ |testStream| (MAKE-OUTSTREAM |filename|))
                   (PROGN

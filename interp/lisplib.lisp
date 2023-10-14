@@ -552,7 +552,7 @@
 ;       PROGN(if $compiler_output_stream then CLOSE($compiler_output_stream),
 ;             RSHUT $libFile))
 ;   if ok then lisplibDoRename(libName)
-;   filearg := $FILEP(libName, $spadLibFT)
+;   filearg := make_full_namestring([libName, $spadLibFT])
 ;   RPACKFILE filearg
 ;   FRESH_-LINE $algebraOutputStream
 ;   sayMSG fillerSpaces(72,'"-")
@@ -618,7 +618,7 @@
          (COND (|$compiler_output_stream| (CLOSE |$compiler_output_stream|)))
          (RSHUT |$libFile|)))
       (COND (|ok| (|lisplibDoRename| |libName|)))
-      (SETQ |filearg| ($FILEP |libName| |$spadLibFT|))
+      (SETQ |filearg| (|make_full_namestring| (LIST |libName| |$spadLibFT|)))
       (RPACKFILE |filearg|)
       (FRESH-LINE |$algebraOutputStream|)
       (|sayMSG| (|fillerSpaces| 72 "-"))
@@ -632,7 +632,7 @@
       |res|))))
  
 ; initializeLisplib libName ==
-;   _$ERASE(libName,'ERRORLIB)
+;   erase_lib([libName, 'ERRORLIB])
 ;   SETQ(ERRORS,0) -- ERRORS is a fluid variable for the compiler
 ;   $libFile:= writeLib(libName,'ERRORLIB)
 ;   $compiler_output_stream := make_compiler_output_stream($libFile, libName)
@@ -641,7 +641,7 @@
   (PROG ()
     (RETURN
      (PROGN
-      ($ERASE |libName| 'ERRORLIB)
+      (|erase_lib| (LIST |libName| 'ERRORLIB))
       (SETQ ERRORS 0)
       (SETQ |$libFile| (|writeLib| |libName| 'ERRORLIB))
       (SETQ |$compiler_output_stream|
@@ -717,13 +717,12 @@
                 (CONS |$spadLibFT| (CONS " for" (|bright| |libName|))))))))))))
  
 ; lisplibDoRename(libName) ==
-;   _$REPLACE([libName,$spadLibFT],
-;     [libName,'ERRORLIB])
+;     replace_lib([libName, 'ERRORLIB], [libName, $spadLibFT])
  
 (DEFUN |lisplibDoRename| (|libName|)
   (PROG ()
     (RETURN
-     ($REPLACE (LIST |libName| |$spadLibFT|) (LIST |libName| 'ERRORLIB)))))
+     (|replace_lib| (LIST |libName| 'ERRORLIB) (LIST |libName| |$spadLibFT|)))))
  
 ; lisplibError(cname,fname,type,cn,fn,typ,error) ==
 ;   $bootStrapMode and error = "wrongType" => nil

@@ -43,16 +43,16 @@
               (- |n| 1) 1)
              (COND (|ok| |c|) (#1# NIL))))))))
  
-; rread(key,rstream,errorval) ==
+; rread(key, rstream) ==
 ;   if IDENTP key then key := PNAME key
-;   rread0(key,rstream,errorval)
+;   rread0(key, rstream)
  
-(DEFUN |rread| (|key| |rstream| |errorval|)
+(DEFUN |rread| (|key| |rstream|)
   (PROG ()
     (RETURN
      (PROGN
       (COND ((IDENTP |key|) (SETQ |key| (PNAME |key|))))
-      (|rread0| |key| |rstream| |errorval|)))))
+      (|rread0| |key| |rstream|)))))
  
 ; rwrite(key,val,stream) ==
 ;   if IDENTP key then key := PNAME key

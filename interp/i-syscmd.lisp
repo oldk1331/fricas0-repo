@@ -1008,34 +1008,34 @@
 ;     aft := pathnameType af
 ; 
 ;     haveNew or (aft = '"as")   =>
-;         not (af1 := $FINDFILE (af, '(as))) =>
+;         not (af1 := find_file(af, '(as))) =>
 ;             throwKeyedMsg("S2IL0003",[NAMESTRING af])
 ;         compileAsharpCmd [af1]
 ;     haveOld or (aft = '"spad") =>
-;         not (af1 := $FINDFILE (af, '(spad))) =>
+;         not (af1 := find_file(af, '(spad))) =>
 ;             throwKeyedMsg("S2IL0003",[NAMESTRING af])
 ;         compileSpad2Cmd  [af1]
 ;     aft = '"lsp"   =>
-;         not (af1 := $FINDFILE (af, '(lsp))) =>
+;         not (af1 := find_file(af, '(lsp))) =>
 ;             throwKeyedMsg("S2IL0003",[NAMESTRING af])
 ;         compileAsharpLispCmd [af1]
 ;     aft = '"NRLIB"  =>
-;         not (af1 := $FINDFILE (af, '(NRLIB))) =>
+;         not (af1 := find_file(af, '(NRLIB))) =>
 ;             throwKeyedMsg("S2IL0003",[NAMESTRING af])
 ;         compileSpadLispCmd [af1]
 ;     aft = '"ao"   =>
-;         not (af1 := $FINDFILE (af, '(ao))) =>
+;         not (af1 := find_file(af, '(ao))) =>
 ;             throwKeyedMsg("S2IL0003",[NAMESTRING af])
 ;         compileAsharpCmd [af1]
 ;     aft = '"al"   =>    -- archive library of .ao files
-;         not (af1 := $FINDFILE (af, '(al))) =>
+;         not (af1 := find_file(af, '(al))) =>
 ;             throwKeyedMsg("S2IL0003",[NAMESTRING af])
 ;         compileAsharpArchiveCmd [af1]
 ; 
 ;     -- see if we something with the appropriate file extension
 ;     -- lying around
 ; 
-;     af1 := $FINDFILE (af, '(as spad ao asy))
+;     af1 := find_file(af, '(as spad ao asy))
 ; 
 ;     af1 and pathnameType(af1) = '"as"   => compileAsharpCmd [af1]
 ;     af1 and pathnameType(af1) = '"ao"  => compileAsharpCmd [af1]
@@ -1085,37 +1085,37 @@
                  (COND
                   ((OR |haveNew| (EQUAL |aft| "as"))
                    (COND
-                    ((NULL (SETQ |af1| ($FINDFILE |af| '(|as|))))
+                    ((NULL (SETQ |af1| (|find_file| |af| '(|as|))))
                      (|throwKeyedMsg| 'S2IL0003 (LIST (NAMESTRING |af|))))
                     (#1# (|compileAsharpCmd| (LIST |af1|)))))
                   ((OR |haveOld| (EQUAL |aft| "spad"))
                    (COND
-                    ((NULL (SETQ |af1| ($FINDFILE |af| '(|spad|))))
+                    ((NULL (SETQ |af1| (|find_file| |af| '(|spad|))))
                      (|throwKeyedMsg| 'S2IL0003 (LIST (NAMESTRING |af|))))
                     (#1# (|compileSpad2Cmd| (LIST |af1|)))))
                   ((EQUAL |aft| "lsp")
                    (COND
-                    ((NULL (SETQ |af1| ($FINDFILE |af| '(|lsp|))))
+                    ((NULL (SETQ |af1| (|find_file| |af| '(|lsp|))))
                      (|throwKeyedMsg| 'S2IL0003 (LIST (NAMESTRING |af|))))
                     (#1# (|compileAsharpLispCmd| (LIST |af1|)))))
                   ((EQUAL |aft| "NRLIB")
                    (COND
-                    ((NULL (SETQ |af1| ($FINDFILE |af| '(NRLIB))))
+                    ((NULL (SETQ |af1| (|find_file| |af| '(NRLIB))))
                      (|throwKeyedMsg| 'S2IL0003 (LIST (NAMESTRING |af|))))
                     (#1# (|compileSpadLispCmd| (LIST |af1|)))))
                   ((EQUAL |aft| "ao")
                    (COND
-                    ((NULL (SETQ |af1| ($FINDFILE |af| '(|ao|))))
+                    ((NULL (SETQ |af1| (|find_file| |af| '(|ao|))))
                      (|throwKeyedMsg| 'S2IL0003 (LIST (NAMESTRING |af|))))
                     (#1# (|compileAsharpCmd| (LIST |af1|)))))
                   ((EQUAL |aft| "al")
                    (COND
-                    ((NULL (SETQ |af1| ($FINDFILE |af| '(|al|))))
+                    ((NULL (SETQ |af1| (|find_file| |af| '(|al|))))
                      (|throwKeyedMsg| 'S2IL0003 (LIST (NAMESTRING |af|))))
                     (#1# (|compileAsharpArchiveCmd| (LIST |af1|)))))
                   (#1#
                    (PROGN
-                    (SETQ |af1| ($FINDFILE |af| '(|as| |spad| |ao| |asy|)))
+                    (SETQ |af1| (|find_file| |af| '(|as| |spad| |ao| |asy|)))
                     (COND
                      ((AND |af1| (EQUAL (|pathnameType| |af1|) "as"))
                       (|compileAsharpCmd| (LIST |af1|)))
@@ -1614,7 +1614,7 @@
 ;     if fnameReadable?(lsp) then
 ;         if not beQuiet then sayKeyedMsg("S2IZ0089", [namestring lsp])
 ;         --compileFileQuietly(lsp)
-;         recompile_lib_file_if_necessary lsp
+;         compile_lib_file lsp
 ;     else
 ;         sayKeyedMsg("S2IL0003", [namestring lsp])
 ; 
@@ -1670,7 +1670,7 @@
            (COND
             ((NULL |beQuiet|)
              (|sayKeyedMsg| 'S2IZ0089 (LIST (|namestring| |lsp|)))))
-           (|recompile_lib_file_if_necessary| |lsp|))
+           (|compile_lib_file| |lsp|))
           (#1# (|sayKeyedMsg| 'S2IL0003 (LIST (|namestring| |lsp|)))))
          (COND
           (|doLibrary|
@@ -2627,7 +2627,7 @@
 ;     $UserLevel = 'compiler    => '("input" "INPUT" "spad" "SPAD")
 ;     '("input" "INPUT" "spad" "SPAD" "boot" "BOOT" "lisp" "LISP")
 ;   ll :=
-;        oldDir = '"" => pathname $FINDFILE (pathnameName l, fileTypes)
+;        oldDir = '"" => pathname find_file(pathnameName l, fileTypes)
 ;        l
 ;   l := pathname ll
 ;   $edit_file := l
@@ -2653,7 +2653,7 @@
       (SETQ |ll|
               (COND
                ((EQUAL |oldDir| "")
-                (|pathname| ($FINDFILE (|pathnameName| |l|) |fileTypes|)))
+                (|pathname| (|find_file| (|pathnameName| |l|) |fileTypes|)))
                (#1# |l|)))
       (SETQ |l| (|pathname| |ll|))
       (SETQ |$edit_file| |l|)
@@ -2883,7 +2883,7 @@
 ;   $interpreterFrameRing := CONS(emptyInterpreterFrame(name),
 ;     $interpreterFrameRing)
 ;   updateFromCurrentInterpreterFrame()
-;   _$ERASE histFileName()
+;   erase_lib([histFileName()])
  
 (DEFUN |addNewInterpreterFrame| (|name|)
   (PROG ()
@@ -2909,7 +2909,7 @@
                      (CONS (|emptyInterpreterFrame| |name|)
                            |$interpreterFrameRing|))
              (|updateFromCurrentInterpreterFrame|)
-             ($ERASE (|histFileName|))))))))
+             (|erase_lib| (LIST (|histFileName|)))))))))
  
 ; emptyInterpreterFrame(name) ==
 ;   LIST(name,                            -- frame name
@@ -2945,7 +2945,7 @@
 ;       found or (name ~= frameName(f)) => ifr := CONS(f,ifr)
 ;       found := true
 ;     not found => throwKeyedMsg("S2IZ0022",[name])
-;     _$ERASE makeHistFileName(name)
+;     erase_lib([makeHistFileName(name)])
 ;     $interpreterFrameRing := nreverse ifr
 ;   updateFromCurrentInterpreterFrame()
  
@@ -2979,7 +2979,7 @@
           (COND ((NULL |found|) (|throwKeyedMsg| 'S2IZ0022 (LIST |name|)))
                 (#1#
                  (PROGN
-                  ($ERASE (|makeHistFileName| |name|))
+                  (|erase_lib| (LIST (|makeHistFileName| |name|)))
                   (SETQ |$interpreterFrameRing| (NREVERSE |ifr|)))))))
         (|updateFromCurrentInterpreterFrame|)))))))
  
@@ -3402,7 +3402,7 @@
 ;   newFile := histFileName()
 ;   -- see if history directory is writable
 ;   histFileErase oldFile
-;   if make_input_filename(newFile) then $REPLACE(oldFile, newFile)
+;   if make_input_filename(newFile) then replace_lib(newFile, oldFile)
 ;   $HiFiAccess:= 'T
 ;   initHistList()
  
@@ -3417,7 +3417,7 @@
              (|histFileErase| |oldFile|)
              (COND
               ((|make_input_filename| |newFile|)
-               ($REPLACE |oldFile| |newFile|)))
+               (|replace_lib| |newFile| |oldFile|)))
              (SETQ |$HiFiAccess| 'T)
              (|initHistList|)))))))
  
@@ -3914,10 +3914,9 @@
       (COND (|$HiFiAccess| (|recordNewValue| |x| |prop| |val|)))
       (|putIntSymTab| |x| |prop| |val| |e|)))))
  
-; histFileErase file ==
-;   _$ERASE(file)
+; histFileErase(file) == erase_lib([file])
  
-(DEFUN |histFileErase| (|file|) (PROG () (RETURN ($ERASE |file|))))
+(DEFUN |histFileErase| (|file|) (PROG () (RETURN (|erase_lib| (LIST |file|)))))
  
 ; recordNewValue(x,prop,val) ==
 ;   startTimingProcess 'history
@@ -4283,7 +4282,7 @@
 ;   if not(oldInternal) then
 ;      curfile := histFileName()
 ;      histFileErase curfile
-;      _$FCOPY(restfile,curfile)
+;      copy_file(restfile, curfile)
 ;      $curHistFileName := nil
 ;      restfile := curfile
 ; 
@@ -4319,7 +4318,7 @@
       (SETQ |$useInternalHistoryTable| NIL)
       (COND
        ((NULL |oldInternal|) (SETQ |curfile| (|histFileName|))
-        (|histFileErase| |curfile|) ($FCOPY |restfile| |curfile|)
+        (|histFileErase| |curfile|) (|copy_file| |restfile| |curfile|)
         (SETQ |$curHistFileName| NIL) (SETQ |restfile| |curfile|)))
       (SETQ |l| (LENGTH (RKEYIDS |restfile|)))
       (SETQ |$HiFiAccess| 'T)
@@ -4673,10 +4672,10 @@
       NIL))))
  
 ; SPADRREAD(vec, stream) ==
-;     dewritify rread(vec, stream, nil)
+;     dewritify rread(vec, stream)
  
 (DEFUN SPADRREAD (|vec| |stream|)
-  (PROG () (RETURN (|dewritify| (|rread| |vec| |stream| NIL)))))
+  (PROG () (RETURN (|dewritify| (|rread| |vec| |stream|)))))
  
 ; SPADRWRITE(vec, item, stream) ==
 ;   val := SPADRWRITE0(vec, item, stream)
@@ -5429,7 +5428,7 @@
 ;     $UserLevel = 'interpreter => '("input" "INPUT")
 ;     $UserLevel = 'compiler    => '("input" "INPUT")
 ;     devFTs
-;   ll := $FINDFILE (l, fileTypes)
+;   ll := find_file(l, fileTypes)
 ;   if null ll then
 ;     ifthere => return nil    -- be quiet about it
 ;     throwKeyedMsg("S2IL0003",[namestring l])
@@ -5477,7 +5476,7 @@
               (COND ((EQ |$UserLevel| '|interpreter|) '("input" "INPUT"))
                     ((EQ |$UserLevel| '|compiler|) '("input" "INPUT"))
                     (#1# |devFTs|)))
-      (SETQ |ll| ($FINDFILE |l| |fileTypes|))
+      (SETQ |ll| (|find_file| |l| |fileTypes|))
       (COND
        ((NULL |ll|)
         (COND (|ifthere| (RETURN NIL))
@@ -5713,7 +5712,7 @@
  
 ; reportOpsFromUnitDirectly1 D ==
 ;   showFile := pathname ['SHOW,'LISTING]
-;   _$ERASE showFile
+;   erase_lib([showFile])
 ;   $sayBrightlyStream : fluid := MAKE_-OUTSTREAM(showFile)
 ;   sayShowWarning()
 ;   reportOpsFromUnitDirectly D
@@ -5726,7 +5725,7 @@
     (RETURN
      (PROGN
       (SETQ |showFile| (|pathname| (LIST 'SHOW 'LISTING)))
-      ($ERASE |showFile|)
+      (|erase_lib| (LIST |showFile|))
       (SETQ |$sayBrightlyStream| (MAKE-OUTSTREAM |showFile|))
       (|sayShowWarning|)
       (|reportOpsFromUnitDirectly| D)
@@ -5765,7 +5764,7 @@
  
 ; reportOpsFromLisplib1(unitForm,u)  ==
 ;   showFile := pathname ['SHOW,'LISTING]
-;   _$ERASE showFile
+;   erase_lib([showFile])
 ;   $sayBrightlyStream : fluid := MAKE_-OUTSTREAM (showFile)
 ;   sayShowWarning()
 ;   reportOpsFromLisplib(unitForm,u)
@@ -5778,7 +5777,7 @@
     (RETURN
      (PROGN
       (SETQ |showFile| (|pathname| (LIST 'SHOW 'LISTING)))
-      ($ERASE |showFile|)
+      (|erase_lib| (LIST |showFile|))
       (SETQ |$sayBrightlyStream| (MAKE-OUTSTREAM |showFile|))
       (|sayShowWarning|)
       (|reportOpsFromLisplib| |unitForm| |u|)

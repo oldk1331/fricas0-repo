@@ -3282,7 +3282,7 @@
 ;     ft :=
 ;       isAsharpFileName? x => '("AS")
 ;       '("SPAD")
-;     filename := NAMESTRING $FINDFILE(STRINGIMAGE x, ft)
+;     filename := NAMESTRING find_file(STRINGIMAGE x, ft)
 ;     htMakePage [['text, '"\unixcommand{",PATHNAME_-NAME x, '"}{$AXIOM/lib/SPADEDIT ", filename, '"} "]]
 ;     htSay '"}"
 ;   htEndTable()
@@ -3307,7 +3307,8 @@
              (SETQ |ft|
                      (COND ((|isAsharpFileName?| |x|) '("AS"))
                            (#1# '("SPAD"))))
-             (SETQ |filename| (NAMESTRING ($FINDFILE (STRINGIMAGE |x|) |ft|)))
+             (SETQ |filename|
+                     (NAMESTRING (|find_file| (STRINGIMAGE |x|) |ft|)))
              (|htMakePage|
               (LIST
                (LIST '|text| "\\unixcommand{" (PATHNAME-NAME |x|)
