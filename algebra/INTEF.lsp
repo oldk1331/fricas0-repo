@@ -1692,7 +1692,7 @@
           (LETT |denint|
                 (COND
                  ((SPADCALL |k| '|log| (QREFELT $ 13))
-                  (CONS #'|INTEF;primint!0| (VECTOR (QREFELT $ 214) |x| |k|)))
+                  (CONS #'|INTEF;primint!0| (VECTOR (QREFELT $ 212) |x| |k|)))
                  (#4# (CONS (|function| |INTEF;denint_dummy|) $)))
                 . #3#)
           (LETT |r1|
@@ -1700,7 +1700,7 @@
                           (CONS #'|INTEF;primint!2| (VECTOR |k| |x| $))
                           |denint|
                           (CONS #'|INTEF;primint!3| (VECTOR $ |lk| |k| |x|))
-                          (QREFELT $ 219))
+                          (QREFELT $ 216))
                 . #3#)
           (EXIT
            (SPADCALL
@@ -1815,7 +1815,7 @@
                                  (SEQ (LETT |u| NIL . #11#)
                                       (LETT #6#
                                             (SPADCALL |lg| (LIST |k|)
-                                                      (QREFELT $ 220))
+                                                      (QREFELT $ 217))
                                             . #11#)
                                       G190
                                       (COND
@@ -1934,7 +1934,7 @@
                (SPADCALL |x3| |eta| |x4| |x|
                          (CONS #'|INTEF;risch_de_solver!0| (VECTOR $ |x|))
                          (CONS #'|INTEF;risch_de_solver!1| (VECTOR $ |x|))
-                         (QREFELT $ 223)))) 
+                         (QREFELT $ 220)))) 
 
 (SDEFUN |INTEF;risch_de_solver!1| ((|x7| NIL) (|x8| NIL) ($$ NIL))
         (PROG (|x| $)
@@ -1965,9 +1965,9 @@
                 (SPADCALL (SPADCALL |f| |k| (QREFELT $ 39))
                           (CONS #'|INTEF;expint!1| (VECTOR |eta| |x| $))
                           (CONS #'|INTEF;expint!2|
-                                (VECTOR (QREFELT $ 216) |x| |k|))
+                                (VECTOR (QREFELT $ 214) |x| |k|))
                           (CONS #'|INTEF;expint!3| (VECTOR $ |x| |eta|))
-                          (QREFELT $ 225))
+                          (QREFELT $ 222))
                 . #1#)
           (EXIT
            (SPADCALL
@@ -2093,7 +2093,7 @@
                                         . #8#)))
                                 (LETT #4# (CDR #4#) . #8#) (GO G190) G191
                                 (EXIT (NREVERSE #5#))))
-                          (QREFELT $ 228))
+                          (QREFELT $ 225))
                 . #8#)
           (EXIT
            (COND ((QEQCAR |u1| 1) (CONS 1 "failed"))
@@ -2135,7 +2135,7 @@
                                              (QREFELT $ 51))
                                    (QCAR (QCDR |u2|)) (QREFELT $ 119))
                                   (SPADCALL (QCDR (QCDR |u2|)) |l|
-                                            (QREFELT $ 230)))))))))))))) 
+                                            (QREFELT $ 227)))))))))))))) 
 
 (SDEFUN |INTEF;primlflogint!2| ((|x3| NIL) ($$ NIL))
         (PROG (|x| |k| |lk| $)
@@ -2224,7 +2224,7 @@
                                         . #6#)))
                                 (LETT #4# (CDR #4#) . #6#) (GO G190) G191
                                 (EXIT (NREVERSE #5#))))
-                          (QREFELT $ 231))
+                          (QREFELT $ 228))
                 . #6#)
           (EXIT
            (COND ((QEQCAR |u1| 1) (CONS 1 "failed"))
@@ -2266,7 +2266,7 @@
                                              (QREFELT $ 51))
                                    (QCAR (QCDR |u2|)) (QREFELT $ 119))
                                   (SPADCALL (QCDR (QCDR |u2|)) |l|
-                                            (QREFELT $ 230)))))))))))))) 
+                                            (QREFELT $ 227)))))))))))))) 
 
 (SDEFUN |INTEF;explflogint!4| ((|x1| NIL) (|x2| NIL) ($$ NIL))
         (PROG (|eta| |x| $)
@@ -2341,7 +2341,7 @@
            (LETT DV$1 (|devaluate| |#1|) . #1=(|ElementaryIntegration|))
            (LETT DV$2 (|devaluate| |#2|) . #1#)
            (LETT |dv$| (LIST '|ElementaryIntegration| DV$1 DV$2) . #1#)
-           (LETT $ (GETREFV 232) . #1#)
+           (LETT $ (GETREFV 229) . #1#)
            (QSETREFV $ 0 |dv$|)
            (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
            (|haddProp| |$ConstructorCache| '|ElementaryIntegration|
@@ -2384,6 +2384,21 @@
              (QSETREFV $ 43
                        (CONS (|dispatchFunction| |INTEF;lfintegrate;FSIr;18|)
                              $))))
+           (QSETREFV $ 212
+                     (SEQ
+                      (COND
+                       ((|domainEqual| |#1| (|Integer|))
+                        (COND
+                         ((|domainEqual| |#2| (|Expression| (|Integer|)))
+                          (EXIT (ELT $ 211))))))
+                      (COND
+                       ((|domainEqual| |#1| (|Complex| (|Integer|)))
+                        (COND
+                         ((|domainEqual| |#2|
+                                         (|Expression|
+                                          (|Complex| (|Integer|))))
+                          (EXIT (ELT $ 211))))))
+                      (EXIT (CONS #'|ElementaryIntegration!0| $))))
            (QSETREFV $ 214
                      (SEQ
                       (COND
@@ -2398,21 +2413,6 @@
                                          (|Expression|
                                           (|Complex| (|Integer|))))
                           (EXIT (ELT $ 213))))))
-                      (EXIT (CONS #'|ElementaryIntegration!0| $))))
-           (QSETREFV $ 216
-                     (SEQ
-                      (COND
-                       ((|domainEqual| |#1| (|Integer|))
-                        (COND
-                         ((|domainEqual| |#2| (|Expression| (|Integer|)))
-                          (EXIT (ELT $ 215))))))
-                      (COND
-                       ((|domainEqual| |#1| (|Complex| (|Integer|)))
-                        (COND
-                         ((|domainEqual| |#2|
-                                         (|Expression|
-                                          (|Complex| (|Integer|))))
-                          (EXIT (ELT $ 215))))))
                       (EXIT (CONS #'|ElementaryIntegration!1| $))))
            $)))) 
 
@@ -2443,7 +2443,7 @@
               (|IntegrationResultFunctions2| 40 7) (117 . |map|) (123 . +)
               (129 . |coerce|) (|PositiveInteger|) (134 . *)
               (|Record| (|:| |coeff| 7) (|:| |logand| 7))
-              (|Record| (|:| |mainpart| 7) (|:| |limitedlogs| 229))
+              (|Record| (|:| |mainpart| 7) (|:| |limitedlogs| 226))
               (|Union| 61 '"failed") |INTEF;lflogint;FSLU;26|
               (|Union| 17 '"failed") (|Integer|) (|Mapping| 62 7 17)
               (|Mapping| 35 7 7) (|ElementaryRischDESystem| 6 7)
@@ -2501,19 +2501,16 @@
               (|Record| (|:| |ans| 7) (|:| |right| 7) (|:| |sol?| 10))
               (|ElementaryRischDE| 6 7) (645 . |rischDE|) (|Mapping| 202 65 7)
               (655 . |expextendedint|) (663 . |Zero|) (667 . |Zero|)
-              (|Record| (|:| |answer| 210) (|:| |logpart| 210)
-                        (|:| |ir| (|IntegrationResult| 210)))
-              (|Fraction| (|SparseUnivariatePolynomial| (|Expression| 6)))
-              (|Kernel| (|Expression| 6)) (|DenominatorIntegration| 6)
-              (671 . |li_int|) '|denint_li| (678 . |poly_int|) '|denint_poly|
               (|Record| (|:| |answer| 40) (|:| |logpart| 40) (|:| |ir| 53))
-              (|Mapping| 217 40) (685 . |primintegrate|) (693 . |union|)
+              (|DenominatorIntegration| 6 7) (671 . |li_int|) '|denint_li|
+              (678 . |poly_int|) '|denint_poly| (|Mapping| 209 40)
+              (685 . |primintegrate|) (693 . |union|)
               (|Record| (|:| |ans| 7) (|:| |right| 7) (|:| |primpart| 7)
                         (|:| |sol?| 10))
               (|ElementaryRischDEX2| 6 7) (699 . |risch_de_ext|)
-              (|Mapping| 221 65 7) (709 . |expintegrate|)
+              (|Mapping| 218 65 7) (709 . |expintegrate|)
               (|Record| (|:| |answer| 190) (|:| |a0| 7))
-              (|Union| 226 '"failed") (717 . |primlogint|) (|List| 60)
+              (|Union| 223 '"failed") (717 . |primlogint|) (|List| 60)
               (725 . |concat|) (731 . |explogint|))
            '#(|lflogint| 739 |lfintegrate| 746 |lfinfieldint| 752 |lfextlimint|
               758 |lfextendedint| 766)
@@ -2521,7 +2518,7 @@
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 231
+                             (|makeByteWordVec2| 228
                                                  '(2 12 10 0 11 13 1 12 14 0 15
                                                    2 14 10 0 11 16 1 12 17 0 18
                                                    2 7 0 0 11 19 0 6 0 20 0 7 0
@@ -2587,16 +2584,16 @@
                                                    40 201 6 203 202 65 7 7 11
                                                    66 67 204 4 48 200 40 45 205
                                                    40 206 0 40 0 207 0 53 0 208
-                                                   3 212 209 210 211 11 213 3
-                                                   212 209 210 211 11 215 4 48
-                                                   70 40 45 218 46 219 2 150
-                                                   128 128 128 220 6 222 221 65
-                                                   7 7 11 66 67 223 4 48 70 40
-                                                   45 218 224 225 4 48 227 40
-                                                   45 46 192 228 2 229 0 0 0
-                                                   230 4 48 227 40 45 205 192
-                                                   231 3 0 62 7 11 17 63 2 0 42
-                                                   7 11 43 2 0 195 7 11 196 4 0
-                                                   35 7 11 12 128 198 3 0 35 7
-                                                   11 7 36)))))
+                                                   3 210 209 40 12 11 211 3 210
+                                                   209 40 12 11 213 4 48 70 40
+                                                   45 215 46 216 2 150 128 128
+                                                   128 217 6 219 218 65 7 7 11
+                                                   66 67 220 4 48 70 40 45 215
+                                                   221 222 4 48 224 40 45 46
+                                                   192 225 2 226 0 0 0 227 4 48
+                                                   224 40 45 205 192 228 3 0 62
+                                                   7 11 17 63 2 0 42 7 11 43 2
+                                                   0 195 7 11 196 4 0 35 7 11
+                                                   12 128 198 3 0 35 7 11 7
+                                                   36)))))
            '|lookupComplete|)) 

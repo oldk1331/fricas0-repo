@@ -3021,7 +3021,7 @@ odeclare!`4`n`(Symbol,FortranType,Symbol,_$)->FortranType`dTheSymbolTable``39230
 odecompose`1`x`(_$)->Record(id:FractionalIdeal(UP,Fraction(UP),UPUP,R),principalPart:R)`cFiniteDivisorCategory(F,UP,UPUP,R)``392449
 odecompose`1`x`(UP)->List(UP)`pPolynomialDecomposition(UP,F)``392533
 odecompose`2`n`(Fraction(UP),(UP)->UP)->Record(poly:UP,normal:Fraction(UP),special:Fraction(UP))`pMonomialExtensionTools(F,UP)``392575
-odecompose`2`n`(SparseUnivariatePolynomial(Expression(R)),List(SparseUnivariatePolynomial(Expression(R))))->List(SparseUnivariatePolynomial(Expression(R)))`pDenominatorIntegration(R)``392935
+odecompose`2`n`(SparseUnivariatePolynomial(F),List(SparseUnivariatePolynomial(F)))->List(SparseUnivariatePolynomial(F))`pDenominatorIntegration(R,F)``392935
 odecompose`3`x`(UP,NonNegativeInteger,NonNegativeInteger)->Union(Record(left:UP,right:UP),"failed")`pPolynomialDecomposition(UP,F)``393102
 odecompose`4`x`(List(P),List(TS),Boolean,Boolean)->List(TS)`pRegularSetDecompositionPackage(R,E,V,P,TS)``0
 odecompose`4`x`(List(P),List(TS),Boolean,Boolean)->List(TS)`pSquareFreeRegularSetDecompositionPackage(R,E,V,P,TS)``0
@@ -3574,7 +3574,7 @@ oeigenMatrix`1`x`(Matrix(Fraction(Polynomial(Integer))))->Union(Matrix(Expressio
 oeigenvalues`1`x`(Matrix(Fraction(Polynomial(R))))->List(Union(Fraction(Polynomial(R)),SuchThat(Symbol,Polynomial(R))))`pEigenPackage(R)``447520
 oeigenvector`2`x`(Union(Fraction(Polynomial(R)),SuchThat(Symbol,Polynomial(R))),Matrix(Fraction(Polynomial(R))))->List(Matrix(Fraction(Polynomial(R))))`pEigenPackage(R)``447667
 oeigenvectors`1`x`(Matrix(Fraction(Polynomial(R))))->List(Record(eigval:Union(Fraction(Polynomial(R)),SuchThat(Symbol,Polynomial(R))),eigmult:NonNegativeInteger,eigvec:List(Matrix(Fraction(Polynomial(R))))))`pEigenPackage(R)``447798
-oei_int`6`n`(Integer,Expression(R),Expression(R),Symbol,(Expression(R),List(Expression(R)))->Union(Record(mainpart:Expression(R),limitedlogs:List(Record(coeff:Expression(R),logand:Expression(R)))),"failed"),(Expression(R),Expression(R))->Union(Record(ratpart:Expression(R),coeff:Expression(R)),"failed"))->Record(ans:Expression(R),right:Expression(R),primpart:Expression(R),sol?:Boolean)`pElementaryRischDEX(R)``0
+oei_int`6`n`(Integer,F,F,Symbol,(F,List(F))->Union(Record(mainpart:F,limitedlogs:List(Record(coeff:F,logand:F))),"failed"),(F,F)->Union(Record(ratpart:F,coeff:F),"failed"))->Record(ans:F,right:F,primpart:F,sol?:Boolean)`pElementaryRischDEX(R,F)``0
 oeisensteinIrreducible?`1`n`(UP)->Boolean`pGaloisGroupFactorizer(UP)``448159
 oelColumn2!`4`x`(M,R,Integer,Integer)->M`pMatrixLinearAlgebraFunctions(R,Row,Col,M)``448328
 oelem?`1`n`(_$)->Boolean`dIntegrationResult(F)``448487
@@ -4170,7 +4170,7 @@ ofactor`1`n`(S)->Factored(S)`xField&(S)``0
 ofactor`1`n`(S)->Factored(S)`xIntegerNumberSystem&(S)``0
 ofactor`1`n`(S)->Factored(S)`xPolynomialCategory&(S,R,E,VarSet)``0
 ofactor`1`n`(S)->Factored(S)`xUnivariatePolynomialCategory&(S,R)``0
-ofactor`1`n`(SparseMultivariatePolynomial(R,Kernel(Expression(R))))->Factored(SparseMultivariatePolynomial(R,Kernel(Expression(R))))`pDenominatorIntegration(R)``508655
+ofactor`1`n`(SparseMultivariatePolynomial(R,Kernel(F)))->Factored(SparseMultivariatePolynomial(R,Kernel(F)))`pDenominatorIntegration(R,F)``508655
 ofactor`1`n`(SparseUnivariatePolynomial(Fraction(P)))->Factored(SparseUnivariatePolynomial(Fraction(P)))`pSupFractionFactorizer(E,OV,R,P)``508712
 ofactor`1`n`(SparseUnivariatePolynomial(R))->Factored(SparseUnivariatePolynomial(R))`pGenUFactorize(R)``508847
 ofactor`1`n`(UP)->Factored(UP)`pComplexRootFindingPackage(R,UP)``508909
@@ -5876,7 +5876,7 @@ olifting1`9`n`(SparseUnivariatePolynomial(P),List(OV),List(SparseUnivariatePolyn
 olifting`7`n`(SparseUnivariatePolynomial(P),List(OV),List(SparseUnivariatePolynomial(R)),List(R),List(P),List(NonNegativeInteger),R)->Union(List(SparseUnivariatePolynomial(P)),"failed")`pMultivariateLifting(E,OV,R,P)``693697
 olight`1`x`(Color)->_$`dPalette``693771
 olighting`4`x`(_$,Float,Float,Float)->Void`dThreeDimensionalViewport``693863
-oli_int`3`n`(Fraction(SparseUnivariatePolynomial(Expression(R))),Kernel(Expression(R)),Symbol)->Record(answer:Fraction(SparseUnivariatePolynomial(Expression(R))),logpart:Fraction(SparseUnivariatePolynomial(Expression(R))),ir:IntegrationResult(Fraction(SparseUnivariatePolynomial(Expression(R)))))`pDenominatorIntegration(R)``694133
+oli_int`3`n`(Fraction(SparseUnivariatePolynomial(F)),Kernel(F),Symbol)->Record(answer:Fraction(SparseUnivariatePolynomial(F)),logpart:Fraction(SparseUnivariatePolynomial(F)),ir:IntegrationResult(Fraction(SparseUnivariatePolynomial(F))))`pDenominatorIntegration(R,F)``694133
 olimit`2`n`(_$,NonNegativeInteger)->Loop`dFunctionGraph(S)``694200
 olimit`2`x`(FE,Equation(OrderedCompletion(FE)))->Union(OrderedCompletion(FE),Record(leftHandLimit:Union(OrderedCompletion(FE),"failed"),rightHandLimit:Union(OrderedCompletion(FE),"failed")),"failed")`pPowerSeriesLimitPackage(R,FE)``694341
 olimit`2`x`(Fraction(Polynomial(R)),Equation(Fraction(Polynomial(R))))->Union(OrderedCompletion(Fraction(Polynomial(R))),Record(leftHandLimit:Union(OrderedCompletion(Fraction(Polynomial(R))),"failed"),rightHandLimit:Union(OrderedCompletion(Fraction(Polynomial(R))),"failed")),"failed")`pRationalFunctionLimitPackage(R)``694428
@@ -5901,14 +5901,14 @@ olinearAssociatedLog`2`x`(_$,_$)->Union(SparseUnivariatePolynomial(F),"failed")`
 olinearAssociatedOrder`1`n`(S)->SparseUnivariatePolynomial(F)`xFiniteAlgebraicExtensionField&(S,F)``0
 olinearAssociatedOrder`1`x`(_$)->SparseUnivariatePolynomial(F)`cFiniteAlgebraicExtensionField(F)`has(F,Finite)`697476
 olinearDependence`1`n`(Vector(R))->Union(Vector(S),"failed")`pLinearDependence(S,R)``697632
-olinearDependenceOverConstants`1`n`(Vector(Expression(R)))->Union(Vector(Expression(R)),"failed")`pConstantLinearDependence(R,ld)``697868
+olinearDependenceOverConstants`1`n`(Vector(F))->Union(Vector(F),"failed")`pConstantLinearDependence(R,F,ld)``697868
 olinearDependenceOverZ`1`x`(Vector(R))->Union(Vector(Integer),"failed")`pIntegerLinearDependence(R)``698120
 olinearExtend`2`n`((List(B))->M2,TensorPower(n,R,B,M1))->M2`pTensorPowerFunctions2(n,R,B,M1,M2)``698367
 olinearExtend`2`x`((S)->M2,M1)->M2`pFreeModuleFunctions2(R,S,M1,M2)``698520
 olinearExtend`2`x`((S)->R,_$)->R`cFreeModuleCategory(R,S)`has(R,CommutativeRing)`698661
 olinearize`1`n`(List(JetBundleExpression(JetBundleSymAna(JB1,xi,eta))))->List(JetBundleLinearFunction(JetBundleSymAna(JB1,xi,eta),JetBundleXExpression(JetBundleSymAna(JB1,xi,eta))))`pSymmetryAnalysis(JB1,xi,eta)``698789
 olinearlyDependent?`1`n`(Vector(R))->Boolean`pLinearDependence(S,R)``698924
-olinearlyDependentOverConstants?`1`n`(Vector(Expression(R)))->Boolean`pConstantLinearDependence(R,ld)``699086
+olinearlyDependentOverConstants?`1`n`(Vector(F))->Boolean`pConstantLinearDependence(R,F,ld)``699086
 olinearlyDependentOverZ?`1`x`(Vector(R))->Boolean`pIntegerLinearDependence(R)``699262
 olinearPolynomials`1`n`(List(P))->Record(goodPols:List(P),badPols:List(P))`pPolynomialSetUtilitiesPackage(R,E,V,P)``699433
 olinears`2`x`(U,Integer)->U`pModularDistinctDegreeFactorizer(U)``699601
@@ -5921,7 +5921,7 @@ olink`2`n`(_$,_$)->List(PT)`dSBoundary(PT)``700551
 olinkToFortran`4`n`(Symbol,List(Symbol),TheSymbolTable,List(Symbol))->SExpression`pFortranPackage``700795
 olinkToFortran`4`n`(Symbol,List(Union(array:List(Symbol),scalar:Symbol)),List(List(Union(array:List(Symbol),scalar:Symbol))),List(Symbol))->SExpression`pFortranPackage``700858
 olinkToFortran`5`n`(Symbol,List(Union(array:List(Symbol),scalar:Symbol)),List(List(Union(array:List(Symbol),scalar:Symbol))),List(Symbol),Symbol)->SExpression`pFortranPackage``700922
-olin_sol`2`n`(List(Expression(R)),List(Symbol))->Union(List(Expression(R)),"failed")`pExpressionLinearSolve(R)``700991
+olin_sol`2`n`(List(F),List(Symbol))->Union(List(F),"failed")`pExpressionLinearSolve(R,F)``700991
 olinSolve`2`x`(List(P),List(OV))->Record(particular:Union(Vector(Fraction(P)),"failed"),basis:List(Vector(Fraction(P))))`pLinearSystemPolynomialPackage(R,E,OV,P)``701144
 olintgcd`1`n`(List(Integer))->Integer`pHeuGcd(BP)``701291
 olist`1`n`(S)->A`xListAggregate&(A,S)``0
@@ -7270,8 +7270,8 @@ oparticularSolution`2`n`(Vector(R),R)->Union(Vector(S),"failed")`pLinearDependen
 oparticularSolution`2`x`(Matrix(F),Vector(F))->Union(Vector(F),"failed")`pLinearSystemMatrixPackage1(F)``877040
 oparticularSolution`2`x`(M,Col)->Union(Col,"failed")`pLinearSystemMatrixPackage(F,Row,Col,M)``877145
 oparticularSolution`4`n`(LODO,F,List(F),(F)->F)->Union(F,"failed")`pODETools(F,LODO)``877250
-oparticularSolutionOverConstants`2`n`(Matrix(Expression(R)),Vector(Expression(R)))->Union(Vector(Expression(R)),"failed")`pConstantLinearDependence(R,ld)``877594
-oparticularSolutionOverConstants`2`n`(Vector(Expression(R)),Expression(R))->Union(Vector(Expression(R)),"failed")`pConstantLinearDependence(R,ld)``877799
+oparticularSolutionOverConstants`2`n`(Matrix(F),Vector(F))->Union(Vector(F),"failed")`pConstantLinearDependence(R,F,ld)``877594
+oparticularSolutionOverConstants`2`n`(Vector(F),F)->Union(Vector(F),"failed")`pConstantLinearDependence(R,F,ld)``877799
 oparticularSolutionOverQ`2`x`(Matrix(R),Vector(R))->Union(Vector(Fraction(Integer)),"failed")`pIntegerLinearDependence(R)``878010
 oparticularSolutionOverQ`2`x`(Vector(R),R)->Union(Vector(Fraction(Integer)),"failed")`pIntegerLinearDependence(R)``878207
 opartition`1`n`(List(Integer))->_$`dPartition``878409
@@ -7424,7 +7424,7 @@ opolygon`1`x`(_$)->List(Point(R))`cThreeSpaceCategory(R)``899965
 opolygon`1`x`(List(Point(R)))->_$`cThreeSpaceCategory(R)``900194
 opolygon`2`x`(_$,List(List(R)))->_$`cThreeSpaceCategory(R)``900389
 opolygon`2`x`(_$,List(Point(R)))->_$`cThreeSpaceCategory(R)``900760
-opoly_int`3`n`(Fraction(SparseUnivariatePolynomial(Expression(R))),Kernel(Expression(R)),Symbol)->Record(answer:Fraction(SparseUnivariatePolynomial(Expression(R))),logpart:Fraction(SparseUnivariatePolynomial(Expression(R))),ir:IntegrationResult(Fraction(SparseUnivariatePolynomial(Expression(R)))))`pDenominatorIntegration(R)``900939
+opoly_int`3`n`(Fraction(SparseUnivariatePolynomial(F)),Kernel(F),Symbol)->Record(answer:Fraction(SparseUnivariatePolynomial(F)),logpart:Fraction(SparseUnivariatePolynomial(F)),ir:IntegrationResult(Fraction(SparseUnivariatePolynomial(F))))`pDenominatorIntegration(R,F)``900939
 opolylog`2`n`(F,F)->F`pFunctionalSpecialFunction(R,F)``901001
 opolylog`2`x`(_$,_$)->_$`cSpecialFunctionCategory``901082
 opolynomial`2`x`(_$,NonNegativeInteger)->Polynomial(Coef)`cMultivariateTaylorSeriesCategory(Coef,Var)``901164
@@ -8012,7 +8012,7 @@ oreducedForm`1`x`(_$)->_$`dContinuedFraction(R)``971141
 oreducedQPowers`1`n`(SparseUnivariatePolynomial(GF))->PrimitiveArray(SparseUnivariatePolynomial(GF))`pFiniteFieldPolynomialPackage(GF)``971401
 oreducedSystem`1`n`(Matrix(A))->Matrix(Integer)`xQuotientFieldCategory&(A,S)``0
 oreducedSystem`1`n`(Matrix(A))->Matrix(S)`xQuotientFieldCategory&(A,S)``0
-oreducedSystem`1`n`(Matrix(Expression(R)))->Matrix(Expression(R))`pConstantLinearDependence(R,ld)``971571
+oreducedSystem`1`n`(Matrix(F))->Matrix(F)`pConstantLinearDependence(R,F,ld)``971571
 oreducedSystem`1`n`(Matrix(S))->Matrix(Integer)`xComplexCategory&(S,R)``0
 oreducedSystem`1`n`(Matrix(S))->Matrix(Integer)`xDirectProductCategory&(S,dim,R)``0
 oreducedSystem`1`n`(Matrix(S))->Matrix(Integer)`xFullyLinearlyExplicitRingOver&(S,R)``0
@@ -8026,7 +8026,7 @@ oreducedSystem`1`n`(Matrix(S))->Matrix(R)`xSquareMatrixCategory&(S,ndim,R,Row,Co
 oreducedSystem`1`x`(Matrix(_$))->Matrix(R)`cLinearlyExplicitRingOver(R)``971725
 oreducedSystem`2`n`(Matrix(A),Vector(A))->Record(mat:Matrix(Integer),vec:Vector(Integer))`xQuotientFieldCategory&(A,S)``0
 oreducedSystem`2`n`(Matrix(A),Vector(A))->Record(mat:Matrix(S),vec:Vector(S))`xQuotientFieldCategory&(A,S)``0
-oreducedSystem`2`n`(Matrix(Expression(R)),Vector(Expression(R)))->Record(mat:Matrix(Expression(R)),vec:Vector(Expression(R)))`pConstantLinearDependence(R,ld)``971863
+oreducedSystem`2`n`(Matrix(F),Vector(F))->Record(mat:Matrix(F),vec:Vector(F))`pConstantLinearDependence(R,F,ld)``971863
 oreducedSystem`2`n`(Matrix(S),Vector(S))->Record(mat:Matrix(Integer),vec:Vector(Integer))`xComplexCategory&(S,R)``0
 oreducedSystem`2`n`(Matrix(S),Vector(S))->Record(mat:Matrix(Integer),vec:Vector(Integer))`xDirectProductCategory&(S,dim,R)``0
 oreducedSystem`2`n`(Matrix(S),Vector(S))->Record(mat:Matrix(Integer),vec:Vector(Integer))`xFullyLinearlyExplicitRingOver&(S,R)``0
@@ -9213,8 +9213,8 @@ osolveLinear`2`n`(Vector(R),R)->Record(particular:Union(Vector(Fraction(S)),"fai
 osolveLinear`2`n`(Vector(R),R)->Record(particular:Union(Vector(S),"failed"),basis:List(Vector(S)))`pLinearDependence(S,R)`has(S,Field)`1114783
 osolveLinearlyOverQ`2`x`(Matrix(R),Vector(R))->Record(particular:Union(Vector(Fraction(Integer)),"failed"),basis:List(Vector(Fraction(Integer))))`pIntegerLinearDependence(R)``1114979
 osolveLinearlyOverQ`2`x`(Vector(R),R)->Record(particular:Union(Vector(Fraction(Integer)),"failed"),basis:List(Vector(Fraction(Integer))))`pIntegerLinearDependence(R)``1115182
-osolveLinearOverConstants`2`n`(Matrix(Expression(R)),Vector(Expression(R)))->Record(particular:Union(Vector(Expression(R)),"failed"),basis:List(Vector(Expression(R))))`pConstantLinearDependence(R,ld)``1115385
-osolveLinearOverConstants`2`n`(Vector(Expression(R)),Expression(R))->Record(particular:Union(Vector(Expression(R)),"failed"),basis:List(Vector(Expression(R))))`pConstantLinearDependence(R,ld)``1115594
+osolveLinearOverConstants`2`n`(Matrix(F),Vector(F))->Record(particular:Union(Vector(F),"failed"),basis:List(Vector(F)))`pConstantLinearDependence(R,F,ld)``1115385
+osolveLinearOverConstants`2`n`(Vector(F),F)->Record(particular:Union(Vector(F),"failed"),basis:List(Vector(F)))`pConstantLinearDependence(R,F,ld)``1115594
 osolveLinearPolynomialEquation`2`n`(List(FPP),FPP)->Union(List(FPP),"failed")`pFiniteFieldSolveLinearPolynomialEquation(F,FP,FPP)``1115803
 osolveLinearPolynomialEquation`2`n`(List(SparseUnivariatePolynomial(CR)),SparseUnivariatePolynomial(CR))->Union(List(SparseUnivariatePolynomial(CR)),"failed")`pComplexIntegerSolveLinearPolynomialEquation(R,CR)``1116068
 osolveLinearPolynomialEquation`2`n`(List(SparseUnivariatePolynomial(Integer)),SparseUnivariatePolynomial(Integer))->Union(List(SparseUnivariatePolynomial(Integer)),"failed")`pIntegerSolveLinearPolynomialEquation``1116393
@@ -9227,7 +9227,7 @@ osolveLinearPolynomialEquationByFractions`2`n`(List(SparseUnivariatePolynomial(R
 osolveLinearPolynomialEquationByRecursion`2`n`(List(SparseUnivariatePolynomial(S)),SparseUnivariatePolynomial(S))->Union(List(SparseUnivariatePolynomial(S)),"failed")`pPolynomialFactorizationByRecursion(R,E,VarSet,S)``1117172
 osolveLinearPolynomialEquationByRecursion`2`n`(List(SparseUnivariatePolynomial(S)),SparseUnivariatePolynomial(S))->Union(List(SparseUnivariatePolynomial(S)),"failed")`pPolynomialFactorizationByRecursionUnivariate(R,S)``1117598
 osolveRetract`2`n`(List(Polynomial(R)),List(Symbol))->List(List(Equation(Fraction(Polynomial(R)))))`pRetractSolvePackage(Q,R)``1118024
-osolve_u`3`n`(Expression(R),Expression(R),Symbol)->Union(List(List(Expression(R))),"failed")`pDenominatorIntegration(R)``1118280
+osolve_u`3`n`(F,F,Symbol)->Union(List(List(F)),"failed")`pDenominatorIntegration(R,F)``1118280
 osomeBasis`0`x`()->Vector(_$)`cFiniteRankNonAssociativeAlgebra(R)``1118490
 oSomos`1`n`(List(GuessOption))->Union(PositiveInteger,Boolean)`dGuessOptionFunctions0``1118552
 oSomos`1`x`(Union(PositiveInteger,Boolean))->_$`dGuessOption``1118653
@@ -10329,7 +10329,7 @@ pComplexRootFindingPackage`2`n`(R:Join(Field,etc),UP:UnivariatePolynomialCategor
 pComplexRootPackage`2`x`(UnivariatePolynomialCategory(Complex(Integer)),Par:Join(Field,etc))->etc`(UP,Par)`CMPLXRT`1256535
 pComplexTrigonometricManipulations`2`x`(R:Join(IntegralDomain,etc),F:Join(AlgebraicallyClosedField,etc))->etc`(R,F)`CTRIGMNP`1256909
 pcompUtil`1`n`(VarCat)->etc`(UT)`COMPUTIL`1257043
-pConstantLinearDependence`2`n`(R:Join(IntegralDomain,etc),List((Expression(R))->Expression(R)))->etc`(R,ld)`CLINDEP`1257752
+pConstantLinearDependence`3`n`(R:Join(IntegralDomain,etc),F:FunctionSpace(R),List((F)->F))->etc`(R,F,ld)`CLINDEP`1257752
 pConstantLODE`3`n`(R:Join(Comparable,etc),F:Join(AlgebraicallyClosedFunctionSpace(R),etc),L:LinearOrdinaryDifferentialOperatorCategory(F))->etc`(R,F,L)`ODECONST`1258196
 pCoordinateSystems`1`x`(Join(Field,etc))->etc`(R)`COORDSYS`1258284
 pCRApackage`1`x`(EuclideanDomain)->etc`(R)`CRAPACK`1258542
@@ -10338,7 +10338,7 @@ pCyclicStreamTools`2`n`(S:Type,ST:LazyStreamAggregate(S))->etc`(S,ST)`CSTTOOLS`1
 pCyclotomicPolynomialPackage`0`n`()->etc``CYCLOTOM`1258726
 pDefiniteIntegrationTools`2`n`(R:Join(GcdDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`DFINTTLS`1258762
 pDegreeReductionPackage`2`n`(Ring,R2:Join(Comparable,etc))->etc`(R1,R2)`DEGRED`1258903
-pDenominatorIntegration`1`n`(Join(GcdDomain,etc))->etc`(R)`INTDEN`1258939
+pDenominatorIntegration`2`n`(R:Join(GcdDomain,etc),F:Join(AlgebraicallyClosedField,etc))->etc`(R,F)`INTDEN`1258939
 pDiophantineSolutionPackage`0`x`()->etc``DIOSP`1259051
 pDirectProductFunctions2`3`x`(NonNegativeInteger,A:Type,B:Type)->etc`(dim,A,B)`DIRPROD2`1259784
 pDiscreteLogarithmPackage`1`n`(Join(Monoid,etc))->etc`(M)`DLP`1260102
@@ -10365,8 +10365,8 @@ pElementaryFunctionStructurePackage`2`x`(R:Join(IntegralDomain,etc),F:Join(Algeb
 pElementaryIntegration`2`n`(R:Join(GcdDomain,etc),F:Join(AlgebraicallyClosedField,etc))->etc`(R,F)`INTEF`1263283
 pElementaryRischDE`2`n`(R:Join(GcdDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`RDEEF`1263446
 pElementaryRischDESystem`2`n`(R:Join(GcdDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`RDEEFS`1264024
-pElementaryRischDEX`1`n`(Join(EuclideanDomain,etc))->etc`(R)`RDEEFX`1264230
-pElementaryRischDEX2`2`n`(R:Join(GcdDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`RDEEFX2`1264343
+pElementaryRischDEX2`2`n`(R:Join(GcdDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`RDEEFX2`1264230
+pElementaryRischDEX`2`n`(R:Join(EuclideanDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`RDEEFX`1264298
 pEllipticFunctionsUnivariateTaylorSeries`2`n`(Coef:Field,UTS:UnivariateTaylorSeriesCategory(Coef))->etc`(Coef,UTS)`ELFUTS`1264411
 pEquationFunctions2`2`x`(Type,R:Type)->etc`(S,R)`EQ2`1264509
 pErrorFunctions`0`x`()->etc``ERROR`1264585
@@ -10375,7 +10375,7 @@ pEvaluateCycleIndicators`1`n`(Algebra(Fraction(Integer)))->etc`(F)`EVALCYC`12674
 pExport3D`0`n`()->etc``EXP3D`1267616
 pExportXml`0`n`()->etc``XML`1267712
 pExpressionFunctions2`2`x`(Comparable,S:Comparable)->etc`(R,S)`EXPR2`1267770
-pExpressionLinearSolve`1`n`(Join(IntegralDomain,etc))->etc`(R)`ELINSOL`1267866
+pExpressionLinearSolve`2`n`(R:Join(IntegralDomain,etc),F:FunctionSpace(R))->etc`(R,F)`ELINSOL`1267866
 pExpressionSolve`4`n`(R:Join(Comparable,etc),F:FunctionSpace(R),UTSF:UnivariateTaylorSeriesCategory(F),UnivariateTaylorSeriesCategory(SparseMultivariatePolynomialExpressions(F)))->etc`(R,F,UTSF,UTSSMPF)`EXPRSOL`0
 pExpressionSpaceFunctions1`2`n`(ExpressionSpace,S:Type)->etc`(F,S)`ES1`1268059
 pExpressionSpaceFunctions2`2`x`(ExpressionSpace,F:ExpressionSpace)->etc`(E,F)`ES2`1268240
