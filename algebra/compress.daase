@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4759 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4760 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -648,16 +648,16 @@
  |bitCoef| |bitTruth| |contains?| |inf| |qinterval| |interval| |li_int|
  |poly_int| |solve_u| |lfextendedint| |lflogint| |lfinfieldint| |lfintegrate|
  |lfextlimint| |BasicMethod| |PollardSmallFactor| |palgint0| |palgextint0|
- |palglimint0| |palgRDE0| |palgLODE0| |carmichaelLambda| |chineseRemainder|
- |divisors| |eulerPhi| |fibonacci| |harmonic| |jacobi| |moebiusMu|
- |numberOfDivisors| |sumOfDivisors| |sumOfKthPowerDivisors| |HermiteIntegrate|
- |palgint| |palgextint| |palglimint| |palgRDE| |palgLODE| |splitConstant|
- |pmComplexintegrate| |pmintegrate| |infieldint| |extendedint| |limitedint|
- |integerIfCan| |internalIntegrate| |infieldIntegrate| |limitedIntegrate|
- |extendedIntegrate| |varselect| |kmax| |ksec| |vark| |removeConstantTerm|
- |mkPrim| |intPatternMatch| |primintegrate| |expintegrate| |tanintegrate|
- |lambintegrate| |primextendedint| |expextendedint| |primlogint| |explogint|
- |primextintfrac| |primlogintfrac| |primintfldpoly| |expintfldpoly|
+ |palglimint0| |palgRDE0| |rationalize_ir| |palgLODE0| |carmichaelLambda|
+ |chineseRemainder| |divisors| |eulerPhi| |fibonacci| |harmonic| |jacobi|
+ |moebiusMu| |numberOfDivisors| |sumOfDivisors| |sumOfKthPowerDivisors|
+ |HermiteIntegrate| |palgint| |palgextint| |palglimint| |palgRDE| |palgLODE|
+ |splitConstant| |pmComplexintegrate| |pmintegrate| |infieldint| |extendedint|
+ |limitedint| |integerIfCan| |internalIntegrate| |infieldIntegrate|
+ |limitedIntegrate| |extendedIntegrate| |varselect| |kmax| |ksec| |vark|
+ |removeConstantTerm| |mkPrim| |intPatternMatch| |primintegrate| |expintegrate|
+ |tanintegrate| |lambintegrate| |primextendedint| |expextendedint| |primlogint|
+ |explogint| |primextintfrac| |primlogintfrac| |primintfldpoly| |expintfldpoly|
  |monomialIntegrate| |monomialIntPoly| |inverseLaplace| |iprint| |elem?|
  |notelem| |logpart| |ratpart| |mkAnswer| |perfectNthPower?| |perfectNthRoot|
  |approxNthRoot| |perfectSquare?| |perfectSqrt| |approxSqrt|

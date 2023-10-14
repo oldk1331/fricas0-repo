@@ -679,19 +679,28 @@
                     (LETT |rtg1| (|FSINT;inv_lst| |tgg0| |tgg1| $) . #14#)
                     (LETT |gg| (SPADCALL |gg0| |tgg0| |tgg1| (QREFELT $ 105))
                           . #14#)
+                    (LETT |i|
+                          (SPADCALL
+                           (CONS #'|FSINT;integrate;FSU;15!5|
+                                 (VECTOR $ |ralg| |rtg1|))
+                           (SPADCALL |gg| |x| (QREFELT $ 127)) (QREFELT $ 130))
+                          . #14#)
                     (EXIT
                      (LETT |i|
-                           (SPADCALL
-                            (CONS #'|FSINT;integrate;FSU;15!5|
-                                  (VECTOR $ |ralg| |rtg1|))
-                            (SPADCALL |gg| |x| (QREFELT $ 127))
-                            (QREFELT $ 130))
+                           (SPADCALL |i|
+                                     (SPADCALL
+                                      (SPADCALL
+                                       (SPADCALL (|spadConstant| $ 47)
+                                                 (QREFELT $ 98))
+                                       (QREFELT $ 99))
+                                      (QREFELT $ 131))
+                                     (QREFELT $ 133))
                            . #14#))))
-              (#15='T (LETT |i| (SPADCALL |g| |x| (QREFELT $ 132)) . #14#)))
-             (LETT |ltg| (SPADCALL |ltg| |ltf| (QREFELT $ 133)) . #14#)
-             (LETT |okers| (SPADCALL (QVELT |rec| 1) |ekers| (QREFELT $ 134))
+              (#15='T (LETT |i| (SPADCALL |g| |x| (QREFELT $ 135)) . #14#)))
+             (LETT |ltg| (SPADCALL |ltg| |ltf| (QREFELT $ 136)) . #14#)
+             (LETT |okers| (SPADCALL (QVELT |rec| 1) |ekers| (QREFELT $ 137))
                    . #14#)
-             (LETT |ovals| (SPADCALL (QVELT |rec| 2) |evals| (QREFELT $ 135))
+             (LETT |ovals| (SPADCALL (QVELT |rec| 2) |evals| (QREFELT $ 138))
                    . #14#)
              (LETT |u|
                    (|FSINT;rinteg| |i| |f| |x| (COND (|el| |ht|) (#15# 'NIL))
@@ -790,7 +799,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionSpaceIntegration|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|FunctionSpaceIntegration| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 138) . #1#)
+          (LETT $ (GETREFV 141) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FunctionSpaceIntegration|
@@ -853,14 +862,15 @@
               (|IntegrationResult| 20) (|ElementaryIntegration| 86 20)
               (424 . |lfintegrate|) (|Mapping| 7 20)
               (|IntegrationResultFunctions2| 20 7) (430 . |map|)
-              (|ElementaryIntegration| 6 7) (436 . |lfintegrate|)
-              (442 . |setDifference|) (448 . |concat|) (454 . |concat|)
-              (|Union| 7 17) |FSINT;integrate;FSU;15|)
-           '#(|integrate| 460) 'NIL
+              (436 . |retract|) (|GenusZeroIntegration| 6 7 7)
+              (441 . |rationalize_ir|) (|ElementaryIntegration| 6 7)
+              (447 . |lfintegrate|) (453 . |setDifference|) (459 . |concat|)
+              (465 . |concat|) (|Union| 7 17) |FSINT;integrate;FSU;15|)
+           '#(|integrate| 471) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 137
+                             (|makeByteWordVec2| 140
                                                  '(2 14 0 12 13 15 1 18 17 0 19
                                                    1 21 20 7 22 1 20 0 0 23 1
                                                    20 24 0 25 1 18 13 0 26 3 18
@@ -901,8 +911,9 @@
                                                    120 28 12 0 122 1 20 71 0
                                                    123 2 21 20 20 101 124 2 126
                                                    125 20 12 127 2 129 39 128
-                                                   125 130 2 131 39 7 12 132 2
-                                                   73 0 0 0 133 2 73 0 0 0 134
-                                                   2 17 0 0 0 135 2 0 136 7 12
-                                                   137)))))
+                                                   125 130 1 7 24 0 131 2 132
+                                                   39 39 18 133 2 134 39 7 12
+                                                   135 2 73 0 0 0 136 2 73 0 0
+                                                   0 137 2 17 0 0 0 138 2 0 139
+                                                   7 12 140)))))
            '|lookupComplete|)) 
