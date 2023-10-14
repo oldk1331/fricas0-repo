@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4744 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4750 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -16,10 +16,11 @@
  |ApplyUnivariateSkewPolynomial| |ApplyRules| |AbelianProductCategory|
  |TwoDimensionalArrayCategory&| |TwoDimensionalArrayCategory|
  |OneDimensionalArray| |OneDimensionalArrayFunctions2| |TwoDimensionalArray|
- |AssociatedEquations| |ArrayStack| |additiveValuation| |Approximate|
- |arbitraryExponent| |arbitraryPrecision| |canonicalsClosed| |Canonical|
- |CommutativeStar| |canonicalUnitNormal| |finiteAggregate| |lazyRepresentation|
- |multiplicativeValuation| |noZeroDivisors| |ArcTrigonometricFunctionCategory&|
+ |TwoDimensionalArrayFunctions| |AssociatedEquations| |ArrayStack|
+ |additiveValuation| |Approximate| |arbitraryExponent| |arbitraryPrecision|
+ |canonicalsClosed| |Canonical| |CommutativeStar| |canonicalUnitNormal|
+ |finiteAggregate| |lazyRepresentation| |multiplicativeValuation|
+ |noZeroDivisors| |ArcTrigonometricFunctionCategory&|
  |ArcTrigonometricFunctionCategory| |shallowlyMutable| |unitsKnown|
  |VariablesCommuteWithCoefficients| |Automorphism| |BalancedFactorisation|
  |BasicType&| |BasicType| |BalancedBinaryTree| |BezoutMatrix| |BagAggregate&|
@@ -34,13 +35,14 @@
  |CombinatorialFunctionCategory| |Character| |CharacteristicNonZero|
  |CharacteristicPolynomialPackage| |CharacteristicZero| |ChangeOfVariable|
  |ComplexIntegerSolveLinearPolynomialEquation| |CartanKuranishi| |Collection&|
- |Collection| |CliffordAlgebra| |TwoDimensionalPlotClipping|
- |ComplexRootPackage| |Coalgebra| |Color| |CombinatorialFunction|
- |IntegerCombinatoricFunctions| |CombinatorialOpsCategory| |Commutator|
- |CommonOperators| |CommuteUnivariatePolynomialCategory| |Comparable|
- |ComplexCategory&| |ComplexCategory| |compCode| |ComplexFactorization|
- |Complex| |ComplexFunctions2| |ComplexPattern| |SubSpaceComponentProperty|
- |compUtil| |CommutativeRing| |ContinuedFraction| |CoordinateSystems|
+ |Collection| |CliffordAlgebra| |ConstantLinearDependence|
+ |TwoDimensionalPlotClipping| |ComplexRootPackage| |Coalgebra| |Color|
+ |CombinatorialFunction| |IntegerCombinatoricFunctions|
+ |CombinatorialOpsCategory| |Commutator| |CommonOperators|
+ |CommuteUnivariatePolynomialCategory| |Comparable| |ComplexCategory&|
+ |ComplexCategory| |compCode| |ComplexFactorization| |Complex|
+ |ComplexFunctions2| |ComplexPattern| |SubSpaceComponentProperty| |compUtil|
+ |CommutativeRing| |ContinuedFraction| |CoordinateSystems|
  |CharacteristicPolynomialInMonogenicalAlgebra| |ComplexPatternMatch|
  |CRApackage| |ComplexRootFindingPackage| |CyclicStreamTools|
  |ComplexTrigonometricManipulations| |CoerceVectorMatrixPackage|
@@ -457,9 +459,11 @@
  |setRedMode| |stirling| |alpha| |hilbert| |alphaHilbert| |arbFunctions|
  |gauge| |gaugeHilbert| |bound| |complete2| |removeDuplicates| |find| |setMode|
  |conj| |gradeInvolution| |rc| |lc| |toTable| |grade| |ePseudoscalar|
- |eFromBinaryMap| |multivector| |ee| |e| |clipParametric| |clipWithRanges|
- |counit| |coproduct| |numberOfHues| |blue| |green| |yellow| |red| |iifact|
- |iibinom| |iiperm| |iipow| |iidsum| |iidprod| |ipow| |factorial| |multinomial|
+ |eFromBinaryMap| |multivector| |ee| |e| |linearlyDependentOverConstants?|
+ |linearDependenceOverConstants| |particularSolutionOverConstants|
+ |solveLinearOverConstants| |clipParametric| |clipWithRanges| |counit|
+ |coproduct| |numberOfHues| |blue| |green| |yellow| |red| |iifact| |iibinom|
+ |iiperm| |iipow| |iidsum| |iidprod| |ipow| |factorial| |multinomial|
  |permutation| |stirling1| |stirling2| |catalan| |summation| |factorials|
  |mkcomm| |smaller?| |polarCoordinates| |complex| |imaginary| |writeCategory|
  |writePackage| |solid| |solid?| |denominators| |numerators| |convergents|
