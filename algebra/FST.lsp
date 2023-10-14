@@ -64,39 +64,43 @@
                            (QREFELT $ 24))
                  (QREFELT $ 25)))))) 
 
-(PUT '|FST;real?;$B;7| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 0))) 
+(SDEFUN |FST;coerce;$S;7| ((|t| $) ($ |String|))
+        (SPADCALL (SPADCALL (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 27))
+                  (QREFELT $ 28))) 
 
-(SDEFUN |FST;real?;$B;7| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 0)) 
+(PUT '|FST;real?;$B;8| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 0))) 
 
-(PUT '|FST;double?;$B;8| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 5))) 
+(SDEFUN |FST;real?;$B;8| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 0)) 
 
-(SDEFUN |FST;double?;$B;8| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 5)) 
+(PUT '|FST;double?;$B;9| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 5))) 
 
-(PUT '|FST;logical?;$B;9| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 4))) 
+(SDEFUN |FST;double?;$B;9| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 5)) 
 
-(SDEFUN |FST;logical?;$B;9| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 4)) 
+(PUT '|FST;logical?;$B;10| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 4))) 
 
-(PUT '|FST;integer?;$B;10| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 1))) 
+(SDEFUN |FST;logical?;$B;10| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 4)) 
 
-(SDEFUN |FST;integer?;$B;10| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 1)) 
+(PUT '|FST;integer?;$B;11| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 1))) 
 
-(PUT '|FST;character?;$B;11| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 3))) 
+(SDEFUN |FST;integer?;$B;11| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 1)) 
 
-(SDEFUN |FST;character?;$B;11| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 3)) 
+(PUT '|FST;character?;$B;12| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 3))) 
 
-(PUT '|FST;complex?;$B;12| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 2))) 
+(SDEFUN |FST;character?;$B;12| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 3)) 
 
-(SDEFUN |FST;complex?;$B;12| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 2)) 
+(PUT '|FST;complex?;$B;13| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 2))) 
 
-(PUT '|FST;doubleComplex?;$B;13| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 6))) 
+(SDEFUN |FST;complex?;$B;13| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 2)) 
 
-(SDEFUN |FST;doubleComplex?;$B;13| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 6)) 
+(PUT '|FST;doubleComplex?;$B;14| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 6))) 
+
+(SDEFUN |FST;doubleComplex?;$B;14| ((|t| $) ($ |Boolean|)) (QEQCAR |t| 6)) 
 
 (DECLAIM (NOTINLINE |FortranScalarType;|)) 
 
 (DEFUN |FortranScalarType| ()
   (SPROG NIL
-         (PROG (#1=#:G160)
+         (PROG (#1=#:G161)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FortranScalarType|)
@@ -118,7 +122,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|FortranScalarType|) . #1=(|FortranScalarType|))
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT $ (GETREFV 37) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FortranScalarType| NIL (CONS 1 $))
@@ -146,25 +150,27 @@
               (|OutputForm|) (|Symbol|) (0 . |coerce|) |FST;coerce;$Of;2|
               |FST;coerce;$S;4| (|SExpression|) (5 . |convert|)
               |FST;coerce;$Se;3| |FST;coerce;S$;5| (|List| $) (|String|)
-              (10 . |concat|) (15 . |coerce|) |FST;coerce;S$;6|
-              |FST;real?;$B;7| |FST;double?;$B;8| |FST;logical?;$B;9|
-              |FST;integer?;$B;10| |FST;character?;$B;11| |FST;complex?;$B;12|
-              |FST;doubleComplex?;$B;13|)
-           '#(|real?| 20 |logical?| 25 |integer?| 30 |doubleComplex?| 35
-              |double?| 40 |complex?| 45 |coerce| 50 |character?| 75 = 80)
+              (10 . |concat|) (15 . |coerce|) |FST;coerce;S$;6| (20 . |string|)
+              (25 . |upperCase|) |FST;coerce;$S;7| |FST;real?;$B;8|
+              |FST;double?;$B;9| |FST;logical?;$B;10| |FST;integer?;$B;11|
+              |FST;character?;$B;12| |FST;complex?;$B;13|
+              |FST;doubleComplex?;$B;14|)
+           '#(|real?| 30 |logical?| 35 |integer?| 40 |doubleComplex?| 45
+              |double?| 50 |complex?| 55 |coerce| 60 |character?| 90 = 95)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS '#((|CoercibleTo| 13))
-                             (|makeByteWordVec2| 33
+                             (|makeByteWordVec2| 36
                                                  '(1 14 13 0 15 1 18 0 14 19 1
-                                                   23 0 22 24 1 23 13 0 25 1 0
-                                                   11 0 27 1 0 11 0 29 1 0 11 0
-                                                   30 1 0 11 0 33 1 0 11 0 28 1
-                                                   0 11 0 32 1 0 18 0 20 1 0 0
-                                                   14 21 1 0 14 0 17 1 0 13 0
-                                                   16 1 0 0 23 26 1 0 11 0 31 2
-                                                   0 11 0 0 12)))))
+                                                   23 0 22 24 1 23 13 0 25 1 14
+                                                   23 0 27 1 23 0 0 28 1 0 11 0
+                                                   30 1 0 11 0 32 1 0 11 0 33 1
+                                                   0 11 0 36 1 0 11 0 31 1 0 11
+                                                   0 35 1 0 14 0 17 1 0 18 0 20
+                                                   1 0 23 0 29 1 0 0 14 21 1 0
+                                                   13 0 16 1 0 0 23 26 1 0 11 0
+                                                   34 2 0 11 0 0 12)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranScalarType| 'NILADIC T) 

@@ -6,60 +6,42 @@
         (STRINGIMAGE |$fortranOutputFile|)) 
 
 (SDEFUN |FOP;pushFortranOutputStack;FnV;2| ((|fn| |FileName|) ($ |Void|))
-        (SEQ
-         (COND
-          ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
-           (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
-                     (QREFELT $ 13)))
-          ((NULL
-            (EQUAL (SPADCALL (QREFELT $ 8) (QREFELT $ 14))
-                   (STRINGIMAGE |$fortranOutputFile|)))
-           (SEQ (SPADCALL (QREFELT $ 8) (QREFELT $ 15))
-                (EXIT
-                 (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
-                           (QREFELT $ 13))))))
-         (SPADCALL (SPADCALL |fn| (QREFELT $ 17)) (QREFELT $ 8) (QREFELT $ 13))
-         (SPADCALL
-          (SPADCALL
-           (LIST "set output fortran quiet " (SPADCALL |fn| (QREFELT $ 17)))
-           (QREFELT $ 19))
-          (QREFELT $ 22))
-         (EXIT (SPADCALL (QREFELT $ 23))))) 
+        (SPADCALL (SPADCALL |fn| (QREFELT $ 12)) (QREFELT $ 14))) 
 
 (SDEFUN |FOP;pushFortranOutputStack;SV;3| ((|fn| |String|) ($ |Void|))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
+          ((SPADCALL (QREFELT $ 8) (QREFELT $ 17))
            (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
-                     (QREFELT $ 13)))
+                     (QREFELT $ 18)))
           ((NULL
-            (EQUAL (SPADCALL (QREFELT $ 8) (QREFELT $ 14))
+            (EQUAL (SPADCALL (QREFELT $ 8) (QREFELT $ 19))
                    (STRINGIMAGE |$fortranOutputFile|)))
-           (SEQ (SPADCALL (QREFELT $ 8) (QREFELT $ 15))
+           (SEQ (SPADCALL (QREFELT $ 8) (QREFELT $ 20))
                 (EXIT
                  (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
-                           (QREFELT $ 13))))))
-         (SPADCALL |fn| (QREFELT $ 8) (QREFELT $ 13))
+                           (QREFELT $ 18))))))
+         (SPADCALL |fn| (QREFELT $ 8) (QREFELT $ 18))
          (SPADCALL
-          (SPADCALL (LIST "set output fortran quiet " |fn|) (QREFELT $ 19))
-          (QREFELT $ 22))
-         (EXIT (SPADCALL (QREFELT $ 23))))) 
+          (SPADCALL (LIST "set output fortran quiet " |fn|) (QREFELT $ 22))
+          (QREFELT $ 24))
+         (EXIT (SPADCALL (QREFELT $ 25))))) 
 
 (SDEFUN |FOP;popFortranOutputStack;V;4| (($ |Void|))
         (SEQ
          (COND
-          ((NULL (SPADCALL (QREFELT $ 8) (QREFELT $ 12)))
-           (SPADCALL (QREFELT $ 8) (QREFELT $ 15))))
+          ((NULL (SPADCALL (QREFELT $ 8) (QREFELT $ 17)))
+           (SPADCALL (QREFELT $ 8) (QREFELT $ 20))))
          (COND
-          ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
-           (SPADCALL "CONSOLE" (QREFELT $ 8) (QREFELT $ 13))))
+          ((SPADCALL (QREFELT $ 8) (QREFELT $ 17))
+           (SPADCALL "CONSOLE" (QREFELT $ 8) (QREFELT $ 18))))
          (SPADCALL
           (SPADCALL
            (LIST "set output fortran quiet append "
-                 (SPADCALL (QREFELT $ 8) (QREFELT $ 14)))
-           (QREFELT $ 19))
-          (QREFELT $ 22))
-         (EXIT (SPADCALL (QREFELT $ 23))))) 
+                 (SPADCALL (QREFELT $ 8) (QREFELT $ 19)))
+           (QREFELT $ 22))
+          (QREFELT $ 24))
+         (EXIT (SPADCALL (QREFELT $ 25))))) 
 
 (SDEFUN |FOP;clearFortranOutputStack;S;5| (($ |Stack| (|String|)))
         (SETELT $ 8 (SPADCALL (QREFELT $ 7)))) 
@@ -70,7 +52,7 @@
 
 (DEFUN |FortranOutputStackPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G128)
+         (PROG (#1=#:G122)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FortranOutputStackPackage|)
@@ -109,12 +91,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Stack| 9) (0 . |empty|)
               '|fortranOutputStack| (|String|) |FOP;topFortranOutputStack;S;1|
-              (|Boolean|) (4 . |empty?|) (9 . |push!|) (15 . |top|)
-              (20 . |pop!|) (|FileName|) (25 . |coerce|) (|List| $)
-              (30 . |concat|) (|Void|) (|MoreSystemCommands|)
-              (35 . |systemCommand|) (40 . |void|)
-              |FOP;pushFortranOutputStack;FnV;2|
-              |FOP;pushFortranOutputStack;SV;3| |FOP;popFortranOutputStack;V;4|
+              (|FileName|) (4 . |coerce|) (|Void|)
+              |FOP;pushFortranOutputStack;SV;3|
+              |FOP;pushFortranOutputStack;FnV;2| (|Boolean|) (9 . |empty?|)
+              (14 . |push!|) (20 . |top|) (25 . |pop!|) (|List| $)
+              (30 . |concat|) (|MoreSystemCommands|) (35 . |systemCommand|)
+              (40 . |void|) |FOP;popFortranOutputStack;V;4|
               |FOP;clearFortranOutputStack;S;5|
               |FOP;showFortranOutputStack;S;6|)
            '#(|topFortranOutputStack| 44 |showFortranOutputStack| 48
@@ -125,12 +107,12 @@
                  (CONS '#()
                        (CONS '#()
                              (|makeByteWordVec2| 28
-                                                 '(0 6 0 7 1 6 11 0 12 2 6 9 9
-                                                   0 13 1 6 9 0 14 1 6 9 0 15 1
-                                                   16 9 0 17 1 9 0 18 19 1 21
-                                                   20 9 22 0 20 0 23 0 0 9 10 0
-                                                   0 6 28 1 0 20 16 24 1 0 20 9
-                                                   25 0 0 20 26 0 0 6 27)))))
+                                                 '(0 6 0 7 1 11 9 0 12 1 6 16 0
+                                                   17 2 6 9 9 0 18 1 6 9 0 19 1
+                                                   6 9 0 20 1 9 0 21 22 1 23 13
+                                                   9 24 0 13 0 25 0 0 9 10 0 0
+                                                   6 28 1 0 13 11 15 1 0 13 9
+                                                   14 0 0 13 26 0 0 6 27)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranOutputStackPackage| 'NILADIC T) 

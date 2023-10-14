@@ -121,8 +121,8 @@
                 (LETT |entry| (SPADCALL |symbols| |u| (QREFELT $ 19))
                       |SYMS;printHeader;S$V;24|)
                 (|fortFormatHead| (SPADCALL (QVELT |entry| 1) (QREFELT $ 50))
-                                  (SPADCALL |u| (QREFELT $ 51))
-                                  (SPADCALL (QVELT |entry| 2) (QREFELT $ 52)))
+                 (SPADCALL |u| (QREFELT $ 51))
+                 (SPADCALL (QVELT |entry| 2) (QREFELT $ 52)))
                 (EXIT (SPADCALL (QVELT |entry| 0) (QREFELT $ 53)))))) 
 
 (SDEFUN |SYMS;printHeader;SV;25| ((|u| |Symbol|) ($ |Void|))

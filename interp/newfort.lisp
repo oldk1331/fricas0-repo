@@ -3,98 +3,62 @@
  
 (IN-PACKAGE "BOOT")
  
-; assignment2Fortran1(name,e) ==
-;   $fortError : fluid := nil
-;   checkLines fortran2Lines statement2Fortran ["=",name,e]
+; do_with_error_env0(f) ==
+;     $fortError : fluid := nil
+;     checkLines SPADCALL(f)
  
-(DEFUN |assignment2Fortran1| (|name| |e|)
+(DEFUN |do_with_error_env0| (|f|)
   (PROG (|$fortError|)
     (DECLARE (SPECIAL |$fortError|))
+    (RETURN (PROGN (SETQ |$fortError| NIL) (|checkLines| (SPADCALL |f|))))))
+ 
+; do_with_error_env2(int_to_floats?, f) ==
+;     $fortInts2Floats : fluid := int_to_floats?
+;     $fortError : fluid := nil
+;     checkLines fortran2Lines SPADCALL(f)
+ 
+(DEFUN |do_with_error_env2| (|int_to_floats?| |f|)
+  (PROG (|$fortError| |$fortInts2Floats|)
+    (DECLARE (SPECIAL |$fortError| |$fortInts2Floats|))
     (RETURN
      (PROGN
+      (SETQ |$fortInts2Floats| |int_to_floats?|)
       (SETQ |$fortError| NIL)
-      (|checkLines|
-       (|fortran2Lines| (|statement2Fortran| (LIST '= |name| |e|))))))))
+      (|checkLines| (|fortran2Lines| (SPADCALL |f|)))))))
  
-; integerAssignment2Fortran1(name,e) ==
-;   $fortError : fluid := nil
-;   $fortInts2Floats : fluid := nil
-;   checkLines fortran2Lines statement2Fortran ["=",name,e]
- 
-(DEFUN |integerAssignment2Fortran1| (|name| |e|)
-  (PROG (|$fortInts2Floats| |$fortError|)
-    (DECLARE (SPECIAL |$fortInts2Floats| |$fortError|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortError| NIL)
-      (SETQ |$fortInts2Floats| NIL)
-      (|checkLines|
-       (|fortran2Lines| (|statement2Fortran| (LIST '= |name| |e|))))))))
- 
-; statement2Fortran e ==
+; expression2Fortran1(name, use_name, e, ints2floats?) ==
 ;   -- takes an object of type Expression and returns a list of
 ;   -- strings. Any part of the expression which is a list starting
 ;   -- with 'FORTRAN is merely passed on in the list of strings. The
 ;   -- list of strings may contain '"%l".
-;   -- This is used when formatting e.g. a DO loop from Lisp
+;   $fortInts2Floats : fluid := ints2floats?
 ;   $exp2FortTempVarIndex : local := 0
-;   $fortName : fluid := "DUMMY"
-;   $fortInts2Floats : fluid := nil
+;   $fortName : fluid := 
+;       use_name => name
+;       newFortranTempVar()
 ;   fortranCleanUp exp2Fort1 segment fortPre exp2FortOptimize outputTran e
  
-(DEFUN |statement2Fortran| (|e|)
-  (PROG (|$fortInts2Floats| |$fortName| |$exp2FortTempVarIndex|)
-    (DECLARE (SPECIAL |$fortInts2Floats| |$fortName| |$exp2FortTempVarIndex|))
+(DEFUN |expression2Fortran1| (|name| |use_name| |e| |ints2floats?|)
+  (PROG (|$fortName| |$exp2FortTempVarIndex| |$fortInts2Floats|)
+    (DECLARE (SPECIAL |$fortName| |$exp2FortTempVarIndex| |$fortInts2Floats|))
     (RETURN
      (PROGN
+      (SETQ |$fortInts2Floats| |ints2floats?|)
       (SETQ |$exp2FortTempVarIndex| 0)
-      (SETQ |$fortName| 'DUMMY)
-      (SETQ |$fortInts2Floats| NIL)
+      (SETQ |$fortName| (COND (|use_name| |name|) ('T (|newFortranTempVar|))))
       (|fortranCleanUp|
        (|exp2Fort1|
         (|segment| (|fortPre| (|exp2FortOptimize| (|outputTran| |e|))))))))))
  
-; expression2Fortran e ==
-;   -- takes an object of type Expression and returns a list of
-;   -- strings. Any part of the expression which is a list starting
-;   -- with 'FORTRAN is merely passed on in the list of strings. The
-;   -- list of strings may contain '"%l".
-;   $exp2FortTempVarIndex : local := 0
-;   $fortName : fluid := newFortranTempVar()
-;   $fortInts2Floats : fluid := nil
-;   fortranCleanUp exp2Fort1 segment fortPre exp2FortOptimize outputTran e
+; expression2Fortran e == expression2Fortran1('dummy, false, e, false)
  
 (DEFUN |expression2Fortran| (|e|)
-  (PROG (|$fortInts2Floats| |$fortName| |$exp2FortTempVarIndex|)
-    (DECLARE (SPECIAL |$fortInts2Floats| |$fortName| |$exp2FortTempVarIndex|))
-    (RETURN
-     (PROGN
-      (SETQ |$exp2FortTempVarIndex| 0)
-      (SETQ |$fortName| (|newFortranTempVar|))
-      (SETQ |$fortInts2Floats| NIL)
-      (|fortranCleanUp|
-       (|exp2Fort1|
-        (|segment| (|fortPre| (|exp2FortOptimize| (|outputTran| |e|))))))))))
+  (PROG () (RETURN (|expression2Fortran1| '|dummy| NIL |e| NIL))))
  
-; expression2Fortran1(name,e) ==
-;   -- takes an object of type Expression and returns a list of
-;   -- strings. Any part of the expression which is a list starting
-;   -- with 'FORTRAN is merely passed on in the list of strings. The
-;   -- list of strings may contain '"%l".
-;   $exp2FortTempVarIndex : local := 0
-;   $fortName : fluid := name
-;   fortranCleanUp exp2Fort1 segment fortPre exp2FortOptimize outputTran e
+; statement2Fortran e == expression2Fortran1('DUMMY, true, e, false)
  
-(DEFUN |expression2Fortran1| (|name| |e|)
-  (PROG (|$fortName| |$exp2FortTempVarIndex|)
-    (DECLARE (SPECIAL |$fortName| |$exp2FortTempVarIndex|))
-    (RETURN
-     (PROGN
-      (SETQ |$exp2FortTempVarIndex| 0)
-      (SETQ |$fortName| |name|)
-      (|fortranCleanUp|
-       (|exp2Fort1|
-        (|segment| (|fortPre| (|exp2FortOptimize| (|outputTran| |e|))))))))))
+(DEFUN |statement2Fortran| (|e|)
+  (PROG () (RETURN (|expression2Fortran1| 'DUMMY T |e| NIL))))
  
 ; newFortranTempVar() ==
 ;   $exp2FortTempVarIndex := 1 + $exp2FortTempVarIndex
@@ -800,32 +764,6 @@
       (|sayErrorly| '|Fortran translation error| |msg|)
       (|mathPrint| |v|)))))
  
-; dispStatement x ==
-;   $fortError : fluid := nil
-;   displayLines fortran2Lines statement2Fortran x
- 
-(DEFUN |dispStatement| (|x|)
-  (PROG (|$fortError|)
-    (DECLARE (SPECIAL |$fortError|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortError| NIL)
-      (|displayLines| (|fortran2Lines| (|statement2Fortran| |x|)))))))
- 
-; getStatement(x,ints2Floats?) ==
-;   $fortInts2Floats : fluid := ints2Floats?
-;   $fortError : fluid := nil
-;   checkLines fortran2Lines statement2Fortran x
- 
-(DEFUN |getStatement| (|x| |ints2Floats?|)
-  (PROG (|$fortError| |$fortInts2Floats|)
-    (DECLARE (SPECIAL |$fortError| |$fortInts2Floats|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortInts2Floats| |ints2Floats?|)
-      (SETQ |$fortError| NIL)
-      (|checkLines| (|fortran2Lines| (|statement2Fortran| |x|)))))))
- 
 ; fortexp0 x ==
 ;   f := expression2Fortran x
 ;   p := position('"%l",f)
@@ -877,40 +815,6 @@
         (SETQ |x| (LIST "=" |var| |x|))))
       (|dispfortexp1| |x|)))))
  
-; dispfortexpf (xf, fortranName) ==
-;   $fortError : fluid := nil
-;   linef := fortran2Lines BUTLAST(expression2Fortran1(fortranName,xf),2)
-;   displayLines linef
- 
-(DEFUN |dispfortexpf| (|xf| |fortranName|)
-  (PROG (|$fortError| |linef|)
-    (DECLARE (SPECIAL |$fortError|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortError| NIL)
-      (SETQ |linef|
-              (|fortran2Lines|
-               (BUTLAST (|expression2Fortran1| |fortranName| |xf|) 2)))
-      (|displayLines| |linef|)))))
- 
-; dispfortexpj (xj, fortranName) ==
-;   $fortName : fluid := fortranName
-;   $fortError : fluid := nil
-;   linej := fortran2Lines BUTLAST(expression2Fortran1(fortranName,xj),2)
-;   displayLines linej
- 
-(DEFUN |dispfortexpj| (|xj| |fortranName|)
-  (PROG (|$fortError| |$fortName| |linej|)
-    (DECLARE (SPECIAL |$fortError| |$fortName|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortName| |fortranName|)
-      (SETQ |$fortError| NIL)
-      (SETQ |linej|
-              (|fortran2Lines|
-               (BUTLAST (|expression2Fortran1| |fortranName| |xj|) 2)))
-      (|displayLines| |linej|)))))
- 
 ; dispfortexp1 x ==
 ;   $fortError : fluid := nil
 ;   displayLines fortran2Lines expression2Fortran x
@@ -922,18 +826,6 @@
      (PROGN
       (SETQ |$fortError| NIL)
       (|displayLines| (|fortran2Lines| (|expression2Fortran| |x|)))))))
- 
-; getfortexp1 x ==
-;   $fortError : fluid := nil
-;   checkLines fortran2Lines expression2Fortran x
- 
-(DEFUN |getfortexp1| (|x|)
-  (PROG (|$fortError|)
-    (DECLARE (SPECIAL |$fortError|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortError| NIL)
-      (|checkLines| (|fortran2Lines| (|expression2Fortran| |x|)))))))
  
 ; displayLines1 lines ==
 ;   for l in lines repeat
@@ -967,36 +859,6 @@
  
 (DEFUN |checkLines| (|lines|)
   (PROG () (RETURN (COND (|$fortError| NIL) ('T |lines|)))))
- 
-; dispfortarrayexp (fortranName,m) ==
-;   $fortError : fluid := nil
-;   displayLines fortran2Lines BUTLAST(expression2Fortran1(fortranName,m),2)
- 
-(DEFUN |dispfortarrayexp| (|fortranName| |m|)
-  (PROG (|$fortError|)
-    (DECLARE (SPECIAL |$fortError|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortError| NIL)
-      (|displayLines|
-       (|fortran2Lines|
-        (BUTLAST (|expression2Fortran1| |fortranName| |m|) 2)))))))
- 
-; getfortarrayexp(fortranName,m,ints2floats?) ==
-;   $fortInts2Floats : fluid := ints2floats?
-;   $fortError : fluid := nil
-;   checkLines fortran2Lines BUTLAST(expression2Fortran1(fortranName,m),2)
- 
-(DEFUN |getfortarrayexp| (|fortranName| |m| |ints2floats?|)
-  (PROG (|$fortError| |$fortInts2Floats|)
-    (DECLARE (SPECIAL |$fortError| |$fortInts2Floats|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortInts2Floats| |ints2floats?|)
-      (SETQ |$fortError| NIL)
-      (|checkLines|
-       (|fortran2Lines|
-        (BUTLAST (|expression2Fortran1| |fortranName| |m|) 2)))))))
  
 ; $currentSubprogram := nil
  
@@ -1380,245 +1242,6 @@
     (RETURN
      (SETQ |$maximumFortranExpressionLength|
              (+ |$maximumFortranExpressionLength| |i|)))))
- 
-; fortFormatDo(var,lo,hi,incr,lab) ==
-;   $fortError : fluid := nil
-;   $fortInts2Floats : fluid := nil
-;   incr=1 =>
-;     checkLines fortran2Lines
-;       ['"DO ",STRINGIMAGE lab,'" ",STRINGIMAGE var,'"=",:statement2Fortran lo,_
-;        '",", :statement2Fortran hi]
-;   checkLines fortran2Lines
-;     ['"DO ",STRINGIMAGE lab,'" ",STRINGIMAGE var,'"=",:statement2Fortran lo,_
-;      '",", :statement2Fortran hi,'",",:statement2Fortran incr]
- 
-(DEFUN |fortFormatDo| (|var| |lo| |hi| |incr| |lab|)
-  (PROG (|$fortInts2Floats| |$fortError|)
-    (DECLARE (SPECIAL |$fortInts2Floats| |$fortError|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortError| NIL)
-      (SETQ |$fortInts2Floats| NIL)
-      (COND
-       ((EQL |incr| 1)
-        (|checkLines|
-         (|fortran2Lines|
-          (CONS "DO "
-                (CONS (STRINGIMAGE |lab|)
-                      (CONS " "
-                            (CONS (STRINGIMAGE |var|)
-                                  (CONS "="
-                                        (APPEND (|statement2Fortran| |lo|)
-                                                (CONS ","
-                                                      (|statement2Fortran|
-                                                       |hi|)))))))))))
-       ('T
-        (|checkLines|
-         (|fortran2Lines|
-          (CONS "DO "
-                (CONS (STRINGIMAGE |lab|)
-                      (CONS " "
-                            (CONS (STRINGIMAGE |var|)
-                                  (CONS "="
-                                        (APPEND (|statement2Fortran| |lo|)
-                                                (CONS ","
-                                                      (APPEND
-                                                       (|statement2Fortran|
-                                                        |hi|)
-                                                       (CONS ","
-                                                             (|statement2Fortran|
-                                                              |incr|))))))))))))))))))
- 
-; fortFormatIfGoto(switch,label) ==
-;   changeExprLength(-8) -- Leave room for IF( ... )GOTO
-;   $fortError : fluid := nil
-;   if first(switch) = "NULL" then switch := first rest switch
-;   r := nreverse statement2Fortran switch
-;   changeExprLength(8)
-;   l := ['")GOTO ",STRINGIMAGE label]
-;   while r and not(first(r) = '"%l") repeat
-;     l := [first(r),:l]
-;     r := rest(r)
-;   checkLines fortran2Lines nreverse [:nreverse l,'"IF(",:r]
- 
-(DEFUN |fortFormatIfGoto| (|switch| |label|)
-  (PROG (|$fortError| |l| |r|)
-    (DECLARE (SPECIAL |$fortError|))
-    (RETURN
-     (PROGN
-      (|changeExprLength| (- 8))
-      (SETQ |$fortError| NIL)
-      (COND ((EQ (CAR |switch|) 'NULL) (SETQ |switch| (CAR (CDR |switch|)))))
-      (SETQ |r| (NREVERSE (|statement2Fortran| |switch|)))
-      (|changeExprLength| 8)
-      (SETQ |l| (LIST ")GOTO " (STRINGIMAGE |label|)))
-      ((LAMBDA ()
-         (LOOP
-          (COND ((NOT (AND |r| (NULL (EQUAL (CAR |r|) "%l")))) (RETURN NIL))
-                ('T
-                 (PROGN
-                  (SETQ |l| (CONS (CAR |r|) |l|))
-                  (SETQ |r| (CDR |r|))))))))
-      (|checkLines|
-       (|fortran2Lines|
-        (NREVERSE (APPEND (NREVERSE |l|) (CONS "IF(" |r|)))))))))
- 
-; fortFormatLabelledIfGoto(switch,label1,label2) ==
-;   changeExprLength(-8) -- Leave room for IF( ... )GOTO
-;   $fortError : fluid := nil
-;   if LISTP(switch) and first(switch) = "NULL" then switch := first rest switch
-;   r := nreverse statement2Fortran switch
-;   changeExprLength(8)
-;   l := ['")GOTO ",STRINGIMAGE label2]
-;   while r and not(first(r) = '"%l") repeat
-;     l := [first(r),:l]
-;     r := rest(r)
-;   labString := STRINGIMAGE label1
-;   for i in #(labString)..5 repeat labString := STRCONC(labString,'" ")
-;   lines := fortran2Lines nreverse [:nreverse l,'"IF(",:r]
-;   lines := [STRCONC(labString,SUBSEQ(first lines,6)),:rest lines]
-;   checkLines lines
- 
-(DEFUN |fortFormatLabelledIfGoto| (|switch| |label1| |label2|)
-  (PROG (|$fortError| |lines| |labString| |l| |r|)
-    (DECLARE (SPECIAL |$fortError|))
-    (RETURN
-     (PROGN
-      (|changeExprLength| (- 8))
-      (SETQ |$fortError| NIL)
-      (COND
-       ((AND (LISTP |switch|) (EQ (CAR |switch|) 'NULL))
-        (SETQ |switch| (CAR (CDR |switch|)))))
-      (SETQ |r| (NREVERSE (|statement2Fortran| |switch|)))
-      (|changeExprLength| 8)
-      (SETQ |l| (LIST ")GOTO " (STRINGIMAGE |label2|)))
-      ((LAMBDA ()
-         (LOOP
-          (COND ((NOT (AND |r| (NULL (EQUAL (CAR |r|) "%l")))) (RETURN NIL))
-                (#1='T
-                 (PROGN
-                  (SETQ |l| (CONS (CAR |r|) |l|))
-                  (SETQ |r| (CDR |r|))))))))
-      (SETQ |labString| (STRINGIMAGE |label1|))
-      ((LAMBDA (|i|)
-         (LOOP
-          (COND ((> |i| 5) (RETURN NIL))
-                (#1# (SETQ |labString| (STRCONC |labString| " "))))
-          (SETQ |i| (+ |i| 1))))
-       (LENGTH |labString|))
-      (SETQ |lines|
-              (|fortran2Lines|
-               (NREVERSE (APPEND (NREVERSE |l|) (CONS "IF(" |r|)))))
-      (SETQ |lines|
-              (CONS (STRCONC |labString| (SUBSEQ (CAR |lines|) 6))
-                    (CDR |lines|)))
-      (|checkLines| |lines|)))))
- 
-; fortFormatIf(switch) ==
-;   changeExprLength(-8) -- Leave room for IF( ... )THEN
-;   $fortError : fluid := nil
-;   if LISTP(switch) and first(switch) = "NULL" then switch := first rest switch
-;   r := nreverse statement2Fortran switch
-;   changeExprLength(8)
-;   l := ['")THEN"]
-;   while r and not(first(r) = '"%l") repeat
-;     l := [first(r),:l]
-;     r := rest(r)
-;   checkLines fortran2Lines nreverse [:nreverse l,'"IF(",:r]
- 
-(DEFUN |fortFormatIf| (|switch|)
-  (PROG (|$fortError| |l| |r|)
-    (DECLARE (SPECIAL |$fortError|))
-    (RETURN
-     (PROGN
-      (|changeExprLength| (- 8))
-      (SETQ |$fortError| NIL)
-      (COND
-       ((AND (LISTP |switch|) (EQ (CAR |switch|) 'NULL))
-        (SETQ |switch| (CAR (CDR |switch|)))))
-      (SETQ |r| (NREVERSE (|statement2Fortran| |switch|)))
-      (|changeExprLength| 8)
-      (SETQ |l| (LIST ")THEN"))
-      ((LAMBDA ()
-         (LOOP
-          (COND ((NOT (AND |r| (NULL (EQUAL (CAR |r|) "%l")))) (RETURN NIL))
-                ('T
-                 (PROGN
-                  (SETQ |l| (CONS (CAR |r|) |l|))
-                  (SETQ |r| (CDR |r|))))))))
-      (|checkLines|
-       (|fortran2Lines|
-        (NREVERSE (APPEND (NREVERSE |l|) (CONS "IF(" |r|)))))))))
- 
-; fortFormatElseIf(switch) ==
-;   -- Leave room for IF( ... )THEN
-;   changeExprLength(-12)
-;   $fortError : fluid := nil
-;   if LISTP(switch) and first(switch) = "NULL" then switch := first rest switch
-;   r := nreverse statement2Fortran switch
-;   changeExprLength(12)
-;   l := ['")THEN"]
-;   while r and not(first(r) = '"%l") repeat
-;     l := [first(r),:l]
-;     r := rest(r)
-;   checkLines fortran2Lines nreverse [:nreverse l,'"ELSEIF(",:r]
- 
-(DEFUN |fortFormatElseIf| (|switch|)
-  (PROG (|$fortError| |l| |r|)
-    (DECLARE (SPECIAL |$fortError|))
-    (RETURN
-     (PROGN
-      (|changeExprLength| (- 12))
-      (SETQ |$fortError| NIL)
-      (COND
-       ((AND (LISTP |switch|) (EQ (CAR |switch|) 'NULL))
-        (SETQ |switch| (CAR (CDR |switch|)))))
-      (SETQ |r| (NREVERSE (|statement2Fortran| |switch|)))
-      (|changeExprLength| 12)
-      (SETQ |l| (LIST ")THEN"))
-      ((LAMBDA ()
-         (LOOP
-          (COND ((NOT (AND |r| (NULL (EQUAL (CAR |r|) "%l")))) (RETURN NIL))
-                ('T
-                 (PROGN
-                  (SETQ |l| (CONS (CAR |r|) |l|))
-                  (SETQ |r| (CDR |r|))))))))
-      (|checkLines|
-       (|fortran2Lines|
-        (NREVERSE (APPEND (NREVERSE |l|) (CONS "ELSEIF(" |r|)))))))))
- 
-; fortFormatHead(returnType,name,args) ==
-;   $fortError : fluid := nil
-;   $fortranSegment : fluid := nil
-;   -- if returnType = '"_"_(_)_"" then
-;   if returnType = '"void" then
-;     asp := ['"SUBROUTINE "]
-;     changeExprLength(l := -11)
-;   else
-;     asp := [s := checkType STRINGIMAGE returnType,'" FUNCTION "]
-;     changeExprLength(l := -10-LENGTH(s))
-;   displayLines fortran2Lines [:asp,:statement2Fortran [name,:CDADR args] ]
-;   changeExprLength(-l)
- 
-(DEFUN |fortFormatHead| (|returnType| |name| |args|)
-  (PROG (|$fortranSegment| |$fortError| |s| |l| |asp|)
-    (DECLARE (SPECIAL |$fortranSegment| |$fortError|))
-    (RETURN
-     (PROGN
-      (SETQ |$fortError| NIL)
-      (SETQ |$fortranSegment| NIL)
-      (COND
-       ((EQUAL |returnType| "void") (SETQ |asp| (LIST "SUBROUTINE "))
-        (|changeExprLength| (SETQ |l| (- 11))))
-       ('T
-        (SETQ |asp|
-                (LIST (SETQ |s| (|checkType| (STRINGIMAGE |returnType|)))
-                      " FUNCTION "))
-        (|changeExprLength| (SETQ |l| (- (- 10) (LENGTH |s|))))))
-      (|displayLines|
-       (|fortran2Lines|
-        (APPEND |asp| (|statement2Fortran| (CONS |name| (CDADR |args|))))))
-      (|changeExprLength| (- |l|))))))
  
 ; checkType ty ==
 ;   ty := STRING_-UPCASE STRINGIMAGE ty
