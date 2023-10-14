@@ -83,12 +83,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL
               (|InnerIndexedTwoDimensionalArray| 6 7 8 29 30) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) (|NonNegativeInteger|) (|Boolean|)
-              (|List| 6) (|List| 13) (|Equation| 6) (|Mapping| 10 6)
+              (|local| |#2|) (|local| |#3|) (|Boolean|) (|NonNegativeInteger|)
+              (|List| 6) (|Equation| 6) (|List| 12) (|Mapping| 9 6)
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
-              (|Mapping| 6 6 6) (|List| 23) (|List| 24) (|Mapping| 6 6)
-              (|List| $) (|PositiveInteger|) (|Integer|) (|List| 28)
-              (|List| 25) (|Segment| 25) (|IndexedOneDimensionalArray| 6 8)
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 24) (|PositiveInteger|)
+              (|List| 22) (|List| $) (|Integer|) (|List| 27) (|Segment| 25)
+              (|List| 25) (|IndexedOneDimensionalArray| 6 8)
               (|IndexedOneDimensionalArray| 6 7) (|List| 11))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))

@@ -158,23 +158,23 @@
 (MAKEPROP '|IndexedMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 7 8 48 47) (|local| |#1|)
+              (|InnerIndexedTwoDimensionalArray| 6 7 8 47 48) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|Integer|) (0 . |minRowIndex|)
               (5 . |maxRowIndex|) (|Boolean|) (10 . >) (16 . |maxColIndex|)
               |IMATRIX;swapRows!;$2I$;1|
-              (|MatrixLinearAlgebraFunctions| 6 48 47 $$) (21 . |determinant|)
+              (|MatrixLinearAlgebraFunctions| 6 47 48 $$) (21 . |determinant|)
               (26 . |determinant|) (31 . |minordet|) (36 . |minordet|)
               (41 . |rowEchelon|) (46 . |rowEchelon|) (|NonNegativeInteger|)
               (51 . |rank|) (56 . |rank|) (61 . |nullity|) (66 . |nullity|)
-              (|List| 47) (71 . |nullSpace|) (76 . |nullSpace|)
+              (|List| 48) (71 . |nullSpace|) (76 . |nullSpace|)
               (|Union| $$ '"failed") (81 . |inverse|) (|Union| $ '"failed")
               (86 . |inverse|) (|List| 6) (|Equation| 6) (|List| 36)
-              (|Mapping| 12 6) (|OutputForm|) (|SingleInteger|) (|HashState|)
+              (|Mapping| 12 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
               (|String|) (|Void|) (|List| (|List| 23)) (|List| $)
-              (|Union| 6 '"one") (|IndexedVector| 6 7) (|IndexedVector| 6 8)
-              (|List| 35) (|Mapping| 6 9 9) (|Mapping| 6 6 6) (|List| 45)
-              (|List| 55) (|Mapping| 6 6) (|PositiveInteger|) (|List| 58)
-              (|List| 9) (|Segment| 9))
+              (|Union| 6 '"one") (|IndexedVector| 6 8) (|IndexedVector| 6 7)
+              (|Mapping| 6 9 9) (|List| 35) (|Mapping| 6 6 6) (|Mapping| 6 6)
+              (|List| 45) (|PositiveInteger|) (|List| 54) (|List| 57)
+              (|Segment| 9) (|List| 9))
            '#(|swapRows!| 91 |rowEchelon| 98 |rank| 103 |nullity| 108
               |nullSpace| 113 |minordet| 118 |minRowIndex| 123 |maxRowIndex|
               128 |maxColIndex| 133 |inverse| 138 |determinant| 143)

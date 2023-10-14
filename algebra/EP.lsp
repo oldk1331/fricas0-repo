@@ -539,7 +539,7 @@
                   (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANROWS A) . #3=(|EP;generalizedEigenvectors;ML;16|))
-              (LETT |leig| (SPADCALL A (QREFELT $ 80)) . #3#)
+              (LETT |leig| (SPADCALL A (QREFELT $ 81)) . #3#)
               (EXIT
                (PROGN
                 (LETT #2# NIL . #3#)
@@ -584,7 +584,7 @@
               (LETT |p| (SPADCALL (|EP;charpol| A |x| $) (QREFELT $ 46)) . #6#)
               (LETT |ratSol| NIL . #6#) (LETT |algSol| NIL . #6#)
               (LETT |lff|
-                    (SPADCALL (SPADCALL |p| (QREFELT $ 85)) (QREFELT $ 88))
+                    (SPADCALL (SPADCALL |p| (QREFELT $ 86)) (QREFELT $ 89))
                     . #6#)
               (SEQ (LETT |fact| NIL . #6#) (LETT #5# |lff| . #6#) G190
                    (COND
@@ -598,13 +598,13 @@
                             (LETT |vec|
                                   (SPADCALL
                                    (SPADCALL
-                                    (SPADCALL |pol| |x| 0 (QREFELT $ 89))
+                                    (SPADCALL |pol| |x| 0 (QREFELT $ 90))
                                     (SPADCALL |pol| |x|
                                               (SPADCALL |pol| |x|
                                                         (QREFELT $ 54))
-                                              (QREFELT $ 89))
-                                    (QREFELT $ 90))
-                                   (QREFELT $ 91))
+                                              (QREFELT $ 90))
+                                    (QREFELT $ 91))
+                                   (QREFELT $ 92))
                                   . #6#)
                             (EXIT
                              (LETT |ratSol|
@@ -661,7 +661,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|EigenPackage|))
           (LETT |dv$| (LIST '|EigenPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 92) . #1#)
+          (LETT $ (GETREFV 93) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|EigenPackage| (LIST DV$1)
@@ -708,23 +708,23 @@
               (|SparseUnivariatePolynomial| $) (189 . |univariate|)
               (|Mapping| 26 22) (|SparseUnivariatePolynomial| 22) (195 . |map|)
               (201 . |unitCanonical|) (206 . |One|) (210 . |monomial|)
-              (216 . |coerce|)
+              (216 . |coerce|) (221 . |One|)
               (|Record| (|:| |eigval| 35) (|:| |eigmult| 18) (|:| |eigvec| 34))
-              |EP;generalizedEigenvector;RML;15| (|List| 77)
+              |EP;generalizedEigenvector;RML;15| (|List| 78)
               |EP;eigenvectors;ML;17|
-              (|Record| (|:| |eigval| 35) (|:| |geneigvec| 34)) (|List| 81)
+              (|Record| (|:| |eigval| 35) (|:| |geneigvec| 34)) (|List| 82)
               |EP;generalizedEigenvectors;ML;16| (|Factored| 22)
-              (221 . |factor|) (|Record| (|:| |factor| 22) (|:| |exponent| 40))
-              (|List| 86) (226 . |factors|) (231 . |coefficient|) (238 . /)
-              (244 . -))
-           '#(|generalizedEigenvectors| 249 |generalizedEigenvector| 254
-              |eigenvectors| 268 |eigenvector| 273 |eigenvalues| 279
-              |characteristicPolynomial| 284)
+              (225 . |factor|) (|Record| (|:| |factor| 22) (|:| |exponent| 40))
+              (|List| 87) (230 . |factors|) (235 . |coefficient|) (242 . /)
+              (248 . -))
+           '#(|generalizedEigenvectors| 253 |generalizedEigenvector| 258
+              |eigenvectors| 272 |eigenvector| 277 |eigenvalues| 283
+              |characteristicPolynomial| 288)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 91
+                             (|makeByteWordVec2| 92
                                                  '(2 9 0 0 0 10 2 9 11 0 0 12 0
                                                    6 0 13 0 9 0 14 3 9 16 0 0 0
                                                    17 1 9 18 0 19 0 6 0 20 0 9
@@ -744,12 +744,12 @@
                                                    24 0 66 1 56 22 0 67 2 22 68
                                                    0 24 69 2 8 9 70 71 72 1 9 0
                                                    0 73 0 26 0 74 2 9 0 26 18
-                                                   75 1 9 0 26 76 1 7 84 22 85
-                                                   1 84 87 0 88 3 22 0 0 24 18
-                                                   89 2 26 0 22 22 90 1 26 0 0
-                                                   91 1 0 82 36 83 2 0 34 77 36
-                                                   78 4 0 34 35 36 18 18 37 1 0
-                                                   79 36 80 2 0 34 35 36 60 1 0
-                                                   58 36 59 1 0 22 36 47 2 0 22
-                                                   36 24 48)))))
+                                                   75 1 9 0 26 76 0 71 0 77 1 7
+                                                   85 22 86 1 85 88 0 89 3 22 0
+                                                   0 24 18 90 2 26 0 22 22 91 1
+                                                   26 0 0 92 1 0 83 36 84 2 0
+                                                   34 78 36 79 4 0 34 35 36 18
+                                                   18 37 1 0 80 36 81 2 0 34 35
+                                                   36 60 1 0 58 36 59 1 0 22 36
+                                                   47 2 0 22 36 24 48)))))
            '|lookupComplete|)) 

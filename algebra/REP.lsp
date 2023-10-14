@@ -18,9 +18,9 @@
                           (SPADCALL
                            (SPADCALL (SPADCALL |vect| |i| 1 (QREFELT $ 18))
                                      (QREFELT $ 19))
-                           |xx| |alg| (QREFELT $ 21))
+                           |xx| |alg| (QREFELT $ 22))
                           . #1#)
-                    (EXIT (SPADCALL |w| |i| 1 |v| (QREFELT $ 22))))
+                    (EXIT (SPADCALL |w| |i| 1 |v| (QREFELT $ 23))))
                    (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
               (EXIT |w|)))) 
 
@@ -28,8 +28,8 @@
         ((|v1| |Matrix| (|Expression| (|Integer|)))
          (|v2| |Matrix| (|Expression| (|Integer|)))
          ($ |Expression| (|Integer|)))
-        (SPADCALL (SPADCALL (SPADCALL |v1| (QREFELT $ 23)) |v2| (QREFELT $ 24))
-                  1 1 (QREFELT $ 25))) 
+        (SPADCALL (SPADCALL (SPADCALL |v1| (QREFELT $ 24)) |v2| (QREFELT $ 25))
+                  1 1 (QREFELT $ 26))) 
 
 (SDEFUN |REP;normalise;2M;3|
         ((|v| |Matrix| (|Expression| (|Integer|)))
@@ -37,15 +37,15 @@
         (SPROG ((|normv| (|Expression| (|Integer|))))
                (SEQ
                 (LETT |normv|
-                      (SPADCALL (|REP;innerprod| |v| |v| $) (QREFELT $ 26))
+                      (SPADCALL (|REP;innerprod| |v| |v| $) (QREFELT $ 27))
                       |REP;normalise;2M;3|)
                 (EXIT
                  (COND
-                  ((SPADCALL |normv| (|spadConstant| $ 27) (QREFELT $ 29)) |v|)
+                  ((SPADCALL |normv| (|spadConstant| $ 28) (QREFELT $ 30)) |v|)
                   ('T
                    (SPADCALL
-                    (SPADCALL (|spadConstant| $ 11) |normv| (QREFELT $ 30)) |v|
-                    (QREFELT $ 31)))))))) 
+                    (SPADCALL (|spadConstant| $ 11) |normv| (QREFELT $ 31)) |v|
+                    (QREFELT $ 32)))))))) 
 
 (SDEFUN |REP;radicalEigenvalues;ML;4|
         ((A |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
@@ -53,11 +53,11 @@
         (SPROG
          ((|pol| (|Fraction| (|Polynomial| (|Integer|)))) (|x| (|Symbol|)))
          (SEQ
-          (LETT |x| (SPADCALL (QREFELT $ 33))
+          (LETT |x| (SPADCALL (QREFELT $ 34))
                 . #1=(|REP;radicalEigenvalues;ML;4|))
-          (LETT |pol| (SPADCALL (SPADCALL A |x| (QREFELT $ 36)) (QREFELT $ 37))
+          (LETT |pol| (SPADCALL (SPADCALL A |x| (QREFELT $ 37)) (QREFELT $ 38))
                 . #1#)
-          (EXIT (SPADCALL |pol| |x| (QREFELT $ 39)))))) 
+          (EXIT (SPADCALL |pol| |x| (QREFELT $ 40)))))) 
 
 (SDEFUN |REP;radicalEigenvector;EML;5|
         ((|alpha| |Expression| (|Integer|))
@@ -80,26 +80,26 @@
                                      (SPADCALL
                                       (SPADCALL A |i| |j| (QREFELT $ 18))
                                       (QREFELT $ 19))
-                                     (QREFELT $ 22))))
+                                     (QREFELT $ 23))))
                          (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT
                      (SPADCALL B |i| |i|
-                               (SPADCALL (SPADCALL B |i| |i| (QREFELT $ 25))
-                                         |alpha| (QREFELT $ 41))
-                               (QREFELT $ 22))))
+                               (SPADCALL (SPADCALL B |i| |i| (QREFELT $ 26))
+                                         |alpha| (QREFELT $ 42))
+                               (QREFELT $ 23))))
                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
               (EXIT
                (PROGN
                 (LETT #2# NIL . #3#)
                 (SEQ (LETT |v| NIL . #3#)
-                     (LETT #1# (SPADCALL B (QREFELT $ 43)) . #3#) G190
+                     (LETT #1# (SPADCALL B (QREFELT $ 44)) . #3#) G190
                      (COND
                       ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #3#) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
-                       (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 45)) #2#)
+                       (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 46)) #2#)
                              . #3#)))
                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))))) 
@@ -137,7 +137,7 @@
                   (|List|
                    (|Matrix| (|Fraction| (|Polynomial| (|Integer|))))))))))
          (SEQ
-          (LETT |leig| (SPADCALL A (QREFELT $ 51))
+          (LETT |leig| (SPADCALL A (QREFELT $ 52))
                 . #9=(|REP;radicalEigenvectors;ML;6|))
           (LETT |n| (ANROWS A) . #9#) (LETT |sln| NIL . #9#)
           (SEQ (LETT |eig| NIL . #9#) (LETT #8# |leig| . #9#) G190
@@ -166,7 +166,7 @@
                                                 (SPADCALL |ll| |i| 1
                                                           (QREFELT $ 18))
                                                 (QREFELT $ 19))
-                                               (QREFELT $ 22))))
+                                               (QREFELT $ 23))))
                                    (LETT |i| (|inc_SI| |i|) . #9#) (GO G190)
                                    G191 (EXIT NIL))
                               (EXIT
@@ -199,12 +199,12 @@
                                                         (|Integer|)))
                                            #5#))
                           . #9#)
-                    (LETT |xx| (SPADCALL |sym| (QREFELT $ 53)) . #9#)
+                    (LETT |xx| (SPADCALL |sym| (QREFELT $ 54)) . #9#)
                     (LETT |lval|
                           (SPADCALL
-                           (SPADCALL (SPADCALL |sym| (QREFELT $ 54))
-                                     (QREFELT $ 37))
-                           |xx| (QREFELT $ 39))
+                           (SPADCALL (SPADCALL |sym| (QREFELT $ 55))
+                                     (QREFELT $ 38))
+                           |xx| (QREFELT $ 40))
                           . #9#)
                     (EXIT
                      (SEQ (LETT |alg| NIL . #9#) (LETT #4# |lval| . #9#) G190
@@ -274,7 +274,7 @@
              (SIGNATURE |coerce| ((|Matrix| #9#) $)))))
           (#10=#:G152 NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
-          (COND ((SPADCALL |lvect| NIL (QREFELT $ 58)) NIL)
+          (COND ((SPADCALL |lvect| NIL (QREFELT $ 59)) NIL)
                 ('T
                  (SEQ
                   (LETT |v| (|SPADfirst| |lvect|)
@@ -287,7 +287,7 @@
                                             #10#))
                          1 (|Expression| (|Integer|)))
                         . #11#)
-                  (LETT |orth| (LIST (SPADCALL |v| (QREFELT $ 32))) . #11#)
+                  (LETT |orth| (LIST (SPADCALL |v| (QREFELT $ 33))) . #11#)
                   (SEQ (LETT |v| NIL . #11#) (LETT #5# (CDR |lvect|) . #11#)
                        G190
                        (COND
@@ -316,7 +316,7 @@
                                                         (SPADCALL
                                                          (|REP;innerprod| |w|
                                                           |v| $)
-                                                         |w| (QREFELT $ 31))
+                                                         |w| (QREFELT $ 32))
                                                         . #11#)
                                                   (COND
                                                    (#1#
@@ -355,7 +355,7 @@
                               . #11#)
                         (EXIT
                          (LETT |orth|
-                               (CONS (SPADCALL |pol| (QREFELT $ 32)) |orth|)
+                               (CONS (SPADCALL |pol| (QREFELT $ 33)) |orth|)
                                . #11#)))
                        (LETT #5# (CDR #5#) . #11#) (GO G190) G191 (EXIT NIL))
                   (EXIT |orth|))))))) 
@@ -374,7 +374,7 @@
                 (PROGN
                  (LETT #3# NIL . #7=(|REP;eigenMatrix;MU;8|))
                  (SEQ (LETT |eiv| NIL . #7#)
-                      (LETT #6# (SPADCALL A (QREFELT $ 57)) . #7#) G190
+                      (LETT #6# (SPADCALL A (QREFELT $ 58)) . #7#) G190
                       (COND
                        ((OR (ATOM #6#)
                             (PROGN (LETT |eiv| (CAR #6#) . #7#) NIL))
@@ -396,7 +396,7 @@
            (COND ((< (LENGTH |lef|) |n|) (CONS 1 "failed"))
                  (#8#
                   (SEQ
-                   (LETT |d| (SPADCALL (|SPADfirst| |lef|) (QREFELT $ 60))
+                   (LETT |d| (SPADCALL (|SPADfirst| |lef|) (QREFELT $ 61))
                          . #7#)
                    (SEQ (LETT |v| NIL . #7#) (LETT #1# (CDR |lef|) . #7#) G190
                         (COND
@@ -405,7 +405,7 @@
                           (GO G191)))
                         (SEQ
                          (EXIT
-                          (LETT |d| (SPADCALL |d| |v| (QREFELT $ 61)) . #7#)))
+                          (LETT |d| (SPADCALL |d| |v| (QREFELT $ 62)) . #7#)))
                         (LETT #1# (CDR #1#) . #7#) (GO G190) G191 (EXIT NIL))
                    (EXIT (CONS 0 |d|))))))))) 
 
@@ -424,12 +424,12 @@
                            (|List| (|Matrix| (|Expression| (|Integer|)))))))))
          (SEQ
           (COND
-           ((NULL (SPADCALL A (QREFELT $ 64)))
+           ((NULL (SPADCALL A (QREFELT $ 65)))
             (|error| "the matrix is not symmetric"))
            ('T
             (SEQ (LETT |basis| NIL . #2=(|REP;orthonormalBasis;ML;9|))
                  (LETT |lvec| NIL . #2#)
-                 (LETT |alglist| (SPADCALL A (QREFELT $ 57)) . #2#)
+                 (LETT |alglist| (SPADCALL A (QREFELT $ 58)) . #2#)
                  (LETT |n| (ANROWS A) . #2#)
                  (SEQ (LETT |alterm| NIL . #2#) (LETT #1# |alglist| . #2#) G190
                       (COND
@@ -440,19 +440,19 @@
                        (SEQ (LETT |lvec| (QVELT |alterm| 2) . #2#)
                             (EXIT
                              (COND
-                              ((SPADCALL |lvec| NIL (QREFELT $ 58))
+                              ((SPADCALL |lvec| NIL (QREFELT $ 59))
                                (|error| "sorry ")))))
                        (EXIT
                         (COND
-                         ((SPADCALL (LENGTH |lvec|) 1 (QREFELT $ 65))
+                         ((SPADCALL (LENGTH |lvec|) 1 (QREFELT $ 66))
                           (SEQ
-                           (LETT |lvec| (SPADCALL |lvec| (QREFELT $ 59)) . #2#)
+                           (LETT |lvec| (SPADCALL |lvec| (QREFELT $ 60)) . #2#)
                            (EXIT
                             (LETT |basis| (APPEND |lvec| |basis|) . #2#))))
                          ('T
                           (LETT |basis|
                                 (CONS
-                                 (SPADCALL (|SPADfirst| |lvec|) (QREFELT $ 32))
+                                 (SPADCALL (|SPADfirst| |lvec|) (QREFELT $ 33))
                                  |basis|)
                                 . #2#)))))
                       (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
@@ -484,7 +484,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|RadicalEigenPackage|) . #1=(|RadicalEigenPackage|))
-          (LETT $ (GETREFV 67) . #1#)
+          (LETT $ (GETREFV 68) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|RadicalEigenPackage| NIL
@@ -498,53 +498,54 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL 'RSP (|Symbol|) (|Kernel| 10)
               (0 . |kernel|) (|Expression| 16) (5 . |One|)
-              (|NonNegativeInteger|) (|Matrix| 10) (9 . |zero|) (|Fraction| 34)
+              (|NonNegativeInteger|) (|Matrix| 10) (9 . |zero|) (|Fraction| 35)
               (|Integer|) (|Matrix| 15) (15 . |elt|) (22 . |coerce|)
-              (|Kernel| $) (27 . |eval|) (34 . |setelt!|) (42 . |transpose|)
-              (47 . *) (53 . |elt|) (60 . |sqrt|) (65 . |Zero|) (|Boolean|)
-              (69 . =) (75 . /) (81 . *) |REP;normalise;2M;3| (87 . |new|)
-              (|Polynomial| 16) (|EigenPackage| 16)
-              (91 . |characteristicPolynomial|) (97 . |coerce|) (|List| 10)
-              (102 . |radicalRoots|) |REP;radicalEigenvalues;ML;4| (108 . -)
-              (|List| 44) (114 . |nullSpace|) (|Vector| 10) (119 . |coerce|)
-              (|List| 13) |REP;radicalEigenvector;EML;5| (|Union| 15 52)
-              (|Record| (|:| |eigval| 48) (|:| |eigmult| 12)
+              (27 . |One|) (|Kernel| $) (31 . |eval|) (38 . |setelt!|)
+              (46 . |transpose|) (51 . *) (57 . |elt|) (64 . |sqrt|)
+              (69 . |Zero|) (|Boolean|) (73 . =) (79 . /) (85 . *)
+              |REP;normalise;2M;3| (91 . |new|) (|Polynomial| 16)
+              (|EigenPackage| 16) (95 . |characteristicPolynomial|)
+              (101 . |coerce|) (|List| 10) (106 . |radicalRoots|)
+              |REP;radicalEigenvalues;ML;4| (112 . -) (|List| 45)
+              (118 . |nullSpace|) (|Vector| 10) (123 . |coerce|) (|List| 13)
+              |REP;radicalEigenvector;EML;5| (|Union| 15 53)
+              (|Record| (|:| |eigval| 49) (|:| |eigmult| 12)
                         (|:| |eigvec| (|List| 17)))
-              (|List| 49) (124 . |eigenvectors|) (|SuchThat| 7 34)
-              (129 . |lhs|) (134 . |rhs|)
+              (|List| 50) (128 . |eigenvectors|) (|SuchThat| 7 35)
+              (133 . |lhs|) (138 . |rhs|)
               (|Record| (|:| |radval| 10) (|:| |radmult| 16)
-                        (|:| |radvect| 46))
-              (|List| 55) |REP;radicalEigenvectors;ML;6| (139 . =)
-              |REP;gramschmidt;2L;7| (145 . |copy|) (150 . |horizConcat|)
+                        (|:| |radvect| 47))
+              (|List| 56) |REP;radicalEigenvectors;ML;6| (143 . =)
+              |REP;gramschmidt;2L;7| (149 . |copy|) (154 . |horizConcat|)
               (|Union| 13 '"failed") |REP;eigenMatrix;MU;8|
-              (156 . |symmetric?|) (161 . >) |REP;orthonormalBasis;ML;9|)
-           '#(|radicalEigenvectors| 167 |radicalEigenvector| 172
-              |radicalEigenvalues| 178 |orthonormalBasis| 183 |normalise| 188
-              |gramschmidt| 193 |eigenMatrix| 198)
+              (160 . |symmetric?|) (165 . >) |REP;orthonormalBasis;ML;9|)
+           '#(|radicalEigenvectors| 171 |radicalEigenvector| 176
+              |radicalEigenvalues| 182 |orthonormalBasis| 187 |normalise| 192
+              |gramschmidt| 197 |eigenMatrix| 202)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 66
+                             (|makeByteWordVec2| 67
                                                  '(1 8 0 7 9 0 10 0 11 2 13 0
                                                    12 12 14 3 17 15 0 16 16 18
-                                                   1 10 0 15 19 3 10 0 0 20 0
-                                                   21 4 13 10 0 16 16 10 22 1
-                                                   13 0 0 23 2 13 0 0 0 24 3 13
-                                                   10 0 16 16 25 1 10 0 0 26 0
-                                                   10 0 27 2 10 28 0 0 29 2 10
-                                                   0 0 0 30 2 13 0 10 0 31 0 7
-                                                   0 33 2 35 34 17 7 36 1 15 0
-                                                   34 37 2 6 38 15 7 39 2 10 0
-                                                   0 0 41 1 13 42 0 43 1 13 0
-                                                   44 45 1 35 50 17 51 1 52 7 0
-                                                   53 1 52 34 0 54 2 46 28 0 0
-                                                   58 1 13 0 0 60 2 13 0 0 0 61
-                                                   1 17 28 0 64 2 12 28 0 0 65
-                                                   1 0 56 17 57 2 0 46 10 17 47
-                                                   1 0 38 17 40 1 0 46 17 66 1
-                                                   0 13 13 32 1 0 46 46 59 1 0
-                                                   62 17 63)))))
+                                                   1 10 0 15 19 0 15 0 20 3 10
+                                                   0 0 21 0 22 4 13 10 0 16 16
+                                                   10 23 1 13 0 0 24 2 13 0 0 0
+                                                   25 3 13 10 0 16 16 26 1 10 0
+                                                   0 27 0 10 0 28 2 10 29 0 0
+                                                   30 2 10 0 0 0 31 2 13 0 10 0
+                                                   32 0 7 0 34 2 36 35 17 7 37
+                                                   1 15 0 35 38 2 6 39 15 7 40
+                                                   2 10 0 0 0 42 1 13 43 0 44 1
+                                                   13 0 45 46 1 36 51 17 52 1
+                                                   53 7 0 54 1 53 35 0 55 2 47
+                                                   29 0 0 59 1 13 0 0 61 2 13 0
+                                                   0 0 62 1 17 29 0 65 2 12 29
+                                                   0 0 66 1 0 57 17 58 2 0 47
+                                                   10 17 48 1 0 39 17 41 1 0 47
+                                                   17 67 1 0 13 13 33 1 0 47 47
+                                                   60 1 0 63 17 64)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|RadicalEigenPackage| 'NILADIC T) 

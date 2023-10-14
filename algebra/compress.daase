@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4796 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4798 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -441,8 +441,8 @@
  |basisOfRightNucloid| |basisOfCentroid| |radicalOfLeftTraceForm|
  |showTypeInOutput| |obj| |dom| |objectOf| |domainOf| |any| |applyRules|
  |localUnquote| |vertSplit| |blockConcat| |vertConcat| |horizConcat|
- |squareTop| |swapColumns!| |swapRows!| |setsubMatrix!| |setColumn!|
- |oneDimensionalArray| |associatedSystem| |uncouplingMatrices|
+ |squareTop| |swapColumns!| |swapRows!| |setsubMatrix!| |setColumn!| |colSlice|
+ |rowSlice| |oneDimensionalArray| |associatedSystem| |uncouplingMatrices|
  |associatedEquations| |arrayStack| |morphism| |balancedFactorisation|
  |mapDown!| |mapUp!| |setleaves!| |balancedBinaryTree| |sylvesterMatrix|
  |bezoutMatrix| |bezoutResultant| |bezoutDiscriminant| |inspect| |extract!|

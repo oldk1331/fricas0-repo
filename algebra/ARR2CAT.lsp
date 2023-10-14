@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |TwoDimensionalArrayCategory;AL| 'NIL) 
 
-(DEFUN |TwoDimensionalArrayCategory| (&REST #1=#:G168)
-  (LET (#2=#:G169)
+(DEFUN |TwoDimensionalArrayCategory| (&REST #1=#:G203)
+  (LET (#2=#:G204)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluateList| #1#)
@@ -21,7 +21,7 @@
       #2#)))) 
 
 (DEFUN |TwoDimensionalArrayCategory;| (|t#1| |t#2| |t#3|)
-  (SPROG ((#1=#:G167 NIL))
+  (SPROG ((#1=#:G202 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
@@ -78,6 +78,14 @@
                                                (|Integer|) (|Integer|)))
                                              T)
                                             ((|elt|
+                                              ($ $ (|Integer|)
+                                               (|List| (|Integer|))))
+                                             T)
+                                            ((|elt|
+                                              ($ $ (|List| (|Integer|))
+                                               (|Integer|)))
+                                             T)
+                                            ((|elt|
                                               ($ $ (|List| (|Integer|))
                                                (|List| (|Integer|))))
                                              T)
@@ -86,10 +94,54 @@
                                                (|Segment| (|Integer|))))
                                              T)
                                             ((|elt|
+                                              ($ $ (|List| (|Integer|))
+                                               (|Segment| (|Integer|))))
+                                             T)
+                                            ((|elt|
+                                              ($ $ (|Segment| (|Integer|))
+                                               (|List| (|Integer|))))
+                                             T)
+                                            ((|elt|
+                                              ($ $ (|Integer|)
+                                               (|List|
+                                                (|Segment| (|Integer|)))))
+                                             T)
+                                            ((|elt|
+                                              ($ $
+                                               (|List| (|Segment| (|Integer|)))
+                                               (|Integer|)))
+                                             T)
+                                            ((|setelt!|
+                                              ($ $ (|Integer|)
+                                               (|List| (|Segment| (|Integer|)))
+                                               $))
+                                             T)
+                                            ((|setelt!|
+                                              ($ $
+                                               (|List| (|Segment| (|Integer|)))
+                                               (|Integer|) $))
+                                             T)
+                                            ((|elt|
+                                              ($ $ (|Segment| (|Integer|))
+                                               (|List|
+                                                (|Segment| (|Integer|)))))
+                                             T)
+                                            ((|elt|
+                                              ($ $
+                                               (|List| (|Segment| (|Integer|)))
+                                               (|Segment| (|Integer|))))
+                                             T)
+                                            ((|elt|
                                               ($ $
                                                (|List| (|Segment| (|Integer|)))
                                                (|List|
                                                 (|Segment| (|Integer|)))))
+                                             T)
+                                            ((|rowSlice|
+                                              ((|Segment| (|Integer|)) $))
+                                             T)
+                                            ((|colSlice|
+                                              ((|Segment| (|Integer|)) $))
                                              T)
                                             ((|setelt!|
                                               (|t#1| $ (|Integer|) (|Integer|)
@@ -106,11 +158,37 @@
                                               ($ $ (|Integer|) |t#3|))
                                              T)
                                             ((|setelt!|
+                                              ($ $ (|Integer|)
+                                               (|List| (|Integer|)) $))
+                                             T)
+                                            ((|setelt!|
+                                              ($ $ (|List| (|Integer|))
+                                               (|Integer|) $))
+                                             T)
+                                            ((|setelt!|
                                               ($ $ (|List| (|Integer|))
                                                (|List| (|Integer|)) $))
                                              T)
                                             ((|setelt!|
                                               ($ $ (|Segment| (|Integer|))
+                                               (|Segment| (|Integer|)) $))
+                                             T)
+                                            ((|setelt!|
+                                              ($ $ (|List| (|Integer|))
+                                               (|Segment| (|Integer|)) $))
+                                             T)
+                                            ((|setelt!|
+                                              ($ $ (|Segment| (|Integer|))
+                                               (|List| (|Integer|)) $))
+                                             T)
+                                            ((|setelt!|
+                                              ($ $ (|Segment| (|Integer|))
+                                               (|List| (|Segment| (|Integer|)))
+                                               $))
+                                             T)
+                                            ((|setelt!|
+                                              ($ $
+                                               (|List| (|Segment| (|Integer|)))
                                                (|Segment| (|Integer|)) $))
                                              T)
                                             ((|setelt!|

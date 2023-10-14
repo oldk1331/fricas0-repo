@@ -92,12 +92,12 @@
               (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL 1) (NRTEVAL 1) 29
                                                  29)
               (|local| |#1|) (|Integer|) |ARRAY2;qelt;$2IR;1|
-              |ARRAY2;qsetelt!;$2I2R;2| (|NonNegativeInteger|) (|Boolean|)
-              (|List| 6) (|List| 14) (|Equation| 6) (|Mapping| 11 6)
+              |ARRAY2;qsetelt!;$2I2R;2| (|Boolean|) (|NonNegativeInteger|)
+              (|List| 6) (|Equation| 6) (|List| 13) (|Mapping| 10 6)
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
-              (|Mapping| 6 6 6) (|List| 24) (|List| 25) (|Mapping| 6 6)
-              (|List| $) (|PositiveInteger|) (|List| 28) (|List| 7)
-              (|Segment| 7) (|OneDimensionalArray| 6) (|List| 12))
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 25) (|PositiveInteger|)
+              (|List| 23) (|List| $) (|List| 27) (|Segment| 7) (|List| 7)
+              (|OneDimensionalArray| 6) (|List| 12))
            '#(|qsetelt!| 0 |qelt| 8) 'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
