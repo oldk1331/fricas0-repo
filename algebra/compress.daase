@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4679 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4680 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -562,9 +562,9 @@
  |traceMatrix| |randomLC| |minimize| |module| |rightRegularRepresentation|
  |leftRegularRepresentation| |rightTraceMatrix| |leftTraceMatrix|
  |rightDiscriminant| |leftDiscriminant| |represents| |mergeFactors| |isMult|
- |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS| |localAbs| |universe|
- |complement| |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma|
- |li2| |rabs| |lambert_via_newton1| |lambert_via_newton2|
+ |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS| |exprToPS| |localAbs|
+ |universe| |complement| |cardinality| |internalIntegrate0| |makeCos| |makeSin|
+ |logGamma| |li2| |rabs| |lambert_via_newton1| |lambert_via_newton2|
  |lambert_inverse_series| |iiGamma| |iiabs| |iiBeta| |iidigamma| |iipolygamma|
  |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime|
  |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime|
