@@ -1352,30 +1352,10 @@
                        (#1# (LIST |x|)))))))))))
  
 ; MKPF1(l, op) ==
-;     op = "PLUS" =>
-;         l := S_-(l, '(0 (ZERO)))
-;         NULL(l) => 0
-;         rest(l) => ["PLUS", :l]
-;         first(l)
-;     op = "TIMES" =>
-;         not(NULL(S_*(l, '(0 (ZERO))))) => 0
-;         l := S_-(l, '(1 (ONE)))
-;         NULL(l) => 1
-;         rest(l) => ["TIMES", :l]
-;         first(l)
-;     op = "QUOTIENT" =>
-;         BREAK()
-;         l is [x, y] =>
-;             EQL(x, 0) => 0
-;             EQL(y, 1) => x
-;             ["QUOTIENT", :l]
-;         FAIL()
-;     op = "MINUS" =>
-;         rest(l) => FAIL()
-;         x := first(l)
-;         NUMBERP(x) => -x
-;         EQCAR(x, "MINUS") => first(rest(x))
-;         ["MINUS", :l]
+;     op = "PLUS" => BREAK()
+;     op = "TIMES" => BREAK()
+;     op = "QUOTIENT" => BREAK()
+;     op = "MINUS" => BREAK()
 ;     op = "DIFFERENCE" => BREAK()
 ;     op = "EXPT" =>
 ;         l is [x, y] =>
@@ -1432,97 +1412,70 @@
 (DEFUN MKPF1 (|l| |op|)
   (PROG (|x| |ISTMP#1| |y| |l1|)
     (RETURN
-     (COND
-      ((EQ |op| 'PLUS)
-       (PROGN
-        (SETQ |l| (S- |l| '(0 (ZERO))))
-        (COND ((NULL |l|) 0) ((CDR |l|) (CONS 'PLUS |l|)) (#1='T (CAR |l|)))))
-      ((EQ |op| 'TIMES)
-       (COND ((NULL (NULL (S* |l| '(0 (ZERO))))) 0)
-             (#1#
-              (PROGN
-               (SETQ |l| (S- |l| '(1 (ONE))))
-               (COND ((NULL |l|) 1) ((CDR |l|) (CONS 'TIMES |l|))
-                     (#1# (CAR |l|)))))))
-      ((EQ |op| 'QUOTIENT)
-       (PROGN
-        (BREAK)
-        (COND
-         ((AND (CONSP |l|)
-               (PROGN
-                (SETQ |x| (CAR |l|))
-                (SETQ |ISTMP#1| (CDR |l|))
-                (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                     (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1#))))
-          (COND ((EQL |x| 0) 0) ((EQL |y| 1) |x|) (#1# (CONS 'QUOTIENT |l|))))
-         (#1# (FAIL)))))
-      ((EQ |op| 'MINUS)
-       (COND ((CDR |l|) (FAIL))
-             (#1#
-              (PROGN
-               (SETQ |x| (CAR |l|))
-               (COND ((NUMBERP |x|) (- |x|))
-                     ((EQCAR |x| 'MINUS) (CAR (CDR |x|)))
-                     (#1# (CONS 'MINUS |l|)))))))
-      ((EQ |op| 'DIFFERENCE) (BREAK))
-      ((EQ |op| 'EXPT)
-       (COND
-        ((AND (CONSP |l|)
-              (PROGN
-               (SETQ |x| (CAR |l|))
-               (SETQ |ISTMP#1| (CDR |l|))
-               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                    (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1#))))
-         (COND ((EQL |y| 0) 1) ((EQL |y| 1) |x|)
-               ((|member| |x| '(0 1 (ZERO) (ONE))) |x|)
-               (#1# (CONS 'EXPT |l|))))
-        (#1# (FAIL))))
-      ((EQ |op| 'OR)
-       (COND ((MEMBER T |l|) (LIST 'QUOTE T))
-             (#1#
-              (PROGN
-               (SETQ |l| (REMOVE NIL |l|))
-               (COND ((NULL |l|) NIL) ((CDR |l|) (CONS 'OR |l|))
-                     (#1# (CAR |l|)))))))
-      ((EQ |op| '|or|)
-       (COND ((MEMBER T |l|) T)
-             (#1#
-              (PROGN
-               (SETQ |l| (REMOVE NIL |l|))
-               (COND ((NULL |l|) NIL) ((CDR |l|) (CONS '|or| |l|))
-                     (#1# (CAR |l|)))))))
-      ((EQ |op| 'NULL)
-       (COND ((CDR |l|) (FAIL))
-             ((AND (CONSP |l|) (EQ (CDR |l|) NIL)
+     (COND ((EQ |op| 'PLUS) (BREAK)) ((EQ |op| 'TIMES) (BREAK))
+           ((EQ |op| 'QUOTIENT) (BREAK)) ((EQ |op| 'MINUS) (BREAK))
+           ((EQ |op| 'DIFFERENCE) (BREAK))
+           ((EQ |op| 'EXPT)
+            (COND
+             ((AND (CONSP |l|)
+                   (PROGN
+                    (SETQ |x| (CAR |l|))
+                    (SETQ |ISTMP#1| (CDR |l|))
+                    (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                         (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1='T))))
+              (COND ((EQL |y| 0) 1) ((EQL |y| 1) |x|)
+                    ((|member| |x| '(0 1 (ZERO) (ONE))) |x|)
+                    (#1# (CONS 'EXPT |l|))))
+             (#1# (FAIL))))
+           ((EQ |op| 'OR)
+            (COND ((MEMBER T |l|) (LIST 'QUOTE T))
+                  (#1#
+                   (PROGN
+                    (SETQ |l| (REMOVE NIL |l|))
+                    (COND ((NULL |l|) NIL) ((CDR |l|) (CONS 'OR |l|))
+                          (#1# (CAR |l|)))))))
+           ((EQ |op| '|or|)
+            (COND ((MEMBER T |l|) T)
+                  (#1#
+                   (PROGN
+                    (SETQ |l| (REMOVE NIL |l|))
+                    (COND ((NULL |l|) NIL) ((CDR |l|) (CONS '|or| |l|))
+                          (#1# (CAR |l|)))))))
+           ((EQ |op| 'NULL)
+            (COND ((CDR |l|) (FAIL))
+                  ((AND (CONSP |l|) (EQ (CDR |l|) NIL)
+                        (PROGN
+                         (SETQ |ISTMP#1| (CAR |l|))
+                         (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'NULL)
+                              (PROGN (SETQ |l1| (CDR |ISTMP#1|)) #1#))))
+                   (CAR |l1|))
+                  ((EQUAL (CAR |l|) T) NIL) ((NULL (CAR |l|)) (LIST 'QUOTE T))
+                  (#1# (CONS 'NULL |l|))))
+           ((EQ |op| '|and|)
+            (PROGN
+             (SETQ |l| (REMOVE T (REMOVE '|true| |l|)))
+             (COND ((NULL |l|) T) ((CDR |l|) (CONS '|and| |l|))
+                   (#1# (CAR |l|)))))
+           ((EQ |op| 'AND)
+            (PROGN
+             (SETQ |l| (REMOVE T (REMOVE '|true| |l|)))
+             (COND ((NULL |l|) (LIST 'QUOTE T)) ((CDR |l|) (CONS 'AND |l|))
+                   (#1# (CAR |l|)))))
+           ((EQ |op| 'PROGN)
+            (PROGN
+             (SETQ |l| (REMOVE NIL |l|))
+             (COND ((NULL |l|) NIL) ((CDR |l|) (CONS 'PROGN |l|))
+                   (#1# (CAR |l|)))))
+           ((EQ |op| 'SEQ)
+            (COND
+             ((AND (CONSP |l|)
                    (PROGN
                     (SETQ |ISTMP#1| (CAR |l|))
-                    (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'NULL)
+                    (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'EXIT)
                          (PROGN (SETQ |l1| (CDR |ISTMP#1|)) #1#))))
               (CAR |l1|))
-             ((EQUAL (CAR |l|) T) NIL) ((NULL (CAR |l|)) (LIST 'QUOTE T))
-             (#1# (CONS 'NULL |l|))))
-      ((EQ |op| '|and|)
-       (PROGN
-        (SETQ |l| (REMOVE T (REMOVE '|true| |l|)))
-        (COND ((NULL |l|) T) ((CDR |l|) (CONS '|and| |l|)) (#1# (CAR |l|)))))
-      ((EQ |op| 'AND)
-       (PROGN
-        (SETQ |l| (REMOVE T (REMOVE '|true| |l|)))
-        (COND ((NULL |l|) (LIST 'QUOTE T)) ((CDR |l|) (CONS 'AND |l|))
-              (#1# (CAR |l|)))))
-      ((EQ |op| 'PROGN)
-       (PROGN
-        (SETQ |l| (REMOVE NIL |l|))
-        (COND ((NULL |l|) NIL) ((CDR |l|) (CONS 'PROGN |l|)) (#1# (CAR |l|)))))
-      ((EQ |op| 'SEQ)
-       (COND
-        ((AND (CONSP |l|)
-              (PROGN
-               (SETQ |ISTMP#1| (CAR |l|))
-               (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'EXIT)
-                    (PROGN (SETQ |l1| (CDR |ISTMP#1|)) #1#))))
-         (CAR |l1|))
-        ((CDR |l|) (CONS 'SEQ |l|)) (#1# (CAR |l|))))
-      ((EQ |op| 'LIST) (COND (|l| (CONS 'LIST |l|)) (#1# NIL)))
-      ((EQ |op| 'CONS) (COND ((CDR |l|) (CONS 'CONS |l|)) (#1# (CAR |l|))))
-      (#1# (CONS |op| |l|))))))
+             ((CDR |l|) (CONS 'SEQ |l|)) (#1# (CAR |l|))))
+           ((EQ |op| 'LIST) (COND (|l| (CONS 'LIST |l|)) (#1# NIL)))
+           ((EQ |op| 'CONS)
+            (COND ((CDR |l|) (CONS 'CONS |l|)) (#1# (CAR |l|))))
+           (#1# (CONS |op| |l|))))))

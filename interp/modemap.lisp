@@ -478,7 +478,7 @@
 ; augModemapsFromDomain(name,functorForm,e) ==
 ;   member(IFCAR name or name, $DummyFunctorNames) => e
 ;   name=$Category or isCategoryForm(name,e) => e
-;   member(name,curDomainsInScope:= getDomainsInScope e) => e
+;   member(name, getDomainsInScope e) => e
 ;   if u:= GETDATABASE(opOf functorForm,'SUPERDOMAIN) then
 ;     e:= addNewDomain(first u,e)
 ;     --need code to handle parameterized SuperDomains
@@ -488,13 +488,11 @@
 ;   augModemapsFromDomain1(name,functorForm,e)
  
 (DEFUN |augModemapsFromDomain| (|name| |functorForm| |e|)
-  (PROG (|curDomainsInScope| |u| |innerDom| |dl|)
+  (PROG (|u| |innerDom| |dl|)
     (RETURN
      (COND ((|member| (OR (IFCAR |name|) |name|) |$DummyFunctorNames|) |e|)
            ((OR (EQUAL |name| |$Category|) (|isCategoryForm| |name| |e|)) |e|)
-           ((|member| |name|
-             (SETQ |curDomainsInScope| (|getDomainsInScope| |e|)))
-            |e|)
+           ((|member| |name| (|getDomainsInScope| |e|)) |e|)
            (#1='T
             (PROGN
              (COND

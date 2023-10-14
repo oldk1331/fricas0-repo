@@ -1102,23 +1102,9 @@
 (DEFUN |optSuchthat| (|bfVar#9|)
   (PROG (|u|) (RETURN (PROGN (SETQ |u| (CDR |bfVar#9|)) (CONS 'SUCHTHAT |u|)))))
  
-; optMINUS u ==
-;   u is ['MINUS,v] =>
-;     NUMBERP v => -v
-;     u
-;   u
+; optMINUS u == BREAK()
  
-(DEFUN |optMINUS| (|u|)
-  (PROG (|ISTMP#1| |v|)
-    (RETURN
-     (COND
-      ((AND (CONSP |u|) (EQ (CAR |u|) 'MINUS)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |u|))
-             (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                  (PROGN (SETQ |v| (CAR |ISTMP#1|)) #1='T))))
-       (COND ((NUMBERP |v|) (- |v|)) (#1# |u|)))
-      (#1# |u|)))))
+(DEFUN |optMINUS| (|u|) (PROG () (RETURN (BREAK))))
  
 ; opt_minus_SI u ==
 ;   u is ['minus_SI, v] =>

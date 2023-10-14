@@ -209,10 +209,7 @@
 ;        htSay('"categories:")
 ;        bcConPredTable(conlist,opOf conform)
 ;        htSay '"\newline "
-;   if attrlist then
-;     if conlist then htSay '" and "
-;     reportAO('"attribute",attrlist)
-;     htSay '"\newline "
+;   if attrlist then BREAK()
 ;   if oplist then
 ;     if conlist or attrlist then htSay '" and "
 ;     reportAO('"operation",oplist)
@@ -236,9 +233,7 @@
          (#2# (|htSay| "categories:")
           (|bcConPredTable| |conlist| (|opOf| |conform|))
           (|htSay| "\\newline ")))))
-      (COND
-       (|attrlist| (COND (|conlist| (|htSay| " and ")))
-        (|reportAO| "attribute" |attrlist|) (|htSay| "\\newline ")))
+      (COND (|attrlist| (BREAK)))
       (COND
        (|oplist| (COND ((OR |conlist| |attrlist|) (|htSay| " and ")))
         (|reportAO| "operation" |oplist|)))))))
