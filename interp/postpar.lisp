@@ -1136,20 +1136,6 @@
               (CONS |op| (APPEND |itl| (CONS |newBody| NIL))))))
       (#1# (CONS |op| (APPEND |itl| (CONS |y| NIL))))))))
  
-; postTupleCollect [constructOp,:m,x] ==
-;   postCollect [constructOp,:m,['construct,x]]
- 
-(DEFUN |postTupleCollect| (|bfVar#44|)
-  (PROG (|constructOp| |LETTMP#1| |x| |m|)
-    (RETURN
-     (PROGN
-      (SETQ |constructOp| (CAR |bfVar#44|))
-      (SETQ |LETTMP#1| (REVERSE (CDR |bfVar#44|)))
-      (SETQ |x| (CAR |LETTMP#1|))
-      (SETQ |m| (NREVERSE (CDR |LETTMP#1|)))
-      (|postCollect|
-       (CONS |constructOp| (APPEND |m| (CONS (LIST '|construct| |x|) NIL))))))))
- 
 ; postIteratorList x ==
 ;   x is [p,:l] =>
 ;     (p:= postTran p) is ['IN,y,u] =>
@@ -1337,10 +1323,10 @@
 (DEFUN SEGMENT (|a| |b|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#45| |i|)
+     ((LAMBDA (|bfVar#44| |i|)
         (LOOP
-         (COND ((> |i| |b|) (RETURN (NREVERSE |bfVar#45|)))
-               ('T (SETQ |bfVar#45| (CONS |i| |bfVar#45|))))
+         (COND ((> |i| |b|) (RETURN (NREVERSE |bfVar#44|)))
+               ('T (SETQ |bfVar#44| (CONS |i| |bfVar#44|))))
          (SETQ |i| (+ |i| 1))))
       NIL |a|))))
  
@@ -1350,11 +1336,11 @@
 ;   postReduce ['Reduce,op,['COLLECT,['IN,g:= GENSYM(),expr],
 ;     ['construct,  g]]]
  
-(DEFUN |postReduce| (|bfVar#46|)
+(DEFUN |postReduce| (|bfVar#45|)
   (PROG (|op| |expr| |g|)
     (RETURN
      (PROGN
-      (SETQ |op| (CADR . #1=(|bfVar#46|)))
+      (SETQ |op| (CADR . #1=(|bfVar#45|)))
       (SETQ |expr| (CADDR . #1#))
       (COND
        ((AND (CONSP |expr|) (EQ (CAR |expr|) 'COLLECT))
@@ -1426,11 +1412,11 @@
 ;     if res1 then record_on_docList(rest res1, doc)
 ;     res1
  
-(DEFUN |postSignature| (|bfVar#47|)
+(DEFUN |postSignature| (|bfVar#46|)
   (PROG (|op| |sig| |doc| |res1|)
     (RETURN
      (PROGN
-      (SETQ |op| (CADR . #1=(|bfVar#47|)))
+      (SETQ |op| (CADR . #1=(|bfVar#46|)))
       (SETQ |sig| (CADDR . #1#))
       (SETQ |doc| (CADDDR . #1#))
       (SETQ |res1| (|postSignature1| |op| |sig|))
@@ -1464,11 +1450,11 @@
 ;   STRINGP a => postTran ['Reduce,INTERN a,b]
 ;   ['_/,postTran a,postTran b]
  
-(DEFUN |postSlash| (|bfVar#48|)
+(DEFUN |postSlash| (|bfVar#47|)
   (PROG (|a| |b|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#48|)))
+      (SETQ |a| (CADR . #1=(|bfVar#47|)))
       (SETQ |b| (CADDR . #1#))
       (COND ((STRINGP |a|) (|postTran| (LIST '|Reduce| (INTERN |a|) |b|)))
             ('T (LIST '/ (|postTran| |a|) (|postTran| |b|))))))))
@@ -1548,11 +1534,11 @@
 ; postWhere ["where",a,b] ==
 ;     ["where", postTran a, postTran b]
  
-(DEFUN |postWhere| (|bfVar#49|)
+(DEFUN |postWhere| (|bfVar#48|)
   (PROG (|a| |b|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#49|)))
+      (SETQ |a| (CADR . #1=(|bfVar#48|)))
       (SETQ |b| (CADDR . #1#))
       (LIST '|where| (|postTran| |a|) (|postTran| |b|))))))
  
@@ -1563,12 +1549,12 @@
 ;   a is ['PROGN,:b] => ['CATEGORY,:b]
 ;   a
  
-(DEFUN |postWith| (|bfVar#50|)
+(DEFUN |postWith| (|bfVar#49|)
   (PROG (|$insidePostCategoryIfTrue| |b| |op| |a|)
     (DECLARE (SPECIAL |$insidePostCategoryIfTrue|))
     (RETURN
      (PROGN
-      (SETQ |a| (CADR |bfVar#50|))
+      (SETQ |a| (CADR |bfVar#49|))
       (SETQ |$insidePostCategoryIfTrue| T)
       (SETQ |a| (|postTran| |a|))
       (COND

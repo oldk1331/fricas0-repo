@@ -30,7 +30,7 @@
  
 ; init_parser_properties() ==
 ;     for j in _
-;          [["*", 800, 801],   ["rem", 800, 801],   ["mod", 800, 801], _
+;          [["*", 800, 801],   ["rem", 800, 801], _
 ;           ["quo", 800, 801], _
 ;           ["/", 800, 801],    ["**", 901, 900],  ["^", 901, 900], _
 ;           ["exquo", 800, 801], ["+", 700, 701], _
@@ -105,17 +105,17 @@
             (RETURN NIL))
            (#1='T (MAKEOP |j| '|Led|)))
           (SETQ |bfVar#1| (CDR |bfVar#1|))))
-       (LIST (LIST '* 800 801) (LIST '|rem| 800 801) (LIST '|mod| 800 801)
-             (LIST '|quo| 800 801) (LIST '/ 800 801) (LIST '** 901 900)
-             (LIST '^ 901 900) (LIST '|exquo| 800 801) (LIST '+ 700 701)
-             (LIST '- 700 701) (LIST '-> 1002 1001) (LIST '<- 1001 1002)
-             (LIST '|:| 996 997) (LIST '|::| 996 997) (LIST '@ 996 997)
-             (LIST '|pretend| 995 996) (LIST '|.|) (LIST '! 1002 1001)
-             (LIST '|,| 110 111) (LIST '|;| 81 82 (LIST '|parse_SemiColon|))
-             (LIST '< 400 400) (LIST '> 400 400) (LIST '<< 400 400)
-             (LIST '>> 400 400) (LIST '<= 400 400) (LIST '>= 400 400)
-             (LIST '= 400 400) (LIST '^= 400 400) (LIST '~= 400 400)
-             (LIST '|in| 400 400) (LIST '|case| 400 400) (LIST '|add| 400 120)
+       (LIST (LIST '* 800 801) (LIST '|rem| 800 801) (LIST '|quo| 800 801)
+             (LIST '/ 800 801) (LIST '** 901 900) (LIST '^ 901 900)
+             (LIST '|exquo| 800 801) (LIST '+ 700 701) (LIST '- 700 701)
+             (LIST '-> 1002 1001) (LIST '<- 1001 1002) (LIST '|:| 996 997)
+             (LIST '|::| 996 997) (LIST '@ 996 997) (LIST '|pretend| 995 996)
+             (LIST '|.|) (LIST '! 1002 1001) (LIST '|,| 110 111)
+             (LIST '|;| 81 82 (LIST '|parse_SemiColon|)) (LIST '< 400 400)
+             (LIST '> 400 400) (LIST '<< 400 400) (LIST '>> 400 400)
+             (LIST '<= 400 400) (LIST '>= 400 400) (LIST '= 400 400)
+             (LIST '^= 400 400) (LIST '~= 400 400) (LIST '|in| 400 400)
+             (LIST '|case| 400 400) (LIST '|add| 400 120)
              (LIST '|with| 2000 400 (LIST '|parse_InfixWith|))
              (LIST '|has| 400 400) (LIST '|where| 121 104) (LIST '|is| 400 400)
              (LIST '|isnt| 400 400) (LIST '|and| 250 251) (LIST '|or| 200 201)
