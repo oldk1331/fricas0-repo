@@ -193,8 +193,7 @@
                       (|buildPredVector| 0 0
                                          (LIST
                                           (|HasCategory| |#2| '(|GcdDomain|))
-                                          (|HasCategory| |#2|
-                                                         '(|IntegralDomain|))
+                                          (|HasCategory| |#2| '(|EntireRing|))
                                           (|HasCategory| |#1|
                                                          '(|CommutativeRing|))))
                       . #1#))

@@ -160,7 +160,7 @@
 
 (DEFUN |ACF-;allroots| (|p| |y| |fn| $)
   (PROG (|ans| #1=#:G195 |q| |alpha| |x| #2=#:G200 #3=#:G199 #4=#:G201
-         #5=#:G220 |r| |groots| |g| |h| |decompList| |p1|)
+         #5=#:G221 |r| |groots| |g| |h| |decompList| |p1|)
     (RETURN
      (SEQ
       (COND

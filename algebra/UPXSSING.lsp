@@ -591,7 +591,7 @@
                                           (|HasCategory|
                                            (|UnivariatePuiseuxSeries| |#2| |#3|
                                                                       |#4|)
-                                           '(|IntegralDomain|))
+                                           '(|EntireRing|))
                                           (|HasCategory|
                                            (|UnivariatePuiseuxSeries| |#2| |#3|
                                                                       |#4|)

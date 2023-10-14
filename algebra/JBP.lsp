@@ -193,8 +193,7 @@
                                                           '(|RetractableTo|
                                                             (|Fraction|
                                                              (|Integer|)))))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
+                                          (|HasCategory| |#1| '(|EntireRing|))
                                           (LETT #1#
                                                 (|HasCategory| |#1|
                                                                '(|GcdDomain|))

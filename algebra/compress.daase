@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4721 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4720 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -726,7 +726,7 @@
  |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis| |complexEigenvalues|
  |complexEigenvectors| |newton| |groebner| |redPol| |hMonic| |virtualDegree|
  |sPol| |shift| |normalizedAssociate| |normalize| |outputArgs|
- |normInvertible?| |normFactors| |npcoef| |listexp| |characteristicPolynomial|
+ |normInvertible?| |normFactors| |npcoef| |characteristicPolynomial|
  |realEigenvalues| |realEigenvectors| |halfExtendedResultant2|
  |halfExtendedResultant1| |extendedResultant| |subResultantsChain|
  |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB| |eulerE| |numeric|
