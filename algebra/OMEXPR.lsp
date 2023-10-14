@@ -328,47 +328,38 @@
                  (SPADCALL |k| (QREFELT $ 63)) $))))
              #3# (EXIT #1#))))))) 
 
-(SDEFUN |OMEXPR;OMwrite;ES;13| ((|ex| |Expression| R) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
-               (SEQ (LETT |s| "" . #1=(|OMEXPR;OMwrite;ES;13|))
-                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
-                    (LETT |dev|
-                          (SPADCALL |sp| (SPADCALL (QREFELT $ 65))
-                                    (QREFELT $ 66))
-                          . #1#)
-                    (SPADCALL |dev| (QREFELT $ 67))
-                    (|OMEXPR;outputOMExpr| |dev| |ex| $)
-                    (SPADCALL |dev| (QREFELT $ 68))
-                    (SPADCALL |dev| (QREFELT $ 69))
-                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
-
-(SDEFUN |OMEXPR;OMwrite;EBS;14|
+(SDEFUN |OMEXPR;OMwrite;EBS;13|
         ((|ex| |Expression| R) (|wholeObj| |Boolean|) ($ |String|))
         (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
-               (SEQ (LETT |s| "" . #1=(|OMEXPR;OMwrite;EBS;14|))
+               (SEQ (LETT |s| "" . #1=(|OMEXPR;OMwrite;EBS;13|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|
                           (SPADCALL |sp| (SPADCALL (QREFELT $ 65))
                                     (QREFELT $ 66))
                           . #1#)
-                    (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 67))))
-                    (|OMEXPR;outputOMExpr| |dev| |ex| $)
-                    (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 68))))
-                    (SPADCALL |dev| (QREFELT $ 69))
+                    (SPADCALL |dev| |ex| |wholeObj| (QREFELT $ 21))
+                    (SPADCALL |dev| (QREFELT $ 67))
                     (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
-(SDEFUN |OMEXPR;OMwrite;OmdEV;15|
+(SDEFUN |OMEXPR;OMwrite;OmdEV;14|
         ((|dev| |OpenMathDevice|) (|ex| |Expression| R) ($ |Void|))
-        (SEQ (SPADCALL |dev| (QREFELT $ 67))
+        (SEQ (SPADCALL |dev| (QREFELT $ 69))
              (|OMEXPR;outputOMExpr| |dev| |ex| $)
-             (EXIT (SPADCALL |dev| (QREFELT $ 68))))) 
+             (EXIT (SPADCALL |dev| (QREFELT $ 70))))) 
 
-(SDEFUN |OMEXPR;OMwrite;OmdEBV;16|
+(SDEFUN |OMEXPR;OMwrite;OmdEBV;15|
         ((|dev| |OpenMathDevice|) (|ex| |Expression| R) (|wholeObj| |Boolean|)
          ($ |Void|))
-        (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 67))))
+        (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 69))))
              (|OMEXPR;outputOMExpr| |dev| |ex| $)
-             (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 68))))))) 
+             (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 70))))))) 
+
+(SDEFUN |OMEXPR;OMwrite;OmdEV;16|
+        ((|dev| |OpenMathDevice|) (|ex| |Expression| R) ($ |Void|))
+        (SPADCALL |dev| |ex| 'T (QREFELT $ 21))) 
+
+(SDEFUN |OMEXPR;OMwrite;ES;17| ((|ex| |Expression| R) ($ |String|))
+        (SPADCALL |ex| 'T (QREFELT $ 68))) 
 
 (DECLAIM (NOTINLINE |ExpressionToOpenMath;|)) 
 
@@ -449,7 +440,7 @@
               '|nullaryFunctionAList| '|unaryFunctionAList| (|Void|)
               (|OpenMathDevice|) (5 . |OMputApp|) (|String|)
               (10 . |OMputSymbol|) (|Expression| 6) (|Boolean|)
-              |OMEXPR;OMwrite;OmdEBV;16| (17 . |OMputEndApp|)
+              |OMEXPR;OMwrite;OmdEBV;15| (17 . |OMputEndApp|)
               (22 . |OMputBind|) (27 . |OMputBVar|) (32 . |OMputEndBVar|)
               (37 . |OMputEndBind|) (|NonNegativeInteger|) (42 . ~=)
               (|Integer|) (|List| 19) (48 . |elt|) (54 . |One|) (58 . |One|)
@@ -466,9 +457,9 @@
               (|List| (|Kernel| $)) (144 . |kernels|) (|BasicOperator|)
               (149 . |operator|) (154 . |name|) (159 . |argument|)
               (|OpenMathEncoding|) (164 . |OMencodingXML|)
-              (168 . |OMopenString|) (174 . |OMputObject|)
-              (179 . |OMputEndObject|) (184 . |OMclose|) |OMEXPR;OMwrite;ES;13|
-              |OMEXPR;OMwrite;EBS;14| |OMEXPR;OMwrite;OmdEV;15|)
+              (168 . |OMopenString|) (174 . |OMclose|) |OMEXPR;OMwrite;EBS;13|
+              (179 . |OMputObject|) (184 . |OMputEndObject|)
+              |OMEXPR;OMwrite;OmdEV;16| |OMEXPR;OMwrite;ES;17|)
            '#(|OMwrite| 189) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -490,8 +481,8 @@
                                                    57 1 19 58 0 59 1 51 60 0 61
                                                    1 60 36 0 62 1 51 30 0 63 0
                                                    64 0 65 2 15 0 17 64 66 1 15
-                                                   14 0 67 1 15 14 0 68 1 15 14
-                                                   0 69 2 0 17 19 20 71 1 0 17
-                                                   19 70 3 0 14 15 19 20 21 2 0
-                                                   14 15 19 72)))))
+                                                   14 0 67 1 15 14 0 69 1 15 14
+                                                   0 70 2 0 17 19 20 68 1 0 17
+                                                   19 72 3 0 14 15 19 20 21 2 0
+                                                   14 15 19 71)))))
            '|lookupComplete|)) 

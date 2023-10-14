@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4769 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4770 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -257,14 +257,14 @@
  |RationalLODE| |ReduceLODE| |RationalRicDE| |SystemODESolver| |ODETools|
  |OrderedDirectProduct| |OrderlyDifferentialPolynomial|
  |OrdinaryDifferentialRing| |OrderlyDifferentialVariable| |OrderedExpression|
- |OrderedFreeMonoid| |OrderedIntegralDomain| |OpenMath| |OpenMathConnection|
- |OpenMathDevice| |OpenMathEncoding| |OpenMathError| |OpenMathErrorKind|
- |ExpressionToOpenMath| |OppositeMonogenicLinearOperator| |OpenMathPackage|
- |OrderedMultisetAggregate| |OpenMathServerPackage| |OnePointCompletion|
- |OnePointCompletionFunctions2| |Operator| |OperationsQuery|
- |OrderedCompletion| |OrderedCompletionFunctions2| |OrderedFinite|
- |OrderingFunctions| |OrderedMonoid| |OrderedRing&| |OrderedRing| |OrderedSet&|
- |OrderedSet| |UnivariateSkewPolynomialCategory&|
+ |OrderedFreeMonoid| |OrderedIntegralDomain| |OpenMath&| |OpenMath|
+ |OpenMathConnection| |OpenMathDevice| |OpenMathEncoding| |OpenMathError|
+ |OpenMathErrorKind| |ExpressionToOpenMath| |OppositeMonogenicLinearOperator|
+ |OpenMathPackage| |OrderedMultisetAggregate| |OpenMathServerPackage|
+ |OnePointCompletion| |OnePointCompletionFunctions2| |Operator|
+ |OperationsQuery| |OrderedCompletion| |OrderedCompletionFunctions2|
+ |OrderedFinite| |OrderingFunctions| |OrderedMonoid| |OrderedRing&|
+ |OrderedRing| |OrderedSet&| |OrderedSet| |UnivariateSkewPolynomialCategory&|
  |UnivariateSkewPolynomialCategory| |UnivariateSkewPolynomialCategoryOps|
  |SparseUnivariateSkewPolynomial| |UnivariateSkewPolynomial|
  |OrthogonalPolynomialFunctions| |OrderedSemiGroup| |OrdSetInts|

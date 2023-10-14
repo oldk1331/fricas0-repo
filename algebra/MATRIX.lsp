@@ -22,7 +22,7 @@
 
 (SDEFUN |MATRIX;swapRows!;$2I$;5|
         ((|x| $) (|i1| . #1=(|Integer|)) (|i2| . #1#) ($ $))
-        (SPROG ((|t2| (R)) (|t1| (R)) (#2=#:G2107 NIL) (|j| NIL))
+        (SPROG ((|t2| (R)) (|t1| (R)) (#2=#:G2065 NIL) (|j| NIL))
                (SEQ
                 (COND
                  ((OR (< |i1| (SPADCALL |x| (QREFELT $ 8)))
@@ -52,7 +52,7 @@
 
 (SDEFUN |MATRIX;copy;2$;6| ((|m| $) ($ $))
         (SPROG
-         ((#1=#:G2113 NIL) (|j| NIL) (#2=#:G2112 NIL) (|i| NIL) (|ans| ($)))
+         ((#1=#:G2071 NIL) (|j| NIL) (#2=#:G2070 NIL) (|i| NIL) (|ans| ($)))
          (SEQ
           (LETT |ans| (MAKE_MATRIX (ANROWS |m|) (ANCOLS |m|))
                 . #3=(|MATRIX;copy;2$;6|))
@@ -93,8 +93,8 @@
 
 (SDEFUN |MATRIX;diagonalMatrix;V$;14| ((|v| |Vector| R) ($ $))
         (SPROG
-         ((#1=#:G2130 NIL) (|i| NIL) (#2=#:G2131 NIL) (|j| NIL)
-          (#3=#:G2132 NIL) (|k| NIL) (|ans| ($)) (|n| (|NonNegativeInteger|)))
+         ((#1=#:G2088 NIL) (|i| NIL) (#2=#:G2089 NIL) (|j| NIL)
+          (#3=#:G2090 NIL) (|k| NIL) (|ans| ($)) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (QVSIZE |v|) . #4=(|MATRIX;diagonalMatrix;V$;14|))
               (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 37)) . #4#)
               (SEQ (LETT |k| (SPADCALL |v| (QREFELT $ 39)) . #4#)
@@ -125,9 +125,9 @@
 
 (DECLAIM (NOTINLINE |Matrix;|)) 
 
-(DEFUN |Matrix| (#1=#:G2144)
+(DEFUN |Matrix| (#1=#:G2102)
   (SPROG NIL
-         (PROG (#2=#:G2145)
+         (PROG (#2=#:G2103)
            (RETURN
             (COND
              ((LETT #2#
@@ -143,7 +143,7 @@
 
 (DEFUN |Matrix;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2141 NIL) (#2=#:G2142 NIL) (#3=#:G2143 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G2099 NIL) (#2=#:G2100 NIL) (#3=#:G2101 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|Matrix|))

@@ -4,7 +4,7 @@
 (SDEFUN |IARRAY1;#;$Nni;1| ((|x| $) ($ |NonNegativeInteger|)) (QVSIZE |x|)) 
 
 (SDEFUN |IARRAY1;fill!;$S$;2| ((|x| $) (|s| S) ($ $))
-        (SPROG ((#1=#:G1136 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1124 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0 . #2=(|IARRAY1;fill!;$S$;2|))
                      (LETT #1# (QVMAXINDEX |x|) . #2#) G190
@@ -82,7 +82,7 @@
 
 (SDEFUN |IARRAY1;hashUpdate!;Hs$Hs;9|
         ((|s| |HashState|) (|x| $) ($ |HashState|))
-        (SPROG ((#1=#:G1157 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1145 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0 . #2=(|IARRAY1;hashUpdate!;Hs$Hs;9|))
                      (LETT #1# (QVMAXINDEX |x|) . #2#) G190
@@ -161,9 +161,9 @@
 
 (DECLAIM (NOTINLINE |IndexedOneDimensionalArray;|)) 
 
-(DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G1197)
+(DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G1185)
   (SPROG NIL
-         (PROG (#2=#:G1198)
+         (PROG (#2=#:G1186)
            (RETURN
             (COND
              ((LETT #2#
@@ -184,8 +184,8 @@
 
 (DEFUN |IndexedOneDimensionalArray;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G1196 NIL) (|pv$| NIL) (#2=#:G1192 NIL) (#3=#:G1193 NIL)
-    (#4=#:G1194 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G1184 NIL) (|pv$| NIL) (#2=#:G1180 NIL) (#3=#:G1181 NIL)
+    (#4=#:G1182 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedOneDimensionalArray|))
     (LETT DV$2 (|devaluate| |#2|) . #5#)
@@ -300,7 +300,7 @@
               (|Integer|) |IARRAY1;minIndex;$I;3| |IARRAY1;empty;$;4|
               |IARRAY1;new;NniS$;5| (|Mapping| 6 6) |IARRAY1;map!;M2$;6|
               |IARRAY1;map;M2$;7| (|Mapping| 6 6 6) |IARRAY1;map;M3$;8|
-              (|HashState|) (0 . |hashUpdate!|) (6 . |hashUpdate!|) '#:G1131
+              (|HashState|) (0 . |hashUpdate!|) (6 . |hashUpdate!|) '#:G1119
               (12 . |qelt|) (18 . |qsetelt!|) (25 . |maxIndex|) (|Boolean|)
               (30 . >) (36 . |elt|) (42 . |setelt!|) (|List| 6) (|Equation| 6)
               (|List| 32) (|Mapping| 27 6) (|Mapping| 27 6 6)

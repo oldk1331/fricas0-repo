@@ -7,57 +7,24 @@
 
 (SDEFUN |STRING;string;I$;2| ((|n| |Integer|) ($ $)) (STRINGIMAGE |n|)) 
 
-(SDEFUN |STRING;OMwrite;2$;3| ((|x| $) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
-               (SEQ (LETT |s| "" . #1=(|STRING;OMwrite;2$;3|))
-                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
-                    (LETT |dev|
-                          (SPADCALL |sp| (SPADCALL (QREFELT $ 10))
-                                    (QREFELT $ 13))
-                          . #1#)
-                    (SPADCALL |dev| (QREFELT $ 15))
-                    (SPADCALL |dev| |x| (QREFELT $ 16))
-                    (SPADCALL |dev| (QREFELT $ 17))
-                    (SPADCALL |dev| (QREFELT $ 18))
-                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
-
-(SDEFUN |STRING;OMwrite;$B$;4| ((|x| $) (|wholeObj| |Boolean|) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
-               (SEQ (LETT |s| "" . #1=(|STRING;OMwrite;$B$;4|))
-                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
-                    (LETT |dev|
-                          (SPADCALL |sp| (SPADCALL (QREFELT $ 10))
-                                    (QREFELT $ 13))
-                          . #1#)
-                    (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 15))))
-                    (SPADCALL |dev| |x| (QREFELT $ 16))
-                    (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))
-                    (SPADCALL |dev| (QREFELT $ 18))
-                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
-
-(SDEFUN |STRING;OMwrite;Omd$V;5| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
-        (SEQ (SPADCALL |dev| (QREFELT $ 15))
-             (SPADCALL |dev| |x| (QREFELT $ 16))
-             (EXIT (SPADCALL |dev| (QREFELT $ 17))))) 
-
-(SDEFUN |STRING;OMwrite;Omd$BV;6|
+(SDEFUN |STRING;OMwrite;Omd$BV;3|
         ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
-        (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 15))))
-             (SPADCALL |dev| |x| (QREFELT $ 16))
-             (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))))) 
+        (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 11))))
+             (SPADCALL |dev| |x| (QREFELT $ 13))
+             (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 14))))))) 
 
-(PUT '|STRING;convert;$If;7| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(PUT '|STRING;convert;$If;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |STRING;convert;$If;7| ((|x| $) ($ |InputForm|)) |x|) 
+(SDEFUN |STRING;convert;$If;4| ((|x| $) ($ |InputForm|)) |x|) 
 
-(PUT '|STRING;qelt;$IC;8| '|SPADreplace| 'STR_ELT1) 
+(PUT '|STRING;qelt;$IC;5| '|SPADreplace| 'STR_ELT1) 
 
-(SDEFUN |STRING;qelt;$IC;8| ((|s| $) (|i| |Integer|) ($ |Character|))
+(SDEFUN |STRING;qelt;$IC;5| ((|s| $) (|i| |Integer|) ($ |Character|))
         (STR_ELT1 |s| |i|)) 
 
-(PUT '|STRING;qsetelt!;$I2C;9| '|SPADreplace| 'STR_SETELT1) 
+(PUT '|STRING;qsetelt!;$I2C;6| '|SPADreplace| 'STR_SETELT1) 
 
-(SDEFUN |STRING;qsetelt!;$I2C;9|
+(SDEFUN |STRING;qsetelt!;$I2C;6|
         ((|s| $) (|i| |Integer|) (|c| . #1=(|Character|)) ($ . #1#))
         (STR_SETELT1 |s| |i| |c|)) 
 
@@ -65,7 +32,7 @@
 
 (DEFUN |String| ()
   (SPROG NIL
-         (PROG (#1=#:G1898)
+         (PROG (#1=#:G1862)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|String|) . #2=(|String|))
@@ -81,11 +48,11 @@
 
 (DEFUN |String;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G1894 NIL) (#2=#:G1895 NIL) (|pv$| NIL)
-    (#3=#:G1896 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G1858 NIL) (#2=#:G1859 NIL) (|pv$| NIL)
+    (#3=#:G1860 NIL))
    (PROGN
     (LETT |dv$| '(|String|) . #4=(|String|))
-    (LETT $ (GETREFV 45) . #4#)
+    (LETT $ (GETREFV 38) . #4#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -138,21 +105,18 @@
 (MAKEPROP '|String| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedString| (NRTEVAL 1)) (|Integer|)
-              |STRING;ucodeToString;I$;1| |STRING;string;I$;2|
-              (|OpenMathEncoding|) (0 . |OMencodingXML|) (|String|)
-              (|OpenMathDevice|) (4 . |OMopenString|) (|Void|)
-              (10 . |OMputObject|) (15 . |OMputString|) (21 . |OMputEndObject|)
-              (26 . |OMclose|) |STRING;OMwrite;2$;3| (|Boolean|)
-              |STRING;OMwrite;$B$;4| |STRING;OMwrite;Omd$V;5|
-              |STRING;OMwrite;Omd$BV;6| (|InputForm|) |STRING;convert;$If;7|
-              (|Character|) |STRING;qelt;$IC;8| |STRING;qsetelt!;$I2C;9|
-              (|List| 26) (|Equation| 26) (|List| 30) (|Mapping| 26 26 26)
-              (|NonNegativeInteger|) (|Mapping| 20 26) (|Mapping| 20 26 26)
-              (|UniversalSegment| 6) (|Mapping| 26 26) (|SingleInteger|)
+              |STRING;ucodeToString;I$;1| |STRING;string;I$;2| (|Void|)
+              (|OpenMathDevice|) (0 . |OMputObject|) (|String|)
+              (5 . |OMputString|) (11 . |OMputEndObject|) (|Boolean|)
+              |STRING;OMwrite;Omd$BV;3| (|InputForm|) |STRING;convert;$If;4|
+              (|Character|) |STRING;qelt;$IC;5| |STRING;qsetelt!;$I2C;6|
+              (|List| 19) (|Equation| 19) (|List| 23) (|Mapping| 19 19 19)
+              (|NonNegativeInteger|) (|Mapping| 15 19) (|Mapping| 15 19 19)
+              (|UniversalSegment| 6) (|Mapping| 19 19) (|SingleInteger|)
               (|OutputForm|) (|HashState|) (|CharacterClass|) (|List| $)
-              (|Union| 26 '"failed") (|List| 6))
-           '#(|ucodeToString| 31 |string| 36 |qsetelt!| 41 |qelt| 48 |convert|
-              54 |OMwrite| 59)
+              (|Union| 19 '"failed") (|List| 6))
+           '#(|ucodeToString| 16 |string| 21 |qsetelt!| 26 |qelt| 33 |convert|
+              39 |OMwrite| 44)
            'NIL
            (CONS
             (|makeByteWordVec2| 5
@@ -162,26 +126,24 @@
              '#(NIL |StringAggregate&| |OneDimensionalArrayAggregate&|
                 |FiniteLinearAggregate&| |LinearAggregate&| |IndexedAggregate&|
                 |Collection&| |OrderedSet&| |HomogeneousAggregate&| NIL
-                |SetCategory&| |Aggregate&| |EltableAggregate&| |Evalable&| NIL
-                NIL |BasicType&| NIL NIL NIL NIL |InnerEvalable&| NIL
-                |PartialOrder&|)
+                |SetCategory&| |Aggregate&| |EltableAggregate&| |Evalable&|
+                |OpenMath&| NIL |BasicType&| NIL NIL NIL NIL |InnerEvalable&|
+                NIL |PartialOrder&|)
              (CONS
               '#((|StringCategory|) (|StringAggregate|)
-                 (|OneDimensionalArrayAggregate| 26)
-                 (|FiniteLinearAggregate| 26) (|LinearAggregate| 26)
-                 (|IndexedAggregate| 6 26) (|Collection| 26) (|OrderedSet|)
-                 (|HomogeneousAggregate| 26) (|Comparable|) (|SetCategory|)
-                 (|Aggregate|) (|EltableAggregate| 6 26) (|Evalable| 26)
-                 (|OpenMath|) (|CoercibleTo| 39) (|BasicType|)
+                 (|OneDimensionalArrayAggregate| 19)
+                 (|FiniteLinearAggregate| 19) (|LinearAggregate| 19)
+                 (|IndexedAggregate| 6 19) (|Collection| 19) (|OrderedSet|)
+                 (|HomogeneousAggregate| 19) (|Comparable|) (|SetCategory|)
+                 (|Aggregate|) (|EltableAggregate| 6 19) (|Evalable| 19)
+                 (|OpenMath|) (|CoercibleTo| 32) (|BasicType|)
                  (|shallowlyMutable|) (|finiteAggregate|) (|Type|)
-                 (|Eltable| 6 26) (|InnerEvalable| 26 26) (|ConvertibleTo| 24)
+                 (|Eltable| 6 19) (|InnerEvalable| 19 19) (|ConvertibleTo| 17)
                  (|PartialOrder|))
-              (|makeByteWordVec2| 28
-                                  '(0 9 0 10 2 12 0 11 9 13 1 12 14 0 15 2 12
-                                    14 0 11 16 1 12 14 0 17 1 12 14 0 18 1 0 0
-                                    6 7 1 0 0 6 8 3 11 26 0 6 26 28 2 0 26 0 6
-                                    27 1 1 24 0 25 3 0 14 12 0 20 23 2 0 11 0
-                                    20 21 2 0 14 12 0 22 1 0 11 0 19)))))
+              (|makeByteWordVec2| 21
+                                  '(1 10 9 0 11 2 10 9 0 12 13 1 10 9 0 14 1 0
+                                    0 6 7 1 0 0 6 8 3 11 19 0 6 19 21 2 0 19 0
+                                    6 20 1 1 17 0 18 3 0 9 10 0 15 16)))))
            '|lookupIncomplete|)) 
 
 (MAKEPROP '|String| 'NILADIC T) 
