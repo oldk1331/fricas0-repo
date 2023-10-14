@@ -185,11 +185,13 @@
                     (QREFELT $ 103))
           (SPADCALL |k| |m| |z| (QREFELT $ 98)) (QREFELT $ 95))
          (SPADCALL
-          (SPADCALL (SPADCALL (QREFELT $ 82) |k| (QREFELT $ 96)) |m|
-                    (QREFELT $ 96))
-          (SPADCALL (SPADCALL |k| (|spadConstant| $ 67) (QREFELT $ 96)) |m| |z|
-                    (QREFELT $ 98))
-          (QREFELT $ 95))
+          (SPADCALL
+           (SPADCALL (SPADCALL (QREFELT $ 82) |k| (QREFELT $ 96)) |m|
+                     (QREFELT $ 96))
+           (SPADCALL (SPADCALL |k| (|spadConstant| $ 67) (QREFELT $ 96)) |m|
+                     |z| (QREFELT $ 98))
+           (QREFELT $ 95))
+          |z| (QREFELT $ 102))
          (QREFELT $ 96))) 
 
 (SDEFUN |FSPECF;dWhittakerM| ((|l| |List| F) (|t| |Symbol|) ($ F))
@@ -212,8 +214,10 @@
           (SPADCALL (QREFELT $ 82) (SPADCALL |k| |z| (QREFELT $ 102))
                     (QREFELT $ 103))
           (SPADCALL |k| |m| |z| (QREFELT $ 107)) (QREFELT $ 95))
-         (SPADCALL (SPADCALL |k| (|spadConstant| $ 67) (QREFELT $ 96)) |m| |z|
-                   (QREFELT $ 107))
+         (SPADCALL
+          (SPADCALL (SPADCALL |k| (|spadConstant| $ 67) (QREFELT $ 96)) |m| |z|
+                    (QREFELT $ 107))
+          |z| (QREFELT $ 102))
          (QREFELT $ 103))) 
 
 (SDEFUN |FSPECF;dWhittakerW| ((|l| |List| F) (|t| |Symbol|) ($ F))
