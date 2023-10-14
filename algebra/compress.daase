@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4709 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4720 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -230,37 +230,38 @@
  |MultivariateSkewPolynomialCategory| |MPolyCatFunctions2| |MPolyCatFunctions3|
  |MPolyCatPolyFactorizer| |MultivariatePolynomial|
  |MPolyCatRationalFunctionFactorizer| |MRationalFactorize| |MonoidRingCategory|
- |MonoidRingFunctions2| |MonoidRing| |Multiset| |MultisetAggregate|
- |MoreSystemCommands| |MergeThing| |MultivariateTaylorSeriesCategory&|
- |MultivariateTaylorSeriesCategory| |MultiplicativeDependence|
- |MultivariateFactorize| |MultivariateSquareFree| |NonAssociativeAlgebra&|
- |NonAssociativeAlgebra| |NonAssociativeRng&| |NonAssociativeRng|
- |NonAssociativeRing&| |NonAssociativeRing| |NaiveBeckermannLabahnModular|
- |NumericComplexEigenPackage| |NumericContinuedFraction|
- |NonCommutativeOperatorDivision| |NewtonInterpolation|
- |NumberFieldIntegralBasis| |NGroebnerPackage| |NonLinearSolvePackage|
- |NonNegativeInteger| |NonLinearFirstOrderODESolver| |None| |NoneFunctions1|
- |NormInMonogenicAlgebra| |NormalizationPackage| |NormRetractPackage| |NPCoef|
- |NumericRealEigenPackage| |NewSparseMultivariatePolynomial|
- |NewSparseUnivariatePolynomial| |NewSparseUnivariatePolynomialFunctions2|
- |NumberTheoreticPolynomialFunctions| |NormalizedTriangularSetCategory|
- |Numeric| |NumberFormats| |NumericalOrdinaryDifferentialEquations|
- |NumericalQuadrature| |NumericTubePlot| |OrderedAbelianGroup|
- |OrderedAbelianMonoid| |OrderedAbelianMonoidSup| |OrderedAbelianSemiGroup|
- |OctonionCategory&| |OctonionCategory| |OrderedCancellationAbelianMonoid|
- |Octonion| |OctonionCategoryFunctions2| |ConstantLODE|
- |ElementaryFunctionODESolver| |ODEIntegration| |PureAlgebraicLODE|
- |PrimitiveRatDE| |PrimitiveRatRicDE| |RationalLODE| |ReduceLODE|
- |RationalRicDE| |SystemODESolver| |ODETools| |OrderedDirectProduct|
- |OrderlyDifferentialPolynomial| |OrdinaryDifferentialRing|
- |OrderlyDifferentialVariable| |OrderedFreeMonoid| |OrderedIntegralDomain|
- |OpenMath| |OpenMathConnection| |OpenMathDevice| |OpenMathEncoding|
- |OpenMathError| |OpenMathErrorKind| |ExpressionToOpenMath|
- |OppositeMonogenicLinearOperator| |OpenMathPackage| |OrderedMultisetAggregate|
- |OpenMathServerPackage| |OnePointCompletion| |OnePointCompletionFunctions2|
- |Operator| |OperationsQuery| |OrderedCompletion| |OrderedCompletionFunctions2|
- |OrderedFinite| |OrderingFunctions| |OrderedMonoid| |OrderedRing&|
- |OrderedRing| |OrderedSet&| |OrderedSet| |UnivariateSkewPolynomialCategory&|
+ |MonoidRingFunctions2| |MonoidRing| |MrvLimitPackage| |Multiset|
+ |MultisetAggregate| |MoreSystemCommands| |MergeThing|
+ |MultivariateTaylorSeriesCategory&| |MultivariateTaylorSeriesCategory|
+ |MultiplicativeDependence| |MultivariateFactorize| |MultivariateSquareFree|
+ |NonAssociativeAlgebra&| |NonAssociativeAlgebra| |NonAssociativeRng&|
+ |NonAssociativeRng| |NonAssociativeRing&| |NonAssociativeRing|
+ |NaiveBeckermannLabahnModular| |NumericComplexEigenPackage|
+ |NumericContinuedFraction| |NonCommutativeOperatorDivision|
+ |NewtonInterpolation| |NumberFieldIntegralBasis| |NGroebnerPackage|
+ |NonLinearSolvePackage| |NonNegativeInteger| |NonLinearFirstOrderODESolver|
+ |None| |NoneFunctions1| |NormInMonogenicAlgebra| |NormalizationPackage|
+ |NormRetractPackage| |NPCoef| |NumericRealEigenPackage|
+ |NewSparseMultivariatePolynomial| |NewSparseUnivariatePolynomial|
+ |NewSparseUnivariatePolynomialFunctions2| |NumberTheoreticPolynomialFunctions|
+ |NormalizedTriangularSetCategory| |Numeric| |NumberFormats|
+ |NumericalOrdinaryDifferentialEquations| |NumericalQuadrature|
+ |NumericTubePlot| |OrderedAbelianGroup| |OrderedAbelianMonoid|
+ |OrderedAbelianMonoidSup| |OrderedAbelianSemiGroup| |OctonionCategory&|
+ |OctonionCategory| |OrderedCancellationAbelianMonoid| |Octonion|
+ |OctonionCategoryFunctions2| |ConstantLODE| |ElementaryFunctionODESolver|
+ |ODEIntegration| |PureAlgebraicLODE| |PrimitiveRatDE| |PrimitiveRatRicDE|
+ |RationalLODE| |ReduceLODE| |RationalRicDE| |SystemODESolver| |ODETools|
+ |OrderedDirectProduct| |OrderlyDifferentialPolynomial|
+ |OrdinaryDifferentialRing| |OrderlyDifferentialVariable| |OrderedExpression|
+ |OrderedFreeMonoid| |OrderedIntegralDomain| |OpenMath| |OpenMathConnection|
+ |OpenMathDevice| |OpenMathEncoding| |OpenMathError| |OpenMathErrorKind|
+ |ExpressionToOpenMath| |OppositeMonogenicLinearOperator| |OpenMathPackage|
+ |OrderedMultisetAggregate| |OpenMathServerPackage| |OnePointCompletion|
+ |OnePointCompletionFunctions2| |Operator| |OperationsQuery|
+ |OrderedCompletion| |OrderedCompletionFunctions2| |OrderedFinite|
+ |OrderingFunctions| |OrderedMonoid| |OrderedRing&| |OrderedRing| |OrderedSet&|
+ |OrderedSet| |UnivariateSkewPolynomialCategory&|
  |UnivariateSkewPolynomialCategory| |UnivariateSkewPolynomialCategoryOps|
  |SparseUnivariateSkewPolynomial| |UnivariateSkewPolynomial|
  |OrthogonalPolynomialFunctions| |OrderedSemiGroup| |OrdSetInts|
@@ -715,20 +716,22 @@
  |moment2monotonecumulant| |rightRecip| |leftRecip| |leftPower| |rightPower|
  |derivationCoordinates| |generator| |one?| |splitSquarefree| |normalDenom|
  |reshape| |totalfract| |pushdterm| |pushucoef| |pushuconst|
- |numberOfMonomials| |monomials| |members| |multiset| |systemCommand|
- |mergeDifference| |logDependenceQ| |squareFreePrim| |compdegd| |univcase|
- |consnewpol| |nsqfree| |intChoose| |coefChoose| |myDegree| |normDeriv2|
- |plenaryPower| |antiCommutator| |commutator| |associator|
- |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
- |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
- |complexEigenvalues| |complexEigenvectors| |newton| |groebner| |redPol|
- |hMonic| |virtualDegree| |sPol| |qcoerce| |shift| |normalizedAssociate|
- |normalize| |outputArgs| |normInvertible?| |normFactors| |npcoef| |listexp|
- |characteristicPolynomial| |realEigenvalues| |realEigenvectors|
- |halfExtendedResultant2| |halfExtendedResultant1| |extendedResultant|
- |subResultantsChain| |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB|
- |eulerE| |numeric| |complexNumeric| |numericIfCan| |complexNumericIfCan|
- |FormatArabic| |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
+ |numberOfMonomials| |monomials| |mrv_normalize| |mrv_limit| |mrv_limit1|
+ |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0|
+ |members| |multiset| |systemCommand| |mergeDifference| |logDependenceQ|
+ |squareFreePrim| |compdegd| |univcase| |consnewpol| |nsqfree| |intChoose|
+ |coefChoose| |myDegree| |normDeriv2| |plenaryPower| |antiCommutator|
+ |commutator| |associator| |naiveBeckermannLabahn|
+ |naiveBeckermannLabahnMultipoint| |naiveBeckermannLabahn1|
+ |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis| |complexEigenvalues|
+ |complexEigenvectors| |newton| |groebner| |redPol| |hMonic| |virtualDegree|
+ |sPol| |qcoerce| |shift| |normalizedAssociate| |normalize| |outputArgs|
+ |normInvertible?| |normFactors| |npcoef| |listexp| |characteristicPolynomial|
+ |realEigenvalues| |realEigenvectors| |halfExtendedResultant2|
+ |halfExtendedResultant1| |extendedResultant| |subResultantsChain|
+ |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB| |eulerE| |numeric|
+ |complexNumeric| |numericIfCan| |complexNumericIfCan| |FormatArabic|
+ |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
  |ScanFloatIgnoreSpacesIfCan| |rk4| |rk4a| |rk4qc| |rk4f| |aromberg| |asimpson|
  |atrapezoidal| |romberg| |simpson| |trapezoidal| |rombergo| |simpsono|
  |trapezoidalo| |sup| |inv| |imagE| |imagk| |imagj| |imagi| |octon|
