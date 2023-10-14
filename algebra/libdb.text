@@ -1796,6 +1796,7 @@ ocheckType`1`n`(String)->String`pFortranCodeTools``268074
 oChi`1`n`(F)->F`pLiouvillianFunction(R,F)``268101
 oChi`1`x`(_$)->_$`cLiouvillianFunctionCategory``268161
 oChi`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``268293
+oChi`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 oChi`1`x`(Float)->Float`pFloatLiouvilianFunctions``268353
 ochild`2`n`(_$,NonNegativeInteger)->_$`dSubSpace(n,R)``268413
 ochild?`2`n`(A,A)->Boolean`xLazyStreamAggregate&(A,S)``0
@@ -1820,6 +1821,7 @@ ochvar`2`n`(UPUP,UPUP)->Record(func:UPUP,poly:UPUP,c1:Fraction(UP),c2:Fraction(U
 oCi`1`n`(F)->F`pLiouvillianFunction(R,F)``270190
 oCi`1`x`(_$)->_$`cLiouvillianFunctionCategory``270245
 oCi`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``270371
+oCi`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 oCi`1`x`(Float)->Float`pFloatLiouvilianFunctions``270426
 oclass`1`n`(_$)->NonNegativeInteger`cJetBundleCategory``270481
 oclass`1`n`(_$)->NonNegativeInteger`cJetBundleFunctionCategory(JB)``270601
@@ -3578,6 +3580,7 @@ oeFromBinaryMap`1`x`(NonNegativeInteger)->_$`dCliffordAlgebra(n,K,bLin)``447733
 oEi`1`n`(F)->F`pLiouvillianFunction(R,F)``447936
 oEi`1`x`(_$)->_$`cLiouvillianFunctionCategory``447996
 oEi`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``448125
+oEi`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 oEi`1`x`(Float)->Float`pFloatLiouvilianFunctions``448185
 oeigenMatrix`1`x`(Matrix(Fraction(Polynomial(Integer))))->Union(Matrix(Expression(Integer)),"failed")`pRadicalEigenPackage``448245
 oeigenvalues`1`x`(Matrix(Fraction(Polynomial(R))))->List(Union(Fraction(Polynomial(R)),SuchThat(Symbol,Polynomial(R))))`pEigenPackage(R)``448390
@@ -3824,10 +3827,12 @@ oequation`2`x`(Symbol,String)->_$`dQueryEquation``469259
 oerf`1`n`(F)->F`pLiouvillianFunction(R,F)``469315
 oerf`1`x`(_$)->_$`cLiouvillianFunctionCategory``469363
 oerf`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``469516
+oerf`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 oerf`1`x`(Float)->Float`pFloatLiouvilianFunctions``469564
 oerfi`1`n`(F)->F`pLiouvillianFunction(R,F)``469612
 oerfi`1`x`(_$)->_$`cLiouvillianFunctionCategory``469664
 oerfi`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``469717
+oerfi`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 oerfi`1`x`(Float)->Float`pFloatLiouvilianFunctions``469770
 oerror`1`x`(List(String))->Exit`pErrorFunctions``469823
 oerror`1`x`(String)->Exit`pErrorFunctions``469900
@@ -4408,10 +4413,12 @@ ofreeVariable?`2`n`(_$,UT)->Boolean`dSKICombinators(UT)``535128
 ofresnelC`1`n`(F)->F`pLiouvillianFunction(R,F)``535245
 ofresnelC`1`x`(_$)->_$`cLiouvillianFunctionCategory``535309
 ofresnelC`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``535423
+ofresnelC`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 ofresnelC`1`x`(Float)->Float`pFloatLiouvilianFunctions``535487
 ofresnelS`1`n`(F)->F`pLiouvillianFunction(R,F)``535551
 ofresnelS`1`x`(_$)->_$`cLiouvillianFunctionCategory``535615
 ofresnelS`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``535729
+ofresnelS`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 ofresnelS`1`x`(Float)->Float`pFloatLiouvilianFunctions``535793
 ofrobenius`1`n`(_$)->_$`dModMonic(R,Rep)`has(R,FiniteFieldCategory)`535857
 oFrobenius`1`n`(ExtP)->ExtP`pNormRetractPackage(F,ExtF,SUEx,ExtP,n)``535943
@@ -5867,6 +5874,7 @@ olhs`1`x`(_$)->S`dEquation(S)``692686
 oli`1`n`(F)->F`pLiouvillianFunction(R,F)``692760
 oli`1`x`(_$)->_$`cLiouvillianFunctionCategory``692820
 oli`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``692949
+oli`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 oli`1`x`(Float)->Float`pFloatLiouvilianFunctions``693009
 oli2`1`x`(Complex(Float))->Complex(Float)`pFloatSpecialFunctions``693069
 olibrary`1`x`(FileName)->_$`dLibrary``693116
@@ -9018,6 +9026,7 @@ oshellSort`2`x`((S,S)->Boolean,V)->V`pFiniteLinearAggregateSort(S,V)``1089570
 oShi`1`n`(F)->F`pLiouvillianFunction(R,F)``1089695
 oShi`1`x`(_$)->_$`cLiouvillianFunctionCategory``1089753
 oShi`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``1089883
+oShi`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 oShi`1`x`(Float)->Float`pFloatLiouvilianFunctions``1089941
 oshift`1`n`(F)->_$`dMoebiusTransform(F)``1089999
 oshift`2`n`(_$,F)->_$`dMoebiusTransform(F)``1090107
@@ -9061,6 +9070,7 @@ oshufflein`2`x`(List(Integer),Stream(List(Integer)))->Stream(List(Integer))`pPar
 oSi`1`n`(F)->F`pLiouvillianFunction(R,F)``1093748
 oSi`1`x`(_$)->_$`cLiouvillianFunctionCategory``1093801
 oSi`1`x`(Complex(Float))->Complex(Float)`pFloatLiouvilianFunctions``1093925
+oSi`1`x`(DoubleFloat)->DoubleFloat`pDoubleFloatSpecialFunctions2``0
 oSi`1`x`(Float)->Float`pFloatLiouvilianFunctions``1093978
 osierpinskiDivide`2`n`(_$,NonNegativeInteger)->_$`dSceneIFS(PT)``1094031
 osign`1`n`(R)->Union(Integer,"failed")`pToolsForSign(R)``1094213
@@ -10379,6 +10389,7 @@ pDistributionPackage`1`x`(CommutativeRing)->etc`(R)`DISTEX`1263836
 pDistributionPolynomialPackage`3`x`(R:CommutativeRing,S:Join(CommutativeRing,etc),UPS:UnivariatePolynomialCategory(S))->etc`(R,S,UPS)`DISTPOL`1263874
 pDoubleFloatEllipticIntegrals`0`x`()->etc``ELIPIDF`1264001
 pDoubleFloatSpecialFunctions`0`x`()->etc``DFSFUN`1264273
+pDoubleFloatSpecialFunctions2`0`x`()->etc``DFSFUN2`0
 pDoubleResultantPackage`4`n`(F:Field,UP:UnivariatePolynomialCategory(F),UPUP:UnivariatePolynomialCategory(Fraction(UP)),R:FunctionFieldCategory(F,UP,UPUP))->etc`(F,UP,UPUP,R)`DBLRESP`1264374
 pDrawComplex`0`x`()->etc``DRAWCX`1264477
 pDrawNumericHack`1`x`(Join(OrderedSet,etc))->etc`(R)`DRAWHACK`1264563

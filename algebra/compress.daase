@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4822 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4823 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -53,18 +53,19 @@
  |ElementaryFunctionDefiniteIntegration| |RationalFunctionDefiniteIntegration|
  |DegreeReductionPackage| |Dequeue| |DeRhamComplex| |DefiniteIntegrationTools|
  |DoubleFloat| |DoubleFloatMatrix| |DoubleFloatSpecialFunctions|
- |DoubleFloatVector| |DirectedGraph| |DenavitHartenbergMatrix| |Dictionary&|
- |Dictionary| |DifferentialExtension&| |DifferentialExtension|
- |DifferentialRing&| |DifferentialRing| |DictionaryOperations&|
- |DictionaryOperations| |DiophantineSolutionPackage| |DirectProductCategory&|
- |DirectProductCategory| |DirectProduct| |DirectProductFunctions2|
- |DirichletRing| |DisplayPackage| |DistributionCategory| |DistributionPackage|
- |DistributionPolynomialPackage| |Distribution| |DistributionFunctions2|
- |DivisionRing&| |DivisionRing| |DistributedJetBundlePolynomial|
- |DoublyLinkedAggregate| |DataList| |DiscreteLogarithmPackage|
- |DistributedMultivariatePolynomial| |DirectProductMatrixModule|
- |DirectProductModule| |DifferentialPolynomialCategory&|
- |DifferentialPolynomialCategory| |DequeueAggregate| |TopLevelDrawFunctions|
+ |DoubleFloatSpecialFunctions2| |DoubleFloatVector| |DirectedGraph|
+ |DenavitHartenbergMatrix| |Dictionary&| |Dictionary| |DifferentialExtension&|
+ |DifferentialExtension| |DifferentialRing&| |DifferentialRing|
+ |DictionaryOperations&| |DictionaryOperations| |DiophantineSolutionPackage|
+ |DirectProductCategory&| |DirectProductCategory| |DirectProduct|
+ |DirectProductFunctions2| |DirichletRing| |DisplayPackage|
+ |DistributionCategory| |DistributionPackage| |DistributionPolynomialPackage|
+ |Distribution| |DistributionFunctions2| |DivisionRing&| |DivisionRing|
+ |DistributedJetBundlePolynomial| |DoublyLinkedAggregate| |DataList|
+ |DiscreteLogarithmPackage| |DistributedMultivariatePolynomial|
+ |DirectProductMatrixModule| |DirectProductModule|
+ |DifferentialPolynomialCategory&| |DifferentialPolynomialCategory|
+ |DequeueAggregate| |TopLevelDrawFunctions|
  |TopLevelDrawFunctionsForCompiledFunctions|
  |TopLevelDrawFunctionsForAlgebraicCurves| |DrawComplex| |DrawNumericHack|
  |TopLevelDrawFunctionsForPoints| |DrawOption| |DrawOptionFunctions0|
