@@ -47,7 +47,7 @@
   (MAKE-CDOUBLE-MATRIX |rows| |cols|)) 
 
 (DEFUN |CDFMAT;new;2NniC$;13| (|rows| |cols| |a| $)
-  (PROG (#1=#:G2561 |j| #2=#:G2560 |i| |res|)
+  (PROG (#1=#:G2562 |j| #2=#:G2561 |i| |res|)
     (RETURN
      (SEQ
       (LETT |res| (MAKE-CDOUBLE-MATRIX |rows| |cols|)
@@ -68,7 +68,7 @@
 (DEFUN |ComplexDoubleFloatMatrix| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2576)
+     (PROG (#1=#:G2577)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatMatrix|)
@@ -87,12 +87,12 @@
               (HREM |$ConstructorCache| '|ComplexDoubleFloatMatrix|))))))))))) 
 
 (DEFUN |ComplexDoubleFloatMatrix;| ()
-  (PROG (|dv$| $ #1=#:G2574 #2=#:G2573 #3=#:G2572 |pv$|)
+  (PROG (|dv$| $ #1=#:G2575 #2=#:G2574 #3=#:G2573 |pv$|)
     (RETURN
      (PROGN
       (LETT |dv$| '(|ComplexDoubleFloatMatrix|)
             . #4=(|ComplexDoubleFloatMatrix|))
-      (LETT $ (GETREFV 43) . #4#)
+      (LETT $ (GETREFV 48) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -167,30 +167,33 @@
               (|Complex| (|DoubleFloat|)) |CDFMAT;qelt;$2IC;7|
               |CDFMAT;elt;$2IC;8| |CDFMAT;qsetelt!;$2I2C;9|
               |CDFMAT;setelt;$2I2C;10| |CDFMAT;empty;$;11| |CDFMAT;qnew;2I$;12|
-              |CDFMAT;new;2NniC$;13| (|List| 14) (|List| 24) (|Equation| 14)
+              |CDFMAT;new;2NniC$;13| (|List| 14) (|Equation| 14) (|List| 23)
               (|Boolean|) (|OutputForm|) (|List| 37) (|Union| $ '"failed")
               (|SingleInteger|) (|HashState|) (|String|) (|Mapping| 25 14)
               (|Void|) (|List| (|List| 9)) (|List| $) (|Union| 14 '"one")
-              (|ComplexDoubleFloatVector|) (|List| 6) (|List| 22)
-              (|Mapping| 14 6 6) (|Mapping| 14 14 14) (|Mapping| 14 14))
-           '#(~= 0 |zero?| 6 |zero| 11 |vertConcat| 17 |transpose| 23
-              |symmetric?| 33 |swapRows!| 38 |swapColumns!| 45 |subMatrix| 52
-              |squareTop| 61 |square?| 66 |size?| 71 |setsubMatrix!| 77
-              |setelt| 85 |setRow!| 101 |setColumn!| 108 |scalarMatrix| 115
-              |sample| 121 |rowEchelon| 125 |row| 130 |rank| 136 |qsetelt!| 141
-              |qnew| 149 |qelt| 155 |positivePower| 162 |parts| 168 |nullity|
-              173 |nullSpace| 178 |nrows| 183 |new| 188 |ncols| 195 |more?| 200
-              |minordet| 206 |minRowIndex| 211 |minColIndex| 216 |members| 221
-              |member?| 226 |maxRowIndex| 232 |maxColIndex| 237 |matrix| 242
-              |map!| 254 |map| 260 |listOfLists| 281 |less?| 286 |latex| 292
-              |kronecker_prod1| 297 |kroneckerSum| 308 |kroneckerProduct| 319
-              |inverse| 330 |horizConcat| 335 |hashUpdate!| 341 |hash| 347
-              |fill!| 352 |exquo| 358 |every?| 364 |eval| 370 |eq?| 396
-              |empty?| 402 |empty| 407 |elt| 411 |diagonalMatrix| 433
-              |diagonal?| 443 |determinant| 448 |count| 453 |copy| 465
-              |columnSpace| 470 |column| 475 |coerce| 481 |any?| 491
-              |antisymmetric?| 497 ^ 502 |Pfaffian| 514 = 519 / 525 - 531 + 542
-              * 548 |#| 584)
+              (|ComplexDoubleFloatVector|) (|Mapping| 14 6 6) (|List| 22)
+              (|Mapping| 14 14 14) (|Mapping| 14 14) (|List| 35)
+              (|PositiveInteger|) (|List| 43) (|List| 47) (|List| 6)
+              (|Segment| 6))
+           '#(~= 0 |zero?| 6 |zero| 11 |vertSplit| 17 |vertConcat| 29
+              |transpose| 40 |symmetric?| 50 |swapRows!| 55 |swapColumns!| 62
+              |subMatrix| 69 |squareTop| 78 |square?| 83 |size?| 88
+              |setsubMatrix!| 94 |setelt| 102 |setRow!| 134 |setColumn!| 141
+              |scalarMatrix| 148 |sample| 154 |rowEchelon| 158 |row| 163 |rank|
+              169 |qsetelt!| 174 |qnew| 182 |qelt| 194 |positivePower| 201
+              |parts| 207 |nullity| 212 |nullSpace| 217 |nrows| 222 |new| 227
+              |ncols| 234 |more?| 239 |minordet| 245 |minRowIndex| 250
+              |minColIndex| 255 |members| 260 |member?| 265 |maxRowIndex| 271
+              |maxColIndex| 276 |matrix| 281 |map!| 293 |map| 299 |listOfLists|
+              320 |less?| 325 |latex| 331 |kronecker_prod1| 336 |kroneckerSum|
+              347 |kroneckerProduct| 358 |inverse| 369 |horizSplit| 374
+              |horizConcat| 386 |hashUpdate!| 397 |hash| 403 |fill!| 408
+              |exquo| 414 |every?| 420 |eval| 426 |eq?| 452 |empty?| 458
+              |empty| 463 |elt| 467 |diagonalMatrix| 503 |diagonal?| 513
+              |determinant| 518 |count| 523 |copy| 535 |columnSpace| 540
+              |column| 545 |coerce| 551 |blockSplit| 561 |blockConcat| 575
+              |any?| 580 |antisymmetric?| 586 ^ 591 |Pfaffian| 603 = 608 / 614
+              - 620 + 631 * 637 |#| 673)
            'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
@@ -205,41 +208,47 @@
                       (|SetCategory|) (|Type|) (|finiteAggregate|)
                       (|shallowlyMutable|) (|InnerEvalable| 14 14)
                       (|BasicType|) (|CoercibleTo| 26))
-                   (|makeByteWordVec2| 42
+                   (|makeByteWordVec2| 47
                                        '(2 15 25 0 0 1 1 0 25 0 1 2 0 0 9 9 1 2
+                                         0 35 0 43 1 2 0 35 0 44 1 1 0 0 35 1 2
                                          0 0 0 0 1 1 0 0 37 1 1 0 0 0 1 1 0 25
                                          0 1 3 0 0 0 6 6 1 3 0 0 0 6 6 1 5 0 0
                                          0 6 6 6 6 1 1 0 0 0 1 1 0 25 0 1 2 0
-                                         25 0 9 1 4 0 0 0 6 6 0 1 4 0 0 0 38 38
-                                         0 1 4 0 14 0 6 6 14 18 3 0 0 0 6 37 1
-                                         3 0 0 0 6 37 1 2 0 0 9 14 1 0 0 0 1 1
-                                         9 0 0 1 2 0 37 0 6 1 1 10 9 0 1 4 0 14
-                                         0 6 6 14 17 2 0 0 6 6 20 3 0 14 0 6 6
-                                         15 2 0 0 0 6 1 1 0 22 0 1 1 10 9 0 1 1
-                                         10 27 0 1 1 0 9 0 10 3 0 0 9 9 14 21 1
-                                         0 9 0 11 2 0 25 0 9 1 1 11 14 0 1 1 0
-                                         6 0 7 1 0 6 0 8 1 13 22 0 1 2 14 25 14
-                                         0 1 1 0 6 0 12 1 0 6 0 13 3 0 0 9 9 40
-                                         1 1 0 0 39 1 2 0 0 42 0 1 4 0 0 41 0 0
-                                         14 1 3 0 0 41 0 0 1 2 0 0 42 0 1 1 0
-                                         39 0 1 2 0 25 0 9 1 1 1 31 0 1 7 0 33
-                                         0 6 34 35 9 9 36 1 2 0 0 0 0 1 1 0 0
-                                         35 1 1 0 0 35 1 2 0 0 0 0 1 1 12 28 0
-                                         1 2 0 0 0 0 1 2 1 30 30 0 1 1 1 29 0 1
-                                         2 0 0 0 14 1 2 10 28 0 14 1 2 13 25 32
-                                         0 1 3 2 0 0 22 22 1 3 2 0 0 14 14 1 2
-                                         2 0 0 23 1 2 2 0 0 24 1 2 0 25 0 0 1 1
-                                         0 25 0 1 0 0 0 19 3 0 0 0 38 38 1 4 0
-                                         14 0 6 6 14 1 3 0 14 0 6 6 16 1 0 0 35
-                                         1 1 0 0 22 1 1 0 25 0 1 1 11 14 0 1 2
-                                         14 9 14 0 1 2 13 9 32 0 1 1 0 0 0 1 1
-                                         9 27 0 1 2 0 37 0 6 1 1 5 26 0 1 1 0 0
-                                         37 1 2 13 25 32 0 1 1 7 25 0 1 2 12 0
-                                         0 6 1 2 8 0 0 9 1 1 11 14 0 1 2 15 25
-                                         0 0 1 2 12 0 0 14 1 1 7 0 0 1 2 7 0 0
-                                         0 1 2 0 0 0 0 1 2 7 0 6 0 1 2 0 37 0
-                                         37 1 2 0 37 37 0 1 2 0 0 0 14 1 2 0 0
-                                         0 0 1 2 0 0 14 0 1 1 13 9 0 1)))))
+                                         25 0 9 1 4 0 0 0 6 6 0 1 4 0 0 0 45 45
+                                         0 1 4 0 0 0 46 46 0 1 4 0 0 0 47 47 0
+                                         1 4 0 14 0 6 6 14 18 3 0 0 0 6 37 1 3
+                                         0 0 0 6 37 1 2 0 0 9 14 1 0 0 0 1 1 9
+                                         0 0 1 2 0 37 0 6 1 1 10 9 0 1 4 0 14 0
+                                         6 6 14 17 2 0 0 6 6 20 2 0 0 9 9 1 3 0
+                                         14 0 6 6 15 2 0 0 0 6 1 1 0 22 0 1 1
+                                         10 9 0 1 1 10 27 0 1 1 0 9 0 10 3 0 0
+                                         9 9 14 21 1 0 9 0 11 2 0 25 0 9 1 1 11
+                                         14 0 1 1 0 6 0 7 1 0 6 0 8 1 13 22 0 1
+                                         2 14 25 14 0 1 1 0 6 0 12 1 0 6 0 13 3
+                                         0 0 9 9 38 1 1 0 0 39 1 2 0 0 41 0 1 4
+                                         0 0 40 0 0 14 1 3 0 0 40 0 0 1 2 0 0
+                                         41 0 1 1 0 39 0 1 2 0 25 0 9 1 1 1 31
+                                         0 1 7 0 33 0 6 34 35 9 9 36 1 1 0 0 35
+                                         1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 35 1 1
+                                         12 28 0 1 2 0 35 0 43 1 2 0 35 0 44 1
+                                         1 0 0 35 1 2 0 0 0 0 1 2 1 30 30 0 1 1
+                                         1 29 0 1 2 0 0 0 14 1 2 10 28 0 14 1 2
+                                         13 25 32 0 1 3 2 0 0 22 22 1 2 2 0 0
+                                         23 1 3 2 0 0 14 14 1 2 2 0 0 24 1 2 0
+                                         25 0 0 1 1 0 25 0 1 0 0 0 19 3 0 0 0
+                                         45 45 1 3 0 0 0 46 46 1 3 0 0 0 47 47
+                                         1 4 0 14 0 6 6 14 1 3 0 14 0 6 6 16 1
+                                         0 0 22 1 1 0 0 35 1 1 0 25 0 1 1 11 14
+                                         0 1 2 14 9 14 0 1 2 13 9 32 0 1 1 0 0
+                                         0 1 1 9 27 0 1 2 0 37 0 6 1 1 5 26 0 1
+                                         1 0 0 37 1 3 0 42 0 43 43 1 3 0 42 0
+                                         44 44 1 1 0 0 42 1 2 13 25 32 0 1 1 7
+                                         25 0 1 2 12 0 0 6 1 2 8 0 0 9 1 1 11
+                                         14 0 1 2 15 25 0 0 1 2 12 0 0 14 1 2 7
+                                         0 0 0 1 1 7 0 0 1 2 0 0 0 0 1 2 7 0 6
+                                         0 1 2 0 37 37 0 1 2 0 0 0 14 1 2 0 37
+                                         0 37 1 2 0 0 0 0 1 2 0 0 14 0 1 1 13 9
+                                         0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ComplexDoubleFloatMatrix| 'NILADIC T) 

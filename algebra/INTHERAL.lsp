@@ -1,7 +1,7 @@
 
 (DEFUN |INTHERAL;HermiteIntegrate;RMR;1| (|f| |derivation| $)
-  (PROG (|iden| |inum| #1=#:G113 #2=#:G361 #3=#:G363 |i| #4=#:G362 |ratform|
-         #5=#:G351 |sol| |p| |j| |nn| |sys| |u'| |u| #6=#:G349 |v| #7=#:G360
+  (PROG (|iden| |inum| #1=#:G117 #2=#:G365 #3=#:G367 |i| #4=#:G366 |ratform|
+         #5=#:G355 |sol| |p| |j| |nn| |sys| |u'| |u| #6=#:G353 |v| #7=#:G364
          |trm| |coef| |e| |cform| |m| |mat| |n|)
     (RETURN
      (SEQ
@@ -181,7 +181,7 @@
       (EXIT (CONS |ratform| (SPADCALL |inum| |iden| (QREFELT $ 45)))))))) 
 
 (DEFUN |INTHERAL;localsolve| (|mat| |vec| |modulus| $)
-  (PROG (#1=#:G379 |bc| #2=#:G383 |i| |sol| #3=#:G380 #4=#:G381 |j| #5=#:G382
+  (PROG (#1=#:G383 |bc| #2=#:G387 |i| |sol| #3=#:G384 #4=#:G385 |j| #5=#:G386
          |k| |ans|)
     (RETURN
      (SEQ
@@ -269,10 +269,10 @@
 
 (DECLAIM (NOTINLINE |AlgebraicHermiteIntegration;|)) 
 
-(DEFUN |AlgebraicHermiteIntegration| (&REST #1=#:G384)
+(DEFUN |AlgebraicHermiteIntegration| (&REST #1=#:G388)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G385)
+     (PROG (#2=#:G389)
        (RETURN
         (COND
          ((LETT #2#

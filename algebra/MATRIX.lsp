@@ -130,7 +130,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Matrix|))
       (LETT |dv$| (LIST '|Matrix| DV$1) . #4#)
-      (LETT $ (GETREFV 65) . #4#)
+      (LETT $ (GETREFV 70) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -252,9 +252,11 @@
               (97 . |convert|) (|List| 50) (102 . |listOfLists|)
               (107 . |convert|) (|List| $) (112 . |convert|) (117 . |convert|)
               (|List| 6) (|Equation| 6) (|List| 51) (|Mapping| 13 6)
-              (|OutputForm|) (|SingleInteger|) (|String|) (|HashState|)
-              (|Void|) (|List| (|List| 25)) (|Union| 6 '"one") (|List| 7)
-              (|Mapping| 6 7 7) (|Mapping| 6 6 6) (|Mapping| 6 6))
+              (|OutputForm|) (|SingleInteger|) (|HashState|) (|String|)
+              (|Void|) (|List| (|List| 25)) (|Union| 6 '"one")
+              (|Mapping| 6 7 7) (|Mapping| 6 6 6) (|List| 47) (|List| 66)
+              (|Mapping| 6 6) (|PositiveInteger|) (|Segment| 7) (|List| 67)
+              (|List| 7))
            '#(|zero| 122 |swapRows!| 128 |rowEchelon| 135 |rank| 140 |qsetelt!|
               145 |qelt| 153 |nullity| 160 |nullSpace| 165 |minordet| 170
               |minRowIndex| 175 |minColIndex| 180 |maxRowIndex| 185

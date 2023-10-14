@@ -30,7 +30,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #4#)
       (LETT DV$3 (|devaluate| |#3|) . #4#)
       (LETT |dv$| (LIST '|IndexedTwoDimensionalArray| DV$1 DV$2 DV$3) . #4#)
-      (LETT $ (GETREFV 24) . #4#)
+      (LETT $ (GETREFV 32) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -81,13 +81,14 @@
 (MAKEPROP '|IndexedTwoDimensionalArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 7 8 22 23) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) (|Boolean|) (|NonNegativeInteger|)
-              (|List| 6) (|Equation| 6) (|List| 12) (|Mapping| 9 6)
+              (|InnerIndexedTwoDimensionalArray| 6 7 8 29 30) (|local| |#1|)
+              (|local| |#2|) (|local| |#3|) (|NonNegativeInteger|) (|Boolean|)
+              (|List| 6) (|List| 13) (|Equation| 6) (|Mapping| 10 6)
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
-              (|Mapping| 6 6 6) (|Mapping| 6 6) (|Integer|)
-              (|IndexedOneDimensionalArray| 6 8)
-              (|IndexedOneDimensionalArray| 6 7))
+              (|Mapping| 6 6 6) (|List| 23) (|List| 24) (|Mapping| 6 6)
+              (|List| $) (|PositiveInteger|) (|Integer|) (|List| 28)
+              (|List| 25) (|Segment| 25) (|IndexedOneDimensionalArray| 6 8)
+              (|IndexedOneDimensionalArray| 6 7) (|List| 11))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))
                  (CONS

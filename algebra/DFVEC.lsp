@@ -44,7 +44,7 @@
 (DEFUN |DFVEC;setelt;$I2Df;11| (|x| |i| |s| $) (DSETELT |x| |i| |s|)) 
 
 (DEFUN |DFVEC;fill!;$Df$;12| (|x| |s| $)
-  (PROG (#1=#:G2384 |i|)
+  (PROG (#1=#:G2385 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 0 . #2=(|DFVEC;fill!;$Df$;12|))
@@ -59,7 +59,7 @@
 (DEFUN |DoubleFloatVector| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2398)
+     (PROG (#1=#:G2399)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatVector|)
@@ -77,7 +77,7 @@
               (HREM |$ConstructorCache| '|DoubleFloatVector|))))))))))) 
 
 (DEFUN |DoubleFloatVector;| ()
-  (PROG (|dv$| $ #1=#:G2394 #2=#:G2395 #3=#:G2393 #4=#:G2392 |pv$| #5=#:G2396)
+  (PROG (|dv$| $ #1=#:G2395 #2=#:G2396 #3=#:G2394 #4=#:G2393 |pv$| #5=#:G2397)
     (RETURN
      (PROGN
       (LETT |dv$| '(|DoubleFloatVector|) . #6=(|DoubleFloatVector|))

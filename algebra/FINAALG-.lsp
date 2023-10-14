@@ -1594,7 +1594,7 @@
        (QREFELT $ 112)))))) 
 
 (DEFUN |FINAALG-;leftRegularRepresentation;SVM;34| (|x| |b| $)
-  (PROG (#1=#:G368 |i| #2=#:G367 |m|)
+  (PROG (#1=#:G369 |i| #2=#:G368 |m|)
     (RETURN
      (SEQ
       (LETT |m| (- (SPADCALL |b| (QREFELT $ 105)) 1)
@@ -1625,7 +1625,7 @@
         (QREFELT $ 118))))))) 
 
 (DEFUN |FINAALG-;rightRegularRepresentation;SVM;35| (|x| |b| $)
-  (PROG (#1=#:G373 |i| #2=#:G372 |m|)
+  (PROG (#1=#:G375 |i| #2=#:G374 |m|)
     (RETURN
      (SEQ
       (LETT |m| (- (SPADCALL |b| (QREFELT $ 105)) 1)

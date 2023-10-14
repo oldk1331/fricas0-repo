@@ -12,10 +12,10 @@
 
 (DECLAIM (NOTINLINE |TwoDimensionalArray;|)) 
 
-(DEFUN |TwoDimensionalArray| (#1=#:G2209)
+(DEFUN |TwoDimensionalArray| (#1=#:G2210)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2210)
+     (PROG (#2=#:G2211)
        (RETURN
         (COND
          ((LETT #2#
@@ -33,12 +33,12 @@
               (HREM |$ConstructorCache| '|TwoDimensionalArray|))))))))))) 
 
 (DEFUN |TwoDimensionalArray;| (|#1|)
-  (PROG (|pv$| #1=#:G2206 #2=#:G2207 #3=#:G2208 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2207 #2=#:G2208 #3=#:G2209 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|TwoDimensionalArray|))
       (LETT |dv$| (LIST '|TwoDimensionalArray| DV$1) . #4#)
-      (LETT $ (GETREFV 23) . #4#)
+      (LETT $ (GETREFV 31) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -87,13 +87,15 @@
 (MAKEPROP '|TwoDimensionalArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL 1) (NRTEVAL 1) 22
-                                                 22)
+              (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL 1) (NRTEVAL 1) 29
+                                                 29)
               (|local| |#1|) (|Integer|) |ARRAY2;qelt;$2IR;1|
-              |ARRAY2;qsetelt!;$2I2R;2| (|Boolean|) (|NonNegativeInteger|)
-              (|List| 6) (|Equation| 6) (|List| 13) (|Mapping| 10 6)
+              |ARRAY2;qsetelt!;$2I2R;2| (|NonNegativeInteger|) (|Boolean|)
+              (|List| 6) (|List| 14) (|Equation| 6) (|Mapping| 11 6)
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
-              (|Mapping| 6 6 6) (|Mapping| 6 6) (|OneDimensionalArray| 6))
+              (|Mapping| 6 6 6) (|List| 24) (|List| 25) (|Mapping| 6 6)
+              (|List| $) (|PositiveInteger|) (|List| 28) (|List| 7)
+              (|Segment| 7) (|OneDimensionalArray| 6) (|List| 12))
            '#(|qsetelt!| 0 |qelt| 8) 'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))
                  (CONS

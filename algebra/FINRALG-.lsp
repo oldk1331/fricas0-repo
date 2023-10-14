@@ -81,7 +81,7 @@
        (QREFELT $ 34)))))) 
 
 (DEFUN |FINRALG-;regularRepresentation;SVM;5| (|x| |b| $)
-  (PROG (#1=#:G132 |i| #2=#:G131 |m|)
+  (PROG (#1=#:G133 |i| #2=#:G132 |m|)
     (RETURN
      (SEQ
       (LETT |m| (- (SPADCALL |b| (QREFELT $ 17)) 1)

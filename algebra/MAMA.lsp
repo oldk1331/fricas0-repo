@@ -73,7 +73,7 @@
   (SPADCALL A (|MAMA;expand| |si| $) (QREFELT $ 40))) 
 
 (DEFUN |MAMA;fill_diagonal| (B A |nr| |nc| |n| $)
-  (PROG (#1=#:G133 |i| |sc| |sr| |dl|)
+  (PROG (#1=#:G131 |i| |sc| |sr| |dl|)
     (RETURN
      (SEQ
       (COND
@@ -120,7 +120,7 @@
 (DEFUN |MAMA;diagonalMatrix;2M;11| (A $) (SPADCALL A 0 (QREFELT $ 43))) 
 
 (DEFUN |MAMA;bandMatrix;MLM;12| (A |ln| $)
-  (PROG (#1=#:G140 |n| B |nc| |nr|)
+  (PROG (#1=#:G138 |n| B |nc| |nr|)
     (RETURN
      (SEQ
       (LETT |nr| (SPADCALL A (QREFELT $ 39)) . #2=(|MAMA;bandMatrix;MLM;12|))
@@ -137,7 +137,7 @@
   (SPADCALL A (SPADCALL |si| (QREFELT $ 48)) (QREFELT $ 46))) 
 
 (DEFUN |MAMA;subMatrix;M2LM;14| (A |lr| |lc| $)
-  (PROG (|j| #1=#:G147 |jj| |i| #2=#:G146 |ii| |res| |m| |n|)
+  (PROG (|j| #1=#:G145 |jj| |i| #2=#:G144 |ii| |res| |m| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |lr|) . #3=(|MAMA;subMatrix;M2LM;14|))
           (LETT |m| (LENGTH |lc|) . #3#)
@@ -175,246 +175,44 @@
             (SPADCALL |sc| (QREFELT $ 51)) (SPADCALL |sc| (QREFELT $ 52))
             (QREFELT $ 26))) 
 
-(DEFUN |MAMA;horizConcat;LM;16| (LA $) (SPADCALL (ELT $ 54) LA (QREFELT $ 57))) 
-
-(DEFUN |MAMA;vertConcat;LM;17| (LA $) (SPADCALL (ELT $ 59) LA (QREFELT $ 57))) 
-
-(DEFUN |MAMA;blockConcat;LM;18| (LLA $)
-  (PROG (#1=#:G162 LA #2=#:G161)
-    (RETURN
-     (SEQ
-      (SPADCALL (ELT $ 59)
-                (PROGN
-                 (LETT #2# NIL . #3=(|MAMA;blockConcat;LM;18|))
-                 (SEQ (LETT LA NIL . #3#) (LETT #1# LLA . #3#) G190
-                      (COND
-                       ((OR (ATOM #1#) (PROGN (LETT LA (CAR #1#) . #3#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #2#
-                              (CONS (SPADCALL (ELT $ 54) LA (QREFELT $ 57))
-                                    #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                (QREFELT $ 57)))))) 
-
-(DEFUN |MAMA;vertSplit;MPiL;19| (A |r| $)
-  (PROG (#1=#:G171 |i| #2=#:G170 |mac| |mic| |mir| |dr|)
-    (RETURN
-     (SEQ
-      (LETT |dr| (SPADCALL (SPADCALL A (QREFELT $ 39)) |r| (QREFELT $ 64))
-            . #3=(|MAMA;vertSplit;MPiL;19|))
-      (EXIT
-       (COND
-        ((QEQCAR |dr| 1)
-         (|error| "split does not result in an equal division"))
-        ('T
-         (SEQ (LETT |mir| (SPADCALL A (QREFELT $ 36)) . #3#)
-              (LETT |mic| (SPADCALL A (QREFELT $ 24)) . #3#)
-              (LETT |mac| (SPADCALL A (QREFELT $ 25)) . #3#)
-              (EXIT
-               (PROGN
-                (LETT #2# NIL . #3#)
-                (SEQ (LETT |i| 0 . #3#) (LETT #1# (- |r| 1) . #3#) G190
-                     (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ
-                      (EXIT
-                       (LETT #2#
-                             (CONS
-                              (SPADCALL A (+ |mir| (* |i| (QCDR |dr|)))
-                                        (- (+ |mir| (* (+ |i| 1) (QCDR |dr|)))
-                                           1)
-                                        |mic| |mac| (QREFELT $ 26))
-                              #2#)
-                             . #3#)))
-                     (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                     (EXIT (NREVERSE #2#))))))))))))) 
-
-(DEFUN |MAMA;vertSplit;MLL;20| (A |lr| $)
-  (PROG (|result| #1=#:G207 |i| #2=#:G206 |mac| |mic| |mir| |l|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (SPADCALL (ELT $ 68) |lr| (QREFELT $ 70))
-                  (SPADCALL A (QREFELT $ 39)) (QREFELT $ 71))
-        (|error| "split does not result in proper partition"))
-       ('T
-        (SEQ
-         (LETT |l| (CONS 1 (SPADCALL (ELT $ 68) |lr| 1 (QREFELT $ 73)))
-               . #3=(|MAMA;vertSplit;MLL;20|))
-         (LETT |mir| (- (SPADCALL A (QREFELT $ 36)) 1) . #3#)
-         (LETT |mic| (SPADCALL A (QREFELT $ 24)) . #3#)
-         (LETT |mac| (SPADCALL A (QREFELT $ 25)) . #3#)
-         (EXIT
-          (LETT |result|
-                (PROGN
-                 (LETT #2# NIL . #3#)
-                 (SEQ (LETT |i| 2 . #3#) (LETT #1# (LENGTH |l|) . #3#) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #2#
-                              (CONS
-                               (SPADCALL A
-                                         (+ |mir|
-                                            (SPADCALL |l| (- |i| 1)
-                                                      (QREFELT $ 74)))
-                                         (-
-                                          (+ |mir|
-                                             (SPADCALL |l| |i| (QREFELT $ 74)))
-                                          1)
-                                         |mic| |mac| (QREFELT $ 26))
-                               #2#)
-                              . #3#)))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#))))))))) 
-
-(DEFUN |MAMA;horizSplit;MPiL;21| (A |c| $)
-  (PROG (#1=#:G216 |i| #2=#:G215 |mic| |mar| |mir| |dc|)
-    (RETURN
-     (SEQ
-      (LETT |dc| (SPADCALL (SPADCALL A (QREFELT $ 29)) |c| (QREFELT $ 64))
-            . #3=(|MAMA;horizSplit;MPiL;21|))
-      (EXIT
-       (COND
-        ((QEQCAR |dc| 1)
-         (|error| "split does not result in an equal division"))
-        ('T
-         (SEQ (LETT |mir| (SPADCALL A (QREFELT $ 36)) . #3#)
-              (LETT |mar| (SPADCALL A (QREFELT $ 37)) . #3#)
-              (LETT |mic| (SPADCALL A (QREFELT $ 24)) . #3#)
-              (EXIT
-               (PROGN
-                (LETT #2# NIL . #3#)
-                (SEQ (LETT |i| 0 . #3#) (LETT #1# (- |c| 1) . #3#) G190
-                     (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ
-                      (EXIT
-                       (LETT #2#
-                             (CONS
-                              (SPADCALL A |mir| |mar|
-                                        (+ |mic| (* |i| (QCDR |dc|)))
-                                        (- (+ |mic| (* (+ |i| 1) (QCDR |dc|)))
-                                           1)
-                                        (QREFELT $ 26))
-                              #2#)
-                             . #3#)))
-                     (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                     (EXIT (NREVERSE #2#))))))))))))) 
-
-(DEFUN |MAMA;horizSplit;MLL;22| (A |lc| $)
-  (PROG (|result| #1=#:G252 |i| #2=#:G251 |mic| |mar| |mir| |l|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (SPADCALL (ELT $ 68) |lc| (QREFELT $ 70))
-                  (SPADCALL A (QREFELT $ 29)) (QREFELT $ 71))
-        (|error| "split does not result in proper partition"))
-       ('T
-        (SEQ
-         (LETT |l| (CONS 1 (SPADCALL (ELT $ 68) |lc| 1 (QREFELT $ 73)))
-               . #3=(|MAMA;horizSplit;MLL;22|))
-         (LETT |mir| (SPADCALL A (QREFELT $ 36)) . #3#)
-         (LETT |mar| (SPADCALL A (QREFELT $ 37)) . #3#)
-         (LETT |mic| (- (SPADCALL A (QREFELT $ 24)) 1) . #3#)
-         (EXIT
-          (LETT |result|
-                (PROGN
-                 (LETT #2# NIL . #3#)
-                 (SEQ (LETT |i| 2 . #3#) (LETT #1# (LENGTH |l|) . #3#) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #2#
-                              (CONS
-                               (SPADCALL A |mir| |mar|
-                                         (+ |mic|
-                                            (SPADCALL |l| (- |i| 1)
-                                                      (QREFELT $ 74)))
-                                         (-
-                                          (+ |mic|
-                                             (SPADCALL |l| |i| (QREFELT $ 74)))
-                                          1)
-                                         (QREFELT $ 26))
-                               #2#)
-                              . #3#)))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#))))))))) 
-
-(DEFUN |MAMA;blockSplit;M2PiL;23| (A |nr| |nc| $)
-  (PROG (#1=#:G256 X #2=#:G255)
+(DEFUN |MAMA;blockSplit;MLPiL;16| (A |lr| |nc| $)
+  (PROG (#1=#:G150 X #2=#:G149)
     (RETURN
      (SEQ
       (PROGN
-       (LETT #2# NIL . #3=(|MAMA;blockSplit;M2PiL;23|))
+       (LETT #2# NIL . #3=(|MAMA;blockSplit;MLPiL;16|))
        (SEQ (LETT X NIL . #3#)
-            (LETT #1# (SPADCALL A |nr| (QREFELT $ 65)) . #3#) G190
+            (LETT #1# (SPADCALL A |lr| (QREFELT $ 55)) . #3#) G190
             (COND
              ((OR (ATOM #1#) (PROGN (LETT X (CAR #1#) . #3#) NIL)) (GO G191)))
             (SEQ
              (EXIT
-              (LETT #2# (CONS (SPADCALL X |nc| (QREFELT $ 76)) #2#) . #3#)))
+              (LETT #2# (CONS (SPADCALL X |nc| (QREFELT $ 56)) #2#) . #3#)))
             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
             (EXIT (NREVERSE #2#)))))))) 
 
-(DEFUN |MAMA;blockSplit;MLPiL;24| (A |lr| |nc| $)
-  (PROG (#1=#:G260 X #2=#:G259)
+(DEFUN |MAMA;blockSplit;MPiLL;17| (A |nr| |lc| $)
+  (PROG (#1=#:G154 X #2=#:G153)
     (RETURN
      (SEQ
       (PROGN
-       (LETT #2# NIL . #3=(|MAMA;blockSplit;MLPiL;24|))
+       (LETT #2# NIL . #3=(|MAMA;blockSplit;MPiLL;17|))
        (SEQ (LETT X NIL . #3#)
-            (LETT #1# (SPADCALL A |lr| (QREFELT $ 75)) . #3#) G190
+            (LETT #1# (SPADCALL A |nr| (QREFELT $ 59)) . #3#) G190
             (COND
              ((OR (ATOM #1#) (PROGN (LETT X (CAR #1#) . #3#) NIL)) (GO G191)))
             (SEQ
              (EXIT
-              (LETT #2# (CONS (SPADCALL X |nc| (QREFELT $ 76)) #2#) . #3#)))
-            (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-            (EXIT (NREVERSE #2#)))))))) 
-
-(DEFUN |MAMA;blockSplit;MPiLL;25| (A |nr| |lc| $)
-  (PROG (#1=#:G264 X #2=#:G263)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #2# NIL . #3=(|MAMA;blockSplit;MPiLL;25|))
-       (SEQ (LETT X NIL . #3#)
-            (LETT #1# (SPADCALL A |nr| (QREFELT $ 65)) . #3#) G190
-            (COND
-             ((OR (ATOM #1#) (PROGN (LETT X (CAR #1#) . #3#) NIL)) (GO G191)))
-            (SEQ
-             (EXIT
-              (LETT #2# (CONS (SPADCALL X |lc| (QREFELT $ 77)) #2#) . #3#)))
-            (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-            (EXIT (NREVERSE #2#)))))))) 
-
-(DEFUN |MAMA;blockSplit;M2LL;26| (A |lr| |lc| $)
-  (PROG (#1=#:G268 X #2=#:G267)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #2# NIL . #3=(|MAMA;blockSplit;M2LL;26|))
-       (SEQ (LETT X NIL . #3#)
-            (LETT #1# (SPADCALL A |lr| (QREFELT $ 75)) . #3#) G190
-            (COND
-             ((OR (ATOM #1#) (PROGN (LETT X (CAR #1#) . #3#) NIL)) (GO G191)))
-            (SEQ
-             (EXIT
-              (LETT #2# (CONS (SPADCALL X |lc| (QREFELT $ 77)) #2#) . #3#)))
+              (LETT #2# (CONS (SPADCALL X |lc| (QREFELT $ 60)) #2#) . #3#)))
             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
             (EXIT (NREVERSE #2#)))))))) 
 
 (DECLAIM (NOTINLINE |MatrixManipulation;|)) 
 
-(DEFUN |MatrixManipulation| (&REST #1=#:G269)
+(DEFUN |MatrixManipulation| (&REST #1=#:G155)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G270)
+     (PROG (#2=#:G156)
        (RETURN
         (COND
          ((LETT #2#
@@ -441,7 +239,7 @@
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT |dv$| (LIST '|MatrixManipulation| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 82) . #1#)
+      (LETT $ (GETREFV 62) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|MatrixManipulation|
@@ -470,26 +268,18 @@
               |MAMA;diagonalMatrix;MIM;10| |MAMA;diagonalMatrix;2M;11|
               (|List| 14) |MAMA;bandMatrix;MLM;12| (|Segment| 14)
               (102 . |expand|) |MAMA;bandMatrix;MSM;13| (107 . |qelt|)
-              (114 . |low|) (119 . |high|) |MAMA;subMatrix;M2SM;15|
-              (124 . |horizConcat|) (|Mapping| 9 9 9) (|List| 9)
-              (130 . |reduce|) |MAMA;horizConcat;LM;16| (136 . |vertConcat|)
-              |MAMA;vertConcat;LM;17| (|List| 56) |MAMA;blockConcat;LM;18|
-              (|Union| $ '"failed") (142 . |exquo|) |MAMA;vertSplit;MPiL;19|
-              (148 . +) (154 . +) (160 . +) (|Mapping| 10 10 10)
-              (166 . |reduce|) (172 . ~=) (|ListFunctions2| 10 10)
-              (178 . |scan|) (185 . |elt|) |MAMA;vertSplit;MLL;20|
-              |MAMA;horizSplit;MPiL;21| |MAMA;horizSplit;MLL;22|
-              |MAMA;blockSplit;M2PiL;23| |MAMA;blockSplit;MLPiL;24|
-              |MAMA;blockSplit;MPiLL;25| |MAMA;blockSplit;M2LL;26|)
-           '#(|vertSplit| 191 |vertConcat| 203 |subMatrix| 208 |rows| 222
-              |rowMatrix| 234 |horizSplit| 240 |horizConcat| 252 |element| 257
-              |diagonalMatrix| 264 |columns| 275 |columnMatrix| 287
-              |blockSplit| 293 |blockConcat| 321 |bandMatrix| 326)
+              (114 . |low|) (119 . |high|) |MAMA;subMatrix;M2SM;15| (|List| $)
+              (124 . |vertSplit|) (130 . |horizSplit|) (|List| (|List| 9))
+              |MAMA;blockSplit;MLPiL;16| (136 . |vertSplit|)
+              (142 . |horizSplit|) |MAMA;blockSplit;MPiLL;17|)
+           '#(|subMatrix| 148 |rows| 162 |rowMatrix| 174 |element| 180
+              |diagonalMatrix| 187 |columns| 198 |columnMatrix| 210
+              |blockSplit| 216 |bandMatrix| 230)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 81
+                             (|makeByteWordVec2| 61
                                                  '(1 11 10 0 12 1 11 10 0 13 1
                                                    11 14 0 15 0 6 0 16 2 14 17
                                                    0 0 18 2 10 17 0 0 19 3 9 6
@@ -501,23 +291,15 @@
                                                    28 0 39 4 9 6 0 14 14 6 42 1
                                                    47 45 0 48 3 9 6 0 14 14 50
                                                    1 11 10 0 51 1 11 10 0 52 2
-                                                   9 0 0 0 54 2 56 9 55 0 57 2
-                                                   9 0 0 0 59 2 28 63 0 0 64 2
-                                                   6 0 0 0 66 2 9 0 0 0 67 2 10
-                                                   0 0 0 68 2 32 10 69 0 70 2
-                                                   28 17 0 0 71 3 72 32 69 32
-                                                   10 73 2 32 10 0 14 74 2 0 56
-                                                   9 32 75 2 0 56 9 10 65 1 0 9
-                                                   56 60 3 0 9 9 11 11 53 3 0 9
-                                                   9 32 32 33 2 0 9 9 32 34 2 0
-                                                   9 9 11 35 2 0 9 9 10 27 2 0
-                                                   56 9 10 76 2 0 56 9 32 77 1
-                                                   0 9 56 58 3 0 9 9 10 10 23 2
-                                                   0 9 9 14 43 1 0 9 9 44 2 0 9
-                                                   9 32 40 2 0 9 9 11 41 2 0 9
-                                                   9 10 38 3 0 61 9 10 10 78 3
-                                                   0 61 9 32 10 79 3 0 61 9 32
-                                                   32 81 3 0 61 9 10 32 80 1 0
-                                                   9 61 62 2 0 9 9 45 46 2 0 9
-                                                   9 47 49)))))
+                                                   9 54 0 32 55 2 9 54 0 10 56
+                                                   2 9 54 0 10 59 2 9 54 0 32
+                                                   60 3 0 9 9 11 11 53 3 0 9 9
+                                                   32 32 33 2 0 9 9 32 34 2 0 9
+                                                   9 11 35 2 0 9 9 10 27 3 0 9
+                                                   9 10 10 23 1 0 9 9 44 2 0 9
+                                                   9 14 43 2 0 9 9 11 41 2 0 9
+                                                   9 32 40 2 0 9 9 10 38 3 0 57
+                                                   9 10 32 61 3 0 57 9 32 10 58
+                                                   2 0 9 9 47 49 2 0 9 9 45
+                                                   46)))))
            '|lookupComplete|)) 
