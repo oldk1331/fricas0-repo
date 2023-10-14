@@ -7,6 +7,10 @@
  
 (DEFPARAMETER |$ioHook| NIL)
  
+; DEFPARAMETER($erMsgToss, false)
+ 
+(DEFPARAMETER |$erMsgToss| NIL)
+ 
 ; ioHook(x, :args) ==
 ;    if $ioHook then FUNCALL($ioHook, x, args)
  
