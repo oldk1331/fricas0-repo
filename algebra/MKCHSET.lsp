@@ -85,7 +85,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|MakeCachableSet|))
       (LETT |dv$| (LIST '|MakeCachableSet| DV$1) . #1#)
-      (LETT $ (GETREFV 27) . #1#)
+      (LETT $ (GETREFV 28) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|MakeCachableSet| (LIST DV$1)
@@ -107,21 +107,21 @@
               |MKCHSET;setPosition;$NniV;2| |MKCHSET;coerce;$S;3|
               (|OutputForm|) (8 . |coerce|) |MKCHSET;coerce;$Of;4| (|Boolean|)
               (13 . =) (|Mapping| 19 $$) (19 . |enterInCache|)
-              |MKCHSET;coerce;S$;5| |MKCHSET;=;2$B;6| (|SingleInteger|)
-              (|String|))
-           '#(~= 25 |setPosition| 31 |position| 37 |latex| 42 |hash| 47
-              |coerce| 52 = 67)
+              |MKCHSET;coerce;S$;5| |MKCHSET;=;2$B;6| (|String|)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 25 |setPosition| 31 |position| 37 |latex| 42 |hashUpdate!| 47
+              |hash| 53 |coerce| 58 = 73)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL NIL)
                        (CONS
                         '#((|CachableSet|) (|SetCategory|) (|BasicType|)
                            (|CoercibleTo| 6) (|CoercibleTo| 16))
-                        (|makeByteWordVec2| 26
+                        (|makeByteWordVec2| 27
                                             '(0 9 8 10 0 8 0 13 1 6 16 0 17 2 6
                                               19 0 0 20 2 9 2 2 21 22 2 0 19 0
                                               0 1 2 0 8 0 11 14 1 0 11 0 12 1 0
-                                              26 0 1 1 0 25 0 1 1 0 6 0 15 1 0
-                                              0 6 23 1 0 16 0 18 2 0 19 0 0
-                                              24)))))
+                                              25 0 1 2 0 27 27 0 1 1 0 26 0 1 1
+                                              0 6 0 15 1 0 0 6 23 1 0 16 0 18 2
+                                              0 19 0 0 24)))))
            '|lookupComplete|)) 

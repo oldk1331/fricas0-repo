@@ -59,7 +59,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|OpenMathErrorKind|) . #1=(|OpenMathErrorKind|))
-      (LETT $ (GETREFV 23) . #1#)
+      (LETT $ (GETREFV 24) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|OpenMathErrorKind| NIL (CONS 1 $))
@@ -79,21 +79,23 @@
               |OMERRK;OMUnknownSymbol?;$B;3| |OMERRK;OMReadError?;$B;4|
               (|String|) (|Symbol|) (0 . |string|) (|OutputForm|)
               (5 . |coerce|) |OMERRK;coerce;S$;5| (10 . =) |OMERRK;=;2$B;6|
-              (16 . |coerce|) |OMERRK;coerce;$Of;7| (|SingleInteger|))
-           '#(~= 21 |latex| 27 |hash| 32 |coerce| 37 |OMUnknownSymbol?| 47
-              |OMUnknownCD?| 52 |OMReadError?| 57 |OMParseError?| 62 = 67)
+              (16 . |coerce|) |OMERRK;coerce;$Of;7| (|SingleInteger|)
+              (|HashState|))
+           '#(~= 21 |latex| 27 |hashUpdate!| 32 |hash| 38 |coerce| 43
+              |OMUnknownSymbol?| 53 |OMUnknownCD?| 58 |OMReadError?| 63
+              |OMParseError?| 68 = 73)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 15))
-                        (|makeByteWordVec2| 22
+                        (|makeByteWordVec2| 23
                                             '(1 13 12 0 14 1 12 15 0 16 2 6 7 2
                                               2 18 1 6 15 2 20 2 0 7 0 0 1 1 0
-                                              12 0 1 1 0 22 0 1 1 0 0 13 17 1 0
-                                              15 0 21 1 0 7 0 10 1 0 7 0 9 1 0
-                                              7 0 11 1 0 7 0 8 2 0 7 0 0
-                                              19)))))
+                                              12 0 1 2 0 23 23 0 1 1 0 22 0 1 1
+                                              0 0 13 17 1 0 15 0 21 1 0 7 0 10
+                                              1 0 7 0 9 1 0 7 0 11 1 0 7 0 8 2
+                                              0 7 0 0 19)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathErrorKind| 'NILADIC T) 

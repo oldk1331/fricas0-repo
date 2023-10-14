@@ -31,7 +31,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #4=(|DistributedMultivariatePolynomial|))
       (LETT DV$2 (|devaluate| |#2|) . #4#)
       (LETT |dv$| (LIST '|DistributedMultivariatePolynomial| DV$1 DV$2) . #4#)
-      (LETT $ (GETREFV 56) . #4#)
+      (LETT $ (GETREFV 57) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -169,7 +169,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL
               (|GeneralDistributedMultivariatePolynomial| 6 7 46)
-              (|local| |#1|) (|local| |#2|) (|Union| 26 '#1="failed")
+              (|local| |#1|) (|local| |#2|) (|Union| 27 '#1="failed")
               (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 32)
               (|PatternMatchResult| (|Float|) $) (|PatternMatchResult| 32 $)
               (|Union| $ '#1#) (|Fraction| 32) (|NonNegativeInteger|)
@@ -177,8 +177,8 @@
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| $) (|SparseUnivariatePolynomial| $) (|Factored| $)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Record| (|:| |mat| 27) (|:| |vec| (|Vector| 32))) (|Vector| $)
-              (|Matrix| 32) (|Factored| 22) (|Union| 30 '#1#) (|List| 22)
+              (|Matrix| 32) (|Record| (|:| |mat| 25) (|:| |vec| (|Vector| 32)))
+              (|Vector| $) (|Factored| 22) (|Union| 30 '#1#) (|List| 22)
               (|Union| 16 '#2="failed") (|Integer|) (|Union| 32 '#2#)
               (|List| 32) (|Record| (|:| |var| 18) (|:| |exponent| 17))
               (|Union| 35 '#3="failed") (|Union| 21 '#3#)
@@ -186,9 +186,10 @@
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Union| 18 '#2#) (|List| 7) (|Equation| $) (|List| 44)
               (|DirectProduct| (NRTEVAL (LENGTH (QREFELT $ 6))) 17)
-              (|Mapping| 7 7) (|Union| 7 '#2#) (|Mapping| 46 46) (|Matrix| 7)
-              (|Record| (|:| |mat| 50) (|:| |vec| (|Vector| 7)))
-              (|PositiveInteger|) (|SingleInteger|) (|String|) (|OutputForm|))
+              (|Mapping| 7 7) (|Union| 7 '#2#) (|Mapping| 46 46)
+              (|Record| (|:| |mat| 51) (|:| |vec| (|Vector| 7))) (|Matrix| 7)
+              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
+              (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 25
@@ -232,7 +233,7 @@
                  (|InnerEvalable| (|OrderedVariableList| 6) $$)
                  (|InnerEvalable| (|OrderedVariableList| 6) 7)
                  (|InnerEvalable| $$ $$) (|RetractableTo| 7) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 55) (|CommutativeStar|)
+                 (|BasicType|) (|CoercibleTo| 56) (|CommutativeStar|)
                  (|noZeroDivisors|) (|ConvertibleTo| 11) (|ConvertibleTo| 12)
                  (|ConvertibleTo| 10) (|RetractableTo| 16) (|RetractableTo| 32)
                  (|canonicalUnitNormal|))

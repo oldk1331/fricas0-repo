@@ -406,7 +406,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|DirichletRing|))
       (LETT |dv$| (LIST '|DirichletRing| DV$1) . #1#)
-      (LETT $ (GETREFV 76) . #1#)
+      (LETT $ (GETREFV 77) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -455,13 +455,13 @@
               (|OutputPackage|) (114 . |output|) (119 . |coerce|)
               |DIRRING;multiplicative?;$PiB;20| |DIRRING;additive?;$PiB;21|
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|SingleInteger|) (|String|))
+              (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 124 |zeta| 130 |zero?| 134 |unitNormal| 139 |unitCanonical|
               144 |unit?| 149 |subtractIfCan| 154 |sample| 160 |recip| 164
-              |one?| 169 |multiplicative?| 174 |latex| 180 |hash| 185 |exquo|
-              190 |elt| 196 |coerce| 202 |characteristic| 242 |associates?| 246
-              |additive?| 252 ^ 258 |Zero| 270 |One| 274 = 278 - 284 + 295 *
-              301)
+              |one?| 169 |multiplicative?| 174 |latex| 180 |hashUpdate!| 185
+              |hash| 191 |exquo| 196 |elt| 202 |coerce| 208 |characteristic|
+              248 |associates?| 252 |additive?| 258 ^ 264 |Zero| 276 |One| 280
+              = 284 - 290 + 301 * 307)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -482,7 +482,7 @@
                  (|AbelianSemiGroup|) (|SetCategory|) (|Eltable| 8 6)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 27)
                  (|CommutativeStar|) (|noZeroDivisors|))
-              (|makeByteWordVec2| 75
+              (|makeByteWordVec2| 76
                                   '(0 6 0 14 1 17 15 16 18 2 22 20 21 15 23 2
                                     20 6 0 16 25 1 20 27 0 28 1 8 30 0 31 0 6 0
                                     32 2 6 0 0 0 35 1 6 0 0 37 2 6 0 16 0 39 2
@@ -493,12 +493,13 @@
                                     70 2 0 30 0 0 1 0 0 0 34 1 0 30 0 1 1 1 73
                                     0 1 1 1 0 0 1 1 1 30 0 54 2 0 52 0 0 1 0 0
                                     0 1 1 0 52 0 55 1 0 30 0 1 2 0 30 0 8 71 1
-                                    0 75 0 1 1 0 74 0 1 2 1 52 0 0 1 2 0 6 0 8
-                                    9 1 1 0 6 1 1 1 0 0 1 1 0 0 20 26 1 0 20 0
-                                    24 1 0 0 10 12 1 0 10 0 11 1 0 0 16 1 1 0
-                                    27 0 29 0 0 65 1 2 1 30 0 0 1 2 0 30 0 8 72
-                                    2 0 0 0 65 1 2 0 0 0 8 1 0 0 0 33 0 0 0 13
-                                    2 0 30 0 0 1 2 0 0 0 0 1 1 0 0 0 38 2 0 0 0
-                                    0 36 2 1 0 0 6 1 2 1 0 6 0 42 2 0 0 0 0 51
-                                    2 0 0 16 0 40 2 0 0 65 0 1 2 0 0 8 0 1)))))
+                                    0 74 0 1 2 0 76 76 0 1 1 0 75 0 1 2 1 52 0
+                                    0 1 2 0 6 0 8 9 1 1 0 6 1 1 1 0 0 1 1 0 0
+                                    20 26 1 0 20 0 24 1 0 0 10 12 1 0 10 0 11 1
+                                    0 0 16 1 1 0 27 0 29 0 0 65 1 2 1 30 0 0 1
+                                    2 0 30 0 8 72 2 0 0 0 65 1 2 0 0 0 8 1 0 0
+                                    0 33 0 0 0 13 2 0 30 0 0 1 2 0 0 0 0 1 1 0
+                                    0 0 38 2 0 0 0 0 36 2 1 0 0 6 1 2 1 0 6 0
+                                    42 2 0 0 0 0 51 2 0 0 16 0 40 2 0 0 65 0 1
+                                    2 0 0 8 0 1)))))
            '|lookupComplete|)) 

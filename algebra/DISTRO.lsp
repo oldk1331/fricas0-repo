@@ -450,7 +450,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|Distribution|))
       (LETT |dv$| (LIST '|Distribution| DV$1) . #1#)
-      (LETT $ (GETREFV 119) . #1#)
+      (LETT $ (GETREFV 120) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -572,28 +572,28 @@
               |DISTRO;classicalConvolution;3$;38|
               |DISTRO;freeConvolution;3$;39| |DISTRO;booleanConvolution;3$;40|
               (279 . |compose|) |DISTRO;monotoneConvolution;3$;41|
-              |DISTRO;^;$Pi$;43| (|SingleInteger|) (|String|))
+              |DISTRO;^;$Pi$;43| (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 285 |orthogonalPolynomials| 291 |monotoneCumulants| 301
               |monotoneConvolution| 306 |moments| 312 |moment| 317 |latex| 323
-              |jacobiParameters| 328 |hash| 338 |hankelDeterminants| 343
-              |freeMultiplicativeConvolution| 348 |freeCumulants| 354
-              |freeCumulant| 359 |freeConvolution| 365
-              |distributionBySTransform| 371 |distributionByMoments| 383
-              |distributionByJacobiParameters| 393
-              |distributionByFreeCumulants| 405 |distributionByEvenMoments| 415
-              |distributionByClassicalCumulants| 425
-              |distributionByBooleanCumulants| 435 |construct| 445 |coerce| 453
-              |classicalCumulants| 458 |classicalCumulant| 463
-              |classicalConvolution| 469 |booleanCumulants| 475
-              |booleanCumulantFromJacobi| 480 |booleanCumulant| 487
-              |booleanConvolution| 493 ^ 499 |Zero| 505 = 509)
+              |jacobiParameters| 328 |hashUpdate!| 338 |hash| 344
+              |hankelDeterminants| 349 |freeMultiplicativeConvolution| 354
+              |freeCumulants| 360 |freeCumulant| 365 |freeConvolution| 371
+              |distributionBySTransform| 377 |distributionByMoments| 389
+              |distributionByJacobiParameters| 399
+              |distributionByFreeCumulants| 411 |distributionByEvenMoments| 421
+              |distributionByClassicalCumulants| 431
+              |distributionByBooleanCumulants| 441 |construct| 451 |coerce| 459
+              |classicalCumulants| 464 |classicalCumulant| 469
+              |classicalConvolution| 475 |booleanCumulants| 481
+              |booleanCumulantFromJacobi| 486 |booleanCumulant| 493
+              |booleanConvolution| 499 ^ 505 |Zero| 511 = 515)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|DistributionCategory| 6) (|SetCategory|)
                            (|BasicType|) (|CoercibleTo| 73))
-                        (|makeByteWordVec2| 118
+                        (|makeByteWordVec2| 119
                                             '(0 6 0 8 1 10 0 9 11 1 12 0 10 13
                                               1 16 12 12 17 1 16 12 12 18 1 16
                                               12 12 19 1 10 6 0 21 1 10 0 0 22
@@ -619,19 +619,19 @@
                                               0 110 2 59 10 10 10 114 2 0 56 0
                                               0 1 1 2 107 0 109 1 1 92 0 94 1 3
                                               12 0 53 2 0 0 0 0 115 1 0 12 0 51
-                                              2 0 6 0 76 77 1 0 118 0 1 1 2 103
-                                              0 106 1 1 89 0 91 1 0 117 0 1 1 0
-                                              10 0 88 2 3 0 0 0 72 1 0 12 0 83
-                                              2 0 6 0 78 80 2 0 0 0 0 112 3 3 0
-                                              54 54 12 66 1 3 0 67 68 1 0 0 12
-                                              14 1 0 0 10 20 2 0 0 10 10 49 2 0
-                                              0 12 12 48 1 0 0 12 33 1 0 0 10
-                                              34 1 0 0 10 28 1 0 0 12 27 1 0 0
-                                              10 31 1 0 0 12 30 1 0 0 12 36 1 0
-                                              0 10 37 4 0 0 12 12 12 12 50 1 0
-                                              73 0 75 1 0 12 0 82 2 0 6 0 78 79
-                                              2 0 0 0 0 111 1 0 12 0 84 3 0 6
-                                              39 12 12 42 2 0 6 0 78 81 2 0 0 0
-                                              0 113 2 0 0 0 78 116 0 0 0 15 2 0
-                                              56 0 0 1)))))
+                                              2 0 6 0 76 77 1 0 117 0 1 1 2 103
+                                              0 106 1 1 89 0 91 2 0 119 119 0 1
+                                              1 0 118 0 1 1 0 10 0 88 2 3 0 0 0
+                                              72 1 0 12 0 83 2 0 6 0 78 80 2 0
+                                              0 0 0 112 3 3 0 54 54 12 66 1 3 0
+                                              67 68 1 0 0 12 14 1 0 0 10 20 2 0
+                                              0 10 10 49 2 0 0 12 12 48 1 0 0
+                                              12 33 1 0 0 10 34 1 0 0 10 28 1 0
+                                              0 12 27 1 0 0 10 31 1 0 0 12 30 1
+                                              0 0 12 36 1 0 0 10 37 4 0 0 12 12
+                                              12 12 50 1 0 73 0 75 1 0 12 0 82
+                                              2 0 6 0 78 79 2 0 0 0 0 111 1 0
+                                              12 0 84 3 0 6 39 12 12 42 2 0 6 0
+                                              78 81 2 0 0 0 0 113 2 0 0 0 78
+                                              116 0 0 0 15 2 0 56 0 0 1)))))
            '|lookupComplete|)) 

@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4701 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4704 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -146,32 +146,32 @@
  |GeneralSparseTable| |GeneralTriangularSet| |Guess| |GuessAlgebraicNumber|
  |GuessFinite| |GuessFiniteFunctions| |GuessInteger| |GuessPolynomial|
  |GuessPolynomialFunctions| |GuessPolynomialInteger| |Pi| |HankelPackage|
- |HashTable| |HallBasis| |HomogeneousDistributedMultivariatePolynomial|
- |HomogeneousDirectProduct| |Heap| |HyperellipticFiniteDivisor| |HeuGcd|
- |HexadecimalExpansion| |HomogeneousAggregate&| |HomogeneousAggregate|
- |HopfAlgebra| |HTMLFormat| |HyperbolicFunctionCategory&|
- |HyperbolicFunctionCategory| |InnerAlgFactor| |InnerAlgebraicNumber|
- |IndexedOneDimensionalArray| |IndexedTwoDimensionalArray|
- |ChineseRemainderToolsForIntegralBases| |IntegralBasisTools| |IndexedBits|
- |IntegralBasisPolynomialTools| |IndexCard| |InnerCommonDenominator|
- |PolynomialIdeal| |IdealDecompositionPackage| |IndexedDirectProductCategory|
- |IndexedDirectProductObject| |InnerEvalable&| |InnerEvalable|
- |InnerFreeAbelianMonoid| |IndexedFlexibleArray| |InnerFiniteField|
- |InnerIndexedTwoDimensionalArray| |IndexedJetBundle| |IndexedList| |ILogic|
- |InnerMatrixLinearAlgebraFunctions| |InnerMatrixQuotientFieldFunctions|
- |IndexedMatrix| |InnerModularHermitePade| |InnerNormalBasisFieldFunctions|
- |IncrementingMaps| |IndexedExponents| |InnerNumericEigenPackage| |Infinity|
- |InputForm| |InputFormFunctions1| |InfiniteProductCharacteristicZero|
- |InnerNumericFloatSolvePackage| |InnerModularGcd| |InnerMultFact|
- |InfiniteProductFiniteField| |InfiniteProductPrimeField| |InnerPolySign|
- |IntegerNumberSystem&| |IntegerNumberSystem| |Integer| |InnerTable|
- |AlgebraicIntegration| |AlgebraicIntegrate| |IntegerBits| |IntervalCategory|
- |DenominatorIntegration| |IntegralDomain| |ElementaryIntegration|
- |IntegerFactorizationPackage| |GenusZeroIntegration|
- |IntegerNumberTheoryFunctions| |AlgebraicHermiteIntegration|
- |TranscendentalHermiteIntegration| |PureAlgebraicIntegration|
- |PatternMatchIntegration| |RationalIntegration| |IntegerRetractions|
- |RationalFunctionIntegration| |Interval|
+ |HashState| |HashTable| |HallBasis|
+ |HomogeneousDistributedMultivariatePolynomial| |HomogeneousDirectProduct|
+ |Heap| |HyperellipticFiniteDivisor| |HeuGcd| |HexadecimalExpansion|
+ |HomogeneousAggregate&| |HomogeneousAggregate| |HopfAlgebra| |HTMLFormat|
+ |HyperbolicFunctionCategory&| |HyperbolicFunctionCategory| |InnerAlgFactor|
+ |InnerAlgebraicNumber| |IndexedOneDimensionalArray|
+ |IndexedTwoDimensionalArray| |ChineseRemainderToolsForIntegralBases|
+ |IntegralBasisTools| |IndexedBits| |IntegralBasisPolynomialTools| |IndexCard|
+ |InnerCommonDenominator| |PolynomialIdeal| |IdealDecompositionPackage|
+ |IndexedDirectProductCategory| |IndexedDirectProductObject| |InnerEvalable&|
+ |InnerEvalable| |InnerFreeAbelianMonoid| |IndexedFlexibleArray|
+ |InnerFiniteField| |InnerIndexedTwoDimensionalArray| |IndexedJetBundle|
+ |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
+ |InnerMatrixQuotientFieldFunctions| |IndexedMatrix| |InnerModularHermitePade|
+ |InnerNormalBasisFieldFunctions| |IncrementingMaps| |IndexedExponents|
+ |InnerNumericEigenPackage| |Infinity| |InputForm| |InputFormFunctions1|
+ |InfiniteProductCharacteristicZero| |InnerNumericFloatSolvePackage|
+ |InnerModularGcd| |InnerMultFact| |InfiniteProductFiniteField|
+ |InfiniteProductPrimeField| |InnerPolySign| |IntegerNumberSystem&|
+ |IntegerNumberSystem| |Integer| |InnerTable| |AlgebraicIntegration|
+ |AlgebraicIntegrate| |IntegerBits| |IntervalCategory| |DenominatorIntegration|
+ |IntegralDomain| |ElementaryIntegration| |IntegerFactorizationPackage|
+ |GenusZeroIntegration| |IntegerNumberTheoryFunctions|
+ |AlgebraicHermiteIntegration| |TranscendentalHermiteIntegration|
+ |PureAlgebraicIntegration| |PatternMatchIntegration| |RationalIntegration|
+ |IntegerRetractions| |RationalFunctionIntegration| |Interval|
  |IntegerSolveLinearPolynomialEquation| |IntegrationTools|
  |TranscendentalIntegration| |InverseLaplaceTransform| |InnerPAdicInteger|
  |InnerPrimeField| |InternalPrintPackage| |IntegrationResult|
@@ -612,18 +612,18 @@
  |genericPosition| F2EXPRR EXPRR2F |iim2| |iiretractVar| |guess| |guessExpRat|
  |guessBinRat| |guessAlgDep| |guessFE| |guessAlg| |guessPade| |algDepHP|
  |substHP| |shiftHP| |diffHP| |guessRec| |guessPRec| |guessRat| |guessADE|
- |guessHolo| |HankelMatrix| |lfunc| |inHallBasis?| |reorder| |heap| |gcdprim|
- |gcdcofact| |gcdcofactprim| |lintgcd| |hex| |parts| |count| |every?| |any?|
- |map!| |antipode| |trueEqual| |factorList| |listConjugateBases| |matrixGcd|
- |divideIfCan!| |leastPower| |idealiser| |idealiserMatrix| |moduleSum|
- |mapUnivariate| |mapUnivariateIfCan| |mapMatrixIfCan| |mapBivariate|
- |fullDisplay| |relationsIdeal| |saturate| |groebner?| |groebnerIdeal| |ideal|
- |leadingIdeal| |backOldPos| |generalPosition| |quotient| |zeroDim?|
- |inRadical?| |in?| |element?| |zeroDimPrime?| |zeroDimPrimary?| |radical|
- |primaryDecomp| |leadingTerm| |constructOrdered| |leadingSupport|
- |removeRepeats!| |shrinkable| |physicalLength!| |physicalLength|
- |flexibleArray| |toStringUnwrapped| |parseILTerm| |parseIL2| |parseIL|
- |opType| |deductions| |implies| |proposition| |logicF| |logicT|
+ |guessHolo| |HankelMatrix| |update!| |lfunc| |inHallBasis?| |reorder| |heap|
+ |gcdprim| |gcdcofact| |gcdcofactprim| |lintgcd| |hex| |parts| |count| |every?|
+ |any?| |map!| |antipode| |trueEqual| |factorList| |listConjugateBases|
+ |matrixGcd| |divideIfCan!| |leastPower| |idealiser| |idealiserMatrix|
+ |moduleSum| |mapUnivariate| |mapUnivariateIfCan| |mapMatrixIfCan|
+ |mapBivariate| |fullDisplay| |relationsIdeal| |saturate| |groebner?|
+ |groebnerIdeal| |ideal| |leadingIdeal| |backOldPos| |generalPosition|
+ |quotient| |zeroDim?| |inRadical?| |in?| |element?| |zeroDimPrime?|
+ |zeroDimPrimary?| |radical| |primaryDecomp| |leadingTerm| |constructOrdered|
+ |leadingSupport| |removeRepeats!| |shrinkable| |physicalLength!|
+ |physicalLength| |flexibleArray| |toStringUnwrapped| |parseILTerm| |parseIL2|
+ |parseIL| |opType| |deductions| |implies| |proposition| |logicF| |logicT|
  |generalizedInverse| |do_modular_solve| |do_poly_modular| |do_poly_integer|
  |merge_exponents| |merge2| |eval_and_solve| |modpeval| |modpreduction|
  |setFieldInfo| |pol| |xn| |dAndcExp| |repSq| |expPot| |qPot| |lookup|
@@ -918,10 +918,10 @@
  |consRow!| |deleteRow!| |setRow!| |row| |setelt!| |sortedPurge!| |purge!|
  |elimZeroCols!| |allIndices| |nrows| |ncols| |dilate| |firstn| |stream|
  |sequence| |apply| |union| |subset?| |symmetricDifference| |difference|
- |intersect| |set| |brace| |latex| |hash| |delta| |enumerate| |setOfMinN|
- |elements| |replaceKthElement| |incrementKthElement| |cdr| |car| |expr|
- |float| |integer| |symbol| |destruct| |float?| |integer?| |symbol?| |string?|
- |list?| |pair?| |null?| |eq| |fortran| |startTable!| |stopTable!|
+ |intersect| |set| |brace| |latex| |hashUpdate!| |hash| |delta| |enumerate|
+ |setOfMinN| |elements| |replaceKthElement| |incrementKthElement| |cdr| |car|
+ |expr| |float| |integer| |symbol| |destruct| |float?| |integer?| |symbol?|
+ |string?| |list?| |pair?| |null?| |eq| |fortran| |startTable!| |stopTable!|
  |supDimElseRittWu?| |algebraicSort| |moreAlgebraic?| |subTriSet?| |subPolSet?|
  |internalSubPolSet?| |internalInfRittWu?| |internalSubQuasiComponent?|
  |subQuasiComponent?| |removeSuperfluousQuasiComponents| |subCase?|

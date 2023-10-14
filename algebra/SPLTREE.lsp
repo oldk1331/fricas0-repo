@@ -665,7 +665,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #3=(|SplittingTree|))
       (LETT DV$2 (|devaluate| |#2|) . #3#)
       (LETT |dv$| (LIST '|SplittingTree| DV$1 DV$2) . #3#)
-      (LETT $ (GETREFV 97) . #3#)
+      (LETT $ (GETREFV 98) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -745,18 +745,19 @@
               |SPLTREE;subNodeOf?;Sn$MB;33| (165 . |removeDuplicates|)
               (170 . |empty|) (174 . |empty|) (178 . |construct|)
               |SPLTREE;splitNodeOf!;2$L$;34| |SPLTREE;splitNodeOf!;2$LM$;35|
-              (|List| 92) (|Equation| 8) (|SingleInteger|) (|Mapping| 18 8)
-              '"value" (|Integer|))
+              (|List| 92) (|Equation| 8) (|HashState|) (|SingleInteger|)
+              (|Mapping| 18 8) '"value" (|Integer|))
            '#(~= 185 |value| 191 |updateStatus!| 196 |subNodeOf?| 201
               |splitNodeOf!| 208 |size?| 223 |setvalue!| 229 |setelt| 235
               |setchildren!| 242 |sample| 248 |result| 252 |remove!| 257
               |remove| 263 |parts| 269 |nodes| 274 |nodeOf?| 279 |node?| 285
               |more?| 291 |members| 297 |member?| 302 |map!| 308 |map| 314
-              |less?| 320 |leaves| 326 |leaf?| 331 |latex| 336 |hash| 341
-              |extractSplittingLeaf| 346 |every?| 351 |eval| 357 |eq?| 383
-              |empty?| 389 |empty| 394 |elt| 398 |distance| 404 |cyclic?| 410
-              |count| 415 |copy| 427 |construct| 432 |conditions| 459 |coerce|
-              464 |children| 469 |child?| 474 |any?| 480 = 486 |#| 492)
+              |less?| 320 |leaves| 326 |leaf?| 331 |latex| 336 |hashUpdate!|
+              341 |hash| 347 |extractSplittingLeaf| 352 |every?| 357 |eval| 363
+              |eq?| 389 |empty?| 395 |empty| 400 |elt| 404 |distance| 410
+              |cyclic?| 416 |count| 421 |copy| 433 |construct| 438 |conditions|
+              465 |coerce| 470 |children| 475 |child?| 480 |any?| 486 = 492 |#|
+              498)
            'NIL
            (CONS (|makeByteWordVec2| 4 '(0 0 0 2 1 0 0 0 2 1 4))
                  (CONS
@@ -772,7 +773,7 @@
                       (|InnerEvalable| (|SplittingNode| 6 7)
                                        (|SplittingNode| 6 7))
                       (|BasicType|) (|CoercibleTo| 65))
-                   (|makeByteWordVec2| 96
+                   (|makeByteWordVec2| 97
                                        '(2 8 0 6 7 10 2 8 11 6 15 16 1 8 18 0
                                          19 1 20 18 0 21 0 8 0 23 2 8 18 0 0 26
                                          1 8 18 0 27 1 20 2 0 29 2 20 0 2 0 31
@@ -787,21 +788,21 @@
                                          7 0 87 3 8 0 6 7 18 88 2 1 18 0 0 1 1
                                          0 8 0 25 1 0 0 0 75 3 0 18 8 0 82 84 4
                                          0 0 0 0 13 82 90 3 0 0 0 0 13 89 2 0
-                                         18 0 55 1 2 7 8 0 8 42 3 7 8 0 95 8 1
+                                         18 0 55 1 2 7 8 0 8 42 3 7 8 0 96 8 1
                                          2 7 0 0 11 40 0 0 0 1 1 0 78 0 79 2 0
                                          0 8 0 38 2 0 0 8 0 30 1 5 13 0 1 1 0
                                          11 0 50 2 0 18 8 0 81 2 1 18 0 0 1 2 0
                                          18 0 55 1 1 5 13 0 54 2 6 18 8 0 1 2 7
                                          0 44 0 46 2 0 0 44 0 45 2 0 18 0 55 1
-                                         1 0 13 0 52 1 0 18 0 41 1 1 64 0 1 1 1
-                                         93 0 1 1 0 73 0 74 2 5 18 94 0 1 3 2 0
-                                         0 13 13 1 3 2 0 0 8 8 1 2 2 0 0 91 1 2
-                                         2 0 0 92 1 2 0 18 0 0 49 1 0 18 0 22 0
-                                         0 0 24 2 0 8 0 95 1 2 0 96 0 0 1 1 0
-                                         18 0 43 2 6 55 8 0 1 2 5 55 94 0 1 1 0
-                                         0 0 48 4 0 0 6 7 6 15 17 3 0 0 6 7 11
-                                         12 3 0 0 6 7 13 14 1 0 0 8 9 1 0 15 0
-                                         80 1 3 65 0 72 1 0 11 0 28 2 1 18 0 0
-                                         1 2 5 18 94 0 1 2 1 18 0 0 63 1 5 55 0
-                                         57)))))
+                                         1 0 13 0 52 1 0 18 0 41 1 1 64 0 1 2 1
+                                         93 93 0 1 1 1 94 0 1 1 0 73 0 74 2 5
+                                         18 95 0 1 3 2 0 0 13 13 1 3 2 0 0 8 8
+                                         1 2 2 0 0 91 1 2 2 0 0 92 1 2 0 18 0 0
+                                         49 1 0 18 0 22 0 0 0 24 2 0 8 0 96 1 2
+                                         0 97 0 0 1 1 0 18 0 43 2 6 55 8 0 1 2
+                                         5 55 95 0 1 1 0 0 0 48 4 0 0 6 7 6 15
+                                         17 3 0 0 6 7 11 12 3 0 0 6 7 13 14 1 0
+                                         0 8 9 1 0 15 0 80 1 3 65 0 72 1 0 11 0
+                                         28 2 1 18 0 0 1 2 5 18 95 0 1 2 1 18 0
+                                         0 63 1 5 55 0 57)))))
            '|lookupComplete|)) 

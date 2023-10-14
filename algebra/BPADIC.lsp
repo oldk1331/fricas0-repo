@@ -27,7 +27,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|BalancedPAdicInteger|))
       (LETT |dv$| (LIST '|BalancedPAdicInteger| DV$1) . #1#)
-      (LETT $ (GETREFV 27) . #1#)
+      (LETT $ (GETREFV 28) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|BalancedPAdicInteger| (LIST DV$1)
@@ -41,16 +41,17 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|InnerPAdicInteger| 6 (NRTEVAL 'NIL))
               (|local| |#1|) (|SparseUnivariatePolynomial| 8) (|Integer|)
-              (|NonNegativeInteger|) (|Union| 11 '#1="failed") (|List| $)
-              (|Stream| 8)
+              (|Stream| 8) (|NonNegativeInteger|)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 11 '#1="failed") (|Union| 14 '#1#) (|List| $)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 14 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Boolean|)
-              (|Record| (|:| |coef| 11) (|:| |generator| $))
-              (|SparseUnivariatePolynomial| $) (|Union| $ '"failed")
+              (|SparseUnivariatePolynomial| $)
+              (|Record| (|:| |coef| 14) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|PositiveInteger|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|Union| $ '"failed") (|PositiveInteger|) (|HashState|)
+              (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -72,6 +73,6 @@
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
                  (|Monoid|) (|SemiRng|) (|SemiGroup|) (|AbelianSemiGroup|)
                  (|SetCategory|) (|noZeroDivisors|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 25))
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 26))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

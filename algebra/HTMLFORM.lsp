@@ -1531,7 +1531,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|HTMLFormat|) . #1=(|HTMLFormat|))
-      (LETT $ (GETREFV 67) . #1#)
+      (LETT $ (GETREFV 68) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|HTMLFormat| NIL (CONS 1 $))
@@ -1587,15 +1587,15 @@
               (89 . |tree|) (94 . |second|) (99 . ~=) (105 . |position|)
               (112 . |elt|) (118 . |position|) (|List| 42) (124 . |elt|)
               (130 . |empty|) (|NonNegativeInteger|) (134 . >) (140 . =)
-              (146 . |member?|) (|SingleInteger|))
-           '#(~= 152 |latex| 158 |hash| 163 |exprex| 168 |display| 173
-              |coerceS| 178 |coerceL| 183 |coerce| 188 = 198)
+              (146 . |member?|) (|SingleInteger|) (|HashState|))
+           '#(~= 152 |latex| 158 |hashUpdate!| 163 |hash| 169 |exprex| 174
+              |display| 179 |coerceS| 184 |coerceL| 189 |coerce| 194 = 204)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 23))
-                        (|makeByteWordVec2| 66
+                        (|makeByteWordVec2| 67
                                             '(0 27 0 28 2 31 0 22 30 32 2 31 22
                                               0 22 33 1 31 34 0 35 1 31 34 0 36
                                               1 31 22 0 37 2 22 34 0 0 38 1 31
@@ -1608,10 +1608,11 @@
                                               42 57 2 49 42 22 0 58 2 59 42 0
                                               42 60 0 31 0 61 2 62 34 0 0 63 2
                                               23 34 0 0 64 2 49 34 22 0 65 2 0
-                                              34 0 0 1 1 0 22 0 1 1 0 66 0 1 1
-                                              0 22 23 40 1 0 27 22 29 1 0 22 23
-                                              25 1 0 22 23 26 1 0 22 23 24 1 0
-                                              23 0 1 2 0 34 0 0 1)))))
+                                              34 0 0 1 1 0 22 0 1 2 0 67 67 0 1
+                                              1 0 66 0 1 1 0 22 23 40 1 0 27 22
+                                              29 1 0 22 23 25 1 0 22 23 26 1 0
+                                              22 23 24 1 0 23 0 1 2 0 34 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|HTMLFormat| 'NILADIC T) 

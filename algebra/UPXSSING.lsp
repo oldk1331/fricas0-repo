@@ -539,7 +539,7 @@
             (LIST '|UnivariatePuiseuxSeriesWithExponentialSingularity| DV$1
                   DV$2 DV$3 DV$4)
             . #1#)
-      (LETT $ (GETREFV 82) . #1#)
+      (LETT $ (GETREFV 83) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -639,18 +639,19 @@
               (|Union| 34 '#1#) (|Integer|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Mapping| 13 13) (|List| 17) (|Mapping| 17 17)
-              (|PositiveInteger|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
+              (|OutputForm|))
            '#(~= 192 |zero?| 198 |unitNormal| 203 |unitCanonical| 208 |unit?|
               213 |subtractIfCan| 218 |sample| 224 |retractIfCan| 228 |retract|
               243 |reductum| 258 |recip| 263 |primitivePart| 268 |pomopo!| 273
               |one?| 281 |numberOfMonomials| 286 |monomial?| 291 |monomial| 296
               |minimumDegree| 302 |mapExponents| 307 |map| 313 |limitPlus| 319
-              |leadingMonomial| 324 |leadingCoefficient| 329 |latex| 334 |hash|
-              339 |ground?| 344 |ground| 349 |exquo| 354 |dominantTerm| 366
-              |degree| 371 |content| 376 |coerce| 381 |coefficients| 406
-              |coefficient| 411 |charthRoot| 417 |characteristic| 422
-              |binomThmExpt| 426 |associates?| 433 ^ 439 |Zero| 451 |One| 455 =
-              459 / 465 - 471 + 482 * 488)
+              |leadingMonomial| 324 |leadingCoefficient| 329 |latex| 334
+              |hashUpdate!| 339 |hash| 345 |ground?| 350 |ground| 355 |exquo|
+              360 |dominantTerm| 372 |degree| 377 |content| 382 |coerce| 387
+              |coefficients| 412 |coefficient| 417 |charthRoot| 423
+              |characteristic| 428 |binomThmExpt| 432 |associates?| 439 ^ 445
+              |Zero| 457 |One| 461 = 465 / 471 - 477 + 488 * 494)
            'NIL
            (CONS
             (|makeByteWordVec2| 6
@@ -691,9 +692,9 @@
                  (|SetCategory|) (|noZeroDivisors|) (|CommutativeStar|)
                  (|unitsKnown|)
                  (|RetractableTo| (|UnivariatePuiseuxSeries| 7 8 9))
-                 (|BasicType|) (|CoercibleTo| 80) (|RetractableTo| 34)
+                 (|BasicType|) (|CoercibleTo| 82) (|RetractableTo| 34)
                  (|RetractableTo| 73))
-              (|makeByteWordVec2| 81
+              (|makeByteWordVec2| 82
                                   '(1 0 10 0 11 0 7 0 12 1 0 13 0 14 1 13 15 0
                                     16 1 0 17 0 18 1 17 0 0 21 1 13 0 0 22 2 0
                                     0 17 13 23 1 13 27 0 28 1 27 0 0 29 1 27 30
@@ -712,15 +713,16 @@
                                     1 10 0 0 1 4 0 0 0 17 13 0 1 1 0 15 0 1 1 0
                                     10 0 11 1 0 15 0 1 2 0 0 17 13 23 1 0 13 0
                                     1 2 0 0 75 0 1 2 0 0 77 0 1 1 0 70 0 71 1 0
-                                    0 0 1 1 0 17 0 18 1 0 79 0 1 1 0 81 0 1 1 0
-                                    15 0 1 1 0 17 0 1 2 9 24 0 17 1 2 0 24 0 0
-                                    1 1 0 55 0 56 1 0 13 0 14 1 10 17 0 1 1 8 0
-                                    34 1 1 0 0 73 1 1 0 0 0 1 1 0 0 17 1 1 0 80
-                                    0 1 1 0 76 0 1 2 0 17 0 13 1 1 2 24 0 1 0 0
-                                    10 1 3 11 0 0 0 10 1 2 0 15 0 0 1 2 0 0 0
-                                    10 1 2 0 0 0 78 1 0 0 0 1 0 0 0 1 2 0 15 0
-                                    0 1 2 7 0 0 17 1 1 0 0 0 1 2 0 0 0 0 1 2 0
-                                    0 0 0 1 2 1 0 34 0 1 2 1 0 0 34 1 2 0 0 10
-                                    0 1 2 0 0 73 0 1 2 0 0 17 0 1 2 0 0 0 0 1 2
-                                    0 0 0 17 1 2 0 0 78 0 1)))))
+                                    0 0 1 1 0 17 0 18 1 0 79 0 1 2 0 81 81 0 1
+                                    1 0 80 0 1 1 0 15 0 1 1 0 17 0 1 2 9 24 0
+                                    17 1 2 0 24 0 0 1 1 0 55 0 56 1 0 13 0 14 1
+                                    10 17 0 1 1 8 0 34 1 1 0 0 73 1 1 0 0 0 1 1
+                                    0 0 17 1 1 0 82 0 1 1 0 76 0 1 2 0 17 0 13
+                                    1 1 2 24 0 1 0 0 10 1 3 11 0 0 0 10 1 2 0
+                                    15 0 0 1 2 0 0 0 10 1 2 0 0 0 78 1 0 0 0 1
+                                    0 0 0 1 2 0 15 0 0 1 2 7 0 0 17 1 1 0 0 0 1
+                                    2 0 0 0 0 1 2 0 0 0 0 1 2 1 0 34 0 1 2 1 0
+                                    0 34 1 2 0 0 10 0 1 2 0 0 73 0 1 2 0 0 17 0
+                                    1 2 0 0 0 0 1 2 0 0 0 17 1 2 0 0 78 0
+                                    1)))))
            '|lookupComplete|)) 

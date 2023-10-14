@@ -82,7 +82,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|ArrayStack|))
       (LETT |dv$| (LIST '|ArrayStack| DV$1) . #3#)
-      (LETT $ (GETREFV 46) . #3#)
+      (LETT $ (GETREFV 47) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -134,14 +134,15 @@
               |ASTACK;push!;S$S;9| |ASTACK;insert!;S2$;8| (42 . |concat|)
               (48 . |maxIndex|) (53 . |delete!|) |ASTACK;top;$S;11|
               (59 . |construct|) |ASTACK;arrayStack;L$;12| (64 . |new|)
-              |ASTACK;empty;$;13| (|List| 41) (|Equation| 6) (|Mapping| 11 6)
-              (|Mapping| 6 6) (|SingleInteger|) (|String|))
+              |ASTACK;empty;$;13| (|Equation| 6) (|List| 40) (|Mapping| 11 6)
+              (|Mapping| 6 6) (|SingleInteger|) (|String|) (|HashState|))
            '#(~= 70 |top| 76 |size?| 81 |sample| 87 |push!| 91 |pop!| 97
               |parts| 102 |more?| 107 |members| 113 |member?| 118 |map!| 124
               |map| 130 |less?| 136 |latex| 142 |inspect| 147 |insert!| 152
-              |hash| 158 |extract!| 163 |every?| 168 |eval| 174 |eq?| 200
-              |empty?| 206 |empty| 211 |depth| 215 |count| 220 |copy| 232
-              |coerce| 237 |bag| 242 |arrayStack| 247 |any?| 252 = 258 |#| 264)
+              |hashUpdate!| 158 |hash| 164 |extract!| 169 |every?| 174 |eval|
+              180 |eq?| 206 |empty?| 212 |empty| 217 |depth| 221 |count| 226
+              |copy| 238 |coerce| 243 |bag| 248 |arrayStack| 253 |any?| 258 =
+              264 |#| 270)
            'NIL
            (CONS (|makeByteWordVec2| 4 '(0 0 0 0 2 1 0 0 0 2 1 4))
                  (CONS
@@ -154,7 +155,7 @@
                       (|SetCategory|) (|Type|) (|finiteAggregate|)
                       (|shallowlyMutable|) (|InnerEvalable| 6 6) (|BasicType|)
                       (|CoercibleTo| 17))
-                   (|makeByteWordVec2| 45
+                   (|makeByteWordVec2| 46
                                        '(1 7 8 0 9 2 7 11 0 0 12 1 7 0 0 14 1
                                          18 17 0 19 2 7 6 0 20 21 1 6 17 0 22 1
                                          23 17 0 24 1 7 11 0 27 2 7 0 6 0 32 1
@@ -164,11 +165,12 @@
                                          28 1 6 18 0 1 2 0 11 0 8 1 1 6 18 0 1
                                          2 7 11 6 0 1 2 5 0 43 0 1 2 0 0 43 0 1
                                          2 0 11 0 8 1 1 1 45 0 1 1 0 6 0 1 2 0
-                                         0 6 0 31 1 1 44 0 1 1 0 6 0 29 2 6 11
-                                         42 0 1 3 2 0 0 18 18 1 3 2 0 0 6 6 1 2
-                                         2 0 0 40 1 2 2 0 0 41 1 2 0 11 0 0 1 1
-                                         0 11 0 16 0 0 0 39 1 0 8 0 26 2 7 8 6
-                                         0 1 2 6 8 42 0 1 1 0 0 0 15 1 3 17 0
-                                         25 1 0 0 18 1 1 0 0 18 37 2 6 11 42 0
-                                         1 2 1 11 0 0 13 1 6 8 0 10)))))
+                                         0 6 0 31 2 1 46 46 0 1 1 1 44 0 1 1 0
+                                         6 0 29 2 6 11 42 0 1 3 2 0 0 18 18 1 2
+                                         2 0 0 40 1 3 2 0 0 6 6 1 2 2 0 0 41 1
+                                         2 0 11 0 0 1 1 0 11 0 16 0 0 0 39 1 0
+                                         8 0 26 2 7 8 6 0 1 2 6 8 42 0 1 1 0 0
+                                         0 15 1 3 17 0 25 1 0 0 18 1 1 0 0 18
+                                         37 2 6 11 42 0 1 2 1 11 0 0 13 1 6 8 0
+                                         10)))))
            '|lookupComplete|)) 

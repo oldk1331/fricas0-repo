@@ -30,7 +30,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #3#)
       (LETT DV$3 (|devaluate| |#3|) . #3#)
       (LETT |dv$| (LIST '|IndexedTwoDimensionalArray| DV$1 DV$2 DV$3) . #3#)
-      (LETT $ (GETREFV 23) . #3#)
+      (LETT $ (GETREFV 24) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -74,11 +74,12 @@
 (MAKEPROP '|IndexedTwoDimensionalArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 7 8 21 22) (|local| |#1|)
+              (|InnerIndexedTwoDimensionalArray| 6 7 8 22 23) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|Boolean|) (|NonNegativeInteger|)
               (|List| 6) (|Equation| 6) (|List| 12) (|Mapping| 9 6)
-              (|OutputForm|) (|SingleInteger|) (|String|) (|Mapping| 6 6 6)
-              (|Mapping| 6 6) (|Integer|) (|IndexedOneDimensionalArray| 6 8)
+              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|Integer|)
+              (|IndexedOneDimensionalArray| 6 8)
               (|IndexedOneDimensionalArray| 6 7))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 4 '(0 0 0 2 1 0 0 0 2 1 4))

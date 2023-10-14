@@ -1293,7 +1293,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|Pattern|))
       (LETT |dv$| (LIST '|Pattern| DV$1) . #1#)
-      (LETT $ (GETREFV 140) . #1#)
+      (LETT $ (GETREFV 141) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Pattern| (LIST DV$1) (CONS 1 $))
@@ -1396,18 +1396,19 @@
               (|Mapping| 50 54) (|Union| 126 '"failed") (237 . |display|)
               (242 . |name|) (247 . |prefix|) (253 . |copy|) (258 . =)
               (|Set| 13) (264 . |set|) (269 . =) (275 . =)
-              (|Union| 8 '"failed") |PATTERN;retractIfCan;$U;57| (|String|))
+              (|Union| 8 '"failed") |PATTERN;retractIfCan;$U;57| (|HashState|)
+              (|String|))
            '#(~= 281 |withPredicates| 287 |variables| 293 |topPredicate| 298
               |symbol?| 303 |setTopPredicate| 308 |setPredicates| 315
               |retractIfCan| 321 |retract| 331 |resetBadValues| 341 |quoted?|
               346 |predicates| 351 |patternVariable| 356 |optpair| 364
               |optional?| 369 |multiple?| 374 |latex| 379 |isTimes| 384
               |isQuotient| 389 |isPower| 394 |isPlus| 399 |isOp| 404 |isList|
-              415 |isExpt| 420 |inR?| 425 |hash| 430 |hasTopPredicate?| 435
-              |hasPredicate?| 440 |getBadValues| 445 |generic?| 450 |elt| 455
-              |depth| 461 |copy| 466 |convert| 471 |constant?| 476 |coerce| 481
-              |addBadValue| 496 ^ 502 |Zero| 514 |One| 518 = 522 / 528 + 534 *
-              540)
+              415 |isExpt| 420 |inR?| 425 |hashUpdate!| 430 |hash| 436
+              |hasTopPredicate?| 441 |hasPredicate?| 446 |getBadValues| 451
+              |generic?| 456 |elt| 461 |depth| 467 |copy| 472 |convert| 477
+              |constant?| 482 |coerce| 487 |addBadValue| 502 ^ 508 |Zero| 520
+              |One| 524 = 528 / 534 + 540 * 546)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
                  (CONS
@@ -1416,7 +1417,7 @@
                   (CONS
                    '#((|SetCategory|) (|BasicType|) (|RetractableTo| 8)
                       (|RetractableTo| 6) (|CoercibleTo| 50))
-                   (|makeByteWordVec2| 139
+                   (|makeByteWordVec2| 140
                                        '(0 8 0 9 1 10 0 8 11 1 15 13 14 16 1 32
                                          0 14 33 2 32 19 0 0 49 2 54 50 53 0 55
                                          1 66 0 0 67 1 66 19 0 68 1 66 2 0 69 1
@@ -1442,15 +1443,15 @@
                                          1 0 8 0 1 1 0 6 0 56 1 0 0 0 106 1 0
                                          19 0 45 1 0 42 0 43 4 0 0 8 19 19 19
                                          64 1 0 30 57 71 1 0 19 0 48 1 0 19 0
-                                         47 1 0 139 0 1 1 0 30 0 34 1 0 40 0 41
+                                         47 1 0 140 0 1 1 0 30 0 34 1 0 40 0 41
                                          1 0 81 0 82 1 0 30 0 31 1 0 91 0 92 2
                                          0 30 0 10 105 1 0 30 0 35 1 0 37 0 38
-                                         1 0 19 0 28 1 0 32 0 1 1 0 19 0 20 1 0
-                                         19 0 44 1 0 42 0 109 1 0 19 0 46 2 0 0
-                                         10 57 89 1 0 26 0 27 1 0 0 0 61 1 0 0
-                                         57 58 1 0 19 0 25 1 0 0 8 65 1 0 0 6
-                                         18 1 0 50 0 51 2 0 0 0 13 108 2 0 0 0
-                                         0 52 2 0 0 0 26 97 0 0 0 88 0 0 0 72 2
-                                         0 19 0 0 78 2 0 0 0 0 98 2 0 0 0 0 102
-                                         2 0 0 0 0 103)))))
+                                         1 0 19 0 28 2 0 139 139 0 1 1 0 32 0 1
+                                         1 0 19 0 20 1 0 19 0 44 1 0 42 0 109 1
+                                         0 19 0 46 2 0 0 10 57 89 1 0 26 0 27 1
+                                         0 0 0 61 1 0 0 57 58 1 0 19 0 25 1 0 0
+                                         8 65 1 0 0 6 18 1 0 50 0 51 2 0 0 0 13
+                                         108 2 0 0 0 0 52 2 0 0 0 26 97 0 0 0
+                                         88 0 0 0 72 2 0 19 0 0 78 2 0 0 0 0 98
+                                         2 0 0 0 0 102 2 0 0 0 0 103)))))
            '|lookupComplete|)) 

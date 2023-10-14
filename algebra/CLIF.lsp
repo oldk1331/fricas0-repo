@@ -1602,7 +1602,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT |dv$| (LIST '|CliffordAlgebra| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 131) . #1#)
+      (LETT $ (GETREFV 132) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|CliffordAlgebra| (LIST DV$1 DV$2 DV$3)
@@ -1659,14 +1659,14 @@
               (265 . |vector|) (|Union| 12 '"failed")
               (|LinearSystemMatrixPackage| 7 12 12 122)
               (270 . |particularSolution|) (276 . |parts|)
-              (|Union| $ '"failed") |CLIF;recip;$U;54|)
+              (|Union| $ '"failed") |CLIF;recip;$U;54| (|HashState|))
            '#(~= 281 ~ 287 |zero?| 292 |toTable| 297 |subtractIfCan| 307
               |setMode| 313 |sample| 319 |reverse| 323 |recip| 328 |rc| 333
               |one?| 339 |multivector| 344 |monomial| 349 |lc| 355 |latex| 361
-              |hash| 366 |gradeInvolution| 371 |grade| 376 |ee| 381
-              |ePseudoscalar| 386 |eFromBinaryMap| 390 |e| 395 |conj| 400
-              |coerce| 405 |coefficient| 420 |characteristic| 426 ^ 430 |\\/|
-              442 |Zero| 448 |One| 452 = 456 |/\\| 462 - 468 + 479 * 485)
+              |hashUpdate!| 366 |hash| 372 |gradeInvolution| 377 |grade| 382
+              |ee| 387 |ePseudoscalar| 392 |eFromBinaryMap| 396 |e| 401 |conj|
+              406 |coerce| 411 |coefficient| 426 |characteristic| 432 ^ 436
+              |\\/| 448 |Zero| 454 |One| 458 = 462 |/\\| 468 - 474 + 485 * 491)
            'NIL
            (CONS
             (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
@@ -1682,7 +1682,7 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 105))
-              (|makeByteWordVec2| 130
+              (|makeByteWordVec2| 131
                                   '(1 10 9 0 11 1 9 12 0 13 1 10 15 0 16 2 19 0
                                     0 19 20 0 7 23 24 1 26 0 23 27 2 7 15 0 0
                                     28 0 7 0 30 2 7 0 0 0 31 2 7 0 0 0 33 1 7 0
@@ -1704,13 +1704,14 @@
                                     1 0 80 83 84 2 0 129 0 0 1 2 0 15 58 15 89
                                     0 0 0 1 1 0 0 0 87 1 0 129 0 130 2 0 0 0 0
                                     95 1 0 15 0 1 1 0 0 72 74 2 0 0 7 70 102 2
-                                    0 0 0 0 94 1 0 58 0 1 1 0 61 0 1 1 0 0 0 86
-                                    1 0 23 0 85 1 0 0 70 71 0 0 0 76 1 0 0 23
-                                    75 1 0 0 19 65 1 0 0 0 88 1 0 0 7 50 1 0 0
-                                    37 49 1 0 105 0 114 2 0 7 0 70 104 0 0 23
-                                    25 2 0 0 0 23 1 2 0 0 0 19 1 2 0 0 0 0 93 0
-                                    0 0 42 0 0 0 47 2 0 15 0 0 29 2 0 0 0 0 66
-                                    1 0 0 0 36 2 0 0 0 0 34 2 0 0 0 0 32 2 0 0
-                                    0 7 1 2 0 0 7 0 41 2 0 0 0 0 92 2 0 0 37 0
-                                    39 2 0 0 23 0 1 2 0 0 19 0 1)))))
+                                    0 0 0 0 94 1 0 58 0 1 2 0 131 131 0 1 1 0
+                                    61 0 1 1 0 0 0 86 1 0 23 0 85 1 0 0 70 71 0
+                                    0 0 76 1 0 0 23 75 1 0 0 19 65 1 0 0 0 88 1
+                                    0 0 37 49 1 0 0 7 50 1 0 105 0 114 2 0 7 0
+                                    70 104 0 0 23 25 2 0 0 0 23 1 2 0 0 0 19 1
+                                    2 0 0 0 0 93 0 0 0 42 0 0 0 47 2 0 15 0 0
+                                    29 2 0 0 0 0 66 2 0 0 0 0 34 1 0 0 0 36 2 0
+                                    0 0 0 32 2 0 0 0 7 1 2 0 0 7 0 41 2 0 0 37
+                                    0 39 2 0 0 0 0 92 2 0 0 23 0 1 2 0 0 19 0
+                                    1)))))
            '|lookupComplete|)) 

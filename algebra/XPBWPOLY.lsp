@@ -732,7 +732,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #3=(|XPBWPolynomial|))
       (LETT DV$2 (|devaluate| |#2|) . #3#)
       (LETT |dv$| (LIST '|XPBWPolynomial| DV$1 DV$2) . #3#)
-      (LETT $ (GETREFV 119) . #3#)
+      (LETT $ (GETREFV 120) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -818,11 +818,11 @@
               (277 . |exp|) (283 . -) (289 . -) (294 . |log|) (300 . |Zero|)
               (304 . |retractable?|) (309 . |retract|) (|Union| 34 '"failed")
               |XPBWPOLY;LiePolyIfCan;$U;29| |XPBWPOLY;mirror;2$;30|
-              (|Mapping| 7 13) (|Union| 13 '#1="failed") (|List| 73)
-              (|List| 13) (|List| 7) (|List| $) (|OrderedFreeMonoid| 6)
-              (|Mapping| 7 7) (|Record| (|:| |k| 111) (|:| |c| 7))
-              (|Union| 111 '#1#) (|Union| $ '"failed") (|PositiveInteger|)
-              (|SingleInteger|) (|String|))
+              (|Mapping| 7 13) (|Union| 13 '#1="failed") (|List| 73) (|List| 7)
+              (|List| $) (|List| 13) (|OrderedFreeMonoid| 6) (|Mapping| 7 7)
+              (|Record| (|:| |k| 111) (|:| |c| 7)) (|Union| 111 '#1#)
+              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
+              (|SingleInteger|) (|HashState|))
            '#(|varList| 314 |trunc| 319 |reductum| 325 |quasiRegular?| 330
               |quasiRegular| 335 |product| 340 |monom| 347 |mirror| 353 |log|
               358 |leadingMonomial| 364 |exp| 369 |degree| 375 |constant?| 380
@@ -883,6 +883,6 @@
                                     22 0 87 1 0 10 0 72 1 0 7 0 76 1 0 38 0 70
                                     1 0 32 0 65 1 0 0 34 44 1 0 0 6 60 1 0 0 7
                                     52 1 0 12 0 58 0 0 0 21 0 0 0 26 1 0 102 0
-                                    103 2 0 10 0 0 66 1 0 0 0 97 2 0 0 0 0 96 2
+                                    103 2 0 10 0 0 66 2 0 0 0 0 96 1 0 0 0 97 2
                                     0 0 0 0 20 2 0 0 7 0 19 2 0 0 0 0 45)))))
            '|lookupIncomplete|)) 

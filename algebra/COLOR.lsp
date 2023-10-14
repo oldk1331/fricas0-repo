@@ -117,7 +117,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Color|) . #1=(|Color|))
-      (LETT $ (GETREFV 34) . #1#)
+      (LETT $ (GETREFV 35) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Color| NIL (CONS 1 $))
@@ -137,25 +137,26 @@
               (|PositiveInteger|) |COLOR;*;Pi2$;9| |COLOR;numberOfHues;Pi;10|
               |COLOR;color;I$;11| (|OutputForm|) (23 . |coerce|)
               (28 . |coerce|) (|List| $) (33 . |hconcat|) |COLOR;coerce;$Of;12|
-              (|String|) (|SingleInteger|))
+              (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 38 |yellow| 44 |red| 48 |numberOfHues| 52 |latex| 56 |hue| 61
-              |hash| 66 |green| 71 |color| 75 |coerce| 80 |blue| 85 = 89 + 95 *
-              101)
+              |hashUpdate!| 66 |hash| 72 |green| 77 |color| 81 |coerce| 86
+              |blue| 91 = 95 + 101 * 107)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|AbelianSemiGroup&| |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|AbelianSemiGroup|) (|SetCategory|) (|BasicType|)
                            (|CoercibleTo| 26))
-                        (|makeByteWordVec2| 33
+                        (|makeByteWordVec2| 34
                                             '(2 7 9 0 0 10 2 11 9 0 0 12 2 7 0
                                               0 0 13 1 7 0 0 14 1 11 26 0 27 1
                                               7 26 0 28 1 26 0 29 30 2 0 9 0 0
                                               1 0 0 0 18 0 0 0 17 0 0 22 24 1 0
-                                              32 0 1 1 0 11 0 21 1 0 33 0 1 0 0
-                                              0 19 1 0 0 11 25 1 0 26 0 31 0 0
-                                              0 20 2 0 9 0 0 16 2 0 0 0 0 15 2
-                                              0 0 22 0 23 2 0 0 7 0 8)))))
+                                              33 0 1 1 0 11 0 21 2 0 32 32 0 1
+                                              1 0 34 0 1 0 0 0 19 1 0 0 11 25 1
+                                              0 26 0 31 0 0 0 20 2 0 9 0 0 16 2
+                                              0 0 0 0 15 2 0 0 7 0 8 2 0 0 22 0
+                                              23)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Color| 'NILADIC T) 

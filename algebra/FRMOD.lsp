@@ -216,7 +216,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT DV$5 (|devaluate| |#5|) . #1#)
       (LETT |dv$| (LIST '|FramedModule| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-      (LETT $ (GETREFV 72) . #1#)
+      (LETT $ (GETREFV 73) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -271,10 +271,10 @@
               (|Matrix| 6) (|ModularHermitianRowReduction| 6) (134 . |rowEch|)
               (139 . |maxRowIndex|) (144 . |row|) (150 . ~=) |FRMOD;*;3$;14|
               (|FractionalIdeal| 6 7 8 9) (156 . |basis|) (161 . |module|)
-              (|PositiveInteger|) (|String|) (|SingleInteger|))
+              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 166 |sample| 172 |recip| 176 |one?| 181 |norm| 186 |module|
-              191 |latex| 201 |hash| 206 |coerce| 211 |basis| 216 ^ 221 |One|
-              233 = 237 * 243)
+              191 |latex| 201 |hashUpdate!| 206 |hash| 212 |coerce| 217 |basis|
+              222 ^ 227 |One| 239 = 243 * 249)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
                  (CONS
@@ -282,7 +282,7 @@
                   (CONS
                    '#((|Monoid|) (|SemiGroup|) (|SetCategory|) (|BasicType|)
                       (|CoercibleTo| 32))
-                   (|makeByteWordVec2| 71
+                   (|makeByteWordVec2| 72
                                        '(1 13 0 12 14 0 7 0 17 3 19 0 18 18 7
                                          20 1 28 27 0 29 2 28 6 0 27 30 2 7 0 6
                                          6 31 1 24 32 0 33 2 19 35 35 0 36 1 9
@@ -296,7 +296,8 @@
                                          12 0 0 64 1 66 24 0 67 1 0 0 66 68 2 0
                                          12 0 0 1 0 0 0 1 1 0 41 0 1 1 0 12 0 1
                                          1 0 7 0 55 1 1 0 66 68 1 0 0 24 25 1 0
-                                         70 0 1 1 0 71 0 1 1 0 32 0 34 1 0 24 0
-                                         26 2 0 0 0 18 1 2 0 0 0 69 1 0 0 0 23
-                                         2 0 12 0 0 1 2 0 0 0 0 65)))))
+                                         70 0 1 2 0 72 72 0 1 1 0 71 0 1 1 0 32
+                                         0 34 1 0 24 0 26 2 0 0 0 18 1 2 0 0 0
+                                         69 1 0 0 0 23 2 0 12 0 0 1 2 0 0 0 0
+                                         65)))))
            '|lookupComplete|)) 

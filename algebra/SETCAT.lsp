@@ -16,8 +16,14 @@
                           (|Join| (|BasicType|) (|CoercibleTo| '#2#)
                                   (|mkCategory|
                                    '(((|hash| ((|SingleInteger|) $)) T)
+                                     ((|hashUpdate!|
+                                       ((|HashState|) (|HashState|) $))
+                                      T)
                                      ((|latex| ((|String|) $)) T))
-                                   NIL '((|String|) (|SingleInteger|)) NIL)))
+                                   NIL
+                                   '((|String|) (|HashState|)
+                                     (|SingleInteger|))
+                                   NIL)))
                |SetCategory|)
        (SETELT #1# 0 '(|SetCategory|)))))) 
 

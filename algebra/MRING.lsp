@@ -836,7 +836,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|MonoidRing|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|MonoidRing| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 108) . #1#)
+      (LETT $ (GETREFV 109) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -955,16 +955,16 @@
               (286 . |brace|) (291 . =) (|AssociationList| 7 6)
               (297 . |search|) (303 . |setelt|) (310 . |remove!|)
               (316 . |table|) (|List| 7) (320 . |keys|) (325 . |elt|)
-              (|InputForm|) (|String|) (|SingleInteger|))
+              (|InputForm|) (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 331 |zero?| 337 |terms| 342 |subtractIfCan| 347 |size| 353
               |sample| 357 |retractIfCan| 361 |retract| 371 |reductum| 381
               |recip| 386 |random| 391 |one?| 395 |numberOfMonomials| 400
               |monomials| 405 |monomial?| 410 |monomial| 415 |map| 421 |lookup|
               427 |leadingMonomial| 432 |leadingCoefficient| 437 |latex| 442
-              |index| 447 |hash| 452 |enumerate| 457 |convert| 461 |coerce| 466
-              |coefficients| 491 |coefficient| 496 |charthRoot| 502
-              |characteristic| 507 ^ 511 |Zero| 523 |One| 527 = 531 - 537 + 548
-              * 554)
+              |index| 447 |hashUpdate!| 452 |hash| 458 |enumerate| 463
+              |convert| 467 |coerce| 472 |coefficients| 497 |coefficient| 502
+              |charthRoot| 508 |characteristic| 513 ^ 517 |Zero| 529 |One| 533
+              = 537 - 543 + 554 * 560)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -985,7 +985,7 @@
                  (|Finite|) (|SetCategory|) (|RetractableTo| 6)
                  (|RetractableTo| 7) (|unitsKnown|) (|BasicType|)
                  (|CoercibleTo| 67) (|ConvertibleTo| 105))
-              (|makeByteWordVec2| 107
+              (|makeByteWordVec2| 108
                                   '(0 6 0 13 2 6 14 0 0 15 0 6 17 18 0 7 17 19
                                     0 0 17 20 2 21 14 0 0 22 2 21 14 0 0 23 1 6
                                     0 24 25 1 7 0 24 26 2 0 0 0 0 27 1 0 0 24
@@ -1010,12 +1010,12 @@
                                     0 62 0 65 0 1 0 1 1 0 14 0 1 1 0 17 0 55 1
                                     0 38 0 39 1 0 14 0 1 2 0 0 6 7 16 2 0 0 53
                                     0 54 1 1 24 0 33 1 5 7 0 78 1 5 6 0 77 1 0
-                                    106 0 1 1 1 0 24 28 1 0 107 0 1 0 1 38 1 1
-                                    1 105 0 1 1 0 0 10 11 1 0 0 6 43 1 0 0 21
-                                    45 1 0 0 7 42 1 0 67 0 76 1 0 40 0 41 2 0 6
-                                    0 7 88 1 3 62 0 1 0 0 17 1 2 0 0 0 17 1 2 0
-                                    0 0 24 1 0 0 0 12 0 0 0 34 2 0 14 0 0 80 2
-                                    0 0 0 0 1 1 0 0 0 47 2 0 0 0 0 27 2 2 0 6 0
-                                    49 2 2 0 0 6 1 2 0 0 0 0 90 2 0 0 21 0 52 2
-                                    0 0 17 0 1 2 0 0 24 0 1)))))
+                                    107 0 1 1 1 0 24 28 2 0 106 106 0 1 1 0 108
+                                    0 1 0 1 38 1 1 1 105 0 1 1 0 0 10 11 1 0 0
+                                    6 43 1 0 0 21 45 1 0 0 7 42 1 0 67 0 76 1 0
+                                    40 0 41 2 0 6 0 7 88 1 3 62 0 1 0 0 17 1 2
+                                    0 0 0 17 1 2 0 0 0 24 1 0 0 0 12 0 0 0 34 2
+                                    0 14 0 0 80 1 0 0 0 47 2 0 0 0 0 1 2 0 0 0
+                                    0 27 2 2 0 6 0 49 2 2 0 0 6 1 2 0 0 21 0 52
+                                    2 0 0 0 0 90 2 0 0 17 0 1 2 0 0 24 0 1)))))
            '|lookupComplete|)) 

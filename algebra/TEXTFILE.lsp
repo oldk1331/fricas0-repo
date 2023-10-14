@@ -77,7 +77,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|TextFile|) . #1=(|TextFile|))
-      (LETT $ (GETREFV 23) . #1#)
+      (LETT $ (GETREFV 24) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|TextFile| NIL (CONS 1 $))
@@ -97,7 +97,7 @@
               |TEXTFILE;readIfCan!;$U;2| (|Boolean|) (0 . ~=)
               |TEXTFILE;write!;$2S;5| |TEXTFILE;writeLine!;$S;6|
               |TEXTFILE;writeLine!;$2S;7| |TEXTFILE;endOfFile?;$B;8| (|Void|)
-              (|FileName|) (|SingleInteger|) (|OutputForm|))
+              (|FileName|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|writeLine!| 6 |write!| 17 |readLineIfCan!| 23 |readLine!| 28
               |readIfCan!| 33 |read!| 38 |endOfFile?| 43)
            'NIL
@@ -105,7 +105,7 @@
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|FileCategory| 20 7) (|SetCategory|) (|BasicType|)
-                           (|CoercibleTo| 22))
+                           (|CoercibleTo| 23))
                         (|makeByteWordVec2| 18
                                             '(2 7 13 0 0 14 1 0 7 0 16 2 0 7 0
                                               7 17 2 0 7 0 7 15 1 0 10 0 11 1 0

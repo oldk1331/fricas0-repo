@@ -29,7 +29,7 @@
 (DEFUN |NonNegativeInteger| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1570)
+     (PROG (#1=#:G1586)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|NonNegativeInteger|)
@@ -51,7 +51,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|NonNegativeInteger|) . #1=(|NonNegativeInteger|))
-      (LETT $ (GETREFV 18) . #1#)
+      (LETT $ (GETREFV 19) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|NonNegativeInteger| NIL (CONS 1 $))
@@ -65,13 +65,13 @@
               |NNI;qcoerce;I$;3| (|Union| $ '"failed")
               |NNI;subtractIfCan;2$U;4|
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|PositiveInteger|) (|NonNegativeInteger|) (|Boolean|)
-              (|SingleInteger|) (|String|) (|OutputForm|))
+              (|PositiveInteger|) (|NonNegativeInteger|) (|Boolean|) (|String|)
+              (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 0 |zero?| 6 |sup| 11 |subtractIfCan| 17 |smaller?| 23 |shift|
               29 |sample| 35 |rem| 39 |recip| 45 |random| 50 |quo| 55 |qcoerce|
-              61 |one?| 66 |min| 71 |max| 77 |latex| 83 |hash| 88 |gcd| 93
-              |exquo| 99 |divide| 105 |coerce| 111 ^ 116 |Zero| 128 |One| 132
-              >= 136 > 142 = 148 <= 154 < 160 + 166 * 172)
+              61 |one?| 66 |min| 71 |max| 77 |latex| 83 |hashUpdate!| 88 |hash|
+              94 |gcd| 99 |exquo| 105 |divide| 111 |coerce| 117 ^ 122 |Zero|
+              134 |One| 138 >= 142 > 148 = 154 <= 160 < 166 + 172 * 178)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -86,19 +86,19 @@
                       (|Monoid|) (|SemiRng|) (|AbelianMonoid|) (|Comparable|)
                       (|SemiGroup|) (|AbelianSemiGroup|) (|SetCategory|)
                       (|CommutativeStar|) (|BasicType|) (|PartialOrder|)
-                      (|CoercibleTo| 17))
-                   (|makeByteWordVec2| 17
+                      (|CoercibleTo| 18))
+                   (|makeByteWordVec2| 18
                                        '(2 0 14 0 0 1 1 0 14 0 1 2 0 0 0 0 6 2
                                          0 9 0 0 10 2 0 14 0 0 1 2 0 0 0 5 7 0
                                          0 0 1 2 0 0 0 0 1 1 0 9 0 1 1 0 0 0 1
                                          2 0 0 0 0 1 1 0 0 5 8 1 0 14 0 1 2 0 0
-                                         0 0 1 2 0 0 0 0 1 1 0 16 0 1 1 0 15 0
-                                         1 2 0 0 0 0 1 2 0 9 0 0 1 2 0 11 0 0 1
-                                         1 0 17 0 1 2 0 0 0 12 1 2 0 0 0 13 1 0
-                                         0 0 1 0 0 0 1 2 0 14 0 0 1 2 0 14 0 0
+                                         0 0 1 2 0 0 0 0 1 1 0 15 0 1 2 0 17 17
+                                         0 1 1 0 16 0 1 2 0 0 0 0 1 2 0 9 0 0 1
+                                         2 0 11 0 0 1 1 0 18 0 1 2 0 0 0 12 1 2
+                                         0 0 0 13 1 0 0 0 1 0 0 0 1 2 0 14 0 0
                                          1 2 0 14 0 0 1 2 0 14 0 0 1 2 0 14 0 0
-                                         1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 13 0 1
-                                         2 0 0 12 0 1)))))
+                                         1 2 0 14 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1
+                                         2 0 0 13 0 1 2 0 0 12 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NonNegativeInteger| 'NILADIC T) 

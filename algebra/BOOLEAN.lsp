@@ -80,7 +80,7 @@
 (DEFUN |Boolean| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G376)
+     (PROG (#1=#:G377)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Boolean|) . #2=(|Boolean|))
@@ -99,7 +99,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Boolean|) . #1=(|Boolean|))
-      (LETT $ (GETREFV 40) . #1#)
+      (LETT $ (GETREFV 41) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Boolean| NIL (CONS 1 $))
@@ -123,12 +123,13 @@
               |BOOLEAN;lookup;$Pi;19| |BOOLEAN;random;$;20| (|Symbol|)
               (|InputForm|) (5 . |convert|) |BOOLEAN;convert;$If;21| (|String|)
               (|OutputForm|) (10 . |message|) |BOOLEAN;coerce;$Of;22|
-              (|List| $) (|SingleInteger|))
+              (|List| $) (|HashState|) (|SingleInteger|))
            '#(~= 15 ~ 21 |xor| 26 |true| 32 |test| 36 |smaller?| 41 |size| 47
               |random| 51 |or| 55 |not| 61 |nor| 66 |nand| 72 |min| 78 |max| 84
-              |lookup| 90 |latex| 95 |index| 100 |implies| 105 |hash| 111
-              |false| 116 |enumerate| 120 |convert| 124 |coerce| 129 |and| 134
-              |\\/| 140 >= 146 > 152 = 158 <= 164 < 170 |/\\| 176)
+              |lookup| 90 |latex| 95 |index| 100 |implies| 105 |hashUpdate!|
+              111 |hash| 117 |false| 122 |enumerate| 126 |convert| 130 |coerce|
+              135 |and| 140 |\\/| 146 >= 152 > 158 = 164 <= 170 < 176 |/\\|
+              182)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -138,18 +139,18 @@
                    '#((|OrderedSet|) (|Comparable|) (|Finite|) (|Logic|)
                       (|SetCategory|) (|ConvertibleTo| 31) (|BasicType|)
                       (|PartialOrder|) (|CoercibleTo| 35))
-                   (|makeByteWordVec2| 39
+                   (|makeByteWordVec2| 40
                                        '(1 24 6 0 25 1 31 0 30 32 1 35 0 34 36
                                          2 0 6 0 0 1 1 0 0 0 11 2 0 0 0 0 16 0
                                          0 0 8 1 0 6 0 7 2 0 6 0 0 1 0 0 22 23
                                          0 0 0 29 2 0 0 0 0 14 1 0 0 0 10 2 0 0
                                          0 0 17 2 0 0 0 0 18 2 0 0 0 0 1 2 0 0
                                          0 0 1 1 0 26 0 28 1 0 34 0 1 1 0 0 26
-                                         27 2 0 0 0 0 20 1 0 39 0 1 0 0 0 9 0 0
-                                         38 1 1 0 31 0 33 1 0 35 0 37 2 0 0 0 0
-                                         12 2 0 0 0 0 15 2 0 6 0 0 1 2 0 6 0 0
-                                         1 2 0 6 0 0 19 2 0 6 0 0 1 2 0 6 0 0
-                                         21 2 0 0 0 0 13)))))
+                                         27 2 0 0 0 0 20 2 0 39 39 0 1 1 0 40 0
+                                         1 0 0 0 9 0 0 38 1 1 0 31 0 33 1 0 35
+                                         0 37 2 0 0 0 0 12 2 0 0 0 0 15 2 0 6 0
+                                         0 1 2 0 6 0 0 1 2 0 6 0 0 19 2 0 6 0 0
+                                         1 2 0 6 0 0 21 2 0 0 0 0 13)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Boolean| 'NILADIC T) 

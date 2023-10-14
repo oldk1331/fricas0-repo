@@ -24,7 +24,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|PrimeField|))
       (LETT |dv$| (LIST '|PrimeField| DV$1) . #1#)
-      (LETT $ (GETREFV 42) . #1#)
+      (LETT $ (GETREFV 43) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|PrimeField| (LIST DV$1) (CONS 1 $))
@@ -57,7 +57,7 @@
               (|Record| (|:| |coef| 27) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|String|) (|OutputForm|) (|SingleInteger|))
+              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -92,6 +92,6 @@
                  (|ConvertibleTo| 8) (|RetractableTo| $$) (|ConvertibleTo| 26)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 40))
+                 (|BasicType|) (|CoercibleTo| 41))
               (|makeByteWordVec2| 10 '(1 9 7 8 10)))))
            '|lookupIncomplete|)) 

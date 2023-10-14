@@ -125,7 +125,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|GuessOption|) . #1=(|GuessOption|))
-      (LETT $ (GETREFV 64) . #1#)
+      (LETT $ (GETREFV 65) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|GuessOption| NIL (CONS 1 $))
@@ -157,20 +157,20 @@
               |GOPT;indexName;S$;19| |GOPT;displayKind;S$;20| (|OutputForm|)
               (40 . |coerce|) (45 . |coerce|) (50 . =) |GOPT;coerce;$Of;21|
               (56 . =) |GOPT;=;2$B;22| (|Union| 7 '"failed") (|List| $)
-              |GOPT;option;LSU;23| (|String|) (|SingleInteger|))
+              |GOPT;option;LSU;23| (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 62 |variableName| 68 |safety| 73 |option| 78 |one| 84
               |maxSubst| 89 |maxShift| 94 |maxPower| 99 |maxMixedDegree| 104
               |maxLevel| 109 |maxDerivative| 114 |maxDegree| 119 |latex| 124
-              |indexName| 129 |homogeneous| 134 |hash| 139 |functionNames| 144
-              |functionName| 149 |displayKind| 154 |debug| 159 |coerce| 164
-              |checkExtraValues| 169 |check| 174 |allDegrees| 179 |Somos| 184 =
-              189)
+              |indexName| 129 |homogeneous| 134 |hashUpdate!| 139 |hash| 145
+              |functionNames| 150 |functionName| 155 |displayKind| 160 |debug|
+              165 |coerce| 170 |checkExtraValues| 175 |check| 180 |allDegrees|
+              185 |Somos| 190 = 195)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 52))
-                        (|makeByteWordVec2| 63
+                        (|makeByteWordVec2| 64
                                             '(1 9 7 8 10 1 18 7 17 19 1 22 7 21
                                               23 1 25 7 14 26 1 30 7 29 31 1 36
                                               7 35 37 1 42 7 41 43 1 46 7 45 47
@@ -180,12 +180,12 @@
                                               41 61 1 0 0 21 40 1 0 0 14 15 1 0
                                               0 8 13 1 0 0 14 27 1 0 0 17 20 1
                                               0 0 8 11 1 0 0 8 12 1 0 0 8 16 1
-                                              0 62 0 1 1 0 0 41 50 1 0 0 29 32
-                                              1 0 63 0 1 1 0 0 45 48 1 0 0 41
-                                              44 1 0 0 41 51 1 0 0 21 34 1 0 52
-                                              0 56 1 0 0 21 39 1 0 0 35 38 1 0
-                                              0 21 24 1 0 0 29 33 2 0 21 0 0
-                                              58)))))
+                                              0 63 0 1 1 0 0 41 50 1 0 0 29 32
+                                              2 0 62 62 0 1 1 0 64 0 1 1 0 0 45
+                                              48 1 0 0 41 44 1 0 0 41 51 1 0 0
+                                              21 34 1 0 52 0 56 1 0 0 21 39 1 0
+                                              0 35 38 1 0 0 21 24 1 0 0 29 33 2
+                                              0 21 0 0 58)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GuessOption| 'NILADIC T) 

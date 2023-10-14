@@ -181,7 +181,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|SArgand|) . #1=(|SArgand|))
-      (LETT $ (GETREFV 60) . #1#)
+      (LETT $ (GETREFV 61) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|SArgand| NIL (CONS 1 $))
@@ -211,22 +211,23 @@
               |SARGND;hash;$Si;29| (|String|) |SARGND;latex;$S;30|
               |SARGND;=;2$B;31| |SARGND;~=;2$B;32| (|OutputForm|)
               (33 . |coerce|) (|Symbol|) (38 . |coerce|) (43 . |hconcat|)
-              (49 . -) (55 . +) |SARGND;coerce;$Of;33| (|Integer|))
+              (49 . -) (55 . +) |SARGND;coerce;$Of;33| (|Integer|)
+              (|HashState|))
            '#(~= 61 |unitVector| 67 |toVector| 72 |toPoint| 77 |svec| 82 |spnt|
               95 |sivec| 108 |sipnt| 121 |screenCoords| 134 |screenCoordZ| 139
               |screenCoordY| 144 |screenCoordX| 149 |perpendicular| 154
               |parallel| 160 |min| 166 |max| 172 |latex| 178 |isVector?| 183
-              |isPoint?| 188 |inBounds?| 193 |hash| 200 |extendedCoords| 205
-              |distanceSquared| 210 |distance| 216 |dimension| 222
-              |colinearity| 227 |coerce| 233 |Pnan?| 248 = 253 - 259 + 265 *
-              271)
+              |isPoint?| 188 |inBounds?| 193 |hashUpdate!| 200 |hash| 206
+              |extendedCoords| 211 |distanceSquared| 216 |distance| 222
+              |dimension| 228 |colinearity| 233 |coerce| 239 |Pnan?| 254 = 259
+              - 265 + 271 * 277)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|SPointCategory&| |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SPointCategory|) (|SetCategory|) (|BasicType|)
                            (|CoercibleTo| 51))
-                        (|makeByteWordVec2| 59
+                        (|makeByteWordVec2| 60
                                             '(2 7 16 0 0 17 1 7 0 0 19 2 7 16 0
                                               0 27 2 39 0 7 7 40 1 39 7 0 42 1
                                               39 7 0 43 1 7 51 0 52 1 53 51 0
@@ -240,12 +241,13 @@
                                               0 7 0 30 1 0 7 0 29 2 0 0 0 0 23
                                               2 0 7 0 0 22 2 0 0 0 0 12 2 0 0 0
                                               0 13 1 0 47 0 48 1 0 16 0 38 1 0
-                                              16 0 37 3 0 16 0 0 0 28 1 0 45 0
-                                              46 1 0 32 0 34 2 0 7 0 0 21 2 0 7
-                                              0 0 1 1 0 14 0 15 2 0 7 0 0 1 1 0
-                                              39 0 41 1 0 0 39 44 1 0 51 0 58 1
-                                              0 16 0 18 2 0 16 0 0 49 2 0 0 0 0
-                                              26 2 0 0 0 0 25 2 0 0 7 0 24)))))
+                                              16 0 37 3 0 16 0 0 0 28 2 0 60 60
+                                              0 1 1 0 45 0 46 1 0 32 0 34 2 0 7
+                                              0 0 21 2 0 7 0 0 1 1 0 14 0 15 2
+                                              0 7 0 0 1 1 0 39 0 41 1 0 0 39 44
+                                              1 0 51 0 58 1 0 16 0 18 2 0 16 0
+                                              0 49 2 0 0 0 0 26 2 0 0 0 0 25 2
+                                              0 0 7 0 24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SArgand| 'NILADIC T) 

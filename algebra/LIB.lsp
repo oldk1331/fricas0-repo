@@ -31,7 +31,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Library|) . #4=(|Library|))
-      (LETT $ (GETREFV 40) . #4#)
+      (LETT $ (GETREFV 41) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -109,7 +109,7 @@
               (|List| 13) (|Record| (|:| |key| 10) (|:| |entry| 13))
               (|List| 21) (|Equation| 21) (|List| 23) (|Boolean|)
               (|NonNegativeInteger|) (|Mapping| 21 21 21) (|OutputForm|)
-              (|SingleInteger|) (|InputForm|) (|Mapping| 25 13)
+              (|HashState|) (|SingleInteger|) (|InputForm|) (|Mapping| 25 13)
               (|Mapping| 25 21) (|Mapping| 13 13) (|Void|) (|Mapping| 21 21)
               (|Mapping| 13 13 13) (|List| 10) (|Union| 13 '"failed")
               (|Union| 21 '"failed"))
@@ -119,12 +119,12 @@
               |parts| 156 |pack!| 166 |more?| 171 |minIndex| 177 |members| 182
               |member?| 192 |maxIndex| 204 |map!| 209 |map| 221 |library| 240
               |less?| 245 |latex| 251 |keys| 256 |key?| 261 |inspect| 267
-              |insert!| 272 |indices| 278 |index?| 283 |hash| 289 |first| 294
-              |find| 299 |fill!| 305 |extract!| 311 |every?| 316 |eval| 328
-              |eq?| 380 |entry?| 386 |entries| 392 |empty?| 397 |empty| 402
-              |elt| 406 |dictionary| 425 |count| 434 |copy| 458 |convert| 463
-              |construct| 468 |coerce| 473 |close!| 478 |bag| 483 |any?| 488 =
-              500 |#| 506)
+              |insert!| 272 |indices| 278 |index?| 283 |hashUpdate!| 289 |hash|
+              295 |first| 300 |find| 305 |fill!| 311 |extract!| 317 |every?|
+              322 |eval| 334 |eq?| 386 |entry?| 392 |entries| 398 |empty?| 403
+              |empty| 408 |elt| 412 |dictionary| 431 |count| 440 |copy| 464
+              |convert| 469 |construct| 474 |coerce| 479 |close!| 484 |bag| 489
+              |any?| 494 = 506 |#| 512)
            'NIL
            (CONS
             (|makeByteWordVec2| 9
@@ -144,37 +144,37 @@
                  (|HomogeneousAggregate| 21) (|EltableAggregate| 10 13)
                  (|Aggregate|) (|Evalable| 21) (|Evalable| 13) (|SetCategory|)
                  (|Eltable| 10 13) (|Type|) (|shallowlyMutable|)
-                 (|InnerEvalable| 21 21) (|ConvertibleTo| 30)
+                 (|InnerEvalable| 21 21) (|ConvertibleTo| 31)
                  (|InnerEvalable| 13 13) (|BasicType|) (|CoercibleTo| 28))
-              (|makeByteWordVec2| 39
+              (|makeByteWordVec2| 40
                                   '(1 6 0 7 8 1 11 10 0 12 2 0 13 0 10 14 3 0
                                     13 0 10 13 16 2 8 25 0 0 1 1 0 0 22 1 0 0 0
-                                    1 3 13 34 0 10 10 1 2 0 25 0 26 1 3 0 13 0
-                                    11 13 17 3 0 13 0 10 13 16 2 10 0 32 0 1 2
-                                    10 0 32 0 1 2 0 38 10 0 1 0 0 0 1 1 11 0 0
-                                    1 2 10 0 21 0 1 2 10 0 32 0 1 2 0 38 10 0 1
-                                    2 11 0 21 0 1 2 10 0 32 0 1 4 11 21 27 0 21
+                                    1 3 13 35 0 10 10 1 2 0 25 0 26 1 3 0 13 0
+                                    11 13 17 3 0 13 0 10 13 16 2 10 0 33 0 1 2
+                                    10 0 33 0 1 2 0 39 10 0 1 0 0 0 1 1 11 0 0
+                                    1 2 10 0 21 0 1 2 10 0 33 0 1 2 0 39 10 0 1
+                                    2 11 0 21 0 1 2 10 0 33 0 1 4 11 21 27 0 21
                                     21 1 2 10 21 27 0 1 3 10 21 27 0 21 1 3 13
                                     13 0 10 13 1 2 0 13 0 10 1 1 10 20 0 1 1 10
                                     22 0 1 1 0 0 0 1 2 0 25 0 26 1 1 4 10 0 1 1
                                     10 20 0 1 1 10 22 0 1 2 12 25 13 0 1 2 11
-                                    25 21 0 1 1 4 10 0 1 2 13 0 33 0 1 2 13 0
-                                    35 0 1 3 0 0 36 0 0 1 2 0 0 33 0 1 2 0 0 35
+                                    25 21 0 1 1 4 10 0 1 2 13 0 34 0 1 2 13 0
+                                    36 0 1 3 0 0 37 0 0 1 2 0 0 34 0 1 2 0 0 36
                                     0 1 1 0 0 7 9 2 0 25 0 26 1 1 8 10 0 1 1 0
-                                    37 0 1 2 0 25 10 0 1 1 0 21 0 1 2 0 0 21 0
-                                    1 1 0 37 0 1 2 0 25 10 0 1 1 8 29 0 1 1 4
-                                    13 0 1 2 0 39 32 0 1 2 13 0 0 13 1 1 0 21 0
-                                    1 2 10 25 31 0 1 2 10 25 32 0 1 2 7 0 0 18
-                                    1 3 7 0 0 13 13 1 2 7 0 0 19 1 3 7 0 0 20
-                                    20 1 3 3 0 0 21 21 1 3 3 0 0 22 22 1 2 3 0
-                                    0 23 1 2 3 0 0 24 1 2 0 25 0 0 1 2 12 25 13
-                                    0 1 1 0 20 0 1 1 0 25 0 1 0 0 0 1 2 0 13 0
-                                    11 15 2 0 13 0 10 14 3 0 13 0 10 13 1 0 0 0
-                                    1 1 0 0 22 1 2 12 26 13 0 1 2 11 26 21 0 1
-                                    2 10 26 31 0 1 2 10 26 32 0 1 1 0 0 0 1 1 1
-                                    30 0 1 1 0 0 22 1 1 5 28 0 1 1 0 0 0 1 1 0
-                                    0 22 1 2 10 25 31 0 1 2 10 25 32 0 1 2 8 25
-                                    0 0 1 1 10 26 0 1)))))
+                                    38 0 1 2 0 25 10 0 1 1 0 21 0 1 2 0 0 21 0
+                                    1 1 0 38 0 1 2 0 25 10 0 1 2 8 29 29 0 1 1
+                                    8 30 0 1 1 4 13 0 1 2 0 40 33 0 1 2 13 0 0
+                                    13 1 1 0 21 0 1 2 10 25 32 0 1 2 10 25 33 0
+                                    1 2 7 0 0 18 1 3 7 0 0 13 13 1 2 7 0 0 19 1
+                                    3 7 0 0 20 20 1 3 3 0 0 21 21 1 3 3 0 0 22
+                                    22 1 2 3 0 0 23 1 2 3 0 0 24 1 2 0 25 0 0 1
+                                    2 12 25 13 0 1 1 0 20 0 1 1 0 25 0 1 0 0 0
+                                    1 2 0 13 0 11 15 2 0 13 0 10 14 3 0 13 0 10
+                                    13 1 0 0 0 1 1 0 0 22 1 2 12 26 13 0 1 2 11
+                                    26 21 0 1 2 10 26 32 0 1 2 10 26 33 0 1 1 0
+                                    0 0 1 1 1 31 0 1 1 0 0 22 1 1 5 28 0 1 1 0
+                                    0 0 1 1 0 0 22 1 2 10 25 32 0 1 2 10 25 33
+                                    0 1 2 8 25 0 0 1 1 10 26 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Library| 'NILADIC T) 

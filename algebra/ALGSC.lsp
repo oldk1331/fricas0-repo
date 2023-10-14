@@ -2617,7 +2617,7 @@
       (LETT |dv$|
             (LIST '|AlgebraGivenByStructuralConstants| DV$1 DV$2 DV$3 DV$4)
             . #1#)
-      (LETT $ (GETREFV 98) . #1#)
+      (LETT $ (GETREFV 99) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -2673,7 +2673,8 @@
               (|SparseUnivariatePolynomial| (|Polynomial| 6))
               (|Record| (|:| |particular| $) (|:| |basis| (|List| $)))
               (|Union| 92 '"failed") (|SparseUnivariatePolynomial| 6)
-              (|List| 20) (|List| (|Polynomial| 6)) (|SingleInteger|))
+              (|List| 20) (|List| (|Polynomial| 6)) (|SingleInteger|)
+              (|HashState|))
            '#(~= 185 |zero?| 191 |unit| 196 |subtractIfCan| 200
               |structuralConstants| 206 |someBasis| 215 |sample| 219
               |rightUnits| 223 |rightUnit| 227 |rightTraceMatrix| 231
@@ -2690,13 +2691,13 @@
               |leftMinimalPolynomial| 394 |leftDiscriminant| 399
               |leftCharacteristicPolynomial| 408 |leftAlternative?| 413 |latex|
               417 |jordanAlgebra?| 422 |jordanAdmissible?| 426
-              |jacobiIdentity?| 430 |hash| 434 |flexible?| 439 |elt| 443
-              |coordinates| 449 |convert| 471 |conditionsForIdempotents| 481
-              |commutator| 490 |commutative?| 496 |coerce| 500 |basis| 510
-              |associatorDependence| 514 |associator| 518 |associative?| 525
-              |apply| 529 |antiCommutator| 535 |antiCommutative?| 541
-              |antiAssociative?| 545 |alternative?| 549 ^ 553 |Zero| 559 = 563
-              - 569 + 580 * 586)
+              |jacobiIdentity?| 430 |hashUpdate!| 434 |hash| 440 |flexible?|
+              445 |elt| 449 |coordinates| 455 |convert| 477
+              |conditionsForIdempotents| 487 |commutator| 496 |commutative?|
+              502 |coerce| 506 |basis| 516 |associatorDependence| 520
+              |associator| 524 |associative?| 531 |apply| 535 |antiCommutator|
+              541 |antiCommutative?| 547 |antiAssociative?| 551 |alternative?|
+              555 ^ 559 |Zero| 565 = 569 - 575 + 586 * 592)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1))
                  (CONS
@@ -2715,7 +2716,7 @@
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
                       (|AbelianSemiGroup|) (|Monad|) (|SetCategory|)
                       (|BasicType|) (|CoercibleTo| 52) (|unitsKnown|))
-                   (|makeByteWordVec2| 97
+                   (|makeByteWordVec2| 98
                                        '(1 12 11 0 13 1 16 15 0 17 2 0 0 15 0
                                          18 1 10 0 20 21 1 10 25 0 26 1 20 0 25
                                          27 1 30 29 0 31 0 6 0 32 3 15 0 33 33
@@ -2742,17 +2743,17 @@
                                          0 41 1 1 1 11 0 1 0 2 91 1 2 0 0 0 44
                                          1 1 0 6 0 1 1 1 94 0 1 0 0 6 1 1 0 6
                                          41 1 1 0 94 0 1 0 0 50 82 1 0 75 0 1 0
-                                         0 50 89 0 0 50 88 0 0 50 90 1 0 97 0 1
-                                         0 0 50 84 2 0 6 0 29 49 1 0 20 0 28 1
-                                         0 15 41 1 2 0 15 41 41 1 2 0 20 0 41
-                                         43 1 0 20 0 1 1 0 0 20 1 0 0 96 1 1 0
-                                         96 41 1 2 0 0 0 0 1 0 0 50 80 1 0 0 20
-                                         22 1 0 52 0 66 0 0 41 42 0 1 95 1 3 0
-                                         0 0 0 0 1 0 0 50 78 2 0 0 15 0 18 2 0
-                                         0 0 0 1 0 0 50 81 0 0 50 79 0 0 50 77
-                                         2 0 0 0 44 1 0 0 0 1 2 0 50 0 0 1 1 0
-                                         0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 16
-                                         0 19 2 0 0 6 0 1 2 0 0 0 6 1 2 0 0 0 0
-                                         72 2 0 0 29 0 1 2 0 0 33 0 1 2 0 0 44
-                                         0 1)))))
+                                         0 50 89 0 0 50 88 0 0 50 90 2 0 98 98
+                                         0 1 1 0 97 0 1 0 0 50 84 2 0 6 0 29 49
+                                         1 0 20 0 28 1 0 15 41 1 2 0 15 41 41 1
+                                         2 0 20 0 41 43 1 0 20 0 1 1 0 0 20 1 0
+                                         0 96 1 1 0 96 41 1 2 0 0 0 0 1 0 0 50
+                                         80 1 0 0 20 22 1 0 52 0 66 0 0 41 42 0
+                                         1 95 1 3 0 0 0 0 0 1 0 0 50 78 2 0 0
+                                         15 0 18 2 0 0 0 0 1 0 0 50 81 0 0 50
+                                         79 0 0 50 77 2 0 0 0 44 1 0 0 0 1 2 0
+                                         50 0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0
+                                         0 1 2 0 0 16 0 19 2 0 0 0 6 1 2 0 0 6
+                                         0 1 2 0 0 0 0 72 2 0 0 29 0 1 2 0 0 33
+                                         0 1 2 0 0 44 0 1)))))
            '|lookupComplete|)) 

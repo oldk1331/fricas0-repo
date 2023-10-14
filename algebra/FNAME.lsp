@@ -70,7 +70,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|FileName|) . #1=(|FileName|))
-      (LETT $ (GETREFV 23) . #1#)
+      (LETT $ (GETREFV 24) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|FileName| NIL (CONS 1 $))
@@ -85,23 +85,25 @@
               |FNAME;coerce;$Of;2| |FNAME;coerce;S$;4| |FNAME;filename;3S$;5|
               |FNAME;directory;$S;6| |FNAME;name;$S;7| |FNAME;extension;$S;8|
               |FNAME;exists?;$B;9| |FNAME;readable?;$B;10|
-              |FNAME;writable?;$B;11| |FNAME;new;3S$;12| (|SingleInteger|))
+              |FNAME;writable?;$B;11| |FNAME;new;3S$;12| (|HashState|)
+              (|SingleInteger|))
            '#(~= 5 |writable?| 11 |readable?| 16 |new| 21 |name| 28 |latex| 33
-              |hash| 38 |filename| 43 |extension| 50 |exists?| 55 |directory|
-              60 |coerce| 65 = 80)
+              |hashUpdate!| 38 |hash| 44 |filename| 49 |extension| 56 |exists?|
+              61 |directory| 66 |coerce| 71 = 86)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|FileNameCategory|) (|SetCategory|) (|BasicType|)
                            (|CoercibleTo| 10))
-                        (|makeByteWordVec2| 22
+                        (|makeByteWordVec2| 23
                                             '(1 8 10 0 11 2 0 6 0 0 1 1 0 6 0
                                               20 1 0 6 0 19 3 0 0 8 8 8 21 1 0
-                                              8 0 16 1 0 8 0 1 1 0 22 0 1 3 0 0
-                                              8 8 8 14 1 0 8 0 17 1 0 6 0 18 1
-                                              0 8 0 15 1 0 8 0 9 1 0 0 8 13 1 0
-                                              10 0 12 2 0 6 0 0 7)))))
+                                              8 0 16 1 0 8 0 1 2 0 22 22 0 1 1
+                                              0 23 0 1 3 0 0 8 8 8 14 1 0 8 0
+                                              17 1 0 6 0 18 1 0 8 0 15 1 0 0 8
+                                              13 1 0 8 0 9 1 0 10 0 12 2 0 6 0
+                                              0 7)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FileName| 'NILADIC T) 

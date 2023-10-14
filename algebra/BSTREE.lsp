@@ -92,7 +92,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|BinarySearchTree|))
       (LETT |dv$| (LIST '|BinarySearchTree| DV$1) . #3#)
-      (LETT $ (GETREFV 39) . #3#)
+      (LETT $ (GETREFV 40) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -144,16 +144,17 @@
               (53 . |node|) |BSTREE;insertRoot!;S2$;4| (|NonNegativeInteger|)
               (|List| 28) (|Equation| 6) (|Mapping| 13 6) '"right" '"left"
               (|List| $) '"value" (|Mapping| 6 6) (|OutputForm|)
-              (|SingleInteger|) (|String|) (|Integer|))
+              (|SingleInteger|) (|HashState|) (|String|) (|Integer|))
            '#(~= 60 |value| 66 |split| 71 |size?| 77 |setvalue!| 83 |setright!|
               89 |setleft!| 95 |setelt| 101 |setchildren!| 122 |sample| 128
               |right| 132 |parts| 137 |nodes| 142 |node?| 147 |node| 153
               |more?| 160 |members| 166 |member?| 171 |map!| 177 |map| 183
               |less?| 189 |left| 195 |leaves| 200 |leaf?| 205 |latex| 210
-              |insertRoot!| 215 |insert!| 221 |hash| 227 |every?| 232 |eval|
-              238 |eq?| 264 |empty?| 270 |empty| 275 |elt| 279 |distance| 297
-              |cyclic?| 303 |count| 308 |copy| 320 |coerce| 325 |children| 330
-              |child?| 335 |binarySearchTree| 341 |any?| 346 = 352 |#| 358)
+              |insertRoot!| 215 |insert!| 221 |hashUpdate!| 227 |hash| 233
+              |every?| 238 |eval| 244 |eq?| 270 |empty?| 276 |empty| 281 |elt|
+              285 |distance| 303 |cyclic?| 309 |count| 314 |copy| 326 |coerce|
+              331 |children| 336 |child?| 341 |binarySearchTree| 347 |any?| 352
+              = 358 |#| 364)
            'NIL
            (CONS (|makeByteWordVec2| 4 '(0 0 0 0 0 2 1 0 0 0 2 1 4))
                  (CONS
@@ -167,7 +168,7 @@
                       (|Aggregate|) (|Evalable| 6) (|SetCategory|) (|Type|)
                       (|finiteAggregate|) (|shallowlyMutable|)
                       (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 35))
-                   (|makeByteWordVec2| 38
+                   (|makeByteWordVec2| 39
                                        '(0 0 0 8 1 7 0 6 9 1 0 13 0 14 1 0 6 0
                                          15 2 6 13 0 0 16 1 0 0 0 17 2 0 0 0 0
                                          18 1 0 0 0 19 2 0 0 0 0 20 2 6 13 0 0
@@ -180,13 +181,14 @@
                                          24 2 0 13 0 26 1 1 5 11 0 1 2 6 13 6 0
                                          1 2 7 0 34 0 1 2 0 0 34 0 1 2 0 13 0
                                          26 1 1 0 0 0 19 1 0 11 0 1 1 0 13 0 1
-                                         1 1 37 0 1 2 0 0 6 0 25 2 0 0 6 0 10 1
-                                         1 36 0 1 2 5 13 29 0 1 3 2 0 0 11 11 1
-                                         3 2 0 0 6 6 1 2 2 0 0 27 1 2 2 0 0 28
-                                         1 2 0 13 0 0 1 1 0 13 0 14 0 0 0 8 2 0
-                                         0 0 30 1 2 0 0 0 31 1 2 0 6 0 33 1 2 0
-                                         38 0 0 1 1 0 13 0 1 2 6 26 6 0 1 2 5
-                                         26 29 0 1 1 0 0 0 1 1 3 35 0 1 1 0 32
-                                         0 1 2 1 13 0 0 1 1 0 0 11 12 2 5 13 29
-                                         0 1 2 1 13 0 0 1 1 5 26 0 1)))))
+                                         1 1 38 0 1 2 0 0 6 0 25 2 0 0 6 0 10 2
+                                         1 37 37 0 1 1 1 36 0 1 2 5 13 29 0 1 3
+                                         2 0 0 11 11 1 3 2 0 0 6 6 1 2 2 0 0 27
+                                         1 2 2 0 0 28 1 2 0 13 0 0 1 1 0 13 0
+                                         14 0 0 0 8 2 0 0 0 30 1 2 0 0 0 31 1 2
+                                         0 6 0 33 1 2 0 39 0 0 1 1 0 13 0 1 2 6
+                                         26 6 0 1 2 5 26 29 0 1 1 0 0 0 1 1 3
+                                         35 0 1 1 0 32 0 1 2 1 13 0 0 1 1 0 0
+                                         11 12 2 5 13 29 0 1 2 1 13 0 0 1 1 5
+                                         26 0 1)))))
            '|lookupComplete|)) 

@@ -30,7 +30,7 @@
       (LETT DV$1 (|devaluate| |#1|)
             . #1=(|LinearOrdinaryDifferentialOperator1|))
       (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperator1| DV$1) . #1#)
-      (LETT $ (GETREFV 23) . #1#)
+      (LETT $ (GETREFV 24) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -64,10 +64,10 @@
               (|local| |#1|) (0 . |differentiate|) (|NonNegativeInteger|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Union| $ '"failed")
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Union| 13 '#1="failed") (|Fraction| 15) (|Union| 15 '#1#)
-              (|Integer|) (|List| 6) (|Union| 6 '#1#) (|Boolean|)
-              (|PositiveInteger|) (|SingleInteger|) (|String|) (|OutputForm|))
+              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Fraction| 14)
+              (|Union| 12 '#1="failed") (|Integer|) (|Union| 14 '#1#)
+              (|List| 6) (|Union| 6 '#1#) (|Boolean|) (|PositiveInteger|)
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -89,7 +89,7 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|Eltable| 6 6) (|RetractableTo| 6) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 22) (|RetractableTo| 13)
-                 (|RetractableTo| 15))
+                 (|BasicType|) (|CoercibleTo| 23) (|RetractableTo| 12)
+                 (|RetractableTo| 14))
               (|makeByteWordVec2| 7 '(1 6 0 0 7)))))
            '|lookupIncomplete|)) 

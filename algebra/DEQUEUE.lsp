@@ -86,7 +86,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|Dequeue|))
       (LETT |dv$| (LIST '|Dequeue| DV$1) . #3#)
-      (LETT $ (GETREFV 39) . #3#)
+      (LETT $ (GETREFV 40) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -138,17 +138,17 @@
               |DEQUEUE;insertTop!;S$S;6| (49 . |list|)
               |DEQUEUE;insertBottom!;S$S;7| |DEQUEUE;reverse!;2$;9|
               (|Equation| 6) (|List| 32) (|Mapping| 8 6) (|Mapping| 6 6)
-              (|OutputForm|) (|SingleInteger|) (|String|))
+              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|))
            '#(~= 54 |top!| 60 |top| 65 |size?| 70 |sample| 76 |rotate!| 80
               |reverse!| 85 |push!| 90 |pop!| 96 |parts| 101 |more?| 106
               |members| 112 |member?| 117 |map!| 123 |map| 129 |less?| 135
               |length| 141 |latex| 146 |inspect| 151 |insertTop!| 156
-              |insertBottom!| 162 |insert!| 168 |height| 174 |hash| 179 |front|
-              184 |extractTop!| 189 |extractBottom!| 194 |extract!| 199
-              |every?| 204 |eval| 210 |eq?| 236 |enqueue!| 242 |empty?| 248
-              |empty| 253 |dequeue!| 257 |dequeue| 262 |depth| 271 |count| 276
-              |copy| 288 |coerce| 293 |bottom!| 298 |bag| 303 |back| 308 |any?|
-              313 = 319 |#| 325)
+              |insertBottom!| 162 |insert!| 168 |height| 174 |hashUpdate!| 179
+              |hash| 185 |front| 190 |extractTop!| 195 |extractBottom!| 200
+              |extract!| 205 |every?| 210 |eval| 216 |eq?| 242 |enqueue!| 248
+              |empty?| 254 |empty| 259 |dequeue!| 263 |dequeue| 268 |depth| 277
+              |count| 282 |copy| 294 |coerce| 299 |bottom!| 304 |bag| 309
+              |back| 314 |any?| 319 = 325 |#| 331)
            'NIL
            (CONS (|makeByteWordVec2| 4 '(0 0 0 0 0 0 2 1 0 0 0 2 1 4))
                  (CONS
@@ -162,7 +162,7 @@
                       (|SetCategory|) (|Type|) (|finiteAggregate|)
                       (|shallowlyMutable|) (|InnerEvalable| 6 6) (|BasicType|)
                       (|CoercibleTo| 36))
-                   (|makeByteWordVec2| 38
+                   (|makeByteWordVec2| 39
                                        '(1 0 8 0 9 1 7 10 0 11 1 10 6 0 12 1 10
                                          0 0 14 1 7 0 10 15 1 10 17 0 18 2 7 10
                                          0 10 19 2 10 0 0 20 21 3 10 0 0 22 0
@@ -171,15 +171,16 @@
                                          1 1 0 0 0 31 2 0 6 6 0 1 1 0 6 0 1 1 6
                                          10 0 1 2 0 8 0 20 1 1 6 10 0 1 2 7 8 6
                                          0 1 2 5 0 35 0 1 2 0 0 35 0 1 2 0 8 0
-                                         20 1 1 0 20 0 1 1 1 38 0 1 1 0 6 0 1 2
+                                         20 1 1 0 20 0 1 1 1 39 0 1 1 0 6 0 1 2
                                          0 6 6 0 28 2 0 6 6 0 30 2 0 0 6 0 1 1
-                                         0 20 0 27 1 1 37 0 1 1 0 6 0 1 1 0 6 0
-                                         26 1 0 6 0 24 1 0 6 0 1 2 6 8 34 0 1 3
-                                         2 0 0 6 6 1 3 2 0 0 10 10 1 2 2 0 0 32
-                                         1 2 2 0 0 33 1 2 0 8 0 0 1 2 0 6 6 0 1
-                                         1 0 8 0 9 0 0 0 1 1 0 6 0 1 1 0 0 10
-                                         16 0 0 0 1 1 0 20 0 1 2 7 20 6 0 1 2 6
-                                         20 34 0 1 1 0 0 0 1 1 3 36 0 1 1 0 6 0
-                                         13 1 0 0 10 1 1 0 6 0 1 2 6 8 34 0 1 2
-                                         1 8 0 0 1 1 6 20 0 1)))))
+                                         0 20 0 27 2 1 37 37 0 1 1 1 38 0 1 1 0
+                                         6 0 1 1 0 6 0 26 1 0 6 0 24 1 0 6 0 1
+                                         2 6 8 34 0 1 3 2 0 0 6 6 1 3 2 0 0 10
+                                         10 1 2 2 0 0 32 1 2 2 0 0 33 1 2 0 8 0
+                                         0 1 2 0 6 6 0 1 1 0 8 0 9 0 0 0 1 1 0
+                                         6 0 1 1 0 0 10 16 0 0 0 1 1 0 20 0 1 2
+                                         7 20 6 0 1 2 6 20 34 0 1 1 0 0 0 1 1 3
+                                         36 0 1 1 0 6 0 13 1 0 0 10 1 1 0 6 0 1
+                                         2 6 8 34 0 1 2 1 8 0 0 1 1 6 20 0
+                                         1)))))
            '|lookupComplete|)) 

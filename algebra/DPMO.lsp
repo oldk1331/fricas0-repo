@@ -49,7 +49,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #6#)
       (LETT DV$3 (|devaluate| |#3|) . #6#)
       (LETT |dv$| (LIST '|DirectProductModule| DV$1 DV$2 DV$3) . #6#)
-      (LETT $ (GETREFV 45) . #6#)
+      (LETT $ (GETREFV 46) . #6#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -494,13 +494,13 @@
               (6 . *) |DPMO;*;R2$;1| (|Boolean|) (|NonNegativeInteger|)
               (|List| 8) (|Equation| 8) (|List| 17)
               (|Record| (|:| |mat| 22) (|:| |vec| (|Vector| 10))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 10) (|Symbol|) (|List| 23) (|List| 15)
-              (|Fraction| 10) (|Union| 26 '#1="failed") (|Union| 10 '#1#)
+              (|Vector| $) (|Matrix| 10) (|List| 25) (|List| 15) (|Symbol|)
+              (|Union| 27 '#1="failed") (|Fraction| 10) (|Union| 10 '#1#)
               (|Union| $ '"failed") (|Mapping| 14 8) (|Void|) (|Mapping| 8 8)
               (|CardinalNumber|) (|InputForm|) (|PositiveInteger|) (|List| $)
-              (|Matrix| 8) (|Record| (|:| |mat| 37) (|:| |vec| 43))
-              (|Union| 8 '#1#) (|OutputForm|) (|String|) (|SingleInteger|)
-              (|Vector| 8) (|List| 10))
+              (|Matrix| 8) (|Record| (|:| |mat| 37) (|:| |vec| 44))
+              (|Union| 8 '#1#) (|OutputForm|) (|HashState|) (|SingleInteger|)
+              (|String|) (|Vector| 8) (|List| 10))
            '#(|elt| 12 * 18) 'NIL
            (CONS
             (|makeByteWordVec2| 31
@@ -524,7 +524,7 @@
                  (|FullyLinearlyExplicitRingOver| 8)
                  (|DifferentialExtension| 8) (|Module| 8) (|OrderedRing|)
                  (|CommutativeRing|) (|LinearlyExplicitRingOver| 8)
-                 (|LinearlyExplicitRingOver| 10) (|PartialDifferentialRing| 23)
+                 (|LinearlyExplicitRingOver| 10) (|PartialDifferentialRing| 25)
                  (|DifferentialRing|) (|BiModule| 8 8)
                  (|OrderedAbelianMonoidSup|) (|OrderedAbelianGroup|)
                  (|BiModule| $$ $$) (|Ring|) (|LeftModule| 7) (|LeftModule| 8)
@@ -541,7 +541,7 @@
                  (|BasicType|) (|finiteAggregate|) (|CoercibleTo| (|Vector| 8))
                  (|Eltable| 10 8) (|InnerEvalable| 8 8) (|PartialOrder|)
                  (|unitsKnown|) (|CommutativeStar|) (|ConvertibleTo| 34)
-                 (|RetractableTo| 8) (|RetractableTo| 26) (|RetractableTo| 10))
+                 (|RetractableTo| 8) (|RetractableTo| 27) (|RetractableTo| 10))
               (|makeByteWordVec2| 13
                                   '(2 0 8 0 10 11 2 8 0 7 0 12 2 0 8 0 10 11 2
                                     0 0 7 0 13)))))

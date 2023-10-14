@@ -850,7 +850,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|ThreeSpace|))
       (LETT |dv$| (LIST '|ThreeSpace| DV$1) . #1#)
-      (LETT $ (GETREFV 115) . #1#)
+      (LETT $ (GETREFV 116) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|ThreeSpace| (LIST DV$1) (CONS 1 $))
@@ -926,23 +926,24 @@
                         (|:| |constructs| 13))
               |SPACE3;objects;$R;47| |SPACE3;check;2$;48|
               |SPACE3;subspace;$Ss;49| (|OutputForm|) (176 . |coerce|)
-              (181 . |hconcat|) |SPACE3;coerce;$Of;50| (|List| 83) (|String|)
-              (|SingleInteger|))
+              (181 . |hconcat|) |SPACE3;coerce;$Of;50| (|List| 83)
+              (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 186 |subspace| 192 |polygon?| 197 |polygon| 202 |point?| 224
               |point| 229 |objects| 257 |numberOfComposites| 262
               |numberOfComponents| 267 |modifyPointData| 272 |mesh?| 279 |mesh|
               284 |merge| 333 |lprop| 344 |lp| 349 |llprop| 354 |lllp| 359
-              |lllip| 364 |latex| 369 |hash| 374 |enterPointData| 379 |curve?|
-              385 |curve| 390 |create3Space| 412 |copy| 421 |composites| 426
-              |composite| 431 |components| 436 |coerce| 441 |closedCurve?| 446
-              |closedCurve| 451 |check| 473 = 478)
+              |lllip| 364 |latex| 369 |hashUpdate!| 374 |hash| 380
+              |enterPointData| 385 |curve?| 391 |curve| 396 |create3Space| 418
+              |copy| 427 |composites| 432 |composite| 437 |components| 442
+              |coerce| 447 |closedCurve?| 452 |closedCurve| 457 |check| 479 =
+              484)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|ThreeSpaceCategory| 6) (|SetCategory|)
                            (|BasicType|) (|CoercibleTo| 108))
-                        (|makeByteWordVec2| 114
+                        (|makeByteWordVec2| 115
                                             '(1 9 8 0 10 1 9 11 0 12 1 9 13 0
                                               14 1 9 15 0 16 2 9 0 0 17 18 4 9
                                               0 0 0 17 13 19 0 9 0 21 0 6 0 22
@@ -959,24 +960,24 @@
                                               13 108 0 109 1 108 0 8 110 2 0 40
                                               0 0 1 1 0 9 0 107 1 0 40 0 73 1 0
                                               15 0 74 2 0 0 0 60 76 1 0 0 15 75
-                                              2 0 0 0 15 20 1 0 40 0 42 1 0 17
-                                              0 46 1 0 0 17 48 2 0 0 0 50 52 2
-                                              0 0 0 13 54 2 0 0 0 17 47 1 0 104
+                                              2 0 0 0 15 20 1 0 40 0 42 1 0 0
+                                              17 48 1 0 17 0 46 2 0 0 0 13 54 2
+                                              0 0 0 17 47 2 0 0 0 50 52 1 0 104
                                               0 105 1 0 13 0 26 1 0 13 0 25 3 0
                                               0 0 13 17 39 1 0 40 0 82 3 0 0 83
                                               40 40 87 1 0 83 0 84 4 0 0 0 90
                                               40 40 93 1 0 0 83 86 4 0 0 0 83
                                               40 40 85 4 0 0 0 83 88 11 89 4 0
-                                              0 0 90 88 11 91 1 0 0 8 28 2 0 0
-                                              0 0 29 1 0 88 0 101 1 0 15 0 96 1
+                                              0 0 90 88 11 91 2 0 0 0 0 29 1 0
+                                              0 8 28 1 0 88 0 101 1 0 15 0 96 1
                                               0 99 0 100 1 0 112 0 1 1 0 97 0
-                                              98 1 0 113 0 1 1 0 114 0 1 2 0 13
-                                              0 15 37 1 0 40 0 55 1 0 15 0 56 2
-                                              0 0 0 60 63 1 0 0 15 58 2 0 0 0
-                                              15 57 1 0 0 9 24 0 0 0 23 1 0 0 0
-                                              35 1 0 8 0 34 1 0 0 8 31 1 0 8 0
-                                              33 1 0 108 0 111 1 0 40 0 65 1 0
-                                              15 0 66 2 0 0 0 60 70 1 0 0 15 68
-                                              2 0 0 0 15 67 1 0 0 0 106 2 0 40
-                                              0 0 1)))))
+                                              98 1 0 114 0 1 2 0 113 113 0 1 1
+                                              0 115 0 1 2 0 13 0 15 37 1 0 40 0
+                                              55 1 0 15 0 56 2 0 0 0 60 63 1 0
+                                              0 15 58 2 0 0 0 15 57 1 0 0 9 24
+                                              0 0 0 23 1 0 0 0 35 1 0 8 0 34 1
+                                              0 0 8 31 1 0 8 0 33 1 0 108 0 111
+                                              1 0 40 0 65 1 0 15 0 66 2 0 0 0
+                                              60 70 1 0 0 15 68 2 0 0 0 15 67 1
+                                              0 0 0 106 2 0 40 0 0 1)))))
            '|lookupComplete|)) 

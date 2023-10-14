@@ -417,7 +417,7 @@
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT |dv$| (LIST '|QuasiAlgebraicSet| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 85) . #1#)
+      (LETT $ (GETREFV 86) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -477,17 +477,18 @@
               |QALGSET;definingInequation;$Dpoly;11| (194 . |One|) (198 . *)
               (204 . |One|) (208 . -) (|List| 37) (|GroebnerPackage| 6 42 7 37)
               (214 . |groebner|) (219 . |member?|) (|Set| 9) (225 . |brace|)
-              (230 . <) (|String|) (|SingleInteger|))
+              (230 . <) (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 236 |status| 242 |simplify| 247 |setStatus| 252
-              |quasiAlgebraicSet| 258 |latex| 264 |idealSimplify| 269 |hash|
-              274 |empty?| 279 |empty| 284 |definingInequation| 288
-              |definingEquations| 293 |coerce| 298 = 303)
+              |quasiAlgebraicSet| 258 |latex| 264 |idealSimplify| 269
+              |hashUpdate!| 274 |hash| 280 |empty?| 285 |empty| 290
+              |definingInequation| 294 |definingEquations| 299 |coerce| 304 =
+              309)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 58))
-                        (|makeByteWordVec2| 84
+                        (|makeByteWordVec2| 85
                                             '(1 9 11 0 12 1 14 13 9 15 1 13 17
                                               0 18 1 20 19 19 21 2 22 9 9 19 23
                                               0 6 0 25 0 8 0 26 0 9 0 27 2 9 11
@@ -507,8 +508,8 @@
                                               37 0 79 1 80 0 19 81 2 80 11 0 0
                                               82 2 0 11 0 0 1 1 0 56 0 68 1 1 0
                                               0 35 2 0 0 0 56 69 2 0 0 19 9 24
-                                              1 0 83 0 1 1 0 0 0 66 1 0 84 0 1
-                                              1 0 11 0 67 0 0 0 29 1 0 9 0 71 1
-                                              0 19 0 70 1 0 58 0 65 2 0 11 0 0
-                                              1)))))
+                                              1 0 84 0 1 1 0 0 0 66 2 0 83 83 0
+                                              1 1 0 85 0 1 1 0 11 0 67 0 0 0 29
+                                              1 0 9 0 71 1 0 19 0 70 1 0 58 0
+                                              65 2 0 11 0 0 1)))))
            '|lookupComplete|)) 

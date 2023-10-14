@@ -915,7 +915,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|TexmacsFormat|) . #1=(|TexmacsFormat|))
-      (LETT $ (GETREFV 62) . #1#)
+      (LETT $ (GETREFV 63) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|TexmacsFormat| NIL (CONS 1 $))
@@ -965,15 +965,15 @@
               (85 . |coerce|) (90 . =) (96 . |segment|) (101 . |empty?|)
               (|Character|) (106 . |elt|) (|List| 21) (112 . |elt|)
               (118 . |char|) (123 . |position|) (129 . |member?|)
-              (|SingleInteger|))
-           '#(~= 135 |latex| 141 |hash| 146 |display| 151 |coerceL| 156
-              |coerce| 161 = 171)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 135 |latex| 141 |hashUpdate!| 146 |hash| 152 |display| 157
+              |coerceL| 162 |coerce| 167 = 177)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 22))
-                        (|makeByteWordVec2| 61
+                        (|makeByteWordVec2| 62
                                             '(0 25 0 26 3 21 28 0 0 28 29 2 28
                                               30 0 0 31 2 32 0 28 28 33 2 21 0
                                               0 32 34 1 21 0 35 36 1 37 22 0 38
@@ -985,9 +985,9 @@
                                               0 53 2 21 54 0 28 55 2 56 21 0 28
                                               57 1 54 0 21 58 2 21 28 54 0 59 2
                                               42 30 40 0 60 2 0 30 0 0 1 1 0 21
-                                              0 1 1 0 61 0 1 1 0 25 21 27 1 0
-                                              21 22 24 1 0 21 22 23 1 0 22 0 1
-                                              2 0 30 0 0 1)))))
+                                              0 1 2 0 62 62 0 1 1 0 61 0 1 1 0
+                                              25 21 27 1 0 21 22 24 1 0 21 22
+                                              23 1 0 22 0 1 2 0 30 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TexmacsFormat| 'NILADIC T) 

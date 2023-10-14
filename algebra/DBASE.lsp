@@ -108,7 +108,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|Database|))
       (LETT |dv$| (LIST '|Database| DV$1) . #1#)
-      (LETT $ (GETREFV 41) . #1#)
+      (LETT $ (GETREFV 42) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Database| (LIST DV$1) (CONS 1 $))
@@ -130,23 +130,25 @@
               (|NonNegativeInteger|) (48 . |coerce|) |DBASE;coerce;$Of;6|
               (|Void|) (53 . |display|) |DBASE;display;$V;7|
               (58 . |fullDisplay|) |DBASE;fullDisplay;$V;8| (|PositiveInteger|)
-              |DBASE;fullDisplay;$2PiV;9| (|SingleInteger|) (|Boolean|))
-           '#(~= 63 |latex| 69 |hash| 74 |fullDisplay| 79 |elt| 91 |display|
-              103 |coerce| 108 = 118 - 124 + 130)
+              |DBASE;fullDisplay;$2PiV;9| (|HashState|) (|SingleInteger|)
+              (|Boolean|))
+           '#(~= 63 |latex| 69 |hashUpdate!| 74 |hash| 80 |fullDisplay| 85
+              |elt| 97 |display| 109 |coerce| 114 = 124 - 130 + 136)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 28))
-                        (|makeByteWordVec2| 40
+                        (|makeByteWordVec2| 41
                                             '(2 6 9 0 10 11 1 13 0 12 14 1 16
                                               10 0 17 1 16 9 0 18 2 7 0 0 0 20
                                               1 7 0 0 21 1 7 0 0 23 1 5 0 0 24
                                               2 25 5 5 5 26 1 29 28 0 30 1 6 32
-                                              0 33 1 6 32 0 35 2 0 40 0 0 1 1 0
-                                              9 0 1 1 0 39 0 1 3 0 32 0 37 37
-                                              38 1 0 32 0 36 2 0 13 0 10 15 2 0
-                                              0 0 16 19 1 0 32 0 34 1 0 0 5 8 1
-                                              0 28 0 31 2 0 40 0 0 1 2 0 0 0 0
-                                              27 2 0 0 0 0 22)))))
+                                              0 33 1 6 32 0 35 2 0 41 0 0 1 1 0
+                                              9 0 1 2 0 39 39 0 1 1 0 40 0 1 3
+                                              0 32 0 37 37 38 1 0 32 0 36 2 0
+                                              13 0 10 15 2 0 0 0 16 19 1 0 32 0
+                                              34 1 0 0 5 8 1 0 28 0 31 2 0 41 0
+                                              0 1 2 0 0 0 0 27 2 0 0 0 0
+                                              22)))))
            '|lookupComplete|)) 

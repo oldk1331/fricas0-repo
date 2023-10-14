@@ -287,7 +287,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|SetOfMIntegersInOneToN|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|SetOfMIntegersInOneToN| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 63) . #1#)
+      (LETT $ (GETREFV 64) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|SetOfMIntegersInOneToN|
@@ -320,19 +320,20 @@
               |SETMN;index;Pi$;9| (106 . >) |SETMN;setOfMinN;L$;10|
               (112 . |copy|) (|Union| $ '"failed")
               |SETMN;incrementKthElement;$PiU;12| |SETMN;delta;$2PiNni;13|
-              (117 . ~=) |SETMN;replaceKthElement;$2PiU;14| (|InputForm|)
-              (|SingleInteger|) (|String|))
+              (117 . ~=) |SETMN;replaceKthElement;$2PiU;14| (|String|)
+              (|InputForm|) (|SingleInteger|) (|HashState|))
            '#(~= 123 |size| 129 |setOfMinN| 133 |replaceKthElement| 138
               |random| 145 |member?| 149 |lookup| 155 |latex| 160 |index| 165
-              |incrementKthElement| 170 |hash| 176 |enumerate| 181 |elements|
-              189 |delta| 194 |convert| 201 |coerce| 206 = 211)
+              |incrementKthElement| 170 |hashUpdate!| 176 |hash| 182
+              |enumerate| 187 |elements| 195 |delta| 200 |convert| 207 |coerce|
+              212 = 217)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
                  (CONS '#(|Finite&| |SetCategory&| |BasicType&| NIL NIL)
                        (CONS
                         '#((|Finite|) (|SetCategory|) (|BasicType|)
-                           (|ConvertibleTo| 60) (|CoercibleTo| 24))
-                        (|makeByteWordVec2| 62
+                           (|ConvertibleTo| 61) (|CoercibleTo| 24))
+                        (|makeByteWordVec2| 63
                                             '(0 9 0 10 1 11 0 9 12 1 15 0 14 16
                                               2 19 18 0 0 20 1 25 24 0 26 1 24
                                               0 27 28 2 19 18 0 30 31 1 11 9 0
@@ -345,9 +346,9 @@
                                               18 0 0 58 2 0 18 0 0 1 0 0 14 46
                                               1 0 0 22 53 3 0 55 0 25 25 59 0 0
                                               0 1 2 0 18 25 0 32 1 0 25 0 48 1
-                                              0 62 0 1 1 0 0 25 51 2 0 55 0 25
-                                              56 1 0 61 0 1 0 0 36 37 0 0 27 1
-                                              1 0 22 0 23 3 0 14 0 25 25 57 1 0
-                                              60 0 1 1 0 24 0 29 2 0 18 0 0
-                                              21)))))
+                                              0 60 0 1 1 0 0 25 51 2 0 55 0 25
+                                              56 2 0 63 63 0 1 1 0 62 0 1 0 0
+                                              36 37 0 0 27 1 1 0 22 0 23 3 0 14
+                                              0 25 25 57 1 0 61 0 1 1 0 24 0 29
+                                              2 0 18 0 0 21)))))
            '|lookupComplete|)) 

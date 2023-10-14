@@ -51,7 +51,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT |dv$| (LIST '|ModuleMonomial| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 20) . #1#)
+      (LETT $ (GETREFV 21) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|ModuleMonomial| (LIST DV$1 DV$2 DV$3)
@@ -70,11 +70,11 @@
               (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep| (|Boolean|)
               |MODMONOM;<;2$B;1| |MODMONOM;exponent;$E;2|
               |MODMONOM;index;$IS;3| |MODMONOM;coerce;$R;4|
-              |MODMONOM;coerce;R$;5| |MODMONOM;construct;ISE$;6|
-              (|SingleInteger|) (|String|) (|OutputForm|))
-           '#(~= 0 |smaller?| 6 |min| 12 |max| 18 |latex| 24 |index| 29 |hash|
-              34 |exponent| 39 |construct| 44 |coerce| 50 >= 65 > 71 = 77 <= 83
-              < 89)
+              |MODMONOM;coerce;R$;5| |MODMONOM;construct;ISE$;6| (|String|)
+              (|SingleInteger|) (|HashState|) (|OutputForm|))
+           '#(~= 0 |smaller?| 6 |min| 12 |max| 18 |latex| 24 |index| 29
+              |hashUpdate!| 34 |hash| 40 |exponent| 45 |construct| 50 |coerce|
+              56 >= 71 > 77 = 83 <= 89 < 95)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -82,12 +82,12 @@
                      |PartialOrder&| NIL)
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
-                      (|BasicType|) (|PartialOrder|) (|CoercibleTo| 19))
-                   (|makeByteWordVec2| 19
+                      (|BasicType|) (|PartialOrder|) (|CoercibleTo| 20))
+                   (|makeByteWordVec2| 20
                                        '(2 0 10 0 0 1 2 0 10 0 0 1 2 0 0 0 0 1
-                                         2 0 0 0 0 1 1 0 18 0 1 1 0 6 0 13 1 0
-                                         17 0 1 1 0 7 0 12 2 0 0 6 7 16 1 0 5 0
-                                         14 1 0 0 5 15 1 0 19 0 1 2 0 10 0 0 1
-                                         2 0 10 0 0 1 2 0 10 0 0 1 2 0 10 0 0 1
-                                         2 0 10 0 0 11)))))
+                                         2 0 0 0 0 1 1 0 17 0 1 1 0 6 0 13 2 0
+                                         19 19 0 1 1 0 18 0 1 1 0 7 0 12 2 0 0
+                                         6 7 16 1 0 5 0 14 1 0 0 5 15 1 0 20 0
+                                         1 2 0 10 0 0 1 2 0 10 0 0 1 2 0 10 0 0
+                                         1 2 0 10 0 0 1 2 0 10 0 0 11)))))
            '|lookupComplete|)) 

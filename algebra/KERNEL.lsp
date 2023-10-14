@@ -403,7 +403,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|Kernel|))
       (LETT |dv$| (LIST '|Kernel| DV$1) . #1#)
-      (LETT $ (GETREFV 92) . #1#)
+      (LETT $ (GETREFV 93) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -474,12 +474,12 @@
               (157 . |setPredicates|) (163 . |convert|) (168 . |elt|)
               (174 . |convert|) (179 . |patternVariable|)
               (187 . |setPredicates|) (193 . |convert|) (198 . |elt|)
-              (204 . |convert|) (|String|) (|SingleInteger|))
+              (204 . |convert|) (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 209 |symbolIfCan| 215 |smaller?| 220 |setPosition| 226
               |position| 232 |operator| 237 |name| 242 |min| 247 |max| 253
-              |latex| 259 |kernel| 264 |is?| 276 |height| 288 |hash| 293
-              |convert| 298 |coerce| 313 |argument| 318 >= 323 > 329 = 335 <=
-              341 < 347)
+              |latex| 259 |kernel| 264 |is?| 276 |height| 288 |hashUpdate!| 293
+              |hash| 299 |convert| 304 |coerce| 319 |argument| 324 >= 329 > 335
+              = 341 <= 347 < 353)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 0 0 0 1 2 3))
                  (CONS
@@ -490,7 +490,7 @@
                       (|Patternable| 6) (|SetCategory|) (|PartialOrder|)
                       (|BasicType|) (|CoercibleTo| 54) (|ConvertibleTo| 74)
                       (|ConvertibleTo| 78) (|ConvertibleTo| 68))
-                   (|makeByteWordVec2| 91
+                   (|makeByteWordVec2| 92
                                        '(0 24 14 25 2 7 26 0 27 28 2 7 26 0 0
                                          30 1 7 27 0 32 2 7 0 27 11 34 2 7 0 0
                                          27 35 2 7 38 0 27 39 2 7 26 0 27 40 2
@@ -507,11 +507,11 @@
                                          0 7 60 88 1 0 74 0 89 2 0 26 0 0 1 1 0
                                          41 0 42 2 0 26 0 0 1 2 0 14 0 11 15 1
                                          0 11 0 13 1 0 7 0 8 1 0 27 0 33 2 0 0
-                                         0 0 1 2 0 0 0 0 1 1 0 90 0 1 1 0 0 27
+                                         0 0 1 2 0 0 0 0 1 1 0 91 0 1 1 0 0 27
                                          37 3 0 0 7 9 11 36 2 0 26 0 27 29 2 0
-                                         26 0 7 31 1 0 11 0 12 1 0 91 0 1 1 3
-                                         68 0 77 1 1 74 0 89 1 2 78 0 84 1 0 54
-                                         0 62 1 0 9 0 10 2 0 26 0 0 1 2 0 26 0
-                                         0 1 2 0 26 0 0 50 2 0 26 0 0 1 2 0 26
-                                         0 0 51)))))
+                                         26 0 7 31 1 0 11 0 12 2 0 90 90 0 1 1
+                                         0 92 0 1 1 3 68 0 77 1 1 74 0 89 1 2
+                                         78 0 84 1 0 54 0 62 1 0 9 0 10 2 0 26
+                                         0 0 1 2 0 26 0 0 1 2 0 26 0 0 50 2 0
+                                         26 0 0 1 2 0 26 0 0 51)))))
            '|lookupComplete|)) 

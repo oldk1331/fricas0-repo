@@ -31,7 +31,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldCyclicGroupExtension|))
       (LETT DV$2 (|devaluate| |#2|) . #2#)
       (LETT |dv$| (LIST '|FiniteFieldCyclicGroupExtension| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 47) . #2#)
+      (LETT $ (GETREFV 48) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -74,7 +74,7 @@
               (|Record| (|:| |factor| 21) (|:| |exponent| 21)) (|List| 22)
               (|Boolean|) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Union| 8 '"failed") (|SparseUnivariatePolynomial| $)
-              (|PrimitiveArray| 46) (|Vector| 6) (|Matrix| 6) (|Vector| $)
+              (|PrimitiveArray| 47) (|Vector| 6) (|Matrix| 6) (|Vector| $)
               (|CardinalNumber|) (|Union| 6 '"failed") (|Fraction| 21)
               (|Factored| $) (|Union| 16 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
@@ -83,7 +83,7 @@
               (|Record| (|:| |coef| 16) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|String|) (|OutputForm|) (|SingleInteger|))
+              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -118,6 +118,6 @@
                  (|Finite|) (|StepThrough|) (|SetCategory|) (|RetractableTo| 6)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 45) (|ConvertibleTo| 17))
+                 (|BasicType|) (|CoercibleTo| 46) (|ConvertibleTo| 17))
               (|makeByteWordVec2| 11 '(1 10 8 9 11)))))
            '|lookupIncomplete|)) 

@@ -502,7 +502,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|IntegrationResult|))
       (LETT |dv$| (LIST '|IntegrationResult| DV$1) . #2#)
-      (LETT $ (GETREFV 104) . #2#)
+      (LETT $ (GETREFV 105) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -600,12 +600,12 @@
               (272 . |rem|) (|List| 10) (278 . |concat|) |IR;coerce;$Of;27|
               (284 . +) (|Mapping| 10 10 10) (290 . |reduce|) (296 . |hconcat|)
               (301 . |int|) (|Union| $ '"failed") (|PositiveInteger|)
-              (|String|) (|SingleInteger|))
+              (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 306 |zero?| 312 |subtractIfCan| 317 |sample| 323
               |retractIfCan| 327 |retract| 332 |ratpart| 337 |notelem| 342
-              |mkAnswer| 347 |logpart| 354 |latex| 359 |integral| 364 |hash|
-              376 |elem?| 381 |differentiate| 386 |coerce| 398 |Zero| 408 = 412
-              - 418 + 429 * 435)
+              |mkAnswer| 347 |logpart| 354 |latex| 359 |integral| 364
+              |hashUpdate!| 376 |hash| 382 |elem?| 387 |differentiate| 392
+              |coerce| 404 |Zero| 414 = 418 - 424 + 435 * 441)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 0 0 0 1 1 3 0 0 0 0 0))
                  (CONS
@@ -618,7 +618,7 @@
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
                       (|AbelianSemiGroup|) (|SetCategory|) (|RetractableTo| 6)
                       (|BasicType|) (|CoercibleTo| 10))
-                   (|makeByteWordVec2| 103
+                   (|makeByteWordVec2| 104
                                        '(0 8 0 9 1 8 10 0 11 0 6 0 17 2 29 0 0
                                          0 30 1 6 27 0 31 2 6 0 0 0 33 1 29 0
                                          13 34 1 29 13 0 36 1 6 0 13 37 1 29 13
@@ -641,11 +641,11 @@
                                          0 99 2 0 27 0 0 1 1 2 27 0 1 2 1 100 0
                                          0 1 0 2 0 1 1 0 66 0 67 1 0 6 0 1 1 0
                                          6 0 24 1 0 21 0 26 3 0 0 6 19 21 22 1
-                                         0 19 0 25 1 0 102 0 1 2 5 0 6 8 43 2 0
-                                         0 6 6 32 1 0 103 0 1 1 0 27 0 28 2 4 6
-                                         0 8 80 2 0 6 0 78 79 1 0 0 6 23 1 0 10
-                                         0 94 0 2 0 16 2 0 27 0 0 1 2 1 0 0 0 1
-                                         1 1 0 0 15 2 0 0 0 0 76 2 1 0 13 0 14
-                                         2 2 0 44 0 1 2 0 0 0 29 1 2 0 0 101 0
-                                         1 2 0 0 29 0 35)))))
+                                         0 19 0 25 1 0 103 0 1 2 5 0 6 8 43 2 0
+                                         0 6 6 32 2 0 102 102 0 1 1 0 104 0 1 1
+                                         0 27 0 28 2 4 6 0 8 80 2 0 6 0 78 79 1
+                                         0 0 6 23 1 0 10 0 94 0 2 0 16 2 0 27 0
+                                         0 1 2 1 0 0 0 1 1 1 0 0 15 2 0 0 0 0
+                                         76 2 1 0 13 0 14 2 2 0 44 0 1 2 0 0 0
+                                         29 1 2 0 0 29 0 35 2 0 0 101 0 1)))))
            '|lookupComplete|)) 

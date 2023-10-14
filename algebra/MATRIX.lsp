@@ -56,7 +56,7 @@
 (DEFUN |MATRIX;inverse;$U;12| (|x| $) (SPADCALL |x| (QREFELT $ 32))) 
 
 (DEFUN |MATRIX;diagonalMatrix;V$;13| (|v| $)
-  (PROG (#1=#:G2099 |i| #2=#:G2100 |j| #3=#:G2101 |k| |ans| |n|)
+  (PROG (#1=#:G2119 |i| #2=#:G2120 |j| #3=#:G2121 |k| |ans| |n|)
     (RETURN
      (SEQ (LETT |n| (QVSIZE |v|) . #4=(|MATRIX;diagonalMatrix;V$;13|))
           (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 35)) . #4#)
@@ -84,10 +84,10 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 44)) (QREFELT $ 45)))
    (QREFELT $ 47))) 
 
-(DEFUN |Matrix| (#1=#:G2111)
+(DEFUN |Matrix| (#1=#:G2131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2112)
+     (PROG (#2=#:G2132)
        (RETURN
         (COND
          ((LETT #2#
@@ -101,12 +101,12 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Matrix|))))))))))) 
 
 (DEFUN |Matrix;| (|#1|)
-  (PROG (|pv$| #1=#:G2109 #2=#:G2110 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2129 #2=#:G2130 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|Matrix|))
       (LETT |dv$| (LIST '|Matrix| DV$1) . #3#)
-      (LETT $ (GETREFV 62) . #3#)
+      (LETT $ (GETREFV 63) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -216,8 +216,8 @@
               (|InputForm|) (97 . |convert|) (|List| 49) (102 . |listOfLists|)
               (107 . |convert|) (|List| $) (112 . |convert|) (117 . |convert|)
               (|List| 6) (|List| 51) (|Equation| 6) (|Mapping| 13 6)
-              (|OutputForm|) (|SingleInteger|) (|String|) (|Void|)
-              (|List| (|List| 23)) (|Union| 6 '"one") (|List| 7)
+              (|OutputForm|) (|SingleInteger|) (|HashState|) (|String|)
+              (|Void|) (|List| (|List| 23)) (|Union| 6 '"one") (|List| 7)
               (|Mapping| 6 6 6) (|Mapping| 6 6))
            '#(|zero| 122 |swapRows!| 128 |rowEchelon| 135 |rank| 140 |qsetelt!|
               145 |qelt| 153 |nullity| 160 |nullSpace| 165 |minordet| 170

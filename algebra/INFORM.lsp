@@ -400,7 +400,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|InputForm|) . #1=(|InputForm|))
-      (LETT $ (GETREFV 70) . #1#)
+      (LETT $ (GETREFV 71) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|InputForm| NIL (CONS 1 $))
@@ -432,7 +432,8 @@
               |INFORM;binary;$L$;17| (131 . |new|) (137 . |cons|)
               |INFORM;function;$LS$;19| (143 . =) |INFORM;+;3$;20|
               |INFORM;*;3$;21| (149 . >) |INFORM;^;$I$;22| |INFORM;^;$Nni$;23|
-              |INFORM;/;3$;24| (|List| 7) (|OutputForm|) (|SingleInteger|))
+              |INFORM;/;3$;24| (|List| 7) (|OutputForm|) (|HashState|)
+              (|SingleInteger|))
            '#(|unparse| 155 |symbol?| 160 |symbol| 165 |string?| 170 |string|
               175 |parse| 180 |lambda| 185 |interpret| 191 |function| 196
               |flatten| 203 |destruct| 208 |declare| 213 |convert| 218
@@ -462,10 +463,10 @@
                                               1 0 0 38 47 2 0 0 0 17 18 1 0 19
                                               0 20 3 0 0 0 17 15 59 1 0 0 0 36
                                               1 0 13 0 26 1 0 15 13 48 1 0 0 5
-                                              12 1 0 5 0 11 1 0 0 21 23 1 0 0
-                                              15 16 1 0 0 7 8 1 0 0 13 52 2 0
-                                              15 15 13 51 1 0 0 0 50 1 0 0 0 49
-                                              2 0 0 0 13 56 1 0 24 0 25 2 0 0 0
+                                              12 1 0 5 0 11 1 0 0 21 23 1 0 0 7
+                                              8 1 0 0 15 16 1 0 0 13 52 2 0 15
+                                              15 13 51 1 0 0 0 50 1 0 0 0 49 2
+                                              0 0 0 13 56 1 0 24 0 25 2 0 0 0
                                               53 65 2 0 0 0 7 64 0 0 0 9 0 0 0
                                               10 2 0 24 0 0 60 2 0 0 0 0 66 2 0
                                               0 0 0 61 2 0 0 0 0 62)))))

@@ -12,10 +12,10 @@
 (DEFUN |ARRAY2;qsetelt!;$2I2R;2| (|m| |i| |j| |r| $)
   (QSETAREF2O |m| |i| |j| |r| 1 1)) 
 
-(DEFUN |TwoDimensionalArray| (#1=#:G2197)
+(DEFUN |TwoDimensionalArray| (#1=#:G2217)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2198)
+     (PROG (#2=#:G2218)
        (RETURN
         (COND
          ((LETT #2#
@@ -33,12 +33,12 @@
               (HREM |$ConstructorCache| '|TwoDimensionalArray|))))))))))) 
 
 (DEFUN |TwoDimensionalArray;| (|#1|)
-  (PROG (|pv$| #1=#:G2195 #2=#:G2196 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2215 #2=#:G2216 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|TwoDimensionalArray|))
       (LETT |dv$| (LIST '|TwoDimensionalArray| DV$1) . #3#)
-      (LETT $ (GETREFV 22) . #3#)
+      (LETT $ (GETREFV 23) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -80,13 +80,13 @@
 (MAKEPROP '|TwoDimensionalArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL 1) (NRTEVAL 1) 21
-                                                 21)
+              (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL 1) (NRTEVAL 1) 22
+                                                 22)
               (|local| |#1|) (|Integer|) |ARRAY2;qelt;$2IR;1|
               |ARRAY2;qsetelt!;$2I2R;2| (|Boolean|) (|NonNegativeInteger|)
               (|List| 6) (|Equation| 6) (|List| 13) (|Mapping| 10 6)
-              (|OutputForm|) (|SingleInteger|) (|String|) (|Mapping| 6 6 6)
-              (|Mapping| 6 6) (|OneDimensionalArray| 6))
+              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|OneDimensionalArray| 6))
            '#(|qsetelt!| 0 |qelt| 8) 'NIL
            (CONS (|makeByteWordVec2| 4 '(0 0 0 2 1 0 0 0 2 1 4))
                  (CONS

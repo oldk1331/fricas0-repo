@@ -746,7 +746,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|TwoDimensionalViewport|) . #1=(|TwoDimensionalViewport|))
-      (LETT $ (GETREFV 96) . #1#)
+      (LETT $ (GETREFV 97) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|TwoDimensionalViewport| NIL (CONS 1 $))
@@ -826,21 +826,21 @@
               (130 . |viewWriteDefault|) |VIEW2D;write;$2S;35|
               (134 . |viewWriteAvailable|) (138 . |minIndex|)
               (143 . |upperCase|) (148 . |position|) (|List| (|Point| 11))
-              (|SingleInteger|))
+              (|SingleInteger|) (|HashState|))
            '#(~= 154 |write| 160 |viewport2D| 180 |update| 184 |units| 191
               |translate| 205 |title| 213 |show| 219 |scale| 226 |resize| 234
               |reset| 241 |region| 246 |putGraph| 253 |points| 260 |options|
-              267 |move| 278 |makeViewport2D| 285 |latex| 296 |key| 301 |hash|
-              306 |graphs| 311 |graphStates| 316 |graphState| 321
-              |getPickedPoints| 339 |getGraph| 344 |dimensions| 350
-              |controlPanel| 359 |connect| 365 |coerce| 372 |close| 377 |axes|
-              382 = 396)
+              267 |move| 278 |makeViewport2D| 285 |latex| 296 |key| 301
+              |hashUpdate!| 306 |hash| 312 |graphs| 317 |graphStates| 322
+              |graphState| 327 |getPickedPoints| 345 |getGraph| 350
+              |dimensions| 356 |controlPanel| 365 |connect| 371 |coerce| 378
+              |close| 383 |axes| 388 = 402)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 80))
-                        (|makeByteWordVec2| 95
+                        (|makeByteWordVec2| 96
                                             '(3 9 0 7 7 8 10 1 9 11 0 12 0 14
                                               13 15 0 14 13 16 2 20 18 19 18 21
                                               2 8 24 0 0 25 0 9 0 26 3 28 27 0
@@ -860,17 +860,17 @@
                                               0 30 0 18 68 3 0 30 0 8 18 77 4 0
                                               30 0 8 9 9 50 3 0 30 0 8 8 47 1 0
                                               30 0 69 3 0 30 0 8 18 76 3 0 30 0
-                                              31 8 32 3 0 30 0 8 18 75 1 0 19 0
-                                              22 2 0 0 0 19 23 3 0 30 0 40 40
+                                              31 8 32 3 0 30 0 8 18 75 2 0 0 0
+                                              19 23 1 0 19 0 22 3 0 30 0 40 40
                                               43 2 0 0 31 19 59 1 0 0 0 60 1 0
-                                              18 0 1 1 0 7 0 39 1 0 95 0 1 1 0
-                                              28 0 38 1 0 36 0 37 14 0 30 0 8
-                                              11 11 11 11 7 7 7 7 13 7 13 7 67
-                                              1 0 94 0 1 2 0 31 0 8 34 5 0 30 0
-                                              40 40 8 8 41 2 0 30 0 18 78 3 0
-                                              30 0 8 18 74 1 0 80 0 84 1 0 30 0
-                                              79 3 0 30 0 8 18 70 3 0 30 0 8 13
-                                              71 2 0 24 0 0 1)))))
+                                              18 0 1 1 0 7 0 39 2 0 96 96 0 1 1
+                                              0 95 0 1 1 0 28 0 38 1 0 36 0 37
+                                              14 0 30 0 8 11 11 11 11 7 7 7 7
+                                              13 7 13 7 67 1 0 94 0 1 2 0 31 0
+                                              8 34 5 0 30 0 40 40 8 8 41 2 0 30
+                                              0 18 78 3 0 30 0 8 18 74 1 0 80 0
+                                              84 1 0 30 0 79 3 0 30 0 8 18 70 3
+                                              0 30 0 8 13 71 2 0 24 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TwoDimensionalViewport| 'NILADIC T) 

@@ -153,7 +153,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #6#)
       (LETT DV$3 (|devaluate| |#3|) . #6#)
       (LETT |dv$| (LIST '|RectangularMatrix| DV$1 DV$2 DV$3) . #6#)
-      (LETT $ (GETREFV 69) . #6#)
+      (LETT $ (GETREFV 70) . #6#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -307,8 +307,8 @@
               (123 . |convert|) (128 . |convert|) (|List| $) (133 . |convert|)
               (138 . |convert|) (|List| 60) (|Equation| 8) (|List| 8)
               (|Mapping| 17 8) (|Mapping| 8 8) (|Union| $ '"failed")
-              (|PositiveInteger|) (|Mapping| 8 8 8) (|SingleInteger|)
-              (|String|))
+              (|PositiveInteger|) (|Mapping| 8 8 8) (|String|)
+              (|SingleInteger|) (|HashState|))
            '#(~= 143 |zero?| 149 |symmetric?| 154 |subtractIfCan| 159 |square?|
               165 |size?| 170 |size| 176 |sample| 180 |rowEchelon| 184 |row|
               189 |rectangularMatrix| 195 |rank| 200 |random| 205 |qelt| 209
@@ -316,12 +316,12 @@
               |more?| 241 |minRowIndex| 247 |minColIndex| 252 |members| 257
               |member?| 262 |maxRowIndex| 268 |maxColIndex| 273 |matrix| 278
               |map!| 283 |map| 289 |lookup| 302 |listOfLists| 307 |less?| 312
-              |latex| 318 |index| 323 |hash| 328 |exquo| 333 |every?| 339
-              |eval| 345 |eq?| 371 |enumerate| 377 |empty?| 381 |empty| 386
-              |elt| 390 |dimension| 405 |diagonal?| 409 |count| 414 |copy| 426
-              |convert| 431 |columnSpace| 436 |column| 441 |coerce| 447 |any?|
-              457 |antisymmetric?| 463 |Zero| 468 = 472 / 478 - 484 + 495 * 501
-              |#| 531)
+              |latex| 318 |index| 323 |hashUpdate!| 328 |hash| 334 |exquo| 339
+              |every?| 345 |eval| 351 |eq?| 377 |enumerate| 383 |empty?| 387
+              |empty| 392 |elt| 396 |dimension| 411 |diagonal?| 415 |count| 420
+              |copy| 432 |convert| 437 |columnSpace| 442 |column| 447 |coerce|
+              453 |any?| 463 |antisymmetric?| 469 |Zero| 474 = 478 / 484 - 490
+              + 501 * 507 |#| 537)
            'NIL
            (CONS
             (|makeByteWordVec2| 13
@@ -344,7 +344,7 @@
                  (|CoercibleTo| (|Matrix| 8)) (|finiteAggregate|) (|Type|)
                  (|BasicType|) (|CoercibleTo| 14) (|InnerEvalable| 8 8)
                  (|ConvertibleTo| 53))
-              (|makeByteWordVec2| 68
+              (|makeByteWordVec2| 69
                                   '(0 8 0 9 3 5 0 10 10 8 11 1 5 14 0 15 2 10
                                     17 0 0 18 1 5 19 0 20 1 5 19 0 21 2 5 24 0
                                     19 25 1 26 0 24 27 2 5 24 0 19 29 1 30 0 24
@@ -362,16 +362,16 @@
                                     1 1 15 61 0 1 2 16 17 8 0 1 1 0 19 0 1 1 0
                                     19 0 1 1 0 0 22 23 2 14 0 63 0 1 3 0 0 66 0
                                     0 1 2 0 0 63 0 1 1 2 65 0 1 1 0 22 0 1 2 0
-                                    17 0 10 1 1 0 68 0 1 1 2 0 65 1 1 0 67 0 1
-                                    2 9 64 0 8 1 2 15 17 62 0 1 2 6 0 0 59 1 2
-                                    6 0 0 60 1 3 6 0 0 61 61 1 3 6 0 0 8 8 1 2
-                                    0 17 0 0 1 0 2 56 1 1 0 17 0 1 0 0 0 1 4 0
-                                    8 0 19 19 8 1 3 0 8 0 19 19 1 0 3 49 51 1 0
-                                    17 0 1 2 16 10 8 0 1 2 15 10 62 0 1 1 0 0 0
-                                    1 1 12 53 0 58 1 8 41 0 42 2 0 30 0 19 32 1
-                                    0 5 0 34 1 0 14 0 16 2 15 17 62 0 1 1 0 17
-                                    0 1 0 10 0 13 2 0 17 0 0 1 2 3 0 0 8 1 1 1
-                                    0 0 1 2 1 0 0 0 1 2 0 0 0 0 1 2 1 0 19 0 1
-                                    2 10 0 10 0 1 2 0 0 8 0 1 2 0 0 0 8 1 2 0 0
-                                    65 0 1 1 15 10 0 1)))))
+                                    17 0 10 1 1 0 67 0 1 1 2 0 65 1 2 0 69 69 0
+                                    1 1 0 68 0 1 2 9 64 0 8 1 2 15 17 62 0 1 2
+                                    6 0 0 59 1 2 6 0 0 60 1 3 6 0 0 61 61 1 3 6
+                                    0 0 8 8 1 2 0 17 0 0 1 0 2 56 1 1 0 17 0 1
+                                    0 0 0 1 4 0 8 0 19 19 8 1 3 0 8 0 19 19 1 0
+                                    3 49 51 1 0 17 0 1 2 16 10 8 0 1 2 15 10 62
+                                    0 1 1 0 0 0 1 1 12 53 0 58 1 8 41 0 42 2 0
+                                    30 0 19 32 1 0 5 0 34 1 0 14 0 16 2 15 17
+                                    62 0 1 1 0 17 0 1 0 10 0 13 2 0 17 0 0 1 2
+                                    3 0 0 8 1 1 1 0 0 1 2 1 0 0 0 1 2 0 0 0 0 1
+                                    2 1 0 19 0 1 2 10 0 10 0 1 2 0 0 8 0 1 2 0
+                                    0 0 8 1 2 0 0 65 0 1 1 15 10 0 1)))))
            '|lookupComplete|)) 

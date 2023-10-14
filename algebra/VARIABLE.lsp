@@ -36,7 +36,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|Variable|))
       (LETT |dv$| (LIST '|Variable| DV$1) . #1#)
-      (LETT $ (GETREFV 19) . #1#)
+      (LETT $ (GETREFV 20) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Variable| (LIST DV$1) (CONS 1 $))
@@ -51,16 +51,18 @@
               |VARIABLE;coerce;$S;1| (|OutputForm|) (0 . |coerce|)
               |VARIABLE;coerce;$Of;2| |VARIABLE;variable;S;3| (|Boolean|)
               |VARIABLE;=;2$B;4| (|String|) (5 . |latex|) |VARIABLE;latex;$S;5|
-              (|SingleInteger|))
-           '#(~= 10 |variable| 16 |latex| 20 |hash| 25 |coerce| 30 = 40) 'NIL
+              (|HashState|) (|SingleInteger|))
+           '#(~= 10 |variable| 16 |latex| 20 |hashUpdate!| 25 |hash| 31
+              |coerce| 36 = 46)
+           'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 7)
                            (|CoercibleTo| 9))
-                        (|makeByteWordVec2| 18
+                        (|makeByteWordVec2| 19
                                             '(1 7 9 0 10 1 7 15 0 16 2 0 13 0 0
-                                              1 0 0 7 12 1 0 15 0 17 1 0 18 0 1
-                                              1 0 7 0 8 1 0 9 0 11 2 0 13 0 0
-                                              14)))))
+                                              1 0 0 7 12 1 0 15 0 17 2 0 18 18
+                                              0 1 1 0 19 0 1 1 0 7 0 8 1 0 9 0
+                                              11 2 0 13 0 0 14)))))
            '|lookupComplete|)) 

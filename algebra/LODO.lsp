@@ -47,7 +47,7 @@
             . #1=(|LinearOrdinaryDifferentialOperator|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperator| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 45) . #1#)
+      (LETT $ (GETREFV 46) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -104,10 +104,10 @@
               (58 . |symmetricPower|) (64 . |directSum|) (71 . |directSum|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Union| $ '"failed")
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Union| 36 '#1="failed") (|Fraction| 38) (|Union| 38 '#1#)
-              (|Integer|) (|List| 6) (|Union| 6 '#1#) (|Boolean|)
-              (|PositiveInteger|) (|SingleInteger|) (|String|))
+              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Fraction| 37)
+              (|Union| 35 '#1="failed") (|Integer|) (|Union| 37 '#1#)
+              (|List| 6) (|Union| 6 '#1#) (|Boolean|) (|PositiveInteger|)
+              (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 77 |zero?| 83 |symmetricSquare| 88 |symmetricProduct| 93
               |symmetricPower| 99 |subtractIfCan| 105 |sample| 111
               |rightRemainder| 115 |rightQuotient| 121 |rightLcm| 127
@@ -117,11 +117,11 @@
               |monicRightDivide| 213 |monicLeftDivide| 219 |minimumDegree| 225
               |leftRemainder| 230 |leftQuotient| 236 |leftLcm| 242 |leftGcd|
               248 |leftExtendedGcd| 254 |leftExactQuotient| 260 |leftDivide|
-              266 |leadingCoefficient| 272 |latex| 277 |hash| 282 |exquo| 287
-              |elt| 293 |directSum| 299 |degree| 305 |content| 310 |coerce| 315
-              |coefficients| 335 |coefficient| 340 |characteristic| 346 |apply|
-              350 |adjoint| 357 ^ 362 |Zero| 374 |One| 378 D 382 = 386 - 392 +
-              403 * 409)
+              266 |leadingCoefficient| 272 |latex| 277 |hashUpdate!| 282 |hash|
+              288 |exquo| 293 |elt| 299 |directSum| 305 |degree| 311 |content|
+              316 |coerce| 321 |coefficients| 341 |coefficient| 346
+              |characteristic| 352 |apply| 356 |adjoint| 363 ^ 368 |Zero| 380
+              |One| 384 D 388 = 392 - 398 + 409 * 415)
            'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -143,9 +143,9 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|Eltable| 6 6) (|RetractableTo| 6) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 13) (|RetractableTo| 36)
-                 (|RetractableTo| 38))
-              (|makeByteWordVec2| 44
+                 (|BasicType|) (|CoercibleTo| 13) (|RetractableTo| 35)
+                 (|RetractableTo| 37))
+              (|makeByteWordVec2| 45
                                   '(0 0 0 8 0 6 0 9 0 10 0 11 1 14 13 0 15 2 12
                                     13 0 13 17 0 0 0 19 0 6 0 20 3 0 6 0 6 6 21
                                     3 24 2 2 2 23 25 2 0 0 0 0 26 3 24 2 2 27
@@ -154,19 +154,19 @@
                                     6 0 0 0 26 2 6 0 0 27 29 2 0 33 0 0 1 0 0 0
                                     1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 0
                                     0 0 1 2 6 32 0 0 1 2 6 33 0 0 1 2 6 34 0 0
-                                    1 1 2 35 0 1 1 3 37 0 1 1 0 40 0 1 1 2 36 0
-                                    1 1 3 38 0 1 1 0 6 0 1 1 0 0 0 1 1 0 33 0 1
+                                    1 1 2 36 0 1 1 3 38 0 1 1 0 40 0 1 1 2 35 0
+                                    1 1 3 37 0 1 1 0 6 0 1 1 0 0 0 1 1 0 33 0 1
                                     1 5 0 0 1 1 0 41 0 1 2 0 0 6 27 1 2 4 34 0
                                     0 1 2 4 34 0 0 1 1 0 27 0 1 2 6 0 0 0 1 2 6
                                     0 0 0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 32 0 0
                                     1 2 6 33 0 0 1 2 6 34 0 0 1 1 0 6 0 1 1 0
-                                    44 0 1 1 0 43 0 1 2 4 33 0 6 1 2 0 6 0 6 22
-                                    2 6 0 0 0 31 1 0 27 0 1 1 5 6 0 1 1 2 0 36
-                                    1 1 0 0 6 1 1 0 0 38 1 1 0 13 0 18 1 0 39 0
-                                    1 2 0 6 0 27 1 0 0 27 1 3 0 6 0 6 6 21 1 0
-                                    0 0 1 2 0 0 0 27 1 2 0 0 0 42 1 0 0 0 19 0
-                                    0 0 8 0 0 0 1 2 0 41 0 0 1 2 0 0 0 0 1 1 0
-                                    0 0 1 2 0 0 0 0 1 2 0 0 6 0 1 2 0 0 0 6 1 2
-                                    0 0 0 0 1 2 0 0 38 0 1 2 0 0 27 0 1 2 0 0
-                                    42 0 1)))))
+                                    43 0 1 2 0 45 45 0 1 1 0 44 0 1 2 4 33 0 6
+                                    1 2 0 6 0 6 22 2 6 0 0 0 31 1 0 27 0 1 1 5
+                                    6 0 1 1 2 0 35 1 1 0 0 6 1 1 0 0 37 1 1 0
+                                    13 0 18 1 0 39 0 1 2 0 6 0 27 1 0 0 27 1 3
+                                    0 6 0 6 6 21 1 0 0 0 1 2 0 0 0 27 1 2 0 0 0
+                                    42 1 0 0 0 19 0 0 0 8 0 0 0 1 2 0 41 0 0 1
+                                    1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0 6
+                                    1 2 0 0 6 0 1 2 0 0 37 0 1 2 0 0 0 0 1 2 0
+                                    0 27 0 1 2 0 0 42 0 1)))))
            '|lookupComplete|)) 

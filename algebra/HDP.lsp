@@ -74,7 +74,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #7=(|HomogeneousDirectProduct|))
       (LETT DV$2 (|devaluate| |#2|) . #7#)
       (LETT |dv$| (LIST '|HomogeneousDirectProduct| DV$1 DV$2) . #7#)
-      (LETT $ (GETREFV 46) . #7#)
+      (LETT $ (GETREFV 47) . #7#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -568,15 +568,15 @@
            '#(NIL NIL NIL NIL NIL (|DirectProduct| 6 7) (|local| |#1|)
               (|local| |#2|) '|Rep| (0 . |Zero|) (|Integer|) (4 . |qelt|)
               (10 . +) (|Boolean|) (16 . <) |HDP;<;2$B;1|
-              (|NonNegativeInteger|) (|List| 7) (|List| 19) (|Equation| 7)
-              (|Matrix| 10) (|Matrix| $)
-              (|Record| (|:| |mat| 20) (|:| |vec| (|Vector| 10))) (|Vector| $)
-              (|List| 26) (|List| 16) (|Symbol|) (|Union| 28 '#1="failed")
-              (|Fraction| 10) (|Union| 10 '#1#) (|Union| $ '"failed")
-              (|Mapping| 13 7) (|Void|) (|Mapping| 7 7) (|PositiveInteger|)
-              (|OutputForm|) (|CardinalNumber|) (|InputForm|) (|List| $)
-              (|Matrix| 7) (|Record| (|:| |mat| 39) (|:| |vec| 44))
-              (|Union| 7 '#1#) (|String|) (|SingleInteger|) (|Vector| 7)
+              (|NonNegativeInteger|) (|List| 7) (|Equation| 7) (|List| 18)
+              (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 10))) (|Matrix| $)
+              (|Vector| $) (|Matrix| 10) (|Symbol|) (|List| 24) (|List| 16)
+              (|Union| 28 '#1="failed") (|Fraction| 10) (|Union| 10 '#1#)
+              (|Union| $ '"failed") (|Mapping| 13 7) (|Void|) (|Mapping| 7 7)
+              (|PositiveInteger|) (|OutputForm|) (|CardinalNumber|)
+              (|InputForm|) (|List| $) (|Matrix| 7)
+              (|Record| (|:| |mat| 39) (|:| |vec| 45)) (|Union| 7 '#1#)
+              (|HashState|) (|SingleInteger|) (|String|) (|Vector| 7)
               (|List| 10))
            '#(|qelt| 22 < 28) 'NIL
            (CONS
@@ -603,7 +603,7 @@
                  (|FullyLinearlyExplicitRingOver| 7)
                  (|DifferentialExtension| 7) (|Module| 7) (|OrderedRing|)
                  (|CommutativeRing|) (|LinearlyExplicitRingOver| 7)
-                 (|LinearlyExplicitRingOver| 10) (|PartialDifferentialRing| 26)
+                 (|LinearlyExplicitRingOver| 10) (|PartialDifferentialRing| 24)
                  (|DifferentialRing|) (|BiModule| 7 7)
                  (|OrderedAbelianMonoidSup|) (|OrderedAbelianGroup|)
                  (|BiModule| $$ $$) (|Ring|) (|LeftModule| 7) (|RightModule| 7)

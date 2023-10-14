@@ -1298,7 +1298,7 @@
      (PROGN
       (LETT |dv$| '(|ThreeDimensionalViewport|)
             . #1=(|ThreeDimensionalViewport|))
-      (LETT $ (GETREFV 167) . #1#)
+      (LETT $ (GETREFV 168) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|ThreeDimensionalViewport| NIL
@@ -1444,7 +1444,7 @@
               |VIEW3D;showClipRegion;$SV;56| |VIEW3D;clipSurface;$SV;57|
               |VIEW3D;eyeDistance;$FV;58| |VIEW3D;hitherPlane;$FV;59|
               (337 . |modifyPointData|) |VIEW3D;modifyPointData;$NniPV;60|
-              (|SingleInteger|))
+              (|HashState|) (|SingleInteger|))
            '#(~= 344 |zoom| 350 |write| 364 |viewport3D| 384 |viewpoint| 388
               |viewZoomDefault| 434 |viewThetaDefault| 443 |viewPhiDefault| 452
               |viewDeltaYDefault| 461 |viewDeltaXDefault| 470 |translate| 479
@@ -1452,16 +1452,16 @@
               |rotate| 515 |resize| 529 |reset| 536 |perspective| 541
               |outlineRender| 547 |options| 553 |move| 564 |modifyPointData|
               571 |makeViewport3D| 578 |lighting| 595 |latex| 603 |key| 608
-              |intensity| 613 |hitherPlane| 619 |hash| 625 |eyeDistance| 630
-              |drawStyle| 636 |dimensions| 642 |diagonals| 651 |controlPanel|
-              657 |colorDef| 663 |coerce| 670 |close| 675 |clipSurface| 680
-              |axes| 686 = 692)
+              |intensity| 613 |hitherPlane| 619 |hashUpdate!| 625 |hash| 631
+              |eyeDistance| 636 |drawStyle| 642 |dimensions| 648 |diagonals|
+              657 |controlPanel| 663 |colorDef| 669 |coerce| 676 |close| 681
+              |clipSurface| 686 |axes| 692 = 698)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 136))
-                        (|makeByteWordVec2| 166
+                        (|makeByteWordVec2| 167
                                             '(0 7 0 8 0 7 0 9 3 7 0 10 10 11 12
                                               2 7 0 0 0 13 1 7 16 0 17 1 18 0
                                               16 19 1 7 0 0 21 0 7 0 26 2 16 27
@@ -1489,35 +1489,35 @@
                                               7 27 0 0 147 0 43 149 152 0 43
                                               149 154 1 149 10 0 155 1 34 0 0
                                               156 2 149 10 34 0 157 3 50 0 0 45
-                                              62 164 2 0 27 0 0 1 4 0 107 0 7 7
-                                              7 144 2 0 107 0 7 143 3 0 34 0 34
-                                              149 150 2 0 34 0 34 153 3 0 34 0
-                                              34 34 151 0 0 0 52 3 0 107 0 7 7
-                                              121 4 0 107 0 7 7 7 128 2 0 107 0
-                                              40 118 6 0 107 0 10 10 7 7 7 120
-                                              1 0 40 0 117 6 0 107 0 7 7 7 7 7
-                                              119 1 0 7 7 100 0 0 7 99 1 0 7 7
-                                              96 0 0 7 94 1 0 7 7 98 0 0 7 97 1
-                                              0 7 7 104 0 0 7 103 1 0 7 7 102 0
-                                              0 7 101 3 0 107 0 7 7 145 2 0 107
-                                              0 34 129 1 0 50 0 53 2 0 0 0 50
-                                              54 2 0 107 0 34 159 2 0 107 0 34
-                                              160 3 0 107 0 10 10 142 3 0 107 0
-                                              7 7 127 3 0 107 0 11 11 135 1 0
-                                              107 0 115 2 0 107 0 34 158 2 0
-                                              107 0 34 111 2 0 0 0 35 56 1 0 35
-                                              0 55 3 0 107 0 45 45 134 3 0 107
-                                              0 45 62 165 2 0 0 50 34 60 2 0 0
-                                              50 35 61 1 0 0 0 57 4 0 107 0 7 7
+                                              62 164 2 0 27 0 0 1 2 0 107 0 7
+                                              143 4 0 107 0 7 7 7 144 3 0 34 0
+                                              34 149 150 2 0 34 0 34 153 3 0 34
+                                              0 34 34 151 0 0 0 52 4 0 107 0 7
+                                              7 7 128 6 0 107 0 10 10 7 7 7 120
+                                              3 0 107 0 7 7 121 1 0 40 0 117 2
+                                              0 107 0 40 118 6 0 107 0 7 7 7 7
+                                              7 119 0 0 7 99 1 0 7 7 100 0 0 7
+                                              94 1 0 7 7 96 0 0 7 97 1 0 7 7 98
+                                              1 0 7 7 104 0 0 7 103 0 0 7 101 1
+                                              0 7 7 102 3 0 107 0 7 7 145 2 0
+                                              107 0 34 129 2 0 0 0 50 54 1 0 50
+                                              0 53 2 0 107 0 34 159 2 0 107 0
+                                              34 160 3 0 107 0 7 7 127 3 0 107
+                                              0 10 10 142 3 0 107 0 11 11 135 1
+                                              0 107 0 115 2 0 107 0 34 158 2 0
+                                              107 0 34 111 1 0 35 0 55 2 0 0 0
+                                              35 56 3 0 107 0 45 45 134 3 0 107
+                                              0 45 62 165 2 0 0 50 35 61 1 0 0
+                                              0 57 2 0 0 50 34 60 4 0 107 0 7 7
                                               7 108 1 0 34 0 1 1 0 10 0 105 2 0
-                                              107 0 7 148 2 0 107 0 7 163 1 0
-                                              166 0 1 2 0 107 0 7 162 2 0 107 0
-                                              34 113 5 0 107 0 45 45 11 11 133
-                                              2 0 107 0 34 110 2 0 107 0 34 112
-                                              3 0 107 0 130 130 132 1 0 136 0
-                                              140 1 0 107 0 116 2 0 107 0 34
-                                              161 2 0 107 0 34 109 2 0 27 0 0
-                                              1)))))
+                                              107 0 7 148 2 0 107 0 7 163 2 0
+                                              166 166 0 1 1 0 167 0 1 2 0 107 0
+                                              7 162 2 0 107 0 34 113 5 0 107 0
+                                              45 45 11 11 133 2 0 107 0 34 110
+                                              2 0 107 0 34 112 3 0 107 0 130
+                                              130 132 1 0 136 0 140 1 0 107 0
+                                              116 2 0 107 0 34 161 2 0 107 0 34
+                                              109 2 0 27 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ThreeDimensionalViewport| 'NILADIC T) 

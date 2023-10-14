@@ -93,7 +93,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|ExtAlgBasis|) . #1=(|ExtAlgBasis|))
-      (LETT $ (GETREFV 26) . #1#)
+      (LETT $ (GETREFV 27) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|ExtAlgBasis| NIL (CONS 1 $))
@@ -109,10 +109,10 @@
               |EAB;coerce;L$;3| (|NonNegativeInteger|) |EAB;degree;$Nni;4|
               (18 . |copy|) |EAB;exponents;$L;5| |EAB;Nul;Nni$;6|
               (|OutputForm|) (23 . |coerce|) |EAB;coerce;$Of;7| (|String|)
-              (|SingleInteger|))
-           '#(~= 28 |smaller?| 34 |min| 40 |max| 46 |latex| 52 |hash| 57
-              |exponents| 62 |degree| 67 |coerce| 72 |Nul| 82 >= 87 > 93 = 99
-              <= 105 < 111)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 28 |smaller?| 34 |min| 40 |max| 46 |latex| 52 |hashUpdate!| 57
+              |hash| 63 |exponents| 68 |degree| 73 |coerce| 78 |Nul| 88 >= 93 >
+              99 = 105 <= 111 < 117)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -121,14 +121,15 @@
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
                       (|BasicType|) (|PartialOrder|) (|CoercibleTo| 21))
-                   (|makeByteWordVec2| 25
+                   (|makeByteWordVec2| 26
                                        '(2 6 7 0 0 8 2 11 7 0 0 12 2 11 7 0 0
                                          13 1 14 0 0 18 1 14 21 0 22 2 0 7 0 0
                                          1 2 0 7 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1
-                                         1 0 24 0 1 1 0 25 0 1 1 0 14 0 19 1 0
-                                         16 0 17 1 0 0 14 15 1 0 21 0 23 1 0 0
-                                         16 20 2 0 7 0 0 1 2 0 7 0 0 1 2 0 7 0
-                                         0 9 2 0 7 0 0 1 2 0 7 0 0 10)))))
+                                         1 0 24 0 1 2 0 26 26 0 1 1 0 25 0 1 1
+                                         0 14 0 19 1 0 16 0 17 1 0 0 14 15 1 0
+                                         21 0 23 1 0 0 16 20 2 0 7 0 0 1 2 0 7
+                                         0 0 1 2 0 7 0 0 9 2 0 7 0 0 1 2 0 7 0
+                                         0 10)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ExtAlgBasis| 'NILADIC T) 

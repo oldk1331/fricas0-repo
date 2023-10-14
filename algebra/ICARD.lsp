@@ -101,7 +101,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|IndexCard|) . #1=(|IndexCard|))
-      (LETT $ (GETREFV 24) . #1#)
+      (LETT $ (GETREFV 25) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|IndexCard| NIL (CONS 1 $))
@@ -116,10 +116,10 @@
               (|OutputPackage|) (6 . |output|) |ICARD;display;$V;3|
               (11 . |empty|) (|String|) (15 . |coerce|)
               |ICARD;fullDisplay;$V;4| |ICARD;coerce;S$;5| |ICARD;coerce;$Of;6|
-              (|Symbol|) |ICARD;elt;$SS;7| (|SingleInteger|))
-           '#(~= 20 |smaller?| 26 |min| 32 |max| 38 |latex| 44 |hash| 49
-              |fullDisplay| 54 |elt| 59 |display| 65 |coerce| 70 >= 80 > 86 =
-              92 <= 98 < 104)
+              (|Symbol|) |ICARD;elt;$SS;7| (|SingleInteger|) (|HashState|))
+           '#(~= 20 |smaller?| 26 |min| 32 |max| 38 |latex| 44 |hashUpdate!| 49
+              |hash| 55 |fullDisplay| 60 |elt| 65 |display| 71 |coerce| 76 >=
+              86 > 92 = 98 <= 104 < 110)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -128,14 +128,14 @@
                   (CONS
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
                       (|BasicType|) (|PartialOrder|) (|CoercibleTo| 9))
-                   (|makeByteWordVec2| 23
+                   (|makeByteWordVec2| 24
                                        '(2 9 0 0 0 10 1 12 11 9 13 0 9 0 15 1
                                          16 9 0 17 2 0 6 0 0 1 2 0 6 0 0 1 2 0
-                                         0 0 0 1 2 0 0 0 0 1 1 0 16 0 1 1 0 23
-                                         0 1 1 0 11 0 18 2 0 16 0 21 22 1 0 11
-                                         0 14 1 0 0 16 19 1 0 9 0 20 2 0 6 0 0
-                                         1 2 0 6 0 0 1 2 0 6 0 0 8 2 0 6 0 0 1
-                                         2 0 6 0 0 7)))))
+                                         0 0 0 1 2 0 0 0 0 1 1 0 16 0 1 2 0 24
+                                         24 0 1 1 0 23 0 1 1 0 11 0 18 2 0 16 0
+                                         21 22 1 0 11 0 14 1 0 0 16 19 1 0 9 0
+                                         20 2 0 6 0 0 1 2 0 6 0 0 1 2 0 6 0 0 8
+                                         2 0 6 0 0 1 2 0 6 0 0 7)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|IndexCard| 'NILADIC T) 

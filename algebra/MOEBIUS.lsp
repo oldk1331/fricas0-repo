@@ -203,7 +203,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|MoebiusTransform|))
       (LETT |dv$| (LIST '|MoebiusTransform| DV$1) . #1#)
-      (LETT $ (GETREFV 51) . #1#)
+      (LETT $ (GETREFV 52) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|MoebiusTransform| (LIST DV$1)
@@ -233,12 +233,12 @@
               (61 . +) (67 . /) (73 . |rarrow|) |MOEBIUS;coerce;$Of;17|
               (|Mapping| 6 6) (|List| 6) (79 . |map|) (85 . =)
               |MOEBIUS;=;2$B;19| (|Integer|) (|NonNegativeInteger|)
-              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
-              (|SingleInteger|))
+              (|Union| $ '"failed") (|PositiveInteger|) (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 91 |shift| 97 |scale| 108 |sample| 119 |recip| 123 |one?| 137
-              |moebius| 142 |latex| 150 |inv| 155 |hash| 160 |eval| 165
-              |conjugate| 177 |commutator| 183 |coerce| 189 ^ 194 |One| 212 =
-              216 / 222 * 228)
+              |moebius| 142 |latex| 150 |inv| 155 |hashUpdate!| 160 |hash| 166
+              |eval| 171 |conjugate| 183 |commutator| 189 |coerce| 195 ^ 200
+              |One| 218 = 222 / 228 * 234)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -247,7 +247,7 @@
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|SetCategory|)
                       (|BasicType|) (|unitsKnown|) (|CoercibleTo| 33))
-                   (|makeByteWordVec2| 50
+                   (|makeByteWordVec2| 51
                                        '(0 6 0 10 0 6 0 11 2 6 0 0 0 12 2 6 0 0
                                          0 13 1 6 0 0 15 2 6 0 0 0 23 1 26 25 0
                                          27 1 26 0 6 28 1 6 29 0 30 0 26 0 31 1
@@ -256,10 +256,11 @@
                                          0 42 2 41 29 0 0 43 2 0 29 0 0 1 2 0 0
                                          0 6 20 1 0 0 6 17 2 0 0 0 6 21 1 0 0 6
                                          18 0 0 0 1 1 0 0 0 22 0 0 0 19 1 0 47
-                                         0 1 1 0 29 0 1 4 0 0 6 6 6 6 8 1 0 49
-                                         0 1 1 0 0 0 16 1 0 50 0 1 2 0 26 0 26
-                                         32 2 0 6 0 6 24 2 0 0 0 0 1 2 0 0 0 0
-                                         1 1 0 33 0 39 2 0 0 0 45 1 2 0 0 0 46
-                                         1 2 0 0 0 48 1 0 0 0 9 2 0 29 0 0 44 2
-                                         0 0 0 0 1 2 0 0 0 0 14)))))
+                                         0 1 1 0 29 0 1 4 0 0 6 6 6 6 8 1 0 50
+                                         0 1 1 0 0 0 16 2 0 49 49 0 1 1 0 51 0
+                                         1 2 0 26 0 26 32 2 0 6 0 6 24 2 0 0 0
+                                         0 1 2 0 0 0 0 1 1 0 33 0 39 2 0 0 0 45
+                                         1 2 0 0 0 46 1 2 0 0 0 48 1 0 0 0 9 2
+                                         0 29 0 0 44 2 0 0 0 0 1 2 0 0 0 0
+                                         14)))))
            '|lookupComplete|)) 

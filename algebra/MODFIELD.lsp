@@ -31,7 +31,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT DV$5 (|devaluate| |#5|) . #1#)
       (LETT |dv$| (LIST '|ModularField| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-      (LETT $ (GETREFV 31) . #1#)
+      (LETT $ (GETREFV 32) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|ModularField|
@@ -49,17 +49,18 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|ModularRing| 6 7 8 9 10) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|local| |#4|) (|local| |#5|)
-              (|Union| $ '"failed") (|Fraction| 13) (|Integer|) (|Factored| $)
-              (|Boolean|) (|Union| 17 '#1="failed") (|List| $)
+              (|Union| $ '"failed") (|Fraction| 13) (|Integer|) (|Boolean|)
+              (|Factored| $) (|Union| 17 '#1="failed") (|List| $)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 18 '#1#)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 19 '#1#)
-              (|NonNegativeInteger|)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|SparseUnivariatePolynomial| $)
+              (|NonNegativeInteger|)
               (|Record| (|:| |coef| 17) (|:| |generator| $))
+              (|SparseUnivariatePolynomial| $)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|PositiveInteger|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|PositiveInteger|) (|HashState|) (|String|) (|OutputForm|)
+              (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -84,6 +85,6 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|canonicalsClosed|)
                  (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 29))
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 30))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

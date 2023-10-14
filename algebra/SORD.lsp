@@ -260,7 +260,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|SmallOrdinal|) . #1=(|SmallOrdinal|))
-      (LETT $ (GETREFV 66) . #1#)
+      (LETT $ (GETREFV 67) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|SmallOrdinal| NIL (CONS 1 $))
@@ -292,13 +292,13 @@
               (114 . |coerce|) (119 . ~=) (125 . |leadingCoefficient|)
               |SORD;coerce;$Of;23| (130 . ^) (136 . *) (142 . +)
               (|Mapping| 52 52 52) (|List| 52) (148 . |reduce|)
-              (|PositiveInteger|) (|SingleInteger|) (|String|))
+              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 154 |zero?| 160 |subtractIfCan| 165 |smaller?| 171 |sample|
               177 |retractIfCan| 181 |retract| 186 |recip| 191 |ordinalPower|
               196 |ordinalMul| 202 |ordinalAdd| 208 |one?| 214 |omegapower| 219
               |omega| 224 |min| 228 |max| 234 |limitPart| 240 |latex| 245
-              |integerPart| 250 |hash| 255 |coerce| 260 ^ 270 |Zero| 288 |One|
-              292 >= 296 > 302 = 308 <= 314 < 320 + 326 * 332)
+              |integerPart| 250 |hashUpdate!| 255 |hash| 261 |coerce| 266 ^ 276
+              |Zero| 294 |One| 298 >= 302 > 308 = 314 <= 320 < 326 + 332 * 338)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -312,7 +312,7 @@
                       (|SemiGroup|) (|AbelianSemiGroup|) (|SetCategory|)
                       (|RetractableTo| 11) (|BasicType|) (|PartialOrder|)
                       (|CoercibleTo| 52))
-                   (|makeByteWordVec2| 65
+                   (|makeByteWordVec2| 66
                                        '(0 6 0 7 0 6 0 9 2 6 0 11 2 12 1 6 15 0
                                          16 2 6 15 0 0 18 1 6 22 0 23 1 6 15 0
                                          25 1 6 11 0 26 2 6 15 0 0 27 2 6 0 0 0
@@ -327,13 +327,14 @@
                                          22 0 24 1 0 11 0 48 1 0 33 0 1 2 0 0 0
                                          0 49 2 0 0 0 0 47 2 0 0 0 0 40 1 0 15
                                          0 19 1 0 0 0 14 0 0 0 13 2 0 0 0 0 1 2
-                                         0 0 0 0 1 1 0 0 0 42 1 0 65 0 1 1 0 11
-                                         0 41 1 0 64 0 1 1 0 0 11 21 1 0 52 0
-                                         56 2 0 0 0 0 51 2 0 0 0 63 1 2 0 0 0
-                                         11 50 0 0 0 8 0 0 0 10 2 0 15 0 0 37 2
-                                         0 15 0 0 43 2 0 15 0 0 20 2 0 15 0 0 1
-                                         2 0 15 0 0 28 2 0 0 0 0 30 2 0 0 0 0
-                                         32 2 0 0 11 0 1 2 0 0 63 0 1)))))
+                                         0 0 0 0 1 1 0 0 0 42 1 0 64 0 1 1 0 11
+                                         0 41 2 0 66 66 0 1 1 0 65 0 1 1 0 0 11
+                                         21 1 0 52 0 56 2 0 0 0 0 51 2 0 0 0 63
+                                         1 2 0 0 0 11 50 0 0 0 8 0 0 0 10 2 0
+                                         15 0 0 37 2 0 15 0 0 43 2 0 15 0 0 20
+                                         2 0 15 0 0 1 2 0 15 0 0 28 2 0 0 0 0
+                                         30 2 0 0 0 0 32 2 0 0 11 0 1 2 0 0 63
+                                         0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SmallOrdinal| 'NILADIC T) 

@@ -31,7 +31,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldNormalBasisExtension|))
       (LETT DV$2 (|devaluate| |#2|) . #2#)
       (LETT |dv$| (LIST '|FiniteFieldNormalBasisExtension| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 49) . #2#)
+      (LETT $ (GETREFV 50) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -66,7 +66,7 @@
                                                                (QREFELT $
                                                                         12))))
               (|local| |#1|) (|local| |#2|)
-              (|Record| (|:| |value| 6) (|:| |index| 48)) (|Union| 28 30)
+              (|Record| (|:| |value| 6) (|:| |index| 49)) (|Union| 28 30)
               (|PositiveInteger|) (|FiniteFieldFunctions| 6)
               (0 . |createLowComplexityNormalBasis|) (|OnePointCompletion| 10)
               (|Union| $ '"failed") (|Union| 16 '"failed")
@@ -78,14 +78,14 @@
               (|SparseUnivariatePolynomial| $) (|Vector| (|List| 8))
               (|Matrix| 6) (|Vector| $) (|Vector| 6) (|CardinalNumber|)
               (|Union| 6 '"failed") (|Fraction| 22) (|Factored| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 38 '#1="failed") (|Union| 17 '#1#)
+              (|Union| 17 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 40 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 17) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|String|) (|OutputForm|) (|SingleInteger|))
+              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -120,6 +120,6 @@
                  (|Finite|) (|StepThrough|) (|SetCategory|) (|RetractableTo| 6)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 47) (|ConvertibleTo| 18))
+                 (|BasicType|) (|CoercibleTo| 48) (|ConvertibleTo| 18))
               (|makeByteWordVec2| 12 '(1 11 9 10 12)))))
            '|lookupIncomplete|)) 

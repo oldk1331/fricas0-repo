@@ -438,7 +438,7 @@
        (LETT DV$4 (|devaluate| |#4|) . #7#)
        (LETT |dv$| (LIST '|GenericNonAssociativeAlgebra| DV$1 DV$2 DV$3 DV$4)
              . #7#)
-       (LETT $ (GETREFV 114) . #7#)
+       (LETT $ (GETREFV 115) . #7#)
        (QSETREFV $ 0 |dv$|)
        (QSETREFV $ 3
                  (LETT |pv$|
@@ -617,8 +617,8 @@
               (|Union| $ '"failed") (|List| 29)
               (|Record| (|:| |particular| $) (|:| |basis| (|List| $)))
               (|Union| 107 '"failed") (|SquareMatrix| 7 27)
-              (|List| (|Polynomial| 27)) (|PositiveInteger|) (|OutputForm|)
-              (|SingleInteger|))
+              (|List| (|Polynomial| 27)) (|PositiveInteger|) (|HashState|)
+              (|OutputForm|) (|SingleInteger|))
            '#(|rightRankPolynomial| 250 |rightMinimalPolynomial| 254
               |represents| 259 |leftRankPolynomial| 265 |leftMinimalPolynomial|
               269 |genericRightTraceForm| 274 |genericRightTrace| 280
@@ -653,7 +653,7 @@
                       (|LeftModule| (|Fraction| (|Polynomial| 6)))
                       (|AbelianGroup|) (|CancellationAbelianMonoid|)
                       (|AbelianMonoid|) (|AbelianSemiGroup|) (|Monad|)
-                      (|SetCategory|) (|BasicType|) (|CoercibleTo| 112)
+                      (|SetCategory|) (|BasicType|) (|CoercibleTo| 113)
                       (|unitsKnown|))
                    (|makeByteWordVec2| 103
                                        '(1 12 10 11 13 1 16 0 15 17 0 19 0 20 2

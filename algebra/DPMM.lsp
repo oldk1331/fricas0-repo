@@ -92,7 +92,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #6#)
       (LETT |dv$| (LIST '|DirectProductMatrixModule| DV$1 DV$2 DV$3 DV$4)
             . #6#)
-      (LETT $ (GETREFV 50) . #6#)
+      (LETT $ (GETREFV 51) . #6#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -551,15 +551,15 @@
               (|local| |#2|) (|local| |#3|) (|local| |#4|) '|Rep| (|Integer|)
               (0 . |elt|) (6 . *) |DPMM;*;R2$;1| (12 . |elt|) (19 . +)
               (25 . |Zero|) |DPMM;*;M2$;2| (|Boolean|) (|NonNegativeInteger|)
-              (|List| 9) (|Equation| 9) (|List| 22)
-              (|Record| (|:| |mat| 27) (|:| |vec| (|Vector| 11))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 11) (|List| 30) (|List| 20) (|Symbol|)
-              (|Union| 32 '#1="failed") (|Fraction| 11) (|Union| 11 '#1#)
-              (|Union| $ '"failed") (|Mapping| 19 9) (|Void|) (|Mapping| 9 9)
-              (|CardinalNumber|) (|InputForm|) (|PositiveInteger|) (|List| $)
-              (|Matrix| 9) (|Record| (|:| |mat| 42) (|:| |vec| 48))
+              (|List| 9) (|Equation| 9) (|List| 22) (|Matrix| 11) (|Matrix| $)
+              (|Record| (|:| |mat| 24) (|:| |vec| (|Vector| 11))) (|Vector| $)
+              (|Symbol|) (|List| 28) (|List| 20) (|Fraction| 11)
+              (|Union| 31 '#1="failed") (|Union| 11 '#1#) (|Union| $ '"failed")
+              (|Mapping| 19 9) (|Void|) (|Mapping| 9 9) (|CardinalNumber|)
+              (|InputForm|) (|PositiveInteger|) (|List| $)
+              (|Record| (|:| |mat| 43) (|:| |vec| 49)) (|Matrix| 9)
               (|Union| 9 '#1#) (|SingleInteger|) (|OutputForm|) (|String|)
-              (|Vector| 9) (|List| 11))
+              (|HashState|) (|Vector| 9) (|List| 11))
            '#(|elt| 29 * 35) 'NIL
            (CONS
             (|makeByteWordVec2| 31
@@ -584,7 +584,7 @@
                  (|FullyLinearlyExplicitRingOver| 9)
                  (|DifferentialExtension| 9) (|Module| 9) (|OrderedRing|)
                  (|CommutativeRing|) (|LinearlyExplicitRingOver| 9)
-                 (|LinearlyExplicitRingOver| 11) (|PartialDifferentialRing| 30)
+                 (|LinearlyExplicitRingOver| 11) (|PartialDifferentialRing| 28)
                  (|DifferentialRing|) (|BiModule| 9 9)
                  (|OrderedAbelianMonoidSup|) (|OrderedAbelianGroup|)
                  (|BiModule| $$ $$) (|Ring|) (|LeftModule| 8) (|LeftModule| 7)
@@ -601,7 +601,7 @@
                  (|BasicType|) (|finiteAggregate|) (|CoercibleTo| (|Vector| 9))
                  (|Eltable| 11 9) (|InnerEvalable| 9 9) (|PartialOrder|)
                  (|unitsKnown|) (|CommutativeStar|) (|ConvertibleTo| 39)
-                 (|RetractableTo| 9) (|RetractableTo| 32) (|RetractableTo| 11))
+                 (|RetractableTo| 9) (|RetractableTo| 31) (|RetractableTo| 11))
               (|makeByteWordVec2| 18
                                   '(2 0 9 0 11 12 2 9 0 7 0 13 3 8 7 0 11 11 15
                                     2 9 0 0 0 16 0 9 0 17 2 0 9 0 11 12 2 0 0 8

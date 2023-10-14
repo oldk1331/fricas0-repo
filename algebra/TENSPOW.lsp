@@ -259,7 +259,7 @@
       (LETT DV$3 (|devaluate| |#3|) . #3#)
       (LETT DV$4 (|devaluate| |#4|) . #3#)
       (LETT |dv$| (LIST '|TensorPower| DV$1 DV$2 DV$3 DV$4) . #3#)
-      (LETT $ (GETREFV 63) . #3#)
+      (LETT $ (GETREFV 64) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -353,8 +353,8 @@
               |TENSPOW;tensor;L$;4| (111 . |monomial|) (117 . *) (123 . *)
               (129 . |construct|) (134 . *) (|Union| $ '"failed") (|Integer|)
               (|PositiveInteger|) (|Mapping| 7 20) (|Union| 20 '"failed")
-              (|Mapping| 7 7) (|List| 20) (|List| 7) (|List| $) (|String|)
-              (|SingleInteger|))
+              (|Mapping| 7 7) (|List| 20) (|List| 7) (|List| $) (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 140 |zero?| 146 |tensor| 151 |support| 167 |sup| 172
               |subtractIfCan| 178 |smaller?| 184 |sample| 190 |retractIfCan|
               194 |retract| 199 |reductum| 204 |recip| 209 |one?| 214
@@ -362,10 +362,10 @@
               |monomial| 234 |monom| 240 |min| 246 |max| 252 |map| 258
               |listOfTerms| 264 |linearExtend| 269 |leadingTerm| 275
               |leadingSupport| 280 |leadingMonomial| 285 |leadingCoefficient|
-              290 |latex| 295 |hash| 300 |constructOrdered| 305 |construct| 310
-              |coerce| 315 |coefficients| 335 |coefficient| 340
-              |characteristic| 346 ^ 350 |Zero| 362 |One| 366 >= 370 > 376 =
-              382 <= 388 < 394 - 400 + 411 * 417)
+              290 |latex| 295 |hashUpdate!| 300 |hash| 306 |constructOrdered|
+              311 |construct| 316 |coerce| 321 |coefficients| 341 |coefficient|
+              346 |characteristic| 352 ^ 356 |Zero| 368 |One| 372 >= 376 > 382
+              = 388 <= 394 < 400 - 406 + 417 * 423)
            'NIL
            (CONS
             (|makeByteWordVec2| 12
@@ -394,7 +394,7 @@
                  (|SetCategory|) (|BasicType|) (|CoercibleTo| 13)
                  (|unitsKnown|) (|RetractableTo| (|Vector| 8))
                  (|PartialOrder|))
-              (|makeByteWordVec2| 62
+              (|makeByteWordVec2| 63
                                   '(1 0 10 0 11 0 7 0 12 1 7 13 0 14 1 0 16 0
                                     17 2 13 0 0 0 18 1 20 19 0 21 1 8 13 0 22 2
                                     24 13 23 0 25 0 7 0 26 2 7 10 0 0 27 2 13 0
@@ -403,21 +403,21 @@
                                     40 1 9 10 0 41 2 39 10 42 0 43 0 0 0 44 1 0
                                     0 16 45 2 9 0 7 8 47 2 9 0 0 0 48 2 0 0 7 0
                                     49 1 0 0 16 50 2 0 0 0 0 51 2 0 10 0 0 1 1
-                                    9 10 0 11 1 0 0 19 37 2 0 0 9 9 1 1 0 0 39
-                                    46 1 0 58 0 1 2 4 0 0 0 1 2 8 52 0 0 1 2 11
+                                    9 10 0 11 1 0 0 19 37 1 0 0 39 46 2 0 0 9 9
+                                    1 1 0 58 0 1 2 4 0 0 0 1 2 8 52 0 0 1 2 11
                                     10 0 0 1 0 9 0 1 1 3 56 0 1 1 3 20 0 1 1 0
                                     0 0 1 1 1 52 0 1 1 1 10 0 1 1 0 38 0 1 1 0
                                     60 0 1 1 0 10 0 1 2 0 0 7 20 36 2 0 0 20 7
                                     1 2 5 0 0 0 1 2 5 0 0 0 1 2 0 0 57 0 1 1 0
                                     16 0 17 2 10 7 55 0 1 1 0 15 0 1 1 0 20 0 1
-                                    1 0 20 0 1 1 0 7 0 1 1 0 61 0 1 1 0 62 0 1
-                                    1 0 0 16 45 1 0 0 16 50 1 1 0 53 1 1 1 0 7
-                                    1 1 3 0 20 1 1 0 13 0 30 1 0 59 0 1 2 0 7 0
-                                    20 1 0 1 38 1 2 1 0 0 54 1 2 1 0 0 38 1 0 9
-                                    0 44 0 1 0 1 2 5 10 0 0 1 2 5 10 0 0 1 2 0
-                                    10 0 0 1 2 5 10 0 0 1 2 5 10 0 0 1 2 2 0 0
-                                    0 1 1 2 0 0 1 2 0 0 0 0 1 2 2 0 53 0 1 2 9
-                                    0 38 0 1 2 1 0 0 0 51 2 0 0 20 7 1 2 0 0 7
-                                    20 1 2 0 0 0 7 1 2 0 0 54 0 1 2 0 0 7 0
-                                    49)))))
+                                    1 0 20 0 1 1 0 7 0 1 1 0 62 0 1 2 0 61 61 0
+                                    1 1 0 63 0 1 1 0 0 16 45 1 0 0 16 50 1 1 0
+                                    7 1 1 1 0 53 1 1 3 0 20 1 1 0 13 0 30 1 0
+                                    59 0 1 2 0 7 0 20 1 0 1 38 1 2 1 0 0 54 1 2
+                                    1 0 0 38 1 0 9 0 44 0 1 0 1 2 5 10 0 0 1 2
+                                    5 10 0 0 1 2 0 10 0 0 1 2 5 10 0 0 1 2 5 10
+                                    0 0 1 2 2 0 0 0 1 1 2 0 0 1 2 0 0 0 0 1 2 2
+                                    0 53 0 1 2 9 0 38 0 1 2 1 0 0 0 51 2 0 0 20
+                                    7 1 2 0 0 7 20 1 2 0 0 7 0 49 2 0 0 0 7 1 2
+                                    0 0 54 0 1)))))
            '|lookupComplete|)) 

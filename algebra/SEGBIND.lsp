@@ -55,7 +55,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|SegmentBinding|))
       (LETT |dv$| (LIST '|SegmentBinding| DV$1) . #1#)
-      (LETT $ (GETREFV 30) . #1#)
+      (LETT $ (GETREFV 31) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -94,22 +94,22 @@
               (12 . |coerce|) (17 . |coerce|) (22 . =) (28 . |coerce|)
               (|InputForm|) (33 . |convert|) (38 . |convert|) (|List| 21)
               (|InputFormFunctions1| $$) (43 . |packageCall|) (49 . |convert|)
-              (|SingleInteger|) (|String|))
-           '#(~= 54 |variable| 60 |segment| 65 |latex| 70 |hash| 75 |equation|
-              80 |convert| 86 |coerce| 91 = 96)
+              (|String|) (|SingleInteger|) (|HashState|))
+           '#(~= 54 |variable| 60 |segment| 65 |latex| 70 |hashUpdate!| 75
+              |hash| 81 |equation| 86 |convert| 92 |coerce| 97 = 102)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(2 0 1 2 2))
                  (CONS '#(|SetCategory&| NIL NIL |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|Type|) (|ConvertibleTo| 21)
                            (|BasicType|) (|CoercibleTo| 16))
-                        (|makeByteWordVec2| 29
+                        (|makeByteWordVec2| 30
                                             '(2 9 13 0 0 14 2 0 13 0 0 15 1 8
                                               16 0 17 1 9 16 0 18 2 16 0 0 0 19
                                               1 0 16 0 20 1 21 0 8 22 1 9 21 0
                                               23 2 25 21 8 24 26 1 0 21 0 27 2
                                               2 13 0 0 1 1 0 8 0 11 1 0 9 0 12
-                                              1 2 29 0 1 1 2 28 0 1 2 0 0 8 9
-                                              10 1 1 21 0 27 1 2 16 0 20 2 2 13
-                                              0 0 15)))))
+                                              1 2 28 0 1 2 2 30 30 0 1 1 2 29 0
+                                              1 2 0 0 8 9 10 1 1 21 0 27 1 2 16
+                                              0 20 2 2 13 0 0 15)))))
            '|lookupComplete|)) 

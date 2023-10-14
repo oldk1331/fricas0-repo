@@ -171,7 +171,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|PoincareBirkhoffWittLyndonBasis|))
       (LETT |dv$| (LIST '|PoincareBirkhoffWittLyndonBasis| DV$1) . #1#)
-      (LETT $ (GETREFV 52) . #1#)
+      (LETT $ (GETREFV 53) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|PoincareBirkhoffWittLyndonBasis|
@@ -198,12 +198,12 @@
               (|NonNegativeInteger|) (59 . ~=) |PBWLB;retract;$Lw;12|
               (|Union| 13 '"failed") |PBWLB;retractIfCan;$U;13|
               (|PositiveInteger|) (65 . |length|) |PBWLB;length;$Nni;14|
-              (70 . =) (76 . |lexico|) |PBWLB;<;2$B;16| (|SingleInteger|)
-              (|String|))
+              (70 . =) (76 . |lexico|) |PBWLB;<;2$B;16| (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 82 |varList| 88 |smaller?| 93 |retractable?| 99 |retractIfCan|
               104 |retract| 109 |rest| 114 |min| 119 |max| 125 |listOfTerms|
-              131 |length| 136 |latex| 141 |hash| 146 |first| 151 |coerce| 156
-              |One| 176 >= 180 > 186 = 192 <= 198 < 204)
+              131 |length| 136 |latex| 141 |hashUpdate!| 146 |hash| 152 |first|
+              157 |coerce| 162 |One| 182 >= 186 > 192 = 198 <= 204 < 210)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -213,7 +213,7 @@
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
                       (|BasicType|) (|RetractableTo| (|LyndonWord| 6))
                       (|PartialOrder|) (|CoercibleTo| 30))
-                   (|makeByteWordVec2| 51
+                   (|makeByteWordVec2| 52
                                        '(2 7 9 0 0 10 1 13 12 0 14 2 12 0 0 0
                                          15 1 13 0 6 19 0 24 0 25 1 13 24 0 26
                                          2 24 0 0 0 28 1 30 0 29 31 2 30 0 0 0
@@ -222,9 +222,9 @@
                                          9 0 0 48 2 0 9 0 0 1 1 0 12 0 16 2 0 9
                                          0 0 1 1 0 9 0 38 1 0 42 0 43 1 0 13 0
                                          41 1 0 0 0 18 2 0 0 0 0 1 2 0 0 0 0 1
-                                         1 0 22 0 23 1 0 39 0 46 1 0 51 0 1 1 0
-                                         50 0 1 1 0 13 0 17 1 0 0 6 20 1 0 24 0
-                                         27 1 0 0 13 21 1 0 30 0 37 0 0 0 8 2 0
-                                         9 0 0 1 2 0 9 0 0 1 2 0 9 0 0 11 2 0 9
-                                         0 0 1 2 0 9 0 0 49)))))
+                                         1 0 22 0 23 1 0 39 0 46 1 0 51 0 1 2 0
+                                         50 50 0 1 1 0 52 0 1 1 0 13 0 17 1 0 0
+                                         6 20 1 0 24 0 27 1 0 0 13 21 1 0 30 0
+                                         37 0 0 0 8 2 0 9 0 0 1 2 0 9 0 0 1 2 0
+                                         9 0 0 11 2 0 9 0 0 1 2 0 9 0 0 49)))))
            '|lookupComplete|)) 

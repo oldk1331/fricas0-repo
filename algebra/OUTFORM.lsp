@@ -116,7 +116,7 @@
                    (SPADCALL |n| (- |m| 1) (QREFELT $ 47)) (QREFELT $ 46))))) 
 
 (DEFUN |OUTFORM;matrix;L$;29| (|ll| $)
-  (PROG (|lv| #1=#:G1618 |l| #2=#:G1617)
+  (PROG (|lv| #1=#:G1634 |l| #2=#:G1633)
     (RETURN
      (SEQ
       (LETT |lv|
@@ -141,7 +141,7 @@
   (CONS (|OUTFORM;eform| 'AGGSET $) |l|)) 
 
 (DEFUN |OUTFORM;blankSeparate;L$;33| (|l| $)
-  (PROG (|l1| #1=#:G1626 |u| |c|)
+  (PROG (|l1| #1=#:G1642 |u| |c|)
     (RETURN
      (SEQ
       (LETT |c| (|OUTFORM;eform| 'CONCATB $)
@@ -286,7 +286,7 @@
   (SPADCALL (LIST (|OUTFORM;eform| 'NOTHING $)) (QREFELT $ 17))) 
 
 (DEFUN |OUTFORM;infix?;$B;71| (|a| $)
-  (PROG (|e| #1=#:G1670)
+  (PROG (|e| #1=#:G1686)
     (RETURN
      (SEQ
       (EXIT
@@ -393,7 +393,7 @@
   (SPADCALL (LIST (|OUTFORM;eform| 'TAG $) |a| |b|) (QREFELT $ 17))) 
 
 (DEFUN |OUTFORM;differentiate;$Nni$;95| (|a| |nn| $)
-  (PROG (|s| |r| #1=#:G1702)
+  (PROG (|s| |r| #1=#:G1718)
     (RETURN
      (SEQ
       (COND ((ZEROP |nn|) |a|) ((< |nn| 4) (SPADCALL |a| |nn| (QREFELT $ 106)))
@@ -452,7 +452,7 @@
 (DEFUN |OutputForm| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1717)
+     (PROG (#1=#:G1733)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|OutputForm|)
@@ -472,7 +472,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|OutputForm|) . #1=(|OutputForm|))
-      (LETT $ (GETREFV 135) . #1#)
+      (LETT $ (GETREFV 136) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|OutputForm| NIL (CONS 1 $))
@@ -532,7 +532,7 @@
               |OUTFORM;sum;3$;97| |OUTFORM;sum;4$;98| |OUTFORM;prod;2$;99|
               |OUTFORM;prod;3$;100| |OUTFORM;prod;4$;101| |OUTFORM;int;2$;102|
               |OUTFORM;int;3$;103| |OUTFORM;int;4$;104| |OUTFORM;tensor;3$;105|
-              (|SingleInteger|))
+              (|HashState|) (|SingleInteger|))
            '#(~= 63 |zag| 75 |width| 81 |vspace| 90 |vconcat| 95 |tensor| 106
               |supersub| 112 |superHeight| 118 |super| 123 |sum| 129
               |subHeight| 147 |sub| 152 |string| 158 |slash| 163
@@ -543,18 +543,18 @@
               |overbar| 310 |over| 315 |outputForm| 321 |or| 341 |not| 347
               |messagePrint| 352 |message| 357 |matrix| 362 |left| 367 |latex|
               378 |label| 383 |int| 389 |infix?| 407 |infix| 412 |hspace| 425
-              |height| 430 |hconcat| 439 |hash| 450 |exquo| 455 |empty| 461
-              |elt| 465 |dot| 471 |differentiate| 482 |commaSeparate| 488
-              |coerce| 493 |center| 498 |bracket| 509 |brace| 519 |box| 529
-              |blankSeparate| 534 |binomial| 539 |assign| 545 |and| 551 ^ 557
-              SEGMENT 563 >= 574 > 580 = 586 <= 598 < 604 / 610 - 616 + 627 *
-              633)
+              |height| 430 |hconcat| 439 |hashUpdate!| 450 |hash| 456 |exquo|
+              461 |empty| 467 |elt| 471 |dot| 477 |differentiate| 488
+              |commaSeparate| 494 |coerce| 499 |center| 504 |bracket| 515
+              |brace| 525 |box| 535 |blankSeparate| 540 |binomial| 545 |assign|
+              551 |and| 557 ^ 563 SEGMENT 569 >= 580 > 586 = 592 <= 604 < 610 /
+              616 - 622 + 633 * 639)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 19))
-                        (|makeByteWordVec2| 134
+                        (|makeByteWordVec2| 135
                                             '(1 10 9 0 11 1 6 0 16 17 2 10 0 0
                                               27 28 2 10 0 27 0 29 1 53 0 0 54
                                               2 53 0 0 0 55 1 53 9 0 67 1 53 0
@@ -578,28 +578,29 @@
                                               98 2 0 0 0 0 101 1 0 0 16 50 1 0
                                               0 0 61 1 0 0 16 62 2 0 0 0 0 109
                                               1 0 0 0 104 2 0 0 0 0 114 1 0 0
-                                              10 30 1 0 0 25 26 1 0 0 23 24 1 0
-                                              0 21 22 2 0 0 0 0 91 1 0 0 0 92 1
+                                              10 30 1 0 0 25 26 1 0 0 21 22 1 0
+                                              0 23 24 2 0 0 0 0 91 1 0 0 0 92 1
                                               0 7 10 14 1 0 0 10 13 1 0 0 48 49
                                               1 0 0 0 43 2 0 0 0 21 40 1 0 10 0
                                               1 2 0 0 0 0 117 2 0 0 0 0 131 3 0
                                               0 0 0 0 132 1 0 0 0 130 1 0 9 0
                                               96 2 0 0 0 16 99 3 0 0 0 0 0 100
                                               1 0 0 21 37 0 0 21 35 1 0 21 0 32
-                                              1 0 0 16 74 2 0 0 0 0 38 1 0 134
-                                              0 1 2 0 0 0 0 89 0 0 0 12 2 0 0 0
-                                              16 97 1 0 0 0 105 2 0 0 0 71 108
-                                              2 0 0 0 71 123 1 0 0 16 51 1 0 19
-                                              0 20 1 0 0 0 42 2 0 0 0 21 39 1 0
-                                              0 16 60 1 0 0 0 59 1 0 0 16 58 1
-                                              0 0 0 57 1 0 0 0 110 1 0 0 16 56
-                                              2 0 0 0 0 95 2 0 0 0 0 116 2 0 0
-                                              0 0 90 2 0 0 0 0 86 1 0 0 0 94 2
-                                              0 0 0 0 93 2 0 0 0 0 80 2 0 0 0 0
-                                              78 2 0 0 0 0 18 2 0 9 0 0 15 2 0
-                                              0 0 0 79 2 0 0 0 0 77 2 0 0 0 0
-                                              85 2 0 0 0 0 82 1 0 0 0 83 2 0 0
-                                              0 0 81 2 0 0 0 0 84)))))
+                                              1 0 0 16 74 2 0 0 0 0 38 2 0 134
+                                              134 0 1 1 0 135 0 1 2 0 0 0 0 89
+                                              0 0 0 12 2 0 0 0 16 97 1 0 0 0
+                                              105 2 0 0 0 71 108 2 0 0 0 71 123
+                                              1 0 0 16 51 1 0 19 0 20 1 0 0 0
+                                              42 2 0 0 0 21 39 1 0 0 16 60 1 0
+                                              0 0 59 1 0 0 16 58 1 0 0 0 57 1 0
+                                              0 0 110 1 0 0 16 56 2 0 0 0 0 95
+                                              2 0 0 0 0 116 2 0 0 0 0 90 2 0 0
+                                              0 0 86 1 0 0 0 94 2 0 0 0 0 93 2
+                                              0 0 0 0 80 2 0 0 0 0 78 2 0 0 0 0
+                                              18 2 0 9 0 0 15 2 0 0 0 0 79 2 0
+                                              0 0 0 77 2 0 0 0 0 85 2 0 0 0 0
+                                              82 1 0 0 0 83 2 0 0 0 0 81 2 0 0
+                                              0 0 84)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OutputForm| 'NILADIC T) 

@@ -61,7 +61,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Palette|) . #1=(|Palette|))
-      (LETT $ (GETREFV 27) . #1#)
+      (LETT $ (GETREFV 28) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Palette| NIL (CONS 1 $))
@@ -79,22 +79,24 @@
               |PALETTE;light;C$;5| |PALETTE;hue;$C;6| (|Integer|)
               |PALETTE;shade;$I;7| |PALETTE;coerce;C$;8| (|OutputForm|)
               (0 . |coerce|) (|List| 17) (5 . |elt|) (|List| $)
-              (11 . |hconcat|) |PALETTE;coerce;$Of;9| (|String|)
+              (11 . |hconcat|) |PALETTE;coerce;$Of;9| (|HashState|) (|String|)
               (|SingleInteger|) (|Boolean|))
            '#(~= 16 |shade| 22 |pastel| 27 |light| 32 |latex| 37 |hue| 42
-              |hash| 47 |dim| 52 |dark| 57 |coerce| 62 |bright| 72 = 77)
+              |hashUpdate!| 47 |hash| 53 |dim| 58 |dark| 63 |coerce| 68
+              |bright| 78 = 83)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 17))
-                        (|makeByteWordVec2| 26
+                        (|makeByteWordVec2| 27
                                             '(1 7 17 0 18 2 19 17 0 14 20 1 17
-                                              0 21 22 2 0 26 0 0 1 1 0 14 0 15
-                                              1 0 0 7 11 1 0 0 7 12 1 0 24 0 1
-                                              1 0 7 0 13 1 0 25 0 1 1 0 0 7 9 1
-                                              0 0 7 8 1 0 0 7 16 1 0 17 0 23 1
-                                              0 0 7 10 2 0 26 0 0 1)))))
+                                              0 21 22 2 0 27 0 0 1 1 0 14 0 15
+                                              1 0 0 7 11 1 0 0 7 12 1 0 25 0 1
+                                              1 0 7 0 13 2 0 24 24 0 1 1 0 26 0
+                                              1 1 0 0 7 9 1 0 0 7 8 1 0 0 7 16
+                                              1 0 17 0 23 1 0 0 7 10 2 0 27 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Palette| 'NILADIC T) 

@@ -24,7 +24,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|Operator|))
       (LETT |dv$| (LIST '|Operator| DV$1) . #1#)
-      (LETT $ (GETREFV 20) . #1#)
+      (LETT $ (GETREFV 21) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -49,7 +49,8 @@
               (|Union| $ '"failed") (|BasicOperator|) (|FreeGroup| 8)
               (|Integer|) (|Mapping| 6 6) (|Union| 8 '#1="failed")
               (|Union| 6 '#1#) (|NonNegativeInteger|) (|Boolean|)
-              (|PositiveInteger|) (|SingleInteger|) (|String|) (|OutputForm|))
+              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
+              (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -68,6 +69,6 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|Eltable| 6 6)
                  (|RetractableTo| 8) (|RetractableTo| 6) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 19))
+                 (|BasicType|) (|CoercibleTo| 20))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

@@ -215,7 +215,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerPrimeField|))
       (LETT |dv$| (LIST '|InnerPrimeField| DV$1) . #1#)
-      (LETT $ (GETREFV 105) . #1#)
+      (LETT $ (GETREFV 106) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|InnerPrimeField| (LIST DV$1)
@@ -282,7 +282,7 @@
               (|Record| (|:| |coef| 92) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|String|) (|OutputForm|))
+              (|HashState|) (|String|) (|OutputForm|))
            '#(|zero?| 147 |tableForDiscreteLogarithm| 152 |retractIfCan| 157
               |retract| 162 |represents| 167 |representationType| 172 |recip|
               176 |primitiveElement| 181 |normalElement| 185
@@ -327,7 +327,7 @@
                  (|ConvertibleTo| 20) (|RetractableTo| $$) (|ConvertibleTo| 91)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 104))
+                 (|BasicType|) (|CoercibleTo| 105))
               (|makeByteWordVec2| 85
                                   '(0 12 0 13 0 0 0 15 1 0 17 0 18 0 0 0 19 2
                                     20 0 0 0 21 2 5 0 0 22 23 2 20 17 0 0 25 1

@@ -1157,7 +1157,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT |dv$| (LIST '|CartesianTensor| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 102) . #1#)
+      (LETT $ (GETREFV 103) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|CartesianTensor| (LIST DV$1 DV$2 DV$3)
@@ -1205,12 +1205,13 @@
               |CARTEN;product;3$;38| |CARTEN;contract;$I$I$;41|
               |CARTEN;*;3$;39| |CARTEN;contract;$2I$;40| (182 . *)
               |CARTEN;transpose;$2I$;43| |CARTEN;transpose;2$;42|
-              |CARTEN;reindex;$L$;44| (|SingleInteger|) (|String|))
+              |CARTEN;reindex;$L$;44| (|String|) (|SingleInteger|)
+              (|HashState|))
            '#(~= 188 |unravel| 194 |transpose| 199 |sample| 211 |retractIfCan|
               215 |retract| 220 |reindex| 225 |ravel| 231 |rank| 236 |product|
               241 |leviCivitaSymbol| 247 |latex| 251 |kroneckerDelta| 256
-              |hash| 260 |elt| 265 |degree| 306 |contract| 311 |coerce| 326
-              |Zero| 356 |One| 360 = 364 - 370 + 381 * 387)
+              |hashUpdate!| 260 |hash| 266 |elt| 271 |degree| 312 |contract|
+              317 |coerce| 332 |Zero| 362 |One| 366 = 370 - 376 + 387 * 393)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -1220,7 +1221,7 @@
                    '#((|GradedAlgebra| 8 11) (|GradedModule| 8 11)
                       (|GradedModule| 18 11) (|SetCategory|) (|BasicType|)
                       (|RetractableTo| 8) (|CoercibleTo| 60))
-                   (|makeByteWordVec2| 101
+                   (|makeByteWordVec2| 102
                                        '(2 11 0 0 10 12 3 19 18 0 18 18 20 2 18
                                          21 0 0 22 2 19 18 0 18 23 2 18 21 0 0
                                          24 2 18 0 11 0 25 2 11 21 0 0 26 3 27
@@ -1237,15 +1238,15 @@
                                          18 97 1 0 0 0 98 0 0 0 17 1 0 58 0 59
                                          1 0 8 0 1 2 0 0 0 50 99 1 0 34 0 35 1
                                          0 11 0 43 2 0 0 0 0 92 0 0 0 42 1 0
-                                         101 0 1 0 0 0 16 1 0 100 0 1 2 0 8 0
-                                         50 51 5 0 8 0 18 18 18 18 49 3 0 8 0
-                                         18 18 47 4 0 8 0 18 18 18 48 1 0 8 0
-                                         45 2 0 8 0 18 46 1 0 11 0 44 4 0 0 0
-                                         18 0 18 93 3 0 0 0 18 18 95 1 0 0 34
-                                         52 1 0 0 56 57 1 0 0 70 74 1 0 0 75 77
-                                         1 0 0 8 67 1 0 60 0 66 0 0 0 68 0 0 0
-                                         69 2 0 21 0 0 79 2 0 0 0 0 83 1 0 0 0
-                                         85 2 0 0 0 0 81 2 0 0 0 0 94 2 0 0 18
-                                         0 87 2 0 0 0 18 88 2 0 0 0 8 91 2 0 0
-                                         8 0 90)))))
+                                         100 0 1 0 0 0 16 2 0 102 102 0 1 1 0
+                                         101 0 1 2 0 8 0 50 51 5 0 8 0 18 18 18
+                                         18 49 3 0 8 0 18 18 47 4 0 8 0 18 18
+                                         18 48 2 0 8 0 18 46 1 0 8 0 45 1 0 11
+                                         0 44 4 0 0 0 18 0 18 93 3 0 0 0 18 18
+                                         95 1 0 0 56 57 1 0 0 75 77 1 0 0 34 52
+                                         1 0 0 70 74 1 0 0 8 67 1 0 60 0 66 0 0
+                                         0 68 0 0 0 69 2 0 21 0 0 79 2 0 0 0 0
+                                         83 1 0 0 0 85 2 0 0 0 0 81 2 0 0 0 0
+                                         94 2 0 0 18 0 87 2 0 0 0 18 88 2 0 0 0
+                                         8 91 2 0 0 8 0 90)))))
            '|lookupComplete|)) 

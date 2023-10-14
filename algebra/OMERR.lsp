@@ -74,7 +74,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|OpenMathError|) . #1=(|OpenMathError|))
-      (LETT $ (GETREFV 28) . #1#)
+      (LETT $ (GETREFV 29) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|OpenMathError| NIL (CONS 1 $))
@@ -94,21 +94,22 @@
               (|List| $) (31 . |concat|) (36 . |OMReadError?|)
               |OMERR;coerce;$Of;1| |OMERR;omError;OmekL$;2|
               |OMERR;errorKind;$Omek;3| |OMERR;errorInfo;$L;4|
-              (|SingleInteger|))
-           '#(~= 41 |omError| 47 |latex| 53 |hash| 58 |errorKind| 63
-              |errorInfo| 68 |coerce| 73 = 78)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 41 |omError| 47 |latex| 53 |hashUpdate!| 58 |hash| 64
+              |errorKind| 69 |errorInfo| 74 |coerce| 79 = 84)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 11))
-                        (|makeByteWordVec2| 27
+                        (|makeByteWordVec2| 28
                                             '(1 8 7 0 9 1 11 0 10 12 1 8 7 0 13
                                               1 14 10 0 15 1 8 7 0 16 2 18 14 0
                                               17 19 1 10 0 20 21 1 8 7 0 22 2 0
                                               7 0 0 1 2 0 0 8 18 24 1 0 10 0 1
-                                              1 0 27 0 1 1 0 8 0 25 1 0 18 0 26
-                                              1 0 11 0 23 2 0 7 0 0 1)))))
+                                              2 0 28 28 0 1 1 0 27 0 1 1 0 8 0
+                                              25 1 0 18 0 26 1 0 11 0 23 2 0 7
+                                              0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathError| 'NILADIC T) 

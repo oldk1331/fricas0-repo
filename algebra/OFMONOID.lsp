@@ -203,7 +203,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|OrderedFreeMonoid|))
       (LETT |dv$| (LIST '|OrderedFreeMonoid| DV$1) . #1#)
-      (LETT $ (GETREFV 47) . #1#)
+      (LETT $ (GETREFV 48) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|OrderedFreeMonoid| (LIST DV$1)
@@ -226,17 +226,18 @@
               (48 . |sort!|) |OFMONOID;varList;$L;4| |OFMONOID;first;$S;5|
               |OFMONOID;rest;2$;6| (53 . >) (59 . <) (65 . >)
               |OFMONOID;lexico;2$B;7| |OFMONOID;<;2$B;8| |OFMONOID;mirror;2$;9|
-              (|Integer|) (|Record| (|:| |lm| $) (|:| |mm| $) (|:| |rm| $))
-              (|Record| (|:| |lm| $) (|:| |rm| $)) (|Union| 40 '"failed")
-              (|Union| 6 '"failed") (|PositiveInteger|) (|SingleInteger|)
-              (|String|) (|OutputForm|))
+              (|Integer|) (|Record| (|:| |lm| $) (|:| |rm| $))
+              (|Union| 39 '"failed")
+              (|Record| (|:| |lm| $) (|:| |mm| $) (|:| |rm| $))
+              (|Union| 6 '"failed") (|PositiveInteger|) (|String|)
+              (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 71 |varList| 77 |smaller?| 82 |size| 88 |sample| 93 |rquo| 97
               |retractIfCan| 109 |retract| 114 |rest| 119 |recip| 124 |overlap|
               129 |one?| 135 |nthFactor| 140 |nthExpon| 146 |mirror| 152 |min|
               157 |max| 163 |lquo| 169 |lexico| 181 |length| 187 |latex| 192
-              |hcrf| 197 |hclf| 203 |hash| 209 |first| 214 |factors| 219
-              |divide| 224 |coerce| 230 ^ 240 |One| 258 >= 262 > 268 = 274 <=
-              280 < 286 * 292)
+              |hcrf| 197 |hclf| 203 |hashUpdate!| 209 |hash| 215 |first| 220
+              |factors| 225 |divide| 230 |coerce| 236 ^ 246 |One| 264 >= 268 >
+              274 = 280 <= 286 < 292 * 298)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -247,8 +248,8 @@
                    '#((|OrderedMonoid|) (|OrderedSemiGroup|) (|OrderedSet|)
                       (|Monoid|) (|Comparable|) (|SemiGroup|) (|SetCategory|)
                       (|RetractableTo| 6) (|BasicType|) (|PartialOrder|)
-                      (|CoercibleTo| 46))
-                   (|makeByteWordVec2| 46
+                      (|CoercibleTo| 47))
+                   (|makeByteWordVec2| 47
                                        '(0 0 0 7 1 8 10 0 11 2 6 12 0 0 13 1 8
                                          0 10 14 1 8 0 0 17 1 8 0 0 18 2 20 0 0
                                          0 21 3 23 20 22 0 20 24 1 26 0 0 27 1
@@ -256,15 +257,16 @@
                                          2 20 12 0 0 34 2 0 12 0 0 1 1 0 26 0
                                          29 2 0 12 0 0 1 1 0 20 0 1 0 0 0 1 2 0
                                          15 0 6 19 2 0 15 0 0 1 1 0 42 0 1 1 0
-                                         6 0 1 1 0 0 0 31 1 0 15 0 1 2 0 39 0 0
+                                         6 0 1 1 0 0 0 31 1 0 15 0 1 2 0 41 0 0
                                          1 1 0 12 0 1 2 0 6 0 38 1 2 0 20 0 38
                                          1 1 0 0 0 37 2 0 0 0 0 1 2 0 0 0 0 1 2
                                          0 15 0 6 16 2 0 15 0 0 1 2 0 12 0 0 35
-                                         1 0 20 0 25 1 0 45 0 1 2 0 0 0 0 1 2 0
-                                         0 0 0 1 1 0 44 0 1 1 0 6 0 30 1 0 10 0
-                                         1 2 0 41 0 0 1 1 0 0 6 1 1 0 46 0 1 2
-                                         0 0 6 20 1 2 0 0 0 20 1 2 0 0 0 43 1 0
-                                         0 0 7 2 0 12 0 0 1 2 0 12 0 0 1 2 0 12
-                                         0 0 1 2 0 12 0 0 1 2 0 12 0 0 36 2 0 0
-                                         6 0 1 2 0 0 0 6 1 2 0 0 0 0 1)))))
+                                         1 0 20 0 25 1 0 44 0 1 2 0 0 0 0 1 2 0
+                                         0 0 0 1 2 0 46 46 0 1 1 0 45 0 1 1 0 6
+                                         0 30 1 0 10 0 1 2 0 40 0 0 1 1 0 0 6 1
+                                         1 0 47 0 1 2 0 0 6 20 1 2 0 0 0 20 1 2
+                                         0 0 0 43 1 0 0 0 7 2 0 12 0 0 1 2 0 12
+                                         0 0 1 2 0 12 0 0 1 2 0 12 0 0 1 2 0 12
+                                         0 0 36 2 0 0 0 6 1 2 0 0 6 0 1 2 0 0 0
+                                         0 1)))))
            '|lookupComplete|)) 

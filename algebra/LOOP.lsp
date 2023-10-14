@@ -129,7 +129,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Loop|) . #1=(|Loop|))
-      (LETT $ (GETREFV 33) . #1#)
+      (LETT $ (GETREFV 34) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Loop| NIL (CONS 1 $))
@@ -147,22 +147,22 @@
               (|String|) (21 . |concat|) |LOOP;latex;$S;4| (|Boolean|)
               (26 . ~=) |LOOP;=;2$B;5| |LOOP;~=;2$B;6| (|OutputForm|)
               (32 . |empty|) (|Symbol|) (36 . |outputForm|) (41 . |coerce|)
-              (46 . |hconcat|) |LOOP;coerce;$Of;7|)
-           '#(~= 51 |loop| 57 |latex| 62 |hash| 67 |entries| 72 |coerce| 77 =
-              82)
+              (46 . |hconcat|) |LOOP;coerce;$Of;7| (|HashState|))
+           '#(~= 51 |loop| 57 |latex| 62 |hashUpdate!| 67 |hash| 73 |entries|
+              78 |coerce| 83 = 88)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 26))
-                        (|makeByteWordVec2| 32
+                        (|makeByteWordVec2| 33
                                             '(2 7 0 0 0 8 1 6 0 7 9 1 11 7 0 12
                                               1 6 16 0 17 1 19 0 18 20 2 16 22
                                               0 0 23 0 26 0 27 1 26 0 28 29 1
                                               16 26 0 30 1 26 0 18 31 2 0 22 0
-                                              0 25 1 0 0 7 10 1 0 19 0 21 1 0
-                                              14 0 15 1 0 7 0 13 1 0 26 0 32 2
-                                              0 22 0 0 24)))))
+                                              0 25 1 0 0 7 10 1 0 19 0 21 2 0
+                                              33 33 0 1 1 0 14 0 15 1 0 7 0 13
+                                              1 0 26 0 32 2 0 22 0 0 24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Loop| 'NILADIC T) 

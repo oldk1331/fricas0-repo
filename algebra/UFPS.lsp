@@ -29,7 +29,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #7=(|UnivariateFormalPowerSeries|))
       (LETT |dv$| (LIST '|UnivariateFormalPowerSeries| DV$1) . #7#)
-      (LETT $ (GETREFV 31) . #7#)
+      (LETT $ (GETREFV 32) . #7#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -340,15 +340,16 @@
            '#(NIL NIL NIL NIL NIL
               (|UnivariateTaylorSeries| 6 (NRTEVAL '|x|)
                                         (NRTEVAL (|spadConstant| $ 7)))
-              (|local| |#1|) (0 . |Zero|) (|Boolean|) (|Union| $ '"failed")
+              (|local| |#1|) (0 . |Zero|) (|Boolean|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Symbol|) (|NonNegativeInteger|) (|List| 11) (|List| 12)
-              (|Integer|) (|Variable| (NRTEVAL '|x|)) (|Fraction| 15)
-              (|Stream| 6) (|UnivariatePolynomial| (NRTEVAL '|x|) 6)
-              (|Polynomial| 6) (|Mapping| 6 15)
-              (|Record| (|:| |k| 12) (|:| |c| 6)) (|Stream| 22)
-              (|PositiveInteger|) (|List| 26) (|SingletonAsOrderedSet|)
-              (|Mapping| 6 6) (|SingleInteger|) (|String|) (|OutputForm|))
+              (|Union| $ '"failed") (|List| 12) (|Symbol|) (|List| 14)
+              (|NonNegativeInteger|) (|Integer|) (|Variable| (NRTEVAL '|x|))
+              (|Fraction| 15) (|Stream| 6)
+              (|UnivariatePolynomial| (NRTEVAL '|x|) 6) (|Polynomial| 6)
+              (|Mapping| 6 15) (|Record| (|:| |k| 14) (|:| |c| 6))
+              (|Stream| 22) (|PositiveInteger|) (|List| 26)
+              (|SingletonAsOrderedSet|) (|Mapping| 6 6) (|String|)
+              (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 23
@@ -371,12 +372,12 @@
                 |RadicalCategory&|)
              (CONS
               '#((|UnivariateTaylorSeriesCategory| 6)
-                 (|UnivariatePowerSeriesCategory| 6 12)
-                 (|PowerSeriesCategory| 6 12 26) (|AbelianMonoidRing| 6 12)
+                 (|UnivariatePowerSeriesCategory| 6 14)
+                 (|PowerSeriesCategory| 6 14 26) (|AbelianMonoidRing| 6 14)
                  (|IntegralDomain|) (|Algebra| 17) (|Algebra| $$) (|Algebra| 6)
                  (|Module| 17) (|CommutativeRing|) (|Module| $$) (|EntireRing|)
                  (|CharacteristicNonZero|) (|CharacteristicZero|) (|Module| 6)
-                 (|PartialDifferentialRing| 11) (|DifferentialRing|)
+                 (|PartialDifferentialRing| 12) (|DifferentialRing|)
                  (|BiModule| 6 6) (|BiModule| 17 17) (|BiModule| $$ $$)
                  (|Ring|) (|LeftModule| 6) (|RightModule| 6) (|LeftModule| 17)
                  (|RightModule| 17) (|RightModule| $$) (|LeftModule| $$)
@@ -385,7 +386,7 @@
                  (|AbelianMonoid|) (|AbelianSemiGroup|) (|SemiGroup|)
                  (|SetCategory|) (|TranscendentalFunctionCategory|)
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
-                 (|CoercibleTo| 30) (|CommutativeStar|) (|noZeroDivisors|)
+                 (|CoercibleTo| 31) (|CommutativeStar|) (|noZeroDivisors|)
                  (|unitsKnown|) (|Eltable| $$ $$)
                  (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)

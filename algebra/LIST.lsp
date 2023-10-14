@@ -93,7 +93,7 @@
       (EXIT |lu|))))) 
 
 (DEFUN |LIST;convert;$If;13| (|x| $)
-  (PROG (#1=#:G1544 |a| #2=#:G1543)
+  (PROG (#1=#:G1560 |a| #2=#:G1559)
     (RETURN
      (SEQ
       (SPADCALL
@@ -112,10 +112,10 @@
                    (EXIT (NREVERSE #2#)))))
        (QREFELT $ 42)))))) 
 
-(DEFUN |List| (#1=#:G1555)
+(DEFUN |List| (#1=#:G1571)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1556)
+     (PROG (#2=#:G1572)
        (RETURN
         (COND
          ((LETT #2#
@@ -129,12 +129,12 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|List|))))))))))) 
 
 (DEFUN |List;| (|#1|)
-  (PROG (#1=#:G1554 |pv$| #2=#:G1552 $ |dv$| DV$1)
+  (PROG (#1=#:G1570 |pv$| #2=#:G1568 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|List|))
       (LETT |dv$| (LIST '|List| DV$1) . #3#)
-      (LETT $ (GETREFV 61) . #3#)
+      (LETT $ (GETREFV 62) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -238,7 +238,8 @@
               (|List| 6) (|Equation| 6) (|List| 47) (|Mapping| 8 6)
               (|Mapping| 8 6 6) (|UniversalSegment| 34) '"last" '"rest"
               '"first" '"value" (|Mapping| 6 6) (|OutputForm|)
-              (|SingleInteger|) (|List| 34) (|Union| 6 '"failed"))
+              (|SingleInteger|) (|HashState|) (|List| 34)
+              (|Union| 6 '"failed"))
            '#(|setUnion| 134 |setIntersection| 140 |setDifference| 146
               |removeDuplicates| 152 |null| 157 |nil| 162 |member?| 166 |elt|
               172 |convert| 178 |cons| 183 |concat| 189 |append| 195 |OMwrite|

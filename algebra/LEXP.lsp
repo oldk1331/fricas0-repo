@@ -266,7 +266,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT |dv$| (LIST '|LieExponentials| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 72) . #1#)
+      (LETT $ (GETREFV 73) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|LieExponentials| (LIST DV$1 DV$2 DV$3)
@@ -301,12 +301,12 @@
               (|List| 41) |LEXP;LyndonBasis;LL;10| |LEXP;coerce;$Xpbwp;11|
               (132 . |mirror|) (137 . |length|) (142 . -) |LEXP;inv;2$;12|
               (|XDistributedPolynomial| 6 7) (|Integer|) (|Union| $ '"failed")
-              (|String|) (|SingleInteger|))
+              (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 147 |varList| 153 |sample| 158 |recip| 162 |one?| 167 |mirror|
               172 |log| 177 |listOfTerms| 182 |latex| 187 |inv| 192
-              |identification| 197 |hash| 203 |exp| 208 |conjugate| 213
-              |commutator| 219 |coerce| 225 ^ 240 |One| 258 |LyndonCoordinates|
-              262 |LyndonBasis| 267 = 272 / 278 * 284)
+              |identification| 197 |hashUpdate!| 203 |hash| 209 |exp| 214
+              |conjugate| 219 |commutator| 225 |coerce| 231 ^ 246 |One| 264
+              |LyndonCoordinates| 268 |LyndonBasis| 273 = 278 / 284 * 290)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -315,7 +315,7 @@
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|SetCategory|)
                       (|BasicType|) (|unitsKnown|) (|CoercibleTo| 20))
-                   (|makeByteWordVec2| 71
+                   (|makeByteWordVec2| 72
                                        '(0 7 0 10 2 11 0 7 7 12 2 14 13 0 0 15
                                          2 7 0 0 0 16 2 7 13 0 0 17 2 14 13 0 0
                                          18 0 7 0 19 1 14 20 0 21 2 20 0 0 0 22
@@ -327,11 +327,11 @@
                                          1 41 0 14 59 1 0 0 0 63 1 34 38 0 64 1
                                          7 0 0 65 2 0 13 0 0 1 1 0 56 0 1 0 0 0
                                          1 1 0 69 0 1 1 0 13 0 1 1 0 0 0 63 1 0
-                                         41 0 48 1 0 31 0 32 1 0 70 0 1 1 0 0 0
-                                         66 2 0 28 0 0 29 1 0 71 0 1 1 0 0 41
-                                         44 2 0 0 0 0 1 2 0 0 0 0 1 1 0 5 0 62
-                                         1 0 67 0 1 1 0 20 0 54 2 0 0 0 68 1 2
-                                         0 0 0 38 1 2 0 0 0 57 1 0 0 0 49 1 0
-                                         26 0 27 1 0 60 56 61 2 0 13 0 0 50 2 0
-                                         0 0 0 1 2 0 0 0 0 40)))))
+                                         41 0 48 1 0 31 0 32 1 0 71 0 1 1 0 0 0
+                                         66 2 0 28 0 0 29 2 0 70 70 0 1 1 0 72
+                                         0 1 1 0 0 41 44 2 0 0 0 0 1 2 0 0 0 0
+                                         1 1 0 67 0 1 1 0 5 0 62 1 0 20 0 54 2
+                                         0 0 0 68 1 2 0 0 0 38 1 2 0 0 0 57 1 0
+                                         0 0 49 1 0 26 0 27 1 0 60 56 61 2 0 13
+                                         0 0 50 2 0 0 0 0 1 2 0 0 0 0 40)))))
            '|lookupComplete|)) 

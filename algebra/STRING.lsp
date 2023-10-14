@@ -57,7 +57,7 @@
 (DEFUN |String| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1882)
+     (PROG (#1=#:G1902)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|String|) . #2=(|String|))
@@ -72,11 +72,11 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|String|))))))))))) 
 
 (DEFUN |String;| ()
-  (PROG (|dv$| $ #1=#:G1878 #2=#:G1879 |pv$| #3=#:G1880)
+  (PROG (|dv$| $ #1=#:G1898 #2=#:G1899 |pv$| #3=#:G1900)
     (RETURN
      (PROGN
       (LETT |dv$| '(|String|) . #4=(|String|))
-      (LETT $ (GETREFV 44) . #4#)
+      (LETT $ (GETREFV 45) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -133,27 +133,13 @@
               |STRING;OMwrite;$B$;4| |STRING;OMwrite;Omd$V;5|
               |STRING;OMwrite;Omd$BV;6| (|InputForm|) |STRING;convert;$If;7|
               (|Character|) |STRING;qelt;$IC;8| |STRING;qsetelt!;$I2C;9|
-              (|List| 26) (|List| 31) (|Equation| 26) (|Mapping| 26 26 26)
+              (|List| 26) (|Equation| 26) (|List| 30) (|Mapping| 26 26 26)
               (|NonNegativeInteger|) (|Mapping| 20 26) (|Mapping| 20 26 26)
               (|UniversalSegment| 6) (|Mapping| 26 26) (|SingleInteger|)
-              (|OutputForm|) (|CharacterClass|) (|List| $)
+              (|OutputForm|) (|HashState|) (|CharacterClass|) (|List| $)
               (|Union| 26 '"failed") (|List| 6))
-           '#(~= 31 |upperCase!| 37 |upperCase| 42 |ucodeToString| 47 |trim| 52
-              |swap!| 64 |suffix?| 71 |substring?| 77 |string| 84 |split| 89
-              |sorted?| 101 |sort!| 112 |sort| 123 |smaller?| 134 |size?| 140
-              |setelt| 146 |select| 160 |sample| 166 |rightTrim| 170 |reverse!|
-              182 |reverse| 187 |replace| 192 |removeDuplicates| 199 |remove|
-              204 |reduce| 216 |qsetelt!| 237 |qelt| 244 |prefix?| 250
-              |position| 256 |parts| 289 |new| 294 |more?| 300 |minIndex| 306
-              |min| 311 |merge| 317 |members| 330 |member?| 335 |maxIndex| 341
-              |max| 346 |match?| 352 |match| 359 |map!| 366 |map| 372
-              |lowerCase!| 385 |lowerCase| 390 |less?| 395 |leftTrim| 401
-              |latex| 413 |insert| 418 |indices| 432 |index?| 437 |hash| 443
-              |first| 448 |find| 453 |fill!| 459 |every?| 465 |eval| 471 |eq?|
-              497 |entry?| 503 |entries| 509 |empty?| 514 |empty| 519 |elt| 523
-              |delete| 548 |count| 560 |copyInto!| 572 |copy| 579 |convert| 584
-              |construct| 589 |concat| 594 |coerce| 617 |any?| 627 |OMwrite|
-              633 >= 657 > 663 = 669 <= 675 < 681 |#| 687)
+           '#(|ucodeToString| 31 |string| 36 |qsetelt!| 41 |qelt| 48 |convert|
+              54 |OMwrite| 59)
            'NIL
            (CONS
             (|makeByteWordVec2| 6
@@ -177,43 +163,12 @@
                  (|shallowlyMutable|) (|finiteAggregate|) (|Type|)
                  (|Eltable| 6 26) (|InnerEvalable| 26 26) (|ConvertibleTo| 24)
                  (|PartialOrder|))
-              (|makeByteWordVec2| 43
+              (|makeByteWordVec2| 28
                                   '(0 9 0 10 2 12 0 11 9 13 1 12 14 0 15 2 12
-                                    14 0 11 16 1 12 14 0 17 1 12 14 0 18 2 0 20
-                                    0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 6 7 2 0 0 0
-                                    40 1 2 0 0 0 26 1 3 9 14 0 6 6 1 2 0 20 0 0
-                                    1 3 0 20 0 0 6 1 1 0 0 6 8 2 0 41 0 40 1 2
-                                    0 41 0 26 1 1 2 20 0 1 2 0 20 35 0 1 1 10 0
-                                    0 1 2 9 0 35 0 1 1 2 0 0 1 2 0 0 35 0 1 2 2
-                                    20 0 0 1 2 0 20 0 33 1 3 9 26 0 36 26 1 3 9
-                                    26 0 6 26 1 2 7 0 34 0 1 0 0 0 1 2 0 0 0 26
-                                    1 2 0 0 0 40 1 1 9 0 0 1 1 0 0 0 1 3 0 0 0
-                                    36 0 1 1 8 0 0 1 2 8 0 26 0 1 2 7 0 34 0 1
-                                    4 8 26 32 0 26 26 1 3 7 26 32 0 26 1 2 7 26
-                                    32 0 1 3 9 26 0 6 26 28 2 0 26 0 6 27 2 0
-                                    20 0 0 1 2 4 6 26 0 1 3 4 6 26 0 6 1 3 0 6
-                                    40 0 6 1 3 0 6 0 0 6 1 2 0 6 34 0 1 1 7 29
-                                    0 1 2 0 0 33 26 1 2 0 20 0 33 1 1 3 6 0 1 2
-                                    2 0 0 0 1 2 2 0 0 0 1 3 0 0 35 0 0 1 1 7 29
-                                    0 1 2 8 20 26 0 1 1 3 6 0 1 2 2 0 0 0 1 3 0
-                                    20 0 0 26 1 3 0 33 0 0 26 1 2 9 0 37 0 1 3
-                                    0 0 32 0 0 1 2 0 0 37 0 1 1 0 0 0 1 1 0 0 0
-                                    1 2 0 20 0 33 1 2 0 0 0 40 1 2 0 0 0 26 1 1
-                                    0 11 0 1 3 0 0 0 0 6 1 3 0 0 26 0 6 1 1 0
-                                    43 0 1 2 0 20 6 0 1 1 0 38 0 1 1 3 26 0 1 2
-                                    0 42 34 0 1 2 9 0 0 26 1 2 7 20 34 0 1 3 5
-                                    0 0 29 29 1 3 5 0 0 26 26 1 2 5 0 0 30 1 2
-                                    5 0 0 31 1 2 0 20 0 0 1 2 8 20 26 0 1 1 0
-                                    29 0 1 1 0 20 0 1 0 0 0 1 2 0 0 0 0 1 2 0 0
-                                    0 36 1 3 0 26 0 6 26 1 2 0 26 0 6 1 2 0 0 0
-                                    6 1 2 0 0 0 36 1 2 8 33 26 0 1 2 7 33 34 0
-                                    1 3 9 0 0 0 6 1 1 0 0 0 1 1 1 24 0 25 1 0 0
-                                    29 1 2 0 0 0 0 1 1 0 0 41 1 2 0 0 26 0 1 2
-                                    0 0 0 26 1 1 0 39 0 1 1 0 0 26 1 2 7 20 34
-                                    0 1 3 0 14 12 0 20 23 2 0 11 0 20 21 2 0 14
-                                    12 0 22 1 0 11 0 19 2 2 20 0 0 1 2 2 20 0 0
-                                    1 2 0 20 0 0 1 2 2 20 0 0 1 2 2 20 0 0 1 1
-                                    7 33 0 1)))))
-           '|lookupComplete|)) 
+                                    14 0 11 16 1 12 14 0 17 1 12 14 0 18 1 0 0
+                                    6 7 1 0 0 6 8 3 9 26 0 6 26 28 2 0 26 0 6
+                                    27 1 1 24 0 25 3 0 14 12 0 20 23 2 0 11 0
+                                    20 21 2 0 14 12 0 22 1 0 11 0 19)))))
+           '|lookupIncomplete|)) 
 
 (MAKEPROP '|String| 'NILADIC T) 

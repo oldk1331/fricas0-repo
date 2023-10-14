@@ -303,7 +303,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #4=(|FreeModule|))
       (LETT DV$2 (|devaluate| |#2|) . #4#)
       (LETT |dv$| (LIST '|FreeModule| DV$1 DV$2) . #4#)
-      (LETT $ (GETREFV 63) . #4#)
+      (LETT $ (GETREFV 64) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -398,7 +398,8 @@
               |FM;monomial?;$B;18| (|Record| (|:| |k| 7) (|:| |c| 6))
               (|List| 51) |FM;listOfTerms;$L;19| (113 . |zero?|) (118 . +)
               (|Mapping| 6 7) (124 . |linearExtend|) (|Union| $ '"failed")
-              (|Mapping| 6 6) (|PositiveInteger|) (|SingleInteger|) (|String|))
+              (|Mapping| 6 6) (|PositiveInteger|) (|HashState|) (|String|)
+              (|SingleInteger|))
            '#(|zero?| 130 |support| 135 |retractIfCan| 140 |retract| 145
               |numberOfMonomials| 150 |monomials| 155 |monomial?| 160 |monom|
               165 |listOfTerms| 171 |linearExtend| 176 |leadingMonomial| 182

@@ -99,7 +99,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Pi|) . #1=(|Pi|))
-      (LETT $ (GETREFV 82) . #1#)
+      (LETT $ (GETREFV 83) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Pi| NIL (CONS 1 $))
@@ -139,18 +139,19 @@
               (|SparseUnivariatePolynomial| $)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Union| $ '"failed") (|PositiveInteger|) (|SingleInteger|)
-              (|String|))
+              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
+              (|SingleInteger|) (|HashState|))
            '#(~= 161 |zero?| 167 |unitNormal| 172 |unitCanonical| 177 |unit?|
               182 |subtractIfCan| 187 |squareFreePart| 193 |squareFree| 198
               |sizeLess?| 203 |sample| 209 |retractIfCan| 213 |retract| 223
               |rem| 233 |recip| 239 |quo| 244 |principalIdeal| 250 |prime?| 255
               |pi| 260 |one?| 264 |multiEuclidean| 269 |lcmCoef| 275 |lcm| 281
-              |latex| 292 |inv| 297 |hash| 302 |gcdPolynomial| 307 |gcd| 313
-              |factor| 324 |extendedEuclidean| 329 |exquo| 342
-              |expressIdealMember| 348 |euclideanSize| 354 |divide| 359
-              |convert| 365 |coerce| 385 |characteristic| 415 |associates?| 419
-              ^ 425 |Zero| 443 |One| 447 = 451 / 457 - 463 + 474 * 480)
+              |latex| 292 |inv| 297 |hashUpdate!| 302 |hash| 308
+              |gcdPolynomial| 313 |gcd| 319 |factor| 330 |extendedEuclidean|
+              335 |exquo| 348 |expressIdealMember| 354 |euclideanSize| 360
+              |divide| 365 |convert| 371 |coerce| 391 |characteristic| 421
+              |associates?| 425 ^ 431 |Zero| 449 |One| 453 = 457 / 463 - 469 +
+              480 * 486)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -182,7 +183,7 @@
                  (|RetractableTo| 10) (|canonicalsClosed|)
                  (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 26))
-              (|makeByteWordVec2| 81
+              (|makeByteWordVec2| 82
                                   '(0 0 0 8 0 6 0 9 2 12 0 10 11 13 1 5 0 12 14
                                     1 6 12 0 23 1 6 12 0 24 2 17 0 0 0 25 1 27
                                     26 0 28 2 12 26 0 26 29 1 31 30 0 32 0 31 0
@@ -198,19 +199,19 @@
                                     1 1 0 66 0 1 1 0 64 0 1 1 0 10 0 1 2 0 0 0
                                     0 1 1 0 78 0 1 2 0 0 0 0 1 1 0 74 69 1 1 0
                                     37 0 1 0 0 0 15 1 0 37 0 1 2 0 68 69 0 1 2
-                                    0 76 0 0 1 1 0 0 69 1 2 0 0 0 0 1 1 0 81 0
-                                    1 1 0 0 0 1 1 0 80 0 1 2 0 75 75 75 1 1 0 0
-                                    69 1 2 0 0 0 0 1 1 0 67 0 1 2 0 70 0 0 1 3
-                                    0 72 0 0 0 1 2 0 78 0 0 1 2 0 68 69 0 1 1 0
-                                    11 0 1 2 0 73 0 0 1 1 0 30 0 50 1 0 5 0 16
-                                    1 0 20 0 22 1 0 17 0 19 1 0 17 0 18 1 0 20
-                                    0 21 1 0 0 64 1 1 0 0 0 1 1 0 0 10 1 1 0 26
-                                    0 48 0 0 11 1 2 0 37 0 0 1 2 0 0 0 10 1 2 0
-                                    0 0 11 1 2 0 0 0 79 1 0 0 0 34 0 0 0 8 2 0
-                                    37 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 0 1
-                                    2 0 0 0 0 1 2 0 0 64 0 1 2 0 0 0 64 1 2 0 0
-                                    0 0 1 2 0 0 10 0 1 2 0 0 11 0 1 2 0 0 79 0
-                                    1)))))
+                                    0 76 0 0 1 1 0 0 69 1 2 0 0 0 0 1 1 0 80 0
+                                    1 1 0 0 0 1 2 0 82 82 0 1 1 0 81 0 1 2 0 75
+                                    75 75 1 1 0 0 69 1 2 0 0 0 0 1 1 0 67 0 1 2
+                                    0 70 0 0 1 3 0 72 0 0 0 1 2 0 78 0 0 1 2 0
+                                    68 69 0 1 1 0 11 0 1 2 0 73 0 0 1 1 0 30 0
+                                    50 1 0 5 0 16 1 0 20 0 22 1 0 17 0 19 1 0
+                                    17 0 18 1 0 20 0 21 1 0 0 64 1 1 0 0 0 1 1
+                                    0 0 10 1 1 0 26 0 48 0 0 11 1 2 0 37 0 0 1
+                                    2 0 0 0 10 1 2 0 0 0 11 1 2 0 0 0 79 1 0 0
+                                    0 34 0 0 0 8 2 0 37 0 0 1 2 0 0 0 0 1 1 0 0
+                                    0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 64 0 1 2
+                                    0 0 0 64 1 2 0 0 10 0 1 2 0 0 0 0 1 2 0 0
+                                    11 0 1 2 0 0 79 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Pi| 'NILADIC T) 

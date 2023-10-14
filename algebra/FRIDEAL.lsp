@@ -627,7 +627,7 @@
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT |dv$| (LIST '|FractionalIdeal| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 139) . #1#)
+      (LETT $ (GETREFV 140) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|FractionalIdeal|
@@ -695,12 +695,13 @@
               (|OutputForm|) (367 . |coerce|) (|List| $) (372 . |paren|)
               |FRIDEAL;basis;$V;21| (377 . |coerce|) (382 . |coerce|) (387 . /)
               (393 . *) |FRIDEAL;coerce;$Of;22| (399 . |random|) (403 . +)
-              (409 . |Zero|) (413 . *) |FRIDEAL;minimize;2$;25|
-              (|SingleInteger|) (|String|))
+              (409 . |Zero|) (413 . *) |FRIDEAL;minimize;2$;25| (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 419 |sample| 425 |recip| 429 |randomLC| 434 |one?| 440 |numer|
               445 |norm| 450 |minimize| 455 |latex| 460 |inv| 465 |ideal| 470
-              |hash| 475 |denom| 480 |conjugate| 485 |commutator| 491 |coerce|
-              497 |basis| 502 ^ 507 |One| 525 = 529 / 535 * 541)
+              |hashUpdate!| 475 |hash| 481 |denom| 486 |conjugate| 491
+              |commutator| 497 |coerce| 503 |basis| 508 ^ 513 |One| 531 = 535 /
+              541 * 547)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -709,7 +710,7 @@
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|SetCategory|)
                       (|BasicType|) (|unitsKnown|) (|CoercibleTo| 122))
-                   (|makeByteWordVec2| 138
+                   (|makeByteWordVec2| 139
                                        '(0 6 0 12 0 7 0 13 0 8 0 14 0 9 0 15 1
                                          19 0 0 20 1 9 21 0 22 2 19 21 0 21 23
                                          1 9 0 21 24 2 8 0 7 25 26 1 9 19 0 27
@@ -741,9 +742,9 @@
                                          0 0 0 1 1 0 57 0 1 2 0 9 25 16 55 1 0
                                          34 0 1 1 0 16 0 17 1 0 7 0 53 1 0 0 0
                                          136 1 0 138 0 1 1 0 0 0 97 1 0 0 16 96
-                                         1 0 137 0 1 1 0 6 0 18 2 0 0 0 0 1 2 0
-                                         0 0 0 1 1 0 122 0 131 1 0 16 0 126 2 0
-                                         0 0 62 119 2 0 0 0 25 1 2 0 0 0 49 1 0
-                                         0 0 11 2 0 34 0 0 39 2 0 0 0 0 1 2 0 0
-                                         0 0 118)))))
+                                         2 0 137 137 0 1 1 0 139 0 1 1 0 6 0 18
+                                         2 0 0 0 0 1 2 0 0 0 0 1 1 0 122 0 131
+                                         1 0 16 0 126 2 0 0 0 62 119 2 0 0 0 25
+                                         1 2 0 0 0 49 1 0 0 0 11 2 0 34 0 0 39
+                                         2 0 0 0 0 1 2 0 0 0 0 118)))))
            '|lookupComplete|)) 

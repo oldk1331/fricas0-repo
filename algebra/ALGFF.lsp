@@ -513,7 +513,7 @@
       (LETT DV$3 (|devaluate| |#3|) . #4#)
       (LETT DV$4 (|devaluate| |#4|) . #4#)
       (LETT |dv$| (LIST '|AlgebraicFunctionField| DV$1 DV$2 DV$3 DV$4) . #4#)
-      (LETT $ (GETREFV 167) . #4#)
+      (LETT $ (GETREFV 168) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -644,30 +644,30 @@
               |ALGFF;integralDerivationMatrix;MR;16| (|Vector| 7)
               (334 . |represents|) |ALGFF;integralRepresents;VUP$;17|
               (|Union| 6 '#1="failed") (340 . |retractIfCan|) (345 . |gcd|)
-              (351 . |ground?|) |ALGFF;branchPoint?;UPB;18| (|Symbol|)
-              (|List| 128) (|List| 22) (|Fraction| 52)
+              (351 . |ground?|) |ALGFF;branchPoint?;UPB;18| (|List| 130)
+              (|List| 22) (|Symbol|) (|Fraction| 52)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|List| $) (|Record| (|:| |coef| 134) (|:| |generator| $))
-              (|SparseUnivariatePolynomial| $) (|Union| 134 '"failed")
+              (|List| $) (|SparseUnivariatePolynomial| $)
+              (|Union| 134 '"failed")
+              (|Record| (|:| |coef| 134) (|:| |generator| $))
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 139 '"failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Factored| $) (|Fraction| 8) (|InputForm|) (|PositiveInteger|)
-              (|OnePointCompletion| 145) (|Union| 22 '"failed")
-              (|Union| 40 '"failed") (|Matrix| $)
-              (|Record| (|:| |factor| 52) (|:| |exponent| 52)) (|List| 150)
-              (|Table| 145 22)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 140 '"failed") (|Factored| $) (|Fraction| 8)
+              (|InputForm|) (|PositiveInteger|) (|OnePointCompletion| 145)
+              (|Union| 22 '"failed")
+              (|Record| (|:| |factor| 52) (|:| |exponent| 52)) (|List| 148)
+              (|Union| 40 '"failed") (|Matrix| $) (|Table| 145 22)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Matrix| 52)
-              (|Record| (|:| |mat| 154) (|:| |vec| (|Vector| 52)))
-              (|Union| 131 '#1#) (|Union| 52 '#1#) (|List| (|Polynomial| 6))
-              (|List| (|List| 6)) (|Union| 7 '"failed")
+              (|Record| (|:| |mat| 155) (|:| |vec| (|Vector| 52)))
+              (|Matrix| 52) (|Union| 131 '#1#) (|Union| 52 '#1#)
+              (|List| (|Polynomial| 6)) (|List| (|List| 6))
+              (|Union| 7 '"failed")
               (|Record| (|:| |num| $) (|:| |den| 7) (|:| |derivden| 7)
                         (|:| |gd| 7))
               (|Record| (|:| |mat| 28) (|:| |vec| 54)) (|Union| 17 '#1#)
-              (|SingleInteger|) (|String|) (|OutputForm|))
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|represents| 356 |normalizeAtInfinity| 367 |knownInfBasis| 372
               |inverseIntegralMatrixAtInfinity| 377 |inverseIntegralMatrix| 381
               |integralRepresents| 385 |integralMatrixAtInfinity| 391
@@ -712,7 +712,7 @@
                  (|CommutativeRing|) (|Module| (|Fraction| 7))
                  (|CharacteristicZero|) (|Module| $$) (|EntireRing|)
                  (|Module| 131) (|CharacteristicNonZero|) (|DifferentialRing|)
-                 (|PartialDifferentialRing| 128)
+                 (|PartialDifferentialRing| 130)
                  (|LinearlyExplicitRingOver| 52) (|BiModule| $$ $$) (|Ring|)
                  (|BiModule| (|Fraction| 7) (|Fraction| 7))
                  (|BiModule| 131 131) (|LeftModule| $$) (|RightModule| $$)
@@ -725,7 +725,7 @@
                  (|FullyRetractableTo| (|Fraction| 7)) (|SetCategory|)
                  (|RetractableTo| (|Fraction| 7)) (|ConvertibleTo| 8)
                  (|CommutativeStar|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 166) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|CoercibleTo| 167) (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|ConvertibleTo| 144)
                  (|RetractableTo| 131) (|RetractableTo| 52))
               (|makeByteWordVec2| 127
@@ -754,7 +754,7 @@
                                     40 96 1 0 72 22 74 0 0 28 51 0 0 28 44 2 0
                                     0 120 7 122 0 0 28 45 0 0 28 43 1 0 116 114
                                     119 1 0 59 0 62 0 0 40 42 0 0 40 41 0 0 17
-                                    39 2 0 0 0 114 115 0 0 8 50 1 0 28 40 97 1
-                                    0 54 0 57 0 0 10 37 1 0 10 7 127 1 0 10 6
-                                    49 0 0 40 88 0 0 0 16 0 0 0 26)))))
+                                    39 2 0 0 0 114 115 0 0 8 50 1 0 54 0 57 1 0
+                                    28 40 97 0 0 10 37 1 0 10 6 49 1 0 10 7 127
+                                    0 0 40 88 0 0 0 16 0 0 0 26)))))
            '|lookupIncomplete|)) 

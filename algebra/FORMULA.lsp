@@ -671,7 +671,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|ScriptFormulaFormat|) . #1=(|ScriptFormulaFormat|))
-      (LETT $ (GETREFV 61) . #1#)
+      (LETT $ (GETREFV 62) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|ScriptFormulaFormat| NIL (CONS 1 $))
@@ -721,16 +721,17 @@
               (15 . |elt|) (21 . |setelt|) (|List| $) (28 . |split|)
               (|Boolean|) (34 . >) (40 . |concat|) (|List| 24) (45 . |second|)
               (50 . ~=) (56 . |position|) (|List| 28) (62 . |elt|) (68 . ~=)
-              (74 . |elt|) (80 . |member?|) (|SingleInteger|))
+              (74 . |elt|) (80 . |member?|) (|SingleInteger|) (|HashState|))
            '#(~= 86 |setPrologue!| 92 |setFormula!| 98 |setEpilogue!| 104
-              |prologue| 110 |new| 115 |latex| 119 |hash| 124 |formula| 129
-              |epilogue| 134 |display| 139 |convert| 150 |coerce| 156 = 166)
+              |prologue| 110 |new| 115 |latex| 119 |hashUpdate!| 124 |hash| 130
+              |formula| 135 |epilogue| 140 |display| 145 |convert| 156 |coerce|
+              162 = 172)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 24))
-                        (|makeByteWordVec2| 60
+                        (|makeByteWordVec2| 61
                                             '(2 26 0 0 0 27 0 30 0 31 1 26 24 0
                                               40 2 43 42 0 28 44 3 43 42 0 28
                                               42 45 2 43 46 0 42 47 2 28 48 0 0
@@ -740,10 +741,11 @@
                                               28 58 2 26 48 43 0 59 2 0 48 0 0
                                               1 2 0 26 0 26 37 2 0 26 0 26 38 2
                                               0 26 0 26 39 1 0 26 0 34 0 0 0 23
-                                              1 0 43 0 1 1 0 60 0 1 1 0 26 0 35
-                                              1 0 26 0 36 1 0 30 0 33 2 0 30 0
-                                              28 32 2 0 0 24 28 29 1 0 0 24 25
-                                              1 0 24 0 41 2 0 48 0 0 1)))))
+                                              1 0 43 0 1 2 0 61 61 0 1 1 0 60 0
+                                              1 1 0 26 0 35 1 0 26 0 36 1 0 30
+                                              0 33 2 0 30 0 28 32 2 0 0 24 28
+                                              29 1 0 0 24 25 1 0 24 0 41 2 0 48
+                                              0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ScriptFormulaFormat| 'NILADIC T) 

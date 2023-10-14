@@ -6,7 +6,7 @@
 (DEFUN |IARRAY1;#;$Nni;1| (|x| $) (QVSIZE |x|)) 
 
 (DEFUN |IARRAY1;fill!;$S$;2| (|x| |s| $)
-  (PROG (#1=#:G1138 |i|)
+  (PROG (#1=#:G1152 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 0 . #2=(|IARRAY1;fill!;$S$;2|))
@@ -81,71 +81,84 @@
                         (EXIT NIL))
                    (EXIT |c|))))))))) 
 
-(PUT '|IARRAY1;qelt;$IS;9| '|SPADreplace| 'ELT) 
+(DEFUN |IARRAY1;hashUpdate!;Hs$Hs;9| (|s| |x| $)
+  (PROG (#1=#:G1173 |i|)
+    (RETURN
+     (SEQ
+      (SEQ (LETT |i| 0 . #2=(|IARRAY1;hashUpdate!;Hs$Hs;9|))
+           (LETT #1# (QVMAXINDEX |x|) . #2#) G190
+           (COND ((|greater_SI| |i| #1#) (GO G191)))
+           (SEQ
+            (EXIT
+             (LETT |s| (SPADCALL |s| (ELT |x| |i|) (QREFELT $ 21)) . #2#)))
+           (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+      (EXIT |s|))))) 
 
-(DEFUN |IARRAY1;qelt;$IS;9| (|x| |i| $) (ELT |x| |i|)) 
+(PUT '|IARRAY1;qelt;$IS;10| '|SPADreplace| 'ELT) 
 
-(PUT '|IARRAY1;qsetelt!;$I2S;10| '|SPADreplace| 'SETELT) 
+(DEFUN |IARRAY1;qelt;$IS;10| (|x| |i| $) (ELT |x| |i|)) 
 
-(DEFUN |IARRAY1;qsetelt!;$I2S;10| (|x| |i| |s| $) (SETELT |x| |i| |s|)) 
+(PUT '|IARRAY1;qsetelt!;$I2S;11| '|SPADreplace| 'SETELT) 
 
-(DEFUN |IARRAY1;elt;$IS;11| (|x| |i| $)
+(DEFUN |IARRAY1;qsetelt!;$I2S;11| (|x| |i| |s| $) (SETELT |x| |i| |s|)) 
+
+(DEFUN |IARRAY1;elt;$IS;12| (|x| |i| $)
   (COND
    ((OR (MINUSP |i|)
-        (SPADCALL |i| (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 25)))
+        (SPADCALL |i| (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 28)))
     (|error| "index out of range"))
-   ('T (SPADCALL |x| |i| (QREFELT $ 21))))) 
+   ('T (SPADCALL |x| |i| (QREFELT $ 24))))) 
 
-(DEFUN |IARRAY1;setelt;$I2S;12| (|x| |i| |s| $)
+(DEFUN |IARRAY1;setelt;$I2S;13| (|x| |i| |s| $)
   (COND
    ((OR (MINUSP |i|)
-        (SPADCALL |i| (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 25)))
+        (SPADCALL |i| (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 28)))
     (|error| "index out of range"))
-   ('T (SPADCALL |x| |i| |s| (QREFELT $ 22))))) 
+   ('T (SPADCALL |x| |i| |s| (QREFELT $ 25))))) 
 
-(PUT '|IARRAY1;maxIndex;$I;13| '|SPADreplace| 'QVSIZE) 
+(PUT '|IARRAY1;maxIndex;$I;14| '|SPADreplace| 'QVSIZE) 
 
-(DEFUN |IARRAY1;maxIndex;$I;13| (|x| $) (QVSIZE |x|)) 
+(DEFUN |IARRAY1;maxIndex;$I;14| (|x| $) (QVSIZE |x|)) 
 
-(DEFUN |IARRAY1;qelt;$IS;14| (|x| |i| $) (ELT |x| (- |i| 1))) 
+(DEFUN |IARRAY1;qelt;$IS;15| (|x| |i| $) (ELT |x| (- |i| 1))) 
 
-(DEFUN |IARRAY1;qsetelt!;$I2S;15| (|x| |i| |s| $) (SETELT |x| (- |i| 1) |s|)) 
+(DEFUN |IARRAY1;qsetelt!;$I2S;16| (|x| |i| |s| $) (SETELT |x| (- |i| 1) |s|)) 
 
-(DEFUN |IARRAY1;elt;$IS;16| (|x| |i| $)
+(DEFUN |IARRAY1;elt;$IS;17| (|x| |i| $)
   (COND
    ((OR (|less_SI| |i| 1) (|less_SI| (QVSIZE |x|) |i|))
     (|error| "index out of range"))
    ('T (ELT |x| (- |i| 1))))) 
 
-(DEFUN |IARRAY1;setelt;$I2S;17| (|x| |i| |s| $)
+(DEFUN |IARRAY1;setelt;$I2S;18| (|x| |i| |s| $)
   (COND
    ((OR (|less_SI| |i| 1) (|less_SI| (QVSIZE |x|) |i|))
     (|error| "index out of range"))
    ('T (SETELT |x| (- |i| 1) |s|)))) 
 
-(DEFUN |IARRAY1;qelt;$IS;18| (|x| |i| $) (ELT |x| (- |i| (QREFELT $ 7)))) 
+(DEFUN |IARRAY1;qelt;$IS;19| (|x| |i| $) (ELT |x| (- |i| (QREFELT $ 7)))) 
 
-(DEFUN |IARRAY1;qsetelt!;$I2S;19| (|x| |i| |s| $)
+(DEFUN |IARRAY1;qsetelt!;$I2S;20| (|x| |i| |s| $)
   (SETELT |x| (- |i| (QREFELT $ 7)) |s|)) 
 
-(DEFUN |IARRAY1;elt;$IS;20| (|x| |i| $)
+(DEFUN |IARRAY1;elt;$IS;21| (|x| |i| $)
   (COND
    ((OR (< |i| (QREFELT $ 7))
-        (SPADCALL |i| (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 25)))
+        (SPADCALL |i| (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 28)))
     (|error| "index out of range"))
-   ('T (SPADCALL |x| |i| (QREFELT $ 21))))) 
+   ('T (SPADCALL |x| |i| (QREFELT $ 24))))) 
 
-(DEFUN |IARRAY1;setelt;$I2S;21| (|x| |i| |s| $)
+(DEFUN |IARRAY1;setelt;$I2S;22| (|x| |i| |s| $)
   (COND
    ((OR (< |i| (QREFELT $ 7))
-        (SPADCALL |i| (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 25)))
+        (SPADCALL |i| (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 28)))
     (|error| "index out of range"))
-   ('T (SPADCALL |x| |i| |s| (QREFELT $ 22))))) 
+   ('T (SPADCALL |x| |i| |s| (QREFELT $ 25))))) 
 
-(DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G1194)
+(DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G1212)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1195)
+     (PROG (#2=#:G1213)
        (RETURN
         (COND
          ((LETT #2#
@@ -164,13 +177,13 @@
               (HREM |$ConstructorCache| '|IndexedOneDimensionalArray|))))))))))) 
 
 (DEFUN |IndexedOneDimensionalArray;| (|#1| |#2|)
-  (PROG (#1=#:G1193 |pv$| #2=#:G1190 #3=#:G1191 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G1211 |pv$| #2=#:G1208 #3=#:G1209 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedOneDimensionalArray|))
       (LETT DV$2 (|devaluate| |#2|) . #4#)
       (LETT |dv$| (LIST '|IndexedOneDimensionalArray| DV$1 DV$2) . #4#)
-      (LETT $ (GETREFV 42) . #4#)
+      (LETT $ (GETREFV 45) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -236,33 +249,38 @@
            (|HasCategory| $ '(|shallowlyMutable|))
            (|augmentPredVector| $ 4096))
       (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 20 (ZEROP |#2|))
       (COND
-       ((QREFELT $ 20)
+       ((|testBitVector| |pv$| 4)
+        (QSETREFV $ 22
+                  (CONS (|dispatchFunction| |IARRAY1;hashUpdate!;Hs$Hs;9|)
+                        $))))
+      (QSETREFV $ 23 (ZEROP |#2|))
+      (COND
+       ((QREFELT $ 23)
         (PROGN
-         (QSETREFV $ 21 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;9|) $))
-         (QSETREFV $ 22
-                   (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;10|) $))
-         (QSETREFV $ 26 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;11|) $))
-         (QSETREFV $ 27
-                   (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;12|) $))))
+         (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;10|) $))
+         (QSETREFV $ 25
+                   (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;11|) $))
+         (QSETREFV $ 29 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;12|) $))
+         (QSETREFV $ 30
+                   (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;13|) $))))
        ((EQL |#2| 1)
         (PROGN
-         (QSETREFV $ 23 (CONS (|dispatchFunction| |IARRAY1;maxIndex;$I;13|) $))
-         (QSETREFV $ 21 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;14|) $))
-         (QSETREFV $ 22
-                   (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;15|) $))
-         (QSETREFV $ 26 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;16|) $))
-         (QSETREFV $ 27
-                   (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;17|) $))))
+         (QSETREFV $ 26 (CONS (|dispatchFunction| |IARRAY1;maxIndex;$I;14|) $))
+         (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;15|) $))
+         (QSETREFV $ 25
+                   (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;16|) $))
+         (QSETREFV $ 29 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;17|) $))
+         (QSETREFV $ 30
+                   (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;18|) $))))
        ('T
         (PROGN
-         (QSETREFV $ 21 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;18|) $))
-         (QSETREFV $ 22
-                   (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;19|) $))
-         (QSETREFV $ 26 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;20|) $))
-         (QSETREFV $ 27
-                   (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;21|) $)))))
+         (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;19|) $))
+         (QSETREFV $ 25
+                   (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;20|) $))
+         (QSETREFV $ 29 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;21|) $))
+         (QSETREFV $ 30
+                   (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;22|) $)))))
       $)))) 
 
 (MAKEPROP '|IndexedOneDimensionalArray| '|infovec|
@@ -272,24 +290,26 @@
               (|Integer|) |IARRAY1;minIndex;$I;3| |IARRAY1;empty;$;4|
               |IARRAY1;new;NniS$;5| (|Mapping| 6 6) |IARRAY1;map!;M2$;6|
               |IARRAY1;map;M2$;7| (|Mapping| 6 6 6) |IARRAY1;map;M3$;8|
-              '#:G1133 (0 . |qelt|) (6 . |qsetelt!|) (13 . |maxIndex|)
-              (|Boolean|) (18 . >) (24 . |elt|) (30 . |setelt|) (|List| 6)
-              (|Equation| 6) (|List| 29) (|Mapping| 24 6) (|Mapping| 24 6 6)
+              (|HashState|) (0 . |hashUpdate!|) (6 . |hashUpdate!|) '#:G1147
+              (12 . |qelt|) (18 . |qsetelt!|) (25 . |maxIndex|) (|Boolean|)
+              (30 . >) (36 . |elt|) (42 . |setelt|) (|List| 6) (|Equation| 6)
+              (|List| 32) (|Mapping| 27 6) (|Mapping| 27 6 6)
               (|UniversalSegment| 11) (|Void|) (|OutputForm|) (|InputForm|)
-              (|String|) (|SingleInteger|) (|List| $) (|Union| 6 '"failed")
+              (|SingleInteger|) (|String|) (|List| $) (|Union| 6 '"failed")
               (|List| 11))
-           '#(~= 37 |swap!| 43 |sorted?| 50 |sort!| 61 |sort| 72 |smaller?| 83
-              |size?| 89 |setelt| 95 |select| 109 |sample| 115 |reverse!| 119
-              |reverse| 124 |removeDuplicates| 129 |remove| 134 |reduce| 146
-              |qsetelt!| 167 |qelt| 174 |position| 180 |parts| 199 |new| 204
-              |more?| 210 |minIndex| 216 |min| 221 |merge| 227 |members| 240
-              |member?| 245 |maxIndex| 251 |max| 256 |map!| 262 |map| 268
-              |less?| 281 |latex| 287 |insert| 292 |indices| 306 |index?| 311
-              |hash| 317 |first| 322 |find| 327 |fill!| 333 |every?| 339 |eval|
-              345 |eq?| 371 |entry?| 377 |entries| 383 |empty?| 388 |empty| 393
-              |elt| 397 |delete| 416 |count| 428 |copyInto!| 440 |copy| 447
-              |convert| 452 |construct| 457 |concat| 462 |coerce| 485 |any?|
-              490 >= 496 > 502 = 508 <= 514 < 520 |#| 526)
+           '#(~= 49 |swap!| 55 |sorted?| 62 |sort!| 73 |sort| 84 |smaller?| 95
+              |size?| 101 |setelt| 107 |select| 121 |sample| 127 |reverse!| 131
+              |reverse| 136 |removeDuplicates| 141 |remove| 146 |reduce| 158
+              |qsetelt!| 179 |qelt| 186 |position| 192 |parts| 211 |new| 216
+              |more?| 222 |minIndex| 228 |min| 233 |merge| 239 |members| 252
+              |member?| 257 |maxIndex| 263 |max| 268 |map!| 274 |map| 280
+              |less?| 293 |latex| 299 |insert| 304 |indices| 318 |index?| 323
+              |hashUpdate!| 329 |hash| 335 |first| 340 |find| 345 |fill!| 351
+              |every?| 357 |eval| 363 |eq?| 389 |entry?| 395 |entries| 401
+              |empty?| 406 |empty| 411 |elt| 415 |delete| 434 |count| 446
+              |copyInto!| 458 |copy| 465 |convert| 470 |construct| 475 |concat|
+              480 |coerce| 503 |any?| 508 >= 514 > 520 = 526 <= 532 < 538 |#|
+              544)
            'NIL
            (CONS
             (|makeByteWordVec2| 9 '(0 0 0 0 0 2 0 2 0 0 7 5 0 0 0 0 7 1 5 9 2))
@@ -306,35 +326,36 @@
                  (|Comparable|) (|Aggregate|) (|EltableAggregate| 11 6)
                  (|Evalable| 6) (|SetCategory|) (|shallowlyMutable|)
                  (|finiteAggregate|) (|Type|) (|Eltable| 11 6)
-                 (|InnerEvalable| 6 6) (|ConvertibleTo| 36) (|BasicType|)
-                 (|CoercibleTo| 35) (|PartialOrder|))
-              (|makeByteWordVec2| 41
-                                  '(2 0 6 0 11 21 3 0 6 0 11 6 22 1 0 11 0 23 2
-                                    11 24 0 0 25 2 0 6 0 11 26 3 0 6 0 11 6 27
-                                    2 4 24 0 0 1 3 12 34 0 11 11 1 1 2 24 0 1 2
-                                    0 24 32 0 1 1 13 0 0 1 2 12 0 32 0 1 1 2 0
-                                    0 1 2 0 0 32 0 1 2 2 24 0 0 1 2 0 24 0 8 1
-                                    3 12 6 0 33 6 1 3 12 6 0 11 6 27 2 10 0 31
-                                    0 1 0 0 0 1 1 12 0 0 1 1 0 0 0 1 1 11 0 0 1
-                                    2 11 0 6 0 1 2 10 0 31 0 1 4 11 6 18 0 6 6
-                                    1 3 10 6 18 0 6 1 2 10 6 18 0 1 3 12 6 0 11
-                                    6 22 2 0 6 0 11 21 2 4 11 6 0 1 3 4 11 6 0
-                                    11 1 2 0 11 31 0 1 1 10 28 0 1 2 0 0 8 6 14
-                                    2 0 24 0 8 1 1 3 11 0 12 2 2 0 0 0 1 2 2 0
-                                    0 0 1 3 0 0 32 0 0 1 1 10 28 0 1 2 11 24 6
-                                    0 1 1 3 11 0 23 2 2 0 0 0 1 2 12 0 15 0 16
-                                    3 0 0 18 0 0 19 2 0 0 15 0 17 2 0 24 0 8 1
-                                    1 4 37 0 1 3 0 0 0 0 11 1 3 0 0 6 0 11 1 1
-                                    0 41 0 1 2 0 24 11 0 1 1 4 38 0 1 1 3 6 0 1
-                                    2 0 40 31 0 1 2 12 0 0 6 10 2 10 24 31 0 1
-                                    3 6 0 0 28 28 1 2 6 0 0 29 1 3 6 0 0 6 6 1
-                                    2 6 0 0 30 1 2 0 24 0 0 1 2 11 24 6 0 1 1 0
-                                    28 0 1 1 0 24 0 1 0 0 0 13 2 0 0 0 33 1 2 0
-                                    6 0 11 26 3 0 6 0 11 6 1 2 0 0 0 11 1 2 0 0
-                                    0 33 1 2 11 8 6 0 1 2 10 8 31 0 1 3 12 0 0
-                                    0 11 1 1 0 0 0 1 1 1 36 0 1 1 0 0 28 1 1 0
-                                    0 39 1 2 0 0 6 0 1 2 0 0 0 0 1 2 0 0 0 6 1
-                                    1 8 35 0 1 2 10 24 31 0 1 2 2 24 0 0 1 2 2
-                                    24 0 0 1 2 4 24 0 0 1 2 2 24 0 0 1 2 2 24 0
-                                    0 1 1 10 8 0 9)))))
+                 (|InnerEvalable| 6 6) (|ConvertibleTo| 39) (|BasicType|)
+                 (|CoercibleTo| 38) (|PartialOrder|))
+              (|makeByteWordVec2| 44
+                                  '(2 6 20 20 0 21 2 0 20 20 0 22 2 0 6 0 11 24
+                                    3 0 6 0 11 6 25 1 0 11 0 26 2 11 27 0 0 28
+                                    2 0 6 0 11 29 3 0 6 0 11 6 30 2 4 27 0 0 1
+                                    3 12 37 0 11 11 1 1 2 27 0 1 2 0 27 35 0 1
+                                    1 13 0 0 1 2 12 0 35 0 1 1 2 0 0 1 2 0 0 35
+                                    0 1 2 2 27 0 0 1 2 0 27 0 8 1 3 12 6 0 36 6
+                                    1 3 12 6 0 11 6 30 2 10 0 34 0 1 0 0 0 1 1
+                                    12 0 0 1 1 0 0 0 1 1 11 0 0 1 2 11 0 6 0 1
+                                    2 10 0 34 0 1 4 11 6 18 0 6 6 1 2 10 6 18 0
+                                    1 3 10 6 18 0 6 1 3 12 6 0 11 6 25 2 0 6 0
+                                    11 24 3 4 11 6 0 11 1 2 4 11 6 0 1 2 0 11
+                                    34 0 1 1 10 31 0 1 2 0 0 8 6 14 2 0 27 0 8
+                                    1 1 3 11 0 12 2 2 0 0 0 1 2 2 0 0 0 1 3 0 0
+                                    35 0 0 1 1 10 31 0 1 2 11 27 6 0 1 1 3 11 0
+                                    26 2 2 0 0 0 1 2 12 0 15 0 16 3 0 0 18 0 0
+                                    19 2 0 0 15 0 17 2 0 27 0 8 1 1 4 41 0 1 3
+                                    0 0 0 0 11 1 3 0 0 6 0 11 1 1 0 44 0 1 2 0
+                                    27 11 0 1 2 4 20 20 0 22 1 4 40 0 1 1 3 6 0
+                                    1 2 0 43 34 0 1 2 12 0 0 6 10 2 10 27 34 0
+                                    1 3 6 0 0 6 6 1 3 6 0 0 31 31 1 2 6 0 0 32
+                                    1 2 6 0 0 33 1 2 0 27 0 0 1 2 11 27 6 0 1 1
+                                    0 31 0 1 1 0 27 0 1 0 0 0 13 2 0 0 0 36 1 3
+                                    0 6 0 11 6 1 2 0 6 0 11 29 2 0 0 0 36 1 2 0
+                                    0 0 11 1 2 11 8 6 0 1 2 10 8 34 0 1 3 12 0
+                                    0 0 11 1 1 0 0 0 1 1 1 39 0 1 1 0 0 31 1 2
+                                    0 0 0 0 1 1 0 0 42 1 2 0 0 6 0 1 2 0 0 0 6
+                                    1 1 8 38 0 1 2 10 27 34 0 1 2 2 27 0 0 1 2
+                                    2 27 0 0 1 2 4 27 0 0 1 2 2 27 0 0 1 2 2 27
+                                    0 0 1 1 10 8 0 9)))))
            '|lookupComplete|)) 

@@ -64,7 +64,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Commutator|) . #1=(|Commutator|))
-      (LETT $ (GETREFV 23) . #1#)
+      (LETT $ (GETREFV 24) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Commutator| NIL (CONS 1 $))
@@ -80,18 +80,20 @@
               (0 . =) |COMM;=;2$B;1| (|Integer|) (6 . |coerce|)
               |COMM;mkcomm;I$;2| |COMM;mkcomm;3$;3| (|OutputForm|)
               (11 . |coerce|) |COMM;coerce;$Of;4| (|List| $) (16 . |bracket|)
-              (|String|) (|SingleInteger|))
-           '#(~= 21 |mkcomm| 27 |latex| 38 |hash| 43 |coerce| 48 = 53) 'NIL
+              (|HashState|) (|String|) (|SingleInteger|))
+           '#(~= 21 |mkcomm| 27 |latex| 38 |hashUpdate!| 43 |hash| 49 |coerce|
+              54 = 59)
+           'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 16))
-                        (|makeByteWordVec2| 22
+                        (|makeByteWordVec2| 23
                                             '(2 9 8 0 0 10 1 9 0 12 13 1 9 16 0
-                                              17 1 16 0 19 20 2 0 8 0 0 1 2 0 0
-                                              0 0 15 1 0 0 12 14 1 0 21 0 1 1 0
-                                              22 0 1 1 0 16 0 18 2 0 8 0 0
-                                              11)))))
+                                              17 1 16 0 19 20 2 0 8 0 0 1 1 0 0
+                                              12 14 2 0 0 0 0 15 1 0 22 0 1 2 0
+                                              21 21 0 1 1 0 23 0 1 1 0 16 0 18
+                                              2 0 8 0 0 11)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Commutator| 'NILADIC T) 

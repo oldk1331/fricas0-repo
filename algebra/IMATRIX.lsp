@@ -66,7 +66,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #3#)
       (LETT DV$3 (|devaluate| |#3|) . #3#)
       (LETT |dv$| (LIST '|IndexedMatrix| DV$1 DV$2 DV$3) . #3#)
-      (LETT $ (GETREFV 51) . #3#)
+      (LETT $ (GETREFV 52) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -141,21 +141,21 @@
 (MAKEPROP '|IndexedMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 7 8 45 46) (|local| |#1|)
+              (|InnerIndexedTwoDimensionalArray| 6 7 8 46 47) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|Integer|) (0 . |minRowIndex|)
               (5 . |maxRowIndex|) (|Boolean|) (10 . >)
               |IMATRIX;swapRows!;$2I$;1|
-              (|MatrixLinearAlgebraFunctions| 6 45 46 $$) (16 . |determinant|)
+              (|MatrixLinearAlgebraFunctions| 6 46 47 $$) (16 . |determinant|)
               (21 . |determinant|) (26 . |minordet|) (31 . |minordet|)
               (36 . |rowEchelon|) (41 . |rowEchelon|) (|NonNegativeInteger|)
               (46 . |rank|) (51 . |rank|) (56 . |nullity|) (61 . |nullity|)
-              (|List| 46) (66 . |nullSpace|) (71 . |nullSpace|)
+              (|List| 47) (66 . |nullSpace|) (71 . |nullSpace|)
               (|Union| $$ '"failed") (76 . |inverse|) (|Union| $ '"failed")
-              (81 . |inverse|) (|List| 6) (|Equation| 6) (|List| 35)
-              (|Mapping| 12 6) (|OutputForm|) (|SingleInteger|) (|String|)
-              (|Void|) (|List| (|List| 22)) (|List| $) (|Union| 6 '"one")
-              (|IndexedVector| 6 8) (|IndexedVector| 6 7) (|List| 9)
-              (|List| 34) (|Mapping| 6 6 6) (|Mapping| 6 6))
+              (81 . |inverse|) (|List| 6) (|List| 36) (|Equation| 6)
+              (|Mapping| 12 6) (|OutputForm|) (|SingleInteger|) (|HashState|)
+              (|String|) (|Void|) (|List| (|List| 22)) (|List| $)
+              (|Union| 6 '"one") (|IndexedVector| 6 8) (|IndexedVector| 6 7)
+              (|List| 9) (|List| 34) (|Mapping| 6 6 6) (|Mapping| 6 6))
            '#(|swapRows!| 86 |rowEchelon| 93 |rank| 98 |nullity| 103
               |nullSpace| 108 |minordet| 113 |minRowIndex| 118 |maxRowIndex|
               123 |inverse| 128 |determinant| 133)

@@ -769,7 +769,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|SceneNamedPoints|))
       (LETT |dv$| (LIST '|SceneNamedPoints| DV$1) . #1#)
-      (LETT $ (GETREFV 55) . #1#)
+      (LETT $ (GETREFV 56) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|SceneNamedPoints| (LIST DV$1)
@@ -806,17 +806,18 @@
               |SCNP;hash;$Si;13| |SCNP;latex;$S;14| (70 . =) (76 . =)
               |SCNP;=;2$B;15| |SCNP;~=;2$B;16| (|OutputForm|) (82 . |coerce|)
               (87 . |hconcat|) (92 . |coerce|) (97 . |coerce|)
-              |SCNP;coerce;$Of;17|)
+              |SCNP;coerce;$Of;17| (|HashState|))
            '#(~= 102 |toString| 108 |namedPoints| 113 |namedBranch| 125 |latex|
               131 |isPointLeaf?| 136 |isNodeLeaf?| 141 |isNodeBranch?| 146
-              |hash| 151 |getNames| 156 |findPoint| 161 |findNode| 167 |coerce|
-              173 |addPoints!| 178 |addNode!| 185 = 192)
+              |hashUpdate!| 151 |hash| 157 |getNames| 162 |findPoint| 167
+              |findNode| 173 |coerce| 179 |addPoints!| 184 |addNode!| 191 =
+              198)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 49))
-                        (|makeByteWordVec2| 54
+                        (|makeByteWordVec2| 55
                                             '(2 20 15 0 0 21 2 6 0 22 22 23 1
                                               20 2 0 24 2 9 25 0 22 27 2 8 6 0
                                               22 28 2 20 0 0 2 29 2 9 0 0 25 30
@@ -825,11 +826,11 @@
                                               0 22 40 2 8 15 0 0 45 2 9 15 0 0
                                               46 1 37 49 0 50 1 49 0 13 51 1 25
                                               49 0 52 1 6 49 0 53 2 0 15 0 0 48
-                                              1 0 25 0 41 2 0 0 8 9 10 2 0 0 11
-                                              9 12 2 0 0 13 9 14 1 0 25 0 44 1
+                                              1 0 25 0 41 2 0 0 11 9 12 2 0 0 8
+                                              9 10 2 0 0 13 9 14 1 0 25 0 44 1
                                               0 15 0 16 1 0 15 0 17 1 0 15 0 18
-                                              1 0 42 0 43 1 0 9 0 19 2 0 6 0 25
-                                              26 2 0 32 0 25 35 1 0 49 0 54 3 0
-                                              0 0 25 0 31 3 0 0 0 25 32 33 2 0
-                                              15 0 0 47)))))
+                                              2 0 55 55 0 1 1 0 42 0 43 1 0 9 0
+                                              19 2 0 6 0 25 26 2 0 32 0 25 35 1
+                                              0 49 0 54 3 0 0 0 25 0 31 3 0 0 0
+                                              25 32 33 2 0 15 0 0 47)))))
            '|lookupComplete|)) 

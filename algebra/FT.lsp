@@ -144,7 +144,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|FortranType|) . #1=(|FortranType|))
-      (LETT $ (GETREFV 39) . #1#)
+      (LETT $ (GETREFV 40) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|FortranType| NIL (CONS 1 $))
@@ -172,27 +172,28 @@
               (31 . |coerce|) |FT;fortranReal;$;8| |FT;fortranDouble;$;9|
               |FT;fortranInteger;$;10| |FT;fortranComplex;$;11|
               |FT;fortranDoubleComplex;$;12| |FT;fortranCharacter;$;13|
-              |FT;fortranLogical;$;14| (|SingleInteger|))
-           '#(~= 36 |scalarTypeOf| 42 |latex| 47 |hash| 52 |fortranReal| 57
-              |fortranLogical| 61 |fortranInteger| 65 |fortranDoubleComplex| 69
-              |fortranDouble| 73 |fortranComplex| 77 |fortranCharacter| 81
-              |external?| 85 |dimensionsOf| 90 |construct| 95 |coerce| 109 =
-              119)
+              |FT;fortranLogical;$;14| (|SingleInteger|) (|HashState|))
+           '#(~= 36 |scalarTypeOf| 42 |latex| 47 |hashUpdate!| 52 |hash| 58
+              |fortranReal| 63 |fortranLogical| 67 |fortranInteger| 71
+              |fortranDoubleComplex| 75 |fortranDouble| 79 |fortranComplex| 83
+              |fortranCharacter| 87 |external?| 91 |dimensionsOf| 96
+              |construct| 101 |coerce| 115 = 125)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 11))
-                        (|makeByteWordVec2| 38
+                        (|makeByteWordVec2| 39
                                             '(1 9 11 0 12 1 11 0 13 14 1 17 11
                                               0 18 1 11 0 13 19 2 11 0 0 0 20 1
                                               17 0 22 23 1 27 0 29 30 2 0 7 0 0
-                                              1 1 0 9 0 10 1 0 29 0 1 1 0 38 0
-                                              1 0 0 0 31 0 0 0 37 0 0 0 33 0 0
-                                              0 35 0 0 0 32 0 0 0 34 0 0 0 36 1
-                                              0 7 0 8 1 0 15 0 16 3 0 0 9 24 7
-                                              25 3 0 0 9 15 7 26 1 0 0 27 28 1
-                                              0 11 0 21 2 0 7 0 0 1)))))
+                                              1 1 0 9 0 10 1 0 29 0 1 2 0 39 39
+                                              0 1 1 0 38 0 1 0 0 0 31 0 0 0 37
+                                              0 0 0 33 0 0 0 35 0 0 0 32 0 0 0
+                                              34 0 0 0 36 1 0 7 0 8 1 0 15 0 16
+                                              3 0 0 9 24 7 25 3 0 0 9 15 7 26 1
+                                              0 0 27 28 1 0 11 0 21 2 0 7 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranType| 'NILADIC T) 

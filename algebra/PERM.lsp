@@ -676,7 +676,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Permutation|))
       (LETT |dv$| (LIST '|Permutation| DV$1) . #2#)
-      (LETT $ (GETREFV 103) . #2#)
+      (LETT $ (GETREFV 104) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -742,17 +742,17 @@
               (|Vector| 6) (218 . |construct|) (223 . |elt|) |PERM;inv;2$;30|
               |PERM;elt;$2S;32| (229 . |coerce|) (234 . |coerceImages|)
               (239 . |index|) (244 . |complement|) (249 . |fixedPoints|)
-              (254 . |conjugate|) (259 . +) (|Union| $ '"failed")
-              (|SingleInteger|) (|String|))
+              (254 . |conjugate|) (259 . +) (|Union| $ '"failed") (|String|)
+              (|SingleInteger|) (|HashState|))
            '#(~= 265 |sort| 271 |smaller?| 276 |sign| 282 |sample| 287 |recip|
               291 |order| 296 |orbit| 301 |one?| 307 |odd?| 312
               |numberOfCycles| 317 |movedPoints| 322 |min| 327 |max| 333
-              |listRepresentation| 339 |latex| 344 |inv| 349 |hash| 354
-              |fixedPoints| 359 |even?| 364 |eval| 369 |elt| 375 |degree| 381
-              |cycles| 386 |cyclePartition| 391 |cycle| 396 |conjugate| 401
-              |commutator| 407 |coercePreimagesImages| 413 |coerceListOfPairs|
-              418 |coerceImages| 423 |coerce| 428 ^ 443 |One| 461 >= 465 > 471
-              = 477 <= 483 < 489 / 495 * 501)
+              |listRepresentation| 339 |latex| 344 |inv| 349 |hashUpdate!| 354
+              |hash| 360 |fixedPoints| 365 |even?| 370 |eval| 375 |elt| 381
+              |degree| 387 |cycles| 392 |cyclePartition| 397 |cycle| 402
+              |conjugate| 407 |commutator| 413 |coercePreimagesImages| 419
+              |coerceListOfPairs| 424 |coerceImages| 429 |coerce| 434 ^ 449
+              |One| 467 >= 471 > 477 = 483 <= 489 < 495 / 501 * 507)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 2 0 2 0 0 0 0 2))
                  (CONS
@@ -763,7 +763,7 @@
                       (|OrderedSet|) (|SemiGroup|) (|Comparable|)
                       (|SetCategory|) (|BasicType|) (|unitsKnown|)
                       (|CoercibleTo| 77) (|PartialOrder|))
-                   (|makeByteWordVec2| 102
+                   (|makeByteWordVec2| 103
                                        '(2 6 8 0 0 9 1 6 10 0 11 1 13 12 0 14 2
                                          13 6 0 12 15 2 13 0 0 17 18 2 13 0 0
                                          17 19 2 13 0 0 0 20 2 12 8 0 0 23 2 6
@@ -785,15 +785,15 @@
                                          0 12 0 59 0 0 0 1 1 0 100 0 1 1 0 17 0
                                          57 2 0 39 0 6 48 1 0 8 0 1 1 0 8 0 62
                                          1 0 17 0 60 1 0 39 0 41 2 2 0 0 0 1 2
-                                         2 0 0 0 1 1 0 35 0 36 1 0 102 0 1 1 0
-                                         0 0 91 1 0 101 0 1 1 1 39 0 97 1 0 8 0
-                                         58 2 0 6 0 6 46 2 0 6 0 6 92 1 0 17 0
-                                         43 1 0 0 31 84 1 0 50 0 52 1 0 0 13 21
-                                         2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 31 38 1
-                                         0 0 31 87 1 0 0 13 94 1 0 0 13 66 1 0
-                                         0 31 65 1 0 77 0 83 2 0 0 0 12 1 2 0 0
-                                         0 17 1 2 0 0 0 10 1 0 0 0 16 2 2 8 0 0
-                                         1 2 2 8 0 0 1 2 0 8 0 0 44 2 2 8 0 0 1
-                                         2 0 8 0 0 64 2 0 0 0 0 1 2 0 0 0 0
-                                         22)))))
+                                         2 0 0 0 1 1 0 35 0 36 1 0 101 0 1 1 0
+                                         0 0 91 2 0 103 103 0 1 1 0 102 0 1 1 1
+                                         39 0 97 1 0 8 0 58 2 0 6 0 6 46 2 0 6
+                                         0 6 92 1 0 17 0 43 1 0 0 31 84 1 0 50
+                                         0 52 1 0 0 13 21 2 0 0 0 0 1 2 0 0 0 0
+                                         1 1 0 0 31 38 1 0 0 31 87 1 0 0 13 94
+                                         1 0 0 31 65 1 0 0 13 66 1 0 77 0 83 2
+                                         0 0 0 12 1 2 0 0 0 17 1 2 0 0 0 10 1 0
+                                         0 0 16 2 2 8 0 0 1 2 2 8 0 0 1 2 0 8 0
+                                         0 44 2 2 8 0 0 1 2 0 8 0 0 64 2 0 0 0
+                                         0 1 2 0 0 0 0 22)))))
            '|lookupComplete|)) 

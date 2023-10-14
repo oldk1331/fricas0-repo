@@ -63,7 +63,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|Tuple|))
       (LETT |dv$| (LIST '|Tuple| DV$1) . #1#)
-      (LETT $ (GETREFV 26) . #1#)
+      (LETT $ (GETREFV 27) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -96,20 +96,22 @@
               (|NonNegativeInteger|) |TUPLE;length;$Nni;3|
               |TUPLE;select;$NniS;4| (|Boolean|) (0 . =) (6 . =) (|Integer|)
               (12 . |maxIndex|) (|OutputForm|) (17 . |coerce|) (|List| $)
-              (22 . |paren|) (27 . |coerce|) (|String|) (|SingleInteger|))
-           '#(~= 32 |select| 38 |length| 44 |latex| 49 |hash| 54 |coerce| 59 =
-              74)
+              (22 . |paren|) (27 . |coerce|) (|HashState|) (|String|)
+              (|SingleInteger|))
+           '#(~= 32 |select| 38 |length| 44 |latex| 49 |hashUpdate!| 54 |hash|
+              60 |coerce| 65 = 80)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(1 0 1 2))
                  (CONS '#(|SetCategory&| NIL |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|CoercibleTo| (|PrimitiveArray| 6))
                            (|BasicType|) (|CoercibleTo| 19))
-                        (|makeByteWordVec2| 25
+                        (|makeByteWordVec2| 26
                                             '(2 8 14 0 0 15 2 0 14 0 0 16 1 8
                                               17 0 18 1 6 19 0 20 1 19 0 21 22
                                               1 0 19 0 23 2 1 14 0 0 1 2 0 6 0
-                                              11 13 1 0 11 0 12 1 1 24 0 1 1 1
-                                              25 0 1 1 2 19 0 23 1 0 0 8 9 1 0
-                                              8 0 10 2 1 14 0 0 16)))))
+                                              11 13 1 0 11 0 12 1 1 25 0 1 2 1
+                                              24 24 0 1 1 1 26 0 1 1 2 19 0 23
+                                              1 0 0 8 9 1 0 8 0 10 2 1 14 0 0
+                                              16)))))
            '|lookupComplete|)) 

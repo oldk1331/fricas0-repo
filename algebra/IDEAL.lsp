@@ -1451,7 +1451,7 @@
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT |dv$| (LIST '|PolynomialIdeal| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 157) . #1#)
+      (LETT $ (GETREFV 158) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -1532,19 +1532,20 @@
               |IDEAL;one?;$B;37| |IDEAL;zero?;$B;38|
               (|Record| (|:| |mval| (|Matrix| 6)) (|:| |invmval| (|Matrix| 6))
                         (|:| |genIdeal| $))
-              (|SingleInteger|) (|String|))
+              (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 458 |zeroDim?| 464 |zero?| 475 |saturate| 480 |relationsIdeal|
               493 |quotient| 498 |one?| 510 |leadingIdeal| 515 |latex| 520
-              |intersect| 525 |inRadical?| 536 |in?| 542 |ideal| 548 |hash| 553
-              |groebnerIdeal| 558 |groebner?| 563 |groebner| 568 |generators|
-              573 |generalPosition| 578 |element?| 584 |dimension| 590 |coerce|
-              601 |backOldPos| 611 ^ 616 = 622 + 628 * 634)
+              |intersect| 525 |inRadical?| 536 |in?| 542 |ideal| 548
+              |hashUpdate!| 553 |hash| 559 |groebnerIdeal| 564 |groebner?| 569
+              |groebner| 574 |generators| 579 |generalPosition| 584 |element?|
+              590 |dimension| 596 |coerce| 607 |backOldPos| 617 ^ 622 = 628 +
+              634 * 640)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 147))
-                        (|makeByteWordVec2| 156
+                        (|makeByteWordVec2| 157
                                             '(0 9 0 13 2 9 14 0 0 15 0 12 0 16
                                               1 9 6 0 17 0 6 0 18 0 7 0 19 1 9
                                               7 0 20 2 11 0 21 7 22 2 12 0 6 11
@@ -1581,18 +1582,18 @@
                                               111 0 0 21 142 2 111 0 0 0 143 0
                                               111 0 144 2 111 0 6 0 145 1 0 118
                                               55 146 1 55 147 0 148 2 0 14 0 0
-                                              1 2 0 14 0 35 103 1 0 14 0 104 1
+                                              1 1 0 14 0 104 2 0 14 0 35 103 1
                                               0 14 0 153 3 0 0 0 9 35 99 2 0 0
-                                              0 9 95 1 1 118 55 146 2 0 0 0 0
-                                              86 2 0 0 0 9 84 1 0 14 0 152 1 0
-                                              0 0 107 1 0 156 0 1 2 0 0 0 0 78
-                                              1 0 0 79 80 2 0 14 9 0 106 2 0 14
-                                              0 0 66 1 0 0 55 85 1 0 155 0 1 1
-                                              0 0 55 150 1 0 14 0 151 1 0 0 0
-                                              68 1 0 55 0 56 2 0 154 0 35 1 2 0
-                                              14 9 0 71 1 0 51 0 109 2 0 51 0
-                                              35 108 1 0 0 55 81 1 0 147 0 149
-                                              1 0 0 154 1 2 0 0 0 21 91 2 0 14
-                                              0 0 67 2 0 0 0 0 88 2 0 0 0 0
-                                              90)))))
+                                              0 9 95 1 1 118 55 146 2 0 0 0 9
+                                              84 2 0 0 0 0 86 1 0 14 0 152 1 0
+                                              0 0 107 1 0 155 0 1 1 0 0 79 80 2
+                                              0 0 0 0 78 2 0 14 9 0 106 2 0 14
+                                              0 0 66 1 0 0 55 85 2 0 157 157 0
+                                              1 1 0 156 0 1 1 0 0 55 150 1 0 14
+                                              0 151 1 0 0 0 68 1 0 55 0 56 2 0
+                                              154 0 35 1 2 0 14 9 0 71 1 0 51 0
+                                              109 2 0 51 0 35 108 1 0 0 55 81 1
+                                              0 147 0 149 1 0 0 154 1 2 0 0 0
+                                              21 91 2 0 14 0 0 67 2 0 0 0 0 88
+                                              2 0 0 0 0 90)))))
            '|lookupComplete|)) 

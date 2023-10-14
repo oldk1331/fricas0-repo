@@ -59,7 +59,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|MachineInteger|) . #1=(|MachineInteger|))
-      (LETT $ (GETREFV 54) . #1#)
+      (LETT $ (GETREFV 55) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|MachineInteger| NIL (CONS 1 $))
@@ -92,7 +92,7 @@
               (|Float|) (|Union| $ '"failed") (|Fraction| 5)
               (|Union| 50 '"failed")
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|SingleInteger|))
+              (|HashState|) (|SingleInteger|))
            '#(~= 33 |zero?| 39 |unitNormal| 44 |unitCanonical| 49 |unit?| 54
               |symmetricRemainder| 59 |subtractIfCan| 65 |submod| 71
               |squareFreePart| 78 |squareFree| 83 |smaller?| 88 |sizeLess?| 94
@@ -104,14 +104,15 @@
               |patternMatch| 211 |one?| 218 |odd?| 223 |nextItem| 228
               |negative?| 233 |multiEuclidean| 238 |mulmod| 244 |min| 251
               |maxint| 257 |max| 266 |mask| 272 |length| 277 |lcmCoef| 282
-              |lcm| 288 |latex| 299 |invmod| 304 |init| 310 |inc| 314 |hash|
-              319 |gcdPolynomial| 329 |gcd| 335 |factorial| 346 |factor| 351
-              |extendedEuclidean| 356 |exquo| 369 |expressIdealMember| 375
-              |even?| 381 |euclideanSize| 386 |divide| 391 |differentiate| 397
-              |dec| 408 |copy| 413 |convert| 418 |coerce| 443 |characteristic|
-              468 |bit?| 472 |binomial| 478 |base| 484 |associates?| 488
-              |addmod| 494 |abs| 501 ^ 506 |Zero| 518 |One| 522 D 526 >= 537 >
-              543 = 549 <= 555 < 561 - 567 + 578 * 584)
+              |lcm| 288 |latex| 299 |invmod| 304 |init| 310 |inc| 314
+              |hashUpdate!| 319 |hash| 325 |gcdPolynomial| 330 |gcd| 336
+              |factorial| 347 |factor| 352 |extendedEuclidean| 357 |exquo| 370
+              |expressIdealMember| 376 |even?| 382 |euclideanSize| 387 |divide|
+              392 |differentiate| 398 |dec| 409 |copy| 414 |convert| 419
+              |coerce| 444 |characteristic| 469 |bit?| 473 |binomial| 479
+              |base| 485 |associates?| 489 |addmod| 495 |abs| 502 ^ 507 |Zero|
+              519 |One| 523 D 527 >= 538 > 544 = 550 <= 556 < 562 - 568 + 579 *
+              585)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -150,7 +151,7 @@
                  (|RetractableTo| 5) (|PartialOrder|) (|noZeroDivisors|)
                  (|CommutativeStar|) (|unitsKnown|) (|BasicType|)
                  (|CoercibleTo| 24))
-              (|makeByteWordVec2| 53
+              (|makeByteWordVec2| 54
                                   '(2 6 0 0 6 7 1 0 0 5 11 2 15 12 13 14 16 2 5
                                     19 0 0 20 1 22 0 21 23 1 22 24 0 25 2 0 19
                                     0 0 1 1 0 19 0 1 1 0 52 0 1 1 0 0 0 1 1 0
@@ -166,22 +167,22 @@
                                     1 2 0 33 21 0 1 3 0 0 0 0 0 1 2 0 0 0 0 1 1
                                     0 6 6 10 0 0 6 9 2 0 0 0 0 1 1 0 0 0 1 1 0
                                     0 0 1 2 0 30 0 0 1 2 0 0 0 0 1 1 0 0 21 1 1
-                                    0 22 0 1 2 0 0 0 0 1 0 0 0 1 1 0 0 0 1 1 0
-                                    0 0 1 1 0 53 0 1 2 0 31 31 31 1 1 0 0 21 1
-                                    2 0 0 0 0 1 1 0 0 0 1 1 0 32 0 1 2 0 34 0 0
-                                    1 3 0 36 0 0 0 1 2 0 49 0 0 1 2 0 33 21 0 1
-                                    1 0 19 0 1 1 0 38 0 1 2 0 37 0 0 1 2 0 0 0
-                                    38 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 5 0
-                                    1 1 0 43 0 1 1 0 46 0 1 1 0 47 0 1 1 0 48 0
-                                    1 1 0 17 14 18 1 0 0 5 26 1 0 0 0 1 1 0 0 5
-                                    26 1 0 24 0 1 0 0 38 1 2 0 19 0 0 1 2 0 0 0
-                                    0 1 0 0 0 1 2 0 19 0 0 1 3 0 0 0 0 0 1 1 0
-                                    0 0 1 2 0 0 0 38 1 2 0 0 0 6 1 0 0 0 1 0 0
-                                    0 1 2 0 0 0 38 1 1 0 0 0 1 2 0 19 0 0 1 2 0
-                                    19 0 0 1 2 0 19 0 0 1 2 0 19 0 0 1 2 0 19 0
-                                    0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0
-                                    5 0 1 2 0 0 0 0 1 2 0 0 38 0 1 2 0 0 6 0
-                                    1)))))
+                                    0 22 0 1 2 0 0 0 0 1 0 0 0 1 1 0 0 0 1 2 0
+                                    53 53 0 1 1 0 54 0 1 2 0 31 31 31 1 1 0 0
+                                    21 1 2 0 0 0 0 1 1 0 0 0 1 1 0 32 0 1 2 0
+                                    34 0 0 1 3 0 36 0 0 0 1 2 0 49 0 0 1 2 0 33
+                                    21 0 1 1 0 19 0 1 1 0 38 0 1 2 0 37 0 0 1 2
+                                    0 0 0 38 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1
+                                    0 5 0 1 1 0 43 0 1 1 0 46 0 1 1 0 47 0 1 1
+                                    0 48 0 1 1 0 17 14 18 1 0 0 5 26 1 0 0 0 1
+                                    1 0 0 5 26 1 0 24 0 1 0 0 38 1 2 0 19 0 0 1
+                                    2 0 0 0 0 1 0 0 0 1 2 0 19 0 0 1 3 0 0 0 0
+                                    0 1 1 0 0 0 1 2 0 0 0 38 1 2 0 0 0 6 1 0 0
+                                    0 1 0 0 0 1 2 0 0 0 38 1 1 0 0 0 1 2 0 19 0
+                                    0 1 2 0 19 0 0 1 2 0 19 0 0 1 2 0 19 0 0 1
+                                    2 0 19 0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0
+                                    0 1 2 0 0 0 0 1 2 0 0 5 0 1 2 0 0 38 0 1 2
+                                    0 0 6 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MachineInteger| 'NILADIC T) 

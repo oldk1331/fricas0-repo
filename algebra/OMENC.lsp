@@ -48,7 +48,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|OpenMathEncoding|) . #1=(|OpenMathEncoding|))
-      (LETT $ (GETREFV 19) . #1#)
+      (LETT $ (GETREFV 20) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|OpenMathEncoding| NIL (CONS 1 $))
@@ -62,21 +62,21 @@
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|) |OMENC;=;2$B;1|
               (|Integer|) (0 . |coerce|) (|OutputForm|) |OMENC;coerce;$Of;2|
               |OMENC;OMencodingUnknown;$;3| |OMENC;OMencodingBinary;$;4|
-              |OMENC;OMencodingXML;$;5| |OMENC;OMencodingSGML;$;6|
-              (|SingleInteger|) (|String|))
-           '#(~= 5 |latex| 11 |hash| 16 |coerce| 21 |OMencodingXML| 26
-              |OMencodingUnknown| 30 |OMencodingSGML| 34 |OMencodingBinary| 38
-              = 42)
+              |OMENC;OMencodingXML;$;5| |OMENC;OMencodingSGML;$;6| (|String|)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 5 |latex| 11 |hashUpdate!| 16 |hash| 22 |coerce| 27
+              |OMencodingXML| 32 |OMencodingUnknown| 36 |OMencodingSGML| 40
+              |OMencodingBinary| 44 = 48)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 11))
-                        (|makeByteWordVec2| 18
-                                            '(1 6 0 9 10 2 0 7 0 0 1 1 0 18 0 1
-                                              1 0 17 0 1 1 0 11 0 12 0 0 0 15 0
-                                              0 0 13 0 0 0 16 0 0 0 14 2 0 7 0
-                                              0 8)))))
+                        (|makeByteWordVec2| 19
+                                            '(1 6 0 9 10 2 0 7 0 0 1 1 0 17 0 1
+                                              2 0 19 19 0 1 1 0 18 0 1 1 0 11 0
+                                              12 0 0 0 15 0 0 0 13 0 0 0 16 0 0
+                                              0 14 2 0 7 0 0 8)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathEncoding| 'NILADIC T) 

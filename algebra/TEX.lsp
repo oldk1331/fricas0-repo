@@ -1110,7 +1110,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|TexFormat|) . #1=(|TexFormat|))
-      (LETT $ (GETREFV 73) . #1#)
+      (LETT $ (GETREFV 74) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|TexFormat| NIL (CONS 1 $))
@@ -1166,16 +1166,17 @@
               (73 . |string|) (|List| 58) (78 . |position|) (|List| 25)
               (84 . |elt|) (90 . ~=) (96 . ~=) (102 . |segment|)
               (107 . |digit?|) (112 . |elt|) (118 . |char|) (123 . |position|)
-              (129 . |member?|) (|SingleInteger|))
+              (129 . |member?|) (|SingleInteger|) (|HashState|))
            '#(~= 135 |tex| 141 |setTex!| 146 |setPrologue!| 152 |setEpilogue!|
-              158 |prologue| 164 |new| 169 |latex| 173 |hash| 178 |epilogue|
-              183 |display| 188 |convert| 199 |coerce| 212 = 222)
+              158 |prologue| 164 |new| 169 |latex| 173 |hashUpdate!| 178 |hash|
+              184 |epilogue| 189 |display| 194 |convert| 205 |coerce| 218 =
+              228)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 23))
-                        (|makeByteWordVec2| 72
+                        (|makeByteWordVec2| 73
                                             '(0 27 0 28 1 31 23 0 38 2 41 40 0
                                               25 42 2 43 0 25 25 44 2 41 0 0 43
                                               45 3 41 40 0 25 40 46 2 48 47 0 0
@@ -1189,11 +1190,11 @@
                                               60 47 58 0 71 2 0 47 0 0 1 1 0 31
                                               0 33 2 0 31 0 31 36 2 0 31 0 31
                                               35 2 0 31 0 31 37 1 0 31 0 32 0 0
-                                              0 22 1 0 41 0 1 1 0 72 0 1 1 0 31
-                                              0 34 1 0 27 0 30 2 0 27 0 25 29 3
-                                              0 0 23 25 23 1 2 0 0 23 25 26 1 0
-                                              0 23 24 1 0 23 0 39 2 0 47 0 0
-                                              1)))))
+                                              0 22 1 0 41 0 1 2 0 73 73 0 1 1 0
+                                              72 0 1 1 0 31 0 34 2 0 27 0 25 29
+                                              1 0 27 0 30 2 0 0 23 25 26 3 0 0
+                                              23 25 23 1 1 0 0 23 24 1 0 23 0
+                                              39 2 0 47 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TexFormat| 'NILADIC T) 

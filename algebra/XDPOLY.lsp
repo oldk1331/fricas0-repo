@@ -366,7 +366,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #3=(|XDistributedPolynomial|))
       (LETT DV$2 (|devaluate| |#2|) . #3#)
       (LETT |dv$| (LIST '|XDistributedPolynomial| DV$1 DV$2) . #3#)
-      (LETT $ (GETREFV 80) . #3#)
+      (LETT $ (GETREFV 81) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -432,8 +432,8 @@
               |XDPOLY;rquo;3$;16| (192 . >) |XDPOLY;coef;2$R;17| (198 . <)
               (204 . +) (|Mapping| 7 22) (|Integer|) (|PositiveInteger|)
               (|Union| 22 '"failed") (|List| $) (|List| 7) (|List| 22)
-              (|Mapping| 7 7) (|List| 9) (|SingleInteger|) (|String|)
-              (|OutputForm|))
+              (|Mapping| 7 7) (|List| 9) (|String|) (|SingleInteger|)
+              (|HashState|) (|OutputForm|))
            '#(~= 210 |zero?| 216 |varList| 221 |trunc| 226 |support| 232 |sup|
               237 |subtractIfCan| 243 |smaller?| 249 |sh| 255 |sample| 267
               |rquo| 271 |retractIfCan| 289 |retract| 294 |reductum| 299
@@ -443,11 +443,11 @@
               361 |min| 366 |maxdeg| 372 |max| 377 |map| 383 |lquo| 389
               |listOfTerms| 407 |linearExtend| 412 |leadingTerm| 418
               |leadingSupport| 423 |leadingMonomial| 428 |leadingCoefficient|
-              433 |latex| 438 |hash| 443 |degree| 448 |constructOrdered| 453
-              |construct| 458 |constant?| 463 |constant| 468 |coerce| 473
-              |coefficients| 498 |coefficient| 503 |coef| 509 |characteristic|
-              521 ^ 525 |Zero| 537 |One| 541 >= 545 > 551 = 557 <= 563 < 569 -
-              575 + 586 * 592)
+              433 |latex| 438 |hashUpdate!| 443 |hash| 449 |degree| 454
+              |constructOrdered| 459 |construct| 464 |constant?| 469 |constant|
+              474 |coerce| 479 |coefficients| 504 |coefficient| 509 |coef| 515
+              |characteristic| 527 ^ 531 |Zero| 543 |One| 547 >= 551 > 557 =
+              563 <= 569 < 575 - 581 + 592 * 598)
            'NIL
            (CONS
             (|makeByteWordVec2| 7
@@ -473,8 +473,8 @@
                  (|SemiGroup|) (|AbelianSemiGroup|) (|Comparable|)
                  (|SetCategory|) (|unitsKnown|)
                  (|RetractableTo| (|OrderedFreeMonoid| 6)) (|BasicType|)
-                 (|CoercibleTo| 79) (|PartialOrder|) (|noZeroDivisors|))
-              (|makeByteWordVec2| 79
+                 (|CoercibleTo| 80) (|PartialOrder|) (|noZeroDivisors|))
+              (|makeByteWordVec2| 80
                                   '(1 8 9 0 10 0 0 0 12 0 7 0 13 0 0 0 14 0 7 0
                                     15 2 0 0 0 16 17 2 0 0 0 0 18 2 7 0 0 0 19
                                     2 0 0 7 0 20 2 0 0 0 0 21 1 22 0 6 23 1 0 0
@@ -498,15 +498,15 @@
                                     0 0 0 1 2 0 0 75 0 1 2 0 0 0 22 51 2 0 0 0
                                     6 55 2 0 0 0 0 62 1 0 76 0 1 2 1 7 68 0 1 1
                                     0 9 0 1 1 0 22 0 1 1 0 22 0 28 1 0 7 0 30 1
-                                    0 78 0 1 1 0 77 0 1 1 0 16 0 36 1 0 0 76 1
-                                    1 0 0 76 1 1 0 37 0 41 1 0 7 0 1 1 0 0 7 1
-                                    1 0 0 69 1 1 0 0 22 24 1 0 0 6 25 1 0 79 0
-                                    1 1 0 73 0 1 2 0 7 0 22 1 2 0 7 0 0 65 2 0
-                                    7 0 22 1 0 0 16 1 2 0 0 0 70 1 2 0 0 0 16 1
-                                    0 0 0 12 0 0 0 14 2 3 37 0 0 1 2 3 37 0 0 1
-                                    2 0 37 0 0 38 2 3 37 0 0 1 2 3 37 0 0 1 2 0
-                                    0 0 0 1 1 0 0 0 1 2 0 0 0 0 21 2 0 0 16 0 1
-                                    2 0 0 69 0 1 2 0 0 0 0 1 2 0 0 6 0 27 2 0 0
-                                    22 7 1 2 0 0 7 22 1 2 0 0 0 7 61 2 0 0 7 0
-                                    20 2 0 0 70 0 1)))))
+                                    0 77 0 1 2 0 79 79 0 1 1 0 78 0 1 1 0 16 0
+                                    36 1 0 0 76 1 1 0 0 76 1 1 0 37 0 41 1 0 7
+                                    0 1 1 0 0 7 1 1 0 0 69 1 1 0 0 22 24 1 0 0
+                                    6 25 1 0 80 0 1 1 0 73 0 1 2 0 7 0 22 1 2 0
+                                    7 0 0 65 2 0 7 0 22 1 0 0 16 1 2 0 0 0 70 1
+                                    2 0 0 0 16 1 0 0 0 12 0 0 0 14 2 3 37 0 0 1
+                                    2 3 37 0 0 1 2 0 37 0 0 38 2 3 37 0 0 1 2 3
+                                    37 0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 21
+                                    2 0 0 16 0 1 2 0 0 69 0 1 2 0 0 0 0 1 2 0 0
+                                    6 0 27 2 0 0 22 7 1 2 0 0 7 22 1 2 0 0 0 7
+                                    61 2 0 0 7 0 20 2 0 0 70 0 1)))))
            '|lookupComplete|)) 

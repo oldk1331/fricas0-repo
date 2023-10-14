@@ -24,7 +24,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|XPolynomial|))
       (LETT |dv$| (LIST '|XPolynomial| DV$1) . #1#)
-      (LETT $ (GETREFV 24) . #1#)
+      (LETT $ (GETREFV 25) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -48,8 +48,8 @@
               (|List| 8) (|XDistributedPolynomial| 15 6) (|List| 15)
               (|OrderedFreeMonoid| 15) (|Mapping| 6 6) (|Boolean|) (|Symbol|)
               (|Record| (|:| |k| 12) (|:| |c| 6)) (|Union| 12 '"failed")
-              (|Integer|) (|Union| $ '"failed") (|PositiveInteger|) (|String|)
-              (|OutputForm|) (|SingleInteger|))
+              (|Integer|) (|Union| $ '"failed") (|PositiveInteger|)
+              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 2
@@ -67,7 +67,7 @@
                  (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|RetractableTo| 12)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 22)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 23)
                  (|noZeroDivisors|))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

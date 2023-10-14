@@ -1109,7 +1109,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|MathMLFormat|) . #1=(|MathMLFormat|))
-      (LETT $ (GETREFV 70) . #1#)
+      (LETT $ (GETREFV 71) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|MathMLFormat| NIL (CONS 1 $))
@@ -1164,15 +1164,15 @@
               (100 . |elt|) (106 . ~=) (112 . |coerce|) (117 . |segment|)
               (122 . |empty?|) (127 . |digit?|) (|List| 21) (132 . |elt|)
               (138 . |char|) (143 . |position|) (149 . |member?|)
-              (|SingleInteger|))
-           '#(~= 155 |latex| 161 |hash| 166 |exprex| 171 |display| 176
-              |coerceS| 181 |coerceL| 186 |coerce| 191 = 201)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 155 |latex| 161 |hashUpdate!| 166 |hash| 172 |exprex| 177
+              |display| 182 |coerceS| 187 |coerceL| 192 |coerce| 197 = 207)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 22))
-                        (|makeByteWordVec2| 69
+                        (|makeByteWordVec2| 70
                                             '(0 26 0 27 1 21 0 29 30 2 33 32 0
                                               0 34 2 35 0 33 33 36 2 21 0 0 35
                                               37 2 21 38 0 33 39 0 40 0 41 2 40
@@ -1185,10 +1185,11 @@
                                               1 35 0 33 61 1 21 32 0 62 1 38 32
                                               0 63 2 64 21 0 33 65 1 38 0 21 66
                                               2 21 33 38 0 67 2 55 32 51 0 68 2
-                                              0 32 0 0 1 1 0 21 0 1 1 0 69 0 1
-                                              1 0 21 22 31 1 0 26 21 28 1 0 21
-                                              22 24 1 0 21 22 25 1 0 21 22 23 1
-                                              0 22 0 1 2 0 32 0 0 1)))))
+                                              0 32 0 0 1 1 0 21 0 1 2 0 70 70 0
+                                              1 1 0 69 0 1 1 0 21 22 31 1 0 26
+                                              21 28 1 0 21 22 24 1 0 21 22 25 1
+                                              0 21 22 23 1 0 22 0 1 2 0 32 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MathMLFormat| 'NILADIC T) 

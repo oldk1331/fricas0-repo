@@ -142,7 +142,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|SymmetricPolynomial|))
       (LETT |dv$| (LIST '|SymmetricPolynomial| DV$1) . #5#)
-      (LETT $ (GETREFV 38) . #5#)
+      (LETT $ (GETREFV 39) . #5#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -330,7 +330,7 @@
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Union| 26 '#1="failed") (|Union| 23 '#1#) (|Mapping| 11 11)
               (|List| 6) (|Union| 6 '#1#) (|Mapping| 6 6) (|PositiveInteger|)
-              (|String|) (|OutputForm|) (|SingleInteger|))
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|Zero| 63 |One| 67 = 71 + 77 * 83) 'NIL
            (CONS
             (|makeByteWordVec2| 23
@@ -358,7 +358,7 @@
                  (|AbelianMonoid|) (|Monoid|) (|AbelianSemiGroup|)
                  (|SemiGroup|) (|Comparable|) (|FullyRetractableTo| 6)
                  (|SetCategory|) (|VariablesCommuteWithCoefficients|)
-                 (|RetractableTo| 6) (|BasicType|) (|CoercibleTo| 36)
+                 (|RetractableTo| 6) (|BasicType|) (|CoercibleTo| 38)
                  (|CommutativeStar|) (|unitsKnown|) (|noZeroDivisors|)
                  (|RetractableTo| 26) (|RetractableTo| 23)
                  (|canonicalUnitNormal|))

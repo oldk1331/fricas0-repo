@@ -611,7 +611,7 @@
       (LETT DV$5 (|devaluate| |#5|) . #4#)
       (LETT |dv$| (LIST '|RadicalFunctionField| DV$1 DV$2 DV$3 DV$4 DV$5)
             . #4#)
-      (LETT $ (GETREFV 188) . #4#)
+      (LETT $ (GETREFV 189) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -775,18 +775,16 @@
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
               (|Union| 163 '"failed") (|Mapping| 11 11) (|Fraction| 8)
               (|InputForm|) (|OnePointCompletion| 144) (|Union| 13 '"failed")
-              (|Union| 43 '"failed") (|Matrix| $)
-              (|Record| (|:| |factor| 35) (|:| |exponent| 35)) (|List| 172)
-              (|Table| 144 13)
+              (|Record| (|:| |factor| 35) (|:| |exponent| 35)) (|List| 170)
+              (|Union| 43 '"failed") (|Matrix| $) (|Table| 144 13)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Matrix| 35)
-              (|Record| (|:| |mat| 176) (|:| |vec| (|Vector| 35)))
-              (|Union| 154 '#1#) (|Union| 35 '#1#) (|List| (|Polynomial| 6))
-              (|List| (|List| 6))
+              (|Record| (|:| |mat| 177) (|:| |vec| (|Vector| 35)))
+              (|Matrix| 35) (|Union| 154 '#1#) (|Union| 35 '#1#)
+              (|List| (|Polynomial| 6)) (|List| (|List| 6))
               (|Record| (|:| |num| $) (|:| |den| 7) (|:| |derivden| 7)
                         (|:| |gd| 7))
               (|Record| (|:| |mat| 46) (|:| |vec| 36)) (|Union| 11 '#1#)
-              (|SingleInteger|) (|String|) (|OutputForm|))
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|singular?| 393 |represents| 403 |reduce| 408 |ramified?| 413
               |inverseIntegralMatrixAtInfinity| 423 |inverseIntegralMatrix| 427
               |integralRepresents| 431 |integralMatrixAtInfinity| 437
@@ -844,7 +842,7 @@
                  (|FullyRetractableTo| (|Fraction| 7)) (|SetCategory|)
                  (|RetractableTo| (|Fraction| 7)) (|ConvertibleTo| 8)
                  (|CommutativeStar|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 187) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|CoercibleTo| 188) (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|ConvertibleTo| 167)
                  (|RetractableTo| 154) (|RetractableTo| 35))
               (|makeByteWordVec2| 150

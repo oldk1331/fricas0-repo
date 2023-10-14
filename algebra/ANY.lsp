@@ -116,7 +116,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Any|) . #1=(|Any|))
-      (LETT $ (GETREFV 34) . #1#)
+      (LETT $ (GETREFV 35) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Any| NIL (CONS 1 $))
@@ -135,23 +135,25 @@
               (|List| 19) (11 . |list|) |ANY;objectOf;$Of;5| (|String|)
               |ANY;showTypeInOutput;BS;6| (16 . |deref|) (21 . |atom?|)
               (|List| $) (26 . |list|) (31 . |coerce|) (36 . |hconcat|)
-              |ANY;coerce;$Of;7| |ANY;any;SeN$;8| (|SingleInteger|))
+              |ANY;coerce;$Of;7| |ANY;any;SeN$;8| (|SingleInteger|)
+              (|HashState|))
            '#(~= 41 |showTypeInOutput| 47 |objectOf| 52 |obj| 57 |latex| 62
-              |hash| 67 |domainOf| 72 |dom| 77 |coerce| 82 |any| 87 = 93)
+              |hashUpdate!| 67 |hash| 73 |domainOf| 78 |dom| 83 |coerce| 88
+              |any| 93 = 99)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 15))
-                        (|makeByteWordVec2| 33
+                        (|makeByteWordVec2| 34
                                             '(1 8 0 7 9 2 13 7 0 0 17 1 20 0 19
                                               21 1 8 7 0 25 1 13 7 0 26 1 19 27
                                               0 28 1 19 15 0 29 1 15 0 27 30 2
                                               0 7 0 0 1 1 0 23 7 24 1 0 15 0 22
-                                              1 0 11 0 12 1 0 23 0 1 1 0 33 0 1
-                                              1 0 15 0 16 1 0 13 0 14 1 0 15 0
-                                              31 2 0 0 13 11 32 2 0 7 0 0
-                                              18)))))
+                                              1 0 11 0 12 1 0 23 0 1 2 0 34 34
+                                              0 1 1 0 33 0 1 1 0 15 0 16 1 0 13
+                                              0 14 1 0 15 0 31 2 0 0 13 11 32 2
+                                              0 7 0 0 18)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Any| 'NILADIC T) 

@@ -217,7 +217,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|UniversalSegment|))
       (LETT |dv$| (LIST '|UniversalSegment| DV$1) . #1#)
-      (LETT $ (GETREFV 68) . #1#)
+      (LETT $ (GETREFV 69) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -277,10 +277,11 @@
               (118 . |rest|) (123 . SEGMENT) (129 . BY) (|List| 21)
               (135 . |concat!|) (141 . |coerce|) (146 . |generate|) (|List| 6)
               (152 . |expand|) (157 . |construct|) (162 . |concat|) (|String|)
-              (|SingleInteger|))
+              (|SingleInteger|) (|HashState|))
            '#(~= 168 |segment| 174 |map| 185 |low| 191 |lo| 196 |latex| 201
-              |incr| 206 |high| 211 |hi| 216 |hash| 221 |hasHi| 226 |expand|
-              231 |convert| 241 |coerce| 251 SEGMENT 261 BY 272 = 278)
+              |incr| 206 |high| 211 |hi| 216 |hashUpdate!| 221 |hash| 227
+              |hasHi| 232 |expand| 237 |convert| 247 |coerce| 257 SEGMENT 267
+              BY 278 = 284)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(2 0 3 0 1 3 3))
                  (CONS '#(NIL NIL |SetCategory&| NIL NIL |BasicType&| NIL)
@@ -289,7 +290,7 @@
                            (|SegmentCategory| 6) (|SetCategory|) (|Type|)
                            (|ConvertibleTo| 35) (|BasicType|)
                            (|CoercibleTo| 28))
-                        (|makeByteWordVec2| 67
+                        (|makeByteWordVec2| 68
                                             '(1 21 6 0 22 1 21 6 0 23 2 6 15 0
                                               0 26 2 0 15 0 0 27 1 6 28 0 29 2
                                               28 0 0 0 30 1 28 0 0 31 1 12 28 0
@@ -306,9 +307,9 @@
                                               0 6 8 2 0 0 6 6 9 2 2 43 47 0 49
                                               1 0 6 0 14 1 0 6 0 10 1 3 66 0 1
                                               1 0 12 0 18 1 0 6 0 17 1 0 6 0 11
-                                              1 3 67 0 1 1 0 15 0 16 1 2 43 0
-                                              46 1 2 43 44 45 1 1 35 0 42 1 0 0
-                                              6 25 1 3 28 0 34 1 0 0 21 24 1 0
-                                              0 6 19 2 0 0 6 6 20 2 0 0 0 12 13
-                                              2 3 15 0 0 27)))))
+                                              2 3 68 68 0 1 1 3 67 0 1 1 0 15 0
+                                              16 1 2 43 0 46 1 2 43 44 45 1 1
+                                              35 0 42 1 0 0 6 25 1 3 28 0 34 1
+                                              0 0 21 24 1 0 0 6 19 2 0 0 6 6 20
+                                              2 0 0 0 12 13 2 3 15 0 0 27)))))
            '|lookupComplete|)) 

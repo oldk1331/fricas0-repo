@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |IndexedVector| (&REST #1=#:G1364)
+(DEFUN |IndexedVector| (&REST #1=#:G1380)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1365)
+     (PROG (#2=#:G1381)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,13 +22,13 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|IndexedVector|))))))))))) 
 
 (DEFUN |IndexedVector;| (|#1| |#2|)
-  (PROG (#1=#:G1363 |pv$| #2=#:G1360 #3=#:G1361 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G1379 |pv$| #2=#:G1376 #3=#:G1377 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedVector|))
       (LETT DV$2 (|devaluate| |#2|) . #4#)
       (LETT |dv$| (LIST '|IndexedVector| DV$1 DV$2) . #4#)
-      (LETT $ (GETREFV 28) . #4#)
+      (LETT $ (GETREFV 29) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -112,11 +112,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedOneDimensionalArray| 6 7)
               (|local| |#1|) (|local| |#2|) (|Mapping| 6 6 6) (|Boolean|)
-              (|NonNegativeInteger|) (|List| 6) (|List| 13) (|Equation| 6)
+              (|NonNegativeInteger|) (|List| 6) (|Equation| 6) (|List| 12)
               (|Integer|) (|Mapping| 9 6) (|Mapping| 9 6 6)
               (|UniversalSegment| 14) (|Void|) (|Mapping| 6 6) (|OutputForm|)
               (|InputForm|) (|Matrix| 6) (|SingleInteger|) (|String|)
-              (|List| $) (|Union| 6 '"failed") (|List| 14))
+              (|HashState|) (|List| $) (|Union| 6 '"failed") (|List| 14))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 9

@@ -4,7 +4,7 @@
 (DEFUN |SExpression| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1760)
+     (PROG (#1=#:G1780)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SExpression|)
@@ -24,7 +24,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|SExpression|) . #1=(|SExpression|))
-      (LETT $ (GETREFV 15) . #1#)
+      (LETT $ (GETREFV 16) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|SExpression| NIL (CONS 1 $))
@@ -34,15 +34,15 @@
 
 (MAKEPROP '|SExpression| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|SExpressionOf| 12 10 7 8 9) (|List| 7)
-              (|Integer|) (|DoubleFloat|) (|OutputForm|) (|Symbol|) (|List| $)
-              (|String|) (|Boolean|) (|SingleInteger|))
+           '#(NIL NIL NIL NIL NIL (|SExpressionOf| 10 11 6 9 8) (|Integer|)
+              (|List| 6) (|OutputForm|) (|DoubleFloat|) (|String|) (|Symbol|)
+              (|List| $) (|Boolean|) (|HashState|) (|SingleInteger|))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SExpressionCategory| 12 10 7 8 9) (|SetCategory|)
-                           (|BasicType|) (|CoercibleTo| 9))
+                        '#((|SExpressionCategory| 10 11 6 9 8) (|SetCategory|)
+                           (|BasicType|) (|CoercibleTo| 8))
                         (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 
 

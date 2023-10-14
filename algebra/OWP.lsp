@@ -33,7 +33,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT |dv$| (LIST '|OrdinaryWeightedPolynomials| DV$1 DV$2 DV$3 DV$4)
             . #1#)
-      (LETT $ (GETREFV 20) . #1#)
+      (LETT $ (GETREFV 21) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -61,7 +61,7 @@
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               (|Union| $ '"failed") (|Void|) (|NonNegativeInteger|)
               (|Polynomial| 6) (|Integer|) (|Boolean|) (|PositiveInteger|)
-              (|String|) (|OutputForm|) (|SingleInteger|))
+              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1 '(1 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0))
@@ -76,6 +76,6 @@
                  (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 18))
+                 (|BasicType|) (|CoercibleTo| 19))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

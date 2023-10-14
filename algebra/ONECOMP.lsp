@@ -122,7 +122,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|OnePointCompletion|))
       (LETT |dv$| (LIST '|OnePointCompletion| DV$1) . #2#)
-      (LETT $ (GETREFV 55) . #2#)
+      (LETT $ (GETREFV 56) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -206,15 +206,16 @@
               (96 . |recip|) (101 . <) (107 . <) (113 . |rational?|)
               (|Fraction| 25) (118 . |rational|) (123 . |rational|)
               (|Union| 46 '"failed") (128 . |rationalIfCan|)
-              (|PositiveInteger|) (|Union| 25 '"failed") (|SingleInteger|)
-              (|String|))
+              (|PositiveInteger|) (|Union| 25 '"failed") (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 133 |zero?| 139 |subtractIfCan| 144 |smaller?| 150 |sign| 156
               |sample| 161 |retractIfCan| 165 |retract| 180 |recip| 195
               |rationalIfCan| 200 |rational?| 205 |rational| 210 |positive?|
               215 |one?| 220 |negative?| 225 |min| 230 |max| 236 |latex| 242
-              |infinity| 247 |infinite?| 251 |hash| 256 |finite?| 261 |coerce|
-              266 |characteristic| 286 |abs| 290 ^ 295 |Zero| 307 |One| 311 >=
-              315 > 321 = 327 <= 333 < 339 - 345 + 356 * 362)
+              |infinity| 247 |infinite?| 251 |hashUpdate!| 256 |hash| 262
+              |finite?| 267 |coerce| 272 |characteristic| 292 |abs| 296 ^ 301
+              |Zero| 313 |One| 317 >= 321 > 327 = 333 <= 339 < 345 - 351 + 362
+              * 368)
            'NIL
            (CONS
             (|makeByteWordVec2| 5
@@ -237,7 +238,7 @@
                  (|BasicType|) (|RetractableTo| 6) (|CoercibleTo| 16)
                  (|RetractableTo| 46) (|RetractableTo| 25) (|PartialOrder|)
                  (|unitsKnown|))
-              (|makeByteWordVec2| 54
+              (|makeByteWordVec2| 55
                                   '(1 17 16 0 18 1 6 16 0 19 2 6 10 0 0 21 0 6
                                     0 23 0 0 0 24 2 6 0 25 0 26 2 0 0 25 0 27 1
                                     6 0 0 28 1 0 0 0 29 2 6 0 0 0 30 2 0 0 0 0
@@ -251,12 +252,12 @@
                                     0 1 1 0 6 0 9 1 3 40 0 42 1 7 49 0 50 1 7
                                     10 0 45 1 7 46 0 47 1 3 10 0 1 1 3 10 0 1 1
                                     3 10 0 1 2 3 0 0 0 1 2 3 0 0 0 1 1 0 54 0 1
-                                    0 0 0 13 1 0 10 0 12 1 0 53 0 1 1 0 10 0 11
-                                    1 6 0 25 1 1 1 0 46 1 1 0 0 6 8 1 0 16 0 20
-                                    0 3 34 36 1 3 0 0 1 2 3 0 0 51 1 2 3 0 0 34
-                                    1 0 4 0 24 0 3 0 33 2 3 10 0 0 1 2 3 10 0 0
-                                    1 2 0 10 0 0 22 2 3 10 0 0 1 2 3 10 0 0 44
-                                    2 4 0 0 0 1 1 4 0 0 29 2 4 0 0 0 31 2 4 0
-                                    25 0 27 2 4 0 34 0 1 2 4 0 51 0 1 2 3 0 0 0
-                                    39)))))
+                                    0 0 0 13 1 0 10 0 12 2 0 53 53 0 1 1 0 55 0
+                                    1 1 0 10 0 11 1 6 0 25 1 1 1 0 46 1 1 0 0 6
+                                    8 1 0 16 0 20 0 3 34 36 1 3 0 0 1 2 3 0 0
+                                    51 1 2 3 0 0 34 1 0 4 0 24 0 3 0 33 2 3 10
+                                    0 0 1 2 3 10 0 0 1 2 0 10 0 0 22 2 3 10 0 0
+                                    1 2 3 10 0 0 44 2 4 0 0 0 1 1 4 0 0 29 2 4
+                                    0 0 0 31 2 4 0 25 0 27 2 4 0 34 0 1 2 4 0
+                                    51 0 1 2 3 0 0 0 39)))))
            '|lookupComplete|)) 

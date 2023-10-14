@@ -833,7 +833,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|XRecursivePolynomial|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|XRecursivePolynomial| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 129) . #1#)
+      (LETT $ (GETREFV 130) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -903,17 +903,17 @@
               (299 . |length|) |XRPOLY;degree;$Nni;45| (|Mapping| 7 7)
               |XRPOLY;map;M2$;46| |XRPOLY;varList;$L;47| (304 . |setUnion|)
               (310 . |sort!|) (|Record| (|:| |k| 16) (|:| |c| 7))
-              (|Union| 16 '"failed") (|PositiveInteger|) (|String|)
-              (|SingleInteger|))
+              (|Union| 16 '"failed") (|PositiveInteger|) (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 315 |zero?| 321 |varList| 326 |unexpand| 331 |trunc| 336
               |subtractIfCan| 342 |sh| 348 |sample| 360 |rquo| 364
               |retractIfCan| 382 |retract| 387 |recip| 392 |quasiRegular?| 397
               |quasiRegular| 402 |one?| 407 |monomial?| 412 |monom| 417
               |mirror| 423 |mindegTerm| 428 |mindeg| 433 |maxdeg| 438 |map| 443
-              |lquo| 449 |latex| 467 |hash| 472 |expand| 477 |degree| 482
-              |constant?| 487 |constant| 492 |coerce| 497 |coef| 522
-              |characteristic| 534 ^ 538 |Zero| 550 |RemainderList| 554 |One|
-              559 = 563 - 569 + 580 * 586)
+              |lquo| 449 |latex| 467 |hashUpdate!| 472 |hash| 478 |expand| 483
+              |degree| 488 |constant?| 493 |constant| 498 |coerce| 503 |coef|
+              528 |characteristic| 540 ^ 544 |Zero| 556 |RemainderList| 560
+              |One| 565 = 569 - 575 + 586 * 592)
            'NIL
            (CONS
             (|makeByteWordVec2| 2
@@ -933,7 +933,7 @@
                  (|AbelianSemiGroup|) (|SetCategory|)
                  (|RetractableTo| (|OrderedFreeMonoid| 6)) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 62) (|noZeroDivisors|))
-              (|makeByteWordVec2| 128
+              (|makeByteWordVec2| 129
                                   '(2 7 9 0 0 10 2 11 9 0 0 12 0 7 0 15 1 11 23
                                     0 24 2 0 9 0 0 26 0 7 0 30 1 33 9 0 34 1 33
                                     7 0 35 2 6 9 0 0 36 1 33 37 0 38 2 37 0 39
@@ -959,14 +959,14 @@
                                     0 0 107 1 0 9 0 1 1 0 9 0 1 2 0 0 16 7 19 1
                                     0 0 0 1 1 0 124 0 1 1 0 16 0 112 1 0 16 0
                                     115 2 0 0 119 0 120 2 0 0 0 16 102 2 0 0 0
-                                    0 56 2 0 0 0 6 101 1 0 127 0 1 1 0 128 0 1
-                                    1 0 33 0 85 1 0 31 0 118 1 0 9 0 71 1 0 7 0
-                                    28 1 0 0 6 74 1 0 0 16 17 1 0 0 76 78 1 0 0
-                                    7 75 1 0 62 0 64 2 0 7 0 0 27 2 0 7 0 16
-                                    105 0 0 31 109 2 0 0 0 31 49 2 0 0 0 126 1
-                                    0 0 0 14 1 0 52 0 53 0 0 0 29 2 0 9 0 0 13
-                                    1 0 0 0 89 2 0 0 0 0 92 2 0 0 0 0 55 2 0 0
-                                    6 0 83 2 0 0 7 0 18 2 0 0 0 7 20 2 0 0 0 0
-                                    21 2 0 0 76 0 95 2 0 0 31 0 47 2 0 0 126 0
-                                    1)))))
+                                    0 56 2 0 0 0 6 101 1 0 128 0 1 2 0 127 127
+                                    0 1 1 0 129 0 1 1 0 33 0 85 1 0 31 0 118 1
+                                    0 9 0 71 1 0 7 0 28 1 0 0 6 74 1 0 0 16 17
+                                    1 0 0 76 78 1 0 0 7 75 1 0 62 0 64 2 0 7 0
+                                    0 27 2 0 7 0 16 105 0 0 31 109 2 0 0 0 31
+                                    49 2 0 0 0 126 1 0 0 0 14 1 0 52 0 53 0 0 0
+                                    29 2 0 9 0 0 13 2 0 0 0 0 92 1 0 0 0 89 2 0
+                                    0 0 0 55 2 0 0 6 0 83 2 0 0 7 0 18 2 0 0 0
+                                    7 20 2 0 0 76 0 95 2 0 0 0 0 21 2 0 0 31 0
+                                    47 2 0 0 126 0 1)))))
            '|lookupComplete|)) 

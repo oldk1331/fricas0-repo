@@ -94,7 +94,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeGroup|))
       (LETT |dv$| (LIST '|FreeGroup| DV$1) . #1#)
-      (LETT $ (GETREFV 50) . #1#)
+      (LETT $ (GETREFV 51) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|FreeGroup| (LIST DV$1) (CONS 1 $))
@@ -120,13 +120,13 @@
               (|Mapping| 33 33 33) (66 . |outputForm|) |FGROUP;coerce;$Of;10|
               (74 . =) (80 . |makeMulti|) (85 . |setlast!|) (91 . |concat!|)
               |FGROUP;*;3$;11| (|NonNegativeInteger|) (|Union| 6 '"failed")
-              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
-              (|SingleInteger|))
+              (|Union| $ '"failed") (|PositiveInteger|) (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 97 |size| 103 |sample| 108 |retractIfCan| 112 |retract| 117
               |recip| 122 |one?| 127 |nthFactor| 132 |nthExpon| 138 |mapGen|
-              144 |mapExpon| 150 |latex| 156 |inv| 161 |hash| 166 |factors| 171
-              |conjugate| 176 |commutator| 182 |coerce| 188 ^ 198 |One| 222 =
-              226 / 232 * 238)
+              144 |mapExpon| 150 |latex| 156 |inv| 161 |hashUpdate!| 166 |hash|
+              172 |factors| 177 |conjugate| 182 |commutator| 188 |coerce| 194 ^
+              204 |One| 228 = 232 / 238 * 244)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -136,7 +136,7 @@
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|SetCategory|)
                       (|BasicType|) (|RetractableTo| 6) (|unitsKnown|)
                       (|CoercibleTo| 33))
-                   (|makeByteWordVec2| 49
+                   (|makeByteWordVec2| 50
                                        '(0 8 0 9 1 8 11 0 12 2 8 0 6 15 16 2 8
                                          0 0 6 18 2 8 0 6 0 20 1 15 0 0 22 1 8
                                          0 0 25 1 11 0 0 27 2 8 0 23 0 29 2 8 0
@@ -146,11 +146,11 @@
                                          0 13 0 0 1 1 0 44 0 1 0 0 0 1 1 0 45 0
                                          1 1 0 6 0 1 1 0 46 0 1 1 0 13 0 14 2 0
                                          6 0 15 1 2 0 15 0 15 1 2 0 0 30 0 32 2
-                                         0 0 23 0 24 1 0 48 0 1 1 0 0 0 26 1 0
-                                         49 0 1 1 0 11 0 28 2 0 0 0 0 1 2 0 0 0
-                                         0 1 1 0 0 6 1 1 0 33 0 38 2 0 0 6 15
-                                         17 2 0 0 0 15 1 2 0 0 0 44 1 2 0 0 0
-                                         47 1 0 0 0 7 2 0 13 0 0 1 2 0 0 0 0 1
-                                         2 0 0 0 6 19 2 0 0 6 0 21 2 0 0 0 0
-                                         43)))))
+                                         0 0 23 0 24 1 0 49 0 1 1 0 0 0 26 2 0
+                                         48 48 0 1 1 0 50 0 1 1 0 11 0 28 2 0 0
+                                         0 0 1 2 0 0 0 0 1 1 0 0 6 1 1 0 33 0
+                                         38 2 0 0 6 15 17 2 0 0 0 15 1 2 0 0 0
+                                         44 1 2 0 0 0 47 1 0 0 0 7 2 0 13 0 0 1
+                                         2 0 0 0 0 1 2 0 0 6 0 21 2 0 0 0 6 19
+                                         2 0 0 0 0 43)))))
            '|lookupComplete|)) 

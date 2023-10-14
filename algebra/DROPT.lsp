@@ -189,7 +189,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|DrawOption|) . #1=(|DrawOption|))
-      (LETT $ (GETREFV 90) . #1#)
+      (LETT $ (GETREFV 91) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|DrawOption| NIL (CONS 1 $))
@@ -241,19 +241,19 @@
               (|OutputForm|) (|Symbol|) (76 . |coerce|) (81 . |coerce|)
               (86 . =) |DROPT;coerce;$Of;29| (92 . =) |DROPT;=;2$B;30|
               (|List| $) |DROPT;option?;LSB;31| (|Union| 7 '"failed")
-              |DROPT;option;LSU;32| (|SingleInteger|))
+              |DROPT;option;LSU;32| (|SingleInteger|) (|HashState|))
            '#(~= 98 |viewpoint| 104 |var2Steps| 109 |var1Steps| 114 |unit| 119
               |tubeRadius| 124 |tubePoints| 129 |toScale| 134 |title| 139
               |style| 144 |space| 149 |ranges| 154 |range| 159 |pointColor| 169
-              |option?| 179 |option| 185 |latex| 191 |hash| 196 |curveColor|
-              201 |coordinates| 211 |coord| 216 |colorFunction| 221 |coerce|
-              236 |clip| 241 |adaptive| 251 = 256)
+              |option?| 179 |option| 185 |latex| 191 |hashUpdate!| 196 |hash|
+              202 |curveColor| 207 |coordinates| 217 |coord| 222
+              |colorFunction| 227 |coerce| 242 |clip| 247 |adaptive| 257 = 262)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 77))
-                        (|makeByteWordVec2| 89
+                        (|makeByteWordVec2| 90
                                             '(1 9 7 8 10 1 13 7 12 14 1 18 7 17
                                               19 1 24 7 23 25 1 28 7 27 29 1 34
                                               7 33 35 1 38 7 37 39 1 42 7 41 43
@@ -268,12 +268,12 @@
                                               0 0 62 65 1 0 0 47 61 1 0 0 57 60
                                               1 0 0 47 56 1 0 0 27 30 1 0 0 23
                                               26 2 0 17 85 78 86 2 0 87 85 78
-                                              88 1 0 12 0 1 1 0 89 0 1 1 0 0 27
-                                              32 1 0 0 23 31 1 0 0 51 54 1 0 0
-                                              51 72 1 0 0 37 40 1 0 0 41 44 1 0
-                                              0 33 36 1 0 77 0 82 1 0 0 47 50 1
-                                              0 0 17 21 1 0 0 17 22 2 0 17 0 0
-                                              84)))))
+                                              88 1 0 12 0 1 2 0 90 90 0 1 1 0
+                                              89 0 1 1 0 0 27 32 1 0 0 23 31 1
+                                              0 0 51 54 1 0 0 51 72 1 0 0 37 40
+                                              1 0 0 41 44 1 0 0 33 36 1 0 77 0
+                                              82 1 0 0 47 50 1 0 0 17 21 1 0 0
+                                              17 22 2 0 17 0 0 84)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DrawOption| 'NILADIC T) 

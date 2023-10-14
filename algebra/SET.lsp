@@ -425,7 +425,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|Set|))
       (LETT |dv$| (LIST '|Set| DV$1) . #3#)
-      (LETT $ (GETREFV 82) . #3#)
+      (LETT $ (GETREFV 83) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -520,20 +520,20 @@
               (198 . |concat!|) (204 . <) (210 . |intersect|)
               (216 . |difference|) (222 . |symmetricDifference|) (228 . >)
               (234 . |subset?|) (240 . |union|) (246 . |removeDuplicates!|)
-              (|List| 77) (|Equation| 6) (|PositiveInteger|) (|SingleInteger|)
-              (|OutputForm|) (|String|))
+              (|Equation| 6) (|List| 76) (|PositiveInteger|) (|SingleInteger|)
+              (|OutputForm|) (|HashState|) (|String|))
            '#(~= 251 |universe| 257 |union| 261 |symmetricDifference| 279
               |subset?| 285 |size?| 291 |size| 297 |set| 301 |select!| 310
               |select| 316 |sample| 322 |removeDuplicates| 326 |remove!| 331
               |remove| 343 |reduce| 355 |random| 376 |parts| 380 |more?| 385
               |min| 391 |members| 396 |member?| 401 |max| 407 |map!| 412 |map|
               418 |lookup| 424 |less?| 429 |latex| 435 |intersect| 440
-              |inspect| 446 |insert!| 451 |index| 457 |hash| 462 |find| 467
-              |extract!| 473 |every?| 478 |eval| 484 |eq?| 510 |enumerate| 516
-              |empty?| 520 |empty| 525 |difference| 529 |dictionary| 541
-              |count| 550 |copy| 562 |convert| 567 |construct| 572 |complement|
-              577 |coerce| 582 |cardinality| 587 |brace| 592 |bag| 601 |any?|
-              606 >= 612 > 618 = 624 <= 630 < 636 |#| 642)
+              |inspect| 446 |insert!| 451 |index| 457 |hashUpdate!| 462 |hash|
+              468 |find| 473 |extract!| 479 |every?| 484 |eval| 490 |eq?| 516
+              |enumerate| 522 |empty?| 526 |empty| 531 |difference| 535
+              |dictionary| 547 |count| 556 |copy| 568 |convert| 573 |construct|
+              578 |complement| 583 |coerce| 588 |cardinality| 593 |brace| 598
+              |bag| 607 |any?| 612 >= 618 > 624 = 630 <= 636 < 642 |#| 648)
            'NIL
            (CONS
             (|makeByteWordVec2| 5 '(0 0 0 0 0 0 0 2 0 0 5 0 0 0 0 0 0 5 1))
@@ -551,7 +551,7 @@
                  (|finiteAggregate|) (|PartialOrder|) (|BasicType|)
                  (|CoercibleTo| 80) (|Type|) (|shallowlyMutable|)
                  (|InnerEvalable| 6 6) (|ConvertibleTo| 43))
-              (|makeByteWordVec2| 81
+              (|makeByteWordVec2| 82
                                   '(1 7 8 0 9 0 7 0 14 1 7 0 0 15 1 7 17 0 18 1
                                     0 20 0 21 1 7 22 0 23 2 7 6 0 22 24 2 7 0 0
                                     22 26 2 7 28 29 0 30 2 0 0 32 0 33 2 7 6 35
@@ -566,24 +566,24 @@
                                     0 0 68 2 0 0 0 0 69 2 0 0 0 0 70 2 0 0 0 0
                                     71 2 22 20 0 0 72 2 0 20 0 0 73 2 0 0 0 0
                                     74 1 7 0 0 75 2 0 20 0 0 1 0 2 0 1 2 0 0 0
-                                    6 1 2 0 0 0 0 74 2 0 0 6 0 1 2 0 0 0 0 71 2
-                                    0 20 0 0 73 2 0 20 0 8 1 0 2 8 1 1 0 0 17 1
-                                    0 0 0 13 2 8 0 29 0 1 2 8 0 29 0 1 0 0 0 1
-                                    1 9 0 0 1 2 8 0 29 0 1 2 8 0 6 0 65 2 9 0 6
-                                    0 1 2 8 0 29 0 1 4 9 6 35 0 6 6 41 2 8 6 35
-                                    0 37 3 8 6 35 0 6 39 0 2 0 1 1 8 17 0 19 2
+                                    0 74 2 0 0 6 0 1 2 0 0 0 6 1 2 0 0 0 0 71 2
+                                    0 20 0 0 73 2 0 20 0 8 1 0 2 8 1 0 0 0 13 1
+                                    0 0 17 1 2 8 0 29 0 1 2 8 0 29 0 1 0 0 0 1
+                                    1 9 0 0 1 2 8 0 6 0 65 2 8 0 29 0 1 2 9 0 6
+                                    0 1 2 8 0 29 0 1 4 9 6 35 0 6 6 41 3 8 6 35
+                                    0 6 39 2 8 6 35 0 37 0 2 0 1 1 8 17 0 19 2
                                     0 20 0 8 1 1 6 6 0 53 1 8 17 0 1 2 9 20 6 0
                                     64 1 6 6 0 51 2 7 0 32 0 33 2 0 0 32 0 34 1
-                                    2 78 0 1 2 0 20 0 8 1 1 0 81 0 1 2 0 0 0 0
-                                    69 1 0 6 0 25 2 0 0 6 0 63 1 2 0 78 1 1 0
-                                    79 0 1 2 0 28 29 0 31 1 0 6 0 27 2 8 20 29
-                                    0 1 3 4 0 0 17 17 1 3 4 0 0 6 6 1 2 4 0 0
-                                    76 1 2 4 0 0 77 1 2 0 20 0 0 1 0 2 46 1 1 0
-                                    20 0 21 0 0 0 11 2 0 0 0 6 1 2 0 0 0 0 70 1
-                                    0 0 17 1 0 0 0 1 2 9 8 6 0 1 2 8 8 29 0 1 1
-                                    0 0 0 16 1 1 43 0 48 1 0 0 17 59 1 2 0 0 1
-                                    1 0 80 0 1 1 0 8 0 1 1 0 0 17 1 0 0 0 12 1
-                                    0 0 17 1 2 8 20 29 0 1 2 0 20 0 0 1 2 0 20
-                                    0 0 1 2 0 20 0 0 50 2 0 20 0 0 1 2 0 20 0 0
-                                    1 1 8 8 0 10)))))
+                                    2 78 0 1 2 0 20 0 8 1 1 0 82 0 1 2 0 0 0 0
+                                    69 1 0 6 0 25 2 0 0 6 0 63 1 2 0 78 1 2 0
+                                    81 81 0 1 1 0 79 0 1 2 0 28 29 0 31 1 0 6 0
+                                    27 2 8 20 29 0 1 3 4 0 0 17 17 1 2 4 0 0 76
+                                    1 3 4 0 0 6 6 1 2 4 0 0 77 1 2 0 20 0 0 1 0
+                                    2 46 1 1 0 20 0 21 0 0 0 11 2 0 0 0 0 70 2
+                                    0 0 0 6 1 0 0 0 1 1 0 0 17 1 2 9 8 6 0 1 2
+                                    8 8 29 0 1 1 0 0 0 16 1 1 43 0 48 1 0 0 17
+                                    59 1 2 0 0 1 1 0 80 0 1 1 0 8 0 1 0 0 0 12
+                                    1 0 0 17 1 1 0 0 17 1 2 8 20 29 0 1 2 0 20
+                                    0 0 1 2 0 20 0 0 1 2 0 20 0 0 50 2 0 20 0 0
+                                    1 2 0 20 0 0 1 1 8 8 0 10)))))
            '|lookupComplete|)) 

@@ -160,7 +160,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|Magma|))
       (LETT |dv$| (LIST '|Magma| DV$1) . #1#)
-      (LETT $ (GETREFV 45) . #1#)
+      (LETT $ (GETREFV 46) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Magma| (LIST DV$1) (CONS 1 $))
@@ -184,12 +184,12 @@
               |MAGMA;coerce;$Of;11| (|List| $) (39 . |bracket|) |MAGMA;*;3$;12|
               |MAGMA;first;$VarSet;13| |MAGMA;rest;2$;14| (|PositiveInteger|)
               |MAGMA;length;$Pi;15| (44 . <) |MAGMA;<;2$B;18| (50 . <=)
-              |MAGMA;lexico;2$B;17| (|String|) (|SingleInteger|))
+              |MAGMA;lexico;2$B;17| (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 56 |varList| 62 |smaller?| 67 |right| 73 |retractable?| 78
               |retractIfCan| 83 |retract| 88 |rest| 93 |mirror| 98 |min| 103
-              |max| 109 |lexico| 115 |length| 121 |left| 126 |latex| 131 |hash|
-              136 |first| 141 |coerce| 146 >= 161 > 167 = 173 <= 179 < 185 *
-              191)
+              |max| 109 |lexico| 115 |length| 121 |left| 126 |latex| 131
+              |hashUpdate!| 136 |hash| 142 |first| 147 |coerce| 152 >= 167 >
+              173 = 179 <= 185 < 191 * 197)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -199,7 +199,7 @@
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
                       (|BasicType|) (|RetractableTo| 6) (|PartialOrder|)
                       (|CoercibleTo| 29))
-                   (|makeByteWordVec2| 44
+                   (|makeByteWordVec2| 45
                                        '(2 6 9 0 0 10 2 7 9 0 0 11 2 13 0 0 0
                                          15 1 13 0 0 16 1 25 0 6 26 2 25 0 0 0
                                          28 1 6 29 0 30 1 29 0 32 33 2 6 9 0 0
@@ -207,9 +207,9 @@
                                          14 2 0 9 0 0 1 1 0 0 0 18 1 0 9 0 19 1
                                          0 21 0 22 1 0 6 0 20 1 0 0 0 36 1 0 0
                                          0 24 2 0 0 0 0 1 2 0 0 0 0 1 2 0 9 0 0
-                                         42 1 0 37 0 38 1 0 0 0 17 1 0 43 0 1 1
-                                         0 44 0 1 1 0 6 0 35 1 0 25 0 27 1 0 0
-                                         6 23 1 0 29 0 31 2 0 9 0 0 1 2 0 9 0 0
-                                         1 2 0 9 0 0 12 2 0 9 0 0 1 2 0 9 0 0
-                                         40 2 0 0 0 0 34)))))
+                                         42 1 0 37 0 38 1 0 0 0 17 1 0 44 0 1 2
+                                         0 43 43 0 1 1 0 45 0 1 1 0 6 0 35 1 0
+                                         25 0 27 1 0 0 6 23 1 0 29 0 31 2 0 9 0
+                                         0 1 2 0 9 0 0 1 2 0 9 0 0 12 2 0 9 0 0
+                                         1 2 0 9 0 0 40 2 0 0 0 0 34)))))
            '|lookupComplete|)) 

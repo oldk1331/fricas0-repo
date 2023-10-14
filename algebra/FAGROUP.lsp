@@ -81,7 +81,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeAbelianGroup|))
       (LETT |dv$| (LIST '|FreeAbelianGroup| DV$1) . #1#)
-      (LETT $ (GETREFV 30) . #1#)
+      (LETT $ (GETREFV 31) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -111,7 +111,8 @@
               (|Record| (|:| |gen| 6) (|:| |exp| 7)) (|List| 16) (26 . |terms|)
               (31 . *) (37 . -) (43 . <) (|Union| 6 '"failed")
               (|NonNegativeInteger|) (|Mapping| 6 6) (|Union| $ '"failed")
-              (|PositiveInteger|) (|SingleInteger|) (|String|) (|OutputForm|))
+              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
+              (|OutputForm|))
            '#(|zero?| 49 |terms| 54 |mapCoef| 59 |Zero| 65 < 69 - 75 * 86) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 1))
                  (CONS
@@ -126,7 +127,7 @@
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
                       (|OrderedSet|) (|AbelianSemiGroup|) (|Comparable|)
                       (|SetCategory|) (|RetractableTo| 6) (|BasicType|)
-                      (|CoercibleTo| 29) (|PartialOrder|))
+                      (|CoercibleTo| 30) (|PartialOrder|))
                    (|makeByteWordVec2| 21
                                        '(1 7 0 0 8 2 0 0 9 0 10 2 6 12 0 0 13 1
                                          0 12 0 14 0 0 0 15 1 0 17 0 18 2 0 0 7

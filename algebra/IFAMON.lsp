@@ -125,7 +125,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT |dv$| (LIST '|InnerFreeAbelianMonoid| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 59) . #1#)
+      (LETT $ (GETREFV 60) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -170,12 +170,12 @@
               |IFAMON;coefficient;S$E;14| (99 . >) (105 . |min|)
               (111 . |makeMulti|) (116 . |highCommonTerms|)
               (|Union| 6 '"failed") (|Union| $ '"failed") (|PositiveInteger|)
-              (|String|) (|SingleInteger|))
+              (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 122 |zero?| 128 |terms| 133 |subtractIfCan| 138 |size| 144
               |sample| 149 |retractIfCan| 153 |retract| 158 |nthFactor| 163
               |nthCoef| 169 |mapGen| 175 |mapCoef| 181 |latex| 187
-              |highCommonTerms| 192 |hash| 198 |coerce| 203 |coefficient| 213
-              |Zero| 219 = 223 + 229 * 241)
+              |highCommonTerms| 192 |hashUpdate!| 198 |hash| 204 |coerce| 209
+              |coefficient| 219 |Zero| 225 = 229 + 235 * 247)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -186,7 +186,7 @@
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
                       (|AbelianSemiGroup|) (|SetCategory|) (|BasicType|)
                       (|RetractableTo| 6) (|CoercibleTo| 37))
-                   (|makeByteWordVec2| 58
+                   (|makeByteWordVec2| 59
                                        '(0 9 0 10 1 9 13 0 14 1 13 0 0 17 2 9 7
                                          0 19 20 2 9 6 0 19 22 3 9 0 6 7 0 24 2
                                          9 0 0 0 26 2 9 15 0 0 28 2 9 0 6 7 30
@@ -198,9 +198,9 @@
                                          0 13 0 18 2 0 55 0 0 1 1 0 32 0 1 0 0
                                          0 1 1 0 54 0 1 1 0 6 0 1 2 0 6 0 19 23
                                          2 0 7 0 19 21 2 0 0 44 0 46 2 0 0 34 0
-                                         43 1 0 57 0 1 2 1 0 0 0 53 1 0 58 0 1
-                                         1 0 0 6 1 1 0 37 0 42 2 0 7 6 0 49 0 0
-                                         0 11 2 0 15 0 0 29 2 0 0 6 0 25 2 0 0
-                                         0 0 27 2 0 0 7 6 31 2 0 0 32 0 36 2 0
-                                         0 56 0 1)))))
+                                         43 1 0 58 0 1 2 1 0 0 0 53 2 0 57 57 0
+                                         1 1 0 59 0 1 1 0 0 6 1 1 0 37 0 42 2 0
+                                         7 6 0 49 0 0 0 11 2 0 15 0 0 29 2 0 0
+                                         6 0 25 2 0 0 0 0 27 2 0 0 7 6 31 2 0 0
+                                         32 0 36 2 0 0 56 0 1)))))
            '|lookupComplete|)) 

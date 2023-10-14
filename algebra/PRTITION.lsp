@@ -182,7 +182,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Partition|) . #1=(|Partition|))
-      (LETT $ (GETREFV 49) . #1#)
+      (LETT $ (GETREFV 50) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Partition| NIL (CONS 1 $))
@@ -208,11 +208,12 @@
               (40 . |coerce|) (45 . ^) (51 . |second|) (56 . |coerce|) (61 . *)
               (|Mapping| 33 33 33) (|List| 33) (67 . |reduce|) (73 . |paren|)
               |PRTITION;coerce;$Of;17| (78 . |factorial|) |PRTITION;pdct;$I;18|
-              (|PositiveInteger|) (|String|) (|SingleInteger|))
+              (|PositiveInteger|) (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 83 |zero?| 89 |subtractIfCan| 94 |smaller?| 100 |sample| 106
               |powers| 110 |pdct| 115 |partition| 120 |min| 125 |max| 131
-              |latex| 137 |hash| 142 |convert| 147 |conjugate| 152 |coerce| 157
-              |Zero| 167 >= 171 > 177 = 183 <= 189 < 195 + 201 * 207)
+              |latex| 137 |hashUpdate!| 142 |hash| 148 |convert| 153
+              |conjugate| 158 |coerce| 163 |Zero| 173 >= 177 > 183 = 189 <= 195
+              < 201 + 207 * 213)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -226,7 +227,7 @@
                       (|AbelianMonoid|) (|Comparable|) (|AbelianSemiGroup|)
                       (|SetCategory|) (|ConvertibleTo| 8) (|BasicType|)
                       (|PartialOrder|) (|CoercibleTo| 33))
-                   (|makeByteWordVec2| 48
+                   (|makeByteWordVec2| 49
                                        '(1 8 0 0 10 2 13 12 0 0 14 2 6 0 15 0
                                          16 2 13 12 0 0 20 2 23 22 0 0 24 2 6
                                          12 13 0 26 1 30 8 8 31 1 13 33 0 34 2
@@ -235,12 +236,12 @@
                                          42 1 13 0 0 44 2 0 12 0 0 1 1 0 12 0 1
                                          2 0 22 0 0 27 2 0 12 0 0 1 0 0 0 1 1 0
                                          28 8 29 1 0 13 0 45 1 0 0 8 17 2 0 0 0
-                                         0 1 2 0 0 0 0 1 1 0 47 0 1 1 0 48 0 1
-                                         1 0 8 0 11 1 0 0 0 32 1 0 8 0 9 1 0 33
-                                         0 43 0 0 0 7 2 0 12 0 0 1 2 0 12 0 0 1
-                                         2 0 12 0 0 19 2 0 12 0 0 1 2 0 12 0 0
-                                         18 2 0 0 0 0 21 2 0 0 23 0 25 2 0 0 46
-                                         0 1)))))
+                                         0 1 2 0 0 0 0 1 1 0 48 0 1 2 0 47 47 0
+                                         1 1 0 49 0 1 1 0 8 0 11 1 0 0 0 32 1 0
+                                         8 0 9 1 0 33 0 43 0 0 0 7 2 0 12 0 0 1
+                                         2 0 12 0 0 1 2 0 12 0 0 19 2 0 12 0 0
+                                         1 2 0 12 0 0 18 2 0 0 0 0 21 2 0 0 23
+                                         0 25 2 0 0 46 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Partition| 'NILADIC T) 

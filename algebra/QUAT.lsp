@@ -24,7 +24,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Quaternion|))
       (LETT |dv$| (LIST '|Quaternion| DV$1) . #2#)
-      (LETT $ (GETREFV 37) . #2#)
+      (LETT $ (GETREFV 38) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -110,8 +110,8 @@
               (|Record| (|:| |mat| 26) (|:| |vec| (|Vector| 19))) (|Matrix| $)
               (|Vector| $) (|Matrix| 19) (|List| 13) (|Union| 19 '#1="failed")
               (|Matrix| 6) (|Record| (|:| |mat| 29) (|:| |vec| (|Vector| 6)))
-              (|Mapping| 6 6) (|Union| 6 '#1#) (|PositiveInteger|)
-              (|SingleInteger|) (|String|) (|OutputForm|))
+              (|Mapping| 6 6) (|Union| 6 '#1#) (|PositiveInteger|) (|String|)
+              (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|One| 13) 'NIL
            (CONS
             (|makeByteWordVec2| 15
@@ -146,7 +146,7 @@
                  (|FullyEvalableOver| 6) (|SemiGroup|) (|AbelianSemiGroup|)
                  (|Comparable|) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|Evalable| 6) (|RetractableTo| 6) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 36) (|ConvertibleTo| 12)
+                 (|BasicType|) (|CoercibleTo| 37) (|ConvertibleTo| 12)
                  (|noZeroDivisors|) (|PartialOrder|) (|RetractableTo| 10)
                  (|RetractableTo| 19) (|InnerEvalable| 20 6)
                  (|InnerEvalable| 6 6) (|Eltable| 6 $$))

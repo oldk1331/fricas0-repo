@@ -80,7 +80,7 @@
 (DEFUN |SYMBOL;convert;$P;19| (|x| $) (SPADCALL |x| (QREFELT $ 71))) 
 
 (DEFUN |SYMBOL;syprefix| (|sc| $)
-  (PROG (#1=#:G1945 |n| #2=#:G1944 |ns|)
+  (PROG (#1=#:G1965 |n| #2=#:G1964 |ns|)
     (RETURN
      (SEQ
       (LETT |ns|
@@ -277,7 +277,7 @@
       (EXIT |s|))))) 
 
 (DEFUN |SYMBOL;anyRadix| (|n| |s| $)
-  (PROG (#1=#:G1999 |ns| |qr|)
+  (PROG (#1=#:G2019 |ns| |qr|)
     (RETURN
      (SEQ
       (EXIT
@@ -349,7 +349,7 @@
                  (QREFELT $ 77))))))) 
 
 (DEFUN |SYMBOL;resetNew;V;29| ($)
-  (PROG (#1=#:G2019 |k|)
+  (PROG (#1=#:G2039 |k|)
     (RETURN
      (SEQ (SPADCALL (QREFELT $ 9) 0 (QREFELT $ 91))
           (SEQ (LETT |k| NIL . #2=(|SYMBOL;resetNew;V;29|))
@@ -364,7 +364,7 @@
 (DEFUN |SYMBOL;scripted?;$B;30| (|sy| $) (COND ((ATOM |sy|) 'NIL) ('T 'T))) 
 
 (DEFUN |SYMBOL;name;2$;31| (|sy| $)
-  (PROG (#1=#:G2023 #2=#:G2025 #3=#:G2026 |i| |str|)
+  (PROG (#1=#:G2043 #2=#:G2045 #3=#:G2046 |i| |str|)
     (RETURN
      (SEQ
       (EXIT
@@ -408,8 +408,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SYMBOL;scripts;$R;32| (|sy| $)
-  (PROG (|allscripts| #1=#:G2040 |a| #2=#:G2039 |i| #3=#:G2038 |n| |m|
-         |nscripts| #4=#:G2029 |j| |nstr| |str| |lscripts|)
+  (PROG (|allscripts| #1=#:G2060 |a| #2=#:G2059 |i| #3=#:G2058 |n| |m|
+         |nscripts| #4=#:G2049 |j| |nstr| |str| |lscripts|)
     (RETURN
      (SEQ
       (COND
@@ -520,7 +520,7 @@
 (DEFUN |Symbol| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2047)
+     (PROG (#1=#:G2067)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Symbol|) . #2=(|Symbol|))
@@ -539,7 +539,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|Symbol|) . #1=(|Symbol|))
-      (LETT $ (GETREFV 124) . #1#)
+      (LETT $ (GETREFV 125) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|Symbol| NIL (CONS 1 $))
@@ -603,13 +603,13 @@
               (254 . >)
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |SYMBOL;sample;$;35|) $))
-              (|SingleInteger|))
+              (|SingleInteger|) (|HashState|))
            '#(~= 260 |superscript| 266 |subscript| 272 |string| 278 |smaller?|
               283 |scripts| 289 |scripted?| 294 |script| 299 |sample| 311
               |resetNew| 315 |patternMatch| 319 |new| 333 |name| 342 |min| 347
-              |max| 353 |list| 359 |latex| 364 |hash| 369 |elt| 374 |convert|
-              380 |coerce| 400 |argscript| 410 |OMwrite| 416 >= 440 > 446 = 452
-              <= 458 < 464)
+              |max| 353 |list| 359 |latex| 364 |hashUpdate!| 369 |hash| 375
+              |elt| 380 |convert| 386 |coerce| 406 |argscript| 416 |OMwrite|
+              422 >= 446 > 452 = 458 <= 464 < 470)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -621,7 +621,7 @@
                       (|SetCategory|) (|BasicType|) (|ConvertibleTo| 64)
                       (|ConvertibleTo| 58) (|ConvertibleTo| 23) (|OpenMath|)
                       (|ConvertibleTo| 40) (|PartialOrder|) (|CoercibleTo| 47))
-                   (|makeByteWordVec2| 123
+                   (|makeByteWordVec2| 124
                                        '(1 7 0 6 8 0 10 0 11 1 14 0 13 15 2 24
                                          22 0 23 25 0 26 0 27 2 24 0 28 26 29 1
                                          24 22 0 30 1 24 22 0 31 1 24 22 0 32 1
@@ -646,13 +646,14 @@
                                          122 0 0 22 103 3 0 67 0 64 67 68 3 0
                                          61 0 58 61 62 0 0 0 92 1 0 0 0 98 1 0
                                          0 0 78 2 0 0 0 0 1 2 0 0 0 0 1 1 0 73
-                                         0 104 1 0 28 0 87 1 0 123 0 1 2 0 0 0
-                                         52 54 1 0 64 0 70 1 0 23 0 43 1 0 58 0
-                                         72 1 0 40 0 42 1 0 0 28 44 1 0 47 0 49
-                                         2 0 0 0 52 56 2 0 22 24 0 35 3 0 22 24
-                                         0 20 36 1 0 28 0 33 2 0 28 0 20 34 2 0
-                                         20 0 0 1 2 0 20 0 0 1 2 0 20 0 0 45 2
-                                         0 20 0 0 1 2 0 20 0 0 46)))))
+                                         0 104 1 0 28 0 87 2 0 124 124 0 1 1 0
+                                         123 0 1 2 0 0 0 52 54 1 0 64 0 70 1 0
+                                         23 0 43 1 0 58 0 72 1 0 40 0 42 1 0 0
+                                         28 44 1 0 47 0 49 2 0 0 0 52 56 3 0 22
+                                         24 0 20 36 2 0 28 0 20 34 2 0 22 24 0
+                                         35 1 0 28 0 33 2 0 20 0 0 1 2 0 20 0 0
+                                         1 2 0 20 0 0 45 2 0 20 0 0 1 2 0 20 0
+                                         0 46)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Symbol| 'NILADIC T) 

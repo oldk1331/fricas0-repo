@@ -164,7 +164,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|KeyedAccessFile|))
       (LETT |dv$| (LIST '|KeyedAccessFile| DV$1) . #4#)
-      (LETT $ (GETREFV 63) . #4#)
+      (LETT $ (GETREFV 64) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -242,7 +242,8 @@
               (|Equation| 29) (|List| 29) (|Mapping| 29 29 29) (|List| 6)
               (|Equation| 6) (|List| 52) (|InputForm|) (|Mapping| 14 29)
               (|Mapping| 14 6) (|Mapping| 29 29) (|Void|) (|Mapping| 6 6)
-              (|Union| 29 '"failed") (|Mapping| 6 6 6) (|SingleInteger|))
+              (|Union| 29 '"failed") (|Mapping| 6 6 6) (|SingleInteger|)
+              (|HashState|))
            '#(~= 51 |write!| 57 |table| 63 |swap!| 72 |size?| 79 |setelt| 85
               |select!| 92 |select| 98 |search| 104 |sample| 110 |reopen!| 114
               |removeDuplicates| 120 |remove!| 125 |remove| 143 |reduce| 155
@@ -250,12 +251,12 @@
               |open| 209 |name| 220 |more?| 225 |minIndex| 231 |members| 236
               |member?| 246 |maxIndex| 258 |map!| 263 |map| 275 |less?| 294
               |latex| 300 |keys| 305 |key?| 310 |iomode| 316 |inspect| 321
-              |insert!| 326 |indices| 332 |index?| 337 |hash| 343 |flush| 348
-              |first| 353 |find| 358 |fill!| 364 |extract!| 370 |every?| 375
-              |eval| 387 |eq?| 439 |entry?| 445 |entries| 451 |empty?| 456
-              |empty| 461 |elt| 465 |dictionary| 478 |count| 487 |copy| 511
-              |convert| 516 |construct| 521 |coerce| 526 |close!| 531 |bag| 536
-              |any?| 541 = 553 |#| 559)
+              |insert!| 326 |indices| 332 |index?| 337 |hashUpdate!| 343 |hash|
+              349 |flush| 354 |first| 359 |find| 364 |fill!| 370 |extract!| 376
+              |every?| 381 |eval| 393 |eq?| 445 |entry?| 451 |entries| 457
+              |empty?| 462 |empty| 467 |elt| 471 |dictionary| 484 |count| 493
+              |copy| 517 |convert| 522 |construct| 527 |coerce| 532 |close!|
+              537 |bag| 542 |any?| 547 = 559 |#| 565)
            'NIL
            (CONS
             (|makeByteWordVec2| 6
@@ -288,11 +289,11 @@
                  (|InnerEvalable| (|Record| (|:| |key| 9) (|:| |entry| 6))
                                   (|Record| (|:| |key| 9) (|:| |entry| 6)))
                  (|ConvertibleTo| 54) (|InnerEvalable| 6 6))
-              (|makeByteWordVec2| 62
+              (|makeByteWordVec2| 63
                                   '(1 10 9 0 11 1 9 12 0 13 2 10 14 0 0 15 1 10
                                     12 0 17 1 10 14 0 21 2 9 14 0 0 24 2 27 25
                                     0 26 28 3 10 0 9 9 9 34 2 36 14 9 0 42 2 0
-                                    14 0 0 1 2 0 29 0 29 31 1 0 0 49 1 0 0 0 1
+                                    14 0 0 1 2 0 29 0 29 31 0 0 0 1 1 0 0 49 1
                                     3 7 58 0 9 9 1 2 0 14 0 38 1 3 0 6 0 9 6 41
                                     2 8 0 55 0 1 2 8 0 55 0 1 2 0 43 9 0 44 0 0
                                     0 1 2 0 0 0 9 22 1 10 0 0 1 2 8 0 29 0 1 2
@@ -300,23 +301,23 @@
                                     0 55 0 1 4 10 29 50 0 29 29 1 3 8 29 50 0
                                     29 1 2 8 29 50 0 1 1 0 29 0 30 3 7 6 0 9 6
                                     1 2 0 6 0 9 1 1 8 49 0 1 1 8 51 0 1 1 0 0 0
-                                    46 2 0 0 10 9 19 1 0 0 10 20 1 0 10 0 32 2
+                                    46 1 0 0 10 20 2 0 0 10 9 19 1 0 10 0 32 2
                                     0 14 0 38 1 1 4 9 0 1 1 8 49 0 1 1 8 51 0 1
                                     2 10 14 29 0 1 2 9 14 6 0 1 1 4 9 0 1 2 7 0
                                     57 0 1 2 7 0 59 0 1 2 0 0 57 0 1 2 0 0 59 0
                                     1 3 0 0 61 0 0 1 2 0 14 0 38 1 1 0 9 0 1 1
                                     0 36 0 37 2 0 14 9 0 1 1 0 9 0 33 1 0 29 0
-                                    1 2 0 0 29 0 1 1 0 36 0 1 2 0 14 9 0 1 1 0
-                                    62 0 1 1 0 58 0 1 1 4 6 0 1 2 0 60 55 0 1 2
-                                    7 0 0 6 1 1 0 29 0 1 2 8 14 55 0 1 2 8 14
-                                    56 0 1 2 6 0 0 47 1 3 6 0 0 29 29 1 2 6 0 0
-                                    48 1 3 6 0 0 49 49 1 3 3 0 0 6 6 1 3 3 0 0
-                                    51 51 1 2 3 0 0 52 1 2 3 0 0 53 1 2 0 14 0
-                                    0 1 2 9 14 6 0 1 1 0 51 0 1 1 0 14 0 1 0 0
-                                    0 35 2 0 6 0 9 40 3 0 6 0 9 6 1 1 0 0 49 1
-                                    0 0 0 1 2 10 38 29 0 1 2 9 38 6 0 1 2 8 38
-                                    55 0 1 2 8 38 56 0 1 1 0 0 0 1 1 1 54 0 1 1
-                                    0 0 49 1 1 0 12 0 18 1 0 0 0 23 1 0 0 49 1
-                                    2 8 14 55 0 1 2 8 14 56 0 1 2 0 14 0 0 16 1
-                                    8 38 0 39)))))
+                                    1 2 0 0 29 0 1 1 0 36 0 1 2 0 14 9 0 1 2 0
+                                    63 63 0 1 1 0 62 0 1 1 0 58 0 1 1 4 6 0 1 2
+                                    0 60 55 0 1 2 7 0 0 6 1 1 0 29 0 1 2 8 14
+                                    55 0 1 2 8 14 56 0 1 2 6 0 0 47 1 3 6 0 0
+                                    29 29 1 2 6 0 0 48 1 3 6 0 0 49 49 1 3 3 0
+                                    0 51 51 1 2 3 0 0 52 1 3 3 0 0 6 6 1 2 3 0
+                                    0 53 1 2 0 14 0 0 1 2 9 14 6 0 1 1 0 51 0 1
+                                    1 0 14 0 1 0 0 0 35 2 0 6 0 9 40 3 0 6 0 9
+                                    6 1 1 0 0 49 1 0 0 0 1 2 10 38 29 0 1 2 9
+                                    38 6 0 1 2 8 38 55 0 1 2 8 38 56 0 1 1 0 0
+                                    0 1 1 1 54 0 1 1 0 0 49 1 1 0 12 0 18 1 0 0
+                                    0 23 1 0 0 49 1 2 8 14 55 0 1 2 8 14 56 0 1
+                                    2 0 14 0 0 16 1 8 38 0 39)))))
            '|lookupComplete|)) 

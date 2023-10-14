@@ -11,7 +11,7 @@
 (DEFUN |ARRAY1;qsetelt!;$I2S;2| (|x| |i| |s| $) (QSETAREF1O |x| |i| |s| 1)) 
 
 (DEFUN |ARRAY1;oneDimensionalArray;L$;3| (|u| $)
-  (PROG (|i| #1=#:G2120 |x| |a| |n|)
+  (PROG (|i| #1=#:G2140 |x| |a| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |u|) . #2=(|ARRAY1;oneDimensionalArray;L$;3|))
           (EXIT
@@ -36,10 +36,10 @@
 
 (DEFUN |ARRAY1;oneDimensionalArray;NniS$;4| (|n| |s| $) (MAKEARR1 |n| |s|)) 
 
-(DEFUN |OneDimensionalArray| (#1=#:G2133)
+(DEFUN |OneDimensionalArray| (#1=#:G2153)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2134)
+     (PROG (#2=#:G2154)
        (RETURN
         (COND
          ((LETT #2#
@@ -57,12 +57,12 @@
               (HREM |$ConstructorCache| '|OneDimensionalArray|))))))))))) 
 
 (DEFUN |OneDimensionalArray;| (|#1|)
-  (PROG (#1=#:G2132 |pv$| #2=#:G2129 #3=#:G2130 $ |dv$| DV$1)
+  (PROG (#1=#:G2152 |pv$| #2=#:G2149 #3=#:G2150 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|OneDimensionalArray|))
       (LETT |dv$| (LIST '|OneDimensionalArray| DV$1) . #4#)
-      (LETT $ (GETREFV 31) . #4#)
+      (LETT $ (GETREFV 32) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -138,8 +138,9 @@
               |ARRAY1;oneDimensionalArray;NniS$;4| (|Mapping| 6 6 6)
               (|Boolean|) (|Equation| 6) (|List| 17) (|Mapping| 16 6)
               (|Mapping| 16 6 6) (|UniversalSegment| 7) (|Void|)
-              (|Mapping| 6 6) (|OutputForm|) (|InputForm|) (|String|)
-              (|SingleInteger|) (|List| $) (|Union| 6 '"failed") (|List| 7))
+              (|Mapping| 6 6) (|OutputForm|) (|InputForm|) (|HashState|)
+              (|SingleInteger|) (|String|) (|List| $) (|Union| 6 '"failed")
+              (|List| 7))
            '#(|setelt| 7 |qsetelt!| 14 |qelt| 21 |oneDimensionalArray| 27) 'NIL
            (CONS
             (|makeByteWordVec2| 9 '(0 0 0 0 0 2 0 2 0 0 7 5 0 0 0 0 7 1 5 9 2))

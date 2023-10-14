@@ -31,7 +31,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|None|) . #1=(|None|))
-      (LETT $ (GETREFV 12) . #1#)
+      (LETT $ (GETREFV 13) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|None| NIL (CONS 1 $))
@@ -42,15 +42,17 @@
 (MAKEPROP '|None| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|OutputForm|) |NONE;coerce;$Of;1|
-              (|Boolean|) |NONE;=;2$B;2| (|SingleInteger|) (|String|))
-           '#(~= 0 |latex| 6 |hash| 11 |coerce| 16 = 21) 'NIL
+              (|Boolean|) |NONE;=;2$B;2| (|String|) (|SingleInteger|)
+              (|HashState|))
+           '#(~= 0 |latex| 6 |hashUpdate!| 11 |hash| 17 |coerce| 22 = 27) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 6))
-                        (|makeByteWordVec2| 11
-                                            '(2 0 8 0 0 1 1 0 11 0 1 1 0 10 0 1
-                                              1 0 6 0 7 2 0 8 0 0 9)))))
+                        (|makeByteWordVec2| 12
+                                            '(2 0 8 0 0 1 1 0 10 0 1 2 0 12 12
+                                              0 1 1 0 11 0 1 1 0 6 0 7 2 0 8 0
+                                              0 9)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|None| 'NILADIC T) 

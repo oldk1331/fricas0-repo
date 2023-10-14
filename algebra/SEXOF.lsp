@@ -202,7 +202,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT DV$5 (|devaluate| |#5|) . #1#)
       (LETT |dv$| (LIST '|SExpressionOf| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-      (LETT $ (GETREFV 60) . #1#)
+      (LETT $ (GETREFV 61) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|SExpressionOf|
@@ -236,32 +236,33 @@
               |SEXOF;convert;Int$;21| |SEXOF;convert;Flt$;22|
               |SEXOF;convert;Expr$;23| |SEXOF;car;2$;24| (|Integer|)
               |SEXOF;#;$I;26| (42 . |elt|) |SEXOF;elt;$I$;27| (|List| 52)
-              |SEXOF;elt;$L$;28| (|String|) (|SingleInteger|))
+              |SEXOF;elt;$L$;28| (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 48 |symbol?| 54 |symbol| 59 |string?| 64 |string| 69 |pair?|
               74 |null?| 79 |list?| 84 |latex| 89 |integer?| 94 |integer| 99
-              |hash| 104 |float?| 109 |float| 114 |expr| 119 |eq| 124 |elt| 130
-              |destruct| 142 |convert| 147 |coerce| 177 |cdr| 182 |car| 187
-              |atom?| 192 = 197 |#| 203)
+              |hashUpdate!| 104 |hash| 110 |float?| 115 |float| 120 |expr| 125
+              |eq| 130 |elt| 136 |destruct| 148 |convert| 153 |coerce| 183
+              |cdr| 188 |car| 193 |atom?| 198 = 203 |#| 209)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SExpressionCategory| 6 7 8 9 10) (|SetCategory|)
                            (|BasicType|) (|CoercibleTo| 15))
-                        (|makeByteWordVec2| 59
+                        (|makeByteWordVec2| 60
                                             '(1 15 0 14 16 2 21 0 0 0 22 1 15 0
                                               14 23 1 15 0 0 24 1 26 25 0 27 1
                                               28 15 0 29 2 15 12 0 0 30 1 15 0
                                               0 31 2 26 2 0 52 54 2 0 12 0 0 1
                                               1 0 12 0 37 1 0 7 0 41 1 0 12 0
                                               36 1 0 6 0 40 1 0 12 0 34 1 0 12
-                                              0 13 1 0 12 0 35 1 0 58 0 1 1 0
-                                              12 0 38 1 0 8 0 43 1 0 59 0 1 1 0
-                                              12 0 39 1 0 9 0 42 1 0 10 0 44 2
-                                              0 12 0 0 33 2 0 0 0 56 57 2 0 0 0
-                                              52 55 1 0 14 0 19 1 0 0 9 49 1 0
-                                              0 10 50 1 0 0 7 47 1 0 0 8 48 1 0
-                                              0 14 45 1 0 0 6 46 1 0 15 0 20 1
-                                              0 0 0 18 1 0 0 0 51 1 0 12 0 17 2
-                                              0 12 0 0 32 1 0 52 0 53)))))
+                                              0 13 1 0 12 0 35 1 0 59 0 1 1 0
+                                              12 0 38 1 0 8 0 43 2 0 58 58 0 1
+                                              1 0 60 0 1 1 0 12 0 39 1 0 9 0 42
+                                              1 0 10 0 44 2 0 12 0 0 33 2 0 0 0
+                                              52 55 2 0 0 0 56 57 1 0 14 0 19 1
+                                              0 0 10 50 1 0 0 8 48 1 0 0 9 49 1
+                                              0 0 6 46 1 0 0 7 47 1 0 0 14 45 1
+                                              0 15 0 20 1 0 0 0 18 1 0 0 0 51 1
+                                              0 12 0 17 2 0 12 0 0 32 1 0 52 0
+                                              53)))))
            '|lookupComplete|)) 

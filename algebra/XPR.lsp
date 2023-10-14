@@ -320,7 +320,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #3=(|XPolynomialRing|))
       (LETT DV$2 (|devaluate| |#2|) . #3#)
       (LETT |dv$| (LIST '|XPolynomialRing| DV$1 DV$2) . #3#)
-      (LETT $ (GETREFV 68) . #3#)
+      (LETT $ (GETREFV 69) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -386,8 +386,8 @@
               (|Mapping| 47 47 47) (|List| 47) (123 . |reduce|)
               |XPR;coerce;$Of;19| (129 . |inv|) (134 . /) (|Mapping| 6 7)
               (|Union| 7 '"failed") (|List| 17) (|Mapping| 6 6) (|List| 6)
-              (|List| 7) (|List| $) (|PositiveInteger|) (|SingleInteger|)
-              (|String|))
+              (|List| 7) (|List| $) (|PositiveInteger|) (|String|)
+              (|SingleInteger|) (|HashState|))
            '#(|recip| 140 |quasiRegular?| 145 |quasiRegular| 150 |mindeg| 155
               |maxdeg| 160 |constant?| 165 |constant| 170 |coerce| 175 |coef|
               190 |characteristic| 196 ^ 200 |Zero| 206 |One| 210 = 214 / 220 +

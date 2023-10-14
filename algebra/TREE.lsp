@@ -996,7 +996,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|Tree|))
       (LETT |dv$| (LIST '|Tree| DV$1) . #3#)
-      (LETT $ (GETREFV 89) . #3#)
+      (LETT $ (GETREFV 90) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -1071,16 +1071,16 @@
               |TREE;cyclicCopy;2$;40| (116 . |eq?|) (122 . ~=) (128 . |null|)
               |TREE;cyclicEqual?;2$B;46| (133 . |elt|) (139 . ~=)
               (145 . |rest|) (150 . |first|) (|List| 86) (|Equation| 6)
-              '"value" (|SingleInteger|))
+              '"value" (|SingleInteger|) (|HashState|))
            '#(~= 155 |value| 161 |tree| 166 |size?| 182 |setvalue!| 188
               |setelt| 194 |setchildren!| 201 |sample| 207 |parts| 211 |nodes|
               216 |node?| 221 |more?| 227 |members| 233 |member?| 238 |map!|
               244 |map| 250 |less?| 256 |leaves| 262 |leaf?| 267 |latex| 272
-              |hash| 277 |every?| 282 |eval| 288 |eq?| 314 |empty?| 320 |empty|
-              325 |elt| 329 |distance| 335 |cyclicParents| 341 |cyclicEqual?|
-              346 |cyclicEntries| 352 |cyclicCopy| 357 |cyclic?| 362 |count|
-              367 |copy| 379 |coerce| 384 |children| 389 |child?| 394 |any?|
-              400 = 406 |#| 412)
+              |hashUpdate!| 277 |hash| 283 |every?| 288 |eval| 294 |eq?| 320
+              |empty?| 326 |empty| 331 |elt| 335 |distance| 341 |cyclicParents|
+              347 |cyclicEqual?| 352 |cyclicEntries| 358 |cyclicCopy| 363
+              |cyclic?| 368 |count| 373 |copy| 385 |coerce| 390 |children| 395
+              |child?| 400 |any?| 406 = 412 |#| 418)
            'NIL
            (CONS (|makeByteWordVec2| 4 '(0 0 0 2 1 0 0 0 2 1 4))
                  (CONS
@@ -1092,7 +1092,7 @@
                       (|Aggregate|) (|Evalable| 6) (|SetCategory|) (|Type|)
                       (|shallowlyMutable|) (|finiteAggregate|)
                       (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 64))
-                   (|makeByteWordVec2| 88
+                   (|makeByteWordVec2| 89
                                        '(2 6 8 0 0 18 2 28 8 2 0 29 2 32 8 0 0
                                          33 2 28 8 36 0 37 1 28 8 0 38 0 28 0
                                          41 2 15 8 0 0 44 0 28 0 46 2 48 8 0 0
@@ -1103,20 +1103,20 @@
                                          2 64 0 0 0 74 2 0 8 0 0 77 2 32 8 0 0
                                          78 1 28 8 0 79 2 28 2 0 32 81 2 6 8 0
                                          0 82 1 28 0 0 83 1 28 2 0 84 2 1 8 0 0
-                                         1 1 0 6 0 17 1 0 0 6 25 1 0 0 26 27 2
+                                         1 1 0 6 0 17 1 0 0 26 27 1 0 0 6 25 2
                                          0 0 6 11 23 2 0 8 0 15 52 2 7 6 0 6 14
                                          3 7 6 0 87 6 1 2 7 0 0 11 13 0 0 0 1 1
                                          5 26 0 56 1 0 11 0 47 2 1 8 0 0 35 2 0
                                          8 0 15 45 1 5 26 0 57 2 6 8 6 0 55 2 7
                                          0 21 0 24 2 0 0 21 0 22 2 0 8 0 15 43
-                                         1 0 26 0 40 1 0 8 0 39 1 1 72 0 1 1 1
-                                         88 0 1 2 5 8 19 0 54 3 2 0 0 26 26 1 3
-                                         2 0 0 6 6 1 2 2 0 0 85 1 2 2 0 0 86 1
-                                         2 0 8 0 0 77 1 0 8 0 9 0 0 0 10 2 0 6
-                                         0 87 1 2 0 32 0 0 34 1 0 11 0 63 2 0 8
-                                         0 0 80 1 0 11 0 75 1 0 0 0 76 1 0 8 0
-                                         60 2 6 15 6 0 16 2 5 15 19 0 20 1 0 0
-                                         0 62 1 3 64 0 65 1 0 11 0 12 2 1 8 0 0
-                                         30 2 5 8 19 0 53 2 1 8 0 0 31 1 5 15 0
-                                         42)))))
+                                         1 0 26 0 40 1 0 8 0 39 1 1 72 0 1 2 1
+                                         89 89 0 1 1 1 88 0 1 2 5 8 19 0 54 3 2
+                                         0 0 26 26 1 3 2 0 0 6 6 1 2 2 0 0 85 1
+                                         2 2 0 0 86 1 2 0 8 0 0 77 1 0 8 0 9 0
+                                         0 0 10 2 0 6 0 87 1 2 0 32 0 0 34 1 0
+                                         11 0 63 2 0 8 0 0 80 1 0 11 0 75 1 0 0
+                                         0 76 1 0 8 0 60 2 6 15 6 0 16 2 5 15
+                                         19 0 20 1 0 0 0 62 1 3 64 0 65 1 0 11
+                                         0 12 2 1 8 0 0 30 2 5 8 19 0 53 2 1 8
+                                         0 0 31 1 5 15 0 42)))))
            '|lookupComplete|)) 

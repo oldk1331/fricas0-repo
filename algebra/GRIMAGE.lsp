@@ -720,7 +720,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|GraphImage|) . #1=(|GraphImage|))
-      (LETT $ (GETREFV 115) . #1#)
+      (LETT $ (GETREFV 116) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|GraphImage| NIL (CONS 1 $))
@@ -774,17 +774,17 @@
               (291 . |elt|) (297 . |setelt|) |GRIMAGE;appendPoint;$PV;25|
               |GRIMAGE;point;$PPV;26| |GRIMAGE;coerce;L$;27| (|OutputForm|)
               (304 . |coerce|) (|List| $) (309 . |hconcat|)
-              |GRIMAGE;coerce;$Of;28| (|String|))
+              |GRIMAGE;coerce;$Of;28| (|String|) (|HashState|))
            '#(~= 314 |units| 320 |ranges| 331 |putColorInfo| 342 |pointLists|
-              348 |point| 353 |makeGraphImage| 360 |latex| 387 |key| 392 |hash|
-              397 |graphImage| 402 |component| 406 |coerce| 430 |appendPoint|
-              440 = 446)
+              348 |point| 353 |makeGraphImage| 360 |latex| 387 |key| 392
+              |hashUpdate!| 397 |hash| 403 |graphImage| 408 |component| 412
+              |coerce| 436 |appendPoint| 446 = 452)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 109))
-                        (|makeByteWordVec2| 114
+                        (|makeByteWordVec2| 115
                                             '(1 8 7 0 9 1 8 7 0 10 2 8 11 0 7
                                               12 2 16 13 15 13 17 2 7 18 0 0 19
                                               2 13 20 0 7 21 1 20 22 0 23 1 22
@@ -809,17 +809,18 @@
                                               22 0 90 2 20 0 22 22 91 2 39 11 0
                                               7 93 2 42 100 0 7 104 3 42 100 0
                                               7 100 105 1 56 109 0 110 1 109 0
-                                              111 112 2 0 18 0 0 1 2 0 28 0 28
-                                              94 1 0 28 0 29 1 0 13 0 14 2 0 13
-                                              0 13 92 2 0 42 42 43 44 1 0 42 0
-                                              88 3 0 99 0 8 33 107 5 0 0 42 43
-                                              43 66 15 98 4 0 0 42 43 43 66 96
-                                              1 0 0 0 87 1 0 0 42 97 1 0 114 0
-                                              1 1 0 7 0 70 1 0 85 0 1 0 0 0 95
-                                              5 0 99 0 8 33 33 37 102 2 0 99 0
-                                              8 103 5 0 99 0 100 33 33 37 101 1
-                                              0 0 42 108 1 0 109 0 113 2 0 99 0
-                                              8 106 2 0 18 0 0 1)))))
+                                              111 112 2 0 18 0 0 1 1 0 28 0 29
+                                              2 0 28 0 28 94 2 0 13 0 13 92 1 0
+                                              13 0 14 2 0 42 42 43 44 1 0 42 0
+                                              88 3 0 99 0 8 33 107 4 0 0 42 43
+                                              43 66 96 5 0 0 42 43 43 66 15 98
+                                              1 0 0 42 97 1 0 0 0 87 1 0 114 0
+                                              1 1 0 7 0 70 2 0 115 115 0 1 1 0
+                                              85 0 1 0 0 0 95 2 0 99 0 8 103 5
+                                              0 99 0 8 33 33 37 102 5 0 99 0
+                                              100 33 33 37 101 1 0 0 42 108 1 0
+                                              109 0 113 2 0 99 0 8 106 2 0 18 0
+                                              0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GraphImage| 'NILADIC T) 

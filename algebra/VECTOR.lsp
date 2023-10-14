@@ -18,10 +18,10 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 17)))
    (QREFELT $ 19))) 
 
-(DEFUN |Vector| (#1=#:G2064)
+(DEFUN |Vector| (#1=#:G2084)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2065)
+     (PROG (#2=#:G2085)
        (RETURN
         (COND
          ((LETT #2#
@@ -35,12 +35,12 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Vector|))))))))))) 
 
 (DEFUN |Vector;| (|#1|)
-  (PROG (#1=#:G2063 |pv$| #2=#:G2060 #3=#:G2061 $ |dv$| DV$1)
+  (PROG (#1=#:G2083 |pv$| #2=#:G2080 #3=#:G2081 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Vector|))
       (LETT |dv$| (LIST '|Vector| DV$1) . #4#)
-      (LETT $ (GETREFV 37) . #4#)
+      (LETT $ (GETREFV 38) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -131,8 +131,9 @@
               (25 . |convert|) (|Mapping| 6 6 6) (|Boolean|)
               (|NonNegativeInteger|) (|Equation| 6) (|List| 24)
               (|Mapping| 22 6) (|Mapping| 22 6 6) (|UniversalSegment| 7)
-              (|Void|) (|Mapping| 6 6) (|OutputForm|) (|Matrix| 6) (|String|)
-              (|SingleInteger|) (|Union| 6 '"failed") (|List| 7))
+              (|Void|) (|Mapping| 6 6) (|OutputForm|) (|Matrix| 6)
+              (|HashState|) (|SingleInteger|) (|String|) (|Union| 6 '"failed")
+              (|List| 7))
            '#(|vector| 30 |qsetelt!| 35 |qelt| 42 |parts| 48 |convert| 53
               |construct| 58)
            'NIL

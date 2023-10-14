@@ -1724,7 +1724,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|PermutationGroup|))
       (LETT |dv$| (LIST '|PermutationGroup| DV$1) . #1#)
-      (LETT $ (GETREFV 168) . #1#)
+      (LETT $ (GETREFV 169) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|PermutationGroup| (LIST DV$1)
@@ -1826,21 +1826,21 @@
               |PERMGRP;=;2$B;46| (527 . |brace|) (531 . |insert!|)
               |PERMGRP;orbit;$SS;47| (|Set| 38) (537 . |brace|)
               |PERMGRP;orbit;$LS;48|
-              |PERMGRP;initializeGroupForWordProblem;$2IV;49| (|String|)
-              (|SingleInteger|))
+              |PERMGRP;initializeGroupForWordProblem;$2IV;49| (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 542 |wordsForStrongGenerators| 548 |wordInStrongGenerators|
               553 |wordInGenerators| 559 |strongGenerators| 565 |random| 570
               |pointList| 581 |permutationGroup| 586 |perm_to_vec| 591 |order|
               598 |orbits| 603 |orbit| 608 |movedPoints| 626 |member?| 631
-              |latex| 637 |initializeGroupForWordProblem| 642 |hash| 654
-              |generators| 659 |elt| 664 |degree| 670 |coerce| 675 |base| 690 =
-              695 <= 701 < 707)
+              |latex| 637 |initializeGroupForWordProblem| 642 |hashUpdate!| 654
+              |hash| 660 |generators| 665 |elt| 670 |degree| 676 |coerce| 681
+              |base| 696 = 701 <= 707 < 713)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 133))
-                        (|makeByteWordVec2| 167
+                        (|makeByteWordVec2| 168
                                             '(1 11 10 0 12 1 13 0 0 14 1 13 15
                                               0 16 2 13 10 0 15 17 2 13 18 10 0
                                               19 2 13 15 10 0 20 2 13 0 0 15 21
@@ -1886,16 +1886,17 @@
                                               157 0 147 0 159 2 147 0 53 0 160
                                               1 162 0 39 163 2 0 18 0 0 1 1 0
                                               35 0 129 2 0 13 11 0 151 2 0 13
-                                              11 0 153 1 0 8 0 118 2 0 11 0 15
-                                              124 1 0 11 0 125 1 0 38 0 52 1 0
-                                              0 8 131 3 0 26 38 11 10 69 1 0 10
-                                              0 126 1 0 147 0 149 2 0 162 0 38
-                                              164 2 0 147 0 53 161 2 0 53 0 6
+                                              11 0 153 1 0 8 0 118 1 0 11 0 125
+                                              2 0 11 0 15 124 1 0 38 0 52 1 0 0
+                                              8 131 3 0 26 38 11 10 69 1 0 10 0
+                                              126 1 0 147 0 149 2 0 147 0 53
+                                              161 2 0 162 0 38 164 2 0 53 0 6
                                               142 1 0 53 0 122 2 0 18 11 0 112
-                                              1 0 166 0 1 3 0 107 0 15 15 165 1
-                                              0 107 0 152 1 0 167 0 1 1 0 8 0
-                                              116 2 0 11 0 10 120 1 0 10 0 127
-                                              1 0 0 8 130 1 0 8 0 9 1 0 133 0
-                                              140 1 0 38 0 128 2 0 18 0 0 158 2
-                                              0 18 0 0 156 2 0 18 0 0 155)))))
+                                              1 0 167 0 1 1 0 107 0 152 3 0 107
+                                              0 15 15 165 2 0 166 166 0 1 1 0
+                                              168 0 1 1 0 8 0 116 2 0 11 0 10
+                                              120 1 0 10 0 127 1 0 0 8 130 1 0
+                                              8 0 9 1 0 133 0 140 1 0 38 0 128
+                                              2 0 18 0 0 158 2 0 18 0 0 156 2 0
+                                              18 0 0 155)))))
            '|lookupComplete|)) 

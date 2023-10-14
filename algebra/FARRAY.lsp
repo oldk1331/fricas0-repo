@@ -25,7 +25,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|FlexibleArray|))
       (LETT |dv$| (LIST '|FlexibleArray| DV$1) . #4#)
-      (LETT $ (GETREFV 26) . #4#)
+      (LETT $ (GETREFV 27) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -98,8 +98,8 @@
               (|NonNegativeInteger|) (|List| 6) (|Equation| 6) (|List| 11)
               (|Integer|) (|Mapping| 8 6) (|Mapping| 8 6 6)
               (|UniversalSegment| 13) (|Void|) (|Mapping| 6 6) (|OutputForm|)
-              (|InputForm|) (|SingleInteger|) (|String|) (|List| $)
-              (|Union| 6 '"failed") (|List| 13))
+              (|InputForm|) (|SingleInteger|) (|String|) (|HashState|)
+              (|List| $) (|Union| 6 '"failed") (|List| 13))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 9

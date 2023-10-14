@@ -37,7 +37,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperator2| DV$1 DV$2)
             . #1#)
-      (LETT $ (GETREFV 29) . #1#)
+      (LETT $ (GETREFV 30) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -78,7 +78,8 @@
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Union| 19 '#1="failed") (|Fraction| 21) (|Union| 21 '#1#)
               (|Integer|) (|List| 6) (|Union| 6 '#1#) (|Boolean|)
-              (|PositiveInteger|) (|SingleInteger|) (|String|) (|OutputForm|))
+              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
+              (|OutputForm|))
            '#(|elt| 17) 'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -100,7 +101,7 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|Eltable| 7 7) (|Eltable| 6 6) (|RetractableTo| 6)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 28)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 29)
                  (|RetractableTo| 19) (|RetractableTo| 21))
               (|makeByteWordVec2| 13
                                   '(1 6 0 0 8 1 7 0 0 9 3 11 7 2 10 7 12 2 0 7

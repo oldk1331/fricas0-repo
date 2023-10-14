@@ -1153,7 +1153,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|RightOpenIntervalRootCharacterization| DV$1 DV$2)
             . #1#)
-      (LETT $ (GETREFV 96) . #1#)
+      (LETT $ (GETREFV 97) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|RightOpenIntervalRootCharacterization|
@@ -1200,12 +1200,12 @@
               (294 . |extendedEuclidean|) (|Union| 7 '#1#)
               |ROIRC;recip;ThePolDom$U;24| (300 . >)
               |ROIRC;sign;ThePolDom$I;26| |ROIRC;middle;$TheField;33|
-              (|SingleInteger|) (|String|))
+              (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 306 |zero?| 312 |size| 318 |sign| 323 |rootOf| 329 |right| 335
               |relativeApprox| 340 |refine| 347 |recip| 352 |positive?| 358
               |negative?| 364 |mightHaveRoots| 370 |middle| 376 |left| 381
-              |latex| 386 |hash| 391 |definingPolynomial| 396 |coerce| 401
-              |approximate| 406 |allRootsOf| 413 = 418)
+              |latex| 386 |hashUpdate!| 391 |hash| 397 |definingPolynomial| 402
+              |coerce| 407 |approximate| 412 |allRootsOf| 419 = 424)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS
@@ -1214,7 +1214,7 @@
                   (CONS
                    '#((|RealRootCharacterizationCategory| 6 7) (|SetCategory|)
                       (|BasicType|) (|CoercibleTo| 68))
-                   (|makeByteWordVec2| 95
+                   (|makeByteWordVec2| 96
                                        '(2 6 0 0 0 9 1 7 11 0 12 0 6 0 13 0 6 0
                                          14 0 7 0 15 2 7 6 0 11 16 1 7 6 0 17 2
                                          6 0 0 0 18 1 6 0 0 19 2 7 6 0 6 20 2 7
@@ -1238,7 +1238,7 @@
                                          29 60 1 0 6 0 28 3 0 6 7 0 6 37 1 0 0
                                          0 25 2 0 89 7 0 90 2 0 22 7 0 1 2 0 22
                                          7 0 1 2 0 22 7 0 24 1 0 6 0 93 1 0 6 0
-                                         27 1 0 95 0 1 1 0 94 0 1 1 0 7 0 81 1
-                                         0 68 0 72 3 0 6 7 0 6 38 1 0 61 7 62 2
-                                         0 22 0 0 76)))))
+                                         27 1 0 94 0 1 2 0 96 96 0 1 1 0 95 0 1
+                                         1 0 7 0 81 1 0 68 0 72 3 0 6 7 0 6 38
+                                         1 0 61 7 62 2 0 22 0 0 76)))))
            '|lookupComplete|)) 

@@ -54,7 +54,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|IndexedExponents|))
       (LETT |dv$| (LIST '|IndexedExponents| DV$1) . #1#)
-      (LETT $ (GETREFV 29) . #1#)
+      (LETT $ (GETREFV 30) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -81,7 +81,7 @@
               (27 . |reduce|) |INDE;coerce;$Of;2| (|Mapping| 11 11)
               (|Record| (|:| |k| 6) (|:| |c| 11)) (|List| 22)
               (|Union| $ '"failed") (|Boolean|) (|PositiveInteger|) (|String|)
-              (|SingleInteger|))
+              (|SingleInteger|) (|HashState|))
            '#(|coerce| 33) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0))
                  (CONS

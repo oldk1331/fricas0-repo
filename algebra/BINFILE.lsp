@@ -106,7 +106,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|BinaryFile|) . #1=(|BinaryFile|))
-      (LETT $ (GETREFV 30) . #1#)
+      (LETT $ (GETREFV 31) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|BinaryFile| NIL (CONS 1 $))
@@ -128,7 +128,7 @@
               |BINFILE;read!;$Si;5| (|Union| 20 '"failed")
               |BINFILE;readIfCan!;$U;6| (|Integer|) (31 . >)
               |BINFILE;write!;$2Si;7| |BINFILE;position;$Si;8|
-              |BINFILE;position!;$2Si;9| (|Void|))
+              |BINFILE;position!;$2Si;9| (|Void|) (|HashState|))
            '#(|write!| 37 |reopen!| 43 |readIfCan!| 49 |read!| 54 |position!|
               59 |position| 65 |open| 70 |close!| 76)
            'NIL

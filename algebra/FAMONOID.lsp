@@ -26,7 +26,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeAbelianMonoid|))
       (LETT |dv$| (LIST '|FreeAbelianMonoid| DV$1) . #1#)
-      (LETT $ (GETREFV 20) . #1#)
+      (LETT $ (GETREFV 21) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -49,7 +49,8 @@
               (|NonNegativeInteger|) (|Integer|)
               (|Record| (|:| |gen| 6) (|:| |exp| 9)) (|List| 11)
               (|Union| 6 '"failed") (|Union| $ '"failed") (|Boolean|)
-              (|PositiveInteger|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|PositiveInteger|) (|HashState|) (|String|) (|OutputForm|)
+              (|SingleInteger|))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -59,6 +60,6 @@
                    '#((|FreeAbelianMonoidCategory| 6 9)
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
                       (|AbelianSemiGroup|) (|SetCategory|) (|BasicType|)
-                      (|RetractableTo| 6) (|CoercibleTo| 18))
+                      (|RetractableTo| 6) (|CoercibleTo| 19))
                    (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

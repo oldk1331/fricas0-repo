@@ -377,7 +377,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|ThreeDimensionalMatrix|))
       (LETT |dv$| (LIST '|ThreeDimensionalMatrix| DV$1) . #3#)
-      (LETT $ (GETREFV 50) . #3#)
+      (LETT $ (GETREFV 51) . #3#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -454,14 +454,15 @@
               (73 . |identityMatrix|) (78 . +) (84 . |plus|) (|List| 39)
               (|List| 36) (90 . |elt|) (|List| 6) (96 . |elt|) (102 . |elt|)
               |M3D;construct;L$;10| (|Equation| 6) (|List| 43) (|Mapping| 25 6)
-              (|Mapping| 6 6) (|OutputForm|) (|String|) (|SingleInteger|))
+              (|Mapping| 6 6) (|OutputForm|) (|SingleInteger|) (|String|)
+              (|HashState|))
            '#(~= 108 |zeroMatrix| 114 |size?| 121 |setelt!| 127 |sample| 136
               |plus| 140 |parts| 146 |more?| 151 |members| 157 |member?| 162
               |matrixDimensions| 168 |matrixConcat3D| 173 |map!| 180 |map| 186
-              |less?| 192 |latex| 198 |identityMatrix| 203 |hash| 208 |every?|
-              213 |eval| 219 |eq?| 245 |empty?| 251 |empty| 256 |elt| 260
-              |count| 268 |copy| 280 |construct| 285 |coerce| 290 |any?| 305 =
-              311 |#| 317)
+              |less?| 192 |latex| 198 |identityMatrix| 203 |hashUpdate!| 208
+              |hash| 214 |every?| 219 |eval| 225 |eq?| 251 |empty?| 257 |empty|
+              262 |elt| 266 |count| 274 |copy| 286 |construct| 291 |coerce| 296
+              |any?| 311 = 317 |#| 323)
            'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 6 1 0 6 1 4))
                  (CONS
@@ -471,7 +472,7 @@
                    '#((|HomogeneousAggregate| 6) (|Aggregate|) (|Evalable| 6)
                       (|SetCategory|) (|Type|) (|InnerEvalable| 6 6)
                       (|BasicType|) (|CoercibleTo| 47))
-                   (|makeByteWordVec2| 49
+                   (|makeByteWordVec2| 50
                                        '(2 7 9 0 10 11 1 5 0 0 13 2 5 0 0 0 14
                                          2 16 0 0 0 17 1 16 0 0 18 2 19 0 0 0
                                          20 2 7 0 9 9 23 3 7 9 0 10 9 24 2 9 25
@@ -483,12 +484,13 @@
                                          6 29 0 0 0 1 2 5 0 0 0 35 1 8 39 0 1 2
                                          0 25 0 9 1 1 8 39 0 1 2 9 25 6 0 1 1 0
                                          7 0 8 3 0 0 21 0 0 22 2 7 0 46 0 1 2 0
-                                         0 46 0 1 2 0 25 0 9 1 1 1 48 0 1 1 5 0
-                                         9 33 1 1 49 0 1 2 8 25 45 0 1 3 2 0 0
-                                         39 39 1 2 2 0 0 43 1 3 2 0 0 6 6 1 2 2
-                                         0 0 44 1 2 0 25 0 0 1 1 0 25 0 1 0 0 0
-                                         1 4 0 6 0 9 9 9 27 2 9 9 6 0 1 2 8 9
-                                         45 0 1 1 0 0 0 1 1 0 0 37 42 1 3 47 0
-                                         1 1 0 0 5 15 1 0 5 0 12 2 8 25 45 0 1
-                                         2 1 25 0 0 1 1 8 9 0 1)))))
+                                         0 46 0 1 2 0 25 0 9 1 1 1 49 0 1 1 5 0
+                                         9 33 2 1 50 50 0 1 1 1 48 0 1 2 8 25
+                                         45 0 1 3 2 0 0 39 39 1 2 2 0 0 43 1 3
+                                         2 0 0 6 6 1 2 2 0 0 44 1 2 0 25 0 0 1
+                                         1 0 25 0 1 0 0 0 1 4 0 6 0 9 9 9 27 2
+                                         9 9 6 0 1 2 8 9 45 0 1 1 0 0 0 1 1 0 0
+                                         37 42 1 3 47 0 1 1 0 0 5 15 1 0 5 0 12
+                                         2 8 25 45 0 1 2 1 25 0 0 1 1 8 9 0
+                                         1)))))
            '|lookupComplete|)) 
