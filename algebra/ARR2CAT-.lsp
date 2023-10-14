@@ -646,15 +646,15 @@
             (SPADCALL |i2| (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 28)))
         (EXIT
          (|error|
-          ("setsubMatrix!: inserted matrix too big,"
-           " use subMatrix to restrict it")))))
+          (LIST "setsubMatrix!: inserted matrix too big,"
+                "use subMatrix to restrict it")))))
       (COND
        ((OR (< |j1| (SPADCALL |x| (QREFELT $ 13)))
             (SPADCALL |j2| (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 28)))
         (EXIT
          (|error|
-          ("setsubMatrix!: inserted matrix too big,"
-           " use subMatrix to restrict it")))))
+          (LIST "setsubMatrix!: inserted matrix too big,"
+                "use subMatrix to restrict it")))))
       (SEQ (LETT |k| |i1| . #3#) (LETT |i| (SPADCALL |y| (QREFELT $ 11)) . #3#)
            (LETT #2# (SPADCALL |y| (QREFELT $ 12)) . #3#) G190
            (COND ((OR (> |i| #2#) (> |k| |i2|)) (GO G191)))
