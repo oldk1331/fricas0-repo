@@ -1168,11 +1168,8 @@
 ;     $PrintOnly =>
 ;         FORMAT(true, '"~S   =====>~%", $currentLine)
 ;         PRETTYPRINT(x)
-;     if $InteractiveMode then
-;         processInteractive(x, false)
-;     else
-;         u := compTopLevel(x, $EmptyMode, $InteractiveFrame)
-;         if u then $InteractiveFrame := THIRD(u)
+;     u := compTopLevel(x, $EmptyMode, $InteractiveFrame)
+;     if u then $InteractiveFrame := THIRD(u)
 ;     if $semanticErrorStack then displaySemanticErrors()
 ;     TERPRI()
  
@@ -1241,16 +1238,11 @@
                               (PRETTYPRINT |x|)))
                             (#1#
                              (PROGN
+                              (SETQ |u|
+                                      (|compTopLevel| |x| |$EmptyMode|
+                                       |$InteractiveFrame|))
                               (COND
-                               (|$InteractiveMode|
-                                (|processInteractive| |x| NIL))
-                               (#1#
-                                (SETQ |u|
-                                        (|compTopLevel| |x| |$EmptyMode|
-                                         |$InteractiveFrame|))
-                                (COND
-                                 (|u|
-                                  (SETQ |$InteractiveFrame| (THIRD |u|))))))
+                               (|u| (SETQ |$InteractiveFrame| (THIRD |u|))))
                               (COND
                                (|$semanticErrorStack|
                                 (|displaySemanticErrors|)))

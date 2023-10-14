@@ -54,12 +54,9 @@
 ;   -- values. Some things are reset by start and not reset by restart.
 ;   SETQ(_/COUNTLIST                  , NIL)
 ;   $edit_file := nil
-;   SETQ(_/SOURCEFILES                , NIL)
-;   SETQ($sourceFiles                 , NIL)
 ;   SETQ(_/PRETTY                     , NIL)
 ;   SETQ(_/SPACELIST                  , NIL)
 ;   SETQ(_/TIMERLIST                  , NIL)
-;   SETQ($BOOT                        , NIL)
 ;   SETQ($CommandSynonymAlist         , COPY($InitialCommandSynonymAlist))
 ;   SETQ($IOindex                     , 1  )
 ;   SETQ($e                           , [[NIL]])
@@ -75,12 +72,9 @@
      (PROGN
       (SETQ /COUNTLIST NIL)
       (SETQ |$edit_file| NIL)
-      (SETQ /SOURCEFILES NIL)
-      (SETQ |$sourceFiles| NIL)
       (SETQ /PRETTY NIL)
       (SETQ /SPACELIST NIL)
       (SETQ /TIMERLIST NIL)
-      (SETQ $BOOT NIL)
       (SETQ |$CommandSynonymAlist| (COPY |$InitialCommandSynonymAlist|))
       (SETQ |$IOindex| 1)
       (SETQ |$e| (LIST (LIST NIL)))

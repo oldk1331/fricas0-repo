@@ -1528,20 +1528,16 @@
  
 ; parseAndEval string ==
 ;   $InteractiveMode :fluid := true
-;   $BOOT: fluid := NIL
-;   $SPAD: fluid := true
 ;   $e:fluid := $InteractiveFrame
 ;   $QuietCommand:local := true
 ;   parseAndEval1 string
  
 (DEFUN |parseAndEval| (|string|)
-  (PROG (|$QuietCommand| |$e| $SPAD $BOOT |$InteractiveMode|)
-    (DECLARE (SPECIAL |$QuietCommand| |$e| $SPAD $BOOT |$InteractiveMode|))
+  (PROG (|$QuietCommand| |$e| |$InteractiveMode|)
+    (DECLARE (SPECIAL |$QuietCommand| |$e| |$InteractiveMode|))
     (RETURN
      (PROGN
       (SETQ |$InteractiveMode| T)
-      (SETQ $BOOT NIL)
-      (SETQ $SPAD T)
       (SETQ |$e| |$InteractiveFrame|)
       (SETQ |$QuietCommand| T)
       (|parseAndEval1| |string|)))))

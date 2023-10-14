@@ -638,7 +638,7 @@
        (LIST (|pop_stack_1|) (|pop_stack_1|)))))))
  
 ; parse_TokTail() ==
-;     $BOOT or current_symbol() ~= "$" => nil
+;     current_symbol() ~= "$" => nil
 ;     not(OR(match_next_token("IDENTIFIER", NIL), next_symbol() = "%",
 ;            next_symbol() = "(")) => nil                     -- )
 ;     G1 := COPY_-TOKEN PRIOR_-TOKEN
@@ -648,7 +648,7 @@
 (DEFUN |parse_TokTail| ()
   (PROG (G1)
     (RETURN
-     (COND ((OR $BOOT (NOT (EQ (|current_symbol|) '$))) NIL)
+     (COND ((NOT (EQ (|current_symbol|) '$)) NIL)
            ((NULL
              (OR (|match_next_token| 'IDENTIFIER NIL) (EQ (|next_symbol|) '%)
                  (EQ (|next_symbol|) '|(|)))
@@ -1108,7 +1108,6 @@
 ; parse_Selector() ==
 ;     not(match_symbol ".") => nil
 ;     MUST parse_Primary()
-;     $BOOT => push_form2("ELT", pop_stack_2(), pop_stack_1())
 ;     push_reduction("parse_Selector",
 ;                          [pop_stack_2(), pop_stack_1()])
  
@@ -1116,13 +1115,11 @@
   (PROG ()
     (RETURN
      (COND ((NULL (|match_symbol| '|.|)) NIL)
-           (#1='T
+           ('T
             (PROGN
              (MUST (|parse_Primary|))
-             (COND ($BOOT (|push_form2| 'ELT (|pop_stack_2|) (|pop_stack_1|)))
-                   (#1#
-                    (|push_reduction| '|parse_Selector|
-                     (LIST (|pop_stack_2|) (|pop_stack_1|)))))))))))
+             (|push_reduction| '|parse_Selector|
+              (LIST (|pop_stack_2|) (|pop_stack_1|)))))))))
  
 ; parse_PrimaryNoFloat() ==
 ;     AND(parse_Primary1(), OPTIONAL(parse_TokTail()))
@@ -1142,13 +1139,11 @@
 ;               $NONBLANK, current_symbol() = "(", MUST parse_Enclosure(),
 ;               push_reduction("parse_Primary1",
 ;                              [pop_stack_2(), pop_stack_1()]))),
-;        parse_Quad(), parse_String(), parse_IntegerTok(),
+;        parse_String(), parse_IntegerTok(),
 ;        parse_FormalParameter(),
 ;        AND(symbol_is? "'",
-;           MUST OR(
-;              AND($BOOT, parse_Data()),
-;              AND(match_symbol "'", MUST parse_Expr 999,
-;                  push_form1("QUOTE", pop_stack_1())))),
+;           MUST AND(match_symbol "'", MUST parse_Expr 999,
+;                    push_form1("QUOTE", pop_stack_1()))),
 ;        parse_Sequence(), parse_Enclosure())
  
 (DEFUN |parse_Primary1| ()
@@ -1161,13 +1156,11 @@
                  (MUST (|parse_Enclosure|))
                  (|push_reduction| '|parse_Primary1|
                   (LIST (|pop_stack_2|) (|pop_stack_1|))))))
-      (|parse_Quad|) (|parse_String|) (|parse_IntegerTok|)
-      (|parse_FormalParameter|)
+      (|parse_String|) (|parse_IntegerTok|) (|parse_FormalParameter|)
       (AND (|symbol_is?| '|'|)
            (MUST
-            (OR (AND $BOOT (|parse_Data|))
-                (AND (|match_symbol| '|'|) (MUST (|parse_Expr| 999))
-                     (|push_form1| 'QUOTE (|pop_stack_1|))))))
+            (AND (|match_symbol| '|'|) (MUST (|parse_Expr| 999))
+                 (|push_form1| 'QUOTE (|pop_stack_1|)))))
       (|parse_Sequence|) (|parse_Enclosure|)))))
  
 ; parse_Float() == parse_SPADFLOAT()
@@ -1209,16 +1202,6 @@
 (DEFUN |parse_FormalParameter| ()
   (PROG () (RETURN (|parse_ARGUMENT_DESIGNATOR|))))
  
-; parse_Quad() ==
-;     OR(AND($BOOT, match_symbol "$", push_lform0("$")),
-;        AND($BOOT, parse_GliphTok("."), push_lform0(".")))
- 
-(DEFUN |parse_Quad| ()
-  (PROG ()
-    (RETURN
-     (OR (AND $BOOT (|match_symbol| '$) (|push_lform0| '$))
-         (AND $BOOT (|parse_GliphTok| '|.|) (|push_lform0| '|.|))))))
- 
 ; parse_String() == parse_SPADSTRING()
  
 (DEFUN |parse_String| () (PROG () (RETURN (|parse_SPADSTRING|))))
@@ -1232,6 +1215,7 @@
 (DEFUN |parse_Name| () (PROG () (RETURN (|parse_IDENTIFIER|))))
  
 ; parse_Data() ==
+;     -- FIXME: This makes no sense in Spad, except for symbols.
 ;     AND(ACTION ($LABLASOC := NIL), parse_Sexpr(),
 ;         push_form1("QUOTE", TRANSLABEL(pop_stack_1(), $LABLASOC)))
  

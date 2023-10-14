@@ -101,20 +101,16 @@
 ; -- the Bill Burge's parser.
 ;   _*EOF_*: fluid := NIL
 ;   $InteractiveMode :fluid := true
-;   $BOOT: fluid := NIL
-;   $SPAD: fluid := true
 ;   $e:fluid := $InteractiveFrame
 ;   ncIntLoop()
  
 (DEFUN |ncTopLevel| ()
-  (PROG (|$e| $SPAD $BOOT |$InteractiveMode| *EOF*)
-    (DECLARE (SPECIAL |$e| $SPAD $BOOT |$InteractiveMode| *EOF*))
+  (PROG (|$e| |$InteractiveMode| *EOF*)
+    (DECLARE (SPECIAL |$e| |$InteractiveMode| *EOF*))
     (RETURN
      (PROGN
       (SETQ *EOF* NIL)
       (SETQ |$InteractiveMode| T)
-      (SETQ $BOOT NIL)
-      (SETQ $SPAD T)
       (SETQ |$e| |$InteractiveFrame|)
       (|ncIntLoop|)))))
  

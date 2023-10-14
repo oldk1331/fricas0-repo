@@ -114,8 +114,6 @@
 ; spadCompile(name) ==
 ;     $comp370_apply : local := FUNCTION PRINT_-DEFUN
 ;     _*FILEACTQ_-APPLY_* : local := FUNCTION PRINT_-DEFUN
-;     $SPAD : local := true
-;     $BOOT : local := false
 ;     _*EOF_* : local := false
 ;     _/EDITFILE : local := name
 ;     $InteractiveMode : local := false
@@ -133,18 +131,15 @@
  
 (DEFUN |spadCompile| (|name|)
   (PROG (|$InteractiveFrame| |$docList| $COMBLOCKLIST |$spad_scanner|
-         |$InteractiveMode| /EDITFILE *EOF* $BOOT $SPAD *FILEACTQ-APPLY*
-         |$comp370_apply| |res| |a|)
+         |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY* |$comp370_apply|
+         |res| |a|)
     (DECLARE
      (SPECIAL |$InteractiveFrame| |$docList| $COMBLOCKLIST |$spad_scanner|
-      |$InteractiveMode| /EDITFILE *EOF* $BOOT $SPAD *FILEACTQ-APPLY*
-      |$comp370_apply|))
+      |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY* |$comp370_apply|))
     (RETURN
      (PROGN
       (SETQ |$comp370_apply| #'PRINT-DEFUN)
       (SETQ *FILEACTQ-APPLY* #'PRINT-DEFUN)
-      (SETQ $SPAD T)
-      (SETQ $BOOT NIL)
       (SETQ *EOF* NIL)
       (SETQ /EDITFILE |name|)
       (SETQ |$InteractiveMode| NIL)

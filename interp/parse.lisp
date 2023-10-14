@@ -300,14 +300,12 @@
 ;       x is [a] => a
 ;       ["and",:x]
 ;     fn y ==
-;       if $InteractiveMode then y:= unabbrevAndLoad y
 ;       y is [":" ,op,['Mapping,:map]] =>
 ;          op:= (STRINGP op => INTERN op; op)
 ;          [['SIGNATURE,op,map]]
 ;       y is ['Join,:u] => "append"/[fn z for z in u]
 ;       y is ['CATEGORY,:u] => "append"/[fn z for z in u]
 ;       y is ['SIGNATURE,:.] => [y]
-;       $InteractiveMode => parseHasRhs y
 ;       [makeNonAtomic y]
  
 (DEFUN |parseHas| (|bfVar#15|)
@@ -335,81 +333,44 @@
 (DEFUN |parseHas,fn| (|y|)
   (PROG (|ISTMP#1| |op| |ISTMP#2| |ISTMP#3| |map| |u|)
     (RETURN
-     (PROGN
-      (COND (|$InteractiveMode| (SETQ |y| (|unabbrevAndLoad| |y|))))
-      (COND
-       ((AND (CONSP |y|) (EQ (CAR |y|) '|:|)
-             (PROGN
-              (SETQ |ISTMP#1| (CDR |y|))
-              (AND (CONSP |ISTMP#1|)
-                   (PROGN
-                    (SETQ |op| (CAR |ISTMP#1|))
-                    (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                         (PROGN
-                          (SETQ |ISTMP#3| (CAR |ISTMP#2|))
-                          (AND (CONSP |ISTMP#3|)
-                               (EQ (CAR |ISTMP#3|) '|Mapping|)
-                               (PROGN
-                                (SETQ |map| (CDR |ISTMP#3|))
-                                #1='T))))))))
-        (PROGN
-         (SETQ |op| (COND ((STRINGP |op|) (INTERN |op|)) (#1# |op|)))
-         (LIST (LIST 'SIGNATURE |op| |map|))))
-       ((AND (CONSP |y|) (EQ (CAR |y|) '|Join|)
-             (PROGN (SETQ |u| (CDR |y|)) #1#))
-        ((LAMBDA (|bfVar#12| |bfVar#11| |z|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#11|) (PROGN (SETQ |z| (CAR |bfVar#11|)) NIL))
-              (RETURN |bfVar#12|))
-             (#1# (SETQ |bfVar#12| (APPEND |bfVar#12| (|parseHas,fn| |z|)))))
-            (SETQ |bfVar#11| (CDR |bfVar#11|))))
-         NIL |u| NIL))
-       ((AND (CONSP |y|) (EQ (CAR |y|) 'CATEGORY)
-             (PROGN (SETQ |u| (CDR |y|)) #1#))
-        ((LAMBDA (|bfVar#14| |bfVar#13| |z|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#13|) (PROGN (SETQ |z| (CAR |bfVar#13|)) NIL))
-              (RETURN |bfVar#14|))
-             (#1# (SETQ |bfVar#14| (APPEND |bfVar#14| (|parseHas,fn| |z|)))))
-            (SETQ |bfVar#13| (CDR |bfVar#13|))))
-         NIL |u| NIL))
-       ((AND (CONSP |y|) (EQ (CAR |y|) 'SIGNATURE)) (LIST |y|))
-       (|$InteractiveMode| (|parseHasRhs| |y|))
-       (#1# (LIST (|makeNonAtomic| |y|))))))))
- 
-; parseHasRhs u ==   --$InteractiveMode = true
-;   get(u,'value,$CategoryFrame) is [D,m,.]
-;     and m in '((Mode) (Type) (Category)) => m
-;   y := abbreviation? u =>
-;     loadIfNecessary y => [unabbrevAndLoad y]
-;     BREAK()
-;   BREAK()
- 
-(DEFUN |parseHasRhs| (|u|)
-  (PROG (|ISTMP#1| D |ISTMP#2| |m| |ISTMP#3| |y|)
-    (RETURN
      (COND
-      ((AND
-        (PROGN
-         (SETQ |ISTMP#1| (|get| |u| '|value| |$CategoryFrame|))
-         (AND (CONSP |ISTMP#1|)
-              (PROGN
-               (SETQ D (CAR |ISTMP#1|))
-               (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-               (AND (CONSP |ISTMP#2|)
-                    (PROGN
-                     (SETQ |m| (CAR |ISTMP#2|))
-                     (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                     (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)))))))
-        (|member| |m| '((|Mode|) (|Type|) (|Category|))))
-       |m|)
-      ((SETQ |y| (|abbreviation?| |u|))
-       (COND ((|loadIfNecessary| |y|) (LIST (|unabbrevAndLoad| |y|)))
-             (#1='T (BREAK))))
-      (#1# (BREAK))))))
+      ((AND (CONSP |y|) (EQ (CAR |y|) '|:|)
+            (PROGN
+             (SETQ |ISTMP#1| (CDR |y|))
+             (AND (CONSP |ISTMP#1|)
+                  (PROGN
+                   (SETQ |op| (CAR |ISTMP#1|))
+                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                   (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                        (PROGN
+                         (SETQ |ISTMP#3| (CAR |ISTMP#2|))
+                         (AND (CONSP |ISTMP#3|) (EQ (CAR |ISTMP#3|) '|Mapping|)
+                              (PROGN (SETQ |map| (CDR |ISTMP#3|)) #1='T))))))))
+       (PROGN
+        (SETQ |op| (COND ((STRINGP |op|) (INTERN |op|)) (#1# |op|)))
+        (LIST (LIST 'SIGNATURE |op| |map|))))
+      ((AND (CONSP |y|) (EQ (CAR |y|) '|Join|)
+            (PROGN (SETQ |u| (CDR |y|)) #1#))
+       ((LAMBDA (|bfVar#12| |bfVar#11| |z|)
+          (LOOP
+           (COND
+            ((OR (ATOM |bfVar#11|) (PROGN (SETQ |z| (CAR |bfVar#11|)) NIL))
+             (RETURN |bfVar#12|))
+            (#1# (SETQ |bfVar#12| (APPEND |bfVar#12| (|parseHas,fn| |z|)))))
+           (SETQ |bfVar#11| (CDR |bfVar#11|))))
+        NIL |u| NIL))
+      ((AND (CONSP |y|) (EQ (CAR |y|) 'CATEGORY)
+            (PROGN (SETQ |u| (CDR |y|)) #1#))
+       ((LAMBDA (|bfVar#14| |bfVar#13| |z|)
+          (LOOP
+           (COND
+            ((OR (ATOM |bfVar#13|) (PROGN (SETQ |z| (CAR |bfVar#13|)) NIL))
+             (RETURN |bfVar#14|))
+            (#1# (SETQ |bfVar#14| (APPEND |bfVar#14| (|parseHas,fn| |z|)))))
+           (SETQ |bfVar#13| (CDR |bfVar#13|))))
+        NIL |u| NIL))
+      ((AND (CONSP |y|) (EQ (CAR |y|) 'SIGNATURE)) (LIST |y|))
+      (#1# (LIST (|makeNonAtomic| |y|)))))))
  
 ; parseDEF [$lhs,tList,specialList,body] ==
 ;   setDefOp $lhs
@@ -531,7 +492,6 @@
       (CONS 'CATEGORY (CONS |key| |l|))))))
  
 ; parseAnd u ==
-;   $InteractiveMode => ["and",:parseTranList u]
 ;   null u => 'true
 ;   null rest u => first u
 ;   parseIf [parseTran first u,parseAnd rest u,"false"]
@@ -539,15 +499,13 @@
 (DEFUN |parseAnd| (|u|)
   (PROG ()
     (RETURN
-     (COND (|$InteractiveMode| (CONS '|and| (|parseTranList| |u|)))
-           ((NULL |u|) '|true|) ((NULL (CDR |u|)) (CAR |u|))
+     (COND ((NULL |u|) '|true|) ((NULL (CDR |u|)) (CAR |u|))
            ('T
             (|parseIf|
              (LIST (|parseTran| (CAR |u|)) (|parseAnd| (CDR |u|))
                    '|false|)))))))
  
 ; parseOr u ==
-;   $InteractiveMode => ["or",:parseTranList u]
 ;   null u => 'false
 ;   null rest u => first u
 ;   (x:= parseTran first u) is ['not,y] => parseIf [y,parseOr rest u,'true]
@@ -556,8 +514,7 @@
 (DEFUN |parseOr| (|u|)
   (PROG (|x| |ISTMP#1| |ISTMP#2| |y|)
     (RETURN
-     (COND (|$InteractiveMode| (CONS '|or| (|parseTranList| |u|)))
-           ((NULL |u|) '|false|) ((NULL (CDR |u|)) (CAR |u|))
+     (COND ((NULL |u|) '|false|) ((NULL (CDR |u|)) (CAR |u|))
            ((PROGN
              (SETQ |ISTMP#1| (SETQ |x| (|parseTran| (CAR |u|))))
              (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|not|)
@@ -569,14 +526,11 @@
            (T (|parseIf| (LIST |x| '|true| (|parseOr| (CDR |u|)))))))))
  
 ; parseNot u ==
-;   $InteractiveMode => ['not,parseTran first u]
 ;   parseTran ['IF,first u,:'(false true)]
  
 (DEFUN |parseNot| (|u|)
   (PROG ()
-    (RETURN
-     (COND (|$InteractiveMode| (LIST '|not| (|parseTran| (CAR |u|))))
-           ('T (|parseTran| (CONS 'IF (CONS (CAR |u|) '(|false| |true|)))))))))
+    (RETURN (|parseTran| (CONS 'IF (CONS (CAR |u|) '(|false| |true|)))))))
  
 ; parseExit [a,:b] ==
 ;   --  note: I wanted to convert 1s to 0s here to facilitate indexing in
@@ -828,8 +782,8 @@
 ;   t isnt [p,a,b] => t
 ;   ifTran(parseTran p,parseTran a,parseTran b) where
 ;     ifTran(p,a,b) ==
-;       null($InteractiveMode) and p='true  => a
-;       null($InteractiveMode) and p='false  => b
+;       p = 'true  => a
+;       p = 'false  => b
 ;       p is ['not,p'] => ifTran(p',b,a)
 ;       p is ['IF,p',a',b'] => ifTran(p',ifTran(a',COPY a,COPY b),ifTran(b',a,b))
 ;       p is ['SEQ,:l,['exit,1,p']] =>
@@ -864,8 +818,7 @@
   (PROG (|ISTMP#1| |p'| |ISTMP#2| |a'| |ISTMP#3| |b'| |ISTMP#4| |ISTMP#5| |l|
          |ISTMP#6| |val| |s|)
     (RETURN
-     (COND ((AND (NULL |$InteractiveMode|) (EQ |p| '|true|)) |a|)
-           ((AND (NULL |$InteractiveMode|) (EQ |p| '|false|)) |b|)
+     (COND ((EQ |p| '|true|) |a|) ((EQ |p| '|false|) |b|)
            ((AND (CONSP |p|) (EQ (CAR |p|) '|not|)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |p|))

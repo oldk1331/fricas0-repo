@@ -12,7 +12,7 @@
 ;   -- logically _*PRINT_-PRETTY_* should be local, but Common Lisp
 ;   -- forces us to omit it.
 ;   _*PRINT_-PRETTY_* := 'T
-;   PRINT_-FULL(profileTran $profileAlist,outStream)
+;   print_full2(profileTran $profileAlist, outStream)
 ;   SHUT outStream
  
 (DEFUN |profileWrite| ()
@@ -22,7 +22,7 @@
       (SETQ |outStream|
               (MAKE-OUTSTREAM (CONCAT (LIBSTREAM-DIRNAME |$libFile|) "/info")))
       (SETQ *PRINT-PRETTY* 'T)
-      (PRINT-FULL (|profileTran| |$profileAlist|) |outStream|)
+      (|print_full2| (|profileTran| |$profileAlist|) |outStream|)
       (SHUT |outStream|)))))
  
 ; profileTran alist ==

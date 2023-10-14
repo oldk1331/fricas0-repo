@@ -889,10 +889,8 @@
 ;   exp_part := string_to_int(e_str)
 ;   bfForm := make_float(int_part, string_to_int(fr_str),
 ;     LENGTH fr_str, exp_part)
-;   $useBFasDefault =>
-;     [., frac, exp] := bfForm
-;     [["$elt", intNewFloat(), 'float], frac, exp, 10]
-;   bfForm
+;   [., frac, exp] := bfForm
+;   [["$elt", intNewFloat(), 'float], frac, exp, 10]
  
 (DEFUN |float2Sex| (|bfVar#27|)
   (PROG (|i_str| |fr_str| |e_str| |int_part| |exp_part| |bfForm| |frac| |exp|)
@@ -906,13 +904,9 @@
       (SETQ |bfForm|
               (|make_float| |int_part| (|string_to_int| |fr_str|)
                (LENGTH |fr_str|) |exp_part|))
-      (COND
-       (|$useBFasDefault|
-        (PROGN
-         (SETQ |frac| (CADR . #2=(|bfForm|)))
-         (SETQ |exp| (CADDR . #2#))
-         (LIST (LIST '|$elt| (|intNewFloat|) '|float|) |frac| |exp| 10)))
-       ('T |bfForm|))))))
+      (SETQ |frac| (CADR . #2=(|bfForm|)))
+      (SETQ |exp| (CADDR . #2#))
+      (LIST (LIST '|$elt| (|intNewFloat|) '|float|) |frac| |exp| 10)))))
  
 ; loopIters2Sex iterList ==
 ;   result := nil

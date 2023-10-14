@@ -264,19 +264,15 @@
  
 ; parseAndInterpret str ==
 ;   $InteractiveMode :fluid := true
-;   $BOOT: fluid := NIL
-;   $SPAD: fluid := true
 ;   $e:fluid := $InteractiveFrame
 ;   ncParseAndInterpretString str
  
 (DEFUN |parseAndInterpret| (|str|)
-  (PROG (|$e| $SPAD $BOOT |$InteractiveMode|)
-    (DECLARE (SPECIAL |$e| $SPAD $BOOT |$InteractiveMode|))
+  (PROG (|$e| |$InteractiveMode|)
+    (DECLARE (SPECIAL |$e| |$InteractiveMode|))
     (RETURN
      (PROGN
       (SETQ |$InteractiveMode| T)
-      (SETQ $BOOT NIL)
-      (SETQ $SPAD T)
       (SETQ |$e| |$InteractiveFrame|)
       (|ncParseAndInterpretString| |str|)))))
  
@@ -395,19 +391,15 @@
  
 ; parseAndEvalStr string ==
 ;   $InteractiveMode :fluid := true
-;   $BOOT: fluid := NIL
-;   $SPAD: fluid := true
 ;   $e:fluid := $InteractiveFrame
 ;   parseAndEvalStr1 string
  
 (DEFUN |parseAndEvalStr| (|string|)
-  (PROG (|$e| $SPAD $BOOT |$InteractiveMode|)
-    (DECLARE (SPECIAL |$e| $SPAD $BOOT |$InteractiveMode|))
+  (PROG (|$e| |$InteractiveMode|)
+    (DECLARE (SPECIAL |$e| |$InteractiveMode|))
     (RETURN
      (PROGN
       (SETQ |$InteractiveMode| T)
-      (SETQ $BOOT NIL)
-      (SETQ $SPAD T)
       (SETQ |$e| |$InteractiveFrame|)
       (|parseAndEvalStr1| |string|)))))
  
