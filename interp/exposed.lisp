@@ -33,7 +33,7 @@
 (setq |$globalExposureGroupAlist|
 '(
 ;;define the groups |basic| |naglink| |anna| |categories| |Hidden| |defaults|
-(|basic| 
+(|basic|
   (|AlgebraicManipulations| . ALGMANIP)
   (|AlgebraicNumber| . AN)
   (|AlgFactor| . ALGFACT)
@@ -323,7 +323,7 @@
   (|RepresentationPackage2| . REP2)
   (|ResolveLatticeCompletion| . RESLATC)
   (|RewriteRule| . RULE)
-  (|RightOpenIntervalRootCharacterization| . ROIRC) 
+  (|RightOpenIntervalRootCharacterization| . ROIRC)
   (|RomanNumeral| . ROMAN)
   (|Ruleset| . RULESET)
   (|ScriptFormulaFormat| . FORMULA)
@@ -392,7 +392,7 @@
   (|Void| . VOID)
   (|WuWenTsunTriangularSet| . WUTSET)
 )
-(|categories| 
+(|categories|
   (|AbelianGroup| . ABELGRP)
   (|AbelianMonoid| . ABELMON)
   (|AbelianMonoidRing| . AMR)
@@ -597,7 +597,7 @@
   (|XFreeAlgebra| . XFALG)
   (|XPolynomialsCat| . XPOLYC)
   (|ZeroDimensionalSolvePackage| . ZDSOLVE))
-(|Hidden| 
+(|Hidden|
   (|AlgebraicFunction| . AF)
   (|AlgebraicFunctionField| . ALGFF)
   (|AlgebraicHermiteIntegration| . INTHERAL)
@@ -995,7 +995,7 @@
   (|XPolynomial| . XPOLY)
   (|XPolynomialRing| . XPR)
   (|XRecursivePolynomial| . XRPOLY))
-(|defaults| 
+(|defaults|
   (|AbelianGroup&| . ABELGRP-)
   (|AbelianMonoid&| . ABELMON-)
   (|AbelianMonoidRing&| . AMR-)
@@ -1115,16 +1115,16 @@
   (|VectorCategory&| . VECTCAT-)
   (|VectorSpace&| . VSPACE-)))
 )
-(setq |$localExposureDataDefault| (VECTOR 
-(LIST 
-;;These groups will be exposed 
-'|basic| 
-'|categories| 
-) 
-(LIST 
+(setq |$localExposureDataDefault| (VECTOR
+(LIST
+;;These groups will be exposed
+'|basic|
+'|categories|
+)
+(LIST
 ;;These constructors will be explicitly exposed
 )
-(LIST 
+(LIST
 ;;These constructors will be explicitly hidden
 )
 ))

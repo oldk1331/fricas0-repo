@@ -1414,7 +1414,7 @@
 ; sumOrParen(x) ==
 ;    x is [op, arg1, arg2] =>
 ;        op = "+" or op = '"+" =>
-;     concat(sumOrParen(arg1), '"+", productOrParen(arg2))
+;            concat(sumOrParen(arg1), '"+", productOrParen(arg2))
 ;        op = "-" or op = '"-" =>
 ;            concat(sumOrParen(arg1), '"-", productOrParen(arg2))
 ;        op = "/" or op = '"/" or op = "OVER" or op = '"OVER" =>
@@ -1508,7 +1508,7 @@
 ;            concat(coerceOrParen(arg1), '"@", appOrParen(arg2))
 ;       op = "pretend" or op = '"pretend" =>
 ;            concat(coerceOrParen(arg1), '" ", '"pretend", '" ",_
-;             appOrParen(arg2))
+;                    appOrParen(arg2))
 ;       appOrParen(x)
 ;    appOrParen(x)
  

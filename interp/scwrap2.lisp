@@ -332,7 +332,7 @@
 ;         greater_SI($settab_level, 0) and type1 = "key" and sym = "BACKTAB" =>
 ;             $settab_level := dec_SI($settab_level)
 ;             ntokreader(token)
-;         -- Fix bad piles 
+;         -- Fix bad piles
 ;         if type1 = "key" and sym = "BACKSET" and $toklst then
 ;             ntok1 := first $toklst
 ;             ntype1 := first(ntok1)
