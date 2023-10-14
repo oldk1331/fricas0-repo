@@ -685,14 +685,14 @@
          (CONS 1 "failed"))
         ('T (CONS 0 (QCAR (QCDR |u|)))))))))) 
 
-(DEFUN |INTTR;primlimitedint;FMMLU;17| (|f| |derivation| |extendedint| |lu| $)
+(DEFUN |INTTR;primlogint;FMMLU;17| (|f| |derivation| |extendedint| |lu| $)
   (PROG (|u2| |u1| |qr|)
     (RETURN
      (SEQ
       (LETT |qr|
             (SPADCALL (SPADCALL |f| (QREFELT $ 46))
                       (SPADCALL |f| (QREFELT $ 50)) (QREFELT $ 134))
-            . #1=(|INTTR;primlimitedint;FMMLU;17|))
+            . #1=(|INTTR;primlogint;FMMLU;17|))
       (LETT |u1|
             (SPADCALL
              (SPADCALL (QCDR |qr|) (SPADCALL |f| (QREFELT $ 50))
@@ -725,13 +725,13 @@
                                (QCDR (QCDR |u1|)))
                               (QCDR (QCDR |u2|))))))))))))))) 
 
-(DEFUN |INTTR;explimitedint;FMMLU;18| (|f| |derivation| FRDE |lu| $)
+(DEFUN |INTTR;explogint;FMMLU;18| (|f| |derivation| FRDE |lu| $)
   (PROG (|u2| |ea| |u11| |u1| |qr|)
     (RETURN
      (SEQ
       (LETT |qr| (SPADCALL |f| (QREFELT $ 144))
-            . #1=(|INTTR;explimitedint;FMMLU;18|))
-      (LETT |u1| (|INTTR;explimintfrac| (QCDR |qr|) |derivation| |lu| $) . #1#)
+            . #1=(|INTTR;explogint;FMMLU;18|))
+      (LETT |u1| (|INTTR;explogintfrac| (QCDR |qr|) |derivation| |lu| $) . #1#)
       (EXIT
        (COND ((QEQCAR |u1| 1) (CONS 1 "failed"))
              (#2='T
@@ -756,7 +756,7 @@
                                    (QCDR |u11|))
                                   (QCDR (QCDR |u2|))))))))))))))) 
 
-(DEFUN |INTTR;primlimintfrac;FMLU;19| (|f| |derivation| |lu| $)
+(DEFUN |INTTR;primlogintfrac;FMLU;19| (|f| |derivation| |lu| $)
   (PROG (|u| |r|)
     (RETURN
      (SEQ
@@ -768,7 +768,7 @@
        (#1='T
         (SEQ
          (LETT |r| (SPADCALL |f| |derivation| (QREFELT $ 45))
-               . #2=(|INTTR;primlimintfrac;FMLU;19|))
+               . #2=(|INTTR;primlogintfrac;FMLU;19|))
          (EXIT
           (COND
            ((SPADCALL (QVELT |r| 1) (QREFELT $ 42))
@@ -777,7 +777,7 @@
             (SEQ
              (LETT |u|
                    (|INTTR;limitedLogs| (QVELT |r| 1)
-                    (CONS #'|INTTR;primlimintfrac;FMLU;19!0|
+                    (CONS #'|INTTR;primlogintfrac;FMLU;19!0|
                           (VECTOR $ |derivation|))
                     |lu| $)
                    . #2#)
@@ -785,13 +785,13 @@
               (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                     (#1# (CONS 0 (CONS (QVELT |r| 0) (QCDR |u|))))))))))))))))) 
 
-(DEFUN |INTTR;primlimintfrac;FMLU;19!0| (|x1| $$)
+(DEFUN |INTTR;primlogintfrac;FMLU;19!0| (|x1| $$)
   (PROG (|derivation| $)
-    (LETT |derivation| (QREFELT $$ 1) . #1=(|INTTR;primlimintfrac;FMLU;19|))
+    (LETT |derivation| (QREFELT $$ 1) . #1=(|INTTR;primlogintfrac;FMLU;19|))
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|INTTR;logprmderiv| |x1| |derivation| $))))) 
 
-(DEFUN |INTTR;explimintfrac| (|f| |derivation| |lu| $)
+(DEFUN |INTTR;explogintfrac| (|f| |derivation| |lu| $)
   (PROG (|ea| #1=#:G410 #2=#:G409 #3=#:G411 #4=#:G419 |v| |u| |uu| |eta'| |r|)
     (RETURN
      (SEQ
@@ -810,7 +810,7 @@
        (#5='T
         (SEQ
          (LETT |r| (SPADCALL |f| |derivation| (QREFELT $ 45))
-               . #6=(|INTTR;explimintfrac|))
+               . #6=(|INTTR;explogintfrac|))
          (EXIT
           (COND
            ((SPADCALL (QVELT |r| 1) (QREFELT $ 42))
@@ -825,7 +825,7 @@
                    . #6#)
              (LETT |uu|
                    (|INTTR;limitedLogs| (QVELT |r| 1)
-                    (CONS #'|INTTR;explimintfrac!0|
+                    (CONS #'|INTTR;explogintfrac!0|
                           (VECTOR $ |eta'| |derivation|))
                     |lu| $)
                    . #6#)
@@ -891,9 +891,9 @@
                                  (CONS (CONS (QVELT |r| 0) |u|)
                                        |ea|)))))))))))))))))) 
 
-(DEFUN |INTTR;explimintfrac!0| (|x1| $$)
+(DEFUN |INTTR;explogintfrac!0| (|x1| $$)
   (PROG (|derivation| |eta'| $)
-    (LETT |derivation| (QREFELT $$ 2) . #1=(|INTTR;explimintfrac|))
+    (LETT |derivation| (QREFELT $$ 2) . #1=(|INTTR;explogintfrac|))
     (LETT |eta'| (QREFELT $$ 1) . #1#)
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|INTTR;logexpderiv| |x1| |derivation| |eta'| $))))) 
@@ -1440,12 +1440,12 @@
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (413 . |divide|) (|Record| (|:| |coeff| 8) (|:| |logand| 8))
               (|Record| (|:| |mainpart| 8) (|:| |limitedlogs| (|List| 135)))
-              (|Union| 136 '"failed") (|List| 8) |INTTR;primlimintfrac;FMLU;19|
+              (|Union| 136 '"failed") (|List| 8) |INTTR;primlogintfrac;FMLU;19|
               (|Record| (|:| |answer| 136) (|:| |a0| 6))
-              (|Union| 140 '"failed") |INTTR;primlimitedint;FMMLU;17|
+              (|Union| 140 '"failed") |INTTR;primlogint;FMMLU;17|
               (|Record| (|:| |polyPart| $) (|:| |fracPart| 8))
               (419 . |separate|) (424 . |coerce|) (429 . -) (435 . |convert|)
-              |INTTR;explimitedint;FMMLU;18| (440 . >) (446 . +) (452 . *)
+              |INTTR;explogint;FMMLU;18| (440 . >) (446 . +) (452 . *)
               (458 . |integral|) (464 . |elem?|)
               (|Record| (|:| |answer| 40) (|:| |a0| 6))
               (|Record| (|:| |answer| 8) (|:| |logpart| 8) (|:| |ir| 40))
@@ -1463,10 +1463,10 @@
               (|Union| 176 173 '"failed") |INTTR;primextendedint;FMMFU;26|
               (|Union| 6 '"failed") (508 . |retractIfCan|) (513 . *)
               |INTTR;expextendedint;FMMFU;27| (519 . *))
-           '#(|tanintegrate| 525 |primlimitedint| 532 |primlimintfrac| 540
+           '#(|tanintegrate| 525 |primlogintfrac| 532 |primlogint| 539
               |primintfldpoly| 547 |primintegrate| 554 |primextintfrac| 562
               |primextendedint| 569 |monomialIntegrate| 577 |monomialIntPoly|
-              583 |explimitedint| 589 |expintfldpoly| 597 |expintegrate| 603
+              583 |explogint| 589 |expintfldpoly| 597 |expintegrate| 603
               |expextendedint| 611)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
@@ -1520,8 +1520,8 @@
                                                    0 167 2 7 0 0 168 169 1 93
                                                    179 0 180 2 93 0 0 0 181 2 6
                                                    0 34 0 183 3 0 154 8 11 171
-                                                   172 4 0 141 8 11 127 138 142
-                                                   3 0 137 8 11 138 139 3 0 80
+                                                   172 3 0 137 8 11 138 139 4 0
+                                                   141 8 11 127 138 142 3 0 80
                                                    7 127 6 128 4 0 154 8 11 156
                                                    127 157 3 0 174 8 11 8 175 4
                                                    0 177 8 11 127 8 178 2 0 83

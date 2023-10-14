@@ -147,7 +147,7 @@
               (|Record| (|:| |quotient| $) (|:| |remainder| $)) (60 . |divide|)
               (66 . /) (|Record| (|:| |coeff| 10) (|:| |logand| 10))
               (|Record| (|:| |mainpart| 10) (|:| |limitedlogs| (|List| 33)))
-              (|Union| 34 '"failed") (|List| 10) (72 . |primlimintfrac|)
+              (|Union| 34 '"failed") (|List| 10) (72 . |primlogintfrac|)
               (79 . +) |INTRAT;limitedint;FLU;3|
               (|Record| (|:| |ratpart| 10) (|:| |coeff| 10))
               (|Union| 40 '"failed") (85 . |primextintfrac|) (92 . |retract|)
