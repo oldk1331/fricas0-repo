@@ -8090,7 +8090,7 @@
 876306`\spad{vectorise(p,{} n)} returns \spad{[a0,{} ...,{} a(n-1)]} where \spad{p = a0 + a1*x + ... + a(n-1)*x^(n-1)} + higher order terms. The degree of polynomial \spad{p} can be different from \spad{n-1}.
 876473`\spad{vertConcat(l)} vertically concatenates all members of \spad{l} Error: if the arrays do not have the same number of columns.
 876624`\spad{vertConcat(x,{} y)} vertically concatenates two arrays with an equal number of columns. The entries of \spad{y} appear below of the entries of \spad{x}. Error: if the arrays do not have the same number of columns.
-876887`\spad{vertSplit(a,{} [n1,{} ...,{} \spad{ni}]} splits a into arrays having \spad{n1},{} ...,{} \spad{ni} rows. Error: if number of rows of a is different than \spad{n1+} ... + \spad{ni}.
+876887`\spad{vertSplit(a,{} [n1,{} ...,{} \spad{ni}])} splits a into arrays having \spad{n1},{} ...,{} \spad{ni} rows. Error: if number of rows of a is different than \spad{n1+} ... + \spad{ni}.
 876988`\spad{vertSplit(a,{} n)} splits a into \spad{n} arrays of equal size row wise. Error: if number of rows of a is not divisible by \spad{n}.
 877083`\spad{viewDefaults()} resets all the default graphics settings.
 877140`\spad{viewDeltaXDefault()} returns the current default horizontal offset from the center of the viewport window.
