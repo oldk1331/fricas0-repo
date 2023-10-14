@@ -248,7 +248,7 @@
 ;     a:= serverReadLine(_*STANDARD_-INPUT_*)
 ;     ioHook("endOfReadLine")
 ;     not STRINGP a => leaveScratchpad()
-;     #a=0 =>
+;     b = '"" and #a=0 =>
 ;              princPrompt()
 ;              intloopReadConsole('"", n)
 ;     $DALYMODE and intloopPrefix?('"(",a) =>
@@ -276,7 +276,7 @@
       (SETQ |a| (|serverReadLine| *STANDARD-INPUT*))
       (|ioHook| '|endOfReadLine|)
       (COND ((NULL (STRINGP |a|)) (|leaveScratchpad|))
-            ((EQL (LENGTH |a|) 0)
+            ((AND (EQUAL |b| "") (EQL (LENGTH |a|) 0))
              (PROGN (|princPrompt|) (|intloopReadConsole| "" |n|)))
             ((AND $DALYMODE (|intloopPrefix?| "(" |a|))
              (PROGN
