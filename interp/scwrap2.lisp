@@ -231,6 +231,7 @@
 ;                 ["ARROW", "->"], _
 ;                 ["AT", "@"], _
 ;                 ["BAR", "|"], _
+;                 ["BACKSLASHSLASH", "\/"], _
 ;                 ["BECOMES", ":="], _
 ;                 ["CARAT", "^"], _
 ;                 ["COERCE", "::"], _
@@ -254,20 +255,23 @@
 ;                 ["SEG", ".."], _
 ;                 ["SEMICOLON", ";"], _
 ;                 ["SLASH", "/"], _
+;                 ["SLASHBACKSLASH", "/\"], _
 ;                 ["TIMES", "*"], _
 ;                 ["BACKSET", ";"]]
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$trans_key|
           (LIST (LIST 'ARROW '->) (LIST 'AT '@) (LIST 'BAR '|\||)
-                (LIST 'BECOMES '|:=|) (LIST 'CARAT '^) (LIST 'COERCE '|::|)
-                (LIST 'COLON '|:|) (LIST 'COMMA '|,|) (LIST 'DEF '==)
-                (LIST 'DOT '|.|) (LIST 'EQUAL '=) (LIST 'EXIT '=>)
-                (LIST 'GE '>=) (LIST 'GIVES '+->) (LIST 'GT '>) (LIST 'LE '<=)
-                (LIST 'LT '<) (LIST 'OANGLE '<<) (LIST 'CANGLE '>>)
-                (LIST 'MDEF '==>) (LIST 'MINUS '-) (LIST 'NOTEQUAL '~=)
-                (LIST 'PLUS '+) (LIST 'SEG '|..|) (LIST 'SEMICOLON '|;|)
-                (LIST 'SLASH '/) (LIST 'TIMES '*) (LIST 'BACKSET '|;|))))
+                (LIST 'BACKSLASHSLASH '|\\/|) (LIST 'BECOMES '|:=|)
+                (LIST 'CARAT '^) (LIST 'COERCE '|::|) (LIST 'COLON '|:|)
+                (LIST 'COMMA '|,|) (LIST 'DEF '==) (LIST 'DOT '|.|)
+                (LIST 'EQUAL '=) (LIST 'EXIT '=>) (LIST 'GE '>=)
+                (LIST 'GIVES '+->) (LIST 'GT '>) (LIST 'LE '<=) (LIST 'LT '<)
+                (LIST 'OANGLE '<<) (LIST 'CANGLE '>>) (LIST 'MDEF '==>)
+                (LIST 'MINUS '-) (LIST 'NOTEQUAL '~=) (LIST 'PLUS '+)
+                (LIST 'SEG '|..|) (LIST 'SEMICOLON '|;|) (LIST 'SLASH '/)
+                (LIST 'SLASHBACKSLASH '|/\\|) (LIST 'TIMES '*)
+                (LIST 'BACKSET '|;|))))
  
 ; $trans_key_id := [ _
 ;                 ["break", "break"], _
