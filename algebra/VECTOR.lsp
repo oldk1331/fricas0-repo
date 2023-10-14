@@ -18,10 +18,10 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 17)))
    (QREFELT $ 19))) 
 
-(DEFUN |Vector| (#1=#:G2084)
+(DEFUN |Vector| (#1=#:G2085)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2085)
+     (PROG (#2=#:G2086)
        (RETURN
         (COND
          ((LETT #2#
@@ -35,7 +35,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Vector|))))))))))) 
 
 (DEFUN |Vector;| (|#1|)
-  (PROG (#1=#:G2083 |pv$| #2=#:G2080 #3=#:G2081 $ |dv$| DV$1)
+  (PROG (#1=#:G2084 |pv$| #2=#:G2081 #3=#:G2082 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Vector|))

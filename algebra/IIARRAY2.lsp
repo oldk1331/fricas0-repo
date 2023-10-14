@@ -8,7 +8,7 @@
 (DEFUN |IIARRAY2;empty;$;2| ($) (MAKE-ARRAY 0)) 
 
 (DEFUN |IIARRAY2;new;2NniR$;3| (|rows| |cols| |a| $)
-  (PROG (#1=#:G2171 |i| |arr|)
+  (PROG (#1=#:G2172 |i| |arr|)
     (RETURN
      (SEQ
       (COND
@@ -71,7 +71,7 @@
    ('T (SPADCALL |m| |i| |j| |r| (QREFELT $ 29))))) 
 
 (DEFUN |IIARRAY2;latex;$S;14| (|m| $)
-  (PROG (|s| #1=#:G2202 |j| #2=#:G2201 |i| #3=#:G2200)
+  (PROG (|s| #1=#:G2203 |j| #2=#:G2202 |i| #3=#:G2201)
     (RETURN
      (SEQ (LETT |s| "\\left[ \\begin{array}{" . #4=(|IIARRAY2;latex;$S;14|))
           (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 21)) . #4#)
@@ -106,10 +106,10 @@
                (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT (STRCONC |s| "\\end{array} \\right]")))))) 
 
-(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2208)
+(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2209)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2209)
+     (PROG (#2=#:G2210)
        (RETURN
         (COND
          ((LETT #2#
@@ -130,7 +130,7 @@
                     '|InnerIndexedTwoDimensionalArray|))))))))))) 
 
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (|pv$| #1=#:G2206 #2=#:G2207 $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G2207 #2=#:G2208 $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|InnerIndexedTwoDimensionalArray|))

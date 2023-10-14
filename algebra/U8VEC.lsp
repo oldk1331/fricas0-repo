@@ -34,7 +34,7 @@
 (DEFUN |U8VEC;setelt;$3I;8| (|x| |i| |s| $) (SETELT_U8 |x| |i| |s|)) 
 
 (DEFUN |U8VEC;fill!;$I$;9| (|x| |s| $)
-  (PROG (#1=#:G2332 |i|)
+  (PROG (#1=#:G2333 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 0 . #2=(|U8VEC;fill!;$I$;9|))
@@ -47,7 +47,7 @@
 (DEFUN |U8Vector| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2345)
+     (PROG (#1=#:G2346)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|U8Vector|) . #2=(|U8Vector|))
@@ -62,7 +62,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|U8Vector|))))))))))) 
 
 (DEFUN |U8Vector;| ()
-  (PROG (|dv$| $ #1=#:G2341 #2=#:G2342 #3=#:G2340 |pv$| #4=#:G2343)
+  (PROG (|dv$| $ #1=#:G2342 #2=#:G2343 #3=#:G2341 |pv$| #4=#:G2344)
     (RETURN
      (PROGN
       (LETT |dv$| '(|U8Vector|) . #5=(|U8Vector|))

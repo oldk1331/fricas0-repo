@@ -65,10 +65,13 @@
 (DEFUN |OVAR;latex;$S;12| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 37))) 
 
-(DEFUN |OrderedVariableList| (#1=#:G148)
+(DEFUN |OVAR;hashUpdate!;Hs$Hs;13| (|hs| |s| $)
+  (SPADCALL |hs| (SXHASH |s|) (QREFELT $ 41))) 
+
+(DEFUN |OrderedVariableList| (#1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G149)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#
@@ -91,7 +94,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|OrderedVariableList|))
       (LETT |dv$| (LIST '|OrderedVariableList| DV$1) . #1#)
-      (LETT $ (GETREFV 42) . #1#)
+      (LETT $ (GETREFV 44) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|OrderedVariableList| (LIST DV$1)
@@ -115,11 +118,12 @@
               |OVAR;lookup;$Pi;7| (|NonNegativeInteger|) |OVAR;size;Nni;8|
               (|Union| $ '"failed") |OVAR;variable;SU;9| (|Boolean|)
               |OVAR;<;2$B;10| |OVAR;=;2$B;11| (|String|) (31 . |latex|)
-              |OVAR;latex;$S;12| (|List| $) (|SingleInteger|) (|HashState|))
-           '#(~= 36 |variable| 42 |smaller?| 47 |size| 53 |random| 57 |min| 61
-              |max| 67 |lookup| 73 |latex| 78 |index| 83 |hashUpdate!| 88
-              |hash| 94 |enumerate| 99 |convert| 103 |coerce| 123 >= 128 > 134
-              = 140 <= 146 < 152)
+              |OVAR;latex;$S;12| (|SingleInteger|) (|HashState|)
+              (36 . |update!|) |OVAR;hashUpdate!;Hs$Hs;13| (|List| $))
+           '#(~= 42 |variable| 48 |smaller?| 53 |size| 59 |random| 63 |min| 67
+              |max| 73 |lookup| 79 |latex| 84 |index| 89 |hashUpdate!| 94
+              |hash| 100 |enumerate| 105 |convert| 109 |coerce| 129 >= 134 >
+              140 = 146 <= 152 < 158)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -131,15 +135,16 @@
                       (|ConvertibleTo| 23) (|ConvertibleTo| 10)
                       (|ConvertibleTo| 17) (|BasicType|) (|PartialOrder|)
                       (|CoercibleTo| 14))
-                   (|makeByteWordVec2| 41
+                   (|makeByteWordVec2| 43
                                        '(1 7 0 0 8 2 7 10 0 11 12 1 10 14 0 15
                                          1 10 17 0 18 1 10 20 0 21 1 10 23 0 24
-                                         1 10 36 0 37 2 0 33 0 0 1 1 0 31 10 32
-                                         2 0 33 0 0 1 0 0 29 30 0 0 0 1 2 0 0 0
-                                         0 1 2 0 0 0 0 1 1 0 26 0 28 1 0 36 0
-                                         38 1 0 0 26 27 2 0 41 41 0 1 1 0 40 0
-                                         1 0 0 39 1 1 0 20 0 22 1 0 23 0 25 1 0
-                                         17 0 19 1 0 10 0 13 1 0 14 0 16 2 0 33
-                                         0 0 1 2 0 33 0 0 1 2 0 33 0 0 35 2 0
-                                         33 0 0 1 2 0 33 0 0 34)))))
+                                         1 10 36 0 37 2 40 0 0 39 41 2 0 33 0 0
+                                         1 1 0 31 10 32 2 0 33 0 0 1 0 0 29 30
+                                         0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 26
+                                         0 28 1 0 36 0 38 1 0 0 26 27 2 0 40 40
+                                         0 42 1 0 39 0 1 0 0 43 1 1 0 20 0 22 1
+                                         0 23 0 25 1 0 17 0 19 1 0 10 0 13 1 0
+                                         14 0 16 2 0 33 0 0 1 2 0 33 0 0 1 2 0
+                                         33 0 0 35 2 0 33 0 0 1 2 0 33 0 0
+                                         34)))))
            '|lookupComplete|)) 
