@@ -98,9 +98,9 @@
 
 (DECLAIM (NOTINLINE |OnePointCompletion;|)) 
 
-(DEFUN |OnePointCompletion| (#1=#:G167)
+(DEFUN |OnePointCompletion| (#1=#:G164)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G165)
            (RETURN
             (COND
              ((LETT #2#
@@ -118,7 +118,7 @@
                   (HREM |$ConstructorCache| '|OnePointCompletion|)))))))))) 
 
 (DEFUN |OnePointCompletion;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G166 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G163 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #2=(|OnePointCompletion|))
           (LETT |dv$| (LIST '|OnePointCompletion| DV$1) . #2#)

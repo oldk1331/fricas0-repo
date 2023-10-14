@@ -4845,8 +4845,8 @@
           (|maxP| (|Union| (|PositiveInteger|) "arbitrary"))
           (|len| (|NonNegativeInteger|)) (|reject_one_term| (|Boolean|))
           (#8=#:G1200 NIL)
-          (|nonZeroCoefficients| (|Union| #9="several" "one" "none"))
-          (#10=#:G1202 NIL))
+          (|nonZeroCoefficients| (|Union| "one" "several" "none"))
+          (#9=#:G1202 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -4854,12 +4854,12 @@
              ((SPADCALL |options| (QREFELT $ 367))
               (SPADCALL "Guess: checking solution" (QREFELT $ 369))))
             (LETT |nonZeroCoefficients| (CONS 2 "none")
-                  . #11=(|GUESS;checkInterpolant|))
-            (LETT |reject_one_term| 'NIL . #11#)
+                  . #10=(|GUESS;checkInterpolant|))
+            (LETT |reject_one_term| 'NIL . #10#)
             (SEQ
              (EXIT
-              (SEQ (LETT |i| 1 . #11#) (LETT #10# (LENGTH |resi|) . #11#) G190
-                   (COND ((|greater_SI| |i| #10#) (GO G191)))
+              (SEQ (LETT |i| 1 . #10#) (LETT #9# (LENGTH |resi|) . #10#) G190
+                   (COND ((|greater_SI| |i| #9#) (GO G191)))
                    (SEQ
                     (EXIT
                      (COND
@@ -4868,29 +4868,31 @@
                                   (QREFELT $ 447)))
                        (COND
                         ((QEQCAR |nonZeroCoefficients| 2)
-                         (LETT |nonZeroCoefficients| (CONS 0 "one") . #11#))
+                         (LETT |nonZeroCoefficients| (CONS 0 "one") . #10#))
                         ('T
-                         (SEQ (LETT |nonZeroCoefficients| (CONS 1 #9#) . #11#)
-                              (EXIT
-                               (PROGN
-                                (LETT #8# |$NoValue| . #11#)
-                                (GO #12=#:G1157))))))))))
-                   (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL)))
-             #12# (EXIT #8#))
+                         (SEQ
+                          (LETT |nonZeroCoefficients| (CONS 1 "several")
+                                . #10#)
+                          (EXIT
+                           (PROGN
+                            (LETT #8# |$NoValue| . #10#)
+                            (GO #11=#:G1157))))))))))
+                   (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191 (EXIT NIL)))
+             #11# (EXIT #8#))
             (COND
              ((NULL (QEQCAR |nonZeroCoefficients| 1))
               (COND
                ((NULL (SPADCALL (ELT $ 357) |list| (QREFELT $ 454)))
-                (SEQ (LETT |reject_one_term| 'T . #11#)
+                (SEQ (LETT |reject_one_term| 'T . #10#)
                      (EXIT
                       (COND
                        ((SPADCALL |options| (QREFELT $ 367))
                         (SPADCALL "Guess: encountered single-term solution"
                                   (QREFELT $ 369))))))))))
-            (LETT |len| (LENGTH |list|) . #11#)
-            (LETT |maxP| (SPADCALL |options| (QREFELT $ 57)) . #11#)
-            (COND ((QEQCAR |maxP| 0) (LETT |maxPow| (QCDR |maxP|) . #11#))
-                  (#13='T (LETT |maxPow| (+ |len| 2) . #11#)))
+            (LETT |len| (LENGTH |list|) . #10#)
+            (LETT |maxP| (SPADCALL |options| (QREFELT $ 57)) . #10#)
+            (COND ((QEQCAR |maxP| 0) (LETT |maxPow| (QCDR |maxP|) . #10#))
+                  (#12='T (LETT |maxPow| (+ |len| 2) . #10#)))
             (COND
              ((EQL |maxPow| 1)
               (COND
@@ -4900,8 +4902,8 @@
                   |reject_one_term| $))))))
             (LETT |flist|
                   (PROGN
-                   (LETT #7# NIL . #11#)
-                   (SEQ (LETT |i| 1 . #11#) G190
+                   (LETT #7# NIL . #10#)
+                   (SEQ (LETT |i| 1 . #10#) G190
                         (COND ((|greater_SI| |i| |o|) (GO G191)))
                         (SEQ
                          (EXIT
@@ -4910,29 +4912,29 @@
                              ((SPADCALL (SPADCALL |resi| |i| (QREFELT $ 446))
                                         (QREFELT $ 447))
                               'NIL)
-                             (#13# 'T))
+                             (#12# 'T))
                             (LETT #7#
                                   (CONS
-                                   (PROG1 (LETT #6# |i| . #11#)
+                                   (PROG1 (LETT #6# |i| . #10#)
                                      (|check_subtype| (> #6# 0)
                                                       '(|PositiveInteger|)
                                                       #6#))
                                    #7#)
-                                  . #11#)))))
-                        (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191
+                                  . #10#)))))
+                        (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191
                         (EXIT (NREVERSE #7#))))
-                  . #11#)
+                  . #10#)
             (LETT |testList|
                   (SPADCALL (|GUESS;list2UFPSSUPF| |list| $)
                             (SPADCALL |flist| (QVELT D 3)))
-                  . #11#)
+                  . #10#)
             (LETT |resiSUPF|
                   (PROGN
-                   (LETT #5# NIL . #11#)
-                   (SEQ (LETT |i| NIL . #11#) (LETT #4# |flist| . #11#) G190
+                   (LETT #5# NIL . #10#)
+                   (SEQ (LETT |i| NIL . #10#) (LETT #4# |flist| . #10#) G190
                         (COND
                          ((OR (ATOM #4#)
-                              (PROGN (LETT |i| (CAR #4#) . #11#) NIL))
+                              (PROGN (LETT |i| (CAR #4#) . #10#) NIL))
                           (GO G191)))
                         (SEQ
                          (EXIT
@@ -4943,42 +4945,42 @@
                                    (SPADCALL |resi| |i| (QREFELT $ 446)) $)
                                   $)
                                  #5#)
-                                . #11#)))
-                        (LETT #4# (CDR #4#) . #11#) (GO G190) G191
+                                . #10#)))
+                        (LETT #4# (CDR #4#) . #10#) (GO G190) G191
                         (EXIT (NREVERSE #5#))))
-                  . #11#)
-            (LETT |order| 0 . #11#)
-            (LETT |dmax| (SPADCALL 10 (LENGTH |list|) (QREFELT $ 455)) . #11#)
+                  . #10#)
+            (LETT |order| 0 . #10#)
+            (LETT |dmax| (SPADCALL 10 (LENGTH |list|) (QREFELT $ 455)) . #10#)
             (SEQ
              (EXIT
-              (SEQ (LETT |d| 0 . #11#) G190 NIL
+              (SEQ (LETT |d| 0 . #10#) G190 NIL
                    (SEQ
                     (COND
                      ((NULL (SPADCALL |options| (QREFELT $ 429)))
                       (COND
                        ((EQL |d| |sigma|)
                         (PROGN
-                         (LETT #2# (CONS 0 "good") . #11#)
-                         (GO #14=#:G1198))))))
+                         (LETT #2# (CONS 0 "good") . #10#)
+                         (GO #13=#:G1198))))))
                     (COND
                      (|reject_one_term|
                       (COND
                        ((EQL |d| |sigma|)
                         (PROGN
-                         (LETT #2# (CONS 1 "reject") . #11#)
-                         (GO #14#))))))
+                         (LETT #2# (CONS 1 "reject") . #10#)
+                         (GO #13#))))))
                     (LETT |c|
                           (SPADCALL (QVELT D 8) |testList| |d|
                                     (SPADCALL |resiSUPF| (QREFELT $ 458))
                                     (QREFELT $ 459))
-                          . #11#)
+                          . #10#)
                     (COND
                      ((NULL (SPADCALL |c| (QREFELT $ 460)))
-                      (SEQ (LETT |order| |d| . #11#)
+                      (SEQ (LETT |order| |d| . #10#)
                            (EXIT
                             (PROGN
-                             (LETT #3# |$NoValue| . #11#)
-                             (GO #15=#:G1191))))))
+                             (LETT #3# |$NoValue| . #10#)
+                             (GO #14=#:G1191))))))
                     (EXIT
                      (COND
                       ((SPADCALL |d| |dmax| (QREFELT $ 229))
@@ -4992,11 +4994,11 @@
                                     (QREFELT $ 42))
                           (QREFELT $ 463))
                          (QREFELT $ 462))
-                        (LETT |order| |d| . #11#)
+                        (LETT |order| |d| . #10#)
                         (EXIT
-                         (PROGN (LETT #3# |$NoValue| . #11#) (GO #15#))))))))
-                   (LETT |d| (|inc_SI| |d|) . #11#) (GO G190) G191 (EXIT NIL)))
-             #15# (EXIT #3#))
+                         (PROGN (LETT #3# |$NoValue| . #10#) (GO #14#))))))))
+                   (LETT |d| (|inc_SI| |d|) . #10#) (GO G190) G191 (EXIT NIL)))
+             #14# (EXIT #3#))
             (EXIT
              (COND
               ((< |order| |sigma|)
@@ -5010,7 +5012,7 @@
                            (QREFELT $ 465))
                  (QREFELT $ 462))
                 (EXIT
-                 (PROGN (LETT #2# (CONS 2 "no_solution") . #11#) (GO #14#)))))
+                 (PROGN (LETT #2# (CONS 2 "no_solution") . #10#) (GO #13#)))))
               ((SPADCALL |c| (QREFELT $ 466))
                (SEQ
                 (COND
@@ -5026,9 +5028,9 @@
                      (SPADCALL "sigma: " (SPADCALL |sigma| (QREFELT $ 464))
                                (QREFELT $ 465))
                      (QREFELT $ 462))))))
-                (EXIT (PROGN (LETT #2# (CONS 1 "reject") . #11#) (GO #14#)))))
-              (#13# (CONS 0 "good"))))))
-          #14# (EXIT #2#)))) 
+                (EXIT (PROGN (LETT #2# (CONS 1 "reject") . #10#) (GO #13#)))))
+              (#12# (CONS 0 "good"))))))
+          #13# (EXIT #2#)))) 
 
 (SDEFUN |GUESS;wrapInterpolant|
         ((|resi| |List| (|SparseUnivariatePolynomial| S))

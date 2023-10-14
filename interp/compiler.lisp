@@ -1270,33 +1270,6 @@
 (DEFUN |convert| (T$ |m|)
   (PROG () (RETURN (|coerce| T$ (OR (|resolve| (CADR T$) |m|) (RETURN NIL))))))
  
-; mkUnion(a,b) ==
-;   b="$" and $Rep is ["Union",:l] => b
-;   a is ["Union",:l] =>
-;     b is ["Union",:l'] => ["Union",:union(l,l')]
-;     ["Union",:union([b],l)]
-;   b is ["Union",:l] => ["Union",:union([a],l)]
-;   ["Union",a,b]
- 
-(DEFUN |mkUnion| (|a| |b|)
-  (PROG (|l| |l'|)
-    (RETURN
-     (COND
-      ((AND (EQ |b| '$) (CONSP |$Rep|) (EQ (CAR |$Rep|) '|Union|)
-            (PROGN (SETQ |l| (CDR |$Rep|)) #1='T))
-       |b|)
-      ((AND (CONSP |a|) (EQ (CAR |a|) '|Union|)
-            (PROGN (SETQ |l| (CDR |a|)) #1#))
-       (COND
-        ((AND (CONSP |b|) (EQ (CAR |b|) '|Union|)
-              (PROGN (SETQ |l'| (CDR |b|)) #1#))
-         (CONS '|Union| (|union| |l| |l'|)))
-        (#1# (CONS '|Union| (|union| (LIST |b|) |l|)))))
-      ((AND (CONSP |b|) (EQ (CAR |b|) '|Union|)
-            (PROGN (SETQ |l| (CDR |b|)) #1#))
-       (CONS '|Union| (|union| (LIST |a|) |l|)))
-      (#1# (LIST '|Union| |a| |b|))))))
- 
 ; maxSuperType(m,e) ==
 ;   typ:= get(m,"SuperDomain",e) => maxSuperType(typ,e)
 ;   m
@@ -5067,10 +5040,7 @@
 ; resolve(din,dout) ==
 ;   din=$NoValueMode or dout=$NoValueMode => $NoValueMode
 ;   dout=$EmptyMode => din
-;   din~=dout and (STRINGP din or STRINGP dout) =>
-;     modeEqual(dout,$String) => dout
-;     modeEqual(din,$String) => nil
-;     mkUnion(din,dout)
+;   din ~= dout and STRINGP dout and modeEqual(din, $String) => nil
 ;   dout
  
 (DEFUN |resolve| (|din| |dout|)
@@ -5080,11 +5050,10 @@
       ((OR (EQUAL |din| |$NoValueMode|) (EQUAL |dout| |$NoValueMode|))
        |$NoValueMode|)
       ((EQUAL |dout| |$EmptyMode|) |din|)
-      ((AND (NOT (EQUAL |din| |dout|)) (OR (STRINGP |din|) (STRINGP |dout|)))
-       (COND ((|modeEqual| |dout| |$String|) |dout|)
-             ((|modeEqual| |din| |$String|) NIL)
-             (#1='T (|mkUnion| |din| |dout|))))
-      (#1# |dout|)))))
+      ((AND (NOT (EQUAL |din| |dout|)) (STRINGP |dout|)
+            (|modeEqual| |din| |$String|))
+       NIL)
+      ('T |dout|)))))
  
 ; modeEqual(x,y) ==
 ;   -- this is the late modeEqual
