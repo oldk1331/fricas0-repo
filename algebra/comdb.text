@@ -7972,7 +7972,7 @@
 860723`\spad{untab(lp,{} llp)} is an auxiliary function which unbumps a tableau \spad{llp},{} using \spad{lp} to accumulate pairs
 860814`\spad{UnVectorise(v)} \undocumented
 860873`\spad{unvectorise(v)} returns the polynomial which has for coefficients the entries of \spad{v} in the increasing order.
-860953`\spad{unvectorise(vect,{} var,{} n)} returns \spad{vect(1) + vect(2)*var + ... + vect(n+1)*var^(n)} where \spad{vect} is the vector of the coefficients of the polynomail ,{} \spad{var} the new variable and \spad{n} the degree.
+860953`\spad{unvectorise(vect,{} var,{} n)} returns \spad{vect(1) + vect(2)*var + ... + vect(n+1)*var^(n)} where \spad{vect} is the vector of the coefficients of the polynomial,{} \spad{var} the new variable and \spad{n} the degree.
 861145`\spad{UP2ifCan(x)} should be local but conditional.
 861348`\spad{UP2UTS(p)} converts \spad{p} to a Taylor series.
 861404`\spad{updatD }\undocumented
