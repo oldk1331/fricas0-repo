@@ -4031,18 +4031,16 @@
 ;   m2 is ['Union,:.] => NIL
 ;   m1 := objMode T
 ;   m2 is ['Boolean,:.] and m1 is ['Equation,ud] =>
-;     dcVector := evalDomain ud
-;     fun :=
 ;       isWrapped x =>
-;         NRTcompiledLookup("=", [$Boolean, '$, '$], dcVector)
-;       NRTcompileEvalForm("=", [$Boolean, '$, '$], dcVector)
-;     [fn,:d]:= fun
-;     isWrapped x =>
-;       x:= unwrap x
-;       mkObjWrap(SPADCALL(first x, rest x, fun), m2)
-;     x isnt ['SPADCALL,a,b,:.] => keyedSystemError("S2IC0015",NIL)
-;     code := ['SPADCALL, a, b, fun]
-;     objNew(code,$Boolean)
+;           dcVector := evalDomain ud
+;           fun := NRTcompiledLookup("=", [$Boolean, '$, '$], dcVector)
+;           [fn, :d]:= fun
+;           x := unwrap x
+;           mkObjWrap(SPADCALL(first x, rest x, fun), m2)
+;       dcVector := evalDomain m1
+;       fun := NRTcompileEvalForm("coerce", [$Boolean, '$], dcVector)
+;       code := ['SPADCALL, x, fun]
+;       objNew(code, $Boolean)
 ;   -- If more than one function is found, any should suffice, I think -scm
 ;   if not (mm := coerceConvertMmSelection(funName := 'coerce,m1,m2)) then
 ;     mm := coerceConvertMmSelection(funName := 'convert,m1,m2)
@@ -4065,8 +4063,8 @@
 ;   NIL
  
 (DEFUN |coerceByFunction| (T$ |m2|)
-  (PROG (|x| |m1| |ISTMP#1| |ud| |dcVector| |fun| |fn| |d| |a| |ISTMP#2| |b|
-         |code| |funName| |mm| |dc| |tar| |args| |slot| |val| |env|)
+  (PROG (|x| |m1| |ISTMP#1| |ud| |dcVector| |fun| |fn| |d| |code| |funName|
+         |mm| |dc| |tar| |args| |slot| |val| |env|)
     (RETURN
      (PROGN
       (SETQ |x| (|objVal| T$))
@@ -4082,40 +4080,25 @@
                       (SETQ |ISTMP#1| (CDR |m1|))
                       (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                            (PROGN (SETQ |ud| (CAR |ISTMP#1|)) #1#))))
-                (PROGN
-                 (SETQ |dcVector| (|evalDomain| |ud|))
-                 (SETQ |fun|
-                         (COND
-                          ((|isWrapped| |x|)
+                (COND
+                 ((|isWrapped| |x|)
+                  (PROGN
+                   (SETQ |dcVector| (|evalDomain| |ud|))
+                   (SETQ |fun|
                            (|NRTcompiledLookup| '= (LIST |$Boolean| '$ '$)
                             |dcVector|))
-                          (#1#
-                           (|NRTcompileEvalForm| '= (LIST |$Boolean| '$ '$)
-                            |dcVector|))))
-                 (SETQ |fn| (CAR |fun|))
-                 (SETQ |d| (CDR |fun|))
-                 (COND
-                  ((|isWrapped| |x|)
-                   (PROGN
-                    (SETQ |x| (|unwrap| |x|))
-                    (|mkObjWrap| (SPADCALL (CAR |x|) (CDR |x|) |fun|) |m2|)))
-                  ((NOT
-                    (AND (CONSP |x|) (EQ (CAR |x|) 'SPADCALL)
-                         (PROGN
-                          (SETQ |ISTMP#1| (CDR |x|))
-                          (AND (CONSP |ISTMP#1|)
-                               (PROGN
-                                (SETQ |a| (CAR |ISTMP#1|))
-                                (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                (AND (CONSP |ISTMP#2|)
-                                     (PROGN
-                                      (SETQ |b| (CAR |ISTMP#2|))
-                                      #1#)))))))
-                   (|keyedSystemError| 'S2IC0015 NIL))
-                  (#1#
-                   (PROGN
-                    (SETQ |code| (LIST 'SPADCALL |a| |b| |fun|))
-                    (|objNew| |code| |$Boolean|))))))
+                   (SETQ |fn| (CAR |fun|))
+                   (SETQ |d| (CDR |fun|))
+                   (SETQ |x| (|unwrap| |x|))
+                   (|mkObjWrap| (SPADCALL (CAR |x|) (CDR |x|) |fun|) |m2|)))
+                 (#1#
+                  (PROGN
+                   (SETQ |dcVector| (|evalDomain| |m1|))
+                   (SETQ |fun|
+                           (|NRTcompileEvalForm| '|coerce| (LIST |$Boolean| '$)
+                            |dcVector|))
+                   (SETQ |code| (LIST 'SPADCALL |x| |fun|))
+                   (|objNew| |code| |$Boolean|)))))
                (#1#
                 (PROGN
                  (COND
