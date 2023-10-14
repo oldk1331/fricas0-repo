@@ -5406,6 +5406,10 @@
  
 (DEFUN |leaveScratchpad| () (PROG () (RETURN (QUIT))))
  
+; DEFVAR($nopiles, false)
+ 
+(DEFVAR |$nopiles| NIL)
+ 
 ; read l == readSpad2Cmd l
  
 (DEFUN |read| (|l|) (PROG () (RETURN (|readSpad2Cmd| |l|))))
@@ -5439,7 +5443,7 @@
 ;     fs := namestring l
 ;     member(upft,devFTs) => throwKeyedMsg("S2IZ0033",[fs])
 ;     throwKeyedMsg("S2IZ0034",[fs])
-;   do_read(ll, quiet)
+;   do_read(ll, quiet, $nopiles)
  
 (DEFUN |readSpad2Cmd| (|l|)
   (PROG (|$InteractiveMode| |fs| |upft| |ft| |ll| |fileTypes| |devFTs| |ef|
@@ -5491,18 +5495,21 @@
          (COND
           ((|member| |upft| |devFTs|) (|throwKeyedMsg| 'S2IZ0033 (LIST |fs|)))
           (#1# (|throwKeyedMsg| 'S2IZ0034 (LIST |fs|))))))
-       (#1# (|do_read| |ll| |quiet|)))))))
+       (#1# (|do_read| |ll| |quiet| |$nopiles|)))))))
  
-; do_read(ll, quiet) ==
+; do_read(ll, quiet, pile_mode) ==
+;     $nopiles : local := pile_mode
 ;     $edit_file := ll
 ;     read_or_compile(quiet, false)
 ;     terminateSystemCommand()
 ;     spadPrompt()
  
-(DEFUN |do_read| (|ll| |quiet|)
-  (PROG ()
+(DEFUN |do_read| (|ll| |quiet| |pile_mode|)
+  (PROG (|$nopiles|)
+    (DECLARE (SPECIAL |$nopiles|))
     (RETURN
      (PROGN
+      (SETQ |$nopiles| |pile_mode|)
       (SETQ |$edit_file| |ll|)
       (|read_or_compile| |quiet| NIL)
       (|terminateSystemCommand|)

@@ -152,7 +152,17 @@
 (DEFUN |print_defun| (|name| |body|)
   (PROG () (RETURN (|print_full2| |body| |$compiler_output_stream|))))
  
-; spadCompile(name) ==
+; DEFVAR($nopiles, false)
+ 
+(DEFVAR |$nopiles| NIL)
+ 
+; spadCompile(name) == spadCompile1(name, $nopiles)
+ 
+(DEFUN |spadCompile| (|name|)
+  (PROG () (RETURN (|spadCompile1| |name| |$nopiles|))))
+ 
+; spadCompile1(name, pile_mode) ==
+;     $nopiles : local := pile_mode
 ;     $comp370_apply : local := FUNCTION print_defun
 ;     $file_apply : local := FUNCTION print_defun
 ;     _*EOF_* : local := false
@@ -173,16 +183,17 @@
 ;         processMsgList($ncMsgList, nil)
 ;     true
  
-(DEFUN |spadCompile| (|name|)
+(DEFUN |spadCompile1| (|name| |pile_mode|)
   (PROG (|$ncMsgList| |$InteractiveFrame| |$docList| $COMBLOCKLIST
          |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* |$file_apply|
-         |$comp370_apply| |res| |a|)
+         |$comp370_apply| |$nopiles| |res| |a|)
     (DECLARE
      (SPECIAL |$ncMsgList| |$InteractiveFrame| |$docList| $COMBLOCKLIST
       |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* |$file_apply|
-      |$comp370_apply|))
+      |$comp370_apply| |$nopiles|))
     (RETURN
      (PROGN
+      (SETQ |$nopiles| |pile_mode|)
       (SETQ |$comp370_apply| #'|print_defun|)
       (SETQ |$file_apply| #'|print_defun|)
       (SETQ *EOF* NIL)
