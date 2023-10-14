@@ -163,7 +163,7 @@
 ;   res := [[op,:newItems] for [op,:items] in opAlist | newItems] where
 ;     newItems ==
 ;       null bitNumber => items
-;       [x for x in items | FIXP (code := myLastAtom x) and LOGBITP(bitNumber,code)]
+;       [x for x in items | FIXP (code := LASTATOM x) and LOGBITP(bitNumber,code)]
 ;   res
  
 (DEFUN |reduceByGroup| (|htPage| |opAlist|)
@@ -201,8 +201,7 @@
                                            (RETURN (NREVERSE |bfVar#12|)))
                                           (#1#
                                            (AND
-                                            (FIXP
-                                             (SETQ |code| (|myLastAtom| |x|)))
+                                            (FIXP (SETQ |code| (LASTATOM |x|)))
                                             (LOGBITP |bitNumber| |code|)
                                             (SETQ |bfVar#12|
                                                     (CONS |x| |bfVar#12|)))))
