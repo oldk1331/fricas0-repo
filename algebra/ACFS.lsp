@@ -46,8 +46,17 @@
                                                    T)
                                                   ((|zerosOf|
                                                     ((|List| $) $ (|Symbol|)))
+                                                   T)
+                                                  ((|rootSum|
+                                                    ($ $
+                                                     (|SparseUnivariatePolynomial|
+                                                      $)
+                                                     (|Symbol|)))
                                                    T))
-                                                NIL '((|List| $) (|Symbol|))
+                                                NIL
+                                                '((|SparseUnivariatePolynomial|
+                                                   $)
+                                                  (|Symbol|) (|List| $))
                                                 NIL))
                                        . #2=(|AlgebraicallyClosedFunctionSpace|)))))
                . #2#)

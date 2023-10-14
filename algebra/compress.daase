@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4721 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4722 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -427,11 +427,11 @@
  |XPolynomial| |XPolynomialsCat| |XPolynomialRing| |XRecursivePolynomial|
  |ParadoxicalCombinatorsForStreams| |ZeroDimensionalSolvePackage|
  |IntegerLinearDependence| |IntegerMod| |Enumeration| |Mapping| |Record|
- |Union| |Category| |zerosOf| |zeroOf| |rootsOf| |makeSketch| |inrootof|
- |droot| |iroot| |size?| |eq?| |assoc| |doublyTransitive?| |knownInfBasis|
- |rootSplit| |ratDenom| |ratPoly| |rootFactor| |rootPower| |rootProduct|
- |rootSimp| |rootKerSimp| |leftRank| |rightRank| |doubleRank| |weakBiRank|
- |biRank| |basisOfCommutingElements| |basisOfLeftAnnihilator|
+ |Union| |Category| |zerosOf| |zeroOf| |rootsOf| |makeSketch| |rootSum|
+ |inrootof| |droot| |iroot| |size?| |eq?| |assoc| |doublyTransitive?|
+ |knownInfBasis| |rootSplit| |ratDenom| |ratPoly| |rootFactor| |rootPower|
+ |rootProduct| |rootSimp| |rootKerSimp| |leftRank| |rightRank| |doubleRank|
+ |weakBiRank| |biRank| |basisOfCommutingElements| |basisOfLeftAnnihilator|
  |basisOfRightAnnihilator| |basisOfLeftNucleus| |basisOfRightNucleus|
  |basisOfMiddleNucleus| |basisOfNucleus| |basisOfCenter| |basisOfLeftNucloid|
  |basisOfRightNucloid| |basisOfCentroid| |radicalOfLeftTraceForm|
