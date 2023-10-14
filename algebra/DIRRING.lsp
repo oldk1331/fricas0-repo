@@ -460,10 +460,11 @@
               (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 124 |zeta| 130 |zero?| 134 |unitNormal| 139 |unitCanonical|
               144 |unit?| 149 |subtractIfCan| 154 |sample| 160 |recip| 164
-              |one?| 169 |multiplicative?| 174 |latex| 180 |hashUpdate!| 185
-              |hash| 191 |exquo| 196 |elt| 202 |coerce| 208 |characteristic|
-              248 |associates?| 252 |additive?| 258 ^ 264 |Zero| 276 |One| 280
-              = 284 - 290 + 301 * 307)
+              |opposite?| 169 |one?| 175 |multiplicative?| 180 |latex| 186
+              |hashUpdate!| 191 |hash| 197 |exquo| 202 |elt| 208 |coerce| 214
+              |characteristic| 254 |associates?| 258 |annihilate?| 264
+              |additive?| 270 ^ 276 |Zero| 288 |One| 292 = 296 - 302 + 313 *
+              319)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -471,7 +472,7 @@
                                   0 0 0 0 0 1 1))
             (CONS
              '#(NIL |Algebra&| |Algebra&| |Module&| NIL |Module&| |EntireRing&|
-                |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                |Ring&| NIL NIL |Rng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
                 |SetCategory&| NIL NIL |BasicType&| NIL NIL NIL)
              (CONS
@@ -494,14 +495,14 @@
                                     0 0 64 1 65 27 0 66 1 68 67 27 69 1 48 27 0
                                     70 2 0 30 0 0 1 0 0 0 34 1 0 30 0 1 1 1 73
                                     0 1 1 1 0 0 1 1 1 30 0 54 2 0 52 0 0 1 0 0
-                                    0 1 1 0 52 0 55 1 0 30 0 1 2 0 30 0 8 71 1
-                                    0 74 0 1 2 0 76 76 0 1 1 0 75 0 1 2 1 52 0
-                                    0 1 2 0 6 0 8 9 1 1 0 6 1 1 1 0 0 1 1 0 0
-                                    20 26 1 0 20 0 24 1 0 0 10 12 1 0 10 0 11 1
-                                    0 0 16 1 1 0 27 0 29 0 0 65 1 2 1 30 0 0 1
-                                    2 0 30 0 8 72 2 0 0 0 65 1 2 0 0 0 8 1 0 0
-                                    0 33 0 0 0 13 2 0 30 0 0 1 2 0 0 0 0 1 1 0
-                                    0 0 38 2 0 0 0 0 36 2 1 0 0 6 1 2 1 0 6 0
-                                    42 2 0 0 0 0 51 2 0 0 16 0 40 2 0 0 65 0 1
-                                    2 0 0 8 0 1)))))
+                                    0 1 1 0 52 0 55 2 0 30 0 0 1 1 0 30 0 1 2 0
+                                    30 0 8 71 1 0 74 0 1 2 0 76 76 0 1 1 0 75 0
+                                    1 2 1 52 0 0 1 2 0 6 0 8 9 1 1 0 6 1 1 1 0
+                                    0 1 1 0 0 20 26 1 0 20 0 24 1 0 0 10 12 1 0
+                                    10 0 11 1 0 0 16 1 1 0 27 0 29 0 0 65 1 2 1
+                                    30 0 0 1 2 0 30 0 0 1 2 0 30 0 8 72 2 0 0 0
+                                    65 1 2 0 0 0 8 1 0 0 0 33 0 0 0 13 2 0 30 0
+                                    0 1 1 0 0 0 38 2 0 0 0 0 1 2 0 0 0 0 36 2 1
+                                    0 0 6 1 2 1 0 6 0 42 2 0 0 0 0 51 2 0 0 16
+                                    0 40 2 0 0 65 0 1 2 0 0 8 0 1)))))
            '|lookupComplete|)) 

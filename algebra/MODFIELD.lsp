@@ -53,12 +53,12 @@
               (|local| |#2|) (|local| |#3|) (|local| |#4|) (|local| |#5|)
               (|Union| $ '"failed") (|Fraction| 13) (|Integer|) (|Boolean|)
               (|Factored| $) (|Union| 17 '#1="failed") (|List| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 18 '#1#)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 19 '#1#)
               (|NonNegativeInteger|)
-              (|Record| (|:| |coef| 17) (|:| |generator| $))
+              (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|SparseUnivariatePolynomial| $)
+              (|Record| (|:| |coef| 17) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|PositiveInteger|) (|HashState|) (|String|) (|OutputForm|)
@@ -72,9 +72,9 @@
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| |DivisionRing&| NIL |Algebra&| NIL |Algebra&|
                 |Module&| NIL |EntireRing&| |Module&| NIL NIL |Ring&| NIL NIL
-                NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
-                NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL
-                NIL NIL |BasicType&| NIL)
+                NIL |Rng&| NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
+                |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&|
+                NIL NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)

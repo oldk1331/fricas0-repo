@@ -336,11 +336,11 @@
               |JDIFF;eval;$JvfD;17| |JDIFF;contract;Jvf$D;18|
               (|Union| $ '"failed") (|NonNegativeInteger|) (|HashState|)
               (|SingleInteger|))
-           '#(~= 171 |zero?| 177 |subtractIfCan| 182 |sample| 188 |lie| 192
-              |latex| 198 |hashUpdate!| 203 |hash| 209 |eval| 214
-              |differentials| 220 |dX| 225 |dU| 230 |dP| 235 |d| 241 |copy| 251
-              |contract| 256 |coerce| 262 |coefficients| 267 |coefficient| 272
-              |Zero| 278 = 282 - 288 + 299 * 305)
+           '#(~= 171 |zero?| 177 |subtractIfCan| 182 |sample| 188 |opposite?|
+              192 |lie| 198 |latex| 204 |hashUpdate!| 209 |hash| 215 |eval| 220
+              |differentials| 226 |dX| 231 |dU| 236 |dP| 241 |d| 247 |copy| 257
+              |contract| 262 |coerce| 268 |coefficients| 273 |coefficient| 278
+              |Zero| 284 = 288 - 294 + 305 * 311)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 0 0 0 1 1 3 0 0 0 0))
                  (CONS
@@ -365,13 +365,13 @@
                                          58 1 7 37 0 60 2 7 0 0 6 61 1 63 19 0
                                          64 1 63 34 0 65 1 63 37 0 66 2 0 19 0
                                          0 1 1 2 19 0 48 2 1 69 0 0 1 0 2 0 1 2
-                                         0 0 63 0 1 1 0 21 0 1 2 0 71 71 0 1 1
-                                         0 72 0 1 2 0 7 0 63 67 1 0 37 0 39 1 0
-                                         0 11 13 1 0 0 11 15 2 0 0 11 16 18 1 0
-                                         0 7 62 1 0 0 6 10 1 0 0 0 45 2 0 7 63
-                                         0 68 1 0 22 0 33 1 0 34 0 36 2 0 7 0 6
-                                         44 0 2 0 47 2 0 19 0 0 1 2 1 0 0 0 1 1
-                                         1 0 0 50 2 0 0 0 0 57 2 1 0 40 0 1 2 2
-                                         0 70 0 1 2 0 0 0 7 1 2 0 0 7 0 59 2 0
-                                         0 11 0 1)))))
+                                         2 19 0 0 1 2 0 0 63 0 1 1 0 21 0 1 2 0
+                                         71 71 0 1 1 0 72 0 1 2 0 7 0 63 67 1 0
+                                         37 0 39 1 0 0 11 13 1 0 0 11 15 2 0 0
+                                         11 16 18 1 0 0 7 62 1 0 0 6 10 1 0 0 0
+                                         45 2 0 7 63 0 68 1 0 22 0 33 1 0 34 0
+                                         36 2 0 7 0 6 44 0 2 0 47 2 0 19 0 0 1
+                                         2 1 0 0 0 1 1 1 0 0 50 2 0 0 0 0 57 2
+                                         1 0 40 0 1 2 2 0 70 0 1 2 0 0 0 7 1 2
+                                         0 0 7 0 59 2 0 0 11 0 1)))))
            '|lookupComplete|)) 

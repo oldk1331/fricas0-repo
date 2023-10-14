@@ -606,15 +606,15 @@
               (|local| |#2|) '|Rep| (0 . |Zero|) (|Integer|) (4 . |qelt|)
               (10 . +) (|Boolean|) (16 . <) |HDP;<;2$B;1|
               (|NonNegativeInteger|) (|List| 7) (|Equation| 7) (|List| 18)
-              (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 10))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 10) (|Symbol|) (|List| 24) (|List| 16)
-              (|Union| 28 '#1="failed") (|Fraction| 10) (|Union| 10 '#1#)
-              (|Union| $ '"failed") (|Mapping| 13 7) (|Void|) (|Mapping| 7 7)
-              (|PositiveInteger|) (|OutputForm|) (|CardinalNumber|)
-              (|InputForm|) (|List| $) (|Matrix| 7)
-              (|Record| (|:| |mat| 39) (|:| |vec| 45)) (|Union| 7 '#1#)
-              (|HashState|) (|SingleInteger|) (|String|) (|Vector| 7)
-              (|List| 10))
+              (|Matrix| 10) (|Matrix| $)
+              (|Record| (|:| |mat| 20) (|:| |vec| (|Vector| 10))) (|Vector| $)
+              (|List| 26) (|List| 16) (|Symbol|) (|Union| 28 '#1="failed")
+              (|Fraction| 10) (|Union| 10 '#1#) (|Union| $ '"failed")
+              (|Mapping| 13 7) (|Void|) (|Mapping| 7 7) (|PositiveInteger|)
+              (|OutputForm|) (|CardinalNumber|) (|InputForm|) (|List| $)
+              (|Record| (|:| |mat| 40) (|:| |vec| 45)) (|Matrix| 7)
+              (|Union| 7 '#1#) (|HashState|) (|SingleInteger|) (|String|)
+              (|Vector| 7) (|List| 10))
            '#(|qelt| 22 < 28) 'NIL
            (CONS
             (|makeByteWordVec2| 39
@@ -627,7 +627,7 @@
                 |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
                 |Module&| |OrderedRing&| NIL NIL NIL |PartialDifferentialRing&|
                 |DifferentialRing&| NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL NIL |IndexedAggregate&|
+                |Rng&| NIL |AbelianGroup&| NIL NIL NIL |IndexedAggregate&|
                 |OrderedSet&| NIL |Monoid&| |AbelianMonoid&|
                 |HomogeneousAggregate&| NIL |SemiGroup&| |Finite&|
                 |AbelianSemiGroup&| |Aggregate&| |EltableAggregate&|
@@ -640,7 +640,7 @@
                  (|FullyLinearlyExplicitRingOver| 7)
                  (|DifferentialExtension| 7) (|Module| 7) (|OrderedRing|)
                  (|CommutativeRing|) (|LinearlyExplicitRingOver| 7)
-                 (|LinearlyExplicitRingOver| 10) (|PartialDifferentialRing| 24)
+                 (|LinearlyExplicitRingOver| 10) (|PartialDifferentialRing| 26)
                  (|DifferentialRing|) (|BiModule| 7 7)
                  (|OrderedAbelianMonoidSup|) (|OrderedAbelianGroup|)
                  (|BiModule| $$ $$) (|Ring|) (|LeftModule| 7) (|RightModule| 7)

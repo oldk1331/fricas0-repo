@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4736 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4739 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -329,9 +329,9 @@
  |RationalFunctionFactorizer| |RegularChain| |RandomIntegerDistributions|
  |Ring&| |Ring| |RationalInterpolation| |RectangularMatrixCategory&|
  |RectangularMatrixCategory| |RectangularMatrix|
- |RectangularMatrixCategoryFunctions2| |RightModule| |Rng| |RealNumberSystem&|
- |RealNumberSystem| |RightOpenIntervalRootCharacterization| |RomanNumeral|
- |RecursivePolynomialCategory&| |RecursivePolynomialCategory|
+ |RectangularMatrixCategoryFunctions2| |RightModule| |Rng&| |Rng|
+ |RealNumberSystem&| |RealNumberSystem| |RightOpenIntervalRootCharacterization|
+ |RomanNumeral| |RecursivePolynomialCategory&| |RecursivePolynomialCategory|
  |RealRootCharacterizationCategory&| |RealRootCharacterizationCategory|
  |RegularSetDecompositionPackage| |RegularTriangularSetCategory&|
  |RegularTriangularSetCategory| |RegularTriangularSetGcdPackage| |RewriteRule|
@@ -427,8 +427,8 @@
  |XPolynomial| |XPolynomialsCat| |XPolynomialRing| |XRecursivePolynomial|
  |ParadoxicalCombinatorsForStreams| |ZeroDimensionalSolvePackage|
  |IntegerLinearDependence| |IntegerMod| |Enumeration| |Mapping| |Record|
- |Union| |Category| |zerosOf| |zeroOf| |rootsOf| |makeSketch| |rootSum|
- |inrootof| |droot| |iroot| |size?| |eq?| |assoc| |doublyTransitive?|
+ |Union| |Category| |opposite?| |zerosOf| |zeroOf| |rootsOf| |makeSketch|
+ |rootSum| |inrootof| |droot| |iroot| |size?| |eq?| |assoc| |doublyTransitive?|
  |knownInfBasis| |rootSplit| |ratDenom| |ratPoly| |rootFactor| |rootPower|
  |rootProduct| |rootSimp| |rootKerSimp| |leftRank| |rightRank| |doubleRank|
  |weakBiRank| |biRank| |basisOfCommutingElements| |basisOfLeftAnnihilator|
@@ -877,7 +877,7 @@
  |exponential| |chiSquare| F |t| |factorFraction| |uniform| |binomial|
  |poisson| |geometric| |ridHack1| |interpolate| |nullity| |column| |qelt|
  |maxColIndex| |minColIndex| |maxRowIndex| |minRowIndex| |antisymmetric?|
- |symmetric?| |diagonal?| |square?| |matrix| |rectangularMatrix|
+ |symmetric?| |diagonal?| |square?| |matrix| |rectangularMatrix| |annihilate?|
  |characteristic| |round| |fractionPart| |wholePart| |floor| |ceiling| |norm|
  |mightHaveRoots| |refine| |middle| |size| |right| |left| |roman|
  |mainSquareFreePart| |mainPrimitivePart| |mainContent| |primitivePart!| |gcd|

@@ -77,11 +77,10 @@
               |LODO2;elt;$2M;1| (|NonNegativeInteger|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Union| $ '"failed")
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Union| 19 '#1="failed") (|Fraction| 21) (|Union| 21 '#1#)
-              (|Integer|) (|List| 6) (|Union| 6 '#1#) (|Boolean|)
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
-              (|OutputForm|))
+              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Fraction| 21)
+              (|Union| 18 '#1="failed") (|Union| 21 '#1#) (|Integer|)
+              (|List| 6) (|Union| 6 '#1#) (|Boolean|) (|PositiveInteger|)
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|elt| 17) 'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -90,7 +89,7 @@
             (CONS
              '#(|LinearOrdinaryDifferentialOperatorCategory&|
                 |UnivariateSkewPolynomialCategory&| |Algebra&| |Module&|
-                |Ring&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                |Ring&| NIL |Rng&| NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
                 |FullyRetractableTo&| |SetCategory&| NIL NIL |RetractableTo&|
                 NIL |BasicType&| NIL |RetractableTo&| |RetractableTo&|)
@@ -104,7 +103,7 @@
                  (|AbelianSemiGroup|) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|Eltable| 7 7) (|Eltable| 6 6) (|RetractableTo| 6)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 29)
-                 (|RetractableTo| 19) (|RetractableTo| 21))
+                 (|RetractableTo| 18) (|RetractableTo| 21))
               (|makeByteWordVec2| 13
                                   '(1 6 0 0 8 1 7 0 0 9 3 11 7 2 10 7 12 2 0 7
                                     0 7 13)))))

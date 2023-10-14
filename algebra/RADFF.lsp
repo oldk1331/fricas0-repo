@@ -770,19 +770,21 @@
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| $) (|SparseUnivariatePolynomial| $)
-              (|Union| 157 '"failed")
               (|Record| (|:| |coef| 157) (|:| |generator| $))
+              (|Union| 157 '"failed")
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 163 '"failed") (|Mapping| 11 11) (|Fraction| 8)
-              (|InputForm|) (|OnePointCompletion| 144) (|Union| 13 '"failed")
-              (|Record| (|:| |factor| 35) (|:| |exponent| 35)) (|List| 170)
+              (|Union| 162 '"failed")
+              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Mapping| 11 11) (|Fraction| 8) (|InputForm|)
+              (|Union| 13 '"failed") (|OnePointCompletion| 144)
               (|Union| 43 '"failed") (|Matrix| $) (|Table| 144 13)
+              (|Record| (|:| |factor| 35) (|:| |exponent| 35)) (|List| 173)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Record| (|:| |mat| 177) (|:| |vec| (|Vector| 35)))
-              (|Matrix| 35) (|Union| 154 '#1#) (|Union| 35 '#1#)
-              (|List| (|Polynomial| 6)) (|List| (|List| 6))
+              (|Matrix| 35)
+              (|Record| (|:| |mat| 176) (|:| |vec| (|Vector| 35)))
+              (|Union| 154 '#1#) (|Union| 35 '#1#) (|List| (|Polynomial| 6))
+              (|List| (|List| 6))
               (|Record| (|:| |num| $) (|:| |den| 7) (|:| |derivden| 7)
                         (|:| |gd| 7))
               (|Record| (|:| |mat| 46) (|:| |vec| 36)) (|Union| 11 '#1#)
@@ -811,7 +813,7 @@
                 |Algebra&| NIL |Algebra&| |DifferentialExtension&| NIL NIL
                 |Module&| NIL |Module&| |EntireRing&| |Module&| NIL
                 |DifferentialRing&| |PartialDifferentialRing&| NIL NIL |Ring&|
-                NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                NIL NIL NIL NIL |Rng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
                 |Finite&| NIL |FullyRetractableTo&| |SetCategory&|
                 |RetractableTo&| NIL NIL NIL |BasicType&| NIL NIL NIL NIL NIL
@@ -876,6 +878,6 @@
                                     0 0 46 51 0 0 46 50 2 0 0 67 7 68 0 0 46 49
                                     0 0 46 48 1 0 82 75 83 1 0 71 0 74 0 0 43
                                     45 0 0 43 44 0 0 60 62 0 0 60 61 0 0 11 41
-                                    0 0 8 52 1 0 36 0 69 0 0 17 59 1 0 17 6 147
-                                    1 0 17 7 148 0 0 43 120 0 0 0 89)))))
+                                    0 0 8 52 1 0 36 0 69 0 0 17 59 1 0 17 7 148
+                                    1 0 17 6 147 0 0 43 120 0 0 0 89)))))
            '|lookupIncomplete|)) 

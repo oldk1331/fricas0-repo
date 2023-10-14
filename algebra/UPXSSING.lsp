@@ -646,14 +646,15 @@
            '#(~= 192 |zero?| 198 |unitNormal| 203 |unitCanonical| 208 |unit?|
               213 |subtractIfCan| 218 |sample| 224 |retractIfCan| 228 |retract|
               243 |reductum| 258 |recip| 263 |primitivePart| 268 |pomopo!| 273
-              |one?| 281 |numberOfMonomials| 286 |monomial?| 291 |monomial| 296
-              |minimumDegree| 302 |mapExponents| 307 |map| 313 |limitPlus| 319
-              |leadingMonomial| 324 |leadingCoefficient| 329 |latex| 334
-              |hashUpdate!| 339 |hash| 345 |ground?| 350 |ground| 355 |exquo|
-              360 |dominantTerm| 372 |degree| 377 |content| 382 |coerce| 387
-              |coefficients| 412 |coefficient| 417 |charthRoot| 423
-              |characteristic| 428 |binomThmExpt| 432 |associates?| 439 ^ 445
-              |Zero| 457 |One| 461 = 465 / 471 - 477 + 488 * 494)
+              |opposite?| 281 |one?| 287 |numberOfMonomials| 292 |monomial?|
+              297 |monomial| 302 |minimumDegree| 308 |mapExponents| 313 |map|
+              319 |limitPlus| 325 |leadingMonomial| 330 |leadingCoefficient|
+              335 |latex| 340 |hashUpdate!| 345 |hash| 351 |ground?| 356
+              |ground| 361 |exquo| 366 |dominantTerm| 378 |degree| 383
+              |content| 388 |coerce| 393 |coefficients| 418 |coefficient| 423
+              |charthRoot| 429 |characteristic| 434 |binomThmExpt| 438
+              |associates?| 445 |annihilate?| 451 ^ 457 |Zero| 469 |One| 473 =
+              477 / 483 - 489 + 500 * 506)
            'NIL
            (CONS
             (|makeByteWordVec2| 6
@@ -662,8 +663,8 @@
             (CONS
              '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL |Algebra&|
                 |Algebra&| |Algebra&| |EntireRing&| |Module&| NIL |Module&| NIL
-                NIL |Module&| NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL
-                |AbelianGroup&| NIL NIL |Monoid&| NIL |AbelianMonoid&|
+                NIL |Module&| NIL |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL NIL
+                NIL |AbelianGroup&| NIL NIL |Monoid&| NIL |AbelianMonoid&|
                 |SemiGroup&| |AbelianSemiGroup&| |FullyRetractableTo&|
                 |SetCategory&| NIL NIL NIL |RetractableTo&| |BasicType&| NIL
                 |RetractableTo&| |RetractableTo&|)
@@ -712,19 +713,19 @@
                                     0 0 1 1 0 15 0 1 2 0 24 0 0 1 0 0 0 1 1 5
                                     72 0 1 1 6 42 0 1 1 0 19 0 20 1 5 34 0 1 1
                                     6 73 0 1 1 0 17 0 1 1 0 0 0 33 1 0 24 0 25
-                                    1 10 0 0 1 4 0 0 0 17 13 0 1 1 0 15 0 1 1 0
-                                    10 0 11 1 0 15 0 1 2 0 0 17 13 23 1 0 13 0
-                                    1 2 0 0 75 0 1 2 0 0 77 0 1 1 0 70 0 71 1 0
-                                    0 0 1 1 0 17 0 18 1 0 79 0 1 2 0 81 81 0 1
-                                    1 0 80 0 1 1 0 15 0 1 1 0 17 0 1 2 9 24 0
-                                    17 1 2 0 24 0 0 1 1 0 55 0 56 1 0 13 0 14 1
-                                    10 17 0 1 1 8 0 34 1 1 0 0 73 1 1 0 0 0 1 1
-                                    0 0 17 1 1 0 82 0 1 1 0 76 0 1 2 0 17 0 13
-                                    1 1 2 24 0 1 0 0 10 1 3 11 0 0 0 10 1 2 0
-                                    15 0 0 1 2 0 0 0 10 1 2 0 0 0 78 1 0 0 0 1
-                                    0 0 0 1 2 0 15 0 0 1 2 7 0 0 17 1 1 0 0 0 1
-                                    2 0 0 0 0 1 2 0 0 0 0 1 2 1 0 34 0 1 2 1 0
-                                    0 34 1 2 0 0 10 0 1 2 0 0 73 0 1 2 0 0 17 0
-                                    1 2 0 0 0 0 1 2 0 0 0 17 1 2 0 0 78 0
-                                    1)))))
+                                    1 10 0 0 1 4 0 0 0 17 13 0 1 2 0 15 0 0 1 1
+                                    0 15 0 1 1 0 10 0 11 1 0 15 0 1 2 0 0 17 13
+                                    23 1 0 13 0 1 2 0 0 75 0 1 2 0 0 77 0 1 1 0
+                                    70 0 71 1 0 0 0 1 1 0 17 0 18 1 0 79 0 1 2
+                                    0 81 81 0 1 1 0 80 0 1 1 0 15 0 1 1 0 17 0
+                                    1 2 9 24 0 17 1 2 0 24 0 0 1 1 0 55 0 56 1
+                                    0 13 0 14 1 10 17 0 1 1 8 0 34 1 1 0 0 73 1
+                                    1 0 0 0 1 1 0 0 17 1 1 0 82 0 1 1 0 76 0 1
+                                    2 0 17 0 13 1 1 2 24 0 1 0 0 10 1 3 11 0 0
+                                    0 10 1 2 0 15 0 0 1 2 0 15 0 0 1 2 0 0 0 10
+                                    1 2 0 0 0 78 1 0 0 0 1 0 0 0 1 2 0 15 0 0 1
+                                    2 7 0 0 17 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0
+                                    0 1 2 1 0 0 34 1 2 1 0 34 0 1 2 0 0 10 0 1
+                                    2 0 0 73 0 1 2 0 0 17 0 1 2 0 0 0 0 1 2 0 0
+                                    0 17 1 2 0 0 78 0 1)))))
            '|lookupComplete|)) 

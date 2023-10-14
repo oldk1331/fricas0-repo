@@ -107,11 +107,11 @@
               (|local| |#1|) (0 . |One|) (4 . |One|) (8 . -) (|Fraction| 19)
               (|Union| $ '"failed") (|InputForm|) (|NonNegativeInteger|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Boolean|) (|Equation| 6) (|List| 16) (|List| 6) (|Integer|)
-              (|Symbol|) (|List| 20) (|Union| 10 '"failed")
-              (|Record| (|:| |mat| 26) (|:| |vec| (|Vector| 19))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 19) (|List| 13) (|Union| 19 '#1="failed")
-              (|Matrix| 6) (|Record| (|:| |mat| 29) (|:| |vec| (|Vector| 6)))
+              (|Boolean|) (|List| 17) (|Equation| 6) (|List| 6) (|Integer|)
+              (|List| 21) (|Symbol|) (|Union| 10 '"failed") (|Matrix| 19)
+              (|Matrix| $) (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 19)))
+              (|Vector| $) (|List| 13) (|Union| 19 '#1="failed") (|Matrix| 6)
+              (|Record| (|:| |mat| 29) (|:| |vec| (|Vector| 6)))
               (|Mapping| 6 6) (|Union| 6 '#1#) (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|One| 13) 'NIL
@@ -125,7 +125,7 @@
                 |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
                 |Algebra&| NIL |Module&| NIL NIL |EntireRing&| |Module&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL |Ring&| NIL
-                NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                NIL NIL |Rng&| NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |OrderedSet&|
                 |FullyEvalableOver&| |SemiGroup&| |AbelianSemiGroup&| NIL
                 |FullyRetractableTo&| |SetCategory&| |Evalable&|
@@ -138,7 +138,7 @@
                  (|DifferentialExtension| 6) (|Algebra| 10)
                  (|LinearlyExplicitRingOver| 6) (|Module| 6)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|EntireRing|) (|Module| 10) (|PartialDifferentialRing| 20)
+                 (|EntireRing|) (|Module| 10) (|PartialDifferentialRing| 21)
                  (|DifferentialRing|) (|LinearlyExplicitRingOver| 19) (|Ring|)
                  (|BiModule| 6 6) (|BiModule| $$ $$) (|BiModule| 10 10) (|Rng|)
                  (|RightModule| 6) (|LeftModule| 6) (|LeftModule| $$)
@@ -150,7 +150,7 @@
                  (|Evalable| 6) (|RetractableTo| 6) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 37) (|ConvertibleTo| 12)
                  (|noZeroDivisors|) (|PartialOrder|) (|RetractableTo| 10)
-                 (|RetractableTo| 19) (|InnerEvalable| 20 6)
+                 (|RetractableTo| 19) (|InnerEvalable| 21 6)
                  (|InnerEvalable| 6 6) (|Eltable| 6 $$))
               (|makeByteWordVec2| 9 '(0 0 0 7 0 6 0 8 1 6 0 0 9 0 0 0 7)))))
            '|lookupIncomplete|)) 

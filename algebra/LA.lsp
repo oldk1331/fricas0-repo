@@ -67,23 +67,24 @@
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |LA;One;$;1|) $))
               (14 . |numer|) (19 . *) (25 . |denom|) (30 . *) |LA;*;3$;2|
               (|NonNegativeInteger|) (36 . |characteristic|)
-              |LA;characteristic;Nni;3| (|Boolean|) (|Integer|)
+              |LA;characteristic;Nni;3| (|Integer|) (|Boolean|)
               (|Union| $ '"failed") (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 40 |zero?| 46 |subtractIfCan| 51 |smaller?| 57 |sign| 63
-              |sample| 68 |recip| 72 |positive?| 77 |one?| 82 |numer| 87
-              |negative?| 92 |min| 97 |max| 103 |latex| 109 |hashUpdate!| 114
-              |hash| 120 |denom| 125 |coerce| 130 |characteristic| 145 |abs|
-              149 ^ 154 |Zero| 166 |One| 170 >= 174 > 180 = 186 <= 192 < 198 /
-              204 - 216 + 227 * 233)
+              |sample| 68 |recip| 72 |positive?| 77 |opposite?| 82 |one?| 88
+              |numer| 93 |negative?| 98 |min| 103 |max| 109 |latex| 115
+              |hashUpdate!| 120 |hash| 126 |denom| 131 |coerce| 136
+              |characteristic| 151 |annihilate?| 155 |abs| 161 ^ 166 |Zero| 178
+              |One| 182 >= 186 > 192 = 198 <= 204 < 210 / 216 - 228 + 239 *
+              245)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 1 0 0 1 0 0 0 0 1 0 1 0 0 1 0 0 0 1 0 0 1
                                   0 0 0 0 1))
             (CONS
-             '#(|Algebra&| |Module&| |OrderedRing&| |Ring&| NIL NIL NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL NIL NIL |AbelianMonoid&|
+             '#(|Algebra&| |Module&| |OrderedRing&| |Ring&| NIL NIL |Rng&| NIL
+                NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL |AbelianMonoid&|
                 |Monoid&| NIL |OrderedSet&| |SemiGroup&| |AbelianSemiGroup&|
                 NIL |SetCategory&| NIL |BasicType&| NIL |PartialOrder&|)
              (CONS
@@ -100,16 +101,16 @@
               (|makeByteWordVec2| 27
                                   '(0 6 0 8 0 7 0 9 2 0 0 6 7 10 1 0 6 0 12 2 6
                                     0 0 0 13 1 0 7 0 14 2 7 0 0 0 15 0 6 17 18
-                                    2 0 20 0 0 1 1 0 20 0 1 2 0 22 0 0 1 2 1 20
-                                    0 0 1 1 1 21 0 1 0 0 0 1 1 0 22 0 1 1 1 20
-                                    0 1 1 0 20 0 1 1 0 6 0 12 1 1 20 0 1 2 1 0
-                                    0 0 1 2 1 0 0 0 1 1 0 24 0 1 2 0 26 26 0 1
-                                    1 0 25 0 1 1 0 7 0 14 1 0 0 7 1 1 0 0 21 1
-                                    1 0 27 0 1 0 0 17 19 1 1 0 0 1 2 0 0 0 17 1
-                                    2 0 0 0 23 1 0 0 0 1 0 0 0 11 2 1 20 0 0 1
-                                    2 1 20 0 0 1 2 0 20 0 0 1 2 1 20 0 0 1 2 1
-                                    20 0 0 1 2 0 0 6 7 10 2 0 0 0 7 1 2 0 0 0 0
-                                    1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 7 1 2 0 0 7
-                                    0 1 2 0 0 0 0 16 2 0 0 21 0 1 2 0 0 17 0 1
-                                    2 0 0 23 0 1)))))
+                                    2 0 21 0 0 1 1 0 21 0 1 2 0 22 0 0 1 2 1 21
+                                    0 0 1 1 1 20 0 1 0 0 0 1 1 0 22 0 1 1 1 21
+                                    0 1 2 0 21 0 0 1 1 0 21 0 1 1 0 6 0 12 1 1
+                                    21 0 1 2 1 0 0 0 1 2 1 0 0 0 1 1 0 24 0 1 2
+                                    0 26 26 0 1 1 0 25 0 1 1 0 7 0 14 1 0 0 7 1
+                                    1 0 0 20 1 1 0 27 0 1 0 0 17 19 2 0 21 0 0
+                                    1 1 1 0 0 1 2 0 0 0 17 1 2 0 0 0 23 1 0 0 0
+                                    1 0 0 0 11 2 1 21 0 0 1 2 1 21 0 0 1 2 0 21
+                                    0 0 1 2 1 21 0 0 1 2 1 21 0 0 1 2 0 0 6 7
+                                    10 2 0 0 0 7 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0
+                                    0 0 1 2 0 0 7 0 1 2 0 0 0 7 1 2 0 0 0 0 16
+                                    2 0 0 20 0 1 2 0 0 17 0 1 2 0 0 23 0 1)))))
            '|lookupComplete|)) 

@@ -113,10 +113,9 @@
               (|Union| $ '#1="failed")
               (|Record| (|:| |particular| $) (|:| |basis| (|List| $)))
               (|Union| 20 '#1#) (|SparseUnivariatePolynomial| 6) (|List| 27)
-              (|Boolean|) (|Matrix| 6) (|Vector| $) (|Vector| 6)
-              (|List| (|Polynomial| 6)) (|Vector| 25) (|Integer|)
-              (|NonNegativeInteger|) (|String|) (|SingleInteger|) (|HashState|)
-              (|OutputForm|))
+              (|Boolean|) (|Matrix| 6) (|Vector| $) (|Vector| 6) (|Vector| 25)
+              (|List| (|Polynomial| 6)) (|Integer|) (|NonNegativeInteger|)
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 20 |zero?| 26 |unit| 31 |subtractIfCan| 35
               |structuralConstants| 41 |someBasis| 50 |sample| 54 |rightUnits|
               58 |rightUnit| 62 |rightTraceMatrix| 66 |rightTrace| 75
@@ -125,21 +124,21 @@
               |rightMinimalPolynomial| 111 |rightDiscriminant| 116
               |rightCharacteristicPolynomial| 125 |rightAlternative?| 130
               |represents| 134 |recip| 145 |rank| 150 |powerAssociative?| 154
-              |plenaryPower| 158 |noncommutativeJordanAlgebra?| 164
-              |lieAlgebra?| 168 |lieAdmissible?| 172 |leftUnits| 176 |leftUnit|
-              180 |leftTraceMatrix| 184 |leftTrace| 193
-              |leftRegularRepresentation| 198 |leftRecip| 209
-              |leftRankPolynomial| 214 |leftPower| 218 |leftNorm| 224
-              |leftMinimalPolynomial| 229 |leftDiscriminant| 234
-              |leftCharacteristicPolynomial| 243 |leftAlternative?| 248 |latex|
-              252 |jordanAlgebra?| 257 |jordanAdmissible?| 261
-              |jacobiIdentity?| 265 |hashUpdate!| 269 |hash| 275 |flexible?|
-              280 |elt| 284 |coordinates| 290 |convert| 312
-              |conditionsForIdempotents| 322 |commutator| 331 |commutative?|
-              337 |coerce| 341 |basis| 356 |associatorDependence| 360
-              |associator| 364 |associative?| 371 |apply| 375 |antiCommutator|
-              381 |antiCommutative?| 387 |antiAssociative?| 391 |alternative?|
-              395 ^ 399 |Zero| 405 = 409 - 415 + 426 * 432)
+              |plenaryPower| 158 |opposite?| 164 |noncommutativeJordanAlgebra?|
+              170 |lieAlgebra?| 174 |lieAdmissible?| 178 |leftUnits| 182
+              |leftUnit| 186 |leftTraceMatrix| 190 |leftTrace| 199
+              |leftRegularRepresentation| 204 |leftRecip| 215
+              |leftRankPolynomial| 220 |leftPower| 224 |leftNorm| 230
+              |leftMinimalPolynomial| 235 |leftDiscriminant| 240
+              |leftCharacteristicPolynomial| 249 |leftAlternative?| 254 |latex|
+              258 |jordanAlgebra?| 263 |jordanAdmissible?| 267
+              |jacobiIdentity?| 271 |hashUpdate!| 275 |hash| 281 |flexible?|
+              286 |elt| 290 |coordinates| 296 |convert| 318
+              |conditionsForIdempotents| 328 |commutator| 337 |commutative?|
+              343 |coerce| 347 |basis| 362 |associatorDependence| 366
+              |associator| 370 |associative?| 377 |apply| 381 |antiCommutator|
+              387 |antiCommutative?| 393 |antiAssociative?| 397 |alternative?|
+              401 ^ 405 |Zero| 411 = 415 - 421 + 432 * 438)
            'NIL
            (CONS (|makeByteWordVec2| 4 '(1 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3))
                  (CONS
@@ -161,29 +160,30 @@
                    (|makeByteWordVec2| 35
                                        '(2 8 0 0 0 9 2 8 0 0 0 10 0 6 0 14 0 0
                                          0 15 2 0 24 0 0 1 1 0 24 0 1 0 3 19 1
-                                         2 0 19 0 0 1 1 2 29 26 1 0 1 29 1 0 2
+                                         2 0 19 0 0 1 1 2 28 26 1 0 1 28 1 0 2
                                          26 1 0 0 0 1 0 3 21 1 0 3 19 1 1 2 25
                                          26 1 0 1 25 1 1 2 6 0 1 2 2 25 0 26 1
                                          1 1 25 0 1 1 3 19 0 1 0 5 18 1 2 0 0 0
                                          16 1 1 2 6 0 1 1 3 22 0 1 1 2 6 26 1 0
                                          1 6 1 1 2 22 0 1 0 2 24 1 2 2 0 27 26
                                          1 1 1 0 27 1 1 3 19 0 1 0 2 16 1 0 2
-                                         24 1 2 0 0 0 16 1 0 2 24 1 0 2 24 1 0
-                                         2 24 1 0 3 21 1 0 3 19 1 1 2 25 26 1 0
-                                         1 25 1 1 2 6 0 1 2 2 25 0 26 1 1 1 25
-                                         0 1 1 3 19 0 1 0 5 18 1 2 0 0 0 16 1 1
-                                         2 6 0 1 1 3 22 0 1 1 2 6 26 1 0 1 6 1
-                                         1 2 22 0 1 0 2 24 1 1 0 32 0 1 0 2 24
-                                         1 0 2 24 1 0 2 24 1 2 0 34 34 0 1 1 0
-                                         33 0 1 0 2 24 1 2 1 6 0 30 1 2 2 25 26
-                                         26 1 2 2 27 0 26 1 1 1 25 26 1 1 1 27
-                                         0 1 1 1 0 27 1 1 1 27 0 1 1 2 28 26 1
-                                         0 1 28 1 2 0 0 0 0 1 0 2 24 1 1 0 0 5
-                                         13 1 0 5 0 12 1 0 35 0 1 0 1 26 1 0 3
-                                         23 1 3 0 0 0 0 0 1 0 2 24 1 2 1 0 25 0
-                                         1 2 0 0 0 0 1 0 2 24 1 0 2 24 1 0 2 24
-                                         1 2 0 0 0 16 17 0 0 0 15 2 0 24 0 0 1
-                                         2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0
-                                         0 0 6 1 2 0 0 6 0 1 2 0 0 0 0 11 2 0 0
-                                         30 0 1 2 0 0 31 0 1 2 0 0 16 0 1)))))
+                                         24 1 2 0 0 0 16 1 2 0 24 0 0 1 0 2 24
+                                         1 0 2 24 1 0 2 24 1 0 3 21 1 0 3 19 1
+                                         1 2 25 26 1 0 1 25 1 1 2 6 0 1 2 2 25
+                                         0 26 1 1 1 25 0 1 1 3 19 0 1 0 5 18 1
+                                         2 0 0 0 16 1 1 2 6 0 1 1 3 22 0 1 1 2
+                                         6 26 1 0 1 6 1 1 2 22 0 1 0 2 24 1 1 0
+                                         32 0 1 0 2 24 1 0 2 24 1 0 2 24 1 2 0
+                                         34 34 0 1 1 0 33 0 1 0 2 24 1 2 1 6 0
+                                         30 1 2 2 27 0 26 1 2 2 25 26 26 1 1 1
+                                         25 26 1 1 1 27 0 1 1 1 0 27 1 1 1 27 0
+                                         1 1 2 29 26 1 0 1 29 1 2 0 0 0 0 1 0 2
+                                         24 1 1 0 0 5 13 1 0 5 0 12 1 0 35 0 1
+                                         0 1 26 1 0 3 23 1 3 0 0 0 0 0 1 0 2 24
+                                         1 2 1 0 25 0 1 2 0 0 0 0 1 0 2 24 1 0
+                                         2 24 1 0 2 24 1 2 0 0 0 16 17 0 0 0 15
+                                         2 0 24 0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0
+                                         0 0 0 1 2 0 0 6 0 1 2 0 0 0 6 1 2 0 0
+                                         0 0 11 2 0 0 30 0 1 2 0 0 31 0 1 2 0 0
+                                         16 0 1)))))
            '|lookupComplete|)) 

@@ -307,13 +307,13 @@
        (OR (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
            (AND (|HasCategory| |#1| '(|IntegralDomain|))
                 (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (|HasCategory| |#1| '(|Ring|)))
+           (|HasCategory| |#1| '(|SemiRing|)))
        (|augmentPredVector| $ 2147483648))
       (AND
        (OR (AND #4# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
            (AND (|HasCategory| |#1| '(|IntegralDomain|))
                 (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (|HasCategory| |#1| '(|SemiRing|)))
+           (|HasCategory| |#1| '(|Ring|)))
        (|augmentPredVector| $ 4294967296))
       (AND
        (OR #3#
@@ -363,8 +363,8 @@
             (CONS
              '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL |Algebra&|
                 |Algebra&| |Algebra&| |Module&| NIL |Module&| NIL NIL |Module&|
-                |EntireRing&| NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL
-                |AbelianGroup&| NIL NIL NIL |AbelianMonoid&| |Monoid&|
+                |EntireRing&| NIL NIL |Ring&| NIL NIL NIL NIL NIL |Rng&| NIL
+                NIL |AbelianGroup&| NIL NIL NIL |AbelianMonoid&| |Monoid&|
                 |AbelianSemiGroup&| |SemiGroup&| NIL |FullyRetractableTo&|
                 |SetCategory&| NIL |RetractableTo&| |BasicType&| NIL NIL NIL
                 NIL |RetractableTo&| |RetractableTo&| NIL)
@@ -389,7 +389,7 @@
                                   '(0 0 0 9 1 11 10 0 12 2 0 0 6 0 13 0 0 0 14
                                     0 6 0 15 2 0 10 0 0 16 2 11 0 0 0 17 2 6 0
                                     0 0 18 2 0 0 0 0 19 2 0 0 0 0 20 0 6 0 21 2
-                                    6 10 0 0 22 0 36 0 9 0 33 0 14 2 0 10 0 0
+                                    6 10 0 0 22 0 36 0 9 0 32 0 14 2 0 10 0 0
                                     16 2 0 0 0 0 19 2 0 0 6 0 13 2 0 0 0 0
                                     20)))))
            '|lookupIncomplete|)) 

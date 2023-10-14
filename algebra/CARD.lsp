@@ -182,12 +182,12 @@
               |CARD;generalizedContinuumHypothesisAssumed;2B;18|
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 63 |zero?| 69 |smaller?| 74 |sample| 80 |retractIfCan| 84
-              |retract| 89 |recip| 94 |one?| 99 |min| 104 |max| 110 |latex| 116
-              |hashUpdate!| 121 |hash| 127
-              |generalizedContinuumHypothesisAssumed?| 132
-              |generalizedContinuumHypothesisAssumed| 136 |finite?| 141
-              |countable?| 146 |coerce| 151 ^ 161 |Zero| 179 |One| 183 |Aleph|
-              187 >= 192 > 198 = 204 <= 210 < 216 - 222 + 228 * 234)
+              |retract| 89 |recip| 94 |opposite?| 99 |one?| 105 |min| 110 |max|
+              116 |latex| 122 |hashUpdate!| 127 |hash| 133
+              |generalizedContinuumHypothesisAssumed?| 138
+              |generalizedContinuumHypothesisAssumed| 142 |finite?| 147
+              |countable?| 152 |coerce| 157 ^ 167 |Zero| 185 |One| 189 |Aleph|
+              193 >= 198 > 204 = 210 <= 216 < 222 - 228 + 234 * 240)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -205,16 +205,17 @@
                                          28 2 0 7 0 0 30 2 18 0 13 0 34 2 0 7 0
                                          0 36 1 8 7 0 37 2 8 7 0 7 44 2 0 7 0 0
                                          36 1 0 7 0 1 2 0 7 0 0 1 0 0 0 1 1 0
-                                         41 0 42 1 0 13 0 40 1 0 31 0 1 1 0 7 0
-                                         1 2 0 0 0 0 1 2 0 0 0 0 28 1 0 47 0 1
-                                         2 0 49 49 0 1 1 0 48 0 1 0 0 7 43 1 0
-                                         7 7 45 1 0 7 0 24 1 0 7 0 39 1 0 0 13
-                                         14 1 0 17 0 22 2 0 0 0 0 38 2 0 0 0 46
-                                         1 2 0 0 0 13 1 0 0 0 12 0 0 0 11 1 0 0
-                                         13 15 2 0 7 0 0 1 2 0 7 0 0 30 2 0 7 0
-                                         0 25 2 0 7 0 0 1 2 0 7 0 0 27 2 0 31 0
-                                         0 32 2 0 0 0 0 29 2 0 0 0 0 33 2 0 0
-                                         46 0 1 2 0 0 13 0 35)))))
+                                         41 0 42 1 0 13 0 40 1 0 31 0 1 2 0 7 0
+                                         0 1 1 0 7 0 1 2 0 0 0 0 1 2 0 0 0 0 28
+                                         1 0 47 0 1 2 0 49 49 0 1 1 0 48 0 1 0
+                                         0 7 43 1 0 7 7 45 1 0 7 0 24 1 0 7 0
+                                         39 1 0 0 13 14 1 0 17 0 22 2 0 0 0 0
+                                         38 2 0 0 0 46 1 2 0 0 0 13 1 0 0 0 12
+                                         0 0 0 11 1 0 0 13 15 2 0 7 0 0 1 2 0 7
+                                         0 0 30 2 0 7 0 0 25 2 0 7 0 0 1 2 0 7
+                                         0 0 27 2 0 31 0 0 32 2 0 0 0 0 29 2 0
+                                         0 0 0 33 2 0 0 46 0 1 2 0 0 13 0
+                                         35)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CardinalNumber| 'NILADIC T) 

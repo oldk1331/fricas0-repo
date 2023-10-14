@@ -657,15 +657,14 @@
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
               (|Union| 140 '"failed") (|Factored| $) (|Fraction| 8)
-              (|InputForm|) (|PositiveInteger|) (|OnePointCompletion| 145)
-              (|Union| 22 '"failed")
-              (|Record| (|:| |factor| 52) (|:| |exponent| 52)) (|List| 148)
-              (|Union| 40 '"failed") (|Matrix| $) (|Table| 145 22)
-              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Record| (|:| |mat| 155) (|:| |vec| (|Vector| 52)))
-              (|Matrix| 52) (|Union| 131 '#1#) (|Union| 52 '#1#)
-              (|List| (|Polynomial| 6)) (|List| (|List| 6))
-              (|Union| 7 '"failed")
+              (|InputForm|) (|PositiveInteger|) (|Union| 22 '"failed")
+              (|OnePointCompletion| 145) (|Union| 40 '"failed") (|Matrix| $)
+              (|Table| 145 22) (|Record| (|:| |factor| 52) (|:| |exponent| 52))
+              (|List| 151) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+              (|Matrix| 52)
+              (|Record| (|:| |mat| 154) (|:| |vec| (|Vector| 52)))
+              (|Union| 131 '#1#) (|Union| 52 '#1#) (|List| (|Polynomial| 6))
+              (|List| (|List| 6)) (|Union| 7 '"failed")
               (|Record| (|:| |num| $) (|:| |den| 7) (|:| |derivden| 7)
                         (|:| |gd| 7))
               (|Record| (|:| |mat| 28) (|:| |vec| 54)) (|Union| 17 '#1#)
@@ -694,7 +693,7 @@
                 |Algebra&| NIL |Algebra&| |DifferentialExtension&| NIL NIL
                 |Module&| NIL |Module&| |EntireRing&| |Module&| NIL
                 |DifferentialRing&| |PartialDifferentialRing&| NIL NIL |Ring&|
-                NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                NIL NIL NIL NIL |Rng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
                 |Finite&| NIL |FullyRetractableTo&| |SetCategory&|
                 |RetractableTo&| NIL NIL NIL |BasicType&| NIL NIL NIL NIL NIL
@@ -756,7 +755,7 @@
                                     40 96 1 0 72 22 74 0 0 28 51 0 0 28 44 2 0
                                     0 120 7 122 0 0 28 45 0 0 28 43 1 0 116 114
                                     119 1 0 59 0 62 0 0 40 42 0 0 40 41 0 0 17
-                                    39 2 0 0 0 114 115 0 0 8 50 1 0 54 0 57 1 0
-                                    28 40 97 0 0 10 37 1 0 10 6 49 1 0 10 7 127
-                                    0 0 40 88 0 0 0 16 0 0 0 26)))))
+                                    39 2 0 0 0 114 115 0 0 8 50 1 0 28 40 97 1
+                                    0 54 0 57 0 0 10 37 1 0 10 6 49 1 0 10 7
+                                    127 0 0 40 88 0 0 0 16 0 0 0 26)))))
            '|lookupIncomplete|)) 

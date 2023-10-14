@@ -55,7 +55,7 @@
    ('T (SPADCALL |m| |i| |j| |r| (QREFELT $ 25))))) 
 
 (DEFUN |IIARRAY2;latex;$S;13| (|m| $)
-  (PROG (|s| #1=#:G2188 |j| #2=#:G2187 |i| #3=#:G2186)
+  (PROG (|s| #1=#:G2192 |j| #2=#:G2191 |i| #3=#:G2190)
     (RETURN
      (SEQ (LETT |s| "\\left[ \\begin{array}{" . #4=(|IIARRAY2;latex;$S;13|))
           (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 16)) . #4#)
@@ -92,10 +92,10 @@
 
 (DECLAIM (NOTINLINE |InnerIndexedTwoDimensionalArray;|)) 
 
-(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2195)
+(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2199)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2196)
+     (PROG (#2=#:G2200)
        (RETURN
         (COND
          ((LETT #2#
@@ -116,7 +116,7 @@
                     '|InnerIndexedTwoDimensionalArray|))))))))))) 
 
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (|pv$| #1=#:G2192 #2=#:G2193 #3=#:G2194 $ |dv$| DV$5 DV$4 DV$3 DV$2
+  (PROG (|pv$| #1=#:G2196 #2=#:G2197 #3=#:G2198 $ |dv$| DV$5 DV$4 DV$3 DV$2
          DV$1)
     (RETURN
      (PROGN

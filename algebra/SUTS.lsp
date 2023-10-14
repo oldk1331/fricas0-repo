@@ -891,12 +891,10 @@
                                                                    |#1|)
                                                                   '(|Symbol|)))))
                                           (LETT #5#
-                                                (|HasCategory| |#1| '(|Ring|))
+                                                (|HasCategory| |#1|
+                                                               '(|SemiRing|))
                                                 . #7#)
-                                          (OR #6#
-                                              (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))
-                                              #5#
+                                          (OR #5#
                                               (|HasSignature| |#1|
                                                               (LIST '*
                                                                     (LIST
@@ -905,7 +903,22 @@
                                                                      '(|NonNegativeInteger|)
                                                                      (|devaluate|
                                                                       |#1|)))))
-                                          (OR #5#
+                                          (LETT #4#
+                                                (|HasCategory| |#1| '(|Ring|))
+                                                . #7#)
+                                          (OR #6#
+                                              (|HasCategory| |#1|
+                                                             '(|IntegralDomain|))
+                                              #4#
+                                              (|HasSignature| |#1|
+                                                              (LIST '*
+                                                                    (LIST
+                                                                     (|devaluate|
+                                                                      |#1|)
+                                                                     '(|NonNegativeInteger|)
+                                                                     (|devaluate|
+                                                                      |#1|)))))
+                                          (OR #4#
                                               (|HasSignature| |#1|
                                                               (LIST '*
                                                                     (LIST
@@ -926,7 +939,7 @@
                                            #6#
                                            (|HasCategory| |#1|
                                                           '(|IntegralDomain|))
-                                           #5#
+                                           #4#
                                            (|HasSignature| |#1|
                                                            (LIST '*
                                                                  (LIST
@@ -935,19 +948,6 @@
                                                                   '(|NonNegativeInteger|)
                                                                   (|devaluate|
                                                                    |#1|)))))
-                                          (LETT #4#
-                                                (|HasCategory| |#1|
-                                                               '(|SemiRing|))
-                                                . #7#)
-                                          (OR #4#
-                                              (|HasSignature| |#1|
-                                                              (LIST '*
-                                                                    (LIST
-                                                                     (|devaluate|
-                                                                      |#1|)
-                                                                     '(|NonNegativeInteger|)
-                                                                     (|devaluate|
-                                                                      |#1|)))))
                                           (LETT #3#
                                                 (|HasCategory| |#1|
                                                                '(|AbelianGroup|))
@@ -965,7 +965,7 @@
                                            #6#
                                            (|HasCategory| |#1|
                                                           '(|IntegralDomain|))
-                                           #5#
+                                           #4#
                                            (|HasSignature| |#1|
                                                            (LIST '*
                                                                  (LIST
@@ -991,7 +991,7 @@
                                            #6#
                                            (|HasCategory| |#1|
                                                           '(|IntegralDomain|))
-                                           #5#
+                                           #4#
                                            (|HasSignature| |#1|
                                                            (LIST '*
                                                                  (LIST
@@ -1017,7 +1017,7 @@
                                            #6#
                                            (|HasCategory| |#1|
                                                           '(|IntegralDomain|))
-                                           #5#
+                                           #4#
                                            (|HasSignature| |#1|
                                                            (LIST '*
                                                                  (LIST
@@ -1280,33 +1280,33 @@
               |subtractIfCan| 815 |sqrt| 821 |sinh| 826 |sin| 831 |series| 836
               |sech| 846 |sec| 851 |sample| 856 |reductum| 860 |recip| 865
               |quoByVar| 870 |polynomial| 875 |pole?| 888 |pi| 893 |order| 897
-              |one?| 908 |nthRoot| 913 |multiplyExponents| 919
-              |multiplyCoefficients| 925 |monomial?| 931 |monomial| 936 |map|
-              956 |log| 962 |leadingMonomial| 967 |leadingCoefficient| 972
-              |latex| 977 |integrate| 982 |hashUpdate!| 999 |hash| 1005
-              |extend| 1010 |exquo| 1016 |exp| 1022 |eval| 1027 |elt| 1033
-              |differentiate| 1045 |degree| 1088 |csch| 1093 |csc| 1098 |coth|
-              1103 |cot| 1108 |cosh| 1113 |cos| 1118 |complete| 1123 |coerce|
-              1128 |coefficients| 1163 |coefficient| 1168 |charthRoot| 1174
-              |characteristic| 1179 |center| 1183 |atanh| 1188 |atan| 1193
-              |associates?| 1198 |asinh| 1204 |asin| 1209 |asech| 1214 |asec|
-              1219 |approximate| 1224 |acsch| 1230 |acsc| 1235 |acoth| 1240
-              |acot| 1245 |acosh| 1250 |acos| 1255 ^ 1260 |Zero| 1290 |One|
-              1294 D 1298 = 1335 / 1341 - 1347 + 1358 * 1364)
+              |opposite?| 908 |one?| 914 |nthRoot| 919 |multiplyExponents| 925
+              |multiplyCoefficients| 931 |monomial?| 937 |monomial| 942 |map|
+              962 |log| 968 |leadingMonomial| 973 |leadingCoefficient| 978
+              |latex| 983 |integrate| 988 |hashUpdate!| 1005 |hash| 1011
+              |extend| 1016 |exquo| 1022 |exp| 1028 |eval| 1033 |elt| 1039
+              |differentiate| 1051 |degree| 1094 |csch| 1099 |csc| 1104 |coth|
+              1109 |cot| 1114 |cosh| 1119 |cos| 1124 |complete| 1129 |coerce|
+              1134 |coefficients| 1169 |coefficient| 1174 |charthRoot| 1180
+              |characteristic| 1185 |center| 1189 |atanh| 1194 |atan| 1199
+              |associates?| 1204 |asinh| 1210 |asin| 1215 |asech| 1220 |asec|
+              1225 |approximate| 1230 |annihilate?| 1236 |acsch| 1242 |acsc|
+              1247 |acoth| 1252 |acot| 1257 |acosh| 1262 |acos| 1267 ^ 1272
+              |Zero| 1302 |One| 1306 D 1310 = 1347 / 1353 - 1359 + 1370 * 1376)
            'NIL
            (CONS
             (|makeByteWordVec2| 23
-                                '(0 0 0 0 2 1 2 5 1 6 2 2 3 4 5 8 7 0 1 6 15 0
-                                  0 1 1 6 13 15 19 17 21 0 17 23 0 0 0 1 0 0 0
-                                  6 2 14 9 1 1 1 1 1 1))
+                                '(0 0 0 0 2 1 2 5 1 6 2 2 3 4 5 8 7 0 1 6 17 0
+                                  0 1 1 6 15 17 19 13 21 0 13 23 0 0 0 1 0 0 0
+                                  6 2 16 9 1 1 1 1 1 1))
             (CONS
              '#(|UnivariateTaylorSeriesCategory&|
                 |UnivariatePowerSeriesCategory&| |PowerSeriesCategory&|
                 |AbelianMonoidRing&| NIL |Algebra&| |Algebra&| |Algebra&|
                 |Module&| NIL |Module&| |EntireRing&| NIL NIL |Module&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL
-                |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL
-                |Monoid&| |AbelianMonoid&| |AbelianSemiGroup&| |SemiGroup&|
+                |Ring&| NIL NIL NIL NIL NIL NIL |Rng&| |AbelianGroup&| NIL NIL
+                NIL |Monoid&| |AbelianMonoid&| |AbelianSemiGroup&| |SemiGroup&|
                 |SetCategory&| |TranscendentalFunctionCategory&| NIL
                 |BasicType&| NIL NIL NIL NIL NIL
                 |TrigonometricFunctionCategory&|
@@ -1387,35 +1387,35 @@
                                     0 169 1 1 0 0 145 2 31 20 0 0 1 1 1 0 0 1 1
                                     1 0 0 165 1 1 0 0 141 1 0 0 82 110 1 0 0
                                     101 115 1 1 0 0 173 1 1 0 0 149 0 32 0 1 1
-                                    0 0 0 1 1 29 20 0 23 1 0 0 0 26 2 0 64 0 12
-                                    75 3 0 64 0 12 12 77 1 0 21 0 120 0 1 0 1 2
-                                    0 12 0 12 124 1 0 12 0 122 1 29 21 0 1 2 1
-                                    0 0 10 1 2 0 0 0 206 1 2 0 0 205 0 1 1 0 21
-                                    0 1 3 0 0 0 207 204 1 3 0 0 0 208 12 1 2 0
-                                    0 6 12 13 2 0 0 209 0 1 1 1 0 0 131 1 0 0 0
-                                    1 1 0 6 0 1 1 0 196 0 1 2 25 0 0 66 1 2 1 0
-                                    0 28 130 1 1 0 0 129 2 0 210 210 0 1 1 0
-                                    211 0 1 2 0 0 0 12 15 2 26 20 0 0 24 1 1 0
-                                    0 133 2 10 82 0 6 1 2 9 0 0 0 128 2 0 6 0
-                                    12 119 2 8 0 0 66 1 3 8 0 0 66 12 1 2 8 0 0
-                                    203 1 3 8 0 0 203 204 1 1 7 0 0 27 2 7 0 0
-                                    12 1 2 0 0 0 28 29 1 0 12 0 1 1 1 0 0 175 1
-                                    1 0 0 151 1 1 0 0 171 1 1 0 0 147 1 1 0 0
-                                    167 1 1 0 0 143 1 0 0 0 1 1 27 0 6 126 1 26
-                                    0 0 1 1 28 0 10 1 1 1 0 135 1 1 0 0 28 32 1
-                                    0 0 33 50 1 0 195 0 201 1 0 82 0 98 2 0 6 0
-                                    12 118 1 3 20 0 1 0 28 12 1 1 0 6 0 53 1 1
-                                    0 0 181 1 1 0 0 157 2 26 21 0 0 1 1 1 0 0
-                                    177 1 1 0 0 153 1 1 0 0 185 1 1 0 0 161 2
-                                    11 6 0 12 1 1 1 0 0 187 1 1 0 0 163 1 1 0 0
-                                    183 1 1 0 0 159 1 1 0 0 179 1 1 0 0 155 2
-                                    29 0 0 12 1 2 1 0 0 135 137 2 1 0 0 0 134 2
-                                    24 0 0 6 198 2 0 0 0 206 1 0 32 0 17 0 29 0
-                                    19 2 8 0 0 66 1 3 8 0 0 66 12 1 2 8 0 0 203
-                                    1 3 8 0 0 203 204 1 1 7 0 0 1 2 7 0 0 12 1
-                                    2 0 21 0 0 1 2 24 0 0 6 1 1 30 0 0 1 2 30 0
-                                    0 0 194 2 0 0 0 0 31 2 30 0 10 0 1 2 32 0
-                                    12 0 1 2 1 0 135 0 1 2 1 0 0 135 1 2 0 0 0
-                                    6 1 2 0 0 6 0 1 2 0 0 0 0 132 2 0 0 206 0
-                                    1)))))
+                                    0 0 0 1 1 28 20 0 23 1 0 0 0 26 3 0 64 0 12
+                                    12 77 2 0 64 0 12 75 1 0 21 0 120 0 1 0 1 2
+                                    0 12 0 12 124 1 0 12 0 122 2 32 21 0 0 1 1
+                                    28 21 0 1 2 1 0 0 10 1 2 0 0 0 206 1 2 0 0
+                                    205 0 1 1 0 21 0 1 3 0 0 0 207 204 1 3 0 0
+                                    0 208 12 1 2 0 0 6 12 13 2 0 0 209 0 1 1 1
+                                    0 0 131 1 0 0 0 1 1 0 6 0 1 1 0 196 0 1 2
+                                    25 0 0 66 1 2 1 0 0 28 130 1 1 0 0 129 2 0
+                                    210 210 0 1 1 0 211 0 1 2 0 0 0 12 15 2 26
+                                    20 0 0 24 1 1 0 0 133 2 10 82 0 6 1 2 9 0 0
+                                    0 128 2 0 6 0 12 119 2 8 0 0 203 1 2 8 0 0
+                                    66 1 3 8 0 0 203 204 1 3 8 0 0 66 12 1 1 7
+                                    0 0 27 2 7 0 0 12 1 2 0 0 0 28 29 1 0 12 0
+                                    1 1 1 0 0 175 1 1 0 0 151 1 1 0 0 171 1 1 0
+                                    0 147 1 1 0 0 167 1 1 0 0 143 1 0 0 0 1 1
+                                    27 0 6 126 1 26 0 0 1 1 29 0 10 1 1 1 0 135
+                                    1 1 0 0 28 32 1 0 0 33 50 1 0 195 0 201 1 0
+                                    82 0 98 2 0 6 0 12 118 1 3 20 0 1 0 29 12 1
+                                    1 0 6 0 53 1 1 0 0 181 1 1 0 0 157 2 26 21
+                                    0 0 1 1 1 0 0 177 1 1 0 0 153 1 1 0 0 185 1
+                                    1 0 0 161 2 11 6 0 12 1 2 29 21 0 0 1 1 1 0
+                                    0 187 1 1 0 0 163 1 1 0 0 183 1 1 0 0 159 1
+                                    1 0 0 179 1 1 0 0 155 2 28 0 0 12 1 2 1 0 0
+                                    135 137 2 1 0 0 0 134 2 24 0 0 6 198 2 0 0
+                                    0 206 1 0 32 0 17 0 28 0 19 2 8 0 0 203 1 2
+                                    8 0 0 66 1 3 8 0 0 203 204 1 3 8 0 0 66 12
+                                    1 1 7 0 0 1 2 7 0 0 12 1 2 0 21 0 0 1 2 24
+                                    0 0 6 1 1 30 0 0 1 2 30 0 0 0 194 2 0 0 0 0
+                                    31 2 30 0 10 0 1 2 32 0 12 0 1 2 1 0 135 0
+                                    1 2 1 0 0 135 1 2 0 0 0 6 1 2 0 0 6 0 1 2 0
+                                    0 0 0 132 2 0 0 206 0 1)))))
            '|lookupComplete|)) 

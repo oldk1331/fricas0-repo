@@ -558,15 +558,15 @@
               (|local| |#2|) (|local| |#3|) (|local| |#4|) '|Rep| (|Integer|)
               (0 . |elt|) (6 . *) |DPMM;*;R2$;1| (12 . |elt|) (19 . +)
               (25 . |Zero|) |DPMM;*;M2$;2| (|Boolean|) (|NonNegativeInteger|)
-              (|List| 9) (|Equation| 9) (|List| 22) (|Matrix| 11) (|Matrix| $)
-              (|Record| (|:| |mat| 24) (|:| |vec| (|Vector| 11))) (|Vector| $)
-              (|Symbol|) (|List| 28) (|List| 20) (|Fraction| 11)
-              (|Union| 31 '#1="failed") (|Union| 11 '#1#) (|Union| $ '"failed")
-              (|Mapping| 19 9) (|Void|) (|Mapping| 9 9) (|CardinalNumber|)
-              (|InputForm|) (|PositiveInteger|) (|List| $)
-              (|Record| (|:| |mat| 43) (|:| |vec| 49)) (|Matrix| 9)
-              (|Union| 9 '#1#) (|SingleInteger|) (|OutputForm|) (|String|)
-              (|HashState|) (|Vector| 9) (|List| 11))
+              (|List| 9) (|Equation| 9) (|List| 22)
+              (|Record| (|:| |mat| 27) (|:| |vec| (|Vector| 11))) (|Matrix| $)
+              (|Vector| $) (|Matrix| 11) (|Symbol|) (|List| 28) (|List| 20)
+              (|Union| 32 '#1="failed") (|Fraction| 11) (|Union| 11 '#1#)
+              (|Union| $ '"failed") (|Mapping| 19 9) (|Void|) (|Mapping| 9 9)
+              (|CardinalNumber|) (|InputForm|) (|PositiveInteger|) (|List| $)
+              (|Matrix| 9) (|Record| (|:| |mat| 42) (|:| |vec| 49))
+              (|Union| 9 '#1#) (|OutputForm|) (|HashState|) (|SingleInteger|)
+              (|String|) (|Vector| 9) (|List| 11))
            '#(|elt| 29 * 35) 'NIL
            (CONS
             (|makeByteWordVec2| 32
@@ -579,13 +579,13 @@
                 |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
                 |Module&| |OrderedRing&| NIL NIL NIL |PartialDifferentialRing&|
                 |DifferentialRing&| NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
-                NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL |IndexedAggregate&|
-                |OrderedSet&| NIL |Monoid&| |AbelianMonoid&|
-                |HomogeneousAggregate&| |AbelianSemiGroup&| NIL |SemiGroup&|
-                |Finite&| |Aggregate&| |SetCategory&| |EltableAggregate&|
-                |Evalable&| |FullyRetractableTo&| NIL NIL |BasicType&| NIL NIL
-                NIL |InnerEvalable&| |PartialOrder&| NIL NIL NIL
-                |RetractableTo&| |RetractableTo&| |RetractableTo&|)
+                NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL NIL
+                |IndexedAggregate&| |OrderedSet&| NIL |Monoid&|
+                |AbelianMonoid&| |HomogeneousAggregate&| |AbelianSemiGroup&|
+                NIL |SemiGroup&| |Finite&| |Aggregate&| |SetCategory&|
+                |EltableAggregate&| |Evalable&| |FullyRetractableTo&| NIL NIL
+                |BasicType&| NIL NIL NIL |InnerEvalable&| |PartialOrder&| NIL
+                NIL NIL |RetractableTo&| |RetractableTo&| |RetractableTo&|)
              (CONS
               '#((|DirectProductCategory| 6 9) (|VectorSpace| 9) (|Algebra| 9)
                  (|FullyLinearlyExplicitRingOver| 9)
@@ -604,11 +604,11 @@
                  (|HomogeneousAggregate| 9) (|AbelianSemiGroup|) (|Comparable|)
                  (|SemiGroup|) (|Finite|) (|Aggregate|) (|SetCategory|)
                  (|EltableAggregate| 11 9) (|Evalable| 9)
-                 (|FullyRetractableTo| 9) (|Type|) (|CoercibleTo| 46)
+                 (|FullyRetractableTo| 9) (|Type|) (|CoercibleTo| 45)
                  (|BasicType|) (|finiteAggregate|) (|CoercibleTo| (|Vector| 9))
                  (|Eltable| 11 9) (|InnerEvalable| 9 9) (|PartialOrder|)
                  (|unitsKnown|) (|CommutativeStar|) (|ConvertibleTo| 39)
-                 (|RetractableTo| 9) (|RetractableTo| 31) (|RetractableTo| 11))
+                 (|RetractableTo| 9) (|RetractableTo| 32) (|RetractableTo| 11))
               (|makeByteWordVec2| 18
                                   '(2 0 9 0 11 12 2 9 0 7 0 13 3 8 7 0 11 11 15
                                     2 9 0 0 0 16 0 9 0 17 2 0 9 0 11 12 2 0 0 8

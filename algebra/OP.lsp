@@ -59,7 +59,7 @@
                                 '(1 1 2 3 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0))
             (CONS
-             '#(|Algebra&| |Module&| NIL NIL |Ring&| NIL NIL NIL NIL NIL
+             '#(|Algebra&| |Module&| NIL NIL |Ring&| NIL |Rng&| NIL NIL NIL
                 |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
                 |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| |RetractableTo&| NIL |BasicType&| NIL)

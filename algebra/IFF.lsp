@@ -72,8 +72,8 @@
               (|SparseUnivariatePolynomial| $) (|InnerPrimeField| 6)
               (|Vector| 26) (|Matrix| 26) (|Vector| $) (|CardinalNumber|)
               (|Union| 26 '"failed") (|Fraction| 20) (|Factored| $)
-              (|Union| 12 '#1="failed")
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 35 '#1#)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 34 '#1="failed") (|Union| 12 '#1#)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 12) (|:| |generator| $))
@@ -93,9 +93,10 @@
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL |SetCategory&|
-                |RetractableTo&| NIL NIL NIL NIL NIL |BasicType&| NIL NIL)
+                |Rng&| NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
+                NIL |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL
+                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| (|InnerPrimeField| 6))
                  (|ExtensionField| (|InnerPrimeField| 6))

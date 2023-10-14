@@ -50,10 +50,11 @@
               (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Boolean|)
               (|SparseUnivariatePolynomial| $)
               (|Record| (|:| |coef| 14) (|:| |generator| $))
+              (|Union| $ '"failed")
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Union| $ '"failed") (|PositiveInteger|) (|HashState|)
-              (|String|) (|OutputForm|) (|SingleInteger|))
+              (|PositiveInteger|) (|HashState|) (|String|) (|OutputForm|)
+              (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -61,7 +62,7 @@
                                   0 0 0 0 0 0 0))
             (CONS
              '#(NIL |EuclideanDomain&| NIL |GcdDomain&| NIL NIL |Algebra&| NIL
-                NIL |EntireRing&| |Module&| NIL |Ring&| NIL NIL NIL
+                NIL |EntireRing&| |Module&| NIL |Ring&| NIL |Rng&| NIL
                 |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
                 |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL
                 |BasicType&| NIL)

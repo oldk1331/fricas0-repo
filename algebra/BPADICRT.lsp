@@ -158,21 +158,21 @@
               (|local| |#1|) (|Union| 23 '#1="failed") (|Matrix| $)
               (|Union| $ '"failed") (|Boolean|) (|InputForm|) (|Pattern| 32)
               (|Pattern| 24) (|NonNegativeInteger|) (|BalancedPAdicInteger| 6)
-              (|Equation| 15) (|List| 16) (|List| 15) (|List| 20) (|Symbol|)
+              (|List| 17) (|Equation| 15) (|List| 15) (|Symbol|) (|List| 19)
               (|Matrix| 24) (|Record| (|:| |mat| 21) (|:| |vec| (|Vector| 24)))
               (|Vector| $) (|Integer|) (|List| 14) (|PatternMatchResult| 32 $)
               (|PatternMatchResult| 24 $) (|Factored| 29)
               (|SparseUnivariatePolynomial| $) (|Union| 31 '#1#) (|List| 29)
               (|Float|) (|DoubleFloat|) (|Union| 24 '#2="failed")
-              (|Union| 36 '#2#) (|Fraction| 24) (|Union| 20 '#2#)
+              (|Union| 36 '#2#) (|Fraction| 24) (|Union| 19 '#2#)
               (|ContinuedFraction| 36) (|Matrix| 15)
               (|Record| (|:| |mat| 39) (|:| |vec| (|Vector| 15)))
               (|Mapping| 15 15) (|Union| 15 '#2#) (|Factored| $)
-              (|Union| 45 '#3="failed") (|List| $)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 44 '#3="failed") (|Union| 47 '#3#) (|List| $)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 47 '#3#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef| 45) (|:| |generator| $))
+              (|Record| (|:| |coef| 47) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
@@ -193,13 +193,14 @@
                 |Algebra&| |Algebra&| NIL |Algebra&| NIL |Module&| |Module&|
                 NIL |EntireRing&| |Module&| NIL NIL |OrderedRing&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
-                |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL
-                NIL NIL NIL NIL |AbelianMonoid&| |Monoid&| NIL |OrderedSet&|
-                |FullyEvalableOver&| |SemiGroup&| |AbelianSemiGroup&| NIL NIL
-                NIL NIL NIL |SetCategory&| NIL |Evalable&| NIL |RetractableTo&|
-                NIL NIL NIL NIL NIL |BasicType&| NIL |RetractableTo&| NIL NIL
-                NIL |PartialOrder&| |RetractableTo&| |RetractableTo&|
-                |InnerEvalable&| |InnerEvalable&| NIL NIL NIL)
+                |Ring&| NIL NIL NIL NIL NIL NIL |Rng&| NIL NIL |AbelianGroup&|
+                NIL NIL NIL NIL NIL |AbelianMonoid&| |Monoid&| NIL
+                |OrderedSet&| |FullyEvalableOver&| |SemiGroup&|
+                |AbelianSemiGroup&| NIL NIL NIL NIL NIL |SetCategory&| NIL
+                |Evalable&| NIL |RetractableTo&| NIL NIL NIL NIL NIL
+                |BasicType&| NIL |RetractableTo&| NIL NIL NIL |PartialOrder&|
+                |RetractableTo&| |RetractableTo&| |InnerEvalable&|
+                |InnerEvalable&| NIL NIL NIL)
              (CONS
               '#((|QuotientFieldCategory| (|BalancedPAdicInteger| 6)) (|Field|)
                  (|EuclideanDomain|) (|PolynomialFactorizationExplicit|)
@@ -214,7 +215,7 @@
                  (|Module| (|BalancedPAdicInteger| 6)) (|Module| 36)
                  (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|OrderedRing|) (|PartialDifferentialRing| 20)
+                 (|OrderedRing|) (|PartialDifferentialRing| 19)
                  (|DifferentialRing|) (|LinearlyExplicitRingOver| 24)
                  (|BiModule| (|BalancedPAdicInteger| 6)
                              (|BalancedPAdicInteger| 6))
@@ -236,10 +237,10 @@
                  (|Type|) (|RetractableTo| (|BalancedPAdicInteger| 6))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 57) (|RetractableTo| 20)
+                 (|BasicType|) (|CoercibleTo| 57) (|RetractableTo| 19)
                  (|ConvertibleTo| 11) (|ConvertibleTo| 33) (|ConvertibleTo| 32)
                  (|PartialOrder|) (|RetractableTo| 36) (|RetractableTo| 24)
-                 (|InnerEvalable| 20 (|BalancedPAdicInteger| 6))
+                 (|InnerEvalable| 19 (|BalancedPAdicInteger| 6))
                  (|InnerEvalable| (|BalancedPAdicInteger| 6)
                                   (|BalancedPAdicInteger| 6))
                  (|Eltable| (|BalancedPAdicInteger| 6) $$) (|ConvertibleTo| 12)

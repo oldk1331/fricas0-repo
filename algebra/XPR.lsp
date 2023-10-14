@@ -399,8 +399,8 @@
               (101 . |coerce|) (106 . |coerce|) (111 . *) (117 . +)
               (|Mapping| 47 47 47) (|List| 47) (123 . |reduce|)
               |XPR;coerce;$Of;19| (129 . |inv|) (134 . /) (|Mapping| 6 7)
-              (|Union| 7 '"failed") (|List| 17) (|Mapping| 6 6) (|List| 7)
-              (|List| 6) (|List| $) (|PositiveInteger|) (|String|)
+              (|Union| 7 '"failed") (|List| 17) (|Mapping| 6 6) (|List| 6)
+              (|List| $) (|List| 7) (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|))
            '#(|recip| 140 |quasiRegular?| 145 |quasiRegular| 150 |mindeg| 155
               |maxdeg| 160 |constant?| 165 |constant| 170 |coerce| 175 |coef|
@@ -413,7 +413,7 @@
                                   0 0 4 0 0 0 0 2 5 6 7))
             (CONS
              '#(NIL |FreeModuleCategory&| |Algebra&| NIL |Module&| NIL |Ring&|
-                NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL
+                NIL NIL NIL NIL |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |OrderedSet&| |SemiGroup&|
                 |AbelianSemiGroup&| NIL |SetCategory&| NIL |BasicType&| NIL
                 |RetractableTo&| |PartialOrder&| NIL NIL)
@@ -441,7 +441,7 @@
                                     0 50 2 47 0 0 0 51 2 53 47 52 0 54 1 6 0 0
                                     56 2 0 0 0 6 57 1 0 33 0 36 1 0 20 0 30 1 0
                                     0 0 31 1 0 7 0 19 1 0 7 0 16 1 0 20 0 27 1
-                                    0 6 0 28 1 0 0 6 35 1 0 0 38 40 1 0 47 0 55
+                                    0 6 0 28 1 0 0 38 40 1 0 0 6 35 1 0 47 0 55
                                     2 0 6 0 7 24 0 0 12 14 2 0 0 0 12 46 0 0 0
                                     25 0 0 0 11 2 0 20 0 0 26 2 8 0 0 6 57 2 0
                                     0 0 0 44 2 0 0 6 0 41 2 0 0 0 0 45 1 0 12 0

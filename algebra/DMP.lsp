@@ -177,26 +177,27 @@
 (MAKEPROP '|DistributedMultivariatePolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|GeneralDistributedMultivariatePolynomial| 6 7 46)
-              (|local| |#1|) (|local| |#2|) (|Union| 27 '#1="failed")
-              (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 32)
-              (|PatternMatchResult| (|Float|) $) (|PatternMatchResult| 32 $)
+              (|GeneralDistributedMultivariatePolynomial| 6 7 47)
+              (|local| |#1|) (|local| |#2|) (|Union| 26 '#1="failed")
+              (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 33)
+              (|PatternMatchResult| (|Float|) $) (|PatternMatchResult| 33 $)
               (|Union| $ '#1#) (|Boolean|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Fraction| 32) (|NonNegativeInteger|) (|OrderedVariableList| 6)
+              (|Fraction| 33) (|NonNegativeInteger|) (|OrderedVariableList| 6)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| $) (|SparseUnivariatePolynomial| $) (|Factored| $)
-              (|Matrix| 32) (|Record| (|:| |mat| 25) (|:| |vec| (|Vector| 32)))
-              (|Vector| $) (|Factored| 23) (|Union| 30 '#1#) (|List| 23)
-              (|Union| 18 '#2="failed") (|Integer|) (|Union| 32 '#2#)
-              (|List| 32) (|Record| (|:| |var| 20) (|:| |exponent| 19))
-              (|Union| 35 '#3="failed") (|Union| 22 '#3#)
-              (|SparseUnivariatePolynomial| 7) (|List| 19) (|List| 20)
+              (|Record| (|:| |mat| 27) (|:| |vec| (|Vector| 33))) (|Vector| $)
+              (|Matrix| 33) (|Factored| 23) (|Union| 30 '#1#) (|List| 23)
+              (|Union| 18 '#2="failed") (|Union| 33 '#2#) (|Integer|)
+              (|List| 33) (|Union| 22 '#3="failed")
+              (|Record| (|:| |var| 20) (|:| |exponent| 19)) (|Union| 36 '#3#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Union| 20 '#2#) (|List| 7) (|Equation| $) (|List| 44)
+              (|SparseUnivariatePolynomial| 7) (|List| 19) (|List| 20)
+              (|Union| 20 '#2#) (|List| 7) (|List| 45) (|Equation| $)
+              (|Mapping| 7 7)
               (|DirectProduct| (NRTEVAL (LENGTH (QREFELT $ 6))) 19)
-              (|Mapping| 7 7) (|Union| 7 '#2#) (|Mapping| 46 46)
-              (|Record| (|:| |mat| 51) (|:| |vec| (|Vector| 7))) (|Matrix| 7)
+              (|Union| 7 '#2#) (|Mapping| 47 47) (|Matrix| 7)
+              (|Record| (|:| |mat| 50) (|:| |vec| (|Vector| 7)))
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
               (|OutputForm|))
            '#() 'NIL
@@ -212,7 +213,7 @@
                 |FullyLinearlyExplicitRingOver&| |Algebra&| NIL |Algebra&|
                 |Algebra&| |PartialDifferentialRing&| NIL NIL |Module&|
                 |Module&| NIL NIL |Module&| |EntireRing&| NIL |Ring&| NIL NIL
-                NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                NIL |Rng&| NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
                 NIL NIL NIL |Evalable&| |FullyRetractableTo&| |SetCategory&|
                 NIL |RetractableTo&| |InnerEvalable&| |InnerEvalable&|
@@ -229,13 +230,13 @@
                  (|LinearlyExplicitRingOver| 7) (|CommutativeRing|)
                  (|Module| $$) (|Module| 18) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Module| 7) (|EntireRing|)
-                 (|LinearlyExplicitRingOver| 32) (|Ring|) (|BiModule| 7 7)
+                 (|LinearlyExplicitRingOver| 33) (|Ring|) (|BiModule| 7 7)
                  (|BiModule| 18 18) (|BiModule| $$ $$) (|Rng|) (|LeftModule| 7)
                  (|RightModule| 7) (|LeftModule| $$) (|RightModule| $$)
                  (|LeftModule| 18) (|RightModule| 18) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
                  (|Monoid|) (|SemiRng|) (|SemiGroup|) (|AbelianSemiGroup|)
-                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 32)
+                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 33)
                  (|Comparable|) (|Evalable| $$) (|FullyRetractableTo| 7)
                  (|SetCategory|) (|VariablesCommuteWithCoefficients|)
                  (|RetractableTo| (|OrderedVariableList| 6))
@@ -244,7 +245,7 @@
                  (|InnerEvalable| $$ $$) (|RetractableTo| 7) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 56) (|CommutativeStar|)
                  (|noZeroDivisors|) (|ConvertibleTo| 11) (|ConvertibleTo| 12)
-                 (|ConvertibleTo| 10) (|RetractableTo| 18) (|RetractableTo| 32)
+                 (|ConvertibleTo| 10) (|RetractableTo| 18) (|RetractableTo| 33)
                  (|canonicalUnitNormal|))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

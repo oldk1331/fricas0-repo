@@ -499,13 +499,13 @@
            '#(NIL NIL NIL NIL NIL (|DirectProduct| 6 8) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) '|Rep| (|Integer|) (0 . |elt|)
               (6 . *) |DPMO;*;R2$;1| (|Boolean|) (|NonNegativeInteger|)
-              (|List| 8) (|Equation| 8) (|List| 17)
-              (|Record| (|:| |mat| 22) (|:| |vec| (|Vector| 10))) (|Matrix| $)
-              (|Vector| $) (|Matrix| 10) (|List| 25) (|List| 15) (|Symbol|)
-              (|Union| 27 '#1="failed") (|Fraction| 10) (|Union| 10 '#1#)
-              (|Union| $ '"failed") (|Mapping| 14 8) (|Void|) (|Mapping| 8 8)
-              (|CardinalNumber|) (|InputForm|) (|PositiveInteger|) (|List| $)
-              (|Matrix| 8) (|Record| (|:| |mat| 37) (|:| |vec| 44))
+              (|List| 8) (|Equation| 8) (|List| 17) (|Matrix| 10) (|Matrix| $)
+              (|Record| (|:| |mat| 19) (|:| |vec| (|Vector| 10))) (|Vector| $)
+              (|List| 25) (|List| 15) (|Symbol|) (|Fraction| 10)
+              (|Union| 26 '#1="failed") (|Union| 10 '#1#) (|Union| $ '"failed")
+              (|Mapping| 14 8) (|Void|) (|Mapping| 8 8) (|CardinalNumber|)
+              (|InputForm|) (|PositiveInteger|) (|List| $)
+              (|Record| (|:| |mat| 38) (|:| |vec| 44)) (|Matrix| 8)
               (|Union| 8 '#1#) (|OutputForm|) (|HashState|) (|SingleInteger|)
               (|String|) (|Vector| 8) (|List| 10))
            '#(|elt| 12 * 18) 'NIL
@@ -519,7 +519,7 @@
                 |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
                 |Module&| |OrderedRing&| NIL NIL NIL |PartialDifferentialRing&|
                 |DifferentialRing&| NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
-                NIL NIL NIL |AbelianGroup&| NIL NIL NIL |IndexedAggregate&|
+                NIL |Rng&| NIL |AbelianGroup&| NIL NIL NIL |IndexedAggregate&|
                 |OrderedSet&| NIL |Monoid&| |AbelianMonoid&|
                 |HomogeneousAggregate&| |AbelianSemiGroup&| NIL |SemiGroup&|
                 |Finite&| |Aggregate&| |SetCategory&| |EltableAggregate&|
@@ -548,7 +548,7 @@
                  (|BasicType|) (|finiteAggregate|) (|CoercibleTo| (|Vector| 8))
                  (|Eltable| 10 8) (|InnerEvalable| 8 8) (|PartialOrder|)
                  (|unitsKnown|) (|CommutativeStar|) (|ConvertibleTo| 34)
-                 (|RetractableTo| 8) (|RetractableTo| 27) (|RetractableTo| 10))
+                 (|RetractableTo| 8) (|RetractableTo| 26) (|RetractableTo| 10))
               (|makeByteWordVec2| 13
                                   '(2 0 8 0 10 11 2 8 0 7 0 12 2 0 8 0 10 11 2
                                     0 0 7 0 13)))))

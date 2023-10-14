@@ -88,14 +88,15 @@
               50 |rightQuotient| 56 |rightLcm| 62 |rightGcd| 68
               |rightExtendedGcd| 74 |rightExactQuotient| 80 |rightDivide| 86
               |retractIfCan| 92 |retract| 107 |reductum| 122 |recip| 127
-              |primitivePart| 132 |one?| 137 |monomial| 142 |monicRightDivide|
-              148 |monicLeftDivide| 154 |minimumDegree| 160 |leftRemainder| 165
-              |leftQuotient| 171 |leftLcm| 177 |leftGcd| 183 |leftExtendedGcd|
-              189 |leftExactQuotient| 195 |leftDivide| 201 |leadingCoefficient|
-              207 |latex| 212 |hashUpdate!| 217 |hash| 223 |exquo| 228 |degree|
-              234 |content| 239 |coerce| 244 |coefficients| 269 |coefficient|
-              274 |characteristic| 280 |apply| 284 ^ 291 |Zero| 303 |One| 307 =
-              311 - 317 + 328 * 334)
+              |primitivePart| 132 |opposite?| 137 |one?| 143 |monomial| 148
+              |monicRightDivide| 154 |monicLeftDivide| 160 |minimumDegree| 166
+              |leftRemainder| 171 |leftQuotient| 177 |leftLcm| 183 |leftGcd|
+              189 |leftExtendedGcd| 195 |leftExactQuotient| 201 |leftDivide|
+              207 |leadingCoefficient| 213 |latex| 218 |hashUpdate!| 223 |hash|
+              229 |exquo| 234 |degree| 240 |content| 245 |coerce| 250
+              |coefficients| 275 |coefficient| 280 |characteristic| 286 |apply|
+              290 |annihilate?| 297 ^ 303 |Zero| 315 |One| 319 = 323 - 329 +
+              340 * 346)
            'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -103,7 +104,7 @@
                                   2 3))
             (CONS
              '#(|UnivariateSkewPolynomialCategory&| |Algebra&| |Module&|
-                |Ring&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                |Ring&| NIL |Rng&| NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
                 |FullyRetractableTo&| |SetCategory&| |RetractableTo&| NIL
                 |BasicType&| NIL |RetractableTo&| |RetractableTo&|)
@@ -123,17 +124,17 @@
                                     0 0 0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 24 0 0
                                     1 2 6 25 0 0 1 2 6 26 0 0 1 1 2 28 0 1 1 3
                                     30 0 1 1 0 32 0 1 1 2 27 0 1 1 3 29 0 1 1 0
-                                    7 0 1 1 0 0 0 1 1 0 25 0 1 1 5 0 0 1 1 0 33
-                                    0 1 2 0 0 7 15 16 2 4 26 0 0 1 2 4 26 0 0 1
-                                    1 0 15 0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 0 0
-                                    0 1 2 6 0 0 0 1 2 6 24 0 0 1 2 6 25 0 0 1 2
-                                    6 26 0 0 1 1 0 7 0 1 1 0 36 0 1 2 0 35 35 0
-                                    1 1 0 37 0 1 2 4 25 0 7 1 1 0 15 0 1 1 5 7
-                                    0 1 1 2 0 27 1 1 0 0 17 18 1 0 0 7 1 1 0 0
-                                    29 1 1 0 20 0 23 1 0 31 0 1 2 0 7 0 15 1 0
-                                    0 15 1 3 0 7 0 7 7 1 2 0 0 0 15 1 2 0 0 0
-                                    34 1 0 0 0 1 0 0 0 13 2 0 33 0 0 1 2 0 0 0
-                                    0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 7 1 2 0 0
-                                    7 0 1 2 0 0 0 0 1 2 0 0 29 0 1 2 0 0 15 0 1
-                                    2 0 0 34 0 1)))))
+                                    7 0 1 1 0 0 0 1 1 0 25 0 1 1 5 0 0 1 2 0 33
+                                    0 0 1 1 0 33 0 1 2 0 0 7 15 16 2 4 26 0 0 1
+                                    2 4 26 0 0 1 1 0 15 0 1 2 6 0 0 0 1 2 6 0 0
+                                    0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 24 0 0 1 2
+                                    6 25 0 0 1 2 6 26 0 0 1 1 0 7 0 1 1 0 36 0
+                                    1 2 0 35 35 0 1 1 0 37 0 1 2 4 25 0 7 1 1 0
+                                    15 0 1 1 5 7 0 1 1 2 0 27 1 1 0 0 17 18 1 0
+                                    0 7 1 1 0 0 29 1 1 0 20 0 23 1 0 31 0 1 2 0
+                                    7 0 15 1 0 0 15 1 3 0 7 0 7 7 1 2 0 33 0 0
+                                    1 2 0 0 0 15 1 2 0 0 0 34 1 0 0 0 1 0 0 0
+                                    13 2 0 33 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0
+                                    0 0 1 2 0 0 0 7 1 2 0 0 7 0 1 2 0 0 29 0 1
+                                    2 0 0 0 0 1 2 0 0 15 0 1 2 0 0 34 0 1)))))
            '|lookupComplete|)) 

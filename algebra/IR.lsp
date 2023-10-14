@@ -604,10 +604,10 @@
               (301 . |int|) (|Union| $ '"failed") (|PositiveInteger|)
               (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 306 |zero?| 312 |subtractIfCan| 317 |sample| 323
-              |retractIfCan| 327 |retract| 332 |ratpart| 337 |notelem| 342
-              |mkAnswer| 347 |logpart| 354 |latex| 359 |integral| 364
-              |hashUpdate!| 376 |hash| 382 |elem?| 387 |differentiate| 392
-              |coerce| 404 |Zero| 414 = 418 - 424 + 435 * 441)
+              |retractIfCan| 327 |retract| 332 |ratpart| 337 |opposite?| 342
+              |notelem| 348 |mkAnswer| 353 |logpart| 360 |latex| 365 |integral|
+              370 |hashUpdate!| 382 |hash| 388 |elem?| 393 |differentiate| 398
+              |coerce| 410 |Zero| 420 = 424 - 430 + 441 * 447)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 0 0 0 1 1 3 0 0 0 0 0))
                  (CONS
@@ -642,12 +642,13 @@
                                          95 2 92 10 96 0 97 1 10 0 52 98 1 10 0
                                          0 99 2 0 27 0 0 1 1 2 27 0 1 2 1 100 0
                                          0 1 0 2 0 1 1 0 66 0 67 1 0 6 0 1 1 0
-                                         6 0 24 1 0 21 0 26 3 0 0 6 19 21 22 1
-                                         0 19 0 25 1 0 103 0 1 2 5 0 6 8 43 2 0
-                                         0 6 6 32 2 0 102 102 0 1 1 0 104 0 1 1
-                                         0 27 0 28 2 4 6 0 8 80 2 0 6 0 78 79 1
-                                         0 0 6 23 1 0 10 0 94 0 2 0 16 2 0 27 0
-                                         0 1 2 1 0 0 0 1 1 1 0 0 15 2 0 0 0 0
-                                         76 2 1 0 13 0 14 2 2 0 44 0 1 2 0 0 0
-                                         29 1 2 0 0 29 0 35 2 0 0 101 0 1)))))
+                                         6 0 24 2 2 27 0 0 1 1 0 21 0 26 3 0 0
+                                         6 19 21 22 1 0 19 0 25 1 0 103 0 1 2 5
+                                         0 6 8 43 2 0 0 6 6 32 2 0 102 102 0 1
+                                         1 0 104 0 1 1 0 27 0 28 2 4 6 0 8 80 2
+                                         0 6 0 78 79 1 0 0 6 23 1 0 10 0 94 0 2
+                                         0 16 2 0 27 0 0 1 2 1 0 0 0 1 1 1 0 0
+                                         15 2 0 0 0 0 76 2 1 0 13 0 14 2 2 0 44
+                                         0 1 2 0 0 0 29 1 2 0 0 29 0 35 2 0 0
+                                         101 0 1)))))
            '|lookupComplete|)) 

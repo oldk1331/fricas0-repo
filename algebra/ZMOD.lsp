@@ -291,17 +291,18 @@
               (140 . |hashUpdate!|) (146 . |mulmod|) (153 . |addmod|)
               (160 . |submod|) (|InputForm|) (|List| $) (|String|))
            '#(~= 167 |zero?| 173 |subtractIfCan| 178 |size| 184 |sample| 188
-              |recip| 192 |random| 197 |one?| 201 |nextItem| 206 |lookup| 211
-              |latex| 216 |init| 221 |index| 225 |hashUpdate!| 230 |hash| 236
-              |enumerate| 241 |convert| 245 |coerce| 255 |characteristic| 265 ^
-              269 |Zero| 281 |One| 285 = 289 - 295 + 306 * 312)
+              |recip| 192 |random| 197 |opposite?| 201 |one?| 207 |nextItem|
+              212 |lookup| 217 |latex| 222 |init| 227 |index| 231 |hashUpdate!|
+              236 |hash| 242 |enumerate| 247 |convert| 251 |coerce| 261
+              |characteristic| 271 |annihilate?| 275 ^ 281 |Zero| 293 |One| 297
+              = 301 - 307 + 318 * 324)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0))
             (CONS
-             '#(NIL |Ring&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+             '#(NIL |Ring&| NIL |Rng&| NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL NIL |Finite&| |SemiGroup&|
                 |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL NIL |BasicType&|
                 NIL)
@@ -324,12 +325,13 @@
                                     44 0 0 45 1 0 32 0 46 2 0 47 47 0 48 3 18 0
                                     0 0 0 49 3 18 0 0 0 0 50 3 18 0 0 0 0 51 2
                                     0 10 0 0 1 1 0 10 0 11 2 0 32 0 0 1 0 0 7 8
-                                    0 0 0 1 1 0 32 0 46 0 0 0 37 1 0 10 0 1 1 0
-                                    32 0 33 1 0 14 0 15 1 0 54 0 1 0 0 0 29 1 0
-                                    0 14 39 2 0 47 47 0 48 1 0 19 0 1 0 0 53 1
-                                    1 0 52 0 1 1 0 12 0 13 1 0 0 12 26 1 0 23 0
-                                    25 0 0 7 9 2 0 0 0 7 43 2 0 0 0 14 1 0 0 0
-                                    27 0 0 0 28 2 0 10 0 0 31 1 0 0 0 40 2 0 0
-                                    0 0 36 2 0 0 0 0 30 2 0 0 12 0 35 2 0 0 0 0
-                                    34 2 0 0 7 0 1 2 0 0 14 0 1)))))
+                                    0 0 0 1 1 0 32 0 46 0 0 0 37 2 0 10 0 0 1 1
+                                    0 10 0 1 1 0 32 0 33 1 0 14 0 15 1 0 54 0 1
+                                    0 0 0 29 1 0 0 14 39 2 0 47 47 0 48 1 0 19
+                                    0 1 0 0 53 1 1 0 52 0 1 1 0 12 0 13 1 0 0
+                                    12 26 1 0 23 0 25 0 0 7 9 2 0 10 0 0 1 2 0
+                                    0 0 7 43 2 0 0 0 14 1 0 0 0 27 0 0 0 28 2 0
+                                    10 0 0 31 1 0 0 0 40 2 0 0 0 0 36 2 0 0 0 0
+                                    30 2 0 0 12 0 35 2 0 0 0 0 34 2 0 0 7 0 1 2
+                                    0 0 14 0 1)))))
            '|lookupComplete|)) 

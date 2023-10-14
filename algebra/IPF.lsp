@@ -278,8 +278,8 @@
               (|OnePointCompletion| 45) (|Matrix| $) (|Union| 71 '"failed")
               (|InputForm|) (|List| $) (|Union| 22 '"failed") (|Fraction| 20)
               (|Union| 92 '#1="failed")
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 96 '#1#)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 97 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 92) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
@@ -307,7 +307,7 @@
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |DifferentialRing&| NIL |Module&| NIL
-                |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
+                |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
                 |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL NIL
                 |Finite&| |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)

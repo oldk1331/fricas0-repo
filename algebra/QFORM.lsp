@@ -90,8 +90,9 @@
               (|NonNegativeInteger|) (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 42 |zero?| 48 |subtractIfCan| 53 |sample| 59 |quadraticForm|
-              63 |matrix| 68 |latex| 73 |hashUpdate!| 78 |hash| 84 |elt| 89
-              |convert| 95 |coerce| 100 |Zero| 105 = 109 - 115 + 126 * 132)
+              63 |opposite?| 68 |matrix| 74 |latex| 79 |hashUpdate!| 84 |hash|
+              90 |elt| 95 |convert| 101 |coerce| 106 |Zero| 111 = 115 - 121 +
+              132 * 138)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 1))
                  (CONS
@@ -106,9 +107,10 @@
                                          15 1 5 17 0 18 1 20 0 19 21 1 17 0 20
                                          22 1 17 0 23 24 1 0 17 0 25 2 0 9 0 0
                                          1 1 0 9 0 1 2 0 27 0 0 1 0 0 0 1 1 0 0
-                                         5 11 1 0 5 0 12 1 0 30 0 1 2 0 32 32 0
-                                         1 1 0 31 0 1 2 0 7 0 13 16 1 1 17 0 25
-                                         1 0 33 0 1 0 0 0 1 2 0 9 0 0 1 1 0 0 0
-                                         1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 26 0 1
-                                         2 0 0 28 0 1 2 0 0 29 0 1)))))
+                                         5 11 2 0 9 0 0 1 1 0 5 0 12 1 0 30 0 1
+                                         2 0 32 32 0 1 1 0 31 0 1 2 0 7 0 13 16
+                                         1 1 17 0 25 1 0 33 0 1 0 0 0 1 2 0 9 0
+                                         0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1
+                                         2 0 0 26 0 1 2 0 0 28 0 1 2 0 0 29 0
+                                         1)))))
            '|lookupComplete|)) 

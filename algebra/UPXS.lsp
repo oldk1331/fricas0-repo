@@ -410,7 +410,8 @@
                                           (OR (|HasCategory| |#1| '(|Field|))
                                               #6#)
                                           (LETT #5#
-                                                (|HasCategory| |#1| '(|Ring|))
+                                                (|HasCategory| |#1|
+                                                               '(|SemiRing|))
                                                 . #8#)
                                           (OR #5#
                                               (|HasSignature| |#1|
@@ -422,9 +423,22 @@
                                                                        (|Integer|))
                                                                      (|devaluate|
                                                                       |#1|)))))
+                                          (LETT #4#
+                                                (|HasCategory| |#1| '(|Ring|))
+                                                . #8#)
+                                          (OR #4#
+                                              (|HasSignature| |#1|
+                                                              (LIST '*
+                                                                    (LIST
+                                                                     (|devaluate|
+                                                                      |#1|)
+                                                                     '(|Fraction|
+                                                                       (|Integer|))
+                                                                     (|devaluate|
+                                                                      |#1|)))))
                                           (OR #7#
                                               (|HasCategory| |#1| '(|Field|))
-                                              #6# #5#
+                                              #6# #4#
                                               (|HasSignature| |#1|
                                                               (LIST '*
                                                                     (LIST
@@ -444,7 +458,7 @@
                                            (|HasCategory| |#1|
                                                           '(|CharacteristicZero|))
                                            #7# (|HasCategory| |#1| '(|Field|))
-                                           #6# #5#
+                                           #6# #4#
                                            (|HasSignature| |#1|
                                                            (LIST '*
                                                                  (LIST
@@ -454,20 +468,6 @@
                                                                     (|Integer|))
                                                                   (|devaluate|
                                                                    |#1|)))))
-                                          (LETT #4#
-                                                (|HasCategory| |#1|
-                                                               '(|SemiRing|))
-                                                . #8#)
-                                          (OR #4#
-                                              (|HasSignature| |#1|
-                                                              (LIST '*
-                                                                    (LIST
-                                                                     (|devaluate|
-                                                                      |#1|)
-                                                                     '(|Fraction|
-                                                                       (|Integer|))
-                                                                     (|devaluate|
-                                                                      |#1|)))))
                                           (LETT #3#
                                                 (|HasCategory| |#1|
                                                                '(|AbelianGroup|))
@@ -483,7 +483,7 @@
                                            (|HasCategory| |#1|
                                                           '(|CharacteristicZero|))
                                            #7# (|HasCategory| |#1| '(|Field|))
-                                           #6# #5#
+                                           #6# #4#
                                            (|HasSignature| |#1|
                                                            (LIST '*
                                                                  (LIST
@@ -508,7 +508,7 @@
                                            (|HasCategory| |#1|
                                                           '(|CharacteristicZero|))
                                            #7# (|HasCategory| |#1| '(|Field|))
-                                           #6# #5#
+                                           #6# #4#
                                            (|HasSignature| |#1|
                                                            (LIST '*
                                                                  (LIST
@@ -533,7 +533,7 @@
                                            (|HasCategory| |#1|
                                                           '(|CharacteristicZero|))
                                            #7# (|HasCategory| |#1| '(|Field|))
-                                           #6# #5#
+                                           #6# #4#
                                            (|HasSignature| |#1|
                                                            (LIST '*
                                                                  (LIST
@@ -659,13 +659,13 @@
               (|Union| $ '"failed")
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|SparseUnivariatePolynomial| $)
+              (|SparseUnivariatePolynomial| $) (|Union| 79 '"failed")
               (|Record| (|:| |coef| 79) (|:| |generator| $))
-              (|Union| 79 '"failed")
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 99 '"failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Factored| $) (|Record| (|:| |k| 27) (|:| |c| 6)) (|Stream| 103)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 100 '"failed") (|Factored| $)
+              (|Record| (|:| |k| 27) (|:| |c| 6)) (|Stream| 103)
               (|PositiveInteger|) (|List| 108) (|List| 27)
               (|SingletonAsOrderedSet|) (|Mapping| 6 6) (|String|)
               (|SingleInteger|) (|HashState|))
@@ -676,8 +676,8 @@
            (CONS
             (|makeByteWordVec2| 27
                                 '(0 0 6 0 6 0 6 6 0 6 15 6 9 15 6 7 1 2 9 4 3
-                                  15 14 15 7 0 14 19 7 0 0 14 18 19 7 7 23 21
-                                  25 0 21 27 0 0 0 7 0 0 0 0 0 5 17 14 15 6 6 7
+                                  15 14 15 7 0 14 21 7 0 0 14 20 21 7 7 23 17
+                                  25 0 17 27 0 0 0 7 0 0 0 0 0 5 19 14 15 6 6 7
                                   7 7 7 7 7))
             (CONS
              '#(|UnivariatePuiseuxSeriesConstructorCategory&| NIL |Field&|
@@ -686,12 +686,12 @@
                 |AbelianMonoidRing&| |GcdDomain&| NIL |DivisionRing&|
                 |Algebra&| |Algebra&| NIL |Algebra&| NIL NIL |Module&|
                 |PartialDifferentialRing&| |DifferentialRing&| |Module&| NIL
-                |EntireRing&| |Module&| NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL NIL |Monoid&| |AbelianMonoid&|
-                |AbelianSemiGroup&| |SemiGroup&| |SetCategory&|
-                |TranscendentalFunctionCategory&| |RetractableTo&|
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL NIL
-                |TrigonometricFunctionCategory&|
+                |EntireRing&| |Module&| NIL NIL |Ring&| NIL NIL NIL NIL NIL
+                |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL |Monoid&|
+                |AbelianMonoid&| |AbelianSemiGroup&| |SemiGroup&|
+                |SetCategory&| |TranscendentalFunctionCategory&|
+                |RetractableTo&| |RetractableTo&| NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL NIL |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
                 |RadicalCategory&|)
@@ -748,5 +748,5 @@
                                     1 0 14 0 61 2 7 0 0 34 39 1 7 0 0 38 1 3 0
                                     0 36 2 0 0 0 34 37 1 0 0 34 35 1 0 0 13 17
                                     1 0 0 14 16 1 0 65 0 89 1 0 6 0 12 2 11 6 0
-                                    27 63 0 34 0 31 0 31 0 26 2 0 0 0 0 33)))))
+                                    27 63 0 34 0 31 0 30 0 26 2 0 0 0 0 33)))))
            '|lookupIncomplete|)) 

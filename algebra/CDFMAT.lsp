@@ -49,7 +49,7 @@
   (MAKE-CDOUBLE-MATRIX |rows| |cols|)) 
 
 (DEFUN |CDFMAT;new;2NniC$;13| (|rows| |cols| |a| $)
-  (PROG (#1=#:G2557 |j| #2=#:G2556 |i| |res|)
+  (PROG (#1=#:G2561 |j| #2=#:G2560 |i| |res|)
     (RETURN
      (SEQ
       (LETT |res| (MAKE-CDOUBLE-MATRIX |rows| |cols|)
@@ -70,7 +70,7 @@
 (DEFUN |ComplexDoubleFloatMatrix| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2572)
+     (PROG (#1=#:G2576)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatMatrix|)
@@ -89,7 +89,7 @@
               (HREM |$ConstructorCache| '|ComplexDoubleFloatMatrix|))))))))))) 
 
 (DEFUN |ComplexDoubleFloatMatrix;| ()
-  (PROG (|dv$| $ #1=#:G2570 #2=#:G2569 #3=#:G2568 |pv$|)
+  (PROG (|dv$| $ #1=#:G2574 #2=#:G2573 #3=#:G2572 |pv$|)
     (RETURN
      (PROGN
       (LETT |dv$| '(|ComplexDoubleFloatMatrix|)

@@ -182,21 +182,22 @@
               (|Union| 10 '"failed") |OCT;retractIfCan;$U;15| (49 . *)
               (55 . |conjugate|) (60 . -) (66 . +) |OCT;*;3$;16|
               (|Union| 42 '#1="failed") (|Fraction| 43) (|Integer|)
-              (|Union| 43 '#1#) (|Union| $ '"failed") (|InputForm|)
-              (|Equation| 6) (|List| 47) (|List| 6) (|NonNegativeInteger|)
-              (|PositiveInteger|) (|List| $) (|List| 54) (|Symbol|)
+              (|Union| 43 '#1#) (|Union| $ '"failed") (|InputForm|) (|List| 48)
+              (|Equation| 6) (|List| 6) (|NonNegativeInteger|)
+              (|PositiveInteger|) (|List| $) (|Symbol|) (|List| 53)
               (|Mapping| 6 6) (|Union| 6 '#1#) (|String|) (|SingleInteger|)
               (|HashState|) (|OutputForm|))
            '#(~= 72 |zero?| 78 |subtractIfCan| 83 |smaller?| 89 |size| 95
               |sample| 99 |retractIfCan| 103 |retract| 123 |recip| 143 |real|
               148 |rationalIfCan| 153 |rational?| 158 |rational| 163 |random|
-              168 |one?| 172 |octon| 177 |norm| 195 |min| 200 |max| 206 |map|
-              212 |lookup| 218 |latex| 223 |inv| 228 |index| 233 |imagk| 238
-              |imagj| 243 |imagi| 248 |imagK| 253 |imagJ| 258 |imagI| 263
-              |imagE| 268 |hashUpdate!| 273 |hash| 279 |eval| 284 |enumerate|
-              324 |elt| 328 |convert| 334 |conjugate| 339 |coerce| 344
-              |charthRoot| 369 |characteristic| 374 |abs| 378 ^ 383 |Zero| 395
-              |One| 399 >= 403 > 409 = 415 <= 421 < 427 - 433 + 444 * 450)
+              168 |opposite?| 172 |one?| 178 |octon| 183 |norm| 201 |min| 206
+              |max| 212 |map| 218 |lookup| 224 |latex| 229 |inv| 234 |index|
+              239 |imagk| 244 |imagj| 249 |imagi| 254 |imagK| 259 |imagJ| 264
+              |imagI| 269 |imagE| 274 |hashUpdate!| 279 |hash| 285 |eval| 290
+              |enumerate| 330 |elt| 334 |convert| 340 |conjugate| 345 |coerce|
+              350 |charthRoot| 375 |characteristic| 380 |annihilate?| 384 |abs|
+              390 ^ 395 |Zero| 407 |One| 411 >= 415 > 421 = 427 <= 433 < 439 -
+              445 + 456 * 462)
            'NIL
            (CONS
             (|makeByteWordVec2| 10
@@ -204,7 +205,7 @@
                                   0 0 0 7 0 0 0 0 0 3 4 6 7 8 9 10))
             (CONS
              '#(|OctonionCategory&| |Algebra&| |Module&| NIL NIL |Ring&| NIL
-                NIL NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
+                |Rng&| NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
                 |Monoid&| NIL |OrderedSet&| |FullyEvalableOver&| |SemiGroup&|
                 |AbelianSemiGroup&| NIL |Finite&| |FullyRetractableTo&|
                 |FullyRetractableTo&| |SetCategory&| |Evalable&|
@@ -223,7 +224,7 @@
                  (|FullyRetractableTo| 6) (|SetCategory|) (|Evalable| 6)
                  (|RetractableTo| (|Quaternion| 6)) (|RetractableTo| 6)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 60)
-                 (|ConvertibleTo| 46) (|PartialOrder|) (|InnerEvalable| 54 6)
+                 (|ConvertibleTo| 46) (|PartialOrder|) (|InnerEvalable| 53 6)
                  (|InnerEvalable| 6 6) (|Eltable| 6 $$) (|RetractableTo| 42)
                  (|RetractableTo| 43))
               (|makeByteWordVec2| 60
@@ -236,20 +237,21 @@
                                     0 34 0 35 1 0 56 0 1 1 9 42 0 1 1 10 43 0 1
                                     1 0 10 0 33 1 0 6 0 1 1 0 45 0 1 1 0 6 0 16
                                     1 12 41 0 1 1 12 31 0 1 1 12 42 0 1 0 5 0 1
-                                    1 0 31 0 1 2 0 0 10 10 29 8 0 0 6 6 6 6 6 6
-                                    6 6 28 1 0 6 0 1 2 4 0 0 0 1 2 4 0 0 0 1 2
-                                    0 0 55 0 1 1 5 51 0 1 1 0 57 0 1 1 13 0 0 1
-                                    1 5 0 51 1 1 0 6 0 22 1 0 6 0 20 1 0 6 0 18
-                                    1 0 6 0 26 1 0 6 0 25 1 0 6 0 24 1 0 6 0 23
-                                    2 0 59 59 0 1 1 0 58 0 1 2 7 0 0 47 1 2 7 0
-                                    0 48 1 3 7 0 0 6 6 1 3 7 0 0 49 49 1 3 6 0
-                                    0 53 49 1 3 6 0 0 54 6 1 0 5 52 1 2 8 0 0 6
-                                    1 1 3 46 0 1 1 0 0 0 1 1 9 0 42 1 1 0 0 10
-                                    30 1 0 0 6 1 1 0 0 43 1 1 0 60 0 1 1 1 45 0
-                                    1 0 0 50 1 1 11 6 0 1 2 0 0 0 50 1 2 0 0 0
-                                    51 1 0 0 0 8 0 0 0 12 2 4 31 0 0 1 2 4 31 0
-                                    0 1 2 0 31 0 0 1 2 4 31 0 0 1 2 4 31 0 0 1
-                                    1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0 6
-                                    1 2 0 0 6 0 1 2 0 0 43 0 1 2 0 0 0 0 40 2 0
-                                    0 50 0 1 2 0 0 51 0 1)))))
+                                    2 0 31 0 0 1 1 0 31 0 1 2 0 0 10 10 29 8 0
+                                    0 6 6 6 6 6 6 6 6 28 1 0 6 0 1 2 4 0 0 0 1
+                                    2 4 0 0 0 1 2 0 0 55 0 1 1 5 51 0 1 1 0 57
+                                    0 1 1 13 0 0 1 1 5 0 51 1 1 0 6 0 22 1 0 6
+                                    0 20 1 0 6 0 18 1 0 6 0 26 1 0 6 0 25 1 0 6
+                                    0 24 1 0 6 0 23 2 0 59 59 0 1 1 0 58 0 1 2
+                                    7 0 0 47 1 3 7 0 0 6 6 1 2 7 0 0 48 1 3 7 0
+                                    0 49 49 1 3 6 0 0 53 6 1 3 6 0 0 54 49 1 0
+                                    5 52 1 2 8 0 0 6 1 1 3 46 0 1 1 0 0 0 1 1 9
+                                    0 42 1 1 0 0 10 30 1 0 0 6 1 1 0 0 43 1 1 0
+                                    60 0 1 1 1 45 0 1 0 0 50 1 2 0 31 0 0 1 1
+                                    11 6 0 1 2 0 0 0 50 1 2 0 0 0 51 1 0 0 0 8
+                                    0 0 0 12 2 4 31 0 0 1 2 4 31 0 0 1 2 0 31 0
+                                    0 1 2 4 31 0 0 1 2 4 31 0 0 1 2 0 0 0 0 1 1
+                                    0 0 0 1 2 0 0 0 0 1 2 0 0 6 0 1 2 0 0 0 6 1
+                                    2 0 0 0 0 40 2 0 0 43 0 1 2 0 0 50 0 1 2 0
+                                    0 51 0 1)))))
            '|lookupComplete|)) 

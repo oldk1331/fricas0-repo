@@ -78,17 +78,17 @@
               (|Boolean|) (|PositiveInteger|) (|String|) (|SingleInteger|)
               (|HashState|))
            '#(~= 22 |zero?| 28 |subtractIfCan| 33 |sample| 39 |reductum| 43
-              |recip| 48 |po| 53 |op| 58 |one?| 63 |monomial| 68
-              |minimumDegree| 74 |leadingCoefficient| 79 |latex| 84
-              |hashUpdate!| 89 |hash| 95 |differentiate| 100 |degree| 111
-              |coerce| 116 |coefficient| 131 |characteristic| 137 ^ 141 |Zero|
-              153 |One| 157 D 161 = 172 - 178 + 189 * 195)
+              |recip| 48 |po| 53 |opposite?| 58 |op| 64 |one?| 69 |monomial| 74
+              |minimumDegree| 80 |leadingCoefficient| 85 |latex| 90
+              |hashUpdate!| 95 |hash| 101 |differentiate| 106 |degree| 117
+              |coerce| 122 |coefficient| 137 |characteristic| 143 |annihilate?|
+              147 ^ 153 |Zero| 165 |One| 169 D 173 = 184 - 190 + 201 * 207)
            'NIL
            (CONS
             (|makeByteWordVec2| 2
                                 '(0 1 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(NIL |Algebra&| |Module&| |DifferentialRing&| |Ring&| NIL NIL
+             '#(NIL |Algebra&| |Module&| |DifferentialRing&| |Ring&| NIL |Rng&|
                 NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
                 NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |BasicType&| NIL)
@@ -104,13 +104,14 @@
                                   '(2 5 0 0 0 11 1 14 13 0 15 1 5 13 0 16 2 13
                                     0 0 17 18 2 0 23 0 0 1 1 0 23 0 1 2 0 22 0
                                     0 1 0 0 0 1 1 0 0 0 1 1 0 22 0 1 1 0 5 0 10
-                                    1 0 0 5 9 1 0 23 0 1 2 0 0 7 20 1 1 0 20 0
-                                    1 1 0 7 0 1 1 0 25 0 1 2 0 27 27 0 1 1 0 26
-                                    0 1 2 2 0 0 20 1 1 2 0 0 1 1 0 20 0 1 1 1 0
-                                    7 1 1 0 0 21 1 1 0 13 0 19 2 0 7 0 20 1 0 0
-                                    20 1 2 0 0 0 20 1 2 0 0 0 24 1 0 0 0 1 0 0
-                                    0 1 2 2 0 0 20 1 1 2 0 0 1 2 0 23 0 0 1 1 0
-                                    0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 7 0 1 2
-                                    0 0 0 7 1 2 0 0 21 0 1 2 0 0 0 0 12 2 0 0
-                                    20 0 1 2 0 0 24 0 1)))))
+                                    2 0 23 0 0 1 1 0 0 5 9 1 0 23 0 1 2 0 0 7
+                                    20 1 1 0 20 0 1 1 0 7 0 1 1 0 25 0 1 2 0 27
+                                    27 0 1 1 0 26 0 1 2 2 0 0 20 1 1 2 0 0 1 1
+                                    0 20 0 1 1 1 0 7 1 1 0 0 21 1 1 0 13 0 19 2
+                                    0 7 0 20 1 0 0 20 1 2 0 23 0 0 1 2 0 0 0 20
+                                    1 2 0 0 0 24 1 0 0 0 1 0 0 0 1 2 2 0 0 20 1
+                                    1 2 0 0 1 2 0 23 0 0 1 1 0 0 0 1 2 0 0 0 0
+                                    1 2 0 0 0 0 1 2 0 0 0 7 1 2 0 0 7 0 1 2 0 0
+                                    21 0 1 2 0 0 0 0 12 2 0 0 20 0 1 2 0 0 24 0
+                                    1)))))
            '|lookupComplete|)) 

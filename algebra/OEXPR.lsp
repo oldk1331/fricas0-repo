@@ -71,10 +71,10 @@
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 33 |zero?| 39 |subtractIfCan| 44 |smaller?| 50 |sign| 56
               |sample| 61 |retractIfCan| 65 |retract| 70 |recip| 75 |positive?|
-              80 |one?| 85 |negative?| 90 |min| 95 |max| 101 |latex| 107
-              |hashUpdate!| 112 |hash| 118 |coerce| 123 |characteristic| 143
-              |abs| 147 ^ 152 |Zero| 164 |One| 168 >= 172 > 178 = 184 <= 190 <
-              196 - 202 + 213 * 219)
+              80 |opposite?| 85 |one?| 91 |negative?| 96 |min| 101 |max| 107
+              |latex| 113 |hashUpdate!| 118 |hash| 124 |coerce| 129
+              |characteristic| 149 |annihilate?| 153 |abs| 159 ^ 164 |Zero| 176
+              |One| 180 >= 184 > 190 = 196 <= 202 < 208 - 214 + 225 * 231)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -82,7 +82,7 @@
                                   0 0 0 0 0 0))
             (CONS
              '#(|Algebra&| |OrderedRing&| |Module&| NIL NIL |Ring&| NIL NIL NIL
-                NIL NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
+                |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
                 |AbelianMonoid&| |Monoid&| NIL NIL |SemiGroup&|
                 |AbelianSemiGroup&| |SetCategory&| |RetractableFrom&| NIL
                 |BasicType&| |PartialOrder&| NIL)
@@ -102,15 +102,16 @@
                                     15 1 17 16 5 18 0 0 0 19 0 6 0 20 2 0 14 0
                                     0 1 1 0 14 0 1 2 0 9 0 0 1 2 0 14 0 0 1 1 0
                                     23 0 1 0 0 0 1 1 0 9 5 10 1 0 0 5 7 1 0 9 0
-                                    1 1 0 14 0 1 1 0 14 0 1 1 0 14 0 1 2 0 0 0
-                                    0 1 2 0 0 0 0 1 1 0 26 0 1 2 0 28 28 0 1 1
-                                    0 27 0 1 1 0 5 0 8 1 0 0 22 1 1 0 0 23 1 1
-                                    0 29 0 1 0 0 25 1 1 0 0 0 1 2 0 0 0 24 1 2
-                                    0 0 0 25 1 0 0 0 12 0 0 0 19 2 0 14 0 0 1 2
-                                    0 14 0 0 1 2 0 14 0 0 15 2 0 14 0 0 1 2 0
-                                    14 0 0 21 2 0 0 0 0 11 1 0 0 0 1 2 0 0 0 0
-                                    1 2 0 0 22 0 1 2 0 0 0 22 1 2 0 0 0 0 1 2 0
-                                    0 23 0 1 2 0 0 25 0 1 2 0 0 24 0 1)))))
+                                    1 1 0 14 0 1 2 0 14 0 0 1 1 0 14 0 1 1 0 14
+                                    0 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 26 0 1 2 0
+                                    28 28 0 1 1 0 27 0 1 1 0 5 0 8 1 0 0 22 1 1
+                                    0 0 23 1 1 0 29 0 1 0 0 25 1 2 0 14 0 0 1 1
+                                    0 0 0 1 2 0 0 0 24 1 2 0 0 0 25 1 0 0 0 12
+                                    0 0 0 19 2 0 14 0 0 1 2 0 14 0 0 1 2 0 14 0
+                                    0 15 2 0 14 0 0 1 2 0 14 0 0 21 2 0 0 0 0
+                                    11 1 0 0 0 1 2 0 0 0 0 1 2 0 0 22 0 1 2 0 0
+                                    0 22 1 2 0 0 0 0 1 2 0 0 23 0 1 2 0 0 25 0
+                                    1 2 0 0 24 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OrderedExpression| 'NILADIC T) 

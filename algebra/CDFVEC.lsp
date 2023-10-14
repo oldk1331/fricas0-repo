@@ -48,7 +48,7 @@
 (DEFUN |CDFVEC;setelt;$I2C;11| (|x| |i| |s| $) (CDSETELT |x| |i| |s|)) 
 
 (DEFUN |CDFVEC;fill!;$C$;12| (|x| |s| $)
-  (PROG (#1=#:G2525 |i|)
+  (PROG (#1=#:G2529 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 0 . #2=(|CDFVEC;fill!;$C$;12|))
@@ -63,7 +63,7 @@
 (DEFUN |ComplexDoubleFloatVector| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2539)
+     (PROG (#1=#:G2543)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatVector|)
@@ -82,7 +82,7 @@
               (HREM |$ConstructorCache| '|ComplexDoubleFloatVector|))))))))))) 
 
 (DEFUN |ComplexDoubleFloatVector;| ()
-  (PROG (|dv$| $ #1=#:G2535 #2=#:G2536 #3=#:G2534 #4=#:G2533 |pv$| #5=#:G2537)
+  (PROG (|dv$| $ #1=#:G2539 #2=#:G2540 #3=#:G2538 #4=#:G2537 |pv$| #5=#:G2541)
     (RETURN
      (PROGN
       (LETT |dv$| '(|ComplexDoubleFloatVector|)

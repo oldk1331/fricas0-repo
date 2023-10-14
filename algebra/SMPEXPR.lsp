@@ -282,7 +282,7 @@
               (25 . |hconcat|) (|Void|) (|OutputPackage|) (31 . |output|)
               (36 . |log|) (41 . |exp|) (46 . |exp|) (51 . |sin|) (56 . |sin|)
               (61 . |asin|) (66 . |asin|) (71 . |cos|) (76 . |cos|)
-              (81 . |acos|) (86 . |acos|) (|Union| 46 '#1="failed")
+              (81 . |acos|) (86 . |acos|) (|Union| 45 '#1="failed")
               (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 51)
               (|PatternMatchResult| (|Float|) $) (|PatternMatchResult| 51 $)
               (|Union| $ '#1#)
@@ -290,16 +290,17 @@
               (|Fraction| 51) (|NonNegativeInteger|)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| $) (|SparseUnivariatePolynomial| $) (|Factored| $)
-              (|Matrix| 51) (|Record| (|:| |mat| 44) (|:| |vec| (|Vector| 51)))
-              (|Vector| $) (|Factored| 42) (|Union| 49 '#1#) (|List| 42)
+              (|Record| (|:| |mat| 46) (|:| |vec| (|Vector| 51))) (|Vector| $)
+              (|Matrix| 51) (|Factored| 42) (|Union| 49 '#1#) (|List| 42)
               (|Union| 38 '#2="failed") (|Integer|) (|Union| 51 '#2#)
-              (|Record| (|:| |var| 39) (|:| |exponent| 39))
-              (|Union| 53 '#3="failed") (|Union| 41 '#3#)
+              (|Union| 41 '#3="failed")
+              (|Record| (|:| |var| 39) (|:| |exponent| 39)) (|Union| 54 '#3#)
+              (|SparseUnivariatePolynomial| 6) (|List| 39)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|SparseUnivariatePolynomial| 6) (|List| 39) (|Union| 39 '#2#)
-              (|List| 6) (|Equation| $) (|List| 61) (|Mapping| 6 6)
-              (|IndexedExponents| 39) (|Union| 6 '#2#) (|Mapping| 64 64)
-              (|Matrix| 6) (|Record| (|:| |mat| 67) (|:| |vec| (|Vector| 6)))
+              (|Union| 39 '#2#) (|List| 6) (|Equation| $) (|List| 61)
+              (|IndexedExponents| 39) (|Mapping| 6 6) (|Union| 6 '#2#)
+              (|Mapping| 63 63)
+              (|Record| (|:| |mat| 68) (|:| |vec| (|Vector| 6))) (|Matrix| 6)
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
            '#(|sin| 91 |log| 96 |ground?| 101 |ground| 106 |exp| 111 |cos| 116
               |coerce| 121 |asin| 131 |acos| 136)
@@ -317,7 +318,7 @@
                 NIL |FullyLinearlyExplicitRingOver&| |Algebra&| NIL |Algebra&|
                 |Algebra&| |PartialDifferentialRing&| NIL NIL |Module&|
                 |Module&| NIL NIL |Module&| |EntireRing&| NIL |Ring&| NIL NIL
-                NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                NIL |Rng&| NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
                 NIL NIL NIL |Evalable&| |FullyRetractableTo&| |SetCategory&|
                 |TranscendentalFunctionCategory&| NIL |RetractableTo&|
@@ -329,11 +330,11 @@
                 |HyperbolicFunctionCategory&| NIL
                 |ElementaryFunctionCategory&|)
              (CONS
-              '#((|PolynomialCategory| 6 64 39)
-                 (|MaybeSkewPolynomialCategory| 6 64 39)
+              '#((|PolynomialCategory| 6 63 39)
+                 (|MaybeSkewPolynomialCategory| 6 63 39)
                  (|PolynomialFactorizationExplicit|)
-                 (|FiniteAbelianMonoidRing| 6 64) (|UniqueFactorizationDomain|)
-                 (|AbelianMonoidRing| 6 64) (|GcdDomain|) (|IntegralDomain|)
+                 (|FiniteAbelianMonoidRing| 6 63) (|UniqueFactorizationDomain|)
+                 (|AbelianMonoidRing| 6 63) (|GcdDomain|) (|IntegralDomain|)
                  (|FullyLinearlyExplicitRingOver| 6) (|Algebra| $$)
                  (|LeftOreRing|) (|Algebra| 38) (|Algebra| 6)
                  (|PartialDifferentialRing| 39) (|LinearlyExplicitRingOver| 6)

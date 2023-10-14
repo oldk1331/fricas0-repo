@@ -20,8 +20,9 @@
                         '(((|Zero| ($) |constant|) T)
                           ((|sample| ($) |constant|) T)
                           ((|zero?| ((|Boolean|) $)) T)
-                          ((* ($ (|NonNegativeInteger|) $)) T))
-                        NIL '((|NonNegativeInteger|) (|Boolean|)) NIL))
+                          ((* ($ (|NonNegativeInteger|) $)) T)
+                          ((|opposite?| ((|Boolean|) $ $)) T))
+                        NIL '((|Boolean|) (|NonNegativeInteger|)) NIL))
                |AbelianMonoid|)
        (SETELT #1# 0 '(|AbelianMonoid|)))))) 
 

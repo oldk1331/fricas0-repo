@@ -26,6 +26,9 @@
          'NIL)
         ('T 'T))) 
 
+(DEFUN |ENTIRER-;annihilate?;2SB;7| (|x| |y| $)
+  (COND ((SPADCALL |x| (QREFELT $ 13)) 'T) ('T (SPADCALL |y| (QREFELT $ 13))))) 
+
 (DECLAIM (NOTINLINE |EntireRing&;|)) 
 
 (DEFUN |EntireRing&| (|#1|)
@@ -34,7 +37,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|EntireRing&|))
       (LETT |dv$| (LIST '|EntireRing&| DV$1) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
+      (LETT $ (GETREFV 22) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|stuffDomainSlots| $)
@@ -62,18 +65,19 @@
               |ENTIRER-;unitCanonical;2S;2| (|Boolean|) (14 . |zero?|)
               (|Union| $ '"failed") (19 . |exquo|) |ENTIRER-;recip;SU;3|
               (25 . |recip|) |ENTIRER-;unit?;SB;4| (30 . =)
-              (36 . |associates?|))
+              (36 . |associates?|) |ENTIRER-;annihilate?;2SB;7|)
            '#(|unitNormal| 42 |unitCanonical| 47 |unit?| 52 |recip| 57
-              |associates?| 62)
+              |associates?| 62 |annihilate?| 68)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 20
+                             (|makeByteWordVec2| 21
                                                  '(0 6 0 7 1 0 8 0 9 1 6 8 0 10
                                                    1 6 12 0 13 2 6 14 0 0 15 1
                                                    6 14 0 17 2 6 12 0 0 19 2 0
                                                    12 0 0 20 1 0 8 0 9 1 0 0 0
                                                    11 1 0 12 0 18 1 0 14 0 16 2
-                                                   0 12 0 0 20)))))
+                                                   0 12 0 0 20 2 0 12 0 0
+                                                   21)))))
            '|lookupComplete|)) 

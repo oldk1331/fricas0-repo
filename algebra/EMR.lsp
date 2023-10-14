@@ -294,10 +294,10 @@
                                   0 0 0 0 0))
             (CONS
              '#(|EuclideanDomain&| NIL |GcdDomain&| NIL NIL |Algebra&| NIL
-                |EntireRing&| |Module&| NIL |Ring&| NIL NIL NIL |AbelianGroup&|
-                NIL NIL |AbelianMonoid&| |Monoid&| NIL |SemiGroup&|
-                |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL |BasicType&|
-                NIL)
+                |EntireRing&| |Module&| NIL |Ring&| NIL |Rng&| NIL
+                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
+                |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL
+                |BasicType&| NIL)
              (CONS
               '#((|EuclideanDomain|) (|PrincipalIdealDomain|) (|GcdDomain|)
                  (|IntegralDomain|) (|LeftOreRing|) (|Algebra| $$)

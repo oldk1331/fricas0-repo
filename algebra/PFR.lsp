@@ -658,8 +658,8 @@
               (|List| 92) (271 . |reduce|) |PFR;coerce;$Of;30| (|Fraction| 12)
               (|Factored| $) (|Union| 104 '#1#) (|List| $)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|SparseUnivariatePolynomial| $)
               (|Record| (|:| |coef| 104) (|:| |generator| $))
+              (|SparseUnivariatePolynomial| $)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
@@ -668,14 +668,15 @@
               |squareFreePart| 314 |squareFree| 319 |sizeLess?| 324 |sample|
               330 |rem| 334 |recip| 340 |quo| 345 |principalIdeal| 351 |prime?|
               356 |partialFraction| 361 |padicallyExpand| 367 |padicFraction|
-              373 |one?| 378 |numberOfFractionalTerms| 383 |nthFractionalTerm|
-              388 |multiEuclidean| 394 |lcmCoef| 400 |lcm| 406 |latex| 417
-              |inv| 422 |hashUpdate!| 427 |hash| 433 |gcdPolynomial| 438 |gcd|
-              444 |firstNumer| 455 |firstDenom| 460 |factor| 465
-              |extendedEuclidean| 470 |exquo| 483 |expressIdealMember| 489
-              |euclideanSize| 495 |divide| 500 |compactFraction| 506 |coerce|
-              511 |characteristic| 546 |associates?| 550 ^ 556 |Zero| 574 |One|
-              578 = 582 / 588 - 594 + 605 * 611)
+              373 |opposite?| 378 |one?| 384 |numberOfFractionalTerms| 389
+              |nthFractionalTerm| 394 |multiEuclidean| 400 |lcmCoef| 406 |lcm|
+              412 |latex| 423 |inv| 428 |hashUpdate!| 433 |hash| 439
+              |gcdPolynomial| 444 |gcd| 450 |firstNumer| 461 |firstDenom| 466
+              |factor| 471 |extendedEuclidean| 476 |exquo| 489
+              |expressIdealMember| 495 |euclideanSize| 501 |divide| 506
+              |compactFraction| 512 |coerce| 517 |characteristic| 552
+              |associates?| 556 |annihilate?| 562 ^ 568 |Zero| 586 |One| 590 =
+              594 / 600 - 606 + 617 * 623)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -685,8 +686,8 @@
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&| NIL
                 |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
-                NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL
-                NIL |AbelianMonoid&| |Monoid&| NIL |SemiGroup&|
+                NIL NIL |Ring&| NIL NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&|
+                NIL NIL |AbelianMonoid&| |Monoid&| NIL |SemiGroup&|
                 |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL)
              (CONS
@@ -724,21 +725,22 @@
                                     6 0 82 1 0 109 0 1 1 0 0 0 1 1 0 15 0 1 2 0
                                     64 0 0 1 1 0 0 0 1 1 0 102 0 1 2 0 15 0 0 1
                                     0 0 0 1 2 0 0 0 0 1 1 0 64 0 76 2 0 0 0 0 1
-                                    1 0 107 104 1 1 0 15 0 1 2 0 0 6 13 74 2 0
-                                    40 6 6 41 1 0 0 0 49 1 0 15 0 1 1 0 12 0 79
-                                    2 0 0 0 12 81 2 0 103 104 0 1 2 0 108 0 0 1
-                                    2 0 0 0 0 1 1 0 0 104 1 1 0 111 0 1 1 0 0 0
-                                    1 2 0 113 113 0 1 1 0 112 0 1 2 0 106 106
-                                    106 1 2 0 0 0 0 1 1 0 0 104 1 1 0 6 0 78 1
-                                    0 13 0 77 1 0 102 0 1 3 0 21 0 0 0 1 2 0
-                                    105 0 0 1 2 0 64 0 0 75 2 0 103 104 0 1 1 0
-                                    35 0 1 2 0 27 0 0 1 1 0 0 0 39 1 0 0 61 68
-                                    1 0 56 0 60 1 0 0 6 31 1 0 0 101 1 1 0 0 12
-                                    55 1 0 0 0 1 1 0 92 0 100 0 0 35 53 2 0 15
-                                    0 0 1 2 0 0 0 12 1 2 0 0 0 35 1 2 0 0 0 110
-                                    1 0 0 0 23 0 0 0 11 2 0 15 0 0 69 2 0 0 0 0
-                                    1 2 0 0 0 0 1 1 0 0 0 89 2 0 0 0 0 38 2 0 0
-                                    0 6 1 2 0 0 6 0 90 2 0 0 101 0 1 2 0 0 0
-                                    101 1 2 0 0 0 0 37 2 0 0 12 0 91 2 0 0 35 0
-                                    1 2 0 0 110 0 1)))))
+                                    1 0 106 104 1 1 0 15 0 1 2 0 0 6 13 74 2 0
+                                    40 6 6 41 1 0 0 0 49 2 0 15 0 0 1 1 0 15 0
+                                    1 1 0 12 0 79 2 0 0 0 12 81 2 0 103 104 0 1
+                                    2 0 108 0 0 1 1 0 0 104 1 2 0 0 0 0 1 1 0
+                                    111 0 1 1 0 0 0 1 2 0 113 113 0 1 1 0 112 0
+                                    1 2 0 107 107 107 1 1 0 0 104 1 2 0 0 0 0 1
+                                    1 0 6 0 78 1 0 13 0 77 1 0 102 0 1 2 0 105
+                                    0 0 1 3 0 21 0 0 0 1 2 0 64 0 0 75 2 0 103
+                                    104 0 1 1 0 35 0 1 2 0 27 0 0 1 1 0 0 0 39
+                                    1 0 56 0 60 1 0 0 61 68 1 0 0 6 31 1 0 0
+                                    101 1 1 0 0 12 55 1 0 0 0 1 1 0 92 0 100 0
+                                    0 35 53 2 0 15 0 0 1 2 0 15 0 0 1 2 0 0 0
+                                    12 1 2 0 0 0 35 1 2 0 0 0 110 1 0 0 0 23 0
+                                    0 0 11 2 0 15 0 0 69 2 0 0 0 0 1 1 0 0 0 89
+                                    2 0 0 0 0 1 2 0 0 0 0 38 2 0 0 6 0 90 2 0 0
+                                    0 6 1 2 0 0 0 101 1 2 0 0 101 0 1 2 0 0 12
+                                    0 91 2 0 0 0 0 37 2 0 0 35 0 1 2 0 0 110 0
+                                    1)))))
            '|lookupComplete|)) 

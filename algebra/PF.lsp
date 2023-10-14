@@ -49,12 +49,12 @@
               (|Union| $ '"failed") (|CardinalNumber|)
               (|OnePointCompletion| 13) (|Vector| $) (|Matrix| $)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Table| 13 12) (|Union| 19 '"failed")
-              (|Record| (|:| |factor| 8) (|:| |exponent| 8)) (|List| 24)
-              (|InputForm|) (|List| $) (|Union| 12 '"failed") (|Fraction| 8)
-              (|Factored| $) (|Union| 27 '#1="failed")
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 32 '#1#)
+              (|Record| (|:| |factor| 8) (|:| |exponent| 8)) (|List| 22)
+              (|Table| 13 12) (|Union| 19 '"failed") (|InputForm|) (|List| $)
+              (|Union| 12 '"failed") (|Fraction| 8) (|Factored| $)
+              (|Union| 27 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 33 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 27) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
@@ -72,7 +72,7 @@
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |DifferentialRing&| NIL |Module&| NIL
-                |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
+                |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
                 |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL NIL
                 |Finite&| |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)

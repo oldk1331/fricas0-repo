@@ -251,11 +251,10 @@
               (|PatternMatchResult| (|Float|) $) (|PatternMatchResult| 63 $)
               (|Fraction| 63) (|NonNegativeInteger|) (|Factored| $)
               (|Record| (|:| |mat| 56) (|:| |vec| (|Vector| 63))) (|Vector| $)
-              (|Matrix| 63) (|Union| 58 '#1#) (|List| 59)
-              (|SparseUnivariatePolynomial| $) (|Factored| 59)
-              (|Union| 51 '#2="failed") (|Union| 63 '#2#) (|Integer|)
-              (|List| 52) (|Union| 7 '"failed") (|Matrix| 6)
-              (|Record| (|:| |mat| 66) (|:| |vec| (|Vector| 6)))
+              (|Matrix| 63) (|Factored| 58) (|SparseUnivariatePolynomial| $)
+              (|Union| 60 '#1#) (|List| 58) (|Union| 51 '#2="failed")
+              (|Union| 63 '#2#) (|Integer|) (|List| 52) (|Union| 7 '"failed")
+              (|Matrix| 6) (|Record| (|:| |mat| 66) (|:| |vec| (|Vector| 6)))
               (|IndexedExponents| 7) (|Mapping| 68 68) (|List| 6)
               (|Union| 6 '#2#) (|Mapping| 6 6) (|Equation| $) (|List| 73)
               (|SparseUnivariatePolynomial| 6)
@@ -290,7 +289,7 @@
                 |Algebra&| |PartialDifferentialRing&| NIL
                 |PartialDifferentialRing&| |EntireRing&| |Module&| NIL
                 |Module&| NIL NIL |Module&| NIL NIL NIL |Ring&| NIL NIL NIL NIL
-                NIL NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
+                NIL |Rng&| NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
                 |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&| NIL NIL NIL
                 |Evalable&| |FullyRetractableTo&| |SetCategory&| NIL
                 |InnerEvalable&| |InnerEvalable&| |InnerEvalable&|

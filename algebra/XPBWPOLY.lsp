@@ -842,11 +842,11 @@
               (277 . |exp|) (283 . -) (289 . -) (294 . |log|) (300 . |Zero|)
               (304 . |retractable?|) (309 . |retract|) (|Union| 34 '"failed")
               |XPBWPOLY;LiePolyIfCan;$U;29| |XPBWPOLY;mirror;2$;30|
-              (|Mapping| 7 13) (|Union| 13 '#1="failed") (|List| 73) (|List| 7)
-              (|List| 13) (|List| $) (|OrderedFreeMonoid| 6) (|Mapping| 7 7)
-              (|Record| (|:| |k| 111) (|:| |c| 7)) (|Union| 111 '#1#)
-              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
-              (|SingleInteger|) (|HashState|))
+              (|Mapping| 7 13) (|Union| 13 '#1="failed") (|List| 73)
+              (|List| 13) (|List| 7) (|List| $) (|OrderedFreeMonoid| 6)
+              (|Mapping| 7 7) (|Record| (|:| |k| 111) (|:| |c| 7))
+              (|Union| 111 '#1#) (|Union| $ '"failed") (|PositiveInteger|)
+              (|String|) (|SingleInteger|) (|HashState|))
            '#(|varList| 314 |trunc| 319 |reductum| 325 |quasiRegular?| 330
               |quasiRegular| 335 |product| 340 |monom| 347 |mirror| 353 |log|
               358 |leadingMonomial| 364 |exp| 369 |degree| 375 |constant?| 380
@@ -859,10 +859,11 @@
                                   0 6 0 0 5 0 0 0 0 0 1 3 6))
             (CONS
              '#(NIL NIL NIL |FreeModuleCategory&| |Algebra&| NIL |Module&| NIL
-                |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL
-                NIL |AbelianMonoid&| |Monoid&| NIL |OrderedSet&| |SemiGroup&|
-                |AbelianSemiGroup&| NIL |SetCategory&| |RetractableTo&| NIL
-                |BasicType&| NIL NIL |RetractableTo&| |PartialOrder&|)
+                |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL |AbelianGroup&| NIL NIL
+                NIL NIL |AbelianMonoid&| |Monoid&| NIL |OrderedSet&|
+                |SemiGroup&| |AbelianSemiGroup&| NIL |SetCategory&|
+                |RetractableTo&| NIL |BasicType&| NIL NIL |RetractableTo&|
+                |PartialOrder&|)
              (CONS
               '#((|XPolynomialsCat| 6 7) (|XFreeAlgebra| 6 7) (|XAlgebra| 7)
                  (|FreeModuleCategory| 7 (|PoincareBirkhoffWittLyndonBasis| 6))

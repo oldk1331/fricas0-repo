@@ -20,10 +20,10 @@
 
 (DECLAIM (NOTINLINE |Vector;|)) 
 
-(DEFUN |Vector| (#1=#:G2064)
+(DEFUN |Vector| (#1=#:G2068)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2065)
+     (PROG (#2=#:G2069)
        (RETURN
         (COND
          ((LETT #2#
@@ -37,7 +37,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Vector|))))))))))) 
 
 (DEFUN |Vector;| (|#1|)
-  (PROG (#1=#:G2063 |pv$| #2=#:G2059 #3=#:G2060 #4=#:G2061 $ |dv$| DV$1)
+  (PROG (#1=#:G2067 |pv$| #2=#:G2063 #3=#:G2064 #4=#:G2065 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|Vector|))

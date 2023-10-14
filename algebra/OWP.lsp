@@ -63,12 +63,12 @@
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               (|Union| $ '"failed") (|Void|) (|NonNegativeInteger|)
               (|Polynomial| 6) (|Integer|) (|Boolean|) (|PositiveInteger|)
-              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1 '(1 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(|Algebra&| |Module&| |Ring&| NIL NIL NIL NIL NIL
+             '#(|Algebra&| |Module&| |Ring&| NIL |Rng&| NIL NIL NIL
                 |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
                 |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |BasicType&| NIL)
@@ -78,6 +78,6 @@
                  (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 19))
+                 (|BasicType|) (|CoercibleTo| 20))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

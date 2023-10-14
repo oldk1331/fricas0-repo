@@ -73,16 +73,16 @@
               (0 . |createLowComplexityNormalBasis|) (|OnePointCompletion| 10)
               (|Union| $ '"failed") (|Union| 16 '"failed")
               (|NonNegativeInteger|) (|List| $) (|InputForm|)
-              (|Union| 32 '"failed") (|Matrix| $) (|Table| 10 16) (|Integer|)
-              (|Record| (|:| |factor| 22) (|:| |exponent| 22)) (|List| 23)
-              (|Boolean|) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Union| 28 '"failed") (|SparseUnivariatePolynomial| 6)
-              (|SparseUnivariatePolynomial| $) (|Vector| (|List| 8))
-              (|Matrix| 6) (|Vector| $) (|Vector| 6) (|CardinalNumber|)
-              (|Union| 6 '"failed") (|Fraction| 22) (|Factored| $)
-              (|Union| 17 '#1="failed")
+              (|Record| (|:| |factor| 24) (|:| |exponent| 24)) (|List| 19)
+              (|Union| 33 '"failed") (|Matrix| $) (|Table| 10 16) (|Integer|)
+              (|Boolean|) (|Union| 28 '"failed")
+              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+              (|SparseUnivariatePolynomial| 6) (|SparseUnivariatePolynomial| $)
+              (|Vector| (|List| 8)) (|Matrix| 6) (|Vector| 6) (|Vector| $)
+              (|CardinalNumber|) (|Union| 6 '"failed") (|Fraction| 24)
+              (|Factored| $) (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 38 '#1="failed") (|Union| 17 '#1#)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 40 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 17) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
@@ -101,9 +101,10 @@
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL |SetCategory&|
-                |RetractableTo&| NIL NIL NIL NIL NIL |BasicType&| NIL NIL)
+                |Rng&| NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
+                NIL |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL
+                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| 6) (|ExtensionField| 6)
                  (|FiniteFieldCategory|) (|FieldOfPrimeCharacteristic|)

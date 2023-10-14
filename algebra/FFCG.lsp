@@ -71,14 +71,13 @@
               (0 . |createPrimitivePoly|) (|OnePointCompletion| 9)
               (|Union| $ '"failed") (|Union| 15 '"failed")
               (|NonNegativeInteger|) (|List| $) (|InputForm|)
-              (|Union| 32 '"failed") (|Matrix| $) (|Table| 9 15) (|Integer|)
+              (|Union| 31 '"failed") (|Matrix| $) (|Table| 9 15) (|Integer|)
               (|Record| (|:| |factor| 21) (|:| |exponent| 21)) (|List| 22)
               (|Boolean|) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Union| 8 '"failed") (|SparseUnivariatePolynomial| $)
-              (|PrimitiveArray| 48) (|PrimeField| 6) (|Vector| 29)
-              (|Matrix| 29) (|Vector| $) (|CardinalNumber|)
-              (|Union| 29 '"failed") (|Fraction| 21) (|Factored| $)
-              (|Union| 16 '#1="failed")
+              (|PrimitiveArray| 48) (|PrimeField| 6) (|Matrix| 29) (|Vector| $)
+              (|Vector| 29) (|CardinalNumber|) (|Union| 29 '"failed")
+              (|Fraction| 21) (|Factored| $) (|Union| 16 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 39 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
@@ -99,9 +98,10 @@
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL |SetCategory&|
-                |RetractableTo&| NIL NIL NIL NIL NIL |BasicType&| NIL NIL)
+                |Rng&| NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
+                NIL |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL
+                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
+                |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| (|PrimeField| 6))
                  (|ExtensionField| (|PrimeField| 6)) (|FiniteFieldCategory|)

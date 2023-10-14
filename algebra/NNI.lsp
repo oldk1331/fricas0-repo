@@ -31,7 +31,7 @@
 (DEFUN |NonNegativeInteger| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1561)
+     (PROG (#1=#:G1565)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|NonNegativeInteger|)
@@ -67,13 +67,14 @@
               |NNI;qcoerce;I$;3| (|Union| $ '"failed")
               |NNI;subtractIfCan;2$U;4|
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|PositiveInteger|) (|NonNegativeInteger|) (|Boolean|) (|String|)
+              (|PositiveInteger|) (|Boolean|) (|NonNegativeInteger|) (|String|)
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(~= 0 |zero?| 6 |sup| 11 |subtractIfCan| 17 |smaller?| 23 |shift|
               29 |sample| 35 |rem| 39 |recip| 45 |random| 50 |quo| 55 |qcoerce|
-              61 |one?| 66 |min| 71 |max| 77 |latex| 83 |hashUpdate!| 88 |hash|
-              94 |gcd| 99 |exquo| 105 |divide| 111 |coerce| 117 ^ 122 |Zero|
-              134 |One| 138 >= 142 > 148 = 154 <= 160 < 166 + 172 * 178)
+              61 |opposite?| 66 |one?| 72 |min| 77 |max| 83 |latex| 89
+              |hashUpdate!| 94 |hash| 100 |gcd| 105 |exquo| 111 |divide| 117
+              |coerce| 123 ^ 128 |Zero| 140 |One| 144 >= 148 > 154 = 160 <= 166
+              < 172 + 178 * 184)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -90,17 +91,18 @@
                       (|CommutativeStar|) (|BasicType|) (|PartialOrder|)
                       (|CoercibleTo| 18))
                    (|makeByteWordVec2| 18
-                                       '(2 0 14 0 0 1 1 0 14 0 1 2 0 0 0 0 6 2
-                                         0 9 0 0 10 2 0 14 0 0 1 2 0 0 0 5 7 0
+                                       '(2 0 13 0 0 1 1 0 13 0 1 2 0 0 0 0 6 2
+                                         0 9 0 0 10 2 0 13 0 0 1 2 0 0 0 5 7 0
                                          0 0 1 2 0 0 0 0 1 1 0 9 0 1 1 0 0 0 1
-                                         2 0 0 0 0 1 1 0 0 5 8 1 0 14 0 1 2 0 0
-                                         0 0 1 2 0 0 0 0 1 1 0 15 0 1 2 0 17 17
-                                         0 1 1 0 16 0 1 2 0 0 0 0 1 2 0 9 0 0 1
-                                         2 0 11 0 0 1 1 0 18 0 1 2 0 0 0 12 1 2
-                                         0 0 0 13 1 0 0 0 1 0 0 0 1 2 0 14 0 0
-                                         1 2 0 14 0 0 1 2 0 14 0 0 1 2 0 14 0 0
-                                         1 2 0 14 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1
-                                         2 0 0 13 0 1 2 0 0 12 0 1)))))
+                                         2 0 0 0 0 1 1 0 0 5 8 2 0 13 0 0 1 1 0
+                                         13 0 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 15
+                                         0 1 2 0 17 17 0 1 1 0 16 0 1 2 0 0 0 0
+                                         1 2 0 9 0 0 1 2 0 11 0 0 1 1 0 18 0 1
+                                         2 0 0 0 12 1 2 0 0 0 14 1 0 0 0 1 0 0
+                                         0 1 2 0 13 0 0 1 2 0 13 0 0 1 2 0 13 0
+                                         0 1 2 0 13 0 0 1 2 0 13 0 0 1 2 0 0 0
+                                         0 1 2 0 0 0 0 1 2 0 0 14 0 1 2 0 0 12
+                                         0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NonNegativeInteger| 'NILADIC T) 

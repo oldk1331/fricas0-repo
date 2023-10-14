@@ -34,7 +34,7 @@
 (DEFUN |U16VEC;setelt;$3I;8| (|x| |i| |s| $) (SETELT_U16 |x| |i| |s|)) 
 
 (DEFUN |U16VEC;fill!;$I$;9| (|x| |s| $)
-  (PROG (#1=#:G2271 |i|)
+  (PROG (#1=#:G2275 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 0 . #2=(|U16VEC;fill!;$I$;9|))
@@ -49,7 +49,7 @@
 (DEFUN |U16Vector| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2285)
+     (PROG (#1=#:G2289)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|U16Vector|) . #2=(|U16Vector|))
@@ -64,7 +64,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|U16Vector|))))))))))) 
 
 (DEFUN |U16Vector;| ()
-  (PROG (|dv$| $ #1=#:G2281 #2=#:G2282 #3=#:G2280 #4=#:G2279 |pv$| #5=#:G2283)
+  (PROG (|dv$| $ #1=#:G2285 #2=#:G2286 #3=#:G2284 #4=#:G2283 |pv$| #5=#:G2287)
     (RETURN
      (PROGN
       (LETT |dv$| '(|U16Vector|) . #6=(|U16Vector|))
