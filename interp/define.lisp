@@ -711,7 +711,7 @@
 ;           [['devaluate,u] for u in sargl]]],body]
 ;     body:=
 ;       ['PROG1,['LET,g:= GENSYM(),body],['SETELT,g,0,mkConstructor $form]]
-;     fun:= compile [op',['LAMBDA, sargl, body]]
+;     fun := compile [op', ['category_functor, sargl, body]]
 ; 
 ; --  5. give operator a 'modemap property
 ;     pairlis:= [[a,:v] for a in argl for v in $FormalMapVariableList]
@@ -866,7 +866,9 @@
       (SETQ |body|
               (LIST 'PROG1 (LIST 'LET (SETQ |g| (GENSYM)) |body|)
                     (LIST 'SETELT |g| 0 (|mkConstructor| |$form|))))
-      (SETQ |fun| (|compile| (LIST |op'| (LIST 'LAMBDA |sargl| |body|))))
+      (SETQ |fun|
+              (|compile|
+               (LIST |op'| (LIST '|category_functor| |sargl| |body|))))
       (SETQ |pairlis|
               ((LAMBDA (|bfVar#32| |bfVar#30| |a| |bfVar#31| |v|)
                  (LOOP
@@ -1061,7 +1063,9 @@
 ;        [nil, ['Mapping, :signature'], originale]
 ; 
 ;     body':= T.expr
-;     lamOrSlam:= if $mutableDomain then 'LAMBDA else 'SPADSLAM
+;     lamOrSlam :=
+;         $mutableDomain => 'mutable_domain_functor
+;         'domain_functor
 ;     fun:= compile SUBLIS($pairlis, [op',[lamOrSlam,argl,body']])
 ;     --The above statement stops substitutions gettting in one another's way
 ; --+
@@ -1244,7 +1248,9 @@
        (#2#
         (PROGN
          (SETQ |body'| (CAR T$))
-         (SETQ |lamOrSlam| (COND (|$mutableDomain| 'LAMBDA) (#2# 'SPADSLAM)))
+         (SETQ |lamOrSlam|
+                 (COND (|$mutableDomain| '|mutable_domain_functor|)
+                       (#2# '|domain_functor|)))
          (SETQ |fun|
                  (|compile|
                   (SUBLIS |$pairlis|
@@ -3030,7 +3036,7 @@
 ;            macform := ['XLAM,vl',body]
 ;            output_lisp_form(['PUT,MKQ nam,MKQ 'SPADreplace,MKQ macform])
 ;            sayBrightly ['"     ",:bright nam,'"is replaced by",:bright body]
-;   $insideCapsuleFunctionIfTrue => first COMP LIST form
+;   $insideCapsuleFunctionIfTrue => first COMP form
 ;   compileConstructor form
  
 (DEFUN |spadCompileOrSetq| (|form|)
@@ -3089,7 +3095,7 @@
             (CONS "     "
                   (APPEND (|bright| |nam|)
                           (CONS "is replaced by" (|bright| |body|)))))))
-         (COND (|$insideCapsuleFunctionIfTrue| (CAR (COMP (LIST |form|))))
+         (COND (|$insideCapsuleFunctionIfTrue| (CAR (COMP |form|)))
                (#2# (|compileConstructor| |form|))))))))))
  
 ; compileConstructor form ==
@@ -3106,38 +3112,27 @@
 ; -- fn is the name of some category/domain/package constructor;
 ; -- we will cache all of its values on $ConstructorCache with reference
 ; -- counts
-;   kind := GETDATABASE(fn,'CONSTRUCTORKIND)
-;   lambdaOrSlam :=
-;     kind = 'category => 'SPADSLAM
-;     $mutableDomain => 'LAMBDA
-;     'spad_CLAM
-;   compForm:= LIST [fn,[lambdaOrSlam,vl,:bodyl]]
 ;   auxfn := INTERNL(fn, '";")
 ;   output_lisp_form(["DECLAIM", ["NOTINLINE", auxfn]])
-;   if kind = 'category
-;       then u:= compAndDefine compForm
-;       else u:=COMP compForm
+;   if key = 'category_functor
+;       then u := compAndDefine form
+;       else u := COMP form
 ;   clearConstructorCache fn      --clear cache for constructor
 ;   first u
  
 (DEFUN |compileConstructor1| (|form|)
-  (PROG (|fn| |key| |vl| |bodyl| |kind| |lambdaOrSlam| |compForm| |auxfn| |u|)
+  (PROG (|fn| |key| |vl| |bodyl| |auxfn| |u|)
     (RETURN
      (PROGN
       (SETQ |fn| (CAR |form|))
       (SETQ |key| (CAADR . #1=(|form|)))
       (SETQ |vl| (CADADR . #1#))
       (SETQ |bodyl| (CDDADR . #1#))
-      (SETQ |kind| (GETDATABASE |fn| 'CONSTRUCTORKIND))
-      (SETQ |lambdaOrSlam|
-              (COND ((EQ |kind| '|category|) 'SPADSLAM)
-                    (|$mutableDomain| 'LAMBDA) (#2='T '|spad_CLAM|)))
-      (SETQ |compForm|
-              (LIST (LIST |fn| (CONS |lambdaOrSlam| (CONS |vl| |bodyl|)))))
       (SETQ |auxfn| (INTERNL |fn| ";"))
       (|output_lisp_form| (LIST 'DECLAIM (LIST 'NOTINLINE |auxfn|)))
-      (COND ((EQ |kind| '|category|) (SETQ |u| (|compAndDefine| |compForm|)))
-            (#2# (SETQ |u| (COMP |compForm|))))
+      (COND
+       ((EQ |key| '|category_functor|) (SETQ |u| (|compAndDefine| |form|)))
+       ('T (SETQ |u| (COMP |form|))))
       (|clearConstructorCache| |fn|)
       (CAR |u|)))))
  

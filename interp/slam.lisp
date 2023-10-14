@@ -756,8 +756,8 @@
 ;     sayBrightlyI bright '"Generated LISP code for function:"
 ;     pp fn
 ;   optfn :=
-;      $InteractiveMode => [timedOptimization fn]
-;      [fn]
+;      $InteractiveMode => timedOptimization fn
+;      fn
 ;   result := compQuietly optfn
 ;   if $InteractiveMode then stopTimingProcess 'compilation
 ;   result
@@ -772,8 +772,7 @@
         (|sayBrightlyI| (|bright| "Generated LISP code for function:"))
         (|pp| |fn|)))
       (SETQ |optfn|
-              (COND (|$InteractiveMode| (LIST (|timedOptimization| |fn|)))
-                    ('T (LIST |fn|))))
+              (COND (|$InteractiveMode| (|timedOptimization| |fn|)) ('T |fn|)))
       (SETQ |result| (|compQuietly| |optfn|))
       (COND (|$InteractiveMode| (|stopTimingProcess| '|compilation|)))
       |result|))))

@@ -109,10 +109,12 @@
 ;     junk => MOAN (FORMAT(nil, '"******pren error in (~S (~S ...) ...)",_
 ;                          name, type))
 ;     type is "SLAM" => BREAK()
-;     type is "spad_CLAM" =>
+;     type is 'domain_functor =>
 ;         compClam(name, argl, bodyl, "$ConstructorCache",
 ;                  'domainEqualList, ['count])
-;     type is "SPADSLAM" => compSPADSLAM(name, argl, bodyl)
+;     type is 'category_functor => compSPADSLAM(name, argl, bodyl)
+;     if type = 'mutable_domain_functor then
+;         type := 'LAMBDA
 ;     bodyl := [name, [type, argl, :bodyl]]
 ;     if $PrettyPrint then PPRINT(bodyl)
 ;     if NULL($COMPILE) then
@@ -135,35 +137,32 @@
         (MOAN
          (FORMAT NIL "******pren error in (~S (~S ...) ...)" |name| |type|)))
        ((EQ |type| 'SLAM) (BREAK))
-       ((EQ |type| '|spad_CLAM|)
+       ((EQ |type| '|domain_functor|)
         (|compClam| |name| |argl| |bodyl| '|$ConstructorCache|
          '|domainEqualList| (LIST '|count|)))
-       ((EQ |type| 'SPADSLAM) (|compSPADSLAM| |name| |argl| |bodyl|))
+       ((EQ |type| '|category_functor|) (|compSPADSLAM| |name| |argl| |bodyl|))
        (#2='T
         (PROGN
+         (COND ((EQ |type| '|mutable_domain_functor|) (SETQ |type| 'LAMBDA)))
          (SETQ |bodyl| (LIST |name| (CONS |type| (CONS |argl| |bodyl|))))
          (COND (|$PrettyPrint| (PPRINT |bodyl|)))
          (COND ((NULL $COMPILE) (SAY "No Compilation"))
                (#2# (COMP370 |bodyl|)))
          |name|)))))))
  
-; COMP(lfun) ==
-;     #lfun ~= 1 => BREAK()
-;     [COMP_-2 nf for nf in COMP_-1(first(lfun))]
+; COMP(fun) == [COMP_-2 nf for nf in COMP_-1(fun)]
  
-(DEFUN COMP (|lfun|)
+(DEFUN COMP (|fun|)
   (PROG ()
     (RETURN
-     (COND ((NOT (EQL (LENGTH |lfun|) 1)) (BREAK))
-           (#1='T
-            ((LAMBDA (|bfVar#2| |bfVar#1| |nf|)
-               (LOOP
-                (COND
-                 ((OR (ATOM |bfVar#1|) (PROGN (SETQ |nf| (CAR |bfVar#1|)) NIL))
-                  (RETURN (NREVERSE |bfVar#2|)))
-                 (#1# (SETQ |bfVar#2| (CONS (COMP-2 |nf|) |bfVar#2|))))
-                (SETQ |bfVar#1| (CDR |bfVar#1|))))
-             NIL (COMP-1 (CAR |lfun|)) NIL))))))
+     ((LAMBDA (|bfVar#2| |bfVar#1| |nf|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#1|) (PROGN (SETQ |nf| (CAR |bfVar#1|)) NIL))
+           (RETURN (NREVERSE |bfVar#2|)))
+          ('T (SETQ |bfVar#2| (CONS (COMP-2 |nf|) |bfVar#2|))))
+         (SETQ |bfVar#1| (CDR |bfVar#1|))))
+      NIL (COMP-1 |fun|) NIL))))
  
 ; compSPADSLAM(name, argl, bodyl) ==
 ;     al := INTERNL(name, '";AL")
