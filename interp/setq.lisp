@@ -163,7 +163,6 @@
    (|pquit|                          . |interpreter|)
    (|quit|                           . |interpreter|)
    (|read|                           . |interpreter|)
-   (|savesystem|                     . |interpreter|)
    (|set|                            . |interpreter|)
    (|show|                           . |interpreter|)
    (|spool|                          . |interpreter|)
@@ -208,7 +207,6 @@
     |ltrace|
     |nopiles|
     |read|
-    |savesystem|
     |set|
     |spool|
     |undo|

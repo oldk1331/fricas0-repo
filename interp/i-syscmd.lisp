@@ -5593,18 +5593,6 @@
        ((EQUAL |type| "input") (|ncINTERPFILE| |input_file| (NULL |quiet|)))
        ('T (|spadCompile| |input_file|)))))))
  
-; savesystem l ==
-;   #l ~= 1 or not(SYMBOLP first l) => helpSpad2Cmd '(savesystem)
-;   SPAD_-SAVE SYMBOL_-NAME first l
- 
-(DEFUN |savesystem| (|l|)
-  (PROG ()
-    (RETURN
-     (COND
-      ((OR (NOT (EQL (LENGTH |l|) 1)) (NULL (SYMBOLP (CAR |l|))))
-       (|helpSpad2Cmd| '(|savesystem|)))
-      ('T (SPAD-SAVE (SYMBOL-NAME (CAR |l|))))))))
- 
 ; show l ==
 ;   ioHook("startSysCmd", "show")
 ;   showSpad2Cmd l
