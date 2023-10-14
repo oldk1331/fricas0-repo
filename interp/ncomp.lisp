@@ -1168,7 +1168,9 @@
 ;     null(nform) => nil
 ;     x := parseTransform(postTransform(nform))
 ;     $TranslateOnly => $Translation := x
-;     $postStack => displayPreCompilationErrors()
+;     $postStack =>
+;         displayPreCompilationErrors()
+;         userError "precompilation failed"
 ;     $PrintOnly =>
 ;         FORMAT(true, '"~S   =====>~%", $currentLine)
 ;         PRETTYPRINT(x)
@@ -1235,7 +1237,10 @@
                      (PROGN
                       (SETQ |x| (|parseTransform| (|postTransform| |nform|)))
                       (COND (|$TranslateOnly| (SETQ |$Translation| |x|))
-                            (|$postStack| (|displayPreCompilationErrors|))
+                            (|$postStack|
+                             (PROGN
+                              (|displayPreCompilationErrors|)
+                              (|userError| '|precompilation failed|)))
                             (|$PrintOnly|
                              (PROGN
                               (FORMAT T "~S   =====>~%" |$currentLine|)
