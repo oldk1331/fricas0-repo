@@ -1087,7 +1087,7 @@
  |univariatePolynomial| |integrate| ^ |polynomial| |multiplyCoefficients|
  |quoByVar| |coefficients| |series| |stFunc1| |stFunc2| |stFuncN|
  |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP LODO2FUN RF2UTS
- |seriesSolve| |parseVarTerm| |parseVar| |toString| |getType| |getName| |var|
+ |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType| |getName| |var|
  |variable| |add_slots| |repack_polys| |empty| |chinese_update| |hensel_update|
  |rational_reconstruction| |remove_denoms| |reconstruct| |magnitude| |length|
  |cross| |outerProduct| |dot| - |zero?| |zero| |vector| |scan| |reduce|
@@ -1103,19 +1103,19 @@
  |pointColorDefault| |lineColorDefault| |axesColorDefault| |unitsColorDefault|
  |pointSizeDefault| |viewPosDefault| |viewSizeDefault| |viewDefaults|
  |viewWriteDefault| |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault|
- |tubePointsDefault| |tubeRadiusDefault| |void| |basis| |nullSpace|
- |columnSpace| |sumBasis| + |intBasis| |rank| |isBasis?| |subspace?| |Zero|
- |canonicalBasis| |complementSpace| = |member?| |coordinatesIfCan|
- |coordinates| |dimension| |weierstrass| |integralBasis| |localIntegralBasis|
- |weightedDistanceMatrix| |closedCartesian| |closedTensor| |cartesian|
- |routeArrowWeight| |routeNodeWeight| |distanceWeighted| |addWArrow!|
- |weightedGraph| |changeWeightLevel| |characteristicSerie| |characteristicSet|
- |medialSet| |Hausdorff| |Frobenius| |transcendenceDegree| |extensionDegree|
- |inGroundField?| |transcendent?| |algebraic?| |varList| |sh| |mirror|
- |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml| |writeVRML|
- |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp| |product|
- |LiePolyIfCan| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
- |constant?| |coef| |mindeg| |maxdeg| |coerce| |#| |reductum| |map| *
- |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
+ |tubePointsDefault| |tubeRadiusDefault| |void| |coordinates|
+ |coordinatesIfCan| |member?| |complementSpace| |canonicalBasis| |Zero|
+ |subspace?| |isBasis?| |rank| |intBasis| + |sumBasis| |columnSpace|
+ |nullSpace| |basis| |dimension| |weierstrass| |integralBasis|
+ |localIntegralBasis| |weightedDistanceMatrix| |closedCartesian| |closedTensor|
+ |cartesian| |routeArrowWeight| |routeNodeWeight| |distanceWeighted|
+ |addWArrow!| |weightedGraph| |changeWeightLevel| |characteristicSerie|
+ |characteristicSet| |medialSet| |Hausdorff| |Frobenius| |transcendenceDegree|
+ |extensionDegree| |inGroundField?| |transcendent?| |algebraic?| |varList| |sh|
+ |mirror| |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml|
+ |writeVRML| |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp|
+ |product| |LiePolyIfCan| |trunc| |degree| / |quasiRegular| |quasiRegular?|
+ |constant| |constant?| |coef| |mindeg| |maxdeg| |coerce| |#| |reductum| |map|
+ * |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
  |realSolve| |positiveSolve| |squareFree| |convert| |linearlyDependentOverZ?|
  |linearDependenceOverZ| |particularSolutionOverQ| |solveLinearlyOverQ|) 
