@@ -38,7 +38,7 @@
           (LETT |next|
                 (CONS #'|UTSSOL;seriesSolve;MLUTSF;1!1| (VECTOR |f| $ |st|))
                 . #4#)
-          (EXIT (SPADCALL (SPADCALL |next| (QREFELT $ 75)) (QREFELT $ 76)))))) 
+          (EXIT (SPADCALL (SPADCALL |next| (QREFELT $ 77)) (QREFELT $ 78)))))) 
 
 (SDEFUN |UTSSOL;seriesSolve;MLUTSF;1!1| (($$ NIL))
         (PROG (|st| $ |f|)
@@ -52,14 +52,14 @@
               (#2=#:G370 NIL) (|var| NIL) (#3=#:G371 NIL) (|i| NIL)
               (|res| NIL))
              (SEQ
-              (LETT |nr| (SPADCALL |st| (|spadConstant| $ 58) (QREFELT $ 31))
+              (LETT |nr| (SPADCALL |st| (|spadConstant| $ 60) (QREFELT $ 31))
                     NIL)
               (COND
                ((SPADCALL (LETT |coeff| (SPADCALL |nr| (QREFELT $ 32)) NIL)
                           (QREFELT $ 34))
                 (SEQ (LETT |res| (SPADCALL |coeff| (QREFELT $ 35)) NIL)
                      (EXIT
-                      (SPADCALL |st| (|spadConstant| $ 58)
+                      (SPADCALL |st| (|spadConstant| $ 60)
                                 (SPADCALL |nr| (QREFELT $ 36))
                                 (QREFELT $ 37)))))
                ('T
@@ -103,61 +103,63 @@
                      (COND
                       ((SPADCALL |vars| (QREFELT $ 52))
                        (|error|
-                        "seriesSolve: there is no solution with the given initial values"))
+                        (SPADCALL "seriesSolve: there is no solution with"
+                                  " the given initial values" (QREFELT $ 54))))
                       ('T
                        (|error|
-                        "seriesSolve: coefficient does not appear in equation")))))))
+                        (SPADCALL "seriesSolve: coefficient does not appear"
+                                  " in equation" (QREFELT $ 54)))))))))
                  (EXIT
                   (COND
-                   ((SPADCALL (SPADCALL |vars| (QREFELT $ 53)) (QREFELT $ 54))
+                   ((SPADCALL (SPADCALL |vars| (QREFELT $ 55)) (QREFELT $ 56))
                     (COND
                      ((SPADCALL
-                       (SPADCALL |eq| (SPADCALL |vars| (QREFELT $ 55))
-                                 (QREFELT $ 56))
-                       (|spadConstant| $ 58) (QREFELT $ 59))
+                       (SPADCALL |eq| (SPADCALL |vars| (QREFELT $ 57))
+                                 (QREFELT $ 58))
+                       (|spadConstant| $ 60) (QREFELT $ 61))
                       (COND
-                       ((SPADCALL |eq| (QREFELT $ 60))
+                       ((SPADCALL |eq| (QREFELT $ 62))
                         (SEQ
                          (SEQ (LETT |var| NIL NIL) (LETT #2# |vars| NIL) G190
                               (COND
                                ((OR (ATOM #2#)
                                     (PROGN (LETT |var| (CAR #2#) NIL) NIL))
                                 (GO G191)))
-                              (SEQ (LETT |i| (|spadConstant| $ 58) NIL)
+                              (SEQ (LETT |i| (|spadConstant| $ 60) NIL)
                                    (SEQ G190
                                         (COND
                                          ((NULL
                                            (COND
                                             ((SPADCALL
                                               (SPADCALL |nr| |i|
-                                                        (QREFELT $ 61))
+                                                        (QREFELT $ 63))
                                               (QREFELT $ 34))
-                                             (|spadConstant| $ 62))
+                                             (|spadConstant| $ 64))
                                             ('T
                                              (SPADCALL
                                               (SPADCALL
                                                (SPADCALL |nr| |i|
-                                                         (QREFELT $ 61))
+                                                         (QREFELT $ 63))
                                                (QREFELT $ 43))
-                                              |var| (QREFELT $ 63)))))
+                                              |var| (QREFELT $ 65)))))
                                           (GO G191)))
                                         (SEQ
                                          (EXIT
                                           (LETT |i|
                                                 (SPADCALL |i|
-                                                          (|spadConstant| $ 58)
-                                                          (QREFELT $ 64))
+                                                          (|spadConstant| $ 60)
+                                                          (QREFELT $ 66))
                                                 NIL)))
                                         NIL (GO G190) G191 (EXIT NIL))
                                    (EXIT
-                                    (SPADCALL |nr| |i| (|spadConstant| $ 67)
-                                              (QREFELT $ 68))))
+                                    (SPADCALL |nr| |i| (|spadConstant| $ 69)
+                                              (QREFELT $ 70))))
                               (LETT #2# (CDR #2#) NIL) (GO G190) G191
                               (EXIT NIL))
-                         (SPADCALL |st| (|spadConstant| $ 58)
+                         (SPADCALL |st| (|spadConstant| $ 60)
                                    (SPADCALL |nr| (QREFELT $ 36))
                                    (QREFELT $ 37))
-                         (EXIT (LETT |res| (|spadConstant| $ 65) NIL))))
+                         (EXIT (LETT |res| (|spadConstant| $ 67) NIL))))
                        ('T
                         (SEQ
                          (SPADCALL
@@ -172,71 +174,72 @@
                           (QREFELT $ 50))
                          (EXIT
                           (|error|
-                           #6="seriesSolve: coefficient not uniquely determined"))))))
+                           (SPADCALL #6="seriesSolve: coefficient not uniquely"
+                                     #7=" determined" (QREFELT $ 54))))))))
                      ('T
                       (SEQ
                        (LETT |res|
                              (SPADCALL
                               (SPADCALL
                                (SPADCALL |eq|
-                                         (SPADCALL (|spadConstant| $ 69)
+                                         (SPADCALL (|spadConstant| $ 71)
                                                    (SPADCALL |vars|
-                                                             (QREFELT $ 55))
+                                                             (QREFELT $ 57))
                                                    (QREFELT $ 24))
-                                         (QREFELT $ 70))
+                                         (QREFELT $ 72))
                                (SPADCALL |eq|
                                          (SPADCALL (|spadConstant| $ 22)
                                                    (SPADCALL |vars|
-                                                             (QREFELT $ 55))
+                                                             (QREFELT $ 57))
                                                    (QREFELT $ 24))
-                                         (QREFELT $ 70))
-                               (QREFELT $ 71))
-                              (QREFELT $ 72))
+                                         (QREFELT $ 72))
+                               (QREFELT $ 73))
+                              (QREFELT $ 74))
                              NIL)
-                       (SPADCALL |nr| (|spadConstant| $ 58)
+                       (SPADCALL |nr| (|spadConstant| $ 60)
                                  (SPADCALL |res| (QREFELT $ 10))
-                                 (QREFELT $ 68))
+                                 (QREFELT $ 70))
                        (EXIT
-                        (SPADCALL |st| (|spadConstant| $ 58)
+                        (SPADCALL |st| (|spadConstant| $ 60)
                                   (SPADCALL |nr| (QREFELT $ 36))
                                   (QREFELT $ 37)))))))
-                   ((SPADCALL |eq| (QREFELT $ 60))
+                   ((SPADCALL |eq| (QREFELT $ 62))
                     (SEQ
                      (SEQ (LETT |var| NIL NIL) (LETT #3# |vars| NIL) G190
                           (COND
                            ((OR (ATOM #3#)
                                 (PROGN (LETT |var| (CAR #3#) NIL) NIL))
                             (GO G191)))
-                          (SEQ (LETT |i| (|spadConstant| $ 58) NIL)
+                          (SEQ (LETT |i| (|spadConstant| $ 60) NIL)
                                (SEQ G190
                                     (COND
                                      ((NULL
                                        (COND
                                         ((SPADCALL
-                                          (SPADCALL |nr| |i| (QREFELT $ 61))
+                                          (SPADCALL |nr| |i| (QREFELT $ 63))
                                           (QREFELT $ 34))
-                                         (|spadConstant| $ 62))
+                                         (|spadConstant| $ 64))
                                         ('T
                                          (SPADCALL
                                           (SPADCALL
-                                           (SPADCALL |nr| |i| (QREFELT $ 61))
+                                           (SPADCALL |nr| |i| (QREFELT $ 63))
                                            (QREFELT $ 43))
-                                          |var| (QREFELT $ 63)))))
+                                          |var| (QREFELT $ 65)))))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
                                       (LETT |i|
-                                            (SPADCALL |i| (|spadConstant| $ 58)
-                                                      (QREFELT $ 64))
+                                            (SPADCALL |i| (|spadConstant| $ 60)
+                                                      (QREFELT $ 66))
                                             NIL)))
                                     NIL (GO G190) G191 (EXIT NIL))
                                (EXIT
-                                (SPADCALL |nr| |i| (|spadConstant| $ 67)
-                                          (QREFELT $ 68))))
+                                (SPADCALL |nr| |i| (|spadConstant| $ 69)
+                                          (QREFELT $ 70))))
                           (LETT #3# (CDR #3#) NIL) (GO G190) G191 (EXIT NIL))
-                     (SPADCALL |st| (|spadConstant| $ 58)
+                     (SPADCALL |st| (|spadConstant| $ 60)
                                (SPADCALL |nr| (QREFELT $ 36)) (QREFELT $ 37))
-                     (EXIT (LETT |res| (|spadConstant| $ 65) NIL))))
+                     (EXIT (LETT |res| (|spadConstant| $ 67) NIL))))
                    ('T
                     (SEQ
                      (SPADCALL
@@ -247,7 +250,7 @@
                       (SPADCALL #5# (SPADCALL |eq| (QREFELT $ 46))
                                 (QREFELT $ 47))
                       (QREFELT $ 50))
-                     (EXIT (|error| #6#)))))))))
+                     (EXIT (|error| (SPADCALL #6# #7# (QREFELT $ 54)))))))))))
               (EXIT |res|))))))) 
 
 (SDEFUN |UTSSOL;seriesSolve;MLUTSF;1!0| ((|i| NIL) ($ NIL))
@@ -289,7 +292,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|TaylorSolve| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 80) . #1#)
+          (LETT $ (GETREFV 82) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|TaylorSolve| (LIST DV$1 DV$2 DV$3)
@@ -316,19 +319,19 @@
               (100 . |zero?|) (|List| 21) (105 . |variables|) (110 . |retract|)
               (115 . |member?|) (|OutputForm|) (121 . |coerce|)
               (126 . |hconcat|) (|Void|) (|OutputPackage|) (132 . |output|)
-              (137 . |coerce|) (142 . |empty?|) (147 . |#|) (152 . |one?|)
-              (157 . |first|) (162 . |degree|) (|PositiveInteger|)
-              (168 . |One|) (172 . >) (178 . |monomial?|) (183 . |elt|)
-              (189 . |true|) (193 . ~=) (199 . +) (205 . |Zero|) (209 . |Zero|)
-              (213 . |Zero|) (217 . |setelt!|) (224 . |Zero|)
-              (228 . |coefficient|) (234 . /) (240 . -) (|Mapping| 6)
-              (|Stream| 6) (245 . |stream|) (250 . |series|) (|Mapping| 8 8)
+              (137 . |coerce|) (142 . |empty?|) (|String|) (147 . |elt|)
+              (153 . |#|) (158 . |one?|) (163 . |first|) (168 . |degree|)
+              (|PositiveInteger|) (174 . |One|) (178 . >) (184 . |monomial?|)
+              (189 . |elt|) (195 . |true|) (199 . ~=) (205 . +) (211 . |Zero|)
+              (215 . |Zero|) (219 . |Zero|) (223 . |setelt!|) (230 . |Zero|)
+              (234 . |coefficient|) (240 . /) (246 . -) (|Mapping| 6)
+              (|Stream| 6) (251 . |stream|) (256 . |series|) (|Mapping| 8 8)
               (|List| 6) |UTSSOL;seriesSolve;MLUTSF;1|)
-           '#(|seriesSolve| 255) 'NIL
+           '#(|seriesSolve| 261) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 79
+                             (|makeByteWordVec2| 81
                                                  '(1 9 0 6 10 1 12 0 11 13 1 14
                                                    0 0 15 2 17 0 16 14 18 0 6 0
                                                    19 0 7 0 20 0 21 0 22 2 23 0
@@ -341,15 +344,16 @@
                                                    40 1 9 41 0 42 1 9 21 0 43 2
                                                    41 33 21 0 44 1 9 45 0 46 2
                                                    45 0 0 0 47 1 49 48 45 50 1
-                                                   12 45 0 51 1 41 33 0 52 1 41
-                                                   21 0 53 1 21 33 0 54 1 41 21
-                                                   0 55 2 9 21 0 21 56 0 57 0
-                                                   58 2 21 33 0 0 59 1 9 33 0
-                                                   60 2 12 9 0 14 61 0 33 0 62
-                                                   2 21 33 0 0 63 2 14 0 0 0 64
-                                                   0 6 0 65 0 7 0 66 0 9 0 67 3
-                                                   12 9 0 14 9 68 0 21 0 69 2 9
-                                                   6 0 23 70 2 6 0 0 0 71 1 6 0
-                                                   0 72 1 74 0 73 75 1 7 0 74
-                                                   76 2 0 7 77 78 79)))))
+                                                   12 45 0 51 1 41 33 0 52 2 53
+                                                   0 0 0 54 1 41 21 0 55 1 21
+                                                   33 0 56 1 41 21 0 57 2 9 21
+                                                   0 21 58 0 59 0 60 2 21 33 0
+                                                   0 61 1 9 33 0 62 2 12 9 0 14
+                                                   63 0 33 0 64 2 21 33 0 0 65
+                                                   2 14 0 0 0 66 0 6 0 67 0 7 0
+                                                   68 0 9 0 69 3 12 9 0 14 9 70
+                                                   0 21 0 71 2 9 6 0 23 72 2 6
+                                                   0 0 0 73 1 6 0 0 74 1 76 0
+                                                   75 77 1 7 0 76 78 2 0 7 79
+                                                   80 81)))))
            '|lookupComplete|)) 
