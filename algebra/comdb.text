@@ -4279,7 +4279,7 @@
 464112`\spad{kernel(x)} returns \spad{x} viewed as a kernel.
 464276`\spad{kernel(op,{} x)} constructs \spad{op}(\spad{x}) without evaluating it.
 464336`\spad{kernel(op,{} [f1,{}...,{}fn])} constructs \spad{op(f1,{}...,{}fn)} without evaluating it.
-464402`\spad{kernel(op,{} [a1,{}...,{}an],{} m)} returns the kernel \spad{op(a1,{}...,{}an)} of nesting level \spad{m}. Error: if \spad{op} is \spad{k}-ary for some \spad{k} not equal to \spad{m}.
+464402`\spad{kernel(op,{} [a1,{}...,{}an],{} m)} returns the kernel \spad{op(a1,{}...,{}an)} of nesting level \spad{m}. Error: if \spad{op} is \spad{k}-ary for some \spad{k} not equal to \spad{n}.
 464538`\spad{kernels(f)} returns the list of all the top-level kernels appearing in \spad{f},{} but not the ones appearing in the arguments of the top-level kernels.
 464599`\spad{key(\spad{gi})} returns the process ID of the given graph,{} \spad{\spad{gi}},{} of the domain \spadtype{GraphImage}.
 464642`\spad{key(v)} returns the process ID number of the given two-dimensional viewport,{} \spad{v},{} which is of domain \spadtype{TwoDimensionalViewport}.

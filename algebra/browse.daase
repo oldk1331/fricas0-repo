@@ -17696,7 +17696,7 @@ NIL
  (|kernel|
   (($ (|Symbol|)) "\\spad{kernel(x)} returns \\spad{x} viewed as a kernel.")
   (($ (|BasicOperator|) (|List| |#1|) (|NonNegativeInteger|))
-   "\\spad{kernel(op,{} [a1,{}...,{}an],{} m)} returns the kernel \\spad{op(a1,{}...,{}an)} of nesting level \\spad{m}. Error: if \\spad{op} is \\spad{k}-ary for some \\spad{k} not equal to \\spad{m}."))
+   "\\spad{kernel(op,{} [a1,{}...,{}an],{} m)} returns the kernel \\spad{op(a1,{}...,{}an)} of nesting level \\spad{m}. Error: if \\spad{op} is \\spad{k}-ary for some \\spad{k} not equal to \\spad{n}."))
  (|height|
   (((|NonNegativeInteger|) $)
    "\\spad{height(k)} returns the nesting level of \\spad{k}."))
