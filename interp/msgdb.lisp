@@ -44,17 +44,13 @@
 ;   maxIndex := MAXINDEX l
 ;   k := or/[j for j in i..maxIndex | l.j ~= char ('_ ) ] or return nil
 ;   buf := '""
-;   while k < maxIndex and (c := l.k) ~= char ('_ ) repeat
-;     ch :=
-;       c = char '__   => l.(k := 1+k)  --this may exceed bounds
-;       c
-;     buf := STRCONC(buf,ch)
+;   while k <= maxIndex and (c := l.k) ~= char ('_ ) repeat
+;     buf := STRCONC(buf,c)
 ;     k := k + 1
-;   if k = maxIndex and (c := l.k) ~= char ('_ ) then buf := STRCONC(buf,c)
 ;   [buf,k+1]
  
 (DEFUN |wordFrom| (|l| |i|)
-  (PROG (|maxIndex| |k| |buf| |c| |ch|)
+  (PROG (|maxIndex| |k| |buf| |c|)
     (RETURN
      (PROGN
       (SETQ |maxIndex| (MAXINDEX |l|))
@@ -76,21 +72,11 @@
          (LOOP
           (COND
            ((NOT
-             (AND (< |k| |maxIndex|)
+             (AND (NOT (< |maxIndex| |k|))
                   (NOT (EQUAL (SETQ |c| (ELT |l| |k|)) (|char| '| |)))))
             (RETURN NIL))
            (#1#
-            (PROGN
-             (SETQ |ch|
-                     (COND
-                      ((EQUAL |c| (|char| '_)) (ELT |l| (SETQ |k| (+ 1 |k|))))
-                      (#1# |c|)))
-             (SETQ |buf| (STRCONC |buf| |ch|))
-             (SETQ |k| (+ |k| 1))))))))
-      (COND
-       ((AND (EQUAL |k| |maxIndex|)
-             (NOT (EQUAL (SETQ |c| (ELT |l| |k|)) (|char| '| |))))
-        (SETQ |buf| (STRCONC |buf| |c|))))
+            (PROGN (SETQ |buf| (STRCONC |buf| |c|)) (SETQ |k| (+ |k| 1))))))))
       (LIST |buf| (+ |k| 1))))))
  
 ; DEFPARAMETER($msg_hash, nil)
