@@ -75,10 +75,10 @@
       (EXIT
        (SPADCALL (SPADCALL |p1| |q1| (QREFELT $ 22)) |n| (QREFELT $ 23))))))) 
 
-(DEFUN |XExponentialPackage| (&REST #1=#:G140)
+(DEFUN |XExponentialPackage| (&REST #1=#:G142)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G141)
+     (PROG (#2=#:G143)
        (RETURN
         (COND
          ((LETT #2#

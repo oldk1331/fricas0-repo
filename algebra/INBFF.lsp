@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |INBFF;inv;2V;1| (|a| $)
-  (PROG (|erg| |b| #1=#:G142)
+  (PROG (|erg| |b| #1=#:G144)
     (RETURN
      (SEQ
       (LETT |b|
@@ -30,7 +30,7 @@
              . #2#)))))) 
 
 (DEFUN |INBFF;^;VIV;2| (|a| |ex| $)
-  (PROG (|mult| |k| |expT| |logqe| |q1| |e1| |e| #1=#:G151 #2=#:G150)
+  (PROG (|mult| |k| |expT| |logqe| |q1| |e1| |e| #1=#:G153 #2=#:G152)
     (RETURN
      (SEQ
       (LETT |e|
@@ -132,7 +132,7 @@
                             (QREFELT $ 33))))))))) 
 
 (DEFUN |INBFF;dAndcExp;VNniSiV;4| (|a| |e| |k| $)
-  (PROG (|i| |erg| #1=#:G175 |j| |ex| |l| |plist| |b| #2=#:G174 |qk|)
+  (PROG (|i| |erg| #1=#:G177 |j| |ex| |l| |plist| |b| #2=#:G176 |qk|)
     (RETURN
      (SEQ
       (LETT |plist| (LIST (SPADCALL |a| (QREFELT $ 30)))
@@ -189,7 +189,7 @@
       (EXIT |erg|))))) 
 
 (DEFUN |INBFF;*;3V;5| (|a| |b| $)
-  (PROG (|k| |x| |y| #1=#:G188 |t| |j| #2=#:G187 |i| #3=#:G186 |erg| |e|)
+  (PROG (|k| |x| |y| #1=#:G190 |t| |j| #2=#:G189 |i| #3=#:G188 |erg| |e|)
     (RETURN
      (SEQ
       (LETT |e| (SPADCALL (QVSIZE |a|) (QREFELT $ 15)) . #4=(|INBFF;*;3V;5|))
@@ -274,7 +274,7 @@
       (EXIT |erg|))))) 
 
 (DEFUN |INBFF;lookup;VPi;6| (|x| $)
-  (PROG (#1=#:G191 #2=#:G190 |erg| |j|)
+  (PROG (#1=#:G193 #2=#:G192 |erg| |j|)
     (RETURN
      (SEQ (LETT |erg| 0 . #3=(|INBFF;lookup;VPi;6|))
           (SEQ (LETT |j| (QVSIZE |x|) . #3#) G190 (COND ((< |j| 1) (GO G191)))
@@ -311,7 +311,7 @@
           (EXIT (SPADCALL |a| (QCAR |r|) |dSI| (QREFELT $ 19))))))) 
 
 (DEFUN |INBFF;expPot;V2SiV;8| (|a| |e| |d| $)
-  (PROG (|qpot| |erg| |k2| |y| #1=#:G207 |k| |deg|)
+  (PROG (|qpot| |erg| |k2| |y| #1=#:G209 |k| |deg|)
     (RETURN
      (SEQ
       (LETT |deg| (SPADCALL (QVSIZE |a|) (QREFELT $ 15))
@@ -393,7 +393,7 @@
                    (EXIT |e1|))))))))) 
 
 (DEFUN |INBFF;trace;VPiV;10| (|a| |d| $)
-  (PROG (#1=#:G219 |j| |i| |sSI| |v| |r| |dSI|)
+  (PROG (#1=#:G221 |j| |i| |sSI| |v| |r| |dSI|)
     (RETURN
      (SEQ
       (LETT |dSI| (SPADCALL |d| (QREFELT $ 15)) . #2=(|INBFF;trace;VPiV;10|))
@@ -464,7 +464,7 @@
   (SEQ (SETELT $ 11 |m|) (SETELT $ 12 |n|) (EXIT (SPADCALL (QREFELT $ 82))))) 
 
 (DEFUN |INBFF;minimalPolynomial;VSup;16| (|x| $)
-  (PROG (|v| |y| #1=#:G236 |k| |j| |dy| #2=#:G235 |i| |m| |dx|)
+  (PROG (|v| |y| #1=#:G238 |k| |j| |dy| #2=#:G237 |i| |m| |dx|)
     (RETURN
      (SEQ (LETT |dx| (QVSIZE |x|) . #3=(|INBFF;minimalPolynomial;VSup;16|))
           (LETT |y|
@@ -533,7 +533,7 @@
       (EXIT |erg|))))) 
 
 (DEFUN |INBFF;pol;VSup;20| (|x| $)
-  (PROG (#1=#:G248 #2=#:G247 #3=#:G249 #4=#:G250 #5=#:G252 |i|)
+  (PROG (#1=#:G250 #2=#:G249 #3=#:G251 #4=#:G252 #5=#:G254 |i|)
     (RETURN
      (SEQ
       (PROGN
@@ -555,10 +555,10 @@
             (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T (|spadConstant| $ 94)))))))) 
 
-(DEFUN |InnerNormalBasisFieldFunctions| (#1=#:G253)
+(DEFUN |InnerNormalBasisFieldFunctions| (#1=#:G255)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G254)
+     (PROG (#2=#:G256)
        (RETURN
         (COND
          ((LETT #2#

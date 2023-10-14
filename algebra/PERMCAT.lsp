@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |PermutationCategory;AL| 'NIL) 
 
-(DEFUN |PermutationCategory| (#1=#:G126)
-  (LET (#2=#:G127)
+(DEFUN |PermutationCategory| (#1=#:G128)
+  (LET (#2=#:G129)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |PermutationCategory;AL|))
       (CDR #2#))
@@ -17,7 +17,7 @@
       #2#)))) 
 
 (DEFUN |PermutationCategory;| (|t#1|)
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

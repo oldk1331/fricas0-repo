@@ -12,7 +12,7 @@
 (DEFUN |FRMOD;basis;$V;3| (|m| $) |m|) 
 
 (DEFUN |FRMOD;rowdiv| (|r| |f| $)
-  (PROG (#1=#:G131 #2=#:G133 |i| #3=#:G132)
+  (PROG (#1=#:G133 #2=#:G135 |i| #3=#:G134)
     (RETURN
      (SEQ
       (PROGN
@@ -41,7 +41,7 @@
   (SPADCALL (SPADCALL |v| (QREFELT $ 39)) (|FRMOD;invintmat| $) (QREFELT $ 40))) 
 
 (DEFUN |FRMOD;getinvintmat| ($)
-  (PROG (#1=#:G145 |j| #2=#:G144 |i| |m| #3=#:G138)
+  (PROG (#1=#:G147 |j| #2=#:G146 |i| |m| #3=#:G140)
     (RETURN
      (SEQ
       (LETT |m|
@@ -67,7 +67,7 @@
       (EXIT 'NIL))))) 
 
 (DEFUN |FRMOD;getintmat| ($)
-  (PROG (#1=#:G151 |j| #2=#:G150 |i| |m|)
+  (PROG (#1=#:G153 |j| #2=#:G152 |i| |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL (QREFELT $ 10) (QREFELT $ 39))
@@ -102,7 +102,7 @@
    (EXIT (QREFELT $ 22)))) 
 
 (DEFUN |FRMOD;vectProd| (|v1| |v2| $)
-  (PROG (|k| #1=#:G162 |j| #2=#:G161 |i| |v|)
+  (PROG (|k| #1=#:G164 |j| #2=#:G163 |i| |v|)
     (RETURN
      (SEQ
       (LETT |k|
@@ -142,7 +142,7 @@
      (QREFELT $ 54))))) 
 
 (DEFUN |FRMOD;*;3$;14| (|m1| |m2| $)
-  (PROG (|u| #1=#:G170 |i| #2=#:G169 |m| |cd|)
+  (PROG (|u| #1=#:G172 |i| #2=#:G171 |m| |cd|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -186,10 +186,10 @@
   (SPADCALL (SPADCALL (SPADCALL |i| (QREFELT $ 67)) (QREFELT $ 25))
             (SPADCALL (QREFELT $ 10) (QREFELT $ 25)) (QREFELT $ 65))) 
 
-(DEFUN |FramedModule| (&REST #1=#:G172)
+(DEFUN |FramedModule| (&REST #1=#:G174)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G173)
+     (PROG (#2=#:G175)
        (RETURN
         (COND
          ((LETT #2#

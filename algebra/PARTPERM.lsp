@@ -28,7 +28,7 @@
 (DEFUN |PARTPERM;partitions;IS;2| (|n| $) (SPADCALL |n| |n| |n| (QREFELT $ 12))) 
 
 (DEFUN |PARTPERM;partitions;2IS;3| (M N $)
-  (PROG (|aaa| #1=#:G142 |i| #2=#:G141)
+  (PROG (|aaa| #1=#:G144 |i| #2=#:G143)
     (RETURN
      (SEQ
       (LETT |aaa|
@@ -46,7 +46,7 @@
       (EXIT (SPADCALL (SPADCALL |aaa| (QREFELT $ 19)) (QREFELT $ 21))))))) 
 
 (DEFUN |PARTPERM;nogreq| (|n| |x| $)
-  (PROG (#1=#:G144 #2=#:G143 #3=#:G145 #4=#:G147 |i|)
+  (PROG (#1=#:G146 #2=#:G145 #3=#:G147 #4=#:G149 |i|)
     (RETURN
      (SEQ
       (PROGN
@@ -68,7 +68,7 @@
        (COND (#1# #2#) ('T 0))))))) 
 
 (DEFUN |PARTPERM;conjugate;2L;5| (|x| $)
-  (PROG (#1=#:G152 |i| #2=#:G151)
+  (PROG (#1=#:G154 |i| #2=#:G153)
     (RETURN
      (SEQ
       (COND ((NULL |x|) NIL)
@@ -129,7 +129,7 @@
     (RETURN (PROGN (SPADCALL |x| |l1| (QREFELT $ 26)))))) 
 
 (DEFUN |PARTPERM;rpt| (|n| |m| $)
-  (PROG (|i| #1=#:G175)
+  (PROG (|i| #1=#:G177)
     (RETURN
      (SEQ
       (PROGN
@@ -148,7 +148,7 @@
             (|PARTPERM;zrpt| |x| |y| $) (QREFELT $ 37))) 
 
 (DEFUN |PARTPERM;sequences;LS;12| (|x| $)
-  (PROG (#1=#:G185 |i| #2=#:G184)
+  (PROG (#1=#:G187 |i| #2=#:G186)
     (RETURN
      (SEQ
       (SPADCALL |x|
@@ -162,7 +162,7 @@
                 (QREFELT $ 38)))))) 
 
 (DEFUN |PARTPERM;permutations;IS;13| (|n| $)
-  (PROG (|i| #1=#:G188)
+  (PROG (|i| #1=#:G190)
     (RETURN
      (SEQ
       (SPADCALL (|PARTPERM;rpt| |n| 1 $)
@@ -178,7 +178,7 @@
 (DEFUN |PartitionsAndPermutations| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G190)
+     (PROG (#1=#:G192)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|PartitionsAndPermutations|)

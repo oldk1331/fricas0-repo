@@ -15,8 +15,8 @@
           (EXIT |l|))))) 
 
 (DEFUN |DEGRED;reduce;SupR;2| (|u| $)
-  (PROG (#1=#:G142 #2=#:G139 #3=#:G137 |g| #4=#:G131 #5=#:G130 #6=#:G132
-         #7=#:G146 |d|)
+  (PROG (#1=#:G144 #2=#:G141 #3=#:G139 |g| #4=#:G133 #5=#:G132 #6=#:G134
+         #7=#:G148 |d|)
     (RETURN
      (SEQ
       (LETT |g|
@@ -80,7 +80,7 @@
                          (QREFELT $ 43)))))))))) 
 
 (DEFUN |DEGRED;expand;EPiL;4| (|s| |g| $)
-  (PROG (#1=#:G152 |i| #2=#:G151)
+  (PROG (#1=#:G154 |i| #2=#:G153)
     (RETURN
      (SEQ
       (COND ((EQL |g| 1) (LIST |s|))
@@ -103,10 +103,10 @@
                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                    (EXIT (NREVERSE #2#)))))))))) 
 
-(DEFUN |DegreeReductionPackage| (&REST #1=#:G153)
+(DEFUN |DegreeReductionPackage| (&REST #1=#:G155)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G154)
+     (PROG (#2=#:G156)
        (RETURN
         (COND
          ((LETT #2#

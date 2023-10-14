@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |POLTOPOL;variable1| (|xx| $)
-  (PROG (#1=#:G126)
+  (PROG (#1=#:G128)
     (RETURN
      (PROG2 (LETT #1# (SPADCALL |xx| (QREFELT $ 11)) |POLTOPOL;variable1|)
          (QCDR #1#)
@@ -55,10 +55,10 @@
            (SPADCALL (SPADCALL |hdpol| (QREFELT $ 52)) (QREFELT $ 53))
            (QREFELT $ 54)))))))))) 
 
-(DEFUN |PolToPol| (&REST #1=#:G140)
+(DEFUN |PolToPol| (&REST #1=#:G142)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G141)
+     (PROG (#2=#:G143)
        (RETURN
         (COND
          ((LETT #2#

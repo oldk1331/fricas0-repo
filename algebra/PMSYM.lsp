@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PMSYM;patternMatch;SP2Pmr;1| (|s| |p| |l| $)
-  (PROG (#1=#:G131 |u|)
+  (PROG (#1=#:G133 |u|)
     (RETURN
      (SEQ
       (COND
@@ -24,10 +24,10 @@
          #1# (EXIT #1#)))
        ('T (SPADCALL (QREFELT $ 16)))))))) 
 
-(DEFUN |PatternMatchSymbol| (#1=#:G135)
+(DEFUN |PatternMatchSymbol| (#1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#

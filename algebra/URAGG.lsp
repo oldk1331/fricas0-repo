@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |UnaryRecursiveAggregate;AL| 'NIL) 
 
-(DEFUN |UnaryRecursiveAggregate| (#1=#:G169)
-  (LET (#2=#:G170)
+(DEFUN |UnaryRecursiveAggregate| (#1=#:G171)
+  (LET (#2=#:G172)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |UnaryRecursiveAggregate;AL|))
       (CDR #2#))
@@ -17,7 +17,7 @@
       #2#)))) 
 
 (DEFUN |UnaryRecursiveAggregate;| (|t#1|)
-  (PROG (#1=#:G168)
+  (PROG (#1=#:G170)
     (RETURN
      (PROG1
          (LETT #1#

@@ -5,7 +5,7 @@
   (|INTAF;UP2UPUP| (SPADCALL |f| |k| |p| (QREFELT $ 11)) |kx| $)) 
 
 (DEFUN |INTAF;rootintegrate| (|f| |t| |k| |derivation| $)
-  (PROG (|curve| |q| |r| #1=#:G131 |f1| |r1| |modulus| |p|)
+  (PROG (|curve| |q| |r| #1=#:G133 |f1| |r1| |modulus| |p|)
     (RETURN
      (SEQ
       (LETT |r1|
@@ -251,10 +251,10 @@
     (|INTAF;algintegrate| |f| |t| |y| |derivation| $))
    ('T (|error| "failed - cannot handle that integrand")))) 
 
-(DEFUN |AlgebraicIntegration| (&REST #1=#:G156)
+(DEFUN |AlgebraicIntegration| (&REST #1=#:G158)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G157)
+     (PROG (#2=#:G159)
        (RETURN
         (COND
          ((LETT #2#

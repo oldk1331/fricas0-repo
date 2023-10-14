@@ -11,10 +11,10 @@
             (SPADCALL (SPADCALL |u| (QREFELT $ 16)) |fn|)
             (SPADCALL (SPADCALL |u| (QREFELT $ 17)) |fn|) (QREFELT $ 18))) 
 
-(DEFUN |OctonionCategoryFunctions2| (&REST #1=#:G127)
+(DEFUN |OctonionCategoryFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

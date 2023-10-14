@@ -8,7 +8,7 @@
    ('T (SPADCALL |jv| (QREFELT $ 12))))) 
 
 (DEFUN |JBX;retractIfCan;JbeU;2| (|p| $)
-  (PROG (#1=#:G144 |jv| #2=#:G143)
+  (PROG (#1=#:G146 |jv| #2=#:G145)
     (RETURN
      (SEQ
       (COND
@@ -44,10 +44,10 @@
              (|error| "Only functions of independent variables allowed"))
             ('T (QCDR |px|)))))))) 
 
-(DEFUN |JetBundleXExpression| (#1=#:G208)
+(DEFUN |JetBundleXExpression| (#1=#:G210)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G209)
+     (PROG (#2=#:G211)
        (RETURN
         (COND
          ((LETT #2#
@@ -65,7 +65,7 @@
               (HREM |$ConstructorCache| '|JetBundleXExpression|))))))))))) 
 
 (DEFUN |JetBundleXExpression;| (|#1|)
-  (PROG (|pv$| #1=#:G206 #2=#:G207 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G208 #2=#:G209 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|JetBundleXExpression|))

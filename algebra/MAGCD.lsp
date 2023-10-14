@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MAGCD;algebraicGcd1a| (|x| |y| |mu| |vx| |lvz| $)
-  (PROG (|yu| |xu| #1=#:G161 |w1|)
+  (PROG (|yu| |xu| #1=#:G163 |w1|)
     (RETURN
      (SEQ
       (EXIT
@@ -27,7 +27,7 @@
 
 (DEFUN |MAGCD;eval1a| (|pol| |pt| |pss| $)
   (PROG (|res| |pk| |ptk| |ki| |j| |i| |t1| |ns| |n| |exps| |nexps| |coeffs|
-         |ncoeffs| |nn| #1=#:G178 |t0| |polu| #2=#:G177 |polr| |p|)
+         |ncoeffs| |nn| #1=#:G180 |t0| |polu| #2=#:G179 |polr| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -94,7 +94,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MAGCD;eval1| (|pol| |vv| |pt| |pss| $)
-  (PROG (|xr| |yu| |c1| |t1| #1=#:G196 |t0| |xu| #2=#:G195 |vx| |polr|)
+  (PROG (|xr| |yu| |c1| |t1| #1=#:G198 |t0| |xu| #2=#:G197 |vx| |polr|)
     (RETURN
      (SEQ
       (EXIT
@@ -167,7 +167,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MAGCD;compare_coeff1| (|nv| |exps| |nexps| $)
-  (PROG (#1=#:G197 #2=#:G201 #3=#:G202 |i| |nn| |ne|)
+  (PROG (#1=#:G199 #2=#:G203 #3=#:G204 |i| |nn| |ne|)
     (RETURN
      (SEQ
       (EXIT
@@ -251,10 +251,10 @@
                                                               6)))))))))))))))))))) 
 
 (DEFUN |MAGCD;algebraicGcd2| (|x| |y| |lm| |lv| |pss| $)
-  (PROG (#1=#:G253 |pp| |coeffs| |i| |jl| |ndl| #2=#:G259 |j| |ncoeffs| |n1|
+  (PROG (#1=#:G255 |pp| |coeffs| |i| |jl| |ndl| #2=#:G261 |j| |ncoeffs| |n1|
          |nn| |n0| |rstate| |ncc| |exps| |oer| |odl| |dl| |cc| |good_cnt|
-         |bad_cnt| |dg| |nexps| |gtf| #3=#:G230 |gtfp| #4=#:G225 |lcbad|
-         #5=#:G256 |m| #6=#:G257 |deg| #7=#:G258 |z| |lmt| #8=#:G255 #9=#:G254
+         |bad_cnt| |dg| |nexps| |gtf| #3=#:G232 |gtfp| #4=#:G227 |lcbad|
+         #5=#:G258 |m| #6=#:G259 |deg| #7=#:G260 |z| |lmt| #8=#:G257 #9=#:G256
          |yt| |xt| |lt| |t| |nbv| |nlv| |vt| |dy| |dx| |prev_coeff1| |offsets|
          |vx| |p| |nv|)
     (RETURN
@@ -647,7 +647,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MAGCD;trialDivision2| (|x| |g| |lm| |vx| |lvz| $)
-  (PROG (#1=#:G263 |m| #2=#:G262)
+  (PROG (#1=#:G265 |m| #2=#:G264)
     (RETURN
      (SEQ
       (SPADCALL |x| |g|
@@ -674,10 +674,10 @@
       (EXIT (SPADCALL |pres| |vx| (QREFELT $ 71))))))) 
 
 (DEFUN |MAGCD;algebraicGcd3a| (|x| |y| |lm| |lv| |pss| $)
-  (PROG (#1=#:G299 |res| |pp| |coeffs| |i| |jl| |ndl| #2=#:G305 |j| |ncoeffs|
-         |n1| |nn| |n0| |rstate| #3=#:G279 |ncc| |exps| |offsets| |oer| |odl|
-         |dl| |dg| |nexps| |gtp| |gtpp| |lcbad| #4=#:G302 |m| #5=#:G303 |deg|
-         #6=#:G304 |z| |lmp| #7=#:G301 #8=#:G300 |yp| |xp| |lp| |p| |nv| |nbv|
+  (PROG (#1=#:G301 |res| |pp| |coeffs| |i| |jl| |ndl| #2=#:G307 |j| |ncoeffs|
+         |n1| |nn| |n0| |rstate| #3=#:G281 |ncc| |exps| |offsets| |oer| |odl|
+         |dl| |dg| |nexps| |gtp| |gtpp| |lcbad| #4=#:G304 |m| #5=#:G305 |deg|
+         #6=#:G306 |z| |lmp| #7=#:G303 #8=#:G302 |yp| |xp| |lp| |p| |nv| |nbv|
          |lvz| |vx| |dy| |dx|)
     (RETURN
      (SEQ
@@ -962,9 +962,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MAGCD;algebraicGcd;2PLLSLP;10| (|x| |y| |lm| |lv| |vx| |lvz| $)
-  (PROG (|sval| #1=#:G328 |v| #2=#:G327 |ress| |pss| |msize| |ldeg| #3=#:G325
-         |m| #4=#:G326 |vz| #5=#:G324 |nlm| #6=#:G323 #7=#:G322 |ny| |nx|
-         |tval| #8=#:G321 #9=#:G320 |sv| |tv| |tvz| |tvx| |tv0| |na| |n|)
+  (PROG (|sval| #1=#:G330 |v| #2=#:G329 |ress| |pss| |msize| |ldeg| #3=#:G327
+         |m| #4=#:G328 |vz| #5=#:G326 |nlm| #6=#:G325 #7=#:G324 |ny| |nx|
+         |tval| #8=#:G323 #9=#:G322 |sv| |tv| |tvz| |tvx| |tv0| |na| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |lv|) . #10=(|MAGCD;algebraicGcd;2PLLSLP;10|))
           (LETT |na| (LENGTH |lvz|) . #10#)
@@ -1076,10 +1076,10 @@
                     . #10#)
               (EXIT (SPADCALL |ress| |tv| |sval| (QREFELT $ 85))))))))))) 
 
-(DEFUN |ModularAlgebraicGcd| (&REST #1=#:G329)
+(DEFUN |ModularAlgebraicGcd| (&REST #1=#:G331)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G330)
+     (PROG (#2=#:G332)
        (RETURN
         (COND
          ((LETT #2#

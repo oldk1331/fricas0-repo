@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |IRSN;aIdInverse| ($)
-  (PROG (#1=#:G222 #2=#:G176 #3=#:G153 |i| #4=#:G232 |k| #5=#:G149 #6=#:G140
-         |j| #7=#:G231 |l| #8=#:G230 |idperm| #9=#:G228 #10=#:G229)
+  (PROG (#1=#:G224 #2=#:G178 #3=#:G155 |i| #4=#:G234 |k| #5=#:G151 #6=#:G142
+         |j| #7=#:G233 |l| #8=#:G232 |idperm| #9=#:G230 #10=#:G231)
     (RETURN
      (SEQ
       (EXIT
@@ -99,8 +99,8 @@
       #9# (EXIT #9#))))) 
 
 (DEFUN |IRSN;alreadyComputed?| (|lambda| $)
-  (PROG (#1=#:G241 #2=#:G239 #3=#:G238 #4=#:G240 #5=#:G244 #6=#:G125 #7=#:G234
-         #8=#:G233)
+  (PROG (#1=#:G243 #2=#:G241 #3=#:G240 #4=#:G242 #5=#:G246 #6=#:G127 #7=#:G236
+         #8=#:G235)
     (RETURN
      (SEQ
       (COND
@@ -297,7 +297,7 @@
       (EXIT |sign|))))) 
 
 (DEFUN |IRSN;sumPartition| (|lambda| $)
-  (PROG (#1=#:G268 |prev| |ok| |sum| #2=#:G271 |x|)
+  (PROG (#1=#:G270 |prev| |ok| |sum| #2=#:G273 |x|)
     (RETURN
      (SEQ (LETT |ok| 'T . #3=(|IRSN;sumPartition|))
           (LETT |prev| (|SPADfirst| |lambda|) . #3#) (LETT |sum| 0 . #3#)
@@ -315,7 +315,7 @@
              (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))))) 
 
 (DEFUN |IRSN;testPermutation| (|pi| $)
-  (PROG (#1=#:G279 #2=#:G283 |i| |test| #3=#:G276 |ok| #4=#:G282)
+  (PROG (#1=#:G281 #2=#:G285 |i| |test| #3=#:G278 |ok| #4=#:G284)
     (RETURN
      (SEQ (LETT |ok| 'T . #5=(|IRSN;testPermutation|)) (SETELT $ 10 0)
           (SEQ (LETT |i| NIL . #5#) (LETT #4# |pi| . #5#) G190
@@ -351,7 +351,7 @@
              (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))))) 
 
 (DEFUN |IRSN;dimensionOfIrreducibleRepresentation;LNni;7| (|lambda| $)
-  (PROG (#1=#:G286 |dd| #2=#:G290 |j| #3=#:G289 |i| |lambdaprime| |nn|)
+  (PROG (#1=#:G288 |dd| #2=#:G292 |j| #3=#:G291 |i| |lambdaprime| |nn|)
     (RETURN
      (SEQ
       (LETT |nn| (|IRSN;sumPartition| |lambda| $)
@@ -386,7 +386,7 @@
          (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))))) 
 
 (DEFUN |IRSN;irreducibleRepresentation;LPM;8| (|lambda| |pi| $)
-  (PROG (#1=#:G297 |l| #2=#:G296 |k| |aPi| |piList| |nn|)
+  (PROG (#1=#:G299 |l| #2=#:G298 |k| |aPi| |piList| |nn|)
     (RETURN
      (SEQ
       (LETT |nn| (|IRSN;sumPartition| |lambda| $)
@@ -439,7 +439,7 @@
           (EXIT (SPADCALL |lambda| |listperm| (QREFELT $ 47))))))) 
 
 (DEFUN |IRSN;irreducibleRepresentation;LLL;10| (|lambda| |listperm| $)
-  (PROG (#1=#:G306 |pi| #2=#:G305)
+  (PROG (#1=#:G308 |pi| #2=#:G307)
     (RETURN
      (SEQ (|IRSN;sumPartition| |lambda| $) (|IRSN;alreadyComputed?| |lambda| $)
           (EXIT
@@ -459,7 +459,7 @@
 (DEFUN |IrrRepSymNatPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G308)
+     (PROG (#1=#:G310)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|IrrRepSymNatPackage|)

@@ -87,10 +87,10 @@
                     (SPADCALL (ELT $ 47) (QCDR |sys|) (QREFELT $ 54))
                     (QREFELT $ 56)))))))))) 
 
-(DEFUN |LinearDependence| (&REST #1=#:G178)
+(DEFUN |LinearDependence| (&REST #1=#:G180)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G179)
+     (PROG (#2=#:G181)
        (RETURN
         (COND
          ((LETT #2#
@@ -108,7 +108,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|LinearDependence|))))))))))) 
 
 (DEFUN |LinearDependence;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G177 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G179 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|LinearDependence|))

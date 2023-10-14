@@ -30,7 +30,7 @@
             (SPADCALL (SPADCALL |x| (QREFELT $ 11)) |fn|) (QREFELT $ 15))) 
 
 (DEFUN |QFCAT-;reducedSystem;MM;6| (|m| $)
-  (PROG (#1=#:G146 |ell| |j| |d| |i| |ans| |ncm| |nrm|)
+  (PROG (#1=#:G148 |ell| |j| |d| |i| |ans| |ncm| |nrm|)
     (RETURN
      (SEQ (LETT |nrm| (QVSIZE |m|) . #2=(|QFCAT-;reducedSystem;MM;6|))
           (LETT |ncm| (SPADCALL |m| (QREFELT $ 25)) . #2#)

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |NCODIV;leftDivide;2PR;1| (|a| |b| $)
-  (PROG (|q| |r| |h| #1=#:G129 |iv|)
+  (PROG (|q| |r| |h| #1=#:G131 |iv|)
     (RETURN
      (SEQ (LETT |q| (|spadConstant| $ 8) . #2=(|NCODIV;leftDivide;2PR;1|))
           (LETT |r| |a| . #2#)
@@ -119,10 +119,10 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT (SPADCALL |b0| |u| (QREFELT $ 18)))))))))) 
 
-(DEFUN |NonCommutativeOperatorDivision| (&REST #1=#:G156)
+(DEFUN |NonCommutativeOperatorDivision| (&REST #1=#:G158)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G157)
+     (PROG (#2=#:G159)
        (RETURN
         (COND
          ((LETT #2#

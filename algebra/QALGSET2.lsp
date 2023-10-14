@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |QALGSET2;f| (|v| $)
-  (PROG (#1=#:G129)
+  (PROG (#1=#:G131)
     (RETURN
      (SPADCALL
       (PROG2
@@ -14,7 +14,7 @@
       (QREFELT $ 18))))) 
 
 (DEFUN |QALGSET2;g| (|v| $)
-  (PROG (#1=#:G133)
+  (PROG (#1=#:G135)
     (RETURN
      (COND ((SPADCALL |v| (QREFELT $ 14) (QREFELT $ 20)) (|spadConstant| $ 22))
            ('T
@@ -51,7 +51,7 @@
 (DEFUN |QALGSET2;oldpoly!0| (|z1| $) (|QALGSET2;g| |z1| $)) 
 
 (DEFUN |QALGSET2;radicalSimplify;2Qas;5| (|x| $)
-  (PROG (|y| |ngb| |gb| |k| |id| |gen| #1=#:G157 |g| #2=#:G156 |tp| |t| |n0|
+  (PROG (|y| |ngb| |gb| |k| |id| |gen| #1=#:G159 |g| #2=#:G158 |tp| |t| |n0|
          |z0|)
     (RETURN
      (SEQ
@@ -115,10 +115,10 @@
                        . #4#)
                  (EXIT (SPADCALL |y| (CONS 0 'NIL) (QREFELT $ 62)))))))))))))) 
 
-(DEFUN |QuasiAlgebraicSet2| (#1=#:G158)
+(DEFUN |QuasiAlgebraicSet2| (#1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G159)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#
@@ -136,7 +136,7 @@
               (HREM |$ConstructorCache| '|QuasiAlgebraicSet2|))))))))))) 
 
 (DEFUN |QuasiAlgebraicSet2;| (|#1|)
-  (PROG (#1=#:G129 |pv$| $ |dv$| DV$1)
+  (PROG (#1=#:G131 |pv$| $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|QuasiAlgebraicSet2|))

@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |OrdinaryWeightedPolynomials| (&REST #1=#:G128)
+(DEFUN |OrdinaryWeightedPolynomials| (&REST #1=#:G130)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G129)
+     (PROG (#2=#:G131)
        (RETURN
         (COND
          ((LETT #2#

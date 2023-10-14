@@ -160,7 +160,7 @@
                              (QREFELT $ 18))))))))))))) 
 
 (DEFUN |STTAYLOR;exquo;2SU;8| (|x| |y| $)
-  (PROG (|ry0| #1=#:G279 #2=#:G289 |n|)
+  (PROG (|ry0| #1=#:G281 #2=#:G291 |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -355,7 +355,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|x| |c| |y| |ll| |n| |i| #2=#:G398 #3=#:G394 |res| |llp| |xp|)
+      (PROG (|x| |c| |y| |ll| |n| |i| #2=#:G400 #3=#:G396 |res| |llp| |xp|)
         (RETURN
          (SEQ
           (EXIT
@@ -580,7 +580,7 @@
     (RETURN (PROGN (|STTAYLOR;lagrangere| |x| |y| $))))) 
 
 (DEFUN |STTAYLOR;revert;2S;28| (|x| $)
-  (PROG (#1=#:G455 |y|)
+  (PROG (#1=#:G457 |y|)
     (RETURN
      (SEQ
       (COND
@@ -804,7 +804,7 @@
               (SPADCALL |s| (QREFELT $ 11)) $))))))) 
 
 (DEFUN |STTAYLOR;multisect;2I2S;38| (|b| |a| |x| $)
-  (PROG (#1=#:G573)
+  (PROG (#1=#:G575)
     (RETURN
      (|STTAYLOR;ms| (+ |a| |b|) 0
       (SPADCALL |x|
@@ -971,8 +971,8 @@
                 (QREFELT $ 18)))))) 
 
 (DEFUN |STTAYLOR;powern;F2S;50| (|rn| |x| $)
-  (PROG (|power| #1=#:G641 #2=#:G635 |num| |invCo| |co| |ord| #3=#:G623 |order|
-         #4=#:G649 |n|)
+  (PROG (|power| #1=#:G643 #2=#:G637 |num| |invCo| |co| |ord| #3=#:G625 |order|
+         #4=#:G651 |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -1201,10 +1201,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|STTAYLOR;powerre| |s| |x| |y| $))))) 
 
-(DEFUN |StreamTaylorSeriesOperations| (#1=#:G681)
+(DEFUN |StreamTaylorSeriesOperations| (#1=#:G683)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G682)
+     (PROG (#2=#:G684)
        (RETURN
         (COND
          ((LETT #2#

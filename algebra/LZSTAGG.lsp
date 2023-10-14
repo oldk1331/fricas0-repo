@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |LazyStreamAggregate;AL| 'NIL) 
 
-(DEFUN |LazyStreamAggregate| (#1=#:G216)
-  (LET (#2=#:G217)
+(DEFUN |LazyStreamAggregate| (#1=#:G218)
+  (LET (#2=#:G219)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |LazyStreamAggregate;AL|))
       (CDR #2#))
@@ -17,7 +17,7 @@
       #2#)))) 
 
 (DEFUN |LazyStreamAggregate;| (|t#1|)
-  (PROG (#1=#:G215)
+  (PROG (#1=#:G217)
     (RETURN
      (PROG1
          (LETT #1#

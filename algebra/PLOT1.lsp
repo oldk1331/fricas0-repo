@@ -14,10 +14,10 @@
 (DEFUN |PLOT1;plotPolar;SSSP;4| (|f| |theta| |thetaRange| $)
   (SPADCALL (SPADCALL |f| |theta| (QREFELT $ 10)) |thetaRange| (QREFELT $ 19))) 
 
-(DEFUN |PlotFunctions1| (#1=#:G134)
+(DEFUN |PlotFunctions1| (#1=#:G136)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G135)
+     (PROG (#2=#:G137)
        (RETURN
         (COND
          ((LETT #2#

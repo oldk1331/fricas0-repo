@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |EXPRSOL;replaceDiffs;FBoSF;1| (|expr| |op| |sy| $)
-  (PROG (|differentiand| |args| |arg| #1=#:G134 |k| |lk|)
+  (PROG (|differentiand| |args| |arg| #1=#:G136 |k| |lk|)
     (RETURN
      (SEQ
       (LETT |lk| (SPADCALL |expr| (QREFELT $ 17))
@@ -89,10 +89,10 @@
                           (QREFELT $ 47))
                 |f|))))) 
 
-(DEFUN |ExpressionSolve| (&REST #1=#:G138)
+(DEFUN |ExpressionSolve| (&REST #1=#:G140)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G139)
+     (PROG (#2=#:G141)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DPMM;*;R2$;1| (|r| |x| $)
-  (PROG (#1=#:G127 #2=#:G129 |i| #3=#:G128)
+  (PROG (#1=#:G129 #2=#:G131 |i| #3=#:G130)
     (RETURN
      (SEQ
       (PROGN
@@ -20,8 +20,8 @@
        #3#))))) 
 
 (DEFUN |DPMM;*;M2$;2| (|m| |x| $)
-  (PROG (#1=#:G131 #2=#:G130 #3=#:G132 #4=#:G138 |j| #5=#:G135 #6=#:G137 |i|
-         #7=#:G136)
+  (PROG (#1=#:G133 #2=#:G132 #3=#:G134 #4=#:G140 |j| #5=#:G137 #6=#:G139 |i|
+         #7=#:G138)
     (RETURN
      (SEQ
       (PROGN
@@ -60,10 +60,10 @@
             (GO G190) G191 (EXIT NIL))
        #7#))))) 
 
-(DEFUN |DirectProductMatrixModule| (&REST #1=#:G161)
+(DEFUN |DirectProductMatrixModule| (&REST #1=#:G163)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G164)
        (RETURN
         (COND
          ((LETT #2#
@@ -82,7 +82,7 @@
               (HREM |$ConstructorCache| '|DirectProductMatrixModule|))))))))))) 
 
 (DEFUN |DirectProductMatrixModule;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| #1=#:G155 #2=#:G156 #3=#:G158 #4=#:G159 #5=#:G160 $ |dv$| DV$4
+  (PROG (|pv$| #1=#:G157 #2=#:G158 #3=#:G160 #4=#:G161 #5=#:G162 $ |dv$| DV$4
          DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

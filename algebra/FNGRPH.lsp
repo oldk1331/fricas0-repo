@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FNGRPH;functionGraph;L$;1| (|ob| $)
-  (PROG (|objs| #1=#:G143 |x| #2=#:G142)
+  (PROG (|objs| #1=#:G145 |x| #2=#:G144)
     (RETURN
      (SEQ
       (LETT |objs|
@@ -24,8 +24,8 @@
 (DEFUN |FNGRPH;functionGraph;L$;2| (|ob| $) (LIST |ob|)) 
 
 (DEFUN |FNGRPH;functionGraph;LL$;3| (|ob| |ar| $)
-  (PROG (|fobs| |fo| |f| #1=#:G167 |fn| |too| |fromo| #2=#:G166 |a| |arrs|
-         #3=#:G165 |x| #4=#:G164)
+  (PROG (|fobs| |fo| |f| #1=#:G169 |fn| |too| |fromo| #2=#:G168 |a| |arrs|
+         #3=#:G167 |x| #4=#:G166)
     (RETURN
      (SEQ
       (LETT |arrs|
@@ -58,7 +58,7 @@
       (EXIT (LIST |fobs|)))))) 
 
 (DEFUN |FNGRPH;functionGraph;L$;4| (|perms| $)
-  (PROG (|obs| |o| |n| #1=#:G180 |j| #2=#:G178 |vert| #3=#:G179 |i| |preim|
+  (PROG (|obs| |o| |n| #1=#:G182 |j| #2=#:G180 |vert| #3=#:G181 |i| |preim|
          |im| |lr| |perm|)
     (RETURN
      (SEQ
@@ -119,7 +119,7 @@
   (SEQ (QSETVELT (SPADCALL (QCAR |s|) |n1| (QREFELT $ 40)) 3 |n2|) (EXIT |s|))) 
 
 (DEFUN |FNGRPH;getVertices;$L;8| (|s| $)
-  (PROG (|res| |o| #1=#:G201 |soj|)
+  (PROG (|res| |o| #1=#:G203 |soj|)
     (RETURN
      (SEQ (LETT |res| NIL . #2=(|FNGRPH;getVertices;$L;8|))
           (SEQ (LETT |soj| NIL . #2#) (LETT #1# (QCAR |s|) . #2#) G190
@@ -135,7 +135,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |FNGRPH;getArrows;$L;9| (|s| $)
-  (PROG (|res| |a| |soj| #1=#:G209 |sojn|)
+  (PROG (|res| |a| |soj| #1=#:G211 |sojn|)
     (RETURN
      (SEQ (LETT |res| NIL . #2=(|FNGRPH;getArrows;$L;9|))
           (SEQ (LETT |sojn| 1 . #2#) (LETT #1# (LENGTH (QCAR |s|)) . #2#) G190
@@ -161,7 +161,7 @@
           (EXIT (LIST (LIST |o|))))))) 
 
 (DEFUN |FNGRPH;cycleOpen;LS$;12| (|objs| |arrowName| $)
-  (PROG (|obs| |o| |n| |ob| #1=#:G222 |obn|)
+  (PROG (|obs| |o| |n| |ob| #1=#:G224 |obn|)
     (RETURN
      (SEQ (LETT |obs| NIL . #2=(|FNGRPH;cycleOpen;LS$;12|))
           (SEQ (LETT |obn| 1 . #2#) (LETT #1# (LENGTH |objs|) . #2#) G190
@@ -185,7 +185,7 @@
           (EXIT (LIST |obs|)))))) 
 
 (DEFUN |FNGRPH;cycleClosed;LS$;13| (|objs| |arrowName| $)
-  (PROG (|obs| |o| |n| |ob| #1=#:G230 |obn|)
+  (PROG (|obs| |o| |n| |ob| #1=#:G232 |obn|)
     (RETURN
      (SEQ (LETT |obs| NIL . #2=(|FNGRPH;cycleClosed;LS$;13|))
           (SEQ (LETT |obn| 1 . #2#) (LETT #1# (LENGTH |objs|) . #2#) G190
@@ -207,7 +207,7 @@
           (EXIT (LIST |obs|)))))) 
 
 (DEFUN |FNGRPH;unit;LS$;14| (|objs| |arrowName| $)
-  (PROG (#1=#:G236 |x| #2=#:G235)
+  (PROG (#1=#:G238 |x| #2=#:G237)
     (RETURN
      (SEQ
       (LETT |objs|
@@ -232,7 +232,7 @@
   (SEQ (|error| "kgraph not valid in function graph") (EXIT (LIST NIL)))) 
 
 (DEFUN |FNGRPH;+;3$;16| (|a| |b| $)
-  (PROG (|c| #1=#:G248 |x| #2=#:G247 |objs|)
+  (PROG (|c| #1=#:G250 |x| #2=#:G249 |objs|)
     (RETURN
      (SEQ (LETT |objs| (QCAR |b|) . #3=(|FNGRPH;+;3$;16|))
           (LETT |c|
@@ -261,7 +261,7 @@
   (SEQ (|error| "merge not valid in function graph") (EXIT (LIST NIL)))) 
 
 (DEFUN |FNGRPH;indexProd| (|aObj| |a| |b| $)
-  (PROG (|x| #1=#:G252)
+  (PROG (|x| #1=#:G254)
     (RETURN
      (SEQ
       (LETT |x|
@@ -274,8 +274,8 @@
       (EXIT |x|))))) 
 
 (DEFUN |FNGRPH;*;2$Fg;19| (|a| |b| $)
-  (PROG (|newObjs| |ob| |sp| |nextA| |y| |x| |bni| |byi| |bxi| |bi| #1=#:G267
-         |boi| |ani| |ayi| |axi| |ai| #2=#:G266 |aoi|)
+  (PROG (|newObjs| |ob| |sp| |nextA| |y| |x| |bni| |byi| |bxi| |bi| #1=#:G269
+         |boi| |ani| |ayi| |axi| |ai| #2=#:G268 |aoi|)
     (RETURN
      (SEQ (LETT |newObjs| NIL . #3=(|FNGRPH;*;2$Fg;19|))
           (SEQ (LETT |aoi| NIL . #3#) (LETT #2# (QCAR |a|) . #3#) G190
@@ -322,8 +322,8 @@
           (EXIT (SPADCALL |newObjs| (QREFELT $ 64))))))) 
 
 (DEFUN |FNGRPH;closedTensor;2$M$;20| (|a| |b| |f| $)
-  (PROG (|newObjs| |ob| |sp| |nextA| |y| |x| |bni| |byi| |bxi| |bi| #1=#:G277
-         |boi| |ani| |ayi| |axi| |ai| #2=#:G276 |aoi|)
+  (PROG (|newObjs| |ob| |sp| |nextA| |y| |x| |bni| |byi| |bxi| |bi| #1=#:G279
+         |boi| |ani| |ayi| |axi| |ai| #2=#:G278 |aoi|)
     (RETURN
      (SEQ (LETT |newObjs| NIL . #3=(|FNGRPH;closedTensor;2$M$;20|))
           (SEQ (LETT |aoi| NIL . #3#) (LETT #2# (QCAR |a|) . #3#) G190
@@ -369,9 +369,9 @@
           (EXIT (SPADCALL |newObjs| (QREFELT $ 12))))))) 
 
 (DEFUN |FNGRPH;map;$LL2I$;21| (|s| |m| |newOb| |offsetX| |offsetY| $)
-  (PROG (|nwob| #1=#:G295 |p| |nv| |newNext| |newY| #2=#:G283 |newX| #3=#:G282
-         |newObj| |inext| |i| |oldObj| #4=#:G294 |oi| |oldObjs| |newObjs|
-         #5=#:G293 |o| #6=#:G292)
+  (PROG (|nwob| #1=#:G297 |p| |nv| |newNext| |newY| #2=#:G285 |newX| #3=#:G284
+         |newObj| |inext| |i| |oldObj| #4=#:G296 |oi| |oldObjs| |newObjs|
+         #5=#:G295 |o| #6=#:G294)
     (RETURN
      (SEQ
       (LETT |newObjs|
@@ -423,9 +423,9 @@
       (EXIT (LIST |newObjs|)))))) 
 
 (DEFUN |FNGRPH;mapContra;$LL2I$;22| (|s| |m| |newOb| |offsetX| |offsetY| $)
-  (PROG (|nwob| #1=#:G314 |p| |n| |newNext| |incoming| |newY| #2=#:G301 |newX|
-         #3=#:G300 |newObj| |inext| |i| |oldObj| #4=#:G313 |oi| |oldObjs|
-         |newObjs| #5=#:G312 |o| #6=#:G311)
+  (PROG (|nwob| #1=#:G316 |p| |n| |newNext| |incoming| |newY| #2=#:G303 |newX|
+         #3=#:G302 |newObj| |inext| |i| |oldObj| #4=#:G315 |oi| |oldObjs|
+         |newObjs| #5=#:G314 |o| #6=#:G313)
     (RETURN
      (SEQ
       (LETT |newObjs|
@@ -483,8 +483,8 @@
       (EXIT (LIST |newObjs|)))))) 
 
 (DEFUN |FNGRPH;coAdjoint;$LU;23| (|s| |m| $)
-  (PROG (|entry| #1=#:G331 |x| #2=#:G336 |ri| #3=#:G335 |mi| |retOpt| #4=#:G334
-         |ret| #5=#:G333 |codomainSize| #6=#:G332 |domainSize|)
+  (PROG (|entry| #1=#:G333 |x| #2=#:G338 |ri| #3=#:G337 |mi| |retOpt| #4=#:G336
+         |ret| #5=#:G335 |codomainSize| #6=#:G334 |domainSize|)
     (RETURN
      (SEQ
       (EXIT
@@ -547,8 +547,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FNGRPH;contraAdjoint;$LU;24| (|s| |m| $)
-  (PROG (|entry| #1=#:G350 |x| #2=#:G355 |ri| #3=#:G354 |mi| |retOpt| #4=#:G353
-         |ret| #5=#:G352 |codomainSize| #6=#:G351 |domainSize|)
+  (PROG (|entry| #1=#:G352 |x| #2=#:G357 |ri| #3=#:G356 |mi| |retOpt| #4=#:G355
+         |ret| #5=#:G354 |codomainSize| #6=#:G353 |domainSize|)
     (RETURN
      (SEQ
       (EXIT
@@ -614,7 +614,7 @@
   (QVELT (SPADCALL (QCAR |s|) |a| (QREFELT $ 40)) 3)) 
 
 (DEFUN |FNGRPH;limit;$NniL;26| (|s| |a| $)
-  (PROG (|ptr| #1=#:G366 |lp| #2=#:G367 |s1|)
+  (PROG (|ptr| #1=#:G368 |lp| #2=#:G369 |s1|)
     (RETURN
      (SEQ
       (EXIT
@@ -636,10 +636,10 @@
             (EXIT (SPADCALL NIL (QREFELT $ 87)))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |FunctionGraph| (#1=#:G368)
+(DEFUN |FunctionGraph| (#1=#:G370)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G369)
+     (PROG (#2=#:G371)
        (RETURN
         (COND
          ((LETT #2#

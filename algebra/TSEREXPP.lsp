@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |TSEREXPP;rescale| (|p| |r0| |rn| $)
-  (PROG (|s| #1=#:G125)
+  (PROG (|s| #1=#:G127)
     (RETURN
      (SEQ
       (LETT |s|
@@ -16,8 +16,8 @@
       (EXIT (SPADCALL (SPADCALL |p| (QREFELT $ 14)) |s| (QREFELT $ 16))))))) 
 
 (DEFUN |TSEREXPP;common_rep| (|lp| $)
-  (PROG (#1=#:G170 |p| #2=#:G171 |r| #3=#:G169 |rn| #4=#:G168 #5=#:G167
-         #6=#:G166 #7=#:G165 |lr| #8=#:G164 #9=#:G163)
+  (PROG (#1=#:G172 |p| #2=#:G173 |r| #3=#:G171 |rn| #4=#:G170 #5=#:G169
+         #6=#:G168 #7=#:G167 |lr| #8=#:G166 #9=#:G165)
     (RETURN
      (SEQ
       (LETT |lr|
@@ -116,10 +116,10 @@
             . #1#)
       (EXIT (SPADCALL (QCDR |nrep|) |lres| (QREFELT $ 29))))))) 
 
-(DEFUN |TaylorSeriesExpansionPuiseux| (&REST #1=#:G179)
+(DEFUN |TaylorSeriesExpansionPuiseux| (&REST #1=#:G181)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G180)
+     (PROG (#2=#:G182)
        (RETURN
         (COND
          ((LETT #2#

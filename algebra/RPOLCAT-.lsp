@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RPOLCAT-;coerce;SOf;1| (|p| $)
-  (PROG (#1=#:G277 |dp| |tp| |ip|)
+  (PROG (#1=#:G279 |dp| |tp| |ip|)
     (RETURN
      (SEQ
       (EXIT
@@ -113,7 +113,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RPOLCAT-;mvar;SV;2| (|p| $)
-  (PROG (#1=#:G279)
+  (PROG (#1=#:G281)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 11))
@@ -124,7 +124,7 @@
          (|check_union| (QEQCAR #1# 0) (QREFELT $ 9) #1#))))))) 
 
 (DEFUN |RPOLCAT-;mdeg;SNni;3| (|p| $)
-  (PROG (#1=#:G284)
+  (PROG (#1=#:G286)
     (RETURN
      (COND ((SPADCALL |p| (QREFELT $ 11)) 0)
            ('T
@@ -137,7 +137,7 @@
                       (QREFELT $ 34))))))) 
 
 (DEFUN |RPOLCAT-;init;2S;4| (|p| $)
-  (PROG (|v| #1=#:G289)
+  (PROG (|v| #1=#:G291)
     (RETURN
      (SEQ
       (COND
@@ -167,7 +167,7 @@
       ('T (SPADCALL |p| |v| |d| (QREFELT $ 36))))))) 
 
 (DEFUN |RPOLCAT-;head;2S;6| (|p| $)
-  (PROG (|d| |v| #1=#:G297)
+  (PROG (|d| |v| #1=#:G299)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 11)) |p|)
@@ -240,7 +240,7 @@
         ('T (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 11))))) 
 
 (DEFUN |RPOLCAT-;mainMonomial;2S;15| (|p| $)
-  (PROG (|v| #1=#:G325)
+  (PROG (|v| #1=#:G327)
     (RETURN
      (SEQ
       (COND
@@ -261,7 +261,7 @@
                     (QREFELT $ 39)))))))))) 
 
 (DEFUN |RPOLCAT-;leastMonomial;2S;16| (|p| $)
-  (PROG (|v| #1=#:G332)
+  (PROG (|v| #1=#:G334)
     (RETURN
      (SEQ
       (COND
@@ -282,7 +282,7 @@
                     (QREFELT $ 39)))))))))) 
 
 (DEFUN |RPOLCAT-;mainCoefficients;SL;17| (|p| $)
-  (PROG (|v| #1=#:G339)
+  (PROG (|v| #1=#:G341)
     (RETURN
      (SEQ
       (COND
@@ -302,7 +302,7 @@
           (SPADCALL (SPADCALL |p| |v| (QREFELT $ 61)) (QREFELT $ 64)))))))))) 
 
 (DEFUN |RPOLCAT-;mainMonomials;SL;18| (|p| $)
-  (PROG (#1=#:G354 |m| #2=#:G353 |lm| |v| #3=#:G346)
+  (PROG (#1=#:G356 |m| #2=#:G355 |lm| |v| #3=#:G348)
     (RETURN
      (SEQ
       (COND
@@ -434,7 +434,7 @@
   (QVELT (SPADCALL |a| |b| (QREFELT $ 83)) 2)) 
 
 (DEFUN |RPOLCAT-;lazyPrem;2SVS;28| (|a| |b| |v| $)
-  (PROG (|test| |term| #1=#:G396 |lcav| |lcbv| |dav| |dbv|)
+  (PROG (|test| |term| #1=#:G398 |lcav| |lcbv| |dav| |dbv|)
     (RETURN
      (SEQ
       (COND
@@ -626,7 +626,7 @@
                             (QREFELT $ 101)))))))))))))) 
 
 (DEFUN |RPOLCAT-;lazyPremWithDefault;2SR;32| (|a| |b| $)
-  (PROG (#1=#:G445 |test| |delta| |term| #2=#:G441 #3=#:G435 |db| |lcb| |xb|
+  (PROG (#1=#:G447 |test| |delta| |term| #2=#:G443 #3=#:G437 |db| |lcb| |xb|
          |xa|)
     (RETURN
      (SEQ
@@ -725,7 +725,7 @@
                           |a|))))))))))))) 
 
 (DEFUN |RPOLCAT-;lazyPremWithDefault;2SVR;33| (|a| |b| |v| $)
-  (PROG (#1=#:G459 |test| |delta| |term| #2=#:G455 |lcav| |lcbv| |dav| |dbv|)
+  (PROG (#1=#:G461 |test| |delta| |term| #2=#:G457 |lcav| |lcbv| |dav| |dbv|)
     (RETURN
      (SEQ
       (COND
@@ -808,7 +808,7 @@
              (SPADCALL |c| (QVELT |cPS| 3) (QREFELT $ 80)))))))) 
 
 (DEFUN |RPOLCAT-;lazyPseudoDivide;2SR;35| (|a| |b| $)
-  (PROG (#1=#:G485 |test| |delta| |q| |term| #2=#:G481 #3=#:G475 |db| |lcb|
+  (PROG (#1=#:G487 |test| |delta| |q| |term| #2=#:G483 #3=#:G477 |db| |lcb|
          |xb| |xa|)
     (RETURN
      (SEQ
@@ -918,7 +918,7 @@
                           |q| |a|))))))))))))) 
 
 (DEFUN |RPOLCAT-;lazyPseudoDivide;2SVR;36| (|a| |b| |v| $)
-  (PROG (#1=#:G499 |test| |delta| |q| |term| #2=#:G495 |lcav| |lcbv| |dav|
+  (PROG (#1=#:G501 |test| |delta| |q| |term| #2=#:G497 |lcav| |lcbv| |dav|
          |dbv|)
     (RETURN
      (SEQ
@@ -998,7 +998,7 @@
                                        |q| |a|))))))))))))))))) 
 
 (DEFUN |RPOLCAT-;monicModulo;3S;37| (|a| |b| $)
-  (PROG (#1=#:G508 |rec| |ib|)
+  (PROG (#1=#:G510 |rec| |ib|)
     (RETURN
      (SEQ
       (COND
@@ -1036,7 +1036,7 @@
                       (QREFELT $ 80)))))))))))) 
 
 (DEFUN |RPOLCAT-;lazyResidueClass;2SR;38| (|a| |b| $)
-  (PROG (|test| |pow| |term| #1=#:G524 #2=#:G518 |db| |lcb| |xb| |xa|)
+  (PROG (|test| |pow| |term| #1=#:G526 #2=#:G520 |db| |lcb| |xb| |xa|)
     (RETURN
      (SEQ
       (COND
@@ -1219,7 +1219,7 @@
   (SPADCALL |r| |s| (QREFELT $ 125))) 
 
 (DEFUN |RPOLCAT-;iexactQuo;3R;48| (|r| |s| $)
-  (PROG (#1=#:G563)
+  (PROG (#1=#:G565)
     (RETURN
      (PROG2
          (LETT #1# (SPADCALL |r| |s| (QREFELT $ 127))
@@ -1230,7 +1230,7 @@
 (DEFUN |RPOLCAT-;exactQuo| (|r| |s| $) (SPADCALL |r| |s| (QREFELT $ 128))) 
 
 (DEFUN |RPOLCAT-;exactQuotient;SRS;50| (|p| |r| $)
-  (PROG (#1=#:G568)
+  (PROG (#1=#:G570)
     (RETURN
      (PROG2
          (LETT #1# (SPADCALL |p| |r| (QREFELT $ 129))
@@ -1239,7 +1239,7 @@
        (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))) 
 
 (DEFUN |RPOLCAT-;exactQuotient;3S;51| (|a| |b| $)
-  (PROG (#1=#:G572)
+  (PROG (#1=#:G574)
     (RETURN
      (COND
       ((SPADCALL |b| (QREFELT $ 11))
@@ -1252,7 +1252,7 @@
          (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))))) 
 
 (DEFUN |RPOLCAT-;exactQuotient!;3S;52| (|a| |b| $)
-  (PROG (#1=#:G577)
+  (PROG (#1=#:G579)
     (RETURN
      (COND
       ((SPADCALL |b| (QREFELT $ 11))
@@ -1319,7 +1319,7 @@
               (SPADCALL |p| (QREFELT $ 19)) (QREFELT $ 145))))) 
 
 (DEFUN |RPOLCAT-;mainContent;2S;61| (|p| $)
-  (PROG (#1=#:G595 #2=#:G594 #3=#:G596 #4=#:G599 #5=#:G125)
+  (PROG (#1=#:G597 #2=#:G596 #3=#:G598 #4=#:G601 #5=#:G127)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 20)) |p|)
@@ -1344,7 +1344,7 @@
               (COND (#1# #2#) (#6# (|spadConstant| $ 41)))))))))) 
 
 (DEFUN |RPOLCAT-;mainPrimitivePart;2S;62| (|p| $)
-  (PROG (#1=#:G601)
+  (PROG (#1=#:G603)
     (RETURN
      (COND ((SPADCALL |p| (QREFELT $ 20)) |p|)
            ('T
@@ -1361,7 +1361,7 @@
              1)))))) 
 
 (DEFUN |RPOLCAT-;mainSquareFreePart;2S;63| (|p| $)
-  (PROG (|sfp| |v| #1=#:G607)
+  (PROG (|sfp| |v| #1=#:G609)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 11)) |p|)
@@ -1405,7 +1405,7 @@
 (DEFUN |RPOLCAT-;coerce;SP;65| (|p| $) (SPADCALL |p| (QREFELT $ 159))) 
 
 (DEFUN |RPOLCAT-;localRetract| (|p| $)
-  (PROG (|newp| |xvimvp| |c| |d| |vimvp| |imvp| #1=#:G622 |mvp| #2=#:G620)
+  (PROG (|newp| |xvimvp| |c| |d| |vimvp| |imvp| #1=#:G624 |mvp| #2=#:G622)
     (RETURN
      (SEQ
       (COND
@@ -1458,7 +1458,7 @@
                     (QREFELT $ 101)))))))))) 
 
 (DEFUN |RPOLCAT-;localRetractPQ| (|pq| $)
-  (PROG (|newp| |xvimvp| |c| |d| |vimvp| |imvp| #1=#:G632 |mvp| #2=#:G630)
+  (PROG (|newp| |xvimvp| |c| |d| |vimvp| |imvp| #1=#:G634 |mvp| #2=#:G632)
     (RETURN
      (SEQ
       (COND
@@ -1512,7 +1512,7 @@
                     (QREFELT $ 101)))))))))) 
 
 (DEFUN |RPOLCAT-;localRetractPZ| (|pz| $)
-  (PROG (|newp| |xvimvp| |c| |d| |vimvp| |imvp| #1=#:G642 |mvp| #2=#:G640)
+  (PROG (|newp| |xvimvp| |c| |d| |vimvp| |imvp| #1=#:G644 |mvp| #2=#:G642)
     (RETURN
      (SEQ
       (COND
@@ -2039,7 +2039,7 @@
                     (QREFELT $ 245)))))))))) 
 
 (DEFUN |RecursivePolynomialCategory&| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G617 #2=#:G914 |i| #3=#:G913 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G619 #2=#:G916 |i| #3=#:G915 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (SEQ
       (PROGN

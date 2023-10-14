@@ -180,7 +180,7 @@
 (DEFUN |OpenMathDevice| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G171)
+     (PROG (#1=#:G173)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|OpenMathDevice|)

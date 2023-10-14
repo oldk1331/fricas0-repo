@@ -577,10 +577,10 @@
 (DEFUN |GENUPS;series;FESEUsFA;18| (|an| |n| |eq| |seg| |r| $)
   (SPADCALL |an| |n| |eq| |seg| |r| (QREFELT $ 67))) 
 
-(DEFUN |GenerateUnivariatePowerSeries| (&REST #1=#:G209)
+(DEFUN |GenerateUnivariatePowerSeries| (&REST #1=#:G211)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G210)
+     (PROG (#2=#:G212)
        (RETURN
         (COND
          ((LETT #2#

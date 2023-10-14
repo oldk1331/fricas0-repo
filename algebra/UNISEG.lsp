@@ -193,10 +193,10 @@
       (SPADCALL |x| (SPADCALL (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 60))
                 (QREFELT $ 50)))))) 
 
-(DEFUN |UniversalSegment| (#1=#:G227)
+(DEFUN |UniversalSegment| (#1=#:G229)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G228)
+     (PROG (#2=#:G230)
        (RETURN
         (COND
          ((LETT #2#

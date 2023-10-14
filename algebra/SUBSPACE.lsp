@@ -75,7 +75,7 @@
           (EXIT |node|))))) 
 
 (DEFUN |SUBSPACE;deepCopy;2$;11| (|space| $)
-  (PROG (|cc| #1=#:G187 |c| |node|)
+  (PROG (|cc| #1=#:G189 |c| |node|)
     (RETURN
      (SEQ
       (LETT |node| (SPADCALL |space| (QREFELT $ 41))
@@ -112,7 +112,7 @@
       (EXIT |n1|))))) 
 
 (DEFUN |SUBSPACE;merge;L$;13| (|listOfSpaces| $)
-  (PROG (#1=#:G197 |c| #2=#:G196 #3=#:G195 |s| |space|)
+  (PROG (#1=#:G199 |c| #2=#:G198 #3=#:G197 |s| |space|)
     (RETURN
      (SEQ
       (COND
@@ -158,7 +158,7 @@
          (EXIT |space|)))))))) 
 
 (DEFUN |SUBSPACE;separate;$L;14| (|space| $)
-  (PROG (|spaceList| |spc| #1=#:G202 |s|)
+  (PROG (|spaceList| |spc| #1=#:G204 |s|)
     (RETURN
      (SEQ
       (LETT |spaceList| (SPADCALL (QREFELT $ 23))
@@ -175,7 +175,7 @@
       (EXIT |spaceList|))))) 
 
 (DEFUN |SUBSPACE;addPoint;$LP$;15| (|space| |path| |point| $)
-  (PROG (|node| #1=#:G214 |more| |depth| #2=#:G213 |i| |which| |lastPt|)
+  (PROG (|node| #1=#:G216 |more| |depth| #2=#:G215 |i| |which| |lastPt|)
     (RETURN
      (SEQ
       (COND
@@ -209,7 +209,7 @@
       (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|) (EXIT |space|))))) 
 
 (DEFUN |SUBSPACE;addPoint2;$P$;16| (|space| |point| $)
-  (PROG (|node| #1=#:G223 |more| |first| |depth| |which| |lastPt|)
+  (PROG (|node| #1=#:G225 |more| |first| |depth| |which| |lastPt|)
     (RETURN
      (SEQ
       (COND
@@ -239,7 +239,7 @@
       (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|) (EXIT |first|))))) 
 
 (DEFUN |SUBSPACE;addPointLast;2$PNni$;17| (|space| |node| |point| |depth| $)
-  (PROG (#1=#:G232 |more| |which| |lastPt|)
+  (PROG (#1=#:G234 |more| |which| |lastPt|)
     (RETURN
      (SEQ
       (COND
@@ -269,7 +269,7 @@
       (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|) (EXIT |node|))))) 
 
 (DEFUN |SUBSPACE;addPoint;$LNni$;18| (|space| |path| |which| $)
-  (PROG (|node| #1=#:G240 |more| |depth| #2=#:G239 |i|)
+  (PROG (|node| #1=#:G242 |more| |depth| #2=#:G241 |i|)
     (RETURN
      (SEQ (LETT |node| |space| . #3=(|SUBSPACE;addPoint;$LNni$;18|))
           (LETT |depth| 0 . #3#)
@@ -316,7 +316,7 @@
          "You need to pass a top level SubSpace (level should be zero)"))))))) 
 
 (DEFUN |SUBSPACE;modifyPoint;$LP$;20| (|space| |path| |point| $)
-  (PROG (|node| #1=#:G257 |i| |which| |lastPt|)
+  (PROG (|node| #1=#:G259 |i| |which| |lastPt|)
     (RETURN
      (SEQ
       (COND
@@ -345,7 +345,7 @@
       (QSETVELT |node| 0 |point|) (QSETVELT |node| 1 |which|) (EXIT |space|))))) 
 
 (DEFUN |SUBSPACE;modifyPoint;$LNni$;21| (|space| |path| |which| $)
-  (PROG (|node| #1=#:G262 |i|)
+  (PROG (|node| #1=#:G264 |i|)
     (RETURN
      (SEQ (LETT |node| |space| . #2=(|SUBSPACE;modifyPoint;$LNni$;21|))
           (SEQ (LETT |i| NIL . #2#) (LETT #1# |path| . #2#) G190
@@ -371,7 +371,7 @@
       "You need to pass a top level SubSpace (level should be zero)"))))) 
 
 (DEFUN |SUBSPACE;closeComponent;$LB$;23| (|space| |path| |val| $)
-  (PROG (|node| #1=#:G270 |i|)
+  (PROG (|node| #1=#:G272 |i|)
     (RETURN
      (SEQ (LETT |node| |space| . #2=(|SUBSPACE;closeComponent;$LB$;23|))
           (SEQ (LETT |i| NIL . #2#) (LETT #1# |path| . #2#) G190
@@ -385,7 +385,7 @@
           (SPADCALL (QVELT |node| 2) |val| (QREFELT $ 63)) (EXIT |space|))))) 
 
 (DEFUN |SUBSPACE;defineProperty;$LSscp$;24| (|space| |path| |prop| $)
-  (PROG (|node| #1=#:G274 |i|)
+  (PROG (|node| #1=#:G276 |i|)
     (RETURN
      (SEQ (LETT |node| |space| . #2=(|SUBSPACE;defineProperty;$LSscp$;24|))
           (SEQ (LETT |i| NIL . #2#) (LETT #1# |path| . #2#) G190
@@ -399,7 +399,7 @@
           (QSETVELT |node| 2 |prop|) (EXIT |space|))))) 
 
 (DEFUN |SUBSPACE;traverse;$L$;25| (|space| |path| $)
-  (PROG (#1=#:G278 |i|)
+  (PROG (#1=#:G280 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| NIL . #2=(|SUBSPACE;traverse;$L$;25|))
@@ -455,7 +455,7 @@
 (DEFUN |SUBSPACE;level;$Nni;32| (|space| $) (QVELT |space| 5)) 
 
 (DEFUN |SUBSPACE;=;2$B;33| (|s1| |s2| $)
-  (PROG (#1=#:G297 #2=#:G296 #3=#:G298 #4=#:G303 |c1| #5=#:G304 |c2|)
+  (PROG (#1=#:G299 #2=#:G298 #3=#:G300 #4=#:G305 |c1| #5=#:G306 |c2|)
     (RETURN
      (SEQ
       (COND
@@ -515,10 +515,10 @@
             (COND ((EQL |s| 1) " component") ('T " components")))
       (QREFELT $ 84))))) 
 
-(DEFUN |SubSpace| (&REST #1=#:G306)
+(DEFUN |SubSpace| (&REST #1=#:G308)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G307)
+     (PROG (#2=#:G309)
        (RETURN
         (COND
          ((LETT #2#

@@ -56,7 +56,7 @@
        (EXIT (SPADCALL |s| (QREFELT $ 56))))) 
 
 (DEFUN |SET;construct;L$;19| (|l| $)
-  (PROG (|i| #1=#:G182 |x| |a| |n|)
+  (PROG (|i| #1=#:G184 |x| |a| |n|)
     (RETURN
      (SEQ
       (COND
@@ -264,7 +264,7 @@
       (EXIT |r|))))) 
 
 (DEFUN |SET;subset?;2$B;26| (|s| |t| $)
-  (PROG (#1=#:G229 |j| |i| |n| |m|)
+  (PROG (#1=#:G231 |j| |i| |n| |m|)
     (RETURN
      (SEQ
       (EXIT
@@ -352,7 +352,7 @@
           (EXIT |r|))))) 
 
 (DEFUN |SET;insert!;S2$;28| (|x| |s| $)
-  (PROG (#1=#:G243 #2=#:G245 #3=#:G246 |k|)
+  (PROG (#1=#:G245 #2=#:G247 #3=#:G248 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -378,7 +378,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SET;remove!;S2$;29| (|x| |s| $)
-  (PROG (|k| #1=#:G250 |n|)
+  (PROG (|k| #1=#:G252 |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -403,10 +403,10 @@
 (DEFUN |SET;map!;M2$;30| (|f| |s| $)
   (SEQ (SPADCALL |f| |s| (QREFELT $ 54)) (EXIT (SPADCALL |s| (QREFELT $ 75))))) 
 
-(DEFUN |Set| (#1=#:G256)
+(DEFUN |Set| (#1=#:G258)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G257)
+     (PROG (#2=#:G259)
        (RETURN
         (COND
          ((LETT #2#
@@ -420,7 +420,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Set|))))))))))) 
 
 (DEFUN |Set;| (|#1|)
-  (PROG (#1=#:G255 |pv$| $ |dv$| DV$1)
+  (PROG (#1=#:G257 |pv$| $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Set|))

@@ -3,11 +3,11 @@
 
 (DEFUN |PFBRU;solveLinearPolynomialEquationByRecursion;LSupU;1|
        (|lpolys| |pp| $)
-  (PROG (|answer| #1=#:G191 |c| #2=#:G192 |d| #3=#:G190 #4=#:G182 |recAns|
-         |ppx| |i| #5=#:G189 |u| #6=#:G188 |lpolysLower| #7=#:G187 #8=#:G186
-         |rhsdeg| #9=#:G150 #10=#:G149 #11=#:G151 #12=#:G185 |v| |lhsdeg|
-         #13=#:G144 #14=#:G143 #15=#:G145 #16=#:G147 #17=#:G146 #18=#:G148
-         #19=#:G184 #20=#:G183)
+  (PROG (|answer| #1=#:G193 |c| #2=#:G194 |d| #3=#:G192 #4=#:G184 |recAns|
+         |ppx| |i| #5=#:G191 |u| #6=#:G190 |lpolysLower| #7=#:G189 #8=#:G188
+         |rhsdeg| #9=#:G152 #10=#:G151 #11=#:G153 #12=#:G187 |v| |lhsdeg|
+         #13=#:G146 #14=#:G145 #15=#:G147 #16=#:G149 #17=#:G148 #18=#:G150
+         #19=#:G186 #20=#:G185)
     (RETURN
      (SEQ
       (EXIT
@@ -188,12 +188,12 @@
     (RETURN (PROGN (SPADCALL |z1| |i| (QREFELT $ 16)))))) 
 
 (DEFUN |PFBRU;hensel| (|pp| |r| |factors| $)
-  (PROG (|pn| |n| |totdegree| #1=#:G246 #2=#:G245 #3=#:G247 #4=#:G249 #5=#:G248
-         #6=#:G250 #7=#:G268 |u| #8=#:G267 |u1| #9=#:G258 |foundFactors|
-         |origFactors| |proddegree| #10=#:G239 #11=#:G238 #12=#:G240 #13=#:G266
-         |pp1| #14=#:G264 |a| #15=#:G265 |c| #16=#:G262 #17=#:G263 |b|
-         #18=#:G261 |step| |Ecart| #19=#:G228 #20=#:G227 #21=#:G229 #22=#:G260
-         #23=#:G125 |prime| #24=#:G198 #25=#:G197 #26=#:G199 #27=#:G259)
+  (PROG (|pn| |n| |totdegree| #1=#:G248 #2=#:G247 #3=#:G249 #4=#:G251 #5=#:G250
+         #6=#:G252 #7=#:G270 |u| #8=#:G269 |u1| #9=#:G260 |foundFactors|
+         |origFactors| |proddegree| #10=#:G241 #11=#:G240 #12=#:G242 #13=#:G268
+         |pp1| #14=#:G266 |a| #15=#:G267 |c| #16=#:G264 #17=#:G265 |b|
+         #18=#:G263 |step| |Ecart| #19=#:G230 #20=#:G229 #21=#:G231 #22=#:G262
+         #23=#:G127 |prime| #24=#:G200 #25=#:G199 #26=#:G201 #27=#:G261)
     (RETURN
      (SEQ
       (EXIT
@@ -517,7 +517,7 @@
      (PROGN (SPADCALL |z1| (SPADCALL |r| (QREFELT $ 37)) (QREFELT $ 47)))))) 
 
 (DEFUN |PFBRU;chooseFSQViableSubstitutions| (|pp| $)
-  (PROG (#1=#:G273 |ppR| |substns|)
+  (PROG (#1=#:G275 |ppR| |substns|)
     (RETURN
      (SEQ
       (SEQ
@@ -566,7 +566,7 @@
 (DEFUN |PFBRU;lower| (|pp| $) (SPADCALL (ELT $ 66) |pp| (QREFELT $ 20))) 
 
 (DEFUN |PFBRU;factorSFBRlcUnitInner| (|pp| |r| $)
-  (PROG (#1=#:G300 |u| #2=#:G299 |hen| |factors| #3=#:G298 #4=#:G297 |fDown|
+  (PROG (#1=#:G302 |u| #2=#:G301 |hen| |factors| #3=#:G300 #4=#:G299 |fDown|
          |ppR|)
     (RETURN
      (SEQ
@@ -663,7 +663,7 @@
     (RETURN (PROGN (SPADCALL |z1| |r| (QREFELT $ 57)))))) 
 
 (DEFUN |PFBRU;factorSFBRlcUnit;SupF;7| (|pp| $)
-  (PROG (#1=#:G308 |val| |val1| |tempAns|)
+  (PROG (#1=#:G310 |val| |val1| |tempAns|)
     (RETURN
      (SEQ
       (EXIT
@@ -690,7 +690,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PFBRU;factorSFBRlcUnit;SupF;8| (|pp| $)
-  (PROG (#1=#:G312 |val| |tempAns|)
+  (PROG (#1=#:G314 |val| |tempAns|)
     (RETURN
      (SEQ
       (EXIT
@@ -727,7 +727,7 @@
 (DEFUN |PFBRU;randomR;R;11| ($) (SPADCALL (RANDOM 100) (QREFELT $ 86))) 
 
 (DEFUN |PFBRU;factorByRecursion;SupF;12| (|pp| $)
-  (PROG (#1=#:G328 |c| #2=#:G323 #3=#:G322 #4=#:G324 #5=#:G335 |u|)
+  (PROG (#1=#:G330 |c| #2=#:G325 #3=#:G324 #4=#:G326 #5=#:G337 |u|)
     (RETURN
      (SEQ
       (COND
@@ -777,11 +777,11 @@
                    (QREFELT $ 105)))))))))))))) 
 
 (DEFUN |PFBRU;factorSquareFreeByRecursion;SupF;13| (|pp| $)
-  (PROG (#1=#:G378 |w| #2=#:G377 #3=#:G357 |factors| #4=#:G360 |lcppPow| |lc|
-         #5=#:G376 #6=#:G375 #7=#:G355 |hen| OK |ppAdjust| #8=#:G374 |u|
-         #9=#:G373 #10=#:G348 #11=#:G372 #12=#:G371 |lcppR| |oldnfact|
-         #13=#:G369 |nfact| |factorsR| |newppR| |cVS| |lcpp| #14=#:G337
-         #15=#:G336 #16=#:G338 #17=#:G370)
+  (PROG (#1=#:G380 |w| #2=#:G379 #3=#:G359 |factors| #4=#:G362 |lcppPow| |lc|
+         #5=#:G378 #6=#:G377 #7=#:G357 |hen| OK |ppAdjust| #8=#:G376 |u|
+         #9=#:G375 #10=#:G350 #11=#:G374 #12=#:G373 |lcppR| |oldnfact|
+         #13=#:G371 |nfact| |factorsR| |newppR| |cVS| |lcpp| #14=#:G339
+         #15=#:G338 #16=#:G340 #17=#:G372)
     (RETURN
      (SEQ
       (EXIT
@@ -1009,10 +1009,10 @@
                 (QREFELT $ 80)))))))
       #13# (EXIT #13#))))) 
 
-(DEFUN |PolynomialFactorizationByRecursionUnivariate| (&REST #1=#:G379)
+(DEFUN |PolynomialFactorizationByRecursionUnivariate| (&REST #1=#:G381)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G380)
+     (PROG (#2=#:G382)
        (RETURN
         (COND
          ((LETT #2#

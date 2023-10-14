@@ -10,7 +10,7 @@
   (SPADCALL |d| |z| (QREFELT $ 17))) 
 
 (DEFUN |DIRPCAT-;equation2R| (|v| $)
-  (PROG (#1=#:G145 |j| #2=#:G144 |i| |ans|)
+  (PROG (#1=#:G147 |j| #2=#:G146 |i| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -35,7 +35,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |DIRPCAT-;reducedSystem;MM;5| (|m| $)
-  (PROG (#1=#:G152 |i| #2=#:G151)
+  (PROG (#1=#:G154 |i| #2=#:G153)
     (RETURN
      (SEQ
       (COND
@@ -84,7 +84,7 @@
 (DEFUN |DIRPCAT-;size;Nni;9| ($) (EXPT (SPADCALL (QREFELT $ 51)) (QREFELT $ 7))) 
 
 (DEFUN |DIRPCAT-;index;PiS;10| (|n| $)
-  (PROG (|n0| #1=#:G163 |d| #2=#:G168 |i| |r| |s|)
+  (PROG (|n0| #1=#:G165 |d| #2=#:G170 |i| |r| |s|)
     (RETURN
      (SEQ (LETT |s| (SPADCALL (QREFELT $ 51)) . #3=(|DIRPCAT-;index;PiS;10|))
           (LETT |r| (MAKEARR1 (QREFELT $ 7) (SPADCALL 1 (QREFELT $ 54))) . #3#)
@@ -104,7 +104,7 @@
           (EXIT (SPADCALL |r| (QREFELT $ 56))))))) 
 
 (DEFUN |DIRPCAT-;lookup;SPi;11| (|v| $)
-  (PROG (#1=#:G171 |pow| |res| #2=#:G174 |i| |s|)
+  (PROG (#1=#:G173 |pow| |res| #2=#:G176 |i| |s|)
     (RETURN
      (SEQ (LETT |s| (SPADCALL (QREFELT $ 51)) . #3=(|DIRPCAT-;lookup;SPi;11|))
           (LETT |pow| 1 . #3#) (LETT |res| 1 . #3#)

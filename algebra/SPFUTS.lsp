@@ -62,7 +62,7 @@
     (LETT |k| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|lm| |ck_m| #2=#:G145 |cm| #3=#:G144 |m| #4=#:G143 |ss| |two|
+      (PROG (|lm| |ck_m| #2=#:G147 |cm| #3=#:G146 |m| #4=#:G145 |ss| |two|
              |three| |ck|)
         (RETURN
          (SEQ (LETT |lm| (SPADCALL |lcr| (QREFELT $ 31)) NIL)
@@ -187,10 +187,10 @@
                  (SPADCALL (SPADCALL |lsigma| (QREFELT $ 56)) (QREFELT $ 12))
                  (QREFELT $ 15))))))) 
 
-(DEFUN |SpecialFunctionUnivariateTaylorSeries| (&REST #1=#:G155)
+(DEFUN |SpecialFunctionUnivariateTaylorSeries| (&REST #1=#:G157)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G156)
+     (PROG (#2=#:G158)
        (RETURN
         (COND
          ((LETT #2#

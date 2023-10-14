@@ -242,7 +242,7 @@
     (RETURN (PROGN (SPADCALL |x1| |y| (QREFELT $ 77)))))) 
 
 (DEFUN |INTG0;palglimint0;F2KLKFFU;12| (|f| |x| |y| |lu| |z| |xx| |dx| $)
-  (PROG (#1=#:G179 |u| #2=#:G178)
+  (PROG (#1=#:G181 |u| #2=#:G180)
     (RETURN
      (SEQ
       (SPADCALL (CONS #'|INTG0;palglimint0;F2KLKFFU;12!0| (VECTOR $ |y|))
@@ -276,7 +276,7 @@
 
 (DEFUN |INTG0;palgRDE0;2F2KMKFFU;13|
        (|f| |g| |x| |y| |rischde| |z| |xx| |dx| $)
-  (PROG (|u| #1=#:G184)
+  (PROG (|u| #1=#:G186)
     (RETURN
      (SEQ
       (LETT |u|
@@ -337,7 +337,7 @@
     (RETURN (PROGN (SPADCALL |f1| (QVELT |pr| 0) (QREFELT $ 37)))))) 
 
 (DEFUN |INTG0;palglimint0;F2KLFSupU;16| (|f| |x| |y| |lu| |den| |radi| $)
-  (PROG (#1=#:G226 |u| #2=#:G225 |pr|)
+  (PROG (#1=#:G228 |u| #2=#:G227 |pr|)
     (RETURN
      (SEQ
       (LETT |pr| (|INTG0;quadsubst| |x| |y| |den| |radi| $)
@@ -374,7 +374,7 @@
 
 (DEFUN |INTG0;palgRDE0;2F2KMFSupU;17|
        (|f| |g| |x| |y| |rischde| |den| |radi| $)
-  (PROG (|u| #1=#:G233 |pr|)
+  (PROG (|u| #1=#:G235 |pr|)
     (RETURN
      (SEQ
       (LETT |pr| (|INTG0;quadsubst| |x| |y| |den| |radi| $)
@@ -404,7 +404,7 @@
                               (QREFELT $ 68)))))))))) 
 
 (DEFUN |INTG0;palgLODE0;LF2KFSupR;18| (|eq| |g| |x| |y| |den| |radi| $)
-  (PROG (#1=#:G245 |bas| #2=#:G255 |b| #3=#:G254 |rec| |di| |op| #4=#:G253 |i|
+  (PROG (#1=#:G247 |bas| #2=#:G257 |b| #3=#:G256 |rec| |di| |op| #4=#:G255 |i|
          |d| |pr|)
     (RETURN
      (SEQ
@@ -476,7 +476,7 @@
                |bas|)))))))) 
 
 (DEFUN |INTG0;palgLODE0;LF3KFFR;19| (|eq| |g| |x| |y| |kz| |xx| |dx| $)
-  (PROG (#1=#:G262 |bas| #2=#:G271 |b| #3=#:G270 |rec| |di| |op| #4=#:G269 |i|
+  (PROG (#1=#:G264 |bas| #2=#:G273 |b| #3=#:G272 |rec| |di| |op| #4=#:G271 |i|
          |lv| |lk| |d|)
     (RETURN
      (SEQ
@@ -541,10 +541,10 @@
                       |y| (QREFELT $ 77)))
                |bas|)))))))) 
 
-(DEFUN |GenusZeroIntegration| (&REST #1=#:G272)
+(DEFUN |GenusZeroIntegration| (&REST #1=#:G274)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G273)
+     (PROG (#2=#:G275)
        (RETURN
         (COND
          ((LETT #2#

@@ -34,7 +34,7 @@
     (SPADCALL (QVELT |viewport| 1) |which| (CONS 0 |aGraph|) (QREFELT $ 29))))) 
 
 (DEFUN |VIEW2D;getGraph;$PiGi;6| (|viewport| |which| $)
-  (PROG (#1=#:G186)
+  (PROG (#1=#:G188)
     (RETURN
      (SEQ
       (COND
@@ -73,7 +73,7 @@
        (EXIT (QSETVELT |viewport| 5 (CONS |ViewWidth| |ViewHeight|))))) 
 
 (DEFUN |VIEW2D;move;$2NniV;11| (|viewport| |xLoc| |yLoc| $)
-  (PROG (#1=#:G207)
+  (PROG (#1=#:G209)
     (RETURN
      (SEQ
       (EXIT
@@ -112,7 +112,7 @@
     ('T (SPADCALL (QREFELT $ 45)))))) 
 
 (DEFUN |VIEW2D;resize;$2PiV;13| (|viewport| |xSize| |ySize| $)
-  (PROG (#1=#:G218)
+  (PROG (#1=#:G220)
     (RETURN
      (SEQ
       (EXIT
@@ -136,7 +136,7 @@
 
 (DEFUN |VIEW2D;translate;$Pi2FV;14|
        (|viewport| |graphIndex| |xTranslateF| |yTranslateF| $)
-  (PROG (#1=#:G223 |yTranslate| |xTranslate|)
+  (PROG (#1=#:G225 |yTranslate| |xTranslate|)
     (RETURN
      (SEQ
       (EXIT
@@ -170,7 +170,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;scale;$Pi2FV;15| (|viewport| |graphIndex| |xScaleF| |yScaleF| $)
-  (PROG (#1=#:G228 |yScale| |xScale|)
+  (PROG (#1=#:G230 |yScale| |xScale|)
     (RETURN
      (SEQ
       (EXIT
@@ -300,7 +300,7 @@
             (QREFELT $ 66))) 
 
 (DEFUN |VIEW2D;title;$SV;21| (|viewport| |Title| $)
-  (PROG (#1=#:G265)
+  (PROG (#1=#:G267)
     (RETURN
      (SEQ
       (EXIT
@@ -335,7 +335,7 @@
     ('T (SPADCALL (QREFELT $ 45)))))) 
 
 (DEFUN |VIEW2D;axes;$PiSV;23| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G275 |status|)
+  (PROG (#1=#:G277 |status|)
     (RETURN
      (SEQ
       (EXIT
@@ -366,7 +366,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;axes;$PiPV;24| (|viewport| |graphIndex| |color| $)
-  (PROG (#1=#:G280 |hueShade|)
+  (PROG (#1=#:G282 |hueShade|)
     (RETURN
      (SEQ
       (EXIT
@@ -402,7 +402,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;units;$PiSV;25| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G285 |status|)
+  (PROG (#1=#:G287 |status|)
     (RETURN
      (SEQ
       (EXIT
@@ -434,7 +434,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;units;$PiPV;26| (|viewport| |graphIndex| |color| $)
-  (PROG (#1=#:G290 |hueShade|)
+  (PROG (#1=#:G292 |hueShade|)
     (RETURN
      (SEQ
       (EXIT
@@ -470,7 +470,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;connect;$PiSV;27| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G295 |status|)
+  (PROG (#1=#:G297 |status|)
     (RETURN
      (SEQ
       (EXIT
@@ -502,7 +502,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;points;$PiSV;28| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G300 |status|)
+  (PROG (#1=#:G302 |status|)
     (RETURN
      (SEQ
       (EXIT
@@ -534,7 +534,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;region;$PiSV;29| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G305 |status|)
+  (PROG (#1=#:G307 |status|)
     (RETURN
      (SEQ
       (EXIT
@@ -566,7 +566,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;show;$PiSV;30| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G310 |status|)
+  (PROG (#1=#:G312 |status|)
     (RETURN
      (SEQ
       (EXIT
@@ -597,7 +597,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW2D;controlPanel;$SV;31| (|viewport| |onOff| $)
-  (PROG (#1=#:G316)
+  (PROG (#1=#:G318)
     (RETURN
      (SEQ
       (EXIT
@@ -657,7 +657,7 @@
   (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 88)) (QREFELT $ 86))) 
 
 (DEFUN |VIEW2D;write;$SLS;36| (|viewport| |Filename| |thingsToWrite| $)
-  (PROG (#1=#:G336 |writeTypeInt| #2=#:G338 |aTypeOfFile| |m| |avail|
+  (PROG (#1=#:G338 |writeTypeInt| #2=#:G340 |aTypeOfFile| |m| |avail|
          |stringToSend|)
     (RETURN
      (SEQ
@@ -723,7 +723,7 @@
 (DEFUN |TwoDimensionalViewport| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G340)
+     (PROG (#1=#:G342)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|TwoDimensionalViewport|)

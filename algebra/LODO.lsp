@@ -15,10 +15,10 @@
 (DEFUN |LODO;directSum;3$;5| (|a| |b| $)
   (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 30))) 
 
-(DEFUN |LinearOrdinaryDifferentialOperator| (&REST #1=#:G150)
+(DEFUN |LinearOrdinaryDifferentialOperator| (&REST #1=#:G152)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G151)
+     (PROG (#2=#:G153)
        (RETURN
         (COND
          ((LETT #2#

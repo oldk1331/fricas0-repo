@@ -4,7 +4,7 @@
 (DEFUN |ODERTRIC;UP2SUP| (|p| $) (SPADCALL (ELT $ 12) |p| (QREFELT $ 16))) 
 
 (DEFUN |ODERTRIC;logDerOnly| (|l| $)
-  (PROG (#1=#:G140 |s| #2=#:G139)
+  (PROG (#1=#:G142 |s| #2=#:G141)
     (RETURN
      (SEQ
       (PROGN
@@ -58,7 +58,7 @@
       (SPADCALL (SPADCALL |z| |ls| |lv| (QREFELT $ 49)) (QREFELT $ 50)))))) 
 
 (DEFUN |ODERTRIC;FifCan| (|f| $)
-  (PROG (#1=#:G159 |d| |n|)
+  (PROG (#1=#:G161 |d| |n|)
     (RETURN
      (SEQ
       (COND
@@ -105,7 +105,7 @@
       (EXIT (CONS |ans| (NREVERSE |l|))))))) 
 
 (DEFUN |ODERTRIC;ratsln| (|l| $)
-  (PROG (|ls| |lv| #1=#:G182 #2=#:G185 |v| |u| #3=#:G186 |eq|)
+  (PROG (|ls| |lv| #1=#:G184 #2=#:G187 |v| |u| #3=#:G188 |eq|)
     (RETURN
      (SEQ
       (EXIT
@@ -155,7 +155,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ODERTRIC;ratsol| (|l| $)
-  (PROG (|ans| |u| #1=#:G195 |sol|)
+  (PROG (|ans| |u| #1=#:G197 |sol|)
     (RETURN
      (SEQ (LETT |ans| NIL . #2=(|ODERTRIC;ratsol|))
           (SEQ (LETT |sol| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -171,7 +171,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |ODERTRIC;polyRicDE;LodoML;12| (|l| |zeros| $)
-  (PROG (|ans| |p| #1=#:G219 |a| #2=#:G218 |rec| |lc|)
+  (PROG (|ans| |p| #1=#:G221 |a| #2=#:G220 |rec| |lc|)
     (RETURN
      (SEQ
       (LETT |ans| (LIST (CONS (|spadConstant| $ 18) |l|))
@@ -218,7 +218,7 @@
                (EXIT |ans|))))))))) 
 
 (DEFUN |ODERTRIC;reverseUP| (|p| $)
-  (PROG (|ans| #1=#:G220 |n|)
+  (PROG (|ans| #1=#:G222 |n|)
     (RETURN
      (SEQ (LETT |ans| (|spadConstant| $ 82) . #2=(|ODERTRIC;reverseUP|))
           (LETT |n| (SPADCALL |p| (QREFELT $ 83)) . #2#)
@@ -248,7 +248,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |ODERTRIC;reverseUTS| (|s| |n| $)
-  (PROG (#1=#:G226 #2=#:G225 #3=#:G227 #4=#:G228 |i|)
+  (PROG (#1=#:G228 #2=#:G227 #3=#:G229 #4=#:G230 |i|)
     (RETURN
      (SEQ
       (PROGN
@@ -270,7 +270,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 18)))))))) 
 
 (DEFUN |ODERTRIC;newtonSolution| (|l| |a| |n| |zeros| $)
-  (PROG (|sols| #1=#:G252 |sol| #2=#:G251 |neq| |atn| |u| |aeq| |s| #3=#:G239
+  (PROG (|sols| #1=#:G254 |sol| #2=#:G253 |neq| |atn| |u| |aeq| |s| #3=#:G241
          |d| |c| |m| |op| |mu|)
     (RETURN
      (SEQ (LETT |m| 0 . #4=(|ODERTRIC;newtonSolution|))
@@ -356,7 +356,7 @@
                                          (QREFELT $ 90))))))))))))) 
 
 (DEFUN |ODERTRIC;newtonSolve| (|eq| |a| |n| $)
-  (PROG (|sol| #1=#:G259 |xquo| |i| |deq|)
+  (PROG (|sol| #1=#:G261 |xquo| |i| |deq|)
     (RETURN
      (SEQ
       (EXIT
@@ -385,7 +385,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ODERTRIC;ricDsolve;LodoMML;17| (|l| |zeros| |ezfactor| $)
-  (PROG (#1=#:G265 #2=#:G268 |ans| #3=#:G271 |f| #4=#:G270 #5=#:G269 |rec| |n|)
+  (PROG (#1=#:G267 #2=#:G270 |ans| #3=#:G273 |f| #4=#:G272 #5=#:G271 |rec| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -443,7 +443,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ODERTRIC;nonSingSolve| (|n| |l| |zeros| $)
-  (PROG (#1=#:G278 #2=#:G281 |ans| #3=#:G282 |rec|)
+  (PROG (#1=#:G280 #2=#:G283 |ans| #3=#:G284 |rec|)
     (RETURN
      (SEQ
       (EXIT
@@ -481,7 +481,7 @@
         ('T (SPADCALL (SPADCALL |p| (QREFELT $ 115)) |zeros|)))) 
 
 (DEFUN |ODERTRIC;nopoly| (|n| |p| |l| |zeros| $)
-  (PROG (#1=#:G289 #2=#:G292 |ans| #3=#:G295 |f| #4=#:G294 #5=#:G293 |rec|)
+  (PROG (#1=#:G291 #2=#:G294 |ans| #3=#:G297 |f| #4=#:G296 #5=#:G295 |rec|)
     (RETURN
      (SEQ
       (EXIT
@@ -556,7 +556,7 @@
     (RETURN (PROGN (|ODERTRIC;constantRic| |z| |zeros| $))))) 
 
 (DEFUN |ODERTRIC;solveModulo| (|c| |h| $)
-  (PROG (#1=#:G306 |s| #2=#:G305 |sol| |unk| |rec|)
+  (PROG (#1=#:G308 |s| #2=#:G307 |sol| |unk| |rec|)
     (RETURN
      (SEQ
       (LETT |rec|
@@ -642,7 +642,7 @@
     (RETURN (PROGN (|ODERTRIC;zro| |z| |ezfactor| $))))) 
 
 (DEFUN |ODERTRIC;zro| (|p| |ezfactor| $)
-  (PROG (#1=#:G323 |r| #2=#:G322)
+  (PROG (#1=#:G325 |r| #2=#:G324)
     (RETURN
      (SEQ
       (SPADCALL
@@ -668,10 +668,10 @@
 
 (DEFUN |ODERTRIC;zro1!0| (|z| $$) |z|) 
 
-(DEFUN |RationalRicDE| (&REST #1=#:G327)
+(DEFUN |RationalRicDE| (&REST #1=#:G329)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G328)
+     (PROG (#2=#:G330)
        (RETURN
         (COND
          ((LETT #2#

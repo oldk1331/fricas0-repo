@@ -81,10 +81,10 @@
                        (QREFELT $ 36))
              (QREFELT $ 39)))) 
 
-(DEFUN |Octonion| (#1=#:G190)
+(DEFUN |Octonion| (#1=#:G192)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G191)
+     (PROG (#2=#:G193)
        (RETURN
         (COND
          ((LETT #2#

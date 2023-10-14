@@ -9,10 +9,10 @@
 
 (DEFUN |MAPHACK2;arg2;A2C;2| (|a| |c| $) |c|) 
 
-(DEFUN |MappingPackageInternalHacks2| (&REST #1=#:G127)
+(DEFUN |MappingPackageInternalHacks2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

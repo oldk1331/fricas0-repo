@@ -44,7 +44,7 @@
 (DEFUN |IFAMON;mapGen;M2$;13| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 45))) 
 
 (DEFUN |IFAMON;coefficient;S$E;14| (|s| |f| $)
-  (PROG (#1=#:G149 #2=#:G151 #3=#:G152 |x|)
+  (PROG (#1=#:G151 #2=#:G153 #3=#:G154 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -70,7 +70,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |IFAMON;highCommonTerms;3$;15| (|f| |g| $)
-  (PROG (|n| #1=#:G157 |x| #2=#:G156)
+  (PROG (|n| #1=#:G159 |x| #2=#:G158)
     (RETURN
      (SEQ
       (SPADCALL
@@ -96,10 +96,10 @@
              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
        (QREFELT $ 52)))))) 
 
-(DEFUN |InnerFreeAbelianMonoid| (&REST #1=#:G164)
+(DEFUN |InnerFreeAbelianMonoid| (&REST #1=#:G166)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G165)
+     (PROG (#2=#:G167)
        (RETURN
         (COND
          ((LETT #2#

@@ -4,13 +4,13 @@
 (DEFPARAMETER |SpecialFunctionCategory;AL| 'NIL) 
 
 (DEFUN |SpecialFunctionCategory| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|SpecialFunctionCategory;AL|)
           (T
            (SETQ |SpecialFunctionCategory;AL| (|SpecialFunctionCategory;|)))))) 
 
 (DEFUN |SpecialFunctionCategory;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

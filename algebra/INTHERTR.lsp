@@ -18,7 +18,7 @@
                (SPADCALL (QCAR |qr|) (QVELT |rec| 0) (QREFELT $ 16)))))))) 
 
 (DEFUN |INTHERTR;normalHermiteIntegrate| (|f| |derivation| $)
-  (PROG (|mult| |p| |a| #1=#:G136 |qr| |bc| #2=#:G140 |qtil| |qbarhat| |g|
+  (PROG (|mult| |p| |a| #1=#:G138 |qr| |bc| #2=#:G142 |qtil| |qbarhat| |g|
          |qbar| |qhat| |g0| |q|)
     (RETURN
      (SEQ
@@ -116,10 +116,10 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT (VECTOR (SPADCALL |p| |g0| (QREFELT $ 15)) |a| |qhat|)))))) 
 
-(DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G147)
+(DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G148)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#

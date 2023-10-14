@@ -9,10 +9,10 @@
            (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                  ('T (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 14)))))))))) 
 
-(DEFUN |DrawOptionFunctions1| (#1=#:G136)
+(DEFUN |DrawOptionFunctions1| (#1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

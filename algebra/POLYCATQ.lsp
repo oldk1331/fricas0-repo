@@ -7,7 +7,7 @@
             (QREFELT $ 15))) 
 
 (DEFUN |POLYCATQ;univ_root| (|f| |x| |a| |k| |modulus| $)
-  (PROG (|nd| |cofact| |cf2| #1=#:G139 |ndu| |nd1| |cf1| |c0| |c1| |c2| |df|
+  (PROG (|nd| |cofact| |cf2| #1=#:G141 |ndu| |nd1| |cf1| |c0| |c1| |c2| |df|
          |nf|)
     (RETURN
      (SEQ
@@ -217,7 +217,7 @@
                 (#2# (CONS 1 "failed")))))))))))) 
 
 (DEFUN |POLYCATQ;isTimes;FU;9| (|f| $)
-  (PROG (|d| |den| |l| #1=#:G211 |x| #2=#:G210 |t| |num|)
+  (PROG (|d| |den| |l| #1=#:G213 |x| #2=#:G212 |t| |num|)
     (RETURN
      (SEQ
       (LETT |t|
@@ -264,7 +264,7 @@
                   (CONS 0 (SPADCALL (QCDR |l|) |d| (QREFELT $ 81)))))))))))))) 
 
 (DEFUN |POLYCATQ;isPlus;FU;10| (|f| $)
-  (PROG (#1=#:G223 |x| #2=#:G222 |s|)
+  (PROG (#1=#:G225 |x| #2=#:G224 |s|)
     (RETURN
      (SEQ
       (COND
@@ -309,10 +309,10 @@
 (DEFUN |POLYCATQ;P2UP| (|p| |x| $)
   (SPADCALL (ELT $ 56) (SPADCALL |p| |x| (QREFELT $ 91)) (QREFELT $ 95))) 
 
-(DEFUN |PolynomialCategoryQuotientFunctions| (&REST #1=#:G230)
+(DEFUN |PolynomialCategoryQuotientFunctions| (&REST #1=#:G232)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G231)
+     (PROG (#2=#:G233)
        (RETURN
         (COND
          ((LETT #2#

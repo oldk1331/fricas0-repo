@@ -39,7 +39,7 @@
                      (SPADCALL (QCDR |r|) |xm| (QREFELT $ 19)))))))))))) 
 
 (DEFUN |EMR;rem;3$;2| (|x| |y| $)
-  (PROG (#1=#:G186 |xv| #2=#:G180 |xvl| |d| |dy| |yv| |invlcy| |xm| |t|)
+  (PROG (#1=#:G188 |xv| #2=#:G182 |xvl| |d| |dy| |yv| |invlcy| |xm| |t|)
     (RETURN
      (SEQ
       (EXIT
@@ -202,10 +202,10 @@
 (DEFUN |EMR;elt;$2R;7| (|x| |s| $)
   (SPADCALL (SPADCALL (QCAR |x|) |s| (QREFELT $ 43)) (QCDR |x|) (QREFELT $ 9))) 
 
-(DEFUN |EuclideanModularRing| (&REST #1=#:G226)
+(DEFUN |EuclideanModularRing| (&REST #1=#:G228)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G227)
+     (PROG (#2=#:G229)
        (RETURN
         (COND
          ((LETT #2#

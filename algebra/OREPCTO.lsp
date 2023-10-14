@@ -67,7 +67,7 @@
                     (#2# (CONS (QCAR |pp|) |z|)))))))))))) 
 
 (DEFUN |OREPCTO;apply;C2RAMR;3| (|p| |c| |x| |sigma| |delta| $)
-  (PROG (|xn| |w| #1=#:G157 |i|)
+  (PROG (|xn| |w| #1=#:G159 |i|)
     (RETURN
      (SEQ (LETT |w| (|spadConstant| $ 20) . #2=(|OREPCTO;apply;C2RAMR;3|))
           (LETT |xn| |x| . #2#)
@@ -92,7 +92,7 @@
           (EXIT |w|))))) 
 
 (DEFUN |OREPCTO;localLeftDivide| (|a| |b| |sigma| |b1| $)
-  (PROG (|qr| |q| #1=#:G164 |n| |m|)
+  (PROG (|qr| |q| #1=#:G166 |n| |m|)
     (RETURN
      (SEQ
       (COND
@@ -137,7 +137,7 @@
          #1# (EXIT #1#)))))))) 
 
 (DEFUN |OREPCTO;localRightDivide| (|a| |b| |sigma| |b1| $)
-  (PROG (|qr| |q| #1=#:G173 |n| |m|)
+  (PROG (|qr| |q| #1=#:G175 |n| |m|)
     (RETURN
      (SEQ
       (COND
@@ -183,7 +183,7 @@
          #1# (EXIT #1#)))))))) 
 
 (DEFUN |OREPCTO;monicLeftDivide;2CAR;6| (|a| |b| |sigma| $)
-  (PROG (#1=#:G178 |u|)
+  (PROG (#1=#:G180 |u|)
     (RETURN
      (COND
       ((SPADCALL
@@ -198,7 +198,7 @@
       ('T (|error| "monicLeftDivide: divisor is not monic")))))) 
 
 (DEFUN |OREPCTO;monicRightDivide;2CAR;7| (|a| |b| |sigma| $)
-  (PROG (#1=#:G185 |u|)
+  (PROG (#1=#:G187 |u|)
     (RETURN
      (COND
       ((SPADCALL
@@ -220,10 +220,10 @@
   (|OREPCTO;localRightDivide| |a| |b| |sigma|
    (SPADCALL (SPADCALL |b| (QREFELT $ 21)) (QREFELT $ 41)) $)) 
 
-(DEFUN |UnivariateSkewPolynomialCategoryOps| (&REST #1=#:G193)
+(DEFUN |UnivariateSkewPolynomialCategoryOps| (&REST #1=#:G195)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G194)
+     (PROG (#2=#:G196)
        (RETURN
         (COND
          ((LETT #2#

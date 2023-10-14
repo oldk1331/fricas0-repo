@@ -43,10 +43,10 @@
   (SPADCALL (ELT $ 11) (SPADCALL (ELT $ 21) |l| (QREFELT $ 16))
             (|spadConstant| $ 22) (QREFELT $ 24))) 
 
-(DEFUN |InnerCommonDenominator| (&REST #1=#:G143)
+(DEFUN |InnerCommonDenominator| (&REST #1=#:G145)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G144)
+     (PROG (#2=#:G146)
        (RETURN
         (COND
          ((LETT #2#

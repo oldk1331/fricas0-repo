@@ -14,7 +14,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 27))) 
 
 (DEFUN |ALGSC;coordinates;$VV;6| (|x| |b| $)
-  (PROG (#1=#:G159 |res| |i| |transitionMatrix| |m| #2=#:G154)
+  (PROG (#1=#:G161 |res| |i| |transitionMatrix| |m| #2=#:G156)
     (RETURN
      (SEQ
       (LETT |m|
@@ -52,7 +52,7 @@
            (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6)) #1#))))))))) 
 
 (DEFUN |ALGSC;basis;V;7| ($)
-  (PROG (#1=#:G164 #2=#:G167 #3=#:G169 |i| #4=#:G168)
+  (PROG (#1=#:G166 #2=#:G169 #3=#:G171 |i| #4=#:G170)
     (RETURN
      (SEQ
       (PROGN
@@ -78,7 +78,7 @@
 (DEFUN |ALGSC;elt;$IR;10| (|x| |i| $) (SPADCALL |x| |i| (QREFELT $ 48))) 
 
 (DEFUN |ALGSC;coerce;$Of;11| (|x| $)
-  (PROG (#1=#:G173 |le| |coef| #2=#:G180 |i|)
+  (PROG (#1=#:G175 |le| |coef| #2=#:G182 |i|)
     (RETURN
      (SEQ
       (COND
@@ -126,7 +126,7 @@
              (EXIT (SPADCALL (ELT $ 62) |le| (QREFELT $ 65)))))))))) 
 
 (DEFUN |ALGSC;*;3$;12| (|x| |y| $)
-  (PROG (|h| #1=#:G189 |j| #2=#:G188 |i| #3=#:G187 |k| |v|)
+  (PROG (|h| #1=#:G191 |j| #2=#:G190 |i| #3=#:G189 |k| |v|)
     (RETURN
      (SEQ
       (LETT |v| (MAKEARR1 (QREFELT $ 7) (|spadConstant| $ 32))
@@ -166,10 +166,10 @@
       (EXIT (SPADCALL |v| (QREFELT $ 21))))))) 
 
 (DEFUN |ALGSC;alternative?;B;13| ($)
-  (PROG (#1=#:G207 #2=#:G216 |res| #3=#:G230 |l| #4=#:G229 |r| #5=#:G203
-         #6=#:G228 #7=#:G227 #8=#:G226 |k| #9=#:G198 #10=#:G225 #11=#:G224
-         #12=#:G223 #13=#:G222 |j| #14=#:G192 #15=#:G221 #16=#:G220 #17=#:G219
-         #18=#:G218 #19=#:G217 |i|)
+  (PROG (#1=#:G209 #2=#:G218 |res| #3=#:G232 |l| #4=#:G231 |r| #5=#:G205
+         #6=#:G230 #7=#:G229 #8=#:G228 |k| #9=#:G200 #10=#:G227 #11=#:G226
+         #12=#:G225 #13=#:G224 |j| #14=#:G194 #15=#:G223 #16=#:G222 #17=#:G221
+         #18=#:G220 #19=#:G219 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -579,8 +579,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;associative?;B;14| ($)
-  (PROG (#1=#:G233 #2=#:G239 |res| #3=#:G244 |l| #4=#:G243 |r| #5=#:G242 |k|
-         #6=#:G241 |j| #7=#:G240 |i|)
+  (PROG (#1=#:G235 #2=#:G241 |res| #3=#:G246 |l| #4=#:G245 |r| #5=#:G244 |k|
+         #6=#:G243 |j| #7=#:G242 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -674,8 +674,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;antiAssociative?;B;15| ($)
-  (PROG (#1=#:G247 #2=#:G253 |res| #3=#:G258 |l| #4=#:G257 |r| #5=#:G256 |k|
-         #6=#:G255 |j| #7=#:G254 |i|)
+  (PROG (#1=#:G249 #2=#:G255 |res| #3=#:G260 |l| #4=#:G259 |r| #5=#:G258 |k|
+         #6=#:G257 |j| #7=#:G256 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -769,7 +769,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;commutative?;B;16| ($)
-  (PROG (#1=#:G261 #2=#:G265 #3=#:G268 |k| #4=#:G267 |j| #5=#:G266 |i|)
+  (PROG (#1=#:G263 #2=#:G267 #3=#:G270 |k| #4=#:G269 |j| #5=#:G268 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -817,7 +817,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;antiCommutative?;B;17| ($)
-  (PROG (#1=#:G271 #2=#:G275 #3=#:G278 |k| #4=#:G277 |j| #5=#:G276 |i|)
+  (PROG (#1=#:G273 #2=#:G277 #3=#:G280 |k| #4=#:G279 |j| #5=#:G278 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -876,8 +876,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;leftAlternative?;B;18| ($)
-  (PROG (#1=#:G281 #2=#:G287 |res| #3=#:G292 |l| #4=#:G291 |r| #5=#:G290 |k|
-         #6=#:G289 |j| #7=#:G288 |i|)
+  (PROG (#1=#:G283 #2=#:G289 |res| #3=#:G294 |l| #4=#:G293 |r| #5=#:G292 |k|
+         #6=#:G291 |j| #7=#:G290 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -995,8 +995,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;rightAlternative?;B;19| ($)
-  (PROG (#1=#:G295 #2=#:G301 |res| #3=#:G306 |l| #4=#:G305 |r| #5=#:G304 |k|
-         #6=#:G303 |j| #7=#:G302 |i|)
+  (PROG (#1=#:G297 #2=#:G303 |res| #3=#:G308 |l| #4=#:G307 |r| #5=#:G306 |k|
+         #6=#:G305 |j| #7=#:G304 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -1115,8 +1115,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;flexible?;B;20| ($)
-  (PROG (#1=#:G309 #2=#:G315 |res| #3=#:G320 |l| #4=#:G319 |r| #5=#:G318 |k|
-         #6=#:G317 |j| #7=#:G316 |i|)
+  (PROG (#1=#:G311 #2=#:G317 |res| #3=#:G322 |l| #4=#:G321 |r| #5=#:G320 |k|
+         #6=#:G319 |j| #7=#:G318 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -1244,8 +1244,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;lieAdmissible?;B;21| ($)
-  (PROG (#1=#:G323 #2=#:G329 |res| #3=#:G334 |l| #4=#:G333 |r| #5=#:G332 |k|
-         #6=#:G331 |j| #7=#:G330 |i|)
+  (PROG (#1=#:G325 #2=#:G331 |res| #3=#:G336 |l| #4=#:G335 |r| #5=#:G334 |k|
+         #6=#:G333 |j| #7=#:G332 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -1411,8 +1411,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;jordanAdmissible?;B;22| ($)
-  (PROG (#1=#:G342 #2=#:G350 |res| #3=#:G357 |r| #4=#:G356 |l| #5=#:G355 |t|
-         #6=#:G354 |w| #7=#:G353 |k| #8=#:G352 |j| #9=#:G351 |i|)
+  (PROG (#1=#:G344 #2=#:G352 |res| #3=#:G359 |r| #4=#:G358 |l| #5=#:G357 |t|
+         #6=#:G356 |w| #7=#:G355 |k| #8=#:G354 |j| #9=#:G353 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -2087,8 +2087,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;jordanAlgebra?;B;23| ($)
-  (PROG (#1=#:G363 #2=#:G375 |res| #3=#:G382 |s| #4=#:G381 |r| #5=#:G380 |t|
-         #6=#:G379 |l| #7=#:G378 |k| #8=#:G377 |j| #9=#:G376 |i|)
+  (PROG (#1=#:G365 #2=#:G377 |res| #3=#:G384 |s| #4=#:G383 |r| #5=#:G382 |t|
+         #6=#:G381 |l| #7=#:G380 |k| #8=#:G379 |j| #9=#:G378 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -2473,8 +2473,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ALGSC;jacobiIdentity?;B;24| ($)
-  (PROG (#1=#:G385 #2=#:G391 |res| #3=#:G396 |s| #4=#:G395 |r| #5=#:G394 |k|
-         #6=#:G393 |j| #7=#:G392 |i|)
+  (PROG (#1=#:G387 #2=#:G393 |res| #3=#:G398 |s| #4=#:G397 |r| #5=#:G396 |k|
+         #6=#:G395 |j| #7=#:G394 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -2583,10 +2583,10 @@
         (SPADCALL "Jacobi identity holds" (QREFELT $ 76)) (EXIT 'T)))
       #2# (EXIT #2#))))) 
 
-(DEFUN |AlgebraGivenByStructuralConstants| (&REST #1=#:G401)
+(DEFUN |AlgebraGivenByStructuralConstants| (&REST #1=#:G403)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G402)
+     (PROG (#2=#:G404)
        (RETURN
         (COND
          ((LETT #2#

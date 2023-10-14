@@ -99,8 +99,8 @@
                  (QREFELT $ 9))))))) 
 
 (DEFUN |FSFUN;Gamma;2C;5| (|z| $)
-  (PROG (|result| |l1| #1=#:G180 |llog| #2=#:G178 #3=#:G176 |l1a| |len| |loss|
-         |lz| #4=#:G175 |oz| #5=#:G174 |abs_z| |one| |c_pi| |sign| |z1|
+  (PROG (|result| |l1| #1=#:G182 |llog| #2=#:G180 #3=#:G178 |l1a| |len| |loss|
+         |lz| #4=#:G177 |oz| #5=#:G176 |abs_z| |one| |c_pi| |sign| |z1|
          |re_zint| |re_z| |l| |l0|)
     (RETURN
      (SEQ
@@ -302,7 +302,7 @@
                  (QREFELT $ 26))))))) 
 
 (DEFUN |FSFUN;logGamma;2C;7| (|z| $)
-  (PROG (|result| |l1| #1=#:G195 |l| |abs_z| |c_pi| |lsign| |z1| |re_zint|
+  (PROG (|result| |l1| #1=#:G197 |l| |abs_z| |c_pi| |lsign| |z1| |re_zint|
          |one| |re_z| |l0|)
     (RETURN
      (SEQ
@@ -898,7 +898,7 @@
             (SPADCALL |obits| (QREFELT $ 42)))))))) 
 
 (DEFUN |FSFUN;lambert_via_newton1;4F;25| (|x| |w| |eps| $)
-  (PROG (|odw| #1=#:G251 |dw| |ew|)
+  (PROG (|odw| #1=#:G253 |dw| |ew|)
     (RETURN
      (SEQ
       (EXIT
@@ -925,7 +925,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSFUN;lambert_via_newton2;4F;26| (|lz| |w| |eps| $)
-  (PROG (|odw| #1=#:G255 |dw| |lw|)
+  (PROG (|odw| #1=#:G257 |dw| |lw|)
     (RETURN
      (SEQ
       (EXIT
@@ -1003,7 +1003,7 @@
                  (QREFELT $ 54))))))) 
 
 (DEFUN |FSFUN;lambert_via_newton1;2CFC;28| (|x| |w| |eps| $)
-  (PROG (|odw| #1=#:G261 |dw| |ew|)
+  (PROG (|odw| #1=#:G263 |dw| |ew|)
     (RETURN
      (SEQ
       (EXIT
@@ -1030,7 +1030,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSFUN;lambert_via_newton2;2CFC;29| (|lz| |w| |eps| $)
-  (PROG (|odw| #1=#:G265 |dw| |lw|)
+  (PROG (|odw| #1=#:G267 |dw| |lw|)
     (RETURN
      (SEQ
       (EXIT
@@ -1108,7 +1108,7 @@
                  (QREFELT $ 27))))))) 
 
 (DEFUN |FSFUN;lambert_via_newton1;4Df;31| (|x| |w| |eps| $)
-  (PROG (|odw| #1=#:G271 |dw| |ew|)
+  (PROG (|odw| #1=#:G273 |dw| |ew|)
     (RETURN
      (SEQ
       (EXIT
@@ -1131,7 +1131,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSFUN;lambert_via_newton2;4Df;32| (|lz| |w| |eps| $)
-  (PROG (|odw| #1=#:G275 |dw| |lw|)
+  (PROG (|odw| #1=#:G277 |dw| |lw|)
     (RETURN
      (SEQ
       (EXIT
@@ -1198,7 +1198,7 @@
                   |h2|))))))) 
 
 (DEFUN |FSFUN;lambert_via_newton1;2CDfC;34| (|x| |w| |eps| $)
-  (PROG (|odw| #1=#:G281 |dw| |ew|)
+  (PROG (|odw| #1=#:G283 |dw| |ew|)
     (RETURN
      (SEQ
       (EXIT
@@ -1225,7 +1225,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSFUN;lambert_via_newton2;2CDfC;35| (|lz| |w| |eps| $)
-  (PROG (|odw| #1=#:G285 |dw| |lw|)
+  (PROG (|odw| #1=#:G287 |dw| |lw|)
     (RETURN
      (SEQ
       (EXIT
@@ -1681,7 +1681,7 @@
 (DEFUN |FloatSpecialFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G332)
+     (PROG (#1=#:G334)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FloatSpecialFunctions|)

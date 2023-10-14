@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |TSEREXPL;taylor_via_deriv;ULSLLULS;1| (|f| |lx| |ld| $)
-  (PROG (|lxt| #1=#:G129 |x| #2=#:G128 |ft|)
+  (PROG (|lxt| #1=#:G131 |x| #2=#:G130 |ft|)
     (RETURN
      (SEQ
       (LETT |ft| (SPADCALL |f| (QREFELT $ 9))
@@ -36,10 +36,10 @@
   (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 22))
             (QREFELT $ 15))) 
 
-(DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G134)
+(DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G136)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G135)
+     (PROG (#2=#:G137)
        (RETURN
         (COND
          ((LETT #2#

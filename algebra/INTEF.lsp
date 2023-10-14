@@ -162,7 +162,7 @@
                                   (QREFELT $ 87)))))))))) 
 
 (DEFUN |INTEF;unklimint| (|f| |x| |lu| $)
-  (PROG (#1=#:G236 #2=#:G238 |c| #3=#:G239 |u|)
+  (PROG (#1=#:G238 #2=#:G240 |c| #3=#:G241 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -221,7 +221,7 @@
       ('T (CONS 0 (CONS (|spadConstant| $ 63) |c|))))))) 
 
 (DEFUN |INTEF;diffint1| (|f| |x| |k| $)
-  (PROG (|f3| |nres3| |nres2| |nrat| |alpha| #1=#:G264 |nlogs| |cpol| #2=#:G265
+  (PROG (|f3| |nres3| |nres2| |nrat| |alpha| #1=#:G266 |nlogs| |cpol| #2=#:G267
          |lg| |logs| |nres| |f2| |dv| |k1| |args| |f1| |nfu|)
     (RETURN
      (SEQ
@@ -381,7 +381,7 @@
                               (#2# (EQUAL (QCDR |r|) |x|)))))))))))) 
 
 (DEFUN |INTEF;alg_split_root0| (|f| |r| |n| $)
-  (PROG (#1=#:G287 |i| #2=#:G286 |q| |f1| |f0| |ef|)
+  (PROG (#1=#:G289 |i| #2=#:G288 |q| |f1| |f0| |ef|)
     (RETURN
      (SEQ
       (COND
@@ -438,8 +438,8 @@
                 (EXIT (NREVERSE #2#)))))))))))) 
 
 (DEFUN |INTEF;alg_split_roots| (|f| |r1| |r2| $)
-  (PROG (|res| |nrr| |nr| |bb2| #1=#:G290 |bb1| |nn| |np2| |nn2| |g2| #2=#:G301
-         |f2| #3=#:G302 |pow2| |np1| |nn1| |g1| |l2| #4=#:G299 |f1| #5=#:G300
+  (PROG (|res| |nrr| |nr| |bb2| #1=#:G292 |bb1| |nn| |np2| |nn2| |g2| #2=#:G303
+         |f2| #3=#:G304 |pow2| |np1| |nn1| |g1| |l2| #4=#:G301 |f1| #5=#:G302
          |pow1| |rop| |l1| |b2| |n2| |b1| |n1| |a2| |a1|)
     (RETURN
      (SEQ
@@ -584,7 +584,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |INTEF;alglfint| (|f| |k| |l| |x| $)
-  (PROG (|y| |rec| |res| |ir1| |oroot| #1=#:G323 |al| |kx| |xf|)
+  (PROG (|y| |rec| |res| |ir1| |oroot| #1=#:G325 |al| |kx| |xf|)
     (RETURN
      (SEQ (LETT |xf| (SPADCALL |x| (QREFELT $ 72)) . #2=(|INTEF;alglfint|))
           (EXIT
@@ -741,7 +741,7 @@
        ('T (|INTEF;unkextint| |f| |x| |g| $))))))) 
 
 (DEFUN |INTEF;alglflimint| (|f| |k| |l| |x| |lu| $)
-  (PROG (#1=#:G360 |rc| #2=#:G359 |r| |ky| |u| |lrhs| |y| |rec| |kx|)
+  (PROG (#1=#:G362 |rc| #2=#:G361 |r| |ky| |u| |lrhs| |y| |rec| |kx|)
     (RETURN
      (SEQ
       (COND
@@ -875,7 +875,7 @@
     (RETURN (PROGN (SPADCALL |x1| |k| (QREFELT $ 52)))))) 
 
 (DEFUN |INTEF;addx| (|i| |x| $)
-  (PROG (#1=#:G395 |ne| #2=#:G394)
+  (PROG (#1=#:G397 |ne| #2=#:G396)
     (RETURN
      (SEQ
       (COND ((SPADCALL |i| (QREFELT $ 172)) |i|)
@@ -1049,7 +1049,7 @@
     (RETURN (PROGN (SPADCALL |x1| |k| (QREFELT $ 52)))))) 
 
 (DEFUN |INTEF;lflimitedint;FSLU;25| (|f| |x| |lu| $)
-  (PROG (#1=#:G455 |u| #2=#:G454 |k| |l|)
+  (PROG (#1=#:G457 |u| #2=#:G456 |k| |l|)
     (RETURN
      (SEQ
       (COND
@@ -1109,7 +1109,7 @@
              ('T (CONS 0 (QCAR (QCDR |u|)))))))))) 
 
 (DEFUN |INTEF;primextint| (|f| |x| |k| |g| $)
-  (PROG (|u2| |u1| |lk| #1=#:G487 |a| #2=#:G486)
+  (PROG (|u2| |u1| |lk| #1=#:G489 |a| #2=#:G488)
     (RETURN
      (SEQ
       (LETT |lk|
@@ -1273,7 +1273,7 @@
   (VECTOR (|spadConstant| $ 203) |f| (|spadConstant| $ 204))) 
 
 (DEFUN |INTEF;primint| (|f| |x| |k| $)
-  (PROG (|r1| |denint| |lk| #1=#:G563 |a| #2=#:G562)
+  (PROG (|r1| |denint| |lk| #1=#:G565 |a| #2=#:G564)
     (RETURN
      (SEQ
       (LETT |lk|
@@ -1359,8 +1359,8 @@
     (RETURN (PROGN (SPADCALL |rf| |k| |x| |denint_li|))))) 
 
 (DEFUN |INTEF;lfextlimint;FSKLU;31| (|f| |x| |k| |lk| $)
-  (PROG (#1=#:G582 #2=#:G581 #3=#:G583 #4=#:G593 |c| |cf| |u2| #5=#:G592 |u|
-         #6=#:G591 |lg| #7=#:G590 |kk| #8=#:G589 |twr| #9=#:G587 |u1|)
+  (PROG (#1=#:G584 #2=#:G583 #3=#:G585 #4=#:G595 |c| |cf| |u2| #5=#:G594 |u|
+         #6=#:G593 |lg| #7=#:G592 |kk| #8=#:G591 |twr| #9=#:G589 |u1|)
     (RETURN
      (SEQ
       (EXIT
@@ -1486,7 +1486,7 @@
       #9# (EXIT #9#))))) 
 
 (DEFUN |INTEF;cfind| (|f| |l| $)
-  (PROG (#1=#:G596 #2=#:G598 #3=#:G599 |u|)
+  (PROG (#1=#:G598 #2=#:G600 #3=#:G601 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -1589,8 +1589,8 @@
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
 (DEFUN |INTEF;primlimint| (|f| |x| |k| |lu| $)
-  (PROG (|u2| |l| #1=#:G653 |lg| #2=#:G652 |u1| #3=#:G651 |u| #4=#:G650 |lk|
-         #5=#:G649 |a| #6=#:G648)
+  (PROG (|u2| |l| #1=#:G655 |lg| #2=#:G654 |u1| #3=#:G653 |u| #4=#:G652 |lk|
+         #5=#:G651 |a| #6=#:G650)
     (RETURN
      (SEQ
       (LETT |lk|
@@ -1705,7 +1705,7 @@
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
 (DEFUN |INTEF;explimint| (|f| |x| |k| |lu| $)
-  (PROG (|u2| |l| #1=#:G683 |lg| #2=#:G682 |u1| #3=#:G681 |u| #4=#:G680 |eta|)
+  (PROG (|u2| |l| #1=#:G685 |lg| #2=#:G684 |u1| #3=#:G683 |u| #4=#:G682 |eta|)
     (RETURN
      (SEQ
       (LETT |eta| (|SPADfirst| (SPADCALL |k| (QREFELT $ 18)))
@@ -1816,10 +1816,10 @@
     (LETT $ (QREFELT $$ 0) NIL)
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
-(DEFUN |ElementaryIntegration| (&REST #1=#:G684)
+(DEFUN |ElementaryIntegration| (&REST #1=#:G686)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G685)
+     (PROG (#2=#:G687)
        (RETURN
         (COND
          ((LETT #2#
@@ -1977,7 +1977,7 @@
                         (|:| |prim| 24))
               (|FunctionSpacePrimitiveElement| 6 7) (483 . |primitiveElement|)
               (489 . |rootOf|) (494 . |elt|) (500 . |palgextint|)
-              (508 . |palglimint|) (516 . |map|) '#:G157
+              (508 . |palglimint|) (516 . |map|) '#:G159
               (|Record| (|:| |special| 7) (|:| |integrand| 7))
               (|Union| 161 '"failed") (|PatternMatchIntegration| 6 7)
               (522 . |pmintegrate|) (|Mapping| 53 7 11) (|Mapping| 162 7 11)

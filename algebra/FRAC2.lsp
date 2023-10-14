@@ -3,10 +3,10 @@
 
 (DEFUN |FRAC2;map;MFF;1| (|f| |r| $) (SPADCALL |f| |r| (QREFELT $ 12))) 
 
-(DEFUN |FractionFunctions2| (&REST #1=#:G127)
+(DEFUN |FractionFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

@@ -19,7 +19,7 @@
               (EXIT (CONS 0 (VECTOR |vz| |m| |p|)))))))))) 
 
 (DEFUN |MAGCDT2;pack_exps;2IRSev;2| (|dg| |msize| |mu| $)
-  (PROG (|ii| #1=#:G152 |j| |i| |exps| |nsize|)
+  (PROG (|ii| #1=#:G154 |j| |i| |exps| |nsize|)
     (RETURN
      (SEQ
       (LETT |nsize| (* (+ |dg| 1) |msize|) . #2=(|MAGCDT2;pack_exps;2IRSev;2|))
@@ -41,7 +41,7 @@
       (EXIT |exps|))))) 
 
 (DEFUN |MAGCDT2;repack1;PaUvIRV;3| (|res0| |coeffs| |dg| |mu| $)
-  (PROG (|ii| #1=#:G160 |j| |di| |ci| |i| |msize| |vz|)
+  (PROG (|ii| #1=#:G162 |j| |di| |ci| |i| |msize| |vz|)
     (RETURN
      (SEQ (LETT |vz| (QVELT |mu| 0) . #2=(|MAGCDT2;repack1;PaUvIRV;3|))
           (LETT |msize| (SPADCALL (QVELT |mu| 1) (QREFELT $ 27)) . #2#)
@@ -89,7 +89,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |MAGCDT2;is_zero?| (|v| $)
-  (PROG (#1=#:G167 #2=#:G169 |i| |n|)
+  (PROG (#1=#:G169 #2=#:G171 |i| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -112,7 +112,7 @@
 (DEFUN |MAGCDT2;zero?;PaB;6| (|v| $) (EQL (SPADCALL |v| (QREFELT $ 44)) -1)) 
 
 (DEFUN |MAGCDT2;degree;PaI;7| (|v| $)
-  (PROG (#1=#:G172 #2=#:G174 |i| |n|)
+  (PROG (#1=#:G174 #2=#:G176 |i| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -133,7 +133,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MAGCDT2;leadingCoefficient| (|v| $)
-  (PROG (#1=#:G176 #2=#:G178 |pp| |i| |n|)
+  (PROG (#1=#:G178 #2=#:G180 |pp| |i| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -156,7 +156,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MAGCDT2;canonicalIfCan;PaRU;9| (|x| |mu| $)
-  (PROG (|npp| |dnpp| |dpp| |pp| #1=#:G192 |l| |res| |dx| |icl| |rr1| |rr| |cl|
+  (PROG (|npp| |dnpp| |dpp| |pp| #1=#:G194 |l| |res| |dx| |icl| |rr1| |rr| |cl|
          |p| |m|)
     (RETURN
      (SEQ (LETT |m| (QVELT |mu| 1) . #2=(|MAGCDT2;canonicalIfCan;PaRU;9|))
@@ -192,8 +192,8 @@
                   (EXIT (CONS 0 |res|)))))))))) 
 
 (DEFUN |MAGCDT2;pseudoRem;2PaRPa;10| (|x| |y| |mu| $)
-  (PROG (|npp1| |degnpp1| |degpp1| |pp1| |dp2| |dp1| |pp2| |l1| #1=#:G203 |l|
-         #2=#:G202 |del| |p| |m| |res| |i1| |c| |cy| |j| |i|)
+  (PROG (|npp1| |degnpp1| |degpp1| |pp1| |dp2| |dp1| |pp2| |l1| #1=#:G205 |l|
+         #2=#:G204 |del| |p| |m| |res| |i1| |c| |cy| |j| |i|)
     (RETURN
      (SEQ
       (LETT |i| (SPADCALL |x| (QREFELT $ 44))
@@ -267,7 +267,7 @@
 (DEFUN |ModularAlgebraicGcdTools2| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G207)
+     (PROG (#1=#:G209)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ModularAlgebraicGcdTools2|)

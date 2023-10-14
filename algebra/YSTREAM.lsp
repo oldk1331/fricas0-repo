@@ -10,7 +10,7 @@
           (RPLACD |y| (SPADCALL |j| (QREFELT $ 10))) (EXIT |y|))))) 
 
 (DEFUN |YSTREAM;Y;MIL;2| (|g| |n| $)
-  (PROG (#1=#:G135 |xi| #2=#:G136 |ji| |j| |x| |i| #3=#:G134)
+  (PROG (#1=#:G137 |xi| #2=#:G138 |ji| |j| |x| |i| #3=#:G136)
     (RETURN
      (SEQ
       (LETT |x|
@@ -36,10 +36,10 @@
            (GO G190) G191 (EXIT NIL))
       (EXIT |x|))))) 
 
-(DEFUN |ParadoxicalCombinatorsForStreams| (#1=#:G137)
+(DEFUN |ParadoxicalCombinatorsForStreams| (#1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#

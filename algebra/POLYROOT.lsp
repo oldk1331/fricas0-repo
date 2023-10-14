@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |POLYROOT;zroot| (|x| |n| $)
-  (PROG (#1=#:G134 #2=#:G133 #3=#:G135 #4=#:G138 #5=#:G125 |s|)
+  (PROG (#1=#:G136 #2=#:G135 #3=#:G137 #4=#:G140 #5=#:G127 |s|)
     (RETURN
      (SEQ
       (COND ((OR (ZEROP |x|) (EQL |x| 1)) (VECTOR 1 |x| 1))
@@ -56,7 +56,7 @@
                    (SPADCALL (QVELT |rec| 2) (QREFELT $ 25)))))))) 
 
 (DEFUN |POLYROOT;qroot;FNniR;3| (|x| |n| $)
-  (PROG (|m| #1=#:G146 |sd| |sn|)
+  (PROG (|m| #1=#:G148 |sd| |sn|)
     (RETURN
      (SEQ
       (LETT |sn| (|POLYROOT;czroot| (SPADCALL |x| (QREFELT $ 27)) |n| $)
@@ -79,7 +79,7 @@
                 (QREFELT $ 30)))))))) 
 
 (DEFUN |POLYROOT;qroot;FNniR;4| (|x| |n| $)
-  (PROG (|m| #1=#:G152 |sd| |sn|)
+  (PROG (|m| #1=#:G154 |sd| |sn|)
     (RETURN
      (SEQ
       (LETT |sn| (|POLYROOT;zroot| (SPADCALL |x| (QREFELT $ 27)) |n| $)
@@ -133,7 +133,7 @@
           (SPADCALL (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 23)))) 
 
 (DEFUN |POLYROOT;rsplit| (|l| $)
-  (PROG (|r| |p| |u| #1=#:G177 |q|)
+  (PROG (|r| |p| |u| #1=#:G179 |q|)
     (RETURN
      (SEQ (LETT |r| (|spadConstant| $ 11) . #2=(|POLYROOT;rsplit|))
           (LETT |p| (|spadConstant| $ 12) . #2#)
@@ -173,7 +173,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 46)) |n| (QREFELT $ 50))) 
 
 (DEFUN |POLYROOT;froot;FNniR;11| (|x| |n| $)
-  (PROG (|m| #1=#:G192 |rd| |rn| |pd| |pn| |sd| |sn|)
+  (PROG (|m| #1=#:G194 |rd| |rn| |pd| |pn| |sd| |sn|)
     (RETURN
      (SEQ
       (COND
@@ -227,10 +227,10 @@
                     (QREFELT $ 23))
                    (QREFELT $ 30))))))))))) 
 
-(DEFUN |PolynomialRoots| (&REST #1=#:G195)
+(DEFUN |PolynomialRoots| (&REST #1=#:G197)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G196)
+     (PROG (#2=#:G198)
        (RETURN
         (COND
          ((LETT #2#

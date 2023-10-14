@@ -9,10 +9,10 @@
 (DEFUN |PRIMARR2;reduce;MPa2B;3| (|f| |v| |b| $)
   (SPADCALL |f| |v| |b| (QREFELT $ 17))) 
 
-(DEFUN |PrimitiveArrayFunctions2| (&REST #1=#:G133)
+(DEFUN |PrimitiveArrayFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

@@ -27,7 +27,7 @@
                     (#1# |indv|)))))))))) 
 
 (DEFUN |CARTEN;index2int| (|indv| $)
-  (PROG (|n| |ix| #1=#:G162 |i|)
+  (PROG (|n| |ix| #1=#:G164 |i|)
     (RETURN
      (SEQ (LETT |n| 0 . #2=(|CARTEN;index2int|))
           (SEQ (LETT |i| 1 . #2#) (LETT #1# (QVSIZE |indv|) . #2#) G190
@@ -71,7 +71,7 @@
                   (EXIT |rx|)))))))) 
 
 (DEFUN |CARTEN;mkPerm| (|n| |l| $)
-  (PROG (#1=#:G172 |e| |i| #2=#:G176 |seen| |p|)
+  (PROG (#1=#:G174 |e| |i| #2=#:G178 |seen| |p|)
     (RETURN
      (SEQ
       (COND
@@ -114,7 +114,7 @@
              (EXIT |p|)))))))) 
 
 (DEFUN |CARTEN;permute!| (|t| |s| |p| $)
-  (PROG (#1=#:G180 |i|)
+  (PROG (#1=#:G182 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 1 . #2=(|CARTEN;permute!|)) (LETT #1# (QVSIZE |p|) . #2#)
@@ -129,8 +129,8 @@
       (EXIT |t|))))) 
 
 (DEFUN |CARTEN;permsign!| (|v| $)
-  (PROG (#1=#:G194 #2=#:G198 |i| |totTrans| |e| |nTrans| #3=#:G196 #4=#:G197
-         |j| |n| #5=#:G195 |psum| #6=#:G182 |maxix|)
+  (PROG (#1=#:G196 #2=#:G200 |i| |totTrans| |e| |nTrans| #3=#:G198 #4=#:G199
+         |j| |n| #5=#:G197 |psum| #6=#:G184 |maxix|)
     (RETURN
      (SEQ
       (EXIT
@@ -216,7 +216,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CARTEN;ravel;$L;8| (|x| $)
-  (PROG (#1=#:G202 |i| #2=#:G201)
+  (PROG (#1=#:G204 |i| #2=#:G203)
     (RETURN
      (SEQ
       (PROGN
@@ -231,7 +231,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |CARTEN;unravel;L$;9| (|l| $)
-  (PROG (#1=#:G206 |i| #2=#:G207 |r| |z| |nz|)
+  (PROG (#1=#:G208 |i| #2=#:G209 |r| |z| |nz|)
     (RETURN
      (SEQ (LETT |nz| (LENGTH |l|) . #3=(|CARTEN;unravel;L$;9|))
           (|CARTEN;lengthRankOrElse| |nz| $)
@@ -249,7 +249,7 @@
           (EXIT |z|))))) 
 
 (DEFUN |CARTEN;kroneckerDelta;$;10| ($)
-  (PROG (#1=#:G211 |i| #2=#:G212 |zi| |z|)
+  (PROG (#1=#:G213 |i| #2=#:G214 |zi| |z|)
     (RETURN
      (SEQ
       (LETT |z| (SPADCALL (QREFELT $ 13) (|spadConstant| $ 36) (QREFELT $ 37))
@@ -266,7 +266,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;leviCivitaSymbol;$;11| ($)
-  (PROG (#1=#:G216 |i| |indv| |z| |nz|)
+  (PROG (#1=#:G218 |i| |indv| |z| |nz|)
     (RETURN
      (SEQ
       (LETT |nz| (EXPT (QREFELT $ 7) (QREFELT $ 7))
@@ -346,7 +346,7 @@
               (QREFELT $ 33))))) 
 
 (DEFUN |CARTEN;elt;$LR;19| (|x| |i| $)
-  (PROG (|n| |ix| #1=#:G236 |ii|)
+  (PROG (|n| |ix| #1=#:G238 |ii|)
     (RETURN
      (SEQ
       (COND
@@ -373,7 +373,7 @@
              (EXIT (SPADCALL |x| |n| (QREFELT $ 33)))))))))) 
 
 (DEFUN |CARTEN;coerce;L$;20| (|lr| $)
-  (PROG (#1=#:G241 |r| #2=#:G242 |i| |z|)
+  (PROG (#1=#:G243 |r| #2=#:G244 |i| |z|)
     (RETURN
      (SEQ
       (COND
@@ -397,7 +397,7 @@
          (EXIT |z|)))))))) 
 
 (DEFUN |CARTEN;coerce;L$;21| (|lx| $)
-  (PROG (#1=#:G252 |i| #2=#:G251 |x| |offz| |z| |nx| #3=#:G244 #4=#:G250 |rx|)
+  (PROG (#1=#:G254 |i| #2=#:G253 |x| |offz| |z| |nx| #3=#:G246 #4=#:G252 |rx|)
     (RETURN
      (SEQ
       (COND
@@ -459,8 +459,8 @@
    ('T (CONS 1 "failed")))) 
 
 (DEFUN |CARTEN;mkOutf| (|x| |i0| |rnk| $)
-  (PROG (#1=#:G273 |j| #2=#:G272 #3=#:G271 |i| #4=#:G270 |nskip| |rnk1|
-         #5=#:G269 #6=#:G268)
+  (PROG (#1=#:G275 |j| #2=#:G274 #3=#:G273 |i| #4=#:G272 |nskip| |rnk1|
+         #5=#:G271 #6=#:G270)
     (RETURN
      (SEQ
       (COND
@@ -534,7 +534,7 @@
 (DEFUN |CARTEN;coerce;R$;27| (|r| $) (SPADCALL 1 |r| (QREFELT $ 37))) 
 
 (DEFUN |CARTEN;coerce;Dp$;28| (|v| $)
-  (PROG (#1=#:G281 |i| #2=#:G282 |j| |z|)
+  (PROG (#1=#:G283 |i| #2=#:G284 |j| |z|)
     (RETURN
      (SEQ
       (LETT |z| (SPADCALL (QREFELT $ 7) (|spadConstant| $ 36) (QREFELT $ 37))
@@ -552,7 +552,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;coerce;Sm$;29| (|m| $)
-  (PROG (|offz| #1=#:G289 |j| #2=#:G288 |i| |z|)
+  (PROG (|offz| #1=#:G291 |j| #2=#:G290 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z|
@@ -576,7 +576,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;=;2$B;30| (|x| |y| $)
-  (PROG (#1=#:G294 #2=#:G295 |i|)
+  (PROG (#1=#:G296 #2=#:G297 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -600,7 +600,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CARTEN;+;3$;31| (|x| |y| $)
-  (PROG (#1=#:G300 |i| |z|)
+  (PROG (#1=#:G302 |i| |z|)
     (RETURN
      (SEQ
       (COND
@@ -627,7 +627,7 @@
          (EXIT |z|)))))))) 
 
 (DEFUN |CARTEN;-;3$;32| (|x| |y| $)
-  (PROG (#1=#:G305 |i| |z|)
+  (PROG (#1=#:G307 |i| |z|)
     (RETURN
      (SEQ
       (COND
@@ -654,7 +654,7 @@
          (EXIT |z|)))))))) 
 
 (DEFUN |CARTEN;-;2$;33| (|x| $)
-  (PROG (#1=#:G309 |i| |z|)
+  (PROG (#1=#:G311 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z|
@@ -674,7 +674,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;*;I2$;34| (|n| |x| $)
-  (PROG (#1=#:G313 |i| |z|)
+  (PROG (#1=#:G315 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z|
@@ -694,7 +694,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;*;$I$;35| (|x| |n| $)
-  (PROG (#1=#:G317 |i| |z|)
+  (PROG (#1=#:G319 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z|
@@ -714,7 +714,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;*;R2$;36| (|r| |x| $)
-  (PROG (#1=#:G321 |i| |z|)
+  (PROG (#1=#:G323 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z|
@@ -734,7 +734,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;*;$R$;37| (|x| |r| $)
-  (PROG (#1=#:G325 |i| |z|)
+  (PROG (#1=#:G327 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z|
@@ -754,7 +754,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;product;3$;38| (|x| |y| $)
-  (PROG (#1=#:G331 |j| #2=#:G330 |i| |ioff| |z| |ny| |nx|)
+  (PROG (#1=#:G333 |j| #2=#:G332 |i| |ioff| |z| |ny| |nx|)
     (RETURN
      (SEQ
       (LETT |nx| (SPADCALL |x| (QREFELT $ 32)) . #3=(|CARTEN;product;3$;38|))
@@ -796,7 +796,7 @@
             ('T (SPADCALL |x| |rx| |y| 1 (QREFELT $ 93))))))))) 
 
 (DEFUN |CARTEN;contract;$2I$;40| (|x| |i| |j| $)
-  (PROG (#1=#:G341 |k| |xk| |l| |xl| |zl| |m| |xm| |zm| |h| |xh| |zh| |z| |xok|
+  (PROG (#1=#:G343 |k| |xk| |l| |xl| |zl| |m| |xm| |zm| |h| |xh| |zh| |z| |xok|
          |xoh| |zoh| |nh| |rh| |xom| |zom| |nm| |rm| |xol| |zol| |nl| |rl|
          |#G111| |#G110| |rx|)
     (RETURN
@@ -888,7 +888,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;contract;$I$I$;41| (|x| |i| |y| |j| $)
-  (PROG (#1=#:G350 |k| |xk| |yk| |dyl| |yl| |zly| |dyh| |yh| |zhy| |dxl| |xl|
+  (PROG (#1=#:G352 |k| |xk| |yk| |dyl| |yl| |zly| |dyh| |yh| |zhy| |dxl| |xl|
          |zlx| |dxh| |xh| |zhx| |z| |zohx| |ohx| |nhx| |rhx| |zolx| |olx| |nlx|
          |rlx| |zohy| |ohy| |nhy| |rhy| |zoly| |oly| |nly| |rly| |ry| |rx|)
     (RETURN
@@ -1006,7 +1006,7 @@
   (SPADCALL |x| 1 (SPADCALL |x| (QREFELT $ 43)) (QREFELT $ 97))) 
 
 (DEFUN |CARTEN;transpose;$2I$;43| (|x| |i| |j| $)
-  (PROG (#1=#:G360 |q| |zq| |xq| #2=#:G359 |p| |zp| |xp| |l| |zl| |m| |zm| |h|
+  (PROG (#1=#:G362 |q| |zq| |xq| #2=#:G361 |p| |zp| |xp| |l| |zl| |m| |zm| |h|
          |zh| |z| |zoh| |nh| |rh| |zoj| |zom| |nm| |rm| |zoi| |zol| |nl| |rl|
          |#G147| |#G146| |rx|)
     (RETURN
@@ -1105,7 +1105,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CARTEN;reindex;$L$;44| (|x| |l| $)
-  (PROG (|pi| #1=#:G365 |i| |ziv| |xiv| |p| |rx| |z| |nx|)
+  (PROG (|pi| #1=#:G367 |i| |ziv| |xiv| |p| |rx| |z| |nx|)
     (RETURN
      (SEQ
       (LETT |nx| (SPADCALL |x| (QREFELT $ 32)) . #2=(|CARTEN;reindex;$L$;44|))
@@ -1129,10 +1129,10 @@
            (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |z|))))) 
 
-(DEFUN |CartesianTensor| (&REST #1=#:G366)
+(DEFUN |CartesianTensor| (&REST #1=#:G368)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G367)
+     (PROG (#2=#:G369)
        (RETURN
         (COND
          ((LETT #2#

@@ -29,10 +29,10 @@
 (DEFUN |ORESUP;rightDivide;2$R;9| (|a| |b| $)
   (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 34))) 
 
-(DEFUN |SparseUnivariateSkewPolynomial| (&REST #1=#:G157)
+(DEFUN |SparseUnivariateSkewPolynomial| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

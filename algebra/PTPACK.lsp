@@ -23,10 +23,10 @@
 
 (DEFUN |PTPACK;shade;PR;9| (|p| $) (SPADCALL |p| 4 (QREFELT $ 10))) 
 
-(DEFUN |PointPackage| (#1=#:G136)
+(DEFUN |PointPackage| (#1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

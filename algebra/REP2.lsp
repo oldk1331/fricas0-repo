@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |REP2;blockMultiply| (|a| |b| |li| |n| $)
-  (PROG (#1=#:G145 #2=#:G144 #3=#:G146 |s| #4=#:G153 |j| #5=#:G152 #6=#:G151
-         |i| #7=#:G150)
+  (PROG (#1=#:G147 #2=#:G146 #3=#:G148 |s| #4=#:G155 |j| #5=#:G154 #6=#:G153
+         |i| #7=#:G152)
     (RETURN
      (SEQ
       (SPADCALL
@@ -68,7 +68,7 @@
        (QREFELT $ 14)))))) 
 
 (DEFUN |REP2;fingerPrint| (|i| |a| |b| |x| $)
-  (PROG (#1=#:G169 #2=#:G167 #3=#:G165 #4=#:G163 #5=#:G161 #6=#:G159)
+  (PROG (#1=#:G171 #2=#:G169 #3=#:G167 #4=#:G165 #5=#:G163 #6=#:G161)
     (RETURN
      (SEQ
       (COND
@@ -195,8 +195,8 @@
                  (QREFELT $ 16))))))) 
 
 (DEFUN |REP2;cyclicSubmodule;LVV;5| (|lm| |v| $)
-  (PROG (#1=#:G197 |i| #2=#:G196 |furtherElts| |updateFurtherElts| #3=#:G195
-         #4=#:G194 |basis| |addedToBasis| |nextVector| |w| #5=#:G193 #6=#:G192)
+  (PROG (#1=#:G199 |i| #2=#:G198 |furtherElts| |updateFurtherElts| #3=#:G197
+         #4=#:G196 |basis| |addedToBasis| |nextVector| |w| #5=#:G195 #6=#:G194)
     (RETURN
      (SEQ
       (LETT |basis|
@@ -283,8 +283,8 @@
         (QREFELT $ 46))))))) 
 
 (DEFUN |REP2;standardBasisOfCyclicSubmodule;LVM;6| (|lm| |v| $)
-  (PROG (|furtherElts| |updateFurtherElts| #1=#:G208 |i| #2=#:G207 |basis|
-         |standardBasis| |addedToBasis| |nextVector| |w| #3=#:G206 #4=#:G205
+  (PROG (|furtherElts| |updateFurtherElts| #1=#:G210 |i| #2=#:G209 |basis|
+         |standardBasis| |addedToBasis| |nextVector| |w| #3=#:G208 #4=#:G207
          |dim|)
     (RETURN
      (SEQ
@@ -368,8 +368,8 @@
 
 (DEFUN |REP2;splitInternal| (|algebraGenerators| |vector| |doSplitting?| $)
   (PROG (|factormoduleRepresentation| |submoduleRepresentation| |helpMatrix|
-         #1=#:G223 |i| |inverseTransitionMatrix| |transitionMatrix|
-         |factormoduleIndices| #2=#:G222 |submoduleIndices| #3=#:G221
+         #1=#:G225 |i| |inverseTransitionMatrix| |transitionMatrix|
+         |factormoduleIndices| #2=#:G224 |submoduleIndices| #3=#:G223
          |rankOfSubmodule| |submodule| |n|)
     (RETURN
      (SEQ (LETT |n| (QVSIZE |vector|) . #4=(|REP2;splitInternal|))
@@ -455,8 +455,8 @@
 
 (DEFUN |REP2;irreducibilityTestInternal|
        (|algebraGenerators| |singularMatrix| |split?| $)
-  (PROG (|mat| #1=#:G240 |j| #2=#:G239 |i| |result| |kernel| |xt|
-         |algebraGeneratorsTranspose| #3=#:G238 #4=#:G237)
+  (PROG (|mat| #1=#:G242 |j| #2=#:G241 |i| |result| |kernel| |xt|
+         |algebraGeneratorsTranspose| #3=#:G240 #4=#:G239)
     (RETURN
      (SEQ
       (LETT |algebraGeneratorsTranspose|
@@ -548,7 +548,7 @@
 (DEFUN |REP2;areEquivalent?;2LBIM;11|
        (|aG0| |aG1| |randomelements| |numberOfTries| $)
   (PROG (|transitionM| |result| |j| |foundResult| |baseChange1| |baseChange0|
-         |kernel1| |kernel0| |rk1| |rk0| |x1| |x0| |randomIndex| |i| #1=#:G270
+         |kernel1| |kernel0| |rk1| |rk0| |x1| |x0| |randomIndex| |i| #1=#:G272
          |n| |numberOfGenerators|)
     (RETURN
      (SEQ (LETT |result| 'NIL . #2=(|REP2;areEquivalent?;2LBIM;11|))
@@ -758,7 +758,7 @@
   (SPADCALL |aG| 25 (QREFELT $ 68))) 
 
 (DEFUN |REP2;isAbsolutelyIrreducible?;LIB;13| (|aG| |numberOfTries| $)
-  (PROG (|result| |kernel| |foundResult| |rk| |x| |randomIndex| |i| #1=#:G279
+  (PROG (|result| |kernel| |foundResult| |rk| |x| |randomIndex| |i| #1=#:G281
          |n| |numberOfGenerators|)
     (RETURN
      (SEQ (LETT |result| 'NIL . #2=(|REP2;isAbsolutelyIrreducible?;LIB;13|))
@@ -831,8 +831,8 @@
 
 (DEFUN |REP2;split;LVL;15| (|algebraGenerators| |submodule| $)
   (PROG (|factormoduleRepresentation| |submoduleRepresentation| |helpMatrix|
-         #1=#:G292 |i| |inverseTransitionMatrix| |transitionMatrix|
-         |factormoduleIndices| #2=#:G291 |submoduleIndices| #3=#:G290
+         #1=#:G294 |i| |inverseTransitionMatrix| |transitionMatrix|
+         |factormoduleIndices| #2=#:G293 |submoduleIndices| #3=#:G292
          |rankOfSubmodule| |n|)
     (RETURN
      (SEQ
@@ -897,8 +897,8 @@
                        (QREFELT $ 72)))))))) 
 
 (DEFUN |REP2;my_min| (|m| |n| $)
-  (PROG (|xi| |res| #1=#:G309 |i| |x| |j| |depe| |depm| #2=#:G308 |v| #3=#:G307
-         |depl| #4=#:G306 |zz| #5=#:G294)
+  (PROG (|xi| |res| #1=#:G311 |i| |x| |j| |depe| |depm| #2=#:G310 |v| #3=#:G309
+         |depl| #4=#:G308 |zz| #5=#:G296)
     (RETURN
      (SEQ
       (LETT |zz|
@@ -979,8 +979,8 @@
       (EXIT (SPADCALL |xi| |res| (QREFELT $ 88))))))) 
 
 (DEFUN |REP2;m_eval| (|p| |m| |n| $)
-  (PROG (|old_deg| |res| #1=#:G319 |i| |ndeg| |c0| |id| #2=#:G317 #3=#:G318
-         |nn| #4=#:G310)
+  (PROG (|old_deg| |res| #1=#:G321 |i| |ndeg| |c0| |id| #2=#:G319 #3=#:G320
+         |nn| #4=#:G312)
     (RETURN
      (SEQ
       (LETT |nn|
@@ -1025,7 +1025,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |REP2;meatAxe1| (|algebraGenerators| |x| |n| |m| $)
-  (PROG (#1=#:G330 |pres| |v| |good| |kernel| |xx| |mm| |fpol| #2=#:G331 |fac|
+  (PROG (#1=#:G332 |pres| |v| |good| |kernel| |xx| |mm| |fpol| #2=#:G333 |fac|
          |fl| |mp|)
     (RETURN
      (SEQ
@@ -1081,9 +1081,9 @@
 
 (DEFUN |REP2;meatAxe;LB2IL;19|
        (|algebraGenerators| |randomelements| |numberOfTries| |maxTests| $)
-  (PROG (|result| #1=#:G346 |j| |numberOfTests|
+  (PROG (|result| #1=#:G348 |j| |numberOfTests|
          |numberOfOneDimSubspacesInKernel| |kernel| |pp| |n| |x| |randomIndex|
-         |i| |q| #2=#:G332 |numberOfGenerators|)
+         |i| |q| #2=#:G334 |numberOfGenerators|)
     (RETURN
      (SEQ
       (EXIT
@@ -1226,8 +1226,8 @@
   (SPADCALL |algebraGenerators| 'T |numberOfTries| 7 (QREFELT $ 110))) 
 
 (DEFUN |REP2;scanOneDimSubspaces;LIV;23| (|basis| |n| $)
-  (PROG (|j| |newAdd| #1=#:G361 |i| |result| #2=#:G352 #3=#:G360 |iR|
-         |coefficients| |nred| |pos| #4=#:G359 |q| |nn| |dim|)
+  (PROG (|j| |newAdd| #1=#:G363 |i| |result| #2=#:G354 #3=#:G362 |iR|
+         |coefficients| |nred| |pos| #4=#:G361 |q| |nn| |dim|)
     (RETURN
      (SEQ
       (LETT |dim| (LENGTH |basis|) . #5=(|REP2;scanOneDimSubspaces;LIV;23|))
@@ -1292,10 +1292,10 @@
            (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
       (EXIT |result|))))) 
 
-(DEFUN |RepresentationPackage2| (#1=#:G363)
+(DEFUN |RepresentationPackage2| (#1=#:G365)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G364)
+     (PROG (#2=#:G366)
        (RETURN
         (COND
          ((LETT #2#
@@ -1313,7 +1313,7 @@
               (HREM |$ConstructorCache| '|RepresentationPackage2|))))))))))) 
 
 (DEFUN |RepresentationPackage2;| (|#1|)
-  (PROG (|pv$| #1=#:G362 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G364 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|RepresentationPackage2|))

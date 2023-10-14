@@ -22,7 +22,7 @@
 
 (DEFUN |RDEEFS;rischDEsys;I3FSMMU;2|
        (|n| |f| |g1| |g2| |x| |limint| |extint| $)
-  (PROG (|k| |vl| |y2| |y1| #1=#:G151 |u2| |u1| |nfp|)
+  (PROG (|k| |vl| |y2| |y1| #1=#:G153 |u2| |u1| |nfp|)
     (RETURN
      (SEQ
       (COND
@@ -89,10 +89,10 @@
              (|error|
               "rischDEsys: can only handle rational functions for now")))))))))))) 
 
-(DEFUN |ElementaryRischDESystem| (&REST #1=#:G174)
+(DEFUN |ElementaryRischDESystem| (&REST #1=#:G176)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G175)
+     (PROG (#2=#:G177)
        (RETURN
         (COND
          ((LETT #2#

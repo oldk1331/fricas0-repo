@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |UPSQFREE;squareFreePart;2P;1| (|p| $)
-  (PROG (#1=#:G131)
+  (PROG (#1=#:G133)
     (RETURN
      (PROG2
          (LETT #1#
@@ -15,7 +15,7 @@
        (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))))) 
 
 (DEFUN |UPSQFREE;squareFreePart;2P;2| (|p| $)
-  (PROG (#1=#:G136 #2=#:G135 #3=#:G137 #4=#:G139 |f| |s|)
+  (PROG (#1=#:G138 #2=#:G137 #3=#:G139 #4=#:G141 |f| |s|)
     (RETURN
      (SEQ
       (SPADCALL
@@ -65,7 +65,7 @@
           (QVELT |ffe| 2))) 
 
 (DEFUN |UPSQFREE;squareFree;PF;6| (|p| $)
-  (PROG (#1=#:G187 |lffe| |lcp| #2=#:G184 |i| |pi| |di| #3=#:G181 |ci| |a| |c|
+  (PROG (#1=#:G189 |lffe| |lcp| #2=#:G186 |i| |pi| |di| #3=#:G183 |ci| |a| |c|
          |u| |#G11|)
     (RETURN
      (SEQ (LETT |ci| |p| . #4=(|UPSQFREE;squareFree;PF;6|))
@@ -157,8 +157,8 @@
                              (QREFELT $ 39))))))))))) 
 
 (DEFUN |UPSQFREE;squareFree;PF;7| (|p| $)
-  (PROG (|lffe| |lsnil| #1=#:G216 |ffe| #2=#:G215 |redSqfr| #3=#:G201 |dunit|
-         |pi| |lc| #4=#:G204 |i| |ci| |di| |diprev| |a| |c| |u| |#G13|)
+  (PROG (|lffe| |lsnil| #1=#:G218 |ffe| #2=#:G217 |redSqfr| #3=#:G203 |dunit|
+         |pi| |lc| #4=#:G206 |i| |ci| |di| |diprev| |a| |c| |u| |#G13|)
     (RETURN
      (SEQ
       (LETT |ci| (SPADCALL |p| (SPADCALL |p| (QREFELT $ 8)) (QREFELT $ 9))
@@ -285,10 +285,10 @@
                           (QREFELT $ 19))
                 |lffe| (QREFELT $ 39))))))))))))))) 
 
-(DEFUN |UnivariatePolynomialSquareFree| (&REST #1=#:G217)
+(DEFUN |UnivariatePolynomialSquareFree| (&REST #1=#:G219)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G218)
+     (PROG (#2=#:G220)
        (RETURN
         (COND
          ((LETT #2#

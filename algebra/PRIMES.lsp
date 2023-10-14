@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PRIMES;primes;2IL;1| (|m| |n| $)
-  (PROG (|ll| #1=#:G162 |k| #2=#:G161 |m0|)
+  (PROG (|ll| #1=#:G164 |k| #2=#:G163 |m0|)
     (RETURN
      (SEQ
       (COND
@@ -38,7 +38,7 @@
         ('T |ll|))))))) 
 
 (DEFUN |PRIMES;rabinProvesCompositeSmall| (|p| |n| |nm1| |q| |k| $)
-  (PROG (#1=#:G167 #2=#:G164 |t| |oldt| #3=#:G168 |j|)
+  (PROG (#1=#:G169 #2=#:G166 |t| |oldt| #3=#:G170 |j|)
     (RETURN
      (SEQ
       (EXIT
@@ -72,7 +72,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRIMES;rabinProvesComposite| (|p| |n| |nm1| |q| |k| $)
-  (PROG (#1=#:G174 #2=#:G171 |t| |oldt| #3=#:G175 |j|)
+  (PROG (#1=#:G176 #2=#:G173 |t| |oldt| #3=#:G177 |j|)
     (RETURN
      (SEQ
       (EXIT
@@ -128,8 +128,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRIMES;prime?;IB;4| (|n| $)
-  (PROG (#1=#:G200 #2=#:G206 |probablySafe| |currPrime| #3=#:G202 |n9|
-         #4=#:G193 #5=#:G207 |i| |mn| |q| |k| |nm1|)
+  (PROG (#1=#:G202 #2=#:G208 |probablySafe| |currPrime| #3=#:G204 |n9|
+         #4=#:G195 #5=#:G209 |i| |mn| |q| |k| |nm1|)
     (RETURN
      (SEQ
       (EXIT
@@ -379,10 +379,10 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT |n|)))))) 
 
-(DEFUN |IntegerPrimesPackage| (#1=#:G219)
+(DEFUN |IntegerPrimesPackage| (#1=#:G221)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G220)
+     (PROG (#2=#:G222)
        (RETURN
         (COND
          ((LETT #2#
@@ -400,7 +400,7 @@
               (HREM |$ConstructorCache| '|IntegerPrimesPackage|))))))))))) 
 
 (DEFUN |IntegerPrimesPackage;| (|#1|)
-  (PROG (#1=#:G155 #2=#:G154 #3=#:G156 #4=#:G218 #5=#:G125 |pv$| $ |dv$| DV$1)
+  (PROG (#1=#:G157 #2=#:G156 #3=#:G158 #4=#:G220 #5=#:G127 |pv$| $ |dv$| DV$1)
     (RETURN
      (SEQ
       (PROGN

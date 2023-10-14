@@ -188,7 +188,7 @@
             (QREFELT $ 9))) 
 
 (DEFUN |UTSODE;odeNre| (|f| |cl| |yl| $)
-  (PROG (|yil| #1=#:G224 |c| #2=#:G225 |y| #3=#:G223)
+  (PROG (|yil| #1=#:G226 |c| #2=#:G227 |y| #3=#:G225)
     (RETURN
      (SEQ
       (LETT |yil|
@@ -233,7 +233,7 @@
   (SPADCALL (|UTSODE;iOde| (SPADCALL |f| (QREFELT $ 24)) |cl| $) (QREFELT $ 9))) 
 
 (DEFUN |UTSODE;simulre| (|cst| |lsf| |c| $)
-  (PROG (#1=#:G245 |csti| #2=#:G246 |lsfi| #3=#:G244)
+  (PROG (#1=#:G247 |csti| #2=#:G248 |lsfi| #3=#:G246)
     (RETURN
      (SEQ
       (PROGN
@@ -284,7 +284,7 @@
     (RETURN (PROGN (|UTSODE;simulre| |cs| |lsts| |ls| $))))) 
 
 (DEFUN |UTSODE;mpsode;LLL;19| (|cs| |lsts| $)
-  (PROG (|stSol| #1=#:G257 |lst| #2=#:G256)
+  (PROG (|stSol| #1=#:G259 |lst| #2=#:G258)
     (RETURN
      (SEQ
       (LETT |stSol|
@@ -305,10 +305,10 @@
             . #3#)
       (EXIT (SPADCALL (ELT $ 9) |stSol| (QREFELT $ 21))))))) 
 
-(DEFUN |UnivariateTaylorSeriesODESolver| (&REST #1=#:G258)
+(DEFUN |UnivariateTaylorSeriesODESolver| (&REST #1=#:G260)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G259)
+     (PROG (#2=#:G261)
        (RETURN
         (COND
          ((LETT #2#

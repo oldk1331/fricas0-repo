@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |IRURPK;checkRur;TSLB;1| (|ts| |lts| $)
-  (PROG (#1=#:G158 #2=#:G161 |rems| #3=#:G164 |p| #4=#:G163 |dlts| #5=#:G162
-         |us| |lp| |dts| |z| |f0| #6=#:G151)
+  (PROG (#1=#:G160 #2=#:G163 |rems| #3=#:G166 |p| #4=#:G165 |dlts| #5=#:G164
+         |us| |lp| |dts| |z| |f0| #6=#:G153)
     (RETURN
      (SEQ
       (EXIT
@@ -71,7 +71,7 @@
                        (EXIT (SPADCALL |p| |newts| (QREFELT $ 32))))))))))) 
 
 (DEFUN |IRURPK;prepareRur| (|ts| $)
-  (PROG (|toSave| |newf0| #1=#:G181 |ff1| |newf1| |x1| |lp| |f1| |z| |f0|)
+  (PROG (|toSave| |newf0| #1=#:G183 |ff1| |newf1| |x1| |lp| |f1| |z| |f0|)
     (RETURN
      (SEQ
       (COND
@@ -149,7 +149,7 @@
                               (EXIT |toSave|)))))))))))))))) 
 
 (DEFUN |IRURPK;makeMonic| (|z| |c| |r| |ts| |s| |univ?| $)
-  (PROG (|newts| |p| #1=#:G189 |lp|)
+  (PROG (|newts| |p| #1=#:G191 |lp|)
     (RETURN
      (SEQ (LETT |lp| (SPADCALL |ts| (QREFELT $ 18)) . #2=(|IRURPK;makeMonic|))
           (LETT |lp| (SPADCALL (ELT $ 35) |lp| (QREFELT $ 37)) . #2#)
@@ -179,8 +179,8 @@
    ('T (LETT |lambda| (- |lambda|) . #1#)))) 
 
 (DEFUN |IRURPK;makeLinearAndMonic| (|p| |xi| |ts| |univ?| |check?| |info?| $)
-  (PROG (|toSee| |toSave| #1=#:G217 |fr| |r| |h| |s| |prs| |q| |f| |c| |lambda|
-         |f0| |#G35| |#G34| |#G33| |wip| |z| #2=#:G192)
+  (PROG (|toSee| |toSave| #1=#:G219 |fr| |r| |h| |s| |prs| |q| |f| |c| |lambda|
+         |f0| |#G35| |#G34| |#G33| |wip| |z| #2=#:G194)
     (RETURN
      (SEQ
       (LETT |f0|
@@ -302,7 +302,7 @@
       (EXIT |toSave|))))) 
 
 (DEFUN |IRURPK;rur;TSBL;7| (|ts| |univ?| $)
-  (PROG (|toSee| |wip| #1=#:G232 |lts| |p| |xi| |lp| |toSave|)
+  (PROG (|toSee| |wip| #1=#:G234 |lts| |p| |xi| |lp| |toSave|)
     (RETURN
      (SEQ
       (LETT |toSee| (|IRURPK;prepareRur| |ts| $) . #2=(|IRURPK;rur;TSBL;7|))
@@ -369,10 +369,10 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT |toSave|))))) 
 
-(DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G233)
+(DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G235)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G234)
+     (PROG (#2=#:G236)
        (RETURN
         (COND
          ((LETT #2#

@@ -65,10 +65,10 @@
 (DEFUN |CDEN;commonDenominator;AR;5!0| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 12))) 
 
-(DEFUN |CommonDenominator| (&REST #1=#:G142)
+(DEFUN |CommonDenominator| (&REST #1=#:G144)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G145)
        (RETURN
         (COND
          ((LETT #2#

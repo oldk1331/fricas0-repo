@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RMCAT2;map;MM1M2;1| (|f| |mat| $)
-  (PROG (#1=#:G132 |j| #2=#:G133 |l| #3=#:G130 |i| #4=#:G131 |k| |ans|)
+  (PROG (#1=#:G134 |j| #2=#:G135 |l| #3=#:G132 |i| #4=#:G133 |k| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -34,7 +34,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |RMCAT2;reduce;MM12R2;2| (|f| |mat| |ident| $)
-  (PROG (|s| #1=#:G140 |j| #2=#:G139 |i|)
+  (PROG (|s| #1=#:G142 |j| #2=#:G141 |i|)
     (RETURN
      (SEQ (LETT |s| |ident| . #3=(|RMCAT2;reduce;MM12R2;2|))
           (SEQ (LETT |i| (SPADCALL |mat| (QREFELT $ 21)) . #3#)
@@ -55,10 +55,10 @@
                (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT |s|))))) 
 
-(DEFUN |RectangularMatrixCategoryFunctions2| (&REST #1=#:G141)
+(DEFUN |RectangularMatrixCategoryFunctions2| (&REST #1=#:G143)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G142)
+     (PROG (#2=#:G144)
        (RETURN
         (COND
          ((LETT #2#

@@ -71,10 +71,10 @@
                       (SPADCALL (SPADCALL (NREVERSE |r|) |q| (QREFELT $ 42))
                                 (QREFELT $ 40)))))))))))) 
 
-(DEFUN |FreeGroup| (#1=#:G176)
+(DEFUN |FreeGroup| (#1=#:G178)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G177)
+     (PROG (#2=#:G179)
        (RETURN
         (COND
          ((LETT #2#

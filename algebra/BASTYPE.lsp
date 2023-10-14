@@ -4,11 +4,11 @@
 (DEFPARAMETER |BasicType;AL| 'NIL) 
 
 (DEFUN |BasicType| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|BasicType;AL|) (T (SETQ |BasicType;AL| (|BasicType;|)))))) 
 
 (DEFUN |BasicType;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

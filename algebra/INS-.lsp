@@ -29,7 +29,7 @@
 (DEFUN |INS-;rational?;SB;8| (|x| $) 'T) 
 
 (DEFUN |INS-;euclideanSize;SNni;9| (|x| $)
-  (PROG (#1=#:G160 #2=#:G159)
+  (PROG (#1=#:G162 #2=#:G161)
     (RETURN
      (COND
       ((SPADCALL |x| (|spadConstant| $ 9) (QREFELT $ 24))
@@ -151,7 +151,7 @@
         (#2# (|error| "inverse does not exist")))))))) 
 
 (DEFUN |INS-;powmod;4S;29| (|x| |n| |p| $)
-  (PROG (|z| #1=#:G220 |y|)
+  (PROG (|z| #1=#:G222 |y|)
     (RETURN
      (SEQ
       (EXIT

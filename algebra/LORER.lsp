@@ -4,11 +4,11 @@
 (DEFPARAMETER |LeftOreRing;AL| 'NIL) 
 
 (DEFUN |LeftOreRing| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|LeftOreRing;AL|) (T (SETQ |LeftOreRing;AL| (|LeftOreRing;|)))))) 
 
 (DEFUN |LeftOreRing;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

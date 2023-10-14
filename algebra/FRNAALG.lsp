@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |FramedNonAssociativeAlgebra;AL| 'NIL) 
 
-(DEFUN |FramedNonAssociativeAlgebra| (#1=#:G131)
-  (LET (#2=#:G132)
+(DEFUN |FramedNonAssociativeAlgebra| (#1=#:G133)
+  (LET (#2=#:G134)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluate| #1#) |FramedNonAssociativeAlgebra;AL|))
@@ -19,7 +19,7 @@
       #2#)))) 
 
 (DEFUN |FramedNonAssociativeAlgebra;| (|t#1|)
-  (PROG (#1=#:G130)
+  (PROG (#1=#:G132)
     (RETURN
      (PROG1
          (LETT #1#

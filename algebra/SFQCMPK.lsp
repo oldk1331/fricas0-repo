@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SFQCMPK;squareFreeFactors| (|lp| $)
-  (PROG (|lsflp| |lsfp| #1=#:G194 |p|)
+  (PROG (|lsflp| |lsfp| #1=#:G196 |p|)
     (RETURN
      (SEQ (LETT |lsflp| NIL . #2=(|SFQCMPK;squareFreeFactors|))
           (SEQ (LETT |p| NIL . #2#) (LETT #1# |lp| . #2#) G190
@@ -69,7 +69,7 @@
    (EXIT (SPADCALL (ELT $ 38) |lts| (QREFELT $ 42))))) 
 
 (DEFUN |SFQCMPK;moreAlgebraic?;2TSB;6| (|ts| |us| $)
-  (PROG (#1=#:G216 #2=#:G221 #3=#:G222 |p|)
+  (PROG (#1=#:G218 #2=#:G223 #3=#:G224 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -102,7 +102,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SFQCMPK;subTriSet?;2TSB;7| (|ts| |us| $)
-  (PROG (#1=#:G224 #2=#:G227)
+  (PROG (#1=#:G226 #2=#:G229)
     (RETURN
      (COND ((SPADCALL |ts| (QREFELT $ 44)) 'T)
            ((OR (SPADCALL |us| (QREFELT $ 44))
@@ -171,8 +171,8 @@
         ('T (SPADCALL (QCDR |lpwt1|) (QCDR |lpwt2|) (QREFELT $ 62))))) 
 
 (DEFUN |SFQCMPK;internalSubQuasiComponent?;2TSU;13| (|ts| |us| $)
-  (PROG (#1=#:G281 |b| #2=#:G284 |p| |lsfp| #3=#:G273 #4=#:G283 #5=#:G271
-         #6=#:G268 #7=#:G282)
+  (PROG (#1=#:G283 |b| #2=#:G286 |p| |lsfp| #3=#:G275 #4=#:G285 #5=#:G273
+         #6=#:G270 #7=#:G284)
     (RETURN
      (SEQ
       (EXIT
@@ -252,7 +252,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SFQCMPK;internalSubQuasiComponent?;2TSU;14| (|ts| |us| $)
-  (PROG (#1=#:G295 #2=#:G298 #3=#:G300 |p| #4=#:G293 #5=#:G290 #6=#:G299)
+  (PROG (#1=#:G297 #2=#:G300 #3=#:G302 |p| #4=#:G295 #5=#:G292 #6=#:G301)
     (RETURN
      (SEQ
       (EXIT
@@ -332,7 +332,7 @@
                    (SPADCALL |k| |b| (QREFELT $ 75)) (EXIT |b|))))))))) 
 
 (DEFUN |SFQCMPK;subQuasiComponent?;TSLB;16| (|ts| |lus| $)
-  (PROG (#1=#:G309 #2=#:G311 #3=#:G312 |us|)
+  (PROG (#1=#:G311 #2=#:G313 #3=#:G314 |us|)
     (RETURN
      (SEQ
       (EXIT
@@ -358,7 +358,7 @@
 
 (DEFUN |SFQCMPK;removeSuperfluousCases;2L;17| (|cases| $)
   (PROG (|toSee| |headmaxcases| |copymaxcases| |maxcases| |toSave| |lpwt1|
-         #1=#:G339 |lpwt2|)
+         #1=#:G341 |lpwt2|)
     (RETURN
      (SEQ
       (COND ((< (LENGTH |cases|) 2) |cases|)
@@ -432,7 +432,7 @@
   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 38))) 
 
 (DEFUN |SFQCMPK;removeSuperfluousQuasiComponents;2L;18| (|lts| $)
-  (PROG (|toSee| |headmaxlts| |copymaxlts| |maxlts| |toSave| |ts| #1=#:G356
+  (PROG (|toSee| |headmaxlts| |copymaxlts| |maxlts| |toSave| |ts| #1=#:G358
          |us|)
     (RETURN
      (SEQ
@@ -505,7 +505,7 @@
                    (EXIT (SPADCALL |maxlts| (QREFELT $ 43))))))))))) 
 
 (DEFUN |SFQCMPK;removeAssociates| (|lp| $)
-  (PROG (#1=#:G360 |p| #2=#:G359)
+  (PROG (#1=#:G362 |p| #2=#:G361)
     (RETURN
      (SEQ
       (SPADCALL
@@ -522,8 +522,8 @@
 
 (DEFUN |SFQCMPK;branchIfCan;LTSL5BU;20|
        (|leq| |ts| |lineq| |b1| |b2| |b3| |b4| |b5| $)
-  (PROG (|newleq| #1=#:G395 |newp| #2=#:G381 |g| #3=#:G399 |q| #4=#:G398 |p|
-         #5=#:G379 #6=#:G397 #7=#:G374 #8=#:G396 |ps| #9=#:G368)
+  (PROG (|newleq| #1=#:G397 |newp| #2=#:G383 |g| #3=#:G401 |q| #4=#:G400 |p|
+         #5=#:G381 #6=#:G399 #7=#:G376 #8=#:G398 |ps| #9=#:G370)
     (RETURN
      (SEQ
       (EXIT
@@ -657,9 +657,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SFQCMPK;prepareDecompose;LL2BL;21| (|lp| |lts| |b1| |b2| $)
-  (PROG (#1=#:G437 |ts| #2=#:G436 |toSee| |lq| |branches| #3=#:G408 |newBranch|
-         |lineq| |leq| |ubf2| |ubf1| #4=#:G435 |branch| #5=#:G434 |f| |lsfp|
-         #6=#:G433 |p| #7=#:G432 #8=#:G431)
+  (PROG (#1=#:G439 |ts| #2=#:G438 |toSee| |lq| |branches| #3=#:G410 |newBranch|
+         |lineq| |leq| |ubf2| |ubf1| #4=#:G437 |branch| #5=#:G436 |f| |lsfp|
+         #6=#:G435 |p| #7=#:G434 #8=#:G433)
     (RETURN
      (SEQ
       (LETT |lp|
@@ -894,10 +894,10 @@
 (DEFUN |SFQCMPK;prepareDecompose;LL2BL;21!0| (|x| |y| $)
   (SPADCALL (QVELT |x| 1) (QVELT |y| 1) (QREFELT $ 38))) 
 
-(DEFUN |SquareFreeQuasiComponentPackage| (&REST #1=#:G438)
+(DEFUN |SquareFreeQuasiComponentPackage| (&REST #1=#:G440)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G439)
+     (PROG (#2=#:G441)
        (RETURN
         (COND
          ((LETT #2#

@@ -113,7 +113,7 @@
                                         (QREFELT $ 39))))))))))))))) 
 
 (DEFUN |RECLOS;allRootsOf;SupL;8| (|pol| $)
-  (PROG (|res| |o| #1=#:G204 |term| |liste|)
+  (PROG (|res| |o| #1=#:G206 |term| |liste|)
     (RETURN
      (SEQ
       (COND ((EQL (SPADCALL |pol| (QREFELT $ 27)) 0) NIL)
@@ -467,10 +467,10 @@
 
 (DEFUN |RECLOS;coerce;TheField$;35| (|rn| $) (CONS 0 |rn|)) 
 
-(DEFUN |RealClosure| (#1=#:G329)
+(DEFUN |RealClosure| (#1=#:G331)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G330)
+     (PROG (#2=#:G332)
        (RETURN
         (COND
          ((LETT #2#

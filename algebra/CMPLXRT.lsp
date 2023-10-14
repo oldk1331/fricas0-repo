@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |CMPLXRT;complexZeros;UPParL;1| (|p| |eps| $)
-  (PROG (|ris| #1=#:G135 |z| #2=#:G134 |lz| |p2| |p1| |q| |pp| #3=#:G133 |pf|
+  (PROG (|ris| #1=#:G137 |z| #2=#:G136 |lz| |p2| |p1| |q| |pp| #3=#:G135 |pf|
          |lpf| |vv| |x2| |x1|)
     (RETURN
      (SEQ
@@ -61,10 +61,10 @@
            (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
       (EXIT |ris|))))) 
 
-(DEFUN |ComplexRootPackage| (&REST #1=#:G136)
+(DEFUN |ComplexRootPackage| (&REST #1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

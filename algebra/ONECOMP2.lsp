@@ -14,10 +14,10 @@
              (SPADCALL (SPADCALL (QCDR |u|) |f|) (QREFELT $ 16)))
             ('T |i|))))))) 
 
-(DEFUN |OnePointCompletionFunctions2| (&REST #1=#:G132)
+(DEFUN |OnePointCompletionFunctions2| (&REST #1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G133)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

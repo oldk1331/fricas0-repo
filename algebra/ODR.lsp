@@ -22,10 +22,10 @@
 (DEFUN |ODR;inv;2$;6| (|p| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (QREFELT $ 19))) 
 
-(DEFUN |OrdinaryDifferentialRing| (&REST #1=#:G146)
+(DEFUN |OrdinaryDifferentialRing| (&REST #1=#:G148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G149)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |CINTSLPE;solveLinearPolynomialEquation;LSupU;1| (|lp| |p| $)
-  (PROG (|answer| #1=#:G134 |ans| |deg| #2=#:G131 #3=#:G130 #4=#:G132 #5=#:G145
+  (PROG (|answer| #1=#:G136 |ans| |deg| #2=#:G133 #3=#:G132 #4=#:G134 #5=#:G147
          |u|)
     (RETURN
      (SEQ
@@ -80,10 +80,10 @@
             . #6#)
       (EXIT |answer|))))) 
 
-(DEFUN |ComplexIntegerSolveLinearPolynomialEquation| (&REST #1=#:G146)
+(DEFUN |ComplexIntegerSolveLinearPolynomialEquation| (&REST #1=#:G148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G149)
        (RETURN
         (COND
          ((LETT #2#

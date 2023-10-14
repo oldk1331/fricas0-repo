@@ -41,9 +41,9 @@
     (RETURN (PROGN (SPADCALL |x| |PthRootPow| (QREFELT $ 25)))))) 
 
 (DEFUN |TWOFACT;generalSqFr;SupF;4| (|m| $)
-  (PROG (|pfaclist| |contlist| #1=#:G187 |w| #2=#:G186 |sqp| |unitPart|
-         #3=#:G185 |v| |nfacs| |uexp| #4=#:G172 #5=#:G184 |u| |sqfrm| #6=#:G170
-         |cont| #7=#:G183 #8=#:G182 |l|)
+  (PROG (|pfaclist| |contlist| #1=#:G189 |w| #2=#:G188 |sqp| |unitPart|
+         #3=#:G187 |v| |nfacs| |uexp| #4=#:G174 #5=#:G186 |u| |sqfrm| #6=#:G172
+         |cont| #7=#:G185 #8=#:G184 |l|)
     (RETURN
      (SEQ
       (COND
@@ -179,11 +179,11 @@
   (|TWOFACT;doTwoFactor| |m| 'T $)) 
 
 (DEFUN |TWOFACT;doTwoFactor| (|m| |do_ext| $)
-  (PROG (|ll| #1=#:G244 |v| #2=#:G243 |unitPart| #3=#:G232 |nfl| |twoF| |ydeg|
-         #4=#:G220 #5=#:G219 #6=#:G221 #7=#:G242 |w| #8=#:G241 #9=#:G240 |m2|
-         #10=#:G239 #11=#:G238 |res| |m1| |PthRootPow| #12=#:G210 |p| |fac|
-         |expon| #13=#:G207 |expo| #14=#:G237 |u| |sqfrm| #15=#:G236 #16=#:G235
-         |contfact| |cont| #17=#:G234 #18=#:G233 |l|)
+  (PROG (|ll| #1=#:G246 |v| #2=#:G245 |unitPart| #3=#:G234 |nfl| |twoF| |ydeg|
+         #4=#:G222 #5=#:G221 #6=#:G223 #7=#:G244 |w| #8=#:G243 #9=#:G242 |m2|
+         #10=#:G241 #11=#:G240 |res| |m1| |PthRootPow| #12=#:G212 |p| |fac|
+         |expon| #13=#:G209 |expo| #14=#:G239 |u| |sqfrm| #15=#:G238 #16=#:G237
+         |contfact| |cont| #17=#:G236 #18=#:G235 |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -530,10 +530,10 @@
   (SPADCALL |m| |dx| 'T (QREFELT $ 80))) 
 
 (DEFUN |TWOFACT;doExtension1| (|m| |n| |dx| |extField| $)
-  (PROG (#1=#:G272 #2=#:G271 #3=#:G273 #4=#:G282 |ff1| |lfactk| #5=#:G261 |ffn|
-         #6=#:G267 #7=#:G266 #8=#:G268 #9=#:G281 #10=#:G125 |lfacth| #11=#:G280
-         |g| #12=#:G279 |normfacs| #13=#:G269 |ffu| |ff| |c| #14=#:G278 |fac|
-         #15=#:G277 |Normp| |flist| |res1| |m1| |mm| TP |SUEx|)
+  (PROG (#1=#:G274 #2=#:G273 #3=#:G275 #4=#:G284 |ff1| |lfactk| #5=#:G263 |ffn|
+         #6=#:G269 #7=#:G268 #8=#:G270 #9=#:G283 #10=#:G127 |lfacth| #11=#:G282
+         |g| #12=#:G281 |normfacs| #13=#:G271 |ffu| |ff| |c| #14=#:G280 |fac|
+         #15=#:G279 |Normp| |flist| |res1| |m1| |mm| TP |SUEx|)
     (RETURN
      (SEQ
       (LETT |SUEx| (|SparseUnivariatePolynomial| |extField|)
@@ -897,7 +897,7 @@
             (COND (#1# #2#) (#17# (|spadConstant| $ 87))))))))))))) 
 
 (DEFUN |TWOFACT;doExtension| (|m| |dx| $)
-  (PROG (#1=#:G288 #2=#:G291 |res1| |nsize| #3=#:G292 |n| |ln|)
+  (PROG (#1=#:G290 #2=#:G293 |res1| |nsize| #3=#:G294 |n| |ln|)
     (RETURN
      (SEQ
       (EXIT
@@ -937,9 +937,9 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |TWOFACT;doFactor;SupIBF;11| (|m| |dx| |do_ext| $)
-  (PROG (#1=#:G308 #2=#:G307 #3=#:G309 #4=#:G316 |ff1| |lfactk| |ff| |c|
-         |lfacth| |dx1| #5=#:G302 |lfact| #6=#:G315 |lf| #7=#:G314 |lfact1|
-         |fumv| |prime| #8=#:G313 |look| |umv| |val| |i| |use_random| |lcm|
+  (PROG (#1=#:G310 #2=#:G309 #3=#:G311 #4=#:G318 |ff1| |lfactk| |ff| |c|
+         |lfacth| |dx1| #5=#:G304 |lfact| #6=#:G317 |lf| #7=#:G316 |lfact1|
+         |fumv| |prime| #8=#:G315 |look| |umv| |val| |i| |use_random| |lcm|
          |try_max| |dm|)
     (RETURN
      (SEQ
@@ -1109,10 +1109,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x| |val| (QREFELT $ 94)))))) 
 
-(DEFUN |TwoFactorize| (#1=#:G317)
+(DEFUN |TwoFactorize| (#1=#:G319)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G318)
+     (PROG (#2=#:G320)
        (RETURN
         (COND
          ((LETT #2#

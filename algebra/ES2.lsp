@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ES2;map;MKF;1| (|f| |k| $)
-  (PROG (#1=#:G129 |x| #2=#:G128)
+  (PROG (#1=#:G131 |x| #2=#:G130)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL (SPADCALL |k| (QREFELT $ 10)) (QREFELT $ 11))
@@ -19,10 +19,10 @@
                       (EXIT (NREVERSE #2#))))
                 (QREFELT $ 15)))))) 
 
-(DEFUN |ExpressionSpaceFunctions2| (&REST #1=#:G130)
+(DEFUN |ExpressionSpaceFunctions2| (&REST #1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

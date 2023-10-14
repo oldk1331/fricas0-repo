@@ -269,10 +269,10 @@
                     (QREFELT $ 61))
                    (QREFELT $ 20))))))))))))) 
 
-(DEFUN |RationalFunctionLimitPackage| (#1=#:G245)
+(DEFUN |RationalFunctionLimitPackage| (#1=#:G247)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G246)
+     (PROG (#2=#:G248)
        (RETURN
         (COND
          ((LETT #2#

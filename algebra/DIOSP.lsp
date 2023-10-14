@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DIOSP;dioSolve;ER;1| (|eq| $)
-  (PROG (|vars| #1=#:G156 |x| #2=#:G155 |ihs| |hs| |sol| |graph| |mon| |c|
-         #3=#:G154 |n| |p|)
+  (PROG (|vars| #1=#:G158 |x| #2=#:G157 |ihs| |hs| |sol| |graph| |mon| |c|
+         #3=#:G156 |n| |p|)
     (RETURN
      (SEQ
       (LETT |p|
@@ -59,7 +59,7 @@
                |hs|)))))) 
 
 (DEFUN |DIOSP;initializeGraph| (|mon| |c| $)
-  (PROG (#1=#:G169 |i| #2=#:G170 |n| |m| |k| |coeffs| #3=#:G168 |x| #4=#:G167)
+  (PROG (#1=#:G171 |i| #2=#:G172 |n| |m| |k| |coeffs| #3=#:G170 |x| #4=#:G169)
     (RETURN
      (SEQ
       (LETT |coeffs|
@@ -100,7 +100,7 @@
         |k| (- 1 |m|))))))) 
 
 (DEFUN |DIOSP;createNode| (|ind| |coeffs| |k| |zeroNode| $)
-  (PROG (#1=#:G173 #2=#:G172 |i| |v|)
+  (PROG (#1=#:G175 #2=#:G174 |i| |v|)
     (RETURN
      (SEQ (LETT |v| (SPADCALL |k| (QREFELT $ 35)) . #3=(|DIOSP;createNode|))
           (SEQ (LETT |i| 1 . #3#) G190
@@ -143,7 +143,7 @@
           (EXIT (CONS |v| 'T)))))) 
 
 (DEFUN |DIOSP;findSolutions| (|sol| |ind| |m| |n| |graph| |flag| $)
-  (PROG (|sols| |s| |x| #1=#:G191 |i| |k| |v| |node|)
+  (PROG (|sols| |s| |x| #1=#:G193 |i| |k| |v| |node|)
     (RETURN
      (SEQ (LETT |sols| NIL . #2=(|DIOSP;findSolutions|))
           (LETT |node| (SPADCALL (QVELT |graph| 0) |ind| (QREFELT $ 41)) . #2#)
@@ -204,7 +204,7 @@
             (#3# |sols|))))))) 
 
 (DEFUN |DIOSP;verifyMinimality| (|sol| |graph| |flag| $)
-  (PROG (#1=#:G194 |x| |i|)
+  (PROG (#1=#:G196 |x| |i|)
     (RETURN
      (SEQ
       (COND
@@ -230,7 +230,7 @@
        ('T (|DIOSP;verifySolution| |sol| (QVELT |graph| 2) 1 1 |graph| $))))))) 
 
 (DEFUN |DIOSP;verifySolution| (|sol| |ind| |m| |n| |graph| $)
-  (PROG (#1=#:G205 |flag| #2=#:G200 |x| #3=#:G210 |i| |k| |v| |node|)
+  (PROG (#1=#:G207 |flag| #2=#:G202 |x| #3=#:G212 |i| |k| |v| |node|)
     (RETURN
      (SEQ (LETT |flag| 'T . #4=(|DIOSP;verifySolution|))
           (LETT |node| (SPADCALL (QVELT |graph| 0) |ind| (QREFELT $ 41)) . #4#)
@@ -291,7 +291,7 @@
 (DEFUN |DiophantineSolutionPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G212)
+     (PROG (#1=#:G214)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|DiophantineSolutionPackage|)

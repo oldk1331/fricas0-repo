@@ -63,8 +63,8 @@
           (EXIT |w|))))) 
 
 (DEFUN |INEP;inteigen| (A |p| |fact| $)
-  (PROG (|res| |soln| |i| |wk| #1=#:G186 |vec| |sln2| |j| B |alg| |ppol| |lr|
-         |wf| #2=#:G185 |vecr| B1 |alpha| |pol| #3=#:G184 |ff| |lff| AM MM
+  (PROG (|res| |soln| |i| |wk| #1=#:G188 |vec| |sln2| |j| B |alg| |ppol| |lr|
+         |wf| #2=#:G187 |vecr| B1 |alpha| |pol| #3=#:G186 |ff| |lff| AM MM
          |dimA|)
     (RETURN
      (SEQ (LETT |dimA| (QVSIZE A) . #4=(|INEP;inteigen|))
@@ -316,7 +316,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |INEP;solve1;SupParL;8| (|up| |eps| $)
-  (PROG (|upi| |denom| #1=#:G188 #2=#:G187 #3=#:G189 #4=#:G193 |c|)
+  (PROG (|upi| |denom| #1=#:G190 #2=#:G189 #3=#:G191 #4=#:G195 |c|)
     (RETURN
      (SEQ
       (LETT |denom|
@@ -342,7 +342,7 @@
       (EXIT (SPADCALL |upi| |eps| (QREFELT $ 80))))))) 
 
 (DEFUN |INEP;solve1;SupParL;9| (|up| |eps| $)
-  (PROG (|upgi| |denom| #1=#:G195 #2=#:G194 #3=#:G196 #4=#:G200 |c|)
+  (PROG (|upgi| |denom| #1=#:G197 #2=#:G196 #3=#:G198 #4=#:G202 |c|)
     (RETURN
      (SEQ
       (LETT |denom|
@@ -382,8 +382,8 @@
             (QREFELT $ 85))) 
 
 (DEFUN |INEP;innerEigenvectors;MParML;10| (A |eps| |fact| $)
-  (PROG (|sln| |nsl| #1=#:G215 |ep| #2=#:G214 #3=#:G213 |alg| |lmult| |lvect|
-         |lval| |leva| #4=#:G212 |lev| |n| |sln1| |pol|)
+  (PROG (|sln| |nsl| #1=#:G217 |ep| #2=#:G216 #3=#:G215 |alg| |lmult| |lvect|
+         |lval| |leva| #4=#:G214 |lev| |n| |sln1| |pol|)
     (RETURN
      (SEQ
       (LETT |pol| (SPADCALL A (QREFELT $ 93))
@@ -444,7 +444,7 @@
       (EXIT |sln|))))) 
 
 (DEFUN |INEP;charpol;MSup;11| (A $)
-  (PROG (|j| |i| B |dimA| #1=#:G216)
+  (PROG (|j| |i| B |dimA| #1=#:G218)
     (RETURN
      (SEQ
       (LETT |dimA|
@@ -481,10 +481,10 @@
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL B (QREFELT $ 101))))))))))) 
 
-(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G223)
+(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G225)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G224)
+     (PROG (#2=#:G226)
        (RETURN
         (COND
          ((LETT #2#

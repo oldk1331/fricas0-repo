@@ -27,7 +27,7 @@
            (EXIT 'NIL)))))) 
 
 (DEFUN |LZSTAGG-;less?;ANniB;2| (|x| |n| $)
-  (PROG (#1=#:G230)
+  (PROG (#1=#:G232)
     (RETURN
      (COND ((EQL |n| 0) 'NIL) ((SPADCALL |x| (QREFELT $ 19)) 'T)
            ('T
@@ -38,7 +38,7 @@
                       (QREFELT $ 21))))))) 
 
 (DEFUN |LZSTAGG-;more?;ANniB;3| (|x| |n| $)
-  (PROG (#1=#:G233)
+  (PROG (#1=#:G235)
     (RETURN
      (COND ((SPADCALL |x| (QREFELT $ 19)) 'NIL) ((EQL |n| 0) 'T)
            ('T
@@ -49,7 +49,7 @@
                       (QREFELT $ 23))))))) 
 
 (DEFUN |LZSTAGG-;size?;ANniB;4| (|x| |n| $)
-  (PROG (#1=#:G236)
+  (PROG (#1=#:G238)
     (RETURN
      (COND ((SPADCALL |x| (QREFELT $ 19)) (EQL |n| 0))
            ('T
@@ -60,7 +60,7 @@
                       (QREFELT $ 25))))))) 
 
 (DEFUN |LZSTAGG-;#;ANni;5| (|x| $)
-  (PROG (#1=#:G240 |y| #2=#:G245 |i|)
+  (PROG (#1=#:G242 |y| #2=#:G247 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -93,7 +93,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LZSTAGG-;any?;MAB;6| (|f| |x| $)
-  (PROG (#1=#:G247 #2=#:G254 |y| |i|)
+  (PROG (#1=#:G249 #2=#:G256 |y| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -129,7 +129,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LZSTAGG-;every?;MAB;7| (|f| |x| $)
-  (PROG (#1=#:G257 #2=#:G262 |y| |i|)
+  (PROG (#1=#:G259 #2=#:G264 |y| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -168,7 +168,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LZSTAGG-;entries;AL;8| (|x| $)
-  (PROG (#1=#:G264 |y| |l| #2=#:G269 |i|)
+  (PROG (#1=#:G266 |y| |l| #2=#:G271 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -234,7 +234,7 @@
   (COND ((< |n| 1) 'NIL) ('T (|LZSTAGG-;indexx?| |n| |x| $)))) 
 
 (DEFUN |LZSTAGG-;indices;AL;14| (|x| $)
-  (PROG (#1=#:G282 |y| |l| #2=#:G287 |i|)
+  (PROG (#1=#:G284 |y| |l| #2=#:G289 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -268,7 +268,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LZSTAGG-;maxIndex;AI;15| (|x| $)
-  (PROG (#1=#:G289 |y| #2=#:G295 |i|)
+  (PROG (#1=#:G291 |y| #2=#:G297 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -313,7 +313,7 @@
    ('T 1))) 
 
 (DEFUN |LZSTAGG-;delete;AIA;17| (|x| |n| $)
-  (PROG (#1=#:G300 #2=#:G299)
+  (PROG (#1=#:G302 #2=#:G301)
     (RETURN
      (COND
       ((NULL (SPADCALL |n| |x| (QREFELT $ 47)))
@@ -331,7 +331,7 @@
         (QREFELT $ 50))))))) 
 
 (DEFUN |LZSTAGG-;delete;AUsA;18| (|x| |seg| $)
-  (PROG (#1=#:G310 #2=#:G306 #3=#:G305 |high| |low|)
+  (PROG (#1=#:G312 #2=#:G308 #3=#:G307 |high| |low|)
     (RETURN
      (SEQ
       (LETT |low| (SPADCALL |seg| (QREFELT $ 53))
@@ -374,7 +374,7 @@
                    (QREFELT $ 48))))))))) 
 
 (DEFUN |LZSTAGG-;elt;AUsA;19| (|x| |seg| $)
-  (PROG (#1=#:G321 #2=#:G317 #3=#:G316 |high| |low|)
+  (PROG (#1=#:G323 #2=#:G319 #3=#:G318 |high| |low|)
     (RETURN
      (SEQ
       (LETT |low| (SPADCALL |seg| (QREFELT $ 53))
@@ -414,7 +414,7 @@
                    (QREFELT $ 49))))))))) 
 
 (DEFUN |LZSTAGG-;insert;SAIA;20| (|s| |x| |n| $)
-  (PROG (|nn| #1=#:G326)
+  (PROG (|nn| #1=#:G328)
     (RETURN
      (SEQ
       (COND
@@ -434,7 +434,7 @@
            (QREFELT $ 60)))))))))) 
 
 (DEFUN |LZSTAGG-;insert;2AIA;21| (|y| |x| |n| $)
-  (PROG (|nn| #1=#:G330)
+  (PROG (|nn| #1=#:G332)
     (RETURN
      (SEQ
       (COND
@@ -466,7 +466,7 @@
         ('T (LIST (SPADCALL |x| (QREFELT $ 17)))))) 
 
 (DEFUN |LZSTAGG-;distance;2AI;26| (|x| |z| $)
-  (PROG (#1=#:G349 |y| #2=#:G353 |i|)
+  (PROG (#1=#:G351 |y| #2=#:G355 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -506,7 +506,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LZSTAGG-;node?;2AB;27| (|z| |x| $)
-  (PROG (#1=#:G355 #2=#:G360 |y| |i|)
+  (PROG (#1=#:G357 #2=#:G362 |y| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -542,7 +542,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LZSTAGG-;nodes;AL;28| (|x| $)
-  (PROG (#1=#:G362 |y| |l| #2=#:G367 |i|)
+  (PROG (#1=#:G364 |y| |l| #2=#:G369 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -606,7 +606,7 @@
              ('T (|LZSTAGG-;computeCycleLength| (QCDR |cycElt|) $)))))))) 
 
 (DEFUN |LZSTAGG-;cycleTail;2A;35| (|x| $)
-  (PROG (|z| |y| #1=#:G390 |cycElt|)
+  (PROG (|z| |y| #1=#:G392 |cycElt|)
     (RETURN
      (SEQ
       (EXIT
@@ -642,7 +642,7 @@
 (DEFUN |LZSTAGG-;elt;AfirstS;36| (|x| T5 $) (SPADCALL |x| (QREFELT $ 75))) 
 
 (DEFUN |LZSTAGG-;first;ANniA;37| (|x| |n| $)
-  (PROG (#1=#:G393)
+  (PROG (#1=#:G395)
     (RETURN
      (COND
       ((OR (EQL |n| 0) (SPADCALL |x| (QREFELT $ 19)))
@@ -666,7 +666,7 @@
 (DEFUN |LZSTAGG-;elt;ArestA;39| (|x| T6 $) (SPADCALL |x| (QREFELT $ 73))) 
 
 (DEFUN |LZSTAGG-;rest;ANniA;40| (|x| |n| $)
-  (PROG (#1=#:G400)
+  (PROG (#1=#:G402)
     (RETURN
      (COND ((OR (EQL |n| 0) (SPADCALL |x| (QREFELT $ 19))) |x|)
            ('T
@@ -677,7 +677,7 @@
                       (QREFELT $ 49))))))) 
 
 (DEFUN |LZSTAGG-;last;AS;41| (|x| $)
-  (PROG (#1=#:G404 |y2| |y1| #2=#:G410 |i|)
+  (PROG (#1=#:G406 |y2| |y1| #2=#:G412 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -720,7 +720,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LZSTAGG-;last;ANniA;42| (|x| |n| $)
-  (PROG (#1=#:G411 |m|)
+  (PROG (#1=#:G413 |m|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 90)) (|error| "last: infinite stream"))
@@ -743,7 +743,7 @@
 (DEFUN |LZSTAGG-;elt;AlastS;43| (|x| T7 $) (SPADCALL |x| (QREFELT $ 93))) 
 
 (DEFUN |LZSTAGG-;tail;2A;44| (|x| $)
-  (PROG (#1=#:G417 |y2| |y1| #2=#:G423 |i|)
+  (PROG (#1=#:G419 |y2| |y1| #2=#:G425 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -784,7 +784,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LZSTAGG-;possiblyInfinite?;AB;45| (|x| $)
-  (PROG (#1=#:G425 #2=#:G430 |y| |i|)
+  (PROG (#1=#:G427 #2=#:G432 |y| |i|)
     (RETURN
      (SEQ
       (EXIT

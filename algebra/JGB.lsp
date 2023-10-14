@@ -77,7 +77,7 @@
                   (EXIT |res|))))))))) 
 
 (DEFUN |JGB;groebner;2L;3| (|lp| $)
-  (PROG (#1=#:G156 |dp| #2=#:G155 |gb| |nlp| #3=#:G154 |p| #4=#:G153)
+  (PROG (#1=#:G158 |dp| #2=#:G157 |gb| |nlp| #3=#:G156 |p| #4=#:G155)
     (RETURN
      (SEQ
       (LETT |nlp|
@@ -104,10 +104,10 @@
              (LETT #1# (CDR #1#) . #5#) (GO G190) G191
              (EXIT (NREVERSE #2#))))))))) 
 
-(DEFUN |JetGroebner| (&REST #1=#:G157)
+(DEFUN |JetGroebner| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

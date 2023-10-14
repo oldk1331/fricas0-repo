@@ -8,7 +8,7 @@
   (SPADCALL |p| |ts| (QREFELT $ 16))) 
 
 (DEFUN |NORMPK;outputArgs;2SPTSV;3| (|s1| |s2| |p| |ts| $)
-  (PROG (#1=#:G155 |q| |lp|)
+  (PROG (#1=#:G157 |q| |lp|)
     (RETURN
      (SEQ
       (COND
@@ -67,7 +67,7 @@
 
 (DEFUN |NORMPK;recip;PTSR;6| (|p| |ts| $)
   (PROG (|pd| |pn| |k| |dp| |cd| |dn| |cn| |remd| |remn| |d| |n| |#G28|
-         #1=#:G166 |#G27| |g| |hesrg| |ts_v| |v|)
+         #1=#:G168 |#G27| |g| |hesrg| |ts_v| |v|)
     (RETURN
      (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 34)) . #2=(|NORMPK;recip;PTSR;6|))
           (LETT |ts_v|
@@ -115,7 +115,7 @@
                            (QREFELT $ 53)))))))) 
 
 (DEFUN |NORMPK;normalizedAssociate;PTSP;7| (|p| |ts| $)
-  (PROG (|r| |ip| |mp| |tp| |qr| |ts_v| #1=#:G179 |v| |vp|)
+  (PROG (|r| |ip| |mp| |tp| |qr| |ts_v| #1=#:G181 |v| |vp|)
     (RETURN
      (SEQ
       (COND
@@ -197,7 +197,7 @@
           (SPADCALL (SPADCALL |r| |ts| (QREFELT $ 62)) (QREFELT $ 67)))))))))) 
 
 (DEFUN |NORMPK;normalize;PTSL;8| (|p| |ts| $)
-  (PROG (|lpwt| |q| |us| #1=#:G206 |bwt| |lbwt|)
+  (PROG (|lpwt| |q| |us| #1=#:G208 |bwt| |lbwt|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 58)) (LIST (CONS |p| |ts|)))
@@ -242,10 +242,10 @@
                    (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT |lpwt|)))))))) 
 
-(DEFUN |NormalizationPackage| (&REST #1=#:G207)
+(DEFUN |NormalizationPackage| (&REST #1=#:G209)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G208)
+     (PROG (#2=#:G210)
        (RETURN
         (COND
          ((LETT #2#

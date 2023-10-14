@@ -12,7 +12,7 @@
       (EXIT (CONS 1 "failed")))))) 
 
 (DEFUN |PREASSOC;makeMonic| (|op| $)
-  (PROG (#1=#:G144 |u| #2=#:G145 #3=#:G137 |i| |a| |n| |lc|)
+  (PROG (#1=#:G146 |u| #2=#:G147 #3=#:G139 |i| |a| |n| |lc|)
     (RETURN
      (SEQ
       (EXIT
@@ -407,10 +407,10 @@
               (QREFELT $ 25))
     (SPADCALL 4 (QAREF1 |a| 2) (QREFELT $ 29)) (QREFELT $ 25)))) 
 
-(DEFUN |PrecomputedAssociatedEquations| (&REST #1=#:G168)
+(DEFUN |PrecomputedAssociatedEquations| (&REST #1=#:G170)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G169)
+     (PROG (#2=#:G171)
        (RETURN
         (COND
          ((LETT #2#

@@ -27,7 +27,7 @@
 (DEFUN |OVAR;size;Nni;8| ($) (LENGTH (QREFELT $ 6))) 
 
 (DEFUN |OVAR;variable;SU;9| (|exp| $)
-  (PROG (#1=#:G143 #2=#:G137 |i| #3=#:G144 |exp2|)
+  (PROG (#1=#:G145 #2=#:G139 |i| #3=#:G146 |exp2|)
     (RETURN
      (SEQ
       (EXIT
@@ -68,10 +68,10 @@
 (DEFUN |OVAR;hashUpdate!;Hs$Hs;13| (|hs| |s| $)
   (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
-(DEFUN |OrderedVariableList| (#1=#:G149)
+(DEFUN |OrderedVariableList| (#1=#:G151)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G150)
+     (PROG (#2=#:G152)
        (RETURN
         (COND
          ((LETT #2#

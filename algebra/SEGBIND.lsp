@@ -31,10 +31,10 @@
                   (SPADCALL (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 23)))
             (QREFELT $ 26))) 
 
-(DEFUN |SegmentBinding| (#1=#:G137)
+(DEFUN |SegmentBinding| (#1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#

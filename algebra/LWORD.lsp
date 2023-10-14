@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LWORD;lyndon?;OfmB;1| (|w| $)
-  (PROG (|f| #1=#:G137)
+  (PROG (|f| #1=#:G139)
     (RETURN
      (SEQ
       (EXIT
@@ -52,7 +52,7 @@
                (|LWORD;LetterList| (SPADCALL |w| (QREFELT $ 12)) $))))) 
 
 (DEFUN |LWORD;factor1| (|gauche| |x| |droite| $)
-  (PROG (#1=#:G155 |g| |d|)
+  (PROG (#1=#:G157 |g| |d|)
     (RETURN
      (SEQ
       (EXIT
@@ -99,7 +99,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LWORD;factor;OfmL;6| (|w| $)
-  (PROG (|l| #1=#:G160 |u| #2=#:G159)
+  (PROG (|l| #1=#:G162 |u| #2=#:G161)
     (RETURN
      (SEQ
       (COND ((SPADCALL |w| (|spadConstant| $ 9) (QREFELT $ 11)) NIL)
@@ -145,8 +145,8 @@
 (DEFUN |LWORD;coerce;$M;9| (|x| $) |x|) 
 
 (DEFUN |LWORD;LyndonWordsList1;LPiOda;10| (|vl| |n| $)
-  (PROG (#1=#:G182 |lbase1| #2=#:G189 |b| #3=#:G188 |a| #4=#:G187 |i| #5=#:G186
-         #6=#:G185 |ll| #7=#:G184 |w| #8=#:G183 |base| #9=#:G166)
+  (PROG (#1=#:G184 |lbase1| #2=#:G191 |b| #3=#:G190 |a| #4=#:G189 |i| #5=#:G188
+         #6=#:G187 |ll| #7=#:G186 |w| #8=#:G185 |base| #9=#:G168)
     (RETURN
      (SEQ
       (EXIT
@@ -290,7 +290,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LWORD;LyndonWordsList;LPiL;11| (|vl| |n| $)
-  (PROG (#1=#:G191 #2=#:G190 #3=#:G192 |i| |v|)
+  (PROG (#1=#:G193 #2=#:G192 #3=#:G194 |i| |v|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL |vl| |n| (QREFELT $ 56))
@@ -308,10 +308,10 @@
              (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
         (COND (#1# #2#) ('T (SPADCALL (QREFELT $ 58)))))))))) 
 
-(DEFUN |LyndonWord| (#1=#:G198)
+(DEFUN |LyndonWord| (#1=#:G200)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G199)
+     (PROG (#2=#:G201)
        (RETURN
         (COND
          ((LETT #2#

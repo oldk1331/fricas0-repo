@@ -55,10 +55,10 @@
 
 (DEFUN |PWFFINTB;compLocalBasisOverExt| (|poly0| |prime0| |irrPoly0| |k| $)
   (PROG (|bDen| |p| |bInv| |bas| |b| |ib| |bs| |factorIb| FF |psi1|
-         |henselFactors| |henselInfo| |deg| #1=#:G154 |primaries| #2=#:G175
-         |ff| #3=#:G174 |redFactors| #4=#:G173 |f| #5=#:G172 |factorListSAE|
+         |henselFactors| |henselInfo| |deg| #1=#:G156 |primaries| #2=#:G177
+         |ff| #3=#:G176 |redFactors| #4=#:G175 |f| #5=#:G174 |factorListSAE|
          |redIrrPoly| |pp| |sae| |prime| |redDisc| |redDisc0| |poly| E
-         |irrPoly| #6=#:G146 |r| |disc0| |n|)
+         |irrPoly| #6=#:G148 |r| |disc0| |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL |poly0| (QREFELT $ 36))
@@ -684,11 +684,11 @@
               (EXIT (VECTOR |b| |bDen| |bInv|)))))))))) 
 
 (DEFUN |PWFFINTB;padicLocalIntegralBasis| (|p| |disc| |redDisc| |prime| $)
-  (PROG (|index| |ib| |factorBases| |base| |degPp| #1=#:G213 |pp| #2=#:G214 |k|
-         #3=#:G215 |qq| |degPrime| |henselFactors| |henselInfo| |deg| #4=#:G193
-         |primaries| #5=#:G212 |ff| #6=#:G211 |redPrimaries| #7=#:G189
-         #8=#:G210 |f| #9=#:G209 |expons| #10=#:G187 #11=#:G208 #12=#:G207
-         |primes| #13=#:G206 #14=#:G205 |redPrimes| #15=#:G204 #16=#:G203
+  (PROG (|index| |ib| |factorBases| |base| |degPp| #1=#:G215 |pp| #2=#:G216 |k|
+         #3=#:G217 |qq| |degPrime| |henselFactors| |henselInfo| |deg| #4=#:G195
+         |primaries| #5=#:G214 |ff| #6=#:G213 |redPrimaries| #7=#:G191
+         #8=#:G212 |f| #9=#:G211 |expons| #10=#:G189 #11=#:G210 #12=#:G209
+         |primes| #13=#:G208 #14=#:G207 |redPrimes| #15=#:G206 #16=#:G205
          |factorListSAE| |reducedP| |sae|)
     (RETURN
      (SEQ
@@ -965,7 +965,7 @@
       (EXIT (VECTOR (QVELT |ib| 0) (QVELT |ib| 1) (QVELT |ib| 2))))))) 
 
 (DEFUN |PWFFINTB;listSquaredFactors| (|px| $)
-  (PROG (|ans| #1=#:G225 |f| |factored|)
+  (PROG (|ans| #1=#:G227 |f| |factored|)
     (RETURN
      (SEQ (LETT |ans| NIL . #2=(|PWFFINTB;listSquaredFactors|))
           (LETT |factored| (SPADCALL |px| (QREFELT $ 74)) . #2#)
@@ -984,7 +984,7 @@
 
 (DEFUN |PWFFINTB;integralBasis;R;7| ($)
   (PROG (|runningRbinv| |runningRb| |runningRbden| |mat| |disc| |rbden| |rbinv|
-         |rb| |lb| #1=#:G233 |prime| |redDisc| |singList| |n| |p|)
+         |rb| |lb| #1=#:G235 |prime| |redDisc| |singList| |n| |p|)
     (RETURN
      (SEQ
       (LETT |p| (SPADCALL (QREFELT $ 70)) . #2=(|PWFFINTB;integralBasis;R;7|))
@@ -1033,10 +1033,10 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (VECTOR |runningRb| |runningRbden| |runningRbinv|)))))))))) 
 
-(DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G234)
+(DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G236)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G235)
+     (PROG (#2=#:G237)
        (RETURN
         (COND
          ((LETT #2#

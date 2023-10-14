@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RDIST;weighted;LM;1| (|lvw| $)
-  (PROG (|totwt| #1=#:G139 |k| |i| |wv| |kv| |n| |kl| |w| |u| #2=#:G138 |r|
+  (PROG (|totwt| #1=#:G141 |k| |i| |wv| |kv| |n| |kl| |w| |u| #2=#:G140 |r|
          |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL (QREFELT $ 8)) . #3=(|RDIST;weighted;LM;1|))
@@ -90,10 +90,10 @@
                                    (|spadConstant| $ 29) (QREFELT $ 13))
                          (QREFELT $ 22)))))))))) 
 
-(DEFUN |RandomDistributions| (#1=#:G166)
+(DEFUN |RandomDistributions| (#1=#:G168)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G167)
+     (PROG (#2=#:G169)
        (RETURN
         (COND
          ((LETT #2#

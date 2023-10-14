@@ -46,7 +46,7 @@
       (EXIT (SPADCALL |pol| |x| (QREFELT $ 39))))))) 
 
 (DEFUN |REP;radicalEigenvector;EML;5| (|alpha| A $)
-  (PROG (#1=#:G145 |v| #2=#:G144 |j| |i| B |n|)
+  (PROG (#1=#:G147 |v| #2=#:G146 |j| |i| B |n|)
     (RETURN
      (SEQ (LETT |n| (QVSIZE A) . #3=(|REP;radicalEigenvector;EML;5|))
           (LETT B (SPADCALL |n| |n| (QREFELT $ 14)) . #3#)
@@ -83,8 +83,8 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |REP;radicalEigenvectors;ML;6| (A $)
-  (PROG (|sln| |nsl| #1=#:G169 |ep| #2=#:G168 #3=#:G167 |alg| |lval| |xx| |sym|
-         #4=#:G150 #5=#:G149 |veclist| |i| |m| #6=#:G166 |ll| #7=#:G165 |eig|
+  (PROG (|sln| |nsl| #1=#:G171 |ep| #2=#:G170 #3=#:G169 |alg| |lval| |xx| |sym|
+         #4=#:G152 #5=#:G151 |veclist| |i| |m| #6=#:G168 |ll| #7=#:G167 |eig|
          |n| |leig|)
     (RETURN
      (SEQ
@@ -192,8 +192,8 @@
       (EXIT |sln|))))) 
 
 (DEFUN |REP;gramschmidt;2L;7| (|lvect| $)
-  (PROG (|orth| |pol| #1=#:G177 #2=#:G176 #3=#:G178 #4=#:G184 |w| #5=#:G183 |v|
-         RMR #6=#:G172 |n|)
+  (PROG (|orth| |pol| #1=#:G179 #2=#:G178 #3=#:G180 #4=#:G186 |w| #5=#:G185 |v|
+         RMR #6=#:G174 |n|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |lvect| NIL (QREFELT $ 58)) NIL)
@@ -275,7 +275,7 @@
               (EXIT |orth|)))))))) 
 
 (DEFUN |REP;eigenMatrix;MU;8| (A $)
-  (PROG (|d| #1=#:G200 |v| |n| |lef| #2=#:G190 #3=#:G189 #4=#:G191 #5=#:G199
+  (PROG (|d| #1=#:G202 |v| |n| |lef| #2=#:G192 #3=#:G191 #4=#:G193 #5=#:G201
          |eiv|)
     (RETURN
      (SEQ
@@ -315,7 +315,7 @@
                (EXIT (CONS 0 |d|)))))))))) 
 
 (DEFUN |REP;orthonormalBasis;ML;9| (A $)
-  (PROG (|basis| |lvec| #1=#:G209 |alterm| |n| |alglist|)
+  (PROG (|basis| |lvec| #1=#:G211 |alterm| |n| |alglist|)
     (RETURN
      (SEQ
       (COND
@@ -354,7 +354,7 @@
 (DEFUN |RadicalEigenPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G211)
+     (PROG (#1=#:G213)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|RadicalEigenPackage|)

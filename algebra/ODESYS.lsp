@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ODESYS;solve;MVMU;1| (|mm| |v| |solve| $)
-  (PROG (|k| |l| |m| |solVec| #1=#:G173 |s| |nn| |er| |i| #2=#:G172 |sol|
-         |SolMatrix| #3=#:G171 |part| |n| |sols| #4=#:G169 |u| #5=#:G170 |e|
+  (PROG (|k| |l| |m| |solVec| #1=#:G175 |s| |nn| |er| |i| #2=#:G174 |sol|
+         |SolMatrix| #3=#:G173 |part| |n| |sols| #4=#:G171 |u| #5=#:G172 |e|
          |rec|)
     (RETURN
      (SEQ
@@ -104,7 +104,7 @@
   (SPADCALL |f1| (|spadConstant| $ 15) (QREFELT $ 18))) 
 
 (DEFUN |ODESYS;triangulate;MVR;2| (|m| |v| $)
-  (PROG (|k| |ler| |h0| |j| #1=#:G188 |sum| |op| #2=#:G187 |n| #3=#:G186 |er|
+  (PROG (|k| |ler| |h0| |j| #1=#:G190 |sum| |op| #2=#:G189 |n| #3=#:G188 |er|
          |l| |rat|)
     (RETURN
      (SEQ (LETT |k| 0 . #4=(|ODESYS;triangulate;MVR;2|))
@@ -204,8 +204,8 @@
      (PROGN (SPADCALL (SPADCALL |diff| |f1| (QREFELT $ 31)) (QREFELT $ 44)))))) 
 
 (DEFUN |ODESYS;backsolve| (|m| |v| |solve| $)
-  (PROG (|bas| #1=#:G217 |i| #2=#:G216 |n| #3=#:G215 |a| |eq| |c| |r| #4=#:G213
-         #5=#:G214 |b| |hom| #6=#:G195 |part| |part?| |u| |dim| #7=#:G193 |rec|
+  (PROG (|bas| #1=#:G219 |i| #2=#:G218 |n| #3=#:G217 |a| |eq| |c| |r| #4=#:G215
+         #5=#:G216 |b| |hom| #6=#:G197 |part| |part?| |u| |dim| #7=#:G195 |rec|
          |offset| |mr|)
     (RETURN
      (SEQ (LETT |r| (SPADCALL |m| (QREFELT $ 59)) . #8=(|ODESYS;backsolve|))
@@ -346,8 +346,8 @@
                           (#9# (CONS (CONS 1 "failed") |bas|)))))))))))) 
 
 (DEFUN |ODESYS;solveInField;MVMR;4| (|m| |v| |solve| $)
-  (PROG (|rec| #1=#:G244 #2=#:G258 |i| #3=#:G257 |rc| |uu| |u| #4=#:G255
-         #5=#:G256 |n|)
+  (PROG (|rec| #1=#:G246 #2=#:G260 |i| #3=#:G259 |rc| |uu| |u| #4=#:G257
+         #5=#:G258 |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -430,7 +430,7 @@
     (RETURN (PROGN (|ODESYS;FSL2USL| (SPADCALL |l1| |f2| |solve|) $))))) 
 
 (DEFUN |ODESYS;M2F| (|m| $)
-  (PROG (#1=#:G269 |u| #2=#:G271 |j| #3=#:G270 |i| |mf|)
+  (PROG (#1=#:G271 |u| #2=#:G273 |j| #3=#:G272 |i| |mf|)
     (RETURN
      (SEQ
       (EXIT
@@ -464,7 +464,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ODESYS;FSL2USL| (|rec| $)
-  (PROG (#1=#:G278)
+  (PROG (#1=#:G280)
     (RETURN
      (COND ((QEQCAR (QCAR |rec|) 1) (CONS 1 "failed"))
            ('T
@@ -476,7 +476,7 @@
                    (QCDR |rec|)))))))) 
 
 (DEFUN |ODESYS;firstnonzero| (|m| |r| $)
-  (PROG (#1=#:G283 #2=#:G285 #3=#:G286 |c|)
+  (PROG (#1=#:G285 #2=#:G287 #3=#:G288 |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -542,7 +542,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |ODESYS;triangulate;MVR;10| (|m| |v| $)
-  (PROG (|i| |k1| |b| |a| |l| |k| |x| |rown| #1=#:G306 |j| |offset| |minr|
+  (PROG (|i| |k1| |b| |a| |l| |k| |x| |rown| #1=#:G308 |j| |offset| |minr|
          |ncols| |nrows| |w|)
     (RETURN
      (SEQ
@@ -648,10 +648,10 @@
        #1# (EXIT #1#))
       (EXIT (CONS |x| |w|)))))) 
 
-(DEFUN |SystemODESolver| (&REST #1=#:G309)
+(DEFUN |SystemODESolver| (&REST #1=#:G311)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G310)
+     (PROG (#2=#:G312)
        (RETURN
         (COND
          ((LETT #2#

@@ -21,10 +21,10 @@
 (DEFUN |MULTFACT;factor;SupF;2| (|up| $)
   (SPADCALL |up| (ELT $ 20) (QREFELT $ 27))) 
 
-(DEFUN |MultivariateFactorize| (&REST #1=#:G130)
+(DEFUN |MultivariateFactorize| (&REST #1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

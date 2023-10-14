@@ -66,7 +66,7 @@
    (EXIT (SPADCALL (QREFELT $ 27))))) 
 
 (DEFUN |MMLFORM;exprex;OfS;7| (|expr| $)
-  (PROG (|s| |s1| #1=#:G211 |a| |nargs| |args| |sop| |op| |le|)
+  (PROG (|s| |s1| #1=#:G213 |a| |nargs| |args| |sop| |op| |le|)
     (RETURN
      (SEQ
       (LETT |expr| (|MMLFORM;precondition| |expr| $)
@@ -188,7 +188,7 @@
           (LETT |u| (SPADCALL |pos| |pI| (QREFELT $ 36)) . #1#) (EXIT |pI|))))) 
 
 (DEFUN |MMLFORM;atomize| (|expr| $)
-  (PROG (|le| #1=#:G235 |a| |letmp|)
+  (PROG (|le| #1=#:G237 |a| |letmp|)
     (RETURN
      (SEQ (LETT |le| NIL . #2=(|MMLFORM;atomize|))
           (COND
@@ -285,7 +285,7 @@
 (DEFUN |MMLFORM;precondition| (|expr| $) (|outputTran| |expr|)) 
 
 (DEFUN |MMLFORM;formatSpecial| (|op| |args| |prec| $)
-  (PROG (|tmp| |base| |tmp3| |tmp2| |tmp1| |n| #1=#:G290 |u| #2=#:G289
+  (PROG (|tmp| |base| |tmp3| |tmp2| |tmp1| |n| #1=#:G292 |u| #2=#:G291
          |prescript|)
     (RETURN
      (SEQ (LETT |prescript| 'NIL . #3=(|MMLFORM;formatSpecial|))
@@ -588,7 +588,7 @@
                    (QREFELT $ 30))))))))) 
 
 (DEFUN |MMLFORM;formatPrime| (|args| |prec| $)
-  (PROG (|arg2| |s| |commaTest| #1=#:G298 |i| |commaS|)
+  (PROG (|arg2| |s| |commaTest| #1=#:G300 |i| |commaS|)
     (RETURN
      (SEQ
       (LETT |arg2| (SPADCALL |args| (QREFELT $ 47))
@@ -831,7 +831,7 @@
    (|MMLFORM;formatNaryNoGroup| |op| |sep| |opprec| |args| |prec| $) $)) 
 
 (DEFUN |MMLFORM;formatNaryNoGroup| (|op| |sep| |opprec| |args| |prec| $)
-  (PROG (|s| |l| #1=#:G336 |a| |opPrec| |ops| |p|)
+  (PROG (|s| |l| #1=#:G338 |a| |opPrec| |ops| |p|)
     (RETURN
      (SEQ
       (COND ((NULL |args|) "")
@@ -1088,7 +1088,7 @@
 (DEFUN |MathMLFormat| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G368)
+     (PROG (#1=#:G370)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|MathMLFormat|)

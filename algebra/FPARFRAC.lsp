@@ -20,7 +20,7 @@
         (SPADCALL |f| (QREFELT $ 37)))) 
 
 (DEFUN |FPARFRAC;differentiate;2$;7| (|f| $)
-  (PROG (#1=#:G147 |rec| #2=#:G146)
+  (PROG (#1=#:G149 |rec| #2=#:G148)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 36)) (QREFELT $ 40))
@@ -62,7 +62,7 @@
                              (QREFELT $ 42)))))))) 
 
 (DEFUN |FPARFRAC;convert;$F;10| (|f| $)
-  (PROG (|ans| #1=#:G158 |rec|)
+  (PROG (|ans| #1=#:G160 |rec|)
     (RETURN
      (SEQ
       (LETT |ans| (SPADCALL (SPADCALL |f| (QREFELT $ 36)) (QREFELT $ 44))
@@ -90,7 +90,7 @@
   (SPADCALL (SPADCALL |z1| (QREFELT $ 47)) (QREFELT $ 44))) 
 
 (DEFUN |FPARFRAC;REC2RF| (|d| |h| |n| $)
-  (PROG (|ans| |t| #1=#:G172 |i| |rec| #2=#:G165 |p| |aa| |hh| |dd| |a| |m|)
+  (PROG (|ans| |t| #1=#:G174 |i| |rec| #2=#:G167 |p| |aa| |hh| |dd| |a| |m|)
     (RETURN
      (SEQ (LETT |m| (SPADCALL |d| (QREFELT $ 52)) . #3=(|FPARFRAC;REC2RF|))
           (EXIT
@@ -163,7 +163,7 @@
                   (EXIT |ans|))))))))) 
 
 (DEFUN |FPARFRAC;fullPartialFraction;F$;13| (|f| $)
-  (PROG (#1=#:G176 #2=#:G181 |rec| #3=#:G180 |qr| |d|)
+  (PROG (#1=#:G178 #2=#:G183 |rec| #3=#:G182 |qr| |d|)
     (RETURN
      (SEQ
       (LETT |qr|
@@ -210,8 +210,8 @@
                  (QREFELT $ 39))))))) 
 
 (DEFUN |FPARFRAC;fullParFrac| (|a| |d| |q| |n| $)
-  (PROG (|bm| |em| |um| |cm| |ans| #1=#:G189 |qq| |lval| |lvar| |h| |pp| |p|
-         |m| |cn| |c| |rec| #2=#:G185 |q1| |q0| |un| |u1| |b| |e|)
+  (PROG (|bm| |em| |um| |cm| |ans| #1=#:G191 |qq| |lval| |lvar| |h| |pp| |p|
+         |m| |cn| |c| |rec| #2=#:G187 |q1| |q0| |un| |u1| |b| |e|)
     (RETURN
      (SEQ (LETT |ans| NIL . #3=(|FPARFRAC;fullParFrac|))
           (LETT |em|
@@ -357,7 +357,7 @@
          (SPADCALL (SPADCALL |p| (QREFELT $ 25)) |ans| (QREFELT $ 117))))))))) 
 
 (DEFUN |FPARFRAC;FP2O| (|l| $)
-  (PROG (|ans| #1=#:G204 |rec|)
+  (PROG (|ans| #1=#:G206 |rec|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (SPADCALL (QREFELT $ 119)))
@@ -425,10 +425,10 @@
   (COND ((EQL |n| 1) |f|)
         ('T (SPADCALL |f| (SPADCALL |n| (QREFELT $ 27)) (QREFELT $ 128))))) 
 
-(DEFUN |FullPartialFractionExpansion| (&REST #1=#:G210)
+(DEFUN |FullPartialFractionExpansion| (&REST #1=#:G212)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G211)
+     (PROG (#2=#:G213)
        (RETURN
         (COND
          ((LETT #2#

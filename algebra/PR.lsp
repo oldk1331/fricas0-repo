@@ -35,7 +35,7 @@
           ('T (CONS 1 "failed")))))) 
 
 (DEFUN |PR;coefficient;$ER;10| (|p| |e| $)
-  (PROG (#1=#:G202 #2=#:G207 #3=#:G209 |tm| |ks| #4=#:G208 |tms| |es| |ps|
+  (PROG (#1=#:G204 #2=#:G209 #3=#:G211 |tm| |ks| #4=#:G210 |tms| |es| |ps|
          |degp|)
     (RETURN
      (SEQ
@@ -104,7 +104,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PR;coefficient;$ER;11| (|p| |e| $)
-  (PROG (#1=#:G211 #2=#:G215 #3=#:G216 |tm|)
+  (PROG (#1=#:G213 #2=#:G217 #3=#:G218 |tm|)
     (RETURN
      (SEQ
       (EXIT
@@ -167,7 +167,7 @@
         ('T 'NIL))) 
 
 (DEFUN |PR;times!| (|r| |x| $)
-  (PROG (|endcell| |res| |xx| |newend| |tx| #1=#:G248)
+  (PROG (|endcell| |res| |xx| |newend| |tx| #1=#:G250)
     (RETURN
      (SEQ
       (COND
@@ -217,7 +217,7 @@
         (SPADCALL |r| (QCDR |tx|) (QREFELT $ 44)))) 
 
 (DEFUN |PR;times| (|tco| |tex| |rx| $)
-  (PROG (|r| #1=#:G256 |tx| #2=#:G255)
+  (PROG (|r| #1=#:G258 |tx| #2=#:G257)
     (RETURN
      (SEQ
       (COND
@@ -392,7 +392,7 @@
                  (#2# (SEQ (RPLACD |endcell| |newcell|) (EXIT |res|))))))))) 
 
 (DEFUN |PR;*;3$;22| (|p1| |p2| $)
-  (PROG (|res| #1=#:G315 |tx| #2=#:G314 |xx| |degy| |degx| |#G70| |#G69| |yy|
+  (PROG (|res| #1=#:G317 |tx| #2=#:G316 |xx| |degy| |degx| |#G70| |#G69| |yy|
          |#G68| |#G67| |ly| |lx|)
     (RETURN
      (SEQ (LETT |xx| |p1| . #3=(|PR;*;3$;22|))
@@ -479,7 +479,7 @@
                                         (EXIT |res|))))))))))))))))) 
 
 (DEFUN |PR;*;3$;23| (|p1| |p2| $)
-  (PROG (|res| #1=#:G323 |tx| |xx| |yy|)
+  (PROG (|res| #1=#:G325 |tx| |xx| |yy|)
     (RETURN
      (SEQ (LETT |xx| |p1| . #2=(|PR;*;3$;23|))
           (EXIT
@@ -543,7 +543,7 @@
                         (QREFELT $ 58))))))))) 
 
 (DEFUN |PR;unitNormal;$R;26| (|p| $)
-  (PROG (|a| #1=#:G331 |lcf| |#G1|)
+  (PROG (|a| #1=#:G333 |lcf| |#G1|)
     (RETURN
      (SEQ
       (EXIT
@@ -572,7 +572,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PR;unitCanonical;2$;27| (|p| $)
-  (PROG (|a| #1=#:G335 |lcf| |#G2|)
+  (PROG (|a| #1=#:G337 |lcf| |#G2|)
     (RETURN
      (SEQ
       (EXIT
@@ -640,7 +640,7 @@
                 (SPADCALL |a| (CDR |p|) (QREFELT $ 50))))))))))) 
 
 (DEFUN |PR;associates?;2$B;30| (|p1| |p2| $)
-  (PROG (#1=#:G347)
+  (PROG (#1=#:G349)
     (RETURN
      (COND ((NULL |p1|) (NULL |p2|)) ((NULL |p2|) 'NIL)
            (#2='T
@@ -665,7 +665,7 @@
              (#2# 'NIL))))))) 
 
 (DEFUN |PR;exquo;$RU;31| (|p| |r| $)
-  (PROG (#1=#:G360 |a| #2=#:G362 |tm| #3=#:G361)
+  (PROG (#1=#:G362 |a| #2=#:G364 |tm| #3=#:G363)
     (RETURN
      (SEQ
       (EXIT
@@ -698,7 +698,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PR;fmecg;$ER2$;32| (|p1| |e| |r| |p2| $)
-  (PROG (|rout| |u| |c2| |e2| #1=#:G372 |tm|)
+  (PROG (|rout| |u| |c2| |e2| #1=#:G374 |tm|)
     (RETURN
      (SEQ (LETT |rout| NIL . #2=(|PR;fmecg;$ER2$;32|))
           (LETT |r| (SPADCALL |r| (QREFELT $ 70)) . #2#)
@@ -747,7 +747,7 @@
           (EXIT (NRECONC |rout| |p1|)))))) 
 
 (DEFUN |PR;exquo;2$U;33| (|p1| |p2| $)
-  (PROG (|rout| #1=#:G387 |ee| |a|)
+  (PROG (|rout| #1=#:G389 |ee| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -805,7 +805,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PR;exquo;2$U;34| (|p1| |p2| $)
-  (PROG (|rout| #1=#:G402 |ee| |a|)
+  (PROG (|rout| #1=#:G404 |ee| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -863,10 +863,10 @@
 (DEFUN |PR;/;$R$;35| (|x| |r| $)
   (SPADCALL (SPADCALL |r| (QREFELT $ 60)) |x| (QREFELT $ 50))) 
 
-(DEFUN |PolynomialRing| (&REST #1=#:G416)
+(DEFUN |PolynomialRing| (&REST #1=#:G418)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G417)
+     (PROG (#2=#:G419)
        (RETURN
         (COND
          ((LETT #2#
@@ -884,7 +884,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|PolynomialRing|))))))))))) 
 
 (DEFUN |PolynomialRing;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G412 #2=#:G413 #3=#:G414 #4=#:G415 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G414 #2=#:G415 #3=#:G416 #4=#:G417 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|PolynomialRing|))

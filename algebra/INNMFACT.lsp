@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |INNMFACT;convertPUP| (|lfg| $)
-  (PROG (#1=#:G162 |lff| #2=#:G161)
+  (PROG (#1=#:G164 |lff| #2=#:G163)
     (RETURN
      (SEQ
       (CONS (QCAR |lfg|)
@@ -24,13 +24,13 @@
                   (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |INNMFACT;supFactor| (|um| |ufactor| $)
-  (PROG (#1=#:G204 |lcfacs| #2=#:G199 #3=#:G198 #4=#:G200 #5=#:G202 #6=#:G221
-         |f| |factorlist| |auxfl| #7=#:G220 |lfp| #8=#:G219 |lf| |ldeg|
-         #9=#:G188 #10=#:G187 #11=#:G189 #12=#:G218 |fc| #13=#:G217 |xx|
-         #14=#:G216 |coefs| #15=#:G215 |lff| #16=#:G214 |lcont| |lfg| |ffexp|
-         |ffactor| #17=#:G213 |fact| |sqqfact| |flead| |sqfacs| |uum|
-         #18=#:G209 #19=#:G175 |f1| |mdeg| #20=#:G212 |ff| #21=#:G211 |lfact|
-         |umv| |lvar| #22=#:G166 #23=#:G165 #24=#:G167 #25=#:G210 |cf|)
+  (PROG (#1=#:G206 |lcfacs| #2=#:G201 #3=#:G200 #4=#:G202 #5=#:G204 #6=#:G223
+         |f| |factorlist| |auxfl| #7=#:G222 |lfp| #8=#:G221 |lf| |ldeg|
+         #9=#:G190 #10=#:G189 #11=#:G191 #12=#:G220 |fc| #13=#:G219 |xx|
+         #14=#:G218 |coefs| #15=#:G217 |lff| #16=#:G216 |lcont| |lfg| |ffexp|
+         |ffactor| #17=#:G215 |fact| |sqqfact| |flead| |sqfacs| |uum|
+         #18=#:G211 #19=#:G177 |f1| |mdeg| #20=#:G214 |ff| #21=#:G213 |lfact|
+         |umv| |lvar| #22=#:G168 #23=#:G167 #24=#:G169 #25=#:G212 |cf|)
     (RETURN
      (SEQ
       (EXIT
@@ -371,7 +371,7 @@
       #18# (EXIT #18#))))) 
 
 (DEFUN |INNMFACT;factor;SupMF;3| (|um| |ufactor| $)
-  (PROG (#1=#:G225 #2=#:G224 #3=#:G226 #4=#:G230 |u| |flist|)
+  (PROG (#1=#:G227 #2=#:G226 #3=#:G228 #4=#:G232 |u| |flist|)
     (RETURN
      (SEQ
       (LETT |flist| (|INNMFACT;supFactor| |um| |ufactor| $)
@@ -410,7 +410,7 @@
      (#1# 'NIL))))) 
 
 (DEFUN |INNMFACT;varChoose| (|m| |lvar| |ldeg| $)
-  (PROG (|x| |i| |k| #1=#:G235 #2=#:G234 #3=#:G236 #4=#:G240 |d|)
+  (PROG (|x| |i| |k| #1=#:G237 #2=#:G236 #3=#:G238 #4=#:G242 |d|)
     (RETURN
      (SEQ
       (LETT |k|
@@ -448,9 +448,9 @@
                (VECTOR (SPADCALL |m| |x| (QREFELT $ 85)) |lvar| |ldeg|)))))))))) 
 
 (DEFUN |INNMFACT;localNorm| (|lum| $)
-  (PROG (#1=#:G245 #2=#:G244 #3=#:G246 #4=#:G248 #5=#:G247 #6=#:G249 |cc|
-         #7=#:G253 |i| #8=#:G252 |ff| #9=#:G242 #10=#:G241 #11=#:G243
-         #12=#:G251)
+  (PROG (#1=#:G247 #2=#:G246 #3=#:G248 #4=#:G250 #5=#:G249 #6=#:G251 |cc|
+         #7=#:G255 |i| #8=#:G254 |ff| #9=#:G244 #10=#:G243 #11=#:G245
+         #12=#:G253)
     (RETURN
      (SEQ
       (COND
@@ -514,12 +514,12 @@
          (COND (#1# #2#) (#14# (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |INNMFACT;intChoose| (|um| |lvar| |clc| |plist| |ltry| |ufactor| $)
-  (PROG (|nfatt| |int| |leadcomp| |lffc| |unifact| #1=#:G312 |uf| #2=#:G311
-         |leadtest| #3=#:G310 #4=#:G309 #5=#:G294 #6=#:G308 #7=#:G307 #8=#:G306
-         #9=#:G305 #10=#:G304 |ff| #11=#:G303 #12=#:G302 #13=#:G301 |nf|
-         |lffc1| |lunivf| |luniv| |range| |newm| #14=#:G269 #15=#:G263
-         #16=#:G262 #17=#:G264 #18=#:G300 |epl| |leadcomp1| #19=#:G299 |pol|
-         #20=#:G298 |lval| |i| #21=#:G297 #22=#:G296 |newunifact| |testp|
+  (PROG (|nfatt| |int| |leadcomp| |lffc| |unifact| #1=#:G314 |uf| #2=#:G313
+         |leadtest| #3=#:G312 #4=#:G311 #5=#:G296 #6=#:G310 #7=#:G309 #8=#:G308
+         #9=#:G307 #10=#:G306 |ff| #11=#:G305 #12=#:G304 #13=#:G303 |nf|
+         |lffc1| |lunivf| |luniv| |range| |newm| #14=#:G271 #15=#:G265
+         #16=#:G264 #17=#:G266 #18=#:G302 |epl| |leadcomp1| #19=#:G301 |pol|
+         #20=#:G300 |lval| |i| #21=#:G299 #22=#:G298 |newunifact| |testp|
          |ctf1| |nvar1| |degum|)
     (RETURN
      (SEQ
@@ -909,7 +909,7 @@
       #22# (EXIT #22#))))) 
 
 (DEFUN |INNMFACT;simplify| (|m| |lvar| |lmdeg| |ufactor| $)
-  (PROG (|flead| #1=#:G319 |factorlist| |pol1| |i| #2=#:G325 |x|)
+  (PROG (|flead| #1=#:G321 |factorlist| |pol1| |i| #2=#:G327 |x|)
     (RETURN
      (SEQ (LETT |factorlist| NIL . #3=(|INNMFACT;simplify|))
           (LETT |pol1| (|spadConstant| $ 48) . #3#)
@@ -955,10 +955,10 @@
                   (EXIT |flead|))))))))) 
 
 (DEFUN |INNMFACT;intfact| (|um| |lvar| |ldeg| |tleadpol| |ltry| |ufactor| $)
-  (PROG (|factfin| #1=#:G522 |ff| #2=#:G521 |ffin| |umd| #3=#:G504 |unifact|
-         #4=#:G520 |unif| #5=#:G519 |dd| |lpol| |dist| #6=#:G516 |distf|
-         |leadval| |lval| |nfact| |vfchoo| #7=#:G256 |check| |leadpol|
-         #8=#:G518 #9=#:G517 |polcase|)
+  (PROG (|factfin| #1=#:G524 |ff| #2=#:G523 |ffin| |umd| #3=#:G506 |unifact|
+         #4=#:G522 |unif| #5=#:G521 |dd| |lpol| |dist| #6=#:G518 |distf|
+         |leadval| |lval| |nfact| |vfchoo| #7=#:G258 |check| |leadpol|
+         #8=#:G520 #9=#:G519 |polcase|)
     (RETURN
      (SEQ
       (EXIT
@@ -1132,7 +1132,7 @@
       #6# (EXIT #6#))))) 
 
 (DEFUN |INNMFACT;mfconst| (|um| |lvar| |ldeg| |ufactor| $)
-  (PROG (#1=#:G534 |uf| #2=#:G533 |lum| |factfin|)
+  (PROG (#1=#:G536 |uf| #2=#:G535 |lum| |factfin|)
     (RETURN
      (SEQ (LETT |factfin| NIL . #3=(|INNMFACT;mfconst|))
           (EXIT
@@ -1166,7 +1166,7 @@
               (CONS (|spadConstant| $ 43) NIL) NIL |ufactor| $)))))))) 
 
 (DEFUN |INNMFACT;monicize| (|um| |c| $)
-  (PROG (|ans| |prod| #1=#:G537 |n| |lc| |i| #2=#:G535)
+  (PROG (|ans| |prod| #1=#:G539 |n| |lc| |i| #2=#:G537)
     (RETURN
      (SEQ (LETT |n| (SPADCALL |um| (QREFELT $ 52)) . #3=(|INNMFACT;monicize|))
           (LETT |ans| (SPADCALL (|spadConstant| $ 48) |n| (QREFELT $ 49))
@@ -1249,11 +1249,11 @@
            $))))))))) 
 
 (DEFUN |INNMFACT;mFactor| (|m| |ufactor| $)
-  (PROG (#1=#:G600 |lcfacs| #2=#:G595 #3=#:G594 #4=#:G596 #5=#:G598 #6=#:G612
-         |f| |factorlist| |auxfl| #7=#:G611 |lfp| #8=#:G610 |lf| |um| |ldeg|
-         #9=#:G609 |lcterm| |ffactor| #10=#:G577 |pc| |lvar| |x| |varch|
-         #11=#:G608 #12=#:G565 |lcont| |ffexp| #13=#:G607 |fact| |sqqfact|
-         |flead| |sqfacs| #14=#:G554 #15=#:G553 #16=#:G555 #17=#:G606 |n|
+  (PROG (#1=#:G602 |lcfacs| #2=#:G597 #3=#:G596 #4=#:G598 #5=#:G600 #6=#:G614
+         |f| |factorlist| |auxfl| #7=#:G613 |lfp| #8=#:G612 |lf| |um| |ldeg|
+         #9=#:G611 |lcterm| |ffactor| #10=#:G579 |pc| |lvar| |x| |varch|
+         #11=#:G610 #12=#:G567 |lcont| |ffexp| #13=#:G609 |fact| |sqqfact|
+         |flead| |sqfacs| #14=#:G556 #15=#:G555 #16=#:G557 #17=#:G608 |n|
          |lmdeg|)
     (RETURN
      (SEQ
@@ -1530,7 +1530,7 @@
                    |factorlist|))))))))))))) 
 
 (DEFUN |INNMFACT;factor;PMF;16| (|m| |ufactor| $)
-  (PROG (#1=#:G616 #2=#:G615 #3=#:G617 #4=#:G620 |u| |flist|)
+  (PROG (#1=#:G618 #2=#:G617 #3=#:G619 #4=#:G622 |u| |flist|)
     (RETURN
      (SEQ
       (LETT |flist| (|INNMFACT;mFactor| |m| |ufactor| $)
@@ -1563,10 +1563,10 @@
                   (COND (#1# #2#) ('T (|spadConstant| $ 154))))
                  (QREFELT $ 165))))))) 
 
-(DEFUN |InnerMultFact| (&REST #1=#:G621)
+(DEFUN |InnerMultFact| (&REST #1=#:G623)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G622)
+     (PROG (#2=#:G624)
        (RETURN
         (COND
          ((LETT #2#

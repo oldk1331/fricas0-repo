@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PINTERPA;LagrangeInterpolation;2LP;1| (|lx| |ly| $)
-  (PROG (|ip| |xp| |pp| #1=#:G135 |xj| |j| #2=#:G133 |xi| #3=#:G134 |yi| |i|)
+  (PROG (|ip| |xp| |pp| #1=#:G137 |xj| |j| #2=#:G135 |xi| #3=#:G136 |yi| |i|)
     (RETURN
      (SEQ
       (COND
@@ -68,10 +68,10 @@
               (GO G190) G191 (EXIT NIL))
          (EXIT |ip|)))))))) 
 
-(DEFUN |PolynomialInterpolationAlgorithms| (&REST #1=#:G136)
+(DEFUN |PolynomialInterpolationAlgorithms| (&REST #1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

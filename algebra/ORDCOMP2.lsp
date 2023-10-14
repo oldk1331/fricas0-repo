@@ -14,10 +14,10 @@
        (SPADCALL (SPADCALL (SPADCALL |r| (QREFELT $ 17)) |f|) (QREFELT $ 18)))
       ((|eql_SI| |n| 1) |p|) ('T |m|))))) 
 
-(DEFUN |OrderedCompletionFunctions2| (&REST #1=#:G130)
+(DEFUN |OrderedCompletionFunctions2| (&REST #1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

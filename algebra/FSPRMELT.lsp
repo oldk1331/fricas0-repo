@@ -22,7 +22,7 @@
     (RETURN (PROGN (|FSPRMELT;K2P| |k1| |l| $))))) 
 
 (DEFUN |FSPRMELT;K2P| (|k| |l| $)
-  (PROG (#1=#:G137 |v|)
+  (PROG (#1=#:G139 |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -40,9 +40,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSPRMELT;primitiveElement;LR;3| (|l| $)
-  (PROG (#1=#:G146 #2=#:G145 #3=#:G147 #4=#:G160 |c| #5=#:G161 |a| |rec| |pols|
-         #6=#:G158 |k| #7=#:G159 |v| #8=#:G157 |kers| #9=#:G156 #10=#:G155 |vv|
-         #11=#:G154 #12=#:G153 |vars| #13=#:G152 |i| #14=#:G151 |u| |uu|)
+  (PROG (#1=#:G148 #2=#:G147 #3=#:G149 #4=#:G162 |c| #5=#:G163 |a| |rec| |pols|
+         #6=#:G160 |k| #7=#:G161 |v| #8=#:G159 |kers| #9=#:G158 #10=#:G157 |vv|
+         #11=#:G156 #12=#:G155 |vars| #13=#:G154 |i| #14=#:G153 |u| |uu|)
     (RETURN
      (SEQ
       (LETT |u|
@@ -298,10 +298,10 @@
                |k| (SPADCALL |k| (QREFELT $ 39)) (QREFELT $ 84)))))
        ('T (|error| "GCD not of degree 1"))))))) 
 
-(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G181)
+(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G183)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G182)
+     (PROG (#2=#:G184)
        (RETURN
         (COND
          ((LETT #2#

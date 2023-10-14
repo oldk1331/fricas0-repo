@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SUBRESP;primitivePart;UPRUP;1| (|p| |q| $)
-  (PROG (|rec| #1=#:G136)
+  (PROG (|rec| #1=#:G138)
     (RETURN
      (SEQ
       (LETT |rec|
@@ -37,7 +37,7 @@
                 (QREFELT $ 14)))))) 
 
 (DEFUN |SUBRESP;subresultantVector;2UPPa;2| (|p1| |p2| $)
-  (PROG (|n| |Sn| #1=#:G154 |l| F #2=#:G147 #3=#:G142 |res|)
+  (PROG (|n| |Sn| #1=#:G156 |l| F #2=#:G149 #3=#:G144 |res|)
     (RETURN
      (SEQ
       (LETT |res|
@@ -153,10 +153,10 @@
                    (#5# (QSETAREF1 |res| (SPADCALL |p2| (QREFELT $ 21)) |p2|)))
                   (EXIT |res|))))))))))))) 
 
-(DEFUN |SubResultantPackage| (&REST #1=#:G167)
+(DEFUN |SubResultantPackage| (&REST #1=#:G169)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G168)
+     (PROG (#2=#:G170)
        (RETURN
         (COND
          ((LETT #2#

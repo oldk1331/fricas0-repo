@@ -7,10 +7,10 @@
              (SPADCALL |g| (QREFELT $ 10)) (QREFELT $ 13))
    (QREFELT $ 14))) 
 
-(DEFUN |UnivariateFormalPowerSeriesFunctions| (#1=#:G126)
+(DEFUN |UnivariateFormalPowerSeriesFunctions| (#1=#:G128)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G127)
+     (PROG (#2=#:G129)
        (RETURN
         (COND
          ((LETT #2#

@@ -24,10 +24,10 @@
 
 (DEFUN |TUBE;tube;CurveLB$;6| (|curve| |ll| |b| $) (VECTOR |curve| |ll| |b|)) 
 
-(DEFUN |TubePlot| (#1=#:G135)
+(DEFUN |TubePlot| (#1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#

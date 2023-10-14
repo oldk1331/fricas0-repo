@@ -119,10 +119,10 @@
           (|spadConstant| $ 7)))
    (QREFELT $ 10))) 
 
-(DEFUN |DenavitHartenbergMatrix| (#1=#:G148)
+(DEFUN |DenavitHartenbergMatrix| (#1=#:G150)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G149)
+     (PROG (#2=#:G151)
        (RETURN
         (COND
          ((LETT #2#
@@ -140,7 +140,7 @@
               (HREM |$ConstructorCache| '|DenavitHartenbergMatrix|))))))))))) 
 
 (DEFUN |DenavitHartenbergMatrix;| (|#1|)
-  (PROG (|pv$| #1=#:G145 #2=#:G146 #3=#:G147 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G147 #2=#:G148 #3=#:G149 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|DenavitHartenbergMatrix|))

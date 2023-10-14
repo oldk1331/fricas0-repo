@@ -145,7 +145,7 @@
         (SPADCALL |vp| (QREFELT $ 42)) (QREFELT $ 29))))))) 
 
 (DEFUN |DFSFUN;airyAi;2Df;21| (|x| $)
-  (PROG (|eta| |athird| #1=#:G158 |ahalf|)
+  (PROG (|eta| |athird| #1=#:G160 |ahalf|)
     (RETURN
      (SEQ
       (LETT |ahalf|
@@ -179,7 +179,7 @@
                   (SPADCALL |athird| |eta| (QREFELT $ 16))))))))) 
 
 (DEFUN |DFSFUN;airyAi;2C;22| (|z| $)
-  (PROG (|eta| |athird| #1=#:G163 |ahalf|)
+  (PROG (|eta| |athird| #1=#:G165 |ahalf|)
     (RETURN
      (SEQ
       (LETT |ahalf|
@@ -214,7 +214,7 @@
         (QREFELT $ 27))))))) 
 
 (DEFUN |DFSFUN;airyBi;2Df;23| (|x| $)
-  (PROG (|eta| |athird| #1=#:G168 |ahalf|)
+  (PROG (|eta| |athird| #1=#:G170 |ahalf|)
     (RETURN
      (SEQ
       (LETT |ahalf|
@@ -248,7 +248,7 @@
                   (SPADCALL |athird| |eta| (QREFELT $ 16))))))))) 
 
 (DEFUN |DFSFUN;airyBi;2C;24| (|z| $)
-  (PROG (|eta| |athird| #1=#:G173 |ahalf|)
+  (PROG (|eta| |athird| #1=#:G175 |ahalf|)
     (RETURN
      (SEQ
       (LETT |ahalf|
@@ -285,7 +285,7 @@
 (DEFUN |DoubleFloatSpecialFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G178)
+     (PROG (#1=#:G180)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatSpecialFunctions|)

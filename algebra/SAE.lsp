@@ -4,7 +4,7 @@
 (DEFUN |SAE;size;Nni;1| ($) (EXPT (SPADCALL (QREFELT $ 39)) (QREFELT $ 17))) 
 
 (DEFUN |SAE;random;$;2| ($)
-  (PROG (#1=#:G140 |i| #2=#:G139)
+  (PROG (#1=#:G142 |i| #2=#:G141)
     (RETURN
      (SEQ
       (SPADCALL
@@ -49,7 +49,7 @@
   (SPADCALL (SPADCALL |x| |y| (QREFELT $ 68)) (QREFELT $ 61))) 
 
 (DEFUN |SAE;coordinates;$V;16| (|x| $)
-  (PROG (#1=#:G158 |i| #2=#:G157)
+  (PROG (#1=#:G160 |i| #2=#:G159)
     (RETURN
      (SEQ
       (PROGN
@@ -66,7 +66,7 @@
        #2#))))) 
 
 (DEFUN |SAE;represents;V$;17| (|vect| $)
-  (PROG (#1=#:G160 #2=#:G159 #3=#:G161 #4=#:G163 |i|)
+  (PROG (#1=#:G162 #2=#:G161 #3=#:G163 #4=#:G165 |i|)
     (RETURN
      (SEQ
       (PROGN
@@ -90,7 +90,7 @@
 (DEFUN |SAE;characteristic;Nni;19| ($) (SPADCALL (QREFELT $ 74))) 
 
 (DEFUN |SAE;rank;Pi;20| ($)
-  (PROG (#1=#:G166)
+  (PROG (#1=#:G168)
     (RETURN
      (PROG1 (LETT #1# (QREFELT $ 17) |SAE;rank;Pi;20|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
@@ -117,7 +117,7 @@
                    (QREFELT $ 88))))))))) 
 
 (DEFUN |SAE;coordinates;$VV;24| (|x| |bas| $)
-  (PROG (|xi| #1=#:G183 |i| |vec| |vecQF| |coordsQF| |m| |mat| |imatqf| |qf|)
+  (PROG (|xi| #1=#:G185 |i| |vec| |vecQF| |coordsQF| |m| |mat| |imatqf| |qf|)
     (RETURN
      (SEQ
       (LETT |qf| (|Fraction| (QREFELT $ 6)) . #2=(|SAE;coordinates;$VV;24|))
@@ -229,7 +229,7 @@
    (EXIT (QREFELT $ 24)))) 
 
 (DEFUN |SAE;mkDiscMat| (|b| $)
-  (PROG (#1=#:G201 |j| #2=#:G200 |i| |mc| |mr|)
+  (PROG (#1=#:G203 |j| #2=#:G202 |i| |mc| |mr|)
     (RETURN
      (SEQ (SPADCALL (QREFELT $ 28) |b| (QREFELT $ 108))
           (LETT |mr| 1 . #3=(|SAE;mkDiscMat|)) (LETT |mc| 1 . #3#)
@@ -255,7 +255,7 @@
           (EXIT (SPADCALL (QREFELT $ 112))))))) 
 
 (DEFUN |SAE;trace;$R;31| (|x| $)
-  (PROG (|ans| |xn| #1=#:G206 |n|)
+  (PROG (|ans| |xn| #1=#:G208 |n|)
     (RETURN
      (SEQ (LETT |xn| |x| . #2=(|SAE;trace;$R;31|))
           (LETT |ans|
@@ -278,7 +278,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |SAE;index;Pi$;32| (|k| $)
-  (PROG (|i| |ans| |a| #1=#:G208 |h| |j| |p|)
+  (PROG (|i| |ans| |a| #1=#:G210 |h| |j| |p|)
     (RETURN
      (SEQ
       (LETT |i| (REM |k| (SPADCALL (QREFELT $ 40))) . #2=(|SAE;index;Pi$;32|))
@@ -347,10 +347,10 @@
               (EXIT
                (COND ((EQL |n| 0) |co|) (#1# (* |co| (EXPT |p| |n|)))))))))))) 
 
-(DEFUN |SimpleAlgebraicExtension| (&REST #1=#:G259)
+(DEFUN |SimpleAlgebraicExtension| (&REST #1=#:G261)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G260)
+     (PROG (#2=#:G262)
        (RETURN
         (COND
          ((LETT #2#
@@ -369,7 +369,7 @@
               (HREM |$ConstructorCache| '|SimpleAlgebraicExtension|))))))))))) 
 
 (DEFUN |SimpleAlgebraicExtension;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G258 |i| #2=#:G257 #3=#:G133 #4=#:G130 |pv$| #5=#:G255 #6=#:G256
+  (PROG (#1=#:G260 |i| #2=#:G259 #3=#:G135 #4=#:G132 |pv$| #5=#:G257 #6=#:G258
          $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (SEQ

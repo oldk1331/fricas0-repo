@@ -28,7 +28,7 @@
 (DEFUN |MachineComplex| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G180)
+     (PROG (#1=#:G182)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|MachineComplex|)
@@ -45,7 +45,7 @@
              ((NOT #1#) (HREM |$ConstructorCache| '|MachineComplex|))))))))))) 
 
 (DEFUN |MachineComplex;| ()
-  (PROG (|dv$| $ #1=#:G178 #2=#:G177 #3=#:G176 #4=#:G175 #5=#:G174 |pv$|)
+  (PROG (|dv$| $ #1=#:G180 #2=#:G179 #3=#:G178 #4=#:G177 #5=#:G176 |pv$|)
     (RETURN
      (PROGN
       (LETT |dv$| '(|MachineComplex|) . #6=(|MachineComplex|))

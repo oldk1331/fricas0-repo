@@ -10,7 +10,7 @@
       (EXIT (SPADCALL |li| (QREFELT $ 15))))))) 
 
 (DEFUN |SCPKG;coordinates;MLV;2| (|x| |b| $)
-  (PROG (#1=#:G145 |res| |i| |transitionMatrix| |n| |m| #2=#:G140)
+  (PROG (#1=#:G147 |res| |i| |transitionMatrix| |n| |m| #2=#:G142)
     (RETURN
      (SEQ
       (LETT |m|
@@ -51,7 +51,7 @@
            (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6)) #1#))))))))) 
 
 (DEFUN |SCPKG;structuralConstants;LV;3| (|b| $)
-  (PROG (|k| |covec| |j| |i| |sC| #1=#:G157 #2=#:G158 |m| #3=#:G149)
+  (PROG (|k| |covec| |j| |i| |sC| #1=#:G159 #2=#:G160 |m| #3=#:G151)
     (RETURN
      (SEQ
       (LETT |m|
@@ -213,10 +213,10 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 65))))))) 
 
-(DEFUN |StructuralConstantsPackage| (#1=#:G180)
+(DEFUN |StructuralConstantsPackage| (#1=#:G182)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G181)
+     (PROG (#2=#:G183)
        (RETURN
         (COND
          ((LETT #2#

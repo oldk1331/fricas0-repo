@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |UnivariateFormalPowerSeries| (#1=#:G141)
+(DEFUN |UnivariateFormalPowerSeries| (#1=#:G143)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G142)
+     (PROG (#2=#:G144)
        (RETURN
         (COND
          ((LETT #2#
@@ -23,7 +23,7 @@
                     '|UnivariateFormalPowerSeries|))))))))))) 
 
 (DEFUN |UnivariateFormalPowerSeries;| (|#1|)
-  (PROG (|pv$| #1=#:G133 #2=#:G134 #3=#:G135 #4=#:G136 #5=#:G137 #6=#:G140 $
+  (PROG (|pv$| #1=#:G135 #2=#:G136 #3=#:G137 #4=#:G138 #5=#:G139 #6=#:G142 $
          |dv$| DV$1)
     (RETURN
      (PROGN

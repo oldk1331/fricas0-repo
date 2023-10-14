@@ -51,7 +51,7 @@
   (SPADCALL (LIST |r|) |s| |n| (QREFELT $ 35))) 
 
 (DEFUN |RULE;F2Symbol| (|f| $)
-  (PROG (#1=#:G152 #2=#:G159 |k| #3=#:G158 |l|)
+  (PROG (#1=#:G154 #2=#:G161 |k| #3=#:G160 |l|)
     (RETURN
      (SEQ
       (LETT |l|
@@ -132,7 +132,7 @@
    ('T (SPADCALL (SPADCALL |f| (QREFELT $ 65)) (QREFELT $ 57))))) 
 
 (DEFUN |RULE;appear?| (|x| |l| $)
-  (PROG (#1=#:G181 #2=#:G183 #3=#:G184 |p|)
+  (PROG (#1=#:G183 #2=#:G185 #3=#:G186 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -159,7 +159,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |RULE;bad?| (|u| $)
-  (PROG (#1=#:G190 #2=#:G192 #3=#:G193 |x|)
+  (PROG (#1=#:G192 #2=#:G194 #3=#:G195 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -204,10 +204,10 @@
             (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 80))
             (QREFELT $ 81))) 
 
-(DEFUN |RewriteRule| (&REST #1=#:G202)
+(DEFUN |RewriteRule| (&REST #1=#:G204)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G203)
+     (PROG (#2=#:G205)
        (RETURN
         (COND
          ((LETT #2#

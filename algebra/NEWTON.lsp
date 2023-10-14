@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |NEWTON;differences| (|yl| $)
-  (PROG (#1=#:G129 |y1| #2=#:G130 |y2| #3=#:G128)
+  (PROG (#1=#:G131 |y1| #2=#:G132 |y2| #3=#:G130)
     (RETURN
      (SEQ
       (PROGN
@@ -20,7 +20,7 @@
             (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |NEWTON;newtonAux| (|k| |fact| |yl| $)
-  (PROG (#1=#:G132)
+  (PROG (#1=#:G134)
     (RETURN
      (COND
       ((NULL (CDR |yl|))
@@ -54,10 +54,10 @@
 (DEFUN |NEWTON;newton;LSup;3| (|yl| $)
   (|NEWTON;newtonAux| (|spadConstant| $ 8) (|spadConstant| $ 8) |yl| $)) 
 
-(DEFUN |NewtonInterpolation| (#1=#:G137)
+(DEFUN |NewtonInterpolation| (#1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#

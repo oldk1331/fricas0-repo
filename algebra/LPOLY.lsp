@@ -43,7 +43,7 @@
                              (QREFELT $ 20))))))))))) 
 
 (DEFUN |LPOLY;eval;$VarSet2$;3| (|p| |v| |nv| $)
-  (PROG (#1=#:G158 #2=#:G157 #3=#:G159 #4=#:G161 |t|)
+  (PROG (#1=#:G160 #2=#:G159 #3=#:G161 #4=#:G163 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -65,7 +65,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 23)))))))) 
 
 (DEFUN |LPOLY;eval;$LL$;4| (|p| |lv| |lnv| $)
-  (PROG (#1=#:G163 #2=#:G162 #3=#:G164 #4=#:G166 |t|)
+  (PROG (#1=#:G165 #2=#:G164 #3=#:G166 #4=#:G168 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -115,7 +115,7 @@
   (SPADCALL |p| (SPADCALL |lp| (QREFELT $ 41)) (QREFELT $ 42))) 
 
 (DEFUN |LPOLY;lquo;Xrp$Xrp;8| (|p| |lp| $)
-  (PROG (#1=#:G175 #2=#:G174 #3=#:G176 #4=#:G178 |t|)
+  (PROG (#1=#:G177 #2=#:G176 #3=#:G178 #4=#:G180 |t|)
     (RETURN
      (SEQ
       (COND
@@ -142,7 +142,7 @@
          (COND (#1# #2#) (#5# (|spadConstant| $ 35)))))))))) 
 
 (DEFUN |LPOLY;rquo;Xrp$Xrp;9| (|p| |lp| $)
-  (PROG (#1=#:G180 #2=#:G179 #3=#:G181 #4=#:G183 |t|)
+  (PROG (#1=#:G182 #2=#:G181 #3=#:G183 #4=#:G185 |t|)
     (RETURN
      (SEQ
       (COND
@@ -169,7 +169,7 @@
          (COND (#1# #2#) (#5# (|spadConstant| $ 35)))))))))) 
 
 (DEFUN |LPOLY;LiePolyIfCan;XdpU;10| (|p| $)
-  (PROG (|p1| |r| |lp| #1=#:G196 |l| |coef| |w| |t|)
+  (PROG (|p1| |r| |lp| #1=#:G198 |l| |coef| |w| |t|)
     (RETURN
      (SEQ
       (EXIT
@@ -245,7 +245,7 @@
                           (QREFELT $ 68)))))))))))) 
 
 (DEFUN |LPOLY;cr1| (|l| |p| $)
-  (PROG (#1=#:G204 #2=#:G203 #3=#:G205 #4=#:G207 |t|)
+  (PROG (#1=#:G206 #2=#:G205 #3=#:G207 #4=#:G209 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -267,7 +267,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 23)))))))) 
 
 (DEFUN |LPOLY;cr2| (|p| |l| $)
-  (PROG (#1=#:G209 #2=#:G208 #3=#:G210 #4=#:G212 |t|)
+  (PROG (#1=#:G211 #2=#:G210 #3=#:G212 #4=#:G214 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -324,7 +324,7 @@
   (SPADCALL (SPADCALL |v| (QREFELT $ 73)) (|spadConstant| $ 67) (QREFELT $ 68))) 
 
 (DEFUN |LPOLY;construct;3$;19| (|x| |y| $)
-  (PROG (#1=#:G221 #2=#:G220 #3=#:G222 #4=#:G224 |t|)
+  (PROG (#1=#:G223 #2=#:G222 #3=#:G224 #4=#:G226 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -352,7 +352,7 @@
 (DEFUN |LPOLY;construct;2Lw$;22| (|u| |v| $) (|LPOLY;crw| |u| |v| $)) 
 
 (DEFUN |LPOLY;coerce;$Xdp;23| (|p| $)
-  (PROG (#1=#:G229 #2=#:G228 #3=#:G230 #4=#:G232 |t|)
+  (PROG (#1=#:G231 #2=#:G230 #3=#:G232 #4=#:G234 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -374,7 +374,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 51)))))))) 
 
 (DEFUN |LPOLY;coerce;$Xrp;24| (|p| $)
-  (PROG (#1=#:G234 #2=#:G233 #3=#:G235 #4=#:G237 |t|)
+  (PROG (#1=#:G236 #2=#:G235 #3=#:G237 #4=#:G239 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -399,7 +399,7 @@
   (SPADCALL |l| (|spadConstant| $ 67) (QREFELT $ 68))) 
 
 (DEFUN |LPOLY;varList;$L;26| (|p| $)
-  (PROG (|le| #1=#:G240 #2=#:G239 #3=#:G241 #4=#:G244 |t|)
+  (PROG (|le| #1=#:G242 #2=#:G241 #3=#:G243 #4=#:G246 |t|)
     (RETURN
      (SEQ
       (LETT |le|
@@ -422,7 +422,7 @@
       (EXIT (SPADCALL |le| (QREFELT $ 81))))))) 
 
 (DEFUN |LPOLY;mirror;2$;27| (|p| $)
-  (PROG (#1=#:G249 |t| #2=#:G248)
+  (PROG (#1=#:G251 |t| #2=#:G250)
     (RETURN
      (SEQ
       (PROGN
@@ -463,7 +463,7 @@
               (QREFELT $ 96))))) 
 
 (DEFUN |LPOLY;coerce;$Of;31| (|a| $)
-  (PROG (#1=#:G260 |t| #2=#:G259)
+  (PROG (#1=#:G262 |t| #2=#:G261)
     (RETURN
      (SEQ
       (COND ((NULL |a|) (SPADCALL (|spadConstant| $ 24) (QREFELT $ 95)))
@@ -489,10 +489,10 @@
                               (EXIT (NREVERSE #2#)))))
                        (QREFELT $ 100)))))))) 
 
-(DEFUN |LiePolynomial| (&REST #1=#:G271)
+(DEFUN |LiePolynomial| (&REST #1=#:G273)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G272)
+     (PROG (#2=#:G274)
        (RETURN
         (COND
          ((LETT #2#
@@ -510,7 +510,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|LiePolynomial|))))))))))) 
 
 (DEFUN |LiePolynomial;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G268 #2=#:G269 #3=#:G270 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G270 #2=#:G271 #3=#:G272 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|LiePolynomial|))

@@ -17,7 +17,7 @@
              ('T (CONS 0 (QCDR |inv|))))))))) 
 
 (DEFUN |IMATQF;nullSpace;ML;4| (|m| $)
-  (PROG (#1=#:G135 |v| #2=#:G134)
+  (PROG (#1=#:G137 |v| #2=#:G136)
     (RETURN
      (SEQ
       (PROGN
@@ -33,10 +33,10 @@
             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
             (EXIT (NREVERSE #2#)))))))) 
 
-(DEFUN |InnerMatrixQuotientFieldFunctions| (&REST #1=#:G136)
+(DEFUN |InnerMatrixQuotientFieldFunctions| (&REST #1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

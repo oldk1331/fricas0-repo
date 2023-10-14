@@ -8,7 +8,7 @@
 
 (DEFUN |CLIP;iClipParametric| (|pointLists| |fraction| |scale| $)
   (PROG (|yseg| |xseg| |yMax| |xMax| |yMin| |xMin| |ys| |xs| |newclip| |denn|
-         |numm| |single_eps| |yDiff| |xDiff| |k| #1=#:G193 |pt| |firstPt|
+         |numm| |single_eps| |yDiff| |xDiff| |k| #1=#:G195 |pt| |firstPt|
          |lastN| |clipNum| |den| |num| |n| |sortedList|)
     (RETURN
      (SEQ
@@ -321,7 +321,7 @@
                  ('T (NREVERSE (CONS (NREVERSE |list|) |ans|))))))))) 
 
 (DEFUN |CLIP;clip;P2FR;9| (|plot| |fraction| |scale| $)
-  (PROG (|yMax| |yMin| #1=#:G232 |pt| #2=#:G231 |list| |lists| |xMax| |xMin|
+  (PROG (|yMax| |yMin| #1=#:G234 |pt| #2=#:G233 |list| |lists| |xMax| |xMin|
          |denn| |numm| |yDiff| |clipNum| |den| |num| |n| |sortedList|
          |pointList| |pointLists| |xVals|)
     (RETURN
@@ -498,7 +498,7 @@
           (EXIT |r|))))) 
 
 (DEFUN |CLIP;findPt| (|lists| $)
-  (PROG (#1=#:G246 #2=#:G244 #3=#:G248 #4=#:G250 |p| #5=#:G249 |list|)
+  (PROG (#1=#:G248 #2=#:G246 #3=#:G250 #4=#:G252 |p| #5=#:G251 |list|)
     (RETURN
      (SEQ
       (EXIT
@@ -547,7 +547,7 @@
 
 (DEFUN |CLIP;clipWithRanges;L4DfR;13|
        (|pointLists| |xMin| |xMax| |yMin| |yMax| $)
-  (PROG (#1=#:G285 |pt| #2=#:G284 |list| |firstPt| |lists| #3=#:G283
+  (PROG (#1=#:G287 |pt| #2=#:G286 |list| |firstPt| |lists| #3=#:G285
          |pointList|)
     (RETURN
      (SEQ (LETT |lists| NIL . #4=(|CLIP;clipWithRanges;L4DfR;13|))
@@ -663,7 +663,7 @@
 (DEFUN |TwoDimensionalPlotClipping| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G295)
+     (PROG (#1=#:G297)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|TwoDimensionalPlotClipping|)

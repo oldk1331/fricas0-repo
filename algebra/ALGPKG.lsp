@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ALGPKG;convVM| (|v| $)
-  (PROG (|z| #1=#:G133 |j| #2=#:G132 |i| |cond|)
+  (PROG (|z| #1=#:G135 |j| #2=#:G134 |i| |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -34,7 +34,7 @@
        (SPADCALL (ELT $ 26) (SPADCALL |ma| (QREFELT $ 28)) (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfLeftAnnihilator;AL;3| (|a| $)
-  (PROG (|cond| #1=#:G143 #2=#:G145 |i| #3=#:G144 |ca|)
+  (PROG (|cond| #1=#:G145 #2=#:G147 |i| #3=#:G146 |ca|)
     (RETURN
      (SEQ
       (LETT |ca|
@@ -70,7 +70,7 @@
                  (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfRightAnnihilator;AL;4| (|a| $)
-  (PROG (|cond| #1=#:G152 #2=#:G154 |i| #3=#:G153 |ca|)
+  (PROG (|cond| #1=#:G154 #2=#:G156 |i| #3=#:G155 |ca|)
     (RETURN
      (SEQ
       (LETT |ca|
@@ -104,8 +104,8 @@
                  (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfLeftNucloid;L;5| ($)
-  (PROG (#1=#:G170 |sol| #2=#:G169 |r2| |r1| #3=#:G168 |r| |z| #4=#:G167 |k|
-         #5=#:G166 |j| #6=#:G165 |i| |condo| |cond|)
+  (PROG (#1=#:G172 |sol| #2=#:G171 |r2| |r1| #3=#:G170 |r| |z| #4=#:G169 |k|
+         #5=#:G168 |j| #6=#:G167 |i| |condo| |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -179,7 +179,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |ALGPKG;basisOfCommutingElements;L;6| ($)
-  (PROG (|cond| |gam| #1=#:G177 #2=#:G179 |i| #3=#:G178)
+  (PROG (|cond| |gam| #1=#:G179 #2=#:G181 |i| #3=#:G180)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -213,8 +213,8 @@
                  (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfLeftNucleus;L;7| ($)
-  (PROG (|entry| #1=#:G194 |l| #2=#:G193 |i| |z| #3=#:G192 |s| #4=#:G191 |j|
-         #5=#:G190 |k| |condi|)
+  (PROG (|entry| #1=#:G196 |l| #2=#:G195 |i| |z| #3=#:G194 |s| #4=#:G193 |j|
+         #5=#:G192 |k| |condi|)
     (RETURN
      (SEQ
       (LETT |condi|
@@ -295,8 +295,8 @@
                  (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfRightNucleus;L;8| ($)
-  (PROG (|entry| #1=#:G209 |l| #2=#:G208 |i| |z| #3=#:G207 |s| #4=#:G206 |j|
-         #5=#:G205 |k| |condo|)
+  (PROG (|entry| #1=#:G211 |l| #2=#:G210 |i| |z| #3=#:G209 |s| #4=#:G208 |j|
+         #5=#:G207 |k| |condo|)
     (RETURN
      (SEQ
       (LETT |condo|
@@ -377,8 +377,8 @@
                  (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfMiddleNucleus;L;9| ($)
-  (PROG (|entry| #1=#:G224 |l| #2=#:G223 |i| |z| #3=#:G222 |s| #4=#:G221 |j|
-         #5=#:G220 |k| |conda|)
+  (PROG (|entry| #1=#:G226 |l| #2=#:G225 |i| |z| #3=#:G224 |s| #4=#:G223 |j|
+         #5=#:G222 |k| |conda|)
     (RETURN
      (SEQ
       (LETT |conda|
@@ -459,8 +459,8 @@
                  (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfNucleus;L;10| ($)
-  (PROG (|ent| |enter| |entry| #1=#:G240 |l| #2=#:G239 |i| |w| |u| |z|
-         #3=#:G238 |s| #4=#:G237 |j| #5=#:G236 |k| |condi|)
+  (PROG (|ent| |enter| |entry| #1=#:G242 |l| #2=#:G241 |i| |w| |u| |z|
+         #3=#:G240 |s| #4=#:G239 |j| #5=#:G238 |k| |condi|)
     (RETURN
      (SEQ
       (LETT |condi|
@@ -618,8 +618,8 @@
                  (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfCenter;L;11| ($)
-  (PROG (D |enter| |entry| #1=#:G259 |l| #2=#:G258 |i| |u| |z| #3=#:G257 |s|
-         #4=#:G256 |j| #5=#:G255 |k| |condi| B |cond| |gammak| #6=#:G254
+  (PROG (D |enter| |entry| #1=#:G261 |l| #2=#:G260 |i| |u| |z| #3=#:G259 |s|
+         #4=#:G258 |j| #5=#:G257 |k| |condi| B |cond| |gammak| #6=#:G256
          |gamma1|)
     (RETURN
      (SEQ
@@ -758,8 +758,8 @@
        (SPADCALL (ELT $ 26) (SPADCALL D (QREFELT $ 28)) (QREFELT $ 32))))))) 
 
 (DEFUN |ALGPKG;basisOfRightNucloid;L;12| ($)
-  (PROG (#1=#:G275 |sol| #2=#:G274 |r2| |r1| #3=#:G273 |r| |z| #4=#:G272 |k|
-         #5=#:G271 |j| #6=#:G270 |i| |condo| |cond|)
+  (PROG (#1=#:G277 |sol| #2=#:G276 |r2| |r1| #3=#:G275 |r| |z| #4=#:G274 |k|
+         #5=#:G273 |j| #6=#:G272 |i| |condo| |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -833,8 +833,8 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |ALGPKG;basisOfCentroid;L;13| ($)
-  (PROG (#1=#:G291 |sol| #2=#:G290 |r2| |r1| #3=#:G289 |r| |u| |z| #4=#:G288
-         |k| #5=#:G287 |j| #6=#:G286 |i| |condo| |cond|)
+  (PROG (#1=#:G293 |sol| #2=#:G292 |r2| |r1| #3=#:G291 |r| |u| |z| #4=#:G290
+         |k| #5=#:G289 |j| #6=#:G288 |i| |condo| |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -926,7 +926,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |ALGPKG;doubleRank;ANni;14| (|x| $)
-  (PROG (|enter| |entry| #1=#:G302 |i| |u| |z| #2=#:G301 |j| #3=#:G300 |k|
+  (PROG (|enter| |entry| #1=#:G304 |i| |u| |z| #2=#:G303 |j| #3=#:G302 |k|
          |cond|)
     (RETURN
      (SEQ
@@ -985,8 +985,8 @@
       (EXIT (SPADCALL |cond| (QREFELT $ 63))))))) 
 
 (DEFUN |ALGPKG;weakBiRank;ANni;15| (|x| $)
-  (PROG (|entry| #1=#:G316 |s| #2=#:G315 |l| #3=#:G314 |k| |z| #4=#:G313 |j|
-         #5=#:G312 |i| |cond|)
+  (PROG (|entry| #1=#:G318 |s| #2=#:G317 |l| #3=#:G316 |k| |z| #4=#:G315 |j|
+         #5=#:G314 |i| |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -1068,8 +1068,8 @@
       (EXIT (SPADCALL |cond| (QREFELT $ 63))))))) 
 
 (DEFUN |ALGPKG;biRank;ANni;16| (|x| $)
-  (PROG (|enter| |entry| #1=#:G339 |i| #2=#:G338 |k| |w| |u| #3=#:G337 |j| |c|
-         #4=#:G336 |s| #5=#:G335 |l| #6=#:G334 |z| #7=#:G333 #8=#:G332 |cond|)
+  (PROG (|enter| |entry| #1=#:G341 |i| #2=#:G340 |k| |w| |u| #3=#:G339 |j| |c|
+         #4=#:G338 |s| #5=#:G337 |l| #6=#:G336 |z| #7=#:G335 #8=#:G334 |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -1200,7 +1200,7 @@
       (EXIT (SPADCALL |cond| (QREFELT $ 63))))))) 
 
 (DEFUN |ALGPKG;leftRank;ANni;17| (|x| $)
-  (PROG (|entry| #1=#:G348 |i| #2=#:G347 |j| #3=#:G346 |k| |cond|)
+  (PROG (|entry| #1=#:G350 |i| #2=#:G349 |j| #3=#:G348 |k| |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -1238,7 +1238,7 @@
       (EXIT (SPADCALL |cond| (QREFELT $ 63))))))) 
 
 (DEFUN |ALGPKG;rightRank;ANni;18| (|x| $)
-  (PROG (|entry| #1=#:G357 |i| #2=#:G356 |j| #3=#:G355 |k| |cond|)
+  (PROG (|entry| #1=#:G359 |i| #2=#:G358 |j| #3=#:G357 |k| |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -1276,8 +1276,8 @@
       (EXIT (SPADCALL |cond| (QREFELT $ 63))))))) 
 
 (DEFUN |ALGPKG;basis;2V;19| (|va| $)
-  (PROG (#1=#:G370 #2=#:G372 |j| #3=#:G371 |finished?| |h| |lj| |mCI| |mRI| |m|
-         #4=#:G369 |i| |v|)
+  (PROG (#1=#:G372 #2=#:G374 |j| #3=#:G373 |finished?| |h| |lj| |mCI| |mRI| |m|
+         #4=#:G371 |i| |v|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL (ELT $ 70) |va| (QREFELT $ 73))
@@ -1355,10 +1355,10 @@
                       (GO G190) G191 (EXIT NIL))
                  #3#)))))))))) 
 
-(DEFUN |AlgebraPackage| (&REST #1=#:G373)
+(DEFUN |AlgebraPackage| (&REST #1=#:G375)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G374)
+     (PROG (#2=#:G376)
        (RETURN
         (COND
          ((LETT #2#

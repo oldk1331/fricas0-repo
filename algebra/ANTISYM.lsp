@@ -5,7 +5,7 @@
   (LIST (CONS (SPADCALL (QREFELT $ 9) (QREFELT $ 12)) (|spadConstant| $ 13)))) 
 
 (DEFUN |ANTISYM;coefficient;2$R;2| (|a| |u| $)
-  (PROG (#1=#:G153 #2=#:G154 |t| |x|)
+  (PROG (#1=#:G155 #2=#:G156 |t| |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -49,9 +49,9 @@
   (COND ((NULL |a|) (|spadConstant| $ 18)) ('T (SPADCALL |a| (QREFELT $ 21))))) 
 
 (DEFUN |ANTISYM;homogeneous?;$B;6| (|a| $)
-  (PROG (#1=#:G205 #2=#:G207 #3=#:G202 #4=#:G201 #5=#:G203 #6=#:G210 #7=#:G126
-         #8=#:G209 |ta| |siz| #9=#:G169 #10=#:G168 #11=#:G170 #12=#:G208
-         #13=#:G125)
+  (PROG (#1=#:G207 #2=#:G209 #3=#:G204 #4=#:G203 #5=#:G205 #6=#:G212 #7=#:G128
+         #8=#:G211 |ta| |siz| #9=#:G171 #10=#:G170 #11=#:G172 #12=#:G210
+         #13=#:G127)
     (RETURN
      (SEQ
       (EXIT
@@ -130,7 +130,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ANTISYM;degree;$Nni;7| (|a| $)
-  (PROG (#1=#:G218 #2=#:G216 #3=#:G215 #4=#:G217 #5=#:G221 #6=#:G127)
+  (PROG (#1=#:G220 #2=#:G218 #3=#:G217 #4=#:G219 #5=#:G223 #6=#:G129)
     (RETURN
      (SEQ
       (COND ((NULL |a|) 0)
@@ -169,7 +169,7 @@
   (COND ((EQL |p| 0) (LIST 1 |q|)) ((EQL |q| 0) (LIST 1 1)) ('T (LIST 0 0)))) 
 
 (DEFUN |ANTISYM;getsgn| (|x| |y| $)
-  (PROG (|sgn| #1=#:G242 #2=#:G241 #3=#:G243 #4=#:G250 #5=#:G128 |xx| #6=#:G249
+  (PROG (|sgn| #1=#:G244 #2=#:G243 #3=#:G245 #4=#:G252 #5=#:G130 |xx| #6=#:G251
          |i| |yy|)
     (RETURN
      (SEQ (LETT |sgn| 0 . #7=(|ANTISYM;getsgn|))
@@ -211,7 +211,7 @@
           (EXIT (COND ((EQL (REM |sgn| 2) 0) 1) ('T -1))))))) 
 
 (DEFUN |ANTISYM;Nalpha| (|x| |y| $)
-  (PROG (#1=#:G254 |i| |dum| #2=#:G259 |j| |dum2| #3=#:G258 #4=#:G257)
+  (PROG (#1=#:G256 |i| |dum| #2=#:G261 |j| |dum2| #3=#:G260 #4=#:G259)
     (RETURN
      (SEQ (LETT |i| 1 . #5=(|ANTISYM;Nalpha|))
           (LETT |dum2|
@@ -253,7 +253,7 @@
                  ('T (CONS (|ANTISYM;getsgn| |x| |y| $) |dum2|)))))))) 
 
 (DEFUN |ANTISYM;*;3$;11| (|a| |b| $)
-  (PROG (|z| |r| |stuff| #1=#:G271 |ta| #2=#:G270 |tb|)
+  (PROG (|z| |r| |stuff| #1=#:G273 |ta| #2=#:G272 |tb|)
     (RETURN
      (SEQ
       (COND ((OR (NULL |a|) (NULL |b|)) (|spadConstant| $ 32))
@@ -330,7 +330,7 @@
 (DEFUN |ANTISYM;characteristic;Nni;14| ($) (SPADCALL (QREFELT $ 47))) 
 
 (DEFUN |ANTISYM;generator;Nni$;15| (|j| $)
-  (PROG (|dum| #1=#:G282 |i| #2=#:G281)
+  (PROG (|dum| #1=#:G284 |i| #2=#:G283)
     (RETURN
      (SEQ
       (LETT |dum|
@@ -353,7 +353,7 @@
   (LIST (CONS (QCAR (|SPADfirst| |a|)) (|spadConstant| $ 13)))) 
 
 (DEFUN |ANTISYM;displayList| (|x| $)
-  (PROG (#1=#:G294 |i| #2=#:G293 |le|)
+  (PROG (#1=#:G296 |i| #2=#:G295 |le|)
     (RETURN
      (SEQ
       (LETT |le| (SPADCALL |x| (QREFELT $ 26)) . #3=(|ANTISYM;displayList|))
@@ -389,7 +389,7 @@
               (QREFELT $ 53))))) 
 
 (DEFUN |ANTISYM;coerce;$Of;20| (|a| $)
-  (PROG (#1=#:G306 |t| #2=#:G305)
+  (PROG (#1=#:G308 |t| #2=#:G307)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 62)) (SPADCALL 0 (QREFELT $ 63)))
@@ -417,10 +417,10 @@
                              (EXIT (NREVERSE #2#))))
                        (QREFELT $ 60)))))))) 
 
-(DEFUN |AntiSymm| (&REST #1=#:G311)
+(DEFUN |AntiSymm| (&REST #1=#:G313)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G312)
+     (PROG (#2=#:G314)
        (RETURN
         (COND
          ((LETT #2#

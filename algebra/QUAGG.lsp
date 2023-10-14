@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |QueueAggregate;AL| 'NIL) 
 
-(DEFUN |QueueAggregate| (#1=#:G126)
-  (LET (#2=#:G127)
+(DEFUN |QueueAggregate| (#1=#:G128)
+  (LET (#2=#:G129)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |QueueAggregate;AL|)) (CDR #2#))
      (T
@@ -16,7 +16,7 @@
       #2#)))) 
 
 (DEFUN |QueueAggregate;| (|t#1|)
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

@@ -9,7 +9,7 @@
         ((EQL |q| 0) (CONS 0 |p|)) ('T (CONS 1 "failed")))) 
 
 (DEFUN |GAUSSFAC;exactquo| (|u| |v| |p| $)
-  (PROG (#1=#:G142)
+  (PROG (#1=#:G144)
     (RETURN
      (COND ((EQL |p| 0) (SPADCALL |u| |v| (QREFELT $ 9)))
            ((EQL (REM |v| |p|) 0) (CONS 1 "failed"))
@@ -28,7 +28,7 @@
                    |p| (QREFELT $ 7)))))))) 
 
 (DEFUN |GAUSSFAC;findelt| (|q| $)
-  (PROG (|t| |s| #1=#:G162 |i| |qq1| |r1| |r| #2=#:G137 |q1|)
+  (PROG (|t| |s| #1=#:G164 |i| |qq1| |r1| |r| #2=#:G139 |q1|)
     (RETURN
      (SEQ (LETT |q1| (- |q| 1) . #3=(|GAUSSFAC;findelt|)) (LETT |r| |q1| . #3#)
           (LETT |r1| (SPADCALL |r| 4 (QREFELT $ 9)) . #3#)
@@ -87,7 +87,7 @@
           (EXIT (LIST |u| |s|)))))) 
 
 (DEFUN |GAUSSFAC;intfactor| (|n| $)
-  (PROG (|r| |z| |sz| |unity| #1=#:G184 |exp| #2=#:G192 |term| |lfn|)
+  (PROG (|r| |z| |sz| |unity| #1=#:G186 |exp| #2=#:G194 |term| |lfn|)
     (RETURN
      (SEQ
       (LETT |lfn| (SPADCALL |n| (QREFELT $ 31)) . #3=(|GAUSSFAC;intfactor|))
@@ -151,8 +151,8 @@
       (EXIT (SPADCALL |unity| |r| (QREFELT $ 46))))))) 
 
 (DEFUN |GAUSSFAC;factor;CF;7| (|m| $)
-  (PROG (|unity| |result| |z| #1=#:G208 |part| |g0| #2=#:G204 |exp| |n|
-         #3=#:G217 |term| |factn| |r| |b| #4=#:G137 |a| |d| |ris|)
+  (PROG (|unity| |result| |z| #1=#:G210 |part| |g0| #2=#:G206 |exp| |n|
+         #3=#:G219 |term| |factn| |r| |b| #4=#:G139 |a| |d| |ris|)
     (RETURN
      (SEQ
       (COND
@@ -322,7 +322,7 @@
 (DEFUN |GaussianFactorizationPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G227)
+     (PROG (#1=#:G229)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|GaussianFactorizationPackage|)

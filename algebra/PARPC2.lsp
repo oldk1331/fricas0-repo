@@ -5,10 +5,10 @@
   (SPADCALL (SPADCALL (SPADCALL |c| 1 (QREFELT $ 10)) |f|)
             (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|) (QREFELT $ 12))) 
 
-(DEFUN |ParametricPlaneCurveFunctions2| (&REST #1=#:G127)
+(DEFUN |ParametricPlaneCurveFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

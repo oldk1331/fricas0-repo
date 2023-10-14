@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |RegularChain| (&REST #1=#:G157)
+(DEFUN |RegularChain| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,7 +22,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|RegularChain|))))))))))) 
 
 (DEFUN |RegularChain;| (|#1| |#2|)
-  (PROG (#1=#:G156 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G158 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|RegularChain|))

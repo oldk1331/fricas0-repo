@@ -115,7 +115,7 @@
    ('T 'NIL))) 
 
 (DEFUN |DROPT;option?;LSB;31| (|l| |s| $)
-  (PROG (#1=#:G174 #2=#:G176 #3=#:G177 |x|)
+  (PROG (#1=#:G176 #2=#:G178 #3=#:G179 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -140,7 +140,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |DROPT;option;LSU;32| (|l| |s| $)
-  (PROG (#1=#:G183 #2=#:G188 #3=#:G189 |x|)
+  (PROG (#1=#:G185 #2=#:G190 #3=#:G191 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -169,7 +169,7 @@
 (DEFUN |DrawOption| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G191)
+     (PROG (#1=#:G193)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|DrawOption|)

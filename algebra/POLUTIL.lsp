@@ -5,7 +5,7 @@
   (SPADCALL |p| (SPADCALL |p| (QREFELT $ 8)) (QREFELT $ 10))) 
 
 (DEFUN |POLUTIL;sylvesterSequence;2ThePolsL;2| (|p1| |p2| $)
-  (PROG (|res| #1=#:G142 |term| #2=#:G141 |#G8| |#G7|)
+  (PROG (|res| #1=#:G144 |term| #2=#:G143 |#G8| |#G7|)
     (RETURN
      (SEQ
       (LETT |res| (LIST |p1|) . #3=(|POLUTIL;sylvesterSequence;2ThePolsL;2|))
@@ -48,8 +48,8 @@
       (EXIT (NREVERSE |res|)))))) 
 
 (DEFUN |POLUTIL;boundOfCauchy;ThePolsTheField;3| (|p| $)
-  (PROG (#1=#:G145 #2=#:G144 #3=#:G146 #4=#:G151 |t| |l| #5=#:G150 |term|
-         #6=#:G149 |c|)
+  (PROG (#1=#:G147 #2=#:G146 #3=#:G148 #4=#:G153 |t| |l| #5=#:G152 |term|
+         #6=#:G151 |c|)
     (RETURN
      (SEQ
       (LETT |c| (SPADCALL (SPADCALL |p| (QREFELT $ 23)) (QREFELT $ 24))
@@ -98,7 +98,7 @@
                         (QREFELT $ 32))))))))) 
 
 (DEFUN |POLUTIL;sturmVariationsOf;LNni;4| (|l| $)
-  (PROG (|ll| |ln| #1=#:G157 |term| |l1|)
+  (PROG (|ll| |ln| #1=#:G159 |term| |l1|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (|error| "POLUTIL: sturmVariationsOf: empty list !"))
@@ -166,10 +166,10 @@
                     (SPADCALL (CDR (CDR |l|)) |s| |sh|
                               (QREFELT $ 37))))))))))))) 
 
-(DEFUN |RealPolynomialUtilitiesPackage| (&REST #1=#:G166)
+(DEFUN |RealPolynomialUtilitiesPackage| (&REST #1=#:G168)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G167)
+     (PROG (#2=#:G169)
        (RETURN
         (COND
          ((LETT #2#

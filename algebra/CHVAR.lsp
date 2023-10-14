@@ -254,7 +254,7 @@
                        (QREFELT $ 72)))))))))))) 
 
 (DEFUN |CHVAR;goodPoint;2UPUPF;8| (|p| |modulus| $)
-  (PROG (#1=#:G178 #2=#:G182 |a| |i| |d| |q| |r|)
+  (PROG (#1=#:G180 #2=#:G184 |a| |i| |d| |q| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -311,7 +311,7 @@
                           (SPADCALL |p| (QREFELT $ 63))))))))))) 
 
 (DEFUN |CHVAR;rootPoly;FNniR;10| (|g| |m| $)
-  (PROG (#1=#:G197 #2=#:G196 #3=#:G198 #4=#:G202 #5=#:G125 |pr| #6=#:G194 |d|)
+  (PROG (#1=#:G199 #2=#:G198 #3=#:G200 #4=#:G204 #5=#:G127 |pr| #6=#:G196 |d|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |g| (QREFELT $ 81)) (|error| "Should not happen"))
@@ -360,10 +360,10 @@
                              (EXIT NIL))
                         (COND (#1# #2#) (#7# (|spadConstant| $ 14))))))))))))) 
 
-(DEFUN |ChangeOfVariable| (&REST #1=#:G203)
+(DEFUN |ChangeOfVariable| (&REST #1=#:G205)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G204)
+     (PROG (#2=#:G206)
        (RETURN
         (COND
          ((LETT #2#

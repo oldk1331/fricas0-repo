@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |EXPRTUBE;getVariable| (|x| |y| |z| $)
-  (PROG (|t2| |t1| #1=#:G134 |varList3| |varList2| |varList1|)
+  (PROG (|t2| |t1| #1=#:G136 |varList3| |varList2| |varList1|)
     (RETURN
      (SEQ
       (LETT |varList1| (SPADCALL |x| (QREFELT $ 8))
@@ -223,7 +223,7 @@
 (DEFUN |ExpressionTubePlot| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G166)
+     (PROG (#1=#:G168)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ExpressionTubePlot|)

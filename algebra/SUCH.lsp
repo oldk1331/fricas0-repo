@@ -17,10 +17,10 @@
   (SPADCALL "|" (SPADCALL (QCAR |w|) (QREFELT $ 13))
             (SPADCALL (QCDR |w|) (QREFELT $ 14)) (QREFELT $ 15))) 
 
-(DEFUN |SuchThat| (&REST #1=#:G132)
+(DEFUN |SuchThat| (&REST #1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G133)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

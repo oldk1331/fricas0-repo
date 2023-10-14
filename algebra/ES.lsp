@@ -4,17 +4,17 @@
 (DEFPARAMETER |ExpressionSpace;AL| 'NIL) 
 
 (DEFUN |ExpressionSpace| ()
-  (LET (#:G145)
+  (LET (#:G147)
     (COND (|ExpressionSpace;AL|)
           (T (SETQ |ExpressionSpace;AL| (|ExpressionSpace;|)))))) 
 
 (DEFUN |ExpressionSpace;| ()
-  (PROG (#1=#:G143)
+  (PROG (#1=#:G145)
     (RETURN
      (PROG1
          (LETT #1#
                (|sublisV|
-                (PAIR '(#2=#:G141 #3=#:G142)
+                (PAIR '(#2=#:G143 #3=#:G144)
                       (LIST '(|Kernel| $) '(|Kernel| $)))
                 (|Join| (|Comparable|) (|RetractableTo| '#2#)
                         (|InnerEvalable| '#3# '$) (|Evalable| '$)

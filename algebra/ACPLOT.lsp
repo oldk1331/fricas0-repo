@@ -27,7 +27,7 @@
         ('T 'NIL))))))) 
 
 (DEFUN |ACPLOT;findPtOnList| (|pt| |pointList| $)
-  (PROG (#1=#:G185 #2=#:G187 #3=#:G188 |point|)
+  (PROG (#1=#:G187 #2=#:G189 #3=#:G190 |point|)
     (RETURN
      (SEQ
       (EXIT
@@ -105,7 +105,7 @@
 (DEFUN |ACPLOT;SFtoNF| (|x| $) (SPADCALL |x| (QREFELT $ 61))) 
 
 (DEFUN |ACPLOT;listPtsOnHorizBdry| (|pRN| |y| |y0| |xMinNF| |xMaxNF| $)
-  (PROG (|pointList| #1=#:G213 |root| |roots| |f| |ySF|)
+  (PROG (|pointList| #1=#:G215 |root| |roots| |f| |ySF|)
     (RETURN
      (SEQ (LETT |pointList| NIL . #2=(|ACPLOT;listPtsOnHorizBdry|))
           (LETT |ySF| (|ACPLOT;RNtoSF| |y0| $) . #2#)
@@ -131,7 +131,7 @@
           (EXIT |pointList|))))) 
 
 (DEFUN |ACPLOT;listPtsOnVertBdry| (|pRN| |x| |x0| |yMinNF| |yMaxNF| $)
-  (PROG (|pointList| #1=#:G217 |root| |roots| |f| |xSF|)
+  (PROG (|pointList| #1=#:G219 |root| |roots| |f| |xSF|)
     (RETURN
      (SEQ (LETT |pointList| NIL . #2=(|ACPLOT;listPtsOnVertBdry|))
           (LETT |xSF| (|ACPLOT;RNtoSF| |x0| $) . #2#)
@@ -157,7 +157,7 @@
           (EXIT |pointList|))))) 
 
 (DEFUN |ACPLOT;listPtsInRect| (|points| |xMin| |xMax| |yMin| |yMax| $)
-  (PROG (|pointList| |yy| |xx| #1=#:G222 |point|)
+  (PROG (|pointList| |yy| |xx| #1=#:G224 |point|)
     (RETURN
      (SEQ (LETT |pointList| NIL . #2=(|ACPLOT;listPtsInRect|))
           (SEQ (LETT |point| NIL . #2#) (LETT #1# |points| . #2#) G190
@@ -185,7 +185,7 @@
           (EXIT |pointList|))))) 
 
 (DEFUN |ACPLOT;ptsSuchThat?| (|points| |pred| $)
-  (PROG (#1=#:G226 #2=#:G227 |point|)
+  (PROG (#1=#:G228 #2=#:G229 |point|)
     (RETURN
      (SEQ
       (EXIT
@@ -407,8 +407,8 @@
 
 (DEFUN |ACPLOT;makeOneVarSketch|
        (|p| |x| |y| |xMin| |xMax| |yMin| |yMax| |var| $)
-  (PROG (|bran| |branch| |lf| |pt2| |rt| |pt1| #1=#:G277 |rootSF| |xMaxSF|
-         |xMinSF| |bt| |tp| #2=#:G276 |yMaxSF| |yMinSF| |sketchRoots| #3=#:G275
+  (PROG (|bran| |branch| |lf| |pt2| |rt| |pt1| #1=#:G279 |rootSF| |xMaxSF|
+         |xMinSF| |bt| |tp| #2=#:G278 |yMaxSF| |yMinSF| |sketchRoots| #3=#:G277
          |root| |roots| |vtans| |htans| |maxVal| |minVal|)
     (RETURN
      (SEQ
@@ -598,7 +598,7 @@
                (VECTOR |lf| |rt| |bt| |tp|) |htans| |vtans| |bran|)))))) 
 
 (DEFUN |ACPLOT;singValBetween?| (|xCurrent| |xNext| |xSingList| $)
-  (PROG (#1=#:G285 #2=#:G287 #3=#:G288 |xVal|)
+  (PROG (#1=#:G287 #2=#:G289 #3=#:G290 |xVal|)
     (RETURN
      (SEQ
       (EXIT
@@ -626,7 +626,7 @@
 
 (DEFUN |ACPLOT;segmentInfo|
        (|f| |lo| |hi| |botList| |topList| |singList| |minSF| |maxSF| $)
-  (PROG (#1=#:G305 |val| |nextFrom| |nxt| |top| |bot| |currentFrom| |current|)
+  (PROG (#1=#:G307 |val| |nextFrom| |nxt| |top| |bot| |currentFrom| |current|)
     (RETURN
      (SEQ
       (EXIT
@@ -737,11 +737,11 @@
 
 (DEFUN |ACPLOT;makeRatFcnSketch|
        (|p| |x| |y| |xMin| |xMax| |yMin| |yMax| |depVar| $)
-  (PROG (|bran| |curve| |RFPlot| #1=#:G362 |segment| #2=#:G347 |topList|
+  (PROG (|bran| |curve| |RFPlot| #1=#:G364 |segment| #2=#:G349 |topList|
          |botList| |lo| |segList| |segInfo| |maxSF| |minSF| |hi| |top| |bot|
-         #3=#:G354 |tp| #4=#:G361 |val| |bt| #5=#:G360 |rt| |lf| #6=#:G359
-         #7=#:G358 |rightVal| |leftVal| |denUPolyRN| |outList| #8=#:G357 |root|
-         |roots| #9=#:G356 |singList| #10=#:G355 |vtans| |htans| |vtanPts|
+         #3=#:G356 |tp| #4=#:G363 |val| |bt| #5=#:G362 |rt| |lf| #6=#:G361
+         #7=#:G360 |rightVal| |leftVal| |denUPolyRN| |outList| #8=#:G359 |root|
+         |roots| #9=#:G358 |singList| #10=#:G357 |vtans| |htans| |vtanPts|
          |htanPts| |depVarMaxSF| |depVarMinSF| |depVarMax| |depVarMin|
          |indVarMaxSF| |indVarMinSF| |indVarMaxNF| |indVarMinNF| |indVarMax|
          |indVarMin| |f| |denUPolySF| |numUPolySF| |den| |num| |yMaxNF|
@@ -1561,7 +1561,7 @@
 (DEFUN |ACPLOT;listPtsOnSegment|
        (|pSF| |dpdxSF| |dpdySF| |x| |y| |p0| |p1| |corners| |delta| |err|
         |bound| |crits| |bdry| $)
-  (PROG (|pointList| #1=#:G419 |p2| |ptInfo| |pt1| |pt0|)
+  (PROG (|pointList| #1=#:G421 |p2| |ptInfo| |pt1| |pt0|)
     (RETURN
      (SEQ
       (EXIT
@@ -1623,7 +1623,7 @@
 (DEFUN |ACPLOT;listPtsOnLoop|
        (|pSF| |dpdxSF| |dpdySF| |x| |y| |p1| |corners| |delta| |err| |bound|
         |crits| |bdry| $)
-  (PROG (|pointList| #1=#:G432 |p2| |ptInfo| |pt1| |pt0| |p0| |py| |px| |y1|
+  (PROG (|pointList| #1=#:G434 |p2| |ptInfo| |pt1| |pt0| |p0| |py| |px| |y1|
          |x1|)
     (RETURN
      (SEQ
@@ -1709,10 +1709,10 @@
 (DEFUN |ACPLOT;computeNextPt|
        (|pSF| |dpdxSF| |dpdySF| |x| |y| |p0| |p1| |corners| |delta| |err|
         |bound| |crits| |bdry| $)
-  (PROG (|critPt| |bdryPt| |pt| |x2| #1=#:G487 |x2New| |f| |y2| |y2New|
-         |y2Approx| |x2Approx| |lookingFor| |incVar| #2=#:G459 |critPt2|
+  (PROG (|critPt| |bdryPt| |pt| |x2| #1=#:G489 |x2New| |f| |y2| |y2New|
+         |y2Approx| |x2Approx| |lookingFor| |incVar| #2=#:G461 |critPt2|
          |critPt1| |pt2| |pt1| |x2Temp| |y2Temp| |yHi| |yLo| |yPointList| |xHi|
-         |xLo| |xPointList| |yy| |xx| #3=#:G488 |y2Approxx| |x2Approxx|
+         |xLo| |xPointList| |yy| |xx| #3=#:G490 |y2Approxx| |x2Approxx|
          |deltaY| |incVar0| |deltaX| |py| |px| |y1| |x1| |y0| |x0| |yMaxSF|
          |yMinSF| |xMaxSF| |xMinSF|)
     (RETURN
@@ -2282,7 +2282,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ACPLOT;newtonApprox| (|f| |a0| |err| |bound| $)
-  (PROG (|i| |newApprox| |oldApprox| #1=#:G495 |Df|)
+  (PROG (|i| |newApprox| |oldApprox| #1=#:G497 |Df|)
     (RETURN
      (SEQ
       (EXIT
@@ -2327,7 +2327,7 @@
 (DEFUN |ACPLOT;listBranches;$L;41| (|acplot| $) (QVELT |acplot| 10)) 
 
 (DEFUN |ACPLOT;coerce;$Of;42| (|acplot| $)
-  (PROG (|ff| |f| |ll| #1=#:G504 |p| #2=#:G503 #3=#:G502 |branch| |l| |les|
+  (PROG (|ff| |f| |ll| #1=#:G506 |p| #2=#:G505 #3=#:G504 |branch| |l| |les|
          |com| |zip| |yHi| |yLo| |xHi| |xLo| |yy| |xx| |pp|)
     (RETURN
      (SEQ
@@ -2379,7 +2379,7 @@
 (DEFUN |PlaneAlgebraicCurvePlot| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G506)
+     (PROG (#1=#:G508)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|PlaneAlgebraicCurvePlot|)

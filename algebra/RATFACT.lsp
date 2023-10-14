@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RATFACT;factor;RPF;1| (|p| $)
-  (PROG (#1=#:G142 |u| #2=#:G141 |ffact| |ipol| |pol| |pden| #3=#:G140 |c|
-         #4=#:G139)
+  (PROG (#1=#:G144 |u| #2=#:G143 |ffact| |ipol| |pol| |pden| #3=#:G142 |c|
+         #4=#:G141)
     (RETURN
      (SEQ
       (COND
@@ -56,8 +56,8 @@
            (QREFELT $ 38)))))))))) 
 
 (DEFUN |RATFACT;factorSquareFree;RPF;2| (|p| $)
-  (PROG (#1=#:G160 |u| #2=#:G159 |ffact| |ipol| |pol| |pden| #3=#:G158 |c|
-         #4=#:G157)
+  (PROG (#1=#:G162 |u| #2=#:G161 |ffact| |ipol| |pol| |pden| #3=#:G160 |c|
+         #4=#:G159)
     (RETURN
      (SEQ
       (COND
@@ -109,10 +109,10 @@
                  (EXIT (NREVERSE #2#))))
            (QREFELT $ 38)))))))))) 
 
-(DEFUN |RationalFactorize| (#1=#:G161)
+(DEFUN |RationalFactorize| (#1=#:G163)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G164)
        (RETURN
         (COND
          ((LETT #2#

@@ -27,10 +27,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 13)))))) 
 
-(DEFUN |ExpressionFunctions2| (&REST #1=#:G133)
+(DEFUN |ExpressionFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

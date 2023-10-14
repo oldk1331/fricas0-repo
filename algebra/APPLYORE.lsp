@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |APPLYORE;apply;PM2M;1| (|p| |f| |m| $)
-  (PROG (|mn| |w| #1=#:G130 |i|)
+  (PROG (|mn| |w| #1=#:G132 |i|)
     (RETURN
      (SEQ (LETT |w| (|spadConstant| $ 9) . #2=(|APPLYORE;apply;PM2M;1|))
           (LETT |mn| |m| . #2#)
@@ -20,10 +20,10 @@
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |w|))))) 
 
-(DEFUN |ApplyUnivariateSkewPolynomial| (&REST #1=#:G131)
+(DEFUN |ApplyUnivariateSkewPolynomial| (&REST #1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G132)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#

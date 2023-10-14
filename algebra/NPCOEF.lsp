@@ -2,11 +2,11 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |NPCOEF;npcoef;SupLLR;1| (|u| |factlist| |leadlist| $)
-  (PROG (|detcoef| #1=#:G184 |i| |ltodel| |detufact| #2=#:G172 |uu| #3=#:G161
-         #4=#:G160 #5=#:G162 #6=#:G183 |pol| |ltochange| |tablecoef| #7=#:G182
-         |changed| |ndet| #8=#:G151 |nterm| |vexp| |vpos| |celtf| |cf| |dt|
-         |lexp| #9=#:G181 |ep| #10=#:G180 |ldtcf| #11=#:G178 #12=#:G179 |lcu|
-         #13=#:G177 |ulist| #14=#:G176 #15=#:G175 #16=#:G174 |v| #17=#:G173)
+  (PROG (|detcoef| #1=#:G186 |i| |ltodel| |detufact| #2=#:G174 |uu| #3=#:G163
+         #4=#:G162 #5=#:G164 #6=#:G185 |pol| |ltochange| |tablecoef| #7=#:G184
+         |changed| |ndet| #8=#:G153 |nterm| |vexp| |vpos| |celtf| |cf| |dt|
+         |lexp| #9=#:G183 |ep| #10=#:G182 |ldtcf| #11=#:G180 #12=#:G181 |lcu|
+         #13=#:G179 |ulist| #14=#:G178 #15=#:G177 #16=#:G176 |v| #17=#:G175)
     (RETURN
      (SEQ
       (EXIT
@@ -242,8 +242,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |NPCOEF;check| (|tterm| |ulist| $)
-  (PROG (#1=#:G191 #2=#:G201 |pp| |poselt| #3=#:G196 |doit| |cfu| |cu1|
-         #4=#:G204 |elterm| |vterm| |termlist|)
+  (PROG (#1=#:G193 #2=#:G203 |pp| |poselt| #3=#:G198 |doit| |cfu| |cu1|
+         #4=#:G206 |elterm| |vterm| |termlist|)
     (RETURN
      (SEQ (LETT |cfu| (|spadConstant| $ 53) . #5=(|NPCOEF;check|))
           (LETT |doit| 0 . #5#) (LETT |poselt| 0 . #5#)
@@ -308,8 +308,8 @@
             (#7# (CONS 1 "failed")))))))) 
 
 (DEFUN |NPCOEF;buildvect| (|lvterm| |n| $)
-  (PROG (#1=#:G222 #2=#:G221 |i| |nexp| #3=#:G220 |term| |ntable| |vtable|
-         #4=#:G219)
+  (PROG (#1=#:G224 #2=#:G223 |i| |nexp| #3=#:G222 |term| |ntable| |vtable|
+         #4=#:G221)
     (RETURN
      (SEQ (LETT |vtable| (MAKEARR1 |n| NIL) . #5=(|NPCOEF;buildvect|))
           (EXIT
@@ -383,8 +383,8 @@
               (EXIT |ntable|))))))))) 
 
 (DEFUN |NPCOEF;buildtable| (|vu| |lvect| |leadlist| $)
-  (PROG (|table| |i| |partialv| |prelim| #1=#:G235 |e| #2=#:G234 #3=#:G233 |lv|
-         #4=#:G232 |degu| #5=#:G224 |nfact|)
+  (PROG (|table| |i| |partialv| |prelim| #1=#:G237 |e| #2=#:G236 #3=#:G235 |lv|
+         #4=#:G234 |degu| #5=#:G226 |nfact|)
     (RETURN
      (SEQ (LETT |nfact| (LENGTH |leadlist|) . #6=(|NPCOEF;buildtable|))
           (LETT |table| NIL . #6#)
@@ -456,10 +456,10 @@
           (EXIT |table|))))) 
 
 (DEFUN |NPCOEF;modify| (|tablecoef| |cfter| $)
-  (PROG (|lterase| |ctdet| #1=#:G291 |i| #2=#:G273 #3=#:G272 #4=#:G274
-         #5=#:G290 |cc| |k| #6=#:G271 #7=#:G265 #8=#:G264 #9=#:G266 #10=#:G289
-         #11=#:G288 |celt| #12=#:G262 #13=#:G261 #14=#:G263 #15=#:G287 |term|
-         #16=#:G286 |cterm| |cfpos| |cfcoef| |cfexp|)
+  (PROG (|lterase| |ctdet| #1=#:G293 |i| #2=#:G275 #3=#:G274 #4=#:G276
+         #5=#:G292 |cc| |k| #6=#:G273 #7=#:G267 #8=#:G266 #9=#:G268 #10=#:G291
+         #11=#:G290 |celt| #12=#:G264 #13=#:G263 #14=#:G265 #15=#:G289 |term|
+         #16=#:G288 |cterm| |cfpos| |cfcoef| |cfexp|)
     (RETURN
      (SEQ (LETT |cfexp| (QVELT |cfter| 0) . #17=(|NPCOEF;modify|))
           (LETT |cfcoef| (QVELT |cfter| 1) . #17#)
@@ -649,7 +649,7 @@
                (SPADCALL (SPADCALL |up| (QREFELT $ 68)) (QREFELT $ 12)))))) 
 
 (DEFUN |NPCOEF;constructp| (|lterm| $)
-  (PROG (#1=#:G295 #2=#:G294 #3=#:G296 #4=#:G298 |term|)
+  (PROG (#1=#:G297 #2=#:G296 #3=#:G298 #4=#:G300 |term|)
     (RETURN
      (SEQ
       (PROGN
@@ -668,10 +668,10 @@
             (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T (|spadConstant| $ 71)))))))) 
 
-(DEFUN |NPCoef| (&REST #1=#:G299)
+(DEFUN |NPCoef| (&REST #1=#:G301)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G300)
+     (PROG (#2=#:G302)
        (RETURN
         (COND
          ((LETT #2#

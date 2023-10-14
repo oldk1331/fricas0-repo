@@ -19,7 +19,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 24))) 
 
 (DEFUN |MONOGEN-;basis;V;7| ($)
-  (PROG (#1=#:G146 |i| #2=#:G145 #3=#:G142)
+  (PROG (#1=#:G148 |i| #2=#:G147 #3=#:G144)
     (RETURN
      (SEQ
       (PROGN
@@ -49,7 +49,7 @@
   (SPADCALL (SPADCALL (QREFELT $ 33)) (SPADCALL (QREFELT $ 27)) (QREFELT $ 34))) 
 
 (DEFUN |MONOGEN-;random;S;10| ($)
-  (PROG (#1=#:G151 #2=#:G153 |i| #3=#:G152)
+  (PROG (#1=#:G153 #2=#:G155 |i| #3=#:G154)
     (RETURN
      (SEQ
       (SPADCALL

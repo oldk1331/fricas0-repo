@@ -67,7 +67,7 @@
       (EXIT |n|))))) 
 
 (DEFUN |GALFACT;eisensteinIrreducible?;UPB;11| (|f| $)
-  (PROG (#1=#:G213 #2=#:G214 |p| |rf| |tc| |lc| |c|)
+  (PROG (#1=#:G215 #2=#:G216 |p| |rf| |tc| |lc| |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -115,7 +115,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GALFACT;numberOfFactors;LNni;12| (|ddlist| $)
-  (PROG (|n| #1=#:G216 |d| #2=#:G223 |dd|)
+  (PROG (|n| #1=#:G218 |d| #2=#:G225 |dd|)
     (RETURN
      (SEQ (LETT |n| 0 . #3=(|GALFACT;numberOfFactors;LNni;12|))
           (LETT |d| 0 . #3#)
@@ -141,7 +141,7 @@
           (EXIT |n|))))) 
 
 (DEFUN |GALFACT;shiftSet| (|s| |shift| $)
-  (PROG (#1=#:G227 |e| #2=#:G226)
+  (PROG (#1=#:G229 |e| #2=#:G228)
     (RETURN
      (SEQ
       (SPADCALL
@@ -161,7 +161,7 @@
 (DEFUN |GALFACT;seed| (|level| $) (- (ASH 1 |level|) 1)) 
 
 (DEFUN |GALFACT;nextRecNum| (|levels| |level| |n| $)
-  (PROG (|b| |lr| #1=#:G237 |l|)
+  (PROG (|b| |lr| #1=#:G239 |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -198,7 +198,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GALFACT;fullSet| (|n| $)
-  (PROG (|i| #1=#:G240)
+  (PROG (|i| #1=#:G242)
     (RETURN
      (SEQ
       (SPADCALL
@@ -211,8 +211,8 @@
        (QREFELT $ 45)))))) 
 
 (DEFUN |GALFACT;modularFactor;UPR;18| (|p| $)
-  (PROG (|cprime| |choice| |nfc| |nf| #1=#:G267 |t| #2=#:G263 |d| |trials| |s|
-         #3=#:G266 |j| |degfact| #4=#:G248 #5=#:G265 |f| |ddlist| #6=#:G264 |i|
+  (PROG (|cprime| |choice| |nfc| |nf| #1=#:G269 |t| #2=#:G265 |d| |trials| |s|
+         #3=#:G268 |j| |degfact| #4=#:G250 #5=#:G267 |f| |ddlist| #6=#:G266 |i|
          |diffp| |dirred| |n|)
     (RETURN
      (SEQ
@@ -349,7 +349,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |GALFACT;degreePartition;LM;19| (|ddlist| $)
-  (PROG (|dp| |dd| #1=#:G269 |d| #2=#:G275 |f|)
+  (PROG (|dp| |dd| #1=#:G271 |d| #2=#:G277 |f|)
     (RETURN
      (SEQ
       (LETT |dp| (SPADCALL (QREFELT $ 65))
@@ -378,8 +378,8 @@
       (EXIT |dp|))))) 
 
 (DEFUN |GALFACT;henselfact| (|f| |pdecomp| $)
-  (PROG (#1=#:G287 #2=#:G286 #3=#:G288 #4=#:G292 |g| |lrf| |b| #5=#:G283
-         |cprime| |m| |cf| #6=#:G291)
+  (PROG (#1=#:G289 #2=#:G288 #3=#:G290 #4=#:G294 |g| |lrf| |b| #5=#:G285
+         |cprime| |m| |cf| #6=#:G293)
     (RETURN
      (SEQ
       (EXIT
@@ -451,10 +451,10 @@
       #6# (EXIT #6#))))) 
 
 (DEFUN |GALFACT;completeFactor| (|f| |lf| |cprime| |pk| |r| |d| $)
-  (PROG (|level| |found?| |levels| |ic| #1=#:G339 #2=#:G326 |llg| |b| #3=#:G325
-         |ltrue| |degf| #4=#:G322 |lg| |gpk| #5=#:G317 #6=#:G314 #7=#:G313 |rg|
-         #8=#:G312 |dg| |f0| |lc| #9=#:G310 #10=#:G309 |nb| |j| |f1| |g| |g0|
-         |degg| |i| #11=#:G232)
+  (PROG (|level| |found?| |levels| |ic| #1=#:G341 #2=#:G328 |llg| |b| #3=#:G327
+         |ltrue| |degf| #4=#:G324 |lg| |gpk| #5=#:G319 #6=#:G316 #7=#:G315 |rg|
+         #8=#:G314 |dg| |f0| |lc| #9=#:G312 #10=#:G311 |nb| |j| |f1| |g| |g0|
+         |degg| |i| #11=#:G234)
     (RETURN
      (SEQ
       (EXIT
@@ -806,7 +806,7 @@
     (RETURN (PROGN (SPADCALL |x| |degg| (QREFELT $ 97)))))) 
 
 (DEFUN |GALFACT;divideSet| (|s| |n| $)
-  (PROG (|l| |ee| #1=#:G347 |e|)
+  (PROG (|l| |ee| #1=#:G349 |e|)
     (RETURN
      (SEQ (LETT |l| (LIST 0) . #2=(|GALFACT;divideSet|))
           (SEQ (LETT |e| NIL . #2#)
@@ -823,9 +823,9 @@
           (EXIT (SPADCALL |l| (QREFELT $ 45))))))) 
 
 (DEFUN |GALFACT;btwFactor| (|f| |d| |r| |pdecomp| $)
-  (PROG (#1=#:G386 |i| |lf| #2=#:G385 |fact| #3=#:G384 #4=#:G373 |lfg|
-         #5=#:G372 |df| #6=#:G369 |dgh| |g| #7=#:G383 |lg| |dh| |lrf| |pk|
-         #8=#:G364 |lm| |b| #9=#:G362 |f0| |lc| #10=#:G382 |cprime| |m| |cf|
+  (PROG (#1=#:G388 |i| |lf| #2=#:G387 |fact| #3=#:G386 #4=#:G375 |lfg|
+         #5=#:G374 |df| #6=#:G371 |dgh| |g| #7=#:G385 |lg| |dh| |lrf| |pk|
+         #8=#:G366 |lm| |b| #9=#:G364 |f0| |lc| #10=#:G384 |cprime| |m| |cf|
          |negativelc?| |reverse?|)
     (RETURN
      (SEQ
@@ -1025,7 +1025,7 @@
     (RETURN (PROGN (SPADCALL |x| |dgh| (QREFELT $ 97)))))) 
 
 (DEFUN |GALFACT;makeFR;RF;24| (|flist| $)
-  (PROG (|fflist| #1=#:G403 |fc| #2=#:G402 |ff| |ctp|)
+  (PROG (|fflist| #1=#:G405 |fc| #2=#:G404 |ff| |ctp|)
     (RETURN
      (SEQ
       (LETT |ctp| (SPADCALL (QCAR |flist|) (QREFELT $ 31))
@@ -1062,7 +1062,7 @@
                  |fflist| (QREFELT $ 123))))))) 
 
 (DEFUN |GALFACT;quadratic| (|p| $)
-  (PROG (#1=#:G409 |f| |b| |a| |d| |r|)
+  (PROG (#1=#:G411 |f| |b| |a| |d| |r|)
     (RETURN
      (SEQ (LETT |a| (SPADCALL |p| (QREFELT $ 28)) . #2=(|GALFACT;quadratic|))
           (LETT |b| (SPADCALL |p| 1 (QREFELT $ 81)) . #2#)
@@ -1117,9 +1117,9 @@
                      (QREFELT $ 136))))))) 
 
 (DEFUN |GALFACT;henselFact;UPBR;28| (|f| |sqf| $)
-  (PROG (|factorlist| #1=#:G459 |pf| #2=#:G458 #3=#:G457 #4=#:G456 |d| |sqff|
-         |mult| #5=#:G455 |sqfr| |sqfflist| #6=#:G454 #7=#:G453 |fac| #8=#:G452
-         |sfac| #9=#:G451 |lcPol| |c| #10=#:G422)
+  (PROG (|factorlist| #1=#:G461 |pf| #2=#:G460 #3=#:G459 #4=#:G458 |d| |sqff|
+         |mult| #5=#:G457 |sqfr| |sqfflist| #6=#:G456 #7=#:G455 |fac| #8=#:G454
+         |sfac| #9=#:G453 |lcPol| |c| #10=#:G424)
     (RETURN
      (SEQ (LETT |factorlist| NIL . #11=(|GALFACT;henselFact;UPBR;28|))
           (LETT |c| (SPADCALL |f| (QREFELT $ 26)) . #11#)
@@ -1345,10 +1345,10 @@
                            (EXIT (CONS |c| |factorlist|)))))))))))))))))) 
 
 (DEFUN |GALFACT;btwFact;UPBSNniR;29| (|f| |sqf| |fd| |r| $)
-  (PROG (|maxd| #1=#:G501 |factorlist| #2=#:G519 |pf| #3=#:G518 #4=#:G496
-         #5=#:G517 #6=#:G516 #7=#:G492 |d| |sqff| |mult| #8=#:G515 |sqfr|
-         #9=#:G490 |sqfflist| #10=#:G514 #11=#:G513 |fac| #12=#:G512 |sfac|
-         #13=#:G511 |lcPol| #14=#:G471 #15=#:G469 |c| #16=#:G464)
+  (PROG (|maxd| #1=#:G503 |factorlist| #2=#:G521 |pf| #3=#:G520 #4=#:G498
+         #5=#:G519 #6=#:G518 #7=#:G494 |d| |sqff| |mult| #8=#:G517 |sqfr|
+         #9=#:G492 |sqfflist| #10=#:G516 #11=#:G515 |fac| #12=#:G514 |sfac|
+         #13=#:G513 |lcPol| #14=#:G473 #15=#:G471 |c| #16=#:G466)
     (RETURN
      (SEQ
       (LETT |d| (SPADCALL |f| (QREFELT $ 38))
@@ -1717,7 +1717,7 @@
    (QREFELT $ 126))) 
 
 (DEFUN |GALFACT;errorsum?| (|d| |ld| $)
-  (PROG (#1=#:G523 #2=#:G522 #3=#:G524 #4=#:G527 #5=#:G125)
+  (PROG (#1=#:G525 #2=#:G524 #3=#:G526 #4=#:G529 #5=#:G127)
     (RETURN
      (SEQ
       (COND
@@ -1743,7 +1743,7 @@
        (#7# 'T)))))) 
 
 (DEFUN |GALFACT;makeSet| (|ld| $)
-  (PROG (|s| #1=#:G531 |d|)
+  (PROG (|s| #1=#:G533 |d|)
     (RETURN
      (SEQ
       (LETT |s| (SPADCALL (LIST 0) (QREFELT $ 45)) . #2=(|GALFACT;makeSet|))
@@ -1827,7 +1827,7 @@
                         (QREFELT $ 162))))))))) 
 
 (DEFUN |GALFACT;factorOfDegree;PiUPLNniBU;42| (|d| |p| |ld| |r| |sqf| $)
-  (PROG (#1=#:G563 #2=#:G569 #3=#:G570 |f| |lf| |dp|)
+  (PROG (#1=#:G565 #2=#:G571 #3=#:G572 |f| |lf| |dp|)
     (RETURN
      (SEQ
       (EXIT
@@ -1885,10 +1885,10 @@
   (SPADCALL |d| |p| (SPADCALL (SPADCALL |p| (QREFELT $ 38)) 1 (QREFELT $ 159))
             2 'NIL (QREFELT $ 167))) 
 
-(DEFUN |GaloisGroupFactorizer| (#1=#:G587)
+(DEFUN |GaloisGroupFactorizer| (#1=#:G589)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G588)
+     (PROG (#2=#:G590)
        (RETURN
         (COND
          ((LETT #2#

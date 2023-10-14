@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DDFACT;ranpol| (|d| $)
-  (PROG (|u| #1=#:G142 |j| |k1|)
+  (PROG (|u| #1=#:G144 |j| |k1|)
     (RETURN
      (SEQ (LETT |k1| 0 . #2=(|DDFACT;ranpol|))
           (SEQ G190 (COND ((NULL (EQL |k1| 0)) (GO G191)))
@@ -43,7 +43,7 @@
               (EXIT |u|))))))))) 
 
 (DEFUN |DDFACT;notSqFr| (|m| |appl| $)
-  (PROG (|factlist| #1=#:G155 |pf| #2=#:G154 |fln| |pol| |lcp| |d1| #3=#:G153
+  (PROG (|factlist| #1=#:G157 |pf| #2=#:G156 |fln| |pol| |lcp| |d1| #3=#:G155
          |lf| |llf| |lcm|)
     (RETURN
      (SEQ (LETT |factlist| NIL . #4=(|DDFACT;notSqFr|)) (LETT |fln| NIL . #4#)
@@ -157,7 +157,7 @@
            (SPADCALL (SPADCALL |uu| (QREFELT $ 40)) |v| (QREFELT $ 34))))))) 
 
 (DEFUN |DDFACT;ddffact1| (|m| |testirr| $)
-  (PROG (#1=#:G173 |du| |u| |ddfact| |g| |dg| |v| |k1| |mon| |p|)
+  (PROG (#1=#:G175 |du| |u| |ddfact| |g| |dg| |v| |k1| |mon| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -228,8 +228,8 @@
 (DEFUN |DDFACT;separateDegrees;FPL;9| (|m| $) (|DDFACT;ddffact1| |m| 'NIL $)) 
 
 (DEFUN |DDFACT;separateFactors;LL;10| (|distf| $)
-  (PROG (|aux| |newaux| |ris| |v| |dg| |g| #1=#:G193 |u| |t| #2=#:G181
-         #3=#:G180 |d| |fprod| #4=#:G192 |ffprod| |n1| |p1| |ddfact|)
+  (PROG (|aux| |newaux| |ris| |v| |dg| |g| #1=#:G195 |u| |t| #2=#:G183
+         #3=#:G182 |d| |fprod| #4=#:G194 |ffprod| |n1| |p1| |ddfact|)
     (RETURN
      (SEQ (LETT |ddfact| |distf| . #5=(|DDFACT;separateFactors;LL;10|))
           (LETT |p1| (SPADCALL (QREFELT $ 43)) . #5#)
@@ -368,7 +368,7 @@
                  ('T (SPADCALL |ddfact| (QREFELT $ 56))))))))) 
 
 (DEFUN |DDFACT;distdfact;FPBR;12| (|m| |test| $)
-  (PROG (|factlist| #1=#:G210 |pol| #2=#:G209 |fln| |d| |lcm|)
+  (PROG (|factlist| #1=#:G212 |pol| #2=#:G211 |fln| |d| |lcm|)
     (RETURN
      (SEQ (LETT |factlist| NIL . #3=(|DDFACT;distdfact;FPBR;12|))
           (LETT |fln| NIL . #3#)
@@ -435,7 +435,7 @@
                    (EXIT (CONS |lcm| |factlist|)))))))))) 
 
 (DEFUN |DDFACT;factor;FPF;13| (|m| $)
-  (PROG (#1=#:G222 |u| #2=#:G221 |flist|)
+  (PROG (#1=#:G224 |u| #2=#:G223 |flist|)
     (RETURN
      (SEQ
       (COND
@@ -468,7 +468,7 @@
                     (QREFELT $ 69)))))))))) 
 
 (DEFUN |DDFACT;factorSquareFree;FPF;14| (|m| $)
-  (PROG (#1=#:G234 |u| #2=#:G233 |flist|)
+  (PROG (#1=#:G236 |u| #2=#:G235 |flist|)
     (RETURN
      (SEQ
       (COND
@@ -500,10 +500,10 @@
                           (EXIT (NREVERSE #2#))))
                     (QREFELT $ 69)))))))))) 
 
-(DEFUN |DistinctDegreeFactorize| (&REST #1=#:G235)
+(DEFUN |DistinctDegreeFactorize| (&REST #1=#:G237)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G236)
+     (PROG (#2=#:G238)
        (RETURN
         (COND
          ((LETT #2#

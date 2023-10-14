@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LODOOPS;vec2LODO| (|v| $)
-  (PROG (#1=#:G127 #2=#:G126 #3=#:G128 #4=#:G129 #5=#:G131 |i|)
+  (PROG (#1=#:G129 #2=#:G128 #3=#:G130 #4=#:G131 #5=#:G133 |i|)
     (RETURN
      (SEQ
       (PROGN
@@ -25,7 +25,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 20)))))))) 
 
 (DEFUN |LODOOPS;symmetricPower;LNniML;2| (|l| |m| |diff| $)
-  (PROG (#1=#:G132 |a| |un| |n| |u|)
+  (PROG (#1=#:G134 |a| |un| |n| |u|)
     (RETURN
      (SEQ
       (LETT |u| (SPADCALL (QREFELT $ 10) (QREFELT $ 22))
@@ -50,7 +50,7 @@
         (LIST |un|) (LIST |a|) |diff| $)))))) 
 
 (DEFUN |LODOOPS;killer| (|u| |m| |lvar| |lval| |diff| $)
-  (PROG (|lu| #1=#:G146 |l| |mat| |q|)
+  (PROG (|lu| #1=#:G148 |l| |mat| |q|)
     (RETURN
      (SEQ
       (EXIT
@@ -173,10 +173,10 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |p|))))) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G157)
+(DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

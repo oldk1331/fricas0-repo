@@ -54,10 +54,10 @@
                       (CONS 0 (QCDR |u|)))
                      ('T (CONS 0 (- (QCDR |u|))))))))))))) 
 
-(DEFUN |InnerPolySign| (&REST #1=#:G153)
+(DEFUN |InnerPolySign| (&REST #1=#:G155)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G154)
+     (PROG (#2=#:G156)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |UTSSOL;seriesSolve;MLUTSF;1| (|f| |l| $)
-  (PROG (|next| |st| |coeffs| |l2| |s1| |l1| #1=#:G398 |e| #2=#:G397)
+  (PROG (|next| |st| |coeffs| |l2| |s1| |l1| #1=#:G400 |e| #2=#:G399)
     (RETURN
      (SEQ
       (LETT |l1|
@@ -39,7 +39,7 @@
     (LETT |f| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|nr| |coeff| |eq| |eqs| |vars| #2=#:G391 |var| #3=#:G392 |i|
+      (PROG (|nr| |coeff| |eq| |eqs| |vars| #2=#:G393 |var| #3=#:G394 |i|
              |res|)
         (RETURN
          (SEQ
@@ -225,7 +225,7 @@
           (EXIT |res|)))))))) 
 
 (DEFUN |UTSSOL;seriesSolve;MLUTSF;1!0| (|i| $)
-  (PROG (#1=#:G134)
+  (PROG (#1=#:G136)
     (RETURN
      (SPADCALL (|spadConstant| $ 19)
                (SPADCALL (|spadConstant| $ 22)
@@ -235,10 +235,10 @@
                          (QREFELT $ 24))
                (QREFELT $ 25))))) 
 
-(DEFUN |TaylorSolve| (&REST #1=#:G399)
+(DEFUN |TaylorSolve| (&REST #1=#:G401)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G400)
+     (PROG (#2=#:G402)
        (RETURN
         (COND
          ((LETT #2#

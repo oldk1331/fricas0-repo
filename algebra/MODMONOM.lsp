@@ -23,10 +23,10 @@
 
 (DEFUN |MODMONOM;construct;ISE$;6| (|i| |e| $) (CONS |i| |e|)) 
 
-(DEFUN |ModuleMonomial| (&REST #1=#:G138)
+(DEFUN |ModuleMonomial| (&REST #1=#:G140)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G139)
+     (PROG (#2=#:G141)
        (RETURN
         (COND
          ((LETT #2#

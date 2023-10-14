@@ -17,10 +17,10 @@
   (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) |a| |d| (QREFELT $ 19))
             (QREFELT $ 12))) 
 
-(DEFUN |InfiniteProductCharacteristicZero| (&REST #1=#:G129)
+(DEFUN |InfiniteProductCharacteristicZero| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G130)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

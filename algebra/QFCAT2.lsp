@@ -5,10 +5,10 @@
   (SPADCALL (SPADCALL (SPADCALL |r| (QREFELT $ 10)) |f|)
             (SPADCALL (SPADCALL |r| (QREFELT $ 11)) |f|) (QREFELT $ 12))) 
 
-(DEFUN |QuotientFieldCategoryFunctions2| (&REST #1=#:G127)
+(DEFUN |QuotientFieldCategoryFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

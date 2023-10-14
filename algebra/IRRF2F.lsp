@@ -20,7 +20,7 @@
   (CONS 0 (SPADCALL |f| |x| (QREFELT $ 30)))) 
 
 (DEFUN |IRRF2F;integrate;FSU;7| (|f| |x| $)
-  (PROG (|l| #1=#:G146 |g| #2=#:G145)
+  (PROG (|l| #1=#:G148 |g| #2=#:G147)
     (RETURN
      (SEQ
       (LETT |l|
@@ -50,10 +50,10 @@
        (COND ((NULL (CDR |l|)) (CONS 0 (|SPADfirst| |l|)))
              ('T (CONS 1 |l|)))))))) 
 
-(DEFUN |IntegrationResultRFToFunction| (#1=#:G147)
+(DEFUN |IntegrationResultRFToFunction| (#1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G148)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#

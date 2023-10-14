@@ -97,7 +97,7 @@
    |p| (QREFELT $ 20))) 
 
 (DEFUN |TUBETOOL;cosSinInfo;IL;10| (|n| $)
-  (PROG (|ans| |angle| #1=#:G148 |i| |theta|)
+  (PROG (|ans| |angle| #1=#:G150 |i| |theta|)
     (RETURN
      (SEQ (LETT |ans| NIL . #2=(|TUBETOOL;cosSinInfo;IL;10|))
           (LETT |theta|
@@ -151,7 +151,7 @@
 (DEFUN |TubePlotTools| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G154)
+     (PROG (#1=#:G156)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|TubePlotTools|)

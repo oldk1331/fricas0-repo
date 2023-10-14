@@ -536,10 +536,10 @@
 (DEFUN |EFUPXS;acsch;2UPXS;60| (|upxs| $)
   (|EFUPXS;applyOrError| (ELT $ 84) "acsch" |upxs| $)) 
 
-(DEFUN |ElementaryFunctionsUnivariatePuiseuxSeries| (&REST #1=#:G524)
+(DEFUN |ElementaryFunctionsUnivariatePuiseuxSeries| (&REST #1=#:G526)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G525)
+     (PROG (#2=#:G527)
        (RETURN
         (COND
          ((LETT #2#

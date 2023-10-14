@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SWITCH;coerce;$Of;1| (|s| $)
-  (PROG (|ran| #1=#:G143 |u| #2=#:G142 |rat|)
+  (PROG (|ran| #1=#:G145 |u| #2=#:G144 |rat|)
     (RETURN
      (SEQ
       (LETT |rat| (SPADCALL (QCAR |s|) (QREFELT $ 12))
@@ -59,7 +59,7 @@
 (DEFUN |Switch| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G199)
+     (PROG (#1=#:G201)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Switch|) . #2=(|Switch|))

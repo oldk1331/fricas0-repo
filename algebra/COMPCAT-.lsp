@@ -50,7 +50,7 @@
   (SPADCALL (SPADCALL |pp| (QREFELT $ 49)) (ELT $ 51) (QREFELT $ 55))) 
 
 (DEFUN |COMPCAT-;factorSquareFreePolynomial;SupF;6| (|pp| $)
-  (PROG (#1=#:G212 |lF| |p2| |p1| #2=#:G219 |u| |fR| |pnorm| |k|)
+  (PROG (#1=#:G214 |lF| |p2| |p1| #2=#:G221 |u| |fR| |pnorm| |k|)
     (RETURN
      (SEQ
       (LETT |pnorm| (|COMPCAT-;normPolynomial| |pp| $)
@@ -264,7 +264,7 @@
      (QREFELT $ 22))))) 
 
 (DEFUN |COMPCAT-;coordinates;SVV;29| (|x| |v| $)
-  (PROG (|ix| |rx| #1=#:G257 |d| |ia| |ib| |rb| |b| |ra| |a|)
+  (PROG (|ix| |rx| #1=#:G259 |d| |ia| |ib| |rb| |b| |ra| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -677,7 +677,7 @@
    ('T (QCAR (SPADCALL |x| |y| (QREFELT $ 233)))))) 
 
 (DEFUN |COMPCAT-;divide;2SR;60| (|x| |y| $)
-  (PROG (#1=#:G373 |y1| |b| |x2| |a| |x1| |xx| |r|)
+  (PROG (#1=#:G375 |y1| |b| |x2| |a| |x1| |xx| |r|)
     (RETURN
      (SEQ
       (LETT |r| (SPADCALL |y| (QREFELT $ 19)) . #2=(|COMPCAT-;divide;2SR;60|))
@@ -728,7 +728,7 @@
         |y1|)))))) 
 
 (DEFUN |COMPCAT-;atan2loc| (|x| |y| $)
-  (PROG (|theta| #1=#:G378 |pi2| |pi1|)
+  (PROG (|theta| #1=#:G380 |pi2| |pi1|)
     (RETURN
      (SEQ (LETT |pi1| (SPADCALL (QREFELT $ 243)) . #2=(|COMPCAT-;atan2loc|))
           (LETT |pi2| (SPADCALL |pi1| (QREFELT $ 242) (QREFELT $ 121)) . #2#)
@@ -763,7 +763,7 @@
    (SPADCALL |x| (QREFELT $ 87)) $)) 
 
 (DEFUN |COMPCAT-;argument;SR;63| (|x| $)
-  (PROG (#1=#:G378 |x1| |n1|)
+  (PROG (#1=#:G380 |x1| |n1|)
     (RETURN
      (SEQ
       (LETT |n1| (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 167))
@@ -784,7 +784,7 @@
                  (QREFELT $ 121))))))) 
 
 (DEFUN |COMPCAT-;argument;SR;64| (|x| $)
-  (PROG (#1=#:G378 |x1| |n1|)
+  (PROG (#1=#:G380 |x1| |n1|)
     (RETURN
      (SEQ
       (LETT |n1|
@@ -880,7 +880,7 @@
         (QREFELT $ 30))))))) 
 
 (DEFUN |COMPCAT-;cos;2S;83| (|x| $)
-  (PROG (#1=#:G409 |e|)
+  (PROG (#1=#:G411 |e|)
     (RETURN
      (SEQ
       (LETT |e|
@@ -898,7 +898,7 @@
                  (QREFELT $ 225))))))) 
 
 (DEFUN |COMPCAT-;sin;2S;84| (|x| $)
-  (PROG (#1=#:G414 |e|)
+  (PROG (#1=#:G416 |e|)
     (RETURN
      (SEQ
       (LETT |e|
@@ -1008,7 +1008,7 @@
            (QREFELT $ 30)))))))))) 
 
 (DEFUN |COMPCAT-;^;SFS;90| (|x| |q| $)
-  (PROG (|e| |t| #1=#:G378 |i| |r|)
+  (PROG (|e| |t| #1=#:G380 |i| |r|)
     (RETURN
      (SEQ
       (COND
@@ -1055,7 +1055,7 @@
                (QREFELT $ 30)))))))))))))) 
 
 (DEFUN |ComplexCategory&| (|#1| |#2|)
-  (PROG (#1=#:G378 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G380 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|ComplexCategory&|))

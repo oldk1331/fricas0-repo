@@ -61,7 +61,7 @@
          (|error| "All sqfr factors of polynomial must be of degree < 5")))))))) 
 
 (DEFUN |SOLVEFOR;solve;UPL;4| (|u| $)
-  (PROG (|ls| #1=#:G153 |i| |lsf| #2=#:G152 |f|)
+  (PROG (|ls| #1=#:G155 |i| |lsf| #2=#:G154 |f|)
     (RETURN
      (SEQ (LETT |ls| NIL . #3=(|SOLVEFOR;solve;UPL;4|))
           (SEQ (LETT |f| NIL . #3#)
@@ -241,8 +241,8 @@
                 (SPADCALL 2 |c2| (QREFELT $ 59)) (QREFELT $ 52))))))))))) 
 
 (DEFUN |SOLVEFOR;cubic;4FL;18| (|c3| |c2| |c1| |c0| $)
-  (PROG (#1=#:G197 |u| #2=#:G196 S D R Q #3=#:G195 #4=#:G194 P #5=#:G193
-         #6=#:G192 |a3| |a2| |a1|)
+  (PROG (#1=#:G199 |u| #2=#:G198 S D R Q #3=#:G197 #4=#:G196 P #5=#:G195
+         #6=#:G194 |a3| |a2| |a1|)
     (RETURN
      (SEQ (|SOLVEFOR;needLcoef| |c3| $) (|SOLVEFOR;needChar0| $)
           (EXIT
@@ -495,7 +495,7 @@
                              (QREFELT $ 49))))))))))))))) 
 
 (DEFUN |SOLVEFOR;quartic;5FL;20| (|c4| |c3| |c2| |c1| |c0| $)
-  (PROG (#1=#:G209 |s| #2=#:G208 |slist| |rt| |t0| |r| |q| |p| |a4| |a3| |a2|
+  (PROG (#1=#:G211 |s| #2=#:G210 |slist| |rt| |t0| |r| |q| |p| |a4| |a3| |a2|
          |a1|)
     (RETURN
      (SEQ (|SOLVEFOR;needLcoef| |c4| $) (|SOLVEFOR;needChar0| $)
@@ -757,10 +757,10 @@
                                    (QREFELT $ 52))
                          (QREFELT $ 49))))))))))) 
 
-(DEFUN |PolynomialSolveByFormulas| (&REST #1=#:G214)
+(DEFUN |PolynomialSolveByFormulas| (&REST #1=#:G216)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G215)
+     (PROG (#2=#:G217)
        (RETURN
         (COND
          ((LETT #2#

@@ -4,14 +4,14 @@
 (DEFPARAMETER |AlgebraicallyClosedField;AL| 'NIL) 
 
 (DEFUN |AlgebraicallyClosedField| ()
-  (LET (#:G140)
+  (LET (#:G142)
     (COND (|AlgebraicallyClosedField;AL|)
           (T
            (SETQ |AlgebraicallyClosedField;AL|
                    (|AlgebraicallyClosedField;|)))))) 
 
 (DEFUN |AlgebraicallyClosedField;| ()
-  (PROG (#1=#:G138)
+  (PROG (#1=#:G140)
     (RETURN
      (PROG1
          (LETT #1#

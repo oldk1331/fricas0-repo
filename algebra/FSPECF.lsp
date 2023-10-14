@@ -1021,7 +1021,7 @@
   (SPADCALL (QREFELT $ 168) |z| |m| (QREFELT $ 38))) 
 
 (DEFUN |FSPECF;eJacobiSn| (|z| |m| $)
-  (PROG (#1=#:G506 |args|)
+  (PROG (#1=#:G508 |args|)
     (RETURN
      (SEQ
       (EXIT
@@ -1557,7 +1557,7 @@
   (SPADCALL (QREFELT $ 32) (LIST |g2| |g3| |x|) (QREFELT $ 91))) 
 
 (DEFUN |FSPECF;iiabs;2F;202| (|x| $)
-  (PROG (#1=#:G717 |b| |a| |f| |r|)
+  (PROG (#1=#:G719 |b| |a| |f| |r|)
     (RETURN
      (SEQ
       (LETT |r| (SPADCALL |x| (QREFELT $ 205)) . #2=(|FSPECF;iiabs;2F;202|))
@@ -1612,7 +1612,7 @@
                             (QREFELT $ 213))))))))) 
 
 (DEFUN |FSPECF;iiBeta;LF;205| (|l| $)
-  (PROG (#1=#:G731 |s| |r|)
+  (PROG (#1=#:G733 |s| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -1659,7 +1659,7 @@
                             (QREFELT $ 213))))))))) 
 
 (DEFUN |FSPECF;iipolygamma;LF;207| (|l| $)
-  (PROG (#1=#:G743 |r| |s|)
+  (PROG (#1=#:G745 |r| |s|)
     (RETURN
      (SEQ
       (EXIT
@@ -1696,7 +1696,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSPECF;iiBesselJ;LF;208| (|l| $)
-  (PROG (#1=#:G750 |s| |r|)
+  (PROG (#1=#:G752 |s| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -1733,7 +1733,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSPECF;iiBesselY;LF;209| (|l| $)
-  (PROG (#1=#:G757 |s| |r|)
+  (PROG (#1=#:G759 |s| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -1770,7 +1770,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSPECF;iiBesselI;LF;210| (|l| $)
-  (PROG (#1=#:G764 |s| |r|)
+  (PROG (#1=#:G766 |s| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -1807,7 +1807,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSPECF;iiBesselK;LF;211| (|l| $)
-  (PROG (#1=#:G771 |s| |r|)
+  (PROG (#1=#:G773 |s| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -1885,7 +1885,7 @@
                             (QREFELT $ 213))))))))) 
 
 (DEFUN |FSPECF;iiGamma;2F;216| (|x| $)
-  (PROG (#1=#:G797 |r|)
+  (PROG (#1=#:G799 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -2616,7 +2616,7 @@
   (SPADCALL (ELT $ 249) |lf| (QREFELT $ 253))) 
 
 (DEFUN |FSPECF;replace_i| (|lp| |v| |i| $)
-  (PROG (#1=#:G992)
+  (PROG (#1=#:G994)
     (RETURN
      (SPADCALL
       (SPADCALL |lp|
@@ -2626,7 +2626,7 @@
       (CONS |v| (SPADCALL |lp| |i| (QREFELT $ 255))) (QREFELT $ 69))))) 
 
 (DEFUN |FSPECF;iiHypergeometricF;LF;258| (|l| $)
-  (PROG (#1=#:G995 #2=#:G997 |q| |p| |pqi| |pq| |nn| #3=#:G994 |z| |n|)
+  (PROG (#1=#:G997 #2=#:G999 |q| |p| |pqi| |pq| |nn| #3=#:G996 |z| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -2661,7 +2661,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FSPECF;idvsum| (|op| |n| |l| |x| $)
-  (PROG (|res| |nl| |i| #1=#:G1004 |a|)
+  (PROG (|res| |nl| |i| #1=#:G1006 |a|)
     (RETURN
      (SEQ (LETT |res| (|spadConstant| $ 59) . #2=(|FSPECF;idvsum|))
           (SEQ (LETT |a| NIL . #2#) (LETT #1# |l| . #2#) (LETT |i| 1 . #2#)
@@ -2692,7 +2692,7 @@
 
 (DEFUN |FSPECF;dvhypergeom| (|l| |x| $)
   (PROG (|aprod| |nl| |nl1| |nl0| |bprod| |b| |i| |a| |q| |p| |z| |l1| |ol|
-         |pqi| |pq| |nn| #1=#:G1005 |n|)
+         |pqi| |pq| |nn| #1=#:G1007 |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |l|) . #2=(|FSPECF;dvhypergeom|))
           (LETT |nn|
@@ -2743,7 +2743,7 @@
                      (QREFELT $ 93))))))) 
 
 (DEFUN |FSPECF;add_pairs_to_list| (|lp| |l| $)
-  (PROG (#1=#:G1016 |p|)
+  (PROG (#1=#:G1018 |p|)
     (RETURN
      (SEQ
       (SEQ (LETT |p| NIL . #2=(|FSPECF;add_pairs_to_list|))
@@ -2765,7 +2765,7 @@
 
 (DEFUN |FSPECF;dvmeijer| (|l| |x| $)
   (PROG (|om| |nm| |l2| |sign| |na| |a| |n2| |n1| |z| |l1| |nli| |nl| |l0| |nn|
-         #1=#:G1017 |n|)
+         #1=#:G1019 |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |l|) . #2=(|FSPECF;dvmeijer|))
           (LETT |nn|
@@ -2837,7 +2837,7 @@
           (EXIT (LIST |a| |lf|)))))) 
 
 (DEFUN |FSPECF;get_if_lists| (|ln| |lf| $)
-  (PROG (|rl| |al| #1=#:G1033 |n|)
+  (PROG (|rl| |al| #1=#:G1035 |n|)
     (RETURN
      (SEQ (LETT |rl| NIL . #2=(|FSPECF;get_if_lists|))
           (SEQ (LETT |n| NIL . #2#) (LETT #1# |ln| . #2#) G190
@@ -2851,7 +2851,7 @@
           (LETT |rl| (NREVERSE |rl|) . #2#) (EXIT (CONS |lf| |rl|)))))) 
 
 (DEFUN |FSPECF;get_int_listi| (|n| |lo| $)
-  (PROG (|rl| |p| |i| |n0| #1=#:G1034)
+  (PROG (|rl| |p| |i| |n0| #1=#:G1036)
     (RETURN
      (SEQ
       (LETT |n0|
@@ -2880,7 +2880,7 @@
           (LETT |a| (NREVERSE |a|) . #1#) (EXIT (LIST |a| |lo|)))))) 
 
 (DEFUN |FSPECF;get_of_lists| (|ln| |lo| $)
-  (PROG (|rl| |al| #1=#:G1047 |n|)
+  (PROG (|rl| |al| #1=#:G1049 |n|)
     (RETURN
      (SEQ (LETT |rl| NIL . #2=(|FSPECF;get_of_lists|))
           (SEQ (LETT |n| NIL . #2#) (LETT #1# |ln| . #2#) G190
@@ -2894,7 +2894,7 @@
           (LETT |rl| (NREVERSE |rl|) . #2#) (EXIT (CONS |lo| |rl|)))))) 
 
 (DEFUN |FSPECF;get_int_listo| (|n| |lo| $)
-  (PROG (|rl| |p| |i| |n0| #1=#:G1048)
+  (PROG (|rl| |p| |i| |n0| #1=#:G1050)
     (RETURN
      (SEQ
       (LETT |n0|
@@ -2912,7 +2912,7 @@
       (LETT |rl| (NREVERSE |rl|) . #2#) (EXIT |rl|))))) 
 
 (DEFUN |FSPECF;dhyper0| (|op| |lo| $)
-  (PROG (|z| |b| |a| |al| |pql| |n0| #1=#:G1053)
+  (PROG (|z| |b| |a| |al| |pql| |n0| #1=#:G1055)
     (RETURN
      (SEQ
       (LETT |n0|
@@ -2939,7 +2939,7 @@
   (|FSPECF;dhyper0| (|SPADfirst| |lo|) (CDR |lo|) $)) 
 
 (DEFUN |FSPECF;dmeijer0| (|op| |lo| $)
-  (PROG (|z| |al| |nl| |n0| #1=#:G1058)
+  (PROG (|z| |al| |nl| |n0| #1=#:G1060)
     (RETURN
      (SEQ
       (LETT |n0|
@@ -3007,10 +3007,10 @@
 
 (DEFUN |FSPECF;iiMeijerG| (|l| $) (SPADCALL (QREFELT $ 34) |l| (QREFELT $ 91))) 
 
-(DEFUN |FunctionalSpecialFunction| (&REST #1=#:G1139)
+(DEFUN |FunctionalSpecialFunction| (&REST #1=#:G1141)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1140)
+     (PROG (#2=#:G1142)
        (RETURN
         (COND
          ((LETT #2#
@@ -3029,7 +3029,7 @@
               (HREM |$ConstructorCache| '|FunctionalSpecialFunction|))))))))))) 
 
 (DEFUN |FunctionalSpecialFunction;| (|#1| |#2|)
-  (PROG (#1=#:G220 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G222 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FunctionalSpecialFunction|))

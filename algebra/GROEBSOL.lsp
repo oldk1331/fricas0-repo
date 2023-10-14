@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |GROEBSOL;testPower| (|uf| |x| |lpol| $)
-  (PROG (|g| |linp| |lc| #1=#:G144 |trailp| |gg| |testquo| #2=#:G146 |df|)
+  (PROG (|g| |linp| |lc| #1=#:G146 |trailp| |gg| |testquo| #2=#:G148 |df|)
     (RETURN
      (SEQ
       (LETT |df| (SPADCALL |uf| (QREFELT $ 12)) . #3=(|GROEBSOL;testPower|))
@@ -65,7 +65,7 @@
                       (CONS 0 (SPADCALL |linp| |x| (QREFELT $ 30)))))))))))))) 
 
 (DEFUN |GROEBSOL;testGenPos| (|lpol| |lvar| $)
-  (PROG (#1=#:G163 |rlvar| |newlpol| |g| |fi| |x| #2=#:G164 |f| |rlpol|)
+  (PROG (#1=#:G165 |rlvar| |newlpol| |g| |fi| |x| #2=#:G166 |f| |rlpol|)
     (RETURN
      (SEQ
       (EXIT
@@ -123,10 +123,10 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GROEBSOL;genPos| (|lp| |lvar| $)
-  (PROG (#1=#:G151 |testfail| |gb1| |gbt| |gb| #2=#:G183 |p| #3=#:G182 |val|
-         #4=#:G169 #5=#:G168 #6=#:G170 #7=#:G180 |vv| #8=#:G181 |rv| |ranvals|
-         #9=#:G179 #10=#:G178 |count| |rlvar| |x| |lnp| #11=#:G177 |f|
-         #12=#:G176)
+  (PROG (#1=#:G153 |testfail| |gb1| |gbt| |gb| #2=#:G185 |p| #3=#:G184 |val|
+         #4=#:G171 #5=#:G170 #6=#:G172 #7=#:G182 |vv| #8=#:G183 |rv| |ranvals|
+         #9=#:G181 #10=#:G180 |count| |rlvar| |x| |lnp| #11=#:G179 |f|
+         #12=#:G178)
     (RETURN
      (SEQ (LETT |rlvar| (REVERSE |lvar|) . #13=(|GROEBSOL;genPos|))
           (LETT |lnp|
@@ -257,7 +257,7 @@
       (EXIT (CONS (QVELT |nans| 1) (QVELT |nans| 2))))))) 
 
 (DEFUN |GROEBSOL;select| (|lup| $)
-  (PROG (#1=#:G189 #2=#:G188 #3=#:G190 #4=#:G195 |lsel| #5=#:G194 #6=#:G193
+  (PROG (#1=#:G191 #2=#:G190 #3=#:G192 #4=#:G197 |lsel| #5=#:G196 #6=#:G195
          |f|)
     (RETURN
      (SEQ
@@ -302,10 +302,10 @@
               (COND (#1# #2#) (#7# NIL))))))))) 
 
 (DEFUN |GROEBSOL;findCompon| (|leq| |lvar| $)
-  (PROG (#1=#:G220 |ll| #2=#:G219 |ans| #3=#:G218 |p| #4=#:G217 #5=#:G216 |lp|
-         #6=#:G215 |val| #7=#:G201 #8=#:G200 #9=#:G202 #10=#:G213 |vv|
-         #11=#:G214 |rv| |rlvar| |x| |ranvals| |result| |tlfact| #12=#:G212
-         |tfact| |lfact| #13=#:G211 |ff| #14=#:G210 |fg| |g| |lgp| |gp| |teq|)
+  (PROG (#1=#:G222 |ll| #2=#:G221 |ans| #3=#:G220 |p| #4=#:G219 #5=#:G218 |lp|
+         #6=#:G217 |val| #7=#:G203 #8=#:G202 #9=#:G204 #10=#:G215 |vv|
+         #11=#:G216 |rv| |rlvar| |x| |ranvals| |result| |tlfact| #12=#:G214
+         |tfact| |lfact| #13=#:G213 |ff| #14=#:G212 |fg| |g| |lgp| |gp| |teq|)
     (RETURN
      (SEQ
       (LETT |teq| (SPADCALL |leq| (QREFELT $ 54))
@@ -485,7 +485,7 @@
                                    (EXIT (NREVERSE #2#))))))))))))))))) 
 
 (DEFUN |GROEBSOL;zeroDim?| (|lp| |lvar| $)
-  (PROG (|lvint1| |x| #1=#:G223 |g| #2=#:G231 |f| |n|)
+  (PROG (|lvint1| |x| #1=#:G225 |g| #2=#:G233 |f| |n|)
     (RETURN
      (SEQ
       (COND ((NULL |lp|) 'NIL)
@@ -541,9 +541,9 @@
                                (EXIT (NULL |lvint1|))))))))))))) 
 
 (DEFUN |GROEBSOL;groebSolve;LLL;8| (|leq| |lvar| $)
-  (PROG (|result| |tfact| #1=#:G252 |lfact| #2=#:G251 |ff| #3=#:G250 #4=#:G249
-         |llf| #5=#:G248 #6=#:G237 |llfact| |fg| |g| #7=#:G247 |x| |lup|
-         |basis| |leq1| |lnp| #8=#:G246 |f| #9=#:G245)
+  (PROG (|result| |tfact| #1=#:G254 |lfact| #2=#:G253 |ff| #3=#:G252 #4=#:G251
+         |llf| #5=#:G250 #6=#:G239 |llfact| |fg| |g| #7=#:G249 |x| |lup|
+         |basis| |leq1| |lnp| #8=#:G248 |f| #9=#:G247)
     (RETURN
      (SEQ
       (LETT |lnp|
@@ -659,10 +659,10 @@
        ((NULL (|GROEBSOL;zeroDim?| |leq1| |lvar| $)) (EXIT (CONS 1 "failed"))))
       (EXIT (CONS 0 |leq1|)))))) 
 
-(DEFUN |GroebnerSolve| (&REST #1=#:G264)
+(DEFUN |GroebnerSolve| (&REST #1=#:G266)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G265)
+     (PROG (#2=#:G267)
        (RETURN
         (COND
          ((LETT #2#

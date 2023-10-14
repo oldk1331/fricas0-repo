@@ -4,7 +4,7 @@
 (DEFUN |INTTOOLS;union;3L;1| (|l1| |l2| $) (SPADCALL |l1| |l2| (QREFELT $ 10))) 
 
 (DEFUN |INTTOOLS;varselect;LSL;2| (|l| |x| $)
-  (PROG (#1=#:G146 |k| #2=#:G145)
+  (PROG (#1=#:G148 |k| #2=#:G147)
     (RETURN
      (SEQ
       (PROGN
@@ -32,7 +32,7 @@
    (QREFELT $ 25))) 
 
 (DEFUN |INTTOOLS;vark;LSL;4| (|l| |x| $)
-  (PROG (#1=#:G154 |f| #2=#:G153)
+  (PROG (#1=#:G156 |f| #2=#:G155)
     (RETURN
      (SEQ
       (SPADCALL
@@ -53,7 +53,7 @@
        |x| (QREFELT $ 19)))))) 
 
 (DEFUN |INTTOOLS;kmax;LK;5| (|l| $)
-  (PROG (|ans| #1=#:G159 |k|)
+  (PROG (|ans| #1=#:G161 |k|)
     (RETURN
      (SEQ (LETT |ans| (|SPADfirst| |l|) . #2=(|INTTOOLS;kmax;LK;5|))
           (SEQ (LETT |k| NIL . #2#) (LETT #1# (CDR |l|) . #2#) G190
@@ -83,7 +83,7 @@
    ('T 'NIL))) 
 
 (DEFUN |INTTOOLS;removeConstantTerm;FSF;7| (|f| |x| $)
-  (PROG (|ans| #1=#:G176 |term| |u| |num| |den|)
+  (PROG (|ans| #1=#:G178 |term| |u| |num| |den|)
     (RETURN
      (SEQ
       (COND
@@ -201,7 +201,7 @@
        (#2# 'NIL)))))) 
 
 (DEFUN |INTTOOLS;mkPrim;FSF;11| (|f| |x| $)
-  (PROG (#1=#:G201 |k| #2=#:G200 |lg| #3=#:G199 #4=#:G198)
+  (PROG (#1=#:G203 |k| #2=#:G202 |lg| #3=#:G201 #4=#:G200)
     (RETURN
      (SEQ
       (LETT |lg|
@@ -242,7 +242,7 @@
                  (QREFELT $ 81))))))) 
 
 (DEFUN |INTTOOLS;psimp| (|p| |x| $)
-  (PROG (|u| #1=#:G204)
+  (PROG (|u| #1=#:G206)
     (RETURN
      (SEQ
       (LETT |u|
@@ -272,7 +272,7 @@
                     (SPADCALL (QCAR (QCDR |u|)) (QREFELT $ 13)))))))))) 
 
 (DEFUN |INTTOOLS;intPatternMatch;FSMMIr;13| (|f| |x| |int| |pmint| $)
-  (PROG (|nl| |lg| |ans| |ir0| |rc| |u| #1=#:G229 |rec| |l| |ir|)
+  (PROG (|nl| |lg| |ans| |ir0| |rc| |u| #1=#:G231 |rec| |l| |ir|)
     (RETURN
      (SEQ
       (LETT |ir| (SPADCALL |f| |x| |int|)
@@ -332,10 +332,10 @@
                         (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
                    (EXIT (SPADCALL |ans| |lg| |nl| (QREFELT $ 109))))))))))) 
 
-(DEFUN |IntegrationTools| (&REST #1=#:G230)
+(DEFUN |IntegrationTools| (&REST #1=#:G232)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G231)
+     (PROG (#2=#:G233)
        (RETURN
         (COND
          ((LETT #2#
@@ -456,7 +456,7 @@
               (219 . |tower|) (224 . |member?|) (|List| $) (230 . |eval|)
               (237 . |mkPrim|) (243 . |variables|) (|Union| $ '"failed")
               (248 . |exquo|) (|Record| (|:| |var| 20) (|:| |exponent| 32))
-              (|Union| 86 '#1#) (254 . |isExpt|) (259 . |One|) '#:G141
+              (|Union| 86 '#1#) (254 . |isExpt|) (259 . |One|) '#:G143
               (|Record| (|:| |integrand| 7) (|:| |intvar| 7)) (|List| 91)
               (|IntegrationResult| 7) (263 . |notelem|) (268 . |ratpart|)
               (|Record| (|:| |scalar| (|Fraction| 52)) (|:| |coeff| 70)

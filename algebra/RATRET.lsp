@@ -7,10 +7,10 @@
 
 (DEFUN |RATRET;rationalIfCan;SU;3| (|s| $) (SPADCALL |s| (QREFELT $ 11))) 
 
-(DEFUN |RationalRetractions| (#1=#:G134)
+(DEFUN |RationalRetractions| (#1=#:G136)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G135)
+     (PROG (#2=#:G137)
        (RETURN
         (COND
          ((LETT #2#

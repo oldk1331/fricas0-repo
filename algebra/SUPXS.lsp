@@ -63,10 +63,10 @@
                  (SPADCALL |x| (QREFELT $ 12)) (SPADCALL |x| (QREFELT $ 55))
                  (QREFELT $ 57))))))) 
 
-(DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G184)
+(DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G186)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G185)
+     (PROG (#2=#:G187)
        (RETURN
         (COND
          ((LETT #2#
@@ -86,8 +86,8 @@
                     '|SparseUnivariatePuiseuxSeries|))))))))))) 
 
 (DEFUN |SparseUnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G175 #2=#:G176 #3=#:G177 #4=#:G178 #5=#:G179 #6=#:G180
-         #7=#:G182 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G177 #2=#:G178 #3=#:G179 #4=#:G180 #5=#:G181 #6=#:G182
+         #7=#:G184 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #8=(|SparseUnivariatePuiseuxSeries|))

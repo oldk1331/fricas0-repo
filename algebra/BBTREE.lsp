@@ -137,10 +137,10 @@
                                      (QREFELT $ 35))
                            (EXIT |x|)))))))))))) 
 
-(DEFUN |BalancedBinaryTree| (#1=#:G196)
+(DEFUN |BalancedBinaryTree| (#1=#:G198)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G197)
+     (PROG (#2=#:G199)
        (RETURN
         (COND
          ((LETT #2#
@@ -158,7 +158,7 @@
               (HREM |$ConstructorCache| '|BalancedBinaryTree|))))))))))) 
 
 (DEFUN |BalancedBinaryTree;| (|#1|)
-  (PROG (|pv$| #1=#:G193 #2=#:G194 #3=#:G195 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G195 #2=#:G196 #3=#:G197 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|BalancedBinaryTree|))

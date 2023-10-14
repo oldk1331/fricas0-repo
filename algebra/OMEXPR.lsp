@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |OMEXPR;outputOMArith1| (|dev| |sym| |args| $)
-  (PROG (#1=#:G147 |arg|)
+  (PROG (#1=#:G149 |arg|)
     (RETURN
      (SEQ (SPADCALL |dev| (QREFELT $ 16))
           (SPADCALL |dev| "arith1" |sym| (QREFELT $ 18))
@@ -39,7 +39,7 @@
        (EXIT (SPADCALL |dev| (QREFELT $ 22))))) 
 
 (DEFUN |OMEXPR;outputOMBinomial| (|dev| |args| $)
-  (PROG (#1=#:G158 |arg|)
+  (PROG (#1=#:G160 |arg|)
     (RETURN
      (SEQ
       (COND
@@ -132,7 +132,7 @@
           (EXIT (SPADCALL |dev| (QREFELT $ 22)))))))) 
 
 (DEFUN |OMEXPR;outputOMFunction| (|dev| |op| |args| $)
-  (PROG (#1=#:G189 |arg| |omOp| |nargs|)
+  (PROG (#1=#:G191 |arg| |omOp| |nargs|)
     (RETURN
      (SEQ (LETT |nargs| (LENGTH |args|) . #2=(|OMEXPR;outputOMFunction|))
           (EXIT
@@ -196,7 +196,7 @@
                  (QREFELT $ 43)))))))))))) 
 
 (DEFUN |OMEXPR;outputOMExpr| (|dev| |ex| $)
-  (PROG (|k| #1=#:G213 |z| |s| |x| |w| |v|)
+  (PROG (|k| #1=#:G215 |z| |s| |x| |w| |v|)
     (RETURN
      (SEQ
       (COND
@@ -317,10 +317,10 @@
        (|OMEXPR;outputOMExpr| |dev| |ex| $)
        (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 73))))))) 
 
-(DEFUN |ExpressionToOpenMath| (#1=#:G224)
+(DEFUN |ExpressionToOpenMath| (#1=#:G226)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G225)
+     (PROG (#2=#:G227)
        (RETURN
         (COND
          ((LETT #2#

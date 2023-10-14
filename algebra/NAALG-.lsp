@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |NAALG-;plenaryPower;SPiS;1| (|a| |n| $)
-  (PROG (|n1| #1=#:G134 #2=#:G133)
+  (PROG (|n1| #1=#:G136 #2=#:G135)
     (RETURN
      (SEQ
       (COND ((EQL |n| 1) |a|)

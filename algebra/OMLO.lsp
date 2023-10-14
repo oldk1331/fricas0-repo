@@ -15,10 +15,10 @@
   (SPADCALL (SPADCALL '|op| (QREFELT $ 15))
             (LIST (SPADCALL |x| (QREFELT $ 16))) (QREFELT $ 18))) 
 
-(DEFUN |OppositeMonogenicLinearOperator| (&REST #1=#:G132)
+(DEFUN |OppositeMonogenicLinearOperator| (&REST #1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G133)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

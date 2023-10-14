@@ -28,7 +28,7 @@
 (DEFUN |SingletonAsOrderedSet| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G133)
+     (PROG (#1=#:G135)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SingletonAsOrderedSet|)

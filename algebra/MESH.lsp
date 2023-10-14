@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MESH;numberCheck| (|nums| $)
-  (PROG (#1=#:G132 #2=#:G130 #3=#:G134 |i|)
+  (PROG (#1=#:G134 #2=#:G132 #3=#:G136 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -55,7 +55,7 @@
                (|MESH;makePt| |x| |y| |z| (SPADCALL |x| |y| |z| |c|) $))))))))) 
 
 (DEFUN |MESH;meshPar2Var;TsM2SLTs;4| (|sp| |ptFun| |uSeg| |vSeg| |opts| $)
-  (PROG (|space| |aProp| #1=#:G155 |lProp| #2=#:G154 |l| #3=#:G153 |someV|
+  (PROG (|space| |aProp| #1=#:G157 |lProp| #2=#:G156 |l| #3=#:G155 |someV|
          |llp| |someU| |lp| |pt| |iu| |iv| |vstep| |ustep| |vNum| |uNum|)
     (RETURN
      (SEQ (LETT |llp| NIL . #4=(|MESH;meshPar2Var;TsM2SLTs;4|))
@@ -159,7 +159,7 @@
 (DEFUN |MeshCreationRoutinesForThreeDimensions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G206)
+     (PROG (#1=#:G208)
        (RETURN
         (COND
          ((LETT #1#

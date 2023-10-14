@@ -5,10 +5,10 @@
 
 (DEFUN |NONE1;coerce;SN;1| (|s| $) |s|) 
 
-(DEFUN |NoneFunctions1| (#1=#:G126)
+(DEFUN |NoneFunctions1| (#1=#:G128)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G127)
+     (PROG (#2=#:G129)
        (RETURN
         (COND
          ((LETT #2#

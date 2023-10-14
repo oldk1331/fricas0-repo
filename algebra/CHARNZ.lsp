@@ -4,12 +4,12 @@
 (DEFPARAMETER |CharacteristicNonZero;AL| 'NIL) 
 
 (DEFUN |CharacteristicNonZero| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|CharacteristicNonZero;AL|)
           (T (SETQ |CharacteristicNonZero;AL| (|CharacteristicNonZero;|)))))) 
 
 (DEFUN |CharacteristicNonZero;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

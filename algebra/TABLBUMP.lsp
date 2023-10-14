@@ -69,7 +69,7 @@
 (DEFUN |TABLBUMP;lex;2L;6!0| (|s1| |s2| $) (|TABLBUMP;lexorder| |s1| |s2| $)) 
 
 (DEFUN |TABLBUMP;slex;LL;7| (|ls| $)
-  (PROG (#1=#:G155 |i| #2=#:G156 |j| #3=#:G154)
+  (PROG (#1=#:G157 |i| #2=#:G158 |j| #3=#:G156)
     (RETURN
      (SEQ
       (SPADCALL
@@ -87,7 +87,7 @@
        (QREFELT $ 28)))))) 
 
 (DEFUN |TABLBUMP;inverse;2L;8| (|ls| $)
-  (PROG (#1=#:G161 #2=#:G163 |i| #3=#:G164 |j| #4=#:G162 |lss| #5=#:G160)
+  (PROG (#1=#:G163 #2=#:G165 |i| #3=#:G166 |j| #4=#:G164 |lss| #5=#:G162)
     (RETURN
      (SEQ
       (PROGN
@@ -182,7 +182,7 @@
   (SPADCALL |s2| |s1| (QREFELT $ 17))) 
 
 (DEFUN |TABLBUMP;bat1;LL;13| (|llls| $)
-  (PROG (#1=#:G182 |lls| #2=#:G181)
+  (PROG (#1=#:G184 |lls| #2=#:G183)
     (RETURN
      (SEQ
       (SPADCALL NIL
@@ -201,10 +201,10 @@
 (DEFUN |TABLBUMP;bat;TL;14| (|tb| $)
   (SPADCALL (SPADCALL |tb| (QREFELT $ 41)) (QREFELT $ 40))) 
 
-(DEFUN |TableauxBumpers| (#1=#:G184)
+(DEFUN |TableauxBumpers| (#1=#:G186)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G185)
+     (PROG (#2=#:G187)
        (RETURN
         (COND
          ((LETT #2#

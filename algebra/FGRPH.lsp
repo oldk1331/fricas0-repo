@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |FiniteGraph;AL| 'NIL) 
 
-(DEFUN |FiniteGraph| (#1=#:G180)
-  (LET (#2=#:G181)
+(DEFUN |FiniteGraph| (#1=#:G182)
+  (LET (#2=#:G183)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |FiniteGraph;AL|)) (CDR #2#))
      (T
@@ -16,12 +16,12 @@
       #2#)))) 
 
 (DEFUN |FiniteGraph;| (|t#1|)
-  (PROG (#1=#:G179)
+  (PROG (#1=#:G181)
     (RETURN
      (PROG1
          (LETT #1#
                (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (|sublisV| (PAIR '(#2=#:G178) (LIST '(|OutputForm|)))
+                          (|sublisV| (PAIR '(#2=#:G180) (LIST '(|OutputForm|)))
                                      (COND (|FiniteGraph;CAT|)
                                            ('T
                                             (LETT |FiniteGraph;CAT|

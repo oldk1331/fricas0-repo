@@ -15,7 +15,7 @@
   (VECTOR |name| NIL |attributes| |txt|)) 
 
 (DEFUN |XMLEL;outputStructured| (|rp| $)
-  (PROG (|res| #1=#:G145 |el| |atts| #2=#:G144 |s| #3=#:G143)
+  (PROG (|res| #1=#:G147 |el| |atts| #2=#:G146 |s| #3=#:G145)
     (RETURN
      (SEQ
       (LETT |atts|
@@ -63,7 +63,7 @@
                      (QREFELT $ 21))))))))))) 
 
 (DEFUN |XMLEL;outputUnstructured| (|rp| $)
-  (PROG (|res| |atts| #1=#:G150 |s| #2=#:G149)
+  (PROG (|res| |atts| #1=#:G152 |s| #2=#:G151)
     (RETURN
      (SEQ
       (LETT |atts|
@@ -99,7 +99,7 @@
   (COND ((EQUAL (QVELT |el| 0) "") 'T) ('T 'NIL))) 
 
 (DEFUN |XMLEL;outputVRML;$TfV;7| (|rp| |f1| $)
-  (PROG (#1=#:G174 |el| #2=#:G173 |att| #3=#:G171 #4=#:G172)
+  (PROG (#1=#:G176 |el| #2=#:G175 |att| #3=#:G173 #4=#:G174)
     (RETURN
      (SEQ
       (EXIT
@@ -147,7 +147,7 @@
 (DEFUN |XmlElement| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G176)
+     (PROG (#1=#:G178)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|XmlElement|)

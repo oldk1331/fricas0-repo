@@ -18,10 +18,10 @@
 (DEFUN |DSMP;coerce;Smp$;2!0| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 21)) (QREFELT $ 22))) 
 
-(DEFUN |DifferentialSparseMultivariatePolynomial| (&REST #1=#:G179)
+(DEFUN |DifferentialSparseMultivariatePolynomial| (&REST #1=#:G181)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G180)
+     (PROG (#2=#:G182)
        (RETURN
         (COND
          ((LETT #2#
@@ -44,7 +44,7 @@
                     '|DifferentialSparseMultivariatePolynomial|))))))))))) 
 
 (DEFUN |DifferentialSparseMultivariatePolynomial;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G178 |pv$| #2=#:G176 #3=#:G177 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G180 |pv$| #2=#:G178 #3=#:G179 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

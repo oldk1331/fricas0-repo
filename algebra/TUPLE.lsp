@@ -22,7 +22,7 @@
    ('T 'NIL))) 
 
 (DEFUN |TUPLE;coerce;$Of;6| (|x| $)
-  (PROG (#1=#:G141 |i| #2=#:G140)
+  (PROG (#1=#:G143 |i| #2=#:G142)
     (RETURN
      (SEQ
       (SPADCALL
@@ -41,10 +41,10 @@
              (EXIT (NREVERSE #2#))))
        (QREFELT $ 22)))))) 
 
-(DEFUN |Tuple| (#1=#:G142)
+(DEFUN |Tuple| (#1=#:G144)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G145)
        (RETURN
         (COND
          ((LETT #2#

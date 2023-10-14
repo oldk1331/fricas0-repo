@@ -5,7 +5,7 @@
   (QCAR (SPADCALL (SPADCALL |f| (QREFELT $ 9)) |derivation| (QREFELT $ 12)))) 
 
 (DEFUN |MONOTOOL;split;UPMR;2| (|p| |derivation| $)
-  (PROG (|rec| #1=#:G134 |pbar|)
+  (PROG (|rec| #1=#:G136 |pbar|)
     (RETURN
      (SEQ
       (LETT |pbar|
@@ -39,7 +39,7 @@
                  (SPADCALL |pbar| (QCDR |rec|) (QREFELT $ 22)))))))))))) 
 
 (DEFUN |MONOTOOL;splitSquarefree;UPMR;3| (|p| |derivation| $)
-  (PROG (|n| |h| #1=#:G144 |s| |g| |r| #2=#:G151 |rec| |q|)
+  (PROG (|n| |h| #1=#:G146 |s| |g| |r| #2=#:G153 |rec| |q|)
     (RETURN
      (SEQ
       (LETT |s| (|spadConstant| $ 24) . #3=(|MONOTOOL;splitSquarefree;UPMR;3|))
@@ -79,7 +79,7 @@
              (SPADCALL (SPADCALL |q| (QREFELT $ 35)) |s| (QREFELT $ 36)))))))) 
 
 (DEFUN |MONOTOOL;decompose;FMR;4| (|f| |derivation| $)
-  (PROG (|eeu| #1=#:G158 |rec| |qr|)
+  (PROG (|eeu| #1=#:G160 |rec| |qr|)
     (RETURN
      (SEQ
       (LETT |qr|
@@ -105,10 +105,10 @@
        (VECTOR (QCAR |qr|) (SPADCALL (QCDR |eeu|) (QCAR |rec|) (QREFELT $ 45))
                (SPADCALL (QCAR |eeu|) (QCDR |rec|) (QREFELT $ 45)))))))) 
 
-(DEFUN |MonomialExtensionTools| (&REST #1=#:G163)
+(DEFUN |MonomialExtensionTools| (&REST #1=#:G165)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G164)
+     (PROG (#2=#:G166)
        (RETURN
         (COND
          ((LETT #2#

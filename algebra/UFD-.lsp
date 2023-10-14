@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |UFD-;squareFreePart;2S;1| (|x| $)
-  (PROG (#1=#:G135 #2=#:G134 #3=#:G136 #4=#:G138 |f| |s|)
+  (PROG (#1=#:G137 #2=#:G136 #3=#:G138 #4=#:G140 |f| |s|)
     (RETURN
      (SEQ
       (SPADCALL

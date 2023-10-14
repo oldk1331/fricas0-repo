@@ -11,10 +11,10 @@
 
 (DEFUN |RULECOLD;latex;$S;4| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
 
-(DEFUN |RuleCalled| (#1=#:G129)
+(DEFUN |RuleCalled| (#1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G130)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

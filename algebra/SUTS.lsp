@@ -77,7 +77,7 @@
                          |st| (QREFELT $ 49)))))))))) 
 
 (DEFUN |SUTS;univariatePolynomial;$NniUp;14| (|x| |n| $)
-  (PROG (|st| |ans| |monPow| |oldDeg| |pow| #1=#:G192 #2=#:G197 |xExpon|
+  (PROG (|st| |ans| |monPow| |oldDeg| |pow| #1=#:G194 #2=#:G199 |xExpon|
          |xTerm| |mon|)
     (RETURN
      (SEQ
@@ -129,7 +129,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SUTS;polynomial;$NniP;15| (|x| |n| $)
-  (PROG (|st| |ans| |monPow| |oldDeg| |pow| #1=#:G199 #2=#:G204 |xExpon|
+  (PROG (|st| |ans| |monPow| |oldDeg| |pow| #1=#:G201 #2=#:G206 |xExpon|
          |xTerm| |mon|)
     (RETURN
      (SEQ
@@ -349,13 +349,13 @@
 (DEFUN |SUTS;pole?;$B;30| (|x| $) 'NIL) 
 
 (DEFUN |SUTS;order;$Nni;31| (|x| $)
-  (PROG (#1=#:G267)
+  (PROG (#1=#:G269)
     (RETURN
      (PROG1 (LETT #1# (SPADCALL |x| (QREFELT $ 121)) |SUTS;order;$Nni;31|)
        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
 
 (DEFUN |SUTS;order;$2Nni;32| (|x| |n| $)
-  (PROG (#1=#:G269)
+  (PROG (#1=#:G271)
     (RETURN
      (PROG1 (LETT #1# (SPADCALL |x| |n| (QREFELT $ 123)) |SUTS;order;$2Nni;32|)
        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
@@ -789,10 +789,10 @@
                      (SPADCALL |x| (QREFELT $ 53)) (|spadConstant| $ 199)
                      (QREFELT $ 200))))))) 
 
-(DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G385)
+(DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G387)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G386)
+     (PROG (#2=#:G388)
        (RETURN
         (COND
          ((LETT #2#
@@ -812,7 +812,7 @@
                     '|SparseUnivariateTaylorSeries|))))))))))) 
 
 (DEFUN |SparseUnivariateTaylorSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G377 #2=#:G378 #3=#:G379 #4=#:G380 #5=#:G381 #6=#:G384 $
+  (PROG (|pv$| #1=#:G379 #2=#:G380 #3=#:G381 #4=#:G382 #5=#:G383 #6=#:G386 $
          |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

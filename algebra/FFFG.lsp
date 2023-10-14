@@ -5,7 +5,7 @@
   (SPADCALL (EXPT |k| |l|) (SPADCALL |f| |k| (QREFELT $ 9)) (QREFELT $ 10))) 
 
 (DEFUN |FFFG;ShiftC;NniL;2| (|total| $)
-  (PROG (#1=#:G137 |i| #2=#:G136)
+  (PROG (#1=#:G139 |i| #2=#:G138)
     (RETURN
      (SEQ
       (PROGN
@@ -22,7 +22,7 @@
             (SPADCALL |f| |k| (QREFELT $ 9)) (QREFELT $ 19))) 
 
 (DEFUN |FFFG;qShiftC;DNniL;4| (|q| |total| $)
-  (PROG (#1=#:G142 |i| #2=#:G141)
+  (PROG (#1=#:G144 |i| #2=#:G143)
     (RETURN
      (SEQ
       (PROGN
@@ -36,7 +36,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |FFFG;DiffAction;2NniVD;5| (|k| |l| |f| $)
-  (PROG (#1=#:G143)
+  (PROG (#1=#:G145)
     (RETURN
      (COND ((< |k| |l|) (|spadConstant| $ 22))
            ('T
@@ -47,7 +47,7 @@
                       (QREFELT $ 9))))))) 
 
 (DEFUN |FFFG;DiffC;NniL;6| (|total| $)
-  (PROG (|i| #1=#:G147)
+  (PROG (|i| #1=#:G149)
     (RETURN
      (SEQ
       (PROGN
@@ -59,7 +59,7 @@
             (EXIT (NREVERSE #1#)))))))) 
 
 (DEFUN |FFFG;generalCoefficient;MVNniVD;7| (|coeffAction| |f| |k| |p| $)
-  (PROG (|res| #1=#:G156 |l| |b| |a| #2=#:G155 |i|)
+  (PROG (|res| #1=#:G158 |l| |b| |a| #2=#:G157 |i|)
     (RETURN
      (SEQ
       (LETT |res| (|spadConstant| $ 22)
@@ -108,7 +108,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G160)
+      (PROG (#2=#:G162)
         (RETURN
          (SPADCALL |coeffAction| |f|
                    (PROG1
@@ -120,7 +120,7 @@
                    |y| (QREFELT $ 37)))))))) 
 
 (DEFUN |FFFG;nextVector!| (|p| |v| $)
-  (PROG (#1=#:G179 #2=#:G183 |sum| #3=#:G172 #4=#:G184 |j| |i| |pos| |n|)
+  (PROG (#1=#:G181 #2=#:G185 |sum| #3=#:G174 #4=#:G186 |j| |i| |pos| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -289,7 +289,7 @@
                                 (QREFELT $ 56)))))))))))))))) 
 
 (DEFUN |FFFG;initialVector| (|sum| |maxEta| |n| $)
-  (PROG (#1=#:G207 #2=#:G205 |entry| |i| #3=#:G212)
+  (PROG (#1=#:G209 #2=#:G207 |entry| |i| #3=#:G214)
     (RETURN
      (SEQ
       (PROGN
@@ -360,7 +360,7 @@
         (QREFELT $ 72))))))) 
 
 (DEFUN |FFFG;interpolate;2LNniF;16| (|x| |y| |d| $)
-  (PROG (M |eta| #1=#:G222 |c| N)
+  (PROG (M |eta| #1=#:G224 |c| N)
     (RETURN
      (SEQ
       (COND
@@ -405,7 +405,7 @@
        (QREFELT $ 80)))))) 
 
 (DEFUN |FFFG;recurrence| (M |pi| |m| |r| |d| |z| |Ck| |p| $)
-  (PROG (#1=#:G228 |newMiPi| |pl| |Mil| |rl| |l| |MiPi| |i| |polyf| |rPi|)
+  (PROG (#1=#:G230 |newMiPi| |pl| |Mil| |rl| |l| |MiPi| |i| |polyf| |rPi|)
     (RETURN
      (SEQ (LETT |rPi| (QAREF1O |r| |pi| 1) . #2=(|FFFG;recurrence|))
           (LETT |polyf|
@@ -473,7 +473,7 @@
           (EXIT M))))) 
 
 (DEFUN |FFFG;fffg;LMLM;18| (C |c| |eta| $)
-  (PROG (|d| M #1=#:G248 |l| |lambda| |lambdaMax| |Lambda| #2=#:G256 |k| |p|
+  (PROG (|d| M #1=#:G250 |l| |lambda| |lambdaMax| |Lambda| #2=#:G258 |k| |p|
          |r| |etak| K |m| |z|)
     (RETURN
      (SEQ
@@ -583,10 +583,10 @@
            (LETT |k| (|inc_SI| |k|) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT M))))) 
 
-(DEFUN |FractionFreeFastGaussian| (&REST #1=#:G257)
+(DEFUN |FractionFreeFastGaussian| (&REST #1=#:G259)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G258)
+     (PROG (#2=#:G260)
        (RETURN
         (COND
          ((LETT #2#

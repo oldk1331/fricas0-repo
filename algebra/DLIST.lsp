@@ -20,10 +20,10 @@
 
 (DEFUN |DLIST;datalist;L$;7| (|x| $) (SPADCALL |x| (QREFELT $ 17))) 
 
-(DEFUN |DataList| (#1=#:G144)
+(DEFUN |DataList| (#1=#:G146)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G145)
+     (PROG (#2=#:G147)
        (RETURN
         (COND
          ((LETT #2#
@@ -38,7 +38,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|DataList|))))))))))) 
 
 (DEFUN |DataList;| (|#1|)
-  (PROG (#1=#:G142 #2=#:G143 |pv$| #3=#:G139 #4=#:G140 $ |dv$| DV$1)
+  (PROG (#1=#:G144 #2=#:G145 |pv$| #3=#:G141 #4=#:G142 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|DataList|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PFOTOOLS;mix;LI;1| (|l| $)
-  (PROG (#1=#:G134 |p| #2=#:G133 #3=#:G132 #4=#:G131)
+  (PROG (#1=#:G136 |p| #2=#:G135 #3=#:G134 #4=#:G133)
     (RETURN
      (SEQ
       (SPADCALL
@@ -29,7 +29,7 @@
        (QREFELT $ 12)))))) 
 
 (DEFUN |PFOTOOLS;badNum;UPUPI;2| (|p| $)
-  (PROG (#1=#:G139 |c| #2=#:G138)
+  (PROG (#1=#:G141 |c| #2=#:G140)
     (RETURN
      (SEQ
       (SPADCALL
@@ -51,7 +51,7 @@
        (QREFELT $ 15)))))) 
 
 (DEFUN |PFOTOOLS;polyred;2UPUP;3| (|r| $)
-  (PROG (#1=#:G145 |c| #2=#:G144)
+  (PROG (#1=#:G147 |c| #2=#:G146)
     (RETURN
      (SEQ
       (SPADCALL
@@ -75,7 +75,7 @@
        |r| (QREFELT $ 24)))))) 
 
 (DEFUN |PFOTOOLS;badNum;UPR;4| (|p| $)
-  (PROG (#1=#:G152 |c| #2=#:G151 |cd|)
+  (PROG (#1=#:G154 |c| #2=#:G153 |cd|)
     (RETURN
      (SEQ
       (LETT |cd| (SPADCALL |p| (QREFELT $ 27)) . #3=(|PFOTOOLS;badNum;UPR;4|))
@@ -98,7 +98,7 @@
               (QREFELT $ 11)))))))) 
 
 (DEFUN |PFOTOOLS;getGoodPrime;IPi;5| (|n| $)
-  (PROG (|p| #1=#:G153)
+  (PROG (|p| #1=#:G155)
     (RETURN
      (SEQ (LETT |p| 3 . #2=(|PFOTOOLS;getGoodPrime;IPi;5|))
           (SEQ G190 (COND ((NULL (ZEROP (REM |n| |p|))) (GO G191)))
@@ -112,7 +112,7 @@
           (EXIT |p|))))) 
 
 (DEFUN |PFOTOOLS;doubleDisc;UPUPI;6| (|r| $)
-  (PROG (#1=#:G158 |d|)
+  (PROG (#1=#:G160 |d|)
     (RETURN
      (SEQ
       (LETT |d| (SPADCALL (SPADCALL |r| (QREFELT $ 36)) (QREFELT $ 19))
@@ -132,10 +132,10 @@
          (QREFELT $ 41))
         (QREFELT $ 31))))))) 
 
-(DEFUN |PointsOfFiniteOrderTools| (&REST #1=#:G162)
+(DEFUN |PointsOfFiniteOrderTools| (&REST #1=#:G164)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G163)
+     (PROG (#2=#:G165)
        (RETURN
         (COND
          ((LETT #2#

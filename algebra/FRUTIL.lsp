@@ -9,7 +9,7 @@
    (QREFELT $ 14))) 
 
 (DEFUN |FRUTIL;refine;FMF;2| (|f| |func| $)
-  (PROG (|l| #1=#:G145 |v| #2=#:G144 |u| #3=#:G130 |fitem| #4=#:G143 |item|)
+  (PROG (|l| #1=#:G147 |v| #2=#:G146 |u| #3=#:G132 |fitem| #4=#:G145 |item|)
     (RETURN
      (SEQ (LETT |u| (SPADCALL |f| (QREFELT $ 8)) . #5=(|FRUTIL;refine;FMF;2|))
           (LETT |l| NIL . #5#)
@@ -70,10 +70,10 @@
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |u| |l| (QREFELT $ 14))))))) 
 
-(DEFUN |FactoredFunctionUtilities| (#1=#:G146)
+(DEFUN |FactoredFunctionUtilities| (#1=#:G148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G149)
        (RETURN
         (COND
          ((LETT #2#

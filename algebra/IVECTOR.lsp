@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |IndexedVector| (&REST #1=#:G1396)
+(DEFUN |IndexedVector| (&REST #1=#:G1398)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1397)
+     (PROG (#2=#:G1399)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,7 +22,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|IndexedVector|))))))))))) 
 
 (DEFUN |IndexedVector;| (|#1| |#2|)
-  (PROG (#1=#:G1395 |pv$| #2=#:G1391 #3=#:G1392 #4=#:G1393 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G1397 |pv$| #2=#:G1393 #3=#:G1394 #4=#:G1395 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedVector|))

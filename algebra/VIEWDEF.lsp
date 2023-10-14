@@ -111,7 +111,7 @@
   (SPADCALL (QREFELT $ 34) (QREFELT $ 88))) 
 
 (DEFUN |VIEWDEF;viewWriteDefault;2L;26| (|listOfThings| $)
-  (PROG (|thingsToWrite| |writeTypeInt| #1=#:G161 |aTypeOfFile|)
+  (PROG (|thingsToWrite| |writeTypeInt| #1=#:G163 |aTypeOfFile|)
     (RETURN
      (SEQ (LETT |thingsToWrite| NIL . #2=(|VIEWDEF;viewWriteDefault;2L;26|))
           (SEQ (LETT |aTypeOfFile| NIL . #2#) (LETT #1# |listOfThings| . #2#)
@@ -142,7 +142,7 @@
 (DEFUN |ViewDefaultsPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G163)
+     (PROG (#1=#:G165)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|)

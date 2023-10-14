@@ -17,7 +17,7 @@
             (QREFELT $ 25))) 
 
 (DEFUN |PATMATCH;Is;SubjectPatL;5| (|s| |p| $)
-  (PROG (#1=#:G140 |rec| #2=#:G139 |r|)
+  (PROG (#1=#:G142 |rec| #2=#:G141 |r|)
     (RETURN
      (SEQ
       (COND
@@ -46,7 +46,7 @@
               (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |PATMATCH;Is;SubjectPatL;6| (|s| |p| $)
-  (PROG (#1=#:G146 |rec| #2=#:G145 |r|)
+  (PROG (#1=#:G148 |rec| #2=#:G147 |r|)
     (RETURN
      (SEQ
       (COND
@@ -77,10 +77,10 @@
 
 (DEFUN |PATMATCH;Is;SubjectPatPmr;7| (|s| |p| $) (|PATMATCH;ist| |s| |p| $)) 
 
-(DEFUN |PatternMatch| (&REST #1=#:G149)
+(DEFUN |PatternMatch| (&REST #1=#:G151)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G150)
+     (PROG (#2=#:G152)
        (RETURN
         (COND
          ((LETT #2#
@@ -98,7 +98,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|PatternMatch|))))))))))) 
 
 (DEFUN |PatternMatch;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G148 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G150 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|PatternMatch|))

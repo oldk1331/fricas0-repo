@@ -38,7 +38,7 @@
             (QCDR |indef|))))))) 
 
 (DEFUN |ISUMP;sum;PVR;3| (|p| |v| $)
-  (PROG (|vp| #1=#:G138 #2=#:G137 #3=#:G139 #4=#:G141 #5=#:G145 |di| #6=#:G146
+  (PROG (|vp| #1=#:G140 #2=#:G139 #3=#:G141 #4=#:G143 #5=#:G147 |di| #6=#:G148
          |pi| |d| |ld| |lp| |rec| |up| |uc| |ud|)
     (RETURN
      (SEQ
@@ -92,10 +92,10 @@
             . #7#)
       (EXIT (CONS (SPADCALL |vp| |v| (QREFELT $ 54)) |d|)))))) 
 
-(DEFUN |InnerPolySum| (&REST #1=#:G147)
+(DEFUN |InnerPolySum| (&REST #1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G148)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#

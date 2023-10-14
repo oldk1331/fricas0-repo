@@ -7,7 +7,7 @@
    (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 14)) 'NIL $)) 
 
 (DEFUN |DEFINTRF;nopole| (|f| |x| |a| |b| $)
-  (PROG (|ans| #1=#:G149 |v| #2=#:G150 |g| |u| |k|)
+  (PROG (|ans| #1=#:G151 |v| #2=#:G152 |g| |u| |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -87,10 +87,10 @@
                 ((QCDR |z|) (|error| "integrate: pole in path of integration"))
                 (#1# (|DEFINTRF;nopole| |f| |x| |a| |b| $))))))))))) 
 
-(DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G175)
+(DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G177)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G176)
+     (PROG (#2=#:G178)
        (RETURN
         (COND
          ((LETT #2#

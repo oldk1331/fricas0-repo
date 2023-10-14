@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ES1;map;MSKS;1| (F2S |prop| |k| $)
-  (PROG (|p| |args| #1=#:G134 |x| #2=#:G133)
+  (PROG (|p| |args| #1=#:G136 |x| #2=#:G135)
     (RETURN
      (SEQ
       (LETT |args|
@@ -23,10 +23,10 @@
        (COND ((QEQCAR |p| 0) (SPADCALL |args| (QCDR |p|)))
              ('T (|error| "Operator does not have required property")))))))) 
 
-(DEFUN |ExpressionSpaceFunctions1| (&REST #1=#:G135)
+(DEFUN |ExpressionSpaceFunctions1| (&REST #1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#

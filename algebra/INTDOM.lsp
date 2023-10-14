@@ -4,12 +4,12 @@
 (DEFPARAMETER |IntegralDomain;AL| 'NIL) 
 
 (DEFUN |IntegralDomain| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|IntegralDomain;AL|)
           (T (SETQ |IntegralDomain;AL| (|IntegralDomain;|)))))) 
 
 (DEFUN |IntegralDomain;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|CommutativeRing|) (|Algebra| '$) (|EntireRing|))

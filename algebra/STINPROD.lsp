@@ -66,10 +66,10 @@
        (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) |a| |d| (QREFELT $ 38))
        (QREFELT $ 35)))))) 
 
-(DEFUN |StreamInfiniteProduct| (#1=#:G139)
+(DEFUN |StreamInfiniteProduct| (#1=#:G141)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G142)
        (RETURN
         (COND
          ((LETT #2#

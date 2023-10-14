@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |OrderlyDifferentialPolynomial| (#1=#:G170)
+(DEFUN |OrderlyDifferentialPolynomial| (#1=#:G172)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G171)
+     (PROG (#2=#:G173)
        (RETURN
         (COND
          ((LETT #2#
@@ -23,7 +23,7 @@
                     '|OrderlyDifferentialPolynomial|))))))))))) 
 
 (DEFUN |OrderlyDifferentialPolynomial;| (|#1|)
-  (PROG (#1=#:G169 |pv$| #2=#:G167 #3=#:G168 $ |dv$| DV$1)
+  (PROG (#1=#:G171 |pv$| #2=#:G169 #3=#:G170 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|OrderlyDifferentialPolynomial|))

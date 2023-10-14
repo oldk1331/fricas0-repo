@@ -500,10 +500,10 @@
           "Cannot compute the numerical value of a non-constant expression"))
         ('T (QCDR |ans|)))))))) 
 
-(DEFUN |Numeric| (#1=#:G359)
+(DEFUN |Numeric| (#1=#:G361)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G360)
+     (PROG (#2=#:G362)
        (RETURN
         (COND
          ((LETT #2#
@@ -518,7 +518,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Numeric|))))))))))) 
 
 (DEFUN |Numeric;| (|#1|)
-  (PROG (|pv$| #1=#:G358 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G360 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Numeric|))

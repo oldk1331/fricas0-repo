@@ -12,7 +12,7 @@
   (SPADCALL |x| (LIST |y|) (QREFELT $ 20))) 
 
 (DEFUN |ALGMANIP;ratDenom;FLF;4| (|x| |l| $)
-  (PROG (#1=#:G141 |y| #2=#:G140)
+  (PROG (#1=#:G143 |y| #2=#:G142)
     (RETURN
      (SEQ
       (SPADCALL |x|
@@ -67,7 +67,7 @@
    (QREFELT $ 42))) 
 
 (DEFUN |ALGMANIP;rootSplit;2F;8| (|x| $)
-  (PROG (#1=#:G151 |k| #2=#:G150 |lk|)
+  (PROG (#1=#:G153 |k| #2=#:G152 |lk|)
     (RETURN
      (SEQ
       (LETT |lk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
@@ -105,7 +105,7 @@
         (QREFELT $ 51))))))) 
 
 (DEFUN |ALGMANIP;innerRF| (|x| |ll| $)
-  (PROG (|q| #1=#:G194 |kk| #2=#:G193 #3=#:G159 #4=#:G190 #5=#:G192 #6=#:G191
+  (PROG (|q| #1=#:G196 |kk| #2=#:G195 #3=#:G161 #4=#:G192 #5=#:G194 #6=#:G193
          |l| |lk| |k|)
     (RETURN
      (SEQ
@@ -242,8 +242,8 @@
     (RETURN (PROGN (|ALGMANIP;innerRF| |z1| |ll| $))))) 
 
 (DEFUN |ALGMANIP;fp_root| (|fp| |op| |n| $)
-  (PROG (|res| |rr| |ce| #1=#:G202 |ne| #2=#:G201 #3=#:G199 |nn| |ng| #4=#:G197
-         #5=#:G207 |fr| |u|)
+  (PROG (|res| |rr| |ce| #1=#:G204 |ne| #2=#:G203 #3=#:G201 |nn| |ng| #4=#:G199
+         #5=#:G209 |fr| |u|)
     (RETURN
      (SEQ (LETT |res| (|spadConstant| $ 67) . #6=(|ALGMANIP;fp_root|))
           (COND
@@ -319,7 +319,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |ALGMANIP;pol_root| (|p| |op| |n| $)
-  (PROG (|pp| #1=#:G209 |cp|)
+  (PROG (|pp| #1=#:G211 |cp|)
     (RETURN
      (SEQ (LETT |cp| (SPADCALL |p| (QREFELT $ 86)) . #2=(|ALGMANIP;pol_root|))
           (SPADCALL |cp| (QREFELT $ 87))
@@ -347,7 +347,7 @@
             (QREFELT $ 85))))))) 
 
 (DEFUN |ALGMANIP;root_factor_k| (|k| $)
-  (PROG (|op| |n| #1=#:G213 |nf| |x|)
+  (PROG (|op| |n| #1=#:G215 |nf| |x|)
     (RETURN
      (SEQ
       (LETT |x| (|SPADfirst| (SPADCALL |k| (QREFELT $ 47)))
@@ -364,7 +364,7 @@
                  (QREFELT $ 51))))))) 
 
 (DEFUN |ALGMANIP;rootFactor;2F;14| (|x| $)
-  (PROG (#1=#:G220 |k| #2=#:G219 |lk|)
+  (PROG (#1=#:G222 |k| #2=#:G221 |lk|)
     (RETURN
      (SEQ
       (LETT |lk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
@@ -401,7 +401,7 @@
   (|ALGMANIP;inroot| |op| |x| |n| $)) 
 
 (DEFUN |ALGMANIP;breakup| (|l| $)
-  (PROG (|ll| |others| |expo| |same| |arg| #1=#:G234 |kk| |n| |a| |k|)
+  (PROG (|ll| |others| |expo| |same| |arg| #1=#:G236 |kk| |n| |a| |k|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) NIL)
@@ -451,8 +451,8 @@
                          |ll|))))))))) 
 
 (DEFUN |ALGMANIP;rootProduct;2F;18| (|x| $)
-  (PROG (|lv| #1=#:G236 #2=#:G245 |m| #3=#:G244 |k| |n| |dx| |nx| |k0| |l|
-         #4=#:G243 |rec|)
+  (PROG (|lv| #1=#:G238 #2=#:G247 |m| #3=#:G246 |k| |n| |dx| |nx| |k0| |l|
+         #4=#:G245 |rec|)
     (RETURN
      (SEQ
       (SEQ (LETT |rec| NIL . #5=(|ALGMANIP;rootProduct;2F;18|))
@@ -529,7 +529,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |ALGMANIP;rootPower;2F;19| (|x| $)
-  (PROG (#1=#:G249 |k|)
+  (PROG (#1=#:G251 |k|)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #2=(|ALGMANIP;rootPower;2F;19|))
@@ -550,7 +550,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |ALGMANIP;radeval| (|p| |k| $)
-  (PROG (|q| |ans| |term| |g| |d| |n| #1=#:G250 |a| |arg|)
+  (PROG (|q| |ans| |term| |g| |d| |n| #1=#:G252 |a| |arg|)
     (RETURN
      (SEQ
       (LETT |a|
@@ -607,7 +607,7 @@
                  (QREFELT $ 117))))))) 
 
 (DEFUN |ALGMANIP;inroot| (|op| |x| |n| $)
-  (PROG (#1=#:G284 |qr| |q| |pr| |u| #2=#:G286 |num|)
+  (PROG (#1=#:G286 |qr| |q| |pr| |u| #2=#:G288 |num|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (|spadConstant| $ 67) (QREFELT $ 103)) |x|)
@@ -689,7 +689,7 @@
               #2# (EXIT #2#)))))))) 
 
 (DEFUN |ALGMANIP;sroot| (|k| $)
-  (PROG (|pr| #1=#:G288 |arg|)
+  (PROG (|pr| #1=#:G290 |arg|)
     (RETURN
      (SEQ
       (LETT |pr|
@@ -712,7 +712,7 @@
                  (QREFELT $ 85))))))) 
 
 (DEFUN |ALGMANIP;rootSimp;2F;23| (|x| $)
-  (PROG (#1=#:G296 |k| #2=#:G295 |lk|)
+  (PROG (#1=#:G298 |k| #2=#:G297 |lk|)
     (RETURN
      (SEQ
       (LETT |lk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
@@ -732,10 +732,10 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 45))))))) 
 
-(DEFUN |AlgebraicManipulations| (&REST #1=#:G297)
+(DEFUN |AlgebraicManipulations| (&REST #1=#:G299)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G298)
+     (PROG (#2=#:G300)
        (RETURN
         (COND
          ((LETT #2#

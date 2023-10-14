@@ -93,7 +93,7 @@
       (EXIT |lu|))))) 
 
 (DEFUN |LIST;convert;$If;13| (|x| $)
-  (PROG (#1=#:G1576 |a| #2=#:G1575)
+  (PROG (#1=#:G1578 |a| #2=#:G1577)
     (RETURN
      (SEQ
       (SPADCALL
@@ -112,10 +112,10 @@
                    (EXIT (NREVERSE #2#)))))
        (QREFELT $ 42)))))) 
 
-(DEFUN |List| (#1=#:G1589)
+(DEFUN |List| (#1=#:G1591)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1590)
+     (PROG (#2=#:G1592)
        (RETURN
         (COND
          ((LETT #2#
@@ -129,7 +129,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|List|))))))))))) 
 
 (DEFUN |List;| (|#1|)
-  (PROG (#1=#:G1587 #2=#:G1588 |pv$| #3=#:G1584 #4=#:G1585 $ |dv$| DV$1)
+  (PROG (#1=#:G1589 #2=#:G1590 |pv$| #3=#:G1586 #4=#:G1587 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|List|))

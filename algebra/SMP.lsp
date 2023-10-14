@@ -24,7 +24,7 @@
                      (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 20))))))) 
 
 (DEFUN |SMP;numberOfMonomials;$Nni;6| (|p| $)
-  (PROG (#1=#:G229 #2=#:G228 #3=#:G230 #4=#:G232 |q|)
+  (PROG (#1=#:G231 #2=#:G230 #3=#:G232 #4=#:G234 |q|)
     (RETURN
      (SEQ
       (COND
@@ -147,7 +147,7 @@
         (QREFELT $ 53))))))) 
 
 (DEFUN |SMP;multivariate;SupVarSet$;15| (|u| |mvar| $)
-  (PROG (#1=#:G269 |uu| |cc|)
+  (PROG (#1=#:G271 |uu| |cc|)
     (RETURN
      (SEQ
       (EXIT
@@ -762,7 +762,7 @@
                  (#1# (CONS 1 (CONS |mvar| |up|)))))))))))))) 
 
 (DEFUN |SMP;gcdPolynomial;3Sup;45| (|a| |b| $)
-  (PROG (|mong| #1=#:G424 |monb| |contb| |mona| |conta|)
+  (PROG (|mong| #1=#:G426 |monb| |contb| |mona| |conta|)
     (RETURN
      (SEQ
       (COND
@@ -881,7 +881,7 @@
                  (#1# (CONS 1 (CONS |mvar| |up|)))))))))))))) 
 
 (DEFUN |SMP;gcdPolynomial;3Sup;52| (|a| |b| $)
-  (PROG (|mong| #1=#:G456 |monb| |contb| |mona| |conta|)
+  (PROG (|mong| #1=#:G458 |monb| |contb| |mona| |conta|)
     (RETURN
      (SEQ
       (COND
@@ -986,7 +986,7 @@
                  (#1# (CONS 1 (CONS |mvar| |up|)))))))))))))) 
 
 (DEFUN |SMP;gcdPolynomial;3Sup;55| (|a| |b| $)
-  (PROG (|mong| #1=#:G484 |monb| |contb| |mona| |conta|)
+  (PROG (|mong| #1=#:G486 |monb| |contb| |mona| |conta|)
     (RETURN
      (SEQ
       (COND
@@ -1056,7 +1056,7 @@
                    (QREFELT $ 158))))) 
 
 (DEFUN |SMP;coefficients;$L;57| (|p| $)
-  (PROG (#1=#:G501 #2=#:G500 #3=#:G502 #4=#:G504 |p1|)
+  (PROG (#1=#:G503 #2=#:G502 #3=#:G504 #4=#:G506 |p1|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT $ 161)))
@@ -1191,7 +1191,7 @@
     (RETURN (PROGN (|SMP;evalSortedVarlist| |x1| |Lvar| |Lpval| $))))) 
 
 (DEFUN |SMP;eval;$LL$;66| (|p| |Lvar| |Lpval| $)
-  (PROG (|nlpval| #1=#:G561 |mvar| #2=#:G560 |nlvar|)
+  (PROG (|nlpval| #1=#:G563 |mvar| #2=#:G562 |nlvar|)
     (RETURN
      (SEQ
       (COND
@@ -1232,7 +1232,7 @@
          (EXIT (|SMP;evalSortedVarlist| |p| |nlvar| |nlpval| $))))))))) 
 
 (DEFUN |SMP;eval;$LL$;67| (|p| |Lvar| |Lval| $)
-  (PROG (#1=#:G565 |val| #2=#:G564)
+  (PROG (#1=#:G567 |val| #2=#:G566)
     (RETURN
      (SEQ
       (SPADCALL |p| |Lvar|
@@ -1260,7 +1260,7 @@
           (SPADCALL (|SMP;red| |p| $) |mvar| (QREFELT $ 188)))))) 
 
 (DEFUN |SMP;degree;$LL;69| (|p| |Lvar| $)
-  (PROG (#1=#:G575 |mvar| #2=#:G574)
+  (PROG (#1=#:G577 |mvar| #2=#:G576)
     (RETURN
      (SEQ
       (PROGN
@@ -1322,7 +1322,7 @@
                 (#1# (MIN |md| (SPADCALL |p1| |mvar| (QREFELT $ 197))))))))))))) 
 
 (DEFUN |SMP;minimumDegree;$LL;73| (|p| |Lvar| $)
-  (PROG (#1=#:G594 |mvar| #2=#:G593)
+  (PROG (#1=#:G596 |mvar| #2=#:G595)
     (RETURN
      (SEQ
       (PROGN
@@ -1390,8 +1390,8 @@
         ('T (SPADCALL |p| (SPADCALL |p| (QREFELT $ 201)) (QREFELT $ 100))))) 
 
 (DEFUN |SMP;monomials1| (|p| |vars| |degs| |res| $)
-  (PROG (|degs1| |vars1| |mon| |mon1| #1=#:G622 |var| #2=#:G623 |deg| |k1| |p1|
-         #3=#:G621 |t| |v1| |tl|)
+  (PROG (|degs1| |vars1| |mon| |mon1| #1=#:G624 |var| #2=#:G625 |deg| |k1| |p1|
+         #3=#:G623 |t| |v1| |tl|)
     (RETURN
      (SEQ (LETT |tl| (QCDR |p|) . #4=(|SMP;monomials1|))
           (LETT |v1| (QCAR |p|) . #4#)
@@ -1460,10 +1460,10 @@
          (SPADCALL (|SMP;monomials1| (QCDR |p|) NIL NIL NIL $)
                    (QREFELT $ 205))))) 
 
-(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G652)
+(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G654)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G653)
+     (PROG (#2=#:G655)
        (RETURN
         (COND
          ((LETT #2#
@@ -1483,7 +1483,7 @@
                     '|SparseMultivariatePolynomial|))))))))))) 
 
 (DEFUN |SparseMultivariatePolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G651 |pv$| #2=#:G649 #3=#:G650 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G653 |pv$| #2=#:G651 #3=#:G652 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|SparseMultivariatePolynomial|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PMFS;patternMatch;FP2Pmr;1| (|x| |p| |l| $)
-  (PROG (#1=#:G187 |ex| |ep| |uur| |uu| |u| |lx| |uq| |q| |v| |r|)
+  (PROG (#1=#:G189 |ex| |ep| |uur| |uu| |u| |lx| |uq| |q| |v| |r|)
     (RETURN
      (SEQ
       (COND
@@ -235,7 +235,7 @@
                                                #1#)))))))))))))))))))))))))))))))) 
 
 (DEFUN |PMFS;patternMatch;FP2Pmr;1!0| (|l1| $)
-  (PROG (#1=#:G152 #2=#:G151 #3=#:G153 #4=#:G155 #5=#:G125)
+  (PROG (#1=#:G154 #2=#:G153 #3=#:G155 #4=#:G157 #5=#:G127)
     (RETURN
      (SEQ
       (PROGN
@@ -252,10 +252,10 @@
             (LETT #4# (CDR #4#) NIL) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T (|spadConstant| $ 36)))))))) 
 
-(DEFUN |PatternMatchFunctionSpace| (&REST #1=#:G196)
+(DEFUN |PatternMatchFunctionSpace| (&REST #1=#:G198)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G197)
+     (PROG (#2=#:G199)
        (RETURN
         (COND
          ((LETT #2#

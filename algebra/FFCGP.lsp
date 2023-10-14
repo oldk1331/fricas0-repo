@@ -7,7 +7,7 @@
 (DEFUN |FFCGP;getZechTable;Pa;2| ($) (QREFELT $ 24)) 
 
 (DEFUN |FFCGP;order;$Pi;3| (|x| $)
-  (PROG (#1=#:G148)
+  (PROG (#1=#:G150)
     (RETURN
      (COND
       ((SPADCALL |x| (QREFELT $ 45))
@@ -73,7 +73,7 @@
        (EXIT (SPADCALL (QREFELT $ 63))))) 
 
 (DEFUN |FFCGP;basis;PiV;8| (|n| $)
-  (PROG (#1=#:G163 #2=#:G169 |i| #3=#:G168 |m|)
+  (PROG (#1=#:G165 #2=#:G171 |i| #3=#:G170 |m|)
     (RETURN
      (SEQ
       (COND
@@ -176,7 +176,7 @@
             ('T (SPADCALL |u| (QREFELT $ 99))))))))) 
 
 (DEFUN |FFCGP;coerce;GF$;16| (|e| $)
-  (PROG (|log| #1=#:G199)
+  (PROG (|log| #1=#:G201)
     (RETURN
      (SEQ
       (COND ((SPADCALL |e| (QREFELT $ 101)) (|spadConstant| $ 31))
@@ -196,7 +196,7 @@
               (EXIT (SPADCALL |log| (QREFELT $ 22) (QREFELT $ 104)))))))))) 
 
 (DEFUN |FFCGP;retractIfCan;$U;17| (|x| $)
-  (PROG (#1=#:G208 |u|)
+  (PROG (#1=#:G210 |u|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 45)) (CONS 0 (|spadConstant| $ 49)))
@@ -217,7 +217,7 @@
                                  (QREFELT $ 109))))))))))))) 
 
 (DEFUN |FFCGP;retract;$GF;18| (|x| $)
-  (PROG (#1=#:G220 |a|)
+  (PROG (#1=#:G222 |a|)
     (RETURN
      (SEQ
       (LETT |a| (SPADCALL |x| (QREFELT $ 111)) . #2=(|FFCGP;retract;$GF;18|))
@@ -231,7 +231,7 @@
            (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))))))) 
 
 (DEFUN |FFCGP;basis;V;19| ($)
-  (PROG (#1=#:G225 #2=#:G228 #3=#:G230 |i| #4=#:G229)
+  (PROG (#1=#:G227 #2=#:G230 #3=#:G232 |i| #4=#:G231)
     (RETURN
      (SEQ
       (PROGN
@@ -258,7 +258,7 @@
    ('T 'NIL))) 
 
 (DEFUN |FFCGP;discreteLog;2$U;21| (|b| |x| $)
-  (PROG (|e1| #1=#:G239 |e|)
+  (PROG (|e1| #1=#:G241 |e|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 45)) (CONS 1 "failed"))
@@ -382,10 +382,10 @@
               (|spadConstant| $ 31))
              ('T (|mulmod_SI| |m| |x| (QREFELT $ 22))))))))) 
 
-(DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial| (&REST #1=#:G293)
+(DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial| (&REST #1=#:G295)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G294)
+     (PROG (#2=#:G296)
        (RETURN
         (COND
          ((LETT #2#
@@ -408,7 +408,7 @@
                     '|FiniteFieldCyclicGroupExtensionByPolynomial|))))))))))) 
 
 (DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G292 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G294 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)
@@ -470,7 +470,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 6)
               (0 . |degree|) '|extdeg| (5 . |size|) '|sizeFF|
-              (|PositiveInteger|) (9 . ^) (|Boolean|) (15 . >) '#:G125
+              (|PositiveInteger|) (9 . ^) (|Boolean|) (15 . >) '#:G127
               (21 . |One|)
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFCGP;One;$;34|) $))
               '|sizeCG| '|sizeFG| '|zechlog| (|Symbol|) (25 . |new|)

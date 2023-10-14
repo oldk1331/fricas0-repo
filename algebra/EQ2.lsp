@@ -5,10 +5,10 @@
   (SPADCALL (SPADCALL (SPADCALL |eqn| (QREFELT $ 9)) |fn|)
             (SPADCALL (SPADCALL |eqn| (QREFELT $ 10)) |fn|) (QREFELT $ 12))) 
 
-(DEFUN |EquationFunctions2| (&REST #1=#:G127)
+(DEFUN |EquationFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

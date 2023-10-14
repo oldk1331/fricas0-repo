@@ -179,10 +179,10 @@
             . #1#)
       (EXIT (|MOEBIUS;proportional?| |list1| |list2| $)))))) 
 
-(DEFUN |MoebiusTransform| (#1=#:G178)
+(DEFUN |MoebiusTransform| (#1=#:G180)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G179)
+     (PROG (#2=#:G181)
        (RETURN
         (COND
          ((LETT #2#

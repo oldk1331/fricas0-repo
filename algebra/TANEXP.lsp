@@ -15,7 +15,7 @@
       (SPADCALL |q| (QREFELT $ 12)) (QREFELT $ 13))))) 
 
 (DEFUN |TANEXP;tanNa;RIR;3| (|a| |n| $)
-  (PROG (|t| #1=#:G134)
+  (PROG (|t| #1=#:G136)
     (RETURN
      (COND ((ZEROP |n|) (|spadConstant| $ 16))
            ((MINUSP |n|)
@@ -36,8 +36,8 @@
              (QREFELT $ 21))))))) 
 
 (DEFUN |TANEXP;tanSum;LR;4| (|l| $)
-  (PROG (#1=#:G142 #2=#:G141 #3=#:G143 #4=#:G147 |i| #5=#:G139 #6=#:G138
-         #7=#:G140 #8=#:G146 |m| |v|)
+  (PROG (#1=#:G144 #2=#:G143 #3=#:G145 #4=#:G149 |i| #5=#:G141 #6=#:G140
+         #7=#:G142 #8=#:G148 |m| |v|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -94,8 +94,8 @@
         (QREFELT $ 21))))))) 
 
 (DEFUN |TANEXP;tanPIa| (|n| $)
-  (PROG (#1=#:G152 #2=#:G151 #3=#:G153 #4=#:G157 |i| #5=#:G149 #6=#:G148
-         #7=#:G150 #8=#:G156 |m| |v|)
+  (PROG (#1=#:G154 #2=#:G153 #3=#:G155 #4=#:G159 |i| #5=#:G151 #6=#:G150
+         #7=#:G152 #8=#:G158 |m| |v|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -153,10 +153,10 @@
          (COND (#1# #2#) (#10# (|spadConstant| $ 42))))
         (QREFELT $ 43))))))) 
 
-(DEFUN |TangentExpansions| (#1=#:G158)
+(DEFUN |TangentExpansions| (#1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G159)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#

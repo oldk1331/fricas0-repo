@@ -83,8 +83,8 @@
     (RETURN (PROGN (SPADCALL |c| |p| (QREFELT $ 13)))))) 
 
 (DEFUN |MAGCDT3;pack_modulus;LLIU;2| (|lm| |lvz| |p| $)
-  (PROG (|sizes| |msize| #1=#:G181 |deg| |ldeg| #2=#:G179 |m| #3=#:G180 |v|
-         #4=#:G178 |nlmu|)
+  (PROG (|sizes| |msize| #1=#:G183 |deg| |ldeg| #2=#:G181 |m| #3=#:G182 |v|
+         #4=#:G180 |nlmu|)
     (RETURN
      (SEQ
       (COND
@@ -137,7 +137,7 @@
                    (CONS 0 (VECTOR |lvz| (QCDR |nlmu|) |sizes| |p|)))))))))))))) 
 
 (DEFUN |MAGCDT3;pack_exps0;SevL2IV;3| (|exps| |sizes| |ns| |start| $)
-  (PROG (#1=#:G189 |j| |nstart| #2=#:G188 |i| |deg| |msize| |size1| |do_rec|
+  (PROG (#1=#:G191 |j| |nstart| #2=#:G190 |i| |deg| |msize| |size1| |do_rec|
          |rsiz|)
     (RETURN
      (SEQ (LETT |rsiz| (CDR |sizes|) . #3=(|MAGCDT3;pack_exps0;SevL2IV;3|))
@@ -225,7 +225,7 @@
                    NIL (GO G190) G191 (EXIT NIL)))))))))) 
 
 (DEFUN |MAGCDT3;repack1;SupUvIRV;6| (|res00| |coeffs| |dg| |mu| $)
-  (PROG (#1=#:G205 |i| |msize| |sizes| |lv|)
+  (PROG (#1=#:G207 |i| |msize| |sizes| |lv|)
     (RETURN
      (SEQ (LETT |lv| (QVELT |mu| 0) . #2=(|MAGCDT3;repack1;SupUvIRV;6|))
           (LETT |sizes| (QVELT |mu| 2) . #2#)
@@ -317,7 +317,7 @@
     (RETURN (PROGN (|MAGCDT3;mreduction1| |c| |lm| |lv| |p| $))))) 
 
 (DEFUN |MAGCDT3;extended_gcd| (|x| |y| |lm| |lv| |p| $)
-  (PROG (#1=#:G238 |t1| |t0| |#G53| |#G52| |s1| |s0| |#G51| |#G50| |r1| |r0|
+  (PROG (#1=#:G240 |t1| |t0| |#G53| |#G52| |s1| |s0| |#G51| |#G50| |r1| |r0|
          |#G49| |#G48| |cm| |c0| |dr0| |c1| |dr1|)
     (RETURN
      (SEQ
@@ -589,7 +589,7 @@
 (DEFUN |ModularAlgebraicGcdTools3| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G270)
+     (PROG (#1=#:G272)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ModularAlgebraicGcdTools3|)

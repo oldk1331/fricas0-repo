@@ -9,7 +9,7 @@
   (SPADCALL (SPADCALL |d| (QREFELT $ 14)) (QREFELT $ 15))) 
 
 (DEFUN |DEQUEUE;extractBottom!;$S;3| (|d| $)
-  (PROG (|r| |q| #1=#:G134 |n| |p|)
+  (PROG (|r| |q| #1=#:G136 |n| |p|)
     (RETURN
      (SEQ (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue")))
           (LETT |p| (SPADCALL |d| (QREFELT $ 11))
@@ -63,10 +63,10 @@
   (SEQ (SPADCALL |d| (REVERSE (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 19))
        (EXIT |d|))) 
 
-(DEFUN |Dequeue| (#1=#:G155)
+(DEFUN |Dequeue| (#1=#:G157)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G156)
+     (PROG (#2=#:G158)
        (RETURN
         (COND
          ((LETT #2#
@@ -81,7 +81,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Dequeue|))))))))))) 
 
 (DEFUN |Dequeue;| (|#1|)
-  (PROG (|pv$| #1=#:G152 #2=#:G153 #3=#:G154 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G154 #2=#:G155 #3=#:G156 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Dequeue|))

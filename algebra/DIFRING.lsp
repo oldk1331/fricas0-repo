@@ -4,12 +4,12 @@
 (DEFPARAMETER |DifferentialRing;AL| 'NIL) 
 
 (DEFUN |DifferentialRing| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|DifferentialRing;AL|)
           (T (SETQ |DifferentialRing;AL| (|DifferentialRing;|)))))) 
 
 (DEFUN |DifferentialRing;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

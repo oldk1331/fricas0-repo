@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |LinearOrdinaryDifferentialOperatorCategory;AL| 'NIL) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorCategory| (#1=#:G127)
-  (LET (#2=#:G128)
+(DEFUN |LinearOrdinaryDifferentialOperatorCategory| (#1=#:G129)
+  (LET (#2=#:G130)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluate| #1#)
@@ -23,7 +23,7 @@
       #2#)))) 
 
 (DEFUN |LinearOrdinaryDifferentialOperatorCategory;| (|t#1|)
-  (PROG (#1=#:G126)
+  (PROG (#1=#:G128)
     (RETURN
      (PROG1
          (LETT #1#

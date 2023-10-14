@@ -17,10 +17,10 @@
     (QREFELT $ 17))
    (EXIT |name|))) 
 
-(DEFUN |MakeFunction| (#1=#:G130)
+(DEFUN |MakeFunction| (#1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

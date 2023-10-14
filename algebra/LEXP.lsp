@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LEXP;ident| (|l1| |l2| $)
-  (PROG (|r| |c2| |u2| |c1| |u1| #1=#:G139 |t| #2=#:G138 #3=#:G137 #4=#:G136)
+  (PROG (|r| |c2| |u2| |c1| |u1| #1=#:G141 |t| #2=#:G140 #3=#:G139 #4=#:G138)
     (RETURN
      (SEQ
       (COND
@@ -87,7 +87,7 @@
       (EXIT (|LEXP;ident| |l1| |l2| $)))))) 
 
 (DEFUN |LEXP;LyndonCoordinates;$L;5| (|x| $)
-  (PROG (|lt| #1=#:G151 |l| #2=#:G159 |t| #3=#:G158)
+  (PROG (|lt| #1=#:G153 |l| #2=#:G161 |t| #3=#:G160)
     (RETURN
      (SEQ
       (LETT |lt|
@@ -124,7 +124,7 @@
              . #4#)))))) 
 
 (DEFUN |LEXP;*;3$;6| (|x| |y| $)
-  (PROG (#1=#:G161)
+  (PROG (#1=#:G163)
     (RETURN
      (SPADCALL |x| |y|
                (PROG1 (LETT #1# (QREFELT $ 8) |LEXP;*;3$;6|)
@@ -132,7 +132,7 @@
                (QREFELT $ 39))))) 
 
 (DEFUN |LEXP;exp;Lp$;7| (|p| $)
-  (PROG (#1=#:G164)
+  (PROG (#1=#:G166)
     (RETURN
      (SPADCALL (SPADCALL |p| (QREFELT $ 42))
                (PROG1 (LETT #1# (QREFELT $ 8) |LEXP;exp;Lp$;7|)
@@ -140,7 +140,7 @@
                (QREFELT $ 43))))) 
 
 (DEFUN |LEXP;log;$Lp;8| (|p| $)
-  (PROG (#1=#:G171 #2=#:G169)
+  (PROG (#1=#:G173 #2=#:G171)
     (RETURN
      (PROG2
          (LETT #1#
@@ -158,7 +158,7 @@
                       (|LiePolynomial| (QREFELT $ 6) (QREFELT $ 7)) #1#))))) 
 
 (DEFUN |LEXP;coerce;$Of;9| (|p| $)
-  (PROG (#1=#:G181 |t| #2=#:G180 |lt|)
+  (PROG (#1=#:G183 |t| #2=#:G182 |lt|)
     (RETURN
      (SEQ
       (COND
@@ -184,7 +184,7 @@
                     (QREFELT $ 53)))))))))) 
 
 (DEFUN |LEXP;LyndonBasis;LL;10| (|lv| $)
-  (PROG (#1=#:G185 |l| #2=#:G184)
+  (PROG (#1=#:G187 |l| #2=#:G186)
     (RETURN
      (SEQ
       (PROGN
@@ -204,7 +204,7 @@
 (DEFUN |LEXP;coerce;$Xpbwp;11| (|p| $) |p|) 
 
 (DEFUN |LEXP;inv;2$;12| (|x| $)
-  (PROG (|lt| #1=#:G193 |t| #2=#:G192)
+  (PROG (|lt| #1=#:G195 |t| #2=#:G194)
     (RETURN
      (SEQ
       (COND
@@ -238,10 +238,10 @@
                . #3#)
          (EXIT |lt|)))))))) 
 
-(DEFUN |LieExponentials| (&REST #1=#:G197)
+(DEFUN |LieExponentials| (&REST #1=#:G199)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G198)
+     (PROG (#2=#:G200)
        (RETURN
         (COND
          ((LETT #2#

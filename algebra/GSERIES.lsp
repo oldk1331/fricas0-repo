@@ -125,10 +125,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|GSERIES;integrateWithOneAnswer| |x| |s| $))))) 
 
-(DEFUN |GeneralUnivariatePowerSeries| (&REST #1=#:G186)
+(DEFUN |GeneralUnivariatePowerSeries| (&REST #1=#:G188)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G187)
+     (PROG (#2=#:G189)
        (RETURN
         (COND
          ((LETT #2#
@@ -148,8 +148,8 @@
                     '|GeneralUnivariatePowerSeries|))))))))))) 
 
 (DEFUN |GeneralUnivariatePowerSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G177 #2=#:G178 #3=#:G179 #4=#:G180 #5=#:G181 #6=#:G182
-         #7=#:G184 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G179 #2=#:G180 #3=#:G181 #4=#:G182 #5=#:G183 #6=#:G184
+         #7=#:G186 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #8=(|GeneralUnivariatePowerSeries|))

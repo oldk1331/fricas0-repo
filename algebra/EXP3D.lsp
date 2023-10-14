@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |EXP3D;faceIndex| (|subSp| $)
-  (PROG (|faceIndexList| #1=#:G133 |poly|)
+  (PROG (|faceIndexList| #1=#:G135 |poly|)
     (RETURN
      (SEQ (LETT |faceIndexList| NIL . #2=(|EXP3D;faceIndex|))
           (SEQ (LETT |poly| NIL . #2#)
@@ -19,7 +19,7 @@
           (EXIT (REVERSE |faceIndexList|)))))) 
 
 (DEFUN |EXP3D;writePolygon| (|f1| |curves| $)
-  (PROG (|s| #1=#:G140 |i| |faceIndexList| #2=#:G139 |curve|)
+  (PROG (|s| #1=#:G142 |i| |faceIndexList| #2=#:G141 |curve|)
     (RETURN
      (SEQ (LETT |faceIndexList| NIL . #3=(|EXP3D;writePolygon|))
           (SEQ (LETT |curve| NIL . #3#) (LETT #2# |curves| . #3#) G190
@@ -43,8 +43,8 @@
           (EXIT (SPADCALL |f1| |s| (QREFELT $ 13))))))) 
 
 (DEFUN |EXP3D;writeMesh| (|f1| |curves| $)
-  (PROG (|s| #1=#:G149 |j| #2=#:G148 |i| |colLength| |rowLength|
-         |meshIndexArray| #3=#:G147 |curve|)
+  (PROG (|s| #1=#:G151 |j| #2=#:G150 |i| |colLength| |rowLength|
+         |meshIndexArray| #3=#:G149 |curve|)
     (RETURN
      (SEQ (LETT |meshIndexArray| NIL . #4=(|EXP3D;writeMesh|))
           (SEQ (LETT |curve| NIL . #4#) (LETT #3# |curves| . #4#) G190
@@ -108,7 +108,7 @@
   (SPADCALL (SPADCALL |d| (QREFELT $ 23)) (QREFELT $ 24))) 
 
 (DEFUN |EXP3D;writeObj;SsSV;5| (|subSp| |filename| $)
-  (PROG (|curves| #1=#:G161 |component| #2=#:G160 |v| |verts| |f1|)
+  (PROG (|curves| #1=#:G163 |component| #2=#:G162 |v| |verts| |f1|)
     (RETURN
      (SEQ
       (LETT |f1|
@@ -172,7 +172,7 @@
 (DEFUN |Export3D| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G163)
+     (PROG (#1=#:G165)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Export3D|) . #2=(|Export3D|))

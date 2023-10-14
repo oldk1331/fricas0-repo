@@ -89,7 +89,7 @@
       (EXIT (SPADCALL |fn| (QREFELT $ 20))))))) 
 
 (DEFUN |KAFILE;keys;$L;13| (|f| $)
-  (PROG (#1=#:G183 |n| #2=#:G182 |l|)
+  (PROG (#1=#:G185 |n| #2=#:G184 |l|)
     (RETURN
      (SEQ (SPADCALL |f| (QREFELT $ 23))
           (LETT |l| (RKEYIDS (QVELT |f| 0)) . #3=(|KAFILE;keys;$L;13|))
@@ -140,10 +140,10 @@
 (DEFUN |KAFILE;pack!;2$;19| (|f| $)
   (SEQ (SPADCALL |f| (QREFELT $ 23)) (EXIT |f|))) 
 
-(DEFUN |KeyedAccessFile| (#1=#:G244)
+(DEFUN |KeyedAccessFile| (#1=#:G246)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G245)
+     (PROG (#2=#:G247)
        (RETURN
         (COND
          ((LETT #2#
@@ -159,7 +159,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|KeyedAccessFile|))))))))))) 
 
 (DEFUN |KeyedAccessFile;| (|#1|)
-  (PROG (#1=#:G243 |pv$| #2=#:G242 $ |dv$| DV$1)
+  (PROG (#1=#:G245 |pv$| #2=#:G244 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|KeyedAccessFile|))

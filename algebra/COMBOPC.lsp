@@ -4,14 +4,14 @@
 (DEFPARAMETER |CombinatorialOpsCategory;AL| 'NIL) 
 
 (DEFUN |CombinatorialOpsCategory| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|CombinatorialOpsCategory;AL|)
           (T
            (SETQ |CombinatorialOpsCategory;AL|
                    (|CombinatorialOpsCategory;|)))))) 
 
 (DEFUN |CombinatorialOpsCategory;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

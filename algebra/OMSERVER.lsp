@@ -10,7 +10,7 @@
       (EXIT (SPADCALL |dev| (QREFELT $ 15))))))) 
 
 (DEFUN |OMSERVER;OMsend;OmcAV;2| (|conn| |value| $)
-  (PROG (#1=#:G132 |dev|)
+  (PROG (#1=#:G134 |dev|)
     (RETURN
      (SEQ
       (LETT |dev| (SPADCALL |conn| (QREFELT $ 17))
@@ -55,7 +55,7 @@
 (DEFUN |OpenMathServerPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G143)
+     (PROG (#1=#:G145)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|OpenMathServerPackage|)

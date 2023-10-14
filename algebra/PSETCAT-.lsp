@@ -6,7 +6,7 @@
     (RETURN (LETT |lp| (SPADCALL |ps| (QREFELT $ 12)) |PSETCAT-;elements|)))) 
 
 (DEFUN |PSETCAT-;variables1| (|lp| $)
-  (PROG (|lvars| #1=#:G182 |p| #2=#:G181)
+  (PROG (|lvars| #1=#:G184 |p| #2=#:G183)
     (RETURN
      (SEQ
       (LETT |lvars|
@@ -28,7 +28,7 @@
                  (QREFELT $ 21))))))) 
 
 (DEFUN |PSETCAT-;variables2| (|lp| $)
-  (PROG (|lvars| #1=#:G187 |p| #2=#:G186)
+  (PROG (|lvars| #1=#:G189 |p| #2=#:G188)
     (RETURN
      (SEQ
       (LETT |lvars|
@@ -160,7 +160,7 @@
                (SPADCALL |ws| (QREFELT $ 31)))))))) 
 
 (DEFUN |PSETCAT-;=;2SB;11| (|ps1| |ps2| $)
-  (PROG (#1=#:G230 |p| #2=#:G229 #3=#:G228 #4=#:G227)
+  (PROG (#1=#:G232 |p| #2=#:G231 #3=#:G230 #4=#:G229)
     (RETURN
      (SEQ
       (SPADCALL
@@ -301,7 +301,7 @@
 (DEFUN |PSETCAT-;iexactQuo;3R;21| (|r| |s| $) (SPADCALL |r| |s| (QREFELT $ 59))) 
 
 (DEFUN |PSETCAT-;iexactQuo;3R;22| (|r| |s| $)
-  (PROG (#1=#:G270)
+  (PROG (#1=#:G272)
     (RETURN
      (PROG2
          (LETT #1# (SPADCALL |r| |s| (QREFELT $ 62))

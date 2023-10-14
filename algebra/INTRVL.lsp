@@ -134,7 +134,7 @@
               (QREFELT $ 31))))) 
 
 (DEFUN |INTRVL;+;3$;17| (|a| |b| $)
-  (PROG (#1=#:G231)
+  (PROG (#1=#:G233)
     (RETURN
      (SEQ
       (EXIT
@@ -163,7 +163,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |INTRVL;-;3$;18| (|a| |b| $)
-  (PROG (#1=#:G235)
+  (PROG (#1=#:G237)
     (RETURN
      (SEQ
       (EXIT
@@ -186,7 +186,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |INTRVL;*;3$;19| (|a| |b| $)
-  (PROG (|prods| #1=#:G241)
+  (PROG (|prods| #1=#:G243)
     (RETURN
      (SEQ
       (EXIT
@@ -1002,10 +1002,10 @@
                        (SPADCALL |hi| |n| (QREFELT $ 150))
                        (QREFELT $ 20))))))))) 
 
-(DEFUN |Interval| (#1=#:G397)
+(DEFUN |Interval| (#1=#:G399)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G398)
+     (PROG (#2=#:G400)
        (RETURN
         (COND
          ((LETT #2#

@@ -8,7 +8,7 @@
 (DEFUN |PRIMELT;multi!0| (|f1| $$) |f1|) 
 
 (DEFUN |PRIMELT;randomInts| (|n| |m| $)
-  (PROG (|i| #1=#:G140)
+  (PROG (|i| #1=#:G142)
     (RETURN
      (SEQ
       (PROGN
@@ -36,7 +36,7 @@
   (SPADCALL |l| |v| (SPADCALL (QREFELT $ 20)) (QREFELT $ 23))) 
 
 (DEFUN |PRIMELT;primitiveElement;PSPSR;5| (|p1| |a1| |p2| |a2| $)
-  (PROG (#1=#:G147 #2=#:G152 |r| |w| |c| |i| |b| |u|)
+  (PROG (#1=#:G149 #2=#:G154 |r| |w| |c| |i| |b| |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -85,7 +85,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRIMELT;findUniv| (|l| |v| |opt| $)
-  (PROG (#1=#:G158 #2=#:G160 #3=#:G161 |p|)
+  (PROG (#1=#:G160 #2=#:G162 #3=#:G163 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -115,7 +115,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRIMELT;triangularLinearIfCan| (|l| |lv| |w| $)
-  (PROG (|ll| |bc| #1=#:G180 #2=#:G190 |p| |u| #3=#:G191 |v| |pw|)
+  (PROG (|ll| |bc| #1=#:G182 #2=#:G192 |p| |u| #3=#:G193 |v| |pw|)
     (RETURN
      (SEQ
       (EXIT
@@ -199,8 +199,8 @@
 (DEFUN |PRIMELT;triangularLinearIfCan!0| (|z1| $$) |z1|) 
 
 (DEFUN |PRIMELT;primitiveElement;LLSR;8| (|l| |vars| |uu| $)
-  (PROG (#1=#:G204 #2=#:G207 |ltt| |tt| #3=#:G198 #4=#:G197 #5=#:G199 #6=#:G210
-         |c| #7=#:G211 |t| |cf| |i| |n| |w| |elim| |vv| #8=#:G209 |v| #9=#:G208
+  (PROG (#1=#:G206 #2=#:G209 |ltt| |tt| #3=#:G200 #4=#:G199 #5=#:G201 #6=#:G212
+         |c| #7=#:G213 |t| |cf| |i| |n| |w| |elim| |vv| #8=#:G211 |v| #9=#:G210
          |u|)
     (RETURN
      (SEQ
@@ -304,10 +304,10 @@
               (LETT |i| (+ |i| 1) . #10#) (GO G190) G191 (EXIT NIL)))))
       #2# (EXIT #2#))))) 
 
-(DEFUN |PrimitiveElement| (#1=#:G212)
+(DEFUN |PrimitiveElement| (#1=#:G214)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G213)
+     (PROG (#2=#:G215)
        (RETURN
         (COND
          ((LETT #2#

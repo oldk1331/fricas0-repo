@@ -4,12 +4,12 @@
 (DEFPARAMETER |shallowlyMutable;AL| 'NIL) 
 
 (DEFUN |shallowlyMutable| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|shallowlyMutable;AL|)
           (T (SETQ |shallowlyMutable;AL| (|shallowlyMutable;|)))))) 
 
 (DEFUN |shallowlyMutable;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL)) |shallowlyMutable|)

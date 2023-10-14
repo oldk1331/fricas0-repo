@@ -239,10 +239,10 @@
     (SPADCALL |inp| (LIST (SPADCALL |ex| (QREFELT $ 24))) (QREFELT $ 61)))
    ('T (SPADCALL |inp| NIL (QREFELT $ 61))))) 
 
-(DEFUN |UnittestAux| (#1=#:G203)
+(DEFUN |UnittestAux| (#1=#:G205)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G204)
+     (PROG (#2=#:G206)
        (RETURN
         (COND
          ((LETT #2#

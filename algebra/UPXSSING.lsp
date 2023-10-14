@@ -60,7 +60,7 @@
 
 (DEFUN |UPXSSING;sortAndDiscardTerms| (|termList| $)
   (PROG (|zeroTerms| |zeroTermOrd| |infiniteTerms| |infTermOrd| |sig|
-         |failedTerms| |signum| |coef| #1=#:G198 |pSeries| |ord| |expon|
+         |failedTerms| |signum| |coef| #1=#:G200 |pSeries| |ord| |expon|
          |term|)
     (RETURN
      (SEQ (LETT |zeroTerms| NIL . #2=(|UPXSSING;sortAndDiscardTerms|))
@@ -141,7 +141,7 @@
                    |pSeries|)))))) 
 
 (DEFUN |UPXSSING;termsWithExtremeLeadingCoef| (|termList| |ord| |signum| $)
-  (PROG (|outList| #1=#:G215 |sig| |coefDiff| #2=#:G216 |term| |coefExtreme|)
+  (PROG (|outList| #1=#:G217 |sig| |coefDiff| #2=#:G218 |term| |coefExtreme|)
     (RETURN
      (SEQ
       (EXIT
@@ -207,8 +207,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |UPXSSING;filterByOrder| (|termList| |predicate| $)
-  (PROG (#1=#:G231 |term| #2=#:G226 #3=#:G223 |outList| |ordExtreme| |ord|
-         #4=#:G230 #5=#:G220)
+  (PROG (#1=#:G233 |term| #2=#:G228 #3=#:G225 |outList| |ordExtreme| |ord|
+         #4=#:G232 #5=#:G222)
     (RETURN
      (SEQ
       (SEQ G190
@@ -325,7 +325,7 @@
                            (QCDR |filtered|) |signum| $)))))))))))))))) 
 
 (DEFUN |UPXSSING;iDominantTerm| (|termList| $)
-  (PROG (#1=#:G262 |dTerm| |ord0| #2=#:G264 |term| #3=#:G263 |pSeries|
+  (PROG (#1=#:G264 |dTerm| |ord0| #2=#:G266 |term| #3=#:G265 |pSeries|
          |failedTerms| |infiniteTerms| |zeroTerms| |termRecord|)
     (RETURN
      (SEQ
@@ -499,10 +499,10 @@
                                             (QREFELT $
                                                      68))))))))))))))))))))))))) 
 
-(DEFUN |UnivariatePuiseuxSeriesWithExponentialSingularity| (&REST #1=#:G304)
+(DEFUN |UnivariatePuiseuxSeriesWithExponentialSingularity| (&REST #1=#:G306)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G305)
+     (PROG (#2=#:G307)
        (RETURN
         (COND
          ((LETT #2#

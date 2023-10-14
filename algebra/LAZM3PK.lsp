@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LAZM3PK;convert| (|st| $)
-  (PROG (|ts| #1=#:G137 |p| |lp|)
+  (PROG (|ts| #1=#:G139 |p| |lp|)
     (RETURN
      (SEQ (LETT |ts| (SPADCALL (QREFELT $ 12)) . #2=(|LAZM3PK;convert|))
           (LETT |lp| (SPADCALL |st| (QREFELT $ 14)) . #2#)
@@ -17,7 +17,7 @@
           (EXIT |ts|))))) 
 
 (DEFUN |LAZM3PK;squareFree| (|ts| $)
-  (PROG (|toSee| |toSave| |newus| #1=#:G152 |pwt| |lpwt| |us| #2=#:G151 |p|
+  (PROG (|toSee| |toSave| |newus| #1=#:G154 |pwt| |lpwt| |us| #2=#:G153 |p|
          |newts| |lp|)
     (RETURN
      (SEQ
@@ -70,7 +70,7 @@
               (EXIT |toSave|)))))))) 
 
 (DEFUN |LAZM3PK;normalizeIfCan;2ST;3| (|ts| $)
-  (PROG (|newts| |p| |lp| #1=#:G157 #2=#:G164 #3=#:G165 |v| |lv|)
+  (PROG (|newts| |p| |lp| #1=#:G159 #2=#:G166 #3=#:G167 |v| |lv|)
     (RETURN
      (SEQ
       (EXIT
@@ -129,7 +129,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LAZM3PK;zeroSetSplit;LBL;4| (|lp| |clos?| $)
-  (PROG (#1=#:G172 |ts| #2=#:G171 |toSave| #3=#:G170 |toSee|)
+  (PROG (#1=#:G174 |ts| #2=#:G173 |toSave| #3=#:G172 |toSee|)
     (RETURN
      (SEQ
       (LETT |toSee| (SPADCALL |lp| |clos?| (QREFELT $ 41))
@@ -160,10 +160,10 @@
              (LETT #1# (CDR #1#) . #4#) (GO G190) G191
              (EXIT (NREVERSE #2#))))))))) 
 
-(DEFUN |LazardSetSolvingPackage| (&REST #1=#:G173)
+(DEFUN |LazardSetSolvingPackage| (&REST #1=#:G175)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G174)
+     (PROG (#2=#:G176)
        (RETURN
         (COND
          ((LETT #2#

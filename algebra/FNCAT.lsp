@@ -4,12 +4,12 @@
 (DEFPARAMETER |FileNameCategory;AL| 'NIL) 
 
 (DEFUN |FileNameCategory| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|FileNameCategory;AL|)
           (T (SETQ |FileNameCategory;AL| (|FileNameCategory;|)))))) 
 
 (DEFUN |FileNameCategory;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

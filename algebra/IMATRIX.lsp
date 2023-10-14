@@ -38,10 +38,10 @@
 
 (DEFUN |IMATRIX;inverse;$U;8| (|x| $) (SPADCALL |x| (QREFELT $ 31))) 
 
-(DEFUN |IndexedMatrix| (&REST #1=#:G158)
+(DEFUN |IndexedMatrix| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G159)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#
@@ -59,7 +59,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|IndexedMatrix|))))))))))) 
 
 (DEFUN |IndexedMatrix;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G155 #2=#:G156 #3=#:G157 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G157 #2=#:G158 #3=#:G159 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedMatrix|))

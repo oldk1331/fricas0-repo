@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |IndexedTwoDimensionalArray| (&REST #1=#:G131)
+(DEFUN |IndexedTwoDimensionalArray| (&REST #1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G132)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#
@@ -23,7 +23,7 @@
               (HREM |$ConstructorCache| '|IndexedTwoDimensionalArray|))))))))))) 
 
 (DEFUN |IndexedTwoDimensionalArray;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G128 #2=#:G129 #3=#:G130 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G130 #2=#:G131 #3=#:G132 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedTwoDimensionalArray|))

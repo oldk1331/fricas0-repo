@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SEXOF;coerce;$Of;1| (|b| $)
-  (PROG (|l1| #1=#:G148 |l| |b1| #2=#:G147 |r|)
+  (PROG (|l1| #1=#:G150 |l| |b1| #2=#:G149 |r|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |b| (QREFELT $ 13)) (SPADCALL NIL (QREFELT $ 16)))
@@ -158,7 +158,7 @@
   (SPADCALL (SPADCALL |b| (QREFELT $ 19)) |i| (QREFELT $ 54))) 
 
 (DEFUN |SEXOF;elt;$L$;28| (|b| |li| $)
-  (PROG (#1=#:G184 |i|)
+  (PROG (#1=#:G186 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| NIL . #2=(|SEXOF;elt;$L$;28|)) (LETT #1# |li| . #2#) G190
@@ -172,10 +172,10 @@
            (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |b|))))) 
 
-(DEFUN |SExpressionOf| (&REST #1=#:G185)
+(DEFUN |SExpressionOf| (&REST #1=#:G187)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G186)
+     (PROG (#2=#:G188)
        (RETURN
         (COND
          ((LETT #2#

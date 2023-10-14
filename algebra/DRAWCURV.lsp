@@ -68,7 +68,7 @@
 
 (DEFUN |DRAWCURV;draw;E2SLTdv;4| (|eq| |x| |y| |l| $)
   (PROG (|crCol| |ptCol| |scaledRanges| |acplot| |floatRanges| |yRangeFloat|
-         |xRangeFloat| |yRange| |xRange| |ranges| #1=#:G147 |ratRange|
+         |xRangeFloat| |yRange| |xRange| |ranges| #1=#:G149 |ratRange|
          |floatRange| |p|)
     (RETURN
      (SEQ
@@ -153,10 +153,10 @@
        (SPADCALL (SPADCALL |acplot| (QREFELT $ 85)) |ptCol| |crCol|
                  (SPADCALL (QREFELT $ 87)) |l| (QREFELT $ 90))))))) 
 
-(DEFUN |TopLevelDrawFunctionsForAlgebraicCurves| (&REST #1=#:G157)
+(DEFUN |TopLevelDrawFunctionsForAlgebraicCurves| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

@@ -25,7 +25,7 @@
   (SPADCALL |f| |x| (QREFELT $ 28))) 
 
 (DEFUN |FSCINT;internalIntegrate;FSIr;7| (|f| |x| $)
-  (PROG (|g| |h| #1=#:G158 |k| #2=#:G157 #3=#:G156 #4=#:G155)
+  (PROG (|g| |h| #1=#:G160 |k| #2=#:G159 #3=#:G158 #4=#:G157)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL |f| (SPADCALL |x| (QREFELT $ 37)) (QREFELT $ 38))
@@ -117,10 +117,10 @@
     (RETURN
      (PROGN (SPADCALL (SPADCALL |x1| (QREFELT $ 40)) RTRIG (QREFELT $ 42)))))) 
 
-(DEFUN |FunctionSpaceComplexIntegration| (&REST #1=#:G159)
+(DEFUN |FunctionSpaceComplexIntegration| (&REST #1=#:G161)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G162)
        (RETURN
         (COND
          ((LETT #2#
@@ -202,7 +202,7 @@
               |FSCINT;internalIntegrate;FSIr;7|
               (|IntegrationResultToFunction| 6 7) (20 . |complexExpand|)
               (|IntegrationTools| 6 7) (25 . |removeConstantTerm|)
-              |FSCINT;complexIntegrate;FSF;2| '#:G125
+              |FSCINT;complexIntegrate;FSF;2| '#:G127
               (|ElementaryIntegration| 6 7) (31 . |lfintegrate|)
               (|Record| (|:| |special| 7) (|:| |integrand| 7))
               (|Union| 29 '"failed") (|PatternMatchIntegration| 6 7)

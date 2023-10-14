@@ -5,7 +5,7 @@
   (SPADCALL (QCAR |s1|) (QCAR |s2|) (QREFELT $ 20))) 
 
 (DEFUN |SETMN;coerce;$Of;2| (|s| $)
-  (PROG (#1=#:G148 |i| #2=#:G147)
+  (PROG (#1=#:G150 |i| #2=#:G149)
     (RETURN
      (SEQ
       (SPADCALL
@@ -22,7 +22,7 @@
        (QREFELT $ 28)))))) 
 
 (DEFUN |SETMN;reallyEnumerate| ($)
-  (PROG (#1=#:G151 |i| #2=#:G153 |b| #3=#:G152)
+  (PROG (#1=#:G153 |i| #2=#:G155 |b| #3=#:G154)
     (RETURN
      (SEQ
       (PROGN
@@ -56,7 +56,7 @@
    (EXIT (SPADCALL (QREFELT $ 13) (QREFELT $ 33))))) 
 
 (DEFUN |SETMN;enum| (|p| |q| |n| $)
-  (PROG (#1=#:G170 |s| |l| #2=#:G164 |q1| #3=#:G163 |i| |b|)
+  (PROG (#1=#:G172 |s| |l| #2=#:G166 |q1| #3=#:G165 |i| |b|)
     (RETURN
      (SEQ
       (COND ((OR (ZEROP |p|) (ZEROP |q|)) NIL)
@@ -100,7 +100,7 @@
                            (QREFELT $ 41)))))))))))) 
 
 (DEFUN |SETMN;size;Nni;7| ($)
-  (PROG (#1=#:G171)
+  (PROG (#1=#:G173)
     (RETURN
      (SEQ
       (COND
@@ -116,7 +116,7 @@
       (EXIT (SPADCALL (QREFELT $ 17) (QREFELT $ 42))))))) 
 
 (DEFUN |SETMN;lookup;$Pi;8| (|s| $)
-  (PROG (#1=#:G178 #2=#:G176)
+  (PROG (#1=#:G180 #2=#:G178)
     (RETURN
      (SEQ
       (COND
@@ -153,7 +153,7 @@
                  (QREFELT $ 50)))))))) 
 
 (DEFUN |SETMN;setOfMinN;L$;10| (|l| $)
-  (PROG (|count| #1=#:G191 |i| |s|)
+  (PROG (|count| #1=#:G193 |i| |s|)
     (RETURN
      (SEQ
       (LETT |s| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 38))
@@ -194,7 +194,7 @@
           (EXIT (NREVERSE |l|)))))) 
 
 (DEFUN |SETMN;incrementKthElement;$PiU;12| (|s| |k| $)
-  (PROG (#1=#:G207 |newb| |i| |found| |b|)
+  (PROG (#1=#:G209 |newb| |i| |found| |b|)
     (RETURN
      (SEQ (LETT |b| (QCAR |s|) . #2=(|SETMN;incrementKthElement;$PiU;12|))
           (LETT |found| 0 . #2#) (LETT |i| 1 . #2#)
@@ -259,10 +259,10 @@
           (EXIT
            (CONS 0 (CONS |newb| (COND ((EQL |i| |p|) (QCDR |s|)) ('T 0))))))))) 
 
-(DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G231)
+(DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G233)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G232)
+     (PROG (#2=#:G234)
        (RETURN
         (COND
          ((LETT #2#

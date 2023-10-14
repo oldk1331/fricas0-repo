@@ -52,7 +52,7 @@
                  (QREFELT $ 67))))))) 
 
 (DEFUN |FFNBP;linearAssociatedLog;2$U;7| (|b| |x| $)
-  (PROG (|e1| #1=#:G159 |e| |xm|)
+  (PROG (|e1| #1=#:G161 |e| |xm|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 69)) (CONS 0 (|spadConstant| $ 19)))
@@ -110,7 +110,7 @@
 (DEFUN |FFNBP;generator;$;13| ($) (SPADCALL (QREFELT $ 17) (QREFELT $ 90))) 
 
 (DEFUN |FFNBP;basis;PiV;14| (|n| $)
-  (PROG (#1=#:G184 |i| #2=#:G183)
+  (PROG (#1=#:G186 |i| #2=#:G185)
     (RETURN
      (SEQ
       (COND
@@ -159,7 +159,7 @@
    ('T (|error| "element not in ground field")))) 
 
 (DEFUN |FFNBP;coerce;$Of;22| (|x| $)
-  (PROG (|r| |l| |mon| |i| #1=#:G210 |b| |n|)
+  (PROG (|r| |l| |mon| |i| #1=#:G212 |b| |n|)
     (RETURN
      (SEQ (LETT |l| NIL . #2=(|FFNBP;coerce;$Of;22|))
           (LETT |n| (QREFELT $ 17) . #2#)
@@ -226,8 +226,8 @@
        (SETELT $ 16 'NIL) (EXIT (SPADCALL (QREFELT $ 130))))) 
 
 (DEFUN |FFNBP;initializeLog| ($)
-  (PROG (#1=#:G223 |a| #2=#:G229 #3=#:G217 |i| |tbl| |n| |d| |l| |base| |fac|
-         #4=#:G228 |f| |limit|)
+  (PROG (#1=#:G225 |a| #2=#:G231 #3=#:G219 |i| |tbl| |n| |d| |l| |base| |fac|
+         #4=#:G230 |f| |limit|)
     (RETURN
      (SEQ (COND ((QREFELT $ 15) (|FFNBP;initializeElt| $)))
           (LETT |limit| 30 . #5=(|FFNBP;initializeLog|))
@@ -285,7 +285,7 @@
           (SETELT $ 14 'NIL) (EXIT (SPADCALL (QREFELT $ 130))))))) 
 
 (DEFUN |FFNBP;tableForDiscreteLogarithm;IT;26| (|fac| $)
-  (PROG (|tbl| #1=#:G231)
+  (PROG (|tbl| #1=#:G233)
     (RETURN
      (SEQ (COND ((QREFELT $ 14) (|FFNBP;initializeLog| $)))
           (LETT |tbl|
@@ -316,7 +316,7 @@
 (DEFUN |FFNBP;definingPolynomial;Sup;30| ($) (QREFELT $ 20)) 
 
 (DEFUN |FFNBP;trace;$Pi$;31| (|a| |d| $)
-  (PROG (|erg| #1=#:G247 |i| |v|)
+  (PROG (|erg| #1=#:G249 |i| |v|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL |a| |d| (QREFELT $ 149))
@@ -351,7 +351,7 @@
 (DEFUN |FFNBP;lookup;$Pi;39| (|x| $) (SPADCALL |x| (QREFELT $ 160))) 
 
 (DEFUN |FFNBP;basis;V;40| ($)
-  (PROG (#1=#:G261 |e| #2=#:G260 |a|)
+  (PROG (#1=#:G263 |e| #2=#:G262 |a|)
     (RETURN
      (SEQ
       (LETT |a| (SPADCALL (QREFELT $ 17) (QREFELT $ 162))
@@ -398,7 +398,7 @@
        (EXIT (SPADCALL |a| (QREFELT $ 36))))) 
 
 (DEFUN |FFNBP;inGroundField?;$B;50| (|x| $)
-  (PROG (#1=#:G284 |erg| #2=#:G287 |i|)
+  (PROG (#1=#:G286 |erg| #2=#:G289 |i|)
     (RETURN
      (SEQ (LETT |erg| 'T . #3=(|FFNBP;inGroundField?;$B;50|))
           (SEQ
@@ -436,10 +436,10 @@
 
 (DEFUN |FFNBP;normalElement;$;54| ($) (SPADCALL (QREFELT $ 17) (QREFELT $ 90))) 
 
-(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G315)
+(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G317)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G316)
+     (PROG (#2=#:G318)
        (RETURN
         (COND
          ((LETT #2#
@@ -462,7 +462,7 @@
                     '|FiniteFieldNormalBasisExtensionByPolynomial|))))))))))) 
 
 (DEFUN |FiniteFieldNormalBasisExtensionByPolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G142 #2=#:G314 |i| #3=#:G313 |qs| |pv$| #4=#:G312 $ |dv$| DV$2
+  (PROG (#1=#:G144 #2=#:G316 |i| #3=#:G315 |qs| |pv$| #4=#:G314 $ |dv$| DV$2
          DV$1)
     (RETURN
      (SEQ

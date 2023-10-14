@@ -6,8 +6,8 @@
 (DEFUN |RMATRIX;coerce;$Of;2| (|x| $) (SPADCALL |x| (QREFELT $ 15))) 
 
 (DEFUN |RMATRIX;matrix;L$;3| (|l| $)
-  (PROG (#1=#:G141 |j| #2=#:G142 |r| #3=#:G139 |i| #4=#:G140 |ll| |ans|
-         #5=#:G132 #6=#:G138)
+  (PROG (#1=#:G143 |j| #2=#:G144 |r| #3=#:G141 |i| #4=#:G142 |ll| |ans|
+         #5=#:G134 #6=#:G140)
     (RETURN
      (SEQ
       (COND
@@ -79,7 +79,7 @@
 (DEFUN |RMATRIX;rowEchelon;2$;8| (|x| $) (SPADCALL |x| (QREFELT $ 37))) 
 
 (DEFUN |RMATRIX;columnSpace;$L;9| (|x| $)
-  (PROG (#1=#:G154 |c| #2=#:G153)
+  (PROG (#1=#:G156 |c| #2=#:G155)
     (RETURN
      (SEQ
       (PROGN
@@ -99,7 +99,7 @@
 (DEFUN |RMATRIX;nullity;$Nni;11| (|x| $) (SPADCALL |x| (QREFELT $ 45))) 
 
 (DEFUN |RMATRIX;nullSpace;$L;12| (|x| $)
-  (PROG (#1=#:G160 |c| #2=#:G159)
+  (PROG (#1=#:G162 |c| #2=#:G161)
     (RETURN
      (SEQ
       (PROGN
@@ -123,10 +123,10 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 55)))
    (QREFELT $ 57))) 
 
-(DEFUN |RectangularMatrix| (&REST #1=#:G174)
+(DEFUN |RectangularMatrix| (&REST #1=#:G176)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G175)
+     (PROG (#2=#:G177)
        (RETURN
         (COND
          ((LETT #2#
@@ -145,7 +145,7 @@
               (HREM |$ConstructorCache| '|RectangularMatrix|))))))))))) 
 
 (DEFUN |RectangularMatrix;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G173 |pv$| #2=#:G169 #3=#:G170 #4=#:G172 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G175 |pv$| #2=#:G171 #3=#:G172 #4=#:G174 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|RectangularMatrix|))

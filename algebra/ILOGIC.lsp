@@ -8,7 +8,7 @@
 (DEFUN |ILOGIC;logicF;$;3| ($) (CONS 0 (LIST 'F))) 
 
 (DEFUN |ILOGIC;~;2$;4| (|b| $)
-  (PROG (#1=#:G224 |d| |c|)
+  (PROG (#1=#:G226 |d| |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -39,7 +39,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;/\\;3$;5| (|a| |b| $)
-  (PROG (#1=#:G240)
+  (PROG (#1=#:G242)
     (RETURN
      (SEQ
       (EXIT
@@ -79,7 +79,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;\\/;3$;6| (|a| |b| $)
-  (PROG (#1=#:G254)
+  (PROG (#1=#:G256)
     (RETURN
      (SEQ
       (EXIT
@@ -113,7 +113,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;implies;3$;7| (|a| |b| $)
-  (PROG (#1=#:G267)
+  (PROG (#1=#:G269)
     (RETURN
      (SEQ
       (EXIT
@@ -135,7 +135,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;redux;2$;8| (|n| $)
-  (PROG (#1=#:G280 #2=#:G195)
+  (PROG (#1=#:G282 #2=#:G197)
     (RETURN
      (SEQ
       (EXIT
@@ -271,7 +271,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;factor;$L;9| (|n| $)
-  (PROG (|ch| #1=#:G292 #2=#:G195)
+  (PROG (|ch| #1=#:G294 #2=#:G197)
     (RETURN
      (SEQ
       (EXIT
@@ -300,7 +300,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;removeDup| (|a| |b| $)
-  (PROG (|res| |fnd| #1=#:G299 |a1| #2=#:G298 |b1|)
+  (PROG (|res| |fnd| #1=#:G301 |a1| #2=#:G300 |b1|)
     (RETURN
      (SEQ (LETT |res| NIL . #3=(|ILOGIC;removeDup|))
           (SEQ (LETT |b1| NIL . #3#) (LETT #2# |b| . #3#) G190
@@ -328,7 +328,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |ILOGIC;deductions1| (|ln| $)
-  (PROG (|res| #1=#:G316 |n2| |ch| #2=#:G315 |n|)
+  (PROG (|res| #1=#:G318 |n2| |ch| #2=#:G317 |n|)
     (RETURN
      (SEQ (LETT |res| NIL . #3=(|ILOGIC;deductions1|))
           (SEQ (LETT |n| NIL . #3#) (LETT #2# |ln| . #3#) G190
@@ -391,7 +391,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |ILOGIC;opType;$S;13| (|n| $)
-  (PROG (#1=#:G323)
+  (PROG (#1=#:G325)
     (RETURN
      (SEQ
       (EXIT
@@ -409,7 +409,7 @@
   (COND ((QEQCAR |n| 1) 'T) ('T (QEQCAR |n| 0)))) 
 
 (DEFUN |ILOGIC;value;$S;15| (|n| $)
-  (PROG (#1=#:G337)
+  (PROG (#1=#:G339)
     (RETURN
      (SEQ
       (EXIT
@@ -428,7 +428,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;getChildren;$L;16| (|n| $)
-  (PROG (#1=#:G342 #2=#:G196)
+  (PROG (#1=#:G344 #2=#:G198)
     (RETURN
      (SEQ
       (EXIT
@@ -459,7 +459,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;=;2$B;17| (|a| |b| $)
-  (PROG (#1=#:G366)
+  (PROG (#1=#:G368)
     (RETURN
      (SEQ
       (EXIT
@@ -522,7 +522,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;parseBracketTerm| (|t1| |pin| $)
-  (PROG (|p1| #1=#:G375 |ch| |trm| |r2|)
+  (PROG (|p1| #1=#:G377 |ch| |trm| |r2|)
     (RETURN
      (SEQ
       (EXIT
@@ -552,7 +552,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;parseILand| (|t1| |pin| |firstTerm| $)
-  (PROG (|p1| |secondTerm| |r| #1=#:G381 |ch| |trm| |pt|)
+  (PROG (|p1| |secondTerm| |r| #1=#:G383 |ch| |trm| |pt|)
     (RETURN
      (SEQ
       (EXIT
@@ -578,7 +578,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;parseILor| (|t1| |pin| |firstTerm| $)
-  (PROG (|p1| |secondTerm| |r| #1=#:G387 |ch| |trm| |pt|)
+  (PROG (|p1| |secondTerm| |r| #1=#:G389 |ch| |trm| |pt|)
     (RETURN
      (SEQ
       (EXIT
@@ -604,7 +604,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;parseILfn| (|t1| |pin| |firstTerm| $)
-  (PROG (|p1| |secondTerm| |r| #1=#:G393 |ch| |trm| |pt|)
+  (PROG (|p1| |secondTerm| |r| #1=#:G395 |ch| |trm| |pt|)
     (RETURN
      (SEQ
       (EXIT
@@ -630,7 +630,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;parseILName| (|t1| |pin| $)
-  (PROG (|ch| #1=#:G398 |pt| |vnm|)
+  (PROG (|ch| #1=#:G400 |pt| |vnm|)
     (RETURN
      (SEQ
       (EXIT
@@ -652,7 +652,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;parseILTerm;SNniR;23| (|t1| |pin| $)
-  (PROG (|p1| |res| |r| |ch| #1=#:G414)
+  (PROG (|p1| |res| |r| |ch| #1=#:G416)
     (RETURN
      (SEQ
       (EXIT
@@ -708,7 +708,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;parseIL2;SNniR;24| (|t1| |pin| $)
-  (PROG (|p1| |res| |r| |ch| #1=#:G421)
+  (PROG (|p1| |res| |r| |ch| #1=#:G423)
     (RETURN
      (SEQ
       (EXIT
@@ -736,7 +736,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;parseIL;S$;25| (|t1| $)
-  (PROG (|r| #1=#:G422)
+  (PROG (|r| #1=#:G424)
     (RETURN
      (SEQ
       (LETT |r|
@@ -751,7 +751,7 @@
       (EXIT (QCAR |r|)))))) 
 
 (DEFUN |ILOGIC;toString;$S;26| (|n| $)
-  (PROG (#1=#:G440 #2=#:G195 |s1|)
+  (PROG (#1=#:G442 #2=#:G197 |s1|)
     (RETURN
      (SEQ
       (EXIT
@@ -840,7 +840,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILOGIC;toStringUnwrapped;$S;27| (|n| $)
-  (PROG (#1=#:G456 #2=#:G195 |s1|)
+  (PROG (#1=#:G458 #2=#:G197 |s1|)
     (RETURN
      (SEQ
       (EXIT
@@ -935,7 +935,7 @@
 (DEFUN |ILogic| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G459)
+     (PROG (#1=#:G461)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ILogic|) . #2=(|ILogic|))

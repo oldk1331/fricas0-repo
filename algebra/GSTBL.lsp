@@ -20,10 +20,10 @@
      (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12)) |GSTBL;search;Key$U;3|)
           (EXIT (COND ((QEQCAR |u| 1) (CONS 0 (QREFELT $ 9))) ('T |u|))))))) 
 
-(DEFUN |GeneralSparseTable| (&REST #1=#:G187)
+(DEFUN |GeneralSparseTable| (&REST #1=#:G189)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G188)
+     (PROG (#2=#:G190)
        (RETURN
         (COND
          ((LETT #2#
@@ -42,7 +42,7 @@
               (HREM |$ConstructorCache| '|GeneralSparseTable|))))))))))) 
 
 (DEFUN |GeneralSparseTable;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G186 #2=#:G185 |pv$| #3=#:G183 #4=#:G184 $ |dv$| DV$4 DV$3 DV$2
+  (PROG (#1=#:G188 #2=#:G187 |pv$| #3=#:G185 #4=#:G186 $ |dv$| DV$4 DV$3 DV$2
          DV$1)
     (RETURN
      (PROGN

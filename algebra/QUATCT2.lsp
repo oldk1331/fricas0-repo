@@ -7,10 +7,10 @@
             (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |fn|)
             (SPADCALL (SPADCALL |u| (QREFELT $ 13)) |fn|) (QREFELT $ 14))) 
 
-(DEFUN |QuaternionCategoryFunctions2| (&REST #1=#:G127)
+(DEFUN |QuaternionCategoryFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

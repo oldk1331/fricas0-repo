@@ -5,7 +5,7 @@
   (EQL (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |x| (QREFELT $ 12)))) 
 
 (DEFUN |MATCAT-;diagonal?;SB;2| (|x| $)
-  (PROG (#1=#:G192 #2=#:G195 #3=#:G197 |j| #4=#:G196 |i|)
+  (PROG (#1=#:G194 #2=#:G197 #3=#:G199 |j| #4=#:G198 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -43,7 +43,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MATCAT-;symmetric?;SB;3| (|x| $)
-  (PROG (#1=#:G199 #2=#:G203 #3=#:G205 |j| #4=#:G204 |i| |mc| |mr| |nRows|)
+  (PROG (#1=#:G201 #2=#:G205 #3=#:G207 |j| #4=#:G206 |i| |mc| |mr| |nRows|)
     (RETURN
      (SEQ
       (EXIT
@@ -84,7 +84,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MATCAT-;antisymmetric?;SB;4| (|x| $)
-  (PROG (#1=#:G207 #2=#:G211 #3=#:G213 |j| #4=#:G212 |i| |mc| |mr| |nRows|)
+  (PROG (#1=#:G209 #2=#:G213 #3=#:G215 |j| #4=#:G214 |i| |mc| |mr| |nRows|)
     (RETURN
      (SEQ
       (EXIT
@@ -129,8 +129,8 @@
   (SPADCALL |rows| |cols| (|spadConstant| $ 30) (QREFELT $ 31))) 
 
 (DEFUN |MATCAT-;matrix;LS;6| (|l| $)
-  (PROG (#1=#:G225 |j| #2=#:G226 |r| #3=#:G223 |i| #4=#:G224 |ll| |ans| |rows|
-         #5=#:G222 |cols|)
+  (PROG (#1=#:G227 |j| #2=#:G228 |r| #3=#:G225 |i| #4=#:G226 |ll| |ans| |rows|
+         #5=#:G224 |cols|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (SPADCALL 0 0 (|spadConstant| $ 30) (QREFELT $ 31)))
@@ -197,7 +197,7 @@
                       (EXIT |ans|)))))))))))) 
 
 (DEFUN |MATCAT-;scalarMatrix;NniRS;7| (|n| |r| $)
-  (PROG (#1=#:G230 |i| #2=#:G231 |j| |ans|)
+  (PROG (#1=#:G232 |i| #2=#:G233 |j| |ans|)
     (RETURN
      (SEQ
       (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 36))
@@ -213,7 +213,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |MATCAT-;diagonalMatrix;LS;8| (|l| $)
-  (PROG (#1=#:G235 |i| #2=#:G236 |j| #3=#:G237 |r| |ans| |n|)
+  (PROG (#1=#:G237 |i| #2=#:G238 |j| #3=#:G239 |r| |ans| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |l|) . #4=(|MATCAT-;diagonalMatrix;LS;8|))
           (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 36)) . #4#)
@@ -236,7 +236,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |MATCAT-;get_dims| (|l| $)
-  (PROG (#1=#:G244 |a| #2=#:G243)
+  (PROG (#1=#:G246 |a| #2=#:G245)
     (RETURN
      (SEQ
       (PROGN
@@ -258,8 +258,8 @@
 
 (DEFUN |MATCAT-;kronecker_prod1;SILL2NniUV;10|
        (|res| |k| |dl| |l| |r_off| |c_off| |mu| $)
-  (PROG (|c_off1| |mm| |aij| |j| |i| |c_step| #1=#:G278 |rc| #2=#:G277 |r_step|
-         #3=#:G276 #4=#:G275 |c_ind| |m| |a| |nc| |nr| |dp|)
+  (PROG (|c_off1| |mm| |aij| |j| |i| |c_step| #1=#:G280 |rc| #2=#:G279 |r_step|
+         #3=#:G278 #4=#:G277 |c_ind| |m| |a| |nc| |nr| |dp|)
     (RETURN
      (SEQ
       (LETT |dp| (|SPADfirst| |dl|)
@@ -370,8 +370,8 @@
                     (EXIT NIL))))))))))) 
 
 (DEFUN |MATCAT-;kroneckerProduct;LS;11| (|l| $)
-  (PROG (#1=#:G305 |a| |res| |nc| #2=#:G304 |rc| #3=#:G303 |nr| #4=#:G302
-         #5=#:G301 |dl| |k|)
+  (PROG (#1=#:G307 |a| |res| |nc| #2=#:G306 |rc| #3=#:G305 |nr| #4=#:G304
+         #5=#:G303 |dl| |k|)
     (RETURN
      (SEQ (LETT |k| (LENGTH |l|) . #6=(|MATCAT-;kroneckerProduct;LS;11|))
           (EXIT
@@ -449,7 +449,7 @@
 
 (DEFUN |MATCAT-;kroneckerSum;LS;13| (|l| $)
   (PROG (|n0| |off0| |off_r| |ind_c| |vv| |j| |i| |m| |step0| |n2| |dl| |nr|
-         #1=#:G341 |a| |res| |nrs| #2=#:G340 #3=#:G339 |nc| #4=#:G338 |k|)
+         #1=#:G343 |a| |res| |nrs| #2=#:G342 #3=#:G341 |nc| #4=#:G340 |k|)
     (RETURN
      (SEQ (LETT |k| (LENGTH |l|) . #5=(|MATCAT-;kroneckerSum;LS;13|))
           (EXIT
@@ -589,8 +589,8 @@
   (SPADCALL (LIST |a| |b|) (QREFELT $ 61))) 
 
 (DEFUN |MATCAT-;diagonalMatrix;LS;15| (|list| $)
-  (PROG (|loC| |loR| |j| #1=#:G354 |l| |i| #2=#:G353 |k| |hiC| |hiR| #3=#:G352
-         |mat| |ans| |cols| |rows| #4=#:G351)
+  (PROG (|loC| |loR| |j| #1=#:G356 |l| |i| #2=#:G355 |k| |hiC| |hiR| #3=#:G354
+         |mat| |ans| |cols| |rows| #4=#:G353)
     (RETURN
      (SEQ (LETT |rows| 0 . #5=(|MATCAT-;diagonalMatrix;LS;15|))
           (LETT |cols| 0 . #5#)
@@ -648,8 +648,8 @@
 
 (DEFUN |MATCAT-;kronecker_prod1;SILL2NniUV;16|
        (|res| |k| |dl| |l| |r_off| |c_off| |mu| $)
-  (PROG (|c_off1| |mm| |aij| |j| |i| |c_step| #1=#:G388 |rc| #2=#:G387 |r_step|
-         #3=#:G386 #4=#:G385 |c_ind| |m| |a| |nc| |nr| |dp|)
+  (PROG (|c_off1| |mm| |aij| |j| |i| |c_step| #1=#:G390 |rc| #2=#:G389 |r_step|
+         #3=#:G388 #4=#:G387 |c_ind| |m| |a| |nc| |nr| |dp|)
     (RETURN
      (SEQ
       (LETT |dp| (|SPADfirst| |dl|)
@@ -763,8 +763,8 @@
                     (EXIT NIL))))))))))) 
 
 (DEFUN |MATCAT-;kroneckerProduct;LS;17| (|l| $)
-  (PROG (#1=#:G415 |a| |res| |nc| #2=#:G414 |rc| #3=#:G413 |nr| #4=#:G412
-         #5=#:G411 |dl| |k|)
+  (PROG (#1=#:G417 |a| |res| |nc| #2=#:G416 |rc| #3=#:G415 |nr| #4=#:G414
+         #5=#:G413 |dl| |k|)
     (RETURN
      (SEQ (LETT |k| (LENGTH |l|) . #6=(|MATCAT-;kroneckerProduct;LS;17|))
           (EXIT
@@ -842,7 +842,7 @@
 
 (DEFUN |MATCAT-;kroneckerSum;LS;19| (|l| $)
   (PROG (|n0| |off0| |off_r| |ind_c| |vv| |j| |i| |m| |step0| |n2| |dl| |nr|
-         #1=#:G451 |a| |res| |nrs| #2=#:G450 #3=#:G449 |nc| #4=#:G448 |k|)
+         #1=#:G453 |a| |res| |nrs| #2=#:G452 #3=#:G451 |nc| #4=#:G450 |k|)
     (RETURN
      (SEQ (LETT |k| (LENGTH |l|) . #5=(|MATCAT-;kroneckerSum;LS;19|))
           (EXIT
@@ -986,8 +986,8 @@
   (SPADCALL (LIST |a| |b|) (QREFELT $ 61))) 
 
 (DEFUN |MATCAT-;diagonalMatrix;LS;21| (|list| $)
-  (PROG (|loC| |loR| |j| #1=#:G464 |l| |i| #2=#:G463 |k| |hiC| |hiR| #3=#:G462
-         |mat| |ans| |cols| |rows| #4=#:G461)
+  (PROG (|loC| |loR| |j| #1=#:G466 |l| |i| #2=#:G465 |k| |hiC| |hiR| #3=#:G464
+         |mat| |ans| |cols| |rows| #4=#:G463)
     (RETURN
      (SEQ (LETT |rows| 0 . #5=(|MATCAT-;diagonalMatrix;LS;21|))
           (LETT |cols| 0 . #5#)
@@ -1041,7 +1041,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |MATCAT-;coerce;ColS;22| (|v| $)
-  (PROG (#1=#:G468 |i| #2=#:G469 |k| |one| |x|)
+  (PROG (#1=#:G470 |i| #2=#:G471 |k| |one| |x|)
     (RETURN
      (SEQ
       (LETT |x|
@@ -1063,7 +1063,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |MATCAT-;transpose;RowS;23| (|v| $)
-  (PROG (#1=#:G473 |j| #2=#:G474 |k| |one| |x|)
+  (PROG (#1=#:G475 |j| #2=#:G476 |k| |one| |x|)
     (RETURN
      (SEQ
       (LETT |x|
@@ -1085,7 +1085,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |MATCAT-;transpose;2S;24| (|x| $)
-  (PROG (#1=#:G480 |j| #2=#:G479 |i| |ans|)
+  (PROG (#1=#:G482 |j| #2=#:G481 |i| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -1111,7 +1111,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |MATCAT-;squareTop;2S;25| (|x| $)
-  (PROG (#1=#:G487 |j| #2=#:G486 |i| |ans| |cols|)
+  (PROG (#1=#:G489 |j| #2=#:G488 |i| |ans| |cols|)
     (RETURN
      (SEQ
       (COND
@@ -1142,7 +1142,7 @@
          (EXIT |ans|)))))))) 
 
 (DEFUN |MATCAT-;horizConcat;3S;26| (|x| |y| $)
-  (PROG (#1=#:G498 |j| #2=#:G497 |i| #3=#:G496 #4=#:G495 |ans| |cols| |rows|)
+  (PROG (#1=#:G500 |j| #2=#:G499 |i| #3=#:G498 #4=#:G497 |ans| |cols| |rows|)
     (RETURN
      (SEQ
       (COND
@@ -1192,7 +1192,7 @@
          (EXIT |ans|)))))))) 
 
 (DEFUN |MATCAT-;vertConcat;3S;27| (|x| |y| $)
-  (PROG (#1=#:G509 |j| #2=#:G508 |i| #3=#:G507 #4=#:G506 |ans| |rows| |cols|)
+  (PROG (#1=#:G511 |j| #2=#:G510 |i| #3=#:G509 #4=#:G508 |ans| |rows| |cols|)
     (RETURN
      (SEQ
       (COND
@@ -1242,7 +1242,7 @@
          (EXIT |ans|)))))))) 
 
 (DEFUN |MATCAT-;listOfLists;SL;28| (|x| $)
-  (PROG (|ll| |l| #1=#:G516 |j| #2=#:G515 |i|)
+  (PROG (|ll| |l| #1=#:G518 |j| #2=#:G517 |i|)
     (RETURN
      (SEQ (LETT |ll| NIL . #3=(|MATCAT-;listOfLists;SL;28|))
           (SEQ (LETT |i| (SPADCALL |x| (QREFELT $ 18)) . #3#)
@@ -1264,7 +1264,7 @@
           (EXIT |ll|))))) 
 
 (DEFUN |MATCAT-;swapRows!;S2IS;29| (|x| |i1| |i2| $)
-  (PROG (|r| #1=#:G526 |j|)
+  (PROG (|r| #1=#:G528 |j|)
     (RETURN
      (SEQ
       (COND
@@ -1292,7 +1292,7 @@
                 (EXIT |x|)))))))))) 
 
 (DEFUN |MATCAT-;swapColumns!;S2IS;30| (|x| |j1| |j2| $)
-  (PROG (|r| #1=#:G536 |i|)
+  (PROG (|r| #1=#:G538 |i|)
     (RETURN
      (SEQ
       (COND
@@ -1320,8 +1320,8 @@
                 (EXIT |x|)))))))))) 
 
 (DEFUN |MATCAT-;elt;S2LS;31| (|x| |rowList| |colList| $)
-  (PROG (#1=#:G551 |ej| #2=#:G552 |j| #3=#:G549 |ei| #4=#:G550 |i| |y|
-         #5=#:G542 #6=#:G548 #7=#:G539 #8=#:G547)
+  (PROG (#1=#:G553 |ej| #2=#:G554 |j| #3=#:G551 |ei| #4=#:G552 |i| |y|
+         #5=#:G544 #6=#:G550 #7=#:G541 #8=#:G549)
     (RETURN
      (SEQ
       (SEQ
@@ -1391,8 +1391,8 @@
       (EXIT |y|))))) 
 
 (DEFUN |MATCAT-;setelt;S2L2S;32| (|x| |rowList| |colList| |y| $)
-  (PROG (#1=#:G569 |ej| #2=#:G570 |j| #3=#:G567 |ei| #4=#:G568 |i| #5=#:G558
-         #6=#:G566 #7=#:G555 #8=#:G565)
+  (PROG (#1=#:G571 |ej| #2=#:G572 |j| #3=#:G569 |ei| #4=#:G570 |i| #5=#:G560
+         #6=#:G568 #7=#:G557 #8=#:G567)
     (RETURN
      (SEQ
       (SEQ
@@ -1465,7 +1465,7 @@
       (EXIT |y|))))) 
 
 (DEFUN |MATCAT-;subMatrix;S4IS;33| (|x| |i1| |i2| |j1| |j2| $)
-  (PROG (#1=#:G580 |j| |l| #2=#:G579 |i| |k| |y| |cols| |rows|)
+  (PROG (#1=#:G582 |j| |l| #2=#:G581 |i| |k| |y| |cols| |rows|)
     (RETURN
      (SEQ
       (COND ((< |i2| |i1|) (|error| "subMatrix: bad row indices"))
@@ -1514,7 +1514,7 @@
                 (EXIT |y|)))))))))) 
 
 (DEFUN |MATCAT-;setsubMatrix!;S2I2S;34| (|x| |i1| |j1| |y| $)
-  (PROG (#1=#:G590 |j| |l| #2=#:G589 |i| |k| |j2| |i2|)
+  (PROG (#1=#:G592 |j| |l| #2=#:G591 |i| |k| |j2| |i2|)
     (RETURN
      (SEQ
       (LETT |i2| (- (+ |i1| (SPADCALL |y| (QREFELT $ 11))) 1)
@@ -1552,7 +1552,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |MATCAT-;+;3S;35| (|x| |y| $)
-  (PROG (#1=#:G598 |j| #2=#:G597 |i| |ans| |c| |r|)
+  (PROG (#1=#:G600 |j| #2=#:G599 |i| |ans| |c| |r|)
     (RETURN
      (SEQ
       (COND
@@ -1588,7 +1588,7 @@
          (EXIT |ans|)))))))) 
 
 (DEFUN |MATCAT-;-;3S;36| (|x| |y| $)
-  (PROG (#1=#:G606 |j| #2=#:G605 |i| |ans| |c| |r|)
+  (PROG (#1=#:G608 |j| #2=#:G607 |i| |ans| |c| |r|)
     (RETURN
      (SEQ
       (COND
@@ -1662,7 +1662,7 @@
     (RETURN (PROGN (SPADCALL |r1| |a| (QREFELT $ 44)))))) 
 
 (DEFUN |MATCAT-;*;3S;41| (|x| |y| $)
-  (PROG (|entry| |sum| #1=#:G624 |k| #2=#:G625 |l| #3=#:G623 |j| #4=#:G622 |i|
+  (PROG (|entry| |sum| #1=#:G626 |k| #2=#:G627 |l| #3=#:G625 |j| #4=#:G624 |i|
          |ans|)
     (RETURN
      (SEQ
@@ -1752,7 +1752,7 @@
         ('T (SPADCALL |x| |n| (QREFELT $ 98))))))))) 
 
 (DEFUN |MATCAT-;*;S2Col;44| (|x| |v| $)
-  (PROG (|sum| #1=#:G640 |j| #2=#:G641 |l| #3=#:G638 |i| #4=#:G639 |k| |w|)
+  (PROG (|sum| #1=#:G642 |j| #2=#:G643 |l| #3=#:G640 |i| #4=#:G641 |k| |w|)
     (RETURN
      (SEQ
       (COND
@@ -1805,7 +1805,7 @@
          (EXIT |w|)))))))) 
 
 (DEFUN |MATCAT-;*;RowSRow;45| (|v| |x| $)
-  (PROG (|sum| #1=#:G650 |i| #2=#:G651 |l| #3=#:G648 |j| #4=#:G649 |k| |w|)
+  (PROG (|sum| #1=#:G652 |i| #2=#:G653 |l| #3=#:G650 |j| #4=#:G651 |k| |w|)
     (RETURN
      (SEQ
       (COND
@@ -1883,7 +1883,7 @@
       (EXIT (NREVERSE |basis|)))))) 
 
 (DEFUN |MATCAT-;B0| (|n| $)
-  (PROG (|j| #1=#:G667 |i| #2=#:G666)
+  (PROG (|j| #1=#:G669 |i| #2=#:G668)
     (RETURN
      (SEQ
       (SPADCALL
@@ -1928,8 +1928,8 @@
        (QREFELT $ 117)))))) 
 
 (DEFUN |MATCAT-;PfChar| (A $)
-  (PROG (|res| #1=#:G679 |e| #2=#:G680 |k| |c| |i| #3=#:G678 |j| |g| C B
-         #4=#:G668 |d| |p| |s| |r| M |n|)
+  (PROG (|res| #1=#:G681 |e| #2=#:G682 |k| |c| |i| #3=#:G680 |j| |g| C B
+         #4=#:G670 |d| |p| |s| |r| M |n|)
     (RETURN
      (SEQ (LETT |n| (SPADCALL A (QREFELT $ 11)) . #5=(|MATCAT-;PfChar|))
           (EXIT
@@ -2027,7 +2027,7 @@
    (#1# (|error| "Pfaffian: only defined for antisymmetric square matrices!")))) 
 
 (DEFUN |MATCAT-;exquo;SRU;50| (|x| |a| $)
-  (PROG (|entry| #1=#:G695 |r| #2=#:G697 |j| #3=#:G696 |i| |ans|)
+  (PROG (|entry| #1=#:G697 |r| #2=#:G699 |j| #3=#:G698 |i| |ans|)
     (RETURN
      (SEQ
       (EXIT

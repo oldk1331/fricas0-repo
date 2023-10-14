@@ -12,7 +12,7 @@
         ('T (CONS 0 (SPADCALL (QCDR |u|) |func|))))) 
 
 (DEFUN |IR2;map;MIrIr;4| (|func| |ir| $)
-  (PROG (#1=#:G157 |g| #2=#:G156 #3=#:G155 |f| #4=#:G154)
+  (PROG (#1=#:G159 |g| #2=#:G158 #3=#:G157 |f| #4=#:G156)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL (SPADCALL |ir| (QREFELT $ 13)) |func|)
@@ -52,7 +52,7 @@
                      (SPADCALL (QCDR (QCDR |u|)) |func|)))))) 
 
 (DEFUN |IR2;map;MUU;6| (|func| |u| $)
-  (PROG (#1=#:G199 |f| #2=#:G198)
+  (PROG (#1=#:G201 |f| #2=#:G200)
     (RETURN
      (SEQ
       (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
@@ -79,10 +79,10 @@
   (VECTOR (QVELT |lg| 0) (SPADCALL |func| (QVELT |lg| 1) (QREFELT $ 42))
           (SPADCALL |func| (QVELT |lg| 2) (QREFELT $ 42)))) 
 
-(DEFUN |IntegrationResultFunctions2| (&REST #1=#:G205)
+(DEFUN |IntegrationResultFunctions2| (&REST #1=#:G207)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G206)
+     (PROG (#2=#:G208)
        (RETURN
         (COND
          ((LETT #2#

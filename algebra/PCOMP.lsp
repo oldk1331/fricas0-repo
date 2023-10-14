@@ -22,10 +22,10 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |r|))))) 
 
-(DEFUN |PolynomialComposition| (&REST #1=#:G129)
+(DEFUN |PolynomialComposition| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G130)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

@@ -4,14 +4,14 @@
 (DEFPARAMETER |ArcTrigonometricFunctionCategory;AL| 'NIL) 
 
 (DEFUN |ArcTrigonometricFunctionCategory| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|ArcTrigonometricFunctionCategory;AL|)
           (T
            (SETQ |ArcTrigonometricFunctionCategory;AL|
                    (|ArcTrigonometricFunctionCategory;|)))))) 
 
 (DEFUN |ArcTrigonometricFunctionCategory;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

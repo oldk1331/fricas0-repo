@@ -123,7 +123,7 @@
     (RETURN (PROGN (|BOP1;cdisp| (SPADCALL |a| (QREFELT $ 45)) |l1| $))))) 
 
 (DEFUN |BOP1;constantOpIfCan;BoU;13| (|op| $)
-  (PROG (#1=#:G352 |u|)
+  (PROG (#1=#:G354 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -155,10 +155,10 @@
 
 (DEFUN |BOP1;constantOperator;ABo;15| (|a| $) (|BOP1;constOp| |a| $)) 
 
-(DEFUN |BasicOperatorFunctions1| (#1=#:G357)
+(DEFUN |BasicOperatorFunctions1| (#1=#:G359)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G358)
+     (PROG (#2=#:G360)
        (RETURN
         (COND
          ((LETT #2#

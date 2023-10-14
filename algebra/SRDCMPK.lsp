@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SRDCMPK;KrullNumber;LLNni;1| (|lp| |lts| $)
-  (PROG (|n| |ln| #1=#:G172 |ts| #2=#:G171)
+  (PROG (|n| |ln| #1=#:G174 |ts| #2=#:G173)
     (RETURN
      (SEQ
       (LETT |ln|
@@ -24,7 +24,7 @@
              . #3#)))))) 
 
 (DEFUN |SRDCMPK;numberOfVariables;LLNni;2| (|lp| |lts| $)
-  (PROG (|lv| #1=#:G176 |ts|)
+  (PROG (|lv| #1=#:G178 |ts|)
     (RETURN
      (SEQ
       (LETT |lv| (SPADCALL (SPADCALL |lp| (QREFELT $ 21)) (QREFELT $ 23))
@@ -43,8 +43,8 @@
       (EXIT (LENGTH (SPADCALL |lv| (QREFELT $ 26)))))))) 
 
 (DEFUN |SRDCMPK;algebraicDecompose;PTSR;3| (|p| |ts| $)
-  (PROG (#1=#:G187 |lts| |llpwt| #2=#:G199 |vs| #3=#:G198 |f| |lsfp| |lus| |h|
-         |us| |g| #4=#:G197 |gwt| |lgwt| |ts_v| #5=#:G179 |ts_v+| |ts_v-| |n|
+  (PROG (#1=#:G189 |lts| |llpwt| #2=#:G201 |vs| #3=#:G200 |f| |lsfp| |lus| |h|
+         |us| |g| #4=#:G199 |gwt| |lgwt| |ts_v| #5=#:G181 |ts_v+| |ts_v-| |n|
          |v|)
     (RETURN
      (SEQ
@@ -175,7 +175,7 @@
         ('T (SPADCALL |p| |ts| (QREFELT $ 56))))) 
 
 (DEFUN |SRDCMPK;internalDecompose;PTSNniR;7| (|p| |ts| |bound| $)
-  (PROG (|llpwt| |lts| |riv| |rsl| #1=#:G232 |bwt| |lbwt| |tp| |ip| #2=#:G214
+  (PROG (|llpwt| |lts| |riv| |rsl| #1=#:G234 |bwt| |lbwt| |tp| |ip| #2=#:G216
          |lmp|)
     (RETURN
      (SEQ (LETT |llpwt| NIL . #3=(|SRDCMPK;internalDecompose;PTSNniR;7|))
@@ -273,7 +273,7 @@
           (EXIT (CONS |lts| |llpwt|)))))) 
 
 (DEFUN |SRDCMPK;internalDecompose;PTSR;8| (|p| |ts| $)
-  (PROG (|llpwt| |lts| |riv| |rsl| #1=#:G253 |bwt| |lbwt| |tp| |ip| #2=#:G236
+  (PROG (|llpwt| |lts| |riv| |rsl| #1=#:G255 |bwt| |lbwt| |tp| |ip| #2=#:G238
          |lmp|)
     (RETURN
      (SEQ (LETT |llpwt| NIL . #3=(|SRDCMPK;internalDecompose;PTSR;8|))
@@ -383,7 +383,7 @@
       (EXIT (SPADCALL |ls| (QREFELT $ 79))))))) 
 
 (DEFUN |SRDCMPK;printInfo;LNniV;11| (|toSee| |n| $)
-  (PROG (|s| |m| #1=#:G264 |lpwt|)
+  (PROG (|s| |m| #1=#:G266 |lpwt|)
     (RETURN
      (SEQ
       (LETT |lpwt| (|SPADfirst| |toSee|) . #2=(|SRDCMPK;printInfo;LNniV;11|))
@@ -416,8 +416,8 @@
 
 (DEFUN |SRDCMPK;decompose;LL5BL;12|
        (|lp| |lts| |cleanW?| |sqfr?| |clos?| |rem?| |info?| $)
-  (PROG (|toSee| |rsl| |p| |toSave| |ts| |lpwt| |bound| #1=#:G283 |br|
-         #2=#:G282 |branches|)
+  (PROG (|toSee| |rsl| |p| |toSave| |ts| |lpwt| |bound| #1=#:G285 |br|
+         #2=#:G284 |branches|)
     (RETURN
      (SEQ
       (COND ((NULL |lp|) |lts|)
@@ -520,7 +520,7 @@
                        (EXIT (SPADCALL |toSave| (QREFELT $ 94)))))))))))))) 
 
 (DEFUN |SRDCMPK;upDateBranches;LLLRNniL;13| (|leq| |lts| |current| |wip| |n| $)
-  (PROG (|branches| |branches2| #1=#:G303 |us| |branches1| |newleq| #2=#:G302
+  (PROG (|branches| |branches2| #1=#:G305 |us| |branches1| |newleq| #2=#:G304
          |branch| |newComponents| |newBranches|)
     (RETURN
      (SEQ
@@ -576,10 +576,10 @@
                 . #3#)
           (EXIT (SPADCALL |branches| (QREFELT $ 103))))))))))) 
 
-(DEFUN |SquareFreeRegularSetDecompositionPackage| (&REST #1=#:G304)
+(DEFUN |SquareFreeRegularSetDecompositionPackage| (&REST #1=#:G306)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G305)
+     (PROG (#2=#:G307)
        (RETURN
         (COND
          ((LETT #2#

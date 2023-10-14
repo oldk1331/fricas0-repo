@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PSETPK;removeAssociates| (|lp| $)
-  (PROG (#1=#:G234 |p| #2=#:G233)
+  (PROG (#1=#:G236 |p| #2=#:G235)
     (RETURN
      (SEQ
       (SPADCALL
@@ -174,7 +174,7 @@
   (SPADCALL (ELT $ 40) |ps| (QREFELT $ 19))) 
 
 (DEFUN |PSETPK;removeRoughlyRedundantFactorsInPols;2LBL;12| (|lp| |lf| |opt| $)
-  (PROG (|newlp| |stop| |p| #1=#:G305 |test| |copylf| |f|)
+  (PROG (|newlp| |stop| |p| #1=#:G307 |test| |copylf| |f|)
     (RETURN
      (SEQ
       (COND ((NULL |lp|) |lp|)
@@ -313,7 +313,7 @@
           (EXIT (COND ((SPADCALL |n| |m| (QREFELT $ 62)) 'NIL) ('T 'T))))))) 
 
 (DEFUN |PSETPK;interReduce;2L;18| (|lp| $)
-  (PROG (|rs| |ps| #1=#:G347 |r| |p|)
+  (PROG (|rs| |ps| #1=#:G349 |r| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -401,7 +401,7 @@
               (EXIT |newlp|)))))))) 
 
 (DEFUN |PSETPK;crushedSet;2L;22| (|lp| $)
-  (PROG (|finished| #1=#:G376 |contradiction| |rec| |rs| |bs|)
+  (PROG (|finished| #1=#:G378 |contradiction| |rec| |rs| |bs|)
     (RETURN
      (SEQ
       (LETT |rec| (SPADCALL |lp| (QREFELT $ 74))
@@ -489,8 +489,8 @@
 
 (DEFUN |PSETPK;rewriteSetByReducingWithParticularGenerators;LMMML;23|
        (|ps| |pred?| |redOp?| |redOp| $)
-  (PROG (|rs| |contradiction| #1=#:G393 |stop| |bs1| |bs2| #2=#:G392 |ar|
-         #3=#:G389 |rec|)
+  (PROG (|rs| |contradiction| #1=#:G395 |stop| |bs1| |bs2| #2=#:G394 |ar|
+         #3=#:G391 |rec|)
     (RETURN
      (SEQ
       (LETT |rs| (SPADCALL (ELT $ 42) |ps| (QREFELT $ 43))
@@ -603,7 +603,7 @@
     (SPADCALL (ELT $ 14) (SPADCALL |lp| |lq| (QREFELT $ 66)) (QREFELT $ 16))))) 
 
 (DEFUN |PSETPK;irreducibleFactors;2L;26| (|lp| $)
-  (PROG (|newlp| |lf| #1=#:G430 |rrz| #2=#:G429 |lrrz| |fp| |p|)
+  (PROG (|newlp| |lf| #1=#:G432 |rrz| #2=#:G431 |lrrz| |fp| |p|)
     (RETURN
      (SEQ (LETT |newlp| NIL . #3=(|PSETPK;irreducibleFactors;2L;26|))
           (SEQ G190 (COND ((NULL (COND ((NULL |lp|) 'NIL) ('T 'T))) (GO G191)))
@@ -638,7 +638,7 @@
           (EXIT (SPADCALL |newlp| (QREFELT $ 12))))))) 
 
 (DEFUN |PSETPK;lazyIrreducibleFactors;2L;27| (|lp| $)
-  (PROG (|newlp| |lf| #1=#:G440 |rrz| #2=#:G439 |lrrz| |fp| |p|)
+  (PROG (|newlp| |lf| #1=#:G442 |rrz| #2=#:G441 |lrrz| |fp| |p|)
     (RETURN
      (SEQ
       (LETT |lp| (SPADCALL |lp| (QREFELT $ 89))
@@ -683,7 +683,7 @@
     (SPADCALL (ELT $ 14) (SPADCALL |lp| |lq| (QREFELT $ 66)) (QREFELT $ 16))))) 
 
 (DEFUN |PSETPK;squareFreeFactors;PL;29| (|p| $)
-  (PROG (|lsf| #1=#:G450 |foo| #2=#:G449 |sfp|)
+  (PROG (|lsf| #1=#:G452 |foo| #2=#:G451 |sfp|)
     (RETURN
      (SEQ
       (LETT |sfp| (SPADCALL |p| (QREFELT $ 101))
@@ -760,7 +760,7 @@
   (SPADCALL |ps| 'NIL (QREFELT $ 105))) 
 
 (DEFUN |PSETPK;removeSquaresIfCan;2L;32| (|lp| $)
-  (PROG (#1=#:G471 |p| #2=#:G470)
+  (PROG (#1=#:G473 |p| #2=#:G472)
     (RETURN
      (SEQ
       (COND ((NULL |lp|) |lp|)
@@ -792,8 +792,8 @@
       (EXIT (SPADCALL |ps| (ELT $ 40) |redOp?| |redOp| (QREFELT $ 86))))))) 
 
 (DEFUN |PSETPK;removeRoughlyRedundantFactorsInContents;3L;34| (|ps| |lf| $)
-  (PROG (|newps| |newp| |newcp| #1=#:G480 |test| |copylf| |f| #2=#:G497
-         #3=#:G496 |cp| |p|)
+  (PROG (|newps| |newp| |newcp| #1=#:G482 |test| |copylf| |f| #2=#:G499
+         #3=#:G498 |cp| |p|)
     (RETURN
      (SEQ
       (COND ((NULL |ps|) |ps|)
@@ -881,7 +881,7 @@
               (EXIT |newps|)))))))) 
 
 (DEFUN |PSETPK;removeRedundantFactorsInContents;3L;35| (|ps| |lf| $)
-  (PROG (|newps| |newp| |newcp| #1=#:G500 |g| |copylf| |f| |cp| |p|)
+  (PROG (|newps| |newp| |newcp| #1=#:G502 |g| |copylf| |f| |cp| |p|)
     (RETURN
      (SEQ
       (COND ((NULL |ps|) |ps|)
@@ -954,7 +954,7 @@
               (EXIT |newps|)))))))) 
 
 (DEFUN |PSETPK;removeRedundantFactorsInPols;3L;36| (|ps| |lf| $)
-  (PROG (|newps| |newp| #1=#:G516 |g| |newcp| |copylf| |f| |cp| |p|)
+  (PROG (|newps| |newp| #1=#:G518 |g| |newcp| |copylf| |f| |cp| |p|)
     (RETURN
      (SEQ
       (COND ((NULL |ps|) |ps|)
@@ -1044,7 +1044,7 @@
               (EXIT |newps|)))))))) 
 
 (DEFUN |PSETPK;removeRedundantFactors;2PL;37| (|a| |b| $)
-  (PROG (#1=#:G534 |#G88| |#G87|)
+  (PROG (#1=#:G536 |#G88| |#G87|)
     (RETURN
      (SEQ
       (EXIT
@@ -1076,7 +1076,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PSETPK;unprotectedRemoveRedundantFactors;2PL;38| (|a| |b| $)
-  (PROG (#1=#:G541 #2=#:G536 |g| |d| |c|)
+  (PROG (#1=#:G543 #2=#:G538 |g| |d| |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -1132,7 +1132,7 @@
   (SPADCALL |ps| (ELT $ 40) |redOp?| |redOp| (QREFELT $ 86))) 
 
 (DEFUN |PSETPK;removeRedundantFactors;2PL;41| (|a| |b| $)
-  (PROG (#1=#:G553 |#G98| |#G97|)
+  (PROG (#1=#:G555 |#G98| |#G97|)
     (RETURN
      (SEQ
       (EXIT
@@ -1163,7 +1163,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PSETPK;unprotectedRemoveRedundantFactors;2PL;42| (|a| |b| $)
-  (PROG (#1=#:G561 |d| |#G102| |#G101| #2=#:G555 |c|)
+  (PROG (#1=#:G563 |d| |#G102| |#G101| #2=#:G557 |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -1200,7 +1200,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PSETPK;removeRedundantFactors;2L;43| (|lp| $)
-  (PROG (|top| |base| |p| #1=#:G577 #2=#:G576 #3=#:G575 #4=#:G574)
+  (PROG (|top| |base| |p| #1=#:G579 #2=#:G578 #3=#:G577 #4=#:G576)
     (RETURN
      (SEQ
       (LETT |lp| (SPADCALL (ELT $ 23) |lp| (QREFELT $ 43))
@@ -1378,10 +1378,10 @@
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT |toSave|))))))))) 
 
-(DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G604)
+(DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G606)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G605)
+     (PROG (#2=#:G607)
        (RETURN
         (COND
          ((LETT #2#

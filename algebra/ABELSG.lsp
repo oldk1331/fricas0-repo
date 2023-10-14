@@ -4,12 +4,12 @@
 (DEFPARAMETER |AbelianSemiGroup;AL| 'NIL) 
 
 (DEFUN |AbelianSemiGroup| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|AbelianSemiGroup;AL|)
           (T (SETQ |AbelianSemiGroup;AL| (|AbelianSemiGroup;|)))))) 
 
 (DEFUN |AbelianSemiGroup;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

@@ -149,7 +149,7 @@
               (EXIT |x|)))))))) 
 
 (DEFUN |URAGG-;findCycle| (|x| $)
-  (PROG (|y| #1=#:G230)
+  (PROG (|y| #1=#:G232)
     (RETURN
      (SEQ
       (EXIT
@@ -277,7 +277,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |URAGG-;last;ANniA;22| (|x| |n| $)
-  (PROG (#1=#:G257 |m|)
+  (PROG (#1=#:G259 |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |x| (QREFELT $ 44)) . #2=(|URAGG-;last;ANniA;22|))
@@ -293,7 +293,7 @@
                (QREFELT $ 47))))))))) 
 
 (DEFUN |URAGG-;=;2AB;23| (|x| |y| $)
-  (PROG (#1=#:G268 |k|)
+  (PROG (#1=#:G270 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -333,7 +333,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |URAGG-;node?;2AB;24| (|u| |v| $)
-  (PROG (#1=#:G274 |k|)
+  (PROG (#1=#:G276 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -386,7 +386,7 @@
 (DEFUN |URAGG-;setvalue!;A2S;31| (|u| |s| $) (SPADCALL |u| |s| (QREFELT $ 53))) 
 
 (DEFUN |URAGG-;split!;AIA;32| (|p| |n| $)
-  (PROG (|q| #1=#:G285)
+  (PROG (|q| #1=#:G287)
     (RETURN
      (SEQ
       (COND ((< |n| 1) (|error| "index out of range"))

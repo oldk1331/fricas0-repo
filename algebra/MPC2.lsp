@@ -38,10 +38,10 @@
                (SPADCALL (|MPC2;supMap| |fn| |supr| $) |var|
                          (QREFELT $ 35))))))))))) 
 
-(DEFUN |MPolyCatFunctions2| (&REST #1=#:G139)
+(DEFUN |MPolyCatFunctions2| (&REST #1=#:G141)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G142)
        (RETURN
         (COND
          ((LETT #2#

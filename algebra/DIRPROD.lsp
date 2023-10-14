@@ -29,7 +29,7 @@
                 (QREFELT $ 21)))))) 
 
 (DEFUN |DIRPROD;=;2$B;6| (|x| |y| $)
-  (PROG (#1=#:G142 #2=#:G144 #3=#:G145 |i|)
+  (PROG (#1=#:G144 #2=#:G146 #3=#:G147 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -52,7 +52,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |DIRPROD;=;2$B;7| (|x| |y| $)
-  (PROG (#1=#:G147 #2=#:G149 #3=#:G150 |i|)
+  (PROG (#1=#:G149 #2=#:G151 #3=#:G152 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -75,7 +75,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |DIRPROD;=;2$B;8| (|x| |y| $)
-  (PROG (#1=#:G152 #2=#:G154 #3=#:G155 |i|)
+  (PROG (#1=#:G154 #2=#:G156 #3=#:G157 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -112,7 +112,7 @@
    ('T (CONS 1 "failed")))) 
 
 (DEFUN |DIRPROD;index;Pi$;11| (|n| $)
-  (PROG (L #1=#:G167 |p| #2=#:G172 |i| #3=#:G166 N)
+  (PROG (L #1=#:G169 |p| #2=#:G174 |i| #3=#:G168 N)
     (RETURN
      (SEQ (LETT N (SPADCALL (QREFELT $ 28)) . #4=(|DIRPROD;index;Pi$;11|))
           (LETT |p| (- |n| 1) . #4#)
@@ -140,7 +140,7 @@
           (EXIT (SPADCALL L (QREFELT $ 31))))))) 
 
 (DEFUN |DIRPROD;random;$;12| ($)
-  (PROG (#1=#:G175 #2=#:G177 |i| #3=#:G176)
+  (PROG (#1=#:G177 #2=#:G179 |i| #3=#:G178)
     (RETURN
      (SEQ
       (PROGN
@@ -154,7 +154,7 @@
        #3#))))) 
 
 (DEFUN |DIRPROD;lookup;$Pi;13| (|x| $)
-  (PROG (#1=#:G179 L #2=#:G182 |i| N)
+  (PROG (#1=#:G181 L #2=#:G184 |i| N)
     (RETURN
      (SEQ (LETT N (SPADCALL (QREFELT $ 28)) . #3=(|DIRPROD;lookup;$Pi;13|))
           (LETT L
@@ -208,7 +208,7 @@
     (RETURN (PROGN (SPADCALL |r| |x| (QREFELT $ 45)))))) 
 
 (DEFUN |DIRPROD;*;3$;19| (|x| |y| $)
-  (PROG (#1=#:G194 #2=#:G196 |i| #3=#:G195)
+  (PROG (#1=#:G196 #2=#:G198 |i| #3=#:G197)
     (RETURN
      (SEQ
       (PROGN
@@ -227,7 +227,7 @@
        #3#))))) 
 
 (DEFUN |DIRPROD;subtractIfCan;2$U;20| (|u| |v| $)
-  (PROG (#1=#:G206 |c| #2=#:G207 |i| |w|)
+  (PROG (#1=#:G208 |c| #2=#:G209 |i| |w|)
     (RETURN
      (SEQ
       (EXIT
@@ -254,7 +254,7 @@
   (SPADCALL (ELT $ 45) |u| |v| (QREFELT $ 40))) 
 
 (DEFUN |DIRPROD;recip;$U;22| (|z| $)
-  (PROG (#1=#:G220 |u| #2=#:G221 |i| |w|)
+  (PROG (#1=#:G222 |u| #2=#:G223 |i| |w|)
     (RETURN
      (SEQ
       (EXIT
@@ -286,7 +286,7 @@
       (SPADCALL |v| |i| (|spadConstant| $ 44) (QREFELT $ 59)) (EXIT |v|))))) 
 
 (DEFUN |DIRPROD;<;2$B;24| (|x| |y| $)
-  (PROG (#1=#:G224 #2=#:G228 |b| |a| #3=#:G229 |i|)
+  (PROG (#1=#:G226 #2=#:G230 |b| |a| #3=#:G231 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -314,7 +314,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |DIRPROD;<;2$B;25| (|x| |y| $)
-  (PROG (#1=#:G230 #2=#:G234 |b| |a| #3=#:G235 |i|)
+  (PROG (#1=#:G232 #2=#:G236 |b| |a| #3=#:G237 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -342,7 +342,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |DIRPROD;<;2$B;26| (|x| |y| $)
-  (PROG (#1=#:G236 #2=#:G240 #3=#:G241 |i|)
+  (PROG (#1=#:G238 #2=#:G242 #3=#:G243 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -374,10 +374,10 @@
 (DEFUN |DIRPROD;sup;3$;27| (|x| |y| $)
   (SPADCALL (ELT $ 64) |x| |y| (QREFELT $ 40))) 
 
-(DEFUN |DirectProduct| (&REST #1=#:G259)
+(DEFUN |DirectProduct| (&REST #1=#:G261)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G260)
+     (PROG (#2=#:G262)
        (RETURN
         (COND
          ((LETT #2#
@@ -395,7 +395,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|DirectProduct|))))))))))) 
 
 (DEFUN |DirectProduct;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G253 #2=#:G254 #3=#:G255 #4=#:G256 #5=#:G257 #6=#:G258 $
+  (PROG (|pv$| #1=#:G255 #2=#:G256 #3=#:G257 #4=#:G258 #5=#:G259 #6=#:G260 $
          |dv$| DV$2 DV$1)
     (RETURN
      (PROGN

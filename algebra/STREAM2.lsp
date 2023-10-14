@@ -62,10 +62,10 @@
          (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 13)) |b| |h|) |h|
                    (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 26))))) 
 
-(DEFUN |StreamFunctions2| (&REST #1=#:G172)
+(DEFUN |StreamFunctions2| (&REST #1=#:G174)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G173)
+     (PROG (#2=#:G175)
        (RETURN
         (COND
          ((LETT #2#

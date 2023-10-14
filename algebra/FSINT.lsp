@@ -34,7 +34,7 @@
           (EXIT |g|))))) 
 
 (DEFUN |FSINT;rinteg| (|i| |f| |x| |h| $)
-  (PROG (|l| #1=#:G163 #2=#:G162)
+  (PROG (|l| #1=#:G165 #2=#:G164)
     (RETURN
      (SEQ
       (COND
@@ -88,7 +88,7 @@
                  (QREFELT $ 51))))))) 
 
 (DEFUN |FSINT;find_int| (|i| |t| $)
-  (PROG (#1=#:G173 |akl| #2=#:G174 |k| |ii| |k0| |ail|)
+  (PROG (#1=#:G175 |akl| #2=#:G176 |k| |ii| |k0| |ail|)
     (RETURN
      (SEQ
       (EXIT
@@ -121,8 +121,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSINT;postSubst| (|f| |lv| |lk| |ltan| |x| $)
-  (PROG (#1=#:G199 |k| #2=#:G198 #3=#:G197 #4=#:G196 |ltemp| #5=#:G195
-         #6=#:G194 |uk| |tf| |u| #7=#:G192 |v| #8=#:G193)
+  (PROG (#1=#:G201 |k| #2=#:G200 #3=#:G199 #4=#:G198 |ltemp| #5=#:G197
+         #6=#:G196 |uk| |tf| |u| #7=#:G194 |v| #8=#:G195)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #9=(|FSINT;postSubst|)) (LETT #8# |lk| . #9#)
@@ -229,7 +229,7 @@
       (EXIT (SPADCALL |f| |x| (QREFELT $ 80))))))) 
 
 (DEFUN |FSINT;inv_lst| (|lt| |le| $)
-  (PROG (|rese| |resk| |ie| |ik| |k1| |e1| #1=#:G211 |k| #2=#:G212 |e| |im|)
+  (PROG (|rese| |resk| |ie| |ik| |k1| |e1| #1=#:G213 |k| #2=#:G214 |e| |im|)
     (RETURN
      (SEQ (LETT |resk| NIL . #3=(|FSINT;inv_lst|)) (LETT |rese| NIL . #3#)
           (LETT |im|
@@ -307,10 +307,10 @@
   (COND ((NULL |ltan|) |rt|) ((NULL (CDR (CDR |l|))) 'NIL) ('T 'T))) 
 
 (DEFUN |FSINT;integrate;FSU;12| (|f| |x| $)
-  (PROG (#1=#:G254 |h| #2=#:G253 |u| |ovals| |okers| |ltg| |i| |gg| |rtg1|
-         |tgg1| #3=#:G252 |k| #4=#:G251 |tgg0| |gg0| |el| |rtg| |tg| #5=#:G250
-         #6=#:G249 |g| |rec| |evals| |ekers| |vk| |vu| #7=#:G247 #8=#:G248 |v|
-         |etf| #9=#:G246 #10=#:G245 |ht| |ltf| |tf|)
+  (PROG (#1=#:G256 |h| #2=#:G255 |u| |ovals| |okers| |ltg| |i| |gg| |rtg1|
+         |tgg1| #3=#:G254 |k| #4=#:G253 |tgg0| |gg0| |el| |rtg| |tg| #5=#:G252
+         #6=#:G251 |g| |rec| |evals| |ekers| |vk| |vu| #7=#:G249 #8=#:G250 |v|
+         |etf| #9=#:G248 #10=#:G247 |ht| |ltf| |tf|)
     (RETURN
      (SEQ
       (COND
@@ -513,10 +513,10 @@
 (DEFUN |FSINT;integrate;FSU;12!0| (|x1| $)
   (SPADCALL (SPADCALL |x1| (QREFELT $ 54)) '|tan| (QREFELT $ 29))) 
 
-(DEFUN |FunctionSpaceIntegration| (&REST #1=#:G255)
+(DEFUN |FunctionSpaceIntegration| (&REST #1=#:G257)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G256)
+     (PROG (#2=#:G258)
        (RETURN
         (COND
          ((LETT #2#

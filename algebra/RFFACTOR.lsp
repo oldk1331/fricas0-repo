@@ -99,10 +99,10 @@
            (QREFELT $ 13)))))
        ('T (|error| "case not handled"))))))) 
 
-(DEFUN |RationalFunctionFactorizer| (#1=#:G129)
+(DEFUN |RationalFunctionFactorizer| (#1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G130)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

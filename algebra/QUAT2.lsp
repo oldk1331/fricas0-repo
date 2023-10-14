@@ -73,10 +73,10 @@
      (SPADCALL (QVELT |x| 1) (QVELT |y| 2) (QREFELT $ 19)) (QREFELT $ 20))
     (SPADCALL (QVELT |x| 2) (QVELT |y| 1) (QREFELT $ 19)) (QREFELT $ 21)))) 
 
-(DEFUN |GeneralQuaternion| (&REST #1=#:G152)
+(DEFUN |GeneralQuaternion| (&REST #1=#:G154)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G153)
+     (PROG (#2=#:G155)
        (RETURN
         (COND
          ((LETT #2#
@@ -95,7 +95,7 @@
               (HREM |$ConstructorCache| '|GeneralQuaternion|))))))))))) 
 
 (DEFUN |GeneralQuaternion;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G151 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G153 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralQuaternion|))

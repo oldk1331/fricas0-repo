@@ -27,10 +27,10 @@
 (DEFUN |PADEPAC;pade;2NniUtsU;2| (|n| |m| |u| $)
   (SPADCALL |n| |m| |u| (|spadConstant| $ 27) (QREFELT $ 26))) 
 
-(DEFUN |PadeApproximantPackage| (&REST #1=#:G135)
+(DEFUN |PadeApproximantPackage| (&REST #1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#

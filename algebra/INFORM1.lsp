@@ -28,10 +28,10 @@
   (SPADCALL (SPADCALL (SPADCALL |form| (QREFELT $ 18)) (QREFELT $ 21))
             (QREFELT $ 23))) 
 
-(DEFUN |InputFormFunctions1| (#1=#:G132)
+(DEFUN |InputFormFunctions1| (#1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G133)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

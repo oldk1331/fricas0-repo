@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |IMATLIN;rowAllZeroes?| (|x| |i| $)
-  (PROG (#1=#:G143 #2=#:G145 #3=#:G146 |j|)
+  (PROG (#1=#:G145 #2=#:G147 #3=#:G148 |j|)
     (RETURN
      (SEQ
       (EXIT
@@ -28,7 +28,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |IMATLIN;colAllZeroes?| (|x| |j| $)
-  (PROG (#1=#:G148 #2=#:G150 #3=#:G151 |i|)
+  (PROG (#1=#:G150 #2=#:G152 #3=#:G153 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -54,7 +54,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |IMATLIN;rowEchelon;2M;3| (|y| $)
-  (PROG (|i| |k1| |k| |b| #1=#:G154 |n| #2=#:G166 |j| |maxC| |minC| |maxR|
+  (PROG (|i| |k1| |k| |b| #1=#:G156 |n| #2=#:G168 |j| |maxC| |minC| |maxR|
          |minR| |x|)
     (RETURN
      (SEQ
@@ -171,7 +171,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |IMATLIN;rank;MNni;4| (|x| $)
-  (PROG (|rk| #1=#:G169 |i| |y| |rh|)
+  (PROG (|rk| #1=#:G171 |i| |y| |rh|)
     (RETURN
      (SEQ
       (LETT |y|
@@ -207,7 +207,7 @@
       (EXIT |rk|))))) 
 
 (DEFUN |IMATLIN;nullity;MNni;5| (|x| $)
-  (PROG (#1=#:G174)
+  (PROG (#1=#:G176)
     (RETURN
      (PROG1
          (LETT #1#
@@ -216,8 +216,8 @@
        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
 
 (DEFUN |IMATLIN;nullSpace;ML;6| (|y| $)
-  (PROG (|l| |j| |basis| #1=#:G198 |k| #2=#:G199 |ll| |w| #3=#:G197 |i| |v|
-         |row| #4=#:G177 |rk| #5=#:G176 |ncol| |nrow| |maxC| |minC| |maxR|
+  (PROG (|l| |j| |basis| #1=#:G200 |k| #2=#:G201 |ll| |w| #3=#:G199 |i| |v|
+         |row| #4=#:G179 |rk| #5=#:G178 |ncol| |nrow| |maxC| |minC| |maxR|
          |minR| |x|)
     (RETURN
      (SEQ
@@ -367,7 +367,7 @@
           (EXIT |basis|))))))))) 
 
 (DEFUN |IMATLIN;determinant;MR;7| (|y| $)
-  (PROG (|l| |b| |k| |ans| #1=#:G214 #2=#:G202 |rown| #3=#:G215 |i| #4=#:G216
+  (PROG (|l| |b| |k| |ans| #1=#:G216 #2=#:G204 |rown| #3=#:G217 |i| #4=#:G218
          |j| |maxC| |minC| |maxR| |minR| |x| |ndim|)
     (RETURN
      (SEQ
@@ -486,7 +486,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |IMATLIN;generalizedInverse;2M;8| (|x| $)
-  (PROG (|yy| #1=#:G219 |var| |nc| |ty| |y| MATCAT22 MATCAT2 VFSUP FSUP SUP)
+  (PROG (|yy| #1=#:G221 |var| |nc| |ty| |y| MATCAT22 MATCAT2 VFSUP FSUP SUP)
     (RETURN
      (SEQ
       (LETT SUP (|SparseUnivariatePolynomial| (QREFELT $ 6))
@@ -704,10 +704,10 @@
                       (SPADCALL AB |kmin| |kmax| (+ |lmin| |ndim|)
                                 (+ |lmax| |ndim|) (QREFELT $ 51))))))))))))) 
 
-(DEFUN |InnerMatrixLinearAlgebraFunctions| (&REST #1=#:G238)
+(DEFUN |InnerMatrixLinearAlgebraFunctions| (&REST #1=#:G240)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G239)
+     (PROG (#2=#:G241)
        (RETURN
         (COND
          ((LETT #2#

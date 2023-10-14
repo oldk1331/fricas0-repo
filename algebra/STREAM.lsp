@@ -51,7 +51,7 @@
         (#1# (CONS (SPADCALL "..." (QREFELT $ 22)) |le|)))) 
 
 (DEFUN |STREAM;streamCountCoerce| (|x| $)
-  (PROG (|pp| |pl| #1=#:G234 |i| |le| #2=#:G233 |fc| |y| |count|)
+  (PROG (|pp| |pl| #1=#:G236 |i| |le| #2=#:G235 |fc| |y| |count|)
     (RETURN
      (SEQ (LETT |count| |$streamCount| . #3=(|STREAM;streamCountCoerce|))
           (LETT |y| |x| . #3#)
@@ -211,7 +211,7 @@
                        (QREFELT $ 44)))))))) 
 
 (DEFUN |STREAM;copy;2$;16| (|x| $)
-  (PROG (|head| #1=#:G273 |cycle| |d| |e| |len| |ce| |cycElt|)
+  (PROG (|head| #1=#:G275 |cycle| |d| |e| |len| |ce| |cycElt|)
     (RETURN
      (SEQ
       (LETT |cycElt| (SPADCALL |x| (QREFELT $ 36)) . #2=(|STREAM;copy;2$;16|))
@@ -347,7 +347,7 @@
   (SEQ (|STREAM;setfrst!| |x| |s| $) (EXIT (|STREAM;setrst!| |x| |x| $)))) 
 
 (DEFUN |STREAM;map!;M2$;28| (|f| |x| $)
-  (PROG (|y| #1=#:G423 |tail|)
+  (PROG (|y| #1=#:G425 |tail|)
     (RETURN
      (SEQ
       (COND
@@ -463,7 +463,7 @@
                           (QREFELT $ 44)))))))))) 
 
 (DEFUN |STREAM;setelt;$Us2S;33| (|x| |seg| |s| $)
-  (PROG (#1=#:G489 |y| #2=#:G493 |i| #3=#:G483 |high| |low|)
+  (PROG (#1=#:G491 |y| #2=#:G495 |i| #3=#:G485 |high| |low|)
     (RETURN
      (SEQ
       (LETT |low| (SPADCALL |seg| (QREFELT $ 84))
@@ -563,7 +563,7 @@
     (LETT |x| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G536)
+      (PROG (#2=#:G538)
         (RETURN
          (COND
           ((OR (SPADCALL |n| (|spadConstant| $ 90) (QREFELT $ 92))
@@ -589,7 +589,7 @@
 (DEFUN |STREAM;cons;S2$;40| (|s| |x| $) (SPADCALL |s| |x| (QREFELT $ 44))) 
 
 (DEFUN |STREAM;cycleSplit!;2$;41| (|x| $)
-  (PROG (|z| #1=#:G553 |y| |cycElt|)
+  (PROG (|z| #1=#:G555 |y| |cycElt|)
     (RETURN
      (SEQ
       (EXIT
@@ -629,7 +629,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STREAM;expand!| (|x| |n| $)
-  (PROG (#1=#:G564 |e| |y| |nLessD| #2=#:G563 |t| |d| |cycElt| |i|)
+  (PROG (#1=#:G566 |e| |y| |nLessD| #2=#:G565 |t| |d| |cycElt| |i|)
     (RETURN
      (SEQ
       (COND ((< |n| 1) |x|)
@@ -759,7 +759,7 @@
   (SPADCALL |x| |s| (QREFELT $ 106))) 
 
 (DEFUN |STREAM;split!;$I$;52| (|x| |n| $)
-  (PROG (|y| #1=#:G583)
+  (PROG (|y| #1=#:G585)
     (RETURN
      (SEQ
       (COND ((< |n| 1) (|error| "split!: index out of range"))
@@ -812,7 +812,7 @@
          (EXIT (|STREAM;setrst!| |x| |x0| $))))))))) 
 
 (DEFUN |STREAM;repeating?;L$B;55| (|l| |x| $)
-  (PROG (#1=#:G602 #2=#:G603 |s| |x0|)
+  (PROG (#1=#:G604 #2=#:G605 |s| |x0|)
     (RETURN
      (SEQ
       (EXIT
@@ -1056,10 +1056,10 @@
           (#1='T |x|)))
         (#1# (|STREAM;suntill| |p| |x| $)))) 
 
-(DEFUN |Stream| (#1=#:G777)
+(DEFUN |Stream| (#1=#:G779)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G778)
+     (PROG (#2=#:G780)
        (RETURN
         (COND
          ((LETT #2#
@@ -1073,7 +1073,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Stream|))))))))))) 
 
 (DEFUN |Stream;| (|#1|)
-  (PROG (#1=#:G776 |pv$| #2=#:G773 #3=#:G774 #4=#:G775 $ |dv$| DV$1)
+  (PROG (#1=#:G778 |pv$| #2=#:G775 #3=#:G776 #4=#:G777 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|Stream|))

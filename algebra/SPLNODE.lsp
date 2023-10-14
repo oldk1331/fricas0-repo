@@ -35,7 +35,7 @@
   (SPADCALL (QCAR |vt|) (QCDR |vt|) (QREFELT $ 19))) 
 
 (DEFUN |SPLNODE;construct;LL;11| (|lvt| $)
-  (PROG (#1=#:G151 |vt| #2=#:G150)
+  (PROG (#1=#:G153 |vt| #2=#:G152)
     (RETURN
      (SEQ
       (PROGN
@@ -50,7 +50,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SPLNODE;construct;VLL;12| (|v| |lt| $)
-  (PROG (#1=#:G155 |t| #2=#:G154)
+  (PROG (#1=#:G157 |t| #2=#:G156)
     (RETURN
      (SEQ
       (PROGN
@@ -139,10 +139,10 @@
       (LETT |l| (LIST |o1| |o2| |o3|) . #1#)
       (EXIT (SPADCALL (SPADCALL |l| (QREFELT $ 48)) (QREFELT $ 49))))))) 
 
-(DEFUN |SplittingNode| (&REST #1=#:G179)
+(DEFUN |SplittingNode| (&REST #1=#:G181)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G180)
+     (PROG (#2=#:G182)
        (RETURN
         (COND
          ((LETT #2#

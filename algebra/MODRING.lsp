@@ -94,10 +94,10 @@
            (COND ((QEQCAR |u| 1) (|error| "not invertible"))
                  ('T (QCDR |u|)))))))) 
 
-(DEFUN |ModularRing| (&REST #1=#:G182)
+(DEFUN |ModularRing| (&REST #1=#:G184)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G183)
+     (PROG (#2=#:G185)
        (RETURN
         (COND
          ((LETT #2#

@@ -114,10 +114,10 @@
            (SPADCALL (QCAR |rec|) (SPADCALL (QCDR |rec|) (QREFELT $ 61))
                      (QREFELT $ 62))))))) 
 
-(DEFUN |RationalFunctionSum| (#1=#:G158)
+(DEFUN |RationalFunctionSum| (#1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G159)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SGCF;numberOfImproperPartitionsInternal| (|n| |m| |cm| $)
-  (PROG (|s| #1=#:G138 |i|)
+  (PROG (|s| #1=#:G140 |i|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (SPADCALL |m| |cm| (QREFELT $ 8)))
@@ -25,7 +25,7 @@
               (EXIT |s|)))))))) 
 
 (DEFUN |SGCF;numberOfImproperPartitions;3I;2| (|n| |m| $)
-  (PROG (|s| |i| #1=#:G141)
+  (PROG (|s| |i| #1=#:G143)
     (RETURN
      (SEQ
       (EXIT
@@ -49,7 +49,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SGCF;unrankImproperPartitions0;3IL;3| (|n| |m| |k| $)
-  (PROG (|l| #1=#:G143 |s| |sOld| |y| #2=#:G150 |t|)
+  (PROG (|l| #1=#:G145 |s| |sOld| |y| #2=#:G152 |t|)
     (RETURN
      (SEQ (LETT |l| NIL . #3=(|SGCF;unrankImproperPartitions0;3IL;3|))
           (EXIT
@@ -92,8 +92,8 @@
                    (EXIT |l|))))))))) 
 
 (DEFUN |SGCF;unrankImproperPartitions1;3IL;4| (|n| |m| |k| $)
-  (PROG (#1=#:G162 |i| |nonZeroPos| |nonZeros| #2=#:G154 |s| |sOld| |y| |cm|
-         |partition| #3=#:G152)
+  (PROG (#1=#:G164 |i| |nonZeroPos| |nonZeros| #2=#:G156 |s| |sOld| |y| |cm|
+         |partition| #3=#:G154)
     (RETURN
      (SEQ (LETT |nonZeros| NIL . #4=(|SGCF;unrankImproperPartitions1;3IL;4|))
           (LETT |partition|
@@ -157,7 +157,7 @@
                   (EXIT (SPADCALL |partition| (QREFELT $ 20))))))))))) 
 
 (DEFUN |SGCF;subSet;3IL;5| (|n| |m| |k| $)
-  (PROG (|s| |mm| |l| #1=#:G164 #2=#:G172 |y| #3=#:G171 |t| |bin|)
+  (PROG (|s| |mm| |l| #1=#:G166 #2=#:G174 |y| #3=#:G173 |t| |bin|)
     (RETURN
      (SEQ
       (COND
@@ -218,10 +218,10 @@
 
 (DEFUN |SGCF;nextLatticePermutation;2LBL;6|
        (|lambda| |lattP| |constructNotFirst| $)
-  (PROG (#1=#:G202 |l| |i| |rightPosition| #2=#:G191 |j| |ready| |leftEntry|
-         #3=#:G183 |rightEntry| #4=#:G201 #5=#:G182 |help| |n| #6=#:G181
-         #7=#:G179 #8=#:G178 #9=#:G180 #10=#:G200 #11=#:G125 |rows| #12=#:G174
-         |columns| #13=#:G173 |lprime|)
+  (PROG (#1=#:G204 |l| |i| |rightPosition| #2=#:G193 |j| |ready| |leftEntry|
+         #3=#:G185 |rightEntry| #4=#:G203 #5=#:G184 |help| |n| #6=#:G183
+         #7=#:G181 #8=#:G180 #9=#:G182 #10=#:G202 #11=#:G127 |rows| #12=#:G176
+         |columns| #13=#:G175 |lprime|)
     (RETURN
      (SEQ
       (LETT |lprime| (SPADCALL |lambda| (QREFELT $ 23))
@@ -406,8 +406,8 @@
               (EXIT |lattP|))))))))) 
 
 (DEFUN |SGCF;makeYoungTableau;2LM;7| (|lambda| |gitter| $)
-  (PROG (|i| |j| #1=#:G209 |l| |help| |ytab| |rows| #2=#:G204 |columns|
-         #3=#:G203 |lprime|)
+  (PROG (|i| |j| #1=#:G211 |l| |help| |ytab| |rows| #2=#:G206 |columns|
+         #3=#:G205 |lprime|)
     (RETURN
      (SEQ
       (LETT |lprime| (SPADCALL |lambda| (QREFELT $ 23))
@@ -438,7 +438,7 @@
       (EXIT |ytab|))))) 
 
 (DEFUN |SGCF;listYoungTableaus;LL;8| (|lambda| $)
-  (PROG (|lattice| |younglist| |ytab| #1=#:G214)
+  (PROG (|lattice| |younglist| |ytab| #1=#:G216)
     (RETURN
      (SEQ (LETT |younglist| NIL . #2=(|SGCF;listYoungTableaus;LL;8|))
           (LETT |lattice| (SPADCALL |lambda| |lattice| 'NIL (QREFELT $ 28))
@@ -455,8 +455,8 @@
           (EXIT |younglist|))))) 
 
 (DEFUN |SGCF;nextColeman;2L2M;9| (|alpha| |beta| C $)
-  (PROG (|vrest| |coleman| |succ| #1=#:G229 |i| #2=#:G223 |j| #3=#:G216
-         #4=#:G228 #5=#:G215 |cnull| |vzero| |vnull| |ncol| |nrow|)
+  (PROG (|vrest| |coleman| |succ| #1=#:G231 |i| #2=#:G225 |j| #3=#:G218
+         #4=#:G230 #5=#:G217 |cnull| |vzero| |vnull| |ncol| |nrow|)
     (RETURN
      (SEQ
       (EXIT
@@ -547,7 +547,7 @@
   (SPADCALL (SPADCALL |gamma| (QREFELT $ 20)) |part| |number| (QREFELT $ 46))) 
 
 (DEFUN |SGCF;nextPartition;LVIV;11| (|gamma| |part| |number| $)
-  (PROG (#1=#:G242 |k| |j| |sum| |i| #2=#:G241 |vnull| |n|)
+  (PROG (#1=#:G244 |k| |j| |sum| |i| #2=#:G243 |vnull| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -608,7 +608,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SGCF;inverseColeman;2LML;12| (|alpha| |beta| C $)
-  (PROG (|pi| #1=#:G251 |k| |i| |j| |sum| |help| |ncol| |nrow|)
+  (PROG (|pi| #1=#:G253 |k| |i| |j| |sum| |help| |ncol| |nrow|)
     (RETURN
      (SEQ (LETT |pi| NIL . #2=(|SGCF;inverseColeman;2LML;12|))
           (LETT |nrow| (LENGTH |beta|) . #2#)
@@ -656,8 +656,8 @@
           (EXIT |pi|))))) 
 
 (DEFUN |SGCF;coleman;3LM;13| (|alpha| |beta| |pi| $)
-  (PROG (|j| |betasum| #1=#:G261 |help| #2=#:G259 |i| |temp| |alphasum|
-         #3=#:G255 #4=#:G253 |colematrix| |ncol| |nrow|)
+  (PROG (|j| |betasum| #1=#:G263 |help| #2=#:G261 |i| |temp| |alphasum|
+         #3=#:G257 #4=#:G255 |colematrix| |ncol| |nrow|)
     (RETURN
      (SEQ (LETT |nrow| (LENGTH |beta|) . #5=(|SGCF;coleman;3LM;13|))
           (LETT |ncol| (LENGTH |alpha|) . #5#) (LETT |temp| NIL . #5#)
@@ -748,7 +748,7 @@
 (DEFUN |SymmetricGroupCombinatoricFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G268)
+     (PROG (#1=#:G270)
        (RETURN
         (COND
          ((LETT #1#

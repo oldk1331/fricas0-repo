@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |CYCLOTOM;cyclotomic;ISup;1| (|n| $)
-  (PROG (|l| #1=#:G132 #2=#:G131 #3=#:G129 #4=#:G137 |u| |g|)
+  (PROG (|l| #1=#:G134 #2=#:G133 #3=#:G131 #4=#:G139 |u| |g|)
     (RETURN
      (SEQ
       (LETT |g| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 12))
@@ -48,8 +48,8 @@
       (EXIT |l|))))) 
 
 (DEFUN |CYCLOTOM;cyclotomicDecomposition;IL;2| (|n| $)
-  (PROG (|l| |m| #1=#:G143 #2=#:G156 |z| #3=#:G155 #4=#:G154 |rr| #5=#:G141
-         #6=#:G153 #7=#:G152 #8=#:G151 |u| |g|)
+  (PROG (|l| |m| #1=#:G145 #2=#:G158 |z| #3=#:G157 #4=#:G156 |rr| #5=#:G143
+         #6=#:G155 #7=#:G154 #8=#:G153 |u| |g|)
     (RETURN
      (SEQ
       (LETT |g| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 12))
@@ -128,7 +128,7 @@
       (EXIT |l|))))) 
 
 (DEFUN |CYCLOTOM;cyclotomicFactorization;IF;3| (|n| $)
-  (PROG (|fr| #1=#:G160 |f|)
+  (PROG (|fr| #1=#:G162 |f|)
     (RETURN
      (SEQ
       (LETT |fr| (|spadConstant| $ 27)
@@ -149,7 +149,7 @@
 (DEFUN |CyclotomicPolynomialPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G162)
+     (PROG (#1=#:G164)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|CyclotomicPolynomialPackage|)

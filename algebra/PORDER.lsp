@@ -4,11 +4,11 @@
 (DEFPARAMETER |PartialOrder;AL| 'NIL) 
 
 (DEFUN |PartialOrder| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|PartialOrder;AL|) (T (SETQ |PartialOrder;AL| (|PartialOrder;|)))))) 
 
 (DEFUN |PartialOrder;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

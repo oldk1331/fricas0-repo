@@ -13,7 +13,7 @@
   (EXPT (SPADCALL (QREFELT $ 18)) (SPADCALL (QREFELT $ 19)))) 
 
 (DEFUN |MRING;index;Pi$;4| (|k| $)
-  (PROG (|i| |ans| |m| #1=#:G174 |c| #2=#:G172 |h| |j| |n| |p|)
+  (PROG (|i| |ans| |m| #1=#:G176 |c| #2=#:G174 |h| |j| |n| |p|)
     (RETURN
      (SEQ
       (LETT |i| (REM |k| (SPADCALL (QREFELT $ 20))) . #3=(|MRING;index;Pi$;4|))
@@ -50,7 +50,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |MRING;lookup;$Pi;5| (|z| $)
-  (PROG (|res| |co| |ex| |l| #1=#:G187 |te| |n| |p| |liTe|)
+  (PROG (|res| |co| |ex| |l| #1=#:G189 |te| |n| |p| |liTe|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |z| (QREFELT $ 29)) (SPADCALL (QREFELT $ 20)))
@@ -83,7 +83,7 @@
 (DEFUN |MRING;terms;$L;8| (|a| $) (SPADCALL |a| (QREFELT $ 37))) 
 
 (DEFUN |MRING;monomials;$L;9| (|a| $)
-  (PROG (#1=#:G197 |t| #2=#:G196)
+  (PROG (#1=#:G199 |t| #2=#:G198)
     (RETURN
      (SEQ
       (PROGN
@@ -97,7 +97,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |MRING;coefficients;$L;10| (|a| $)
-  (PROG (#1=#:G202 |t| #2=#:G201)
+  (PROG (#1=#:G204 |t| #2=#:G203)
     (RETURN
      (SEQ
       (PROGN
@@ -122,7 +122,7 @@
         ('T (LIST (CONS (SPADCALL |n| (QREFELT $ 44)) (|spadConstant| $ 36)))))) 
 
 (DEFUN |MRING;-;2$;14| (|a| $)
-  (PROG (#1=#:G213 |t| #2=#:G212)
+  (PROG (#1=#:G215 |t| #2=#:G214)
     (RETURN
      (SEQ
       (PROGN
@@ -142,7 +142,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |MRING;*;R2$;15| (|r| |a| $)
-  (PROG (#1=#:G218 |t| #2=#:G217)
+  (PROG (#1=#:G220 |t| #2=#:G219)
     (RETURN
      (SEQ
       (COND
@@ -167,7 +167,7 @@
               (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |MRING;*;R2$;16| (|r| |a| $)
-  (PROG (|rt| #1=#:G223 |t| #2=#:G222)
+  (PROG (|rt| #1=#:G225 |t| #2=#:G224)
     (RETURN
      (SEQ
       (COND
@@ -191,7 +191,7 @@
               (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |MRING;*;I2$;17| (|n| |a| $)
-  (PROG (#1=#:G228 |t| #2=#:G227)
+  (PROG (#1=#:G230 |t| #2=#:G229)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 12))
@@ -214,7 +214,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |MRING;*;I2$;18| (|n| |a| $)
-  (PROG (|nt| #1=#:G233 |t| #2=#:G232)
+  (PROG (|nt| #1=#:G235 |t| #2=#:G234)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 12))
@@ -237,7 +237,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |MRING;map;M2$;19| (|f| |a| $)
-  (PROG (|ft| #1=#:G239 |t| #2=#:G238)
+  (PROG (|ft| #1=#:G241 |t| #2=#:G240)
     (RETURN
      (SEQ
       (PROGN
@@ -326,7 +326,7 @@
               (QREFELT $ 70))))) 
 
 (DEFUN |MRING;coerce;$Of;26| (|a| $)
-  (PROG (#1=#:G294 |t| #2=#:G293)
+  (PROG (#1=#:G296 |t| #2=#:G295)
     (RETURN
      (SEQ
       (COND ((NULL |a|) (SPADCALL 0 (QREFELT $ 71)))
@@ -362,7 +362,7 @@
 (DEFUN |MRING;reductum;2$;29| (|a| $) (COND ((NULL |a|) |a|) ('T (CDR |a|)))) 
 
 (DEFUN |MRING;=;2$B;30| (|a| |b| $)
-  (PROG (#1=#:G306 #2=#:G309 #3=#:G310 |ta| #4=#:G311 |tb|)
+  (PROG (#1=#:G308 #2=#:G311 #3=#:G312 |ta| #4=#:G313 |tb|)
     (RETURN
      (SEQ
       (EXIT
@@ -435,7 +435,7 @@
            (SPADCALL |c| (SPADCALL |a| |b| (QREFELT $ 86)) (QREFELT $ 87))))))) 
 
 (DEFUN |MRING;coefficient;$MR;32| (|a| |m| $)
-  (PROG (#1=#:G330 #2=#:G331 |t|)
+  (PROG (#1=#:G332 #2=#:G333 |t|)
     (RETURN
      (SEQ
       (EXIT
@@ -458,7 +458,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MRING;*;3$;33| (|a| |b| $)
-  (PROG (#1=#:G334 #2=#:G333 #3=#:G335 #4=#:G340 |tb| #5=#:G339 #6=#:G338 |ta|)
+  (PROG (#1=#:G336 #2=#:G335 #3=#:G337 #4=#:G342 |tb| #5=#:G341 #6=#:G340 |ta|)
     (RETURN
      (SEQ
       (PROGN
@@ -498,7 +498,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 12)))))))) 
 
 (DEFUN |MRING;*;3$;34| (|a| |b| $)
-  (PROG (#1=#:G343 #2=#:G342 #3=#:G344 |r| #4=#:G350 |tb| #5=#:G349 #6=#:G348
+  (PROG (#1=#:G345 #2=#:G344 #3=#:G346 |r| #4=#:G352 |tb| #5=#:G351 #6=#:G350
          |ta|)
     (RETURN
      (SEQ
@@ -549,7 +549,7 @@
 (DEFUN |MRING;ge| (|s| |t| $) (SPADCALL (QCDR |t|) (QCDR |s|) (QREFELT $ 91))) 
 
 (DEFUN |MRING;sortAndAdd| (|liTe| $)
-  (PROG (|res| |cf| |m| #1=#:G363 |te|)
+  (PROG (|res| |cf| |m| #1=#:G365 |te|)
     (RETURN
      (SEQ
       (LETT |liTe|
@@ -580,7 +580,7 @@
       (EXIT (REVERSE |res|)))))) 
 
 (DEFUN |MRING;*;3$;37| (|a| |b| $)
-  (PROG (#1=#:G366 #2=#:G365 #3=#:G367 #4=#:G378 |tb| #5=#:G377 #6=#:G376 |ta|)
+  (PROG (#1=#:G368 #2=#:G367 #3=#:G369 #4=#:G380 |tb| #5=#:G379 #6=#:G378 |ta|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 29)) |a|)
@@ -630,7 +630,7 @@
               (COND (#1# #2#) (#7# (|spadConstant| $ 12)))))))))) 
 
 (DEFUN |MRING;*;3$;38| (|a| |b| $)
-  (PROG (#1=#:G381 #2=#:G380 #3=#:G382 |r| #4=#:G398 |tb| #5=#:G397 #6=#:G396
+  (PROG (#1=#:G383 #2=#:G382 #3=#:G384 |r| #4=#:G400 |tb| #5=#:G399 #6=#:G398
          |ta|)
     (RETURN
      (SEQ
@@ -697,7 +697,7 @@
                    (QREFELT $ 96))))) 
 
 (DEFUN |MRING;coefficient;$MR;40| (|a| |m| $)
-  (PROG (#1=#:G405 #2=#:G407 #3=#:G408 |t|)
+  (PROG (#1=#:G407 #2=#:G409 #3=#:G410 |t|)
     (RETURN
      (SEQ
       (EXIT
@@ -740,7 +740,7 @@
               (EXIT (|spadConstant| $ 13)))))))))) 
 
 (DEFUN |MRING;+;3$;42| (|a| |b| $)
-  (PROG (#1=#:G426 |m| #2=#:G425 #3=#:G424 |t| #4=#:G423 |Tabl|)
+  (PROG (#1=#:G428 |m| #2=#:G427 #3=#:G426 |t| #4=#:G425 |Tabl|)
     (RETURN
      (SEQ (LETT |Tabl| (SPADCALL (QREFELT $ 101)) . #5=(|MRING;+;3$;42|))
           (SEQ (LETT |t| NIL . #5#) (LETT #4# |a| . #5#) G190
@@ -774,7 +774,7 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |MRING;*;3$;43| (|a| |b| $)
-  (PROG (#1=#:G436 |m| #2=#:G435 #3=#:G434 |tb| #4=#:G433 |ta| |Tabl|)
+  (PROG (#1=#:G438 |m| #2=#:G437 #3=#:G436 |tb| #4=#:G435 |ta| |Tabl|)
     (RETURN
      (SEQ (LETT |Tabl| (SPADCALL (QREFELT $ 101)) . #5=(|MRING;*;3$;43|))
           (SEQ (LETT |ta| NIL . #5#) (LETT #4# |a| . #5#) G190
@@ -811,10 +811,10 @@
                  (LETT #1# (CDR #1#) . #5#) (GO G190) G191
                  (EXIT (NREVERSE #2#))))))))) 
 
-(DEFUN |MonoidRing| (&REST #1=#:G437)
+(DEFUN |MonoidRing| (&REST #1=#:G439)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G438)
+     (PROG (#2=#:G440)
        (RETURN
         (COND
          ((LETT #2#

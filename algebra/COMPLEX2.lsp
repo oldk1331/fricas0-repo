@@ -5,10 +5,10 @@
   (SPADCALL (SPADCALL (SPADCALL |gr| (QREFELT $ 9)) |fn|)
             (SPADCALL (SPADCALL |gr| (QREFELT $ 10)) |fn|) (QREFELT $ 12))) 
 
-(DEFUN |ComplexFunctions2| (&REST #1=#:G127)
+(DEFUN |ComplexFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

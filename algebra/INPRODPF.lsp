@@ -39,10 +39,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |z1| |a| |d| (QREFELT $ 28)))))) 
 
-(DEFUN |InfiniteProductPrimeField| (&REST #1=#:G145)
+(DEFUN |InfiniteProductPrimeField| (&REST #1=#:G147)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G146)
+     (PROG (#2=#:G148)
        (RETURN
         (COND
          ((LETT #2#

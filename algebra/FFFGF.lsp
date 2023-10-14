@@ -60,10 +60,10 @@
        (SPADCALL |x| (SPADCALL |den| |i| (QREFELT $ 11)) (QREFELT $ 27))
        (QREFELT $ 28)))))) 
 
-(DEFUN |FractionFreeFastGaussianFractions| (&REST #1=#:G137)
+(DEFUN |FractionFreeFastGaussianFractions| (&REST #1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#

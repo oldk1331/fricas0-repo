@@ -72,10 +72,10 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT |r|))))) 
 
-(DEFUN |NumberTheoreticPolynomialFunctions| (#1=#:G137)
+(DEFUN |NumberTheoreticPolynomialFunctions| (#1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#

@@ -30,7 +30,7 @@
             (QREFELT $ 14))) 
 
 (DEFUN |HYPCAT-;cosh;2S;5| (|x| $)
-  (PROG (#1=#:G150 |e|)
+  (PROG (#1=#:G152 |e|)
     (RETURN
      (SEQ (LETT |e| (SPADCALL |x| (QREFELT $ 18)) . #2=(|HYPCAT-;cosh;2S;5|))
           (EXIT
@@ -48,7 +48,7 @@
             (QREFELT $ 14))))))) 
 
 (DEFUN |HYPCAT-;sinh;2S;6| (|x| $)
-  (PROG (#1=#:G155 |e|)
+  (PROG (#1=#:G157 |e|)
     (RETURN
      (SEQ (LETT |e| (SPADCALL |x| (QREFELT $ 18)) . #2=(|HYPCAT-;sinh;2S;6|))
           (EXIT

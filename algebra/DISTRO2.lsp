@@ -26,10 +26,10 @@
 
 (DEFUN |DISTRO2;coerce;DD;5| (|x| $) (SPADCALL (ELT $ 22) |x| (QREFELT $ 20))) 
 
-(DEFUN |DistributionFunctions2| (&REST #1=#:G136)
+(DEFUN |DistributionFunctions2| (&REST #1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

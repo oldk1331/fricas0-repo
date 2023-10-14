@@ -4,16 +4,16 @@
 (DEFPARAMETER |StringAggregate;AL| 'NIL) 
 
 (DEFUN |StringAggregate| ()
-  (LET (#:G128)
+  (LET (#:G130)
     (COND (|StringAggregate;AL|)
           (T (SETQ |StringAggregate;AL| (|StringAggregate;|)))))) 
 
 (DEFUN |StringAggregate;| ()
-  (PROG (#1=#:G126)
+  (PROG (#1=#:G128)
     (RETURN
      (PROG1
          (LETT #1#
-               (|sublisV| (PAIR '(#2=#:G125) (LIST '(|Character|)))
+               (|sublisV| (PAIR '(#2=#:G127) (LIST '(|Character|)))
                           (|Join| (|OneDimensionalArrayAggregate| '#2#)
                                   (|mkCategory|
                                    '(((|lowerCase| ($ $)) T)

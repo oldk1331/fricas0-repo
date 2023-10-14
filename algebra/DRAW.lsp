@@ -280,10 +280,10 @@
 (DEFUN |DRAW;draw;Ps2SbTdv;16| (|s| |uBind| |vBind| $)
   (SPADCALL |s| |uBind| |vBind| NIL (QREFELT $ 71))) 
 
-(DEFUN |TopLevelDrawFunctions| (#1=#:G221)
+(DEFUN |TopLevelDrawFunctions| (#1=#:G223)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G222)
+     (PROG (#2=#:G224)
        (RETURN
         (COND
          ((LETT #2#

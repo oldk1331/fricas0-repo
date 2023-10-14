@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DEFINTEF;innerint;FS2OcBU;1| (|f| |x| |a| |b| |ignor?| $)
-  (PROG (#1=#:G156 |v| |u|)
+  (PROG (#1=#:G158 |v| |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -62,7 +62,7 @@
                 (#1# (|DEFINTEF;nopole| |f| |x| |k| |a| |b| $))))))))))) 
 
 (DEFUN |DEFINTEF;checkForPole| (|f| |x| |k| |a| |b| $)
-  (PROG (#1=#:G201 |u| |d|)
+  (PROG (#1=#:G203 |u| |d|)
     (RETURN
      (SEQ
       (EXIT
@@ -89,7 +89,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |DEFINTEF;checkFor0| (|p| |x| |a| |b| $)
-  (PROG (#1=#:G223 |w| |k| |z| #2=#:G213 #3=#:G228 #4=#:G229 |t| |v| |u|)
+  (PROG (#1=#:G225 |w| |k| |z| #2=#:G215 #3=#:G230 #4=#:G231 |t| |v| |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -187,8 +187,8 @@
                                           (QREFELT $ 58)))))))))))))) 
 
 (DEFUN |DEFINTEF;checkSMP| (|p| |x| |k| |a| |b| $)
-  (PROG (#1=#:G286 |w| #2=#:G284 #3=#:G273 |f| |kk| |z| |n| #4=#:G294 #5=#:G296
-         |t| |v| #6=#:G252 #7=#:G295 |u|)
+  (PROG (#1=#:G288 |w| #2=#:G286 #3=#:G275 |f| |kk| |z| |n| #4=#:G296 #5=#:G298
+         |t| |v| #6=#:G254 #7=#:G297 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -437,7 +437,7 @@
       #4# (EXIT #4#))))) 
 
 (DEFUN |DEFINTEF;posit| (|f| |x| |k| |a| |b| $)
-  (PROG (#1=#:G311 |w| #2=#:G312 #3=#:G304 |b2| |z| |r| |b1|)
+  (PROG (#1=#:G313 |w| #2=#:G314 #3=#:G306 |b2| |z| |r| |b1|)
     (RETURN
      (SEQ
       (EXIT
@@ -503,7 +503,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |DEFINTEF;negat| (|f| |x| |k| |a| |b| $)
-  (PROG (#1=#:G328 |w| #2=#:G329 #3=#:G321 |b2| |z| |r| |b1|)
+  (PROG (#1=#:G330 |w| #2=#:G331 #3=#:G323 |b2| |z| |r| |b1|)
     (RETURN
      (SEQ
       (EXIT
@@ -569,7 +569,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |DEFINTEF;polyIfCan| (|p| |x| $)
-  (PROG (|q| |ans| #1=#:G338 |c|)
+  (PROG (|q| |ans| #1=#:G340 |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -607,7 +607,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |DEFINTEF;nopole| (|f| |x| |k| |a| |b| $)
-  (PROG (|ans| #1=#:G354 |v| #2=#:G355 |g| |u|)
+  (PROG (|ans| #1=#:G356 |v| #2=#:G357 |g| |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -644,10 +644,10 @@
                 (EXIT (CONS 1 |ans|))))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |ElementaryFunctionDefiniteIntegration| (&REST #1=#:G356)
+(DEFUN |ElementaryFunctionDefiniteIntegration| (&REST #1=#:G358)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G357)
+     (PROG (#2=#:G359)
        (RETURN
         (COND
          ((LETT #2#

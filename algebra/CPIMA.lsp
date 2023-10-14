@@ -7,7 +7,7 @@
   (SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 13))) 
 
 (DEFUN |CPIMA;characteristicPolynomial;EPolR;2| (|x| $)
-  (PROG (#1=#:G128 |Qx|)
+  (PROG (#1=#:G130 |Qx|)
     (RETURN
      (SEQ
       (EXIT
@@ -25,10 +25,10 @@
           (GO #1#)))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |CharacteristicPolynomialInMonogenicalAlgebra| (&REST #1=#:G129)
+(DEFUN |CharacteristicPolynomialInMonogenicalAlgebra| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G130)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

@@ -28,7 +28,7 @@
       (EXIT (SPADCALL |kk| NIL (QREFELT $ 16))))))) 
 
 (DEFUN |PMPREDFS;suchThat;FLF;5| (|p| |l| $)
-  (PROG (#1=#:G144 |f| #2=#:G143)
+  (PROG (#1=#:G146 |f| #2=#:G145)
     (RETURN
      (SEQ
       (COND
@@ -48,10 +48,10 @@
          $))
        ('T (|error| "suchThat must be applied to symbols only"))))))) 
 
-(DEFUN |FunctionSpaceAttachPredicates| (&REST #1=#:G145)
+(DEFUN |FunctionSpaceAttachPredicates| (&REST #1=#:G147)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G146)
+     (PROG (#2=#:G148)
        (RETURN
         (COND
          ((LETT #2#

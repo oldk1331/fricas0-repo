@@ -18,7 +18,7 @@
   (SPADCALL (SPADCALL |f| (QREFELT $ 28)) (QREFELT $ 31))) 
 
 (DEFUN |TRIGMNIP;complexKernels| (|f| $)
-  (PROG (|lv| |lk| |u| #1=#:G150 |k|)
+  (PROG (|lv| |lk| |u| #1=#:G152 |k|)
     (RETURN
      (SEQ (LETT |lk| NIL . #2=(|TRIGMNIP;complexKernels|))
           (LETT |lv| NIL . #2#)
@@ -38,7 +38,7 @@
           (EXIT (CONS |lk| |lv|)))))) 
 
 (DEFUN |TRIGMNIP;kcomplex| (|k| $)
-  (PROG (#1=#:G162 |u| |a| #2=#:G159 |n| |arg| |op|)
+  (PROG (#1=#:G164 |u| |a| #2=#:G161 |n| |arg| |op|)
     (RETURN
      (SEQ (LETT |op| (SPADCALL |k| (QREFELT $ 36)) . #3=(|TRIGMNIP;kcomplex|))
           (EXIT
@@ -148,7 +148,7 @@
     (RETURN (PROGN (SPADCALL |x| RTRIG (QREFELT $ 57)))))) 
 
 (DEFUN |TRIGMNIP;complexNormalize;FSF;9| (|f| |x| $)
-  (PROG (#1=#:G178 |g| |k| #2=#:G177)
+  (PROG (#1=#:G180 |g| |k| #2=#:G179)
     (RETURN
      (SEQ
       (COND
@@ -219,7 +219,7 @@
     (RETURN (PROGN (SPADCALL |x| RTRIG (QREFELT $ 57)))))) 
 
 (DEFUN |TRIGMNIP;complexElementary;FSF;11| (|f| |x| $)
-  (PROG (#1=#:G191 |g| |k| #2=#:G190)
+  (PROG (#1=#:G193 |g| |k| #2=#:G192)
     (RETURN
      (SEQ
       (COND
@@ -280,7 +280,7 @@
     (RETURN (PROGN (SPADCALL |x| RTRIG (QREFELT $ 57)))))) 
 
 (DEFUN |TRIGMNIP;localexplogs| (|f| |g| $)
-  (PROG (#1=#:G199 |k| #2=#:G198)
+  (PROG (#1=#:G201 |k| #2=#:G200)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL |g| (QREFELT $ 21))
@@ -317,10 +317,10 @@
                                    (QREFELT $ 14))
                          (QREFELT $ 52)))))))))) 
 
-(DEFUN |TrigonometricManipulations| (&REST #1=#:G203)
+(DEFUN |TrigonometricManipulations| (&REST #1=#:G205)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G204)
+     (PROG (#2=#:G206)
        (RETURN
         (COND
          ((LETT #2#

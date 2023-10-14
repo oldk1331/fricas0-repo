@@ -4,12 +4,12 @@
 (DEFPARAMETER |RadicalCategory;AL| 'NIL) 
 
 (DEFUN |RadicalCategory| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|RadicalCategory;AL|)
           (T (SETQ |RadicalCategory;AL| (|RadicalCategory;|)))))) 
 
 (DEFUN |RadicalCategory;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

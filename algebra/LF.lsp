@@ -86,7 +86,7 @@
    (QREFELT $ 67))) 
 
 (DEFUN |LF;eqint| (|k1| |k2| $)
-  (PROG (|res| #1=#:G180 |a2| |a1|)
+  (PROG (|res| #1=#:G182 |a2| |a1|)
     (RETURN
      (SEQ
       (EXIT
@@ -151,7 +151,7 @@
                       (SPADCALL (QREFELT $ 17) |l| (QREFELT $ 61))))))))))))) 
 
 (DEFUN |LF;dviint| (|l| |v| $)
-  (PROG (|m| |lv| #1=#:G198 |vf| #2=#:G197 |lvf| |n| |nu|)
+  (PROG (|m| |lv| #1=#:G200 |vf| #2=#:G199 |lvf| |n| |nu|)
     (RETURN
      (SEQ
       (LETT |nu| (SPADCALL (LENGTH |l|) 2 (QREFELT $ 81)) . #3=(|LF;dviint|))
@@ -306,10 +306,10 @@
           (QREFELT $ 126)))
    $)) 
 
-(DEFUN |LiouvillianFunction| (&REST #1=#:G280)
+(DEFUN |LiouvillianFunction| (&REST #1=#:G282)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G281)
+     (PROG (#2=#:G283)
        (RETURN
         (COND
          ((LETT #2#

@@ -95,7 +95,7 @@
 (DEFUN |DISPLAY;sayLength;SI;10| (|s| $) (QCSIZE |s|)) 
 
 (DEFUN |DISPLAY;sayLength;LI;11| (|l| $)
-  (PROG (|sum| #1=#:G148 |s|)
+  (PROG (|sum| #1=#:G150 |s|)
     (RETURN
      (SEQ (LETT |sum| 0 . #2=(|DISPLAY;sayLength;LI;11|))
           (SEQ (LETT |s| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -117,7 +117,7 @@
 (DEFUN |DisplayPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G150)
+     (PROG (#1=#:G152)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|DisplayPackage|)

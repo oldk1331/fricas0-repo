@@ -96,7 +96,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;13|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G253 |pp| |checkPF|)
+  (PROG (#1=#:G255 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -137,7 +137,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;19|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G295 |pp| |checkPF|)
+  (PROG (#1=#:G297 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -189,7 +189,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;27|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G355 |pp| |checkPF|)
+  (PROG (#1=#:G357 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -230,7 +230,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;33|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G397 |pp| |checkPF|)
+  (PROG (#1=#:G399 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -293,7 +293,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;43|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G475 |pp| |checkPF|)
+  (PROG (#1=#:G477 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -334,7 +334,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;49|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G517 |pp| |checkPF|)
+  (PROG (#1=#:G519 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -386,7 +386,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;57|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G577 |pp| |checkPF|)
+  (PROG (#1=#:G579 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -427,7 +427,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;63|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G619 |pp| |checkPF|)
+  (PROG (#1=#:G621 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -531,7 +531,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;77|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G728 |pp| |checkPF|)
+  (PROG (#1=#:G730 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -572,7 +572,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;83|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G770 |pp| |checkPF|)
+  (PROG (#1=#:G772 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -624,7 +624,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;91|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G830 |pp| |checkPF|)
+  (PROG (#1=#:G832 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -665,7 +665,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;97|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G872 |pp| |checkPF|)
+  (PROG (#1=#:G874 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -728,7 +728,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;107|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G950 |pp| |checkPF|)
+  (PROG (#1=#:G952 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -769,7 +769,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;113|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G992 |pp| |checkPF|)
+  (PROG (#1=#:G994 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -821,7 +821,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;121|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G1052 |pp| |checkPF|)
+  (PROG (#1=#:G1054 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -862,7 +862,7 @@
 
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;127|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
-  (PROG (#1=#:G1094 |pp| |checkPF|)
+  (PROG (#1=#:G1096 |pp| |checkPF|)
     (RETURN
      (SEQ
       (EXIT
@@ -903,9 +903,9 @@
 
 (DEFUN |MODHPS;check_sol_mod_diff|
        (|resv| |list| |sigma| |gen| |qvar| |vars| $)
-  (PROG (#1=#:G1146 |min_ord| #2=#:G1137 |delta| |sigma0| |pa| #3=#:G1149 |j|
-         |c0| #4=#:G1131 |ord| #5=#:G1148 |i| |nres| |gv0| |gvl| |gv0p| |lpt|
-         |qval| #6=#:G1147 |var| |ii| |n0|)
+  (PROG (#1=#:G1148 |min_ord| #2=#:G1139 |delta| |sigma0| |pa| #3=#:G1151 |j|
+         |c0| #4=#:G1133 |ord| #5=#:G1150 |i| |nres| |gv0| |gvl| |gv0p| |lpt|
+         |qval| #6=#:G1149 |var| |ii| |n0|)
     (RETURN
      (SEQ
       (EXIT
@@ -1081,10 +1081,10 @@
                        (GO #1#)))))))))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |ModularHermitePadeSolver| (&REST #1=#:G1150)
+(DEFUN |ModularHermitePadeSolver| (&REST #1=#:G1152)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1151)
+     (PROG (#2=#:G1153)
        (RETURN
         (COND
          ((LETT #2#
@@ -1103,12 +1103,12 @@
               (HREM |$ConstructorCache| '|ModularHermitePadeSolver|))))))))))) 
 
 (DEFUN |ModularHermitePadeSolver;| (|#1| |#2|)
-  (PROG (#1=#:G1077 #2=#:G1075 #3=#:G1035 #4=#:G1033 #5=#:G975 #6=#:G973
-         #7=#:G933 #8=#:G931 #9=#:G855 #10=#:G853 #11=#:G813 #12=#:G811
-         #13=#:G753 #14=#:G751 #15=#:G711 #16=#:G709 #17=#:G602 #18=#:G600
-         #19=#:G560 #20=#:G558 #21=#:G500 #22=#:G498 #23=#:G458 #24=#:G456
-         #25=#:G380 #26=#:G378 #27=#:G338 #28=#:G336 #29=#:G278 #30=#:G276
-         #31=#:G236 #32=#:G234 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G1079 #2=#:G1077 #3=#:G1037 #4=#:G1035 #5=#:G977 #6=#:G975
+         #7=#:G935 #8=#:G933 #9=#:G857 #10=#:G855 #11=#:G815 #12=#:G813
+         #13=#:G755 #14=#:G753 #15=#:G713 #16=#:G711 #17=#:G604 #18=#:G602
+         #19=#:G562 #20=#:G560 #21=#:G502 #22=#:G500 #23=#:G460 #24=#:G458
+         #25=#:G382 #26=#:G380 #27=#:G340 #28=#:G338 #29=#:G280 #30=#:G278
+         #31=#:G238 #32=#:G236 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #33=(|ModularHermitePadeSolver|))

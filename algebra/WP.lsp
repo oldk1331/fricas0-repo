@@ -4,7 +4,7 @@
 (DEFUN |WP;changeWeightLevel;NniV;1| (|n| $) (SETELT $ 12 |n|)) 
 
 (DEFUN |WP;lookup| (|v| $)
-  (PROG (|l| #1=#:G141)
+  (PROG (|l| #1=#:G143)
     (RETURN
      (SEQ
       (EXIT
@@ -106,7 +106,7 @@
 (DEFUN |WP;coerce;P$;4| (|p| $) (|WP;innercoerce| |p| (QREFELT $ 12) $)) 
 
 (DEFUN |WP;coerce;$P;5| (|w| $)
-  (PROG (#1=#:G158 #2=#:G157 #3=#:G159 #4=#:G161 |c|)
+  (PROG (#1=#:G160 #2=#:G159 #3=#:G161 #4=#:G163 |c|)
     (RETURN
      (SEQ
       (PROGN
@@ -126,7 +126,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 54)))))))) 
 
 (DEFUN |WP;coerce;$Of;6| (|p| $)
-  (PROG (#1=#:G174 |c| #2=#:G173)
+  (PROG (#1=#:G176 |c| #2=#:G175)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 44)) (SPADCALL 0 (QREFELT $ 57)))
@@ -199,10 +199,10 @@
                (GO G190) G191 (EXIT NIL))
           (EXIT |w|))))) 
 
-(DEFUN |WeightedPolynomials| (&REST #1=#:G192)
+(DEFUN |WeightedPolynomials| (&REST #1=#:G194)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G193)
+     (PROG (#2=#:G195)
        (RETURN
         (COND
          ((LETT #2#
@@ -221,7 +221,7 @@
               (HREM |$ConstructorCache| '|WeightedPolynomials|))))))))))) 
 
 (DEFUN |WeightedPolynomials;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7|)
-  (PROG (#1=#:G190 |v| #2=#:G191 |n| #3=#:G189 |pv$| $ |dv$| DV$7 DV$6 DV$5
+  (PROG (#1=#:G192 |v| #2=#:G193 |n| #3=#:G191 |pv$| $ |dv$| DV$7 DV$6 DV$5
          DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (SEQ
@@ -285,7 +285,7 @@
               (|local| |#3|) (|local| |#4|) (|local| |#5|) (|local| |#6|)
               (|local| |#7|) '|Rep| (|Void|) (|NonNegativeInteger|)
               |WP;changeWeightLevel;NniV;1| (|List| 15) (0 . |#|) (|Boolean|)
-              (5 . ~=) '#:G125 '|lookupList|
+              (5 . ~=) '#:G127 '|lookupList|
               (|Record| (|:| |var| 7) (|:| |weight| 15)) (|List| 23) (11 . ~=)
               (17 . =)
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |WP;Zero;$;7|) $))

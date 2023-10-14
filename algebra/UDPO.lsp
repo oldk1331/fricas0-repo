@@ -40,7 +40,7 @@
                      (#1# (|SPADfirst| |x|))))))))))) 
 
 (DEFUN |UDPO;less?;2SU;7| (|a| |b| $)
-  (PROG (|bb| #1=#:G161 |aa| #2=#:G163 |x| #3=#:G162)
+  (PROG (|bb| #1=#:G163 |aa| #2=#:G165 |x| #3=#:G164)
     (RETURN
      (SEQ
       (EXIT
@@ -91,10 +91,10 @@
 
 (DEFUN |UDPO;largest;LS;9| (|x| $) (SPADCALL |x| (ELT $ 30) (QREFELT $ 27))) 
 
-(DEFUN |UserDefinedPartialOrdering| (#1=#:G167)
+(DEFUN |UserDefinedPartialOrdering| (#1=#:G169)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G168)
+     (PROG (#2=#:G170)
        (RETURN
         (COND
          ((LETT #2#

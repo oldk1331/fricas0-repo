@@ -24,7 +24,7 @@
          ('T (SEQ (PROGN (RPLACA #1=(CDR |t|) |s|) (QCAR #1#)) (EXIT |s|)))))) 
 
 (DEFUN |TREE;count;S$Nni;6| (|n| |t| $)
-  (PROG (|i| #1=#:G187 #2=#:G186 #3=#:G188 #4=#:G194 |c|)
+  (PROG (|i| #1=#:G189 #2=#:G188 #3=#:G190 #4=#:G196 |c|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |t| 1) 0)
@@ -58,7 +58,7 @@
                 (#5# |i|)))))))))) 
 
 (DEFUN |TREE;count;M$Nni;7| (|fn| |t| $)
-  (PROG (|i| #1=#:G196 #2=#:G195 #3=#:G197 #4=#:G201 |c|)
+  (PROG (|i| #1=#:G198 #2=#:G197 #3=#:G199 #4=#:G203 |c|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |t| 1) 0)
@@ -91,7 +91,7 @@
                      (#5# |i|)))))))))) 
 
 (DEFUN |TREE;map;M2$;8| (|fn| |t| $)
-  (PROG (#1=#:G206 |c| #2=#:G205)
+  (PROG (#1=#:G208 |c| #2=#:G207)
     (RETURN
      (SEQ
       (COND ((QEQCAR |t| 1) |t|)
@@ -117,7 +117,7 @@
                        (QREFELT $ 23)))))))) 
 
 (DEFUN |TREE;map!;M2$;9| (|fn| |t| $)
-  (PROG (#1=#:G211 |c|)
+  (PROG (#1=#:G213 |c|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |t| 1) |t|)
@@ -140,7 +140,7 @@
 (DEFUN |TREE;tree;S$;11| (|s| $) (CONS 0 (CONS |s| NIL))) 
 
 (DEFUN |TREE;tree;L$;12| (|ls| $)
-  (PROG (#1=#:G220 |s| #2=#:G219)
+  (PROG (#1=#:G222 |s| #2=#:G221)
     (RETURN
      (SEQ
       (COND ((NULL |ls|) (SPADCALL (QREFELT $ 10)))
@@ -172,8 +172,8 @@
         ('T (SPADCALL |t1| (SPADCALL |t2| (QREFELT $ 12)) (QREFELT $ 29))))) 
 
 (DEFUN |TREE;distance1| (|t1| |t2| $)
-  (PROG (#1=#:G229 #2=#:G228 #3=#:G230 #4=#:G235 #5=#:G125 |u| |n| #6=#:G234
-         |t| #7=#:G233)
+  (PROG (#1=#:G231 #2=#:G230 #3=#:G232 #4=#:G237 #5=#:G127 |u| |n| #6=#:G236
+         |t| #7=#:G235)
     (RETURN
      (SEQ
       (COND ((SPADCALL |t1| |t2| (QREFELT $ 31)) 0) ((QEQCAR |t2| 1) -1)
@@ -247,7 +247,7 @@
         ('T (SPADCALL (SPADCALL |t| (QREFELT $ 12)) (QREFELT $ 38))))) 
 
 (DEFUN |TREE;leaves;$L;19| (|t| $)
-  (PROG (#1=#:G254 #2=#:G253 #3=#:G255 #4=#:G258 |c|)
+  (PROG (#1=#:G256 #2=#:G255 #3=#:G257 #4=#:G260 |c|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |t| 1) NIL)
@@ -279,8 +279,8 @@
   (SPADCALL (SPADCALL |t| (QREFELT $ 42)) |n| (QREFELT $ 44))) 
 
 (DEFUN |TREE;nodes;$L;22| (|t| $)
-  (PROG (#1=#:G263 #2=#:G262 #3=#:G264 #4=#:G269 #5=#:G126 |nl| #6=#:G268 |c|
-         #7=#:G267)
+  (PROG (#1=#:G265 #2=#:G264 #3=#:G266 #4=#:G271 #5=#:G128 |nl| #6=#:G270 |c|
+         #7=#:G269)
     (RETURN
      (SEQ
       (COND ((QEQCAR |t| 1) (SPADCALL (QREFELT $ 46)))
@@ -340,7 +340,7 @@
   (EQL (SPADCALL |t| (QREFELT $ 42)) |n|)) 
 
 (DEFUN |TREE;any?;M$B;24| (|fn| |t| $)
-  (PROG (#1=#:G278 #2=#:G279 |c|)
+  (PROG (#1=#:G280 #2=#:G281 |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -363,7 +363,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |TREE;every?;M$B;25| (|fn| |t| $)
-  (PROG (#1=#:G285 #2=#:G286 |c|)
+  (PROG (#1=#:G287 #2=#:G288 |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -404,8 +404,8 @@
 (DEFUN |TREE;members;$L;27| (|t| $) (SPADCALL |t| (QREFELT $ 56))) 
 
 (DEFUN |TREE;parts;$L;28| (|t| $)
-  (PROG (#1=#:G302 #2=#:G301 #3=#:G303 #4=#:G308 #5=#:G127 |u| #6=#:G307 |c|
-         #7=#:G306)
+  (PROG (#1=#:G304 #2=#:G303 #3=#:G305 #4=#:G310 #5=#:G129 |u| #6=#:G309 |c|
+         #7=#:G308)
     (RETURN
      (SEQ
       (COND ((QEQCAR |t| 1) NIL)
@@ -456,7 +456,7 @@
 (DEFUN |TREE;=;2$B;29| (|t1| |t2| $) (|TREE;equal?| |t1| |t2| |t1| |t2| 0 $)) 
 
 (DEFUN |TREE;equal?| (|t1| |t2| |ot1| |ot2| |k| $)
-  (PROG (#1=#:G321 #2=#:G322 |x| #3=#:G323 |y| #4=#:G319 |c2| |c1|)
+  (PROG (#1=#:G323 #2=#:G324 |x| #3=#:G325 |y| #4=#:G321 |c2| |c1|)
     (RETURN
      (SEQ
       (EXIT
@@ -511,7 +511,7 @@
 (DEFUN |TREE;#;$Nni;31| (|t| $) (|TREE;treeCount| |t| |t| 0 $)) 
 
 (DEFUN |TREE;treeCount| (|t| |origTree| |k| $)
-  (PROG (#1=#:G333 #2=#:G332 #3=#:G334 #4=#:G337 |c|)
+  (PROG (#1=#:G335 #2=#:G334 #3=#:G336 #4=#:G339 |c|)
     (RETURN
      (SEQ
       (COND
@@ -547,7 +547,7 @@
 (DEFUN |TREE;copy;2$;33| (|t| $) (|TREE;copy1| |t| |t| 0 $)) 
 
 (DEFUN |TREE;copy1| (|t| |origTree| |k| $)
-  (PROG (#1=#:G348 |x| #2=#:G347)
+  (PROG (#1=#:G350 |x| #2=#:G349)
     (RETURN
      (SEQ
       (COND
@@ -587,7 +587,7 @@
    $)) 
 
 (DEFUN |TREE;coerce1| (|t| |parents| |pl| $)
-  (PROG (#1=#:G360 |br| #2=#:G359 |nodeForm| |k|)
+  (PROG (#1=#:G362 |br| #2=#:G361 |nodeForm| |k|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |t| 1) (SPADCALL NIL (QREFELT $ 66)))
@@ -652,7 +652,7 @@
   (|TREE;cyclic2?| |t| (SPADCALL (QREFELT $ 46)) $)) 
 
 (DEFUN |TREE;cyclic2?| (|x| |parents| $)
-  (PROG (#1=#:G369 #2=#:G373 #3=#:G374 |y|)
+  (PROG (#1=#:G371 #2=#:G375 #3=#:G376 |y|)
     (RETURN
      (SEQ
       (EXIT
@@ -685,7 +685,7 @@
   (|TREE;cyclicCopy2| |t| (SPADCALL |t| (QREFELT $ 75)) $)) 
 
 (DEFUN |TREE;cyclicCopy2| (|t| |cycles| $)
-  (PROG (#1=#:G380 |c| #2=#:G379 #3=#:G378)
+  (PROG (#1=#:G382 |c| #2=#:G381 #3=#:G380)
     (RETURN
      (SEQ
       (EXIT
@@ -716,7 +716,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |TREE;copyCycle2| (|cycle| |cycleList| $)
-  (PROG (#1=#:G385 |c| #2=#:G384 |newCycle|)
+  (PROG (#1=#:G387 |c| #2=#:G386 |newCycle|)
     (RETURN
      (SEQ
       (LETT |newCycle|
@@ -745,7 +745,7 @@
       (EXIT |newCycle|))))) 
 
 (DEFUN |TREE;copyCycle4| (|t| |cycle| |newCycle| |cycleList| $)
-  (PROG (#1=#:G392 |c| #2=#:G391)
+  (PROG (#1=#:G394 |c| #2=#:G393)
     (RETURN
      (SEQ
       (COND ((SPADCALL |cycle| (QREFELT $ 9)) (SPADCALL (QREFELT $ 10)))
@@ -780,7 +780,7 @@
    (SPADCALL (QREFELT $ 46)) $)) 
 
 (DEFUN |TREE;cyclicEntries3| (|t| |parents| |cl| $)
-  (PROG (#1=#:G399 |y|)
+  (PROG (#1=#:G401 |y|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |t| (QREFELT $ 9)) |cl|)
@@ -817,7 +817,7 @@
       (EXIT (|TREE;cyclicEqual4?| |t1| |t2| |cp1| |cp2| $)))))) 
 
 (DEFUN |TREE;cyclicEqual4?| (|t1| |t2| |cp1| |cp2| $)
-  (PROG (#1=#:G414 #2=#:G415 |x| #3=#:G416 |y| |k|)
+  (PROG (#1=#:G416 #2=#:G417 |x| #3=#:G418 |y| |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -861,7 +861,7 @@
    (SPADCALL (QREFELT $ 46)) $)) 
 
 (DEFUN |TREE;cyclicParents3| (|x| |parents| |pl| $)
-  (PROG (#1=#:G428 |y| |cycleMembers| #2=#:G427 #3=#:G426)
+  (PROG (#1=#:G430 |y| |cycleMembers| #2=#:G429 #3=#:G428)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 9)) |pl|)
@@ -923,7 +923,7 @@
       (EXIT |l|)))))) 
 
 (DEFUN |TREE;eqMember?| (|y| |l| $)
-  (PROG (#1=#:G440 #2=#:G442 #3=#:G443 |x|)
+  (PROG (#1=#:G442 #2=#:G444 #3=#:G445 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -974,10 +974,10 @@
               (EXIT
                (|TREE;eqUnion| (SPADCALL |u| (QREFELT $ 83)) |newV| $))))))))) 
 
-(DEFUN |Tree| (#1=#:G452)
+(DEFUN |Tree| (#1=#:G454)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G453)
+     (PROG (#2=#:G455)
        (RETURN
         (COND
          ((LETT #2#
@@ -991,7 +991,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tree|))))))))))) 
 
 (DEFUN |Tree;| (|#1|)
-  (PROG (|pv$| #1=#:G449 #2=#:G450 #3=#:G451 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G451 #2=#:G452 #3=#:G453 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Tree|))

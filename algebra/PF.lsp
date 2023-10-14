@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |PrimeField| (#1=#:G159)
+(DEFUN |PrimeField| (#1=#:G161)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G162)
        (RETURN
         (COND
          ((LETT #2#
@@ -42,7 +42,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|InnerPrimeField| 6) (|local| |#1|)
               (|Boolean|) (|Integer|) (|IntegerPrimesPackage| 8) (0 . |prime?|)
-              '#:G125 (|NonNegativeInteger|) (|PositiveInteger|)
+              '#:G127 (|NonNegativeInteger|) (|PositiveInteger|)
               (|SparseUnivariatePolynomial| $) (|Union| 14 '"failed")
               (|Union| $ '"failed") (|CardinalNumber|)
               (|OnePointCompletion| 13) (|Vector| $) (|Matrix| $)

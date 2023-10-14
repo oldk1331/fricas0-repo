@@ -15,8 +15,8 @@
   (SPADCALL |p| (|spadConstant| $ 13) (QREFELT $ 15))) 
 
 (DEFUN |JBE;numerJP;$Smp;5| (|f| $)
-  (PROG (|res| |Exp| JV |newco| |jv| |vs| #1=#:G169 |v| #2=#:G167 |mon|
-         #3=#:G168 |co| CO PM |p|)
+  (PROG (|res| |Exp| JV |newco| |jv| |vs| #1=#:G171 |v| #2=#:G169 |mon|
+         #3=#:G170 |co| CO PM |p|)
     (RETURN
      (SEQ (LETT |res| (|spadConstant| $ 18) . #4=(|JBE;numerJP;$Smp;5|))
           (LETT |p| (SPADCALL |f| (QREFELT $ 19)) . #4#)
@@ -72,7 +72,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |JBE;coerce;Smp$;6| (|p| $)
-  (PROG (|res| |prod| #1=#:G177 |v| #2=#:G175 |mon| #3=#:G176 |co| CO PM)
+  (PROG (|res| |prod| #1=#:G179 |v| #2=#:G177 |mon| #3=#:G178 |co| CO PM)
     (RETURN
      (SEQ (LETT |res| (|spadConstant| $ 45) . #4=(|JBE;coerce;Smp$;6|))
           (LETT PM (SPADCALL |p| (QREFELT $ 46)) . #4#)
@@ -130,7 +130,7 @@
   (CONS 0 (SPADCALL (|spadConstant| $ 36) |f| (QREFELT $ 60)))) 
 
 (DEFUN |JBE;purge| (|l| |q| $)
-  (PROG (#1=#:G194 |k| #2=#:G193)
+  (PROG (#1=#:G196 |k| #2=#:G195)
     (RETURN
      (SEQ
       (PROGN
@@ -149,8 +149,8 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |JBE;dimrec| (|lmv| |indVars| |remVars| |sets| $)
-  (PROG (|res| |elem| #1=#:G211 |ik| #2=#:G210 #3=#:G208 |m| #4=#:G209
-         #5=#:G206 |lv| #6=#:G207 |indK| |newVars| |jk|)
+  (PROG (|res| |elem| #1=#:G213 |ik| #2=#:G212 #3=#:G210 |m| #4=#:G211
+         #5=#:G208 |lv| #6=#:G209 |indK| |newVars| |jk|)
     (RETURN
      (SEQ (LETT |res| |sets| . #7=(|JBE;dimrec|))
           (LETT |newVars| |remVars| . #7#)
@@ -221,8 +221,8 @@
           (EXIT |res|))))) 
 
 (DEFUN |JBE;dimension;LSem2Nni;12| (|sys| |jm| |q| $)
-  (PROG (|dim| #1=#:G222 |ind| |indSets| |dim0| #2=#:G215 |allvars| #3=#:G221
-         |lv| |lmv| #4=#:G220 |p| #5=#:G219 |polys|)
+  (PROG (|dim| #1=#:G224 |ind| |indSets| |dim0| #2=#:G217 |allvars| #3=#:G223
+         |lv| |lmv| #4=#:G222 |p| #5=#:G221 |polys|)
     (RETURN
      (SEQ
       (LETT |polys| (SPADCALL (ELT $ 19) |sys| (QREFELT $ 78))
@@ -276,8 +276,8 @@
       (EXIT (+ |dim0| |dim|)))))) 
 
 (DEFUN |JBE;orderDim;LSem2Nni;13| (|sys| |jm| |q| $)
-  (PROG (|dim| #1=#:G233 |ind| |indSets| |dim0| #2=#:G226 |allvars| #3=#:G232
-         |lv| |lmv| #4=#:G231 |p| #5=#:G230 |polys|)
+  (PROG (|dim| #1=#:G235 |ind| |indSets| |dim0| #2=#:G228 |allvars| #3=#:G234
+         |lv| |lmv| #4=#:G233 |p| #5=#:G232 |polys|)
     (RETURN
      (SEQ
       (LETT |polys| (SPADCALL (ELT $ 19) |sys| (QREFELT $ 78))
@@ -413,8 +413,8 @@
       (EXIT (SPADCALL (ELT $ 16) |gbase| (QREFELT $ 119))))))) 
 
 (DEFUN |JBE;groebnerSimp| (|sysL| |ind| $)
-  (PROG (#1=#:G275 |fun| |i| #2=#:G274 |resJM| #3=#:G273 |eq| #4=#:G272
-         |resSys| #5=#:G271 |rec| #6=#:G270 |resDep| |tmp| #7=#:G269 #8=#:G268)
+  (PROG (#1=#:G277 |fun| |i| #2=#:G276 |resJM| #3=#:G275 |eq| #4=#:G274
+         |resSys| #5=#:G273 |rec| #6=#:G272 |resDep| |tmp| #7=#:G271 #8=#:G270)
     (RETURN
      (SEQ
       (SPADCALL
@@ -482,8 +482,8 @@
              (GO G190) G191 (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |JBE;linearSimp| (|sysL| |ind| $)
-  (PROG (|res| |newDep| |newJMR| |newFun| #1=#:G294 |rec| |sdep| |ssub|
-         #2=#:G280 |rsysL| |sld| |srec| |solved?| |s| |ld|)
+  (PROG (|res| |newDep| |newJMR| |newFun| #1=#:G296 |rec| |sdep| |ssub|
+         #2=#:G282 |rsysL| |sld| |srec| |solved?| |s| |ld|)
     (RETURN
      (SEQ (LETT |solved?| 'NIL . #3=(|JBE;linearSimp|))
           (LETT |rsysL| NIL . #3#)
@@ -638,8 +638,8 @@
                                  (QREFELT $ 136)))))))))))))) 
 
 (DEFUN |JBE;simplify;LSemR;21| (|sys| |jm| $)
-  (PROG (|resDep| |resSys| #1=#:G344 |rec| |i| |resJM| |sysL| |r| |neq|
-         #2=#:G343 |eq| |inds|)
+  (PROG (|resDep| |resSys| #1=#:G346 |rec| |i| |resJM| |sysL| |r| |neq|
+         #2=#:G345 |eq| |inds|)
     (RETURN
      (SEQ
       (LETT |inds| (SPADCALL |jm| (QREFELT $ 142))
@@ -726,10 +726,10 @@
                    (CONS 1 (NREVERSE |resDep|)))))))))))) 
 
 (DEFUN |JBE;jetVariables;$L;22| (|Phi| $)
-  (PROG (JV #1=#:G359 |pmindex| #2=#:G356 #3=#:G374 |i| #4=#:G373 |mindex|
-         #5=#:G372 #6=#:G371 |pupindex| #7=#:G353 |uindex| #8=#:G350 |xindex|
-         |arg| |typ| #9=#:G347 #10=#:G369 |Ke| #11=#:G370 |Op| |LOps|
-         #12=#:G368 #13=#:G367 |LKernels|)
+  (PROG (JV #1=#:G361 |pmindex| #2=#:G358 #3=#:G376 |i| #4=#:G375 |mindex|
+         #5=#:G374 #6=#:G373 |pupindex| #7=#:G355 |uindex| #8=#:G352 |xindex|
+         |arg| |typ| #9=#:G349 #10=#:G371 |Ke| #11=#:G372 |Op| |LOps|
+         #12=#:G370 #13=#:G369 |LKernels|)
     (RETURN
      (SEQ (LETT JV NIL . #14=(|JBE;jetVariables;$L;22|))
           (LETT |LKernels| (SPADCALL |Phi| (QREFELT $ 157)) . #14#)
@@ -926,7 +926,7 @@
 (DEFUN |JBE;sy2jbe| (|s| $) (SPADCALL |s| (QREFELT $ 188))) 
 
 (DEFUN |JBE;hidedisp| (|l| $)
-  (PROG (|op| #1=#:G398 |e| #2=#:G397 |k| |args| |show| |num| |name|)
+  (PROG (|op| #1=#:G400 |e| #2=#:G399 |k| |args| |show| |num| |name|)
     (RETURN
      (SEQ
       (LETT |name| (SPADCALL (SPADCALL |l| (QREFELT $ 189)) (QREFELT $ 190))
@@ -982,8 +982,8 @@
              (#4# (SPADCALL |op| |args| (QREFELT $ 198))))))))) 
 
 (DEFUN |JBE;hidediff| (|l| |x| $)
-  (PROG (|res| |newarg| #1=#:G420 |j| #2=#:G419 |da| |k| #3=#:G418 |arg| |op|
-         |oldarg| #4=#:G402 |diff| #5=#:G417 #6=#:G416 |args| |show| |num|
+  (PROG (|res| |newarg| #1=#:G422 |j| #2=#:G421 |da| |k| #3=#:G420 |arg| |op|
+         |oldarg| #4=#:G404 |diff| #5=#:G419 #6=#:G418 |args| |show| |num|
          |name|)
     (RETURN
      (SEQ (LETT |oldarg| (SPADCALL |l| (QREFELT $ 199)) . #7=(|JBE;hidediff|))
@@ -1134,10 +1134,10 @@
             . #1#)
       (EXIT (|JBE;kernel0| |op| |args| $)))))) 
 
-(DEFUN |JetBundleExpression| (#1=#:G479)
+(DEFUN |JetBundleExpression| (#1=#:G481)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G480)
+     (PROG (#2=#:G482)
        (RETURN
         (COND
          ((LETT #2#
@@ -1155,7 +1155,7 @@
               (HREM |$ConstructorCache| '|JetBundleExpression|))))))))))) 
 
 (DEFUN |JetBundleExpression;| (|#1|)
-  (PROG (|pv$| #1=#:G477 #2=#:G478 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G479 #2=#:G480 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|JetBundleExpression|))

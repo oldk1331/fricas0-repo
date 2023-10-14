@@ -68,10 +68,10 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |ans|))))) 
 
-(DEFUN |UnivariatePolynomialCategoryFunctions2| (&REST #1=#:G146)
+(DEFUN |UnivariatePolynomialCategoryFunctions2| (&REST #1=#:G148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G149)
        (RETURN
         (COND
          ((LETT #2#
@@ -135,7 +135,7 @@
 (MAKEPROP '|UnivariatePolynomialCategoryFunctions2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) '|op_of_PS| '#:G125 '|RepPS|
+              (|local| |#3|) (|local| |#4|) '|op_of_PS| '#:G127 '|RepPS|
               (0 . |Zero|) (4 . |Zero|) (|Boolean|) (8 . =)
               (14 . |leadingCoefficient|) (19 . |Zero|) (23 . ~=)
               (|NonNegativeInteger|) (29 . |degree|) (34 . |reductum|)

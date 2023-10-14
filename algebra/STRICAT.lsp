@@ -4,12 +4,12 @@
 (DEFPARAMETER |StringCategory;AL| 'NIL) 
 
 (DEFUN |StringCategory| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|StringCategory;AL|)
           (T (SETQ |StringCategory;AL| (|StringCategory;|)))))) 
 
 (DEFUN |StringCategory;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

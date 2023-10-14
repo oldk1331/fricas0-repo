@@ -12,7 +12,7 @@
                    $)))))))) 
 
 (DEFUN |BRILL;primeEnough?| (|n| |b| $)
-  (PROG (#1=#:G146 |bb| #2=#:G140 |d| |i|)
+  (PROG (#1=#:G148 |bb| #2=#:G142 |d| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -63,7 +63,7 @@
   (SPADCALL |p| (SPADCALL |p| (QREFELT $ 24)) (QREFELT $ 25))) 
 
 (DEFUN |BRILL;brillhartIrreducible?;UP2B;6| (|p| |noLinears| $)
-  (PROG (#1=#:G154 #2=#:G162 |small| |i| |count| |largeEnough| |polyx2| |even1|
+  (PROG (#1=#:G156 #2=#:G164 |small| |i| |count| |largeEnough| |polyx2| |even1|
          |even0| |origBound|)
     (RETURN
      (SEQ
@@ -176,10 +176,10 @@
      (#1='T 'NIL)))
    (#1# 'NIL))) 
 
-(DEFUN |BrillhartTests| (#1=#:G166)
+(DEFUN |BrillhartTests| (#1=#:G168)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G167)
+     (PROG (#2=#:G169)
        (RETURN
         (COND
          ((LETT #2#

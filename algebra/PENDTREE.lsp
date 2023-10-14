@@ -44,10 +44,10 @@
       (QREFELT $ 30))
      (QREFELT $ 31))))) 
 
-(DEFUN |PendantTree| (#1=#:G147)
+(DEFUN |PendantTree| (#1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G148)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#
@@ -62,7 +62,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|PendantTree|))))))))))) 
 
 (DEFUN |PendantTree;| (|#1|)
-  (PROG (|pv$| #1=#:G144 #2=#:G145 #3=#:G146 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G146 #2=#:G147 #3=#:G148 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|PendantTree|))

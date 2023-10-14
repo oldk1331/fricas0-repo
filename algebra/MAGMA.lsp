@@ -138,10 +138,10 @@
            (COND ((EQL |lx| |ly|) (|MAGMA;recursif| |x| |y| $))
                  ('T (< |lx| |ly|)))))))) 
 
-(DEFUN |Magma| (#1=#:G165)
+(DEFUN |Magma| (#1=#:G167)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G166)
+     (PROG (#2=#:G168)
        (RETURN
         (COND
          ((LETT #2#

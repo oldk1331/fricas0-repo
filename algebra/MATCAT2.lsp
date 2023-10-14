@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MATCAT2;map;MM1M2;1| (|f| |m| $)
-  (PROG (#1=#:G132 |j| #2=#:G133 |l| #3=#:G130 |i| #4=#:G131 |k| |ans|)
+  (PROG (#1=#:G134 |j| #2=#:G135 |l| #3=#:G132 |i| #4=#:G133 |k| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -35,8 +35,8 @@
       (EXIT |ans|))))) 
 
 (DEFUN |MATCAT2;map;MM1U;2| (|f| |m| $)
-  (PROG (#1=#:G138 #2=#:G151 |r| #3=#:G154 |j| #4=#:G155 |l| #5=#:G152 |i|
-         #6=#:G153 |k| |ans|)
+  (PROG (#1=#:G140 #2=#:G153 |r| #3=#:G156 |j| #4=#:G157 |l| #5=#:G154 |i|
+         #6=#:G155 |k| |ans|)
     (RETURN
      (SEQ
       (EXIT
@@ -82,7 +82,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MATCAT2;reduce;MM12R2;3| (|f| |m| |ident| $)
-  (PROG (|s| #1=#:G162 |j| #2=#:G161 |i|)
+  (PROG (|s| #1=#:G164 |j| #2=#:G163 |i|)
     (RETURN
      (SEQ (LETT |s| |ident| . #3=(|MATCAT2;reduce;MM12R2;3|))
           (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 20)) . #3#)
@@ -103,10 +103,10 @@
                (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT |s|))))) 
 
-(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G163)
+(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G165)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G164)
+     (PROG (#2=#:G166)
        (RETURN
         (COND
          ((LETT #2#

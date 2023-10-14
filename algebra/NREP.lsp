@@ -17,10 +17,10 @@
 (DEFUN |NREP;realEigenvectors;MParL;4| (|m| |eps| $)
   (SPADCALL |m| |eps| (ELT $ 22) (QREFELT $ 26))) 
 
-(DEFUN |NumericRealEigenPackage| (#1=#:G132)
+(DEFUN |NumericRealEigenPackage| (#1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G133)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

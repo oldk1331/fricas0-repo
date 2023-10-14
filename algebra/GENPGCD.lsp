@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |GENPGCD;gcdPolynomial;3Sup;1| (|p1| |p2| $)
-  (PROG (|v2| |v| #1=#:G197 |g| |v1| |pp2| |pp1| |vp2| |vp1| #2=#:G167 |c2|
+  (PROG (|v2| |v| #1=#:G199 |g| |v1| |pp2| |pp1| |vp2| |vp1| #2=#:G169 |c2|
          |c1| |#G9| |#G8|)
     (RETURN
      (SEQ
@@ -219,9 +219,9 @@
 (DEFUN |GENPGCD;randomR;R;3| ($) (SPADCALL (RANDOM 100) (QREFELT $ 39))) 
 
 (DEFUN |GENPGCD;gcdSameVariables| (|p1| |p2| |lv| $)
-  (PROG (#1=#:G236 #2=#:G249 |ans| |uu| |r| |count| |up2| #3=#:G231 |up1| |lr|
-         |u| |v| |vp2| |vp1| |lrr| #4=#:G257 |vv| #5=#:G256 #6=#:G255 #7=#:G254
-         #8=#:G253 #9=#:G252 #10=#:G251 #11=#:G250 |gcdLC|)
+  (PROG (#1=#:G238 #2=#:G251 |ans| |uu| |r| |count| |up2| #3=#:G233 |up1| |lr|
+         |u| |v| |vp2| |vp1| |lrr| #4=#:G259 |vv| #5=#:G258 #6=#:G257 #7=#:G256
+         #8=#:G255 #9=#:G254 #10=#:G253 #11=#:G252 |gcdLC|)
     (RETURN
      (SEQ
       (EXIT
@@ -585,8 +585,8 @@
       (SPADCALL (SPADCALL |x| |lv| |lr| (QREFELT $ 54)) (QREFELT $ 41)))))) 
 
 (DEFUN |GENPGCD;lift| (|gR| |p| |cfR| |lv| |lr| $)
-  (PROG (#1=#:G274 #2=#:G277 |pn| |cf| |g| |step| #3=#:G273 |Ecart| |n|
-         |origFactors| |prime| |d| #4=#:G263 #5=#:G262 #6=#:G264 #7=#:G278 |c|
+  (PROG (#1=#:G276 #2=#:G279 |pn| |cf| |g| |step| #3=#:G275 |Ecart| |n|
+         |origFactors| |prime| |d| #4=#:G265 #5=#:G264 #6=#:G266 #7=#:G280 |c|
          |thisp| |r| |v| |lcp|)
     (RETURN
      (SEQ
@@ -760,8 +760,8 @@
     (RETURN (PROGN (SPADCALL |x| |lv| |lr| (QREFELT $ 54)))))) 
 
 (DEFUN |GENPGCD;recursivelyGCDCoefficients| (|g| |v| |p| |pv| $)
-  (PROG (#1=#:G284 |oldv| #2=#:G288 |oldg| |p1| |i| |d| #3=#:G280 #4=#:G279
-         #5=#:G281 #6=#:G289 |u| |mv|)
+  (PROG (#1=#:G286 |oldv| #2=#:G290 |oldg| |p1| |i| |d| #3=#:G282 #4=#:G281
+         #5=#:G283 #6=#:G291 |u| |mv|)
     (RETURN
      (SEQ
       (EXIT
@@ -841,7 +841,7 @@
     (RETURN (PROGN (SPADCALL |x| |mv| |i| (QREFELT $ 82)))))) 
 
 (DEFUN |GENPGCD;flatten| (|p1| |lv| $)
-  (PROG (|lr| #1=#:G300 |vv| #2=#:G299 |ans| |dg| #3=#:G298 #4=#:G297)
+  (PROG (|lr| #1=#:G302 |vv| #2=#:G301 |ans| |dg| #3=#:G300 #4=#:G299)
     (RETURN
      (SEQ
       (COND ((EQL (LENGTH |lv|) 0) |p1|)
@@ -907,7 +907,7 @@
     (RETURN (PROGN (SPADCALL |x| |lv| |lr| (QREFELT $ 54)))))) 
 
 (DEFUN |GENPGCD;variables| (|p1| $)
-  (PROG (#1=#:G302 #2=#:G301 #3=#:G303 #4=#:G305 |u|)
+  (PROG (#1=#:G304 #2=#:G303 #3=#:G305 #4=#:G307 |u|)
     (RETURN
      (SEQ
       (SPADCALL
@@ -980,7 +980,7 @@
                 (QREFELT $ 61)))))))))) 
 
 (DEFUN |GENPGCD;better| (|p1| |p2| $)
-  (PROG (#1=#:G329)
+  (PROG (#1=#:G331)
     (RETURN
      (COND ((SPADCALL |p1| (QREFELT $ 97)) 'T)
            ((SPADCALL |p2| (QREFELT $ 97)) 'NIL)
@@ -999,10 +999,10 @@
                          (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
                        (QREFELT $ 70)))))))) 
 
-(DEFUN |GeneralPolynomialGcdPackage| (&REST #1=#:G334)
+(DEFUN |GeneralPolynomialGcdPackage| (&REST #1=#:G336)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G335)
+     (PROG (#2=#:G337)
        (RETURN
         (COND
          ((LETT #2#

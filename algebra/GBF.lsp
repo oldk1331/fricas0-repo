@@ -4,10 +4,10 @@
 (DEFUN |GBF;createGroebnerBases|
        (|basis| |redPols| |nonZeroRestrictions| |inputPolys| |lcP|
         |listOfBases| |info| $)
-  (PROG (|newBasis| #1=#:G176 |p| #2=#:G175 |newInputPolys| #3=#:G174 |fnP|
-         #4=#:G155 |nP| |allReducedFactors| #5=#:G173 |doSplitting?|
+  (PROG (|newBasis| #1=#:G178 |p| #2=#:G177 |newInputPolys| #3=#:G176 |fnP|
+         #4=#:G157 |nP| |allReducedFactors| #5=#:G175 |doSplitting?|
          |irreducibleFactors| |terminateWithBasis| |stopDividing| |nPq|
-         #6=#:G172 #7=#:G171 |q| |h|)
+         #6=#:G174 #7=#:G173 |q| |h|)
     (RETURN
      (SEQ (LETT |doSplitting?| 'NIL . #8=(|GBF;createGroebnerBases|))
           (LETT |terminateWithBasis| 'NIL . #8#)
@@ -303,7 +303,7 @@
             (QREFELT $ 30))) 
 
 (DEFUN |GBF;createAllFactors| (|p| $)
-  (PROG (|loF| #1=#:G183 |el| #2=#:G182)
+  (PROG (|loF| #1=#:G185 |el| #2=#:G184)
     (RETURN
      (SEQ
       (LETT |loF|
@@ -329,7 +329,7 @@
             (QREFELT $ 50))) 
 
 (DEFUN |GBF;newPairs| (|lp| |p| $)
-  (PROG (|lcP| #1=#:G193 |q| #2=#:G192 |totdegreeOfp|)
+  (PROG (|lcP| #1=#:G195 |q| #2=#:G194 |totdegreeOfp|)
     (RETURN
      (SEQ
       (LETT |totdegreeOfp| (SPADCALL |p| (QREFELT $ 28)) . #3=(|GBF;newPairs|))
@@ -364,7 +364,7 @@
   (SPADCALL |basis| 'NIL (QREFELT $ 41))) 
 
 (DEFUN |GBF;factorGroebnerBasis;LBL;7| (|basis| |info| $)
-  (PROG (|foundAReducible| #1=#:G209 |el| #2=#:G208 #3=#:G207 |p|)
+  (PROG (|foundAReducible| #1=#:G211 |el| #2=#:G210 #3=#:G209 |p|)
     (RETURN
      (SEQ (LETT |foundAReducible| 'NIL . #4=(|GBF;factorGroebnerBasis;LBL;7|))
           (SEQ (LETT |p| NIL . #4#) (LETT #3# |basis| . #4#) G190
@@ -421,7 +421,7 @@
   (SPADCALL |basis| |nonZeroRestrictions| 'NIL (QREFELT $ 65))) 
 
 (DEFUN |GBF;groebnerFactorize;2LBL;9| (|basis| |nonZeroRestrictions| |info| $)
-  (PROG (#1=#:G220 |p| #2=#:G219)
+  (PROG (#1=#:G222 |p| #2=#:G221)
     (RETURN
      (SEQ
       (COND ((SPADCALL |basis| NIL (QREFELT $ 67)) (LIST |basis|))
@@ -477,10 +477,10 @@
 (DEFUN |GBF;groebnerFactorize;LBL;11| (|basis| |info| $)
   (SPADCALL |basis| NIL |info| (QREFELT $ 65))) 
 
-(DEFUN |GroebnerFactorizationPackage| (&REST #1=#:G223)
+(DEFUN |GroebnerFactorizationPackage| (&REST #1=#:G225)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G224)
+     (PROG (#2=#:G226)
        (RETURN
         (COND
          ((LETT #2#

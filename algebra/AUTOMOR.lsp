@@ -64,7 +64,7 @@
      (SEQ (LETT |g| |f| |AUTOMOR;apply|) (EXIT (SPADCALL |r| |n| |g|)))))) 
 
 (DEFUN |AUTOMOR;iterat| (|f| |g| |n| |r| $)
-  (PROG (#1=#:G161 #2=#:G159)
+  (PROG (#1=#:G163 #2=#:G161)
     (RETURN
      (COND
       ((< |n| 0)
@@ -125,10 +125,10 @@
     (RETURN
      (PROGN (SPADCALL |f| (SPADCALL |g| |u1| (QREFELT $ 11)) (QREFELT $ 11)))))) 
 
-(DEFUN |Automorphism| (#1=#:G176)
+(DEFUN |Automorphism| (#1=#:G178)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G177)
+     (PROG (#2=#:G179)
        (RETURN
         (COND
          ((LETT #2#

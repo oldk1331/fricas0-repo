@@ -83,7 +83,7 @@
         ('T (|error| "Unknown operator")))) 
 
 (DEFUN |AF;inrootof;Sup2F;7| (|q| |x| $)
-  (PROG (#1=#:G212 |r| |rx| |d|)
+  (PROG (#1=#:G214 |r| |rx| |d|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |q| (QREFELT $ 52)) (|spadConstant| $ 53))
@@ -128,7 +128,7 @@
                   #1# (EXIT #1#)))))))))))) 
 
 (DEFUN |AF;UP2R| (|p| $)
-  (PROG (|ans| #1=#:G226 |r|)
+  (PROG (|ans| #1=#:G228 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -267,7 +267,7 @@
                  (QREFELT $ 106))))))) 
 
 (DEFUN |AF;hackroot| (|x| |n| $)
-  (PROG (#1=#:G259 |rx| |dx|)
+  (PROG (#1=#:G261 |rx| |dx|)
     (RETURN
      (SEQ
       (EXIT
@@ -324,7 +324,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |AF;inroot| (|l| $)
-  (PROG (|pr| |u| |r| #1=#:G273 |x| |n|)
+  (PROG (|pr| |u| |r| #1=#:G275 |x| |n|)
     (RETURN
      (SEQ
       (COND
@@ -378,7 +378,7 @@
          #1# (EXIT #1#)))))))) 
 
 (DEFUN |AF;inroot0| (|x| |n| |num?| |den?| $)
-  (PROG (#1=#:G277 |rec| #2=#:G286 #3=#:G283 #4=#:G279 |rd| |rn|)
+  (PROG (#1=#:G279 |rec| #2=#:G288 #3=#:G285 #4=#:G281 |rd| |rn|)
     (RETURN
      (SEQ
       (LETT |rn|
@@ -481,7 +481,7 @@
 (DEFUN |AF;iroot;RIF;21| (|r| |n| $) (|AF;iroot0| |r| |n| $)) 
 
 (DEFUN |AF;iroot0| (|r| |n| $)
-  (PROG (|rec| #1=#:G298)
+  (PROG (|rec| #1=#:G300)
     (RETURN
      (SEQ
       (LETT |rec|
@@ -521,7 +521,7 @@
         (#2# (SPADCALL (QREFELT $ 92) |x| (QREFELT $ 132))))))))) 
 
 (DEFUN |AF;minPoly;KSup;24| (|k| $)
-  (PROG (#1=#:G309)
+  (PROG (#1=#:G311)
     (RETURN
      (COND
       ((SPADCALL |k| (QREFELT $ 13) (QREFELT $ 121))
@@ -579,10 +579,10 @@
               (SPADCALL (SPADCALL |k| (QREFELT $ 28)) (QREFELT $ 135))
               (QREFELT $ 136))))) 
 
-(DEFUN |AlgebraicFunction| (&REST #1=#:G322)
+(DEFUN |AlgebraicFunction| (&REST #1=#:G324)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G323)
+     (PROG (#2=#:G325)
        (RETURN
         (COND
          ((LETT #2#

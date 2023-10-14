@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |InnerFiniteField| (&REST #1=#:G160)
+(DEFUN |InnerFiniteField| (&REST #1=#:G162)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G161)
+     (PROG (#2=#:G163)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,7 +22,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|InnerFiniteField|))))))))))) 
 
 (DEFUN |InnerFiniteField;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G159 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G161 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|InnerFiniteField|))

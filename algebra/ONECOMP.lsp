@@ -96,10 +96,10 @@
        (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
              ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 48)))))))))) 
 
-(DEFUN |OnePointCompletion| (#1=#:G188)
+(DEFUN |OnePointCompletion| (#1=#:G190)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G189)
+     (PROG (#2=#:G191)
        (RETURN
         (COND
          ((LETT #2#
@@ -117,7 +117,7 @@
               (HREM |$ConstructorCache| '|OnePointCompletion|))))))))))) 
 
 (DEFUN |OnePointCompletion;| (|#1|)
-  (PROG (|pv$| #1=#:G187 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G189 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|OnePointCompletion|))

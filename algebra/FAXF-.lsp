@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FAXF-;represents;VS;1| (|v| $)
-  (PROG (|a| #1=#:G142 |i| |b|)
+  (PROG (|a| #1=#:G144 |i| |b|)
     (RETURN
      (SEQ (LETT |a| (|spadConstant| $ 8) . #2=(|FAXF-;represents;VS;1|))
           (LETT |b| (SPADCALL (QREFELT $ 10)) . #2#)
@@ -28,7 +28,7 @@
   (SPADCALL (QVSIZE (SPADCALL (QREFELT $ 10))) (QREFELT $ 24))) 
 
 (DEFUN |FAXF-;extensionDegree;Opc;4| ($)
-  (PROG (#1=#:G146)
+  (PROG (#1=#:G148)
     (RETURN
      (SPADCALL
       (PROG1
@@ -41,7 +41,7 @@
   (SPADCALL (SPADCALL |a| (QREFELT $ 29)) (QREFELT $ 27))) 
 
 (DEFUN |FAXF-;coordinates;VM;6| (|v| $)
-  (PROG (#1=#:G152 |i| |j| |m|)
+  (PROG (#1=#:G154 |i| |j| |m|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -67,7 +67,7 @@
 (DEFUN |FAXF-;transcendent?;SB;8| (|a| $) 'NIL) 
 
 (DEFUN |FAXF-;extensionDegree;Pi;9| ($)
-  (PROG (#1=#:G155)
+  (PROG (#1=#:G157)
     (RETURN
      (PROG1
          (LETT #1# (QVSIZE (SPADCALL (QREFELT $ 10)))
@@ -75,7 +75,7 @@
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
 
 (DEFUN |FAXF-;trace;SF;10| (|a| $)
-  (PROG (|abs| #1=#:G160 |i| |b|)
+  (PROG (|abs| #1=#:G162 |i| |b|)
     (RETURN
      (SEQ (LETT |b| (SPADCALL (QREFELT $ 10)) . #2=(|FAXF-;trace;SF;10|))
           (LETT |abs| (|spadConstant| $ 31) . #2#)
@@ -98,7 +98,7 @@
           (EXIT |abs|))))) 
 
 (DEFUN |FAXF-;norm;SF;11| (|a| $)
-  (PROG (#1=#:G164 |i| |m| |b|)
+  (PROG (#1=#:G166 |i| |m| |b|)
     (RETURN
      (SEQ (LETT |b| (SPADCALL (QREFELT $ 10)) . #2=(|FAXF-;norm;SF;11|))
           (LETT |m|
@@ -119,7 +119,7 @@
           (EXIT (SPADCALL |m| (QREFELT $ 45))))))) 
 
 (DEFUN |FAXF-;linearAssociatedExp;SSupS;12| (|x| |f| $)
-  (PROG (|y| |erg| #1=#:G169 |i|)
+  (PROG (|y| |erg| #1=#:G171 |i|)
     (RETURN
      (SEQ
       (LETT |erg| (|spadConstant| $ 8)
@@ -139,7 +139,7 @@
       (EXIT |erg|))))) 
 
 (DEFUN |FAXF-;linearAssociatedLog;2SU;13| (|b| |x| $)
-  (PROG (|p| #1=#:G179 #2=#:G178 #3=#:G180 #4=#:G187 |i| |rown| |v| |m1| |l|
+  (PROG (|p| #1=#:G181 #2=#:G180 #3=#:G182 #4=#:G189 |i| |rown| |v| |m1| |l|
          |a| |extdeg|)
     (RETURN
      (SEQ
@@ -219,7 +219,7 @@
            (#5# (CONS 0 |p|))))))))))) 
 
 (DEFUN |FAXF-;linearAssociatedLog;SSup;14| (|x| $)
-  (PROG (#1=#:G189)
+  (PROG (#1=#:G191)
     (RETURN
      (PROG2
          (LETT #1# (SPADCALL (SPADCALL (QREFELT $ 75)) |x| (QREFELT $ 76))
@@ -229,7 +229,7 @@
                       (|SparseUnivariatePolynomial| (QREFELT $ 7)) #1#))))) 
 
 (DEFUN |FAXF-;linearAssociatedOrder;SSup;15| (|x| $)
-  (PROG (#1=#:G195 #2=#:G194 #3=#:G196 #4=#:G200 |i| |v| |l| |a| #5=#:G199)
+  (PROG (#1=#:G197 #2=#:G196 #3=#:G198 #4=#:G202 |i| |v| |l| |a| #5=#:G201)
     (RETURN
      (SEQ
       (COND
@@ -311,7 +311,7 @@
          (EXIT |f|)))))))) 
 
 (DEFUN |FAXF-;norm;SPiS;18| (|e| |s| $)
-  (PROG (#1=#:G215 |pow| |qr|)
+  (PROG (#1=#:G217 |pow| |qr|)
     (RETURN
      (SEQ
       (LETT |qr| (DIVIDE2 (SPADCALL (QREFELT $ 12)) |s|)
@@ -338,7 +338,7 @@
           "norm: second argument must divide degree of extension")))))))) 
 
 (DEFUN |FAXF-;trace;SPiS;19| (|e| |s| $)
-  (PROG (|a| #1=#:G224 |i| |q| |qr|)
+  (PROG (|a| #1=#:G226 |i| |q| |qr|)
     (RETURN
      (SEQ
       (LETT |qr| (DIVIDE2 (SPADCALL (QREFELT $ 12)) |s|)
@@ -371,7 +371,7 @@
   (SPADCALL (SPADCALL (QREFELT $ 95)) (SPADCALL (QREFELT $ 12)) (QREFELT $ 96))) 
 
 (DEFUN |FAXF-;createNormalElement;S;21| ($)
-  (PROG (#1=#:G229 #2=#:G232 |res| #3=#:G227 |i|)
+  (PROG (#1=#:G231 #2=#:G234 |res| #3=#:G229 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -411,7 +411,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FAXF-;normal?;SB;22| (|x| $)
-  (PROG (|f| #1=#:G234 #2=#:G233 #3=#:G235 #4=#:G238 |i| |p|)
+  (PROG (|f| #1=#:G236 #2=#:G235 #3=#:G237 #4=#:G240 |i| |p|)
     (RETURN
      (SEQ
       (LETT |p|

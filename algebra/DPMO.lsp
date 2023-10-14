@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DPMO;*;R2$;1| (|r| |x| $)
-  (PROG (#1=#:G127 #2=#:G129 |i| #3=#:G128)
+  (PROG (#1=#:G129 #2=#:G131 |i| #3=#:G130)
     (RETURN
      (SEQ
       (PROGN
@@ -19,10 +19,10 @@
             (GO G190) G191 (EXIT NIL))
        #3#))))) 
 
-(DEFUN |DirectProductModule| (&REST #1=#:G152)
+(DEFUN |DirectProductModule| (&REST #1=#:G154)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G153)
+     (PROG (#2=#:G155)
        (RETURN
         (COND
          ((LETT #2#
@@ -41,7 +41,7 @@
               (HREM |$ConstructorCache| '|DirectProductModule|))))))))))) 
 
 (DEFUN |DirectProductModule;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G146 #2=#:G147 #3=#:G149 #4=#:G150 #5=#:G151 $ |dv$| DV$3
+  (PROG (|pv$| #1=#:G148 #2=#:G149 #3=#:G151 #4=#:G152 #5=#:G153 $ |dv$| DV$3
          DV$2 DV$1)
     (RETURN
      (PROGN

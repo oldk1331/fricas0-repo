@@ -39,10 +39,10 @@
           (SPADCALL (SPADCALL |p| (QREFELT $ 39)) |mp| (QREFELT $ 40))
           (QREFELT $ 34))))) 
 
-(DEFUN |GeneralModulePolynomial| (&REST #1=#:G157)
+(DEFUN |GeneralModulePolynomial| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

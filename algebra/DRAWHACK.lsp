@@ -4,10 +4,10 @@
 (DEFUN |DRAWHACK;coerce;SbSb;1| (|s| $)
   (SPADCALL (ELT $ 10) |s| (QREFELT $ 15))) 
 
-(DEFUN |DrawNumericHack| (#1=#:G127)
+(DEFUN |DrawNumericHack| (#1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

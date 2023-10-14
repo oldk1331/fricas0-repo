@@ -17,10 +17,10 @@
 
 (DEFUN |ULS;integrate;$V$;5| (|x| |v| $) (SPADCALL |x| (QREFELT $ 25))) 
 
-(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G182)
+(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G184)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G183)
+     (PROG (#2=#:G185)
        (RETURN
         (COND
          ((LETT #2#
@@ -39,8 +39,8 @@
               (HREM |$ConstructorCache| '|UnivariateLaurentSeries|))))))))))) 
 
 (DEFUN |UnivariateLaurentSeries;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G181 |pv$| #2=#:G172 #3=#:G173 #4=#:G175 #5=#:G176 #6=#:G177
-         #7=#:G178 #8=#:G180 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G183 |pv$| #2=#:G174 #3=#:G175 #4=#:G177 #5=#:G178 #6=#:G179
+         #7=#:G180 #8=#:G182 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #9=(|UnivariateLaurentSeries|))

@@ -210,13 +210,13 @@
                 (QREFELT $ 13)))))))) 
 
 (DEFUN |TESTCNT;statistics;V;18| ($)
-  (PROG (#1=#:G259 #2=#:G255 #3=#:G251 #4=#:G247 #5=#:G243 |stotalTests|
+  (PROG (#1=#:G261 #2=#:G257 #3=#:G253 #4=#:G249 #5=#:G245 |stotalTests|
          |sfailedTests| |stotalCases| |sfailedCases| |tsfailedTests|
-         |tstotalTests| |failedCases| |totalCases| #6=#:G275 |tstcase|
-         #7=#:G274 |tstsuite| #8=#:G273 |f| #9=#:G226 #10=#:G272 #11=#:G271
-         |outstring| #12=#:G269 |o| #13=#:G270 |i| #14=#:G268 #15=#:G210
-         #16=#:G267 |xfpassedTests| |xfailedTests| |failedTests| |totalTests|
-         |xfpassedCases| #17=#:G266 #18=#:G265 #19=#:G264 |w|)
+         |tstotalTests| |failedCases| |totalCases| #6=#:G277 |tstcase|
+         #7=#:G276 |tstsuite| #8=#:G275 |f| #9=#:G228 #10=#:G274 #11=#:G273
+         |outstring| #12=#:G271 |o| #13=#:G272 |i| #14=#:G270 #15=#:G212
+         #16=#:G269 |xfpassedTests| |xfailedTests| |failedTests| |totalTests|
+         |xfpassedCases| #17=#:G268 #18=#:G267 #19=#:G266 |w|)
     (RETURN
      (SEQ
       (SPADCALL (|make_full_CVEC| (QREFELT $ 6) (|STR_to_CHAR| "="))
@@ -767,7 +767,7 @@
 (DEFUN |UnittestCount| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G277)
+     (PROG (#1=#:G279)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|UnittestCount|)

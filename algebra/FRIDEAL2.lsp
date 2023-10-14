@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FRIDEAL2;fmap| (|f| |a| $)
-  (PROG (#1=#:G128 #2=#:G130 |i| #3=#:G129 |v|)
+  (PROG (#1=#:G130 #2=#:G132 |i| #3=#:G131 |v|)
     (RETURN
      (SEQ (LETT |v| (SPADCALL |a| (QREFELT $ 15)) . #4=(|FRIDEAL2;fmap|))
           (EXIT
@@ -24,7 +24,7 @@
             (QREFELT $ 19))))))) 
 
 (DEFUN |FRIDEAL2;map;MFiFi;2| (|f| |i| $)
-  (PROG (#1=#:G136 #2=#:G138 |j| #3=#:G137 |b|)
+  (PROG (#1=#:G138 #2=#:G140 |j| #3=#:G139 |b|)
     (RETURN
      (SEQ
       (LETT |b| (SPADCALL |i| (QREFELT $ 22)) . #4=(|FRIDEAL2;map;MFiFi;2|))
@@ -59,10 +59,10 @@
       (SPADCALL (SPADCALL (SPADCALL |s| (QREFELT $ 24)) |f|)
                 (SPADCALL (SPADCALL |s| (QREFELT $ 25)) |f|) (QREFELT $ 26)))))) 
 
-(DEFUN |FractionalIdealFunctions2| (&REST #1=#:G139)
+(DEFUN |FractionalIdealFunctions2| (&REST #1=#:G141)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G142)
        (RETURN
         (COND
          ((LETT #2#

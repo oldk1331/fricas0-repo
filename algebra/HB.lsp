@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |HB;lfunc;3I;1| (|d| |n| $)
-  (PROG (|res| #1=#:G143 |sum| #2=#:G146 |m|)
+  (PROG (|res| #1=#:G145 |sum| #2=#:G148 |m|)
     (RETURN
      (SEQ
       (COND ((< |n| 0) 0) ((EQL |n| 0) 1) ((EQL |n| 1) |d|)
@@ -43,8 +43,8 @@
         ('T 'NIL))) 
 
 (DEFUN |HB;generate;2NniV;3| (|n| |c| $)
-  (PROG (|numComms| |cW| |leftIndex| |newNumComms| #1=#:G162 |rightIndex|
-         |done| |wt| |firstindex| |i| |v| #2=#:G150 |siz| |maxweight| |gens|)
+  (PROG (|numComms| |cW| |leftIndex| |newNumComms| #1=#:G164 |rightIndex|
+         |done| |wt| |firstindex| |i| |v| #2=#:G152 |siz| |maxweight| |gens|)
     (RETURN
      (SEQ (LETT |gens| |n| . #3=(|HB;generate;2NniV;3|))
           (LETT |maxweight| |c| . #3#) (LETT |siz| 0 . #3#)
@@ -142,7 +142,7 @@
 (DEFUN |HallBasis| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G164)
+     (PROG (#1=#:G166)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|HallBasis|) . #2=(|HallBasis|))

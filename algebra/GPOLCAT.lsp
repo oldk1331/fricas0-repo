@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |MaybeSkewPolynomialCategory;AL| 'NIL) 
 
-(DEFUN |MaybeSkewPolynomialCategory| (&REST #1=#:G129)
-  (LET (#2=#:G130)
+(DEFUN |MaybeSkewPolynomialCategory| (&REST #1=#:G131)
+  (LET (#2=#:G132)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluateList| #1#)
@@ -21,7 +21,7 @@
       #2#)))) 
 
 (DEFUN |MaybeSkewPolynomialCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G128)
+  (PROG (#1=#:G130)
     (RETURN
      (PROG1
          (LETT #1#

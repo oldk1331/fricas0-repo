@@ -12,10 +12,10 @@
 
 (DEFUN |POLY2UP;univariate;PVUp;1!0| (|x1| $$) |x1|) 
 
-(DEFUN |PolynomialToUnivariatePolynomial| (&REST #1=#:G128)
+(DEFUN |PolynomialToUnivariatePolynomial| (&REST #1=#:G130)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G129)
+     (PROG (#2=#:G131)
        (RETURN
         (COND
          ((LETT #2#

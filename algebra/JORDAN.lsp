@@ -23,10 +23,10 @@
 
 (DEFUN |JORDAN;^;$Pi$;4| (|a| |n| $) |a|) 
 
-(DEFUN |AssociatedJordanAlgebra| (&REST #1=#:G139)
+(DEFUN |AssociatedJordanAlgebra| (&REST #1=#:G141)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G142)
        (RETURN
         (COND
          ((LETT #2#
@@ -45,7 +45,7 @@
               (HREM |$ConstructorCache| '|AssociatedJordanAlgebra|))))))))))) 
 
 (DEFUN |AssociatedJordanAlgebra;| (|#1| |#2|)
-  (PROG (#1=#:G127 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G129 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|AssociatedJordanAlgebra|))

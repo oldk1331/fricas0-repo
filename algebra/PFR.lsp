@@ -106,7 +106,7 @@
                                         (QREFELT $ 32)))))))))))))))) 
 
 (DEFUN |PFR;partialFractionNormalized| (|nm| |dn| $)
-  (PROG (|c| |d| #1=#:G188 |i| |qr|)
+  (PROG (|c| |d| #1=#:G190 |i| |qr|)
     (RETURN
      (SEQ
       (COND
@@ -146,7 +146,7 @@
                     (QREFELT $ 38)))))))))) 
 
 (DEFUN |PFR;padicFraction;2$;6| (|a| $)
-  (PROG (|d| |sp| |l| |f| |e| #1=#:G200 |s| |b|)
+  (PROG (|d| |sp| |l| |f| |e| #1=#:G202 |s| |b|)
     (RETURN
      (SEQ
       (LETT |b| (SPADCALL |a| (QREFELT $ 39)) . #2=(|PFR;padicFraction;2$;6|))
@@ -211,7 +211,7 @@
                                     (QREFELT $ 48)))))))))))) 
 
 (DEFUN |PFR;compactFraction;2$;7| (|a| $)
-  (PROG (|b| |e| |f| |s| |bf| |bw| #1=#:G204 #2=#:G212 |t| |af|)
+  (PROG (|b| |e| |f| |s| |bf| |bw| #1=#:G206 #2=#:G214 |t| |af|)
     (RETURN
      (SEQ
       (COND ((SPADCALL 2 (LENGTH (QCDR |a|)) (QREFELT $ 50)) |a|)
@@ -292,7 +292,7 @@
 (DEFUN |PFR;coerce;I$;12| (|n| $) (CONS (SPADCALL |n| (QREFELT $ 54)) NIL)) 
 
 (DEFUN |PFR;coerce;$F;13| (|a| $)
-  (PROG (|q| #1=#:G226 |s|)
+  (PROG (|q| #1=#:G228 |s|)
     (RETURN
      (SEQ
       (LETT |q| (SPADCALL (QCAR |a|) (QREFELT $ 57)) . #2=(|PFR;coerce;$F;13|))
@@ -312,7 +312,7 @@
       (EXIT |q|))))) 
 
 (DEFUN |PFR;coerce;F$;14| (|q| $)
-  (PROG (|r1| |u| #1=#:G229)
+  (PROG (|r1| |u| #1=#:G231)
     (RETURN
      (SEQ
       (LETT |u|
@@ -383,7 +383,7 @@
 (DEFUN |PFR;wholePart;$R;21| (|a| $) (QCAR |a|)) 
 
 (DEFUN |PFR;partialFraction;RF$;22| (|nm| |dn| $)
-  (PROG (|u| #1=#:G259)
+  (PROG (|u| #1=#:G261)
     (RETURN
      (SEQ
       (COND
@@ -431,7 +431,7 @@
                    (QREFELT $ 87))))) 
 
 (DEFUN |PFR;-;2$;25| (|a| $)
-  (PROG (|l| #1=#:G278 |s|)
+  (PROG (|l| #1=#:G280 |s|)
     (RETURN
      (SEQ (LETT |l| NIL . #2=(|PFR;-;2$;25|))
           (SEQ (LETT |s| NIL . #2#) (LETT #1# (REVERSE (QCDR |a|)) . #2#) G190
@@ -449,7 +449,7 @@
           (EXIT (CONS (SPADCALL (QCAR |a|) (QREFELT $ 88)) |l|)))))) 
 
 (DEFUN |PFR;*;R2$;26| (|r| |a| $)
-  (PROG (#1=#:G281 |c| #2=#:G285 |s| |b|)
+  (PROG (#1=#:G283 |c| #2=#:G287 |s| |b|)
     (RETURN
      (SEQ
       (COND
@@ -504,7 +504,7 @@
    (QREFELT $ 39))) 
 
 (DEFUN |PFR;*;3$;29| (|a| |b| $)
-  (PROG (|c| #1=#:G300 |t| #2=#:G299 |s| |af|)
+  (PROG (|c| #1=#:G302 |t| #2=#:G301 |s| |af|)
     (RETURN
      (SEQ
       (COND ((NULL (QCDR |a|)) (SPADCALL (QCAR |a|) |b| (QREFELT $ 90)))
@@ -542,7 +542,7 @@
               (EXIT |c|)))))))) 
 
 (DEFUN |PFR;coerce;$Of;30| (|a| $)
-  (PROG (|l| #1=#:G313 |s|)
+  (PROG (|l| #1=#:G315 |s|)
     (RETURN
      (SEQ
       (COND ((NULL (QCDR |a|)) (SPADCALL (QCAR |a|) (QREFELT $ 93)))
@@ -580,10 +580,10 @@
                       (SPADCALL (ELT $ 96) (REVERSE |l|)
                                 (QREFELT $ 99)))))))))))) 
 
-(DEFUN |PartialFraction| (#1=#:G321)
+(DEFUN |PartialFraction| (#1=#:G323)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G322)
+     (PROG (#2=#:G324)
        (RETURN
         (COND
          ((LETT #2#

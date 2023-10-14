@@ -22,7 +22,7 @@
   (SPADCALL (CONS (|function| |PFO;Q2F|) $) |p| (QREFELT $ 37))) 
 
 (DEFUN |PFO;klist| (|d| $)
-  (PROG (#1=#:G159 #2=#:G158 #3=#:G160 #4=#:G162 |c|)
+  (PROG (#1=#:G161 #2=#:G160 #3=#:G162 #4=#:G164 |c|)
     (RETURN
      (SEQ
       (PROGN
@@ -46,7 +46,7 @@
             (QREFELT $ 52))) 
 
 (DEFUN |PFO;kbadBadNum| (|d| |m| $)
-  (PROG (#1=#:G171 |c| #2=#:G170)
+  (PROG (#1=#:G173 |c| #2=#:G172)
     (RETURN
      (SEQ
       (SPADCALL
@@ -69,7 +69,7 @@
        (QREFELT $ 61)))))) 
 
 (DEFUN |PFO;kbad3Num| (|h| |m| $)
-  (PROG (#1=#:G175 |c| #2=#:G174)
+  (PROG (#1=#:G177 |c| #2=#:G176)
     (RETURN
      (SEQ
       (SPADCALL
@@ -138,7 +138,7 @@
 (DEFUN |PFO;cmult;LSmp;16| (|l| $) (SPADCALL |l| (QREFELT $ 89))) 
 
 (DEFUN |PFO;cmult;LSmp;17| (|l| $)
-  (PROG (#1=#:G199 #2=#:G198 #3=#:G200 #4=#:G202 #5=#:G125)
+  (PROG (#1=#:G201 #2=#:G200 #3=#:G202 #4=#:G204 #5=#:G127)
     (RETURN
      (SEQ
       (PROGN
@@ -157,7 +157,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 93)))))))) 
 
 (DEFUN |PFO;doubleDisc| (|f| $)
-  (PROG (#1=#:G210 |c| #2=#:G209 |e| |d| #3=#:G204 |g|)
+  (PROG (#1=#:G212 |c| #2=#:G211 |e| |d| #3=#:G206 |g|)
     (RETURN
      (SEQ (LETT |d| (SPADCALL |f| (QREFELT $ 94)) . #4=(|PFO;doubleDisc|))
           (LETT |g| (SPADCALL |d| (SPADCALL |d| (QREFELT $ 95)) (QREFELT $ 96))
@@ -194,7 +194,7 @@
               (QREFELT $ 105))))))))) 
 
 (DEFUN |PFO;commonDen| (|p| $)
-  (PROG (|l2| #1=#:G215 |c| #2=#:G214 |l1|)
+  (PROG (|l2| #1=#:G217 |c| #2=#:G216 |l1|)
     (RETURN
      (SEQ (LETT |l1| (SPADCALL |p| (QREFELT $ 39)) . #3=(|PFO;commonDen|))
           (LETT |l2|
@@ -214,7 +214,7 @@
           (EXIT (SPADCALL |l2| (QREFELT $ 91))))))) 
 
 (DEFUN |PFO;polyred| (|f| $)
-  (PROG (#1=#:G380 |c| #2=#:G379)
+  (PROG (#1=#:G382 |c| #2=#:G381)
     (RETURN
      (SEQ
       (SPADCALL
@@ -245,7 +245,7 @@
        |f| (QREFELT $ 113)))))) 
 
 (DEFUN |PFO;aklist| (|f| $)
-  (PROG (#1=#:G385 #2=#:G384 #3=#:G386 #4=#:G389 |c| |r|)
+  (PROG (#1=#:G387 #2=#:G386 #3=#:G388 #4=#:G391 |c| |r|)
     (RETURN
      (SEQ (LETT |r| (SPADCALL |f| (QREFELT $ 115)) . #5=(|PFO;aklist|))
           (EXIT
@@ -276,7 +276,7 @@
             (#6# (|PFO;klist| (SPADCALL (QCDR |r|) (QREFELT $ 110)) $)))))))) 
 
 (DEFUN |PFO;alglist| (|d| $)
-  (PROG (#1=#:G392 #2=#:G391 #3=#:G393 #4=#:G396 |i| |n|)
+  (PROG (#1=#:G394 #2=#:G393 #3=#:G395 #4=#:G398 |i| |n|)
     (RETURN
      (SEQ
       (LETT |n|
@@ -766,9 +766,9 @@
             (QREFELT $ 163))) 
 
 (DEFUN |PFO;simplifyCoeffs;FdLNni;32| (|d| |la| $)
-  (PROG (|ndiv| |va| #1=#:G445 #2=#:G447 |i| #3=#:G446 |v| |nd| |id| |nPFO|
-         |nFR| |nFD| |nR| |nf| |lrhs| #4=#:G444 |pol| #5=#:G443 |y| |rec|
-         #6=#:G442 |k| #7=#:G441)
+  (PROG (|ndiv| |va| #1=#:G447 #2=#:G449 |i| #3=#:G448 |v| |nd| |id| |nPFO|
+         |nFR| |nFD| |nR| |nf| |lrhs| #4=#:G446 |pol| #5=#:G445 |y| |rec|
+         #6=#:G444 |k| #7=#:G443)
     (RETURN
      (SEQ
       (LETT |rec|
@@ -893,7 +893,7 @@
                                         |nPFO|))))))) 
 
 (DEFUN |PFO;possibleOrder;FdNni;33| (|d| $)
-  (PROG (#1=#:G456 |la|)
+  (PROG (#1=#:G458 |la|)
     (RETURN
      (SEQ
       (EXIT
@@ -1031,7 +1031,7 @@
       ('T (CONS 0 |n|)))))) 
 
 (DEFUN |PFO;kgetGoodPrime| (|rec| |res| |h| |b| |d| $)
-  (PROG (#1=#:G482 |p| #2=#:G484 |u| #3=#:G480)
+  (PROG (#1=#:G484 |p| #2=#:G486 |u| #3=#:G482)
     (RETURN
      (SEQ
       (LETT |p|
@@ -1064,7 +1064,7 @@
                               #1#)))))))) 
 
 (DEFUN |PFO;goodRed| (|rec| |res| |h| |b| |d| |p| $)
-  (PROG (|md| |mdg| #1=#:G504 |ff| |l| #2=#:G503 |f| #3=#:G502 |gf|)
+  (PROG (|md| |mdg| #1=#:G506 |ff| |l| #2=#:G505 |f| #3=#:G504 |gf|)
     (RETURN
      (SEQ
       (COND ((ZEROP (REM (QVELT |rec| 1) |p|)) (CONS 1 "failed"))
@@ -1260,10 +1260,10 @@
          'NIL)
         ('T 'T))))))) 
 
-(DEFUN |PointsOfFiniteOrder| (&REST #1=#:G512)
+(DEFUN |PointsOfFiniteOrder| (&REST #1=#:G514)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G513)
+     (PROG (#2=#:G515)
        (RETURN
         (COND
          ((LETT #2#

@@ -4,15 +4,15 @@
 (DEFPARAMETER |BitAggregate;AL| 'NIL) 
 
 (DEFUN |BitAggregate| ()
-  (LET (#:G128)
+  (LET (#:G130)
     (COND (|BitAggregate;AL|) (T (SETQ |BitAggregate;AL| (|BitAggregate;|)))))) 
 
 (DEFUN |BitAggregate;| ()
-  (PROG (#1=#:G126)
+  (PROG (#1=#:G128)
     (RETURN
      (PROG1
          (LETT #1#
-               (|sublisV| (PAIR '(#2=#:G125) (LIST '(|Boolean|)))
+               (|sublisV| (PAIR '(#2=#:G127) (LIST '(|Boolean|)))
                           (|Join| (|OrderedSet|) (|Logic|)
                                   (|OneDimensionalArrayAggregate| '#2#)
                                   (|mkCategory|

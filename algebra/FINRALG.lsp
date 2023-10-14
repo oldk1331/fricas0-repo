@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |FiniteRankAlgebra;AL| 'NIL) 
 
-(DEFUN |FiniteRankAlgebra| (&REST #1=#:G126)
-  (LET (#2=#:G127)
+(DEFUN |FiniteRankAlgebra| (&REST #1=#:G128)
+  (LET (#2=#:G129)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |FiniteRankAlgebra;AL|))
       (CDR #2#))
@@ -17,7 +17,7 @@
       #2#)))) 
 
 (DEFUN |FiniteRankAlgebra;| (|t#1| |t#2|)
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

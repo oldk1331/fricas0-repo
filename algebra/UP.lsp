@@ -7,10 +7,10 @@
 (DEFUN |UP;coerce;V$;2| (|v| $)
   (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 17))) 
 
-(DEFUN |UnivariatePolynomial| (&REST #1=#:G176)
+(DEFUN |UnivariatePolynomial| (&REST #1=#:G178)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G177)
+     (PROG (#2=#:G179)
        (RETURN
         (COND
          ((LETT #2#
@@ -29,7 +29,7 @@
               (HREM |$ConstructorCache| '|UnivariatePolynomial|))))))))))) 
 
 (DEFUN |UnivariatePolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G175 |pv$| #2=#:G173 #3=#:G174 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G177 |pv$| #2=#:G175 #3=#:G176 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|UnivariatePolynomial|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SOLVESER;unvectorise;VFIF;1| (|vect| |var| |n| $)
-  (PROG (|polyvar| #1=#:G128 |vecti| #2=#:G133 |i| Z)
+  (PROG (|polyvar| #1=#:G130 |vecti| #2=#:G135 |i| Z)
     (RETURN
      (SEQ
       (LETT Z (SPADCALL (QREFELT $ 8)) . #3=(|SOLVESER;unvectorise;VFIF;1|))
@@ -37,7 +37,7 @@
       (EXIT |polyvar|))))) 
 
 (DEFUN |SOLVESER;decomposeFunc;4F;2| (|exprf| |exprg| |newH| $)
-  (PROG (|newF| #1=#:G142 |newF2| |newF1| |m| N |degG| |degF| |g2| |g1| |f2|
+  (PROG (|newF| #1=#:G144 |newF2| |newF1| |m| N |degG| |degF| |g2| |g1| |f2|
          |f1| X)
     (RETURN
      (SEQ
@@ -85,8 +85,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SOLVESER;subsSolve| (F |DegF| G1 G2 M HH $)
-  (PROG (|resul| |solvevarlist| #1=#:G192 #2=#:G196 |solvar| |coeffma| |vec|
-         |coeffmat| #3=#:G188 |i|)
+  (PROG (|resul| |solvevarlist| #1=#:G194 #2=#:G198 |solvar| |coeffma| |vec|
+         |coeffmat| #3=#:G190 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -140,10 +140,10 @@
             (EXIT (CONS 0 |resul|))))))))
       #2# (EXIT #2#))))) 
 
-(DEFUN |TransSolvePackageService| (#1=#:G197)
+(DEFUN |TransSolvePackageService| (#1=#:G199)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G198)
+     (PROG (#2=#:G200)
        (RETURN
         (COND
          ((LETT #2#

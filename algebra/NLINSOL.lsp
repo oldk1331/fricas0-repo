@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |NLINSOL;solveInField;LL;1| (|l| $)
-  (PROG (#1=#:G131 #2=#:G130 #3=#:G132 #4=#:G134 |p|)
+  (PROG (#1=#:G133 #2=#:G132 #3=#:G134 #4=#:G136 |p|)
     (RETURN
      (SEQ
       (SPADCALL |l|
@@ -28,7 +28,7 @@
                 (QREFELT $ 13)))))) 
 
 (DEFUN |NLINSOL;solve;LL;2| (|l| $)
-  (PROG (#1=#:G136 #2=#:G135 #3=#:G137 #4=#:G139 |p|)
+  (PROG (#1=#:G138 #2=#:G137 #3=#:G139 #4=#:G141 |p|)
     (RETURN
      (SEQ
       (SPADCALL |l|
@@ -54,7 +54,7 @@
                 (QREFELT $ 15)))))) 
 
 (DEFUN |NLINSOL;solve;LLL;3| (|lp| |lv| $)
-  (PROG (#1=#:G143 |sol| #2=#:G142)
+  (PROG (#1=#:G145 |sol| #2=#:G144)
     (RETURN
      (SEQ
       (SPADCALL
@@ -71,7 +71,7 @@
        (QREFELT $ 18)))))) 
 
 (DEFUN |NLINSOL;addRoot| (|eq| |l| $)
-  (PROG (#1=#:G147 |sol| #2=#:G146)
+  (PROG (#1=#:G149 |sol| #2=#:G148)
     (RETURN
      (SEQ
       (PROGN
@@ -85,7 +85,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |NLINSOL;evalSol| (|ls| |l| $)
-  (PROG (#1=#:G151 |eq| #2=#:G150)
+  (PROG (#1=#:G153 |eq| #2=#:G152)
     (RETURN
      (SEQ
       (PROGN
@@ -108,7 +108,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |NLINSOL;allRoots| (|l| $)
-  (PROG (#1=#:G160 |a| #2=#:G159 |s| #3=#:G153 |p| |z|)
+  (PROG (#1=#:G162 |a| #2=#:G161 |s| #3=#:G155 |p| |z|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (LIST NIL))
@@ -160,8 +160,8 @@
                 (QREFELT $ 18)))))))))) 
 
 (DEFUN |NLINSOL;expandSol| (|l| $)
-  (PROG (#1=#:G181 |z| #2=#:G180 #3=#:G178 |luniv| |r| |u| |lsubs| |lassign|
-         #4=#:G179 |eq|)
+  (PROG (#1=#:G183 |z| #2=#:G182 #3=#:G180 |luniv| |r| |u| |lsubs| |lassign|
+         #4=#:G181 |eq|)
     (RETURN
      (SEQ
       (EXIT
@@ -239,7 +239,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |NLINSOL;RIfCan| (|f| $)
-  (PROG (#1=#:G187 |d| |n|)
+  (PROG (#1=#:G189 |d| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -275,7 +275,7 @@
   (SPADCALL |lp| |lv| (QREFELT $ 51))) 
 
 (DEFUN |NLINSOL;solveInField;LLL;13| (|lp| |lv| $)
-  (PROG (#1=#:G196 |p| #2=#:G195)
+  (PROG (#1=#:G198 |p| #2=#:G197)
     (RETURN
      (SEQ
       (SPADCALL
@@ -290,10 +290,10 @@
              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
        |lv| (QREFELT $ 54)))))) 
 
-(DEFUN |NonLinearSolvePackage| (#1=#:G197)
+(DEFUN |NonLinearSolvePackage| (#1=#:G199)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G198)
+     (PROG (#2=#:G200)
        (RETURN
         (COND
          ((LETT #2#

@@ -4,12 +4,12 @@
 (DEFPARAMETER |AbelianMonoid;AL| 'NIL) 
 
 (DEFUN |AbelianMonoid| ()
-  (LET (#:G128)
+  (LET (#:G130)
     (COND (|AbelianMonoid;AL|)
           (T (SETQ |AbelianMonoid;AL| (|AbelianMonoid;|)))))) 
 
 (DEFUN |AbelianMonoid;| ()
-  (PROG (#1=#:G126)
+  (PROG (#1=#:G128)
     (RETURN
      (PROG1
          (LETT #1#

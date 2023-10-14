@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |REAL0Q;convert2PolInt| (|f| $)
-  (PROG (|pden| #1=#:G130 |c| #2=#:G129)
+  (PROG (|pden| #1=#:G132 |c| #2=#:G131)
     (RETURN
      (SEQ
       (LETT |pden|
@@ -44,10 +44,10 @@
 (DEFUN |REAL0Q;refine;Pol2RU;7| (|f| |int| |bounds| $)
   (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |int| |bounds| (QREFELT $ 34))) 
 
-(DEFUN |RealZeroPackageQ| (#1=#:G146)
+(DEFUN |RealZeroPackageQ| (#1=#:G148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G149)
        (RETURN
         (COND
          ((LETT #2#

@@ -91,10 +91,10 @@
     (|error| "File not in write state"))
    ('T (FORCE-OUTPUT (QVELT |f| 1))))) 
 
-(DEFUN |File| (#1=#:G174)
+(DEFUN |File| (#1=#:G176)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G175)
+     (PROG (#2=#:G177)
        (RETURN
         (COND
          ((LETT #2#

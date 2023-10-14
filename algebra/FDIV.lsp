@@ -79,7 +79,7 @@
    |g| $)) 
 
 (DEFUN |FDIV;intReduce| (|h| |b| $)
-  (PROG (#1=#:G174 #2=#:G176 |i| #3=#:G175 |v|)
+  (PROG (#1=#:G176 #2=#:G178 |i| #3=#:G177 |v|)
     (RETURN
      (SEQ
       (LETT |v| (QCAR (SPADCALL |h| (QREFELT $ 72))) . #4=(|FDIV;intReduce|))
@@ -129,7 +129,7 @@
         (|spadConstant| $ 53) $)))))) 
 
 (DEFUN |FDIV;divisor;2FI$;29| (|a| |b| |n| $)
-  (PROG (|g| |m| #1=#:G186 #2=#:G185 |d|)
+  (PROG (|g| |m| #1=#:G188 #2=#:G187 |d|)
     (RETURN
      (SEQ
       (COND
@@ -251,7 +251,7 @@
    (EXIT (QCDR |d|)))) 
 
 (DEFUN |FDIV;generator;$U;32| (|d| $)
-  (PROG (#1=#:G210 #2=#:G212 #3=#:G213 |i| |bsis|)
+  (PROG (#1=#:G212 #2=#:G214 #3=#:G215 |i| |bsis|)
     (RETURN
      (SEQ
       (EXIT
@@ -317,10 +317,10 @@
          (QREFELT $ 56))
         (QREFELT $ 40))))))) 
 
-(DEFUN |FiniteDivisor| (&REST #1=#:G220)
+(DEFUN |FiniteDivisor| (&REST #1=#:G222)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G221)
+     (PROG (#2=#:G223)
        (RETURN
         (COND
          ((LETT #2#

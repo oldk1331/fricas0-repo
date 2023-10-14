@@ -5,7 +5,7 @@
   (SPADCALL (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 12))) 
 
 (DEFUN |FINRALG-;coordinates;2VM;2| (|v| |b| $)
-  (PROG (#1=#:G136 |i| |j| |m|)
+  (PROG (#1=#:G138 |i| |j| |m|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -24,7 +24,7 @@
       (EXIT |m|))))) 
 
 (DEFUN |FINRALG-;represents;VVS;3| (|v| |b| $)
-  (PROG (#1=#:G138 #2=#:G137 #3=#:G139 #4=#:G142 |i| |m|)
+  (PROG (#1=#:G140 #2=#:G139 #3=#:G141 #4=#:G144 |i| |m|)
     (RETURN
      (SEQ
       (LETT |m| (- (SPADCALL |v| (QREFELT $ 24)) 1)
@@ -48,7 +48,7 @@
         (COND (#1# #2#) ('T (|spadConstant| $ 32))))))))) 
 
 (DEFUN |FINRALG-;traceMatrix;VM;4| (|v| $)
-  (PROG (#1=#:G149 |j| #2=#:G148 #3=#:G147 |i| #4=#:G146)
+  (PROG (#1=#:G151 |j| #2=#:G150 #3=#:G149 |i| #4=#:G148)
     (RETURN
      (SEQ
       (SPADCALL
@@ -85,7 +85,7 @@
        (QREFELT $ 37)))))) 
 
 (DEFUN |FINRALG-;regularRepresentation;SVM;5| (|x| |b| $)
-  (PROG (#1=#:G154 |i| #2=#:G153 |m|)
+  (PROG (#1=#:G156 |i| #2=#:G155 |m|)
     (RETURN
      (SEQ
       (LETT |m| (- (SPADCALL |b| (QREFELT $ 19)) 1)

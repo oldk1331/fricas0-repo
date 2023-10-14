@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MRVLIM;var_kers| (|e| $)
-  (PROG (#1=#:G164 |kk| #2=#:G163)
+  (PROG (#1=#:G166 |kk| #2=#:G165)
     (RETURN
      (SEQ
       (PROGN
@@ -24,9 +24,9 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |MRVLIM;mrv_normalize;ESRE;2| (|f| |x| |state| $)
-  (PROG (#1=#:G179 |l_ts| |l_tan| |nk| |ns| |need_subst| |ss| |la| |l_as|
-         |l_atan| |lau| |arg1| |nm| |ntf| |rtf| |nargs| #2=#:G188 |arg|
-         #3=#:G187 |args| |op| #4=#:G186 |k| |tf|)
+  (PROG (#1=#:G181 |l_ts| |l_tan| |nk| |ns| |need_subst| |ss| |la| |l_as|
+         |l_atan| |lau| |arg1| |nm| |ntf| |rtf| |nargs| #2=#:G190 |arg|
+         #3=#:G189 |args| |op| #4=#:G188 |k| |tf|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL |f| (QREFELT $ 20))
@@ -372,8 +372,8 @@
                            ('T (|spadConstant| $ 83)))))))))))))))))) 
 
 (DEFUN |MRVLIM;expr_to_series;EKRU;6| (|e| |k| |state| $)
-  (PROG (#1=#:G252 |vkers| |ssl| |kk| #2=#:G245 |lc| |ssll| |deg| |ssl0|
-         #3=#:G240 |ss| |h| |ex|)
+  (PROG (#1=#:G254 |vkers| |ssl| |kk| #2=#:G247 |lc| |ssll| |deg| |ssl0|
+         #3=#:G242 |ss| |h| |ex|)
     (RETURN
      (SEQ
       (EXIT
@@ -480,7 +480,7 @@
         (#1# (CONS 1 "failed")))))))) 
 
 (DEFUN |MRVLIM;mrv_set;ESRU;8| (|e| |x| |state| $)
-  (PROG (|res_c| |res| |res_k| |c| |i| |ic| #1=#:G291 |icu| #2=#:G292 |y|
+  (PROG (|res_c| |res| |res_k| |c| |i| |ic| #1=#:G293 |icu| #2=#:G294 |y|
          |kers|)
     (RETURN
      (SEQ
@@ -533,7 +533,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MRVLIM;mrv_rewrite1| (|e| |lx| |ly| $)
-  (PROG (#1=#:G296 |x| #2=#:G297 |y| |rly| |rlx|)
+  (PROG (#1=#:G298 |x| #2=#:G299 |y| |rly| |rlx|)
     (RETURN
      (SEQ (LETT |rlx| (REVERSE |lx|) . #3=(|MRVLIM;mrv_rewrite1|))
           (LETT |rly| (REVERSE |ly|) . #3#)
@@ -552,7 +552,7 @@
           (EXIT |e|))))) 
 
 (DEFUN |MRVLIM;mrv_rewrite0;ELL2E;10| (|e| |lx| |lc| |x00| $)
-  (PROG (|lxx| |ly| |yi| |ei| #1=#:G304 |xi| #2=#:G305 |ci| |e0| |c0|)
+  (PROG (|lxx| |ly| |yi| |ei| #1=#:G306 |xi| #2=#:G307 |ci| |e0| |c0|)
     (RETURN
      (SEQ (LETT |c0| (|SPADfirst| |lc|) . #3=(|MRVLIM;mrv_rewrite0;ELL2E;10|))
           (COND
@@ -603,8 +603,8 @@
           (EXIT (|MRVLIM;mrv_rewrite1| |e| |lxx| |ly| $)))))) 
 
 (DEFUN |MRVLIM;mrv_rewrite;ELLSRU;11| (|e| |lx| |lc| |v| |state| $)
-  (PROG (|lxx| |x00| |lcc| #1=#:G328 |ci| #2=#:G327 |ss| |lipp| |lip| |e0|
-         #3=#:G326 |ei| #4=#:G325 |x0|)
+  (PROG (|lxx| |x00| |lcc| #1=#:G330 |ci| #2=#:G329 |ss| |lipp| |lip| |e0|
+         #3=#:G328 |ei| #4=#:G327 |x0|)
     (RETURN
      (SEQ (LETT |x0| (|SPADfirst| |lx|) . #5=(|MRVLIM;mrv_rewrite;ELLSRU;11|))
           (EXIT
@@ -923,7 +923,7 @@
                             (#2# (CONS 1 (CONS |ll| |lr|))))))))))))))))))))) 
 
 (DEFUN |MRVLIM;mrv_limit;EESU;16| (|e| |eq| |s| $)
-  (PROG (#1=#:G413 |et| |vK| |a| |v| |f|)
+  (PROG (#1=#:G415 |et| |vK| |a| |v| |f|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 148)) (QREFELT $ 138))
@@ -983,7 +983,7 @@
 (DEFUN |MrvLimitPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G418)
+     (PROG (#1=#:G420)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|MrvLimitPackage|)

@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |BalancedPAdicRational| (#1=#:G162)
+(DEFUN |BalancedPAdicRational| (#1=#:G164)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G163)
+     (PROG (#2=#:G165)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,7 +22,7 @@
               (HREM |$ConstructorCache| '|BalancedPAdicRational|))))))))))) 
 
 (DEFUN |BalancedPAdicRational;| (|#1|)
-  (PROG (|pv$| #1=#:G161 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G163 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|BalancedPAdicRational|))

@@ -6,10 +6,10 @@
             (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|)
             (SPADCALL (SPADCALL |c| 3 (QREFELT $ 10)) |f|) (QREFELT $ 12))) 
 
-(DEFUN |ParametricSurfaceFunctions2| (&REST #1=#:G127)
+(DEFUN |ParametricSurfaceFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

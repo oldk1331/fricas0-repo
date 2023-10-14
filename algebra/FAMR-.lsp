@@ -19,7 +19,7 @@
     (RETURN (PROGN (SPADCALL |x1| |e| (QREFELT $ 9)))))) 
 
 (DEFUN |FAMR-;binomThmExpt;2SNniS;2| (|x| |y| |nn| $)
-  (PROG (|yn| |i| |bincoef| |ans| #1=#:G148 |xn| |powl|)
+  (PROG (|yn| |i| |bincoef| |ans| #1=#:G150 |xn| |powl|)
     (RETURN
      (SEQ
       (COND ((EQL |nn| 0) (|spadConstant| $ 17))
@@ -94,7 +94,7 @@
     (RETURN (PROGN (SPADCALL |x1| |r| (QREFELT $ 38)))))) 
 
 (DEFUN |FAMR-;exquo;SRU;8| (|x| |r| $)
-  (PROG (|ans| #1=#:G175 |t|)
+  (PROG (|ans| #1=#:G177 |t|)
     (RETURN
      (SEQ
       (EXIT
@@ -163,7 +163,7 @@
               (EXIT |r|)))))))) 
 
 (DEFUN |FAMR-;primitivePart;2S;10| (|x| $)
-  (PROG (#1=#:G183 |c|)
+  (PROG (#1=#:G185 |c|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 29)) |x|)

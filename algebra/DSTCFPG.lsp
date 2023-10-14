@@ -65,10 +65,10 @@
       (SPADCALL |zz| (SPADCALL |a| (|spadConstant| $ 15) (QREFELT $ 35))
                 (QREFELT $ 36)))))) 
 
-(DEFUN |DistributionContinuedFractionPackage| (&REST #1=#:G136)
+(DEFUN |DistributionContinuedFractionPackage| (&REST #1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#
@@ -90,7 +90,7 @@
                     '|DistributionContinuedFractionPackage|))))))))))) 
 
 (DEFUN |DistributionContinuedFractionPackage;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G135 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G137 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

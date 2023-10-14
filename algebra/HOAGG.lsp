@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |HomogeneousAggregate;AL| 'NIL) 
 
-(DEFUN |HomogeneousAggregate| (#1=#:G128)
-  (LET (#2=#:G129)
+(DEFUN |HomogeneousAggregate| (#1=#:G130)
+  (LET (#2=#:G131)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |HomogeneousAggregate;AL|))
       (CDR #2#))
@@ -17,7 +17,7 @@
       #2#)))) 
 
 (DEFUN |HomogeneousAggregate;| (|t#1|)
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G129)
     (RETURN
      (PROG1
          (LETT #1#

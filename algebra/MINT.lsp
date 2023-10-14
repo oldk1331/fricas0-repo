@@ -38,7 +38,7 @@
 (DEFUN |MachineInteger| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G162)
+     (PROG (#1=#:G164)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|MachineInteger|)

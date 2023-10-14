@@ -7,10 +7,10 @@
 (DEFUN |GUESSF1;EXPRR2F;EF;2| (|p| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))) 
 
-(DEFUN |GuessFiniteFunctions| (#1=#:G127)
+(DEFUN |GuessFiniteFunctions| (#1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

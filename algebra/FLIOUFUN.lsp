@@ -111,7 +111,7 @@
         (QREFELT $ 39))))))) 
 
 (DEFUN |FLIOUFUN;erf_z| (|z| $)
-  (PROG (#1=#:G158 #2=#:G161 |res| |n| |nf| |np| |npf| |sp| |dnz| |oz| |prec|
+  (PROG (#1=#:G160 #2=#:G163 |res| |n| |nf| |np| |npf| |sp| |dnz| |oz| |prec|
          |nz| |obits|)
     (RETURN
      (SEQ
@@ -300,7 +300,7 @@
         (QREFELT $ 25))))))) 
 
 (DEFUN |FLIOUFUN;fresnel_c_z| (|z| $)
-  (PROG (|im_z| |re_z| |pi_fac| #1=#:G174 #2=#:G180 |res| |n| |nf| |np| |npf|
+  (PROG (|im_z| |re_z| |pi_fac| #1=#:G176 #2=#:G182 |res| |n| |nf| |np| |npf|
          |sp| |dnz| |oz| |prec| |nz| |obits|)
     (RETURN
      (SEQ
@@ -559,7 +559,7 @@
         (QREFELT $ 25))))))) 
 
 (DEFUN |FLIOUFUN;fresnel_s_z| (|z| $)
-  (PROG (|im_z| |re_z| |pi_fac| #1=#:G194 #2=#:G200 |res| |n| |nf| |np| |npf|
+  (PROG (|im_z| |re_z| |pi_fac| #1=#:G196 #2=#:G202 |res| |n| |nf| |np| |npf|
          |sp| |dnz| |oz| |prec| |nz| |obits|)
     (RETURN
      (SEQ
@@ -782,7 +782,7 @@
       (EXIT (SPADCALL (SPADCALL |z| (QREFELT $ 43)) |res| (QREFELT $ 25))))))) 
 
 (DEFUN |FLIOUFUN;ei_z| (|z| $)
-  (PROG (|im_z| |pii| #1=#:G214 #2=#:G219 |res| |n| |nf| |np| |npf| |sp| |dnz|
+  (PROG (|im_z| |pii| #1=#:G216 #2=#:G221 |res| |n| |nf| |np| |npf| |sp| |dnz|
          |oz| |prec| |nz| |obits|)
     (RETURN
      (SEQ
@@ -1013,7 +1013,7 @@
                  (QREFELT $ 25))))))) 
 
 (DEFUN |FLIOUFUN;ci_z| (|z| $)
-  (PROG (|pi_fac| #1=#:G236 #2=#:G240 |res| |n| |nf| |np| |npf| |sp| |dnz| |oz|
+  (PROG (|pi_fac| #1=#:G238 #2=#:G242 |res| |n| |nf| |np| |npf| |sp| |dnz| |oz|
          |prec| |nz| |obits|)
     (RETURN
      (SEQ
@@ -1246,7 +1246,7 @@
                  (QREFELT $ 25))))))) 
 
 (DEFUN |FLIOUFUN;si_z| (|z| $)
-  (PROG (|pi_fac| #1=#:G255 #2=#:G258 |res| |n| |nf| |np| |npf| |sp| |dnz| |oz|
+  (PROG (|pi_fac| #1=#:G257 #2=#:G260 |res| |n| |nf| |np| |npf| |sp| |dnz| |oz|
          |prec| |nz| |obits|)
     (RETURN
      (SEQ
@@ -1373,7 +1373,7 @@
 (DEFUN |FloatLiouvilianFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G265)
+     (PROG (#1=#:G267)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FloatLiouvilianFunctions|)

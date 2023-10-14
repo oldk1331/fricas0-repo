@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FORDER;order;FdNni;1| (|d| $)
-  (PROG (|dd| #1=#:G129 |i|)
+  (PROG (|dd| #1=#:G131 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -26,10 +26,10 @@
               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL)))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |FindOrderFinite| (&REST #1=#:G130)
+(DEFUN |FindOrderFinite| (&REST #1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

@@ -75,7 +75,7 @@
    (EXIT (CONS 1 "failed")))) 
 
 (DEFUN |RADFF;diag| (|v| $)
-  (PROG (#1=#:G193 |i| #2=#:G192)
+  (PROG (#1=#:G195 |i| #2=#:G194)
     (RETURN
      (SEQ
       (PROGN
@@ -93,7 +93,7 @@
        #2#))))) 
 
 (DEFUN |RADFF;integralRepresents;VUP$;16| (|v| |d| $)
-  (PROG (#1=#:G197 #2=#:G199 |i| #3=#:G198 |ib|)
+  (PROG (#1=#:G199 #2=#:G201 |i| #3=#:G200 |ib|)
     (RETURN
      (SEQ
       (LETT |ib| (|RADFF;basisvec| $)
@@ -119,7 +119,7 @@
         (QREFELT $ 66))))))) 
 
 (DEFUN |RADFF;integralCoordinates;$R;17| (|f| $)
-  (PROG (#1=#:G204 #2=#:G206 |i| #3=#:G205 |ib| |v|)
+  (PROG (#1=#:G206 #2=#:G208 |i| #3=#:G207 |ib| |v|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL |f| (QREFELT $ 69))
@@ -144,7 +144,7 @@
         (QREFELT $ 73))))))) 
 
 (DEFUN |RADFF;integralDerivationMatrix;MR;18| (|d| $)
-  (PROG (|cd| #1=#:G215 #2=#:G217 |i| #3=#:G216 |v| |dlogp|)
+  (PROG (|cd| #1=#:G217 #2=#:G219 |i| #3=#:G218 |v| |dlogp|)
     (RETURN
      (SEQ
       (LETT |dlogp|
@@ -181,7 +181,7 @@
       (EXIT (CONS (SPADCALL (QCAR |cd|) (QREFELT $ 81)) (QCDR |cd|))))))) 
 
 (DEFUN |RADFF;iBasis| (|p| |d| $)
-  (PROG (#1=#:G220 #2=#:G219 #3=#:G221 |j| |i| #4=#:G225 |d1| #5=#:G218 |pl|)
+  (PROG (#1=#:G222 #2=#:G221 #3=#:G223 |j| |i| #4=#:G227 |d1| #5=#:G220 |pl|)
     (RETURN
      (SEQ
       (LETT |pl| (|RADFF;fullVector| (SPADCALL |p| (QREFELT $ 85)) |d| $)
@@ -224,7 +224,7 @@
         #4#)))))) 
 
 (DEFUN |RADFF;fullVector| (|p| |m| $)
-  (PROG (|u| #1=#:G235 |i| |l| |ans|)
+  (PROG (|u| #1=#:G237 |i| |l| |ans|)
     (RETURN
      (SEQ
       (LETT |ans| (MAKEARR1 |m| (|spadConstant| $ 25))
@@ -255,7 +255,7 @@
     (RETURN (PROGN (SPADCALL (QCDR |s|) |i| (QREFELT $ 100)))))) 
 
 (DEFUN |RADFF;inftyBasis| (|p| |m| $)
-  (PROG (|b| #1=#:G242 |i| |w| |v| |a| |rt| |x|)
+  (PROG (|b| #1=#:G244 |i| |w| |v| |a| |rt| |x|)
     (RETURN
      (SEQ
       (LETT |rt|
@@ -299,7 +299,7 @@
               (EXIT |w|))))))))) 
 
 (DEFUN |RADFF;charPintbas| (|p| |c| |v| |w| $)
-  (PROG (|a| #1=#:G250 |i| #2=#:G251 |j| #3=#:G252 |k| |ib| |q|)
+  (PROG (|a| #1=#:G252 |i| #2=#:G253 |j| #3=#:G254 |k| |ib| |q|)
     (RETURN
      (SEQ
       (COND
@@ -398,7 +398,7 @@
         $)))))) 
 
 (DEFUN |RADFF;startUp| (|b| $)
-  (PROG (|dsc| #1=#:G267 #2=#:G266 #3=#:G268 #4=#:G271 |i| |p|)
+  (PROG (|dsc| #1=#:G269 #2=#:G268 #3=#:G270 #4=#:G273 |i| |p|)
     (RETURN
      (SEQ (SPADCALL (QREFELT $ 20) |b| (QREFELT $ 129))
           (COND
@@ -447,7 +447,7 @@
           (EXIT (SPADCALL (QREFELT $ 126))))))) 
 
 (DEFUN |RADFF;char0StartUp| ($)
-  (PROG (|a| |invden| #1=#:G278 |i| |infb| |ib| |rp|)
+  (PROG (|a| |invden| #1=#:G280 |i| |infb| |ib| |rp|)
     (RETURN
      (SEQ
       (LETT |rp| (SPADCALL (QREFELT $ 9) (QREFELT $ 10) (QREFELT $ 112))
@@ -529,7 +529,7 @@
                  (#2# 'NIL))))))))))) 
 
 (DEFUN |RADFF;singular?;FB;29| (|point| $)
-  (PROG (#1=#:G305)
+  (PROG (#1=#:G307)
     (RETURN
      (COND
       ((SPADCALL (SPADCALL (|RADFF;radcand| $) |point| (QREFELT $ 53))
@@ -553,7 +553,7 @@
       ('T 'NIL))))) 
 
 (DEFUN |RADFF;branchPoint?;FB;30| (|point| $)
-  (PROG (#1=#:G310)
+  (PROG (#1=#:G312)
     (RETURN
      (COND
       ((SPADCALL (SPADCALL (|RADFF;radcand| $) |point| (QREFELT $ 53))
@@ -579,10 +579,10 @@
         (#2='T 'T)))
       (#2# 'NIL))))) 
 
-(DEFUN |RadicalFunctionField| (&REST #1=#:G355)
+(DEFUN |RadicalFunctionField| (&REST #1=#:G357)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G356)
+     (PROG (#2=#:G358)
        (RETURN
         (COND
          ((LETT #2#
@@ -601,7 +601,7 @@
               (HREM |$ConstructorCache| '|RadicalFunctionField|))))))))))) 
 
 (DEFUN |RadicalFunctionField;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (#1=#:G143 |pv$| #2=#:G353 #3=#:G354 $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G145 |pv$| #2=#:G355 #3=#:G356 $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|RadicalFunctionField|))

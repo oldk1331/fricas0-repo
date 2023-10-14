@@ -2,12 +2,12 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PFBR;hensel| (|pp| |vv| |r| |factors| $)
-  (PROG (|n| |totdegree| #1=#:G201 #2=#:G200 #3=#:G202 #4=#:G204 #5=#:G203
-         #6=#:G205 #7=#:G223 |u| #8=#:G222 |u1| #9=#:G213 |foundFactors|
-         |origFactors| |proddegree| #10=#:G194 #11=#:G193 #12=#:G195 #13=#:G221
-         |pp1| #14=#:G219 |a| #15=#:G220 |c| #16=#:G217 #17=#:G218 |b|
-         #18=#:G216 |step| |Ecart| #19=#:G183 #20=#:G182 #21=#:G184 #22=#:G215
-         #23=#:G125 |pn| |prime| #24=#:G153 #25=#:G152 #26=#:G154 #27=#:G214)
+  (PROG (|n| |totdegree| #1=#:G203 #2=#:G202 #3=#:G204 #4=#:G206 #5=#:G205
+         #6=#:G207 #7=#:G225 |u| #8=#:G224 |u1| #9=#:G215 |foundFactors|
+         |origFactors| |proddegree| #10=#:G196 #11=#:G195 #12=#:G197 #13=#:G223
+         |pp1| #14=#:G221 |a| #15=#:G222 |c| #16=#:G219 #17=#:G220 |b|
+         #18=#:G218 |step| |Ecart| #19=#:G185 #20=#:G184 #21=#:G186 #22=#:G217
+         #23=#:G127 |pn| |prime| #24=#:G155 #25=#:G154 #26=#:G156 #27=#:G216)
     (RETURN
      (SEQ
       (EXIT
@@ -347,8 +347,8 @@
     (RETURN (PROGN (SPADCALL |z1| |vv| |r| (QREFELT $ 29)))))) 
 
 (DEFUN |PFBR;factorSFBRlcUnitInner| (|lvpp| |pp| |r| $)
-  (PROG (#1=#:G251 |u| #2=#:G250 |hen| |factors| #3=#:G249 |uu| #4=#:G248
-         |fSame| #5=#:G247 #6=#:G246 |fDown| |ppR|)
+  (PROG (#1=#:G253 |u| #2=#:G252 |hen| |factors| #3=#:G251 |uu| #4=#:G250
+         |fSame| #5=#:G249 #6=#:G248 |fDown| |ppR|)
     (RETURN
      (SEQ
       (LETT |ppR|
@@ -480,7 +480,7 @@
       (SPADCALL |z1| (SPADCALL |lvpp| (QREFELT $ 44)) |r| (QREFELT $ 29)))))) 
 
 (DEFUN |PFBR;factorSFBRlcUnit;LSupF;3| (|lvpp| |pp| $)
-  (PROG (#1=#:G259 |val| |val1| |tempAns|)
+  (PROG (#1=#:G261 |val| |val1| |tempAns|)
     (RETURN
      (SEQ
       (EXIT
@@ -507,7 +507,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PFBR;factorSFBRlcUnit;LSupF;4| (|lvpp| |pp| $)
-  (PROG (#1=#:G263 |val| |tempAns|)
+  (PROG (#1=#:G265 |val| |tempAns|)
     (RETURN
      (SEQ
       (EXIT
@@ -532,7 +532,7 @@
 (DEFUN |PFBR;randomR;R;6| ($) (SPADCALL (|random|) (QREFELT $ 74))) 
 
 (DEFUN |PFBR;bivariateSLPEBR;LSupVarSetU;7| (|lpolys| |pp| |v| $)
-  (PROG (#1=#:G286 |w| #2=#:G285 |ans| |ppR| |lpolysR| #3=#:G284 |u| #4=#:G283)
+  (PROG (#1=#:G288 |w| #2=#:G287 |ans| |ppR| |lpolysR| #3=#:G286 |u| #4=#:G285)
     (RETURN
      (SEQ
       (LETT |lpolysR|
@@ -588,7 +588,7 @@
   (SPADCALL |lpolys| |pp| (QREFELT $ 89))) 
 
 (DEFUN |PFBR;chooseFSQViableSubstitutions| (|lvpp| |pp| $)
-  (PROG (#1=#:G296 |ppR| |substns| #2=#:G300 |v| #3=#:G299)
+  (PROG (#1=#:G298 |ppR| |substns| #2=#:G302 |v| #3=#:G301)
     (RETURN
      (SEQ
       (SEQ
@@ -650,9 +650,9 @@
                 (QREFELT $ 49)))))) 
 
 (DEFUN |PFBR;chooseSLPEViableSubstitutions| (|lvpolys| |lpolys| |pp| $)
-  (PROG (|ppR| #1=#:G318 |uu| #2=#:G313 #3=#:G310 #4=#:G309 #5=#:G311 #6=#:G327
-         |v| |lpolysR| #7=#:G326 |u| #8=#:G325 #9=#:G304 #10=#:G303 #11=#:G305
-         #12=#:G324 |substns| #13=#:G323 #14=#:G322)
+  (PROG (|ppR| #1=#:G320 |uu| #2=#:G315 #3=#:G312 #4=#:G311 #5=#:G313 #6=#:G329
+         |v| |lpolysR| #7=#:G328 |u| #8=#:G327 #9=#:G306 #10=#:G305 #11=#:G307
+         #12=#:G326 |substns| #13=#:G325 #14=#:G324)
     (RETURN
      (SEQ
       (SEQ
@@ -816,10 +816,10 @@
 (DEFUN |PFBR;lower| (|pp| $) (SPADCALL (ELT $ 49) |pp| (QREFELT $ 53))) 
 
 (DEFUN |PFBR;SLPEBR| (|lpolys| |lvpolys| |pp| |lvpp| $)
-  (PROG (|ansR| |cVS| #1=#:G369 |uu| #2=#:G368 #3=#:G357 |ppR| |lpolysR|
-         #4=#:G367 |u| #5=#:G366 #6=#:G365 |pp1| #7=#:G364 |ans| #8=#:G362 |a|
-         #9=#:G363 |a1| #10=#:G361 |d| |ans1| #11=#:G360 |m| #12=#:G359
-         #13=#:G358 |v|)
+  (PROG (|ansR| |cVS| #1=#:G371 |uu| #2=#:G370 #3=#:G359 |ppR| |lpolysR|
+         #4=#:G369 |u| #5=#:G368 #6=#:G367 |pp1| #7=#:G366 |ans| #8=#:G364 |a|
+         #9=#:G365 |a1| #10=#:G363 |d| |ans1| #11=#:G362 |m| #12=#:G361
+         #13=#:G360 |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -1004,8 +1004,8 @@
 
 (DEFUN |PFBR;solveLinearPolynomialEquationByRecursion;LSupU;14|
        (|lpolys| |pp| $)
-  (PROG (|lvpp| #1=#:G380 |z| #2=#:G379 |lvpolys| #3=#:G378 #4=#:G377 #5=#:G376
-         |u| #6=#:G375)
+  (PROG (|lvpp| #1=#:G382 |z| #2=#:G381 |lvpolys| #3=#:G380 #4=#:G379 #5=#:G378
+         |u| #6=#:G377)
     (RETURN
      (SEQ
       (LETT |lvpolys|
@@ -1074,7 +1074,7 @@
       (EXIT (|PFBR;SLPEBR| |lpolys| |lvpolys| |pp| |lvpp| $)))))) 
 
 (DEFUN |PFBR;factorByRecursion;SupF;15| (|pp| $)
-  (PROG (#1=#:G385 |c| |lv| #2=#:G393 |z| #3=#:G392)
+  (PROG (#1=#:G387 |c| |lv| #2=#:G395 |z| #3=#:G394)
     (RETURN
      (SEQ
       (LETT |lv|
@@ -1129,10 +1129,10 @@
                     (QREFELT $ 142))))))))))))))) 
 
 (DEFUN |PFBR;factorSquareFreeByRecursion;SupF;16| (|pp| $)
-  (PROG (#1=#:G433 |w| #2=#:G432 #3=#:G404 |factors| #4=#:G414 |lcppPow| |lc|
-         #5=#:G431 #6=#:G430 #7=#:G412 OK |hen| #8=#:G428 |u| #9=#:G429 |v|
-         |lvppList| |ppAdjust| #10=#:G427 #11=#:G426 |oldnfact| #12=#:G423
-         |nfact| |factorsR| |cVS| |lcpp| |lv| #13=#:G425 |z| #14=#:G424)
+  (PROG (#1=#:G435 |w| #2=#:G434 #3=#:G406 |factors| #4=#:G416 |lcppPow| |lc|
+         #5=#:G433 #6=#:G432 #7=#:G414 OK |hen| #8=#:G430 |u| #9=#:G431 |v|
+         |lvppList| |ppAdjust| #10=#:G429 #11=#:G428 |oldnfact| #12=#:G425
+         |nfact| |factorsR| |cVS| |lcpp| |lv| #13=#:G427 |z| #14=#:G426)
     (RETURN
      (SEQ
       (EXIT
@@ -1361,10 +1361,10 @@
                   (QREFELT $ 69)))))))))
       #12# (EXIT #12#))))) 
 
-(DEFUN |PolynomialFactorizationByRecursion| (&REST #1=#:G434)
+(DEFUN |PolynomialFactorizationByRecursion| (&REST #1=#:G436)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G435)
+     (PROG (#2=#:G437)
        (RETURN
         (COND
          ((LETT #2#

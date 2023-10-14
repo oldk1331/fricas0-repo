@@ -20,7 +20,7 @@
         ('T (SPADCALL |ss| (QREFELT $ 16))))) 
 
 (DEFUN |WEIER;streamlikeUniv| (|p| |n| $)
-  (PROG (#1=#:G140)
+  (PROG (#1=#:G142)
     (RETURN
      (COND
       ((EQL |n| 0)
@@ -98,7 +98,7 @@
     (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 25)))))) 
 
 (DEFUN |WEIER;weier| (|v| |sts| $)
-  (PROG (|q| |f| |e| |b| #1=#:G178 |a| |c| |b0| |a0| |p|)
+  (PROG (|q| |f| |e| |b| #1=#:G180 |a| |c| |b0| |a0| |p|)
     (RETURN
      (SEQ (LETT |p| (|WEIER;tp| |v| |sts| $) . #2=(|WEIER;weier|))
           (LETT |b| (SPADCALL |p| (QREFELT $ 58)) . #2#)
@@ -174,10 +174,10 @@
     NIL)
    ('T (|WEIER;transback| (|WEIER;wei| |v| |smps| $) $)))) 
 
-(DEFUN |WeierstrassPreparation| (#1=#:G191)
+(DEFUN |WeierstrassPreparation| (#1=#:G193)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G192)
+     (PROG (#2=#:G194)
        (RETURN
         (COND
          ((LETT #2#

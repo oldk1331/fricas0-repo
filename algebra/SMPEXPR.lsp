@@ -91,10 +91,10 @@
        (|error|
         "SUPTRAFUN: acos only defined for elements of the coefficient ring"))))))) 
 
-(DEFUN |SparseMultivariatePolynomialExpressions| (#1=#:G187)
+(DEFUN |SparseMultivariatePolynomialExpressions| (#1=#:G189)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G188)
+     (PROG (#2=#:G190)
        (RETURN
         (COND
          ((LETT #2#
@@ -114,7 +114,7 @@
                     '|SparseMultivariatePolynomialExpressions|))))))))))) 
 
 (DEFUN |SparseMultivariatePolynomialExpressions;| (|#1|)
-  (PROG (#1=#:G186 |pv$| #2=#:G184 #3=#:G185 $ |dv$| DV$1)
+  (PROG (#1=#:G188 |pv$| #2=#:G186 #3=#:G187 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

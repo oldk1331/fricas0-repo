@@ -36,10 +36,10 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT |ans|))))))))) 
 
-(DEFUN |MPolyCatFunctions3| (&REST #1=#:G136)
+(DEFUN |MPolyCatFunctions3| (&REST #1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

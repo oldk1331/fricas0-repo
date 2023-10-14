@@ -116,7 +116,7 @@
   (SPADCALL |pp| (QREFELT $ 86))) 
 
 (DEFUN |UPOLYC-;factor;SF;23| (|p| $)
-  (PROG (#1=#:G241 |w| #2=#:G240 |ansR|)
+  (PROG (#1=#:G243 |w| #2=#:G242 |ansR|)
     (RETURN
      (SEQ
       (COND
@@ -154,7 +154,7 @@
                   (QREFELT $ 104)))))))) 
 
 (DEFUN |UPOLYC-;vectorise;SNniV;24| (|p| |n| $)
-  (PROG (#1=#:G242 #2=#:G246 |i| |m| |v|)
+  (PROG (#1=#:G244 #2=#:G248 |i| |m| |v|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -192,7 +192,7 @@
 (DEFUN |UPOLYC-;init;S;27| ($) (SPADCALL (|spadConstant| $ 115) (QREFELT $ 30))) 
 
 (DEFUN |UPOLYC-;nextItemInner| (|n| $)
-  (PROG (|n3| #1=#:G264 |n2| |n1| |nn|)
+  (PROG (|n3| #1=#:G266 |n2| |n1| |nn|)
     (RETURN
      (SEQ
       (COND
@@ -253,7 +253,7 @@
                                          (QREFELT $ 49))))))))))))))))) 
 
 (DEFUN |UPOLYC-;nextItem;SU;29| (|n| $)
-  (PROG (#1=#:G277 |n1|)
+  (PROG (#1=#:G279 |n1|)
     (RETURN
      (SEQ
       (LETT |n1| (|UPOLYC-;nextItemInner| |n| $)
@@ -275,7 +275,7 @@
   (SPADCALL (SPADCALL |p| (QREFELT $ 120)) (QREFELT $ 30))) 
 
 (DEFUN |UPOLYC-;primeFactor| (|p| |q| $)
-  (PROG (|p1| #1=#:G283)
+  (PROG (|p1| #1=#:G285)
     (RETURN
      (SEQ
       (LETT |p1|
@@ -292,7 +292,7 @@
              ('T (|UPOLYC-;primeFactor| |p1| |q| $)))))))) 
 
 (DEFUN |UPOLYC-;separate;2SR;32| (|p| |q| $)
-  (PROG (#1=#:G289 |a|)
+  (PROG (#1=#:G291 |a|)
     (RETURN
      (SEQ
       (LETT |a| (|UPOLYC-;primeFactor| |p| |q| $)
@@ -304,7 +304,7 @@
                (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))))))) 
 
 (DEFUN |UPOLYC-;differentiate;SM2S;33| (|x| |deriv| |x'| $)
-  (PROG (|d| #1=#:G294 |lc| |dg|)
+  (PROG (|d| #1=#:G296 |lc| |dg|)
     (RETURN
      (SEQ
       (LETT |d| (|spadConstant| $ 60) . #2=(|UPOLYC-;differentiate;SM2S;33|))
@@ -341,7 +341,7 @@
                  (QREFELT $ 65))))))) 
 
 (DEFUN |UPOLYC-;ncdiff| (|n| |x'| $)
-  (PROG (|n1| #1=#:G312)
+  (PROG (|n1| #1=#:G314)
     (RETURN
      (COND ((ZEROP |n|) (|spadConstant| $ 60))
            ((ZEROP
@@ -393,7 +393,7 @@
   (SPADCALL |x| |deriv| (|spadConstant| $ 47) (QREFELT $ 132))) 
 
 (DEFUN |UPOLYC-;differentiate;2S;37| (|x| $)
-  (PROG (|d| #1=#:G322 |dg|)
+  (PROG (|d| #1=#:G324 |dg|)
     (RETURN
      (SEQ (LETT |d| (|spadConstant| $ 60) . #2=(|UPOLYC-;differentiate;2S;37|))
           (SEQ G190
@@ -428,7 +428,7 @@
             (QREFELT $ 142))) 
 
 (DEFUN |UPOLYC-;pseudoQuotient;3S;40| (|p| |q| $)
-  (PROG (#1=#:G370 #2=#:G368 |n|)
+  (PROG (#1=#:G372 #2=#:G370 |n|)
     (RETURN
      (SEQ
       (LETT |n|
@@ -457,7 +457,7 @@
                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))))))) 
 
 (DEFUN |UPOLYC-;pseudoDivide;2SR;41| (|p| |q| $)
-  (PROG (#1=#:G378 |lc| #2=#:G376 |prem| |n|)
+  (PROG (#1=#:G380 |lc| #2=#:G378 |prem| |n|)
     (RETURN
      (SEQ
       (LETT |n|
@@ -511,7 +511,7 @@
                                        (QREFELT $ 151)))))))))))))) 
 
 (DEFUN |UPOLYC-;composite;2SU;43| (|p| |q| $)
-  (PROG (#1=#:G404 |w| |u| |v| |cqr|)
+  (PROG (#1=#:G406 |w| |u| |v| |cqr|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 154)) (CONS 0 |p|))
@@ -562,7 +562,7 @@
               #1# (EXIT #1#)))))))) 
 
 (DEFUN |UPOLYC-;elt;S2F;44| (|p| |f| $)
-  (PROG (|ans| #1=#:G411 |n|)
+  (PROG (|ans| #1=#:G413 |n|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 9)) (|spadConstant| $ 158))
@@ -619,7 +619,7 @@
                                 (QREFELT $ 161)))))))))))) 
 
 (DEFUN |UPOLYC-;order;2SNni;45| (|p| |q| $)
-  (PROG (|ans| #1=#:G425 |u|)
+  (PROG (|ans| #1=#:G427 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -677,7 +677,7 @@
    ('T (SPADCALL |x| (QREFELT $ 11))))) 
 
 (DEFUN |UPOLYC-;divide;2SR;52| (|x| |y| $)
-  (PROG (|quot| |n| #1=#:G439 |f| |lc|)
+  (PROG (|quot| |n| #1=#:G441 |f| |lc|)
     (RETURN
      (SEQ
       (COND

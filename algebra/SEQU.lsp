@@ -17,7 +17,7 @@
         ('T (SPADCALL (|SEQU;rep| |mm| $) |n| (QREFELT $ 14))))) 
 
 (DEFUN |SEQU;apply;$PR;5| (|mm| |pi| $)
-  (PROG (#1=#:G139 |k| #2=#:G138 |pil|)
+  (PROG (#1=#:G141 |k| #2=#:G140 |pil|)
     (RETURN
      (SEQ (LETT |pil| (SPADCALL |pi| (QREFELT $ 18)) . #3=(|SEQU;apply;$PR;5|))
           (EXIT
@@ -108,10 +108,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x| |a| (QREFELT $ 19)))))) 
 
-(DEFUN |Sequence| (#1=#:G167)
+(DEFUN |Sequence| (#1=#:G169)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G168)
+     (PROG (#2=#:G170)
        (RETURN
         (COND
          ((LETT #2#
@@ -126,7 +126,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Sequence|))))))))))) 
 
 (DEFUN |Sequence;| (|#1|)
-  (PROG (|pv$| #1=#:G165 #2=#:G166 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G167 #2=#:G168 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|Sequence|))

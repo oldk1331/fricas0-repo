@@ -58,7 +58,7 @@
        |dx| (QREFELT $ 14)))))) 
 
 (DEFUN |ELFUTS;sncndn;SCoefL;2| (|z| |m| $)
-  (PROG (|dn1| |cn1| |sn1| |invden| #1=#:G136 |c1| |dn0| |cn0| |sn0| |scd|
+  (PROG (|dn1| |cn1| |sn1| |invden| #1=#:G138 |c1| |dn0| |cn0| |sn0| |scd|
          |z0|)
     (RETURN
      (SEQ
@@ -364,10 +364,10 @@
                       (|error|
                        "ELFUTS:ellipticPi: constant coefficient should be 0")))))))))))) 
 
-(DEFUN |EllipticFunctionsUnivariateTaylorSeries| (&REST #1=#:G157)
+(DEFUN |EllipticFunctionsUnivariateTaylorSeries| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

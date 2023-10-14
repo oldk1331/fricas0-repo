@@ -70,7 +70,7 @@
       (EXIT (SPADCALL |mb| (QREFELT $ 25))))))) 
 
 (DEFUN |FINAALG-;leftTrace;SR;3| (|a| $)
-  (PROG (|t| #1=#:G164 |i| |ma|)
+  (PROG (|t| #1=#:G166 |i| |ma|)
     (RETURN
      (SEQ (LETT |t| (|spadConstant| $ 29) . #2=(|FINAALG-;leftTrace;SR;3|))
           (LETT |ma| (SPADCALL |a| (SPADCALL (QREFELT $ 11)) (QREFELT $ 13))
@@ -87,7 +87,7 @@
           (EXIT |t|))))) 
 
 (DEFUN |FINAALG-;rightTrace;SR;4| (|a| $)
-  (PROG (|t| #1=#:G168 |i| |ma|)
+  (PROG (|t| #1=#:G170 |i| |ma|)
     (RETURN
      (SEQ (LETT |t| (|spadConstant| $ 29) . #2=(|FINAALG-;rightTrace;SR;4|))
           (LETT |ma| (SPADCALL |a| (SPADCALL (QREFELT $ 11)) (QREFELT $ 27))
@@ -112,7 +112,7 @@
             (QREFELT $ 33))) 
 
 (DEFUN |FINAALG-;antiAssociative?;B;7| ($)
-  (PROG (#1=#:G173 #2=#:G177 |k| |j| |i| |n| |b|)
+  (PROG (#1=#:G175 #2=#:G179 |k| |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -171,7 +171,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;jordanAdmissible?;B;8| ($)
-  (PROG (#1=#:G184 #2=#:G190 |l| |k| |j| |i| |n| |b|)
+  (PROG (#1=#:G186 #2=#:G192 |l| |k| |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -283,7 +283,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;lieAdmissible?;B;9| ($)
-  (PROG (#1=#:G193 #2=#:G197 |k| |j| |i| |b| |n|)
+  (PROG (#1=#:G195 #2=#:G199 |k| |j| |i| |b| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -350,7 +350,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;structuralConstants;VV;10| (|b| $)
-  (PROG (|k| |covec| |j| |i| |sC| #1=#:G206 #2=#:G207 |m| #3=#:G198)
+  (PROG (|k| |covec| |j| |i| |sC| #1=#:G208 #2=#:G209 |m| #3=#:G200)
     (RETURN
      (SEQ
       (LETT |m|
@@ -403,7 +403,7 @@
       (EXIT |sC|))))) 
 
 (DEFUN |FINAALG-;leftRecip;SU;11| (|x| $)
-  (PROG (#1=#:G224 #2=#:G226 |power| #3=#:G227 |i| #4=#:G225 |invCR| |invC|
+  (PROG (#1=#:G226 #2=#:G228 |power| #3=#:G229 |i| #4=#:G227 |invCR| |invC|
          |vectorOfCoef| |cond| |listOfPowers| |xx| |k| |b| |lu|)
     (RETURN
      (SEQ
@@ -533,7 +533,7 @@
                                                               72))))))))))))))))))) 
 
 (DEFUN |FINAALG-;rightRecip;SU;12| (|x| $)
-  (PROG (#1=#:G244 #2=#:G246 |power| #3=#:G247 |i| #4=#:G245 |invCR| |invC|
+  (PROG (#1=#:G246 #2=#:G248 |power| #3=#:G249 |i| #4=#:G247 |invCR| |invC|
          |vectorOfCoef| |cond| |listOfPowers| |xx| |k| |b| |ru|)
     (RETURN
      (SEQ
@@ -877,7 +877,7 @@
       (EXIT (SPADCALL |cond| (QREFELT $ 67))))))) 
 
 (DEFUN |FINAALG-;jacobiIdentity?;B;17| ($)
-  (PROG (#1=#:G277 #2=#:G281 |k| |j| |i| |b| |n|)
+  (PROG (#1=#:G279 #2=#:G283 |k| |j| |i| |b| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -957,7 +957,7 @@
      (SEQ (SPADCALL "this is not a Lie algebra" (QREFELT $ 45)) (EXIT 'NIL)))))) 
 
 (DEFUN |FINAALG-;jordanAlgebra?;B;19| ($)
-  (PROG (#1=#:G292 #2=#:G299 |l| |k| |j| |i| |n| |b|)
+  (PROG (#1=#:G294 #2=#:G301 |l| |k| |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -1100,7 +1100,7 @@
           (EXIT 'NIL))))))))) 
 
 (DEFUN |FINAALG-;antiCommutative?;B;21| ($)
-  (PROG (#1=#:G311 #2=#:G314 |j| |i| |n| |b|)
+  (PROG (#1=#:G313 #2=#:G316 |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -1147,7 +1147,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;commutative?;B;22| ($)
-  (PROG (#1=#:G317 #2=#:G320 |j| |i| |n| |b|)
+  (PROG (#1=#:G319 #2=#:G322 |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -1184,7 +1184,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;associative?;B;23| ($)
-  (PROG (#1=#:G323 #2=#:G327 |k| |j| |i| |n| |b|)
+  (PROG (#1=#:G325 #2=#:G329 |k| |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -1232,7 +1232,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;leftAlternative?;B;24| ($)
-  (PROG (#1=#:G330 #2=#:G334 |k| |j| |i| |n| |b|)
+  (PROG (#1=#:G332 #2=#:G336 |k| |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -1288,7 +1288,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;rightAlternative?;B;25| ($)
-  (PROG (#1=#:G337 #2=#:G341 |k| |j| |i| |n| |b|)
+  (PROG (#1=#:G339 #2=#:G343 |k| |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -1344,7 +1344,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;flexible?;B;26| ($)
-  (PROG (#1=#:G344 #2=#:G348 |k| |j| |i| |n| |b|)
+  (PROG (#1=#:G346 #2=#:G350 |k| |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -1398,7 +1398,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FINAALG-;alternative?;B;27| ($)
-  (PROG (#1=#:G352 #2=#:G357 |k| |j| |i| |n| |b|)
+  (PROG (#1=#:G354 #2=#:G359 |k| |j| |i| |n| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -1478,7 +1478,7 @@
   (SPADCALL (SPADCALL |v| (QREFELT $ 105)) (QREFELT $ 33))) 
 
 (DEFUN |FINAALG-;coordinates;2VM;30| (|v| |b| $)
-  (PROG (#1=#:G363 |i| |j| |m|)
+  (PROG (#1=#:G365 |i| |j| |m|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -1497,7 +1497,7 @@
       (EXIT |m|))))) 
 
 (DEFUN |FINAALG-;represents;VVS;31| (|v| |b| $)
-  (PROG (#1=#:G369 #2=#:G371 |i| #3=#:G370 |m|)
+  (PROG (#1=#:G371 #2=#:G373 |i| #3=#:G372 |m|)
     (RETURN
      (SEQ
       (LETT |m| (- (SPADCALL |v| (QREFELT $ 110)) 1)
@@ -1525,7 +1525,7 @@
                  (QREFELT $ 72))))))) 
 
 (DEFUN |FINAALG-;leftTraceMatrix;VM;32| (|v| $)
-  (PROG (#1=#:G378 |j| #2=#:G377 #3=#:G376 |i| #4=#:G375)
+  (PROG (#1=#:G380 |j| #2=#:G379 #3=#:G378 |i| #4=#:G377)
     (RETURN
      (SEQ
       (SPADCALL
@@ -1562,7 +1562,7 @@
        (QREFELT $ 114)))))) 
 
 (DEFUN |FINAALG-;rightTraceMatrix;VM;33| (|v| $)
-  (PROG (#1=#:G385 |j| #2=#:G384 #3=#:G383 |i| #4=#:G382)
+  (PROG (#1=#:G387 |j| #2=#:G386 #3=#:G385 |i| #4=#:G384)
     (RETURN
      (SEQ
       (SPADCALL
@@ -1599,7 +1599,7 @@
        (QREFELT $ 114)))))) 
 
 (DEFUN |FINAALG-;leftRegularRepresentation;SVM;34| (|x| |b| $)
-  (PROG (#1=#:G390 |i| #2=#:G389 |m|)
+  (PROG (#1=#:G392 |i| #2=#:G391 |m|)
     (RETURN
      (SEQ
       (LETT |m| (- (SPADCALL |b| (QREFELT $ 107)) 1)
@@ -1630,7 +1630,7 @@
         (QREFELT $ 120))))))) 
 
 (DEFUN |FINAALG-;rightRegularRepresentation;SVM;35| (|x| |b| $)
-  (PROG (#1=#:G395 |i| #2=#:G394 |m|)
+  (PROG (#1=#:G397 |i| #2=#:G396 |m|)
     (RETURN
      (SEQ
       (LETT |m| (- (SPADCALL |b| (QREFELT $ 107)) 1)

@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |TwoDimensionalArrayCategory;AL| 'NIL) 
 
-(DEFUN |TwoDimensionalArrayCategory| (&REST #1=#:G148)
-  (LET (#2=#:G149)
+(DEFUN |TwoDimensionalArrayCategory| (&REST #1=#:G150)
+  (LET (#2=#:G151)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluateList| #1#)
@@ -21,7 +21,7 @@
       #2#)))) 
 
 (DEFUN |TwoDimensionalArrayCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G147)
+  (PROG (#1=#:G149)
     (RETURN
      (PROG1
          (LETT #1#

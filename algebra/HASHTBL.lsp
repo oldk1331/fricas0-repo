@@ -31,10 +31,10 @@
           (COND ((NULL (EQ |r| (QREFELT $ 9))) (EXIT (CONS 0 |r|))))
           (EXIT (CONS 1 "failed")))))) 
 
-(DEFUN |HashTable| (&REST #1=#:G195)
+(DEFUN |HashTable| (&REST #1=#:G197)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G196)
+     (PROG (#2=#:G198)
        (RETURN
         (COND
          ((LETT #2#
@@ -50,7 +50,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|HashTable|))))))))))) 
 
 (DEFUN |HashTable;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G194 #2=#:G193 |pv$| #3=#:G191 #4=#:G192 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G196 #2=#:G195 |pv$| #3=#:G193 #4=#:G194 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|HashTable|))

@@ -3,10 +3,10 @@
 
 (DEFUN |SAEFACT;factor;UPAF;1| (|q| $) (SPADCALL |q| (ELT $ 11) (QREFELT $ 15))) 
 
-(DEFUN |SimpleAlgebraicExtensionAlgFactor| (&REST #1=#:G127)
+(DEFUN |SimpleAlgebraicExtensionAlgFactor| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

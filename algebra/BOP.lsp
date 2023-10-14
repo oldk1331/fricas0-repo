@@ -94,7 +94,7 @@
        (COND ((QEQCAR |u| 1) (CONS 1 "failed")) ('T (CONS 0 (QCDR |u|))))))))) 
 
 (DEFUN |BOP;arity;$U;25| (|op| $)
-  (PROG (#1=#:G201 |n|)
+  (PROG (#1=#:G203 |n|)
     (RETURN
      (COND
       ((MINUSP (LETT |n| (QVELT |op| 1) . #2=(|BOP;arity;$U;25|)))
@@ -105,7 +105,7 @@
                (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))))))) 
 
 (DEFUN |BOP;copy;2$;26| (|op| $)
-  (PROG (#1=#:G211 |r| #2=#:G210)
+  (PROG (#1=#:G213 |r| #2=#:G212)
     (RETURN
      (SEQ
       (|BOP;oper| (SPADCALL |op| (QREFELT $ 13)) (QVELT |op| 1)
@@ -242,7 +242,7 @@
 (DEFUN |BasicOperator| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G248)
+     (PROG (#1=#:G250)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|BasicOperator|)

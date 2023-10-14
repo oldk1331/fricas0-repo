@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MODMON;setPoly;2Rep;1| (|mon| $)
-  (PROG (#1=#:G145 |i| #2=#:G134 |copymon| |oldm|)
+  (PROG (#1=#:G147 |i| #2=#:G136 |copymon| |oldm|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |mon| (QREFELT $ 12) (QREFELT $ 27)) |mon|)
@@ -86,7 +86,7 @@
 (DEFUN |MODMON;size;Nni;3| ($) (* (QREFELT $ 14) (SPADCALL (QREFELT $ 46)))) 
 
 (DEFUN |MODMON;random;$;4| ($)
-  (PROG (#1=#:G151 |i| #2=#:G150)
+  (PROG (#1=#:G153 |i| #2=#:G152)
     (RETURN
      (SEQ
       (SPADCALL
@@ -163,7 +163,7 @@
           (EXIT (SPADCALL |ans| |p| (QREFELT $ 32))))))) 
 
 (DEFUN |MODMON;Vectorise;$V;22| (|x| $)
-  (PROG (#1=#:G176 |i| #2=#:G175)
+  (PROG (#1=#:G178 |i| #2=#:G177)
     (RETURN
      (SEQ
       (PROGN
@@ -180,7 +180,7 @@
        #2#))))) 
 
 (DEFUN |MODMON;UnVectorise;V$;23| (|vect| $)
-  (PROG (#1=#:G178 #2=#:G177 #3=#:G179 #4=#:G181 |i|)
+  (PROG (#1=#:G180 #2=#:G179 #3=#:G181 #4=#:G183 |i|)
     (RETURN
      (SEQ
       (SPADCALL
@@ -202,7 +202,7 @@
        (QREFELT $ 42)))))) 
 
 (DEFUN |MODMON;computePowers;Pa;24| ($)
-  (PROG (#1=#:G186 |i| |w| |mat|)
+  (PROG (#1=#:G188 |i| |w| |mat|)
     (RETURN
      (SEQ
       (LETT |mat|
@@ -239,7 +239,7 @@
       (EXIT |mat|))))) 
 
 (DEFUN |MODMON;computeFrobeniusPowers| ($)
-  (PROG (#1=#:G190 |i| |mult| |mat|)
+  (PROG (#1=#:G192 |i| |mult| |mat|)
     (RETURN
      (SEQ
       (LETT |mat| (SPADCALL (QREFELT $ 14) (|spadConstant| $ 8) (QREFELT $ 23))
@@ -288,7 +288,7 @@
 (DEFUN |MODMON;pow;Pa;27| ($) (QREFELT $ 24)) 
 
 (DEFUN |MODMON;monomial;RNni$;28| (|c| |e| $)
-  (PROG (|k2| #1=#:G196 |k1|)
+  (PROG (|k2| #1=#:G198 |k1|)
     (RETURN
      (SEQ
       (COND ((< |e| (QREFELT $ 14)) (SPADCALL |c| |e| (QREFELT $ 11)))
@@ -315,7 +315,7 @@
                 (QREFELT $ 42)))))))))) 
 
 (DEFUN |MODMON;exquo;2$U;29| (|x| |y| $)
-  (PROG (#1=#:G207 |uv|)
+  (PROG (#1=#:G209 |uv|)
     (RETURN
      (SEQ
       (EXIT
@@ -344,7 +344,7 @@
                  ('T (CONS (QCDR |q|) (|spadConstant| $ 20))))))))) 
 
 (DEFUN |ModMonic| (|#1| |#2|)
-  (PROG (#1=#:G130 #2=#:G259 |pv$| #3=#:G256 #4=#:G257 #5=#:G258 $ |dv$| DV$2
+  (PROG (#1=#:G132 #2=#:G261 |pv$| #3=#:G258 #4=#:G259 #5=#:G260 $ |dv$| DV$2
          DV$1)
     (RETURN
      (PROGN

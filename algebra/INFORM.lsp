@@ -31,8 +31,8 @@
         ('T (SPADCALL |x| (QREFELT $ 22))))) 
 
 (DEFUN |INFORM;flatten;2$;9| (|s| $)
-  (PROG (#1=#:G158 |u| #2=#:G157 #3=#:G156 #4=#:G155 |l2| |n| #5=#:G154 |l| |x|
-         #6=#:G153 |sy|)
+  (PROG (#1=#:G160 |u| #2=#:G159 #3=#:G158 #4=#:G157 |l2| |n| #5=#:G156 |l| |x|
+         #6=#:G155 |sy|)
     (RETURN
      (SEQ
       (COND
@@ -118,8 +118,8 @@
                $))))))))) 
 
 (DEFUN |INFORM;flatten0| (|s| |sy| |n| $)
-  (PROG (#1=#:G171 |u| #2=#:G170 #3=#:G169 #4=#:G168 |l2| #5=#:G167 |l| |x|
-         #6=#:G166 |a|)
+  (PROG (#1=#:G173 |u| #2=#:G172 #3=#:G171 #4=#:G170 |l2| #5=#:G169 |l| |x|
+         #6=#:G168 |a|)
     (RETURN
      (SEQ
       (COND
@@ -203,7 +203,7 @@
         ('T (|error| "strsym: form is neither a string or symbol")))) 
 
 (DEFUN |INFORM;unparse;$S;12| (|x| $)
-  (PROG (#1=#:G179 |a| #2=#:G178 |s|)
+  (PROG (#1=#:G181 |a| #2=#:G180 |s|)
     (RETURN
      (SEQ
       (COND
@@ -281,7 +281,7 @@
                    (QREFELT $ 52))))))))) 
 
 (DEFUN |INFORM;tuplify| (|l| $)
-  (PROG (#1=#:G192 |x| #2=#:G191)
+  (PROG (#1=#:G194 |x| #2=#:G193)
     (RETURN
      (SEQ
       (COND ((NULL (CDR |l|)) (SPADCALL (|SPADfirst| |l|) (QREFELT $ 16)))
@@ -306,7 +306,7 @@
               $))))))) 
 
 (DEFUN |INFORM;function;$LS$;19| (|f| |l| |name| $)
-  (PROG (#1=#:G197 |x| #2=#:G196 |nn|)
+  (PROG (#1=#:G199 |x| #2=#:G198 |nn|)
     (RETURN
      (SEQ
       (LETT |nn|
@@ -381,7 +381,7 @@
 (DEFUN |InputForm| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G207)
+     (PROG (#1=#:G209)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|InputForm|) . #2=(|InputForm|))

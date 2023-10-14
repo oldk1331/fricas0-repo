@@ -267,10 +267,10 @@
                (QREFELT $ 50))
      (SPADCALL (SPADCALL |f| (QREFELT $ 33)) (QREFELT $ 55)) (QREFELT $ 54))))) 
 
-(DEFUN |FreeNilpotentLie| (&REST #1=#:G162)
+(DEFUN |FreeNilpotentLie| (&REST #1=#:G164)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G163)
+     (PROG (#2=#:G165)
        (RETURN
         (COND
          ((LETT #2#

@@ -30,10 +30,10 @@
                  NIL (GO G190) G191 (EXIT NIL))))
           (EXIT (NREVERSE |lr|)))))) 
 
-(DEFUN |SegmentFunctions2| (&REST #1=#:G133)
+(DEFUN |SegmentFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

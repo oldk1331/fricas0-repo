@@ -3,10 +3,10 @@
 
 (DEFUN |SAERFFC;factor;UPAF;1| (|q| $) (SPADCALL |q| (ELT $ 11) (QREFELT $ 15))) 
 
-(DEFUN |SAERationalFunctionAlgFactor| (&REST #1=#:G127)
+(DEFUN |SAERationalFunctionAlgFactor| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

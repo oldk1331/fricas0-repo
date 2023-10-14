@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PTFUNC2;map;MPP;1| (|mapping| |p| $)
-  (PROG (#1=#:G126 #2=#:G131 |i| #3=#:G130)
+  (PROG (#1=#:G128 #2=#:G133 |i| #3=#:G132)
     (RETURN
      (SEQ
       (SPADCALL
@@ -27,10 +27,10 @@
              (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT (NREVERSE #3#))))
        (QREFELT $ 15)))))) 
 
-(DEFUN |PointFunctions2| (&REST #1=#:G132)
+(DEFUN |PointFunctions2| (&REST #1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G133)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

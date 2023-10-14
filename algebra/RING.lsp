@@ -4,11 +4,11 @@
 (DEFPARAMETER |Ring;AL| 'NIL) 
 
 (DEFUN |Ring| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|Ring;AL|) (T (SETQ |Ring;AL| (|Ring;|)))))) 
 
 (DEFUN |Ring;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

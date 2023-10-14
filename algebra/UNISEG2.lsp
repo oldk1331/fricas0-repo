@@ -17,10 +17,10 @@
 (DEFUN |UNISEG2;map;MUsS;2| (|f| |u| $)
   (SPADCALL |f| (SPADCALL |u| (QREFELT $ 19)) (QREFELT $ 22))) 
 
-(DEFUN |UniversalSegmentFunctions2| (&REST #1=#:G131)
+(DEFUN |UniversalSegmentFunctions2| (&REST #1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G132)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#

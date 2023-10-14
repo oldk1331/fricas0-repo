@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |MultivariatePolynomial| (&REST #1=#:G163)
+(DEFUN |MultivariatePolynomial| (&REST #1=#:G165)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G164)
+     (PROG (#2=#:G166)
        (RETURN
         (COND
          ((LETT #2#
@@ -23,7 +23,7 @@
               (HREM |$ConstructorCache| '|MultivariatePolynomial|))))))))))) 
 
 (DEFUN |MultivariatePolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G162 |pv$| #2=#:G160 #3=#:G161 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G164 |pv$| #2=#:G162 #3=#:G163 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|MultivariatePolynomial|))

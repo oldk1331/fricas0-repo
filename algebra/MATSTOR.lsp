@@ -6,7 +6,7 @@
 (DEFUN |MATSTOR;rep| (|m| $) |m|) 
 
 (DEFUN |MATSTOR;copy!;3M;2| (|c| |a| $)
-  (PROG (#1=#:G161 |j| |cRow| |aRow| #2=#:G160 |i| |cc| |aa| |n| |m|)
+  (PROG (#1=#:G163 |j| |cRow| |aRow| #2=#:G162 |i| |cc| |aa| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;copy!;3M;2|))
           (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
@@ -34,7 +34,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;plus!;4M;3| (|c| |a| |b| $)
-  (PROG (#1=#:G172 |j| |cRow| |bRow| |aRow| #2=#:G171 |i| |cc| |bb| |aa| |n|
+  (PROG (#1=#:G174 |j| |cRow| |bRow| |aRow| #2=#:G173 |i| |cc| |bb| |aa| |n|
          |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;plus!;4M;3|))
@@ -76,7 +76,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;minus!;3M;4| (|c| |a| $)
-  (PROG (#1=#:G181 |j| |cRow| |aRow| #2=#:G180 |i| |cc| |aa| |n| |m|)
+  (PROG (#1=#:G183 |j| |cRow| |aRow| #2=#:G182 |i| |cc| |aa| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;minus!;3M;4|))
           (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
@@ -107,7 +107,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;minus!;4M;5| (|c| |a| |b| $)
-  (PROG (#1=#:G192 |j| |cRow| |bRow| |aRow| #2=#:G191 |i| |cc| |bb| |aa| |n|
+  (PROG (#1=#:G194 |j| |cRow| |bRow| |aRow| #2=#:G193 |i| |cc| |bb| |aa| |n|
          |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;minus!;4M;5|))
@@ -149,7 +149,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;leftScalarTimes!;MR2M;6| (|c| |r| |a| $)
-  (PROG (#1=#:G201 |j| |cRow| |aRow| #2=#:G200 |i| |cc| |aa| |n| |m|)
+  (PROG (#1=#:G203 |j| |cRow| |aRow| #2=#:G202 |i| |cc| |aa| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;leftScalarTimes!;MR2M;6|))
           (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
@@ -181,7 +181,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;rightScalarTimes!;2MRM;7| (|c| |a| |r| $)
-  (PROG (#1=#:G210 |j| |cRow| |aRow| #2=#:G209 |i| |cc| |aa| |n| |m|)
+  (PROG (#1=#:G212 |j| |cRow| |aRow| #2=#:G211 |i| |cc| |aa| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;rightScalarTimes!;2MRM;7|))
           (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
@@ -221,7 +221,7 @@
           (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))))) 
 
 (DEFUN |MATSTOR;times!;4M;9| (|c| |a| |b| $)
-  (PROG (|sum| |k| |cRow| |aRow| |i| #1=#:G223 |j| |n1| |m1| |bCol| |cc| |bb|
+  (PROG (|sum| |k| |cRow| |aRow| |i| #1=#:G225 |j| |n1| |m1| |bCol| |cc| |bb|
          |aa| |p| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |a|) . #2=(|MATSTOR;times!;4M;9|))
@@ -272,7 +272,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;power!;4MNniM;10| (|a| |b| |c| |m| |p| $)
-  (PROG (#1=#:G238 |flag| |nn| |mm|)
+  (PROG (#1=#:G240 |flag| |nn| |mm|)
     (RETURN
      (SEQ
       (EXIT
@@ -344,10 +344,10 @@
          (LETT |c| (SPADCALL |m| (QREFELT $ 26)) . #1#)
          (EXIT (SPADCALL |a| |b| |c| |m| |n| (QREFELT $ 23)))))))))) 
 
-(DEFUN |StorageEfficientMatrixOperations| (#1=#:G242)
+(DEFUN |StorageEfficientMatrixOperations| (#1=#:G244)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G243)
+     (PROG (#2=#:G245)
        (RETURN
         (COND
          ((LETT #2#

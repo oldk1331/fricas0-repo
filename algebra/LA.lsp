@@ -14,10 +14,10 @@
 
 (DEFUN |LA;characteristic;Nni;3| ($) (SPADCALL (QREFELT $ 18))) 
 
-(DEFUN |LocalAlgebra| (&REST #1=#:G131)
+(DEFUN |LocalAlgebra| (&REST #1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G132)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#

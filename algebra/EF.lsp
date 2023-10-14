@@ -124,7 +124,7 @@
         ('T (|error| "Not an elementary operator")))) 
 
 (DEFUN |EF;dropfun| (|x| $)
-  (PROG (#1=#:G346 |k|)
+  (PROG (#1=#:G348 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -1450,7 +1450,7 @@
                 (#1# (|EF;ilog| |x| $))))))))))) 
 
 (DEFUN |EF;ilog| (|x| $)
-  (PROG (#1=#:G574 |den| |num1| |num|)
+  (PROG (#1=#:G576 |den| |num1| |num|)
     (RETURN
      (SEQ
       (EXIT
@@ -1799,10 +1799,10 @@
 
 (DEFUN |EF;iiacsch;2F;127| (|x| $) (|EF;iacsch| |x| $)) 
 
-(DEFUN |ElementaryFunction| (&REST #1=#:G832)
+(DEFUN |ElementaryFunction| (&REST #1=#:G834)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G833)
+     (PROG (#2=#:G835)
        (RETURN
         (COND
          ((LETT #2#

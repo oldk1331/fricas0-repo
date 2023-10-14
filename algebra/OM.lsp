@@ -4,11 +4,11 @@
 (DEFPARAMETER |OpenMath;AL| 'NIL) 
 
 (DEFUN |OpenMath| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|OpenMath;AL|) (T (SETQ |OpenMath;AL| (|OpenMath;|)))))) 
 
 (DEFUN |OpenMath;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

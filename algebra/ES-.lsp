@@ -17,7 +17,7 @@
 (DEFUN |ES-;tower;SL;5| (|f| $) (SPADCALL (|ES-;listk| |f| $) (QREFELT $ 26))) 
 
 (DEFUN |ES-;allk| (|l| $)
-  (PROG (#1=#:G169 |f| #2=#:G168)
+  (PROG (#1=#:G171 |f| #2=#:G170)
     (RETURN
      (SEQ
       (SPADCALL (ELT $ 30)
@@ -35,7 +35,7 @@
                 (SPADCALL (QREFELT $ 29)) (QREFELT $ 33)))))) 
 
 (DEFUN |ES-;operators;SL;7| (|f| $)
-  (PROG (#1=#:G174 |k| #2=#:G173)
+  (PROG (#1=#:G176 |k| #2=#:G175)
     (RETURN
      (SEQ
       (PROGN
@@ -50,7 +50,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |ES-;height;SNni;8| (|f| $)
-  (PROG (#1=#:G181 |k| #2=#:G180)
+  (PROG (#1=#:G183 |k| #2=#:G182)
     (RETURN
      (SEQ
       (SPADCALL (ELT $ 41)
@@ -70,7 +70,7 @@
                 0 (QREFELT $ 44)))))) 
 
 (DEFUN |ES-;freeOf?;SSB;9| (|x| |s| $)
-  (PROG (#1=#:G187 |k| #2=#:G186)
+  (PROG (#1=#:G189 |k| #2=#:G188)
     (RETURN
      (SEQ
       (COND
@@ -94,7 +94,7 @@
        ('T 'T)))))) 
 
 (DEFUN |ES-;distribute;2S;10| (|x| $)
-  (PROG (#1=#:G191 |k| #2=#:G190)
+  (PROG (#1=#:G193 |k| #2=#:G192)
     (RETURN
      (SEQ
       (|ES-;unwrap|
@@ -186,7 +186,7 @@
 (DEFUN |ES-;subst;SES;28| (|x| |e| $) (SPADCALL |x| (LIST |e|) (QREFELT $ 83))) 
 
 (DEFUN |ES-;eval;SLLS;29| (|x| |ls| |lf| $)
-  (PROG (#1=#:G237 |f| #2=#:G236)
+  (PROG (#1=#:G239 |f| #2=#:G238)
     (RETURN
      (SEQ
       (SPADCALL |x| |ls|
@@ -214,7 +214,7 @@
     (RETURN (PROGN (SPADCALL (SPADCALL |y| (QREFELT $ 77)) |f|))))) 
 
 (DEFUN |ES-;eval;SLLS;30| (|x| |ls| |lf| $)
-  (PROG (#1=#:G242 |f| #2=#:G241)
+  (PROG (#1=#:G244 |f| #2=#:G243)
     (RETURN
      (SEQ
       (SPADCALL |x| |ls|
@@ -242,7 +242,7 @@
     (RETURN (PROGN (SPADCALL (SPADCALL |y| (QREFELT $ 77)) |f|))))) 
 
 (DEFUN |ES-;eval;SLLS;31| (|x| |ls| |lf| $)
-  (PROG (#1=#:G247 |s| #2=#:G246)
+  (PROG (#1=#:G249 |s| #2=#:G248)
     (RETURN
      (SEQ
       (SPADCALL |x|
@@ -261,7 +261,7 @@
                 |lf| (QREFELT $ 72)))))) 
 
 (DEFUN |ES-;map;MKS;32| (|fn| |k| $)
-  (PROG (|l| #1=#:G264 |x| #2=#:G263)
+  (PROG (|l| #1=#:G266 |x| #2=#:G265)
     (RETURN
      (SEQ
       (COND
@@ -294,7 +294,7 @@
            (QREFELT $ 97)))))) 
 
 (DEFUN |ES-;mainKernel;SU;34| (|x| $)
-  (PROG (|k| |n| #1=#:G280 |kk| |l|)
+  (PROG (|k| |n| #1=#:G282 |kk| |l|)
     (RETURN
      (SEQ
       (COND
@@ -320,7 +320,7 @@
          (EXIT (CONS 0 |k|))))))))) 
 
 (DEFUN |ES-;allKernels| (|f| $)
-  (PROG (|s| |t| |arg| |n| |s0| |u| #1=#:G293 |k| |l|)
+  (PROG (|s| |t| |arg| |n| |s0| |u| #1=#:G295 |k| |l|)
     (RETURN
      (SEQ
       (LETT |s|
@@ -374,7 +374,7 @@
    ('T (|ES-;okkernel| |op| |args| $)))) 
 
 (DEFUN |ES-;okkernel| (|op| |l| $)
-  (PROG (#1=#:G303 |f| #2=#:G302)
+  (PROG (#1=#:G305 |f| #2=#:G304)
     (RETURN
      (SEQ
       (SPADCALL
@@ -405,7 +405,7 @@
        (QREFELT $ 92)))))) 
 
 (DEFUN |ES-;elt;BoLS;38| (|op| |args| $)
-  (PROG (|v| #1=#:G314 |u|)
+  (PROG (|v| #1=#:G316 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -475,7 +475,7 @@
                  ('T (SPADCALL (QCDR |k|) |op| (QREFELT $ 50))))))))) 
 
 (DEFUN |ES-;unwrap| (|l| |x| $)
-  (PROG (#1=#:G342 |k|)
+  (PROG (#1=#:G344 |k|)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #2=(|ES-;unwrap|)) (LETT #1# (NREVERSE |l|) . #2#)
@@ -493,7 +493,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |ES-;distribute;3S;44| (|x| |y| $)
-  (PROG (#1=#:G350 |k| #2=#:G349 |ky|)
+  (PROG (#1=#:G352 |k| #2=#:G351 |ky|)
     (RETURN
      (SEQ
       (LETT |ky| (SPADCALL |y| (QREFELT $ 56)) . #3=(|ES-;distribute;3S;44|))
@@ -531,7 +531,7 @@
           (EXIT (SPADCALL |f| (QCAR |rec|) (QCDR |rec|) (QREFELT $ 130))))))) 
 
 (DEFUN |ES-;mkKerLists| (|leq| $)
-  (PROG (|lv| |lk| |k| #1=#:G369 |eq|)
+  (PROG (|lv| |lk| |k| #1=#:G371 |eq|)
     (RETURN
      (SEQ (LETT |lk| NIL . #2=(|ES-;mkKerLists|)) (LETT |lv| NIL . #2#)
           (SEQ (LETT |eq| NIL . #2#) (LETT #1# |leq| . #2#) G190

@@ -6,7 +6,7 @@
             (QREFELT $ 29))) 
 
 (DEFUN |TRMANIP;logArgs| (|l| $)
-  (PROG (|sum| |arg| |prod| #1=#:G167 |term|)
+  (PROG (|sum| |arg| |prod| #1=#:G169 |term|)
     (RETURN
      (SEQ (LETT |sum| (|spadConstant| $ 31) . #2=(|TRMANIP;logArgs|))
           (LETT |arg| (|spadConstant| $ 32) . #2#)
@@ -62,10 +62,10 @@
             (QREFELT $ 20))) 
 
 (DEFUN |TRMANIP;simplifyLog1| (|e| $)
-  (PROG (#1=#:G201 #2=#:G200 #3=#:G202 #4=#:G213 #5=#:G126 |terms| |foundLog|
-         #6=#:G193 #7=#:G192 #8=#:G194 #9=#:G212 #10=#:G125 |args| |i| |nterms|
-         |exprs| #11=#:G211 |term| #12=#:G210 #13=#:G209 #14=#:G208 |u|
-         #15=#:G207 |kers| |expt| |termList| |prod|)
+  (PROG (#1=#:G203 #2=#:G202 #3=#:G204 #4=#:G215 #5=#:G128 |terms| |foundLog|
+         #6=#:G195 #7=#:G194 #8=#:G196 #9=#:G214 #10=#:G127 |args| |i| |nterms|
+         |exprs| #11=#:G213 |term| #12=#:G212 #13=#:G211 #14=#:G210 |u|
+         #15=#:G209 |kers| |expt| |termList| |prod|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |e| '|log| (QREFELT $ 49)) |e|)
@@ -312,7 +312,7 @@
       (EXIT (SPADCALL |ne| |de| (QREFELT $ 15))))))) 
 
 (DEFUN |TRMANIP;termexp| (|p| $)
-  (PROG (|coef| #1=#:G232 |u| #2=#:G231 |exponent| |d| #3=#:G230 |k| |lpow|
+  (PROG (|coef| #1=#:G234 |u| #2=#:G233 |exponent| |d| #3=#:G232 |k| |lpow|
          |lk|)
     (RETURN
      (SEQ (LETT |exponent| (|spadConstant| $ 31) . #4=(|TRMANIP;termexp|))
@@ -392,7 +392,7 @@
 (DEFUN |TRMANIP;termexp!0| (|z1| $) (SPADCALL |z1| '|%power| (QREFELT $ 44))) 
 
 (DEFUN |TRMANIP;expandPower;2F;9| (|f| $)
-  (PROG (#1=#:G238 |k| #2=#:G237 |l|)
+  (PROG (#1=#:G240 |k| #2=#:G239 |l|)
     (RETURN
      (SEQ
       (LETT |l|
@@ -419,7 +419,7 @@
   (SPADCALL |z1| '|%power| (QREFELT $ 44))) 
 
 (DEFUN |TRMANIP;powersimp| (|p| |l| $)
-  (PROG (|exponent| #1=#:G253 |k0| |lk| |a| |arg| |k|)
+  (PROG (|exponent| #1=#:G255 |k0| |lk| |a| |arg| |k|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (|spadConstant| $ 32))
@@ -646,7 +646,7 @@
   (SPADCALL (SPADCALL |k1| (QREFELT $ 142)) (QREFELT $ 143))) 
 
 (DEFUN |TRMANIP;htrigs;2F;49| (|f| $)
-  (PROG (|g1| |b| |g2| |a| |den| |num| |arg| #1=#:G327 |x| #2=#:G326 |op| |k|
+  (PROG (|g1| |b| |g2| |a| |den| |num| |arg| #1=#:G329 |x| #2=#:G328 |op| |k|
          |m|)
     (RETURN
      (SEQ
@@ -757,7 +757,7 @@
    |f| (QREFELT $ 161))) 
 
 (DEFUN |TRMANIP;exlog| (|p| $)
-  (PROG (#1=#:G338 #2=#:G337 #3=#:G339 #4=#:G341 |r|)
+  (PROG (#1=#:G340 #2=#:G339 #3=#:G341 #4=#:G343 |r|)
     (RETURN
      (SEQ
       (PROGN
@@ -784,7 +784,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 31)))))))) 
 
 (DEFUN |TRMANIP;logexpand| (|k| $)
-  (PROG (#1=#:G347 |x| #2=#:G346 |op|)
+  (PROG (#1=#:G349 |x| #2=#:G348 |op|)
     (RETURN
      (SEQ
       (COND
@@ -822,7 +822,7 @@
                   (QREFELT $ 151)))))))) 
 
 (DEFUN |TRMANIP;kerexpand| (|k| $)
-  (PROG (#1=#:G367 |x| #2=#:G366 #3=#:G365 #4=#:G364 |ctb| |cta| |tb| |ta| |a|
+  (PROG (#1=#:G369 |x| #2=#:G368 #3=#:G367 #4=#:G366 |ctb| |cta| |tb| |ta| |a|
          |b| |den| |num| |arg| |op|)
     (RETURN
      (SEQ
@@ -1032,10 +1032,10 @@
     (QREFELT $ 180))
    (QREFELT $ 90))) 
 
-(DEFUN |TranscendentalManipulations| (&REST #1=#:G406)
+(DEFUN |TranscendentalManipulations| (&REST #1=#:G408)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G407)
+     (PROG (#2=#:G409)
        (RETURN
         (COND
          ((LETT #2#

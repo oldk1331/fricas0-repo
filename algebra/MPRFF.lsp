@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MPRFF;factor;PRFF;1| (|p| $)
-  (PROG (#1=#:G136 #2=#:G135 #3=#:G137 #4=#:G145 |ff| |ffact| #5=#:G144
-         #6=#:G143 |fcont| #7=#:G142 |x| #8=#:G141 |u| #9=#:G140 |flist| |denp|
+  (PROG (#1=#:G138 #2=#:G137 #3=#:G139 #4=#:G147 |ff| |ffact| #5=#:G146
+         #6=#:G145 |fcont| #7=#:G144 |x| #8=#:G143 |u| #9=#:G142 |flist| |denp|
          |nump| |tp| |truelist|)
     (RETURN
      (SEQ
@@ -145,7 +145,7 @@
       (EXIT (SPADCALL |cf| (SPADCALL |t| (QREFELT $ 61)) (QREFELT $ 31))))))) 
 
 (DEFUN |MPRFF;pushup;PRFOVPRF;4| (|f| |x| $)
-  (PROG (|g| |v| #1=#:G154)
+  (PROG (|g| |v| #1=#:G156)
     (RETURN
      (SEQ
       (COND
@@ -205,7 +205,7 @@
      (QREFELT $ 50))))) 
 
 (DEFUN |MPRFF;totalfract;PRFR;7| (|p| $)
-  (PROG (|g| #1=#:G172 |x|)
+  (PROG (|g| #1=#:G174 |x|)
     (RETURN
      (SEQ
       (COND
@@ -225,10 +225,10 @@
           (CONS (SPADCALL |g| (QREFELT $ 72))
                 (SPADCALL |g| (QREFELT $ 69))))))))))) 
 
-(DEFUN |MPolyCatRationalFunctionFactorizer| (&REST #1=#:G173)
+(DEFUN |MPolyCatRationalFunctionFactorizer| (&REST #1=#:G175)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G174)
+     (PROG (#2=#:G176)
        (RETURN
         (COND
          ((LETT #2#

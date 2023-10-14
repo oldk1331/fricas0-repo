@@ -17,7 +17,7 @@
           (EXIT (SPADCALL |a1| |a2| (QREFELT $ 12))))))) 
 
 (DEFUN |VSBASIS;column2matrix| (|Lv| $)
-  (PROG (#1=#:G146 |k| #2=#:G147 |v| M |n|)
+  (PROG (#1=#:G148 |k| #2=#:G149 |v| M |n|)
     (RETURN
      (SEQ
       (LETT |n| (QVSIZE (SPADCALL |Lv| 1 (QREFELT $ 17)))
@@ -64,7 +64,7 @@
 (DEFUN |VSBASIS;+;3$;12| (B1 B2 $) (SPADCALL B1 B2 (QREFELT $ 32))) 
 
 (DEFUN |VSBASIS;subVector| (|v| |a| |b| $)
-  (PROG (#1=#:G161 |k| |vv| #2=#:G157)
+  (PROG (#1=#:G163 |k| |vv| #2=#:G159)
     (RETURN
      (SEQ
       (LETT |vv|
@@ -81,7 +81,7 @@
       (EXIT |vv|))))) 
 
 (DEFUN |VSBASIS;linearSum| (|t| |Lv| $)
-  (PROG (#1=#:G169 |j| |t2| #2=#:G167 |k| #3=#:G168 |v2| |vv|)
+  (PROG (#1=#:G171 |j| |t2| #2=#:G169 |k| #3=#:G170 |v2| |vv|)
     (RETURN
      (SEQ
       (LETT |vv|
@@ -119,8 +119,8 @@
             (QREFELT $ 44))) 
 
 (DEFUN |VSBASIS;intBasis;3$;16| (B1 B2 $)
-  (PROG (#1=#:G183 |cc| #2=#:G182 |LcoeffB1| #3=#:G181 |kv| #4=#:G180 |lker|
-         |k| #5=#:G179 |v| #6=#:G178 |w| M |d2| |d1| |Lw| |Lv|)
+  (PROG (#1=#:G185 |cc| #2=#:G184 |LcoeffB1| #3=#:G183 |kv| #4=#:G182 |lker|
+         |k| #5=#:G181 |v| #6=#:G180 |w| M |d2| |d1| |Lw| |Lv|)
     (RETURN
      (SEQ (LETT |Lv| B1 . #7=(|VSBASIS;intBasis;3$;16|)) (LETT |Lw| B2 . #7#)
           (COND ((OR (NULL |Lv|) (NULL |Lw|)) (EXIT (|spadConstant| $ 8))))
@@ -191,7 +191,7 @@
                      (EXIT (NREVERSE #2#))))))))))))) 
 
 (DEFUN |VSBASIS;intBasis;L$;17| (LLB $)
-  (PROG (|res| #1=#:G189 LB)
+  (PROG (|res| #1=#:G191 LB)
     (RETURN
      (SEQ
       (COND
@@ -216,7 +216,7 @@
          (EXIT |res|)))))))) 
 
 (DEFUN |VSBASIS;intBasis;L$;18| (LLB $)
-  (PROG (|res| #1=#:G195 LB)
+  (PROG (|res| #1=#:G197 LB)
     (RETURN
      (SEQ
       (COND
@@ -279,7 +279,7 @@
           (EXIT L))))) 
 
 (DEFUN |VSBASIS;complementSpace;L$;26| (|Lv| $)
-  (PROG (|ind| RES #1=#:G215 |k| #2=#:G216 |v| #3=#:G214 |n| M |Lw| |bc| |dim|)
+  (PROG (|ind| RES #1=#:G217 |k| #2=#:G218 |v| #3=#:G216 |n| M |Lw| |bc| |dim|)
     (RETURN
      (SEQ
       (COND
@@ -341,7 +341,7 @@
         ('T (SPADCALL |Lv| (QREFELT $ 65))))) 
 
 (DEFUN |VSBASIS;complementSpace;2$;28| (B $)
-  (PROG (|ind| RES #1=#:G224 |k| #2=#:G225 |v| |n| M |Lw| |bc| |dim|)
+  (PROG (|ind| RES #1=#:G226 |k| #2=#:G227 |v| |n| M |Lw| |bc| |dim|)
     (RETURN
      (SEQ
       (COND
@@ -401,10 +401,10 @@
        (COND ((QEQCAR |res| 1) (|error| "Vector not in the subspace"))
              ('T (QCDR |res|)))))))) 
 
-(DEFUN |VectorSpaceBasis| (#1=#:G238)
+(DEFUN |VectorSpaceBasis| (#1=#:G240)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G239)
+     (PROG (#2=#:G241)
        (RETURN
         (COND
          ((LETT #2#

@@ -4,10 +4,10 @@
 (DEFUN |FORMULA1;coerce;SSff;1| (|s| $)
   (SPADCALL (SPADCALL |s| (QREFELT $ 8)) (QREFELT $ 10))) 
 
-(DEFUN |ScriptFormulaFormat1| (#1=#:G126)
+(DEFUN |ScriptFormulaFormat1| (#1=#:G128)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G127)
+     (PROG (#2=#:G129)
        (RETURN
         (COND
          ((LETT #2#

@@ -27,10 +27,10 @@
                                     (QREFELT $ 18))
                           (QREFELT $ 19)))))))))) 
 
-(DEFUN |StreamFunctions1| (#1=#:G139)
+(DEFUN |StreamFunctions1| (#1=#:G141)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G142)
        (RETURN
         (COND
          ((LETT #2#

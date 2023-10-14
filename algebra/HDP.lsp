@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |HDP;<;2$B;1| (|v1| |v2| $)
-  (PROG (#1=#:G134 |i| |n2| |n1| #2=#:G135)
+  (PROG (#1=#:G136 |i| |n2| |n1| #2=#:G137)
     (RETURN
      (SEQ
       (EXIT
@@ -45,10 +45,10 @@
                      (EXIT 'NIL)))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |HomogeneousDirectProduct| (&REST #1=#:G158)
+(DEFUN |HomogeneousDirectProduct| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G159)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#
@@ -67,7 +67,7 @@
               (HREM |$ConstructorCache| '|HomogeneousDirectProduct|))))))))))) 
 
 (DEFUN |HomogeneousDirectProduct;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G152 #2=#:G153 #3=#:G154 #4=#:G155 #5=#:G156 #6=#:G157 $
+  (PROG (|pv$| #1=#:G154 #2=#:G155 #3=#:G156 #4=#:G157 #5=#:G158 #6=#:G159 $
          |dv$| DV$2 DV$1)
     (RETURN
      (PROGN

@@ -39,10 +39,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|RFFACT;likuniv| |x| |dummy| |d| $))))) 
 
-(DEFUN |RationalFunctionFactor| (#1=#:G130)
+(DEFUN |RationalFunctionFactor| (#1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

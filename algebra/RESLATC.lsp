@@ -10,10 +10,10 @@
 (DEFUN |RESLATC;coerce;ES;2| (|e| $)
   (|error| "Bug: Should not be able to obtain value of type Exit")) 
 
-(DEFUN |ResolveLatticeCompletion| (#1=#:G127)
+(DEFUN |ResolveLatticeCompletion| (#1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

@@ -16,7 +16,7 @@
           (EXIT (SPADCALL |lt| (QREFELT $ 12))))))) 
 
 (DEFUN |LAMBDA;getChildren;$L;5| (|n| $)
-  (PROG (#1=#:G193 #2=#:G177)
+  (PROG (#1=#:G195 #2=#:G179)
     (RETURN
      (SEQ
       (EXIT
@@ -66,7 +66,7 @@
 (DEFUN |LAMBDA;isFreeNode?;$B;10| (|n| $) (QEQCAR |n| 1)) 
 
 (DEFUN |LAMBDA;getBoundValue;$Nni;11| (|n| $)
-  (PROG (#1=#:G201)
+  (PROG (#1=#:G203)
     (RETURN
      (SEQ
       (EXIT
@@ -80,7 +80,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;getVariable;$UT;12| (|n| $)
-  (PROG (#1=#:G204 #2=#:G177)
+  (PROG (#1=#:G206 #2=#:G179)
     (RETURN
      (SEQ
       (EXIT
@@ -107,7 +107,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;freeVariable?| (|n| |s| $)
-  (PROG (#1=#:G217)
+  (PROG (#1=#:G219)
     (RETURN
      (SEQ
       (EXIT
@@ -134,7 +134,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;freeVariable?| (|n| |i| $)
-  (PROG (#1=#:G230)
+  (PROG (#1=#:G232)
     (RETURN
      (SEQ
       (EXIT
@@ -161,7 +161,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;free?;$B;15| (|n| $)
-  (PROG (#1=#:G233)
+  (PROG (#1=#:G235)
     (RETURN
      (SEQ
       (EXIT
@@ -179,7 +179,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;parseLambdaTerm| (|t1| |pin| $)
-  (PROG (|p1| |ex| |r2| #1=#:G252 |ch| |r|)
+  (PROG (|p1| |ex| |r2| #1=#:G254 |ch| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -223,7 +223,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;parseBracketTerm| (|t1| |pin| $)
-  (PROG (|p1| #1=#:G263 |ch| |trm| |r2|)
+  (PROG (|p1| #1=#:G265 |ch| |trm| |r2|)
     (RETURN
      (SEQ
       (EXIT
@@ -258,7 +258,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;parseVariableTerm| (|t1| |pin| $)
-  (PROG (|ch| #1=#:G278 |p1| |inx|)
+  (PROG (|ch| #1=#:G280 |p1| |inx|)
     (RETURN
      (SEQ
       (EXIT
@@ -310,7 +310,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;parseTerm;SNniR;19| (|t1| |pin| $)
-  (PROG (|res| |p1| |r| #1=#:G296 |ch| |r2|)
+  (PROG (|res| |p1| |r| #1=#:G298 |ch| |r2|)
     (RETURN
      (SEQ
       (EXIT
@@ -362,7 +362,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;parseLambda;S$;20| (|t1| $)
-  (PROG (|r| #1=#:G297)
+  (PROG (|r| #1=#:G299)
     (RETURN
      (SEQ
       (LETT |r|
@@ -377,7 +377,7 @@
       (EXIT (QCAR |r|)))))) 
 
 (DEFUN |LAMBDA;toStringConven;$LS;21| (|n| |boundL| $)
-  (PROG (|s| |boundL2| |varName| #1=#:G308 |i|)
+  (PROG (|s| |boundL2| |varName| #1=#:G310 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -460,7 +460,7 @@
           (EXIT |s|))))) 
 
 (DEFUN |LAMBDA;subst;4$;23| (|n| |a| |b| $)
-  (PROG (#1=#:G322 #2=#:G177)
+  (PROG (#1=#:G324 #2=#:G179)
     (RETURN
      (SEQ
       (EXIT
@@ -505,7 +505,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;bindTerm| (|n| |i| |s| $)
-  (PROG (#1=#:G333 #2=#:G176 #3=#:G175)
+  (PROG (#1=#:G335 #2=#:G178 #3=#:G177)
     (RETURN
      (SEQ
       (EXIT
@@ -574,7 +574,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;bind;2$;25| (|n| $)
-  (PROG (#1=#:G336)
+  (PROG (#1=#:G338)
     (RETURN
      (SEQ
       (EXIT
@@ -594,7 +594,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;unbindTerm| (|n| |i| |s| $)
-  (PROG (#1=#:G347 #2=#:G176 #3=#:G177)
+  (PROG (#1=#:G349 #2=#:G178 #3=#:G179)
     (RETURN
      (SEQ
       (EXIT
@@ -669,7 +669,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;unbind;2$;27| (|n| $)
-  (PROG (#1=#:G350)
+  (PROG (#1=#:G352)
     (RETURN
      (SEQ
       (EXIT
@@ -689,7 +689,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;redux;2$;28| (|n| $)
-  (PROG (#1=#:G363 |boundVarName| #2=#:G177 |term2| |term1|)
+  (PROG (#1=#:G365 |boundVarName| #2=#:G179 |term2| |term1|)
     (RETURN
      (SEQ
       (EXIT
@@ -742,7 +742,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAMBDA;=;2$B;29| (|x| |y| $)
-  (PROG (#1=#:G381)
+  (PROG (#1=#:G383)
     (RETURN
      (SEQ
       (EXIT
@@ -791,10 +791,10 @@
 (DEFUN |LAMBDA;coerce;$Of;30| (|n| $)
   (SPADCALL (SPADCALL |n| NIL (QREFELT $ 45)) (QREFELT $ 55))) 
 
-(DEFUN |Lambda| (#1=#:G383)
+(DEFUN |Lambda| (#1=#:G385)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G384)
+     (PROG (#2=#:G386)
        (RETURN
         (COND
          ((LETT #2#

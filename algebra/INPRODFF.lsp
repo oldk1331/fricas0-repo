@@ -156,10 +156,10 @@
        (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
                  (QREFELT $ 68))))))) 
 
-(DEFUN |InfiniteProductFiniteField| (&REST #1=#:G169)
+(DEFUN |InfiniteProductFiniteField| (&REST #1=#:G171)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G170)
+     (PROG (#2=#:G172)
        (RETURN
         (COND
          ((LETT #2#

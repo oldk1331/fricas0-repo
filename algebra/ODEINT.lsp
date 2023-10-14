@@ -18,7 +18,7 @@
            (COND ((QEQCAR |u| 0) (QCDR |u|)) ('T (|SPADfirst| (QCDR |u|))))))))) 
 
 (DEFUN |ODEINT;mkprod| (|l| $)
-  (PROG (#1=#:G151 #2=#:G150 #3=#:G152 #4=#:G157 |r| |ll| |d| |rec|)
+  (PROG (#1=#:G153 #2=#:G152 #3=#:G154 #4=#:G159 |r| |ll| |d| |rec|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (|spadConstant| $ 16))
@@ -72,7 +72,7 @@
       (SPADCALL (SPADCALL (QCAR |z1|) (QREFELT $ 19)) |d| (QREFELT $ 21)))))) 
 
 (DEFUN |ODEINT;expint;FSF;4| (|f| |x| $)
-  (PROG (|exponent| |lrec| |w| #1=#:G174 |term| |l| |v| |na| |da| |u| |a|)
+  (PROG (|exponent| |lrec| |w| #1=#:G176 |term| |l| |v| |na| |da| |u| |a|)
     (RETURN
      (SEQ
       (LETT |a| (SPADCALL |f| |x| (QREFELT $ 15)) . #2=(|ODEINT;expint;FSF;4|))
@@ -123,7 +123,7 @@
                               (QREFELT $ 28))))))))))) 
 
 (DEFUN |ODEINT;isQ| (|l| $)
-  (PROG (|prod| #1=#:G181 |u| #2=#:G182 |x|)
+  (PROG (|prod| #1=#:G183 |u| #2=#:G184 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -146,7 +146,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ODEINT;isQlog| (|f| $)
-  (PROG (#1=#:G200 #2=#:G197 |u| |l| |v|)
+  (PROG (#1=#:G202 #2=#:G199 |u| |l| |v|)
     (RETURN
      (SEQ
       (COND
@@ -203,10 +203,10 @@
            (EXIT (CONS 1 "failed"))))
          #1# (EXIT #1#)))))))) 
 
-(DEFUN |ODEIntegration| (&REST #1=#:G203)
+(DEFUN |ODEIntegration| (&REST #1=#:G205)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G204)
+     (PROG (#2=#:G206)
        (RETURN
         (COND
          ((LETT #2#

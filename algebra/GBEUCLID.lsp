@@ -55,8 +55,8 @@
    (SPADCALL "   " (QREFELT $ 14)) (EXIT NIL))) 
 
 (DEFUN |GBEUCLID;strongGbasis| (|Pol| |xx1| |xx2| $)
-  (PROG (|xx| |ala| H D |dd1| #1=#:G217 |x| #2=#:G216 |leh| |e| |eh| |ep| D0
-         #3=#:G215 #4=#:G214 |lch| |en| |Pol1| |h|)
+  (PROG (|xx| |ala| H D |dd1| #1=#:G219 |x| #2=#:G218 |leh| |e| |eh| |ep| D0
+         #3=#:G217 #4=#:G216 |lch| |en| |Pol1| |h|)
     (RETURN
      (SEQ
       (LETT |Pol1|
@@ -439,7 +439,7 @@
                      (CONS |f1| (|GBEUCLID;eupdatF| |h| (CDR F) $)))))))))))) 
 
 (DEFUN |GBEUCLID;updatH| (|h| H |Hh| |Hhh| $)
-  (PROG (|hp| |hpp| #1=#:G238 |plc| |hlcm| |h1|)
+  (PROG (|hp| |hpp| #1=#:G240 |plc| |hlcm| |h1|)
     (RETURN
      (SEQ
       (COND ((NULL H) (APPEND |Hh| |Hhh|))
@@ -507,7 +507,7 @@
                   (EXIT (|GBEUCLID;updatH| |h| (CDR H) |Hh| |Hhh| $))))))))) 
 
 (DEFUN |GBEUCLID;crithdelH| (|h| H $)
-  (PROG (#1=#:G247 |plc| |dh| |dh1| |h1|)
+  (PROG (#1=#:G249 |plc| |dh| |dh1| |h1|)
     (RETURN
      (SEQ
       (COND ((NULL H) NIL)
@@ -579,7 +579,7 @@
                     (#1# (|GBEUCLID;ecrithinH| |h| (CDR H) $))))))))))) 
 
 (DEFUN |GBEUCLID;esPol| (|p| $)
-  (PROG (#1=#:G261 #2=#:G258 |lij| |fj| |fi| |Tij|)
+  (PROG (#1=#:G263 #2=#:G260 |lij| |fj| |fi| |Tij|)
     (RETURN
      (SEQ (LETT |Tij| (QVELT |p| 0) . #3=(|GBEUCLID;esPol|))
           (LETT |fi| (QVELT |p| 2) . #3#) (LETT |fj| (QVELT |p| 3) . #3#)
@@ -628,7 +628,7 @@
             (QREFELT $ 56))))))) 
 
 (DEFUN |GBEUCLID;eRed| (|s| H |Hh| $)
-  (PROG (|q1| |sdf1| #1=#:G271 |e| |ls| |lf1| |ds| |f1|)
+  (PROG (|q1| |sdf1| #1=#:G273 |e| |ls| |lf1| |ds| |f1|)
     (RETURN
      (SEQ
       (EXIT
@@ -689,7 +689,7 @@
             ('T 'NIL))))))) 
 
 (DEFUN |GBEUCLID;ecritM| (|e1| |c1| |e2| |c2| $)
-  (PROG (#1=#:G283 |en|)
+  (PROG (#1=#:G285 |en|)
     (RETURN
      (SEQ
       (EXIT
@@ -903,10 +903,10 @@
                   (SPADCALL "  Groebner Basis Polynomials. " (QREFELT $ 14))
                   (EXIT (|GBEUCLID;prinb| 2 $)))))))))) 
 
-(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G316)
+(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G318)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G317)
+     (PROG (#2=#:G319)
        (RETURN
         (COND
          ((LETT #2#

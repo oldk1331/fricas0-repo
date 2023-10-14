@@ -4,12 +4,12 @@
 (DEFPARAMETER |canonicalUnitNormal;AL| 'NIL) 
 
 (DEFUN |canonicalUnitNormal| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|canonicalUnitNormal;AL|)
           (T (SETQ |canonicalUnitNormal;AL| (|canonicalUnitNormal;|)))))) 
 
 (DEFUN |canonicalUnitNormal;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))

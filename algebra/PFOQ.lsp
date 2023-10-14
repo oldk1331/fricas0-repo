@@ -157,10 +157,10 @@
           (COND ((QEQCAR |g| 1) (CONS 1 "failed"))
                 (#2# (CONS 0 (CONS |n| (QCDR |g|))))))))))))) 
 
-(DEFUN |PointsOfFiniteOrderRational| (&REST #1=#:G166)
+(DEFUN |PointsOfFiniteOrderRational| (&REST #1=#:G168)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G167)
+     (PROG (#2=#:G169)
        (RETURN
         (COND
          ((LETT #2#

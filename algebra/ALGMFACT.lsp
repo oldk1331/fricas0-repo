@@ -25,10 +25,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |z1| |lalg| (QREFELT $ 13)))))) 
 
-(DEFUN |AlgebraicMultFact| (&REST #1=#:G129)
+(DEFUN |AlgebraicMultFact| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G130)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

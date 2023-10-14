@@ -1,4 +1,4 @@
-113608              (|AbelianGroup&| |FourierSeries| |FreeAbelianGroup|
+113694              (|AbelianGroup&| |FourierSeries| |FreeAbelianGroup|
                                      |QuadraticForm|)
 (|AbelianMonoid&| |AbelianMonoidRing| |AbelianMonoidRing&| |CardinalNumber|
                   |EuclideanModularRing| |FiniteAbelianMonoidRing|
@@ -1440,7 +1440,8 @@
                      |TexmacsFormat| |ThreeDimensionalMatrix|
                      |ThreeDimensionalViewport| |TopLevelDrawFunctions| |Tree|
                      |TwoDimensionalViewport| |UndirectedGraph|
-                     |UserDefinedPartialOrdering| |Variable| |WeightedGraph|)
+                     |UserDefinedPartialOrdering| |Variable| |WeightedGraph|
+                     |XHashTable|)
 (|BinaryFile| |FiniteFieldNormalBasisExtensionByPolynomial|)
 (|FunctionSpaceToUnivariatePowerSeries| |FunctionSpaceToUnivariatePowerSeries2|
                                         |TaylorSeriesExpansionGeneralized|
@@ -1533,7 +1534,7 @@
 (|FortranProgram|)
 (|EqTable| |GeneralSparseTable| |HashTable| |InnerTable| |KeyedAccessFile|
            |Library| |Result| |SparseTable| |StringTable| |Table|
-           |TableAggregate&|)
+           |TableAggregate&| |XHashTable|)
 (|FunctionSpaceToUnivariatePowerSeries| |FunctionSpaceToUnivariatePowerSeries2|
                                         |TaylorSeriesExpansion&|
                                         |TaylorSeriesExpansionGeneralized|
@@ -1651,7 +1652,7 @@
                           |UnaryRecursiveAggregate| |UnaryRecursiveAggregate&|
                           |UniversalSegment| |UniversalSegmentFunctions2|
                           |Vector| |VectorCategory| |VectorCategory&|
-                          |VectorFunctions2|)
+                          |VectorFunctions2| |XHashTable|)
 (|U16Matrix|)
 (|ModularAlgebraicGcdTools2| |U32Matrix|)
 (|U8Matrix|)
@@ -1779,47 +1780,47 @@
 (|Integer| |RomanNumeral| |SingleInteger|)
 (|EqTable| |GeneralPolynomialSet| |HashTable| |InnerTable| |KeyedAccessFile|
            |ListMultiDictionary| |Multiset| |Result| |SortPackage|
-           |SplittingTree| |StringTable| |Table| |Tree|)
+           |SplittingTree| |StringTable| |Table| |Tree| |XHashTable|)
 (|FiniteLinearAggregateSort| |GeneralPolynomialSet| |LinearSystemMatrixPackage|
                              |Multiset| |SortPackage| |SplittingTree| |Stream|
-                             |Tree|)
-(("shallowlyMutable" 0 113412) ("finiteAggregate" 0 113211)
- ("canonicalsClosed" 0 113168) ("canonicalUnitNormal" 0 113155)
- ("arbitraryPrecision" 0 113145) ("arbitraryExponent" 0 113135)
- ("XPolynomialsCat" 0 113006) ("XAlgebra" 0 112986) ("VectorSpace" 0 112969)
- ("VectorCategory" 0 112849) ("Vector" 0 112432)
- ("VariablesCommuteWithCoefficients" 0 112391) ("VarCat" 0 112334)
- ("UnivariateTaylorSeriesCategory" 0 111441)
- ("UnivariateTaylorSeries" 0 111387)
- ("UnivariateSkewPolynomialCategory" 0 111120)
- ("UnivariatePuiseuxSeriesWithExponentialSingularity" 0 111095)
- ("UnivariatePuiseuxSeriesConstructorCategory" 0 110626)
- ("UnivariatePuiseuxSeriesCategory" 0 110554)
- ("UnivariatePuiseuxSeries" 0 110477)
- ("UnivariatePowerSeriesCategory" 0 110201)
- ("UnivariatePolynomialCategory" 0 106588)
- ("UnivariateLaurentSeriesConstructorCategory" 0 106042)
- ("UnivariateLaurentSeriesCategory" 0 105864)
- ("UnivariateLaurentSeries" 0 105836) ("UniqueFactorizationDomain" 0 105640)
- ("UnaryRecursiveAggregate" 0 105611) ("U8Vector" 0 105598)
- ("U32Vector" 0 105556) ("U16Vector" 0 105542) ("Type" 0 101043)
- ("TwoDimensionalArrayCategory" 0 100865)
- ("TrigonometricFunctionCategory" 0 100830) ("TriangularSetCategory" 0 100755)
- ("TranscendentalFunctionCategory" 0 98131) ("ThreeSpaceCategory" 0 98116)
- ("TensorProductCategory" 0 98074) ("TensorPowerCategory" 0 98035)
- ("TaylorSeriesExpansion" 0 97602) ("TableAggregate" 0 97431)
- ("SymbolTable" 0 97412) ("Symbol" 0 93683) ("StringCategory" 0 93672)
- ("StringAggregate" 0 93635) ("String" 0 93453) ("StreamAggregate" 0 93405)
- ("StepThrough" 0 93390) ("StackAggregate" 0 93367)
- ("SquareMatrixCategory" 0 93251) ("SquareMatrix" 0 93127)
- ("SquareFreeRegularTriangularSetCategory" 0 92871) ("SplittingNode" 0 92853)
- ("SpecialFunctionCategory" 0 92751) ("SparseUnivariateTaylorSeries" 0 92685)
- ("SparseUnivariatePolynomial" 0 92488)
- ("SparseUnivariateLaurentSeries" 0 92454)
- ("SparseMultivariatePolynomialExpressions" 0 92420)
- ("SparseMultivariatePolynomial" 0 92186)
- ("SolvableSkewPolynomialCategory" 0 92165) ("SingletonAsOrderedSet" 0 91797)
- ("SingleInteger" 0 91736) ("SetCategory" 0 87598) ("SetAggregate" 0 87580)
+                             |Tree| |XHashTable|)
+(("shallowlyMutable" 0 113485) ("finiteAggregate" 0 113271)
+ ("canonicalsClosed" 0 113228) ("canonicalUnitNormal" 0 113215)
+ ("arbitraryPrecision" 0 113205) ("arbitraryExponent" 0 113195)
+ ("XPolynomialsCat" 0 113066) ("XAlgebra" 0 113046) ("VectorSpace" 0 113029)
+ ("VectorCategory" 0 112909) ("Vector" 0 112492)
+ ("VariablesCommuteWithCoefficients" 0 112451) ("VarCat" 0 112394)
+ ("UnivariateTaylorSeriesCategory" 0 111501)
+ ("UnivariateTaylorSeries" 0 111447)
+ ("UnivariateSkewPolynomialCategory" 0 111180)
+ ("UnivariatePuiseuxSeriesWithExponentialSingularity" 0 111155)
+ ("UnivariatePuiseuxSeriesConstructorCategory" 0 110686)
+ ("UnivariatePuiseuxSeriesCategory" 0 110614)
+ ("UnivariatePuiseuxSeries" 0 110537)
+ ("UnivariatePowerSeriesCategory" 0 110261)
+ ("UnivariatePolynomialCategory" 0 106648)
+ ("UnivariateLaurentSeriesConstructorCategory" 0 106102)
+ ("UnivariateLaurentSeriesCategory" 0 105924)
+ ("UnivariateLaurentSeries" 0 105896) ("UniqueFactorizationDomain" 0 105700)
+ ("UnaryRecursiveAggregate" 0 105671) ("U8Vector" 0 105658)
+ ("U32Vector" 0 105616) ("U16Vector" 0 105602) ("Type" 0 101090)
+ ("TwoDimensionalArrayCategory" 0 100912)
+ ("TrigonometricFunctionCategory" 0 100877) ("TriangularSetCategory" 0 100802)
+ ("TranscendentalFunctionCategory" 0 98178) ("ThreeSpaceCategory" 0 98163)
+ ("TensorProductCategory" 0 98121) ("TensorPowerCategory" 0 98082)
+ ("TaylorSeriesExpansion" 0 97649) ("TableAggregate" 0 97465)
+ ("SymbolTable" 0 97446) ("Symbol" 0 93717) ("StringCategory" 0 93706)
+ ("StringAggregate" 0 93669) ("String" 0 93487) ("StreamAggregate" 0 93439)
+ ("StepThrough" 0 93424) ("StackAggregate" 0 93401)
+ ("SquareMatrixCategory" 0 93285) ("SquareMatrix" 0 93161)
+ ("SquareFreeRegularTriangularSetCategory" 0 92905) ("SplittingNode" 0 92887)
+ ("SpecialFunctionCategory" 0 92785) ("SparseUnivariateTaylorSeries" 0 92719)
+ ("SparseUnivariatePolynomial" 0 92522)
+ ("SparseUnivariateLaurentSeries" 0 92488)
+ ("SparseMultivariatePolynomialExpressions" 0 92454)
+ ("SparseMultivariatePolynomial" 0 92220)
+ ("SolvableSkewPolynomialCategory" 0 92199) ("SingletonAsOrderedSet" 0 91831)
+ ("SingleInteger" 0 91770) ("SetCategory" 0 87598) ("SetAggregate" 0 87580)
  ("SequentialDifferentialVariable" 0 87543) ("SequenceCategory" 0 87530)
  ("SemiRng" 0 86870) ("SemiRing" 0 86797) ("SemiGroup" 0 86782)
  ("SegmentCategory" 0 86751) ("SPointCategory" 0 86621)

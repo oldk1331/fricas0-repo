@@ -3,10 +3,10 @@
 
 (DEFUN |NSUP2;map;MNsupNsup;1| (|f| |p| $) (SPADCALL |f| |p| (QREFELT $ 12))) 
 
-(DEFUN |NewSparseUnivariatePolynomialFunctions2| (&REST #1=#:G127)
+(DEFUN |NewSparseUnivariatePolynomialFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

@@ -9,7 +9,7 @@
                    (QREFELT $ 18))))) 
 
 (DEFUN |JBLF;coerce;$Of;2| (|l| $)
-  (PROG (|res| #1=#:G188 |c| #2=#:G189 |jv|)
+  (PROG (|res| #1=#:G190 |c| #2=#:G191 |jv|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |l| (QREFELT $ 19)) (SPADCALL 0 (QREFELT $ 21)))
@@ -52,7 +52,7 @@
         ('T (CONS (LIST |ex|) (LIST (SPADCALL (QREFELT $ 28))))))) 
 
 (DEFUN |JBLF;coerce;SemL;5| (|jm| $)
-  (PROG (|res| |r| #1=#:G199 |i|)
+  (PROG (|res| |r| #1=#:G201 |i|)
     (RETURN
      (SEQ (LETT |res| (SPADCALL (QREFELT $ 36)) . #2=(|JBLF;coerce;SemL;5|))
           (SEQ (LETT |i| 1 . #2#)
@@ -70,7 +70,7 @@
           (EXIT (SPADCALL |res| (QREFELT $ 43))))))) 
 
 (DEFUN |JBLF;coerce;LSem;6| (|ll| $)
-  (PROG (#1=#:G207 |l| |i| |res| |inds| #2=#:G206)
+  (PROG (#1=#:G209 |l| |i| |res| |inds| #2=#:G208)
     (RETURN
      (SEQ (LETT |inds| NIL . #3=(|JBLF;coerce;LSem;6|))
           (SEQ (LETT |l| NIL . #3#) (LETT #2# |ll| . #3#) G190
@@ -126,7 +126,7 @@
 (DEFUN |JBLF;denominator;2$;11| (|l| $) (|spadConstant| $ 26)) 
 
 (DEFUN |JBLF;retractIfCan;JbeU;12| (|ex| $)
-  (PROG (|resC| #1=#:G235 |cd| #2=#:G236 |jv| |resJ| |pd|)
+  (PROG (|resC| #1=#:G237 |cd| #2=#:G238 |jv| |resJ| |pd|)
     (RETURN
      (SEQ
       (EXIT
@@ -179,7 +179,7 @@
   (CONS (LIST (|spadConstant| $ 29)) (LIST (SPADCALL (QREFELT $ 28))))) 
 
 (DEFUN |JBLF;-;2$;18| (|l| $)
-  (PROG (#1=#:G249 |c| #2=#:G248)
+  (PROG (#1=#:G251 |c| #2=#:G250)
     (RETURN
      (SEQ
       (CONS
@@ -195,7 +195,7 @@
        (QCDR |l|)))))) 
 
 (DEFUN |JBLF;+;3$;19| (|l1| |l2| $)
-  (PROG (|lj2| |lc2| |resJ| |resC| |sum| #1=#:G266 |c1| #2=#:G267 |j1|)
+  (PROG (|lj2| |lc2| |resJ| |resC| |sum| #1=#:G268 |c1| #2=#:G269 |j1|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |l1| (QREFELT $ 19)) |l2|)
@@ -255,7 +255,7 @@
                      (SPADCALL (NREVERSE |resJ|) |lj2| (QREFELT $ 82))))))))))) 
 
 (DEFUN |JBLF;*;I2$;20| (|i| |l| $)
-  (PROG (#1=#:G273 |c| #2=#:G272)
+  (PROG (#1=#:G275 |c| #2=#:G274)
     (RETURN
      (SEQ
       (COND ((ZEROP |i|) (|spadConstant| $ 32)) ((EQL |i| 1) |l|)
@@ -276,7 +276,7 @@
               (QCDR |l|)))))))) 
 
 (DEFUN |JBLF;*;D2$;21| (|ex| |l| $)
-  (PROG (#1=#:G279 |c| #2=#:G278)
+  (PROG (#1=#:G281 |c| #2=#:G280)
     (RETURN
      (SEQ
       (COND ((SPADCALL |ex| (QREFELT $ 31)) (|spadConstant| $ 32))
@@ -325,7 +325,7 @@
        (#1# (CONS 1 "failed"))))))) 
 
 (DEFUN |JBLF;exquo;2$U;24| (|l1| |l2| $)
-  (PROG (|newC| #1=#:G307 |e| #2=#:G308 |c| |d|)
+  (PROG (|newC| #1=#:G309 |e| #2=#:G310 |c| |d|)
     (RETURN
      (SEQ
       (EXIT
@@ -371,7 +371,7 @@
            ('T (SPADCALL |g| (QREFELT $ 33)))))))))))) 
 
 (DEFUN |JBLF;jetVariables;$L;26| (|l| $)
-  (PROG (|res| #1=#:G321 |c|)
+  (PROG (|res| #1=#:G323 |c|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |l| (QREFELT $ 19)) NIL)
@@ -403,7 +403,7 @@
                   (EXIT |res|)))))))) 
 
 (DEFUN |JBLF;differentiate;$S$;27| (|l| |s| $)
-  (PROG (|resJ| |resC| |dc| #1=#:G327 |c| #2=#:G328 |j|)
+  (PROG (|resJ| |resC| |dc| #1=#:G329 |c| #2=#:G330 |j|)
     (RETURN
      (SEQ (LETT |resC| NIL . #3=(|JBLF;differentiate;$S$;27|))
           (LETT |resJ| NIL . #3#)
@@ -424,7 +424,7 @@
           (EXIT (CONS (NREVERSE |resC|) (NREVERSE |resJ|))))))) 
 
 (DEFUN |JBLF;differentiate;$JB$;28| (|l| |jv| $)
-  (PROG (|pos| |resJ| |resC| |dc| #1=#:G336 |c| #2=#:G337 |j| |jt|)
+  (PROG (|pos| |resJ| |resC| |dc| #1=#:G338 |c| #2=#:G339 |j| |jt|)
     (RETURN
      (SEQ
       (LETT |jt| (SPADCALL |jv| (QREFELT $ 25))
@@ -461,9 +461,9 @@
                        (LIST (SPADCALL (QREFELT $ 28))))))))))))))) 
 
 (DEFUN |JBLF;jacobiMatrix;LSem;29| (|sys| $)
-  (PROG (|rowC| |rowJ| |dCo| |dJV| |dco| #1=#:G370 |co| #2=#:G371 |jv|
-         #3=#:G369 |cjv| |ents| #4=#:G368 #5=#:G367 #6=#:G366 |eq| |i| |res|
-         #7=#:G365 #8=#:G364 #9=#:G363 |cinds| #10=#:G362 |inds| #11=#:G361)
+  (PROG (|rowC| |rowJ| |dCo| |dJV| |dco| #1=#:G372 |co| #2=#:G373 |jv|
+         #3=#:G371 |cjv| |ents| #4=#:G370 #5=#:G369 #6=#:G368 |eq| |i| |res|
+         #7=#:G367 #8=#:G366 #9=#:G365 |cinds| #10=#:G364 |inds| #11=#:G363)
     (RETURN
      (SEQ (LETT |inds| NIL . #12=(|JBLF;jacobiMatrix;LSem;29|))
           (LETT |cinds| NIL . #12#)
@@ -630,9 +630,9 @@
               (EXIT |res|))))))))) 
 
 (DEFUN |JBLF;jacobiMatrix;LLSem;30| (|sys| |varlist| $)
-  (PROG (|rowC| |rowJ| |dCo| |dJV| |dco| #1=#:G397 |co| #2=#:G398 |jv|
-         #3=#:G396 |ijv| |ivars| |ents| #4=#:G395 #5=#:G394 #6=#:G392 |eq|
-         #7=#:G393 |vars| |i| |res| |inds| #8=#:G391)
+  (PROG (|rowC| |rowJ| |dCo| |dJV| |dco| #1=#:G399 |co| #2=#:G400 |jv|
+         #3=#:G398 |ijv| |ivars| |ents| #4=#:G397 #5=#:G396 #6=#:G394 |eq|
+         #7=#:G395 |vars| |i| |res| |inds| #8=#:G393)
     (RETURN
      (SEQ
       (LETT |inds| (|SPADfirst| |varlist|) . #9=(|JBLF;jacobiMatrix;LLSem;30|))
@@ -757,7 +757,7 @@
         ('T (|SPADfirst| (QCDR |l|))))) 
 
 (DEFUN |JBLF;freeOf?;$JBB;32| (|l| |jv| $)
-  (PROG (#1=#:G410 |c| #2=#:G409)
+  (PROG (#1=#:G412 |c| #2=#:G411)
     (RETURN
      (SEQ
       (COND
@@ -781,7 +781,7 @@
        ((SPADCALL |jv| (QCDR |l|) (QREFELT $ 58)) 'NIL) ('T 'T)))))) 
 
 (DEFUN |JBLF;solveFor;$JBU;33| (|l| |jv| $)
-  (PROG (#1=#:G424 |c| #2=#:G423 |rc| |pos| |jt|)
+  (PROG (#1=#:G426 |c| #2=#:G425 |rc| |pos| |jt|)
     (RETURN
      (SEQ
       (LETT |jt| (SPADCALL |jv| (QREFELT $ 25)) . #3=(|JBLF;solveFor;$JBU;33|))
@@ -832,7 +832,7 @@
                                    (QREFELT $ 129))))))))))))))) 
 
 (DEFUN |JBLF;subst;$JB2$;34| (|l| |jv| |exp| $)
-  (PROG (|nl| |c| |pos| |resJ| |resC| |nc| #1=#:G433 #2=#:G434 |cj| |xexp|
+  (PROG (|nl| |c| |pos| |resJ| |resC| |nc| #1=#:G435 #2=#:G436 |cj| |xexp|
          |jt|)
     (RETURN
      (SEQ
@@ -881,9 +881,9 @@
                                    (QREFELT $ 83))))))))))))))) 
 
 (DEFUN |JBLF;simplify;LSemR;35| (|sys| |jm| $)
-  (PROG (|dep| |depj| #1=#:G454 |kb| |k| |rowC| |rowJ| |dCo| |dJV| |dco|
-         #2=#:G472 |co| #3=#:G473 |jv| #4=#:G471 |cjv| |ents| #5=#:G470
-         #6=#:G469 #7=#:G468 #8=#:G467 #9=#:G466 |eq| |j| |newJM| |cinds|
+  (PROG (|dep| |depj| #1=#:G456 |kb| |k| |rowC| |rowJ| |dCo| |dJV| |dco|
+         #2=#:G474 |co| #3=#:G475 |jv| #4=#:G473 |cjv| |ents| #5=#:G472
+         #6=#:G471 #7=#:G470 #8=#:G469 #9=#:G468 |eq| |j| |newJM| |cinds|
          |inds| |maxR| |minR| |Trafo| |newSys| |RRec|)
     (RETURN
      (SEQ
@@ -1053,10 +1053,10 @@
    ((EQL (LENGTH (QCDR |f|)) 1) (CONS (LIST (|spadConstant| $ 29)) (QCDR |f|)))
    ('T |f|))) 
 
-(DEFUN |JetBundleLinearFunction| (&REST #1=#:G484)
+(DEFUN |JetBundleLinearFunction| (&REST #1=#:G486)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G485)
+     (PROG (#2=#:G487)
        (RETURN
         (COND
          ((LETT #2#

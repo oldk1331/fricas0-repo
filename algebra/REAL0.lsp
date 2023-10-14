@@ -10,7 +10,7 @@
             (SPADCALL (QCAR |i|) (QCDR |i|) (QREFELT $ 13)) (QREFELT $ 14))) 
 
 (DEFUN |REAL0;midpoints;LL;3| (|li| $)
-  (PROG (#1=#:G140 |x| #2=#:G139)
+  (PROG (#1=#:G142 |x| #2=#:G141)
     (RETURN
      (SEQ
       (PROGN
@@ -25,7 +25,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |REAL0;makeSqfr| (F $)
-  (PROG (#1=#:G143 #2=#:G142 #3=#:G144 #4=#:G147 |s| |sqfr|)
+  (PROG (#1=#:G145 #2=#:G144 #3=#:G146 #4=#:G149 |s| |sqfr|)
     (RETURN
      (SEQ (LETT |sqfr| (SPADCALL F (QREFELT $ 21)) . #5=(|REAL0;makeSqfr|))
           (EXIT
@@ -56,7 +56,7 @@
   (|REAL0;ReZeroSqfr| (|REAL0;makeSqfr| F $) $)) 
 
 (DEFUN |REAL0;realZeros;PolFL;6| (F |rn| $)
-  (PROG (#1=#:G153 |int| #2=#:G152)
+  (PROG (#1=#:G155 |int| #2=#:G154)
     (RETURN
      (SEQ (LETT F (|REAL0;makeSqfr| F $) . #3=(|REAL0;realZeros;PolFL;6|))
           (EXIT
@@ -75,7 +75,7 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |REAL0;realZeros;PolRL;7| (F |bounds| $)
-  (PROG (#1=#:G155 |rint| #2=#:G161 |int| #3=#:G160)
+  (PROG (#1=#:G157 |rint| #2=#:G163 |int| #3=#:G162)
     (RETURN
      (SEQ (LETT F (|REAL0;makeSqfr| F $) . #4=(|REAL0;realZeros;PolRL;7|))
           (EXIT
@@ -110,7 +110,7 @@
                  (EXIT (NREVERSE #3#))))))))) 
 
 (DEFUN |REAL0;realZeros;PolRFL;8| (F |bounds| |rn| $)
-  (PROG (#1=#:G166 |int| #2=#:G165)
+  (PROG (#1=#:G168 |int| #2=#:G167)
     (RETURN
      (SEQ (LETT F (|REAL0;makeSqfr| F $) . #3=(|REAL0;realZeros;PolRFL;8|))
           (EXIT
@@ -129,7 +129,7 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |REAL0;ReZeroSqfr| (F $)
-  (PROG (K J #1=#:G177 |int| #2=#:G176 |tempF| L |r|)
+  (PROG (K J #1=#:G179 |int| #2=#:G178 |tempF| L |r|)
     (RETURN
      (SEQ
       (COND
@@ -188,7 +188,7 @@
                       (EXIT (APPEND (APPEND J L) K))))))))))))) 
 
 (DEFUN |REAL0;PosZero| (F $)
-  (PROG (L #1=#:G182 |int| #2=#:G181 |b|)
+  (PROG (L #1=#:G184 |int| #2=#:G183 |b|)
     (RETURN
      (SEQ (LETT |b| (|REAL0;rootBound| F $) . #3=(|REAL0;PosZero|))
           (LETT F (|REAL0;transMult| |b| F $) . #3#)
@@ -216,7 +216,7 @@
                  . #3#)))))) 
 
 (DEFUN |REAL0;Zero1| (F $)
-  (PROG (K #1=#:G196 |int| #2=#:G195 J #3=#:G194 #4=#:G193 G |tempG| Q H
+  (PROG (K #1=#:G198 |int| #2=#:G197 J #3=#:G196 #4=#:G195 G |tempG| Q H
          |tempH| L |v|)
     (RETURN
      (SEQ (LETT L NIL . #5=(|REAL0;Zero1|))
@@ -374,7 +374,7 @@
           (EXIT G))))) 
 
 (DEFUN |REAL0;transMultInv| (|c| F $)
-  (PROG (|d| G |cc| #1=#:G208 |n|)
+  (PROG (|d| G |cc| #1=#:G210 |n|)
     (RETURN
      (SEQ (LETT |d| (SPADCALL F (QREFELT $ 38)) . #2=(|REAL0;transMultInv|))
           (LETT |cc| 1 . #2#)
@@ -407,7 +407,7 @@
           (EXIT G))))) 
 
 (DEFUN |REAL0;transAdd1| (F $)
-  (PROG (|ans| |i| |j| #1=#:G218 |v| |n|)
+  (PROG (|ans| |i| |j| #1=#:G220 |v| |n|)
     (RETURN
      (SEQ (LETT |n| (SPADCALL F (QREFELT $ 38)) . #2=(|REAL0;transAdd1|))
           (LETT |v| (SPADCALL F (+ |n| 1) (QREFELT $ 56)) . #2#)
@@ -474,7 +474,7 @@
           (EXIT G))))) 
 
 (DEFUN |REAL0;invert| (F $)
-  (PROG (G #1=#:G225 |n|)
+  (PROG (G #1=#:G227 |n|)
     (RETURN
      (SEQ (LETT G (|spadConstant| $ 34) . #2=(|REAL0;invert|))
           (LETT |n| (SPADCALL F (QREFELT $ 38)) . #2#)
@@ -573,7 +573,7 @@
 
 (DEFUN |REAL0;refine;PolRFR;20| (F |int| |eps| $)
   (PROG (|xfl| |ad| |an| |b| |a| |bd| |bn| |v| |midd| |midn| |mid| |u|
-         #1=#:G244)
+         #1=#:G246)
     (RETURN
      (SEQ (LETT |a| (QCAR |int|) . #2=(|REAL0;refine;PolRFR;20|))
           (LETT |b| (QCDR |int|) . #2#)
@@ -713,10 +713,10 @@
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT (CONS |a| |b|)))))))))) 
 
-(DEFUN |RealZeroPackage| (#1=#:G259)
+(DEFUN |RealZeroPackage| (#1=#:G261)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G260)
+     (PROG (#2=#:G262)
        (RETURN
         (COND
          ((LETT #2#

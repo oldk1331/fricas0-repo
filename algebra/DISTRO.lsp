@@ -132,7 +132,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 51)) (QREFELT $ 52))) 
 
 (DEFUN |DISTRO;distributionBySTransform;2FS$;20| (|puiseux| |laurent| |coef| $)
-  (PROG (|psi| |psi2| |chi2| |z1z| S2 #1=#:G169 |chi|)
+  (PROG (|psi| |psi2| |chi2| |z1z| S2 #1=#:G171 |chi|)
     (RETURN
      (SEQ
       (EXIT
@@ -195,7 +195,7 @@
   (SPADCALL (QVELT S 0) (QVELT S 1) (QVELT S 2) (QREFELT $ 66))) 
 
 (DEFUN |DISTRO;freeMultiplicativeConvolution;3$;22| (|x| |y| $)
-  (PROG (|Sxyc| #1=#:G183 |Syc| |Sxc| |Sy| |Sx|)
+  (PROG (|Sxyc| #1=#:G185 |Syc| |Sxc| |Sy| |Sx|)
     (RETURN
      (SEQ
       (EXIT
@@ -426,10 +426,10 @@
             |DISTRO;^;$Pi$;43|)
       (EXIT (SPADCALL (SPADCALL |momn| (QREFELT $ 13)) (QREFELT $ 14))))))) 
 
-(DEFUN |Distribution| (#1=#:G239)
+(DEFUN |Distribution| (#1=#:G241)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G240)
+     (PROG (#2=#:G242)
        (RETURN
         (COND
          ((LETT #2#

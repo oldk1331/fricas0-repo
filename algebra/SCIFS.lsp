@@ -10,13 +10,13 @@
 (DEFUN |SCIFS;pointList;$L;2| (|me| $) (QCDR |me|)) 
 
 (DEFUN |SCIFS;meshIndex| (|i| |j| |c| $)
-  (PROG (#1=#:G135)
+  (PROG (#1=#:G137)
     (RETURN
      (PROG1 (LETT #1# (+ (* |j| |c|) |i|) |SCIFS;meshIndex|)
        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
 
 (DEFUN |SCIFS;smesh;LB$;4| (|ptin| |clos| $)
-  (PROG (|j| |in2| |thisLine| |i| |pt2| #1=#:G146 |p| #2=#:G145 |lpt|
+  (PROG (|j| |in2| |thisLine| |i| |pt2| #1=#:G148 |p| #2=#:G147 |lpt|
          |colLength| |rowLength|)
     (RETURN
      (SEQ (LETT |pt2| NIL . #3=(|SCIFS;smesh;LB$;4|)) (LETT |in2| NIL . #3#)
@@ -81,7 +81,7 @@
           (EXIT (CONS |in2| |pt2|)))))) 
 
 (DEFUN |SCIFS;singleFace;L$;5| (|ptin| $)
-  (PROG (|in2| #1=#:G151 |i| #2=#:G150 |pt2|)
+  (PROG (|in2| #1=#:G153 |i| #2=#:G152 |pt2|)
     (RETURN
      (SEQ (LETT |pt2| |ptin| . #3=(|SCIFS;singleFace;L$;5|))
           (LETT |in2|
@@ -98,9 +98,9 @@
           (EXIT (CONS |in2| |pt2|)))))) 
 
 (DEFUN |SCIFS;subdivide;2$;6| (|me| $)
-  (PROG (|indexSize| |in2| |indexPos| |newFace| #1=#:G167 |j| #2=#:G166
-         #3=#:G165 |ptIx| |pt2| |newPt| #4=#:G164 #5=#:G163 |faceIx| |i|
-         #6=#:G162)
+  (PROG (|indexSize| |in2| |indexPos| |newFace| #1=#:G169 |j| #2=#:G168
+         #3=#:G167 |ptIx| |pt2| |newPt| #4=#:G166 #5=#:G165 |faceIx| |i|
+         #6=#:G164)
     (RETURN
      (SEQ (LETT |indexSize| (LENGTH (QCDR |me|)) . #7=(|SCIFS;subdivide;2$;6|))
           (LETT |pt2|
@@ -183,9 +183,9 @@
           (EXIT (CONS |in2| |pt2|)))))) 
 
 (DEFUN |SCIFS;sierpinskiDivide;$Nni$;7| (|me| |level| $)
-  (PROG (#1=#:G179 #2=#:G181 |indexSize| |in2| |index2| |index1| |newFace|
-         |ix4| |ix3| #3=#:G185 |offset| #4=#:G172 |pt2| |newPt| |ix2| |ix1|
-         #5=#:G184 #6=#:G183 |faceIx| |i| #7=#:G182)
+  (PROG (#1=#:G181 #2=#:G183 |indexSize| |in2| |index2| |index1| |newFace|
+         |ix4| |ix3| #3=#:G187 |offset| #4=#:G174 |pt2| |newPt| |ix2| |ix1|
+         #5=#:G186 #6=#:G185 |faceIx| |i| #7=#:G184)
     (RETURN
      (SEQ
       (EXIT
@@ -292,7 +292,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SCIFS;listBranches| (|functions| $)
-  (PROG (|outList| #1=#:G190 |curve|)
+  (PROG (|outList| #1=#:G192 |curve|)
     (RETURN
      (SEQ (LETT |outList| NIL . #2=(|SCIFS;listBranches|))
           (SEQ (LETT |curve| NIL . #2#) (LETT #1# |functions| . #2#) G190
@@ -344,8 +344,8 @@
       (EXIT (VECTOR |t| |n| (SPADCALL |t| |n| (QREFELT $ 47)))))))) 
 
 (DEFUN |SCIFS;curveTriads| (|l| $)
-  (PROG (|endtriad| |n| |t| |x| |begtriad| |midtriads| #1=#:G208 |pl| #2=#:G209
-         |po| #3=#:G210 |pr| #4=#:G207 |triad| |b| |k|)
+  (PROG (|endtriad| |n| |t| |x| |begtriad| |midtriads| #1=#:G210 |pl| #2=#:G211
+         |po| #3=#:G212 |pr| #4=#:G209 |triad| |b| |k|)
     (RETURN
      (SEQ (LETT |k| (LENGTH |l|) . #5=(|SCIFS;curveTriads|))
           (EXIT
@@ -443,7 +443,7 @@
                                        (QREFELT $ 52)))))))))))))))) 
 
 (DEFUN |SCIFS;cosSinInfo| (|n| $)
-  (PROG (|ans| |angle| #1=#:G215 |i| |theta|)
+  (PROG (|ans| |angle| #1=#:G217 |i| |theta|)
     (RETURN
      (SEQ (LETT |ans| NIL . #2=(|SCIFS;cosSinInfo|))
           (LETT |theta|
@@ -495,7 +495,7 @@
           (EXIT (CONS |pt| (SPADCALL |ans| |pt| (QREFELT $ 12)))))))) 
 
 (DEFUN |SCIFS;curveLoops;LDfIL;14| (|pts1| |r| |nn| $)
-  (PROG (|loops| |b| |n| #1=#:G224 |pt| #2=#:G225 |triad| |cosSin| |triads|)
+  (PROG (|loops| |b| |n| #1=#:G226 |pt| #2=#:G227 |triad| |cosSin| |triads|)
     (RETURN
      (SEQ
       (LETT |triads| (|SCIFS;curveTriads| |pts1| $)
@@ -520,7 +520,7 @@
       (EXIT (NREVERSE |loops|)))))) 
 
 (DEFUN |SCIFS;stube;LDfI$;15| (|functions| |r| |n| $)
-  (PROG (|loops| #1=#:G233 |bran| |brans|)
+  (PROG (|loops| #1=#:G235 |bran| |brans|)
     (RETURN
      (SEQ
       (COND ((< |n| 3) (|error| "tube: n should be at least 3"))
@@ -544,7 +544,7 @@
               (EXIT (SPADCALL |loops| 'T (QREFELT $ 19)))))))))) 
 
 (DEFUN |SCIFS;coerce;$Of;16| (|me| $)
-  (PROG (|res| |r| #1=#:G244 |pIx| #2=#:G243 |faceIx| #3=#:G242 |p|)
+  (PROG (|res| |r| #1=#:G246 |pIx| #2=#:G245 |faceIx| #3=#:G244 |p|)
     (RETURN
      (SEQ (LETT |r| (SPADCALL (QREFELT $ 64)) . #4=(|SCIFS;coerce;$Of;16|))
           (SEQ (LETT |p| NIL . #4#) (LETT #3# (QCDR |me|) . #4#) G190
@@ -582,10 +582,10 @@
                (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |res| (QREFELT $ 71))))))) 
 
-(DEFUN |SceneIFS| (#1=#:G245)
+(DEFUN |SceneIFS| (#1=#:G247)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G246)
+     (PROG (#2=#:G248)
        (RETURN
         (COND
          ((LETT #2#

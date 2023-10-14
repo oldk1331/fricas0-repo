@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SMPCOER;convert_sorted| (|p1| |lv1| |lv2| $)
-  (PROG (|pu2| |p2| |t1| #1=#:G148 |t0| |pu1| #2=#:G147 |v2| |v1|)
+  (PROG (|pu2| |p2| |t1| #1=#:G150 |t0| |pu1| #2=#:G149 |v2| |v1|)
     (RETURN
      (SEQ
       (EXIT
@@ -48,7 +48,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SMPCOER;find_var| (|x| |pl| $)
-  (PROG (#1=#:G153 #2=#:G154 |y|)
+  (PROG (#1=#:G155 #2=#:G156 |y|)
     (RETURN
      (SEQ
       (EXIT
@@ -68,8 +68,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SMPCOER;remap_variables;SmpLLSmp;3| (|p| |lv1| |lv2| $)
-  (PROG (|pl2| #1=#:G183 |el1| #2=#:G184 |el2| #3=#:G182 #4=#:G181 |x|
-         #5=#:G180 #6=#:G179 #7=#:G178 |pl| #8=#:G176 #9=#:G177 #10=#:G175 |n|)
+  (PROG (|pl2| #1=#:G185 |el1| #2=#:G186 |el2| #3=#:G184 #4=#:G183 |x|
+         #5=#:G182 #6=#:G181 #7=#:G180 |pl| #8=#:G178 #9=#:G179 #10=#:G177 |n|)
     (RETURN
      (SEQ
       (LETT |n| (LENGTH |lv1|) . #11=(|SMPCOER;remap_variables;SmpLLSmp;3|))
@@ -177,10 +177,10 @@
 (DEFUN |SMPCOER;remap_variables;SmpLLSmp;3!0| (|x| |y| $)
   (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 16))) 
 
-(DEFUN |SparsePolynomialCoercionHelpers| (&REST #1=#:G185)
+(DEFUN |SparsePolynomialCoercionHelpers| (&REST #1=#:G187)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G186)
+     (PROG (#2=#:G188)
        (RETURN
         (COND
          ((LETT #2#

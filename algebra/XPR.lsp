@@ -19,7 +19,7 @@
         ('T (QCAR (SPADCALL |p| (QREFELT $ 18)))))) 
 
 (DEFUN |XPR;coef;$ER;6| (|p| |e| $)
-  (PROG (#1=#:G145 #2=#:G149 #3=#:G150 |tm|)
+  (PROG (#1=#:G147 #2=#:G151 #3=#:G152 |tm|)
     (RETURN
      (SEQ
       (EXIT
@@ -66,7 +66,7 @@
                    (QREFELT $ 29))))) 
 
 (DEFUN |XPR;quasiRegular;2$;10| (|p| $)
-  (PROG (#1=#:G162 |t| #2=#:G161)
+  (PROG (#1=#:G164 |t| #2=#:G163)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 30)) |p|)
@@ -115,7 +115,7 @@
   (SPADCALL (SPADCALL |n| (QREFELT $ 39)) (QREFELT $ 35))) 
 
 (DEFUN |XPR;*;3$;14| (|p1| |p2| $)
-  (PROG (#1=#:G179 #2=#:G178 #3=#:G180 #4=#:G186 |t2| #5=#:G185 #6=#:G184 |t1|)
+  (PROG (#1=#:G181 #2=#:G180 #3=#:G182 #4=#:G188 |t2| #5=#:G187 #6=#:G186 |t1|)
     (RETURN
      (SEQ
       (COND ((OR (NULL |p1|) (NULL |p2|)) (|spadConstant| $ 25))
@@ -169,7 +169,7 @@
                 (COND (#1# #2#) (#7# (|spadConstant| $ 25)))))))))))) 
 
 (DEFUN |XPR;*;3$;15| (|p1| |p2| $)
-  (PROG (#1=#:G189 #2=#:G188 #3=#:G190 |r| #4=#:G197 |t2| #5=#:G196 #6=#:G195
+  (PROG (#1=#:G191 #2=#:G190 #3=#:G192 |r| #4=#:G199 |t2| #5=#:G198 #6=#:G197
          |t1|)
     (RETURN
      (SEQ
@@ -265,7 +265,7 @@
               (QREFELT $ 50))))) 
 
 (DEFUN |XPR;coerce;$Of;19| (|a| $)
-  (PROG (#1=#:G210 |t| #2=#:G209)
+  (PROG (#1=#:G212 |t| #2=#:G211)
     (RETURN
      (SEQ
       (COND ((NULL |a|) (SPADCALL (|spadConstant| $ 23) (QREFELT $ 49)))
@@ -293,10 +293,10 @@
 (DEFUN |XPR;/;$R$;20| (|x| |r| $)
   (SPADCALL (SPADCALL |r| (QREFELT $ 56)) |x| (QREFELT $ 41))) 
 
-(DEFUN |XPolynomialRing| (&REST #1=#:G221)
+(DEFUN |XPolynomialRing| (&REST #1=#:G223)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G222)
+     (PROG (#2=#:G224)
        (RETURN
         (COND
          ((LETT #2#
@@ -314,7 +314,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|XPolynomialRing|))))))))))) 
 
 (DEFUN |XPolynomialRing;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G219 #2=#:G220 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G221 #2=#:G222 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|XPolynomialRing|))

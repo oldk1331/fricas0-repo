@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |INTFACT;squareFree;IF;1| (|n| $)
-  (PROG (|y| |v| |m| |x| |lim| #1=#:G151 #2=#:G153 |l| |sv| |rec| |u|)
+  (PROG (|y| |v| |m| |x| |lim| #1=#:G153 #2=#:G155 |l| |sv| |rec| |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -94,8 +94,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |INTFACT;PollardSmallFactor;IU;2| (|n| $)
-  (PROG (G |x| |y| #1=#:G180 #2=#:G179 |i| |l| |ys| #3=#:G178 |r| |k| |q|
-         #4=#:G177 #5=#:G176 #6=#:G175 #7=#:G174 |m| |x0|)
+  (PROG (G |x| |y| #1=#:G182 #2=#:G181 |i| |l| |ys| #3=#:G180 |r| |k| |q|
+         #4=#:G179 #5=#:G178 #6=#:G177 #7=#:G176 |m| |x0|)
     (RETURN
      (SEQ
       (LETT |x0| (SPADCALL (QREFELT $ 37))
@@ -262,7 +262,7 @@
              ('T (CONS 0 G)))))))) 
 
 (DEFUN |INTFACT;PollardSmallFactor20| (|n| $)
-  (PROG (#1=#:G187 |r| |i|)
+  (PROG (#1=#:G189 |r| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -278,7 +278,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |INTFACT;BasicSieve| (|r| |lim| $)
-  (PROG (|d| |ls| |n| |m| #1=#:G200 #2=#:G201 |s| |l|)
+  (PROG (|d| |ls| |n| |m| #1=#:G202 #2=#:G203 |s| |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -536,10 +536,10 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT (SPADCALL |u| |flb| (QREFELT $ 29)))))))))))))) 
 
-(DEFUN |IntegerFactorizationPackage| (#1=#:G237)
+(DEFUN |IntegerFactorizationPackage| (#1=#:G239)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G238)
+     (PROG (#2=#:G240)
        (RETURN
         (COND
          ((LETT #2#

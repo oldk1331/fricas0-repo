@@ -7,7 +7,7 @@
 (DEFUN |STAGG-;possiblyInfinite?;AB;2| (|x| $) (SPADCALL |x| (QREFELT $ 9))) 
 
 (DEFUN |STAGG-;first;ANniA;3| (|x| |n| $)
-  (PROG (|i| #1=#:G148)
+  (PROG (|i| #1=#:G150)
     (RETURN
      (SEQ
       (SPADCALL
@@ -31,7 +31,7 @@
         ('T (SPADCALL |x| (QREFELT $ 18))))) 
 
 (DEFUN |STAGG-;elt;AIS;5| (|x| |i| $)
-  (PROG (#1=#:G152)
+  (PROG (#1=#:G154)
     (RETURN
      (SEQ
       (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 20)))
@@ -51,7 +51,7 @@
       (EXIT (SPADCALL |x| (QREFELT $ 18))))))) 
 
 (DEFUN |STAGG-;elt;AUsA;6| (|x| |i| $)
-  (PROG (#1=#:G161 #2=#:G160 |h| #3=#:G157 |l|)
+  (PROG (#1=#:G163 #2=#:G162 |h| #3=#:G159 |l|)
     (RETURN
      (SEQ
       (LETT |l| (- (SPADCALL |i| (QREFELT $ 24)) (SPADCALL |x| (QREFELT $ 20)))
@@ -91,7 +91,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 26)) |y| (QREFELT $ 31))) 
 
 (DEFUN |STAGG-;concat;LA;8| (|l| $)
-  (PROG (|res| #1=#:G170 |x| |l1|)
+  (PROG (|res| #1=#:G172 |x| |l1|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (SPADCALL (QREFELT $ 28)))
@@ -140,7 +140,7 @@
           (EXIT |x|))))) 
 
 (DEFUN |STAGG-;setelt;AI2S;11| (|x| |i| |s| $)
-  (PROG (#1=#:G183)
+  (PROG (#1=#:G185)
     (RETURN
      (SEQ
       (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 20)))
@@ -160,7 +160,7 @@
       (EXIT (SPADCALL |x| |s| (QREFELT $ 35))))))) 
 
 (DEFUN |STAGG-;setelt;AUs2S;12| (|x| |i| |s| $)
-  (PROG (|y| |z| #1=#:G190 #2=#:G189 |h| |l|)
+  (PROG (|y| |z| #1=#:G192 #2=#:G191 |h| |l|)
     (RETURN
      (SEQ
       (LETT |l| (- (SPADCALL |i| (QREFELT $ 24)) (SPADCALL |x| (QREFELT $ 20)))

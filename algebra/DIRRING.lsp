@@ -28,7 +28,7 @@
                      (QREFELT $ 23))))))) 
 
 (DEFUN |DIRRING;coerce;$S;6!0| (|n| |f|)
-  (PROG (#1=#:G146)
+  (PROG (#1=#:G148)
     (RETURN
      (SPADCALL
       (PROG1 (LETT #1# |n| NIL)
@@ -138,7 +138,7 @@
     (LETT |g| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G211 #3=#:G210 #4=#:G215 |d| #5=#:G214)
+      (PROG (#2=#:G213 #3=#:G212 #4=#:G217 |d| #5=#:G216)
         (RETURN
          (SEQ
           (SPADCALL (ELT $ 35)
@@ -185,7 +185,7 @@
    ('T 'T))) 
 
 (DEFUN |DIRRING;qrecip| (|f| |f1inv| |n| $)
-  (PROG (#1=#:G243 #2=#:G242 #3=#:G248 |d| #4=#:G247)
+  (PROG (#1=#:G245 #2=#:G244 #3=#:G250 |d| #4=#:G249)
     (RETURN
      (SEQ
       (COND ((EQL |n| 1) |f1inv|)
@@ -263,7 +263,7 @@
     (RETURN (PROGN (|DIRRING;qrecip| |f| (QCDR |f1inv|) |n| $))))) 
 
 (DEFUN |DIRRING;multiplicative?;$PiB;20| (|a| |n| $)
-  (PROG (#1=#:G285 #2=#:G280 |rl| #3=#:G262 #4=#:G261 #5=#:G287 |f| #6=#:G286
+  (PROG (#1=#:G287 #2=#:G282 |rl| #3=#:G264 #4=#:G263 #5=#:G289 |f| #6=#:G288
          |fl| |i|)
     (RETURN
      (SEQ
@@ -323,7 +323,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |DIRRING;additive?;$PiB;21| (|a| |n| $)
-  (PROG (#1=#:G313 #2=#:G308 |rl| #3=#:G290 #4=#:G289 #5=#:G315 |f| #6=#:G314
+  (PROG (#1=#:G315 #2=#:G310 |rl| #3=#:G292 #4=#:G291 #5=#:G317 |f| #6=#:G316
          |fl| |i|)
     (RETURN
      (SEQ
@@ -382,10 +382,10 @@
         (EXIT 'T)))
       #1# (EXIT #1#))))) 
 
-(DEFUN |DirichletRing| (#1=#:G317)
+(DEFUN |DirichletRing| (#1=#:G319)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G318)
+     (PROG (#2=#:G320)
        (RETURN
         (COND
          ((LETT #2#

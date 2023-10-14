@@ -4,14 +4,14 @@
 (DEFPARAMETER |TranscendentalFunctionCategory;AL| 'NIL) 
 
 (DEFUN |TranscendentalFunctionCategory| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|TranscendentalFunctionCategory;AL|)
           (T
            (SETQ |TranscendentalFunctionCategory;AL|
                    (|TranscendentalFunctionCategory;|)))))) 
 
 (DEFUN |TranscendentalFunctionCategory;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

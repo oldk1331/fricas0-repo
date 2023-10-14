@@ -21,7 +21,7 @@
   (SPADCALL |x| (SPADCALL (QREFELT $ 15)) (QREFELT $ 25))) 
 
 (DEFUN |FRAMALG-;coordinates;VM;8| (|v| $)
-  (PROG (#1=#:G142 |i| |j| |m|)
+  (PROG (#1=#:G144 |i| |j| |m|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -39,7 +39,7 @@
       (EXIT |m|))))) 
 
 (DEFUN |FRAMALG-;regularRepresentation;SM;9| (|x| $)
-  (PROG (#1=#:G146 |i| |j| |b| |m| |n|)
+  (PROG (#1=#:G148 |i| |j| |b| |m| |n|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -78,7 +78,7 @@
        (SPADCALL (SPADCALL |mat1| |mat0| (QREFELT $ 48)) (QREFELT $ 49))))))) 
 
 (DEFUN |FRAMALG-;minimalPolynomial;SUP;11| (|x| $)
-  (PROG (#1=#:G152 #2=#:G151 #3=#:G153 #4=#:G157 |i| |v| |y| #5=#:G156 |m| |n|)
+  (PROG (#1=#:G154 #2=#:G153 #3=#:G155 #4=#:G159 |i| |v| |y| #5=#:G158 |m| |n|)
     (RETURN
      (SEQ
       (LETT |y| (|spadConstant| $ 44)

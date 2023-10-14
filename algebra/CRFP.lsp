@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |CRFP;complexZeros;UPRL;1| (|p| |eps| $)
-  (PROG (#1=#:G145 |linfac| #2=#:G144 |facs| |eps0|)
+  (PROG (#1=#:G147 |linfac| #2=#:G146 |facs| |eps0|)
     (RETURN
      (SEQ
       (LETT |eps0|
@@ -64,7 +64,7 @@
              (EXIT (QREFELT $ 15))))))))) 
 
 (DEFUN |CRFP;pleskenSplit;UPRBF;4| (|poly| |eps| |info| $)
-  (PROG (|fp| #1=#:G168 |fac| |notFoundSplit| |split| |splits| |tp| |psR| |sR|
+  (PROG (|fp| #1=#:G170 |fac| |notFoundSplit| |split| |splits| |tp| |psR| |sR|
          |nm| |st| |p| |qr| |sP| |md|)
     (RETURN
      (SEQ
@@ -159,8 +159,8 @@
                    (EXIT |fp|))))))))) 
 
 (DEFUN |CRFP;startPolynomial;UPR;5| (|p| $)
-  (PROG (|po| |maxq| #1=#:G181 |qq| |rd| |r1| #2=#:G190 |q| |j| |sP| |fp|
-         |centerIsRoot| |pp| |mD| #3=#:G189 |i| |lp| #4=#:G188 |v| #5=#:G187
+  (PROG (|po| |maxq| #1=#:G183 |qq| |rd| |r1| #2=#:G192 |q| |j| |sP| |fp|
+         |centerIsRoot| |pp| |mD| #3=#:G191 |i| |lp| #4=#:G190 |v| #5=#:G189
          |listOfCenters| |startPoly| |u| |eps|)
     (RETURN
      (SEQ (LETT |fp| (|spadConstant| $ 62) . #6=(|CRFP;startPolynomial;UPR;5|))
@@ -358,7 +358,7 @@
                                 |fp|)))))))))))))))))) 
 
 (DEFUN |CRFP;norm;UPR;6| (|p| $)
-  (PROG (|nm| #1=#:G194 |c|)
+  (PROG (|nm| #1=#:G196 |c|)
     (RETURN
      (SEQ (LETT |nm| (|spadConstant| $ 42) . #2=(|CRFP;norm;UPR;6|))
           (SEQ (LETT |c| NIL . #2#)
@@ -377,8 +377,8 @@
   (SPADCALL |poly| |eps| 'NIL (QREFELT $ 79))) 
 
 (DEFUN |CRFP;graeffe;2UP;8| (|p| $)
-  (PROG (|aBack| |gp| #1=#:G199 |const| |aBackCopy| |aForthCopy| |sum|
-         #2=#:G204 |aminus| #3=#:G205 |aplus| |aForth| |ak| |k| |n|)
+  (PROG (|aBack| |gp| #1=#:G201 |const| |aBackCopy| |aForthCopy| |sum|
+         #2=#:G206 |aminus| #3=#:G207 |aplus| |aForth| |ak| |k| |n|)
     (RETURN
      (SEQ (LETT |n| (SPADCALL |p| (QREFELT $ 29)) . #4=(|CRFP;graeffe;2UP;8|))
           (LETT |aForth| NIL . #4#)
@@ -526,7 +526,7 @@
                                (QREFELT $ 38)))))))))))) 
 
 (DEFUN |CRFP;reciprocalPolynomial;2UP;12| (|p| $)
-  (PROG (|sol| |lm| #1=#:G218 |i| #2=#:G225 |md| |d|)
+  (PROG (|sol| |lm| #1=#:G220 |i| #2=#:G227 |md| |d|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 111)) (|spadConstant| $ 43))
@@ -561,7 +561,7 @@
                      . #3#))))))))) 
 
 (DEFUN |CRFP;divisorCascade;2UPBL;13| (|p| |tp| |info| $)
-  (PROG (|lof| |lfae| |listOfFactors| |nm| |factor2| |factor1| |qr| #1=#:G233
+  (PROG (|lof| |lfae| |listOfFactors| |nm| |factor2| |factor1| |qr| #1=#:G235
          |i|)
     (RETURN
      (SEQ (LETT |lfae| NIL . #2=(|CRFP;divisorCascade;2UPBL;13|))
@@ -628,7 +628,7 @@
   (SPADCALL |p| (QREFELT $ 15) (QREFELT $ 32))) 
 
 (DEFUN |CRFP;factor;UPRBF;17| (|poly| |eps| |info| $)
-  (PROG (|listOfFactors| |result| |expOfFactor| |newFactor| #1=#:G249 |rec|
+  (PROG (|listOfFactors| |result| |expOfFactor| |newFactor| #1=#:G251 |rec|
          |lof| |split| |exponentOfp| |p| |eps0| |d|)
     (RETURN
      (SEQ
@@ -761,7 +761,7 @@
         ('T |fae1|))) 
 
 (DEFUN |CRFP;calculateScale| (|p| $)
-  (PROG (|rho| |maxi| |locmax| |ic| |rc| |cof| |j| #1=#:G264 |mon| |d|)
+  (PROG (|rho| |maxi| |locmax| |ic| |rc| |cof| |j| #1=#:G266 |mon| |d|)
     (RETURN
      (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 29)) . #2=(|CRFP;calculateScale|))
           (LETT |maxi| (|spadConstant| $ 42) . #2#)
@@ -886,10 +886,10 @@
          (EXIT (SPADCALL |num| |den| (QREFELT $ 152)))))
        ('T (|error| "unimplemented"))))))) 
 
-(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G272)
+(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G274)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G273)
+     (PROG (#2=#:G275)
        (RETURN
         (COND
          ((LETT #2#

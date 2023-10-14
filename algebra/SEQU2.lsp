@@ -5,10 +5,10 @@
   (SPADCALL (SPADCALL |f| (SPADCALL |x| (QREFELT $ 10)) (QREFELT $ 14))
             (QREFELT $ 16))) 
 
-(DEFUN |SequenceFunctions2| (&REST #1=#:G127)
+(DEFUN |SequenceFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G128)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

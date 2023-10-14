@@ -4,12 +4,12 @@
 (DEFPARAMETER |FiniteFieldCategory;AL| 'NIL) 
 
 (DEFUN |FiniteFieldCategory| ()
-  (LET (#:G134)
+  (LET (#:G136)
     (COND (|FiniteFieldCategory;AL|)
           (T (SETQ |FiniteFieldCategory;AL| (|FiniteFieldCategory;|)))))) 
 
 (DEFUN |FiniteFieldCategory;| ()
-  (PROG (#1=#:G132)
+  (PROG (#1=#:G134)
     (RETURN
      (PROG1
          (LETT #1#

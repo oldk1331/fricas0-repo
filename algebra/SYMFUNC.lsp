@@ -10,7 +10,7 @@
    (+ 1 |n|) $)) 
 
 (DEFUN |SYMFUNC;symFunc;LV;2| (|l| $)
-  (PROG (#1=#:G127 #2=#:G126 #3=#:G128 #4=#:G130 |a|)
+  (PROG (#1=#:G129 #2=#:G128 #3=#:G130 #4=#:G132 |a|)
     (RETURN
      (SEQ
       (|SYMFUNC;signFix|
@@ -35,7 +35,7 @@
        (+ 1 (LENGTH |l|)) $))))) 
 
 (DEFUN |SYMFUNC;signFix| (|p| |n| $)
-  (PROG (#1=#:G136 #2=#:G132 |i| |m| |v|)
+  (PROG (#1=#:G138 #2=#:G134 |i| |m| |v|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -63,10 +63,10 @@
            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT (SPADCALL |v| (QREFELT $ 26))))))) 
 
-(DEFUN |SymmetricFunctions| (#1=#:G137)
+(DEFUN |SymmetricFunctions| (#1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#

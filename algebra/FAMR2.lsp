@@ -10,10 +10,10 @@
           (SPADCALL |f| (SPADCALL |a| (QREFELT $ 17)) (QREFELT $ 19))
           (QREFELT $ 20))))) 
 
-(DEFUN |FiniteAbelianMonoidRingFunctions2| (&REST #1=#:G129)
+(DEFUN |FiniteAbelianMonoidRingFunctions2| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G130)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

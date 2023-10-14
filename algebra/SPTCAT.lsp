@@ -4,12 +4,12 @@
 (DEFPARAMETER |SPointCategory;AL| 'NIL) 
 
 (DEFUN |SPointCategory| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|SPointCategory;AL|)
           (T (SETQ |SPointCategory;AL| (|SPointCategory;|)))))) 
 
 (DEFUN |SPointCategory;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

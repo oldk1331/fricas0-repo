@@ -5,7 +5,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 36))) 
 
 (DEFUN |ELIPIDF;ellipticRC;3Df;2| (|x| |y| $)
-  (PROG (Q |mu| |lambda| #1=#:G135 S0 S1 |sn2| |sn| |mu_inv|)
+  (PROG (Q |mu| |lambda| #1=#:G137 S0 S1 |sn2| |sn| |mu_inv|)
     (RETURN
      (SEQ
       (EXIT
@@ -73,7 +73,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ELIPIDF;ellipticRF;4Df;3| (|x| |y| |z| $)
-  (PROG (Q |mu| |lambda| |znroot| |ynroot| |xnroot| #1=#:G141 |s| |e3| |e2|
+  (PROG (Q |mu| |lambda| |znroot| |ynroot| |xnroot| #1=#:G143 |s| |e3| |e2|
          |zndev| |yndev| |xndev| |mu_inv| |zadev| |yadev| |xadev|)
     (RETURN
      (SEQ
@@ -149,7 +149,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ELIPIDF;ellipticRD;4Df;4| (|x| |y| |z| $)
-  (PROG (Q |mu| |power4| |sigma| |lambda| |znroot| |ynroot| |xnroot| #1=#:G147
+  (PROG (Q |mu| |power4| |sigma| |lambda| |znroot| |ynroot| |xnroot| #1=#:G149
          |ss| |s2| |s1| |ef| |ed| |ec| |eb| |ea| |zndev| |yndev| |xndev|
          |mu_inv| |zadev| |yadev| |xadev|)
     (RETURN
@@ -285,7 +285,7 @@
 
 (DEFUN |ELIPIDF;ellipticRJ;5Df;5| (|x| |y| |z| |p| $)
   (PROG (Q |mu| |power4| |sigma| |beta| |alfa| |lambda| |znroot| |ynroot|
-         |xnroot| #1=#:G153 |ss| |s3| |s2| |s1| |e3| |e2| |ec| |eb| |ea|
+         |xnroot| #1=#:G155 |ss| |s3| |s2| |s1| |e3| |e2| |ec| |eb| |ea|
          |pndev| |zndev| |yndev| |xndev| |mu_inv| |padev| |zadev| |yadev|
          |xadev|)
     (RETURN
@@ -505,7 +505,7 @@
               (QREFELT $ 42))))) 
 
 (DEFUN |ELIPIDF;ellipticRC;3C;11| (|x| |y| $)
-  (PROG (Q |mu| |lambda| #1=#:G164 S0 S1 |sn2| |sn| |mu_inv|)
+  (PROG (Q |mu| |lambda| #1=#:G166 S0 S1 |sn2| |sn| |mu_inv|)
     (RETURN
      (SEQ
       (EXIT
@@ -614,7 +614,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ELIPIDF;ellipticRF;4C;12| (|x| |y| |z| $)
-  (PROG (Q |mu| |lambda| |znroot| |ynroot| |xnroot| #1=#:G170 |s| |e3| |e2|
+  (PROG (Q |mu| |lambda| |znroot| |ynroot| |xnroot| #1=#:G172 |s| |e3| |e2|
          |zndev| |yndev| |xndev| |mu_inv| |zadev| |yadev| |xadev|)
     (RETURN
      (SEQ
@@ -730,7 +730,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ELIPIDF;ellipticRD;4C;13| (|x| |y| |z| $)
-  (PROG (Q |mu| |power4| |sigma| |lambda| |znroot| |ynroot| |xnroot| #1=#:G176
+  (PROG (Q |mu| |power4| |sigma| |lambda| |znroot| |ynroot| |xnroot| #1=#:G178
          |ss| |s2| |s1| |ef| |ed| |ec| |eb| |ea| |zndev| |yndev| |xndev|
          |mu_inv| |zadev| |yadev| |xadev|)
     (RETURN
@@ -904,7 +904,7 @@
 
 (DEFUN |ELIPIDF;ellipticRJ;5C;14| (|x| |y| |z| |p| $)
   (PROG (Q |mu| |power4| |sigma| |beta| |alfa| |lambda| |znroot| |ynroot|
-         |xnroot| #1=#:G182 |ss| |s3| |s2| |s1| |e3| |e2| |ec| |eb| |ea|
+         |xnroot| #1=#:G184 |ss| |s3| |s2| |s1| |e3| |e2| |ec| |eb| |ea|
          |pndev| |zndev| |yndev| |xndev| |mu_inv| |padev| |zadev| |yadev|
          |xadev|)
     (RETURN
@@ -1234,7 +1234,7 @@
 (DEFUN |DoubleFloatEllipticIntegrals| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G189)
+     (PROG (#1=#:G191)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatEllipticIntegrals|)

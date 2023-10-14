@@ -38,10 +38,10 @@
   (COND ((EQUAL |st| "right") 1) ((EQUAL |st| "left") -1)
         ('T (|error| "Unknown option")))) 
 
-(DEFUN |ToolsForSign| (#1=#:G155)
+(DEFUN |ToolsForSign| (#1=#:G157)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G156)
+     (PROG (#2=#:G158)
        (RETURN
         (COND
          ((LETT #2#

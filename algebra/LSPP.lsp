@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LSPP;poly2vect| (|p| |vs| $)
-  (PROG (|c| |u| #1=#:G133 |v| |i| |coefs|)
+  (PROG (|c| |u| #1=#:G135 |v| |i| |coefs|)
     (RETURN
      (SEQ
       (LETT |coefs| (MAKEARR1 (LENGTH |vs|) (|spadConstant| $ 11))
@@ -34,7 +34,7 @@
       (EXIT (CONS |coefs| (SPADCALL |p| (QREFELT $ 23)))))))) 
 
 (DEFUN |LSPP;intoMatrix;LLR;2| (|ps| |vs| $)
-  (PROG (|m| |r| #1=#:G141 |p| |i| |v|)
+  (PROG (|m| |r| #1=#:G143 |p| |i| |v|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL (LENGTH |ps|) (LENGTH |vs|) (QREFELT $ 32))
@@ -65,10 +65,10 @@
      (SEQ (LETT |r| (SPADCALL |ps| |vs| (QREFELT $ 40)) |LSPP;linSolve;LLR;3|)
           (EXIT (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 44))))))) 
 
-(DEFUN |LinearSystemPolynomialPackage| (&REST #1=#:G146)
+(DEFUN |LinearSystemPolynomialPackage| (&REST #1=#:G148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G149)
        (RETURN
         (COND
          ((LETT #2#

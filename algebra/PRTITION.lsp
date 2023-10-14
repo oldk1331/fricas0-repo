@@ -34,7 +34,7 @@
         ('T (CONS (|SPADfirst| |y|) (SPADCALL |x| (CDR |y|) (QREFELT $ 21)))))) 
 
 (DEFUN |PRTITION;*;Nni2$;8| (|n| |x| $)
-  (PROG (#1=#:G162)
+  (PROG (#1=#:G164)
     (RETURN
      (COND ((ZEROP |n|) (|spadConstant| $ 7))
            ('T
@@ -138,7 +138,7 @@
           (QREFELT $ 42))))) 
 
 (DEFUN |PRTITION;pdct;$I;18| (|x| $)
-  (PROG (#1=#:G201 #2=#:G200 #3=#:G202 #4=#:G204 |a|)
+  (PROG (#1=#:G203 #2=#:G202 #3=#:G204 #4=#:G206 |a|)
     (RETURN
      (SEQ
       (PROGN
@@ -163,7 +163,7 @@
 (DEFUN |Partition| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G206)
+     (PROG (#1=#:G208)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Partition|) . #2=(|Partition|))

@@ -22,7 +22,7 @@
 (DEFUN |NSUP;retractIfCan;$U;5| (|p| $) (CONS 0 |p|)) 
 
 (DEFUN |NSUP;monicModulo;3$;6| (|x| |y| $)
-  (PROG (#1=#:G179 |xx| |u| |e| |yy|)
+  (PROG (#1=#:G181 |xx| |u| |e| |yy|)
     (RETURN
      (SEQ
       (COND
@@ -77,7 +77,7 @@
                           (EXIT (|NSUP;per| |xx| $))))))))))))) 
 
 (DEFUN |NSUP;lazyResidueClass;2$R;7| (|x| |y| $)
-  (PROG (#1=#:G191 |pow| |xx| |u| |e| |co| |yy|)
+  (PROG (#1=#:G193 |pow| |xx| |u| |e| |co| |yy|)
     (RETURN
      (SEQ
       (COND
@@ -132,7 +132,7 @@
                       (EXIT (VECTOR (|NSUP;per| |xx| $) |co| |pow|))))))))))))) 
 
 (DEFUN |NSUP;lazyPseudoRemainder;3$;8| (|x| |y| $)
-  (PROG (#1=#:G203 |xx| |u| |e| |co| |yy|)
+  (PROG (#1=#:G205 |xx| |u| |e| |co| |yy|)
     (RETURN
      (SEQ
       (COND
@@ -190,7 +190,7 @@
                  (EXIT (|NSUP;per| |xx| $))))))))))))) 
 
 (DEFUN |NSUP;lazyPseudoDivide;2$R;9| (|x| |y| $)
-  (PROG (#1=#:G219 |pow| #2=#:G215 |xx| |qq| |u| |co| |e| |yy|)
+  (PROG (#1=#:G221 |pow| #2=#:G217 |xx| |qq| |u| |co| |e| |yy|)
     (RETURN
      (SEQ
       (COND
@@ -265,7 +265,7 @@
                   (|NSUP;per| |xx| $)))))))))) 
 
 (DEFUN |NSUP;lazyPseudoQuotient;3$;10| (|x| |y| $)
-  (PROG (#1=#:G232 |xx| |qq| |u| |co| |e| |yy|)
+  (PROG (#1=#:G234 |xx| |qq| |u| |co| |e| |yy|)
     (RETURN
      (SEQ
       (COND
@@ -380,7 +380,7 @@
       (EXIT (CONS (QCDR |re|) (QCAR |re|))))))) 
 
 (DEFUN |NSUP;pseudoDivide;2$R;21| (|x| |y| $)
-  (PROG (|q| |default| #1=#:G279 |pow| #2=#:G275 |xx| |qq| |u| |co| |e| |yy|)
+  (PROG (|q| |default| #1=#:G281 |pow| #2=#:G277 |xx| |qq| |u| |co| |e| |yy|)
     (RETURN
      (SEQ
       (COND
@@ -470,7 +470,7 @@
                  (EXIT (VECTOR |co| |q| |x|))))))))))))) 
 
 (DEFUN |NSUP;pseudoQuotient;3$;22| (|x| |y| $)
-  (PROG (#1=#:G293 |pow| #2=#:G289 |xx| |qq| |u| |co| |e| |yy|)
+  (PROG (#1=#:G295 |pow| #2=#:G291 |xx| |qq| |u| |co| |e| |yy|)
     (RETURN
      (SEQ
       (COND
@@ -549,10 +549,10 @@
                                (|NSUP;per| (REVERSE |qq|) $)
                                (QREFELT $ 23)))))))))))) 
 
-(DEFUN |NewSparseUnivariatePolynomial| (#1=#:G343)
+(DEFUN |NewSparseUnivariatePolynomial| (#1=#:G345)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G344)
+     (PROG (#2=#:G346)
        (RETURN
         (COND
          ((LETT #2#
@@ -571,7 +571,7 @@
                     '|NewSparseUnivariatePolynomial|))))))))))) 
 
 (DEFUN |NewSparseUnivariatePolynomial;| (|#1|)
-  (PROG (#1=#:G342 |pv$| #2=#:G340 #3=#:G341 $ |dv$| DV$1)
+  (PROG (#1=#:G344 |pv$| #2=#:G342 #3=#:G343 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|NewSparseUnivariatePolynomial|))

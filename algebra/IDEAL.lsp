@@ -63,7 +63,7 @@
                          (#1# (|IDEAL;choosel| (QCDR |f1|) |g| $))))))))))) 
 
 (DEFUN |IDEAL;contractGrob| (I1 $)
-  (PROG (#1=#:G157 #2=#:G173 |f| #3=#:G172 J1)
+  (PROG (#1=#:G159 #2=#:G175 |f| #3=#:G174 J1)
     (RETURN
      (SEQ (LETT J1 (SPADCALL I1 (QREFELT $ 46)) . #4=(|IDEAL;contractGrob|))
           (SEQ G190
@@ -94,7 +94,7 @@
             'T)))))) 
 
 (DEFUN |IDEAL;makeleast| (|fullVars| |leastVars| $)
-  (PROG (#1=#:G179 |vv| #2=#:G178 |n|)
+  (PROG (#1=#:G181 |vv| #2=#:G180 |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |leastVars|) . #3=(|IDEAL;makeleast|))
           (EXIT
@@ -125,7 +125,7 @@
             (QREFELT $ 48))) 
 
 (DEFUN |IDEAL;subset| (|lv| $)
-  (PROG (|l1| #1=#:G187 |set| #2=#:G186 |ll| |v|)
+  (PROG (|l1| #1=#:G189 |set| #2=#:G188 |ll| |v|)
     (RETURN
      (SEQ
       (COND ((EQL (LENGTH |lv|) 1) (LIST |lv| NIL))
@@ -149,8 +149,8 @@
               (EXIT (SPADCALL |l1| |ll| (QREFELT $ 54)))))))))) 
 
 (DEFUN |IDEAL;monomDim| (|listm| |lv| $)
-  (PROG (#1=#:G198 |ldif| #2=#:G201 |mvset| #3=#:G200 |subs| |lsubset| |monvar|
-         #4=#:G199 |f|)
+  (PROG (#1=#:G200 |ldif| #2=#:G203 |mvset| #3=#:G202 |subs| |lsubset| |monvar|
+         #4=#:G201 |f|)
     (RETURN
      (SEQ
       (EXIT
@@ -239,7 +239,7 @@
                         (|spadConstant| $ 13) (QREFELT $ 15))))))))) 
 
 (DEFUN |IDEAL;in?;2$B;12| (I J $)
-  (PROG (#1=#:G208 #2=#:G207 #3=#:G209 #4=#:G212 |f|)
+  (PROG (#1=#:G210 #2=#:G209 #3=#:G211 #4=#:G214 |f|)
     (RETURN
      (SEQ (LETT J (SPADCALL J (QREFELT $ 68)) . #5=(|IDEAL;in?;2$B;12|))
           (EXIT
@@ -266,7 +266,7 @@
                    (COND (#1# #2#) (#6# 'T)))))))))) 
 
 (DEFUN |IDEAL;groebner;2$;13| (I $)
-  (PROG (#1=#:G214 #2=#:G213 #3=#:G215 #4=#:G220 |f|)
+  (PROG (#1=#:G216 #2=#:G215 #3=#:G217 #4=#:G222 |f|)
     (RETURN
      (SEQ
       (COND
@@ -294,7 +294,7 @@
        (#6# (CONS (SPADCALL (QCAR I) (QREFELT $ 73)) 'T))))))) 
 
 (DEFUN |IDEAL;intersect;3$;14| (I J $)
-  (PROG (#1=#:G231 |f| #2=#:G230 #3=#:G229 #4=#:G228 |tp1| |tp| |Jd| |Id|)
+  (PROG (#1=#:G233 |f| #2=#:G232 #3=#:G231 #4=#:G230 |tp1| |tp| |Jd| |Id|)
     (RETURN
      (SEQ
       (COND ((NULL (LETT |Id| (QCAR I) . #5=(|IDEAL;intersect;3$;14|))) I)
@@ -347,7 +347,7 @@
                 $))))))))) 
 
 (DEFUN |IDEAL;intersect;L$;15| (|lid| $)
-  (PROG (#1=#:G233 #2=#:G232 #3=#:G234 #4=#:G236 |l|)
+  (PROG (#1=#:G235 #2=#:G234 #3=#:G236 #4=#:G238 |l|)
     (RETURN
      (SEQ
       (PROGN
@@ -366,7 +366,7 @@
        (COND (#1# #2#) ('T (|IdentityError| '|intersect|)))))))) 
 
 (DEFUN |IDEAL;quotient;$DPoly$;16| (I |f| $)
-  (PROG (#1=#:G157 #2=#:G242 |g| #3=#:G241)
+  (PROG (#1=#:G159 #2=#:G244 |g| #3=#:G243)
     (RETURN
      (SEQ
       (CONS
@@ -398,7 +398,7 @@
        'T))))) 
 
 (DEFUN |IDEAL;quotient;3$;17| (I J $)
-  (PROG (#1=#:G247 #2=#:G246 #3=#:G248 #4=#:G251 |f| |Jdl|)
+  (PROG (#1=#:G249 #2=#:G248 #3=#:G250 #4=#:G253 |f| |Jdl|)
     (RETURN
      (SEQ (LETT |Jdl| (QCAR J) . #5=(|IDEAL;quotient;3$;17|))
           (EXIT
@@ -432,7 +432,7 @@
         'T)) 
 
 (DEFUN |IDEAL;*;3$;19| (I J $)
-  (PROG (#1=#:G254 #2=#:G253 #3=#:G255 #4=#:G260 |f| #5=#:G259 #6=#:G258 |g|)
+  (PROG (#1=#:G256 #2=#:G255 #3=#:G257 #4=#:G262 |f| #5=#:G261 #6=#:G260 |g|)
     (RETURN
      (SEQ
       (CONS
@@ -473,7 +473,7 @@
        'T))))) 
 
 (DEFUN |IDEAL;^;$Nni$;20| (I |n| $)
-  (PROG (#1=#:G261)
+  (PROG (#1=#:G263)
     (RETURN
      (COND ((EQL |n| 0) (CONS (LIST (|spadConstant| $ 50)) 'T))
            ('T
@@ -487,7 +487,7 @@
                       (QREFELT $ 90))))))) 
 
 (DEFUN |IDEAL;saturate;$DPoly$;21| (I |f| $)
-  (PROG (#1=#:G267 |g| #2=#:G266 |tp|)
+  (PROG (#1=#:G269 |g| #2=#:G268 |tp|)
     (RETURN
      (SEQ
       (COND
@@ -521,10 +521,10 @@
            $))))))))) 
 
 (DEFUN |IDEAL;saturate;$DPolyL$;22| (I |f| |lvar| $)
-  (PROG (#1=#:G293 |g| #2=#:G292 |fullPol| #3=#:G291 |vv| #4=#:G290 |s|
-         #5=#:G276 #6=#:G275 #7=#:G277 #8=#:G289 |ltg| |ltJ| #9=#:G288
-         #10=#:G287 J #11=#:G286 #12=#:G285 |subVars| #13=#:G284 #14=#:G283
-         |newVars| |fullVars| #15=#:G269 #16=#:G268 #17=#:G270 #18=#:G282 |Id|)
+  (PROG (#1=#:G295 |g| #2=#:G294 |fullPol| #3=#:G293 |vv| #4=#:G292 |s|
+         #5=#:G278 #6=#:G277 #7=#:G279 #8=#:G291 |ltg| |ltJ| #9=#:G290
+         #10=#:G289 J #11=#:G288 #12=#:G287 |subVars| #13=#:G286 #14=#:G285
+         |newVars| |fullVars| #15=#:G271 #16=#:G270 #17=#:G272 #18=#:G284 |Id|)
     (RETURN
      (SEQ (LETT |Id| (QCAR I) . #19=(|IDEAL;saturate;$DPolyL$;22|))
           (LETT |fullVars|
@@ -672,7 +672,7 @@
             'T)))))) 
 
 (DEFUN |IDEAL;zeroDim?;$LB;23| (I |lvar| $)
-  (PROG (|x| #1=#:G296 #2=#:G305 |f| |n| J)
+  (PROG (|x| #1=#:G298 #2=#:G307 |f| |n| J)
     (RETURN
      (SEQ
       (LETT J (QCAR (SPADCALL I (QREFELT $ 68)))
@@ -717,7 +717,7 @@
                        (EXIT (NULL |lvar|)))))))))))))) 
 
 (DEFUN |IDEAL;zeroDim?;$B;24| (I $)
-  (PROG (#1=#:G307 #2=#:G306 #3=#:G308 #4=#:G311 |g|)
+  (PROG (#1=#:G309 #2=#:G308 #3=#:G310 #4=#:G313 |g|)
     (RETURN
      (SEQ
       (SPADCALL I
@@ -743,7 +743,7 @@
                 (QREFELT $ 103)))))) 
 
 (DEFUN |IDEAL;inRadical?;DPoly$B;25| (|f| I $)
-  (PROG (#1=#:G373 |g| #2=#:G372 |Id| |tp|)
+  (PROG (#1=#:G375 |g| #2=#:G374 |Id| |tp|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |f| (|spadConstant| $ 13) (QREFELT $ 15)) 'T)
@@ -787,8 +787,8 @@
                 (|spadConstant| $ 16) (QREFELT $ 26)))))))))) 
 
 (DEFUN |IDEAL;dimension;$LI;26| (I |lvar| $)
-  (PROG (|n1| |leadid| |ed| |truelist| #1=#:G379 #2=#:G378 #3=#:G380 #4=#:G388
-         |vv| #5=#:G375 #6=#:G374 #7=#:G376 #8=#:G387 |f|)
+  (PROG (|n1| |leadid| |ed| |truelist| #1=#:G381 #2=#:G380 #3=#:G382 #4=#:G390
+         |vv| #5=#:G377 #6=#:G376 #7=#:G378 #8=#:G389 |f|)
     (RETURN
      (SEQ (LETT I (SPADCALL I (QREFELT $ 68)) . #9=(|IDEAL;dimension;$LI;26|))
           (EXIT
@@ -868,7 +868,7 @@
                        (EXIT (+ |ed| |n1|)))))))))))))) 
 
 (DEFUN |IDEAL;dimension;$I;27| (I $)
-  (PROG (#1=#:G390 #2=#:G389 #3=#:G391 #4=#:G394 |g|)
+  (PROG (#1=#:G392 #2=#:G391 #3=#:G393 #4=#:G396 |g|)
     (RETURN
      (SEQ
       (SPADCALL I
@@ -894,7 +894,7 @@
                 (QREFELT $ 108)))))) 
 
 (DEFUN |IDEAL;leadingIdeal;2$;28| (I $)
-  (PROG (#1=#:G399 |f| #2=#:G398 |Idl|)
+  (PROG (#1=#:G401 |f| #2=#:G400 |Idl|)
     (RETURN
      (SEQ
       (LETT |Idl| (QCAR (SPADCALL I (QREFELT $ 68)))
@@ -919,7 +919,7 @@
         'T)))))) 
 
 (DEFUN |IDEAL;monompol| (|df| |lcf| |lv| $)
-  (PROG (|g| #1=#:G403 |dd| #2=#:G404 |v|)
+  (PROG (|g| #1=#:G405 |dd| #2=#:G406 |v|)
     (RETURN
      (SEQ (LETT |g| (SPADCALL |lcf| (QREFELT $ 112)) . #3=(|IDEAL;monompol|))
           (SEQ (LETT |v| NIL . #3#) (LETT #2# |lv| . #3#) (LETT |dd| NIL . #3#)
@@ -939,12 +939,12 @@
           (EXIT |g|))))) 
 
 (DEFUN |IDEAL;relationsIdeal;LSt;30| (|listf| $)
-  (PROG (|solsn| |g| #1=#:G424 #2=#:G423 #3=#:G425 #4=#:G446 |p| |j| |vdq| |q|
-         |lcq| |dq| #5=#:G445 |lf| #6=#:G422 |n| |leq| #7=#:G443 #8=#:G444
-         |pol| #9=#:G442 |npol| #10=#:G441 |v| #11=#:G440 |lp| |f| |lcf| |df|
-         |vec2| #12=#:G439 |i| |gp| |nPoly| |nExponent| |DirP| |lv1| #13=#:G412
-         #14=#:G438 |vv| #15=#:G437 |VarSet1| |nvar| #16=#:G436 |vl| #17=#:G435
-         #18=#:G434 |lvint| #19=#:G406 #20=#:G405 #21=#:G407 #22=#:G433 |nf|)
+  (PROG (|solsn| |g| #1=#:G426 #2=#:G425 #3=#:G427 #4=#:G448 |p| |j| |vdq| |q|
+         |lcq| |dq| #5=#:G447 |lf| #6=#:G424 |n| |leq| #7=#:G445 #8=#:G446
+         |pol| #9=#:G444 |npol| #10=#:G443 |v| #11=#:G442 |lp| |f| |lcf| |df|
+         |vec2| #12=#:G441 |i| |gp| |nPoly| |nExponent| |DirP| |lv1| #13=#:G414
+         #14=#:G440 |vv| #15=#:G439 |VarSet1| |nvar| #16=#:G438 |vl| #17=#:G437
+         #18=#:G436 |lvint| #19=#:G408 #20=#:G407 #21=#:G409 #22=#:G435 |nf|)
     (RETURN
      (SEQ
       (COND ((NULL |listf|) (SPADCALL NIL NIL (QREFELT $ 119)))
@@ -1389,7 +1389,7 @@
             ('T (SPADCALL |Idl| (QREFELT $ 148))))))))) 
 
 (DEFUN |IDEAL;ideal;L$;33| (|Id| $)
-  (PROG (#1=#:G453 |f| #2=#:G452)
+  (PROG (#1=#:G455 |f| #2=#:G454)
     (RETURN
      (SEQ
       (CONS
@@ -1422,10 +1422,10 @@
 
 (DEFUN |IDEAL;zero?;$B;38| (I $) (NULL (QCAR (SPADCALL I (QREFELT $ 68))))) 
 
-(DEFUN |PolynomialIdeal| (&REST #1=#:G460)
+(DEFUN |PolynomialIdeal| (&REST #1=#:G462)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G461)
+     (PROG (#2=#:G463)
        (RETURN
         (COND
          ((LETT #2#

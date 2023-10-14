@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SYMANA;ansatz;Jvf;1| ($)
-  (PROG (|res| #1=#:G154 |f| |s| #2=#:G160 |i| #3=#:G150 #4=#:G159)
+  (PROG (|res| #1=#:G156 |f| |s| #2=#:G162 |i| #3=#:G152 #4=#:G161)
     (RETURN
      (SEQ (LETT |res| (|spadConstant| $ 35) . #5=(|SYMANA;ansatz;Jvf;1|))
           (SEQ (LETT |i| 1 . #5#) (LETT #4# (QREFELT $ 11) . #5#) G190
@@ -49,10 +49,10 @@
           (EXIT |res|))))) 
 
 (DEFUN |SYMANA;transform;JbeJbe;2| (|f| $)
-  (PROG (|g| |SubL| JV |lower| #1=#:G189 |id| #2=#:G204 |d| |up| #3=#:G187
-         #4=#:G185 |diff| |rarg| |arg| |i| |num| |pos| |fname| #5=#:G176
-         #6=#:G171 #7=#:G169 |ind| |typ| #8=#:G163 #9=#:G202 |Ke| #10=#:G203
-         |Op| |LOps| #11=#:G201 #12=#:G200 |LKernels|)
+  (PROG (|g| |SubL| JV |lower| #1=#:G191 |id| #2=#:G206 |d| |up| #3=#:G189
+         #4=#:G187 |diff| |rarg| |arg| |i| |num| |pos| |fname| #5=#:G178
+         #6=#:G173 #7=#:G171 |ind| |typ| #8=#:G165 #9=#:G204 |Ke| #10=#:G205
+         |Op| |LOps| #11=#:G203 #12=#:G202 |LKernels|)
     (RETURN
      (SEQ (LETT JV NIL . #13=(|SYMANA;transform;JbeJbe;2|))
           (LETT |SubL| NIL . #13#)
@@ -280,7 +280,7 @@
           (EXIT (SPADCALL |g| (QREFELT $ 78))))))) 
 
 (DEFUN |SYMANA;detSys;LL;3| (|sys| $)
-  (PROG (#1=#:G212 |eq| #2=#:G211 |ds| #3=#:G210 #4=#:G209)
+  (PROG (#1=#:G214 |eq| #2=#:G213 |ds| #3=#:G212 #4=#:G211)
     (RETURN
      (SEQ
       (LETT |ds|
@@ -315,7 +315,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SYMANA;detSys;LJvfL;4| (|sys| |vf| $)
-  (PROG (#1=#:G216 |eq| #2=#:G215)
+  (PROG (#1=#:G218 |eq| #2=#:G217)
     (RETURN
      (SEQ
       (SPADCALL |sys|
@@ -334,9 +334,9 @@
                 |vf| (QREFELT $ 81)))))) 
 
 (DEFUN |SYMANA;detSys;LLJvfL;5| (|sys| |sjb| |vf| $)
-  (PROG (#1=#:G266 |co| #2=#:G265 |conds| |coL| #3=#:G264 |jp| #4=#:G263
-         |pcrit| #5=#:G262 |eq| #6=#:G261 |crit| #7=#:G260 #8=#:G259 |pvf| |o|
-         |ol| #9=#:G258 #10=#:G257 |solEq| |tmp| #11=#:G255 #12=#:G256 |jv|)
+  (PROG (#1=#:G268 |co| #2=#:G267 |conds| |coL| #3=#:G266 |jp| #4=#:G265
+         |pcrit| #5=#:G264 |eq| #6=#:G263 |crit| #7=#:G262 #8=#:G261 |pvf| |o|
+         |ol| #9=#:G260 #10=#:G259 |solEq| |tmp| #11=#:G257 #12=#:G258 |jv|)
     (RETURN
      (SEQ (LETT |solEq| NIL . #13=(|SYMANA;detSys;LLJvfL;5|))
           (SEQ (LETT |jv| NIL . #13#) (LETT #12# |sjb| . #13#)
@@ -445,7 +445,7 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SYMANA;ncDetSys;LL;6| (|sys| $)
-  (PROG (#1=#:G274 |eq| #2=#:G273 |ds| #3=#:G272 #4=#:G271)
+  (PROG (#1=#:G276 |eq| #2=#:G275 |ds| #3=#:G274 #4=#:G273)
     (RETURN
      (SEQ
       (LETT |ds|
@@ -480,7 +480,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SYMANA;ncDetSys;LJvfL;7| (|sys| |vf| $)
-  (PROG (#1=#:G278 |eq| #2=#:G277)
+  (PROG (#1=#:G280 |eq| #2=#:G279)
     (RETURN
      (SEQ
       (SPADCALL |sys|
@@ -499,9 +499,9 @@
                 |vf| (QREFELT $ 110)))))) 
 
 (DEFUN |SYMANA;ncDetSys;LLJvfL;8| (|sys| |sjb| |vf| $)
-  (PROG (|isc| |ijb| |cond| |jv| #1=#:G290 #2=#:G305 |x| #3=#:G306 |i|
-         #4=#:G303 |e| #5=#:G304 |j| |Eta| #6=#:G301 |co| #7=#:G302 |ind2|
-         |tmp| |ind1| |Xi| |jt| #8=#:G299 #9=#:G300 |coeffs| |dirs|)
+  (PROG (|isc| |ijb| |cond| |jv| #1=#:G292 #2=#:G307 |x| #3=#:G308 |i|
+         #4=#:G305 |e| #5=#:G306 |j| |Eta| #6=#:G303 |co| #7=#:G304 |ind2|
+         |tmp| |ind1| |Xi| |jt| #8=#:G301 #9=#:G302 |coeffs| |dirs|)
     (RETURN
      (SEQ
       (LETT |dirs| (SPADCALL |vf| (QREFELT $ 113))
@@ -608,10 +608,10 @@
        (SPADCALL (APPEND |isc| |sys|) (APPEND |ijb| |sjb|) |vf|
                  (QREFELT $ 81))))))) 
 
-(DEFUN |SymmetryAnalysis| (&REST #1=#:G319)
+(DEFUN |SymmetryAnalysis| (&REST #1=#:G321)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G320)
+     (PROG (#2=#:G322)
        (RETURN
         (COND
          ((LETT #2#
@@ -629,9 +629,9 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|SymmetryAnalysis|))))))))))) 
 
 (DEFUN |SymmetryAnalysis;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G318 |jv| #2=#:G317 #3=#:G316 |i| #4=#:G315 #5=#:G314 #6=#:G313
-         #7=#:G312 #8=#:G311 #9=#:G143 #10=#:G310 #11=#:G309 #12=#:G140
-         #13=#:G308 #14=#:G307 |pv$| $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G320 |jv| #2=#:G319 #3=#:G318 |i| #4=#:G317 #5=#:G316 #6=#:G315
+         #7=#:G314 #8=#:G313 #9=#:G145 #10=#:G312 #11=#:G311 #12=#:G142
+         #13=#:G310 #14=#:G309 |pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (SEQ
       (PROGN

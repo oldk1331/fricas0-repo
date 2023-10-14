@@ -16,7 +16,7 @@
   (|LSMP;aSolution| (SPADCALL (|LSMP;systemMatrix| A |b| $) (QREFELT $ 18)) $)) 
 
 (DEFUN |LSMP;aSolution| (|m| $)
-  (PROG (#1=#:G159 |j| |i| |v| |sol| |ck| |rk| |nvar| #2=#:G144)
+  (PROG (#1=#:G161 |j| |i| |v| |sol| |ck| |rk| |nvar| #2=#:G146)
     (RETURN
      (SEQ
       (LETT |nvar|
@@ -126,7 +126,7 @@
                  (QREFELT $ 40))))))))))) 
 
 (DEFUN |LSMP;solve;MLL;7| (A |l| $)
-  (PROG (#1=#:G179 |b| #2=#:G178 |nl| |sol0|)
+  (PROG (#1=#:G181 |b| #2=#:G180 |nl| |sol0|)
     (RETURN
      (SEQ
       (COND
@@ -167,10 +167,10 @@
                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))))))))) 
 
-(DEFUN |LinearSystemMatrixPackage| (&REST #1=#:G180)
+(DEFUN |LinearSystemMatrixPackage| (&REST #1=#:G182)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G181)
+     (PROG (#2=#:G183)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PDO;adjoint;2$;1| (|x| $)
-  (PROG (|xu| |res| |sign| |d| |v| #1=#:G134)
+  (PROG (|xu| |res| |sign| |d| |v| #1=#:G136)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 15)) |x|)
@@ -48,10 +48,10 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))))))) 
 
-(DEFUN |PartialDifferentialOperator| (&REST #1=#:G159)
+(DEFUN |PartialDifferentialOperator| (&REST #1=#:G161)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G162)
        (RETURN
         (COND
          ((LETT #2#

@@ -4,11 +4,11 @@
 (DEFPARAMETER |Monoid;AL| 'NIL) 
 
 (DEFUN |Monoid| ()
-  (LET (#:G128)
+  (LET (#:G130)
     (COND (|Monoid;AL|) (T (SETQ |Monoid;AL| (|Monoid;|)))))) 
 
 (DEFUN |Monoid;| ()
-  (PROG (#1=#:G126)
+  (PROG (#1=#:G128)
     (RETURN
      (PROG1
          (LETT #1#

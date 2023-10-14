@@ -21,10 +21,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |f| |s| (QREFELT $ 23)))))) 
 
-(DEFUN |FiniteDivisorFunctions2| (&REST #1=#:G159)
+(DEFUN |FiniteDivisorFunctions2| (&REST #1=#:G161)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G162)
        (RETURN
         (COND
          ((LETT #2#

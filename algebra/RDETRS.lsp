@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RDETRS;monomRDEsys;3FMU;1| (|f| |g1| |g2| |derivation| $)
-  (PROG (|u| |aa| |tt| #1=#:G154 |gg| |e| |d|)
+  (PROG (|u| |aa| |tt| #1=#:G156 |gg| |e| |d|)
     (RETURN
      (SEQ
       (LETT |gg|
@@ -160,7 +160,7 @@
 
 (DEFUN |RDETRS;SPDEsys|
        (|a| |b| |h| |c1| |c2| |n| |derivation| |degradation| $)
-  (PROG (#1=#:G229 |rh| |rb| |ra| |l| |v| |rec| |u| |da| #2=#:G204 #3=#:G230
+  (PROG (#1=#:G231 |rh| |rb| |ra| |l| |v| |rec| |u| |da| #2=#:G206 #3=#:G232
          |u2| |u1| |g|)
     (RETURN
      (SEQ
@@ -352,7 +352,7 @@
 
 (DEFUN |RDETRS;DSPDEsys0|
        (|a| |b| |h| |c1| |c2| |lb| |lh| |n| |derivation| |getlc| $)
-  (PROG (|ans2| |ans1| |q2| |q1| |lq| #1=#:G253 #2=#:G256 |u| #3=#:G251)
+  (PROG (|ans2| |ans1| |q2| |q1| |lq| #1=#:G255 #2=#:G258 |u| #3=#:G253)
     (RETURN
      (SEQ
       (EXIT
@@ -427,7 +427,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |RDETRS;DSPDEmix| (|c1| |c2| |lb| |lh| |n| |d| |det| $)
-  (PROG (|q2| |q1| |rh2| #1=#:G265 |d2| |rh1| |d1|)
+  (PROG (|q2| |q1| |rh2| #1=#:G267 |d2| |rh1| |d1|)
     (RETURN
      (SEQ
       (EXIT
@@ -478,7 +478,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RDETRS;DSPDEhdom| (|c1| |c2| |lb| |lh| |n| |d| $)
-  (PROG (|q2| #1=#:G274 |d2| |q1| |d1|)
+  (PROG (|q2| #1=#:G276 |d2| |q1| |d1|)
     (RETURN
      (SEQ
       (EXIT
@@ -522,7 +522,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RDETRS;DSPDEbdom| (|c1| |c2| |lb| |lh| |n| |d| $)
-  (PROG (|q2| #1=#:G283 |d1| |q1| |d2|)
+  (PROG (|q2| #1=#:G285 |d1| |q1| |d2|)
     (RETURN
      (SEQ
       (EXIT
@@ -607,10 +607,10 @@
                     (COND ((QEQCAR |n| 0) (MAX (QCDR |n|) (- |dc| |db|)))
                           (#2# (- |dc| |db|)))))))))))) 
 
-(DEFUN |TranscendentalRischDESystem| (&REST #1=#:G294)
+(DEFUN |TranscendentalRischDESystem| (&REST #1=#:G296)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G295)
+     (PROG (#2=#:G297)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FFINTBAS;squaredFactors| (|px| $)
-  (PROG (#1=#:G134 #2=#:G133 #3=#:G135 #4=#:G138 |ffe|)
+  (PROG (#1=#:G136 #2=#:G135 #3=#:G137 #4=#:G140 |ffe|)
     (RETURN
      (SEQ
       (PROGN
@@ -28,7 +28,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 15)))))))) 
 
 (DEFUN |FFINTBAS;iIntegralBasis| (|tfm| |disc| |sing| $)
-  (PROG (#1=#:G142 #2=#:G149 |oldIndex| |indexChange| |rbinv| |rbden| |rb| |g|
+  (PROG (#1=#:G144 #2=#:G151 |oldIndex| |indexChange| |rbinv| |rbden| |rb| |g|
          |index| |idinv| |id| |disc0| |tfm0| |n|)
     (RETURN
      (SEQ
@@ -168,10 +168,10 @@
                  (SPADCALL |n| (|spadConstant| $ 15) (QREFELT $ 26))))
         ('T (|FFINTBAS;iIntegralBasis| |tfm| |disc| |prime| $)))))))) 
 
-(DEFUN |FunctionFieldIntegralBasis| (&REST #1=#:G162)
+(DEFUN |FunctionFieldIntegralBasis| (&REST #1=#:G164)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G163)
+     (PROG (#2=#:G165)
        (RETURN
         (COND
          ((LETT #2#

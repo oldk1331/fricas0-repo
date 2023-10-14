@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |A1AGG-;parts;AL;1| (|x| $)
-  (PROG (#1=#:G166 |i| #2=#:G165)
+  (PROG (#1=#:G168 |i| #2=#:G167)
     (RETURN
      (SEQ
       (PROGN
@@ -19,7 +19,7 @@
 (DEFUN |A1AGG-;sort!;M2A;2| (|f| |a| $) (SPADCALL |f| |a| (QREFELT $ 16))) 
 
 (DEFUN |A1AGG-;any?;MAB;3| (|f| |a| $)
-  (PROG (#1=#:G171 #2=#:G174 #3=#:G175 |i|)
+  (PROG (#1=#:G173 #2=#:G176 #3=#:G177 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -43,7 +43,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |A1AGG-;every?;MAB;4| (|f| |a| $)
-  (PROG (#1=#:G177 #2=#:G179 #3=#:G180 |i|)
+  (PROG (#1=#:G179 #2=#:G181 #3=#:G182 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -67,7 +67,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |A1AGG-;position;MAI;5| (|f| |a| $)
-  (PROG (#1=#:G182 #2=#:G184 #3=#:G185 |i|)
+  (PROG (#1=#:G184 #2=#:G186 #3=#:G187 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -92,7 +92,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |A1AGG-;find;MAU;6| (|f| |a| $)
-  (PROG (#1=#:G190 #2=#:G195 #3=#:G196 |i|)
+  (PROG (#1=#:G192 #2=#:G197 #3=#:G198 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -121,7 +121,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |A1AGG-;count;MANni;7| (|f| |a| $)
-  (PROG (|n| #1=#:G201 |i|)
+  (PROG (|n| #1=#:G203 |i|)
     (RETURN
      (SEQ (LETT |n| 0 . #2=(|A1AGG-;count;MANni;7|))
           (SEQ (LETT |i| (SPADCALL |a| (QREFELT $ 9)) . #2#)
@@ -136,7 +136,7 @@
           (EXIT |n|))))) 
 
 (DEFUN |A1AGG-;map!;M2A;8| (|f| |a| $)
-  (PROG (#1=#:G206 |i|)
+  (PROG (#1=#:G208 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| (SPADCALL |a| (QREFELT $ 9)) . #2=(|A1AGG-;map!;M2A;8|))
@@ -168,7 +168,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |A1AGG-;reduce;MAS;10| (|f| |a| $)
-  (PROG (|r| #1=#:G218 |k| |m|)
+  (PROG (|r| #1=#:G220 |k| |m|)
     (RETURN
      (SEQ
       (COND
@@ -193,7 +193,7 @@
          (EXIT |r|)))))))) 
 
 (DEFUN |A1AGG-;reduce;MA2S;11| (|f| |a| |identity| $)
-  (PROG (#1=#:G222 |k|)
+  (PROG (#1=#:G224 |k|)
     (RETURN
      (SEQ
       (SEQ
@@ -209,7 +209,7 @@
       (EXIT |identity|))))) 
 
 (DEFUN |A1AGG-;reduce;MA3S;12| (|f| |a| |identity| |absorber| $)
-  (PROG (#1=#:G226 |k|)
+  (PROG (#1=#:G228 |k|)
     (RETURN
      (SEQ
       (SEQ
@@ -241,7 +241,7 @@
                    (QREFELT $ 43))))) 
 
 (DEFUN |A1AGG-;stupidget| (|l| $)
-  (PROG (#1=#:G231 #2=#:G233 #3=#:G234 |a|)
+  (PROG (#1=#:G233 #2=#:G235 #3=#:G236 |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -270,7 +270,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |A1AGG-;map;M3A;15| (|f| |a| |b| $)
-  (PROG (|i| |j| |c| |l| #1=#:G235 |n| |m|)
+  (PROG (|i| |j| |c| |l| #1=#:G237 |n| |m|)
     (RETURN
      (SEQ
       (LETT |m| (MAX (SPADCALL |a| (QREFELT $ 9)) (SPADCALL |b| (QREFELT $ 9)))
@@ -350,7 +350,7 @@
       (EXIT |r|))))) 
 
 (DEFUN |A1AGG-;elt;AUsA;17| (|a| |s| $)
-  (PROG (|k| |i| |r| #1=#:G250 |h| |l|)
+  (PROG (|k| |i| |r| #1=#:G252 |h| |l|)
     (RETURN
      (SEQ (LETT |l| (SPADCALL |s| (QREFELT $ 31)) . #2=(|A1AGG-;elt;AUsA;17|))
           (LETT |h|
@@ -380,7 +380,7 @@
           (EXIT |r|))))) 
 
 (DEFUN |A1AGG-;insert;2AIA;18| (|a| |b| |i| $)
-  (PROG (|k| |j| #1=#:G260 #2=#:G259 |y| |n| |m|)
+  (PROG (|k| |j| #1=#:G262 #2=#:G261 |y| |n| |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |b| (QREFELT $ 9)) . #3=(|A1AGG-;insert;2AIA;18|))
@@ -422,7 +422,7 @@
       (EXIT |y|))))) 
 
 (DEFUN |A1AGG-;copy;2A;19| (|x| $)
-  (PROG (#1=#:G264 |i| |j| |y|)
+  (PROG (#1=#:G266 |i| |j| |y|)
     (RETURN
      (SEQ
       (LETT |y| (|A1AGG-;stupidnew| (SPADCALL |x| (QREFELT $ 46)) |x| |x| $)
@@ -440,7 +440,7 @@
       (EXIT |y|))))) 
 
 (DEFUN |A1AGG-;copyInto!;2AIA;20| (|y| |x| |s| $)
-  (PROG (#1=#:G270 |i| |j|)
+  (PROG (#1=#:G272 |i| |j|)
     (RETURN
      (SEQ
       (COND
@@ -463,7 +463,7 @@
          (EXIT |y|)))))))) 
 
 (DEFUN |A1AGG-;construct;LA;21| (|l| $)
-  (PROG (|i| #1=#:G275 |x| |a|)
+  (PROG (|i| #1=#:G277 |x| |a|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (SPADCALL (QREFELT $ 42)))
@@ -484,7 +484,7 @@
               (EXIT |a|)))))))) 
 
 (DEFUN |A1AGG-;delete;AUsA;22| (|a| |s| $)
-  (PROG (|k| #1=#:G286 |i| #2=#:G285 |r| #3=#:G279 |h| |l|)
+  (PROG (|k| #1=#:G288 |i| #2=#:G287 |r| #3=#:G281 |h| |l|)
     (RETURN
      (SEQ
       (LETT |l| (SPADCALL |s| (QREFELT $ 31)) . #4=(|A1AGG-;delete;AUsA;22|))
@@ -536,7 +536,7 @@
                (EXIT |r|))))))))) 
 
 (DEFUN |A1AGG-;delete;AIA;23| (|x| |i| $)
-  (PROG (#1=#:G295 |j| #2=#:G294 |y| #3=#:G289)
+  (PROG (#1=#:G297 |j| #2=#:G296 |y| #3=#:G291)
     (RETURN
      (SEQ
       (COND
@@ -575,7 +575,7 @@
          (EXIT |y|)))))))) 
 
 (DEFUN |A1AGG-;reverse!;2A;24| (|x| $)
-  (PROG (#1=#:G299 |i| |n| |m|)
+  (PROG (#1=#:G301 |i| |n| |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |x| (QREFELT $ 9)) . #2=(|A1AGG-;reverse!;2A;24|))
@@ -587,7 +587,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |A1AGG-;concat;LA;25| (|l| $)
-  (PROG (|i| #1=#:G309 |a| |r| |n| #2=#:G301 #3=#:G300 #4=#:G302 #5=#:G308)
+  (PROG (|i| #1=#:G311 |a| |r| |n| #2=#:G303 #3=#:G302 #4=#:G304 #5=#:G310)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (SPADCALL (QREFELT $ 42)))
@@ -633,7 +633,7 @@
               (EXIT |r|)))))))) 
 
 (DEFUN |A1AGG-;sorted?;MAB;26| (|f| |a| $)
-  (PROG (#1=#:G311 #2=#:G313 #3=#:G314 |i|)
+  (PROG (#1=#:G313 #2=#:G315 #3=#:G316 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -674,7 +674,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |A1AGG-;coerce;AOf;28| (|r| $)
-  (PROG (#1=#:G321 |k| #2=#:G320)
+  (PROG (#1=#:G323 |k| #2=#:G322)
     (RETURN
      (SEQ
       (SPADCALL
@@ -697,7 +697,7 @@
        (QREFELT $ 69)))))) 
 
 (DEFUN |A1AGG-;=;2AB;29| (|x| |y| $)
-  (PROG (#1=#:G323 #2=#:G326 #3=#:G327 |i|)
+  (PROG (#1=#:G325 #2=#:G328 #3=#:G329 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -728,7 +728,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |A1AGG-;position;SA2I;30| (|x| |t| |s| $)
-  (PROG (#1=#:G330 #2=#:G332 |k| |n|)
+  (PROG (#1=#:G332 #2=#:G334 |k| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -756,7 +756,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |A1AGG-;<;2AB;31| (|a| |b| $)
-  (PROG (#1=#:G334 #2=#:G336 #3=#:G337 |i| #4=#:G338 |j|)
+  (PROG (#1=#:G336 #2=#:G338 #3=#:G339 |i| #4=#:G340 |j|)
     (RETURN
      (SEQ
       (EXIT

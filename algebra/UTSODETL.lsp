@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |UTSODETL;UP2UTS;UPUTS;1| (|p| $)
-  (PROG (#1=#:G126 #2=#:G125 #3=#:G127 #4=#:G130 |i| |q|)
+  (PROG (#1=#:G128 #2=#:G127 #3=#:G129 #4=#:G132 |i| |q|)
     (RETURN
      (SEQ
       (LETT |q|
@@ -57,7 +57,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |UTSODETL;LODO2FUN;LM;3| (|op| $)
-  (PROG (|v| #1=#:G145 |i| #2=#:G146 |n| #3=#:G139 |a| #4=#:G137)
+  (PROG (|v| #1=#:G147 |i| #2=#:G148 |n| #3=#:G141 |a| #4=#:G139)
     (RETURN
      (SEQ
       (LETT |a|
@@ -109,7 +109,7 @@
     (RETURN (PROGN (|UTSODETL;fun| |v| |l1| $))))) 
 
 (DEFUN |UTSODETL;fun| (|v| |l| $)
-  (PROG (|ans| #1=#:G150 |b| |i|)
+  (PROG (|ans| #1=#:G152 |b| |i|)
     (RETURN
      (SEQ (LETT |ans| (|spadConstant| $ 16) . #2=(|UTSODETL;fun|))
           (SEQ (LETT |i| 1 . #2#) (LETT |b| NIL . #2#) (LETT #1# |l| . #2#)
@@ -131,7 +131,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |UTSODETL;RF2UTS;FUTS;5| (|f| $)
-  (PROG (#1=#:G152)
+  (PROG (#1=#:G154)
     (RETURN
      (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 49)) (QREFELT $ 25))
                (PROG2
@@ -145,10 +145,10 @@
                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 9) #1#))
                (QREFELT $ 43))))) 
 
-(DEFUN |UTSodetools| (&REST #1=#:G155)
+(DEFUN |UTSodetools| (&REST #1=#:G157)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G156)
+     (PROG (#2=#:G158)
        (RETURN
         (COND
          ((LETT #2#

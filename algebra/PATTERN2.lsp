@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PATTERN2;map;MPP;1| (|f| |p| $)
-  (PROG (|sy| |wr| |w| |xr| |x| #1=#:G181 #2=#:G180 |l| #3=#:G179 #4=#:G178
-         |vr| |v| #5=#:G177 #6=#:G176 |ur| |u| |r|)
+  (PROG (|sy| |wr| |w| |xr| |x| #1=#:G183 #2=#:G182 |l| #3=#:G181 #4=#:G180
+         |vr| |v| #5=#:G179 #6=#:G178 |ur| |u| |r|)
     (RETURN
      (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 10)) . #7=(|PATTERN2;map;MPP;1|))
           (EXIT
@@ -161,10 +161,10 @@
                                                 (QREFELT $
                                                          48))))))))))))))))))))))))))))))))))) 
 
-(DEFUN |PatternFunctions2| (&REST #1=#:G182)
+(DEFUN |PatternFunctions2| (&REST #1=#:G184)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G183)
+     (PROG (#2=#:G185)
        (RETURN
         (COND
          ((LETT #2#

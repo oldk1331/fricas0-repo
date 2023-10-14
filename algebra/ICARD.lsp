@@ -82,7 +82,7 @@
 (DEFUN |IndexCard| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G136)
+     (PROG (#1=#:G138)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|IndexCard|) . #2=(|IndexCard|))

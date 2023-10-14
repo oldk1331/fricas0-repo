@@ -56,10 +56,10 @@
   (COND ((SPADCALL |t1| (QREFELT $ 18)) (|error| "binaryTree:no right to set"))
         ('T (SPADCALL |t1| |t2| (QREFELT $ 29))))) 
 
-(DEFUN |BinaryTree| (#1=#:G161)
+(DEFUN |BinaryTree| (#1=#:G163)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G164)
        (RETURN
         (COND
          ((LETT #2#
@@ -74,7 +74,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|BinaryTree|))))))))))) 
 
 (DEFUN |BinaryTree;| (|#1|)
-  (PROG (|pv$| #1=#:G158 #2=#:G159 #3=#:G160 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G160 #2=#:G161 #3=#:G162 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|BinaryTree|))

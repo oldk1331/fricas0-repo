@@ -58,7 +58,7 @@
                          (QREFELT $ 37))))))) 
 
 (DEFUN |IPADIC;=;2$B;15| (|x| |y| $)
-  (PROG (|st| #1=#:G200 |i| |n|)
+  (PROG (|st| #1=#:G202 |i| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -80,7 +80,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |IPADIC;order;$Nni;16| (|x| $)
-  (PROG (|st| #1=#:G205 |i|)
+  (PROG (|st| #1=#:G207 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -568,7 +568,7 @@
     (LETT |p| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G392 |num| |digit|)
+      (PROG (#2=#:G394 |num| |digit|)
         (RETURN
          (SEQ
           (LETT |num|
@@ -726,10 +726,10 @@
                      (SPADCALL (ELT $ 84) (NREVERSE |l|)
                                (QREFELT $ 87)))))))))))) 
 
-(DEFUN |InnerPAdicInteger| (&REST #1=#:G438)
+(DEFUN |InnerPAdicInteger| (&REST #1=#:G440)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G439)
+     (PROG (#2=#:G441)
        (RETURN
         (COND
          ((LETT #2#

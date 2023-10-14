@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4720 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4721 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -422,8 +422,8 @@
  |WildFunctionFieldIntegralBasis| |WeightedGraph| |WeightedPolynomials|
  |WuWenTsunTriangularSet| |XAlgebra| |XDistributedPolynomial|
  |XExponentialPackage| |ExtensionField&| |ExtensionField| |XFreeAlgebra|
- |ExportXml| |XmlAttribute| |XmlElement| |XPBWPolynomial| |XPolynomial|
- |XPolynomialsCat| |XPolynomialRing| |XRecursivePolynomial|
+ |XHashTable| |ExportXml| |XmlAttribute| |XmlElement| |XPBWPolynomial|
+ |XPolynomial| |XPolynomialsCat| |XPolynomialRing| |XRecursivePolynomial|
  |ParadoxicalCombinatorsForStreams| |ZeroDimensionalSolvePackage|
  |IntegerLinearDependence| |IntegerMod| |Enumeration| |Mapping| |Record|
  |Union| |Category| |zerosOf| |zeroOf| |rootsOf| |makeSketch| |inrootof|
@@ -1003,7 +1003,7 @@
  |parametersOf| |fortranTypeOf| |declare!| |solve| |triangularSystems|
  |bumprow| |bumptab| |bumptab1| |untab| |bat1| |bat| |tab1| |tab| |lex| |slex|
  |inverse| |maxrow| |mr| |listOfLists| |tableau| |tanSum| |tanAn| |tanNa|
- |table| |initTable!| |printInfo!| |startStats!| |printStats!| |clearTable!|
+ |initTable!| |printInfo!| |startStats!| |printStats!| |clearTable!|
  |usingTable?| |printingInfo?| |makingStats?| |extractIfCan| |insert!|
  |interpretString| |stripCommentsAndBlanks| |linearExtend| |tensor|
  |testEqualsAux| |xftestEqualsAux| |testNotEqualsAux| |xftestNotEqualsAux|
@@ -1081,7 +1081,7 @@
  |weightedGraph| |changeWeightLevel| |characteristicSerie| |characteristicSet|
  |medialSet| |Hausdorff| |Frobenius| |transcendenceDegree| |extensionDegree|
  |inGroundField?| |transcendent?| |algebraic?| |varList| |sh| |mirror|
- |monomial?| |monom| |rquo| |lquo| |mindegTerm| |writeXml| |writeVRML|
+ |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml| |writeVRML|
  |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp| |product|
  |LiePolyIfCan| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
  |constant?| |coef| |mindeg| |maxdeg| |coerce| |#| |reductum| |map| *

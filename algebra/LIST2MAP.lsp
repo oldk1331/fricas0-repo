@@ -58,10 +58,10 @@
        (SPADCALL |a| |f|))
       ('T (SPADCALL |lb| |p| (QREFELT $ 15))))))) 
 
-(DEFUN |ListToMap| (&REST #1=#:G140)
+(DEFUN |ListToMap| (&REST #1=#:G142)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G141)
+     (PROG (#2=#:G143)
        (RETURN
         (COND
          ((LETT #2#

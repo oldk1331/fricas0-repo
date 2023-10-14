@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MRF2;map;MMrMr;1| (|fn| |u| $)
-  (PROG (|res| #1=#:G130 |te|)
+  (PROG (|res| #1=#:G132 |te|)
     (RETURN
      (SEQ (LETT |res| (|spadConstant| $ 10) . #2=(|MRF2;map;MMrMr;1|))
           (SEQ (LETT |te| NIL . #2#)
@@ -21,10 +21,10 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |res|))))) 
 
-(DEFUN |MonoidRingFunctions2| (&REST #1=#:G131)
+(DEFUN |MonoidRingFunctions2| (&REST #1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G132)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#

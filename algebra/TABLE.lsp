@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |Table| (&REST #1=#:G180)
+(DEFUN |Table| (&REST #1=#:G182)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G181)
+     (PROG (#2=#:G183)
        (RETURN
         (COND
          ((LETT #2#
@@ -19,7 +19,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Table|))))))))))) 
 
 (DEFUN |Table;| (|#1| |#2|)
-  (PROG (#1=#:G179 #2=#:G178 |pv$| #3=#:G176 #4=#:G177 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G181 #2=#:G180 |pv$| #3=#:G178 #4=#:G179 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|Table|))

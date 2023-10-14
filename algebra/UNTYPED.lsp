@@ -20,7 +20,7 @@
 (DEFUN |UNTYPED;toString;$S;5| (|v| $) (QCAR |v|)) 
 
 (DEFUN |UNTYPED;parseVarTerm;SNniR;6| (|t1| |pin| $)
-  (PROG (|pt| |r| |ch| #1=#:G142 |vnm|)
+  (PROG (|pt| |r| |ch| #1=#:G144 |vnm|)
     (RETURN
      (SEQ
       (EXIT
@@ -59,7 +59,7 @@
 (DEFUN |Untyped| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G150)
+     (PROG (#1=#:G152)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Untyped|) . #2=(|Untyped|))

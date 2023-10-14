@@ -47,7 +47,7 @@
             (QREFELT $ 39))) 
 
 (DEFUN |IR;neselect| (|l| |x| $)
-  (PROG (#1=#:G169 #2=#:G168 #3=#:G170 #4=#:G172 |ne|)
+  (PROG (#1=#:G171 #2=#:G170 #3=#:G172 #4=#:G174 |ne|)
     (RETURN
      (SEQ
       (PROGN
@@ -128,7 +128,7 @@
          (EXIT (SPADCALL |logandp| |coeffp| (QREFELT $ 61)))))))))) 
 
 (DEFUN |IR;nesimp| (|l| $)
-  (PROG (|u| #1=#:G189 #2=#:G191 |ne| #3=#:G190 |x| #4=#:G188)
+  (PROG (|u| #1=#:G191 #2=#:G193 |ne| #3=#:G192 |x| #4=#:G190)
     (RETURN
      (SEQ
       (PROGN
@@ -162,7 +162,7 @@
             (EXIT (NREVERSE #4#)))))))) 
 
 (DEFUN |IR;retractIfCan;$U;18| (|u| $)
-  (PROG (#1=#:G198 #2=#:G197 #3=#:G199 #4=#:G205 |ne|)
+  (PROG (#1=#:G200 #2=#:G199 #3=#:G201 #4=#:G207 |ne|)
     (RETURN
      (SEQ
       (COND
@@ -272,8 +272,8 @@
     (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 77)))))) 
 
 (DEFUN |IR;differentiate;$MF;24| (|u| |derivation| $)
-  (PROG (#1=#:G239 #2=#:G238 #3=#:G240 #4=#:G244 |ne| #5=#:G234 #6=#:G233
-         #7=#:G235 #8=#:G243 |log|)
+  (PROG (#1=#:G241 #2=#:G240 #3=#:G242 #4=#:G246 |ne| #5=#:G236 #6=#:G235
+         #7=#:G237 #8=#:G245 |log|)
     (RETURN
      (SEQ
       (SPADCALL
@@ -328,7 +328,7 @@
    ('T (|error| "pNeDeriv: cannot differentiate not elementary part into F")))) 
 
 (DEFUN |IR;pLogDeriv| (|log| |derivation| $)
-  (PROG (|ans| |algans| #1=#:G266 |i| |diflog| #2=#:G258 |numlog| |c| |n|)
+  (PROG (|ans| |algans| #1=#:G268 |i| |diflog| #2=#:G260 |numlog| |c| |n|)
     (RETURN
      (SEQ
       (COND
@@ -405,7 +405,7 @@
                         (QREFELT $ 33)))))))))))))) 
 
 (DEFUN |IR;coerce;$Of;27| (|u| $)
-  (PROG (|l| #1=#:G287 |f| #2=#:G286 #3=#:G285 #4=#:G284 |r|)
+  (PROG (|l| #1=#:G289 |f| #2=#:G288 #3=#:G287 #4=#:G286 |r|)
     (RETURN
      (SEQ (LETT |r| (SPADCALL |u| (QREFELT $ 67)) . #5=(|IR;coerce;$Of;27|))
           (EXIT
@@ -477,10 +477,10 @@
              (QREFELT $ 56))
    (QREFELT $ 99))) 
 
-(DEFUN |IntegrationResult| (#1=#:G294)
+(DEFUN |IntegrationResult| (#1=#:G296)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G295)
+     (PROG (#2=#:G297)
        (RETURN
         (COND
          ((LETT #2#
@@ -497,7 +497,7 @@
               (HREM |$ConstructorCache| '|IntegrationResult|))))))))))) 
 
 (DEFUN |IntegrationResult;| (|#1|)
-  (PROG (|pv$| #1=#:G293 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G295 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|IntegrationResult|))

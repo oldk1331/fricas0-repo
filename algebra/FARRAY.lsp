@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |FlexibleArray| (#1=#:G137)
+(DEFUN |FlexibleArray| (#1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#
@@ -20,7 +20,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|FlexibleArray|))))))))))) 
 
 (DEFUN |FlexibleArray;| (|#1|)
-  (PROG (#1=#:G136 |pv$| #2=#:G132 #3=#:G133 #4=#:G134 $ |dv$| DV$1)
+  (PROG (#1=#:G138 |pv$| #2=#:G134 #3=#:G135 #4=#:G136 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|FlexibleArray|))

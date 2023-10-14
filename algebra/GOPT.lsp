@@ -10,7 +10,7 @@
 (DEFUN |GOPT;maxShift;U$;3| (|d| $) (SPADCALL |d| (QREFELT $ 12))) 
 
 (DEFUN |GOPT;maxSubst;U$;4| (|d| $)
-  (PROG (#1=#:G150)
+  (PROG (#1=#:G152)
     (RETURN
      (COND
       ((QEQCAR |d| 0)
@@ -76,7 +76,7 @@
    ('T 'NIL))) 
 
 (DEFUN |GOPT;option;LSU;23| (|l| |s| $)
-  (PROG (#1=#:G206 #2=#:G211 #3=#:G212 |x|)
+  (PROG (#1=#:G208 #2=#:G213 #3=#:G214 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -105,7 +105,7 @@
 (DEFUN |GuessOption| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G214)
+     (PROG (#1=#:G216)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|GuessOption|)

@@ -31,10 +31,10 @@
            (SPADCALL (SPADCALL |p| (QREFELT $ 16) (QREFELT $ 33))
                      (QREFELT $ 34))))))) 
 
-(DEFUN |NormInMonogenicAlgebra| (&REST #1=#:G130)
+(DEFUN |NormInMonogenicAlgebra| (&REST #1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

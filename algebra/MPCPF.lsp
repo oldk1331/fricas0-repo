@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MPCPF;factor;PPRF;1| (|p| $)
-  (PROG (#1=#:G139 #2=#:G138 #3=#:G140 #4=#:G146 |ff| |fcont| |ffact| #5=#:G145
-         |u| #6=#:G144 |flist| |g| |vars| #7=#:G127 |c|)
+  (PROG (#1=#:G141 #2=#:G140 #3=#:G142 #4=#:G148 |ff| |fcont| |ffact| #5=#:G147
+         |u| #6=#:G146 |flist| |g| |vars| #7=#:G129 |c|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 11)) (SPADCALL |p| 1 (QREFELT $ 16)))
@@ -77,10 +77,10 @@
                  (COND (#1# #2#) (#8# (|spadConstant| $ 38))))
                 (QREFELT $ 37)))))))))) 
 
-(DEFUN |MPolyCatPolyFactorizer| (&REST #1=#:G147)
+(DEFUN |MPolyCatPolyFactorizer| (&REST #1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G148)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#

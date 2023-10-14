@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PSQFR;pPolRoot| (|f| $)
-  (PROG (|uf| #1=#:G134 |mv| |lvar|)
+  (PROG (|uf| #1=#:G136 |mv| |lvar|)
     (RETURN
      (SEQ (LETT |lvar| (SPADCALL |f| (QREFELT $ 14)) . #2=(|PSQFR;pPolRoot|))
           (EXIT
@@ -46,7 +46,7 @@
                        (EXIT (SPADCALL |uf| |mv| (QREFELT $ 22))))))))))) 
 
 (DEFUN |PSQFR;pthPower| (|f| $)
-  (PROG (#1=#:G162 |u| #2=#:G161 #3=#:G160 #4=#:G159 |psqfr| |isSq| |proot|
+  (PROG (#1=#:G164 |u| #2=#:G163 #3=#:G162 #4=#:G161 |psqfr| |isSq| |proot|
          |g|)
     (RETURN
      (SEQ (LETT |proot| (|spadConstant| $ 24) . #5=(|PSQFR;pthPower|))
@@ -110,8 +110,8 @@
                        (QREFELT $ 33))))))))) 
 
 (DEFUN |PSQFR;finSqFr| (|f| |lvar| $)
-  (PROG (|pfaclist| |sqp| |cont| |cont1| |flistfin1| #1=#:G185 |uu| #2=#:G184
-         |listfin1| |uexp| #3=#:G168 #4=#:G183 |u| |squf| |uf| #5=#:G164 |mv|)
+  (PROG (|pfaclist| |sqp| |cont| |cont1| |flistfin1| #1=#:G187 |uu| #2=#:G186
+         |listfin1| |uexp| #3=#:G170 #4=#:G185 |u| |squf| |uf| #5=#:G166 |mv|)
     (RETURN
      (SEQ
       (COND ((NULL |lvar|) (|PSQFR;pthPower| |f| $))
@@ -249,7 +249,7 @@
                               |pfaclist| (QREFELT $ 33)))))))))))))))) 
 
 (DEFUN |PSQFR;squareFree;PF;5| (|p| $)
-  (PROG (|sqp| |pfaclist| #1=#:G206 |u| #2=#:G205 |squp| |up| #3=#:G191 |cont|
+  (PROG (|sqp| |pfaclist| #1=#:G208 |u| #2=#:G207 |squp| |up| #3=#:G193 |cont|
          |mv|)
     (RETURN
      (SEQ
@@ -317,10 +317,10 @@
                                  (QREFELT $ 52))
                        |pfaclist| (QREFELT $ 33))))))))))))) 
 
-(DEFUN |PolynomialSquareFree| (&REST #1=#:G207)
+(DEFUN |PolynomialSquareFree| (&REST #1=#:G209)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G208)
+     (PROG (#2=#:G210)
        (RETURN
         (COND
          ((LETT #2#

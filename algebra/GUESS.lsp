@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |GUESS;ord1| (|x| |i| $)
-  (PROG (#1=#:G293 |k| #2=#:G292 |j| #3=#:G291 #4=#:G290 |n|)
+  (PROG (#1=#:G295 |k| #2=#:G294 |j| #3=#:G293 #4=#:G292 |n|)
     (RETURN
      (SEQ (LETT |n| (- (- (LENGTH |x|) 3) |i|) . #5=(|GUESS;ord1|))
           (EXIT
@@ -74,7 +74,7 @@
                       (QREFELT $ 20)))))))) 
 
 (DEFUN |GUESS;ord2| (|x| |i| $)
-  (PROG (|j| #1=#:G300 |n|)
+  (PROG (|j| #1=#:G302 |n|)
     (RETURN
      (SEQ
       (COND
@@ -103,7 +103,7 @@
        ('T (|GUESS;ord1| |x| |i| $))))))) 
 
 (DEFUN |GUESS;deg1| (|x| |i| $)
-  (PROG (#1=#:G315 |k| #2=#:G314 |j| #3=#:G313 #4=#:G312 |m|)
+  (PROG (#1=#:G317 |k| #2=#:G316 |j| #3=#:G315 #4=#:G314 |m|)
     (RETURN
      (SEQ (LETT |m| (- (LENGTH |x|) 3) . #5=(|GUESS;deg1|))
           (EXIT
@@ -181,7 +181,7 @@
                       (QREFELT $ 20)))))))) 
 
 (DEFUN |GUESS;deg2| (|x| |i| $)
-  (PROG (|j| #1=#:G321 |m|)
+  (PROG (|j| #1=#:G323 |m|)
     (RETURN
      (SEQ (LETT |m| (- (LENGTH |x|) 3) . #2=(|GUESS;deg2|))
           (EXIT
@@ -238,7 +238,7 @@
             (QREFELT $ 31))) 
 
 (DEFUN |GUESS;checkResult| (|res| |n| |l| |list| $)
-  (PROG (#1=#:G331 #2=#:G327 |num| #3=#:G326 |den| |i|)
+  (PROG (#1=#:G333 #2=#:G329 |num| #3=#:G328 |den| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -293,10 +293,10 @@
           "Guess: type parameter F should be either equal to S or equal                       to Fraction S")))) 
 
 (DEFUN |GUESS;guess;LLLLL;8| (|list| |guessers| |ops| |options| $)
-  (PROG (|res| #1=#:G387 |guess| |sumGuess| |summ| |init| #2=#:G386 |var|
-         |sumList| #3=#:G385 |i| #4=#:G384 #5=#:G378 #6=#:G383 |prodGuess|
-         |prod| #7=#:G382 |prodList| #8=#:G381 #9=#:G380 |newMaxLevel|
-         #10=#:G341 #11=#:G379 |guesser| |len| #12=#:G337 |xx|)
+  (PROG (|res| #1=#:G389 |guess| |sumGuess| |summ| |init| #2=#:G388 |var|
+         |sumList| #3=#:G387 |i| #4=#:G386 #5=#:G380 #6=#:G385 |prodGuess|
+         |prod| #7=#:G384 |prodList| #8=#:G383 #9=#:G382 |newMaxLevel|
+         #10=#:G343 #11=#:G381 |guesser| |len| #12=#:G339 |xx|)
     (RETURN
      (SEQ
       (EXIT
@@ -644,8 +644,8 @@
   (SPADCALL (SPADCALL (SPADCALL |i| (QREFELT $ 45)) DN) (QREFELT $ 9))) 
 
 (DEFUN |GUESS;evalResultant| (|p1| |p2| |o| |d| |va1| |vA| $)
-  (PROG (|res| #1=#:G416 #2=#:G414 |lead| #3=#:G412 #4=#:G410 |d2atk| |d1atk|
-         |p2atk| |p1atk| #5=#:G422 |k| |d2| |d1|)
+  (PROG (|res| #1=#:G418 #2=#:G416 |lead| #3=#:G414 #4=#:G412 |d2atk| |d1atk|
+         |p2atk| |p1atk| #5=#:G424 |k| |d2| |d1|)
     (RETURN
      (SEQ (LETT |res| NIL . #6=(|GUESS;evalResultant|))
           (LETT |d1| (SPADCALL |p1| |va1| (QREFELT $ 159)) . #6#)
@@ -748,11 +748,11 @@
             (QREFELT $ 111))) 
 
 (DEFUN |GUESS;guessExpRatAux| (|xx| |list| |basis| |xValues| |options| $)
-  (PROG (#1=#:G482 |res| |res4| |denr| |numr| |ri1| |t2| |t1| |a1v| #2=#:G486
-         |g| |evalPoly| |Av| #3=#:G485 |f| |res3| |res2| |res1| |d2| |o2| |d1|
-         |o1| |n| |poly3| |poly2| |poly1| |ri| #4=#:G461 |i| |maxDeg| |maxD|
-         |y3| |y2| |y1| |ylist| #5=#:G484 |y| |x3| |x2| |x1| |xlist| #6=#:G483
-         |len| #7=#:G435 A |a1|)
+  (PROG (#1=#:G484 |res| |res4| |denr| |numr| |ri1| |t2| |t1| |a1v| #2=#:G488
+         |g| |evalPoly| |Av| #3=#:G487 |f| |res3| |res2| |res1| |d2| |o2| |d1|
+         |o1| |n| |poly3| |poly2| |poly1| |ri| #4=#:G463 |i| |maxDeg| |maxD|
+         |y3| |y2| |y1| |ylist| #5=#:G486 |y| |x3| |x2| |x1| |xlist| #6=#:G485
+         |len| #7=#:G437 A |a1|)
     (RETURN
      (SEQ
       (EXIT
@@ -1084,8 +1084,8 @@
                 (QREFELT $ 174)))))) 
 
 (DEFUN |GUESS;guessExpRatAux0| (|list| |basis| |options| $)
-  (PROG (|res| #1=#:G503 |f| #2=#:G502 |xValues| |newlist| |i| #3=#:G501 |x|
-         |zeros| #4=#:G500 |shortlist| #5=#:G489 #6=#:G499 |len| |xx|)
+  (PROG (|res| #1=#:G505 |f| #2=#:G504 |xValues| |newlist| |i| #3=#:G503 |x|
+         |zeros| #4=#:G502 |shortlist| #5=#:G491 #6=#:G501 |len| |xx|)
     (RETURN
      (SEQ
       (EXIT
@@ -1234,7 +1234,7 @@
      (PROGN (SPADCALL (SPADCALL |q| (QREFELT $ 39)) |i1| (QREFELT $ 216)))))) 
 
 (DEFUN |GUESS;binExt| (|i| |va1| |vA| $)
-  (PROG (|num| |numl| #1=#:G517 |l| #2=#:G516)
+  (PROG (|num| |numl| #1=#:G519 |l| #2=#:G518)
     (RETURN
      (SEQ
       (LETT |numl|
@@ -1278,10 +1278,10 @@
 
 (DEFUN |GUESS;guessBinRatAux|
        (|xx| |list| |basis| |ext| |extEXPR| |xValues| |options| $)
-  (PROG (#1=#:G548 |res| |res4| |denr| |numr| |ri1| |t2| |t1| |a1v| #2=#:G552
-         |g| |evalPoly| |Av| #3=#:G551 |f| |res3| |res2| |res1| |n| |poly3|
-         |poly2| |poly1| |ri| #4=#:G531 |i| |maxDeg| |maxD| |y3| |y2| |y1|
-         |ylist| #5=#:G550 |y| |x3| |x2| |x1| |xlist| #6=#:G549 |len| #7=#:G519
+  (PROG (#1=#:G550 |res| |res4| |denr| |numr| |ri1| |t2| |t1| |a1v| #2=#:G554
+         |g| |evalPoly| |Av| #3=#:G553 |f| |res3| |res2| |res1| |n| |poly3|
+         |poly2| |poly1| |ri| #4=#:G533 |i| |maxDeg| |maxD| |y3| |y2| |y1|
+         |ylist| #5=#:G552 |y| |x3| |x2| |x1| |xlist| #6=#:G551 |len| #7=#:G521
          A |a1|)
     (RETURN
      (SEQ
@@ -1574,8 +1574,8 @@
                 (QREFELT $ 237)))))) 
 
 (DEFUN |GUESS;guessBinRatAux0| (|list| |basis| |ext| |extEXPR| |options| $)
-  (PROG (|res| #1=#:G575 |f| #2=#:G574 |xValues| |newlist| |i| #3=#:G573 |x|
-         |zeros| #4=#:G572 |shortlist| #5=#:G555 #6=#:G571 |len| |xx|)
+  (PROG (|res| #1=#:G577 |f| #2=#:G576 |xValues| |newlist| |i| #3=#:G575 |x|
+         |zeros| #4=#:G574 |shortlist| #5=#:G557 #6=#:G573 |len| |xx|)
     (RETURN
      (SEQ
       (EXIT
@@ -1716,7 +1716,7 @@
      (PROGN (SPADCALL (SPADCALL |q| (QREFELT $ 39)) |z1| (QREFELT $ 216)))))) 
 
 (DEFUN |GUESS;qBinExtAux| (|q| |i| |va1| |vA| $)
-  (PROG (|fl| |l| #1=#:G599)
+  (PROG (|fl| |l| #1=#:G601)
     (RETURN
      (SEQ
       (LETT |fl|
@@ -1929,7 +1929,7 @@
     (LETT |maxP| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G616)
+      (PROG (#2=#:G618)
         (RETURN
          (SPADCALL (SPADCALL |z1| (QREFELT $ 270))
                    (PROG2 (LETT #2# |maxP| NIL)
@@ -1968,7 +1968,7 @@
                 |z1| |z1| (QREFELT $ 260)))))) 
 
 (DEFUN |GUESS;termAsEXPRR| (|f| |xx| |partition| DX D1X $)
-  (PROG (|fl| #1=#:G654 #2=#:G653 #3=#:G662 |part| #4=#:G661 |ll|)
+  (PROG (|fl| #1=#:G656 #2=#:G655 #3=#:G664 |part| #4=#:G663 |ll|)
     (RETURN
      (SEQ
       (COND ((NULL |partition|) (SPADCALL |xx| D1X))
@@ -2015,8 +2015,8 @@
               (EXIT (SPADCALL (ELT $ 105) |fl| (QREFELT $ 282)))))))))) 
 
 (DEFUN |GUESS;termAsU32VectorDiff| (|f| |partition| |prime| |degreeLoss| $)
-  (PROG (|fl| #1=#:G666 #2=#:G665 #3=#:G675 |part| #4=#:G674 |ll| |d| #5=#:G664
-         #6=#:G673 |i| #7=#:G672)
+  (PROG (|fl| #1=#:G668 #2=#:G667 #3=#:G677 |part| #4=#:G676 |ll| |d| #5=#:G666
+         #6=#:G675 |i| #7=#:G674)
     (RETURN
      (SEQ
       (COND
@@ -2085,8 +2085,8 @@
     (RETURN (PROGN (SPADCALL |f1| |f2| |d| |prime| (QREFELT $ 288)))))) 
 
 (DEFUN |GUESS;termAsU32VectorShift| (|f| |partition| |prime| |degreeLoss| $)
-  (PROG (#1=#:G692 |e| |i| |r| |fl| #2=#:G678 #3=#:G691 |j| #4=#:G690 #5=#:G689
-         |part| #6=#:G688 |ll| |d| #7=#:G677 #8=#:G687 #9=#:G686)
+  (PROG (#1=#:G694 |e| |i| |r| |fl| #2=#:G680 #3=#:G693 |j| #4=#:G692 #5=#:G691
+         |part| #6=#:G690 |ll| |d| #7=#:G679 #8=#:G689 #9=#:G688)
     (RETURN
      (SEQ
       (COND
@@ -2174,7 +2174,7 @@
          (EXIT |r|)))))))) 
 
 (DEFUN |GUESS;termAsUFPSF| (|f| |partition| DS D1 $)
-  (PROG (|fl| #1=#:G701 #2=#:G700 #3=#:G709 |part| #4=#:G708 |ll|)
+  (PROG (|fl| #1=#:G703 #2=#:G702 #3=#:G711 |part| #4=#:G710 |ll|)
     (RETURN
      (SEQ
       (COND ((NULL |partition|) D1)
@@ -2221,7 +2221,7 @@
               (EXIT (SPADCALL (ELT $ 295) |fl| (QREFELT $ 298)))))))))) 
 
 (DEFUN |GUESS;termAsUFPSF2| (|f| |partition| DS D1 $)
-  (PROG (|fl| #1=#:G713 #2=#:G721 |part| #3=#:G720 |ll|)
+  (PROG (|fl| #1=#:G715 #2=#:G723 |part| #3=#:G722 |ll|)
     (RETURN
      (SEQ
       (COND ((NULL |partition|) D1)
@@ -2268,7 +2268,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G711)
+      (PROG (#2=#:G713)
         (RETURN
          (SPADCALL |z1|
                    (PROG1 (LETT #2# (SPADCALL |part| (QREFELT $ 280)) NIL)
@@ -2276,7 +2276,7 @@
                    (QREFELT $ 299)))))))) 
 
 (DEFUN |GUESS;termAsUFPSSUPF2| (|f| |partition| DSF D1F $)
-  (PROG (|fl| #1=#:G724 #2=#:G732 |part| #3=#:G731 |ll|)
+  (PROG (|fl| #1=#:G726 #2=#:G734 |part| #3=#:G733 |ll|)
     (RETURN
      (SEQ
       (COND ((NULL |partition|) D1F)
@@ -2323,7 +2323,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G722)
+      (PROG (#2=#:G724)
         (RETURN
          (SPADCALL |z1|
                    (PROG1 (LETT #2# (SPADCALL |part| (QREFELT $ 280)) NIL)
@@ -2360,8 +2360,8 @@
 
 (DEFUN |GUESS;guessModGenCached|
        (|cache| |np| |sigma| |addOne| |maxD| |prodl| |terml| |prime| $)
-  (PROG (|i| #1=#:G754 |r| |res| #2=#:G752 #3=#:G753 |res1| #4=#:G743 |nt|
-         #5=#:G750 #6=#:G751 |pp|)
+  (PROG (|i| #1=#:G756 |r| |res| #2=#:G754 #3=#:G755 |res1| #4=#:G745 |nt|
+         #5=#:G752 #6=#:G753 |pp|)
     (RETURN
      (SEQ
       (SEQ (LETT |pp| NIL . #7=(|GUESS;guessModGenCached|))
@@ -2425,7 +2425,7 @@
 
 (DEFUN |GUESS;DEPguessModGenCached|
        (|fl| |addOne| |maxD| |prodl| |terml| |prime| $)
-  (PROG (|i| #1=#:G759 |f| |cache| |np| |sigma|)
+  (PROG (|i| #1=#:G761 |f| |cache| |np| |sigma|)
     (RETURN
      (SEQ
       (COND
@@ -2479,7 +2479,7 @@
                |prodl| |terml| |prime| $))))))))) 
 
 (DEFUN |GUESS;ADEtestGenCached| (|f| |addOne| |maxD| |prodl| |terml| DSF D1F $)
-  (PROG (|i| #1=#:G776 |r| |res| #2=#:G774 #3=#:G775 |nt| #4=#:G772 #5=#:G773
+  (PROG (|i| #1=#:G778 |r| |res| #2=#:G776 #3=#:G777 |nt| #4=#:G774 #5=#:G775
          |pp| |cache| |np|)
     (RETURN
      (SEQ (LETT |np| (LENGTH |prodl|) . #6=(|GUESS;ADEtestGenCached|))
@@ -2590,7 +2590,7 @@
                |prodl| |terml| |prime| $))))))))) 
 
 (DEFUN |GUESS;optimiseFactor| (|partition| |partitions| $)
-  (PROG (#1=#:G801 |j| |r| #2=#:G802 |p| |i| |n|)
+  (PROG (#1=#:G803 |j| |r| #2=#:G804 |p| |i| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -2660,8 +2660,8 @@
                          (QREFELT $ 350))))))))))) 
 
 (DEFUN |GUESS;optimiseProducts| (|partitions| $)
-  (PROG (#1=#:G818 |terms0| #2=#:G822 |p| |parts0| |i| #3=#:G821 |prods0|
-         |maxD0| #4=#:G820 |addOne0|)
+  (PROG (#1=#:G820 |terms0| #2=#:G824 |p| |parts0| |i| #3=#:G823 |prods0|
+         |maxD0| #4=#:G822 |addOne0|)
     (RETURN
      (SEQ
       (EXIT
@@ -2789,7 +2789,7 @@
     (LETT |d| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G846 |p| #3=#:G845 |f|)
+      (PROG (#2=#:G848 |p| #3=#:G847 |f|)
         (RETURN
          (SEQ
           (COND
@@ -2850,7 +2850,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G859 |p| #3=#:G858)
+      (PROG (#2=#:G861 |p| #3=#:G860)
         (RETURN
          (SEQ
           (SPADCALL
@@ -2891,7 +2891,7 @@
                (QREFELT $ 373))))) 
 
 (DEFUN |GUESS;ADEdegreeStream!0| (|z1| |z2| $)
-  (PROG (#1=#:G867)
+  (PROG (#1=#:G869)
     (RETURN
      (SPADCALL
       (COND ((SPADCALL |z1| (QREFELT $ 368)) (|spadConstant| $ 275))
@@ -2979,7 +2979,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G894 |i| #3=#:G893)
+      (PROG (#2=#:G896 |i| #3=#:G895)
         (RETURN
          (SEQ
           (|GUESS;ADEtestOptimisedGen|
@@ -3021,7 +3021,7 @@
        (CONS (|function| |GUESS;diffDS|) $) (|spadConstant| $ 326) $))))) 
 
 (DEFUN |GUESS;monomialAsEXPRR| (|fl0| |partition| $)
-  (PROG (|fl| #1=#:G930 #2=#:G929 #3=#:G938 |part| #4=#:G937 |ll|)
+  (PROG (|fl| #1=#:G932 #2=#:G931 #3=#:G940 |part| #4=#:G939 |ll|)
     (RETURN
      (SEQ
       (COND ((NULL |partition|) (|spadConstant| $ 94))
@@ -3079,8 +3079,8 @@
     (RETURN (PROGN (|GUESS;monomialAsEXPRR| |fl| |z1| $))))) 
 
 (DEFUN |GUESS;get_fnames| (|n| |options| $)
-  (PROG (#1=#:G952 |sym| #2=#:G951 |syms| #3=#:G950 |i| #4=#:G949 |snums| |q|
-         #5=#:G948 |n1|)
+  (PROG (#1=#:G954 |sym| #2=#:G953 |syms| #3=#:G952 |i| #4=#:G951 |snums| |q|
+         #5=#:G950 |n1|)
     (RETURN
      (SEQ
       (LETT |syms| (SPADCALL |options| (QREFELT $ 401))
@@ -3187,7 +3187,7 @@
     (LETT |fakeDSF| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G971 |i| #3=#:G970)
+      (PROG (#2=#:G973 |i| #3=#:G972)
         (RETURN
          (SEQ
           (|GUESS;ADEtestOptimisedGen|
@@ -3258,7 +3258,7 @@
             (QREFELT $ 46))) 
 
 (DEFUN |GUESS;substDS| (|s| |n| $)
-  (PROG (#1=#:G987)
+  (PROG (#1=#:G989)
     (RETURN
      (SPADCALL |s|
                (PROG1 (LETT #1# (+ |n| 1) |GUESS;substDS|)
@@ -3266,7 +3266,7 @@
                (QREFELT $ 411))))) 
 
 (DEFUN |GUESS;substDSF| (|s| |n| $)
-  (PROG (#1=#:G989)
+  (PROG (#1=#:G991)
     (RETURN
      (SPADCALL |s|
                (PROG1 (LETT #1# (+ |n| 1) |GUESS;substDSF|)
@@ -3319,7 +3319,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G1007 |i| #3=#:G1006)
+      (PROG (#2=#:G1009 |i| #3=#:G1008)
         (RETURN
          (SEQ
           (|GUESS;ADEtestOptimisedGen|
@@ -3382,7 +3382,7 @@
     (LETT |n| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G1028)
+      (PROG (#2=#:G1030)
         (RETURN
          (SPADCALL (SPADCALL |q| (QREFELT $ 242))
                    (PROG1 (LETT #2# (SPADCALL |n| |z1| (QREFELT $ 414)) NIL)
@@ -3390,7 +3390,7 @@
                    (QREFELT $ 299)))))))) 
 
 (DEFUN |GUESS;qDiffDSV| (|f| |n| |prime| |q| $)
-  (PROG (Q |i| |qn| |r| #1=#:G1032 |d|)
+  (PROG (Q |i| |qn| |r| #1=#:G1034 |d|)
     (RETURN
      (SEQ
       (COND ((ZEROP |n|) |f|)
@@ -3435,7 +3435,7 @@
     (LETT |n| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G1039)
+      (PROG (#2=#:G1041)
         (RETURN
          (SPADCALL (SPADCALL (SPADCALL |q| (QREFELT $ 242)) (QREFELT $ 418))
                    (PROG1 (LETT #2# (SPADCALL |n| |z1| (QREFELT $ 414)) NIL)
@@ -3443,8 +3443,8 @@
                    (QREFELT $ 305)))))))) 
 
 (DEFUN |GUESS;termAsU32VectorqDiff| (|f| |partition| |prime| |q| |dl| $)
-  (PROG (|fl| #1=#:G1045 #2=#:G1044 #3=#:G1055 |part| #4=#:G1054 |ll| |d|
-         #5=#:G1043 #6=#:G1053 |i| #7=#:G1052)
+  (PROG (|fl| #1=#:G1047 #2=#:G1046 #3=#:G1057 |part| #4=#:G1056 |ll| |d|
+         #5=#:G1045 #6=#:G1055 |i| #7=#:G1054)
     (RETURN
      (SEQ
       (COND
@@ -3522,7 +3522,7 @@
     (LETT |d| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G1061 |p| #3=#:G1060 |f|)
+      (PROG (#2=#:G1063 |p| #3=#:G1062 |f|)
         (RETURN
          (SEQ
           (COND
@@ -3613,7 +3613,7 @@
     (LETT |q| (QREFELT $$ 0) NIL)
     (RETURN
      (PROGN
-      (PROG (#1=#:G1077 |i| #2=#:G1076)
+      (PROG (#1=#:G1079 |i| #2=#:G1078)
         (RETURN
          (SEQ
           (|GUESS;ADEtestOptimisedGen|
@@ -3679,7 +3679,7 @@
             (QREFELT $ 46))) 
 
 (DEFUN |GUESS;ShiftSXGF| (|expr| |x| |n| $)
-  (PROG (|l| #1=#:G1104 |i| #2=#:G1103)
+  (PROG (|l| #1=#:G1106 |i| #2=#:G1105)
     (RETURN
      (SEQ
       (COND ((ZEROP |n|) |expr|)
@@ -3729,7 +3729,7 @@
             (QREFELT $ 105))) 
 
 (DEFUN |GUESS;ShiftAXGF| (|l| |x| |f| $)
-  (PROG (|s| |i| #1=#:G1114)
+  (PROG (|s| |i| #1=#:G1116)
     (RETURN
      (SEQ
       (COND ((ZEROP |l|) |f|)
@@ -3811,7 +3811,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G1133 |i| #3=#:G1132)
+      (PROG (#2=#:G1135 |i| #3=#:G1134)
         (RETURN
          (SEQ
           (|GUESS;ADEtestGen2|
@@ -3884,7 +3884,7 @@
   (SPADCALL (SPADCALL |q| (QREFELT $ 448)) |total| (QREFELT $ 451))) 
 
 (DEFUN |GUESS;qSubstUFPSF| (|q| |s| |maxMD| $)
-  (PROG (|i| #1=#:G1158)
+  (PROG (|i| #1=#:G1160)
     (RETURN
      (SEQ
       (PROGN
@@ -3909,7 +3909,7 @@
             (EXIT (NREVERSE #1#)))))))) 
 
 (DEFUN |GUESS;qSubstEXPRR| (|q| |xx| |s| |maxMD| $)
-  (PROG (|i| #1=#:G1161)
+  (PROG (|i| #1=#:G1163)
     (RETURN
      (SEQ
       (PROGN
@@ -3975,8 +3975,8 @@
     (LETT |partitions| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|l| |vv| |e| |vn| |i| |r| |lastv| #2=#:G1185 |v| #3=#:G1186 |w|
-             |vv1| #4=#:G1184 |p| #5=#:G1183 O #6=#:G1169 |qv| |d| #7=#:G1167
+      (PROG (|l| |vv| |e| |vn| |i| |r| |lastv| #2=#:G1187 |v| #3=#:G1188 |w|
+             |vv1| #4=#:G1186 |p| #5=#:G1185 O #6=#:G1171 |qv| |d| #7=#:G1169
              |f|)
         (RETURN
          (SEQ
@@ -4159,7 +4159,7 @@
     (LETT |maxMD| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|i| #2=#:G1190)
+      (PROG (|i| #2=#:G1192)
         (RETURN
          (SEQ
           (PROGN
@@ -4186,9 +4186,9 @@
     (LETT |q| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|res| #2=#:G1213 |i| #3=#:G1212 |f0| |exponents| #4=#:G1200
-             |oldPartition| #5=#:G1211 #6=#:G1210 |newPartition| #7=#:G1194
-             #8=#:G1209 |p| #9=#:G1193)
+      (PROG (|res| #2=#:G1215 |i| #3=#:G1214 |f0| |exponents| #4=#:G1202
+             |oldPartition| #5=#:G1213 #6=#:G1212 |newPartition| #7=#:G1196
+             #8=#:G1211 |p| #9=#:G1195)
         (RETURN
          (SEQ (LETT |res| NIL NIL) (LETT |exponents| NIL NIL)
               (LETT |oldPartition|
@@ -4508,7 +4508,7 @@
     (LETT $ (QREFELT $$ 0) NIL)
     (RETURN
      (PROGN
-      (PROG (#1=#:G1236 |i| #2=#:G1235)
+      (PROG (#1=#:G1238 |i| #2=#:G1237)
         (RETURN
          (SEQ
           (|GUESS;ADEtestGen2|
@@ -4577,7 +4577,7 @@
   (SPADCALL (SPADCALL |list| (QREFELT $ 496)) (QREFELT $ 497))) 
 
 (DEFUN |GUESS;list2UFPSSUPF| (|list| $)
-  (PROG (|l2| |s1| |l1| #1=#:G1283 |e| #2=#:G1282)
+  (PROG (|l2| |s1| |l1| #1=#:G1285 |e| #2=#:G1284)
     (RETURN
      (SEQ
       (LETT |l1|
@@ -4603,7 +4603,7 @@
       (EXIT (SPADCALL (SPADCALL |l1| |l2| (QREFELT $ 506)) (QREFELT $ 507))))))) 
 
 (DEFUN |GUESS;list2UFPSSUPF!0| (|i| $)
-  (PROG (#1=#:G1278)
+  (PROG (#1=#:G1280)
     (RETURN
      (SPADCALL (|spadConstant| $ 11)
                (SPADCALL (|spadConstant| $ 360)
@@ -4631,9 +4631,9 @@
     (RETURN (PROGN (|GUESS;UFPSF2SUPF| |z1| |deg| $))))) 
 
 (DEFUN |GUESS;precCheck| (|list| |resi| |options| |sigma| |bad| $)
-  (PROG (#1=#:G1327 #2=#:G1322 |res2| |p2val| |p2| #3=#:G1329 |j| #4=#:G1318
-         |si| |i| #5=#:G1315 |res1| |gl| #6=#:G1309 #7=#:G1328 #8=#:G1305
-         #9=#:G1302 |cden| |c2| #10=#:G1298 |c1| |pp| |vd| |vi| |order| |j0|
+  (PROG (#1=#:G1329 #2=#:G1324 |res2| |p2val| |p2| #3=#:G1331 |j| #4=#:G1320
+         |si| |i| #5=#:G1317 |res1| |gl| #6=#:G1311 #7=#:G1330 #8=#:G1307
+         #9=#:G1304 |cden| |c2| #10=#:G1300 |c1| |pp| |vd| |vi| |order| |j0|
          |svar| |max_ind| |degree_loss| |gl0| |m| |resv| |homo| |homp|)
     (RETURN
      (SEQ
@@ -5036,9 +5036,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GUESS;checkInterpolant| (|list| |o| |resi| D |options| |sigma| $)
-  (PROG (#1=#:G1377 #2=#:G1370 |order| |c| |d| |dmax| |resiSUPF| #3=#:G1381 |i|
-         #4=#:G1380 |testList| |flist| #5=#:G1359 #6=#:G1379 |maxPow| |maxP|
-         |len| |reject_one_term| #7=#:G1338 |nonZeroCoefficients| #8=#:G1378)
+  (PROG (#1=#:G1379 #2=#:G1372 |order| |c| |d| |dmax| |resiSUPF| #3=#:G1383 |i|
+         #4=#:G1382 |testList| |flist| #5=#:G1361 #6=#:G1381 |maxPow| |maxP|
+         |len| |reject_one_term| #7=#:G1340 |nonZeroCoefficients| #8=#:G1380)
     (RETURN
      (SEQ
       (EXIT
@@ -5207,8 +5207,8 @@
 
 (DEFUN |GUESS;wrapInterpolant|
        (|resi| |exprList| |initials| D |op| |options| $)
-  (PROG (|ex| #1=#:G1412 |p| #2=#:G1413 |e| #3=#:G1411 |eq| #4=#:G1409
-         #5=#:G1410 #6=#:G1408 |dk|)
+  (PROG (|ex| #1=#:G1414 |p| #2=#:G1415 |e| #3=#:G1413 |eq| #4=#:G1411
+         #5=#:G1412 #6=#:G1410 |dk|)
     (RETURN
      (SEQ
       (LETT |dk| (SPADCALL |options| (QREFELT $ 383))
@@ -5292,8 +5292,8 @@
 
 (DEFUN |GUESS;guessInterpolateModular|
        (|lists| |degs| |o| |degreeLoss| |guessDegree| D |options| $)
-  (PROG (|check| |i| #1=#:G1462 |deg| #2=#:G1461 #3=#:G1460 |maxD| #4=#:G1420
-         #5=#:G1458 |del| |leadingZeros| #6=#:G1459 |el| |sigma| #7=#:G1418
+  (PROG (|check| |i| #1=#:G1464 |deg| #2=#:G1463 #3=#:G1462 |maxD| #4=#:G1422
+         #5=#:G1460 |del| |leadingZeros| #6=#:G1461 |el| |sigma| #7=#:G1420
          |list|)
     (RETURN
      (SEQ
@@ -5444,11 +5444,11 @@
 
 (DEFUN |GUESS;guessInterpolateFFFG|
        (|lists| |degs| |o| |guessDegree| D |options| $)
-  (PROG (#1=#:G1540 |j| |c| |cl| #2=#:G1556 #3=#:G1554 |i1| #4=#:G1555 |i2|
-         |Mr| |m| |rl| |ce| #5=#:G1553 |i| M |vguessListF| |vguessList|
-         |guessPolys| #6=#:G1524 |guessList| |guessS| |sumEta| |eta| #7=#:G1552
-         |deg| #8=#:G1486 #9=#:G1551 #10=#:G1476 #11=#:G1550 |maxD| #12=#:G1465
-         #13=#:G1549 |d| #14=#:G1548 |list|)
+  (PROG (#1=#:G1542 |j| |c| |cl| #2=#:G1558 #3=#:G1556 |i1| #4=#:G1557 |i2|
+         |Mr| |m| |rl| |ce| #5=#:G1555 |i| M |vguessListF| |vguessList|
+         |guessPolys| #6=#:G1526 |guessList| |guessS| |sumEta| |eta| #7=#:G1554
+         |deg| #8=#:G1488 #9=#:G1553 #10=#:G1478 #11=#:G1552 |maxD| #12=#:G1467
+         #13=#:G1551 |d| #14=#:G1550 |list|)
     (RETURN
      (SEQ
       (LETT |list| (|SPADfirst| |lists|) . #15=(|GUESS;guessInterpolateFFFG|))
@@ -5724,7 +5724,7 @@
     (LETT |options| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|degs| M0 #2=#:G1572 M)
+      (PROG (|degs| M0 #2=#:G1574 M)
         (RETURN
          (SEQ
           (EXIT
@@ -5806,9 +5806,9 @@
         |options| |vs| $)))))) 
 
 (DEFUN |GUESS;guessHPaux| (|lists| D |options| $)
-  (PROG (#1=#:G1648 |reslist| |res| #2=#:G1650 |i| |exprList| MS M #3=#:G1642
-         #4=#:G1635 #5=#:G1649 #6=#:G1605 #7=#:G1598 |maxD| |guessDegree|
-         |degreeLoss| #8=#:G1646 #9=#:G1589 |o| |exprS| #10=#:G1588 |dk|
+  (PROG (#1=#:G1650 |reslist| |res| #2=#:G1652 |i| |exprList| MS M #3=#:G1644
+         #4=#:G1637 #5=#:G1651 #6=#:G1607 #7=#:G1600 |maxD| |guessDegree|
+         |degreeLoss| #8=#:G1648 #9=#:G1591 |o| |exprS| #10=#:G1590 |dk|
          |degreeS| |op| |listDegree| |list|)
     (RETURN
      (SEQ
@@ -6139,9 +6139,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GUESS;processOptions| (|options| $)
-  (PROG (#1=#:G1699 #2=#:G1694 #3=#:G1692 #4=#:G1702 #5=#:G1658 |i| #6=#:G1701
-         |minP| |hom?| #7=#:G1667 #8=#:G1700 |maxSomos| #9=#:G1652 #10=#:G1663
-         #11=#:G1661 |maxD| #12=#:G1655 |Som?|)
+  (PROG (#1=#:G1701 #2=#:G1696 #3=#:G1694 #4=#:G1704 #5=#:G1660 |i| #6=#:G1703
+         |minP| |hom?| #7=#:G1669 #8=#:G1702 |maxSomos| #9=#:G1654 #10=#:G1665
+         #11=#:G1663 |maxD| #12=#:G1657 |Som?|)
     (RETURN
      (SEQ
       (EXIT
@@ -6282,8 +6282,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GUESS;guessAlgDep;LLL;128| (|lists| |options| $)
-  (PROG (|lres| #1=#:G1716 |res| #2=#:G1718 |opts| |lopts| #3=#:G1708
-         #4=#:G1704 #5=#:G1717 |li| |nn| |rl| |l|)
+  (PROG (|lres| #1=#:G1718 |res| #2=#:G1720 |opts| |lopts| #3=#:G1710
+         #4=#:G1706 #5=#:G1719 |li| |nn| |rl| |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -6355,7 +6355,7 @@
   (SPADCALL |lists| NIL (QREFELT $ 644))) 
 
 (DEFUN |GUESS;guessADE;LLL;130| (|list| |options| $)
-  (PROG (|lres| #1=#:G1726 |res| #2=#:G1727 |opts| |lopts|)
+  (PROG (|lres| #1=#:G1728 |res| #2=#:G1729 |opts| |lopts|)
     (RETURN
      (SEQ
       (EXIT
@@ -6418,7 +6418,7 @@
   (SPADCALL |list| NIL (QREFELT $ 655))) 
 
 (DEFUN |GUESS;guessFE;LLL;138| (|list| |options| $)
-  (PROG (|lres| #1=#:G1754 |res| #2=#:G1755 |opts| |lopts|)
+  (PROG (|lres| #1=#:G1756 |res| #2=#:G1757 |opts| |lopts|)
     (RETURN
      (SEQ
       (EXIT
@@ -6459,7 +6459,7 @@
     (LETT |q| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|lres| #2=#:G1763 |res| #3=#:G1764 |opts| |lopts|)
+      (PROG (|lres| #2=#:G1765 |res| #3=#:G1766 |opts| |lopts|)
         (RETURN
          (SEQ
           (EXIT
@@ -6509,7 +6509,7 @@
                 (SPADCALL |q| (QREFELT $ 663))))))) 
 
 (DEFUN |GUESS;guessRec;LLL;142| (|list| |options| $)
-  (PROG (|lres| #1=#:G1777 |res| #2=#:G1778 |opts| |lopts|)
+  (PROG (|lres| #1=#:G1779 |res| #2=#:G1780 |opts| |lopts|)
     (RETURN
      (SEQ
       (EXIT
@@ -6573,7 +6573,7 @@
     (LETT |q| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|lres| #2=#:G1800 |res| #3=#:G1801 |opts| |lopts|)
+      (PROG (|lres| #2=#:G1802 |res| #3=#:G1803 |opts| |lopts|)
         (RETURN
          (SEQ
           (EXIT
@@ -6642,10 +6642,10 @@
                  (QREFELT $ 654))
                 (SPADCALL |q| (QREFELT $ 671))))))) 
 
-(DEFUN |Guess| (&REST #1=#:G1816)
+(DEFUN |Guess| (&REST #1=#:G1818)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1817)
+     (PROG (#2=#:G1819)
        (RETURN
         (COND
          ((LETT #2#

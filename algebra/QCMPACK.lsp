@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |QCMPACK;squareFreeFactors| (|lp| $)
-  (PROG (|lsflp| |lsfp| #1=#:G191 |p|)
+  (PROG (|lsflp| |lsfp| #1=#:G193 |p|)
     (RETURN
      (SEQ (LETT |lsflp| NIL . #2=(|QCMPACK;squareFreeFactors|))
           (SEQ (LETT |p| NIL . #2#) (LETT #1# |lp| . #2#) G190
@@ -69,7 +69,7 @@
    (EXIT (SPADCALL (ELT $ 38) |lts| (QREFELT $ 42))))) 
 
 (DEFUN |QCMPACK;moreAlgebraic?;2TSB;6| (|ts| |us| $)
-  (PROG (#1=#:G213 #2=#:G218 #3=#:G219 |p|)
+  (PROG (#1=#:G215 #2=#:G220 #3=#:G221 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -102,7 +102,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |QCMPACK;subTriSet?;2TSB;7| (|ts| |us| $)
-  (PROG (#1=#:G221 #2=#:G224)
+  (PROG (#1=#:G223 #2=#:G226)
     (RETURN
      (COND ((SPADCALL |ts| (QREFELT $ 44)) 'T)
            ((OR (SPADCALL |us| (QREFELT $ 44))
@@ -171,8 +171,8 @@
         ('T (SPADCALL (QCDR |lpwt1|) (QCDR |lpwt2|) (QREFELT $ 62))))) 
 
 (DEFUN |QCMPACK;internalSubQuasiComponent?;2TSU;13| (|ts| |us| $)
-  (PROG (#1=#:G272 #2=#:G278 #3=#:G281 |p| |lsfp| #4=#:G270 #5=#:G280 #6=#:G268
-         #7=#:G265 #8=#:G279)
+  (PROG (#1=#:G274 #2=#:G280 #3=#:G283 |p| |lsfp| #4=#:G272 #5=#:G282 #6=#:G270
+         #7=#:G267 #8=#:G281)
     (RETURN
      (SEQ
       (EXIT
@@ -275,7 +275,7 @@
                    (SPADCALL |k| |b| (QREFELT $ 74)) (EXIT |b|))))))))) 
 
 (DEFUN |QCMPACK;subQuasiComponent?;TSLB;15| (|ts| |lus| $)
-  (PROG (#1=#:G290 #2=#:G292 #3=#:G293 |us|)
+  (PROG (#1=#:G292 #2=#:G294 #3=#:G295 |us|)
     (RETURN
      (SEQ
       (EXIT
@@ -301,7 +301,7 @@
 
 (DEFUN |QCMPACK;removeSuperfluousCases;2L;16| (|cases| $)
   (PROG (|toSee| |headmaxcases| |copymaxcases| |maxcases| |toSave| |lpwt1|
-         #1=#:G320 |lpwt2|)
+         #1=#:G322 |lpwt2|)
     (RETURN
      (SEQ
       (COND ((< (LENGTH |cases|) 2) |cases|)
@@ -375,7 +375,7 @@
   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 38))) 
 
 (DEFUN |QCMPACK;removeSuperfluousQuasiComponents;2L;17| (|lts| $)
-  (PROG (|toSee| |headmaxlts| |copymaxlts| |maxlts| |toSave| |ts| #1=#:G337
+  (PROG (|toSee| |headmaxlts| |copymaxlts| |maxlts| |toSave| |ts| #1=#:G339
          |us|)
     (RETURN
      (SEQ
@@ -448,7 +448,7 @@
                    (EXIT (SPADCALL |maxlts| (QREFELT $ 43))))))))))) 
 
 (DEFUN |QCMPACK;removeAssociates| (|lp| $)
-  (PROG (#1=#:G341 |p| #2=#:G340)
+  (PROG (#1=#:G343 |p| #2=#:G342)
     (RETURN
      (SEQ
       (SPADCALL
@@ -465,8 +465,8 @@
 
 (DEFUN |QCMPACK;branchIfCan;LTSL5BU;19|
        (|leq| |ts| |lineq| |b1| |b2| |b3| |b4| |b5| $)
-  (PROG (|newleq| #1=#:G376 |newp| #2=#:G362 |g| #3=#:G380 |q| #4=#:G379 |p|
-         #5=#:G360 #6=#:G378 #7=#:G355 #8=#:G377 |ps| #9=#:G349)
+  (PROG (|newleq| #1=#:G378 |newp| #2=#:G364 |g| #3=#:G382 |q| #4=#:G381 |p|
+         #5=#:G362 #6=#:G380 #7=#:G357 #8=#:G379 |ps| #9=#:G351)
     (RETURN
      (SEQ
       (EXIT
@@ -600,9 +600,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |QCMPACK;prepareDecompose;LL2BL;20| (|lp| |lts| |b1| |b2| $)
-  (PROG (#1=#:G418 |ts| #2=#:G417 |toSee| |lq| |branches| #3=#:G389 |newBranch|
-         |lineq| |leq| |ubf2| |ubf1| #4=#:G416 |branch| #5=#:G415 |f| |lsfp|
-         #6=#:G414 |p| #7=#:G413 #8=#:G412)
+  (PROG (#1=#:G420 |ts| #2=#:G419 |toSee| |lq| |branches| #3=#:G391 |newBranch|
+         |lineq| |leq| |ubf2| |ubf1| #4=#:G418 |branch| #5=#:G417 |f| |lsfp|
+         #6=#:G416 |p| #7=#:G415 #8=#:G414)
     (RETURN
      (SEQ
       (LETT |lp|
@@ -837,10 +837,10 @@
 (DEFUN |QCMPACK;prepareDecompose;LL2BL;20!0| (|x| |y| $)
   (SPADCALL (QVELT |x| 1) (QVELT |y| 1) (QREFELT $ 38))) 
 
-(DEFUN |QuasiComponentPackage| (&REST #1=#:G419)
+(DEFUN |QuasiComponentPackage| (&REST #1=#:G421)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G420)
+     (PROG (#2=#:G422)
        (RETURN
         (COND
          ((LETT #2#

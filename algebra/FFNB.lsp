@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |FiniteFieldNormalBasis| (&REST #1=#:G165)
+(DEFUN |FiniteFieldNormalBasis| (&REST #1=#:G167)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G166)
+     (PROG (#2=#:G168)
        (RETURN
         (COND
          ((LETT #2#
@@ -23,7 +23,7 @@
               (HREM |$ConstructorCache| '|FiniteFieldNormalBasis|))))))))))) 
 
 (DEFUN |FiniteFieldNormalBasis;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G164 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G166 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldNormalBasis|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PGROEB;lexGroebner;LLL;1| (|lp| |lv| $)
-  (PROG (#1=#:G132 |pp| #2=#:G131 |gb| |b| #3=#:G130 |pol| #4=#:G129 OV DP
+  (PROG (#1=#:G134 |pp| #2=#:G133 |gb| |b| #3=#:G132 |pol| #4=#:G131 OV DP
          |DPoly| PP)
     (RETURN
      (SEQ
@@ -81,7 +81,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |PGROEB;totalGroebner;LLL;2| (|lp| |lv| $)
-  (PROG (#1=#:G140 |pp| #2=#:G139 |gb| |b| #3=#:G138 |pol| #4=#:G137 OV HDP
+  (PROG (#1=#:G142 |pp| #2=#:G141 |gb| |b| #3=#:G140 |pol| #4=#:G139 OV HDP
          |HDPoly| PP)
     (RETURN
      (SEQ
@@ -162,10 +162,10 @@
              (LETT #1# (CDR #1#) . #5#) (GO G190) G191
              (EXIT (NREVERSE #2#))))))))) 
 
-(DEFUN |PolyGroebner| (#1=#:G141)
+(DEFUN |PolyGroebner| (#1=#:G143)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G142)
+     (PROG (#2=#:G144)
        (RETURN
         (COND
          ((LETT #2#

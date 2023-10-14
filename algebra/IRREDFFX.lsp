@@ -63,10 +63,10 @@
                ('T (|IRREDFFX;getIrredPoly| 1 |n| $))))
         ('T (|IRREDFFX;getIrredPoly| (+ (QREFELT $ 11) 1) |n| $)))) 
 
-(DEFUN |IrredPolyOverFiniteField| (#1=#:G149)
+(DEFUN |IrredPolyOverFiniteField| (#1=#:G151)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G150)
+     (PROG (#2=#:G152)
        (RETURN
         (COND
          ((LETT #2#
@@ -84,7 +84,7 @@
               (HREM |$ConstructorCache| '|IrredPolyOverFiniteField|))))))))))) 
 
 (DEFUN |IrredPolyOverFiniteField;| (|#1|)
-  (PROG (#1=#:G133 #2=#:G132 |pv$| $ |dv$| DV$1)
+  (PROG (#1=#:G135 #2=#:G134 |pv$| $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|IrredPolyOverFiniteField|))

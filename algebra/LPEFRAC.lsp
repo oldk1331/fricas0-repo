@@ -30,8 +30,8 @@
                                  (QCDR |r|) (QREFELT $ 22))))))))))))))))) 
 
 (DEFUN |LPEFRAC;solveLinearPolynomialEquationByFractions;LSupU;2| (|lp| |pp| $)
-  (PROG (#1=#:G147 |vv| #2=#:G151 |v| #3=#:G150 |ans| |pF| |lpF| #4=#:G149 |u|
-         #5=#:G148)
+  (PROG (#1=#:G149 |vv| #2=#:G153 |v| #3=#:G152 |ans| |pF| |lpF| #4=#:G151 |u|
+         #5=#:G150)
     (RETURN
      (SEQ
       (EXIT
@@ -86,10 +86,10 @@
                             (EXIT (NREVERSE #3#))))))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |LinearPolynomialEquationByFractions| (#1=#:G152)
+(DEFUN |LinearPolynomialEquationByFractions| (#1=#:G154)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G153)
+     (PROG (#2=#:G155)
        (RETURN
         (COND
          ((LETT #2#

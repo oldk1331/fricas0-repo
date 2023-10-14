@@ -4,14 +4,14 @@
 (DEFPARAMETER |FieldOfPrimeCharacteristic;AL| 'NIL) 
 
 (DEFUN |FieldOfPrimeCharacteristic| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|FieldOfPrimeCharacteristic;AL|)
           (T
            (SETQ |FieldOfPrimeCharacteristic;AL|
                    (|FieldOfPrimeCharacteristic;|)))))) 
 
 (DEFUN |FieldOfPrimeCharacteristic;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1#

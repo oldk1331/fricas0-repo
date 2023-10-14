@@ -3,10 +3,10 @@
 
 (DEFUN |ODP;<;2$B;1| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 8))) 
 
-(DEFUN |OrderedDirectProduct| (&REST #1=#:G148)
+(DEFUN |OrderedDirectProduct| (&REST #1=#:G150)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G149)
+     (PROG (#2=#:G151)
        (RETURN
         (COND
          ((LETT #2#
@@ -25,7 +25,7 @@
               (HREM |$ConstructorCache| '|OrderedDirectProduct|))))))))))) 
 
 (DEFUN |OrderedDirectProduct;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G142 #2=#:G143 #3=#:G144 #4=#:G145 #5=#:G146 #6=#:G147 $
+  (PROG (|pv$| #1=#:G144 #2=#:G145 #3=#:G146 #4=#:G147 #5=#:G148 #6=#:G149 $
          |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

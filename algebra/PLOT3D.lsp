@@ -31,7 +31,7 @@
    (QREFELT $ 24))) 
 
 (DEFUN |PLOT3D;join| (|l| |i| $)
-  (PROG (|u| #1=#:G151 |r| |rr|)
+  (PROG (|u| #1=#:G153 |r| |rr|)
     (RETURN
      (SEQ (LETT |rr| (|SPADfirst| |l|) . #2=(|PLOT3D;join|))
           (LETT |u|
@@ -108,7 +108,7 @@
 (DEFUN |PLOT3D;tRange;$S;21| (|plot| $) (|SPADfirst| (QVELT |plot| 1))) 
 
 (DEFUN |PLOT3D;tValues;$L;22| (|plot| $)
-  (PROG (|outList| #1=#:G174 |curve|)
+  (PROG (|outList| #1=#:G176 |curve|)
     (RETURN
      (SEQ (LETT |outList| NIL . #2=(|PLOT3D;tValues;$L;22|))
           (SEQ (LETT |curve| NIL . #2#) (LETT #1# (QVELT |plot| 4) . #2#) G190
@@ -122,7 +122,7 @@
           (EXIT |outList|))))) 
 
 (DEFUN |PLOT3D;select| (|l| |f| |g| $)
-  (PROG (|m| |fp| #1=#:G179 |p|)
+  (PROG (|m| |fp| #1=#:G181 |p|)
     (RETURN
      (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|) . #2=(|PLOT3D;select|))
           (SEQ (LETT |p| NIL . #2#) (LETT #1# (CDR |l|) . #2#) G190
@@ -136,7 +136,7 @@
 
 (DEFUN |PLOT3D;rangeRefine| (|curve| |nRange| $)
   (PROG (|zRange| |yRange| |xRange| |p| |t| |t1| |i| |d| |n| |q| |c| |s|
-         #1=#:G216 |f| |h| |l|)
+         #1=#:G218 |f| |h| |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -249,7 +249,7 @@
 
 (DEFUN |PLOT3D;adaptivePlot|
        (|curve| |tRg| |xRg| |yRg| |zRg| |pixelfraction| |resolution| $)
-  (PROG (|p| |t| |todo2| |todo1| |tj| |tm| |st| |n| #1=#:G243 |dp| |s2| |s1|
+  (PROG (|p| |t| |todo2| |todo1| |tj| |tm| |st| |n| #1=#:G245 |dp| |s2| |s1|
          |c2| |b2| |a2| |c1| |b1| |a1| |z2| |y2| |x2| |z1| |y1| |x1| |z0| |y0|
          |x0| |sp| |t2| |t1| |t0| |todop| |todot| |headerp| |headert| |tLimit|
          |maxLength| |minLength| |f| |tDiff| |h| |l| |zDiff| |yDiff| |xDiff|)
@@ -1037,7 +1037,7 @@
                                                (#3# |curve|))))))))))))))))))) 
 
 (DEFUN |PLOT3D;basicPlot| (|f| |tRange| $)
-  (PROG (|zRange| |yRange| |xRange| |p| |t| |l| #1=#:G293 |i| |s| |h|)
+  (PROG (|zRange| |yRange| |xRange| |p| |t| |l| #1=#:G295 |i| |s| |h|)
     (RETURN
      (SEQ (|PLOT3D;checkRange| |tRange| $)
           (LETT |l| (SPADCALL |tRange| (QREFELT $ 20))
@@ -1150,8 +1150,8 @@
   (SPADCALL |p| (|PLOT3D;parametricRange| |p| $) (QREFELT $ 73))) 
 
 (DEFUN |PLOT3D;refine;$S$;30| (|p| |nRange| $)
-  (PROG (|zRange| |yRange| |xRange| |curves| |scrres| #1=#:G334 |c| #2=#:G333
-         |tlimit| #3=#:G332 #4=#:G331 |tRange|)
+  (PROG (|zRange| |yRange| |xRange| |curves| |scrres| #1=#:G336 |c| #2=#:G335
+         |tlimit| #3=#:G334 #4=#:G333 |tRange|)
     (RETURN
      (SEQ (SETELT $ 10 0)
           (LETT |tRange| (|PLOT3D;parametricRange| |p| $)
@@ -1212,8 +1212,8 @@
                    |scrres| (QVELT |p| 3) |curves|)))))) 
 
 (DEFUN |PLOT3D;plot;$S$;31| (|p| |tRange| $)
-  (PROG (|zRange| |yRange| |xRange| |curves| #1=#:G344 |c| #2=#:G343 |tlimit|
-         #3=#:G342 #4=#:G341)
+  (PROG (|zRange| |yRange| |xRange| |curves| #1=#:G346 |c| #2=#:G345 |tlimit|
+         #3=#:G344 #4=#:G343)
     (RETURN
      (SEQ (SETELT $ 10 0)
           (LETT |curves|
@@ -1350,8 +1350,8 @@
       (EXIT |p|))))) 
 
 (DEFUN |PLOT3D;coerce;$Of;37| (|r| $)
-  (PROG (|f| |l| #1=#:G381 |p| #2=#:G380 |h| |zRange| |yRange| |xRange|
-         #3=#:G379 |curve| |tRange| |tSymbol| |zSymbol| |ySymbol| |xSymbol|
+  (PROG (|f| |l| #1=#:G383 |p| #2=#:G382 |h| |zRange| |yRange| |xRange|
+         #3=#:G381 |curve| |tRange| |tSymbol| |zSymbol| |ySymbol| |xSymbol|
          |spaces|)
     (RETURN
      (SEQ (LETT |spaces| "   " . #4=(|PLOT3D;coerce;$Of;37|))
@@ -1411,7 +1411,7 @@
           (EXIT (SPADCALL "PLOT" (NREVERSE |f|) (QREFELT $ 92))))))) 
 
 (DEFUN |PLOT3D;listBranches;$L;38| (|plot| $)
-  (PROG (|outList| #1=#:G386 |curve|)
+  (PROG (|outList| #1=#:G388 |curve|)
     (RETURN
      (SEQ (LETT |outList| NIL . #2=(|PLOT3D;listBranches;$L;38|))
           (SEQ (LETT |curve| NIL . #2#) (LETT #1# (QVELT |plot| 4) . #2#) G190
@@ -1427,7 +1427,7 @@
 (DEFUN |Plot3D| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G388)
+     (PROG (#1=#:G390)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Plot3D|) . #2=(|Plot3D|))

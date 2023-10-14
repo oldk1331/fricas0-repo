@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |QALGSET;factorset| (|y| $)
-  (PROG (#1=#:G149 |j| #2=#:G148)
+  (PROG (#1=#:G151 |j| #2=#:G150)
     (RETURN
      (SEQ
       (COND ((SPADCALL |y| (QREFELT $ 12)) NIL)
@@ -23,9 +23,9 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |QALGSET;simplify;2$;2| (|x| $)
-  (PROG (#1=#:G161 #2=#:G160 #3=#:G162 #4=#:G173 #5=#:G126 |zro| #6=#:G157
-         #7=#:G156 #8=#:G158 #9=#:G172 #10=#:G125 #11=#:G171 |s| #12=#:G170
-         |mset| #13=#:G169 #14=#:G168 #15=#:G167 |p| #16=#:G166 |nzro|
+  (PROG (#1=#:G163 #2=#:G162 #3=#:G164 #4=#:G175 #5=#:G128 |zro| #6=#:G159
+         #7=#:G158 #8=#:G160 #9=#:G174 #10=#:G127 #11=#:G173 |s| #12=#:G172
+         |mset| #13=#:G171 #14=#:G170 #15=#:G169 |p| #16=#:G168 |nzro|
          |pnzero|)
     (RETURN
      (SEQ
@@ -198,7 +198,7 @@
                                      (QCDR |g|) (QREFELT $ 55))))))))))))))))) 
 
 (DEFUN |QALGSET;coerce;$Of;5| (|x| $)
-  (PROG (#1=#:G193 |f| #2=#:G192)
+  (PROG (#1=#:G195 |f| #2=#:G194)
     (RETURN
      (SEQ
       (COND ((SPADCALL (QVELT |x| 0) (CONS 0 'T) (QREFELT $ 57)) "Empty")
@@ -228,7 +228,7 @@
               (QREFELT $ 64)))))))) 
 
 (DEFUN |QALGSET;empty?;$B;6| (|x| $)
-  (PROG (#1=#:G195)
+  (PROG (#1=#:G197)
     (RETURN
      (SEQ
       (COND
@@ -263,7 +263,7 @@
   (VECTOR (CONS 1 "failed") |z0| |n0|)) 
 
 (DEFUN |QALGSET;idealSimplify;2$;13| (|x| $)
-  (PROG (|ngb| |gb| |f| #1=#:G234 |g| #2=#:G233 |tp| |n0| |z0|)
+  (PROG (|ngb| |gb| |f| #1=#:G236 |g| #2=#:G235 |tp| |n0| |z0|)
     (RETURN
      (SEQ
       (COND ((QEQCAR (QVELT |x| 0) 0) |x|)
@@ -340,7 +340,7 @@
                                          (QREFELT $ 34))))))))))))))))))) 
 
 (DEFUN |QALGSET;minset| (|lset| $)
-  (PROG (#1=#:G240 |s| #2=#:G239)
+  (PROG (#1=#:G242 |s| #2=#:G241)
     (RETURN
      (SEQ
       (COND ((NULL |lset|) |lset|)
@@ -360,7 +360,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |QALGSET;overset?| (|p| |qlist| $)
-  (PROG (#1=#:G242 #2=#:G241 #3=#:G243 #4=#:G246 |q|)
+  (PROG (#1=#:G244 #2=#:G243 #3=#:G245 #4=#:G248 |q|)
     (RETURN
      (SEQ
       (COND ((NULL |qlist|) 'NIL)
@@ -387,10 +387,10 @@
                    (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
               (COND (#1# #2#) (#5# 'NIL))))))))) 
 
-(DEFUN |QuasiAlgebraicSet| (&REST #1=#:G247)
+(DEFUN |QuasiAlgebraicSet| (&REST #1=#:G249)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G248)
+     (PROG (#2=#:G250)
        (RETURN
         (COND
          ((LETT #2#

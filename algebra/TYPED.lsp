@@ -27,7 +27,7 @@
       (EXIT |s|))))) 
 
 (DEFUN |TYPED;parseVarTerm;SNniR;6| (|t1| |pin| $)
-  (PROG (#1=#:G147 |pt| |r| |ch| |vnm|)
+  (PROG (#1=#:G149 |pt| |r| |ch| |vnm|)
     (RETURN
      (SEQ
       (EXIT
@@ -85,7 +85,7 @@
 (DEFUN |Typed| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G156)
+     (PROG (#1=#:G158)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Typed|) . #2=(|Typed|))

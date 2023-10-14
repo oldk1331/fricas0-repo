@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |GuessFinite| (#1=#:G143)
+(DEFUN |GuessFinite| (#1=#:G145)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G144)
+     (PROG (#2=#:G146)
        (RETURN
         (COND
          ((LETT #2#

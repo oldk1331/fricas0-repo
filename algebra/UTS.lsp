@@ -136,7 +136,7 @@
         |n1| |n2| $)))))) 
 
 (DEFUN |UTS;univariatePolynomial;$NniUp;16| (|x| |n| $)
-  (PROG (|st| |term| |ress| #1=#:G193 |k| |t1|)
+  (PROG (|st| |term| |ress| #1=#:G195 |k| |t1|)
     (RETURN
      (SEQ
       (EXIT
@@ -201,7 +201,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |UTS;coerce;Up$;17| (|p| $)
-  (PROG (|st| |i| |oldDeg| |delta| #1=#:G196 |deg|)
+  (PROG (|st| |i| |oldDeg| |delta| #1=#:G198 |deg|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 77)) (|spadConstant| $ 17))
@@ -279,7 +279,7 @@
 (DEFUN |UTS;center;$Coef;21| (|s| $) (QREFELT $ 8)) 
 
 (DEFUN |UTS;coefficient;$NniCoef;22| (|x| |n| $)
-  (PROG (#1=#:G211 |u|)
+  (PROG (#1=#:G213 |u|)
     (RETURN
      (SEQ (LETT |u| (|UTS;stream| |x| $) . #2=(|UTS;coefficient;$NniCoef;22|))
           (SEQ G190
@@ -361,7 +361,7 @@
   (SPADCALL (|UTS;stream| |x| $) (+ |n| 1) (QREFELT $ 123))) 
 
 (DEFUN |UTS;truncate;$2Nni$;38| (|x| |n1| |n2| $)
-  (PROG (|st| |i| |m| #1=#:G237 |#G84| |#G83|)
+  (PROG (|st| |i| |m| #1=#:G239 |#G84| |#G83|)
     (RETURN
      (SEQ
       (COND
@@ -475,10 +475,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|UTS;integrateWithOneAnswer| |y| |s| $))))) 
 
-(DEFUN |UnivariateTaylorSeries| (&REST #1=#:G281)
+(DEFUN |UnivariateTaylorSeries| (&REST #1=#:G283)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G282)
+     (PROG (#2=#:G284)
        (RETURN
         (COND
          ((LETT #2#
@@ -497,7 +497,7 @@
               (HREM |$ConstructorCache| '|UnivariateTaylorSeries|))))))))))) 
 
 (DEFUN |UnivariateTaylorSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G273 #2=#:G274 #3=#:G275 #4=#:G276 #5=#:G277 #6=#:G280 $
+  (PROG (|pv$| #1=#:G275 #2=#:G276 #3=#:G277 #4=#:G278 #5=#:G279 #6=#:G282 $
          |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

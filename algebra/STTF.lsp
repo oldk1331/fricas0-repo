@@ -296,7 +296,7 @@
        (SPADCALL |z| (QREFELT $ 28)) $))))) 
 
 (DEFUN |STTF;sec;2S;13| (|z| $)
-  (PROG (#1=#:G225 |cosz|)
+  (PROG (#1=#:G227 |cosz|)
     (RETURN
      (SEQ
       (COND
@@ -327,7 +327,7 @@
          (SPADCALL (STRCONC "sec: " (QREFELT $ 8)) (QREFELT $ 35))))))))) 
 
 (DEFUN |STTF;csc;2S;14| (|z| $)
-  (PROG (#1=#:G232 |sinz|)
+  (PROG (#1=#:G234 |sinz|)
     (RETURN
      (SEQ
       (COND
@@ -350,7 +350,7 @@
          (SPADCALL (STRCONC "csc: " (QREFELT $ 8)) (QREFELT $ 35))))))))) 
 
 (DEFUN |STTF;orderOrFailed| (|x| $)
-  (PROG (#1=#:G245 |n|)
+  (PROG (#1=#:G247 |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -370,7 +370,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STTF;asin;2S;16| (|z| $)
-  (PROG (|quot| |squirt| #1=#:G264 |order| |ord| |x| |coef|)
+  (PROG (|quot| |squirt| #1=#:G266 |order| |ord| |x| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -462,7 +462,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STTF;acos;2S;17| (|z| $)
-  (PROG (|quot| |squirt| #1=#:G282 |order| |ord| |x| |coef|)
+  (PROG (|quot| |squirt| #1=#:G284 |order| |ord| |x| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -545,7 +545,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STTF;atan;2S;18| (|z| $)
-  (PROG (|y| #1=#:G284 |coef|)
+  (PROG (|y| #1=#:G286 |coef|)
     (RETURN
      (SEQ
       (COND
@@ -635,7 +635,7 @@
          (SPADCALL (STRCONC "acot: " (QREFELT $ 8)) (QREFELT $ 35))))))))) 
 
 (DEFUN |STTF;asec;2S;20| (|z| $)
-  (PROG (|quot2| |quot| |squirt| #1=#:G316 |order| |ord| |x| |coef|)
+  (PROG (|quot2| |quot| |squirt| #1=#:G318 |order| |ord| |x| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -725,7 +725,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STTF;acsc;2S;21| (|z| $)
-  (PROG (|quot2| |quot| |squirt| #1=#:G337 |order| |ord| |x| |coef|)
+  (PROG (|quot2| |quot| |squirt| #1=#:G339 |order| |ord| |x| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -915,7 +915,7 @@
        (SPADCALL (|spadConstant| $ 23) (QREFELT $ 45)) $))))) 
 
 (DEFUN |STTF;coth;2S;26| (|z| $)
-  (PROG (#1=#:G356 |tanhz|)
+  (PROG (#1=#:G358 |tanhz|)
     (RETURN
      (SEQ
       (LETT |tanhz| (SPADCALL |z| (QREFELT $ 100)) . #2=(|STTF;coth;2S;26|))
@@ -932,7 +932,7 @@
            (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6)) #1#))))))))) 
 
 (DEFUN |STTF;sech;2S;27| (|z| $)
-  (PROG (#1=#:G364 |coshz|)
+  (PROG (#1=#:G366 |coshz|)
     (RETURN
      (SEQ (LETT |coshz| (SPADCALL |z| (QREFELT $ 98)) . #2=(|STTF;sech;2S;27|))
           (COND
@@ -948,7 +948,7 @@
              (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6)) #1#))))))) 
 
 (DEFUN |STTF;csch;2S;28| (|z| $)
-  (PROG (#1=#:G371 |sinhz|)
+  (PROG (#1=#:G373 |sinhz|)
     (RETURN
      (SEQ (LETT |sinhz| (SPADCALL |z| (QREFELT $ 97)) . #2=(|STTF;csch;2S;28|))
           (COND
@@ -964,7 +964,7 @@
              (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6)) #1#))))))) 
 
 (DEFUN |STTF;asinh;2S;29| (|z| $)
-  (PROG (#1=#:G383 |order| |ord| |x| |coef|)
+  (PROG (#1=#:G385 |order| |ord| |x| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -1026,7 +1026,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STTF;acosh;2S;30| (|z| $)
-  (PROG (#1=#:G396 |order| |ord| |x| |coef|)
+  (PROG (#1=#:G398 |order| |ord| |x| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -1182,7 +1182,7 @@
    (#1# (|error| (SPADCALL (STRCONC "acoth: " (QREFELT $ 8)) (QREFELT $ 35)))))) 
 
 (DEFUN |STTF;asech;2S;33| (|z| $)
-  (PROG (#1=#:G420 |order| |ord| |x| |coef|)
+  (PROG (#1=#:G422 |order| |ord| |x| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -1253,7 +1253,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STTF;acsch;2S;34| (|z| $)
-  (PROG (#1=#:G429 |order| |ord| |x|)
+  (PROG (#1=#:G431 |order| |ord| |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -1304,10 +1304,10 @@
           (SPADCALL (STRCONC "acsch: " (QREFELT $ 8)) (QREFELT $ 35))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |StreamTranscendentalFunctions| (#1=#:G430)
+(DEFUN |StreamTranscendentalFunctions| (#1=#:G432)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G431)
+     (PROG (#2=#:G433)
        (RETURN
         (COND
          ((LETT #2#

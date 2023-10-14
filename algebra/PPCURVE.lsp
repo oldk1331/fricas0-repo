@@ -4,18 +4,18 @@
 (DEFPARAMETER |PlottablePlaneCurveCategory;AL| 'NIL) 
 
 (DEFUN |PlottablePlaneCurveCategory| ()
-  (LET (#:G128)
+  (LET (#:G130)
     (COND (|PlottablePlaneCurveCategory;AL|)
           (T
            (SETQ |PlottablePlaneCurveCategory;AL|
                    (|PlottablePlaneCurveCategory;|)))))) 
 
 (DEFUN |PlottablePlaneCurveCategory;| ()
-  (PROG (#1=#:G126)
+  (PROG (#1=#:G128)
     (RETURN
      (PROG1
          (LETT #1#
-               (|sublisV| (PAIR '(#2=#:G125) (LIST '(|OutputForm|)))
+               (|sublisV| (PAIR '(#2=#:G127) (LIST '(|OutputForm|)))
                           (|Join| (|CoercibleTo| '#2#)
                                   (|mkCategory|
                                    '(((|listBranches|

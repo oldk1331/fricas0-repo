@@ -7,10 +7,10 @@
 (DEFUN |KERNEL2;constantIfCan;KU;2| (|k| $)
   (SPADCALL (SPADCALL |k| (QREFELT $ 16)) (QREFELT $ 18))) 
 
-(DEFUN |KernelFunctions2| (&REST #1=#:G130)
+(DEFUN |KernelFunctions2| (&REST #1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FACTFUNC;nthRoot;FNniR;1| (|ff| |n| $)
-  (PROG (#1=#:G143 |radi| |coeff| |qr| #2=#:G141 #3=#:G150 |term| |d| #4=#:G139
-         #5=#:G137 #6=#:G149 |t| #7=#:G148 |lf|)
+  (PROG (#1=#:G145 |radi| |coeff| |qr| #2=#:G143 #3=#:G152 |term| |d| #4=#:G141
+         #5=#:G139 #6=#:G151 |t| #7=#:G150 |lf|)
     (RETURN
      (SEQ (LETT |coeff| (|spadConstant| $ 7) . #8=(|FACTFUNC;nthRoot;FNniR;1|))
           (LETT |radi|
@@ -91,7 +91,7 @@
           (EXIT (VECTOR |n| |coeff| |radi|)))))) 
 
 (DEFUN |FACTFUNC;log;FL;2| (|ff| $)
-  (PROG (#1=#:G153 #2=#:G160 |term| #3=#:G159 |ans|)
+  (PROG (#1=#:G155 #2=#:G162 |term| #3=#:G161 |ans|)
     (RETURN
      (SEQ (LETT |ans| (SPADCALL |ff| (QREFELT $ 9)) . #4=(|FACTFUNC;log;FL;2|))
           (EXIT
@@ -119,10 +119,10 @@
                        (LETT #2# (CDR #2#) . #4#) (GO G190) G191
                        (EXIT (NREVERSE #3#)))))))))) 
 
-(DEFUN |FactoredFunctions| (#1=#:G161)
+(DEFUN |FactoredFunctions| (#1=#:G163)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G164)
        (RETURN
         (COND
          ((LETT #2#

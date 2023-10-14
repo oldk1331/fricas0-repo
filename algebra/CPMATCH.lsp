@@ -34,10 +34,10 @@
                         (QREFELT $ 39))
               (QREFELT $ 42))))) 
 
-(DEFUN |ComplexPatternMatch| (&REST #1=#:G135)
+(DEFUN |ComplexPatternMatch| (&REST #1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#

@@ -43,7 +43,7 @@
     (RETURN (PROGN (SPADCALL |m| |x| (QREFELT $ 30)))))) 
 
 (DEFUN |SKSMP;*;3$;5| (|x| |y| $)
-  (PROG (|ru| |yu| |xu| |v| #1=#:G155)
+  (PROG (|ru| |yu| |xu| |v| #1=#:G157)
     (RETURN
      (SEQ
       (COND
@@ -72,7 +72,7 @@
   (SPADCALL |x| (SPADCALL |r| (QREFELT $ 45)) (QREFELT $ 44))) 
 
 (DEFUN |SKSMP;exquo;2$U;7| (|x| |y| $)
-  (PROG (|res| |cc| #1=#:G177 |cu| |lx| |lx1| |ly| |maxd|)
+  (PROG (|res| |cc| #1=#:G179 |cu| |lx| |lx1| |ly| |maxd|)
     (RETURN
      (SEQ
       (EXIT
@@ -138,7 +138,7 @@
         ('T (SPADCALL |x| |n| (QREFELT $ 58))))) 
 
 (DEFUN |SKSMP;coerce;$Of;10| (|x| $)
-  (PROG (|xu| |v| #1=#:G183)
+  (PROG (|xu| |v| #1=#:G185)
     (RETURN
      (SEQ
       (COND
@@ -160,10 +160,10 @@
                               (SPADCALL |v| (QREFELT $ 63)) (QREFELT $ 64))
                     (QREFELT $ 65)))))))))) 
 
-(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G201)
+(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G203)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G202)
+     (PROG (#2=#:G204)
        (RETURN
         (COND
          ((LETT #2#

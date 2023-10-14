@@ -38,10 +38,10 @@
     (SPADCALL (SPADCALL |r| (QREFELT $ 15)) (QREFELT $ 29)))
    ('T (|RecordPrint| |r| (QREFELT $ 9))))) 
 
-(DEFUN |PatternMatchListResult| (&REST #1=#:G146)
+(DEFUN |PatternMatchListResult| (&REST #1=#:G148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G149)
        (RETURN
         (COND
          ((LETT #2#

@@ -87,7 +87,7 @@
                               (QREFELT $ 46))))))))))))))) 
 
 (DEFUN |KOVACIC;cannotCase2?| (|lf| $)
-  (PROG (#1=#:G158 #2=#:G160 #3=#:G161 |rec|)
+  (PROG (#1=#:G160 #2=#:G162 #3=#:G163 |rec|)
     (RETURN
      (SEQ
       (EXIT
@@ -117,10 +117,10 @@
         (EXIT 'T)))
       #2# (EXIT #2#))))) 
 
-(DEFUN |Kovacic| (&REST #1=#:G162)
+(DEFUN |Kovacic| (&REST #1=#:G164)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G163)
+     (PROG (#2=#:G165)
        (RETURN
         (COND
          ((LETT #2#

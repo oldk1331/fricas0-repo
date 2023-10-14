@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SCANUTIL;parse_integer2| (|str| |i0| |l| |l2l| |tpl| $)
-  (PROG (|res| |l2| |tp| |l1| |s1| |dig_val| #1=#:G142 |i| #2=#:G141 #3=#:G140
+  (PROG (|res| |l2| |tp| |l1| |s1| |dig_val| #1=#:G144 |i| #2=#:G143 #3=#:G142
          |ten7| |ten| |b|)
     (RETURN
      (SEQ (LETT |b| 48 . #4=(|SCANUTIL;parse_integer2|)) (LETT |ten| 10 . #4#)
@@ -70,7 +70,7 @@
                           $)))))))))))) 
 
 (DEFUN |SCANUTIL;parse_integer;SI;2| (|str| $)
-  (PROG (|res| |j| |s1| |dig_val| #1=#:G156 |i| |k| |ll| |tpl| |l2l| |tp|
+  (PROG (|res| |j| |s1| |dig_val| #1=#:G158 |i| |k| |ll| |tpl| |l2l| |tp|
          |ten7| |l2| |l20| |ten| |l1| |l| |b|)
     (RETURN
      (SEQ (LETT |b| 48 . #2=(|SCANUTIL;parse_integer;SI;2|))
@@ -145,7 +145,7 @@
 (DEFUN |ScanningUtilities| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G158)
+     (PROG (#1=#:G160)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ScanningUtilities|)

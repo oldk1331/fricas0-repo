@@ -90,7 +90,7 @@
                      (QREFELT $ 36))))))))))) 
 
 (DEFUN |STRANS;distributionBySTransform;UPSRD;4| (S $)
-  (PROG (|psi| |psi2| |chi2| |z1z| S2 #1=#:G147 |chi| S1)
+  (PROG (|psi| |psi2| |chi2| |z1z| S2 #1=#:G149 |chi| S1)
     (RETURN
      (SEQ
       (EXIT
@@ -162,10 +162,10 @@
                    (QREFELT $ 53)))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |STransformPackage| (&REST #1=#:G148)
+(DEFUN |STransformPackage| (&REST #1=#:G150)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G149)
+     (PROG (#2=#:G151)
        (RETURN
         (COND
          ((LETT #2#

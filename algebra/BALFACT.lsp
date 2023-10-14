@@ -5,7 +5,7 @@
   (SPADCALL |a| (LIST |b|) (QREFELT $ 10))) 
 
 (DEFUN |BALFACT;balSqfr1| (|a| |n| |b| $)
-  (PROG (#1=#:G130 |fa| |g|)
+  (PROG (#1=#:G132 |fa| |g|)
     (RETURN
      (SEQ
       (LETT |g| (SPADCALL |a| |b| (QREFELT $ 12)) . #2=(|BALFACT;balSqfr1|))
@@ -37,7 +37,7 @@
                         (QREFELT $ 22))))))))) 
 
 (DEFUN |BALFACT;balSqfr| (|a| |n| |l| $)
-  (PROG (#1=#:G136 #2=#:G135 #3=#:G137 #4=#:G140 |f| |b|)
+  (PROG (#1=#:G138 #2=#:G137 #3=#:G139 #4=#:G142 |f| |b|)
     (RETURN
      (SEQ (LETT |b| (|SPADfirst| |l|) . #5=(|BALFACT;balSqfr|))
           (EXIT
@@ -72,7 +72,7 @@
                    (COND (#1# #2#) (#6# (|spadConstant| $ 26))))))))))) 
 
 (DEFUN |BALFACT;balancedFactorisation;UPLF;4| (|a| |l| $)
-  (PROG (#1=#:G144 #2=#:G143 #3=#:G145 #4=#:G149 |f| |sa| |ll|)
+  (PROG (#1=#:G146 #2=#:G145 #3=#:G147 #4=#:G151 |f| |sa| |ll|)
     (RETURN
      (SEQ
       (COND
@@ -118,10 +118,10 @@
 (DEFUN |BALFACT;balancedFactorisation;UPLF;4!0| (|z1| $)
   (SPADCALL |z1| (|spadConstant| $ 28) (QREFELT $ 29))) 
 
-(DEFUN |BalancedFactorisation| (&REST #1=#:G150)
+(DEFUN |BalancedFactorisation| (&REST #1=#:G152)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G151)
+     (PROG (#2=#:G153)
        (RETURN
         (COND
          ((LETT #2#

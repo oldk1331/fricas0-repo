@@ -104,7 +104,7 @@
     (LETT |la| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G165 |s| #3=#:G166 |a| #4=#:G164)
+      (PROG (#2=#:G167 |s| #3=#:G168 |a| #4=#:G166)
         (RETURN
          (SEQ
           (SPADCALL (ELT $ 39)
@@ -132,10 +132,10 @@
 
 (DEFUN |TSEREXPT;applyTaylor;M2UTS;4| (|g| |f| $) (SPADCALL |f| |g|)) 
 
-(DEFUN |TaylorSeriesExpansionTaylor| (&REST #1=#:G172)
+(DEFUN |TaylorSeriesExpansionTaylor| (&REST #1=#:G174)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G173)
+     (PROG (#2=#:G175)
        (RETURN
         (COND
          ((LETT #2#

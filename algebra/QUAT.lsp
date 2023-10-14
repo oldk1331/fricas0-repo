@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |Quaternion| (#1=#:G142)
+(DEFUN |Quaternion| (#1=#:G144)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G145)
        (RETURN
         (COND
          ((LETT #2#
@@ -19,7 +19,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Quaternion|))))))))))) 
 
 (DEFUN |Quaternion;| (|#1|)
-  (PROG (|pv$| #1=#:G141 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G143 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Quaternion|))

@@ -3,7 +3,7 @@
 
 (DEFUN |FFPOLY2;rootOfIrreduciblePoly;SupF;1| (|pf| $)
   (PROG (|stillToFactor| |root| |degSTF| |degh| |h| |j| |trModp| |beta|
-         #1=#:G146 |i| |basispointer| |basis| |qexp| |p| |deg| #2=#:G129
+         #1=#:G148 |i| |basispointer| |basis| |qexp| |p| |deg| #2=#:G131
          |sizeGF|)
     (RETURN
      (SEQ
@@ -143,10 +143,10 @@
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT |root|))))))))) 
 
-(DEFUN |FiniteFieldPolynomialPackage2| (&REST #1=#:G147)
+(DEFUN |FiniteFieldPolynomialPackage2| (&REST #1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G148)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#

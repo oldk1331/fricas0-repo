@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ASSOCEQ;makeMatrix| (|v| |n| $)
-  (PROG (#1=#:G130 |i| #2=#:G129)
+  (PROG (#1=#:G132 |i| #2=#:G131)
     (RETURN
      (SEQ
       (SPADCALL
@@ -25,9 +25,9 @@
        (QREFELT $ 19)))))) 
 
 (DEFUN |ASSOCEQ;associatedSystem;LPiR;2| (|op| |m| $)
-  (PROG (|u| #1=#:G152 #2=#:G147 |j| #3=#:G140 |k| |wi| |eq| |i| |a| #4=#:G136
-         #5=#:G164 #6=#:G163 |an| |m1| #7=#:G134 M |ww| |s| |w| S |n|
-         #8=#:G133)
+  (PROG (|u| #1=#:G154 #2=#:G149 |j| #3=#:G142 |k| |wi| |eq| |i| |a| #4=#:G138
+         #5=#:G166 #6=#:G165 |an| |m1| #7=#:G136 M |ww| |s| |w| S |n|
+         #8=#:G135)
     (RETURN
      (SEQ
       (LETT S
@@ -223,7 +223,7 @@
       (EXIT (CONS M |ww|)))))) 
 
 (DEFUN |ASSOCEQ;uncouplingMatrices;MV;3| (|m| $)
-  (PROG (#1=#:G170 |i| #2=#:G171 |mi| |v| |n|)
+  (PROG (#1=#:G172 |i| #2=#:G173 |mi| |v| |n|)
     (RETURN
      (SEQ (LETT |n| (QVSIZE |m|) . #3=(|ASSOCEQ;uncouplingMatrices;MV;3|))
           (LETT |v| (MAKEARR1 |n| (SPADCALL 1 0 (QREFELT $ 43))) . #3#)
@@ -263,7 +263,7 @@
     (RETURN (PROGN (SPADCALL |diff| |z1| (QREFELT $ 45)))))) 
 
 (DEFUN |ASSOCEQ;makeeq| (|v| |m| |i| |n| $)
-  (PROG (|j| #1=#:G177 #2=#:G176)
+  (PROG (|j| #1=#:G179 #2=#:G178)
     (RETURN
      (SEQ
       (VECTOR (SPADCALL |v| |i| (QREFELT $ 51))
@@ -299,7 +299,7 @@
                     (EXIT (NREVERSE #1#))))))))) 
 
 (DEFUN |ASSOCEQ;associatedEquations;LPiR;5| (|op| |m| $)
-  (PROG (|i| |ww| |s| |w| S #1=#:G182 |v| |u|)
+  (PROG (|i| |ww| |s| |w| S #1=#:G184 |v| |u|)
     (RETURN
      (SEQ
       (LETT |u| (SPADCALL |op| |m| (QREFELT $ 56))
@@ -372,7 +372,7 @@
                               $)))))))))))))) 
 
 (DEFUN |ASSOCEQ;computeIt| (|op| |m| |k| $)
-  (PROG (#1=#:G195 #2=#:G197 |u| |i| |n| |a| |rec|)
+  (PROG (#1=#:G197 #2=#:G199 |u| |i| |n| |a| |rec|)
     (RETURN
      (SEQ
       (EXIT
@@ -408,7 +408,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ASSOCEQ;makeop| (|v| $)
-  (PROG (|op| #1=#:G201 |i|)
+  (PROG (|op| #1=#:G203 |i|)
     (RETURN
      (SEQ (LETT |op| (|spadConstant| $ 23) . #2=(|ASSOCEQ;makeop|))
           (SEQ (LETT |i| 1 . #2#) (LETT #1# (QVSIZE |v|) . #2#) G190
@@ -424,10 +424,10 @@
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |op|))))) 
 
-(DEFUN |AssociatedEquations| (&REST #1=#:G202)
+(DEFUN |AssociatedEquations| (&REST #1=#:G204)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G203)
+     (PROG (#2=#:G205)
        (RETURN
         (COND
          ((LETT #2#

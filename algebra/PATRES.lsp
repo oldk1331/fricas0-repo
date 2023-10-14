@@ -21,7 +21,7 @@
 (DEFUN |PATRES;destruct;$L;6| (|l| $) (SPADCALL (QCDR |l|) (QREFELT $ 24))) 
 
 (DEFUN |PATRES;satisfy?;$PU;7| (|r| |p| $)
-  (PROG (|lv| #1=#:G173 |u| #2=#:G175 |v| #3=#:G174 |lr|)
+  (PROG (|lv| #1=#:G175 |u| #2=#:G177 |v| #3=#:G176 |lr|)
     (RETURN
      (SEQ
       (EXIT
@@ -112,10 +112,10 @@
         ('T
          (SPADCALL (SPADCALL |p| (QREFELT $ 17)) (QCDR |l|) (QREFELT $ 29))))) 
 
-(DEFUN |PatternMatchResult| (&REST #1=#:G202)
+(DEFUN |PatternMatchResult| (&REST #1=#:G204)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G203)
+     (PROG (#2=#:G205)
        (RETURN
         (COND
          ((LETT #2#

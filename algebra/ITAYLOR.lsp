@@ -14,7 +14,7 @@
 (DEFUN |ITAYLOR;One;$;4| ($) (SPADCALL (|spadConstant| $ 15) (QREFELT $ 13))) 
 
 (DEFUN |ITAYLOR;=;2$B;5| (|x| |y| $)
-  (PROG (|st| #1=#:G139 |i| |n|)
+  (PROG (|st| #1=#:G141 |i| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -87,7 +87,7 @@
              ('T (CONS 0 (SPADCALL (QCDR |quot|) (QREFELT $ 9)))))))))) 
 
 (DEFUN |ITAYLOR;^;$Nni$;17| (|x| |n| $)
-  (PROG (#1=#:G169)
+  (PROG (#1=#:G171)
     (RETURN
      (COND ((EQL |n| 0) (|spadConstant| $ 14))
            ('T
@@ -124,10 +124,10 @@
 (DEFUN |ITAYLOR;order;$Nni;23| (|x| $)
   (|ITAYLOR;iOrder2| (|ITAYLOR;stream| |x| $) 0 $)) 
 
-(DEFUN |InnerTaylorSeries| (#1=#:G182)
+(DEFUN |InnerTaylorSeries| (#1=#:G184)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G183)
+     (PROG (#2=#:G185)
        (RETURN
         (COND
          ((LETT #2#

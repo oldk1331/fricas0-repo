@@ -35,7 +35,7 @@
             (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT $ 24)) $) (QREFELT $ 25))) 
 
 (DEFUN |FS2;map;MAB;3| (|f| |x| $)
-  (PROG (#1=#:G162)
+  (PROG (#1=#:G164)
     (RETURN
      (SPADCALL (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT $ 23)) $)
                (PROG2
@@ -51,10 +51,10 @@
 (DEFUN |FS2;map;MAB;4| (|f| |x| $)
   (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT $ 23)) $)) 
 
-(DEFUN |FunctionSpaceFunctions2| (&REST #1=#:G247)
+(DEFUN |FunctionSpaceFunctions2| (&REST #1=#:G249)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G248)
+     (PROG (#2=#:G250)
        (RETURN
         (COND
          ((LETT #2#

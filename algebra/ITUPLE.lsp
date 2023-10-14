@@ -13,10 +13,10 @@
 
 (DEFUN |ITUPLE;construct;$S;5| (|x| $) |x|) 
 
-(DEFUN |InfiniteTuple| (#1=#:G134)
+(DEFUN |InfiniteTuple| (#1=#:G136)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G135)
+     (PROG (#2=#:G137)
        (RETURN
         (COND
          ((LETT #2#

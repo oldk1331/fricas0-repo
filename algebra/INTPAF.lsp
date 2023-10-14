@@ -11,7 +11,7 @@
   (SPADCALL (|INTPAF;chv0| |f| |n| |a| |b| $) (QREFELT $ 14) (QREFELT $ 24))) 
 
 (DEFUN |INTPAF;RF2UPUP| (|f| |modulus| $)
-  (PROG (|bc| #1=#:G194)
+  (PROG (|bc| #1=#:G196)
     (RETURN
      (SEQ
       (LETT |bc|
@@ -52,7 +52,7 @@
   (SPADCALL (SPADCALL |x1| (QREFELT $ 26)) (QREFELT $ 27))) 
 
 (DEFUN |INTPAF;linearInXIfCan| (|x| |y| $)
-  (PROG (|xx| |p| |b| |a| |d| #1=#:G220 |q|)
+  (PROG (|xx| |p| |b| |a| |d| #1=#:G222 |q|)
     (RETURN
      (SEQ
       (EXIT
@@ -110,7 +110,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |INTPAF;prootintegrate| (|f| |x| |y| $)
-  (PROG (#1=#:G227 |r| |rf| |ff| |modulus| |p|)
+  (PROG (#1=#:G229 |r| |rf| |ff| |modulus| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -154,7 +154,7 @@
      (PROGN (SPADCALL |f1| (SPADCALL |x| (QREFELT $ 20)) (QREFELT $ 64)))))) 
 
 (DEFUN |INTPAF;prootintegrate1| (|ff| |x| |y| |modulus| $)
-  (PROG (|curve| #1=#:G249 |m| |u| |qprime| |q| |r| #2=#:G232 |cv| |vz| |vu|
+  (PROG (|curve| #1=#:G251 |m| |u| |qprime| |q| |r| #2=#:G234 |cv| |vz| |vu|
          |newf| |ku| |kz| |newalg| |chv| |uu|)
     (RETURN
      (SEQ
@@ -381,7 +381,7 @@
      (PROGN (SPADCALL |x1| (LIST |ku| |kz|) (LIST |vu| |vz|) (QREFELT $ 95)))))) 
 
 (DEFUN |INTPAF;rationalInt| (|f| |n| |g| $)
-  (PROG (#1=#:G260 |a|)
+  (PROG (#1=#:G262 |a|)
     (RETURN
      (SEQ
       (COND
@@ -421,7 +421,7 @@
             (QREFELT $ 64))))))) 
 
 (DEFUN |INTPAF;candidates| (|p| $)
-  (PROG (|l| |u| |xi| #1=#:G274 |i|)
+  (PROG (|l| |u| |xi| #1=#:G276 |i|)
     (RETURN
      (SEQ (LETT |l| NIL . #2=(|INTPAF;candidates|))
           (EXIT
@@ -454,7 +454,7 @@
                      |l|)))))))))) 
 
 (DEFUN |INTPAF;changeVarIfCan| (|p| |radi| |n| $)
-  (PROG (#1=#:G285 #2=#:G287 |u| #3=#:G288 |cnd| |rec|)
+  (PROG (#1=#:G287 #2=#:G289 |u| #3=#:G290 |cnd| |rec|)
     (RETURN
      (SEQ
       (EXIT
@@ -498,7 +498,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |INTPAF;chvarIfCan| (|p| |d| |u| |u1| $)
-  (PROG (|ans| #1=#:G299 |v|)
+  (PROG (|ans| #1=#:G301 |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -538,7 +538,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |INTPAF;algaddx| (|i| |xx| $)
-  (PROG (#1=#:G306 |ne| #2=#:G305)
+  (PROG (#1=#:G308 |ne| #2=#:G307)
     (RETURN
      (SEQ
       (COND ((SPADCALL |i| (QREFELT $ 129)) |i|)
@@ -573,8 +573,8 @@
                        (QREFELT $ 140)))))))) 
 
 (DEFUN |INTPAF;prootRDE| (|nfp| |f| |g| |x| |k| |rde| $)
-  (PROG (#1=#:G326 |rc| |curve| #2=#:G329 |u| #3=#:G319 |ug| |gg| |uf| |ff|
-         |dqdx| |q| |rec| |r| #4=#:G312 |modulus| |p|)
+  (PROG (#1=#:G328 |rc| |curve| #2=#:G331 |u| #3=#:G321 |ug| |gg| |uf| |ff|
+         |dqdx| |q| |rec| |r| #4=#:G314 |modulus| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -764,8 +764,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |INTPAF;prootlimint| (|f| |x| |k| |lu| $)
-  (PROG (|ui| |curve| |dqdx| |q| |r| #1=#:G337 |cv| |m| |l| |v| |uu| #2=#:G374
-         |u| |n| #3=#:G355 |uf| |ff| |rec| |modulus| |p|)
+  (PROG (|ui| |curve| |dqdx| |q| |r| #1=#:G339 |cv| |m| |l| |v| |uu| #2=#:G376
+         |u| |n| #3=#:G357 |uf| |ff| |rec| |modulus| |p|)
     (RETURN
      (SEQ
       (LETT |modulus|
@@ -967,7 +967,7 @@
      (PROGN (|INTPAF;UPUP2F0| (|INTPAF;RF2UPUP| |x1| |m| $) |x| |k| $))))) 
 
 (DEFUN |INTPAF;prootextint| (|f| |x| |k| |g| $)
-  (PROG (|uc| |ur| |u| |curve| |r| #1=#:G381 |g1| |cv| #2=#:G415 |n| #3=#:G399
+  (PROG (|uc| |ur| |u| |curve| |r| #1=#:G383 |g1| |cv| #2=#:G417 |n| #3=#:G401
          |m| |ug| |gg| |uf| |ff| |dqdx| |q| |rec| |modulus| |p|)
     (RETURN
      (SEQ
@@ -1176,7 +1176,7 @@
      (PROGN (|INTPAF;UPUP2F0| (|INTPAF;RF2UPUP| |x1| |m| $) |x| |k| $))))) 
 
 (DEFUN |INTPAF;palgRDE1| (|nfp| |g| |x| |y| $)
-  (PROG (#1=#:G421)
+  (PROG (#1=#:G423)
     (RETURN
      (QCAR
       (|INTPAF;palgLODE1| (LIST |nfp| (|spadConstant| $ 55)) |g| |x| |y|
@@ -1186,8 +1186,8 @@
        $))))) 
 
 (DEFUN |INTPAF;palgLODE1| (|eq| |g| |kx| |y| |x| $)
-  (PROG (#1=#:G449 |h| #2=#:G448 |rec| #3=#:G435 |bas| #4=#:G447 #5=#:G446
-         |neq| #6=#:G445 |f| |i| |curve| |modulus| |p|)
+  (PROG (#1=#:G451 |h| #2=#:G450 |rec| #3=#:G437 |bas| #4=#:G449 #5=#:G448
+         |neq| #6=#:G447 |f| |i| |curve| |modulus| |p|)
     (RETURN
      (SEQ
       (LETT |modulus|
@@ -1855,7 +1855,7 @@
       (EXIT (CONS 1 "failed")))))) 
 
 (DEFUN |INTPAF;palgLODE;LF2KSR;27| (|eq| |g| |kx| |y| |x| $)
-  (PROG (#1=#:G574 |i| #2=#:G573 |u| |v|)
+  (PROG (#1=#:G576 |i| #2=#:G575 |u| |v|)
     (RETURN
      (SEQ
       (LETT |v| (|INTPAF;linearInXIfCan| |kx| |y| $)
@@ -1888,10 +1888,10 @@
          (SPADCALL |eq| |g| |kx| |y| (QREFELT $ 14) (QCAR (QCDR |v|))
                    (QCDR (QCDR |v|)) (QREFELT $ 189))))))))) 
 
-(DEFUN |PureAlgebraicIntegration| (&REST #1=#:G575)
+(DEFUN |PureAlgebraicIntegration| (&REST #1=#:G577)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G576)
+     (PROG (#2=#:G578)
        (RETURN
         (COND
          ((LETT #2#

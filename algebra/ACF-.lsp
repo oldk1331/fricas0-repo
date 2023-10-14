@@ -111,7 +111,7 @@
                           |d| (QREFELT $ 53)))))))))))))))) 
 
 (DEFUN |ACF-;binomialRoots| (|p| |y| |fn| $)
-  (PROG (#1=#:G183 #2=#:G177 |i| #3=#:G182 |beta| |x| |cyclo| |n| |alpha|)
+  (PROG (#1=#:G185 #2=#:G179 |i| #3=#:G184 |beta| |x| |cyclo| |n| |alpha|)
     (RETURN
      (SEQ
       (LETT |alpha|
@@ -159,8 +159,8 @@
                       (EXIT (NREVERSE #3#))))))))))))) 
 
 (DEFUN |ACF-;allroots| (|p| |y| |fn| $)
-  (PROG (|ans| #1=#:G193 |q| |alpha| |x| #2=#:G198 #3=#:G197 #4=#:G199
-         #5=#:G218 |r| |groots| |g| |h| |decompList| |p1|)
+  (PROG (|ans| #1=#:G195 |q| |alpha| |x| #2=#:G200 #3=#:G199 #4=#:G201
+         #5=#:G220 |r| |groots| |g| |h| |decompList| |p1|)
     (RETURN
      (SEQ
       (COND

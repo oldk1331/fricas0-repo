@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |VECREC2;modInverse| (|c| |p| $)
-  (PROG (#1=#:G140)
+  (PROG (#1=#:G142)
     (RETURN
      (QCAR
       (PROG2
@@ -14,7 +14,7 @@
                        #1#)))))) 
 
 (DEFUN |VECREC2;empty;I$;2| (|nint| $)
-  (PROG (|intvec| #1=#:G144)
+  (PROG (|intvec| #1=#:G146)
     (RETURN
      (SEQ
       (LETT |intvec|
@@ -28,8 +28,8 @@
                (MAKE-ARRAY 0))))))) 
 
 (DEFUN |VECREC2;chinese_update;UvI$V;3| (|vec| |p| |statearg| $)
-  (PROG (|nmp| |cor| |ii| #1=#:G165 |i| |mpfact| |nbmp| |mpcor| |mpval| |bmp|
-         |bintvec| #2=#:G164 #3=#:G150 #4=#:G163 |intvec| |mp| |state|)
+  (PROG (|nmp| |cor| |ii| #1=#:G167 |i| |mpfact| |nbmp| |mpcor| |mpval| |bmp|
+         |bintvec| #2=#:G166 #3=#:G152 #4=#:G165 |intvec| |mp| |state|)
     (RETURN
      (SEQ (LETT |state| |statearg| . #5=(|VECREC2;chinese_update;UvI$V;3|))
           (LETT |mp| (QVELT |state| 0) . #5#)
@@ -133,7 +133,7 @@
                    (EXIT (QSETVELT |state| 0 |nmp|)))))))))) 
 
 (DEFUN |VECREC2;hensel_update;UvI$V;4| (|vec| |p| |statearg| $)
-  (PROG (#1=#:G170 |i| |intvec| |mp| |state|)
+  (PROG (#1=#:G172 |i| |intvec| |mp| |state|)
     (RETURN
      (SEQ (LETT |state| |statearg| . #2=(|VECREC2;hensel_update;UvI$V;4|))
           (LETT |mp| (QVELT |state| 0) . #2#)
@@ -174,8 +174,8 @@
             ('T (CONS 0 (CONS |r1| |s1|))))))))) 
 
 (DEFUN |VECREC2;rational_reconstruction2| (|statearg| |block_offsets| $)
-  (PROG (#1=#:G223 |cden| |ppr| |pp| |r1| |co| |cb| |j| #2=#:G209 |ctmp| |jj|
-         |dens| |nums| #3=#:G204 #4=#:G202 |mm| |n| |ok| |bound2| |bound| |j0|
+  (PROG (#1=#:G225 |cden| |ppr| |pp| |r1| |co| |cb| |j| #2=#:G211 |ctmp| |jj|
+         |dens| |nums| #3=#:G206 #4=#:G204 |mm| |n| |ok| |bound2| |bound| |j0|
          |intvec| |modulus| |state|)
     (RETURN
      (SEQ
@@ -381,7 +381,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |VECREC2;remove_denoms;V3Pa;10| (|block_offsets| |nums| |dens| $)
-  (PROG (#1=#:G237 |i| |cfactor| |tmpp2| |cden| |hi| |li| |ib| |res| |np| |nb|)
+  (PROG (#1=#:G239 |i| |cfactor| |tmpp2| |cden| |hi| |li| |ib| |res| |np| |nb|)
     (RETURN
      (SEQ
       (LETT |nb| (QVSIZE |block_offsets|)
@@ -436,7 +436,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |VECREC2;reconstruct;$VU;11| (|statearg| |block_offsets| $)
-  (PROG (|ppr| #1=#:G255 |pp|)
+  (PROG (|ppr| #1=#:G257 |pp|)
     (RETURN
      (SEQ
       (EXIT
@@ -458,7 +458,7 @@
 (DEFUN |VectorIntegerReconstructor| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G257)
+     (PROG (#1=#:G259)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|VectorIntegerReconstructor|)

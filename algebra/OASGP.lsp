@@ -4,13 +4,13 @@
 (DEFPARAMETER |OrderedAbelianSemiGroup;AL| 'NIL) 
 
 (DEFUN |OrderedAbelianSemiGroup| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|OrderedAbelianSemiGroup;AL|)
           (T
            (SETQ |OrderedAbelianSemiGroup;AL| (|OrderedAbelianSemiGroup;|)))))) 
 
 (DEFUN |OrderedAbelianSemiGroup;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|OrderedSet|) (|AbelianSemiGroup|))

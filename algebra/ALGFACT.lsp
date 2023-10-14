@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ALGFACT;allk| (|l| $)
-  (PROG (#1=#:G134 |x| #2=#:G133)
+  (PROG (#1=#:G136 |x| #2=#:G135)
     (RETURN
      (SEQ
       (SPADCALL
@@ -37,7 +37,7 @@
    $)) 
 
 (DEFUN |ALGFACT;split;UPF;7| (|p| $)
-  (PROG (#1=#:G142 #2=#:G141 #3=#:G143 #4=#:G146 |fc| |fp|)
+  (PROG (#1=#:G144 #2=#:G143 #3=#:G145 #4=#:G148 |fc| |fp|)
     (RETURN
      (SEQ
       (LETT |fp| (SPADCALL |p| (QREFELT $ 27)) . #5=(|ALGFACT;split;UPF;7|))
@@ -69,7 +69,7 @@
                  (QREFELT $ 37))))))) 
 
 (DEFUN |ALGFACT;extend| (|p| |n| $)
-  (PROG (#1=#:G152 #2=#:G148 |q|)
+  (PROG (#1=#:G154 #2=#:G150 |q|)
     (RETURN
      (SEQ
       (COND
@@ -98,7 +98,7 @@
                     (QREFELT $ 35)))))))))) 
 
 (DEFUN |ALGFACT;doublyTransitive?;UPB;9| (|p| $)
-  (PROG (#1=#:G157)
+  (PROG (#1=#:G159)
     (RETURN
      (COND
       ((|ALGFACT;irred?| |p| $)
@@ -129,9 +129,9 @@
             ('T 'NIL))))))) 
 
 (DEFUN |ALGFACT;fact| (|p| |l| $)
-  (PROG (#1=#:G179 #2=#:G178 #3=#:G180 #4=#:G188 |fc| |newalpha| |fr| |ups|
-         |sae| |newl| |q| |alpha| #5=#:G169 #6=#:G168 #7=#:G170 #8=#:G187
-         #9=#:G125 #10=#:G165 #11=#:G164 #12=#:G166 #13=#:G186 |dc| |dr|)
+  (PROG (#1=#:G181 #2=#:G180 #3=#:G182 #4=#:G190 |fc| |newalpha| |fr| |ups|
+         |sae| |newl| |q| |alpha| #5=#:G171 #6=#:G170 #7=#:G172 #8=#:G189
+         #9=#:G127 #10=#:G167 #11=#:G166 #12=#:G168 #13=#:G188 |dc| |dr|)
     (RETURN
      (SEQ
       (COND
@@ -379,10 +379,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |alpha| |x| (QREFELT $ 68)))))) 
 
-(DEFUN |AlgFactor| (#1=#:G189)
+(DEFUN |AlgFactor| (#1=#:G191)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G190)
+     (PROG (#2=#:G192)
        (RETURN
         (COND
          ((LETT #2#

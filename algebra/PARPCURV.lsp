@@ -9,10 +9,10 @@
   (COND ((EQL |n| 1) (QCAR |c|)) ((EQL |n| 2) (QCDR |c|))
         ('T (|error| "coordinate: index out of bounds")))) 
 
-(DEFUN |ParametricPlaneCurve| (#1=#:G130)
+(DEFUN |ParametricPlaneCurve| (#1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

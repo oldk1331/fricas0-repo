@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |TENSPOW;coerce;$Of;1| (|x| $)
-  (PROG (|le| |ko| #1=#:G143 |b| #2=#:G142 #3=#:G141 |rec|)
+  (PROG (|le| |ko| #1=#:G145 |b| #2=#:G144 #3=#:G143 |rec|)
     (RETURN
      (SEQ
       (COND
@@ -59,7 +59,7 @@
              (EXIT (SPADCALL (ELT $ 29) |le| (QREFELT $ 25)))))))))) 
 
 (DEFUN |TENSPOW;partialTensor| (|bb| |xx| $)
-  (PROG (|res| #1=#:G154 |tt| #2=#:G153 |s1| #3=#:G152 |xr| |x1|)
+  (PROG (|res| #1=#:G156 |tt| #2=#:G155 |s1| #3=#:G154 |xr| |x1|)
     (RETURN
      (SEQ (LETT |x1| (|SPADfirst| |xx|) . #4=(|TENSPOW;partialTensor|))
           (LETT |xr| (CDR |xx|) . #4#)
@@ -113,7 +113,7 @@
             (QREFELT $ 36))) 
 
 (DEFUN |TENSPOW;tensor;L$;4| (|xx| $)
-  (PROG (|res| #1=#:G164 |tt|)
+  (PROG (|res| #1=#:G166 |tt|)
     (RETURN
      (SEQ
       (COND
@@ -144,8 +144,8 @@
                     (EXIT (SPADCALL (REVERSE |res|) (QREFELT $ 45)))))))))))) 
 
 (DEFUN |TENSPOW;*;3$;5| (|x1| |x2| $)
-  (PROG (|res| #1=#:G178 |t| |t1t2| #2=#:G176 |b1| #3=#:G177 |b2| #4=#:G175
-         |t2k| |t1k| |t2c| |t1c| #5=#:G174 |t2| #6=#:G173 |t1|)
+  (PROG (|res| #1=#:G180 |t| |t1t2| #2=#:G178 |b1| #3=#:G179 |b2| #4=#:G177
+         |t2k| |t1k| |t2c| |t1c| #5=#:G176 |t2| #6=#:G175 |t1|)
     (RETURN
      (SEQ (LETT |res| NIL . #7=(|TENSPOW;*;3$;5|))
           (SEQ (LETT |t1| NIL . #7#)
@@ -231,10 +231,10 @@
                (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |res| (QREFELT $ 50))))))) 
 
-(DEFUN |TensorPower| (&REST #1=#:G190)
+(DEFUN |TensorPower| (&REST #1=#:G192)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G191)
+     (PROG (#2=#:G193)
        (RETURN
         (COND
          ((LETT #2#
@@ -251,7 +251,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|TensorPower|))))))))))) 
 
 (DEFUN |TensorPower;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| #1=#:G187 #2=#:G188 $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G189 #2=#:G190 $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|TensorPower|))

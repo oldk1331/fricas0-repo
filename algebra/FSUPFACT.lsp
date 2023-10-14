@@ -17,7 +17,7 @@
             ('T (|FSUPFACT;ffactor0| |p| $)))))))) 
 
 (DEFUN |FSUPFACT;anfactor;UPU;4| (|p| $)
-  (PROG (#1=#:G138 |q|)
+  (PROG (#1=#:G140 |q|)
     (RETURN
      (SEQ
       (LETT |q| (SPADCALL |p| (QREFELT $ 35)) . #2=(|FSUPFACT;anfactor;UPU;4|))
@@ -40,7 +40,7 @@
         ('T (CONS 1 "failed")))))))) 
 
 (DEFUN |FSUPFACT;UP2ifCan;UPU;5| (|p| $)
-  (PROG (#1=#:G159 |ansa| |ra| |goforq?| |ansq| |rq|)
+  (PROG (#1=#:G161 |ansa| |ra| |goforq?| |ansq| |rq|)
     (RETURN
      (SEQ
       (EXIT
@@ -134,7 +134,7 @@
             ('T (|FSUPFACT;ffactor0| |p| $)))))))) 
 
 (DEFUN |FSUPFACT;UP2ifCan;UPU;8| (|p| $)
-  (PROG (#1=#:G176 |ansq| |rq|)
+  (PROG (#1=#:G178 |ansq| |rq|)
     (RETURN
      (SEQ
       (EXIT
@@ -218,7 +218,7 @@
                  ('T (CONS 1 "failed")))))))) 
 
 (DEFUN |FSUPFACT;P2QifCan| (|p| $)
-  (PROG (#1=#:G198 #2=#:G197 #3=#:G199 #4=#:G206 |c|)
+  (PROG (#1=#:G200 #2=#:G199 #3=#:G201 #4=#:G208 |c|)
     (RETURN
      (SEQ
       (COND
@@ -252,10 +252,10 @@
   (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 100)) (QREFELT $ 102))
             (QREFELT $ 103))) 
 
-(DEFUN |FunctionSpaceUnivariatePolynomialFactor| (&REST #1=#:G207)
+(DEFUN |FunctionSpaceUnivariatePolynomialFactor| (&REST #1=#:G209)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G208)
+     (PROG (#2=#:G210)
        (RETURN
         (COND
          ((LETT #2#

@@ -18,10 +18,10 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|MMAP;rfmap| |f| |x| $))))) 
 
-(DEFUN |MultipleMap| (&REST #1=#:G131)
+(DEFUN |MultipleMap| (&REST #1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G132)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#

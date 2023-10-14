@@ -58,7 +58,7 @@
   (SPADCALL (SPADCALL |f| (QREFELT $ 35)) (QREFELT $ 28))) 
 
 (DEFUN |EXPEXPAN;seriesQuotientLimit| (|num| |den| $)
-  (PROG (#1=#:G169 |sig| |coef| |ord| |series|)
+  (PROG (#1=#:G171 |sig| |coef| |ord| |series|)
     (RETURN
      (SEQ
       (EXIT
@@ -92,7 +92,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |EXPEXPAN;seriesQuotientInfinity| (|num| |den| $)
-  (PROG (#1=#:G180 |sig| |cc| |denOrd| |numOrd|)
+  (PROG (#1=#:G182 |sig| |cc| |denOrd| |numOrd|)
     (RETURN
      (SEQ
       (EXIT
@@ -135,7 +135,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |EXPEXPAN;limitPlus;$U;10| (|f| $)
-  (PROG (#1=#:G203 |sig| |expCoef| |exponDiff| |denCoef| |numCoef| |denExpon|
+  (PROG (#1=#:G205 |sig| |expCoef| |exponDiff| |denCoef| |numCoef| |denExpon|
          |numExpon| |denType| |denTerm| |denomTerm| |numType| |numTerm|
          |numerTerm| |num| |den|)
     (RETURN
@@ -292,10 +292,10 @@
                                          $))))))))))))))))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |ExponentialExpansion| (&REST #1=#:G235)
+(DEFUN |ExponentialExpansion| (&REST #1=#:G237)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G236)
+     (PROG (#2=#:G238)
        (RETURN
         (COND
          ((LETT #2#
@@ -314,7 +314,7 @@
               (HREM |$ConstructorCache| '|ExponentialExpansion|))))))))))) 
 
 (DEFUN |ExponentialExpansion;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| #1=#:G234 $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G236 $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|ExponentialExpansion|))

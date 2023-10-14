@@ -12,7 +12,7 @@
             (QREFELT $ 18))) 
 
 (DEFUN |IDECOMP;internalForm| (I $)
-  (PROG (|nId| #1=#:G167 |poly| #2=#:G166 |Id|)
+  (PROG (|nId| #1=#:G169 |poly| #2=#:G168 |Id|)
     (RETURN
      (SEQ (LETT |Id| (SPADCALL I (QREFELT $ 21)) . #3=(|IDECOMP;internalForm|))
           (LETT |nId|
@@ -40,7 +40,7 @@
                  ('T (SPADCALL |nId| (QREFELT $ 32))))))))) 
 
 (DEFUN |IDECOMP;externalForm| (I $)
-  (PROG (|nId| #1=#:G173 |poly| #2=#:G172 |Id|)
+  (PROG (|nId| #1=#:G175 |poly| #2=#:G174 |Id|)
     (RETURN
      (SEQ (LETT |Id| (SPADCALL I (QREFELT $ 33)) . #3=(|IDECOMP;externalForm|))
           (LETT |nId|
@@ -68,7 +68,7 @@
                  ('T (SPADCALL |nId| (QREFELT $ 39))))))))) 
 
 (DEFUN |IDECOMP;deleteunit| (|lI| $)
-  (PROG (#1=#:G183 I #2=#:G182)
+  (PROG (#1=#:G185 I #2=#:G184)
     (RETURN
      (SEQ
       (PROGN
@@ -95,8 +95,8 @@
                    (QREFELT $ 54))))) 
 
 (DEFUN |IDECOMP;zeroRadComp| (I |truelist| $)
-  (PROG (|ris| #1=#:G200 |h| #2=#:G199 |lf| |Id| #3=#:G198 #4=#:G197 |pw| |pv|
-         |val| |g| #5=#:G186 |f| |py| |px| |y| |x|)
+  (PROG (|ris| #1=#:G202 |h| #2=#:G201 |lf| |Id| #3=#:G200 #4=#:G199 |pw| |pv|
+         |val| |g| #5=#:G188 |f| |py| |px| |y| |x|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |truelist| NIL (QREFELT $ 50)) I)
@@ -248,7 +248,7 @@
                                  (QREFELT $ 31)))))))))))))) 
 
 (DEFUN |IDECOMP;goodPower| (|s| I $)
-  (PROG (|f| #1=#:G208 |g| #2=#:G207 J JJ)
+  (PROG (|f| #1=#:G210 |g| #2=#:G209 J JJ)
     (RETURN
      (SEQ (LETT |f| |s| . #3=(|IDECOMP;goodPower|))
           (LETT I (SPADCALL I (QREFELT $ 79)) . #3#)
@@ -287,7 +287,7 @@
           (EXIT (CONS |f| JJ)))))) 
 
 (DEFUN |IDECOMP;zerodimcase| (J |truelist| $)
-  (PROG (#1=#:G219 |Jd| #2=#:G175 |y| |f| #3=#:G220 |x| |n|)
+  (PROG (#1=#:G221 |Jd| #2=#:G177 |y| |f| #3=#:G222 |x| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -346,7 +346,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |IDECOMP;findvar| (J |truelist| $)
-  (PROG (|badvar| |lmonicvar| |vt| |t| #1=#:G225 |f|)
+  (PROG (|badvar| |lmonicvar| |vt| |t| #1=#:G227 |f|)
     (RETURN
      (SEQ (LETT |lmonicvar| NIL . #2=(|IDECOMP;findvar|))
           (SEQ (LETT |f| NIL . #2#)
@@ -371,9 +371,9 @@
           (EXIT (|SPADfirst| |badvar|)))))) 
 
 (DEFUN |IDECOMP;reduceDim| (|flag| J |truelist| $)
-  (PROG (|res1| #1=#:G256 JJ |sresult| |sideal| |good| #2=#:G255 II #3=#:G254
-         |s| #4=#:G236 #5=#:G235 #6=#:G237 #7=#:G253 |f| #8=#:G252 #9=#:G251
-         #10=#:G250 |idp| #11=#:G249 |Jc| |Jnew| #12=#:G248 #13=#:G247 |x|)
+  (PROG (|res1| #1=#:G258 JJ |sresult| |sideal| |good| #2=#:G257 II #3=#:G256
+         |s| #4=#:G238 #5=#:G237 #6=#:G239 #7=#:G255 |f| #8=#:G254 #9=#:G253
+         #10=#:G252 |idp| #11=#:G251 |Jc| |Jnew| #12=#:G250 #13=#:G249 |x|)
     (RETURN
      (SEQ
       (COND ((SPADCALL (|spadConstant| $ 47) J (QREFELT $ 48)) (LIST J))
@@ -539,7 +539,7 @@
                            (EXIT |res1|)))))))))))))))) 
 
 (DEFUN |IDECOMP;zeroPrimDecomp| (I |truelist| $)
-  (PROG (|ris| #1=#:G264 J1 |g| #2=#:G259 #3=#:G265 |ef| |lfact| |Jd| |x| J
+  (PROG (|ris| #1=#:G266 J1 |g| #2=#:G261 #3=#:G267 |ef| |lfact| |Jd| |x| J
          |lval| |newJ|)
     (RETURN
      (SEQ
@@ -593,8 +593,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |IDECOMP;radical;2Pi;13| (I $)
-  (PROG (#1=#:G273 #2=#:G272 #3=#:G274 #4=#:G278 #5=#:G125 |truelist| #6=#:G267
-         #7=#:G266 #8=#:G268 #9=#:G277 |f| J)
+  (PROG (#1=#:G275 #2=#:G274 #3=#:G276 #4=#:G280 #5=#:G127 |truelist| #6=#:G269
+         #7=#:G268 #8=#:G270 #9=#:G279 |f| J)
     (RETURN
      (SEQ
       (LETT J (SPADCALL (|IDECOMP;internalForm| I $) (QREFELT $ 79))
@@ -670,7 +670,7 @@
           (EXIT |rf|))))) 
 
 (DEFUN |IDECOMP;pushdterm| (|t| |x| |i| $)
-  (PROG (#1=#:G284 |newt| |cf| |xp| |n|)
+  (PROG (#1=#:G286 |newt| |cf| |xp| |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL |t| |x| (QREFELT $ 67)) . #2=(|IDECOMP;pushdterm|))
@@ -767,7 +767,7 @@
      (QREFELT $ 70))))) 
 
 (DEFUN |IDECOMP;is0dimprimary| (J |truelist| $)
-  (PROG (JP #1=#:G314 JM |i| #2=#:G303 |x| #3=#:G315 |f| JR |Jd|)
+  (PROG (JP #1=#:G316 JM |i| #2=#:G305 |x| #3=#:G317 |f| JR |Jd|)
     (RETURN
      (SEQ
       (EXIT
@@ -864,8 +864,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |IDECOMP;genPosLastVar| (J |truelist| $)
-  (PROG (#1=#:G329 |p| #2=#:G328 |val| #3=#:G319 #4=#:G318 #5=#:G320 #6=#:G326
-         |vv| #7=#:G327 |rv| |ranvals| #8=#:G325 #9=#:G324 |lv1| |x|)
+  (PROG (#1=#:G331 |p| #2=#:G330 |val| #3=#:G321 #4=#:G320 #5=#:G322 #6=#:G328
+         |vv| #7=#:G329 |rv| |ranvals| #8=#:G327 #9=#:G326 |lv1| |x|)
     (RETURN
      (SEQ
       (LETT |x| (SPADCALL |truelist| (QREFELT $ 131))
@@ -934,8 +934,8 @@
               (QREFELT $ 31)))))))) 
 
 (DEFUN |IDECOMP;backGenPos| (I |lval| |truelist| $)
-  (PROG (#1=#:G348 |p| #2=#:G347 |val| #3=#:G340 #4=#:G339 #5=#:G341 #6=#:G345
-         |vv| #7=#:G346 |rv| |lv1| |x|)
+  (PROG (#1=#:G350 |p| #2=#:G349 |val| #3=#:G342 #4=#:G341 #5=#:G343 #6=#:G347
+         |vv| #7=#:G348 |rv| |lv1| |x|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |lval| NIL (QREFELT $ 133)) I)
@@ -1011,7 +1011,7 @@
             (QREFELT $ 136))) 
 
 (DEFUN |IDECOMP;testPower| (|uf| |x| J $)
-  (PROG (|g| |linp| |trailp| #1=#:G351 |df| #2=#:G350)
+  (PROG (|g| |linp| |trailp| #1=#:G353 |df| #2=#:G352)
     (RETURN
      (SEQ
       (LETT |df|
@@ -1043,7 +1043,7 @@
       (EXIT (SPADCALL |g| J (QREFELT $ 130))))))) 
 
 (DEFUN |IDECOMP;zeroDimPrime?;PiB;25| (I $)
-  (PROG (|lfact| |g| |i| #1=#:G363 #2=#:G364 |f| |Jd| |n| J)
+  (PROG (|lfact| |g| |i| #1=#:G365 #2=#:G366 |f| |Jd| |n| J)
     (RETURN
      (SEQ
       (EXIT
@@ -1121,8 +1121,8 @@
   (|IDECOMP;is0dimprimary| (|IDECOMP;internalForm| J $) (QREFELT $ 44) $)) 
 
 (DEFUN |IDECOMP;primaryDecomp;PiL;27| (I $)
-  (PROG (#1=#:G377 II #2=#:G376 |truelist| #3=#:G367 #4=#:G366 #5=#:G368
-         #6=#:G375 |f| J)
+  (PROG (#1=#:G379 II #2=#:G378 |truelist| #3=#:G369 #4=#:G368 #5=#:G370
+         #6=#:G377 |f| J)
     (RETURN
      (SEQ
       (LETT J (SPADCALL (|IDECOMP;internalForm| I $) (QREFELT $ 79))
@@ -1171,10 +1171,10 @@
                (EXIT (NREVERSE #2#))))))))))) 
 
 (DEFUN |IDECOMP;contract;PiLPi;28| (I |lvar| $)
-  (PROG (#1=#:G407 |gg| #2=#:G406 |fullPol| #3=#:G405 |vv| #4=#:G404 J
-         #5=#:G175 #6=#:G403 |f| #7=#:G402 |lJ| #8=#:G401 |g| #9=#:G400
-         |subsVars| #10=#:G399 #11=#:G398 |newVars| #12=#:G397 #13=#:G396 |n|
-         |fullVars| #14=#:G379 #15=#:G378 #16=#:G380 #17=#:G395 |Id|)
+  (PROG (#1=#:G409 |gg| #2=#:G408 |fullPol| #3=#:G407 |vv| #4=#:G406 J
+         #5=#:G177 #6=#:G405 |f| #7=#:G404 |lJ| #8=#:G403 |g| #9=#:G402
+         |subsVars| #10=#:G401 #11=#:G400 |newVars| #12=#:G399 #13=#:G398 |n|
+         |fullVars| #14=#:G381 #15=#:G380 #16=#:G382 #17=#:G397 |Id|)
     (RETURN
      (SEQ
       (LETT |Id| (SPADCALL (SPADCALL I (QREFELT $ 151)) (QREFELT $ 21))
@@ -1396,10 +1396,10 @@
                                             (EXIT (NREVERSE #2#))))
                                       (QREFELT $ 38))))))))))))))))))))))) 
 
-(DEFUN |IdealDecompositionPackage| (#1=#:G410)
+(DEFUN |IdealDecompositionPackage| (#1=#:G412)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G411)
+     (PROG (#2=#:G413)
        (RETURN
         (COND
          ((LETT #2#
@@ -1417,7 +1417,7 @@
               (HREM |$ConstructorCache| '|IdealDecompositionPackage|))))))))))) 
 
 (DEFUN |IdealDecompositionPackage;| (|#1|)
-  (PROG (#1=#:G178 #2=#:G175 #3=#:G409 |xx| #4=#:G408 |pv$| $ |dv$| DV$1)
+  (PROG (#1=#:G180 #2=#:G177 #3=#:G411 |xx| #4=#:G410 |pv$| $ |dv$| DV$1)
     (RETURN
      (SEQ
       (PROGN

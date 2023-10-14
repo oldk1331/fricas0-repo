@@ -4,12 +4,12 @@
 (DEFPARAMETER |noZeroDivisors;AL| 'NIL) 
 
 (DEFUN |noZeroDivisors| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|noZeroDivisors;AL|)
           (T (SETQ |noZeroDivisors;AL| (|noZeroDivisors;|)))))) 
 
 (DEFUN |noZeroDivisors;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL)) |noZeroDivisors|)

@@ -22,7 +22,7 @@
    ('T (SPADCALL (QREFELT $ 17))))) 
 
 (DEFUN |JCT;jacobi| (|y| $)
-  (PROG (|res| |tmp| #1=#:G136 #2=#:G142 |i| JM |ly|)
+  (PROG (|res| |tmp| #1=#:G138 #2=#:G144 |i| JM |ly|)
     (RETURN
      (SEQ (LETT |ly| (SPADCALL |y| (QREFELT $ 26)) . #3=(|JCT;jacobi|))
           (LETT JM (SPADCALL |ly| (QREFELT $ 30)) . #3#)
@@ -50,8 +50,8 @@
           (EXIT |res|))))) 
 
 (DEFUN |JCT;transform;JB1Jbe;4| (|jv| $)
-  (PROG (|res| #1=#:G158 #2=#:G164 #3=#:G166 |k| #4=#:G165 |qint| |pint|
-         #5=#:G148 |i| |jt| |ans|)
+  (PROG (|res| #1=#:G160 #2=#:G166 #3=#:G168 |k| #4=#:G167 |qint| |pint|
+         #5=#:G150 |i| |jt| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -147,7 +147,7 @@
                               |res| (QREFELT $ 60))))))))))) 
 
 (DEFUN |JCT;transform;JbeJbe;5| (|e1| $)
-  (PROG (|e2| #1=#:G173 |jv| #2=#:G174 |je| JE #3=#:G172 #4=#:G171 JV)
+  (PROG (|e2| #1=#:G175 |jv| #2=#:G176 |je| JE #3=#:G174 #4=#:G173 JV)
     (RETURN
      (SEQ
       (LETT JV (SPADCALL |e1| (QREFELT $ 63)) . #5=(|JCT;transform;JbeJbe;5|))
@@ -189,10 +189,10 @@
            (GO G190) G191 (EXIT NIL))
       (EXIT |e2|))))) 
 
-(DEFUN |JetCoordinateTransformation| (&REST #1=#:G175)
+(DEFUN |JetCoordinateTransformation| (&REST #1=#:G177)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G176)
+     (PROG (#2=#:G178)
        (RETURN
         (COND
          ((LETT #2#

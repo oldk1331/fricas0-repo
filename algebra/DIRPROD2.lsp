@@ -12,10 +12,10 @@
 (DEFUN |DIRPROD2;reduce;MDp2B;3| (|f| |v| |b| $)
   (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) |b| (QREFELT $ 22))) 
 
-(DEFUN |DirectProductFunctions2| (&REST #1=#:G133)
+(DEFUN |DirectProductFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

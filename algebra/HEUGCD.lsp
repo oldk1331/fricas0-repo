@@ -16,7 +16,7 @@
         ('T |n|))) 
 
 (DEFUN |HEUGCD;height| (|f| $)
-  (PROG (|k| #1=#:G148)
+  (PROG (|k| #1=#:G150)
     (RETURN
      (SEQ (LETT |k| 1 . #2=(|HEUGCD;height|))
           (SEQ G190
@@ -55,7 +55,7 @@
           (EXIT |d|))))) 
 
 (DEFUN |HEUGCD;smallest_to_front| (|l| $)
-  (PROG (|ress| |smallest| #1=#:G161 |p|)
+  (PROG (|ress| |smallest| #1=#:G163 |p|)
     (RETURN
      (SEQ (LETT |ress| NIL . #2=(|HEUGCD;smallest_to_front|))
           (LETT |smallest| (|SPADfirst| |l|) . #2#)
@@ -74,7 +74,7 @@
           (EXIT (CONS |smallest| |ress|)))))) 
 
 (DEFUN |HEUGCD;lintgcd;LI;7| (|lval| $)
-  (PROG (|val| #1=#:G167 |val1|)
+  (PROG (|val| #1=#:G169 |val1|)
     (RETURN
      (SEQ
       (COND ((NULL |lval|) 0) ((SPADCALL 1 |lval| (QREFELT $ 25)) 1)
@@ -93,7 +93,7 @@
               (EXIT |val|)))))))) 
 
 (DEFUN |HEUGCD;content;LL;8| (|listf| $)
-  (PROG (#1=#:G171 |f| #2=#:G170)
+  (PROG (#1=#:G173 |f| #2=#:G172)
     (RETURN
      (SEQ
       (PROGN
@@ -113,7 +113,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |HEUGCD;contprim| (|listf| $)
-  (PROG (#1=#:G174 |c| #2=#:G179 |f| #3=#:G178)
+  (PROG (#1=#:G176 |c| #2=#:G181 |f| #3=#:G180)
     (RETURN
      (SEQ
       (PROGN
@@ -140,8 +140,8 @@
             (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |HEUGCD;constcase| (|listdeg| |listf| $)
-  (PROG (#1=#:G195 |lcf| #2=#:G194 |d| |lclistf| #3=#:G193 |f| #4=#:G192
-         #5=#:G183 #6=#:G182 #7=#:G184 #8=#:G191 |n| |lind|)
+  (PROG (#1=#:G197 |lcf| #2=#:G196 |d| |lclistf| #3=#:G195 |f| #4=#:G194
+         #5=#:G185 #6=#:G184 #7=#:G186 #8=#:G193 |n| |lind|)
     (RETURN
      (SEQ
       (LETT |lind|
@@ -212,7 +212,7 @@
                               (EXIT (NREVERSE #2#)))))))))))))))) 
 
 (DEFUN |HEUGCD;testDivide| (|listf| |g| $)
-  (PROG (|result| #1=#:G206 |f1| #2=#:G207 |f|)
+  (PROG (|result| #1=#:G208 |f1| #2=#:G209 |f|)
     (RETURN
      (SEQ
       (EXIT
@@ -235,7 +235,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |HEUGCD;lincase| (|listdeg| |listf| $)
-  (PROG (|result| #1=#:G219 |f1| #2=#:G220 |f| |g| |n|)
+  (PROG (|result| #1=#:G221 |f1| #2=#:G222 |f| |g| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -266,11 +266,11 @@
         ('T |f|))) 
 
 (DEFUN |HEUGCD;localgcd| (|listf| $)
-  (PROG (#1=#:G237 #2=#:G255 |f| #3=#:G254 |gg| |answr| #4=#:G242 |nvalue|
-         #5=#:G248 |result| |flag| |f1| #6=#:G253 |d| |contd| |dd| |dval|
-         |listval| #7=#:G252 #8=#:G251 |k| |minf| #9=#:G233 #10=#:G232
-         #11=#:G234 #12=#:G250 |hgt| #13=#:G229 #14=#:G228 #15=#:G230
-         #16=#:G249)
+  (PROG (#1=#:G239 #2=#:G257 |f| #3=#:G256 |gg| |answr| #4=#:G244 |nvalue|
+         #5=#:G250 |result| |flag| |f1| #6=#:G255 |d| |contd| |dd| |dval|
+         |listval| #7=#:G254 #8=#:G253 |k| |minf| #9=#:G235 #10=#:G234
+         #11=#:G236 #12=#:G252 |hgt| #13=#:G231 #14=#:G230 #15=#:G232
+         #16=#:G251)
     (RETURN
      (SEQ
       (EXIT
@@ -429,12 +429,12 @@
       #5# (EXIT #5#))))) 
 
 (DEFUN |HEUGCD;internal| (|flag| |listf| $)
-  (PROG (|ans| #1=#:G298 |p| #2=#:G299 |q| #3=#:G297 |result| |#G53| |#G52|
-         #4=#:G286 |fa| |ga| #5=#:G278 |lcg| #6=#:G296 |g| |f| |listdeg|
-         #7=#:G295 #8=#:G294 |minpol| #9=#:G293 |term| #10=#:G292 |contgcd|
-         |Cgcd| #11=#:G291 #12=#:G290 |contlistf| #13=#:G265 #14=#:G289
-         #15=#:G288 |minpol1| |mdeg| #16=#:G262 #17=#:G261 #18=#:G263
-         #19=#:G287 |nlf|)
+  (PROG (|ans| #1=#:G300 |p| #2=#:G301 |q| #3=#:G299 |result| |#G53| |#G52|
+         #4=#:G288 |fa| |ga| #5=#:G280 |lcg| #6=#:G298 |g| |f| |listdeg|
+         #7=#:G297 #8=#:G296 |minpol| #9=#:G295 |term| #10=#:G294 |contgcd|
+         |Cgcd| #11=#:G293 #12=#:G292 |contlistf| #13=#:G267 #14=#:G291
+         #15=#:G290 |minpol1| |mdeg| #16=#:G264 #17=#:G263 #18=#:G265
+         #19=#:G289 |nlf|)
     (RETURN
      (SEQ
       (EXIT
@@ -695,10 +695,10 @@
 (DEFUN |HEUGCD;gcdcofact;2L;19| (|listf| $)
   (|HEUGCD;internal| (CONS 3 "gcdcofact") |listf| $)) 
 
-(DEFUN |HeuGcd| (#1=#:G324)
+(DEFUN |HeuGcd| (#1=#:G326)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G325)
+     (PROG (#2=#:G327)
        (RETURN
         (COND
          ((LETT #2#

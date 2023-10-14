@@ -13,10 +13,10 @@
 
 (DEFUN |VARIABLE;latex;$S;5| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 16))) 
 
-(DEFUN |Variable| (#1=#:G130)
+(DEFUN |Variable| (#1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

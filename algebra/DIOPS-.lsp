@@ -9,7 +9,7 @@
   (SPADCALL (SPADCALL |d| (QREFELT $ 13)) (QREFELT $ 9))) 
 
 (DEFUN |DIOPS-;coerce;AOf;4| (|s| $)
-  (PROG (#1=#:G138 |x| #2=#:G137)
+  (PROG (#1=#:G140 |x| #2=#:G139)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL "dictionary" (QREFELT $ 17))

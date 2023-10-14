@@ -7,10 +7,10 @@
          (CONS (SPADCALL (|SPADfirst| |la|) (|SPADfirst| |lb|) |fn|)
                (SPADCALL |fn| (CDR |la|) (CDR |lb|) (QREFELT $ 13)))))) 
 
-(DEFUN |ListFunctions3| (&REST #1=#:G133)
+(DEFUN |ListFunctions3| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

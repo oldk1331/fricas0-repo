@@ -13,10 +13,10 @@
    (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) |ident| (QREFELT $ 21))
    (QREFELT $ 16))) 
 
-(DEFUN |FiniteSetAggregateFunctions2| (&REST #1=#:G133)
+(DEFUN |FiniteSetAggregateFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

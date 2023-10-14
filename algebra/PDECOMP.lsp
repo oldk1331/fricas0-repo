@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PDECOMP;leftFactor;2UPU;1| (|f| |h| $)
-  (PROG (|g| #1=#:G137 |r| |fr| |i|)
+  (PROG (|g| #1=#:G139 |r| |fr| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -48,7 +48,7 @@
                           (#2# (CONS 0 (CONS (QCDR |g|) |h|))))))))))))) 
 
 (DEFUN |PDECOMP;decompose;UPL;3| (|f| $)
-  (PROG (#1=#:G158 |g| |h| #2=#:G159 |dh| |df|)
+  (PROG (#1=#:G160 |g| |h| #2=#:G161 |dh| |df|)
     (RETURN
      (SEQ
       (EXIT
@@ -77,7 +77,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PDECOMP;rightFactorCandidate;UPNniUP;4| (|f| |dh| $)
-  (PROG (|h| #1=#:G174 |c| #2=#:G173 #3=#:G172 |hdg| |k| |dg| |df|)
+  (PROG (|h| #1=#:G176 |c| #2=#:G175 #3=#:G174 |hdg| |k| |dg| |df|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL |f| (SPADCALL |f| (QREFELT $ 31)) (QREFELT $ 32))
@@ -122,10 +122,10 @@
                  (SPADCALL (SPADCALL |h| 0 (QREFELT $ 34)) 0 (QREFELT $ 19))
                  (QREFELT $ 39))))))) 
 
-(DEFUN |PolynomialDecomposition| (&REST #1=#:G179)
+(DEFUN |PolynomialDecomposition| (&REST #1=#:G181)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G180)
+     (PROG (#2=#:G182)
        (RETURN
         (COND
          ((LETT #2#

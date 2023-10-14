@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |IALGFACT;perturbfactor| (|f| |k| |fact| $)
-  (PROG (#1=#:G134 |pp| #2=#:G133 |pol| |lsols| |newf|)
+  (PROG (#1=#:G136 |pp| #2=#:G135 |pol| |lsols| |newf|)
     (RETURN
      (SEQ
       (LETT |pol|
@@ -42,7 +42,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |IALGFACT;irrfactor| (|f| |k| |fact| $)
-  (PROG (|listerm| |newf| #1=#:G140 |g| #2=#:G150 |pelt| |listfact| |nn|)
+  (PROG (|listerm| |newf| #1=#:G142 |g| #2=#:G152 |pelt| |listfact| |nn|)
     (RETURN
      (SEQ
       (COND ((EQL (SPADCALL |f| (QREFELT $ 22)) 1) (LIST |f|))
@@ -98,8 +98,8 @@
                           (EXIT |listerm|)))))))))))) 
 
 (DEFUN |IALGFACT;factor;AlPolMF;3| (|f| |fact| $)
-  (PROG (#1=#:G153 #2=#:G152 #3=#:G154 #4=#:G157 #5=#:G156 #6=#:G158 #7=#:G163
-         |pol| #8=#:G162 |sqterm| |sqf|)
+  (PROG (#1=#:G155 #2=#:G154 #3=#:G156 #4=#:G159 #5=#:G158 #6=#:G160 #7=#:G165
+         |pol| #8=#:G164 |sqterm| |sqf|)
     (RETURN
      (SEQ
       (LETT |sqf| (SPADCALL |f| (QREFELT $ 31))
@@ -172,10 +172,10 @@
 (DEFUN |IALGFACT;convrt| (|q| $)
   (SPADCALL (SPADCALL (ELT $ 56) |q| (QREFELT $ 59)) (QREFELT $ 61))) 
 
-(DEFUN |InnerAlgFactor| (&REST #1=#:G169)
+(DEFUN |InnerAlgFactor| (&REST #1=#:G171)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G170)
+     (PROG (#2=#:G172)
        (RETURN
         (COND
          ((LETT #2#

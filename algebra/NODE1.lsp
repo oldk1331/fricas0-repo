@@ -93,7 +93,7 @@
       ('T (CONS 1 "failed")))))) 
 
 (DEFUN |NODE1;checkBernoulli| (|m| |n| |ky| $)
-  (PROG (#1=#:G175 |b| |a| |pp| |d| |p| |y| |r| |f|)
+  (PROG (#1=#:G177 |b| |a| |pp| |d| |p| |y| |r| |f|)
     (RETURN
      (SEQ
       (EXIT
@@ -153,7 +153,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |NODE1;solveBernoulli| (|rec| |y| |x| |yx| $)
-  (PROG (|sol| #1=#:G183 |deq| |n1|)
+  (PROG (|sol| #1=#:G185 |deq| |n1|)
     (RETURN
      (SEQ (LETT |n1| (- 1 (QVELT |rec| 2)) . #2=(|NODE1;solveBernoulli|))
           (LETT |deq|
@@ -235,7 +235,7 @@
                    (SPADCALL |a2| |q| (QREFELT $ 39))))))))) 
 
 (DEFUN |NODE1;solveRiccati| (|l| |y| |x| |yx| $)
-  (PROG (|gsol| #1=#:G203 |deq| |u|)
+  (PROG (|gsol| #1=#:G205 |deq| |u|)
     (RETURN
      (SEQ
       (LETT |u| (|NODE1;partSolRiccati| |l| |y| |x| |yx| $)
@@ -281,7 +281,7 @@
                        (|SPADfirst| (QCDR |gsol|)) (QREFELT $ 39)))))))))))) 
 
 (DEFUN |NODE1;partSolRiccati| (|l| |y| |x| |yx| $)
-  (PROG (#1=#:G219 |bas| |gsol| |lineq| |q1| |q0| |l3|)
+  (PROG (#1=#:G221 |bas| |gsol| |lineq| |q1| |q0| |l3|)
     (RETURN
      (SEQ
       (EXIT
@@ -321,10 +321,10 @@
                          (QREFELT $ 39))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |NonLinearFirstOrderODESolver| (&REST #1=#:G221)
+(DEFUN |NonLinearFirstOrderODESolver| (&REST #1=#:G223)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G222)
+     (PROG (#2=#:G224)
        (RETURN
         (COND
          ((LETT #2#

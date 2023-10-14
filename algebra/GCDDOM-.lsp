@@ -27,7 +27,7 @@
             (QREFELT $ 19))) 
 
 (DEFUN |GCDDOM-;gcdPolynomial;3Sup;4| (|p1| |p2| $)
-  (PROG (#1=#:G156 |c2| |p| |c1| |e1| |e2|)
+  (PROG (#1=#:G158 |c2| |p| |c1| |e1| |e2|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p1| (QREFELT $ 24)) (SPADCALL |p2| (QREFELT $ 25)))
@@ -141,7 +141,7 @@
                        |p1| (QREFELT $ 40)))))))))))) 
 
 (DEFUN |GCDDOM-;lcmCoef;2SR;5| (|c1| |c2| $)
-  (PROG (|cc2| #1=#:G176 |cc1| |g|)
+  (PROG (|cc2| #1=#:G178 |cc1| |g|)
     (RETURN
      (SEQ
       (LETT |g| (SPADCALL |c1| |c2| (QREFELT $ 10))

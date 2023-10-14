@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PLEQN;inconsistent?;LB;1| (|pl| $)
-  (PROG (#1=#:G160 #2=#:G162 #3=#:G163 |p|)
+  (PROG (#1=#:G162 #2=#:G164 #3=#:G165 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -27,7 +27,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PLEQN;inconsistent?;LB;2| (|pl| $)
-  (PROG (#1=#:G165 #2=#:G167 #3=#:G168 |p|)
+  (PROG (#1=#:G167 #2=#:G169 #3=#:G170 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -52,8 +52,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PLEQN;B1solve;RR;3| (|sys| $)
-  (PROG (|pbas| |pb| #1=#:G193 |j| |j1| #2=#:G192 |i| |i1| #3=#:G191 #4=#:G190
-         |augmat| #5=#:G189 #6=#:G188 #7=#:G187 |p| |w| |frcols| |n| |cmat| |k|
+  (PROG (|pbas| |pb| #1=#:G195 |j| |j1| #2=#:G194 |i| |i1| #3=#:G193 #4=#:G192
+         |augmat| #5=#:G191 #6=#:G190 #7=#:G189 |p| |w| |frcols| |n| |cmat| |k|
          |nss| |rss|)
     (RETURN
      (SEQ (LETT |rss| (QVELT |sys| 3) . #8=(|PLEQN;B1solve;RR;3|))
@@ -184,10 +184,10 @@
 
 (DEFUN |PLEQN;regime;RMLL2NniIR;4|
        (|y| |coef| |w| |psbf| |rk| |rkmax| |mode| $)
-  (PROG (|test| |yzero| #1=#:G228 |pw| #2=#:G227 |wcd| #3=#:G219 |wnum| |weqn|
-         #4=#:G205 #5=#:G204 #6=#:G206 #7=#:G226 |j| #8=#:G225 |i| |frows| |pp|
-         |pps| |sys| |nss| |rss| |nc| #9=#:G198 #10=#:G197 #11=#:G199
-         #12=#:G224 #13=#:G125 #14=#:G223 |x| #15=#:G222 #16=#:G221 #17=#:G220
+  (PROG (|test| |yzero| #1=#:G230 |pw| #2=#:G229 |wcd| #3=#:G221 |wnum| |weqn|
+         #4=#:G207 #5=#:G206 #6=#:G208 #7=#:G228 |j| #8=#:G227 |i| |frows| |pp|
+         |pps| |sys| |nss| |rss| |nc| #9=#:G200 #10=#:G199 #11=#:G201
+         #12=#:G226 #13=#:G127 #14=#:G225 |x| #15=#:G224 #16=#:G223 #17=#:G222
          |ydetf|)
     (RETURN
      (SEQ
@@ -392,8 +392,8 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |PLEQN;bsolve;MLNniSIR;5| (|coeff| |w| |h| |outname| |mode| $)
-  (PROG (|count| |lrec3| |rec3| #1=#:G249 |y| |psbf| #2=#:G248 |x| #3=#:G247
-         |psb| |pc| |rk| |k| |rkmin| |rkmax| |rrcl| #4=#:G235 |rksoln|
+  (PROG (|count| |lrec3| |rec3| #1=#:G251 |y| |psbf| #2=#:G250 |x| #3=#:G249
+         |psb| |pc| |rk| |k| |rkmin| |rkmax| |rrcl| #4=#:G237 |rksoln|
          |newfile| |filemode| |r|)
     (RETURN
      (SEQ (LETT |r| (QVSIZE |coeff|) . #5=(|PLEQN;bsolve;MLNniSIR;5|))
@@ -503,7 +503,7 @@
                   (EXIT (CONS |lrec3| |count|)))))))))) 
 
 (DEFUN |PLEQN;factorset;GRL;6| (|y| $)
-  (PROG (#1=#:G255 |j| #2=#:G254)
+  (PROG (#1=#:G257 |j| #2=#:G256)
     (RETURN
      (SEQ
       (COND ((SPADCALL |y| (QREFELT $ 11)) NIL)
@@ -524,8 +524,8 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |PLEQN;ParCondList;MNniL;7| (|mat| |h| $)
-  (PROG (|rcl| |pcl| |ps| |done| |covered| |npc| |zro| |test| |p| #1=#:G272
-         |rc| #2=#:G273 |maxrk| |pc| |k| #3=#:G271 |n| |r| |psbf|)
+  (PROG (|rcl| |pcl| |ps| |done| |covered| |npc| |zro| |test| |p| #1=#:G274
+         |rc| #2=#:G275 |maxrk| |pc| |k| #3=#:G273 |n| |r| |psbf|)
     (RETURN
      (SEQ (LETT |rcl| NIL . #4=(|PLEQN;ParCondList;MNniL;7|))
           (LETT |ps| NIL . #4#) (LETT |pc| NIL . #4#) (LETT |npc| NIL . #4#)
@@ -722,7 +722,7 @@
           (EXIT |nmat|))))) 
 
 (DEFUN |PLEQN;dmp2rfi;LL;10| (|vl| $)
-  (PROG (#1=#:G293 |v| #2=#:G292)
+  (PROG (#1=#:G295 |v| #2=#:G294)
     (RETURN
      (SEQ
       (PROGN
@@ -745,7 +745,7 @@
    (SPADCALL |mat| (SPADCALL |w| (QREFELT $ 115)) 1 "nofile" 2 (QREFELT $ 88)))) 
 
 (DEFUN |PLEQN;psolve;ML;13| (|mat| $)
-  (PROG (#1=#:G307 |i| #2=#:G306)
+  (PROG (#1=#:G309 |i| #2=#:G308)
     (RETURN
      (SEQ
       (QCAR
@@ -772,7 +772,7 @@
              (QREFELT $ 88)))) 
 
 (DEFUN |PLEQN;psolve;MPiL;16| (|mat| |h| $)
-  (PROG (#1=#:G320 |i| #2=#:G319)
+  (PROG (#1=#:G322 |i| #2=#:G321)
     (RETURN
      (SEQ
       (QCAR
@@ -799,7 +799,7 @@
              (QREFELT $ 88)))) 
 
 (DEFUN |PLEQN;psolve;MSI;19| (|mat| |outname| $)
-  (PROG (#1=#:G330 |i| #2=#:G329)
+  (PROG (#1=#:G332 |i| #2=#:G331)
     (RETURN
      (SEQ
       (QCDR
@@ -816,7 +816,7 @@
                  1 |outname| 9 (QREFELT $ 88))))))) 
 
 (DEFUN |PLEQN;nextSublist;2IL;20| (|n| |k| $)
-  (PROG (|mslist| #1=#:G334 |ms|)
+  (PROG (|mslist| #1=#:G336 |ms|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |n| 0 (QREFELT $ 125)) NIL)
@@ -853,7 +853,7 @@
              (QREFELT $ 88)))) 
 
 (DEFUN |PLEQN;psolve;MPiSI;23| (|mat| |h| |outname| $)
-  (PROG (#1=#:G344 |i| #2=#:G343)
+  (PROG (#1=#:G346 |i| #2=#:G345)
     (RETURN
      (SEQ
       (QCDR
@@ -870,10 +870,10 @@
                  |h| |outname| 12 (QREFELT $ 88))))))) 
 
 (DEFUN |PLEQN;hasoln;2LR;24| (|zro| |nzro| $)
-  (PROG (#1=#:G377 |p| #2=#:G376 #3=#:G375 #4=#:G374 #5=#:G352 #6=#:G351
-         #7=#:G353 #8=#:G373 #9=#:G127 #10=#:G372 |x| #11=#:G371 |psbf|
-         #12=#:G370 #13=#:G369 #14=#:G368 #15=#:G367 |pnzro| #16=#:G347
-         #17=#:G346 #18=#:G348 #19=#:G366 #20=#:G126)
+  (PROG (#1=#:G379 |p| #2=#:G378 #3=#:G377 #4=#:G376 #5=#:G354 #6=#:G353
+         #7=#:G355 #8=#:G375 #9=#:G129 #10=#:G374 |x| #11=#:G373 |psbf|
+         #12=#:G372 #13=#:G371 #14=#:G370 #15=#:G369 |pnzro| #16=#:G349
+         #17=#:G348 #18=#:G350 #19=#:G368 #20=#:G128)
     (RETURN
      (SEQ
       (COND ((NULL |zro|) (VECTOR 'T |zro| |nzro|))
@@ -1088,7 +1088,7 @@
                                (VECTOR 'T |zro| |nzro|))))))))))))))))))))))))) 
 
 (DEFUN |PLEQN;se2rfi;LL;25| (|w| $)
-  (PROG (#1=#:G381 |wi| #2=#:G380)
+  (PROG (#1=#:G383 |wi| #2=#:G382)
     (RETURN
      (SEQ
       (PROGN
@@ -1117,7 +1117,7 @@
     (|algCoerceInteractive| |p| (|Polynomial| (QREFELT $ 6)) (QREFELT $ 9))))) 
 
 (DEFUN |PLEQN;wrregime;LSI;27| (|lrec3| |outname| $)
-  (PROG (|count| #1=#:G389 |rec3| |rksoln| |newfile|)
+  (PROG (|count| #1=#:G391 |rec3| |rksoln| |newfile|)
     (RETURN
      (SEQ
       (LETT |newfile| (SPADCALL "" |outname| "regime" (QREFELT $ 75))
@@ -1144,7 +1144,7 @@
   (SPADCALL (SPADCALL |v1| (QREFELT $ 139)) (QREFELT $ 140))) 
 
 (DEFUN |PLEQN;rdregime;SL;29| (|inname| $)
-  (PROG (|rec3| |rksoln| #1=#:G395 |infile| |infilename|)
+  (PROG (|rec3| |rksoln| #1=#:G397 |infile| |infilename|)
     (RETURN
      (SEQ
       (LETT |infilename| (SPADCALL "" |inname| "regime" (QREFELT $ 146))
@@ -1186,7 +1186,7 @@
       (SPADCALL |infile| (QREFELT $ 86)) (EXIT |rksoln|))))) 
 
 (DEFUN |PLEQN;maxrank;LNni;30| (|rcl| $)
-  (PROG (#1=#:G403 #2=#:G402 #3=#:G404 #4=#:G407 |j|)
+  (PROG (#1=#:G405 #2=#:G404 #3=#:G406 #4=#:G409 |j|)
     (RETURN
      (SEQ
       (COND ((NULL |rcl|) 0)
@@ -1210,7 +1210,7 @@
               (COND (#1# #2#) (#5# (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |PLEQN;minrank;LNni;31| (|rcl| $)
-  (PROG (#1=#:G410 #2=#:G409 #3=#:G411 #4=#:G414 |j|)
+  (PROG (#1=#:G412 #2=#:G411 #3=#:G413 #4=#:G416 |j|)
     (RETURN
      (SEQ
       (COND ((NULL |rcl|) 0)
@@ -1234,7 +1234,7 @@
               (COND (#1# #2#) (#5# (|IdentityError| '|min|)))))))))) 
 
 (DEFUN |PLEQN;minset;2L;32| (|lset| $)
-  (PROG (#1=#:G420 |x| #2=#:G419)
+  (PROG (#1=#:G422 |x| #2=#:G421)
     (RETURN
      (SEQ
       (COND ((NULL |lset|) |lset|)
@@ -1255,7 +1255,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |PLEQN;sqfree;2GR;33| (|p| $)
-  (PROG (#1=#:G423 #2=#:G422 #3=#:G424 #4=#:G426 |j|)
+  (PROG (#1=#:G425 #2=#:G424 #3=#:G426 #4=#:G428 |j|)
     (RETURN
      (SEQ
       (PROGN
@@ -1277,8 +1277,8 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 22)))))))) 
 
 (DEFUN |PLEQN;ParCond;MNniL;34| (|mat| |k| $)
-  (PROG (|DetEqn| |neweqn| |detmat| |found| |matsub| #1=#:G438 |nss| #2=#:G439
-         #3=#:G436 |rss| #4=#:G437 |n| |r| |j|)
+  (PROG (|DetEqn| |neweqn| |detmat| |found| |matsub| #1=#:G440 |nss| #2=#:G441
+         #3=#:G438 |rss| #4=#:G439 |n| |r| |j|)
     (RETURN
      (SEQ
       (COND ((EQL |k| 0) (LIST (VECTOR (|spadConstant| $ 22) NIL NIL)))
@@ -1375,7 +1375,7 @@
             (SPADCALL (QVELT |z2| 0) (QREFELT $ 157)) (QREFELT $ 158))) 
 
 (DEFUN |PLEQN;overset?;LLB;35| (|p| |qlist| $)
-  (PROG (#1=#:G441 #2=#:G440 #3=#:G442 #4=#:G445 |q|)
+  (PROG (#1=#:G443 #2=#:G442 #3=#:G444 #4=#:G447 |q|)
     (RETURN
      (SEQ
       (COND ((NULL |qlist|) 'NIL)
@@ -1430,10 +1430,10 @@
                (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
           (EXIT |newmat|))))) 
 
-(DEFUN |ParametricLinearEquations| (&REST #1=#:G451)
+(DEFUN |ParametricLinearEquations| (&REST #1=#:G453)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G452)
+     (PROG (#2=#:G454)
        (RETURN
         (COND
          ((LETT #2#

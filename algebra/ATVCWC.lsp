@@ -4,14 +4,14 @@
 (DEFPARAMETER |VariablesCommuteWithCoefficients;AL| 'NIL) 
 
 (DEFUN |VariablesCommuteWithCoefficients| ()
-  (LET (#:G127)
+  (LET (#:G129)
     (COND (|VariablesCommuteWithCoefficients;AL|)
           (T
            (SETQ |VariablesCommuteWithCoefficients;AL|
                    (|VariablesCommuteWithCoefficients;|)))))) 
 
 (DEFUN |VariablesCommuteWithCoefficients;| ()
-  (PROG (#1=#:G125)
+  (PROG (#1=#:G127)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
