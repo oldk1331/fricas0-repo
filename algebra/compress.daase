@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4751 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4755 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -181,8 +181,9 @@
  |IntegrationResultFunctions2| |IntegrationResultToFunction| |IntegerRoots|
  |IrredPolyOverFiniteField| |IntegrationResultRFToFunction|
  |IrrRepSymNatPackage| |InternalRationalUnivariateRepresentationPackage|
- |IndexedString| |InnerPolySum| |InnerSparseUnivariatePowerSeries|
- |InnerTaylorSeries| |InfiniteTupleFunctions2| |InfiniteTupleFunctions3|
+ |IntegerSmithNormalForm| |IndexedString| |InnerPolySum|
+ |InnerSparseUnivariatePowerSeries| |InnerTaylorSeries|
+ |InfiniteTupleFunctions2| |InfiniteTupleFunctions3|
  |InnerTrigonometricManipulations| |InfiniteTuple| |IndexedVector|
  |IndexedAggregate&| |IndexedAggregate| |JetBundleBaseFunctionCategory&|
  |JetBundleBaseFunctionCategory| |JetBundleCategory&| |JetBundleCategory|
@@ -396,8 +397,8 @@
  |UserDefinedPartialOrdering| |UserDefinedVariableOrdering|
  |UniqueFactorizationDomain&| |UniqueFactorizationDomain|
  |UnivariateFormalPowerSeries| |UnivariateFormalPowerSeriesFunctions|
- |UnivariateLaurentSeries| |UnivariateLaurentSeriesFunctions2|
- |UnivariateLaurentSeriesCategory|
+ |UnitGaussianElimination| |UnivariateLaurentSeries|
+ |UnivariateLaurentSeriesFunctions2| |UnivariateLaurentSeriesCategory|
  |UnivariateLaurentSeriesConstructorCategory&|
  |UnivariateLaurentSeriesConstructorCategory|
  |UnivariateLaurentSeriesConstructor| |UnivariateFactorize| |UniversalSegment|
@@ -1044,48 +1045,49 @@
  |generalTwoFactor| |tryTwoFactor| |generalSqFr| |twoFactor| |doFactor| |qnew|
  |undirectedGraph| |setOrder| |getOrder| |less?| |userOrdered?| |largest|
  |more?| |setVariableOrder| |getVariableOrder| |resetVariableOrder| |prime?|
- |hadamard| |rationalFunction| |taylorIfCan| |taylor| |removeZeroes|
- |taylorRep| |factor| |factorSquareFree| |henselFact| |hasHi| |segment| SEGMENT
- |fmecg| |commonDenominator| |clearDenominator| |splitDenominator|
- |monicRightFactorIfCan| |rightFactorIfCan| |leftFactorIfCan|
- |monicDecomposeIfCan| |monicCompleteDecompose| |divideIfCan| |noKaratsuba|
- |karatsubaOnce| |karatsuba| |separate| |pseudoDivide| |pseudoQuotient|
- |composite| |subResultantGcd| |resultant| |discriminant| |pseudoRemainder|
- |shiftLeft| |shiftRight| |karatsubaDivide| |monicDivide| |divideExponents|
- |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval| |extend| |approximate|
- |truncate| |order| |center| |terms| |squareFreePart| |BumInSepFFE|
- |multiplyExponents| |laurentIfCan| |laurent| |laurentRep| |rationalPower|
- |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!| |setrest!| |setelt|
- |setfirst!| |cycleSplit!| |concat!| |cycleTail| |cycleLength| |cycleEntry|
- |third| |second| |tail| |last| |rest| |elt| |first| |concat| |invmultisect|
- |multisect| |revert| |generalLambert| |evenlambert| |oddlambert| |lambert|
- |lagrange| |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
- |multiplyCoefficients| |quoByVar| |coefficients| |series| |stFunc1| |stFunc2|
- |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP
- LODO2FUN RF2UTS |seriesSolve| |parseVarTerm| |parseVar| |toString| |getType|
- |getName| |var| |variable| |add_slots| |repack_polys| |empty| |chinese_update|
- |hensel_update| |rational_reconstruction| |remove_denoms| |reconstruct|
- |magnitude| |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector|
- |scan| |reduce| |graphCurves| |drawCurves| |update| |show| |scale| |connect|
- |region| |points| |units| |getGraph| |putGraph| |graphs| |graphStates|
- |graphState| |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close|
- |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|
- |showClipRegion| |showRegion| |hitherPlane| |eyeDistance| |perspective|
- |translate| |zoom| |rotate| |drawStyle| |outlineRender| |diagonals| |axes|
- |controlPanel| |viewpoint| |dimensions| |title| |resize| |move| |options|
- |modifyPointData| |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
- |viewDeltaXDefault| |viewZoomDefault| |viewPhiDefault| |viewThetaDefault|
- |pointColorDefault| |lineColorDefault| |axesColorDefault| |unitsColorDefault|
- |pointSizeDefault| |viewPosDefault| |viewSizeDefault| |viewDefaults|
- |viewWriteDefault| |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault|
- |tubePointsDefault| |tubeRadiusDefault| |void| |basis| |nullSpace|
- |columnSpace| |sumBasis| + |intBasis| |rank| |isBasis?| |subspace?| |Zero|
- |canonicalBasis| |complementSpace| = |member?| |coordinatesIfCan|
- |coordinates| |dimension| |weierstrass| |integralBasis| |localIntegralBasis|
- |weightedDistanceMatrix| |closedCartesian| |closedTensor| |cartesian|
- |routeArrowWeight| |routeNodeWeight| |distanceWeighted| |addWArrow!|
- |weightedGraph| |changeWeightLevel| |characteristicSerie| |characteristicSet|
- |medialSet| |Hausdorff| |Frobenius| |transcendenceDegree| |extensionDegree|
+ |hadamard| |pre_gauss| |pre_smith| |rationalFunction| |taylorIfCan| |taylor|
+ |removeZeroes| |taylorRep| |factor| |factorSquareFree| |henselFact| |hasHi|
+ |segment| SEGMENT |fmecg| |commonDenominator| |clearDenominator|
+ |splitDenominator| |monicRightFactorIfCan| |rightFactorIfCan|
+ |leftFactorIfCan| |monicDecomposeIfCan| |monicCompleteDecompose| |divideIfCan|
+ |noKaratsuba| |karatsubaOnce| |karatsuba| |separate| |pseudoDivide|
+ |pseudoQuotient| |composite| |subResultantGcd| |resultant| |discriminant|
+ |pseudoRemainder| |shiftLeft| |shiftRight| |karatsubaDivide| |monicDivide|
+ |divideExponents| |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval|
+ |extend| |approximate| |truncate| |order| |center| |terms| |squareFreePart|
+ |BumInSepFFE| |multiplyExponents| |laurentIfCan| |laurent| |laurentRep|
+ |rationalPower| |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!|
+ |setrest!| |setelt| |setfirst!| |cycleSplit!| |concat!| |cycleTail|
+ |cycleLength| |cycleEntry| |third| |second| |tail| |last| |rest| |elt| |first|
+ |concat| |invmultisect| |multisect| |revert| |generalLambert| |evenlambert|
+ |oddlambert| |lambert| |lagrange| |differentiate| |univariatePolynomial|
+ |integrate| ^ |polynomial| |multiplyCoefficients| |quoByVar| |coefficients|
+ |series| |stFunc1| |stFunc2| |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode|
+ |mpsode| UP2UTS UTS2UP LODO2FUN RF2UTS |seriesSolve| |parseVarTerm| |parseVar|
+ |toString| |getType| |getName| |var| |variable| |add_slots| |repack_polys|
+ |empty| |chinese_update| |hensel_update| |rational_reconstruction|
+ |remove_denoms| |reconstruct| |magnitude| |length| |cross| |outerProduct|
+ |dot| - |zero?| |zero| |vector| |scan| |reduce| |graphCurves| |drawCurves|
+ |update| |show| |scale| |connect| |region| |points| |units| |getGraph|
+ |putGraph| |graphs| |graphStates| |graphState| |makeViewport2D| |viewport2D|
+ |getPickedPoints| |key| |close| |write| |colorDef| |reset| |intensity|
+ |lighting| |clipSurface| |showClipRegion| |showRegion| |hitherPlane|
+ |eyeDistance| |perspective| |translate| |zoom| |rotate| |drawStyle|
+ |outlineRender| |diagonals| |axes| |controlPanel| |viewpoint| |dimensions|
+ |title| |resize| |move| |options| |modifyPointData| |subspace|
+ |makeViewport3D| |viewport3D| |viewDeltaYDefault| |viewDeltaXDefault|
+ |viewZoomDefault| |viewPhiDefault| |viewThetaDefault| |pointColorDefault|
+ |lineColorDefault| |axesColorDefault| |unitsColorDefault| |pointSizeDefault|
+ |viewPosDefault| |viewSizeDefault| |viewDefaults| |viewWriteDefault|
+ |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault| |tubePointsDefault|
+ |tubeRadiusDefault| |void| |basis| |nullSpace| |columnSpace| |sumBasis| +
+ |intBasis| |rank| |isBasis?| |subspace?| |Zero| |canonicalBasis|
+ |complementSpace| = |member?| |coordinatesIfCan| |coordinates| |dimension|
+ |weierstrass| |integralBasis| |localIntegralBasis| |weightedDistanceMatrix|
+ |closedCartesian| |closedTensor| |cartesian| |routeArrowWeight|
+ |routeNodeWeight| |distanceWeighted| |addWArrow!| |weightedGraph|
+ |changeWeightLevel| |characteristicSerie| |characteristicSet| |medialSet|
+ |Hausdorff| |Frobenius| |transcendenceDegree| |extensionDegree|
  |inGroundField?| |transcendent?| |algebraic?| |varList| |sh| |mirror|
  |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml| |writeVRML|
  |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp| |product|
