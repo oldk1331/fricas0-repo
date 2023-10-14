@@ -75,13 +75,13 @@
               (|Union| '"complex" '"real: two sides" '"real: left side"
                        '"real: right side" '"just do it")
               (|Mapping| 17 7))
-           '#(|exprToUPS| 5 |exprToPS| 12 |exprToGenUPS| 32) 'NIL
+           '#(|exprToUPS| 5 |exprToPS| 12 |exprToGenUPS| 33) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
                              (|makeByteWordVec2| 19
                                                  '(1 7 0 8 14 3 0 16 7 17 18 1
-                                                   7 0 16 7 17 18 17 7 19 19 1
-                                                   5 0 16 7 17 18 17 7 1 3 0 16
-                                                   7 17 18 1)))))
+                                                   8 0 16 7 17 18 17 7 19 19 19
+                                                   1 5 0 16 7 17 18 17 7 1 3 0
+                                                   16 7 17 18 1)))))
            '|lookupComplete|)) 

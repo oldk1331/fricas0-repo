@@ -371,9 +371,12 @@
                                ('T (|spadConstant| $ 83))))))
                            ('T (|spadConstant| $ 83)))))))))))))))))) 
 
-(DEFUN |MRVLIM;expr_to_series;EKRU;6| (|e| |k| |state| $)
-  (PROG (#1=#:G230 |vkers| |ssl| |kk| #2=#:G223 |lc| |ssll| |deg| |ssl0|
-         #3=#:G218 |ss| |h| |ex|)
+(DEFUN |MRVLIM;mrv_zero| (|e| $)
+  (SPADCALL (SPADCALL |e| (QREFELT $ 20)) (|spadConstant| $ 7) (QREFELT $ 21))) 
+
+(DEFUN |MRVLIM;expr_to_series;EKRU;7| (|e| |k| |state| $)
+  (PROG (#1=#:G232 |vkers| |ssl| |kk| #2=#:G225 |lc| |ssll| |deg| |ssl0|
+         #3=#:G220 |ss| |h| |ex|)
     (RETURN
      (SEQ
       (EXIT
@@ -382,7 +385,7 @@
               (SPADCALL |e| (LIST |k|)
                         (LIST (SPADCALL (QREFELT $ 11) (QREFELT $ 38)))
                         (QREFELT $ 28))
-              . #4=(|MRVLIM;expr_to_series;EKRU;6|))
+              . #4=(|MRVLIM;expr_to_series;EKRU;7|))
         (COND
          ((NULL (SPADCALL |k| '|exp| (QREFELT $ 87)))
           (EXIT (|error| "Can only expand with respect to exp"))))
@@ -391,7 +394,8 @@
         (LETT |ss|
               (SPADCALL |ex| 'NIL (CONS 0 "complex") 'T |h|
                         (|MRVLIM;mrv_bounded| |state| $)
-                        (|MRVLIM;mrv_invertible| |state| $) (QREFELT $ 92))
+                        (|MRVLIM;mrv_invertible| |state| $)
+                        (CONS (|function| |MRVLIM;mrv_zero|) $) (QREFELT $ 92))
               . #4#)
         (EXIT
          (COND ((QEQCAR |ss| 1) (CONS 1 "failed"))
@@ -446,7 +450,7 @@
                    (#5# (|error| "Too many variable kernels"))))))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |MRVLIM;mrv_cmp;2KSRU;7| (|x| |y| |v| |state| $)
+(DEFUN |MRVLIM;mrv_cmp;2KSRU;8| (|x| |y| |v| |state| $)
   (PROG (|pp1| |ppu| |y1| |x1|)
     (RETURN
      (SEQ
@@ -455,7 +459,7 @@
              ((SPADCALL |x| '|exp| (QREFELT $ 87))
               (SPADCALL (SPADCALL |x| (QREFELT $ 26)) 1 (QREFELT $ 34)))
              (#1='T (SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 107))))
-            . #2=(|MRVLIM;mrv_cmp;2KSRU;7|))
+            . #2=(|MRVLIM;mrv_cmp;2KSRU;8|))
       (LETT |y1|
             (COND
              ((SPADCALL |y| '|exp| (QREFELT $ 87))
@@ -479,15 +483,15 @@
                 (#1# (CONS 0 (CONS 1 (|spadConstant| $ 7))))))))
         (#1# (CONS 1 "failed")))))))) 
 
-(DEFUN |MRVLIM;mrv_set;ESRU;8| (|e| |x| |state| $)
-  (PROG (|res_c| |res| |res_k| |c| |i| |ic| #1=#:G269 |icu| #2=#:G270 |y|
+(DEFUN |MRVLIM;mrv_set;ESRU;9| (|e| |x| |state| $)
+  (PROG (|res_c| |res| |res_k| |c| |i| |ic| #1=#:G271 |icu| #2=#:G272 |y|
          |kers|)
     (RETURN
      (SEQ
       (EXIT
        (SEQ
         (LETT |kers| (SPADCALL |e| (QREFELT $ 13))
-              . #3=(|MRVLIM;mrv_set;ESRU;8|))
+              . #3=(|MRVLIM;mrv_set;ESRU;9|))
         (LETT |res_k|
               (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 38)) (QREFELT $ 39))
                         1 (QREFELT $ 41))
@@ -533,7 +537,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MRVLIM;mrv_rewrite1| (|e| |lx| |ly| $)
-  (PROG (#1=#:G274 |x| #2=#:G275 |y| |rly| |rlx|)
+  (PROG (#1=#:G276 |x| #2=#:G277 |y| |rly| |rlx|)
     (RETURN
      (SEQ (LETT |rlx| (REVERSE |lx|) . #3=(|MRVLIM;mrv_rewrite1|))
           (LETT |rly| (REVERSE |ly|) . #3#)
@@ -551,10 +555,10 @@
                (GO G190) G191 (EXIT NIL))
           (EXIT |e|))))) 
 
-(DEFUN |MRVLIM;mrv_rewrite0;ELL2E;10| (|e| |lx| |lc| |x00| $)
-  (PROG (|lxx| |ly| |yi| |ei| #1=#:G282 |xi| #2=#:G283 |ci| |e0| |c0|)
+(DEFUN |MRVLIM;mrv_rewrite0;ELL2E;11| (|e| |lx| |lc| |x00| $)
+  (PROG (|lxx| |ly| |yi| |ei| #1=#:G284 |xi| #2=#:G285 |ci| |e0| |c0|)
     (RETURN
-     (SEQ (LETT |c0| (|SPADfirst| |lc|) . #3=(|MRVLIM;mrv_rewrite0;ELL2E;10|))
+     (SEQ (LETT |c0| (|SPADfirst| |lc|) . #3=(|MRVLIM;mrv_rewrite0;ELL2E;11|))
           (COND
            ((EQL (LENGTH |lx|) 1)
             (COND
@@ -602,11 +606,11 @@
              (EXIT (LETT |lxx| |lx| . #3#)))))
           (EXIT (|MRVLIM;mrv_rewrite1| |e| |lxx| |ly| $)))))) 
 
-(DEFUN |MRVLIM;mrv_rewrite;ELLSRU;11| (|e| |lx| |lc| |v| |state| $)
-  (PROG (|lxx| |x00| |lcc| #1=#:G306 |ci| #2=#:G305 |ss| |lipp| |lip| |e0|
-         #3=#:G304 |ei| #4=#:G303 |x0|)
+(DEFUN |MRVLIM;mrv_rewrite;ELLSRU;12| (|e| |lx| |lc| |v| |state| $)
+  (PROG (|lxx| |x00| |lcc| #1=#:G308 |ci| #2=#:G307 |ss| |lipp| |lip| |e0|
+         #3=#:G306 |ei| #4=#:G305 |x0|)
     (RETURN
-     (SEQ (LETT |x0| (|SPADfirst| |lx|) . #5=(|MRVLIM;mrv_rewrite;ELLSRU;11|))
+     (SEQ (LETT |x0| (|SPADfirst| |lx|) . #5=(|MRVLIM;mrv_rewrite;ELLSRU;12|))
           (EXIT
            (COND
             ((SPADCALL |x0| |v| (QREFELT $ 87))
@@ -730,7 +734,7 @@
                                           |state| (QREFELT $ 106)))))))))
                 (#6# (|error| "limit failed")))))))))))) 
 
-(DEFUN |MRVLIM;mrv_sign;ESRU;12| (|e| |v| |state| $)
+(DEFUN |MRVLIM;mrv_sign;ESRU;13| (|e| |v| |state| $)
   (PROG (|ss| |ssu| |lcc| |lx| |rkc| |rkcu|)
     (RETURN
      (SEQ
@@ -740,7 +744,7 @@
        (#1='T
         (SEQ
          (LETT |rkcu| (SPADCALL |e| |v| |state| (QREFELT $ 117))
-               . #2=(|MRVLIM;mrv_sign;ESRU;12|))
+               . #2=(|MRVLIM;mrv_sign;ESRU;13|))
          (EXIT
           (COND ((QEQCAR |rkcu| 1) (CONS 1 "failed"))
                 (#1#
@@ -759,7 +763,7 @@
                                     (SPADCALL (QCDR |ss|) |v| |state|
                                               (QREFELT $ 125)))))))))))))))))) 
 
-(DEFUN |MRVLIM;mrv_limit;ESRU;13| (|e| |v| |state| $)
+(DEFUN |MRVLIM;mrv_limit;ESRU;14| (|e| |v| |state| $)
   (PROG (|s| |su| |deg| |ss| |ssu| |lcc| |lx| |rkc| |rkcu| |ve|)
     (RETURN
      (SEQ
@@ -767,7 +771,7 @@
        ((NOT
          (SPADCALL |v|
                    (LETT |ve| (SPADCALL |e| (QREFELT $ 74))
-                         . #1=(|MRVLIM;mrv_limit;ESRU;13|))
+                         . #1=(|MRVLIM;mrv_limit;ESRU;14|))
                    (QREFELT $ 124)))
         (SEQ
          (COND
@@ -833,20 +837,20 @@
                                                       (|error|
                                                        "Nonzero term has no sign"))))))))))))))))))))))))))) 
 
-(DEFUN |MRVLIM;mrv_limit1;ESU;14| (|e| |x| $)
+(DEFUN |MRVLIM;mrv_limit1;ESU;15| (|e| |x| $)
   (PROG (|state|)
     (RETURN
      (SEQ
-      (LETT |state| (VECTOR NIL NIL NIL NIL) . #1=(|MRVLIM;mrv_limit1;ESU;14|))
+      (LETT |state| (VECTOR NIL NIL NIL NIL) . #1=(|MRVLIM;mrv_limit1;ESU;15|))
       (LETT |e| (SPADCALL |e| |x| |state| (QREFELT $ 52)) . #1#)
       (EXIT (SPADCALL |e| |x| |state| (QREFELT $ 37))))))) 
 
-(DEFUN |MRVLIM;mrv_limit;EEU;15| (|e| |eq| $)
+(DEFUN |MRVLIM;mrv_limit;EEU;16| (|e| |eq| $)
   (PROG (|lr| |et| |ll| |vK| |resu| |ii| |a| |v| |var| |f|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 134)) (QREFELT $ 136))
-            . #1=(|MRVLIM;mrv_limit;EEU;15|))
+            . #1=(|MRVLIM;mrv_limit;EEU;16|))
       (EXIT
        (COND
         ((QEQCAR |f| 1) (|error| "limit:left hand side must be a variable"))
@@ -922,12 +926,12 @@
                                    (#2# (CONS 0 (QCDR |lr|)))))
                             (#2# (CONS 1 (CONS |ll| |lr|))))))))))))))))))))) 
 
-(DEFUN |MRVLIM;mrv_limit;EESU;16| (|e| |eq| |s| $)
-  (PROG (#1=#:G391 |et| |vK| |a| |v| |f|)
+(DEFUN |MRVLIM;mrv_limit;EESU;17| (|e| |eq| |s| $)
+  (PROG (#1=#:G393 |et| |vK| |a| |v| |f|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 148)) (QREFELT $ 138))
-            . #2=(|MRVLIM;mrv_limit;EESU;16|))
+            . #2=(|MRVLIM;mrv_limit;EESU;17|))
       (EXIT
        (COND
         ((QEQCAR |f| 1) (|error| "limit:left hand side must be a variable"))
@@ -985,7 +989,7 @@
 (DEFUN |MrvLimitPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G396)
+     (PROG (#1=#:G398)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|MrvLimitPackage|)
@@ -1056,7 +1060,7 @@
               (|Integer|) (79 . |elt|) (|Union| 44 '"failed")
               (|Record| (|:| |tan_syms| 73) (|:| |atan_syms| 73)
                         (|:| |tan_kers| 40) (|:| |atan_kers| 40))
-              |MRVLIM;mrv_limit;ESRU;13| (85 . |coerce|) (90 . |kernels|)
+              |MRVLIM;mrv_limit;ESRU;14| (85 . |coerce|) (90 . |kernels|)
               (|List| 23) (95 . |elt|) (101 . |setelt|) (|SingleInteger|)
               (|OrderedCompletion| 6) (108 . |whatInfinity|) (113 . |pi|)
               (117 . |coerce|) (122 . /) (128 . |atan|) (133 . -) (139 . -)
@@ -1075,33 +1079,33 @@
               (|Union| (|:| |%series| 54) (|:| |%problem| 88))
               (|Union| '"complex" '"real: two sides" '"real: left side"
                        '"real: right side" '"just do it")
-              (|Mapping| 17 6) (276 . |exprToPS|) (287 . |order|)
-              (292 . |removeZeros|) (298 . |leadingCoefficient|) (303 . |One|)
-              (307 . >) (|OutputForm|) (313 . |coerce|) (|Void|)
-              (|PrintPackage|) (318 . |print|) (323 . |reductum|)
+              (|Mapping| 17 6) (276 . |exprToPS|) (288 . |order|)
+              (293 . |removeZeros|) (299 . |leadingCoefficient|) (304 . |One|)
+              (308 . >) (|OutputForm|) (314 . |coerce|) (|Void|)
+              (|PrintPackage|) (319 . |print|) (324 . |reductum|)
               (|Record| (|:| |degree| 55) (|:| |coeff| 6))
-              (|Union| 104 '"failed") |MRVLIM;expr_to_series;EKRU;6|
-              (328 . |log|) (333 . |Zero|) (337 . =) (343 . |finite?|)
-              (348 . |retract|) (|Record| (|:| |sign| 33) (|:| |coeff| 6))
-              (|Union| 112 '"failed") |MRVLIM;mrv_cmp;2KSRU;7|
+              (|Union| 104 '"failed") |MRVLIM;expr_to_series;EKRU;7|
+              (329 . |log|) (334 . |Zero|) (338 . =) (344 . |finite?|)
+              (349 . |retract|) (|Record| (|:| |sign| 33) (|:| |coeff| 6))
+              (|Union| 112 '"failed") |MRVLIM;mrv_cmp;2KSRU;8|
               (|Record| (|:| |lk| 40) (|:| |lc| 25)) (|Union| 115 '"failed")
-              |MRVLIM;mrv_set;ESRU;8| (353 . ^) (359 . *) (365 . |exp|)
-              |MRVLIM;mrv_rewrite0;ELL2E;10| |MRVLIM;mrv_rewrite;ELLSRU;11|
-              (370 . |plusInfinity|) (374 . |member?|)
-              |MRVLIM;mrv_sign;ESRU;12| (380 . |coerce|) (385 . |Zero|)
-              (389 . >) (395 . =) (401 . <) (407 . |minusInfinity|)
-              |MRVLIM;mrv_limit1;ESU;14| (|Equation| 44) (411 . |lhs|)
-              (|Union| 6 '"failed") (416 . |retractIfCan|)
-              (|Union| 9 '"failed") (421 . |retractIfCan|) (426 . |rhs|)
-              (431 . |retract|) (436 . |inv|) (441 . +) (447 . =)
+              |MRVLIM;mrv_set;ESRU;9| (354 . ^) (360 . *) (366 . |exp|)
+              |MRVLIM;mrv_rewrite0;ELL2E;11| |MRVLIM;mrv_rewrite;ELLSRU;12|
+              (371 . |plusInfinity|) (375 . |member?|)
+              |MRVLIM;mrv_sign;ESRU;13| (381 . |coerce|) (386 . |Zero|)
+              (390 . >) (396 . =) (402 . <) (408 . |minusInfinity|)
+              |MRVLIM;mrv_limit1;ESU;15| (|Equation| 44) (412 . |lhs|)
+              (|Union| 6 '"failed") (417 . |retractIfCan|)
+              (|Union| 9 '"failed") (422 . |retractIfCan|) (427 . |rhs|)
+              (432 . |retract|) (437 . |inv|) (442 . +) (448 . =)
               (|Record| (|:| |leftHandLimit| 35) (|:| |rightHandLimit| 35))
-              (|Union| 44 144 '"failed") |MRVLIM;mrv_limit;EEU;15|
-              (|Equation| 6) (453 . |lhs|) (458 . |rhs|) (|String|)
-              (|ToolsForSign| 33) (463 . |direction|)
-              |MRVLIM;mrv_limit;EESU;16|)
-           '#(|mrv_sign| 468 |mrv_set| 475 |mrv_rewrite0| 482 |mrv_rewrite| 490
-              |mrv_normalize| 499 |mrv_limit1| 506 |mrv_limit| 512 |mrv_cmp|
-              532 |expr_to_series| 540)
+              (|Union| 44 144 '"failed") |MRVLIM;mrv_limit;EEU;16|
+              (|Equation| 6) (454 . |lhs|) (459 . |rhs|) (|String|)
+              (|ToolsForSign| 33) (464 . |direction|)
+              |MRVLIM;mrv_limit;EESU;17|)
+           '#(|mrv_sign| 469 |mrv_set| 476 |mrv_rewrite0| 483 |mrv_rewrite| 491
+              |mrv_normalize| 500 |mrv_limit1| 507 |mrv_limit| 513 |mrv_cmp|
+              533 |expr_to_series| 541)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -1130,11 +1134,11 @@
                                                    1 40 62 0 80 0 62 0 81 2 62
                                                    17 0 0 82 0 17 0 83 1 40 23
                                                    0 84 2 62 17 0 0 85 0 62 0
-                                                   86 2 23 17 0 9 87 7 57 89 6
-                                                   17 90 17 6 91 91 92 1 54 55
-                                                   0 93 2 54 0 0 55 94 1 54 6 0
-                                                   95 0 53 0 96 2 33 17 0 0 97
-                                                   1 54 98 0 99 1 101 100 98
+                                                   86 2 23 17 0 9 87 8 57 89 6
+                                                   17 90 17 6 91 91 91 92 1 54
+                                                   55 0 93 2 54 0 0 55 94 1 54
+                                                   6 0 95 0 53 0 96 2 33 17 0 0
+                                                   97 1 54 98 0 99 1 101 100 98
                                                    102 1 54 0 0 103 1 6 0 0 107
                                                    0 44 0 108 2 44 17 0 0 109 1
                                                    44 17 0 110 1 44 6 0 111 2 6
