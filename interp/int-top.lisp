@@ -904,34 +904,6 @@
       (|ncPutQ| |carrier| '|ptree| |ptree|)
       'OK))))
  
-; phReportMsgs(carrier, interactive?) ==
-;     $erMsgToss => 'OK
-;     lines := ncEltQ(carrier, 'lines)
-;     msgs  := ncEltQ(carrier, 'messages)
-;     nerr  := #msgs
-;     ncPutQ(carrier, 'ok?, nerr = 0)
-;     interactive? and nerr = 0 => 'OK
-;     processMsgList(msgs, lines)
-;     intSayKeyedMsg ('S2CTP010,[nerr])
-;     'OK
- 
-(DEFUN |phReportMsgs| (|carrier| |interactive?|)
-  (PROG (|lines| |msgs| |nerr|)
-    (RETURN
-     (COND (|$erMsgToss| 'OK)
-           (#1='T
-            (PROGN
-             (SETQ |lines| (|ncEltQ| |carrier| '|lines|))
-             (SETQ |msgs| (|ncEltQ| |carrier| '|messages|))
-             (SETQ |nerr| (LENGTH |msgs|))
-             (|ncPutQ| |carrier| '|ok?| (EQL |nerr| 0))
-             (COND ((AND |interactive?| (EQL |nerr| 0)) 'OK)
-                   (#1#
-                    (PROGN
-                     (|processMsgList| |msgs| |lines|)
-                     (|intSayKeyedMsg| 'S2CTP010 (LIST |nerr|))
-                     'OK)))))))))
- 
 ; ncConversationPhase(fn, args) ==
 ;     carrier := first args
 ; 
