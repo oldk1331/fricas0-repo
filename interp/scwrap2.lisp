@@ -245,6 +245,8 @@
 ;                 ["GT", ">"], _
 ;                 ["LE", "<="], _
 ;                 ["LT", "<"], _
+;                 ["OANGLE", "<<"], _
+;                 ["CANGLE", ">>"], _
 ;                 ["MDEF", "==>"], _
 ;                 ["MINUS", "-"], _
 ;                 ["NOTEQUAL", "~="], _
@@ -262,10 +264,10 @@
                 (LIST 'COLON '|:|) (LIST 'COMMA '|,|) (LIST 'DEF '==)
                 (LIST 'DOT '|.|) (LIST 'EQUAL '=) (LIST 'EXIT '=>)
                 (LIST 'GE '>=) (LIST 'GIVES '+->) (LIST 'GT '>) (LIST 'LE '<=)
-                (LIST 'LT '<) (LIST 'MDEF '==>) (LIST 'MINUS '-)
-                (LIST 'NOTEQUAL '~=) (LIST 'PLUS '+) (LIST 'SEG '|..|)
-                (LIST 'SEMICOLON '|;|) (LIST 'SLASH '/) (LIST 'TIMES '*)
-                (LIST 'BACKSET '|;|))))
+                (LIST 'LT '<) (LIST 'OANGLE '<<) (LIST 'CANGLE '>>)
+                (LIST 'MDEF '==>) (LIST 'MINUS '-) (LIST 'NOTEQUAL '~=)
+                (LIST 'PLUS '+) (LIST 'SEG '|..|) (LIST 'SEMICOLON '|;|)
+                (LIST 'SLASH '/) (LIST 'TIMES '*) (LIST 'BACKSET '|;|))))
  
 ; $trans_key_id := [ _
 ;                 ["break", "break"], _
