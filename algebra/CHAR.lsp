@@ -77,9 +77,9 @@
 (DEFUN |CHAR;lowerCase;2$;23| (|c| $)
   (QENUM (PNAME (DOWNCASE (NUM2CHAR |c|))) 0)) 
 
-(PUT '|CHAR;hashUpdate!;Hs$Hs;24| '|SPADreplace| 'HASHSTATE-UPDATE) 
+(PUT '|CHAR;hashUpdate!;Hs$Hs;24| '|SPADreplace| 'HASHSTATEUPDATE) 
 
-(DEFUN |CHAR;hashUpdate!;Hs$Hs;24| (|hs| |c| $) (HASHSTATE-UPDATE |hs| |c|)) 
+(DEFUN |CHAR;hashUpdate!;Hs$Hs;24| (|hs| |c| $) (HASHSTATEUPDATE |hs| |c|)) 
 
 (DEFUN |Character| ()
   (PROG ()

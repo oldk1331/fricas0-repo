@@ -53,7 +53,7 @@
 (DEFUN |SYMBOL;=;2$B;9| (|x| |y| $) (EQUAL |x| |y|)) 
 
 (DEFUN |SYMBOL;hashUpdate!;Hs$Hs;10| (|hs| |s| $)
-  (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
+  (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (PUT '|SYMBOL;<;2$B;11| '|SPADreplace| '(XLAM (|x| |y|) (GGREATERP |y| |x|))) 
 

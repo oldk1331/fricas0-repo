@@ -1,21 +1,21 @@
 
 (/VERSIONCHECK 2) 
 
-(PUT '|HASHSTAT;new;$;1| '|SPADreplace| '(XLAM NIL HASHSTATE-BASIS)) 
+(PUT '|HASHSTAT;new;$;1| '|SPADreplace| '(XLAM NIL HASHSTATEBASIS)) 
 
-(DEFUN |HASHSTAT;new;$;1| ($) HASHSTATE-BASIS) 
+(DEFUN |HASHSTAT;new;$;1| ($) HASHSTATEBASIS) 
 
-(PUT '|HASHSTAT;value;$Si;2| '|SPADreplace| 'HASHSTATE-MAKE-FIXNUM) 
+(PUT '|HASHSTAT;value;$Si;2| '|SPADreplace| 'HASHSTATEMAKEFIXNUM) 
 
-(DEFUN |HASHSTAT;value;$Si;2| (|hs| $) (HASHSTATE-MAKE-FIXNUM |hs|)) 
+(DEFUN |HASHSTAT;value;$Si;2| (|hs| $) (HASHSTATEMAKEFIXNUM |hs|)) 
 
-(PUT '|HASHSTAT;update!;$Si$;3| '|SPADreplace| 'HASHSTATE-UPDATE) 
+(PUT '|HASHSTAT;update!;$Si$;3| '|SPADreplace| 'HASHSTATEUPDATE) 
 
-(DEFUN |HASHSTAT;update!;$Si$;3| (|hs| |i| $) (HASHSTATE-UPDATE |hs| |i|)) 
+(DEFUN |HASHSTAT;update!;$Si$;3| (|hs| |i| $) (HASHSTATEUPDATE |hs| |i|)) 
 
-(PUT '|HASHSTAT;modulo| '|SPADreplace| 'HASHSTATE-MOD) 
+(PUT '|HASHSTAT;modulo| '|SPADreplace| 'HASHSTATEMOD) 
 
-(DEFUN |HASHSTAT;modulo| (|hs| |i| $) (HASHSTATE-MOD |hs| |i|)) 
+(DEFUN |HASHSTAT;modulo| (|hs| |i| $) (HASHSTATEMOD |hs| |i|)) 
 
 (DEFUN |HashState| ()
   (PROG ()

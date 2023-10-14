@@ -182,7 +182,7 @@
 (DEFUN |SINT;min;3$;41| (|x| |y| $) (|min_SI| |x| |y|)) 
 
 (DEFUN |SINT;hashUpdate!;Hs$Hs;42| (|hs| |s| $)
-  (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
+  (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (PUT '|SINT;length;2$;43| '|SPADreplace| 'INTEGER-LENGTH) 
 

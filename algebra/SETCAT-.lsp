@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SETCAT-;hash;SSi;1| (|s| $)
-  (HASHSTATE-MAKE-FIXNUM (SPADCALL HASHSTATE-BASIS |s| (QREFELT $ 8)))) 
+  (HASHSTATEMAKEFIXNUM (SPADCALL HASHSTATEBASIS |s| (QREFELT $ 8)))) 
 
 (PUT '|SETCAT-;latex;SS;2| '|SPADreplace|
      '(XLAM (|s|) "\\mbox{\\bf Unimplemented}")) 

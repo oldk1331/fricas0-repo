@@ -464,7 +464,7 @@
                  (CHARACTER (SPADCALL |wildcard| (QREFELT $ 69))))) 
 
 (DEFUN |ISTRING;hashUpdate!;Hs$Hs;35| (|hs| |s| $)
-  (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
+  (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (DEFUN |ISTRING;match?;2$CB;36| (|pattern| |target| |dontcare| $)
   (PROG (|q| #1=#:G1362 |p| |i| #2=#:G1370 #3=#:G1361 |s| #4=#:G1360 #5=#:G1357

@@ -276,7 +276,7 @@
 (DEFUN |DFLOAT;zero?;$B;67| (|x| $) (|zero?_DF| |x|)) 
 
 (DEFUN |DFLOAT;hashUpdate!;Hs$Hs;68| (|hs| |s| $)
-  (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
+  (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (DEFUN |DFLOAT;recip;$U;69| (|x| $)
   (COND ((|zero?_DF| |x|) (CONS 1 "failed")) ('T (CONS 0 (|div_DF| 1.0 |x|))))) 

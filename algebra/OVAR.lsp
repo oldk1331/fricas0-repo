@@ -66,7 +66,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 37))) 
 
 (DEFUN |OVAR;hashUpdate!;Hs$Hs;13| (|hs| |s| $)
-  (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
+  (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (DEFUN |OrderedVariableList| (#1=#:G149)
   (PROG ()

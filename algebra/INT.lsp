@@ -77,7 +77,7 @@
 (DEFUN |INT;dec;2$;13| (|x| $) (- |x| 1)) 
 
 (DEFUN |INT;hashUpdate!;Hs$Hs;14| (|hs| |s| $)
-  (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
+  (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (PUT '|INT;negative?;$B;15| '|SPADreplace| 'MINUSP) 
 
