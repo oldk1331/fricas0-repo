@@ -1744,7 +1744,7 @@
                                    . #2#)
                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
                                             #1#))
-                         (STR_ELT "   " 0))
+                         (STR_ELT "_ " 0))
                         . #2#)
                   (SEQ (LETT |j| (SPADCALL |t| (QREFELT $ 148)) . #2#)
                        (LETT |i| 0 . #2#) G190
@@ -1787,7 +1787,7 @@
                                    . #2#)
                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
                                             #1#))
-                         (STR_ELT "   " 0))
+                         (STR_ELT "_ " 0))
                         . #2#)
                   (SEQ (LETT |j| (SPADCALL |t| (QREFELT $ 152)) . #2#)
                        (LETT |i| |n| . #2#) G190 (COND ((< |i| 0) (GO G191)))
