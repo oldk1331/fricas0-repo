@@ -17,11 +17,10 @@
                   (EXIT (SPADCALL |rcoef| |icoef| (QREFELT $ 23)))))))))) 
 
 (SDEFUN |CPMATCH;makePoly| ((|cs| CS) ($ |Polynomial| S))
-        (SPADCALL
-         (SPADCALL (SPADCALL |cs| (QREFELT $ 24)) (QREFELT $ 12)
-                   (QREFELT $ 25))
-         (SPADCALL (SPADCALL |cs| (QREFELT $ 26)) (QREFELT $ 27))
-         (QREFELT $ 28))) 
+        (SPADCALL (SPADCALL (SPADCALL |cs| (QREFELT $ 24)) (QREFELT $ 25))
+                  (SPADCALL (SPADCALL |cs| (QREFELT $ 26)) (QREFELT $ 12)
+                            (QREFELT $ 27))
+                  (QREFELT $ 28))) 
 
 (SDEFUN |CPMATCH;patternMatch;CSP2Pmr;3|
         ((|cs| CS) (|pat| |Pattern| R) (|result| |PatternMatchResult| R CS)
@@ -103,7 +102,7 @@
               (|NonNegativeInteger|) (10 . |degree|) (15 . |One|) (|Boolean|)
               (19 . >) (25 . |leadingCoefficient|) (30 . |reductum|)
               (35 . |leadingCoefficient|) (40 . |complex|) (46 . |real|)
-              (51 . *) (57 . |imag|) (62 . |coerce|) (67 . +) (73 . |zero?|)
+              (51 . |coerce|) (56 . |imag|) (61 . *) (67 . +) (73 . |zero?|)
               (|PatternMatchResult| 6 8) (|Pattern| 6)
               (|PatternMatchPushDown| 6 7 8) (78 . |patternMatch|)
               (|PatternMatchResult| 6 10) (|Mapping| 10 8)
@@ -120,8 +119,8 @@
                                                    13 15 0 16 0 7 0 17 2 15 18
                                                    0 0 19 1 13 7 0 20 1 10 0 0
                                                    21 1 10 7 0 22 2 8 0 7 7 23
-                                                   1 8 7 0 24 2 10 0 7 0 25 1 8
-                                                   7 0 26 1 10 0 7 27 2 10 0 0
+                                                   1 8 7 0 24 1 10 0 7 25 1 8 7
+                                                   0 26 2 10 0 7 0 27 2 10 0 0
                                                    0 28 1 7 18 0 29 3 32 30 7
                                                    31 30 33 2 36 34 35 30 37 3
                                                    10 38 0 31 38 39 2 41 30 40
