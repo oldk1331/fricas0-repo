@@ -14,13 +14,12 @@
       #2#)))) 
 
 (DEFUN |ConvertibleTo;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (|Join|
-                           (|mkCategory| '(((|convert| (|t#1| $)) T)) NIL 'NIL
-                                         NIL)))
-               |ConvertibleTo|)
-       (SETELT #1# 0 (LIST '|ConvertibleTo| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (|Join|
+                               (|mkCategory| '(((|convert| (|t#1| $)) T)) NIL
+                                             'NIL NIL)))
+                   |ConvertibleTo|)
+           (SETELT #1# 0 (LIST '|ConvertibleTo| (|devaluate| |t#1|)))))) 

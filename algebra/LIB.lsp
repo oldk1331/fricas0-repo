@@ -1,137 +1,132 @@
 
-(DEFUN |LIB;library;Fn$;1| (|f| $) (SPADCALL |f| (QREFELT $ 8))) 
+(SDEFUN |LIB;library;Fn$;1| ((|f| |FileName|) ($ $))
+        (SPADCALL |f| (QREFELT $ 8))) 
 
-(DEFUN |LIB;elt;$SA;2| (|f| |v| $)
-  (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) (QREFELT $ 14))) 
+(SDEFUN |LIB;elt;$SA;2| ((|f| $) (|v| |Symbol|) ($ |Any|))
+        (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) (QREFELT $ 14))) 
 
-(DEFUN |LIB;setelt;$S2A;3| (|f| |v| |val| $)
-  (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) |val| (QREFELT $ 16))) 
+(SDEFUN |LIB;setelt;$S2A;3| ((|f| $) (|v| |Symbol|) (|val| |Any|) ($ |Any|))
+        (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) |val| (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |Library;|)) 
 
 (DEFUN |Library| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G156)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Library|) . #2=(|Library|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Library|
-                         (LIST (CONS NIL (CONS 1 (|Library;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Library|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G156)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Library|) . #2=(|Library|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Library|
+                             (LIST (CONS NIL (CONS 1 (|Library;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Library|)))))))))) 
 
 (DEFUN |Library;| ()
-  (PROG (|dv$| $ #1=#:G152 #2=#:G151 |pv$| #3=#:G153 #4=#:G154)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Library|) . #5=(|Library|))
-      (LETT $ (GETREFV 41) . #5#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory|
-                                           (|Record| (|:| |key| (|String|))
-                                                     (|:| |entry| (|Any|)))
-                                           '(|ConvertibleTo| (|InputForm|)))
-                                          (|HasCategory|
-                                           (|Record| (|:| |key| (|String|))
-                                                     (|:| |entry| (|Any|)))
-                                           '(|BasicType|))
-                                          (|HasCategory| (|String|)
-                                                         '(|OrderedSet|))
-                                          (LETT #1#
-                                                (|HasCategory| (|Any|)
-                                                               '(|SetCategory|))
-                                                . #5#)
-                                          (AND
-                                           (|HasCategory| (|Any|)
-                                                          '(|Evalable|
-                                                            (|Any|)))
-                                           #1#)
-                                          (OR
-                                           (|HasCategory| (|Any|)
-                                                          '(|CoercibleTo|
-                                                            (|OutputForm|)))
-                                           (|HasCategory|
+  (SPROG
+   ((|dv$| NIL) ($ NIL) (#1=#:G152 NIL) (#2=#:G151 NIL) (|pv$| NIL)
+    (#3=#:G153 NIL) (#4=#:G154 NIL))
+   (PROGN
+    (LETT |dv$| '(|Library|) . #5=(|Library|))
+    (LETT $ (GETREFV 41) . #5#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory|
+                                         (|Record| (|:| |key| (|String|))
+                                                   (|:| |entry| (|Any|)))
+                                         '(|ConvertibleTo| (|InputForm|)))
+                                        (|HasCategory|
+                                         (|Record| (|:| |key| (|String|))
+                                                   (|:| |entry| (|Any|)))
+                                         '(|BasicType|))
+                                        (|HasCategory| (|String|)
+                                                       '(|OrderedSet|))
+                                        (LETT #1#
+                                              (|HasCategory| (|Any|)
+                                                             '(|SetCategory|))
+                                              . #5#)
+                                        (AND
+                                         (|HasCategory| (|Any|)
+                                                        '(|Evalable| (|Any|)))
+                                         #1#)
+                                        (OR
+                                         (|HasCategory| (|Any|)
+                                                        '(|CoercibleTo|
+                                                          (|OutputForm|)))
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|String|))
+                                                    (|:| |entry| (|Any|)))
+                                          '(|CoercibleTo| (|OutputForm|))))
+                                        (|HasCategory| (|Any|) '(|BasicType|))
+                                        (LETT #2#
+                                              (|HasCategory|
+                                               (|Record| (|:| |key| (|String|))
+                                                         (|:| |entry| (|Any|)))
+                                               '(|SetCategory|))
+                                              . #5#)
+                                        (AND
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|String|))
+                                                    (|:| |entry| (|Any|)))
+                                          '(|Evalable|
                                             (|Record| (|:| |key| (|String|))
-                                                      (|:| |entry| (|Any|)))
-                                            '(|CoercibleTo| (|OutputForm|))))
-                                          (|HasCategory| (|Any|)
-                                                         '(|BasicType|))
-                                          (LETT #2#
-                                                (|HasCategory|
-                                                 (|Record|
-                                                  (|:| |key| (|String|))
-                                                  (|:| |entry| (|Any|)))
-                                                 '(|SetCategory|))
-                                                . #5#)
-                                          (AND
-                                           (|HasCategory|
-                                            (|Record| (|:| |key| (|String|))
-                                                      (|:| |entry| (|Any|)))
-                                            '(|Evalable|
-                                              (|Record| (|:| |key| (|String|))
-                                                        (|:| |entry|
-                                                             (|Any|)))))
-                                           #2#)
-                                          (OR
-                                           (|HasCategory| (|Any|)
-                                                          '(|BasicType|))
-                                           #1#
-                                           (|HasCategory|
-                                            (|Record| (|:| |key| (|String|))
-                                                      (|:| |entry| (|Any|)))
-                                            '(|BasicType|))
-                                           #2#)
-                                          (OR #1# #2#)
-                                          (OR
-                                           (|HasCategory| (|Any|)
-                                                          '(|CoercibleTo|
-                                                            (|OutputForm|)))
-                                           #1#
-                                           (|HasCategory|
-                                            (|Record| (|:| |key| (|String|))
-                                                      (|:| |entry| (|Any|)))
-                                            '(|CoercibleTo| (|OutputForm|)))
-                                           #2#)))
-                      . #5#))
-      (|haddProp| |$ConstructorCache| '|Library| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-           (|augmentPredVector| $ 4096))
-      (AND #3#
-           (|HasCategory|
-            (|Record| (|:| |key| (|String|)) (|:| |entry| (|Any|)))
-            '(|BasicType|))
-           (|augmentPredVector| $ 8192))
-      (AND #3# #1# (|augmentPredVector| $ 16384))
-      (AND
-       (LETT #4#
-             (AND (|HasCategory| $ '(|finiteAggregate|))
-                  (|HasCategory| (|Any|) '(|BasicType|)))
-             . #5#)
-       (|augmentPredVector| $ 32768))
-      (AND
-       (OR #4#
-           (AND #3#
-                (|HasCategory|
-                 (|Record| (|:| |key| (|String|)) (|:| |entry| (|Any|)))
-                 '(|BasicType|)))
-           #1# #2#)
-       (|augmentPredVector| $ 65536))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 131072))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|KeyedAccessFile| (|Any|)))
-      $)))) 
+                                                      (|:| |entry| (|Any|)))))
+                                         #2#)
+                                        (OR
+                                         (|HasCategory| (|Any|) '(|BasicType|))
+                                         #1#
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|String|))
+                                                    (|:| |entry| (|Any|)))
+                                          '(|BasicType|))
+                                         #2#)
+                                        (OR #1# #2#)
+                                        (OR
+                                         (|HasCategory| (|Any|)
+                                                        '(|CoercibleTo|
+                                                          (|OutputForm|)))
+                                         #1#
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|String|))
+                                                    (|:| |entry| (|Any|)))
+                                          '(|CoercibleTo| (|OutputForm|)))
+                                         #2#)))
+                    . #5#))
+    (|haddProp| |$ConstructorCache| '|Library| NIL (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+         (|augmentPredVector| $ 4096))
+    (AND #3#
+         (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| (|Any|)))
+                        '(|BasicType|))
+         (|augmentPredVector| $ 8192))
+    (AND #3# #1# (|augmentPredVector| $ 16384))
+    (AND
+     (LETT #4#
+           (AND (|HasCategory| $ '(|finiteAggregate|))
+                (|HasCategory| (|Any|) '(|BasicType|)))
+           . #5#)
+     (|augmentPredVector| $ 32768))
+    (AND
+     (OR #4#
+         (AND #3#
+              (|HasCategory|
+               (|Record| (|:| |key| (|String|)) (|:| |entry| (|Any|)))
+               '(|BasicType|)))
+         #1# #2#)
+     (|augmentPredVector| $ 65536))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 131072))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 6 (|KeyedAccessFile| (|Any|)))
+    $))) 
 
 (MAKEPROP '|Library| '|infovec|
           (LIST

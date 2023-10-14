@@ -1,161 +1,198 @@
 
-(DEFUN |DROPT0;adaptive;L2B;1| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|adaptive| (QREFELT $ 10))
-            |DROPT0;adaptive;L2B;1|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;adaptive;L2B;1|
+        ((|l| |List| (|DrawOption|)) (|s| |Boolean|) ($ |Boolean|))
+        (SPROG ((|u| (|Union| (|Boolean|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|adaptive| (QREFELT $ 10))
+                      |DROPT0;adaptive;L2B;1|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;clipBoolean;L2B;2| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|clipBoolean| (QREFELT $ 10))
-            |DROPT0;clipBoolean;L2B;2|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;clipBoolean;L2B;2|
+        ((|l| |List| (|DrawOption|)) (|s| |Boolean|) ($ |Boolean|))
+        (SPROG ((|u| (|Union| (|Boolean|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|clipBoolean| (QREFELT $ 10))
+                      |DROPT0;clipBoolean;L2B;2|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;title;L2S;3| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|title| (QREFELT $ 16)) |DROPT0;title;L2S;3|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;title;L2S;3|
+        ((|l| |List| (|DrawOption|)) (|s| |String|) ($ |String|))
+        (SPROG ((|u| (|Union| (|String|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|title| (QREFELT $ 16))
+                      |DROPT0;title;L2S;3|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;viewpoint;L2R;4| (|l| |vp| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|viewpoint| (QREFELT $ 22))
-            |DROPT0;viewpoint;L2R;4|)
-      (EXIT (COND ((QEQCAR |u| 1) |vp|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;viewpoint;L2R;4|
+        ((|l| |List| (|DrawOption|))
+         (|vp| |Record| (|:| |theta| (|DoubleFloat|))
+          (|:| |phi| (|DoubleFloat|)) (|:| |scale| (|DoubleFloat|))
+          (|:| |scaleX| (|DoubleFloat|)) (|:| |scaleY| (|DoubleFloat|))
+          (|:| |scaleZ| (|DoubleFloat|)) (|:| |deltaX| (|DoubleFloat|))
+          (|:| |deltaY| (|DoubleFloat|)))
+         ($ |Record| (|:| |theta| (|DoubleFloat|)) (|:| |phi| (|DoubleFloat|))
+          (|:| |scale| (|DoubleFloat|)) (|:| |scaleX| (|DoubleFloat|))
+          (|:| |scaleY| (|DoubleFloat|)) (|:| |scaleZ| (|DoubleFloat|))
+          (|:| |deltaX| (|DoubleFloat|)) (|:| |deltaY| (|DoubleFloat|))))
+        (SPROG
+         ((|u|
+           (|Union|
+            (|Record| (|:| |theta| (|DoubleFloat|)) (|:| |phi| (|DoubleFloat|))
+                      (|:| |scale| (|DoubleFloat|))
+                      (|:| |scaleX| (|DoubleFloat|))
+                      (|:| |scaleY| (|DoubleFloat|))
+                      (|:| |scaleZ| (|DoubleFloat|))
+                      (|:| |deltaX| (|DoubleFloat|))
+                      (|:| |deltaY| (|DoubleFloat|)))
+            "failed")))
+         (SEQ
+          (LETT |u| (SPADCALL |l| '|viewpoint| (QREFELT $ 22))
+                |DROPT0;viewpoint;L2R;4|)
+          (EXIT (COND ((QEQCAR |u| 1) |vp|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;style;L2S;5| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|style| (QREFELT $ 16)) |DROPT0;style;L2S;5|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;style;L2S;5|
+        ((|l| |List| (|DrawOption|)) (|s| |String|) ($ |String|))
+        (SPROG ((|u| (|Union| (|String|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|style| (QREFELT $ 16))
+                      |DROPT0;style;L2S;5|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;toScale;L2B;6| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|toScale| (QREFELT $ 10))
-            |DROPT0;toScale;L2B;6|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;toScale;L2B;6|
+        ((|l| |List| (|DrawOption|)) (|s| |Boolean|) ($ |Boolean|))
+        (SPROG ((|u| (|Union| (|Boolean|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|toScale| (QREFELT $ 10))
+                      |DROPT0;toScale;L2B;6|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;pointColorPalette;L2P;7| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|pointColorPalette| (QREFELT $ 28))
-            |DROPT0;pointColorPalette;L2P;7|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;pointColorPalette;L2P;7|
+        ((|l| |List| (|DrawOption|)) (|s| |Palette|) ($ |Palette|))
+        (SPROG ((|u| (|Union| (|Palette|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|pointColorPalette| (QREFELT $ 28))
+                      |DROPT0;pointColorPalette;L2P;7|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;curveColorPalette;L2P;8| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|curveColorPalette| (QREFELT $ 28))
-            |DROPT0;curveColorPalette;L2P;8|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;curveColorPalette;L2P;8|
+        ((|l| |List| (|DrawOption|)) (|s| |Palette|) ($ |Palette|))
+        (SPROG ((|u| (|Union| (|Palette|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|curveColorPalette| (QREFELT $ 28))
+                      |DROPT0;curveColorPalette;L2P;8|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;ranges;L2L;9| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|ranges| (QREFELT $ 34)) |DROPT0;ranges;L2L;9|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;ranges;L2L;9|
+        ((|l| |List| (|DrawOption|)) (|s| |List| (|Segment| (|Float|)))
+         ($ |List| (|Segment| (|Float|))))
+        (SPROG ((|u| (|Union| (|List| (|Segment| (|Float|))) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|ranges| (QREFELT $ 34))
+                      |DROPT0;ranges;L2L;9|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;space;LTs;10| (|l| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|space| (QREFELT $ 39)) |DROPT0;space;LTs;10|)
-      (EXIT
-       (COND ((QEQCAR |u| 1) (SPADCALL (QREFELT $ 41))) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;space;LTs;10|
+        ((|l| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
+        (SPROG ((|u| (|Union| (|ThreeSpace| (|DoubleFloat|)) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|space| (QREFELT $ 39))
+                      |DROPT0;space;LTs;10|)
+                (EXIT
+                 (COND ((QEQCAR |u| 1) (SPADCALL (QREFELT $ 41)))
+                       ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;var1Steps;L2Pi;11| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|var1Steps| (QREFELT $ 45))
-            |DROPT0;var1Steps;L2Pi;11|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;var1Steps;L2Pi;11|
+        ((|l| |List| (|DrawOption|)) (|s| |PositiveInteger|)
+         ($ |PositiveInteger|))
+        (SPROG ((|u| (|Union| (|PositiveInteger|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|var1Steps| (QREFELT $ 45))
+                      |DROPT0;var1Steps;L2Pi;11|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;var2Steps;L2Pi;12| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|var2Steps| (QREFELT $ 45))
-            |DROPT0;var2Steps;L2Pi;12|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;var2Steps;L2Pi;12|
+        ((|l| |List| (|DrawOption|)) (|s| |PositiveInteger|)
+         ($ |PositiveInteger|))
+        (SPROG ((|u| (|Union| (|PositiveInteger|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|var2Steps| (QREFELT $ 45))
+                      |DROPT0;var2Steps;L2Pi;12|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;tubePoints;L2Pi;13| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|tubePoints| (QREFELT $ 45))
-            |DROPT0;tubePoints;L2Pi;13|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;tubePoints;L2Pi;13|
+        ((|l| |List| (|DrawOption|)) (|s| |PositiveInteger|)
+         ($ |PositiveInteger|))
+        (SPROG ((|u| (|Union| (|PositiveInteger|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|tubePoints| (QREFELT $ 45))
+                      |DROPT0;tubePoints;L2Pi;13|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;tubeRadius;L2F;14| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|tubeRadius| (QREFELT $ 52))
-            |DROPT0;tubeRadius;L2F;14|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;tubeRadius;L2F;14|
+        ((|l| |List| (|DrawOption|)) (|s| |Float|) ($ |Float|))
+        (SPROG ((|u| (|Union| (|Float|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|tubeRadius| (QREFELT $ 52))
+                      |DROPT0;tubeRadius;L2F;14|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;coord;L2M;15| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|coord| (QREFELT $ 58)) |DROPT0;coord;L2M;15|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;coord;L2M;15|
+        ((|l| |List| (|DrawOption|))
+         (|s| |Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))
+         ($ |Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|))))
+        (SPROG
+         ((|u|
+           (|Union|
+            (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|)))
+            "failed")))
+         (SEQ
+          (LETT |u| (SPADCALL |l| '|coord| (QREFELT $ 58))
+                |DROPT0;coord;L2M;15|)
+          (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
-(DEFUN |DROPT0;units;L2L;16| (|l| |s| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |l| '|unit| (QREFELT $ 62)) |DROPT0;units;L2L;16|)
-      (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
+(SDEFUN |DROPT0;units;L2L;16|
+        ((|l| |List| (|DrawOption|)) (|s| |List| (|Float|))
+         ($ |List| (|Float|)))
+        (SPROG ((|u| (|Union| (|List| (|Float|)) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |l| '|unit| (QREFELT $ 62))
+                      |DROPT0;units;L2L;16|)
+                (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|))))))) 
 
 (DECLAIM (NOTINLINE |DrawOptionFunctions0;|)) 
 
 (DEFUN |DrawOptionFunctions0| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G190)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|DrawOptionFunctions0|)
-                . #2=(|DrawOptionFunctions0|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|DrawOptionFunctions0|
-                         (LIST (CONS NIL (CONS 1 (|DrawOptionFunctions0;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G190)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|DrawOptionFunctions0|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|DrawOptionFunctions0|)
+                    . #2=(|DrawOptionFunctions0|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|DrawOptionFunctions0|
+                             (LIST
+                              (CONS NIL (CONS 1 (|DrawOptionFunctions0;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|DrawOptionFunctions0|)))))))))) 
 
 (DEFUN |DrawOptionFunctions0;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|DrawOptionFunctions0|) . #1=(|DrawOptionFunctions0|))
-      (LETT $ (GETREFV 65) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|DrawOptionFunctions0| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|DrawOptionFunctions0|) . #1=(|DrawOptionFunctions0|))
+          (LETT $ (GETREFV 65) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|DrawOptionFunctions0| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|DrawOptionFunctions0| '|infovec|
           (LIST

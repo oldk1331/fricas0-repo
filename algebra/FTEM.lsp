@@ -1,137 +1,145 @@
 
-(DEFUN |FTEM;fortranLiteralLine;SV;1| (|s| $)
-  (SEQ (PRINTEXP |s| |$fortranOutputStream|)
-       (EXIT (TERPRI |$fortranOutputStream|)))) 
+(SDEFUN |FTEM;fortranLiteralLine;SV;1| ((|s| |String|) ($ |Void|))
+        (SEQ (PRINTEXP |s| |$fortranOutputStream|)
+             (EXIT (TERPRI |$fortranOutputStream|)))) 
 
 (PUT '|FTEM;fortranLiteral;SV;2| '|SPADreplace|
      '(XLAM (|s|) (PRINTEXP |s| |$fortranOutputStream|))) 
 
-(DEFUN |FTEM;fortranLiteral;SV;2| (|s| $) (PRINTEXP |s| |$fortranOutputStream|)) 
+(SDEFUN |FTEM;fortranLiteral;SV;2| ((|s| |String|) ($ |Void|))
+        (PRINTEXP |s| |$fortranOutputStream|)) 
 
 (PUT '|FTEM;fortranCarriageReturn;V;3| '|SPADreplace|
      '(XLAM NIL (TERPRI |$fortranOutputStream|))) 
 
-(DEFUN |FTEM;fortranCarriageReturn;V;3| ($) (TERPRI |$fortranOutputStream|)) 
+(SDEFUN |FTEM;fortranCarriageReturn;V;3| (($ |Void|))
+        (TERPRI |$fortranOutputStream|)) 
 
-(DEFUN |FTEM;writePassiveLine!| (|line| $) (SPADCALL |line| (QREFELT $ 9))) 
+(SDEFUN |FTEM;writePassiveLine!| ((|line| |String|) ($ |Void|))
+        (SPADCALL |line| (QREFELT $ 9))) 
 
-(DEFUN |FTEM;processTemplate;3Fn;5| (|tp| |fn| $)
-  (SEQ (SPADCALL |fn| (QREFELT $ 14)) (SPADCALL |tp| (QREFELT $ 15))
-       (SPADCALL (QREFELT $ 16)) (EXIT |fn|))) 
+(SDEFUN |FTEM;processTemplate;3Fn;5|
+        ((|tp| |FileName|) (|fn| |FileName|) ($ |FileName|))
+        (SEQ (SPADCALL |fn| (QREFELT $ 14)) (SPADCALL |tp| (QREFELT $ 15))
+             (SPADCALL (QREFELT $ 16)) (EXIT |fn|))) 
 
-(DEFUN |FTEM;getLine| (|fp| $)
-  (PROG (|line|)
-    (RETURN
-     (SEQ
-      (LETT |line| (SPADCALL (SPADCALL |fp| (QREFELT $ 18)) (QREFELT $ 20))
-            . #1=(|FTEM;getLine|))
-      (SEQ G190
-           (COND
-            ((NULL
-              (COND ((SPADCALL |line| (QREFELT $ 22)) 'NIL)
-                    ('T
-                     (|eql_SI|
-                      (SPADCALL |line| (SPADCALL |line| (QREFELT $ 24))
-                                (QREFELT $ 26))
-                      (|STR_to_CHAR| "_")))))
-             (GO G191)))
-           (SEQ
-            (SPADCALL |line| (SPADCALL |line| (QREFELT $ 24))
-                      (|STR_to_CHAR| " ") (QREFELT $ 27))
-            (EXIT
-             (LETT |line|
-                   (STRCONC |line|
-                            (SPADCALL (SPADCALL |fp| (QREFELT $ 18))
-                                      (QREFELT $ 20)))
-                   . #1#)))
-           NIL (GO G190) G191 (EXIT NIL))
-      (EXIT |line|))))) 
-
-(DEFUN |FTEM;processTemplate;2Fn;7| (|tp| $)
-  (PROG (|active| |line| #1=#:G119 |endInput| |fp|)
-    (RETURN
-     (SEQ
-      (LETT |fp| (SPADCALL |tp| "input" (QREFELT $ 28))
-            . #2=(|FTEM;processTemplate;2Fn;7|))
-      (LETT |active| 'T . #2#) (LETT |endInput| 'NIL . #2#)
-      (SEQ G190
-           (COND
-            ((NULL
-              (COND ((OR |endInput| (SPADCALL |fp| (QREFELT $ 29))) 'NIL)
-                    ('T 'T)))
-             (GO G191)))
-           (SEQ
-            (EXIT
-             (COND
-              (|active|
-               (SEQ (LETT |line| (|FTEM;getLine| |fp| $) . #2#)
-                    (EXIT
+(SDEFUN |FTEM;getLine| ((|fp| |TextFile|) ($ |String|))
+        (SPROG ((|line| (|String|)))
+               (SEQ
+                (LETT |line|
+                      (SPADCALL (SPADCALL |fp| (QREFELT $ 18)) (QREFELT $ 20))
+                      . #1=(|FTEM;getLine|))
+                (SEQ G190
                      (COND
-                      ((EQUAL |line| "endInput") (LETT |endInput| 'T . #2#))
-                      ((EQUAL |line| "beginVerbatim")
-                       (LETT |active| 'NIL . #2#))
-                      ('T
-                       (SEQ
+                      ((NULL
+                        (COND ((SPADCALL |line| (QREFELT $ 22)) 'NIL)
+                              ('T
+                               (|eql_SI|
+                                (SPADCALL |line|
+                                          (SPADCALL |line| (QREFELT $ 24))
+                                          (QREFELT $ 26))
+                                (|STR_to_CHAR| "_")))))
+                       (GO G191)))
+                     (SEQ
+                      (SPADCALL |line| (SPADCALL |line| (QREFELT $ 24))
+                                (|STR_to_CHAR| " ") (QREFELT $ 27))
+                      (EXIT
+                       (LETT |line|
+                             (STRCONC |line|
+                                      (SPADCALL (SPADCALL |fp| (QREFELT $ 18))
+                                                (QREFELT $ 20)))
+                             . #1#)))
+                     NIL (GO G190) G191 (EXIT NIL))
+                (EXIT |line|)))) 
+
+(SDEFUN |FTEM;processTemplate;2Fn;7| ((|tp| |FileName|) ($ |FileName|))
+        (SPROG
+         ((|active| (|Boolean|)) (|line| (|String|)) (#1=#:G119 NIL)
+          (|endInput| (|Boolean|)) (|fp| (|TextFile|)))
+         (SEQ
+          (LETT |fp| (SPADCALL |tp| "input" (QREFELT $ 28))
+                . #2=(|FTEM;processTemplate;2Fn;7|))
+          (LETT |active| 'T . #2#) (LETT |endInput| 'NIL . #2#)
+          (SEQ G190
+               (COND
+                ((NULL
+                  (COND ((OR |endInput| (SPADCALL |fp| (QREFELT $ 29))) 'NIL)
+                        ('T 'T)))
+                 (GO G191)))
+               (SEQ
+                (EXIT
+                 (COND
+                  (|active|
+                   (SEQ (LETT |line| (|FTEM;getLine| |fp| $) . #2#)
                         (EXIT
                          (COND
-                          ((NULL (SPADCALL |line| (QREFELT $ 22)))
-                           (PROGN
-                            (LETT #1# (SPADCALL |line| (QREFELT $ 31)) . #2#)
-                            (GO #1#)))))
-                        #1# (EXIT #1#)))))))
-              ('T
-               (SEQ (LETT |line| (SPADCALL |fp| (QREFELT $ 18)) . #2#)
-                    (EXIT
-                     (COND
-                      ((EQUAL |line| "endVerbatim") (LETT |active| 'T . #2#))
-                      ('T (|FTEM;writePassiveLine!| |line| $)))))))))
-           NIL (GO G190) G191 (EXIT NIL))
-      (SPADCALL |fp| (QREFELT $ 32))
-      (COND
-       ((NULL |active|)
-        (|error|
-         (SPADCALL
-          (SPADCALL
-           (LIST "Missing `endVerbatim' line in "
-                 (SPADCALL |tp| (QREFELT $ 33)))
-           (QREFELT $ 35))
-          (QREFELT $ 37)))))
-      (EXIT (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 38))))))) 
+                          ((EQUAL |line| "endInput")
+                           (LETT |endInput| 'T . #2#))
+                          ((EQUAL |line| "beginVerbatim")
+                           (LETT |active| 'NIL . #2#))
+                          ('T
+                           (SEQ
+                            (EXIT
+                             (COND
+                              ((NULL (SPADCALL |line| (QREFELT $ 22)))
+                               (PROGN
+                                (LETT #1# (SPADCALL |line| (QREFELT $ 31))
+                                      . #2#)
+                                (GO #1#)))))
+                            #1# (EXIT #1#)))))))
+                  ('T
+                   (SEQ (LETT |line| (SPADCALL |fp| (QREFELT $ 18)) . #2#)
+                        (EXIT
+                         (COND
+                          ((EQUAL |line| "endVerbatim")
+                           (LETT |active| 'T . #2#))
+                          ('T (|FTEM;writePassiveLine!| |line| $)))))))))
+               NIL (GO G190) G191 (EXIT NIL))
+          (SPADCALL |fp| (QREFELT $ 32))
+          (COND
+           ((NULL |active|)
+            (|error|
+             (SPADCALL
+              (SPADCALL
+               (LIST "Missing `endVerbatim' line in "
+                     (SPADCALL |tp| (QREFELT $ 33)))
+               (QREFELT $ 35))
+              (QREFELT $ 37)))))
+          (EXIT (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 38)))))) 
 
 (DECLAIM (NOTINLINE |FortranTemplate;|)) 
 
 (DEFUN |FortranTemplate| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G126)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|FortranTemplate|)
-                . #2=(|FortranTemplate|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|FortranTemplate|
-                         (LIST (CONS NIL (CONS 1 (|FortranTemplate;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G126)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|FortranTemplate|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|FortranTemplate|)
+                    . #2=(|FortranTemplate|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|FortranTemplate|
+                             (LIST (CONS NIL (CONS 1 (|FortranTemplate;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|FortranTemplate|)))))))))) 
 
 (DEFUN |FortranTemplate;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|FortranTemplate|) . #1=(|FortranTemplate|))
-      (LETT $ (GETREFV 41) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FortranTemplate| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|TextFile|))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FortranTemplate|) . #1=(|FortranTemplate|))
+          (LETT $ (GETREFV 41) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FortranTemplate| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|TextFile|))
+          $))) 
 
 (MAKEPROP '|FortranTemplate| '|infovec|
           (LIST

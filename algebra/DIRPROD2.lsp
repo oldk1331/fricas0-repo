@@ -1,57 +1,61 @@
 
-(DEFUN |DIRPROD2;map;MDpDp;1| (|f| |v| $)
-  (SPADCALL (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 15))
-            (QREFELT $ 17))) 
+(SDEFUN |DIRPROD2;map;MDpDp;1|
+        ((|f| |Mapping| B A) (|v| |DirectProduct| |dim| A)
+         ($ |DirectProduct| |dim| B))
+        (SPADCALL (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 15))
+                  (QREFELT $ 17))) 
 
-(DEFUN |DIRPROD2;scan;MDpBDp;2| (|f| |v| |b| $)
-  (SPADCALL (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) |b| (QREFELT $ 20))
-            (QREFELT $ 17))) 
+(SDEFUN |DIRPROD2;scan;MDpBDp;2|
+        ((|f| |Mapping| B A B) (|v| |DirectProduct| |dim| A) (|b| B)
+         ($ |DirectProduct| |dim| B))
+        (SPADCALL
+         (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) |b| (QREFELT $ 20))
+         (QREFELT $ 17))) 
 
-(DEFUN |DIRPROD2;reduce;MDp2B;3| (|f| |v| |b| $)
-  (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) |b| (QREFELT $ 22))) 
+(SDEFUN |DIRPROD2;reduce;MDp2B;3|
+        ((|f| |Mapping| B A B) (|v| |DirectProduct| |dim| A) (|b| B) ($ B))
+        (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) |b| (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |DirectProductFunctions2;|)) 
 
 (DEFUN |DirectProductFunctions2| (&REST #1=#:G111)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G112)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|DirectProductFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|DirectProductFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |DirectProductFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G112)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|DirectProductFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|DirectProductFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|DirectProductFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |DirectProductFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|DirectProductFunctions2|)))))))))) 
 
 (DEFUN |DirectProductFunctions2;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|DirectProductFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|DirectProductFunctions2| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|DirectProductFunctions2|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|DirectProductFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|DirectProductFunctions2| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|DirectProductFunctions2|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|DirectProductFunctions2| '|infovec|
           (LIST

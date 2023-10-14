@@ -2,45 +2,45 @@
 (DECLAIM (NOTINLINE |FreeAbelianMonoid;|)) 
 
 (DEFUN |FreeAbelianMonoid| (#1=#:G115)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G116)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|FreeAbelianMonoid|)
-                                           '|domainEqualList|)
-                . #3=(|FreeAbelianMonoid|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|FreeAbelianMonoid;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G116)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|FreeAbelianMonoid|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FreeAbelianMonoid|)
+                                               '|domainEqualList|)
+                    . #3=(|FreeAbelianMonoid|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FreeAbelianMonoid;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FreeAbelianMonoid|)))))))))) 
 
 (DEFUN |FreeAbelianMonoid;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeAbelianMonoid|))
-      (LETT |dv$| (LIST '|FreeAbelianMonoid| DV$1) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| (|NonNegativeInteger|)
-                                                         '(|OrderedAbelianMonoid|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|FreeAbelianMonoid| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeAbelianMonoid|))
+          (LETT |dv$| (LIST '|FreeAbelianMonoid| DV$1) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory|
+                                               (|NonNegativeInteger|)
+                                               '(|OrderedAbelianMonoid|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|FreeAbelianMonoid| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FreeAbelianMonoid| '|infovec|
           (LIST

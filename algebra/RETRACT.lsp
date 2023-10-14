@@ -14,16 +14,17 @@
       #2#)))) 
 
 (DEFUN |RetractableTo;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (|Join|
-                           (|mkCategory|
-                            '(((|coerce| ($ |t#1|)) T)
-                              ((|retractIfCan| ((|Union| |t#1| "failed") $)) T)
-                              ((|retract| (|t#1| $)) T))
-                            NIL 'NIL NIL)))
-               |RetractableTo|)
-       (SETELT #1# 0 (LIST '|RetractableTo| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (|Join|
+                               (|mkCategory|
+                                '(((|coerce| ($ |t#1|)) T)
+                                  ((|retractIfCan|
+                                    ((|Union| |t#1| "failed") $))
+                                   T)
+                                  ((|retract| (|t#1| $)) T))
+                                NIL 'NIL NIL)))
+                   |RetractableTo|)
+           (SETELT #1# 0 (LIST '|RetractableTo| (|devaluate| |t#1|)))))) 

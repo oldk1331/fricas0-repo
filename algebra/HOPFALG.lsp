@@ -16,21 +16,21 @@
       #2#)))) 
 
 (DEFUN |HopfAlgebra;| (|t#1| |t#2|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (COND (|HopfAlgebra;CAT|)
-                      ('T
-                       (LETT |HopfAlgebra;CAT|
-                             (|Join| (|Bialgebra| '|t#1| '|t#2|)
-                                     (|mkCategory| '(((|antipode| ($ $)) T))
-                                                   NIL 'NIL NIL))
-                             . #2=(|HopfAlgebra|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|HopfAlgebra| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (COND (|HopfAlgebra;CAT|)
+                          ('T
+                           (LETT |HopfAlgebra;CAT|
+                                 (|Join| (|Bialgebra| '|t#1| '|t#2|)
+                                         (|mkCategory|
+                                          '(((|antipode| ($ $)) T)) NIL 'NIL
+                                          NIL))
+                                 . #2=(|HopfAlgebra|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|HopfAlgebra| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

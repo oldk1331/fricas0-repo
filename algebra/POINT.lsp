@@ -1,169 +1,170 @@
 
-(DEFUN |POINT;point;L$;1| (|l| $)
-  (PROG (#1=#:G108 |x| |i| |pt|)
-    (RETURN
-     (SEQ
-      (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT $ 8))
-            . #2=(|POINT;point;L$;1|))
-      (SEQ (LETT |i| (SPADCALL |pt| (QREFELT $ 10)) . #2#) (LETT |x| NIL . #2#)
-           (LETT #1# |l| . #2#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL)) (GO G191)))
-           (SEQ (EXIT (SPADCALL |pt| |i| |x| (QREFELT $ 11))))
-           (LETT #1# (PROG1 (CDR #1#) (LETT |i| (+ |i| 1) . #2#)) . #2#)
-           (GO G190) G191 (EXIT NIL))
-      (EXIT |pt|))))) 
+(SDEFUN |POINT;point;L$;1| ((|l| |List| R) ($ $))
+        (SPROG ((#1=#:G108 NIL) (|x| NIL) (|i| NIL) (|pt| ($)))
+               (SEQ
+                (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT $ 8))
+                      . #2=(|POINT;point;L$;1|))
+                (SEQ (LETT |i| (SPADCALL |pt| (QREFELT $ 10)) . #2#)
+                     (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ (EXIT (SPADCALL |pt| |i| |x| (QREFELT $ 11))))
+                     (LETT #1# (PROG1 (CDR #1#) (LETT |i| (+ |i| 1) . #2#))
+                           . #2#)
+                     (GO G190) G191 (EXIT NIL))
+                (EXIT |pt|)))) 
 
-(DEFUN |POINT;dimension;$Pi;2| (|p| $)
-  (PROG (#1=#:G109)
-    (RETURN
-     (PROG1 (LETT #1# (SPADCALL |p| (QREFELT $ 14)) |POINT;dimension;$Pi;2|)
-       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
+(SDEFUN |POINT;dimension;$Pi;2| ((|p| $) ($ |PositiveInteger|))
+        (SPROG ((#1=#:G109 NIL))
+               (PROG1
+                   (LETT #1# (SPADCALL |p| (QREFELT $ 14))
+                         |POINT;dimension;$Pi;2|)
+                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
 
-(DEFUN |POINT;convert;L$;3| (|l| $) (SPADCALL |l| (QREFELT $ 13))) 
+(SDEFUN |POINT;convert;L$;3| ((|l| |List| R) ($ $))
+        (SPADCALL |l| (QREFELT $ 13))) 
 
-(DEFUN |POINT;cross;3$;4| (|p0| |p1| $)
-  (COND
-   ((OR (SPADCALL (SPADCALL |p0| (QREFELT $ 14)) 3 (QREFELT $ 19))
-        (SPADCALL (SPADCALL |p1| (QREFELT $ 14)) 3 (QREFELT $ 19)))
-    (|error| "Arguments to cross must be three dimensional"))
-   ('T
-    (SPADCALL
-     (LIST
-      (SPADCALL
-       (SPADCALL (SPADCALL |p0| 2 (QREFELT $ 20))
-                 (SPADCALL |p1| 3 (QREFELT $ 20)) (QREFELT $ 21))
-       (SPADCALL (SPADCALL |p1| 2 (QREFELT $ 20))
-                 (SPADCALL |p0| 3 (QREFELT $ 20)) (QREFELT $ 21))
-       (QREFELT $ 22))
-      (SPADCALL
-       (SPADCALL (SPADCALL |p1| 1 (QREFELT $ 20))
-                 (SPADCALL |p0| 3 (QREFELT $ 20)) (QREFELT $ 21))
-       (SPADCALL (SPADCALL |p0| 1 (QREFELT $ 20))
-                 (SPADCALL |p1| 3 (QREFELT $ 20)) (QREFELT $ 21))
-       (QREFELT $ 22))
-      (SPADCALL
-       (SPADCALL (SPADCALL |p0| 1 (QREFELT $ 20))
-                 (SPADCALL |p1| 2 (QREFELT $ 20)) (QREFELT $ 21))
-       (SPADCALL (SPADCALL |p1| 1 (QREFELT $ 20))
-                 (SPADCALL |p0| 2 (QREFELT $ 20)) (QREFELT $ 21))
-       (QREFELT $ 22)))
-     (QREFELT $ 13))))) 
+(SDEFUN |POINT;cross;3$;4| ((|p0| $) (|p1| $) ($ $))
+        (COND
+         ((OR (SPADCALL (SPADCALL |p0| (QREFELT $ 14)) 3 (QREFELT $ 19))
+              (SPADCALL (SPADCALL |p1| (QREFELT $ 14)) 3 (QREFELT $ 19)))
+          (|error| "Arguments to cross must be three dimensional"))
+         ('T
+          (SPADCALL
+           (LIST
+            (SPADCALL
+             (SPADCALL (SPADCALL |p0| 2 (QREFELT $ 20))
+                       (SPADCALL |p1| 3 (QREFELT $ 20)) (QREFELT $ 21))
+             (SPADCALL (SPADCALL |p1| 2 (QREFELT $ 20))
+                       (SPADCALL |p0| 3 (QREFELT $ 20)) (QREFELT $ 21))
+             (QREFELT $ 22))
+            (SPADCALL
+             (SPADCALL (SPADCALL |p1| 1 (QREFELT $ 20))
+                       (SPADCALL |p0| 3 (QREFELT $ 20)) (QREFELT $ 21))
+             (SPADCALL (SPADCALL |p0| 1 (QREFELT $ 20))
+                       (SPADCALL |p1| 3 (QREFELT $ 20)) (QREFELT $ 21))
+             (QREFELT $ 22))
+            (SPADCALL
+             (SPADCALL (SPADCALL |p0| 1 (QREFELT $ 20))
+                       (SPADCALL |p1| 2 (QREFELT $ 20)) (QREFELT $ 21))
+             (SPADCALL (SPADCALL |p1| 1 (QREFELT $ 20))
+                       (SPADCALL |p0| 2 (QREFELT $ 20)) (QREFELT $ 21))
+             (QREFELT $ 22)))
+           (QREFELT $ 13))))) 
 
-(DEFUN |POINT;extend;$L$;5| (|p| |l| $)
-  (SPADCALL |p| (SPADCALL |l| (QREFELT $ 13)) (QREFELT $ 25))) 
+(SDEFUN |POINT;extend;$L$;5| ((|p| $) (|l| |List| R) ($ $))
+        (SPADCALL |p| (SPADCALL |l| (QREFELT $ 13)) (QREFELT $ 25))) 
 
 (DECLAIM (NOTINLINE |Point;|)) 
 
 (DEFUN |Point| (#1=#:G129)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G130)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache| '|Point|)
-                                           '|domainEqualList|)
-                . #3=(|Point|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Point;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Point|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G130)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Point|)
+                                               '|domainEqualList|)
+                    . #3=(|Point|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Point;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Point|)))))))))) 
 
 (DEFUN |Point;| (|#1|)
-  (PROG (#1=#:G128 |pv$| #2=#:G124 #3=#:G125 #4=#:G126 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #5=(|Point|))
-      (LETT |dv$| (LIST '|Point| DV$1) . #5#)
-      (LETT $ (GETREFV 44) . #5#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#1| '(|OrderedSet|))
-                                          (LETT #4#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #5#)
-                                          (OR
-                                           (|HasCategory| |#1| '(|OrderedSet|))
-                                           #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #4#)
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            #4#))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #5#)
-                                          (OR #3#
+  (SPROG
+   ((#1=#:G128 NIL) (|pv$| NIL) (#2=#:G124 NIL) (#3=#:G125 NIL) (#4=#:G126 NIL)
+    ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #5=(|Point|))
+    (LETT |dv$| (LIST '|Point| DV$1) . #5#)
+    (LETT $ (GETREFV 44) . #5#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| |#1| '(|OrderedSet|))
+                                        (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|OrderedSet|))
-                                              #4#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #5#)
-                                          (OR #2#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #4#))
+                                                             '(|SetCategory|))
+                                              . #5#)
+                                        (OR
+                                         (|HasCategory| |#1| '(|OrderedSet|))
+                                         #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #4#)
+                                        (OR
+                                         (AND
                                           (|HasCategory| |#1|
-                                                         '(|AbelianSemiGroup|))
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#1| '(|OrderedSet|)))
+                                         (AND
                                           (|HasCategory| |#1|
-                                                         '(|AbelianMonoid|))
-                                          (|HasCategory| |#1|
-                                                         '(|AbelianGroup|))
-                                          (|HasCategory| |#1| '(|Monoid|))
-                                          (|HasCategory| |#1| '(|Ring|))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|RadicalCategory|))
-                                           (|HasCategory| |#1| '(|Ring|)))))
-                      . #5#))
-      (|haddProp| |$ConstructorCache| '|Point| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-           (|augmentPredVector| $ 131072))
-      (AND #4# #1# (|augmentPredVector| $ 262144))
-      (AND #3# #1# (|augmentPredVector| $ 524288))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 1048576))
-      (AND (|HasCategory| |#1| '(|OrderedSet|))
-           (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 2097152))
-      (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 4194304))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          #4#))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|OrderedSet|))
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|BasicType|))
+                                              . #5#)
+                                        (OR #3#
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedSet|))
+                                            #4#)
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #5#)
+                                        (OR #2#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #4#))
+                                        (|HasCategory| |#1|
+                                                       '(|AbelianSemiGroup|))
+                                        (|HasCategory| |#1| '(|AbelianMonoid|))
+                                        (|HasCategory| |#1| '(|AbelianGroup|))
+                                        (|HasCategory| |#1| '(|Monoid|))
+                                        (|HasCategory| |#1| '(|Ring|))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|RadicalCategory|))
+                                         (|HasCategory| |#1| '(|Ring|)))))
+                    . #5#))
+    (|haddProp| |$ConstructorCache| '|Point| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+         (|augmentPredVector| $ 131072))
+    (AND #4# #1# (|augmentPredVector| $ 262144))
+    (AND #3# #1# (|augmentPredVector| $ 524288))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 1048576))
+    (AND (|HasCategory| |#1| '(|OrderedSet|))
+         (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 2097152))
+    (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 4194304))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|Point| '|infovec|
           (LIST

@@ -1,137 +1,144 @@
 
-(DEFUN |DEQUEUE;bottom!;$S;1| (|d| $)
-  (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
-        ('T (SPADCALL (SPADCALL |d| (QREFELT $ 11)) (QREFELT $ 12))))) 
+(SDEFUN |DEQUEUE;bottom!;$S;1| ((|d| $) ($ S))
+        (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
+              ('T (SPADCALL (SPADCALL |d| (QREFELT $ 11)) (QREFELT $ 12))))) 
 
-(DEFUN |DEQUEUE;dequeue;L$;2| (|d| $)
-  (SPADCALL (SPADCALL |d| (QREFELT $ 14)) (QREFELT $ 15))) 
+(SDEFUN |DEQUEUE;dequeue;L$;2| ((|d| |List| S) ($ $))
+        (SPADCALL (SPADCALL |d| (QREFELT $ 14)) (QREFELT $ 15))) 
 
-(DEFUN |DEQUEUE;extractBottom!;$S;3| (|d| $)
-  (PROG (|r| |q| #1=#:G112 |n| |p|)
-    (RETURN
-     (SEQ (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue")))
-          (LETT |p| (SPADCALL |d| (QREFELT $ 11))
-                . #2=(|DEQUEUE;extractBottom!;$S;3|))
-          (LETT |n| (SPADCALL |p| (QREFELT $ 18)) . #2#)
-          (EXIT
-           (COND
-            ((EQL |n| 1)
-             (SEQ (LETT |r| (|SPADfirst| |p|) . #2#)
-                  (SPADCALL |d| NIL (QREFELT $ 19)) (EXIT |r|)))
-            ('T
-             (SEQ
-              (LETT |q|
-                    (SPADCALL |p|
-                              (PROG1 (LETT #1# (- |n| 2) . #2#)
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
-                              (QREFELT $ 21))
-                    . #2#)
-              (LETT |r| (|SPADfirst| (CDR |q|)) . #2#)
-              (SPADCALL |q| '|rest| NIL (QREFELT $ 23)) (EXIT |r|))))))))) 
+(SDEFUN |DEQUEUE;extractBottom!;$S;3| ((|d| $) ($ S))
+        (SPROG
+         ((|r| (S)) (|q| (|List| S)) (#1=#:G112 NIL) (|n| (|Integer|))
+          (|p| (|List| S)))
+         (SEQ (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue")))
+              (LETT |p| (SPADCALL |d| (QREFELT $ 11))
+                    . #2=(|DEQUEUE;extractBottom!;$S;3|))
+              (LETT |n| (SPADCALL |p| (QREFELT $ 18)) . #2#)
+              (EXIT
+               (COND
+                ((EQL |n| 1)
+                 (SEQ (LETT |r| (|SPADfirst| |p|) . #2#)
+                      (SPADCALL |d| NIL (QREFELT $ 19)) (EXIT |r|)))
+                ('T
+                 (SEQ
+                  (LETT |q|
+                        (SPADCALL |p|
+                                  (PROG1 (LETT #1# (- |n| 2) . #2#)
+                                    (|check_subtype| (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     #1#))
+                                  (QREFELT $ 21))
+                        . #2#)
+                  (LETT |r| (|SPADfirst| (CDR |q|)) . #2#)
+                  (SPADCALL |q| '|rest| NIL (QREFELT $ 23)) (EXIT |r|)))))))) 
 
-(DEFUN |DEQUEUE;extractTop!;$S;4| (|d| $)
-  (PROG (|e|)
-    (RETURN
-     (SEQ (LETT |e| (SPADCALL |d| (QREFELT $ 25)) |DEQUEUE;extractTop!;$S;4|)
-          (SPADCALL |d| (CDR (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 19))
-          (EXIT |e|))))) 
+(SDEFUN |DEQUEUE;extractTop!;$S;4| ((|d| $) ($ S))
+        (SPROG ((|e| (S)))
+               (SEQ
+                (LETT |e| (SPADCALL |d| (QREFELT $ 25))
+                      |DEQUEUE;extractTop!;$S;4|)
+                (SPADCALL |d| (CDR (SPADCALL |d| (QREFELT $ 11)))
+                          (QREFELT $ 19))
+                (EXIT |e|)))) 
 
-(DEFUN |DEQUEUE;height;$Nni;5| (|d| $) (LENGTH (SPADCALL |d| (QREFELT $ 11)))) 
+(SDEFUN |DEQUEUE;height;$Nni;5| ((|d| $) ($ |NonNegativeInteger|))
+        (LENGTH (SPADCALL |d| (QREFELT $ 11)))) 
 
-(DEFUN |DEQUEUE;insertTop!;S$S;6| (|e| |d| $)
-  (SEQ (SPADCALL |d| (CONS |e| (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 19))
-       (EXIT |e|))) 
+(SDEFUN |DEQUEUE;insertTop!;S$S;6| ((|e| S) (|d| $) ($ S))
+        (SEQ
+         (SPADCALL |d| (CONS |e| (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 19))
+         (EXIT |e|))) 
 
-(DEFUN |DEQUEUE;insertBottom!;S$S;7| (|e| |d| $)
-  (SEQ
-   (COND
-    ((SPADCALL |d| (QREFELT $ 9))
-     (SPADCALL |d| (SPADCALL |e| (QREFELT $ 29)) (QREFELT $ 19)))
-    ('T
-     (SPADCALL (LAST (SPADCALL |d| (QREFELT $ 11))) '|rest|
-               (SPADCALL |e| (QREFELT $ 29)) (QREFELT $ 23))))
-   (EXIT |e|))) 
+(SDEFUN |DEQUEUE;insertBottom!;S$S;7| ((|e| S) (|d| $) ($ S))
+        (SEQ
+         (COND
+          ((SPADCALL |d| (QREFELT $ 9))
+           (SPADCALL |d| (SPADCALL |e| (QREFELT $ 29)) (QREFELT $ 19)))
+          ('T
+           (SPADCALL (LAST (SPADCALL |d| (QREFELT $ 11))) '|rest|
+                     (SPADCALL |e| (QREFELT $ 29)) (QREFELT $ 23))))
+         (EXIT |e|))) 
 
-(DEFUN |DEQUEUE;top;$S;8| (|d| $)
-  (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
-        ('T (|SPADfirst| (SPADCALL |d| (QREFELT $ 11)))))) 
+(SDEFUN |DEQUEUE;top;$S;8| ((|d| $) ($ S))
+        (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
+              ('T (|SPADfirst| (SPADCALL |d| (QREFELT $ 11)))))) 
 
-(DEFUN |DEQUEUE;reverse!;2$;9| (|d| $)
-  (SEQ (SPADCALL |d| (REVERSE (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 19))
-       (EXIT |d|))) 
+(SDEFUN |DEQUEUE;reverse!;2$;9| ((|d| $) ($ $))
+        (SEQ
+         (SPADCALL |d| (REVERSE (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 19))
+         (EXIT |d|))) 
 
 (DECLAIM (NOTINLINE |Dequeue;|)) 
 
 (DEFUN |Dequeue| (#1=#:G133)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G134)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|Dequeue|)
-                                           '|domainEqualList|)
-                . #3=(|Dequeue|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Dequeue;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Dequeue|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G134)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Dequeue|)
+                                               '|domainEqualList|)
+                    . #3=(|Dequeue|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Dequeue;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Dequeue|)))))))))) 
 
 (DEFUN |Dequeue;| (|#1|)
-  (PROG (|pv$| #1=#:G130 #2=#:G131 #3=#:G132 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|Dequeue|))
-      (LETT |dv$| (LIST '|Dequeue| DV$1) . #4#)
-      (LETT $ (GETREFV 40) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #3#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #2# #3#)
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #1#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #3#))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|Dequeue| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
-      (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 256))
-      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-           (|augmentPredVector| $ 512))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|Reference| (|List| |#1|)))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G130 NIL) (#2=#:G131 NIL) (#3=#:G132 NIL) ($ NIL)
+    (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|Dequeue|))
+    (LETT |dv$| (LIST '|Dequeue| DV$1) . #4#)
+    (LETT $ (GETREFV 40) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #3#)
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #2# #3#)
+                                        (LETT #1#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #1#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #3#))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|Dequeue| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
+    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 256))
+    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| $ 512))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 7 (|Reference| (|List| |#1|)))
+    $))) 
 
 (MAKEPROP '|Dequeue| '|infovec|
           (LIST

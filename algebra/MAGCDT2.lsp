@@ -1,304 +1,378 @@
 
-(DEFUN |MAGCDT2;pack_modulus;LLIU;1| (|lm| |lvz| |p| $)
-  (PROG (|m| |vz|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL (LENGTH |lvz|) 1 (QREFELT $ 8)) (|error| "unsupported"))
-            ((SPADCALL (LENGTH |lvz|) (LENGTH |lm|) (QREFELT $ 8))
-             (|error| "pack_modulus: #lvz ~= #lm"))
-            ('T
-             (SEQ
-              (LETT |vz| (|SPADfirst| |lvz|)
-                    . #1=(|MAGCDT2;pack_modulus;LLIU;1|))
-              (LETT |m|
-                    (SPADCALL (SPADCALL (|SPADfirst| |lm|) (QREFELT $ 11)) |p|
-                              (QREFELT $ 14))
-                    . #1#)
-              (EXIT (CONS 0 (VECTOR |vz| |m| |p|)))))))))) 
-
-(DEFUN |MAGCDT2;pack_exps;2IRSev;2| (|dg| |msize| |mu| $)
-  (PROG (|ii| #1=#:G130 |j| |i| |exps| |nsize|)
-    (RETURN
-     (SEQ
-      (LETT |nsize| (* (+ |dg| 1) |msize|) . #2=(|MAGCDT2;pack_exps;2IRSev;2|))
-      (LETT |exps| (GETREFV_U32 (SPADCALL 2 |nsize| (QREFELT $ 22)) 0) . #2#)
-      (SEQ (LETT |i| 0 . #2#) G190 (COND ((|greater_SI| |i| |dg|) (GO G191)))
-           (SEQ
-            (EXIT
-             (SEQ (LETT |j| 0 . #2#) (LETT #1# (- |msize| 1) . #2#) G190
-                  (COND ((|greater_SI| |j| #1#) (GO G191)))
+(SDEFUN |MAGCDT2;pack_modulus;LLIU;1|
+        ((|lm| |List| (|Polynomial| #1=(|Integer|))) (|lvz| |List| (|Symbol|))
+         (|p| . #1#)
+         ($ |Union|
+          (|Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+                    (|:| |sp| (|Integer|)))
+          "failed"))
+        (SPROG ((|m| (|U32Vector|)) (|vz| (|Symbol|)))
+               (SEQ
+                (COND
+                 ((SPADCALL (LENGTH |lvz|) 1 (QREFELT $ 8))
+                  (|error| "unsupported"))
+                 ((SPADCALL (LENGTH |lvz|) (LENGTH |lm|) (QREFELT $ 8))
+                  (|error| "pack_modulus: #lvz ~= #lm"))
+                 ('T
                   (SEQ
-                   (LETT |ii| (+ (SPADCALL |i| |msize| (QREFELT $ 23)) |j|)
+                   (LETT |vz| (|SPADfirst| |lvz|)
+                         . #2=(|MAGCDT2;pack_modulus;LLIU;1|))
+                   (LETT |m|
+                         (SPADCALL (SPADCALL (|SPADfirst| |lm|) (QREFELT $ 11))
+                                   |p| (QREFELT $ 14))
                          . #2#)
-                   (SETELT_U32 |exps| (SPADCALL 2 |ii| (QREFELT $ 24)) |i|)
-                   (EXIT
-                    (SETELT_U32 |exps| (+ (SPADCALL 2 |ii| (QREFELT $ 24)) 1)
-                                |j|)))
-                  (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191 (EXIT NIL))))
-           (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |exps|))))) 
+                   (EXIT (CONS 0 (VECTOR |vz| |m| |p|))))))))) 
 
-(DEFUN |MAGCDT2;repack1;PaUvIRV;3| (|res0| |coeffs| |dg| |mu| $)
-  (PROG (|ii| #1=#:G138 |j| |di| |ci| |i| |msize| |vz|)
-    (RETURN
-     (SEQ (LETT |vz| (QVELT |mu| 0) . #2=(|MAGCDT2;repack1;PaUvIRV;3|))
-          (LETT |msize| (SPADCALL (QVELT |mu| 1) (QREFELT $ 27)) . #2#)
-          (EXIT
-           (SEQ (LETT |i| 0 . #2#) G190
-                (COND ((|greater_SI| |i| |dg|) (GO G191)))
-                (SEQ (LETT |ci| (QAREF1 |res0| |i|) . #2#)
-                     (LETT |di| (SPADCALL |ci| (QREFELT $ 27)) . #2#)
-                     (EXIT
-                      (SEQ (LETT |j| 0 . #2#) (LETT #1# (- |msize| 1) . #2#)
-                           G190 (COND ((|greater_SI| |j| #1#) (GO G191)))
-                           (SEQ
-                            (LETT |ii|
-                                  (+ (SPADCALL |i| |msize| (QREFELT $ 23)) |j|)
-                                  . #2#)
-                            (EXIT
-                             (COND
-                              ((SPADCALL |j| |di| (QREFELT $ 28))
-                               (SETELT_U32 |coeffs| |ii| (ELT_U32 |ci| |j|)))
-                              ('T (SETELT_U32 |coeffs| |ii| 0)))))
-                           (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191
-                           (EXIT NIL))))
-                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))))))) 
+(SDEFUN |MAGCDT2;pack_exps;2IRSev;2|
+        ((|dg| . #1=(|Integer|)) (|msize| . #1#)
+         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+          (|:| |sp| (|Integer|)))
+         ($ |SortedExponentVector|))
+        (SPROG
+         ((|ii| (|Integer|)) (#2=#:G130 NIL) (|j| NIL) (|i| NIL)
+          (|exps| (|SortedExponentVector|)) (|nsize| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |nsize| (* (+ |dg| 1) |msize|)
+                . #3=(|MAGCDT2;pack_exps;2IRSev;2|))
+          (LETT |exps| (GETREFV_U32 (SPADCALL 2 |nsize| (QREFELT $ 22)) 0)
+                . #3#)
+          (SEQ (LETT |i| 0 . #3#) G190
+               (COND ((|greater_SI| |i| |dg|) (GO G191)))
+               (SEQ
+                (EXIT
+                 (SEQ (LETT |j| 0 . #3#) (LETT #2# (- |msize| 1) . #3#) G190
+                      (COND ((|greater_SI| |j| #2#) (GO G191)))
+                      (SEQ
+                       (LETT |ii| (+ (SPADCALL |i| |msize| (QREFELT $ 23)) |j|)
+                             . #3#)
+                       (SETELT_U32 |exps| (SPADCALL 2 |ii| (QREFELT $ 24)) |i|)
+                       (EXIT
+                        (SETELT_U32 |exps|
+                                    (+ (SPADCALL 2 |ii| (QREFELT $ 24)) 1)
+                                    |j|)))
+                      (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
+                      (EXIT NIL))))
+               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+          (EXIT |exps|)))) 
 
-(DEFUN |MAGCDT2;MPtoMPT;PSLRPa;4| (|x| |ivx| |ivz| |mu| $)
-  (PROG (|xu| |k| |cl| |res| |zz| |p| |vz|)
-    (RETURN
-     (SEQ (LETT |vz| (QVELT |mu| 0) . #1=(|MAGCDT2;MPtoMPT;PSLRPa;4|))
-          (LETT |p| (QVELT |mu| 2) . #1#)
-          (LETT |xu| (SPADCALL |x| |ivx| (QREFELT $ 34)) . #1#)
-          (LETT |zz| (GETREFV_U32 1 0) . #1#)
-          (LETT |res| (MAKEARR1 (+ (SPADCALL |xu| (QREFELT $ 37)) 1) |zz|)
-                . #1#)
-          (SEQ G190
-               (COND
-                ((NULL (SPADCALL |xu| (|spadConstant| $ 39) (QREFELT $ 40)))
-                 (GO G191)))
-               (SEQ (LETT |cl| (SPADCALL |xu| (QREFELT $ 41)) . #1#)
-                    (LETT |k| (SPADCALL |xu| (QREFELT $ 37)) . #1#)
-                    (QSETAREF1 |res| |k|
-                               (SPADCALL (SPADCALL |cl| (QREFELT $ 11)) |p|
-                                         (QREFELT $ 14)))
-                    (EXIT (LETT |xu| (SPADCALL |xu| (QREFELT $ 42)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |res|))))) 
-
-(DEFUN |MAGCDT2;is_zero?| (|v| $)
-  (PROG (#1=#:G145 #2=#:G147 |i| |n|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |n| (QV_LEN_U32 |v|) . #3=(|MAGCDT2;is_zero?|))
-            (SEQ
-             (EXIT
-              (SEQ (LETT |i| (- |n| 1) . #3#) G190 (COND ((< |i| 0) (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (COND
-                      ((SPADCALL (ELT_U32 |v| |i|) 0 (QREFELT $ 8))
-                       (PROGN
-                        (LETT #1# (PROGN (LETT #2# 'NIL . #3#) (GO #2#)) . #3#)
-                        (GO #1#))))))
-                   (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
-             #1# (EXIT #1#))
-            (EXIT 'T)))
-      #2# (EXIT #2#))))) 
-
-(DEFUN |MAGCDT2;zero?;PaB;6| (|v| $) (EQL (SPADCALL |v| (QREFELT $ 44)) -1)) 
-
-(DEFUN |MAGCDT2;degree;PaI;7| (|v| $)
-  (PROG (#1=#:G150 #2=#:G152 |i| |n|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |n| (QVSIZE |v|) . #3=(|MAGCDT2;degree;PaI;7|))
-            (SEQ
-             (EXIT
-              (SEQ (LETT |i| (- |n| 1) . #3#) G190 (COND ((< |i| 0) (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (COND
-                      ((NULL (|MAGCDT2;is_zero?| (QAREF1 |v| |i|) $))
-                       (PROGN
-                        (LETT #1# (PROGN (LETT #2# |i| . #3#) (GO #2#)) . #3#)
-                        (GO #1#))))))
-                   (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
-             #1# (EXIT #1#))
-            (EXIT -1)))
-      #2# (EXIT #2#))))) 
-
-(DEFUN |MAGCDT2;leadingCoefficient| (|v| $)
-  (PROG (#1=#:G154 #2=#:G156 |pp| |i| |n|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |n| (QVSIZE |v|) . #3=(|MAGCDT2;leadingCoefficient|))
-            (SEQ
-             (EXIT
-              (SEQ (LETT |i| (- |n| 1) . #3#) G190 (COND ((< |i| 0) (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (COND
-                      ((NULL
-                        (|MAGCDT2;is_zero?| (LETT |pp| (QAREF1 |v| |i|) . #3#)
-                         $))
-                       (PROGN
-                        (LETT #1# (PROGN (LETT #2# |pp| . #3#) (GO #2#)) . #3#)
-                        (GO #1#))))))
-                   (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
-             #1# (EXIT #1#))
-            (EXIT (GETREFV_U32 1 0))))
-      #2# (EXIT #2#))))) 
-
-(DEFUN |MAGCDT2;canonicalIfCan;PaRU;9| (|x| |mu| $)
-  (PROG (|npp| |dnpp| |dpp| |pp| #1=#:G170 |l| |res| |dx| |icl| |rr1| |rr| |cl|
-         |p| |m|)
-    (RETURN
-     (SEQ (LETT |m| (QVELT |mu| 1) . #2=(|MAGCDT2;canonicalIfCan;PaRU;9|))
-          (LETT |p| (QVELT |mu| 2) . #2#)
-          (LETT |cl| (|MAGCDT2;leadingCoefficient| |x| $) . #2#)
-          (LETT |rr| (SPADCALL |cl| |m| |p| (QREFELT $ 47)) . #2#)
-          (LETT |rr1| (|SPADfirst| |rr|) . #2#)
-          (EXIT
-           (COND
-            ((OR (SPADCALL (SPADCALL |rr1| (QREFELT $ 27)) 0 (QREFELT $ 8))
-                 (SPADCALL (ELT_U32 |rr1| 0) 1 (QREFELT $ 8)))
-             (CONS 1 "failed"))
-            ('T
-             (SEQ (LETT |icl| (SPADCALL |rr| 2 (QREFELT $ 48)) . #2#)
-                  (LETT |dx| (SPADCALL |x| (QREFELT $ 44)) . #2#)
-                  (LETT |res| (MAKEARR1 (+ |dx| 1) (QAREF1 |x| 0)) . #2#)
-                  (SEQ (LETT |l| 0 . #2#) (LETT #1# (- |dx| 1) . #2#) G190
-                       (COND ((|greater_SI| |l| #1#) (GO G191)))
-                       (SEQ
-                        (LETT |pp|
-                              (SPADCALL |icl| (QAREF1 |x| |l|) |p|
-                                        (QREFELT $ 49))
-                              . #2#)
-                        (SPADCALL |pp| |m| |p| (QREFELT $ 50))
-                        (LETT |dpp| (SPADCALL |pp| (QREFELT $ 27)) . #2#)
-                        (LETT |dnpp| (COND ((< |dpp| 0) 0) ('T |dpp|)) . #2#)
-                        (LETT |npp| (GETREFV_U32 (+ |dnpp| 1) 0) . #2#)
-                        (SPADCALL |npp| |pp| (+ |dpp| 1) (QREFELT $ 51))
-                        (EXIT (QSETAREF1 |res| |l| |npp|)))
-                       (LETT |l| (|inc_SI| |l|) . #2#) (GO G190) G191
-                       (EXIT NIL))
-                  (QSETAREF1 |res| |dx| (GETREFV_U32 1 1))
-                  (EXIT (CONS 0 |res|)))))))))) 
-
-(DEFUN |MAGCDT2;pseudoRem;2PaRPa;10| (|x| |y| |mu| $)
-  (PROG (|npp1| |degnpp1| |degpp1| |pp1| |dp2| |dp1| |pp2| |l1| #1=#:G181 |l|
-         #2=#:G180 |del| |p| |m| |res| |i1| |c| |cy| |j| |i|)
-    (RETURN
-     (SEQ
-      (LETT |i| (SPADCALL |x| (QREFELT $ 44))
-            . #3=(|MAGCDT2;pseudoRem;2PaRPa;10|))
-      (LETT |j| (SPADCALL |y| (QREFELT $ 44)) . #3#)
-      (EXIT
-       (COND ((EQL |j| 0) (MAKEARR1 1 (GETREFV_U32 1 0))) ((< |i| |j|) |x|)
-             ('T
-              (SEQ (LETT |cy| (|MAGCDT2;leadingCoefficient| |y| $) . #3#)
-                   (LETT |c| (|MAGCDT2;leadingCoefficient| |x| $) . #3#)
-                   (LETT |i1| (- |i| 1) . #3#)
-                   (LETT |res| (MAKEARR1 (+ |i1| 1) (QAREF1 |x| 0)) . #3#)
-                   (LETT |m| (QVELT |mu| 1) . #3#)
-                   (LETT |p| (QVELT |mu| 2) . #3#)
-                   (LETT |del| (- |i| |j|) . #3#)
-                   (SEQ (LETT |l| 0 . #3#) (LETT #2# (- |del| 1) . #3#) G190
-                        (COND ((|greater_SI| |l| #2#) (GO G191)))
-                        (SEQ
-                         (LETT |pp1|
-                               (SPADCALL |cy| (QAREF1 |x| |l|) |p|
-                                         (QREFELT $ 49))
-                               . #3#)
-                         (SPADCALL |pp1| |m| |p| (QREFELT $ 50))
-                         (LETT |degpp1| (SPADCALL |pp1| (QREFELT $ 27)) . #3#)
-                         (LETT |degnpp1|
-                               (COND ((< |degpp1| 0) 0) ('T |degpp1|)) . #3#)
-                         (LETT |npp1| (GETREFV_U32 (+ |degnpp1| 1) 0) . #3#)
-                         (SPADCALL |npp1| |pp1| (+ |degpp1| 1) (QREFELT $ 51))
-                         (EXIT (QSETAREF1 |res| |l| |npp1|)))
-                        (LETT |l| (|inc_SI| |l|) . #3#) (GO G190) G191
-                        (EXIT NIL))
-                   (SEQ (LETT |l| 0 . #3#) (LETT #1# (- |j| 1) . #3#) G190
-                        (COND ((|greater_SI| |l| #1#) (GO G191)))
-                        (SEQ (LETT |l1| (+ |l| |del|) . #3#)
-                             (LETT |pp1|
-                                   (SPADCALL |cy| (QAREF1 |x| |l1|) |p|
-                                             (QREFELT $ 49))
-                                   . #3#)
-                             (LETT |pp2|
-                                   (SPADCALL |c| (QAREF1 |y| |l|) |p|
-                                             (QREFELT $ 49))
-                                   . #3#)
-                             (LETT |dp1| (SPADCALL |pp1| (QREFELT $ 27)) . #3#)
-                             (LETT |dp2| (SPADCALL |pp2| (QREFELT $ 27)) . #3#)
-                             (COND
-                              ((>= |dp1| |dp2|)
-                               (SPADCALL |pp1| |pp2| 0 |dp2| (- |p| 1) |p|
-                                         (QREFELT $ 54)))
-                              ('T
+(SDEFUN |MAGCDT2;repack1;PaUvIRV;3|
+        ((|res0| |PrimitiveArray| (|U32Vector|)) (|coeffs| |U32Vector|)
+         (|dg| |Integer|)
+         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+          (|:| |sp| (|Integer|)))
+         ($ |Void|))
+        (SPROG
+         ((|ii| (|Integer|)) (#1=#:G138 NIL) (|j| NIL) (|di| #2=(|Integer|))
+          (|ci| (|U32Vector|)) (|i| NIL) (|msize| #2#) (|vz| (|Symbol|)))
+         (SEQ (LETT |vz| (QVELT |mu| 0) . #3=(|MAGCDT2;repack1;PaUvIRV;3|))
+              (LETT |msize| (SPADCALL (QVELT |mu| 1) (QREFELT $ 27)) . #3#)
+              (EXIT
+               (SEQ (LETT |i| 0 . #3#) G190
+                    (COND ((|greater_SI| |i| |dg|) (GO G191)))
+                    (SEQ (LETT |ci| (QAREF1 |res0| |i|) . #3#)
+                         (LETT |di| (SPADCALL |ci| (QREFELT $ 27)) . #3#)
+                         (EXIT
+                          (SEQ (LETT |j| 0 . #3#)
+                               (LETT #1# (- |msize| 1) . #3#) G190
+                               (COND ((|greater_SI| |j| #1#) (GO G191)))
                                (SEQ
-                                (SPADCALL |pp2| |pp1| 0 |dp1| (- |p| 1) |p|
-                                          (QREFELT $ 54))
-                                (SPADCALL |pp2| |dp2| (- |p| 1) |p|
-                                          (QREFELT $ 55))
-                                (EXIT (LETT |pp1| |pp2| . #3#)))))
+                                (LETT |ii|
+                                      (+ (SPADCALL |i| |msize| (QREFELT $ 23))
+                                         |j|)
+                                      . #3#)
+                                (EXIT
+                                 (COND
+                                  ((SPADCALL |j| |di| (QREFELT $ 28))
+                                   (SETELT_U32 |coeffs| |ii|
+                                               (ELT_U32 |ci| |j|)))
+                                  ('T (SETELT_U32 |coeffs| |ii| 0)))))
+                               (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
+                               (EXIT NIL))))
+                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                    (EXIT NIL)))))) 
+
+(SDEFUN |MAGCDT2;MPtoMPT;PSLRPa;4|
+        ((|x| |Polynomial| (|Integer|)) (|ivx| . #1=(|Symbol|))
+         (|ivz| |List| #1#)
+         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+          (|:| |sp| (|Integer|)))
+         ($ |PrimitiveArray| (|U32Vector|)))
+        (SPROG
+         ((|xu| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+          (|k| (|NonNegativeInteger|)) (|cl| (|Polynomial| (|Integer|)))
+          (|res| (|PrimitiveArray| (|U32Vector|))) (|zz| (|U32Vector|))
+          (|p| (|Integer|)) (|vz| (|Symbol|)))
+         (SEQ (LETT |vz| (QVELT |mu| 0) . #2=(|MAGCDT2;MPtoMPT;PSLRPa;4|))
+              (LETT |p| (QVELT |mu| 2) . #2#)
+              (LETT |xu| (SPADCALL |x| |ivx| (QREFELT $ 34)) . #2#)
+              (LETT |zz| (GETREFV_U32 1 0) . #2#)
+              (LETT |res| (MAKEARR1 (+ (SPADCALL |xu| (QREFELT $ 37)) 1) |zz|)
+                    . #2#)
+              (SEQ G190
+                   (COND
+                    ((NULL
+                      (SPADCALL |xu| (|spadConstant| $ 39) (QREFELT $ 40)))
+                     (GO G191)))
+                   (SEQ (LETT |cl| (SPADCALL |xu| (QREFELT $ 41)) . #2#)
+                        (LETT |k| (SPADCALL |xu| (QREFELT $ 37)) . #2#)
+                        (QSETAREF1 |res| |k|
+                                   (SPADCALL (SPADCALL |cl| (QREFELT $ 11)) |p|
+                                             (QREFELT $ 14)))
+                        (EXIT
+                         (LETT |xu| (SPADCALL |xu| (QREFELT $ 42)) . #2#)))
+                   NIL (GO G190) G191 (EXIT NIL))
+              (EXIT |res|)))) 
+
+(SDEFUN |MAGCDT2;is_zero?| ((|v| |U32Vector|) ($ |Boolean|))
+        (SPROG
+         ((#1=#:G145 NIL) (#2=#:G147 NIL) (|i| NIL)
+          (|n| (|NonNegativeInteger|)))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |n| (QV_LEN_U32 |v|) . #3=(|MAGCDT2;is_zero?|))
+                (SEQ
+                 (EXIT
+                  (SEQ (LETT |i| (- |n| 1) . #3#) G190
+                       (COND ((< |i| 0) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL (ELT_U32 |v| |i|) 0 (QREFELT $ 8))
+                           (PROGN
+                            (LETT #1# (PROGN (LETT #2# 'NIL . #3#) (GO #2#))
+                                  . #3#)
+                            (GO #1#))))))
+                       (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
+                 #1# (EXIT #1#))
+                (EXIT 'T)))
+          #2# (EXIT #2#)))) 
+
+(SDEFUN |MAGCDT2;zero?;PaB;6|
+        ((|v| |PrimitiveArray| (|U32Vector|)) ($ |Boolean|))
+        (EQL (SPADCALL |v| (QREFELT $ 44)) -1)) 
+
+(SDEFUN |MAGCDT2;degree;PaI;7|
+        ((|v| |PrimitiveArray| (|U32Vector|)) ($ |Integer|))
+        (SPROG
+         ((#1=#:G150 NIL) (#2=#:G152 NIL) (|i| NIL)
+          (|n| (|NonNegativeInteger|)))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |n| (QVSIZE |v|) . #3=(|MAGCDT2;degree;PaI;7|))
+                (SEQ
+                 (EXIT
+                  (SEQ (LETT |i| (- |n| 1) . #3#) G190
+                       (COND ((< |i| 0) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((NULL (|MAGCDT2;is_zero?| (QAREF1 |v| |i|) $))
+                           (PROGN
+                            (LETT #1# (PROGN (LETT #2# |i| . #3#) (GO #2#))
+                                  . #3#)
+                            (GO #1#))))))
+                       (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
+                 #1# (EXIT #1#))
+                (EXIT -1)))
+          #2# (EXIT #2#)))) 
+
+(SDEFUN |MAGCDT2;leadingCoefficient|
+        ((|v| |PrimitiveArray| (|U32Vector|)) ($ |U32Vector|))
+        (SPROG
+         ((#1=#:G154 NIL) (#2=#:G156 NIL) (|pp| (|U32Vector|)) (|i| NIL)
+          (|n| (|NonNegativeInteger|)))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |n| (QVSIZE |v|) . #3=(|MAGCDT2;leadingCoefficient|))
+                (SEQ
+                 (EXIT
+                  (SEQ (LETT |i| (- |n| 1) . #3#) G190
+                       (COND ((< |i| 0) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((NULL
+                            (|MAGCDT2;is_zero?|
+                             (LETT |pp| (QAREF1 |v| |i|) . #3#) $))
+                           (PROGN
+                            (LETT #1# (PROGN (LETT #2# |pp| . #3#) (GO #2#))
+                                  . #3#)
+                            (GO #1#))))))
+                       (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
+                 #1# (EXIT #1#))
+                (EXIT (GETREFV_U32 1 0))))
+          #2# (EXIT #2#)))) 
+
+(SDEFUN |MAGCDT2;canonicalIfCan;PaRU;9|
+        ((|x| |PrimitiveArray| (|U32Vector|))
+         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+          (|:| |sp| (|Integer|)))
+         ($ |Union| (|PrimitiveArray| (|U32Vector|)) "failed"))
+        (SPROG
+         ((|npp| (|U32Vector|)) (|dnpp| #1=(|Integer|)) (|dpp| #1#)
+          (|pp| (|U32Vector|)) (#2=#:G170 NIL) (|l| NIL)
+          (|res| (|PrimitiveArray| (|U32Vector|))) (|dx| (|Integer|))
+          (|icl| (|U32Vector|)) (|rr1| (|U32Vector|))
+          (|rr| (|List| (|U32Vector|))) (|cl| (|U32Vector|)) (|p| (|Integer|))
+          (|m| (|U32Vector|)))
+         (SEQ (LETT |m| (QVELT |mu| 1) . #3=(|MAGCDT2;canonicalIfCan;PaRU;9|))
+              (LETT |p| (QVELT |mu| 2) . #3#)
+              (LETT |cl| (|MAGCDT2;leadingCoefficient| |x| $) . #3#)
+              (LETT |rr| (SPADCALL |cl| |m| |p| (QREFELT $ 47)) . #3#)
+              (LETT |rr1| (|SPADfirst| |rr|) . #3#)
+              (EXIT
+               (COND
+                ((OR (SPADCALL (SPADCALL |rr1| (QREFELT $ 27)) 0 (QREFELT $ 8))
+                     (SPADCALL (ELT_U32 |rr1| 0) 1 (QREFELT $ 8)))
+                 (CONS 1 "failed"))
+                ('T
+                 (SEQ (LETT |icl| (SPADCALL |rr| 2 (QREFELT $ 48)) . #3#)
+                      (LETT |dx| (SPADCALL |x| (QREFELT $ 44)) . #3#)
+                      (LETT |res| (MAKEARR1 (+ |dx| 1) (QAREF1 |x| 0)) . #3#)
+                      (SEQ (LETT |l| 0 . #3#) (LETT #2# (- |dx| 1) . #3#) G190
+                           (COND ((|greater_SI| |l| #2#) (GO G191)))
+                           (SEQ
+                            (LETT |pp|
+                                  (SPADCALL |icl| (QAREF1 |x| |l|) |p|
+                                            (QREFELT $ 49))
+                                  . #3#)
+                            (SPADCALL |pp| |m| |p| (QREFELT $ 50))
+                            (LETT |dpp| (SPADCALL |pp| (QREFELT $ 27)) . #3#)
+                            (LETT |dnpp| (COND ((< |dpp| 0) 0) ('T |dpp|))
+                                  . #3#)
+                            (LETT |npp| (GETREFV_U32 (+ |dnpp| 1) 0) . #3#)
+                            (SPADCALL |npp| |pp| (+ |dpp| 1) (QREFELT $ 51))
+                            (EXIT (QSETAREF1 |res| |l| |npp|)))
+                           (LETT |l| (|inc_SI| |l|) . #3#) (GO G190) G191
+                           (EXIT NIL))
+                      (QSETAREF1 |res| |dx| (GETREFV_U32 1 1))
+                      (EXIT (CONS 0 |res|))))))))) 
+
+(SDEFUN |MAGCDT2;pseudoRem;2PaRPa;10|
+        ((|x| . #1=(|PrimitiveArray| (|U32Vector|))) (|y| . #1#)
+         (|mu| |Record| (|:| |svz| (|Symbol|)) (|:| |sm| (|U32Vector|))
+          (|:| |sp| (|Integer|)))
+         ($ |PrimitiveArray| (|U32Vector|)))
+        (SPROG
+         ((|npp1| (|U32Vector|)) (|degnpp1| #2=(|Integer|)) (|degpp1| #2#)
+          (|pp1| #3=(|U32Vector|)) (|dp2| #2#) (|dp1| #2#) (|pp2| #3#)
+          (|l1| (|NonNegativeInteger|)) (#4=#:G181 NIL) (|l| NIL)
+          (#5=#:G180 NIL) (|del| #6=(|NonNegativeInteger|)) (|p| (|Integer|))
+          (|m| (|U32Vector|)) (|res| (|PrimitiveArray| (|U32Vector|)))
+          (|i1| #6#) (|c| #7=(|U32Vector|)) (|cy| #7#) (|j| #8=(|Integer|))
+          (|i| #8#))
+         (SEQ
+          (LETT |i| (SPADCALL |x| (QREFELT $ 44))
+                . #9=(|MAGCDT2;pseudoRem;2PaRPa;10|))
+          (LETT |j| (SPADCALL |y| (QREFELT $ 44)) . #9#)
+          (EXIT
+           (COND ((EQL |j| 0) (MAKEARR1 1 (GETREFV_U32 1 0))) ((< |i| |j|) |x|)
+                 ('T
+                  (SEQ (LETT |cy| (|MAGCDT2;leadingCoefficient| |y| $) . #9#)
+                       (LETT |c| (|MAGCDT2;leadingCoefficient| |x| $) . #9#)
+                       (LETT |i1| (- |i| 1) . #9#)
+                       (LETT |res| (MAKEARR1 (+ |i1| 1) (QAREF1 |x| 0)) . #9#)
+                       (LETT |m| (QVELT |mu| 1) . #9#)
+                       (LETT |p| (QVELT |mu| 2) . #9#)
+                       (LETT |del| (- |i| |j|) . #9#)
+                       (SEQ (LETT |l| 0 . #9#) (LETT #5# (- |del| 1) . #9#)
+                            G190 (COND ((|greater_SI| |l| #5#) (GO G191)))
+                            (SEQ
+                             (LETT |pp1|
+                                   (SPADCALL |cy| (QAREF1 |x| |l|) |p|
+                                             (QREFELT $ 49))
+                                   . #9#)
                              (SPADCALL |pp1| |m| |p| (QREFELT $ 50))
                              (LETT |degpp1| (SPADCALL |pp1| (QREFELT $ 27))
-                                   . #3#)
+                                   . #9#)
                              (LETT |degnpp1|
                                    (COND ((< |degpp1| 0) 0) ('T |degpp1|))
-                                   . #3#)
+                                   . #9#)
                              (LETT |npp1| (GETREFV_U32 (+ |degnpp1| 1) 0)
-                                   . #3#)
+                                   . #9#)
                              (SPADCALL |npp1| |pp1| (+ |degpp1| 1)
                                        (QREFELT $ 51))
-                             (EXIT (QSETAREF1 |res| |l1| |npp1|)))
-                        (LETT |l| (|inc_SI| |l|) . #3#) (GO G190) G191
-                        (EXIT NIL))
-                   (EXIT |res|))))))))) 
+                             (EXIT (QSETAREF1 |res| |l| |npp1|)))
+                            (LETT |l| (|inc_SI| |l|) . #9#) (GO G190) G191
+                            (EXIT NIL))
+                       (SEQ (LETT |l| 0 . #9#) (LETT #4# (- |j| 1) . #9#) G190
+                            (COND ((|greater_SI| |l| #4#) (GO G191)))
+                            (SEQ (LETT |l1| (+ |l| |del|) . #9#)
+                                 (LETT |pp1|
+                                       (SPADCALL |cy| (QAREF1 |x| |l1|) |p|
+                                                 (QREFELT $ 49))
+                                       . #9#)
+                                 (LETT |pp2|
+                                       (SPADCALL |c| (QAREF1 |y| |l|) |p|
+                                                 (QREFELT $ 49))
+                                       . #9#)
+                                 (LETT |dp1| (SPADCALL |pp1| (QREFELT $ 27))
+                                       . #9#)
+                                 (LETT |dp2| (SPADCALL |pp2| (QREFELT $ 27))
+                                       . #9#)
+                                 (COND
+                                  ((>= |dp1| |dp2|)
+                                   (SPADCALL |pp1| |pp2| 0 |dp2| (- |p| 1) |p|
+                                             (QREFELT $ 54)))
+                                  ('T
+                                   (SEQ
+                                    (SPADCALL |pp2| |pp1| 0 |dp1| (- |p| 1) |p|
+                                              (QREFELT $ 54))
+                                    (SPADCALL |pp2| |dp2| (- |p| 1) |p|
+                                              (QREFELT $ 55))
+                                    (EXIT (LETT |pp1| |pp2| . #9#)))))
+                                 (SPADCALL |pp1| |m| |p| (QREFELT $ 50))
+                                 (LETT |degpp1| (SPADCALL |pp1| (QREFELT $ 27))
+                                       . #9#)
+                                 (LETT |degnpp1|
+                                       (COND ((< |degpp1| 0) 0) ('T |degpp1|))
+                                       . #9#)
+                                 (LETT |npp1| (GETREFV_U32 (+ |degnpp1| 1) 0)
+                                       . #9#)
+                                 (SPADCALL |npp1| |pp1| (+ |degpp1| 1)
+                                           (QREFELT $ 51))
+                                 (EXIT (QSETAREF1 |res| |l1| |npp1|)))
+                            (LETT |l| (|inc_SI| |l|) . #9#) (GO G190) G191
+                            (EXIT NIL))
+                       (EXIT |res|)))))))) 
 
 (DECLAIM (NOTINLINE |ModularAlgebraicGcdTools2;|)) 
 
 (DEFUN |ModularAlgebraicGcdTools2| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G185)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|ModularAlgebraicGcdTools2|)
-                . #2=(|ModularAlgebraicGcdTools2|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|ModularAlgebraicGcdTools2|
-                         (LIST
-                          (CONS NIL (CONS 1 (|ModularAlgebraicGcdTools2;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G185)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|ModularAlgebraicGcdTools2|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|ModularAlgebraicGcdTools2|)
+                    . #2=(|ModularAlgebraicGcdTools2|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|ModularAlgebraicGcdTools2|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|ModularAlgebraicGcdTools2;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|ModularAlgebraicGcdTools2|)))))))))) 
 
 (DEFUN |ModularAlgebraicGcdTools2;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|ModularAlgebraicGcdTools2|)
-            . #1=(|ModularAlgebraicGcdTools2|))
-      (LETT $ (GETREFV 57) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ModularAlgebraicGcdTools2| NIL
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ModularAlgebraicGcdTools2|)
+                . #1=(|ModularAlgebraicGcdTools2|))
+          (LETT $ (GETREFV 57) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ModularAlgebraicGcdTools2| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|ModularAlgebraicGcdTools2| '|infovec|
           (LIST

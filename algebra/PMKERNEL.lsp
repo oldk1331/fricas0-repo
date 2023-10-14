@@ -1,314 +1,362 @@
 
-(DEFUN |PMKERNEL;patternMatchArg| (|ls| |lp| |l| $)
-  (PROG (#1=#:G121 #2=#:G124 #3=#:G127 |p| #4=#:G128 |s| #5=#:G118 #6=#:G125
-         #7=#:G126)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND
-        ((SPADCALL (LENGTH |ls|) (LENGTH |lp|) (QREFELT $ 10))
-         (SPADCALL (QREFELT $ 12)))
-        ('T
+(SDEFUN |PMKERNEL;patternMatchArg|
+        ((|ls| |List| E) (|lp| |List| (|Pattern| S))
+         (|l| |PatternMatchResult| S E) ($ |PatternMatchResult| S E))
+        (SPROG
+         ((#1=#:G121 NIL) (#2=#:G124 NIL) (#3=#:G127 NIL) (|p| NIL)
+          (#4=#:G128 NIL) (|s| NIL) (#5=#:G118 NIL) (#6=#:G125 NIL)
+          (#7=#:G126 NIL))
          (SEQ
-          (SEQ
-           (EXIT
-            (SEQ (LETT |s| NIL . #8=(|PMKERNEL;patternMatchArg|))
-                 (LETT #7# |ls| . #8#) (LETT |p| NIL . #8#)
-                 (LETT #6# |lp| . #8#) G190
-                 (COND
-                  ((OR (ATOM #6#) (PROGN (LETT |p| (CAR #6#) . #8#) NIL)
-                       (ATOM #7#) (PROGN (LETT |s| (CAR #7#) . #8#) NIL))
-                   (GO G191)))
-                 (SEQ
-                  (EXIT
-                   (COND
-                    ((SPADCALL |p| (QREFELT $ 14))
-                     (COND
-                      ((SPADCALL
-                        (LETT |l| (SPADCALL |p| |s| |l| (QREFELT $ 15)) . #8#)
-                        (QREFELT $ 16))
-                       (PROGN
-                        (LETT #5#
-                              (PROGN
-                               (LETT #2# (SPADCALL (QREFELT $ 12)) . #8#)
-                               (GO #2#))
-                              . #8#)
-                        (GO #5#))))))))
-                 (LETT #6# (PROG1 (CDR #6#) (LETT #7# (CDR #7#) . #8#)) . #8#)
-                 (GO G190) G191 (EXIT NIL)))
-           #5# (EXIT #5#))
-          (SEQ
-           (EXIT
-            (SEQ (LETT |s| NIL . #8#) (LETT #4# |ls| . #8#)
-                 (LETT |p| NIL . #8#) (LETT #3# |lp| . #8#) G190
-                 (COND
-                  ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #8#) NIL)
-                       (ATOM #4#) (PROGN (LETT |s| (CAR #4#) . #8#) NIL))
-                   (GO G191)))
-                 (SEQ
-                  (EXIT
-                   (COND
-                    ((NULL (SPADCALL |p| (QREFELT $ 14)))
-                     (COND
-                      ((SPADCALL
-                        (LETT |l| (SPADCALL |s| |p| |l| (QREFELT $ 18)) . #8#)
-                        (QREFELT $ 16))
-                       (PROGN
-                        (LETT #1#
-                              (PROGN
-                               (LETT #2# (SPADCALL (QREFELT $ 12)) . #8#)
-                               (GO #2#))
-                              . #8#)
-                        (GO #1#))))))))
-                 (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#) . #8#)) . #8#)
-                 (GO G190) G191 (EXIT NIL)))
-           #1# (EXIT #1#))
-          (EXIT |l|)))))
-      #2# (EXIT #2#))))) 
-
-(DEFUN |PMKERNEL;patternMatchInner| (|s| |p| |l| $)
-  (PROG (#1=#:G142 |w| |v| |ur| |u|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |p| (QREFELT $ 14))
-        (CONS 0
-              (SPADCALL |p| (SPADCALL |s| (QREFELT $ 20)) |l| (QREFELT $ 15))))
-       (#2='T
-        (SEQ
-         (LETT |u| (SPADCALL |p| (QREFELT $ 23))
-               . #3=(|PMKERNEL;patternMatchInner|))
-         (EXIT
-          (COND
-           ((QEQCAR |u| 0)
-            (SEQ (LETT |ur| (QCDR |u|) . #3#)
-                 (EXIT
-                  (COND
-                   ((SPADCALL (QCAR |ur|) (SPADCALL |s| (QREFELT $ 26))
-                              (QREFELT $ 27))
-                    (CONS 0
-                          (|PMKERNEL;patternMatchArg|
-                           (SPADCALL |s| (QREFELT $ 29)) (QCDR |ur|) |l| $)))
-                   (#2# (CONS 0 (SPADCALL (QREFELT $ 12))))))))
-           ((SPADCALL |p| (QREFELT $ 30))
-            (SEQ
-             (EXIT
+          (EXIT
+           (COND
+            ((SPADCALL (LENGTH |ls|) (LENGTH |lp|) (QREFELT $ 10))
+             (SPADCALL (QREFELT $ 12)))
+            ('T
+             (SEQ
               (SEQ
-               (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 32)) . #3#)
-                    (EXIT
+               (EXIT
+                (SEQ (LETT |s| NIL . #8=(|PMKERNEL;patternMatchArg|))
+                     (LETT #7# |ls| . #8#) (LETT |p| NIL . #8#)
+                     (LETT #6# |lp| . #8#) G190
                      (COND
-                      ((QEQCAR |v| 0)
-                       (SEQ (LETT |w| (SPADCALL |s| (QREFELT $ 33)) . #3#)
-                            (EXIT
-                             (COND
-                              ((QEQCAR |w| 0)
-                               (COND
-                                ((EQUAL (QCDR |v|) (QCDR |w|))
-                                 (PROGN
-                                  (LETT #1# (CONS 0 |l|) . #3#)
-                                  (GO #1#))))))))))))
-               (EXIT (CONS 0 (SPADCALL (QREFELT $ 12))))))
-             #1# (EXIT #1#)))
-           (#2# (CONS 1 "failed"))))))))))) 
+                      ((OR (ATOM #6#) (PROGN (LETT |p| (CAR #6#) . #8#) NIL)
+                           (ATOM #7#) (PROGN (LETT |s| (CAR #7#) . #8#) NIL))
+                       (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (COND
+                        ((SPADCALL |p| (QREFELT $ 14))
+                         (COND
+                          ((SPADCALL
+                            (LETT |l| (SPADCALL |p| |s| |l| (QREFELT $ 15))
+                                  . #8#)
+                            (QREFELT $ 16))
+                           (PROGN
+                            (LETT #5#
+                                  (PROGN
+                                   (LETT #2# (SPADCALL (QREFELT $ 12)) . #8#)
+                                   (GO #2#))
+                                  . #8#)
+                            (GO #5#))))))))
+                     (LETT #6# (PROG1 (CDR #6#) (LETT #7# (CDR #7#) . #8#))
+                           . #8#)
+                     (GO G190) G191 (EXIT NIL)))
+               #5# (EXIT #5#))
+              (SEQ
+               (EXIT
+                (SEQ (LETT |s| NIL . #8#) (LETT #4# |ls| . #8#)
+                     (LETT |p| NIL . #8#) (LETT #3# |lp| . #8#) G190
+                     (COND
+                      ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #8#) NIL)
+                           (ATOM #4#) (PROGN (LETT |s| (CAR #4#) . #8#) NIL))
+                       (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (COND
+                        ((NULL (SPADCALL |p| (QREFELT $ 14)))
+                         (COND
+                          ((SPADCALL
+                            (LETT |l| (SPADCALL |s| |p| |l| (QREFELT $ 18))
+                                  . #8#)
+                            (QREFELT $ 16))
+                           (PROGN
+                            (LETT #1#
+                                  (PROGN
+                                   (LETT #2# (SPADCALL (QREFELT $ 12)) . #8#)
+                                   (GO #2#))
+                                  . #8#)
+                            (GO #1#))))))))
+                     (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#) . #8#))
+                           . #8#)
+                     (GO G190) G191 (EXIT NIL)))
+               #1# (EXIT #1#))
+              (EXIT |l|)))))
+          #2# (EXIT #2#)))) 
 
-(DEFUN |PMKERNEL;patternMatchOpt| (|x| |lp| |l| |id| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |lp| (QREFELT $ 36))
-            . #1=(|PMKERNEL;patternMatchOpt|))
-      (EXIT
-       (COND
-        ((QEQCAR |u| 0)
-         (COND
-          ((SPADCALL
-            (LETT |l|
-                  (SPADCALL (|SPADfirst| (QCDR |u|)) |id| |l| (QREFELT $ 15))
-                  . #1#)
-            (QREFELT $ 16))
-           (SPADCALL (QREFELT $ 12)))
-          (#2='T
-           (SPADCALL |x| (SPADCALL (QCDR |u|) (QREFELT $ 38)) |l|
-                     (QREFELT $ 18)))))
-        (#2# (SPADCALL (QREFELT $ 12))))))))) 
-
-(DEFUN |PMKERNEL;patternMatchMonoid| (|s| |p| |l| $)
-  (PROG (|w| #1=#:G166 |r| |arg| |op| |vr| |v| |u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (|PMKERNEL;patternMatchInner| |s| |p| |l| $)
-            . #2=(|PMKERNEL;patternMatchMonoid|))
-      (EXIT
-       (COND ((QEQCAR |u| 0) (CONS 0 (QCDR |u|)))
-             (#3='T
-              (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 41)) . #2#)
-                   (EXIT
-                    (COND
-                     ((QEQCAR |v| 0)
-                      (SEQ (LETT |vr| (QCDR |v|) . #2#)
-                           (EXIT
-                            (COND
-                             ((SPADCALL
-                               (LETT |op| (SPADCALL |s| (QREFELT $ 26)) . #2#)
-                               '|%power| (QREFELT $ 43))
-                              (CONS 0
-                                    (|PMKERNEL;patternMatchArg|
-                                     (SPADCALL |s| (QREFELT $ 29))
-                                     (LIST (QCAR |vr|) (QCDR |vr|)) |l| $)))
-                             (#3#
-                              (SEQ
-                               (EXIT
-                                (SEQ
+(SDEFUN |PMKERNEL;patternMatchInner|
+        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
+         ($ |Union| (|PatternMatchResult| S E) "failed"))
+        (SPROG
+         ((#1=#:G142 NIL) (|w| (|Union| (|Symbol|) "failed"))
+          (|v| (|Union| (|Symbol|) "failed"))
+          (|ur|
+           (|Record| (|:| |op| (|BasicOperator|))
+                     (|:| |arg| (|List| (|Pattern| S)))))
+          (|u|
+           (|Union|
+            (|Record| (|:| |op| (|BasicOperator|))
+                      (|:| |arg| (|List| (|Pattern| S))))
+            "failed")))
+         (SEQ
+          (COND
+           ((SPADCALL |p| (QREFELT $ 14))
+            (CONS 0
+                  (SPADCALL |p| (SPADCALL |s| (QREFELT $ 20)) |l|
+                            (QREFELT $ 15))))
+           (#2='T
+            (SEQ
+             (LETT |u| (SPADCALL |p| (QREFELT $ 23))
+                   . #3=(|PMKERNEL;patternMatchInner|))
+             (EXIT
+              (COND
+               ((QEQCAR |u| 0)
+                (SEQ (LETT |ur| (QCDR |u|) . #3#)
+                     (EXIT
+                      (COND
+                       ((SPADCALL (QCAR |ur|) (SPADCALL |s| (QREFELT $ 26))
+                                  (QREFELT $ 27))
+                        (CONS 0
+                              (|PMKERNEL;patternMatchArg|
+                               (SPADCALL |s| (QREFELT $ 29)) (QCDR |ur|) |l|
+                               $)))
+                       (#2# (CONS 0 (SPADCALL (QREFELT $ 12))))))))
+               ((SPADCALL |p| (QREFELT $ 30))
+                (SEQ
+                 (EXIT
+                  (SEQ
+                   (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 32)) . #3#)
+                        (EXIT
+                         (COND
+                          ((QEQCAR |v| 0)
+                           (SEQ (LETT |w| (SPADCALL |s| (QREFELT $ 33)) . #3#)
+                                (EXIT
                                  (COND
-                                  ((SPADCALL |op| '|nthRoot| (QREFELT $ 43))
-                                   (SEQ
-                                    (LETT |r|
-                                          (SPADCALL
-                                           (SPADCALL
-                                            (LETT |arg|
-                                                  (SPADCALL |s| (QREFELT $ 29))
-                                                  . #2#)
-                                            (QREFELT $ 44))
-                                           (QREFELT $ 46))
-                                          . #2#)
-                                    (EXIT
+                                  ((QEQCAR |w| 0)
+                                   (COND
+                                    ((EQUAL (QCDR |v|) (QCDR |w|))
+                                     (PROGN
+                                      (LETT #1# (CONS 0 |l|) . #3#)
+                                      (GO #1#))))))))))))
+                   (EXIT (CONS 0 (SPADCALL (QREFELT $ 12))))))
+                 #1# (EXIT #1#)))
+               (#2# (CONS 1 "failed")))))))))) 
+
+(SDEFUN |PMKERNEL;patternMatchOpt|
+        ((|x| E) (|lp| |List| (|Pattern| S)) (|l| |PatternMatchResult| S E)
+         (|id| E) ($ |PatternMatchResult| S E))
+        (SPROG ((|u| (|Union| (|List| (|Pattern| S)) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |lp| (QREFELT $ 36))
+                      . #1=(|PMKERNEL;patternMatchOpt|))
+                (EXIT
+                 (COND
+                  ((QEQCAR |u| 0)
+                   (COND
+                    ((SPADCALL
+                      (LETT |l|
+                            (SPADCALL (|SPADfirst| (QCDR |u|)) |id| |l|
+                                      (QREFELT $ 15))
+                            . #1#)
+                      (QREFELT $ 16))
+                     (SPADCALL (QREFELT $ 12)))
+                    (#2='T
+                     (SPADCALL |x| (SPADCALL (QCDR |u|) (QREFELT $ 38)) |l|
+                               (QREFELT $ 18)))))
+                  (#2# (SPADCALL (QREFELT $ 12)))))))) 
+
+(SDEFUN |PMKERNEL;patternMatchMonoid|
+        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
+         ($ |Union| (|PatternMatchResult| S E) "failed"))
+        (SPROG
+         ((|w| (|Union| (|List| (|Pattern| S)) "failed")) (#1=#:G166 NIL)
+          (|r| (|Union| E "failed")) (|arg| (|List| E))
+          (|op| (|BasicOperator|))
+          (|vr|
+           (|Record| (|:| |val| (|Pattern| S)) (|:| |exponent| (|Pattern| S))))
+          (|v|
+           (|Union|
+            (|Record| (|:| |val| (|Pattern| S)) (|:| |exponent| (|Pattern| S)))
+            "failed"))
+          (|u| (|Union| (|PatternMatchResult| S E) "failed")))
+         (SEQ
+          (LETT |u| (|PMKERNEL;patternMatchInner| |s| |p| |l| $)
+                . #2=(|PMKERNEL;patternMatchMonoid|))
+          (EXIT
+           (COND ((QEQCAR |u| 0) (CONS 0 (QCDR |u|)))
+                 (#3='T
+                  (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 41)) . #2#)
+                       (EXIT
+                        (COND
+                         ((QEQCAR |v| 0)
+                          (SEQ (LETT |vr| (QCDR |v|) . #2#)
+                               (EXIT
+                                (COND
+                                 ((SPADCALL
+                                   (LETT |op| (SPADCALL |s| (QREFELT $ 26))
+                                         . #2#)
+                                   '|%power| (QREFELT $ 43))
+                                  (CONS 0
+                                        (|PMKERNEL;patternMatchArg|
+                                         (SPADCALL |s| (QREFELT $ 29))
+                                         (LIST (QCAR |vr|) (QCDR |vr|)) |l|
+                                         $)))
+                                 (#3#
+                                  (SEQ
+                                   (EXIT
+                                    (SEQ
                                      (COND
-                                      ((QEQCAR |r| 0)
-                                       (PROGN
-                                        (LETT #1#
-                                              (CONS 0
-                                                    (|PMKERNEL;patternMatchArg|
-                                                     (LIST (|SPADfirst| |arg|)
-                                                           (QCDR |r|))
-                                                     (LIST (QCAR |vr|)
-                                                           (QCDR |vr|))
-                                                     |l| $))
+                                      ((SPADCALL |op| '|nthRoot|
+                                                 (QREFELT $ 43))
+                                       (SEQ
+                                        (LETT |r|
+                                              (SPADCALL
+                                               (SPADCALL
+                                                (LETT |arg|
+                                                      (SPADCALL |s|
+                                                                (QREFELT $ 29))
+                                                      . #2#)
+                                                (QREFELT $ 44))
+                                               (QREFELT $ 46))
                                               . #2#)
-                                        (GO #1#))))))))
-                                 (EXIT
-                                  (COND
-                                   ((SPADCALL (QCDR |vr|) (QREFELT $ 47))
-                                    (COND
-                                     ((SPADCALL
-                                       (LETT |l|
-                                             (SPADCALL (QCDR |vr|)
-                                                       (|spadConstant| $ 48)
-                                                       |l| (QREFELT $ 15))
-                                             . #2#)
-                                       (QREFELT $ 16))
-                                      (CONS 0 (SPADCALL (QREFELT $ 12))))
-                                     (#3#
-                                      (CONS 0
-                                            (SPADCALL
-                                             (SPADCALL |s| (QREFELT $ 20))
-                                             (QCAR |vr|) |l|
-                                             (QREFELT $ 18))))))
-                                   (#3# (CONS 0 (SPADCALL (QREFELT $ 12))))))))
-                               #1# (EXIT #1#)))))))
-                     (#3#
-                      (SEQ (LETT |w| (SPADCALL |p| (QREFELT $ 49)) . #2#)
-                           (EXIT
-                            (COND
-                             ((QEQCAR |w| 0)
-                              (CONS 0
-                                    (|PMKERNEL;patternMatchOpt|
-                                     (SPADCALL |s| (QREFELT $ 20)) (QCDR |w|)
-                                     |l| (|spadConstant| $ 48) $)))
-                             (#3# (CONS 1 "failed")))))))))))))))) 
+                                        (EXIT
+                                         (COND
+                                          ((QEQCAR |r| 0)
+                                           (PROGN
+                                            (LETT #1#
+                                                  (CONS 0
+                                                        (|PMKERNEL;patternMatchArg|
+                                                         (LIST
+                                                          (|SPADfirst| |arg|)
+                                                          (QCDR |r|))
+                                                         (LIST (QCAR |vr|)
+                                                               (QCDR |vr|))
+                                                         |l| $))
+                                                  . #2#)
+                                            (GO #1#))))))))
+                                     (EXIT
+                                      (COND
+                                       ((SPADCALL (QCDR |vr|) (QREFELT $ 47))
+                                        (COND
+                                         ((SPADCALL
+                                           (LETT |l|
+                                                 (SPADCALL (QCDR |vr|)
+                                                           (|spadConstant| $
+                                                                           48)
+                                                           |l| (QREFELT $ 15))
+                                                 . #2#)
+                                           (QREFELT $ 16))
+                                          (CONS 0 (SPADCALL (QREFELT $ 12))))
+                                         (#3#
+                                          (CONS 0
+                                                (SPADCALL
+                                                 (SPADCALL |s| (QREFELT $ 20))
+                                                 (QCAR |vr|) |l|
+                                                 (QREFELT $ 18))))))
+                                       (#3#
+                                        (CONS 0 (SPADCALL (QREFELT $ 12))))))))
+                                   #1# (EXIT #1#)))))))
+                         (#3#
+                          (SEQ (LETT |w| (SPADCALL |p| (QREFELT $ 49)) . #2#)
+                               (EXIT
+                                (COND
+                                 ((QEQCAR |w| 0)
+                                  (CONS 0
+                                        (|PMKERNEL;patternMatchOpt|
+                                         (SPADCALL |s| (QREFELT $ 20))
+                                         (QCDR |w|) |l| (|spadConstant| $ 48)
+                                         $)))
+                                 (#3# (CONS 1 "failed"))))))))))))))) 
 
-(DEFUN |PMKERNEL;patternMatch;KP2Pmr;5| (|s| |p| |l| $)
-  (PROG (|w| |u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (|PMKERNEL;patternMatchMonoid| |s| |p| |l| $)
-            . #1=(|PMKERNEL;patternMatch;KP2Pmr;5|))
-      (EXIT
-       (COND ((QEQCAR |u| 0) (QCDR |u|))
-             (#2='T
-              (SEQ (LETT |w| (SPADCALL |p| (QREFELT $ 50)) . #1#)
-                   (EXIT
-                    (COND
-                     ((QEQCAR |w| 0)
-                      (|PMKERNEL;patternMatchOpt| (SPADCALL |s| (QREFELT $ 20))
-                       (QCDR |w|) |l| (|spadConstant| $ 51) $))
-                     (#2# (SPADCALL (QREFELT $ 12))))))))))))) 
+(SDEFUN |PMKERNEL;patternMatch;KP2Pmr;5|
+        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
+         ($ |PatternMatchResult| S E))
+        (SPROG
+         ((|w| (|Union| (|List| (|Pattern| S)) "failed"))
+          (|u| (|Union| (|PatternMatchResult| S E) "failed")))
+         (SEQ
+          (LETT |u| (|PMKERNEL;patternMatchMonoid| |s| |p| |l| $)
+                . #1=(|PMKERNEL;patternMatch;KP2Pmr;5|))
+          (EXIT
+           (COND ((QEQCAR |u| 0) (QCDR |u|))
+                 (#2='T
+                  (SEQ (LETT |w| (SPADCALL |p| (QREFELT $ 50)) . #1#)
+                       (EXIT
+                        (COND
+                         ((QEQCAR |w| 0)
+                          (|PMKERNEL;patternMatchOpt|
+                           (SPADCALL |s| (QREFELT $ 20)) (QCDR |w|) |l|
+                           (|spadConstant| $ 51) $))
+                         (#2# (SPADCALL (QREFELT $ 12)))))))))))) 
 
-(DEFUN |PMKERNEL;patternMatch;KP2Pmr;6| (|s| |p| |l| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (|PMKERNEL;patternMatchMonoid| |s| |p| |l| $)
-            |PMKERNEL;patternMatch;KP2Pmr;6|)
-      (EXIT
-       (COND ((QEQCAR |u| 0) (QCDR |u|)) ('T (SPADCALL (QREFELT $ 12))))))))) 
+(SDEFUN |PMKERNEL;patternMatch;KP2Pmr;6|
+        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
+         ($ |PatternMatchResult| S E))
+        (SPROG ((|u| (|Union| (|PatternMatchResult| S E) "failed")))
+               (SEQ
+                (LETT |u| (|PMKERNEL;patternMatchMonoid| |s| |p| |l| $)
+                      |PMKERNEL;patternMatch;KP2Pmr;6|)
+                (EXIT
+                 (COND ((QEQCAR |u| 0) (QCDR |u|))
+                       ('T (SPADCALL (QREFELT $ 12)))))))) 
 
-(DEFUN |PMKERNEL;patternMatch;KP2Pmr;7| (|s| |p| |l| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (|PMKERNEL;patternMatchInner| |s| |p| |l| $)
-            |PMKERNEL;patternMatch;KP2Pmr;7|)
-      (EXIT
-       (COND ((QEQCAR |u| 0) (QCDR |u|)) ('T (SPADCALL (QREFELT $ 12))))))))) 
+(SDEFUN |PMKERNEL;patternMatch;KP2Pmr;7|
+        ((|s| |Kernel| E) (|p| |Pattern| S) (|l| |PatternMatchResult| S E)
+         ($ |PatternMatchResult| S E))
+        (SPROG ((|u| (|Union| (|PatternMatchResult| S E) "failed")))
+               (SEQ
+                (LETT |u| (|PMKERNEL;patternMatchInner| |s| |p| |l| $)
+                      |PMKERNEL;patternMatch;KP2Pmr;7|)
+                (EXIT
+                 (COND ((QEQCAR |u| 0) (QCDR |u|))
+                       ('T (SPADCALL (QREFELT $ 12)))))))) 
 
 (DECLAIM (NOTINLINE |PatternMatchKernel;|)) 
 
 (DEFUN |PatternMatchKernel| (&REST #1=#:G194)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G195)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PatternMatchKernel|)
-                                           '|domainEqualList|)
-                . #3=(|PatternMatchKernel|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PatternMatchKernel;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G195)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|PatternMatchKernel|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PatternMatchKernel|)
+                                               '|domainEqualList|)
+                    . #3=(|PatternMatchKernel|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PatternMatchKernel;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PatternMatchKernel|)))))))))) 
 
 (DEFUN |PatternMatchKernel;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternMatchKernel|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|PatternMatchKernel| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 53) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PatternMatchKernel| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#2| '(|Monoid|))
-        (PROGN
-         (COND
-          ((|HasCategory| |#2| '(|AbelianMonoid|))
-           (QSETREFV $ 52
-                     (CONS
-                      (|dispatchFunction| |PMKERNEL;patternMatch;KP2Pmr;5|)
-                      $)))
-          ('T
-           (QSETREFV $ 52
-                     (CONS
-                      (|dispatchFunction| |PMKERNEL;patternMatch;KP2Pmr;6|)
-                      $))))))
-       ('T
-        (QSETREFV $ 52
-                  (CONS (|dispatchFunction| |PMKERNEL;patternMatch;KP2Pmr;7|)
-                        $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternMatchKernel|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|PatternMatchKernel| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 53) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PatternMatchKernel|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#2| '(|Monoid|))
+            (PROGN
+             (COND
+              ((|HasCategory| |#2| '(|AbelianMonoid|))
+               (QSETREFV $ 52
+                         (CONS
+                          (|dispatchFunction| |PMKERNEL;patternMatch;KP2Pmr;5|)
+                          $)))
+              ('T
+               (QSETREFV $ 52
+                         (CONS
+                          (|dispatchFunction| |PMKERNEL;patternMatch;KP2Pmr;6|)
+                          $))))))
+           ('T
+            (QSETREFV $ 52
+                      (CONS
+                       (|dispatchFunction| |PMKERNEL;patternMatch;KP2Pmr;7|)
+                       $))))
+          $))) 
 
 (MAKEPROP '|PatternMatchKernel| '|infovec|
           (LIST

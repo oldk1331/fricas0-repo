@@ -1,59 +1,72 @@
 
-(DEFUN |ZLINDEP;linearlyDependentOverZ?;VB;1| (|v| $)
-  (SPADCALL |v| (QREFELT $ 10))) 
+(SDEFUN |ZLINDEP;linearlyDependentOverZ?;VB;1| ((|v| |Vector| R) ($ |Boolean|))
+        (SPADCALL |v| (QREFELT $ 10))) 
 
-(DEFUN |ZLINDEP;linearDependenceOverZ;VU;2| (|v| $)
-  (SPADCALL |v| (QREFELT $ 13))) 
+(SDEFUN |ZLINDEP;linearDependenceOverZ;VU;2|
+        ((|v| |Vector| R) ($ |Union| (|Vector| (|Integer|)) "failed"))
+        (SPADCALL |v| (QREFELT $ 13))) 
 
-(DEFUN |ZLINDEP;particularSolutionOverQ;VRU;3| (|v| |c| $)
-  (SPADCALL |v| |c| (QREFELT $ 16))) 
+(SDEFUN |ZLINDEP;particularSolutionOverQ;VRU;3|
+        ((|v| |Vector| R) (|c| R)
+         ($ |Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
+        (SPADCALL |v| |c| (QREFELT $ 16))) 
 
-(DEFUN |ZLINDEP;particularSolutionOverQ;MVU;4| (|m| |v| $)
-  (SPADCALL |m| |v| (QREFELT $ 19))) 
+(SDEFUN |ZLINDEP;particularSolutionOverQ;MVU;4|
+        ((|m| |Matrix| R) (|v| |Vector| R)
+         ($ |Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
+        (SPADCALL |m| |v| (QREFELT $ 19))) 
 
-(DEFUN |ZLINDEP;solveLinearlyOverQ;VRR;5| (|v| |c| $)
-  (SPADCALL |v| |c| (QREFELT $ 22))) 
+(SDEFUN |ZLINDEP;solveLinearlyOverQ;VRR;5|
+        ((|v| |Vector| R) (|c| R)
+         ($ |Record|
+          (|:| |particular|
+               (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
+          (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|)))))))
+        (SPADCALL |v| |c| (QREFELT $ 22))) 
 
-(DEFUN |ZLINDEP;solveLinearlyOverQ;MVR;6| (|m| |v| $)
-  (SPADCALL |m| |v| (QREFELT $ 24))) 
+(SDEFUN |ZLINDEP;solveLinearlyOverQ;MVR;6|
+        ((|m| |Matrix| R) (|v| |Vector| R)
+         ($ |Record|
+          (|:| |particular|
+               (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
+          (|:| |basis| (|List| (|Vector| (|Fraction| (|Integer|)))))))
+        (SPADCALL |m| |v| (QREFELT $ 24))) 
 
 (DECLAIM (NOTINLINE |IntegerLinearDependence;|)) 
 
 (DEFUN |IntegerLinearDependence| (#1=#:G120)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G121)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|IntegerLinearDependence|)
-                                           '|domainEqualList|)
-                . #3=(|IntegerLinearDependence|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|IntegerLinearDependence;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G121)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|IntegerLinearDependence|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegerLinearDependence|)
+                                               '|domainEqualList|)
+                    . #3=(|IntegerLinearDependence|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|IntegerLinearDependence;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IntegerLinearDependence|)))))))))) 
 
 (DEFUN |IntegerLinearDependence;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegerLinearDependence|))
-      (LETT |dv$| (LIST '|IntegerLinearDependence| DV$1) . #1#)
-      (LETT $ (GETREFV 26) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|IntegerLinearDependence| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegerLinearDependence|))
+          (LETT |dv$| (LIST '|IntegerLinearDependence| DV$1) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|IntegerLinearDependence|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|IntegerLinearDependence| '|infovec|
           (LIST

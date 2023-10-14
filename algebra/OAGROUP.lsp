@@ -9,12 +9,12 @@
           (T (SETQ |OrderedAbelianGroup;AL| (|OrderedAbelianGroup;|)))))) 
 
 (DEFUN |OrderedAbelianGroup;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|Join| (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|))
-               |OrderedAbelianGroup|)
-       (SETELT #1# 0 '(|OrderedAbelianGroup|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|Join| (|OrderedCancellationAbelianMonoid|)
+                           (|AbelianGroup|))
+                   |OrderedAbelianGroup|)
+           (SETELT #1# 0 '(|OrderedAbelianGroup|))))) 
 
 (MAKEPROP '|OrderedAbelianGroup| 'NILADIC T) 

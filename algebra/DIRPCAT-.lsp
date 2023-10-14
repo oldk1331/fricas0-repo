@@ -1,90 +1,106 @@
 
-(DEFUN |DIRPCAT-;coerce;IS;1| (|n| $)
-  (SPADCALL (SPADCALL |n| (QREFELT $ 10)) (QREFELT $ 11))) 
+(SDEFUN |DIRPCAT-;coerce;IS;1| ((|n| |Integer|) ($ S))
+        (SPADCALL (SPADCALL |n| (QREFELT $ 10)) (QREFELT $ 11))) 
 
-(DEFUN |DIRPCAT-;characteristic;Nni;2| ($) (SPADCALL (QREFELT $ 14))) 
+(SDEFUN |DIRPCAT-;characteristic;Nni;2| (($ |NonNegativeInteger|))
+        (SPADCALL (QREFELT $ 14))) 
 
-(DEFUN |DIRPCAT-;differentiate;SMS;3| (|z| |d| $)
-  (SPADCALL |d| |z| (QREFELT $ 17))) 
+(SDEFUN |DIRPCAT-;differentiate;SMS;3| ((|z| S) (|d| |Mapping| R R) ($ S))
+        (SPADCALL |d| |z| (QREFELT $ 17))) 
 
-(DEFUN |DIRPCAT-;equation2R| (|v| $)
-  (PROG (#1=#:G123 |j| #2=#:G122 |i| |ans|)
-    (RETURN
-     (SEQ
-      (LETT |ans|
-            (MAKE_MATRIX1 (QREFELT $ 7) (QVSIZE |v|) (|spadConstant| $ 19))
-            . #3=(|DIRPCAT-;equation2R|))
-      (SEQ (LETT |i| 1 . #3#) (LETT #2# (SPADCALL |ans| (QREFELT $ 21)) . #3#)
-           G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
-           (SEQ
-            (EXIT
-             (SEQ (LETT |j| 1 . #3#)
-                  (LETT #1# (SPADCALL |ans| (QREFELT $ 22)) . #3#) G190
-                  (COND ((|greater_SI| |j| #1#) (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (QSETAREF2O |ans| |i| |j|
-                                (SPADCALL (QAREF1O |v| |j| 1) |i|
-                                          (QREFELT $ 23))
-                                1 1)))
-                  (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))))
-           (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-      (EXIT |ans|))))) 
+(SDEFUN |DIRPCAT-;equation2R| ((|v| |Vector| S) ($ |Matrix| R))
+        (SPROG
+         ((#1=#:G123 NIL) (|j| NIL) (#2=#:G122 NIL) (|i| NIL)
+          (|ans| (|Matrix| R)))
+         (SEQ
+          (LETT |ans|
+                (MAKE_MATRIX1 (QREFELT $ 7) (QVSIZE |v|) (|spadConstant| $ 19))
+                . #3=(|DIRPCAT-;equation2R|))
+          (SEQ (LETT |i| 1 . #3#)
+               (LETT #2# (SPADCALL |ans| (QREFELT $ 21)) . #3#) G190
+               (COND ((|greater_SI| |i| #2#) (GO G191)))
+               (SEQ
+                (EXIT
+                 (SEQ (LETT |j| 1 . #3#)
+                      (LETT #1# (SPADCALL |ans| (QREFELT $ 22)) . #3#) G190
+                      (COND ((|greater_SI| |j| #1#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (QSETAREF2O |ans| |i| |j|
+                                    (SPADCALL (QAREF1O |v| |j| 1) |i|
+                                              (QREFELT $ 23))
+                                    1 1)))
+                      (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
+                      (EXIT NIL))))
+               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+          (EXIT |ans|)))) 
 
-(DEFUN |DIRPCAT-;reducedSystem;MM;5| (|m| $)
-  (PROG (#1=#:G130 |i| #2=#:G129)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |m| (QREFELT $ 26))
-        (MAKE_MATRIX1 (* (QREFELT $ 7) (ANROWS |m|)) (ANCOLS |m|)
-                      (|spadConstant| $ 19)))
-       ('T
-        (SPADCALL (ELT $ 27)
-                  (PROGN
-                   (LETT #2# NIL . #3=(|DIRPCAT-;reducedSystem;MM;5|))
-                   (SEQ (LETT |i| 1 . #3#)
-                        (LETT #1# (SPADCALL |m| (QREFELT $ 28)) . #3#) G190
-                        (COND ((|greater_SI| |i| #1#) (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (LETT #2#
-                                (CONS
-                                 (|DIRPCAT-;equation2R|
-                                  (SPADCALL |m| |i| (QREFELT $ 30)) $)
-                                 #2#)
-                                . #3#)))
-                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                        (EXIT (NREVERSE #2#))))
-                  (QREFELT $ 33)))))))) 
+(SDEFUN |DIRPCAT-;reducedSystem;MM;5| ((|m| |Matrix| S) ($ |Matrix| R))
+        (SPROG ((#1=#:G130 NIL) (|i| NIL) (#2=#:G129 NIL))
+               (SEQ
+                (COND
+                 ((SPADCALL |m| (QREFELT $ 26))
+                  (MAKE_MATRIX1 (* (QREFELT $ 7) (ANROWS |m|)) (ANCOLS |m|)
+                                (|spadConstant| $ 19)))
+                 ('T
+                  (SPADCALL (ELT $ 27)
+                            (PROGN
+                             (LETT #2# NIL
+                                   . #3=(|DIRPCAT-;reducedSystem;MM;5|))
+                             (SEQ (LETT |i| 1 . #3#)
+                                  (LETT #1# (SPADCALL |m| (QREFELT $ 28))
+                                        . #3#)
+                                  G190
+                                  (COND ((|greater_SI| |i| #1#) (GO G191)))
+                                  (SEQ
+                                   (EXIT
+                                    (LETT #2#
+                                          (CONS
+                                           (|DIRPCAT-;equation2R|
+                                            (SPADCALL |m| |i| (QREFELT $ 30))
+                                            $)
+                                           #2#)
+                                          . #3#)))
+                                  (LETT |i| (|inc_SI| |i|) . #3#) (GO G190)
+                                  G191 (EXIT (NREVERSE #2#))))
+                            (QREFELT $ 33))))))) 
 
-(DEFUN |DIRPCAT-;reducedSystem;MVR;6| (|m| |v| $)
-  (PROG (|vh| |rh|)
-    (RETURN
-     (SEQ
-      (LETT |vh|
-            (COND ((SPADCALL |v| (QREFELT $ 36)) (MAKE-ARRAY 0))
-                  ('T
-                   (SEQ
-                    (LETT |rh|
-                          (SPADCALL (SPADCALL |v| (QREFELT $ 37))
-                                    (QREFELT $ 38))
-                          . #1=(|DIRPCAT-;reducedSystem;MVR;6|))
-                    (EXIT (SPADCALL |rh| 1 (QREFELT $ 40))))))
-            . #1#)
-      (EXIT (CONS (SPADCALL |m| (QREFELT $ 38)) |vh|)))))) 
+(SDEFUN |DIRPCAT-;reducedSystem;MVR;6|
+        ((|m| |Matrix| S) (|v| |Vector| S)
+         ($ |Record| (|:| |mat| (|Matrix| R)) (|:| |vec| (|Vector| R))))
+        (SPROG ((|vh| (|Vector| R)) (|rh| (|Matrix| R)))
+               (SEQ
+                (LETT |vh|
+                      (COND ((SPADCALL |v| (QREFELT $ 36)) (MAKE-ARRAY 0))
+                            ('T
+                             (SEQ
+                              (LETT |rh|
+                                    (SPADCALL (SPADCALL |v| (QREFELT $ 37))
+                                              (QREFELT $ 38))
+                                    . #1=(|DIRPCAT-;reducedSystem;MVR;6|))
+                              (EXIT (SPADCALL |rh| 1 (QREFELT $ 40))))))
+                      . #1#)
+                (EXIT (CONS (SPADCALL |m| (QREFELT $ 38)) |vh|))))) 
 
-(DEFUN |DIRPCAT-;/;SRS;7| (|x| |b| $)
-  (SPADCALL |x| (SPADCALL |b| (QREFELT $ 44)) (QREFELT $ 45))) 
+(SDEFUN |DIRPCAT-;/;SRS;7| ((|x| S) (|b| R) ($ S))
+        (SPADCALL |x| (SPADCALL |b| (QREFELT $ 44)) (QREFELT $ 45))) 
 
-(DEFUN |DIRPCAT-;dimension;Cn;8| ($) (SPADCALL (QREFELT $ 7) (QREFELT $ 48))) 
+(SDEFUN |DIRPCAT-;dimension;Cn;8| (($ |CardinalNumber|))
+        (SPADCALL (QREFELT $ 7) (QREFELT $ 48))) 
 
-(DEFUN |DIRPCAT-;size;Nni;9| ($) (EXPT (SPADCALL (QREFELT $ 50)) (QREFELT $ 7))) 
+(SDEFUN |DIRPCAT-;size;Nni;9| (($ |NonNegativeInteger|))
+        (EXPT (SPADCALL (QREFELT $ 50)) (QREFELT $ 7))) 
 
-(DEFUN |DIRPCAT-;index;PiS;10| (|n| $)
-  (PROG (|n0| #1=#:G141 |d| #2=#:G146 |i| |r| |s|)
-    (RETURN
-     (SEQ (LETT |s| (SPADCALL (QREFELT $ 50)) . #3=(|DIRPCAT-;index;PiS;10|))
+(SDEFUN |DIRPCAT-;index;PiS;10| ((|n| |PositiveInteger|) ($ S))
+        (SPROG
+         ((|n0| (|Integer|)) (#1=#:G141 NIL)
+          (|d|
+           (|Record| (|:| |quotient| (|Integer|))
+                     (|:| |remainder| (|Integer|))))
+          (#2=#:G146 NIL) (|i| NIL) (|r| (|Vector| R))
+          (|s| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |s| (SPADCALL (QREFELT $ 50)) . #3=(|DIRPCAT-;index;PiS;10|))
           (LETT |r| (MAKEARR1 (QREFELT $ 7) (SPADCALL 1 (QREFELT $ 53))) . #3#)
           (LETT |n0| (- |n| 1) . #3#)
           (SEQ (LETT |i| 1 . #3#) (LETT #2# (QREFELT $ 7) . #3#) G190
@@ -99,12 +115,14 @@
                               (QREFELT $ 54))
                     (EXIT (LETT |n0| (QCAR |d|) . #3#)))
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |r| (QREFELT $ 55))))))) 
+          (EXIT (SPADCALL |r| (QREFELT $ 55)))))) 
 
-(DEFUN |DIRPCAT-;lookup;SPi;11| (|v| $)
-  (PROG (#1=#:G149 |pow| |res| #2=#:G152 |i| |s|)
-    (RETURN
-     (SEQ (LETT |s| (SPADCALL (QREFELT $ 50)) . #3=(|DIRPCAT-;lookup;SPi;11|))
+(SDEFUN |DIRPCAT-;lookup;SPi;11| ((|v| S) ($ |PositiveInteger|))
+        (SPROG
+         ((#1=#:G149 NIL) (|pow| (|NonNegativeInteger|)) (|res| (|Integer|))
+          (#2=#:G152 NIL) (|i| NIL) (|s| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |s| (SPADCALL (QREFELT $ 50)) . #3=(|DIRPCAT-;lookup;SPi;11|))
           (LETT |pow| 1 . #3#) (LETT |res| 1 . #3#)
           (SEQ (LETT |i| 1 . #3#) (LETT #2# (QREFELT $ 7) . #3#) G190
                (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -122,76 +140,84 @@
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT
            (PROG1 (LETT #1# |res| . #3#)
-             (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))))) 
+             (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
 
 (DECLAIM (NOTINLINE |DirectProductCategory&;|)) 
 
 (DEFUN |DirectProductCategory&| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|DirectProductCategory&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|DirectProductCategory&| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 67) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST (|HasCategory| |#3| '(|Field|))
-                                               (|HasCategory| |#3|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (|HasCategory| |#3|
-                                                              '(|OrderedRing|))
-                                               (|HasCategory| |#3|
-                                                              '(|unitsKnown|))
-                                               (|HasCategory| |#3|
-                                                              '(|CommutativeRing|))
-                                               (|HasCategory| |#3| '(|Finite|))
-                                               (|HasCategory| |#3| '(|Monoid|))
-                                               (|HasCategory| |#3|
-                                                              '(|CancellationAbelianMonoid|))
-                                               (|HasCategory| |#3|
-                                                              '(|AbelianSemiGroup|))
-                                               (|HasCategory| |#3| '(|Ring|))
-                                               (|HasCategory| |#3|
-                                                              '(|SetCategory|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 10)
-        (PROGN
-         (QSETREFV $ 12 (CONS (|dispatchFunction| |DIRPCAT-;coerce;IS;1|) $))
-         (QSETREFV $ 15
-                   (CONS (|dispatchFunction| |DIRPCAT-;characteristic;Nni;2|)
-                         $))
-         (QSETREFV $ 18
-                   (CONS (|dispatchFunction| |DIRPCAT-;differentiate;SMS;3|)
-                         $))
-         (QSETREFV $ 35
-                   (CONS (|dispatchFunction| |DIRPCAT-;reducedSystem;MM;5|) $))
-         (QSETREFV $ 43
-                   (CONS (|dispatchFunction| |DIRPCAT-;reducedSystem;MVR;6|)
-                         $)))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 46 (CONS (|dispatchFunction| |DIRPCAT-;/;SRS;7|) $))
-         (QSETREFV $ 49
-                   (CONS (|dispatchFunction| |DIRPCAT-;dimension;Cn;8|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 6)
-        (PROGN
-         (QSETREFV $ 51 (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;9|) $))
-         (QSETREFV $ 56 (CONS (|dispatchFunction| |DIRPCAT-;index;PiS;10|) $))
-         (QSETREFV $ 59
-                   (CONS (|dispatchFunction| |DIRPCAT-;lookup;SPi;11|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|DirectProductCategory&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|DirectProductCategory&| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 67) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#3| '(|Field|))
+                                              (|HasCategory| |#3|
+                                                             '(|OrderedAbelianMonoidSup|))
+                                              (|HasCategory| |#3|
+                                                             '(|OrderedRing|))
+                                              (|HasCategory| |#3|
+                                                             '(|unitsKnown|))
+                                              (|HasCategory| |#3|
+                                                             '(|CommutativeRing|))
+                                              (|HasCategory| |#3| '(|Finite|))
+                                              (|HasCategory| |#3| '(|Monoid|))
+                                              (|HasCategory| |#3|
+                                                             '(|CancellationAbelianMonoid|))
+                                              (|HasCategory| |#3|
+                                                             '(|AbelianSemiGroup|))
+                                              (|HasCategory| |#3| '(|Ring|))
+                                              (|HasCategory| |#3|
+                                                             '(|SetCategory|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 10)
+            (PROGN
+             (QSETREFV $ 12
+                       (CONS (|dispatchFunction| |DIRPCAT-;coerce;IS;1|) $))
+             (QSETREFV $ 15
+                       (CONS
+                        (|dispatchFunction| |DIRPCAT-;characteristic;Nni;2|)
+                        $))
+             (QSETREFV $ 18
+                       (CONS
+                        (|dispatchFunction| |DIRPCAT-;differentiate;SMS;3|) $))
+             (QSETREFV $ 35
+                       (CONS (|dispatchFunction| |DIRPCAT-;reducedSystem;MM;5|)
+                             $))
+             (QSETREFV $ 43
+                       (CONS
+                        (|dispatchFunction| |DIRPCAT-;reducedSystem;MVR;6|)
+                        $)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 46 (CONS (|dispatchFunction| |DIRPCAT-;/;SRS;7|) $))
+             (QSETREFV $ 49
+                       (CONS (|dispatchFunction| |DIRPCAT-;dimension;Cn;8|)
+                             $)))))
+          (COND
+           ((|testBitVector| |pv$| 6)
+            (PROGN
+             (QSETREFV $ 51
+                       (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;9|) $))
+             (QSETREFV $ 56
+                       (CONS (|dispatchFunction| |DIRPCAT-;index;PiS;10|) $))
+             (QSETREFV $ 59
+                       (CONS (|dispatchFunction| |DIRPCAT-;lookup;SPi;11|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|DirectProductCategory&| '|infovec|
           (LIST

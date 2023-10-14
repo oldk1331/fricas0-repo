@@ -1,65 +1,65 @@
 
-(DEFUN |PCOMP;compose;3UP;1| (|g| |h| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ (LETT |r| (|spadConstant| $ 8) . #1=(|PCOMP;compose;3UP;1|))
-          (SEQ G190
-               (COND
-                ((NULL (SPADCALL |g| (|spadConstant| $ 8) (QREFELT $ 11)))
-                 (GO G191)))
+(SDEFUN |PCOMP;compose;3UP;1| ((|g| UP) (|h| UP) ($ UP))
+        (SPROG ((|r| (UP)))
                (SEQ
-                (LETT |r|
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |g| (QREFELT $ 12))
-                                 (SPADCALL |h| (SPADCALL |g| (QREFELT $ 14))
-                                           (QREFELT $ 15))
-                                 (QREFELT $ 16))
-                       |r| (QREFELT $ 17))
-                      . #1#)
-                (EXIT (LETT |g| (SPADCALL |g| (QREFELT $ 18)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |r|))))) 
+                (LETT |r| (|spadConstant| $ 8) . #1=(|PCOMP;compose;3UP;1|))
+                (SEQ G190
+                     (COND
+                      ((NULL
+                        (SPADCALL |g| (|spadConstant| $ 8) (QREFELT $ 11)))
+                       (GO G191)))
+                     (SEQ
+                      (LETT |r|
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |g| (QREFELT $ 12))
+                                       (SPADCALL |h|
+                                                 (SPADCALL |g| (QREFELT $ 14))
+                                                 (QREFELT $ 15))
+                                       (QREFELT $ 16))
+                             |r| (QREFELT $ 17))
+                            . #1#)
+                      (EXIT (LETT |g| (SPADCALL |g| (QREFELT $ 18)) . #1#)))
+                     NIL (GO G190) G191 (EXIT NIL))
+                (EXIT |r|)))) 
 
 (DECLAIM (NOTINLINE |PolynomialComposition;|)) 
 
 (DEFUN |PolynomialComposition| (&REST #1=#:G107)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G108)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PolynomialComposition|)
-                                           '|domainEqualList|)
-                . #3=(|PolynomialComposition|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PolynomialComposition;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G108)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|PolynomialComposition|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialComposition|)
+                                               '|domainEqualList|)
+                    . #3=(|PolynomialComposition|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolynomialComposition;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PolynomialComposition|)))))))))) 
 
 (DEFUN |PolynomialComposition;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialComposition|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|PolynomialComposition| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 20) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PolynomialComposition| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialComposition|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|PolynomialComposition| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 20) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PolynomialComposition|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PolynomialComposition| '|infovec|
           (LIST

@@ -1,325 +1,360 @@
 
-(DEFUN |INT;writeOMInt| (|dev| |x| $)
-  (SEQ
-   (COND
-    ((< |x| 0)
-     (SEQ (SPADCALL |dev| (QREFELT $ 8))
-          (SPADCALL |dev| "arith1" "unary_minus" (QREFELT $ 10))
-          (SPADCALL |dev| (- |x|) (QREFELT $ 12))
-          (EXIT (SPADCALL |dev| (QREFELT $ 13)))))
-    ('T (SPADCALL |dev| |x| (QREFELT $ 12)))))) 
+(SDEFUN |INT;writeOMInt| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
+        (SEQ
+         (COND
+          ((< |x| 0)
+           (SEQ (SPADCALL |dev| (QREFELT $ 8))
+                (SPADCALL |dev| "arith1" "unary_minus" (QREFELT $ 10))
+                (SPADCALL |dev| (- |x|) (QREFELT $ 12))
+                (EXIT (SPADCALL |dev| (QREFELT $ 13)))))
+          ('T (SPADCALL |dev| |x| (QREFELT $ 12)))))) 
 
-(DEFUN |INT;OMwrite;$S;2| (|x| $)
-  (PROG (|s| |dev| |sp|)
-    (RETURN
-     (SEQ (LETT |s| "" . #1=(|INT;OMwrite;$S;2|))
-          (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
-          (LETT |dev| (SPADCALL |sp| (SPADCALL (QREFELT $ 15)) (QREFELT $ 16))
-                . #1#)
-          (SPADCALL |dev| (QREFELT $ 17)) (|INT;writeOMInt| |dev| |x| $)
-          (SPADCALL |dev| (QREFELT $ 18)) (SPADCALL |dev| (QREFELT $ 19))
-          (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|))))) 
+(SDEFUN |INT;OMwrite;$S;2| ((|x| $) ($ |String|))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+               (SEQ (LETT |s| "" . #1=(|INT;OMwrite;$S;2|))
+                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
+                    (LETT |dev|
+                          (SPADCALL |sp| (SPADCALL (QREFELT $ 15))
+                                    (QREFELT $ 16))
+                          . #1#)
+                    (SPADCALL |dev| (QREFELT $ 17))
+                    (|INT;writeOMInt| |dev| |x| $)
+                    (SPADCALL |dev| (QREFELT $ 18))
+                    (SPADCALL |dev| (QREFELT $ 19))
+                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
-(DEFUN |INT;OMwrite;$BS;3| (|x| |wholeObj| $)
-  (PROG (|s| |dev| |sp|)
-    (RETURN
-     (SEQ (LETT |s| "" . #1=(|INT;OMwrite;$BS;3|))
-          (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
-          (LETT |dev| (SPADCALL |sp| (SPADCALL (QREFELT $ 15)) (QREFELT $ 16))
-                . #1#)
-          (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))
-          (|INT;writeOMInt| |dev| |x| $)
-          (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 18))))
-          (SPADCALL |dev| (QREFELT $ 19))
-          (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|))))) 
+(SDEFUN |INT;OMwrite;$BS;3| ((|x| $) (|wholeObj| |Boolean|) ($ |String|))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+               (SEQ (LETT |s| "" . #1=(|INT;OMwrite;$BS;3|))
+                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
+                    (LETT |dev|
+                          (SPADCALL |sp| (SPADCALL (QREFELT $ 15))
+                                    (QREFELT $ 16))
+                          . #1#)
+                    (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))
+                    (|INT;writeOMInt| |dev| |x| $)
+                    (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 18))))
+                    (SPADCALL |dev| (QREFELT $ 19))
+                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
-(DEFUN |INT;OMwrite;Omd$V;4| (|dev| |x| $)
-  (SEQ (SPADCALL |dev| (QREFELT $ 17)) (|INT;writeOMInt| |dev| |x| $)
-       (EXIT (SPADCALL |dev| (QREFELT $ 18))))) 
+(SDEFUN |INT;OMwrite;Omd$V;4| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
+        (SEQ (SPADCALL |dev| (QREFELT $ 17)) (|INT;writeOMInt| |dev| |x| $)
+             (EXIT (SPADCALL |dev| (QREFELT $ 18))))) 
 
-(DEFUN |INT;OMwrite;Omd$BV;5| (|dev| |x| |wholeObj| $)
-  (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))
-       (|INT;writeOMInt| |dev| |x| $)
-       (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 18))))))) 
+(SDEFUN |INT;OMwrite;Omd$BV;5|
+        ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
+        (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 17))))
+             (|INT;writeOMInt| |dev| |x| $)
+             (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 18))))))) 
 
 (PUT '|INT;zero?;$B;6| '|SPADreplace| 'ZEROP) 
 
-(DEFUN |INT;zero?;$B;6| (|x| $) (ZEROP |x|)) 
+(SDEFUN |INT;zero?;$B;6| ((|x| $) ($ |Boolean|)) (ZEROP |x|)) 
 
 (PUT '|INT;one?;$B;7| '|SPADreplace| '(XLAM (|x|) (EQL |x| 1))) 
 
-(DEFUN |INT;one?;$B;7| (|x| $) (EQL |x| 1)) 
+(SDEFUN |INT;one?;$B;7| ((|x| $) ($ |Boolean|)) (EQL |x| 1)) 
 
 (PUT '|INT;Zero;$;8| '|SPADreplace| '(XLAM NIL 0)) 
 
-(DEFUN |INT;Zero;$;8| ($) 0) 
+(SDEFUN |INT;Zero;$;8| (($ $)) 0) 
 
 (PUT '|INT;One;$;9| '|SPADreplace| '(XLAM NIL 1)) 
 
-(DEFUN |INT;One;$;9| ($) 1) 
+(SDEFUN |INT;One;$;9| (($ $)) 1) 
 
 (PUT '|INT;base;$;10| '|SPADreplace| '(XLAM NIL 2)) 
 
-(DEFUN |INT;base;$;10| ($) 2) 
+(SDEFUN |INT;base;$;10| (($ $)) 2) 
 
 (PUT '|INT;copy;2$;11| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |INT;copy;2$;11| (|x| $) |x|) 
+(SDEFUN |INT;copy;2$;11| ((|x| $) ($ $)) |x|) 
 
 (PUT '|INT;inc;2$;12| '|SPADreplace| '(XLAM (|x|) (+ |x| 1))) 
 
-(DEFUN |INT;inc;2$;12| (|x| $) (+ |x| 1)) 
+(SDEFUN |INT;inc;2$;12| ((|x| $) ($ $)) (+ |x| 1)) 
 
 (PUT '|INT;dec;2$;13| '|SPADreplace| '(XLAM (|x|) (- |x| 1))) 
 
-(DEFUN |INT;dec;2$;13| (|x| $) (- |x| 1)) 
+(SDEFUN |INT;dec;2$;13| ((|x| $) ($ $)) (- |x| 1)) 
 
-(DEFUN |INT;hashUpdate!;Hs$Hs;14| (|hs| |s| $)
-  (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
+(SDEFUN |INT;hashUpdate!;Hs$Hs;14|
+        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+        (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (PUT '|INT;negative?;$B;15| '|SPADreplace| 'MINUSP) 
 
-(DEFUN |INT;negative?;$B;15| (|x| $) (MINUSP |x|)) 
+(SDEFUN |INT;negative?;$B;15| ((|x| $) ($ |Boolean|)) (MINUSP |x|)) 
 
-(DEFUN |INT;coerce;$Of;16| (|x| $) (SPADCALL |x| (QREFELT $ 37))) 
+(SDEFUN |INT;coerce;$Of;16| ((|x| $) ($ |OutputForm|))
+        (SPADCALL |x| (QREFELT $ 37))) 
 
 (PUT '|INT;coerce;2$;17| '|SPADreplace| '(XLAM (|m|) |m|)) 
 
-(DEFUN |INT;coerce;2$;17| (|m| $) |m|) 
+(SDEFUN |INT;coerce;2$;17| ((|m| |Integer|) ($ $)) |m|) 
 
 (PUT '|INT;convert;2$;18| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |INT;convert;2$;18| (|x| $) |x|) 
+(SDEFUN |INT;convert;2$;18| ((|x| $) ($ |Integer|)) |x|) 
 
 (PUT '|INT;length;2$;19| '|SPADreplace| 'INTEGER-LENGTH) 
 
-(DEFUN |INT;length;2$;19| (|a| $) (INTEGER-LENGTH |a|)) 
+(SDEFUN |INT;length;2$;19| ((|a| $) ($ $)) (INTEGER-LENGTH |a|)) 
 
-(DEFUN |INT;addmod;4$;20| (|a| |b| |p| $)
-  (PROG (|c|)
-    (RETURN
-     (SEQ (LETT |c| (+ |a| |b|) |INT;addmod;4$;20|)
-          (EXIT (COND ((>= |c| |p|) (- |c| |p|)) ('T |c|))))))) 
+(SDEFUN |INT;addmod;4$;20| ((|a| $) (|b| $) (|p| $) ($ $))
+        (SPROG ((|c| ($)))
+               (SEQ (LETT |c| (+ |a| |b|) |INT;addmod;4$;20|)
+                    (EXIT (COND ((>= |c| |p|) (- |c| |p|)) ('T |c|)))))) 
 
-(DEFUN |INT;submod;4$;21| (|a| |b| |p| $)
-  (PROG (|c|)
-    (RETURN
-     (SEQ (LETT |c| (- |a| |b|) |INT;submod;4$;21|)
-          (EXIT (COND ((< |c| 0) (+ |c| |p|)) ('T |c|))))))) 
+(SDEFUN |INT;submod;4$;21| ((|a| $) (|b| $) (|p| $) ($ $))
+        (SPROG ((|c| ($)))
+               (SEQ (LETT |c| (- |a| |b|) |INT;submod;4$;21|)
+                    (EXIT (COND ((< |c| 0) (+ |c| |p|)) ('T |c|)))))) 
 
-(DEFUN |INT;mulmod;4$;22| (|a| |b| |p| $) (REM (* |a| |b|) |p|)) 
+(SDEFUN |INT;mulmod;4$;22| ((|a| $) (|b| $) (|p| $) ($ $))
+        (REM (* |a| |b|) |p|)) 
 
-(DEFUN |INT;convert;$F;23| (|x| $) (SPADCALL |x| (QREFELT $ 46))) 
+(SDEFUN |INT;convert;$F;23| ((|x| $) ($ |Float|)) (SPADCALL |x| (QREFELT $ 46))) 
 
 (PUT '|INT;convert;$Df;24| '|SPADreplace|
      '(XLAM (|x|) (FLOAT |x| MOST-POSITIVE-DOUBLE-FLOAT))) 
 
-(DEFUN |INT;convert;$Df;24| (|x| $) (FLOAT |x| MOST-POSITIVE-DOUBLE-FLOAT)) 
+(SDEFUN |INT;convert;$Df;24| ((|x| $) ($ |DoubleFloat|))
+        (FLOAT |x| MOST-POSITIVE-DOUBLE-FLOAT)) 
 
-(DEFUN |INT;convert;$If;25| (|x| $) (SPADCALL |x| (QREFELT $ 51))) 
+(SDEFUN |INT;convert;$If;25| ((|x| $) ($ |InputForm|))
+        (SPADCALL |x| (QREFELT $ 51))) 
 
 (PUT '|INT;convert;$S;26| '|SPADreplace| 'STRINGIMAGE) 
 
-(DEFUN |INT;convert;$S;26| (|x| $) (STRINGIMAGE |x|)) 
+(SDEFUN |INT;convert;$S;26| ((|x| $) ($ |String|)) (STRINGIMAGE |x|)) 
 
-(DEFUN |INT;latex;$S;27| (|x| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ (LETT |s| (STRINGIMAGE |x|) |INT;latex;$S;27|)
-          (COND ((< -1 |x|) (COND ((< |x| 10) (EXIT |s|)))))
-          (EXIT (STRCONC "{" (STRCONC |s| "}"))))))) 
+(SDEFUN |INT;latex;$S;27| ((|x| $) ($ |String|))
+        (SPROG ((|s| (|String|)))
+               (SEQ (LETT |s| (STRINGIMAGE |x|) |INT;latex;$S;27|)
+                    (COND ((< -1 |x|) (COND ((< |x| 10) (EXIT |s|)))))
+                    (EXIT (STRCONC "{" (STRCONC |s| "}")))))) 
 
-(DEFUN |INT;positiveRemainder;3$;28| (|a| |b| $)
-  (PROG (|r|)
-    (RETURN
-     (COND
-      ((MINUSP (LETT |r| (REM |a| |b|) |INT;positiveRemainder;3$;28|))
-       (COND ((MINUSP |b|) (- |r| |b|)) (#1='T (+ |r| |b|))))
-      (#1# |r|))))) 
+(SDEFUN |INT;positiveRemainder;3$;28| ((|a| $) (|b| $) ($ $))
+        (SPROG ((|r| ($)))
+               (COND
+                ((MINUSP
+                  (LETT |r| (REM |a| |b|) |INT;positiveRemainder;3$;28|))
+                 (COND ((MINUSP |b|) (- |r| |b|)) (#1='T (+ |r| |b|))))
+                (#1# |r|)))) 
 
 (PUT '|INT;reducedSystem;2M;29| '|SPADreplace| '(XLAM (|m|) |m|)) 
 
-(DEFUN |INT;reducedSystem;2M;29| (|m| $) |m|) 
+(SDEFUN |INT;reducedSystem;2M;29| ((|m| |Matrix| $) ($ |Matrix| (|Integer|)))
+        |m|) 
 
-(DEFUN |INT;reducedSystem;MVR;30| (|m| |v| $) (CONS |m| '|vec|)) 
+(SDEFUN |INT;reducedSystem;MVR;30|
+        ((|m| |Matrix| . #1=($)) (|v| |Vector| . #1#)
+         ($ |Record| (|:| |mat| (|Matrix| (|Integer|)))
+          (|:| |vec| (|Vector| (|Integer|)))))
+        (CONS |m| '|vec|)) 
 
 (PUT '|INT;abs;2$;31| '|SPADreplace| 'ABS) 
 
-(DEFUN |INT;abs;2$;31| (|x| $) (ABS |x|)) 
+(SDEFUN |INT;abs;2$;31| ((|x| $) ($ $)) (ABS |x|)) 
 
 (PUT '|INT;random;$;32| '|SPADreplace| '|random|) 
 
-(DEFUN |INT;random;$;32| ($) (|random|)) 
+(SDEFUN |INT;random;$;32| (($ $)) (|random|)) 
 
 (PUT '|INT;random;2$;33| '|SPADreplace| 'RANDOM) 
 
-(DEFUN |INT;random;2$;33| (|x| $) (RANDOM |x|)) 
+(SDEFUN |INT;random;2$;33| ((|x| $) ($ $)) (RANDOM |x|)) 
 
 (PUT '|INT;=;2$B;34| '|SPADreplace| 'EQL) 
 
-(DEFUN |INT;=;2$B;34| (|x| |y| $) (EQL |x| |y|)) 
+(SDEFUN |INT;=;2$B;34| ((|x| $) (|y| $) ($ |Boolean|)) (EQL |x| |y|)) 
 
 (PUT '|INT;<;2$B;35| '|SPADreplace| '<) 
 
-(DEFUN |INT;<;2$B;35| (|x| |y| $) (< |x| |y|)) 
+(SDEFUN |INT;<;2$B;35| ((|x| $) (|y| $) ($ |Boolean|)) (< |x| |y|)) 
 
 (PUT '|INT;>=;2$B;36| '|SPADreplace| '>=) 
 
-(DEFUN |INT;>=;2$B;36| (|x| |y| $) (>= |x| |y|)) 
+(SDEFUN |INT;>=;2$B;36| ((|x| $) (|y| $) ($ |Boolean|)) (>= |x| |y|)) 
 
 (PUT '|INT;-;2$;37| '|SPADreplace| '-) 
 
-(DEFUN |INT;-;2$;37| (|x| $) (- |x|)) 
+(SDEFUN |INT;-;2$;37| ((|x| $) ($ $)) (- |x|)) 
 
 (PUT '|INT;+;3$;38| '|SPADreplace| '+) 
 
-(DEFUN |INT;+;3$;38| (|x| |y| $) (+ |x| |y|)) 
+(SDEFUN |INT;+;3$;38| ((|x| $) (|y| $) ($ $)) (+ |x| |y|)) 
 
 (PUT '|INT;-;3$;39| '|SPADreplace| '-) 
 
-(DEFUN |INT;-;3$;39| (|x| |y| $) (- |x| |y|)) 
+(SDEFUN |INT;-;3$;39| ((|x| $) (|y| $) ($ $)) (- |x| |y|)) 
 
 (PUT '|INT;*;3$;40| '|SPADreplace| '*) 
 
-(DEFUN |INT;*;3$;40| (|x| |y| $) (* |x| |y|)) 
+(SDEFUN |INT;*;3$;40| ((|x| $) (|y| $) ($ $)) (* |x| |y|)) 
 
 (PUT '|INT;*;3$;41| '|SPADreplace| '*) 
 
-(DEFUN |INT;*;3$;41| (|m| |y| $) (* |m| |y|)) 
+(SDEFUN |INT;*;3$;41| ((|m| |Integer|) (|y| $) ($ $)) (* |m| |y|)) 
 
 (PUT '|INT;^;$Nni$;42| '|SPADreplace| 'EXPT) 
 
-(DEFUN |INT;^;$Nni$;42| (|x| |n| $) (EXPT |x| |n|)) 
+(SDEFUN |INT;^;$Nni$;42| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+        (EXPT |x| |n|)) 
 
 (PUT '|INT;odd?;$B;43| '|SPADreplace| 'ODDP) 
 
-(DEFUN |INT;odd?;$B;43| (|x| $) (ODDP |x|)) 
+(SDEFUN |INT;odd?;$B;43| ((|x| $) ($ |Boolean|)) (ODDP |x|)) 
 
 (PUT '|INT;max;3$;44| '|SPADreplace| 'MAX) 
 
-(DEFUN |INT;max;3$;44| (|x| |y| $) (MAX |x| |y|)) 
+(SDEFUN |INT;max;3$;44| ((|x| $) (|y| $) ($ $)) (MAX |x| |y|)) 
 
 (PUT '|INT;min;3$;45| '|SPADreplace| 'MIN) 
 
-(DEFUN |INT;min;3$;45| (|x| |y| $) (MIN |x| |y|)) 
+(SDEFUN |INT;min;3$;45| ((|x| $) (|y| $) ($ $)) (MIN |x| |y|)) 
 
 (PUT '|INT;divide;2$R;46| '|SPADreplace| 'DIVIDE2) 
 
-(DEFUN |INT;divide;2$R;46| (|x| |y| $) (DIVIDE2 |x| |y|)) 
+(SDEFUN |INT;divide;2$R;46|
+        ((|x| $) (|y| $)
+         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        (DIVIDE2 |x| |y|)) 
 
 (PUT '|INT;quo;3$;47| '|SPADreplace| 'QUOTIENT2) 
 
-(DEFUN |INT;quo;3$;47| (|x| |y| $) (QUOTIENT2 |x| |y|)) 
+(SDEFUN |INT;quo;3$;47| ((|x| $) (|y| $) ($ $)) (QUOTIENT2 |x| |y|)) 
 
 (PUT '|INT;rem;3$;48| '|SPADreplace| 'REM) 
 
-(DEFUN |INT;rem;3$;48| (|x| |y| $) (REM |x| |y|)) 
+(SDEFUN |INT;rem;3$;48| ((|x| $) (|y| $) ($ $)) (REM |x| |y|)) 
 
 (PUT '|INT;shift;3$;49| '|SPADreplace| 'ASH) 
 
-(DEFUN |INT;shift;3$;49| (|x| |y| $) (ASH |x| |y|)) 
+(SDEFUN |INT;shift;3$;49| ((|x| $) (|y| $) ($ $)) (ASH |x| |y|)) 
 
-(DEFUN |INT;exquo;2$U;50| (|x| |y| $)
-  (PROG (|z|)
-    (RETURN
-     (SEQ
-      (COND ((ZEROP |y|) (CONS 1 "failed"))
-            (#1='T
-             (SEQ (LETT |z| (INTEXQUO |x| |y|) |INT;exquo;2$U;50|)
-                  (EXIT
-                   (COND ((SPADCALL |z| (QREFELT $ 84)) (CONS 0 |z|))
-                         (#1# (CONS 1 "failed"))))))))))) 
+(SDEFUN |INT;exquo;2$U;50| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+        (SPROG ((|z| (|SExpression|)))
+               (SEQ
+                (COND ((ZEROP |y|) (CONS 1 "failed"))
+                      (#1='T
+                       (SEQ (LETT |z| (INTEXQUO |x| |y|) |INT;exquo;2$U;50|)
+                            (EXIT
+                             (COND ((SPADCALL |z| (QREFELT $ 84)) (CONS 0 |z|))
+                                   (#1# (CONS 1 "failed")))))))))) 
 
-(DEFUN |INT;recip;$U;51| (|x| $)
-  (COND ((OR (EQL |x| 1) (EQL |x| -1)) (CONS 0 |x|)) ('T (CONS 1 "failed")))) 
+(SDEFUN |INT;recip;$U;51| ((|x| $) ($ |Union| $ "failed"))
+        (COND ((OR (EQL |x| 1) (EQL |x| -1)) (CONS 0 |x|))
+              ('T (CONS 1 "failed")))) 
 
 (PUT '|INT;gcd;3$;52| '|SPADreplace| 'GCD) 
 
-(DEFUN |INT;gcd;3$;52| (|x| |y| $) (GCD |x| |y|)) 
+(SDEFUN |INT;gcd;3$;52| ((|x| $) (|y| $) ($ $)) (GCD |x| |y|)) 
 
-(DEFUN |INT;unitNormal;$R;53| (|x| $)
-  (COND ((< |x| 0) (VECTOR -1 (- |x|) -1)) ('T (VECTOR 1 |x| 1)))) 
+(SDEFUN |INT;unitNormal;$R;53|
+        ((|x| $)
+         ($ |Record| (|:| |unit| . #1=($)) (|:| |canonical| . #1#)
+          (|:| |associate| . #1#)))
+        (COND ((< |x| 0) (VECTOR -1 (- |x|) -1)) ('T (VECTOR 1 |x| 1)))) 
 
 (PUT '|INT;unitCanonical;2$;54| '|SPADreplace| 'ABS) 
 
-(DEFUN |INT;unitCanonical;2$;54| (|x| $) (ABS |x|)) 
+(SDEFUN |INT;unitCanonical;2$;54| ((|x| $) ($ $)) (ABS |x|)) 
 
-(DEFUN |INT;solveLinearPolynomialEquation| (|lp| |p| $)
-  (SPADCALL |lp| |p| (QREFELT $ 96))) 
+(SDEFUN |INT;solveLinearPolynomialEquation|
+        ((|lp| |List| (|SparseUnivariatePolynomial| $))
+         (|p| |SparseUnivariatePolynomial| $)
+         ($ |Union| (|List| (|SparseUnivariatePolynomial| $)) "failed"))
+        (SPADCALL |lp| |p| (QREFELT $ 96))) 
 
-(DEFUN |INT;squareFreePolynomial| (|p| $) (SPADCALL |p| (QREFELT $ 100))) 
+(SDEFUN |INT;squareFreePolynomial|
+        ((|p| |SparseUnivariatePolynomial| $)
+         ($ |Factored| (|SparseUnivariatePolynomial| $)))
+        (SPADCALL |p| (QREFELT $ 100))) 
 
-(DEFUN |INT;factorPolynomial| (|p| $)
-  (PROG (#1=#:G1460 |pp|)
-    (RETURN
-     (SEQ
-      (LETT |pp| (SPADCALL |p| (QREFELT $ 101)) . #2=(|INT;factorPolynomial|))
-      (EXIT
-       (COND
-        ((EQL (SPADCALL |pp| (QREFELT $ 102)) (SPADCALL |p| (QREFELT $ 102)))
-         (SPADCALL |p| (QREFELT $ 104)))
-        ('T
-         (SPADCALL (SPADCALL |pp| (QREFELT $ 104))
-                   (SPADCALL (ELT $ 105)
-                             (SPADCALL
-                              (PROG2
-                                  (LETT #1#
-                                        (SPADCALL
-                                         (SPADCALL |p| (QREFELT $ 102))
-                                         (SPADCALL |pp| (QREFELT $ 102))
-                                         (QREFELT $ 86))
-                                        . #2#)
-                                  (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 0) $ #1#))
-                              (QREFELT $ 107))
-                             (QREFELT $ 111))
-                   (QREFELT $ 113))))))))) 
+(SDEFUN |INT;factorPolynomial|
+        ((|p| |SparseUnivariatePolynomial| $)
+         ($ |Factored| (|SparseUnivariatePolynomial| $)))
+        (SPROG ((#1=#:G1460 NIL) (|pp| (|SparseUnivariatePolynomial| $)))
+               (SEQ
+                (LETT |pp| (SPADCALL |p| (QREFELT $ 101))
+                      . #2=(|INT;factorPolynomial|))
+                (EXIT
+                 (COND
+                  ((EQL (SPADCALL |pp| (QREFELT $ 102))
+                        (SPADCALL |p| (QREFELT $ 102)))
+                   (SPADCALL |p| (QREFELT $ 104)))
+                  ('T
+                   (SPADCALL (SPADCALL |pp| (QREFELT $ 104))
+                             (SPADCALL (ELT $ 105)
+                                       (SPADCALL
+                                        (PROG2
+                                            (LETT #1#
+                                                  (SPADCALL
+                                                   (SPADCALL |p|
+                                                             (QREFELT $ 102))
+                                                   (SPADCALL |pp|
+                                                             (QREFELT $ 102))
+                                                   (QREFELT $ 86))
+                                                  . #2#)
+                                            (QCDR #1#)
+                                          (|check_union| (QEQCAR #1# 0) $ #1#))
+                                        (QREFELT $ 107))
+                                       (QREFELT $ 111))
+                             (QREFELT $ 113)))))))) 
 
-(DEFUN |INT;factorSquareFreePolynomial| (|p| $) (SPADCALL |p| (QREFELT $ 114))) 
+(SDEFUN |INT;factorSquareFreePolynomial|
+        ((|p| |SparseUnivariatePolynomial| $)
+         ($ |Factored| (|SparseUnivariatePolynomial| $)))
+        (SPADCALL |p| (QREFELT $ 114))) 
 
-(DEFUN |INT;gcdPolynomial;3Sup;59| (|p| |q| $)
-  (COND ((SPADCALL |p| (QREFELT $ 115)) (SPADCALL |q| (QREFELT $ 116)))
-        ((SPADCALL |q| (QREFELT $ 115)) (SPADCALL |p| (QREFELT $ 116)))
-        ('T (SPADCALL (LIST |p| |q|) (QREFELT $ 119))))) 
+(SDEFUN |INT;gcdPolynomial;3Sup;59|
+        ((|p| . #1=(|SparseUnivariatePolynomial| $)) (|q| . #1#)
+         ($ |SparseUnivariatePolynomial| $))
+        (COND ((SPADCALL |p| (QREFELT $ 115)) (SPADCALL |q| (QREFELT $ 116)))
+              ((SPADCALL |q| (QREFELT $ 115)) (SPADCALL |p| (QREFELT $ 116)))
+              ('T (SPADCALL (LIST |p| |q|) (QREFELT $ 119))))) 
 
-(DEFUN |INT;opposite?;2$B;60| (|x| |y| $) (EQL |x| (- |y|))) 
+(SDEFUN |INT;opposite?;2$B;60| ((|x| $) (|y| $) ($ |Boolean|))
+        (EQL |x| (- |y|))) 
 
-(DEFUN |INT;annihilate?;2$B;61| (|x| |y| $)
-  (COND ((ZEROP |x|) 'T) ('T (ZEROP |y|)))) 
+(SDEFUN |INT;annihilate?;2$B;61| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((ZEROP |x|) 'T) ('T (ZEROP |y|)))) 
 
 (DECLAIM (NOTINLINE |Integer;|)) 
 
 (DEFUN |Integer| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G1488)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Integer|) . #2=(|Integer|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Integer|
-                         (LIST (CONS NIL (CONS 1 (|Integer;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Integer|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G1488)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Integer|) . #2=(|Integer|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Integer|
+                             (LIST (CONS NIL (CONS 1 (|Integer;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Integer|)))))))))) 
 
 (DEFUN |Integer;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Integer|) . #1=(|Integer|))
-      (LETT $ (GETREFV 138) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Integer| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 72
-                (QSETREFV $ 71 (CONS (|dispatchFunction| |INT;*;3$;41|) $)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Integer|) . #1=(|Integer|))
+          (LETT $ (GETREFV 138) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Integer| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 72
+                    (QSETREFV $ 71
+                              (CONS (|dispatchFunction| |INT;*;3$;41|) $)))
+          $))) 
 
 (MAKEPROP '|Integer| '|infovec|
           (LIST

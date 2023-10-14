@@ -2,44 +2,44 @@
 (DECLAIM (NOTINLINE |GuessAlgebraicNumber;|)) 
 
 (DEFUN |GuessAlgebraicNumber| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G122)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|GuessAlgebraicNumber|)
-                . #2=(|GuessAlgebraicNumber|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|GuessAlgebraicNumber|
-                         (LIST (CONS NIL (CONS 1 (|GuessAlgebraicNumber;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G122)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|GuessAlgebraicNumber|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|GuessAlgebraicNumber|)
+                    . #2=(|GuessAlgebraicNumber|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|GuessAlgebraicNumber|
+                             (LIST
+                              (CONS NIL (CONS 1 (|GuessAlgebraicNumber;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|GuessAlgebraicNumber|)))))))))) 
 
 (DEFUN |GuessAlgebraicNumber;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|GuessAlgebraicNumber|) . #1=(|GuessAlgebraicNumber|))
-      (LETT $ (GETREFV 30) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| (|AlgebraicNumber|)
-                                                         '(|RetractableTo|
-                                                           (|Symbol|)))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|GuessAlgebraicNumber| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GuessAlgebraicNumber|) . #1=(|GuessAlgebraicNumber|))
+          (LETT $ (GETREFV 30) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory|
+                                               (|AlgebraicNumber|)
+                                               '(|RetractableTo| (|Symbol|)))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|GuessAlgebraicNumber| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|GuessAlgebraicNumber| '|infovec|
           (LIST

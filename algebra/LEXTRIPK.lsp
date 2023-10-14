@@ -1,326 +1,438 @@
 
-(DEFUN |LEXTRIPK;trueVariables| (|lp| $)
-  (PROG (|truels| #1=#:G121 #2=#:G127 |s| |lv|)
-    (RETURN
-     (SEQ
-      (LETT |lv| (SPADCALL (SPADCALL |lp| (QREFELT $ 10)) (QREFELT $ 12))
-            . #3=(|LEXTRIPK;trueVariables|))
-      (LETT |truels| NIL . #3#)
-      (SEQ (LETT |s| NIL . #3#) (LETT #2# (QREFELT $ 7) . #3#) G190
-           (COND
-            ((OR (ATOM #2#) (PROGN (LETT |s| (CAR #2#) . #3#) NIL)) (GO G191)))
-           (SEQ
-            (EXIT
-             (COND
-              ((SPADCALL
-                (PROG2 (LETT #1# (SPADCALL |s| (QREFELT $ 16)) . #3#)
-                    (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|OrderedVariableList| (QREFELT $ 7)) #1#))
-                |lv| (QREFELT $ 18))
-               (LETT |truels| (CONS |s| |truels|) . #3#)))))
-           (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-      (EXIT (REVERSE |truels|)))))) 
+(SDEFUN |LEXTRIPK;trueVariables|
+        ((|lp| |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         ($ |List| (|Symbol|)))
+        (SPROG
+         ((|truels| (|List| (|Symbol|))) (#1=#:G121 NIL) (#2=#:G127 NIL)
+          (|s| NIL) (|lv| (|List| (|OrderedVariableList| |ls|))))
+         (SEQ
+          (LETT |lv| (SPADCALL (SPADCALL |lp| (QREFELT $ 10)) (QREFELT $ 12))
+                . #3=(|LEXTRIPK;trueVariables|))
+          (LETT |truels| NIL . #3#)
+          (SEQ (LETT |s| NIL . #3#) (LETT #2# (QREFELT $ 7) . #3#) G190
+               (COND
+                ((OR (ATOM #2#) (PROGN (LETT |s| (CAR #2#) . #3#) NIL))
+                 (GO G191)))
+               (SEQ
+                (EXIT
+                 (COND
+                  ((SPADCALL
+                    (PROG2 (LETT #1# (SPADCALL |s| (QREFELT $ 16)) . #3#)
+                        (QCDR #1#)
+                      (|check_union| (QEQCAR #1# 0)
+                                     (|OrderedVariableList| (QREFELT $ 7))
+                                     #1#))
+                    |lv| (QREFELT $ 18))
+                   (LETT |truels| (CONS |s| |truels|) . #3#)))))
+               (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+          (EXIT (REVERSE |truels|))))) 
 
-(DEFUN |LEXTRIPK;zeroDimensional?;LB;2| (|lp| $)
-  (PROG (|lq1| #1=#:G132 |p| #2=#:G131 |fglmpack| |truels|)
-    (RETURN
-     (SEQ
-      (LETT |truels| (|LEXTRIPK;trueVariables| |lp| $)
-            . #3=(|LEXTRIPK;zeroDimensional?;LB;2|))
-      (LETT |fglmpack| (|FGLMIfCanPackage| (QREFELT $ 6) |truels|) . #3#)
-      (LETT |lq1|
-            (PROGN
-             (LETT #2# NIL . #3#)
-             (SEQ (LETT |p| NIL . #3#) (LETT #1# |lp| . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 21)) #2#) . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (EXIT
-       (SPADCALL |lq1|
-                 (|compiledLookupCheck| '|zeroDimensional?|
-                                        (LIST (LIST '|Boolean|)
-                                              (LIST '|List|
-                                                    (LIST '|Polynomial|
-                                                          (|devaluate|
-                                                           (ELT $ 6)))))
-                                        |fglmpack|))))))) 
+(SDEFUN |LEXTRIPK;zeroDimensional?;LB;2|
+        ((|lp| |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         ($ |Boolean|))
+        (SPROG
+         ((|lq1| (|List| (|Polynomial| R))) (#1=#:G132 NIL) (|p| NIL)
+          (#2=#:G131 NIL)
+          (|fglmpack|
+           (CATEGORY |package|
+            (SIGNATURE |zeroDimensional?|
+             ((|Boolean|) (|List| (|Polynomial| R))))
+            (SIGNATURE |fglmIfCan|
+             ((|Union| (|List| (|Polynomial| R)) "failed")
+              (|List| (|Polynomial| R))))
+            (SIGNATURE |groebner|
+             ((|List| (|Polynomial| R)) (|List| (|Polynomial| R))))))
+          (|truels| (|List| (|Symbol|))))
+         (SEQ
+          (LETT |truels| (|LEXTRIPK;trueVariables| |lp| $)
+                . #3=(|LEXTRIPK;zeroDimensional?;LB;2|))
+          (LETT |fglmpack| (|FGLMIfCanPackage| (QREFELT $ 6) |truels|) . #3#)
+          (LETT |lq1|
+                (PROGN
+                 (LETT #2# NIL . #3#)
+                 (SEQ (LETT |p| NIL . #3#) (LETT #1# |lp| . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 21)) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (EXIT
+           (SPADCALL |lq1|
+                     (|compiledLookupCheck| '|zeroDimensional?|
+                                            (LIST (LIST '|Boolean|)
+                                                  (LIST '|List|
+                                                        (LIST '|Polynomial|
+                                                              (|devaluate|
+                                                               (ELT $ 6)))))
+                                            |fglmpack|)))))) 
 
-(DEFUN |LEXTRIPK;fglmIfCan;LU;3| (|lp| $)
-  (PROG (#1=#:G150 |q1| #2=#:G149 #3=#:G146 |foo| |lq1| #4=#:G148 |p| #5=#:G147
-         |fglmpack| |truels|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |truels| (|LEXTRIPK;trueVariables| |lp| $)
-              . #6=(|LEXTRIPK;fglmIfCan;LU;3|))
-        (LETT |fglmpack| (|FGLMIfCanPackage| (QREFELT $ 6) |truels|) . #6#)
-        (LETT |lq1|
-              (PROGN
-               (LETT #5# NIL . #6#)
-               (SEQ (LETT |p| NIL . #6#) (LETT #4# |lp| . #6#) G190
-                    (COND
-                     ((OR (ATOM #4#) (PROGN (LETT |p| (CAR #4#) . #6#) NIL))
-                      (GO G191)))
-                    (SEQ
-                     (EXIT
-                      (LETT #5# (CONS (SPADCALL |p| (QREFELT $ 21)) #5#)
-                            . #6#)))
-                    (LETT #4# (CDR #4#) . #6#) (GO G190) G191
-                    (EXIT (NREVERSE #5#))))
-              . #6#)
-        (LETT |foo|
-              (SPADCALL |lq1|
-                        (|compiledLookupCheck| '|fglmIfCan|
-                                               (LIST
-                                                (LIST '|Union|
-                                                      (LIST '|List|
-                                                            (LIST '|Polynomial|
-                                                                  (|devaluate|
-                                                                   (ELT $ 6))))
-                                                      '"failed")
-                                                (LIST '|List|
-                                                      (LIST '|Polynomial|
-                                                            (|devaluate|
-                                                             (ELT $ 6)))))
-                                               |fglmpack|))
-              . #6#)
-        (EXIT
-         (COND
-          ((QEQCAR |foo| 1)
-           (PROGN (LETT #3# (CONS 1 "failed") . #6#) (GO #3#)))
-          ('T
+(SDEFUN |LEXTRIPK;fglmIfCan;LU;3|
+        ((|lp| |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         ($ |Union|
+          (|List|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+          "failed"))
+        (SPROG
+         ((#1=#:G150 NIL) (|q1| NIL) (#2=#:G149 NIL) (#3=#:G146 NIL)
+          (|foo| (|Union| (|List| (|Polynomial| R)) #4="failed"))
+          (|lq1| (|List| (|Polynomial| R))) (#5=#:G148 NIL) (|p| NIL)
+          (#6=#:G147 NIL)
+          (|fglmpack|
+           (CATEGORY |package|
+            (SIGNATURE |zeroDimensional?|
+             ((|Boolean|) (|List| (|Polynomial| R))))
+            (SIGNATURE |fglmIfCan|
+             ((|Union| (|List| (|Polynomial| R)) "failed")
+              (|List| (|Polynomial| R))))
+            (SIGNATURE |groebner|
+             ((|List| (|Polynomial| R)) (|List| (|Polynomial| R))))))
+          (|truels| (|List| (|Symbol|))))
+         (SEQ
+          (EXIT
            (SEQ
-            (LETT |lp|
+            (LETT |truels| (|LEXTRIPK;trueVariables| |lp| $)
+                  . #7=(|LEXTRIPK;fglmIfCan;LU;3|))
+            (LETT |fglmpack| (|FGLMIfCanPackage| (QREFELT $ 6) |truels|) . #7#)
+            (LETT |lq1|
                   (PROGN
-                   (LETT #2# NIL . #6#)
-                   (SEQ (LETT |q1| NIL . #6#) (LETT #1# (QCDR |foo|) . #6#)
-                        G190
+                   (LETT #6# NIL . #7#)
+                   (SEQ (LETT |p| NIL . #7#) (LETT #5# |lp| . #7#) G190
                         (COND
-                         ((OR (ATOM #1#)
-                              (PROGN (LETT |q1| (CAR #1#) . #6#) NIL))
+                         ((OR (ATOM #5#)
+                              (PROGN (LETT |p| (CAR #5#) . #7#) NIL))
                           (GO G191)))
                         (SEQ
                          (EXIT
-                          (LETT #2# (CONS (SPADCALL |q1| (QREFELT $ 23)) #2#)
-                                . #6#)))
-                        (LETT #1# (CDR #1#) . #6#) (GO G190) G191
-                        (EXIT (NREVERSE #2#))))
-                  . #6#)
-            (EXIT (CONS 0 |lp|))))))))
-      #3# (EXIT #3#))))) 
-
-(DEFUN |LEXTRIPK;groebner;2L;4| (|lp| $)
-  (PROG (#1=#:G158 |q1| #2=#:G157 |lq1| #3=#:G156 |p| #4=#:G155 |fglmpack|
-         |truels|)
-    (RETURN
-     (SEQ
-      (LETT |truels| (|LEXTRIPK;trueVariables| |lp| $)
-            . #5=(|LEXTRIPK;groebner;2L;4|))
-      (LETT |fglmpack| (|FGLMIfCanPackage| (QREFELT $ 6) |truels|) . #5#)
-      (LETT |lq1|
-            (PROGN
-             (LETT #4# NIL . #5#)
-             (SEQ (LETT |p| NIL . #5#) (LETT #3# |lp| . #5#) G190
-                  (COND
-                   ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #5#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #4# (CONS (SPADCALL |p| (QREFELT $ 21)) #4#) . #5#)))
-                  (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                  (EXIT (NREVERSE #4#))))
-            . #5#)
-      (LETT |lq1|
-            (SPADCALL |lq1|
-                      (|compiledLookupCheck| '|groebner|
-                                             (LIST
-                                              (LIST '|List|
-                                                    (LIST '|Polynomial|
-                                                          (|devaluate|
-                                                           (ELT $ 6))))
-                                              (LIST '|List|
-                                                    (LIST '|Polynomial|
-                                                          (|devaluate|
-                                                           (ELT $ 6)))))
-                                             |fglmpack|))
-            . #5#)
-      (EXIT
-       (LETT |lp|
-             (PROGN
-              (LETT #2# NIL . #5#)
-              (SEQ (LETT |q1| NIL . #5#) (LETT #1# |lq1| . #5#) G190
-                   (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |q1| (CAR #1#) . #5#) NIL))
-                     (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (LETT #2# (CONS (SPADCALL |q1| (QREFELT $ 23)) #2#)
-                           . #5#)))
-                   (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-                   (EXIT (NREVERSE #2#))))
-             . #5#)))))) 
-
-(DEFUN |LEXTRIPK;lexTriangular;LBL;5| (|base| |norm?| $)
-  (PROG (|toSee| #1=#:G186 |us| |newlp| |lus| |newp| |b| |lbwt| |bwt| |v| |lp|
-         |p| |toSave| |ts| |lpwt|)
-    (RETURN
-     (SEQ
-      (LETT |base| (SPADCALL (ELT $ 27) |base| (QREFELT $ 29))
-            . #2=(|LEXTRIPK;lexTriangular;LBL;5|))
-      (LETT |base| (SPADCALL (ELT $ 30) |base| (QREFELT $ 32)) . #2#)
-      (EXIT
-       (COND ((SPADCALL (ELT $ 33) |base| (QREFELT $ 34)) NIL)
-             ('T
-              (SEQ (LETT |ts| (SPADCALL (QREFELT $ 36)) . #2#)
-                   (LETT |toSee| (LIST (CONS |base| |ts|)) . #2#)
-                   (LETT |toSave| NIL . #2#)
-                   (SEQ G190
-                        (COND
-                         ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
-                          (GO G191)))
-                        (SEQ (LETT |lpwt| (|SPADfirst| |toSee|) . #2#)
-                             (LETT |toSee| (CDR |toSee|) . #2#)
-                             (LETT |lp| (QCAR |lpwt|) . #2#)
-                             (LETT |ts| (QCDR |lpwt|) . #2#)
+                          (LETT #6# (CONS (SPADCALL |p| (QREFELT $ 21)) #6#)
+                                . #7#)))
+                        (LETT #5# (CDR #5#) . #7#) (GO G190) G191
+                        (EXIT (NREVERSE #6#))))
+                  . #7#)
+            (LETT |foo|
+                  (SPADCALL |lq1|
+                            (|compiledLookupCheck| '|fglmIfCan|
+                                                   (LIST
+                                                    (LIST '|Union|
+                                                          (LIST '|List|
+                                                                (LIST
+                                                                 '|Polynomial|
+                                                                 (|devaluate|
+                                                                  (ELT $ 6))))
+                                                          '#4#)
+                                                    (LIST '|List|
+                                                          (LIST '|Polynomial|
+                                                                (|devaluate|
+                                                                 (ELT $ 6)))))
+                                                   |fglmpack|))
+                  . #7#)
+            (EXIT
+             (COND
+              ((QEQCAR |foo| 1)
+               (PROGN (LETT #3# (CONS 1 "failed") . #7#) (GO #3#)))
+              ('T
+               (SEQ
+                (LETT |lp|
+                      (PROGN
+                       (LETT #2# NIL . #7#)
+                       (SEQ (LETT |q1| NIL . #7#) (LETT #1# (QCDR |foo|) . #7#)
+                            G190
+                            (COND
+                             ((OR (ATOM #1#)
+                                  (PROGN (LETT |q1| (CAR #1#) . #7#) NIL))
+                              (GO G191)))
+                            (SEQ
                              (EXIT
-                              (COND
-                               ((NULL |lp|)
-                                (LETT |toSave| (CONS |ts| |toSave|) . #2#))
-                               ('T
-                                (SEQ (LETT |p| (|SPADfirst| |lp|) . #2#)
-                                     (LETT |lp| (CDR |lp|) . #2#)
-                                     (LETT |v| (SPADCALL |p| (QREFELT $ 37))
-                                           . #2#)
-                                     (EXIT
-                                      (COND
-                                       ((SPADCALL |v| |ts| (QREFELT $ 38))
-                                        (|error|
-                                         "lexTriangular$LEXTRIPK: should never happen !"))
-                                       ('T
-                                        (SEQ
-                                         (COND
-                                          (|norm?|
-                                           (COND
-                                            ((SPADCALL
-                                              (QVELT
-                                               (SPADCALL
-                                                (SPADCALL |p| (QREFELT $ 39))
-                                                |ts| (QREFELT $ 41))
-                                               1)
-                                              (QREFELT $ 30))
-                                             (EXIT
-                                              (LETT |toSee|
-                                                    (CONS (CONS |lp| |ts|)
-                                                          |toSee|)
-                                                    . #2#))))))
-                                         (COND
-                                          ((NULL |norm?|)
-                                           (COND
-                                            ((SPADCALL
-                                              (SPADCALL
-                                               (SPADCALL |p| (QREFELT $ 39))
-                                               |ts| (QREFELT $ 42))
-                                              (QREFELT $ 30))
-                                             (EXIT
-                                              (LETT |toSee|
-                                                    (CONS (CONS |lp| |ts|)
-                                                          |toSee|)
-                                                    . #2#))))))
-                                         (LETT |lbwt|
-                                               (SPADCALL
-                                                (SPADCALL |p| (QREFELT $ 39))
-                                                |ts| (QREFELT $ 45))
-                                               . #2#)
+                              (LETT #2#
+                                    (CONS (SPADCALL |q1| (QREFELT $ 23)) #2#)
+                                    . #7#)))
+                            (LETT #1# (CDR #1#) . #7#) (GO G190) G191
+                            (EXIT (NREVERSE #2#))))
+                      . #7#)
+                (EXIT (CONS 0 |lp|))))))))
+          #3# (EXIT #3#)))) 
+
+(SDEFUN |LEXTRIPK;groebner;2L;4|
+        ((|lp| |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         ($ |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|))))
+        (SPROG
+         ((#1=#:G158 NIL) (|q1| NIL) (#2=#:G157 NIL)
+          (|lq1| (|List| (|Polynomial| R))) (#3=#:G156 NIL) (|p| NIL)
+          (#4=#:G155 NIL)
+          (|fglmpack|
+           (CATEGORY |package|
+            (SIGNATURE |zeroDimensional?|
+             ((|Boolean|) (|List| (|Polynomial| R))))
+            (SIGNATURE |fglmIfCan|
+             ((|Union| (|List| (|Polynomial| R)) "failed")
+              (|List| (|Polynomial| R))))
+            (SIGNATURE |groebner|
+             ((|List| (|Polynomial| R)) (|List| (|Polynomial| R))))))
+          (|truels| (|List| (|Symbol|))))
+         (SEQ
+          (LETT |truels| (|LEXTRIPK;trueVariables| |lp| $)
+                . #5=(|LEXTRIPK;groebner;2L;4|))
+          (LETT |fglmpack| (|FGLMIfCanPackage| (QREFELT $ 6) |truels|) . #5#)
+          (LETT |lq1|
+                (PROGN
+                 (LETT #4# NIL . #5#)
+                 (SEQ (LETT |p| NIL . #5#) (LETT #3# |lp| . #5#) G190
+                      (COND
+                       ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #5#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #4# (CONS (SPADCALL |p| (QREFELT $ 21)) #4#)
+                              . #5#)))
+                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #5#)
+          (LETT |lq1|
+                (SPADCALL |lq1|
+                          (|compiledLookupCheck| '|groebner|
+                                                 (LIST
+                                                  (LIST '|List|
+                                                        (LIST '|Polynomial|
+                                                              (|devaluate|
+                                                               (ELT $ 6))))
+                                                  (LIST '|List|
+                                                        (LIST '|Polynomial|
+                                                              (|devaluate|
+                                                               (ELT $ 6)))))
+                                                 |fglmpack|))
+                . #5#)
+          (EXIT
+           (LETT |lp|
+                 (PROGN
+                  (LETT #2# NIL . #5#)
+                  (SEQ (LETT |q1| NIL . #5#) (LETT #1# |lq1| . #5#) G190
+                       (COND
+                        ((OR (ATOM #1#)
+                             (PROGN (LETT |q1| (CAR #1#) . #5#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2# (CONS (SPADCALL |q1| (QREFELT $ 23)) #2#)
+                               . #5#)))
+                       (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 . #5#))))) 
+
+(SDEFUN |LEXTRIPK;lexTriangular;LBL;5|
+        ((|base| |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         (|norm?| |Boolean|) ($ |List| (|RegularChain| R |ls|)))
+        (SPROG
+         ((|toSee|
+           (|List|
+            (|Record|
+             (|:| |val|
+                  #1=(|List|
+                      (|NewSparseMultivariatePolynomial| R
+                                                         (|OrderedVariableList|
+                                                          |ls|))))
+             (|:| |tower| (|RegularChain| R |ls|)))))
+          (#2=#:G186 NIL) (|us| (|RegularChain| R |ls|))
+          (|newlp|
+           (|List|
+            (|NewSparseMultivariatePolynomial| R
+                                               (|OrderedVariableList| |ls|))))
+          (|lus| (|List| (|RegularChain| R |ls|)))
+          (|newp|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+          (|b| (|Boolean|))
+          (|lbwt|
+           (|List|
+            (|Record| (|:| |val| (|Boolean|))
+                      (|:| |tower| (|RegularChain| R |ls|)))))
+          (|bwt|
+           (|Record| (|:| |val| (|Boolean|))
+                     (|:| |tower| (|RegularChain| R |ls|))))
+          (|v| (|OrderedVariableList| |ls|)) (|lp| #1#)
+          (|p|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+          (|toSave| (|List| (|RegularChain| R |ls|)))
+          (|ts| (|RegularChain| R |ls|))
+          (|lpwt|
+           (|Record|
+            (|:| |val|
+                 (|List|
+                  (|NewSparseMultivariatePolynomial| R
+                                                     (|OrderedVariableList|
+                                                      |ls|))))
+            (|:| |tower| (|RegularChain| R |ls|)))))
+         (SEQ
+          (LETT |base| (SPADCALL (ELT $ 27) |base| (QREFELT $ 29))
+                . #3=(|LEXTRIPK;lexTriangular;LBL;5|))
+          (LETT |base| (SPADCALL (ELT $ 30) |base| (QREFELT $ 32)) . #3#)
+          (EXIT
+           (COND ((SPADCALL (ELT $ 33) |base| (QREFELT $ 34)) NIL)
+                 ('T
+                  (SEQ (LETT |ts| (SPADCALL (QREFELT $ 36)) . #3#)
+                       (LETT |toSee| (LIST (CONS |base| |ts|)) . #3#)
+                       (LETT |toSave| NIL . #3#)
+                       (SEQ G190
+                            (COND
+                             ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
+                              (GO G191)))
+                            (SEQ (LETT |lpwt| (|SPADfirst| |toSee|) . #3#)
+                                 (LETT |toSee| (CDR |toSee|) . #3#)
+                                 (LETT |lp| (QCAR |lpwt|) . #3#)
+                                 (LETT |ts| (QCDR |lpwt|) . #3#)
+                                 (EXIT
+                                  (COND
+                                   ((NULL |lp|)
+                                    (LETT |toSave| (CONS |ts| |toSave|) . #3#))
+                                   ('T
+                                    (SEQ (LETT |p| (|SPADfirst| |lp|) . #3#)
+                                         (LETT |lp| (CDR |lp|) . #3#)
+                                         (LETT |v|
+                                               (SPADCALL |p| (QREFELT $ 37))
+                                               . #3#)
                                          (EXIT
-                                          (SEQ G190
+                                          (COND
+                                           ((SPADCALL |v| |ts| (QREFELT $ 38))
+                                            (|error|
+                                             "lexTriangular$LEXTRIPK: should never happen !"))
+                                           ('T
+                                            (SEQ
+                                             (COND
+                                              (|norm?|
                                                (COND
-                                                ((NULL
-                                                  (COND ((NULL |lbwt|) 'NIL)
-                                                        ('T 'T)))
-                                                 (GO G191)))
-                                               (SEQ
-                                                (LETT |bwt|
-                                                      (|SPADfirst| |lbwt|)
-                                                      . #2#)
-                                                (LETT |lbwt| (CDR |lbwt|)
-                                                      . #2#)
-                                                (LETT |b| (QCAR |bwt|) . #2#)
-                                                (LETT |us| (QCDR |bwt|) . #2#)
-                                                (EXIT
-                                                 (COND
-                                                  (|b|
+                                                ((SPADCALL
+                                                  (QVELT
+                                                   (SPADCALL
+                                                    (SPADCALL |p|
+                                                              (QREFELT $ 39))
+                                                    |ts| (QREFELT $ 41))
+                                                   1)
+                                                  (QREFELT $ 30))
+                                                 (EXIT
+                                                  (LETT |toSee|
+                                                        (CONS (CONS |lp| |ts|)
+                                                              |toSee|)
+                                                        . #3#))))))
+                                             (COND
+                                              ((NULL |norm?|)
+                                               (COND
+                                                ((SPADCALL
+                                                  (SPADCALL
+                                                   (SPADCALL |p|
+                                                             (QREFELT $ 39))
+                                                   |ts| (QREFELT $ 42))
+                                                  (QREFELT $ 30))
+                                                 (EXIT
+                                                  (LETT |toSee|
+                                                        (CONS (CONS |lp| |ts|)
+                                                              |toSee|)
+                                                        . #3#))))))
+                                             (LETT |lbwt|
+                                                   (SPADCALL
+                                                    (SPADCALL |p|
+                                                              (QREFELT $ 39))
+                                                    |ts| (QREFELT $ 45))
+                                                   . #3#)
+                                             (EXIT
+                                              (SEQ G190
+                                                   (COND
+                                                    ((NULL
+                                                      (COND
+                                                       ((NULL |lbwt|) 'NIL)
+                                                       ('T 'T)))
+                                                     (GO G191)))
                                                    (SEQ
-                                                    (COND
-                                                     (|norm?|
-                                                      (SEQ
-                                                       (LETT |newp|
-                                                             (SPADCALL |p| |us|
-                                                                       (QREFELT
-                                                                        $ 47))
-                                                             . #2#)
-                                                       (EXIT
-                                                        (LETT |lus|
-                                                              (LIST
-                                                               (SPADCALL |newp|
-                                                                         |us|
-                                                                         (QREFELT
-                                                                          $
-                                                                          48)))
-                                                              . #2#))))
-                                                     ('T
-                                                      (SEQ
-                                                       (LETT |newp| |p| . #2#)
-                                                       (EXIT
-                                                        (LETT |lus|
-                                                              (SPADCALL |newp|
-                                                                        |us|
-                                                                        (QREFELT
-                                                                         $ 50))
-                                                              . #2#)))))
-                                                    (LETT |newlp| |lp| . #2#)
-                                                    (SEQ G190
-                                                         (COND
-                                                          ((NULL
-                                                            (COND
-                                                             ((NULL |newlp|)
-                                                              'NIL)
-                                                             ('T
-                                                              (SPADCALL
-                                                               (SPADCALL
-                                                                (|SPADfirst|
-                                                                 |newlp|)
-                                                                (QREFELT $ 37))
-                                                               |v|
-                                                               (QREFELT $
-                                                                        51)))))
-                                                           (GO G191)))
-                                                         (SEQ
-                                                          (EXIT
-                                                           (LETT |newlp|
-                                                                 (CDR |newlp|)
-                                                                 . #2#)))
-                                                         NIL (GO G190) G191
-                                                         (EXIT NIL))
+                                                    (LETT |bwt|
+                                                          (|SPADfirst| |lbwt|)
+                                                          . #3#)
+                                                    (LETT |lbwt| (CDR |lbwt|)
+                                                          . #3#)
+                                                    (LETT |b| (QCAR |bwt|)
+                                                          . #3#)
+                                                    (LETT |us| (QCDR |bwt|)
+                                                          . #3#)
                                                     (EXIT
-                                                     (SEQ (LETT |us| NIL . #2#)
-                                                          (LETT #1# |lus|
-                                                                . #2#)
+                                                     (COND
+                                                      (|b|
+                                                       (SEQ
+                                                        (COND
+                                                         (|norm?|
+                                                          (SEQ
+                                                           (LETT |newp|
+                                                                 (SPADCALL |p|
+                                                                           |us|
+                                                                           (QREFELT
+                                                                            $
+                                                                            47))
+                                                                 . #3#)
+                                                           (EXIT
+                                                            (LETT |lus|
+                                                                  (LIST
+                                                                   (SPADCALL
+                                                                    |newp| |us|
+                                                                    (QREFELT $
+                                                                             48)))
+                                                                  . #3#))))
+                                                         ('T
+                                                          (SEQ
+                                                           (LETT |newp| |p|
+                                                                 . #3#)
+                                                           (EXIT
+                                                            (LETT |lus|
+                                                                  (SPADCALL
+                                                                   |newp| |us|
+                                                                   (QREFELT $
+                                                                            50))
+                                                                  . #3#)))))
+                                                        (LETT |newlp| |lp|
+                                                              . #3#)
+                                                        (SEQ G190
+                                                             (COND
+                                                              ((NULL
+                                                                (COND
+                                                                 ((NULL
+                                                                   |newlp|)
+                                                                  'NIL)
+                                                                 ('T
+                                                                  (SPADCALL
+                                                                   (SPADCALL
+                                                                    (|SPADfirst|
+                                                                     |newlp|)
+                                                                    (QREFELT $
+                                                                             37))
+                                                                   |v|
+                                                                   (QREFELT $
+                                                                            51)))))
+                                                               (GO G191)))
+                                                             (SEQ
+                                                              (EXIT
+                                                               (LETT |newlp|
+                                                                     (CDR
+                                                                      |newlp|)
+                                                                     . #3#)))
+                                                             NIL (GO G190) G191
+                                                             (EXIT NIL))
+                                                        (EXIT
+                                                         (SEQ
+                                                          (LETT |us| NIL . #3#)
+                                                          (LETT #2# |lus|
+                                                                . #3#)
                                                           G190
                                                           (COND
-                                                           ((OR (ATOM #1#)
+                                                           ((OR (ATOM #2#)
                                                                 (PROGN
                                                                  (LETT |us|
                                                                        (CAR
-                                                                        #1#)
-                                                                       . #2#)
+                                                                        #2#)
+                                                                       . #3#)
                                                                  NIL))
                                                             (GO G191)))
                                                           (SEQ
@@ -331,179 +443,319 @@
                                                                     |newlp|
                                                                     |us|)
                                                                    |toSee|)
-                                                                  . #2#)))
-                                                          (LETT #1# (CDR #1#)
-                                                                . #2#)
+                                                                  . #3#)))
+                                                          (LETT #2# (CDR #2#)
+                                                                . #3#)
                                                           (GO G190) G191
                                                           (EXIT NIL)))))
-                                                  ('T
-                                                   (LETT |toSee|
-                                                         (CONS (CONS |lp| |us|)
-                                                               |toSee|)
-                                                         . #2#)))))
-                                               NIL (GO G190) G191
-                                               (EXIT NIL))))))))))))
-                        NIL (GO G190) G191 (EXIT NIL))
-                   (EXIT (SPADCALL |toSave| (QREFELT $ 54))))))))))) 
+                                                      ('T
+                                                       (LETT |toSee|
+                                                             (CONS
+                                                              (CONS |lp| |us|)
+                                                              |toSee|)
+                                                             . #3#)))))
+                                                   NIL (GO G190) G191
+                                                   (EXIT NIL))))))))))))
+                            NIL (GO G190) G191 (EXIT NIL))
+                       (EXIT (SPADCALL |toSave| (QREFELT $ 54)))))))))) 
 
-(DEFUN |LEXTRIPK;zeroSetSplit;LBL;6| (|lp| |norm?| $)
-  (PROG (|bar|)
-    (RETURN
-     (SEQ
-      (LETT |bar| (SPADCALL |lp| (QREFELT $ 25)) |LEXTRIPK;zeroSetSplit;LBL;6|)
-      (EXIT
-       (COND
-        ((QEQCAR |bar| 1)
-         (|error| "zeroSetSplit$LEXTRIPK: #1 not zero-dimensional"))
-        ('T (SPADCALL (QCDR |bar|) |norm?| (QREFELT $ 55))))))))) 
+(SDEFUN |LEXTRIPK;zeroSetSplit;LBL;6|
+        ((|lp| |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         (|norm?| |Boolean|) ($ |List| (|RegularChain| R |ls|)))
+        (SPROG
+         ((|bar|
+           (|Union|
+            (|List|
+             (|NewSparseMultivariatePolynomial| R
+                                                (|OrderedVariableList| |ls|)))
+            "failed")))
+         (SEQ
+          (LETT |bar| (SPADCALL |lp| (QREFELT $ 25))
+                |LEXTRIPK;zeroSetSplit;LBL;6|)
+          (EXIT
+           (COND
+            ((QEQCAR |bar| 1)
+             (|error| "zeroSetSplit$LEXTRIPK: #1 not zero-dimensional"))
+            ('T (SPADCALL (QCDR |bar|) |norm?| (QREFELT $ 55)))))))) 
 
-(DEFUN |LEXTRIPK;squareFreeLexTriangular;LBL;7| (|base| |norm?| $)
-  (PROG (|toSee| #1=#:G218 |us| |newlp| |lus| |newp| |b| |lbwt| |bwt| |v| |lp|
-         |p| |toSave| |ts| |lpwt|)
-    (RETURN
-     (SEQ
-      (LETT |base| (SPADCALL (ELT $ 27) |base| (QREFELT $ 29))
-            . #2=(|LEXTRIPK;squareFreeLexTriangular;LBL;7|))
-      (LETT |base| (SPADCALL (ELT $ 30) |base| (QREFELT $ 32)) . #2#)
-      (EXIT
-       (COND ((SPADCALL (ELT $ 33) |base| (QREFELT $ 34)) NIL)
-             ('T
-              (SEQ (LETT |ts| (SPADCALL (QREFELT $ 58)) . #2#)
-                   (LETT |toSee| (LIST (CONS |base| |ts|)) . #2#)
-                   (LETT |toSave| NIL . #2#)
-                   (SEQ G190
-                        (COND
-                         ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
-                          (GO G191)))
-                        (SEQ (LETT |lpwt| (|SPADfirst| |toSee|) . #2#)
-                             (LETT |toSee| (CDR |toSee|) . #2#)
-                             (LETT |lp| (QCAR |lpwt|) . #2#)
-                             (LETT |ts| (QCDR |lpwt|) . #2#)
-                             (EXIT
-                              (COND
-                               ((NULL |lp|)
-                                (LETT |toSave| (CONS |ts| |toSave|) . #2#))
-                               ('T
-                                (SEQ (LETT |p| (|SPADfirst| |lp|) . #2#)
-                                     (LETT |lp| (CDR |lp|) . #2#)
-                                     (LETT |v| (SPADCALL |p| (QREFELT $ 37))
-                                           . #2#)
-                                     (EXIT
-                                      (COND
-                                       ((SPADCALL |v| |ts| (QREFELT $ 59))
-                                        (|error|
-                                         "lexTriangular$LEXTRIPK: should never happen !"))
-                                       ('T
-                                        (SEQ
-                                         (COND
-                                          (|norm?|
-                                           (COND
-                                            ((SPADCALL
-                                              (QVELT
-                                               (SPADCALL
-                                                (SPADCALL |p| (QREFELT $ 39))
-                                                |ts| (QREFELT $ 60))
-                                               1)
-                                              (QREFELT $ 30))
-                                             (EXIT
-                                              (LETT |toSee|
-                                                    (CONS (CONS |lp| |ts|)
-                                                          |toSee|)
-                                                    . #2#))))))
-                                         (COND
-                                          ((NULL |norm?|)
-                                           (COND
-                                            ((SPADCALL
-                                              (SPADCALL
-                                               (SPADCALL |p| (QREFELT $ 39))
-                                               |ts| (QREFELT $ 61))
-                                              (QREFELT $ 30))
-                                             (EXIT
-                                              (LETT |toSee|
-                                                    (CONS (CONS |lp| |ts|)
-                                                          |toSee|)
-                                                    . #2#))))))
-                                         (LETT |lbwt|
-                                               (SPADCALL
-                                                (SPADCALL |p| (QREFELT $ 39))
-                                                |ts| (QREFELT $ 62))
-                                               . #2#)
+(SDEFUN |LEXTRIPK;squareFreeLexTriangular;LBL;7|
+        ((|base| |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         (|norm?| |Boolean|)
+         ($ |List|
+          (|SquareFreeRegularTriangularSet| R
+                                            (|IndexedExponents|
+                                             (|OrderedVariableList| |ls|))
+                                            (|OrderedVariableList| |ls|)
+                                            (|NewSparseMultivariatePolynomial|
+                                             R (|OrderedVariableList| |ls|)))))
+        (SPROG
+         ((|toSee|
+           (|List|
+            (|Record|
+             (|:| |val|
+                  #1=(|List|
+                      (|NewSparseMultivariatePolynomial| R
+                                                         (|OrderedVariableList|
+                                                          |ls|))))
+             (|:| |tower|
+                  (|SquareFreeRegularTriangularSet| R
+                                                    (|IndexedExponents|
+                                                     (|OrderedVariableList|
+                                                      |ls|))
+                                                    (|OrderedVariableList|
+                                                     |ls|)
+                                                    (|NewSparseMultivariatePolynomial|
+                                                     R
+                                                     (|OrderedVariableList|
+                                                      |ls|)))))))
+          (#2=#:G218 NIL)
+          (|us|
+           (|SquareFreeRegularTriangularSet| R
+                                             (|IndexedExponents|
+                                              (|OrderedVariableList| |ls|))
+                                             (|OrderedVariableList| |ls|)
+                                             (|NewSparseMultivariatePolynomial|
+                                              R (|OrderedVariableList| |ls|))))
+          (|newlp|
+           (|List|
+            (|NewSparseMultivariatePolynomial| R
+                                               (|OrderedVariableList| |ls|))))
+          (|lus|
+           (|List|
+            (|SquareFreeRegularTriangularSet| R
+                                              (|IndexedExponents|
+                                               (|OrderedVariableList| |ls|))
+                                              (|OrderedVariableList| |ls|)
+                                              (|NewSparseMultivariatePolynomial|
+                                               R
+                                               (|OrderedVariableList| |ls|)))))
+          (|newp|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+          (|b| (|Boolean|))
+          (|lbwt|
+           (|List|
+            (|Record| (|:| |val| (|Boolean|))
+                      (|:| |tower|
+                           (|SquareFreeRegularTriangularSet| R
+                                                             (|IndexedExponents|
+                                                              (|OrderedVariableList|
+                                                               |ls|))
+                                                             (|OrderedVariableList|
+                                                              |ls|)
+                                                             (|NewSparseMultivariatePolynomial|
+                                                              R
+                                                              (|OrderedVariableList|
+                                                               |ls|)))))))
+          (|bwt|
+           (|Record| (|:| |val| (|Boolean|))
+                     (|:| |tower|
+                          (|SquareFreeRegularTriangularSet| R
+                                                            (|IndexedExponents|
+                                                             (|OrderedVariableList|
+                                                              |ls|))
+                                                            (|OrderedVariableList|
+                                                             |ls|)
+                                                            (|NewSparseMultivariatePolynomial|
+                                                             R
+                                                             (|OrderedVariableList|
+                                                              |ls|))))))
+          (|v| (|OrderedVariableList| |ls|)) (|lp| #1#)
+          (|p|
+           (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+          (|toSave|
+           (|List|
+            (|SquareFreeRegularTriangularSet| R
+                                              (|IndexedExponents|
+                                               (|OrderedVariableList| |ls|))
+                                              (|OrderedVariableList| |ls|)
+                                              (|NewSparseMultivariatePolynomial|
+                                               R
+                                               (|OrderedVariableList| |ls|)))))
+          (|ts|
+           (|SquareFreeRegularTriangularSet| R
+                                             (|IndexedExponents|
+                                              (|OrderedVariableList| |ls|))
+                                             (|OrderedVariableList| |ls|)
+                                             (|NewSparseMultivariatePolynomial|
+                                              R (|OrderedVariableList| |ls|))))
+          (|lpwt|
+           (|Record|
+            (|:| |val|
+                 (|List|
+                  (|NewSparseMultivariatePolynomial| R
+                                                     (|OrderedVariableList|
+                                                      |ls|))))
+            (|:| |tower|
+                 (|SquareFreeRegularTriangularSet| R
+                                                   (|IndexedExponents|
+                                                    (|OrderedVariableList|
+                                                     |ls|))
+                                                   (|OrderedVariableList| |ls|)
+                                                   (|NewSparseMultivariatePolynomial|
+                                                    R
+                                                    (|OrderedVariableList|
+                                                     |ls|)))))))
+         (SEQ
+          (LETT |base| (SPADCALL (ELT $ 27) |base| (QREFELT $ 29))
+                . #3=(|LEXTRIPK;squareFreeLexTriangular;LBL;7|))
+          (LETT |base| (SPADCALL (ELT $ 30) |base| (QREFELT $ 32)) . #3#)
+          (EXIT
+           (COND ((SPADCALL (ELT $ 33) |base| (QREFELT $ 34)) NIL)
+                 ('T
+                  (SEQ (LETT |ts| (SPADCALL (QREFELT $ 58)) . #3#)
+                       (LETT |toSee| (LIST (CONS |base| |ts|)) . #3#)
+                       (LETT |toSave| NIL . #3#)
+                       (SEQ G190
+                            (COND
+                             ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
+                              (GO G191)))
+                            (SEQ (LETT |lpwt| (|SPADfirst| |toSee|) . #3#)
+                                 (LETT |toSee| (CDR |toSee|) . #3#)
+                                 (LETT |lp| (QCAR |lpwt|) . #3#)
+                                 (LETT |ts| (QCDR |lpwt|) . #3#)
+                                 (EXIT
+                                  (COND
+                                   ((NULL |lp|)
+                                    (LETT |toSave| (CONS |ts| |toSave|) . #3#))
+                                   ('T
+                                    (SEQ (LETT |p| (|SPADfirst| |lp|) . #3#)
+                                         (LETT |lp| (CDR |lp|) . #3#)
+                                         (LETT |v|
+                                               (SPADCALL |p| (QREFELT $ 37))
+                                               . #3#)
                                          (EXIT
-                                          (SEQ G190
+                                          (COND
+                                           ((SPADCALL |v| |ts| (QREFELT $ 59))
+                                            (|error|
+                                             "lexTriangular$LEXTRIPK: should never happen !"))
+                                           ('T
+                                            (SEQ
+                                             (COND
+                                              (|norm?|
                                                (COND
-                                                ((NULL
-                                                  (COND ((NULL |lbwt|) 'NIL)
-                                                        ('T 'T)))
-                                                 (GO G191)))
-                                               (SEQ
-                                                (LETT |bwt|
-                                                      (|SPADfirst| |lbwt|)
-                                                      . #2#)
-                                                (LETT |lbwt| (CDR |lbwt|)
-                                                      . #2#)
-                                                (LETT |b| (QCAR |bwt|) . #2#)
-                                                (LETT |us| (QCDR |bwt|) . #2#)
-                                                (EXIT
-                                                 (COND
-                                                  (|b|
+                                                ((SPADCALL
+                                                  (QVELT
+                                                   (SPADCALL
+                                                    (SPADCALL |p|
+                                                              (QREFELT $ 39))
+                                                    |ts| (QREFELT $ 60))
+                                                   1)
+                                                  (QREFELT $ 30))
+                                                 (EXIT
+                                                  (LETT |toSee|
+                                                        (CONS (CONS |lp| |ts|)
+                                                              |toSee|)
+                                                        . #3#))))))
+                                             (COND
+                                              ((NULL |norm?|)
+                                               (COND
+                                                ((SPADCALL
+                                                  (SPADCALL
+                                                   (SPADCALL |p|
+                                                             (QREFELT $ 39))
+                                                   |ts| (QREFELT $ 61))
+                                                  (QREFELT $ 30))
+                                                 (EXIT
+                                                  (LETT |toSee|
+                                                        (CONS (CONS |lp| |ts|)
+                                                              |toSee|)
+                                                        . #3#))))))
+                                             (LETT |lbwt|
+                                                   (SPADCALL
+                                                    (SPADCALL |p|
+                                                              (QREFELT $ 39))
+                                                    |ts| (QREFELT $ 62))
+                                                   . #3#)
+                                             (EXIT
+                                              (SEQ G190
+                                                   (COND
+                                                    ((NULL
+                                                      (COND
+                                                       ((NULL |lbwt|) 'NIL)
+                                                       ('T 'T)))
+                                                     (GO G191)))
                                                    (SEQ
-                                                    (COND
-                                                     (|norm?|
-                                                      (SEQ
-                                                       (LETT |newp|
-                                                             (SPADCALL |p| |us|
-                                                                       (QREFELT
-                                                                        $ 64))
-                                                             . #2#)
-                                                       (EXIT
-                                                        (LETT |lus|
-                                                              (SPADCALL |newp|
-                                                                        |us|
-                                                                        (QREFELT
-                                                                         $ 65))
-                                                              . #2#))))
-                                                     ('T
-                                                      (LETT |lus|
-                                                            (SPADCALL |p| |us|
-                                                                      (QREFELT
-                                                                       $ 65))
-                                                            . #2#)))
-                                                    (LETT |newlp| |lp| . #2#)
-                                                    (SEQ G190
-                                                         (COND
-                                                          ((NULL
-                                                            (COND
-                                                             ((NULL |newlp|)
-                                                              'NIL)
-                                                             ('T
-                                                              (SPADCALL
-                                                               (SPADCALL
-                                                                (|SPADfirst|
-                                                                 |newlp|)
-                                                                (QREFELT $ 37))
-                                                               |v|
-                                                               (QREFELT $
-                                                                        51)))))
-                                                           (GO G191)))
-                                                         (SEQ
-                                                          (EXIT
-                                                           (LETT |newlp|
-                                                                 (CDR |newlp|)
-                                                                 . #2#)))
-                                                         NIL (GO G190) G191
-                                                         (EXIT NIL))
+                                                    (LETT |bwt|
+                                                          (|SPADfirst| |lbwt|)
+                                                          . #3#)
+                                                    (LETT |lbwt| (CDR |lbwt|)
+                                                          . #3#)
+                                                    (LETT |b| (QCAR |bwt|)
+                                                          . #3#)
+                                                    (LETT |us| (QCDR |bwt|)
+                                                          . #3#)
                                                     (EXIT
-                                                     (SEQ (LETT |us| NIL . #2#)
-                                                          (LETT #1# |lus|
-                                                                . #2#)
+                                                     (COND
+                                                      (|b|
+                                                       (SEQ
+                                                        (COND
+                                                         (|norm?|
+                                                          (SEQ
+                                                           (LETT |newp|
+                                                                 (SPADCALL |p|
+                                                                           |us|
+                                                                           (QREFELT
+                                                                            $
+                                                                            64))
+                                                                 . #3#)
+                                                           (EXIT
+                                                            (LETT |lus|
+                                                                  (SPADCALL
+                                                                   |newp| |us|
+                                                                   (QREFELT $
+                                                                            65))
+                                                                  . #3#))))
+                                                         ('T
+                                                          (LETT |lus|
+                                                                (SPADCALL |p|
+                                                                          |us|
+                                                                          (QREFELT
+                                                                           $
+                                                                           65))
+                                                                . #3#)))
+                                                        (LETT |newlp| |lp|
+                                                              . #3#)
+                                                        (SEQ G190
+                                                             (COND
+                                                              ((NULL
+                                                                (COND
+                                                                 ((NULL
+                                                                   |newlp|)
+                                                                  'NIL)
+                                                                 ('T
+                                                                  (SPADCALL
+                                                                   (SPADCALL
+                                                                    (|SPADfirst|
+                                                                     |newlp|)
+                                                                    (QREFELT $
+                                                                             37))
+                                                                   |v|
+                                                                   (QREFELT $
+                                                                            51)))))
+                                                               (GO G191)))
+                                                             (SEQ
+                                                              (EXIT
+                                                               (LETT |newlp|
+                                                                     (CDR
+                                                                      |newlp|)
+                                                                     . #3#)))
+                                                             NIL (GO G190) G191
+                                                             (EXIT NIL))
+                                                        (EXIT
+                                                         (SEQ
+                                                          (LETT |us| NIL . #3#)
+                                                          (LETT #2# |lus|
+                                                                . #3#)
                                                           G190
                                                           (COND
-                                                           ((OR (ATOM #1#)
+                                                           ((OR (ATOM #2#)
                                                                 (PROGN
                                                                  (LETT |us|
                                                                        (CAR
-                                                                        #1#)
-                                                                       . #2#)
+                                                                        #2#)
+                                                                       . #3#)
                                                                  NIL))
                                                             (GO G191)))
                                                           (SEQ
@@ -514,72 +766,87 @@
                                                                     |newlp|
                                                                     |us|)
                                                                    |toSee|)
-                                                                  . #2#)))
-                                                          (LETT #1# (CDR #1#)
-                                                                . #2#)
+                                                                  . #3#)))
+                                                          (LETT #2# (CDR #2#)
+                                                                . #3#)
                                                           (GO G190) G191
                                                           (EXIT NIL)))))
-                                                  ('T
-                                                   (LETT |toSee|
-                                                         (CONS (CONS |lp| |us|)
-                                                               |toSee|)
-                                                         . #2#)))))
-                                               NIL (GO G190) G191
-                                               (EXIT NIL))))))))))))
-                        NIL (GO G190) G191 (EXIT NIL))
-                   (EXIT (SPADCALL |toSave| (QREFELT $ 68))))))))))) 
+                                                      ('T
+                                                       (LETT |toSee|
+                                                             (CONS
+                                                              (CONS |lp| |us|)
+                                                              |toSee|)
+                                                             . #3#)))))
+                                                   NIL (GO G190) G191
+                                                   (EXIT NIL))))))))))))
+                            NIL (GO G190) G191 (EXIT NIL))
+                       (EXIT (SPADCALL |toSave| (QREFELT $ 68)))))))))) 
 
-(DEFUN |LEXTRIPK;zeroSetSplit;LBL;8| (|lp| |norm?| $)
-  (PROG (|bar|)
-    (RETURN
-     (SEQ
-      (LETT |bar| (SPADCALL |lp| (QREFELT $ 25)) |LEXTRIPK;zeroSetSplit;LBL;8|)
-      (EXIT
-       (COND
-        ((QEQCAR |bar| 1)
-         (|error| "zeroSetSplit$LEXTRIPK: #1 not zero-dimensional"))
-        ('T (SPADCALL (QCDR |bar|) |norm?| (QREFELT $ 69))))))))) 
+(SDEFUN |LEXTRIPK;zeroSetSplit;LBL;8|
+        ((|lp| |List|
+          (|NewSparseMultivariatePolynomial| R (|OrderedVariableList| |ls|)))
+         (|norm?| |Boolean|)
+         ($ |List|
+          (|SquareFreeRegularTriangularSet| R
+                                            (|IndexedExponents|
+                                             (|OrderedVariableList| |ls|))
+                                            (|OrderedVariableList| |ls|)
+                                            (|NewSparseMultivariatePolynomial|
+                                             R (|OrderedVariableList| |ls|)))))
+        (SPROG
+         ((|bar|
+           (|Union|
+            (|List|
+             (|NewSparseMultivariatePolynomial| R
+                                                (|OrderedVariableList| |ls|)))
+            "failed")))
+         (SEQ
+          (LETT |bar| (SPADCALL |lp| (QREFELT $ 25))
+                |LEXTRIPK;zeroSetSplit;LBL;8|)
+          (EXIT
+           (COND
+            ((QEQCAR |bar| 1)
+             (|error| "zeroSetSplit$LEXTRIPK: #1 not zero-dimensional"))
+            ('T (SPADCALL (QCDR |bar|) |norm?| (QREFELT $ 69)))))))) 
 
 (DECLAIM (NOTINLINE |LexTriangularPackage;|)) 
 
 (DEFUN |LexTriangularPackage| (&REST #1=#:G224)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G225)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|LexTriangularPackage|)
-                                           '|domainEqualList|)
-                . #3=(|LexTriangularPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |LexTriangularPackage;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G225)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|LexTriangularPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|LexTriangularPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|LexTriangularPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |LexTriangularPackage;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|LexTriangularPackage|)))))))))) 
 
 (DEFUN |LexTriangularPackage;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|LexTriangularPackage|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|LexTriangularPackage| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 71) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|LexTriangularPackage| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|LexTriangularPackage|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|LexTriangularPackage| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 71) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|LexTriangularPackage|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|LexTriangularPackage| '|infovec|
           (LIST

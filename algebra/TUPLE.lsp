@@ -1,93 +1,96 @@
 
-(DEFUN |TUPLE;coerce;Pa$;1| (|x| $) (CONS (QVSIZE |x|) |x|)) 
+(SDEFUN |TUPLE;coerce;Pa$;1| ((|x| |PrimitiveArray| S) ($ $))
+        (CONS (QVSIZE |x|) |x|)) 
 
 (PUT '|TUPLE;coerce;$Pa;2| '|SPADreplace| 'QCDR) 
 
-(DEFUN |TUPLE;coerce;$Pa;2| (|x| $) (QCDR |x|)) 
+(SDEFUN |TUPLE;coerce;$Pa;2| ((|x| $) ($ |PrimitiveArray| S)) (QCDR |x|)) 
 
 (PUT '|TUPLE;length;$Nni;3| '|SPADreplace| 'QCAR) 
 
-(DEFUN |TUPLE;length;$Nni;3| (|x| $) (QCAR |x|)) 
+(SDEFUN |TUPLE;length;$Nni;3| ((|x| $) ($ |NonNegativeInteger|)) (QCAR |x|)) 
 
-(DEFUN |TUPLE;select;$NniS;4| (|x| |n| $)
-  (COND ((>= |n| (QCAR |x|)) (|error| "Index out of bounds"))
-        ('T (QAREF1 (QCDR |x|) |n|)))) 
+(SDEFUN |TUPLE;select;$NniS;4| ((|x| $) (|n| |NonNegativeInteger|) ($ S))
+        (COND ((>= |n| (QCAR |x|)) (|error| "Index out of bounds"))
+              ('T (QAREF1 (QCDR |x|) |n|)))) 
 
-(DEFUN |TUPLE;=;2$B;5| (|x| |y| $)
-  (COND
-   ((EQL (QCAR |x|) (QCAR |y|))
-    (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 15)))
-   ('T 'NIL))) 
+(SDEFUN |TUPLE;=;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND
+         ((EQL (QCAR |x|) (QCAR |y|))
+          (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 15)))
+         ('T 'NIL))) 
 
-(DEFUN |TUPLE;coerce;$Of;6| (|x| $)
-  (PROG (#1=#:G119 |i| #2=#:G118)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #2# NIL . #3=(|TUPLE;coerce;$Of;6|))
-        (SEQ (LETT |i| 0 . #3#)
-             (LETT #1# (SPADCALL (QCDR |x|) (QREFELT $ 18)) . #3#) G190
-             (COND ((|greater_SI| |i| #1#) (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #2#
-                     (CONS (SPADCALL (QAREF1 (QCDR |x|) |i|) (QREFELT $ 20))
-                           #2#)
-                     . #3#)))
-             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-             (EXIT (NREVERSE #2#))))
-       (QREFELT $ 22)))))) 
+(SDEFUN |TUPLE;coerce;$Of;6| ((|x| $) ($ |OutputForm|))
+        (SPROG ((#1=#:G119 NIL) (|i| NIL) (#2=#:G118 NIL))
+               (SEQ
+                (SPADCALL
+                 (PROGN
+                  (LETT #2# NIL . #3=(|TUPLE;coerce;$Of;6|))
+                  (SEQ (LETT |i| 0 . #3#)
+                       (LETT #1# (SPADCALL (QCDR |x|) (QREFELT $ 18)) . #3#)
+                       G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2#
+                               (CONS
+                                (SPADCALL (QAREF1 (QCDR |x|) |i|)
+                                          (QREFELT $ 20))
+                                #2#)
+                               . #3#)))
+                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 (QREFELT $ 22))))) 
 
 (DECLAIM (NOTINLINE |Tuple;|)) 
 
 (DEFUN |Tuple| (#1=#:G120)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G121)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache| '|Tuple|)
-                                           '|domainEqualList|)
-                . #3=(|Tuple|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Tuple;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tuple|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G121)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Tuple|)
+                                               '|domainEqualList|)
+                    . #3=(|Tuple|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Tuple;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tuple|)))))))))) 
 
 (DEFUN |Tuple;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Tuple|))
-      (LETT |dv$| (LIST '|Tuple| DV$1) . #1#)
-      (LETT $ (GETREFV 27) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1| '(|SetCategory|))
-                                          (|HasCategory| |#1|
-                                                         '(|CoercibleTo|
-                                                           (|OutputForm|)))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|Tuple| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7
-                (|Record| (|:| |len| (|NonNegativeInteger|))
-                          (|:| |elts| (|PrimitiveArray| |#1|))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 16 (CONS (|dispatchFunction| |TUPLE;=;2$B;5|) $))))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (QSETREFV $ 23 (CONS (|dispatchFunction| |TUPLE;coerce;$Of;6|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Tuple|))
+          (LETT |dv$| (LIST '|Tuple| DV$1) . #1#)
+          (LETT $ (GETREFV 27) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|Tuple| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7
+                    (|Record| (|:| |len| (|NonNegativeInteger|))
+                              (|:| |elts| (|PrimitiveArray| |#1|))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV $ 16 (CONS (|dispatchFunction| |TUPLE;=;2$B;5|) $))))
+          (COND
+           ((|testBitVector| |pv$| 2)
+            (QSETREFV $ 23
+                      (CONS (|dispatchFunction| |TUPLE;coerce;$Of;6|) $))))
+          $))) 
 
 (MAKEPROP '|Tuple| '|infovec|
           (LIST

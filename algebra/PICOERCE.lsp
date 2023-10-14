@@ -1,50 +1,51 @@
 
-(DEFUN |PICOERCE;coerce;PE;1| (|x| $)
-  (PROG (|f|)
-    (RETURN
-     (SEQ (LETT |f| (SPADCALL |x| (QREFELT $ 9)) |PICOERCE;coerce;PE;1|)
-          (EXIT
-           (SPADCALL (|PICOERCE;p2e| (SPADCALL |f| (QREFELT $ 11)) $)
-                     (|PICOERCE;p2e| (SPADCALL |f| (QREFELT $ 12)) $)
-                     (QREFELT $ 14))))))) 
+(SDEFUN |PICOERCE;coerce;PE;1| ((|x| |Pi|) ($ |Expression| R))
+        (SPROG ((|f| (|Fraction| (|SparseUnivariatePolynomial| (|Integer|)))))
+               (SEQ
+                (LETT |f| (SPADCALL |x| (QREFELT $ 9)) |PICOERCE;coerce;PE;1|)
+                (EXIT
+                 (SPADCALL (|PICOERCE;p2e| (SPADCALL |f| (QREFELT $ 11)) $)
+                           (|PICOERCE;p2e| (SPADCALL |f| (QREFELT $ 12)) $)
+                           (QREFELT $ 14)))))) 
 
-(DEFUN |PICOERCE;p2e| (|p| $)
-  (SPADCALL (SPADCALL (ELT $ 17) |p| (QREFELT $ 21)) (SPADCALL (QREFELT $ 22))
-            (QREFELT $ 23))) 
+(SDEFUN |PICOERCE;p2e|
+        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |Expression| R))
+        (SPADCALL (SPADCALL (ELT $ 17) |p| (QREFELT $ 21))
+                  (SPADCALL (QREFELT $ 22)) (QREFELT $ 23))) 
 
 (DECLAIM (NOTINLINE |PiCoercions;|)) 
 
 (DEFUN |PiCoercions| (#1=#:G106)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G107)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|PiCoercions|)
-                                           '|domainEqualList|)
-                . #3=(|PiCoercions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|PiCoercions;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|PiCoercions|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G107)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PiCoercions|)
+                                               '|domainEqualList|)
+                    . #3=(|PiCoercions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|PiCoercions;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|PiCoercions|)))))))))) 
 
 (DEFUN |PiCoercions;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PiCoercions|))
-      (LETT |dv$| (LIST '|PiCoercions| DV$1) . #1#)
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PiCoercions| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PiCoercions|))
+          (LETT |dv$| (LIST '|PiCoercions| DV$1) . #1#)
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PiCoercions| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PiCoercions| '|infovec|
           (LIST

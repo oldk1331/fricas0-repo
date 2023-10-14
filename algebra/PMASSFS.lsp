@@ -1,84 +1,84 @@
 
-(DEFUN |PMASSFS;mkk| (|op| $) (SPADCALL |op| NIL (QREFELT $ 10))) 
+(SDEFUN |PMASSFS;mkk| ((|op| |BasicOperator|) ($ F))
+        (SPADCALL |op| NIL (QREFELT $ 10))) 
 
-(DEFUN |PMASSFS;ass| (|k| |s| $)
-  (PROG (|op|)
-    (RETURN
-     (COND
-      ((SPADCALL (LETT |op| (SPADCALL |k| (QREFELT $ 12)) |PMASSFS;ass|) |s|
-                 (QREFELT $ 15))
-       (SPADCALL |k| (QREFELT $ 17)))
-      ('T
-       (|PMASSFS;mkk|
-        (SPADCALL (SPADCALL |op| (QREFELT $ 18)) |s| (QREFELT $ 19)) $)))))) 
+(SDEFUN |PMASSFS;ass| ((|k| |Kernel| F) (|s| |Symbol|) ($ F))
+        (SPROG ((|op| (|BasicOperator|)))
+               (COND
+                ((SPADCALL
+                  (LETT |op| (SPADCALL |k| (QREFELT $ 12)) |PMASSFS;ass|) |s|
+                  (QREFELT $ 15))
+                 (SPADCALL |k| (QREFELT $ 17)))
+                ('T
+                 (|PMASSFS;mkk|
+                  (SPADCALL (SPADCALL |op| (QREFELT $ 18)) |s| (QREFELT $ 19))
+                  $))))) 
 
-(DEFUN |PMASSFS;asst| (|k| |s| $)
-  (PROG (|op|)
-    (RETURN
-     (COND
-      ((SPADCALL (LETT |op| (SPADCALL |k| (QREFELT $ 12)) |PMASSFS;asst|) |s|
-                 (QREFELT $ 15))
-       (SPADCALL |k| (QREFELT $ 17)))
-      ('T (|PMASSFS;mkk| (SPADCALL |op| |s| (QREFELT $ 19)) $)))))) 
+(SDEFUN |PMASSFS;asst| ((|k| |Kernel| F) (|s| |Symbol|) ($ F))
+        (SPROG ((|op| (|BasicOperator|)))
+               (COND
+                ((SPADCALL
+                  (LETT |op| (SPADCALL |k| (QREFELT $ 12)) |PMASSFS;asst|) |s|
+                  (QREFELT $ 15))
+                 (SPADCALL |k| (QREFELT $ 17)))
+                ('T (|PMASSFS;mkk| (SPADCALL |op| |s| (QREFELT $ 19)) $))))) 
 
-(DEFUN |PMASSFS;constant;2F;4| (|x| $)
-  (COND
-   ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
-    (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmconstant| $))
-   ('T (|error| "constant must be applied to symbols only")))) 
+(SDEFUN |PMASSFS;constant;2F;4| ((|x| F) ($ F))
+        (COND
+         ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
+          (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmconstant| $))
+         ('T (|error| "constant must be applied to symbols only")))) 
 
-(DEFUN |PMASSFS;optional;2F;5| (|x| $)
-  (COND
-   ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
-    (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmoptional| $))
-   ('T (|error| "optional must be applied to symbols only")))) 
+(SDEFUN |PMASSFS;optional;2F;5| ((|x| F) ($ F))
+        (COND
+         ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
+          (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmoptional| $))
+         ('T (|error| "optional must be applied to symbols only")))) 
 
-(DEFUN |PMASSFS;multiple;2F;6| (|x| $)
-  (COND
-   ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
-    (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmmultiple| $))
-   ('T (|error| "multiple must be applied to symbols only")))) 
+(SDEFUN |PMASSFS;multiple;2F;6| ((|x| F) ($ F))
+        (COND
+         ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
+          (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmmultiple| $))
+         ('T (|error| "multiple must be applied to symbols only")))) 
 
 (DECLAIM (NOTINLINE |FunctionSpaceAssertions;|)) 
 
 (DEFUN |FunctionSpaceAssertions| (&REST #1=#:G128)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G129)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FunctionSpaceAssertions|)
-                                           '|domainEqualList|)
-                . #3=(|FunctionSpaceAssertions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |FunctionSpaceAssertions;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G129)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|FunctionSpaceAssertions|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FunctionSpaceAssertions|)
+                                               '|domainEqualList|)
+                    . #3=(|FunctionSpaceAssertions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FunctionSpaceAssertions;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FunctionSpaceAssertions|)))))))))) 
 
 (DEFUN |FunctionSpaceAssertions;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionSpaceAssertions|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|FunctionSpaceAssertions| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 26) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FunctionSpaceAssertions|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionSpaceAssertions|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|FunctionSpaceAssertions| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FunctionSpaceAssertions|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FunctionSpaceAssertions| '|infovec|
           (LIST

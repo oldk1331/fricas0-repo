@@ -1,49 +1,49 @@
 
-(DEFUN |VARIABLE;coerce;$S;1| (|x| $) (QREFELT $ 6)) 
+(SDEFUN |VARIABLE;coerce;$S;1| ((|x| $) ($ |Symbol|)) (QREFELT $ 6)) 
 
-(DEFUN |VARIABLE;coerce;$Of;2| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 
+(SDEFUN |VARIABLE;coerce;$Of;2| ((|x| $) ($ |OutputForm|))
+        (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 
 
-(DEFUN |VARIABLE;variable;S;3| ($) (QREFELT $ 6)) 
+(SDEFUN |VARIABLE;variable;S;3| (($ |Symbol|)) (QREFELT $ 6)) 
 
 (PUT '|VARIABLE;=;2$B;4| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
-(DEFUN |VARIABLE;=;2$B;4| (|x| |y| $) 'T) 
+(SDEFUN |VARIABLE;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|)) 'T) 
 
-(DEFUN |VARIABLE;latex;$S;5| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 16))) 
+(SDEFUN |VARIABLE;latex;$S;5| ((|x| $) ($ |String|))
+        (SPADCALL (QREFELT $ 6) (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |Variable;|)) 
 
 (DEFUN |Variable| (#1=#:G108)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G109)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|Variable|)
-                                           '|domainEqualList|)
-                . #3=(|Variable|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Variable;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Variable|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G109)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Variable|)
+                                               '|domainEqualList|)
+                    . #3=(|Variable|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Variable;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Variable|)))))))))) 
 
 (DEFUN |Variable;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Variable|))
-      (LETT |dv$| (LIST '|Variable| DV$1) . #1#)
-      (LETT $ (GETREFV 20) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Variable| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Variable|))
+          (LETT |dv$| (LIST '|Variable| DV$1) . #1#)
+          (LETT $ (GETREFV 20) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Variable| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Variable| '|infovec|
           (LIST

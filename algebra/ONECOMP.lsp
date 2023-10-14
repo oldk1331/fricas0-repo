@@ -1,194 +1,201 @@
 
 (PUT '|ONECOMP;coerce;R$;1| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
 
-(DEFUN |ONECOMP;coerce;R$;1| (|r| $) (CONS 0 |r|)) 
+(SDEFUN |ONECOMP;coerce;R$;1| ((|r| R) ($ $)) (CONS 0 |r|)) 
 
-(DEFUN |ONECOMP;retract;$R;2| (|x| $)
-  (COND ((QEQCAR |x| 0) (QCDR |x|)) ('T (|error| "Not finite")))) 
+(SDEFUN |ONECOMP;retract;$R;2| ((|x| $) ($ R))
+        (COND ((QEQCAR |x| 0) (QCDR |x|)) ('T (|error| "Not finite")))) 
 
 (PUT '|ONECOMP;finite?;$B;3| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
 
-(DEFUN |ONECOMP;finite?;$B;3| (|x| $) (QEQCAR |x| 0)) 
+(SDEFUN |ONECOMP;finite?;$B;3| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 0)) 
 
 (PUT '|ONECOMP;infinite?;$B;4| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
 
-(DEFUN |ONECOMP;infinite?;$B;4| (|x| $) (QEQCAR |x| 1)) 
+(SDEFUN |ONECOMP;infinite?;$B;4| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 1)) 
 
 (PUT '|ONECOMP;infinity;$;5| '|SPADreplace| '(XLAM NIL (CONS 1 "infinity"))) 
 
-(DEFUN |ONECOMP;infinity;$;5| ($) (CONS 1 "infinity")) 
+(SDEFUN |ONECOMP;infinity;$;5| (($ $)) (CONS 1 "infinity")) 
 
-(DEFUN |ONECOMP;retractIfCan;$U;6| (|x| $)
-  (COND ((QEQCAR |x| 0) (CONS 0 (QCDR |x|))) ('T (CONS 1 "failed")))) 
+(SDEFUN |ONECOMP;retractIfCan;$U;6| ((|x| $) ($ |Union| R "failed"))
+        (COND ((QEQCAR |x| 0) (CONS 0 (QCDR |x|))) ('T (CONS 1 "failed")))) 
 
-(DEFUN |ONECOMP;coerce;$Of;7| (|x| $)
-  (COND ((QEQCAR |x| 1) (SPADCALL '|infinity| (QREFELT $ 18)))
-        ('T (SPADCALL (QCDR |x|) (QREFELT $ 19))))) 
+(SDEFUN |ONECOMP;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
+        (COND ((QEQCAR |x| 1) (SPADCALL '|infinity| (QREFELT $ 18)))
+              ('T (SPADCALL (QCDR |x|) (QREFELT $ 19))))) 
 
-(DEFUN |ONECOMP;=;2$B;8| (|x| |y| $)
-  (COND ((QEQCAR |x| 1) (QEQCAR |y| 1)) ((QEQCAR |y| 1) 'NIL)
-        ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 21))))) 
+(SDEFUN |ONECOMP;=;2$B;8| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((QEQCAR |x| 1) (QEQCAR |y| 1)) ((QEQCAR |y| 1) 'NIL)
+              ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 21))))) 
 
-(DEFUN |ONECOMP;Zero;$;9| ($) (CONS 0 (|spadConstant| $ 23))) 
+(SDEFUN |ONECOMP;Zero;$;9| (($ $)) (CONS 0 (|spadConstant| $ 23))) 
 
-(DEFUN |ONECOMP;*;I2$;10| (|n| |x| $)
-  (COND
-   ((QEQCAR |x| 1)
-    (COND ((ZEROP |n|) (|error| "Undefined product"))
-          (#1='T (SPADCALL (QREFELT $ 13)))))
-   (#1# (CONS 0 (SPADCALL |n| (QCDR |x|) (QREFELT $ 26)))))) 
+(SDEFUN |ONECOMP;*;I2$;10| ((|n| |Integer|) (|x| $) ($ $))
+        (COND
+         ((QEQCAR |x| 1)
+          (COND ((ZEROP |n|) (|error| "Undefined product"))
+                (#1='T (SPADCALL (QREFELT $ 13)))))
+         (#1# (CONS 0 (SPADCALL |n| (QCDR |x|) (QREFELT $ 26)))))) 
 
-(DEFUN |ONECOMP;-;2$;11| (|x| $)
-  (COND ((QEQCAR |x| 1) (|error| "Undefined inverse"))
-        ('T (CONS 0 (SPADCALL (QCDR |x|) (QREFELT $ 28)))))) 
+(SDEFUN |ONECOMP;-;2$;11| ((|x| $) ($ $))
+        (COND ((QEQCAR |x| 1) (|error| "Undefined inverse"))
+              ('T (CONS 0 (SPADCALL (QCDR |x|) (QREFELT $ 28)))))) 
 
-(DEFUN |ONECOMP;+;3$;12| (|x| |y| $)
-  (COND ((QEQCAR |x| 1) |x|) ((QEQCAR |y| 1) |y|)
-        ('T (CONS 0 (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 30)))))) 
+(SDEFUN |ONECOMP;+;3$;12| ((|x| $) (|y| $) ($ $))
+        (COND ((QEQCAR |x| 1) |x|) ((QEQCAR |y| 1) |y|)
+              ('T (CONS 0 (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 30)))))) 
 
-(DEFUN |ONECOMP;One;$;13| ($) (CONS 0 (|spadConstant| $ 32))) 
+(SDEFUN |ONECOMP;One;$;13| (($ $)) (CONS 0 (|spadConstant| $ 32))) 
 
-(DEFUN |ONECOMP;characteristic;Nni;14| ($) (SPADCALL (QREFELT $ 35))) 
+(SDEFUN |ONECOMP;characteristic;Nni;14| (($ |NonNegativeInteger|))
+        (SPADCALL (QREFELT $ 35))) 
 
-(DEFUN |ONECOMP;fininf| (|r| $)
-  (COND ((SPADCALL |r| (QREFELT $ 37)) (|error| "Undefined product"))
-        ('T (SPADCALL (QREFELT $ 13))))) 
+(SDEFUN |ONECOMP;fininf| ((|r| R) ($ $))
+        (COND ((SPADCALL |r| (QREFELT $ 37)) (|error| "Undefined product"))
+              ('T (SPADCALL (QREFELT $ 13))))) 
 
-(DEFUN |ONECOMP;*;3$;16| (|x| |y| $)
-  (COND
-   ((QEQCAR |x| 1)
-    (COND ((QEQCAR |y| 1) |y|) (#1='T (|ONECOMP;fininf| (QCDR |y|) $))))
-   ((QEQCAR |y| 1) (|ONECOMP;fininf| (QCDR |x|) $))
-   (#1# (CONS 0 (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 38)))))) 
+(SDEFUN |ONECOMP;*;3$;16| ((|x| $) (|y| $) ($ $))
+        (COND
+         ((QEQCAR |x| 1)
+          (COND ((QEQCAR |y| 1) |y|) (#1='T (|ONECOMP;fininf| (QCDR |y|) $))))
+         ((QEQCAR |y| 1) (|ONECOMP;fininf| (QCDR |x|) $))
+         (#1# (CONS 0 (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 38)))))) 
 
-(DEFUN |ONECOMP;recip;$U;17| (|x| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |x| 1) (CONS 0 (|spadConstant| $ 24)))
-            ((SPADCALL (QCDR |x|) (QREFELT $ 37))
-             (CONS 0 (SPADCALL (QREFELT $ 13))))
-            (#1='T
-             (SEQ
-              (LETT |u| (SPADCALL (QCDR |x|) (QREFELT $ 41))
-                    |ONECOMP;recip;$U;17|)
-              (EXIT
-               (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                     (#1# (CONS 0 (CONS 0 (QCDR |u|))))))))))))) 
+(SDEFUN |ONECOMP;recip;$U;17| ((|x| $) ($ |Union| $ #1="failed"))
+        (SPROG ((|u| (|Union| R #1#)))
+               (SEQ
+                (COND ((QEQCAR |x| 1) (CONS 0 (|spadConstant| $ 24)))
+                      ((SPADCALL (QCDR |x|) (QREFELT $ 37))
+                       (CONS 0 (SPADCALL (QREFELT $ 13))))
+                      (#2='T
+                       (SEQ
+                        (LETT |u| (SPADCALL (QCDR |x|) (QREFELT $ 41))
+                              |ONECOMP;recip;$U;17|)
+                        (EXIT
+                         (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                               (#2# (CONS 0 (CONS 0 (QCDR |u|)))))))))))) 
 
-(DEFUN |ONECOMP;<;2$B;18| (|x| |y| $)
-  (COND ((QEQCAR |x| 1) 'NIL) ((QEQCAR |y| 1) 'T)
-        ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 43))))) 
+(SDEFUN |ONECOMP;<;2$B;18| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((QEQCAR |x| 1) 'NIL) ((QEQCAR |y| 1) 'T)
+              ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 43))))) 
 
-(DEFUN |ONECOMP;rational?;$B;19| (|x| $) (SPADCALL |x| (QREFELT $ 11))) 
+(SDEFUN |ONECOMP;rational?;$B;19| ((|x| $) ($ |Boolean|))
+        (SPADCALL |x| (QREFELT $ 11))) 
 
-(DEFUN |ONECOMP;rational;$F;20| (|x| $)
-  (SPADCALL (CONS 0 (SPADCALL |x| (QREFELT $ 9))) (QREFELT $ 47))) 
+(SDEFUN |ONECOMP;rational;$F;20| ((|x| $) ($ |Fraction| (|Integer|)))
+        (SPADCALL (CONS 0 (SPADCALL |x| (QREFELT $ 9))) (QREFELT $ 47))) 
 
-(DEFUN |ONECOMP;rationalIfCan;$U;21| (|x| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ
-      (LETT |r| (SPADCALL |x| (QREFELT $ 15)) |ONECOMP;rationalIfCan;$U;21|)
-      (EXIT
-       (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
-             ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 48)))))))))) 
+(SDEFUN |ONECOMP;rationalIfCan;$U;21|
+        ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        (SPROG ((|r| (|Union| R "failed")))
+               (SEQ
+                (LETT |r| (SPADCALL |x| (QREFELT $ 15))
+                      |ONECOMP;rationalIfCan;$U;21|)
+                (EXIT
+                 (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
+                       ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 48))))))))) 
 
 (DECLAIM (NOTINLINE |OnePointCompletion;|)) 
 
 (DEFUN |OnePointCompletion| (#1=#:G166)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G167)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|OnePointCompletion|)
-                                           '|domainEqualList|)
-                . #3=(|OnePointCompletion|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|OnePointCompletion;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G167)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|OnePointCompletion|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|OnePointCompletion|)
+                                               '|domainEqualList|)
+                    . #3=(|OnePointCompletion|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|OnePointCompletion;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|OnePointCompletion|)))))))))) 
 
 (DEFUN |OnePointCompletion;| (|#1|)
-  (PROG (|pv$| #1=#:G165 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|OnePointCompletion|))
-      (LETT |dv$| (LIST '|OnePointCompletion| DV$1) . #2#)
-      (LETT $ (GETREFV 56) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1| '(|OrderedRing|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|AbelianGroup|))
-                                                . #2#)
-                                          (OR #1#
+  (SPROG ((|pv$| NIL) (#1=#:G165 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #2=(|OnePointCompletion|))
+          (LETT |dv$| (LIST '|OnePointCompletion| DV$1) . #2#)
+          (LETT $ (GETREFV 56) . #2#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
                                               (|HasCategory| |#1|
-                                                             '(|OrderedRing|)))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Integer|)))
-                                           (|HasCategory| |#1|
-                                                          '(|OrderedRing|)))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegerNumberSystem|))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|OnePointCompletion| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|Union| |#1| "infinity"))
-      (COND
-       ((|testBitVector| |pv$| 4)
-        (PROGN
-         (QSETREFV $ 24
-                   (CONS #'|makeSpadConstant|
-                         (LIST (|dispatchFunction| |ONECOMP;Zero;$;9|) $ 24)))
-         (QSETREFV $ 27 (CONS (|dispatchFunction| |ONECOMP;*;I2$;10|) $))
-         (QSETREFV $ 29 (CONS (|dispatchFunction| |ONECOMP;-;2$;11|) $))
-         (QSETREFV $ 31 (CONS (|dispatchFunction| |ONECOMP;+;3$;12|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 33
-                   (CONS #'|makeSpadConstant|
-                         (LIST (|dispatchFunction| |ONECOMP;One;$;13|) $ 33)))
-         (QSETREFV $ 36
-                   (CONS (|dispatchFunction| |ONECOMP;characteristic;Nni;14|)
-                         $))
-         (QSETREFV $ 39 (CONS (|dispatchFunction| |ONECOMP;*;3$;16|) $))
-         (QSETREFV $ 42 (CONS (|dispatchFunction| |ONECOMP;recip;$U;17|) $))
-         (QSETREFV $ 44 (CONS (|dispatchFunction| |ONECOMP;<;2$B;18|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 7)
-        (PROGN
-         (QSETREFV $ 45
-                   (CONS (|dispatchFunction| |ONECOMP;rational?;$B;19|) $))
-         (QSETREFV $ 47 (CONS (|dispatchFunction| |ONECOMP;rational;$F;20|) $))
-         (QSETREFV $ 50
-                   (CONS (|dispatchFunction| |ONECOMP;rationalIfCan;$U;21|)
-                         $)))))
-      $)))) 
+                                                             '(|RetractableTo|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedRing|))
+                                              (LETT #1#
+                                                    (|HasCategory| |#1|
+                                                                   '(|AbelianGroup|))
+                                                    . #2#)
+                                              (OR #1#
+                                                  (|HasCategory| |#1|
+                                                                 '(|OrderedRing|)))
+                                              (OR
+                                               (|HasCategory| |#1|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedRing|)))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegerNumberSystem|))))
+                          . #2#))
+          (|haddProp| |$ConstructorCache| '|OnePointCompletion| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|Union| |#1| "infinity"))
+          (COND
+           ((|testBitVector| |pv$| 4)
+            (PROGN
+             (QSETREFV $ 24
+                       (CONS #'|makeSpadConstant|
+                             (LIST (|dispatchFunction| |ONECOMP;Zero;$;9|) $
+                                   24)))
+             (QSETREFV $ 27 (CONS (|dispatchFunction| |ONECOMP;*;I2$;10|) $))
+             (QSETREFV $ 29 (CONS (|dispatchFunction| |ONECOMP;-;2$;11|) $))
+             (QSETREFV $ 31 (CONS (|dispatchFunction| |ONECOMP;+;3$;12|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 3)
+            (PROGN
+             (QSETREFV $ 33
+                       (CONS #'|makeSpadConstant|
+                             (LIST (|dispatchFunction| |ONECOMP;One;$;13|) $
+                                   33)))
+             (QSETREFV $ 36
+                       (CONS
+                        (|dispatchFunction| |ONECOMP;characteristic;Nni;14|)
+                        $))
+             (QSETREFV $ 39 (CONS (|dispatchFunction| |ONECOMP;*;3$;16|) $))
+             (QSETREFV $ 42
+                       (CONS (|dispatchFunction| |ONECOMP;recip;$U;17|) $))
+             (QSETREFV $ 44
+                       (CONS (|dispatchFunction| |ONECOMP;<;2$B;18|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 7)
+            (PROGN
+             (QSETREFV $ 45
+                       (CONS (|dispatchFunction| |ONECOMP;rational?;$B;19|) $))
+             (QSETREFV $ 47
+                       (CONS (|dispatchFunction| |ONECOMP;rational;$F;20|) $))
+             (QSETREFV $ 50
+                       (CONS (|dispatchFunction| |ONECOMP;rationalIfCan;$U;21|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|OnePointCompletion| '|infovec|
           (LIST

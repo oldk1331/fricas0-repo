@@ -1,54 +1,54 @@
 
-(DEFUN |QEQUAT;coerce;$Of;1| (|u| $)
-  (SPADCALL (SPADCALL (QCAR |u|) (QREFELT $ 9))
-            (SPADCALL (QCDR |u|) (QREFELT $ 11)) (QREFELT $ 12))) 
+(SDEFUN |QEQUAT;coerce;$Of;1| ((|u| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL (QCAR |u|) (QREFELT $ 9))
+                  (SPADCALL (QCDR |u|) (QREFELT $ 11)) (QREFELT $ 12))) 
 
 (PUT '|QEQUAT;equation;SS$;2| '|SPADreplace| 'CONS) 
 
-(DEFUN |QEQUAT;equation;SS$;2| (|x| |s| $) (CONS |x| |s|)) 
+(SDEFUN |QEQUAT;equation;SS$;2| ((|x| |Symbol|) (|s| |String|) ($ $))
+        (CONS |x| |s|)) 
 
 (PUT '|QEQUAT;variable;$S;3| '|SPADreplace| 'QCAR) 
 
-(DEFUN |QEQUAT;variable;$S;3| (|q| $) (QCAR |q|)) 
+(SDEFUN |QEQUAT;variable;$S;3| ((|q| $) ($ |Symbol|)) (QCAR |q|)) 
 
 (PUT '|QEQUAT;value;$S;4| '|SPADreplace| 'QCDR) 
 
-(DEFUN |QEQUAT;value;$S;4| (|q| $) (QCDR |q|)) 
+(SDEFUN |QEQUAT;value;$S;4| ((|q| $) ($ |String|)) (QCDR |q|)) 
 
 (DECLAIM (NOTINLINE |QueryEquation;|)) 
 
 (DEFUN |QueryEquation| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G110)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|QueryEquation|)
-                . #2=(|QueryEquation|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|QueryEquation|
-                         (LIST (CONS NIL (CONS 1 (|QueryEquation;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G110)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|QueryEquation|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|QueryEquation|)
+                    . #2=(|QueryEquation|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|QueryEquation|
+                             (LIST (CONS NIL (CONS 1 (|QueryEquation;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|QueryEquation|)))))))))) 
 
 (DEFUN |QueryEquation;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|QueryEquation|) . #1=(|QueryEquation|))
-      (LETT $ (GETREFV 17) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|QueryEquation| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|Record| (|:| |var| (|Symbol|)) (|:| |val| (|String|))))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|QueryEquation|) . #1=(|QueryEquation|))
+          (LETT $ (GETREFV 17) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|QueryEquation| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |var| (|Symbol|)) (|:| |val| (|String|))))
+          $))) 
 
 (MAKEPROP '|QueryEquation| '|infovec|
           (LIST

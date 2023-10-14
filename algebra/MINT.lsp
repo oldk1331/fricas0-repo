@@ -1,72 +1,71 @@
 
-(DEFUN |MINT;maxint;Pi;1| ($) (QREFELT $ 8)) 
+(SDEFUN |MINT;maxint;Pi;1| (($ |PositiveInteger|)) (QREFELT $ 8)) 
 
-(DEFUN |MINT;maxint;2Pi;2| (|new| $)
-  (PROG (|old|)
-    (RETURN
-     (SEQ (LETT |old| (QREFELT $ 8) |MINT;maxint;2Pi;2|) (SETELT $ 8 |new|)
-          (EXIT |old|))))) 
+(SDEFUN |MINT;maxint;2Pi;2| ((|new| |PositiveInteger|) ($ |PositiveInteger|))
+        (SPROG ((|old| (|PositiveInteger|)))
+               (SEQ (LETT |old| (QREFELT $ 8) |MINT;maxint;2Pi;2|)
+                    (SETELT $ 8 |new|) (EXIT |old|)))) 
 
-(DEFUN |MINT;coerce;EE;3| (|u| $) (SPADCALL (ELT $ 11) |u| (QREFELT $ 16))) 
+(SDEFUN |MINT;coerce;EE;3| ((|u| |Expression| (|Integer|)) ($ |Expression| $))
+        (SPADCALL (ELT $ 11) |u| (QREFELT $ 16))) 
 
-(DEFUN |MINT;coerce;I$;4| (|u| $)
-  (PROG (|message|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (ABS |u|) (QREFELT $ 8) (QREFELT $ 20))
-        (SEQ
-         (LETT |message|
-               (SPADCALL
-                (LIST (STRINGIMAGE |u|) "  > MAXINT("
-                      (STRINGIMAGE (QREFELT $ 8)) ")")
-                (QREFELT $ 23))
-               |MINT;coerce;I$;4|)
-         (EXIT (|error| (SPADCALL |message| (QREFELT $ 25))))))
-       ('T |u|)))))) 
+(SDEFUN |MINT;coerce;I$;4| ((|u| |Integer|) ($ $))
+        (SPROG ((|message| (|String|)))
+               (SEQ
+                (COND
+                 ((SPADCALL (ABS |u|) (QREFELT $ 8) (QREFELT $ 20))
+                  (SEQ
+                   (LETT |message|
+                         (SPADCALL
+                          (LIST (STRINGIMAGE |u|) "  > MAXINT("
+                                (STRINGIMAGE (QREFELT $ 8)) ")")
+                          (QREFELT $ 23))
+                         |MINT;coerce;I$;4|)
+                   (EXIT (|error| (SPADCALL |message| (QREFELT $ 25))))))
+                 ('T |u|))))) 
 
 (PUT '|MINT;retract;$I;5| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(DEFUN |MINT;retract;$I;5| (|u| $) |u|) 
+(SDEFUN |MINT;retract;$I;5| ((|u| $) ($ |Integer|)) |u|) 
 
 (PUT '|MINT;retractIfCan;$U;6| '|SPADreplace| '(XLAM (|u|) (CONS 0 |u|))) 
 
-(DEFUN |MINT;retractIfCan;$U;6| (|u| $) (CONS 0 |u|)) 
+(SDEFUN |MINT;retractIfCan;$U;6| ((|u| $) ($ |Union| (|Integer|) "failed"))
+        (CONS 0 |u|)) 
 
 (DECLAIM (NOTINLINE |MachineInteger;|)) 
 
 (DEFUN |MachineInteger| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G140)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|MachineInteger|)
-                . #2=(|MachineInteger|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|MachineInteger|
-                         (LIST (CONS NIL (CONS 1 (|MachineInteger;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G140)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|MachineInteger|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|MachineInteger|)
+                    . #2=(|MachineInteger|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|MachineInteger|
+                             (LIST (CONS NIL (CONS 1 (|MachineInteger;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|MachineInteger|)))))))))) 
 
 (DEFUN |MachineInteger;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|MachineInteger|) . #1=(|MachineInteger|))
-      (LETT $ (GETREFV 55) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|MachineInteger| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (SPADCALL 2 32 (QREFELT $ 7)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|MachineInteger|) . #1=(|MachineInteger|))
+          (LETT $ (GETREFV 55) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|MachineInteger| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 (SPADCALL 2 32 (QREFELT $ 7)))
+          $))) 
 
 (MAKEPROP '|MachineInteger| '|infovec|
           (LIST

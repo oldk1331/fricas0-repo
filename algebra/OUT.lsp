@@ -1,72 +1,72 @@
 
-(DEFUN |OUT;output;OfV;1| (|e| $)
-  (SEQ (|mathprint| |e|) (EXIT (SPADCALL (QREFELT $ 7))))) 
+(SDEFUN |OUT;output;OfV;1| ((|e| |OutputForm|) ($ |Void|))
+        (SEQ (|mathprint| |e|) (EXIT (SPADCALL (QREFELT $ 7))))) 
 
-(DEFUN |OUT;output;SV;2| (|s| $) (SPADCALL |s| (QREFELT $ 9))) 
+(SDEFUN |OUT;output;SV;2| ((|s| |String|) ($ |Void|))
+        (SPADCALL |s| (QREFELT $ 9))) 
 
-(DEFUN |OUT;output;SOfV;3| (|s| |e| $)
-  (SPADCALL (SPADCALL (LIST |s| |e|) (QREFELT $ 13)) (QREFELT $ 9))) 
+(SDEFUN |OUT;output;SOfV;3| ((|s| |String|) (|e| |OutputForm|) ($ |Void|))
+        (SPADCALL (SPADCALL (LIST |s| |e|) (QREFELT $ 13)) (QREFELT $ 9))) 
 
-(DEFUN |OUT;outputList;LV;4| (|l| $)
-  (PROG (#1=#:G112 |x| #2=#:G111)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (SPADCALL
-        (PROGN
-         (LETT #2# NIL . #3=(|OUT;outputList;LV;4|))
-         (SEQ (LETT |x| NIL . #3#) (LETT #1# |l| . #3#) G190
-              (COND
-               ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
-                (GO G191)))
-              (SEQ
-               (EXIT
-                (LETT #2#
-                      (CONS
-                       (COND
-                        ((SPADCALL |x| (QREFELT $ 18))
-                         (SPADCALL (SPADCALL |x| (QREFELT $ 19))
-                                   (QREFELT $ 20)))
-                        ('T (SPADCALL |x| (QREFELT $ 21))))
-                       #2#)
-                      . #3#)))
-              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-        (QREFELT $ 22))
-       (QREFELT $ 9)))))) 
+(SDEFUN |OUT;outputList;LV;4| ((|l| |List| (|Any|)) ($ |Void|))
+        (SPROG ((#1=#:G112 NIL) (|x| NIL) (#2=#:G111 NIL))
+               (SEQ
+                (SPADCALL
+                 (SPADCALL
+                  (PROGN
+                   (LETT #2# NIL . #3=(|OUT;outputList;LV;4|))
+                   (SEQ (LETT |x| NIL . #3#) (LETT #1# |l| . #3#) G190
+                        (COND
+                         ((OR (ATOM #1#)
+                              (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                          (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (LETT #2#
+                                (CONS
+                                 (COND
+                                  ((SPADCALL |x| (QREFELT $ 18))
+                                   (SPADCALL (SPADCALL |x| (QREFELT $ 19))
+                                             (QREFELT $ 20)))
+                                  ('T (SPADCALL |x| (QREFELT $ 21))))
+                                 #2#)
+                                . #3#)))
+                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (EXIT (NREVERSE #2#))))
+                  (QREFELT $ 22))
+                 (QREFELT $ 9))))) 
 
 (DECLAIM (NOTINLINE |OutputPackage;|)) 
 
 (DEFUN |OutputPackage| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G114)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|OutputPackage|)
-                . #2=(|OutputPackage|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|OutputPackage|
-                         (LIST (CONS NIL (CONS 1 (|OutputPackage;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G114)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|OutputPackage|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|OutputPackage|)
+                    . #2=(|OutputPackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|OutputPackage|
+                             (LIST (CONS NIL (CONS 1 (|OutputPackage;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|OutputPackage|)))))))))) 
 
 (DEFUN |OutputPackage;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|OutputPackage|) . #1=(|OutputPackage|))
-      (LETT $ (GETREFV 25) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OutputPackage| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OutputPackage|) . #1=(|OutputPackage|))
+          (LETT $ (GETREFV 25) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OutputPackage| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|OutputPackage| '|infovec|
           (LIST

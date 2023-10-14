@@ -1,116 +1,120 @@
 
 (PUT '|CHAR;=;2$B;1| '|SPADreplace| '|eql_SI|) 
 
-(DEFUN |CHAR;=;2$B;1| (|a| |b| $) (|eql_SI| |a| |b|)) 
+(SDEFUN |CHAR;=;2$B;1| ((|a| $) (|b| $) ($ |Boolean|)) (|eql_SI| |a| |b|)) 
 
 (PUT '|CHAR;<;2$B;2| '|SPADreplace| '|less_SI|) 
 
-(DEFUN |CHAR;<;2$B;2| (|a| |b| $) (|less_SI| |a| |b|)) 
+(SDEFUN |CHAR;<;2$B;2| ((|a| $) (|b| $) ($ |Boolean|)) (|less_SI| |a| |b|)) 
 
 (PUT '|CHAR;size;Nni;3| '|SPADreplace| '(XLAM NIL 1114112)) 
 
-(DEFUN |CHAR;size;Nni;3| ($) 1114112) 
+(SDEFUN |CHAR;size;Nni;3| (($ |NonNegativeInteger|)) 1114112) 
 
-(DEFUN |CHAR;index;Pi$;4| (|n| $) (SPADCALL (- |n| 1) (QREFELT $ 13))) 
+(SDEFUN |CHAR;index;Pi$;4| ((|n| |PositiveInteger|) ($ $))
+        (SPADCALL (- |n| 1) (QREFELT $ 13))) 
 
-(DEFUN |CHAR;lookup;$Pi;5| (|c| $)
-  (PROG (#1=#:G350)
-    (RETURN
-     (PROG1 (LETT #1# (+ 1 (SPADCALL |c| (QREFELT $ 16))) |CHAR;lookup;$Pi;5|)
-       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
+(SDEFUN |CHAR;lookup;$Pi;5| ((|c| $) ($ |PositiveInteger|))
+        (SPROG ((#1=#:G350 NIL))
+               (PROG1
+                   (LETT #1# (+ 1 (SPADCALL |c| (QREFELT $ 16)))
+                         |CHAR;lookup;$Pi;5|)
+                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
 
-(DEFUN |CHAR;char;I$;6| (|n| $) (SPADCALL |n| (QREFELT $ 18))) 
+(SDEFUN |CHAR;char;I$;6| ((|n| |Integer|) ($ $)) (SPADCALL |n| (QREFELT $ 18))) 
 
 (PUT '|CHAR;ord;$I;7| '|SPADreplace| '(XLAM (|c|) |c|)) 
 
-(DEFUN |CHAR;ord;$I;7| (|c| $) |c|) 
+(SDEFUN |CHAR;ord;$I;7| ((|c| $) ($ |Integer|)) |c|) 
 
-(DEFUN |CHAR;random;$;8| ($) (SPADCALL (RANDOM 128) (QREFELT $ 13))) 
+(SDEFUN |CHAR;random;$;8| (($ $)) (SPADCALL (RANDOM 128) (QREFELT $ 13))) 
 
 (PUT '|CHAR;space;$;9| '|SPADreplace| '(XLAM NIL (STR_ELT "   " 0))) 
 
-(DEFUN |CHAR;space;$;9| ($) (STR_ELT "   " 0)) 
+(SDEFUN |CHAR;space;$;9| (($ $)) (STR_ELT "   " 0)) 
 
 (PUT '|CHAR;quote;$;10| '|SPADreplace| '(XLAM NIL (STR_ELT "\" " 0))) 
 
-(DEFUN |CHAR;quote;$;10| ($) (STR_ELT "\" " 0)) 
+(SDEFUN |CHAR;quote;$;10| (($ $)) (STR_ELT "\" " 0)) 
 
 (PUT '|CHAR;escape;$;11| '|SPADreplace| '(XLAM NIL (STR_ELT "_ " 0))) 
 
-(DEFUN |CHAR;escape;$;11| ($) (STR_ELT "_ " 0)) 
+(SDEFUN |CHAR;escape;$;11| (($ $)) (STR_ELT "_ " 0)) 
 
-(DEFUN |CHAR;newline;$;12| ($) (SPADCALL 10 (QREFELT $ 13))) 
+(SDEFUN |CHAR;newline;$;12| (($ $)) (SPADCALL 10 (QREFELT $ 13))) 
 
 (PUT '|CHAR;coerce;$Of;13| '|SPADreplace| 'NUM2USTR) 
 
-(DEFUN |CHAR;coerce;$Of;13| (|c| $) (NUM2USTR |c|)) 
+(SDEFUN |CHAR;coerce;$Of;13| ((|c| $) ($ |OutputForm|)) (NUM2USTR |c|)) 
 
-(DEFUN |CHAR;digit?;$B;14| (|c| $)
-  (SPADCALL |c| (|spadConstant| $ 27) (QREFELT $ 29))) 
+(SDEFUN |CHAR;digit?;$B;14| ((|c| $) ($ |Boolean|))
+        (SPADCALL |c| (|spadConstant| $ 27) (QREFELT $ 29))) 
 
-(DEFUN |CHAR;hexDigit?;$B;15| (|c| $)
-  (SPADCALL |c| (|spadConstant| $ 31) (QREFELT $ 29))) 
+(SDEFUN |CHAR;hexDigit?;$B;15| ((|c| $) ($ |Boolean|))
+        (SPADCALL |c| (|spadConstant| $ 31) (QREFELT $ 29))) 
 
-(DEFUN |CHAR;upperCase?;$B;16| (|c| $)
-  (SPADCALL |c| (|spadConstant| $ 33) (QREFELT $ 29))) 
+(SDEFUN |CHAR;upperCase?;$B;16| ((|c| $) ($ |Boolean|))
+        (SPADCALL |c| (|spadConstant| $ 33) (QREFELT $ 29))) 
 
-(DEFUN |CHAR;lowerCase?;$B;17| (|c| $)
-  (SPADCALL |c| (|spadConstant| $ 35) (QREFELT $ 29))) 
+(SDEFUN |CHAR;lowerCase?;$B;17| ((|c| $) ($ |Boolean|))
+        (SPADCALL |c| (|spadConstant| $ 35) (QREFELT $ 29))) 
 
-(DEFUN |CHAR;alphabetic?;$B;18| (|c| $)
-  (SPADCALL |c| (|spadConstant| $ 37) (QREFELT $ 29))) 
+(SDEFUN |CHAR;alphabetic?;$B;18| ((|c| $) ($ |Boolean|))
+        (SPADCALL |c| (|spadConstant| $ 37) (QREFELT $ 29))) 
 
-(DEFUN |CHAR;alphanumeric?;$B;19| (|c| $)
-  (SPADCALL |c| (|spadConstant| $ 39) (QREFELT $ 29))) 
+(SDEFUN |CHAR;alphanumeric?;$B;19| ((|c| $) ($ |Boolean|))
+        (SPADCALL |c| (|spadConstant| $ 39) (QREFELT $ 29))) 
 
-(DEFUN |CHAR;latex;$S;20| (|c| $)
-  (STRCONC "\\mbox{`" (STRCONC (|make_full_CVEC| 1 |c|) "'}"))) 
+(SDEFUN |CHAR;latex;$S;20| ((|c| $) ($ |String|))
+        (STRCONC "\\mbox{`" (STRCONC (|make_full_CVEC| 1 |c|) "'}"))) 
 
 (PUT '|CHAR;char;S$;21| '|SPADreplace| '|STR_to_CHAR|) 
 
-(DEFUN |CHAR;char;S$;21| (|s| $) (|STR_to_CHAR| |s|)) 
+(SDEFUN |CHAR;char;S$;21| ((|s| |String|) ($ $)) (|STR_to_CHAR| |s|)) 
 
-(DEFUN |CHAR;upperCase;2$;22| (|c| $) (QENUM (PNAME (UPCASE (NUM2CHAR |c|))) 0)) 
+(SDEFUN |CHAR;upperCase;2$;22| ((|c| $) ($ $))
+        (QENUM (PNAME (UPCASE (NUM2CHAR |c|))) 0)) 
 
-(DEFUN |CHAR;lowerCase;2$;23| (|c| $)
-  (QENUM (PNAME (DOWNCASE (NUM2CHAR |c|))) 0)) 
+(SDEFUN |CHAR;lowerCase;2$;23| ((|c| $) ($ $))
+        (QENUM (PNAME (DOWNCASE (NUM2CHAR |c|))) 0)) 
 
 (PUT '|CHAR;hashUpdate!;Hs$Hs;24| '|SPADreplace| 'HASHSTATEUPDATE) 
 
-(DEFUN |CHAR;hashUpdate!;Hs$Hs;24| (|hs| |c| $) (HASHSTATEUPDATE |hs| |c|)) 
+(SDEFUN |CHAR;hashUpdate!;Hs$Hs;24|
+        ((|hs| |HashState|) (|c| $) ($ |HashState|)) (HASHSTATEUPDATE |hs| |c|)) 
 
 (DECLAIM (NOTINLINE |Character;|)) 
 
 (DEFUN |Character| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G373)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Character|) . #2=(|Character|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Character|
-                         (LIST (CONS NIL (CONS 1 (|Character;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Character|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G373)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Character|)
+                    . #2=(|Character|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Character|
+                             (LIST (CONS NIL (CONS 1 (|Character;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|Character|)))))))))) 
 
 (DEFUN |Character;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Character|) . #1=(|Character|))
-      (LETT $ (GETREFV 51) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Character| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|SingleInteger|))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Character|) . #1=(|Character|))
+          (LETT $ (GETREFV 51) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Character| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|SingleInteger|))
+          $))) 
 
 (MAKEPROP '|Character| '|infovec|
           (LIST

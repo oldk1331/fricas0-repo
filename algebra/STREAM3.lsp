@@ -1,97 +1,102 @@
 
-(DEFUN |STREAM3;mapp| (|g| |x| |y| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|STREAM3;mapp!0| (VECTOR |g| |y| $ |x|))
-               (QREFELT $ 24))))) 
+(SDEFUN |STREAM3;mapp|
+        ((|g| |Mapping| C A B) (|x| |Stream| A) (|y| |Stream| B)
+         ($ |Stream| C))
+        (SPROG NIL
+               (SPADCALL (CONS #'|STREAM3;mapp!0| (VECTOR |g| |y| $ |x|))
+                         (QREFELT $ 24)))) 
 
-(DEFUN |STREAM3;mapp!0| ($$)
-  (PROG (|x| $ |y| |g|)
-    (LETT |x| (QREFELT $$ 3) . #1=(|STREAM3;mapp|))
-    (LETT $ (QREFELT $$ 2) . #1#)
-    (LETT |y| (QREFELT $$ 1) . #1#)
-    (LETT |g| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (COND
-       ((OR (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |y| (QREFELT $ 15)))
-        (SPADCALL (QREFELT $ 13)))
-       ('T
-        (SPADCALL
-         (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (SPADCALL |y| (QREFELT $ 17))
-                   |g|)
-         (SPADCALL |g| (SPADCALL |x| (QREFELT $ 18))
-                   (SPADCALL |y| (QREFELT $ 19)) (QREFELT $ 21))
-         (QREFELT $ 22)))))))) 
+(SDEFUN |STREAM3;mapp!0| (($$ NIL))
+        (PROG (|x| $ |y| |g|)
+          (LETT |x| (QREFELT $$ 3) . #1=(|STREAM3;mapp|))
+          (LETT $ (QREFELT $$ 2) . #1#)
+          (LETT |y| (QREFELT $$ 1) . #1#)
+          (LETT |g| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (COND
+             ((OR (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |y| (QREFELT $ 15)))
+              (SPADCALL (QREFELT $ 13)))
+             ('T
+              (SPADCALL
+               (SPADCALL (SPADCALL |x| (QREFELT $ 16))
+                         (SPADCALL |y| (QREFELT $ 17)) |g|)
+               (SPADCALL |g| (SPADCALL |x| (QREFELT $ 18))
+                         (SPADCALL |y| (QREFELT $ 19)) (QREFELT $ 21))
+               (QREFELT $ 22)))))))) 
 
-(DEFUN |STREAM3;map;MSSS;2| (|g| |x| |y| $)
-  (PROG ()
-    (RETURN
-     (COND ((SPADCALL |x| (QREFELT $ 25)) (SPADCALL (QREFELT $ 13)))
-           ((SPADCALL |x| (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 26))
-            (SPADCALL (CONS #'|STREAM3;map;MSSS;2!0| (VECTOR |g| $ |x|)) |y|
-                      (QREFELT $ 29)))
-           ((SPADCALL |y| (QREFELT $ 30)) (SPADCALL (QREFELT $ 13)))
-           ((SPADCALL |y| (SPADCALL |y| (QREFELT $ 19)) (QREFELT $ 31))
-            (SPADCALL (CONS #'|STREAM3;map;MSSS;2!1| (VECTOR |g| $ |y|)) |x|
-                      (QREFELT $ 34)))
-           ('T (|STREAM3;mapp| |g| |x| |y| $)))))) 
+(SDEFUN |STREAM3;map;MSSS;2|
+        ((|g| |Mapping| C A B) (|x| |Stream| A) (|y| |Stream| B)
+         ($ |Stream| C))
+        (SPROG NIL
+               (COND ((SPADCALL |x| (QREFELT $ 25)) (SPADCALL (QREFELT $ 13)))
+                     ((SPADCALL |x| (SPADCALL |x| (QREFELT $ 18))
+                                (QREFELT $ 26))
+                      (SPADCALL
+                       (CONS #'|STREAM3;map;MSSS;2!0| (VECTOR |g| $ |x|)) |y|
+                       (QREFELT $ 29)))
+                     ((SPADCALL |y| (QREFELT $ 30)) (SPADCALL (QREFELT $ 13)))
+                     ((SPADCALL |y| (SPADCALL |y| (QREFELT $ 19))
+                                (QREFELT $ 31))
+                      (SPADCALL
+                       (CONS #'|STREAM3;map;MSSS;2!1| (VECTOR |g| $ |y|)) |x|
+                       (QREFELT $ 34)))
+                     ('T (|STREAM3;mapp| |g| |x| |y| $))))) 
 
-(DEFUN |STREAM3;map;MSSS;2!1| (|z| $$)
-  (PROG (|y| $ |g|)
-    (LETT |y| (QREFELT $$ 2) . #1=(|STREAM3;map;MSSS;2|))
-    (LETT $ (QREFELT $$ 1) . #1#)
-    (LETT |g| (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |z| (SPADCALL |y| (QREFELT $ 17)) |g|))))) 
+(SDEFUN |STREAM3;map;MSSS;2!1| ((|z| NIL) ($$ NIL))
+        (PROG (|y| $ |g|)
+          (LETT |y| (QREFELT $$ 2) . #1=(|STREAM3;map;MSSS;2|))
+          (LETT $ (QREFELT $$ 1) . #1#)
+          (LETT |g| (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |z| (SPADCALL |y| (QREFELT $ 17)) |g|))))) 
 
-(DEFUN |STREAM3;map;MSSS;2!0| (|z| $$)
-  (PROG (|x| $ |g|)
-    (LETT |x| (QREFELT $$ 2) . #1=(|STREAM3;map;MSSS;2|))
-    (LETT $ (QREFELT $$ 1) . #1#)
-    (LETT |g| (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL (SPADCALL |x| (QREFELT $ 16)) |z| |g|))))) 
+(SDEFUN |STREAM3;map;MSSS;2!0| ((|z| NIL) ($$ NIL))
+        (PROG (|x| $ |g|)
+          (LETT |x| (QREFELT $$ 2) . #1=(|STREAM3;map;MSSS;2|))
+          (LETT $ (QREFELT $$ 1) . #1#)
+          (LETT |g| (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL (SPADCALL |x| (QREFELT $ 16)) |z| |g|))))) 
 
 (DECLAIM (NOTINLINE |StreamFunctions3;|)) 
 
 (DEFUN |StreamFunctions3| (&REST #1=#:G145)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G146)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|StreamFunctions3|)
-                                           '|domainEqualList|)
-                . #3=(|StreamFunctions3|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |StreamFunctions3;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G146)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|StreamFunctions3|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|StreamFunctions3|)
+                                               '|domainEqualList|)
+                    . #3=(|StreamFunctions3|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |StreamFunctions3;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|StreamFunctions3|)))))))))) 
 
 (DEFUN |StreamFunctions3;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|StreamFunctions3|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|StreamFunctions3| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 35) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|StreamFunctions3| (LIST DV$1 DV$2 DV$3)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|StreamFunctions3|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|StreamFunctions3| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 35) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|StreamFunctions3|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|StreamFunctions3| '|infovec|
           (LIST

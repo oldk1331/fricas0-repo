@@ -19,33 +19,32 @@
       #2#)))) 
 
 (DEFUN |AssociationListAggregate;| (|t#1| |t#2|)
-  (PROG (#1=#:G106)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (|sublisV|
-                 (PAIR '(#2=#:G105)
-                       (LIST
-                        '(|Record| (|:| |key| |t#1|) (|:| |entry| |t#2|))))
-                 (COND (|AssociationListAggregate;CAT|)
-                       ('T
-                        (LETT |AssociationListAggregate;CAT|
-                              (|Join| (|TableAggregate| '|t#1| '|t#2|)
-                                      (|ListAggregate| '#2#)
-                                      (|mkCategory|
-                                       '(((|assoc|
-                                           ((|Union|
-                                             (|Record| (|:| |key| |t#1|)
-                                                       (|:| |entry| |t#2|))
-                                             "failed")
-                                            |t#1| $))
-                                          T))
-                                       NIL 'NIL NIL))
-                              . #3=(|AssociationListAggregate|))))))
-               . #3#)
-       (SETELT #1# 0
-               (LIST '|AssociationListAggregate| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G106 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (|sublisV|
+                     (PAIR '(#2=#:G105)
+                           (LIST
+                            '(|Record| (|:| |key| |t#1|) (|:| |entry| |t#2|))))
+                     (COND (|AssociationListAggregate;CAT|)
+                           ('T
+                            (LETT |AssociationListAggregate;CAT|
+                                  (|Join| (|TableAggregate| '|t#1| '|t#2|)
+                                          (|ListAggregate| '#2#)
+                                          (|mkCategory|
+                                           '(((|assoc|
+                                               ((|Union|
+                                                 (|Record| (|:| |key| |t#1|)
+                                                           (|:| |entry| |t#2|))
+                                                 "failed")
+                                                |t#1| $))
+                                              T))
+                                           NIL 'NIL NIL))
+                                  . #3=(|AssociationListAggregate|))))))
+                   . #3#)
+           (SETELT #1# 0
+                   (LIST '|AssociationListAggregate| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

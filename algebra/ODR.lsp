@@ -1,80 +1,79 @@
 
 (PUT '|ODR;coerce;R$;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(DEFUN |ODR;coerce;R$;1| (|u| $) |u|) 
+(SDEFUN |ODR;coerce;R$;1| ((|u| R) ($ $)) |u|) 
 
 (PUT '|ODR;coerce;$R;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(DEFUN |ODR;coerce;$R;2| (|p| $) |p|) 
+(SDEFUN |ODR;coerce;$R;2| ((|p| $) ($ R)) |p|) 
 
-(DEFUN |ODR;differentiate;2$;3| (|p| $)
-  (SPADCALL |p| (QREFELT $ 8) (QREFELT $ 12))) 
+(SDEFUN |ODR;differentiate;2$;3| ((|p| $) ($ $))
+        (SPADCALL |p| (QREFELT $ 8) (QREFELT $ 12))) 
 
-(DEFUN |ODR;/;3$;4| (|p| |q| $)
-  (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (SPADCALL |q| (QREFELT $ 11))
-            (QREFELT $ 14))) 
+(SDEFUN |ODR;/;3$;4| ((|p| $) (|q| $) ($ $))
+        (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (SPADCALL |q| (QREFELT $ 11))
+                  (QREFELT $ 14))) 
 
-(DEFUN |ODR;^;$I$;5| (|p| |n| $)
-  (SPADCALL (SPADCALL |p| (QREFELT $ 11)) |n| (QREFELT $ 17))) 
+(SDEFUN |ODR;^;$I$;5| ((|p| $) (|n| |Integer|) ($ $))
+        (SPADCALL (SPADCALL |p| (QREFELT $ 11)) |n| (QREFELT $ 17))) 
 
-(DEFUN |ODR;inv;2$;6| (|p| $)
-  (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (QREFELT $ 19))) 
+(SDEFUN |ODR;inv;2$;6| ((|p| $) ($ $))
+        (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (QREFELT $ 19))) 
 
 (DECLAIM (NOTINLINE |OrdinaryDifferentialRing;|)) 
 
 (DEFUN |OrdinaryDifferentialRing| (&REST #1=#:G124)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G125)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|OrdinaryDifferentialRing|)
-                                           '|domainEqualList|)
-                . #3=(|OrdinaryDifferentialRing|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |OrdinaryDifferentialRing;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G125)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|OrdinaryDifferentialRing|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|OrdinaryDifferentialRing|)
+                                               '|domainEqualList|)
+                    . #3=(|OrdinaryDifferentialRing|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |OrdinaryDifferentialRing;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|OrdinaryDifferentialRing|)))))))))) 
 
 (DEFUN |OrdinaryDifferentialRing;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|OrdinaryDifferentialRing|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|OrdinaryDifferentialRing| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 41) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2| '(|Field|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|OrdinaryDifferentialRing|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 5 |#2|)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 9 |#2|)
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 15 (CONS (|dispatchFunction| |ODR;/;3$;4|) $))
-         (QSETREFV $ 18 (CONS (|dispatchFunction| |ODR;^;$I$;5|) $))
-         (QSETREFV $ 20 (CONS (|dispatchFunction| |ODR;inv;2$;6|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|OrdinaryDifferentialRing|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|OrdinaryDifferentialRing| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 41) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2| '(|Field|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|OrdinaryDifferentialRing|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 5 |#2|)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 9 |#2|)
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 15 (CONS (|dispatchFunction| |ODR;/;3$;4|) $))
+             (QSETREFV $ 18 (CONS (|dispatchFunction| |ODR;^;$I$;5|) $))
+             (QSETREFV $ 20 (CONS (|dispatchFunction| |ODR;inv;2$;6|) $)))))
+          $))) 
 
 (MAKEPROP '|OrdinaryDifferentialRing| '|infovec|
           (LIST

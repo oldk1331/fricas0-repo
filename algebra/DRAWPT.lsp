@@ -1,65 +1,84 @@
 
-(DEFUN |DRAWPT;draw;LLTdv;1| (|lp| |l| $)
-  (SPADCALL (SPADCALL (LIST |lp|) (QREFELT $ 8)) |l| (QREFELT $ 11))) 
+(SDEFUN |DRAWPT;draw;LLTdv;1|
+        ((|lp| |List| (|Point| (|DoubleFloat|))) (|l| |List| (|DrawOption|))
+         ($ |TwoDimensionalViewport|))
+        (SPADCALL (SPADCALL (LIST |lp|) (QREFELT $ 8)) |l| (QREFELT $ 11))) 
 
-(DEFUN |DRAWPT;draw;LTdv;2| (|lp| $) (SPADCALL |lp| NIL (QREFELT $ 13))) 
+(SDEFUN |DRAWPT;draw;LTdv;2|
+        ((|lp| |List| (|Point| (|DoubleFloat|))) ($ |TwoDimensionalViewport|))
+        (SPADCALL |lp| NIL (QREFELT $ 13))) 
 
-(DEFUN |DRAWPT;draw;2LLTdv;3| (|lx| |ly| |l| $)
-  (PROG (#1=#:G112 |x| #2=#:G113 |y| #3=#:G111)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #3# NIL . #4=(|DRAWPT;draw;2LLTdv;3|))
-        (SEQ (LETT |y| NIL . #4#) (LETT #2# |ly| . #4#) (LETT |x| NIL . #4#)
-             (LETT #1# |lx| . #4#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #4#) NIL) (ATOM #2#)
-                   (PROGN (LETT |y| (CAR #2#) . #4#) NIL))
-               (GO G191)))
-             (SEQ
+(SDEFUN |DRAWPT;draw;2LLTdv;3|
+        ((|lx| |List| (|DoubleFloat|)) (|ly| |List| (|DoubleFloat|))
+         (|l| |List| (|DrawOption|)) ($ |TwoDimensionalViewport|))
+        (SPROG
+         ((#1=#:G112 NIL) (|x| NIL) (#2=#:G113 NIL) (|y| NIL) (#3=#:G111 NIL))
+         (SEQ
+          (SPADCALL
+           (PROGN
+            (LETT #3# NIL . #4=(|DRAWPT;draw;2LLTdv;3|))
+            (SEQ (LETT |y| NIL . #4#) (LETT #2# |ly| . #4#)
+                 (LETT |x| NIL . #4#) (LETT #1# |lx| . #4#) G190
+                 (COND
+                  ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #4#) NIL)
+                       (ATOM #2#) (PROGN (LETT |y| (CAR #2#) . #4#) NIL))
+                   (GO G191)))
+                 (SEQ
+                  (EXIT
+                   (LETT #3#
+                         (CONS (SPADCALL (LIST |x| |y|) (QREFELT $ 17)) #3#)
+                         . #4#)))
+                 (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#)) . #4#)
+                 (GO G190) G191 (EXIT (NREVERSE #3#))))
+           |l| (QREFELT $ 13))))) 
+
+(SDEFUN |DRAWPT;draw;2LTdv;4|
+        ((|lx| |List| (|DoubleFloat|)) (|ly| |List| (|DoubleFloat|))
+         ($ |TwoDimensionalViewport|))
+        (SPADCALL |lx| |ly| NIL (QREFELT $ 18))) 
+
+(SDEFUN |DRAWPT;draw;3LTdv;5|
+        ((|x| |List| (|DoubleFloat|)) (|y| |List| (|DoubleFloat|))
+         (|z| |List| (|DoubleFloat|)) ($ |ThreeDimensionalViewport|))
+        (SPADCALL |x| |y| |z| NIL (QREFELT $ 21))) 
+
+(SDEFUN |DRAWPT;draw;3LLTdv;6|
+        ((|x| |List| (|DoubleFloat|)) (|y| |List| (|DoubleFloat|))
+         (|z| |List| (|DoubleFloat|)) (|l| |List| (|DrawOption|))
+         ($ |ThreeDimensionalViewport|))
+        (SPROG
+         ((|points| (|List| (|List| (|Point| (|DoubleFloat|)))))
+          (|row| (|List| (|Point| (|DoubleFloat|)))) (|zval| (|Integer|))
+          (|i| NIL) (|j| NIL) (|zLen| (|Integer|)) (|n| (|Integer|))
+          (|m| (|Integer|)))
+         (SEQ (LETT |m| (LENGTH |x|) . #1=(|DRAWPT;draw;3LLTdv;6|))
               (EXIT
-               (LETT #3# (CONS (SPADCALL (LIST |x| |y|) (QREFELT $ 17)) #3#)
-                     . #4#)))
-             (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#)) . #4#)
-             (GO G190) G191 (EXIT (NREVERSE #3#))))
-       |l| (QREFELT $ 13)))))) 
-
-(DEFUN |DRAWPT;draw;2LTdv;4| (|lx| |ly| $)
-  (SPADCALL |lx| |ly| NIL (QREFELT $ 18))) 
-
-(DEFUN |DRAWPT;draw;3LTdv;5| (|x| |y| |z| $)
-  (SPADCALL |x| |y| |z| NIL (QREFELT $ 21))) 
-
-(DEFUN |DRAWPT;draw;3LLTdv;6| (|x| |y| |z| |l| $)
-  (PROG (|points| |row| |zval| |i| |j| |zLen| |n| |m|)
-    (RETURN
-     (SEQ (LETT |m| (LENGTH |x|) . #1=(|DRAWPT;draw;3LLTdv;6|))
-          (EXIT
-           (COND ((ZEROP |m|) (|error| "No X values"))
-                 (#2='T
-                  (SEQ (LETT |n| (LENGTH |y|) . #1#)
-                       (EXIT
-                        (COND ((ZEROP |n|) (|error| "No Y values"))
-                              (#2#
-                               (SEQ (LETT |zLen| (LENGTH |z|) . #1#)
-                                    (EXIT
-                                     (COND
-                                      ((SPADCALL |zLen| (* |m| |n|)
-                                                 (QREFELT $ 25))
-                                       (COND
-                                        ((SPADCALL |zLen| (* |m| |n|)
-                                                   (QREFELT $ 26))
-                                         (|error|
-                                          "Too many Z-values to fit grid"))
-                                        (#2#
-                                         (|error|
-                                          "Not enough Z-values to fit grid"))))
-                                      (#2#
-                                       (SEQ (LETT |points| NIL . #1#)
-                                            (SEQ (LETT |j| |n| . #1#) G190
-                                                 (COND ((< |j| 1) (GO G191)))
-                                                 (SEQ (LETT |row| NIL . #1#)
+               (COND ((ZEROP |m|) (|error| "No X values"))
+                     (#2='T
+                      (SEQ (LETT |n| (LENGTH |y|) . #1#)
+                           (EXIT
+                            (COND ((ZEROP |n|) (|error| "No Y values"))
+                                  (#2#
+                                   (SEQ (LETT |zLen| (LENGTH |z|) . #1#)
+                                        (EXIT
+                                         (COND
+                                          ((SPADCALL |zLen| (* |m| |n|)
+                                                     (QREFELT $ 25))
+                                           (COND
+                                            ((SPADCALL |zLen| (* |m| |n|)
+                                                       (QREFELT $ 26))
+                                             (|error|
+                                              "Too many Z-values to fit grid"))
+                                            (#2#
+                                             (|error|
+                                              "Not enough Z-values to fit grid"))))
+                                          (#2#
+                                           (SEQ (LETT |points| NIL . #1#)
+                                                (SEQ (LETT |j| |n| . #1#) G190
+                                                     (COND
+                                                      ((< |j| 1) (GO G191)))
+                                                     (SEQ
+                                                      (LETT |row| NIL . #1#)
                                                       (SEQ (LETT |i| |m| . #1#)
                                                            G190
                                                            (COND
@@ -108,56 +127,58 @@
                                                              (CONS |row|
                                                                    |points|)
                                                              . #1#)))
-                                                 (LETT |j| (+ |j| -1) . #1#)
-                                                 (GO G190) G191 (EXIT NIL))
-                                            (EXIT
-                                             (SPADCALL
-                                              (SPADCALL |points|
-                                                        (QREFELT $ 30))
-                                              |l|
-                                              (QREFELT $ 31))))))))))))))))))) 
+                                                     (LETT |j| (+ |j| -1)
+                                                           . #1#)
+                                                     (GO G190) G191 (EXIT NIL))
+                                                (EXIT
+                                                 (SPADCALL
+                                                  (SPADCALL |points|
+                                                            (QREFELT $ 30))
+                                                  |l|
+                                                  (QREFELT $
+                                                           31)))))))))))))))))) 
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctionsForPoints;|)) 
 
 (DEFUN |TopLevelDrawFunctionsForPoints| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G127)
-       (RETURN
-        (COND
-         ((LETT #1#
-                (HGET |$ConstructorCache| '|TopLevelDrawFunctionsForPoints|)
-                . #2=(|TopLevelDrawFunctionsForPoints|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|TopLevelDrawFunctionsForPoints|
-                         (LIST
-                          (CONS NIL
-                                (CONS 1
-                                      (|TopLevelDrawFunctionsForPoints;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G127)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache|
-                    '|TopLevelDrawFunctionsForPoints|))))))))))) 
+             ((LETT #1#
+                    (HGET |$ConstructorCache|
+                          '|TopLevelDrawFunctionsForPoints|)
+                    . #2=(|TopLevelDrawFunctionsForPoints|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache|
+                             '|TopLevelDrawFunctionsForPoints|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1
+                                          (|TopLevelDrawFunctionsForPoints;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|TopLevelDrawFunctionsForPoints|)))))))))) 
 
 (DEFUN |TopLevelDrawFunctionsForPoints;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|TopLevelDrawFunctionsForPoints|)
-            . #1=(|TopLevelDrawFunctionsForPoints|))
-      (LETT $ (GETREFV 32) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TopLevelDrawFunctionsForPoints| NIL
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TopLevelDrawFunctionsForPoints|)
+                . #1=(|TopLevelDrawFunctionsForPoints|))
+          (LETT $ (GETREFV 32) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TopLevelDrawFunctionsForPoints| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|TopLevelDrawFunctionsForPoints| '|infovec|
           (LIST

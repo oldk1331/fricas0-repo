@@ -1,48 +1,51 @@
 
-(DEFUN |FUNCTION;name;$S;1| (|r| $) (QREFELT $ 6)) 
+(SDEFUN |FUNCTION;name;$S;1| ((|r| $) ($ |Symbol|)) (QREFELT $ 6)) 
 
-(DEFUN |FUNCTION;coerce;$Of;2| (|r| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 
+(SDEFUN |FUNCTION;coerce;$Of;2| ((|r| $) ($ |OutputForm|))
+        (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 
 
 (PUT '|FUNCTION;=;2$B;3| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
-(DEFUN |FUNCTION;=;2$B;3| (|x| |y| $) 'T) 
+(SDEFUN |FUNCTION;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|)) 'T) 
 
-(DEFUN |FUNCTION;latex;$S;4| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
+(SDEFUN |FUNCTION;latex;$S;4| ((|x| $) ($ |String|))
+        (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
 
 (DECLAIM (NOTINLINE |FunctionCalled;|)) 
 
 (DEFUN |FunctionCalled| (#1=#:G107)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G108)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|FunctionCalled|)
-                                           '|domainEqualList|)
-                . #3=(|FunctionCalled|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|FunctionCalled;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G108)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|FunctionCalled|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FunctionCalled|)
+                                               '|domainEqualList|)
+                    . #3=(|FunctionCalled|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FunctionCalled;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FunctionCalled|)))))))))) 
 
 (DEFUN |FunctionCalled;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionCalled|))
-      (LETT |dv$| (LIST '|FunctionCalled| DV$1) . #1#)
-      (LETT $ (GETREFV 19) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FunctionCalled| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionCalled|))
+          (LETT |dv$| (LIST '|FunctionCalled| DV$1) . #1#)
+          (LETT $ (GETREFV 19) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FunctionCalled| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FunctionCalled| '|infovec|
           (LIST

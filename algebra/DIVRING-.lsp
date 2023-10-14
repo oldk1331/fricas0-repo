@@ -1,35 +1,35 @@
 
-(DEFUN |DIVRING-;^;SIS;1| (|x| |n| $)
-  (COND ((ZEROP |n|) (|spadConstant| $ 7))
-        ((SPADCALL |x| (QREFELT $ 9))
-         (COND ((< |n| 0) (|error| "division by zero")) (#1='T |x|)))
-        ((< |n| 0)
-         (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (- |n|) (QREFELT $ 14)))
-        (#1# (SPADCALL |x| |n| (QREFELT $ 14))))) 
+(SDEFUN |DIVRING-;^;SIS;1| ((|x| S) (|n| |Integer|) ($ S))
+        (COND ((ZEROP |n|) (|spadConstant| $ 7))
+              ((SPADCALL |x| (QREFELT $ 9))
+               (COND ((< |n| 0) (|error| "division by zero")) (#1='T |x|)))
+              ((< |n| 0)
+               (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (- |n|) (QREFELT $ 14)))
+              (#1# (SPADCALL |x| |n| (QREFELT $ 14))))) 
 
-(DEFUN |DIVRING-;*;F2S;2| (|q| |x| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL |q| (QREFELT $ 18))
-             (SPADCALL (SPADCALL (SPADCALL |q| (QREFELT $ 19)) (QREFELT $ 20))
-                       (QREFELT $ 11))
-             (QREFELT $ 21))
-   |x| (QREFELT $ 22))) 
+(SDEFUN |DIVRING-;*;F2S;2| ((|q| |Fraction| (|Integer|)) (|x| S) ($ S))
+        (SPADCALL
+         (SPADCALL (SPADCALL |q| (QREFELT $ 18))
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |q| (QREFELT $ 19)) (QREFELT $ 20))
+                    (QREFELT $ 11))
+                   (QREFELT $ 21))
+         |x| (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |DivisionRing&;|)) 
 
 (DEFUN |DivisionRing&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|DivisionRing&|))
-      (LETT |dv$| (LIST '|DivisionRing&| DV$1) . #1#)
-      (LETT $ (GETREFV 25) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|DivisionRing&|))
+          (LETT |dv$| (LIST '|DivisionRing&| DV$1) . #1#)
+          (LETT $ (GETREFV 25) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|DivisionRing&| '|infovec|
           (LIST

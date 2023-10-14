@@ -1,431 +1,504 @@
 
-(DEFUN |NSMP;PSimp| (|up| |mv| $)
-  (COND ((EQL (SPADCALL |up| (QREFELT $ 12)) 0) (SPADCALL |up| (QREFELT $ 14)))
-        ('T (CONS 1 (CONS |mv| |up|))))) 
+(SDEFUN |NSMP;PSimp| ((|up| D) (|mv| |VarSet|) ($ $))
+        (COND
+         ((EQL (SPADCALL |up| (QREFELT $ 12)) 0)
+          (SPADCALL |up| (QREFELT $ 14)))
+         ('T (CONS 1 (CONS |mv| |up|))))) 
 
 (PUT '|NSMP;coerce;$Smp;2| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(DEFUN |NSMP;coerce;$Smp;2| (|p| $) |p|) 
+(SDEFUN |NSMP;coerce;$Smp;2|
+        ((|p| $) ($ |SparseMultivariatePolynomial| R |VarSet|)) |p|) 
 
 (PUT '|NSMP;coerce;Smp$;3| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
-(DEFUN |NSMP;coerce;Smp$;3| (|p| $) |p|) 
+(SDEFUN |NSMP;coerce;Smp$;3|
+        ((|p| |SparseMultivariatePolynomial| R |VarSet|) ($ $)) |p|) 
 
 (PUT '|NSMP;retractIfCan;$U;4| '|SPADreplace| '(XLAM (|p|) (CONS 0 |p|))) 
 
-(DEFUN |NSMP;retractIfCan;$U;4| (|p| $) (CONS 0 |p|)) 
+(SDEFUN |NSMP;retractIfCan;$U;4|
+        ((|p| $)
+         ($ |Union| (|SparseMultivariatePolynomial| R |VarSet|) "failed"))
+        (CONS 0 |p|)) 
 
-(DEFUN |NSMP;mvar;$VarSet;5| (|p| $)
-  (COND
-   ((QEQCAR |p| 0) (|error| " Error in mvar from NSMP : #1 has no variables."))
-   ('T (QCAR (QCDR |p|))))) 
+(SDEFUN |NSMP;mvar;$VarSet;5| ((|p| $) ($ |VarSet|))
+        (COND
+         ((QEQCAR |p| 0)
+          (|error| " Error in mvar from NSMP : #1 has no variables."))
+         ('T (QCAR (QCDR |p|))))) 
 
-(DEFUN |NSMP;mdeg;$Nni;6| (|p| $)
-  (COND ((QEQCAR |p| 0) 0) ('T (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 12))))) 
+(SDEFUN |NSMP;mdeg;$Nni;6| ((|p| $) ($ |NonNegativeInteger|))
+        (COND ((QEQCAR |p| 0) 0)
+              ('T (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 12))))) 
 
-(DEFUN |NSMP;init;2$;7| (|p| $)
-  (COND
-   ((QEQCAR |p| 0) (|error| " Error in init from NSMP : #1 has no variables."))
-   ('T (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14))))) 
+(SDEFUN |NSMP;init;2$;7| ((|p| $) ($ $))
+        (COND
+         ((QEQCAR |p| 0)
+          (|error| " Error in init from NSMP : #1 has no variables."))
+         ('T (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14))))) 
 
-(DEFUN |NSMP;head;2$;8| (|p| $)
-  (COND ((QEQCAR |p| 0) |p|)
-        ('T
-         (CONS 1
-               (CONS (QCAR (QCDR |p|))
-                     (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 22))))))) 
+(SDEFUN |NSMP;head;2$;8| ((|p| $) ($ $))
+        (COND ((QEQCAR |p| 0) |p|)
+              ('T
+               (CONS 1
+                     (CONS (QCAR (QCDR |p|))
+                           (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 22))))))) 
 
-(DEFUN |NSMP;tail;2$;9| (|p| $)
-  (PROG (|red|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |p| 0) (|spadConstant| $ 13))
-            (#1='T
-             (SEQ
-              (LETT |red| (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 24))
-                    |NSMP;tail;2$;9|)
-              (EXIT
-               (COND
-                ((SPADCALL |red| (QREFELT $ 26))
-                 (SPADCALL |red| (QREFELT $ 27)))
-                (#1# (CONS 1 (CONS (QCAR (QCDR |p|)) |red|)))))))))))) 
+(SDEFUN |NSMP;tail;2$;9| ((|p| $) ($ $))
+        (SPROG ((|red| (D)))
+               (SEQ
+                (COND ((QEQCAR |p| 0) (|spadConstant| $ 13))
+                      (#1='T
+                       (SEQ
+                        (LETT |red| (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 24))
+                              |NSMP;tail;2$;9|)
+                        (EXIT
+                         (COND
+                          ((SPADCALL |red| (QREFELT $ 26))
+                           (SPADCALL |red| (QREFELT $ 27)))
+                          (#1# (CONS 1 (CONS (QCAR (QCDR |p|)) |red|))))))))))) 
 
-(DEFUN |NSMP;iteratedInitials;$L;10| (|p| $)
-  (SEQ
-   (COND ((QEQCAR |p| 0) NIL)
+(SDEFUN |NSMP;iteratedInitials;$L;10| ((|p| $) ($ |List| $))
+        (SEQ
+         (COND ((QEQCAR |p| 0) NIL)
+               ('T
+                (SEQ
+                 (LETT |p| (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14))
+                       |NSMP;iteratedInitials;$L;10|)
+                 (EXIT
+                  (SPADCALL |p| (SPADCALL |p| (QREFELT $ 30))
+                            (QREFELT $ 32)))))))) 
+
+(SDEFUN |NSMP;localDeepestInitial| ((|p| $) ($ $))
+        (COND ((QEQCAR |p| 0) |p|)
+              ('T
+               (|NSMP;localDeepestInitial|
+                (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14)) $)))) 
+
+(SDEFUN |NSMP;deepestInitial;2$;12| ((|p| $) ($ $))
+        (COND
+         ((QEQCAR |p| 0)
+          (|error| "Error in deepestInitial from NSMP : #1 has no variables."))
          ('T
-          (SEQ
-           (LETT |p| (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14))
-                 |NSMP;iteratedInitials;$L;10|)
-           (EXIT
-            (SPADCALL |p| (SPADCALL |p| (QREFELT $ 30)) (QREFELT $ 32)))))))) 
+          (|NSMP;localDeepestInitial|
+           (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14)) $)))) 
 
-(DEFUN |NSMP;localDeepestInitial| (|p| $)
-  (COND ((QEQCAR |p| 0) |p|)
-        ('T
-         (|NSMP;localDeepestInitial|
-          (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14)) $)))) 
+(SDEFUN |NSMP;mainMonomial;2$;13| ((|p| $) ($ $))
+        (COND
+         ((SPADCALL |p| (QREFELT $ 34))
+          (|error| "Error in mainMonomial from NSMP : the argument is zero"))
+         ((QEQCAR |p| 0) (|spadConstant| $ 35))
+         ('T
+          (SPADCALL (|spadConstant| $ 35) (QCAR (QCDR |p|))
+                    (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 12))
+                    (QREFELT $ 36))))) 
 
-(DEFUN |NSMP;deepestInitial;2$;12| (|p| $)
-  (COND
-   ((QEQCAR |p| 0)
-    (|error| "Error in deepestInitial from NSMP : #1 has no variables."))
-   ('T
-    (|NSMP;localDeepestInitial| (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14))
-     $)))) 
+(SDEFUN |NSMP;leastMonomial;2$;14| ((|p| $) ($ $))
+        (COND
+         ((SPADCALL |p| (QREFELT $ 34))
+          (|error| "Error in leastMonomial from NSMP : the argument is zero"))
+         ((QEQCAR |p| 0) (|spadConstant| $ 35))
+         ('T
+          (SPADCALL (|spadConstant| $ 35) (QCAR (QCDR |p|))
+                    (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 38))
+                    (QREFELT $ 36))))) 
 
-(DEFUN |NSMP;mainMonomial;2$;13| (|p| $)
-  (COND
-   ((SPADCALL |p| (QREFELT $ 34))
-    (|error| "Error in mainMonomial from NSMP : the argument is zero"))
-   ((QEQCAR |p| 0) (|spadConstant| $ 35))
-   ('T
-    (SPADCALL (|spadConstant| $ 35) (QCAR (QCDR |p|))
-              (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 12)) (QREFELT $ 36))))) 
+(SDEFUN |NSMP;mainCoefficients;$L;15| ((|p| $) ($ |List| $))
+        (COND
+         ((SPADCALL |p| (QREFELT $ 34))
+          (|error|
+           "Error in mainCoefficients from NSMP : the argument is zero"))
+         ((QEQCAR |p| 0) (LIST |p|))
+         ('T (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 40))))) 
 
-(DEFUN |NSMP;leastMonomial;2$;14| (|p| $)
-  (COND
-   ((SPADCALL |p| (QREFELT $ 34))
-    (|error| "Error in leastMonomial from NSMP : the argument is zero"))
-   ((QEQCAR |p| 0) (|spadConstant| $ 35))
-   ('T
-    (SPADCALL (|spadConstant| $ 35) (QCAR (QCDR |p|))
-              (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 38)) (QREFELT $ 36))))) 
+(SDEFUN |NSMP;leadingCoefficient;$VarSet$;16| ((|p| $) (|x| |VarSet|) ($ $))
+        (SPROG ((|d| (|NonNegativeInteger|)))
+               (COND ((QEQCAR |p| 0) |p|)
+                     ((SPADCALL (QCAR (QCDR |p|)) |x| (QREFELT $ 42))
+                      (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14)))
+                     ((ZEROP
+                       (LETT |d| (SPADCALL |p| |x| (QREFELT $ 43))
+                             |NSMP;leadingCoefficient;$VarSet$;16|))
+                      |p|)
+                     ('T (SPADCALL |p| |x| |d| (QREFELT $ 44)))))) 
 
-(DEFUN |NSMP;mainCoefficients;$L;15| (|p| $)
-  (COND
-   ((SPADCALL |p| (QREFELT $ 34))
-    (|error| "Error in mainCoefficients from NSMP : the argument is zero"))
-   ((QEQCAR |p| 0) (LIST |p|))
-   ('T (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 40))))) 
+(SDEFUN |NSMP;localMonicModulo| ((|a| $) (|b| $) ($ $))
+        (SPROG ((|mM| ($)) (|m| (D)))
+               (SEQ
+                (COND
+                 ((OR (QEQCAR |a| 0)
+                      (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                                (QREFELT $ 46)))
+                  |a|)
+                 ('T
+                  (SEQ
+                   (COND
+                    ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                               (QREFELT $ 47))
+                     (LETT |m|
+                           (SPADCALL
+                            (CONS #'|NSMP;localMonicModulo!0| (VECTOR $ |b|))
+                            (QCDR (QCDR |a|)) (QREFELT $ 51))
+                           . #1=(|NSMP;localMonicModulo|)))
+                    (#2='T
+                     (LETT |m|
+                           (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                                     (QREFELT $ 52))
+                           . #1#)))
+                   (COND
+                    ((SPADCALL |m| (QREFELT $ 26))
+                     (LETT |mM| (SPADCALL |m| (QREFELT $ 27)) . #1#))
+                    (#2#
+                     (LETT |mM| (CONS 1 (CONS (QCAR (QCDR |a|)) |m|)) . #1#)))
+                   (EXIT |mM|))))))) 
 
-(DEFUN |NSMP;leadingCoefficient;$VarSet$;16| (|p| |x| $)
-  (PROG (|d|)
-    (RETURN
-     (COND ((QEQCAR |p| 0) |p|)
-           ((SPADCALL (QCAR (QCDR |p|)) |x| (QREFELT $ 42))
-            (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14)))
-           ((ZEROP
-             (LETT |d| (SPADCALL |p| |x| (QREFELT $ 43))
-                   |NSMP;leadingCoefficient;$VarSet$;16|))
-            |p|)
-           ('T (SPADCALL |p| |x| |d| (QREFELT $ 44))))))) 
+(SDEFUN |NSMP;localMonicModulo!0| ((|a1| NIL) ($$ NIL))
+        (PROG (|b| $)
+          (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;localMonicModulo|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (|NSMP;localMonicModulo| |a1| |b| $))))) 
 
-(DEFUN |NSMP;localMonicModulo| (|a| |b| $)
-  (PROG (|mM| |m|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (QEQCAR |a| 0)
-            (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 46)))
-        |a|)
-       ('T
-        (SEQ
-         (COND
-          ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 47))
-           (LETT |m|
-                 (SPADCALL (CONS #'|NSMP;localMonicModulo!0| (VECTOR $ |b|))
-                           (QCDR (QCDR |a|)) (QREFELT $ 51))
-                 . #1=(|NSMP;localMonicModulo|)))
-          (#2='T
-           (LETT |m|
-                 (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 52))
-                 . #1#)))
-         (COND
-          ((SPADCALL |m| (QREFELT $ 26))
-           (LETT |mM| (SPADCALL |m| (QREFELT $ 27)) . #1#))
-          (#2# (LETT |mM| (CONS 1 (CONS (QCAR (QCDR |a|)) |m|)) . #1#)))
-         (EXIT |mM|)))))))) 
+(SDEFUN |NSMP;monicModulo;3$;18| ((|a| $) (|b| $) ($ $))
+        (SPROG ((|mM| ($)) (|rec| (|Union| R "failed")) (|r| (R)) (|ib| ($)))
+               (SEQ
+                (COND
+                 ((QEQCAR |b| 0)
+                  (|error| "Error in monicModulo from NSMP : #2 is constant"))
+                 (#1='T
+                  (SEQ
+                   (LETT |ib| (SPADCALL |b| (QREFELT $ 21))
+                         . #2=(|NSMP;monicModulo;3$;18|))
+                   (COND
+                    ((NULL (SPADCALL |ib| (QREFELT $ 53)))
+                     (EXIT
+                      (|error|
+                       "Error in monicModulo from NSMP : #2 is not monic"))))
+                   (COND
+                    ((SPADCALL |ib| (|spadConstant| $ 35) (QREFELT $ 55))
+                     (LETT |mM| (|NSMP;localMonicModulo| |a| |b| $) . #2#))
+                    (#1#
+                     (SEQ (LETT |r| (SPADCALL |ib| (QREFELT $ 56)) . #2#)
+                          (LETT |rec| (SPADCALL |r| (QREFELT $ 58)) . #2#)
+                          (EXIT
+                           (COND
+                            ((QEQCAR |rec| 1)
+                             (|error|
+                              "Error in monicModulo from NSMP : #2 is not monic"))
+                            ((QEQCAR |a| 0) |a|)
+                            (#1#
+                             (SEQ
+                              (LETT |a|
+                                    (SPADCALL (QCDR |rec|) |a| (QREFELT $ 59))
+                                    . #2#)
+                              (LETT |b|
+                                    (SPADCALL (QCDR |rec|) |b| (QREFELT $ 59))
+                                    . #2#)
+                              (EXIT
+                               (LETT |mM|
+                                     (SPADCALL |ib|
+                                               (|NSMP;localMonicModulo| |a| |b|
+                                                $)
+                                               (QREFELT $ 60))
+                                     . #2#)))))))))
+                   (EXIT |mM|))))))) 
 
-(DEFUN |NSMP;localMonicModulo!0| (|a1| $$)
-  (PROG (|b| $)
-    (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;localMonicModulo|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (|NSMP;localMonicModulo| |a1| |b| $))))) 
+(SDEFUN |NSMP;prem;3$;19| ((|a| $) (|b| $) ($ $))
+        (SPROG
+         ((#1=#:G260 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
+          (|term| ($)) (#2=#:G247 NIL) (#3=#:G263 NIL) (|r| (D))
+          (#4=#:G228 NIL) (|lcb| ($)) (|db| (|NonNegativeInteger|)))
+         (SEQ
+          (EXIT
+           (COND ((QEQCAR |b| 0) (|error| "in prem$NSMP: ground? #2"))
+                 (#5='T
+                  (SEQ
+                   (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12))
+                         . #6=(|NSMP;prem;3$;19|))
+                   (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14))
+                         . #6#)
+                   (LETT |test|
+                         (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43))
+                            |db|)
+                         . #6#)
+                   (LETT |delta| (MAX (+ |test| 1) 0) . #6#)
+                   (COND
+                    ((OR (QEQCAR |a| 0)
+                         (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                                   (QREFELT $ 46)))
+                     (EXIT
+                      (SPADCALL
+                       (SPADCALL |lcb|
+                                 (PROG1 (LETT #4# |delta| . #6#)
+                                   (|check_subtype| (>= #4# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    #4#))
+                                 (QREFELT $ 62))
+                       |a| (QREFELT $ 60)))))
+                   (EXIT
+                    (COND
+                     ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                                (QREFELT $ 42))
+                      (SEQ
+                       (LETT |r|
+                             (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                                       (QREFELT $ 63))
+                             . #6#)
+                       (EXIT
+                        (COND
+                         ((SPADCALL |r| (QREFELT $ 26))
+                          (PROGN
+                           (LETT #3# (SPADCALL |r| (QREFELT $ 27)) . #6#)
+                           (GO #3#)))
+                         (#5# (CONS 1 (CONS (QCAR (QCDR |a|)) |r|)))))))
+                     (#5#
+                      (SEQ
+                       (SEQ G190
+                            (COND
+                             ((NULL
+                               (COND
+                                ((OR (SPADCALL |a| (QREFELT $ 34))
+                                     (MINUSP |test|))
+                                 'NIL)
+                                ('T 'T)))
+                              (GO G191)))
+                            (SEQ
+                             (LETT |term|
+                                   (SPADCALL
+                                    (SPADCALL |a| (QCAR (QCDR |b|))
+                                              (QREFELT $ 45))
+                                    (QCAR (QCDR |b|))
+                                    (PROG1 (LETT #2# |test| . #6#)
+                                      (|check_subtype| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       #2#))
+                                    (QREFELT $ 36))
+                                   . #6#)
+                             (LETT |a|
+                                   (SPADCALL
+                                    (SPADCALL |lcb| |a| (QREFELT $ 60))
+                                    (SPADCALL |term| |b| (QREFELT $ 60))
+                                    (QREFELT $ 64))
+                                   . #6#)
+                             (LETT |delta| (- |delta| 1) . #6#)
+                             (EXIT
+                              (LETT |test|
+                                    (-
+                                     (SPADCALL |a| (QCAR (QCDR |b|))
+                                               (QREFELT $ 43))
+                                     |db|)
+                                    . #6#)))
+                            NIL (GO G190) G191 (EXIT NIL))
+                       (EXIT
+                        (SPADCALL
+                         (SPADCALL |lcb|
+                                   (PROG1 (LETT #1# |delta| . #6#)
+                                     (|check_subtype| (>= #1# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      #1#))
+                                   (QREFELT $ 62))
+                         |a| (QREFELT $ 60)))))))))))
+          #3# (EXIT #3#)))) 
 
-(DEFUN |NSMP;monicModulo;3$;18| (|a| |b| $)
-  (PROG (|mM| |rec| |r| |ib|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QEQCAR |b| 0)
-        (|error| "Error in monicModulo from NSMP : #2 is constant"))
-       (#1='T
-        (SEQ
-         (LETT |ib| (SPADCALL |b| (QREFELT $ 21))
-               . #2=(|NSMP;monicModulo;3$;18|))
-         (COND
-          ((NULL (SPADCALL |ib| (QREFELT $ 53)))
-           (EXIT
-            (|error| "Error in monicModulo from NSMP : #2 is not monic"))))
-         (COND
-          ((SPADCALL |ib| (|spadConstant| $ 35) (QREFELT $ 55))
-           (LETT |mM| (|NSMP;localMonicModulo| |a| |b| $) . #2#))
-          (#1#
-           (SEQ (LETT |r| (SPADCALL |ib| (QREFELT $ 56)) . #2#)
-                (LETT |rec| (SPADCALL |r| (QREFELT $ 58)) . #2#)
-                (EXIT
-                 (COND
-                  ((QEQCAR |rec| 1)
-                   (|error|
-                    "Error in monicModulo from NSMP : #2 is not monic"))
-                  ((QEQCAR |a| 0) |a|)
-                  (#1#
-                   (SEQ
-                    (LETT |a| (SPADCALL (QCDR |rec|) |a| (QREFELT $ 59)) . #2#)
-                    (LETT |b| (SPADCALL (QCDR |rec|) |b| (QREFELT $ 59)) . #2#)
-                    (EXIT
-                     (LETT |mM|
-                           (SPADCALL |ib| (|NSMP;localMonicModulo| |a| |b| $)
-                                     (QREFELT $ 60))
-                           . #2#)))))))))
-         (EXIT |mM|)))))))) 
+(SDEFUN |NSMP;pquo;3$;20| ((|a| $) (|b| $) ($ $))
+        (SPROG
+         ((|c| ($))
+          (|cPS|
+           (|Record| (|:| |coef| $) (|:| |gap| (|NonNegativeInteger|))
+                     (|:| |quotient| $) (|:| |remainder| $))))
+         (SEQ
+          (LETT |cPS| (SPADCALL |a| |b| (QREFELT $ 67))
+                . #1=(|NSMP;pquo;3$;20|))
+          (LETT |c| (SPADCALL (QVELT |cPS| 0) (QVELT |cPS| 1) (QREFELT $ 62))
+                . #1#)
+          (EXIT (SPADCALL |c| (QVELT |cPS| 2) (QREFELT $ 60)))))) 
 
-(DEFUN |NSMP;prem;3$;19| (|a| |b| $)
-  (PROG (#1=#:G260 |test| |delta| |term| #2=#:G247 #3=#:G263 |r| #4=#:G228
-         |lcb| |db|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND ((QEQCAR |b| 0) (|error| "in prem$NSMP: ground? #2"))
-             (#5='T
-              (SEQ
-               (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12))
-                     . #6=(|NSMP;prem;3$;19|))
-               (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14)) . #6#)
-               (LETT |test|
-                     (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43)) |db|)
-                     . #6#)
-               (LETT |delta| (MAX (+ |test| 1) 0) . #6#)
-               (COND
+(SDEFUN |NSMP;pseudoDivide;2$R;21|
+        ((|a| $) (|b| $) ($ |Record| (|:| |quotient| $) (|:| |remainder| $)))
+        (SPROG
+         ((|c| ($))
+          (|cPS|
+           (|Record| (|:| |coef| $) (|:| |gap| (|NonNegativeInteger|))
+                     (|:| |quotient| $) (|:| |remainder| $))))
+         (SEQ
+          (LETT |cPS| (SPADCALL |a| |b| (QREFELT $ 67))
+                . #1=(|NSMP;pseudoDivide;2$R;21|))
+          (LETT |c| (SPADCALL (QVELT |cPS| 0) (QVELT |cPS| 1) (QREFELT $ 62))
+                . #1#)
+          (EXIT
+           (CONS (SPADCALL |c| (QVELT |cPS| 2) (QREFELT $ 60))
+                 (SPADCALL |c| (QVELT |cPS| 3) (QREFELT $ 60))))))) 
+
+(SDEFUN |NSMP;lazyPrem;3$;22| ((|a| $) (|b| $) ($ $))
+        (SPROG
+         ((|test| (|Integer|)) (|term| ($)) (#1=#:G278 NIL) (|lcb| ($))
+          (|db| (|NonNegativeInteger|)))
+         (SEQ
+          (COND ((QEQCAR |b| 0) (|error| "in lazyPrem$NSMP: ground? #2"))
                 ((OR (QEQCAR |a| 0)
                      (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
                                (QREFELT $ 46)))
-                 (EXIT
-                  (SPADCALL
-                   (SPADCALL |lcb|
-                             (PROG1 (LETT #4# |delta| . #6#)
-                               (|check_subtype| (>= #4# 0)
-                                                '(|NonNegativeInteger|) #4#))
-                             (QREFELT $ 62))
-                   |a| (QREFELT $ 60)))))
-               (EXIT
-                (COND
-                 ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 42))
-                  (SEQ
-                   (LETT |r|
-                         (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
-                                   (QREFELT $ 63))
-                         . #6#)
-                   (EXIT
-                    (COND
-                     ((SPADCALL |r| (QREFELT $ 26))
-                      (PROGN
-                       (LETT #3# (SPADCALL |r| (QREFELT $ 27)) . #6#)
-                       (GO #3#)))
-                     (#5# (CONS 1 (CONS (QCAR (QCDR |a|)) |r|)))))))
-                 (#5#
-                  (SEQ
-                   (SEQ G190
-                        (COND
-                         ((NULL
-                           (COND
-                            ((OR (SPADCALL |a| (QREFELT $ 34)) (MINUSP |test|))
-                             'NIL)
-                            ('T 'T)))
-                          (GO G191)))
-                        (SEQ
-                         (LETT |term|
-                               (SPADCALL
-                                (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 45))
-                                (QCAR (QCDR |b|))
-                                (PROG1 (LETT #2# |test| . #6#)
-                                  (|check_subtype| (>= #2# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #2#))
-                                (QREFELT $ 36))
-                               . #6#)
-                         (LETT |a|
-                               (SPADCALL (SPADCALL |lcb| |a| (QREFELT $ 60))
-                                         (SPADCALL |term| |b| (QREFELT $ 60))
-                                         (QREFELT $ 64))
-                               . #6#)
-                         (LETT |delta| (- |delta| 1) . #6#)
-                         (EXIT
-                          (LETT |test|
-                                (-
+                 |a|)
+                ('T
+                 (COND
+                  ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                             (QREFELT $ 42))
+                   (|NSMP;PSimp|
+                    (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                              (QREFELT $ 71))
+                    (QCAR (QCDR |a|)) $))
+                  ('T
+                   (SEQ
+                    (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12))
+                          . #2=(|NSMP;lazyPrem;3$;22|))
+                    (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14))
+                          . #2#)
+                    (LETT |test|
+                          (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43))
+                             |db|)
+                          . #2#)
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (COND
+                             ((OR (SPADCALL |a| (QREFELT $ 34))
+                                  (MINUSP |test|))
+                              'NIL)
+                             ('T 'T)))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |term|
+                                (SPADCALL
                                  (SPADCALL |a| (QCAR (QCDR |b|))
-                                           (QREFELT $ 43))
-                                 |db|)
-                                . #6#)))
-                        NIL (GO G190) G191 (EXIT NIL))
-                   (EXIT
-                    (SPADCALL
-                     (SPADCALL |lcb|
-                               (PROG1 (LETT #1# |delta| . #6#)
-                                 (|check_subtype| (>= #1# 0)
-                                                  '(|NonNegativeInteger|) #1#))
-                               (QREFELT $ 62))
-                     |a| (QREFELT $ 60)))))))))))
-      #3# (EXIT #3#))))) 
+                                           (QREFELT $ 45))
+                                 (QCAR (QCDR |b|))
+                                 (PROG1 (LETT #1# |test| . #2#)
+                                   (|check_subtype| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    #1#))
+                                 (QREFELT $ 36))
+                                . #2#)
+                          (LETT |a|
+                                (SPADCALL (SPADCALL |lcb| |a| (QREFELT $ 60))
+                                          (SPADCALL |term| |b| (QREFELT $ 60))
+                                          (QREFELT $ 64))
+                                . #2#)
+                          (EXIT
+                           (LETT |test|
+                                 (-
+                                  (SPADCALL |a| (QCAR (QCDR |b|))
+                                            (QREFELT $ 43))
+                                  |db|)
+                                 . #2#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |a|))))))))) 
 
-(DEFUN |NSMP;pquo;3$;20| (|a| |b| $)
-  (PROG (|c| |cPS|)
-    (RETURN
-     (SEQ
-      (LETT |cPS| (SPADCALL |a| |b| (QREFELT $ 67)) . #1=(|NSMP;pquo;3$;20|))
-      (LETT |c| (SPADCALL (QVELT |cPS| 0) (QVELT |cPS| 1) (QREFELT $ 62))
-            . #1#)
-      (EXIT (SPADCALL |c| (QVELT |cPS| 2) (QREFELT $ 60))))))) 
+(SDEFUN |NSMP;lazyPquo;3$;23| ((|a| $) (|b| $) ($ $))
+        (SPROG
+         ((|test| (|Integer|)) (|q| ($)) (|term| ($)) (#1=#:G290 NIL)
+          (|lcb| ($)) (|db| (|NonNegativeInteger|)))
+         (SEQ
+          (COND ((QEQCAR |b| 0) (|error| " in lazyPquo$NSMP: #2 is constant"))
+                ((OR (QEQCAR |a| 0)
+                     (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                               (QREFELT $ 46)))
+                 (|spadConstant| $ 13))
+                ('T
+                 (COND
+                  ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                             (QREFELT $ 42))
+                   (|NSMP;PSimp|
+                    (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                              (QREFELT $ 73))
+                    (QCAR (QCDR |a|)) $))
+                  ('T
+                   (SEQ
+                    (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12))
+                          . #2=(|NSMP;lazyPquo;3$;23|))
+                    (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14))
+                          . #2#)
+                    (LETT |test|
+                          (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43))
+                             |db|)
+                          . #2#)
+                    (LETT |q| (|spadConstant| $ 13) . #2#)
+                    (LETT |test|
+                          (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43))
+                             |db|)
+                          . #2#)
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (COND
+                             ((OR (SPADCALL |a| (QREFELT $ 34))
+                                  (MINUSP |test|))
+                              'NIL)
+                             ('T 'T)))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |term|
+                                (SPADCALL
+                                 (SPADCALL |a| (QCAR (QCDR |b|))
+                                           (QREFELT $ 45))
+                                 (QCAR (QCDR |b|))
+                                 (PROG1 (LETT #1# |test| . #2#)
+                                   (|check_subtype| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    #1#))
+                                 (QREFELT $ 36))
+                                . #2#)
+                          (LETT |a|
+                                (SPADCALL (SPADCALL |lcb| |a| (QREFELT $ 60))
+                                          (SPADCALL |term| |b| (QREFELT $ 60))
+                                          (QREFELT $ 64))
+                                . #2#)
+                          (LETT |q|
+                                (SPADCALL (SPADCALL |lcb| |q| (QREFELT $ 60))
+                                          |term| (QREFELT $ 74))
+                                . #2#)
+                          (EXIT
+                           (LETT |test|
+                                 (-
+                                  (SPADCALL |a| (QCAR (QCDR |b|))
+                                            (QREFELT $ 43))
+                                  |db|)
+                                 . #2#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |q|))))))))) 
 
-(DEFUN |NSMP;pseudoDivide;2$R;21| (|a| |b| $)
-  (PROG (|c| |cPS|)
-    (RETURN
-     (SEQ
-      (LETT |cPS| (SPADCALL |a| |b| (QREFELT $ 67))
-            . #1=(|NSMP;pseudoDivide;2$R;21|))
-      (LETT |c| (SPADCALL (QVELT |cPS| 0) (QVELT |cPS| 1) (QREFELT $ 62))
-            . #1#)
-      (EXIT
-       (CONS (SPADCALL |c| (QVELT |cPS| 2) (QREFELT $ 60))
-             (SPADCALL |c| (QVELT |cPS| 3) (QREFELT $ 60)))))))) 
-
-(DEFUN |NSMP;lazyPrem;3$;22| (|a| |b| $)
-  (PROG (|test| |term| #1=#:G278 |lcb| |db|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |b| 0) (|error| "in lazyPrem$NSMP: ground? #2"))
-            ((OR (QEQCAR |a| 0)
-                 (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 46)))
-             |a|)
-            ('T
-             (COND
-              ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 42))
-               (|NSMP;PSimp|
-                (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 71))
-                (QCAR (QCDR |a|)) $))
-              ('T
-               (SEQ
-                (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12))
-                      . #2=(|NSMP;lazyPrem;3$;22|))
-                (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14)) . #2#)
-                (LETT |test|
-                      (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43)) |db|)
-                      . #2#)
-                (SEQ G190
-                     (COND
-                      ((NULL
-                        (COND
-                         ((OR (SPADCALL |a| (QREFELT $ 34)) (MINUSP |test|))
-                          'NIL)
-                         ('T 'T)))
-                       (GO G191)))
-                     (SEQ
-                      (LETT |term|
-                            (SPADCALL
-                             (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 45))
-                             (QCAR (QCDR |b|))
-                             (PROG1 (LETT #1# |test| . #2#)
-                               (|check_subtype| (>= #1# 0)
-                                                '(|NonNegativeInteger|) #1#))
-                             (QREFELT $ 36))
-                            . #2#)
-                      (LETT |a|
-                            (SPADCALL (SPADCALL |lcb| |a| (QREFELT $ 60))
-                                      (SPADCALL |term| |b| (QREFELT $ 60))
-                                      (QREFELT $ 64))
-                            . #2#)
-                      (EXIT
-                       (LETT |test|
-                             (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43))
-                                |db|)
-                             . #2#)))
-                     NIL (GO G190) G191 (EXIT NIL))
-                (EXIT |a|)))))))))) 
-
-(DEFUN |NSMP;lazyPquo;3$;23| (|a| |b| $)
-  (PROG (|test| |q| |term| #1=#:G290 |lcb| |db|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |b| 0) (|error| " in lazyPquo$NSMP: #2 is constant"))
-            ((OR (QEQCAR |a| 0)
-                 (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 46)))
-             (|spadConstant| $ 13))
-            ('T
-             (COND
-              ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 42))
-               (|NSMP;PSimp|
-                (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 73))
-                (QCAR (QCDR |a|)) $))
-              ('T
-               (SEQ
-                (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12))
-                      . #2=(|NSMP;lazyPquo;3$;23|))
-                (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14)) . #2#)
-                (LETT |test|
-                      (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43)) |db|)
-                      . #2#)
-                (LETT |q| (|spadConstant| $ 13) . #2#)
-                (LETT |test|
-                      (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43)) |db|)
-                      . #2#)
-                (SEQ G190
-                     (COND
-                      ((NULL
-                        (COND
-                         ((OR (SPADCALL |a| (QREFELT $ 34)) (MINUSP |test|))
-                          'NIL)
-                         ('T 'T)))
-                       (GO G191)))
-                     (SEQ
-                      (LETT |term|
-                            (SPADCALL
-                             (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 45))
-                             (QCAR (QCDR |b|))
-                             (PROG1 (LETT #1# |test| . #2#)
-                               (|check_subtype| (>= #1# 0)
-                                                '(|NonNegativeInteger|) #1#))
-                             (QREFELT $ 36))
-                            . #2#)
-                      (LETT |a|
-                            (SPADCALL (SPADCALL |lcb| |a| (QREFELT $ 60))
-                                      (SPADCALL |term| |b| (QREFELT $ 60))
-                                      (QREFELT $ 64))
-                            . #2#)
-                      (LETT |q|
-                            (SPADCALL (SPADCALL |lcb| |q| (QREFELT $ 60))
-                                      |term| (QREFELT $ 74))
-                            . #2#)
-                      (EXIT
-                       (LETT |test|
-                             (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43))
-                                |db|)
-                             . #2#)))
-                     NIL (GO G190) G191 (EXIT NIL))
-                (EXIT |q|)))))))))) 
-
-(DEFUN |NSMP;lazyPseudoDivide;2$R;24| (|a| |b| $)
-  (PROG (#1=#:G309 |test| |delta| |q| |term| #2=#:G305 |lcb| |db| |cgqr|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QEQCAR |b| 0) (|error| " in lazyPseudoDivide$NSMP: #2 is constant"))
-       ((OR (QEQCAR |a| 0)
-            (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 46)))
-        (VECTOR (|spadConstant| $ 35) 0 (|spadConstant| $ 13) |a|))
-       ('T
-        (COND
-         ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 42))
-          (SEQ
-           (LETT |cgqr|
-                 (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 77))
-                 . #3=(|NSMP;lazyPseudoDivide;2$R;24|))
-           (EXIT
-            (VECTOR (QVELT |cgqr| 0) (QVELT |cgqr| 1)
-                    (|NSMP;PSimp| (QVELT |cgqr| 2) (QCAR (QCDR |a|)) $)
-                    (|NSMP;PSimp| (QVELT |cgqr| 3) (QCAR (QCDR |a|)) $)))))
-         ('T
-          (SEQ (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12)) . #3#)
+(SDEFUN |NSMP;lazyPseudoDivide;2$R;24|
+        ((|a| $) (|b| $)
+         ($ |Record| (|:| |coef| $) (|:| |gap| (|NonNegativeInteger|))
+          (|:| |quotient| $) (|:| |remainder| $)))
+        (SPROG
+         ((#1=#:G309 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| ($))
+          (|term| ($)) (#2=#:G305 NIL) (|lcb| ($))
+          (|db| (|NonNegativeInteger|))
+          (|cgqr|
+           (|Record| (|:| |coef| $) (|:| |gap| (|NonNegativeInteger|))
+                     (|:| |quotient| D) (|:| |remainder| D))))
+         (SEQ
+          (COND
+           ((QEQCAR |b| 0)
+            (|error| " in lazyPseudoDivide$NSMP: #2 is constant"))
+           ((OR (QEQCAR |a| 0)
+                (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 46)))
+            (VECTOR (|spadConstant| $ 35) 0 (|spadConstant| $ 13) |a|))
+           ('T
+            (COND
+             ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 42))
+              (SEQ
+               (LETT |cgqr|
+                     (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                               (QREFELT $ 77))
+                     . #3=(|NSMP;lazyPseudoDivide;2$R;24|))
+               (EXIT
+                (VECTOR (QVELT |cgqr| 0) (QVELT |cgqr| 1)
+                        (|NSMP;PSimp| (QVELT |cgqr| 2) (QCAR (QCDR |a|)) $)
+                        (|NSMP;PSimp| (QVELT |cgqr| 3) (QCAR (QCDR |a|)) $)))))
+             ('T
+              (SEQ
+               (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12)) . #3#)
                (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14)) . #3#)
                (LETT |test|
                      (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43)) |db|)
@@ -471,35 +544,46 @@
                         (PROG1 (LETT #1# |delta| . #3#)
                           (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
                                            #1#))
-                        |q| |a|))))))))))) 
+                        |q| |a|)))))))))) 
 
-(DEFUN |NSMP;lazyResidueClass;2$R;25| (|a| |b| $)
-  (PROG (|test| |pow| |term| #1=#:G322 |db| |lrc| |lcb|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QEQCAR |b| 0) (|error| " in lazyResidueClass$NSMP: #2 is constant"))
-       (#2='T
-        (SEQ
-         (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14))
-               . #3=(|NSMP;lazyResidueClass;2$R;25|))
-         (COND
-          ((OR (QEQCAR |a| 0)
-               (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 46)))
-           (EXIT (VECTOR |a| |lcb| 0))))
-         (EXIT
+(SDEFUN |NSMP;lazyResidueClass;2$R;25|
+        ((|a| $) (|b| $)
+         ($ |Record| (|:| |polnum| $) (|:| |polden| $)
+          (|:| |power| (|NonNegativeInteger|))))
+        (SPROG
+         ((|test| (|Integer|)) (|pow| (|NonNegativeInteger|)) (|term| ($))
+          (#1=#:G322 NIL) (|db| (|NonNegativeInteger|))
+          (|lrc|
+           (|Record| (|:| |polnum| D) (|:| |polden| $)
+                     (|:| |power| (|NonNegativeInteger|))))
+          (|lcb| ($)))
+         (SEQ
           (COND
-           ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 42))
+           ((QEQCAR |b| 0)
+            (|error| " in lazyResidueClass$NSMP: #2 is constant"))
+           (#2='T
             (SEQ
-             (LETT |lrc|
-                   (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
-                             (QREFELT $ 80))
-                   . #3#)
+             (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14))
+                   . #3=(|NSMP;lazyResidueClass;2$R;25|))
+             (COND
+              ((OR (QEQCAR |a| 0)
+                   (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                             (QREFELT $ 46)))
+               (EXIT (VECTOR |a| |lcb| 0))))
              (EXIT
-              (VECTOR (|NSMP;PSimp| (QVELT |lrc| 0) (QCAR (QCDR |a|)) $)
-                      (QVELT |lrc| 1) (QVELT |lrc| 2)))))
-           (#2#
-            (SEQ (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12)) . #3#)
+              (COND
+               ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 42))
+                (SEQ
+                 (LETT |lrc|
+                       (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                                 (QREFELT $ 80))
+                       . #3#)
+                 (EXIT
+                  (VECTOR (|NSMP;PSimp| (QVELT |lrc| 0) (QCAR (QCDR |a|)) $)
+                          (QVELT |lrc| 1) (QVELT |lrc| 2)))))
+               (#2#
+                (SEQ
+                 (LETT |db| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 12)) . #3#)
                  (LETT |test|
                        (- (SPADCALL |a| (QCAR (QCDR |b|)) (QREFELT $ 43)) |db|)
                        . #3#)
@@ -535,687 +619,719 @@
                                |db|)
                               . #3#)))
                       NIL (GO G190) G191 (EXIT NIL))
-                 (EXIT (VECTOR |a| |lcb| |pow|))))))))))))) 
+                 (EXIT (VECTOR |a| |lcb| |pow|)))))))))))) 
 
-(DEFUN |NSMP;exactQuo| (|x| |y| $)
-  (PROG (|ex|)
-    (RETURN
-     (SEQ (LETT |ex| (SPADCALL |x| |y| (QREFELT $ 84)) |NSMP;exactQuo|)
+(SDEFUN |NSMP;exactQuo| ((|x| $) (|y| $) ($ $))
+        (SPROG ((|ex| (|Union| $ "failed")))
+               (SEQ
+                (LETT |ex| (SPADCALL |x| |y| (QREFELT $ 84)) |NSMP;exactQuo|)
+                (EXIT
+                 (COND ((QEQCAR |ex| 0) (QCDR |ex|))
+                       ('T (|error| "in exactQuotient$NSMP: bad args"))))))) 
+
+(SDEFUN |NSMP;LazardQuotient;2$Nni$;27|
+        ((|x| $) (|y| $) (|n| |NonNegativeInteger|) ($ $))
+        (SPROG
+         ((#1=#:G339 NIL) (|c| ($)) (|a| (|NonNegativeInteger|))
+          (#2=#:G345 NIL) (#3=#:G338 NIL) (|b| (|NonNegativeInteger|)))
+         (SEQ
           (EXIT
-           (COND ((QEQCAR |ex| 0) (QCDR |ex|))
-                 ('T (|error| "in exactQuotient$NSMP: bad args")))))))) 
-
-(DEFUN |NSMP;LazardQuotient;2$Nni$;27| (|x| |y| |n| $)
-  (PROG (#1=#:G339 |c| |a| #2=#:G345 #3=#:G338 |b|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND ((ZEROP |n|) (|error| "LazardQuotient$NSMP : n = 0"))
-             ((EQL |n| 1) |x|)
-             ('T
-              (SEQ (LETT |a| 1 . #4=(|NSMP;LazardQuotient;2$Nni$;27|))
-                   (SEQ G190
-                        (COND
-                         ((NULL
-                           (>= |n|
-                               (LETT |b| (SPADCALL 2 |a| (QREFELT $ 86))
-                                     . #4#)))
-                          (GO G191)))
-                        (SEQ (EXIT (LETT |a| |b| . #4#))) NIL (GO G190) G191
-                        (EXIT NIL))
-                   (LETT |c| |x| . #4#)
-                   (LETT |n|
-                         (PROG1 (LETT #3# (- |n| |a|) . #4#)
-                           (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                            #3#))
-                         . #4#)
-                   (EXIT
-                    (SEQ G190 NIL
-                         (SEQ
-                          (EXIT
-                           (COND
-                            ((EQL |a| 1) (PROGN (LETT #2# |c| . #4#) (GO #2#)))
-                            ('T
-                             (SEQ (LETT |a| (QUOTIENT2 |a| 2) . #4#)
-                                  (LETT |c|
-                                        (|NSMP;exactQuo|
-                                         (SPADCALL |c| |c| (QREFELT $ 60)) |y|
-                                         $)
-                                        . #4#)
-                                  (EXIT
-                                   (COND
-                                    ((>= |n| |a|)
-                                     (SEQ
+           (COND ((ZEROP |n|) (|error| "LazardQuotient$NSMP : n = 0"))
+                 ((EQL |n| 1) |x|)
+                 ('T
+                  (SEQ (LETT |a| 1 . #4=(|NSMP;LazardQuotient;2$Nni$;27|))
+                       (SEQ G190
+                            (COND
+                             ((NULL
+                               (>= |n|
+                                   (LETT |b| (SPADCALL 2 |a| (QREFELT $ 86))
+                                         . #4#)))
+                              (GO G191)))
+                            (SEQ (EXIT (LETT |a| |b| . #4#))) NIL (GO G190)
+                            G191 (EXIT NIL))
+                       (LETT |c| |x| . #4#)
+                       (LETT |n|
+                             (PROG1 (LETT #3# (- |n| |a|) . #4#)
+                               (|check_subtype| (>= #3# 0)
+                                                '(|NonNegativeInteger|) #3#))
+                             . #4#)
+                       (EXIT
+                        (SEQ G190 NIL
+                             (SEQ
+                              (EXIT
+                               (COND
+                                ((EQL |a| 1)
+                                 (PROGN (LETT #2# |c| . #4#) (GO #2#)))
+                                ('T
+                                 (SEQ (LETT |a| (QUOTIENT2 |a| 2) . #4#)
                                       (LETT |c|
                                             (|NSMP;exactQuo|
-                                             (SPADCALL |c| |x| (QREFELT $ 60))
+                                             (SPADCALL |c| |c| (QREFELT $ 60))
                                              |y| $)
                                             . #4#)
                                       (EXIT
-                                       (LETT |n|
-                                             (PROG1
-                                                 (LETT #1# (- |n| |a|) . #4#)
-                                               (|check_subtype| (>= #1# 0)
-                                                                '(|NonNegativeInteger|)
-                                                                #1#))
-                                             . #4#)))))))))))
-                         NIL (GO G190) G191 (EXIT NIL)))))))
-      #2# (EXIT #2#))))) 
+                                       (COND
+                                        ((>= |n| |a|)
+                                         (SEQ
+                                          (LETT |c|
+                                                (|NSMP;exactQuo|
+                                                 (SPADCALL |c| |x|
+                                                           (QREFELT $ 60))
+                                                 |y| $)
+                                                . #4#)
+                                          (EXIT
+                                           (LETT |n|
+                                                 (PROG1
+                                                     (LETT #1# (- |n| |a|)
+                                                           . #4#)
+                                                   (|check_subtype| (>= #1# 0)
+                                                                    '(|NonNegativeInteger|)
+                                                                    #1#))
+                                                 . #4#)))))))))))
+                             NIL (GO G190) G191 (EXIT NIL)))))))
+          #2# (EXIT #2#)))) 
 
-(DEFUN |NSMP;LazardQuotient2;3$Nni$;28| (|p| |a| |b| |n| $)
-  (PROG (|c| #1=#:G349)
-    (RETURN
-     (SEQ
-      (COND ((ZEROP |n|) (|error| " in LazardQuotient2$NSMP: bad #4"))
-            ((EQL |n| 1) |p|)
-            ('T
-             (SEQ
-              (LETT |c|
-                    (SPADCALL |a| |b|
-                              (PROG1
-                                  (LETT #1# (- |n| 1)
-                                        . #2=(|NSMP;LazardQuotient2;3$Nni$;28|))
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
-                              (QREFELT $ 87))
-                    . #2#)
-              (EXIT
-               (|NSMP;exactQuo| (SPADCALL |c| |p| (QREFELT $ 60)) |b| $))))))))) 
-
-(DEFUN |NSMP;next_subResultant2;5$;29| (|p| |q| |z| |s| $)
-  (|NSMP;PSimp|
-   (SPADCALL (QCDR (QCDR |p|)) (QCDR (QCDR |q|)) (QCDR (QCDR |z|)) |s|
-             (QREFELT $ 89))
-   (QCAR (QCDR |p|)) $)) 
-
-(DEFUN |NSMP;subResultantGcd;3$;30| (|a| |b| $)
-  (COND
-   ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
-    (|error| "subResultantGcd$NSMP: one arg is constant"))
-   ('T
-    (COND
-     ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
-      (|error| "subResultantGcd$NSMP: mvar(#1) ~= mvar(#2)"))
-     ('T
-      (|NSMP;PSimp|
-       (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 92))
-       (QCAR (QCDR |a|)) $)))))) 
-
-(DEFUN |NSMP;halfExtendedSubResultantGcd1;2$R;31| (|a| |b| $)
-  (PROG (|hesrg|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
-        (|error| "halfExtendedSubResultantGcd1$NSMP: one arg is constant"))
-       ('T
-        (COND
-         ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
-          (|error| "halfExtendedSubResultantGcd1$NSMP: mvar(#1) ~= mvar(#2)"))
-         ('T
-          (SEQ
-           (LETT |hesrg|
-                 (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 95))
-                 |NSMP;halfExtendedSubResultantGcd1;2$R;31|)
-           (EXIT
-            (CONS (|NSMP;PSimp| (QCAR |hesrg|) (QCAR (QCDR |a|)) $)
-                  (|NSMP;PSimp| (QCDR |hesrg|) (QCAR (QCDR |a|)) $)))))))))))) 
-
-(DEFUN |NSMP;halfExtendedSubResultantGcd2;2$R;32| (|a| |b| $)
-  (PROG (|hesrg|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
-        (|error| "halfExtendedSubResultantGcd2$NSMP: one arg is constant"))
-       ('T
-        (COND
-         ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
-          (|error| "halfExtendedSubResultantGcd2$NSMP: mvar(#1) ~= mvar(#2)"))
-         ('T
-          (SEQ
-           (LETT |hesrg|
-                 (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 98))
-                 |NSMP;halfExtendedSubResultantGcd2;2$R;32|)
-           (EXIT
-            (CONS (|NSMP;PSimp| (QCAR |hesrg|) (QCAR (QCDR |a|)) $)
-                  (|NSMP;PSimp| (QCDR |hesrg|) (QCAR (QCDR |a|)) $)))))))))))) 
-
-(DEFUN |NSMP;extendedSubResultantGcd;2$R;33| (|a| |b| $)
-  (PROG (|esrg|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
-        (|error| "extendedSubResultantGcd$NSMP: one arg is constant"))
-       ('T
-        (COND
-         ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
-          (|error| "extendedSubResultantGcd$NSMP: mvar(#1) ~= mvar(#2)"))
-         ('T
-          (SEQ
-           (LETT |esrg|
-                 (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 101))
-                 |NSMP;extendedSubResultantGcd;2$R;33|)
-           (EXIT
-            (VECTOR (|NSMP;PSimp| (QVELT |esrg| 0) (QCAR (QCDR |a|)) $)
-                    (|NSMP;PSimp| (QVELT |esrg| 1) (QCAR (QCDR |a|)) $)
-                    (|NSMP;PSimp| (QVELT |esrg| 2) (QCAR (QCDR |a|))
-                     $)))))))))))) 
-
-(DEFUN |NSMP;resultant;3$;34| (|a| |b| $)
-  (COND
-   ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
-    (|error| "resultant$NSMP: one arg is constant"))
-   ('T
-    (COND
-     ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
-      (|error| "resultant$NSMP: mvar(#1) ~= mvar(#2)"))
-     ('T (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 103))))))) 
-
-(DEFUN |NSMP;subResultantChain;2$L;35| (|a| |b| $)
-  (PROG (#1=#:G395 |up| #2=#:G394)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
-        (|error| "subResultantChain$NSMP: one arg is constant"))
-       ('T
-        (COND
-         ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
-          (|error| "subResultantChain$NSMP: mvar(#1) ~= mvar(#2)"))
-         ('T
-          (PROGN
-           (LETT #2# NIL . #3=(|NSMP;subResultantChain;2$L;35|))
-           (SEQ (LETT |up| NIL . #3#)
-                (LETT #1#
-                      (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
-                                (QREFELT $ 105))
-                      . #3#)
-                G190
+(SDEFUN |NSMP;LazardQuotient2;3$Nni$;28|
+        ((|p| $) (|a| $) (|b| $) (|n| |NonNegativeInteger|) ($ $))
+        (SPROG ((|c| ($)) (#1=#:G349 NIL))
+               (SEQ
                 (COND
-                 ((OR (ATOM #1#) (PROGN (LETT |up| (CAR #1#) . #3#) NIL))
-                  (GO G191)))
-                (SEQ
-                 (EXIT
-                  (LETT #2# (CONS (|NSMP;PSimp| |up| (QCAR (QCDR |a|)) $) #2#)
-                        . #3#)))
-                (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                (EXIT (NREVERSE #2#)))))))))))) 
+                 ((ZEROP |n|) (|error| " in LazardQuotient2$NSMP: bad #4"))
+                 ((EQL |n| 1) |p|)
+                 ('T
+                  (SEQ
+                   (LETT |c|
+                         (SPADCALL |a| |b|
+                                   (PROG1
+                                       (LETT #1# (- |n| 1)
+                                             . #2=(|NSMP;LazardQuotient2;3$Nni$;28|))
+                                     (|check_subtype| (>= #1# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      #1#))
+                                   (QREFELT $ 87))
+                         . #2#)
+                   (EXIT
+                    (|NSMP;exactQuo| (SPADCALL |c| |p| (QREFELT $ 60)) |b|
+                     $)))))))) 
 
-(DEFUN |NSMP;lastSubResultant;3$;36| (|a| |b| $)
-  (COND
-   ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
-    (|error| "lastSubResultant$NSMP: one arg is constant"))
-   ('T
-    (COND
-     ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
-      (|error| "lastSubResultant$NSMP: mvar(#1) ~= mvar(#2)"))
-     ('T
-      (|NSMP;PSimp|
-       (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 107))
-       (QCAR (QCDR |a|)) $)))))) 
+(SDEFUN |NSMP;next_subResultant2;5$;29| ((|p| $) (|q| $) (|z| $) (|s| $) ($ $))
+        (|NSMP;PSimp|
+         (SPADCALL (QCDR (QCDR |p|)) (QCDR (QCDR |q|)) (QCDR (QCDR |z|)) |s|
+                   (QREFELT $ 89))
+         (QCAR (QCDR |p|)) $)) 
 
-(DEFUN |NSMP;exactQuotient;$R$;37| (|a| |b| $)
-  (PROG ()
-    (RETURN
-     (COND ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109)) |a|)
-           ((QEQCAR |a| 0) (CONS 0 (SPADCALL (QCDR |a|) |b| (QREFELT $ 110))))
+(SDEFUN |NSMP;subResultantGcd;3$;30| ((|a| $) (|b| $) ($ $))
+        (COND
+         ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
+          (|error| "subResultantGcd$NSMP: one arg is constant"))
+         ('T
+          (COND
+           ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
+            (|error| "subResultantGcd$NSMP: mvar(#1) ~= mvar(#2)"))
            ('T
-            (CONS 1
-                  (CONS (QCAR (QCDR |a|))
-                        (SPADCALL
-                         (CONS #'|NSMP;exactQuotient;$R$;37!0| (VECTOR $ |b|))
-                         (QCDR (QCDR |a|)) (QREFELT $ 51))))))))) 
+            (|NSMP;PSimp|
+             (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 92))
+             (QCAR (QCDR |a|)) $)))))) 
 
-(DEFUN |NSMP;exactQuotient;$R$;37!0| (|a1| $$)
-  (PROG (|b| $)
-    (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;exactQuotient;$R$;37|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 111)))))) 
+(SDEFUN |NSMP;halfExtendedSubResultantGcd1;2$R;31|
+        ((|a| $) (|b| $) ($ |Record| (|:| |gcd| $) (|:| |coef1| $)))
+        (SPROG ((|hesrg| (|Record| (|:| |gcd| D) (|:| |coef1| D))))
+               (SEQ
+                (COND
+                 ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
+                  (|error|
+                   "halfExtendedSubResultantGcd1$NSMP: one arg is constant"))
+                 ('T
+                  (COND
+                   ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                              (QREFELT $ 91))
+                    (|error|
+                     "halfExtendedSubResultantGcd1$NSMP: mvar(#1) ~= mvar(#2)"))
+                   ('T
+                    (SEQ
+                     (LETT |hesrg|
+                           (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                                     (QREFELT $ 95))
+                           |NSMP;halfExtendedSubResultantGcd1;2$R;31|)
+                     (EXIT
+                      (CONS (|NSMP;PSimp| (QCAR |hesrg|) (QCAR (QCDR |a|)) $)
+                            (|NSMP;PSimp| (QCDR |hesrg|) (QCAR (QCDR |a|))
+                             $))))))))))) 
 
-(DEFUN |NSMP;exactQuotient!;$R$;38| (|a| |b| $)
-  (PROG ()
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109)) |a|)
-            ((QEQCAR |a| 0) (CONS 0 (SPADCALL (QCDR |a|) |b| (QREFELT $ 110))))
-            ('T
-             (SEQ
-              (PROGN
-               (RPLACD #1=(QCDR |a|)
-                       (SPADCALL
-                        (CONS #'|NSMP;exactQuotient!;$R$;38!0| (VECTOR $ |b|))
-                        (QCDR (QCDR |a|)) (QREFELT $ 51)))
-               (QCDR #1#))
-              (EXIT |a|)))))))) 
+(SDEFUN |NSMP;halfExtendedSubResultantGcd2;2$R;32|
+        ((|a| $) (|b| $) ($ |Record| (|:| |gcd| $) (|:| |coef2| $)))
+        (SPROG ((|hesrg| (|Record| (|:| |gcd| D) (|:| |coef2| D))))
+               (SEQ
+                (COND
+                 ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
+                  (|error|
+                   "halfExtendedSubResultantGcd2$NSMP: one arg is constant"))
+                 ('T
+                  (COND
+                   ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                              (QREFELT $ 91))
+                    (|error|
+                     "halfExtendedSubResultantGcd2$NSMP: mvar(#1) ~= mvar(#2)"))
+                   ('T
+                    (SEQ
+                     (LETT |hesrg|
+                           (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                                     (QREFELT $ 98))
+                           |NSMP;halfExtendedSubResultantGcd2;2$R;32|)
+                     (EXIT
+                      (CONS (|NSMP;PSimp| (QCAR |hesrg|) (QCAR (QCDR |a|)) $)
+                            (|NSMP;PSimp| (QCDR |hesrg|) (QCAR (QCDR |a|))
+                             $))))))))))) 
 
-(DEFUN |NSMP;exactQuotient!;$R$;38!0| (|a1| $$)
-  (PROG (|b| $)
-    (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;exactQuotient!;$R$;38|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 112)))))) 
-
-(DEFUN |NSMP;exactQuotient;$R$;39| (|a| |b| $)
-  (PROG (#1=#:G411)
-    (RETURN
-     (COND ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109)) |a|)
-           ((QEQCAR |a| 0)
-            (CONS 0
-                  (PROG2
-                      (LETT #1# (SPADCALL (QCDR |a|) |b| (QREFELT $ 113))
-                            |NSMP;exactQuotient;$R$;39|)
-                      (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))
+(SDEFUN |NSMP;extendedSubResultantGcd;2$R;33|
+        ((|a| $) (|b| $)
+         ($ |Record| (|:| |gcd| $) (|:| |coef1| $) (|:| |coef2| $)))
+        (SPROG
+         ((|esrg| (|Record| (|:| |gcd| D) (|:| |coef1| D) (|:| |coef2| D))))
+         (SEQ
+          (COND
+           ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
+            (|error| "extendedSubResultantGcd$NSMP: one arg is constant"))
            ('T
-            (CONS 1
-                  (CONS (QCAR (QCDR |a|))
-                        (SPADCALL
-                         (CONS #'|NSMP;exactQuotient;$R$;39!0| (VECTOR $ |b|))
-                         (QCDR (QCDR |a|)) (QREFELT $ 51))))))))) 
+            (COND
+             ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
+              (|error| "extendedSubResultantGcd$NSMP: mvar(#1) ~= mvar(#2)"))
+             ('T
+              (SEQ
+               (LETT |esrg|
+                     (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                               (QREFELT $ 101))
+                     |NSMP;extendedSubResultantGcd;2$R;33|)
+               (EXIT
+                (VECTOR (|NSMP;PSimp| (QVELT |esrg| 0) (QCAR (QCDR |a|)) $)
+                        (|NSMP;PSimp| (QVELT |esrg| 1) (QCAR (QCDR |a|)) $)
+                        (|NSMP;PSimp| (QVELT |esrg| 2) (QCAR (QCDR |a|))
+                         $))))))))))) 
 
-(DEFUN |NSMP;exactQuotient;$R$;39!0| (|a1| $$)
-  (PROG (|b| $)
-    (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;exactQuotient;$R$;39|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 111)))))) 
+(SDEFUN |NSMP;resultant;3$;34| ((|a| $) (|b| $) ($ $))
+        (COND
+         ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
+          (|error| "resultant$NSMP: one arg is constant"))
+         ('T
+          (COND
+           ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
+            (|error| "resultant$NSMP: mvar(#1) ~= mvar(#2)"))
+           ('T
+            (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 103))))))) 
 
-(DEFUN |NSMP;exactQuotient!;$R$;40| (|a| |b| $)
-  (PROG (#1=#:G420)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109)) |a|)
-            ((QEQCAR |a| 0)
-             (CONS 0
-                   (PROG2
-                       (LETT #1# (SPADCALL (QCDR |a|) |b| (QREFELT $ 113))
-                             |NSMP;exactQuotient!;$R$;40|)
-                       (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))
-            ('T
-             (SEQ
-              (PROGN
-               (RPLACD #2=(QCDR |a|)
-                       (SPADCALL
-                        (CONS #'|NSMP;exactQuotient!;$R$;40!0| (VECTOR $ |b|))
-                        (QCDR (QCDR |a|)) (QREFELT $ 51)))
-               (QCDR #2#))
-              (EXIT |a|)))))))) 
-
-(DEFUN |NSMP;exactQuotient!;$R$;40!0| (|a1| $$)
-  (PROG (|b| $)
-    (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;exactQuotient!;$R$;40|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 112)))))) 
-
-(DEFUN |NSMP;localGcd| (|r| |p| $)
-  (COND ((QEQCAR |p| 0) (SPADCALL |r| (QCDR |p|) (QREFELT $ 114)))
-        ('T (SPADCALL |r| (SPADCALL |p| (QREFELT $ 115)) (QREFELT $ 114))))) 
-
-(DEFUN |NSMP;gcd;R$R;42| (|r| |p| $)
-  (COND
-   ((OR (SPADCALL |r| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109))
-        (SPADCALL |p| (QREFELT $ 34)))
-    |r|)
-   ('T (|NSMP;localGcd| |r| |p| $)))) 
-
-(DEFUN |NSMP;content;$R;43| (|p| $)
-  (PROG (|up| |r|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |p| 0) (QCDR |p|))
-            ('T
-             (SEQ (LETT |up| (QCDR (QCDR |p|)) . #1=(|NSMP;content;$R;43|))
-                  (LETT |r| (|spadConstant| $ 78) . #1#)
-                  (SEQ G190
-                       (COND
-                        ((NULL
+(SDEFUN |NSMP;subResultantChain;2$L;35| ((|a| $) (|b| $) ($ |List| $))
+        (SPROG ((#1=#:G395 NIL) (|up| NIL) (#2=#:G394 NIL))
+               (SEQ
+                (COND
+                 ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
+                  (|error| "subResultantChain$NSMP: one arg is constant"))
+                 ('T
+                  (COND
+                   ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
+                              (QREFELT $ 91))
+                    (|error| "subResultantChain$NSMP: mvar(#1) ~= mvar(#2)"))
+                   ('T
+                    (PROGN
+                     (LETT #2# NIL . #3=(|NSMP;subResultantChain;2$L;35|))
+                     (SEQ (LETT |up| NIL . #3#)
+                          (LETT #1#
+                                (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|))
+                                          (QREFELT $ 105))
+                                . #3#)
+                          G190
                           (COND
-                           ((OR (SPADCALL |up| (QREFELT $ 117))
-                                (SPADCALL |r| (QCDR (|spadConstant| $ 35))
-                                          (QREFELT $ 109)))
-                            'NIL)
-                           ('T 'T)))
-                         (GO G191)))
+                           ((OR (ATOM #1#)
+                                (PROGN (LETT |up| (CAR #1#) . #3#) NIL))
+                            (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #2#
+                                  (CONS (|NSMP;PSimp| |up| (QCAR (QCDR |a|)) $)
+                                        #2#)
+                                  . #3#)))
+                          (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                          (EXIT (NREVERSE #2#))))))))))) 
+
+(SDEFUN |NSMP;lastSubResultant;3$;36| ((|a| $) (|b| $) ($ $))
+        (COND
+         ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
+          (|error| "lastSubResultant$NSMP: one arg is constant"))
+         ('T
+          (COND
+           ((SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 91))
+            (|error| "lastSubResultant$NSMP: mvar(#1) ~= mvar(#2)"))
+           ('T
+            (|NSMP;PSimp|
+             (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 107))
+             (QCAR (QCDR |a|)) $)))))) 
+
+(SDEFUN |NSMP;exactQuotient;$R$;37| ((|a| $) (|b| R) ($ $))
+        (SPROG NIL
+               (COND
+                ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109))
+                 |a|)
+                ((QEQCAR |a| 0)
+                 (CONS 0 (SPADCALL (QCDR |a|) |b| (QREFELT $ 110))))
+                ('T
+                 (CONS 1
+                       (CONS (QCAR (QCDR |a|))
+                             (SPADCALL
+                              (CONS #'|NSMP;exactQuotient;$R$;37!0|
+                                    (VECTOR $ |b|))
+                              (QCDR (QCDR |a|)) (QREFELT $ 51)))))))) 
+
+(SDEFUN |NSMP;exactQuotient;$R$;37!0| ((|a1| NIL) ($$ NIL))
+        (PROG (|b| $)
+          (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;exactQuotient;$R$;37|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 111)))))) 
+
+(SDEFUN |NSMP;exactQuotient!;$R$;38| ((|a| $) (|b| R) ($ $))
+        (SPROG NIL
+               (SEQ
+                (COND
+                 ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109))
+                  |a|)
+                 ((QEQCAR |a| 0)
+                  (CONS 0 (SPADCALL (QCDR |a|) |b| (QREFELT $ 110))))
+                 ('T
+                  (SEQ
+                   (PROGN
+                    (RPLACD #1=(QCDR |a|)
+                            (SPADCALL
+                             (CONS #'|NSMP;exactQuotient!;$R$;38!0|
+                                   (VECTOR $ |b|))
+                             (QCDR (QCDR |a|)) (QREFELT $ 51)))
+                    (QCDR #1#))
+                   (EXIT |a|))))))) 
+
+(SDEFUN |NSMP;exactQuotient!;$R$;38!0| ((|a1| NIL) ($$ NIL))
+        (PROG (|b| $)
+          (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;exactQuotient!;$R$;38|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 112)))))) 
+
+(SDEFUN |NSMP;exactQuotient;$R$;39| ((|a| $) (|b| R) ($ $))
+        (SPROG ((#1=#:G411 NIL))
+               (COND
+                ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109))
+                 |a|)
+                ((QEQCAR |a| 0)
+                 (CONS 0
+                       (PROG2
+                           (LETT #1# (SPADCALL (QCDR |a|) |b| (QREFELT $ 113))
+                                 |NSMP;exactQuotient;$R$;39|)
+                           (QCDR #1#)
+                         (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))
+                ('T
+                 (CONS 1
+                       (CONS (QCAR (QCDR |a|))
+                             (SPADCALL
+                              (CONS #'|NSMP;exactQuotient;$R$;39!0|
+                                    (VECTOR $ |b|))
+                              (QCDR (QCDR |a|)) (QREFELT $ 51)))))))) 
+
+(SDEFUN |NSMP;exactQuotient;$R$;39!0| ((|a1| NIL) ($$ NIL))
+        (PROG (|b| $)
+          (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;exactQuotient;$R$;39|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 111)))))) 
+
+(SDEFUN |NSMP;exactQuotient!;$R$;40| ((|a| $) (|b| R) ($ $))
+        (SPROG ((#1=#:G420 NIL))
+               (SEQ
+                (COND
+                 ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109))
+                  |a|)
+                 ((QEQCAR |a| 0)
+                  (CONS 0
+                        (PROG2
+                            (LETT #1# (SPADCALL (QCDR |a|) |b| (QREFELT $ 113))
+                                  |NSMP;exactQuotient!;$R$;40|)
+                            (QCDR #1#)
+                          (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))
+                 ('T
+                  (SEQ
+                   (PROGN
+                    (RPLACD #2=(QCDR |a|)
+                            (SPADCALL
+                             (CONS #'|NSMP;exactQuotient!;$R$;40!0|
+                                   (VECTOR $ |b|))
+                             (QCDR (QCDR |a|)) (QREFELT $ 51)))
+                    (QCDR #2#))
+                   (EXIT |a|))))))) 
+
+(SDEFUN |NSMP;exactQuotient!;$R$;40!0| ((|a1| NIL) ($$ NIL))
+        (PROG (|b| $)
+          (LETT |b| (QREFELT $$ 1) . #1=(|NSMP;exactQuotient!;$R$;40|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 112)))))) 
+
+(SDEFUN |NSMP;localGcd| ((|r| R) (|p| $) ($ R))
+        (COND ((QEQCAR |p| 0) (SPADCALL |r| (QCDR |p|) (QREFELT $ 114)))
+              ('T
+               (SPADCALL |r| (SPADCALL |p| (QREFELT $ 115)) (QREFELT $ 114))))) 
+
+(SDEFUN |NSMP;gcd;R$R;42| ((|r| R) (|p| $) ($ R))
+        (COND
+         ((OR (SPADCALL |r| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109))
+              (SPADCALL |p| (QREFELT $ 34)))
+          |r|)
+         ('T (|NSMP;localGcd| |r| |p| $)))) 
+
+(SDEFUN |NSMP;content;$R;43| ((|p| $) ($ R))
+        (SPROG ((|up| (D)) (|r| (R)))
+               (SEQ
+                (COND ((QEQCAR |p| 0) (QCDR |p|))
+                      ('T
                        (SEQ
-                        (LETT |r|
-                              (|NSMP;localGcd| |r|
-                               (SPADCALL |up| (QREFELT $ 14)) $)
-                              . #1#)
-                        (EXIT
-                         (LETT |up| (SPADCALL |up| (QREFELT $ 24)) . #1#)))
-                       NIL (GO G190) G191 (EXIT NIL))
-                  (EXIT |r|)))))))) 
+                        (LETT |up| (QCDR (QCDR |p|))
+                              . #1=(|NSMP;content;$R;43|))
+                        (LETT |r| (|spadConstant| $ 78) . #1#)
+                        (SEQ G190
+                             (COND
+                              ((NULL
+                                (COND
+                                 ((OR (SPADCALL |up| (QREFELT $ 117))
+                                      (SPADCALL |r|
+                                                (QCDR (|spadConstant| $ 35))
+                                                (QREFELT $ 109)))
+                                  'NIL)
+                                 ('T 'T)))
+                               (GO G191)))
+                             (SEQ
+                              (LETT |r|
+                                    (|NSMP;localGcd| |r|
+                                     (SPADCALL |up| (QREFELT $ 14)) $)
+                                    . #1#)
+                              (EXIT
+                               (LETT |up| (SPADCALL |up| (QREFELT $ 24))
+                                     . #1#)))
+                             NIL (GO G190) G191 (EXIT NIL))
+                        (EXIT |r|))))))) 
 
-(DEFUN |NSMP;primitivePart!;2$;44| (|p| $)
-  (PROG (|cp|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |p| (QREFELT $ 34)) |p|)
-            ((QEQCAR |p| 0) (|spadConstant| $ 35))
-            ('T
-             (SEQ
-              (LETT |cp| (SPADCALL |p| (QREFELT $ 115))
-                    |NSMP;primitivePart!;2$;44|)
-              (PROGN
-               (RPLACD #1=(QCDR |p|)
-                       (SPADCALL
-                        (SPADCALL
-                         (CONS #'|NSMP;primitivePart!;2$;44!0| (VECTOR $ |cp|))
-                         (QCDR (QCDR |p|)) (QREFELT $ 51))
-                        (QREFELT $ 118)))
-               (QCDR #1#))
-              (EXIT |p|)))))))) 
+(SDEFUN |NSMP;primitivePart!;2$;44| ((|p| $) ($ $))
+        (SPROG ((|cp| (R)))
+               (SEQ
+                (COND ((SPADCALL |p| (QREFELT $ 34)) |p|)
+                      ((QEQCAR |p| 0) (|spadConstant| $ 35))
+                      ('T
+                       (SEQ
+                        (LETT |cp| (SPADCALL |p| (QREFELT $ 115))
+                              |NSMP;primitivePart!;2$;44|)
+                        (PROGN
+                         (RPLACD #1=(QCDR |p|)
+                                 (SPADCALL
+                                  (SPADCALL
+                                   (CONS #'|NSMP;primitivePart!;2$;44!0|
+                                         (VECTOR $ |cp|))
+                                   (QCDR (QCDR |p|)) (QREFELT $ 51))
+                                  (QREFELT $ 118)))
+                         (QCDR #1#))
+                        (EXIT |p|))))))) 
 
-(DEFUN |NSMP;primitivePart!;2$;44!0| (|a1| $$)
-  (PROG (|cp| $)
-    (LETT |cp| (QREFELT $$ 1) . #1=(|NSMP;primitivePart!;2$;44|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |a1| |cp| (QREFELT $ 112)))))) 
+(SDEFUN |NSMP;primitivePart!;2$;44!0| ((|a1| NIL) ($$ NIL))
+        (PROG (|cp| $)
+          (LETT |cp| (QREFELT $$ 1) . #1=(|NSMP;primitivePart!;2$;44|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |a1| |cp| (QREFELT $ 112)))))) 
 
 (DECLAIM (NOTINLINE |NewSparseMultivariatePolynomial;|)) 
 
 (DEFUN |NewSparseMultivariatePolynomial| (&REST #1=#:G477)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G478)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|NewSparseMultivariatePolynomial|)
-                                           '|domainEqualList|)
-                . #3=(|NewSparseMultivariatePolynomial|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |NewSparseMultivariatePolynomial;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G478)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|NewSparseMultivariatePolynomial|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|NewSparseMultivariatePolynomial|)
+                                               '|domainEqualList|)
+                    . #3=(|NewSparseMultivariatePolynomial|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |NewSparseMultivariatePolynomial;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|NewSparseMultivariatePolynomial|)))))))))) 
 
 (DEFUN |NewSparseMultivariatePolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G476 |pv$| #2=#:G472 #3=#:G473 #4=#:G474 #5=#:G475 $ |dv$| DV$2
-         DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #6=(|NewSparseMultivariatePolynomial|))
-      (LETT DV$2 (|devaluate| |#2|) . #6#)
-      (LETT |dv$| (LIST '|NewSparseMultivariatePolynomial| DV$1 DV$2) . #6#)
-      (LETT $ (GETREFV 166) . #6#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|PolynomialFactorizationExplicit|))
-                                          (|HasCategory| |#1| '(|EntireRing|))
-                                          (LETT #5#
-                                                (|HasCategory| |#1|
-                                                               '(|GcdDomain|))
-                                                . #6#)
-                                          (OR #5#
+  (SPROG
+   ((#1=#:G476 NIL) (|pv$| NIL) (#2=#:G472 NIL) (#3=#:G473 NIL) (#4=#:G474 NIL)
+    (#5=#:G475 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #6=(|NewSparseMultivariatePolynomial|))
+    (LETT DV$2 (|devaluate| |#2|) . #6#)
+    (LETT |dv$| (LIST '|NewSparseMultivariatePolynomial| DV$1 DV$2) . #6#)
+    (LETT $ (GETREFV 166) . #6#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|PolynomialFactorizationExplicit|))
+                                        (|HasCategory| |#1| '(|EntireRing|))
+                                        (LETT #5#
                                               (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|)))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|PatternMatchable|
-                                                            (|Float|)))
-                                           (|HasCategory| |#2|
-                                                          '(|PatternMatchable|
-                                                            (|Float|))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|PatternMatchable|
-                                                            (|Integer|)))
-                                           (|HasCategory| |#2|
-                                                          '(|PatternMatchable|
-                                                            (|Integer|))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Float|))))
-                                           (|HasCategory| |#2|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Float|)))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Integer|))))
-                                           (|HasCategory| |#2|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Integer|)))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|InputForm|)))
-                                           (|HasCategory| |#2|
-                                                          '(|ConvertibleTo|
-                                                            (|InputForm|))))
+                                                             '(|GcdDomain|))
+                                              . #6#)
+                                        (OR #5#
+                                            (|HasCategory| |#1|
+                                                           '(|PolynomialFactorizationExplicit|)))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|PatternMatchable|
+                                                          (|Float|)))
+                                         (|HasCategory| |#2|
+                                                        '(|PatternMatchable|
+                                                          (|Float|))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|PatternMatchable|
+                                                          (|Integer|)))
+                                         (|HasCategory| |#2|
+                                                        '(|PatternMatchable|
+                                                          (|Integer|))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Float|))))
+                                         (|HasCategory| |#2|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Float|)))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Integer|))))
+                                         (|HasCategory| |#2|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Integer|)))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|InputForm|)))
+                                         (|HasCategory| |#2|
+                                                        '(|ConvertibleTo|
+                                                          (|InputForm|))))
+                                        (|HasCategory| |#1|
+                                                       '(|Algebra|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicNonZero|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (OR
+                                         (|HasCategory| |#1| '(|EntireRing|))
+                                         #5#)
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1|
+                                                       '(|canonicalUnitNormal|))
+                                        (|HasCategory| |#1| '(|Comparable|))
+                                        (|HasCategory| |#1|
+                                                       '(|LinearlyExplicitRingOver|
+                                                         (|Integer|)))
+                                        (LETT #4#
+                                              (|HasCategory| |#2|
+                                                             '(|ConvertibleTo|
+                                                               (|Symbol|)))
+                                              . #6#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|RetractableTo|
+                                                          (|Integer|)))
+                                         #4#)
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         (|HasCategory| |#1|
+                                                        '(|RetractableTo|
+                                                          (|Fraction|
+                                                           (|Integer|)))))
+                                        (|HasCategory| |#1| '(|Field|))
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|CommutativeRing|))
+                                              . #6#)
+                                        (OR #3#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|)))
+                                        (OR #3# #5#
+                                            (|HasCategory| |#1|
+                                                           '(|PolynomialFactorizationExplicit|)))
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|IntegralDomain|))
+                                              . #6#)
+                                        (OR #3# #5# #2#
+                                            (|HasCategory| |#1|
+                                                           '(|PolynomialFactorizationExplicit|)))
+                                        (OR #5# #2#
+                                            (|HasCategory| |#1|
+                                                           '(|PolynomialFactorizationExplicit|)))
+                                        (OR #3# #5# #2#) (OR #5# #2#)
+                                        (OR #3#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|))
+                                            #5# #2#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         #4#)
+                                        (OR
+                                         (AND
                                           (|HasCategory| |#1|
                                                          '(|Algebra|
                                                            (|Fraction|
                                                             (|Integer|))))
+                                          #4#)
+                                         (AND
                                           (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (OR
-                                           (|HasCategory| |#1| '(|EntireRing|))
-                                           #5#)
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
+                                                         '(|Algebra|
                                                            (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|canonicalUnitNormal|))
-                                          (|HasCategory| |#1| '(|Comparable|))
-                                          (|HasCategory| |#1|
-                                                         '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))
-                                          (LETT #4#
-                                                (|HasCategory| |#2|
-                                                               '(|ConvertibleTo|
-                                                                 (|Symbol|)))
-                                                . #6#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Integer|)))
-                                           #4#)
-                                          (OR
+                                          #4#
+                                          (|not|
                                            (|HasCategory| |#1|
                                                           '(|Algebra|
                                                             (|Fraction|
-                                                             (|Integer|))))
+                                                             (|Integer|)))))))
+                                        (OR
+                                         (AND #4#
+                                              (|not|
+                                               (|HasCategory| |#1|
+                                                              '(|Algebra|
+                                                                (|Fraction|
+                                                                 (|Integer|)))))
+                                              (|not|
+                                               (|HasCategory| |#1|
+                                                              '(|Algebra|
+                                                                (|Integer|)))))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|Algebra|
+                                                           (|Integer|)))
+                                          #4#
+                                          (|not|
                                            (|HasCategory| |#1|
-                                                          '(|RetractableTo|
+                                                          '(|Algebra|
                                                             (|Fraction|
                                                              (|Integer|)))))
-                                          (|HasCategory| |#1| '(|Field|))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|CommutativeRing|))
-                                                . #6#)
-                                          (OR #3#
-                                              (|HasCategory| |#1|
-                                                             '(|EntireRing|)))
-                                          (OR #3# #5#
-                                              (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|IntegralDomain|))
-                                                . #6#)
-                                          (OR #3# #5# #2#
-                                              (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|)))
-                                          (OR #5# #2#
-                                              (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|)))
-                                          (OR #3# #5# #2#) (OR #5# #2#)
-                                          (OR #3#
-                                              (|HasCategory| |#1|
-                                                             '(|EntireRing|))
-                                              #5# #2#)
-                                          (AND
+                                          (|not|
                                            (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           #4#)
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|Algebra|
-                                                             (|Fraction|
-                                                              (|Integer|))))
-                                            #4#)
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|Algebra|
-                                                             (|Integer|)))
-                                            #4#
-                                            (|not|
-                                             (|HasCategory| |#1|
-                                                            '(|Algebra|
-                                                              (|Fraction|
-                                                               (|Integer|)))))))
-                                          (OR
-                                           (AND #4#
-                                                (|not|
-                                                 (|HasCategory| |#1|
-                                                                '(|Algebra|
-                                                                  (|Fraction|
-                                                                   (|Integer|)))))
-                                                (|not|
-                                                 (|HasCategory| |#1|
-                                                                '(|Algebra|
-                                                                  (|Integer|)))))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|Algebra|
-                                                             (|Integer|)))
-                                            #4#
-                                            (|not|
-                                             (|HasCategory| |#1|
-                                                            '(|Algebra|
-                                                              (|Fraction|
-                                                               (|Integer|)))))
-                                            (|not|
-                                             (|HasCategory| |#1|
-                                                            '(|IntegerNumberSystem|))))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|Algebra|
-                                                             (|Fraction|
-                                                              (|Integer|))))
-                                            #4#
-                                            (|not|
-                                             (|HasCategory| |#1|
-                                                            '(|QuotientFieldCategory|
-                                                              (|Integer|))))))))
-                      . #6#))
-      (|haddProp| |$ConstructorCache| '|NewSparseMultivariatePolynomial|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (AND (|HasCategory| $ '(|CommutativeRing|))
-           (|augmentPredVector| $ 17179869184))
-      (AND
-       (LETT #1#
-             (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-                  (|HasCategory| $ '(|CharacteristicNonZero|)))
-             . #6#)
-       (|augmentPredVector| $ 34359738368))
-      (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
-           (|augmentPredVector| $ 68719476736))
-      (AND
-       (OR (|HasCategory| |#1| '(|EntireRing|))
-           (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-       (|augmentPredVector| $ 137438953472))
-      (AND
-       (OR #5#
-           (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-       (|augmentPredVector| $ 274877906944))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (|NewSparseUnivariatePolynomial| $))
-      (QSETREFV $ 9 (|Record| (|:| |v| |#2|) (|:| |ts| (QREFELT $ 8))))
-      (QSETREFV $ 10 (|Union| |#1| (QREFELT $ 9)))
-      (COND
-       ((|testBitVector| |pv$| 26)
-        (PROGN
-         (QSETREFV $ 83 (|PseudoRemainderSequence| $ (QREFELT $ 8)))
-         (QSETREFV $ 87
-                   (CONS (|dispatchFunction| |NSMP;LazardQuotient;2$Nni$;27|)
-                         $))
-         (QSETREFV $ 88
-                   (CONS (|dispatchFunction| |NSMP;LazardQuotient2;3$Nni$;28|)
-                         $))
-         (QSETREFV $ 90
-                   (CONS (|dispatchFunction| |NSMP;next_subResultant2;5$;29|)
-                         $))
-         (QSETREFV $ 93
-                   (CONS (|dispatchFunction| |NSMP;subResultantGcd;3$;30|) $))
-         (QSETREFV $ 96
-                   (CONS
-                    (|dispatchFunction|
-                     |NSMP;halfExtendedSubResultantGcd1;2$R;31|)
-                    $))
-         (QSETREFV $ 99
-                   (CONS
-                    (|dispatchFunction|
-                     |NSMP;halfExtendedSubResultantGcd2;2$R;32|)
-                    $))
-         (QSETREFV $ 102
-                   (CONS
-                    (|dispatchFunction| |NSMP;extendedSubResultantGcd;2$R;33|)
-                    $))
-         (QSETREFV $ 104 (CONS (|dispatchFunction| |NSMP;resultant;3$;34|) $))
-         (QSETREFV $ 106
-                   (CONS (|dispatchFunction| |NSMP;subResultantChain;2$L;35|)
-                         $))
-         (QSETREFV $ 108
-                   (CONS (|dispatchFunction| |NSMP;lastSubResultant;3$;36|) $))
-         (COND
-          ((|HasCategory| |#1| '(|EuclideanDomain|))
-           (PROGN
-            (QSETREFV $ 111
-                      (CONS (|dispatchFunction| |NSMP;exactQuotient;$R$;37|)
-                            $))
-            (QSETREFV $ 112
-                      (CONS (|dispatchFunction| |NSMP;exactQuotient!;$R$;38|)
-                            $))))
-          ('T
-           (PROGN
-            (QSETREFV $ 111
-                      (CONS (|dispatchFunction| |NSMP;exactQuotient;$R$;39|)
-                            $))
-            (QSETREFV $ 112
-                      (CONS (|dispatchFunction| |NSMP;exactQuotient!;$R$;40|)
-                            $))))))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 116 (CONS (|dispatchFunction| |NSMP;gcd;R$R;42|) $))
-         (QSETREFV $ 115 (CONS (|dispatchFunction| |NSMP;content;$R;43|) $))
-         (QSETREFV $ 119
-                   (CONS (|dispatchFunction| |NSMP;primitivePart!;2$;44|)
-                         $)))))
-      $)))) 
+                                                          '(|IntegerNumberSystem|))))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|Algebra|
+                                                           (|Fraction|
+                                                            (|Integer|))))
+                                          #4#
+                                          (|not|
+                                           (|HasCategory| |#1|
+                                                          '(|QuotientFieldCategory|
+                                                            (|Integer|))))))))
+                    . #6#))
+    (|haddProp| |$ConstructorCache| '|NewSparseMultivariatePolynomial|
+                (LIST DV$1 DV$2) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (AND (|HasCategory| $ '(|CommutativeRing|))
+         (|augmentPredVector| $ 17179869184))
+    (AND
+     (LETT #1#
+           (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
+                (|HasCategory| $ '(|CharacteristicNonZero|)))
+           . #6#)
+     (|augmentPredVector| $ 34359738368))
+    (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
+         (|augmentPredVector| $ 68719476736))
+    (AND
+     (OR (|HasCategory| |#1| '(|EntireRing|))
+         (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 137438953472))
+    (AND
+     (OR #5# (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 274877906944))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 8 (|NewSparseUnivariatePolynomial| $))
+    (QSETREFV $ 9 (|Record| (|:| |v| |#2|) (|:| |ts| (QREFELT $ 8))))
+    (QSETREFV $ 10 (|Union| |#1| (QREFELT $ 9)))
+    (COND
+     ((|testBitVector| |pv$| 26)
+      (PROGN
+       (QSETREFV $ 83 (|PseudoRemainderSequence| $ (QREFELT $ 8)))
+       (QSETREFV $ 87
+                 (CONS (|dispatchFunction| |NSMP;LazardQuotient;2$Nni$;27|) $))
+       (QSETREFV $ 88
+                 (CONS (|dispatchFunction| |NSMP;LazardQuotient2;3$Nni$;28|)
+                       $))
+       (QSETREFV $ 90
+                 (CONS (|dispatchFunction| |NSMP;next_subResultant2;5$;29|) $))
+       (QSETREFV $ 93
+                 (CONS (|dispatchFunction| |NSMP;subResultantGcd;3$;30|) $))
+       (QSETREFV $ 96
+                 (CONS
+                  (|dispatchFunction|
+                   |NSMP;halfExtendedSubResultantGcd1;2$R;31|)
+                  $))
+       (QSETREFV $ 99
+                 (CONS
+                  (|dispatchFunction|
+                   |NSMP;halfExtendedSubResultantGcd2;2$R;32|)
+                  $))
+       (QSETREFV $ 102
+                 (CONS
+                  (|dispatchFunction| |NSMP;extendedSubResultantGcd;2$R;33|)
+                  $))
+       (QSETREFV $ 104 (CONS (|dispatchFunction| |NSMP;resultant;3$;34|) $))
+       (QSETREFV $ 106
+                 (CONS (|dispatchFunction| |NSMP;subResultantChain;2$L;35|) $))
+       (QSETREFV $ 108
+                 (CONS (|dispatchFunction| |NSMP;lastSubResultant;3$;36|) $))
+       (COND
+        ((|HasCategory| |#1| '(|EuclideanDomain|))
+         (PROGN
+          (QSETREFV $ 111
+                    (CONS (|dispatchFunction| |NSMP;exactQuotient;$R$;37|) $))
+          (QSETREFV $ 112
+                    (CONS (|dispatchFunction| |NSMP;exactQuotient!;$R$;38|)
+                          $))))
+        ('T
+         (PROGN
+          (QSETREFV $ 111
+                    (CONS (|dispatchFunction| |NSMP;exactQuotient;$R$;39|) $))
+          (QSETREFV $ 112
+                    (CONS (|dispatchFunction| |NSMP;exactQuotient!;$R$;40|)
+                          $))))))))
+    (COND
+     ((|testBitVector| |pv$| 3)
+      (PROGN
+       (QSETREFV $ 116 (CONS (|dispatchFunction| |NSMP;gcd;R$R;42|) $))
+       (QSETREFV $ 115 (CONS (|dispatchFunction| |NSMP;content;$R;43|) $))
+       (QSETREFV $ 119
+                 (CONS (|dispatchFunction| |NSMP;primitivePart!;2$;44|) $)))))
+    $))) 
 
 (MAKEPROP '|NewSparseMultivariatePolynomial| '|infovec|
           (LIST

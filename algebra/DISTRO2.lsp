@@ -1,86 +1,98 @@
 
-(DEFUN |DISTRO2;mapall;MDD;1| (|f| |x| $)
-  (PROG (|bcum2| |fcum2| |cum2| |mom2|)
-    (RETURN
-     (SEQ
-      (LETT |mom2| (SPADCALL |f| (SPADCALL |x| (QREFELT $ 10)) (QREFELT $ 14))
-            . #1=(|DISTRO2;mapall;MDD;1|))
-      (LETT |cum2| (SPADCALL |f| (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 14))
-            . #1#)
-      (LETT |fcum2| (SPADCALL |f| (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 14))
-            . #1#)
-      (LETT |bcum2| (SPADCALL |f| (SPADCALL |x| (QREFELT $ 17)) (QREFELT $ 14))
-            . #1#)
-      (EXIT (SPADCALL |mom2| |cum2| |fcum2| |bcum2| (QREFELT $ 19))))))) 
+(SDEFUN |DISTRO2;mapall;MDD;1|
+        ((|f| |Mapping| R2 R1) (|x| |Distribution| R1) ($ |Distribution| R2))
+        (SPROG
+         ((|bcum2| #1=(|Sequence| R2)) (|fcum2| #1#) (|cum2| #1#) (|mom2| #1#))
+         (SEQ
+          (LETT |mom2|
+                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 10)) (QREFELT $ 14))
+                . #2=(|DISTRO2;mapall;MDD;1|))
+          (LETT |cum2|
+                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 14))
+                . #2#)
+          (LETT |fcum2|
+                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 14))
+                . #2#)
+          (LETT |bcum2|
+                (SPADCALL |f| (SPADCALL |x| (QREFELT $ 17)) (QREFELT $ 14))
+                . #2#)
+          (EXIT (SPADCALL |mom2| |cum2| |fcum2| |bcum2| (QREFELT $ 19)))))) 
 
-(DEFUN |DISTRO2;R1_to_R2_coercion;R1R2;2| (|x| $) (SPADCALL |x| (QREFELT $ 21))) 
+(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;2| ((|x| R1) ($ R2))
+        (SPADCALL |x| (QREFELT $ 21))) 
 
-(DEFUN |DISTRO2;R1_to_R2_coercion;R1R2;3| (|x| $) (SPADCALL |x| (QREFELT $ 23))) 
+(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;3| ((|x| R1) ($ R2))
+        (SPADCALL |x| (QREFELT $ 23))) 
 
 (PUT '|DISTRO2;R1_to_R2_coercion;R1R2;4| '|SPADreplace|
      '(XLAM (|x|) (|error| "unimplemented"))) 
 
-(DEFUN |DISTRO2;R1_to_R2_coercion;R1R2;4| (|x| $) (|error| "unimplemented")) 
+(SDEFUN |DISTRO2;R1_to_R2_coercion;R1R2;4| ((|x| R1) ($ R2))
+        (|error| "unimplemented")) 
 
-(DEFUN |DISTRO2;coerce;DD;5| (|x| $) (SPADCALL (ELT $ 22) |x| (QREFELT $ 20))) 
+(SDEFUN |DISTRO2;coerce;DD;5| ((|x| |Distribution| R1) ($ |Distribution| R2))
+        (SPADCALL (ELT $ 22) |x| (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |DistributionFunctions2;|)) 
 
 (DEFUN |DistributionFunctions2| (&REST #1=#:G114)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G115)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|DistributionFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|DistributionFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |DistributionFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G115)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|DistributionFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|DistributionFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|DistributionFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |DistributionFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|DistributionFunctions2|)))))))))) 
 
 (DEFUN |DistributionFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|DistributionFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|DistributionFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 25) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|DistributionFunctions2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasSignature| |#2|
-                        (LIST '|coerce|
-                              (LIST (|devaluate| |#2|) (|devaluate| |#1|))))
-        (QSETREFV $ 22
-                  (CONS (|dispatchFunction| |DISTRO2;R1_to_R2_coercion;R1R2;2|)
-                        $)))
-       ((|HasSignature| |#1|
-                        (LIST '|coerce|
-                              (LIST (|devaluate| |#2|) (|devaluate| |#1|))))
-        (QSETREFV $ 22
-                  (CONS (|dispatchFunction| |DISTRO2;R1_to_R2_coercion;R1R2;3|)
-                        $)))
-       ('T
-        (QSETREFV $ 22
-                  (CONS (|dispatchFunction| |DISTRO2;R1_to_R2_coercion;R1R2;4|)
-                        $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|DistributionFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|DistributionFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 25) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|DistributionFunctions2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasSignature| |#2|
+                            (LIST '|coerce|
+                                  (LIST (|devaluate| |#2|)
+                                        (|devaluate| |#1|))))
+            (QSETREFV $ 22
+                      (CONS
+                       (|dispatchFunction| |DISTRO2;R1_to_R2_coercion;R1R2;2|)
+                       $)))
+           ((|HasSignature| |#1|
+                            (LIST '|coerce|
+                                  (LIST (|devaluate| |#2|)
+                                        (|devaluate| |#1|))))
+            (QSETREFV $ 22
+                      (CONS
+                       (|dispatchFunction| |DISTRO2;R1_to_R2_coercion;R1R2;3|)
+                       $)))
+           ('T
+            (QSETREFV $ 22
+                      (CONS
+                       (|dispatchFunction| |DISTRO2;R1_to_R2_coercion;R1R2;4|)
+                       $))))
+          $))) 
 
 (MAKEPROP '|DistributionFunctions2| '|infovec|
           (LIST

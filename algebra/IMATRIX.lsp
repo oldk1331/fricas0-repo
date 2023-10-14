@@ -1,153 +1,159 @@
 
-(DEFUN |IMATRIX;swapRows!;$2I$;1| (|x| |i1| |i2| $)
-  (PROG (|t2| |t1| #1=#:G116 |j| |co| |ro|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (< |i1| (SPADCALL |x| (QREFELT $ 10)))
-            (OR (SPADCALL |i1| (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 13))
-                (OR (< |i2| (SPADCALL |x| (QREFELT $ 10)))
-                    (SPADCALL |i2| (SPADCALL |x| (QREFELT $ 11))
-                              (QREFELT $ 13)))))
-        (|error| "swapRows!: index out of range"))
-       ('T
-        (COND ((EQL |i1| |i2|) |x|)
-              ('T
-               (SEQ (LETT |ro| (QREFELT $ 7) . #2=(|IMATRIX;swapRows!;$2I$;1|))
-                    (LETT |co| (QREFELT $ 8) . #2#)
-                    (SEQ (LETT |j| |co| . #2#)
-                         (LETT #1# (SPADCALL |x| (QREFELT $ 14)) . #2#) G190
-                         (COND ((> |j| #1#) (GO G191)))
+(SDEFUN |IMATRIX;swapRows!;$2I$;1|
+        ((|x| $) (|i1| . #1=(|Integer|)) (|i2| . #1#) ($ $))
+        (SPROG
+         ((|t2| NIL) (|t1| NIL) (#2=#:G116 NIL) (|j| NIL) (|co| (|Integer|))
+          (|ro| (|Integer|)))
+         (SEQ
+          (COND
+           ((OR (< |i1| (SPADCALL |x| (QREFELT $ 10)))
+                (OR
+                 (SPADCALL |i1| (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 13))
+                 (OR (< |i2| (SPADCALL |x| (QREFELT $ 10)))
+                     (SPADCALL |i2| (SPADCALL |x| (QREFELT $ 11))
+                               (QREFELT $ 13)))))
+            (|error| "swapRows!: index out of range"))
+           ('T
+            (COND ((EQL |i1| |i2|) |x|)
+                  ('T
+                   (SEQ
+                    (LETT |ro| (QREFELT $ 7) . #3=(|IMATRIX;swapRows!;$2I$;1|))
+                    (LETT |co| (QREFELT $ 8) . #3#)
+                    (SEQ (LETT |j| |co| . #3#)
+                         (LETT #2# (SPADCALL |x| (QREFELT $ 14)) . #3#) G190
+                         (COND ((> |j| #2#) (GO G191)))
                          (SEQ
-                          (LETT |t1| (QAREF2O |x| |i1| |j| |ro| |co|) . #2#)
-                          (LETT |t2| (QAREF2O |x| |i2| |j| |ro| |co|) . #2#)
+                          (LETT |t1| (QAREF2O |x| |i1| |j| |ro| |co|) . #3#)
+                          (LETT |t2| (QAREF2O |x| |i2| |j| |ro| |co|) . #3#)
                           (QSETAREF2O |x| |i1| |j| |t2| |ro| |co|)
                           (EXIT (QSETAREF2O |x| |i2| |j| |t1| |ro| |co|)))
-                         (LETT |j| (+ |j| 1) . #2#) (GO G190) G191 (EXIT NIL))
-                    (EXIT |x|)))))))))) 
+                         (LETT |j| (+ |j| 1) . #3#) (GO G190) G191 (EXIT NIL))
+                    (EXIT |x|))))))))) 
 
-(DEFUN |IMATRIX;determinant;$R;2| (|x| $) (SPADCALL |x| (QREFELT $ 17))) 
+(SDEFUN |IMATRIX;determinant;$R;2| ((|x| $) ($ R))
+        (SPADCALL |x| (QREFELT $ 17))) 
 
-(DEFUN |IMATRIX;minordet;$R;3| (|x| $) (SPADCALL |x| (QREFELT $ 19))) 
+(SDEFUN |IMATRIX;minordet;$R;3| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 19))) 
 
-(DEFUN |IMATRIX;rowEchelon;2$;4| (|x| $) (SPADCALL |x| (QREFELT $ 21))) 
+(SDEFUN |IMATRIX;rowEchelon;2$;4| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 21))) 
 
-(DEFUN |IMATRIX;rank;$Nni;5| (|x| $) (SPADCALL |x| (QREFELT $ 24))) 
+(SDEFUN |IMATRIX;rank;$Nni;5| ((|x| $) ($ |NonNegativeInteger|))
+        (SPADCALL |x| (QREFELT $ 24))) 
 
-(DEFUN |IMATRIX;nullity;$Nni;6| (|x| $) (SPADCALL |x| (QREFELT $ 26))) 
+(SDEFUN |IMATRIX;nullity;$Nni;6| ((|x| $) ($ |NonNegativeInteger|))
+        (SPADCALL |x| (QREFELT $ 26))) 
 
-(DEFUN |IMATRIX;nullSpace;$L;7| (|x| $) (SPADCALL |x| (QREFELT $ 29))) 
+(SDEFUN |IMATRIX;nullSpace;$L;7|
+        ((|x| $) ($ |List| (|IndexedVector| R |mnRow|)))
+        (SPADCALL |x| (QREFELT $ 29))) 
 
-(DEFUN |IMATRIX;inverse;$U;8| (|x| $) (SPADCALL |x| (QREFELT $ 32))) 
+(SDEFUN |IMATRIX;inverse;$U;8| ((|x| $) ($ |Union| $ "failed"))
+        (SPADCALL |x| (QREFELT $ 32))) 
 
 (DECLAIM (NOTINLINE |IndexedMatrix;|)) 
 
 (DEFUN |IndexedMatrix| (&REST #1=#:G140)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G141)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|IndexedMatrix|)
-                                           '|domainEqualList|)
-                . #3=(|IndexedMatrix|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |IndexedMatrix;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G141)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|IndexedMatrix|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedMatrix|)
+                                               '|domainEqualList|)
+                    . #3=(|IndexedMatrix|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |IndexedMatrix;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedMatrix|)))))))))) 
 
 (DEFUN |IndexedMatrix;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G137 #2=#:G138 #3=#:G139 $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedMatrix|))
-      (LETT DV$2 (|devaluate| |#2|) . #4#)
-      (LETT DV$3 (|devaluate| |#3|) . #4#)
-      (LETT |dv$| (LIST '|IndexedMatrix| DV$1 DV$2 DV$3) . #4#)
-      (LETT $ (GETREFV 59) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #3#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #2# #3#)
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #1#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #3#))
-                                          (|HasCategory| |#1|
-                                                         '(|AbelianGroup|))
-                                          (|HasCategory| |#1| '(|Monoid|))
-                                          (|HasCategory| |#1|
-                                                         '(|EuclideanDomain|))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#1|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#1| '(|Field|))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|IndexedMatrix| (LIST DV$1 DV$2 DV$3)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
-      (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 8192))
-      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-           (|augmentPredVector| $ 16384))
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 11)
-        (PROGN
-         (QSETREFV $ 18
-                   (CONS (|dispatchFunction| |IMATRIX;determinant;$R;2|) $))
-         (QSETREFV $ 20
-                   (CONS (|dispatchFunction| |IMATRIX;minordet;$R;3|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 9)
-        (QSETREFV $ 22
-                  (CONS (|dispatchFunction| |IMATRIX;rowEchelon;2$;4|) $))))
-      (COND
-       ((|testBitVector| |pv$| 10)
-        (PROGN
-         (QSETREFV $ 25 (CONS (|dispatchFunction| |IMATRIX;rank;$Nni;5|) $))
-         (QSETREFV $ 27 (CONS (|dispatchFunction| |IMATRIX;nullity;$Nni;6|) $))
-         (QSETREFV $ 30
-                   (CONS (|dispatchFunction| |IMATRIX;nullSpace;$L;7|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 12)
-        (QSETREFV $ 34 (CONS (|dispatchFunction| |IMATRIX;inverse;$U;8|) $))))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G138 NIL) (#3=#:G139 NIL) ($ NIL)
+    (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedMatrix|))
+    (LETT DV$2 (|devaluate| |#2|) . #4#)
+    (LETT DV$3 (|devaluate| |#3|) . #4#)
+    (LETT |dv$| (LIST '|IndexedMatrix| DV$1 DV$2 DV$3) . #4#)
+    (LETT $ (GETREFV 59) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #3#)
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #2# #3#)
+                                        (LETT #1#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #1#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #3#))
+                                        (|HasCategory| |#1| '(|AbelianGroup|))
+                                        (|HasCategory| |#1| '(|Monoid|))
+                                        (|HasCategory| |#1|
+                                                       '(|EuclideanDomain|))
+                                        (|HasCategory| |#1|
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| |#1|
+                                                       '(|CommutativeRing|))
+                                        (|HasCategory| |#1| '(|Field|))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|IndexedMatrix| (LIST DV$1 DV$2 DV$3)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
+    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 8192))
+    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| $ 16384))
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|testBitVector| |pv$| 11)
+      (PROGN
+       (QSETREFV $ 18 (CONS (|dispatchFunction| |IMATRIX;determinant;$R;2|) $))
+       (QSETREFV $ 20 (CONS (|dispatchFunction| |IMATRIX;minordet;$R;3|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 9)
+      (QSETREFV $ 22 (CONS (|dispatchFunction| |IMATRIX;rowEchelon;2$;4|) $))))
+    (COND
+     ((|testBitVector| |pv$| 10)
+      (PROGN
+       (QSETREFV $ 25 (CONS (|dispatchFunction| |IMATRIX;rank;$Nni;5|) $))
+       (QSETREFV $ 27 (CONS (|dispatchFunction| |IMATRIX;nullity;$Nni;6|) $))
+       (QSETREFV $ 30
+                 (CONS (|dispatchFunction| |IMATRIX;nullSpace;$L;7|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 12)
+      (QSETREFV $ 34 (CONS (|dispatchFunction| |IMATRIX;inverse;$U;8|) $))))
+    $))) 
 
 (MAKEPROP '|IndexedMatrix| '|infovec|
           (LIST

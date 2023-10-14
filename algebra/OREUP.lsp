@@ -1,72 +1,73 @@
 
-(DEFUN |OREUP;coerce;V$;1| (|v| $)
-  (SPADCALL (|spadConstant| $ 14) 1 (QREFELT $ 16))) 
+(SDEFUN |OREUP;coerce;V$;1| ((|v| |Variable| |x|) ($ $))
+        (SPADCALL (|spadConstant| $ 14) 1 (QREFELT $ 16))) 
 
-(DEFUN |OREUP;coerce;$Of;2| (|p| $)
-  (SPADCALL |p| (SPADCALL (QREFELT $ 6) (QREFELT $ 21)) (QREFELT $ 22))) 
+(SDEFUN |OREUP;coerce;$Of;2| ((|p| $) ($ |OutputForm|))
+        (SPADCALL |p| (SPADCALL (QREFELT $ 6) (QREFELT $ 21)) (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomial;|)) 
 
 (DEFUN |UnivariateSkewPolynomial| (&REST #1=#:G122)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G123)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|UnivariateSkewPolynomial|)
-                                           '|domainEqualList|)
-                . #3=(|UnivariateSkewPolynomial|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |UnivariateSkewPolynomial;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G123)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|UnivariateSkewPolynomial|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|UnivariateSkewPolynomial|)
+                                               '|domainEqualList|)
+                    . #3=(|UnivariateSkewPolynomial|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |UnivariateSkewPolynomial;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariateSkewPolynomial|)))))))))) 
 
 (DEFUN |UnivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|UnivariateSkewPolynomial|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|UnivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 38) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#2|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#2|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#2|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#2| '(|GcdDomain|))
-                                          (|HasCategory| |#2| '(|Field|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|UnivariateSkewPolynomial|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 10 (|SparseUnivariateSkewPolynomial| |#2| |#3| |#4|))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|UnivariateSkewPolynomial|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|UnivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 38) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#2|
+                                                       '(|CommutativeRing|))
+                                        (|HasCategory| |#2|
+                                                       '(|RetractableTo|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#2|
+                                                       '(|RetractableTo|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#2|
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| |#2| '(|GcdDomain|))
+                                        (|HasCategory| |#2| '(|Field|))))
+                    . #1#))
+    (|haddProp| |$ConstructorCache| '|UnivariateSkewPolynomial|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 10 (|SparseUnivariateSkewPolynomial| |#2| |#3| |#4|))
+    $))) 
 
 (MAKEPROP '|UnivariateSkewPolynomial| '|infovec|
           (LIST

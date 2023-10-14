@@ -1,164 +1,168 @@
 
 (PUT '|CARD;Zero;$;1| '|SPADreplace| '(XLAM NIL (CONS -1 0))) 
 
-(DEFUN |CARD;Zero;$;1| ($) (CONS -1 0)) 
+(SDEFUN |CARD;Zero;$;1| (($ $)) (CONS -1 0)) 
 
 (PUT '|CARD;One;$;2| '|SPADreplace| '(XLAM NIL (CONS -1 1))) 
 
-(DEFUN |CARD;One;$;2| ($) (CONS -1 1)) 
+(SDEFUN |CARD;One;$;2| (($ $)) (CONS -1 1)) 
 
 (PUT '|CARD;coerce;Nni$;3| '|SPADreplace| '(XLAM (|n|) (CONS -1 |n|))) 
 
-(DEFUN |CARD;coerce;Nni$;3| (|n| $) (CONS -1 |n|)) 
+(SDEFUN |CARD;coerce;Nni$;3| ((|n| |NonNegativeInteger|) ($ $)) (CONS -1 |n|)) 
 
 (PUT '|CARD;Aleph;Nni$;4| '|SPADreplace| '(XLAM (|n|) (CONS |n| -1))) 
 
-(DEFUN |CARD;Aleph;Nni$;4| (|n| $) (CONS |n| -1)) 
+(SDEFUN |CARD;Aleph;Nni$;4| ((|n| |NonNegativeInteger|) ($ $)) (CONS |n| -1)) 
 
-(DEFUN |CARD;coerce;$Of;5| (|x| $)
-  (COND ((EQL (QCAR |x|) -1) (SPADCALL (QCDR |x|) (QREFELT $ 19)))
-        ('T
-         (SPADCALL (QREFELT $ 16) (LIST (SPADCALL (QCAR |x|) (QREFELT $ 19)))
-                   (QREFELT $ 21))))) 
+(SDEFUN |CARD;coerce;$Of;5| ((|x| $) ($ |OutputForm|))
+        (COND ((EQL (QCAR |x|) -1) (SPADCALL (QCDR |x|) (QREFELT $ 19)))
+              ('T
+               (SPADCALL (QREFELT $ 16)
+                         (LIST (SPADCALL (QCAR |x|) (QREFELT $ 19)))
+                         (QREFELT $ 21))))) 
 
-(DEFUN |CARD;=;2$B;6| (|x| |y| $)
-  (COND ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 23)) 'NIL)
-        ((SPADCALL |x| (QREFELT $ 24)) (EQL (QCDR |x|) (QCDR |y|))) ('T 'T))) 
+(SDEFUN |CARD;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 23)) 'NIL)
+              ((SPADCALL |x| (QREFELT $ 24)) (EQL (QCDR |x|) (QCDR |y|)))
+              ('T 'T))) 
 
-(DEFUN |CARD;<;2$B;7| (|x| |y| $)
-  (COND ((< (QCAR |x|) (QCAR |y|)) 'T)
-        ((OR (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 26))
-             (NULL (SPADCALL |x| (QREFELT $ 24))))
-         'NIL)
-        ('T (< (QCDR |x|) (QCDR |y|))))) 
+(SDEFUN |CARD;<;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((< (QCAR |x|) (QCAR |y|)) 'T)
+              ((OR (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 26))
+                   (NULL (SPADCALL |x| (QREFELT $ 24))))
+               'NIL)
+              ('T (< (QCDR |x|) (QCDR |y|))))) 
 
-(DEFUN |CARD;+;3$;8| (|x| |y| $)
-  (SEQ
-   (COND
-    ((SPADCALL |x| (QREFELT $ 24))
-     (COND
-      ((SPADCALL |y| (QREFELT $ 24))
-       (EXIT (CONS -1 (+ (QCDR |x|) (QCDR |y|))))))))
-   (EXIT (SPADCALL |x| |y| (QREFELT $ 28))))) 
+(SDEFUN |CARD;+;3$;8| ((|x| $) (|y| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL |x| (QREFELT $ 24))
+           (COND
+            ((SPADCALL |y| (QREFELT $ 24))
+             (EXIT (CONS -1 (+ (QCDR |x|) (QCDR |y|))))))))
+         (EXIT (SPADCALL |x| |y| (QREFELT $ 28))))) 
 
-(DEFUN |CARD;-;2$U;9| (|x| |y| $)
-  (COND ((SPADCALL |x| |y| (QREFELT $ 27)) (CONS 1 "failed"))
-        ((SPADCALL |x| (QREFELT $ 24))
-         (CONS 0 (CONS -1 (- (QCDR |x|) (QCDR |y|)))))
-        ((SPADCALL |x| |y| (QREFELT $ 30)) (CONS 0 |x|))
-        ('T (CONS 1 "failed")))) 
+(SDEFUN |CARD;-;2$U;9| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+        (COND ((SPADCALL |x| |y| (QREFELT $ 27)) (CONS 1 "failed"))
+              ((SPADCALL |x| (QREFELT $ 24))
+               (CONS 0 (CONS -1 (- (QCDR |x|) (QCDR |y|)))))
+              ((SPADCALL |x| |y| (QREFELT $ 30)) (CONS 0 |x|))
+              ('T (CONS 1 "failed")))) 
 
-(DEFUN |CARD;*;3$;10| (|x| |y| $)
-  (SEQ
-   (COND
-    ((SPADCALL |x| (QREFELT $ 24))
-     (COND
-      ((SPADCALL |y| (QREFELT $ 24))
-       (EXIT (CONS -1 (* (QCDR |x|) (QCDR |y|))))))))
-   (COND
-    ((OR (SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 25))
-         (SPADCALL |y| (|spadConstant| $ 12) (QREFELT $ 25)))
-     (EXIT (|spadConstant| $ 12))))
-   (EXIT (SPADCALL |x| |y| (QREFELT $ 28))))) 
+(SDEFUN |CARD;*;3$;10| ((|x| $) (|y| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL |x| (QREFELT $ 24))
+           (COND
+            ((SPADCALL |y| (QREFELT $ 24))
+             (EXIT (CONS -1 (* (QCDR |x|) (QCDR |y|))))))))
+         (COND
+          ((OR (SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 25))
+               (SPADCALL |y| (|spadConstant| $ 12) (QREFELT $ 25)))
+           (EXIT (|spadConstant| $ 12))))
+         (EXIT (SPADCALL |x| |y| (QREFELT $ 28))))) 
 
-(DEFUN |CARD;*;Nni2$;11| (|n| |x| $)
-  (COND
-   ((SPADCALL |x| (QREFELT $ 24))
-    (CONS -1 (SPADCALL |n| (QCDR |x|) (QREFELT $ 34))))
-   ((EQL |n| 0) (|spadConstant| $ 12)) ('T |x|))) 
+(SDEFUN |CARD;*;Nni2$;11| ((|n| |NonNegativeInteger|) (|x| $) ($ $))
+        (COND
+         ((SPADCALL |x| (QREFELT $ 24))
+          (CONS -1 (SPADCALL |n| (QCDR |x|) (QREFELT $ 34))))
+         ((EQL |n| 0) (|spadConstant| $ 12)) ('T |x|))) 
 
-(DEFUN |CARD;^;3$;12| (|x| |y| $)
-  (PROG (#1=#:G158)
-    (RETURN
-     (COND
-      ((SPADCALL |y| (|spadConstant| $ 12) (QREFELT $ 25))
-       (COND
-        ((SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 36))
-         (|spadConstant| $ 11))
-        (#2='T (|error| "0^0 not defined for cardinal numbers."))))
-      ((SPADCALL |y| (QREFELT $ 24))
-       (COND ((NULL (SPADCALL |x| (QREFELT $ 24))) |x|)
-             ('T
-              (CONS -1
-                    (EXPT (QCDR |x|)
-                          (PROG1 (LETT #1# (QCDR |y|) |CARD;^;3$;12|)
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#)))))))
-      ((SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 25))
-       (|spadConstant| $ 12))
-      ((SPADCALL |x| (|spadConstant| $ 11) (QREFELT $ 25))
-       (|spadConstant| $ 11))
-      ((SPADCALL (QREFELT $ 10) (QREFELT $ 37))
-       (CONS (+ (MAX (- (QCAR |x|) 1) (QCAR |y|)) 1) -1))
-      (#2#
-       (|error| "Transfinite exponentiation only implemented under GCH")))))) 
+(SDEFUN |CARD;^;3$;12| ((|x| $) (|y| $) ($ $))
+        (SPROG ((#1=#:G158 NIL))
+               (COND
+                ((SPADCALL |y| (|spadConstant| $ 12) (QREFELT $ 25))
+                 (COND
+                  ((SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 36))
+                   (|spadConstant| $ 11))
+                  (#2='T (|error| "0^0 not defined for cardinal numbers."))))
+                ((SPADCALL |y| (QREFELT $ 24))
+                 (COND ((NULL (SPADCALL |x| (QREFELT $ 24))) |x|)
+                       ('T
+                        (CONS -1
+                              (EXPT (QCDR |x|)
+                                    (PROG1 (LETT #1# (QCDR |y|) |CARD;^;3$;12|)
+                                      (|check_subtype| (>= #1# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       #1#)))))))
+                ((SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 25))
+                 (|spadConstant| $ 12))
+                ((SPADCALL |x| (|spadConstant| $ 11) (QREFELT $ 25))
+                 (|spadConstant| $ 11))
+                ((SPADCALL (QREFELT $ 10) (QREFELT $ 37))
+                 (CONS (+ (MAX (- (QCAR |x|) 1) (QCAR |y|)) 1) -1))
+                (#2#
+                 (|error|
+                  "Transfinite exponentiation only implemented under GCH"))))) 
 
-(DEFUN |CARD;finite?;$B;13| (|x| $) (EQL (QCAR |x|) -1)) 
+(SDEFUN |CARD;finite?;$B;13| ((|x| $) ($ |Boolean|)) (EQL (QCAR |x|) -1)) 
 
-(DEFUN |CARD;countable?;$B;14| (|x| $) (< (QCAR |x|) 1)) 
+(SDEFUN |CARD;countable?;$B;14| ((|x| $) ($ |Boolean|)) (< (QCAR |x|) 1)) 
 
-(DEFUN |CARD;retract;$Nni;15| (|x| $)
-  (PROG (#1=#:G167)
-    (RETURN
-     (COND
-      ((SPADCALL |x| (QREFELT $ 24))
-       (PROG1 (LETT #1# (QCDR |x|) |CARD;retract;$Nni;15|)
-         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
-      ('T (|error| "Not finite")))))) 
+(SDEFUN |CARD;retract;$Nni;15| ((|x| $) ($ |NonNegativeInteger|))
+        (SPROG ((#1=#:G167 NIL))
+               (COND
+                ((SPADCALL |x| (QREFELT $ 24))
+                 (PROG1 (LETT #1# (QCDR |x|) |CARD;retract;$Nni;15|)
+                   (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
+                ('T (|error| "Not finite"))))) 
 
-(DEFUN |CARD;retractIfCan;$U;16| (|x| $)
-  (PROG (#1=#:G173)
-    (RETURN
-     (COND
-      ((SPADCALL |x| (QREFELT $ 24))
-       (CONS 0
-             (PROG1 (LETT #1# (QCDR |x|) |CARD;retractIfCan;$U;16|)
-               (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))
-      ('T (CONS 1 "failed")))))) 
+(SDEFUN |CARD;retractIfCan;$U;16|
+        ((|x| $) ($ |Union| (|NonNegativeInteger|) "failed"))
+        (SPROG ((#1=#:G173 NIL))
+               (COND
+                ((SPADCALL |x| (QREFELT $ 24))
+                 (CONS 0
+                       (PROG1 (LETT #1# (QCDR |x|) |CARD;retractIfCan;$U;16|)
+                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
+                                          #1#))))
+                ('T (CONS 1 "failed"))))) 
 
-(DEFUN |CARD;generalizedContinuumHypothesisAssumed?;B;17| ($)
-  (SPADCALL (QREFELT $ 10) (QREFELT $ 37))) 
+(SDEFUN |CARD;generalizedContinuumHypothesisAssumed?;B;17| (($ |Boolean|))
+        (SPADCALL (QREFELT $ 10) (QREFELT $ 37))) 
 
-(DEFUN |CARD;generalizedContinuumHypothesisAssumed;2B;18| (|b| $)
-  (SPADCALL (QREFELT $ 10) |b| (QREFELT $ 44))) 
+(SDEFUN |CARD;generalizedContinuumHypothesisAssumed;2B;18|
+        ((|b| |Boolean|) ($ |Boolean|))
+        (SPADCALL (QREFELT $ 10) |b| (QREFELT $ 44))) 
 
 (DECLAIM (NOTINLINE |CardinalNumber;|)) 
 
 (DEFUN |CardinalNumber| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G182)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|CardinalNumber|)
-                . #2=(|CardinalNumber|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|CardinalNumber|
-                         (LIST (CONS NIL (CONS 1 (|CardinalNumber;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G182)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|CardinalNumber|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|CardinalNumber|)
+                    . #2=(|CardinalNumber|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|CardinalNumber|
+                             (LIST (CONS NIL (CONS 1 (|CardinalNumber;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|CardinalNumber|)))))))))) 
 
 (DEFUN |CardinalNumber;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|CardinalNumber|) . #1=(|CardinalNumber|))
-      (LETT $ (GETREFV 50) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|CardinalNumber| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Record| (|:| |order| (|Integer|)) (|:| |ival| (|Integer|))))
-      (QSETREFV $ 10 (SPADCALL 'NIL (QREFELT $ 9)))
-      (QSETREFV $ 16 "Aleph")
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|CardinalNumber|) . #1=(|CardinalNumber|))
+          (LETT $ (GETREFV 50) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|CardinalNumber| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |order| (|Integer|))
+                              (|:| |ival| (|Integer|))))
+          (QSETREFV $ 10 (SPADCALL 'NIL (QREFELT $ 9)))
+          (QSETREFV $ 16 "Aleph")
+          $))) 
 
 (MAKEPROP '|CardinalNumber| '|infovec|
           (LIST

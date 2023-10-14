@@ -1,73 +1,75 @@
 
-(DEFUN |EVALCYC;evp| (|fn| |pt| $)
-  (PROG (#1=#:G104 #2=#:G103 #3=#:G105 #4=#:G107 |i|)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #1# NIL . #5=(|EVALCYC;evp|))
-       (SEQ (LETT |i| NIL . #5#) (LETT #4# (SPADCALL |pt| (QREFELT $ 9)) . #5#)
-            G190
-            (COND
-             ((OR (ATOM #4#) (PROGN (LETT |i| (CAR #4#) . #5#) NIL))
-              (GO G191)))
-            (SEQ
-             (EXIT
-              (PROGN
-               (LETT #3# (SPADCALL |i| |fn|) . #5#)
-               (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 10)) . #5#))
-                     ('T (PROGN (LETT #2# #3# . #5#) (LETT #1# 'T . #5#)))))))
-            (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-       (COND (#1# #2#) ('T (|spadConstant| $ 11)))))))) 
+(SDEFUN |EVALCYC;evp| ((|fn| |Mapping| F (|Integer|)) (|pt| |Partition|) ($ F))
+        (SPROG
+         ((#1=#:G104 NIL) (#2=#:G103 (F)) (#3=#:G105 (F)) (#4=#:G107 NIL)
+          (|i| NIL))
+         (SEQ
+          (PROGN
+           (LETT #1# NIL . #5=(|EVALCYC;evp|))
+           (SEQ (LETT |i| NIL . #5#)
+                (LETT #4# (SPADCALL |pt| (QREFELT $ 9)) . #5#) G190
+                (COND
+                 ((OR (ATOM #4#) (PROGN (LETT |i| (CAR #4#) . #5#) NIL))
+                  (GO G191)))
+                (SEQ
+                 (EXIT
+                  (PROGN
+                   (LETT #3# (SPADCALL |i| |fn|) . #5#)
+                   (COND
+                    (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 10)) . #5#))
+                    ('T (PROGN (LETT #2# #3# . #5#) (LETT #1# 'T . #5#)))))))
+                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+           (COND (#1# #2#) ('T (|spadConstant| $ 11))))))) 
 
-(DEFUN |EVALCYC;eval;MSpF;2| (|fn| |spol| $)
-  (COND
-   ((SPADCALL |spol| (|spadConstant| $ 15) (QREFELT $ 17))
-    (|spadConstant| $ 12))
-   ('T
-    (SPADCALL
-     (SPADCALL (SPADCALL |spol| (QREFELT $ 19))
-               (|EVALCYC;evp| |fn| (SPADCALL |spol| (QREFELT $ 20)) $)
-               (QREFELT $ 21))
-     (SPADCALL |fn| (SPADCALL |spol| (QREFELT $ 22)) (QREFELT $ 24))
-     (QREFELT $ 25))))) 
+(SDEFUN |EVALCYC;eval;MSpF;2|
+        ((|fn| |Mapping| F (|Integer|))
+         (|spol| |SymmetricPolynomial| (|Fraction| (|Integer|))) ($ F))
+        (COND
+         ((SPADCALL |spol| (|spadConstant| $ 15) (QREFELT $ 17))
+          (|spadConstant| $ 12))
+         ('T
+          (SPADCALL
+           (SPADCALL (SPADCALL |spol| (QREFELT $ 19))
+                     (|EVALCYC;evp| |fn| (SPADCALL |spol| (QREFELT $ 20)) $)
+                     (QREFELT $ 21))
+           (SPADCALL |fn| (SPADCALL |spol| (QREFELT $ 22)) (QREFELT $ 24))
+           (QREFELT $ 25))))) 
 
 (DECLAIM (NOTINLINE |EvaluateCycleIndicators;|)) 
 
 (DEFUN |EvaluateCycleIndicators| (#1=#:G111)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G112)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|EvaluateCycleIndicators|)
-                                           '|domainEqualList|)
-                . #3=(|EvaluateCycleIndicators|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|EvaluateCycleIndicators;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G112)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|EvaluateCycleIndicators|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|EvaluateCycleIndicators|)
+                                               '|domainEqualList|)
+                    . #3=(|EvaluateCycleIndicators|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|EvaluateCycleIndicators;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|EvaluateCycleIndicators|)))))))))) 
 
 (DEFUN |EvaluateCycleIndicators;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|EvaluateCycleIndicators|))
-      (LETT |dv$| (LIST '|EvaluateCycleIndicators| DV$1) . #1#)
-      (LETT $ (GETREFV 26) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|EvaluateCycleIndicators| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|EvaluateCycleIndicators|))
+          (LETT |dv$| (LIST '|EvaluateCycleIndicators| DV$1) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|EvaluateCycleIndicators|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|EvaluateCycleIndicators| '|infovec|
           (LIST

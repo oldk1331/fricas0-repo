@@ -1,82 +1,124 @@
 
-(DEFUN |RDEEFX2;risch_de_ext;I2FSMMR;1| (|n| |f| |g| |x| |lim| |ext| $)
-  (SPADCALL |n| |f| |g| |x| |lim| |ext| (QREFELT $ 20))) 
+(SDEFUN |RDEEFX2;risch_de_ext;I2FSMMR;1|
+        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
+         (|lim| |Mapping|
+          (|Union|
+           (|Record| (|:| |mainpart| F)
+                     (|:| |limitedlogs|
+                          (|List|
+                           (|Record| (|:| |coeff| F) (|:| |logand| F)))))
+           "failed")
+          F (|List| F))
+         (|ext| |Mapping|
+          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed") F F)
+         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+          (|:| |sol?| (|Boolean|))))
+        (SPADCALL |n| |f| |g| |x| |lim| |ext| (QREFELT $ 20))) 
 
-(DEFUN |RDEEFX2;risch_de_ext;I2FSMMR;2| (|n| |f| |g| |x| |lim| |ext| $)
-  (PROG (|res1|)
-    (RETURN
-     (SEQ
-      (LETT |res1| (SPADCALL |n| |f| |g| |x| |lim| |ext| (QREFELT $ 32))
-            |RDEEFX2;risch_de_ext;I2FSMMR;2|)
-      (EXIT
-       (VECTOR (QVELT |res1| 0) (QVELT |res1| 1) (|spadConstant| $ 33)
-               (QVELT |res1| 2))))))) 
+(SDEFUN |RDEEFX2;risch_de_ext;I2FSMMR;2|
+        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
+         (|lim| |Mapping|
+          (|Union|
+           (|Record| (|:| |mainpart| F)
+                     (|:| |limitedlogs|
+                          (|List|
+                           (|Record| (|:| |coeff| F) (|:| |logand| F)))))
+           "failed")
+          F (|List| F))
+         (|ext| |Mapping|
+          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed") F F)
+         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+          (|:| |sol?| (|Boolean|))))
+        (SPROG
+         ((|res1|
+           (|Record| (|:| |ans| F) (|:| |right| F) (|:| |sol?| (|Boolean|)))))
+         (SEQ
+          (LETT |res1| (SPADCALL |n| |f| |g| |x| |lim| |ext| (QREFELT $ 32))
+                |RDEEFX2;risch_de_ext;I2FSMMR;2|)
+          (EXIT
+           (VECTOR (QVELT |res1| 0) (QVELT |res1| 1) (|spadConstant| $ 33)
+                   (QVELT |res1| 2)))))) 
 
-(DEFUN |RDEEFX2;risch_de_ext;I2FSMMR;3| (|n| |f| |g| |x| |lim| |ext| $)
-  (PROG (|res1|)
-    (RETURN
-     (SEQ
-      (LETT |res1| (SPADCALL |n| |f| |g| |x| |lim| |ext| (QREFELT $ 32))
-            |RDEEFX2;risch_de_ext;I2FSMMR;3|)
-      (EXIT
-       (VECTOR (QVELT |res1| 0) (QVELT |res1| 1) (|spadConstant| $ 33)
-               (QVELT |res1| 2))))))) 
+(SDEFUN |RDEEFX2;risch_de_ext;I2FSMMR;3|
+        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
+         (|lim| |Mapping|
+          (|Union|
+           (|Record| (|:| |mainpart| F)
+                     (|:| |limitedlogs|
+                          (|List|
+                           (|Record| (|:| |coeff| F) (|:| |logand| F)))))
+           "failed")
+          F (|List| F))
+         (|ext| |Mapping|
+          (|Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed") F F)
+         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+          (|:| |sol?| (|Boolean|))))
+        (SPROG
+         ((|res1|
+           (|Record| (|:| |ans| F) (|:| |right| F) (|:| |sol?| (|Boolean|)))))
+         (SEQ
+          (LETT |res1| (SPADCALL |n| |f| |g| |x| |lim| |ext| (QREFELT $ 32))
+                |RDEEFX2;risch_de_ext;I2FSMMR;3|)
+          (EXIT
+           (VECTOR (QVELT |res1| 0) (QVELT |res1| 1) (|spadConstant| $ 33)
+                   (QVELT |res1| 2)))))) 
 
 (DECLAIM (NOTINLINE |ElementaryRischDEX2;|)) 
 
 (DEFUN |ElementaryRischDEX2| (&REST #1=#:G161)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G162)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ElementaryRischDEX2|)
-                                           '|domainEqualList|)
-                . #3=(|ElementaryRischDEX2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ElementaryRischDEX2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G162)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|ElementaryRischDEX2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ElementaryRischDEX2|)
+                                               '|domainEqualList|)
+                    . #3=(|ElementaryRischDEX2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ElementaryRischDEX2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ElementaryRischDEX2|)))))))))) 
 
 (DEFUN |ElementaryRischDEX2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ElementaryRischDEX2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|ElementaryRischDEX2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 34) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ElementaryRischDEX2| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|domainEqual| |#2| (|Expression| |#1|))
-        (COND
-         ((|HasCategory| |#1| '(|EuclideanDomain|))
-          (QSETREFV $ 29
-                    (CONS (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSMMR;1|)
-                          $)))
-         ('T
-          (QSETREFV $ 29
-                    (CONS (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSMMR;2|)
-                          $)))))
-       ('T
-        (QSETREFV $ 29
-                  (CONS (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSMMR;3|)
-                        $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|ElementaryRischDEX2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|ElementaryRischDEX2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 34) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ElementaryRischDEX2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|domainEqual| |#2| (|Expression| |#1|))
+            (COND
+             ((|HasCategory| |#1| '(|EuclideanDomain|))
+              (QSETREFV $ 29
+                        (CONS
+                         (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSMMR;1|)
+                         $)))
+             ('T
+              (QSETREFV $ 29
+                        (CONS
+                         (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSMMR;2|)
+                         $)))))
+           ('T
+            (QSETREFV $ 29
+                      (CONS
+                       (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSMMR;3|)
+                       $))))
+          $))) 
 
 (MAKEPROP '|ElementaryRischDEX2| '|infovec|
           (LIST

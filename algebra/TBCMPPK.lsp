@@ -1,149 +1,162 @@
 
-(DEFUN |TBCMPPK;initTable!;V;1| ($)
-  (SEQ (SETELT $ 8 'T) (SETELT $ 11 (SPADCALL (QREFELT $ 10)))
-       (EXIT (SPADCALL (QREFELT $ 19))))) 
+(SDEFUN |TBCMPPK;initTable!;V;1| (($ |Void|))
+        (SEQ (SETELT $ 8 'T) (SETELT $ 11 (SPADCALL (QREFELT $ 10)))
+             (EXIT (SPADCALL (QREFELT $ 19))))) 
 
-(DEFUN |TBCMPPK;printInfo!;2SV;2| (|s1| |s2| $)
-  (SEQ
-   (COND
-    ((OR (SPADCALL |s1| (QREFELT $ 23)) (SPADCALL |s2| (QREFELT $ 23)))
-     (SPADCALL (QREFELT $ 19)))
-    ('T
-     (COND
-      ((SPADCALL (QREFELT $ 24))
-       (SEQ (SETELT $ 12 'T) (SETELT $ 15 |s1|) (SETELT $ 16 |s2|)
-            (EXIT (SPADCALL (QREFELT $ 19)))))
-      ('T
-       (|error| "in printInfo!()$TBCMPPK: not allowed to use hashtable"))))))) 
-
-(DEFUN |TBCMPPK;startStats!;SV;3| (|s| $)
-  (SEQ
-   (COND ((SPADCALL |s| (QREFELT $ 23)) (SPADCALL (QREFELT $ 19)))
-         ((QREFELT $ 8)
-          (SEQ (SETELT $ 13 'T) (SETELT $ 14 0) (SETELT $ 17 |s|)
-               (EXIT (SPADCALL (QREFELT $ 19)))))
-         ('T
-          (|error| "in startStats!()$TBCMPPK: not allowed to use hashtable"))))) 
-
-(DEFUN |TBCMPPK;printStats!;V;4| ($)
-  (PROG (|n| |title|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QREFELT $ 8)
-        (COND
-         ((QREFELT $ 13)
-          (SEQ (SPADCALL " " (QREFELT $ 28))
-               (LETT |title|
-                     (STRCONC "*** "
-                              (STRCONC (QREFELT $ 17) " Statistics ***"))
-                     . #1=(|TBCMPPK;printStats!;V;4|))
-               (SPADCALL |title| (QREFELT $ 28))
-               (LETT |n| (SPADCALL (QREFELT $ 11) (QREFELT $ 30)) . #1#)
-               (SPADCALL "   Table     size: " (SPADCALL |n| (QREFELT $ 32))
-                         (QREFELT $ 33))
-               (EXIT
-                (SPADCALL "   Entries reused: "
-                          (SPADCALL (QREFELT $ 14) (QREFELT $ 32))
-                          (QREFELT $ 33)))))
-         (#2='T (|error| "in printStats!()$TBCMPPK: statistics not started"))))
-       (#2#
-        (|error| "in printStats!()$TBCMPPK: not allowed to use hashtable"))))))) 
-
-(DEFUN |TBCMPPK;clearTable!;V;5| ($)
-  (SEQ
-   (COND
-    ((QREFELT $ 8)
-     (SEQ (SETELT $ 11 (SPADCALL (QREFELT $ 10))) (SETELT $ 8 'NIL)
-          (SETELT $ 12 'NIL) (SETELT $ 13 'NIL)
-          (SETELT $ 17 (|make_full_CVEC| 0)) (EXIT (SPADCALL (QREFELT $ 19)))))
-    ('T (|error| "in clearTable!()$TBCMPPK: not allowed to use hashtable"))))) 
-
-(DEFUN |TBCMPPK;usingTable?;B;6| ($) (QREFELT $ 8)) 
-
-(DEFUN |TBCMPPK;printingInfo?;B;7| ($) (QREFELT $ 12)) 
-
-(DEFUN |TBCMPPK;makingStats?;B;8| ($) (QREFELT $ 13)) 
-
-(DEFUN |TBCMPPK;extractIfCan;KeyU;9| (|k| $)
-  (PROG (#1=#:G128 |s|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND
-        ((QREFELT $ 8)
-         (SEQ
-          (LETT |s| (SPADCALL |k| (QREFELT $ 11) (QREFELT $ 39))
-                . #2=(|TBCMPPK;extractIfCan;KeyU;9|))
-          (EXIT
+(SDEFUN |TBCMPPK;printInfo!;2SV;2| ((|s1| |String|) (|s2| |String|) ($ |Void|))
+        (SEQ
+         (COND
+          ((OR (SPADCALL |s1| (QREFELT $ 23)) (SPADCALL |s2| (QREFELT $ 23)))
+           (SPADCALL (QREFELT $ 19)))
+          ('T
            (COND
-            ((QEQCAR |s| 0)
-             (SEQ
-              (COND ((QREFELT $ 12) (SPADCALL (QREFELT $ 15) (QREFELT $ 41))))
-              (COND ((QREFELT $ 13) (SETELT $ 14 (+ (QREFELT $ 14) 1))))
-              (EXIT (PROGN (LETT #1# |s| . #2#) (GO #1#)))))
-            (#3='T (CONS 1 "failed"))))))
-        (#3# (CONS 1 "failed"))))
-      #1# (EXIT #1#))))) 
+            ((SPADCALL (QREFELT $ 24))
+             (SEQ (SETELT $ 12 'T) (SETELT $ 15 |s1|) (SETELT $ 16 |s2|)
+                  (EXIT (SPADCALL (QREFELT $ 19)))))
+            ('T
+             (|error|
+              "in printInfo!()$TBCMPPK: not allowed to use hashtable"))))))) 
 
-(DEFUN |TBCMPPK;insert!;KeyEntryV;10| (|k| |e| $)
-  (SEQ
-   (COND
-    ((QREFELT $ 8)
-     (SEQ (SPADCALL (QREFELT $ 11) |k| |e| (QREFELT $ 43))
-          (COND ((QREFELT $ 12) (SPADCALL (QREFELT $ 16) (QREFELT $ 41))))
-          (EXIT (SPADCALL (QREFELT $ 19)))))
-    ('T (SPADCALL (QREFELT $ 19)))))) 
+(SDEFUN |TBCMPPK;startStats!;SV;3| ((|s| |String|) ($ |Void|))
+        (SEQ
+         (COND ((SPADCALL |s| (QREFELT $ 23)) (SPADCALL (QREFELT $ 19)))
+               ((QREFELT $ 8)
+                (SEQ (SETELT $ 13 'T) (SETELT $ 14 0) (SETELT $ 17 |s|)
+                     (EXIT (SPADCALL (QREFELT $ 19)))))
+               ('T
+                (|error|
+                 "in startStats!()$TBCMPPK: not allowed to use hashtable"))))) 
+
+(SDEFUN |TBCMPPK;printStats!;V;4| (($ |Void|))
+        (SPROG ((|n| (|NonNegativeInteger|)) (|title| (|String|)))
+               (SEQ
+                (COND
+                 ((QREFELT $ 8)
+                  (COND
+                   ((QREFELT $ 13)
+                    (SEQ (SPADCALL " " (QREFELT $ 28))
+                         (LETT |title|
+                               (STRCONC "*** "
+                                        (STRCONC (QREFELT $ 17)
+                                                 " Statistics ***"))
+                               . #1=(|TBCMPPK;printStats!;V;4|))
+                         (SPADCALL |title| (QREFELT $ 28))
+                         (LETT |n| (SPADCALL (QREFELT $ 11) (QREFELT $ 30))
+                               . #1#)
+                         (SPADCALL "   Table     size: "
+                                   (SPADCALL |n| (QREFELT $ 32))
+                                   (QREFELT $ 33))
+                         (EXIT
+                          (SPADCALL "   Entries reused: "
+                                    (SPADCALL (QREFELT $ 14) (QREFELT $ 32))
+                                    (QREFELT $ 33)))))
+                   (#2='T
+                    (|error|
+                     "in printStats!()$TBCMPPK: statistics not started"))))
+                 (#2#
+                  (|error|
+                   "in printStats!()$TBCMPPK: not allowed to use hashtable")))))) 
+
+(SDEFUN |TBCMPPK;clearTable!;V;5| (($ |Void|))
+        (SEQ
+         (COND
+          ((QREFELT $ 8)
+           (SEQ (SETELT $ 11 (SPADCALL (QREFELT $ 10))) (SETELT $ 8 'NIL)
+                (SETELT $ 12 'NIL) (SETELT $ 13 'NIL)
+                (SETELT $ 17 (|make_full_CVEC| 0))
+                (EXIT (SPADCALL (QREFELT $ 19)))))
+          ('T
+           (|error|
+            "in clearTable!()$TBCMPPK: not allowed to use hashtable"))))) 
+
+(SDEFUN |TBCMPPK;usingTable?;B;6| (($ |Boolean|)) (QREFELT $ 8)) 
+
+(SDEFUN |TBCMPPK;printingInfo?;B;7| (($ |Boolean|)) (QREFELT $ 12)) 
+
+(SDEFUN |TBCMPPK;makingStats?;B;8| (($ |Boolean|)) (QREFELT $ 13)) 
+
+(SDEFUN |TBCMPPK;extractIfCan;KeyU;9|
+        ((|k| |Key|) ($ |Union| |Entry| "failed"))
+        (SPROG ((#1=#:G128 NIL) (|s| (|Union| |Entry| "failed")))
+               (SEQ
+                (EXIT
+                 (COND
+                  ((QREFELT $ 8)
+                   (SEQ
+                    (LETT |s| (SPADCALL |k| (QREFELT $ 11) (QREFELT $ 39))
+                          . #2=(|TBCMPPK;extractIfCan;KeyU;9|))
+                    (EXIT
+                     (COND
+                      ((QEQCAR |s| 0)
+                       (SEQ
+                        (COND
+                         ((QREFELT $ 12)
+                          (SPADCALL (QREFELT $ 15) (QREFELT $ 41))))
+                        (COND
+                         ((QREFELT $ 13) (SETELT $ 14 (+ (QREFELT $ 14) 1))))
+                        (EXIT (PROGN (LETT #1# |s| . #2#) (GO #1#)))))
+                      (#3='T (CONS 1 "failed"))))))
+                  (#3# (CONS 1 "failed"))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |TBCMPPK;insert!;KeyEntryV;10| ((|k| |Key|) (|e| |Entry|) ($ |Void|))
+        (SEQ
+         (COND
+          ((QREFELT $ 8)
+           (SEQ (SPADCALL (QREFELT $ 11) |k| |e| (QREFELT $ 43))
+                (COND
+                 ((QREFELT $ 12) (SPADCALL (QREFELT $ 16) (QREFELT $ 41))))
+                (EXIT (SPADCALL (QREFELT $ 19)))))
+          ('T (SPADCALL (QREFELT $ 19)))))) 
 
 (DECLAIM (NOTINLINE |TabulatedComputationPackage;|)) 
 
 (DEFUN |TabulatedComputationPackage| (&REST #1=#:G131)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G132)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|TabulatedComputationPackage|)
-                                           '|domainEqualList|)
-                . #3=(|TabulatedComputationPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |TabulatedComputationPackage;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G132)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|TabulatedComputationPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TabulatedComputationPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|TabulatedComputationPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |TabulatedComputationPackage;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|TabulatedComputationPackage|)))))))))) 
 
 (DEFUN |TabulatedComputationPackage;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|TabulatedComputationPackage|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|TabulatedComputationPackage| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 45) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TabulatedComputationPackage|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 'NIL)
-      (QSETREFV $ 11 (SPADCALL (QREFELT $ 10)))
-      (QSETREFV $ 12 'NIL)
-      (QSETREFV $ 13 'NIL)
-      (QSETREFV $ 14 0)
-      (QSETREFV $ 15 "o")
-      (QSETREFV $ 16 "+")
-      (QSETREFV $ 17 (|make_full_CVEC| 0))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|TabulatedComputationPackage|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|TabulatedComputationPackage| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 45) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TabulatedComputationPackage|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 'NIL)
+          (QSETREFV $ 11 (SPADCALL (QREFELT $ 10)))
+          (QSETREFV $ 12 'NIL)
+          (QSETREFV $ 13 'NIL)
+          (QSETREFV $ 14 0)
+          (QSETREFV $ 15 "o")
+          (QSETREFV $ 16 "+")
+          (QSETREFV $ 17 (|make_full_CVEC| 0))
+          $))) 
 
 (MAKEPROP '|TabulatedComputationPackage| '|infovec|
           (LIST

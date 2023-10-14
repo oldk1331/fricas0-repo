@@ -1,495 +1,544 @@
 
-(DEFUN |FEXPR;mkEqn| (|s1| |s2| $)
-  (SPADCALL (SPADCALL |s2| (QREFELT $ 13))
-            (SPADCALL
-             (SPADCALL |s1| (SPADCALL |s2| (QREFELT $ 15)) (QREFELT $ 16))
-             (QREFELT $ 13))
-            (QREFELT $ 18))) 
-
-(DEFUN |FEXPR;fixUpSymbols| (|u| $)
-  (PROG (#1=#:G155 |i| #2=#:G154 |sym| |syms| #3=#:G153 |s| #4=#:G152 #5=#:G132
-         #6=#:G150 #7=#:G151)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |syms| (SPADCALL |u| (QREFELT $ 20)) . #8=(|FEXPR;fixUpSymbols|))
-        (COND
-         ((EQL (LENGTH (QREFELT $ 6)) 1)
-          (COND
-           ((ZEROP (LENGTH (QREFELT $ 7)))
-            (EXIT
-             (COND ((NULL (EQL (LENGTH |syms|) 1)) (CONS 1 "failed"))
-                   ('T
-                    (CONS 0
-                          (SPADCALL |u|
-                                    (SPADCALL
-                                     (SPADCALL (|SPADfirst| |syms|)
-                                               (QREFELT $ 13))
-                                     (SPADCALL (|SPADfirst| (QREFELT $ 6))
-                                               (QREFELT $ 13))
-                                     (QREFELT $ 18))
-                                    (QREFELT $ 23))))))))))
-        (COND
-         ((ZEROP (LENGTH (QREFELT $ 6)))
-          (COND
-           ((EQL (LENGTH (QREFELT $ 7)) 1)
-            (EXIT
-             (SEQ
-              (SEQ
-               (EXIT
-                (SEQ (LETT |s| NIL . #8#) (LETT #7# |syms| . #8#) G190
-                     (COND
-                      ((OR (ATOM #7#) (PROGN (LETT |s| (CAR #7#) . #8#) NIL))
-                       (GO G191)))
-                     (SEQ
-                      (EXIT
-                       (COND
-                        ((NULL (SPADCALL |s| (QREFELT $ 25)))
-                         (PROGN
-                          (LETT #5#
-                                (PROGN
-                                 (LETT #6# (CONS 1 "failed") . #8#)
-                                 (GO #6#))
-                                . #8#)
-                          (GO #5#))))))
-                     (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL)))
-               #5# (EXIT #5#))
-              (COND
-               ((NULL
-                 (EQL
-                  (LENGTH
-                   (LETT |syms|
-                         (SPADCALL
-                          (PROGN
-                           (LETT #4# NIL . #8#)
-                           (SEQ (LETT |s| NIL . #8#) (LETT #3# |syms| . #8#)
-                                G190
-                                (COND
-                                 ((OR (ATOM #3#)
-                                      (PROGN (LETT |s| (CAR #3#) . #8#) NIL))
-                                  (GO G191)))
-                                (SEQ
-                                 (EXIT
-                                  (LETT #4#
-                                        (CONS (SPADCALL |s| (QREFELT $ 26))
-                                              #4#)
-                                        . #8#)))
-                                (LETT #3# (CDR #3#) . #8#) (GO G190) G191
-                                (EXIT (NREVERSE #4#))))
-                          (QREFELT $ 27))
-                         . #8#))
-                  1))
-                (EXIT (CONS 1 "failed"))))
-              (LETT |sym| (|SPADfirst| (QREFELT $ 7)) . #8#)
-              (EXIT
-               (CONS 0
-                     (SPADCALL |u|
-                               (PROGN
-                                (LETT #2# NIL . #8#)
-                                (SEQ (LETT |i| NIL . #8#)
-                                     (LETT #1# (SPADCALL |u| (QREFELT $ 20))
-                                           . #8#)
-                                     G190
-                                     (COND
-                                      ((OR (ATOM #1#)
-                                           (PROGN
-                                            (LETT |i| (CAR #1#) . #8#)
-                                            NIL))
-                                       (GO G191)))
-                                     (SEQ
-                                      (EXIT
-                                       (LETT #2#
-                                             (CONS (|FEXPR;mkEqn| |sym| |i| $)
-                                                   #2#)
-                                             . #8#)))
-                                     (LETT #1# (CDR #1#) . #8#) (GO G190) G191
-                                     (EXIT (NREVERSE #2#))))
-                               (QREFELT $ 29))))))))))
-        (EXIT (CONS 1 "failed"))))
-      #6# (EXIT #6#))))) 
-
-(DEFUN |FEXPR;extraSymbols?| (|u| $)
-  (PROG (|extras| |syms| #1=#:G160 |v| #2=#:G159)
-    (RETURN
-     (SEQ
-      (LETT |syms|
-            (PROGN
-             (LETT #2# NIL . #3=(|FEXPR;extraSymbols?|))
-             (SEQ (LETT |v| NIL . #3#)
-                  (LETT #1# (SPADCALL |u| (QREFELT $ 20)) . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 26)) #2#) . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (LETT |extras|
-            (SPADCALL |syms|
-                      (SPADCALL (QREFELT $ 6) (QREFELT $ 7) (QREFELT $ 30))
-                      (QREFELT $ 31))
-            . #3#)
-      (EXIT (COND ((NULL |extras|) 'NIL) ('T 'T))))))) 
-
-(DEFUN |FEXPR;checkSymbols| (|u| $)
-  (PROG (#1=#:G170 |v| #2=#:G169 |m| |extras| |syms| #3=#:G168 #4=#:G167)
-    (RETURN
-     (SEQ
-      (LETT |syms|
-            (PROGN
-             (LETT #4# NIL . #5=(|FEXPR;checkSymbols|))
-             (SEQ (LETT |v| NIL . #5#)
-                  (LETT #3# (SPADCALL |u| (QREFELT $ 20)) . #5#) G190
-                  (COND
-                   ((OR (ATOM #3#) (PROGN (LETT |v| (CAR #3#) . #5#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #4# (CONS (SPADCALL |v| (QREFELT $ 26)) #4#) . #5#)))
-                  (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                  (EXIT (NREVERSE #4#))))
-            . #5#)
-      (LETT |extras|
-            (SPADCALL |syms|
-                      (SPADCALL (QREFELT $ 6) (QREFELT $ 7) (QREFELT $ 30))
-                      (QREFELT $ 31))
-            . #5#)
-      (COND
-       ((NULL (NULL |extras|))
-        (EXIT
-         (SEQ (LETT |m| (|FEXPR;fixUpSymbols| |u| $) . #5#)
-              (EXIT
-               (COND ((QEQCAR |m| 0) (QCDR |m|))
-                     ('T
-                      (|error| "Extra symbols detected:"
-                               (SPADCALL
-                                (PROGN
-                                 (LETT #2# NIL . #5#)
-                                 (SEQ (LETT |v| NIL . #5#)
-                                      (LETT #1# |extras| . #5#) G190
-                                      (COND
-                                       ((OR (ATOM #1#)
-                                            (PROGN
-                                             (LETT |v| (CAR #1#) . #5#)
-                                             NIL))
-                                        (GO G191)))
-                                      (SEQ
-                                       (EXIT
-                                        (LETT #2#
-                                              (CONS
-                                               (SPADCALL |v| (QREFELT $ 33))
-                                               #2#)
-                                              . #5#)))
-                                      (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-                                      (EXIT (NREVERSE #2#))))
-                                (QREFELT $ 36))))))))))
-      (EXIT |u|))))) 
-
-(DEFUN |FEXPR;notSymbol?| (|v| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ (LETT |s| (SPADCALL |v| (QREFELT $ 38)) |FEXPR;notSymbol?|)
-          (COND ((SPADCALL |s| (QREFELT $ 6) (QREFELT $ 39)) (EXIT 'NIL))
-                ((SPADCALL |s| (QREFELT $ 25))
-                 (COND
-                  ((SPADCALL (SPADCALL |s| (QREFELT $ 26)) (QREFELT $ 7)
-                             (QREFELT $ 39))
-                   (EXIT 'NIL)))))
-          (EXIT 'T))))) 
-
-(DEFUN |FEXPR;extraOperators?| (|u| $)
-  (PROG (|extras| |fortranFunctions| |ops| #1=#:G180 |v| #2=#:G179)
-    (RETURN
-     (SEQ
-      (LETT |ops|
-            (PROGN
-             (LETT #2# NIL . #3=(|FEXPR;extraOperators?|))
-             (SEQ (LETT |v| NIL . #3#)
-                  (LETT #1# (SPADCALL |u| (QREFELT $ 41)) . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (COND
-                     ((|FEXPR;notSymbol?| |v| $)
-                      (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 38)) #2#)
-                            . #3#)))))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (COND
-       ((QREFELT $ 11)
-        (LETT |fortranFunctions| (APPEND (QREFELT $ 9) (QREFELT $ 10)) . #3#))
-       (#4='T (LETT |fortranFunctions| (QREFELT $ 9) . #3#)))
-      (LETT |extras| (SPADCALL |ops| |fortranFunctions| (QREFELT $ 31)) . #3#)
-      (EXIT (COND ((NULL |extras|) 'NIL) (#4# 'T))))))) 
-
-(DEFUN |FEXPR;checkOperators| (|u| $)
-  (PROG (#1=#:G189 |v| #2=#:G188 |extras| |fortranFunctions| |ops| #3=#:G187
-         #4=#:G186)
-    (RETURN
-     (SEQ
-      (LETT |ops|
-            (PROGN
-             (LETT #4# NIL . #5=(|FEXPR;checkOperators|))
-             (SEQ (LETT |v| NIL . #5#)
-                  (LETT #3# (SPADCALL |u| (QREFELT $ 41)) . #5#) G190
-                  (COND
-                   ((OR (ATOM #3#) (PROGN (LETT |v| (CAR #3#) . #5#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (COND
-                     ((|FEXPR;notSymbol?| |v| $)
-                      (LETT #4# (CONS (SPADCALL |v| (QREFELT $ 38)) #4#)
-                            . #5#)))))
-                  (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                  (EXIT (NREVERSE #4#))))
-            . #5#)
-      (COND
-       ((QREFELT $ 11)
-        (LETT |fortranFunctions| (APPEND (QREFELT $ 9) (QREFELT $ 10)) . #5#))
-       ('T (LETT |fortranFunctions| (QREFELT $ 9) . #5#)))
-      (LETT |extras| (SPADCALL |ops| |fortranFunctions| (QREFELT $ 31)) . #5#)
-      (COND
-       ((NULL (NULL |extras|))
-        (EXIT
-         (|error| "Non FORTRAN-77 functions detected:"
+(SDEFUN |FEXPR;mkEqn|
+        ((|s1| |Symbol|) (|s2| |Symbol|) ($ |Equation| (|Expression| R)))
+        (SPADCALL (SPADCALL |s2| (QREFELT $ 13))
                   (SPADCALL
-                   (PROGN
-                    (LETT #2# NIL . #5#)
-                    (SEQ (LETT |v| NIL . #5#) (LETT #1# |extras| . #5#) G190
+                   (SPADCALL |s1| (SPADCALL |s2| (QREFELT $ 15))
+                             (QREFELT $ 16))
+                   (QREFELT $ 13))
+                  (QREFELT $ 18))) 
+
+(SDEFUN |FEXPR;fixUpSymbols|
+        ((|u| |Expression| R) ($ |Union| (|Expression| R) "failed"))
+        (SPROG
+         ((#1=#:G155 NIL) (|i| NIL) (#2=#:G154 NIL) (|sym| (|Symbol|))
+          (|syms| (|List| (|Symbol|))) (#3=#:G153 NIL) (|s| NIL)
+          (#4=#:G152 NIL) (#5=#:G132 NIL) (#6=#:G150 NIL) (#7=#:G151 NIL))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |syms| (SPADCALL |u| (QREFELT $ 20))
+                  . #8=(|FEXPR;fixUpSymbols|))
+            (COND
+             ((EQL (LENGTH (QREFELT $ 6)) 1)
+              (COND
+               ((ZEROP (LENGTH (QREFELT $ 7)))
+                (EXIT
+                 (COND ((NULL (EQL (LENGTH |syms|) 1)) (CONS 1 "failed"))
+                       ('T
+                        (CONS 0
+                              (SPADCALL |u|
+                                        (SPADCALL
+                                         (SPADCALL (|SPADfirst| |syms|)
+                                                   (QREFELT $ 13))
+                                         (SPADCALL (|SPADfirst| (QREFELT $ 6))
+                                                   (QREFELT $ 13))
+                                         (QREFELT $ 18))
+                                        (QREFELT $ 23))))))))))
+            (COND
+             ((ZEROP (LENGTH (QREFELT $ 6)))
+              (COND
+               ((EQL (LENGTH (QREFELT $ 7)) 1)
+                (EXIT
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |s| NIL . #8#) (LETT #7# |syms| . #8#) G190
                          (COND
-                          ((OR (ATOM #1#)
-                               (PROGN (LETT |v| (CAR #1#) . #5#) NIL))
+                          ((OR (ATOM #7#)
+                               (PROGN (LETT |s| (CAR #7#) . #8#) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
-                           (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 33)) #2#)
-                                 . #5#)))
-                         (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-                         (EXIT (NREVERSE #2#))))
-                   (QREFELT $ 36))))))
-      (EXIT (SPADCALL (QREFELT $ 43))))))) 
+                           (COND
+                            ((NULL (SPADCALL |s| (QREFELT $ 25)))
+                             (PROGN
+                              (LETT #5#
+                                    (PROGN
+                                     (LETT #6# (CONS 1 "failed") . #8#)
+                                     (GO #6#))
+                                    . #8#)
+                              (GO #5#))))))
+                         (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL)))
+                   #5# (EXIT #5#))
+                  (COND
+                   ((NULL
+                     (EQL
+                      (LENGTH
+                       (LETT |syms|
+                             (SPADCALL
+                              (PROGN
+                               (LETT #4# NIL . #8#)
+                               (SEQ (LETT |s| NIL . #8#)
+                                    (LETT #3# |syms| . #8#) G190
+                                    (COND
+                                     ((OR (ATOM #3#)
+                                          (PROGN
+                                           (LETT |s| (CAR #3#) . #8#)
+                                           NIL))
+                                      (GO G191)))
+                                    (SEQ
+                                     (EXIT
+                                      (LETT #4#
+                                            (CONS (SPADCALL |s| (QREFELT $ 26))
+                                                  #4#)
+                                            . #8#)))
+                                    (LETT #3# (CDR #3#) . #8#) (GO G190) G191
+                                    (EXIT (NREVERSE #4#))))
+                              (QREFELT $ 27))
+                             . #8#))
+                      1))
+                    (EXIT (CONS 1 "failed"))))
+                  (LETT |sym| (|SPADfirst| (QREFELT $ 7)) . #8#)
+                  (EXIT
+                   (CONS 0
+                         (SPADCALL |u|
+                                   (PROGN
+                                    (LETT #2# NIL . #8#)
+                                    (SEQ (LETT |i| NIL . #8#)
+                                         (LETT #1#
+                                               (SPADCALL |u| (QREFELT $ 20))
+                                               . #8#)
+                                         G190
+                                         (COND
+                                          ((OR (ATOM #1#)
+                                               (PROGN
+                                                (LETT |i| (CAR #1#) . #8#)
+                                                NIL))
+                                           (GO G191)))
+                                         (SEQ
+                                          (EXIT
+                                           (LETT #2#
+                                                 (CONS
+                                                  (|FEXPR;mkEqn| |sym| |i| $)
+                                                  #2#)
+                                                 . #8#)))
+                                         (LETT #1# (CDR #1#) . #8#) (GO G190)
+                                         G191 (EXIT (NREVERSE #2#))))
+                                   (QREFELT $ 29))))))))))
+            (EXIT (CONS 1 "failed"))))
+          #6# (EXIT #6#)))) 
 
-(DEFUN |FEXPR;checkForNagOperators| (|u| $)
-  (PROG (|piSub| |piOp|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QREFELT $ 11)
-        (SEQ
-         (LETT |piOp| (SPADCALL 'X01AAF (QREFELT $ 44))
-               . #1=(|FEXPR;checkForNagOperators|))
-         (LETT |piSub|
-               (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 46)) (QREFELT $ 48))
-                         (SPADCALL |piOp| (|spadConstant| $ 49) (QREFELT $ 50))
-                         (QREFELT $ 18))
-               . #1#)
-         (EXIT (SPADCALL |u| |piSub| (QREFELT $ 23)))))
-       ('T |u|)))))) 
+(SDEFUN |FEXPR;extraSymbols?| ((|u| |Expression| R) ($ |Boolean|))
+        (SPROG
+         ((|extras| (|List| (|Symbol|))) (|syms| (|List| (|Symbol|)))
+          (#1=#:G160 NIL) (|v| NIL) (#2=#:G159 NIL))
+         (SEQ
+          (LETT |syms|
+                (PROGN
+                 (LETT #2# NIL . #3=(|FEXPR;extraSymbols?|))
+                 (SEQ (LETT |v| NIL . #3#)
+                      (LETT #1# (SPADCALL |u| (QREFELT $ 20)) . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 26)) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (LETT |extras|
+                (SPADCALL |syms|
+                          (SPADCALL (QREFELT $ 6) (QREFELT $ 7) (QREFELT $ 30))
+                          (QREFELT $ 31))
+                . #3#)
+          (EXIT (COND ((NULL |extras|) 'NIL) ('T 'T)))))) 
 
-(DEFUN |FEXPR;retractIfCan;PU;9| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 53)) (QREFELT $ 55))) 
+(SDEFUN |FEXPR;checkSymbols| ((|u| |Expression| R) ($ |Expression| R))
+        (SPROG
+         ((#1=#:G170 NIL) (|v| NIL) (#2=#:G169 NIL)
+          (|m| (|Union| (|Expression| R) "failed"))
+          (|extras| (|List| (|Symbol|))) (|syms| (|List| (|Symbol|)))
+          (#3=#:G168 NIL) (#4=#:G167 NIL))
+         (SEQ
+          (LETT |syms|
+                (PROGN
+                 (LETT #4# NIL . #5=(|FEXPR;checkSymbols|))
+                 (SEQ (LETT |v| NIL . #5#)
+                      (LETT #3# (SPADCALL |u| (QREFELT $ 20)) . #5#) G190
+                      (COND
+                       ((OR (ATOM #3#) (PROGN (LETT |v| (CAR #3#) . #5#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #4# (CONS (SPADCALL |v| (QREFELT $ 26)) #4#)
+                              . #5#)))
+                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #5#)
+          (LETT |extras|
+                (SPADCALL |syms|
+                          (SPADCALL (QREFELT $ 6) (QREFELT $ 7) (QREFELT $ 30))
+                          (QREFELT $ 31))
+                . #5#)
+          (COND
+           ((NULL (NULL |extras|))
+            (EXIT
+             (SEQ (LETT |m| (|FEXPR;fixUpSymbols| |u| $) . #5#)
+                  (EXIT
+                   (COND ((QEQCAR |m| 0) (QCDR |m|))
+                         ('T
+                          (|error| "Extra symbols detected:"
+                                   (SPADCALL
+                                    (PROGN
+                                     (LETT #2# NIL . #5#)
+                                     (SEQ (LETT |v| NIL . #5#)
+                                          (LETT #1# |extras| . #5#) G190
+                                          (COND
+                                           ((OR (ATOM #1#)
+                                                (PROGN
+                                                 (LETT |v| (CAR #1#) . #5#)
+                                                 NIL))
+                                            (GO G191)))
+                                          (SEQ
+                                           (EXIT
+                                            (LETT #2#
+                                                  (CONS
+                                                   (SPADCALL |v|
+                                                             (QREFELT $ 33))
+                                                   #2#)
+                                                  . #5#)))
+                                          (LETT #1# (CDR #1#) . #5#) (GO G190)
+                                          G191 (EXIT (NREVERSE #2#))))
+                                    (QREFELT $ 36))))))))))
+          (EXIT |u|)))) 
 
-(DEFUN |FEXPR;retract;P$;10| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 53)) (QREFELT $ 57))) 
+(SDEFUN |FEXPR;notSymbol?| ((|v| |BasicOperator|) ($ |Boolean|))
+        (SPROG ((|s| (|Symbol|)))
+               (SEQ (LETT |s| (SPADCALL |v| (QREFELT $ 38)) |FEXPR;notSymbol?|)
+                    (COND
+                     ((SPADCALL |s| (QREFELT $ 6) (QREFELT $ 39)) (EXIT 'NIL))
+                     ((SPADCALL |s| (QREFELT $ 25))
+                      (COND
+                       ((SPADCALL (SPADCALL |s| (QREFELT $ 26)) (QREFELT $ 7)
+                                  (QREFELT $ 39))
+                        (EXIT 'NIL)))))
+                    (EXIT 'T)))) 
 
-(DEFUN |FEXPR;retractIfCan;FU;11| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 60)) (QREFELT $ 55))) 
+(SDEFUN |FEXPR;extraOperators?| ((|u| |Expression| R) ($ |Boolean|))
+        (SPROG
+         ((|extras| (|List| (|Symbol|)))
+          (|fortranFunctions| (|List| (|Symbol|))) (|ops| (|List| (|Symbol|)))
+          (#1=#:G180 NIL) (|v| NIL) (#2=#:G179 NIL))
+         (SEQ
+          (LETT |ops|
+                (PROGN
+                 (LETT #2# NIL . #3=(|FEXPR;extraOperators?|))
+                 (SEQ (LETT |v| NIL . #3#)
+                      (LETT #1# (SPADCALL |u| (QREFELT $ 41)) . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((|FEXPR;notSymbol?| |v| $)
+                          (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 38)) #2#)
+                                . #3#)))))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (COND
+           ((QREFELT $ 11)
+            (LETT |fortranFunctions| (APPEND (QREFELT $ 9) (QREFELT $ 10))
+                  . #3#))
+           (#4='T (LETT |fortranFunctions| (QREFELT $ 9) . #3#)))
+          (LETT |extras| (SPADCALL |ops| |fortranFunctions| (QREFELT $ 31))
+                . #3#)
+          (EXIT (COND ((NULL |extras|) 'NIL) (#4# 'T)))))) 
 
-(DEFUN |FEXPR;retract;F$;12| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 60)) (QREFELT $ 57))) 
+(SDEFUN |FEXPR;checkOperators| ((|u| |Expression| R) ($ |Void|))
+        (SPROG
+         ((#1=#:G189 NIL) (|v| NIL) (#2=#:G188 NIL)
+          (|extras| (|List| (|Symbol|)))
+          (|fortranFunctions| (|List| (|Symbol|))) (|ops| (|List| (|Symbol|)))
+          (#3=#:G187 NIL) (#4=#:G186 NIL))
+         (SEQ
+          (LETT |ops|
+                (PROGN
+                 (LETT #4# NIL . #5=(|FEXPR;checkOperators|))
+                 (SEQ (LETT |v| NIL . #5#)
+                      (LETT #3# (SPADCALL |u| (QREFELT $ 41)) . #5#) G190
+                      (COND
+                       ((OR (ATOM #3#) (PROGN (LETT |v| (CAR #3#) . #5#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((|FEXPR;notSymbol?| |v| $)
+                          (LETT #4# (CONS (SPADCALL |v| (QREFELT $ 38)) #4#)
+                                . #5#)))))
+                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #5#)
+          (COND
+           ((QREFELT $ 11)
+            (LETT |fortranFunctions| (APPEND (QREFELT $ 9) (QREFELT $ 10))
+                  . #5#))
+           ('T (LETT |fortranFunctions| (QREFELT $ 9) . #5#)))
+          (LETT |extras| (SPADCALL |ops| |fortranFunctions| (QREFELT $ 31))
+                . #5#)
+          (COND
+           ((NULL (NULL |extras|))
+            (EXIT
+             (|error| "Non FORTRAN-77 functions detected:"
+                      (SPADCALL
+                       (PROGN
+                        (LETT #2# NIL . #5#)
+                        (SEQ (LETT |v| NIL . #5#) (LETT #1# |extras| . #5#)
+                             G190
+                             (COND
+                              ((OR (ATOM #1#)
+                                   (PROGN (LETT |v| (CAR #1#) . #5#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #2#
+                                     (CONS (SPADCALL |v| (QREFELT $ 33)) #2#)
+                                     . #5#)))
+                             (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                             (EXIT (NREVERSE #2#))))
+                       (QREFELT $ 36))))))
+          (EXIT (SPADCALL (QREFELT $ 43)))))) 
 
-(DEFUN |FEXPR;int2R| (|u| $) (SPADCALL |u| (QREFELT $ 64))) 
+(SDEFUN |FEXPR;checkForNagOperators| ((|u| |Expression| R) ($ $))
+        (SPROG
+         ((|piSub| (|Equation| (|Expression| R))) (|piOp| (|BasicOperator|)))
+         (SEQ
+          (COND
+           ((QREFELT $ 11)
+            (SEQ
+             (LETT |piOp| (SPADCALL 'X01AAF (QREFELT $ 44))
+                   . #1=(|FEXPR;checkForNagOperators|))
+             (LETT |piSub|
+                   (SPADCALL
+                    (SPADCALL (SPADCALL (QREFELT $ 46)) (QREFELT $ 48))
+                    (SPADCALL |piOp| (|spadConstant| $ 49) (QREFELT $ 50))
+                    (QREFELT $ 18))
+                   . #1#)
+             (EXIT (SPADCALL |u| |piSub| (QREFELT $ 23)))))
+           ('T |u|))))) 
 
-(DEFUN |FEXPR;retractIfCan;EU;14| (|u| $)
-  (SPADCALL (SPADCALL (CONS (|function| |FEXPR;int2R|) $) |u| (QREFELT $ 67))
-            (QREFELT $ 68))) 
+(SDEFUN |FEXPR;retractIfCan;PU;9|
+        ((|u| |Polynomial| (|Integer|)) ($ |Union| $ "failed"))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 53)) (QREFELT $ 55))) 
 
-(DEFUN |FEXPR;retract;E$;15| (|u| $)
-  (SPADCALL (SPADCALL (CONS (|function| |FEXPR;int2R|) $) |u| (QREFELT $ 67))
-            (QREFELT $ 69))) 
+(SDEFUN |FEXPR;retract;P$;10| ((|u| |Polynomial| (|Integer|)) ($ $))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 53)) (QREFELT $ 57))) 
 
-(DEFUN |FEXPR;retractIfCan;PU;16| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 72)) (QREFELT $ 73))) 
+(SDEFUN |FEXPR;retractIfCan;FU;11|
+        ((|u| |Fraction| (|Polynomial| (|Integer|))) ($ |Union| $ "failed"))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 60)) (QREFELT $ 55))) 
 
-(DEFUN |FEXPR;retract;P$;17| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 72)) (QREFELT $ 75))) 
+(SDEFUN |FEXPR;retract;F$;12|
+        ((|u| |Fraction| (|Polynomial| (|Integer|))) ($ $))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 60)) (QREFELT $ 57))) 
 
-(DEFUN |FEXPR;retractIfCan;FU;18| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 78)) (QREFELT $ 73))) 
+(SDEFUN |FEXPR;int2R| ((|u| |Integer|) ($ R)) (SPADCALL |u| (QREFELT $ 64))) 
 
-(DEFUN |FEXPR;retract;F$;19| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 78)) (QREFELT $ 75))) 
+(SDEFUN |FEXPR;retractIfCan;EU;14|
+        ((|u| |Expression| (|Integer|)) ($ |Union| $ "failed"))
+        (SPADCALL
+         (SPADCALL (CONS (|function| |FEXPR;int2R|) $) |u| (QREFELT $ 67))
+         (QREFELT $ 68))) 
 
-(DEFUN |FEXPR;float2R| (|u| $) (SPADCALL |u| (QREFELT $ 82))) 
+(SDEFUN |FEXPR;retract;E$;15| ((|u| |Expression| (|Integer|)) ($ $))
+        (SPADCALL
+         (SPADCALL (CONS (|function| |FEXPR;int2R|) $) |u| (QREFELT $ 67))
+         (QREFELT $ 69))) 
 
-(DEFUN |FEXPR;retractIfCan;EU;21| (|u| $)
-  (SPADCALL (SPADCALL (CONS (|function| |FEXPR;float2R|) $) |u| (QREFELT $ 85))
-            (QREFELT $ 68))) 
+(SDEFUN |FEXPR;retractIfCan;PU;16|
+        ((|u| |Polynomial| (|Float|)) ($ |Union| $ "failed"))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 72)) (QREFELT $ 73))) 
 
-(DEFUN |FEXPR;retract;E$;22| (|u| $)
-  (SPADCALL (SPADCALL (CONS (|function| |FEXPR;float2R|) $) |u| (QREFELT $ 85))
-            (QREFELT $ 69))) 
+(SDEFUN |FEXPR;retract;P$;17| ((|u| |Polynomial| (|Float|)) ($ $))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 72)) (QREFELT $ 75))) 
 
-(DEFUN |FEXPR;useNagFunctions;B;23| ($) (QREFELT $ 11)) 
+(SDEFUN |FEXPR;retractIfCan;FU;18|
+        ((|u| |Fraction| (|Polynomial| (|Float|))) ($ |Union| $ "failed"))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 78)) (QREFELT $ 73))) 
 
-(DEFUN |FEXPR;useNagFunctions;2B;24| (|v| $)
-  (PROG (|old|)
-    (RETURN
-     (SEQ (LETT |old| (QREFELT $ 11) |FEXPR;useNagFunctions;2B;24|)
-          (SETELT $ 11 |v|) (EXIT |old|))))) 
+(SDEFUN |FEXPR;retract;F$;19| ((|u| |Fraction| (|Polynomial| (|Float|))) ($ $))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 78)) (QREFELT $ 75))) 
 
-(DEFUN |FEXPR;log10;2$;25| (|x| $)
-  (SPADCALL (SPADCALL '|log10| (QREFELT $ 44)) |x| (QREFELT $ 88))) 
+(SDEFUN |FEXPR;float2R| ((|u| |Float|) ($ R)) (SPADCALL |u| (QREFELT $ 82))) 
 
-(DEFUN |FEXPR;pi;$;26| ($)
-  (SPADCALL (SPADCALL 'X01AAF (QREFELT $ 44)) (|spadConstant| $ 90)
-            (QREFELT $ 88))) 
+(SDEFUN |FEXPR;retractIfCan;EU;21|
+        ((|u| |Expression| (|Float|)) ($ |Union| $ "failed"))
+        (SPADCALL
+         (SPADCALL (CONS (|function| |FEXPR;float2R|) $) |u| (QREFELT $ 85))
+         (QREFELT $ 68))) 
+
+(SDEFUN |FEXPR;retract;E$;22| ((|u| |Expression| (|Float|)) ($ $))
+        (SPADCALL
+         (SPADCALL (CONS (|function| |FEXPR;float2R|) $) |u| (QREFELT $ 85))
+         (QREFELT $ 69))) 
+
+(SDEFUN |FEXPR;useNagFunctions;B;23| (($ |Boolean|)) (QREFELT $ 11)) 
+
+(SDEFUN |FEXPR;useNagFunctions;2B;24| ((|v| |Boolean|) ($ |Boolean|))
+        (SPROG ((|old| (|Boolean|)))
+               (SEQ (LETT |old| (QREFELT $ 11) |FEXPR;useNagFunctions;2B;24|)
+                    (SETELT $ 11 |v|) (EXIT |old|)))) 
+
+(SDEFUN |FEXPR;log10;2$;25| ((|x| $) ($ $))
+        (SPADCALL (SPADCALL '|log10| (QREFELT $ 44)) |x| (QREFELT $ 88))) 
+
+(SDEFUN |FEXPR;pi;$;26| (($ $))
+        (SPADCALL (SPADCALL 'X01AAF (QREFELT $ 44)) (|spadConstant| $ 90)
+                  (QREFELT $ 88))) 
 
 (PUT '|FEXPR;coerce;$E;27| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(DEFUN |FEXPR;coerce;$E;27| (|u| $) |u|) 
+(SDEFUN |FEXPR;coerce;$E;27| ((|u| $) ($ |Expression| R)) |u|) 
 
-(DEFUN |FEXPR;retractIfCan;EU;28| (|u| $)
-  (PROG (#1=#:G240 |m|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((|FEXPR;extraSymbols?| |u| $)
-          (SEQ
-           (LETT |m| (|FEXPR;fixUpSymbols| |u| $)
-                 . #2=(|FEXPR;retractIfCan;EU;28|))
-           (EXIT
-            (COND
-             ((QEQCAR |m| 1)
-              (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #1#)))
-             (#3='T (LETT |u| (QCDR |m|) . #2#)))))))
-        (EXIT
-         (COND ((|FEXPR;extraOperators?| |u| $) (CONS 1 "failed"))
-               (#3# (CONS 0 (|FEXPR;checkForNagOperators| |u| $)))))))
-      #1# (EXIT #1#))))) 
+(SDEFUN |FEXPR;retractIfCan;EU;28|
+        ((|u| |Expression| R) ($ |Union| $ "failed"))
+        (SPROG ((#1=#:G240 NIL) (|m| (|Union| (|Expression| R) "failed")))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((|FEXPR;extraSymbols?| |u| $)
+                    (SEQ
+                     (LETT |m| (|FEXPR;fixUpSymbols| |u| $)
+                           . #2=(|FEXPR;retractIfCan;EU;28|))
+                     (EXIT
+                      (COND
+                       ((QEQCAR |m| 1)
+                        (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #1#)))
+                       (#3='T (LETT |u| (QCDR |m|) . #2#)))))))
+                  (EXIT
+                   (COND ((|FEXPR;extraOperators?| |u| $) (CONS 1 "failed"))
+                         (#3#
+                          (CONS 0 (|FEXPR;checkForNagOperators| |u| $)))))))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |FEXPR;retract;E$;29| (|u| $)
-  (SEQ (LETT |u| (|FEXPR;checkSymbols| |u| $) |FEXPR;retract;E$;29|)
-       (|FEXPR;checkOperators| |u| $)
-       (EXIT (|FEXPR;checkForNagOperators| |u| $)))) 
+(SDEFUN |FEXPR;retract;E$;29| ((|u| |Expression| R) ($ $))
+        (SEQ (LETT |u| (|FEXPR;checkSymbols| |u| $) |FEXPR;retract;E$;29|)
+             (|FEXPR;checkOperators| |u| $)
+             (EXIT (|FEXPR;checkForNagOperators| |u| $)))) 
 
-(DEFUN |FEXPR;retractIfCan;SU;30| (|u| $)
-  (SEQ
-   (COND
-    ((NULL (SPADCALL |u| (QREFELT $ 6) (QREFELT $ 39)))
-     (COND
-      ((SPADCALL |u| (QREFELT $ 25))
-       (COND
-        ((NULL
-          (SPADCALL (SPADCALL |u| (QREFELT $ 26)) (QREFELT $ 7)
-                    (QREFELT $ 39)))
-         (EXIT (CONS 1 #1="failed")))))
-      ('T (EXIT (CONS 1 #1#))))))
-   (EXIT (CONS 0 (SPADCALL |u| (QREFELT $ 13)))))) 
-
-(DEFUN |FEXPR;retract;S$;31| (|u| $)
-  (PROG (|res|)
-    (RETURN
-     (SEQ (LETT |res| (SPADCALL |u| (QREFELT $ 93)) |FEXPR;retract;S$;31|)
-          (EXIT
+(SDEFUN |FEXPR;retractIfCan;SU;30| ((|u| |Symbol|) ($ |Union| $ "failed"))
+        (SEQ
+         (COND
+          ((NULL (SPADCALL |u| (QREFELT $ 6) (QREFELT $ 39)))
            (COND
-            ((QEQCAR |res| 1)
-             (|error| "Illegal Symbol Detected:" (|::| |u| (|String|))))
-            ('T (QCDR |res|)))))))) 
+            ((SPADCALL |u| (QREFELT $ 25))
+             (COND
+              ((NULL
+                (SPADCALL (SPADCALL |u| (QREFELT $ 26)) (QREFELT $ 7)
+                          (QREFELT $ 39)))
+               (EXIT (CONS 1 #1="failed")))))
+            ('T (EXIT (CONS 1 #1#))))))
+         (EXIT (CONS 0 (SPADCALL |u| (QREFELT $ 13)))))) 
+
+(SDEFUN |FEXPR;retract;S$;31| ((|u| |Symbol|) ($ $))
+        (SPROG ((|res| (|Union| $ "failed")))
+               (SEQ
+                (LETT |res| (SPADCALL |u| (QREFELT $ 93))
+                      |FEXPR;retract;S$;31|)
+                (EXIT
+                 (COND
+                  ((QEQCAR |res| 1)
+                   (|error| "Illegal Symbol Detected:" (|::| |u| (|String|))))
+                  ('T (QCDR |res|))))))) 
 
 (DECLAIM (NOTINLINE |FortranExpression;|)) 
 
 (DEFUN |FortranExpression| (&REST #1=#:G266)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G267)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FortranExpression|)
-                                           '|domainEqualList|)
-                . #3=(|FortranExpression|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |FortranExpression;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G267)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|FortranExpression|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FortranExpression|)
+                                               '|domainEqualList|)
+                    . #3=(|FortranExpression|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FortranExpression;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FortranExpression|)))))))))) 
 
 (DEFUN |FortranExpression;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FortranExpression|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|FortranExpression| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 110) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#3|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#3|
-                                                         '(|RetractableTo|
-                                                           (|Float|)))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|FortranExpression|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (AND (|HasCategory| $ '(|Ring|)) (|augmentPredVector| $ 4))
-      (AND (|HasCategory| $ '(|RetractableTo| (|Integer|)))
-           (|augmentPredVector| $ 8))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 9
-                '(|abs| |sqrt| |exp| |log| |log10| |sin| |cos| |tan| |asin|
-                  |acos| |atan| |sinh| |cosh| |tanh| |nthRoot| |%power|))
-      (QSETREFV $ 10 '(|pi| X01AAF))
-      (QSETREFV $ 11 'T)
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 56
-                   (CONS (|dispatchFunction| |FEXPR;retractIfCan;PU;9|) $))
-         (QSETREFV $ 58 (CONS (|dispatchFunction| |FEXPR;retract;P$;10|) $))
-         (QSETREFV $ 61
-                   (CONS (|dispatchFunction| |FEXPR;retractIfCan;FU;11|) $))
-         (QSETREFV $ 62 (CONS (|dispatchFunction| |FEXPR;retract;F$;12|) $))
-         (QSETREFV $ 55
-                   (CONS (|dispatchFunction| |FEXPR;retractIfCan;EU;14|) $))
-         (QSETREFV $ 57 (CONS (|dispatchFunction| |FEXPR;retract;E$;15|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (PROGN
-         (QSETREFV $ 74
-                   (CONS (|dispatchFunction| |FEXPR;retractIfCan;PU;16|) $))
-         (QSETREFV $ 76 (CONS (|dispatchFunction| |FEXPR;retract;P$;17|) $))
-         (QSETREFV $ 79
-                   (CONS (|dispatchFunction| |FEXPR;retractIfCan;FU;18|) $))
-         (QSETREFV $ 80 (CONS (|dispatchFunction| |FEXPR;retract;F$;19|) $))
-         (QSETREFV $ 73
-                   (CONS (|dispatchFunction| |FEXPR;retractIfCan;EU;21|) $))
-         (QSETREFV $ 75 (CONS (|dispatchFunction| |FEXPR;retract;E$;22|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FortranExpression|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|FortranExpression| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 110) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#3|
+                                                             '(|RetractableTo|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#3|
+                                                             '(|RetractableTo|
+                                                               (|Float|)))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|FortranExpression|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (AND (|HasCategory| $ '(|Ring|)) (|augmentPredVector| $ 4))
+          (AND (|HasCategory| $ '(|RetractableTo| (|Integer|)))
+               (|augmentPredVector| $ 8))
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 9
+                    '(|abs| |sqrt| |exp| |log| |log10| |sin| |cos| |tan| |asin|
+                      |acos| |atan| |sinh| |cosh| |tanh| |nthRoot| |%power|))
+          (QSETREFV $ 10 '(|pi| X01AAF))
+          (QSETREFV $ 11 'T)
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 56
+                       (CONS (|dispatchFunction| |FEXPR;retractIfCan;PU;9|) $))
+             (QSETREFV $ 58
+                       (CONS (|dispatchFunction| |FEXPR;retract;P$;10|) $))
+             (QSETREFV $ 61
+                       (CONS (|dispatchFunction| |FEXPR;retractIfCan;FU;11|)
+                             $))
+             (QSETREFV $ 62
+                       (CONS (|dispatchFunction| |FEXPR;retract;F$;12|) $))
+             (QSETREFV $ 55
+                       (CONS (|dispatchFunction| |FEXPR;retractIfCan;EU;14|)
+                             $))
+             (QSETREFV $ 57
+                       (CONS (|dispatchFunction| |FEXPR;retract;E$;15|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 2)
+            (PROGN
+             (QSETREFV $ 74
+                       (CONS (|dispatchFunction| |FEXPR;retractIfCan;PU;16|)
+                             $))
+             (QSETREFV $ 76
+                       (CONS (|dispatchFunction| |FEXPR;retract;P$;17|) $))
+             (QSETREFV $ 79
+                       (CONS (|dispatchFunction| |FEXPR;retractIfCan;FU;18|)
+                             $))
+             (QSETREFV $ 80
+                       (CONS (|dispatchFunction| |FEXPR;retract;F$;19|) $))
+             (QSETREFV $ 73
+                       (CONS (|dispatchFunction| |FEXPR;retractIfCan;EU;21|)
+                             $))
+             (QSETREFV $ 75
+                       (CONS (|dispatchFunction| |FEXPR;retract;E$;22|) $)))))
+          $))) 
 
 (MAKEPROP '|FortranExpression| '|infovec|
           (LIST

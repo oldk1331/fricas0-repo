@@ -1,68 +1,71 @@
 
-(DEFUN |MULTFACT;factor;PF;1| (|p| $)
-  (SEQ
-   (COND
-    ((|domainEqual| (QREFELT $ 8) (|Fraction| (|Integer|)))
-     (SPADCALL |p| (QREFELT $ 12)))
-    ((|domainEqual| (QREFELT $ 8) (|Fraction| (|Complex| (|Integer|))))
-     (SPADCALL |p| (QREFELT $ 14)))
-    ('T
-     (SEQ
-      (COND
-       ((|domainEqual| (QREFELT $ 8) (|Fraction| (|Polynomial| (|Integer|))))
-        (COND
-         ((|HasSignature| (QREFELT $ 6)
-                          (LIST '|convert| (LIST '(|Symbol|) '$)))
-          (EXIT (SPADCALL |p| (QREFELT $ 16)))))))
-      (EXIT (SPADCALL |p| (ELT $ 20) (QREFELT $ 23)))))))) 
+(SDEFUN |MULTFACT;factor;PF;1| ((|p| P) ($ |Factored| P))
+        (SEQ
+         (COND
+          ((|domainEqual| (QREFELT $ 8) (|Fraction| (|Integer|)))
+           (SPADCALL |p| (QREFELT $ 12)))
+          ((|domainEqual| (QREFELT $ 8) (|Fraction| (|Complex| (|Integer|))))
+           (SPADCALL |p| (QREFELT $ 14)))
+          ('T
+           (SEQ
+            (COND
+             ((|domainEqual| (QREFELT $ 8)
+                             (|Fraction| (|Polynomial| (|Integer|))))
+              (COND
+               ((|HasSignature| (QREFELT $ 6)
+                                (LIST '|convert| (LIST '(|Symbol|) '$)))
+                (EXIT (SPADCALL |p| (QREFELT $ 16)))))))
+            (EXIT (SPADCALL |p| (ELT $ 20) (QREFELT $ 23)))))))) 
 
-(DEFUN |MULTFACT;factor;SupF;2| (|up| $)
-  (SPADCALL |up| (ELT $ 20) (QREFELT $ 27))) 
+(SDEFUN |MULTFACT;factor;SupF;2|
+        ((|up| |SparseUnivariatePolynomial| P)
+         ($ |Factored| (|SparseUnivariatePolynomial| P)))
+        (SPADCALL |up| (ELT $ 20) (QREFELT $ 27))) 
 
 (DECLAIM (NOTINLINE |MultivariateFactorize;|)) 
 
 (DEFUN |MultivariateFactorize| (&REST #1=#:G108)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G109)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|MultivariateFactorize|)
-                                           '|domainEqualList|)
-                . #3=(|MultivariateFactorize|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |MultivariateFactorize;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G109)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|MultivariateFactorize|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MultivariateFactorize|)
+                                               '|domainEqualList|)
+                    . #3=(|MultivariateFactorize|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MultivariateFactorize;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|MultivariateFactorize|)))))))))) 
 
 (DEFUN |MultivariateFactorize;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|MultivariateFactorize|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|MultivariateFactorize| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 29) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|MultivariateFactorize|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|MultivariateFactorize|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|MultivariateFactorize| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 29) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|MultivariateFactorize|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|MultivariateFactorize| '|infovec|
           (LIST

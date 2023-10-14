@@ -1,213 +1,216 @@
 
-(DEFUN |RESULT;cleanUpDomainForm| (|d| $)
-  (PROG (#1=#:G116 |u| #2=#:G115)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL (SPADCALL |d| (QREFELT $ 15))) (SPADCALL |d| (QREFELT $ 16)))
-       (#3='T
+(SDEFUN |RESULT;cleanUpDomainForm| ((|d| |SExpression|) ($ |OutputForm|))
+        (SPROG ((#1=#:G116 NIL) (|u| NIL) (#2=#:G115 NIL))
+               (SEQ
+                (COND
+                 ((NULL (SPADCALL |d| (QREFELT $ 15)))
+                  (SPADCALL |d| (QREFELT $ 16)))
+                 (#3='T
+                  (COND
+                   ((EQL (SPADCALL |d| (QREFELT $ 18)) 1)
+                    (SPADCALL (SPADCALL |d| (QREFELT $ 19)) (QREFELT $ 16)))
+                   ((NULL
+                     (SPADCALL (SPADCALL |d| (QREFELT $ 19)) (QREFELT $ 20)))
+                    (QREFELT $ 10))
+                   (#3#
+                    (SPADCALL
+                     (SPADCALL (SPADCALL |d| (QREFELT $ 19)) (QREFELT $ 16))
+                     (PROGN
+                      (LETT #2# NIL . #4=(|RESULT;cleanUpDomainForm|))
+                      (SEQ (LETT |u| NIL . #4#)
+                           (LETT #1#
+                                 (SPADCALL (SPADCALL |d| (QREFELT $ 21))
+                                           (QREFELT $ 23))
+                                 . #4#)
+                           G190
+                           (COND
+                            ((OR (ATOM #1#)
+                                 (PROGN (LETT |u| (CAR #1#) . #4#) NIL))
+                             (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (LETT #2#
+                                   (CONS (|RESULT;cleanUpDomainForm| |u| $)
+                                         #2#)
+                                   . #4#)))
+                           (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                           (EXIT (NREVERSE #2#))))
+                     (QREFELT $ 24))))))))) 
+
+(SDEFUN |RESULT;display| ((|v| |Any|) (|d| |SExpression|) ($ |OutputForm|))
         (COND
-         ((EQL (SPADCALL |d| (QREFELT $ 18)) 1)
-          (SPADCALL (SPADCALL |d| (QREFELT $ 19)) (QREFELT $ 16)))
-         ((NULL (SPADCALL (SPADCALL |d| (QREFELT $ 19)) (QREFELT $ 20)))
-          (QREFELT $ 10))
-         (#3#
-          (SPADCALL (SPADCALL (SPADCALL |d| (QREFELT $ 19)) (QREFELT $ 16))
-                    (PROGN
-                     (LETT #2# NIL . #4=(|RESULT;cleanUpDomainForm|))
-                     (SEQ (LETT |u| NIL . #4#)
-                          (LETT #1#
-                                (SPADCALL (SPADCALL |d| (QREFELT $ 21))
-                                          (QREFELT $ 23))
-                                . #4#)
-                          G190
-                          (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |u| (CAR #1#) . #4#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (LETT #2#
-                                  (CONS (|RESULT;cleanUpDomainForm| |u| $) #2#)
-                                  . #4#)))
-                          (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                          (EXIT (NREVERSE #2#))))
-                    (QREFELT $ 24)))))))))) 
+         ((NULL (SPADCALL |d| (QREFELT $ 15)))
+          (|error| "Domain form is non-list"))
+         ('T
+          (COND
+           ((OR (EQL (SPADCALL |d| (QREFELT $ 18)) 1)
+                (SPADCALL (SPADCALL |d| (QREFELT $ 19))
+                          (SPADCALL '|Complex| (QREFELT $ 27)) (QREFELT $ 28)))
+            (COND ((QREFELT $ 11) (SPADCALL |v| (QREFELT $ 26)))
+                  (#1='T (|RESULT;cleanUpDomainForm| |d| $))))
+           ((QREFELT $ 12) (SPADCALL |v| (QREFELT $ 26)))
+           (#1# (|RESULT;cleanUpDomainForm| |d| $)))))) 
 
-(DEFUN |RESULT;display| (|v| |d| $)
-  (COND
-   ((NULL (SPADCALL |d| (QREFELT $ 15))) (|error| "Domain form is non-list"))
-   ('T
-    (COND
-     ((OR (EQL (SPADCALL |d| (QREFELT $ 18)) 1)
-          (SPADCALL (SPADCALL |d| (QREFELT $ 19))
-                    (SPADCALL '|Complex| (QREFELT $ 27)) (QREFELT $ 28)))
-      (COND ((QREFELT $ 11) (SPADCALL |v| (QREFELT $ 26)))
-            (#1='T (|RESULT;cleanUpDomainForm| |d| $))))
-     ((QREFELT $ 12) (SPADCALL |v| (QREFELT $ 26)))
-     (#1# (|RESULT;cleanUpDomainForm| |d| $)))))) 
+(SDEFUN |RESULT;makeEntry| ((|k| |Symbol|) (|v| |Any|) ($ |OutputForm|))
+        (SPADCALL
+         (LIST (SPADCALL |k| (QREFELT $ 8)) (QREFELT $ 9)
+               (|RESULT;display| |v| (SPADCALL |v| (QREFELT $ 29)) $))
+         (QREFELT $ 30))) 
 
-(DEFUN |RESULT;makeEntry| (|k| |v| $)
-  (SPADCALL
-   (LIST (SPADCALL |k| (QREFELT $ 8)) (QREFELT $ 9)
-         (|RESULT;display| |v| (SPADCALL |v| (QREFELT $ 29)) $))
-   (QREFELT $ 30))) 
+(SDEFUN |RESULT;coerce;$Of;4| ((|r| $) ($ |OutputForm|))
+        (SPROG ((#1=#:G125 NIL) (|key| NIL) (#2=#:G124 NIL))
+               (SEQ
+                (SPADCALL
+                 (PROGN
+                  (LETT #2# NIL . #3=(|RESULT;coerce;$Of;4|))
+                  (SEQ (LETT |key| NIL . #3#)
+                       (LETT #1# (NREVERSE (SPADCALL |r| (QREFELT $ 32)))
+                             . #3#)
+                       G190
+                       (COND
+                        ((OR (ATOM #1#)
+                             (PROGN (LETT |key| (CAR #1#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2#
+                               (CONS
+                                (|RESULT;makeEntry| |key|
+                                 (SPADCALL |r| |key| (QREFELT $ 33)) $)
+                                #2#)
+                               . #3#)))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 (QREFELT $ 34))))) 
 
-(DEFUN |RESULT;coerce;$Of;4| (|r| $)
-  (PROG (#1=#:G125 |key| #2=#:G124)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #2# NIL . #3=(|RESULT;coerce;$Of;4|))
-        (SEQ (LETT |key| NIL . #3#)
-             (LETT #1# (NREVERSE (SPADCALL |r| (QREFELT $ 32))) . #3#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |key| (CAR #1#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #2#
-                     (CONS
-                      (|RESULT;makeEntry| |key|
-                       (SPADCALL |r| |key| (QREFELT $ 33)) $)
-                      #2#)
-                     . #3#)))
-             (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-       (QREFELT $ 34)))))) 
+(SDEFUN |RESULT;showArrayValues;2B;5| ((|b| |Boolean|) ($ |Boolean|))
+        (SETELT $ 12 |b|)) 
 
-(DEFUN |RESULT;showArrayValues;2B;5| (|b| $) (SETELT $ 12 |b|)) 
-
-(DEFUN |RESULT;showScalarValues;2B;6| (|b| $) (SETELT $ 11 |b|)) 
+(SDEFUN |RESULT;showScalarValues;2B;6| ((|b| |Boolean|) ($ |Boolean|))
+        (SETELT $ 11 |b|)) 
 
 (DECLAIM (NOTINLINE |Result;|)) 
 
 (DEFUN |Result| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G178)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Result|) . #2=(|Result|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Result|
-                         (LIST (CONS NIL (CONS 1 (|Result;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Result|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G178)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Result|) . #2=(|Result|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Result|
+                             (LIST (CONS NIL (CONS 1 (|Result;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Result|)))))))))) 
 
 (DEFUN |Result;| ()
-  (PROG (|dv$| $ #1=#:G174 #2=#:G173 |pv$| #3=#:G175 #4=#:G176)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Result|) . #5=(|Result|))
-      (LETT $ (GETREFV 59) . #5#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory|
-                                           (|Record| (|:| |key| (|Symbol|))
-                                                     (|:| |entry| (|Any|)))
-                                           '(|ConvertibleTo| (|InputForm|)))
-                                          (|HasCategory|
-                                           (|Record| (|:| |key| (|Symbol|))
-                                                     (|:| |entry| (|Any|)))
-                                           '(|BasicType|))
-                                          (|HasCategory| (|Symbol|)
-                                                         '(|OrderedSet|))
-                                          (LETT #1#
-                                                (|HasCategory| (|Any|)
-                                                               '(|SetCategory|))
-                                                . #5#)
-                                          (AND
-                                           (|HasCategory| (|Any|)
-                                                          '(|Evalable|
-                                                            (|Any|)))
-                                           #1#)
-                                          (OR
-                                           (|HasCategory| (|Any|)
-                                                          '(|CoercibleTo|
-                                                            (|OutputForm|)))
-                                           (|HasCategory|
+  (SPROG
+   ((|dv$| NIL) ($ NIL) (#1=#:G174 NIL) (#2=#:G173 NIL) (|pv$| NIL)
+    (#3=#:G175 NIL) (#4=#:G176 NIL))
+   (PROGN
+    (LETT |dv$| '(|Result|) . #5=(|Result|))
+    (LETT $ (GETREFV 59) . #5#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory|
+                                         (|Record| (|:| |key| (|Symbol|))
+                                                   (|:| |entry| (|Any|)))
+                                         '(|ConvertibleTo| (|InputForm|)))
+                                        (|HasCategory|
+                                         (|Record| (|:| |key| (|Symbol|))
+                                                   (|:| |entry| (|Any|)))
+                                         '(|BasicType|))
+                                        (|HasCategory| (|Symbol|)
+                                                       '(|OrderedSet|))
+                                        (LETT #1#
+                                              (|HasCategory| (|Any|)
+                                                             '(|SetCategory|))
+                                              . #5#)
+                                        (AND
+                                         (|HasCategory| (|Any|)
+                                                        '(|Evalable| (|Any|)))
+                                         #1#)
+                                        (OR
+                                         (|HasCategory| (|Any|)
+                                                        '(|CoercibleTo|
+                                                          (|OutputForm|)))
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|Symbol|))
+                                                    (|:| |entry| (|Any|)))
+                                          '(|CoercibleTo| (|OutputForm|))))
+                                        (|HasCategory| (|Any|) '(|BasicType|))
+                                        (LETT #2#
+                                              (|HasCategory|
+                                               (|Record| (|:| |key| (|Symbol|))
+                                                         (|:| |entry| (|Any|)))
+                                               '(|SetCategory|))
+                                              . #5#)
+                                        (AND
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|Symbol|))
+                                                    (|:| |entry| (|Any|)))
+                                          '(|Evalable|
                                             (|Record| (|:| |key| (|Symbol|))
-                                                      (|:| |entry| (|Any|)))
-                                            '(|CoercibleTo| (|OutputForm|))))
-                                          (|HasCategory| (|Any|)
-                                                         '(|BasicType|))
-                                          (LETT #2#
-                                                (|HasCategory|
-                                                 (|Record|
-                                                  (|:| |key| (|Symbol|))
-                                                  (|:| |entry| (|Any|)))
-                                                 '(|SetCategory|))
-                                                . #5#)
-                                          (AND
-                                           (|HasCategory|
-                                            (|Record| (|:| |key| (|Symbol|))
-                                                      (|:| |entry| (|Any|)))
-                                            '(|Evalable|
-                                              (|Record| (|:| |key| (|Symbol|))
-                                                        (|:| |entry|
-                                                             (|Any|)))))
-                                           #2#)
-                                          (OR
-                                           (|HasCategory| (|Any|)
-                                                          '(|BasicType|))
-                                           #1#
-                                           (|HasCategory|
-                                            (|Record| (|:| |key| (|Symbol|))
-                                                      (|:| |entry| (|Any|)))
-                                            '(|BasicType|))
-                                           #2#)
-                                          (OR #1# #2#)
-                                          (OR
-                                           (|HasCategory| (|Any|)
-                                                          '(|CoercibleTo|
-                                                            (|OutputForm|)))
-                                           #1#
-                                           (|HasCategory|
-                                            (|Record| (|:| |key| (|Symbol|))
-                                                      (|:| |entry| (|Any|)))
-                                            '(|CoercibleTo| (|OutputForm|)))
-                                           #2#)))
-                      . #5#))
-      (|haddProp| |$ConstructorCache| '|Result| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-           (|augmentPredVector| $ 4096))
-      (AND #3#
-           (|HasCategory|
-            (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
-            '(|BasicType|))
-           (|augmentPredVector| $ 8192))
-      (AND #3# #1# (|augmentPredVector| $ 16384))
-      (AND
-       (LETT #4#
-             (AND (|HasCategory| $ '(|finiteAggregate|))
-                  (|HasCategory| (|Any|) '(|BasicType|)))
-             . #5#)
-       (|augmentPredVector| $ 32768))
-      (AND
-       (OR #4#
-           (AND #3#
-                (|HasCategory|
-                 (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
-                 '(|BasicType|)))
-           #1# #2#)
-       (|augmentPredVector| $ 65536))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 131072))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 9 (SPADCALL '|: | (QREFELT $ 8)))
-      (QSETREFV $ 10 (SPADCALL '|...| (QREFELT $ 8)))
-      (QSETREFV $ 11 'NIL)
-      (QSETREFV $ 12 'NIL)
-      $)))) 
+                                                      (|:| |entry| (|Any|)))))
+                                         #2#)
+                                        (OR
+                                         (|HasCategory| (|Any|) '(|BasicType|))
+                                         #1#
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|Symbol|))
+                                                    (|:| |entry| (|Any|)))
+                                          '(|BasicType|))
+                                         #2#)
+                                        (OR #1# #2#)
+                                        (OR
+                                         (|HasCategory| (|Any|)
+                                                        '(|CoercibleTo|
+                                                          (|OutputForm|)))
+                                         #1#
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|Symbol|))
+                                                    (|:| |entry| (|Any|)))
+                                          '(|CoercibleTo| (|OutputForm|)))
+                                         #2#)))
+                    . #5#))
+    (|haddProp| |$ConstructorCache| '|Result| NIL (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+         (|augmentPredVector| $ 4096))
+    (AND #3#
+         (|HasCategory| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
+                        '(|BasicType|))
+         (|augmentPredVector| $ 8192))
+    (AND #3# #1# (|augmentPredVector| $ 16384))
+    (AND
+     (LETT #4#
+           (AND (|HasCategory| $ '(|finiteAggregate|))
+                (|HasCategory| (|Any|) '(|BasicType|)))
+           . #5#)
+     (|augmentPredVector| $ 32768))
+    (AND
+     (OR #4#
+         (AND #3#
+              (|HasCategory|
+               (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
+               '(|BasicType|)))
+         #1# #2#)
+     (|augmentPredVector| $ 65536))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 131072))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 9 (SPADCALL '|: | (QREFELT $ 8)))
+    (QSETREFV $ 10 (SPADCALL '|...| (QREFELT $ 8)))
+    (QSETREFV $ 11 'NIL)
+    (QSETREFV $ 12 'NIL)
+    $))) 
 
 (MAKEPROP '|Result| '|infovec|
           (LIST

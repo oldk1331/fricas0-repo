@@ -1,54 +1,56 @@
 
-(DEFUN |MKFUNC;function;S2S;1| (|s| |name| $)
-  (SPADCALL |s| |name| NIL (QREFELT $ 9))) 
+(SDEFUN |MKFUNC;function;S2S;1| ((|s| S) (|name| |Symbol|) ($ |Symbol|))
+        (SPADCALL |s| |name| NIL (QREFELT $ 9))) 
 
-(DEFUN |MKFUNC;function;S3S;2| (|s| |name| |x| $)
-  (SPADCALL |s| |name| (LIST |x|) (QREFELT $ 9))) 
+(SDEFUN |MKFUNC;function;S3S;2|
+        ((|s| S) (|name| |Symbol|) (|x| |Symbol|) ($ |Symbol|))
+        (SPADCALL |s| |name| (LIST |x|) (QREFELT $ 9))) 
 
-(DEFUN |MKFUNC;function;S4S;3| (|s| |name| |x| |y| $)
-  (SPADCALL |s| |name| (LIST |x| |y|) (QREFELT $ 9))) 
+(SDEFUN |MKFUNC;function;S4S;3|
+        ((|s| S) (|name| |Symbol|) (|x| |Symbol|) (|y| |Symbol|) ($ |Symbol|))
+        (SPADCALL |s| |name| (LIST |x| |y|) (QREFELT $ 9))) 
 
-(DEFUN |MKFUNC;function;SSLS;4| (|s| |name| |args| $)
-  (SEQ
-   (SPADCALL
-    (SPADCALL (SPADCALL |s| (QREFELT $ 14)) |args| |name| (QREFELT $ 15))
-    (QREFELT $ 17))
-   (EXIT |name|))) 
+(SDEFUN |MKFUNC;function;SSLS;4|
+        ((|s| S) (|name| |Symbol|) (|args| |List| (|Symbol|)) ($ |Symbol|))
+        (SEQ
+         (SPADCALL
+          (SPADCALL (SPADCALL |s| (QREFELT $ 14)) |args| |name| (QREFELT $ 15))
+          (QREFELT $ 17))
+         (EXIT |name|))) 
 
 (DECLAIM (NOTINLINE |MakeFunction;|)) 
 
 (DEFUN |MakeFunction| (#1=#:G108)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G109)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|MakeFunction|)
-                                           '|domainEqualList|)
-                . #3=(|MakeFunction|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|MakeFunction;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G109)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|MakeFunction|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|MakeFunction|)
+                                               '|domainEqualList|)
+                    . #3=(|MakeFunction|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|MakeFunction;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|MakeFunction|)))))))))) 
 
 (DEFUN |MakeFunction;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|MakeFunction|))
-      (LETT |dv$| (LIST '|MakeFunction| DV$1) . #1#)
-      (LETT $ (GETREFV 18) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|MakeFunction| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|MakeFunction|))
+          (LETT |dv$| (LIST '|MakeFunction| DV$1) . #1#)
+          (LETT $ (GETREFV 18) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|MakeFunction| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|MakeFunction| '|infovec|
           (LIST

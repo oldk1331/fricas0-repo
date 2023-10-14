@@ -1,107 +1,115 @@
 
-(DEFUN |DISTPOL;eval;DUPSS;1| (|x| |p| $)
-  (PROG (|res|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |p| (QREFELT $ 10))
-        (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (|spadConstant| $ 12)
-                  (QREFELT $ 13)))
-       ('T
-        (SEQ (LETT |res| (|spadConstant| $ 14) . #1=(|DISTPOL;eval;DUPSS;1|))
-             (SEQ G190
-                  (COND
-                   ((NULL (COND ((SPADCALL |p| (QREFELT $ 15)) 'NIL) ('T 'T)))
-                    (GO G191)))
+(SDEFUN |DISTPOL;eval;DUPSS;1| ((|x| |Distribution| R) (|p| UPS) ($ S))
+        (SPROG ((|res| (S)))
+               (SEQ
+                (COND
+                 ((SPADCALL |p| (QREFELT $ 10))
+                  (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (|spadConstant| $ 12)
+                            (QREFELT $ 13)))
+                 ('T
                   (SEQ
-                   (LETT |res|
-                         (SPADCALL |res|
-                                   (SPADCALL
-                                    (SPADCALL |x| (SPADCALL |p| (QREFELT $ 17))
-                                              (QREFELT $ 19))
-                                    (SPADCALL |p| (QREFELT $ 11))
-                                    (QREFELT $ 20))
-                                   (QREFELT $ 21))
-                         . #1#)
-                   (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 22)) . #1#)))
-                  NIL (GO G190) G191 (EXIT NIL))
-             (EXIT |res|)))))))) 
+                   (LETT |res| (|spadConstant| $ 14)
+                         . #1=(|DISTPOL;eval;DUPSS;1|))
+                   (SEQ G190
+                        (COND
+                         ((NULL
+                           (COND ((SPADCALL |p| (QREFELT $ 15)) 'NIL) ('T 'T)))
+                          (GO G191)))
+                        (SEQ
+                         (LETT |res|
+                               (SPADCALL |res|
+                                         (SPADCALL
+                                          (SPADCALL |x|
+                                                    (SPADCALL |p|
+                                                              (QREFELT $ 17))
+                                                    (QREFELT $ 19))
+                                          (SPADCALL |p| (QREFELT $ 11))
+                                          (QREFELT $ 20))
+                                         (QREFELT $ 21))
+                               . #1#)
+                         (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 22)) . #1#)))
+                        NIL (GO G190) G191 (EXIT NIL))
+                   (EXIT |res|))))))) 
 
-(DEFUN |DISTPOL;integrate;UPSDS;2| (|p| |x| $)
-  (SPADCALL |x| |p| (QREFELT $ 23))) 
+(SDEFUN |DISTPOL;integrate;UPSDS;2| ((|p| UPS) (|x| |Distribution| R) ($ S))
+        (SPADCALL |x| |p| (QREFELT $ 23))) 
 
-(DEFUN |DISTPOL;apply;UPSDD;3| (|p| |x| $)
-  (PROG (|mompx| IN)
-    (RETURN
-     (SEQ
-      (LETT IN (SPADCALL (LIST (SPADCALL 1 (QREFELT $ 28))) (QREFELT $ 31))
-            . #1=(|DISTPOL;apply;UPSDD;3|))
-      (LETT |mompx|
-            (SPADCALL (CONS #'|DISTPOL;apply;UPSDD;3!0| (VECTOR $ |p| |x|)) IN
-                      (QREFELT $ 37))
-            . #1#)
-      (EXIT (SPADCALL (SPADCALL |mompx| (QREFELT $ 39)) (QREFELT $ 41))))))) 
+(SDEFUN |DISTPOL;apply;UPSDD;3|
+        ((|p| UPS) (|x| |Distribution| R) ($ |Distribution| S))
+        (SPROG ((|mompx| (|Stream| S)) (IN (|Stream| (|Integer|))))
+               (SEQ
+                (LETT IN
+                      (SPADCALL (LIST (SPADCALL 1 (QREFELT $ 28)))
+                                (QREFELT $ 31))
+                      . #1=(|DISTPOL;apply;UPSDD;3|))
+                (LETT |mompx|
+                      (SPADCALL
+                       (CONS #'|DISTPOL;apply;UPSDD;3!0| (VECTOR $ |p| |x|)) IN
+                       (QREFELT $ 37))
+                      . #1#)
+                (EXIT
+                 (SPADCALL (SPADCALL |mompx| (QREFELT $ 39)) (QREFELT $ 41)))))) 
 
-(DEFUN |DISTPOL;apply;UPSDD;3!0| (|k| $$)
-  (PROG (|x| |p| $)
-    (LETT |x| (QREFELT $$ 2) . #1=(|DISTPOL;apply;UPSDD;3|))
-    (LETT |p| (QREFELT $$ 1) . #1#)
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (PROG (#2=#:G113)
-        (RETURN
-         (SPADCALL |x|
-                   (SPADCALL |p|
-                             (PROG1 (LETT #2# |k| NIL)
-                               (|check_subtype| (> #2# 0) '(|PositiveInteger|)
-                                                #2#))
-                             (QREFELT $ 33))
-                   (QREFELT $ 23)))))))) 
+(SDEFUN |DISTPOL;apply;UPSDD;3!0| ((|k| NIL) ($$ NIL))
+        (PROG (|x| |p| $)
+          (LETT |x| (QREFELT $$ 2) . #1=(|DISTPOL;apply;UPSDD;3|))
+          (LETT |p| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPROG ((#2=#:G113 NIL))
+                   (SPADCALL |x|
+                             (SPADCALL |p|
+                                       (PROG1 (LETT #2# |k| NIL)
+                                         (|check_subtype| (> #2# 0)
+                                                          '(|PositiveInteger|)
+                                                          #2#))
+                                       (QREFELT $ 33))
+                             (QREFELT $ 23))))))) 
 
 (DECLAIM (NOTINLINE |DistributionPolynomialPackage;|)) 
 
 (DEFUN |DistributionPolynomialPackage| (&REST #1=#:G117)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G118)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|DistributionPolynomialPackage|)
-                                           '|domainEqualList|)
-                . #3=(|DistributionPolynomialPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |DistributionPolynomialPackage;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|DistributionPolynomialPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|DistributionPolynomialPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|DistributionPolynomialPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |DistributionPolynomialPackage;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|DistributionPolynomialPackage|)))))))))) 
 
 (DEFUN |DistributionPolynomialPackage;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|DistributionPolynomialPackage|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|DistributionPolynomialPackage| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 43) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|DistributionPolynomialPackage|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|DistributionPolynomialPackage|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|DistributionPolynomialPackage| DV$1 DV$2 DV$3)
+                . #1#)
+          (LETT $ (GETREFV 43) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|DistributionPolynomialPackage|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|DistributionPolynomialPackage| '|infovec|
           (LIST

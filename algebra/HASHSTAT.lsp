@@ -1,51 +1,54 @@
 
 (PUT '|HASHSTAT;new;$;1| '|SPADreplace| '(XLAM NIL HASHSTATEBASIS)) 
 
-(DEFUN |HASHSTAT;new;$;1| ($) HASHSTATEBASIS) 
+(SDEFUN |HASHSTAT;new;$;1| (($ $)) HASHSTATEBASIS) 
 
 (PUT '|HASHSTAT;value;$Si;2| '|SPADreplace| 'HASHSTATEMAKEFIXNUM) 
 
-(DEFUN |HASHSTAT;value;$Si;2| (|hs| $) (HASHSTATEMAKEFIXNUM |hs|)) 
+(SDEFUN |HASHSTAT;value;$Si;2| ((|hs| $) ($ |SingleInteger|))
+        (HASHSTATEMAKEFIXNUM |hs|)) 
 
 (PUT '|HASHSTAT;update!;$Si$;3| '|SPADreplace| 'HASHSTATEUPDATE) 
 
-(DEFUN |HASHSTAT;update!;$Si$;3| (|hs| |i| $) (HASHSTATEUPDATE |hs| |i|)) 
+(SDEFUN |HASHSTAT;update!;$Si$;3| ((|hs| $) (|i| |SingleInteger|) ($ $))
+        (HASHSTATEUPDATE |hs| |i|)) 
 
 (PUT '|HASHSTAT;modulo| '|SPADreplace| 'HASHSTATEMOD) 
 
-(DEFUN |HASHSTAT;modulo| (|hs| |i| $) (HASHSTATEMOD |hs| |i|)) 
+(SDEFUN |HASHSTAT;modulo| ((|hs| $) (|i| |SingleInteger|) ($ |SingleInteger|))
+        (HASHSTATEMOD |hs| |i|)) 
 
 (DECLAIM (NOTINLINE |HashState;|)) 
 
 (DEFUN |HashState| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G941)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|HashState|) . #2=(|HashState|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|HashState|
-                         (LIST (CONS NIL (CONS 1 (|HashState;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|HashState|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G941)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|HashState|)
+                    . #2=(|HashState|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|HashState|
+                             (LIST (CONS NIL (CONS 1 (|HashState;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|HashState|)))))))))) 
 
 (DEFUN |HashState;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|HashState|) . #1=(|HashState|))
-      (LETT $ (GETREFV 10) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|HashState| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|HashState|) . #1=(|HashState|))
+          (LETT $ (GETREFV 10) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|HashState| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|HashState| '|infovec|
           (LIST

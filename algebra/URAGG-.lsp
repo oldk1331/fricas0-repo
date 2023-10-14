@@ -1,482 +1,532 @@
 
-(DEFUN |URAGG-;elt;AfirstS;1| (|x| T3 $) (SPADCALL |x| (QREFELT $ 8))) 
+(SDEFUN |URAGG-;elt;AfirstS;1| ((|x| A) (T3 "first") ($ S))
+        (SPADCALL |x| (QREFELT $ 8))) 
 
-(DEFUN |URAGG-;elt;AlastS;2| (|x| T4 $) (SPADCALL |x| (QREFELT $ 11))) 
+(SDEFUN |URAGG-;elt;AlastS;2| ((|x| A) (T4 "last") ($ S))
+        (SPADCALL |x| (QREFELT $ 11))) 
 
-(DEFUN |URAGG-;elt;ArestA;3| (|x| T5 $) (SPADCALL |x| (QREFELT $ 14))) 
+(SDEFUN |URAGG-;elt;ArestA;3| ((|x| A) (T5 "rest") ($ A))
+        (SPADCALL |x| (QREFELT $ 14))) 
 
-(DEFUN |URAGG-;second;AS;4| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 8))) 
+(SDEFUN |URAGG-;second;AS;4| ((|x| A) ($ S))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 8))) 
 
-(DEFUN |URAGG-;third;AS;5| (|x| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 14))
-            (QREFELT $ 8))) 
+(SDEFUN |URAGG-;third;AS;5| ((|x| A) ($ S))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 14))
+                  (QREFELT $ 8))) 
 
-(DEFUN |URAGG-;cyclic?;AB;6| (|x| $)
-  (COND
-   ((OR (SPADCALL |x| (QREFELT $ 20))
-        (SPADCALL (|URAGG-;findCycle| |x| $) (QREFELT $ 20)))
-    'NIL)
-   ('T 'T))) 
+(SDEFUN |URAGG-;cyclic?;AB;6| ((|x| A) ($ |Boolean|))
+        (COND
+         ((OR (SPADCALL |x| (QREFELT $ 20))
+              (SPADCALL (|URAGG-;findCycle| |x| $) (QREFELT $ 20)))
+          'NIL)
+         ('T 'T))) 
 
-(DEFUN |URAGG-;last;AS;7| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 8))) 
+(SDEFUN |URAGG-;last;AS;7| ((|x| A) ($ S))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 8))) 
 
-(DEFUN |URAGG-;nodes;AL;8| (|x| $)
-  (PROG (|l|)
-    (RETURN
-     (SEQ (LETT |l| NIL . #1=(|URAGG-;nodes;AL;8|))
-          (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |x| (QREFELT $ 20)) 'NIL) ('T 'T)))
-                 (GO G191)))
-               (SEQ (LETT |l| (CONS |x| |l|) . #1#)
-                    (EXIT (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT (NREVERSE |l|)))))) 
+(SDEFUN |URAGG-;nodes;AL;8| ((|x| A) ($ |List| A))
+        (SPROG ((|l| (|List| A)))
+               (SEQ (LETT |l| NIL . #1=(|URAGG-;nodes;AL;8|))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (COND ((SPADCALL |x| (QREFELT $ 20)) 'NIL)
+                                  ('T 'T)))
+                           (GO G191)))
+                         (SEQ (LETT |l| (CONS |x| |l|) . #1#)
+                              (EXIT
+                               (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #1#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT (NREVERSE |l|))))) 
 
-(DEFUN |URAGG-;children;AL;9| (|x| $)
-  (PROG (|l|)
-    (RETURN
-     (SEQ (LETT |l| NIL |URAGG-;children;AL;9|)
-          (EXIT
-           (COND ((SPADCALL |x| (QREFELT $ 20)) |l|)
-                 ('T (CONS (SPADCALL |x| (QREFELT $ 14)) |l|)))))))) 
-
-(DEFUN |URAGG-;leaf?;AB;10| (|x| $) (SPADCALL |x| (QREFELT $ 20))) 
-
-(DEFUN |URAGG-;value;AS;11| (|x| $)
-  (COND ((SPADCALL |x| (QREFELT $ 20)) (|error| "value of empty object"))
-        ('T (SPADCALL |x| (QREFELT $ 8))))) 
-
-(DEFUN |URAGG-;less?;ANniB;12| (|l| |n| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ (LETT |i| |n| . #1=(|URAGG-;less?;ANniB;12|))
-          (SEQ G190
-               (COND
-                ((NULL
-                  (COND
-                   ((SPADCALL |i| 0 (QREFELT $ 30))
-                    (COND ((SPADCALL |l| (QREFELT $ 20)) 'NIL) ('T 'T)))
-                   ('T 'NIL)))
-                 (GO G191)))
-               (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 14)) . #1#)
-                    (EXIT (LETT |i| (- |i| 1) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |i| 0 (QREFELT $ 30))))))) 
-
-(DEFUN |URAGG-;more?;ANniB;13| (|l| |n| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ (LETT |i| |n| . #1=(|URAGG-;more?;ANniB;13|))
-          (SEQ G190
-               (COND
-                ((NULL
-                  (COND
-                   ((SPADCALL |i| 0 (QREFELT $ 30))
-                    (COND ((SPADCALL |l| (QREFELT $ 20)) 'NIL) ('T 'T)))
-                   ('T 'NIL)))
-                 (GO G191)))
-               (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 14)) . #1#)
-                    (EXIT (LETT |i| (- |i| 1) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT
-           (COND
-            ((ZEROP |i|)
-             (COND ((SPADCALL |l| (QREFELT $ 20)) 'NIL) (#2='T 'T)))
-            (#2# 'NIL))))))) 
-
-(DEFUN |URAGG-;size?;ANniB;14| (|l| |n| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ (LETT |i| |n| . #1=(|URAGG-;size?;ANniB;14|))
-          (SEQ G190
-               (COND
-                ((NULL
-                  (COND ((SPADCALL |l| (QREFELT $ 20)) 'NIL)
-                        ('T (SPADCALL |i| 0 (QREFELT $ 30)))))
-                 (GO G191)))
-               (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 14)) . #1#)
-                    (EXIT (LETT |i| (- |i| 1) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT
-           (COND ((SPADCALL |l| (QREFELT $ 20)) (ZEROP |i|)) ('T 'NIL))))))) 
-
-(DEFUN |URAGG-;#;ANni;15| (|x| $)
-  (PROG (|k|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |k| 0 . #1=(|URAGG-;#;ANni;15|)) G190
-           (COND
-            ((NULL (COND ((SPADCALL |x| (QREFELT $ 20)) 'NIL) ('T 'T)))
-             (GO G191)))
-           (SEQ
-            (COND
-             ((EQL |k| 1000)
-              (COND
-               ((SPADCALL |x| (QREFELT $ 35))
-                (EXIT (|error| "cyclic list"))))))
-            (EXIT (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #1#)))
-           (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191 (EXIT NIL))
-      (EXIT |k|))))) 
-
-(DEFUN |URAGG-;tail;2A;16| (|x| $)
-  (PROG (|y| |k|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |x| (QREFELT $ 20)) (|error| "empty list"))
-            ('T
-             (SEQ
-              (LETT |y| (SPADCALL |x| (QREFELT $ 14))
-                    . #1=(|URAGG-;tail;2A;16|))
-              (SEQ (LETT |k| 0 . #1#) G190
-                   (COND
-                    ((NULL (COND ((SPADCALL |y| (QREFELT $ 20)) 'NIL) ('T 'T)))
-                     (GO G191)))
-                   (SEQ
-                    (COND
-                     ((EQL |k| 1000)
-                      (COND
-                       ((SPADCALL |x| (QREFELT $ 35))
-                        (EXIT (|error| "cyclic list"))))))
+(SDEFUN |URAGG-;children;AL;9| ((|x| A) ($ |List| A))
+        (SPROG ((|l| (|List| A)))
+               (SEQ (LETT |l| NIL |URAGG-;children;AL;9|)
                     (EXIT
-                     (LETT |y| (SPADCALL (LETT |x| |y| . #1#) (QREFELT $ 14))
-                           . #1#)))
-                   (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191 (EXIT NIL))
-              (EXIT |x|)))))))) 
+                     (COND ((SPADCALL |x| (QREFELT $ 20)) |l|)
+                           ('T (CONS (SPADCALL |x| (QREFELT $ 14)) |l|))))))) 
 
-(DEFUN |URAGG-;findCycle| (|x| $)
-  (PROG (|y| #1=#:G208)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |y| (SPADCALL |x| (QREFELT $ 14)) . #2=(|URAGG-;findCycle|))
-            (SEQ G190
-                 (COND
-                  ((NULL (COND ((SPADCALL |y| (QREFELT $ 20)) 'NIL) ('T 'T)))
-                   (GO G191)))
+(SDEFUN |URAGG-;leaf?;AB;10| ((|x| A) ($ |Boolean|))
+        (SPADCALL |x| (QREFELT $ 20))) 
+
+(SDEFUN |URAGG-;value;AS;11| ((|x| A) ($ S))
+        (COND ((SPADCALL |x| (QREFELT $ 20)) (|error| "value of empty object"))
+              ('T (SPADCALL |x| (QREFELT $ 8))))) 
+
+(SDEFUN |URAGG-;less?;ANniB;12|
+        ((|l| A) (|n| |NonNegativeInteger|) ($ |Boolean|))
+        (SPROG ((|i| (|Integer|)))
+               (SEQ (LETT |i| |n| . #1=(|URAGG-;less?;ANniB;12|))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (COND
+                             ((SPADCALL |i| 0 (QREFELT $ 30))
+                              (COND ((SPADCALL |l| (QREFELT $ 20)) 'NIL)
+                                    ('T 'T)))
+                             ('T 'NIL)))
+                           (GO G191)))
+                         (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 14)) . #1#)
+                              (EXIT (LETT |i| (- |i| 1) . #1#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT (SPADCALL |i| 0 (QREFELT $ 30)))))) 
+
+(SDEFUN |URAGG-;more?;ANniB;13|
+        ((|l| A) (|n| |NonNegativeInteger|) ($ |Boolean|))
+        (SPROG ((|i| (|Integer|)))
+               (SEQ (LETT |i| |n| . #1=(|URAGG-;more?;ANniB;13|))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (COND
+                             ((SPADCALL |i| 0 (QREFELT $ 30))
+                              (COND ((SPADCALL |l| (QREFELT $ 20)) 'NIL)
+                                    ('T 'T)))
+                             ('T 'NIL)))
+                           (GO G191)))
+                         (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 14)) . #1#)
+                              (EXIT (LETT |i| (- |i| 1) . #1#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT
+                     (COND
+                      ((ZEROP |i|)
+                       (COND ((SPADCALL |l| (QREFELT $ 20)) 'NIL) (#2='T 'T)))
+                      (#2# 'NIL)))))) 
+
+(SDEFUN |URAGG-;size?;ANniB;14|
+        ((|l| A) (|n| |NonNegativeInteger|) ($ |Boolean|))
+        (SPROG ((|i| (|Integer|)))
+               (SEQ (LETT |i| |n| . #1=(|URAGG-;size?;ANniB;14|))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (COND ((SPADCALL |l| (QREFELT $ 20)) 'NIL)
+                                  ('T (SPADCALL |i| 0 (QREFELT $ 30)))))
+                           (GO G191)))
+                         (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 14)) . #1#)
+                              (EXIT (LETT |i| (- |i| 1) . #1#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT
+                     (COND ((SPADCALL |l| (QREFELT $ 20)) (ZEROP |i|))
+                           ('T 'NIL)))))) 
+
+(SDEFUN |URAGG-;#;ANni;15| ((|x| A) ($ |NonNegativeInteger|))
+        (SPROG ((|k| NIL))
+               (SEQ
+                (SEQ (LETT |k| 0 . #1=(|URAGG-;#;ANni;15|)) G190
+                     (COND
+                      ((NULL
+                        (COND ((SPADCALL |x| (QREFELT $ 20)) 'NIL) ('T 'T)))
+                       (GO G191)))
+                     (SEQ
+                      (COND
+                       ((EQL |k| 1000)
+                        (COND
+                         ((SPADCALL |x| (QREFELT $ 35))
+                          (EXIT (|error| "cyclic list"))))))
+                      (EXIT (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #1#)))
+                     (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191 (EXIT NIL))
+                (EXIT |k|)))) 
+
+(SDEFUN |URAGG-;tail;2A;16| ((|x| A) ($ A))
+        (SPROG ((|y| (A)) (|k| NIL))
+               (SEQ
+                (COND ((SPADCALL |x| (QREFELT $ 20)) (|error| "empty list"))
+                      ('T
+                       (SEQ
+                        (LETT |y| (SPADCALL |x| (QREFELT $ 14))
+                              . #1=(|URAGG-;tail;2A;16|))
+                        (SEQ (LETT |k| 0 . #1#) G190
+                             (COND
+                              ((NULL
+                                (COND ((SPADCALL |y| (QREFELT $ 20)) 'NIL)
+                                      ('T 'T)))
+                               (GO G191)))
+                             (SEQ
+                              (COND
+                               ((EQL |k| 1000)
+                                (COND
+                                 ((SPADCALL |x| (QREFELT $ 35))
+                                  (EXIT (|error| "cyclic list"))))))
+                              (EXIT
+                               (LETT |y|
+                                     (SPADCALL (LETT |x| |y| . #1#)
+                                               (QREFELT $ 14))
+                                     . #1#)))
+                             (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191
+                             (EXIT NIL))
+                        (EXIT |x|))))))) 
+
+(SDEFUN |URAGG-;findCycle| ((|x| A) ($ A))
+        (SPROG ((|y| (A)) (#1=#:G208 NIL))
+               (SEQ
+                (EXIT
                  (SEQ
-                  (COND
-                   ((SPADCALL |x| |y| (QREFELT $ 38))
-                    (PROGN (LETT #1# |x| . #2#) (GO #1#))))
-                  (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #2#)
-                  (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #2#)
-                  (COND
-                   ((SPADCALL |y| (QREFELT $ 20))
-                    (PROGN (LETT #1# |y| . #2#) (GO #1#))))
-                  (COND
-                   ((SPADCALL |x| |y| (QREFELT $ 38))
-                    (PROGN (LETT #1# |y| . #2#) (GO #1#))))
-                  (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #2#)))
-                 NIL (GO G190) G191 (EXIT NIL))
-            (EXIT |y|)))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |URAGG-;cycleTail;2A;18| (|x| $)
-  (PROG (|z| |y|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL
-         (LETT |y|
-               (LETT |x| (SPADCALL |x| (QREFELT $ 39))
-                     . #1=(|URAGG-;cycleTail;2A;18|))
-               . #1#)
-         (QREFELT $ 20))
-        |x|)
-       ('T
-        (SEQ (LETT |z| (SPADCALL |x| (QREFELT $ 14)) . #1#)
-             (SEQ G190
-                  (COND
-                   ((NULL
-                     (COND ((SPADCALL |x| |z| (QREFELT $ 38)) 'NIL) ('T 'T)))
-                    (GO G191)))
-                  (SEQ (LETT |y| |z| . #1#)
-                       (EXIT (LETT |z| (SPADCALL |z| (QREFELT $ 14)) . #1#)))
-                  NIL (GO G190) G191 (EXIT NIL))
-             (EXIT |y|)))))))) 
-
-(DEFUN |URAGG-;cycleEntry;2A;19| (|x| $)
-  (PROG (|y| |k| |z| |l|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |x| (QREFELT $ 20)) |x|)
-            ((SPADCALL
-              (LETT |y| (|URAGG-;findCycle| |x| $)
-                    . #1=(|URAGG-;cycleEntry;2A;19|))
-              (QREFELT $ 20))
-             |y|)
-            ('T
-             (SEQ (LETT |z| (SPADCALL |y| (QREFELT $ 14)) . #1#)
-                  (SEQ (LETT |l| 1 . #1#) G190
-                       (COND
-                        ((NULL
-                          (COND ((SPADCALL |y| |z| (QREFELT $ 38)) 'NIL)
-                                ('T 'T)))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT (LETT |z| (SPADCALL |z| (QREFELT $ 14)) . #1#)))
-                       (LETT |l| (|inc_SI| |l|) . #1#) (GO G190) G191
-                       (EXIT NIL))
-                  (LETT |y| |x| . #1#)
-                  (SEQ (LETT |k| 1 . #1#) G190
-                       (COND ((|greater_SI| |k| |l|) (GO G191)))
-                       (SEQ
-                        (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #1#)))
-                       (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191
-                       (EXIT NIL))
+                  (LETT |y| (SPADCALL |x| (QREFELT $ 14))
+                        . #2=(|URAGG-;findCycle|))
                   (SEQ G190
                        (COND
                         ((NULL
-                          (COND ((SPADCALL |x| |y| (QREFELT $ 38)) 'NIL)
-                                ('T 'T)))
+                          (COND ((SPADCALL |y| (QREFELT $ 20)) 'NIL) ('T 'T)))
                          (GO G191)))
-                       (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #1#)
-                            (EXIT
-                             (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #1#)))
+                       (SEQ
+                        (COND
+                         ((SPADCALL |x| |y| (QREFELT $ 38))
+                          (PROGN (LETT #1# |x| . #2#) (GO #1#))))
+                        (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #2#)
+                        (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #2#)
+                        (COND
+                         ((SPADCALL |y| (QREFELT $ 20))
+                          (PROGN (LETT #1# |y| . #2#) (GO #1#))))
+                        (COND
+                         ((SPADCALL |x| |y| (QREFELT $ 38))
+                          (PROGN (LETT #1# |y| . #2#) (GO #1#))))
+                        (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #2#)))
                        NIL (GO G190) G191 (EXIT NIL))
-                  (EXIT |x|)))))))) 
+                  (EXIT |y|)))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |URAGG-;cycleLength;ANni;20| (|x| $)
-  (PROG (|y| |k|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (SPADCALL |x| (QREFELT $ 20))
-            (SPADCALL
-             (LETT |x| (|URAGG-;findCycle| |x| $)
-                   . #1=(|URAGG-;cycleLength;ANni;20|))
-             (QREFELT $ 20)))
-        0)
-       ('T
-        (SEQ (LETT |y| (SPADCALL |x| (QREFELT $ 14)) . #1#)
-             (SEQ (LETT |k| 1 . #1#) G190
-                  (COND
-                   ((NULL
-                     (COND ((SPADCALL |x| |y| (QREFELT $ 38)) 'NIL) ('T 'T)))
-                    (GO G191)))
-                  (SEQ (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #1#)))
-                  (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191 (EXIT NIL))
-             (EXIT |k|)))))))) 
-
-(DEFUN |URAGG-;rest;ANniA;21| (|x| |n| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |i| 1 . #1=(|URAGG-;rest;ANniA;21|)) G190
-           (COND ((|greater_SI| |i| |n|) (GO G191)))
-           (SEQ
-            (EXIT
-             (COND
-              ((SPADCALL |x| (QREFELT $ 20)) (|error| "Index out of range"))
-              ('T (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #1#)))))
-           (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-      (EXIT |x|))))) 
-
-(DEFUN |URAGG-;last;ANniA;22| (|x| |n| $)
-  (PROG (#1=#:G235 |m|)
-    (RETURN
-     (SEQ
-      (LETT |m| (SPADCALL |x| (QREFELT $ 44)) . #2=(|URAGG-;last;ANniA;22|))
-      (EXIT
-       (COND ((SPADCALL |n| |m| (QREFELT $ 45)) (|error| "index out of range"))
-             ('T
-              (SPADCALL
-               (SPADCALL |x|
-                         (PROG1 (LETT #1# (- |m| |n|) . #2#)
-                           (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                            #1#))
-                         (QREFELT $ 46))
-               (QREFELT $ 47))))))))) 
-
-(DEFUN |URAGG-;=;2AB;23| (|x| |y| $)
-  (PROG (#1=#:G246 |k|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND ((SPADCALL |x| |y| (QREFELT $ 38)) 'T)
-             (#2='T
-              (SEQ
-               (SEQ (LETT |k| 0 . #3=(|URAGG-;=;2AB;23|)) G190
-                    (COND
-                     ((NULL
-                       (COND
-                        ((OR (SPADCALL |x| (QREFELT $ 20))
-                             (SPADCALL |y| (QREFELT $ 20)))
-                         'NIL)
-                        ('T 'T)))
-                      (GO G191)))
-                    (SEQ
-                     (COND
-                      ((EQL |k| 1000)
-                       (COND
-                        ((SPADCALL |x| (QREFELT $ 35))
-                         (EXIT (|error| "cyclic list"))))))
-                     (EXIT
-                      (COND
-                       ((SPADCALL (SPADCALL |x| (QREFELT $ 8))
-                                  (SPADCALL |y| (QREFELT $ 8)) (QREFELT $ 49))
-                        (PROGN (LETT #1# 'NIL . #3#) (GO #1#)))
-                       ('T
-                        (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #3#)
-                             (EXIT
-                              (LETT |y| (SPADCALL |y| (QREFELT $ 14))
-                                    . #3#)))))))
-                    (LETT |k| (|inc_SI| |k|) . #3#) (GO G190) G191 (EXIT NIL))
-               (EXIT
+(SDEFUN |URAGG-;cycleTail;2A;18| ((|x| A) ($ A))
+        (SPROG ((|z| (A)) (|y| (A)))
+               (SEQ
                 (COND
-                 ((SPADCALL |x| (QREFELT $ 20)) (SPADCALL |y| (QREFELT $ 20)))
-                 (#2# 'NIL)))))))
-      #1# (EXIT #1#))))) 
+                 ((SPADCALL
+                   (LETT |y|
+                         (LETT |x| (SPADCALL |x| (QREFELT $ 39))
+                               . #1=(|URAGG-;cycleTail;2A;18|))
+                         . #1#)
+                   (QREFELT $ 20))
+                  |x|)
+                 ('T
+                  (SEQ (LETT |z| (SPADCALL |x| (QREFELT $ 14)) . #1#)
+                       (SEQ G190
+                            (COND
+                             ((NULL
+                               (COND ((SPADCALL |x| |z| (QREFELT $ 38)) 'NIL)
+                                     ('T 'T)))
+                              (GO G191)))
+                            (SEQ (LETT |y| |z| . #1#)
+                                 (EXIT
+                                  (LETT |z| (SPADCALL |z| (QREFELT $ 14))
+                                        . #1#)))
+                            NIL (GO G190) G191 (EXIT NIL))
+                       (EXIT |y|))))))) 
 
-(DEFUN |URAGG-;node?;2AB;24| (|u| |v| $)
-  (PROG (#1=#:G252 |k|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |k| 0 . #2=(|URAGG-;node?;2AB;24|)) G190
-             (COND
-              ((NULL (COND ((SPADCALL |v| (QREFELT $ 20)) 'NIL) ('T 'T)))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((SPADCALL |u| |v| (QREFELT $ 51))
-                 (PROGN (LETT #1# 'T . #2#) (GO #1#)))
-                ('T
-                 (SEQ
-                  (COND
-                   ((EQL |k| 1000)
-                    (COND
-                     ((SPADCALL |v| (QREFELT $ 35))
-                      (EXIT (|error| "cyclic list"))))))
-                  (EXIT (LETT |v| (SPADCALL |v| (QREFELT $ 14)) . #2#)))))))
-             (LETT |k| (|inc_SI| |k|) . #2#) (GO G190) G191 (EXIT NIL))
-        (EXIT (SPADCALL |u| |v| (QREFELT $ 51)))))
-      #1# (EXIT #1#))))) 
+(SDEFUN |URAGG-;cycleEntry;2A;19| ((|x| A) ($ A))
+        (SPROG ((|y| (A)) (|k| NIL) (|z| (A)) (|l| NIL))
+               (SEQ
+                (COND ((SPADCALL |x| (QREFELT $ 20)) |x|)
+                      ((SPADCALL
+                        (LETT |y| (|URAGG-;findCycle| |x| $)
+                              . #1=(|URAGG-;cycleEntry;2A;19|))
+                        (QREFELT $ 20))
+                       |y|)
+                      ('T
+                       (SEQ (LETT |z| (SPADCALL |y| (QREFELT $ 14)) . #1#)
+                            (SEQ (LETT |l| 1 . #1#) G190
+                                 (COND
+                                  ((NULL
+                                    (COND
+                                     ((SPADCALL |y| |z| (QREFELT $ 38)) 'NIL)
+                                     ('T 'T)))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT |z| (SPADCALL |z| (QREFELT $ 14))
+                                         . #1#)))
+                                 (LETT |l| (|inc_SI| |l|) . #1#) (GO G190) G191
+                                 (EXIT NIL))
+                            (LETT |y| |x| . #1#)
+                            (SEQ (LETT |k| 1 . #1#) G190
+                                 (COND ((|greater_SI| |k| |l|) (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT |y| (SPADCALL |y| (QREFELT $ 14))
+                                         . #1#)))
+                                 (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191
+                                 (EXIT NIL))
+                            (SEQ G190
+                                 (COND
+                                  ((NULL
+                                    (COND
+                                     ((SPADCALL |x| |y| (QREFELT $ 38)) 'NIL)
+                                     ('T 'T)))
+                                   (GO G191)))
+                                 (SEQ
+                                  (LETT |x| (SPADCALL |x| (QREFELT $ 14))
+                                        . #1#)
+                                  (EXIT
+                                   (LETT |y| (SPADCALL |y| (QREFELT $ 14))
+                                         . #1#)))
+                                 NIL (GO G190) G191 (EXIT NIL))
+                            (EXIT |x|))))))) 
 
-(DEFUN |URAGG-;setelt;Afirst2S;25| (|x| T6 |a| $)
-  (SPADCALL |x| |a| (QREFELT $ 53))) 
+(SDEFUN |URAGG-;cycleLength;ANni;20| ((|x| A) ($ |NonNegativeInteger|))
+        (SPROG ((|y| (A)) (|k| NIL))
+               (SEQ
+                (COND
+                 ((OR (SPADCALL |x| (QREFELT $ 20))
+                      (SPADCALL
+                       (LETT |x| (|URAGG-;findCycle| |x| $)
+                             . #1=(|URAGG-;cycleLength;ANni;20|))
+                       (QREFELT $ 20)))
+                  0)
+                 ('T
+                  (SEQ (LETT |y| (SPADCALL |x| (QREFELT $ 14)) . #1#)
+                       (SEQ (LETT |k| 1 . #1#) G190
+                            (COND
+                             ((NULL
+                               (COND ((SPADCALL |x| |y| (QREFELT $ 38)) 'NIL)
+                                     ('T 'T)))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #1#)))
+                            (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191
+                            (EXIT NIL))
+                       (EXIT |k|))))))) 
 
-(DEFUN |URAGG-;setelt;Alast2S;26| (|x| T7 |a| $)
-  (SPADCALL |x| |a| (QREFELT $ 55))) 
+(SDEFUN |URAGG-;rest;ANniA;21| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
+        (SPROG ((|i| NIL))
+               (SEQ
+                (SEQ (LETT |i| 1 . #1=(|URAGG-;rest;ANniA;21|)) G190
+                     (COND ((|greater_SI| |i| |n|) (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (COND
+                        ((SPADCALL |x| (QREFELT $ 20))
+                         (|error| "Index out of range"))
+                        ('T (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #1#)))))
+                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (EXIT |x|)))) 
 
-(DEFUN |URAGG-;setelt;Arest2A;27| (|x| T8 |a| $)
-  (SPADCALL |x| |a| (QREFELT $ 57))) 
-
-(DEFUN |URAGG-;concat;3A;28| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 47)) |y| (QREFELT $ 59))) 
-
-(DEFUN |URAGG-;setlast!;A2S;29| (|x| |s| $)
-  (SEQ
-   (COND ((SPADCALL |x| (QREFELT $ 20)) (|error| "setlast: empty list"))
-         ('T
-          (SEQ (SPADCALL (SPADCALL |x| (QREFELT $ 22)) |s| (QREFELT $ 53))
-               (EXIT |s|)))))) 
-
-(DEFUN |URAGG-;setchildren!;ALA;30| (|u| |lv| $)
-  (COND
-   ((EQL (LENGTH |lv|) 1) (SPADCALL |u| (|SPADfirst| |lv|) (QREFELT $ 57)))
-   ('T (|error| "wrong number of children specified")))) 
-
-(DEFUN |URAGG-;setvalue!;A2S;31| (|u| |s| $) (SPADCALL |u| |s| (QREFELT $ 53))) 
-
-(DEFUN |URAGG-;split!;AIA;32| (|p| |n| $)
-  (PROG (|q| #1=#:G263)
-    (RETURN
-     (SEQ
-      (COND ((< |n| 1) (|error| "index out of range"))
-            ('T
-             (SEQ
-              (LETT |p|
-                    (SPADCALL |p|
-                              (PROG1
-                                  (LETT #1# (- |n| 1)
-                                        . #2=(|URAGG-;split!;AIA;32|))
+(SDEFUN |URAGG-;last;ANniA;22| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
+        (SPROG ((#1=#:G235 NIL) (|m| (|NonNegativeInteger|)))
+               (SEQ
+                (LETT |m| (SPADCALL |x| (QREFELT $ 44))
+                      . #2=(|URAGG-;last;ANniA;22|))
+                (EXIT
+                 (COND
+                  ((SPADCALL |n| |m| (QREFELT $ 45))
+                   (|error| "index out of range"))
+                  ('T
+                   (SPADCALL
+                    (SPADCALL |x|
+                              (PROG1 (LETT #1# (- |m| |n|) . #2#)
                                 (|check_subtype| (>= #1# 0)
                                                  '(|NonNegativeInteger|) #1#))
                               (QREFELT $ 46))
-                    . #2#)
-              (LETT |q| (SPADCALL |p| (QREFELT $ 14)) . #2#)
-              (SPADCALL |p| (SPADCALL (QREFELT $ 64)) (QREFELT $ 57))
-              (EXIT |q|)))))))) 
+                    (QREFELT $ 47)))))))) 
 
-(DEFUN |URAGG-;cycleSplit!;2A;33| (|x| $)
-  (PROG (|z| |y|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR
-         (SPADCALL
-          (LETT |y| (SPADCALL |x| (QREFELT $ 39))
-                . #1=(|URAGG-;cycleSplit!;2A;33|))
-          (QREFELT $ 20))
-         (SPADCALL |x| |y| (QREFELT $ 38)))
-        |y|)
-       ('T
-        (SEQ (LETT |z| (SPADCALL |x| (QREFELT $ 14)) . #1#)
-             (SEQ G190
-                  (COND
-                   ((NULL
-                     (COND ((SPADCALL |z| |y| (QREFELT $ 38)) 'NIL) ('T 'T)))
-                    (GO G191)))
-                  (SEQ (LETT |x| |z| . #1#)
-                       (EXIT (LETT |z| (SPADCALL |z| (QREFELT $ 14)) . #1#)))
-                  NIL (GO G190) G191 (EXIT NIL))
-             (SPADCALL |x| (SPADCALL (QREFELT $ 64)) (QREFELT $ 57))
-             (EXIT |y|)))))))) 
+(SDEFUN |URAGG-;=;2AB;23| ((|x| A) (|y| A) ($ |Boolean|))
+        (SPROG ((#1=#:G246 NIL) (|k| NIL))
+               (SEQ
+                (EXIT
+                 (COND ((SPADCALL |x| |y| (QREFELT $ 38)) 'T)
+                       (#2='T
+                        (SEQ
+                         (SEQ (LETT |k| 0 . #3=(|URAGG-;=;2AB;23|)) G190
+                              (COND
+                               ((NULL
+                                 (COND
+                                  ((OR (SPADCALL |x| (QREFELT $ 20))
+                                       (SPADCALL |y| (QREFELT $ 20)))
+                                   'NIL)
+                                  ('T 'T)))
+                                (GO G191)))
+                              (SEQ
+                               (COND
+                                ((EQL |k| 1000)
+                                 (COND
+                                  ((SPADCALL |x| (QREFELT $ 35))
+                                   (EXIT (|error| "cyclic list"))))))
+                               (EXIT
+                                (COND
+                                 ((SPADCALL (SPADCALL |x| (QREFELT $ 8))
+                                            (SPADCALL |y| (QREFELT $ 8))
+                                            (QREFELT $ 49))
+                                  (PROGN (LETT #1# 'NIL . #3#) (GO #1#)))
+                                 ('T
+                                  (SEQ
+                                   (LETT |x| (SPADCALL |x| (QREFELT $ 14))
+                                         . #3#)
+                                   (EXIT
+                                    (LETT |y| (SPADCALL |y| (QREFELT $ 14))
+                                          . #3#)))))))
+                              (LETT |k| (|inc_SI| |k|) . #3#) (GO G190) G191
+                              (EXIT NIL))
+                         (EXIT
+                          (COND
+                           ((SPADCALL |x| (QREFELT $ 20))
+                            (SPADCALL |y| (QREFELT $ 20)))
+                           (#2# 'NIL)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |URAGG-;node?;2AB;24| ((|u| A) (|v| A) ($ |Boolean|))
+        (SPROG ((#1=#:G252 NIL) (|k| NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (SEQ (LETT |k| 0 . #2=(|URAGG-;node?;2AB;24|)) G190
+                       (COND
+                        ((NULL
+                          (COND ((SPADCALL |v| (QREFELT $ 20)) 'NIL) ('T 'T)))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL |u| |v| (QREFELT $ 51))
+                           (PROGN (LETT #1# 'T . #2#) (GO #1#)))
+                          ('T
+                           (SEQ
+                            (COND
+                             ((EQL |k| 1000)
+                              (COND
+                               ((SPADCALL |v| (QREFELT $ 35))
+                                (EXIT (|error| "cyclic list"))))))
+                            (EXIT
+                             (LETT |v| (SPADCALL |v| (QREFELT $ 14))
+                                   . #2#)))))))
+                       (LETT |k| (|inc_SI| |k|) . #2#) (GO G190) G191
+                       (EXIT NIL))
+                  (EXIT (SPADCALL |u| |v| (QREFELT $ 51)))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |URAGG-;setelt;Afirst2S;25| ((|x| A) (T6 "first") (|a| S) ($ S))
+        (SPADCALL |x| |a| (QREFELT $ 53))) 
+
+(SDEFUN |URAGG-;setelt;Alast2S;26| ((|x| A) (T7 "last") (|a| S) ($ S))
+        (SPADCALL |x| |a| (QREFELT $ 55))) 
+
+(SDEFUN |URAGG-;setelt;Arest2A;27| ((|x| A) (T8 "rest") (|a| A) ($ A))
+        (SPADCALL |x| |a| (QREFELT $ 57))) 
+
+(SDEFUN |URAGG-;concat;3A;28| ((|x| A) (|y| A) ($ A))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 47)) |y| (QREFELT $ 59))) 
+
+(SDEFUN |URAGG-;setlast!;A2S;29| ((|x| A) (|s| S) ($ S))
+        (SEQ
+         (COND ((SPADCALL |x| (QREFELT $ 20)) (|error| "setlast: empty list"))
+               ('T
+                (SEQ
+                 (SPADCALL (SPADCALL |x| (QREFELT $ 22)) |s| (QREFELT $ 53))
+                 (EXIT |s|)))))) 
+
+(SDEFUN |URAGG-;setchildren!;ALA;30| ((|u| A) (|lv| |List| A) ($ A))
+        (COND
+         ((EQL (LENGTH |lv|) 1)
+          (SPADCALL |u| (|SPADfirst| |lv|) (QREFELT $ 57)))
+         ('T (|error| "wrong number of children specified")))) 
+
+(SDEFUN |URAGG-;setvalue!;A2S;31| ((|u| A) (|s| S) ($ S))
+        (SPADCALL |u| |s| (QREFELT $ 53))) 
+
+(SDEFUN |URAGG-;split!;AIA;32| ((|p| A) (|n| |Integer|) ($ A))
+        (SPROG ((|q| (A)) (#1=#:G263 NIL))
+               (SEQ
+                (COND ((< |n| 1) (|error| "index out of range"))
+                      ('T
+                       (SEQ
+                        (LETT |p|
+                              (SPADCALL |p|
+                                        (PROG1
+                                            (LETT #1# (- |n| 1)
+                                                  . #2=(|URAGG-;split!;AIA;32|))
+                                          (|check_subtype| (>= #1# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           #1#))
+                                        (QREFELT $ 46))
+                              . #2#)
+                        (LETT |q| (SPADCALL |p| (QREFELT $ 14)) . #2#)
+                        (SPADCALL |p| (SPADCALL (QREFELT $ 64)) (QREFELT $ 57))
+                        (EXIT |q|))))))) 
+
+(SDEFUN |URAGG-;cycleSplit!;2A;33| ((|x| A) ($ A))
+        (SPROG ((|z| (A)) (|y| (A)))
+               (SEQ
+                (COND
+                 ((OR
+                   (SPADCALL
+                    (LETT |y| (SPADCALL |x| (QREFELT $ 39))
+                          . #1=(|URAGG-;cycleSplit!;2A;33|))
+                    (QREFELT $ 20))
+                   (SPADCALL |x| |y| (QREFELT $ 38)))
+                  |y|)
+                 ('T
+                  (SEQ (LETT |z| (SPADCALL |x| (QREFELT $ 14)) . #1#)
+                       (SEQ G190
+                            (COND
+                             ((NULL
+                               (COND ((SPADCALL |z| |y| (QREFELT $ 38)) 'NIL)
+                                     ('T 'T)))
+                              (GO G191)))
+                            (SEQ (LETT |x| |z| . #1#)
+                                 (EXIT
+                                  (LETT |z| (SPADCALL |z| (QREFELT $ 14))
+                                        . #1#)))
+                            NIL (GO G190) G191 (EXIT NIL))
+                       (SPADCALL |x| (SPADCALL (QREFELT $ 64)) (QREFELT $ 57))
+                       (EXIT |y|))))))) 
 
 (DECLAIM (NOTINLINE |UnaryRecursiveAggregate&;|)) 
 
 (DEFUN |UnaryRecursiveAggregate&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|UnaryRecursiveAggregate&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|UnaryRecursiveAggregate&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 68) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|shallowlyMutable|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#1| '(|finiteAggregate|))
-        (QSETREFV $ 48 (CONS (|dispatchFunction| |URAGG-;last;ANniA;22|) $))))
-      (COND
-       ((|HasCategory| |#2| '(|SetCategory|))
-        (PROGN
-         (QSETREFV $ 50 (CONS (|dispatchFunction| |URAGG-;=;2AB;23|) $))
-         (QSETREFV $ 52 (CONS (|dispatchFunction| |URAGG-;node?;2AB;24|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 54
-                   (CONS (|dispatchFunction| |URAGG-;setelt;Afirst2S;25|) $))
-         (QSETREFV $ 56
-                   (CONS (|dispatchFunction| |URAGG-;setelt;Alast2S;26|) $))
-         (QSETREFV $ 58
-                   (CONS (|dispatchFunction| |URAGG-;setelt;Arest2A;27|) $))
-         (QSETREFV $ 60 (CONS (|dispatchFunction| |URAGG-;concat;3A;28|) $))
-         (QSETREFV $ 61 (CONS (|dispatchFunction| |URAGG-;setlast!;A2S;29|) $))
-         (QSETREFV $ 62
-                   (CONS (|dispatchFunction| |URAGG-;setchildren!;ALA;30|) $))
-         (QSETREFV $ 63
-                   (CONS (|dispatchFunction| |URAGG-;setvalue!;A2S;31|) $))
-         (QSETREFV $ 65 (CONS (|dispatchFunction| |URAGG-;split!;AIA;32|) $))
-         (QSETREFV $ 66
-                   (CONS (|dispatchFunction| |URAGG-;cycleSplit!;2A;33|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|UnaryRecursiveAggregate&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|UnaryRecursiveAggregate&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 68) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|shallowlyMutable|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| '(|finiteAggregate|))
+            (QSETREFV $ 48
+                      (CONS (|dispatchFunction| |URAGG-;last;ANniA;22|) $))))
+          (COND
+           ((|HasCategory| |#2| '(|SetCategory|))
+            (PROGN
+             (QSETREFV $ 50 (CONS (|dispatchFunction| |URAGG-;=;2AB;23|) $))
+             (QSETREFV $ 52
+                       (CONS (|dispatchFunction| |URAGG-;node?;2AB;24|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 54
+                       (CONS (|dispatchFunction| |URAGG-;setelt;Afirst2S;25|)
+                             $))
+             (QSETREFV $ 56
+                       (CONS (|dispatchFunction| |URAGG-;setelt;Alast2S;26|)
+                             $))
+             (QSETREFV $ 58
+                       (CONS (|dispatchFunction| |URAGG-;setelt;Arest2A;27|)
+                             $))
+             (QSETREFV $ 60
+                       (CONS (|dispatchFunction| |URAGG-;concat;3A;28|) $))
+             (QSETREFV $ 61
+                       (CONS (|dispatchFunction| |URAGG-;setlast!;A2S;29|) $))
+             (QSETREFV $ 62
+                       (CONS (|dispatchFunction| |URAGG-;setchildren!;ALA;30|)
+                             $))
+             (QSETREFV $ 63
+                       (CONS (|dispatchFunction| |URAGG-;setvalue!;A2S;31|) $))
+             (QSETREFV $ 65
+                       (CONS (|dispatchFunction| |URAGG-;split!;AIA;32|) $))
+             (QSETREFV $ 66
+                       (CONS (|dispatchFunction| |URAGG-;cycleSplit!;2A;33|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|UnaryRecursiveAggregate&| '|infovec|
           (LIST

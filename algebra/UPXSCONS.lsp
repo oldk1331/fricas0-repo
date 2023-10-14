@@ -1,593 +1,659 @@
 
 (PUT '|UPXSCONS;getExpon| '|SPADreplace| 'QCAR) 
 
-(DEFUN |UPXSCONS;getExpon| (|pxs| $) (QCAR |pxs|)) 
+(SDEFUN |UPXSCONS;getExpon| ((|pxs| $) ($ |Fraction| (|Integer|))) (QCAR |pxs|)) 
 
 (PUT '|UPXSCONS;getULS| '|SPADreplace| 'QCDR) 
 
-(DEFUN |UPXSCONS;getULS| (|pxs| $) (QCDR |pxs|)) 
+(SDEFUN |UPXSCONS;getULS| ((|pxs| $) ($ ULS)) (QCDR |pxs|)) 
 
 (PUT '|UPXSCONS;puiseux;FULS$;3| '|SPADreplace| 'CONS) 
 
-(DEFUN |UPXSCONS;puiseux;FULS$;3| (|n| |ls| $) (CONS |n| |ls|)) 
+(SDEFUN |UPXSCONS;puiseux;FULS$;3|
+        ((|n| |Fraction| (|Integer|)) (|ls| ULS) ($ $)) (CONS |n| |ls|)) 
 
-(DEFUN |UPXSCONS;laurentRep;$ULS;4| (|x| $) (|UPXSCONS;getULS| |x| $)) 
+(SDEFUN |UPXSCONS;laurentRep;$ULS;4| ((|x| $) ($ ULS))
+        (|UPXSCONS;getULS| |x| $)) 
 
-(DEFUN |UPXSCONS;rationalPower;$F;5| (|x| $) (|UPXSCONS;getExpon| |x| $)) 
+(SDEFUN |UPXSCONS;rationalPower;$F;5| ((|x| $) ($ |Fraction| (|Integer|)))
+        (|UPXSCONS;getExpon| |x| $)) 
 
-(DEFUN |UPXSCONS;degree;$F;6| (|x| $)
-  (SPADCALL (|UPXSCONS;getExpon| |x| $)
-            (SPADCALL (|UPXSCONS;getULS| |x| $) (QREFELT $ 14)) (QREFELT $ 15))) 
+(SDEFUN |UPXSCONS;degree;$F;6| ((|x| $) ($ |Fraction| (|Integer|)))
+        (SPADCALL (|UPXSCONS;getExpon| |x| $)
+                  (SPADCALL (|UPXSCONS;getULS| |x| $) (QREFELT $ 14))
+                  (QREFELT $ 15))) 
 
-(DEFUN |UPXSCONS;Zero;$;7| ($)
-  (SPADCALL (|spadConstant| $ 19) (|spadConstant| $ 20) (QREFELT $ 10))) 
+(SDEFUN |UPXSCONS;Zero;$;7| (($ $))
+        (SPADCALL (|spadConstant| $ 19) (|spadConstant| $ 20) (QREFELT $ 10))) 
 
-(DEFUN |UPXSCONS;One;$;8| ($)
-  (SPADCALL (|spadConstant| $ 19) (|spadConstant| $ 22) (QREFELT $ 10))) 
+(SDEFUN |UPXSCONS;One;$;8| (($ $))
+        (SPADCALL (|spadConstant| $ 19) (|spadConstant| $ 22) (QREFELT $ 10))) 
 
-(DEFUN |UPXSCONS;monomial;CoefF$;9| (|c| |k| $)
-  (COND
-   ((SPADCALL |k| (|spadConstant| $ 24) (QREFELT $ 26))
-    (SPADCALL |c| (QREFELT $ 27)))
-   ((SPADCALL |k| (|spadConstant| $ 24) (QREFELT $ 28))
-    (SPADCALL (SPADCALL |k| (QREFELT $ 29)) (SPADCALL |c| -1 (QREFELT $ 30))
-              (QREFELT $ 10)))
-   ('T (SPADCALL |k| (SPADCALL |c| 1 (QREFELT $ 30)) (QREFELT $ 10))))) 
+(SDEFUN |UPXSCONS;monomial;CoefF$;9|
+        ((|c| |Coef|) (|k| |Fraction| (|Integer|)) ($ $))
+        (COND
+         ((SPADCALL |k| (|spadConstant| $ 24) (QREFELT $ 26))
+          (SPADCALL |c| (QREFELT $ 27)))
+         ((SPADCALL |k| (|spadConstant| $ 24) (QREFELT $ 28))
+          (SPADCALL (SPADCALL |k| (QREFELT $ 29))
+                    (SPADCALL |c| -1 (QREFELT $ 30)) (QREFELT $ 10)))
+         ('T (SPADCALL |k| (SPADCALL |c| 1 (QREFELT $ 30)) (QREFELT $ 10))))) 
 
-(DEFUN |UPXSCONS;coerce;ULS$;10| (|ls| $)
-  (SPADCALL (|spadConstant| $ 19) |ls| (QREFELT $ 10))) 
+(SDEFUN |UPXSCONS;coerce;ULS$;10| ((|ls| ULS) ($ $))
+        (SPADCALL (|spadConstant| $ 19) |ls| (QREFELT $ 10))) 
 
-(DEFUN |UPXSCONS;coerce;Coef$;11| (|r| $)
-  (SPADCALL (SPADCALL |r| (QREFELT $ 33)) (QREFELT $ 32))) 
+(SDEFUN |UPXSCONS;coerce;Coef$;11| ((|r| |Coef|) ($ $))
+        (SPADCALL (SPADCALL |r| (QREFELT $ 33)) (QREFELT $ 32))) 
 
-(DEFUN |UPXSCONS;coerce;I$;12| (|i| $)
-  (SPADCALL (SPADCALL |i| (QREFELT $ 34)) (QREFELT $ 27))) 
+(SDEFUN |UPXSCONS;coerce;I$;12| ((|i| |Integer|) ($ $))
+        (SPADCALL (SPADCALL |i| (QREFELT $ 34)) (QREFELT $ 27))) 
 
-(DEFUN |UPXSCONS;laurentIfCan;$U;13| (|upxs| $)
-  (PROG (#1=#:G140 |r|)
-    (RETURN
-     (SEQ
-      (LETT |r| (|UPXSCONS;getExpon| |upxs| $)
-            . #2=(|UPXSCONS;laurentIfCan;$U;13|))
-      (EXIT
-       (COND
-        ((EQL (SPADCALL |r| (QREFELT $ 36)) 1)
-         (CONS 0
-               (SPADCALL (|UPXSCONS;getULS| |upxs| $)
-                         (PROG1 (LETT #1# (SPADCALL |r| (QREFELT $ 37)) . #2#)
-                           (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                            #1#))
-                         (QREFELT $ 39))))
-        ('T (CONS 1 "failed")))))))) 
+(SDEFUN |UPXSCONS;laurentIfCan;$U;13| ((|upxs| $) ($ |Union| ULS "failed"))
+        (SPROG ((#1=#:G140 NIL) (|r| (|Fraction| (|Integer|))))
+               (SEQ
+                (LETT |r| (|UPXSCONS;getExpon| |upxs| $)
+                      . #2=(|UPXSCONS;laurentIfCan;$U;13|))
+                (EXIT
+                 (COND
+                  ((EQL (SPADCALL |r| (QREFELT $ 36)) 1)
+                   (CONS 0
+                         (SPADCALL (|UPXSCONS;getULS| |upxs| $)
+                                   (PROG1
+                                       (LETT #1# (SPADCALL |r| (QREFELT $ 37))
+                                             . #2#)
+                                     (|check_subtype| (> #1# 0)
+                                                      '(|PositiveInteger|)
+                                                      #1#))
+                                   (QREFELT $ 39))))
+                  ('T (CONS 1 "failed"))))))) 
 
-(DEFUN |UPXSCONS;laurent;$ULS;14| (|upxs| $)
-  (PROG (|uls|)
-    (RETURN
-     (SEQ
-      (LETT |uls| (SPADCALL |upxs| (QREFELT $ 41)) |UPXSCONS;laurent;$ULS;14|)
-      (EXIT
-       (COND
-        ((QEQCAR |uls| 1)
-         (|error| "laurent: Puiseux series has fractional powers"))
-        ('T (QCDR |uls|)))))))) 
+(SDEFUN |UPXSCONS;laurent;$ULS;14| ((|upxs| $) ($ ULS))
+        (SPROG ((|uls| (|Union| ULS "failed")))
+               (SEQ
+                (LETT |uls| (SPADCALL |upxs| (QREFELT $ 41))
+                      |UPXSCONS;laurent;$ULS;14|)
+                (EXIT
+                 (COND
+                  ((QEQCAR |uls| 1)
+                   (|error| "laurent: Puiseux series has fractional powers"))
+                  ('T (QCDR |uls|))))))) 
 
-(DEFUN |UPXSCONS;multExp| (|r| |lTerm| $)
-  (CONS (SPADCALL |r| (QCAR |lTerm|) (QREFELT $ 15)) (QCDR |lTerm|))) 
+(SDEFUN |UPXSCONS;multExp|
+        ((|r| |Fraction| (|Integer|))
+         (|lTerm| |Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|))
+         ($ |Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| |Coef|)))
+        (CONS (SPADCALL |r| (QCAR |lTerm|) (QREFELT $ 15)) (QCDR |lTerm|))) 
 
-(DEFUN |UPXSCONS;terms;$S;16| (|upxs| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|UPXSCONS;terms;$S;16!0| (VECTOR $ |upxs|))
-               (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 45))
-               (QREFELT $ 50))))) 
+(SDEFUN |UPXSCONS;terms;$S;16|
+        ((|upxs| $)
+         ($ |Stream|
+          (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| |Coef|))))
+        (SPROG NIL
+               (SPADCALL (CONS #'|UPXSCONS;terms;$S;16!0| (VECTOR $ |upxs|))
+                         (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 45))
+                         (QREFELT $ 50)))) 
 
-(DEFUN |UPXSCONS;terms;$S;16!0| (|t1| $$)
-  (PROG (|upxs| $)
-    (LETT |upxs| (QREFELT $$ 1) . #1=(|UPXSCONS;terms;$S;16|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN (|UPXSCONS;multExp| (|UPXSCONS;getExpon| |upxs| $) |t1| $))))) 
+(SDEFUN |UPXSCONS;terms;$S;16!0| ((|t1| NIL) ($$ NIL))
+        (PROG (|upxs| $)
+          (LETT |upxs| (QREFELT $$ 1) . #1=(|UPXSCONS;terms;$S;16|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN (|UPXSCONS;multExp| (|UPXSCONS;getExpon| |upxs| $) |t1| $))))) 
 
-(DEFUN |UPXSCONS;clearDen| (|n| |lTerm| $)
-  (PROG (|int|)
-    (RETURN
-     (SEQ
-      (LETT |int|
-            (SPADCALL (SPADCALL |n| (QCAR |lTerm|) (QREFELT $ 52))
-                      (QREFELT $ 54))
-            |UPXSCONS;clearDen|)
-      (EXIT
-       (COND ((QEQCAR |int| 1) (|error| "series: inappropriate denominator"))
-             ('T (CONS (QCDR |int|) (QCDR |lTerm|))))))))) 
+(SDEFUN |UPXSCONS;clearDen|
+        ((|n| |Integer|)
+         (|lTerm| |Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| |Coef|))
+         ($ |Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))
+        (SPROG ((|int| (|Union| (|Integer|) "failed")))
+               (SEQ
+                (LETT |int|
+                      (SPADCALL (SPADCALL |n| (QCAR |lTerm|) (QREFELT $ 52))
+                                (QREFELT $ 54))
+                      |UPXSCONS;clearDen|)
+                (EXIT
+                 (COND
+                  ((QEQCAR |int| 1)
+                   (|error| "series: inappropriate denominator"))
+                  ('T (CONS (QCDR |int|) (QCDR |lTerm|)))))))) 
 
-(DEFUN |UPXSCONS;series;NniS$;18| (|n| |stream| $)
-  (PROG (|str|)
-    (RETURN
-     (SEQ
-      (LETT |str|
-            (SPADCALL (CONS #'|UPXSCONS;series;NniS$;18!0| (VECTOR $ |n|))
-                      |stream| (QREFELT $ 57))
-            |UPXSCONS;series;NniS$;18|)
-      (EXIT
-       (SPADCALL (SPADCALL 1 |n| (QREFELT $ 58))
-                 (SPADCALL |str| (QREFELT $ 59)) (QREFELT $ 10))))))) 
+(SDEFUN |UPXSCONS;series;NniS$;18|
+        ((|n| |NonNegativeInteger|)
+         (|stream| |Stream|
+          (|Record| (|:| |k| (|Fraction| (|Integer|))) (|:| |c| |Coef|)))
+         ($ $))
+        (SPROG
+         ((|str| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
+         (SEQ
+          (LETT |str|
+                (SPADCALL (CONS #'|UPXSCONS;series;NniS$;18!0| (VECTOR $ |n|))
+                          |stream| (QREFELT $ 57))
+                |UPXSCONS;series;NniS$;18|)
+          (EXIT
+           (SPADCALL (SPADCALL 1 |n| (QREFELT $ 58))
+                     (SPADCALL |str| (QREFELT $ 59)) (QREFELT $ 10)))))) 
 
-(DEFUN |UPXSCONS;series;NniS$;18!0| (|t1| $$)
-  (PROG (|n| $)
-    (LETT |n| (QREFELT $$ 1) . #1=(|UPXSCONS;series;NniS$;18|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (|UPXSCONS;clearDen| |n| |t1| $))))) 
+(SDEFUN |UPXSCONS;series;NniS$;18!0| ((|t1| NIL) ($$ NIL))
+        (PROG (|n| $)
+          (LETT |n| (QREFELT $$ 1) . #1=(|UPXSCONS;series;NniS$;18|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (|UPXSCONS;clearDen| |n| |t1| $))))) 
 
-(DEFUN |UPXSCONS;rewrite| (|upxs| |m| $)
-  (SPADCALL
-   (SPADCALL (|UPXSCONS;getExpon| |upxs| $) (SPADCALL 1 |m| (QREFELT $ 58))
-             (QREFELT $ 62))
-   (SPADCALL (|UPXSCONS;getULS| |upxs| $) |m| (QREFELT $ 39)) (QREFELT $ 10))) 
+(SDEFUN |UPXSCONS;rewrite| ((|upxs| $) (|m| |PositiveInteger|) ($ $))
+        (SPADCALL
+         (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
+                   (SPADCALL 1 |m| (QREFELT $ 58)) (QREFELT $ 62))
+         (SPADCALL (|UPXSCONS;getULS| |upxs| $) |m| (QREFELT $ 39))
+         (QREFELT $ 10))) 
 
-(DEFUN |UPXSCONS;ratGcd| (|r1| |r2| $)
-  (SPADCALL (GCD (SPADCALL |r1| (QREFELT $ 37)) (SPADCALL |r2| (QREFELT $ 37)))
-            (SPADCALL (SPADCALL |r1| (QREFELT $ 36))
-                      (SPADCALL |r2| (QREFELT $ 36)) (QREFELT $ 63))
-            (QREFELT $ 58))) 
+(SDEFUN |UPXSCONS;ratGcd|
+        ((|r1| |Fraction| (|Integer|)) (|r2| |Fraction| (|Integer|))
+         ($ |Fraction| (|Integer|)))
+        (SPADCALL
+         (GCD (SPADCALL |r1| (QREFELT $ 37)) (SPADCALL |r2| (QREFELT $ 37)))
+         (SPADCALL (SPADCALL |r1| (QREFELT $ 36))
+                   (SPADCALL |r2| (QREFELT $ 36)) (QREFELT $ 63))
+         (QREFELT $ 58))) 
 
-(DEFUN |UPXSCONS;withNewExpon| (|upxs| |r| $)
-  (|UPXSCONS;rewrite| |upxs|
-   (SPADCALL (SPADCALL (|UPXSCONS;getExpon| |upxs| $) |r| (QREFELT $ 64))
-             (QREFELT $ 37))
-   $)) 
+(SDEFUN |UPXSCONS;withNewExpon| ((|upxs| $) (|r| |Fraction| (|Integer|)) ($ $))
+        (|UPXSCONS;rewrite| |upxs|
+         (SPADCALL (SPADCALL (|UPXSCONS;getExpon| |upxs| $) |r| (QREFELT $ 64))
+                   (QREFELT $ 37))
+         $)) 
 
-(DEFUN |UPXSCONS;=;2$B;22| (|upxs1| |upxs2| $)
-  (PROG (|m2| |m1| |r| |ls2| |ls1| |r2| |r1|)
-    (RETURN
-     (SEQ
-      (LETT |r1| (|UPXSCONS;getExpon| |upxs1| $) . #1=(|UPXSCONS;=;2$B;22|))
-      (LETT |r2| (|UPXSCONS;getExpon| |upxs2| $) . #1#)
-      (LETT |ls1| (|UPXSCONS;getULS| |upxs1| $) . #1#)
-      (LETT |ls2| (|UPXSCONS;getULS| |upxs2| $) . #1#)
-      (EXIT
-       (COND
-        ((SPADCALL |r1| |r2| (QREFELT $ 26))
-         (SPADCALL |ls1| |ls2| (QREFELT $ 65)))
-        ('T
-         (SEQ (LETT |r| (|UPXSCONS;ratGcd| |r1| |r2| $) . #1#)
-              (LETT |m1|
-                    (SPADCALL
-                     (SPADCALL (|UPXSCONS;getExpon| |upxs1| $) |r|
-                               (QREFELT $ 64))
-                     (QREFELT $ 37))
-                    . #1#)
-              (LETT |m2|
-                    (SPADCALL
-                     (SPADCALL (|UPXSCONS;getExpon| |upxs2| $) |r|
-                               (QREFELT $ 64))
-                     (QREFELT $ 37))
-                    . #1#)
-              (EXIT
-               (SPADCALL (SPADCALL |ls1| |m1| (QREFELT $ 39))
-                         (SPADCALL |ls2| |m2| (QREFELT $ 39))
-                         (QREFELT $ 65))))))))))) 
+(SDEFUN |UPXSCONS;=;2$B;22| ((|upxs1| $) (|upxs2| $) ($ |Boolean|))
+        (SPROG
+         ((|m2| (|PositiveInteger|)) (|m1| (|PositiveInteger|))
+          (|r| (|Fraction| (|Integer|))) (|ls2| (ULS)) (|ls1| (ULS))
+          (|r2| #1=(|Fraction| (|Integer|))) (|r1| #1#))
+         (SEQ
+          (LETT |r1| (|UPXSCONS;getExpon| |upxs1| $)
+                . #2=(|UPXSCONS;=;2$B;22|))
+          (LETT |r2| (|UPXSCONS;getExpon| |upxs2| $) . #2#)
+          (LETT |ls1| (|UPXSCONS;getULS| |upxs1| $) . #2#)
+          (LETT |ls2| (|UPXSCONS;getULS| |upxs2| $) . #2#)
+          (EXIT
+           (COND
+            ((SPADCALL |r1| |r2| (QREFELT $ 26))
+             (SPADCALL |ls1| |ls2| (QREFELT $ 65)))
+            ('T
+             (SEQ (LETT |r| (|UPXSCONS;ratGcd| |r1| |r2| $) . #2#)
+                  (LETT |m1|
+                        (SPADCALL
+                         (SPADCALL (|UPXSCONS;getExpon| |upxs1| $) |r|
+                                   (QREFELT $ 64))
+                         (QREFELT $ 37))
+                        . #2#)
+                  (LETT |m2|
+                        (SPADCALL
+                         (SPADCALL (|UPXSCONS;getExpon| |upxs2| $) |r|
+                                   (QREFELT $ 64))
+                         (QREFELT $ 37))
+                        . #2#)
+                  (EXIT
+                   (SPADCALL (SPADCALL |ls1| |m1| (QREFELT $ 39))
+                             (SPADCALL |ls2| |m2| (QREFELT $ 39))
+                             (QREFELT $ 65)))))))))) 
 
-(DEFUN |UPXSCONS;pole?;$B;23| (|upxs| $)
-  (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 67))) 
+(SDEFUN |UPXSCONS;pole?;$B;23| ((|upxs| $) ($ |Boolean|))
+        (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 67))) 
 
-(DEFUN |UPXSCONS;applyFcn| (|op| |pxs1| |pxs2| $)
-  (PROG (|m2| |m1| |r| |ls2| |ls1| |r2| |r1|)
-    (RETURN
-     (SEQ (LETT |r1| (|UPXSCONS;getExpon| |pxs1| $) . #1=(|UPXSCONS;applyFcn|))
-          (LETT |r2| (|UPXSCONS;getExpon| |pxs2| $) . #1#)
-          (LETT |ls1| (|UPXSCONS;getULS| |pxs1| $) . #1#)
-          (LETT |ls2| (|UPXSCONS;getULS| |pxs2| $) . #1#)
+(SDEFUN |UPXSCONS;applyFcn|
+        ((|op| |Mapping| ULS ULS ULS) (|pxs1| $) (|pxs2| $) ($ $))
+        (SPROG
+         ((|m2| (|PositiveInteger|)) (|m1| (|PositiveInteger|))
+          (|r| (|Fraction| (|Integer|))) (|ls2| (ULS)) (|ls1| (ULS))
+          (|r2| #1=(|Fraction| (|Integer|))) (|r1| #1#))
+         (SEQ
+          (LETT |r1| (|UPXSCONS;getExpon| |pxs1| $) . #2=(|UPXSCONS;applyFcn|))
+          (LETT |r2| (|UPXSCONS;getExpon| |pxs2| $) . #2#)
+          (LETT |ls1| (|UPXSCONS;getULS| |pxs1| $) . #2#)
+          (LETT |ls2| (|UPXSCONS;getULS| |pxs2| $) . #2#)
           (EXIT
            (COND
             ((SPADCALL |r1| |r2| (QREFELT $ 26))
              (SPADCALL |r1| (SPADCALL |ls1| |ls2| |op|) (QREFELT $ 10)))
             ('T
-             (SEQ (LETT |r| (|UPXSCONS;ratGcd| |r1| |r2| $) . #1#)
+             (SEQ (LETT |r| (|UPXSCONS;ratGcd| |r1| |r2| $) . #2#)
                   (LETT |m1|
                         (SPADCALL
                          (SPADCALL (|UPXSCONS;getExpon| |pxs1| $) |r|
                                    (QREFELT $ 64))
                          (QREFELT $ 37))
-                        . #1#)
+                        . #2#)
                   (LETT |m2|
                         (SPADCALL
                          (SPADCALL (|UPXSCONS;getExpon| |pxs2| $) |r|
                                    (QREFELT $ 64))
                          (QREFELT $ 37))
-                        . #1#)
+                        . #2#)
                   (EXIT
                    (SPADCALL |r|
                              (SPADCALL (SPADCALL |ls1| |m1| (QREFELT $ 39))
                                        (SPADCALL |ls2| |m2| (QREFELT $ 39))
                                        |op|)
-                             (QREFELT $ 10))))))))))) 
+                             (QREFELT $ 10)))))))))) 
 
-(DEFUN |UPXSCONS;+;3$;25| (|pxs1| |pxs2| $)
-  (|UPXSCONS;applyFcn| (ELT $ 69) |pxs1| |pxs2| $)) 
+(SDEFUN |UPXSCONS;+;3$;25| ((|pxs1| $) (|pxs2| $) ($ $))
+        (|UPXSCONS;applyFcn| (ELT $ 69) |pxs1| |pxs2| $)) 
 
-(DEFUN |UPXSCONS;-;3$;26| (|pxs1| |pxs2| $)
-  (|UPXSCONS;applyFcn| (ELT $ 71) |pxs1| |pxs2| $)) 
+(SDEFUN |UPXSCONS;-;3$;26| ((|pxs1| $) (|pxs2| $) ($ $))
+        (|UPXSCONS;applyFcn| (ELT $ 71) |pxs1| |pxs2| $)) 
 
-(DEFUN |UPXSCONS;*;3$;27| (|pxs1| |pxs2| $)
-  (|UPXSCONS;applyFcn| (ELT $ 73) |pxs1| |pxs2| $)) 
+(SDEFUN |UPXSCONS;*;3$;27| ((|pxs1| $) (|pxs2| $) ($ $))
+        (|UPXSCONS;applyFcn| (ELT $ 73) |pxs1| |pxs2| $)) 
 
-(DEFUN |UPXSCONS;^;$Nni$;28| (|pxs| |n| $)
-  (SPADCALL (|UPXSCONS;getExpon| |pxs| $)
-            (SPADCALL (|UPXSCONS;getULS| |pxs| $) |n| (QREFELT $ 75))
-            (QREFELT $ 10))) 
+(SDEFUN |UPXSCONS;^;$Nni$;28| ((|pxs| $) (|n| |NonNegativeInteger|) ($ $))
+        (SPADCALL (|UPXSCONS;getExpon| |pxs| $)
+                  (SPADCALL (|UPXSCONS;getULS| |pxs| $) |n| (QREFELT $ 75))
+                  (QREFELT $ 10))) 
 
-(DEFUN |UPXSCONS;recip;$U;29| (|pxs| $)
-  (PROG (|rec|)
-    (RETURN
-     (SEQ
-      (LETT |rec| (SPADCALL (|UPXSCONS;getULS| |pxs| $) (QREFELT $ 78))
-            |UPXSCONS;recip;$U;29|)
-      (EXIT
-       (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
-             ('T
-              (CONS 0
-                    (SPADCALL (|UPXSCONS;getExpon| |pxs| $) (QCDR |rec|)
-                              (QREFELT $ 10)))))))))) 
+(SDEFUN |UPXSCONS;recip;$U;29| ((|pxs| $) ($ |Union| $ #1="failed"))
+        (SPROG ((|rec| (|Union| ULS #1#)))
+               (SEQ
+                (LETT |rec|
+                      (SPADCALL (|UPXSCONS;getULS| |pxs| $) (QREFELT $ 78))
+                      |UPXSCONS;recip;$U;29|)
+                (EXIT
+                 (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
+                       ('T
+                        (CONS 0
+                              (SPADCALL (|UPXSCONS;getExpon| |pxs| $)
+                                        (QCDR |rec|) (QREFELT $ 10))))))))) 
 
-(DEFUN |UPXSCONS;elt;3$;30| (|upxs1| |upxs2| $)
-  (PROG (|uls2| |mon| |c| |b| |coef| |deg| |n| |r2| |r1| |uls1|)
-    (RETURN
-     (SEQ
-      (LETT |uls1| (SPADCALL |upxs1| (QREFELT $ 11))
-            . #1=(|UPXSCONS;elt;3$;30|))
-      (LETT |uls2| (SPADCALL |upxs2| (QREFELT $ 11)) . #1#)
-      (LETT |r1| (SPADCALL |upxs1| (QREFELT $ 12)) . #1#)
-      (LETT |r2| (SPADCALL |upxs2| (QREFELT $ 12)) . #1#)
-      (LETT |n| (SPADCALL |r1| (QREFELT $ 54)) . #1#)
-      (EXIT
-       (COND
-        ((QEQCAR |n| 0)
-         (SPADCALL |r2|
-                   (SPADCALL |uls1| (SPADCALL |uls2| |r1| (QREFELT $ 81))
-                             (QREFELT $ 82))
-                   (QREFELT $ 10)))
-        ((QREFELT $ 80)
+(SDEFUN |UPXSCONS;elt;3$;30| ((|upxs1| $) (|upxs2| $) ($ $))
+        (SPROG
+         ((|uls2| (ULS)) (|mon| (ULS)) (|c| (|Integer|)) (|b| (|Integer|))
+          (|coef| (|Coef|)) (|deg| (|Integer|))
+          (|n| (|Union| (|Integer|) "failed"))
+          (|r2| #1=(|Fraction| (|Integer|))) (|r1| #1#) (|uls1| (ULS)))
          (SEQ
-          (COND
-           ((SPADCALL
-             (LETT |coef|
-                   (SPADCALL |uls2|
-                             (LETT |deg| (SPADCALL |uls2| (QREFELT $ 14))
-                                   . #1#)
-                             (QREFELT $ 83))
-                   . #1#)
-             (QREFELT $ 84))
-            (SEQ
-             (LETT |deg| (SPADCALL |uls2| (+ |deg| 1000) (QREFELT $ 85)) . #1#)
-             (EXIT
+          (LETT |uls1| (SPADCALL |upxs1| (QREFELT $ 11))
+                . #2=(|UPXSCONS;elt;3$;30|))
+          (LETT |uls2| (SPADCALL |upxs2| (QREFELT $ 11)) . #2#)
+          (LETT |r1| (SPADCALL |upxs1| (QREFELT $ 12)) . #2#)
+          (LETT |r2| (SPADCALL |upxs2| (QREFELT $ 12)) . #2#)
+          (LETT |n| (SPADCALL |r1| (QREFELT $ 54)) . #2#)
+          (EXIT
+           (COND
+            ((QEQCAR |n| 0)
+             (SPADCALL |r2|
+                       (SPADCALL |uls1| (SPADCALL |uls2| |r1| (QREFELT $ 81))
+                                 (QREFELT $ 82))
+                       (QREFELT $ 10)))
+            ((QREFELT $ 80)
+             (SEQ
               (COND
                ((SPADCALL
-                 (LETT |coef| (SPADCALL |uls2| |deg| (QREFELT $ 83)) . #1#)
+                 (LETT |coef|
+                       (SPADCALL |uls2|
+                                 (LETT |deg| (SPADCALL |uls2| (QREFELT $ 14))
+                                       . #2#)
+                                 (QREFELT $ 83))
+                       . #2#)
                  (QREFELT $ 84))
-                (|error|
-                 "elt: series with many leading zero coefficients")))))))
-          (LETT |b|
-                (SPADCALL (SPADCALL |r1| (QREFELT $ 36)) |deg| (QREFELT $ 63))
-                . #1#)
-          (LETT |c| (QUOTIENT2 |b| |deg|) . #1#)
-          (LETT |mon| (SPADCALL (|spadConstant| $ 18) |c| (QREFELT $ 30))
-                . #1#)
-          (LETT |uls2|
-                (SPADCALL (SPADCALL |uls2| |mon| (QREFELT $ 82)) |r1|
-                          (QREFELT $ 81))
-                . #1#)
-          (EXIT
-           (SPADCALL
-            (SPADCALL |r2| (SPADCALL 1 |c| (QREFELT $ 58)) (QREFELT $ 62))
-            (SPADCALL |uls1| |uls2| (QREFELT $ 82)) (QREFELT $ 10)))))
-        ('T
-         (|error|
-          "elt: rational powers not available for this coefficient domain")))))))) 
+                (SEQ
+                 (LETT |deg| (SPADCALL |uls2| (+ |deg| 1000) (QREFELT $ 85))
+                       . #2#)
+                 (EXIT
+                  (COND
+                   ((SPADCALL
+                     (LETT |coef| (SPADCALL |uls2| |deg| (QREFELT $ 83)) . #2#)
+                     (QREFELT $ 84))
+                    (|error|
+                     "elt: series with many leading zero coefficients")))))))
+              (LETT |b|
+                    (SPADCALL (SPADCALL |r1| (QREFELT $ 36)) |deg|
+                              (QREFELT $ 63))
+                    . #2#)
+              (LETT |c| (QUOTIENT2 |b| |deg|) . #2#)
+              (LETT |mon| (SPADCALL (|spadConstant| $ 18) |c| (QREFELT $ 30))
+                    . #2#)
+              (LETT |uls2|
+                    (SPADCALL (SPADCALL |uls2| |mon| (QREFELT $ 82)) |r1|
+                              (QREFELT $ 81))
+                    . #2#)
+              (EXIT
+               (SPADCALL
+                (SPADCALL |r2| (SPADCALL 1 |c| (QREFELT $ 58)) (QREFELT $ 62))
+                (SPADCALL |uls1| |uls2| (QREFELT $ 82)) (QREFELT $ 10)))))
+            ('T
+             (|error|
+              "elt: rational powers not available for this coefficient domain"))))))) 
 
-(DEFUN |UPXSCONS;eval;$CoefS;31| (|upxs| |a| $)
-  (SPADCALL (|UPXSCONS;getULS| |upxs| $)
-            (SPADCALL |a| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 87))
-            (QREFELT $ 89))) 
+(SDEFUN |UPXSCONS;eval;$CoefS;31| ((|upxs| $) (|a| |Coef|) ($ |Stream| |Coef|))
+        (SPADCALL (|UPXSCONS;getULS| |upxs| $)
+                  (SPADCALL |a| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 87))
+                  (QREFELT $ 89))) 
 
-(DEFUN |UPXSCONS;/;3$;32| (|pxs1| |pxs2| $)
-  (|UPXSCONS;applyFcn| (ELT $ 91) |pxs1| |pxs2| $)) 
+(SDEFUN |UPXSCONS;/;3$;32| ((|pxs1| $) (|pxs2| $) ($ $))
+        (|UPXSCONS;applyFcn| (ELT $ 91) |pxs1| |pxs2| $)) 
 
-(DEFUN |UPXSCONS;inv;2$;33| (|upxs| $)
-  (PROG (|invUpxs|)
-    (RETURN
-     (SEQ
-      (LETT |invUpxs| (SPADCALL |upxs| (QREFELT $ 79)) |UPXSCONS;inv;2$;33|)
-      (EXIT
-       (COND
-        ((QEQCAR |invUpxs| 1)
-         (|error| "inv: multiplicative inverse does not exist"))
-        ('T (QCDR |invUpxs|)))))))) 
+(SDEFUN |UPXSCONS;inv;2$;33| ((|upxs| $) ($ $))
+        (SPROG ((|invUpxs| (|Union| $ "failed")))
+               (SEQ
+                (LETT |invUpxs| (SPADCALL |upxs| (QREFELT $ 79))
+                      |UPXSCONS;inv;2$;33|)
+                (EXIT
+                 (COND
+                  ((QEQCAR |invUpxs| 1)
+                   (|error| "inv: multiplicative inverse does not exist"))
+                  ('T (QCDR |invUpxs|))))))) 
 
-(DEFUN |UPXSCONS;variable;$S;34| (|upxs| $)
-  (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 95))) 
+(SDEFUN |UPXSCONS;variable;$S;34| ((|upxs| $) ($ |Symbol|))
+        (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 95))) 
 
-(DEFUN |UPXSCONS;center;$Coef;35| (|upxs| $)
-  (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 97))) 
+(SDEFUN |UPXSCONS;center;$Coef;35| ((|upxs| $) ($ |Coef|))
+        (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 97))) 
 
-(DEFUN |UPXSCONS;coefficient;$FCoef;36| (|upxs| |rn| $)
-  (PROG (|n|)
-    (RETURN
-     (COND
-      ((EQL
-        (SPADCALL
-         (LETT |n|
-               (SPADCALL |rn| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 64))
-               |UPXSCONS;coefficient;$FCoef;36|)
-         (QREFELT $ 36))
-        1)
-       (SPADCALL (|UPXSCONS;getULS| |upxs| $) (SPADCALL |n| (QREFELT $ 37))
-                 (QREFELT $ 83)))
-      ('T (|spadConstant| $ 23)))))) 
-
-(DEFUN |UPXSCONS;elt;$FCoef;37| (|upxs| |rn| $)
-  (SPADCALL |upxs| |rn| (QREFELT $ 99))) 
-
-(DEFUN |UPXSCONS;roundDown| (|rn| $)
-  (PROG (|n| |num| |den|)
-    (RETURN
-     (SEQ
-      (LETT |den| (SPADCALL |rn| (QREFELT $ 36)) . #1=(|UPXSCONS;roundDown|))
-      (EXIT
-       (COND ((EQL |den| 1) (SPADCALL |rn| (QREFELT $ 37)))
-             (#2='T
-              (SEQ
-               (LETT |n|
-                     (QUOTIENT2
-                      (LETT |num| (SPADCALL |rn| (QREFELT $ 37)) . #1#) |den|)
-                     . #1#)
-               (EXIT
-                (COND ((SPADCALL |num| (QREFELT $ 101)) |n|)
-                      (#2# (- |n| 1)))))))))))) 
-
-(DEFUN |UPXSCONS;roundUp| (|rn| $)
-  (PROG (|n| |num| |den|)
-    (RETURN
-     (SEQ (LETT |den| (SPADCALL |rn| (QREFELT $ 36)) . #1=(|UPXSCONS;roundUp|))
-          (EXIT
-           (COND ((EQL |den| 1) (SPADCALL |rn| (QREFELT $ 37)))
-                 (#2='T
-                  (SEQ
+(SDEFUN |UPXSCONS;coefficient;$FCoef;36|
+        ((|upxs| $) (|rn| |Fraction| (|Integer|)) ($ |Coef|))
+        (SPROG ((|n| (|Fraction| (|Integer|))))
+               (COND
+                ((EQL
+                  (SPADCALL
                    (LETT |n|
-                         (QUOTIENT2
-                          (LETT |num| (SPADCALL |rn| (QREFELT $ 37)) . #1#)
-                          |den|)
+                         (SPADCALL |rn| (|UPXSCONS;getExpon| |upxs| $)
+                                   (QREFELT $ 64))
+                         |UPXSCONS;coefficient;$FCoef;36|)
+                   (QREFELT $ 36))
+                  1)
+                 (SPADCALL (|UPXSCONS;getULS| |upxs| $)
+                           (SPADCALL |n| (QREFELT $ 37)) (QREFELT $ 83)))
+                ('T (|spadConstant| $ 23))))) 
+
+(SDEFUN |UPXSCONS;elt;$FCoef;37|
+        ((|upxs| $) (|rn| |Fraction| (|Integer|)) ($ |Coef|))
+        (SPADCALL |upxs| |rn| (QREFELT $ 99))) 
+
+(SDEFUN |UPXSCONS;roundDown| ((|rn| |Fraction| (|Integer|)) ($ |Integer|))
+        (SPROG ((|n| (|Integer|)) (|num| (|Integer|)) (|den| (|Integer|)))
+               (SEQ
+                (LETT |den| (SPADCALL |rn| (QREFELT $ 36))
+                      . #1=(|UPXSCONS;roundDown|))
+                (EXIT
+                 (COND ((EQL |den| 1) (SPADCALL |rn| (QREFELT $ 37)))
+                       (#2='T
+                        (SEQ
+                         (LETT |n|
+                               (QUOTIENT2
+                                (LETT |num| (SPADCALL |rn| (QREFELT $ 37))
+                                      . #1#)
+                                |den|)
+                               . #1#)
+                         (EXIT
+                          (COND ((SPADCALL |num| (QREFELT $ 101)) |n|)
+                                (#2# (- |n| 1))))))))))) 
+
+(SDEFUN |UPXSCONS;roundUp| ((|rn| |Fraction| (|Integer|)) ($ |Integer|))
+        (SPROG ((|n| (|Integer|)) (|num| (|Integer|)) (|den| (|Integer|)))
+               (SEQ
+                (LETT |den| (SPADCALL |rn| (QREFELT $ 36))
+                      . #1=(|UPXSCONS;roundUp|))
+                (EXIT
+                 (COND ((EQL |den| 1) (SPADCALL |rn| (QREFELT $ 37)))
+                       (#2='T
+                        (SEQ
+                         (LETT |n|
+                               (QUOTIENT2
+                                (LETT |num| (SPADCALL |rn| (QREFELT $ 37))
+                                      . #1#)
+                                |den|)
+                               . #1#)
+                         (EXIT
+                          (COND ((SPADCALL |num| (QREFELT $ 101)) (+ |n| 1))
+                                (#2# |n|)))))))))) 
+
+(SDEFUN |UPXSCONS;order;$F;40| ((|upxs| $) ($ |Fraction| (|Integer|)))
+        (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
+                  (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 102))
+                  (QREFELT $ 15))) 
+
+(SDEFUN |UPXSCONS;order;$2F;41|
+        ((|upxs| $) (|r| . #1=(|Fraction| (|Integer|))) ($ . #1#))
+        (SPROG
+         ((|ord| (|Integer|)) (|n| (|Integer|)) (|e| (|Fraction| (|Integer|))))
+         (SEQ
+          (LETT |e| (|UPXSCONS;getExpon| |upxs| $)
+                . #2=(|UPXSCONS;order;$2F;41|))
+          (LETT |ord|
+                (SPADCALL (|UPXSCONS;getULS| |upxs| $)
+                          (LETT |n|
+                                (|UPXSCONS;roundDown|
+                                 (SPADCALL |r| |e| (QREFELT $ 64)) $)
+                                . #2#)
+                          (QREFELT $ 85))
+                . #2#)
+          (EXIT
+           (COND
+            ((EQL |ord| |n|)
+             (COND
+              ((SPADCALL
+                (SPADCALL (|UPXSCONS;getULS| |upxs| $) |n| (QREFELT $ 83))
+                (|spadConstant| $ 23) (QREFELT $ 104))
+               |r|)
+              (#3='T (SPADCALL |ord| |e| (QREFELT $ 52)))))
+            (#3# (SPADCALL |ord| |e| (QREFELT $ 52)))))))) 
+
+(SDEFUN |UPXSCONS;truncate;$F$;42|
+        ((|upxs| $) (|r| |Fraction| (|Integer|)) ($ $))
+        (SPROG ((|e| (|Fraction| (|Integer|))))
+               (SEQ
+                (LETT |e| (|UPXSCONS;getExpon| |upxs| $)
+                      |UPXSCONS;truncate;$F$;42|)
+                (EXIT
+                 (SPADCALL |e|
+                           (SPADCALL (|UPXSCONS;getULS| |upxs| $)
+                                     (|UPXSCONS;roundDown|
+                                      (SPADCALL |r| |e| (QREFELT $ 64)) $)
+                                     (QREFELT $ 106))
+                           (QREFELT $ 10)))))) 
+
+(SDEFUN |UPXSCONS;truncate;$2F$;43|
+        ((|upxs| $) (|r1| . #1=(|Fraction| (|Integer|))) (|r2| . #1#) ($ $))
+        (SPROG ((|e| (|Fraction| (|Integer|))))
+               (SEQ
+                (LETT |e| (|UPXSCONS;getExpon| |upxs| $)
+                      |UPXSCONS;truncate;$2F$;43|)
+                (EXIT
+                 (SPADCALL |e|
+                           (SPADCALL (|UPXSCONS;getULS| |upxs| $)
+                                     (|UPXSCONS;roundUp|
+                                      (SPADCALL |r1| |e| (QREFELT $ 64)) $)
+                                     (|UPXSCONS;roundDown|
+                                      (SPADCALL |r2| |e| (QREFELT $ 64)) $)
+                                     (QREFELT $ 108))
+                           (QREFELT $ 10)))))) 
+
+(SDEFUN |UPXSCONS;complete;2$;44| ((|upxs| $) ($ $))
+        (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
+                  (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 110))
+                  (QREFELT $ 10))) 
+
+(SDEFUN |UPXSCONS;extend;$F$;45|
+        ((|upxs| $) (|r| |Fraction| (|Integer|)) ($ $))
+        (SPROG ((|e| (|Fraction| (|Integer|))))
+               (SEQ
+                (LETT |e| (|UPXSCONS;getExpon| |upxs| $)
+                      |UPXSCONS;extend;$F$;45|)
+                (EXIT
+                 (SPADCALL |e|
+                           (SPADCALL (|UPXSCONS;getULS| |upxs| $)
+                                     (|UPXSCONS;roundDown|
+                                      (SPADCALL |r| |e| (QREFELT $ 64)) $)
+                                     (QREFELT $ 112))
+                           (QREFELT $ 10)))))) 
+
+(SDEFUN |UPXSCONS;map;M2$;46|
+        ((|fcn| |Mapping| |Coef| |Coef|) (|upxs| $) ($ $))
+        (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
+                  (SPADCALL |fcn| (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 115))
+                  (QREFELT $ 10))) 
+
+(SDEFUN |UPXSCONS;characteristic;Nni;47| (($ |NonNegativeInteger|))
+        (SPADCALL (QREFELT $ 117))) 
+
+(SDEFUN |UPXSCONS;multiplyExponents;$F$;48|
+        ((|upxs| $) (|n| |Fraction| (|Integer|)) ($ $))
+        (SPADCALL (SPADCALL |n| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 62))
+                  (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 10))) 
+
+(SDEFUN |UPXSCONS;multiplyExponents;$Pi$;49|
+        ((|upxs| $) (|n| |PositiveInteger|) ($ $))
+        (SPADCALL (SPADCALL |n| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 120))
+                  (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 10))) 
+
+(SDEFUN |UPXSCONS;differentiate;2$;50| ((|upxs| $) ($ $))
+        (SPROG ((|r| (|Fraction| (|Integer|))))
+               (SEQ
+                (LETT |r| (|UPXSCONS;getExpon| |upxs| $)
+                      |UPXSCONS;differentiate;2$;50|)
+                (EXIT
+                 (SPADCALL
+                  (SPADCALL |r|
+                            (SPADCALL (|UPXSCONS;getULS| |upxs| $)
+                                      (QREFELT $ 122))
+                            (QREFELT $ 10))
+                  (SPADCALL (SPADCALL |r| (QREFELT $ 123))
+                            (SPADCALL |r| (|spadConstant| $ 19)
+                                      (QREFELT $ 124))
+                            (QREFELT $ 31))
+                  (QREFELT $ 74)))))) 
+
+(SDEFUN |UPXSCONS;differentiate;$S$;51| ((|upxs| $) (|s| |Symbol|) ($ $))
+        (SPROG ((|dcds| (|Coef|)))
+               (SEQ
+                (COND
+                 ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
+                  (SPADCALL |upxs| (QREFELT $ 125)))
+                 ('T
+                  (SEQ
+                   (LETT |dcds|
+                         (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) |s|
+                                   (QREFELT $ 126))
+                         |UPXSCONS;differentiate;$S$;51|)
+                   (EXIT
+                    (SPADCALL
+                     (SPADCALL
+                      (CONS #'|UPXSCONS;differentiate;$S$;51!0| (VECTOR $ |s|))
+                      |upxs| (QREFELT $ 116))
+                     (SPADCALL |dcds| (SPADCALL |upxs| (QREFELT $ 125))
+                               (QREFELT $ 127))
+                     (QREFELT $ 72))))))))) 
+
+(SDEFUN |UPXSCONS;differentiate;$S$;51!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|s| $)
+          (LETT |s| (QREFELT $$ 1) . #1=(|UPXSCONS;differentiate;$S$;51|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 126)))))) 
+
+(SDEFUN |UPXSCONS;coerce;F$;52| ((|r| |Fraction| (|Integer|)) ($ $))
+        (SPADCALL (SPADCALL |r| (QREFELT $ 123)) (QREFELT $ 27))) 
+
+(SDEFUN |UPXSCONS;ratInv| ((|r| |Fraction| (|Integer|)) ($ |Coef|))
+        (COND ((SPADCALL |r| (QREFELT $ 130)) (|spadConstant| $ 18))
+              ('T (SPADCALL (SPADCALL |r| (QREFELT $ 131)) (QREFELT $ 123))))) 
+
+(SDEFUN |UPXSCONS;integrate;2$;54| ((|upxs| $) ($ $))
+        (SPROG ((|uls| (ULS)) (|r| (|Fraction| (|Integer|))))
+               (SEQ
+                (COND
+                 ((NULL
+                   (SPADCALL
+                    (SPADCALL |upxs|
+                              (SPADCALL (|spadConstant| $ 19) (QREFELT $ 29))
+                              (QREFELT $ 99))
+                    (QREFELT $ 84)))
+                  (|error| "integrate: series has term of order -1"))
+                 ('T
+                  (SEQ
+                   (LETT |r| (|UPXSCONS;getExpon| |upxs| $)
+                         . #1=(|UPXSCONS;integrate;2$;54|))
+                   (LETT |uls| (|UPXSCONS;getULS| |upxs| $) . #1#)
+                   (LETT |uls|
+                         (SPADCALL
+                          (CONS #'|UPXSCONS;integrate;2$;54!0| (VECTOR $ |r|))
+                          |uls| (QREFELT $ 135))
                          . #1#)
                    (EXIT
-                    (COND ((SPADCALL |num| (QREFELT $ 101)) (+ |n| 1))
-                          (#2# |n|))))))))))) 
+                    (SPADCALL
+                     (SPADCALL (|spadConstant| $ 18) (|spadConstant| $ 19)
+                               (QREFELT $ 31))
+                     (SPADCALL |r| |uls| (QREFELT $ 10)) (QREFELT $ 74))))))))) 
 
-(DEFUN |UPXSCONS;order;$F;40| (|upxs| $)
-  (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
-            (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 102))
-            (QREFELT $ 15))) 
+(SDEFUN |UPXSCONS;integrate;2$;54!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|UPXSCONS;integrate;2$;54|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (|UPXSCONS;ratInv|
+             (SPADCALL (SPADCALL |z1| |r| (QREFELT $ 52)) (|spadConstant| $ 19)
+                       (QREFELT $ 133))
+             $))))) 
 
-(DEFUN |UPXSCONS;order;$2F;41| (|upxs| |r| $)
-  (PROG (|ord| |n| |e|)
-    (RETURN
-     (SEQ
-      (LETT |e| (|UPXSCONS;getExpon| |upxs| $) . #1=(|UPXSCONS;order;$2F;41|))
-      (LETT |ord|
-            (SPADCALL (|UPXSCONS;getULS| |upxs| $)
-                      (LETT |n|
-                            (|UPXSCONS;roundDown|
-                             (SPADCALL |r| |e| (QREFELT $ 64)) $)
-                            . #1#)
-                      (QREFELT $ 85))
-            . #1#)
-      (EXIT
-       (COND
-        ((EQL |ord| |n|)
-         (COND
-          ((SPADCALL (SPADCALL (|UPXSCONS;getULS| |upxs| $) |n| (QREFELT $ 83))
-                     (|spadConstant| $ 23) (QREFELT $ 104))
-           |r|)
-          (#2='T (SPADCALL |ord| |e| (QREFELT $ 52)))))
-        (#2# (SPADCALL |ord| |e| (QREFELT $ 52))))))))) 
+(SDEFUN |UPXSCONS;integrate;$S$;55| ((|upxs| $) (|s| |Symbol|) ($ $))
+        (SPROG NIL
+               (COND
+                ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
+                 (SPADCALL |upxs| (QREFELT $ 136)))
+                ((NULL
+                  (SPADCALL |s|
+                            (SPADCALL (SPADCALL |upxs| (QREFELT $ 98))
+                                      (QREFELT $ 138))
+                            (QREFELT $ 139)))
+                 (SPADCALL
+                  (CONS #'|UPXSCONS;integrate;$S$;55!0| (VECTOR $ |s|)) |upxs|
+                  (QREFELT $ 116)))
+                ('T
+                 (|error|
+                  "integrate: center is a function of variable of integration"))))) 
 
-(DEFUN |UPXSCONS;truncate;$F$;42| (|upxs| |r| $)
-  (PROG (|e|)
-    (RETURN
-     (SEQ (LETT |e| (|UPXSCONS;getExpon| |upxs| $) |UPXSCONS;truncate;$F$;42|)
-          (EXIT
-           (SPADCALL |e|
-                     (SPADCALL (|UPXSCONS;getULS| |upxs| $)
-                               (|UPXSCONS;roundDown|
-                                (SPADCALL |r| |e| (QREFELT $ 64)) $)
-                               (QREFELT $ 106))
-                     (QREFELT $ 10))))))) 
+(SDEFUN |UPXSCONS;integrate;$S$;55!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|s| $)
+          (LETT |s| (QREFELT $$ 1) . #1=(|UPXSCONS;integrate;$S$;55|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 140)))))) 
 
-(DEFUN |UPXSCONS;truncate;$2F$;43| (|upxs| |r1| |r2| $)
-  (PROG (|e|)
-    (RETURN
-     (SEQ (LETT |e| (|UPXSCONS;getExpon| |upxs| $) |UPXSCONS;truncate;$2F$;43|)
-          (EXIT
-           (SPADCALL |e|
-                     (SPADCALL (|UPXSCONS;getULS| |upxs| $)
-                               (|UPXSCONS;roundUp|
-                                (SPADCALL |r1| |e| (QREFELT $ 64)) $)
-                               (|UPXSCONS;roundDown|
-                                (SPADCALL |r2| |e| (QREFELT $ 64)) $)
-                               (QREFELT $ 108))
-                     (QREFELT $ 10))))))) 
+(SDEFUN |UPXSCONS;integrateWithOneAnswer|
+        ((|f| |Coef|) (|s| |Symbol|) ($ |Coef|))
+        (SPROG ((|res| (|Union| |Coef| (|List| |Coef|))))
+               (SEQ
+                (LETT |res| (SPADCALL |f| |s| (QREFELT $ 144))
+                      |UPXSCONS;integrateWithOneAnswer|)
+                (EXIT
+                 (COND ((QEQCAR |res| 0) (QCDR |res|))
+                       ('T (|SPADfirst| (QCDR |res|)))))))) 
 
-(DEFUN |UPXSCONS;complete;2$;44| (|upxs| $)
-  (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
-            (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 110))
-            (QREFELT $ 10))) 
+(SDEFUN |UPXSCONS;integrate;$S$;57| ((|upxs| $) (|s| |Symbol|) ($ $))
+        (SPROG NIL
+               (COND
+                ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
+                 (SPADCALL |upxs| (QREFELT $ 136)))
+                ((NULL
+                  (SPADCALL |s|
+                            (SPADCALL (SPADCALL |upxs| (QREFELT $ 98))
+                                      (QREFELT $ 138))
+                            (QREFELT $ 139)))
+                 (SPADCALL
+                  (CONS #'|UPXSCONS;integrate;$S$;57!0| (VECTOR $ |s|)) |upxs|
+                  (QREFELT $ 116)))
+                ('T
+                 (|error|
+                  "integrate: center is a function of variable of integration"))))) 
 
-(DEFUN |UPXSCONS;extend;$F$;45| (|upxs| |r| $)
-  (PROG (|e|)
-    (RETURN
-     (SEQ (LETT |e| (|UPXSCONS;getExpon| |upxs| $) |UPXSCONS;extend;$F$;45|)
-          (EXIT
-           (SPADCALL |e|
-                     (SPADCALL (|UPXSCONS;getULS| |upxs| $)
-                               (|UPXSCONS;roundDown|
-                                (SPADCALL |r| |e| (QREFELT $ 64)) $)
-                               (QREFELT $ 112))
-                     (QREFELT $ 10))))))) 
+(SDEFUN |UPXSCONS;integrate;$S$;57!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|s| $)
+          (LETT |s| (QREFELT $$ 1) . #1=(|UPXSCONS;integrate;$S$;57|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (|UPXSCONS;integrateWithOneAnswer| |z1| |s| $))))) 
 
-(DEFUN |UPXSCONS;map;M2$;46| (|fcn| |upxs| $)
-  (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
-            (SPADCALL |fcn| (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 115))
-            (QREFELT $ 10))) 
-
-(DEFUN |UPXSCONS;characteristic;Nni;47| ($) (SPADCALL (QREFELT $ 117))) 
-
-(DEFUN |UPXSCONS;multiplyExponents;$F$;48| (|upxs| |n| $)
-  (SPADCALL (SPADCALL |n| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 62))
-            (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 10))) 
-
-(DEFUN |UPXSCONS;multiplyExponents;$Pi$;49| (|upxs| |n| $)
-  (SPADCALL (SPADCALL |n| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 120))
-            (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 10))) 
-
-(DEFUN |UPXSCONS;differentiate;2$;50| (|upxs| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ
-      (LETT |r| (|UPXSCONS;getExpon| |upxs| $) |UPXSCONS;differentiate;2$;50|)
-      (EXIT
-       (SPADCALL
-        (SPADCALL |r| (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 122))
-                  (QREFELT $ 10))
-        (SPADCALL (SPADCALL |r| (QREFELT $ 123))
-                  (SPADCALL |r| (|spadConstant| $ 19) (QREFELT $ 124))
-                  (QREFELT $ 31))
-        (QREFELT $ 74))))))) 
-
-(DEFUN |UPXSCONS;differentiate;$S$;51| (|upxs| |s| $)
-  (PROG (|dcds|)
-    (RETURN
-     (SEQ
-      (COND
-       ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
-        (SPADCALL |upxs| (QREFELT $ 125)))
-       ('T
-        (SEQ
-         (LETT |dcds|
-               (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) |s| (QREFELT $ 126))
-               |UPXSCONS;differentiate;$S$;51|)
-         (EXIT
-          (SPADCALL
-           (SPADCALL (CONS #'|UPXSCONS;differentiate;$S$;51!0| (VECTOR $ |s|))
-                     |upxs| (QREFELT $ 116))
-           (SPADCALL |dcds| (SPADCALL |upxs| (QREFELT $ 125)) (QREFELT $ 127))
-           (QREFELT $ 72)))))))))) 
-
-(DEFUN |UPXSCONS;differentiate;$S$;51!0| (|z1| $$)
-  (PROG (|s| $)
-    (LETT |s| (QREFELT $$ 1) . #1=(|UPXSCONS;differentiate;$S$;51|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 126)))))) 
-
-(DEFUN |UPXSCONS;coerce;F$;52| (|r| $)
-  (SPADCALL (SPADCALL |r| (QREFELT $ 123)) (QREFELT $ 27))) 
-
-(DEFUN |UPXSCONS;ratInv| (|r| $)
-  (COND ((SPADCALL |r| (QREFELT $ 130)) (|spadConstant| $ 18))
-        ('T (SPADCALL (SPADCALL |r| (QREFELT $ 131)) (QREFELT $ 123))))) 
-
-(DEFUN |UPXSCONS;integrate;2$;54| (|upxs| $)
-  (PROG (|uls| |r|)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL
-         (SPADCALL
-          (SPADCALL |upxs| (SPADCALL (|spadConstant| $ 19) (QREFELT $ 29))
-                    (QREFELT $ 99))
-          (QREFELT $ 84)))
-        (|error| "integrate: series has term of order -1"))
-       ('T
-        (SEQ
-         (LETT |r| (|UPXSCONS;getExpon| |upxs| $)
-               . #1=(|UPXSCONS;integrate;2$;54|))
-         (LETT |uls| (|UPXSCONS;getULS| |upxs| $) . #1#)
-         (LETT |uls|
-               (SPADCALL (CONS #'|UPXSCONS;integrate;2$;54!0| (VECTOR $ |r|))
-                         |uls| (QREFELT $ 135))
-               . #1#)
-         (EXIT
-          (SPADCALL
-           (SPADCALL (|spadConstant| $ 18) (|spadConstant| $ 19)
-                     (QREFELT $ 31))
-           (SPADCALL |r| |uls| (QREFELT $ 10)) (QREFELT $ 74)))))))))) 
-
-(DEFUN |UPXSCONS;integrate;2$;54!0| (|z1| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|UPXSCONS;integrate;2$;54|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (|UPXSCONS;ratInv|
-       (SPADCALL (SPADCALL |z1| |r| (QREFELT $ 52)) (|spadConstant| $ 19)
-                 (QREFELT $ 133))
-       $))))) 
-
-(DEFUN |UPXSCONS;integrate;$S$;55| (|upxs| |s| $)
-  (PROG ()
-    (RETURN
-     (COND
-      ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
-       (SPADCALL |upxs| (QREFELT $ 136)))
-      ((NULL
-        (SPADCALL |s|
-                  (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) (QREFELT $ 138))
-                  (QREFELT $ 139)))
-       (SPADCALL (CONS #'|UPXSCONS;integrate;$S$;55!0| (VECTOR $ |s|)) |upxs|
-                 (QREFELT $ 116)))
-      ('T
-       (|error|
-        "integrate: center is a function of variable of integration")))))) 
-
-(DEFUN |UPXSCONS;integrate;$S$;55!0| (|z1| $$)
-  (PROG (|s| $)
-    (LETT |s| (QREFELT $$ 1) . #1=(|UPXSCONS;integrate;$S$;55|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 140)))))) 
-
-(DEFUN |UPXSCONS;integrateWithOneAnswer| (|f| |s| $)
-  (PROG (|res|)
-    (RETURN
-     (SEQ
-      (LETT |res| (SPADCALL |f| |s| (QREFELT $ 144))
-            |UPXSCONS;integrateWithOneAnswer|)
-      (EXIT
-       (COND ((QEQCAR |res| 0) (QCDR |res|))
-             ('T (|SPADfirst| (QCDR |res|))))))))) 
-
-(DEFUN |UPXSCONS;integrate;$S$;57| (|upxs| |s| $)
-  (PROG ()
-    (RETURN
-     (COND
-      ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
-       (SPADCALL |upxs| (QREFELT $ 136)))
-      ((NULL
-        (SPADCALL |s|
-                  (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) (QREFELT $ 138))
-                  (QREFELT $ 139)))
-       (SPADCALL (CONS #'|UPXSCONS;integrate;$S$;57!0| (VECTOR $ |s|)) |upxs|
-                 (QREFELT $ 116)))
-      ('T
-       (|error|
-        "integrate: center is a function of variable of integration")))))) 
-
-(DEFUN |UPXSCONS;integrate;$S$;57!0| (|z1| $$)
-  (PROG (|s| $)
-    (LETT |s| (QREFELT $$ 1) . #1=(|UPXSCONS;integrate;$S$;57|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (|UPXSCONS;integrateWithOneAnswer| |z1| |s| $))))) 
-
-(DEFUN |UPXSCONS;^;$F$;58| (|upxs| |q| $)
-  (PROG (|ulsPow| |coef| |deg| |uls| |r| |den| |num|)
-    (RETURN
-     (SEQ (LETT |num| (SPADCALL |q| (QREFELT $ 37)) . #1=(|UPXSCONS;^;$F$;58|))
+(SDEFUN |UPXSCONS;^;$F$;58| ((|upxs| $) (|q| |Fraction| (|Integer|)) ($ $))
+        (SPROG
+         ((|ulsPow| (ULS)) (|coef| (|Coef|)) (|deg| (|Integer|)) (|uls| (ULS))
+          (|r| (|Fraction| (|Integer|))) (|den| (|Integer|))
+          (|num| (|Integer|)))
+         (SEQ
+          (LETT |num| (SPADCALL |q| (QREFELT $ 37)) . #1=(|UPXSCONS;^;$F$;58|))
           (LETT |den| (SPADCALL |q| (QREFELT $ 36)) . #1#)
           (EXIT
            (COND ((EQL |den| 1) (SPADCALL |upxs| |num| (QREFELT $ 145)))
@@ -629,531 +695,517 @@
                                                        (QREFELT $ 52))
                                              |r| (QREFELT $ 62))
                                             (QREFELT $ 31))
-                                  (QREFELT $ 74))))))))))) 
+                                  (QREFELT $ 74)))))))))) 
 
-(DEFUN |UPXSCONS;applyUnary| (|fcn| |upxs| $)
-  (SPADCALL (SPADCALL |upxs| (QREFELT $ 12))
-            (SPADCALL (SPADCALL |upxs| (QREFELT $ 11)) |fcn|) (QREFELT $ 10))) 
+(SDEFUN |UPXSCONS;applyUnary| ((|fcn| |Mapping| ULS ULS) (|upxs| $) ($ $))
+        (SPADCALL (SPADCALL |upxs| (QREFELT $ 12))
+                  (SPADCALL (SPADCALL |upxs| (QREFELT $ 11)) |fcn|)
+                  (QREFELT $ 10))) 
 
-(DEFUN |UPXSCONS;exp;2$;60| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 147) |upxs| $)) 
+(SDEFUN |UPXSCONS;exp;2$;60| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 147) |upxs| $)) 
 
-(DEFUN |UPXSCONS;log;2$;61| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 149) |upxs| $)) 
+(SDEFUN |UPXSCONS;log;2$;61| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 149) |upxs| $)) 
 
-(DEFUN |UPXSCONS;sin;2$;62| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 151) |upxs| $)) 
+(SDEFUN |UPXSCONS;sin;2$;62| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 151) |upxs| $)) 
 
-(DEFUN |UPXSCONS;cos;2$;63| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 153) |upxs| $)) 
+(SDEFUN |UPXSCONS;cos;2$;63| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 153) |upxs| $)) 
 
-(DEFUN |UPXSCONS;tan;2$;64| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 155) |upxs| $)) 
+(SDEFUN |UPXSCONS;tan;2$;64| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 155) |upxs| $)) 
 
-(DEFUN |UPXSCONS;cot;2$;65| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 157) |upxs| $)) 
+(SDEFUN |UPXSCONS;cot;2$;65| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 157) |upxs| $)) 
 
-(DEFUN |UPXSCONS;sec;2$;66| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 159) |upxs| $)) 
+(SDEFUN |UPXSCONS;sec;2$;66| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 159) |upxs| $)) 
 
-(DEFUN |UPXSCONS;csc;2$;67| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 161) |upxs| $)) 
+(SDEFUN |UPXSCONS;csc;2$;67| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 161) |upxs| $)) 
 
-(DEFUN |UPXSCONS;asin;2$;68| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 163) |upxs| $)) 
+(SDEFUN |UPXSCONS;asin;2$;68| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 163) |upxs| $)) 
 
-(DEFUN |UPXSCONS;acos;2$;69| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 165) |upxs| $)) 
+(SDEFUN |UPXSCONS;acos;2$;69| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 165) |upxs| $)) 
 
-(DEFUN |UPXSCONS;atan;2$;70| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 167) |upxs| $)) 
+(SDEFUN |UPXSCONS;atan;2$;70| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 167) |upxs| $)) 
 
-(DEFUN |UPXSCONS;acot;2$;71| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 169) |upxs| $)) 
+(SDEFUN |UPXSCONS;acot;2$;71| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 169) |upxs| $)) 
 
-(DEFUN |UPXSCONS;asec;2$;72| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 171) |upxs| $)) 
+(SDEFUN |UPXSCONS;asec;2$;72| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 171) |upxs| $)) 
 
-(DEFUN |UPXSCONS;acsc;2$;73| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 173) |upxs| $)) 
+(SDEFUN |UPXSCONS;acsc;2$;73| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 173) |upxs| $)) 
 
-(DEFUN |UPXSCONS;sinh;2$;74| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 175) |upxs| $)) 
+(SDEFUN |UPXSCONS;sinh;2$;74| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 175) |upxs| $)) 
 
-(DEFUN |UPXSCONS;cosh;2$;75| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 177) |upxs| $)) 
+(SDEFUN |UPXSCONS;cosh;2$;75| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 177) |upxs| $)) 
 
-(DEFUN |UPXSCONS;tanh;2$;76| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 179) |upxs| $)) 
+(SDEFUN |UPXSCONS;tanh;2$;76| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 179) |upxs| $)) 
 
-(DEFUN |UPXSCONS;coth;2$;77| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 181) |upxs| $)) 
+(SDEFUN |UPXSCONS;coth;2$;77| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 181) |upxs| $)) 
 
-(DEFUN |UPXSCONS;sech;2$;78| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 183) |upxs| $)) 
+(SDEFUN |UPXSCONS;sech;2$;78| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 183) |upxs| $)) 
 
-(DEFUN |UPXSCONS;csch;2$;79| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 185) |upxs| $)) 
+(SDEFUN |UPXSCONS;csch;2$;79| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 185) |upxs| $)) 
 
-(DEFUN |UPXSCONS;asinh;2$;80| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 187) |upxs| $)) 
+(SDEFUN |UPXSCONS;asinh;2$;80| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 187) |upxs| $)) 
 
-(DEFUN |UPXSCONS;acosh;2$;81| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 189) |upxs| $)) 
+(SDEFUN |UPXSCONS;acosh;2$;81| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 189) |upxs| $)) 
 
-(DEFUN |UPXSCONS;atanh;2$;82| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 191) |upxs| $)) 
+(SDEFUN |UPXSCONS;atanh;2$;82| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 191) |upxs| $)) 
 
-(DEFUN |UPXSCONS;acoth;2$;83| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 193) |upxs| $)) 
+(SDEFUN |UPXSCONS;acoth;2$;83| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 193) |upxs| $)) 
 
-(DEFUN |UPXSCONS;asech;2$;84| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 195) |upxs| $)) 
+(SDEFUN |UPXSCONS;asech;2$;84| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 195) |upxs| $)) 
 
-(DEFUN |UPXSCONS;acsch;2$;85| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 197) |upxs| $)) 
+(SDEFUN |UPXSCONS;acsch;2$;85| ((|upxs| $) ($ $))
+        (|UPXSCONS;applyUnary| (ELT $ 197) |upxs| $)) 
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructor;|)) 
 
 (DEFUN |UnivariatePuiseuxSeriesConstructor| (&REST #1=#:G372)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G373)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|UnivariatePuiseuxSeriesConstructor|)
-                                           '|domainEqualList|)
-                . #3=(|UnivariatePuiseuxSeriesConstructor|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |UnivariatePuiseuxSeriesConstructor;|)
-                         #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G373)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|UnivariatePuiseuxSeriesConstructor|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|UnivariatePuiseuxSeriesConstructor|)
+                                               '|domainEqualList|)
+                    . #3=(|UnivariatePuiseuxSeriesConstructor|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |UnivariatePuiseuxSeriesConstructor;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariatePuiseuxSeriesConstructor|)))))))))) 
 
 (DEFUN |UnivariatePuiseuxSeriesConstructor;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G363 #2=#:G364 #3=#:G365 #4=#:G366 #5=#:G367 #6=#:G368
-         #7=#:G370 $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #8=(|UnivariatePuiseuxSeriesConstructor|))
-      (LETT DV$2 (|devaluate| |#2|) . #8#)
-      (LETT |dv$| (LIST '|UnivariatePuiseuxSeriesConstructor| DV$1 DV$2) . #8#)
-      (LETT $ (GETREFV 218) . #8#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (|HasSignature| |#1|
-                                                          (LIST '*
-                                                                (LIST
-                                                                 (|devaluate|
-                                                                  |#1|)
-                                                                 '(|Fraction|
-                                                                   (|Integer|))
-                                                                 (|devaluate|
-                                                                  |#1|))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|PartialDifferentialRing|
-                                                            (|Symbol|)))
-                                           (|HasSignature| |#1|
-                                                           (LIST '*
-                                                                 (LIST
-                                                                  (|devaluate|
-                                                                   |#1|)
-                                                                  '(|Fraction|
-                                                                    (|Integer|))
-                                                                  (|devaluate|
-                                                                   |#1|)))))
-                                          (|HasCategory|
-                                           (|Fraction| (|Integer|))
-                                           '(|SemiGroup|))
-                                          (|HasCategory| |#1| '(|Field|))
+  (SPROG
+   ((|pv$| NIL) (#1=#:G363 NIL) (#2=#:G364 NIL) (#3=#:G365 NIL) (#4=#:G366 NIL)
+    (#5=#:G367 NIL) (#6=#:G368 NIL) (#7=#:G370 NIL) ($ NIL) (|dv$| NIL)
+    (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #8=(|UnivariatePuiseuxSeriesConstructor|))
+    (LETT DV$2 (|devaluate| |#2|) . #8#)
+    (LETT |dv$| (LIST '|UnivariatePuiseuxSeriesConstructor| DV$1 DV$2) . #8#)
+    (LETT $ (GETREFV 218) . #8#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicNonZero|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (|HasSignature| |#1|
+                                                        (LIST '*
+                                                              (LIST
+                                                               (|devaluate|
+                                                                |#1|)
+                                                               '(|Fraction|
+                                                                 (|Integer|))
+                                                               (|devaluate|
+                                                                |#1|))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|PartialDifferentialRing|
+                                                          (|Symbol|)))
+                                         (|HasSignature| |#1|
+                                                         (LIST '*
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Fraction|
+                                                                  (|Integer|))
+                                                                (|devaluate|
+                                                                 |#1|)))))
+                                        (|HasCategory| (|Fraction| (|Integer|))
+                                                       '(|SemiGroup|))
+                                        (|HasCategory| |#1| '(|Field|))
+                                        (|HasCategory| |#1|
+                                                       '(|Algebra|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (LETT #7#
+                                              (|HasCategory| |#1|
+                                                             '(|CommutativeRing|))
+                                              . #8#)
+                                        (OR #7#
+                                            (|HasCategory| |#1| '(|Field|)))
+                                        (|HasSignature| |#1|
+                                                        (LIST '^
+                                                              (LIST
+                                                               (|devaluate|
+                                                                |#1|)
+                                                               (|devaluate|
+                                                                |#1|)
+                                                               '(|Fraction|
+                                                                 (|Integer|)))))
+                                        (AND
+                                         (|HasSignature| |#1|
+                                                         (LIST '^
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Fraction|
+                                                                  (|Integer|)))))
+                                         (|HasSignature| |#1|
+                                                         (LIST '|coerce|
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Symbol|)))))
+                                        (OR
+                                         (AND
                                           (|HasCategory| |#1|
                                                          '(|Algebra|
                                                            (|Fraction|
                                                             (|Integer|))))
-                                          (LETT #7#
-                                                (|HasCategory| |#1|
-                                                               '(|CommutativeRing|))
-                                                . #8#)
-                                          (OR #7#
-                                              (|HasCategory| |#1| '(|Field|)))
+                                          (|HasCategory| |#1|
+                                                         '(|AlgebraicallyClosedFunctionSpace|
+                                                           (|Integer|)))
+                                          (|HasCategory| |#1|
+                                                         '(|PrimitiveFunctionCategory|))
+                                          (|HasCategory| |#1|
+                                                         '(|TranscendentalFunctionCategory|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         '(|Algebra|
+                                                           (|Fraction|
+                                                            (|Integer|))))
                                           (|HasSignature| |#1|
-                                                          (LIST '^
+                                                          (LIST '|integrate|
                                                                 (LIST
                                                                  (|devaluate|
                                                                   |#1|)
                                                                  (|devaluate|
                                                                   |#1|)
-                                                                 '(|Fraction|
-                                                                   (|Integer|)))))
-                                          (AND
-                                           (|HasSignature| |#1|
-                                                           (LIST '^
-                                                                 (LIST
-                                                                  (|devaluate|
-                                                                   |#1|)
-                                                                  (|devaluate|
-                                                                   |#1|)
-                                                                  '(|Fraction|
-                                                                    (|Integer|)))))
-                                           (|HasSignature| |#1|
-                                                           (LIST '|coerce|
-                                                                 (LIST
-                                                                  (|devaluate|
-                                                                   |#1|)
-                                                                  '(|Symbol|)))))
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|Algebra|
-                                                             (|Fraction|
-                                                              (|Integer|))))
-                                            (|HasCategory| |#1|
-                                                           '(|AlgebraicallyClosedFunctionSpace|
-                                                             (|Integer|)))
-                                            (|HasCategory| |#1|
-                                                           '(|PrimitiveFunctionCategory|))
-                                            (|HasCategory| |#1|
-                                                           '(|TranscendentalFunctionCategory|)))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|Algebra|
-                                                             (|Fraction|
-                                                              (|Integer|))))
+                                                                 '(|Symbol|))))
+                                          (|HasSignature| |#1|
+                                                          (LIST '|variables|
+                                                                (LIST
+                                                                 '(|List|
+                                                                   (|Symbol|))
+                                                                 (|devaluate|
+                                                                  |#1|))))))
+                                        (LETT #6#
+                                              (|HasCategory| |#1|
+                                                             '(|IntegralDomain|))
+                                              . #8#)
+                                        (OR #7# (|HasCategory| |#1| '(|Field|))
+                                            #6#)
+                                        (OR (|HasCategory| |#1| '(|Field|))
+                                            #6#)
+                                        (LETT #5#
+                                              (|HasCategory| |#1|
+                                                             '(|SemiRing|))
+                                              . #8#)
+                                        (OR #5#
                                             (|HasSignature| |#1|
-                                                            (LIST '|integrate|
+                                                            (LIST '*
                                                                   (LIST
                                                                    (|devaluate|
                                                                     |#1|)
+                                                                   '(|Fraction|
+                                                                     (|Integer|))
+                                                                   (|devaluate|
+                                                                    |#1|)))))
+                                        (LETT #4#
+                                              (|HasCategory| |#1| '(|Ring|))
+                                              . #8#)
+                                        (OR #4#
+                                            (|HasSignature| |#1|
+                                                            (LIST '*
+                                                                  (LIST
                                                                    (|devaluate|
                                                                     |#1|)
-                                                                   '(|Symbol|))))
-                                            (|HasSignature| |#1|
-                                                            (LIST '|variables|
-                                                                  (LIST
-                                                                   '(|List|
-                                                                     (|Symbol|))
+                                                                   '(|Fraction|
+                                                                     (|Integer|))
                                                                    (|devaluate|
-                                                                    |#1|))))))
-                                          (LETT #6#
-                                                (|HasCategory| |#1|
-                                                               '(|IntegralDomain|))
-                                                . #8#)
-                                          (OR #7#
-                                              (|HasCategory| |#1| '(|Field|))
-                                              #6#)
-                                          (OR (|HasCategory| |#1| '(|Field|))
-                                              #6#)
-                                          (LETT #5#
-                                                (|HasCategory| |#1|
-                                                               '(|SemiRing|))
-                                                . #8#)
-                                          (OR #5#
-                                              (|HasSignature| |#1|
-                                                              (LIST '*
-                                                                    (LIST
-                                                                     (|devaluate|
-                                                                      |#1|)
-                                                                     '(|Fraction|
-                                                                       (|Integer|))
-                                                                     (|devaluate|
-                                                                      |#1|)))))
-                                          (LETT #4#
-                                                (|HasCategory| |#1| '(|Ring|))
-                                                . #8#)
-                                          (OR #4#
-                                              (|HasSignature| |#1|
-                                                              (LIST '*
-                                                                    (LIST
-                                                                     (|devaluate|
-                                                                      |#1|)
-                                                                     '(|Fraction|
-                                                                       (|Integer|))
-                                                                     (|devaluate|
-                                                                      |#1|)))))
-                                          (OR #7#
-                                              (|HasCategory| |#1| '(|Field|))
-                                              #6# #4#
-                                              (|HasSignature| |#1|
-                                                              (LIST '*
-                                                                    (LIST
-                                                                     (|devaluate|
-                                                                      |#1|)
-                                                                     '(|Fraction|
-                                                                       (|Integer|))
-                                                                     (|devaluate|
-                                                                      |#1|)))))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicNonZero|))
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicZero|))
-                                           #7# (|HasCategory| |#1| '(|Field|))
-                                           #6# #4#
-                                           (|HasSignature| |#1|
-                                                           (LIST '*
-                                                                 (LIST
-                                                                  (|devaluate|
-                                                                   |#1|)
-                                                                  '(|Fraction|
-                                                                    (|Integer|))
-                                                                  (|devaluate|
-                                                                   |#1|)))))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|AbelianGroup|))
-                                                . #8#)
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           #3#
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicNonZero|))
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicZero|))
-                                           #7# (|HasCategory| |#1| '(|Field|))
-                                           #6# #4#
-                                           (|HasSignature| |#1|
-                                                           (LIST '*
-                                                                 (LIST
-                                                                  (|devaluate|
-                                                                   |#1|)
-                                                                  '(|Fraction|
-                                                                    (|Integer|))
-                                                                  (|devaluate|
-                                                                   |#1|)))))
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|CancellationAbelianMonoid|))
-                                                . #8#)
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           #3# #2#
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicNonZero|))
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicZero|))
-                                           #7# (|HasCategory| |#1| '(|Field|))
-                                           #6# #4#
-                                           (|HasSignature| |#1|
-                                                           (LIST '*
-                                                                 (LIST
-                                                                  (|devaluate|
-                                                                   |#1|)
-                                                                  '(|Fraction|
-                                                                    (|Integer|))
-                                                                  (|devaluate|
-                                                                   |#1|)))))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|AbelianMonoid|))
-                                                . #8#)
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           #3# #1# #2#
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicNonZero|))
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicZero|))
-                                           #7# (|HasCategory| |#1| '(|Field|))
-                                           #6# #4#
-                                           (|HasSignature| |#1|
-                                                           (LIST '*
-                                                                 (LIST
-                                                                  (|devaluate|
-                                                                   |#1|)
-                                                                  '(|Fraction|
-                                                                    (|Integer|))
-                                                                  (|devaluate|
-                                                                   |#1|)))))))
-                      . #8#))
-      (|haddProp| |$ConstructorCache| '|UnivariatePuiseuxSeriesConstructor|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-           (|augmentPredVector| $ 134217728))
-      (AND
-       (OR (|HasCategory| |#1| '(|Field|))
-           (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-       (|augmentPredVector| $ 268435456))
-      (AND
-       (OR (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           #5#
-           (|HasSignature| |#1|
-                           (LIST '*
-                                 (LIST (|devaluate| |#1|)
-                                       '(|Fraction| (|Integer|))
-                                       (|devaluate| |#1|)))))
-       (|augmentPredVector| $ 536870912))
-      (AND
-       (OR (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           #4#
-           (|HasSignature| |#1|
-                           (LIST '*
-                                 (LIST (|devaluate| |#1|)
-                                       '(|Fraction| (|Integer|))
-                                       (|devaluate| |#1|)))))
-       (|augmentPredVector| $ 1073741824))
-      (AND
-       (OR #3#
-           (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (|HasSignature| |#1|
-                           (LIST '*
-                                 (LIST (|devaluate| |#1|)
-                                       '(|Fraction| (|Integer|))
-                                       (|devaluate| |#1|)))))
-       (|augmentPredVector| $ 2147483648))
-      (AND
-       (OR #2#
-           (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (|HasSignature| |#1|
-                           (LIST '*
-                                 (LIST (|devaluate| |#1|)
-                                       '(|Fraction| (|Integer|))
-                                       (|devaluate| |#1|)))))
-       (|augmentPredVector| $ 4294967296))
-      (AND
-       (OR #1#
-           (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
-           (|HasSignature| |#1|
-                           (LIST '*
-                                 (LIST (|devaluate| |#1|)
-                                       '(|Fraction| (|Integer|))
-                                       (|devaluate| |#1|)))))
-       (|augmentPredVector| $ 8589934592))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8
-                (|Record| (|:| |expon| (|Fraction| (|Integer|)))
-                          (|:| |lSeries| |#2|)))
-      (QSETREFV $ 80
-                (|HasCategory| |#1| '(|Algebra| (|Fraction| (|Integer|)))))
+                                                                    |#1|)))))
+                                        (OR #7# (|HasCategory| |#1| '(|Field|))
+                                            #6# #4#
+                                            (|HasSignature| |#1|
+                                                            (LIST '*
+                                                                  (LIST
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   '(|Fraction|
+                                                                     (|Integer|))
+                                                                   (|devaluate|
+                                                                    |#1|)))))
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicNonZero|))
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicZero|))
+                                         #7# (|HasCategory| |#1| '(|Field|))
+                                         #6# #4#
+                                         (|HasSignature| |#1|
+                                                         (LIST '*
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Fraction|
+                                                                  (|Integer|))
+                                                                (|devaluate|
+                                                                 |#1|)))))
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianGroup|))
+                                              . #8#)
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         #3#
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicNonZero|))
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicZero|))
+                                         #7# (|HasCategory| |#1| '(|Field|))
+                                         #6# #4#
+                                         (|HasSignature| |#1|
+                                                         (LIST '*
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Fraction|
+                                                                  (|Integer|))
+                                                                (|devaluate|
+                                                                 |#1|)))))
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|CancellationAbelianMonoid|))
+                                              . #8#)
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         #3# #2#
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicNonZero|))
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicZero|))
+                                         #7# (|HasCategory| |#1| '(|Field|))
+                                         #6# #4#
+                                         (|HasSignature| |#1|
+                                                         (LIST '*
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Fraction|
+                                                                  (|Integer|))
+                                                                (|devaluate|
+                                                                 |#1|)))))
+                                        (LETT #1#
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianMonoid|))
+                                              . #8#)
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         #3# #1# #2#
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicNonZero|))
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicZero|))
+                                         #7# (|HasCategory| |#1| '(|Field|))
+                                         #6# #4#
+                                         (|HasSignature| |#1|
+                                                         (LIST '*
+                                                               (LIST
+                                                                (|devaluate|
+                                                                 |#1|)
+                                                                '(|Fraction|
+                                                                  (|Integer|))
+                                                                (|devaluate|
+                                                                 |#1|)))))))
+                    . #8#))
+    (|haddProp| |$ConstructorCache| '|UnivariatePuiseuxSeriesConstructor|
+                (LIST DV$1 DV$2) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
+         (|augmentPredVector| $ 134217728))
+    (AND
+     (OR (|HasCategory| |#1| '(|Field|))
+         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 268435456))
+    (AND
+     (OR (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #5#
+         (|HasSignature| |#1|
+                         (LIST '*
+                               (LIST (|devaluate| |#1|)
+                                     '(|Fraction| (|Integer|))
+                                     (|devaluate| |#1|)))))
+     (|augmentPredVector| $ 536870912))
+    (AND
+     (OR (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #4#
+         (|HasSignature| |#1|
+                         (LIST '*
+                               (LIST (|devaluate| |#1|)
+                                     '(|Fraction| (|Integer|))
+                                     (|devaluate| |#1|)))))
+     (|augmentPredVector| $ 1073741824))
+    (AND
+     (OR #3# (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (|HasSignature| |#1|
+                         (LIST '*
+                               (LIST (|devaluate| |#1|)
+                                     '(|Fraction| (|Integer|))
+                                     (|devaluate| |#1|)))))
+     (|augmentPredVector| $ 2147483648))
+    (AND
+     (OR #2# (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (|HasSignature| |#1|
+                         (LIST '*
+                               (LIST (|devaluate| |#1|)
+                                     '(|Fraction| (|Integer|))
+                                     (|devaluate| |#1|)))))
+     (|augmentPredVector| $ 4294967296))
+    (AND
+     (OR #1# (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (|HasSignature| |#1|
+                         (LIST '*
+                               (LIST (|devaluate| |#1|)
+                                     '(|Fraction| (|Integer|))
+                                     (|devaluate| |#1|)))))
+     (|augmentPredVector| $ 8589934592))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 8
+              (|Record| (|:| |expon| (|Fraction| (|Integer|)))
+                        (|:| |lSeries| |#2|)))
+    (QSETREFV $ 80 (|HasCategory| |#1| '(|Algebra| (|Fraction| (|Integer|)))))
+    (COND
+     ((|HasSignature| |#1|
+                      (LIST '^
+                            (LIST (|devaluate| |#1|) (|devaluate| |#1|)
+                                  '(|Integer|))))
       (COND
-       ((|HasSignature| |#1|
-                        (LIST '^
-                              (LIST (|devaluate| |#1|) (|devaluate| |#1|)
-                                    '(|Integer|))))
-        (COND
-         ((|testBitVector| |pv$| 10)
-          (QSETREFV $ 90
-                    (CONS (|dispatchFunction| |UPXSCONS;eval;$CoefS;31|)
-                          $))))))
-      (COND
-       ((|testBitVector| |pv$| 6)
-        (PROGN
-         (QSETREFV $ 92 (CONS (|dispatchFunction| |UPXSCONS;/;3$;32|) $))
-         (QSETREFV $ 93 (CONS (|dispatchFunction| |UPXSCONS;inv;2$;33|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 125
-                   (CONS (|dispatchFunction| |UPXSCONS;differentiate;2$;50|)
-                         $))
-         (COND
-          ((|HasCategory| |#1| '(|PartialDifferentialRing| (|Symbol|)))
-           (QSETREFV $ 128
-                     (CONS (|dispatchFunction| |UPXSCONS;differentiate;$S$;51|)
-                           $)))))))
-      (COND
-       ((|testBitVector| |pv$| 7)
-        (PROGN
-         (QSETREFV $ 129 (CONS (|dispatchFunction| |UPXSCONS;coerce;F$;52|) $))
-         NIL
-         (QSETREFV $ 136
-                   (CONS (|dispatchFunction| |UPXSCONS;integrate;2$;54|) $))
+       ((|testBitVector| |pv$| 10)
+        (QSETREFV $ 90
+                  (CONS (|dispatchFunction| |UPXSCONS;eval;$CoefS;31|) $))))))
+    (COND
+     ((|testBitVector| |pv$| 6)
+      (PROGN
+       (QSETREFV $ 92 (CONS (|dispatchFunction| |UPXSCONS;/;3$;32|) $))
+       (QSETREFV $ 93 (CONS (|dispatchFunction| |UPXSCONS;inv;2$;33|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 3)
+      (PROGN
+       (QSETREFV $ 125
+                 (CONS (|dispatchFunction| |UPXSCONS;differentiate;2$;50|) $))
+       (COND
+        ((|HasCategory| |#1| '(|PartialDifferentialRing| (|Symbol|)))
+         (QSETREFV $ 128
+                   (CONS (|dispatchFunction| |UPXSCONS;differentiate;$S$;51|)
+                         $)))))))
+    (COND
+     ((|testBitVector| |pv$| 7)
+      (PROGN
+       (QSETREFV $ 129 (CONS (|dispatchFunction| |UPXSCONS;coerce;F$;52|) $))
+       NIL
+       (QSETREFV $ 136
+                 (CONS (|dispatchFunction| |UPXSCONS;integrate;2$;54|) $))
+       (COND
+        ((|HasSignature| |#1|
+                         (LIST '|integrate|
+                               (LIST (|devaluate| |#1|) (|devaluate| |#1|)
+                                     '(|Symbol|))))
          (COND
           ((|HasSignature| |#1|
-                           (LIST '|integrate|
-                                 (LIST (|devaluate| |#1|) (|devaluate| |#1|)
-                                       '(|Symbol|))))
-           (COND
-            ((|HasSignature| |#1|
-                             (LIST '|variables|
-                                   (LIST '(|List| (|Symbol|))
-                                         (|devaluate| |#1|))))
-             (QSETREFV $ 141
-                       (CONS (|dispatchFunction| |UPXSCONS;integrate;$S$;55|)
-                             $))))))
+                           (LIST '|variables|
+                                 (LIST '(|List| (|Symbol|))
+                                       (|devaluate| |#1|))))
+           (QSETREFV $ 141
+                     (CONS (|dispatchFunction| |UPXSCONS;integrate;$S$;55|)
+                           $))))))
+       (COND
+        ((|HasCategory| |#1| '(|TranscendentalFunctionCategory|))
          (COND
-          ((|HasCategory| |#1| '(|TranscendentalFunctionCategory|))
+          ((|HasCategory| |#1| '(|PrimitiveFunctionCategory|))
            (COND
-            ((|HasCategory| |#1| '(|PrimitiveFunctionCategory|))
-             (COND
-              ((|HasCategory| |#1|
-                              '(|AlgebraicallyClosedFunctionSpace|
-                                (|Integer|)))
-               (PROGN
-                (QSETREFV $ 141
-                          (CONS
-                           (|dispatchFunction| |UPXSCONS;integrate;$S$;57|)
-                           $)))))))))
-         (COND
-          ((|testBitVector| |pv$| 6)
-           (QSETREFV $ 146 (CONS (|dispatchFunction| |UPXSCONS;^;$F$;58|) $))))
-         NIL
-         (QSETREFV $ 148 (CONS (|dispatchFunction| |UPXSCONS;exp;2$;60|) $))
-         (QSETREFV $ 150 (CONS (|dispatchFunction| |UPXSCONS;log;2$;61|) $))
-         (QSETREFV $ 152 (CONS (|dispatchFunction| |UPXSCONS;sin;2$;62|) $))
-         (QSETREFV $ 154 (CONS (|dispatchFunction| |UPXSCONS;cos;2$;63|) $))
-         (QSETREFV $ 156 (CONS (|dispatchFunction| |UPXSCONS;tan;2$;64|) $))
-         (QSETREFV $ 158 (CONS (|dispatchFunction| |UPXSCONS;cot;2$;65|) $))
-         (QSETREFV $ 160 (CONS (|dispatchFunction| |UPXSCONS;sec;2$;66|) $))
-         (QSETREFV $ 162 (CONS (|dispatchFunction| |UPXSCONS;csc;2$;67|) $))
-         (QSETREFV $ 164 (CONS (|dispatchFunction| |UPXSCONS;asin;2$;68|) $))
-         (QSETREFV $ 166 (CONS (|dispatchFunction| |UPXSCONS;acos;2$;69|) $))
-         (QSETREFV $ 168 (CONS (|dispatchFunction| |UPXSCONS;atan;2$;70|) $))
-         (QSETREFV $ 170 (CONS (|dispatchFunction| |UPXSCONS;acot;2$;71|) $))
-         (QSETREFV $ 172 (CONS (|dispatchFunction| |UPXSCONS;asec;2$;72|) $))
-         (QSETREFV $ 174 (CONS (|dispatchFunction| |UPXSCONS;acsc;2$;73|) $))
-         (QSETREFV $ 176 (CONS (|dispatchFunction| |UPXSCONS;sinh;2$;74|) $))
-         (QSETREFV $ 178 (CONS (|dispatchFunction| |UPXSCONS;cosh;2$;75|) $))
-         (QSETREFV $ 180 (CONS (|dispatchFunction| |UPXSCONS;tanh;2$;76|) $))
-         (QSETREFV $ 182 (CONS (|dispatchFunction| |UPXSCONS;coth;2$;77|) $))
-         (QSETREFV $ 184 (CONS (|dispatchFunction| |UPXSCONS;sech;2$;78|) $))
-         (QSETREFV $ 186 (CONS (|dispatchFunction| |UPXSCONS;csch;2$;79|) $))
-         (QSETREFV $ 188 (CONS (|dispatchFunction| |UPXSCONS;asinh;2$;80|) $))
-         (QSETREFV $ 190 (CONS (|dispatchFunction| |UPXSCONS;acosh;2$;81|) $))
-         (QSETREFV $ 192 (CONS (|dispatchFunction| |UPXSCONS;atanh;2$;82|) $))
-         (QSETREFV $ 194 (CONS (|dispatchFunction| |UPXSCONS;acoth;2$;83|) $))
-         (QSETREFV $ 196 (CONS (|dispatchFunction| |UPXSCONS;asech;2$;84|) $))
-         (QSETREFV $ 198
-                   (CONS (|dispatchFunction| |UPXSCONS;acsch;2$;85|) $)))))
-      $)))) 
+            ((|HasCategory| |#1|
+                            '(|AlgebraicallyClosedFunctionSpace| (|Integer|)))
+             (PROGN
+              (QSETREFV $ 141
+                        (CONS (|dispatchFunction| |UPXSCONS;integrate;$S$;57|)
+                              $)))))))))
+       (COND
+        ((|testBitVector| |pv$| 6)
+         (QSETREFV $ 146 (CONS (|dispatchFunction| |UPXSCONS;^;$F$;58|) $))))
+       NIL
+       (QSETREFV $ 148 (CONS (|dispatchFunction| |UPXSCONS;exp;2$;60|) $))
+       (QSETREFV $ 150 (CONS (|dispatchFunction| |UPXSCONS;log;2$;61|) $))
+       (QSETREFV $ 152 (CONS (|dispatchFunction| |UPXSCONS;sin;2$;62|) $))
+       (QSETREFV $ 154 (CONS (|dispatchFunction| |UPXSCONS;cos;2$;63|) $))
+       (QSETREFV $ 156 (CONS (|dispatchFunction| |UPXSCONS;tan;2$;64|) $))
+       (QSETREFV $ 158 (CONS (|dispatchFunction| |UPXSCONS;cot;2$;65|) $))
+       (QSETREFV $ 160 (CONS (|dispatchFunction| |UPXSCONS;sec;2$;66|) $))
+       (QSETREFV $ 162 (CONS (|dispatchFunction| |UPXSCONS;csc;2$;67|) $))
+       (QSETREFV $ 164 (CONS (|dispatchFunction| |UPXSCONS;asin;2$;68|) $))
+       (QSETREFV $ 166 (CONS (|dispatchFunction| |UPXSCONS;acos;2$;69|) $))
+       (QSETREFV $ 168 (CONS (|dispatchFunction| |UPXSCONS;atan;2$;70|) $))
+       (QSETREFV $ 170 (CONS (|dispatchFunction| |UPXSCONS;acot;2$;71|) $))
+       (QSETREFV $ 172 (CONS (|dispatchFunction| |UPXSCONS;asec;2$;72|) $))
+       (QSETREFV $ 174 (CONS (|dispatchFunction| |UPXSCONS;acsc;2$;73|) $))
+       (QSETREFV $ 176 (CONS (|dispatchFunction| |UPXSCONS;sinh;2$;74|) $))
+       (QSETREFV $ 178 (CONS (|dispatchFunction| |UPXSCONS;cosh;2$;75|) $))
+       (QSETREFV $ 180 (CONS (|dispatchFunction| |UPXSCONS;tanh;2$;76|) $))
+       (QSETREFV $ 182 (CONS (|dispatchFunction| |UPXSCONS;coth;2$;77|) $))
+       (QSETREFV $ 184 (CONS (|dispatchFunction| |UPXSCONS;sech;2$;78|) $))
+       (QSETREFV $ 186 (CONS (|dispatchFunction| |UPXSCONS;csch;2$;79|) $))
+       (QSETREFV $ 188 (CONS (|dispatchFunction| |UPXSCONS;asinh;2$;80|) $))
+       (QSETREFV $ 190 (CONS (|dispatchFunction| |UPXSCONS;acosh;2$;81|) $))
+       (QSETREFV $ 192 (CONS (|dispatchFunction| |UPXSCONS;atanh;2$;82|) $))
+       (QSETREFV $ 194 (CONS (|dispatchFunction| |UPXSCONS;acoth;2$;83|) $))
+       (QSETREFV $ 196 (CONS (|dispatchFunction| |UPXSCONS;asech;2$;84|) $))
+       (QSETREFV $ 198 (CONS (|dispatchFunction| |UPXSCONS;acsch;2$;85|) $)))))
+    $))) 
 
 (MAKEPROP '|UnivariatePuiseuxSeriesConstructor| '|infovec|
           (LIST

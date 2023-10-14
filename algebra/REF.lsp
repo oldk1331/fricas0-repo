@@ -1,71 +1,72 @@
 
 (PUT '|REF;=;2$B;1| '|SPADreplace| 'EQ) 
 
-(DEFUN |REF;=;2$B;1| (|p| |q| $) (EQ |p| |q|)) 
+(SDEFUN |REF;=;2$B;1| ((|p| $) (|q| $) ($ |Boolean|)) (EQ |p| |q|)) 
 
 (PUT '|REF;ref;S$;2| '|SPADreplace| 'LIST) 
 
-(DEFUN |REF;ref;S$;2| (|v| $) (LIST |v|)) 
+(SDEFUN |REF;ref;S$;2| ((|v| S) ($ $)) (LIST |v|)) 
 
 (PUT '|REF;elt;$S;3| '|SPADreplace| 'QCAR) 
 
-(DEFUN |REF;elt;$S;3| (|p| $) (QCAR |p|)) 
+(SDEFUN |REF;elt;$S;3| ((|p| $) ($ S)) (QCAR |p|)) 
 
-(DEFUN |REF;setelt;$2S;4| (|p| |v| $) (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
+(SDEFUN |REF;setelt;$2S;4| ((|p| $) (|v| S) ($ S))
+        (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
 
 (PUT '|REF;deref;$S;5| '|SPADreplace| 'QCAR) 
 
-(DEFUN |REF;deref;$S;5| (|p| $) (QCAR |p|)) 
+(SDEFUN |REF;deref;$S;5| ((|p| $) ($ S)) (QCAR |p|)) 
 
-(DEFUN |REF;setref;$2S;6| (|p| |v| $) (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
+(SDEFUN |REF;setref;$2S;6| ((|p| $) (|v| S) ($ S))
+        (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
 
-(DEFUN |REF;coerce;$Of;7| (|p| $)
-  (SPADCALL (SPADCALL "ref" (QREFELT $ 17))
-            (LIST (SPADCALL (QCAR |p|) (QREFELT $ 18))) (QREFELT $ 20))) 
+(SDEFUN |REF;coerce;$Of;7| ((|p| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL "ref" (QREFELT $ 17))
+                  (LIST (SPADCALL (QCAR |p|) (QREFELT $ 18))) (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |Reference;|)) 
 
 (DEFUN |Reference| (#1=#:G1758)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G1759)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|Reference|)
-                                           '|domainEqualList|)
-                . #3=(|Reference|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Reference;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Reference|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G1759)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Reference|)
+                                               '|domainEqualList|)
+                    . #3=(|Reference|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Reference;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|Reference|)))))))))) 
 
 (DEFUN |Reference;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Reference|))
-      (LETT |dv$| (LIST '|Reference| DV$1) . #1#)
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|SetCategory|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|Reference| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|Record| (|:| |value| |#1|)))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 21 (CONS (|dispatchFunction| |REF;coerce;$Of;7|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Reference|))
+          (LETT |dv$| (LIST '|Reference| DV$1) . #1#)
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|Reference| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|Record| (|:| |value| |#1|)))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV $ 21 (CONS (|dispatchFunction| |REF;coerce;$Of;7|) $))))
+          $))) 
 
 (MAKEPROP '|Reference| '|infovec|
           (LIST

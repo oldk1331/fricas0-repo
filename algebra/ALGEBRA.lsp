@@ -15,18 +15,17 @@
            #2#)))) 
 
 (DEFUN |Algebra;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|Algebra;CAT|)
-                                ('T
-                                 (LETT |Algebra;CAT|
-                                       (|Join| (|Ring|) (|Module| '|t#1|)
-                                               (|mkCategory|
-                                                '(((|coerce| ($ |t#1|)) T)) NIL
-                                                'NIL NIL))
-                                       . #2=(|Algebra|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|Algebra| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|Algebra;CAT|)
+                                    ('T
+                                     (LETT |Algebra;CAT|
+                                           (|Join| (|Ring|) (|Module| '|t#1|)
+                                                   (|mkCategory|
+                                                    '(((|coerce| ($ |t#1|)) T))
+                                                    NIL 'NIL NIL))
+                                           . #2=(|Algebra|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|Algebra| (|devaluate| |t#1|)))))) 

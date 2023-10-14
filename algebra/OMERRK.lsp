@@ -1,76 +1,77 @@
 
 (PUT '|OMERRK;OMParseError?;$B;1| '|SPADreplace| '(XLAM (|u|) (QEQCAR |u| 0))) 
 
-(DEFUN |OMERRK;OMParseError?;$B;1| (|u| $) (QEQCAR |u| 0)) 
+(SDEFUN |OMERRK;OMParseError?;$B;1| ((|u| $) ($ |Boolean|)) (QEQCAR |u| 0)) 
 
 (PUT '|OMERRK;OMUnknownCD?;$B;2| '|SPADreplace| '(XLAM (|u|) (QEQCAR |u| 1))) 
 
-(DEFUN |OMERRK;OMUnknownCD?;$B;2| (|u| $) (QEQCAR |u| 1)) 
+(SDEFUN |OMERRK;OMUnknownCD?;$B;2| ((|u| $) ($ |Boolean|)) (QEQCAR |u| 1)) 
 
 (PUT '|OMERRK;OMUnknownSymbol?;$B;3| '|SPADreplace|
      '(XLAM (|u|) (QEQCAR |u| 2))) 
 
-(DEFUN |OMERRK;OMUnknownSymbol?;$B;3| (|u| $) (QEQCAR |u| 2)) 
+(SDEFUN |OMERRK;OMUnknownSymbol?;$B;3| ((|u| $) ($ |Boolean|)) (QEQCAR |u| 2)) 
 
 (PUT '|OMERRK;OMReadError?;$B;4| '|SPADreplace| '(XLAM (|u|) (QEQCAR |u| 3))) 
 
-(DEFUN |OMERRK;OMReadError?;$B;4| (|u| $) (QEQCAR |u| 3)) 
+(SDEFUN |OMERRK;OMReadError?;$B;4| ((|u| $) ($ |Boolean|)) (QEQCAR |u| 3)) 
 
-(DEFUN |OMERRK;coerce;S$;5| (|s| $)
-  (COND ((EQUAL |s| '|OMParseError|) (CONS 0 "OMParseError"))
-        ((EQUAL |s| '|OMUnknownCD|) (CONS 1 "OMUnknownCD"))
-        ((EQUAL |s| '|OMUnknownSymbol|) (CONS 2 "OMUnknownSymbol"))
-        ((EQUAL |s| '|OMReadError|) (CONS 3 "OMReadError"))
-        ('T
-         (|error|
-          (SPADCALL
-           (STRCONC (SPADCALL |s| (QREFELT $ 14))
-                    " is not a valid OpenMathErrorKind.")
-           (QREFELT $ 16)))))) 
+(SDEFUN |OMERRK;coerce;S$;5| ((|s| |Symbol|) ($ $))
+        (COND ((EQUAL |s| '|OMParseError|) (CONS 0 "OMParseError"))
+              ((EQUAL |s| '|OMUnknownCD|) (CONS 1 "OMUnknownCD"))
+              ((EQUAL |s| '|OMUnknownSymbol|) (CONS 2 "OMUnknownSymbol"))
+              ((EQUAL |s| '|OMReadError|) (CONS 3 "OMReadError"))
+              ('T
+               (|error|
+                (SPADCALL
+                 (STRCONC (SPADCALL |s| (QREFELT $ 14))
+                          " is not a valid OpenMathErrorKind.")
+                 (QREFELT $ 16)))))) 
 
-(DEFUN |OMERRK;=;2$B;6| (|a| |b| $) (SPADCALL |a| |b| (QREFELT $ 18))) 
+(SDEFUN |OMERRK;=;2$B;6| ((|a| $) (|b| $) ($ |Boolean|))
+        (SPADCALL |a| |b| (QREFELT $ 18))) 
 
-(DEFUN |OMERRK;coerce;$Of;7| (|e| $) (SPADCALL |e| (QREFELT $ 20))) 
+(SDEFUN |OMERRK;coerce;$Of;7| ((|e| $) ($ |OutputForm|))
+        (SPADCALL |e| (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |OpenMathErrorKind;|)) 
 
 (DEFUN |OpenMathErrorKind| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G127)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|OpenMathErrorKind|)
-                . #2=(|OpenMathErrorKind|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|OpenMathErrorKind|
-                         (LIST (CONS NIL (CONS 1 (|OpenMathErrorKind;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G127)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|OpenMathErrorKind|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathErrorKind|)
+                    . #2=(|OpenMathErrorKind|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|OpenMathErrorKind|
+                             (LIST
+                              (CONS NIL (CONS 1 (|OpenMathErrorKind;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|OpenMathErrorKind|)))))))))) 
 
 (DEFUN |OpenMathErrorKind;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|OpenMathErrorKind|) . #1=(|OpenMathErrorKind|))
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OpenMathErrorKind| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Union| (|:| |parseError| "OMParseError")
-                         (|:| |unknownCD| "OMUnknownCD")
-                         (|:| |unknownSymbol| "OMUnknownSymbol")
-                         (|:| |readError| "OMReadError")))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OpenMathErrorKind|) . #1=(|OpenMathErrorKind|))
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OpenMathErrorKind| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Union| (|:| |parseError| "OMParseError")
+                             (|:| |unknownCD| "OMUnknownCD")
+                             (|:| |unknownSymbol| "OMUnknownSymbol")
+                             (|:| |readError| "OMReadError")))
+          $))) 
 
 (MAKEPROP '|OpenMathErrorKind| '|infovec|
           (LIST

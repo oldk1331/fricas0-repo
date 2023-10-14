@@ -1,53 +1,53 @@
 
-(DEFUN |ANY1;retractable?;AB;1| (|a| $)
-  (SPADCALL (SPADCALL |a| (QREFELT $ 10)) (QREFELT $ 7) (QREFELT $ 12))) 
+(SDEFUN |ANY1;retractable?;AB;1| ((|a| |Any|) ($ |Boolean|))
+        (SPADCALL (SPADCALL |a| (QREFELT $ 10)) (QREFELT $ 7) (QREFELT $ 12))) 
 
-(DEFUN |ANY1;coerce;SA;2| (|s| $)
-  (SPADCALL (QREFELT $ 7) (SPADCALL |s| (QREFELT $ 16)) (QREFELT $ 17))) 
+(SDEFUN |ANY1;coerce;SA;2| ((|s| S) ($ |Any|))
+        (SPADCALL (QREFELT $ 7) (SPADCALL |s| (QREFELT $ 16)) (QREFELT $ 17))) 
 
-(DEFUN |ANY1;retractIfCan;AU;3| (|a| $)
-  (COND ((SPADCALL |a| (QREFELT $ 13)) (CONS 0 (SPADCALL |a| (QREFELT $ 19))))
-        ('T (CONS 1 "failed")))) 
+(SDEFUN |ANY1;retractIfCan;AU;3| ((|a| |Any|) ($ |Union| S "failed"))
+        (COND
+         ((SPADCALL |a| (QREFELT $ 13)) (CONS 0 (SPADCALL |a| (QREFELT $ 19))))
+         ('T (CONS 1 "failed")))) 
 
-(DEFUN |ANY1;retract;AS;4| (|a| $)
-  (COND ((SPADCALL |a| (QREFELT $ 13)) (SPADCALL |a| (QREFELT $ 19)))
-        ('T (|error| "Cannot retract value.")))) 
+(SDEFUN |ANY1;retract;AS;4| ((|a| |Any|) ($ S))
+        (COND ((SPADCALL |a| (QREFELT $ 13)) (SPADCALL |a| (QREFELT $ 19)))
+              ('T (|error| "Cannot retract value.")))) 
 
 (DECLAIM (NOTINLINE |AnyFunctions1;|)) 
 
 (DEFUN |AnyFunctions1| (#1=#:G117)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G118)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|AnyFunctions1|)
-                                           '|domainEqualList|)
-                . #3=(|AnyFunctions1|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|AnyFunctions1;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|AnyFunctions1|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|AnyFunctions1|)
+                                               '|domainEqualList|)
+                    . #3=(|AnyFunctions1|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|AnyFunctions1;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|AnyFunctions1|)))))))))) 
 
 (DEFUN |AnyFunctions1;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|AnyFunctions1|))
-      (LETT |dv$| (LIST '|AnyFunctions1| DV$1) . #1#)
-      (LETT $ (GETREFV 23) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|AnyFunctions1| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|devaluate| |#1|))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|AnyFunctions1|))
+          (LETT |dv$| (LIST '|AnyFunctions1| DV$1) . #1#)
+          (LETT $ (GETREFV 23) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|AnyFunctions1| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|devaluate| |#1|))
+          $))) 
 
 (MAKEPROP '|AnyFunctions1| '|infovec|
           (LIST

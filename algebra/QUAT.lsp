@@ -2,95 +2,98 @@
 (DECLAIM (NOTINLINE |Quaternion;|)) 
 
 (DEFUN |Quaternion| (#1=#:G120)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G121)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|Quaternion|)
-                                           '|domainEqualList|)
-                . #3=(|Quaternion|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Quaternion;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Quaternion|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G121)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Quaternion|)
+                                               '|domainEqualList|)
+                    . #3=(|Quaternion|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Quaternion;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|Quaternion|)))))))))) 
 
 (DEFUN |Quaternion;| (|#1|)
-  (PROG (|pv$| #1=#:G119 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|Quaternion|))
-      (LETT |dv$| (LIST '|Quaternion| DV$1) . #2#)
-      (LETT $ (GETREFV 38) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#1| '(|Field|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|EntireRing|))
-                                                . #2#)
-                                          (OR #1#
-                                              (|HasCategory| |#1| '(|Field|)))
-                                          (|HasCategory| |#1| '(|OrderedSet|))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|PartialDifferentialRing|
-                                                           (|Symbol|)))
-                                          (|HasCategory| |#1|
-                                                         '(|DifferentialRing|))
-                                          (|HasCategory| |#1|
-                                                         (LIST '|InnerEvalable|
-                                                               '(|Symbol|)
-                                                               (|devaluate|
-                                                                |#1|)))
-                                          (|HasCategory| |#1|
-                                                         (LIST '|Evalable|
-                                                               (|devaluate|
-                                                                |#1|)))
-                                          (|HasCategory| |#1|
-                                                         (LIST '|Eltable|
-                                                               (|devaluate|
-                                                                |#1|)
-                                                               (|devaluate|
-                                                                |#1|)))
-                                          (|HasCategory| |#1|
-                                                         '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|RealNumberSystem|))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegerNumberSystem|))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           (|HasCategory| |#1| '(|Field|)))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|Quaternion| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) (#1=#:G119 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #2=(|Quaternion|))
+          (LETT |dv$| (LIST '|Quaternion| DV$1) . #2#)
+          (LETT $ (GETREFV 38) . #2#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicNonZero|))
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicZero|))
+                                              (|HasCategory| |#1|
+                                                             '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              (|HasCategory| |#1| '(|Field|))
+                                              (LETT #1#
+                                                    (|HasCategory| |#1|
+                                                                   '(|EntireRing|))
+                                                    . #2#)
+                                              (OR #1#
+                                                  (|HasCategory| |#1|
+                                                                 '(|Field|)))
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedSet|))
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#1|
+                                                             '(|PartialDifferentialRing|
+                                                               (|Symbol|)))
+                                              (|HasCategory| |#1|
+                                                             '(|DifferentialRing|))
+                                              (|HasCategory| |#1|
+                                                             (LIST
+                                                              '|InnerEvalable|
+                                                              '(|Symbol|)
+                                                              (|devaluate|
+                                                               |#1|)))
+                                              (|HasCategory| |#1|
+                                                             (LIST '|Evalable|
+                                                                   (|devaluate|
+                                                                    |#1|)))
+                                              (|HasCategory| |#1|
+                                                             (LIST '|Eltable|
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   (|devaluate|
+                                                                    |#1|)))
+                                              (|HasCategory| |#1|
+                                                             '(|LinearlyExplicitRingOver|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#1|
+                                                             '(|RealNumberSystem|))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegerNumberSystem|))
+                                              (OR
+                                               (|HasCategory| |#1|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#1|
+                                                              '(|Field|)))))
+                          . #2#))
+          (|haddProp| |$ConstructorCache| '|Quaternion| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Quaternion| '|infovec|
           (LIST

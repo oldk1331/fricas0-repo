@@ -1,22 +1,21 @@
 
-(DEFUN |NASRING-;coerce;IS;1| (|n| $)
-  (SPADCALL |n| (|spadConstant| $ 7) (QREFELT $ 9))) 
+(SDEFUN |NASRING-;coerce;IS;1| ((|n| |Integer|) ($ S))
+        (SPADCALL |n| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |NonAssociativeRing&;|)) 
 
 (DEFUN |NonAssociativeRing&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|NonAssociativeRing&|))
-      (LETT |dv$| (LIST '|NonAssociativeRing&| DV$1) . #1#)
-      (LETT $ (GETREFV 12) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|NonAssociativeRing&|))
+          (LETT |dv$| (LIST '|NonAssociativeRing&| DV$1) . #1#)
+          (LETT $ (GETREFV 12) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|NonAssociativeRing&| '|infovec|
           (LIST

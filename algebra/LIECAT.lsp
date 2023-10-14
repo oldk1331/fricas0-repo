@@ -15,20 +15,20 @@
            #2#)))) 
 
 (DEFUN |LieAlgebra;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|LieAlgebra;CAT|)
-                                ('T
-                                 (LETT |LieAlgebra;CAT|
-                                       (|Join| (|Module| '|t#1|)
-                                               (|mkCategory|
-                                                '(((|construct| ($ $ $)) T)
-                                                  ((/ ($ $ |t#1|))
-                                                   (|has| |t#1| (|Field|))))
-                                                NIL 'NIL NIL))
-                                       . #2=(|LieAlgebra|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|LieAlgebra| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|LieAlgebra;CAT|)
+                                    ('T
+                                     (LETT |LieAlgebra;CAT|
+                                           (|Join| (|Module| '|t#1|)
+                                                   (|mkCategory|
+                                                    '(((|construct| ($ $ $)) T)
+                                                      ((/ ($ $ |t#1|))
+                                                       (|has| |t#1|
+                                                              (|Field|))))
+                                                    NIL 'NIL NIL))
+                                           . #2=(|LieAlgebra|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|LieAlgebra| (|devaluate| |t#1|)))))) 

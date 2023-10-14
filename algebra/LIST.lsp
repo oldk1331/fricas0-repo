@@ -1,235 +1,243 @@
 
 (PUT '|LIST;nil;$;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(DEFUN |LIST;nil;$;1| ($) NIL) 
+(SDEFUN |LIST;nil;$;1| (($ $)) NIL) 
 
 (PUT '|LIST;null;$B;2| '|SPADreplace| 'NULL) 
 
-(DEFUN |LIST;null;$B;2| (|l| $) (NULL |l|)) 
+(SDEFUN |LIST;null;$B;2| ((|l| $) ($ |Boolean|)) (NULL |l|)) 
 
 (PUT '|LIST;cons;S2$;3| '|SPADreplace| 'CONS) 
 
-(DEFUN |LIST;cons;S2$;3| (|s| |l| $) (CONS |s| |l|)) 
+(SDEFUN |LIST;cons;S2$;3| ((|s| S) (|l| $) ($ $)) (CONS |s| |l|)) 
 
 (PUT '|LIST;append;3$;4| '|SPADreplace| 'APPEND) 
 
-(DEFUN |LIST;append;3$;4| (|l| |t| $) (APPEND |l| |t|)) 
+(SDEFUN |LIST;append;3$;4| ((|l| $) (|t| $) ($ $)) (APPEND |l| |t|)) 
 
-(DEFUN |LIST;writeOMList| (|dev| |x| $)
-  (SEQ (SPADCALL |dev| (QREFELT $ 14))
-       (SPADCALL |dev| "list1" "list" (QREFELT $ 16))
-       (SEQ G190 (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
-            (SEQ (SPADCALL |dev| (|SPADfirst| |x|) 'NIL (QREFELT $ 17))
-                 (EXIT (LETT |x| (CDR |x|) |LIST;writeOMList|)))
-            NIL (GO G190) G191 (EXIT NIL))
-       (EXIT (SPADCALL |dev| (QREFELT $ 18))))) 
+(SDEFUN |LIST;writeOMList| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
+        (SEQ (SPADCALL |dev| (QREFELT $ 14))
+             (SPADCALL |dev| "list1" "list" (QREFELT $ 16))
+             (SEQ G190
+                  (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+                  (SEQ (SPADCALL |dev| (|SPADfirst| |x|) 'NIL (QREFELT $ 17))
+                       (EXIT (LETT |x| (CDR |x|) |LIST;writeOMList|)))
+                  NIL (GO G190) G191 (EXIT NIL))
+             (EXIT (SPADCALL |dev| (QREFELT $ 18))))) 
 
-(DEFUN |LIST;OMwrite;$S;6| (|x| $)
-  (PROG (|s| |dev| |sp|)
-    (RETURN
-     (SEQ (LETT |s| "" . #1=(|LIST;OMwrite;$S;6|))
-          (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
-          (LETT |dev| (SPADCALL |sp| (SPADCALL (QREFELT $ 20)) (QREFELT $ 21))
-                . #1#)
-          (SPADCALL |dev| (QREFELT $ 22)) (|LIST;writeOMList| |dev| |x| $)
-          (SPADCALL |dev| (QREFELT $ 23)) (SPADCALL |dev| (QREFELT $ 24))
-          (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|))))) 
+(SDEFUN |LIST;OMwrite;$S;6| ((|x| $) ($ |String|))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+               (SEQ (LETT |s| "" . #1=(|LIST;OMwrite;$S;6|))
+                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
+                    (LETT |dev|
+                          (SPADCALL |sp| (SPADCALL (QREFELT $ 20))
+                                    (QREFELT $ 21))
+                          . #1#)
+                    (SPADCALL |dev| (QREFELT $ 22))
+                    (|LIST;writeOMList| |dev| |x| $)
+                    (SPADCALL |dev| (QREFELT $ 23))
+                    (SPADCALL |dev| (QREFELT $ 24))
+                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
-(DEFUN |LIST;OMwrite;$BS;7| (|x| |wholeObj| $)
-  (PROG (|s| |dev| |sp|)
-    (RETURN
-     (SEQ (LETT |s| "" . #1=(|LIST;OMwrite;$BS;7|))
-          (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
-          (LETT |dev| (SPADCALL |sp| (SPADCALL (QREFELT $ 20)) (QREFELT $ 21))
-                . #1#)
-          (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 22))))
-          (|LIST;writeOMList| |dev| |x| $)
-          (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 23))))
-          (SPADCALL |dev| (QREFELT $ 24))
-          (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|))))) 
+(SDEFUN |LIST;OMwrite;$BS;7| ((|x| $) (|wholeObj| |Boolean|) ($ |String|))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+               (SEQ (LETT |s| "" . #1=(|LIST;OMwrite;$BS;7|))
+                    (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
+                    (LETT |dev|
+                          (SPADCALL |sp| (SPADCALL (QREFELT $ 20))
+                                    (QREFELT $ 21))
+                          . #1#)
+                    (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 22))))
+                    (|LIST;writeOMList| |dev| |x| $)
+                    (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 23))))
+                    (SPADCALL |dev| (QREFELT $ 24))
+                    (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
-(DEFUN |LIST;OMwrite;Omd$V;8| (|dev| |x| $)
-  (SEQ (SPADCALL |dev| (QREFELT $ 22)) (|LIST;writeOMList| |dev| |x| $)
-       (EXIT (SPADCALL |dev| (QREFELT $ 23))))) 
+(SDEFUN |LIST;OMwrite;Omd$V;8| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
+        (SEQ (SPADCALL |dev| (QREFELT $ 22)) (|LIST;writeOMList| |dev| |x| $)
+             (EXIT (SPADCALL |dev| (QREFELT $ 23))))) 
 
-(DEFUN |LIST;OMwrite;Omd$BV;9| (|dev| |x| |wholeObj| $)
-  (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 22))))
-       (|LIST;writeOMList| |dev| |x| $)
-       (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 23))))))) 
+(SDEFUN |LIST;OMwrite;Omd$BV;9|
+        ((|dev| |OpenMathDevice|) (|x| $) (|wholeObj| |Boolean|) ($ |Void|))
+        (SEQ (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 22))))
+             (|LIST;writeOMList| |dev| |x| $)
+             (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 23))))))) 
 
-(DEFUN |LIST;setUnion;3$;10| (|l1| |l2| $)
-  (SPADCALL (SPADCALL |l1| |l2| (QREFELT $ 29)) (QREFELT $ 30))) 
+(SDEFUN |LIST;setUnion;3$;10| ((|l1| $) (|l2| $) ($ $))
+        (SPADCALL (SPADCALL |l1| |l2| (QREFELT $ 29)) (QREFELT $ 30))) 
 
-(DEFUN |LIST;setIntersection;3$;11| (|l1| |l2| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ (LETT |u| NIL . #1=(|LIST;setIntersection;3$;11|))
-          (LETT |l1| (SPADCALL |l1| (QREFELT $ 30)) . #1#)
-          (SEQ G190 (COND ((NULL (COND ((NULL |l1|) 'NIL) ('T 'T))) (GO G191)))
+(SDEFUN |LIST;setIntersection;3$;11| ((|l1| $) (|l2| $) ($ $))
+        (SPROG ((|u| ($)))
+               (SEQ (LETT |u| NIL . #1=(|LIST;setIntersection;3$;11|))
+                    (LETT |l1| (SPADCALL |l1| (QREFELT $ 30)) . #1#)
+                    (SEQ G190
+                         (COND
+                          ((NULL (COND ((NULL |l1|) 'NIL) ('T 'T))) (GO G191)))
+                         (SEQ
+                          (COND
+                           ((SPADCALL (|SPADfirst| |l1|) |l2| (QREFELT $ 32))
+                            (LETT |u| (CONS (|SPADfirst| |l1|) |u|) . #1#)))
+                          (EXIT (LETT |l1| (CDR |l1|) . #1#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |u|)))) 
+
+(SDEFUN |LIST;setDifference;3$;12| ((|l1| $) (|l2| $) ($ $))
+        (SPROG ((|lu| ($)) (|l11| (S)))
                (SEQ
-                (COND
-                 ((SPADCALL (|SPADfirst| |l1|) |l2| (QREFELT $ 32))
-                  (LETT |u| (CONS (|SPADfirst| |l1|) |u|) . #1#)))
-                (EXIT (LETT |l1| (CDR |l1|) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |u|))))) 
+                (LETT |l1| (SPADCALL |l1| (QREFELT $ 30))
+                      . #1=(|LIST;setDifference;3$;12|))
+                (LETT |lu| NIL . #1#)
+                (SEQ G190
+                     (COND
+                      ((NULL (COND ((NULL |l1|) 'NIL) ('T 'T))) (GO G191)))
+                     (SEQ (LETT |l11| (SPADCALL |l1| 1 (QREFELT $ 35)) . #1#)
+                          (COND
+                           ((NULL (SPADCALL |l11| |l2| (QREFELT $ 32)))
+                            (LETT |lu| (CONS |l11| |lu|) . #1#)))
+                          (EXIT (LETT |l1| (CDR |l1|) . #1#)))
+                     NIL (GO G190) G191 (EXIT NIL))
+                (EXIT |lu|)))) 
 
-(DEFUN |LIST;setDifference;3$;12| (|l1| |l2| $)
-  (PROG (|lu| |l11|)
-    (RETURN
-     (SEQ
-      (LETT |l1| (SPADCALL |l1| (QREFELT $ 30))
-            . #1=(|LIST;setDifference;3$;12|))
-      (LETT |lu| NIL . #1#)
-      (SEQ G190 (COND ((NULL (COND ((NULL |l1|) 'NIL) ('T 'T))) (GO G191)))
-           (SEQ (LETT |l11| (SPADCALL |l1| 1 (QREFELT $ 35)) . #1#)
-                (COND
-                 ((NULL (SPADCALL |l11| |l2| (QREFELT $ 32)))
-                  (LETT |lu| (CONS |l11| |lu|) . #1#)))
-                (EXIT (LETT |l1| (CDR |l1|) . #1#)))
-           NIL (GO G190) G191 (EXIT NIL))
-      (EXIT |lu|))))) 
-
-(DEFUN |LIST;convert;$If;13| (|x| $)
-  (PROG (#1=#:G1537 |a| #2=#:G1536)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (CONS (SPADCALL '|construct| (QREFELT $ 39))
-             (PROGN
-              (LETT #2# NIL . #3=(|LIST;convert;$If;13|))
-              (SEQ (LETT |a| NIL . #3#) (LETT #1# |x| . #3#) G190
-                   (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
-                     (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (LETT #2# (CONS (SPADCALL |a| (QREFELT $ 40)) #2#)
-                           . #3#)))
-                   (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                   (EXIT (NREVERSE #2#)))))
-       (QREFELT $ 42)))))) 
+(SDEFUN |LIST;convert;$If;13| ((|x| $) ($ |InputForm|))
+        (SPROG ((#1=#:G1537 NIL) (|a| NIL) (#2=#:G1536 NIL))
+               (SEQ
+                (SPADCALL
+                 (CONS (SPADCALL '|construct| (QREFELT $ 39))
+                       (PROGN
+                        (LETT #2# NIL . #3=(|LIST;convert;$If;13|))
+                        (SEQ (LETT |a| NIL . #3#) (LETT #1# |x| . #3#) G190
+                             (COND
+                              ((OR (ATOM #1#)
+                                   (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #2#
+                                     (CONS (SPADCALL |a| (QREFELT $ 40)) #2#)
+                                     . #3#)))
+                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                             (EXIT (NREVERSE #2#)))))
+                 (QREFELT $ 42))))) 
 
 (DECLAIM (NOTINLINE |List;|)) 
 
 (DEFUN |List| (#1=#:G1550)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G1551)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache| '|List|)
-                                           '|domainEqualList|)
-                . #3=(|List|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|List;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|List|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G1551)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|List|)
+                                               '|domainEqualList|)
+                    . #3=(|List|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|List;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|List|)))))))))) 
 
 (DEFUN |List;| (|#1|)
-  (PROG (#1=#:G1548 #2=#:G1549 |pv$| #3=#:G1545 #4=#:G1546 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #5=(|List|))
-      (LETT |dv$| (LIST '|List| DV$1) . #5#)
-      (LETT $ (GETREFV 62) . #5#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
+  (SPROG
+   ((#1=#:G1548 NIL) (#2=#:G1549 NIL) (|pv$| NIL) (#3=#:G1545 NIL)
+    (#4=#:G1546 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #5=(|List|))
+    (LETT |dv$| (LIST '|List| DV$1) . #5#)
+    (LETT $ (GETREFV 62) . #5#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| |#1| '(|OrderedSet|))
+                                        (|HasCategory| |#1| '(|OpenMath|))
+                                        (|HasCategory| |#1| '(|BasicType|))
+                                        (LETT #4#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #5#)
+                                        (OR (|HasCategory| |#1| '(|BasicType|))
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedSet|))
+                                            #4#)
+                                        (OR
+                                         (|HasCategory| |#1| '(|OrderedSet|))
+                                         #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #4#)
+                                        (OR
+                                         (AND
                                           (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#1| '(|OrderedSet|))
-                                          (|HasCategory| |#1| '(|OpenMath|))
-                                          (|HasCategory| |#1| '(|BasicType|))
-                                          (LETT #4#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #5#)
-                                          (OR
-                                           (|HasCategory| |#1| '(|BasicType|))
-                                           (|HasCategory| |#1| '(|OrderedSet|))
-                                           #4#)
-                                          (OR
-                                           (|HasCategory| |#1| '(|OrderedSet|))
-                                           #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #4#)
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            #4#))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #5#)
-                                          (OR #3#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #4#))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))))
-                      . #5#))
-      (|haddProp| |$ConstructorCache| '|List| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
-      (AND
-       (LETT #2#
-             (AND (|HasCategory| |#1| '(|BasicType|))
-                  (|HasCategory| $ '(|finiteAggregate|)))
-             . #5#)
-       (|augmentPredVector| $ 8192))
-      (AND (OR #2# #4#) (|augmentPredVector| $ 16384))
-      (AND #4# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 32768))
-      (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)) . #5#)
-           (|augmentPredVector| $ 65536))
-      (AND (|HasCategory| |#1| '(|OrderedSet|)) #1#
-           (|augmentPredVector| $ 131072))
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 25 (CONS (|dispatchFunction| |LIST;OMwrite;$S;6|) $))
-         (QSETREFV $ 26 (CONS (|dispatchFunction| |LIST;OMwrite;$BS;7|) $))
-         (QSETREFV $ 27 (CONS (|dispatchFunction| |LIST;OMwrite;Omd$V;8|) $))
-         (QSETREFV $ 28
-                   (CONS (|dispatchFunction| |LIST;OMwrite;Omd$BV;9|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 4)
-        (PROGN
-         (QSETREFV $ 31 (CONS (|dispatchFunction| |LIST;setUnion;3$;10|) $))
-         (QSETREFV $ 33
-                   (CONS (|dispatchFunction| |LIST;setIntersection;3$;11|) $))
-         (QSETREFV $ 36
-                   (CONS (|dispatchFunction| |LIST;setDifference;3$;12|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 43 (CONS (|dispatchFunction| |LIST;convert;$If;13|) $))))
-      $)))) 
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#1| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          #4#))
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #5#)
+                                        (OR #3#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #4#))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|OrderedSet|))))
+                    . #5#))
+    (|haddProp| |$ConstructorCache| '|List| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
+    (AND
+     (LETT #2#
+           (AND (|HasCategory| |#1| '(|BasicType|))
+                (|HasCategory| $ '(|finiteAggregate|)))
+           . #5#)
+     (|augmentPredVector| $ 8192))
+    (AND (OR #2# #4#) (|augmentPredVector| $ 16384))
+    (AND #4# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 32768))
+    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)) . #5#)
+         (|augmentPredVector| $ 65536))
+    (AND (|HasCategory| |#1| '(|OrderedSet|)) #1#
+         (|augmentPredVector| $ 131072))
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|testBitVector| |pv$| 3)
+      (PROGN
+       (QSETREFV $ 25 (CONS (|dispatchFunction| |LIST;OMwrite;$S;6|) $))
+       (QSETREFV $ 26 (CONS (|dispatchFunction| |LIST;OMwrite;$BS;7|) $))
+       (QSETREFV $ 27 (CONS (|dispatchFunction| |LIST;OMwrite;Omd$V;8|) $))
+       (QSETREFV $ 28 (CONS (|dispatchFunction| |LIST;OMwrite;Omd$BV;9|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 4)
+      (PROGN
+       (QSETREFV $ 31 (CONS (|dispatchFunction| |LIST;setUnion;3$;10|) $))
+       (QSETREFV $ 33
+                 (CONS (|dispatchFunction| |LIST;setIntersection;3$;11|) $))
+       (QSETREFV $ 36
+                 (CONS (|dispatchFunction| |LIST;setDifference;3$;12|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 1)
+      (QSETREFV $ 43 (CONS (|dispatchFunction| |LIST;convert;$If;13|) $))))
+    $))) 
 
 (MAKEPROP '|List| '|infovec|
           (LIST

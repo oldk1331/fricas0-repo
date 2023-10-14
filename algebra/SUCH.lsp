@@ -1,57 +1,57 @@
 
 (PUT '|SUCH;construct;S1S2$;1| '|SPADreplace| 'CONS) 
 
-(DEFUN |SUCH;construct;S1S2$;1| (|o| |c| $) (CONS |o| |c|)) 
+(SDEFUN |SUCH;construct;S1S2$;1| ((|o| S1) (|c| S2) ($ $)) (CONS |o| |c|)) 
 
 (PUT '|SUCH;lhs;$S1;2| '|SPADreplace| 'QCAR) 
 
-(DEFUN |SUCH;lhs;$S1;2| (|st| $) (QCAR |st|)) 
+(SDEFUN |SUCH;lhs;$S1;2| ((|st| $) ($ S1)) (QCAR |st|)) 
 
 (PUT '|SUCH;rhs;$S2;3| '|SPADreplace| 'QCDR) 
 
-(DEFUN |SUCH;rhs;$S2;3| (|st| $) (QCDR |st|)) 
+(SDEFUN |SUCH;rhs;$S2;3| ((|st| $) ($ S2)) (QCDR |st|)) 
 
-(DEFUN |SUCH;coerce;$Of;4| (|w| $)
-  (SPADCALL "|" (SPADCALL (QCAR |w|) (QREFELT $ 13))
-            (SPADCALL (QCDR |w|) (QREFELT $ 14)) (QREFELT $ 15))) 
+(SDEFUN |SUCH;coerce;$Of;4| ((|w| $) ($ |OutputForm|))
+        (SPADCALL "|" (SPADCALL (QCAR |w|) (QREFELT $ 13))
+                  (SPADCALL (QCDR |w|) (QREFELT $ 14)) (QREFELT $ 15))) 
 
 (DECLAIM (NOTINLINE |SuchThat;|)) 
 
 (DEFUN |SuchThat| (&REST #1=#:G110)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G111)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|SuchThat|)
-                                           '|domainEqualList|)
-                . #3=(|SuchThat|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |SuchThat;|) #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|SuchThat|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G111)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SuchThat|)
+                                               '|domainEqualList|)
+                    . #3=(|SuchThat|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SuchThat;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|SuchThat|)))))))))) 
 
 (DEFUN |SuchThat;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|SuchThat|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|SuchThat| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|SuchThat| (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (|Record| (|:| |obj| |#1|) (|:| |cond| |#2|)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|SuchThat|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|SuchThat| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|SuchThat| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 (|Record| (|:| |obj| |#1|) (|:| |cond| |#2|)))
+          $))) 
 
 (MAKEPROP '|SuchThat| '|infovec|
           (LIST

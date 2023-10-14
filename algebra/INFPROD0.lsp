@@ -1,62 +1,65 @@
 
-(DEFUN |INFPROD0;infiniteProduct;2UTS;1| (|x| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 11))
-            (QREFELT $ 12))) 
+(SDEFUN |INFPROD0;infiniteProduct;2UTS;1| ((|x| UTS) ($ UTS))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 11))
+                  (QREFELT $ 12))) 
 
-(DEFUN |INFPROD0;evenInfiniteProduct;2UTS;2| (|x| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 14))
-            (QREFELT $ 12))) 
+(SDEFUN |INFPROD0;evenInfiniteProduct;2UTS;2| ((|x| UTS) ($ UTS))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 14))
+                  (QREFELT $ 12))) 
 
-(DEFUN |INFPROD0;oddInfiniteProduct;2UTS;3| (|x| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 16))
-            (QREFELT $ 12))) 
+(SDEFUN |INFPROD0;oddInfiniteProduct;2UTS;3| ((|x| UTS) ($ UTS))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 16))
+                  (QREFELT $ 12))) 
 
-(DEFUN |INFPROD0;generalInfiniteProduct;UTS2IUTS;4| (|x| |a| |d| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) |a| |d| (QREFELT $ 19))
-            (QREFELT $ 12))) 
+(SDEFUN |INFPROD0;generalInfiniteProduct;UTS2IUTS;4|
+        ((|x| UTS) (|a| |Integer|) (|d| |Integer|) ($ UTS))
+        (SPADCALL
+         (SPADCALL (SPADCALL |x| (QREFELT $ 9)) |a| |d| (QREFELT $ 19))
+         (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |InfiniteProductCharacteristicZero;|)) 
 
 (DEFUN |InfiniteProductCharacteristicZero| (&REST #1=#:G107)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G108)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|InfiniteProductCharacteristicZero|)
-                                           '|domainEqualList|)
-                . #3=(|InfiniteProductCharacteristicZero|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |InfiniteProductCharacteristicZero;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G108)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|InfiniteProductCharacteristicZero|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InfiniteProductCharacteristicZero|)
+                                               '|domainEqualList|)
+                    . #3=(|InfiniteProductCharacteristicZero|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |InfiniteProductCharacteristicZero;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|InfiniteProductCharacteristicZero|)))))))))) 
 
 (DEFUN |InfiniteProductCharacteristicZero;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteProductCharacteristicZero|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|InfiniteProductCharacteristicZero| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|InfiniteProductCharacteristicZero|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|InfiniteProductCharacteristicZero|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|InfiniteProductCharacteristicZero| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|InfiniteProductCharacteristicZero|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|InfiniteProductCharacteristicZero| '|infovec|
           (LIST

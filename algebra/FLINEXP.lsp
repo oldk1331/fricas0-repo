@@ -20,24 +20,24 @@
       #2#)))) 
 
 (DEFUN |FullyLinearlyExplicitRingOver;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|FullyLinearlyExplicitRingOver;CAT|)
-                                ('T
-                                 (LETT |FullyLinearlyExplicitRingOver;CAT|
-                                       (|Join|
-                                        (|LinearlyExplicitRingOver| '|t#1|)
-                                        (|mkCategory| NIL
-                                                      '(((|LinearlyExplicitRingOver|
-                                                          (|Integer|))
-                                                         (|has| |t#1|
-                                                                (|LinearlyExplicitRingOver|
-                                                                 (|Integer|)))))
-                                                      'NIL NIL))
-                                       . #2=(|FullyLinearlyExplicitRingOver|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|FullyLinearlyExplicitRingOver| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|FullyLinearlyExplicitRingOver;CAT|)
+                                    ('T
+                                     (LETT |FullyLinearlyExplicitRingOver;CAT|
+                                           (|Join|
+                                            (|LinearlyExplicitRingOver| '|t#1|)
+                                            (|mkCategory| NIL
+                                                          '(((|LinearlyExplicitRingOver|
+                                                              (|Integer|))
+                                                             (|has| |t#1|
+                                                                    (|LinearlyExplicitRingOver|
+                                                                     (|Integer|)))))
+                                                          'NIL NIL))
+                                           . #2=(|FullyLinearlyExplicitRingOver|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|FullyLinearlyExplicitRingOver|
+                         (|devaluate| |t#1|)))))) 

@@ -14,13 +14,12 @@
       #2#)))) 
 
 (DEFUN |CoercibleFrom;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (|Join|
-                           (|mkCategory| '(((|coerce| ($ |t#1|)) T)) NIL 'NIL
-                                         NIL)))
-               |CoercibleFrom|)
-       (SETELT #1# 0 (LIST '|CoercibleFrom| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (|Join|
+                               (|mkCategory| '(((|coerce| ($ |t#1|)) T)) NIL
+                                             'NIL NIL)))
+                   |CoercibleFrom|)
+           (SETELT #1# 0 (LIST '|CoercibleFrom| (|devaluate| |t#1|)))))) 

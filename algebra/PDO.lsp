@@ -1,158 +1,158 @@
 
-(DEFUN |PDO;adjoint;2$;1| (|x| $)
-  (PROG (|xu| |res| |sign| |d| |v| #1=#:G112)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |x| (QREFELT $ 15)) |x|)
-            ('T
-             (SEQ
-              (LETT |v|
-                    (PROG2
-                        (LETT #1# (SPADCALL |x| (QREFELT $ 17))
-                              . #2=(|PDO;adjoint;2$;1|))
-                        (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
-                    . #2#)
-              (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 20)) . #2#)
-              (LETT |res| (|spadConstant| $ 21) . #2#)
-              (LETT |xu| (SPADCALL (ELT $ 22) |xu| (QREFELT $ 24)) . #2#)
-              (SEQ G190
-                   (COND
-                    ((NULL
-                      (SPADCALL |xu| (|spadConstant| $ 26) (QREFELT $ 27)))
-                     (GO G191)))
-                   (SEQ (LETT |d| (SPADCALL |xu| (QREFELT $ 29)) . #2#)
-                        (LETT |sign|
-                              (COND
-                               ((ODDP |d|)
-                                (SPADCALL (|spadConstant| $ 30)
-                                          (QREFELT $ 32)))
-                               ('T (|spadConstant| $ 30)))
-                              . #2#)
-                        (LETT |res|
-                              (SPADCALL |res|
-                                        (SPADCALL
-                                         (SPADCALL |sign|
-                                                   (SPADCALL
-                                                    (|spadConstant| $ 30) |v|
-                                                    |d| (QREFELT $ 33))
-                                                   (QREFELT $ 34))
-                                         (SPADCALL |xu| (QREFELT $ 35))
-                                         (QREFELT $ 34))
-                                        (QREFELT $ 36))
-                              . #2#)
-                        (EXIT
-                         (LETT |xu| (SPADCALL |xu| (QREFELT $ 37)) . #2#)))
-                   NIL (GO G190) G191 (EXIT NIL))
-              (EXIT |res|)))))))) 
+(SDEFUN |PDO;adjoint;2$;1| ((|x| $) ($ $))
+        (SPROG
+         ((|xu| (|Sup|)) (|res| ($)) (|sign| ($)) (|d| (|NonNegativeInteger|))
+          (|v| (|Var|)) (#1=#:G112 NIL))
+         (SEQ
+          (COND ((SPADCALL |x| (QREFELT $ 15)) |x|)
+                ('T
+                 (SEQ
+                  (LETT |v|
+                        (PROG2
+                            (LETT #1# (SPADCALL |x| (QREFELT $ 17))
+                                  . #2=(|PDO;adjoint;2$;1|))
+                            (QCDR #1#)
+                          (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                        . #2#)
+                  (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 20)) . #2#)
+                  (LETT |res| (|spadConstant| $ 21) . #2#)
+                  (LETT |xu| (SPADCALL (ELT $ 22) |xu| (QREFELT $ 24)) . #2#)
+                  (SEQ G190
+                       (COND
+                        ((NULL
+                          (SPADCALL |xu| (|spadConstant| $ 26) (QREFELT $ 27)))
+                         (GO G191)))
+                       (SEQ (LETT |d| (SPADCALL |xu| (QREFELT $ 29)) . #2#)
+                            (LETT |sign|
+                                  (COND
+                                   ((ODDP |d|)
+                                    (SPADCALL (|spadConstant| $ 30)
+                                              (QREFELT $ 32)))
+                                   ('T (|spadConstant| $ 30)))
+                                  . #2#)
+                            (LETT |res|
+                                  (SPADCALL |res|
+                                            (SPADCALL
+                                             (SPADCALL |sign|
+                                                       (SPADCALL
+                                                        (|spadConstant| $ 30)
+                                                        |v| |d| (QREFELT $ 33))
+                                                       (QREFELT $ 34))
+                                             (SPADCALL |xu| (QREFELT $ 35))
+                                             (QREFELT $ 34))
+                                            (QREFELT $ 36))
+                                  . #2#)
+                            (EXIT
+                             (LETT |xu| (SPADCALL |xu| (QREFELT $ 37)) . #2#)))
+                       NIL (GO G190) G191 (EXIT NIL))
+                  (EXIT |res|))))))) 
 
 (DECLAIM (NOTINLINE |PartialDifferentialOperator;|)) 
 
 (DEFUN |PartialDifferentialOperator| (&REST #1=#:G138)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G139)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PartialDifferentialOperator|)
-                                           '|domainEqualList|)
-                . #3=(|PartialDifferentialOperator|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PartialDifferentialOperator;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G139)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|PartialDifferentialOperator|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PartialDifferentialOperator|)
+                                               '|domainEqualList|)
+                    . #3=(|PartialDifferentialOperator|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |PartialDifferentialOperator;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PartialDifferentialOperator|)))))))))) 
 
 (DEFUN |PartialDifferentialOperator;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G137 $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|PartialDifferentialOperator|))
-      (LETT DV$2 (|devaluate| |#2|) . #2#)
-      (LETT |dv$| (LIST '|PartialDifferentialOperator| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 62) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CommutativeRing|))
-                                                . #2#)
-                                          (OR #1#
+  (SPROG
+   ((|pv$| NIL) (#1=#:G137 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|PartialDifferentialOperator|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT |dv$| (LIST '|PartialDifferentialOperator| DV$1 DV$2) . #2#)
+    (LETT $ (GETREFV 62) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|Algebra|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicNonZero|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|)))
-                                          (|HasCategory| |#1| '(|EntireRing|))
-                                          (OR #1#
-                                              (|HasCategory| |#1|
-                                                             '(|EntireRing|))
-                                              (|HasCategory| |#1|
-                                                             '(|IntegralDomain|)))
-                                          (OR #1#
-                                              (|HasCategory| |#1|
-                                                             '(|EntireRing|)))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|canonicalUnitNormal|))
-                                          (|HasCategory| |#1| '(|Comparable|))
-                                          (|HasCategory| |#1|
-                                                         '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1| '(|LeftOreRing|))
-                                          (|HasCategory| |#1| '(|Field|))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Fraction|
-                                                             (|Integer|)))))
-                                          (|HasCategory| |#1| '(|GcdDomain|))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|PartialDifferentialOperator|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-           (|augmentPredVector| $ 262144))
-      (AND (|HasCategory| $ '(|CommutativeRing|))
-           (|augmentPredVector| $ 524288))
-      (AND
-       (OR (|HasCategory| |#1| '(|EntireRing|))
-           (AND (|HasCategory| |#1| '(|IntegralDomain|))
-                (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-       (|augmentPredVector| $ 1048576))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 13 (|SparseUnivariatePolynomial| $))
-      $)))) 
+                                                             '(|CommutativeRing|))
+                                              . #2#)
+                                        (OR #1#
+                                            (|HasCategory| |#1|
+                                                           '(|IntegralDomain|)))
+                                        (|HasCategory| |#1| '(|EntireRing|))
+                                        (OR #1#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|))
+                                            (|HasCategory| |#1|
+                                                           '(|IntegralDomain|)))
+                                        (OR #1#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|)))
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1|
+                                                       '(|canonicalUnitNormal|))
+                                        (|HasCategory| |#1| '(|Comparable|))
+                                        (|HasCategory| |#1|
+                                                       '(|LinearlyExplicitRingOver|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1| '(|LeftOreRing|))
+                                        (|HasCategory| |#1| '(|Field|))
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         (|HasCategory| |#1|
+                                                        '(|RetractableTo|
+                                                          (|Fraction|
+                                                           (|Integer|)))))
+                                        (|HasCategory| |#1| '(|GcdDomain|))))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|PartialDifferentialOperator|
+                (LIST DV$1 DV$2) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (AND (|HasCategory| |#1| '(|IntegralDomain|))
+         (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
+         (|augmentPredVector| $ 262144))
+    (AND (|HasCategory| $ '(|CommutativeRing|)) (|augmentPredVector| $ 524288))
+    (AND
+     (OR (|HasCategory| |#1| '(|EntireRing|))
+         (AND (|HasCategory| |#1| '(|IntegralDomain|))
+              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 1048576))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 13 (|SparseUnivariatePolynomial| $))
+    $))) 
 
 (MAKEPROP '|PartialDifferentialOperator| '|infovec|
           (LIST

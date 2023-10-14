@@ -17,16 +17,15 @@
       #2#)))) 
 
 (DEFUN |MultisetAggregate;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|MultisetAggregate;CAT|)
-                                ('T
-                                 (LETT |MultisetAggregate;CAT|
-                                       (|Join| (|MultiDictionary| '|t#1|)
-                                               (|SetAggregate| '|t#1|))
-                                       . #2=(|MultisetAggregate|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|MultisetAggregate| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|MultisetAggregate;CAT|)
+                                    ('T
+                                     (LETT |MultisetAggregate;CAT|
+                                           (|Join| (|MultiDictionary| '|t#1|)
+                                                   (|SetAggregate| '|t#1|))
+                                           . #2=(|MultisetAggregate|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|MultisetAggregate| (|devaluate| |t#1|)))))) 

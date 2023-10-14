@@ -1,61 +1,64 @@
 
 (PUT '|OEXPR;retract;E$;1| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
-(DEFUN |OEXPR;retract;E$;1| (|e| $) |e|) 
+(SDEFUN |OEXPR;retract;E$;1| ((|e| |Expression| (|Integer|)) ($ $)) |e|) 
 
 (PUT '|OEXPR;coerce;$E;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |OEXPR;coerce;$E;2| (|x| $) |x|) 
+(SDEFUN |OEXPR;coerce;$E;2| ((|x| $) ($ |Expression| (|Integer|))) |x|) 
 
-(DEFUN |OEXPR;retractIfCan;EU;3| (|x| $) (CONS 0 (SPADCALL |x| (QREFELT $ 7)))) 
+(SDEFUN |OEXPR;retractIfCan;EU;3|
+        ((|x| |Expression| (|Integer|)) ($ |Union| $ "failed"))
+        (CONS 0 (SPADCALL |x| (QREFELT $ 7)))) 
 
-(DEFUN |OEXPR;<;2$B;4| (|x| |y| $)
-  (PROG (|s| |di|)
-    (RETURN
-     (SEQ (LETT |di| (SPADCALL |y| |x| (QREFELT $ 11)) . #1=(|OEXPR;<;2$B;4|))
-          (EXIT
-           (COND ((SPADCALL |di| (|spadConstant| $ 12) (QREFELT $ 15)) 'NIL)
-                 (#2='T
-                  (SEQ (LETT |s| (SPADCALL |di| (QREFELT $ 18)) . #1#)
-                       (EXIT
-                        (COND ((QEQCAR |s| 0) (EQL (QCDR |s|) 1))
-                              (#2# (|error| "can not determine sign")))))))))))) 
+(SDEFUN |OEXPR;<;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((|s| (|Union| (|Integer|) "failed")) (|di| ($)))
+               (SEQ
+                (LETT |di| (SPADCALL |y| |x| (QREFELT $ 11))
+                      . #1=(|OEXPR;<;2$B;4|))
+                (EXIT
+                 (COND
+                  ((SPADCALL |di| (|spadConstant| $ 12) (QREFELT $ 15)) 'NIL)
+                  (#2='T
+                   (SEQ (LETT |s| (SPADCALL |di| (QREFELT $ 18)) . #1#)
+                        (EXIT
+                         (COND ((QEQCAR |s| 0) (EQL (QCDR |s|) 1))
+                               (#2# (|error| "can not determine sign"))))))))))) 
 
 (DECLAIM (NOTINLINE |OrderedExpression;|)) 
 
 (DEFUN |OrderedExpression| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G119)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|OrderedExpression|)
-                . #2=(|OrderedExpression|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|OrderedExpression|
-                         (LIST (CONS NIL (CONS 1 (|OrderedExpression;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G119)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|OrderedExpression|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|OrderedExpression|)
+                    . #2=(|OrderedExpression|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|OrderedExpression|
+                             (LIST
+                              (CONS NIL (CONS 1 (|OrderedExpression;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|OrderedExpression|)))))))))) 
 
 (DEFUN |OrderedExpression;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|OrderedExpression|) . #1=(|OrderedExpression|))
-      (LETT $ (GETREFV 30) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OrderedExpression| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|Expression| (|Integer|)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OrderedExpression|) . #1=(|OrderedExpression|))
+          (LETT $ (GETREFV 30) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OrderedExpression| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|Expression| (|Integer|)))
+          $))) 
 
 (MAKEPROP '|OrderedExpression| '|infovec|
           (LIST

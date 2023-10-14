@@ -9,9 +9,10 @@
           (T (SETQ |OrderedMonoid;AL| (|OrderedMonoid;|)))))) 
 
 (DEFUN |OrderedMonoid;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1 (LETT #1# (|Join| (|OrderedSemiGroup|) (|Monoid|)) |OrderedMonoid|)
-       (SETELT #1# 0 '(|OrderedMonoid|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1# (|Join| (|OrderedSemiGroup|) (|Monoid|))
+                   |OrderedMonoid|)
+           (SETELT #1# 0 '(|OrderedMonoid|))))) 
 
 (MAKEPROP '|OrderedMonoid| 'NILADIC T) 

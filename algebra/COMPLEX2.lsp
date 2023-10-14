@@ -1,48 +1,48 @@
 
-(DEFUN |COMPLEX2;map;MCC;1| (|fn| |gr| $)
-  (SPADCALL (SPADCALL (SPADCALL |gr| (QREFELT $ 9)) |fn|)
-            (SPADCALL (SPADCALL |gr| (QREFELT $ 10)) |fn|) (QREFELT $ 12))) 
+(SDEFUN |COMPLEX2;map;MCC;1|
+        ((|fn| |Mapping| S R) (|gr| |Complex| R) ($ |Complex| S))
+        (SPADCALL (SPADCALL (SPADCALL |gr| (QREFELT $ 9)) |fn|)
+                  (SPADCALL (SPADCALL |gr| (QREFELT $ 10)) |fn|)
+                  (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |ComplexFunctions2;|)) 
 
 (DEFUN |ComplexFunctions2| (&REST #1=#:G105)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G106)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ComplexFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|ComplexFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ComplexFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G106)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|ComplexFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ComplexFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|ComplexFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ComplexFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ComplexFunctions2|)))))))))) 
 
 (DEFUN |ComplexFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ComplexFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|ComplexFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 15) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ComplexFunctions2| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|ComplexFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|ComplexFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 15) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ComplexFunctions2| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|ComplexFunctions2| '|infovec|
           (LIST

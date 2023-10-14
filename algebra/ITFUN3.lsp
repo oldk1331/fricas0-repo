@@ -1,55 +1,59 @@
 
-(DEFUN |ITFUN3;map;MItItIt;1| (|f| |s1| |s2| $)
-  (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
+(SDEFUN |ITFUN3;map;MItItIt;1|
+        ((|f| |Mapping| C A B) (|s1| |InfiniteTuple| A)
+         (|s2| |InfiniteTuple| B) ($ |InfiniteTuple| C))
+        (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
 
-(DEFUN |ITFUN3;map;MSItS;2| (|f| |s1| |s2| $)
-  (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
+(SDEFUN |ITFUN3;map;MSItS;2|
+        ((|f| |Mapping| C A B) (|s1| |Stream| A) (|s2| |InfiniteTuple| B)
+         ($ |Stream| C))
+        (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
 
-(DEFUN |ITFUN3;map;MItSS;3| (|f| |s1| |s2| $)
-  (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
+(SDEFUN |ITFUN3;map;MItSS;3|
+        ((|f| |Mapping| C A B) (|s1| |InfiniteTuple| A) (|s2| |Stream| B)
+         ($ |Stream| C))
+        (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |InfiniteTupleFunctions3;|)) 
 
 (DEFUN |InfiniteTupleFunctions3| (&REST #1=#:G112)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G113)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|InfiniteTupleFunctions3|)
-                                           '|domainEqualList|)
-                . #3=(|InfiniteTupleFunctions3|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |InfiniteTupleFunctions3;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G113)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|InfiniteTupleFunctions3|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InfiniteTupleFunctions3|)
+                                               '|domainEqualList|)
+                    . #3=(|InfiniteTupleFunctions3|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InfiniteTupleFunctions3;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InfiniteTupleFunctions3|)))))))))) 
 
 (DEFUN |InfiniteTupleFunctions3;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteTupleFunctions3|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|InfiniteTupleFunctions3| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|InfiniteTupleFunctions3|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteTupleFunctions3|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|InfiniteTupleFunctions3| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|InfiniteTupleFunctions3|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|InfiniteTupleFunctions3| '|infovec|
           (LIST

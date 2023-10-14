@@ -1,182 +1,214 @@
 
-(DEFUN |FORT;setLegalFortranSourceExtensions;2L;1| (|l| $) (SETELT $ 6 |l|)) 
+(SDEFUN |FORT;setLegalFortranSourceExtensions;2L;1|
+        ((|l| |List| (|String|)) ($ |List| (|String|))) (SETELT $ 6 |l|)) 
 
-(DEFUN |FORT;checkExtension| (|fn| $)
-  (PROG (|stringFn|)
-    (RETURN
-     (SEQ
-      (LETT |stringFn| (SPADCALL |fn| (QREFELT $ 11)) |FORT;checkExtension|)
-      (COND
-       ((NULL
-         (SPADCALL (SPADCALL |fn| (QREFELT $ 12)) (QREFELT $ 6)
-                   (QREFELT $ 14)))
-        (EXIT
-         (|error|
-          (SPADCALL (LIST |stringFn| "is not a legal Fortran Source File.")
-                    (QREFELT $ 16))))))
-      (EXIT |stringFn|))))) 
+(SDEFUN |FORT;checkExtension| ((|fn| |FileName|) ($ |String|))
+        (SPROG ((|stringFn| (|String|)))
+               (SEQ
+                (LETT |stringFn| (SPADCALL |fn| (QREFELT $ 11))
+                      |FORT;checkExtension|)
+                (COND
+                 ((NULL
+                   (SPADCALL (SPADCALL |fn| (QREFELT $ 12)) (QREFELT $ 6)
+                             (QREFELT $ 14)))
+                  (EXIT
+                   (|error|
+                    (SPADCALL
+                     (LIST |stringFn| "is not a legal Fortran Source File.")
+                     (QREFELT $ 16))))))
+                (EXIT |stringFn|)))) 
 
-(DEFUN |FORT;outputAsFortran;FnV;3| (|fn| $)
-  (PROG (|command| |target| |source|)
-    (RETURN
-     (SEQ
-      (LETT |source| (SPADCALL |fn| (QREFELT $ 11))
-            . #1=(|FORT;outputAsFortran;FnV;3|))
-      (COND
-       ((NULL (SPADCALL |fn| (QREFELT $ 17)))
-        (EXIT
-         (SEQ (SPADCALL (QREFELT $ 20))
-              (EXIT
-               (|error|
-                (SPADCALL (LIST |source| "is not readable")
-                          (QREFELT $ 16))))))))
-      (LETT |target| (SPADCALL (QREFELT $ 21)) . #1#)
-      (LETT |command|
-            (SPADCALL
-             (LIST "sys rm -f " |target| " ; cp " |source| " " |target|)
-             (QREFELT $ 23))
-            . #1#)
-      (SPADCALL |command| (QREFELT $ 25)) (EXIT (SPADCALL (QREFELT $ 26))))))) 
+(SDEFUN |FORT;outputAsFortran;FnV;3| ((|fn| |FileName|) ($ |Void|))
+        (SPROG
+         ((|command| (|String|)) (|target| (|String|)) (|source| (|String|)))
+         (SEQ
+          (LETT |source| (SPADCALL |fn| (QREFELT $ 11))
+                . #1=(|FORT;outputAsFortran;FnV;3|))
+          (COND
+           ((NULL (SPADCALL |fn| (QREFELT $ 17)))
+            (EXIT
+             (SEQ (SPADCALL (QREFELT $ 20))
+                  (EXIT
+                   (|error|
+                    (SPADCALL (LIST |source| "is not readable")
+                              (QREFELT $ 16))))))))
+          (LETT |target| (SPADCALL (QREFELT $ 21)) . #1#)
+          (LETT |command|
+                (SPADCALL
+                 (LIST "sys rm -f " |target| " ; cp " |source| " " |target|)
+                 (QREFELT $ 23))
+                . #1#)
+          (SPADCALL |command| (QREFELT $ 25))
+          (EXIT (SPADCALL (QREFELT $ 26)))))) 
 
 (PUT '|FORT;linkToFortran;SLLLSe;4| '|SPADreplace|
      '(XLAM (|name| |args| |decls| |res|)
        (|makeFort| |name| |args| |decls| |res| NIL NIL))) 
 
-(DEFUN |FORT;linkToFortran;SLLLSe;4| (|name| |args| |decls| |res| $)
-  (|makeFort| |name| |args| |decls| |res| NIL NIL)) 
+(SDEFUN |FORT;linkToFortran;SLLLSe;4|
+        ((|name| |Symbol|)
+         (|args| |List|
+          (|Union| (|:| |array| (|List| (|Symbol|)))
+                   (|:| |scalar| (|Symbol|))))
+         (|decls| |List|
+          (|List|
+           (|Union| (|:| |array| (|List| (|Symbol|)))
+                    (|:| |scalar| (|Symbol|)))))
+         (|res| |List| (|Symbol|)) ($ |SExpression|))
+        (|makeFort| |name| |args| |decls| |res| NIL NIL)) 
 
 (PUT '|FORT;linkToFortran;SLLLSSe;5| '|SPADreplace|
      '(XLAM (|name| |args| |decls| |res| |returnType|)
        (|makeFort| |name| |args| |decls| |res| |returnType| NIL))) 
 
-(DEFUN |FORT;linkToFortran;SLLLSSe;5|
-       (|name| |args| |decls| |res| |returnType| $)
-  (|makeFort| |name| |args| |decls| |res| |returnType| NIL)) 
+(SDEFUN |FORT;linkToFortran;SLLLSSe;5|
+        ((|name| |Symbol|)
+         (|args| |List|
+          (|Union| (|:| |array| (|List| (|Symbol|)))
+                   (|:| |scalar| (|Symbol|))))
+         (|decls| |List|
+          (|List|
+           (|Union| (|:| |array| (|List| (|Symbol|)))
+                    (|:| |scalar| (|Symbol|)))))
+         (|res| |List| (|Symbol|)) (|returnType| |Symbol|) ($ |SExpression|))
+        (|makeFort| |name| |args| |decls| |res| |returnType| NIL)) 
 
-(DEFUN |FORT;dimensions| (|type| $)
-  (PROG (#1=#:G128 |u| #2=#:G127)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #2# NIL . #3=(|FORT;dimensions|))
-        (SEQ (LETT |u| NIL . #3#)
-             (LETT #1# (SPADCALL |type| (QREFELT $ 38)) . #3#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #2#
-                     (CONS
-                      (SPADCALL (SPADCALL |u| (QREFELT $ 41)) (QREFELT $ 42))
-                      #2#)
-                     . #3#)))
-             (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-       (QREFELT $ 43)))))) 
+(SDEFUN |FORT;dimensions| ((|type| |FortranType|) ($ |SExpression|))
+        (SPROG ((#1=#:G128 NIL) (|u| NIL) (#2=#:G127 NIL))
+               (SEQ
+                (SPADCALL
+                 (PROGN
+                  (LETT #2# NIL . #3=(|FORT;dimensions|))
+                  (SEQ (LETT |u| NIL . #3#)
+                       (LETT #1# (SPADCALL |type| (QREFELT $ 38)) . #3#) G190
+                       (COND
+                        ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2#
+                               (CONS
+                                (SPADCALL (SPADCALL |u| (QREFELT $ 41))
+                                          (QREFELT $ 42))
+                                #2#)
+                               . #3#)))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 (QREFELT $ 43))))) 
 
-(DEFUN |FORT;ftype| (|name| |type| $)
-  (|construct| |name| (SPADCALL |type| (QREFELT $ 45))
-               (|FORT;dimensions| |type| $) (SPADCALL |type| (QREFELT $ 46)))) 
+(SDEFUN |FORT;ftype|
+        ((|name| |Symbol|) (|type| |FortranType|) ($ |SExpression|))
+        (|construct| |name| (SPADCALL |type| (QREFELT $ 45))
+                     (|FORT;dimensions| |type| $)
+                     (SPADCALL |type| (QREFELT $ 46)))) 
 
-(DEFUN |FORT;makeAspList| (|asp| |syms| $)
-  (PROG (#1=#:G138 |u| #2=#:G137 |symtab|)
-    (RETURN
-     (SEQ
-      (LETT |symtab| (SPADCALL |asp| |syms| (QREFELT $ 49))
-            . #3=(|FORT;makeAspList|))
-      (EXIT
-       (|construct| |asp| (SPADCALL |asp| |syms| (QREFELT $ 50))
-                    (SPADCALL |asp| |syms| (QREFELT $ 51))
-                    (PROGN
-                     (LETT #2# NIL . #3#)
-                     (SEQ (LETT |u| NIL . #3#)
-                          (LETT #1# (SPADCALL |symtab| (QREFELT $ 52)) . #3#)
-                          G190
-                          (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |u| (CAR #1#) . #3#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (LETT #2#
-                                  (CONS
-                                   (|FORT;ftype| |u|
-                                    (SPADCALL |u| |symtab| (QREFELT $ 53)) $)
-                                   #2#)
-                                  . #3#)))
-                          (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                          (EXIT (NREVERSE #2#)))))))))) 
+(SDEFUN |FORT;makeAspList|
+        ((|asp| |Symbol|) (|syms| |TheSymbolTable|) ($ |SExpression|))
+        (SPROG
+         ((#1=#:G138 NIL) (|u| NIL) (#2=#:G137 NIL) (|symtab| (|SymbolTable|)))
+         (SEQ
+          (LETT |symtab| (SPADCALL |asp| |syms| (QREFELT $ 49))
+                . #3=(|FORT;makeAspList|))
+          (EXIT
+           (|construct| |asp| (SPADCALL |asp| |syms| (QREFELT $ 50))
+                        (SPADCALL |asp| |syms| (QREFELT $ 51))
+                        (PROGN
+                         (LETT #2# NIL . #3#)
+                         (SEQ (LETT |u| NIL . #3#)
+                              (LETT #1# (SPADCALL |symtab| (QREFELT $ 52))
+                                    . #3#)
+                              G190
+                              (COND
+                               ((OR (ATOM #1#)
+                                    (PROGN (LETT |u| (CAR #1#) . #3#) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (EXIT
+                                (LETT #2#
+                                      (CONS
+                                       (|FORT;ftype| |u|
+                                        (SPADCALL |u| |symtab| (QREFELT $ 53))
+                                        $)
+                                       #2#)
+                                      . #3#)))
+                              (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                              (EXIT (NREVERSE #2#))))))))) 
 
-(DEFUN |FORT;linkToFortran;SLTstLSe;9| (|name| |aArgs| |syms| |res| $)
-  (PROG (|asps| #1=#:G145 |u| #2=#:G144 |rt| |symbolList| |symbolTable|
-         |dummies| |arguments|)
-    (RETURN
-     (SEQ
-      (LETT |arguments| (SPADCALL |name| |syms| (QREFELT $ 51))
-            . #3=(|FORT;linkToFortran;SLTstLSe;9|))
-      (LETT |dummies| (SPADCALL |arguments| |aArgs| (QREFELT $ 54)) . #3#)
-      (LETT |symbolTable| (SPADCALL |name| |syms| (QREFELT $ 49)) . #3#)
-      (LETT |symbolList| (SPADCALL |symbolTable| (QREFELT $ 55)) . #3#)
-      (LETT |rt| (SPADCALL |name| |syms| (QREFELT $ 50)) . #3#)
-      (LETT |asps|
-            (PROGN
-             (LETT #2# NIL . #3#)
-             (SEQ (LETT |u| NIL . #3#)
-                  (LETT #1# (SPADCALL |symbolTable| (QREFELT $ 56)) . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #2# (CONS (|FORT;makeAspList| |u| |syms| $) #2#)
-                          . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (EXIT
-       (COND
-        ((QEQCAR |rt| 0)
-         (|makeFort1| |name| |arguments| |aArgs| |dummies| |symbolList| |res|
-                      (SPADCALL (CDR |rt|) (QREFELT $ 58)) |asps|))
-        ('T
-         (|makeFort1| |name| |arguments| |aArgs| |dummies| |symbolList| |res|
-                      NIL |asps|)))))))) 
+(SDEFUN |FORT;linkToFortran;SLTstLSe;9|
+        ((|name| |Symbol|) (|aArgs| |List| (|Symbol|))
+         (|syms| |TheSymbolTable|) (|res| |List| (|Symbol|)) ($ |SExpression|))
+        (SPROG
+         ((|asps| (|List| (|SExpression|))) (#1=#:G145 NIL) (|u| NIL)
+          (#2=#:G144 NIL)
+          (|rt|
+           (|Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void")))
+          (|symbolList| (|SExpression|)) (|symbolTable| (|SymbolTable|))
+          (|dummies| (|List| (|Symbol|))) (|arguments| (|List| (|Symbol|))))
+         (SEQ
+          (LETT |arguments| (SPADCALL |name| |syms| (QREFELT $ 51))
+                . #3=(|FORT;linkToFortran;SLTstLSe;9|))
+          (LETT |dummies| (SPADCALL |arguments| |aArgs| (QREFELT $ 54)) . #3#)
+          (LETT |symbolTable| (SPADCALL |name| |syms| (QREFELT $ 49)) . #3#)
+          (LETT |symbolList| (SPADCALL |symbolTable| (QREFELT $ 55)) . #3#)
+          (LETT |rt| (SPADCALL |name| |syms| (QREFELT $ 50)) . #3#)
+          (LETT |asps|
+                (PROGN
+                 (LETT #2# NIL . #3#)
+                 (SEQ (LETT |u| NIL . #3#)
+                      (LETT #1# (SPADCALL |symbolTable| (QREFELT $ 56)) . #3#)
+                      G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (|FORT;makeAspList| |u| |syms| $) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (EXIT
+           (COND
+            ((QEQCAR |rt| 0)
+             (|makeFort1| |name| |arguments| |aArgs| |dummies| |symbolList|
+                          |res| (SPADCALL (CDR |rt|) (QREFELT $ 58)) |asps|))
+            ('T
+             (|makeFort1| |name| |arguments| |aArgs| |dummies| |symbolList|
+                          |res| NIL |asps|))))))) 
 
 (DECLAIM (NOTINLINE |FortranPackage;|)) 
 
 (DEFUN |FortranPackage| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G147)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|FortranPackage|)
-                . #2=(|FortranPackage|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|FortranPackage|
-                         (LIST (CONS NIL (CONS 1 (|FortranPackage;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G147)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|FortranPackage|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|FortranPackage|)
+                    . #2=(|FortranPackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|FortranPackage|
+                             (LIST (CONS NIL (CONS 1 (|FortranPackage;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|FortranPackage|)))))))))) 
 
 (DEFUN |FortranPackage;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|FortranPackage|) . #1=(|FortranPackage|))
-      (LETT $ (GETREFV 60) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FortranPackage| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (LIST "f"))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FortranPackage|) . #1=(|FortranPackage|))
+          (LETT $ (GETREFV 60) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FortranPackage| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (LIST "f"))
+          $))) 
 
 (MAKEPROP '|FortranPackage| '|infovec|
           (LIST

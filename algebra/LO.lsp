@@ -1,157 +1,164 @@
 
-(DEFUN |LO;Zero;$;1| ($) (CONS (|spadConstant| $ 10) (|spadConstant| $ 11))) 
+(SDEFUN |LO;Zero;$;1| (($ $))
+        (CONS (|spadConstant| $ 10) (|spadConstant| $ 11))) 
 
-(DEFUN |LO;zero?;$B;2| (|x| $) (SPADCALL (QCAR |x|) (QREFELT $ 13))) 
+(SDEFUN |LO;zero?;$B;2| ((|x| $) ($ |Boolean|))
+        (SPADCALL (QCAR |x|) (QREFELT $ 13))) 
 
-(DEFUN |LO;-;2$;3| (|x| $)
-  (CONS (SPADCALL (QCAR |x|) (QREFELT $ 15)) (QCDR |x|))) 
+(SDEFUN |LO;-;2$;3| ((|x| $) ($ $))
+        (CONS (SPADCALL (QCAR |x|) (QREFELT $ 15)) (QCDR |x|))) 
 
-(DEFUN |LO;=;2$B;4| (|x| |y| $)
-  (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
-            (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17)) (QREFELT $ 18))) 
+(SDEFUN |LO;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
+                  (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17))
+                  (QREFELT $ 18))) 
 
 (PUT '|LO;numer;$M;5| '|SPADreplace| 'QCAR) 
 
-(DEFUN |LO;numer;$M;5| (|x| $) (QCAR |x|)) 
+(SDEFUN |LO;numer;$M;5| ((|x| $) ($ M)) (QCAR |x|)) 
 
 (PUT '|LO;denom;$R;6| '|SPADreplace| 'QCDR) 
 
-(DEFUN |LO;denom;$R;6| (|x| $) (QCDR |x|)) 
+(SDEFUN |LO;denom;$R;6| ((|x| $) ($ R)) (QCDR |x|)) 
 
-(DEFUN |LO;<;2$B;7| (|x| |y| $)
-  (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
-            (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17)) (QREFELT $ 22))) 
+(SDEFUN |LO;<;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
+                  (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17))
+                  (QREFELT $ 22))) 
 
-(DEFUN |LO;+;3$;8| (|x| |y| $)
-  (CONS
-   (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
-             (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17)) (QREFELT $ 24))
-   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 25)))) 
+(SDEFUN |LO;+;3$;8| ((|x| $) (|y| $) ($ $))
+        (CONS
+         (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 17))
+                   (SPADCALL (QCDR |x|) (QCAR |y|) (QREFELT $ 17))
+                   (QREFELT $ 24))
+         (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 25)))) 
 
-(DEFUN |LO;*;I2$;9| (|n| |x| $)
-  (CONS (SPADCALL |n| (QCAR |x|) (QREFELT $ 28)) (QCDR |x|))) 
+(SDEFUN |LO;*;I2$;9| ((|n| |Integer|) (|x| $) ($ $))
+        (CONS (SPADCALL |n| (QCAR |x|) (QREFELT $ 28)) (QCDR |x|))) 
 
-(DEFUN |LO;*;R2$;10| (|r| |x| $)
-  (COND
-   ((SPADCALL |r| (QCDR |x|) (QREFELT $ 30))
-    (CONS (QCAR |x|) (|spadConstant| $ 11)))
-   ('T (CONS (SPADCALL |r| (QCAR |x|) (QREFELT $ 17)) (QCDR |x|))))) 
+(SDEFUN |LO;*;R2$;10| ((|r| R) (|x| $) ($ $))
+        (COND
+         ((SPADCALL |r| (QCDR |x|) (QREFELT $ 30))
+          (CONS (QCAR |x|) (|spadConstant| $ 11)))
+         ('T (CONS (SPADCALL |r| (QCAR |x|) (QREFELT $ 17)) (QCDR |x|))))) 
 
-(DEFUN |LO;/;$R$;11| (|x| |d| $)
-  (PROG (|u|)
-    (RETURN
-     (COND
-      ((SPADCALL
-        (LETT |u| (SPADCALL |d| (QCDR |x|) (QREFELT $ 25)) |LO;/;$R$;11|)
-        (QREFELT $ 32))
-       (|error| "division by zero"))
-      ('T (CONS (QCAR |x|) |u|)))))) 
+(SDEFUN |LO;/;$R$;11| ((|x| $) (|d| R) ($ $))
+        (SPROG ((|u| (R)))
+               (COND
+                ((SPADCALL
+                  (LETT |u| (SPADCALL |d| (QCDR |x|) (QREFELT $ 25))
+                        |LO;/;$R$;11|)
+                  (QREFELT $ 32))
+                 (|error| "division by zero"))
+                ('T (CONS (QCAR |x|) |u|))))) 
 
-(DEFUN |LO;/;MR$;12| (|m| |d| $)
-  (COND ((SPADCALL |d| (QREFELT $ 32)) (|error| "division by zero"))
-        ('T (CONS |m| |d|)))) 
+(SDEFUN |LO;/;MR$;12| ((|m| M) (|d| R) ($ $))
+        (COND ((SPADCALL |d| (QREFELT $ 32)) (|error| "division by zero"))
+              ('T (CONS |m| |d|)))) 
 
-(DEFUN |LO;coerce;$Of;13| (|x| $)
-  (PROG (|xd|)
-    (RETURN
-     (SEQ (LETT |xd| (QCDR |x|) |LO;coerce;$Of;13|)
-          (EXIT
-           (COND
-            ((SPADCALL |xd| (|spadConstant| $ 11) (QREFELT $ 30))
-             (SPADCALL (QCAR |x|) (QREFELT $ 36)))
-            ('T
-             (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 36))
-                       (SPADCALL |xd| (QREFELT $ 37)) (QREFELT $ 38))))))))) 
+(SDEFUN |LO;coerce;$Of;13| ((|x| $) ($ |OutputForm|))
+        (SPROG ((|xd| (R)))
+               (SEQ (LETT |xd| (QCDR |x|) |LO;coerce;$Of;13|)
+                    (EXIT
+                     (COND
+                      ((SPADCALL |xd| (|spadConstant| $ 11) (QREFELT $ 30))
+                       (SPADCALL (QCAR |x|) (QREFELT $ 36)))
+                      ('T
+                       (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 36))
+                                 (SPADCALL |xd| (QREFELT $ 37))
+                                 (QREFELT $ 38)))))))) 
 
-(DEFUN |LO;latex;$S;14| (|x| $)
-  (PROG (|dl| |nl| |xd|)
-    (RETURN
-     (SEQ (LETT |xd| (QCDR |x|) . #1=(|LO;latex;$S;14|))
-          (EXIT
-           (COND
-            ((SPADCALL |xd| (|spadConstant| $ 11) (QREFELT $ 30))
-             (SPADCALL (QCAR |x|) (QREFELT $ 41)))
-            ('T
-             (SEQ
-              (LETT |nl|
-                    (STRCONC "{"
-                             (STRCONC (SPADCALL (QCAR |x|) (QREFELT $ 41))
-                                      "}"))
-                    . #1#)
-              (LETT |dl|
-                    (STRCONC "{"
-                             (STRCONC (SPADCALL (QCDR |x|) (QREFELT $ 42))
-                                      "}"))
-                    . #1#)
-              (EXIT
-               (STRCONC "{ "
-                        (STRCONC |nl|
-                                 (STRCONC " \\over "
-                                          (STRCONC |dl| " }"))))))))))))) 
+(SDEFUN |LO;latex;$S;14| ((|x| $) ($ |String|))
+        (SPROG ((|dl| #1=(|String|)) (|nl| #1#) (|xd| (R)))
+               (SEQ (LETT |xd| (QCDR |x|) . #2=(|LO;latex;$S;14|))
+                    (EXIT
+                     (COND
+                      ((SPADCALL |xd| (|spadConstant| $ 11) (QREFELT $ 30))
+                       (SPADCALL (QCAR |x|) (QREFELT $ 41)))
+                      ('T
+                       (SEQ
+                        (LETT |nl|
+                              (STRCONC "{"
+                                       (STRCONC
+                                        (SPADCALL (QCAR |x|) (QREFELT $ 41))
+                                        "}"))
+                              . #2#)
+                        (LETT |dl|
+                              (STRCONC "{"
+                                       (STRCONC
+                                        (SPADCALL (QCDR |x|) (QREFELT $ 42))
+                                        "}"))
+                              . #2#)
+                        (EXIT
+                         (STRCONC "{ "
+                                  (STRCONC |nl|
+                                           (STRCONC " \\over "
+                                                    (STRCONC |dl|
+                                                             " }")))))))))))) 
 
 (DECLAIM (NOTINLINE |Localize;|)) 
 
 (DEFUN |Localize| (&REST #1=#:G136)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G137)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|Localize|)
-                                           '|domainEqualList|)
-                . #3=(|Localize|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |Localize;|) #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Localize|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G137)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|Localize|)
+                                               '|domainEqualList|)
+                    . #3=(|Localize|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |Localize;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Localize|)))))))))) 
 
 (DEFUN |Localize;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Localize|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|Localize| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 49) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|OrderedAbelianGroup|))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|OrderedAbelianGroup|))
-                                           (|HasCategory| |#2|
-                                                          '(|AbelianGroup|))
-                                           (|HasCategory| |#2|
-                                                          '(|AbelianMonoid|)))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|OrderedAbelianGroup|))
-                                           (|HasCategory| |#2|
-                                                          '(|AbelianGroup|)))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|OrderedAbelianGroup|))
-                                           (|HasCategory| |#2|
-                                                          '(|AbelianMonoid|)))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|Localize| (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (|Record| (|:| |num| |#1|) (|:| |den| |#2|)))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 23 (CONS (|dispatchFunction| |LO;<;2$B;7|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Localize|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|Localize| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 49) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedAbelianGroup|))
+                                              (OR
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianGroup|))
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianGroup|))
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianMonoid|)))
+                                              (OR
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianGroup|))
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianGroup|)))
+                                              (OR
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianGroup|))
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianMonoid|)))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|Localize| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 (|Record| (|:| |num| |#1|) (|:| |den| |#2|)))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV $ 23 (CONS (|dispatchFunction| |LO;<;2$B;7|) $))))
+          $))) 
 
 (MAKEPROP '|Localize| '|infovec|
           (LIST

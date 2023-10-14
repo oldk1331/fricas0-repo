@@ -1,86 +1,93 @@
 
-(DEFUN |RESRING;Zero;$;1| ($) (|spadConstant| $ 20)) 
+(SDEFUN |RESRING;Zero;$;1| (($ $)) (|spadConstant| $ 20)) 
 
-(DEFUN |RESRING;One;$;2| ($) (|spadConstant| $ 22)) 
+(SDEFUN |RESRING;One;$;2| (($ $)) (|spadConstant| $ 22)) 
 
-(DEFUN |RESRING;reduce;FPol$;3| (|f| $)
-  (SPADCALL |f| (QREFELT $ 15) (QREFELT $ 24))) 
+(SDEFUN |RESRING;reduce;FPol$;3| ((|f| |FPol|) ($ $))
+        (SPADCALL |f| (QREFELT $ 15) (QREFELT $ 24))) 
 
-(DEFUN |RESRING;coerce;FPol$;4| (|f| $)
-  (SPADCALL |f| (QREFELT $ 15) (QREFELT $ 24))) 
+(SDEFUN |RESRING;coerce;FPol$;4| ((|f| |FPol|) ($ $))
+        (SPADCALL |f| (QREFELT $ 15) (QREFELT $ 24))) 
 
 (PUT '|RESRING;lift;$FPol;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |RESRING;lift;$FPol;5| (|x| $) |x|) 
+(SDEFUN |RESRING;lift;$FPol;5| ((|x| $) ($ |FPol|)) |x|) 
 
-(DEFUN |RESRING;+;3$;6| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 28))) 
+(SDEFUN |RESRING;+;3$;6| ((|x| $) (|y| $) ($ $))
+        (SPADCALL |x| |y| (QREFELT $ 28))) 
 
-(DEFUN |RESRING;-;2$;7| (|x| $) (SPADCALL |x| (QREFELT $ 30))) 
+(SDEFUN |RESRING;-;2$;7| ((|x| $) ($ $)) (SPADCALL |x| (QREFELT $ 30))) 
 
-(DEFUN |RESRING;*;3$;8| (|x| |y| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| |y| (QREFELT $ 32)) (QREFELT $ 27))
-            (QREFELT $ 15) (QREFELT $ 24))) 
+(SDEFUN |RESRING;*;3$;8| ((|x| $) (|y| $) ($ $))
+        (SPADCALL (SPADCALL (SPADCALL |x| |y| (QREFELT $ 32)) (QREFELT $ 27))
+                  (QREFELT $ 15) (QREFELT $ 24))) 
 
-(DEFUN |RESRING;*;I2$;9| (|n| |x| $) (SPADCALL |n| |x| (QREFELT $ 35))) 
+(SDEFUN |RESRING;*;I2$;9| ((|n| |Integer|) (|x| $) ($ $))
+        (SPADCALL |n| |x| (QREFELT $ 35))) 
 
-(DEFUN |RESRING;*;F2$;10| (|a| |x| $) (SPADCALL |a| |x| (QREFELT $ 37))) 
+(SDEFUN |RESRING;*;F2$;10| ((|a| F) (|x| $) ($ $))
+        (SPADCALL |a| |x| (QREFELT $ 37))) 
 
-(DEFUN |RESRING;=;2$B;11| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 39))) 
+(SDEFUN |RESRING;=;2$B;11| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPADCALL |x| |y| (QREFELT $ 39))) 
 
-(DEFUN |RESRING;characteristic;Nni;12| ($) (SPADCALL (QREFELT $ 42))) 
+(SDEFUN |RESRING;characteristic;Nni;12| (($ |NonNegativeInteger|))
+        (SPADCALL (QREFELT $ 42))) 
 
-(DEFUN |RESRING;coerce;$Of;13| (|x| $) (SPADCALL |x| (QREFELT $ 45))) 
+(SDEFUN |RESRING;coerce;$Of;13| ((|x| $) ($ |OutputForm|))
+        (SPADCALL |x| (QREFELT $ 45))) 
 
 (DECLAIM (NOTINLINE |ResidueRing;|)) 
 
 (DEFUN |ResidueRing| (&REST #1=#:G120)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G121)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ResidueRing|)
-                                           '|domainEqualList|)
-                . #3=(|ResidueRing|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ResidueRing;|) #1#)
-                (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|ResidueRing|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G121)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ResidueRing|)
+                                               '|domainEqualList|)
+                    . #3=(|ResidueRing|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ResidueRing;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|ResidueRing|)))))))))) 
 
 (DEFUN |ResidueRing;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (|pv$| $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ResidueRing|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT DV$5 (|devaluate| |#5|) . #1#)
-      (LETT |dv$| (LIST '|ResidueRing| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-      (LETT $ (GETREFV 52) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ResidueRing|
-                  (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (QSETREFV $ 10 |#5|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 11 |#4|)
-      (QSETREFV $ 15 (SPADCALL |#5| (QREFELT $ 14)))
-      (QSETREFV $ 19
-                (SPADCALL (QREFELT $ 15) (LIST (|spadConstant| $ 16))
-                          (QREFELT $ 18)))
-      (COND ((QREFELT $ 19) (|error| "the residue ring is the zero ring")))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|ResidueRing|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$5 (|devaluate| |#5|) . #1#)
+    (LETT |dv$| (LIST '|ResidueRing| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
+    (LETT $ (GETREFV 52) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|ResidueRing|
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (QSETREFV $ 10 |#5|)
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 11 |#4|)
+    (QSETREFV $ 15 (SPADCALL |#5| (QREFELT $ 14)))
+    (QSETREFV $ 19
+              (SPADCALL (QREFELT $ 15) (LIST (|spadConstant| $ 16))
+                        (QREFELT $ 18)))
+    (COND ((QREFELT $ 19) (|error| "the residue ring is the zero ring")))
+    $))) 
 
 (MAKEPROP '|ResidueRing| '|infovec|
           (LIST

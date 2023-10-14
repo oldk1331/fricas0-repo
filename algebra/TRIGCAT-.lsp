@@ -1,54 +1,54 @@
 
-(DEFUN |TRIGCAT-;csc;2S;1| (|x| $)
-  (PROG (|a|)
-    (RETURN
-     (SEQ
-      (LETT |a| (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 9))
-            |TRIGCAT-;csc;2S;1|)
-      (EXIT
-       (COND ((QEQCAR |a| 1) (|error| "csc: no reciprocal"))
-             ('T (QCDR |a|)))))))) 
+(SDEFUN |TRIGCAT-;csc;2S;1| ((|x| S) ($ S))
+        (SPROG ((|a| (|Union| S "failed")))
+               (SEQ
+                (LETT |a| (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 9))
+                      |TRIGCAT-;csc;2S;1|)
+                (EXIT
+                 (COND ((QEQCAR |a| 1) (|error| "csc: no reciprocal"))
+                       ('T (QCDR |a|))))))) 
 
-(DEFUN |TRIGCAT-;sec;2S;2| (|x| $)
-  (PROG (|a|)
-    (RETURN
-     (SEQ
-      (LETT |a| (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 9))
-            |TRIGCAT-;sec;2S;2|)
-      (EXIT
-       (COND ((QEQCAR |a| 1) (|error| "sec: no reciprocal"))
-             ('T (QCDR |a|)))))))) 
+(SDEFUN |TRIGCAT-;sec;2S;2| ((|x| S) ($ S))
+        (SPROG ((|a| (|Union| S "failed")))
+               (SEQ
+                (LETT |a|
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 9))
+                      |TRIGCAT-;sec;2S;2|)
+                (EXIT
+                 (COND ((QEQCAR |a| 1) (|error| "sec: no reciprocal"))
+                       ('T (QCDR |a|))))))) 
 
-(DEFUN |TRIGCAT-;tan;2S;3| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (SPADCALL |x| (QREFELT $ 13))
-            (QREFELT $ 14))) 
+(SDEFUN |TRIGCAT-;tan;2S;3| ((|x| S) ($ S))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (SPADCALL |x| (QREFELT $ 13))
+                  (QREFELT $ 14))) 
 
-(DEFUN |TRIGCAT-;cot;2S;4| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |x| (QREFELT $ 16))
-            (QREFELT $ 14))) 
+(SDEFUN |TRIGCAT-;cot;2S;4| ((|x| S) ($ S))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |x| (QREFELT $ 16))
+                  (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |TrigonometricFunctionCategory&;|)) 
 
 (DEFUN |TrigonometricFunctionCategory&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|TrigonometricFunctionCategory&|))
-      (LETT |dv$| (LIST '|TrigonometricFunctionCategory&| DV$1) . #1#)
-      (LETT $ (GETREFV 18) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#1| '(|Ring|))
-        (PROGN
-         (QSETREFV $ 10 (CONS (|dispatchFunction| |TRIGCAT-;csc;2S;1|) $))
-         (QSETREFV $ 12 (CONS (|dispatchFunction| |TRIGCAT-;sec;2S;2|) $))
-         (QSETREFV $ 15 (CONS (|dispatchFunction| |TRIGCAT-;tan;2S;3|) $))
-         (QSETREFV $ 17 (CONS (|dispatchFunction| |TRIGCAT-;cot;2S;4|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|TrigonometricFunctionCategory&|))
+          (LETT |dv$| (LIST '|TrigonometricFunctionCategory&| DV$1) . #1#)
+          (LETT $ (GETREFV 18) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| '(|Ring|))
+            (PROGN
+             (QSETREFV $ 10 (CONS (|dispatchFunction| |TRIGCAT-;csc;2S;1|) $))
+             (QSETREFV $ 12 (CONS (|dispatchFunction| |TRIGCAT-;sec;2S;2|) $))
+             (QSETREFV $ 15 (CONS (|dispatchFunction| |TRIGCAT-;tan;2S;3|) $))
+             (QSETREFV $ 17
+                       (CONS (|dispatchFunction| |TRIGCAT-;cot;2S;4|) $)))))
+          $))) 
 
 (MAKEPROP '|TrigonometricFunctionCategory&| '|infovec|
           (LIST

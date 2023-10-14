@@ -1,213 +1,212 @@
 
-(DEFUN |MCMPLX;coerce;C$;1| (|u| $)
-  (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 8)) (QREFELT $ 10))
-            (SPADCALL (SPADCALL |u| (QREFELT $ 11)) (QREFELT $ 10))
-            (QREFELT $ 12))) 
+(SDEFUN |MCMPLX;coerce;C$;1| ((|u| |Complex| (|Float|)) ($ $))
+        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 8)) (QREFELT $ 10))
+                  (SPADCALL (SPADCALL |u| (QREFELT $ 11)) (QREFELT $ 10))
+                  (QREFELT $ 12))) 
 
-(DEFUN |MCMPLX;coerce;C$;2| (|u| $)
-  (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 16)) (QREFELT $ 17))
-            (SPADCALL (SPADCALL |u| (QREFELT $ 18)) (QREFELT $ 17))
-            (QREFELT $ 12))) 
+(SDEFUN |MCMPLX;coerce;C$;2| ((|u| |Complex| (|Integer|)) ($ $))
+        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 16)) (QREFELT $ 17))
+                  (SPADCALL (SPADCALL |u| (QREFELT $ 18)) (QREFELT $ 17))
+                  (QREFELT $ 12))) 
 
-(DEFUN |MCMPLX;coerce;C$;3| (|u| $)
-  (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 22)) (QREFELT $ 23))
-            (SPADCALL (SPADCALL |u| (QREFELT $ 24)) (QREFELT $ 23))
-            (QREFELT $ 12))) 
+(SDEFUN |MCMPLX;coerce;C$;3| ((|u| |Complex| (|MachineInteger|)) ($ $))
+        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 22)) (QREFELT $ 23))
+                  (SPADCALL (SPADCALL |u| (QREFELT $ 24)) (QREFELT $ 23))
+                  (QREFELT $ 12))) 
 
-(DEFUN |MCMPLX;coerce;C$;4| (|u| $)
-  (SPADCALL (SPADCALL |u| (QREFELT $ 26)) (SPADCALL |u| (QREFELT $ 27))
-            (QREFELT $ 12))) 
+(SDEFUN |MCMPLX;coerce;C$;4| ((|u| |Complex| (|MachineFloat|)) ($ $))
+        (SPADCALL (SPADCALL |u| (QREFELT $ 26)) (SPADCALL |u| (QREFELT $ 27))
+                  (QREFELT $ 12))) 
 
-(DEFUN |MCMPLX;coerce;$C;5| (|u| $)
-  (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 29)) (QREFELT $ 30))
-            (SPADCALL (SPADCALL |u| (QREFELT $ 31)) (QREFELT $ 30))
-            (QREFELT $ 32))) 
+(SDEFUN |MCMPLX;coerce;$C;5| ((|u| $) ($ |Complex| (|Float|)))
+        (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 29)) (QREFELT $ 30))
+                  (SPADCALL (SPADCALL |u| (QREFELT $ 31)) (QREFELT $ 30))
+                  (QREFELT $ 32))) 
 
 (DECLAIM (NOTINLINE |MachineComplex;|)) 
 
 (DEFUN |MachineComplex| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G158)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|MachineComplex|)
-                . #2=(|MachineComplex|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|MachineComplex|
-                         (LIST (CONS NIL (CONS 1 (|MachineComplex;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G158)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|MachineComplex|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|MachineComplex|)
+                    . #2=(|MachineComplex|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|MachineComplex|
+                             (LIST (CONS NIL (CONS 1 (|MachineComplex;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|MachineComplex|)))))))))) 
 
 (DEFUN |MachineComplex;| ()
-  (PROG (|dv$| $ #1=#:G156 #2=#:G155 #3=#:G154 #4=#:G153 #5=#:G152 |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|MachineComplex|) . #6=(|MachineComplex|))
-      (LETT $ (GETREFV 90) . #6#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|CharacteristicZero|))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|FiniteFieldCategory|))
-                                          (LETT #1#
-                                                (|HasCategory| (|MachineFloat|)
-                                                               '(|Field|))
-                                                . #6#)
-                                          (OR #1#
+  (SPROG
+   ((|dv$| NIL) ($ NIL) (#1=#:G156 NIL) (#2=#:G155 NIL) (#3=#:G154 NIL)
+    (#4=#:G153 NIL) (#5=#:G152 NIL) (|pv$| NIL))
+   (PROGN
+    (LETT |dv$| '(|MachineComplex|) . #6=(|MachineComplex|))
+    (LETT $ (GETREFV 90) . #6#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|CharacteristicZero|))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|FiniteFieldCategory|))
+                                        (LETT #1#
                                               (|HasCategory| (|MachineFloat|)
-                                                             '(|FiniteFieldCategory|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|Finite|))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|EuclideanDomain|))
-                                          (LETT #2#
-                                                (|HasCategory| (|MachineFloat|)
-                                                               '(|TranscendentalFunctionCategory|))
-                                                . #6#)
-                                          (AND
-                                           (|HasCategory| (|MachineFloat|)
-                                                          '(|RadicalCategory|))
-                                           #2#)
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|arbitraryPrecision|))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|RealConstant|))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (OR
-                                           (|HasCategory| (|MachineFloat|)
-                                                          '(|EuclideanDomain|))
-                                           #1#
-                                           (|HasCategory| (|MachineFloat|)
-                                                          '(|FiniteFieldCategory|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|additiveValuation|))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|multiplicativeValuation|))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|PartialDifferentialRing|
-                                                           (|Symbol|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|DifferentialRing|))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|InnerEvalable|
-                                                           (|Symbol|)
-                                                           (|MachineFloat|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|Evalable|
-                                                           (|MachineFloat|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|Eltable|
-                                                           (|MachineFloat|)
-                                                           (|MachineFloat|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|PatternMatchable|
-                                                           (|Float|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|PatternMatchable|
-                                                           (|Integer|)))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|ConvertibleTo|
-                                                           (|Pattern|
-                                                            (|Float|))))
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|ConvertibleTo|
-                                                           (|Pattern|
-                                                            (|Integer|))))
-                                          (OR
-                                           (|HasCategory| (|MachineFloat|)
-                                                          '(|RetractableTo|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           #1#)
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|PolynomialFactorizationExplicit|))
-                                          (LETT #3#
-                                                (AND
-                                                 (|HasCategory|
-                                                  (|MachineFloat|)
-                                                  '(|EuclideanDomain|))
+                                                             '(|Field|))
+                                              . #6#)
+                                        (OR #1#
+                                            (|HasCategory| (|MachineFloat|)
+                                                           '(|FiniteFieldCategory|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|CharacteristicNonZero|))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|Finite|))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|RetractableTo|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|LinearlyExplicitRingOver|
+                                                         (|Integer|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|EuclideanDomain|))
+                                        (LETT #2#
+                                              (|HasCategory| (|MachineFloat|)
+                                                             '(|TranscendentalFunctionCategory|))
+                                              . #6#)
+                                        (AND
+                                         (|HasCategory| (|MachineFloat|)
+                                                        '(|RadicalCategory|))
+                                         #2#)
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|arbitraryPrecision|))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|RealConstant|))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (OR
+                                         (|HasCategory| (|MachineFloat|)
+                                                        '(|EuclideanDomain|))
+                                         #1#
+                                         (|HasCategory| (|MachineFloat|)
+                                                        '(|FiniteFieldCategory|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|additiveValuation|))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|multiplicativeValuation|))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|PartialDifferentialRing|
+                                                         (|Symbol|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|DifferentialRing|))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|InnerEvalable|
+                                                         (|Symbol|)
+                                                         (|MachineFloat|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|Evalable|
+                                                         (|MachineFloat|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|Eltable|
+                                                         (|MachineFloat|)
+                                                         (|MachineFloat|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|PatternMatchable|
+                                                         (|Float|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|PatternMatchable|
+                                                         (|Integer|)))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|ConvertibleTo|
+                                                         (|Pattern|
+                                                          (|Float|))))
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|ConvertibleTo|
+                                                         (|Pattern|
+                                                          (|Integer|))))
+                                        (OR
+                                         (|HasCategory| (|MachineFloat|)
+                                                        '(|RetractableTo|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         #1#)
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|PolynomialFactorizationExplicit|))
+                                        (LETT #3#
+                                              (AND
+                                               (|HasCategory| (|MachineFloat|)
+                                                              '(|EuclideanDomain|))
+                                               (|HasCategory| (|MachineFloat|)
+                                                              '(|PolynomialFactorizationExplicit|)))
+                                              . #6#)
+                                        (OR #3#
+                                            (AND #1#
                                                  (|HasCategory|
                                                   (|MachineFloat|)
                                                   '(|PolynomialFactorizationExplicit|)))
-                                                . #6#)
-                                          (OR #3#
-                                              (AND #1#
-                                                   (|HasCategory|
-                                                    (|MachineFloat|)
-                                                    '(|PolynomialFactorizationExplicit|)))
-                                              (AND
-                                               (|HasCategory| (|MachineFloat|)
-                                                              '(|FiniteFieldCategory|))
-                                               (|HasCategory| (|MachineFloat|)
-                                                              '(|PolynomialFactorizationExplicit|))))
-                                          (LETT #4#
-                                                (|HasCategory| (|MachineFloat|)
-                                                               '(|IntegerNumberSystem|))
-                                                . #6#)
-                                          (OR #3# #1#
-                                              (AND
-                                               (|HasCategory| (|MachineFloat|)
-                                                              '(|FiniteFieldCategory|))
-                                               (|HasCategory| (|MachineFloat|)
-                                                              '(|PolynomialFactorizationExplicit|)))
-                                              #4#)
-                                          (OR
-                                           (|HasCategory| (|MachineFloat|)
-                                                          '(|EuclideanDomain|))
-                                           #1#
-                                           (|HasCategory| (|MachineFloat|)
-                                                          '(|FiniteFieldCategory|))
-                                           #4#)
-                                          (OR #3# #1# #4#)
-                                          (LETT #5#
-                                                (|HasCategory| (|MachineFloat|)
-                                                               '(|RealNumberSystem|))
-                                                . #6#)
-                                          (AND #5# #2#)
-                                          (|HasCategory| (|MachineFloat|)
-                                                         '(|IntegralDomain|))))
-                      . #6#))
-      (|haddProp| |$ConstructorCache| '|MachineComplex| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND
-       (OR
-        (AND (|HasCategory| $ '(|CharacteristicNonZero|))
-             (|HasCategory| (|MachineFloat|) '(|EuclideanDomain|))
-             (|HasCategory| (|MachineFloat|)
-                            '(|PolynomialFactorizationExplicit|)))
-        (|HasCategory| (|MachineFloat|) '(|CharacteristicNonZero|)))
-       (|augmentPredVector| $ 137438953472))
-      (AND
-       (OR
-        (AND (|HasCategory| $ '(|CharacteristicNonZero|))
-             (|HasCategory| (|MachineFloat|) '(|EuclideanDomain|))
-             (|HasCategory| (|MachineFloat|)
-                            '(|PolynomialFactorizationExplicit|)))
-        (|HasCategory| (|MachineFloat|) '(|FiniteFieldCategory|)))
-       (|augmentPredVector| $ 274877906944))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+                                            (AND
+                                             (|HasCategory| (|MachineFloat|)
+                                                            '(|FiniteFieldCategory|))
+                                             (|HasCategory| (|MachineFloat|)
+                                                            '(|PolynomialFactorizationExplicit|))))
+                                        (LETT #4#
+                                              (|HasCategory| (|MachineFloat|)
+                                                             '(|IntegerNumberSystem|))
+                                              . #6#)
+                                        (OR #3# #1#
+                                            (AND
+                                             (|HasCategory| (|MachineFloat|)
+                                                            '(|FiniteFieldCategory|))
+                                             (|HasCategory| (|MachineFloat|)
+                                                            '(|PolynomialFactorizationExplicit|)))
+                                            #4#)
+                                        (OR
+                                         (|HasCategory| (|MachineFloat|)
+                                                        '(|EuclideanDomain|))
+                                         #1#
+                                         (|HasCategory| (|MachineFloat|)
+                                                        '(|FiniteFieldCategory|))
+                                         #4#)
+                                        (OR #3# #1# #4#)
+                                        (LETT #5#
+                                              (|HasCategory| (|MachineFloat|)
+                                                             '(|RealNumberSystem|))
+                                              . #6#)
+                                        (AND #5# #2#)
+                                        (|HasCategory| (|MachineFloat|)
+                                                       '(|IntegralDomain|))))
+                    . #6#))
+    (|haddProp| |$ConstructorCache| '|MachineComplex| NIL (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (AND
+     (OR
+      (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+           (|HasCategory| (|MachineFloat|) '(|EuclideanDomain|))
+           (|HasCategory| (|MachineFloat|)
+                          '(|PolynomialFactorizationExplicit|)))
+      (|HasCategory| (|MachineFloat|) '(|CharacteristicNonZero|)))
+     (|augmentPredVector| $ 137438953472))
+    (AND
+     (OR
+      (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+           (|HasCategory| (|MachineFloat|) '(|EuclideanDomain|))
+           (|HasCategory| (|MachineFloat|)
+                          '(|PolynomialFactorizationExplicit|)))
+      (|HasCategory| (|MachineFloat|) '(|FiniteFieldCategory|)))
+     (|augmentPredVector| $ 274877906944))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|MachineComplex| '|infovec|
           (LIST

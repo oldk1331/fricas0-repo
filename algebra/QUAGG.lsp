@@ -16,28 +16,31 @@
       #2#)))) 
 
 (DEFUN |QueueAggregate;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|QueueAggregate;CAT|)
-                                ('T
-                                 (LETT |QueueAggregate;CAT|
-                                       (|Join| (|BagAggregate| '|t#1|)
-                                               (|finiteAggregate|)
-                                               (|mkCategory|
-                                                '(((|enqueue!| (|t#1| |t#1| $))
-                                                   T)
-                                                  ((|dequeue!| (|t#1| $)) T)
-                                                  ((|rotate!| ($ $)) T)
-                                                  ((|length|
-                                                    ((|NonNegativeInteger|) $))
-                                                   T)
-                                                  ((|front| (|t#1| $)) T)
-                                                  ((|back| (|t#1| $)) T))
-                                                NIL '((|NonNegativeInteger|))
-                                                NIL))
-                                       . #2=(|QueueAggregate|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|QueueAggregate| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|QueueAggregate;CAT|)
+                                    ('T
+                                     (LETT |QueueAggregate;CAT|
+                                           (|Join| (|BagAggregate| '|t#1|)
+                                                   (|finiteAggregate|)
+                                                   (|mkCategory|
+                                                    '(((|enqueue!|
+                                                        (|t#1| |t#1| $))
+                                                       T)
+                                                      ((|dequeue!| (|t#1| $))
+                                                       T)
+                                                      ((|rotate!| ($ $)) T)
+                                                      ((|length|
+                                                        ((|NonNegativeInteger|)
+                                                         $))
+                                                       T)
+                                                      ((|front| (|t#1| $)) T)
+                                                      ((|back| (|t#1| $)) T))
+                                                    NIL
+                                                    '((|NonNegativeInteger|))
+                                                    NIL))
+                                           . #2=(|QueueAggregate|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|QueueAggregate| (|devaluate| |t#1|)))))) 

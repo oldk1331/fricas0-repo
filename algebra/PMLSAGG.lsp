@@ -1,93 +1,102 @@
 
-(DEFUN |PMLSAGG;patternMatch;LP2Pmlr;1| (|l| |p| |r| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |p| (QREFELT $ 11)) |PMLSAGG;patternMatch;LP2Pmlr;1|)
-      (EXIT
-       (COND ((QEQCAR |u| 1) (SPADCALL (QREFELT $ 13)))
-             ('T (|PMLSAGG;match| |l| (QCDR |u|) |r| 'T $)))))))) 
+(SDEFUN |PMLSAGG;patternMatch;LP2Pmlr;1|
+        ((|l| L) (|p| |Pattern| S) (|r| |PatternMatchListResult| S R L)
+         ($ |PatternMatchListResult| S R L))
+        (SPROG ((|u| (|Union| (|List| (|Pattern| S)) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |p| (QREFELT $ 11))
+                      |PMLSAGG;patternMatch;LP2Pmlr;1|)
+                (EXIT
+                 (COND ((QEQCAR |u| 1) (SPADCALL (QREFELT $ 13)))
+                       ('T (|PMLSAGG;match| |l| (QCDR |u|) |r| 'T $))))))) 
 
-(DEFUN |PMLSAGG;match| (|l| |lp| |r| |new?| $)
-  (PROG (|p0|)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL |lp|)
-        (COND ((SPADCALL |l| (QREFELT $ 16)) |r|)
-              (#1='T (SPADCALL (QREFELT $ 13)))))
-       ((SPADCALL (LETT |p0| (|SPADfirst| |lp|) . #2=(|PMLSAGG;match|))
-                  (QREFELT $ 17))
-        (COND
-         ((NULL (CDR |lp|))
-          (SEQ
-           (COND
-            ((NULL |new?|) (LETT |l| (SPADCALL |l| (QREFELT $ 18)) . #2#)))
-           (EXIT
-            (SPADCALL (SPADCALL |r| (QREFELT $ 20))
-                      (SPADCALL |p0| |l| (SPADCALL |r| (QREFELT $ 22))
-                                (SPADCALL (QREFELT $ 23)) (QREFELT $ 24))
-                      (QREFELT $ 25)))))
-         (|new?|
-          (|PMLSAGG;match| (SPADCALL |l| (QREFELT $ 26)) (REVERSE |lp|) |r|
-           'NIL $))
-         (#1# (|error| "Only one multiple pattern allowed in list"))))
-       ((OR (SPADCALL |l| (QREFELT $ 16))
-            (SPADCALL
-             (LETT |r|
-                   (SPADCALL
-                    (SPADCALL (SPADCALL |l| (QREFELT $ 27)) |p0|
-                              (SPADCALL |r| (QREFELT $ 20)) (QREFELT $ 29))
-                    (SPADCALL |r| (QREFELT $ 22)) (QREFELT $ 25))
-                   . #2#)
-             (QREFELT $ 30)))
-        (SPADCALL (QREFELT $ 13)))
-       ('T
-        (|PMLSAGG;match| (SPADCALL |l| (QREFELT $ 31)) (CDR |lp|) |r| |new?|
-         $))))))) 
+(SDEFUN |PMLSAGG;match|
+        ((|l| L) (|lp| |List| (|Pattern| S))
+         (|r| |PatternMatchListResult| S R L) (|new?| |Boolean|)
+         ($ |PatternMatchListResult| S R L))
+        (SPROG ((|p0| (|Pattern| S)))
+               (SEQ
+                (COND
+                 ((NULL |lp|)
+                  (COND ((SPADCALL |l| (QREFELT $ 16)) |r|)
+                        (#1='T (SPADCALL (QREFELT $ 13)))))
+                 ((SPADCALL
+                   (LETT |p0| (|SPADfirst| |lp|) . #2=(|PMLSAGG;match|))
+                   (QREFELT $ 17))
+                  (COND
+                   ((NULL (CDR |lp|))
+                    (SEQ
+                     (COND
+                      ((NULL |new?|)
+                       (LETT |l| (SPADCALL |l| (QREFELT $ 18)) . #2#)))
+                     (EXIT
+                      (SPADCALL (SPADCALL |r| (QREFELT $ 20))
+                                (SPADCALL |p0| |l|
+                                          (SPADCALL |r| (QREFELT $ 22))
+                                          (SPADCALL (QREFELT $ 23))
+                                          (QREFELT $ 24))
+                                (QREFELT $ 25)))))
+                   (|new?|
+                    (|PMLSAGG;match| (SPADCALL |l| (QREFELT $ 26))
+                     (REVERSE |lp|) |r| 'NIL $))
+                   (#1#
+                    (|error| "Only one multiple pattern allowed in list"))))
+                 ((OR (SPADCALL |l| (QREFELT $ 16))
+                      (SPADCALL
+                       (LETT |r|
+                             (SPADCALL
+                              (SPADCALL (SPADCALL |l| (QREFELT $ 27)) |p0|
+                                        (SPADCALL |r| (QREFELT $ 20))
+                                        (QREFELT $ 29))
+                              (SPADCALL |r| (QREFELT $ 22)) (QREFELT $ 25))
+                             . #2#)
+                       (QREFELT $ 30)))
+                  (SPADCALL (QREFELT $ 13)))
+                 ('T
+                  (|PMLSAGG;match| (SPADCALL |l| (QREFELT $ 31)) (CDR |lp|) |r|
+                   |new?| $)))))) 
 
 (DECLAIM (NOTINLINE |PatternMatchListAggregate;|)) 
 
 (DEFUN |PatternMatchListAggregate| (&REST #1=#:G122)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G123)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PatternMatchListAggregate|)
-                                           '|domainEqualList|)
-                . #3=(|PatternMatchListAggregate|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PatternMatchListAggregate;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G123)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|PatternMatchListAggregate|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PatternMatchListAggregate|)
+                                               '|domainEqualList|)
+                    . #3=(|PatternMatchListAggregate|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PatternMatchListAggregate;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PatternMatchListAggregate|)))))))))) 
 
 (DEFUN |PatternMatchListAggregate;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternMatchListAggregate|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|PatternMatchListAggregate| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 32) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PatternMatchListAggregate|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternMatchListAggregate|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|PatternMatchListAggregate| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 32) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PatternMatchListAggregate|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PatternMatchListAggregate| '|infovec|
           (LIST

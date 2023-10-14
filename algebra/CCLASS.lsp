@@ -1,296 +1,308 @@
 
-(DEFUN |CCLASS;digit;$;1| ($) (SPADCALL "0123456789" (QREFELT $ 9))) 
+(SDEFUN |CCLASS;digit;$;1| (($ $)) (SPADCALL "0123456789" (QREFELT $ 9))) 
 
-(DEFUN |CCLASS;hexDigit;$;2| ($)
-  (SPADCALL "0123456789abcdefABCDEF" (QREFELT $ 9))) 
+(SDEFUN |CCLASS;hexDigit;$;2| (($ $))
+        (SPADCALL "0123456789abcdefABCDEF" (QREFELT $ 9))) 
 
-(DEFUN |CCLASS;upperCase;$;3| ($)
-  (SPADCALL "ABCDEFGHIJKLMNOPQRSTUVWXYZ" (QREFELT $ 9))) 
+(SDEFUN |CCLASS;upperCase;$;3| (($ $))
+        (SPADCALL "ABCDEFGHIJKLMNOPQRSTUVWXYZ" (QREFELT $ 9))) 
 
-(DEFUN |CCLASS;lowerCase;$;4| ($)
-  (SPADCALL "abcdefghijklmnopqrstuvwxyz" (QREFELT $ 9))) 
+(SDEFUN |CCLASS;lowerCase;$;4| (($ $))
+        (SPADCALL "abcdefghijklmnopqrstuvwxyz" (QREFELT $ 9))) 
 
-(DEFUN |CCLASS;alphabetic;$;5| ($)
-  (SPADCALL (|spadConstant| $ 12) (|spadConstant| $ 13) (QREFELT $ 14))) 
+(SDEFUN |CCLASS;alphabetic;$;5| (($ $))
+        (SPADCALL (|spadConstant| $ 12) (|spadConstant| $ 13) (QREFELT $ 14))) 
 
-(DEFUN |CCLASS;alphanumeric;$;6| ($)
-  (SPADCALL (|spadConstant| $ 15) (|spadConstant| $ 10) (QREFELT $ 14))) 
+(SDEFUN |CCLASS;alphanumeric;$;6| (($ $))
+        (SPADCALL (|spadConstant| $ 15) (|spadConstant| $ 10) (QREFELT $ 14))) 
 
-(DEFUN |CCLASS;=;2$B;7| (|a| |b| $) (SPADCALL |a| |b| (QREFELT $ 18))) 
+(SDEFUN |CCLASS;=;2$B;7| ((|a| $) (|b| $) ($ |Boolean|))
+        (SPADCALL |a| |b| (QREFELT $ 18))) 
 
-(DEFUN |CCLASS;member?;C$B;8| (|c| |a| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ (LETT |i| |c| |CCLASS;member?;C$B;8|)
-          (EXIT
-           (COND ((< |i| (QREFELT $ 7)) (SPADCALL |a| |i| (QREFELT $ 21)))
-                 ('T 'NIL))))))) 
+(SDEFUN |CCLASS;member?;C$B;8| ((|c| |Character|) (|a| $) ($ |Boolean|))
+        (SPROG ((|i| (|Integer|)))
+               (SEQ (LETT |i| |c| |CCLASS;member?;C$B;8|)
+                    (EXIT
+                     (COND
+                      ((< |i| (QREFELT $ 7)) (SPADCALL |a| |i| (QREFELT $ 21)))
+                      ('T 'NIL)))))) 
 
-(DEFUN |CCLASS;union;3$;9| (|a| |b| $) (SPADCALL |a| |b| (QREFELT $ 24))) 
+(SDEFUN |CCLASS;union;3$;9| ((|a| $) (|b| $) ($ $))
+        (SPADCALL |a| |b| (QREFELT $ 24))) 
 
-(DEFUN |CCLASS;intersect;3$;10| (|a| |b| $) (SPADCALL |a| |b| (QREFELT $ 25))) 
+(SDEFUN |CCLASS;intersect;3$;10| ((|a| $) (|b| $) ($ $))
+        (SPADCALL |a| |b| (QREFELT $ 25))) 
 
-(DEFUN |CCLASS;difference;3$;11| (|a| |b| $)
-  (SPADCALL |a| (SPADCALL |b| (QREFELT $ 27)) (QREFELT $ 25))) 
+(SDEFUN |CCLASS;difference;3$;11| ((|a| $) (|b| $) ($ $))
+        (SPADCALL |a| (SPADCALL |b| (QREFELT $ 27)) (QREFELT $ 25))) 
 
-(DEFUN |CCLASS;complement;2$;12| (|a| $) (SPADCALL |a| (QREFELT $ 27))) 
+(SDEFUN |CCLASS;complement;2$;12| ((|a| $) ($ $)) (SPADCALL |a| (QREFELT $ 27))) 
 
-(DEFUN |CCLASS;convert;$S;13| (|cl| $)
-  (SPADCALL (SPADCALL |cl| (QREFELT $ 31)) (QREFELT $ 32))) 
+(SDEFUN |CCLASS;convert;$S;13| ((|cl| $) ($ |String|))
+        (SPADCALL (SPADCALL |cl| (QREFELT $ 31)) (QREFELT $ 32))) 
 
-(DEFUN |CCLASS;convert;$L;14| (|cl| $)
-  (PROG (#1=#:G120 |i| #2=#:G119)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #2# NIL . #3=(|CCLASS;convert;$L;14|))
-       (SEQ (LETT |i| 0 . #3#) (LETT #1# (- (QREFELT $ 7) 1) . #3#) G190
-            (COND ((|greater_SI| |i| #1#) (GO G191)))
-            (SEQ
-             (EXIT
-              (COND
-               ((SPADCALL |cl| |i| (QREFELT $ 21))
-                (LETT #2# (CONS (SPADCALL |i| (QREFELT $ 34)) #2#) . #3#)))))
-            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-            (EXIT (NREVERSE #2#)))))))) 
+(SDEFUN |CCLASS;convert;$L;14| ((|cl| $) ($ |List| (|Character|)))
+        (SPROG ((#1=#:G120 NIL) (|i| NIL) (#2=#:G119 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #2# NIL . #3=(|CCLASS;convert;$L;14|))
+                 (SEQ (LETT |i| 0 . #3#) (LETT #1# (- (QREFELT $ 7) 1) . #3#)
+                      G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((SPADCALL |cl| |i| (QREFELT $ 21))
+                          (LETT #2# (CONS (SPADCALL |i| (QREFELT $ 34)) #2#)
+                                . #3#)))))
+                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))))) 
 
-(DEFUN |CCLASS;charClass;S$;15| (|s| $)
-  (PROG (|j| #1=#:G125 |i| |cl|)
-    (RETURN
-     (SEQ
-      (LETT |cl| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
-            . #2=(|CCLASS;charClass;S$;15|))
-      (SEQ (LETT |i| (SPADCALL |s| (QREFELT $ 37)) . #2#)
-           (LETT #1# (SPADCALL |s| (QREFELT $ 38)) . #2#) G190
-           (COND ((> |i| #1#) (GO G191)))
-           (SEQ (LETT |j| (SPADCALL |s| |i| (QREFELT $ 39)) . #2#)
-                (EXIT
-                 (COND
-                  ((>= |j| (QREFELT $ 7)) (|error| "character code too large"))
-                  ('T (SPADCALL |cl| |j| 'T (QREFELT $ 40))))))
-           (LETT |i| (+ |i| 1) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |cl|))))) 
+(SDEFUN |CCLASS;charClass;S$;15| ((|s| |String|) ($ $))
+        (SPROG ((|j| (|Integer|)) (#1=#:G125 NIL) (|i| NIL) (|cl| ($)))
+               (SEQ
+                (LETT |cl| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
+                      . #2=(|CCLASS;charClass;S$;15|))
+                (SEQ (LETT |i| (SPADCALL |s| (QREFELT $ 37)) . #2#)
+                     (LETT #1# (SPADCALL |s| (QREFELT $ 38)) . #2#) G190
+                     (COND ((> |i| #1#) (GO G191)))
+                     (SEQ (LETT |j| (SPADCALL |s| |i| (QREFELT $ 39)) . #2#)
+                          (EXIT
+                           (COND
+                            ((>= |j| (QREFELT $ 7))
+                             (|error| "character code too large"))
+                            ('T (SPADCALL |cl| |j| 'T (QREFELT $ 40))))))
+                     (LETT |i| (+ |i| 1) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |cl|)))) 
 
-(DEFUN |CCLASS;charClass;L$;16| (|l| $)
-  (PROG (|j| #1=#:G130 |c| |cl|)
-    (RETURN
-     (SEQ
-      (LETT |cl| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
-            . #2=(|CCLASS;charClass;L$;16|))
-      (SEQ (LETT |c| NIL . #2#) (LETT #1# |l| . #2#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #2#) NIL)) (GO G191)))
-           (SEQ (LETT |j| |c| . #2#)
-                (EXIT
-                 (COND
-                  ((>= |j| (QREFELT $ 7)) (|error| "character code too large"))
-                  ('T (SPADCALL |cl| |j| 'T (QREFELT $ 40))))))
-           (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |cl|))))) 
+(SDEFUN |CCLASS;charClass;L$;16| ((|l| |List| (|Character|)) ($ $))
+        (SPROG ((|j| (|Integer|)) (#1=#:G130 NIL) (|c| NIL) (|cl| ($)))
+               (SEQ
+                (LETT |cl| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
+                      . #2=(|CCLASS;charClass;L$;16|))
+                (SEQ (LETT |c| NIL . #2#) (LETT #1# |l| . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ (LETT |j| |c| . #2#)
+                          (EXIT
+                           (COND
+                            ((>= |j| (QREFELT $ 7))
+                             (|error| "character code too large"))
+                            ('T (SPADCALL |cl| |j| 'T (QREFELT $ 40))))))
+                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |cl|)))) 
 
-(DEFUN |CCLASS;coerce;$Of;17| (|cl| $)
-  (SPADCALL (SPADCALL |cl| (QREFELT $ 33)) (QREFELT $ 43))) 
+(SDEFUN |CCLASS;coerce;$Of;17| ((|cl| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL |cl| (QREFELT $ 33)) (QREFELT $ 43))) 
 
-(DEFUN |CCLASS;#;$Nni;18| (|a| $)
-  (PROG (|n| #1=#:G135 |i|)
-    (RETURN
-     (SEQ (LETT |n| 0 . #2=(|CCLASS;#;$Nni;18|))
-          (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 7) 1) . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
+(SDEFUN |CCLASS;#;$Nni;18| ((|a| $) ($ |NonNegativeInteger|))
+        (SPROG ((|n| (|NonNegativeInteger|)) (#1=#:G135 NIL) (|i| NIL))
+               (SEQ (LETT |n| 0 . #2=(|CCLASS;#;$Nni;18|))
+                    (SEQ (LETT |i| 0 . #2#)
+                         (LETT #1# (- (QREFELT $ 7) 1) . #2#) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((SPADCALL |a| |i| (QREFELT $ 21))
+                             (LETT |n| (+ |n| 1) . #2#)))))
+                         (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                         (EXIT NIL))
+                    (EXIT |n|)))) 
+
+(SDEFUN |CCLASS;empty;$;19| (($ $)) (SPADCALL NIL (QREFELT $ 41))) 
+
+(SDEFUN |CCLASS;brace;$;20| (($ $)) (SPADCALL NIL (QREFELT $ 41))) 
+
+(SDEFUN |CCLASS;insert!;C2$;21| ((|c| |Character|) (|a| $) ($ $))
+        (SPROG ((|i| (|Integer|)))
+               (SEQ (LETT |i| |c| |CCLASS;insert!;C2$;21|)
+                    (EXIT
+                     (COND
+                      ((< |i| (QREFELT $ 7))
+                       (SEQ (SPADCALL |a| |i| 'T (QREFELT $ 40)) (EXIT |a|)))
+                      ('T (|error| "character code too large"))))))) 
+
+(SDEFUN |CCLASS;remove!;C2$;22| ((|c| |Character|) (|a| $) ($ $))
+        (SPROG ((|i| (|Integer|)))
+               (SEQ
+                (SEQ (LETT |i| |c| |CCLASS;remove!;C2$;22|)
+                     (EXIT
+                      (COND
+                       ((< |i| (QREFELT $ 7))
+                        (SPADCALL |a| |i| 'NIL (QREFELT $ 40))))))
+                (EXIT |a|)))) 
+
+(SDEFUN |CCLASS;inspect;$C;23| ((|a| $) ($ |Character|))
+        (SPROG ((#1=#:G146 NIL) (#2=#:G147 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((SPADCALL |a| |i| (QREFELT $ 21))
-                   (LETT |n| (+ |n| 1) . #2#)))))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |n|))))) 
+                 (SEQ
+                  (SEQ (LETT |i| 0 . #3=(|CCLASS;inspect;$C;23|))
+                       (LETT #2# (- (QREFELT $ 7) 1) . #3#) G190
+                       (COND ((|greater_SI| |i| #2#) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL |a| |i| (QREFELT $ 21))
+                           (PROGN
+                            (LETT #1# (SPADCALL |i| (QREFELT $ 34)) . #3#)
+                            (GO #1#))))))
+                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                       (EXIT NIL))
+                  (EXIT
+                   (|error| "Cannot take a character from an empty class."))))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |CCLASS;empty;$;19| ($) (SPADCALL NIL (QREFELT $ 41))) 
+(SDEFUN |CCLASS;extract!;$C;24| ((|a| $) ($ |Character|))
+        (SPROG ((#1=#:G151 NIL) (#2=#:G152 NIL) (|i| NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (SEQ (LETT |i| 0 . #3=(|CCLASS;extract!;$C;24|))
+                       (LETT #2# (- (QREFELT $ 7) 1) . #3#) G190
+                       (COND ((|greater_SI| |i| #2#) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL |a| |i| (QREFELT $ 21))
+                           (SEQ (SPADCALL |a| |i| 'NIL (QREFELT $ 40))
+                                (EXIT
+                                 (PROGN
+                                  (LETT #1# (SPADCALL |i| (QREFELT $ 34))
+                                        . #3#)
+                                  (GO #1#))))))))
+                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                       (EXIT NIL))
+                  (EXIT
+                   (|error| "Cannot take a character from an empty class."))))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |CCLASS;brace;$;20| ($) (SPADCALL NIL (QREFELT $ 41))) 
-
-(DEFUN |CCLASS;insert!;C2$;21| (|c| |a| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ (LETT |i| |c| |CCLASS;insert!;C2$;21|)
-          (EXIT
-           (COND
-            ((< |i| (QREFELT $ 7))
-             (SEQ (SPADCALL |a| |i| 'T (QREFELT $ 40)) (EXIT |a|)))
-            ('T (|error| "character code too large")))))))) 
-
-(DEFUN |CCLASS;remove!;C2$;22| (|c| |a| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |i| |c| |CCLASS;remove!;C2$;22|)
-           (EXIT
-            (COND
-             ((< |i| (QREFELT $ 7)) (SPADCALL |a| |i| 'NIL (QREFELT $ 40))))))
-      (EXIT |a|))))) 
-
-(DEFUN |CCLASS;inspect;$C;23| (|a| $)
-  (PROG (#1=#:G146 #2=#:G147 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |i| 0 . #3=(|CCLASS;inspect;$C;23|))
-             (LETT #2# (- (QREFELT $ 7) 1) . #3#) G190
-             (COND ((|greater_SI| |i| #2#) (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((SPADCALL |a| |i| (QREFELT $ 21))
-                 (PROGN
-                  (LETT #1# (SPADCALL |i| (QREFELT $ 34)) . #3#)
-                  (GO #1#))))))
-             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT (|error| "Cannot take a character from an empty class."))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |CCLASS;extract!;$C;24| (|a| $)
-  (PROG (#1=#:G151 #2=#:G152 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |i| 0 . #3=(|CCLASS;extract!;$C;24|))
-             (LETT #2# (- (QREFELT $ 7) 1) . #3#) G190
-             (COND ((|greater_SI| |i| #2#) (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((SPADCALL |a| |i| (QREFELT $ 21))
-                 (SEQ (SPADCALL |a| |i| 'NIL (QREFELT $ 40))
+(SDEFUN |CCLASS;map;M2$;25|
+        ((|f| |Mapping| #1=(|Character|) #1#) (|a| $) ($ $))
+        (SPROG ((#2=#:G157 NIL) (|i| NIL) (|b| ($)))
+               (SEQ
+                (LETT |b| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
+                      . #3=(|CCLASS;map;M2$;25|))
+                (SEQ (LETT |i| 0 . #3#) (LETT #2# (- (QREFELT $ 7) 1) . #3#)
+                     G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
+                     (SEQ
                       (EXIT
-                       (PROGN
-                        (LETT #1# (SPADCALL |i| (QREFELT $ 34)) . #3#)
-                        (GO #1#))))))))
-             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT (|error| "Cannot take a character from an empty class."))))
-      #1# (EXIT #1#))))) 
+                       (COND
+                        ((SPADCALL |a| |i| (QREFELT $ 21))
+                         (SPADCALL |b|
+                                   (SPADCALL (SPADCALL |i| (QREFELT $ 34)) |f|)
+                                   'T (QREFELT $ 40))))))
+                     (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                (EXIT |b|)))) 
 
-(DEFUN |CCLASS;map;M2$;25| (|f| |a| $)
-  (PROG (#1=#:G157 |i| |b|)
-    (RETURN
-     (SEQ
-      (LETT |b| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
-            . #2=(|CCLASS;map;M2$;25|))
-      (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 7) 1) . #2#) G190
-           (COND ((|greater_SI| |i| #1#) (GO G191)))
-           (SEQ
-            (EXIT
-             (COND
-              ((SPADCALL |a| |i| (QREFELT $ 21))
-               (SPADCALL |b| (SPADCALL (SPADCALL |i| (QREFELT $ 34)) |f|) 'T
-                         (QREFELT $ 40))))))
-           (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |b|))))) 
+(SDEFUN |CCLASS;map!;M2$;26|
+        ((|f| |Mapping| #1=(|Character|) #1#) (|a| $) ($ $))
+        (SPROG ((#2=#:G161 NIL) (|i| NIL))
+               (SEQ (SPADCALL (QREFELT $ 54) 'NIL (QREFELT $ 55))
+                    (SEQ (LETT |i| 0 . #3=(|CCLASS;map!;M2$;26|))
+                         (LETT #2# (- (QREFELT $ 7) 1) . #3#) G190
+                         (COND ((|greater_SI| |i| #2#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((SPADCALL |a| |i| (QREFELT $ 21))
+                             (SPADCALL (QREFELT $ 54)
+                                       (SPADCALL (SPADCALL |i| (QREFELT $ 34))
+                                                 |f|)
+                                       'T (QREFELT $ 40))))))
+                         (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                         (EXIT NIL))
+                    (EXIT (SPADCALL |a| (QREFELT $ 54) 0 (QREFELT $ 56)))))) 
 
-(DEFUN |CCLASS;map!;M2$;26| (|f| |a| $)
-  (PROG (#1=#:G161 |i|)
-    (RETURN
-     (SEQ (SPADCALL (QREFELT $ 54) 'NIL (QREFELT $ 55))
-          (SEQ (LETT |i| 0 . #2=(|CCLASS;map!;M2$;26|))
-               (LETT #1# (- (QREFELT $ 7) 1) . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
+(SDEFUN |CCLASS;parts;$L;27| ((|a| $) ($ |List| (|Character|)))
+        (SPROG ((#1=#:G165 NIL) (|i| NIL) (#2=#:G164 NIL))
                (SEQ
-                (EXIT
-                 (COND
-                  ((SPADCALL |a| |i| (QREFELT $ 21))
-                   (SPADCALL (QREFELT $ 54)
-                             (SPADCALL (SPADCALL |i| (QREFELT $ 34)) |f|) 'T
-                             (QREFELT $ 40))))))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |a| (QREFELT $ 54) 0 (QREFELT $ 56))))))) 
-
-(DEFUN |CCLASS;parts;$L;27| (|a| $)
-  (PROG (#1=#:G165 |i| #2=#:G164)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #2# NIL . #3=(|CCLASS;parts;$L;27|))
-       (SEQ (LETT |i| 0 . #3#) (LETT #1# (- (QREFELT $ 7) 1) . #3#) G190
-            (COND ((|greater_SI| |i| #1#) (GO G191)))
-            (SEQ
-             (EXIT
-              (COND
-               ((SPADCALL |a| |i| (QREFELT $ 21))
-                (LETT #2# (CONS (SPADCALL |i| (QREFELT $ 34)) #2#) . #3#)))))
-            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-            (EXIT (NREVERSE #2#)))))))) 
+                (PROGN
+                 (LETT #2# NIL . #3=(|CCLASS;parts;$L;27|))
+                 (SEQ (LETT |i| 0 . #3#) (LETT #1# (- (QREFELT $ 7) 1) . #3#)
+                      G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((SPADCALL |a| |i| (QREFELT $ 21))
+                          (LETT #2# (CONS (SPADCALL |i| (QREFELT $ 34)) #2#)
+                                . #3#)))))
+                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))))) 
 
 (DECLAIM (NOTINLINE |CharacterClass;|)) 
 
 (DEFUN |CharacterClass| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G174)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|CharacterClass|)
-                . #2=(|CharacterClass|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|CharacterClass|
-                         (LIST (CONS NIL (CONS 1 (|CharacterClass;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G174)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|CharacterClass|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|CharacterClass|)
+                    . #2=(|CharacterClass|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|CharacterClass|
+                             (LIST (CONS NIL (CONS 1 (|CharacterClass;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|CharacterClass|)))))))))) 
 
 (DEFUN |CharacterClass;| ()
-  (PROG (|dv$| $ #1=#:G171 |pv$| #2=#:G172)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|CharacterClass|) . #3=(|CharacterClass|))
-      (LETT $ (GETREFV 69) . #3#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| (|Character|)
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| (|Character|)
-                                                         '(|Finite|))
-                                          (|HasCategory| (|Character|)
-                                                         '(|OrderedSet|))
-                                          (LETT #1#
-                                                (AND
-                                                 (|HasCategory| (|Character|)
-                                                                '(|Evalable|
-                                                                  (|Character|)))
-                                                 (|HasCategory| (|Character|)
-                                                                '(|SetCategory|)))
-                                                . #3#)
-                                          (OR
-                                           (AND
-                                            (|HasCategory| (|Character|)
-                                                           '(|Evalable|
-                                                             (|Character|)))
-                                            (|HasCategory| (|Character|)
-                                                           '(|Finite|)))
-                                           #1#)
-                                          (|HasCategory| (|Character|)
-                                                         '(|BasicType|))))
-                      . #3#))
-      (|haddProp| |$ConstructorCache| '|CharacterClass| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
-      (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
-           (|augmentPredVector| $ 128))
-      (AND #2# (|HasCategory| (|Character|) '(|BasicType|))
-           (|augmentPredVector| $ 256))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|IndexedBits| 0))
-      (QSETREFV $ 7 256)
-      (QSETREFV $ 54 (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G171 NIL) (|pv$| NIL) (#2=#:G172 NIL))
+         (PROGN
+          (LETT |dv$| '(|CharacterClass|) . #3=(|CharacterClass|))
+          (LETT $ (GETREFV 69) . #3#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| (|Character|)
+                                                             '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              (|HasCategory| (|Character|)
+                                                             '(|Finite|))
+                                              (|HasCategory| (|Character|)
+                                                             '(|OrderedSet|))
+                                              (LETT #1#
+                                                    (AND
+                                                     (|HasCategory|
+                                                      (|Character|)
+                                                      '(|Evalable|
+                                                        (|Character|)))
+                                                     (|HasCategory|
+                                                      (|Character|)
+                                                      '(|SetCategory|)))
+                                                    . #3#)
+                                              (OR
+                                               (AND
+                                                (|HasCategory| (|Character|)
+                                                               '(|Evalable|
+                                                                 (|Character|)))
+                                                (|HasCategory| (|Character|)
+                                                               '(|Finite|)))
+                                               #1#)
+                                              (|HasCategory| (|Character|)
+                                                             '(|BasicType|))))
+                          . #3#))
+          (|haddProp| |$ConstructorCache| '|CharacterClass| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (AND (|HasCategory| $ '(|shallowlyMutable|))
+               (|augmentPredVector| $ 64))
+          (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
+               (|augmentPredVector| $ 128))
+          (AND #2# (|HasCategory| (|Character|) '(|BasicType|))
+               (|augmentPredVector| $ 256))
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|IndexedBits| 0))
+          (QSETREFV $ 7 256)
+          (QSETREFV $ 54 (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36)))
+          $))) 
 
 (MAKEPROP '|CharacterClass| '|infovec|
           (LIST

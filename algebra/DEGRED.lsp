@@ -1,146 +1,162 @@
 
-(DEFUN |DEGRED;degrees| (|u| $)
-  (PROG (|l|)
-    (RETURN
-     (SEQ (LETT |l| NIL . #1=(|DEGRED;degrees|))
-          (SEQ G190
-               (COND
-                ((NULL (SPADCALL |u| (|spadConstant| $ 11) (QREFELT $ 13)))
-                 (GO G191)))
-               (SEQ (LETT |l| (CONS (SPADCALL |u| (QREFELT $ 15)) |l|) . #1#)
-                    (EXIT (LETT |u| (SPADCALL |u| (QREFELT $ 16)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |l|))))) 
+(SDEFUN |DEGRED;degrees|
+        ((|u| |SparseUnivariatePolynomial| R1) ($ |List| (|Integer|)))
+        (SPROG ((|l| (|List| (|Integer|))))
+               (SEQ (LETT |l| NIL . #1=(|DEGRED;degrees|))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (SPADCALL |u| (|spadConstant| $ 11)
+                                      (QREFELT $ 13)))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |l| (CONS (SPADCALL |u| (QREFELT $ 15)) |l|)
+                                . #1#)
+                          (EXIT
+                           (LETT |u| (SPADCALL |u| (QREFELT $ 16)) . #1#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |l|)))) 
 
-(DEFUN |DEGRED;reduce;SupR;2| (|u| $)
-  (PROG (#1=#:G120 #2=#:G117 #3=#:G115 |g| #4=#:G109 #5=#:G108 #6=#:G110
-         #7=#:G124 |d|)
-    (RETURN
-     (SEQ
-      (LETT |g|
-            (PROGN
-             (LETT #4# NIL . #8=(|DEGRED;reduce;SupR;2|))
-             (SEQ (LETT |d| NIL . #8#)
-                  (LETT #7# (|DEGRED;degrees| |u| $) . #8#) G190
-                  (COND
-                   ((OR (ATOM #7#) (PROGN (LETT |d| (CAR #7#) . #8#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (PROGN
-                     (LETT #6# |d| . #8#)
-                     (COND (#4# (LETT #5# (GCD #5# #6#) . #8#))
-                           ('T
-                            (PROGN
-                             (LETT #5# #6# . #8#)
-                             (LETT #4# 'T . #8#)))))))
-                  (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL))
-             (COND (#4# #5#) ('T 0)))
-            . #8#)
-      (LETT |u|
-            (PROG2
-                (LETT #2#
-                      (SPADCALL |u|
-                                (PROG1 (LETT #3# |g| . #8#)
-                                  (|check_subtype| (> #3# 0)
-                                                   '(|PositiveInteger|) #3#))
-                                (QREFELT $ 18))
-                      . #8#)
-                (QCDR #2#)
-              (|check_union| (QEQCAR #2# 0)
-                             (|SparseUnivariatePolynomial| (QREFELT $ 6)) #2#))
-            . #8#)
-      (EXIT
-       (CONS |u|
-             (PROG1 (LETT #1# |g| . #8#)
-               (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))))) 
+(SDEFUN |DEGRED;reduce;SupR;2|
+        ((|u| |SparseUnivariatePolynomial| R1)
+         ($ |Record| (|:| |pol| (|SparseUnivariatePolynomial| R1))
+          (|:| |deg| (|PositiveInteger|))))
+        (SPROG
+         ((#1=#:G120 NIL) (#2=#:G117 NIL) (#3=#:G115 NIL) (|g| #4=(|Integer|))
+          (#5=#:G109 NIL) (#6=#:G108 #4#) (#7=#:G110 #4#) (#8=#:G124 NIL)
+          (|d| NIL))
+         (SEQ
+          (LETT |g|
+                (PROGN
+                 (LETT #5# NIL . #9=(|DEGRED;reduce;SupR;2|))
+                 (SEQ (LETT |d| NIL . #9#)
+                      (LETT #8# (|DEGRED;degrees| |u| $) . #9#) G190
+                      (COND
+                       ((OR (ATOM #8#) (PROGN (LETT |d| (CAR #8#) . #9#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (PROGN
+                         (LETT #7# |d| . #9#)
+                         (COND (#5# (LETT #6# (GCD #6# #7#) . #9#))
+                               ('T
+                                (PROGN
+                                 (LETT #6# #7# . #9#)
+                                 (LETT #5# 'T . #9#)))))))
+                      (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL))
+                 (COND (#5# #6#) ('T 0)))
+                . #9#)
+          (LETT |u|
+                (PROG2
+                    (LETT #2#
+                          (SPADCALL |u|
+                                    (PROG1 (LETT #3# |g| . #9#)
+                                      (|check_subtype| (> #3# 0)
+                                                       '(|PositiveInteger|)
+                                                       #3#))
+                                    (QREFELT $ 18))
+                          . #9#)
+                    (QCDR #2#)
+                  (|check_union| (QEQCAR #2# 0)
+                                 (|SparseUnivariatePolynomial| (QREFELT $ 6))
+                                 #2#))
+                . #9#)
+          (EXIT
+           (CONS |u|
+                 (PROG1 (LETT #1# |g| . #9#)
+                   (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))))) 
 
-(DEFUN |DEGRED;rootOfUnity| (|j| |n| $)
-  (PROG (|arg|)
-    (RETURN
-     (SEQ
-      (COND ((EQL |j| 0) (|spadConstant| $ 22))
-            ('T
-             (SEQ
-              (LETT |arg|
-                    (SPADCALL
-                     (SPADCALL (SPADCALL 2 |j| (QREFELT $ 25))
-                               (SPADCALL (QREFELT $ 26)) (QREFELT $ 27))
-                     (SPADCALL |n| (QREFELT $ 28)) (QREFELT $ 29))
-                    |DEGRED;rootOfUnity|)
-              (EXIT
-               (SPADCALL (SPADCALL |arg| (QREFELT $ 30))
-                         (SPADCALL
-                          (SPADCALL
-                           (SPADCALL (|spadConstant| $ 22) (QREFELT $ 37))
-                           (SPADCALL 1 2 (QREFELT $ 36)) (QREFELT $ 40))
-                          (SPADCALL |arg| (QREFELT $ 41)) (QREFELT $ 42))
-                         (QREFELT $ 43)))))))))) 
+(SDEFUN |DEGRED;rootOfUnity|
+        ((|j| |Integer|) (|n| |Integer|) ($ |Expression| R2))
+        (SPROG ((|arg| (|Expression| R2)))
+               (SEQ
+                (COND ((EQL |j| 0) (|spadConstant| $ 22))
+                      ('T
+                       (SEQ
+                        (LETT |arg|
+                              (SPADCALL
+                               (SPADCALL (SPADCALL 2 |j| (QREFELT $ 25))
+                                         (SPADCALL (QREFELT $ 26))
+                                         (QREFELT $ 27))
+                               (SPADCALL |n| (QREFELT $ 28)) (QREFELT $ 29))
+                              |DEGRED;rootOfUnity|)
+                        (EXIT
+                         (SPADCALL (SPADCALL |arg| (QREFELT $ 30))
+                                   (SPADCALL
+                                    (SPADCALL
+                                     (SPADCALL (|spadConstant| $ 22)
+                                               (QREFELT $ 37))
+                                     (SPADCALL 1 2 (QREFELT $ 36))
+                                     (QREFELT $ 40))
+                                    (SPADCALL |arg| (QREFELT $ 41))
+                                    (QREFELT $ 42))
+                                   (QREFELT $ 43))))))))) 
 
-(DEFUN |DEGRED;expand;EPiL;4| (|s| |g| $)
-  (PROG (#1=#:G130 |i| #2=#:G129)
-    (RETURN
-     (SEQ
-      (COND ((EQL |g| 1) (LIST |s|))
-            ('T
-             (PROGN
-              (LETT #2# NIL . #3=(|DEGRED;expand;EPiL;4|))
-              (SEQ (LETT |i| 0 . #3#) (LETT #1# (- |g| 1) . #3#) G190
-                   (COND ((|greater_SI| |i| #1#) (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (LETT #2#
-                           (CONS
-                            (SPADCALL (|DEGRED;rootOfUnity| |i| |g| $)
-                                      (SPADCALL |s|
-                                                (SPADCALL 1 |g| (QREFELT $ 36))
-                                                (QREFELT $ 40))
-                                      (QREFELT $ 42))
-                            #2#)
-                           . #3#)))
-                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                   (EXIT (NREVERSE #2#)))))))))) 
+(SDEFUN |DEGRED;expand;EPiL;4|
+        ((|s| |Expression| R2) (|g| |PositiveInteger|)
+         ($ |List| (|Expression| R2)))
+        (SPROG ((#1=#:G130 NIL) (|i| NIL) (#2=#:G129 NIL))
+               (SEQ
+                (COND ((EQL |g| 1) (LIST |s|))
+                      ('T
+                       (PROGN
+                        (LETT #2# NIL . #3=(|DEGRED;expand;EPiL;4|))
+                        (SEQ (LETT |i| 0 . #3#) (LETT #1# (- |g| 1) . #3#) G190
+                             (COND ((|greater_SI| |i| #1#) (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #2#
+                                     (CONS
+                                      (SPADCALL
+                                       (|DEGRED;rootOfUnity| |i| |g| $)
+                                       (SPADCALL |s|
+                                                 (SPADCALL 1 |g|
+                                                           (QREFELT $ 36))
+                                                 (QREFELT $ 40))
+                                       (QREFELT $ 42))
+                                      #2#)
+                                     . #3#)))
+                             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                             (EXIT (NREVERSE #2#))))))))) 
 
 (DECLAIM (NOTINLINE |DegreeReductionPackage;|)) 
 
 (DEFUN |DegreeReductionPackage| (&REST #1=#:G131)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G132)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|DegreeReductionPackage|)
-                                           '|domainEqualList|)
-                . #3=(|DegreeReductionPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |DegreeReductionPackage;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G132)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|DegreeReductionPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|DegreeReductionPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|DegreeReductionPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |DegreeReductionPackage;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|DegreeReductionPackage|)))))))))) 
 
 (DEFUN |DegreeReductionPackage;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|DegreeReductionPackage|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|DegreeReductionPackage| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 46) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|DegreeReductionPackage|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|DegreeReductionPackage|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|DegreeReductionPackage| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 46) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|DegreeReductionPackage|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|DegreeReductionPackage| '|infovec|
           (LIST

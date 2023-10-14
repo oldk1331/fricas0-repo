@@ -1,50 +1,52 @@
 
-(DEFUN |PARSU2;map;MPsPs;1| (|f| |c| $)
-  (SPADCALL (SPADCALL (SPADCALL |c| 1 (QREFELT $ 10)) |f|)
-            (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|)
-            (SPADCALL (SPADCALL |c| 3 (QREFELT $ 10)) |f|) (QREFELT $ 12))) 
+(SDEFUN |PARSU2;map;MPsPs;1|
+        ((|f| |Mapping| CF2 CF1) (|c| |ParametricSurface| CF1)
+         ($ |ParametricSurface| CF2))
+        (SPADCALL (SPADCALL (SPADCALL |c| 1 (QREFELT $ 10)) |f|)
+                  (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|)
+                  (SPADCALL (SPADCALL |c| 3 (QREFELT $ 10)) |f|)
+                  (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |ParametricSurfaceFunctions2;|)) 
 
 (DEFUN |ParametricSurfaceFunctions2| (&REST #1=#:G105)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G106)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ParametricSurfaceFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|ParametricSurfaceFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ParametricSurfaceFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G106)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|ParametricSurfaceFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ParametricSurfaceFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|ParametricSurfaceFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |ParametricSurfaceFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ParametricSurfaceFunctions2|)))))))))) 
 
 (DEFUN |ParametricSurfaceFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ParametricSurfaceFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|ParametricSurfaceFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 15) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ParametricSurfaceFunctions2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|ParametricSurfaceFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|ParametricSurfaceFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 15) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ParametricSurfaceFunctions2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|ParametricSurfaceFunctions2| '|infovec|
           (LIST

@@ -2,46 +2,44 @@
 (DECLAIM (NOTINLINE |Operator;|)) 
 
 (DEFUN |Operator| (#1=#:G113)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G114)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|Operator|)
-                                           '|domainEqualList|)
-                . #3=(|Operator|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Operator;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Operator|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G114)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Operator|)
+                                               '|domainEqualList|)
+                    . #3=(|Operator|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Operator;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Operator|)))))))))) 
 
 (DEFUN |Operator;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Operator|))
-      (LETT |dv$| (LIST '|Operator| DV$1) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|Operator| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Operator|))
+          (LETT |dv$| (LIST '|Operator| DV$1) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|CommutativeRing|))
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicNonZero|))
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicZero|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|Operator| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Operator| '|infovec|
           (LIST

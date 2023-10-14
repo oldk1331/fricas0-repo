@@ -1,35 +1,36 @@
 
-(DEFUN |BTAGG-;not;2S;1| (|v| $) (SPADCALL (ELT $ 8) |v| (QREFELT $ 10))) 
+(SDEFUN |BTAGG-;not;2S;1| ((|v| S) ($ S))
+        (SPADCALL (ELT $ 8) |v| (QREFELT $ 10))) 
 
-(DEFUN |BTAGG-;~;2S;2| (|v| $) (SPADCALL (ELT $ 12) |v| (QREFELT $ 10))) 
+(SDEFUN |BTAGG-;~;2S;2| ((|v| S) ($ S))
+        (SPADCALL (ELT $ 12) |v| (QREFELT $ 10))) 
 
-(DEFUN |BTAGG-;/\\;3S;3| (|v| |u| $)
-  (SPADCALL (ELT $ 14) |v| |u| (QREFELT $ 16))) 
+(SDEFUN |BTAGG-;/\\;3S;3| ((|v| S) (|u| S) ($ S))
+        (SPADCALL (ELT $ 14) |v| |u| (QREFELT $ 16))) 
 
-(DEFUN |BTAGG-;\\/;3S;4| (|v| |u| $)
-  (SPADCALL (ELT $ 18) |v| |u| (QREFELT $ 16))) 
+(SDEFUN |BTAGG-;\\/;3S;4| ((|v| S) (|u| S) ($ S))
+        (SPADCALL (ELT $ 18) |v| |u| (QREFELT $ 16))) 
 
-(DEFUN |BTAGG-;nand;3S;5| (|v| |u| $)
-  (SPADCALL (ELT $ 20) |v| |u| (QREFELT $ 16))) 
+(SDEFUN |BTAGG-;nand;3S;5| ((|v| S) (|u| S) ($ S))
+        (SPADCALL (ELT $ 20) |v| |u| (QREFELT $ 16))) 
 
-(DEFUN |BTAGG-;nor;3S;6| (|v| |u| $)
-  (SPADCALL (ELT $ 22) |v| |u| (QREFELT $ 16))) 
+(SDEFUN |BTAGG-;nor;3S;6| ((|v| S) (|u| S) ($ S))
+        (SPADCALL (ELT $ 22) |v| |u| (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |BitAggregate&;|)) 
 
 (DEFUN |BitAggregate&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|BitAggregate&|))
-      (LETT |dv$| (LIST '|BitAggregate&| DV$1) . #1#)
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|BitAggregate&|))
+          (LETT |dv$| (LIST '|BitAggregate&| DV$1) . #1#)
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|BitAggregate&| '|infovec|
           (LIST

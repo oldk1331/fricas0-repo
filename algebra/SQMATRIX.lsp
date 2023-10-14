@@ -1,441 +1,446 @@
 
-(DEFUN |SQMATRIX;Zero;$;1| ($) (QREFELT $ 10)) 
+(SDEFUN |SQMATRIX;Zero;$;1| (($ $)) (QREFELT $ 10)) 
 
-(DEFUN |SQMATRIX;One;$;2| ($) (QREFELT $ 13)) 
+(SDEFUN |SQMATRIX;One;$;2| (($ $)) (QREFELT $ 13)) 
 
-(DEFUN |SQMATRIX;characteristic;Nni;3| ($) (SPADCALL (QREFELT $ 16))) 
+(SDEFUN |SQMATRIX;characteristic;Nni;3| (($ |NonNegativeInteger|))
+        (SPADCALL (QREFELT $ 16))) 
 
-(DEFUN |SQMATRIX;matrix;L$;4| (|l| $)
-  (PROG (#1=#:G121 |j| #2=#:G122 |r| #3=#:G119 |i| #4=#:G120 |ll| |ans|
-         #5=#:G112 #6=#:G118)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
-        (|error| "matrix: wrong number of rows"))
-       ('T
-        (SEQ
+(SDEFUN |SQMATRIX;matrix;L$;4| ((|l| |List| (|List| R)) ($ $))
+        (SPROG
+         ((#1=#:G121 NIL) (|j| NIL) (#2=#:G122 NIL) (|r| NIL) (#3=#:G119 NIL)
+          (|i| NIL) (#4=#:G120 NIL) (|ll| NIL) (|ans| (|Matrix| R))
+          (#5=#:G112 NIL) (#6=#:G118 NIL))
          (SEQ
-          (EXIT
-           (SEQ (LETT |ll| NIL . #7=(|SQMATRIX;matrix;L$;4|))
-                (LETT #6# |l| . #7#) G190
-                (COND
-                 ((OR (ATOM #6#) (PROGN (LETT |ll| (CAR #6#) . #7#) NIL))
-                  (GO G191)))
-                (SEQ
-                 (EXIT
-                  (COND
-                   ((SPADCALL (LENGTH |ll|) (QREFELT $ 6) (QREFELT $ 19))
-                    (PROGN
-                     (LETT #5# (|error| "matrix: wrong number of columns")
-                           . #7#)
-                     (GO #5#))))))
-                (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL)))
-          #5# (EXIT #5#))
-         (LETT |ans|
-               (MAKE_MATRIX1 (QREFELT $ 6) (QREFELT $ 6) (|spadConstant| $ 8))
-               . #7#)
-         (SEQ (LETT |ll| NIL . #7#) (LETT #4# |l| . #7#) (LETT |i| 1 . #7#)
-              (LETT #3# (SPADCALL |ans| (QREFELT $ 21)) . #7#) G190
-              (COND
-               ((OR (|greater_SI| |i| #3#) (ATOM #4#)
-                    (PROGN (LETT |ll| (CAR #4#) . #7#) NIL))
-                (GO G191)))
-              (SEQ
-               (EXIT
-                (SEQ (LETT |r| NIL . #7#) (LETT #2# |ll| . #7#)
-                     (LETT |j| 1 . #7#)
-                     (LETT #1# (SPADCALL |ans| (QREFELT $ 22)) . #7#) G190
-                     (COND
-                      ((OR (|greater_SI| |j| #1#) (ATOM #2#)
-                           (PROGN (LETT |r| (CAR #2#) . #7#) NIL))
-                       (GO G191)))
-                     (SEQ (EXIT (QSETAREF2O |ans| |i| |j| |r| 1 1)))
-                     (LETT |j|
-                           (PROG1 (|inc_SI| |j|) (LETT #2# (CDR #2#) . #7#))
-                           . #7#)
-                     (GO G190) G191 (EXIT NIL))))
-              (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #4# (CDR #4#) . #7#))
-                    . #7#)
-              (GO G190) G191 (EXIT NIL))
-         (EXIT |ans|)))))))) 
-
-(DEFUN |SQMATRIX;row;$IDp;5| (|x| |i| $)
-  (SPADCALL (SPADCALL |x| |i| (QREFELT $ 26)) (QREFELT $ 28))) 
-
-(DEFUN |SQMATRIX;column;$IDp;6| (|x| |j| $)
-  (SPADCALL (SPADCALL |x| |j| (QREFELT $ 30)) (QREFELT $ 28))) 
-
-(DEFUN |SQMATRIX;coerce;$Of;7| (|x| $) (SPADCALL |x| (QREFELT $ 33))) 
-
-(DEFUN |SQMATRIX;scalarMatrix;R$;8| (|r| $)
-  (SPADCALL (QREFELT $ 6) |r| (QREFELT $ 35))) 
-
-(DEFUN |SQMATRIX;diagonalMatrix;L$;9| (|l| $)
-  (COND
-   ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
-    (|error| "diagonalMatrix: wrong number of entries in list"))
-   ('T (SPADCALL |l| (QREFELT $ 37))))) 
-
-(DEFUN |SQMATRIX;coerce;$M;10| (|x| $) (SPADCALL |x| (QREFELT $ 39))) 
-
-(DEFUN |SQMATRIX;squareMatrix;M$;11| (|x| $)
-  (COND
-   ((OR (SPADCALL (ANROWS |x|) (QREFELT $ 6) (QREFELT $ 19))
-        (SPADCALL (ANCOLS |x|) (QREFELT $ 6) (QREFELT $ 19)))
-    (|error| "squareMatrix: matrix of bad dimensions"))
-   ('T (SPADCALL |x| (QREFELT $ 39))))) 
-
-(DEFUN |SQMATRIX;*;$2Dp;12| (|x| |v| $)
-  (SPADCALL (SPADCALL |x| (SPADCALL |v| (QREFELT $ 42)) (QREFELT $ 43))
-            (QREFELT $ 28))) 
-
-(DEFUN |SQMATRIX;*;Dp$Dp;13| (|v| |x| $)
-  (SPADCALL (SPADCALL (SPADCALL |v| (QREFELT $ 42)) |x| (QREFELT $ 45))
-            (QREFELT $ 28))) 
-
-(DEFUN |SQMATRIX;determinant;$R;14| (|x| $) (SPADCALL |x| (QREFELT $ 47))) 
-
-(DEFUN |SQMATRIX;minordet;$R;15| (|x| $) (SPADCALL |x| (QREFELT $ 49))) 
-
-(DEFUN |SQMATRIX;Pfaffian;$R;16| (|x| $) (SPADCALL |x| (QREFELT $ 51))) 
-
-(DEFUN |SQMATRIX;rowEchelon;2$;17| (|x| $) (SPADCALL |x| (QREFELT $ 53))) 
-
-(DEFUN |SQMATRIX;rank;$Nni;18| (|x| $) (SPADCALL |x| (QREFELT $ 55))) 
-
-(DEFUN |SQMATRIX;nullity;$Nni;19| (|x| $) (SPADCALL |x| (QREFELT $ 57))) 
-
-(DEFUN |SQMATRIX;nullSpace;$L;20| (|x| $)
-  (PROG (#1=#:G145 |c| #2=#:G144)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #2# NIL . #3=(|SQMATRIX;nullSpace;$L;20|))
-       (SEQ (LETT |c| NIL . #3#) (LETT #1# (SPADCALL |x| (QREFELT $ 60)) . #3#)
-            G190
-            (COND
-             ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
-              (GO G191)))
+          (COND
+           ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
+            (|error| "matrix: wrong number of rows"))
+           ('T
             (SEQ
-             (EXIT (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 28)) #2#) . #3#)))
-            (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-            (EXIT (NREVERSE #2#)))))))) 
+             (SEQ
+              (EXIT
+               (SEQ (LETT |ll| NIL . #7=(|SQMATRIX;matrix;L$;4|))
+                    (LETT #6# |l| . #7#) G190
+                    (COND
+                     ((OR (ATOM #6#) (PROGN (LETT |ll| (CAR #6#) . #7#) NIL))
+                      (GO G191)))
+                    (SEQ
+                     (EXIT
+                      (COND
+                       ((SPADCALL (LENGTH |ll|) (QREFELT $ 6) (QREFELT $ 19))
+                        (PROGN
+                         (LETT #5# (|error| "matrix: wrong number of columns")
+                               . #7#)
+                         (GO #5#))))))
+                    (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL)))
+              #5# (EXIT #5#))
+             (LETT |ans|
+                   (MAKE_MATRIX1 (QREFELT $ 6) (QREFELT $ 6)
+                                 (|spadConstant| $ 8))
+                   . #7#)
+             (SEQ (LETT |ll| NIL . #7#) (LETT #4# |l| . #7#) (LETT |i| 1 . #7#)
+                  (LETT #3# (SPADCALL |ans| (QREFELT $ 21)) . #7#) G190
+                  (COND
+                   ((OR (|greater_SI| |i| #3#) (ATOM #4#)
+                        (PROGN (LETT |ll| (CAR #4#) . #7#) NIL))
+                    (GO G191)))
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |r| NIL . #7#) (LETT #2# |ll| . #7#)
+                         (LETT |j| 1 . #7#)
+                         (LETT #1# (SPADCALL |ans| (QREFELT $ 22)) . #7#) G190
+                         (COND
+                          ((OR (|greater_SI| |j| #1#) (ATOM #2#)
+                               (PROGN (LETT |r| (CAR #2#) . #7#) NIL))
+                           (GO G191)))
+                         (SEQ (EXIT (QSETAREF2O |ans| |i| |j| |r| 1 1)))
+                         (LETT |j|
+                               (PROG1 (|inc_SI| |j|)
+                                 (LETT #2# (CDR #2#) . #7#))
+                               . #7#)
+                         (GO G190) G191 (EXIT NIL))))
+                  (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #4# (CDR #4#) . #7#))
+                        . #7#)
+                  (GO G190) G191 (EXIT NIL))
+             (EXIT |ans|))))))) 
 
-(DEFUN |SQMATRIX;inverse;$U;21| (|x| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 64)) |SQMATRIX;inverse;$U;21|)
-          (EXIT
-           (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                 ('T (CONS 0 (QCDR |u|))))))))) 
+(SDEFUN |SQMATRIX;row;$IDp;5|
+        ((|x| $) (|i| |Integer|) ($ |DirectProduct| |ndim| R))
+        (SPADCALL (SPADCALL |x| |i| (QREFELT $ 26)) (QREFELT $ 28))) 
 
-(DEFUN |SQMATRIX;^;$I$;22| (|x| |n| $) (SPADCALL |x| |n| (QREFELT $ 66))) 
+(SDEFUN |SQMATRIX;column;$IDp;6|
+        ((|x| $) (|j| |Integer|) ($ |DirectProduct| |ndim| R))
+        (SPADCALL (SPADCALL |x| |j| (QREFELT $ 30)) (QREFELT $ 28))) 
 
-(DEFUN |SQMATRIX;recip;$U;23| (|x| $) (SPADCALL |x| (QREFELT $ 65))) 
+(SDEFUN |SQMATRIX;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
+        (SPADCALL |x| (QREFELT $ 33))) 
 
-(DEFUN |SQMATRIX;convert;$If;24| (|x| $)
-  (SPADCALL
-   (LIST (SPADCALL '|squareMatrix| (QREFELT $ 71))
-         (SPADCALL (SPADCALL |x| (QREFELT $ 40)) (QREFELT $ 72)))
-   (QREFELT $ 74))) 
+(SDEFUN |SQMATRIX;scalarMatrix;R$;8| ((|r| R) ($ $))
+        (SPADCALL (QREFELT $ 6) |r| (QREFELT $ 35))) 
+
+(SDEFUN |SQMATRIX;diagonalMatrix;L$;9| ((|l| |List| R) ($ $))
+        (COND
+         ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
+          (|error| "diagonalMatrix: wrong number of entries in list"))
+         ('T (SPADCALL |l| (QREFELT $ 37))))) 
+
+(SDEFUN |SQMATRIX;coerce;$M;10| ((|x| $) ($ |Matrix| R))
+        (SPADCALL |x| (QREFELT $ 39))) 
+
+(SDEFUN |SQMATRIX;squareMatrix;M$;11| ((|x| |Matrix| R) ($ $))
+        (COND
+         ((OR (SPADCALL (ANROWS |x|) (QREFELT $ 6) (QREFELT $ 19))
+              (SPADCALL (ANCOLS |x|) (QREFELT $ 6) (QREFELT $ 19)))
+          (|error| "squareMatrix: matrix of bad dimensions"))
+         ('T (SPADCALL |x| (QREFELT $ 39))))) 
+
+(SDEFUN |SQMATRIX;*;$2Dp;12|
+        ((|x| $) (|v| . #1=(|DirectProduct| |ndim| R)) ($ . #1#))
+        (SPADCALL (SPADCALL |x| (SPADCALL |v| (QREFELT $ 42)) (QREFELT $ 43))
+                  (QREFELT $ 28))) 
+
+(SDEFUN |SQMATRIX;*;Dp$Dp;13|
+        ((|v| . #1=(|DirectProduct| |ndim| R)) (|x| $) ($ . #1#))
+        (SPADCALL (SPADCALL (SPADCALL |v| (QREFELT $ 42)) |x| (QREFELT $ 45))
+                  (QREFELT $ 28))) 
+
+(SDEFUN |SQMATRIX;determinant;$R;14| ((|x| $) ($ R))
+        (SPADCALL |x| (QREFELT $ 47))) 
+
+(SDEFUN |SQMATRIX;minordet;$R;15| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 49))) 
+
+(SDEFUN |SQMATRIX;Pfaffian;$R;16| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 51))) 
+
+(SDEFUN |SQMATRIX;rowEchelon;2$;17| ((|x| $) ($ $))
+        (SPADCALL |x| (QREFELT $ 53))) 
+
+(SDEFUN |SQMATRIX;rank;$Nni;18| ((|x| $) ($ |NonNegativeInteger|))
+        (SPADCALL |x| (QREFELT $ 55))) 
+
+(SDEFUN |SQMATRIX;nullity;$Nni;19| ((|x| $) ($ |NonNegativeInteger|))
+        (SPADCALL |x| (QREFELT $ 57))) 
+
+(SDEFUN |SQMATRIX;nullSpace;$L;20|
+        ((|x| $) ($ |List| (|DirectProduct| |ndim| R)))
+        (SPROG ((#1=#:G145 NIL) (|c| NIL) (#2=#:G144 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #2# NIL . #3=(|SQMATRIX;nullSpace;$L;20|))
+                 (SEQ (LETT |c| NIL . #3#)
+                      (LETT #1# (SPADCALL |x| (QREFELT $ 60)) . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 28)) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))))) 
+
+(SDEFUN |SQMATRIX;inverse;$U;21| ((|x| $) ($ |Union| $ "failed"))
+        (SPROG ((|u| (|Union| (|Matrix| R) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |x| (QREFELT $ 64))
+                      |SQMATRIX;inverse;$U;21|)
+                (EXIT
+                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                       ('T (CONS 0 (QCDR |u|)))))))) 
+
+(SDEFUN |SQMATRIX;^;$I$;22| ((|x| $) (|n| |Integer|) ($ $))
+        (SPADCALL |x| |n| (QREFELT $ 66))) 
+
+(SDEFUN |SQMATRIX;recip;$U;23| ((|x| $) ($ |Union| $ "failed"))
+        (SPADCALL |x| (QREFELT $ 65))) 
+
+(SDEFUN |SQMATRIX;convert;$If;24| ((|x| $) ($ |InputForm|))
+        (SPADCALL
+         (LIST (SPADCALL '|squareMatrix| (QREFELT $ 71))
+               (SPADCALL (SPADCALL |x| (QREFELT $ 40)) (QREFELT $ 72)))
+         (QREFELT $ 74))) 
 
 (DECLAIM (NOTINLINE |SquareMatrix;|)) 
 
 (DEFUN |SquareMatrix| (&REST #1=#:G178)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G179)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|SquareMatrix|)
-                                           '|domainEqualList|)
-                . #3=(|SquareMatrix|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |SquareMatrix;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G179)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|SquareMatrix|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SquareMatrix|)
+                                               '|domainEqualList|)
+                    . #3=(|SquareMatrix|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SquareMatrix;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|SquareMatrix|)))))))))) 
 
 (DEFUN |SquareMatrix;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G174 #2=#:G175 #3=#:G177 $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|SquareMatrix|))
-      (LETT DV$2 (|devaluate| |#2|) . #4#)
-      (LETT |dv$| (LIST '|SquareMatrix| DV$1 DV$2) . #4#)
-      (LETT $ (GETREFV 96) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
+  (SPROG
+   ((|pv$| NIL) (#1=#:G174 NIL) (#2=#:G175 NIL) (#3=#:G177 NIL) ($ NIL)
+    (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|SquareMatrix|))
+    (LETT DV$2 (|devaluate| |#2|) . #4#)
+    (LETT |dv$| (LIST '|SquareMatrix| DV$1 DV$2) . #4#)
+    (LETT $ (GETREFV 96) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#2|
+                                                       '(|CommutativeRing|))
+                                        (|HasCategory| |#2| '(|SemiRing|))
+                                        (|HasCategory| |#2| '(|Ring|))
+                                        (|HasCategory| |#2|
+                                                       '(|LinearlyExplicitRingOver|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#2|
+                                                       '(|PartialDifferentialRing|
+                                                         (|Symbol|)))
+                                        (LETT #3#
+                                              (|HasCategory| |#2|
+                                                             '(|DifferentialRing|))
+                                              . #4#)
+                                        (OR
+                                         (|HasCategory| |#2|
+                                                        '(|LinearlyExplicitRingOver|
+                                                          (|Integer|)))
+                                         (|HasCategory| |#2|
+                                                        '(|PartialDifferentialRing|
+                                                          (|Symbol|)))
+                                         (|HasCategory| |#2|
+                                                        '(|CommutativeRing|))
+                                         #3# (|HasCategory| |#2| '(|Ring|)))
+                                        (|HasCategory| |#2| '(|Finite|))
+                                        (|HasCategory| |#2|
+                                                       '(|RetractableTo|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#2|
+                                                       '(|RetractableTo|
+                                                         (|Integer|)))
+                                        (OR
+                                         (AND
                                           (|HasCategory| |#2|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#2| '(|SemiRing|))
-                                          (|HasCategory| |#2| '(|Ring|))
+                                                         '(|CommutativeStar|))
+                                          (|HasCategory| |#2| '(|unitsKnown|)))
+                                         (|HasCategory| |#2| '(|Ring|)))
+                                        (|HasCategory| |#2|
+                                                       '(|EuclideanDomain|))
+                                        (|HasCategory| |#2|
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| |#2| '(|BasicType|))
+                                        (AND
+                                         (|HasCategory| |#2|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#2|)))
+                                         (|HasCategory| |#2| '(|SetCategory|)))
+                                        (OR
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#2|)))
                                           (|HasCategory| |#2|
                                                          '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))
+                                                           (|Integer|))))
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#2|)))
                                           (|HasCategory| |#2|
                                                          '(|PartialDifferentialRing|
-                                                           (|Symbol|)))
-                                          (LETT #3#
-                                                (|HasCategory| |#2|
-                                                               '(|DifferentialRing|))
-                                                . #4#)
-                                          (OR
-                                           (|HasCategory| |#2|
-                                                          '(|LinearlyExplicitRingOver|
-                                                            (|Integer|)))
-                                           (|HasCategory| |#2|
-                                                          '(|PartialDifferentialRing|
-                                                            (|Symbol|)))
-                                           (|HasCategory| |#2|
-                                                          '(|CommutativeRing|))
-                                           #3# (|HasCategory| |#2| '(|Ring|)))
-                                          (|HasCategory| |#2| '(|Finite|))
+                                                           (|Symbol|))))
+                                         (AND
                                           (|HasCategory| |#2|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#2|)))
                                           (|HasCategory| |#2|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           '(|CommutativeStar|))
-                                            (|HasCategory| |#2|
-                                                           '(|unitsKnown|)))
-                                           (|HasCategory| |#2| '(|Ring|)))
+                                                         '(|CommutativeRing|)))
+                                         (AND
                                           (|HasCategory| |#2|
-                                                         '(|EuclideanDomain|))
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#2|)))
+                                          #3#)
+                                         (AND
                                           (|HasCategory| |#2|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#2| '(|BasicType|))
-                                          (AND
-                                           (|HasCategory| |#2|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#2|)))
-                                           (|HasCategory| |#2|
-                                                          '(|SetCategory|)))
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                            (|HasCategory| |#2|
-                                                           '(|LinearlyExplicitRingOver|
-                                                             (|Integer|))))
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                            (|HasCategory| |#2|
-                                                           '(|PartialDifferentialRing|
-                                                             (|Symbol|))))
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                            (|HasCategory| |#2|
-                                                           '(|CommutativeRing|)))
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                            #3#)
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                            (|HasCategory| |#2| '(|Finite|)))
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                            (|HasCategory| |#2| '(|Ring|)))
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                            (|HasCategory| |#2| '(|SemiRing|)))
-                                           (AND
-                                            (|HasCategory| |#2|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                            (|HasCategory| |#2|
-                                                           '(|SetCategory|))))
-                                          (|HasCategory| |#2| '(|Field|))
-                                          (AND
-                                           (|HasCategory| |#2|
-                                                          '(|LinearlyExplicitRingOver|
-                                                            (|Integer|)))
-                                           (|HasCategory| |#2| '(|Ring|)))
-                                          (AND #3#
-                                               (|HasCategory| |#2| '(|Ring|)))
-                                          (AND
-                                           (|HasCategory| |#2|
-                                                          '(|PartialDifferentialRing|
-                                                            (|Symbol|)))
-                                           (|HasCategory| |#2| '(|Ring|)))
-                                          (OR
-                                           (|HasCategory| |#2|
-                                                          '(|RetractableTo|
-                                                            (|Integer|)))
-                                           (|HasCategory| |#2| '(|Ring|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#2|
-                                                               '(|AbelianGroup|))
-                                                . #4#)
-                                          (OR
-                                           (|HasCategory| |#2|
-                                                          '(|LinearlyExplicitRingOver|
-                                                            (|Integer|)))
-                                           (|HasCategory| |#2|
-                                                          '(|PartialDifferentialRing|
-                                                            (|Symbol|)))
-                                           #2#
-                                           (|HasCategory| |#2|
-                                                          '(|CommutativeRing|))
-                                           #3# (|HasCategory| |#2| '(|Ring|)))
-                                          (LETT #1#
-                                                (|HasCategory| |#2|
-                                                               '(|ConvertibleTo|
-                                                                 (|InputForm|)))
-                                                . #4#)
-                                          (OR #1#
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#2|)))
-                                               (|HasCategory| |#2|
-                                                              '(|Finite|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|LinearlyExplicitRingOver|
-                                                                (|Integer|)))
-                                               (|HasCategory| |#2|
-                                                              '(|Finite|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|PartialDifferentialRing|
-                                                                (|Symbol|)))
-                                               (|HasCategory| |#2|
-                                                              '(|Finite|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|RetractableTo|
-                                                                (|Fraction|
-                                                                 (|Integer|))))
-                                               (|HasCategory| |#2|
-                                                              '(|Finite|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|RetractableTo|
-                                                                (|Integer|)))
-                                               (|HasCategory| |#2|
-                                                              '(|Finite|)))
-                                              (AND #2#
-                                                   (|HasCategory| |#2|
-                                                                  '(|Finite|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|CommutativeRing|))
-                                               (|HasCategory| |#2|
-                                                              '(|Finite|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|CommutativeStar|))
-                                               (|HasCategory| |#2|
-                                                              '(|Finite|)))
-                                              (AND #3#
-                                                   (|HasCategory| |#2|
-                                                                  '(|Finite|)))
-                                              (AND
-                                               (|HasCategory| |#2| '(|Finite|))
-                                               (|HasCategory| |#2| '(|Ring|)))
-                                              (AND
-                                               (|HasCategory| |#2| '(|Finite|))
-                                               (|HasCategory| |#2|
-                                                              '(|SemiRing|))))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|SquareMatrix| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 33554432))
-      (AND (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 67108864))
-      (AND (|HasCategory| |#2| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 134217728))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 10 (SPADCALL (|spadConstant| $ 8) (QREFELT $ 9)))
-      (COND
-       ((|HasCategory| |#2| '(|Monoid|))
-        (PROGN
-         (QSETREFV $ 13 (SPADCALL (|spadConstant| $ 12) (QREFELT $ 9)))
-         (QSETREFV $ 14
-                   (CONS #'|makeSpadConstant|
-                         (LIST (|dispatchFunction| |SQMATRIX;One;$;2|) $
-                               14))))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (QSETREFV $ 17
-                  (CONS (|dispatchFunction| |SQMATRIX;characteristic;Nni;3|)
-                        $))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 48
-                   (CONS (|dispatchFunction| |SQMATRIX;determinant;$R;14|) $))
-         (QSETREFV $ 50
-                   (CONS (|dispatchFunction| |SQMATRIX;minordet;$R;15|) $))
-         (QSETREFV $ 52
-                   (CONS (|dispatchFunction| |SQMATRIX;Pfaffian;$R;16|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 12)
-        (QSETREFV $ 54
-                  (CONS (|dispatchFunction| |SQMATRIX;rowEchelon;2$;17|) $))))
-      (COND
-       ((|testBitVector| |pv$| 13)
-        (PROGN
-         (QSETREFV $ 56 (CONS (|dispatchFunction| |SQMATRIX;rank;$Nni;18|) $))
-         (QSETREFV $ 58
-                   (CONS (|dispatchFunction| |SQMATRIX;nullity;$Nni;19|) $))
-         (QSETREFV $ 62
-                   (CONS (|dispatchFunction| |SQMATRIX;nullSpace;$L;20|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 17)
-        (PROGN
-         (QSETREFV $ 65 (CONS (|dispatchFunction| |SQMATRIX;inverse;$U;21|) $))
-         (QSETREFV $ 67 (CONS (|dispatchFunction| |SQMATRIX;^;$I$;22|) $))
-         (QSETREFV $ 68
-                   (CONS (|dispatchFunction| |SQMATRIX;recip;$U;23|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 24)
-        (QSETREFV $ 75
-                  (CONS (|dispatchFunction| |SQMATRIX;convert;$If;24|) $))))
-      $)))) 
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#2|)))
+                                          (|HasCategory| |#2| '(|Finite|)))
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#2|)))
+                                          (|HasCategory| |#2| '(|Ring|)))
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#2|)))
+                                          (|HasCategory| |#2| '(|SemiRing|)))
+                                         (AND
+                                          (|HasCategory| |#2|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#2|)))
+                                          (|HasCategory| |#2|
+                                                         '(|SetCategory|))))
+                                        (|HasCategory| |#2| '(|Field|))
+                                        (AND
+                                         (|HasCategory| |#2|
+                                                        '(|LinearlyExplicitRingOver|
+                                                          (|Integer|)))
+                                         (|HasCategory| |#2| '(|Ring|)))
+                                        (AND #3#
+                                             (|HasCategory| |#2| '(|Ring|)))
+                                        (AND
+                                         (|HasCategory| |#2|
+                                                        '(|PartialDifferentialRing|
+                                                          (|Symbol|)))
+                                         (|HasCategory| |#2| '(|Ring|)))
+                                        (OR
+                                         (|HasCategory| |#2|
+                                                        '(|RetractableTo|
+                                                          (|Integer|)))
+                                         (|HasCategory| |#2| '(|Ring|)))
+                                        (LETT #2#
+                                              (|HasCategory| |#2|
+                                                             '(|AbelianGroup|))
+                                              . #4#)
+                                        (OR
+                                         (|HasCategory| |#2|
+                                                        '(|LinearlyExplicitRingOver|
+                                                          (|Integer|)))
+                                         (|HasCategory| |#2|
+                                                        '(|PartialDifferentialRing|
+                                                          (|Symbol|)))
+                                         #2#
+                                         (|HasCategory| |#2|
+                                                        '(|CommutativeRing|))
+                                         #3# (|HasCategory| |#2| '(|Ring|)))
+                                        (LETT #1#
+                                              (|HasCategory| |#2|
+                                                             '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              . #4#)
+                                        (OR #1#
+                                            (AND
+                                             (|HasCategory| |#2|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#2|)))
+                                             (|HasCategory| |#2| '(|Finite|)))
+                                            (AND
+                                             (|HasCategory| |#2|
+                                                            '(|LinearlyExplicitRingOver|
+                                                              (|Integer|)))
+                                             (|HasCategory| |#2| '(|Finite|)))
+                                            (AND
+                                             (|HasCategory| |#2|
+                                                            '(|PartialDifferentialRing|
+                                                              (|Symbol|)))
+                                             (|HasCategory| |#2| '(|Finite|)))
+                                            (AND
+                                             (|HasCategory| |#2|
+                                                            '(|RetractableTo|
+                                                              (|Fraction|
+                                                               (|Integer|))))
+                                             (|HasCategory| |#2| '(|Finite|)))
+                                            (AND
+                                             (|HasCategory| |#2|
+                                                            '(|RetractableTo|
+                                                              (|Integer|)))
+                                             (|HasCategory| |#2| '(|Finite|)))
+                                            (AND #2#
+                                                 (|HasCategory| |#2|
+                                                                '(|Finite|)))
+                                            (AND
+                                             (|HasCategory| |#2|
+                                                            '(|CommutativeRing|))
+                                             (|HasCategory| |#2| '(|Finite|)))
+                                            (AND
+                                             (|HasCategory| |#2|
+                                                            '(|CommutativeStar|))
+                                             (|HasCategory| |#2| '(|Finite|)))
+                                            (AND #3#
+                                                 (|HasCategory| |#2|
+                                                                '(|Finite|)))
+                                            (AND
+                                             (|HasCategory| |#2| '(|Finite|))
+                                             (|HasCategory| |#2| '(|Ring|)))
+                                            (AND
+                                             (|HasCategory| |#2| '(|Finite|))
+                                             (|HasCategory| |#2|
+                                                            '(|SemiRing|))))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|SquareMatrix| (LIST DV$1 DV$2)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 33554432))
+    (AND (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 67108864))
+    (AND (|HasCategory| |#2| '(|BasicType|))
+         (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 134217728))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 10 (SPADCALL (|spadConstant| $ 8) (QREFELT $ 9)))
+    (COND
+     ((|HasCategory| |#2| '(|Monoid|))
+      (PROGN
+       (QSETREFV $ 13 (SPADCALL (|spadConstant| $ 12) (QREFELT $ 9)))
+       (QSETREFV $ 14
+                 (CONS #'|makeSpadConstant|
+                       (LIST (|dispatchFunction| |SQMATRIX;One;$;2|) $ 14))))))
+    (COND
+     ((|testBitVector| |pv$| 3)
+      (QSETREFV $ 17
+                (CONS (|dispatchFunction| |SQMATRIX;characteristic;Nni;3|)
+                      $))))
+    (COND
+     ((|testBitVector| |pv$| 1)
+      (PROGN
+       (QSETREFV $ 48
+                 (CONS (|dispatchFunction| |SQMATRIX;determinant;$R;14|) $))
+       (QSETREFV $ 50 (CONS (|dispatchFunction| |SQMATRIX;minordet;$R;15|) $))
+       (QSETREFV $ 52
+                 (CONS (|dispatchFunction| |SQMATRIX;Pfaffian;$R;16|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 12)
+      (QSETREFV $ 54
+                (CONS (|dispatchFunction| |SQMATRIX;rowEchelon;2$;17|) $))))
+    (COND
+     ((|testBitVector| |pv$| 13)
+      (PROGN
+       (QSETREFV $ 56 (CONS (|dispatchFunction| |SQMATRIX;rank;$Nni;18|) $))
+       (QSETREFV $ 58 (CONS (|dispatchFunction| |SQMATRIX;nullity;$Nni;19|) $))
+       (QSETREFV $ 62
+                 (CONS (|dispatchFunction| |SQMATRIX;nullSpace;$L;20|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 17)
+      (PROGN
+       (QSETREFV $ 65 (CONS (|dispatchFunction| |SQMATRIX;inverse;$U;21|) $))
+       (QSETREFV $ 67 (CONS (|dispatchFunction| |SQMATRIX;^;$I$;22|) $))
+       (QSETREFV $ 68 (CONS (|dispatchFunction| |SQMATRIX;recip;$U;23|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 24)
+      (QSETREFV $ 75 (CONS (|dispatchFunction| |SQMATRIX;convert;$If;24|) $))))
+    $))) 
 
 (MAKEPROP '|SquareMatrix| '|infovec|
           (LIST

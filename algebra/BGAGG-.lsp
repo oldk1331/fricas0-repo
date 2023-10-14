@@ -1,33 +1,33 @@
 
-(DEFUN |BGAGG-;bag;LA;1| (|l| $)
-  (PROG (|x| #1=#:G113 |s|)
-    (RETURN
-     (SEQ (LETT |x| (SPADCALL (QREFELT $ 8)) . #2=(|BGAGG-;bag;LA;1|))
-          (SEQ (LETT |s| NIL . #2#) (LETT #1# |l| . #2#) G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#) . #2#) NIL))
-                 (GO G191)))
-               (SEQ (EXIT (LETT |x| (SPADCALL |s| |x| (QREFELT $ 9)) . #2#)))
-               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |x|))))) 
+(SDEFUN |BGAGG-;bag;LA;1| ((|l| |List| S) ($ A))
+        (SPROG ((|x| (A)) (#1=#:G113 NIL) (|s| NIL))
+               (SEQ
+                (LETT |x| (SPADCALL (QREFELT $ 8)) . #2=(|BGAGG-;bag;LA;1|))
+                (SEQ (LETT |s| NIL . #2#) (LETT #1# |l| . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ
+                      (EXIT (LETT |x| (SPADCALL |s| |x| (QREFELT $ 9)) . #2#)))
+                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |BagAggregate&;|)) 
 
 (DEFUN |BagAggregate&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|BagAggregate&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|BagAggregate&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 12) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|BagAggregate&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|BagAggregate&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 12) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|BagAggregate&| '|infovec|
           (LIST

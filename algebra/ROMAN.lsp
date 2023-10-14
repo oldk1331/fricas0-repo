@@ -1,65 +1,67 @@
 
-(DEFUN |ROMAN;roman;I$;1| (|n| $) (SPADCALL |n| (QREFELT $ 6))) 
+(SDEFUN |ROMAN;roman;I$;1| ((|n| |Integer|) ($ $)) (SPADCALL |n| (QREFELT $ 6))) 
 
-(DEFUN |ROMAN;roman;S$;2| (|sy| $) (SPADCALL |sy| (QREFELT $ 9))) 
+(SDEFUN |ROMAN;roman;S$;2| ((|sy| |Symbol|) ($ $))
+        (SPADCALL |sy| (QREFELT $ 9))) 
 
-(DEFUN |ROMAN;convert;S$;3| (|sy| $)
-  (SPADCALL (SPADCALL (SPADCALL |sy| (QREFELT $ 12)) (QREFELT $ 15))
-            (QREFELT $ 6))) 
+(SDEFUN |ROMAN;convert;S$;3| ((|sy| |Symbol|) ($ $))
+        (SPADCALL (SPADCALL (SPADCALL |sy| (QREFELT $ 12)) (QREFELT $ 15))
+                  (QREFELT $ 6))) 
 
-(DEFUN |ROMAN;coerce;$Of;4| (|r| $)
-  (PROG (#1=#:G117 |n|)
-    (RETURN
-     (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 16)) . #2=(|ROMAN;coerce;$Of;4|))
-          (EXIT
-           (COND ((ZEROP |n|) (SPADCALL |n| (QREFELT $ 18)))
-                 ((MINUSP |n|)
-                  (SPADCALL
-                   (SPADCALL (SPADCALL |r| (QREFELT $ 19)) (QREFELT $ 20))
-                   (QREFELT $ 21)))
-                 ('T
-                  (SPADCALL
-                   (SPADCALL
-                    (SPADCALL
-                     (PROG1 (LETT #1# |n| . #2#)
-                       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
-                     (QREFELT $ 22))
-                    (QREFELT $ 23))
-                   (QREFELT $ 24))))))))) 
+(SDEFUN |ROMAN;coerce;$Of;4| ((|r| $) ($ |OutputForm|))
+        (SPROG ((#1=#:G117 NIL) (|n| (|Integer|)))
+               (SEQ
+                (LETT |n| (SPADCALL |r| (QREFELT $ 16))
+                      . #2=(|ROMAN;coerce;$Of;4|))
+                (EXIT
+                 (COND ((ZEROP |n|) (SPADCALL |n| (QREFELT $ 18)))
+                       ((MINUSP |n|)
+                        (SPADCALL
+                         (SPADCALL (SPADCALL |r| (QREFELT $ 19))
+                                   (QREFELT $ 20))
+                         (QREFELT $ 21)))
+                       ('T
+                        (SPADCALL
+                         (SPADCALL
+                          (SPADCALL
+                           (PROG1 (LETT #1# |n| . #2#)
+                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
+                                              #1#))
+                           (QREFELT $ 22))
+                          (QREFELT $ 23))
+                         (QREFELT $ 24)))))))) 
 
 (DECLAIM (NOTINLINE |RomanNumeral;|)) 
 
 (DEFUN |RomanNumeral| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G144)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|RomanNumeral|)
-                . #2=(|RomanNumeral|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|RomanNumeral|
-                         (LIST (CONS NIL (CONS 1 (|RomanNumeral;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G144)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|RomanNumeral|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|RomanNumeral|)
+                    . #2=(|RomanNumeral|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|RomanNumeral|
+                             (LIST (CONS NIL (CONS 1 (|RomanNumeral;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|RomanNumeral|)))))))))) 
 
 (DEFUN |RomanNumeral;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|RomanNumeral|) . #1=(|RomanNumeral|))
-      (LETT $ (GETREFV 53) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|RomanNumeral| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|RomanNumeral|) . #1=(|RomanNumeral|))
+          (LETT $ (GETREFV 53) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|RomanNumeral| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RomanNumeral| '|infovec|
           (LIST

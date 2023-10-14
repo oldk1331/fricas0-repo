@@ -1,90 +1,92 @@
 
-(DEFUN |DIAGG-;dictionary;LA;1| (|l| $)
-  (PROG (#1=#:G117 |x| |d|)
-    (RETURN
-     (SEQ (LETT |d| (SPADCALL (QREFELT $ 8)) . #2=(|DIAGG-;dictionary;LA;1|))
-          (SEQ (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
-                 (GO G191)))
-               (SEQ (EXIT (SPADCALL |x| |d| (QREFELT $ 9))))
-               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |d|))))) 
+(SDEFUN |DIAGG-;dictionary;LA;1| ((|l| |List| S) ($ A))
+        (SPROG ((#1=#:G117 NIL) (|x| NIL) (|d| (A)))
+               (SEQ
+                (LETT |d| (SPADCALL (QREFELT $ 8))
+                      . #2=(|DIAGG-;dictionary;LA;1|))
+                (SEQ (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ (EXIT (SPADCALL |x| |d| (QREFELT $ 9))))
+                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |d|)))) 
 
-(DEFUN |DIAGG-;select!;M2A;2| (|f| |t| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|DIAGG-;select!;M2A;2!0| (VECTOR $ |f|)) |t|
-               (QREFELT $ 16))))) 
+(SDEFUN |DIAGG-;select!;M2A;2| ((|f| |Mapping| (|Boolean|) S) (|t| A) ($ A))
+        (SPROG NIL
+               (SPADCALL (CONS #'|DIAGG-;select!;M2A;2!0| (VECTOR $ |f|)) |t|
+                         (QREFELT $ 16)))) 
 
-(DEFUN |DIAGG-;select!;M2A;2!0| (|x| $$)
-  (PROG (|f| $)
-    (LETT |f| (QREFELT $$ 1) . #1=(|DIAGG-;select!;M2A;2|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (COND ((SPADCALL |x| |f|) (|spadConstant| $ 13))
-            ('T (|spadConstant| $ 14))))))) 
+(SDEFUN |DIAGG-;select!;M2A;2!0| ((|x| NIL) ($$ NIL))
+        (PROG (|f| $)
+          (LETT |f| (QREFELT $$ 1) . #1=(|DIAGG-;select!;M2A;2|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (COND ((SPADCALL |x| |f|) (|spadConstant| $ 13))
+                  ('T (|spadConstant| $ 14))))))) 
 
-(DEFUN |DIAGG-;=;2AB;3| (|s| |t| $)
-  (PROG ()
-    (RETURN
-     (COND ((SPADCALL |s| |t| (QREFELT $ 18)) 'T)
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 20))
-                      (SPADCALL |t| (QREFELT $ 20)) (QREFELT $ 22))
-            'NIL)
-           ('T
-            (SPADCALL (CONS #'|DIAGG-;=;2AB;3!0| (VECTOR $ |t|))
-                      (SPADCALL |s| (QREFELT $ 24)) (QREFELT $ 25))))))) 
+(SDEFUN |DIAGG-;=;2AB;3| ((|s| A) (|t| A) ($ |Boolean|))
+        (SPROG NIL
+               (COND ((SPADCALL |s| |t| (QREFELT $ 18)) 'T)
+                     ((SPADCALL (SPADCALL |s| (QREFELT $ 20))
+                                (SPADCALL |t| (QREFELT $ 20)) (QREFELT $ 22))
+                      'NIL)
+                     ('T
+                      (SPADCALL (CONS #'|DIAGG-;=;2AB;3!0| (VECTOR $ |t|))
+                                (SPADCALL |s| (QREFELT $ 24))
+                                (QREFELT $ 25)))))) 
 
-(DEFUN |DIAGG-;=;2AB;3!0| (|x| $$)
-  (PROG (|t| $)
-    (LETT |t| (QREFELT $$ 1) . #1=(|DIAGG-;=;2AB;3|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |x| |t| (QREFELT $ 23)))))) 
+(SDEFUN |DIAGG-;=;2AB;3!0| ((|x| NIL) ($$ NIL))
+        (PROG (|t| $)
+          (LETT |t| (QREFELT $$ 1) . #1=(|DIAGG-;=;2AB;3|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |x| |t| (QREFELT $ 23)))))) 
 
-(DEFUN |DIAGG-;remove!;M2A;4| (|f| |t| $)
-  (PROG (#1=#:G134 |m|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |m| NIL . #2=(|DIAGG-;remove!;M2A;4|))
-           (LETT #1# (SPADCALL |t| (QREFELT $ 24)) . #2#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |m| (CAR #1#) . #2#) NIL)) (GO G191)))
-           (SEQ
-            (EXIT
-             (COND ((SPADCALL |m| |f|) (SPADCALL |m| |t| (QREFELT $ 27))))))
-           (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |t|))))) 
+(SDEFUN |DIAGG-;remove!;M2A;4| ((|f| |Mapping| (|Boolean|) S) (|t| A) ($ A))
+        (SPROG ((#1=#:G134 NIL) (|m| NIL))
+               (SEQ
+                (SEQ (LETT |m| NIL . #2=(|DIAGG-;remove!;M2A;4|))
+                     (LETT #1# (SPADCALL |t| (QREFELT $ 24)) . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |m| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (COND
+                        ((SPADCALL |m| |f|)
+                         (SPADCALL |m| |t| (QREFELT $ 27))))))
+                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |t|)))) 
 
 (DECLAIM (NOTINLINE |Dictionary&;|)) 
 
 (DEFUN |Dictionary&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Dictionary&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|Dictionary&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 29) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#1| '(|finiteAggregate|))
-        (PROGN
-         (QSETREFV $ 17 (CONS (|dispatchFunction| |DIAGG-;select!;M2A;2|) $))
-         (COND
-          ((|HasCategory| |#2| '(|BasicType|))
-           (PROGN
-            (QSETREFV $ 26 (CONS (|dispatchFunction| |DIAGG-;=;2AB;3|) $))
-            (QSETREFV $ 28
-                      (CONS (|dispatchFunction| |DIAGG-;remove!;M2A;4|)
-                            $))))))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Dictionary&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|Dictionary&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 29) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| '(|finiteAggregate|))
+            (PROGN
+             (QSETREFV $ 17
+                       (CONS (|dispatchFunction| |DIAGG-;select!;M2A;2|) $))
+             (COND
+              ((|HasCategory| |#2| '(|BasicType|))
+               (PROGN
+                (QSETREFV $ 26 (CONS (|dispatchFunction| |DIAGG-;=;2AB;3|) $))
+                (QSETREFV $ 28
+                          (CONS (|dispatchFunction| |DIAGG-;remove!;M2A;4|)
+                                $))))))))
+          $))) 
 
 (MAKEPROP '|Dictionary&| '|infovec|
           (LIST

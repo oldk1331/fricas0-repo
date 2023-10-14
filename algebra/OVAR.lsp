@@ -1,110 +1,112 @@
 
-(DEFUN |OVAR;convert;$S;1| (|s1| $)
-  (SPADCALL (QREFELT $ 6) |s1| (QREFELT $ 12))) 
+(SDEFUN |OVAR;convert;$S;1| ((|s1| $) ($ |Symbol|))
+        (SPADCALL (QREFELT $ 6) |s1| (QREFELT $ 12))) 
 
-(DEFUN |OVAR;coerce;$Of;2| (|s1| $)
-  (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 15))) 
+(SDEFUN |OVAR;coerce;$Of;2| ((|s1| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 15))) 
 
-(DEFUN |OVAR;convert;$If;3| (|s1| $)
-  (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 18))) 
+(SDEFUN |OVAR;convert;$If;3| ((|s1| $) ($ |InputForm|))
+        (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 18))) 
 
-(DEFUN |OVAR;convert;$P;4| (|s1| $)
-  (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 21))) 
+(SDEFUN |OVAR;convert;$P;4| ((|s1| $) ($ |Pattern| (|Integer|)))
+        (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 21))) 
 
-(DEFUN |OVAR;convert;$P;5| (|s1| $)
-  (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 24))) 
+(SDEFUN |OVAR;convert;$P;5| ((|s1| $) ($ |Pattern| (|Float|)))
+        (SPADCALL (SPADCALL |s1| (QREFELT $ 13)) (QREFELT $ 24))) 
 
 (PUT '|OVAR;index;Pi$;6| '|SPADreplace| '(XLAM (|i|) |i|)) 
 
-(DEFUN |OVAR;index;Pi$;6| (|i| $) |i|) 
+(SDEFUN |OVAR;index;Pi$;6| ((|i| |PositiveInteger|) ($ $)) |i|) 
 
 (PUT '|OVAR;lookup;$Pi;7| '|SPADreplace| '(XLAM (|j|) |j|)) 
 
-(DEFUN |OVAR;lookup;$Pi;7| (|j| $) |j|) 
+(SDEFUN |OVAR;lookup;$Pi;7| ((|j| $) ($ |PositiveInteger|)) |j|) 
 
-(DEFUN |OVAR;size;Nni;8| ($) (LENGTH (QREFELT $ 6))) 
+(SDEFUN |OVAR;size;Nni;8| (($ |NonNegativeInteger|)) (LENGTH (QREFELT $ 6))) 
 
-(DEFUN |OVAR;variable;SU;9| (|exp| $)
-  (PROG (#1=#:G121 #2=#:G115 |i| #3=#:G122 |exp2|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |exp2| NIL . #4=(|OVAR;variable;SU;9|))
-             (LETT #3# (QREFELT $ 6) . #4#) (LETT |i| 1 . #4#) G190
-             (COND
-              ((OR (ATOM #3#) (PROGN (LETT |exp2| (CAR #3#) . #4#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((EQUAL |exp| |exp2|)
-                 (PROGN
-                  (LETT #1#
-                        (CONS 0
-                              (PROG1 (LETT #2# |i| . #4#)
-                                (|check_subtype| (> #2# 0) '(|PositiveInteger|)
-                                                 #2#)))
-                        . #4#)
-                  (GO #1#))))))
-             (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #3# (CDR #3#) . #4#)) . #4#)
-             (GO G190) G191 (EXIT NIL))
-        (EXIT (CONS 1 "failed"))))
-      #1# (EXIT #1#))))) 
+(SDEFUN |OVAR;variable;SU;9| ((|exp| |Symbol|) ($ |Union| $ "failed"))
+        (SPROG
+         ((#1=#:G121 NIL) (#2=#:G115 NIL) (|i| NIL) (#3=#:G122 NIL)
+          (|exp2| NIL))
+         (SEQ
+          (EXIT
+           (SEQ
+            (SEQ (LETT |exp2| NIL . #4=(|OVAR;variable;SU;9|))
+                 (LETT #3# (QREFELT $ 6) . #4#) (LETT |i| 1 . #4#) G190
+                 (COND
+                  ((OR (ATOM #3#) (PROGN (LETT |exp2| (CAR #3#) . #4#) NIL))
+                   (GO G191)))
+                 (SEQ
+                  (EXIT
+                   (COND
+                    ((EQUAL |exp| |exp2|)
+                     (PROGN
+                      (LETT #1#
+                            (CONS 0
+                                  (PROG1 (LETT #2# |i| . #4#)
+                                    (|check_subtype| (> #2# 0)
+                                                     '(|PositiveInteger|)
+                                                     #2#)))
+                            . #4#)
+                      (GO #1#))))))
+                 (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #3# (CDR #3#) . #4#))
+                       . #4#)
+                 (GO G190) G191 (EXIT NIL))
+            (EXIT (CONS 1 "failed"))))
+          #1# (EXIT #1#)))) 
 
 (PUT '|OVAR;<;2$B;10| '|SPADreplace| '(XLAM (|s1| |s2|) (< |s2| |s1|))) 
 
-(DEFUN |OVAR;<;2$B;10| (|s1| |s2| $) (< |s2| |s1|)) 
+(SDEFUN |OVAR;<;2$B;10| ((|s1| $) (|s2| $) ($ |Boolean|)) (< |s2| |s1|)) 
 
 (PUT '|OVAR;=;2$B;11| '|SPADreplace| 'EQL) 
 
-(DEFUN |OVAR;=;2$B;11| (|s1| |s2| $) (EQL |s1| |s2|)) 
+(SDEFUN |OVAR;=;2$B;11| ((|s1| $) (|s2| $) ($ |Boolean|)) (EQL |s1| |s2|)) 
 
-(DEFUN |OVAR;latex;$S;12| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 37))) 
+(SDEFUN |OVAR;latex;$S;12| ((|x| $) ($ |String|))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 37))) 
 
-(DEFUN |OVAR;hashUpdate!;Hs$Hs;13| (|hs| |s| $)
-  (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
+(SDEFUN |OVAR;hashUpdate!;Hs$Hs;13|
+        ((|hs| . #1=(|HashState|)) (|s| $) ($ . #1#))
+        (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
 (DECLAIM (NOTINLINE |OrderedVariableList;|)) 
 
 (DEFUN |OrderedVariableList| (#1=#:G127)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G128)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|OrderedVariableList|)
-                                           '|domainEqualList|)
-                . #3=(|OrderedVariableList|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|OrderedVariableList;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G128)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|OrderedVariableList|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|OrderedVariableList|)
+                                               '|domainEqualList|)
+                    . #3=(|OrderedVariableList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|OrderedVariableList;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|OrderedVariableList|)))))))))) 
 
 (DEFUN |OrderedVariableList;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|OrderedVariableList|))
-      (LETT |dv$| (LIST '|OrderedVariableList| DV$1) . #1#)
-      (LETT $ (GETREFV 43) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OrderedVariableList| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (SETELT $ 6 (SPADCALL |#1| (QREFELT $ 8)))
-      (QSETREFV $ 9 (|PositiveInteger|))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|OrderedVariableList|))
+          (LETT |dv$| (LIST '|OrderedVariableList| DV$1) . #1#)
+          (LETT $ (GETREFV 43) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OrderedVariableList| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (SETELT $ 6 (SPADCALL |#1| (QREFELT $ 8)))
+          (QSETREFV $ 9 (|PositiveInteger|))
+          $))) 
 
 (MAKEPROP '|OrderedVariableList| '|infovec|
           (LIST

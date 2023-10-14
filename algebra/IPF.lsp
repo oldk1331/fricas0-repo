@@ -1,244 +1,268 @@
 
-(DEFUN |IPF;generator;$;1| ($) (|spadConstant| $ 15)) 
+(SDEFUN |IPF;generator;$;1| (($ $)) (|spadConstant| $ 15)) 
 
-(DEFUN |IPF;^;$I$;2| (|x| |n| $)
-  (PROG (|r| #1=#:G112)
-    (RETURN
-     (SEQ
-      (COND ((ZEROP |n|) (|spadConstant| $ 15))
-            ((SPADCALL |x| (QREFELT $ 18)) (|spadConstant| $ 19))
-            ('T
-             (SEQ
-              (LETT |r|
-                    (PROG1
-                        (LETT #1#
-                              (SPADCALL |n| (- (QREFELT $ 6) 1) (QREFELT $ 21))
-                              . #2=(|IPF;^;$I$;2|))
-                      (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
-                    . #2#)
-              (EXIT (SPADCALL |x| |r| (QREFELT $ 23)))))))))) 
+(SDEFUN |IPF;^;$I$;2| ((|x| $) (|n| |Integer|) ($ $))
+        (SPROG ((|r| (|NonNegativeInteger|)) (#1=#:G112 NIL))
+               (SEQ
+                (COND ((ZEROP |n|) (|spadConstant| $ 15))
+                      ((SPADCALL |x| (QREFELT $ 18)) (|spadConstant| $ 19))
+                      ('T
+                       (SEQ
+                        (LETT |r|
+                              (PROG1
+                                  (LETT #1#
+                                        (SPADCALL |n| (- (QREFELT $ 6) 1)
+                                                  (QREFELT $ 21))
+                                        . #2=(|IPF;^;$I$;2|))
+                                (|check_subtype| (>= #1# 0)
+                                                 '(|NonNegativeInteger|) #1#))
+                              . #2#)
+                        (EXIT (SPADCALL |x| |r| (QREFELT $ 23))))))))) 
 
-(DEFUN |IPF;recip;$U;3| (|x| $)
-  (PROG (|y|)
-    (RETURN
-     (COND
-      ((|zero?_SI|
-        (LETT |y| (SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QREFELT $ 28))
-              |IPF;recip;$U;3|))
-       (CONS 1 "failed"))
-      ('T
-       (CONS 0
-             (SPADCALL (SPADCALL |y| (QREFELT $ 29) (QREFELT $ 31))
-                       (QREFELT $ 32)))))))) 
+(SDEFUN |IPF;recip;$U;3| ((|x| $) ($ |Union| $ "failed"))
+        (SPROG ((|y| (|SingleInteger|)))
+               (COND
+                ((|zero?_SI|
+                  (LETT |y|
+                        (SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QREFELT $ 28))
+                        |IPF;recip;$U;3|))
+                 (CONS 1 "failed"))
+                ('T
+                 (CONS 0
+                       (SPADCALL (SPADCALL |y| (QREFELT $ 29) (QREFELT $ 31))
+                                 (QREFELT $ 32))))))) 
 
-(DEFUN |IPF;recip;$U;4| (|x| $)
-  (PROG (|y|)
-    (RETURN
-     (COND
-      ((ZEROP (LETT |y| (SPADCALL |x| (QREFELT $ 30)) |IPF;recip;$U;4|))
-       (CONS 1 "failed"))
-      ('T
-       (CONS 0
-             (SPADCALL (SPADCALL |y| (QREFELT $ 6) (QREFELT $ 35))
-                       (QREFELT $ 32)))))))) 
+(SDEFUN |IPF;recip;$U;4| ((|x| $) ($ |Union| $ "failed"))
+        (SPROG ((|y| (|Integer|)))
+               (COND
+                ((ZEROP
+                  (LETT |y| (SPADCALL |x| (QREFELT $ 30)) |IPF;recip;$U;4|))
+                 (CONS 1 "failed"))
+                ('T
+                 (CONS 0
+                       (SPADCALL (SPADCALL |y| (QREFELT $ 6) (QREFELT $ 35))
+                                 (QREFELT $ 32))))))) 
 
 (PUT '|IPF;convert;$I;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |IPF;convert;$I;5| (|x| $) |x|) 
+(SDEFUN |IPF;convert;$I;5| ((|x| $) ($ |Integer|)) |x|) 
 
-(DEFUN |IPF;normalElement;$;6| ($) (|spadConstant| $ 15)) 
+(SDEFUN |IPF;normalElement;$;6| (($ $)) (|spadConstant| $ 15)) 
 
-(DEFUN |IPF;createNormalElement;$;7| ($) (|spadConstant| $ 15)) 
+(SDEFUN |IPF;createNormalElement;$;7| (($ $)) (|spadConstant| $ 15)) 
 
-(DEFUN |IPF;characteristic;Nni;8| ($) (QREFELT $ 6)) 
+(SDEFUN |IPF;characteristic;Nni;8| (($ |NonNegativeInteger|)) (QREFELT $ 6)) 
 
-(DEFUN |IPF;factorsOfCyclicGroupSize;L;9| ($)
-  (SEQ
-   (COND ((EQL (QREFELT $ 6) 2) (QREFELT $ 9))
-         ('T
-          (SEQ (COND ((NULL (QREFELT $ 9)) (|IPF;initializeElt| $)))
-               (EXIT (QREFELT $ 9))))))) 
+(SDEFUN |IPF;factorsOfCyclicGroupSize;L;9|
+        (($ |List|
+          (|Record| (|:| |factor| . #1=((|Integer|))) (|:| |exponent| . #1#))))
+        (SEQ
+         (COND ((EQL (QREFELT $ 6) 2) (QREFELT $ 9))
+               ('T
+                (SEQ (COND ((NULL (QREFELT $ 9)) (|IPF;initializeElt| $)))
+                     (EXIT (QREFELT $ 9))))))) 
 
 (PUT '|IPF;representationType;U;10| '|SPADreplace| '(XLAM NIL (CONS 0 "prime"))) 
 
-(DEFUN |IPF;representationType;U;10| ($) (CONS 0 "prime")) 
+(SDEFUN |IPF;representationType;U;10|
+        (($ |Union| "prime" "polynomial" "normal" "cyclic")) (CONS 0 "prime")) 
 
-(DEFUN |IPF;tableForDiscreteLogarithm;IT;11| (|fac| $)
-  (PROG (|tbl| #1=#:G151)
-    (RETURN
-     (SEQ (COND ((QREFELT $ 10) (|IPF;initializeLog| $)))
-          (LETT |tbl|
-                (SPADCALL
-                 (PROG1
-                     (LETT #1# |fac|
-                           . #2=(|IPF;tableForDiscreteLogarithm;IT;11|))
-                   (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
-                 (QREFELT $ 14) (QREFELT $ 46))
-                . #2#)
-          (EXIT
-           (COND
-            ((QEQCAR |tbl| 1)
-             (|error|
-              "tableForDiscreteLogarithm: argument must be prime divisor of the order of the multiplicative group"))
-            ('T (QCDR |tbl|)))))))) 
-
-(DEFUN |IPF;primitiveElement;$;12| ($)
-  (SEQ (COND ((QREFELT $ 11) (|IPF;initializeElt| $)))
-       (EXIT (SPADCALL (QREFELT $ 7) (QREFELT $ 49))))) 
-
-(DEFUN |IPF;initializeElt| ($)
-  (SEQ
-   (SETELT $ 9
-           (SPADCALL (SPADCALL (QREFELT $ 8) (QREFELT $ 52)) (QREFELT $ 54)))
-   (SETELT $ 7 (SPADCALL (SPADCALL (QREFELT $ 55)) (QREFELT $ 56)))
-   (SETELT $ 11 'NIL) (EXIT (SPADCALL (QREFELT $ 58))))) 
-
-(DEFUN |IPF;initializeLog| ($)
-  (PROG (#1=#:G169 |a| #2=#:G175 #3=#:G163 |i| |tbl| |n| |d| |l| |base| |fac|
-         #4=#:G174 |f| |limit|)
-    (RETURN
-     (SEQ (COND ((QREFELT $ 11) (|IPF;initializeElt| $)))
-          (LETT |limit| 30 . #5=(|IPF;initializeLog|))
-          (SEQ (LETT |f| NIL . #5#) (LETT #4# (QREFELT $ 9) . #5#) G190
+(SDEFUN |IPF;tableForDiscreteLogarithm;IT;11|
+        ((|fac| |Integer|)
+         ($ |Table| (|PositiveInteger|) (|NonNegativeInteger|)))
+        (SPROG
+         ((|tbl|
+           (|Union| (|Table| (|PositiveInteger|) (|NonNegativeInteger|))
+                    "failed"))
+          (#1=#:G151 NIL))
+         (SEQ (COND ((QREFELT $ 10) (|IPF;initializeLog| $)))
+              (LETT |tbl|
+                    (SPADCALL
+                     (PROG1
+                         (LETT #1# |fac|
+                               . #2=(|IPF;tableForDiscreteLogarithm;IT;11|))
+                       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                     (QREFELT $ 14) (QREFELT $ 46))
+                    . #2#)
+              (EXIT
                (COND
-                ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
-                 (GO G191)))
-               (SEQ (LETT |fac| (QCAR |f|) . #5#)
-                    (LETT |base|
-                          (SPADCALL (SPADCALL (QREFELT $ 50))
-                                    (QUOTIENT2 (QREFELT $ 8) |fac|)
-                                    (QREFELT $ 24))
-                          . #5#)
-                    (LETT |l| (INTEGER-LENGTH |fac|) . #5#) (LETT |n| 0 . #5#)
-                    (COND
-                     ((ODDP |l|)
-                      (LETT |n| (ASH |fac| (- (QUOTIENT2 |l| 2))) . #5#))
-                     ('T (LETT |n| (ASH 1 (QUOTIENT2 |l| 2)) . #5#)))
-                    (COND
-                     ((< |n| |limit|)
-                      (SEQ
-                       (LETT |d| (+ (QUOTIENT2 (- |fac| 1) |limit|) 1) . #5#)
-                       (EXIT
-                        (LETT |n| (+ (QUOTIENT2 (- |fac| 1) |d|) 1) . #5#)))))
-                    (LETT |tbl| (SPADCALL (QREFELT $ 59)) . #5#)
-                    (LETT |a| (|spadConstant| $ 15) . #5#)
-                    (SEQ (LETT |i| 0 . #5#)
-                         (LETT #2#
-                               (PROG1 (LETT #3# (- |n| 1) . #5#)
-                                 (|check_subtype| (>= #3# 0)
-                                                  '(|NonNegativeInteger|) #3#))
-                               . #5#)
-                         G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
-                         (SEQ
-                          (SPADCALL (CONS (SPADCALL |a| (QREFELT $ 56)) |i|)
-                                    |tbl| (QREFELT $ 61))
-                          (EXIT
-                           (LETT |a| (SPADCALL |a| |base| (QREFELT $ 62))
-                                 . #5#)))
-                         (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
-                         (EXIT NIL))
-                    (EXIT
-                     (SPADCALL
-                      (CONS
-                       (PROG1 (LETT #1# |fac| . #5#)
-                         (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
-                       (SPADCALL |tbl| (QREFELT $ 63)))
-                      (QREFELT $ 14) (QREFELT $ 65))))
-               (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-          (SETELT $ 10 'NIL) (EXIT (SPADCALL (QREFELT $ 58))))))) 
+                ((QEQCAR |tbl| 1)
+                 (|error|
+                  "tableForDiscreteLogarithm: argument must be prime divisor of the order of the multiplicative group"))
+                ('T (QCDR |tbl|))))))) 
+
+(SDEFUN |IPF;primitiveElement;$;12| (($ $))
+        (SEQ (COND ((QREFELT $ 11) (|IPF;initializeElt| $)))
+             (EXIT (SPADCALL (QREFELT $ 7) (QREFELT $ 49))))) 
+
+(SDEFUN |IPF;initializeElt| (($ |Void|))
+        (SEQ
+         (SETELT $ 9
+                 (SPADCALL (SPADCALL (QREFELT $ 8) (QREFELT $ 52))
+                           (QREFELT $ 54)))
+         (SETELT $ 7 (SPADCALL (SPADCALL (QREFELT $ 55)) (QREFELT $ 56)))
+         (SETELT $ 11 'NIL) (EXIT (SPADCALL (QREFELT $ 58))))) 
+
+(SDEFUN |IPF;initializeLog| (($ |Void|))
+        (SPROG
+         ((#1=#:G169 NIL) (|a| ($)) (#2=#:G175 NIL) (#3=#:G163 NIL) (|i| NIL)
+          (|tbl| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
+          (|n| (|Integer|)) (|d| (|Integer|)) (|l| (|Integer|)) (|base| ($))
+          (|fac| (|Integer|)) (#4=#:G174 NIL) (|f| NIL) (|limit| (|Integer|)))
+         (SEQ (COND ((QREFELT $ 11) (|IPF;initializeElt| $)))
+              (LETT |limit| 30 . #5=(|IPF;initializeLog|))
+              (SEQ (LETT |f| NIL . #5#) (LETT #4# (QREFELT $ 9) . #5#) G190
+                   (COND
+                    ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
+                     (GO G191)))
+                   (SEQ (LETT |fac| (QCAR |f|) . #5#)
+                        (LETT |base|
+                              (SPADCALL (SPADCALL (QREFELT $ 50))
+                                        (QUOTIENT2 (QREFELT $ 8) |fac|)
+                                        (QREFELT $ 24))
+                              . #5#)
+                        (LETT |l| (INTEGER-LENGTH |fac|) . #5#)
+                        (LETT |n| 0 . #5#)
+                        (COND
+                         ((ODDP |l|)
+                          (LETT |n| (ASH |fac| (- (QUOTIENT2 |l| 2))) . #5#))
+                         ('T (LETT |n| (ASH 1 (QUOTIENT2 |l| 2)) . #5#)))
+                        (COND
+                         ((< |n| |limit|)
+                          (SEQ
+                           (LETT |d| (+ (QUOTIENT2 (- |fac| 1) |limit|) 1)
+                                 . #5#)
+                           (EXIT
+                            (LETT |n| (+ (QUOTIENT2 (- |fac| 1) |d|) 1)
+                                  . #5#)))))
+                        (LETT |tbl| (SPADCALL (QREFELT $ 59)) . #5#)
+                        (LETT |a| (|spadConstant| $ 15) . #5#)
+                        (SEQ (LETT |i| 0 . #5#)
+                             (LETT #2#
+                                   (PROG1 (LETT #3# (- |n| 1) . #5#)
+                                     (|check_subtype| (>= #3# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      #3#))
+                                   . #5#)
+                             G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
+                             (SEQ
+                              (SPADCALL
+                               (CONS (SPADCALL |a| (QREFELT $ 56)) |i|) |tbl|
+                               (QREFELT $ 61))
+                              (EXIT
+                               (LETT |a| (SPADCALL |a| |base| (QREFELT $ 62))
+                                     . #5#)))
+                             (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                             (EXIT NIL))
+                        (EXIT
+                         (SPADCALL
+                          (CONS
+                           (PROG1 (LETT #1# |fac| . #5#)
+                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
+                                              #1#))
+                           (SPADCALL |tbl| (QREFELT $ 63)))
+                          (QREFELT $ 14) (QREFELT $ 65))))
+                   (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+              (SETELT $ 10 'NIL) (EXIT (SPADCALL (QREFELT $ 58)))))) 
 
 (PUT '|IPF;degree;$Pi;15| '|SPADreplace| '(XLAM (|x|) 1)) 
 
-(DEFUN |IPF;degree;$Pi;15| (|x| $) 1) 
+(SDEFUN |IPF;degree;$Pi;15| ((|x| $) ($ |PositiveInteger|)) 1) 
 
 (PUT '|IPF;extensionDegree;Pi;16| '|SPADreplace| '(XLAM NIL 1)) 
 
-(DEFUN |IPF;extensionDegree;Pi;16| ($) 1) 
+(SDEFUN |IPF;extensionDegree;Pi;16| (($ |PositiveInteger|)) 1) 
 
 (PUT '|IPF;inGroundField?;$B;17| '|SPADreplace| '(XLAM (|x|) 'T)) 
 
-(DEFUN |IPF;inGroundField?;$B;17| (|x| $) 'T) 
+(SDEFUN |IPF;inGroundField?;$B;17| ((|x| $) ($ |Boolean|)) 'T) 
 
-(DEFUN |IPF;coordinates;$V;18| (|x| $) (SPADCALL 1 |x| (QREFELT $ 70))) 
+(SDEFUN |IPF;coordinates;$V;18| ((|x| $) ($ |Vector| $))
+        (SPADCALL 1 |x| (QREFELT $ 70))) 
 
-(DEFUN |IPF;represents;V$;19| (|v| $) (SPADCALL |v| 1 (QREFELT $ 73))) 
+(SDEFUN |IPF;represents;V$;19| ((|v| |Vector| $) ($ $))
+        (SPADCALL |v| 1 (QREFELT $ 73))) 
 
 (PUT '|IPF;retract;2$;20| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |IPF;retract;2$;20| (|x| $) |x|) 
+(SDEFUN |IPF;retract;2$;20| ((|x| $) ($ $)) |x|) 
 
 (PUT '|IPF;retractIfCan;$U;21| '|SPADreplace| '(XLAM (|x|) (CONS 0 |x|))) 
 
-(DEFUN |IPF;retractIfCan;$U;21| (|x| $) (CONS 0 |x|)) 
+(SDEFUN |IPF;retractIfCan;$U;21| ((|x| $) ($ |Union| $ "failed")) (CONS 0 |x|)) 
 
-(DEFUN |IPF;basis;V;22| ($) (SPADCALL 1 (|spadConstant| $ 15) (QREFELT $ 70))) 
+(SDEFUN |IPF;basis;V;22| (($ |Vector| $))
+        (SPADCALL 1 (|spadConstant| $ 15) (QREFELT $ 70))) 
 
-(DEFUN |IPF;basis;PiV;23| (|n| $)
-  (COND ((EQL |n| 1) (SPADCALL (QREFELT $ 77)))
-        ('T (|error| "basis: argument must divide extension degree")))) 
+(SDEFUN |IPF;basis;PiV;23| ((|n| |PositiveInteger|) ($ |Vector| $))
+        (COND ((EQL |n| 1) (SPADCALL (QREFELT $ 77)))
+              ('T (|error| "basis: argument must divide extension degree")))) 
 
-(DEFUN |IPF;definingPolynomial;Sup;24| ($)
-  (SPADCALL (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 80))
-            (SPADCALL (|spadConstant| $ 15) 0 (QREFELT $ 80)) (QREFELT $ 81))) 
+(SDEFUN |IPF;definingPolynomial;Sup;24| (($ |SparseUnivariatePolynomial| $))
+        (SPADCALL (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 80))
+                  (SPADCALL (|spadConstant| $ 15) 0 (QREFELT $ 80))
+                  (QREFELT $ 81))) 
 
-(DEFUN |IPF;minimalPolynomial;$Sup;25| (|x| $)
-  (SPADCALL (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 80))
-            (SPADCALL |x| 0 (QREFELT $ 80)) (QREFELT $ 81))) 
+(SDEFUN |IPF;minimalPolynomial;$Sup;25|
+        ((|x| $) ($ |SparseUnivariatePolynomial| $))
+        (SPADCALL (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 80))
+                  (SPADCALL |x| 0 (QREFELT $ 80)) (QREFELT $ 81))) 
 
 (PUT '|IPF;charthRoot;2$;26| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |IPF;charthRoot;2$;26| (|x| $) |x|) 
+(SDEFUN |IPF;charthRoot;2$;26| ((|x| $) ($ $)) |x|) 
 
 (DECLAIM (NOTINLINE |InnerPrimeField;|)) 
 
 (DEFUN |InnerPrimeField| (#1=#:G212)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G213)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|InnerPrimeField|)
-                                           '|domainEqualList|)
-                . #3=(|InnerPrimeField|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|InnerPrimeField;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G213)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|InnerPrimeField|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerPrimeField|)
+                                               '|domainEqualList|)
+                    . #3=(|InnerPrimeField|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|InnerPrimeField;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InnerPrimeField|)))))))))) 
 
 (DEFUN |InnerPrimeField;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerPrimeField|))
-      (LETT |dv$| (LIST '|InnerPrimeField| DV$1) . #1#)
-      (LETT $ (GETREFV 106) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|InnerPrimeField| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|CharacteristicZero|)) (|augmentPredVector| $ 1))
-      (AND (|HasCategory| $ '(|Finite|)) (|augmentPredVector| $ 2))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 1)
-      (QSETREFV $ 8 (- |#1| 1))
-      (QSETREFV $ 9 NIL)
-      (QSETREFV $ 10 'T)
-      (QSETREFV $ 11 'T)
-      (QSETREFV $ 14 (SPADCALL (QREFELT $ 13)))
-      (QSETREFV $ 26 (SPADCALL |#1| MOST-POSITIVE-FIXNUM (QREFELT $ 25)))
-      (COND
-       ((QREFELT $ 26)
-        (PROGN
-         (QSETREFV $ 29 (SPADCALL |#1| (QREFELT $ 28)))
-         (QSETREFV $ 34 (CONS (|dispatchFunction| |IPF;recip;$U;3|) $))))
-       ('T (QSETREFV $ 34 (CONS (|dispatchFunction| |IPF;recip;$U;4|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerPrimeField|))
+          (LETT |dv$| (LIST '|InnerPrimeField| DV$1) . #1#)
+          (LETT $ (GETREFV 106) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|InnerPrimeField| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (AND (|HasCategory| $ '(|CharacteristicZero|))
+               (|augmentPredVector| $ 1))
+          (AND (|HasCategory| $ '(|Finite|)) (|augmentPredVector| $ 2))
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 1)
+          (QSETREFV $ 8 (- |#1| 1))
+          (QSETREFV $ 9 NIL)
+          (QSETREFV $ 10 'T)
+          (QSETREFV $ 11 'T)
+          (QSETREFV $ 14 (SPADCALL (QREFELT $ 13)))
+          (QSETREFV $ 26 (SPADCALL |#1| MOST-POSITIVE-FIXNUM (QREFELT $ 25)))
+          (COND
+           ((QREFELT $ 26)
+            (PROGN
+             (QSETREFV $ 29 (SPADCALL |#1| (QREFELT $ 28)))
+             (QSETREFV $ 34 (CONS (|dispatchFunction| |IPF;recip;$U;3|) $))))
+           ('T (QSETREFV $ 34 (CONS (|dispatchFunction| |IPF;recip;$U;4|) $))))
+          $))) 
 
 (MAKEPROP '|InnerPrimeField| '|infovec|
           (LIST

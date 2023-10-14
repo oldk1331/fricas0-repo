@@ -1,22 +1,21 @@
 
-(DEFUN |RNG-;annihilate?;2SB;1| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) (QREFELT $ 9))) 
+(SDEFUN |RNG-;annihilate?;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
+        (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |Rng&;|)) 
 
 (DEFUN |Rng&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Rng&|))
-      (LETT |dv$| (LIST '|Rng&| DV$1) . #1#)
-      (LETT $ (GETREFV 11) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Rng&|))
+          (LETT |dv$| (LIST '|Rng&| DV$1) . #1#)
+          (LETT $ (GETREFV 11) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Rng&| '|infovec|
           (LIST

@@ -1,61 +1,60 @@
 
 (PUT '|OMENC;=;2$B;1| '|SPADreplace| '|eql_SI|) 
 
-(DEFUN |OMENC;=;2$B;1| (|u| |v| $) (|eql_SI| |u| |v|)) 
+(SDEFUN |OMENC;=;2$B;1| ((|u| $) (|v| $) ($ |Boolean|)) (|eql_SI| |u| |v|)) 
 
-(DEFUN |OMENC;coerce;$Of;2| (|u| $)
-  (COND ((SPADCALL |u| 0 (QREFELT $ 8)) "Unknown")
-        ((SPADCALL |u| 1 (QREFELT $ 8)) "Binary")
-        ((SPADCALL |u| (SPADCALL 2 (QREFELT $ 10)) (QREFELT $ 8)) "XML")
-        ((SPADCALL |u| (SPADCALL 3 (QREFELT $ 10)) (QREFELT $ 8)) "SGML")
-        ('T (|error| "Bogus OpenMath Encoding Type")))) 
+(SDEFUN |OMENC;coerce;$Of;2| ((|u| $) ($ |OutputForm|))
+        (COND ((SPADCALL |u| 0 (QREFELT $ 8)) "Unknown")
+              ((SPADCALL |u| 1 (QREFELT $ 8)) "Binary")
+              ((SPADCALL |u| (SPADCALL 2 (QREFELT $ 10)) (QREFELT $ 8)) "XML")
+              ((SPADCALL |u| (SPADCALL 3 (QREFELT $ 10)) (QREFELT $ 8)) "SGML")
+              ('T (|error| "Bogus OpenMath Encoding Type")))) 
 
 (PUT '|OMENC;OMencodingUnknown;$;3| '|SPADreplace| '(XLAM NIL 0)) 
 
-(DEFUN |OMENC;OMencodingUnknown;$;3| ($) 0) 
+(SDEFUN |OMENC;OMencodingUnknown;$;3| (($ $)) 0) 
 
 (PUT '|OMENC;OMencodingBinary;$;4| '|SPADreplace| '(XLAM NIL 1)) 
 
-(DEFUN |OMENC;OMencodingBinary;$;4| ($) 1) 
+(SDEFUN |OMENC;OMencodingBinary;$;4| (($ $)) 1) 
 
-(DEFUN |OMENC;OMencodingXML;$;5| ($) (SPADCALL 2 (QREFELT $ 10))) 
+(SDEFUN |OMENC;OMencodingXML;$;5| (($ $)) (SPADCALL 2 (QREFELT $ 10))) 
 
-(DEFUN |OMENC;OMencodingSGML;$;6| ($) (SPADCALL 3 (QREFELT $ 10))) 
+(SDEFUN |OMENC;OMencodingSGML;$;6| (($ $)) (SPADCALL 3 (QREFELT $ 10))) 
 
 (DECLAIM (NOTINLINE |OpenMathEncoding;|)) 
 
 (DEFUN |OpenMathEncoding| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G110)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|OpenMathEncoding|)
-                . #2=(|OpenMathEncoding|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|OpenMathEncoding|
-                         (LIST (CONS NIL (CONS 1 (|OpenMathEncoding;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G110)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|OpenMathEncoding|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathEncoding|)
+                    . #2=(|OpenMathEncoding|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|OpenMathEncoding|
+                             (LIST (CONS NIL (CONS 1 (|OpenMathEncoding;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|OpenMathEncoding|)))))))))) 
 
 (DEFUN |OpenMathEncoding;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|OpenMathEncoding|) . #1=(|OpenMathEncoding|))
-      (LETT $ (GETREFV 20) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OpenMathEncoding| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|SingleInteger|))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OpenMathEncoding|) . #1=(|OpenMathEncoding|))
+          (LETT $ (GETREFV 20) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OpenMathEncoding| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|SingleInteger|))
+          $))) 
 
 (MAKEPROP '|OpenMathEncoding| '|infovec|
           (LIST

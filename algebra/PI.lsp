@@ -8,41 +8,40 @@
 
 (PUT '|PI;qcoerce;I$;1| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
-(DEFUN |PI;qcoerce;I$;1| (|n| $) |n|) 
+(SDEFUN |PI;qcoerce;I$;1| ((|n| |Integer|) ($ $)) |n|) 
 
 (DECLAIM (NOTINLINE |PositiveInteger;|)) 
 
 (DEFUN |PositiveInteger| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G1718)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|PositiveInteger|)
-                . #2=(|PositiveInteger|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|PositiveInteger|
-                         (LIST (CONS NIL (CONS 1 (|PositiveInteger;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G1718)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|PositiveInteger|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|PositiveInteger|)
+                    . #2=(|PositiveInteger|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|PositiveInteger|
+                             (LIST (CONS NIL (CONS 1 (|PositiveInteger;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|PositiveInteger|)))))))))) 
 
 (DEFUN |PositiveInteger;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|PositiveInteger|) . #1=(|PositiveInteger|))
-      (LETT $ (GETREFV 16) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PositiveInteger| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|PositiveInteger|) . #1=(|PositiveInteger|))
+          (LETT $ (GETREFV 16) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PositiveInteger| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PositiveInteger| '|infovec|
           (LIST

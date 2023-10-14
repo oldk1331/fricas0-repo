@@ -1,117 +1,113 @@
 
-(DEFUN |PSCAT-;*;I2S;1| (|n| |ps| $)
-  (PROG ()
-    (RETURN
-     (COND ((ZEROP |n|) (|spadConstant| $ 10))
-           ('T
-            (SPADCALL (CONS #'|PSCAT-;*;I2S;1!0| (VECTOR $ |n|)) |ps|
-                      (QREFELT $ 14))))))) 
+(SDEFUN |PSCAT-;*;I2S;1| ((|n| |Integer|) (|ps| S) ($ S))
+        (SPROG NIL
+               (COND ((ZEROP |n|) (|spadConstant| $ 10))
+                     ('T
+                      (SPADCALL (CONS #'|PSCAT-;*;I2S;1!0| (VECTOR $ |n|)) |ps|
+                                (QREFELT $ 14)))))) 
 
-(DEFUN |PSCAT-;*;I2S;1!0| (|r1| $$)
-  (PROG (|n| $)
-    (LETT |n| (QREFELT $$ 1) . #1=(|PSCAT-;*;I2S;1|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |n| |r1| (QREFELT $ 12)))))) 
+(SDEFUN |PSCAT-;*;I2S;1!0| ((|r1| NIL) ($$ NIL))
+        (PROG (|n| $)
+          (LETT |n| (QREFELT $$ 1) . #1=(|PSCAT-;*;I2S;1|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |n| |r1| (QREFELT $ 12)))))) 
 
-(DEFUN |PSCAT-;*;Coef2S;2| (|r| |ps| $)
-  (PROG ()
-    (RETURN
-     (COND ((SPADCALL |r| (QREFELT $ 17)) (|spadConstant| $ 10))
-           ('T
-            (SPADCALL (CONS #'|PSCAT-;*;Coef2S;2!0| (VECTOR $ |r|)) |ps|
-                      (QREFELT $ 14))))))) 
+(SDEFUN |PSCAT-;*;Coef2S;2| ((|r| |Coef|) (|ps| S) ($ S))
+        (SPROG NIL
+               (COND ((SPADCALL |r| (QREFELT $ 17)) (|spadConstant| $ 10))
+                     ('T
+                      (SPADCALL (CONS #'|PSCAT-;*;Coef2S;2!0| (VECTOR $ |r|))
+                                |ps| (QREFELT $ 14)))))) 
 
-(DEFUN |PSCAT-;*;Coef2S;2!0| (|r1| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;*;Coef2S;2|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |r| |r1| (QREFELT $ 18)))))) 
+(SDEFUN |PSCAT-;*;Coef2S;2!0| ((|r1| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;*;Coef2S;2|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |r| |r1| (QREFELT $ 18)))))) 
 
-(DEFUN |PSCAT-;*;SCoefS;3| (|ps| |r| $)
-  (PROG ()
-    (RETURN
-     (COND ((SPADCALL |r| (QREFELT $ 17)) (|spadConstant| $ 10))
-           ('T
-            (SPADCALL (CONS #'|PSCAT-;*;SCoefS;3!0| (VECTOR $ |r|)) |ps|
-                      (QREFELT $ 14))))))) 
+(SDEFUN |PSCAT-;*;SCoefS;3| ((|ps| S) (|r| |Coef|) ($ S))
+        (SPROG NIL
+               (COND ((SPADCALL |r| (QREFELT $ 17)) (|spadConstant| $ 10))
+                     ('T
+                      (SPADCALL (CONS #'|PSCAT-;*;SCoefS;3!0| (VECTOR $ |r|))
+                                |ps| (QREFELT $ 14)))))) 
 
-(DEFUN |PSCAT-;*;SCoefS;3!0| (|r1| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;*;SCoefS;3|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 18)))))) 
+(SDEFUN |PSCAT-;*;SCoefS;3!0| ((|r1| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;*;SCoefS;3|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 18)))))) 
 
-(DEFUN |PSCAT-;-;2S;4| (|ps| $) (SPADCALL (ELT $ 21) |ps| (QREFELT $ 14))) 
+(SDEFUN |PSCAT-;-;2S;4| ((|ps| S) ($ S))
+        (SPADCALL (ELT $ 21) |ps| (QREFELT $ 14))) 
 
-(DEFUN |PSCAT-;*;F2S;5| (|r| |ps| $)
-  (PROG ()
-    (RETURN
-     (COND ((SPADCALL |r| (QREFELT $ 24)) (|spadConstant| $ 10))
-           ('T
-            (SPADCALL (CONS #'|PSCAT-;*;F2S;5!0| (VECTOR $ |r|)) |ps|
-                      (QREFELT $ 14))))))) 
+(SDEFUN |PSCAT-;*;F2S;5| ((|r| |Fraction| (|Integer|)) (|ps| S) ($ S))
+        (SPROG NIL
+               (COND ((SPADCALL |r| (QREFELT $ 24)) (|spadConstant| $ 10))
+                     ('T
+                      (SPADCALL (CONS #'|PSCAT-;*;F2S;5!0| (VECTOR $ |r|)) |ps|
+                                (QREFELT $ 14)))))) 
 
-(DEFUN |PSCAT-;*;F2S;5!0| (|r1| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;*;F2S;5|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |r| |r1| (QREFELT $ 25)))))) 
+(SDEFUN |PSCAT-;*;F2S;5!0| ((|r1| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;*;F2S;5|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |r| |r1| (QREFELT $ 25)))))) 
 
-(DEFUN |PSCAT-;*;SFS;6| (|ps| |r| $)
-  (PROG ()
-    (RETURN
-     (COND ((SPADCALL |r| (QREFELT $ 24)) (|spadConstant| $ 10))
-           ('T
-            (SPADCALL (CONS #'|PSCAT-;*;SFS;6!0| (VECTOR $ |r|)) |ps|
-                      (QREFELT $ 14))))))) 
+(SDEFUN |PSCAT-;*;SFS;6| ((|ps| S) (|r| |Fraction| (|Integer|)) ($ S))
+        (SPROG NIL
+               (COND ((SPADCALL |r| (QREFELT $ 24)) (|spadConstant| $ 10))
+                     ('T
+                      (SPADCALL (CONS #'|PSCAT-;*;SFS;6!0| (VECTOR $ |r|)) |ps|
+                                (QREFELT $ 14)))))) 
 
-(DEFUN |PSCAT-;*;SFS;6!0| (|r1| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;*;SFS;6|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 27)))))) 
+(SDEFUN |PSCAT-;*;SFS;6!0| ((|r1| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;*;SFS;6|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 27)))))) 
 
-(DEFUN |PSCAT-;/;SCoefS;7| (|ps| |r| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|PSCAT-;/;SCoefS;7!0| (VECTOR $ |r|)) |ps|
-               (QREFELT $ 14))))) 
+(SDEFUN |PSCAT-;/;SCoefS;7| ((|ps| S) (|r| |Coef|) ($ S))
+        (SPROG NIL
+               (SPADCALL (CONS #'|PSCAT-;/;SCoefS;7!0| (VECTOR $ |r|)) |ps|
+                         (QREFELT $ 14)))) 
 
-(DEFUN |PSCAT-;/;SCoefS;7!0| (|r1| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;/;SCoefS;7|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 29)))))) 
+(SDEFUN |PSCAT-;/;SCoefS;7!0| ((|r1| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|PSCAT-;/;SCoefS;7|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 29)))))) 
 
 (DECLAIM (NOTINLINE |PowerSeriesCategory&;|)) 
 
 (DEFUN |PowerSeriesCategory&| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PowerSeriesCategory&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|PowerSeriesCategory&| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 33) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#2| '(|Algebra| (|Fraction| (|Integer|))))
-        (PROGN
-         (QSETREFV $ 26 (CONS (|dispatchFunction| |PSCAT-;*;F2S;5|) $))
-         (QSETREFV $ 28 (CONS (|dispatchFunction| |PSCAT-;*;SFS;6|) $)))))
-      (COND
-       ((|HasCategory| |#2| '(|Field|))
-        (QSETREFV $ 30 (CONS (|dispatchFunction| |PSCAT-;/;SCoefS;7|) $))))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|PowerSeriesCategory&|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|PowerSeriesCategory&| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 33) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|HasCategory| |#2| '(|Algebra| (|Fraction| (|Integer|))))
+      (PROGN
+       (QSETREFV $ 26 (CONS (|dispatchFunction| |PSCAT-;*;F2S;5|) $))
+       (QSETREFV $ 28 (CONS (|dispatchFunction| |PSCAT-;*;SFS;6|) $)))))
+    (COND
+     ((|HasCategory| |#2| '(|Field|))
+      (QSETREFV $ 30 (CONS (|dispatchFunction| |PSCAT-;/;SCoefS;7|) $))))
+    $))) 
 
 (MAKEPROP '|PowerSeriesCategory&| '|infovec|
           (LIST

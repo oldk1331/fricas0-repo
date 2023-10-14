@@ -1,223 +1,272 @@
 
-(DEFUN |LODOOPS;vec2LODO| (|v| $)
-  (PROG (#1=#:G105 #2=#:G104 #3=#:G106 #4=#:G107 #5=#:G109 |i|)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #1# NIL . #6=(|LODOOPS;vec2LODO|))
-       (SEQ (LETT |i| 1 . #6#) (LETT #5# (QVSIZE |v|) . #6#) G190
-            (COND ((|greater_SI| |i| #5#) (GO G191)))
-            (SEQ
-             (EXIT
-              (PROGN
-               (LETT #3#
-                     (SPADCALL (SPADCALL |v| |i| (QREFELT $ 14))
-                               (PROG1 (LETT #4# (- |i| 1) . #6#)
-                                 (|check_subtype| (>= #4# 0)
-                                                  '(|NonNegativeInteger|) #4#))
-                               (QREFELT $ 18))
-                     . #6#)
-               (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 19)) . #6#))
-                     ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
-            (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-       (COND (#1# #2#) ('T (|spadConstant| $ 20)))))))) 
+(SDEFUN |LODOOPS;vec2LODO| ((|v| |Vector| A) ($ L))
+        (SPROG
+         ((#1=#:G105 NIL) (#2=#:G104 (L)) (#3=#:G106 (L)) (#4=#:G107 NIL)
+          (#5=#:G109 NIL) (|i| NIL))
+         (SEQ
+          (PROGN
+           (LETT #1# NIL . #6=(|LODOOPS;vec2LODO|))
+           (SEQ (LETT |i| 1 . #6#) (LETT #5# (QVSIZE |v|) . #6#) G190
+                (COND ((|greater_SI| |i| #5#) (GO G191)))
+                (SEQ
+                 (EXIT
+                  (PROGN
+                   (LETT #3#
+                         (SPADCALL (SPADCALL |v| |i| (QREFELT $ 14))
+                                   (PROG1 (LETT #4# (- |i| 1) . #6#)
+                                     (|check_subtype| (>= #4# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      #4#))
+                                   (QREFELT $ 18))
+                         . #6#)
+                   (COND
+                    (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 19)) . #6#))
+                    ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
+                (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
+           (COND (#1# #2#) ('T (|spadConstant| $ 20))))))) 
 
-(DEFUN |LODOOPS;symmetricPower;LNniML;2| (|l| |m| |diff| $)
-  (PROG (#1=#:G110 |a| |un| |n| |u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL (QREFELT $ 10) (QREFELT $ 22))
-            . #2=(|LODOOPS;symmetricPower;LNniML;2|))
-      (LETT |n| (SPADCALL |l| (QREFELT $ 23)) . #2#)
-      (LETT |un| (SPADCALL |u| |n| (QREFELT $ 24)) . #2#)
-      (LETT |a|
-            (|LODOOPS;applyLODO|
-             (SPADCALL
-              (SPADCALL (SPADCALL (SPADCALL |l| (QREFELT $ 25)) (QREFELT $ 26))
-                        (QREFELT $ 27))
-              (SPADCALL |l| (QREFELT $ 28)) (QREFELT $ 29))
-             |u| $)
-            . #2#)
-      (EXIT
-       (|LODOOPS;killer|
-        (SPADCALL (SPADCALL |u| (QREFELT $ 31)) |m| (QREFELT $ 32))
-        (PROG1
-            (LETT #1# (SPADCALL (- (+ |n| |m|) 1) (- |n| 1) (QREFELT $ 33))
-                  . #2#)
-          (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
-        (LIST |un|) (LIST |a|) |diff| $)))))) 
+(SDEFUN |LODOOPS;symmetricPower;LNniML;2|
+        ((|l| L) (|m| |NonNegativeInteger|) (|diff| |Mapping| A A) ($ L))
+        (SPROG
+         ((#1=#:G110 NIL)
+          (|a|
+           (|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                       (|OrderlyDifferentialVariable|
+                                                        (|Symbol|))))
+          (|un| (|OrderlyDifferentialVariable| (|Symbol|)))
+          (|n| (|NonNegativeInteger|))
+          (|u| (|OrderlyDifferentialVariable| (|Symbol|))))
+         (SEQ
+          (LETT |u| (SPADCALL (QREFELT $ 10) (QREFELT $ 22))
+                . #2=(|LODOOPS;symmetricPower;LNniML;2|))
+          (LETT |n| (SPADCALL |l| (QREFELT $ 23)) . #2#)
+          (LETT |un| (SPADCALL |u| |n| (QREFELT $ 24)) . #2#)
+          (LETT |a|
+                (|LODOOPS;applyLODO|
+                 (SPADCALL
+                  (SPADCALL
+                   (SPADCALL (SPADCALL |l| (QREFELT $ 25)) (QREFELT $ 26))
+                   (QREFELT $ 27))
+                  (SPADCALL |l| (QREFELT $ 28)) (QREFELT $ 29))
+                 |u| $)
+                . #2#)
+          (EXIT
+           (|LODOOPS;killer|
+            (SPADCALL (SPADCALL |u| (QREFELT $ 31)) |m| (QREFELT $ 32))
+            (PROG1
+                (LETT #1# (SPADCALL (- (+ |n| |m|) 1) (- |n| 1) (QREFELT $ 33))
+                      . #2#)
+              (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+            (LIST |un|) (LIST |a|) |diff| $))))) 
 
-(DEFUN |LODOOPS;killer| (|u| |m| |lvar| |lval| |diff| $)
-  (PROG (|lu| #1=#:G124 |l| |mat| |q|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |lu| (LIST |u|) . #2=(|LODOOPS;killer|))
-            (SEQ (LETT |q| 0 . #2#) G190
-                 (COND ((|greater_SI| |q| |m|) (GO G191)))
-                 (SEQ
-                  (LETT |mat|
-                        (SPADCALL (SPADCALL (LIST |lu|) (QREFELT $ 38))
-                                  (QREFELT $ 41))
-                        . #2#)
-                  (LETT |l| (SPADCALL |mat| (QREFELT $ 43)) . #2#)
-                  (COND
-                   ((NULL (NULL |l|))
-                    (EXIT
-                     (PROGN
-                      (LETT #1# (|LODOOPS;vec2LODO| (|SPADfirst| |l|) $) . #2#)
-                      (GO #1#)))))
-                  (LETT |u|
-                        (SPADCALL (SPADCALL |u| |diff| (QREFELT $ 44)) |lvar|
-                                  |lval| (QREFELT $ 47))
-                        . #2#)
-                  (EXIT
-                   (LETT |lu| (SPADCALL |lu| (LIST |u|) (QREFELT $ 49))
-                         . #2#)))
-                 (LETT |q| (|inc_SI| |q|) . #2#) (GO G190) G191 (EXIT NIL))
-            (EXIT (|error| "killer: no linear dependence found"))))
-      #1# (EXIT #1#))))) 
+(SDEFUN |LODOOPS;killer|
+        ((|u|
+          . #1=(|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                           (|OrderlyDifferentialVariable|
+                                                            (|Symbol|))))
+         (|m| |NonNegativeInteger|)
+         (|lvar| |List| (|OrderlyDifferentialVariable| (|Symbol|)))
+         (|lval| |List|
+          (|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                      (|OrderlyDifferentialVariable|
+                                                       (|Symbol|))))
+         (|diff| |Mapping| A A) ($ L))
+        (SPROG
+         ((|lu| (|List| #1#)) (#2=#:G124 NIL) (|l| (|List| (|Vector| A)))
+          (|mat| (|Matrix| A)) (|q| NIL))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |lu| (LIST |u|) . #3=(|LODOOPS;killer|))
+                (SEQ (LETT |q| 0 . #3#) G190
+                     (COND ((|greater_SI| |q| |m|) (GO G191)))
+                     (SEQ
+                      (LETT |mat|
+                            (SPADCALL (SPADCALL (LIST |lu|) (QREFELT $ 38))
+                                      (QREFELT $ 41))
+                            . #3#)
+                      (LETT |l| (SPADCALL |mat| (QREFELT $ 43)) . #3#)
+                      (COND
+                       ((NULL (NULL |l|))
+                        (EXIT
+                         (PROGN
+                          (LETT #2# (|LODOOPS;vec2LODO| (|SPADfirst| |l|) $)
+                                . #3#)
+                          (GO #2#)))))
+                      (LETT |u|
+                            (SPADCALL (SPADCALL |u| |diff| (QREFELT $ 44))
+                                      |lvar| |lval| (QREFELT $ 47))
+                            . #3#)
+                      (EXIT
+                       (LETT |lu| (SPADCALL |lu| (LIST |u|) (QREFELT $ 49))
+                             . #3#)))
+                     (LETT |q| (|inc_SI| |q|) . #3#) (GO G190) G191 (EXIT NIL))
+                (EXIT (|error| "killer: no linear dependence found"))))
+          #2# (EXIT #2#)))) 
 
-(DEFUN |LODOOPS;symmetricProduct;2LML;4| (|l1| |l2| |diff| $)
-  (PROG (|b| |a| |vn| |un| |n2| |n1| |v| |u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL (QREFELT $ 10) (QREFELT $ 22))
-            . #1=(|LODOOPS;symmetricProduct;2LML;4|))
-      (LETT |v| (SPADCALL (QREFELT $ 11) (QREFELT $ 22)) . #1#)
-      (LETT |n1| (SPADCALL |l1| (QREFELT $ 23)) . #1#)
-      (LETT |n2| (SPADCALL |l2| (QREFELT $ 23)) . #1#)
-      (LETT |un| (SPADCALL |u| |n1| (QREFELT $ 24)) . #1#)
-      (LETT |vn| (SPADCALL |v| |n2| (QREFELT $ 24)) . #1#)
-      (LETT |a|
-            (|LODOOPS;applyLODO|
-             (SPADCALL
-              (SPADCALL
-               (SPADCALL (SPADCALL |l1| (QREFELT $ 25)) (QREFELT $ 26))
-               (QREFELT $ 27))
-              (SPADCALL |l1| (QREFELT $ 28)) (QREFELT $ 29))
-             |u| $)
-            . #1#)
-      (LETT |b|
-            (|LODOOPS;applyLODO|
-             (SPADCALL
-              (SPADCALL
-               (SPADCALL (SPADCALL |l2| (QREFELT $ 25)) (QREFELT $ 26))
-               (QREFELT $ 27))
-              (SPADCALL |l2| (QREFELT $ 28)) (QREFELT $ 29))
-             |v| $)
-            . #1#)
-      (EXIT
-       (|LODOOPS;killer|
-        (SPADCALL (SPADCALL |u| (QREFELT $ 31)) (SPADCALL |v| (QREFELT $ 31))
-                  (QREFELT $ 50))
-        (* |n1| |n2|) (LIST |un| |vn|) (LIST |a| |b|) |diff| $)))))) 
+(SDEFUN |LODOOPS;symmetricProduct;2LML;4|
+        ((|l1| L) (|l2| L) (|diff| |Mapping| A A) ($ L))
+        (SPROG
+         ((|b|
+           #1=(|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                          (|OrderlyDifferentialVariable|
+                                                           (|Symbol|))))
+          (|a| #1#) (|vn| #2=(|OrderlyDifferentialVariable| (|Symbol|)))
+          (|un| #2#) (|n2| #3=(|NonNegativeInteger|)) (|n1| #3#)
+          (|v| (|OrderlyDifferentialVariable| (|Symbol|)))
+          (|u| (|OrderlyDifferentialVariable| (|Symbol|))))
+         (SEQ
+          (LETT |u| (SPADCALL (QREFELT $ 10) (QREFELT $ 22))
+                . #4=(|LODOOPS;symmetricProduct;2LML;4|))
+          (LETT |v| (SPADCALL (QREFELT $ 11) (QREFELT $ 22)) . #4#)
+          (LETT |n1| (SPADCALL |l1| (QREFELT $ 23)) . #4#)
+          (LETT |n2| (SPADCALL |l2| (QREFELT $ 23)) . #4#)
+          (LETT |un| (SPADCALL |u| |n1| (QREFELT $ 24)) . #4#)
+          (LETT |vn| (SPADCALL |v| |n2| (QREFELT $ 24)) . #4#)
+          (LETT |a|
+                (|LODOOPS;applyLODO|
+                 (SPADCALL
+                  (SPADCALL
+                   (SPADCALL (SPADCALL |l1| (QREFELT $ 25)) (QREFELT $ 26))
+                   (QREFELT $ 27))
+                  (SPADCALL |l1| (QREFELT $ 28)) (QREFELT $ 29))
+                 |u| $)
+                . #4#)
+          (LETT |b|
+                (|LODOOPS;applyLODO|
+                 (SPADCALL
+                  (SPADCALL
+                   (SPADCALL (SPADCALL |l2| (QREFELT $ 25)) (QREFELT $ 26))
+                   (QREFELT $ 27))
+                  (SPADCALL |l2| (QREFELT $ 28)) (QREFELT $ 29))
+                 |v| $)
+                . #4#)
+          (EXIT
+           (|LODOOPS;killer|
+            (SPADCALL (SPADCALL |u| (QREFELT $ 31))
+                      (SPADCALL |v| (QREFELT $ 31)) (QREFELT $ 50))
+            (* |n1| |n2|) (LIST |un| |vn|) (LIST |a| |b|) |diff| $))))) 
 
-(DEFUN |LODOOPS;directSum;2LML;5| (|l1| |l2| |diff| $)
-  (PROG (|b| |a| |vn| |un| |n2| |n1| |v| |u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL (QREFELT $ 10) (QREFELT $ 22))
-            . #1=(|LODOOPS;directSum;2LML;5|))
-      (LETT |v| (SPADCALL (QREFELT $ 11) (QREFELT $ 22)) . #1#)
-      (LETT |n1| (SPADCALL |l1| (QREFELT $ 23)) . #1#)
-      (LETT |n2| (SPADCALL |l2| (QREFELT $ 23)) . #1#)
-      (LETT |un| (SPADCALL |u| |n1| (QREFELT $ 24)) . #1#)
-      (LETT |vn| (SPADCALL |v| |n2| (QREFELT $ 24)) . #1#)
-      (LETT |a|
-            (|LODOOPS;applyLODO|
-             (SPADCALL
-              (SPADCALL
-               (SPADCALL (SPADCALL |l1| (QREFELT $ 25)) (QREFELT $ 26))
-               (QREFELT $ 27))
-              (SPADCALL |l1| (QREFELT $ 28)) (QREFELT $ 29))
-             |u| $)
-            . #1#)
-      (LETT |b|
-            (|LODOOPS;applyLODO|
-             (SPADCALL
-              (SPADCALL
-               (SPADCALL (SPADCALL |l2| (QREFELT $ 25)) (QREFELT $ 26))
-               (QREFELT $ 27))
-              (SPADCALL |l2| (QREFELT $ 28)) (QREFELT $ 29))
-             |v| $)
-            . #1#)
-      (EXIT
-       (|LODOOPS;killer|
-        (SPADCALL (SPADCALL |u| (QREFELT $ 31)) (SPADCALL |v| (QREFELT $ 31))
-                  (QREFELT $ 52))
-        (+ |n1| |n2|) (LIST |un| |vn|) (LIST |a| |b|) |diff| $)))))) 
+(SDEFUN |LODOOPS;directSum;2LML;5|
+        ((|l1| L) (|l2| L) (|diff| |Mapping| A A) ($ L))
+        (SPROG
+         ((|b|
+           #1=(|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                          (|OrderlyDifferentialVariable|
+                                                           (|Symbol|))))
+          (|a| #1#) (|vn| #2=(|OrderlyDifferentialVariable| (|Symbol|)))
+          (|un| #2#) (|n2| #3=(|NonNegativeInteger|)) (|n1| #3#)
+          (|v| (|OrderlyDifferentialVariable| (|Symbol|)))
+          (|u| (|OrderlyDifferentialVariable| (|Symbol|))))
+         (SEQ
+          (LETT |u| (SPADCALL (QREFELT $ 10) (QREFELT $ 22))
+                . #4=(|LODOOPS;directSum;2LML;5|))
+          (LETT |v| (SPADCALL (QREFELT $ 11) (QREFELT $ 22)) . #4#)
+          (LETT |n1| (SPADCALL |l1| (QREFELT $ 23)) . #4#)
+          (LETT |n2| (SPADCALL |l2| (QREFELT $ 23)) . #4#)
+          (LETT |un| (SPADCALL |u| |n1| (QREFELT $ 24)) . #4#)
+          (LETT |vn| (SPADCALL |v| |n2| (QREFELT $ 24)) . #4#)
+          (LETT |a|
+                (|LODOOPS;applyLODO|
+                 (SPADCALL
+                  (SPADCALL
+                   (SPADCALL (SPADCALL |l1| (QREFELT $ 25)) (QREFELT $ 26))
+                   (QREFELT $ 27))
+                  (SPADCALL |l1| (QREFELT $ 28)) (QREFELT $ 29))
+                 |u| $)
+                . #4#)
+          (LETT |b|
+                (|LODOOPS;applyLODO|
+                 (SPADCALL
+                  (SPADCALL
+                   (SPADCALL (SPADCALL |l2| (QREFELT $ 25)) (QREFELT $ 26))
+                   (QREFELT $ 27))
+                  (SPADCALL |l2| (QREFELT $ 28)) (QREFELT $ 29))
+                 |v| $)
+                . #4#)
+          (EXIT
+           (|LODOOPS;killer|
+            (SPADCALL (SPADCALL |u| (QREFELT $ 31))
+                      (SPADCALL |v| (QREFELT $ 31)) (QREFELT $ 52))
+            (+ |n1| |n2|) (LIST |un| |vn|) (LIST |a| |b|) |diff| $))))) 
 
-(DEFUN |LODOOPS;applyLODO| (|l| |v| $)
-  (PROG (|p|)
-    (RETURN
-     (SEQ (LETT |p| (|spadConstant| $ 54) . #1=(|LODOOPS;applyLODO|))
-          (SEQ G190
-               (COND
-                ((NULL (SPADCALL |l| (|spadConstant| $ 20) (QREFELT $ 57)))
-                 (GO G191)))
-               (SEQ
-                (LETT |p|
-                      (SPADCALL |p|
-                                (SPADCALL
-                                 (SPADCALL (SPADCALL |l| (QREFELT $ 25))
-                                           (QREFELT $ 58))
-                                 (SPADCALL |v| (SPADCALL |l| (QREFELT $ 23))
-                                           (QREFELT $ 24))
-                                 1 (QREFELT $ 59))
-                                (QREFELT $ 52))
-                      . #1#)
-                (EXIT (LETT |l| (SPADCALL |l| (QREFELT $ 28)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |p|))))) 
+(SDEFUN |LODOOPS;applyLODO|
+        ((|l| L) (|v| |OrderlyDifferentialVariable| (|Symbol|))
+         ($ |DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+          (|OrderlyDifferentialVariable| (|Symbol|))))
+        (SPROG
+         ((|p|
+           (|DifferentialSparseMultivariatePolynomial| A (|Symbol|)
+                                                       (|OrderlyDifferentialVariable|
+                                                        (|Symbol|)))))
+         (SEQ (LETT |p| (|spadConstant| $ 54) . #1=(|LODOOPS;applyLODO|))
+              (SEQ G190
+                   (COND
+                    ((NULL (SPADCALL |l| (|spadConstant| $ 20) (QREFELT $ 57)))
+                     (GO G191)))
+                   (SEQ
+                    (LETT |p|
+                          (SPADCALL |p|
+                                    (SPADCALL
+                                     (SPADCALL (SPADCALL |l| (QREFELT $ 25))
+                                               (QREFELT $ 58))
+                                     (SPADCALL |v|
+                                               (SPADCALL |l| (QREFELT $ 23))
+                                               (QREFELT $ 24))
+                                     1 (QREFELT $ 59))
+                                    (QREFELT $ 52))
+                          . #1#)
+                    (EXIT (LETT |l| (SPADCALL |l| (QREFELT $ 28)) . #1#)))
+                   NIL (GO G190) G191 (EXIT NIL))
+              (EXIT |p|)))) 
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorsOps;|)) 
 
 (DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G135)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G136)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|LinearOrdinaryDifferentialOperatorsOps|)
-                                           '|domainEqualList|)
-                . #3=(|LinearOrdinaryDifferentialOperatorsOps|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |LinearOrdinaryDifferentialOperatorsOps;|)
-                         #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G136)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|LinearOrdinaryDifferentialOperatorsOps|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|LinearOrdinaryDifferentialOperatorsOps|)
+                                               '|domainEqualList|)
+                    . #3=(|LinearOrdinaryDifferentialOperatorsOps|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |LinearOrdinaryDifferentialOperatorsOps;|)
+                       #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|LinearOrdinaryDifferentialOperatorsOps|)))))))))) 
 
 (DEFUN |LinearOrdinaryDifferentialOperatorsOps;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|LinearOrdinaryDifferentialOperatorsOps|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperatorsOps| DV$1 DV$2)
-            . #1#)
-      (LETT $ (GETREFV 60) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|LinearOrdinaryDifferentialOperatorsOps|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 10 (SPADCALL (QREFELT $ 9)))
-      (QSETREFV $ 11 (SPADCALL (QREFELT $ 9)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|LinearOrdinaryDifferentialOperatorsOps|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$|
+                (LIST '|LinearOrdinaryDifferentialOperatorsOps| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 60) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|LinearOrdinaryDifferentialOperatorsOps|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 10 (SPADCALL (QREFELT $ 9)))
+          (QSETREFV $ 11 (SPADCALL (QREFELT $ 9)))
+          $))) 
 
 (MAKEPROP '|LinearOrdinaryDifferentialOperatorsOps| '|infovec|
           (LIST

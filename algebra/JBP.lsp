@@ -1,236 +1,240 @@
 
-(DEFUN |JBP;jetVariables;$L;1| (|p| $) (SPADCALL |p| (QREFELT $ 10))) 
+(SDEFUN |JBP;jetVariables;$L;1| ((|p| $) ($ |List| JB))
+        (SPADCALL |p| (QREFELT $ 10))) 
 
-(DEFUN |JBP;subst;$JB2$;2| (|p| |jv| |exp| $)
-  (SPADCALL |p| |jv| |exp| (QREFELT $ 12))) 
+(SDEFUN |JBP;subst;$JB2$;2| ((|p| $) (|jv| JB) (|exp| $) ($ $))
+        (SPADCALL |p| |jv| |exp| (QREFELT $ 12))) 
 
 (PUT '|JBP;numerator;2$;3| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(DEFUN |JBP;numerator;2$;3| (|l| $) |l|) 
+(SDEFUN |JBP;numerator;2$;3| ((|l| $) ($ $)) |l|) 
 
-(DEFUN |JBP;denominator;2$;4| (|l| $) (|spadConstant| $ 15)) 
+(SDEFUN |JBP;denominator;2$;4| ((|l| $) ($ $)) (|spadConstant| $ 15)) 
 
-(DEFUN |JBP;solveFor;$JBU;5| (|p| |jv| $)
-  (PROG (|cc| |c|)
-    (RETURN
-     (SEQ
-      (LETT |c| (SPADCALL |p| |jv| (QREFELT $ 17))
-            . #1=(|JBP;solveFor;$JBU;5|))
-      (EXIT
-       (COND
-        ((SPADCALL |c| (QREFELT $ 19))
-         (SEQ (LETT |cc| (SPADCALL |c| (QREFELT $ 20)) . #1#)
+(SDEFUN |JBP;solveFor;$JBU;5| ((|p| $) (|jv| JB) ($ |Union| $ "failed"))
+        (SPROG ((|cc| (R)) (|c| ($)))
+               (SEQ
+                (LETT |c| (SPADCALL |p| |jv| (QREFELT $ 17))
+                      . #1=(|JBP;solveFor;$JBU;5|))
+                (EXIT
+                 (COND
+                  ((SPADCALL |c| (QREFELT $ 19))
+                   (SEQ (LETT |cc| (SPADCALL |c| (QREFELT $ 20)) . #1#)
+                        (EXIT
+                         (CONS 0
+                               (SPADCALL
+                                (SPADCALL
+                                 (SPADCALL (|spadConstant| $ 15) |cc|
+                                           (QREFELT $ 22))
+                                 |p| (QREFELT $ 23))
+                                (SPADCALL |jv| (QREFELT $ 24))
+                                (QREFELT $ 25))))))
+                  ('T (CONS 1 "failed"))))))) 
+
+(SDEFUN |JBP;solveFor;$JBU;6| ((|p| $) (|jv| JB) ($ |Union| $ "failed"))
+        (SPROG ((|rc| (|Union| R "failed")) (|cc| (R)) (|c| ($)))
+               (SEQ
+                (LETT |c| (SPADCALL |p| |jv| (QREFELT $ 17))
+                      . #1=(|JBP;solveFor;$JBU;6|))
+                (EXIT
+                 (COND
+                  ((SPADCALL |c| (QREFELT $ 19))
+                   (SEQ (LETT |cc| (SPADCALL |c| (QREFELT $ 20)) . #1#)
+                        (LETT |rc| (SPADCALL |cc| (QREFELT $ 28)) . #1#)
+                        (EXIT
+                         (COND ((QEQCAR |rc| 1) (CONS 1 "failed"))
+                               (#2='T
+                                (CONS 0
+                                      (SPADCALL
+                                       (SPADCALL (QCDR |rc|) |p|
+                                                 (QREFELT $ 29))
+                                       (SPADCALL |jv| (QREFELT $ 24))
+                                       (QREFELT $ 25))))))))
+                  (#2# (CONS 1 "failed"))))))) 
+
+(SDEFUN |JBP;groebner;2L;7| ((|lp| |List| $) ($ |List| $))
+        (SPROG
+         ((LJV (|List| JB)) (|lj| (|List| (|List| JB))) (#1=#:G133 NIL)
+          (|p| NIL) (#2=#:G132 NIL))
+         (SEQ (SPADCALL "groebner" (QREFELT $ 32))
+              (LETT |lj|
+                    (PROGN
+                     (LETT #2# NIL . #3=(|JBP;groebner;2L;7|))
+                     (SEQ (LETT |p| NIL . #3#) (LETT #1# |lp| . #3#) G190
+                          (COND
+                           ((OR (ATOM #1#)
+                                (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
+                            (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 11)) #2#)
+                                  . #3#)))
+                          (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                          (EXIT (NREVERSE #2#))))
+                    . #3#)
+              (LETT LJV (SPADCALL (ELT $ 33) |lj| NIL (QREFELT $ 39)) . #3#)
+              (SPADCALL
+               (SPADCALL "LJV" (SPADCALL LJV (QREFELT $ 40)) (QREFELT $ 41))
+               (QREFELT $ 32))
               (EXIT
-               (CONS 0
-                     (SPADCALL
-                      (SPADCALL
-                       (SPADCALL (|spadConstant| $ 15) |cc| (QREFELT $ 22)) |p|
-                       (QREFELT $ 23))
-                      (SPADCALL |jv| (QREFELT $ 24)) (QREFELT $ 25))))))
-        ('T (CONS 1 "failed")))))))) 
-
-(DEFUN |JBP;solveFor;$JBU;6| (|p| |jv| $)
-  (PROG (|rc| |cc| |c|)
-    (RETURN
-     (SEQ
-      (LETT |c| (SPADCALL |p| |jv| (QREFELT $ 17))
-            . #1=(|JBP;solveFor;$JBU;6|))
-      (EXIT
-       (COND
-        ((SPADCALL |c| (QREFELT $ 19))
-         (SEQ (LETT |cc| (SPADCALL |c| (QREFELT $ 20)) . #1#)
-              (LETT |rc| (SPADCALL |cc| (QREFELT $ 28)) . #1#)
-              (EXIT
-               (COND ((QEQCAR |rc| 1) (CONS 1 "failed"))
-                     (#2='T
-                      (CONS 0
-                            (SPADCALL (SPADCALL (QCDR |rc|) |p| (QREFELT $ 29))
-                                      (SPADCALL |jv| (QREFELT $ 24))
-                                      (QREFELT $ 25))))))))
-        (#2# (CONS 1 "failed")))))))) 
-
-(DEFUN |JBP;groebner;2L;7| (|lp| $)
-  (PROG (LJV |lj| #1=#:G133 |p| #2=#:G132)
-    (RETURN
-     (SEQ (SPADCALL "groebner" (QREFELT $ 32))
-          (LETT |lj|
-                (PROGN
-                 (LETT #2# NIL . #3=(|JBP;groebner;2L;7|))
-                 (SEQ (LETT |p| NIL . #3#) (LETT #1# |lp| . #3#) G190
-                      (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 11)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
-          (LETT LJV (SPADCALL (ELT $ 33) |lj| NIL (QREFELT $ 39)) . #3#)
-          (SPADCALL
-           (SPADCALL "LJV" (SPADCALL LJV (QREFELT $ 40)) (QREFELT $ 41))
-           (QREFELT $ 32))
-          (EXIT
-           (SPADCALL |lp|
-                     (|compiledLookupCheck| '|groebner|
-                                            (LIST
-                                             (LIST '|List| (|devaluate| $))
-                                             (LIST '|List| (|devaluate| $)))
-                                            (|JetGroebner| (ELT $ 6) (ELT $ 7)
-                                                           LJV $
-                                                           (|DirectProduct|
-                                                            (|#| LJV)
-                                                            (|NonNegativeInteger|)))))))))) 
+               (SPADCALL |lp|
+                         (|compiledLookupCheck| '|groebner|
+                                                (LIST
+                                                 (LIST '|List| (|devaluate| $))
+                                                 (LIST '|List|
+                                                       (|devaluate| $)))
+                                                (|JetGroebner| (ELT $ 6)
+                                                               (ELT $ 7) LJV $
+                                                               (|DirectProduct|
+                                                                (|#| LJV)
+                                                                (|NonNegativeInteger|))))))))) 
 
 (DECLAIM (NOTINLINE |JetBundlePolynomial;|)) 
 
 (DEFUN |JetBundlePolynomial| (&REST #1=#:G173)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G174)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|JetBundlePolynomial|)
-                                           '|domainEqualList|)
-                . #3=(|JetBundlePolynomial|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |JetBundlePolynomial;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G174)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|JetBundlePolynomial|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|JetBundlePolynomial|)
+                                               '|domainEqualList|)
+                    . #3=(|JetBundlePolynomial|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |JetBundlePolynomial;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|JetBundlePolynomial|)))))))))) 
 
 (DEFUN |JetBundlePolynomial;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G172 $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|JetBundlePolynomial|))
-      (LETT DV$2 (|devaluate| |#2|) . #2#)
-      (LETT |dv$| (LIST '|JetBundlePolynomial| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 93) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|PolynomialFactorizationExplicit|))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|PatternMatchable|
-                                                            (|Float|)))
-                                           (|HasCategory| |#2|
-                                                          '(|PatternMatchable|
-                                                            (|Float|))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|PatternMatchable|
-                                                            (|Integer|)))
-                                           (|HasCategory| |#2|
-                                                          '(|PatternMatchable|
-                                                            (|Integer|))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Float|))))
-                                           (|HasCategory| |#2|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Float|)))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Integer|))))
-                                           (|HasCategory| |#2|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Integer|)))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|InputForm|)))
-                                           (|HasCategory| |#2|
-                                                          '(|ConvertibleTo|
-                                                            (|InputForm|))))
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|canonicalUnitNormal|))
-                                          (|HasCategory| |#1| '(|Comparable|))
-                                          (|HasCategory| |#1|
-                                                         '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#1| '(|Field|))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Fraction|
-                                                             (|Integer|)))))
-                                          (|HasCategory| |#1| '(|EntireRing|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|GcdDomain|))
-                                                . #2#)
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|CommutativeRing|))
-                                           #1#
-                                           (|HasCategory| |#1|
-                                                          '(|PolynomialFactorizationExplicit|)))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|JetBundlePolynomial| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-           (|HasCategory| $ '(|CharacteristicNonZero|))
-           (|augmentPredVector| $ 1048576))
-      (AND
-       (OR (|HasCategory| |#1| '(|CharacteristicNonZero|))
-           (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-                (|HasCategory| $ '(|CharacteristicNonZero|))))
-       (|augmentPredVector| $ 2097152))
-      (AND (|HasCategory| $ '(|CommutativeRing|))
-           (|augmentPredVector| $ 4194304))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (|SparseMultivariatePolynomial| |#1| |#2|))
-      (COND
-       ((|testBitVector| |pv$| 16)
-        (QSETREFV $ 27 (CONS (|dispatchFunction| |JBP;solveFor;$JBU;5|) $)))
-       ('T
-        (QSETREFV $ 27 (CONS (|dispatchFunction| |JBP;solveFor;$JBU;6|) $))))
-      (COND
-       ((|testBitVector| |pv$| 19)
-        (QSETREFV $ 43 (CONS (|dispatchFunction| |JBP;groebner;2L;7|) $))))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G172 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|JetBundlePolynomial|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT |dv$| (LIST '|JetBundlePolynomial| DV$1 DV$2) . #2#)
+    (LETT $ (GETREFV 93) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|PolynomialFactorizationExplicit|))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|PatternMatchable|
+                                                          (|Float|)))
+                                         (|HasCategory| |#2|
+                                                        '(|PatternMatchable|
+                                                          (|Float|))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|PatternMatchable|
+                                                          (|Integer|)))
+                                         (|HasCategory| |#2|
+                                                        '(|PatternMatchable|
+                                                          (|Integer|))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Float|))))
+                                         (|HasCategory| |#2|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Float|)))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Integer|))))
+                                         (|HasCategory| |#2|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Integer|)))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|InputForm|)))
+                                         (|HasCategory| |#2|
+                                                        '(|ConvertibleTo|
+                                                          (|InputForm|))))
+                                        (|HasCategory| |#1|
+                                                       '(|Algebra|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicNonZero|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1|
+                                                       '(|canonicalUnitNormal|))
+                                        (|HasCategory| |#1| '(|Comparable|))
+                                        (|HasCategory| |#1|
+                                                       '(|LinearlyExplicitRingOver|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1|
+                                                       '(|CommutativeRing|))
+                                        (|HasCategory| |#1| '(|Field|))
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         (|HasCategory| |#1|
+                                                        '(|RetractableTo|
+                                                          (|Fraction|
+                                                           (|Integer|)))))
+                                        (|HasCategory| |#1| '(|EntireRing|))
+                                        (LETT #1#
+                                              (|HasCategory| |#1|
+                                                             '(|GcdDomain|))
+                                              . #2#)
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|CommutativeRing|))
+                                         #1#
+                                         (|HasCategory| |#1|
+                                                        '(|PolynomialFactorizationExplicit|)))))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|JetBundlePolynomial| (LIST DV$1 DV$2)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
+         (|HasCategory| $ '(|CharacteristicNonZero|))
+         (|augmentPredVector| $ 1048576))
+    (AND
+     (OR (|HasCategory| |#1| '(|CharacteristicNonZero|))
+         (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
+              (|HasCategory| $ '(|CharacteristicNonZero|))))
+     (|augmentPredVector| $ 2097152))
+    (AND (|HasCategory| $ '(|CommutativeRing|))
+         (|augmentPredVector| $ 4194304))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 8 (|SparseMultivariatePolynomial| |#1| |#2|))
+    (COND
+     ((|testBitVector| |pv$| 16)
+      (QSETREFV $ 27 (CONS (|dispatchFunction| |JBP;solveFor;$JBU;5|) $)))
+     ('T (QSETREFV $ 27 (CONS (|dispatchFunction| |JBP;solveFor;$JBU;6|) $))))
+    (COND
+     ((|testBitVector| |pv$| 19)
+      (QSETREFV $ 43 (CONS (|dispatchFunction| |JBP;groebner;2L;7|) $))))
+    $))) 
 
 (MAKEPROP '|JetBundlePolynomial| '|infovec|
           (LIST

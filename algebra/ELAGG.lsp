@@ -17,66 +17,69 @@
       #2#)))) 
 
 (DEFUN |ExtensibleLinearAggregate;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|ExtensibleLinearAggregate;CAT|)
-                                ('T
-                                 (LETT |ExtensibleLinearAggregate;CAT|
-                                       (|Join| (|LinearAggregate| '|t#1|)
-                                               (|shallowlyMutable|)
-                                               (|mkCategory|
-                                                '(((|concat!| ($ $ |t#1|)) T)
-                                                  ((|concat!| ($ $ $)) T)
-                                                  ((|delete!|
-                                                    ($ $ (|Integer|)))
-                                                   T)
-                                                  ((|delete!|
-                                                    ($ $
-                                                     (|UniversalSegment|
-                                                      (|Integer|))))
-                                                   T)
-                                                  ((|remove!|
-                                                    ($
-                                                     (|Mapping| (|Boolean|)
-                                                                |t#1|)
-                                                     $))
-                                                   T)
-                                                  ((|insert!|
-                                                    ($ |t#1| $ (|Integer|)))
-                                                   T)
-                                                  ((|insert!|
-                                                    ($ $ $ (|Integer|)))
-                                                   T)
-                                                  ((|merge!|
-                                                    ($
-                                                     (|Mapping| (|Boolean|)
-                                                                |t#1| |t#1|)
-                                                     $ $))
-                                                   T)
-                                                  ((|select!|
-                                                    ($
-                                                     (|Mapping| (|Boolean|)
-                                                                |t#1|)
-                                                     $))
-                                                   T)
-                                                  ((|remove!| ($ |t#1| $))
-                                                   (|has| |t#1|
-                                                          (|SetCategory|)))
-                                                  ((|removeDuplicates!| ($ $))
-                                                   (|has| |t#1|
-                                                          (|SetCategory|)))
-                                                  ((|merge!| ($ $ $))
-                                                   (|has| |t#1|
-                                                          (|OrderedSet|))))
-                                                NIL
-                                                '((|Integer|)
-                                                  (|UniversalSegment|
-                                                   (|Integer|)))
-                                                NIL))
-                                       . #2=(|ExtensibleLinearAggregate|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|ExtensibleLinearAggregate| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|ExtensibleLinearAggregate;CAT|)
+                                    ('T
+                                     (LETT |ExtensibleLinearAggregate;CAT|
+                                           (|Join| (|LinearAggregate| '|t#1|)
+                                                   (|shallowlyMutable|)
+                                                   (|mkCategory|
+                                                    '(((|concat!| ($ $ |t#1|))
+                                                       T)
+                                                      ((|concat!| ($ $ $)) T)
+                                                      ((|delete!|
+                                                        ($ $ (|Integer|)))
+                                                       T)
+                                                      ((|delete!|
+                                                        ($ $
+                                                         (|UniversalSegment|
+                                                          (|Integer|))))
+                                                       T)
+                                                      ((|remove!|
+                                                        ($
+                                                         (|Mapping| (|Boolean|)
+                                                                    |t#1|)
+                                                         $))
+                                                       T)
+                                                      ((|insert!|
+                                                        ($ |t#1| $
+                                                         (|Integer|)))
+                                                       T)
+                                                      ((|insert!|
+                                                        ($ $ $ (|Integer|)))
+                                                       T)
+                                                      ((|merge!|
+                                                        ($
+                                                         (|Mapping| (|Boolean|)
+                                                                    |t#1|
+                                                                    |t#1|)
+                                                         $ $))
+                                                       T)
+                                                      ((|select!|
+                                                        ($
+                                                         (|Mapping| (|Boolean|)
+                                                                    |t#1|)
+                                                         $))
+                                                       T)
+                                                      ((|remove!| ($ |t#1| $))
+                                                       (|has| |t#1|
+                                                              (|SetCategory|)))
+                                                      ((|removeDuplicates!|
+                                                        ($ $))
+                                                       (|has| |t#1|
+                                                              (|SetCategory|)))
+                                                      ((|merge!| ($ $ $))
+                                                       (|has| |t#1|
+                                                              (|OrderedSet|))))
+                                                    NIL
+                                                    '((|Integer|)
+                                                      (|UniversalSegment|
+                                                       (|Integer|)))
+                                                    NIL))
+                                           . #2=(|ExtensibleLinearAggregate|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|ExtensibleLinearAggregate| (|devaluate| |t#1|)))))) 

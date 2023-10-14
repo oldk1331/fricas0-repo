@@ -1,241 +1,252 @@
 
 (PUT '|ORDCOMP;coerce;R$;1| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
 
-(DEFUN |ORDCOMP;coerce;R$;1| (|r| $) (CONS 0 |r|)) 
+(SDEFUN |ORDCOMP;coerce;R$;1| ((|r| R) ($ $)) (CONS 0 |r|)) 
 
-(DEFUN |ORDCOMP;retract;$R;2| (|x| $)
-  (COND ((QEQCAR |x| 0) (CDR |x|)) ('T (|error| "Not finite")))) 
+(SDEFUN |ORDCOMP;retract;$R;2| ((|x| $) ($ R))
+        (COND ((QEQCAR |x| 0) (CDR |x|)) ('T (|error| "Not finite")))) 
 
 (PUT '|ORDCOMP;finite?;$B;3| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
 
-(DEFUN |ORDCOMP;finite?;$B;3| (|x| $) (QEQCAR |x| 0)) 
+(SDEFUN |ORDCOMP;finite?;$B;3| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 0)) 
 
 (PUT '|ORDCOMP;infinite?;$B;4| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 1))) 
 
-(DEFUN |ORDCOMP;infinite?;$B;4| (|x| $) (QEQCAR |x| 1)) 
+(SDEFUN |ORDCOMP;infinite?;$B;4| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 1)) 
 
-(DEFUN |ORDCOMP;plusInfinity;$;5| ($) (CONS 1 'T)) 
+(SDEFUN |ORDCOMP;plusInfinity;$;5| (($ $)) (CONS 1 'T)) 
 
-(DEFUN |ORDCOMP;minusInfinity;$;6| ($) (CONS 1 'NIL)) 
+(SDEFUN |ORDCOMP;minusInfinity;$;6| (($ $)) (CONS 1 'NIL)) 
 
-(DEFUN |ORDCOMP;retractIfCan;$U;7| (|x| $)
-  (COND ((QEQCAR |x| 0) (CONS 0 (CDR |x|))) ('T (CONS 1 "failed")))) 
+(SDEFUN |ORDCOMP;retractIfCan;$U;7| ((|x| $) ($ |Union| R "failed"))
+        (COND ((QEQCAR |x| 0) (CONS 0 (CDR |x|))) ('T (CONS 1 "failed")))) 
 
-(DEFUN |ORDCOMP;coerce;$Of;8| (|x| $)
-  (PROG (#1=#:G115 |e|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |x| 0) (SPADCALL (CDR |x|) (QREFELT $ 18)))
-            (#2='T
-             (SEQ
-              (LETT |e| (SPADCALL '|infinity| (QREFELT $ 20))
-                    . #3=(|ORDCOMP;coerce;$Of;8|))
-              (EXIT
-               (COND
-                ((PROG2 (LETT #1# |x| . #3#)
-                     (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 1) (|Boolean|) #1#))
-                 (SPADCALL (SPADCALL (QREFELT $ 21)) |e| (QREFELT $ 22)))
-                (#2# (SPADCALL |e| (QREFELT $ 23)))))))))))) 
+(SDEFUN |ORDCOMP;coerce;$Of;8| ((|x| $) ($ |OutputForm|))
+        (SPROG ((#1=#:G115 NIL) (|e| (|OutputForm|)))
+               (SEQ
+                (COND ((QEQCAR |x| 0) (SPADCALL (CDR |x|) (QREFELT $ 18)))
+                      (#2='T
+                       (SEQ
+                        (LETT |e| (SPADCALL '|infinity| (QREFELT $ 20))
+                              . #3=(|ORDCOMP;coerce;$Of;8|))
+                        (EXIT
+                         (COND
+                          ((PROG2 (LETT #1# |x| . #3#)
+                               (QCDR #1#)
+                             (|check_union| (QEQCAR #1# 1) (|Boolean|) #1#))
+                           (SPADCALL (SPADCALL (QREFELT $ 21)) |e|
+                                     (QREFELT $ 22)))
+                          (#2# (SPADCALL |e| (QREFELT $ 23))))))))))) 
 
-(DEFUN |ORDCOMP;whatInfinity;$Si;9| (|x| $)
-  (PROG (#1=#:G115)
-    (RETURN
-     (COND ((QEQCAR |x| 0) 0)
-           ((PROG2 (LETT #1# |x| |ORDCOMP;whatInfinity;$Si;9|)
-                (QCDR #1#)
-              (|check_union| (QEQCAR #1# 1) (|Boolean|) #1#))
-            1)
-           ('T -1))))) 
+(SDEFUN |ORDCOMP;whatInfinity;$Si;9| ((|x| $) ($ |SingleInteger|))
+        (SPROG ((#1=#:G115 NIL))
+               (COND ((QEQCAR |x| 0) 0)
+                     ((PROG2 (LETT #1# |x| |ORDCOMP;whatInfinity;$Si;9|)
+                          (QCDR #1#)
+                        (|check_union| (QEQCAR #1# 1) (|Boolean|) #1#))
+                      1)
+                     ('T -1)))) 
 
-(DEFUN |ORDCOMP;=;2$B;10| (|x| |y| $)
-  (COND
-   ((QEQCAR |x| 1)
-    (COND
-     ((QEQCAR |y| 1)
-      (COND ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27)) 'NIL) (#1='T 'T)))
-     (#1# 'NIL)))
-   ((QEQCAR |y| 1) 'NIL) (#1# (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 28))))) 
+(SDEFUN |ORDCOMP;=;2$B;10| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND
+         ((QEQCAR |x| 1)
+          (COND
+           ((QEQCAR |y| 1)
+            (COND ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27)) 'NIL)
+                  (#1='T 'T)))
+           (#1# 'NIL)))
+         ((QEQCAR |y| 1) 'NIL)
+         (#1# (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 28))))) 
 
-(DEFUN |ORDCOMP;Zero;$;11| ($) (CONS 0 (|spadConstant| $ 30))) 
+(SDEFUN |ORDCOMP;Zero;$;11| (($ $)) (CONS 0 (|spadConstant| $ 30))) 
 
-(DEFUN |ORDCOMP;*;I2$;12| (|n| |x| $)
-  (COND
-   ((QEQCAR |x| 1)
-    (COND ((SPADCALL |n| 0 (QREFELT $ 33)) |x|)
-          ((< |n| 0) (CONS 1 (COND ((CDR |x|) 'NIL) (#1='T 'T))))
-          (#1# (|error| "Undefined product"))))
-   (#1# (CONS 0 (SPADCALL |n| (CDR |x|) (QREFELT $ 34)))))) 
+(SDEFUN |ORDCOMP;*;I2$;12| ((|n| |Integer|) (|x| $) ($ $))
+        (COND
+         ((QEQCAR |x| 1)
+          (COND ((SPADCALL |n| 0 (QREFELT $ 33)) |x|)
+                ((< |n| 0) (CONS 1 (COND ((CDR |x|) 'NIL) (#1='T 'T))))
+                (#1# (|error| "Undefined product"))))
+         (#1# (CONS 0 (SPADCALL |n| (CDR |x|) (QREFELT $ 34)))))) 
 
-(DEFUN |ORDCOMP;-;2$;13| (|x| $)
-  (COND ((QEQCAR |x| 1) (CONS 1 (COND ((CDR |x|) 'NIL) (#1='T 'T))))
-        (#1# (CONS 0 (SPADCALL (CDR |x|) (QREFELT $ 36)))))) 
+(SDEFUN |ORDCOMP;-;2$;13| ((|x| $) ($ $))
+        (COND ((QEQCAR |x| 1) (CONS 1 (COND ((CDR |x|) 'NIL) (#1='T 'T))))
+              (#1# (CONS 0 (SPADCALL (CDR |x|) (QREFELT $ 36)))))) 
 
-(DEFUN |ORDCOMP;+;3$;14| (|x| |y| $)
-  (COND
-   ((QEQCAR |x| 1)
-    (COND
-     ((OR (QEQCAR |y| 0) (NULL (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27))))
-      |x|)
-     ('T (|error| "Undefined sum"))))
-   ((QEQCAR |y| 1) |y|)
-   ('T (CONS 0 (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 38)))))) 
+(SDEFUN |ORDCOMP;+;3$;14| ((|x| $) (|y| $) ($ $))
+        (COND
+         ((QEQCAR |x| 1)
+          (COND
+           ((OR (QEQCAR |y| 0)
+                (NULL (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27))))
+            |x|)
+           ('T (|error| "Undefined sum"))))
+         ((QEQCAR |y| 1) |y|)
+         ('T (CONS 0 (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 38)))))) 
 
-(DEFUN |ORDCOMP;One;$;15| ($) (CONS 0 (|spadConstant| $ 40))) 
+(SDEFUN |ORDCOMP;One;$;15| (($ $)) (CONS 0 (|spadConstant| $ 40))) 
 
-(DEFUN |ORDCOMP;characteristic;Nni;16| ($) (SPADCALL (QREFELT $ 43))) 
+(SDEFUN |ORDCOMP;characteristic;Nni;16| (($ |NonNegativeInteger|))
+        (SPADCALL (QREFELT $ 43))) 
 
-(DEFUN |ORDCOMP;fininf| (|b| |r| $)
-  (COND ((SPADCALL |r| (|spadConstant| $ 30) (QREFELT $ 45)) (CONS 1 |b|))
-        ((SPADCALL |r| (|spadConstant| $ 30) (QREFELT $ 46))
-         (CONS 1 (COND (|b| 'NIL) (#1='T 'T))))
-        (#1# (|error| "Undefined product")))) 
+(SDEFUN |ORDCOMP;fininf| ((|b| |Boolean|) (|r| R) ($ $))
+        (COND
+         ((SPADCALL |r| (|spadConstant| $ 30) (QREFELT $ 45)) (CONS 1 |b|))
+         ((SPADCALL |r| (|spadConstant| $ 30) (QREFELT $ 46))
+          (CONS 1 (COND (|b| 'NIL) (#1='T 'T))))
+         (#1# (|error| "Undefined product")))) 
 
-(DEFUN |ORDCOMP;*;3$;18| (|x| |y| $)
-  (COND
-   ((QEQCAR |x| 1)
-    (COND
-     ((QEQCAR |y| 1)
-      (COND
-       ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27))
-        (SPADCALL (QREFELT $ 14)))
-       (#1='T (SPADCALL (QREFELT $ 13)))))
-     (#1# (|ORDCOMP;fininf| (CDR |x|) (CDR |y|) $))))
-   ((QEQCAR |y| 1) (|ORDCOMP;fininf| (CDR |y|) (CDR |x|) $))
-   (#1# (CONS 0 (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 47)))))) 
+(SDEFUN |ORDCOMP;*;3$;18| ((|x| $) (|y| $) ($ $))
+        (COND
+         ((QEQCAR |x| 1)
+          (COND
+           ((QEQCAR |y| 1)
+            (COND
+             ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27))
+              (SPADCALL (QREFELT $ 14)))
+             (#1='T (SPADCALL (QREFELT $ 13)))))
+           (#1# (|ORDCOMP;fininf| (CDR |x|) (CDR |y|) $))))
+         ((QEQCAR |y| 1) (|ORDCOMP;fininf| (CDR |y|) (CDR |x|) $))
+         (#1# (CONS 0 (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 47)))))) 
 
-(DEFUN |ORDCOMP;recip;$U;19| (|x| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |x| 1) (CONS 0 (|spadConstant| $ 31)))
-            (#1='T
-             (SEQ
-              (LETT |u| (SPADCALL (CDR |x|) (QREFELT $ 50))
-                    |ORDCOMP;recip;$U;19|)
-              (EXIT
-               (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                     (#1# (CONS 0 (CONS 0 (QCDR |u|))))))))))))) 
+(SDEFUN |ORDCOMP;recip;$U;19| ((|x| $) ($ |Union| $ #1="failed"))
+        (SPROG ((|u| (|Union| R #1#)))
+               (SEQ
+                (COND ((QEQCAR |x| 1) (CONS 0 (|spadConstant| $ 31)))
+                      (#2='T
+                       (SEQ
+                        (LETT |u| (SPADCALL (CDR |x|) (QREFELT $ 50))
+                              |ORDCOMP;recip;$U;19|)
+                        (EXIT
+                         (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                               (#2# (CONS 0 (CONS 0 (QCDR |u|)))))))))))) 
 
-(DEFUN |ORDCOMP;<;2$B;20| (|x| |y| $)
-  (COND
-   ((QEQCAR |x| 1)
-    (COND
-     ((QEQCAR |y| 1)
-      (COND ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27)) (CDR |y|))
-            (#1='T 'NIL)))
-     ((CDR |x|) 'NIL) (#1# 'T)))
-   ((QEQCAR |y| 1) (CDR |y|))
-   (#1# (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 46))))) 
+(SDEFUN |ORDCOMP;<;2$B;20| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND
+         ((QEQCAR |x| 1)
+          (COND
+           ((QEQCAR |y| 1)
+            (COND ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27)) (CDR |y|))
+                  (#1='T 'NIL)))
+           ((CDR |x|) 'NIL) (#1# 'T)))
+         ((QEQCAR |y| 1) (CDR |y|))
+         (#1# (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 46))))) 
 
-(DEFUN |ORDCOMP;rational?;$B;21| (|x| $) (SPADCALL |x| (QREFELT $ 11))) 
+(SDEFUN |ORDCOMP;rational?;$B;21| ((|x| $) ($ |Boolean|))
+        (SPADCALL |x| (QREFELT $ 11))) 
 
-(DEFUN |ORDCOMP;rational;$F;22| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 55))) 
+(SDEFUN |ORDCOMP;rational;$F;22| ((|x| $) ($ |Fraction| (|Integer|)))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 55))) 
 
-(DEFUN |ORDCOMP;rationalIfCan;$U;23| (|x| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ
-      (LETT |r| (SPADCALL |x| (QREFELT $ 16)) |ORDCOMP;rationalIfCan;$U;23|)
-      (EXIT
-       (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
-             ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 55)))))))))) 
+(SDEFUN |ORDCOMP;rationalIfCan;$U;23|
+        ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        (SPROG ((|r| (|Union| R "failed")))
+               (SEQ
+                (LETT |r| (SPADCALL |x| (QREFELT $ 16))
+                      |ORDCOMP;rationalIfCan;$U;23|)
+                (EXIT
+                 (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
+                       ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 55))))))))) 
 
 (DECLAIM (NOTINLINE |OrderedCompletion;|)) 
 
 (DEFUN |OrderedCompletion| (#1=#:G183)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G184)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|OrderedCompletion|)
-                                           '|domainEqualList|)
-                . #3=(|OrderedCompletion|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|OrderedCompletion;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G184)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|OrderedCompletion|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|OrderedCompletion|)
+                                               '|domainEqualList|)
+                    . #3=(|OrderedCompletion|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|OrderedCompletion;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|OrderedCompletion|)))))))))) 
 
 (DEFUN |OrderedCompletion;| (|#1|)
-  (PROG (|pv$| #1=#:G182 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|OrderedCompletion|))
-      (LETT |dv$| (LIST '|OrderedCompletion| DV$1) . #2#)
-      (LETT $ (GETREFV 63) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1| '(|OrderedRing|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|AbelianGroup|))
-                                                . #2#)
-                                          (OR #1#
+  (SPROG ((|pv$| NIL) (#1=#:G182 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #2=(|OrderedCompletion|))
+          (LETT |dv$| (LIST '|OrderedCompletion| DV$1) . #2#)
+          (LETT $ (GETREFV 63) . #2#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
                                               (|HasCategory| |#1|
-                                                             '(|OrderedRing|)))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Integer|)))
-                                           (|HasCategory| |#1|
-                                                          '(|OrderedRing|)))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegerNumberSystem|))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|OrderedCompletion| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|Union| (|:| |fin| |#1|) (|:| |inf| (|Boolean|))))
-      (COND
-       ((|testBitVector| |pv$| 4)
-        (PROGN
-         (QSETREFV $ 31
-                   (CONS #'|makeSpadConstant|
-                         (LIST (|dispatchFunction| |ORDCOMP;Zero;$;11|) $ 31)))
-         (QSETREFV $ 35 (CONS (|dispatchFunction| |ORDCOMP;*;I2$;12|) $))
-         (QSETREFV $ 37 (CONS (|dispatchFunction| |ORDCOMP;-;2$;13|) $))
-         (QSETREFV $ 39 (CONS (|dispatchFunction| |ORDCOMP;+;3$;14|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 41
-                   (CONS #'|makeSpadConstant|
-                         (LIST (|dispatchFunction| |ORDCOMP;One;$;15|) $ 41)))
-         (QSETREFV $ 44
-                   (CONS (|dispatchFunction| |ORDCOMP;characteristic;Nni;16|)
-                         $))
-         (QSETREFV $ 48 (CONS (|dispatchFunction| |ORDCOMP;*;3$;18|) $))
-         (QSETREFV $ 51 (CONS (|dispatchFunction| |ORDCOMP;recip;$U;19|) $))
-         (QSETREFV $ 52 (CONS (|dispatchFunction| |ORDCOMP;<;2$B;20|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 7)
-        (PROGN
-         (QSETREFV $ 53
-                   (CONS (|dispatchFunction| |ORDCOMP;rational?;$B;21|) $))
-         (QSETREFV $ 56 (CONS (|dispatchFunction| |ORDCOMP;rational;$F;22|) $))
-         (QSETREFV $ 58
-                   (CONS (|dispatchFunction| |ORDCOMP;rationalIfCan;$U;23|)
-                         $)))))
-      $)))) 
+                                                             '(|RetractableTo|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedRing|))
+                                              (LETT #1#
+                                                    (|HasCategory| |#1|
+                                                                   '(|AbelianGroup|))
+                                                    . #2#)
+                                              (OR #1#
+                                                  (|HasCategory| |#1|
+                                                                 '(|OrderedRing|)))
+                                              (OR
+                                               (|HasCategory| |#1|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedRing|)))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegerNumberSystem|))))
+                          . #2#))
+          (|haddProp| |$ConstructorCache| '|OrderedCompletion| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|Union| (|:| |fin| |#1|) (|:| |inf| (|Boolean|))))
+          (COND
+           ((|testBitVector| |pv$| 4)
+            (PROGN
+             (QSETREFV $ 31
+                       (CONS #'|makeSpadConstant|
+                             (LIST (|dispatchFunction| |ORDCOMP;Zero;$;11|) $
+                                   31)))
+             (QSETREFV $ 35 (CONS (|dispatchFunction| |ORDCOMP;*;I2$;12|) $))
+             (QSETREFV $ 37 (CONS (|dispatchFunction| |ORDCOMP;-;2$;13|) $))
+             (QSETREFV $ 39 (CONS (|dispatchFunction| |ORDCOMP;+;3$;14|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 3)
+            (PROGN
+             (QSETREFV $ 41
+                       (CONS #'|makeSpadConstant|
+                             (LIST (|dispatchFunction| |ORDCOMP;One;$;15|) $
+                                   41)))
+             (QSETREFV $ 44
+                       (CONS
+                        (|dispatchFunction| |ORDCOMP;characteristic;Nni;16|)
+                        $))
+             (QSETREFV $ 48 (CONS (|dispatchFunction| |ORDCOMP;*;3$;18|) $))
+             (QSETREFV $ 51
+                       (CONS (|dispatchFunction| |ORDCOMP;recip;$U;19|) $))
+             (QSETREFV $ 52
+                       (CONS (|dispatchFunction| |ORDCOMP;<;2$B;20|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 7)
+            (PROGN
+             (QSETREFV $ 53
+                       (CONS (|dispatchFunction| |ORDCOMP;rational?;$B;21|) $))
+             (QSETREFV $ 56
+                       (CONS (|dispatchFunction| |ORDCOMP;rational;$F;22|) $))
+             (QSETREFV $ 58
+                       (CONS (|dispatchFunction| |ORDCOMP;rationalIfCan;$U;23|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|OrderedCompletion| '|infovec|
           (LIST

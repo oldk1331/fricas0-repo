@@ -1,108 +1,119 @@
 
-(DEFUN |FGROUP;One;$;1| ($) (SPADCALL (QREFELT $ 9))) 
+(SDEFUN |FGROUP;One;$;1| (($ $)) (SPADCALL (QREFELT $ 9))) 
 
-(DEFUN |FGROUP;one?;$B;2| (|f| $) (NULL (SPADCALL |f| (QREFELT $ 12)))) 
+(SDEFUN |FGROUP;one?;$B;2| ((|f| $) ($ |Boolean|))
+        (NULL (SPADCALL |f| (QREFELT $ 12)))) 
 
-(DEFUN |FGROUP;^;SI$;3| (|s| |n| $) (SPADCALL |s| |n| (QREFELT $ 16))) 
+(SDEFUN |FGROUP;^;SI$;3| ((|s| S) (|n| |Integer|) ($ $))
+        (SPADCALL |s| |n| (QREFELT $ 16))) 
 
-(DEFUN |FGROUP;*;$S$;4| (|f| |s| $) (SPADCALL |f| |s| (QREFELT $ 18))) 
+(SDEFUN |FGROUP;*;$S$;4| ((|f| $) (|s| S) ($ $))
+        (SPADCALL |f| |s| (QREFELT $ 18))) 
 
-(DEFUN |FGROUP;*;S2$;5| (|s| |f| $) (SPADCALL |s| |f| (QREFELT $ 20))) 
+(SDEFUN |FGROUP;*;S2$;5| ((|s| S) (|f| $) ($ $))
+        (SPADCALL |s| |f| (QREFELT $ 20))) 
 
-(DEFUN |FGROUP;inv;2$;6| (|f| $)
-  (SPADCALL (SPADCALL (ELT $ 22) |f| (QREFELT $ 24)) (QREFELT $ 25))) 
+(SDEFUN |FGROUP;inv;2$;6| ((|f| $) ($ $))
+        (SPADCALL (SPADCALL (ELT $ 22) |f| (QREFELT $ 24)) (QREFELT $ 25))) 
 
-(DEFUN |FGROUP;factors;$L;7| (|f| $)
-  (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (QREFELT $ 27))) 
+(SDEFUN |FGROUP;factors;$L;7|
+        ((|f| $) ($ |List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
+        (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (QREFELT $ 27))) 
 
-(DEFUN |FGROUP;mapExpon;M2$;8| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 29))) 
+(SDEFUN |FGROUP;mapExpon;M2$;8|
+        ((|f| |Mapping| (|Integer|) (|Integer|)) (|x| $) ($ $))
+        (SPADCALL |f| |x| (QREFELT $ 29))) 
 
-(DEFUN |FGROUP;mapGen;M2$;9| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 31))) 
+(SDEFUN |FGROUP;mapGen;M2$;9| ((|f| |Mapping| S S) (|x| $) ($ $))
+        (SPADCALL |f| |x| (QREFELT $ 31))) 
 
-(DEFUN |FGROUP;coerce;$Of;10| (|f| $)
-  (SPADCALL |f| (ELT $ 34) (ELT $ 35) 1 (QREFELT $ 37))) 
+(SDEFUN |FGROUP;coerce;$Of;10| ((|f| $) ($ |OutputForm|))
+        (SPADCALL |f| (ELT $ 34) (ELT $ 35) 1 (QREFELT $ 37))) 
 
-(DEFUN |FGROUP;*;3$;11| (|f| |g| $)
-  (PROG (|h| |q| |r|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |f| (QREFELT $ 14)) |g|)
-            ((SPADCALL |g| (QREFELT $ 14)) |f|)
-            (#1='T
-             (SEQ
-              (LETT |r| (REVERSE (SPADCALL |f| (QREFELT $ 12)))
-                    . #2=(|FGROUP;*;3$;11|))
-              (LETT |q| (SPADCALL (SPADCALL |g| (QREFELT $ 12)) (QREFELT $ 27))
-                    . #2#)
-              (SEQ G190
-                   (COND
-                    ((NULL
-                      (COND
-                       ((OR (NULL |r|) (NULL |q|)
-                            (NULL
-                             (SPADCALL (QCAR (|SPADfirst| |r|))
-                                       (QCAR (|SPADfirst| |q|))
-                                       (QREFELT $ 39))))
-                        'NIL)
-                       ('T
-                        (EQL (QCDR (|SPADfirst| |r|))
-                             (- (QCDR (|SPADfirst| |q|)))))))
-                     (GO G191)))
-                   (SEQ (LETT |r| (CDR |r|) . #2#)
-                        (EXIT (LETT |q| (CDR |q|) . #2#)))
-                   NIL (GO G190) G191 (EXIT NIL))
-              (EXIT
-               (COND ((NULL |r|) (SPADCALL |q| (QREFELT $ 40)))
-                     ((NULL |q|) (SPADCALL (NREVERSE |r|) (QREFELT $ 40)))
-                     ((SPADCALL (QCAR (|SPADfirst| |r|))
-                                (QCAR (|SPADfirst| |q|)) (QREFELT $ 39))
-                      (SEQ
-                       (SPADCALL (LETT |h| (NREVERSE |r|) . #2#)
-                                 (CONS (QCAR (|SPADfirst| |q|))
-                                       (+ (QCDR (|SPADfirst| |q|))
-                                          (QCDR (|SPADfirst| |r|))))
-                                 (QREFELT $ 41))
-                       (EXIT
-                        (SPADCALL (SPADCALL |h| (CDR |q|) (QREFELT $ 42))
-                                  (QREFELT $ 40)))))
-                     (#1#
-                      (SPADCALL (SPADCALL (NREVERSE |r|) |q| (QREFELT $ 42))
-                                (QREFELT $ 40)))))))))))) 
+(SDEFUN |FGROUP;*;3$;11| ((|f| $) (|g| $) ($ $))
+        (SPROG
+         ((|h| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
+          (|q| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
+          (|r| (|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|))))))
+         (SEQ
+          (COND ((SPADCALL |f| (QREFELT $ 14)) |g|)
+                ((SPADCALL |g| (QREFELT $ 14)) |f|)
+                (#1='T
+                 (SEQ
+                  (LETT |r| (REVERSE (SPADCALL |f| (QREFELT $ 12)))
+                        . #2=(|FGROUP;*;3$;11|))
+                  (LETT |q|
+                        (SPADCALL (SPADCALL |g| (QREFELT $ 12)) (QREFELT $ 27))
+                        . #2#)
+                  (SEQ G190
+                       (COND
+                        ((NULL
+                          (COND
+                           ((OR (NULL |r|) (NULL |q|)
+                                (NULL
+                                 (SPADCALL (QCAR (|SPADfirst| |r|))
+                                           (QCAR (|SPADfirst| |q|))
+                                           (QREFELT $ 39))))
+                            'NIL)
+                           ('T
+                            (EQL (QCDR (|SPADfirst| |r|))
+                                 (- (QCDR (|SPADfirst| |q|)))))))
+                         (GO G191)))
+                       (SEQ (LETT |r| (CDR |r|) . #2#)
+                            (EXIT (LETT |q| (CDR |q|) . #2#)))
+                       NIL (GO G190) G191 (EXIT NIL))
+                  (EXIT
+                   (COND ((NULL |r|) (SPADCALL |q| (QREFELT $ 40)))
+                         ((NULL |q|) (SPADCALL (NREVERSE |r|) (QREFELT $ 40)))
+                         ((SPADCALL (QCAR (|SPADfirst| |r|))
+                                    (QCAR (|SPADfirst| |q|)) (QREFELT $ 39))
+                          (SEQ
+                           (SPADCALL (LETT |h| (NREVERSE |r|) . #2#)
+                                     (CONS (QCAR (|SPADfirst| |q|))
+                                           (+ (QCDR (|SPADfirst| |q|))
+                                              (QCDR (|SPADfirst| |r|))))
+                                     (QREFELT $ 41))
+                           (EXIT
+                            (SPADCALL (SPADCALL |h| (CDR |q|) (QREFELT $ 42))
+                                      (QREFELT $ 40)))))
+                         (#1#
+                          (SPADCALL
+                           (SPADCALL (NREVERSE |r|) |q| (QREFELT $ 42))
+                           (QREFELT $ 40))))))))))) 
 
 (DECLAIM (NOTINLINE |FreeGroup;|)) 
 
 (DEFUN |FreeGroup| (#1=#:G154)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G155)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|FreeGroup|)
-                                           '|domainEqualList|)
-                . #3=(|FreeGroup|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|FreeGroup;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|FreeGroup|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G155)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FreeGroup|)
+                                               '|domainEqualList|)
+                    . #3=(|FreeGroup|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|FreeGroup;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|FreeGroup|)))))))))) 
 
 (DEFUN |FreeGroup;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeGroup|))
-      (LETT |dv$| (LIST '|FreeGroup| DV$1) . #1#)
-      (LETT $ (GETREFV 51) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FreeGroup| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (|ListMonoidOps| |#1| (|Integer|) 1))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeGroup|))
+          (LETT |dv$| (LIST '|FreeGroup| DV$1) . #1#)
+          (LETT $ (GETREFV 51) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FreeGroup| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 (|ListMonoidOps| |#1| (|Integer|) 1))
+          $))) 
 
 (MAKEPROP '|FreeGroup| '|infovec|
           (LIST

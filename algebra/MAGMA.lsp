@@ -1,175 +1,181 @@
 
-(DEFUN |MAGMA;=;2$B;1| (|x| |y| $)
-  (COND
-   ((QEQCAR |x| 0)
-    (COND ((QEQCAR |y| 0) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 10)))
-          (#1='T 'NIL)))
-   ((QEQCAR |y| 1) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 11))) (#1# 'NIL))) 
+(SDEFUN |MAGMA;=;2$B;1| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND
+         ((QEQCAR |x| 0)
+          (COND
+           ((QEQCAR |y| 0) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 10)))
+           (#1='T 'NIL)))
+         ((QEQCAR |y| 1) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 11)))
+         (#1# 'NIL))) 
 
-(DEFUN |MAGMA;varList;$L;2| (|x| $)
-  (PROG (|lv|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |x| 0) (LIST (QCDR |x|)))
-            ('T
-             (SEQ
-              (LETT |lv|
-                    (SPADCALL (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 14))
-                              (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 14))
-                              (QREFELT $ 15))
-                    |MAGMA;varList;$L;2|)
-              (EXIT (SPADCALL |lv| (QREFELT $ 16)))))))))) 
+(SDEFUN |MAGMA;varList;$L;2| ((|x| $) ($ |List| |VarSet|))
+        (SPROG ((|lv| (|List| |VarSet|)))
+               (SEQ
+                (COND ((QEQCAR |x| 0) (LIST (QCDR |x|)))
+                      ('T
+                       (SEQ
+                        (LETT |lv|
+                              (SPADCALL
+                               (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 14))
+                               (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 14))
+                               (QREFELT $ 15))
+                              |MAGMA;varList;$L;2|)
+                        (EXIT (SPADCALL |lv| (QREFELT $ 16))))))))) 
 
-(DEFUN |MAGMA;left;2$;3| (|x| $)
-  (COND ((QEQCAR |x| 0) (|error| "x has only one entry"))
-        ('T (QCAR (QCDR |x|))))) 
+(SDEFUN |MAGMA;left;2$;3| ((|x| $) ($ $))
+        (COND ((QEQCAR |x| 0) (|error| "x has only one entry"))
+              ('T (QCAR (QCDR |x|))))) 
 
-(DEFUN |MAGMA;right;2$;4| (|x| $)
-  (COND ((QEQCAR |x| 0) (|error| "x has only one entry"))
-        ('T (QCDR (QCDR |x|))))) 
+(SDEFUN |MAGMA;right;2$;4| ((|x| $) ($ $))
+        (COND ((QEQCAR |x| 0) (|error| "x has only one entry"))
+              ('T (QCDR (QCDR |x|))))) 
 
 (PUT '|MAGMA;retractable?;$B;5| '|SPADreplace| '(XLAM (|x|) (QEQCAR |x| 0))) 
 
-(DEFUN |MAGMA;retractable?;$B;5| (|x| $) (QEQCAR |x| 0)) 
+(SDEFUN |MAGMA;retractable?;$B;5| ((|x| $) ($ |Boolean|)) (QEQCAR |x| 0)) 
 
-(DEFUN |MAGMA;retract;$VarSet;6| (|x| $)
-  (COND ((QEQCAR |x| 0) (QCDR |x|)) ('T (|error| "Not retractable")))) 
+(SDEFUN |MAGMA;retract;$VarSet;6| ((|x| $) ($ |VarSet|))
+        (COND ((QEQCAR |x| 0) (QCDR |x|)) ('T (|error| "Not retractable")))) 
 
-(DEFUN |MAGMA;retractIfCan;$U;7| (|x| $)
-  (COND ((SPADCALL |x| (QREFELT $ 19)) (CONS 0 (QCDR |x|)))
-        ('T (CONS 1 "failed")))) 
+(SDEFUN |MAGMA;retractIfCan;$U;7| ((|x| $) ($ |Union| |VarSet| "failed"))
+        (COND ((SPADCALL |x| (QREFELT $ 19)) (CONS 0 (QCDR |x|)))
+              ('T (CONS 1 "failed")))) 
 
 (PUT '|MAGMA;coerce;VarSet$;8| '|SPADreplace| '(XLAM (|l|) (CONS 0 |l|))) 
 
-(DEFUN |MAGMA;coerce;VarSet$;8| (|l| $) (CONS 0 |l|)) 
+(SDEFUN |MAGMA;coerce;VarSet$;8| ((|l| |VarSet|) ($ $)) (CONS 0 |l|)) 
 
-(DEFUN |MAGMA;mirror;2$;9| (|x| $)
-  (COND ((QEQCAR |x| 0) |x|)
-        ('T
-         (CONS 1
-               (CONS (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 24))
-                     (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 24))))))) 
+(SDEFUN |MAGMA;mirror;2$;9| ((|x| $) ($ $))
+        (COND ((QEQCAR |x| 0) |x|)
+              ('T
+               (CONS 1
+                     (CONS (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 24))
+                           (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 24))))))) 
 
-(DEFUN |MAGMA;coerce;$Ofm;10| (|x| $)
-  (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 26)))
-        ('T
-         (SPADCALL (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 27))
-                   (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 27))
-                   (QREFELT $ 28))))) 
+(SDEFUN |MAGMA;coerce;$Ofm;10| ((|x| $) ($ |OrderedFreeMonoid| |VarSet|))
+        (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 26)))
+              ('T
+               (SPADCALL (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 27))
+                         (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 27))
+                         (QREFELT $ 28))))) 
 
-(DEFUN |MAGMA;coerce;$Of;11| (|x| $)
-  (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 30)))
-        ('T
-         (SPADCALL
-          (LIST (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 31))
-                (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 31)))
-          (QREFELT $ 33))))) 
+(SDEFUN |MAGMA;coerce;$Of;11| ((|x| $) ($ |OutputForm|))
+        (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 30)))
+              ('T
+               (SPADCALL
+                (LIST (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 31))
+                      (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 31)))
+                (QREFELT $ 33))))) 
 
-(DEFUN |MAGMA;*;3$;12| (|x| |y| $) (CONS 1 (CONS |x| |y|))) 
+(SDEFUN |MAGMA;*;3$;12| ((|x| $) (|y| $) ($ $)) (CONS 1 (CONS |x| |y|))) 
 
-(DEFUN |MAGMA;first;$VarSet;13| (|x| $)
-  (COND ((QEQCAR |x| 0) (QCDR |x|))
-        ('T (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 35))))) 
+(SDEFUN |MAGMA;first;$VarSet;13| ((|x| $) ($ |VarSet|))
+        (COND ((QEQCAR |x| 0) (QCDR |x|))
+              ('T (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 35))))) 
 
-(DEFUN |MAGMA;rest;2$;14| (|x| $)
-  (PROG (|lx|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |x| 0) (|error| "rest$Magma: inexistant rest"))
-            (#1='T
-             (SEQ (LETT |lx| (QCAR (QCDR |x|)) |MAGMA;rest;2$;14|)
-                  (EXIT
-                   (COND ((QEQCAR |lx| 0) (QCDR (QCDR |x|)))
-                         (#1#
-                          (CONS 1
-                                (CONS (SPADCALL |lx| (QREFELT $ 36))
-                                      (QCDR (QCDR |x|)))))))))))))) 
+(SDEFUN |MAGMA;rest;2$;14| ((|x| $) ($ $))
+        (SPROG ((|lx| ($)))
+               (SEQ
+                (COND ((QEQCAR |x| 0) (|error| "rest$Magma: inexistant rest"))
+                      (#1='T
+                       (SEQ (LETT |lx| (QCAR (QCDR |x|)) |MAGMA;rest;2$;14|)
+                            (EXIT
+                             (COND ((QEQCAR |lx| 0) (QCDR (QCDR |x|)))
+                                   (#1#
+                                    (CONS 1
+                                          (CONS (SPADCALL |lx| (QREFELT $ 36))
+                                                (QCDR (QCDR |x|))))))))))))) 
 
-(DEFUN |MAGMA;length;$Pi;15| (|x| $)
-  (COND ((QEQCAR |x| 0) 1)
-        ('T
-         (+ (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 38))
-            (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 38)))))) 
+(SDEFUN |MAGMA;length;$Pi;15| ((|x| $) ($ |PositiveInteger|))
+        (COND ((QEQCAR |x| 0) 1)
+              ('T
+               (+ (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 38))
+                  (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 38)))))) 
 
-(DEFUN |MAGMA;recursif| (|x| |y| $)
-  (COND
-   ((QEQCAR |x| 0)
-    (COND ((QEQCAR |y| 0) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 39)))
-          (#1='T 'T)))
-   ((QEQCAR |y| 0) 'NIL)
-   (#1#
-    (COND
-     ((SPADCALL (QCAR (QCDR |x|)) (QCAR (QCDR |y|)) (QREFELT $ 12))
-      (SPADCALL (QCDR (QCDR |x|)) (QCDR (QCDR |y|)) (QREFELT $ 40)))
-     (#1# (SPADCALL (QCAR (QCDR |x|)) (QCAR (QCDR |y|)) (QREFELT $ 40))))))) 
-
-(DEFUN |MAGMA;lexico;2$B;17| (|x| |y| $)
-  (PROG (|fy| |fx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QEQCAR |x| 0)
-        (COND ((QEQCAR |y| 0) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 39)))
-              (#1='T
-               (SPADCALL (QCDR |x|) (SPADCALL |y| (QREFELT $ 35))
-                         (QREFELT $ 41)))))
-       ((QEQCAR |y| 0)
-        (SPADCALL (CONS 0 (SPADCALL |x| (QREFELT $ 35)))
-                  (CONS 0 (SPADCALL |y| (QREFELT $ 20))) (QREFELT $ 40)))
-       (#1#
-        (SEQ
-         (LETT |fx| (SPADCALL |x| (QREFELT $ 35)) . #2=(|MAGMA;lexico;2$B;17|))
-         (LETT |fy| (SPADCALL |y| (QREFELT $ 35)) . #2#)
-         (EXIT
+(SDEFUN |MAGMA;recursif| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND
+         ((QEQCAR |x| 0)
           (COND
-           ((SPADCALL |fx| |fy| (QREFELT $ 10))
-            (SPADCALL (SPADCALL |x| (QREFELT $ 36))
-                      (SPADCALL |y| (QREFELT $ 36)) (QREFELT $ 42)))
-           (#1# (SPADCALL |fx| |fy| (QREFELT $ 39)))))))))))) 
+           ((QEQCAR |y| 0) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 39)))
+           (#1='T 'T)))
+         ((QEQCAR |y| 0) 'NIL)
+         (#1#
+          (COND
+           ((SPADCALL (QCAR (QCDR |x|)) (QCAR (QCDR |y|)) (QREFELT $ 12))
+            (SPADCALL (QCDR (QCDR |x|)) (QCDR (QCDR |y|)) (QREFELT $ 40)))
+           (#1#
+            (SPADCALL (QCAR (QCDR |x|)) (QCAR (QCDR |y|)) (QREFELT $ 40))))))) 
 
-(DEFUN |MAGMA;<;2$B;18| (|x| |y| $)
-  (PROG (|ly| |lx|)
-    (RETURN
-     (SEQ (LETT |lx| (SPADCALL |x| (QREFELT $ 38)) . #1=(|MAGMA;<;2$B;18|))
-          (LETT |ly| (SPADCALL |y| (QREFELT $ 38)) . #1#)
-          (EXIT
-           (COND ((EQL |lx| |ly|) (|MAGMA;recursif| |x| |y| $))
-                 ('T (< |lx| |ly|)))))))) 
+(SDEFUN |MAGMA;lexico;2$B;17| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((|fy| (|VarSet|)) (|fx| (|VarSet|)))
+               (SEQ
+                (COND
+                 ((QEQCAR |x| 0)
+                  (COND
+                   ((QEQCAR |y| 0)
+                    (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 39)))
+                   (#1='T
+                    (SPADCALL (QCDR |x|) (SPADCALL |y| (QREFELT $ 35))
+                              (QREFELT $ 41)))))
+                 ((QEQCAR |y| 0)
+                  (SPADCALL (CONS 0 (SPADCALL |x| (QREFELT $ 35)))
+                            (CONS 0 (SPADCALL |y| (QREFELT $ 20)))
+                            (QREFELT $ 40)))
+                 (#1#
+                  (SEQ
+                   (LETT |fx| (SPADCALL |x| (QREFELT $ 35))
+                         . #2=(|MAGMA;lexico;2$B;17|))
+                   (LETT |fy| (SPADCALL |y| (QREFELT $ 35)) . #2#)
+                   (EXIT
+                    (COND
+                     ((SPADCALL |fx| |fy| (QREFELT $ 10))
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 36))
+                                (SPADCALL |y| (QREFELT $ 36)) (QREFELT $ 42)))
+                     (#1# (SPADCALL |fx| |fy| (QREFELT $ 39))))))))))) 
+
+(SDEFUN |MAGMA;<;2$B;18| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((|ly| #1=(|PositiveInteger|)) (|lx| #1#))
+               (SEQ
+                (LETT |lx| (SPADCALL |x| (QREFELT $ 38))
+                      . #2=(|MAGMA;<;2$B;18|))
+                (LETT |ly| (SPADCALL |y| (QREFELT $ 38)) . #2#)
+                (EXIT
+                 (COND ((EQL |lx| |ly|) (|MAGMA;recursif| |x| |y| $))
+                       ('T (< |lx| |ly|))))))) 
 
 (DECLAIM (NOTINLINE |Magma;|)) 
 
 (DEFUN |Magma| (#1=#:G143)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G144)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache| '|Magma|)
-                                           '|domainEqualList|)
-                . #3=(|Magma|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Magma;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Magma|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G144)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Magma|)
+                                               '|domainEqualList|)
+                    . #3=(|Magma|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Magma;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Magma|)))))))))) 
 
 (DEFUN |Magma;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Magma|))
-      (LETT |dv$| (LIST '|Magma| DV$1) . #1#)
-      (LETT $ (GETREFV 46) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Magma| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|Record| (|:| |left| $) (|:| |right| $)))
-      (QSETREFV $ 8 (|Union| |#1| (QREFELT $ 7)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Magma|))
+          (LETT |dv$| (LIST '|Magma| DV$1) . #1#)
+          (LETT $ (GETREFV 46) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Magma| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|Record| (|:| |left| $) (|:| |right| $)))
+          (QSETREFV $ 8 (|Union| |#1| (QREFELT $ 7)))
+          $))) 
 
 (MAKEPROP '|Magma| '|infovec|
           (LIST

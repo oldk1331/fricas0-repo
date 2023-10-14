@@ -1,57 +1,56 @@
 
 (PUT '|OSI;=;2$B;1| '|SPADreplace| 'EQL) 
 
-(DEFUN |OSI;=;2$B;1| (|x| |y| $) (EQL |x| |y|)) 
+(SDEFUN |OSI;=;2$B;1| ((|x| $) (|y| $) ($ |Boolean|)) (EQL |x| |y|)) 
 
 (PUT '|OSI;<;2$B;2| '|SPADreplace| '<) 
 
-(DEFUN |OSI;<;2$B;2| (|x| |y| $) (< |x| |y|)) 
+(SDEFUN |OSI;<;2$B;2| ((|x| $) (|y| $) ($ |Boolean|)) (< |x| |y|)) 
 
 (PUT '|OSI;coerce;I$;3| '|SPADreplace| '(XLAM (|i|) |i|)) 
 
-(DEFUN |OSI;coerce;I$;3| (|i| $) |i|) 
+(SDEFUN |OSI;coerce;I$;3| ((|i| |Integer|) ($ $)) |i|) 
 
 (PUT '|OSI;value;$I;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |OSI;value;$I;4| (|x| $) |x|) 
+(SDEFUN |OSI;value;$I;4| ((|x| $) ($ |Integer|)) |x|) 
 
-(DEFUN |OSI;coerce;$Of;5| (|x| $)
-  (SPADCALL (SPADCALL '|e| (QREFELT $ 15)) (SPADCALL |x| (QREFELT $ 16))
-            (QREFELT $ 17))) 
+(SDEFUN |OSI;coerce;$Of;5| ((|x| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL '|e| (QREFELT $ 15)) (SPADCALL |x| (QREFELT $ 16))
+                  (QREFELT $ 17))) 
 
 (DECLAIM (NOTINLINE |OrdSetInts;|)) 
 
 (DEFUN |OrdSetInts| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G109)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|OrdSetInts|)
-                . #2=(|OrdSetInts|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|OrdSetInts|
-                         (LIST (CONS NIL (CONS 1 (|OrdSetInts;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|OrdSetInts|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G109)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|OrdSetInts|)
+                    . #2=(|OrdSetInts|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|OrdSetInts|
+                             (LIST (CONS NIL (CONS 1 (|OrdSetInts;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|OrdSetInts|)))))))))) 
 
 (DEFUN |OrdSetInts;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|OrdSetInts|) . #1=(|OrdSetInts|))
-      (LETT $ (GETREFV 22) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OrdSetInts| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|Integer|))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OrdSetInts|) . #1=(|OrdSetInts|))
+          (LETT $ (GETREFV 22) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OrdSetInts| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|Integer|))
+          $))) 
 
 (MAKEPROP '|OrdSetInts| '|infovec|
           (LIST

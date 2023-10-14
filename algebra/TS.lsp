@@ -1,85 +1,87 @@
 
-(DEFUN |TS;polynomial;$NniP;1| (|s| |n| $)
-  (PROG (|sum| |i|)
-    (RETURN
-     (SEQ (LETT |sum| (|spadConstant| $ 9) . #1=(|TS;polynomial;$NniP;1|))
-          (SEQ (LETT |i| 0 . #1#) G190
-               (COND
-                ((OR (|greater_SI| |i| |n|)
-                     (NULL
-                      (COND ((SPADCALL |s| (QREFELT $ 11)) 'NIL) ('T 'T))))
-                 (GO G191)))
+(SDEFUN |TS;polynomial;$NniP;1|
+        ((|s| $) (|n| |NonNegativeInteger|) ($ |Polynomial| |Coef|))
+        (SPROG ((|sum| (|Polynomial| |Coef|)) (|i| NIL))
                (SEQ
-                (LETT |sum|
-                      (SPADCALL |sum| (SPADCALL |s| (QREFELT $ 12))
-                                (QREFELT $ 13))
-                      . #1#)
-                (EXIT (LETT |s| (SPADCALL |s| (QREFELT $ 14)) . #1#)))
-               (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-          (EXIT |sum|))))) 
+                (LETT |sum| (|spadConstant| $ 9)
+                      . #1=(|TS;polynomial;$NniP;1|))
+                (SEQ (LETT |i| 0 . #1#) G190
+                     (COND
+                      ((OR (|greater_SI| |i| |n|)
+                           (NULL
+                            (COND ((SPADCALL |s| (QREFELT $ 11)) 'NIL)
+                                  ('T 'T))))
+                       (GO G191)))
+                     (SEQ
+                      (LETT |sum|
+                            (SPADCALL |sum| (SPADCALL |s| (QREFELT $ 12))
+                                      (QREFELT $ 13))
+                            . #1#)
+                      (EXIT (LETT |s| (SPADCALL |s| (QREFELT $ 14)) . #1#)))
+                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (EXIT |sum|)))) 
 
 (DECLAIM (NOTINLINE |TaylorSeries;|)) 
 
 (DEFUN |TaylorSeries| (#1=#:G116)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G117)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|TaylorSeries|)
-                                           '|domainEqualList|)
-                . #3=(|TaylorSeries|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|TaylorSeries;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G117)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|TaylorSeries|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|TaylorSeries|)
+                                               '|domainEqualList|)
+                    . #3=(|TaylorSeries|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|TaylorSeries;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|TaylorSeries|)))))))))) 
 
 (DEFUN |TaylorSeries;| (|#1|)
-  (PROG (|pv$| #1=#:G115 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|TaylorSeries|))
-      (LETT |dv$| (LIST '|TaylorSeries| DV$1) . #2#)
-      (LETT $ (GETREFV 36) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CommutativeRing|))
-                                                . #2#)
-                                          (OR #1#
+  (SPROG ((|pv$| NIL) (#1=#:G115 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #2=(|TaylorSeries|))
+          (LETT |dv$| (LIST '|TaylorSeries| DV$1) . #2#)
+          (LETT $ (GETREFV 36) . #2#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|)))
-                                          (|HasCategory| |#1| '(|Field|))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|TaylorSeries| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND #1# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-           (|augmentPredVector| $ 128))
-      (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-           (|augmentPredVector| $ 256))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|Stream| (|Polynomial| |#1|)))
-      $)))) 
+                                                             '(|Algebra|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegralDomain|))
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicNonZero|))
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicZero|))
+                                              (LETT #1#
+                                                    (|HasCategory| |#1|
+                                                                   '(|CommutativeRing|))
+                                                    . #2#)
+                                              (OR #1#
+                                                  (|HasCategory| |#1|
+                                                                 '(|IntegralDomain|)))
+                                              (|HasCategory| |#1| '(|Field|))))
+                          . #2#))
+          (|haddProp| |$ConstructorCache| '|TaylorSeries| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (AND #1# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
+               (|augmentPredVector| $ 128))
+          (AND (|HasCategory| |#1| '(|IntegralDomain|))
+               (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
+               (|augmentPredVector| $ 256))
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|Stream| (|Polynomial| |#1|)))
+          $))) 
 
 (MAKEPROP '|TaylorSeries| '|infovec|
           (LIST

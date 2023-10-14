@@ -1,62 +1,64 @@
 
-(DEFUN |FSAGG2;map;MAB;1| (|fn| |a| $)
-  (SPADCALL (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) (QREFELT $ 15))
-            (QREFELT $ 16))) 
+(SDEFUN |FSAGG2;map;MAB;1| ((|fn| |Mapping| R S) (|a| A) ($ B))
+        (SPADCALL (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) (QREFELT $ 15))
+                  (QREFELT $ 16))) 
 
-(DEFUN |FSAGG2;reduce;MA2R;2| (|fn| |a| |ident| $)
-  (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) |ident| (QREFELT $ 19))) 
+(SDEFUN |FSAGG2;reduce;MA2R;2|
+        ((|fn| |Mapping| R S R) (|a| A) (|ident| R) ($ R))
+        (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) |ident| (QREFELT $ 19))) 
 
-(DEFUN |FSAGG2;scan;MARB;3| (|fn| |a| |ident| $)
-  (SPADCALL
-   (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) |ident| (QREFELT $ 21))
-   (QREFELT $ 16))) 
+(SDEFUN |FSAGG2;scan;MARB;3| ((|fn| |Mapping| R S R) (|a| A) (|ident| R) ($ B))
+        (SPADCALL
+         (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) |ident| (QREFELT $ 21))
+         (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |FiniteSetAggregateFunctions2;|)) 
 
 (DEFUN |FiniteSetAggregateFunctions2| (&REST #1=#:G111)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G112)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FiniteSetAggregateFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|FiniteSetAggregateFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |FiniteSetAggregateFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G112)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|FiniteSetAggregateFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteSetAggregateFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|FiniteSetAggregateFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |FiniteSetAggregateFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteSetAggregateFunctions2|)))))))))) 
 
 (DEFUN |FiniteSetAggregateFunctions2;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteSetAggregateFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|FiniteSetAggregateFunctions2| DV$1 DV$2 DV$3 DV$4)
-            . #1#)
-      (LETT $ (GETREFV 23) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FiniteSetAggregateFunctions2|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteSetAggregateFunctions2|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|FiniteSetAggregateFunctions2| DV$1 DV$2 DV$3 DV$4)
+          . #1#)
+    (LETT $ (GETREFV 23) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|FiniteSetAggregateFunctions2|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|FiniteSetAggregateFunctions2| '|infovec|
           (LIST

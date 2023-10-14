@@ -18,23 +18,22 @@
       #2#)))) 
 
 (DEFUN |TensorProductCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2| |t#3|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                            (|devaluate| |t#3|)))
-                (COND (|TensorProductCategory;CAT|)
-                      ('T
-                       (LETT |TensorProductCategory;CAT|
-                             (|Join| (|Module| '|t#1|)
-                                     (|mkCategory|
-                                      '(((|tensor| ($ |t#2| |t#3|)) T)) NIL
-                                      'NIL NIL))
-                             . #2=(|TensorProductCategory|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|TensorProductCategory| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|) (|devaluate| |t#3|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2| |t#3|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
+                                (|devaluate| |t#3|)))
+                    (COND (|TensorProductCategory;CAT|)
+                          ('T
+                           (LETT |TensorProductCategory;CAT|
+                                 (|Join| (|Module| '|t#1|)
+                                         (|mkCategory|
+                                          '(((|tensor| ($ |t#2| |t#3|)) T)) NIL
+                                          'NIL NIL))
+                                 . #2=(|TensorProductCategory|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|TensorProductCategory| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 

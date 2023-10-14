@@ -1,24 +1,25 @@
 
-(DEFUN |ABELSG-;*;Pi2S;1| (|n| |x| $) (SPADCALL |n| |x| (QREFELT $ 9))) 
+(SDEFUN |ABELSG-;*;Pi2S;1| ((|n| |PositiveInteger|) (|x| S) ($ S))
+        (SPADCALL |n| |x| (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |AbelianSemiGroup&;|)) 
 
 (DEFUN |AbelianSemiGroup&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianSemiGroup&|))
-      (LETT |dv$| (LIST '|AbelianSemiGroup&| DV$1) . #1#)
-      (LETT $ (GETREFV 11) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND ((|HasCategory| |#1| '(|Ring|)))
-            ('T
-             (QSETREFV $ 10 (CONS (|dispatchFunction| |ABELSG-;*;Pi2S;1|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianSemiGroup&|))
+          (LETT |dv$| (LIST '|AbelianSemiGroup&| DV$1) . #1#)
+          (LETT $ (GETREFV 11) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND ((|HasCategory| |#1| '(|Ring|)))
+                ('T
+                 (QSETREFV $ 10
+                           (CONS (|dispatchFunction| |ABELSG-;*;Pi2S;1|) $))))
+          $))) 
 
 (MAKEPROP '|AbelianSemiGroup&| '|infovec|
           (LIST

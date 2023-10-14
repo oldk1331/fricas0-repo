@@ -16,32 +16,37 @@
       #2#)))) 
 
 (DEFUN |SegmentCategory;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|SegmentCategory;CAT|)
-                                ('T
-                                 (LETT |SegmentCategory;CAT|
-                                       (|Join| (|Type|)
-                                               (|mkCategory|
-                                                '(((SEGMENT ($ |t#1| |t#1|)) T)
-                                                  ((BY ($ $ (|Integer|))) T)
-                                                  ((|lo| (|t#1| $)) T)
-                                                  ((|hi| (|t#1| $)) T)
-                                                  ((|low| (|t#1| $)) T)
-                                                  ((|high| (|t#1| $)) T)
-                                                  ((|incr| ((|Integer|) $)) T)
-                                                  ((|segment| ($ |t#1| |t#1|))
-                                                   T)
-                                                  ((|convert| ($ |t#1|)) T))
-                                                '(((|ConvertibleTo|
-                                                    (|InputForm|))
-                                                   (|has| |t#1|
-                                                          (|ConvertibleTo|
-                                                           (|InputForm|)))))
-                                                '((|Integer|)) NIL))
-                                       . #2=(|SegmentCategory|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|SegmentCategory| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|SegmentCategory;CAT|)
+                                    ('T
+                                     (LETT |SegmentCategory;CAT|
+                                           (|Join| (|Type|)
+                                                   (|mkCategory|
+                                                    '(((SEGMENT
+                                                        ($ |t#1| |t#1|))
+                                                       T)
+                                                      ((BY ($ $ (|Integer|)))
+                                                       T)
+                                                      ((|lo| (|t#1| $)) T)
+                                                      ((|hi| (|t#1| $)) T)
+                                                      ((|low| (|t#1| $)) T)
+                                                      ((|high| (|t#1| $)) T)
+                                                      ((|incr| ((|Integer|) $))
+                                                       T)
+                                                      ((|segment|
+                                                        ($ |t#1| |t#1|))
+                                                       T)
+                                                      ((|convert| ($ |t#1|))
+                                                       T))
+                                                    '(((|ConvertibleTo|
+                                                        (|InputForm|))
+                                                       (|has| |t#1|
+                                                              (|ConvertibleTo|
+                                                               (|InputForm|)))))
+                                                    '((|Integer|)) NIL))
+                                           . #2=(|SegmentCategory|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|SegmentCategory| (|devaluate| |t#1|)))))) 

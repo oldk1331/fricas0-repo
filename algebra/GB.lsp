@@ -1,272 +1,294 @@
 
-(DEFUN |GB;monicize| (|p| $)
-  (PROG (|lc|)
-    (RETURN
-     (SEQ (LETT |lc| (SPADCALL |p| (QREFELT $ 10)) |GB;monicize|)
-          (EXIT
-           (COND ((SPADCALL |lc| (|spadConstant| $ 11) (QREFELT $ 14)) |p|)
-                 ('T
-                  (SPADCALL (SPADCALL |lc| (QREFELT $ 15)) |p|
-                            (QREFELT $ 16))))))))) 
+(SDEFUN |GB;monicize| ((|p| |Dpol|) ($ |Dpol|))
+        (SPROG ((|lc| (|Dom|)))
+               (SEQ (LETT |lc| (SPADCALL |p| (QREFELT $ 10)) |GB;monicize|)
+                    (EXIT
+                     (COND
+                      ((SPADCALL |lc| (|spadConstant| $ 11) (QREFELT $ 14))
+                       |p|)
+                      ('T
+                       (SPADCALL (SPADCALL |lc| (QREFELT $ 15)) |p|
+                                 (QREFELT $ 16)))))))) 
 
-(DEFUN |GB;normalForm;DpolLDpol;2| (|p| |l| $)
-  (SPADCALL |p|
-            (SPADCALL (CONS (|function| |GB;monicize|) $) |l| (QREFELT $ 19))
-            (QREFELT $ 21))) 
+(SDEFUN |GB;normalForm;DpolLDpol;2|
+        ((|p| |Dpol|) (|l| |List| |Dpol|) ($ |Dpol|))
+        (SPADCALL |p|
+                  (SPADCALL (CONS (|function| |GB;monicize|) $) |l|
+                            (QREFELT $ 19))
+                  (QREFELT $ 21))) 
 
-(DEFUN |GB;groebner;2L;3| (|Pol| $)
-  (PROG (#1=#:G112 |x| #2=#:G111)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
-            (#3='T
-             (SEQ
-              (LETT |Pol|
-                    (PROGN
-                     (LETT #2# NIL . #4=(|GB;groebner;2L;3|))
-                     (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#) G190
-                          (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |x| (CAR #1#) . #4#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (COND
-                             ((SPADCALL |x| (|spadConstant| $ 26)
-                                        (QREFELT $ 27))
-                              (LETT #2# (CONS |x| #2#) . #4#)))))
-                          (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                          (EXIT (NREVERSE #2#))))
-                    . #4#)
-              (EXIT
-               (COND
-                ((SPADCALL |Pol| NIL (QREFELT $ 23))
-                 (LIST (|spadConstant| $ 26)))
-                (#3#
-                 (SPADCALL
-                  (SPADCALL (CONS #'|GB;groebner;2L;3!0| $)
-                            (SPADCALL |Pol| 0 0 (QREFELT $ 31)) (QREFELT $ 33))
-                  (QREFELT $ 34)))))))))))) 
-
-(DEFUN |GB;groebner;2L;3!0| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
-            (QREFELT $ 29))) 
-
-(DEFUN |GB;groebner;LSL;4| (|Pol| |xx1| $)
-  (PROG (#1=#:G120 |x| #2=#:G119)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
-            (#3='T
-             (SEQ
-              (LETT |Pol|
-                    (PROGN
-                     (LETT #2# NIL . #4=(|GB;groebner;LSL;4|))
-                     (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#) G190
-                          (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |x| (CAR #1#) . #4#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (COND
-                             ((SPADCALL |x| (|spadConstant| $ 26)
-                                        (QREFELT $ 27))
-                              (LETT #2# (CONS |x| #2#) . #4#)))))
-                          (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                          (EXIT (NREVERSE #2#))))
-                    . #4#)
-              (EXIT
-               (COND
-                ((SPADCALL |Pol| NIL (QREFELT $ 23))
-                 (LIST (|spadConstant| $ 26)))
-                ((EQUAL |xx1| "redcrit")
-                 (SPADCALL
-                  (SPADCALL (CONS #'|GB;groebner;LSL;4!0| $)
-                            (SPADCALL |Pol| 1 0 (QREFELT $ 31)) (QREFELT $ 33))
-                  (QREFELT $ 34)))
-                ((EQUAL |xx1| "info")
-                 (SPADCALL
-                  (SPADCALL (CONS #'|GB;groebner;LSL;4!1| $)
-                            (SPADCALL |Pol| 2 1 (QREFELT $ 31)) (QREFELT $ 33))
-                  (QREFELT $ 34)))
-                (#3#
-                 (SEQ (SPADCALL "   " (QREFELT $ 39))
-                      (SPADCALL "WARNING: options are - redcrit and/or info - "
-                                (QREFELT $ 39))
-                      (SPADCALL "         you didn't type them correct"
-                                (QREFELT $ 39))
-                      (SPADCALL "         please try again" (QREFELT $ 39))
-                      (SPADCALL "   " (QREFELT $ 39)) (EXIT NIL)))))))))))) 
-
-(DEFUN |GB;groebner;LSL;4!1| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
-            (QREFELT $ 29))) 
-
-(DEFUN |GB;groebner;LSL;4!0| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
-            (QREFELT $ 29))) 
-
-(DEFUN |GB;groebner;L2SL;5| (|Pol| |xx1| |xx2| $)
-  (PROG (#1=#:G131 |x| #2=#:G130)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
-            (#3='T
-             (SEQ
-              (LETT |Pol|
-                    (PROGN
-                     (LETT #2# NIL . #4=(|GB;groebner;L2SL;5|))
-                     (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#) G190
-                          (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |x| (CAR #1#) . #4#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (COND
-                             ((SPADCALL |x| (|spadConstant| $ 26)
-                                        (QREFELT $ 27))
-                              (LETT #2# (CONS |x| #2#) . #4#)))))
-                          (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                          (EXIT (NREVERSE #2#))))
-                    . #4#)
-              (EXIT
-               (COND
-                ((SPADCALL |Pol| NIL (QREFELT $ 23))
-                 (LIST (|spadConstant| $ 26)))
-                (#3#
-                 (SEQ
-                  (COND
-                   ((EQUAL |xx1| "redcrit")
-                    (COND
-                     ((EQUAL |xx2| "info")
-                      (EXIT
-                       (SPADCALL
-                        (SPADCALL (CONS #'|GB;groebner;L2SL;5!0| $)
-                                  (SPADCALL |Pol| 1 1 (QREFELT $ 31))
-                                  (QREFELT $ 33))
-                        (QREFELT $ 34))))
-                     ((EQUAL |xx1| #5="info")
-                      (COND
-                       ((EQUAL |xx2| #6="redcrit")
+(SDEFUN |GB;groebner;2L;3| ((|Pol| |List| |Dpol|) ($ |List| |Dpol|))
+        (SPROG ((#1=#:G112 NIL) (|x| NIL) (#2=#:G111 NIL))
+               (SEQ
+                (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
+                      (#3='T
+                       (SEQ
+                        (LETT |Pol|
+                              (PROGN
+                               (LETT #2# NIL . #4=(|GB;groebner;2L;3|))
+                               (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#)
+                                    G190
+                                    (COND
+                                     ((OR (ATOM #1#)
+                                          (PROGN
+                                           (LETT |x| (CAR #1#) . #4#)
+                                           NIL))
+                                      (GO G191)))
+                                    (SEQ
+                                     (EXIT
+                                      (COND
+                                       ((SPADCALL |x| (|spadConstant| $ 26)
+                                                  (QREFELT $ 27))
+                                        (LETT #2# (CONS |x| #2#) . #4#)))))
+                                    (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                                    (EXIT (NREVERSE #2#))))
+                              . #4#)
                         (EXIT
-                         (SPADCALL
-                          (SPADCALL (CONS #'|GB;groebner;L2SL;5!1| $)
-                                    (SPADCALL |Pol| 1 1 (QREFELT $ 31))
-                                    (QREFELT $ 33))
-                          (QREFELT $ 34))))))))
-                   ((EQUAL |xx1| #5#)
-                    (COND
-                     ((EQUAL |xx2| #6#)
-                      (EXIT
-                       (SPADCALL
-                        (SPADCALL (CONS #'|GB;groebner;L2SL;5!2| $)
-                                  (SPADCALL |Pol| 1 1 (QREFELT $ 31))
-                                  (QREFELT $ 33))
-                        (QREFELT $ 34)))))))
-                  (COND
-                   ((EQUAL |xx1| "redcrit")
-                    (COND
-                     ((EQUAL |xx2| "redcrit")
-                      (EXIT
-                       (SPADCALL
-                        (SPADCALL (CONS #'|GB;groebner;L2SL;5!3| $)
-                                  (SPADCALL |Pol| 1 0 (QREFELT $ 31))
-                                  (QREFELT $ 33))
-                        (QREFELT $ 34)))))))
-                  (COND
-                   ((EQUAL |xx1| "info")
-                    (COND
-                     ((EQUAL |xx2| "info")
-                      (EXIT
-                       (SPADCALL
-                        (SPADCALL (CONS #'|GB;groebner;L2SL;5!4| $)
-                                  (SPADCALL |Pol| 2 1 (QREFELT $ 31))
-                                  (QREFELT $ 33))
-                        (QREFELT $ 34)))))))
-                  (SPADCALL "   " (QREFELT $ 39))
-                  (SPADCALL "WARNING:  options are - redcrit and/or info - "
-                            (QREFELT $ 39))
-                  (SPADCALL "          you didn't type them correctly"
-                            (QREFELT $ 39))
-                  (SPADCALL "          please try again " (QREFELT $ 39))
-                  (SPADCALL "   " (QREFELT $ 39)) (EXIT NIL)))))))))))) 
+                         (COND
+                          ((SPADCALL |Pol| NIL (QREFELT $ 23))
+                           (LIST (|spadConstant| $ 26)))
+                          (#3#
+                           (SPADCALL
+                            (SPADCALL (CONS #'|GB;groebner;2L;3!0| $)
+                                      (SPADCALL |Pol| 0 0 (QREFELT $ 31))
+                                      (QREFELT $ 33))
+                            (QREFELT $ 34))))))))))) 
 
-(DEFUN |GB;groebner;L2SL;5!4| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
-            (QREFELT $ 29))) 
+(SDEFUN |GB;groebner;2L;3!0| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
+                  (QREFELT $ 29))) 
 
-(DEFUN |GB;groebner;L2SL;5!3| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
-            (QREFELT $ 29))) 
+(SDEFUN |GB;groebner;LSL;4|
+        ((|Pol| |List| |Dpol|) (|xx1| |String|) ($ |List| |Dpol|))
+        (SPROG ((#1=#:G120 NIL) (|x| NIL) (#2=#:G119 NIL))
+               (SEQ
+                (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
+                      (#3='T
+                       (SEQ
+                        (LETT |Pol|
+                              (PROGN
+                               (LETT #2# NIL . #4=(|GB;groebner;LSL;4|))
+                               (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#)
+                                    G190
+                                    (COND
+                                     ((OR (ATOM #1#)
+                                          (PROGN
+                                           (LETT |x| (CAR #1#) . #4#)
+                                           NIL))
+                                      (GO G191)))
+                                    (SEQ
+                                     (EXIT
+                                      (COND
+                                       ((SPADCALL |x| (|spadConstant| $ 26)
+                                                  (QREFELT $ 27))
+                                        (LETT #2# (CONS |x| #2#) . #4#)))))
+                                    (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                                    (EXIT (NREVERSE #2#))))
+                              . #4#)
+                        (EXIT
+                         (COND
+                          ((SPADCALL |Pol| NIL (QREFELT $ 23))
+                           (LIST (|spadConstant| $ 26)))
+                          ((EQUAL |xx1| "redcrit")
+                           (SPADCALL
+                            (SPADCALL (CONS #'|GB;groebner;LSL;4!0| $)
+                                      (SPADCALL |Pol| 1 0 (QREFELT $ 31))
+                                      (QREFELT $ 33))
+                            (QREFELT $ 34)))
+                          ((EQUAL |xx1| "info")
+                           (SPADCALL
+                            (SPADCALL (CONS #'|GB;groebner;LSL;4!1| $)
+                                      (SPADCALL |Pol| 2 1 (QREFELT $ 31))
+                                      (QREFELT $ 33))
+                            (QREFELT $ 34)))
+                          (#3#
+                           (SEQ (SPADCALL "   " (QREFELT $ 39))
+                                (SPADCALL
+                                 "WARNING: options are - redcrit and/or info - "
+                                 (QREFELT $ 39))
+                                (SPADCALL
+                                 "         you didn't type them correct"
+                                 (QREFELT $ 39))
+                                (SPADCALL "         please try again"
+                                          (QREFELT $ 39))
+                                (SPADCALL "   " (QREFELT $ 39))
+                                (EXIT NIL))))))))))) 
 
-(DEFUN |GB;groebner;L2SL;5!2| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
-            (QREFELT $ 29))) 
+(SDEFUN |GB;groebner;LSL;4!1| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
+                  (QREFELT $ 29))) 
 
-(DEFUN |GB;groebner;L2SL;5!1| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
-            (QREFELT $ 29))) 
+(SDEFUN |GB;groebner;LSL;4!0| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
+                  (QREFELT $ 29))) 
 
-(DEFUN |GB;groebner;L2SL;5!0| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
-            (QREFELT $ 29))) 
+(SDEFUN |GB;groebner;L2SL;5|
+        ((|Pol| |List| |Dpol|) (|xx1| |String|) (|xx2| |String|)
+         ($ |List| |Dpol|))
+        (SPROG ((#1=#:G131 NIL) (|x| NIL) (#2=#:G130 NIL))
+               (SEQ
+                (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
+                      (#3='T
+                       (SEQ
+                        (LETT |Pol|
+                              (PROGN
+                               (LETT #2# NIL . #4=(|GB;groebner;L2SL;5|))
+                               (SEQ (LETT |x| NIL . #4#) (LETT #1# |Pol| . #4#)
+                                    G190
+                                    (COND
+                                     ((OR (ATOM #1#)
+                                          (PROGN
+                                           (LETT |x| (CAR #1#) . #4#)
+                                           NIL))
+                                      (GO G191)))
+                                    (SEQ
+                                     (EXIT
+                                      (COND
+                                       ((SPADCALL |x| (|spadConstant| $ 26)
+                                                  (QREFELT $ 27))
+                                        (LETT #2# (CONS |x| #2#) . #4#)))))
+                                    (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                                    (EXIT (NREVERSE #2#))))
+                              . #4#)
+                        (EXIT
+                         (COND
+                          ((SPADCALL |Pol| NIL (QREFELT $ 23))
+                           (LIST (|spadConstant| $ 26)))
+                          (#3#
+                           (SEQ
+                            (COND
+                             ((EQUAL |xx1| "redcrit")
+                              (COND
+                               ((EQUAL |xx2| "info")
+                                (EXIT
+                                 (SPADCALL
+                                  (SPADCALL (CONS #'|GB;groebner;L2SL;5!0| $)
+                                            (SPADCALL |Pol| 1 1 (QREFELT $ 31))
+                                            (QREFELT $ 33))
+                                  (QREFELT $ 34))))
+                               ((EQUAL |xx1| #5="info")
+                                (COND
+                                 ((EQUAL |xx2| #6="redcrit")
+                                  (EXIT
+                                   (SPADCALL
+                                    (SPADCALL (CONS #'|GB;groebner;L2SL;5!1| $)
+                                              (SPADCALL |Pol| 1 1
+                                                        (QREFELT $ 31))
+                                              (QREFELT $ 33))
+                                    (QREFELT $ 34))))))))
+                             ((EQUAL |xx1| #5#)
+                              (COND
+                               ((EQUAL |xx2| #6#)
+                                (EXIT
+                                 (SPADCALL
+                                  (SPADCALL (CONS #'|GB;groebner;L2SL;5!2| $)
+                                            (SPADCALL |Pol| 1 1 (QREFELT $ 31))
+                                            (QREFELT $ 33))
+                                  (QREFELT $ 34)))))))
+                            (COND
+                             ((EQUAL |xx1| "redcrit")
+                              (COND
+                               ((EQUAL |xx2| "redcrit")
+                                (EXIT
+                                 (SPADCALL
+                                  (SPADCALL (CONS #'|GB;groebner;L2SL;5!3| $)
+                                            (SPADCALL |Pol| 1 0 (QREFELT $ 31))
+                                            (QREFELT $ 33))
+                                  (QREFELT $ 34)))))))
+                            (COND
+                             ((EQUAL |xx1| "info")
+                              (COND
+                               ((EQUAL |xx2| "info")
+                                (EXIT
+                                 (SPADCALL
+                                  (SPADCALL (CONS #'|GB;groebner;L2SL;5!4| $)
+                                            (SPADCALL |Pol| 2 1 (QREFELT $ 31))
+                                            (QREFELT $ 33))
+                                  (QREFELT $ 34)))))))
+                            (SPADCALL "   " (QREFELT $ 39))
+                            (SPADCALL
+                             "WARNING:  options are - redcrit and/or info - "
+                             (QREFELT $ 39))
+                            (SPADCALL
+                             "          you didn't type them correctly"
+                             (QREFELT $ 39))
+                            (SPADCALL "          please try again "
+                                      (QREFELT $ 39))
+                            (SPADCALL "   " (QREFELT $ 39)) (EXIT NIL))))))))))) 
+
+(SDEFUN |GB;groebner;L2SL;5!4| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
+                  (QREFELT $ 29))) 
+
+(SDEFUN |GB;groebner;L2SL;5!3| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
+                  (QREFELT $ 29))) 
+
+(SDEFUN |GB;groebner;L2SL;5!2| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
+                  (QREFELT $ 29))) 
+
+(SDEFUN |GB;groebner;L2SL;5!1| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
+                  (QREFELT $ 29))) 
+
+(SDEFUN |GB;groebner;L2SL;5!0| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
+                  (QREFELT $ 29))) 
 
 (DECLAIM (NOTINLINE |GroebnerPackage;|)) 
 
 (DEFUN |GroebnerPackage| (&REST #1=#:G132)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G133)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|GroebnerPackage|)
-                                           '|domainEqualList|)
-                . #3=(|GroebnerPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |GroebnerPackage;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G133)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|GroebnerPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|GroebnerPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|GroebnerPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |GroebnerPackage;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|GroebnerPackage|)))))))))) 
 
 (DEFUN |GroebnerPackage;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|GroebnerPackage|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|GroebnerPackage| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 42) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1| '(|Field|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|GroebnerPackage|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 22
-                   (CONS (|dispatchFunction| |GB;normalForm;DpolLDpol;2|)
-                         $)))))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|GroebnerPackage|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|GroebnerPackage| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 42) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST (|HasCategory| |#1| '(|Field|))))
+                    . #1#))
+    (|haddProp| |$ConstructorCache| '|GroebnerPackage|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|testBitVector| |pv$| 1)
+      (PROGN
+       (QSETREFV $ 22
+                 (CONS (|dispatchFunction| |GB;normalForm;DpolLDpol;2|) $)))))
+    $))) 
 
 (MAKEPROP '|GroebnerPackage| '|infovec|
           (LIST

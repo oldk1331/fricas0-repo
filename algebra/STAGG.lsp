@@ -16,25 +16,24 @@
       #2#)))) 
 
 (DEFUN |StreamAggregate;| (|t#1|)
-  (PROG (#1=#:G114)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|StreamAggregate;CAT|)
-                                ('T
-                                 (LETT |StreamAggregate;CAT|
-                                       (|Join|
-                                        (|UnaryRecursiveAggregate| '|t#1|)
-                                        (|LinearAggregate| '|t#1|)
-                                        (|mkCategory|
-                                         '(((|explicitlyFinite?|
-                                             ((|Boolean|) $))
-                                            T)
-                                           ((|possiblyInfinite?|
-                                             ((|Boolean|) $))
-                                            T))
-                                         NIL '((|Boolean|)) NIL))
-                                       . #2=(|StreamAggregate|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|StreamAggregate| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G114 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|StreamAggregate;CAT|)
+                                    ('T
+                                     (LETT |StreamAggregate;CAT|
+                                           (|Join|
+                                            (|UnaryRecursiveAggregate| '|t#1|)
+                                            (|LinearAggregate| '|t#1|)
+                                            (|mkCategory|
+                                             '(((|explicitlyFinite?|
+                                                 ((|Boolean|) $))
+                                                T)
+                                               ((|possiblyInfinite?|
+                                                 ((|Boolean|) $))
+                                                T))
+                                             NIL '((|Boolean|)) NIL))
+                                           . #2=(|StreamAggregate|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|StreamAggregate| (|devaluate| |t#1|)))))) 

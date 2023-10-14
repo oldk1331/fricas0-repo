@@ -1,80 +1,82 @@
 
-(DEFUN |RFFACT;likuniv| (|p| |x| |d| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|RFFACT;likuniv!0| (VECTOR $ |d|))
-               (SPADCALL |p| |x| (QREFELT $ 14)) (QREFELT $ 18))))) 
+(SDEFUN |RFFACT;likuniv|
+        ((|p| |Polynomial| (|Integer|)) (|x| |Symbol|)
+         (|d| |Polynomial| (|Integer|)) ($ UP))
+        (SPROG NIL
+               (SPADCALL (CONS #'|RFFACT;likuniv!0| (VECTOR $ |d|))
+                         (SPADCALL |p| |x| (QREFELT $ 14)) (QREFELT $ 18)))) 
 
-(DEFUN |RFFACT;likuniv!0| (|y| $$)
-  (PROG (|d| $)
-    (LETT |d| (QREFELT $$ 1) . #1=(|RFFACT;likuniv|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |y| |d| (QREFELT $ 12)))))) 
+(SDEFUN |RFFACT;likuniv!0| ((|y| NIL) ($$ NIL))
+        (PROG (|d| $)
+          (LETT |d| (QREFELT $$ 1) . #1=(|RFFACT;likuniv|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |y| |d| (QREFELT $ 12)))))) 
 
-(DEFUN |RFFACT;factor;UPF;2| (|p| $)
-  (PROG (|d| |q|)
-    (RETURN
-     (SEQ
-      (LETT |d|
-            (SPADCALL
-             (LETT |q|
-                   (SPADCALL |p|
-                             (SPADCALL (SPADCALL (QREFELT $ 9) (QREFELT $ 19))
-                                       (QREFELT $ 20))
-                             (QREFELT $ 21))
-                   . #1=(|RFFACT;factor;UPF;2|))
-             (QREFELT $ 22))
-            . #1#)
-      (EXIT
-       (SPADCALL (CONS #'|RFFACT;factor;UPF;2!0| (VECTOR $ |d| (QREFELT $ 9)))
-                 (SPADCALL (SPADCALL |q| (QREFELT $ 23)) (QREFELT $ 26))
-                 (QREFELT $ 30))))))) 
+(SDEFUN |RFFACT;factor;UPF;2| ((|p| UP) ($ |Factored| UP))
+        (SPROG
+         ((|d| (|Polynomial| (|Integer|)))
+          (|q| (|Fraction| (|Polynomial| (|Integer|)))))
+         (SEQ
+          (LETT |d|
+                (SPADCALL
+                 (LETT |q|
+                       (SPADCALL |p|
+                                 (SPADCALL
+                                  (SPADCALL (QREFELT $ 9) (QREFELT $ 19))
+                                  (QREFELT $ 20))
+                                 (QREFELT $ 21))
+                       . #1=(|RFFACT;factor;UPF;2|))
+                 (QREFELT $ 22))
+                . #1#)
+          (EXIT
+           (SPADCALL
+            (CONS #'|RFFACT;factor;UPF;2!0| (VECTOR $ |d| (QREFELT $ 9)))
+            (SPADCALL (SPADCALL |q| (QREFELT $ 23)) (QREFELT $ 26))
+            (QREFELT $ 30)))))) 
 
-(DEFUN |RFFACT;factor;UPF;2!0| (|x| $$)
-  (PROG (|dummy| |d| $)
-    (LETT |dummy| (QREFELT $$ 2) . #1=(|RFFACT;factor;UPF;2|))
-    (LETT |d| (QREFELT $$ 1) . #1#)
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (|RFFACT;likuniv| |x| |dummy| |d| $))))) 
+(SDEFUN |RFFACT;factor;UPF;2!0| ((|x| NIL) ($$ NIL))
+        (PROG (|dummy| |d| $)
+          (LETT |dummy| (QREFELT $$ 2) . #1=(|RFFACT;factor;UPF;2|))
+          (LETT |d| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (|RFFACT;likuniv| |x| |dummy| |d| $))))) 
 
 (DECLAIM (NOTINLINE |RationalFunctionFactor;|)) 
 
 (DEFUN |RationalFunctionFactor| (#1=#:G108)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G109)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|RationalFunctionFactor|)
-                                           '|domainEqualList|)
-                . #3=(|RationalFunctionFactor|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|RationalFunctionFactor;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G109)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|RationalFunctionFactor|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|RationalFunctionFactor|)
+                                               '|domainEqualList|)
+                    . #3=(|RationalFunctionFactor|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|RationalFunctionFactor;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RationalFunctionFactor|)))))))))) 
 
 (DEFUN |RationalFunctionFactor;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalFunctionFactor|))
-      (LETT |dv$| (LIST '|RationalFunctionFactor| DV$1) . #1#)
-      (LETT $ (GETREFV 32) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|RationalFunctionFactor| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 9 (SPADCALL (QREFELT $ 8)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalFunctionFactor|))
+          (LETT |dv$| (LIST '|RationalFunctionFactor| DV$1) . #1#)
+          (LETT $ (GETREFV 32) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|RationalFunctionFactor| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 9 (SPADCALL (QREFELT $ 8)))
+          $))) 
 
 (MAKEPROP '|RationalFunctionFactor| '|infovec|
           (LIST

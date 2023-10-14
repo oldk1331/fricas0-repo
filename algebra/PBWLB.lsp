@@ -1,186 +1,199 @@
 
 (PUT '|PBWLB;One;$;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(DEFUN |PBWLB;One;$;1| ($) NIL) 
+(SDEFUN |PBWLB;One;$;1| (($ $)) NIL) 
 
-(DEFUN |PBWLB;=;2$B;2| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 10))) 
+(SDEFUN |PBWLB;=;2$B;2| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPADCALL |x| |y| (QREFELT $ 10))) 
 
-(DEFUN |PBWLB;varList;$L;3| (|x| $)
-  (PROG (|le| #1=#:G109 #2=#:G108 #3=#:G110 #4=#:G112 |l|)
-    (RETURN
-     (SEQ
-      (COND ((NULL |x|) NIL)
-            (#5='T
-             (LETT |le|
-                   (PROGN
-                    (LETT #1# NIL . #6=(|PBWLB;varList;$L;3|))
-                    (SEQ (LETT |l| NIL . #6#) (LETT #4# |x| . #6#) G190
-                         (COND
-                          ((OR (ATOM #4#)
-                               (PROGN (LETT |l| (CAR #4#) . #6#) NIL))
-                           (GO G191)))
-                         (SEQ
-                          (EXIT
-                           (PROGN
-                            (LETT #3# (SPADCALL |l| (QREFELT $ 14)) . #6#)
-                            (COND
-                             (#1#
-                              (LETT #2# (SPADCALL #2# #3# (QREFELT $ 15))
-                                    . #6#))
-                             ('T
-                              (PROGN
-                               (LETT #2# #3# . #6#)
-                               (LETT #1# 'T . #6#)))))))
-                         (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
-                    (COND (#1# #2#) (#5# (|IdentityError| '|setUnion|))))
-                   . #6#))))))) 
-
-(PUT '|PBWLB;first;$Lw;4| '|SPADreplace| '|SPADfirst|) 
-
-(DEFUN |PBWLB;first;$Lw;4| (|x| $) (|SPADfirst| |x|)) 
-
-(PUT '|PBWLB;rest;2$;5| '|SPADreplace| 'CDR) 
-
-(DEFUN |PBWLB;rest;2$;5| (|x| $) (CDR |x|)) 
-
-(DEFUN |PBWLB;coerce;VarSet$;6| (|v| $) (LIST (SPADCALL |v| (QREFELT $ 19)))) 
-
-(PUT '|PBWLB;coerce;Lw$;7| '|SPADreplace| 'LIST) 
-
-(DEFUN |PBWLB;coerce;Lw$;7| (|l| $) (LIST |l|)) 
-
-(PUT '|PBWLB;listOfTerms;$L;8| '|SPADreplace| '(XLAM (|x|) |x|)) 
-
-(DEFUN |PBWLB;listOfTerms;$L;8| (|x| $) |x|) 
-
-(DEFUN |PBWLB;coerce;$Ofm;9| (|x| $)
-  (COND ((NULL |x|) (|spadConstant| $ 25))
-        ('T
-         (SPADCALL (SPADCALL (|SPADfirst| |x|) (QREFELT $ 26))
-                   (SPADCALL (CDR |x|) (QREFELT $ 27)) (QREFELT $ 28))))) 
-
-(DEFUN |PBWLB;coerce;$Of;10| (|x| $)
-  (PROG (#1=#:G124 |l| #2=#:G123)
-    (RETURN
-     (SEQ
-      (COND ((NULL |x|) (SPADCALL 1 (QREFELT $ 31)))
-            ('T
-             (SPADCALL (ELT $ 32)
+(SDEFUN |PBWLB;varList;$L;3| ((|x| $) ($ |List| |VarSet|))
+        (SPROG
+         ((|le| #1=(|List| |VarSet|)) (#2=#:G109 NIL) (#3=#:G108 #1#)
+          (#4=#:G110 #1#) (#5=#:G112 NIL) (|l| NIL))
+         (SEQ
+          (COND ((NULL |x|) NIL)
+                (#6='T
+                 (LETT |le|
                        (PROGN
-                        (LETT #2# NIL . #3=(|PBWLB;coerce;$Of;10|))
-                        (SEQ (LETT |l| NIL . #3#) (LETT #1# |x| . #3#) G190
+                        (LETT #2# NIL . #7=(|PBWLB;varList;$L;3|))
+                        (SEQ (LETT |l| NIL . #7#) (LETT #5# |x| . #7#) G190
                              (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |l| (CAR #1#) . #3#) NIL))
+                              ((OR (ATOM #5#)
+                                   (PROGN (LETT |l| (CAR #5#) . #7#) NIL))
                                (GO G191)))
                              (SEQ
                               (EXIT
-                               (LETT #2#
-                                     (CONS (SPADCALL |l| (QREFELT $ 33)) #2#)
-                                     . #3#)))
-                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                             (EXIT (NREVERSE #2#))))
-                       (QREFELT $ 36)))))))) 
+                               (PROGN
+                                (LETT #4# (SPADCALL |l| (QREFELT $ 14)) . #7#)
+                                (COND
+                                 (#2#
+                                  (LETT #3# (SPADCALL #3# #4# (QREFELT $ 15))
+                                        . #7#))
+                                 ('T
+                                  (PROGN
+                                   (LETT #3# #4# . #7#)
+                                   (LETT #2# 'T . #7#)))))))
+                             (LETT #5# (CDR #5#) . #7#) (GO G190) G191
+                             (EXIT NIL))
+                        (COND (#2# #3#) (#6# (|IdentityError| '|setUnion|))))
+                       . #7#)))))) 
 
-(DEFUN |PBWLB;retractable?;$B;11| (|x| $)
-  (COND ((NULL |x|) 'NIL) ('T (NULL (CDR |x|))))) 
+(PUT '|PBWLB;first;$Lw;4| '|SPADreplace| '|SPADfirst|) 
 
-(DEFUN |PBWLB;retract;$Lw;12| (|x| $)
-  (COND
-   ((SPADCALL (LENGTH |x|) 1 (QREFELT $ 40))
-    (|error| "cannot convert to Lyndon word"))
-   ('T (|SPADfirst| |x|)))) 
+(SDEFUN |PBWLB;first;$Lw;4| ((|x| $) ($ |LyndonWord| |VarSet|))
+        (|SPADfirst| |x|)) 
 
-(DEFUN |PBWLB;retractIfCan;$U;13| (|x| $)
-  (COND ((SPADCALL |x| (QREFELT $ 38)) (CONS 0 (|SPADfirst| |x|)))
-        ('T (CONS 1 "failed")))) 
+(PUT '|PBWLB;rest;2$;5| '|SPADreplace| 'CDR) 
 
-(DEFUN |PBWLB;length;$Nni;14| (|x| $)
-  (PROG (#1=#:G139 |n| #2=#:G137 #3=#:G136 #4=#:G138 #5=#:G142 |l|)
-    (RETURN
-     (SEQ
-      (LETT |n|
-            (PROGN
-             (LETT #2# NIL . #6=(|PBWLB;length;$Nni;14|))
-             (SEQ (LETT |l| NIL . #6#) (LETT #5# |x| . #6#) G190
-                  (COND
-                   ((OR (ATOM #5#) (PROGN (LETT |l| (CAR #5#) . #6#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (PROGN
-                     (LETT #4# (SPADCALL |l| (QREFELT $ 45)) . #6#)
-                     (COND (#2# (LETT #3# (+ #3# #4#) . #6#))
-                           ('T
-                            (PROGN
-                             (LETT #3# #4# . #6#)
-                             (LETT #2# 'T . #6#)))))))
-                  (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
-             (COND (#2# #3#) ('T 0)))
-            . #6#)
-      (EXIT
-       (PROG1 (LETT #1# |n| . #6#)
-         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))))) 
+(SDEFUN |PBWLB;rest;2$;5| ((|x| $) ($ $)) (CDR |x|)) 
 
-(DEFUN |PBWLB;recursif| (|x| |y| $)
-  (COND ((NULL |y|) 'NIL) ((NULL |x|) 'T)
-        (#1='T
-         (COND
-          ((SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 47))
-           (|PBWLB;recursif| (SPADCALL |x| (QREFELT $ 18))
-            (SPADCALL |y| (QREFELT $ 18)) $))
-          (#1#
-           (SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 48))))))) 
+(SDEFUN |PBWLB;coerce;VarSet$;6| ((|v| |VarSet|) ($ $))
+        (LIST (SPADCALL |v| (QREFELT $ 19)))) 
 
-(DEFUN |PBWLB;<;2$B;16| (|x| |y| $)
-  (PROG (|ly| |lx|)
-    (RETURN
-     (SEQ (LETT |lx| (SPADCALL |x| (QREFELT $ 46)) . #1=(|PBWLB;<;2$B;16|))
-          (LETT |ly| (SPADCALL |y| (QREFELT $ 46)) . #1#)
+(PUT '|PBWLB;coerce;Lw$;7| '|SPADreplace| 'LIST) 
+
+(SDEFUN |PBWLB;coerce;Lw$;7| ((|l| |LyndonWord| |VarSet|) ($ $)) (LIST |l|)) 
+
+(PUT '|PBWLB;listOfTerms;$L;8| '|SPADreplace| '(XLAM (|x|) |x|)) 
+
+(SDEFUN |PBWLB;listOfTerms;$L;8| ((|x| $) ($ |List| (|LyndonWord| |VarSet|)))
+        |x|) 
+
+(SDEFUN |PBWLB;coerce;$Ofm;9| ((|x| $) ($ |OrderedFreeMonoid| |VarSet|))
+        (COND ((NULL |x|) (|spadConstant| $ 25))
+              ('T
+               (SPADCALL (SPADCALL (|SPADfirst| |x|) (QREFELT $ 26))
+                         (SPADCALL (CDR |x|) (QREFELT $ 27)) (QREFELT $ 28))))) 
+
+(SDEFUN |PBWLB;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
+        (SPROG ((#1=#:G124 NIL) (|l| NIL) (#2=#:G123 NIL))
+               (SEQ
+                (COND ((NULL |x|) (SPADCALL 1 (QREFELT $ 31)))
+                      ('T
+                       (SPADCALL (ELT $ 32)
+                                 (PROGN
+                                  (LETT #2# NIL . #3=(|PBWLB;coerce;$Of;10|))
+                                  (SEQ (LETT |l| NIL . #3#)
+                                       (LETT #1# |x| . #3#) G190
+                                       (COND
+                                        ((OR (ATOM #1#)
+                                             (PROGN
+                                              (LETT |l| (CAR #1#) . #3#)
+                                              NIL))
+                                         (GO G191)))
+                                       (SEQ
+                                        (EXIT
+                                         (LETT #2#
+                                               (CONS
+                                                (SPADCALL |l| (QREFELT $ 33))
+                                                #2#)
+                                               . #3#)))
+                                       (LETT #1# (CDR #1#) . #3#) (GO G190)
+                                       G191 (EXIT (NREVERSE #2#))))
+                                 (QREFELT $ 36))))))) 
+
+(SDEFUN |PBWLB;retractable?;$B;11| ((|x| $) ($ |Boolean|))
+        (COND ((NULL |x|) 'NIL) ('T (NULL (CDR |x|))))) 
+
+(SDEFUN |PBWLB;retract;$Lw;12| ((|x| $) ($ |LyndonWord| |VarSet|))
+        (COND
+         ((SPADCALL (LENGTH |x|) 1 (QREFELT $ 40))
+          (|error| "cannot convert to Lyndon word"))
+         ('T (|SPADfirst| |x|)))) 
+
+(SDEFUN |PBWLB;retractIfCan;$U;13|
+        ((|x| $) ($ |Union| (|LyndonWord| |VarSet|) "failed"))
+        (COND ((SPADCALL |x| (QREFELT $ 38)) (CONS 0 (|SPADfirst| |x|)))
+              ('T (CONS 1 "failed")))) 
+
+(SDEFUN |PBWLB;length;$Nni;14| ((|x| $) ($ |NonNegativeInteger|))
+        (SPROG
+         ((#1=#:G139 NIL) (|n| #2=(|Integer|)) (#3=#:G137 NIL) (#4=#:G136 #2#)
+          (#5=#:G138 #2#) (#6=#:G142 NIL) (|l| NIL))
+         (SEQ
+          (LETT |n|
+                (PROGN
+                 (LETT #3# NIL . #7=(|PBWLB;length;$Nni;14|))
+                 (SEQ (LETT |l| NIL . #7#) (LETT #6# |x| . #7#) G190
+                      (COND
+                       ((OR (ATOM #6#) (PROGN (LETT |l| (CAR #6#) . #7#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (PROGN
+                         (LETT #5# (SPADCALL |l| (QREFELT $ 45)) . #7#)
+                         (COND (#3# (LETT #4# (+ #4# #5#) . #7#))
+                               ('T
+                                (PROGN
+                                 (LETT #4# #5# . #7#)
+                                 (LETT #3# 'T . #7#)))))))
+                      (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL))
+                 (COND (#3# #4#) ('T 0)))
+                . #7#)
           (EXIT
-           (COND ((EQL |lx| |ly|) (|PBWLB;recursif| |x| |y| $))
-                 ('T (< |lx| |ly|)))))))) 
+           (PROG1 (LETT #1# |n| . #7#)
+             (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))))) 
+
+(SDEFUN |PBWLB;recursif| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((NULL |y|) 'NIL) ((NULL |x|) 'T)
+              (#1='T
+               (COND
+                ((SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 47))
+                 (|PBWLB;recursif| (SPADCALL |x| (QREFELT $ 18))
+                  (SPADCALL |y| (QREFELT $ 18)) $))
+                (#1#
+                 (SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|)
+                           (QREFELT $ 48))))))) 
+
+(SDEFUN |PBWLB;<;2$B;16| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((|ly| #1=(|NonNegativeInteger|)) (|lx| #1#))
+               (SEQ
+                (LETT |lx| (SPADCALL |x| (QREFELT $ 46))
+                      . #2=(|PBWLB;<;2$B;16|))
+                (LETT |ly| (SPADCALL |y| (QREFELT $ 46)) . #2#)
+                (EXIT
+                 (COND ((EQL |lx| |ly|) (|PBWLB;recursif| |x| |y| $))
+                       ('T (< |lx| |ly|))))))) 
 
 (DECLAIM (NOTINLINE |PoincareBirkhoffWittLyndonBasis;|)) 
 
 (DEFUN |PoincareBirkhoffWittLyndonBasis| (#1=#:G147)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G148)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|PoincareBirkhoffWittLyndonBasis|)
-                                           '|domainEqualList|)
-                . #3=(|PoincareBirkhoffWittLyndonBasis|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|PoincareBirkhoffWittLyndonBasis;| #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G148)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|PoincareBirkhoffWittLyndonBasis|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PoincareBirkhoffWittLyndonBasis|)
+                                               '|domainEqualList|)
+                    . #3=(|PoincareBirkhoffWittLyndonBasis|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|PoincareBirkhoffWittLyndonBasis;| #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PoincareBirkhoffWittLyndonBasis|)))))))))) 
 
 (DEFUN |PoincareBirkhoffWittLyndonBasis;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PoincareBirkhoffWittLyndonBasis|))
-      (LETT |dv$| (LIST '|PoincareBirkhoffWittLyndonBasis| DV$1) . #1#)
-      (LETT $ (GETREFV 53) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PoincareBirkhoffWittLyndonBasis|
-                  (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|List| (|LyndonWord| |#1|)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|PoincareBirkhoffWittLyndonBasis|))
+          (LETT |dv$| (LIST '|PoincareBirkhoffWittLyndonBasis| DV$1) . #1#)
+          (LETT $ (GETREFV 53) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PoincareBirkhoffWittLyndonBasis|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|List| (|LyndonWord| |#1|)))
+          $))) 
 
 (MAKEPROP '|PoincareBirkhoffWittLyndonBasis| '|infovec|
           (LIST

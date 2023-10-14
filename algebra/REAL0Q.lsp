@@ -1,82 +1,121 @@
 
-(DEFUN |REAL0Q;convert2PolInt| (|f| $)
-  (PROG (|pden| #1=#:G108 |c| #2=#:G107)
-    (RETURN
-     (SEQ
-      (LETT |pden|
-            (SPADCALL
-             (PROGN
-              (LETT #2# NIL . #3=(|REAL0Q;convert2PolInt|))
-              (SEQ (LETT |c| NIL . #3#)
-                   (LETT #1# (SPADCALL |f| (QREFELT $ 8)) . #3#) G190
-                   (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
-                     (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (LETT #2# (CONS (SPADCALL |c| (QREFELT $ 11)) #2#)
-                           . #3#)))
-                   (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                   (EXIT (NREVERSE #2#))))
-             (QREFELT $ 13))
-            . #3#)
-      (EXIT
-       (SPADCALL (ELT $ 14) (SPADCALL |pden| |f| (QREFELT $ 15))
-                 (QREFELT $ 19))))))) 
+(SDEFUN |REAL0Q;convert2PolInt|
+        ((|f| |Pol|) ($ |SparseUnivariatePolynomial| (|Integer|)))
+        (SPROG ((|pden| (|Integer|)) (#1=#:G108 NIL) (|c| NIL) (#2=#:G107 NIL))
+               (SEQ
+                (LETT |pden|
+                      (SPADCALL
+                       (PROGN
+                        (LETT #2# NIL . #3=(|REAL0Q;convert2PolInt|))
+                        (SEQ (LETT |c| NIL . #3#)
+                             (LETT #1# (SPADCALL |f| (QREFELT $ 8)) . #3#) G190
+                             (COND
+                              ((OR (ATOM #1#)
+                                   (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #2#
+                                     (CONS (SPADCALL |c| (QREFELT $ 11)) #2#)
+                                     . #3#)))
+                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                             (EXIT (NREVERSE #2#))))
+                       (QREFELT $ 13))
+                      . #3#)
+                (EXIT
+                 (SPADCALL (ELT $ 14) (SPADCALL |pden| |f| (QREFELT $ 15))
+                           (QREFELT $ 19)))))) 
 
-(DEFUN |REAL0Q;realZeros;PolL;2| (|f| $)
-  (SPADCALL (|REAL0Q;convert2PolInt| |f| $) (QREFELT $ 23))) 
+(SDEFUN |REAL0Q;realZeros;PolL;2|
+        ((|f| |Pol|)
+         ($ |List|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|))))))
+        (SPADCALL (|REAL0Q;convert2PolInt| |f| $) (QREFELT $ 23))) 
 
-(DEFUN |REAL0Q;realZeros;PolFL;3| (|f| |rn| $)
-  (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |rn| (QREFELT $ 25))) 
+(SDEFUN |REAL0Q;realZeros;PolFL;3|
+        ((|f| |Pol|) (|rn| |Fraction| (|Integer|))
+         ($ |List|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|))))))
+        (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |rn| (QREFELT $ 25))) 
 
-(DEFUN |REAL0Q;realZeros;PolRL;4| (|f| |bounds| $)
-  (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |bounds| (QREFELT $ 27))) 
+(SDEFUN |REAL0Q;realZeros;PolRL;4|
+        ((|f| |Pol|)
+         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
+          (|:| |right| (|Fraction| (|Integer|))))
+         ($ |List|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|))))))
+        (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |bounds| (QREFELT $ 27))) 
 
-(DEFUN |REAL0Q;realZeros;PolRFL;5| (|f| |bounds| |rn| $)
-  (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |bounds| |rn| (QREFELT $ 29))) 
+(SDEFUN |REAL0Q;realZeros;PolRFL;5|
+        ((|f| |Pol|)
+         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
+          (|:| |right| (|Fraction| (|Integer|))))
+         (|rn| |Fraction| (|Integer|))
+         ($ |List|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|))))))
+        (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |bounds| |rn| (QREFELT $ 29))) 
 
-(DEFUN |REAL0Q;refine;PolRFR;6| (|f| |int| |eps| $)
-  (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |int| |eps| (QREFELT $ 31))) 
+(SDEFUN |REAL0Q;refine;PolRFR;6|
+        ((|f| |Pol|)
+         (|int| |Record| (|:| |left| (|Fraction| (|Integer|)))
+          (|:| |right| (|Fraction| (|Integer|))))
+         (|eps| |Fraction| (|Integer|))
+         ($ |Record| (|:| |left| (|Fraction| (|Integer|)))
+          (|:| |right| (|Fraction| (|Integer|)))))
+        (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |int| |eps| (QREFELT $ 31))) 
 
-(DEFUN |REAL0Q;refine;Pol2RU;7| (|f| |int| |bounds| $)
-  (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |int| |bounds| (QREFELT $ 34))) 
+(SDEFUN |REAL0Q;refine;Pol2RU;7|
+        ((|f| |Pol|)
+         (|int| |Record| (|:| |left| (|Fraction| (|Integer|)))
+          (|:| |right| (|Fraction| (|Integer|))))
+         (|bounds| |Record| (|:| |left| (|Fraction| (|Integer|)))
+          (|:| |right| (|Fraction| (|Integer|))))
+         ($ |Union|
+          (|Record| (|:| |left| (|Fraction| (|Integer|)))
+                    (|:| |right| (|Fraction| (|Integer|))))
+          "failed"))
+        (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |int| |bounds|
+                  (QREFELT $ 34))) 
 
 (DECLAIM (NOTINLINE |RealZeroPackageQ;|)) 
 
 (DEFUN |RealZeroPackageQ| (#1=#:G124)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G125)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|RealZeroPackageQ|)
-                                           '|domainEqualList|)
-                . #3=(|RealZeroPackageQ|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|RealZeroPackageQ;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G125)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|RealZeroPackageQ|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|RealZeroPackageQ|)
+                                               '|domainEqualList|)
+                    . #3=(|RealZeroPackageQ|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|RealZeroPackageQ;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RealZeroPackageQ|)))))))))) 
 
 (DEFUN |RealZeroPackageQ;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|RealZeroPackageQ|))
-      (LETT |dv$| (LIST '|RealZeroPackageQ| DV$1) . #1#)
-      (LETT $ (GETREFV 36) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|RealZeroPackageQ| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|RealZeroPackageQ|))
+          (LETT |dv$| (LIST '|RealZeroPackageQ| DV$1) . #1#)
+          (LETT $ (GETREFV 36) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|RealZeroPackageQ| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RealZeroPackageQ| '|infovec|
           (LIST

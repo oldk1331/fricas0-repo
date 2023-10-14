@@ -17,33 +17,31 @@
       #2#)))) 
 
 (DEFUN |BinaryRecursiveAggregate;| (|t#1|)
-  (PROG (#1=#:G132)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|BinaryRecursiveAggregate;CAT|)
-                                ('T
-                                 (LETT |BinaryRecursiveAggregate;CAT|
-                                       (|Join| (|RecursiveAggregate| '|t#1|)
-                                               (|mkCategory|
-                                                '(((|left| ($ $)) T)
-                                                  ((|elt| ($ $ "left")) T)
-                                                  ((|right| ($ $)) T)
-                                                  ((|elt| ($ $ "right")) T)
-                                                  ((|setelt| ($ $ "left" $))
-                                                   (|has| $
-                                                          (|shallowlyMutable|)))
-                                                  ((|setleft!| ($ $ $))
-                                                   (|has| $
-                                                          (|shallowlyMutable|)))
-                                                  ((|setelt| ($ $ "right" $))
-                                                   (|has| $
-                                                          (|shallowlyMutable|)))
-                                                  ((|setright!| ($ $ $))
-                                                   (|has| $
-                                                          (|shallowlyMutable|))))
-                                                NIL 'NIL NIL))
-                                       . #2=(|BinaryRecursiveAggregate|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|BinaryRecursiveAggregate| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G132 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|BinaryRecursiveAggregate;CAT|)
+                                    ('T
+                                     (LETT |BinaryRecursiveAggregate;CAT|
+                                           (|Join|
+                                            (|RecursiveAggregate| '|t#1|)
+                                            (|mkCategory|
+                                             '(((|left| ($ $)) T)
+                                               ((|elt| ($ $ "left")) T)
+                                               ((|right| ($ $)) T)
+                                               ((|elt| ($ $ "right")) T)
+                                               ((|setelt| ($ $ "left" $))
+                                                (|has| $ (|shallowlyMutable|)))
+                                               ((|setleft!| ($ $ $))
+                                                (|has| $ (|shallowlyMutable|)))
+                                               ((|setelt| ($ $ "right" $))
+                                                (|has| $ (|shallowlyMutable|)))
+                                               ((|setright!| ($ $ $))
+                                                (|has| $
+                                                       (|shallowlyMutable|))))
+                                             NIL 'NIL NIL))
+                                           . #2=(|BinaryRecursiveAggregate|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|BinaryRecursiveAggregate| (|devaluate| |t#1|)))))) 

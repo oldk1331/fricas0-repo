@@ -1,46 +1,46 @@
 
-(DEFUN |ITFUN2;map;MItIt;1| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 12))) 
+(SDEFUN |ITFUN2;map;MItIt;1|
+        ((|f| |Mapping| B A) (|x| |InfiniteTuple| A) ($ |InfiniteTuple| B))
+        (SPADCALL |f| |x| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |InfiniteTupleFunctions2;|)) 
 
 (DEFUN |InfiniteTupleFunctions2| (&REST #1=#:G105)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G106)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|InfiniteTupleFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|InfiniteTupleFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |InfiniteTupleFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G106)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|InfiniteTupleFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InfiniteTupleFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|InfiniteTupleFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InfiniteTupleFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InfiniteTupleFunctions2|)))))))))) 
 
 (DEFUN |InfiniteTupleFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteTupleFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|InfiniteTupleFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 16) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|InfiniteTupleFunctions2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteTupleFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|InfiniteTupleFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 16) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|InfiniteTupleFunctions2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|InfiniteTupleFunctions2| '|infovec|
           (LIST

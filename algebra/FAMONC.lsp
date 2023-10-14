@@ -20,49 +20,53 @@
       #2#)))) 
 
 (DEFUN |FreeAbelianMonoidCategory;| (|t#1| |t#2|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (COND (|FreeAbelianMonoidCategory;CAT|)
-                      ('T
-                       (LETT |FreeAbelianMonoidCategory;CAT|
-                             (|Join| (|CancellationAbelianMonoid|)
-                                     (|RetractableTo| '|t#1|)
-                                     (|mkCategory|
-                                      '(((+ ($ |t#1| $)) T)
-                                        ((* ($ |t#2| |t#1|)) T)
-                                        ((|size| ((|NonNegativeInteger|) $)) T)
-                                        ((|terms|
-                                          ((|List|
-                                            (|Record| (|:| |gen| |t#1|)
-                                                      (|:| |exp| |t#2|)))
-                                           $))
-                                         T)
-                                        ((|nthCoef| (|t#2| $ (|Integer|))) T)
-                                        ((|nthFactor| (|t#1| $ (|Integer|))) T)
-                                        ((|coefficient| (|t#2| |t#1| $)) T)
-                                        ((|mapCoef|
-                                          ($ (|Mapping| |t#2| |t#2|) $))
-                                         T)
-                                        ((|mapGen|
-                                          ($ (|Mapping| |t#1| |t#1|) $))
-                                         T)
-                                        ((|highCommonTerms| ($ $ $))
-                                         (|has| |t#2|
-                                                (|OrderedAbelianMonoid|))))
-                                      NIL
-                                      '((|Integer|)
-                                        (|List|
-                                         (|Record| (|:| |gen| |t#1|)
-                                                   (|:| |exp| |t#2|)))
-                                        (|NonNegativeInteger|))
-                                      NIL))
-                             . #2=(|FreeAbelianMonoidCategory|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|FreeAbelianMonoidCategory| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (COND (|FreeAbelianMonoidCategory;CAT|)
+                          ('T
+                           (LETT |FreeAbelianMonoidCategory;CAT|
+                                 (|Join| (|CancellationAbelianMonoid|)
+                                         (|RetractableTo| '|t#1|)
+                                         (|mkCategory|
+                                          '(((+ ($ |t#1| $)) T)
+                                            ((* ($ |t#2| |t#1|)) T)
+                                            ((|size|
+                                              ((|NonNegativeInteger|) $))
+                                             T)
+                                            ((|terms|
+                                              ((|List|
+                                                (|Record| (|:| |gen| |t#1|)
+                                                          (|:| |exp| |t#2|)))
+                                               $))
+                                             T)
+                                            ((|nthCoef| (|t#2| $ (|Integer|)))
+                                             T)
+                                            ((|nthFactor|
+                                              (|t#1| $ (|Integer|)))
+                                             T)
+                                            ((|coefficient| (|t#2| |t#1| $)) T)
+                                            ((|mapCoef|
+                                              ($ (|Mapping| |t#2| |t#2|) $))
+                                             T)
+                                            ((|mapGen|
+                                              ($ (|Mapping| |t#1| |t#1|) $))
+                                             T)
+                                            ((|highCommonTerms| ($ $ $))
+                                             (|has| |t#2|
+                                                    (|OrderedAbelianMonoid|))))
+                                          NIL
+                                          '((|Integer|)
+                                            (|List|
+                                             (|Record| (|:| |gen| |t#1|)
+                                                       (|:| |exp| |t#2|)))
+                                            (|NonNegativeInteger|))
+                                          NIL))
+                                 . #2=(|FreeAbelianMonoidCategory|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|FreeAbelianMonoidCategory| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

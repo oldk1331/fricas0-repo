@@ -8,56 +8,55 @@
 
 (PUT '|NNI;sup;3$;1| '|SPADreplace| 'MAX) 
 
-(DEFUN |NNI;sup;3$;1| (|x| |y| $) (MAX |x| |y|)) 
+(SDEFUN |NNI;sup;3$;1| ((|x| $) (|y| $) ($ $)) (MAX |x| |y|)) 
 
 (PUT '|NNI;shift;$I$;2| '|SPADreplace| 'ASH) 
 
-(DEFUN |NNI;shift;$I$;2| (|x| |n| $) (ASH |x| |n|)) 
+(SDEFUN |NNI;shift;$I$;2| ((|x| $) (|n| |Integer|) ($ $)) (ASH |x| |n|)) 
 
 (PUT '|NNI;qcoerce;I$;3| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
-(DEFUN |NNI;qcoerce;I$;3| (|n| $) |n|) 
+(SDEFUN |NNI;qcoerce;I$;3| ((|n| |Integer|) ($ $)) |n|) 
 
-(DEFUN |NNI;subtractIfCan;2$U;4| (|x| |y| $)
-  (PROG (|c|)
-    (RETURN
-     (SEQ (LETT |c| (- |x| |y|) |NNI;subtractIfCan;2$U;4|)
-          (EXIT (COND ((< |c| 0) (CONS 1 "failed")) ('T (CONS 0 |c|)))))))) 
+(SDEFUN |NNI;subtractIfCan;2$U;4| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+        (SPROG ((|c| (|Integer|)))
+               (SEQ (LETT |c| (- |x| |y|) |NNI;subtractIfCan;2$U;4|)
+                    (EXIT
+                     (COND ((< |c| 0) (CONS 1 "failed")) ('T (CONS 0 |c|))))))) 
 
 (DECLAIM (NOTINLINE |NonNegativeInteger;|)) 
 
 (DEFUN |NonNegativeInteger| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G1565)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|NonNegativeInteger|)
-                . #2=(|NonNegativeInteger|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|NonNegativeInteger|
-                         (LIST (CONS NIL (CONS 1 (|NonNegativeInteger;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G1565)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|NonNegativeInteger|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|NonNegativeInteger|)
+                    . #2=(|NonNegativeInteger|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|NonNegativeInteger|
+                             (LIST
+                              (CONS NIL (CONS 1 (|NonNegativeInteger;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|NonNegativeInteger|)))))))))) 
 
 (DEFUN |NonNegativeInteger;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|NonNegativeInteger|) . #1=(|NonNegativeInteger|))
-      (LETT $ (GETREFV 19) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|NonNegativeInteger| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|NonNegativeInteger|) . #1=(|NonNegativeInteger|))
+          (LETT $ (GETREFV 19) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|NonNegativeInteger| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|NonNegativeInteger| '|infovec|
           (LIST

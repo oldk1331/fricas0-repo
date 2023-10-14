@@ -1,65 +1,74 @@
 
 (PUT '|IIARRAY2;empty;$;1| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX 0 0))) 
 
-(DEFUN |IIARRAY2;empty;$;1| ($) (MAKE_MATRIX 0 0)) 
+(SDEFUN |IIARRAY2;empty;$;1| (($ $)) (MAKE_MATRIX 0 0)) 
 
 (PUT '|IIARRAY2;qnew;2Nni$;2| '|SPADreplace| 'MAKE_MATRIX) 
 
-(DEFUN |IIARRAY2;qnew;2Nni$;2| (|rows| |cols| $) (MAKE_MATRIX |rows| |cols|)) 
+(SDEFUN |IIARRAY2;qnew;2Nni$;2|
+        ((|rows| . #1=(|NonNegativeInteger|)) (|cols| . #1#) ($ $))
+        (MAKE_MATRIX |rows| |cols|)) 
 
 (PUT '|IIARRAY2;new;2NniR$;3| '|SPADreplace| 'MAKE_MATRIX1) 
 
-(DEFUN |IIARRAY2;new;2NniR$;3| (|rows| |cols| |a| $)
-  (MAKE_MATRIX1 |rows| |cols| |a|)) 
+(SDEFUN |IIARRAY2;new;2NniR$;3|
+        ((|rows| . #1=(|NonNegativeInteger|)) (|cols| . #1#) (|a| R) ($ $))
+        (MAKE_MATRIX1 |rows| |cols| |a|)) 
 
-(DEFUN |IIARRAY2;minRowIndex;$I;4| (|m| $) (QREFELT $ 7)) 
+(SDEFUN |IIARRAY2;minRowIndex;$I;4| ((|m| $) ($ |Integer|)) (QREFELT $ 7)) 
 
-(DEFUN |IIARRAY2;minColIndex;$I;5| (|m| $) (QREFELT $ 8)) 
+(SDEFUN |IIARRAY2;minColIndex;$I;5| ((|m| $) ($ |Integer|)) (QREFELT $ 8)) 
 
-(DEFUN |IIARRAY2;maxRowIndex;$I;6| (|m| $)
-  (- (+ (SPADCALL |m| (QREFELT $ 18)) (QREFELT $ 7)) 1)) 
+(SDEFUN |IIARRAY2;maxRowIndex;$I;6| ((|m| $) ($ |Integer|))
+        (- (+ (SPADCALL |m| (QREFELT $ 18)) (QREFELT $ 7)) 1)) 
 
-(DEFUN |IIARRAY2;maxColIndex;$I;7| (|m| $)
-  (- (+ (SPADCALL |m| (QREFELT $ 20)) (QREFELT $ 8)) 1)) 
+(SDEFUN |IIARRAY2;maxColIndex;$I;7| ((|m| $) ($ |Integer|))
+        (- (+ (SPADCALL |m| (QREFELT $ 20)) (QREFELT $ 8)) 1)) 
 
 (PUT '|IIARRAY2;nrows;$Nni;8| '|SPADreplace| 'ANROWS) 
 
-(DEFUN |IIARRAY2;nrows;$Nni;8| (|m| $) (ANROWS |m|)) 
+(SDEFUN |IIARRAY2;nrows;$Nni;8| ((|m| $) ($ |NonNegativeInteger|)) (ANROWS |m|)) 
 
 (PUT '|IIARRAY2;ncols;$Nni;9| '|SPADreplace| 'ANCOLS) 
 
-(DEFUN |IIARRAY2;ncols;$Nni;9| (|m| $) (ANCOLS |m|)) 
+(SDEFUN |IIARRAY2;ncols;$Nni;9| ((|m| $) ($ |NonNegativeInteger|)) (ANCOLS |m|)) 
 
-(DEFUN |IIARRAY2;qelt;$2IR;10| (|m| |i| |j| $)
-  (QAREF2O |m| |i| |j| (QREFELT $ 7) (QREFELT $ 8))) 
+(SDEFUN |IIARRAY2;qelt;$2IR;10|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) ($ R))
+        (QAREF2O |m| |i| |j| (QREFELT $ 7) (QREFELT $ 8))) 
 
-(DEFUN |IIARRAY2;elt;$2IR;11| (|m| |i| |j| $)
-  (COND
-   ((OR (< |i| (SPADCALL |m| (QREFELT $ 16)))
-        (SPADCALL |i| (SPADCALL |m| (QREFELT $ 19)) (QREFELT $ 24)))
-    (|error| "elt: index out of range"))
-   ((OR (< |j| (SPADCALL |m| (QREFELT $ 17)))
-        (SPADCALL |j| (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24)))
-    (|error| "elt: index out of range"))
-   ('T (SPADCALL |m| |i| |j| (QREFELT $ 22))))) 
+(SDEFUN |IIARRAY2;elt;$2IR;11|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) ($ R))
+        (COND
+         ((OR (< |i| (SPADCALL |m| (QREFELT $ 16)))
+              (SPADCALL |i| (SPADCALL |m| (QREFELT $ 19)) (QREFELT $ 24)))
+          (|error| "elt: index out of range"))
+         ((OR (< |j| (SPADCALL |m| (QREFELT $ 17)))
+              (SPADCALL |j| (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24)))
+          (|error| "elt: index out of range"))
+         ('T (SPADCALL |m| |i| |j| (QREFELT $ 22))))) 
 
-(DEFUN |IIARRAY2;qsetelt!;$2I2R;12| (|m| |i| |j| |r| $)
-  (QSETAREF2O |m| |i| |j| |r| (QREFELT $ 7) (QREFELT $ 8))) 
+(SDEFUN |IIARRAY2;qsetelt!;$2I2R;12|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| R) ($ R))
+        (QSETAREF2O |m| |i| |j| |r| (QREFELT $ 7) (QREFELT $ 8))) 
 
-(DEFUN |IIARRAY2;setelt;$2I2R;13| (|m| |i| |j| |r| $)
-  (COND
-   ((OR (< |i| (SPADCALL |m| (QREFELT $ 16)))
-        (SPADCALL |i| (SPADCALL |m| (QREFELT $ 19)) (QREFELT $ 24)))
-    (|error| "setelt: index out of range"))
-   ((OR (< |j| (SPADCALL |m| (QREFELT $ 17)))
-        (SPADCALL |j| (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24)))
-    (|error| "setelt: index out of range"))
-   ('T (SPADCALL |m| |i| |j| |r| (QREFELT $ 26))))) 
+(SDEFUN |IIARRAY2;setelt;$2I2R;13|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| R) ($ R))
+        (COND
+         ((OR (< |i| (SPADCALL |m| (QREFELT $ 16)))
+              (SPADCALL |i| (SPADCALL |m| (QREFELT $ 19)) (QREFELT $ 24)))
+          (|error| "setelt: index out of range"))
+         ((OR (< |j| (SPADCALL |m| (QREFELT $ 17)))
+              (SPADCALL |j| (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24)))
+          (|error| "setelt: index out of range"))
+         ('T (SPADCALL |m| |i| |j| |r| (QREFELT $ 26))))) 
 
-(DEFUN |IIARRAY2;latex;$S;14| (|m| $)
-  (PROG (|s| #1=#:G2193 |j| #2=#:G2192 |i| #3=#:G2191)
-    (RETURN
-     (SEQ (LETT |s| "\\left[ \\begin{array}{" . #4=(|IIARRAY2;latex;$S;14|))
+(SDEFUN |IIARRAY2;latex;$S;14| ((|m| $) ($ |String|))
+        (SPROG
+         ((|s| (|String|)) (#1=#:G2193 NIL) (|j| NIL) (#2=#:G2192 NIL)
+          (|i| NIL) (#3=#:G2191 NIL))
+         (SEQ
+          (LETT |s| "\\left[ \\begin{array}{" . #4=(|IIARRAY2;latex;$S;14|))
           (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 17)) . #4#)
                (LETT #3# (SPADCALL |m| (QREFELT $ 21)) . #4#) G190
                (COND ((> |j| #3#) (GO G191)))
@@ -90,98 +99,98 @@
                   ((< |i| (SPADCALL |m| (QREFELT $ 19)))
                    (LETT |s| (STRCONC |s| " \\\\ ") . #4#)))))
                (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT (STRCONC |s| "\\end{array} \\right]")))))) 
+          (EXIT (STRCONC |s| "\\end{array} \\right]"))))) 
 
 (DECLAIM (NOTINLINE |InnerIndexedTwoDimensionalArray;|)) 
 
 (DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2200)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G2201)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|InnerIndexedTwoDimensionalArray|)
-                                           '|domainEqualList|)
-                . #3=(|InnerIndexedTwoDimensionalArray|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |InnerIndexedTwoDimensionalArray;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G2201)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|InnerIndexedTwoDimensionalArray|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerIndexedTwoDimensionalArray|)
+                                               '|domainEqualList|)
+                    . #3=(|InnerIndexedTwoDimensionalArray|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |InnerIndexedTwoDimensionalArray;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|InnerIndexedTwoDimensionalArray|)))))))))) 
 
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (|pv$| #1=#:G2197 #2=#:G2198 #3=#:G2199 $ |dv$| DV$5 DV$4 DV$3 DV$2
-         DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|InnerIndexedTwoDimensionalArray|))
-      (LETT DV$2 (|devaluate| |#2|) . #4#)
-      (LETT DV$3 (|devaluate| |#3|) . #4#)
-      (LETT DV$4 (|devaluate| |#4|) . #4#)
-      (LETT DV$5 (|devaluate| |#5|) . #4#)
-      (LETT |dv$|
-            (LIST '|InnerIndexedTwoDimensionalArray| DV$1 DV$2 DV$3 DV$4 DV$5)
-            . #4#)
-      (LETT $ (GETREFV 48) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #3#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #2# #3#)
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #1#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #3#))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|InnerIndexedTwoDimensionalArray|
-                  (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (QSETREFV $ 10 |#5|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
-      (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 128))
-      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-           (|augmentPredVector| $ 256))
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 30 (CONS (|dispatchFunction| |IIARRAY2;latex;$S;14|) $))))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G2197 NIL) (#2=#:G2198 NIL) (#3=#:G2199 NIL) ($ NIL)
+    (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|InnerIndexedTwoDimensionalArray|))
+    (LETT DV$2 (|devaluate| |#2|) . #4#)
+    (LETT DV$3 (|devaluate| |#3|) . #4#)
+    (LETT DV$4 (|devaluate| |#4|) . #4#)
+    (LETT DV$5 (|devaluate| |#5|) . #4#)
+    (LETT |dv$|
+          (LIST '|InnerIndexedTwoDimensionalArray| DV$1 DV$2 DV$3 DV$4 DV$5)
+          . #4#)
+    (LETT $ (GETREFV 48) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #3#)
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #2# #3#)
+                                        (LETT #1#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #1#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #3#))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|InnerIndexedTwoDimensionalArray|
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (QSETREFV $ 10 |#5|)
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
+    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 128))
+    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| $ 256))
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|testBitVector| |pv$| 1)
+      (QSETREFV $ 30 (CONS (|dispatchFunction| |IIARRAY2;latex;$S;14|) $))))
+    $))) 
 
 (MAKEPROP '|InnerIndexedTwoDimensionalArray| '|infovec|
           (LIST

@@ -1,31 +1,40 @@
 
 (PUT '|UNTYPED;var;S$;1| '|SPADreplace| 'LIST) 
 
-(DEFUN |UNTYPED;var;S$;1| (|n| $) (LIST |n|)) 
+(SDEFUN |UNTYPED;var;S$;1| ((|n| |String|) ($ $)) (LIST |n|)) 
 
 (PUT '|UNTYPED;var;SIl$;2| '|SPADreplace| '(XLAM (|n| |t|) (LIST |n|))) 
 
-(DEFUN |UNTYPED;var;SIl$;2| (|n| |t| $) (LIST |n|)) 
+(SDEFUN |UNTYPED;var;SIl$;2| ((|n| |String|) (|t| |ILogic|) ($ $)) (LIST |n|)) 
 
 (PUT '|UNTYPED;getName;$S;3| '|SPADreplace| 'QCAR) 
 
-(DEFUN |UNTYPED;getName;$S;3| (|v| $) (QCAR |v|)) 
+(SDEFUN |UNTYPED;getName;$S;3| ((|v| $) ($ |String|)) (QCAR |v|)) 
 
-(DEFUN |UNTYPED;getType;$Il;4| (|v| $) (SPADCALL (QREFELT $ 12))) 
+(SDEFUN |UNTYPED;getType;$Il;4| ((|v| $) ($ |ILogic|))
+        (SPADCALL (QREFELT $ 12))) 
 
 (PUT '|UNTYPED;toString;$S;5| '|SPADreplace| 'QCAR) 
 
-(DEFUN |UNTYPED;toString;$S;5| (|v| $) (QCAR |v|)) 
+(SDEFUN |UNTYPED;toString;$S;5| ((|v| $) ($ |String|)) (QCAR |v|)) 
 
-(DEFUN |UNTYPED;parseVarTerm;SNniR;6| (|t1| |pin| $)
-  (PROG (|pt| |r| |ch| #1=#:G120 |vnm|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |vnm| "" . #2=(|UNTYPED;parseVarTerm;SNniR;6|))
-            (LETT |pt| |pin| . #2#) (LETT |ch| (STR_ELT1 |t1| |pt|) . #2#)
-            (SEQ G190 (COND ((NULL (SPADCALL |ch| (QREFELT $ 17))) (GO G191)))
-                 (SEQ (LETT |vnm| (SPADCALL |vnm| |ch| (QREFELT $ 18)) . #2#)
+(SDEFUN |UNTYPED;parseVarTerm;SNniR;6|
+        ((|t1| |String|) (|pin| |NonNegativeInteger|)
+         ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
+        (SPROG
+         ((|pt| (|NonNegativeInteger|))
+          (|r|
+           (|Record| (|:| |rft| (|ILogic|))
+                     (|:| |pout| (|NonNegativeInteger|))))
+          (|ch| (|Character|)) (#1=#:G120 NIL) (|vnm| (|String|)))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |vnm| "" . #2=(|UNTYPED;parseVarTerm;SNniR;6|))
+                (LETT |pt| |pin| . #2#) (LETT |ch| (STR_ELT1 |t1| |pt|) . #2#)
+                (SEQ G190
+                     (COND ((NULL (SPADCALL |ch| (QREFELT $ 17))) (GO G191)))
+                     (SEQ
+                      (LETT |vnm| (SPADCALL |vnm| |ch| (QREFELT $ 18)) . #2#)
                       (LETT |pt| (+ |pt| 1) . #2#)
                       (COND
                        ((SPADCALL |pt| (SPADCALL |t1| (QREFELT $ 20))
@@ -35,57 +44,57 @@
                                . #2#)
                          (GO #1#))))
                       (EXIT (LETT |ch| (STR_ELT1 |t1| |pt|) . #2#)))
-                 NIL (GO G190) G191 (EXIT NIL))
-            (COND
-             ((|eql_SI| |ch| (|STR_to_CHAR| ":"))
-              (SEQ (LETT |r| (SPADCALL |t1| |pt| (QREFELT $ 24)) . #2#)
-                   (EXIT (LETT |pt| (QCDR |r|) . #2#)))))
-            (EXIT (CONS (SPADCALL |vnm| (QREFELT $ 8)) |pt|))))
-      #1# (EXIT #1#))))) 
+                     NIL (GO G190) G191 (EXIT NIL))
+                (COND
+                 ((|eql_SI| |ch| (|STR_to_CHAR| ":"))
+                  (SEQ (LETT |r| (SPADCALL |t1| |pt| (QREFELT $ 24)) . #2#)
+                       (EXIT (LETT |pt| (QCDR |r|) . #2#)))))
+                (EXIT (CONS (SPADCALL |vnm| (QREFELT $ 8)) |pt|))))
+          #1# (EXIT #1#)))) 
 
-(DEFUN |UNTYPED;parseVar;S$;7| (|t1| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ (LETT |r| (SPADCALL |t1| 1 (QREFELT $ 25)) |UNTYPED;parseVar;S$;7|)
-          (EXIT (QCAR |r|)))))) 
+(SDEFUN |UNTYPED;parseVar;S$;7| ((|t1| |String|) ($ $))
+        (SPROG
+         ((|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
+         (SEQ
+          (LETT |r| (SPADCALL |t1| 1 (QREFELT $ 25)) |UNTYPED;parseVar;S$;7|)
+          (EXIT (QCAR |r|))))) 
 
-(DEFUN |UNTYPED;=;2$B;8| (|x| |y| $) (EQUAL (QCAR |x|) (QCAR |y|))) 
+(SDEFUN |UNTYPED;=;2$B;8| ((|x| $) (|y| $) ($ |Boolean|))
+        (EQUAL (QCAR |x|) (QCAR |y|))) 
 
-(DEFUN |UNTYPED;coerce;$Of;9| (|n| $)
-  (SPADCALL (SPADCALL |n| (QREFELT $ 14)) (QREFELT $ 29))) 
+(SDEFUN |UNTYPED;coerce;$Of;9| ((|n| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL |n| (QREFELT $ 14)) (QREFELT $ 29))) 
 
 (DECLAIM (NOTINLINE |Untyped;|)) 
 
 (DEFUN |Untyped| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G128)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Untyped|) . #2=(|Untyped|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Untyped|
-                         (LIST (CONS NIL (CONS 1 (|Untyped;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Untyped|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G128)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Untyped|) . #2=(|Untyped|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Untyped|
+                             (LIST (CONS NIL (CONS 1 (|Untyped;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Untyped|)))))))))) 
 
 (DEFUN |Untyped;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Untyped|) . #1=(|Untyped|))
-      (LETT $ (GETREFV 31) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Untyped| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|Record| (|:| |nme| (|String|))))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Untyped|) . #1=(|Untyped|))
+          (LETT $ (GETREFV 31) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Untyped| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|Record| (|:| |nme| (|String|))))
+          $))) 
 
 (MAKEPROP '|Untyped| '|infovec|
           (LIST

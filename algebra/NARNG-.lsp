@@ -1,32 +1,31 @@
 
-(DEFUN |NARNG-;associator;4S;1| (|x| |y| |z| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) |z| (QREFELT $ 7))
-            (SPADCALL |x| (SPADCALL |y| |z| (QREFELT $ 7)) (QREFELT $ 7))
-            (QREFELT $ 8))) 
+(SDEFUN |NARNG-;associator;4S;1| ((|x| S) (|y| S) (|z| S) ($ S))
+        (SPADCALL (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) |z| (QREFELT $ 7))
+                  (SPADCALL |x| (SPADCALL |y| |z| (QREFELT $ 7)) (QREFELT $ 7))
+                  (QREFELT $ 8))) 
 
-(DEFUN |NARNG-;commutator;3S;2| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) (SPADCALL |y| |x| (QREFELT $ 7))
-            (QREFELT $ 8))) 
+(SDEFUN |NARNG-;commutator;3S;2| ((|x| S) (|y| S) ($ S))
+        (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7))
+                  (SPADCALL |y| |x| (QREFELT $ 7)) (QREFELT $ 8))) 
 
-(DEFUN |NARNG-;antiCommutator;3S;3| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) (SPADCALL |y| |x| (QREFELT $ 7))
-            (QREFELT $ 11))) 
+(SDEFUN |NARNG-;antiCommutator;3S;3| ((|x| S) (|y| S) ($ S))
+        (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7))
+                  (SPADCALL |y| |x| (QREFELT $ 7)) (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |NonAssociativeRng&;|)) 
 
 (DEFUN |NonAssociativeRng&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|NonAssociativeRng&|))
-      (LETT |dv$| (LIST '|NonAssociativeRng&| DV$1) . #1#)
-      (LETT $ (GETREFV 13) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|NonAssociativeRng&|))
+          (LETT |dv$| (LIST '|NonAssociativeRng&| DV$1) . #1#)
+          (LETT $ (GETREFV 13) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|NonAssociativeRng&| '|infovec|
           (LIST

@@ -1,68 +1,69 @@
 
-(DEFUN |BITS;bits;NniB$;1| (|n| |b| $) (SPADCALL |n| |b| (QREFELT $ 8))) 
+(SDEFUN |BITS;bits;NniB$;1| ((|n| |NonNegativeInteger|) (|b| |Boolean|) ($ $))
+        (SPADCALL |n| |b| (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |Bits;|)) 
 
 (DEFUN |Bits| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G113)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Bits|) . #2=(|Bits|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Bits|
-                         (LIST (CONS NIL (CONS 1 (|Bits;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Bits|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G113)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Bits|) . #2=(|Bits|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Bits|
+                             (LIST (CONS NIL (CONS 1 (|Bits;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Bits|)))))))))) 
 
 (DEFUN |Bits;| ()
-  (PROG (|dv$| $ #1=#:G109 |pv$| #2=#:G111 #3=#:G110)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Bits|) . #4=(|Bits|))
-      (LETT $ (GETREFV 26) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| (|Boolean|)
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| (|Boolean|)
-                                                         '(|OrderedSet|))
-                                          (|HasCategory| (|Boolean|)
-                                                         '(|BasicType|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (LETT #1#
-                                                (|HasCategory| (|Boolean|)
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| (|Boolean|)
-                                                          '(|Evalable|
-                                                            (|Boolean|)))
-                                           #1#)))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|Bits| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND (LETT #2# (|HasCategory| $ '(|shallowlyMutable|)) . #4#)
-           (|augmentPredVector| $ 64))
-      (AND #2# (|HasCategory| (|Boolean|) '(|OrderedSet|))
-           (|augmentPredVector| $ 128))
-      (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
-           (|augmentPredVector| $ 256))
-      (AND #3# #1# (|augmentPredVector| $ 512))
-      (AND #3# (|HasCategory| (|Boolean|) '(|BasicType|))
-           (|augmentPredVector| $ 1024))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|dv$| NIL) ($ NIL) (#1=#:G109 NIL) (|pv$| NIL) (#2=#:G111 NIL)
+    (#3=#:G110 NIL))
+   (PROGN
+    (LETT |dv$| '(|Bits|) . #4=(|Bits|))
+    (LETT $ (GETREFV 26) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| (|Boolean|)
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| (|Boolean|)
+                                                       '(|OrderedSet|))
+                                        (|HasCategory| (|Boolean|)
+                                                       '(|BasicType|))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|OrderedSet|))
+                                        (LETT #1#
+                                              (|HasCategory| (|Boolean|)
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| (|Boolean|)
+                                                        '(|Evalable|
+                                                          (|Boolean|)))
+                                         #1#)))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|Bits| NIL (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (AND (LETT #2# (|HasCategory| $ '(|shallowlyMutable|)) . #4#)
+         (|augmentPredVector| $ 64))
+    (AND #2# (|HasCategory| (|Boolean|) '(|OrderedSet|))
+         (|augmentPredVector| $ 128))
+    (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
+         (|augmentPredVector| $ 256))
+    (AND #3# #1# (|augmentPredVector| $ 512))
+    (AND #3# (|HasCategory| (|Boolean|) '(|BasicType|))
+         (|augmentPredVector| $ 1024))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|Bits| '|infovec|
           (LIST

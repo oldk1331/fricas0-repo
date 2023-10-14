@@ -2230,6 +2230,7 @@
 ;     $functionStats: local:= [0,0]
 ;     $finalEnv: local := nil
 ;              --used by ReplaceExitEtc to get a common environment
+;     $locVarsTypes: local := []
 ;     $initCapsuleErrorCount: local:= #$semanticErrorStack
 ;     $insideCapsuleFunctionIfTrue: local:= true
 ;     $CapsuleModemapFrame: local:= e
@@ -2315,15 +2316,16 @@
   (DECLARE (SPECIAL |$prefix| |$formalArgList|))
   (PROG (|$insideExpressionIfTrue| |$CapsuleDomainsInScope|
          |$CapsuleModemapFrame| |$insideCapsuleFunctionIfTrue|
-         |$initCapsuleErrorCount| |$finalEnv| |$functionStats| |$op| |$form|
-         |val| |fun| |finalBody| |body'| |catchTag| T$ |formattedSig|
-         |localOrExported| |ISTMP#1| |rettype| |signature'| |argModeList|
-         |identSig| |argl| |e| |lineNumber| |LETTMP#1| |body| |specialCases|
-         |signature| |form|)
+         |$initCapsuleErrorCount| |$locVarsTypes| |$finalEnv| |$functionStats|
+         |$op| |$form| |val| |fun| |finalBody| |body'| |catchTag| T$
+         |formattedSig| |localOrExported| |ISTMP#1| |rettype| |signature'|
+         |argModeList| |identSig| |argl| |e| |lineNumber| |LETTMP#1| |body|
+         |specialCases| |signature| |form|)
     (DECLARE
      (SPECIAL |$insideExpressionIfTrue| |$CapsuleDomainsInScope|
       |$CapsuleModemapFrame| |$insideCapsuleFunctionIfTrue|
-      |$initCapsuleErrorCount| |$finalEnv| |$functionStats| |$op| |$form|))
+      |$initCapsuleErrorCount| |$locVarsTypes| |$finalEnv| |$functionStats|
+      |$op| |$form|))
     (RETURN
      (PROGN
       (SETQ |form| (CADR . #1=(|df|)))
@@ -2338,6 +2340,7 @@
       (SETQ |$op| NIL)
       (SETQ |$functionStats| (LIST 0 0))
       (SETQ |$finalEnv| NIL)
+      (SETQ |$locVarsTypes| NIL)
       (SETQ |$initCapsuleErrorCount| (LENGTH |$semanticErrorStack|))
       (SETQ |$insideCapsuleFunctionIfTrue| T)
       (SETQ |$CapsuleModemapFrame| |e|)

@@ -1,40 +1,40 @@
 
-(DEFUN |TOPSP;createThreeSpace;Ts;1| ($) (SPADCALL (QREFELT $ 7))) 
+(SDEFUN |TOPSP;createThreeSpace;Ts;1| (($ |ThreeSpace| (|DoubleFloat|)))
+        (SPADCALL (QREFELT $ 7))) 
 
 (DECLAIM (NOTINLINE |TopLevelThreeSpace;|)) 
 
 (DEFUN |TopLevelThreeSpace| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G105)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|TopLevelThreeSpace|)
-                . #2=(|TopLevelThreeSpace|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|TopLevelThreeSpace|
-                         (LIST (CONS NIL (CONS 1 (|TopLevelThreeSpace;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G105)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|TopLevelThreeSpace|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|TopLevelThreeSpace|)
+                    . #2=(|TopLevelThreeSpace|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|TopLevelThreeSpace|
+                             (LIST
+                              (CONS NIL (CONS 1 (|TopLevelThreeSpace;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|TopLevelThreeSpace|)))))))))) 
 
 (DEFUN |TopLevelThreeSpace;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|TopLevelThreeSpace|) . #1=(|TopLevelThreeSpace|))
-      (LETT $ (GETREFV 9) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TopLevelThreeSpace| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TopLevelThreeSpace|) . #1=(|TopLevelThreeSpace|))
+          (LETT $ (GETREFV 9) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TopLevelThreeSpace| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|TopLevelThreeSpace| '|infovec|
           (LIST

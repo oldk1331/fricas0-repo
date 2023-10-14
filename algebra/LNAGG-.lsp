@@ -1,61 +1,60 @@
 
-(DEFUN |LNAGG-;indices;AL;1| (|a| $)
-  (PROG (#1=#:G115 |i| #2=#:G114)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #2# NIL . #3=(|LNAGG-;indices;AL;1|))
-       (SEQ (LETT |i| (SPADCALL |a| (QREFELT $ 9)) . #3#)
-            (LETT #1# (SPADCALL |a| (QREFELT $ 10)) . #3#) G190
-            (COND ((> |i| #1#) (GO G191)))
-            (SEQ (EXIT (LETT #2# (CONS |i| #2#) . #3#)))
-            (LETT |i| (+ |i| 1) . #3#) (GO G190) G191
-            (EXIT (NREVERSE #2#)))))))) 
+(SDEFUN |LNAGG-;indices;AL;1| ((|a| A) ($ |List| (|Integer|)))
+        (SPROG ((#1=#:G115 NIL) (|i| NIL) (#2=#:G114 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #2# NIL . #3=(|LNAGG-;indices;AL;1|))
+                 (SEQ (LETT |i| (SPADCALL |a| (QREFELT $ 9)) . #3#)
+                      (LETT #1# (SPADCALL |a| (QREFELT $ 10)) . #3#) G190
+                      (COND ((> |i| #1#) (GO G191)))
+                      (SEQ (EXIT (LETT #2# (CONS |i| #2#) . #3#)))
+                      (LETT |i| (+ |i| 1) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))))) 
 
-(DEFUN |LNAGG-;index?;IAB;2| (|i| |a| $)
-  (COND
-   ((>= |i| (SPADCALL |a| (QREFELT $ 9)))
-    (SPADCALL |i| (SPADCALL |a| (QREFELT $ 10)) (QREFELT $ 14)))
-   ('T 'NIL))) 
+(SDEFUN |LNAGG-;index?;IAB;2| ((|i| |Integer|) (|a| A) ($ |Boolean|))
+        (COND
+         ((>= |i| (SPADCALL |a| (QREFELT $ 9)))
+          (SPADCALL |i| (SPADCALL |a| (QREFELT $ 10)) (QREFELT $ 14)))
+         ('T 'NIL))) 
 
-(DEFUN |LNAGG-;concat;ASA;3| (|a| |x| $)
-  (SPADCALL |a| (SPADCALL 1 |x| (QREFELT $ 17)) (QREFELT $ 18))) 
+(SDEFUN |LNAGG-;concat;ASA;3| ((|a| A) (|x| S) ($ A))
+        (SPADCALL |a| (SPADCALL 1 |x| (QREFELT $ 17)) (QREFELT $ 18))) 
 
-(DEFUN |LNAGG-;concat;S2A;4| (|x| |y| $)
-  (SPADCALL (SPADCALL 1 |x| (QREFELT $ 17)) |y| (QREFELT $ 18))) 
+(SDEFUN |LNAGG-;concat;S2A;4| ((|x| S) (|y| A) ($ A))
+        (SPADCALL (SPADCALL 1 |x| (QREFELT $ 17)) |y| (QREFELT $ 18))) 
 
-(DEFUN |LNAGG-;insert;SAIA;5| (|x| |a| |i| $)
-  (SPADCALL (SPADCALL 1 |x| (QREFELT $ 17)) |a| |i| (QREFELT $ 21))) 
+(SDEFUN |LNAGG-;insert;SAIA;5| ((|x| S) (|a| A) (|i| |Integer|) ($ A))
+        (SPADCALL (SPADCALL 1 |x| (QREFELT $ 17)) |a| |i| (QREFELT $ 21))) 
 
-(DEFUN |LNAGG-;maxIndex;AI;6| (|l| $)
-  (+ (- (SPADCALL |l| (QREFELT $ 23)) 1) (SPADCALL |l| (QREFELT $ 9)))) 
+(SDEFUN |LNAGG-;maxIndex;AI;6| ((|l| A) ($ |Integer|))
+        (+ (- (SPADCALL |l| (QREFELT $ 23)) 1) (SPADCALL |l| (QREFELT $ 9)))) 
 
 (DECLAIM (NOTINLINE |LinearAggregate&;|)) 
 
 (DEFUN |LinearAggregate&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|LinearAggregate&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|LinearAggregate&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 26) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|shallowlyMutable|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#1| '(|finiteAggregate|))
-        (QSETREFV $ 24 (CONS (|dispatchFunction| |LNAGG-;maxIndex;AI;6|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|LinearAggregate&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|LinearAggregate&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|shallowlyMutable|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| '(|finiteAggregate|))
+            (QSETREFV $ 24
+                      (CONS (|dispatchFunction| |LNAGG-;maxIndex;AI;6|) $))))
+          $))) 
 
 (MAKEPROP '|LinearAggregate&| '|infovec|
           (LIST

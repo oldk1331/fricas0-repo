@@ -1,53 +1,54 @@
 
-(DEFUN |INCRMAPS;increment;M;1| ($) (CONS #'|INCRMAPS;increment;M;1!0| $)) 
+(SDEFUN |INCRMAPS;increment;M;1| (($ |Mapping| R R))
+        (CONS #'|INCRMAPS;increment;M;1!0| $)) 
 
-(DEFUN |INCRMAPS;increment;M;1!0| (|x| $)
-  (SPADCALL (|spadConstant| $ 7) |x| (QREFELT $ 8))) 
+(SDEFUN |INCRMAPS;increment;M;1!0| ((|x| NIL) ($ NIL))
+        (SPADCALL (|spadConstant| $ 7) |x| (QREFELT $ 8))) 
 
-(DEFUN |INCRMAPS;incrementBy;RM;2| (|n| $)
-  (PROG () (RETURN (CONS #'|INCRMAPS;incrementBy;RM;2!0| (VECTOR $ |n|))))) 
+(SDEFUN |INCRMAPS;incrementBy;RM;2| ((|n| R) ($ |Mapping| R R))
+        (SPROG NIL (CONS #'|INCRMAPS;incrementBy;RM;2!0| (VECTOR $ |n|)))) 
 
-(DEFUN |INCRMAPS;incrementBy;RM;2!0| (|x| $$)
-  (PROG (|n| $)
-    (LETT |n| (QREFELT $$ 1) . #1=(|INCRMAPS;incrementBy;RM;2|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |n| |x| (QREFELT $ 8)))))) 
+(SDEFUN |INCRMAPS;incrementBy;RM;2!0| ((|x| NIL) ($$ NIL))
+        (PROG (|n| $)
+          (LETT |n| (QREFELT $$ 1) . #1=(|INCRMAPS;incrementBy;RM;2|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |n| |x| (QREFELT $ 8)))))) 
 
 (DECLAIM (NOTINLINE |IncrementingMaps;|)) 
 
 (DEFUN |IncrementingMaps| (#1=#:G108)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G109)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|IncrementingMaps|)
-                                           '|domainEqualList|)
-                . #3=(|IncrementingMaps|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|IncrementingMaps;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G109)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|IncrementingMaps|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IncrementingMaps|)
+                                               '|domainEqualList|)
+                    . #3=(|IncrementingMaps|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|IncrementingMaps;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IncrementingMaps|)))))))))) 
 
 (DEFUN |IncrementingMaps;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|IncrementingMaps|))
-      (LETT |dv$| (LIST '|IncrementingMaps| DV$1) . #1#)
-      (LETT $ (GETREFV 12) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|IncrementingMaps| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|IncrementingMaps|))
+          (LETT |dv$| (LIST '|IncrementingMaps| DV$1) . #1#)
+          (LETT $ (GETREFV 12) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|IncrementingMaps| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|IncrementingMaps| '|infovec|
           (LIST

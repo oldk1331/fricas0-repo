@@ -1,304 +1,315 @@
 
-(DEFUN |SKSMP;D;Var$;1| (|v| $)
-  (SPADCALL (|spadConstant| $ 10) |v| 1 (QREFELT $ 13))) 
+(SDEFUN |SKSMP;D;Var$;1| ((|v| |Var|) ($ $))
+        (SPADCALL (|spadConstant| $ 10) |v| 1 (QREFELT $ 13))) 
 
-(DEFUN |SKSMP;Delta;S$;2| (|s| $)
-  (PROG (|vu|)
-    (RETURN
-     (SEQ (LETT |vu| (SPADCALL |s| (QREFELT $ 17)) |SKSMP;Delta;S$;2|)
-          (EXIT
-           (COND ((QEQCAR |vu| 1) (|error| "missing variable"))
-                 ('T (SPADCALL (QCDR |vu|) (QREFELT $ 14))))))))) 
-
-(DEFUN |SKSMP;lift_map| (|f| $)
-  (PROG () (RETURN (CONS #'|SKSMP;lift_map!0| (VECTOR $ |f|))))) 
-
-(DEFUN |SKSMP;lift_map!0| (|x| $$)
-  (PROG (|f| $)
-    (LETT |f| (QREFELT $$ 1) . #1=(|SKSMP;lift_map|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 28)))))) 
-
-(DEFUN |SKSMP;lift_morphism| (|m| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL
-      (|SKSMP;lift_map| (CONS #'|SKSMP;lift_morphism!0| (VECTOR $ |m|)) $)
-      (|SKSMP;lift_map| (CONS #'|SKSMP;lift_morphism!1| (VECTOR $ |m|)) $)
-      (QREFELT $ 32))))) 
-
-(DEFUN |SKSMP;lift_morphism!1| (|x| $$)
-  (PROG (|m| $)
-    (LETT |m| (QREFELT $$ 1) . #1=(|SKSMP;lift_morphism|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN (SPADCALL (SPADCALL |m| (QREFELT $ 31)) |x| (QREFELT $ 30)))))) 
-
-(DEFUN |SKSMP;lift_morphism!0| (|x| $$)
-  (PROG (|m| $)
-    (LETT |m| (QREFELT $$ 1) . #1=(|SKSMP;lift_morphism|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |m| |x| (QREFELT $ 30)))))) 
-
-(DEFUN |SKSMP;*;3$;5| (|x| |y| $)
-  (PROG (|ru| |yu| |xu| |v| #1=#:G133)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |x| (QREFELT $ 34))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 35)) |y| (QREFELT $ 36)))
-       ('T
-        (SEQ
-         (LETT |v|
-               (PROG2
-                   (LETT #1# (SPADCALL |x| (QREFELT $ 38))
-                         . #2=(|SKSMP;*;3$;5|))
-                   (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
-               . #2#)
-         (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)) . #2#)
-         (LETT |yu| (SPADCALL |y| |v| (QREFELT $ 40)) . #2#)
-         (LETT |ru|
-               (SPADCALL |xu| |yu|
-                         (|SKSMP;lift_morphism| (SPADCALL |v| (QREFELT $ 8)) $)
-                         (|SKSMP;lift_map| (SPADCALL |v| (QREFELT $ 9)) $)
-                         (QREFELT $ 42))
-               . #2#)
-         (EXIT (SPADCALL |ru| |v| (QREFELT $ 43)))))))))) 
-
-(DEFUN |SKSMP;*;$R$;6| (|x| |r| $)
-  (SPADCALL |x| (SPADCALL |r| (QREFELT $ 45)) (QREFELT $ 44))) 
-
-(DEFUN |SKSMP;exquo;2$U;7| (|x| |y| $)
-  (PROG (|res| |cc| #1=#:G155 |cu| |lx| |lx1| |ly| |maxd|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND
-        ((SPADCALL |y| (QREFELT $ 34))
-         (SPADCALL |x| (SPADCALL |y| (QREFELT $ 35)) (QREFELT $ 47)))
-        ((SPADCALL |x| (QREFELT $ 34)) (CONS 1 "failed"))
-        ('T
-         (SEQ
-          (LETT |maxd| (SPADCALL |x| (QREFELT $ 48))
-                . #2=(|SKSMP;exquo;2$U;7|))
-          (LETT |ly| (SPADCALL |y| (QREFELT $ 49)) . #2#)
-          (LETT |res| (|spadConstant| $ 25) . #2#)
-          (SEQ G190
-               (COND
-                ((NULL (SPADCALL |x| (|spadConstant| $ 25) (QREFELT $ 51)))
-                 (GO G191)))
-               (SEQ (LETT |lx1| (SPADCALL |x| (QREFELT $ 49)) . #2#)
-                    (EXIT
-                     (COND
-                      ((SPADCALL (SPADCALL |lx1| (QREFELT $ 48)) |maxd|
-                                 (QREFELT $ 52))
-                       (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #1#)))
-                      ('T
-                       (SEQ (LETT |lx| |lx1| . #2#)
-                            (LETT |cu| (SPADCALL |lx| |ly| (QREFELT $ 53))
-                                  . #2#)
-                            (EXIT
-                             (COND
-                              ((QEQCAR |cu| 1)
-                               (PROGN
-                                (LETT #1# (CONS 1 "failed") . #2#)
-                                (GO #1#)))
-                              ('T
-                               (SEQ (LETT |cc| (QCDR |cu|) . #2#)
-                                    (LETT |res|
-                                          (SPADCALL |res| |cc| (QREFELT $ 54))
-                                          . #2#)
-                                    (EXIT
-                                     (LETT |x|
-                                           (SPADCALL |x|
-                                                     (SPADCALL |cc| |y|
-                                                               (QREFELT $ 44))
-                                                     (QREFELT $ 55))
-                                           . #2#)))))))))))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT (CONS 0 |res|))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |SKSMP;^;$Pi$;8| (|x| |n| $)
-  (PROG (|res| |i|)
-    (RETURN
-     (SEQ (LETT |res| |x| . #1=(|SKSMP;^;$Pi$;8|))
-          (SEQ (LETT |i| 2 . #1#) G190
-               (COND ((|greater_SI| |i| |n|) (GO G191)))
+(SDEFUN |SKSMP;Delta;S$;2| ((|s| |Symbol|) ($ $))
+        (SPROG ((|vu| (|Union| |Var| "failed")))
                (SEQ
-                (EXIT (LETT |res| (SPADCALL |res| |x| (QREFELT $ 44)) . #1#)))
-               (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-          (EXIT |res|))))) 
+                (LETT |vu| (SPADCALL |s| (QREFELT $ 17)) |SKSMP;Delta;S$;2|)
+                (EXIT
+                 (COND ((QEQCAR |vu| 1) (|error| "missing variable"))
+                       ('T (SPADCALL (QCDR |vu|) (QREFELT $ 14)))))))) 
 
-(DEFUN |SKSMP;^;$Nni$;9| (|x| |n| $)
-  (COND ((EQL |n| 0) (|spadConstant| $ 10))
-        ('T (SPADCALL |x| |n| (QREFELT $ 58))))) 
+(SDEFUN |SKSMP;lift_map| ((|f| |Mapping| R R) ($ |Mapping| $ $))
+        (SPROG NIL (CONS #'|SKSMP;lift_map!0| (VECTOR $ |f|)))) 
 
-(DEFUN |SKSMP;coerce;$Of;10| (|x| $)
-  (PROG (|xu| |v| #1=#:G161)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |x| (QREFELT $ 34))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 35)) (QREFELT $ 61)))
-       ('T
-        (SEQ
-         (LETT |v|
-               (PROG2
-                   (LETT #1# (SPADCALL |x| (QREFELT $ 38))
-                         . #2=(|SKSMP;coerce;$Of;10|))
-                   (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
-               . #2#)
-         (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)) . #2#)
-         (EXIT
-          (SPADCALL |xu|
-                    (SPADCALL (SPADCALL 'D (QREFELT $ 62))
-                              (SPADCALL |v| (QREFELT $ 63)) (QREFELT $ 64))
-                    (QREFELT $ 65)))))))))) 
+(SDEFUN |SKSMP;lift_map!0| ((|x| NIL) ($$ NIL))
+        (PROG (|f| $)
+          (LETT |f| (QREFELT $$ 1) . #1=(|SKSMP;lift_map|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 28)))))) 
+
+(SDEFUN |SKSMP;lift_morphism| ((|m| |Automorphism| R) ($ |Automorphism| $))
+        (SPROG NIL
+               (SPADCALL
+                (|SKSMP;lift_map|
+                 (CONS #'|SKSMP;lift_morphism!0| (VECTOR $ |m|)) $)
+                (|SKSMP;lift_map|
+                 (CONS #'|SKSMP;lift_morphism!1| (VECTOR $ |m|)) $)
+                (QREFELT $ 32)))) 
+
+(SDEFUN |SKSMP;lift_morphism!1| ((|x| NIL) ($$ NIL))
+        (PROG (|m| $)
+          (LETT |m| (QREFELT $$ 1) . #1=(|SKSMP;lift_morphism|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL (SPADCALL |m| (QREFELT $ 31)) |x| (QREFELT $ 30)))))) 
+
+(SDEFUN |SKSMP;lift_morphism!0| ((|x| NIL) ($$ NIL))
+        (PROG (|m| $)
+          (LETT |m| (QREFELT $$ 1) . #1=(|SKSMP;lift_morphism|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |m| |x| (QREFELT $ 30)))))) 
+
+(SDEFUN |SKSMP;*;3$;5| ((|x| $) (|y| $) ($ $))
+        (SPROG
+         ((|ru| (|Upol|)) (|yu| (|Upol|)) (|xu| (|Upol|)) (|v| (|Var|))
+          (#1=#:G133 NIL))
+         (SEQ
+          (COND
+           ((SPADCALL |x| (QREFELT $ 34))
+            (SPADCALL (SPADCALL |x| (QREFELT $ 35)) |y| (QREFELT $ 36)))
+           ('T
+            (SEQ
+             (LETT |v|
+                   (PROG2
+                       (LETT #1# (SPADCALL |x| (QREFELT $ 38))
+                             . #2=(|SKSMP;*;3$;5|))
+                       (QCDR #1#)
+                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                   . #2#)
+             (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)) . #2#)
+             (LETT |yu| (SPADCALL |y| |v| (QREFELT $ 40)) . #2#)
+             (LETT |ru|
+                   (SPADCALL |xu| |yu|
+                             (|SKSMP;lift_morphism|
+                              (SPADCALL |v| (QREFELT $ 8)) $)
+                             (|SKSMP;lift_map| (SPADCALL |v| (QREFELT $ 9)) $)
+                             (QREFELT $ 42))
+                   . #2#)
+             (EXIT (SPADCALL |ru| |v| (QREFELT $ 43))))))))) 
+
+(SDEFUN |SKSMP;*;$R$;6| ((|x| $) (|r| R) ($ $))
+        (SPADCALL |x| (SPADCALL |r| (QREFELT $ 45)) (QREFELT $ 44))) 
+
+(SDEFUN |SKSMP;exquo;2$U;7| ((|x| $) (|y| $) ($ |Union| $ "failed"))
+        (SPROG
+         ((|res| ($)) (|cc| ($)) (#1=#:G155 NIL)
+          (|cu| (|Union| (|SparseMultivariatePolynomial| R |Var|) "failed"))
+          (|lx| (|SparseMultivariatePolynomial| R |Var|)) (|lx1| ($))
+          (|ly| (|SparseMultivariatePolynomial| R |Var|))
+          (|maxd| (|NonNegativeInteger|)))
+         (SEQ
+          (EXIT
+           (COND
+            ((SPADCALL |y| (QREFELT $ 34))
+             (SPADCALL |x| (SPADCALL |y| (QREFELT $ 35)) (QREFELT $ 47)))
+            ((SPADCALL |x| (QREFELT $ 34)) (CONS 1 "failed"))
+            ('T
+             (SEQ
+              (LETT |maxd| (SPADCALL |x| (QREFELT $ 48))
+                    . #2=(|SKSMP;exquo;2$U;7|))
+              (LETT |ly| (SPADCALL |y| (QREFELT $ 49)) . #2#)
+              (LETT |res| (|spadConstant| $ 25) . #2#)
+              (SEQ G190
+                   (COND
+                    ((NULL (SPADCALL |x| (|spadConstant| $ 25) (QREFELT $ 51)))
+                     (GO G191)))
+                   (SEQ (LETT |lx1| (SPADCALL |x| (QREFELT $ 49)) . #2#)
+                        (EXIT
+                         (COND
+                          ((SPADCALL (SPADCALL |lx1| (QREFELT $ 48)) |maxd|
+                                     (QREFELT $ 52))
+                           (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #1#)))
+                          ('T
+                           (SEQ (LETT |lx| |lx1| . #2#)
+                                (LETT |cu| (SPADCALL |lx| |ly| (QREFELT $ 53))
+                                      . #2#)
+                                (EXIT
+                                 (COND
+                                  ((QEQCAR |cu| 1)
+                                   (PROGN
+                                    (LETT #1# (CONS 1 "failed") . #2#)
+                                    (GO #1#)))
+                                  ('T
+                                   (SEQ (LETT |cc| (QCDR |cu|) . #2#)
+                                        (LETT |res|
+                                              (SPADCALL |res| |cc|
+                                                        (QREFELT $ 54))
+                                              . #2#)
+                                        (EXIT
+                                         (LETT |x|
+                                               (SPADCALL |x|
+                                                         (SPADCALL |cc| |y|
+                                                                   (QREFELT $
+                                                                            44))
+                                                         (QREFELT $ 55))
+                                               . #2#)))))))))))
+                   NIL (GO G190) G191 (EXIT NIL))
+              (EXIT (CONS 0 |res|))))))
+          #1# (EXIT #1#)))) 
+
+(SDEFUN |SKSMP;^;$Pi$;8| ((|x| $) (|n| |PositiveInteger|) ($ $))
+        (SPROG ((|res| ($)) (|i| NIL))
+               (SEQ (LETT |res| |x| . #1=(|SKSMP;^;$Pi$;8|))
+                    (SEQ (LETT |i| 2 . #1#) G190
+                         (COND ((|greater_SI| |i| |n|) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (LETT |res| (SPADCALL |res| |x| (QREFELT $ 44))
+                                 . #1#)))
+                         (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                         (EXIT NIL))
+                    (EXIT |res|)))) 
+
+(SDEFUN |SKSMP;^;$Nni$;9| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+        (COND ((EQL |n| 0) (|spadConstant| $ 10))
+              ('T (SPADCALL |x| |n| (QREFELT $ 58))))) 
+
+(SDEFUN |SKSMP;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
+        (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G161 NIL))
+               (SEQ
+                (COND
+                 ((SPADCALL |x| (QREFELT $ 34))
+                  (SPADCALL (SPADCALL |x| (QREFELT $ 35)) (QREFELT $ 61)))
+                 ('T
+                  (SEQ
+                   (LETT |v|
+                         (PROG2
+                             (LETT #1# (SPADCALL |x| (QREFELT $ 38))
+                                   . #2=(|SKSMP;coerce;$Of;10|))
+                             (QCDR #1#)
+                           (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                         . #2#)
+                   (LETT |xu| (SPADCALL |x| |v| (QREFELT $ 40)) . #2#)
+                   (EXIT
+                    (SPADCALL |xu|
+                              (SPADCALL (SPADCALL 'D (QREFELT $ 62))
+                                        (SPADCALL |v| (QREFELT $ 63))
+                                        (QREFELT $ 64))
+                              (QREFELT $ 65))))))))) 
 
 (DECLAIM (NOTINLINE |SparseMultivariateSkewPolynomial;|)) 
 
 (DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G180)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G181)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|SparseMultivariateSkewPolynomial|)
-                                           '|domainEqualList|)
-                . #3=(|SparseMultivariateSkewPolynomial|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |SparseMultivariateSkewPolynomial;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G181)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|SparseMultivariateSkewPolynomial|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SparseMultivariateSkewPolynomial|)
+                                               '|domainEqualList|)
+                    . #3=(|SparseMultivariateSkewPolynomial|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SparseMultivariateSkewPolynomial;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseMultivariateSkewPolynomial|)))))))))) 
 
 (DEFUN |SparseMultivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| #1=#:G179 $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|SparseMultivariateSkewPolynomial|))
-      (LETT DV$2 (|devaluate| |#2|) . #2#)
-      (LETT DV$3 (|devaluate| |#3|) . #2#)
-      (LETT DV$4 (|devaluate| |#4|) . #2#)
-      (LETT |dv$|
-            (LIST '|SparseMultivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4)
-            . #2#)
-      (LETT $ (GETREFV 88) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CommutativeRing|))
-                                                . #2#)
-                                          (OR #1#
+  (SPROG
+   ((|pv$| NIL) (#1=#:G179 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+    (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|SparseMultivariateSkewPolynomial|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT DV$3 (|devaluate| |#3|) . #2#)
+    (LETT DV$4 (|devaluate| |#4|) . #2#)
+    (LETT |dv$| (LIST '|SparseMultivariateSkewPolynomial| DV$1 DV$2 DV$3 DV$4)
+          . #2#)
+    (LETT $ (GETREFV 88) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|Algebra|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicNonZero|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (LETT #1#
                                               (|HasCategory| |#1|
-                                                             '(|IntegralDomain|)))
-                                          (|HasCategory| |#1| '(|EntireRing|))
-                                          (OR #1#
-                                              (|HasCategory| |#1|
-                                                             '(|EntireRing|))
-                                              (|HasCategory| |#1|
-                                                             '(|IntegralDomain|)))
-                                          (OR #1#
-                                              (|HasCategory| |#1|
-                                                             '(|EntireRing|)))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|canonicalUnitNormal|))
-                                          (|HasCategory| |#1| '(|Comparable|))
-                                          (|HasCategory| |#1|
-                                                         '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1| '(|Field|))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Fraction|
-                                                             (|Integer|)))))
-                                          (|HasCategory| |#1| '(|GcdDomain|))
-                                          (|HasSignature| |#2|
-                                                          (LIST '|variable|
-                                                                (LIST
-                                                                 (|devaluate|
-                                                                  |#2|)
-                                                                 '(|Symbol|))))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|SparseMultivariateSkewPolynomial|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (AND (|HasCategory| |#1| '(|IntegralDomain|))
-           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-           (|augmentPredVector| $ 262144))
-      (AND (|HasCategory| $ '(|CommutativeRing|))
-           (|augmentPredVector| $ 524288))
-      (AND
-       (OR (|HasCategory| |#1| '(|EntireRing|))
-           (AND (|HasCategory| |#1| '(|IntegralDomain|))
-                (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-       (|augmentPredVector| $ 1048576))
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasSignature| |#2|
-                        (LIST '|variable|
-                              (LIST
-                               (LIST '|Union| (|devaluate| |#2|)
-                                     (|devaluate| "failed"))
-                               '(|Symbol|))))
-        (QSETREFV $ 18 (CONS (|dispatchFunction| |SKSMP;Delta;S$;2|) $))))
-      (QSETREFV $ 19 (|SparseUnivariatePolynomial| $))
-      (QSETREFV $ 20
-                (|SparseUnivariatePolynomial|
-                 (|SparseMultivariatePolynomial| |#1| |#2|)))
-      (QSETREFV $ 24
-                (SPADCALL (LIST #'|SparseMultivariateSkewPolynomial!0|)
-                          (QREFELT $ 23)))
-      (QSETREFV $ 26
-                (|SparseUnivariateSkewPolynomial| $ (QREFELT $ 24)
-                                                  (CONS
-                                                   #'|SparseMultivariateSkewPolynomial!1|
-                                                   $)))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (QSETREFV $ 56 (CONS (|dispatchFunction| |SKSMP;exquo;2$U;7|) $))))
-      $)))) 
+                                                             '(|CommutativeRing|))
+                                              . #2#)
+                                        (OR #1#
+                                            (|HasCategory| |#1|
+                                                           '(|IntegralDomain|)))
+                                        (|HasCategory| |#1| '(|EntireRing|))
+                                        (OR #1#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|))
+                                            (|HasCategory| |#1|
+                                                           '(|IntegralDomain|)))
+                                        (OR #1#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|)))
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1|
+                                                       '(|canonicalUnitNormal|))
+                                        (|HasCategory| |#1| '(|Comparable|))
+                                        (|HasCategory| |#1|
+                                                       '(|LinearlyExplicitRingOver|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1| '(|Field|))
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         (|HasCategory| |#1|
+                                                        '(|RetractableTo|
+                                                          (|Fraction|
+                                                           (|Integer|)))))
+                                        (|HasCategory| |#1| '(|GcdDomain|))
+                                        (|HasSignature| |#2|
+                                                        (LIST '|variable|
+                                                              (LIST
+                                                               (|devaluate|
+                                                                |#2|)
+                                                               '(|Symbol|))))))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|SparseMultivariateSkewPolynomial|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (AND (|HasCategory| |#1| '(|IntegralDomain|))
+         (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
+         (|augmentPredVector| $ 262144))
+    (AND (|HasCategory| $ '(|CommutativeRing|)) (|augmentPredVector| $ 524288))
+    (AND
+     (OR (|HasCategory| |#1| '(|EntireRing|))
+         (AND (|HasCategory| |#1| '(|IntegralDomain|))
+              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 1048576))
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|HasSignature| |#2|
+                      (LIST '|variable|
+                            (LIST
+                             (LIST '|Union| (|devaluate| |#2|)
+                                   (|devaluate| "failed"))
+                             '(|Symbol|))))
+      (QSETREFV $ 18 (CONS (|dispatchFunction| |SKSMP;Delta;S$;2|) $))))
+    (QSETREFV $ 19 (|SparseUnivariatePolynomial| $))
+    (QSETREFV $ 20
+              (|SparseUnivariatePolynomial|
+               (|SparseMultivariatePolynomial| |#1| |#2|)))
+    (QSETREFV $ 24
+              (SPADCALL (LIST #'|SparseMultivariateSkewPolynomial!0|)
+                        (QREFELT $ 23)))
+    (QSETREFV $ 26
+              (|SparseUnivariateSkewPolynomial| $ (QREFELT $ 24)
+                                                (CONS
+                                                 #'|SparseMultivariateSkewPolynomial!1|
+                                                 $)))
+    (COND
+     ((|testBitVector| |pv$| 2)
+      (QSETREFV $ 56 (CONS (|dispatchFunction| |SKSMP;exquo;2$U;7|) $))))
+    $))) 
 
 (DEFUN |SparseMultivariateSkewPolynomial!1| (|x| $) (|spadConstant| $ 25)) 
 

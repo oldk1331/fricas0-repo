@@ -1,49 +1,49 @@
 
-(DEFUN |SEGBIND2;map;MSbSb;1| (|f| |b| $)
-  (SPADCALL (SPADCALL |b| (QREFELT $ 10))
-            (SPADCALL |f| (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 16))
-            (QREFELT $ 18))) 
+(SDEFUN |SEGBIND2;map;MSbSb;1|
+        ((|f| |Mapping| S R) (|b| |SegmentBinding| R) ($ |SegmentBinding| S))
+        (SPADCALL (SPADCALL |b| (QREFELT $ 10))
+                  (SPADCALL |f| (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 16))
+                  (QREFELT $ 18))) 
 
 (DECLAIM (NOTINLINE |SegmentBindingFunctions2;|)) 
 
 (DEFUN |SegmentBindingFunctions2| (&REST #1=#:G105)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G106)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|SegmentBindingFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|SegmentBindingFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |SegmentBindingFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G106)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|SegmentBindingFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SegmentBindingFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|SegmentBindingFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |SegmentBindingFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SegmentBindingFunctions2|)))))))))) 
 
 (DEFUN |SegmentBindingFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|SegmentBindingFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|SegmentBindingFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 20) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|SegmentBindingFunctions2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|SegmentBindingFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|SegmentBindingFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 20) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|SegmentBindingFunctions2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|SegmentBindingFunctions2| '|infovec|
           (LIST

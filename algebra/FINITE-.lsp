@@ -1,55 +1,55 @@
 
-(DEFUN |FINITE-;random;S;1| ($)
-  (PROG (#1=#:G111)
-    (RETURN
-     (SPADCALL
-      (PROG1
-          (LETT #1# (+ 1 (RANDOM (SPADCALL (QREFELT $ 10))))
-                |FINITE-;random;S;1|)
-        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
-      (QREFELT $ 12))))) 
+(SDEFUN |FINITE-;random;S;1| (($ S))
+        (SPROG ((#1=#:G111 NIL))
+               (SPADCALL
+                (PROG1
+                    (LETT #1# (+ 1 (RANDOM (SPADCALL (QREFELT $ 10))))
+                          |FINITE-;random;S;1|)
+                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                (QREFELT $ 12)))) 
 
-(DEFUN |FINITE-;enumerate;L;2| ($)
-  (PROG (#1=#:G114 #2=#:G118 |i| #3=#:G117)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #3# NIL . #4=(|FINITE-;enumerate;L;2|))
-       (SEQ (LETT |i| 1 . #4#) (LETT #2# (SPADCALL (QREFELT $ 10)) . #4#) G190
-            (COND ((|greater_SI| |i| #2#) (GO G191)))
-            (SEQ
-             (EXIT
-              (LETT #3#
-                    (CONS
-                     (SPADCALL
-                      (PROG1 (LETT #1# |i| . #4#)
-                        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
-                      (QREFELT $ 12))
-                     #3#)
-                    . #4#)))
-            (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-            (EXIT (NREVERSE #3#)))))))) 
+(SDEFUN |FINITE-;enumerate;L;2| (($ |List| S))
+        (SPROG ((#1=#:G114 NIL) (#2=#:G118 NIL) (|i| NIL) (#3=#:G117 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #3# NIL . #4=(|FINITE-;enumerate;L;2|))
+                 (SEQ (LETT |i| 1 . #4#)
+                      (LETT #2# (SPADCALL (QREFELT $ 10)) . #4#) G190
+                      (COND ((|greater_SI| |i| #2#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #3#
+                              (CONS
+                               (SPADCALL
+                                (PROG1 (LETT #1# |i| . #4#)
+                                  (|check_subtype| (> #1# 0)
+                                                   '(|PositiveInteger|) #1#))
+                                (QREFELT $ 12))
+                               #3#)
+                              . #4#)))
+                      (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                      (EXIT (NREVERSE #3#))))))) 
 
-(DEFUN |FINITE-;convert;SIf;3| (|x| $)
-  (SPADCALL '|index|
-            (LIST (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 19)))
-            (QREFELT $ 23))) 
+(SDEFUN |FINITE-;convert;SIf;3| ((|x| S) ($ |InputForm|))
+        (SPADCALL '|index|
+                  (LIST
+                   (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 19)))
+                  (QREFELT $ 23))) 
 
 (DECLAIM (NOTINLINE |Finite&;|)) 
 
 (DEFUN |Finite&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Finite&|))
-      (LETT |dv$| (LIST '|Finite&| DV$1) . #1#)
-      (LETT $ (GETREFV 25) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Finite&|))
+          (LETT |dv$| (LIST '|Finite&| DV$1) . #1#)
+          (LETT $ (GETREFV 25) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Finite&| '|infovec|
           (LIST

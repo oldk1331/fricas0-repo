@@ -23,75 +23,83 @@
       #2#)))) 
 
 (DEFUN |MultivariateTaylorSeriesCategory;| (|t#1| |t#2|)
-  (PROG (#1=#:G104)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (|sublisV|
-                 (PAIR '(#2=#:G103) (LIST '(|IndexedExponents| |t#2|)))
-                 (COND (|MultivariateTaylorSeriesCategory;CAT|)
-                       ('T
-                        (LETT |MultivariateTaylorSeriesCategory;CAT|
-                              (|Join| (|PartialDifferentialRing| '|t#2|)
-                                      (|PowerSeriesCategory| '|t#1| '#2#
-                                                             '|t#2|)
-                                      (|InnerEvalable| '|t#2| '$)
-                                      (|Evalable| '$)
-                                      (|mkCategory|
-                                       '(((|coefficient|
-                                           ($ $ |t#2| (|NonNegativeInteger|)))
-                                          T)
-                                         ((|coefficient|
-                                           ($ $ (|List| |t#2|)
-                                            (|List| (|NonNegativeInteger|))))
-                                          T)
-                                         ((|extend|
-                                           ($ $ (|NonNegativeInteger|)))
-                                          T)
-                                         ((|monomial|
-                                           ($ $ |t#2| (|NonNegativeInteger|)))
-                                          T)
-                                         ((|monomial|
-                                           ($ $ (|List| |t#2|)
-                                            (|List| (|NonNegativeInteger|))))
-                                          T)
-                                         ((|order|
-                                           ((|NonNegativeInteger|) $ |t#2|))
-                                          T)
-                                         ((|order|
-                                           ((|NonNegativeInteger|) $ |t#2|
-                                            (|NonNegativeInteger|)))
-                                          T)
-                                         ((|polynomial|
-                                           ((|Polynomial| |t#1|) $
-                                            (|NonNegativeInteger|)))
-                                          T)
-                                         ((|polynomial|
-                                           ((|Polynomial| |t#1|) $
-                                            (|NonNegativeInteger|)
-                                            (|NonNegativeInteger|)))
-                                          T)
-                                         ((|integrate| ($ $ |t#2|))
-                                          (|has| |t#1|
-                                                 (|Algebra|
-                                                  (|Fraction| (|Integer|))))))
-                                       '(((|RadicalCategory|)
-                                          (|has| |t#1|
-                                                 (|Algebra|
-                                                  (|Fraction| (|Integer|)))))
-                                         ((|TranscendentalFunctionCategory|)
-                                          (|has| |t#1|
-                                                 (|Algebra|
-                                                  (|Fraction| (|Integer|))))))
-                                       '((|Polynomial| |t#1|)
-                                         (|NonNegativeInteger|) (|List| |t#2|)
-                                         (|List| (|NonNegativeInteger|)))
-                                       NIL))
-                              . #3=(|MultivariateTaylorSeriesCategory|))))))
-               . #3#)
-       (SETELT #1# 0
-               (LIST '|MultivariateTaylorSeriesCategory| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G104 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (|sublisV|
+                     (PAIR '(#2=#:G103) (LIST '(|IndexedExponents| |t#2|)))
+                     (COND (|MultivariateTaylorSeriesCategory;CAT|)
+                           ('T
+                            (LETT |MultivariateTaylorSeriesCategory;CAT|
+                                  (|Join| (|PartialDifferentialRing| '|t#2|)
+                                          (|PowerSeriesCategory| '|t#1| '#2#
+                                                                 '|t#2|)
+                                          (|InnerEvalable| '|t#2| '$)
+                                          (|Evalable| '$)
+                                          (|mkCategory|
+                                           '(((|coefficient|
+                                               ($ $ |t#2|
+                                                (|NonNegativeInteger|)))
+                                              T)
+                                             ((|coefficient|
+                                               ($ $ (|List| |t#2|)
+                                                (|List|
+                                                 (|NonNegativeInteger|))))
+                                              T)
+                                             ((|extend|
+                                               ($ $ (|NonNegativeInteger|)))
+                                              T)
+                                             ((|monomial|
+                                               ($ $ |t#2|
+                                                (|NonNegativeInteger|)))
+                                              T)
+                                             ((|monomial|
+                                               ($ $ (|List| |t#2|)
+                                                (|List|
+                                                 (|NonNegativeInteger|))))
+                                              T)
+                                             ((|order|
+                                               ((|NonNegativeInteger|) $
+                                                |t#2|))
+                                              T)
+                                             ((|order|
+                                               ((|NonNegativeInteger|) $ |t#2|
+                                                (|NonNegativeInteger|)))
+                                              T)
+                                             ((|polynomial|
+                                               ((|Polynomial| |t#1|) $
+                                                (|NonNegativeInteger|)))
+                                              T)
+                                             ((|polynomial|
+                                               ((|Polynomial| |t#1|) $
+                                                (|NonNegativeInteger|)
+                                                (|NonNegativeInteger|)))
+                                              T)
+                                             ((|integrate| ($ $ |t#2|))
+                                              (|has| |t#1|
+                                                     (|Algebra|
+                                                      (|Fraction|
+                                                       (|Integer|))))))
+                                           '(((|RadicalCategory|)
+                                              (|has| |t#1|
+                                                     (|Algebra|
+                                                      (|Fraction|
+                                                       (|Integer|)))))
+                                             ((|TranscendentalFunctionCategory|)
+                                              (|has| |t#1|
+                                                     (|Algebra|
+                                                      (|Fraction|
+                                                       (|Integer|))))))
+                                           '((|Polynomial| |t#1|)
+                                             (|NonNegativeInteger|)
+                                             (|List| |t#2|)
+                                             (|List| (|NonNegativeInteger|)))
+                                           NIL))
+                                  . #3=(|MultivariateTaylorSeriesCategory|))))))
+                   . #3#)
+           (SETELT #1# 0
+                   (LIST '|MultivariateTaylorSeriesCategory|
+                         (|devaluate| |t#1|) (|devaluate| |t#2|)))))) 

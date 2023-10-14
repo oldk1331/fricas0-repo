@@ -1,78 +1,76 @@
 
-(DEFUN |COMM;=;2$B;1| (|x| |y| $)
-  (PROG (|yy| |xx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QEQCAR |x| 0)
-        (COND
-         ((QEQCAR |y| 0)
-          (EXIT (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 10)))))))
-      (COND
-       ((QEQCAR |x| 1)
-        (COND
-         ((QEQCAR |y| 1)
-          (EXIT
-           (SEQ (LETT |xx| (QCDR |x|) . #1=(|COMM;=;2$B;1|))
-                (LETT |yy| (QCDR |y|) . #1#)
-                (EXIT
-                 (COND
-                  ((SPADCALL (QCDR |xx|) (QCDR |yy|) (QREFELT $ 11))
-                   (SPADCALL (QCAR |xx|) (QCAR |yy|) (QREFELT $ 11)))
-                  ('T 'NIL)))))))))
-      (EXIT 'NIL))))) 
+(SDEFUN |COMM;=;2$B;1| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((|yy| (P)) (|xx| (P)))
+               (SEQ
+                (COND
+                 ((QEQCAR |x| 0)
+                  (COND
+                   ((QEQCAR |y| 0)
+                    (EXIT (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 10)))))))
+                (COND
+                 ((QEQCAR |x| 1)
+                  (COND
+                   ((QEQCAR |y| 1)
+                    (EXIT
+                     (SEQ (LETT |xx| (QCDR |x|) . #1=(|COMM;=;2$B;1|))
+                          (LETT |yy| (QCDR |y|) . #1#)
+                          (EXIT
+                           (COND
+                            ((SPADCALL (QCDR |xx|) (QCDR |yy|) (QREFELT $ 11))
+                             (SPADCALL (QCAR |xx|) (QCAR |yy|) (QREFELT $ 11)))
+                            ('T 'NIL)))))))))
+                (EXIT 'NIL)))) 
 
-(DEFUN |COMM;mkcomm;I$;2| (|i| $) (CONS 0 (SPADCALL |i| (QREFELT $ 13)))) 
+(SDEFUN |COMM;mkcomm;I$;2| ((|i| |Integer|) ($ $))
+        (CONS 0 (SPADCALL |i| (QREFELT $ 13)))) 
 
-(DEFUN |COMM;mkcomm;3$;3| (|x| |y| $) (CONS 1 (CONS |x| |y|))) 
+(SDEFUN |COMM;mkcomm;3$;3| ((|x| $) (|y| $) ($ $)) (CONS 1 (CONS |x| |y|))) 
 
-(DEFUN |COMM;coerce;$Of;4| (|x| $)
-  (PROG (|xx|)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 17)))
-            ('T
-             (SEQ (LETT |xx| (QCDR |x|) |COMM;coerce;$Of;4|)
-                  (EXIT
-                   (SPADCALL
-                    (LIST (SPADCALL (QCAR |xx|) (QREFELT $ 18))
-                          (SPADCALL (QCDR |xx|) (QREFELT $ 18)))
-                    (QREFELT $ 20)))))))))) 
+(SDEFUN |COMM;coerce;$Of;4| ((|x| $) ($ |OutputForm|))
+        (SPROG ((|xx| (P)))
+               (SEQ
+                (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 17)))
+                      ('T
+                       (SEQ (LETT |xx| (QCDR |x|) |COMM;coerce;$Of;4|)
+                            (EXIT
+                             (SPADCALL
+                              (LIST (SPADCALL (QCAR |xx|) (QREFELT $ 18))
+                                    (SPADCALL (QCDR |xx|) (QREFELT $ 18)))
+                              (QREFELT $ 20))))))))) 
 
 (DECLAIM (NOTINLINE |Commutator;|)) 
 
 (DEFUN |Commutator| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G120)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Commutator|)
-                . #2=(|Commutator|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Commutator|
-                         (LIST (CONS NIL (CONS 1 (|Commutator;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Commutator|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G120)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Commutator|)
+                    . #2=(|Commutator|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Commutator|
+                             (LIST (CONS NIL (CONS 1 (|Commutator;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|Commutator|)))))))))) 
 
 (DEFUN |Commutator;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Commutator|) . #1=(|Commutator|))
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Commutator| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|Record| (|:| |left| $) (|:| |right| $)))
-      (QSETREFV $ 7 (|Union| (|OrdSetInts|) (QREFELT $ 6)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Commutator|) . #1=(|Commutator|))
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Commutator| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|Record| (|:| |left| $) (|:| |right| $)))
+          (QSETREFV $ 7 (|Union| (|OrdSetInts|) (QREFELT $ 6)))
+          $))) 
 
 (MAKEPROP '|Commutator| '|infovec|
           (LIST

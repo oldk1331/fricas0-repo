@@ -1,139 +1,156 @@
 
-(DEFUN |GOPT;maxLevel;U$;1| (|d| $)
-  (CONS '|maxLevel| (SPADCALL |d| (QREFELT $ 10)))) 
+(SDEFUN |GOPT;maxLevel;U$;1|
+        ((|d| |Union| (|NonNegativeInteger|) "arbitrary") ($ $))
+        (CONS '|maxLevel| (SPADCALL |d| (QREFELT $ 10)))) 
 
-(DEFUN |GOPT;maxDerivative;U$;2| (|d| $)
-  (CONS '|maxDerivative| (SPADCALL |d| (QREFELT $ 10)))) 
+(SDEFUN |GOPT;maxDerivative;U$;2|
+        ((|d| |Union| (|NonNegativeInteger|) "arbitrary") ($ $))
+        (CONS '|maxDerivative| (SPADCALL |d| (QREFELT $ 10)))) 
 
-(DEFUN |GOPT;maxShift;U$;3| (|d| $) (SPADCALL |d| (QREFELT $ 12))) 
+(SDEFUN |GOPT;maxShift;U$;3|
+        ((|d| |Union| (|NonNegativeInteger|) "arbitrary") ($ $))
+        (SPADCALL |d| (QREFELT $ 12))) 
 
-(DEFUN |GOPT;maxSubst;U$;4| (|d| $)
-  (PROG (#1=#:G128)
-    (RETURN
-     (COND
-      ((QEQCAR |d| 0)
-       (SPADCALL
-        (CONS 0
-              (PROG1 (LETT #1# (- (QCDR |d|) 1) |GOPT;maxSubst;U$;4|)
-                (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
-        (QREFELT $ 12)))
-      ('T (SPADCALL (CONS 1 (QCDR |d|)) (QREFELT $ 12))))))) 
-
-(DEFUN |GOPT;maxDegree;U$;5| (|d| $)
-  (CONS '|maxDegree| (SPADCALL |d| (QREFELT $ 10)))) 
-
-(DEFUN |GOPT;maxMixedDegree;Nni$;6| (|d| $)
-  (CONS '|maxMixedDegree| (SPADCALL |d| (QREFELT $ 19)))) 
-
-(DEFUN |GOPT;allDegrees;B$;7| (|d| $)
-  (CONS '|allDegrees| (SPADCALL |d| (QREFELT $ 23)))) 
-
-(DEFUN |GOPT;maxPower;U$;8| (|d| $)
-  (CONS '|maxPower| (SPADCALL |d| (QREFELT $ 26)))) 
-
-(DEFUN |GOPT;safety;Nni$;9| (|d| $)
-  (CONS '|safety| (SPADCALL |d| (QREFELT $ 19)))) 
-
-(DEFUN |GOPT;homogeneous;U$;10| (|d| $)
-  (CONS '|homogeneous| (SPADCALL |d| (QREFELT $ 31)))) 
-
-(DEFUN |GOPT;Somos;U$;11| (|d| $) (CONS '|Somos| (SPADCALL |d| (QREFELT $ 31)))) 
-
-(DEFUN |GOPT;debug;B$;12| (|d| $) (CONS '|debug| (SPADCALL |d| (QREFELT $ 23)))) 
-
-(DEFUN |GOPT;check;U$;13| (|d| $) (CONS '|check| (SPADCALL |d| (QREFELT $ 37)))) 
-
-(DEFUN |GOPT;checkExtraValues;B$;14| (|d| $)
-  (CONS '|checkExtraValues| (SPADCALL |d| (QREFELT $ 23)))) 
-
-(DEFUN |GOPT;one;B$;15| (|d| $) (CONS '|one| (SPADCALL |d| (QREFELT $ 23)))) 
-
-(DEFUN |GOPT;functionName;S$;16| (|d| $)
-  (CONS '|functionName| (SPADCALL |d| (QREFELT $ 43)))) 
-
-(DEFUN |GOPT;functionNames;L$;17| (|d| $)
-  (CONS '|functionNames| (SPADCALL |d| (QREFELT $ 47)))) 
-
-(DEFUN |GOPT;variableName;S$;18| (|d| $)
-  (CONS '|variableName| (SPADCALL |d| (QREFELT $ 43)))) 
-
-(DEFUN |GOPT;indexName;S$;19| (|d| $)
-  (CONS '|indexName| (SPADCALL |d| (QREFELT $ 43)))) 
-
-(DEFUN |GOPT;displayKind;S$;20| (|d| $)
-  (CONS '|displayKind| (SPADCALL |d| (QREFELT $ 43)))) 
-
-(DEFUN |GOPT;coerce;$Of;21| (|x| $)
-  (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 53))
-            (SPADCALL (QCDR |x|) (QREFELT $ 54)) (QREFELT $ 55))) 
-
-(DEFUN |GOPT;=;2$B;22| (|x| |y| $)
-  (COND
-   ((EQUAL (QCAR |x|) (QCAR |y|))
-    (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 57)))
-   ('T 'NIL))) 
-
-(DEFUN |GOPT;option;LSU;23| (|l| |s| $)
-  (PROG (#1=#:G184 #2=#:G189 #3=#:G190 |x|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ
-         (EXIT
-          (SEQ (LETT |x| NIL . #4=(|GOPT;option;LSU;23|)) (LETT #3# |l| . #4#)
-               G190
+(SDEFUN |GOPT;maxSubst;U$;4|
+        ((|d| |Union| (|PositiveInteger|) "arbitrary") ($ $))
+        (SPROG ((#1=#:G128 NIL))
                (COND
-                ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
+                ((QEQCAR |d| 0)
+                 (SPADCALL
+                  (CONS 0
+                        (PROG1 (LETT #1# (- (QCDR |d|) 1) |GOPT;maxSubst;U$;4|)
+                          (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
+                                           #1#)))
+                  (QREFELT $ 12)))
+                ('T (SPADCALL (CONS 1 (QCDR |d|)) (QREFELT $ 12)))))) 
+
+(SDEFUN |GOPT;maxDegree;U$;5|
+        ((|d| |Union| (|NonNegativeInteger|) "arbitrary") ($ $))
+        (CONS '|maxDegree| (SPADCALL |d| (QREFELT $ 10)))) 
+
+(SDEFUN |GOPT;maxMixedDegree;Nni$;6| ((|d| |NonNegativeInteger|) ($ $))
+        (CONS '|maxMixedDegree| (SPADCALL |d| (QREFELT $ 19)))) 
+
+(SDEFUN |GOPT;allDegrees;B$;7| ((|d| |Boolean|) ($ $))
+        (CONS '|allDegrees| (SPADCALL |d| (QREFELT $ 23)))) 
+
+(SDEFUN |GOPT;maxPower;U$;8|
+        ((|d| |Union| (|PositiveInteger|) "arbitrary") ($ $))
+        (CONS '|maxPower| (SPADCALL |d| (QREFELT $ 26)))) 
+
+(SDEFUN |GOPT;safety;Nni$;9| ((|d| |NonNegativeInteger|) ($ $))
+        (CONS '|safety| (SPADCALL |d| (QREFELT $ 19)))) 
+
+(SDEFUN |GOPT;homogeneous;U$;10|
+        ((|d| |Union| (|PositiveInteger|) (|Boolean|)) ($ $))
+        (CONS '|homogeneous| (SPADCALL |d| (QREFELT $ 31)))) 
+
+(SDEFUN |GOPT;Somos;U$;11|
+        ((|d| |Union| (|PositiveInteger|) (|Boolean|)) ($ $))
+        (CONS '|Somos| (SPADCALL |d| (QREFELT $ 31)))) 
+
+(SDEFUN |GOPT;debug;B$;12| ((|d| |Boolean|) ($ $))
+        (CONS '|debug| (SPADCALL |d| (QREFELT $ 23)))) 
+
+(SDEFUN |GOPT;check;U$;13|
+        ((|d| |Union| "skip" "MonteCarlo" "deterministic") ($ $))
+        (CONS '|check| (SPADCALL |d| (QREFELT $ 37)))) 
+
+(SDEFUN |GOPT;checkExtraValues;B$;14| ((|d| |Boolean|) ($ $))
+        (CONS '|checkExtraValues| (SPADCALL |d| (QREFELT $ 23)))) 
+
+(SDEFUN |GOPT;one;B$;15| ((|d| |Boolean|) ($ $))
+        (CONS '|one| (SPADCALL |d| (QREFELT $ 23)))) 
+
+(SDEFUN |GOPT;functionName;S$;16| ((|d| |Symbol|) ($ $))
+        (CONS '|functionName| (SPADCALL |d| (QREFELT $ 43)))) 
+
+(SDEFUN |GOPT;functionNames;L$;17| ((|d| |List| (|Symbol|)) ($ $))
+        (CONS '|functionNames| (SPADCALL |d| (QREFELT $ 47)))) 
+
+(SDEFUN |GOPT;variableName;S$;18| ((|d| |Symbol|) ($ $))
+        (CONS '|variableName| (SPADCALL |d| (QREFELT $ 43)))) 
+
+(SDEFUN |GOPT;indexName;S$;19| ((|d| |Symbol|) ($ $))
+        (CONS '|indexName| (SPADCALL |d| (QREFELT $ 43)))) 
+
+(SDEFUN |GOPT;displayKind;S$;20| ((|d| |Symbol|) ($ $))
+        (CONS '|displayKind| (SPADCALL |d| (QREFELT $ 43)))) 
+
+(SDEFUN |GOPT;coerce;$Of;21| ((|x| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL (QCAR |x|) (QREFELT $ 53))
+                  (SPADCALL (QCDR |x|) (QREFELT $ 54)) (QREFELT $ 55))) 
+
+(SDEFUN |GOPT;=;2$B;22| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND
+         ((EQUAL (QCAR |x|) (QCAR |y|))
+          (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 57)))
+         ('T 'NIL))) 
+
+(SDEFUN |GOPT;option;LSU;23|
+        ((|l| |List| $) (|s| |Symbol|) ($ |Union| (|Any|) "failed"))
+        (SPROG ((#1=#:G184 NIL) (#2=#:G189 NIL) (#3=#:G190 NIL) (|x| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((EQUAL (QCAR |x|) |s|)
-                   (PROGN
-                    (LETT #1#
-                          (PROGN (LETT #2# (CONS 0 (QCDR |x|)) . #4#) (GO #2#))
-                          . #4#)
-                    (GO #1#))))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT (CONS 1 "failed"))))
-      #2# (EXIT #2#))))) 
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |x| NIL . #4=(|GOPT;option;LSU;23|))
+                         (LETT #3# |l| . #4#) G190
+                         (COND
+                          ((OR (ATOM #3#)
+                               (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
+                           (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((EQUAL (QCAR |x|) |s|)
+                             (PROGN
+                              (LETT #1#
+                                    (PROGN
+                                     (LETT #2# (CONS 0 (QCDR |x|)) . #4#)
+                                     (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT (CONS 1 "failed"))))
+                #2# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |GuessOption;|)) 
 
 (DEFUN |GuessOption| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G192)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|GuessOption|)
-                . #2=(|GuessOption|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|GuessOption|
-                         (LIST (CONS NIL (CONS 1 (|GuessOption;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|GuessOption|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G192)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|GuessOption|)
+                    . #2=(|GuessOption|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|GuessOption|
+                             (LIST (CONS NIL (CONS 1 (|GuessOption;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|GuessOption|)))))))))) 
 
 (DEFUN |GuessOption;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|GuessOption|) . #1=(|GuessOption|))
-      (LETT $ (GETREFV 65) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|GuessOption| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Record| (|:| |keyword| (|Symbol|)) (|:| |value| (|Any|))))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GuessOption|) . #1=(|GuessOption|))
+          (LETT $ (GETREFV 65) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|GuessOption| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |keyword| (|Symbol|))
+                              (|:| |value| (|Any|))))
+          $))) 
 
 (MAKEPROP '|GuessOption| '|infovec|
           (LIST

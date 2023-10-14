@@ -2,105 +2,108 @@
 (PUT '|FOP;topFortranOutputStack;S;1| '|SPADreplace|
      '(XLAM NIL (STRINGIMAGE |$fortranOutputFile|))) 
 
-(DEFUN |FOP;topFortranOutputStack;S;1| ($) (STRINGIMAGE |$fortranOutputFile|)) 
+(SDEFUN |FOP;topFortranOutputStack;S;1| (($ |String|))
+        (STRINGIMAGE |$fortranOutputFile|)) 
 
-(DEFUN |FOP;pushFortranOutputStack;FnV;2| (|fn| $)
-  (SEQ
-   (COND
-    ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
-     (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
-               (QREFELT $ 13)))
-    ((NULL
-      (EQUAL (SPADCALL (QREFELT $ 8) (QREFELT $ 14))
-             (STRINGIMAGE |$fortranOutputFile|)))
-     (SEQ (SPADCALL (QREFELT $ 8) (QREFELT $ 15))
-          (EXIT
+(SDEFUN |FOP;pushFortranOutputStack;FnV;2| ((|fn| |FileName|) ($ |Void|))
+        (SEQ
+         (COND
+          ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
            (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
-                     (QREFELT $ 13))))))
-   (SPADCALL (SPADCALL |fn| (QREFELT $ 17)) (QREFELT $ 8) (QREFELT $ 13))
-   (SPADCALL
-    (SPADCALL (LIST "set output fortran quiet " (SPADCALL |fn| (QREFELT $ 17)))
-              (QREFELT $ 19))
-    (QREFELT $ 22))
-   (EXIT (SPADCALL (QREFELT $ 23))))) 
+                     (QREFELT $ 13)))
+          ((NULL
+            (EQUAL (SPADCALL (QREFELT $ 8) (QREFELT $ 14))
+                   (STRINGIMAGE |$fortranOutputFile|)))
+           (SEQ (SPADCALL (QREFELT $ 8) (QREFELT $ 15))
+                (EXIT
+                 (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
+                           (QREFELT $ 13))))))
+         (SPADCALL (SPADCALL |fn| (QREFELT $ 17)) (QREFELT $ 8) (QREFELT $ 13))
+         (SPADCALL
+          (SPADCALL
+           (LIST "set output fortran quiet " (SPADCALL |fn| (QREFELT $ 17)))
+           (QREFELT $ 19))
+          (QREFELT $ 22))
+         (EXIT (SPADCALL (QREFELT $ 23))))) 
 
-(DEFUN |FOP;pushFortranOutputStack;SV;3| (|fn| $)
-  (SEQ
-   (COND
-    ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
-     (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
-               (QREFELT $ 13)))
-    ((NULL
-      (EQUAL (SPADCALL (QREFELT $ 8) (QREFELT $ 14))
-             (STRINGIMAGE |$fortranOutputFile|)))
-     (SEQ (SPADCALL (QREFELT $ 8) (QREFELT $ 15))
-          (EXIT
+(SDEFUN |FOP;pushFortranOutputStack;SV;3| ((|fn| |String|) ($ |Void|))
+        (SEQ
+         (COND
+          ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
            (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
-                     (QREFELT $ 13))))))
-   (SPADCALL |fn| (QREFELT $ 8) (QREFELT $ 13))
-   (SPADCALL (SPADCALL (LIST "set output fortran quiet " |fn|) (QREFELT $ 19))
-             (QREFELT $ 22))
-   (EXIT (SPADCALL (QREFELT $ 23))))) 
+                     (QREFELT $ 13)))
+          ((NULL
+            (EQUAL (SPADCALL (QREFELT $ 8) (QREFELT $ 14))
+                   (STRINGIMAGE |$fortranOutputFile|)))
+           (SEQ (SPADCALL (QREFELT $ 8) (QREFELT $ 15))
+                (EXIT
+                 (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 8)
+                           (QREFELT $ 13))))))
+         (SPADCALL |fn| (QREFELT $ 8) (QREFELT $ 13))
+         (SPADCALL
+          (SPADCALL (LIST "set output fortran quiet " |fn|) (QREFELT $ 19))
+          (QREFELT $ 22))
+         (EXIT (SPADCALL (QREFELT $ 23))))) 
 
-(DEFUN |FOP;popFortranOutputStack;V;4| ($)
-  (SEQ
-   (COND
-    ((NULL (SPADCALL (QREFELT $ 8) (QREFELT $ 12)))
-     (SPADCALL (QREFELT $ 8) (QREFELT $ 15))))
-   (COND
-    ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
-     (SPADCALL "CONSOLE" (QREFELT $ 8) (QREFELT $ 13))))
-   (SPADCALL
-    (SPADCALL
-     (LIST "set output fortran quiet append "
-           (SPADCALL (QREFELT $ 8) (QREFELT $ 14)))
-     (QREFELT $ 19))
-    (QREFELT $ 22))
-   (EXIT (SPADCALL (QREFELT $ 23))))) 
+(SDEFUN |FOP;popFortranOutputStack;V;4| (($ |Void|))
+        (SEQ
+         (COND
+          ((NULL (SPADCALL (QREFELT $ 8) (QREFELT $ 12)))
+           (SPADCALL (QREFELT $ 8) (QREFELT $ 15))))
+         (COND
+          ((SPADCALL (QREFELT $ 8) (QREFELT $ 12))
+           (SPADCALL "CONSOLE" (QREFELT $ 8) (QREFELT $ 13))))
+         (SPADCALL
+          (SPADCALL
+           (LIST "set output fortran quiet append "
+                 (SPADCALL (QREFELT $ 8) (QREFELT $ 14)))
+           (QREFELT $ 19))
+          (QREFELT $ 22))
+         (EXIT (SPADCALL (QREFELT $ 23))))) 
 
-(DEFUN |FOP;clearFortranOutputStack;S;5| ($)
-  (SETELT $ 8 (SPADCALL (QREFELT $ 7)))) 
+(SDEFUN |FOP;clearFortranOutputStack;S;5| (($ |Stack| (|String|)))
+        (SETELT $ 8 (SPADCALL (QREFELT $ 7)))) 
 
-(DEFUN |FOP;showFortranOutputStack;S;6| ($) (QREFELT $ 8)) 
+(SDEFUN |FOP;showFortranOutputStack;S;6| (($ |Stack| (|String|))) (QREFELT $ 8)) 
 
 (DECLAIM (NOTINLINE |FortranOutputStackPackage;|)) 
 
 (DEFUN |FortranOutputStackPackage| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G127)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|FortranOutputStackPackage|)
-                . #2=(|FortranOutputStackPackage|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|FortranOutputStackPackage|
-                         (LIST
-                          (CONS NIL (CONS 1 (|FortranOutputStackPackage;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G127)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|FortranOutputStackPackage|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|FortranOutputStackPackage|)
+                    . #2=(|FortranOutputStackPackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|FortranOutputStackPackage|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|FortranOutputStackPackage;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|FortranOutputStackPackage|)))))))))) 
 
 (DEFUN |FortranOutputStackPackage;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|FortranOutputStackPackage|)
-            . #1=(|FortranOutputStackPackage|))
-      (LETT $ (GETREFV 29) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FortranOutputStackPackage| NIL
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (SPADCALL (QREFELT $ 7)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|FortranOutputStackPackage|)
+                . #1=(|FortranOutputStackPackage|))
+          (LETT $ (GETREFV 29) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FortranOutputStackPackage| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 (SPADCALL (QREFELT $ 7)))
+          $))) 
 
 (MAKEPROP '|FortranOutputStackPackage| '|infovec|
           (LIST

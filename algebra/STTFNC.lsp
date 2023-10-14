@@ -1,410 +1,431 @@
 
-(DEFUN |STTFNC;exp;2S;1| (|z| $)
-  (PROG (|expx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |expx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 22))
-               |STTFNC;exp;2S;1|)
-         (EXIT (SPADCALL |expx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "exp: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
-
-(DEFUN |STTFNC;log;2S;2| (|z| $)
-  (PROG (|log1PlusX|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (SPADCALL |z| (QREFELT $ 12))
-            (NULL
-             (SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 13)
-                       (QREFELT $ 18))))
-        (|error| (SPADCALL (STRCONC "log: " (QREFELT $ 8)) (QREFELT $ 26))))
-       ('T
-        (SEQ
-         (LETT |log1PlusX|
-               (SPADCALL
-                (SPADCALL (SPADCALL (|spadConstant| $ 13) 0 (QREFELT $ 20))
+(SDEFUN |STTFNC;exp;2S;1| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|expx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |expx|
+                         (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 28))
-                (QREFELT $ 29))
-               |STTFNC;log;2S;2|)
-         (EXIT
-          (SPADCALL |log1PlusX|
-                    (SPADCALL |z|
-                              (SPADCALL (|spadConstant| $ 13) 0 (QREFELT $ 20))
-                              (QREFELT $ 30))
-                    (QREFELT $ 23)))))))))) 
+                          (QREFELT $ 22))
+                         |STTFNC;exp;2S;1|)
+                   (EXIT (SPADCALL |expx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "exp: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;^;3S;3| (|z1| |z2| $)
-  (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 31)) |z2| (QREFELT $ 32))
-            (QREFELT $ 27))) 
+(SDEFUN |STTFNC;log;2S;2| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|log1PlusX| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((OR (SPADCALL |z| (QREFELT $ 12))
+                      (NULL
+                       (SPADCALL (SPADCALL |z| (QREFELT $ 16))
+                                 (|spadConstant| $ 13) (QREFELT $ 18))))
+                  (|error|
+                   (SPADCALL (STRCONC "log: " (QREFELT $ 8)) (QREFELT $ 26))))
+                 ('T
+                  (SEQ
+                   (LETT |log1PlusX|
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL (|spadConstant| $ 13) 0 (QREFELT $ 20))
+                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                           (QREFELT $ 28))
+                          (QREFELT $ 29))
+                         |STTFNC;log;2S;2|)
+                   (EXIT
+                    (SPADCALL |log1PlusX|
+                              (SPADCALL |z|
+                                        (SPADCALL (|spadConstant| $ 13) 0
+                                                  (QREFELT $ 20))
+                                        (QREFELT $ 30))
+                              (QREFELT $ 23))))))))) 
 
-(DEFUN |STTFNC;sin;2S;4| (|z| $)
-  (PROG (|sinx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |sinx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 34))
-               |STTFNC;sin;2S;4|)
-         (EXIT (SPADCALL |sinx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "sin: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;^;3S;3|
+        ((|z1| |Stream| |Coef|) (|z2| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 31)) |z2| (QREFELT $ 32))
+                  (QREFELT $ 27))) 
 
-(DEFUN |STTFNC;cos;2S;5| (|z| $)
-  (PROG (|cosx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |cosx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 36))
-               |STTFNC;cos;2S;5|)
-         (EXIT (SPADCALL |cosx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "cos: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;sin;2S;4| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|sinx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |sinx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 34))
+                         |STTFNC;sin;2S;4|)
+                   (EXIT (SPADCALL |sinx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "sin: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;tan;2S;6| (|z| $)
-  (PROG (|tanx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |tanx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 38))
-               |STTFNC;tan;2S;6|)
-         (EXIT (SPADCALL |tanx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "tan: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;cos;2S;5| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|cosx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |cosx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 36))
+                         |STTFNC;cos;2S;5|)
+                   (EXIT (SPADCALL |cosx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "cos: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;cot;2S;7| (|z| $)
-  (COND ((SPADCALL |z| (QREFELT $ 12)) (|error| "cot: cot(0) is undefined"))
-        ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                   (QREFELT $ 18))
-         (|error| (SPADCALL (STRCONC "cot: " (QREFELT $ 9)) (QREFELT $ 26))))
-        ('T
-         (|error| (SPADCALL (STRCONC "cot: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
+(SDEFUN |STTFNC;tan;2S;6| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|tanx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |tanx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 38))
+                         |STTFNC;tan;2S;6|)
+                   (EXIT (SPADCALL |tanx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "tan: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;sec;2S;8| (|z| $)
-  (PROG (|secx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |secx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 41))
-               |STTFNC;sec;2S;8|)
-         (EXIT (SPADCALL |secx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "sec: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;cot;2S;7| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (COND
+         ((SPADCALL |z| (QREFELT $ 12)) (|error| "cot: cot(0) is undefined"))
+         ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                    (QREFELT $ 18))
+          (|error| (SPADCALL (STRCONC "cot: " (QREFELT $ 9)) (QREFELT $ 26))))
+         ('T
+          (|error| (SPADCALL (STRCONC "cot: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
 
-(DEFUN |STTFNC;csc;2S;9| (|z| $)
-  (COND ((SPADCALL |z| (QREFELT $ 12)) (|error| "csc: csc(0) is undefined"))
-        ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                   (QREFELT $ 18))
-         (|error| (SPADCALL (STRCONC "csc: " (QREFELT $ 9)) (QREFELT $ 26))))
-        ('T
-         (|error| (SPADCALL (STRCONC "csc: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
+(SDEFUN |STTFNC;sec;2S;8| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|secx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |secx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 41))
+                         |STTFNC;sec;2S;8|)
+                   (EXIT (SPADCALL |secx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "sec: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;asin;2S;10| (|z| $)
-  (PROG (|asinx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |asinx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 44))
-               |STTFNC;asin;2S;10|)
-         (EXIT (SPADCALL |asinx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "asin: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;csc;2S;9| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (COND
+         ((SPADCALL |z| (QREFELT $ 12)) (|error| "csc: csc(0) is undefined"))
+         ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                    (QREFELT $ 18))
+          (|error| (SPADCALL (STRCONC "csc: " (QREFELT $ 9)) (QREFELT $ 26))))
+         ('T
+          (|error| (SPADCALL (STRCONC "csc: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
 
-(DEFUN |STTFNC;atan;2S;11| (|z| $)
-  (PROG (|atanx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |atanx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 46))
-               |STTFNC;atan;2S;11|)
-         (EXIT (SPADCALL |atanx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "atan: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;asin;2S;10| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|asinx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |asinx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 44))
+                         |STTFNC;asin;2S;10|)
+                   (EXIT (SPADCALL |asinx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "asin: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
+
+(SDEFUN |STTFNC;atan;2S;11| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|atanx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |atanx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 46))
+                         |STTFNC;atan;2S;11|)
+                   (EXIT (SPADCALL |atanx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "atan: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
 (PUT '|STTFNC;acos;2S;12| '|SPADreplace|
      '(XLAM (|z|) (|error| "acos: acos undefined on this coefficient domain"))) 
 
-(DEFUN |STTFNC;acos;2S;12| (|z| $)
-  (|error| "acos: acos undefined on this coefficient domain")) 
+(SDEFUN |STTFNC;acos;2S;12| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|error| "acos: acos undefined on this coefficient domain")) 
 
 (PUT '|STTFNC;acot;2S;13| '|SPADreplace|
      '(XLAM (|z|) (|error| "acot: acot undefined on this coefficient domain"))) 
 
-(DEFUN |STTFNC;acot;2S;13| (|z| $)
-  (|error| "acot: acot undefined on this coefficient domain")) 
+(SDEFUN |STTFNC;acot;2S;13| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|error| "acot: acot undefined on this coefficient domain")) 
 
 (PUT '|STTFNC;asec;2S;14| '|SPADreplace|
      '(XLAM (|z|) (|error| "asec: asec undefined on this coefficient domain"))) 
 
-(DEFUN |STTFNC;asec;2S;14| (|z| $)
-  (|error| "asec: asec undefined on this coefficient domain")) 
+(SDEFUN |STTFNC;asec;2S;14| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|error| "asec: asec undefined on this coefficient domain")) 
 
 (PUT '|STTFNC;acsc;2S;15| '|SPADreplace|
      '(XLAM (|z|) (|error| "acsc: acsc undefined on this coefficient domain"))) 
 
-(DEFUN |STTFNC;acsc;2S;15| (|z| $)
-  (|error| "acsc: acsc undefined on this coefficient domain")) 
+(SDEFUN |STTFNC;acsc;2S;15| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|error| "acsc: acsc undefined on this coefficient domain")) 
 
-(DEFUN |STTFNC;sinh;2S;16| (|z| $)
-  (PROG (|sinhx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |sinhx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 52))
-               |STTFNC;sinh;2S;16|)
-         (EXIT (SPADCALL |sinhx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "sinh: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;sinh;2S;16| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|sinhx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |sinhx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 52))
+                         |STTFNC;sinh;2S;16|)
+                   (EXIT (SPADCALL |sinhx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "sinh: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;cosh;2S;17| (|z| $)
-  (PROG (|coshx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |coshx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 54))
-               |STTFNC;cosh;2S;17|)
-         (EXIT (SPADCALL |coshx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "cosh: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;cosh;2S;17| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|coshx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |coshx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 54))
+                         |STTFNC;cosh;2S;17|)
+                   (EXIT (SPADCALL |coshx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "cosh: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;tanh;2S;18| (|z| $)
-  (PROG (|tanhx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |tanhx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 56))
-               |STTFNC;tanh;2S;18|)
-         (EXIT (SPADCALL |tanhx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "tanh: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;tanh;2S;18| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|tanhx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |tanhx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 56))
+                         |STTFNC;tanh;2S;18|)
+                   (EXIT (SPADCALL |tanhx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "tanh: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;coth;2S;19| (|z| $)
-  (COND ((SPADCALL |z| (QREFELT $ 12)) (|error| "coth: coth(0) is undefined"))
-        ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                   (QREFELT $ 18))
-         (|error| (SPADCALL (STRCONC "coth: " (QREFELT $ 9)) (QREFELT $ 26))))
-        ('T
-         (|error| (SPADCALL (STRCONC "coth: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
+(SDEFUN |STTFNC;coth;2S;19| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (COND
+         ((SPADCALL |z| (QREFELT $ 12)) (|error| "coth: coth(0) is undefined"))
+         ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                    (QREFELT $ 18))
+          (|error| (SPADCALL (STRCONC "coth: " (QREFELT $ 9)) (QREFELT $ 26))))
+         ('T
+          (|error|
+           (SPADCALL (STRCONC "coth: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
 
-(DEFUN |STTFNC;sech;2S;20| (|z| $)
-  (PROG (|sechx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |sechx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 59))
-               |STTFNC;sech;2S;20|)
-         (EXIT (SPADCALL |sechx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "sech: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;sech;2S;20| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|sechx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 13) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |sechx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 59))
+                         |STTFNC;sech;2S;20|)
+                   (EXIT (SPADCALL |sechx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "sech: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;csch;2S;21| (|z| $)
-  (COND ((SPADCALL |z| (QREFELT $ 12)) (|error| "csch: csch(0) is undefined"))
-        ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                   (QREFELT $ 18))
-         (|error| (SPADCALL (STRCONC "csch: " (QREFELT $ 9)) (QREFELT $ 26))))
-        ('T
-         (|error| (SPADCALL (STRCONC "csch: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
+(SDEFUN |STTFNC;csch;2S;21| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (COND
+         ((SPADCALL |z| (QREFELT $ 12)) (|error| "csch: csch(0) is undefined"))
+         ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                    (QREFELT $ 18))
+          (|error| (SPADCALL (STRCONC "csch: " (QREFELT $ 9)) (QREFELT $ 26))))
+         ('T
+          (|error|
+           (SPADCALL (STRCONC "csch: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
 
-(DEFUN |STTFNC;asinh;2S;22| (|z| $)
-  (PROG (|asinhx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |asinhx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 62))
-               |STTFNC;asinh;2S;22|)
-         (EXIT (SPADCALL |asinhx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "asinh: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;asinh;2S;22| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|asinhx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |asinhx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 62))
+                         |STTFNC;asinh;2S;22|)
+                   (EXIT (SPADCALL |asinhx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "asinh: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |STTFNC;atanh;2S;23| (|z| $)
-  (PROG (|atanhx|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 12))
-        (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
-       ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
-                  (QREFELT $ 18))
-        (SEQ
-         (LETT |atanhx|
-               (SPADCALL (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                         (QREFELT $ 64))
-               |STTFNC;atanh;2S;23|)
-         (EXIT (SPADCALL |atanhx| |z| (QREFELT $ 23)))))
-       ('T
-        (|error|
-         (SPADCALL (STRCONC "atanh: " (QREFELT $ 7)) (QREFELT $ 26))))))))) 
+(SDEFUN |STTFNC;atanh;2S;23| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|atanhx| (|Stream| |Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |z| (QREFELT $ 12))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 15)))
+                 ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
+                            (QREFELT $ 18))
+                  (SEQ
+                   (LETT |atanhx|
+                         (SPADCALL
+                          (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
+                          (QREFELT $ 64))
+                         |STTFNC;atanh;2S;23|)
+                   (EXIT (SPADCALL |atanhx| |z| (QREFELT $ 23)))))
+                 ('T
+                  (|error|
+                   (SPADCALL (STRCONC "atanh: " (QREFELT $ 7))
+                             (QREFELT $ 26)))))))) 
 
 (PUT '|STTFNC;acosh;2S;24| '|SPADreplace|
      '(XLAM (|z|)
        (|error| "acosh: acosh undefined on this coefficient domain"))) 
 
-(DEFUN |STTFNC;acosh;2S;24| (|z| $)
-  (|error| "acosh: acosh undefined on this coefficient domain")) 
+(SDEFUN |STTFNC;acosh;2S;24| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|error| "acosh: acosh undefined on this coefficient domain")) 
 
 (PUT '|STTFNC;acoth;2S;25| '|SPADreplace|
      '(XLAM (|z|)
        (|error| "acoth: acoth undefined on this coefficient domain"))) 
 
-(DEFUN |STTFNC;acoth;2S;25| (|z| $)
-  (|error| "acoth: acoth undefined on this coefficient domain")) 
+(SDEFUN |STTFNC;acoth;2S;25| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|error| "acoth: acoth undefined on this coefficient domain")) 
 
 (PUT '|STTFNC;asech;2S;26| '|SPADreplace|
      '(XLAM (|z|)
        (|error| "asech: asech undefined on this coefficient domain"))) 
 
-(DEFUN |STTFNC;asech;2S;26| (|z| $)
-  (|error| "asech: asech undefined on this coefficient domain")) 
+(SDEFUN |STTFNC;asech;2S;26| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|error| "asech: asech undefined on this coefficient domain")) 
 
 (PUT '|STTFNC;acsch;2S;27| '|SPADreplace|
      '(XLAM (|z|)
        (|error| "acsch: acsch undefined on this coefficient domain"))) 
 
-(DEFUN |STTFNC;acsch;2S;27| (|z| $)
-  (|error| "acsch: acsch undefined on this coefficient domain")) 
+(SDEFUN |STTFNC;acsch;2S;27| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|error| "acsch: acsch undefined on this coefficient domain")) 
 
 (DECLAIM (NOTINLINE |StreamTranscendentalFunctionsNonCommutative;|)) 
 
 (DEFUN |StreamTranscendentalFunctionsNonCommutative| (#1=#:G216)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G217)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|StreamTranscendentalFunctionsNonCommutative|)
-                                           '|domainEqualList|)
-                . #3=(|StreamTranscendentalFunctionsNonCommutative|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|StreamTranscendentalFunctionsNonCommutative;| #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G217)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|StreamTranscendentalFunctionsNonCommutative|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|StreamTranscendentalFunctionsNonCommutative|)
+                                               '|domainEqualList|)
+                    . #3=(|StreamTranscendentalFunctionsNonCommutative|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|StreamTranscendentalFunctionsNonCommutative;| #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|StreamTranscendentalFunctionsNonCommutative|)))))))))) 
 
 (DEFUN |StreamTranscendentalFunctionsNonCommutative;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|StreamTranscendentalFunctionsNonCommutative|))
-      (LETT |dv$| (LIST '|StreamTranscendentalFunctionsNonCommutative| DV$1)
-            . #1#)
-      (LETT $ (GETREFV 70) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache|
-                  '|StreamTranscendentalFunctionsNonCommutative| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 "series must have constant coefficient zero")
-      (QSETREFV $ 8 "series must have constant coefficient one")
-      (QSETREFV $ 9 "series expansion has terms of negative degree")
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|StreamTranscendentalFunctionsNonCommutative|))
+          (LETT |dv$|
+                (LIST '|StreamTranscendentalFunctionsNonCommutative| DV$1)
+                . #1#)
+          (LETT $ (GETREFV 70) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|StreamTranscendentalFunctionsNonCommutative|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 "series must have constant coefficient zero")
+          (QSETREFV $ 8 "series must have constant coefficient one")
+          (QSETREFV $ 9 "series expansion has terms of negative degree")
+          $))) 
 
 (MAKEPROP '|StreamTranscendentalFunctionsNonCommutative| '|infovec|
           (LIST

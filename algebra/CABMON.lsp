@@ -11,15 +11,14 @@
                    (|CancellationAbelianMonoid;|)))))) 
 
 (DEFUN |CancellationAbelianMonoid;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|Join| (|AbelianMonoid|)
-                       (|mkCategory|
-                        '(((|subtractIfCan| ((|Union| $ "failed") $ $)) T)) NIL
-                        'NIL NIL))
-               |CancellationAbelianMonoid|)
-       (SETELT #1# 0 '(|CancellationAbelianMonoid|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|Join| (|AbelianMonoid|)
+                           (|mkCategory|
+                            '(((|subtractIfCan| ((|Union| $ "failed") $ $)) T))
+                            NIL 'NIL NIL))
+                   |CancellationAbelianMonoid|)
+           (SETELT #1# 0 '(|CancellationAbelianMonoid|))))) 
 
 (MAKEPROP '|CancellationAbelianMonoid| 'NILADIC T) 

@@ -1,30 +1,42 @@
 
-(DEFUN |FFFGF;multiplyRows!| (|v| M $)
-  (PROG (|j| |i| |n|)
-    (RETURN
-     (SEQ (LETT |n| (QVSIZE |v|) . #1=(|FFFGF;multiplyRows!|))
-          (SEQ (LETT |i| 1 . #1#) G190
-               (COND ((|greater_SI| |i| |n|) (GO G191)))
-               (SEQ
-                (EXIT
-                 (SEQ (LETT |j| 1 . #1#) G190
-                      (COND ((|greater_SI| |j| |n|) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (SPADCALL M |i| |j|
-                                  (SPADCALL (SPADCALL |v| |i| (QREFELT $ 11))
-                                            (SPADCALL M |i| |j| (QREFELT $ 14))
-                                            (QREFELT $ 15))
-                                  (QREFELT $ 16))))
-                      (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191
-                      (EXIT NIL))))
-               (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-          (EXIT M))))) 
+(SDEFUN |FFFGF;multiplyRows!|
+        ((|v| |Vector| D) (M |Matrix| (|SparseUnivariatePolynomial| D))
+         ($ |Matrix| (|SparseUnivariatePolynomial| D)))
+        (SPROG ((|j| NIL) (|i| NIL) (|n| (|NonNegativeInteger|)))
+               (SEQ (LETT |n| (QVSIZE |v|) . #1=(|FFFGF;multiplyRows!|))
+                    (SEQ (LETT |i| 1 . #1#) G190
+                         (COND ((|greater_SI| |i| |n|) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (SEQ (LETT |j| 1 . #1#) G190
+                                (COND ((|greater_SI| |j| |n|) (GO G191)))
+                                (SEQ
+                                 (EXIT
+                                  (SPADCALL M |i| |j|
+                                            (SPADCALL
+                                             (SPADCALL |v| |i| (QREFELT $ 11))
+                                             (SPADCALL M |i| |j|
+                                                       (QREFELT $ 14))
+                                             (QREFELT $ 15))
+                                            (QREFELT $ 16))))
+                                (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191
+                                (EXIT NIL))))
+                         (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                         (EXIT NIL))
+                    (EXIT M)))) 
 
-(DEFUN |FFFGF;generalInterpolation;LMVLM;2| (C |coeffAction| |f| |eta| $)
-  (PROG (M |c| |i| |den| |g| |n|)
-    (RETURN
-     (SEQ (LETT |n| (QVSIZE |f|) . #1=(|FFFGF;generalInterpolation;LMVLM;2|))
+(SDEFUN |FFFGF;generalInterpolation;LMVLM;2|
+        ((C |List| D)
+         (|coeffAction| |Mapping| D (|NonNegativeInteger|)
+          (|NonNegativeInteger|) V)
+         (|f| |Vector| VF) (|eta| |List| (|NonNegativeInteger|))
+         ($ |Matrix| (|SparseUnivariatePolynomial| D)))
+        (SPROG
+         ((M (|Matrix| (|SparseUnivariatePolynomial| D)))
+          (|c| (|List| (|Fraction| D))) (|i| NIL) (|den| (|Vector| D))
+          (|g| (|Vector| V)) (|n| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |n| (QVSIZE |f|) . #1=(|FFFGF;generalInterpolation;LMVLM;2|))
           (LETT |g| (MAKEARR1 |n| (|spadConstant| $ 18)) . #1#)
           (LETT |den| (MAKEARR1 |n| (|spadConstant| $ 17)) . #1#)
           (SEQ (LETT |i| 1 . #1#) G190
@@ -45,64 +57,66 @@
                            (QREFELT $ 33))))
                (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
           (LETT M (SPADCALL C |coeffAction| |g| |eta| (QREFELT $ 38)) . #1#)
-          (EXIT (|FFFGF;multiplyRows!| |den| M $)))))) 
+          (EXIT (|FFFGF;multiplyRows!| |den| M $))))) 
 
-(DEFUN |FFFGF;generalInterpolation;LMVLM;2!0| (|x| $$)
-  (PROG (|den| |i| $)
-    (LETT |den| (QREFELT $$ 2) . #1=(|FFFGF;generalInterpolation;LMVLM;2|))
-    (LETT |i| (QREFELT $$ 1) . #1#)
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL
-       (SPADCALL |x| (SPADCALL |den| |i| (QREFELT $ 11)) (QREFELT $ 27))
-       (QREFELT $ 28)))))) 
+(SDEFUN |FFFGF;generalInterpolation;LMVLM;2!0| ((|x| NIL) ($$ NIL))
+        (PROG (|den| |i| $)
+          (LETT |den| (QREFELT $$ 2)
+                . #1=(|FFFGF;generalInterpolation;LMVLM;2|))
+          (LETT |i| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL
+             (SPADCALL |x| (SPADCALL |den| |i| (QREFELT $ 11)) (QREFELT $ 27))
+             (QREFELT $ 28)))))) 
 
 (DECLAIM (NOTINLINE |FractionFreeFastGaussianFractions;|)) 
 
 (DEFUN |FractionFreeFastGaussianFractions| (&REST #1=#:G115)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G116)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FractionFreeFastGaussianFractions|)
-                                           '|domainEqualList|)
-                . #3=(|FractionFreeFastGaussianFractions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |FractionFreeFastGaussianFractions;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G116)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|FractionFreeFastGaussianFractions|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FractionFreeFastGaussianFractions|)
+                                               '|domainEqualList|)
+                    . #3=(|FractionFreeFastGaussianFractions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |FractionFreeFastGaussianFractions;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FractionFreeFastGaussianFractions|)))))))))) 
 
 (DEFUN |FractionFreeFastGaussianFractions;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FractionFreeFastGaussianFractions|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|FractionFreeFastGaussianFractions| DV$1 DV$2 DV$3)
-            . #1#)
-      (LETT $ (GETREFV 40) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FractionFreeFastGaussianFractions|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|FractionFreeFastGaussianFractions|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$|
+                (LIST '|FractionFreeFastGaussianFractions| DV$1 DV$2 DV$3)
+                . #1#)
+          (LETT $ (GETREFV 40) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FractionFreeFastGaussianFractions|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FractionFreeFastGaussianFractions| '|infovec|
           (LIST

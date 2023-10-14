@@ -1,74 +1,76 @@
 
-(DEFUN |FR2;map;MFF;1| (|func| |f| $)
-  (PROG (#1=#:G105 #2=#:G104 #3=#:G106 #4=#:G109 |g|)
-    (RETURN
-     (SEQ
-      (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 9)) |func|)
-                (PROGN
-                 (LETT #1# NIL . #5=(|FR2;map;MFF;1|))
-                 (SEQ (LETT |g| NIL . #5#)
-                      (LETT #4# (SPADCALL |f| (QREFELT $ 12)) . #5#) G190
-                      (COND
-                       ((OR (ATOM #4#) (PROGN (LETT |g| (CAR #4#) . #5#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (PROGN
-                         (LETT #3#
-                               (SPADCALL (SPADCALL (QCAR |g|) |func|)
-                                         (QCDR |g|) (QREFELT $ 15))
-                               . #5#)
-                         (COND
-                          (#1#
-                           (LETT #2# (SPADCALL #2# #3# (QREFELT $ 16)) . #5#))
-                          ('T
-                           (PROGN
-                            (LETT #2# #3# . #5#)
-                            (LETT #1# 'T . #5#)))))))
-                      (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-                 (COND (#1# #2#) ('T (|spadConstant| $ 17))))
-                (QREFELT $ 18)))))) 
+(SDEFUN |FR2;map;MFF;1|
+        ((|func| |Mapping| S R) (|f| |Factored| R) ($ |Factored| S))
+        (SPROG
+         ((#1=#:G105 NIL) (#2=#:G104 #3=(|Factored| S)) (#4=#:G106 #3#)
+          (#5=#:G109 NIL) (|g| NIL))
+         (SEQ
+          (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 9)) |func|)
+                    (PROGN
+                     (LETT #1# NIL . #6=(|FR2;map;MFF;1|))
+                     (SEQ (LETT |g| NIL . #6#)
+                          (LETT #5# (SPADCALL |f| (QREFELT $ 12)) . #6#) G190
+                          (COND
+                           ((OR (ATOM #5#)
+                                (PROGN (LETT |g| (CAR #5#) . #6#) NIL))
+                            (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (PROGN
+                             (LETT #4#
+                                   (SPADCALL (SPADCALL (QCAR |g|) |func|)
+                                             (QCDR |g|) (QREFELT $ 15))
+                                   . #6#)
+                             (COND
+                              (#1#
+                               (LETT #2# (SPADCALL #2# #4# (QREFELT $ 16))
+                                     . #6#))
+                              ('T
+                               (PROGN
+                                (LETT #2# #4# . #6#)
+                                (LETT #1# 'T . #6#)))))))
+                          (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
+                     (COND (#1# #2#) ('T (|spadConstant| $ 17))))
+                    (QREFELT $ 18))))) 
 
 (DECLAIM (NOTINLINE |FactoredFunctions2;|)) 
 
 (DEFUN |FactoredFunctions2| (&REST #1=#:G110)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G111)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FactoredFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|FactoredFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |FactoredFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G111)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|FactoredFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FactoredFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|FactoredFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FactoredFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FactoredFunctions2|)))))))))) 
 
 (DEFUN |FactoredFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FactoredFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|FactoredFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FactoredFunctions2| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FactoredFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|FactoredFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FactoredFunctions2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FactoredFunctions2| '|infovec|
           (LIST

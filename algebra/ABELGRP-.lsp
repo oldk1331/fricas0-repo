@@ -1,38 +1,41 @@
 
-(DEFUN |ABELGRP-;-;3S;1| (|x| |y| $)
-  (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 8))) 
+(SDEFUN |ABELGRP-;-;3S;1| ((|x| S) (|y| S) ($ S))
+        (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 8))) 
 
-(DEFUN |ABELGRP-;subtractIfCan;2SU;2| (|x| |y| $)
-  (CONS 0 (SPADCALL |x| |y| (QREFELT $ 10)))) 
+(SDEFUN |ABELGRP-;subtractIfCan;2SU;2| ((|x| S) (|y| S) ($ |Union| S "failed"))
+        (CONS 0 (SPADCALL |x| |y| (QREFELT $ 10)))) 
 
-(DEFUN |ABELGRP-;*;Nni2S;3| (|n| |x| $) (SPADCALL |n| |x| (QREFELT $ 14))) 
+(SDEFUN |ABELGRP-;*;Nni2S;3| ((|n| |NonNegativeInteger|) (|x| S) ($ S))
+        (SPADCALL |n| |x| (QREFELT $ 14))) 
 
-(DEFUN |ABELGRP-;*;I2S;4| (|n| |x| $)
-  (COND ((ZEROP |n|) (|spadConstant| $ 17))
-        ((SPADCALL |n| 0 (QREFELT $ 19)) (SPADCALL |n| |x| (QREFELT $ 22)))
-        ('T (SPADCALL (- |n|) (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 22))))) 
+(SDEFUN |ABELGRP-;*;I2S;4| ((|n| |Integer|) (|x| S) ($ S))
+        (COND ((ZEROP |n|) (|spadConstant| $ 17))
+              ((SPADCALL |n| 0 (QREFELT $ 19))
+               (SPADCALL |n| |x| (QREFELT $ 22)))
+              ('T
+               (SPADCALL (- |n|) (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 22))))) 
 
-(DEFUN |ABELGRP-;opposite?;2SB;5| (|x| |y| $)
-  (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 24))) 
+(SDEFUN |ABELGRP-;opposite?;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
+        (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 24))) 
 
 (DECLAIM (NOTINLINE |AbelianGroup&;|)) 
 
 (DEFUN |AbelianGroup&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianGroup&|))
-      (LETT |dv$| (LIST '|AbelianGroup&| DV$1) . #1#)
-      (LETT $ (GETREFV 26) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND ((|HasCategory| |#1| '(|Ring|)))
-            ('T
-             (QSETREFV $ 23 (CONS (|dispatchFunction| |ABELGRP-;*;I2S;4|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianGroup&|))
+          (LETT |dv$| (LIST '|AbelianGroup&| DV$1) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND ((|HasCategory| |#1| '(|Ring|)))
+                ('T
+                 (QSETREFV $ 23
+                           (CONS (|dispatchFunction| |ABELGRP-;*;I2S;4|) $))))
+          $))) 
 
 (MAKEPROP '|AbelianGroup&| '|infovec|
           (LIST

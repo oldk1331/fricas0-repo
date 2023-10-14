@@ -16,19 +16,19 @@
       #2#)))) 
 
 (DEFUN |Bialgebra;| (|t#1| |t#2|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (COND (|Bialgebra;CAT|)
-                      ('T
-                       (LETT |Bialgebra;CAT|
-                             (|Join| (|Algebra| '|t#1|)
-                                     (|Coalgebra| '|t#1| '|t#2|))
-                             . #2=(|Bialgebra|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|Bialgebra| (|devaluate| |t#1|) (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (COND (|Bialgebra;CAT|)
+                          ('T
+                           (LETT |Bialgebra;CAT|
+                                 (|Join| (|Algebra| '|t#1|)
+                                         (|Coalgebra| '|t#1| '|t#2|))
+                                 . #2=(|Bialgebra|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|Bialgebra| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

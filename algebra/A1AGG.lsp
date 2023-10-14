@@ -19,17 +19,18 @@
       #2#)))) 
 
 (DEFUN |OneDimensionalArrayAggregate;| (|t#1|)
-  (PROG (#1=#:G134)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|OneDimensionalArrayAggregate;CAT|)
-                                ('T
-                                 (LETT |OneDimensionalArrayAggregate;CAT|
-                                       (|Join| (|FiniteLinearAggregate| '|t#1|)
-                                               (|shallowlyMutable|))
-                                       . #2=(|OneDimensionalArrayAggregate|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|OneDimensionalArrayAggregate| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G134 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|OneDimensionalArrayAggregate;CAT|)
+                                    ('T
+                                     (LETT |OneDimensionalArrayAggregate;CAT|
+                                           (|Join|
+                                            (|FiniteLinearAggregate| '|t#1|)
+                                            (|shallowlyMutable|))
+                                           . #2=(|OneDimensionalArrayAggregate|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|OneDimensionalArrayAggregate|
+                         (|devaluate| |t#1|)))))) 

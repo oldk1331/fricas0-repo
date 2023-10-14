@@ -1,32 +1,31 @@
 
-(DEFUN |MONOID-;one?;SB;1| (|x| $)
-  (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9))) 
+(SDEFUN |MONOID-;one?;SB;1| ((|x| S) ($ |Boolean|))
+        (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
-(DEFUN |MONOID-;sample;S;2| ($) (|spadConstant| $ 7)) 
+(SDEFUN |MONOID-;sample;S;2| (($ S)) (|spadConstant| $ 7)) 
 
-(DEFUN |MONOID-;recip;SU;3| (|x| $)
-  (COND ((SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9)) (CONS 0 |x|))
-        ('T (CONS 1 "failed")))) 
+(SDEFUN |MONOID-;recip;SU;3| ((|x| S) ($ |Union| S "failed"))
+        (COND ((SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9)) (CONS 0 |x|))
+              ('T (CONS 1 "failed")))) 
 
-(DEFUN |MONOID-;^;SNniS;4| (|x| |n| $)
-  (COND ((ZEROP |n|) (|spadConstant| $ 7))
-        ('T (SPADCALL |x| |n| (QREFELT $ 16))))) 
+(SDEFUN |MONOID-;^;SNniS;4| ((|x| S) (|n| |NonNegativeInteger|) ($ S))
+        (COND ((ZEROP |n|) (|spadConstant| $ 7))
+              ('T (SPADCALL |x| |n| (QREFELT $ 16))))) 
 
 (DECLAIM (NOTINLINE |Monoid&;|)) 
 
 (DEFUN |Monoid&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Monoid&|))
-      (LETT |dv$| (LIST '|Monoid&| DV$1) . #1#)
-      (LETT $ (GETREFV 19) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Monoid&|))
+          (LETT |dv$| (LIST '|Monoid&| DV$1) . #1#)
+          (LETT $ (GETREFV 19) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Monoid&| '|infovec|
           (LIST

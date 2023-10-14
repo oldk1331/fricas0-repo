@@ -1,141 +1,148 @@
 
-(DEFUN |UNISEG;segment;S$;1| (|a| $) (CONS 0 (CONS |a| 1))) 
+(SDEFUN |UNISEG;segment;S$;1| ((|a| S) ($ $)) (CONS 0 (CONS |a| 1))) 
 
-(DEFUN |UNISEG;segment;2S$;2| (|a| |b| $) (CONS 1 (VECTOR |a| |b| 1))) 
+(SDEFUN |UNISEG;segment;2S$;2| ((|a| S) (|b| S) ($ $))
+        (CONS 1 (VECTOR |a| |b| 1))) 
 
-(DEFUN |UNISEG;BY;$I$;3| (|s| |i| $)
-  (COND
-   ((QEQCAR |s| 1)
-    (CONS 1
-          (VECTOR (SPADCALL |s| (QREFELT $ 10)) (SPADCALL |s| (QREFELT $ 11))
-                  |i|)))
-   ('T (CONS 0 (CONS (SPADCALL |s| (QREFELT $ 10)) |i|))))) 
+(SDEFUN |UNISEG;BY;$I$;3| ((|s| $) (|i| |Integer|) ($ $))
+        (COND
+         ((QEQCAR |s| 1)
+          (CONS 1
+                (VECTOR (SPADCALL |s| (QREFELT $ 10))
+                        (SPADCALL |s| (QREFELT $ 11)) |i|)))
+         ('T (CONS 0 (CONS (SPADCALL |s| (QREFELT $ 10)) |i|))))) 
 
-(DEFUN |UNISEG;lo;$S;4| (|s| $)
-  (COND ((QEQCAR |s| 0) (QCAR (QCDR |s|))) ('T (QVELT (QCDR |s|) 0)))) 
+(SDEFUN |UNISEG;lo;$S;4| ((|s| $) ($ S))
+        (COND ((QEQCAR |s| 0) (QCAR (QCDR |s|))) ('T (QVELT (QCDR |s|) 0)))) 
 
-(DEFUN |UNISEG;low;$S;5| (|s| $)
-  (COND ((QEQCAR |s| 0) (QCAR (QCDR |s|))) ('T (QVELT (QCDR |s|) 0)))) 
+(SDEFUN |UNISEG;low;$S;5| ((|s| $) ($ S))
+        (COND ((QEQCAR |s| 0) (QCAR (QCDR |s|))) ('T (QVELT (QCDR |s|) 0)))) 
 
 (PUT '|UNISEG;hasHi;$B;6| '|SPADreplace| '(XLAM (|s|) (QEQCAR |s| 1))) 
 
-(DEFUN |UNISEG;hasHi;$B;6| (|s| $) (QEQCAR |s| 1)) 
+(SDEFUN |UNISEG;hasHi;$B;6| ((|s| $) ($ |Boolean|)) (QEQCAR |s| 1)) 
 
-(DEFUN |UNISEG;hi;$S;7| (|s| $)
-  (COND
-   ((NULL (SPADCALL |s| (QREFELT $ 16)))
-    (|error| "hi: segment has no upper bound"))
-   ('T (QVELT (QCDR |s|) 1)))) 
-
-(DEFUN |UNISEG;high;$S;8| (|s| $)
-  (COND
-   ((NULL (SPADCALL |s| (QREFELT $ 16)))
-    (|error| "high: segment has no upper bound"))
-   ('T (QVELT (QCDR |s|) 1)))) 
-
-(DEFUN |UNISEG;incr;$I;9| (|s| $)
-  (COND ((QEQCAR |s| 0) (QCDR (QCDR |s|))) ('T (QVELT (QCDR |s|) 2)))) 
-
-(DEFUN |UNISEG;SEGMENT;S$;10| (|a| $) (SPADCALL |a| (QREFELT $ 8))) 
-
-(DEFUN |UNISEG;SEGMENT;2S$;11| (|a| |b| $) (SPADCALL |a| |b| (QREFELT $ 9))) 
-
-(DEFUN |UNISEG;coerce;S$;12| (|sg| $)
-  (SPADCALL (SPADCALL |sg| (QREFELT $ 22)) (SPADCALL |sg| (QREFELT $ 23))
-            (QREFELT $ 9))) 
-
-(DEFUN |UNISEG;convert;S$;13| (|a| $) (CONS 1 (VECTOR |a| |a| 1))) 
-
-(DEFUN |UNISEG;=;2$B;14| (|s1| |s2| $)
-  (COND
-   ((QEQCAR |s1| 0)
-    (COND
-     ((QEQCAR |s2| 0)
-      (COND
-       ((SPADCALL (QCAR (QCDR |s1|)) (QCAR (QCDR |s2|)) (QREFELT $ 26))
-        (EQL (QCDR (QCDR |s1|)) (QCDR (QCDR |s2|))))
-       (#1='T 'NIL)))
-     (#1# 'NIL)))
-   ((QEQCAR |s1| 1)
-    (COND
-     ((QEQCAR |s2| 1)
-      (COND
-       ((SPADCALL (QCAR (QCDR |s2|)) (QCAR (QCDR |s2|)) (QREFELT $ 26))
+(SDEFUN |UNISEG;hi;$S;7| ((|s| $) ($ S))
         (COND
-         ((SPADCALL (QVELT (QCDR |s1|) 1) (QVELT (QCDR |s2|) 1) (QREFELT $ 26))
-          (EQL (QCDR (QCDR |s1|)) (QCDR (QCDR |s2|))))
-         (#1# 'NIL)))
-       (#1# 'NIL)))
-     (#1# 'NIL)))
-   (#1# 'NIL))) 
+         ((NULL (SPADCALL |s| (QREFELT $ 16)))
+          (|error| "hi: segment has no upper bound"))
+         ('T (QVELT (QCDR |s|) 1)))) 
 
-(DEFUN |UNISEG;coerce;$Of;15| (|s| $)
-  (PROG (|inc| |seg| |e|)
-    (RETURN
-     (SEQ
-      (LETT |seg|
-            (SEQ
-             (LETT |e| (SPADCALL (SPADCALL |s| (QREFELT $ 10)) (QREFELT $ 29))
-                   . #1=(|UNISEG;coerce;$Of;15|))
-             (EXIT
+(SDEFUN |UNISEG;high;$S;8| ((|s| $) ($ S))
+        (COND
+         ((NULL (SPADCALL |s| (QREFELT $ 16)))
+          (|error| "high: segment has no upper bound"))
+         ('T (QVELT (QCDR |s|) 1)))) 
+
+(SDEFUN |UNISEG;incr;$I;9| ((|s| $) ($ |Integer|))
+        (COND ((QEQCAR |s| 0) (QCDR (QCDR |s|))) ('T (QVELT (QCDR |s|) 2)))) 
+
+(SDEFUN |UNISEG;SEGMENT;S$;10| ((|a| S) ($ $)) (SPADCALL |a| (QREFELT $ 8))) 
+
+(SDEFUN |UNISEG;SEGMENT;2S$;11| ((|a| S) (|b| S) ($ $))
+        (SPADCALL |a| |b| (QREFELT $ 9))) 
+
+(SDEFUN |UNISEG;coerce;S$;12| ((|sg| |Segment| S) ($ $))
+        (SPADCALL (SPADCALL |sg| (QREFELT $ 22)) (SPADCALL |sg| (QREFELT $ 23))
+                  (QREFELT $ 9))) 
+
+(SDEFUN |UNISEG;convert;S$;13| ((|a| S) ($ $)) (CONS 1 (VECTOR |a| |a| 1))) 
+
+(SDEFUN |UNISEG;=;2$B;14| ((|s1| $) (|s2| $) ($ |Boolean|))
+        (COND
+         ((QEQCAR |s1| 0)
+          (COND
+           ((QEQCAR |s2| 0)
+            (COND
+             ((SPADCALL (QCAR (QCDR |s1|)) (QCAR (QCDR |s2|)) (QREFELT $ 26))
+              (EQL (QCDR (QCDR |s1|)) (QCDR (QCDR |s2|))))
+             (#1='T 'NIL)))
+           (#1# 'NIL)))
+         ((QEQCAR |s1| 1)
+          (COND
+           ((QEQCAR |s2| 1)
+            (COND
+             ((SPADCALL (QCAR (QCDR |s2|)) (QCAR (QCDR |s2|)) (QREFELT $ 26))
               (COND
-               ((SPADCALL |s| (QREFELT $ 16))
-                (SPADCALL |e|
-                          (SPADCALL (SPADCALL |s| (QREFELT $ 11))
-                                    (QREFELT $ 29))
-                          (QREFELT $ 30)))
-               (#2='T (SPADCALL |e| (QREFELT $ 31))))))
-            . #1#)
-      (LETT |inc| (SPADCALL |s| (QREFELT $ 18)) . #1#)
-      (EXIT
-       (COND ((EQL |inc| 1) |seg|)
-             (#2#
-              (SPADCALL " by " |seg| (SPADCALL |inc| (QREFELT $ 32))
-                        (QREFELT $ 33))))))))) 
+               ((SPADCALL (QVELT (QCDR |s1|) 1) (QVELT (QCDR |s2|) 1)
+                          (QREFELT $ 26))
+                (EQL (QCDR (QCDR |s1|)) (QCDR (QCDR |s2|))))
+               (#1# 'NIL)))
+             (#1# 'NIL)))
+           (#1# 'NIL)))
+         (#1# 'NIL))) 
 
-(DEFUN |UNISEG;convert;$If;16| (|s| $)
-  (PROG (|seg|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |s| (QREFELT $ 16))
-        (LETT |seg|
-              (SPADCALL 'SEGMENT
-                        (LIST
-                         (SPADCALL (SPADCALL |s| (QREFELT $ 14))
-                                   (QREFELT $ 36))
-                         (SPADCALL (SPADCALL |s| (QREFELT $ 11))
-                                   (QREFELT $ 36)))
-                        (QREFELT $ 40))
-              . #1=(|UNISEG;convert;$If;16|)))
-       (#2='T
-        (LETT |seg|
-              (SPADCALL 'SEGMENT
-                        (LIST
-                         (SPADCALL (SPADCALL |s| (QREFELT $ 14))
-                                   (QREFELT $ 36)))
-                        (QREFELT $ 40))
-              . #1#)))
-      (EXIT
-       (COND ((EQL (SPADCALL |s| (QREFELT $ 18)) 1) |seg|)
-             (#2#
-              (SPADCALL 'BY
-                        (LIST |seg|
-                              (SPADCALL (SPADCALL |s| (QREFELT $ 18))
-                                        (QREFELT $ 41)))
-                        (QREFELT $ 40))))))))) 
+(SDEFUN |UNISEG;coerce;$Of;15| ((|s| $) ($ |OutputForm|))
+        (SPROG
+         ((|inc| (|Integer|)) (|seg| (|OutputForm|)) (|e| (|OutputForm|)))
+         (SEQ
+          (LETT |seg|
+                (SEQ
+                 (LETT |e|
+                       (SPADCALL (SPADCALL |s| (QREFELT $ 10)) (QREFELT $ 29))
+                       . #1=(|UNISEG;coerce;$Of;15|))
+                 (EXIT
+                  (COND
+                   ((SPADCALL |s| (QREFELT $ 16))
+                    (SPADCALL |e|
+                              (SPADCALL (SPADCALL |s| (QREFELT $ 11))
+                                        (QREFELT $ 29))
+                              (QREFELT $ 30)))
+                   (#2='T (SPADCALL |e| (QREFELT $ 31))))))
+                . #1#)
+          (LETT |inc| (SPADCALL |s| (QREFELT $ 18)) . #1#)
+          (EXIT
+           (COND ((EQL |inc| 1) |seg|)
+                 (#2#
+                  (SPADCALL " by " |seg| (SPADCALL |inc| (QREFELT $ 32))
+                            (QREFELT $ 33)))))))) 
 
-(DEFUN |UNISEG;expand;$S;17| (|s| $) (SPADCALL (LIST |s|) (QREFELT $ 45))) 
+(SDEFUN |UNISEG;convert;$If;16| ((|s| $) ($ |InputForm|))
+        (SPROG ((|seg| (|InputForm|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |s| (QREFELT $ 16))
+                  (LETT |seg|
+                        (SPADCALL 'SEGMENT
+                                  (LIST
+                                   (SPADCALL (SPADCALL |s| (QREFELT $ 14))
+                                             (QREFELT $ 36))
+                                   (SPADCALL (SPADCALL |s| (QREFELT $ 11))
+                                             (QREFELT $ 36)))
+                                  (QREFELT $ 40))
+                        . #1=(|UNISEG;convert;$If;16|)))
+                 (#2='T
+                  (LETT |seg|
+                        (SPADCALL 'SEGMENT
+                                  (LIST
+                                   (SPADCALL (SPADCALL |s| (QREFELT $ 14))
+                                             (QREFELT $ 36)))
+                                  (QREFELT $ 40))
+                        . #1#)))
+                (EXIT
+                 (COND ((EQL (SPADCALL |s| (QREFELT $ 18)) 1) |seg|)
+                       (#2#
+                        (SPADCALL 'BY
+                                  (LIST |seg|
+                                        (SPADCALL (SPADCALL |s| (QREFELT $ 18))
+                                                  (QREFELT $ 41)))
+                                  (QREFELT $ 40)))))))) 
 
-(DEFUN |UNISEG;map;M$S;18| (|f| |s| $)
-  (SPADCALL |f| (SPADCALL |s| (QREFELT $ 46)) (QREFELT $ 48))) 
+(SDEFUN |UNISEG;expand;$S;17| ((|s| $) ($ |Stream| S))
+        (SPADCALL (LIST |s|) (QREFELT $ 45))) 
 
-(DEFUN |UNISEG;plusInc| (|t| |a| $) (SPADCALL |t| |a| (QREFELT $ 50))) 
+(SDEFUN |UNISEG;map;M$S;18| ((|f| |Mapping| S S) (|s| $) ($ |Stream| S))
+        (SPADCALL |f| (SPADCALL |s| (QREFELT $ 46)) (QREFELT $ 48))) 
 
-(DEFUN |UNISEG;expand;LS;20| (|ls| $)
-  (PROG (|st| |s| |lb| |ns|)
-    (RETURN
-     (SEQ (LETT |st| (SPADCALL (QREFELT $ 51)) . #1=(|UNISEG;expand;LS;20|))
+(SDEFUN |UNISEG;plusInc| ((|t| S) (|a| S) ($ S))
+        (SPADCALL |t| |a| (QREFELT $ 50))) 
+
+(SDEFUN |UNISEG;expand;LS;20| ((|ls| |List| $) ($ |Stream| S))
+        (SPROG
+         ((|st| (|Stream| S)) (|s| ($)) (|lb| (|List| (|Segment| S)))
+          (|ns| (|Segment| S)))
+         (SEQ
+          (LETT |st| (SPADCALL (QREFELT $ 51)) . #1=(|UNISEG;expand;LS;20|))
           (EXIT
            (COND ((SPADCALL |ls| (QREFELT $ 53)) |st|)
                  (#2='T
@@ -180,83 +187,89 @@
                         (SPADCALL
                          (SPADCALL (SPADCALL |lb| (QREFELT $ 63))
                                    (QREFELT $ 64))
-                         |st| (QREFELT $ 65))))))))))) 
+                         |st| (QREFELT $ 65)))))))))) 
 
-(DEFUN |UNISEG;expand;LS;20!0| (|x| $$)
-  (PROG (|s| $)
-    (LETT |s| (QREFELT $$ 1) . #1=(|UNISEG;expand;LS;20|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL |x| (SPADCALL (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 60))
-                (QREFELT $ 50)))))) 
+(SDEFUN |UNISEG;expand;LS;20!0| ((|x| NIL) ($$ NIL))
+        (PROG (|s| $)
+          (LETT |s| (QREFELT $$ 1) . #1=(|UNISEG;expand;LS;20|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL |x|
+                      (SPADCALL (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 60))
+                      (QREFELT $ 50)))))) 
 
 (DECLAIM (NOTINLINE |UniversalSegment;|)) 
 
 (DEFUN |UniversalSegment| (#1=#:G205)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G206)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|UniversalSegment|)
-                                           '|domainEqualList|)
-                . #3=(|UniversalSegment|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|UniversalSegment;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G206)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|UniversalSegment|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|UniversalSegment|)
+                                               '|domainEqualList|)
+                    . #3=(|UniversalSegment|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|UniversalSegment;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|UniversalSegment|)))))))))) 
 
 (DEFUN |UniversalSegment;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|UniversalSegment|))
-      (LETT |dv$| (LIST '|UniversalSegment| DV$1) . #1#)
-      (LETT $ (GETREFV 69) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#1| '(|OrderedRing|))
-                                          (|HasCategory| |#1|
-                                                         '(|SetCategory|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|UniversalSegment| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7
-                (|Union| (|Record| (|:| |low| |#1|) (|:| |incr| (|Integer|)))
-                         (|Record| (|:| |low| |#1|) (|:| |high| |#1|)
-                                   (|:| |incr| (|Integer|)))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 27 (CONS (|dispatchFunction| |UNISEG;=;2$B;14|) $))
-         (QSETREFV $ 34
-                   (CONS (|dispatchFunction| |UNISEG;coerce;$Of;15|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 42
-                   (CONS (|dispatchFunction| |UNISEG;convert;$If;16|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (PROGN
-         (QSETREFV $ 46 (CONS (|dispatchFunction| |UNISEG;expand;$S;17|) $))
-         (QSETREFV $ 49 (CONS (|dispatchFunction| |UNISEG;map;M$S;18|) $))
-         (QSETREFV $ 45 (CONS (|dispatchFunction| |UNISEG;expand;LS;20|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|UniversalSegment|))
+          (LETT |dv$| (LIST '|UniversalSegment| DV$1) . #1#)
+          (LETT $ (GETREFV 69) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedRing|))
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|UniversalSegment| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7
+                    (|Union|
+                     (|Record| (|:| |low| |#1|) (|:| |incr| (|Integer|)))
+                     (|Record| (|:| |low| |#1|) (|:| |high| |#1|)
+                               (|:| |incr| (|Integer|)))))
+          (COND
+           ((|testBitVector| |pv$| 3)
+            (PROGN
+             (QSETREFV $ 27 (CONS (|dispatchFunction| |UNISEG;=;2$B;14|) $))
+             (QSETREFV $ 34
+                       (CONS (|dispatchFunction| |UNISEG;coerce;$Of;15|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 42
+                       (CONS (|dispatchFunction| |UNISEG;convert;$If;16|)
+                             $)))))
+          (COND
+           ((|testBitVector| |pv$| 2)
+            (PROGN
+             (QSETREFV $ 46
+                       (CONS (|dispatchFunction| |UNISEG;expand;$S;17|) $))
+             (QSETREFV $ 49 (CONS (|dispatchFunction| |UNISEG;map;M$S;18|) $))
+             (QSETREFV $ 45
+                       (CONS (|dispatchFunction| |UNISEG;expand;LS;20|) $)))))
+          $))) 
 
 (MAKEPROP '|UniversalSegment| '|infovec|
           (LIST

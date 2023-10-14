@@ -1,70 +1,71 @@
 
 (PUT '|OMLO;op;P$;1| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(DEFUN |OMLO;op;P$;1| (|a| $) |a|) 
+(SDEFUN |OMLO;op;P$;1| ((|a| P) ($ $)) |a|) 
 
 (PUT '|OMLO;po;$P;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |OMLO;po;$P;2| (|x| $) |x|) 
+(SDEFUN |OMLO;po;$P;2| ((|x| $) ($ P)) |x|) 
 
-(DEFUN |OMLO;*;3$;3| (|x| |y| $) (SPADCALL |y| |x| (QREFELT $ 11))) 
+(SDEFUN |OMLO;*;3$;3| ((|x| $) (|y| $) ($ $)) (SPADCALL |y| |x| (QREFELT $ 11))) 
 
-(DEFUN |OMLO;coerce;$Of;4| (|x| $)
-  (SPADCALL (SPADCALL '|op| (QREFELT $ 15))
-            (LIST (SPADCALL |x| (QREFELT $ 16))) (QREFELT $ 18))) 
+(SDEFUN |OMLO;coerce;$Of;4| ((|x| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL '|op| (QREFELT $ 15))
+                  (LIST (SPADCALL |x| (QREFELT $ 16))) (QREFELT $ 18))) 
 
 (DECLAIM (NOTINLINE |OppositeMonogenicLinearOperator;|)) 
 
 (DEFUN |OppositeMonogenicLinearOperator| (&REST #1=#:G110)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G111)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|OppositeMonogenicLinearOperator|)
-                                           '|domainEqualList|)
-                . #3=(|OppositeMonogenicLinearOperator|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |OppositeMonogenicLinearOperator;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G111)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|OppositeMonogenicLinearOperator|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|OppositeMonogenicLinearOperator|)
+                                               '|domainEqualList|)
+                    . #3=(|OppositeMonogenicLinearOperator|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |OppositeMonogenicLinearOperator;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|OppositeMonogenicLinearOperator|)))))))))) 
 
 (DEFUN |OppositeMonogenicLinearOperator;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|OppositeMonogenicLinearOperator|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|OppositeMonogenicLinearOperator| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 28) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#1|
-                                                         '(|DifferentialRing|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|OppositeMonogenicLinearOperator|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 5 |#1|)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 |#1|)
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|OppositeMonogenicLinearOperator|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|OppositeMonogenicLinearOperator| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 28) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|CommutativeRing|))
+                                              (|HasCategory| |#1|
+                                                             '(|DifferentialRing|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|OppositeMonogenicLinearOperator|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 5 |#1|)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 |#1|)
+          $))) 
 
 (MAKEPROP '|OppositeMonogenicLinearOperator| '|infovec|
           (LIST

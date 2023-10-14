@@ -1,45 +1,49 @@
 
-(DEFUN |PMPRED;suchThat;SME;1| (|p| |f| $)
-  (SPADCALL (SPADCALL |p| (QREFELT $ 9)) |f| (QREFELT $ 12))) 
+(SDEFUN |PMPRED;suchThat;SME;1|
+        ((|p| |Symbol|) (|f| |Mapping| (|Boolean|) D)
+         ($ |Expression| (|Integer|)))
+        (SPADCALL (SPADCALL |p| (QREFELT $ 9)) |f| (QREFELT $ 12))) 
 
-(DEFUN |PMPRED;suchThat;SLE;2| (|p| |l| $)
-  (SPADCALL (SPADCALL |p| (QREFELT $ 9)) |l| (QREFELT $ 15))) 
+(SDEFUN |PMPRED;suchThat;SLE;2|
+        ((|p| |Symbol|) (|l| |List| (|Mapping| (|Boolean|) D))
+         ($ |Expression| (|Integer|)))
+        (SPADCALL (SPADCALL |p| (QREFELT $ 9)) |l| (QREFELT $ 15))) 
 
 (DECLAIM (NOTINLINE |AttachPredicates;|)) 
 
 (DEFUN |AttachPredicates| (#1=#:G106)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G107)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|AttachPredicates|)
-                                           '|domainEqualList|)
-                . #3=(|AttachPredicates|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|AttachPredicates;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G107)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|AttachPredicates|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|AttachPredicates|)
+                                               '|domainEqualList|)
+                    . #3=(|AttachPredicates|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|AttachPredicates;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AttachPredicates|)))))))))) 
 
 (DEFUN |AttachPredicates;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|AttachPredicates|))
-      (LETT |dv$| (LIST '|AttachPredicates| DV$1) . #1#)
-      (LETT $ (GETREFV 17) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|AttachPredicates| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|AttachPredicates|))
+          (LETT |dv$| (LIST '|AttachPredicates| DV$1) . #1#)
+          (LETT $ (GETREFV 17) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|AttachPredicates| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|AttachPredicates| '|infovec|
           (LIST

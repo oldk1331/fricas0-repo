@@ -1,138 +1,166 @@
 
-(DEFUN |ISUMP;pmul| (|c| |p| $)
-  (PROG (|pn| |rec|)
-    (RETURN
-     (SEQ
-      (LETT |pn|
-            (QCAR
-             (LETT |rec| (SPADCALL |p| (QREFELT $ 13)) . #1=(|ISUMP;pmul|)))
-            . #1#)
-      (EXIT
-       (CONS
-        (SPADCALL (CONS #'|ISUMP;pmul!0| (VECTOR |c| $)) |pn| (QREFELT $ 21))
-        (QCDR |rec|))))))) 
-
-(DEFUN |ISUMP;pmul!0| (|x| $$)
-  (PROG ($ |c|)
-    (LETT $ (QREFELT $$ 1) . #1=(|ISUMP;pmul|))
-    (LETT |c| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN (SPADCALL (SPADCALL |x| (QREFELT $ 16)) |c| (QREFELT $ 17)))))) 
-
-(DEFUN |ISUMP;sum;PVSR;2| (|p| |v| |s| $)
-  (PROG (|indef|)
-    (RETURN
-     (SEQ (LETT |indef| (SPADCALL |p| |v| (QREFELT $ 23)) |ISUMP;sum;PVSR;2|)
+(SDEFUN |ISUMP;pmul|
+        ((|c| P) (|p| |SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
+         ($ |Record| (|:| |num| (|SparseUnivariatePolynomial| P))
+          (|:| |den| (|Integer|))))
+        (SPROG
+         ((|pn| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (|rec| (|Record| (|:| |num| #1#) (|:| |den| (|Integer|)))))
+         (SEQ
+          (LETT |pn|
+                (QCAR
+                 (LETT |rec| (SPADCALL |p| (QREFELT $ 13))
+                       . #2=(|ISUMP;pmul|)))
+                . #2#)
           (EXIT
            (CONS
-            (SPADCALL
-             (SPADCALL (QCAR |indef|) |v|
-                       (SPADCALL (|spadConstant| $ 25)
-                                 (SPADCALL |s| (QREFELT $ 27)) (QREFELT $ 28))
-                       (QREFELT $ 29))
-             (SPADCALL (QCAR |indef|) |v| (SPADCALL |s| (QREFELT $ 30))
-                       (QREFELT $ 29))
-             (QREFELT $ 31))
-            (QCDR |indef|))))))) 
+            (SPADCALL (CONS #'|ISUMP;pmul!0| (VECTOR |c| $)) |pn|
+                      (QREFELT $ 21))
+            (QCDR |rec|)))))) 
 
-(DEFUN |ISUMP;sum;PVR;3| (|p| |v| $)
-  (PROG (|vp| #1=#:G116 #2=#:G115 #3=#:G117 #4=#:G119 #5=#:G123 |di| #6=#:G124
-         |pi| |d| |ld| |lp| |rec| |up| |uc| |ud|)
-    (RETURN
-     (SEQ
-      (LETT |up| (SPADCALL |p| |v| (QREFELT $ 34)) . #7=(|ISUMP;sum;PVR;3|))
-      (LETT |lp| NIL . #7#) (LETT |ld| NIL . #7#)
-      (SEQ G190
-           (COND
-            ((NULL (SPADCALL |up| (|spadConstant| $ 37) (QREFELT $ 39)))
-             (GO G191)))
-           (SEQ (LETT |ud| (SPADCALL |up| (QREFELT $ 41)) . #7#)
-                (LETT |uc| (SPADCALL |up| (QREFELT $ 42)) . #7#)
-                (LETT |up| (SPADCALL |up| (QREFELT $ 43)) . #7#)
-                (LETT |rec|
-                      (|ISUMP;pmul| |uc|
-                       (SPADCALL (SPADCALL 1 (+ |ud| 1) (QREFELT $ 44))
-                                 (SPADCALL (+ |ud| 1) (QREFELT $ 46))
-                                 (QREFELT $ 47))
-                       $)
-                      . #7#)
-                (LETT |lp| (CONS (QCAR |rec|) |lp|) . #7#)
-                (EXIT (LETT |ld| (CONS (QCDR |rec|) |ld|) . #7#)))
-           NIL (GO G190) G191 (EXIT NIL))
-      (LETT |d| (SPADCALL |ld| (QREFELT $ 49)) . #7#)
-      (LETT |vp|
-            (PROGN
-             (LETT #1# NIL . #7#)
-             (SEQ (LETT |pi| NIL . #7#) (LETT #6# |lp| . #7#)
-                  (LETT |di| NIL . #7#) (LETT #5# |ld| . #7#) G190
-                  (COND
-                   ((OR (ATOM #5#) (PROGN (LETT |di| (CAR #5#) . #7#) NIL)
-                        (ATOM #6#) (PROGN (LETT |pi| (CAR #6#) . #7#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (PROGN
-                     (LETT #3#
-                           (SPADCALL
-                            (PROG2
-                                (LETT #4# (SPADCALL |d| |di| (QREFELT $ 51))
-                                      . #7#)
-                                (QCDR #4#)
-                              (|check_union| (QEQCAR #4# 0) (|Integer|) #4#))
-                            |pi| (QREFELT $ 52))
-                           . #7#)
-                     (COND
-                      (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 53)) . #7#))
-                      ('T (PROGN (LETT #2# #3# . #7#) (LETT #1# 'T . #7#)))))))
-                  (LETT #5# (PROG1 (CDR #5#) (LETT #6# (CDR #6#) . #7#)) . #7#)
-                  (GO G190) G191 (EXIT NIL))
-             (COND (#1# #2#) ('T (|spadConstant| $ 37))))
-            . #7#)
-      (EXIT (CONS (SPADCALL |vp| |v| (QREFELT $ 54)) |d|)))))) 
+(SDEFUN |ISUMP;pmul!0| ((|x| NIL) ($$ NIL))
+        (PROG ($ |c|)
+          (LETT $ (QREFELT $$ 1) . #1=(|ISUMP;pmul|))
+          (LETT |c| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL (SPADCALL |x| (QREFELT $ 16)) |c| (QREFELT $ 17)))))) 
+
+(SDEFUN |ISUMP;sum;PVSR;2|
+        ((|p| P) (|v| V) (|s| |Segment| P)
+         ($ |Record| (|:| |num| P) (|:| |den| (|Integer|))))
+        (SPROG ((|indef| (|Record| (|:| |num| P) (|:| |den| (|Integer|)))))
+               (SEQ
+                (LETT |indef| (SPADCALL |p| |v| (QREFELT $ 23))
+                      |ISUMP;sum;PVSR;2|)
+                (EXIT
+                 (CONS
+                  (SPADCALL
+                   (SPADCALL (QCAR |indef|) |v|
+                             (SPADCALL (|spadConstant| $ 25)
+                                       (SPADCALL |s| (QREFELT $ 27))
+                                       (QREFELT $ 28))
+                             (QREFELT $ 29))
+                   (SPADCALL (QCAR |indef|) |v| (SPADCALL |s| (QREFELT $ 30))
+                             (QREFELT $ 29))
+                   (QREFELT $ 31))
+                  (QCDR |indef|)))))) 
+
+(SDEFUN |ISUMP;sum;PVR;3|
+        ((|p| P) (|v| V) ($ |Record| (|:| |num| P) (|:| |den| (|Integer|))))
+        (SPROG
+         ((|vp| #1=(|SparseUnivariatePolynomial| P)) (#2=#:G116 NIL)
+          (#3=#:G115 #1#) (#4=#:G117 #1#) (#5=#:G119 NIL) (#6=#:G123 NIL)
+          (|di| NIL) (#7=#:G124 NIL) (|pi| NIL) (|d| (|Integer|))
+          (|ld| (|List| (|Integer|)))
+          (|lp| (|List| (|SparseUnivariatePolynomial| P)))
+          (|rec|
+           (|Record| (|:| |num| (|SparseUnivariatePolynomial| P))
+                     (|:| |den| (|Integer|))))
+          (|up| (|SparseUnivariatePolynomial| P)) (|uc| (P))
+          (|ud| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |up| (SPADCALL |p| |v| (QREFELT $ 34))
+                . #8=(|ISUMP;sum;PVR;3|))
+          (LETT |lp| NIL . #8#) (LETT |ld| NIL . #8#)
+          (SEQ G190
+               (COND
+                ((NULL (SPADCALL |up| (|spadConstant| $ 37) (QREFELT $ 39)))
+                 (GO G191)))
+               (SEQ (LETT |ud| (SPADCALL |up| (QREFELT $ 41)) . #8#)
+                    (LETT |uc| (SPADCALL |up| (QREFELT $ 42)) . #8#)
+                    (LETT |up| (SPADCALL |up| (QREFELT $ 43)) . #8#)
+                    (LETT |rec|
+                          (|ISUMP;pmul| |uc|
+                           (SPADCALL (SPADCALL 1 (+ |ud| 1) (QREFELT $ 44))
+                                     (SPADCALL (+ |ud| 1) (QREFELT $ 46))
+                                     (QREFELT $ 47))
+                           $)
+                          . #8#)
+                    (LETT |lp| (CONS (QCAR |rec|) |lp|) . #8#)
+                    (EXIT (LETT |ld| (CONS (QCDR |rec|) |ld|) . #8#)))
+               NIL (GO G190) G191 (EXIT NIL))
+          (LETT |d| (SPADCALL |ld| (QREFELT $ 49)) . #8#)
+          (LETT |vp|
+                (PROGN
+                 (LETT #2# NIL . #8#)
+                 (SEQ (LETT |pi| NIL . #8#) (LETT #7# |lp| . #8#)
+                      (LETT |di| NIL . #8#) (LETT #6# |ld| . #8#) G190
+                      (COND
+                       ((OR (ATOM #6#) (PROGN (LETT |di| (CAR #6#) . #8#) NIL)
+                            (ATOM #7#) (PROGN (LETT |pi| (CAR #7#) . #8#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (PROGN
+                         (LETT #4#
+                               (SPADCALL
+                                (PROG2
+                                    (LETT #5#
+                                          (SPADCALL |d| |di| (QREFELT $ 51))
+                                          . #8#)
+                                    (QCDR #5#)
+                                  (|check_union| (QEQCAR #5# 0) (|Integer|)
+                                                 #5#))
+                                |pi| (QREFELT $ 52))
+                               . #8#)
+                         (COND
+                          (#2#
+                           (LETT #3# (SPADCALL #3# #4# (QREFELT $ 53)) . #8#))
+                          ('T
+                           (PROGN
+                            (LETT #3# #4# . #8#)
+                            (LETT #2# 'T . #8#)))))))
+                      (LETT #6# (PROG1 (CDR #6#) (LETT #7# (CDR #7#) . #8#))
+                            . #8#)
+                      (GO G190) G191 (EXIT NIL))
+                 (COND (#2# #3#) ('T (|spadConstant| $ 37))))
+                . #8#)
+          (EXIT (CONS (SPADCALL |vp| |v| (QREFELT $ 54)) |d|))))) 
 
 (DECLAIM (NOTINLINE |InnerPolySum;|)) 
 
 (DEFUN |InnerPolySum| (&REST #1=#:G125)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G126)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|InnerPolySum|)
-                                           '|domainEqualList|)
-                . #3=(|InnerPolySum|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |InnerPolySum;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G126)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|InnerPolySum|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerPolySum|)
+                                               '|domainEqualList|)
+                    . #3=(|InnerPolySum|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InnerPolySum;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|InnerPolySum|)))))))))) 
 
 (DEFUN |InnerPolySum;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerPolySum|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|InnerPolySum| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 55) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|InnerPolySum|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerPolySum|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|InnerPolySum| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 55) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|InnerPolySum| (LIST DV$1 DV$2 DV$3 DV$4)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|InnerPolySum| '|infovec|
           (LIST

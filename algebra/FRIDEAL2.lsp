@@ -1,117 +1,126 @@
 
-(DEFUN |FRIDEAL2;fmap| (|f| |a| $)
-  (PROG (#1=#:G106 #2=#:G108 |i| #3=#:G107 |v|)
-    (RETURN
-     (SEQ (LETT |v| (SPADCALL |a| (QREFELT $ 15)) . #4=(|FRIDEAL2;fmap|))
+(SDEFUN |FRIDEAL2;fmap| ((|f| |Mapping| F2 F1) (|a| A1) ($ A2))
+        (SPROG
+         ((#1=#:G106 NIL) (#2=#:G108 NIL) (|i| NIL) (#3=#:G107 NIL)
+          (|v| (|Vector| F1)))
+         (SEQ (LETT |v| (SPADCALL |a| (QREFELT $ 15)) . #4=(|FRIDEAL2;fmap|))
+              (EXIT
+               (SPADCALL
+                (PROGN
+                 (LETT #3#
+                       (GETREFV
+                        (|inc_SI|
+                         (- #5=(QVSIZE |v|) #6=(SPADCALL |v| (QREFELT $ 17)))))
+                       . #4#)
+                 (SEQ (LETT |i| #6# . #4#) (LETT #2# #5# . #4#)
+                      (LETT #1# 0 . #4#) G190 (COND ((> |i| #2#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (SETELT #3# #1# (SPADCALL (QAREF1O |v| |i| 1) |f|))))
+                      (LETT #1#
+                            (PROG1 (|inc_SI| #1#) (LETT |i| (+ |i| 1) . #4#))
+                            . #4#)
+                      (GO G190) G191 (EXIT NIL))
+                 #3#)
+                (QREFELT $ 19)))))) 
+
+(SDEFUN |FRIDEAL2;map;MFiFi;2|
+        ((|f| |Mapping| R2 R1) (|i| |FractionalIdeal| R1 F1 U1 A1)
+         ($ |FractionalIdeal| R2 F2 U2 A2))
+        (SPROG
+         ((#1=#:G114 NIL) (#2=#:G116 NIL) (|j| NIL) (#3=#:G115 NIL)
+          (|b| (|Vector| A1)))
+         (SEQ
+          (LETT |b| (SPADCALL |i| (QREFELT $ 22))
+                . #4=(|FRIDEAL2;map;MFiFi;2|))
           (EXIT
            (SPADCALL
             (PROGN
              (LETT #3#
                    (GETREFV
                     (|inc_SI|
-                     (- #5=(QVSIZE |v|) #6=(SPADCALL |v| (QREFELT $ 17)))))
+                     (- #5=(QVSIZE |b|) #6=(SPADCALL |b| (QREFELT $ 23)))))
                    . #4#)
-             (SEQ (LETT |i| #6# . #4#) (LETT #2# #5# . #4#) (LETT #1# 0 . #4#)
-                  G190 (COND ((> |i| #2#) (GO G191)))
+             (SEQ (LETT |j| #6# . #4#) (LETT #2# #5# . #4#) (LETT #1# 0 . #4#)
+                  G190 (COND ((> |j| #2#) (GO G191)))
                   (SEQ
-                   (EXIT (SETELT #3# #1# (SPADCALL (QAREF1O |v| |i| 1) |f|))))
-                  (LETT #1# (PROG1 (|inc_SI| #1#) (LETT |i| (+ |i| 1) . #4#))
+                   (EXIT
+                    (SETELT #3# #1#
+                            (|FRIDEAL2;fmap|
+                             (CONS #'|FRIDEAL2;map;MFiFi;2!0| (VECTOR |f| $))
+                             (QAREF1O |b| |j| 1) $))))
+                  (LETT #1# (PROG1 (|inc_SI| #1#) (LETT |j| (+ |j| 1) . #4#))
                         . #4#)
                   (GO G190) G191 (EXIT NIL))
              #3#)
-            (QREFELT $ 19))))))) 
+            (QREFELT $ 29)))))) 
 
-(DEFUN |FRIDEAL2;map;MFiFi;2| (|f| |i| $)
-  (PROG (#1=#:G114 #2=#:G116 |j| #3=#:G115 |b|)
-    (RETURN
-     (SEQ
-      (LETT |b| (SPADCALL |i| (QREFELT $ 22)) . #4=(|FRIDEAL2;map;MFiFi;2|))
-      (EXIT
-       (SPADCALL
-        (PROGN
-         (LETT #3#
-               (GETREFV
-                (|inc_SI|
-                 (- #5=(QVSIZE |b|) #6=(SPADCALL |b| (QREFELT $ 23)))))
-               . #4#)
-         (SEQ (LETT |j| #6# . #4#) (LETT #2# #5# . #4#) (LETT #1# 0 . #4#) G190
-              (COND ((> |j| #2#) (GO G191)))
-              (SEQ
-               (EXIT
-                (SETELT #3# #1#
-                        (|FRIDEAL2;fmap|
-                         (CONS #'|FRIDEAL2;map;MFiFi;2!0| (VECTOR |f| $))
-                         (QAREF1O |b| |j| 1) $))))
-              (LETT #1# (PROG1 (|inc_SI| #1#) (LETT |j| (+ |j| 1) . #4#))
-                    . #4#)
-              (GO G190) G191 (EXIT NIL))
-         #3#)
-        (QREFELT $ 29))))))) 
-
-(DEFUN |FRIDEAL2;map;MFiFi;2!0| (|s| $$)
-  (PROG ($ |f|)
-    (LETT $ (QREFELT $$ 1) . #1=(|FRIDEAL2;map;MFiFi;2|))
-    (LETT |f| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL (SPADCALL (SPADCALL |s| (QREFELT $ 24)) |f|)
-                (SPADCALL (SPADCALL |s| (QREFELT $ 25)) |f|) (QREFELT $ 26)))))) 
+(SDEFUN |FRIDEAL2;map;MFiFi;2!0| ((|s| NIL) ($$ NIL))
+        (PROG ($ |f|)
+          (LETT $ (QREFELT $$ 1) . #1=(|FRIDEAL2;map;MFiFi;2|))
+          (LETT |f| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL (SPADCALL (SPADCALL |s| (QREFELT $ 24)) |f|)
+                      (SPADCALL (SPADCALL |s| (QREFELT $ 25)) |f|)
+                      (QREFELT $ 26)))))) 
 
 (DECLAIM (NOTINLINE |FractionalIdealFunctions2;|)) 
 
 (DEFUN |FractionalIdealFunctions2| (&REST #1=#:G117)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G118)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FractionalIdealFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|FractionalIdealFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |FractionalIdealFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|FractionalIdealFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FractionalIdealFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|FractionalIdealFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |FractionalIdealFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FractionalIdealFunctions2|)))))))))) 
 
 (DEFUN |FractionalIdealFunctions2;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7| |#8|)
-  (PROG (|pv$| $ |dv$| DV$8 DV$7 DV$6 DV$5 DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FractionalIdealFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT DV$5 (|devaluate| |#5|) . #1#)
-      (LETT DV$6 (|devaluate| |#6|) . #1#)
-      (LETT DV$7 (|devaluate| |#7|) . #1#)
-      (LETT DV$8 (|devaluate| |#8|) . #1#)
-      (LETT |dv$|
-            (LIST '|FractionalIdealFunctions2| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6
-                  DV$7 DV$8)
-            . #1#)
-      (LETT $ (GETREFV 32) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FractionalIdealFunctions2|
-                  (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7 DV$8) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (QSETREFV $ 10 |#5|)
-      (QSETREFV $ 11 |#6|)
-      (QSETREFV $ 12 |#7|)
-      (QSETREFV $ 13 |#8|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$8 NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL)
+    (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|FractionalIdealFunctions2|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$5 (|devaluate| |#5|) . #1#)
+    (LETT DV$6 (|devaluate| |#6|) . #1#)
+    (LETT DV$7 (|devaluate| |#7|) . #1#)
+    (LETT DV$8 (|devaluate| |#8|) . #1#)
+    (LETT |dv$|
+          (LIST '|FractionalIdealFunctions2| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7
+                DV$8)
+          . #1#)
+    (LETT $ (GETREFV 32) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|FractionalIdealFunctions2|
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7 DV$8) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (QSETREFV $ 10 |#5|)
+    (QSETREFV $ 11 |#6|)
+    (QSETREFV $ 12 |#7|)
+    (QSETREFV $ 13 |#8|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|FractionalIdealFunctions2| '|infovec|
           (LIST

@@ -1,15 +1,24 @@
 
-(DEFUN |FRUTIL;mergeFactors;3F;1| (|f| |g| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL |f| (QREFELT $ 8)) (SPADCALL |g| (QREFELT $ 8))
-             (QREFELT $ 9))
-   (APPEND (SPADCALL |f| (QREFELT $ 13)) (SPADCALL |g| (QREFELT $ 13)))
-   (QREFELT $ 14))) 
+(SDEFUN |FRUTIL;mergeFactors;3F;1|
+        ((|f| |Factored| R) (|g| |Factored| R) ($ |Factored| R))
+        (SPADCALL
+         (SPADCALL (SPADCALL |f| (QREFELT $ 8)) (SPADCALL |g| (QREFELT $ 8))
+                   (QREFELT $ 9))
+         (APPEND (SPADCALL |f| (QREFELT $ 13)) (SPADCALL |g| (QREFELT $ 13)))
+         (QREFELT $ 14))) 
 
-(DEFUN |FRUTIL;refine;FMF;2| (|f| |func| $)
-  (PROG (|l| #1=#:G123 |v| #2=#:G122 |u| #3=#:G108 |fitem| #4=#:G121 |item|)
-    (RETURN
-     (SEQ (LETT |u| (SPADCALL |f| (QREFELT $ 8)) . #5=(|FRUTIL;refine;FMF;2|))
+(SDEFUN |FRUTIL;refine;FMF;2|
+        ((|f| |Factored| R) (|func| |Mapping| (|Factored| R) R)
+         ($ |Factored| R))
+        (SPROG
+         ((|l|
+           (|List|
+            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
+          (#1=#:G123 NIL) (|v| NIL) (#2=#:G122 NIL) (|u| (R)) (#3=#:G108 NIL)
+          (|fitem| (|Factored| R)) (#4=#:G121 NIL) (|item| NIL))
+         (SEQ
+          (LETT |u| (SPADCALL |f| (QREFELT $ 8)) . #5=(|FRUTIL;refine;FMF;2|))
           (LETT |l| NIL . #5#)
           (SEQ (LETT |item| NIL . #5#)
                (LETT #4# (SPADCALL |f| (QREFELT $ 13)) . #5#) G190
@@ -66,45 +75,44 @@
                               |l| (QREFELT $ 18))
                              . #5#)))))
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |u| |l| (QREFELT $ 14))))))) 
+          (EXIT (SPADCALL |u| |l| (QREFELT $ 14)))))) 
 
 (DECLAIM (NOTINLINE |FactoredFunctionUtilities;|)) 
 
 (DEFUN |FactoredFunctionUtilities| (#1=#:G124)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G125)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|FactoredFunctionUtilities|)
-                                           '|domainEqualList|)
-                . #3=(|FactoredFunctionUtilities|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|FactoredFunctionUtilities;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G125)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|FactoredFunctionUtilities|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FactoredFunctionUtilities|)
+                                               '|domainEqualList|)
+                    . #3=(|FactoredFunctionUtilities|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FactoredFunctionUtilities;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FactoredFunctionUtilities|)))))))))) 
 
 (DEFUN |FactoredFunctionUtilities;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FactoredFunctionUtilities|))
-      (LETT |dv$| (LIST '|FactoredFunctionUtilities| DV$1) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FactoredFunctionUtilities| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FactoredFunctionUtilities|))
+          (LETT |dv$| (LIST '|FactoredFunctionUtilities| DV$1) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FactoredFunctionUtilities|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FactoredFunctionUtilities| '|infovec|
           (LIST

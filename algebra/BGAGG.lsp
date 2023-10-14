@@ -16,23 +16,22 @@
       #2#)))) 
 
 (DEFUN |BagAggregate;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|BagAggregate;CAT|)
-                                ('T
-                                 (LETT |BagAggregate;CAT|
-                                       (|Join| (|HomogeneousAggregate| '|t#1|)
-                                               (|shallowlyMutable|)
-                                               (|mkCategory|
-                                                '(((|bag| ($ (|List| |t#1|)))
-                                                   T)
-                                                  ((|extract!| (|t#1| $)) T)
-                                                  ((|insert!| ($ |t#1| $)) T)
-                                                  ((|inspect| (|t#1| $)) T))
-                                                NIL '((|List| |t#1|)) NIL))
-                                       . #2=(|BagAggregate|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|BagAggregate| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|BagAggregate;CAT|)
+                                    ('T
+                                     (LETT |BagAggregate;CAT|
+                                           (|Join|
+                                            (|HomogeneousAggregate| '|t#1|)
+                                            (|shallowlyMutable|)
+                                            (|mkCategory|
+                                             '(((|bag| ($ (|List| |t#1|))) T)
+                                               ((|extract!| (|t#1| $)) T)
+                                               ((|insert!| ($ |t#1| $)) T)
+                                               ((|inspect| (|t#1| $)) T))
+                                             NIL '((|List| |t#1|)) NIL))
+                                           . #2=(|BagAggregate|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|BagAggregate| (|devaluate| |t#1|)))))) 

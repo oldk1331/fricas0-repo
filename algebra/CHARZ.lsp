@@ -9,9 +9,8 @@
           (T (SETQ |CharacteristicZero;AL| (|CharacteristicZero;|)))))) 
 
 (DEFUN |CharacteristicZero;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1 (LETT #1# (|Join| (|Ring|)) |CharacteristicZero|)
-       (SETELT #1# 0 '(|CharacteristicZero|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1 (LETT #1# (|Join| (|Ring|)) |CharacteristicZero|)
+           (SETELT #1# 0 '(|CharacteristicZero|))))) 
 
 (MAKEPROP '|CharacteristicZero| 'NILADIC T) 

@@ -1,884 +1,963 @@
 
 (PUT '|SREGSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(DEFUN |SREGSET;rep| (|s| $) |s|) 
+(SDEFUN |SREGSET;rep| ((|s| $) ($ |List| P)) |s|) 
 
 (PUT '|SREGSET;per| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(DEFUN |SREGSET;per| (|l| $) |l|) 
+(SDEFUN |SREGSET;per| ((|l| |List| P) ($ $)) |l|) 
 
-(DEFUN |SREGSET;copy;2$;3| (|ts| $)
-  (|SREGSET;per| (SPADCALL (|SREGSET;rep| |ts| $) (QREFELT $ 11)) $)) 
+(SDEFUN |SREGSET;copy;2$;3| ((|ts| $) ($ $))
+        (|SREGSET;per| (SPADCALL (|SREGSET;rep| |ts| $) (QREFELT $ 11)) $)) 
 
-(DEFUN |SREGSET;empty;$;4| ($) (|SREGSET;per| NIL $)) 
+(SDEFUN |SREGSET;empty;$;4| (($ $)) (|SREGSET;per| NIL $)) 
 
-(DEFUN |SREGSET;empty?;$B;5| (|ts| $) (NULL (|SREGSET;rep| |ts| $))) 
+(SDEFUN |SREGSET;empty?;$B;5| ((|ts| $) ($ |Boolean|))
+        (NULL (|SREGSET;rep| |ts| $))) 
 
-(DEFUN |SREGSET;parts;$L;6| (|ts| $) (|SREGSET;rep| |ts| $)) 
+(SDEFUN |SREGSET;parts;$L;6| ((|ts| $) ($ |List| P)) (|SREGSET;rep| |ts| $)) 
 
-(DEFUN |SREGSET;members;$L;7| (|ts| $) (|SREGSET;rep| |ts| $)) 
+(SDEFUN |SREGSET;members;$L;7| ((|ts| $) ($ |List| P)) (|SREGSET;rep| |ts| $)) 
 
-(DEFUN |SREGSET;map;M2$;8| (|f| |ts| $)
-  (SPADCALL (SPADCALL |f| (|SREGSET;rep| |ts| $) (QREFELT $ 19))
-            (QREFELT $ 20))) 
+(SDEFUN |SREGSET;map;M2$;8| ((|f| |Mapping| P P) (|ts| $) ($ $))
+        (SPADCALL (SPADCALL |f| (|SREGSET;rep| |ts| $) (QREFELT $ 19))
+                  (QREFELT $ 20))) 
 
-(DEFUN |SREGSET;map!;M2$;9| (|f| |ts| $)
-  (SPADCALL (SPADCALL |f| (|SREGSET;rep| |ts| $) (QREFELT $ 22))
-            (QREFELT $ 20))) 
+(SDEFUN |SREGSET;map!;M2$;9| ((|f| |Mapping| P P) (|ts| $) ($ $))
+        (SPADCALL (SPADCALL |f| (|SREGSET;rep| |ts| $) (QREFELT $ 22))
+                  (QREFELT $ 20))) 
 
-(DEFUN |SREGSET;member?;P$B;10| (|p| |ts| $)
-  (SPADCALL |p| (|SREGSET;rep| |ts| $) (QREFELT $ 24))) 
+(SDEFUN |SREGSET;member?;P$B;10| ((|p| P) (|ts| $) ($ |Boolean|))
+        (SPADCALL |p| (|SREGSET;rep| |ts| $) (QREFELT $ 24))) 
 
 (PUT '|SREGSET;roughUnitIdeal?;$B;11| '|SPADreplace| '(XLAM (|ts|) 'NIL)) 
 
-(DEFUN |SREGSET;roughUnitIdeal?;$B;11| (|ts| $) 'NIL) 
+(SDEFUN |SREGSET;roughUnitIdeal?;$B;11| ((|ts| $) ($ |Boolean|)) 'NIL) 
 
-(DEFUN |SREGSET;coerce;$Of;12| (|ts| $)
-  (PROG (#1=#:G166 |p| #2=#:G165 |lp|)
-    (RETURN
-     (SEQ
-      (LETT |lp| (REVERSE (|SREGSET;rep| |ts| $))
-            . #3=(|SREGSET;coerce;$Of;12|))
-      (EXIT
-       (SPADCALL
-        (PROGN
-         (LETT #2# NIL . #3#)
-         (SEQ (LETT |p| NIL . #3#) (LETT #1# |lp| . #3#) G190
-              (COND
-               ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
-                (GO G191)))
-              (SEQ
-               (EXIT
-                (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 28)) #2#) . #3#)))
-              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-        (QREFELT $ 30))))))) 
-
-(DEFUN |SREGSET;mvar;$V;13| (|ts| $)
-  (COND ((SPADCALL |ts| (QREFELT $ 15)) (|error| "mvar$SREGSET: #1 is empty"))
-        ('T (SPADCALL (|SPADfirst| (|SREGSET;rep| |ts| $)) (QREFELT $ 32))))) 
-
-(DEFUN |SREGSET;first;$U;14| (|ts| $)
-  (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
-        ('T (CONS 0 (|SPADfirst| (|SREGSET;rep| |ts| $)))))) 
-
-(DEFUN |SREGSET;last;$U;15| (|ts| $)
-  (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
-        ('T (CONS 0 (SPADCALL (|SREGSET;rep| |ts| $) (QREFELT $ 36)))))) 
-
-(DEFUN |SREGSET;rest;$U;16| (|ts| $)
-  (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
-        ('T (CONS 0 (|SREGSET;per| (CDR (|SREGSET;rep| |ts| $)) $))))) 
-
-(DEFUN |SREGSET;coerce;$L;17| (|ts| $) (|SREGSET;rep| |ts| $)) 
-
-(DEFUN |SREGSET;collectUpper;$V$;18| (|ts| |v| $)
-  (PROG (|lp| |newlp|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |ts| (QREFELT $ 15)) |ts|)
-            ('T
-             (SEQ
-              (LETT |lp| (|SREGSET;rep| |ts| $)
-                    . #1=(|SREGSET;collectUpper;$V$;18|))
-              (LETT |newlp| NIL . #1#)
-              (SEQ G190
-                   (COND
-                    ((NULL
-                      (COND ((NULL |lp|) 'NIL)
-                            ('T
-                             (SPADCALL
-                              (SPADCALL (|SPADfirst| |lp|) (QREFELT $ 32)) |v|
-                              (QREFELT $ 41)))))
-                     (GO G191)))
-                   (SEQ (LETT |newlp| (CONS (|SPADfirst| |lp|) |newlp|) . #1#)
-                        (EXIT (LETT |lp| (CDR |lp|) . #1#)))
-                   NIL (GO G190) G191 (EXIT NIL))
-              (EXIT (|SREGSET;per| (REVERSE |newlp|) $))))))))) 
-
-(DEFUN |SREGSET;collectUnder;$V$;19| (|ts| |v| $)
-  (PROG (|lp|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |ts| (QREFELT $ 15)) |ts|)
-            ('T
-             (SEQ
-              (LETT |lp| (|SREGSET;rep| |ts| $)
-                    . #1=(|SREGSET;collectUnder;$V$;19|))
-              (SEQ G190
-                   (COND
-                    ((NULL
-                      (COND ((NULL |lp|) 'NIL)
-                            ('T
-                             (SPADCALL
-                              (SPADCALL (|SPADfirst| |lp|) (QREFELT $ 32)) |v|
-                              (QREFELT $ 43)))))
-                     (GO G191)))
-                   (SEQ (EXIT (LETT |lp| (CDR |lp|) . #1#))) NIL (GO G190) G191
-                   (EXIT NIL))
-              (EXIT (|SREGSET;per| |lp| $))))))))) 
-
-(DEFUN |SREGSET;construct;L$;20| (|lp| $)
-  (PROG (|ts| |eif|)
-    (RETURN
-     (SEQ (LETT |ts| (|SREGSET;per| NIL $) . #1=(|SREGSET;construct;L$;20|))
-          (EXIT
-           (COND ((NULL |lp|) |ts|)
-                 ('T
-                  (SEQ
-                   (LETT |lp| (SPADCALL (ELT $ 45) |lp| (QREFELT $ 47)) . #1#)
-                   (SEQ G190
+(SDEFUN |SREGSET;coerce;$Of;12| ((|ts| $) ($ |OutputForm|))
+        (SPROG ((#1=#:G166 NIL) (|p| NIL) (#2=#:G165 NIL) (|lp| (|List| P)))
+               (SEQ
+                (LETT |lp| (REVERSE (|SREGSET;rep| |ts| $))
+                      . #3=(|SREGSET;coerce;$Of;12|))
+                (EXIT
+                 (SPADCALL
+                  (PROGN
+                   (LETT #2# NIL . #3#)
+                   (SEQ (LETT |p| NIL . #3#) (LETT #1# |lp| . #3#) G190
                         (COND
-                         ((NULL (COND ((NULL |lp|) 'NIL) ('T 'T))) (GO G191)))
+                         ((OR (ATOM #1#)
+                              (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
+                          (GO G191)))
                         (SEQ
-                         (LETT |eif|
-                               (SPADCALL |ts| (|SPADfirst| |lp|)
-                                         (QREFELT $ 48))
-                               . #1#)
                          (EXIT
-                          (COND
-                           ((QEQCAR |eif| 0)
-                            (SEQ (LETT |ts| (QCDR |eif|) . #1#)
-                                 (EXIT (LETT |lp| (CDR |lp|) . #1#))))
-                           ('T
-                            (|error|
-                             "in construct : List P -> %  from SREGSET : bad #1")))))
-                        NIL (GO G190) G191 (EXIT NIL))
-                   (EXIT |ts|))))))))) 
+                          (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 28)) #2#)
+                                . #3#)))
+                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (EXIT (NREVERSE #2#))))
+                  (QREFELT $ 30)))))) 
 
-(DEFUN |SREGSET;extendIfCan;$PU;21| (|ts| |p| $)
-  (PROG (|lts|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |p| (QREFELT $ 49)) (CONS 1 "failed"))
-            ((SPADCALL |ts| (QREFELT $ 15))
-             (SEQ
-              (LETT |p| (SPADCALL (SPADCALL |p| (QREFELT $ 50)) (QREFELT $ 51))
-                    . #1=(|SREGSET;extendIfCan;$PU;21|))
-              (EXIT (CONS 0 (|SREGSET;per| (LIST |p|) $)))))
-            ((NULL
-              (SPADCALL (SPADCALL |ts| (QREFELT $ 33))
-                        (SPADCALL |p| (QREFELT $ 32)) (QREFELT $ 52)))
-             (CONS 1 "failed"))
-            ('T
-             (COND
-              ((SPADCALL (SPADCALL |p| (QREFELT $ 53)) |ts| (QREFELT $ 54))
-               (SEQ (LETT |lts| (SPADCALL |p| |ts| (QREFELT $ 55)) . #1#)
-                    (EXIT
-                     (COND
-                      ((SPADCALL (SPADCALL |lts| (QREFELT $ 58)) 1
-                                 (QREFELT $ 60))
+(SDEFUN |SREGSET;mvar;$V;13| ((|ts| $) ($ V))
+        (COND
+         ((SPADCALL |ts| (QREFELT $ 15)) (|error| "mvar$SREGSET: #1 is empty"))
+         ('T (SPADCALL (|SPADfirst| (|SREGSET;rep| |ts| $)) (QREFELT $ 32))))) 
+
+(SDEFUN |SREGSET;first;$U;14| ((|ts| $) ($ |Union| P "failed"))
+        (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
+              ('T (CONS 0 (|SPADfirst| (|SREGSET;rep| |ts| $)))))) 
+
+(SDEFUN |SREGSET;last;$U;15| ((|ts| $) ($ |Union| P "failed"))
+        (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
+              ('T (CONS 0 (SPADCALL (|SREGSET;rep| |ts| $) (QREFELT $ 36)))))) 
+
+(SDEFUN |SREGSET;rest;$U;16| ((|ts| $) ($ |Union| $ "failed"))
+        (COND ((SPADCALL |ts| (QREFELT $ 15)) (CONS 1 "failed"))
+              ('T (CONS 0 (|SREGSET;per| (CDR (|SREGSET;rep| |ts| $)) $))))) 
+
+(SDEFUN |SREGSET;coerce;$L;17| ((|ts| $) ($ |List| P)) (|SREGSET;rep| |ts| $)) 
+
+(SDEFUN |SREGSET;collectUpper;$V$;18| ((|ts| $) (|v| V) ($ $))
+        (SPROG ((|lp| (|List| P)) (|newlp| (|List| P)))
+               (SEQ
+                (COND ((SPADCALL |ts| (QREFELT $ 15)) |ts|)
+                      ('T
+                       (SEQ
+                        (LETT |lp| (|SREGSET;rep| |ts| $)
+                              . #1=(|SREGSET;collectUpper;$V$;18|))
+                        (LETT |newlp| NIL . #1#)
+                        (SEQ G190
+                             (COND
+                              ((NULL
+                                (COND ((NULL |lp|) 'NIL)
+                                      ('T
+                                       (SPADCALL
+                                        (SPADCALL (|SPADfirst| |lp|)
+                                                  (QREFELT $ 32))
+                                        |v| (QREFELT $ 41)))))
+                               (GO G191)))
+                             (SEQ
+                              (LETT |newlp| (CONS (|SPADfirst| |lp|) |newlp|)
+                                    . #1#)
+                              (EXIT (LETT |lp| (CDR |lp|) . #1#)))
+                             NIL (GO G190) G191 (EXIT NIL))
+                        (EXIT (|SREGSET;per| (REVERSE |newlp|) $)))))))) 
+
+(SDEFUN |SREGSET;collectUnder;$V$;19| ((|ts| $) (|v| V) ($ $))
+        (SPROG ((|lp| (|List| P)))
+               (SEQ
+                (COND ((SPADCALL |ts| (QREFELT $ 15)) |ts|)
+                      ('T
+                       (SEQ
+                        (LETT |lp| (|SREGSET;rep| |ts| $)
+                              . #1=(|SREGSET;collectUnder;$V$;19|))
+                        (SEQ G190
+                             (COND
+                              ((NULL
+                                (COND ((NULL |lp|) 'NIL)
+                                      ('T
+                                       (SPADCALL
+                                        (SPADCALL (|SPADfirst| |lp|)
+                                                  (QREFELT $ 32))
+                                        |v| (QREFELT $ 43)))))
+                               (GO G191)))
+                             (SEQ (EXIT (LETT |lp| (CDR |lp|) . #1#))) NIL
+                             (GO G190) G191 (EXIT NIL))
+                        (EXIT (|SREGSET;per| |lp| $)))))))) 
+
+(SDEFUN |SREGSET;construct;L$;20| ((|lp| |List| P) ($ $))
+        (SPROG ((|ts| ($)) (|eif| (|Union| $ "failed")))
+               (SEQ
+                (LETT |ts| (|SREGSET;per| NIL $)
+                      . #1=(|SREGSET;construct;L$;20|))
+                (EXIT
+                 (COND ((NULL |lp|) |ts|)
+                       ('T
+                        (SEQ
+                         (LETT |lp| (SPADCALL (ELT $ 45) |lp| (QREFELT $ 47))
+                               . #1#)
+                         (SEQ G190
+                              (COND
+                               ((NULL (COND ((NULL |lp|) 'NIL) ('T 'T)))
+                                (GO G191)))
+                              (SEQ
+                               (LETT |eif|
+                                     (SPADCALL |ts| (|SPADfirst| |lp|)
+                                               (QREFELT $ 48))
+                                     . #1#)
+                               (EXIT
+                                (COND
+                                 ((QEQCAR |eif| 0)
+                                  (SEQ (LETT |ts| (QCDR |eif|) . #1#)
+                                       (EXIT (LETT |lp| (CDR |lp|) . #1#))))
+                                 ('T
+                                  (|error|
+                                   "in construct : List P -> %  from SREGSET : bad #1")))))
+                              NIL (GO G190) G191 (EXIT NIL))
+                         (EXIT |ts|)))))))) 
+
+(SDEFUN |SREGSET;extendIfCan;$PU;21| ((|ts| $) (|p| P) ($ |Union| $ "failed"))
+        (SPROG ((|lts| (|List| $)))
+               (SEQ
+                (COND ((SPADCALL |p| (QREFELT $ 49)) (CONS 1 "failed"))
+                      ((SPADCALL |ts| (QREFELT $ 15))
+                       (SEQ
+                        (LETT |p|
+                              (SPADCALL (SPADCALL |p| (QREFELT $ 50))
+                                        (QREFELT $ 51))
+                              . #1=(|SREGSET;extendIfCan;$PU;21|))
+                        (EXIT (CONS 0 (|SREGSET;per| (LIST |p|) $)))))
+                      ((NULL
+                        (SPADCALL (SPADCALL |ts| (QREFELT $ 33))
+                                  (SPADCALL |p| (QREFELT $ 32))
+                                  (QREFELT $ 52)))
                        (CONS 1 "failed"))
-                      (#2='T (CONS 0 (SPADCALL |lts| (QREFELT $ 61))))))))
-              (#2# (CONS 1 "failed"))))))))) 
+                      ('T
+                       (COND
+                        ((SPADCALL (SPADCALL |p| (QREFELT $ 53)) |ts|
+                                   (QREFELT $ 54))
+                         (SEQ
+                          (LETT |lts| (SPADCALL |p| |ts| (QREFELT $ 55)) . #1#)
+                          (EXIT
+                           (COND
+                            ((SPADCALL (SPADCALL |lts| (QREFELT $ 58)) 1
+                                       (QREFELT $ 60))
+                             (CONS 1 "failed"))
+                            (#2='T
+                             (CONS 0 (SPADCALL |lts| (QREFELT $ 61))))))))
+                        (#2# (CONS 1 "failed")))))))) 
 
-(DEFUN |SREGSET;removeZero;P$P;22| (|p| |ts| $)
-  (PROG (|q| #1=#:G236 #2=#:G227 |ts_v-| |v|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND
-        ((OR (SPADCALL |p| (QREFELT $ 49)) (SPADCALL |ts| (QREFELT $ 15))) |p|)
-        ('T
+(SDEFUN |SREGSET;removeZero;P$P;22| ((|p| P) (|ts| $) ($ P))
+        (SPROG
+         ((|q| (P)) (#1=#:G236 NIL) (#2=#:G227 NIL) (|ts_v-| ($)) (|v| (V)))
+         (SEQ
+          (EXIT
+           (COND
+            ((OR (SPADCALL |p| (QREFELT $ 49)) (SPADCALL |ts| (QREFELT $ 15)))
+             |p|)
+            ('T
+             (SEQ
+              (LETT |v| (SPADCALL |p| (QREFELT $ 32))
+                    . #3=(|SREGSET;removeZero;P$P;22|))
+              (LETT |ts_v-| (SPADCALL |ts| |v| (QREFELT $ 44)) . #3#)
+              (COND
+               ((SPADCALL |v| |ts| (QREFELT $ 62))
+                (SEQ
+                 (LETT |q|
+                       (SPADCALL |p|
+                                 (PROG2
+                                     (LETT #2#
+                                           (SPADCALL |ts| |v| (QREFELT $ 63))
+                                           . #3#)
+                                     (QCDR #2#)
+                                   (|check_union| (QEQCAR #2# 0) (QREFELT $ 9)
+                                                  #2#))
+                                 (QREFELT $ 64))
+                       . #3#)
+                 (EXIT
+                  (COND
+                   ((SPADCALL |q| (QREFELT $ 65))
+                    (PROGN (LETT #1# |q| . #3#) (GO #1#)))
+                   ((SPADCALL (SPADCALL |q| |ts_v-| (QREFELT $ 66))
+                              (QREFELT $ 65))
+                    (PROGN
+                     (LETT #1# (|spadConstant| $ 67) . #3#)
+                     (GO #1#))))))))
+              (EXIT
+               (COND ((SPADCALL |ts_v-| (QREFELT $ 15)) |p|)
+                     ('T
+                      (SEQ (LETT |q| (|spadConstant| $ 67) . #3#)
+                           (SEQ G190
+                                (COND
+                                 ((NULL
+                                   (SPADCALL (SPADCALL |p| |v| (QREFELT $ 68))
+                                             (QREFELT $ 70)))
+                                  (GO G191)))
+                                (SEQ
+                                 (LETT |q|
+                                       (SPADCALL
+                                        (SPADCALL
+                                         (SPADCALL
+                                          (SPADCALL |p| (QREFELT $ 53)) |ts_v-|
+                                          (QREFELT $ 66))
+                                         (SPADCALL |p| (QREFELT $ 71))
+                                         (QREFELT $ 72))
+                                        |q| (QREFELT $ 73))
+                                       . #3#)
+                                 (EXIT
+                                  (LETT |p| (SPADCALL |p| (QREFELT $ 74))
+                                        . #3#)))
+                                NIL (GO G190) G191 (EXIT NIL))
+                           (EXIT
+                            (SPADCALL |q| (SPADCALL |p| |ts_v-| (QREFELT $ 66))
+                                      (QREFELT $ 73)))))))))))
+          #1# (EXIT #1#)))) 
+
+(SDEFUN |SREGSET;internalAugment;P2$;23| ((|p| P) (|ts| $) ($ $))
+        (COND
+         ((SPADCALL |p| (QREFELT $ 49))
+          (|error| "in internalAugment$SREGSET: ground? #1"))
+         ('T
+          (SPADCALL (SPADCALL |p| |ts| 'NIL 'NIL 'NIL 'NIL 'NIL (QREFELT $ 75))
+                    (QREFELT $ 61))))) 
+
+(SDEFUN |SREGSET;internalAugment;L2$;24| ((|lp| |List| P) (|ts| $) ($ $))
+        (COND ((NULL |lp|) |ts|)
+              ('T
+               (SPADCALL (CDR |lp|)
+                         (SPADCALL (|SPADfirst| |lp|) |ts| (QREFELT $ 76))
+                         (QREFELT $ 77))))) 
+
+(SDEFUN |SREGSET;internalAugment;P$5BL;25|
+        ((|p| P) (|ts| $) (|rem?| |Boolean|) (|red?| |Boolean|)
+         (|prim?| |Boolean|) (|sqfr?| |Boolean|) (|extend?| |Boolean|)
+         ($ |List| $))
+        (SPROG
+         ((#1=#:G256 NIL) (|us| ($)) (#2=#:G255 NIL) (|lts| (|List| $))
+          (|sfp| (P)) (#3=#:G254 NIL) (|pwt| NIL)
+          (|lpwt| (|List| (|Record| (|:| |val| P) (|:| |tower| $))))
+          (#4=#:G253 NIL) (|f| NIL) (|lsfp| (|List| P)) (|ts_v+| ($))
+          (|ts_v-| ($)) (|v| (V)))
          (SEQ
           (LETT |v| (SPADCALL |p| (QREFELT $ 32))
-                . #3=(|SREGSET;removeZero;P$P;22|))
-          (LETT |ts_v-| (SPADCALL |ts| |v| (QREFELT $ 44)) . #3#)
+                . #5=(|SREGSET;internalAugment;P$5BL;25|))
+          (LETT |ts_v-| (SPADCALL |ts| |v| (QREFELT $ 44)) . #5#)
+          (LETT |ts_v+| (SPADCALL |ts| |v| (QREFELT $ 42)) . #5#)
           (COND
-           ((SPADCALL |v| |ts| (QREFELT $ 62))
-            (SEQ
-             (LETT |q|
-                   (SPADCALL |p|
-                             (PROG2
-                                 (LETT #2# (SPADCALL |ts| |v| (QREFELT $ 63))
-                                       . #3#)
-                                 (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 0) (QREFELT $ 9)
-                                              #2#))
-                             (QREFELT $ 64))
-                   . #3#)
-             (EXIT
-              (COND
-               ((SPADCALL |q| (QREFELT $ 65))
-                (PROGN (LETT #1# |q| . #3#) (GO #1#)))
-               ((SPADCALL (SPADCALL |q| |ts_v-| (QREFELT $ 66)) (QREFELT $ 65))
-                (PROGN (LETT #1# (|spadConstant| $ 67) . #3#) (GO #1#))))))))
+           (|rem?|
+            (LETT |p| (QVELT (SPADCALL |p| |ts_v-| (QREFELT $ 79)) 1) . #5#)))
+          (COND
+           (|red?| (LETT |p| (SPADCALL |p| |ts_v-| (QREFELT $ 66)) . #5#)))
+          (COND (|prim?| (LETT |p| (SPADCALL |p| (QREFELT $ 80)) . #5#)))
+          (COND
+           (|sqfr?|
+            (SEQ (LETT |lts| NIL . #5#)
+                 (LETT |lsfp| (SPADCALL |p| (QREFELT $ 82)) . #5#)
+                 (EXIT
+                  (SEQ (LETT |f| NIL . #5#) (LETT #4# |lsfp| . #5#) G190
+                       (COND
+                        ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((OR (SPADCALL |f| (QREFELT $ 49))
+                               (SPADCALL (SPADCALL |f| (QREFELT $ 32)) |v|
+                                         (QREFELT $ 52)))
+                           "leave")
+                          ('T
+                           (SEQ
+                            (LETT |lpwt| (SPADCALL |f| |ts_v-| (QREFELT $ 85))
+                                  . #5#)
+                            (EXIT
+                             (SEQ (LETT |pwt| NIL . #5#)
+                                  (LETT #3# |lpwt| . #5#) G190
+                                  (COND
+                                   ((OR (ATOM #3#)
+                                        (PROGN
+                                         (LETT |pwt| (CAR #3#) . #5#)
+                                         NIL))
+                                    (GO G191)))
+                                  (SEQ (LETT |sfp| (QCAR |pwt|) . #5#)
+                                       (LETT |us| (QCDR |pwt|) . #5#)
+                                       (EXIT
+                                        (LETT |lts|
+                                              (SPADCALL
+                                               (|SREGSET;per|
+                                                (CONS (QCAR |pwt|)
+                                                      (|SREGSET;rep|
+                                                       (QCDR |pwt|) $))
+                                                $)
+                                               |lts| (QREFELT $ 86))
+                                              . #5#)))
+                                  (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                                  (EXIT NIL))))))))
+                       (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL)))))
+           (#6='T
+            (LETT |lts|
+                  (LIST (|SREGSET;per| (CONS |p| (|SREGSET;rep| |ts_v-| $)) $))
+                  . #5#)))
           (EXIT
-           (COND ((SPADCALL |ts_v-| (QREFELT $ 15)) |p|)
-                 ('T
-                  (SEQ (LETT |q| (|spadConstant| $ 67) . #3#)
-                       (SEQ G190
-                            (COND
-                             ((NULL
-                               (SPADCALL (SPADCALL |p| |v| (QREFELT $ 68))
-                                         (QREFELT $ 70)))
-                              (GO G191)))
-                            (SEQ
-                             (LETT |q|
-                                   (SPADCALL
-                                    (SPADCALL
-                                     (SPADCALL (SPADCALL |p| (QREFELT $ 53))
-                                               |ts_v-| (QREFELT $ 66))
-                                     (SPADCALL |p| (QREFELT $ 71))
-                                     (QREFELT $ 72))
-                                    |q| (QREFELT $ 73))
-                                   . #3#)
-                             (EXIT
-                              (LETT |p| (SPADCALL |p| (QREFELT $ 74)) . #3#)))
-                            NIL (GO G190) G191 (EXIT NIL))
-                       (EXIT
-                        (SPADCALL |q| (SPADCALL |p| |ts_v-| (QREFELT $ 66))
-                                  (QREFELT $ 73)))))))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |SREGSET;internalAugment;P2$;23| (|p| |ts| $)
-  (COND
-   ((SPADCALL |p| (QREFELT $ 49))
-    (|error| "in internalAugment$SREGSET: ground? #1"))
-   ('T
-    (SPADCALL (SPADCALL |p| |ts| 'NIL 'NIL 'NIL 'NIL 'NIL (QREFELT $ 75))
-              (QREFELT $ 61))))) 
-
-(DEFUN |SREGSET;internalAugment;L2$;24| (|lp| |ts| $)
-  (COND ((NULL |lp|) |ts|)
-        ('T
-         (SPADCALL (CDR |lp|) (SPADCALL (|SPADfirst| |lp|) |ts| (QREFELT $ 76))
-                   (QREFELT $ 77))))) 
-
-(DEFUN |SREGSET;internalAugment;P$5BL;25|
-       (|p| |ts| |rem?| |red?| |prim?| |sqfr?| |extend?| $)
-  (PROG (#1=#:G256 |us| #2=#:G255 |lts| |sfp| #3=#:G254 |pwt| |lpwt| #4=#:G253
-         |f| |lsfp| |ts_v+| |ts_v-| |v|)
-    (RETURN
-     (SEQ
-      (LETT |v| (SPADCALL |p| (QREFELT $ 32))
-            . #5=(|SREGSET;internalAugment;P$5BL;25|))
-      (LETT |ts_v-| (SPADCALL |ts| |v| (QREFELT $ 44)) . #5#)
-      (LETT |ts_v+| (SPADCALL |ts| |v| (QREFELT $ 42)) . #5#)
-      (COND
-       (|rem?|
-        (LETT |p| (QVELT (SPADCALL |p| |ts_v-| (QREFELT $ 79)) 1) . #5#)))
-      (COND (|red?| (LETT |p| (SPADCALL |p| |ts_v-| (QREFELT $ 66)) . #5#)))
-      (COND (|prim?| (LETT |p| (SPADCALL |p| (QREFELT $ 80)) . #5#)))
-      (COND
-       (|sqfr?|
-        (SEQ (LETT |lts| NIL . #5#)
-             (LETT |lsfp| (SPADCALL |p| (QREFELT $ 82)) . #5#)
-             (EXIT
-              (SEQ (LETT |f| NIL . #5#) (LETT #4# |lsfp| . #5#) G190
+           (COND
+            (|extend?|
+             (SPADCALL (SPADCALL |ts_v+| (QREFELT $ 17)) |lts| (QREFELT $ 87)))
+            (#6#
+             (PROGN
+              (LETT #2# NIL . #5#)
+              (SEQ (LETT |us| NIL . #5#) (LETT #1# |lts| . #5#) G190
                    (COND
-                    ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
+                    ((OR (ATOM #1#) (PROGN (LETT |us| (CAR #1#) . #5#) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
-                     (COND
-                      ((OR (SPADCALL |f| (QREFELT $ 49))
-                           (SPADCALL (SPADCALL |f| (QREFELT $ 32)) |v|
-                                     (QREFELT $ 52)))
-                       "leave")
-                      ('T
-                       (SEQ
-                        (LETT |lpwt| (SPADCALL |f| |ts_v-| (QREFELT $ 85))
-                              . #5#)
-                        (EXIT
-                         (SEQ (LETT |pwt| NIL . #5#) (LETT #3# |lpwt| . #5#)
-                              G190
-                              (COND
-                               ((OR (ATOM #3#)
-                                    (PROGN (LETT |pwt| (CAR #3#) . #5#) NIL))
-                                (GO G191)))
-                              (SEQ (LETT |sfp| (QCAR |pwt|) . #5#)
-                                   (LETT |us| (QCDR |pwt|) . #5#)
-                                   (EXIT
-                                    (LETT |lts|
-                                          (SPADCALL
-                                           (|SREGSET;per|
-                                            (CONS (QCAR |pwt|)
-                                                  (|SREGSET;rep| (QCDR |pwt|)
-                                                   $))
-                                            $)
-                                           |lts| (QREFELT $ 86))
-                                          . #5#)))
-                              (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                              (EXIT NIL))))))))
-                   (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL)))))
-       (#6='T
-        (LETT |lts|
-              (LIST (|SREGSET;per| (CONS |p| (|SREGSET;rep| |ts_v-| $)) $))
-              . #5#)))
-      (EXIT
-       (COND
-        (|extend?|
-         (SPADCALL (SPADCALL |ts_v+| (QREFELT $ 17)) |lts| (QREFELT $ 87)))
-        (#6#
-         (PROGN
-          (LETT #2# NIL . #5#)
-          (SEQ (LETT |us| NIL . #5#) (LETT #1# |lts| . #5#) G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |us| (CAR #1#) . #5#) NIL))
-                 (GO G191)))
-               (SEQ
-                (EXIT
-                 (LETT #2#
-                       (CONS
-                        (|SREGSET;per|
-                         (SPADCALL (|SREGSET;rep| |ts_v+| $)
-                                   (|SREGSET;rep| |us| $) (QREFELT $ 88))
-                         $)
-                        #2#)
-                       . #5#)))
-               (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-               (EXIT (NREVERSE #2#))))))))))) 
+                     (LETT #2#
+                           (CONS
+                            (|SREGSET;per|
+                             (SPADCALL (|SREGSET;rep| |ts_v+| $)
+                                       (|SREGSET;rep| |us| $) (QREFELT $ 88))
+                             $)
+                            #2#)
+                           . #5#)))
+                   (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                   (EXIT (NREVERSE #2#)))))))))) 
 
-(DEFUN |SREGSET;augment;P$L;26| (|p| |ts| $)
-  (COND
-   ((SPADCALL |p| (QREFELT $ 49)) (|error| "in augment$SREGSET: ground? #1"))
-   ((SPADCALL (SPADCALL |p| (QREFELT $ 32)) |ts| (QREFELT $ 62))
-    (|error| "in augment$SREGSET: bad #1"))
-   ('T (SPADCALL |p| |ts| 'T 'T 'T 'T 'T (QREFELT $ 75))))) 
+(SDEFUN |SREGSET;augment;P$L;26| ((|p| P) (|ts| $) ($ |List| $))
+        (COND
+         ((SPADCALL |p| (QREFELT $ 49))
+          (|error| "in augment$SREGSET: ground? #1"))
+         ((SPADCALL (SPADCALL |p| (QREFELT $ 32)) |ts| (QREFELT $ 62))
+          (|error| "in augment$SREGSET: bad #1"))
+         ('T (SPADCALL |p| |ts| 'T 'T 'T 'T 'T (QREFELT $ 75))))) 
 
-(DEFUN |SREGSET;extend;P$L;27| (|p| |ts| $)
-  (PROG (|lts| #1=#:G265 |us| |split| |v|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |p| (QREFELT $ 49))
-        (|error| "in extend$SREGSET: ground? #1"))
-       ('T
-        (SEQ
-         (LETT |v| (SPADCALL |p| (QREFELT $ 32))
-               . #2=(|SREGSET;extend;P$L;27|))
-         (COND
-          ((NULL
-            (SPADCALL (SPADCALL |ts| (QREFELT $ 33))
-                      (SPADCALL |p| (QREFELT $ 32)) (QREFELT $ 52)))
-           (EXIT (|error| "in extend$SREGSET: bad #1"))))
-         (LETT |split|
-               (SPADCALL (SPADCALL |p| (QREFELT $ 53)) |ts| (QREFELT $ 89))
-               . #2#)
-         (LETT |lts| NIL . #2#)
-         (SEQ (LETT |us| NIL . #2#) (LETT #1# |split| . #2#) G190
-              (COND
-               ((OR (ATOM #1#) (PROGN (LETT |us| (CAR #1#) . #2#) NIL))
-                (GO G191)))
-              (SEQ
-               (EXIT
-                (LETT |lts|
-                      (SPADCALL (SPADCALL |p| |us| (QREFELT $ 55)) |lts|
-                                (QREFELT $ 90))
-                      . #2#)))
-              (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-         (EXIT |lts|)))))))) 
+(SDEFUN |SREGSET;extend;P$L;27| ((|p| P) (|ts| $) ($ |List| $))
+        (SPROG
+         ((|lts| (|List| $)) (#1=#:G265 NIL) (|us| NIL) (|split| (|List| $))
+          (|v| (V)))
+         (SEQ
+          (COND
+           ((SPADCALL |p| (QREFELT $ 49))
+            (|error| "in extend$SREGSET: ground? #1"))
+           ('T
+            (SEQ
+             (LETT |v| (SPADCALL |p| (QREFELT $ 32))
+                   . #2=(|SREGSET;extend;P$L;27|))
+             (COND
+              ((NULL
+                (SPADCALL (SPADCALL |ts| (QREFELT $ 33))
+                          (SPADCALL |p| (QREFELT $ 32)) (QREFELT $ 52)))
+               (EXIT (|error| "in extend$SREGSET: bad #1"))))
+             (LETT |split|
+                   (SPADCALL (SPADCALL |p| (QREFELT $ 53)) |ts| (QREFELT $ 89))
+                   . #2#)
+             (LETT |lts| NIL . #2#)
+             (SEQ (LETT |us| NIL . #2#) (LETT #1# |split| . #2#) G190
+                  (COND
+                   ((OR (ATOM #1#) (PROGN (LETT |us| (CAR #1#) . #2#) NIL))
+                    (GO G191)))
+                  (SEQ
+                   (EXIT
+                    (LETT |lts|
+                          (SPADCALL (SPADCALL |p| |us| (QREFELT $ 55)) |lts|
+                                    (QREFELT $ 90))
+                          . #2#)))
+                  (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+             (EXIT |lts|))))))) 
 
-(DEFUN |SREGSET;invertible?;P$B;28| (|p| |ts| $)
-  (SPADCALL |p| |ts| (QREFELT $ 93))) 
+(SDEFUN |SREGSET;invertible?;P$B;28| ((|p| P) (|ts| $) ($ |Boolean|))
+        (SPADCALL |p| |ts| (QREFELT $ 93))) 
 
-(DEFUN |SREGSET;invertible?;P$L;29| (|p| |ts| $)
-  (SPADCALL |p| |ts| (QREFELT $ 96))) 
+(SDEFUN |SREGSET;invertible?;P$L;29|
+        ((|p| P) (|ts| $)
+         ($ |List| (|Record| (|:| |val| (|Boolean|)) (|:| |tower| $))))
+        (SPADCALL |p| |ts| (QREFELT $ 96))) 
 
-(DEFUN |SREGSET;invertibleSet;P$L;30| (|p| |ts| $)
-  (SPADCALL |p| |ts| (QREFELT $ 100))) 
+(SDEFUN |SREGSET;invertibleSet;P$L;30| ((|p| P) (|ts| $) ($ |List| $))
+        (SPADCALL |p| |ts| (QREFELT $ 100))) 
 
-(DEFUN |SREGSET;lastSubResultant;2P$L;31| (|p1| |p2| |ts| $)
-  (SPADCALL |p1| |p2| |ts| (QREFELT $ 103))) 
+(SDEFUN |SREGSET;lastSubResultant;2P$L;31|
+        ((|p1| P) (|p2| P) (|ts| $)
+         ($ |List| (|Record| (|:| |val| P) (|:| |tower| $))))
+        (SPADCALL |p1| |p2| |ts| (QREFELT $ 103))) 
 
-(DEFUN |SREGSET;squareFreePart;P$L;32| (|p| |ts| $)
-  (SPADCALL |p| |ts| (QREFELT $ 105))) 
+(SDEFUN |SREGSET;squareFreePart;P$L;32|
+        ((|p| P) (|ts| $) ($ |List| (|Record| (|:| |val| P) (|:| |tower| $))))
+        (SPADCALL |p| |ts| (QREFELT $ 105))) 
 
-(DEFUN |SREGSET;intersect;P$L;33| (|p| |ts| $)
-  (SPADCALL (LIST |p|) (LIST |ts|) 'NIL 'NIL (QREFELT $ 107))) 
+(SDEFUN |SREGSET;intersect;P$L;33| ((|p| P) (|ts| $) ($ |List| $))
+        (SPADCALL (LIST |p|) (LIST |ts|) 'NIL 'NIL (QREFELT $ 107))) 
 
-(DEFUN |SREGSET;intersect;L2L;34| (|lp| |lts| $)
-  (SPADCALL |lp| |lts| 'NIL 'NIL (QREFELT $ 107))) 
+(SDEFUN |SREGSET;intersect;L2L;34|
+        ((|lp| |List| P) (|lts| |List| $) ($ |List| $))
+        (SPADCALL |lp| |lts| 'NIL 'NIL (QREFELT $ 107))) 
 
-(DEFUN |SREGSET;zeroSetSplit;LL;35| (|lp| $)
-  (SPADCALL |lp| 'T 'NIL (QREFELT $ 110))) 
+(SDEFUN |SREGSET;zeroSetSplit;LL;35| ((|lp| |List| P) ($ |List| $))
+        (SPADCALL |lp| 'T 'NIL (QREFELT $ 110))) 
 
-(DEFUN |SREGSET;zeroSetSplit;LBL;36| (|lp| |clos?| $)
-  (SPADCALL |lp| |clos?| 'NIL (QREFELT $ 110))) 
+(SDEFUN |SREGSET;zeroSetSplit;LBL;36|
+        ((|lp| |List| P) (|clos?| |Boolean|) ($ |List| $))
+        (SPADCALL |lp| |clos?| 'NIL (QREFELT $ 110))) 
 
-(DEFUN |SREGSET;zeroSetSplit;L2BL;37| (|lp| |clos?| |info?| $)
-  (SPADCALL |lp| 'T |clos?| |info?| 'T (QREFELT $ 113))) 
+(SDEFUN |SREGSET;zeroSetSplit;L2BL;37|
+        ((|lp| |List| P) (|clos?| |Boolean|) (|info?| |Boolean|) ($ |List| $))
+        (SPADCALL |lp| 'T |clos?| |info?| 'T (QREFELT $ 113))) 
 
-(DEFUN |SREGSET;zeroSetSplit;L4BL;38| (|lp| |hash?| |clos?| |info?| |prep?| $)
-  (PROG (|lts| |dom3| |dom2| |dom1| |#G94| |#G93| |#G92| |#G91| |#G90| |#G89|
-         |s3| |s2| |s1| |#G85| |#G84| |#G83| |#G82| |#G81| |#G80| |e|)
-    (RETURN
-     (SEQ
-      (COND
-       (|hash?|
-        (SEQ
-         (LETT |e| (|make_full_CVEC| 0) . #1=(|SREGSET;zeroSetSplit;L4BL;38|))
-         (COND
-          (|info?|
-           (PROGN
-            (LETT |#G80| "w" . #1#)
-            (LETT |#G81| "g" . #1#)
-            (LETT |#G82| "i" . #1#)
-            (LETT |s1| |#G80| . #1#)
-            (LETT |s2| |#G81| . #1#)
-            (LETT |s3| |#G82| . #1#)))
-          (#2='T
-           (PROGN
-            (LETT |#G83| |e| . #1#)
-            (LETT |#G84| |e| . #1#)
-            (LETT |#G85| |e| . #1#)
-            (LETT |s1| |#G83| . #1#)
-            (LETT |s2| |#G84| . #1#)
-            (LETT |s3| |#G85| . #1#))))
-         (COND
-          (|info?|
-           (PROGN
-            (LETT |#G89| "QCMPACK" . #1#)
-            (LETT |#G90| "REGSETGCD: Gcd" . #1#)
-            (LETT |#G91| "REGSETGCD: Inv Set" . #1#)
-            (LETT |dom1| |#G89| . #1#)
-            (LETT |dom2| |#G90| . #1#)
-            (LETT |dom3| |#G91| . #1#)))
-          (#2#
-           (PROGN
-            (LETT |#G92| |e| . #1#)
-            (LETT |#G93| |e| . #1#)
-            (LETT |#G94| |e| . #1#)
-            (LETT |dom1| |#G92| . #1#)
-            (LETT |dom2| |#G93| . #1#)
-            (LETT |dom3| |#G94| . #1#))))
-         (SPADCALL |s1| "W" |dom1| (QREFELT $ 117))
-         (SPADCALL |s2| "G" |dom2| (QREFELT $ 118))
-         (EXIT (SPADCALL |s3| "I" |dom3| (QREFELT $ 119))))))
-      (LETT |lts| (SPADCALL |lp| |clos?| |info?| |prep?| (QREFELT $ 120))
-            . #1#)
-      (COND
-       (|hash?|
-        (SEQ (SPADCALL (QREFELT $ 121)) (SPADCALL (QREFELT $ 122))
-             (EXIT (SPADCALL (QREFELT $ 123))))))
-      (EXIT |lts|))))) 
+(SDEFUN |SREGSET;zeroSetSplit;L4BL;38|
+        ((|lp| |List| P) (|hash?| |Boolean|) (|clos?| |Boolean|)
+         (|info?| |Boolean|) (|prep?| |Boolean|) ($ |List| $))
+        (SPROG
+         ((|lts| (|List| $)) (|dom3| #1=(|String|)) (|dom2| #1#) (|dom1| #1#)
+          (|#G94| #2=(|String|)) (|#G93| #2#) (|#G92| #2#)
+          (|#G91| (#3="REGSETGCD: Inv Set")) (|#G90| (#4="REGSETGCD: Gcd"))
+          (|#G89| (#5="QCMPACK")) (|s3| #1#) (|s2| #1#) (|s1| #1#) (|#G85| #2#)
+          (|#G84| #2#) (|#G83| #2#) (|#G82| (#6="i")) (|#G81| (#7="g"))
+          (|#G80| (#8="w")) (|e| #2#))
+         (SEQ
+          (COND
+           (|hash?|
+            (SEQ
+             (LETT |e| (|make_full_CVEC| 0)
+                   . #9=(|SREGSET;zeroSetSplit;L4BL;38|))
+             (COND
+              (|info?|
+               (PROGN
+                (LETT |#G80| #8# . #9#)
+                (LETT |#G81| #7# . #9#)
+                (LETT |#G82| #6# . #9#)
+                (LETT |s1| |#G80| . #9#)
+                (LETT |s2| |#G81| . #9#)
+                (LETT |s3| |#G82| . #9#)))
+              (#10='T
+               (PROGN
+                (LETT |#G83| |e| . #9#)
+                (LETT |#G84| |e| . #9#)
+                (LETT |#G85| |e| . #9#)
+                (LETT |s1| |#G83| . #9#)
+                (LETT |s2| |#G84| . #9#)
+                (LETT |s3| |#G85| . #9#))))
+             (COND
+              (|info?|
+               (PROGN
+                (LETT |#G89| #5# . #9#)
+                (LETT |#G90| #4# . #9#)
+                (LETT |#G91| #3# . #9#)
+                (LETT |dom1| |#G89| . #9#)
+                (LETT |dom2| |#G90| . #9#)
+                (LETT |dom3| |#G91| . #9#)))
+              (#10#
+               (PROGN
+                (LETT |#G92| |e| . #9#)
+                (LETT |#G93| |e| . #9#)
+                (LETT |#G94| |e| . #9#)
+                (LETT |dom1| |#G92| . #9#)
+                (LETT |dom2| |#G93| . #9#)
+                (LETT |dom3| |#G94| . #9#))))
+             (SPADCALL |s1| "W" |dom1| (QREFELT $ 117))
+             (SPADCALL |s2| "G" |dom2| (QREFELT $ 118))
+             (EXIT (SPADCALL |s3| "I" |dom3| (QREFELT $ 119))))))
+          (LETT |lts| (SPADCALL |lp| |clos?| |info?| |prep?| (QREFELT $ 120))
+                . #9#)
+          (COND
+           (|hash?|
+            (SEQ (SPADCALL (QREFELT $ 121)) (SPADCALL (QREFELT $ 122))
+                 (EXIT (SPADCALL (QREFELT $ 123))))))
+          (EXIT |lts|)))) 
 
-(DEFUN |SREGSET;internalZeroSetSplit;L3BL;39| (|lp| |clos?| |info?| |prep?| $)
-  (PROG (|lts| #1=#:G300 |p| |ts| |pp|)
-    (RETURN
-     (SEQ
-      (COND
-       (|prep?|
-        (SEQ
-         (LETT |pp| (SPADCALL |lp| |clos?| |info?| (QREFELT $ 125))
-               . #2=(|SREGSET;internalZeroSetSplit;L3BL;39|))
-         (LETT |lp| (QCAR |pp|) . #2#) (EXIT (LETT |lts| (QCDR |pp|) . #2#))))
-       (#3='T
-        (SEQ (LETT |ts| (SPADCALL NIL (QREFELT $ 20)) . #2#)
-             (EXIT (LETT |lts| (LIST |ts|) . #2#)))))
-      (LETT |lp| (SPADCALL (ELT $ 65) |lp| (QREFELT $ 127)) . #2#)
-      (EXIT
-       (COND ((SPADCALL (ELT $ 49) |lp| (QREFELT $ 128)) NIL)
-             ((OR (NULL |lp|) (SPADCALL |lts| (QREFELT $ 129))) |lts|)
-             ('T
-              (SEQ (LETT |lp| (SPADCALL (ELT $ 45) |lp| (QREFELT $ 47)) . #2#)
+(SDEFUN |SREGSET;internalZeroSetSplit;L3BL;39|
+        ((|lp| |List| P) (|clos?| |Boolean|) (|info?| |Boolean|)
+         (|prep?| |Boolean|) ($ |List| $))
+        (SPROG
+         ((|lts| #1=(|List| $)) (#2=#:G300 NIL) (|p| NIL) (|ts| ($))
+          (|pp| (|Record| (|:| |val| (|List| P)) (|:| |towers| #1#))))
+         (SEQ
+          (COND
+           (|prep?|
+            (SEQ
+             (LETT |pp| (SPADCALL |lp| |clos?| |info?| (QREFELT $ 125))
+                   . #3=(|SREGSET;internalZeroSetSplit;L3BL;39|))
+             (LETT |lp| (QCAR |pp|) . #3#)
+             (EXIT (LETT |lts| (QCDR |pp|) . #3#))))
+           (#4='T
+            (SEQ (LETT |ts| (SPADCALL NIL (QREFELT $ 20)) . #3#)
+                 (EXIT (LETT |lts| (LIST |ts|) . #3#)))))
+          (LETT |lp| (SPADCALL (ELT $ 65) |lp| (QREFELT $ 127)) . #3#)
+          (EXIT
+           (COND ((SPADCALL (ELT $ 49) |lp| (QREFELT $ 128)) NIL)
+                 ((OR (NULL |lp|) (SPADCALL |lts| (QREFELT $ 129))) |lts|)
+                 ('T
+                  (SEQ
+                   (LETT |lp| (SPADCALL (ELT $ 45) |lp| (QREFELT $ 47)) . #3#)
                    (EXIT
                     (COND
                      (|clos?|
                       (SPADCALL |lp| |lts| |clos?| |info?| (QREFELT $ 107)))
-                     (#3#
+                     (#4#
                       (SEQ
-                       (SEQ (LETT |p| NIL . #2#) (LETT #1# |lp| . #2#) G190
+                       (SEQ (LETT |p| NIL . #3#) (LETT #2# |lp| . #3#) G190
                             (COND
-                             ((OR (ATOM #1#)
-                                  (PROGN (LETT |p| (CAR #1#) . #2#) NIL))
+                             ((OR (ATOM #2#)
+                                  (PROGN (LETT |p| (CAR #2#) . #3#) NIL))
                               (GO G191)))
                             (SEQ
                              (EXIT
                               (LETT |lts|
                                     (SPADCALL (LIST |p|) |lts| |clos?| |info?|
                                               (QREFELT $ 107))
-                                    . #2#)))
-                            (LETT #1# (CDR #1#) . #2#) (GO G190) G191
+                                    . #3#)))
+                            (LETT #2# (CDR #2#) . #3#) (GO G190) G191
                             (EXIT NIL))
-                       (EXIT |lts|))))))))))))) 
+                       (EXIT |lts|)))))))))))) 
 
-(DEFUN |SREGSET;largeSystem?| (|lp| $)
-  (PROG (|lts|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL (LENGTH |lp|) 16 (QREFELT $ 130)) 'T)
-            ((< (LENGTH |lp|) 13) 'NIL)
-            ('T
-             (SEQ (LETT |lts| NIL |SREGSET;largeSystem?|)
-                  (EXIT
-                   (SPADCALL
-                    (- (LENGTH |lp|) (SPADCALL |lp| |lts| (QREFELT $ 131))) 3
-                    (QREFELT $ 132)))))))))) 
+(SDEFUN |SREGSET;largeSystem?| ((|lp| |List| P) ($ |Boolean|))
+        (SPROG ((|lts| (|List| $)))
+               (SEQ
+                (COND ((SPADCALL (LENGTH |lp|) 16 (QREFELT $ 130)) 'T)
+                      ((< (LENGTH |lp|) 13) 'NIL)
+                      ('T
+                       (SEQ (LETT |lts| NIL |SREGSET;largeSystem?|)
+                            (EXIT
+                             (SPADCALL
+                              (- (LENGTH |lp|)
+                                 (SPADCALL |lp| |lts| (QREFELT $ 131)))
+                              3 (QREFELT $ 132))))))))) 
 
-(DEFUN |SREGSET;smallSystem?| (|lp| $) (< (LENGTH |lp|) 5)) 
+(SDEFUN |SREGSET;smallSystem?| ((|lp| |List| P) ($ |Boolean|))
+        (< (LENGTH |lp|) 5)) 
 
-(DEFUN |SREGSET;mediumSystem?| (|lp| $)
-  (PROG (|lts|)
-    (RETURN
-     (SEQ (LETT |lts| NIL |SREGSET;mediumSystem?|)
+(SDEFUN |SREGSET;mediumSystem?| ((|lp| |List| P) ($ |Boolean|))
+        (SPROG ((|lts| (|List| $)))
+               (SEQ (LETT |lts| NIL |SREGSET;mediumSystem?|)
+                    (EXIT
+                     (< (- (SPADCALL |lp| |lts| (QREFELT $ 131)) (LENGTH |lp|))
+                        2))))) 
+
+(SDEFUN |SREGSET;lin?| ((|p| P) ($ |Boolean|))
+        (COND
+         ((SPADCALL (SPADCALL |p| (QREFELT $ 53)) (QREFELT $ 49))
+          (EQL (SPADCALL |p| (QREFELT $ 133)) 1))
+         ('T 'NIL))) 
+
+(SDEFUN |SREGSET;pre_process;L2BR;44|
+        ((|lp| |List| P) (|clos?| |Boolean|) (|info?| |Boolean|)
+         ($ |Record| (|:| |val| (|List| P)) (|:| |towers| (|List| $))))
+        (SPROG
+         ((#1=#:G352 NIL) (|lp2| (|List| P)) (|lts| (|List| $)) (#2=#:G365 NIL)
+          (|p| NIL) (|lp3| (|List| P)) (#3=#:G364 NIL) (|lp4| (|List| P))
+          (#4=#:G363 NIL) (#5=#:G362 NIL) (#6=#:G361 NIL) (#7=#:G360 NIL)
+          (#8=#:G359 NIL) (#9=#:G358 NIL) (#10=#:G357 NIL) (#11=#:G356 NIL)
+          (#12=#:G355 NIL) (#13=#:G354 NIL) (|lp1| (|List| P)) (#14=#:G353 NIL)
+          (|ts| ($)))
+         (SEQ
           (EXIT
-           (< (- (SPADCALL |lp| |lts| (QREFELT $ 131)) (LENGTH |lp|)) 2)))))) 
-
-(DEFUN |SREGSET;lin?| (|p| $)
-  (COND
-   ((SPADCALL (SPADCALL |p| (QREFELT $ 53)) (QREFELT $ 49))
-    (EQL (SPADCALL |p| (QREFELT $ 133)) 1))
-   ('T 'NIL))) 
-
-(DEFUN |SREGSET;pre_process;L2BR;44| (|lp| |clos?| |info?| $)
-  (PROG (#1=#:G352 |lp2| |lts| #2=#:G365 |p| |lp3| #3=#:G364 |lp4| #4=#:G363
-         #5=#:G362 #6=#:G361 #7=#:G360 #8=#:G359 #9=#:G358 #10=#:G357
-         #11=#:G356 #12=#:G355 #13=#:G354 |lp1| #14=#:G353 |ts|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |ts| (SPADCALL NIL (QREFELT $ 20))
-              . #15=(|SREGSET;pre_process;L2BR;44|))
-        (LETT |lts| (LIST |ts|) . #15#)
-        (EXIT
-         (COND ((NULL |lp|) (CONS |lp| |lts|))
-               (#16='T
-                (SEQ (LETT |lp1| NIL . #15#) (LETT |lp2| NIL . #15#)
-                     (SEQ (LETT |p| NIL . #15#) (LETT #14# |lp| . #15#) G190
+           (SEQ
+            (LETT |ts| (SPADCALL NIL (QREFELT $ 20))
+                  . #15=(|SREGSET;pre_process;L2BR;44|))
+            (LETT |lts| (LIST |ts|) . #15#)
+            (EXIT
+             (COND ((NULL |lp|) (CONS |lp| |lts|))
+                   (#16='T
+                    (SEQ (LETT |lp1| NIL . #15#) (LETT |lp2| NIL . #15#)
+                         (SEQ (LETT |p| NIL . #15#) (LETT #14# |lp| . #15#)
+                              G190
+                              (COND
+                               ((OR (ATOM #14#)
+                                    (PROGN (LETT |p| (CAR #14#) . #15#) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (EXIT
+                                (COND
+                                 ((SPADCALL (SPADCALL |p| (QREFELT $ 74))
+                                            (QREFELT $ 49))
+                                  (LETT |lp1| (CONS |p| |lp1|) . #15#))
+                                 ('T (LETT |lp2| (CONS |p| |lp2|) . #15#)))))
+                              (LETT #14# (CDR #14#) . #15#) (GO G190) G191
+                              (EXIT NIL))
+                         (LETT |lts|
+                               (SPADCALL |lp1| (LIST |ts|) |clos?| |info?|
+                                         (QREFELT $ 107))
+                               . #15#)
+                         (EXIT
                           (COND
-                           ((OR (ATOM #14#)
-                                (PROGN (LETT |p| (CAR #14#) . #15#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
+                           ((SPADCALL |lp| (QREFELT $ 134))
                             (COND
-                             ((SPADCALL (SPADCALL |p| (QREFELT $ 74))
-                                        (QREFELT $ 49))
-                              (LETT |lp1| (CONS |p| |lp1|) . #15#))
-                             ('T (LETT |lp2| (CONS |p| |lp2|) . #15#)))))
-                          (LETT #14# (CDR #14#) . #15#) (GO G190) G191
-                          (EXIT NIL))
-                     (LETT |lts|
-                           (SPADCALL |lp1| (LIST |ts|) |clos?| |info?|
-                                     (QREFELT $ 107))
-                           . #15#)
-                     (EXIT
-                      (COND
-                       ((SPADCALL |lp| (QREFELT $ 134))
-                        (COND
-                         ((|SREGSET;largeSystem?| |lp| $)
-                          (PROGN
-                           (LETT #1# (CONS |lp2| |lts|) . #15#)
-                           (GO #1#)))
-                         (#16#
-                          (SEQ
-                           (COND
-                            ((SPADCALL (LENGTH |lp|) 7 (QREFELT $ 130))
-                             (SEQ
-                              (LETT |lp2| (SPADCALL |lp2| (QREFELT $ 135))
-                                    . #15#)
-                              (LETT |lp2|
-                                    (SPADCALL (ELT $ 65) |lp2| (QREFELT $ 127))
-                                    . #15#)
-                              (EXIT
+                             ((|SREGSET;largeSystem?| |lp| $)
+                              (PROGN
+                               (LETT #1# (CONS |lp2| |lts|) . #15#)
+                               (GO #1#)))
+                             (#16#
+                              (SEQ
                                (COND
-                                ((SPADCALL (ELT $ 49) |lp2| (QREFELT $ 128))
-                                 (PROGN
-                                  (LETT #1# (CONS |lp2| |lts|) . #15#)
-                                  (GO #1#)))
+                                ((SPADCALL (LENGTH |lp|) 7 (QREFELT $ 130))
+                                 (SEQ
+                                  (LETT |lp2| (SPADCALL |lp2| (QREFELT $ 135))
+                                        . #15#)
+                                  (LETT |lp2|
+                                        (SPADCALL (ELT $ 65) |lp2|
+                                                  (QREFELT $ 127))
+                                        . #15#)
+                                  (EXIT
+                                   (COND
+                                    ((SPADCALL (ELT $ 49) |lp2|
+                                               (QREFELT $ 128))
+                                     (PROGN
+                                      (LETT #1# (CONS |lp2| |lts|) . #15#)
+                                      (GO #1#)))
+                                    (#16#
+                                     (SEQ
+                                      (LETT |lp3|
+                                            (PROGN
+                                             (LETT #13# NIL . #15#)
+                                             (SEQ (LETT |p| NIL . #15#)
+                                                  (LETT #12# |lp2| . #15#) G190
+                                                  (COND
+                                                   ((OR (ATOM #12#)
+                                                        (PROGN
+                                                         (LETT |p| (CAR #12#)
+                                                               . #15#)
+                                                         NIL))
+                                                    (GO G191)))
+                                                  (SEQ
+                                                   (EXIT
+                                                    (COND
+                                                     ((|SREGSET;lin?| |p| $)
+                                                      (LETT #13#
+                                                            (CONS |p| #13#)
+                                                            . #15#)))))
+                                                  (LETT #12# (CDR #12#) . #15#)
+                                                  (GO G190) G191
+                                                  (EXIT (NREVERSE #13#))))
+                                            . #15#)
+                                      (LETT |lp4|
+                                            (PROGN
+                                             (LETT #11# NIL . #15#)
+                                             (SEQ (LETT |p| NIL . #15#)
+                                                  (LETT #10# |lp2| . #15#) G190
+                                                  (COND
+                                                   ((OR (ATOM #10#)
+                                                        (PROGN
+                                                         (LETT |p| (CAR #10#)
+                                                               . #15#)
+                                                         NIL))
+                                                    (GO G191)))
+                                                  (SEQ
+                                                   (EXIT
+                                                    (COND
+                                                     ((COND
+                                                       ((|SREGSET;lin?| |p| $)
+                                                        'NIL)
+                                                       (#16# 'T))
+                                                      (LETT #11#
+                                                            (CONS |p| #11#)
+                                                            . #15#)))))
+                                                  (LETT #10# (CDR #10#) . #15#)
+                                                  (GO G190) G191
+                                                  (EXIT (NREVERSE #11#))))
+                                            . #15#)
+                                      (COND
+                                       (|clos?|
+                                        (LETT |lts|
+                                              (SPADCALL |lp4| |lts| |clos?|
+                                                        |info?|
+                                                        (QREFELT $ 107))
+                                              . #15#))
+                                       (#16#
+                                        (SEQ
+                                         (LETT |lp4|
+                                               (SPADCALL (ELT $ 45) |lp4|
+                                                         (QREFELT $ 47))
+                                               . #15#)
+                                         (EXIT
+                                          (SEQ (LETT |p| NIL . #15#)
+                                               (LETT #9# |lp4| . #15#) G190
+                                               (COND
+                                                ((OR (ATOM #9#)
+                                                     (PROGN
+                                                      (LETT |p| (CAR #9#)
+                                                            . #15#)
+                                                      NIL))
+                                                 (GO G191)))
+                                               (SEQ
+                                                (EXIT
+                                                 (LETT |lts|
+                                                       (SPADCALL (LIST |p|)
+                                                                 |lts| |clos?|
+                                                                 |info?|
+                                                                 (QREFELT $
+                                                                          107))
+                                                       . #15#)))
+                                               (LETT #9# (CDR #9#) . #15#)
+                                               (GO G190) G191 (EXIT NIL))))))
+                                      (EXIT (LETT |lp2| |lp3| . #15#))))))))
                                 (#16#
                                  (SEQ
-                                  (LETT |lp3|
-                                        (PROGN
-                                         (LETT #13# NIL . #15#)
-                                         (SEQ (LETT |p| NIL . #15#)
-                                              (LETT #12# |lp2| . #15#) G190
-                                              (COND
-                                               ((OR (ATOM #12#)
-                                                    (PROGN
-                                                     (LETT |p| (CAR #12#)
-                                                           . #15#)
-                                                     NIL))
-                                                (GO G191)))
-                                              (SEQ
-                                               (EXIT
-                                                (COND
-                                                 ((|SREGSET;lin?| |p| $)
-                                                  (LETT #13# (CONS |p| #13#)
-                                                        . #15#)))))
-                                              (LETT #12# (CDR #12#) . #15#)
-                                              (GO G190) G191
-                                              (EXIT (NREVERSE #13#))))
+                                  (LETT |lp2| (SPADCALL |lp2| (QREFELT $ 135))
                                         . #15#)
-                                  (LETT |lp4|
-                                        (PROGN
-                                         (LETT #11# NIL . #15#)
-                                         (SEQ (LETT |p| NIL . #15#)
-                                              (LETT #10# |lp2| . #15#) G190
-                                              (COND
-                                               ((OR (ATOM #10#)
-                                                    (PROGN
-                                                     (LETT |p| (CAR #10#)
-                                                           . #15#)
-                                                     NIL))
-                                                (GO G191)))
-                                              (SEQ
-                                               (EXIT
-                                                (COND
-                                                 ((COND
-                                                   ((|SREGSET;lin?| |p| $)
-                                                    'NIL)
-                                                   (#16# 'T))
-                                                  (LETT #11# (CONS |p| #11#)
-                                                        . #15#)))))
-                                              (LETT #10# (CDR #10#) . #15#)
-                                              (GO G190) G191
-                                              (EXIT (NREVERSE #11#))))
+                                  (LETT |lp2|
+                                        (SPADCALL (ELT $ 65) |lp2|
+                                                  (QREFELT $ 127))
                                         . #15#)
-                                  (COND
-                                   (|clos?|
-                                    (LETT |lts|
-                                          (SPADCALL |lp4| |lts| |clos?| |info?|
-                                                    (QREFELT $ 107))
-                                          . #15#))
-                                   (#16#
-                                    (SEQ
-                                     (LETT |lp4|
-                                           (SPADCALL (ELT $ 45) |lp4|
-                                                     (QREFELT $ 47))
-                                           . #15#)
-                                     (EXIT
-                                      (SEQ (LETT |p| NIL . #15#)
-                                           (LETT #9# |lp4| . #15#) G190
-                                           (COND
-                                            ((OR (ATOM #9#)
-                                                 (PROGN
-                                                  (LETT |p| (CAR #9#) . #15#)
-                                                  NIL))
-                                             (GO G191)))
-                                           (SEQ
-                                            (EXIT
-                                             (LETT |lts|
-                                                   (SPADCALL (LIST |p|) |lts|
-                                                             |clos?| |info?|
-                                                             (QREFELT $ 107))
-                                                   . #15#)))
-                                           (LETT #9# (CDR #9#) . #15#)
-                                           (GO G190) G191 (EXIT NIL))))))
-                                  (EXIT (LETT |lp2| |lp3| . #15#))))))))
-                            (#16#
-                             (SEQ
-                              (LETT |lp2| (SPADCALL |lp2| (QREFELT $ 135))
-                                    . #15#)
-                              (LETT |lp2|
-                                    (SPADCALL (ELT $ 65) |lp2| (QREFELT $ 127))
-                                    . #15#)
-                              (EXIT
+                                  (EXIT
+                                   (COND
+                                    ((SPADCALL (ELT $ 49) |lp2|
+                                               (QREFELT $ 128))
+                                     (PROGN
+                                      (LETT #1# (CONS |lp2| |lts|) . #15#)
+                                      (GO #1#))))))))
                                (COND
-                                ((SPADCALL (ELT $ 49) |lp2| (QREFELT $ 128))
-                                 (PROGN
-                                  (LETT #1# (CONS |lp2| |lts|) . #15#)
-                                  (GO #1#))))))))
-                           (COND
-                            (|clos?|
-                             (LETT |lts|
-                                   (SPADCALL |lp2| |lts| |clos?| |info?|
-                                             (QREFELT $ 107))
-                                   . #15#))
-                            (#16#
-                             (SEQ
-                              (LETT |lp2|
-                                    (SPADCALL (ELT $ 45) |lp2| (QREFELT $ 47))
-                                    . #15#)
-                              (EXIT
-                               (SEQ (LETT |p| NIL . #15#)
-                                    (LETT #8# |lp2| . #15#) G190
-                                    (COND
-                                     ((OR (ATOM #8#)
-                                          (PROGN
-                                           (LETT |p| (CAR #8#) . #15#)
-                                           NIL))
-                                      (GO G191)))
-                                    (SEQ
-                                     (EXIT
-                                      (LETT |lts|
-                                            (SPADCALL (LIST |p|) |lts| |clos?|
-                                                      |info?| (QREFELT $ 107))
-                                            . #15#)))
-                                    (LETT #8# (CDR #8#) . #15#) (GO G190) G191
-                                    (EXIT NIL))))))
-                           (LETT |lp2| NIL . #15#)
-                           (EXIT
-                            (PROGN
-                             (LETT #1# (CONS |lp2| |lts|) . #15#)
-                             (GO #1#)))))))
-                       ((|SREGSET;smallSystem?| |lp| $) (CONS |lp2| |lts|))
-                       ((|SREGSET;mediumSystem?| |lp| $)
-                        (CONS (SPADCALL |lp2| (QREFELT $ 135)) |lts|))
-                       (#16#
-                        (SEQ
-                         (LETT |lp3|
-                               (PROGN
-                                (LETT #7# NIL . #15#)
-                                (SEQ (LETT |p| NIL . #15#)
-                                     (LETT #6# |lp2| . #15#) G190
-                                     (COND
-                                      ((OR (ATOM #6#)
-                                           (PROGN
-                                            (LETT |p| (CAR #6#) . #15#)
-                                            NIL))
-                                       (GO G191)))
-                                     (SEQ
-                                      (EXIT
-                                       (COND
-                                        ((|SREGSET;lin?| |p| $)
-                                         (LETT #7# (CONS |p| #7#) . #15#)))))
-                                     (LETT #6# (CDR #6#) . #15#) (GO G190) G191
-                                     (EXIT (NREVERSE #7#))))
-                               . #15#)
-                         (LETT |lp4|
-                               (PROGN
-                                (LETT #5# NIL . #15#)
-                                (SEQ (LETT |p| NIL . #15#)
-                                     (LETT #4# |lp2| . #15#) G190
-                                     (COND
-                                      ((OR (ATOM #4#)
-                                           (PROGN
-                                            (LETT |p| (CAR #4#) . #15#)
-                                            NIL))
-                                       (GO G191)))
-                                     (SEQ
-                                      (EXIT
-                                       (COND
-                                        ((COND ((|SREGSET;lin?| |p| $) 'NIL)
-                                               (#16# 'T))
-                                         (LETT #5# (CONS |p| #5#) . #15#)))))
-                                     (LETT #4# (CDR #4#) . #15#) (GO G190) G191
-                                     (EXIT (NREVERSE #5#))))
-                               . #15#)
-                         (COND
-                          (|clos?|
-                           (LETT |lts|
-                                 (SPADCALL |lp4| |lts| |clos?| |info?|
-                                           (QREFELT $ 107))
-                                 . #15#))
-                          (#16#
-                           (SEQ
-                            (LETT |lp4|
-                                  (SPADCALL (ELT $ 45) |lp4| (QREFELT $ 47))
-                                  . #15#)
-                            (EXIT
-                             (SEQ (LETT |p| NIL . #15#) (LETT #3# |lp4| . #15#)
-                                  G190
-                                  (COND
-                                   ((OR (ATOM #3#)
-                                        (PROGN
-                                         (LETT |p| (CAR #3#) . #15#)
-                                         NIL))
-                                    (GO G191)))
-                                  (SEQ
-                                   (EXIT
-                                    (LETT |lts|
-                                          (SPADCALL (LIST |p|) |lts| |clos?|
-                                                    |info?| (QREFELT $ 107))
-                                          . #15#)))
-                                  (LETT #3# (CDR #3#) . #15#) (GO G190) G191
-                                  (EXIT NIL))))))
-                         (COND
-                          (|clos?|
-                           (LETT |lts|
-                                 (SPADCALL |lp3| |lts| |clos?| |info?|
-                                           (QREFELT $ 107))
-                                 . #15#))
-                          (#16#
-                           (SEQ
-                            (LETT |lp3|
-                                  (SPADCALL (ELT $ 45) |lp3| (QREFELT $ 47))
-                                  . #15#)
-                            (EXIT
-                             (SEQ (LETT |p| NIL . #15#) (LETT #2# |lp3| . #15#)
-                                  G190
-                                  (COND
-                                   ((OR (ATOM #2#)
-                                        (PROGN
-                                         (LETT |p| (CAR #2#) . #15#)
-                                         NIL))
-                                    (GO G191)))
-                                  (SEQ
-                                   (EXIT
-                                    (LETT |lts|
-                                          (SPADCALL (LIST |p|) |lts| |clos?|
-                                                    |info?| (QREFELT $ 107))
-                                          . #15#)))
-                                  (LETT #2# (CDR #2#) . #15#) (GO G190) G191
-                                  (EXIT NIL))))))
-                         (LETT |lp2| NIL . #15#)
-                         (EXIT
-                          (PROGN
-                           (LETT #1# (CONS |lp2| |lts|) . #15#)
-                           (GO #1#)))))))))))))
-      #1# (EXIT #1#))))) 
+                                (|clos?|
+                                 (LETT |lts|
+                                       (SPADCALL |lp2| |lts| |clos?| |info?|
+                                                 (QREFELT $ 107))
+                                       . #15#))
+                                (#16#
+                                 (SEQ
+                                  (LETT |lp2|
+                                        (SPADCALL (ELT $ 45) |lp2|
+                                                  (QREFELT $ 47))
+                                        . #15#)
+                                  (EXIT
+                                   (SEQ (LETT |p| NIL . #15#)
+                                        (LETT #8# |lp2| . #15#) G190
+                                        (COND
+                                         ((OR (ATOM #8#)
+                                              (PROGN
+                                               (LETT |p| (CAR #8#) . #15#)
+                                               NIL))
+                                          (GO G191)))
+                                        (SEQ
+                                         (EXIT
+                                          (LETT |lts|
+                                                (SPADCALL (LIST |p|) |lts|
+                                                          |clos?| |info?|
+                                                          (QREFELT $ 107))
+                                                . #15#)))
+                                        (LETT #8# (CDR #8#) . #15#) (GO G190)
+                                        G191 (EXIT NIL))))))
+                               (LETT |lp2| NIL . #15#)
+                               (EXIT
+                                (PROGN
+                                 (LETT #1# (CONS |lp2| |lts|) . #15#)
+                                 (GO #1#)))))))
+                           ((|SREGSET;smallSystem?| |lp| $) (CONS |lp2| |lts|))
+                           ((|SREGSET;mediumSystem?| |lp| $)
+                            (CONS (SPADCALL |lp2| (QREFELT $ 135)) |lts|))
+                           (#16#
+                            (SEQ
+                             (LETT |lp3|
+                                   (PROGN
+                                    (LETT #7# NIL . #15#)
+                                    (SEQ (LETT |p| NIL . #15#)
+                                         (LETT #6# |lp2| . #15#) G190
+                                         (COND
+                                          ((OR (ATOM #6#)
+                                               (PROGN
+                                                (LETT |p| (CAR #6#) . #15#)
+                                                NIL))
+                                           (GO G191)))
+                                         (SEQ
+                                          (EXIT
+                                           (COND
+                                            ((|SREGSET;lin?| |p| $)
+                                             (LETT #7# (CONS |p| #7#)
+                                                   . #15#)))))
+                                         (LETT #6# (CDR #6#) . #15#) (GO G190)
+                                         G191 (EXIT (NREVERSE #7#))))
+                                   . #15#)
+                             (LETT |lp4|
+                                   (PROGN
+                                    (LETT #5# NIL . #15#)
+                                    (SEQ (LETT |p| NIL . #15#)
+                                         (LETT #4# |lp2| . #15#) G190
+                                         (COND
+                                          ((OR (ATOM #4#)
+                                               (PROGN
+                                                (LETT |p| (CAR #4#) . #15#)
+                                                NIL))
+                                           (GO G191)))
+                                         (SEQ
+                                          (EXIT
+                                           (COND
+                                            ((COND
+                                              ((|SREGSET;lin?| |p| $) 'NIL)
+                                              (#16# 'T))
+                                             (LETT #5# (CONS |p| #5#)
+                                                   . #15#)))))
+                                         (LETT #4# (CDR #4#) . #15#) (GO G190)
+                                         G191 (EXIT (NREVERSE #5#))))
+                                   . #15#)
+                             (COND
+                              (|clos?|
+                               (LETT |lts|
+                                     (SPADCALL |lp4| |lts| |clos?| |info?|
+                                               (QREFELT $ 107))
+                                     . #15#))
+                              (#16#
+                               (SEQ
+                                (LETT |lp4|
+                                      (SPADCALL (ELT $ 45) |lp4|
+                                                (QREFELT $ 47))
+                                      . #15#)
+                                (EXIT
+                                 (SEQ (LETT |p| NIL . #15#)
+                                      (LETT #3# |lp4| . #15#) G190
+                                      (COND
+                                       ((OR (ATOM #3#)
+                                            (PROGN
+                                             (LETT |p| (CAR #3#) . #15#)
+                                             NIL))
+                                        (GO G191)))
+                                      (SEQ
+                                       (EXIT
+                                        (LETT |lts|
+                                              (SPADCALL (LIST |p|) |lts|
+                                                        |clos?| |info?|
+                                                        (QREFELT $ 107))
+                                              . #15#)))
+                                      (LETT #3# (CDR #3#) . #15#) (GO G190)
+                                      G191 (EXIT NIL))))))
+                             (COND
+                              (|clos?|
+                               (LETT |lts|
+                                     (SPADCALL |lp3| |lts| |clos?| |info?|
+                                               (QREFELT $ 107))
+                                     . #15#))
+                              (#16#
+                               (SEQ
+                                (LETT |lp3|
+                                      (SPADCALL (ELT $ 45) |lp3|
+                                                (QREFELT $ 47))
+                                      . #15#)
+                                (EXIT
+                                 (SEQ (LETT |p| NIL . #15#)
+                                      (LETT #2# |lp3| . #15#) G190
+                                      (COND
+                                       ((OR (ATOM #2#)
+                                            (PROGN
+                                             (LETT |p| (CAR #2#) . #15#)
+                                             NIL))
+                                        (GO G191)))
+                                      (SEQ
+                                       (EXIT
+                                        (LETT |lts|
+                                              (SPADCALL (LIST |p|) |lts|
+                                                        |clos?| |info?|
+                                                        (QREFELT $ 107))
+                                              . #15#)))
+                                      (LETT #2# (CDR #2#) . #15#) (GO G190)
+                                      G191 (EXIT NIL))))))
+                             (LETT |lp2| NIL . #15#)
+                             (EXIT
+                              (PROGN
+                               (LETT #1# (CONS |lp2| |lts|) . #15#)
+                               (GO #1#)))))))))))))
+          #1# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |SquareFreeRegularTriangularSet;|)) 
 
 (DEFUN |SquareFreeRegularTriangularSet| (&REST #1=#:G384)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G385)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|SquareFreeRegularTriangularSet|)
-                                           '|domainEqualList|)
-                . #3=(|SquareFreeRegularTriangularSet|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |SquareFreeRegularTriangularSet;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G385)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|SquareFreeRegularTriangularSet|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SquareFreeRegularTriangularSet|)
+                                               '|domainEqualList|)
+                    . #3=(|SquareFreeRegularTriangularSet|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SquareFreeRegularTriangularSet;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SquareFreeRegularTriangularSet|)))))))))) 
 
 (DEFUN |SquareFreeRegularTriangularSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G383 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|SquareFreeRegularTriangularSet|))
-      (LETT DV$2 (|devaluate| |#2|) . #2#)
-      (LETT DV$3 (|devaluate| |#3|) . #2#)
-      (LETT DV$4 (|devaluate| |#4|) . #2#)
-      (LETT |dv$| (LIST '|SquareFreeRegularTriangularSet| DV$1 DV$2 DV$3 DV$4)
-            . #2#)
-      (LETT $ (GETREFV 153) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (AND
-                                           (|HasCategory| |#4|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#4|)))
-                                           (|HasCategory| |#4|
-                                                          '(|SetCategory|)))
-                                          (|HasCategory| |#4|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#4| '(|BasicType|))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#3| '(|Finite|))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|SquareFreeRegularTriangularSet|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
-           (|augmentPredVector| $ 64))
-      (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 128))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((#1=#:G383 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+    (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|SquareFreeRegularTriangularSet|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT DV$3 (|devaluate| |#3|) . #2#)
+    (LETT DV$4 (|devaluate| |#4|) . #2#)
+    (LETT |dv$| (LIST '|SquareFreeRegularTriangularSet| DV$1 DV$2 DV$3 DV$4)
+          . #2#)
+    (LETT $ (GETREFV 153) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (AND
+                                         (|HasCategory| |#4|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#4|)))
+                                         (|HasCategory| |#4| '(|SetCategory|)))
+                                        (|HasCategory| |#4|
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| |#4| '(|BasicType|))
+                                        (|HasCategory| |#1|
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| |#3| '(|Finite|))))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|SquareFreeRegularTriangularSet|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
+         (|augmentPredVector| $ 64))
+    (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 128))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|SquareFreeRegularTriangularSet| '|infovec|
           (LIST

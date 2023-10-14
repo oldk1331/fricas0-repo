@@ -1,48 +1,48 @@
 
-(DEFUN |EQ2;map;MEE;1| (|fn| |eqn| $)
-  (SPADCALL (SPADCALL (SPADCALL |eqn| (QREFELT $ 9)) |fn|)
-            (SPADCALL (SPADCALL |eqn| (QREFELT $ 10)) |fn|) (QREFELT $ 12))) 
+(SDEFUN |EQ2;map;MEE;1|
+        ((|fn| |Mapping| R S) (|eqn| |Equation| S) ($ |Equation| R))
+        (SPADCALL (SPADCALL (SPADCALL |eqn| (QREFELT $ 9)) |fn|)
+                  (SPADCALL (SPADCALL |eqn| (QREFELT $ 10)) |fn|)
+                  (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |EquationFunctions2;|)) 
 
 (DEFUN |EquationFunctions2| (&REST #1=#:G105)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G106)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|EquationFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|EquationFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |EquationFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G106)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|EquationFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|EquationFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|EquationFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |EquationFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|EquationFunctions2|)))))))))) 
 
 (DEFUN |EquationFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|EquationFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|EquationFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 15) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|EquationFunctions2| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|EquationFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|EquationFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 15) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|EquationFunctions2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|EquationFunctions2| '|infovec|
           (LIST

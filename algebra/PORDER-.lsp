@@ -1,29 +1,30 @@
 
-(DEFUN |PORDER-;>=;2SB;1| (|x| |y| $) (SPADCALL |y| |x| (QREFELT $ 8))) 
+(SDEFUN |PORDER-;>=;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
+        (SPADCALL |y| |x| (QREFELT $ 8))) 
 
-(DEFUN |PORDER-;>;2SB;2| (|x| |y| $) (SPADCALL |y| |x| (QREFELT $ 10))) 
+(SDEFUN |PORDER-;>;2SB;2| ((|x| S) (|y| S) ($ |Boolean|))
+        (SPADCALL |y| |x| (QREFELT $ 10))) 
 
-(DEFUN |PORDER-;<;2SB;3| (|x| |y| $)
-  (COND
-   ((SPADCALL |x| |y| (QREFELT $ 8))
-    (COND ((SPADCALL |y| |x| (QREFELT $ 8)) 'NIL) (#1='T 'T)))
-   (#1# 'NIL))) 
+(SDEFUN |PORDER-;<;2SB;3| ((|x| S) (|y| S) ($ |Boolean|))
+        (COND
+         ((SPADCALL |x| |y| (QREFELT $ 8))
+          (COND ((SPADCALL |y| |x| (QREFELT $ 8)) 'NIL) (#1='T 'T)))
+         (#1# 'NIL))) 
 
 (DECLAIM (NOTINLINE |PartialOrder&;|)) 
 
 (DEFUN |PartialOrder&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PartialOrder&|))
-      (LETT |dv$| (LIST '|PartialOrder&| DV$1) . #1#)
-      (LETT $ (GETREFV 13) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PartialOrder&|))
+          (LETT |dv$| (LIST '|PartialOrder&| DV$1) . #1#)
+          (LETT $ (GETREFV 13) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PartialOrder&| '|infovec|
           (LIST

@@ -1,42 +1,41 @@
 
 (PUT '|ANON;coerce;$Of;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |ANON;coerce;$Of;1| (|x| $) |x|) 
+(SDEFUN |ANON;coerce;$Of;1| ((|x| $) ($ |OutputForm|)) |x|) 
 
 (DECLAIM (NOTINLINE |AnonymousFunction;|)) 
 
 (DEFUN |AnonymousFunction| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G105)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|AnonymousFunction|)
-                . #2=(|AnonymousFunction|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|AnonymousFunction|
-                         (LIST (CONS NIL (CONS 1 (|AnonymousFunction;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G105)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|AnonymousFunction|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|AnonymousFunction|)
+                    . #2=(|AnonymousFunction|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|AnonymousFunction|
+                             (LIST
+                              (CONS NIL (CONS 1 (|AnonymousFunction;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|AnonymousFunction|)))))))))) 
 
 (DEFUN |AnonymousFunction;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|AnonymousFunction|) . #1=(|AnonymousFunction|))
-      (LETT $ (GETREFV 12) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|AnonymousFunction| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|AnonymousFunction|) . #1=(|AnonymousFunction|))
+          (LETT $ (GETREFV 12) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|AnonymousFunction| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|AnonymousFunction| '|infovec|
           (LIST

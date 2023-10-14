@@ -17,37 +17,43 @@
       #2#)))) 
 
 (DEFUN |PermutationCategory;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|PermutationCategory;CAT|)
-                                ('T
-                                 (LETT |PermutationCategory;CAT|
-                                       (|Join| (|Group|)
-                                               (|mkCategory|
-                                                '(((|cycle| ($ (|List| |t#1|)))
-                                                   T)
-                                                  ((|cycles|
-                                                    ($
-                                                     (|List| (|List| |t#1|))))
-                                                   T)
-                                                  ((|eval| (|t#1| $ |t#1|)) T)
-                                                  ((|elt| (|t#1| $ |t#1|)) T)
-                                                  ((|orbit|
-                                                    ((|Set| |t#1|) $ |t#1|))
-                                                   T)
-                                                  ((< ((|Boolean|) $ $)) T))
-                                                '(((|OrderedSet|)
-                                                   (|has| |t#1|
-                                                          (|OrderedSet|)))
-                                                  ((|OrderedSet|)
-                                                   (|has| |t#1| (|Finite|))))
-                                                '((|Boolean|) (|Set| |t#1|)
-                                                  (|List| (|List| |t#1|))
-                                                  (|List| |t#1|))
-                                                NIL))
-                                       . #2=(|PermutationCategory|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|PermutationCategory| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|PermutationCategory;CAT|)
+                                    ('T
+                                     (LETT |PermutationCategory;CAT|
+                                           (|Join| (|Group|)
+                                                   (|mkCategory|
+                                                    '(((|cycle|
+                                                        ($ (|List| |t#1|)))
+                                                       T)
+                                                      ((|cycles|
+                                                        ($
+                                                         (|List|
+                                                          (|List| |t#1|))))
+                                                       T)
+                                                      ((|eval| (|t#1| $ |t#1|))
+                                                       T)
+                                                      ((|elt| (|t#1| $ |t#1|))
+                                                       T)
+                                                      ((|orbit|
+                                                        ((|Set| |t#1|) $
+                                                         |t#1|))
+                                                       T)
+                                                      ((< ((|Boolean|) $ $))
+                                                       T))
+                                                    '(((|OrderedSet|)
+                                                       (|has| |t#1|
+                                                              (|OrderedSet|)))
+                                                      ((|OrderedSet|)
+                                                       (|has| |t#1|
+                                                              (|Finite|))))
+                                                    '((|Boolean|) (|Set| |t#1|)
+                                                      (|List| (|List| |t#1|))
+                                                      (|List| |t#1|))
+                                                    NIL))
+                                           . #2=(|PermutationCategory|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|PermutationCategory| (|devaluate| |t#1|)))))) 

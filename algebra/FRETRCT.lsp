@@ -17,29 +17,30 @@
       #2#)))) 
 
 (DEFUN |FullyRetractableTo;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|FullyRetractableTo;CAT|)
-                                ('T
-                                 (LETT |FullyRetractableTo;CAT|
-                                       (|Join| (|RetractableTo| '|t#1|)
-                                               (|mkCategory| NIL
-                                                             '(((|RetractableTo|
-                                                                 (|Integer|))
-                                                                (|has| |t#1|
-                                                                       (|RetractableTo|
-                                                                        (|Integer|))))
-                                                               ((|RetractableTo|
-                                                                 (|Fraction|
-                                                                  (|Integer|)))
-                                                                (|has| |t#1|
-                                                                       (|RetractableTo|
-                                                                        (|Fraction|
-                                                                         (|Integer|))))))
-                                                             'NIL NIL))
-                                       . #2=(|FullyRetractableTo|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|FullyRetractableTo| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|FullyRetractableTo;CAT|)
+                                    ('T
+                                     (LETT |FullyRetractableTo;CAT|
+                                           (|Join| (|RetractableTo| '|t#1|)
+                                                   (|mkCategory| NIL
+                                                                 '(((|RetractableTo|
+                                                                     (|Integer|))
+                                                                    (|has|
+                                                                     |t#1|
+                                                                     (|RetractableTo|
+                                                                      (|Integer|))))
+                                                                   ((|RetractableTo|
+                                                                     (|Fraction|
+                                                                      (|Integer|)))
+                                                                    (|has|
+                                                                     |t#1|
+                                                                     (|RetractableTo|
+                                                                      (|Fraction|
+                                                                       (|Integer|))))))
+                                                                 'NIL NIL))
+                                           . #2=(|FullyRetractableTo|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|FullyRetractableTo| (|devaluate| |t#1|)))))) 

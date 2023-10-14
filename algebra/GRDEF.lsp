@@ -1,63 +1,68 @@
 
-(DEFUN |GRDEF;clipPointsDefault;B;1| ($) (QREFELT $ 6)) 
+(SDEFUN |GRDEF;clipPointsDefault;B;1| (($ |Boolean|)) (QREFELT $ 6)) 
 
-(DEFUN |GRDEF;drawToScale;B;2| ($) (QREFELT $ 7)) 
+(SDEFUN |GRDEF;drawToScale;B;2| (($ |Boolean|)) (QREFELT $ 7)) 
 
-(DEFUN |GRDEF;clipPointsDefault;2B;3| (|b| $) (SETELT $ 6 |b|)) 
+(SDEFUN |GRDEF;clipPointsDefault;2B;3| ((|b| |Boolean|) ($ |Boolean|))
+        (SETELT $ 6 |b|)) 
 
-(DEFUN |GRDEF;drawToScale;2B;4| (|b| $) (SETELT $ 7 |b|)) 
+(SDEFUN |GRDEF;drawToScale;2B;4| ((|b| |Boolean|) ($ |Boolean|))
+        (SETELT $ 7 |b|)) 
 
-(DEFUN |GRDEF;adaptive;B;5| ($) (SPADCALL (QREFELT $ 14))) 
+(SDEFUN |GRDEF;adaptive;B;5| (($ |Boolean|)) (SPADCALL (QREFELT $ 14))) 
 
-(DEFUN |GRDEF;minPoints;I;6| ($) (SPADCALL (QREFELT $ 17))) 
+(SDEFUN |GRDEF;minPoints;I;6| (($ |Integer|)) (SPADCALL (QREFELT $ 17))) 
 
-(DEFUN |GRDEF;maxPoints;I;7| ($) (SPADCALL (QREFELT $ 19))) 
+(SDEFUN |GRDEF;maxPoints;I;7| (($ |Integer|)) (SPADCALL (QREFELT $ 19))) 
 
-(DEFUN |GRDEF;screenResolution;I;8| ($) (SPADCALL (QREFELT $ 21))) 
+(SDEFUN |GRDEF;screenResolution;I;8| (($ |Integer|)) (SPADCALL (QREFELT $ 21))) 
 
-(DEFUN |GRDEF;adaptive;2B;9| (|b| $) (SPADCALL |b| (QREFELT $ 23))) 
+(SDEFUN |GRDEF;adaptive;2B;9| ((|b| |Boolean|) ($ |Boolean|))
+        (SPADCALL |b| (QREFELT $ 23))) 
 
-(DEFUN |GRDEF;minPoints;2I;10| (|n| $) (SPADCALL |n| (QREFELT $ 25))) 
+(SDEFUN |GRDEF;minPoints;2I;10| ((|n| |Integer|) ($ |Integer|))
+        (SPADCALL |n| (QREFELT $ 25))) 
 
-(DEFUN |GRDEF;maxPoints;2I;11| (|n| $) (SPADCALL |n| (QREFELT $ 27))) 
+(SDEFUN |GRDEF;maxPoints;2I;11| ((|n| |Integer|) ($ |Integer|))
+        (SPADCALL |n| (QREFELT $ 27))) 
 
-(DEFUN |GRDEF;screenResolution;2I;12| (|n| $) (SPADCALL |n| (QREFELT $ 29))) 
+(SDEFUN |GRDEF;screenResolution;2I;12| ((|n| |Integer|) ($ |Integer|))
+        (SPADCALL |n| (QREFELT $ 29))) 
 
 (DECLAIM (NOTINLINE |GraphicsDefaults;|)) 
 
 (DEFUN |GraphicsDefaults| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G116)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|GraphicsDefaults|)
-                . #2=(|GraphicsDefaults|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|GraphicsDefaults|
-                         (LIST (CONS NIL (CONS 1 (|GraphicsDefaults;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G116)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|GraphicsDefaults|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|GraphicsDefaults|)
+                    . #2=(|GraphicsDefaults|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|GraphicsDefaults|
+                             (LIST (CONS NIL (CONS 1 (|GraphicsDefaults;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|GraphicsDefaults|)))))))))) 
 
 (DEFUN |GraphicsDefaults;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|GraphicsDefaults|) . #1=(|GraphicsDefaults|))
-      (LETT $ (GETREFV 31) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|GraphicsDefaults| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 'T)
-      (QSETREFV $ 7 'NIL)
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GraphicsDefaults|) . #1=(|GraphicsDefaults|))
+          (LETT $ (GETREFV 31) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|GraphicsDefaults| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 'T)
+          (QSETREFV $ 7 'NIL)
+          $))) 
 
 (MAKEPROP '|GraphicsDefaults| '|infovec|
           (LIST

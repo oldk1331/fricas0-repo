@@ -10,11 +10,10 @@
            (SETQ |multiplicativeValuation;AL| (|multiplicativeValuation;|)))))) 
 
 (DEFUN |multiplicativeValuation;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
-               |multiplicativeValuation|)
-       (SETELT #1# 0 '(|multiplicativeValuation|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
+                   |multiplicativeValuation|)
+           (SETELT #1# 0 '(|multiplicativeValuation|))))) 
 
 (MAKEPROP '|multiplicativeValuation| 'NILADIC T) 

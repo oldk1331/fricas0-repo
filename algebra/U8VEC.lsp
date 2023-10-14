@@ -1,135 +1,141 @@
 
 (PUT '|U8VEC;#;$Nni;1| '|SPADreplace| 'QV_LEN_U8) 
 
-(DEFUN |U8VEC;#;$Nni;1| (|x| $) (QV_LEN_U8 |x|)) 
+(SDEFUN |U8VEC;#;$Nni;1| ((|x| $) ($ |NonNegativeInteger|)) (QV_LEN_U8 |x|)) 
 
 (PUT '|U8VEC;minIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(DEFUN |U8VEC;minIndex;$I;2| (|x| $) 0) 
+(SDEFUN |U8VEC;minIndex;$I;2| ((|x| $) ($ |Integer|)) 0) 
 
 (PUT '|U8VEC;empty;$;3| '|SPADreplace| '(XLAM NIL (GETREFV_U8 0 0))) 
 
-(DEFUN |U8VEC;empty;$;3| ($) (GETREFV_U8 0 0)) 
+(SDEFUN |U8VEC;empty;$;3| (($ $)) (GETREFV_U8 0 0)) 
 
 (PUT '|U8VEC;new;NniI$;4| '|SPADreplace| 'GETREFV_U8) 
 
-(DEFUN |U8VEC;new;NniI$;4| (|n| |x| $) (GETREFV_U8 |n| |x|)) 
+(SDEFUN |U8VEC;new;NniI$;4| ((|n| |NonNegativeInteger|) (|x| |Integer|) ($ $))
+        (GETREFV_U8 |n| |x|)) 
 
 (PUT '|U8VEC;qelt;$2I;5| '|SPADreplace| 'ELT_U8) 
 
-(DEFUN |U8VEC;qelt;$2I;5| (|x| |i| $) (ELT_U8 |x| |i|)) 
+(SDEFUN |U8VEC;qelt;$2I;5| ((|x| $) (|i| |Integer|) ($ |Integer|))
+        (ELT_U8 |x| |i|)) 
 
 (PUT '|U8VEC;elt;$2I;6| '|SPADreplace| 'ELT_U8) 
 
-(DEFUN |U8VEC;elt;$2I;6| (|x| |i| $) (ELT_U8 |x| |i|)) 
+(SDEFUN |U8VEC;elt;$2I;6| ((|x| $) (|i| |Integer|) ($ |Integer|))
+        (ELT_U8 |x| |i|)) 
 
 (PUT '|U8VEC;qsetelt!;$3I;7| '|SPADreplace| 'SETELT_U8) 
 
-(DEFUN |U8VEC;qsetelt!;$3I;7| (|x| |i| |s| $) (SETELT_U8 |x| |i| |s|)) 
+(SDEFUN |U8VEC;qsetelt!;$3I;7|
+        ((|x| $) (|i| |Integer|) (|s| . #1=(|Integer|)) ($ . #1#))
+        (SETELT_U8 |x| |i| |s|)) 
 
 (PUT '|U8VEC;setelt;$3I;8| '|SPADreplace| 'SETELT_U8) 
 
-(DEFUN |U8VEC;setelt;$3I;8| (|x| |i| |s| $) (SETELT_U8 |x| |i| |s|)) 
+(SDEFUN |U8VEC;setelt;$3I;8|
+        ((|x| $) (|i| |Integer|) (|s| . #1=(|Integer|)) ($ . #1#))
+        (SETELT_U8 |x| |i| |s|)) 
 
-(DEFUN |U8VEC;fill!;$I$;9| (|x| |s| $)
-  (PROG (#1=#:G2329 |i|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |i| 0 . #2=(|U8VEC;fill!;$I$;9|))
-           (LETT #1# (|sub_SI| (QV_LEN_U8 |x|) 1) . #2#) G190
-           (COND ((|greater_SI| |i| #1#) (GO G191)))
-           (SEQ (EXIT (SETELT_U8 |x| |i| |s|))) (LETT |i| (|inc_SI| |i|) . #2#)
-           (GO G190) G191 (EXIT NIL))
-      (EXIT |x|))))) 
+(SDEFUN |U8VEC;fill!;$I$;9| ((|x| $) (|s| |Integer|) ($ $))
+        (SPROG ((#1=#:G2329 NIL) (|i| NIL))
+               (SEQ
+                (SEQ (LETT |i| 0 . #2=(|U8VEC;fill!;$I$;9|))
+                     (LETT #1# (|sub_SI| (QV_LEN_U8 |x|) 1) . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
+                     (SEQ (EXIT (SETELT_U8 |x| |i| |s|)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |U8Vector;|)) 
 
 (DEFUN |U8Vector| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G2343)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|U8Vector|) . #2=(|U8Vector|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|U8Vector|
-                         (LIST (CONS NIL (CONS 1 (|U8Vector;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|U8Vector|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G2343)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|U8Vector|)
+                    . #2=(|U8Vector|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|U8Vector|
+                             (LIST (CONS NIL (CONS 1 (|U8Vector;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|U8Vector|)))))))))) 
 
 (DEFUN |U8Vector;| ()
-  (PROG (|dv$| $ #1=#:G2339 #2=#:G2340 #3=#:G2338 #4=#:G2337 |pv$| #5=#:G2341)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|U8Vector|) . #6=(|U8Vector|))
-      (LETT $ (GETREFV 34) . #6#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| (|Integer|)
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (LETT #1#
-                                                (|HasCategory| (|Integer|)
-                                                               '(|SetCategory|))
-                                                . #6#)
-                                          (OR
-                                           (|HasCategory| (|Integer|)
-                                                          '(|OrderedSet|))
-                                           #1#)
-                                          (LETT #2#
-                                                (AND
-                                                 (|HasCategory| (|Integer|)
-                                                                '(|Evalable|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| (|Integer|)
-                                                                '(|SetCategory|)))
-                                                . #6#)
-                                          (OR
-                                           (AND
-                                            (|HasCategory| (|Integer|)
-                                                           '(|Evalable|
-                                                             (|Integer|)))
-                                            (|HasCategory| (|Integer|)
-                                                           '(|OrderedSet|)))
-                                           #2#)
-                                          (LETT #3#
-                                                (|HasCategory| (|Integer|)
-                                                               '(|BasicType|))
-                                                . #6#)
-                                          (OR #3#
+  (SPROG
+   ((|dv$| NIL) ($ NIL) (#1=#:G2339 NIL) (#2=#:G2340 NIL) (#3=#:G2338 NIL)
+    (#4=#:G2337 NIL) (|pv$| NIL) (#5=#:G2341 NIL))
+   (PROGN
+    (LETT |dv$| '(|U8Vector|) . #6=(|U8Vector|))
+    (LETT $ (GETREFV 34) . #6#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| (|Integer|)
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|OrderedSet|))
+                                        (LETT #1#
                                               (|HasCategory| (|Integer|)
-                                                             '(|OrderedSet|))
-                                              #1#)
-                                          (LETT #4#
-                                                (|HasCategory| (|Integer|)
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #6#)
-                                          (OR #4# #2#)))
-                      . #6#))
-      (|haddProp| |$ConstructorCache| '|U8Vector| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND (LETT #5# (|HasCategory| $ '(|finiteAggregate|)) . #6#)
-           (|augmentPredVector| $ 1024))
-      (AND #5# #1# (|augmentPredVector| $ 2048))
-      (AND #5# #3# (|augmentPredVector| $ 4096))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 8192))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|HasCategory| (|Integer|) '(|OrderedSet|))
-           (|augmentPredVector| $ 16384))
-      (AND (OR (AND #5# #3#) #1#) (|augmentPredVector| $ 32768))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+                                                             '(|SetCategory|))
+                                              . #6#)
+                                        (OR
+                                         (|HasCategory| (|Integer|)
+                                                        '(|OrderedSet|))
+                                         #1#)
+                                        (LETT #2#
+                                              (AND
+                                               (|HasCategory| (|Integer|)
+                                                              '(|Evalable|
+                                                                (|Integer|)))
+                                               (|HasCategory| (|Integer|)
+                                                              '(|SetCategory|)))
+                                              . #6#)
+                                        (OR
+                                         (AND
+                                          (|HasCategory| (|Integer|)
+                                                         '(|Evalable|
+                                                           (|Integer|)))
+                                          (|HasCategory| (|Integer|)
+                                                         '(|OrderedSet|)))
+                                         #2#)
+                                        (LETT #3#
+                                              (|HasCategory| (|Integer|)
+                                                             '(|BasicType|))
+                                              . #6#)
+                                        (OR #3#
+                                            (|HasCategory| (|Integer|)
+                                                           '(|OrderedSet|))
+                                            #1#)
+                                        (LETT #4#
+                                              (|HasCategory| (|Integer|)
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #6#)
+                                        (OR #4# #2#)))
+                    . #6#))
+    (|haddProp| |$ConstructorCache| '|U8Vector| NIL (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (AND (LETT #5# (|HasCategory| $ '(|finiteAggregate|)) . #6#)
+         (|augmentPredVector| $ 1024))
+    (AND #5# #1# (|augmentPredVector| $ 2048))
+    (AND #5# #3# (|augmentPredVector| $ 4096))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 8192))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|HasCategory| (|Integer|) '(|OrderedSet|))
+         (|augmentPredVector| $ 16384))
+    (AND (OR (AND #5# #3#) #1#) (|augmentPredVector| $ 32768))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|U8Vector| '|infovec|
           (LIST

@@ -1,210 +1,236 @@
 
-(DEFUN |INPRODFF;liftPoly| (|poly| $)
-  (PROG (|ans| |coef|)
-    (RETURN
-     (SEQ (LETT |ans| (|spadConstant| $ 11) . #1=(|INPRODFF;liftPoly|))
-          (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |poly| (QREFELT $ 13)) 'NIL) ('T 'T)))
-                 (GO G191)))
+(SDEFUN |INPRODFF;liftPoly|
+        ((|poly| UP) ($ |SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+        (SPROG
+         ((|ans| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (|coef| (|Fraction| (|Integer|))))
+         (SEQ (LETT |ans| (|spadConstant| $ 11) . #1=(|INPRODFF;liftPoly|))
+              (SEQ G190
+                   (COND
+                    ((NULL
+                      (COND ((SPADCALL |poly| (QREFELT $ 13)) 'NIL) ('T 'T)))
+                     (GO G191)))
+                   (SEQ
+                    (LETT |coef|
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |poly| (QREFELT $ 14))
+                                     (QREFELT $ 16))
+                           (QREFELT $ 18))
+                          . #1#)
+                    (LETT |ans|
+                          (SPADCALL |ans|
+                                    (SPADCALL |coef|
+                                              (SPADCALL |poly| (QREFELT $ 20))
+                                              (QREFELT $ 21))
+                                    (QREFELT $ 22))
+                          . #1#)
+                    (EXIT
+                     (LETT |poly| (SPADCALL |poly| (QREFELT $ 23)) . #1#)))
+                   NIL (GO G190) G191 (EXIT NIL))
+              (EXIT |ans|)))) 
+
+(SDEFUN |INPRODFF;reducePoly|
+        ((|poly| |SparseUnivariatePolynomial| (|Fraction| (|Integer|))) ($ UP))
+        (SPROG ((|ans| (UP)) (|coef| (K)))
                (SEQ
-                (LETT |coef|
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |poly| (QREFELT $ 14))
-                                 (QREFELT $ 16))
-                       (QREFELT $ 18))
-                      . #1#)
-                (LETT |ans|
-                      (SPADCALL |ans|
-                                (SPADCALL |coef|
-                                          (SPADCALL |poly| (QREFELT $ 20))
-                                          (QREFELT $ 21))
-                                (QREFELT $ 22))
-                      . #1#)
-                (EXIT (LETT |poly| (SPADCALL |poly| (QREFELT $ 23)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |ans|))))) 
+                (LETT |ans| (|spadConstant| $ 24) . #1=(|INPRODFF;reducePoly|))
+                (SEQ G190
+                     (COND
+                      ((NULL
+                        (COND ((SPADCALL |poly| (QREFELT $ 25)) 'NIL) ('T 'T)))
+                       (GO G191)))
+                     (SEQ
+                      (LETT |coef|
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |poly| (QREFELT $ 26))
+                                       (QREFELT $ 27))
+                             (QREFELT $ 28))
+                            . #1#)
+                      (LETT |ans|
+                            (SPADCALL |ans|
+                                      (SPADCALL |coef|
+                                                (SPADCALL |poly|
+                                                          (QREFELT $ 29))
+                                                (QREFELT $ 30))
+                                      (QREFELT $ 31))
+                            . #1#)
+                      (EXIT
+                       (LETT |poly| (SPADCALL |poly| (QREFELT $ 32)) . #1#)))
+                     NIL (GO G190) G191 (EXIT NIL))
+                (EXIT |ans|)))) 
 
-(DEFUN |INPRODFF;reducePoly| (|poly| $)
-  (PROG (|ans| |coef|)
-    (RETURN
-     (SEQ (LETT |ans| (|spadConstant| $ 24) . #1=(|INPRODFF;reducePoly|))
-          (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |poly| (QREFELT $ 25)) 'NIL) ('T 'T)))
-                 (GO G191)))
-               (SEQ
-                (LETT |coef|
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |poly| (QREFELT $ 26))
-                                 (QREFELT $ 27))
-                       (QREFELT $ 28))
-                      . #1#)
-                (LETT |ans|
-                      (SPADCALL |ans|
-                                (SPADCALL |coef|
-                                          (SPADCALL |poly| (QREFELT $ 29))
-                                          (QREFELT $ 30))
-                                (QREFELT $ 31))
-                      . #1#)
-                (EXIT (LETT |poly| (SPADCALL |poly| (QREFELT $ 32)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |ans|))))) 
+(SDEFUN |INPRODFF;infiniteProduct;2UTS;3| ((|x| UTS) ($ UTS))
+        (SPROG
+         ((|stUP| (|Stream| UP))
+          (|stSUP|
+           (|Stream| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
+          (|stALG| (|Stream| ALG)))
+         (SEQ
+          (LETT |stUP|
+                (SPADCALL (ELT $ 36) (SPADCALL |x| (QREFELT $ 38))
+                          (QREFELT $ 42))
+                . #1=(|INPRODFF;infiniteProduct;2UTS;3|))
+          (LETT |stSUP|
+                (SPADCALL (CONS (|function| |INPRODFF;liftPoly|) $) |stUP|
+                          (QREFELT $ 46))
+                . #1#)
+          (LETT |stALG| (SPADCALL (ELT $ 47) |stSUP| (QREFELT $ 51)) . #1#)
+          (LETT |stALG|
+                (SPADCALL
+                 (SPADCALL (SPADCALL |stALG| (QREFELT $ 53)) (QREFELT $ 55))
+                 (QREFELT $ 56))
+                . #1#)
+          (LETT |stSUP| (SPADCALL (ELT $ 57) |stALG| (QREFELT $ 60)) . #1#)
+          (LETT |stUP|
+                (SPADCALL (CONS (|function| |INPRODFF;reducePoly|) $) |stSUP|
+                          (QREFELT $ 63))
+                . #1#)
+          (EXIT
+           (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
+                     (QREFELT $ 68)))))) 
 
-(DEFUN |INPRODFF;infiniteProduct;2UTS;3| (|x| $)
-  (PROG (|stUP| |stSUP| |stALG|)
-    (RETURN
-     (SEQ
-      (LETT |stUP|
-            (SPADCALL (ELT $ 36) (SPADCALL |x| (QREFELT $ 38)) (QREFELT $ 42))
-            . #1=(|INPRODFF;infiniteProduct;2UTS;3|))
-      (LETT |stSUP|
-            (SPADCALL (CONS (|function| |INPRODFF;liftPoly|) $) |stUP|
-                      (QREFELT $ 46))
-            . #1#)
-      (LETT |stALG| (SPADCALL (ELT $ 47) |stSUP| (QREFELT $ 51)) . #1#)
-      (LETT |stALG|
-            (SPADCALL
-             (SPADCALL (SPADCALL |stALG| (QREFELT $ 53)) (QREFELT $ 55))
-             (QREFELT $ 56))
-            . #1#)
-      (LETT |stSUP| (SPADCALL (ELT $ 57) |stALG| (QREFELT $ 60)) . #1#)
-      (LETT |stUP|
-            (SPADCALL (CONS (|function| |INPRODFF;reducePoly|) $) |stSUP|
-                      (QREFELT $ 63))
-            . #1#)
-      (EXIT
-       (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
-                 (QREFELT $ 68))))))) 
+(SDEFUN |INPRODFF;evenInfiniteProduct;2UTS;4| ((|x| UTS) ($ UTS))
+        (SPROG
+         ((|stUP| (|Stream| UP))
+          (|stSUP|
+           (|Stream| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
+          (|stALG| (|Stream| ALG)))
+         (SEQ
+          (LETT |stUP|
+                (SPADCALL (ELT $ 36) (SPADCALL |x| (QREFELT $ 38))
+                          (QREFELT $ 42))
+                . #1=(|INPRODFF;evenInfiniteProduct;2UTS;4|))
+          (LETT |stSUP|
+                (SPADCALL (CONS (|function| |INPRODFF;liftPoly|) $) |stUP|
+                          (QREFELT $ 46))
+                . #1#)
+          (LETT |stALG| (SPADCALL (ELT $ 47) |stSUP| (QREFELT $ 51)) . #1#)
+          (LETT |stALG|
+                (SPADCALL
+                 (SPADCALL (SPADCALL |stALG| (QREFELT $ 53)) (QREFELT $ 70))
+                 (QREFELT $ 56))
+                . #1#)
+          (LETT |stSUP| (SPADCALL (ELT $ 57) |stALG| (QREFELT $ 60)) . #1#)
+          (LETT |stUP|
+                (SPADCALL (CONS (|function| |INPRODFF;reducePoly|) $) |stSUP|
+                          (QREFELT $ 63))
+                . #1#)
+          (EXIT
+           (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
+                     (QREFELT $ 68)))))) 
 
-(DEFUN |INPRODFF;evenInfiniteProduct;2UTS;4| (|x| $)
-  (PROG (|stUP| |stSUP| |stALG|)
-    (RETURN
-     (SEQ
-      (LETT |stUP|
-            (SPADCALL (ELT $ 36) (SPADCALL |x| (QREFELT $ 38)) (QREFELT $ 42))
-            . #1=(|INPRODFF;evenInfiniteProduct;2UTS;4|))
-      (LETT |stSUP|
-            (SPADCALL (CONS (|function| |INPRODFF;liftPoly|) $) |stUP|
-                      (QREFELT $ 46))
-            . #1#)
-      (LETT |stALG| (SPADCALL (ELT $ 47) |stSUP| (QREFELT $ 51)) . #1#)
-      (LETT |stALG|
-            (SPADCALL
-             (SPADCALL (SPADCALL |stALG| (QREFELT $ 53)) (QREFELT $ 70))
-             (QREFELT $ 56))
-            . #1#)
-      (LETT |stSUP| (SPADCALL (ELT $ 57) |stALG| (QREFELT $ 60)) . #1#)
-      (LETT |stUP|
-            (SPADCALL (CONS (|function| |INPRODFF;reducePoly|) $) |stSUP|
-                      (QREFELT $ 63))
-            . #1#)
-      (EXIT
-       (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
-                 (QREFELT $ 68))))))) 
+(SDEFUN |INPRODFF;oddInfiniteProduct;2UTS;5| ((|x| UTS) ($ UTS))
+        (SPROG
+         ((|stUP| (|Stream| UP))
+          (|stSUP|
+           (|Stream| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
+          (|stALG| (|Stream| ALG)))
+         (SEQ
+          (LETT |stUP|
+                (SPADCALL (ELT $ 36) (SPADCALL |x| (QREFELT $ 38))
+                          (QREFELT $ 42))
+                . #1=(|INPRODFF;oddInfiniteProduct;2UTS;5|))
+          (LETT |stSUP|
+                (SPADCALL (CONS (|function| |INPRODFF;liftPoly|) $) |stUP|
+                          (QREFELT $ 46))
+                . #1#)
+          (LETT |stALG| (SPADCALL (ELT $ 47) |stSUP| (QREFELT $ 51)) . #1#)
+          (LETT |stALG|
+                (SPADCALL
+                 (SPADCALL (SPADCALL |stALG| (QREFELT $ 53)) (QREFELT $ 72))
+                 (QREFELT $ 56))
+                . #1#)
+          (LETT |stSUP| (SPADCALL (ELT $ 57) |stALG| (QREFELT $ 60)) . #1#)
+          (LETT |stUP|
+                (SPADCALL (CONS (|function| |INPRODFF;reducePoly|) $) |stSUP|
+                          (QREFELT $ 63))
+                . #1#)
+          (EXIT
+           (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
+                     (QREFELT $ 68)))))) 
 
-(DEFUN |INPRODFF;oddInfiniteProduct;2UTS;5| (|x| $)
-  (PROG (|stUP| |stSUP| |stALG|)
-    (RETURN
-     (SEQ
-      (LETT |stUP|
-            (SPADCALL (ELT $ 36) (SPADCALL |x| (QREFELT $ 38)) (QREFELT $ 42))
-            . #1=(|INPRODFF;oddInfiniteProduct;2UTS;5|))
-      (LETT |stSUP|
-            (SPADCALL (CONS (|function| |INPRODFF;liftPoly|) $) |stUP|
-                      (QREFELT $ 46))
-            . #1#)
-      (LETT |stALG| (SPADCALL (ELT $ 47) |stSUP| (QREFELT $ 51)) . #1#)
-      (LETT |stALG|
-            (SPADCALL
-             (SPADCALL (SPADCALL |stALG| (QREFELT $ 53)) (QREFELT $ 72))
-             (QREFELT $ 56))
-            . #1#)
-      (LETT |stSUP| (SPADCALL (ELT $ 57) |stALG| (QREFELT $ 60)) . #1#)
-      (LETT |stUP|
-            (SPADCALL (CONS (|function| |INPRODFF;reducePoly|) $) |stSUP|
-                      (QREFELT $ 63))
-            . #1#)
-      (EXIT
-       (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
-                 (QREFELT $ 68))))))) 
-
-(DEFUN |INPRODFF;generalInfiniteProduct;UTS2IUTS;6| (|x| |a| |d| $)
-  (PROG (|stUP| |stSUP| |stALG|)
-    (RETURN
-     (SEQ
-      (LETT |stUP|
-            (SPADCALL (ELT $ 36) (SPADCALL |x| (QREFELT $ 38)) (QREFELT $ 42))
-            . #1=(|INPRODFF;generalInfiniteProduct;UTS2IUTS;6|))
-      (LETT |stSUP|
-            (SPADCALL (CONS (|function| |INPRODFF;liftPoly|) $) |stUP|
-                      (QREFELT $ 46))
-            . #1#)
-      (LETT |stALG| (SPADCALL (ELT $ 47) |stSUP| (QREFELT $ 51)) . #1#)
-      (LETT |stALG|
-            (SPADCALL (SPADCALL |stALG| (QREFELT $ 53)) |a| |d| (QREFELT $ 74))
-            . #1#)
-      (LETT |stALG| (SPADCALL |stALG| (QREFELT $ 56)) . #1#)
-      (LETT |stSUP| (SPADCALL (ELT $ 57) |stALG| (QREFELT $ 60)) . #1#)
-      (LETT |stUP|
-            (SPADCALL (CONS (|function| |INPRODFF;reducePoly|) $) |stSUP|
-                      (QREFELT $ 63))
-            . #1#)
-      (EXIT
-       (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
-                 (QREFELT $ 68))))))) 
+(SDEFUN |INPRODFF;generalInfiniteProduct;UTS2IUTS;6|
+        ((|x| UTS) (|a| |Integer|) (|d| |Integer|) ($ UTS))
+        (SPROG
+         ((|stUP| (|Stream| UP))
+          (|stSUP|
+           (|Stream| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
+          (|stALG| (|Stream| ALG)))
+         (SEQ
+          (LETT |stUP|
+                (SPADCALL (ELT $ 36) (SPADCALL |x| (QREFELT $ 38))
+                          (QREFELT $ 42))
+                . #1=(|INPRODFF;generalInfiniteProduct;UTS2IUTS;6|))
+          (LETT |stSUP|
+                (SPADCALL (CONS (|function| |INPRODFF;liftPoly|) $) |stUP|
+                          (QREFELT $ 46))
+                . #1#)
+          (LETT |stALG| (SPADCALL (ELT $ 47) |stSUP| (QREFELT $ 51)) . #1#)
+          (LETT |stALG|
+                (SPADCALL (SPADCALL |stALG| (QREFELT $ 53)) |a| |d|
+                          (QREFELT $ 74))
+                . #1#)
+          (LETT |stALG| (SPADCALL |stALG| (QREFELT $ 56)) . #1#)
+          (LETT |stSUP| (SPADCALL (ELT $ 57) |stALG| (QREFELT $ 60)) . #1#)
+          (LETT |stUP|
+                (SPADCALL (CONS (|function| |INPRODFF;reducePoly|) $) |stSUP|
+                          (QREFELT $ 63))
+                . #1#)
+          (EXIT
+           (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
+                     (QREFELT $ 68)))))) 
 
 (DECLAIM (NOTINLINE |InfiniteProductFiniteField;|)) 
 
 (DEFUN |InfiniteProductFiniteField| (&REST #1=#:G147)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G148)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|InfiniteProductFiniteField|)
-                                           '|domainEqualList|)
-                . #3=(|InfiniteProductFiniteField|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |InfiniteProductFiniteField;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G148)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|InfiniteProductFiniteField|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InfiniteProductFiniteField|)
+                                               '|domainEqualList|)
+                    . #3=(|InfiniteProductFiniteField|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InfiniteProductFiniteField;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|InfiniteProductFiniteField|)))))))))) 
 
 (DEFUN |InfiniteProductFiniteField;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteProductFiniteField|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|InfiniteProductFiniteField| DV$1 DV$2 DV$3 DV$4)
-            . #1#)
-      (LETT $ (GETREFV 76) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|InfiniteProductFiniteField|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 34 (|INPRODFF;liftPoly| (SPADCALL (QREFELT $ 33)) $))
-      (QSETREFV $ 35
-                (|SimpleAlgebraicExtension| (|Fraction| (|Integer|))
-                                            (|SparseUnivariatePolynomial|
-                                             (|Fraction| (|Integer|)))
-                                            (QREFELT $ 34)))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteProductFiniteField|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|InfiniteProductFiniteField| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 76) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|InfiniteProductFiniteField|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 34 (|INPRODFF;liftPoly| (SPADCALL (QREFELT $ 33)) $))
+    (QSETREFV $ 35
+              (|SimpleAlgebraicExtension| (|Fraction| (|Integer|))
+                                          (|SparseUnivariatePolynomial|
+                                           (|Fraction| (|Integer|)))
+                                          (QREFELT $ 34)))
+    $))) 
 
 (MAKEPROP '|InfiniteProductFiniteField| '|infovec|
           (LIST

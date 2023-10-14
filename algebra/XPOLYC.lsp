@@ -17,31 +17,32 @@
       #2#)))) 
 
 (DEFUN |XPolynomialsCat;| (|t#1| |t#2|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (COND (|XPolynomialsCat;CAT|)
-                      ('T
-                       (LETT |XPolynomialsCat;CAT|
-                             (|Join| (|XFreeAlgebra| '|t#1| '|t#2|)
-                                     (|mkCategory|
-                                      '(((|maxdeg|
-                                          ((|OrderedFreeMonoid| |t#1|) $))
-                                         T)
-                                        ((|degree| ((|NonNegativeInteger|) $))
-                                         T)
-                                        ((|trunc| ($ $ (|NonNegativeInteger|)))
-                                         T))
-                                      NIL
-                                      '((|NonNegativeInteger|)
-                                        (|OrderedFreeMonoid| |t#1|))
-                                      NIL))
-                             . #2=(|XPolynomialsCat|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|XPolynomialsCat| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (COND (|XPolynomialsCat;CAT|)
+                          ('T
+                           (LETT |XPolynomialsCat;CAT|
+                                 (|Join| (|XFreeAlgebra| '|t#1| '|t#2|)
+                                         (|mkCategory|
+                                          '(((|maxdeg|
+                                              ((|OrderedFreeMonoid| |t#1|) $))
+                                             T)
+                                            ((|degree|
+                                              ((|NonNegativeInteger|) $))
+                                             T)
+                                            ((|trunc|
+                                              ($ $ (|NonNegativeInteger|)))
+                                             T))
+                                          NIL
+                                          '((|NonNegativeInteger|)
+                                            (|OrderedFreeMonoid| |t#1|))
+                                          NIL))
+                                 . #2=(|XPolynomialsCat|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|XPolynomialsCat| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

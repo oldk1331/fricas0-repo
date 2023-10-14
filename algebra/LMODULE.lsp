@@ -15,24 +15,23 @@
            #2#)))) 
 
 (DEFUN |LeftModule;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|LeftModule;CAT|)
-                                ('T
-                                 (LETT |LeftModule;CAT|
-                                       (|Join| (|AbelianSemiGroup|)
-                                               (|mkCategory|
-                                                '(((* ($ |t#1| $)) T))
-                                                '(((|AbelianMonoid|)
-                                                   (|has| |t#1|
-                                                          (|AbelianMonoid|)))
-                                                  ((|AbelianGroup|)
-                                                   (|has| |t#1|
-                                                          (|AbelianGroup|))))
-                                                'NIL NIL))
-                                       . #2=(|LeftModule|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|LeftModule| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|LeftModule;CAT|)
+                                    ('T
+                                     (LETT |LeftModule;CAT|
+                                           (|Join| (|AbelianSemiGroup|)
+                                                   (|mkCategory|
+                                                    '(((* ($ |t#1| $)) T))
+                                                    '(((|AbelianMonoid|)
+                                                       (|has| |t#1|
+                                                              (|AbelianMonoid|)))
+                                                      ((|AbelianGroup|)
+                                                       (|has| |t#1|
+                                                              (|AbelianGroup|))))
+                                                    'NIL NIL))
+                                           . #2=(|LeftModule|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|LeftModule| (|devaluate| |t#1|)))))) 

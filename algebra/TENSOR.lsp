@@ -1,336 +1,358 @@
 
-(DEFUN |TENSOR;termgreater?| (|t1| |t2| $)
-  (SPADCALL (QCAR |t2|) (QCAR |t1|) (QREFELT $ 13))) 
+(SDEFUN |TENSOR;termgreater?|
+        ((|t1| |Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))
+         (|t2| |Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R)) ($ |Boolean|))
+        (SPADCALL (QCAR |t2|) (QCAR |t1|) (QREFELT $ 13))) 
 
-(DEFUN |TENSOR;tensor;M1M2$;2| (|x1| |x2| $)
-  (PROG (|res| #1=#:G118 |s2| #2=#:G117 |s1| |ltx2| |ltx1| #3=#:G116)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND
-        ((OR (SPADCALL |x1| (QREFELT $ 14)) (SPADCALL |x2| (QREFELT $ 16)))
-         (PROGN
-          (LETT #3# (|spadConstant| $ 15) . #4=(|TENSOR;tensor;M1M2$;2|))
-          (GO #3#)))
-        ('T
-         (SEQ (LETT |ltx1| (SPADCALL |x1| (QREFELT $ 19)) . #4#)
-              (LETT |ltx2| (SPADCALL |x2| (QREFELT $ 22)) . #4#)
-              (LETT |res| NIL . #4#)
-              (SEQ (LETT |s1| NIL . #4#) (LETT #2# (REVERSE |ltx1|) . #4#) G190
+(SDEFUN |TENSOR;tensor;M1M2$;2| ((|x1| M1) (|x2| M2) ($ $))
+        (SPROG
+         ((|res| (|List| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))))
+          (#1=#:G118 NIL) (|s2| NIL) (#2=#:G117 NIL) (|s1| NIL)
+          (|ltx2| (|List| (|Record| (|:| |k| B2) (|:| |c| R))))
+          (|ltx1| (|List| (|Record| (|:| |k| B1) (|:| |c| R))))
+          (#3=#:G116 NIL))
+         (SEQ
+          (EXIT
+           (COND
+            ((OR (SPADCALL |x1| (QREFELT $ 14)) (SPADCALL |x2| (QREFELT $ 16)))
+             (PROGN
+              (LETT #3# (|spadConstant| $ 15) . #4=(|TENSOR;tensor;M1M2$;2|))
+              (GO #3#)))
+            ('T
+             (SEQ (LETT |ltx1| (SPADCALL |x1| (QREFELT $ 19)) . #4#)
+                  (LETT |ltx2| (SPADCALL |x2| (QREFELT $ 22)) . #4#)
+                  (LETT |res| NIL . #4#)
+                  (SEQ (LETT |s1| NIL . #4#) (LETT #2# (REVERSE |ltx1|) . #4#)
+                       G190
+                       (COND
+                        ((OR (ATOM #2#)
+                             (PROGN (LETT |s1| (CAR #2#) . #4#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (SEQ (LETT |s2| NIL . #4#)
+                              (LETT #1# (REVERSE |ltx2|) . #4#) G190
+                              (COND
+                               ((OR (ATOM #1#)
+                                    (PROGN (LETT |s2| (CAR #1#) . #4#) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (EXIT
+                                (LETT |res|
+                                      (CONS
+                                       (CONS
+                                        (SPADCALL (QCAR |s1|) (QCAR |s2|)
+                                                  (QREFELT $ 23))
+                                        (SPADCALL (QCDR |s1|) (QCDR |s2|)
+                                                  (QREFELT $ 24)))
+                                       |res|)
+                                      . #4#)))
+                              (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                              (EXIT NIL))))
+                       (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
+                  (EXIT (SPADCALL |res| (QREFELT $ 27)))))))
+          #3# (EXIT #3#)))) 
+
+(SDEFUN |TENSOR;*;3$;3| ((|x1| $) (|x2| $) ($ $))
+        (SPROG
+         ((|res| (|List| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))))
+          (#1=#:G127 NIL) (|t| NIL) (|t2b| (M2)) (|t2a| (M1)) (|t1b| (M2))
+          (|t1a| (M1)) (|t2k| #2=(|Product| B1 B2)) (|t1k| #2#) (|t2c| (R))
+          (|t1c| (R)) (#3=#:G126 NIL) (|t2| NIL) (#4=#:G125 NIL) (|t1| NIL))
+         (SEQ (LETT |res| NIL . #5=(|TENSOR;*;3$;3|))
+              (SEQ (LETT |t1| NIL . #5#)
+                   (LETT #4# (SPADCALL |x1| (QREFELT $ 29)) . #5#) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |s1| (CAR #2#) . #4#) NIL))
+                    ((OR (ATOM #4#) (PROGN (LETT |t1| (CAR #4#) . #5#) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |s2| NIL . #4#)
-                          (LETT #1# (REVERSE |ltx2|) . #4#) G190
+                     (SEQ (LETT |t2| NIL . #5#)
+                          (LETT #3# (SPADCALL |x2| (QREFELT $ 29)) . #5#) G190
                           (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |s2| (CAR #1#) . #4#) NIL))
+                           ((OR (ATOM #3#)
+                                (PROGN (LETT |t2| (CAR #3#) . #5#) NIL))
                             (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (LETT |res|
-                                  (CONS
-                                   (CONS
-                                    (SPADCALL (QCAR |s1|) (QCAR |s2|)
-                                              (QREFELT $ 23))
-                                    (SPADCALL (QCDR |s1|) (QCDR |s2|)
-                                              (QREFELT $ 24)))
-                                   |res|)
-                                  . #4#)))
-                          (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                          (SEQ (LETT |t1c| (QCDR |t1|) . #5#)
+                               (LETT |t2c| (QCDR |t2|) . #5#)
+                               (LETT |t1k| (QCAR |t1|) . #5#)
+                               (LETT |t2k| (QCAR |t2|) . #5#)
+                               (LETT |t1a|
+                                     (SPADCALL (QCDR |t1|)
+                                               (SPADCALL |t1k| (QREFELT $ 30))
+                                               (QREFELT $ 31))
+                                     . #5#)
+                               (LETT |t1b|
+                                     (SPADCALL (|spadConstant| $ 33)
+                                               (SPADCALL |t1k| (QREFELT $ 34))
+                                               (QREFELT $ 35))
+                                     . #5#)
+                               (LETT |t2a|
+                                     (SPADCALL (QCDR |t2|)
+                                               (SPADCALL |t2k| (QREFELT $ 30))
+                                               (QREFELT $ 31))
+                                     . #5#)
+                               (LETT |t2b|
+                                     (SPADCALL (|spadConstant| $ 33)
+                                               (SPADCALL |t2k| (QREFELT $ 34))
+                                               (QREFELT $ 35))
+                                     . #5#)
+                               (EXIT
+                                (SEQ (LETT |t| NIL . #5#)
+                                     (LETT #1#
+                                           (SPADCALL
+                                            (SPADCALL
+                                             (SPADCALL |t1a| |t2a|
+                                                       (QREFELT $ 36))
+                                             (SPADCALL |t1b| |t2b|
+                                                       (QREFELT $ 37))
+                                             (QREFELT $ 28))
+                                            (QREFELT $ 29))
+                                           . #5#)
+                                     G190
+                                     (COND
+                                      ((OR (ATOM #1#)
+                                           (PROGN
+                                            (LETT |t| (CAR #1#) . #5#)
+                                            NIL))
+                                       (GO G191)))
+                                     (SEQ
+                                      (EXIT
+                                       (LETT |res| (CONS |t| |res|) . #5#)))
+                                     (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                                     (EXIT NIL))))
+                          (LETT #3# (CDR #3#) . #5#) (GO G190) G191
                           (EXIT NIL))))
-                   (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |res| (QREFELT $ 27)))))))
-      #3# (EXIT #3#))))) 
+                   (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+              (EXIT (SPADCALL |res| (QREFELT $ 38)))))) 
 
-(DEFUN |TENSOR;*;3$;3| (|x1| |x2| $)
-  (PROG (|res| #1=#:G127 |t| |t2b| |t2a| |t1b| |t1a| |t2k| |t1k| |t2c| |t1c|
-         #2=#:G126 |t2| #3=#:G125 |t1|)
-    (RETURN
-     (SEQ (LETT |res| NIL . #4=(|TENSOR;*;3$;3|))
-          (SEQ (LETT |t1| NIL . #4#)
-               (LETT #3# (SPADCALL |x1| (QREFELT $ 29)) . #4#) G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |t1| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
-               (SEQ
-                (EXIT
-                 (SEQ (LETT |t2| NIL . #4#)
-                      (LETT #2# (SPADCALL |x2| (QREFELT $ 29)) . #4#) G190
+(SDEFUN |TENSOR;coerce;$Of;4| ((|x| $) ($ |OutputForm|))
+        (SPROG
+         ((|le| (|List| (|OutputForm|))) (|ko| (|OutputForm|)) (#1=#:G135 NIL)
+          (|rec| NIL))
+         (SEQ
+          (COND
+           ((SPADCALL |x| (QREFELT $ 40))
+            (SPADCALL (|spadConstant| $ 41) (QREFELT $ 43)))
+           ('T
+            (SEQ (LETT |le| NIL . #2=(|TENSOR;coerce;$Of;4|))
+                 (SEQ (LETT |rec| NIL . #2#)
+                      (LETT #1# (REVERSE (SPADCALL |x| (QREFELT $ 29))) . #2#)
+                      G190
                       (COND
-                       ((OR (ATOM #2#) (PROGN (LETT |t2| (CAR #2#) . #4#) NIL))
+                       ((OR (ATOM #1#)
+                            (PROGN (LETT |rec| (CAR #1#) . #2#) NIL))
                         (GO G191)))
-                      (SEQ (LETT |t1c| (QCDR |t1|) . #4#)
-                           (LETT |t2c| (QCDR |t2|) . #4#)
-                           (LETT |t1k| (QCAR |t1|) . #4#)
-                           (LETT |t2k| (QCAR |t2|) . #4#)
-                           (LETT |t1a|
-                                 (SPADCALL (QCDR |t1|)
-                                           (SPADCALL |t1k| (QREFELT $ 30))
-                                           (QREFELT $ 31))
-                                 . #4#)
-                           (LETT |t1b|
-                                 (SPADCALL (|spadConstant| $ 33)
-                                           (SPADCALL |t1k| (QREFELT $ 34))
-                                           (QREFELT $ 35))
-                                 . #4#)
-                           (LETT |t2a|
-                                 (SPADCALL (QCDR |t2|)
-                                           (SPADCALL |t2k| (QREFELT $ 30))
-                                           (QREFELT $ 31))
-                                 . #4#)
-                           (LETT |t2b|
-                                 (SPADCALL (|spadConstant| $ 33)
-                                           (SPADCALL |t2k| (QREFELT $ 34))
-                                           (QREFELT $ 35))
-                                 . #4#)
-                           (EXIT
-                            (SEQ (LETT |t| NIL . #4#)
-                                 (LETT #1#
-                                       (SPADCALL
-                                        (SPADCALL
-                                         (SPADCALL |t1a| |t2a| (QREFELT $ 36))
-                                         (SPADCALL |t1b| |t2b| (QREFELT $ 37))
-                                         (QREFELT $ 28))
-                                        (QREFELT $ 29))
-                                       . #4#)
-                                 G190
-                                 (COND
-                                  ((OR (ATOM #1#)
-                                       (PROGN (LETT |t| (CAR #1#) . #4#) NIL))
-                                   (GO G191)))
-                                 (SEQ
-                                  (EXIT (LETT |res| (CONS |t| |res|) . #4#)))
-                                 (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                                 (EXIT NIL))))
-                      (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |res| (QREFELT $ 38))))))) 
-
-(DEFUN |TENSOR;coerce;$Of;4| (|x| $)
-  (PROG (|le| |ko| #1=#:G135 |rec|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |x| (QREFELT $ 40))
-        (SPADCALL (|spadConstant| $ 41) (QREFELT $ 43)))
-       ('T
-        (SEQ (LETT |le| NIL . #2=(|TENSOR;coerce;$Of;4|))
-             (SEQ (LETT |rec| NIL . #2#)
-                  (LETT #1# (REVERSE (SPADCALL |x| (QREFELT $ 29))) . #2#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#) . #2#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (LETT |ko|
-                         (SPADCALL
-                          (SPADCALL (SPADCALL (QCAR |rec|) (QREFELT $ 30))
-                                    (QREFELT $ 44))
-                          (SPADCALL (SPADCALL (QCAR |rec|) (QREFELT $ 34))
-                                    (QREFELT $ 45))
-                          (QREFELT $ 46))
-                         . #2#)
-                   (EXIT
-                    (COND
-                     ((SPADCALL (QCDR |rec|) (|spadConstant| $ 33)
-                                (QREFELT $ 47))
-                      (LETT |le| (CONS |ko| |le|) . #2#))
-                     ('T
-                      (LETT |le|
-                            (CONS
-                             (SPADCALL (SPADCALL (QCDR |rec|) (QREFELT $ 43))
-                                       |ko| (QREFELT $ 48))
-                             |le|)
-                            . #2#)))))
-                  (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-             (EXIT (SPADCALL (ELT $ 49) |le| (QREFELT $ 52)))))))))) 
+                      (SEQ
+                       (LETT |ko|
+                             (SPADCALL
+                              (SPADCALL (SPADCALL (QCAR |rec|) (QREFELT $ 30))
+                                        (QREFELT $ 44))
+                              (SPADCALL (SPADCALL (QCAR |rec|) (QREFELT $ 34))
+                                        (QREFELT $ 45))
+                              (QREFELT $ 46))
+                             . #2#)
+                       (EXIT
+                        (COND
+                         ((SPADCALL (QCDR |rec|) (|spadConstant| $ 33)
+                                    (QREFELT $ 47))
+                          (LETT |le| (CONS |ko| |le|) . #2#))
+                         ('T
+                          (LETT |le|
+                                (CONS
+                                 (SPADCALL
+                                  (SPADCALL (QCDR |rec|) (QREFELT $ 43)) |ko|
+                                  (QREFELT $ 48))
+                                 |le|)
+                                . #2#)))))
+                      (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                 (EXIT (SPADCALL (ELT $ 49) |le| (QREFELT $ 52))))))))) 
 
 (DECLAIM (NOTINLINE |TensorProduct;|)) 
 
 (DEFUN |TensorProduct| (&REST #1=#:G145)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G146)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|TensorProduct|)
-                                           '|domainEqualList|)
-                . #3=(|TensorProduct|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |TensorProduct;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G146)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|TensorProduct|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TensorProduct|)
+                                               '|domainEqualList|)
+                    . #3=(|TensorProduct|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |TensorProduct;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|TensorProduct|)))))))))) 
 
 (DEFUN |TensorProduct;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (|pv$| $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|TensorProduct|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT DV$5 (|devaluate| |#5|) . #1#)
-      (LETT |dv$| (LIST '|TensorProduct| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-      (LETT $ (GETREFV 67) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1| '(|SemiRing|))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|OrderedAbelianMonoidSup|))
-                                           (|HasCategory| (|Product| |#2| |#3|)
-                                                          '(|OrderedSet|)))
-                                          (OR
-                                           (|HasCategory| |#1| '(|Comparable|))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedAbelianMonoid|))
-                                            (|HasCategory|
-                                             (|Product| |#2| |#3|)
-                                             '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedAbelianMonoidSup|))
-                                            (|HasCategory|
-                                             (|Product| |#2| |#3|)
-                                             '(|OrderedSet|))))
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedAbelianMonoid|))
-                                            (|HasCategory|
-                                             (|Product| |#2| |#3|)
-                                             '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedAbelianMonoidSup|))
-                                            (|HasCategory|
-                                             (|Product| |#2| |#3|)
-                                             '(|OrderedSet|))))
-                                          (AND
-                                           (|HasCategory| |#4|
-                                                          (LIST '|Algebra|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           (|HasCategory| |#5|
-                                                          (LIST '|Algebra|
-                                                                (|devaluate|
-                                                                 |#1|))))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|AbelianGroup|))
-                                           (|HasCategory| |#1|
-                                                          '(|AbelianMonoid|))
-                                           (|HasCategory| |#1|
-                                                          '(|CancellationAbelianMonoid|))
-                                           (AND
-                                            (|HasCategory| |#4|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#5|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|AbelianGroup|))
-                                           (|HasCategory| |#1|
-                                                          '(|CancellationAbelianMonoid|))
-                                           (AND
-                                            (|HasCategory| |#4|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#5|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|AbelianGroup|))
-                                           (AND
-                                            (|HasCategory| |#4|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#5|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))))
-                                          (|HasCategory| |#1|
-                                                         '(|CommutativeRing|))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|AbelianMonoid|))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedAbelianMonoid|))
-                                            (|HasCategory|
-                                             (|Product| |#2| |#3|)
-                                             '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedAbelianMonoidSup|))
-                                            (|HasCategory|
-                                             (|Product| |#2| |#3|)
-                                             '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#4|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#5|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|AbelianGroup|))
-                                           (|HasCategory| |#1|
-                                                          '(|CancellationAbelianMonoid|))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedAbelianMonoidSup|))
-                                            (|HasCategory|
-                                             (|Product| |#2| |#3|)
-                                             '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#4|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#5|
-                                                           (LIST '|Algebra|
-                                                                 (|devaluate|
-                                                                  |#1|)))))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|TensorProduct|
-                  (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (QSETREFV $ 10 |#5|)
-      (SETF |pv$| (QREFELT $ 3))
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|TensorProduct|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$5 (|devaluate| |#5|) . #1#)
+    (LETT |dv$| (LIST '|TensorProduct| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
+    (LETT $ (GETREFV 67) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST (|HasCategory| |#1| '(|SemiRing|))
+                                             (AND
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedAbelianMonoidSup|))
+                                              (|HasCategory|
+                                               (|Product| |#2| |#3|)
+                                               '(|OrderedSet|)))
+                                             (OR
+                                              (|HasCategory| |#1|
+                                                             '(|Comparable|))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoid|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|)))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoidSup|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|))))
+                                             (OR
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoid|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|)))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoidSup|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|))))
+                                             (AND
+                                              (|HasCategory| |#4|
+                                                             (LIST '|Algebra|
+                                                                   (|devaluate|
+                                                                    |#1|)))
+                                              (|HasCategory| |#5|
+                                                             (LIST '|Algebra|
+                                                                   (|devaluate|
+                                                                    |#1|))))
+                                             (OR
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianGroup|))
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianMonoid|))
+                                              (|HasCategory| |#1|
+                                                             '(|CancellationAbelianMonoid|))
+                                              (AND
+                                               (|HasCategory| |#4|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))
+                                               (|HasCategory| |#5|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))))
+                                             (OR
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianGroup|))
+                                              (|HasCategory| |#1|
+                                                             '(|CancellationAbelianMonoid|))
+                                              (AND
+                                               (|HasCategory| |#4|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))
+                                               (|HasCategory| |#5|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))))
+                                             (OR
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianGroup|))
+                                              (AND
+                                               (|HasCategory| |#4|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))
+                                               (|HasCategory| |#5|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))))
+                                             (|HasCategory| |#1|
+                                                            '(|CommutativeRing|))
+                                             (OR
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianMonoid|))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoid|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|)))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoidSup|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|)))
+                                              (AND
+                                               (|HasCategory| |#4|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))
+                                               (|HasCategory| |#5|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))))
+                                             (OR
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianGroup|))
+                                              (|HasCategory| |#1|
+                                                             '(|CancellationAbelianMonoid|))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              '(|OrderedAbelianMonoidSup|))
+                                               (|HasCategory|
+                                                (|Product| |#2| |#3|)
+                                                '(|OrderedSet|)))
+                                              (AND
+                                               (|HasCategory| |#4|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))
+                                               (|HasCategory| |#5|
+                                                              (LIST '|Algebra|
+                                                                    (|devaluate|
+                                                                     |#1|)))))))
+                    . #1#))
+    (|haddProp| |$ConstructorCache| '|TensorProduct|
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (QSETREFV $ 10 |#5|)
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|HasCategory| |#4| (LIST '|Algebra| (|devaluate| |#1|)))
       (COND
-       ((|HasCategory| |#4| (LIST '|Algebra| (|devaluate| |#1|)))
-        (COND
-         ((|HasCategory| |#5| (LIST '|Algebra| (|devaluate| |#1|)))
-          (QSETREFV $ 39 (CONS (|dispatchFunction| |TENSOR;*;3$;3|) $))))))
-      $)))) 
+       ((|HasCategory| |#5| (LIST '|Algebra| (|devaluate| |#1|)))
+        (QSETREFV $ 39 (CONS (|dispatchFunction| |TENSOR;*;3$;3|) $))))))
+    $))) 
 
 (MAKEPROP '|TensorProduct| '|infovec|
           (LIST

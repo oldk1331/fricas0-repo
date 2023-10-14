@@ -1,320 +1,399 @@
 
-(DEFUN |DRAW;draw;ExSbLTdv;1| (|f| |bind| |l| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
-        (SEQ
-         (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-               . #1=(|DRAW;draw;ExSbLTdv;1|))
-         (EXIT
+(SDEFUN |DRAW;draw;ExSbLTdv;1|
+        ((|f| |Ex|) (|bind| |SegmentBinding| (|Float|))
+         (|l| |List| (|DrawOption|)) ($ |TwoDimensionalViewport|))
+        (SPROG ((|s| (|String|)))
+               (SEQ
+                (COND
+                 ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
+                  (SEQ
+                   (LETT |s|
+                         (SPADCALL (SPADCALL |f| (QREFELT $ 13))
+                                   (QREFELT $ 15))
+                         . #1=(|DRAW;draw;ExSbLTdv;1|))
+                   (EXIT
+                    (COND
+                     ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50
+                                (QREFELT $ 19))
+                      (LETT |l| (CONS (SPADCALL "FriCAS2D" (QREFELT $ 20)) |l|)
+                            . #1#))
+                     ('T
+                      (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|)
+                            . #1#)))))))
+                (EXIT
+                 (SPADCALL
+                  (SPADCALL |f| (SPADCALL |bind| (QREFELT $ 22))
+                            (QREFELT $ 25))
+                  (SPADCALL |bind| (QREFELT $ 27)) |l| (QREFELT $ 31)))))) 
+
+(SDEFUN |DRAW;draw;ExSbTdv;2|
+        ((|f| |Ex|) (|bind| |SegmentBinding| (|Float|))
+         ($ |TwoDimensionalViewport|))
+        (SPADCALL |f| |bind| NIL (QREFELT $ 32))) 
+
+(SDEFUN |DRAW;draw;PpcSbLTdv;3|
+        ((|ppc| |ParametricPlaneCurve| |Ex|)
+         (|bind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |TwoDimensionalViewport|))
+        (SPROG
+         ((|curve|
+           (|ParametricPlaneCurve|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+          (|s| (|String|)) (|g| (|Ex|)) (|f| (|Ex|)))
+         (SEQ
+          (LETT |f| (SPADCALL |ppc| 1 (QREFELT $ 36))
+                . #1=(|DRAW;draw;PpcSbLTdv;3|))
+          (LETT |g| (SPADCALL |ppc| 2 (QREFELT $ 36)) . #1#)
           (COND
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
-            (LETT |l| (CONS (SPADCALL "FriCAS2D" (QREFELT $ 20)) |l|) . #1#))
-           ('T (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
-      (EXIT
-       (SPADCALL (SPADCALL |f| (SPADCALL |bind| (QREFELT $ 22)) (QREFELT $ 25))
-                 (SPADCALL |bind| (QREFELT $ 27)) |l| (QREFELT $ 31))))))) 
+           ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
+            (SEQ
+             (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                   . #1#)
+             (EXIT
+              (COND
+               ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
+                (LETT |l| (CONS (SPADCALL "FriCAS2D" (QREFELT $ 20)) |l|)
+                      . #1#))
+               ('T
+                (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
+          (LETT |curve|
+                (SPADCALL
+                 (SPADCALL |f| (SPADCALL |bind| (QREFELT $ 22)) (QREFELT $ 25))
+                 (SPADCALL |g| (SPADCALL |bind| (QREFELT $ 22)) (QREFELT $ 25))
+                 (QREFELT $ 38))
+                . #1#)
+          (EXIT
+           (SPADCALL |curve| (SPADCALL |bind| (QREFELT $ 27)) |l|
+                     (QREFELT $ 39)))))) 
 
-(DEFUN |DRAW;draw;ExSbTdv;2| (|f| |bind| $)
-  (SPADCALL |f| |bind| NIL (QREFELT $ 32))) 
+(SDEFUN |DRAW;draw;PpcSbTdv;4|
+        ((|ppc| |ParametricPlaneCurve| |Ex|)
+         (|bind| |SegmentBinding| (|Float|)) ($ |TwoDimensionalViewport|))
+        (SPADCALL |ppc| |bind| NIL (QREFELT $ 40))) 
 
-(DEFUN |DRAW;draw;PpcSbLTdv;3| (|ppc| |bind| |l| $)
-  (PROG (|curve| |s| |g| |f|)
-    (RETURN
-     (SEQ
-      (LETT |f| (SPADCALL |ppc| 1 (QREFELT $ 36))
-            . #1=(|DRAW;draw;PpcSbLTdv;3|))
-      (LETT |g| (SPADCALL |ppc| 2 (QREFELT $ 36)) . #1#)
-      (COND
-       ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
-        (SEQ
-         (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-               . #1#)
-         (EXIT
+(SDEFUN |DRAW;makeObject;PscSbLTs;5|
+        ((|psc| |ParametricSpaceCurve| |Ex|)
+         (|tBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |ThreeSpace| (|DoubleFloat|)))
+        (SPROG
+         ((|curve|
+           (|ParametricSpaceCurve|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+          (|s| (|String|)) (|h| (|Ex|)) (|g| (|Ex|)) (|f| (|Ex|))
+          (|tSeg| (|Segment| (|Float|))) (|t| (|Symbol|)))
+         (SEQ
+          (LETT |t| (SPADCALL |tBind| (QREFELT $ 22))
+                . #1=(|DRAW;makeObject;PscSbLTs;5|))
+          (LETT |tSeg| (SPADCALL |tBind| (QREFELT $ 27)) . #1#)
+          (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 43)) . #1#)
+          (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 43)) . #1#)
+          (LETT |h| (SPADCALL |psc| 3 (QREFELT $ 43)) . #1#)
           (COND
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
-            (LETT |l| (CONS (SPADCALL "FriCAS2D" (QREFELT $ 20)) |l|) . #1#))
-           ('T (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
-      (LETT |curve|
-            (SPADCALL
-             (SPADCALL |f| (SPADCALL |bind| (QREFELT $ 22)) (QREFELT $ 25))
-             (SPADCALL |g| (SPADCALL |bind| (QREFELT $ 22)) (QREFELT $ 25))
-             (QREFELT $ 38))
-            . #1#)
-      (EXIT
-       (SPADCALL |curve| (SPADCALL |bind| (QREFELT $ 27)) |l|
-                 (QREFELT $ 39))))))) 
-
-(DEFUN |DRAW;draw;PpcSbTdv;4| (|ppc| |bind| $)
-  (SPADCALL |ppc| |bind| NIL (QREFELT $ 40))) 
-
-(DEFUN |DRAW;makeObject;PscSbLTs;5| (|psc| |tBind| |l| $)
-  (PROG (|curve| |s| |h| |g| |f| |tSeg| |t|)
-    (RETURN
-     (SEQ
-      (LETT |t| (SPADCALL |tBind| (QREFELT $ 22))
-            . #1=(|DRAW;makeObject;PscSbLTs;5|))
-      (LETT |tSeg| (SPADCALL |tBind| (QREFELT $ 27)) . #1#)
-      (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 43)) . #1#)
-      (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 43)) . #1#)
-      (LETT |h| (SPADCALL |psc| 3 (QREFELT $ 43)) . #1#)
-      (COND
-       ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
-        (SEQ
-         (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-               . #1#)
-         (EXIT
+           ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
+            (SEQ
+             (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                   . #1#)
+             (EXIT
+              (COND
+               ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
+                (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|)
+                      . #1#))
+               ('T
+                (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
           (COND
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
-            (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|) . #1#))
-           ('T (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
-      (COND
-       ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
-        (LETT |l|
-              (CONS
-               (SPADCALL
-                (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-                (QREFELT $ 44))
-               |l|)
-              . #1#)))
-      (LETT |curve|
-            (SPADCALL (SPADCALL |f| |t| (QREFELT $ 25))
-                      (SPADCALL |g| |t| (QREFELT $ 25))
-                      (SPADCALL |h| |t| (QREFELT $ 25)) (QREFELT $ 46))
-            . #1#)
-      (EXIT (SPADCALL |curve| |tSeg| |l| (QREFELT $ 48))))))) 
+           ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
+            (LETT |l|
+                  (CONS
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                    (QREFELT $ 44))
+                   |l|)
+                  . #1#)))
+          (LETT |curve|
+                (SPADCALL (SPADCALL |f| |t| (QREFELT $ 25))
+                          (SPADCALL |g| |t| (QREFELT $ 25))
+                          (SPADCALL |h| |t| (QREFELT $ 25)) (QREFELT $ 46))
+                . #1#)
+          (EXIT (SPADCALL |curve| |tSeg| |l| (QREFELT $ 48)))))) 
 
-(DEFUN |DRAW;makeObject;PscSbTs;6| (|psc| |tBind| $)
-  (SPADCALL |psc| |tBind| NIL (QREFELT $ 49))) 
+(SDEFUN |DRAW;makeObject;PscSbTs;6|
+        ((|psc| |ParametricSpaceCurve| |Ex|)
+         (|tBind| |SegmentBinding| (|Float|)) ($ |ThreeSpace| (|DoubleFloat|)))
+        (SPADCALL |psc| |tBind| NIL (QREFELT $ 49))) 
 
-(DEFUN |DRAW;draw;PscSbLTdv;7| (|psc| |tBind| |l| $)
-  (PROG (|curve| |s| |h| |g| |f| |tSeg| |t|)
-    (RETURN
-     (SEQ
-      (LETT |t| (SPADCALL |tBind| (QREFELT $ 22))
-            . #1=(|DRAW;draw;PscSbLTdv;7|))
-      (LETT |tSeg| (SPADCALL |tBind| (QREFELT $ 27)) . #1#)
-      (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 43)) . #1#)
-      (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 43)) . #1#)
-      (LETT |h| (SPADCALL |psc| 3 (QREFELT $ 43)) . #1#)
-      (COND
-       ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
-        (SEQ
-         (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-               . #1#)
-         (EXIT
+(SDEFUN |DRAW;draw;PscSbLTdv;7|
+        ((|psc| |ParametricSpaceCurve| |Ex|)
+         (|tBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |ThreeDimensionalViewport|))
+        (SPROG
+         ((|curve|
+           (|ParametricSpaceCurve|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|))))
+          (|s| (|String|)) (|h| (|Ex|)) (|g| (|Ex|)) (|f| (|Ex|))
+          (|tSeg| (|Segment| (|Float|))) (|t| (|Symbol|)))
+         (SEQ
+          (LETT |t| (SPADCALL |tBind| (QREFELT $ 22))
+                . #1=(|DRAW;draw;PscSbLTdv;7|))
+          (LETT |tSeg| (SPADCALL |tBind| (QREFELT $ 27)) . #1#)
+          (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 43)) . #1#)
+          (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 43)) . #1#)
+          (LETT |h| (SPADCALL |psc| 3 (QREFELT $ 43)) . #1#)
           (COND
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
-            (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|) . #1#))
-           ('T (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
-      (COND
-       ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
-        (LETT |l|
-              (CONS
-               (SPADCALL
-                (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-                (QREFELT $ 44))
-               |l|)
-              . #1#)))
-      (LETT |curve|
-            (SPADCALL (SPADCALL |f| |t| (QREFELT $ 25))
-                      (SPADCALL |g| |t| (QREFELT $ 25))
-                      (SPADCALL |h| |t| (QREFELT $ 25)) (QREFELT $ 46))
-            . #1#)
-      (EXIT (SPADCALL |curve| |tSeg| |l| (QREFELT $ 52))))))) 
-
-(DEFUN |DRAW;draw;PscSbTdv;8| (|psc| |tBind| $)
-  (SPADCALL |psc| |tBind| NIL (QREFELT $ 53))) 
-
-(DEFUN |DRAW;makeObject;Ex2SbLTs;9| (|f| |xBind| |yBind| |l| $)
-  (PROG (|ySeg| |y| |xSeg| |x| |s|)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
-        (SEQ
-         (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-               . #1=(|DRAW;makeObject;Ex2SbLTs;9|))
-         (EXIT
+           ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
+            (SEQ
+             (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                   . #1#)
+             (EXIT
+              (COND
+               ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
+                (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|)
+                      . #1#))
+               ('T
+                (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
           (COND
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
-            (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|) . #1#))
-           ('T (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
-      (COND
-       ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
-        (LETT |l|
-              (CONS
-               (SPADCALL
-                (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-                (QREFELT $ 44))
-               |l|)
-              . #1#)))
-      (LETT |x| (SPADCALL |xBind| (QREFELT $ 22)) . #1#)
-      (LETT |xSeg| (SPADCALL |xBind| (QREFELT $ 27)) . #1#)
-      (LETT |y| (SPADCALL |yBind| (QREFELT $ 22)) . #1#)
-      (LETT |ySeg| (SPADCALL |yBind| (QREFELT $ 27)) . #1#)
-      (EXIT
-       (SPADCALL (SPADCALL |f| |x| |y| (QREFELT $ 56)) |xSeg| |ySeg| |l|
-                 (QREFELT $ 57))))))) 
+           ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
+            (LETT |l|
+                  (CONS
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                    (QREFELT $ 44))
+                   |l|)
+                  . #1#)))
+          (LETT |curve|
+                (SPADCALL (SPADCALL |f| |t| (QREFELT $ 25))
+                          (SPADCALL |g| |t| (QREFELT $ 25))
+                          (SPADCALL |h| |t| (QREFELT $ 25)) (QREFELT $ 46))
+                . #1#)
+          (EXIT (SPADCALL |curve| |tSeg| |l| (QREFELT $ 52)))))) 
 
-(DEFUN |DRAW;makeObject;Ex2SbTs;10| (|f| |xBind| |yBind| $)
-  (SPADCALL |f| |xBind| |yBind| NIL (QREFELT $ 58))) 
+(SDEFUN |DRAW;draw;PscSbTdv;8|
+        ((|psc| |ParametricSpaceCurve| |Ex|)
+         (|tBind| |SegmentBinding| (|Float|)) ($ |ThreeDimensionalViewport|))
+        (SPADCALL |psc| |tBind| NIL (QREFELT $ 53))) 
 
-(DEFUN |DRAW;draw;Ex2SbLTdv;11| (|f| |xBind| |yBind| |l| $)
-  (PROG (|ySeg| |y| |xSeg| |x| |s|)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
-        (SEQ
-         (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-               . #1=(|DRAW;draw;Ex2SbLTdv;11|))
-         (EXIT
+(SDEFUN |DRAW;makeObject;Ex2SbLTs;9|
+        ((|f| |Ex|) (|xBind| |SegmentBinding| (|Float|))
+         (|yBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |ThreeSpace| (|DoubleFloat|)))
+        (SPROG
+         ((|ySeg| #1=(|Segment| (|Float|))) (|y| #2=(|Symbol|)) (|xSeg| #1#)
+          (|x| #2#) (|s| (|String|)))
+         (SEQ
           (COND
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
-            (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|) . #1#))
-           ('T (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
-      (COND
-       ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
-        (LETT |l|
-              (CONS
-               (SPADCALL
-                (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-                (QREFELT $ 44))
-               |l|)
-              . #1#)))
-      (LETT |x| (SPADCALL |xBind| (QREFELT $ 22)) . #1#)
-      (LETT |xSeg| (SPADCALL |xBind| (QREFELT $ 27)) . #1#)
-      (LETT |y| (SPADCALL |yBind| (QREFELT $ 22)) . #1#)
-      (LETT |ySeg| (SPADCALL |yBind| (QREFELT $ 27)) . #1#)
-      (EXIT
-       (SPADCALL (SPADCALL |f| |x| |y| (QREFELT $ 56)) |xSeg| |ySeg| |l|
-                 (QREFELT $ 60))))))) 
-
-(DEFUN |DRAW;draw;Ex2SbTdv;12| (|f| |xBind| |yBind| $)
-  (SPADCALL |f| |xBind| |yBind| NIL (QREFELT $ 61))) 
-
-(DEFUN |DRAW;makeObject;Ps2SbLTs;13| (|s| |uBind| |vBind| |l| $)
-  (PROG (|surf| |vSeg| |v| |uSeg| |u| |h| |g| |f|)
-    (RETURN
-     (SEQ
-      (LETT |f| (SPADCALL |s| 1 (QREFELT $ 64))
-            . #1=(|DRAW;makeObject;Ps2SbLTs;13|))
-      (LETT |g| (SPADCALL |s| 2 (QREFELT $ 64)) . #1#)
-      (LETT |h| (SPADCALL |s| 3 (QREFELT $ 64)) . #1#)
-      (COND
-       ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
-        (SEQ
-         (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-               . #1#)
-         (EXIT
+           ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
+            (SEQ
+             (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                   . #3=(|DRAW;makeObject;Ex2SbLTs;9|))
+             (EXIT
+              (COND
+               ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
+                (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|)
+                      . #3#))
+               ('T
+                (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #3#)))))))
           (COND
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
-            (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|) . #1#))
-           ('T (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
-      (COND
-       ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
-        (LETT |l|
-              (CONS
-               (SPADCALL
-                (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-                (QREFELT $ 44))
-               |l|)
-              . #1#)))
-      (LETT |u| (SPADCALL |uBind| (QREFELT $ 22)) . #1#)
-      (LETT |uSeg| (SPADCALL |uBind| (QREFELT $ 27)) . #1#)
-      (LETT |v| (SPADCALL |vBind| (QREFELT $ 22)) . #1#)
-      (LETT |vSeg| (SPADCALL |vBind| (QREFELT $ 27)) . #1#)
-      (LETT |surf|
-            (SPADCALL (SPADCALL |f| |u| |v| (QREFELT $ 56))
-                      (SPADCALL |g| |u| |v| (QREFELT $ 56))
-                      (SPADCALL |h| |u| |v| (QREFELT $ 56)) (QREFELT $ 66))
-            . #1#)
-      (EXIT (SPADCALL |surf| |uSeg| |vSeg| |l| (QREFELT $ 67))))))) 
+           ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
+            (LETT |l|
+                  (CONS
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                    (QREFELT $ 44))
+                   |l|)
+                  . #3#)))
+          (LETT |x| (SPADCALL |xBind| (QREFELT $ 22)) . #3#)
+          (LETT |xSeg| (SPADCALL |xBind| (QREFELT $ 27)) . #3#)
+          (LETT |y| (SPADCALL |yBind| (QREFELT $ 22)) . #3#)
+          (LETT |ySeg| (SPADCALL |yBind| (QREFELT $ 27)) . #3#)
+          (EXIT
+           (SPADCALL (SPADCALL |f| |x| |y| (QREFELT $ 56)) |xSeg| |ySeg| |l|
+                     (QREFELT $ 57)))))) 
 
-(DEFUN |DRAW;makeObject;Ps2SbTs;14| (|s| |uBind| |vBind| $)
-  (SPADCALL |s| |uBind| |vBind| NIL (QREFELT $ 68))) 
+(SDEFUN |DRAW;makeObject;Ex2SbTs;10|
+        ((|f| |Ex|) (|xBind| |SegmentBinding| (|Float|))
+         (|yBind| |SegmentBinding| (|Float|)) ($ |ThreeSpace| (|DoubleFloat|)))
+        (SPADCALL |f| |xBind| |yBind| NIL (QREFELT $ 58))) 
 
-(DEFUN |DRAW;draw;Ps2SbLTdv;15| (|s| |uBind| |vBind| |l| $)
-  (PROG (|surf| |vSeg| |v| |uSeg| |u| |h| |g| |f|)
-    (RETURN
-     (SEQ
-      (LETT |f| (SPADCALL |s| 1 (QREFELT $ 64))
-            . #1=(|DRAW;draw;Ps2SbLTdv;15|))
-      (LETT |g| (SPADCALL |s| 2 (QREFELT $ 64)) . #1#)
-      (LETT |h| (SPADCALL |s| 3 (QREFELT $ 64)) . #1#)
-      (COND
-       ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
-        (SEQ
-         (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-               . #1#)
-         (EXIT
+(SDEFUN |DRAW;draw;Ex2SbLTdv;11|
+        ((|f| |Ex|) (|xBind| |SegmentBinding| (|Float|))
+         (|yBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |ThreeDimensionalViewport|))
+        (SPROG
+         ((|ySeg| #1=(|Segment| (|Float|))) (|y| #2=(|Symbol|)) (|xSeg| #1#)
+          (|x| #2#) (|s| (|String|)))
+         (SEQ
           (COND
-           ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
-            (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|) . #1#))
-           ('T (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #1#)))))))
-      (COND
-       ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
-        (LETT |l|
-              (CONS
-               (SPADCALL
-                (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
-                (QREFELT $ 44))
-               |l|)
-              . #1#)))
-      (LETT |u| (SPADCALL |uBind| (QREFELT $ 22)) . #1#)
-      (LETT |uSeg| (SPADCALL |uBind| (QREFELT $ 27)) . #1#)
-      (LETT |v| (SPADCALL |vBind| (QREFELT $ 22)) . #1#)
-      (LETT |vSeg| (SPADCALL |vBind| (QREFELT $ 27)) . #1#)
-      (LETT |surf|
-            (SPADCALL (SPADCALL |f| |u| |v| (QREFELT $ 56))
-                      (SPADCALL |g| |u| |v| (QREFELT $ 56))
-                      (SPADCALL |h| |u| |v| (QREFELT $ 56)) (QREFELT $ 66))
-            . #1#)
-      (EXIT (SPADCALL |surf| |uSeg| |vSeg| |l| (QREFELT $ 70))))))) 
+           ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
+            (SEQ
+             (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                   . #3=(|DRAW;draw;Ex2SbLTdv;11|))
+             (EXIT
+              (COND
+               ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
+                (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|)
+                      . #3#))
+               ('T
+                (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #3#)))))))
+          (COND
+           ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
+            (LETT |l|
+                  (CONS
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                    (QREFELT $ 44))
+                   |l|)
+                  . #3#)))
+          (LETT |x| (SPADCALL |xBind| (QREFELT $ 22)) . #3#)
+          (LETT |xSeg| (SPADCALL |xBind| (QREFELT $ 27)) . #3#)
+          (LETT |y| (SPADCALL |yBind| (QREFELT $ 22)) . #3#)
+          (LETT |ySeg| (SPADCALL |yBind| (QREFELT $ 27)) . #3#)
+          (EXIT
+           (SPADCALL (SPADCALL |f| |x| |y| (QREFELT $ 56)) |xSeg| |ySeg| |l|
+                     (QREFELT $ 60)))))) 
 
-(DEFUN |DRAW;draw;Ps2SbTdv;16| (|s| |uBind| |vBind| $)
-  (SPADCALL |s| |uBind| |vBind| NIL (QREFELT $ 71))) 
+(SDEFUN |DRAW;draw;Ex2SbTdv;12|
+        ((|f| |Ex|) (|xBind| |SegmentBinding| (|Float|))
+         (|yBind| |SegmentBinding| (|Float|)) ($ |ThreeDimensionalViewport|))
+        (SPADCALL |f| |xBind| |yBind| NIL (QREFELT $ 61))) 
+
+(SDEFUN |DRAW;makeObject;Ps2SbLTs;13|
+        ((|s| |ParametricSurface| |Ex|) (|uBind| |SegmentBinding| (|Float|))
+         (|vBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |ThreeSpace| (|DoubleFloat|)))
+        (SPROG
+         ((|surf|
+           (|ParametricSurface|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
+          (|vSeg| #1=(|Segment| (|Float|))) (|v| #2=(|Symbol|)) (|uSeg| #1#)
+          (|u| #2#) (|h| (|Ex|)) (|g| (|Ex|)) (|f| (|Ex|)))
+         (SEQ
+          (LETT |f| (SPADCALL |s| 1 (QREFELT $ 64))
+                . #3=(|DRAW;makeObject;Ps2SbLTs;13|))
+          (LETT |g| (SPADCALL |s| 2 (QREFELT $ 64)) . #3#)
+          (LETT |h| (SPADCALL |s| 3 (QREFELT $ 64)) . #3#)
+          (COND
+           ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
+            (SEQ
+             (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                   . #3#)
+             (EXIT
+              (COND
+               ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
+                (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|)
+                      . #3#))
+               ('T
+                (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #3#)))))))
+          (COND
+           ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
+            (LETT |l|
+                  (CONS
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                    (QREFELT $ 44))
+                   |l|)
+                  . #3#)))
+          (LETT |u| (SPADCALL |uBind| (QREFELT $ 22)) . #3#)
+          (LETT |uSeg| (SPADCALL |uBind| (QREFELT $ 27)) . #3#)
+          (LETT |v| (SPADCALL |vBind| (QREFELT $ 22)) . #3#)
+          (LETT |vSeg| (SPADCALL |vBind| (QREFELT $ 27)) . #3#)
+          (LETT |surf|
+                (SPADCALL (SPADCALL |f| |u| |v| (QREFELT $ 56))
+                          (SPADCALL |g| |u| |v| (QREFELT $ 56))
+                          (SPADCALL |h| |u| |v| (QREFELT $ 56)) (QREFELT $ 66))
+                . #3#)
+          (EXIT (SPADCALL |surf| |uSeg| |vSeg| |l| (QREFELT $ 67)))))) 
+
+(SDEFUN |DRAW;makeObject;Ps2SbTs;14|
+        ((|s| |ParametricSurface| |Ex|) (|uBind| |SegmentBinding| (|Float|))
+         (|vBind| |SegmentBinding| (|Float|)) ($ |ThreeSpace| (|DoubleFloat|)))
+        (SPADCALL |s| |uBind| |vBind| NIL (QREFELT $ 68))) 
+
+(SDEFUN |DRAW;draw;Ps2SbLTdv;15|
+        ((|s| |ParametricSurface| |Ex|) (|uBind| |SegmentBinding| (|Float|))
+         (|vBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |ThreeDimensionalViewport|))
+        (SPROG
+         ((|surf|
+           (|ParametricSurface|
+            (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
+          (|vSeg| #1=(|Segment| (|Float|))) (|v| #2=(|Symbol|)) (|uSeg| #1#)
+          (|u| #2#) (|h| (|Ex|)) (|g| (|Ex|)) (|f| (|Ex|)))
+         (SEQ
+          (LETT |f| (SPADCALL |s| 1 (QREFELT $ 64))
+                . #3=(|DRAW;draw;Ps2SbLTdv;15|))
+          (LETT |g| (SPADCALL |s| 2 (QREFELT $ 64)) . #3#)
+          (LETT |h| (SPADCALL |s| 3 (QREFELT $ 64)) . #3#)
+          (COND
+           ((NULL (SPADCALL |l| '|title| (QREFELT $ 11)))
+            (SEQ
+             (LETT |s| (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                   . #3#)
+             (EXIT
+              (COND
+               ((SPADCALL (SPADCALL |s| (QREFELT $ 18)) 50 (QREFELT $ 19))
+                (LETT |l| (CONS (SPADCALL "FriCAS3D" (QREFELT $ 20)) |l|)
+                      . #3#))
+               ('T
+                (LETT |l| (CONS (SPADCALL |s| (QREFELT $ 20)) |l|) . #3#)))))))
+          (COND
+           ((NULL (SPADCALL |l| '|style| (QREFELT $ 11)))
+            (LETT |l|
+                  (CONS
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (QREFELT $ 15))
+                    (QREFELT $ 44))
+                   |l|)
+                  . #3#)))
+          (LETT |u| (SPADCALL |uBind| (QREFELT $ 22)) . #3#)
+          (LETT |uSeg| (SPADCALL |uBind| (QREFELT $ 27)) . #3#)
+          (LETT |v| (SPADCALL |vBind| (QREFELT $ 22)) . #3#)
+          (LETT |vSeg| (SPADCALL |vBind| (QREFELT $ 27)) . #3#)
+          (LETT |surf|
+                (SPADCALL (SPADCALL |f| |u| |v| (QREFELT $ 56))
+                          (SPADCALL |g| |u| |v| (QREFELT $ 56))
+                          (SPADCALL |h| |u| |v| (QREFELT $ 56)) (QREFELT $ 66))
+                . #3#)
+          (EXIT (SPADCALL |surf| |uSeg| |vSeg| |l| (QREFELT $ 70)))))) 
+
+(SDEFUN |DRAW;draw;Ps2SbTdv;16|
+        ((|s| |ParametricSurface| |Ex|) (|uBind| |SegmentBinding| (|Float|))
+         (|vBind| |SegmentBinding| (|Float|)) ($ |ThreeDimensionalViewport|))
+        (SPADCALL |s| |uBind| |vBind| NIL (QREFELT $ 71))) 
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctions;|)) 
 
 (DEFUN |TopLevelDrawFunctions| (#1=#:G199)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G200)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|TopLevelDrawFunctions|)
-                                           '|domainEqualList|)
-                . #3=(|TopLevelDrawFunctions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|TopLevelDrawFunctions;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G200)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|TopLevelDrawFunctions|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|TopLevelDrawFunctions|)
+                                               '|domainEqualList|)
+                    . #3=(|TopLevelDrawFunctions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|TopLevelDrawFunctions;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|TopLevelDrawFunctions|)))))))))) 
 
 (DEFUN |TopLevelDrawFunctions;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|TopLevelDrawFunctions|))
-      (LETT |dv$| (LIST '|TopLevelDrawFunctions| DV$1) . #1#)
-      (LETT $ (GETREFV 73) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TopLevelDrawFunctions| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|TopLevelDrawFunctions|))
+          (LETT |dv$| (LIST '|TopLevelDrawFunctions| DV$1) . #1#)
+          (LETT $ (GETREFV 73) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TopLevelDrawFunctions| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|TopLevelDrawFunctions| '|infovec|
           (LIST

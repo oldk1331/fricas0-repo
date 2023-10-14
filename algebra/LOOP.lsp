@@ -1,142 +1,150 @@
 
-(DEFUN |LOOP;loop;L$;1| (|lis| $)
-  (PROG (|li| |lx| |minValue| |l2| |l1| #1=#:G118 |x| #2=#:G117)
-    (RETURN
-     (SEQ
-      (LETT |li|
-            (PROGN
-             (LETT #2# NIL . #3=(|LOOP;loop;L$;1|))
-             (SEQ (LETT |x| NIL . #3#) (LETT #1# |lis| . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ (EXIT (LETT #2# (CONS |x| #2#) . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (EXIT
-       (COND ((NULL |li|) (|error| "cannot form empty loop"))
-             ('T
-              (SEQ (LETT |minValue| (|SPADfirst| |li|) . #3#)
-                   (LETT |lx| NIL . #3#) (LETT |l1| |li| . #3#)
-                   (LETT |l2| |lx| . #3#)
-                   (SEQ G190
-                        (COND
-                         ((NULL (COND ((NULL |li|) 'NIL) ('T 'T))) (GO G191)))
-                        (SEQ
-                         (COND
-                          ((< (|SPADfirst| |li|) |minValue|)
-                           (SEQ (LETT |l1| |li| . #3#) (LETT |l2| |lx| . #3#)
-                                (EXIT
-                                 (LETT |minValue| (|SPADfirst| |li|) . #3#)))))
-                         (LETT |lx| (CONS (|SPADfirst| |li|) |lx|) . #3#)
-                         (EXIT (LETT |li| (CDR |li|) . #3#)))
-                        NIL (GO G190) G191 (EXIT NIL))
-                   (EXIT
-                    (SPADCALL (SPADCALL |l1| (REVERSE |l2|) (QREFELT $ 8))
-                              (QREFELT $ 9))))))))))) 
+(SDEFUN |LOOP;loop;L$;1| ((|lis| |List| (|NonNegativeInteger|)) ($ $))
+        (SPROG
+         ((|li| #1=(|List| (|NonNegativeInteger|)))
+          (|lx| #2=(|List| (|NonNegativeInteger|)))
+          (|minValue| (|NonNegativeInteger|)) (|l2| #2#) (|l1| #1#)
+          (#3=#:G118 NIL) (|x| NIL) (#4=#:G117 NIL))
+         (SEQ
+          (LETT |li|
+                (PROGN
+                 (LETT #4# NIL . #5=(|LOOP;loop;L$;1|))
+                 (SEQ (LETT |x| NIL . #5#) (LETT #3# |lis| . #5#) G190
+                      (COND
+                       ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#) . #5#) NIL))
+                        (GO G191)))
+                      (SEQ (EXIT (LETT #4# (CONS |x| #4#) . #5#)))
+                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #5#)
+          (EXIT
+           (COND ((NULL |li|) (|error| "cannot form empty loop"))
+                 ('T
+                  (SEQ (LETT |minValue| (|SPADfirst| |li|) . #5#)
+                       (LETT |lx| NIL . #5#) (LETT |l1| |li| . #5#)
+                       (LETT |l2| |lx| . #5#)
+                       (SEQ G190
+                            (COND
+                             ((NULL (COND ((NULL |li|) 'NIL) ('T 'T)))
+                              (GO G191)))
+                            (SEQ
+                             (COND
+                              ((< (|SPADfirst| |li|) |minValue|)
+                               (SEQ (LETT |l1| |li| . #5#)
+                                    (LETT |l2| |lx| . #5#)
+                                    (EXIT
+                                     (LETT |minValue| (|SPADfirst| |li|)
+                                           . #5#)))))
+                             (LETT |lx| (CONS (|SPADfirst| |li|) |lx|) . #5#)
+                             (EXIT (LETT |li| (CDR |li|) . #5#)))
+                            NIL (GO G190) G191 (EXIT NIL))
+                       (EXIT
+                        (SPADCALL (SPADCALL |l1| (REVERSE |l2|) (QREFELT $ 8))
+                                  (QREFELT $ 9)))))))))) 
 
-(DEFUN |LOOP;entries;$L;2| (|lp| $) (SPADCALL |lp| (QREFELT $ 12))) 
+(SDEFUN |LOOP;entries;$L;2| ((|lp| $) ($ |List| (|NonNegativeInteger|)))
+        (SPADCALL |lp| (QREFELT $ 12))) 
 
 (PUT '|LOOP;hash;$Si;3| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(DEFUN |LOOP;hash;$Si;3| (|s| $) 0) 
+(SDEFUN |LOOP;hash;$Si;3| ((|s| $) ($ |SingleInteger|)) 0) 
 
-(DEFUN |LOOP;latex;$S;4| (|lp| $)
-  (PROG (|res| |x| #1=#:G125 |i|)
-    (RETURN
-     (SEQ (LETT |res| "" . #2=(|LOOP;latex;$S;4|))
-          (SEQ (LETT |i| 1 . #2#)
-               (LETT #1# (SPADCALL |lp| (QREFELT $ 17)) . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
-               (SEQ (LETT |x| (QAREF1 |lp| (- |i| 1)) . #2#)
-                    (EXIT
-                     (LETT |res|
-                           (SPADCALL (LIST |res| "->" (STRINGIMAGE |x|))
-                                     (QREFELT $ 20))
-                           . #2#)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT $ 20))))))) 
+(SDEFUN |LOOP;latex;$S;4| ((|lp| $) ($ |String|))
+        (SPROG
+         ((|res| (|String|)) (|x| (|NonNegativeInteger|)) (#1=#:G125 NIL)
+          (|i| NIL))
+         (SEQ (LETT |res| "" . #2=(|LOOP;latex;$S;4|))
+              (SEQ (LETT |i| 1 . #2#)
+                   (LETT #1# (SPADCALL |lp| (QREFELT $ 17)) . #2#) G190
+                   (COND ((|greater_SI| |i| #1#) (GO G191)))
+                   (SEQ (LETT |x| (QAREF1 |lp| (- |i| 1)) . #2#)
+                        (EXIT
+                         (LETT |res|
+                               (SPADCALL (LIST |res| "->" (STRINGIMAGE |x|))
+                                         (QREFELT $ 20))
+                               . #2#)))
+                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+              (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT $ 20)))))) 
 
-(DEFUN |LOOP;=;2$B;5| (|x| |y| $)
-  (PROG (#1=#:G130 #2=#:G131 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL (SPADCALL |x| (QREFELT $ 17)) (SPADCALL |y| (QREFELT $ 17))
-                    (QREFELT $ 23))
-          (PROGN (LETT #1# 'NIL . #3=(|LOOP;=;2$B;5|)) (GO #1#))))
-        (SEQ (LETT |i| 1 . #3#) (LETT #2# (SPADCALL |x| (QREFELT $ 17)) . #3#)
-             G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
-             (SEQ
+(SDEFUN |LOOP;=;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((#1=#:G130 NIL) (#2=#:G131 NIL) (|i| NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL (SPADCALL |x| (QREFELT $ 17))
+                              (SPADCALL |y| (QREFELT $ 17)) (QREFELT $ 23))
+                    (PROGN (LETT #1# 'NIL . #3=(|LOOP;=;2$B;5|)) (GO #1#))))
+                  (SEQ (LETT |i| 1 . #3#)
+                       (LETT #2# (SPADCALL |x| (QREFELT $ 17)) . #3#) G190
+                       (COND ((|greater_SI| |i| #2#) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL (QAREF1 |x| (- |i| 1))
+                                     (QAREF1 |y| (- |i| 1)) (QREFELT $ 23))
+                           (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                       (EXIT NIL))
+                  (EXIT 'T)))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |LOOP;~=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((SPADCALL |x| |y| (QREFELT $ 24)) 'NIL) ('T 'T))) 
+
+(SDEFUN |LOOP;coerce;$Of;7| ((|lp| $) ($ |OutputForm|))
+        (SPROG
+         ((|res| (|OutputForm|)) (|x| (|NonNegativeInteger|)) (#1=#:G137 NIL)
+          (|i| NIL))
+         (SEQ (LETT |res| (SPADCALL (QREFELT $ 27)) . #2=(|LOOP;coerce;$Of;7|))
+              (SEQ (LETT |i| 1 . #2#)
+                   (LETT #1# (SPADCALL |lp| (QREFELT $ 17)) . #2#) G190
+                   (COND ((|greater_SI| |i| #1#) (GO G191)))
+                   (SEQ (LETT |x| (QAREF1 |lp| (- |i| 1)) . #2#)
+                        (EXIT
+                         (LETT |res|
+                               (SPADCALL
+                                (LIST |res| (SPADCALL '-> (QREFELT $ 29))
+                                      (SPADCALL |x| (QREFELT $ 30)))
+                                (QREFELT $ 31))
+                               . #2#)))
+                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT
-               (COND
-                ((SPADCALL (QAREF1 |x| (- |i| 1)) (QAREF1 |y| (- |i| 1))
-                           (QREFELT $ 23))
-                 (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
-             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT 'T)))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |LOOP;~=;2$B;6| (|x| |y| $)
-  (COND ((SPADCALL |x| |y| (QREFELT $ 24)) 'NIL) ('T 'T))) 
-
-(DEFUN |LOOP;coerce;$Of;7| (|lp| $)
-  (PROG (|res| |x| #1=#:G137 |i|)
-    (RETURN
-     (SEQ (LETT |res| (SPADCALL (QREFELT $ 27)) . #2=(|LOOP;coerce;$Of;7|))
-          (SEQ (LETT |i| 1 . #2#)
-               (LETT #1# (SPADCALL |lp| (QREFELT $ 17)) . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
-               (SEQ (LETT |x| (QAREF1 |lp| (- |i| 1)) . #2#)
-                    (EXIT
-                     (LETT |res|
-                           (SPADCALL
-                            (LIST |res| (SPADCALL '-> (QREFELT $ 29))
-                                  (SPADCALL |x| (QREFELT $ 30)))
-                            (QREFELT $ 31))
-                           . #2#)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT
-           (SPADCALL
-            (LIST (SPADCALL '[ (QREFELT $ 29)) |res|
-                  (SPADCALL '] (QREFELT $ 29)))
-            (QREFELT $ 31))))))) 
+               (SPADCALL
+                (LIST (SPADCALL '[ (QREFELT $ 29)) |res|
+                      (SPADCALL '] (QREFELT $ 29)))
+                (QREFELT $ 31)))))) 
 
 (DECLAIM (NOTINLINE |Loop;|)) 
 
 (DEFUN |Loop| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G139)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Loop|) . #2=(|Loop|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Loop|
-                         (LIST (CONS NIL (CONS 1 (|Loop;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Loop|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G139)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Loop|) . #2=(|Loop|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Loop|
+                             (LIST (CONS NIL (CONS 1 (|Loop;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Loop|)))))))))) 
 
 (DEFUN |Loop;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Loop|) . #1=(|Loop|))
-      (LETT $ (GETREFV 34) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Loop| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|PrimitiveArray| (|NonNegativeInteger|)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Loop|) . #1=(|Loop|))
+          (LETT $ (GETREFV 34) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Loop| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|PrimitiveArray| (|NonNegativeInteger|)))
+          $))) 
 
 (MAKEPROP '|Loop| '|infovec|
           (LIST

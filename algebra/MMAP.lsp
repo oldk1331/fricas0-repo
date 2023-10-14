@@ -1,67 +1,68 @@
 
-(DEFUN |MMAP;rfmap| (|f| |q| $)
-  (SPADCALL (SPADCALL |f| (SPADCALL |q| (QREFELT $ 13)) (QREFELT $ 16))
-            (SPADCALL |f| (SPADCALL |q| (QREFELT $ 17)) (QREFELT $ 16))
-            (QREFELT $ 19))) 
+(SDEFUN |MMAP;rfmap|
+        ((|f| |Mapping| R2 R1) (|q| |Fraction| UP1) ($ |Fraction| UP2))
+        (SPADCALL (SPADCALL |f| (SPADCALL |q| (QREFELT $ 13)) (QREFELT $ 16))
+                  (SPADCALL |f| (SPADCALL |q| (QREFELT $ 17)) (QREFELT $ 16))
+                  (QREFELT $ 19))) 
 
-(DEFUN |MMAP;map;MUPUP1UPUP2;2| (|f| |p| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|MMAP;map;MUPUP1UPUP2;2!0| (VECTOR $ |f|)) |p|
-               (QREFELT $ 22))))) 
+(SDEFUN |MMAP;map;MUPUP1UPUP2;2| ((|f| |Mapping| R2 R1) (|p| UPUP1) ($ UPUP2))
+        (SPROG NIL
+               (SPADCALL (CONS #'|MMAP;map;MUPUP1UPUP2;2!0| (VECTOR $ |f|)) |p|
+                         (QREFELT $ 22)))) 
 
-(DEFUN |MMAP;map;MUPUP1UPUP2;2!0| (|x| $$)
-  (PROG (|f| $)
-    (LETT |f| (QREFELT $$ 1) . #1=(|MMAP;map;MUPUP1UPUP2;2|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (|MMAP;rfmap| |f| |x| $))))) 
+(SDEFUN |MMAP;map;MUPUP1UPUP2;2!0| ((|x| NIL) ($$ NIL))
+        (PROG (|f| $)
+          (LETT |f| (QREFELT $$ 1) . #1=(|MMAP;map;MUPUP1UPUP2;2|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (|MMAP;rfmap| |f| |x| $))))) 
 
 (DECLAIM (NOTINLINE |MultipleMap;|)) 
 
 (DEFUN |MultipleMap| (&REST #1=#:G109)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G110)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|MultipleMap|)
-                                           '|domainEqualList|)
-                . #3=(|MultipleMap|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |MultipleMap;|) #1#)
-                (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|MultipleMap|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G110)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MultipleMap|)
+                                               '|domainEqualList|)
+                    . #3=(|MultipleMap|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MultipleMap;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|MultipleMap|)))))))))) 
 
 (DEFUN |MultipleMap;| (|#1| |#2| |#3| |#4| |#5| |#6|)
-  (PROG (|pv$| $ |dv$| DV$6 DV$5 DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|MultipleMap|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT DV$5 (|devaluate| |#5|) . #1#)
-      (LETT DV$6 (|devaluate| |#6|) . #1#)
-      (LETT |dv$| (LIST '|MultipleMap| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6) . #1#)
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|MultipleMap|
-                  (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (QSETREFV $ 10 |#5|)
-      (QSETREFV $ 11 |#6|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL)
+    (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|MultipleMap|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$5 (|devaluate| |#5|) . #1#)
+    (LETT DV$6 (|devaluate| |#6|) . #1#)
+    (LETT |dv$| (LIST '|MultipleMap| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6) . #1#)
+    (LETT $ (GETREFV 24) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|MultipleMap|
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (QSETREFV $ 10 |#5|)
+    (QSETREFV $ 11 |#6|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|MultipleMap| '|infovec|
           (LIST

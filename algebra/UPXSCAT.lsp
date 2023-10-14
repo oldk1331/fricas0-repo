@@ -20,85 +20,80 @@
       #2#)))) 
 
 (DEFUN |UnivariatePuiseuxSeriesCategory;| (|t#1|)
-  (PROG (#1=#:G104)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (|sublisV|
-                           (PAIR '(#2=#:G103) (LIST '(|Fraction| (|Integer|))))
-                           (COND (|UnivariatePuiseuxSeriesCategory;CAT|)
-                                 ('T
-                                  (LETT |UnivariatePuiseuxSeriesCategory;CAT|
-                                        (|Join|
-                                         (|UnivariatePowerSeriesCategory|
-                                          '|t#1| '#2#)
-                                         (|mkCategory|
-                                          '(((|series|
-                                              ($ (|NonNegativeInteger|)
-                                               (|Stream|
-                                                (|Record|
-                                                 (|:| |k|
-                                                      (|Fraction| (|Integer|)))
-                                                 (|:| |c| |t#1|)))))
-                                             T)
-                                            ((|multiplyExponents|
-                                              ($ $ (|Fraction| (|Integer|))))
-                                             T)
-                                            ((|integrate| ($ $))
+  (SPROG ((#1=#:G104 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (|sublisV|
+                               (PAIR '(#2=#:G103)
+                                     (LIST '(|Fraction| (|Integer|))))
+                               (COND (|UnivariatePuiseuxSeriesCategory;CAT|)
+                                     ('T
+                                      (LETT
+                                       |UnivariatePuiseuxSeriesCategory;CAT|
+                                       (|Join|
+                                        (|UnivariatePowerSeriesCategory| '|t#1|
+                                                                         '#2#)
+                                        (|mkCategory|
+                                         '(((|series|
+                                             ($ (|NonNegativeInteger|)
+                                              (|Stream|
+                                               (|Record|
+                                                (|:| |k|
+                                                     (|Fraction| (|Integer|)))
+                                                (|:| |c| |t#1|)))))
+                                            T)
+                                           ((|multiplyExponents|
+                                             ($ $ (|Fraction| (|Integer|))))
+                                            T)
+                                           ((|integrate| ($ $))
+                                            (|has| |t#1|
+                                                   (|Algebra|
+                                                    (|Fraction| (|Integer|)))))
+                                           ((|integrate| ($ $ (|Symbol|)))
+                                            (AND
+                                             (|has| |t#1|
+                                                    (SIGNATURE |variables|
+                                                     ((|List| (|Symbol|))
+                                                      |t#1|)))
+                                             (|has| |t#1|
+                                                    (SIGNATURE |integrate|
+                                                     (|t#1| |t#1| (|Symbol|))))
                                              (|has| |t#1|
                                                     (|Algebra|
                                                      (|Fraction|
-                                                      (|Integer|)))))
-                                            ((|integrate| ($ $ (|Symbol|)))
-                                             (AND
-                                              (|has| |t#1|
-                                                     (SIGNATURE |variables|
-                                                      ((|List| (|Symbol|))
-                                                       |t#1|)))
-                                              (|has| |t#1|
-                                                     (SIGNATURE |integrate|
-                                                      (|t#1| |t#1|
-                                                       (|Symbol|))))
-                                              (|has| |t#1|
-                                                     (|Algebra|
-                                                      (|Fraction|
-                                                       (|Integer|))))))
-                                            ((|integrate| ($ $ (|Symbol|)))
-                                             (AND
-                                              (|has| |t#1|
-                                                     (|AlgebraicallyClosedFunctionSpace|
-                                                      (|Integer|)))
-                                              (|has| |t#1|
-                                                     (|PrimitiveFunctionCategory|))
-                                              (|has| |t#1|
-                                                     (|TranscendentalFunctionCategory|))
-                                              (|has| |t#1|
-                                                     (|Algebra|
-                                                      (|Fraction|
-                                                       (|Integer|)))))))
-                                          '(((|RadicalCategory|)
+                                                      (|Integer|))))))
+                                           ((|integrate| ($ $ (|Symbol|)))
+                                            (AND
+                                             (|has| |t#1|
+                                                    (|AlgebraicallyClosedFunctionSpace|
+                                                     (|Integer|)))
+                                             (|has| |t#1|
+                                                    (|PrimitiveFunctionCategory|))
+                                             (|has| |t#1|
+                                                    (|TranscendentalFunctionCategory|))
                                              (|has| |t#1|
                                                     (|Algebra|
                                                      (|Fraction|
-                                                      (|Integer|)))))
-                                            ((|TranscendentalFunctionCategory|)
-                                             (|has| |t#1|
-                                                    (|Algebra|
-                                                     (|Fraction|
-                                                      (|Integer|)))))
-                                            ((|Field|)
-                                             (|has| |t#1| (|Field|))))
-                                          '((|Symbol|) (|Fraction| (|Integer|))
-                                            (|NonNegativeInteger|)
-                                            (|Stream|
-                                             (|Record|
-                                              (|:| |k|
-                                                   (|Fraction| (|Integer|)))
-                                              (|:| |c| |t#1|))))
-                                          NIL))
-                                        . #3=(|UnivariatePuiseuxSeriesCategory|))))))
-               . #3#)
-       (SETELT #1# 0
-               (LIST '|UnivariatePuiseuxSeriesCategory|
-                     (|devaluate| |t#1|))))))) 
+                                                      (|Integer|)))))))
+                                         '(((|RadicalCategory|)
+                                            (|has| |t#1|
+                                                   (|Algebra|
+                                                    (|Fraction| (|Integer|)))))
+                                           ((|TranscendentalFunctionCategory|)
+                                            (|has| |t#1|
+                                                   (|Algebra|
+                                                    (|Fraction| (|Integer|)))))
+                                           ((|Field|) (|has| |t#1| (|Field|))))
+                                         '((|Symbol|) (|Fraction| (|Integer|))
+                                           (|NonNegativeInteger|)
+                                           (|Stream|
+                                            (|Record|
+                                             (|:| |k| (|Fraction| (|Integer|)))
+                                             (|:| |c| |t#1|))))
+                                         NIL))
+                                       . #3=(|UnivariatePuiseuxSeriesCategory|))))))
+                   . #3#)
+           (SETELT #1# 0
+                   (LIST '|UnivariatePuiseuxSeriesCategory|
+                         (|devaluate| |t#1|)))))) 

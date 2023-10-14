@@ -2,41 +2,41 @@
 (DECLAIM (NOTINLINE |PrimeField;|)) 
 
 (DEFUN |PrimeField| (#1=#:G137)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G138)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|PrimeField|)
-                                           '|domainEqualList|)
-                . #3=(|PrimeField|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|PrimeField;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|PrimeField|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G138)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PrimeField|)
+                                               '|domainEqualList|)
+                    . #3=(|PrimeField|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|PrimeField;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|PrimeField|)))))))))) 
 
 (DEFUN |PrimeField;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PrimeField|))
-      (LETT |dv$| (LIST '|PrimeField| DV$1) . #1#)
-      (LETT $ (GETREFV 43) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PrimeField| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|CharacteristicZero|)) (|augmentPredVector| $ 1))
-      (AND (|HasCategory| $ '(|Finite|)) (|augmentPredVector| $ 2))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 11 (SPADCALL |#1| (QREFELT $ 10)))
-      (COND ((QREFELT $ 11))
-            ('T (|error| "Argument to prime field must be a prime")))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PrimeField|))
+          (LETT |dv$| (LIST '|PrimeField| DV$1) . #1#)
+          (LETT $ (GETREFV 43) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PrimeField| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (AND (|HasCategory| $ '(|CharacteristicZero|))
+               (|augmentPredVector| $ 1))
+          (AND (|HasCategory| $ '(|Finite|)) (|augmentPredVector| $ 2))
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 11 (SPADCALL |#1| (QREFELT $ 10)))
+          (COND ((QREFELT $ 11))
+                ('T (|error| "Argument to prime field must be a prime")))
+          $))) 
 
 (MAKEPROP '|PrimeField| '|infovec|
           (LIST

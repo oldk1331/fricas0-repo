@@ -1,153 +1,165 @@
 
-(DEFUN |IFAMON;Zero;$;1| ($) (SPADCALL (QREFELT $ 10))) 
+(SDEFUN |IFAMON;Zero;$;1| (($ $)) (SPADCALL (QREFELT $ 10))) 
 
-(DEFUN |IFAMON;zero?;$B;2| (|f| $) (NULL (SPADCALL |f| (QREFELT $ 14)))) 
+(SDEFUN |IFAMON;zero?;$B;2| ((|f| $) ($ |Boolean|))
+        (NULL (SPADCALL |f| (QREFELT $ 14)))) 
 
-(DEFUN |IFAMON;terms;$L;3| (|f| $)
-  (SPADCALL (SPADCALL |f| (QREFELT $ 14)) (QREFELT $ 17))) 
+(SDEFUN |IFAMON;terms;$L;3|
+        ((|f| $) ($ |List| (|Record| (|:| |gen| S) (|:| |exp| E))))
+        (SPADCALL (SPADCALL |f| (QREFELT $ 14)) (QREFELT $ 17))) 
 
-(DEFUN |IFAMON;nthCoef;$IE;4| (|f| |i| $) (SPADCALL |f| |i| (QREFELT $ 20))) 
+(SDEFUN |IFAMON;nthCoef;$IE;4| ((|f| $) (|i| |Integer|) ($ E))
+        (SPADCALL |f| |i| (QREFELT $ 20))) 
 
-(DEFUN |IFAMON;nthFactor;$IS;5| (|f| |i| $) (SPADCALL |f| |i| (QREFELT $ 22))) 
+(SDEFUN |IFAMON;nthFactor;$IS;5| ((|f| $) (|i| |Integer|) ($ S))
+        (SPADCALL |f| |i| (QREFELT $ 22))) 
 
-(DEFUN |IFAMON;+;S2$;6| (|s| |f| $)
-  (SPADCALL |s| (QREFELT $ 8) |f| (QREFELT $ 24))) 
+(SDEFUN |IFAMON;+;S2$;6| ((|s| S) (|f| $) ($ $))
+        (SPADCALL |s| (QREFELT $ 8) |f| (QREFELT $ 24))) 
 
-(DEFUN |IFAMON;+;3$;7| (|f| |g| $) (SPADCALL |f| |g| (QREFELT $ 26))) 
+(SDEFUN |IFAMON;+;3$;7| ((|f| $) (|g| $) ($ $))
+        (SPADCALL |f| |g| (QREFELT $ 26))) 
 
-(DEFUN |IFAMON;=;2$B;8| (|f| |g| $) (SPADCALL |f| |g| (QREFELT $ 28))) 
+(SDEFUN |IFAMON;=;2$B;8| ((|f| $) (|g| $) ($ |Boolean|))
+        (SPADCALL |f| |g| (QREFELT $ 28))) 
 
-(DEFUN |IFAMON;*;ES$;9| (|n| |s| $) (SPADCALL |s| |n| (QREFELT $ 30))) 
+(SDEFUN |IFAMON;*;ES$;9| ((|n| E) (|s| S) ($ $))
+        (SPADCALL |s| |n| (QREFELT $ 30))) 
 
-(DEFUN |IFAMON;*;Nni2$;10| (|n| |f| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|IFAMON;*;Nni2$;10!0| (VECTOR $ |n|)) |f|
-               (QREFELT $ 35))))) 
+(SDEFUN |IFAMON;*;Nni2$;10| ((|n| |NonNegativeInteger|) (|f| $) ($ $))
+        (SPROG NIL
+               (SPADCALL (CONS #'|IFAMON;*;Nni2$;10!0| (VECTOR $ |n|)) |f|
+                         (QREFELT $ 35)))) 
 
-(DEFUN |IFAMON;*;Nni2$;10!0| (|x| $$)
-  (PROG (|n| $)
-    (LETT |n| (QREFELT $$ 1) . #1=(|IFAMON;*;Nni2$;10|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |n| |x| (QREFELT $ 33)))))) 
+(SDEFUN |IFAMON;*;Nni2$;10!0| ((|x| NIL) ($$ NIL))
+        (PROG (|n| $)
+          (LETT |n| (QREFELT $$ 1) . #1=(|IFAMON;*;Nni2$;10|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |n| |x| (QREFELT $ 33)))))) 
 
-(DEFUN |IFAMON;coerce;$Of;11| (|f| $)
-  (SPADCALL |f| (ELT $ 38) (CONS #'|IFAMON;coerce;$Of;11!0| $) 0
-            (QREFELT $ 41))) 
+(SDEFUN |IFAMON;coerce;$Of;11| ((|f| $) ($ |OutputForm|))
+        (SPADCALL |f| (ELT $ 38) (CONS #'|IFAMON;coerce;$Of;11!0| $) 0
+                  (QREFELT $ 41))) 
 
-(DEFUN |IFAMON;coerce;$Of;11!0| (|x| |y| $) (SPADCALL |y| |x| (QREFELT $ 39))) 
+(SDEFUN |IFAMON;coerce;$Of;11!0| ((|x| NIL) (|y| NIL) ($ NIL))
+        (SPADCALL |y| |x| (QREFELT $ 39))) 
 
-(DEFUN |IFAMON;mapCoef;M2$;12| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 35))) 
+(SDEFUN |IFAMON;mapCoef;M2$;12| ((|f| |Mapping| E E) (|x| $) ($ $))
+        (SPADCALL |f| |x| (QREFELT $ 35))) 
 
-(DEFUN |IFAMON;mapGen;M2$;13| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 45))) 
+(SDEFUN |IFAMON;mapGen;M2$;13| ((|f| |Mapping| S S) (|x| $) ($ $))
+        (SPADCALL |f| |x| (QREFELT $ 45))) 
 
-(DEFUN |IFAMON;coefficient;S$E;14| (|s| |f| $)
-  (PROG (#1=#:G127 #2=#:G129 #3=#:G130 |x|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ
-         (EXIT
-          (SEQ (LETT |x| NIL . #4=(|IFAMON;coefficient;S$E;14|))
-               (LETT #3# (SPADCALL |f| (QREFELT $ 18)) . #4#) G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
+(SDEFUN |IFAMON;coefficient;S$E;14| ((|s| S) (|f| $) ($ E))
+        (SPROG ((#1=#:G127 NIL) (#2=#:G129 NIL) (#3=#:G130 NIL) (|x| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((SPADCALL (QCAR |x|) |s| (QREFELT $ 47))
-                   (PROGN
-                    (LETT #1# (PROGN (LETT #2# (QCDR |x|) . #4#) (GO #2#))
-                          . #4#)
-                    (GO #1#))))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT (|spadConstant| $ 48))))
-      #2# (EXIT #2#))))) 
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |x| NIL . #4=(|IFAMON;coefficient;S$E;14|))
+                         (LETT #3# (SPADCALL |f| (QREFELT $ 18)) . #4#) G190
+                         (COND
+                          ((OR (ATOM #3#)
+                               (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
+                           (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((SPADCALL (QCAR |x|) |s| (QREFELT $ 47))
+                             (PROGN
+                              (LETT #1#
+                                    (PROGN
+                                     (LETT #2# (QCDR |x|) . #4#)
+                                     (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT (|spadConstant| $ 48))))
+                #2# (EXIT #2#)))) 
 
-(DEFUN |IFAMON;highCommonTerms;3$;15| (|f| |g| $)
-  (PROG (|n| #1=#:G135 |x| #2=#:G134)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #2# NIL . #3=(|IFAMON;highCommonTerms;3$;15|))
-        (SEQ (LETT |x| NIL . #3#)
-             (LETT #1# (SPADCALL |f| (QREFELT $ 14)) . #3#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((SPADCALL
-                  (LETT |n| (SPADCALL (QCAR |x|) |g| (QREFELT $ 49)) . #3#)
-                  (|spadConstant| $ 48) (QREFELT $ 50))
-                 (LETT #2#
-                       (CONS
-                        (CONS (QCAR |x|)
-                              (SPADCALL (QCDR |x|) |n| (QREFELT $ 51)))
-                        #2#)
-                       . #3#)))))
-             (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-       (QREFELT $ 52)))))) 
+(SDEFUN |IFAMON;highCommonTerms;3$;15| ((|f| $) (|g| $) ($ $))
+        (SPROG ((|n| (E)) (#1=#:G135 NIL) (|x| NIL) (#2=#:G134 NIL))
+               (SEQ
+                (SPADCALL
+                 (PROGN
+                  (LETT #2# NIL . #3=(|IFAMON;highCommonTerms;3$;15|))
+                  (SEQ (LETT |x| NIL . #3#)
+                       (LETT #1# (SPADCALL |f| (QREFELT $ 14)) . #3#) G190
+                       (COND
+                        ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL
+                            (LETT |n| (SPADCALL (QCAR |x|) |g| (QREFELT $ 49))
+                                  . #3#)
+                            (|spadConstant| $ 48) (QREFELT $ 50))
+                           (LETT #2#
+                                 (CONS
+                                  (CONS (QCAR |x|)
+                                        (SPADCALL (QCDR |x|) |n|
+                                                  (QREFELT $ 51)))
+                                  #2#)
+                                 . #3#)))))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 (QREFELT $ 52))))) 
 
 (DECLAIM (NOTINLINE |InnerFreeAbelianMonoid;|)) 
 
 (DEFUN |InnerFreeAbelianMonoid| (&REST #1=#:G142)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G143)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|InnerFreeAbelianMonoid|)
-                                           '|domainEqualList|)
-                . #3=(|InnerFreeAbelianMonoid|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |InnerFreeAbelianMonoid;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G143)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|InnerFreeAbelianMonoid|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InnerFreeAbelianMonoid|)
+                                               '|domainEqualList|)
+                    . #3=(|InnerFreeAbelianMonoid|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InnerFreeAbelianMonoid;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InnerFreeAbelianMonoid|)))))))))) 
 
 (DEFUN |InnerFreeAbelianMonoid;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerFreeAbelianMonoid|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|InnerFreeAbelianMonoid| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 60) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         '(|OrderedAbelianMonoid|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|InnerFreeAbelianMonoid|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 9 (|ListMonoidOps| |#1| |#2| |#3|))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 53
-                  (CONS (|dispatchFunction| |IFAMON;highCommonTerms;3$;15|)
-                        $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerFreeAbelianMonoid|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|InnerFreeAbelianMonoid| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 60) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|OrderedAbelianMonoid|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|InnerFreeAbelianMonoid|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 9 (|ListMonoidOps| |#1| |#2| |#3|))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV $ 53
+                      (CONS (|dispatchFunction| |IFAMON;highCommonTerms;3$;15|)
+                            $))))
+          $))) 
 
 (MAKEPROP '|InnerFreeAbelianMonoid| '|infovec|
           (LIST

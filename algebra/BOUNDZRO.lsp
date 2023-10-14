@@ -1,45 +1,52 @@
 
-(DEFUN |BOUNDZRO;qzroot1| (|p| $)
-  (|BOUNDZRO;negint|
-   (SPADCALL
-    (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 11))
-              (SPADCALL |p| (QREFELT $ 11)) (QREFELT $ 12))
-    (QREFELT $ 13))
-   $)) 
+(SDEFUN |BOUNDZRO;qzroot1|
+        ((|p| |SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
+         ($ |Integer|))
+        (|BOUNDZRO;negint|
+         (SPADCALL
+          (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 11))
+                    (SPADCALL |p| (QREFELT $ 11)) (QREFELT $ 12))
+          (QREFELT $ 13))
+         $)) 
 
-(DEFUN |BOUNDZRO;zroot1| (|p| $)
-  (PROG (|r| |z|)
-    (RETURN
-     (SEQ
-      (LETT |z|
-            (SPADCALL
-             (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 14)) (QREFELT $ 15))
-                       (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 16))
-             (QREFELT $ 17))
-            . #1=(|BOUNDZRO;zroot1|))
-      (LETT |r| (SPADCALL |z| (QREFELT $ 19)) . #1#)
-      (EXIT (COND ((QEQCAR |r| 0) (|BOUNDZRO;negint| (QCDR |r|) $)) ('T 0))))))) 
+(SDEFUN |BOUNDZRO;zroot1| ((|p| UP) ($ |Integer|))
+        (SPROG ((|r| (|Union| (|Fraction| (|Integer|)) "failed")) (|z| (F)))
+               (SEQ
+                (LETT |z|
+                      (SPADCALL
+                       (SPADCALL
+                        (SPADCALL (SPADCALL |p| (QREFELT $ 14)) (QREFELT $ 15))
+                        (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 16))
+                       (QREFELT $ 17))
+                      . #1=(|BOUNDZRO;zroot1|))
+                (LETT |r| (SPADCALL |z| (QREFELT $ 19)) . #1#)
+                (EXIT
+                 (COND ((QEQCAR |r| 0) (|BOUNDZRO;negint| (QCDR |r|) $))
+                       ('T 0)))))) 
 
-(DEFUN |BOUNDZRO;negint| (|r| $)
-  (PROG (#1=#:G117 |u|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 21)) . #2=(|BOUNDZRO;negint|))
-             (EXIT
-              (COND
-               ((QEQCAR |u| 0)
-                (COND
-                 ((< (QCDR |u|) 0)
-                  (PROGN (LETT #1# (QCDR |u|) . #2#) (GO #1#))))))))
-        (EXIT 0)))
-      #1# (EXIT #1#))))) 
+(SDEFUN |BOUNDZRO;negint| ((|r| |Fraction| (|Integer|)) ($ |Integer|))
+        (SPROG ((#1=#:G117 NIL) (|u| (|Union| (|Integer|) "failed")))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (SEQ
+                   (LETT |u| (SPADCALL |r| (QREFELT $ 21))
+                         . #2=(|BOUNDZRO;negint|))
+                   (EXIT
+                    (COND
+                     ((QEQCAR |u| 0)
+                      (COND
+                       ((< (QCDR |u|) 0)
+                        (PROGN (LETT #1# (QCDR |u|) . #2#) (GO #1#))))))))
+                  (EXIT 0)))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |BOUNDZRO;bringDown| (|f| $)
-  (PROG (#1=#:G123 |k| #2=#:G122 |t|)
-    (RETURN
-     (SEQ (LETT |t| (SPADCALL |f| (QREFELT $ 25)) . #3=(|BOUNDZRO;bringDown|))
+(SDEFUN |BOUNDZRO;bringDown| ((|f| F) ($ |Fraction| (|Integer|)))
+        (SPROG
+         ((#1=#:G123 NIL) (|k| NIL) (#2=#:G122 NIL)
+          (|t| (|List| (|Kernel| F))))
+         (SEQ
+          (LETT |t| (SPADCALL |f| (QREFELT $ 25)) . #3=(|BOUNDZRO;bringDown|))
           (EXIT
            (SPADCALL
             (SPADCALL |f| |t|
@@ -61,49 +68,56 @@
                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                             (EXIT (NREVERSE #2#))))
                       (QREFELT $ 29))
-            (QREFELT $ 30))))))) 
+            (QREFELT $ 30)))))) 
 
-(DEFUN |BOUNDZRO;integerBound;UPI;5| (|p| $)
-  (PROG (|q2| |q1|)
-    (RETURN
-     (SEQ
-      (COND ((EQL (SPADCALL |p| (QREFELT $ 32)) 1) (|BOUNDZRO;zroot1| |p| $))
-            ('T
-             (SEQ
-              (LETT |q1|
-                    (SPADCALL (CONS (|function| |BOUNDZRO;bringDown|) $) |p|
-                              (QREFELT $ 35))
-                    . #1=(|BOUNDZRO;integerBound;UPI;5|))
-              (LETT |q2|
-                    (SPADCALL (CONS (|function| |BOUNDZRO;bringDown|) $) |p|
-                              (QREFELT $ 35))
-                    . #1#)
-              (EXIT
-               (|BOUNDZRO;qbound| |p| (SPADCALL |q1| |q2| (QREFELT $ 36))
-                $))))))))) 
+(SDEFUN |BOUNDZRO;integerBound;UPI;5| ((|p| UP) ($ |Integer|))
+        (SPROG
+         ((|q2| #1=(|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
+          (|q1| #1#))
+         (SEQ
+          (COND
+           ((EQL (SPADCALL |p| (QREFELT $ 32)) 1) (|BOUNDZRO;zroot1| |p| $))
+           ('T
+            (SEQ
+             (LETT |q1|
+                   (SPADCALL (CONS (|function| |BOUNDZRO;bringDown|) $) |p|
+                             (QREFELT $ 35))
+                   . #2=(|BOUNDZRO;integerBound;UPI;5|))
+             (LETT |q2|
+                   (SPADCALL (CONS (|function| |BOUNDZRO;bringDown|) $) |p|
+                             (QREFELT $ 35))
+                   . #2#)
+             (EXIT
+              (|BOUNDZRO;qbound| |p| (SPADCALL |q1| |q2| (QREFELT $ 36))
+               $)))))))) 
 
-(DEFUN |BOUNDZRO;integerBound;UPI;6| (|p| $)
-  (COND ((EQL (SPADCALL |p| (QREFELT $ 32)) 1) (|BOUNDZRO;zroot1| |p| $))
-        ('T
-         (|BOUNDZRO;qbound| |p| (SPADCALL (ELT $ 30) |p| (QREFELT $ 35)) $)))) 
+(SDEFUN |BOUNDZRO;integerBound;UPI;6| ((|p| UP) ($ |Integer|))
+        (COND ((EQL (SPADCALL |p| (QREFELT $ 32)) 1) (|BOUNDZRO;zroot1| |p| $))
+              ('T
+               (|BOUNDZRO;qbound| |p| (SPADCALL (ELT $ 30) |p| (QREFELT $ 35))
+                $)))) 
 
-(DEFUN |BOUNDZRO;qbound| (|p| |q| $)
-  (PROG (|bound| |r| #1=#:G138 |rec|)
-    (RETURN
-     (SEQ (LETT |bound| 0 . #2=(|BOUNDZRO;qbound|))
-          (SEQ (LETT |rec| NIL . #2#)
-               (LETT #1#
-                     (SPADCALL (SPADCALL |q| (QREFELT $ 41)) (QREFELT $ 44))
-                     . #2#)
-               G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#) . #2#) NIL))
-                 (GO G191)))
-               (SEQ
-                (EXIT
-                 (COND
-                  ((EQL (SPADCALL (QCAR |rec|) (QREFELT $ 45)) 1)
-                   (SEQ (LETT |r| (|BOUNDZRO;qzroot1| (QCAR |rec|) $) . #2#)
+(SDEFUN |BOUNDZRO;qbound|
+        ((|p| UP) (|q| |SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
+         ($ |Integer|))
+        (SPROG
+         ((|bound| (|Integer|)) (|r| (|Integer|)) (#1=#:G138 NIL) (|rec| NIL))
+         (SEQ (LETT |bound| 0 . #2=(|BOUNDZRO;qbound|))
+              (SEQ (LETT |rec| NIL . #2#)
+                   (LETT #1#
+                         (SPADCALL (SPADCALL |q| (QREFELT $ 41))
+                                   (QREFELT $ 44))
+                         . #2#)
+                   G190
+                   (COND
+                    ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#) . #2#) NIL))
+                     (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (COND
+                      ((EQL (SPADCALL (QCAR |rec|) (QREFELT $ 45)) 1)
+                       (SEQ
+                        (LETT |r| (|BOUNDZRO;qzroot1| (QCAR |rec|) $) . #2#)
                         (EXIT
                          (COND
                           ((< |r| |bound|)
@@ -115,59 +129,57 @@
                                         (QREFELT $ 47))
                               (QREFELT $ 49))
                              (LETT |bound| |r| . #2#)))))))))))
-               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |bound|))))) 
+                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+              (EXIT |bound|)))) 
 
 (DECLAIM (NOTINLINE |BoundIntegerRoots;|)) 
 
 (DEFUN |BoundIntegerRoots| (&REST #1=#:G139)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G140)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|BoundIntegerRoots|)
-                                           '|domainEqualList|)
-                . #3=(|BoundIntegerRoots|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |BoundIntegerRoots;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G140)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|BoundIntegerRoots|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|BoundIntegerRoots|)
+                                               '|domainEqualList|)
+                    . #3=(|BoundIntegerRoots|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |BoundIntegerRoots;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|BoundIntegerRoots|)))))))))) 
 
 (DEFUN |BoundIntegerRoots;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|BoundIntegerRoots|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|BoundIntegerRoots| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 50) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|BoundIntegerRoots| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#1| '(|ExpressionSpace|))
-        (PROGN
-         (QSETREFV $ 38
-                   (CONS (|dispatchFunction| |BOUNDZRO;integerBound;UPI;5|)
-                         $))))
-       ('T
-        (QSETREFV $ 38
-                  (CONS (|dispatchFunction| |BOUNDZRO;integerBound;UPI;6|)
-                        $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|BoundIntegerRoots|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|BoundIntegerRoots| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 50) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|BoundIntegerRoots| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| '(|ExpressionSpace|))
+            (PROGN
+             (QSETREFV $ 38
+                       (CONS (|dispatchFunction| |BOUNDZRO;integerBound;UPI;5|)
+                             $))))
+           ('T
+            (QSETREFV $ 38
+                      (CONS (|dispatchFunction| |BOUNDZRO;integerBound;UPI;6|)
+                            $))))
+          $))) 
 
 (MAKEPROP '|BoundIntegerRoots| '|infovec|
           (LIST

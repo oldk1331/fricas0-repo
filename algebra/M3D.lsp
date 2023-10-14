@@ -1,271 +1,335 @@
 
-(DEFUN |M3D;matrixConcat3D;S3$;1| (|dir| |mat1| |mat2| $)
-  (PROG (|retVal| #1=#:G131 |j| |temp| #2=#:G130 |i| #3=#:G129 |matRep2|
-         |matRep1| |kDim2| |jDim2| |iDim2| |kDim1| |jDim1| |iDim1| |mat2Dim|
-         |mat1Dim|)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL (EQUAL |dir| '|i|))
-        (COND
-         ((NULL (EQUAL |dir| '|j|))
+(SDEFUN |M3D;matrixConcat3D;S3$;1|
+        ((|dir| |Symbol|) (|mat1| $) (|mat2| $) ($ $))
+        (SPROG
+         ((|retVal| ($)) (#1=#:G131 NIL) (|j| NIL)
+          (|temp| (|PrimitiveArray| (|PrimitiveArray| R))) (#2=#:G130 NIL)
+          (|i| NIL) (#3=#:G129 NIL)
+          (|matRep2|
+           #4=(|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
+          (|matRep1| #4#) (|kDim2| #5=(|NonNegativeInteger|)) (|jDim2| #5#)
+          (|iDim2| #5#) (|kDim1| #5#) (|jDim1| #5#) (|iDim1| #5#)
+          (|mat2Dim| #6=(|Vector| (|NonNegativeInteger|))) (|mat1Dim| #6#))
+         (SEQ
           (COND
-           ((NULL (EQUAL |dir| '|k|))
-            (EXIT (|error| "the axis of concatenation must be i,j or k"))))))))
-      (LETT |mat1Dim| (SPADCALL |mat1| (QREFELT $ 8))
-            . #4=(|M3D;matrixConcat3D;S3$;1|))
-      (LETT |mat2Dim| (SPADCALL |mat2| (QREFELT $ 8)) . #4#)
-      (LETT |iDim1| (SPADCALL |mat1Dim| 1 (QREFELT $ 11)) . #4#)
-      (LETT |jDim1| (SPADCALL |mat1Dim| 2 (QREFELT $ 11)) . #4#)
-      (LETT |kDim1| (SPADCALL |mat1Dim| 3 (QREFELT $ 11)) . #4#)
-      (LETT |iDim2| (SPADCALL |mat2Dim| 1 (QREFELT $ 11)) . #4#)
-      (LETT |jDim2| (SPADCALL |mat2Dim| 2 (QREFELT $ 11)) . #4#)
-      (LETT |kDim2| (SPADCALL |mat2Dim| 3 (QREFELT $ 11)) . #4#)
-      (LETT |matRep1|
-            (SPADCALL (SPADCALL |mat1| (QREFELT $ 12)) (QREFELT $ 13)) . #4#)
-      (LETT |matRep2|
-            (SPADCALL (SPADCALL |mat2| (QREFELT $ 12)) (QREFELT $ 13)) . #4#)
-      (COND
-       ((EQUAL |dir| '|i|)
-        (COND
-         ((EQL |jDim1| |jDim2|)
+           ((NULL (EQUAL |dir| '|i|))
+            (COND
+             ((NULL (EQUAL |dir| '|j|))
+              (COND
+               ((NULL (EQUAL |dir| '|k|))
+                (EXIT
+                 (|error| "the axis of concatenation must be i,j or k"))))))))
+          (LETT |mat1Dim| (SPADCALL |mat1| (QREFELT $ 8))
+                . #7=(|M3D;matrixConcat3D;S3$;1|))
+          (LETT |mat2Dim| (SPADCALL |mat2| (QREFELT $ 8)) . #7#)
+          (LETT |iDim1| (SPADCALL |mat1Dim| 1 (QREFELT $ 11)) . #7#)
+          (LETT |jDim1| (SPADCALL |mat1Dim| 2 (QREFELT $ 11)) . #7#)
+          (LETT |kDim1| (SPADCALL |mat1Dim| 3 (QREFELT $ 11)) . #7#)
+          (LETT |iDim2| (SPADCALL |mat2Dim| 1 (QREFELT $ 11)) . #7#)
+          (LETT |jDim2| (SPADCALL |mat2Dim| 2 (QREFELT $ 11)) . #7#)
+          (LETT |kDim2| (SPADCALL |mat2Dim| 3 (QREFELT $ 11)) . #7#)
+          (LETT |matRep1|
+                (SPADCALL (SPADCALL |mat1| (QREFELT $ 12)) (QREFELT $ 13))
+                . #7#)
+          (LETT |matRep2|
+                (SPADCALL (SPADCALL |mat2| (QREFELT $ 12)) (QREFELT $ 13))
+                . #7#)
           (COND
-           ((EQL |kDim1| |kDim2|)
-            (LETT |retVal|
-                  (SPADCALL (SPADCALL |matRep1| |matRep2| (QREFELT $ 14))
-                            (QREFELT $ 15))
-                  . #4#))
-           (#5='T (|error| #6="jxk do not agree"))))
-         (#5# (|error| #6#)))))
-      (COND
-       ((EQUAL |dir| '|j|)
-        (COND
-         ((EQL |iDim1| |iDim2|)
+           ((EQUAL |dir| '|i|)
+            (COND
+             ((EQL |jDim1| |jDim2|)
+              (COND
+               ((EQL |kDim1| |kDim2|)
+                (LETT |retVal|
+                      (SPADCALL (SPADCALL |matRep1| |matRep2| (QREFELT $ 14))
+                                (QREFELT $ 15))
+                      . #7#))
+               (#8='T (|error| #9="jxk do not agree"))))
+             (#8# (|error| #9#)))))
           (COND
-           ((EQL |kDim1| |kDim2|)
-            (SEQ
-             (SEQ (LETT |i| 0 . #4#) (LETT #3# (- |iDim1| 1) . #4#) G190
-                  (COND ((|greater_SI| |i| #3#) (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (QSETAREF1 |matRep1| |i|
-                               (SPADCALL (QAREF1 |matRep1| |i|)
-                                         (QAREF1 |matRep2| |i|)
-                                         (QREFELT $ 17)))))
-                  (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-             (EXIT (LETT |retVal| (SPADCALL |matRep1| (QREFELT $ 15)) . #4#))))
-           (#5# (|error| #7="ixk do not agree"))))
-         (#5# (|error| #7#)))))
-      (COND
-       ((EQUAL |dir| '|k|)
-        (COND
-         ((EQL |iDim1| |iDim2|)
+           ((EQUAL |dir| '|j|)
+            (COND
+             ((EQL |iDim1| |iDim2|)
+              (COND
+               ((EQL |kDim1| |kDim2|)
+                (SEQ
+                 (SEQ (LETT |i| 0 . #7#) (LETT #3# (- |iDim1| 1) . #7#) G190
+                      (COND ((|greater_SI| |i| #3#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (QSETAREF1 |matRep1| |i|
+                                   (SPADCALL (QAREF1 |matRep1| |i|)
+                                             (QAREF1 |matRep2| |i|)
+                                             (QREFELT $ 17)))))
+                      (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                      (EXIT NIL))
+                 (EXIT
+                  (LETT |retVal| (SPADCALL |matRep1| (QREFELT $ 15)) . #7#))))
+               (#8# (|error| #10="ixk do not agree"))))
+             (#8# (|error| #10#)))))
           (COND
-           ((EQL |jDim1| |jDim2|)
-            (SEQ
-             (SEQ (LETT |i| 0 . #4#) (LETT #2# (- |iDim1| 1) . #4#) G190
-                  (COND ((|greater_SI| |i| #2#) (GO G191)))
-                  (SEQ
-                   (LETT |temp|
-                         (SPADCALL (QAREF1 |matRep1| |i|) (QREFELT $ 18))
-                         . #4#)
-                   (SEQ (LETT |j| 0 . #4#) (LETT #1# (- |jDim1| 1) . #4#) G190
-                        (COND ((|greater_SI| |j| #1#) (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (QSETAREF1 |temp| |j|
-                                     (SPADCALL
-                                      (QAREF1 (QAREF1 |matRep1| |i|) |j|)
-                                      (QAREF1 (QAREF1 |matRep2| |i|) |j|)
-                                      (QREFELT $ 20)))))
-                        (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
-                        (EXIT NIL))
-                   (EXIT (QSETAREF1 |matRep1| |i| |temp|)))
-                  (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-             (EXIT (LETT |retVal| (SPADCALL |matRep1| (QREFELT $ 15)) . #4#))))
-           (#5# (|error| #8="ixj do not agree"))))
-         (#5# (|error| #8#)))))
-      (EXIT |retVal|))))) 
+           ((EQUAL |dir| '|k|)
+            (COND
+             ((EQL |iDim1| |iDim2|)
+              (COND
+               ((EQL |jDim1| |jDim2|)
+                (SEQ
+                 (SEQ (LETT |i| 0 . #7#) (LETT #2# (- |iDim1| 1) . #7#) G190
+                      (COND ((|greater_SI| |i| #2#) (GO G191)))
+                      (SEQ
+                       (LETT |temp|
+                             (SPADCALL (QAREF1 |matRep1| |i|) (QREFELT $ 18))
+                             . #7#)
+                       (SEQ (LETT |j| 0 . #7#) (LETT #1# (- |jDim1| 1) . #7#)
+                            G190 (COND ((|greater_SI| |j| #1#) (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (QSETAREF1 |temp| |j|
+                                         (SPADCALL
+                                          (QAREF1 (QAREF1 |matRep1| |i|) |j|)
+                                          (QAREF1 (QAREF1 |matRep2| |i|) |j|)
+                                          (QREFELT $ 20)))))
+                            (LETT |j| (|inc_SI| |j|) . #7#) (GO G190) G191
+                            (EXIT NIL))
+                       (EXIT (QSETAREF1 |matRep1| |i| |temp|)))
+                      (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                      (EXIT NIL))
+                 (EXIT
+                  (LETT |retVal| (SPADCALL |matRep1| (QREFELT $ 15)) . #7#))))
+               (#8# (|error| #11="ixj do not agree"))))
+             (#8# (|error| #11#)))))
+          (EXIT |retVal|)))) 
 
-(DEFUN |M3D;matrixDimensions;$V;2| (|mat| $)
-  (PROG (|retVal| |kDim| |matRep3| |jDim| |matRep2| |iDim| |matRep|)
-    (RETURN
-     (SEQ
-      (LETT |matRep| (SPADCALL |mat| (QREFELT $ 12))
-            . #1=(|M3D;matrixDimensions;$V;2|))
-      (LETT |iDim| (QVSIZE |matRep|) . #1#)
-      (LETT |matRep2| (QAREF1 |matRep| 0) . #1#)
-      (LETT |jDim| (QVSIZE |matRep2|) . #1#)
-      (LETT |matRep3| (QAREF1 |matRep2| 0) . #1#)
-      (LETT |kDim| (QVSIZE |matRep3|) . #1#)
-      (LETT |retVal| (SPADCALL 3 0 (QREFELT $ 23)) . #1#)
-      (SPADCALL |retVal| 1 |iDim| (QREFELT $ 24))
-      (SPADCALL |retVal| 2 |jDim| (QREFELT $ 24))
-      (SPADCALL |retVal| 3 |kDim| (QREFELT $ 24)) (EXIT |retVal|))))) 
+(SDEFUN |M3D;matrixDimensions;$V;2|
+        ((|mat| $) ($ |Vector| (|NonNegativeInteger|)))
+        (SPROG
+         ((|retVal| (|Vector| (|NonNegativeInteger|)))
+          (|kDim| (|NonNegativeInteger|)) (|matRep3| (|PrimitiveArray| R))
+          (|jDim| (|NonNegativeInteger|))
+          (|matRep2| (|PrimitiveArray| (|PrimitiveArray| R)))
+          (|iDim| (|NonNegativeInteger|))
+          (|matRep|
+           (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R)))))
+         (SEQ
+          (LETT |matRep| (SPADCALL |mat| (QREFELT $ 12))
+                . #1=(|M3D;matrixDimensions;$V;2|))
+          (LETT |iDim| (QVSIZE |matRep|) . #1#)
+          (LETT |matRep2| (QAREF1 |matRep| 0) . #1#)
+          (LETT |jDim| (QVSIZE |matRep2|) . #1#)
+          (LETT |matRep3| (QAREF1 |matRep2| 0) . #1#)
+          (LETT |kDim| (QVSIZE |matRep3|) . #1#)
+          (LETT |retVal| (SPADCALL 3 0 (QREFELT $ 23)) . #1#)
+          (SPADCALL |retVal| 1 |iDim| (QREFELT $ 24))
+          (SPADCALL |retVal| 2 |jDim| (QREFELT $ 24))
+          (SPADCALL |retVal| 3 |kDim| (QREFELT $ 24)) (EXIT |retVal|)))) 
 
 (PUT '|M3D;coerce;Pa$;3| '|SPADreplace| '(XLAM (|matrixRep|) |matrixRep|)) 
 
-(DEFUN |M3D;coerce;Pa$;3| (|matrixRep| $) |matrixRep|) 
+(SDEFUN |M3D;coerce;Pa$;3|
+        ((|matrixRep| |PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R)))
+         ($ $))
+        |matrixRep|) 
 
 (PUT '|M3D;coerce;$Pa;4| '|SPADreplace| '(XLAM (|mat|) |mat|)) 
 
-(DEFUN |M3D;coerce;$Pa;4| (|mat| $) |mat|) 
+(SDEFUN |M3D;coerce;$Pa;4|
+        ((|mat| $)
+         ($ |PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
+        |mat|) 
 
-(DEFUN |M3D;elt;$3NniR;5| (|mat| |i| |j| |k| $)
-  (PROG (|matrixRep| |kLength| |jLength| |iLength| |matDims|)
-    (RETURN
-     (SEQ
-      (LETT |matDims| (SPADCALL |mat| (QREFELT $ 8)) . #1=(|M3D;elt;$3NniR;5|))
-      (LETT |iLength| (SPADCALL |matDims| 1 (QREFELT $ 11)) . #1#)
-      (LETT |jLength| (SPADCALL |matDims| 2 (QREFELT $ 11)) . #1#)
-      (LETT |kLength| (SPADCALL |matDims| 3 (QREFELT $ 11)) . #1#)
-      (COND
-       ((OR
-         (OR
-          (OR
-           (OR
-            (OR (SPADCALL |i| |iLength| (QREFELT $ 26))
-                (SPADCALL |j| |jLength| (QREFELT $ 26)))
-            (SPADCALL |k| |kLength| (QREFELT $ 26)))
-           (EQL |i| 0))
-          (EQL |j| 0))
-         (EQL |k| 0))
-        (EXIT
-         (|error| "coordinates must be within the bounds of the matrix"))))
-      (LETT |matrixRep| (SPADCALL |mat| (QREFELT $ 12)) . #1#)
-      (EXIT
-       (QAREF1 (QAREF1 (QAREF1 |matrixRep| (- |i| 1)) (- |j| 1)) (- |k| 1))))))) 
-
-(DEFUN |M3D;setelt!;$3Nni2R;6| (|mat| |i| |j| |k| |val| $)
-  (PROG (|row1| |row2| |matrixRep| |kLength| |jLength| |iLength| |matDims|)
-    (RETURN
-     (SEQ
-      (LETT |matDims| (SPADCALL |mat| (QREFELT $ 8))
-            . #1=(|M3D;setelt!;$3Nni2R;6|))
-      (LETT |iLength| (SPADCALL |matDims| 1 (QREFELT $ 11)) . #1#)
-      (LETT |jLength| (SPADCALL |matDims| 2 (QREFELT $ 11)) . #1#)
-      (LETT |kLength| (SPADCALL |matDims| 3 (QREFELT $ 11)) . #1#)
-      (COND
-       ((OR
-         (OR
-          (OR
-           (OR
-            (OR (SPADCALL |i| |iLength| (QREFELT $ 26))
-                (SPADCALL |j| |jLength| (QREFELT $ 26)))
-            (SPADCALL |k| |kLength| (QREFELT $ 26)))
-           (EQL |i| 0))
-          (EQL |j| 0))
-         (EQL |k| 0))
-        (EXIT
-         (|error| "coordinates must be within the bounds of the matrix"))))
-      (LETT |matrixRep| (SPADCALL |mat| (QREFELT $ 12)) . #1#)
-      (LETT |row2| (SPADCALL (QAREF1 |matrixRep| (- |i| 1)) (QREFELT $ 18))
-            . #1#)
-      (LETT |row1| (SPADCALL (QAREF1 |row2| (- |j| 1)) (QREFELT $ 28)) . #1#)
-      (QSETAREF1 |row1| (- |k| 1) |val|) (QSETAREF1 |row2| (- |j| 1) |row1|)
-      (QSETAREF1 |matrixRep| (- |i| 1) |row2|) (EXIT |val|))))) 
-
-(DEFUN |M3D;zeroMatrix;3Nni$;7| (|iLength| |jLength| |kLength| $)
-  (SPADCALL
-   (MAKEARR1 |iLength|
-             (MAKEARR1 |jLength| (MAKEARR1 |kLength| (|spadConstant| $ 30))))
-   (QREFELT $ 15))) 
-
-(DEFUN |M3D;identityMatrix;Nni$;8| (|iLength| $)
-  (PROG (|row2| |row1| #1=#:G145 |count| |row2empty| |row1empty| |retValueRep|)
-    (RETURN
-     (SEQ
-      (LETT |retValueRep|
-            (SPADCALL (SPADCALL |iLength| |iLength| |iLength| (QREFELT $ 31))
-                      (QREFELT $ 12))
-            . #2=(|M3D;identityMatrix;Nni$;8|))
-      (LETT |row1empty| (MAKEARR1 |iLength| (|spadConstant| $ 30)) . #2#)
-      (LETT |row2empty|
-            (MAKEARR1 |iLength| (SPADCALL |row1empty| (QREFELT $ 28))) . #2#)
-      (SEQ (LETT |count| 0 . #2#) (LETT #1# (- |iLength| 1) . #2#) G190
-           (COND ((|greater_SI| |count| #1#) (GO G191)))
-           (SEQ (LETT |row1| (SPADCALL |row1empty| (QREFELT $ 28)) . #2#)
-                (QSETAREF1 |row1| |count| (|spadConstant| $ 32))
-                (LETT |row2| (SPADCALL |row2empty| (QREFELT $ 18)) . #2#)
-                (QSETAREF1 |row2| |count| (SPADCALL |row1| (QREFELT $ 28)))
-                (EXIT
-                 (QSETAREF1 |retValueRep| |count|
-                            (SPADCALL |row2| (QREFELT $ 18)))))
-           (LETT |count| (|inc_SI| |count|) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT (SPADCALL |retValueRep| (QREFELT $ 15))))))) 
-
-(DEFUN |M3D;plus;3$;9| (|mat1| |mat2| $)
-  (PROG (|resultMatrix| |sum| |k| |j| |i| |row3| |row2| |row1| |kLength2|
-         |jLength2| |iLength2| |mat2Dims| |kLength1| |jLength1| |iLength1|
-         |mat1Dims|)
-    (RETURN
-     (SEQ
-      (LETT |mat1Dims| (SPADCALL |mat1| (QREFELT $ 8)) . #1=(|M3D;plus;3$;9|))
-      (LETT |iLength1| (SPADCALL |mat1Dims| 1 (QREFELT $ 11)) . #1#)
-      (LETT |jLength1| (SPADCALL |mat1Dims| 2 (QREFELT $ 11)) . #1#)
-      (LETT |kLength1| (SPADCALL |mat1Dims| 3 (QREFELT $ 11)) . #1#)
-      (LETT |mat2Dims| (SPADCALL |mat2| (QREFELT $ 8)) . #1#)
-      (LETT |iLength2| (SPADCALL |mat2Dims| 1 (QREFELT $ 11)) . #1#)
-      (LETT |jLength2| (SPADCALL |mat2Dims| 2 (QREFELT $ 11)) . #1#)
-      (LETT |kLength2| (SPADCALL |mat2Dims| 3 (QREFELT $ 11)) . #1#)
-      (COND
-       ((EQL |iLength1| |iLength2|)
-        (COND
-         ((EQL |jLength1| |jLength2|)
+(SDEFUN |M3D;elt;$3NniR;5|
+        ((|mat| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
+         (|k| |NonNegativeInteger|) ($ R))
+        (SPROG
+         ((|matrixRep|
+           (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
+          (|kLength| #1=(|NonNegativeInteger|)) (|jLength| #1#) (|iLength| #1#)
+          (|matDims| (|Vector| (|NonNegativeInteger|))))
+         (SEQ
+          (LETT |matDims| (SPADCALL |mat| (QREFELT $ 8))
+                . #2=(|M3D;elt;$3NniR;5|))
+          (LETT |iLength| (SPADCALL |matDims| 1 (QREFELT $ 11)) . #2#)
+          (LETT |jLength| (SPADCALL |matDims| 2 (QREFELT $ 11)) . #2#)
+          (LETT |kLength| (SPADCALL |matDims| 3 (QREFELT $ 11)) . #2#)
           (COND
-           ((NULL (EQL |kLength1| |kLength2|))
-            (EXIT (|error| #2="error the matrices are different sizes")))))
-         (#3='T (EXIT (|error| #2#)))))
-       (#3# (EXIT (|error| #2#))))
-      (LETT |row1| (MAKEARR1 |kLength1| (|spadConstant| $ 30)) . #1#)
-      (LETT |row2| (MAKEARR1 |jLength1| (SPADCALL |row1| (QREFELT $ 28)))
-            . #1#)
-      (LETT |row3| (MAKEARR1 |iLength1| (SPADCALL |row2| (QREFELT $ 18)))
-            . #1#)
-      (SEQ (LETT |i| 1 . #1#) G190
-           (COND ((|greater_SI| |i| |iLength1|) (GO G191)))
-           (SEQ
-            (SEQ (LETT |j| 1 . #1#) G190
-                 (COND ((|greater_SI| |j| |jLength1|) (GO G191)))
-                 (SEQ
-                  (SEQ (LETT |k| 1 . #1#) G190
-                       (COND ((|greater_SI| |k| |kLength1|) (GO G191)))
-                       (SEQ
-                        (LETT |sum|
-                              (SPADCALL
-                               (SPADCALL |mat1| |i| |j| |k| (QREFELT $ 27))
-                               (SPADCALL |mat2| |i| |j| |k| (QREFELT $ 27))
-                               (QREFELT $ 34))
-                              . #1#)
-                        (EXIT (QSETAREF1 |row1| (- |k| 1) |sum|)))
-                       (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191
-                       (EXIT NIL))
-                  (EXIT
-                   (QSETAREF1 |row2| (- |j| 1)
-                              (SPADCALL |row1| (QREFELT $ 28)))))
-                 (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191 (EXIT NIL))
+           ((OR
+             (OR
+              (OR
+               (OR
+                (OR (SPADCALL |i| |iLength| (QREFELT $ 26))
+                    (SPADCALL |j| |jLength| (QREFELT $ 26)))
+                (SPADCALL |k| |kLength| (QREFELT $ 26)))
+               (EQL |i| 0))
+              (EQL |j| 0))
+             (EQL |k| 0))
             (EXIT
-             (QSETAREF1 |row3| (- |i| 1) (SPADCALL |row2| (QREFELT $ 18)))))
-           (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-      (LETT |resultMatrix| |row3| . #1#) (EXIT |resultMatrix|))))) 
+             (|error| "coordinates must be within the bounds of the matrix"))))
+          (LETT |matrixRep| (SPADCALL |mat| (QREFELT $ 12)) . #2#)
+          (EXIT
+           (QAREF1 (QAREF1 (QAREF1 |matrixRep| (- |i| 1)) (- |j| 1))
+                   (- |k| 1)))))) 
 
-(DEFUN |M3D;construct;L$;10| (|listRep| $)
-  (PROG (|resultMatrix| |element| |k| |j| |i| |row3| |row2| |row1| #1=#:G156
-         #2=#:G171 |subSubList| #3=#:G170 |subList| |kLength| |jLength|
-         |iLength|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (EQL (LENGTH |listRep|) 0)
-            (OR (EQL (LENGTH (SPADCALL |listRep| 1 (QREFELT $ 38))) 0)
-                (EQL
-                 (LENGTH
-                  (SPADCALL (SPADCALL |listRep| 1 (QREFELT $ 38)) 1
-                            (QREFELT $ 40)))
-                 0)))
-        (|error| "empty list"))
-       ('T
-        (SEQ (LETT |iLength| (LENGTH |listRep|) . #4=(|M3D;construct;L$;10|))
+(SDEFUN |M3D;setelt!;$3Nni2R;6|
+        ((|mat| $) (|i| |NonNegativeInteger|) (|j| |NonNegativeInteger|)
+         (|k| |NonNegativeInteger|) (|val| R) ($ R))
+        (SPROG
+         ((|row1| (|PrimitiveArray| R))
+          (|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
+          (|matrixRep|
+           (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
+          (|kLength| #1=(|NonNegativeInteger|)) (|jLength| #1#) (|iLength| #1#)
+          (|matDims| (|Vector| (|NonNegativeInteger|))))
+         (SEQ
+          (LETT |matDims| (SPADCALL |mat| (QREFELT $ 8))
+                . #2=(|M3D;setelt!;$3Nni2R;6|))
+          (LETT |iLength| (SPADCALL |matDims| 1 (QREFELT $ 11)) . #2#)
+          (LETT |jLength| (SPADCALL |matDims| 2 (QREFELT $ 11)) . #2#)
+          (LETT |kLength| (SPADCALL |matDims| 3 (QREFELT $ 11)) . #2#)
+          (COND
+           ((OR
+             (OR
+              (OR
+               (OR
+                (OR (SPADCALL |i| |iLength| (QREFELT $ 26))
+                    (SPADCALL |j| |jLength| (QREFELT $ 26)))
+                (SPADCALL |k| |kLength| (QREFELT $ 26)))
+               (EQL |i| 0))
+              (EQL |j| 0))
+             (EQL |k| 0))
+            (EXIT
+             (|error| "coordinates must be within the bounds of the matrix"))))
+          (LETT |matrixRep| (SPADCALL |mat| (QREFELT $ 12)) . #2#)
+          (LETT |row2| (SPADCALL (QAREF1 |matrixRep| (- |i| 1)) (QREFELT $ 18))
+                . #2#)
+          (LETT |row1| (SPADCALL (QAREF1 |row2| (- |j| 1)) (QREFELT $ 28))
+                . #2#)
+          (QSETAREF1 |row1| (- |k| 1) |val|)
+          (QSETAREF1 |row2| (- |j| 1) |row1|)
+          (QSETAREF1 |matrixRep| (- |i| 1) |row2|) (EXIT |val|)))) 
+
+(SDEFUN |M3D;zeroMatrix;3Nni$;7|
+        ((|iLength| |NonNegativeInteger|) (|jLength| |NonNegativeInteger|)
+         (|kLength| |NonNegativeInteger|) ($ $))
+        (SPADCALL
+         (MAKEARR1 |iLength|
+                   (MAKEARR1 |jLength|
+                             (MAKEARR1 |kLength| (|spadConstant| $ 30))))
+         (QREFELT $ 15))) 
+
+(SDEFUN |M3D;identityMatrix;Nni$;8| ((|iLength| |NonNegativeInteger|) ($ $))
+        (SPROG
+         ((|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
+          (|row1| (|PrimitiveArray| R)) (#1=#:G145 NIL) (|count| NIL)
+          (|row2empty| (|PrimitiveArray| (|PrimitiveArray| R)))
+          (|row1empty| (|PrimitiveArray| R))
+          (|retValueRep|
+           (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R)))))
+         (SEQ
+          (LETT |retValueRep|
+                (SPADCALL
+                 (SPADCALL |iLength| |iLength| |iLength| (QREFELT $ 31))
+                 (QREFELT $ 12))
+                . #2=(|M3D;identityMatrix;Nni$;8|))
+          (LETT |row1empty| (MAKEARR1 |iLength| (|spadConstant| $ 30)) . #2#)
+          (LETT |row2empty|
+                (MAKEARR1 |iLength| (SPADCALL |row1empty| (QREFELT $ 28)))
+                . #2#)
+          (SEQ (LETT |count| 0 . #2#) (LETT #1# (- |iLength| 1) . #2#) G190
+               (COND ((|greater_SI| |count| #1#) (GO G191)))
+               (SEQ (LETT |row1| (SPADCALL |row1empty| (QREFELT $ 28)) . #2#)
+                    (QSETAREF1 |row1| |count| (|spadConstant| $ 32))
+                    (LETT |row2| (SPADCALL |row2empty| (QREFELT $ 18)) . #2#)
+                    (QSETAREF1 |row2| |count| (SPADCALL |row1| (QREFELT $ 28)))
+                    (EXIT
+                     (QSETAREF1 |retValueRep| |count|
+                                (SPADCALL |row2| (QREFELT $ 18)))))
+               (LETT |count| (|inc_SI| |count|) . #2#) (GO G190) G191
+               (EXIT NIL))
+          (EXIT (SPADCALL |retValueRep| (QREFELT $ 15)))))) 
+
+(SDEFUN |M3D;plus;3$;9| ((|mat1| $) (|mat2| $) ($ $))
+        (SPROG
+         ((|resultMatrix| ($)) (|sum| (R)) (|k| NIL) (|j| NIL) (|i| NIL)
+          (|row3| (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
+          (|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
+          (|row1| (|PrimitiveArray| R)) (|kLength2| #1=(|NonNegativeInteger|))
+          (|jLength2| #1#) (|iLength2| #1#)
+          (|mat2Dims| #2=(|Vector| (|NonNegativeInteger|))) (|kLength1| #1#)
+          (|jLength1| #1#) (|iLength1| #1#) (|mat1Dims| #2#))
+         (SEQ
+          (LETT |mat1Dims| (SPADCALL |mat1| (QREFELT $ 8))
+                . #3=(|M3D;plus;3$;9|))
+          (LETT |iLength1| (SPADCALL |mat1Dims| 1 (QREFELT $ 11)) . #3#)
+          (LETT |jLength1| (SPADCALL |mat1Dims| 2 (QREFELT $ 11)) . #3#)
+          (LETT |kLength1| (SPADCALL |mat1Dims| 3 (QREFELT $ 11)) . #3#)
+          (LETT |mat2Dims| (SPADCALL |mat2| (QREFELT $ 8)) . #3#)
+          (LETT |iLength2| (SPADCALL |mat2Dims| 1 (QREFELT $ 11)) . #3#)
+          (LETT |jLength2| (SPADCALL |mat2Dims| 2 (QREFELT $ 11)) . #3#)
+          (LETT |kLength2| (SPADCALL |mat2Dims| 3 (QREFELT $ 11)) . #3#)
+          (COND
+           ((EQL |iLength1| |iLength2|)
+            (COND
+             ((EQL |jLength1| |jLength2|)
+              (COND
+               ((NULL (EQL |kLength1| |kLength2|))
+                (EXIT (|error| #4="error the matrices are different sizes")))))
+             (#5='T (EXIT (|error| #4#)))))
+           (#5# (EXIT (|error| #4#))))
+          (LETT |row1| (MAKEARR1 |kLength1| (|spadConstant| $ 30)) . #3#)
+          (LETT |row2| (MAKEARR1 |jLength1| (SPADCALL |row1| (QREFELT $ 28)))
+                . #3#)
+          (LETT |row3| (MAKEARR1 |iLength1| (SPADCALL |row2| (QREFELT $ 18)))
+                . #3#)
+          (SEQ (LETT |i| 1 . #3#) G190
+               (COND ((|greater_SI| |i| |iLength1|) (GO G191)))
+               (SEQ
+                (SEQ (LETT |j| 1 . #3#) G190
+                     (COND ((|greater_SI| |j| |jLength1|) (GO G191)))
+                     (SEQ
+                      (SEQ (LETT |k| 1 . #3#) G190
+                           (COND ((|greater_SI| |k| |kLength1|) (GO G191)))
+                           (SEQ
+                            (LETT |sum|
+                                  (SPADCALL
+                                   (SPADCALL |mat1| |i| |j| |k| (QREFELT $ 27))
+                                   (SPADCALL |mat2| |i| |j| |k| (QREFELT $ 27))
+                                   (QREFELT $ 34))
+                                  . #3#)
+                            (EXIT (QSETAREF1 |row1| (- |k| 1) |sum|)))
+                           (LETT |k| (|inc_SI| |k|) . #3#) (GO G190) G191
+                           (EXIT NIL))
+                      (EXIT
+                       (QSETAREF1 |row2| (- |j| 1)
+                                  (SPADCALL |row1| (QREFELT $ 28)))))
+                     (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))
+                (EXIT
+                 (QSETAREF1 |row3| (- |i| 1)
+                            (SPADCALL |row2| (QREFELT $ 18)))))
+               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+          (LETT |resultMatrix| |row3| . #3#) (EXIT |resultMatrix|)))) 
+
+(SDEFUN |M3D;construct;L$;10| ((|listRep| |List| (|List| (|List| R))) ($ $))
+        (SPROG
+         ((|resultMatrix| ($)) (|element| (R)) (|k| NIL) (|j| NIL) (|i| NIL)
+          (|row3| (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
+          (|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
+          (|row1| (|PrimitiveArray| R)) (#1=#:G156 NIL) (#2=#:G171 NIL)
+          (|subSubList| NIL) (#3=#:G170 NIL) (|subList| NIL)
+          (|kLength| (|NonNegativeInteger|)) (|jLength| (|NonNegativeInteger|))
+          (|iLength| (|NonNegativeInteger|)))
+         (SEQ
+          (COND
+           ((OR (EQL (LENGTH |listRep|) 0)
+                (OR (EQL (LENGTH (SPADCALL |listRep| 1 (QREFELT $ 38))) 0)
+                    (EQL
+                     (LENGTH
+                      (SPADCALL (SPADCALL |listRep| 1 (QREFELT $ 38)) 1
+                                (QREFELT $ 40)))
+                     0)))
+            (|error| "empty list"))
+           ('T
+            (SEQ
+             (LETT |iLength| (LENGTH |listRep|) . #4=(|M3D;construct;L$;10|))
              (LETT |jLength| (LENGTH (SPADCALL |listRep| 1 (QREFELT $ 38)))
                    . #4#)
              (LETT |kLength|
@@ -347,109 +411,108 @@
                     (QSETAREF1 |row3| (- |i| 1)
                                (SPADCALL |row2| (QREFELT $ 18)))))
                   (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-             (LETT |resultMatrix| |row3| . #4#) (EXIT |resultMatrix|)))))))) 
+             (LETT |resultMatrix| |row3| . #4#) (EXIT |resultMatrix|))))))) 
 
 (DECLAIM (NOTINLINE |ThreeDimensionalMatrix;|)) 
 
 (DEFUN |ThreeDimensionalMatrix| (#1=#:G177)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G178)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|ThreeDimensionalMatrix|)
-                                           '|domainEqualList|)
-                . #3=(|ThreeDimensionalMatrix|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|ThreeDimensionalMatrix;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G178)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|ThreeDimensionalMatrix|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ThreeDimensionalMatrix|)
+                                               '|domainEqualList|)
+                    . #3=(|ThreeDimensionalMatrix|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|ThreeDimensionalMatrix;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ThreeDimensionalMatrix|)))))))))) 
 
 (DEFUN |ThreeDimensionalMatrix;| (|#1|)
-  (PROG (|pv$| #1=#:G174 #2=#:G175 #3=#:G176 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|ThreeDimensionalMatrix|))
-      (LETT |dv$| (LIST '|ThreeDimensionalMatrix| DV$1) . #4#)
-      (LETT $ (GETREFV 51) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1| '(|SetCategory|))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #3#
+  (SPROG
+   ((|pv$| NIL) (#1=#:G174 NIL) (#2=#:G175 NIL) (#3=#:G176 NIL) ($ NIL)
+    (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|ThreeDimensionalMatrix|))
+    (LETT |dv$| (LIST '|ThreeDimensionalMatrix| DV$1) . #4#)
+    (LETT $ (GETREFV 51) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1| '(|SetCategory|))
+                                        (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|)))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           (|HasCategory| |#1|
-                                                          '(|SetCategory|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #2#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               (|HasCategory| |#1|
-                                                              '(|SetCategory|))))
-                                          (LETT #1#
-                                                (|HasCategory| |#1| '(|Ring|))
-                                                . #4#)
-                                          (OR
-                                           (AND
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #3#
                                             (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            #1#)
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#1|
-                                                           '(|SetCategory|))))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|ThreeDimensionalMatrix| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 256))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 512))
-      (AND #3# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 1024))
-      (AND
-       (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
-           (|HasCategory| |#1| '(|SetCategory|)))
-       (|augmentPredVector| $ 2048))
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 7)
-        (PROGN
-         (QSETREFV $ 31 (CONS (|dispatchFunction| |M3D;zeroMatrix;3Nni$;7|) $))
-         (QSETREFV $ 33
-                   (CONS (|dispatchFunction| |M3D;identityMatrix;Nni$;8|) $))
-         (QSETREFV $ 35 (CONS (|dispatchFunction| |M3D;plus;3$;9|) $)))))
-      $)))) 
+                                                           '(|SetCategory|)))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         (|HasCategory| |#1| '(|SetCategory|)))
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #2#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             (|HasCategory| |#1|
+                                                            '(|SetCategory|))))
+                                        (LETT #1#
+                                              (|HasCategory| |#1| '(|Ring|))
+                                              . #4#)
+                                        (OR
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          #1#)
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#1|
+                                                         '(|SetCategory|))))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|ThreeDimensionalMatrix| (LIST DV$1)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 256))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 512))
+    (AND #3# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 1024))
+    (AND
+     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
+         (|HasCategory| |#1| '(|SetCategory|)))
+     (|augmentPredVector| $ 2048))
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|testBitVector| |pv$| 7)
+      (PROGN
+       (QSETREFV $ 31 (CONS (|dispatchFunction| |M3D;zeroMatrix;3Nni$;7|) $))
+       (QSETREFV $ 33
+                 (CONS (|dispatchFunction| |M3D;identityMatrix;Nni$;8|) $))
+       (QSETREFV $ 35 (CONS (|dispatchFunction| |M3D;plus;3$;9|) $)))))
+    $))) 
 
 (MAKEPROP '|ThreeDimensionalMatrix| '|infovec|
           (LIST

@@ -14,23 +14,24 @@
       #2#)))) 
 
 (DEFUN |Patternable;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (|Join|
-                           (|mkCategory| NIL
-                                         '(((|ConvertibleTo|
-                                             (|Pattern| (|Integer|)))
-                                            (|has| |t#1|
-                                                   (|ConvertibleTo|
-                                                    (|Pattern| (|Integer|)))))
-                                           ((|ConvertibleTo|
-                                             (|Pattern| (|Float|)))
-                                            (|has| |t#1|
-                                                   (|ConvertibleTo|
-                                                    (|Pattern| (|Float|))))))
-                                         'NIL NIL)))
-               |Patternable|)
-       (SETELT #1# 0 (LIST '|Patternable| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (|Join|
+                               (|mkCategory| NIL
+                                             '(((|ConvertibleTo|
+                                                 (|Pattern| (|Integer|)))
+                                                (|has| |t#1|
+                                                       (|ConvertibleTo|
+                                                        (|Pattern|
+                                                         (|Integer|)))))
+                                               ((|ConvertibleTo|
+                                                 (|Pattern| (|Float|)))
+                                                (|has| |t#1|
+                                                       (|ConvertibleTo|
+                                                        (|Pattern|
+                                                         (|Float|))))))
+                                             'NIL NIL)))
+                   |Patternable|)
+           (SETELT #1# 0 (LIST '|Patternable| (|devaluate| |t#1|)))))) 

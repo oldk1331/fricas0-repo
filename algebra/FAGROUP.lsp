@@ -1,106 +1,115 @@
 
-(DEFUN |FAGROUP;-;2$;1| (|f| $) (SPADCALL (ELT $ 8) |f| (QREFELT $ 10))) 
+(SDEFUN |FAGROUP;-;2$;1| ((|f| $) ($ $))
+        (SPADCALL (ELT $ 8) |f| (QREFELT $ 10))) 
 
-(DEFUN |FAGROUP;inmax| (|l| $)
-  (PROG (|mx| #1=#:G118 |t|)
-    (RETURN
-     (SEQ (LETT |mx| (|SPADfirst| |l|) . #2=(|FAGROUP;inmax|))
-          (SEQ (LETT |t| NIL . #2#) (LETT #1# (CDR |l|) . #2#) G190
-               (COND
-                ((OR (ATOM #1#) (PROGN (LETT |t| (CAR #1#) . #2#) NIL))
-                 (GO G191)))
-               (SEQ
-                (EXIT
-                 (COND
-                  ((SPADCALL (QCAR |mx|) (QCAR |t|) (QREFELT $ 13))
-                   (LETT |mx| |t| . #2#)))))
-               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |mx|))))) 
-
-(DEFUN |FAGROUP;<;2$B;3| (|a| |b| $)
-  (PROG (|lc| |tb| |ta|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |a| (QREFELT $ 14))
-        (COND ((SPADCALL |b| (QREFELT $ 14)) 'NIL)
-              (#1='T
-               (< 0
-                  (QCDR (|FAGROUP;inmax| (SPADCALL |b| (QREFELT $ 18)) $))))))
-       (#1#
-        (SEQ
-         (LETT |ta| (|FAGROUP;inmax| (SPADCALL |a| (QREFELT $ 18)) $)
-               . #2=(|FAGROUP;<;2$B;3|))
-         (EXIT
-          (COND ((SPADCALL |b| (QREFELT $ 14)) (< (QCDR |ta|) 0))
-                (#1#
-                 (SEQ
-                  (LETT |tb| (|FAGROUP;inmax| (SPADCALL |b| (QREFELT $ 18)) $)
-                        . #2#)
-                  (EXIT
+(SDEFUN |FAGROUP;inmax|
+        ((|l| |List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|))))
+         ($ |Record| (|:| |gen| S) (|:| |exp| (|Integer|))))
+        (SPROG
+         ((|mx| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|))))
+          (#1=#:G118 NIL) (|t| NIL))
+         (SEQ (LETT |mx| (|SPADfirst| |l|) . #2=(|FAGROUP;inmax|))
+              (SEQ (LETT |t| NIL . #2#) (LETT #1# (CDR |l|) . #2#) G190
                    (COND
-                    ((SPADCALL (QCAR |ta|) (QCAR |tb|) (QREFELT $ 13))
-                     (< 0 (QCDR |tb|)))
-                    ((SPADCALL (QCAR |tb|) (QCAR |ta|) (QREFELT $ 13))
-                     (< (QCDR |ta|) 0))
-                    ((< (QCDR |ta|) (QCDR |tb|)) 'T)
-                    ((< (QCDR |tb|) (QCDR |ta|)) 'NIL)
-                    (#1#
+                    ((OR (ATOM #1#) (PROGN (LETT |t| (CAR #1#) . #2#) NIL))
+                     (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (COND
+                      ((SPADCALL (QCAR |mx|) (QCAR |t|) (QREFELT $ 13))
+                       (LETT |mx| |t| . #2#)))))
+                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+              (EXIT |mx|)))) 
+
+(SDEFUN |FAGROUP;<;2$B;3| ((|a| $) (|b| $) ($ |Boolean|))
+        (SPROG
+         ((|lc| ($)) (|tb| #1=(|Record| (|:| |gen| S) (|:| |exp| (|Integer|))))
+          (|ta| #1#))
+         (SEQ
+          (COND
+           ((SPADCALL |a| (QREFELT $ 14))
+            (COND ((SPADCALL |b| (QREFELT $ 14)) 'NIL)
+                  (#2='T
+                   (< 0
+                      (QCDR
+                       (|FAGROUP;inmax| (SPADCALL |b| (QREFELT $ 18)) $))))))
+           (#2#
+            (SEQ
+             (LETT |ta| (|FAGROUP;inmax| (SPADCALL |a| (QREFELT $ 18)) $)
+                   . #3=(|FAGROUP;<;2$B;3|))
+             (EXIT
+              (COND ((SPADCALL |b| (QREFELT $ 14)) (< (QCDR |ta|) 0))
+                    (#2#
                      (SEQ
-                      (LETT |lc|
-                            (SPADCALL (QCDR |ta|) (QCAR |ta|) (QREFELT $ 19))
-                            . #2#)
+                      (LETT |tb|
+                            (|FAGROUP;inmax| (SPADCALL |b| (QREFELT $ 18)) $)
+                            . #3#)
                       (EXIT
-                       (SPADCALL (SPADCALL |a| |lc| (QREFELT $ 20))
-                                 (SPADCALL |b| |lc| (QREFELT $ 20))
-                                 (QREFELT $ 21)))))))))))))))))) 
+                       (COND
+                        ((SPADCALL (QCAR |ta|) (QCAR |tb|) (QREFELT $ 13))
+                         (< 0 (QCDR |tb|)))
+                        ((SPADCALL (QCAR |tb|) (QCAR |ta|) (QREFELT $ 13))
+                         (< (QCDR |ta|) 0))
+                        ((< (QCDR |ta|) (QCDR |tb|)) 'T)
+                        ((< (QCDR |tb|) (QCDR |ta|)) 'NIL)
+                        (#2#
+                         (SEQ
+                          (LETT |lc|
+                                (SPADCALL (QCDR |ta|) (QCAR |ta|)
+                                          (QREFELT $ 19))
+                                . #3#)
+                          (EXIT
+                           (SPADCALL (SPADCALL |a| |lc| (QREFELT $ 20))
+                                     (SPADCALL |b| |lc| (QREFELT $ 20))
+                                     (QREFELT $ 21))))))))))))))))) 
 
 (DECLAIM (NOTINLINE |FreeAbelianGroup;|)) 
 
 (DEFUN |FreeAbelianGroup| (#1=#:G136)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G137)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|FreeAbelianGroup|)
-                                           '|domainEqualList|)
-                . #3=(|FreeAbelianGroup|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|FreeAbelianGroup;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G137)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|FreeAbelianGroup|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FreeAbelianGroup|)
+                                               '|domainEqualList|)
+                    . #3=(|FreeAbelianGroup|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FreeAbelianGroup;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FreeAbelianGroup|)))))))))) 
 
 (DEFUN |FreeAbelianGroup;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeAbelianGroup|))
-      (LETT |dv$| (LIST '|FreeAbelianGroup| DV$1) . #1#)
-      (LETT $ (GETREFV 31) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1| '(|OrderedSet|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedAbelianMonoid|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|FreeAbelianGroup| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 21 (CONS (|dispatchFunction| |FAGROUP;<;2$B;3|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FreeAbelianGroup|))
+          (LETT |dv$| (LIST '|FreeAbelianGroup| DV$1) . #1#)
+          (LETT $ (GETREFV 31) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedSet|))
+                                              (|HasCategory| (|Integer|)
+                                                             '(|OrderedAbelianMonoid|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|FreeAbelianGroup| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 21 (CONS (|dispatchFunction| |FAGROUP;<;2$B;3|) $)))))
+          $))) 
 
 (MAKEPROP '|FreeAbelianGroup| '|infovec|
           (LIST

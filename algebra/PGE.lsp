@@ -1,137 +1,269 @@
 
-(DEFUN |PGE;llli2gp| (|l| $)
-  (SPADCALL (SPADCALL (ELT $ 8) |l| (QREFELT $ 13)) (QREFELT $ 15))) 
+(SDEFUN |PGE;llli2gp|
+        ((|l| |List| (|List| (|List| (|Integer|))))
+         ($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (SPADCALL (ELT $ 8) |l| (QREFELT $ 13)) (QREFELT $ 15))) 
 
-(DEFUN |PGE;li1n| (|n| $)
-  (PROG (|i| #1=#:G123)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #1# NIL . #2=(|PGE;li1n|))
-       (SEQ (LETT |i| 1 . #2#) G190 (COND ((|greater_SI| |i| |n|) (GO G191)))
-            (SEQ (EXIT (LETT #1# (CONS |i| #1#) . #2#)))
-            (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-            (EXIT (NREVERSE #1#)))))))) 
-
-(DEFUN |PGE;youngGroup;LPg;3| (|l| $)
-  (PROG (|element| |gens| #1=#:G132 |i| #2=#:G131 #3=#:G130 |n|)
-    (RETURN
-     (SEQ (LETT |gens| NIL . #4=(|PGE;youngGroup;LPg;3|))
-          (LETT |element| 1 . #4#)
-          (SEQ (LETT |n| NIL . #4#) (LETT #3# |l| . #4#) G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |n| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
+(SDEFUN |PGE;li1n| ((|n| |Integer|) ($ |List| (|Integer|)))
+        (SPROG ((|i| NIL) (#1=#:G123 NIL))
                (SEQ
+                (PROGN
+                 (LETT #1# NIL . #2=(|PGE;li1n|))
+                 (SEQ (LETT |i| 1 . #2#) G190
+                      (COND ((|greater_SI| |i| |n|) (GO G191)))
+                      (SEQ (EXIT (LETT #1# (CONS |i| #1#) . #2#)))
+                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
+
+(SDEFUN |PGE;youngGroup;LPg;3|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|element| (|Integer|))
+          (|gens| (|List| (|List| (|List| (|Integer|))))) (#1=#:G132 NIL)
+          (|i| NIL) (#2=#:G131 NIL) (#3=#:G130 NIL) (|n| NIL))
+         (SEQ (LETT |gens| NIL . #4=(|PGE;youngGroup;LPg;3|))
+              (LETT |element| 1 . #4#)
+              (SEQ (LETT |n| NIL . #4#) (LETT #3# |l| . #4#) G190
+                   (COND
+                    ((OR (ATOM #3#) (PROGN (LETT |n| (CAR #3#) . #4#) NIL))
+                     (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (COND
+                      ((SPADCALL |n| 1 (QREFELT $ 19))
+                       (SEQ
+                        (LETT |gens|
+                              (CONS
+                               (SPADCALL
+                                (PROGN
+                                 (LETT #2# NIL . #4#)
+                                 (SEQ (LETT |i| |element| . #4#)
+                                      (LETT #1# (- (+ |element| |n|) 1) . #4#)
+                                      G190 (COND ((> |i| #1#) (GO G191)))
+                                      (SEQ
+                                       (EXIT (LETT #2# (CONS |i| #2#) . #4#)))
+                                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191
+                                      (EXIT (NREVERSE #2#))))
+                                (QREFELT $ 21))
+                               |gens|)
+                              . #4#)
+                        (COND
+                         ((>= |n| 3)
+                          (LETT |gens|
+                                (CONS (LIST (LIST |element| (+ |element| 1)))
+                                      |gens|)
+                                . #4#)))
+                        (EXIT (LETT |element| (+ |element| |n|) . #4#)))))))
+                   (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
+              (EXIT
+               (|PGE;llli2gp|
+                (COND ((EQL (LENGTH |gens|) 0) (LIST (LIST (LIST 1))))
+                      ('T |gens|))
+                $))))) 
+
+(SDEFUN |PGE;youngGroup;PPg;4|
+        ((|lambda| |Partition|) ($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (SPADCALL |lambda| (QREFELT $ 24)) (QREFELT $ 22))) 
+
+(SDEFUN |PGE;rubiksGroup;Pg;5| (($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|b| (|List| (|List| (|Integer|))))
+          (|l| (|List| (|List| (|Integer|))))
+          (|d| (|List| (|List| (|Integer|))))
+          (|u| (|List| (|List| (|Integer|))))
+          (|r| (|List| (|List| (|Integer|))))
+          (|f| (|List| (|List| (|Integer|)))))
+         (SEQ
+          (LETT |f|
+                (LIST (LIST 11 13 15 17) (LIST 12 14 16 18) (LIST 51 31 21 41)
+                      (LIST 53 33 23 43) (LIST 52 32 22 42))
+                . #1=(|PGE;rubiksGroup;Pg;5|))
+          (LETT |r|
+                (LIST (LIST 21 23 25 27) (LIST 22 24 26 28) (LIST 13 37 67 43)
+                      (LIST 15 31 61 45) (LIST 14 38 68 44))
+                . #1#)
+          (LETT |u|
+                (LIST (LIST 31 33 35 37) (LIST 32 34 36 38) (LIST 13 51 63 25)
+                      (LIST 11 57 61 23) (LIST 12 58 62 24))
+                . #1#)
+          (LETT |d|
+                (LIST (LIST 41 43 45 47) (LIST 42 44 46 48) (LIST 17 21 67 55)
+                      (LIST 15 27 65 53) (LIST 16 28 66 54))
+                . #1#)
+          (LETT |l|
+                (LIST (LIST 51 53 55 57) (LIST 52 54 56 58) (LIST 11 41 65 35)
+                      (LIST 17 47 63 33) (LIST 18 48 64 34))
+                . #1#)
+          (LETT |b|
+                (LIST (LIST 61 63 65 67) (LIST 62 64 66 68) (LIST 45 25 35 55)
+                      (LIST 47 27 37 57) (LIST 46 26 36 56))
+                . #1#)
+          (EXIT (|PGE;llli2gp| (LIST |f| |r| |u| |d| |l| |b|) $))))) 
+
+(SDEFUN |PGE;mathieu11;LPg;6|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG ((|a| (|List| (|List| (|Integer|)))))
+               (SEQ
+                (LETT |l| (SPADCALL |l| (QREFELT $ 27))
+                      . #1=(|PGE;mathieu11;LPg;6|))
                 (EXIT
                  (COND
-                  ((SPADCALL |n| 1 (QREFELT $ 19))
+                  ((SPADCALL (LENGTH |l|) 11 (QREFELT $ 28))
+                   (|error| "Exactly 11 integers for mathieu11 needed !"))
+                  ('T
                    (SEQ
-                    (LETT |gens|
-                          (CONS
-                           (SPADCALL
-                            (PROGN
-                             (LETT #2# NIL . #4#)
-                             (SEQ (LETT |i| |element| . #4#)
-                                  (LETT #1# (- (+ |element| |n|) 1) . #4#) G190
-                                  (COND ((> |i| #1#) (GO G191)))
-                                  (SEQ (EXIT (LETT #2# (CONS |i| #2#) . #4#)))
-                                  (LETT |i| (+ |i| 1) . #4#) (GO G190) G191
-                                  (EXIT (NREVERSE #2#))))
-                            (QREFELT $ 21))
-                           |gens|)
-                          . #4#)
-                    (COND
-                     ((>= |n| 3)
-                      (LETT |gens|
-                            (CONS (LIST (LIST |element| (+ |element| 1)))
-                                  |gens|)
-                            . #4#)))
-                    (EXIT (LETT |element| (+ |element| |n|) . #4#)))))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT
-           (|PGE;llli2gp|
-            (COND ((EQL (LENGTH |gens|) 0) (LIST (LIST (LIST 1)))) ('T |gens|))
-            $)))))) 
+                    (LETT |a|
+                          (LIST
+                           (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                                 (SPADCALL |l| 10 (QREFELT $ 29)))
+                           (LIST (SPADCALL |l| 2 (QREFELT $ 29))
+                                 (SPADCALL |l| 8 (QREFELT $ 29)))
+                           (LIST (SPADCALL |l| 3 (QREFELT $ 29))
+                                 (SPADCALL |l| 11 (QREFELT $ 29)))
+                           (LIST (SPADCALL |l| 5 (QREFELT $ 29))
+                                 (SPADCALL |l| 7 (QREFELT $ 29))))
+                          . #1#)
+                    (EXIT
+                     (|PGE;llli2gp|
+                      (LIST |a|
+                            (LIST
+                             (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                                   (SPADCALL |l| 4 (QREFELT $ 29))
+                                   (SPADCALL |l| 7 (QREFELT $ 29))
+                                   (SPADCALL |l| 6 (QREFELT $ 29)))
+                             (LIST (SPADCALL |l| 2 (QREFELT $ 29))
+                                   (SPADCALL |l| 11 (QREFELT $ 29))
+                                   (SPADCALL |l| 10 (QREFELT $ 29))
+                                   (SPADCALL |l| 9 (QREFELT $ 29)))))
+                      $))))))))) 
 
-(DEFUN |PGE;youngGroup;PPg;4| (|lambda| $)
-  (SPADCALL (SPADCALL |lambda| (QREFELT $ 24)) (QREFELT $ 22))) 
+(SDEFUN |PGE;mathieu11;Pg;7| (($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| 11 $) (QREFELT $ 30))) 
 
-(DEFUN |PGE;rubiksGroup;Pg;5| ($)
-  (PROG (|b| |l| |d| |u| |r| |f|)
-    (RETURN
-     (SEQ
-      (LETT |f|
-            (LIST (LIST 11 13 15 17) (LIST 12 14 16 18) (LIST 51 31 21 41)
-                  (LIST 53 33 23 43) (LIST 52 32 22 42))
-            . #1=(|PGE;rubiksGroup;Pg;5|))
-      (LETT |r|
-            (LIST (LIST 21 23 25 27) (LIST 22 24 26 28) (LIST 13 37 67 43)
-                  (LIST 15 31 61 45) (LIST 14 38 68 44))
-            . #1#)
-      (LETT |u|
-            (LIST (LIST 31 33 35 37) (LIST 32 34 36 38) (LIST 13 51 63 25)
-                  (LIST 11 57 61 23) (LIST 12 58 62 24))
-            . #1#)
-      (LETT |d|
-            (LIST (LIST 41 43 45 47) (LIST 42 44 46 48) (LIST 17 21 67 55)
-                  (LIST 15 27 65 53) (LIST 16 28 66 54))
-            . #1#)
-      (LETT |l|
-            (LIST (LIST 51 53 55 57) (LIST 52 54 56 58) (LIST 11 41 65 35)
-                  (LIST 17 47 63 33) (LIST 18 48 64 34))
-            . #1#)
-      (LETT |b|
-            (LIST (LIST 61 63 65 67) (LIST 62 64 66 68) (LIST 45 25 35 55)
-                  (LIST 47 27 37 57) (LIST 46 26 36 56))
-            . #1#)
-      (EXIT (|PGE;llli2gp| (LIST |f| |r| |u| |d| |l| |b|) $)))))) 
+(SDEFUN |PGE;mathieu12;LPg;8|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG ((|a| (|List| (|List| (|Integer|)))))
+               (SEQ
+                (LETT |l| (SPADCALL |l| (QREFELT $ 27))
+                      . #1=(|PGE;mathieu12;LPg;8|))
+                (EXIT
+                 (COND
+                  ((SPADCALL (LENGTH |l|) 12 (QREFELT $ 28))
+                   (|error| "Exactly 12 integers for mathieu12 needed !"))
+                  ('T
+                   (SEQ
+                    (LETT |a|
+                          (LIST
+                           (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                                 (SPADCALL |l| 2 (QREFELT $ 29))
+                                 (SPADCALL |l| 3 (QREFELT $ 29))
+                                 (SPADCALL |l| 4 (QREFELT $ 29))
+                                 (SPADCALL |l| 5 (QREFELT $ 29))
+                                 (SPADCALL |l| 6 (QREFELT $ 29))
+                                 (SPADCALL |l| 7 (QREFELT $ 29))
+                                 (SPADCALL |l| 8 (QREFELT $ 29))
+                                 (SPADCALL |l| 9 (QREFELT $ 29))
+                                 (SPADCALL |l| 10 (QREFELT $ 29))
+                                 (SPADCALL |l| 11 (QREFELT $ 29))))
+                          . #1#)
+                    (EXIT
+                     (|PGE;llli2gp|
+                      (LIST |a|
+                            (LIST
+                             (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                                   (SPADCALL |l| 6 (QREFELT $ 29))
+                                   (SPADCALL |l| 5 (QREFELT $ 29))
+                                   (SPADCALL |l| 8 (QREFELT $ 29))
+                                   (SPADCALL |l| 3 (QREFELT $ 29))
+                                   (SPADCALL |l| 7 (QREFELT $ 29))
+                                   (SPADCALL |l| 4 (QREFELT $ 29))
+                                   (SPADCALL |l| 2 (QREFELT $ 29))
+                                   (SPADCALL |l| 9 (QREFELT $ 29))
+                                   (SPADCALL |l| 10 (QREFELT $ 29)))
+                             (LIST (SPADCALL |l| 11 (QREFELT $ 29))
+                                   (SPADCALL |l| 12 (QREFELT $ 29)))))
+                      $))))))))) 
 
-(DEFUN |PGE;mathieu11;LPg;6| (|l| $)
-  (PROG (|a|)
-    (RETURN
-     (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 27)) . #1=(|PGE;mathieu11;LPg;6|))
+(SDEFUN |PGE;mathieu12;Pg;9| (($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| 12 $) (QREFELT $ 32))) 
+
+(SDEFUN |PGE;mathieu22;LPg;10|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|b| (|List| (|List| #1=(|Integer|)))) (|a| (|List| (|List| #1#))))
+         (SEQ
+          (LETT |l| (SPADCALL |l| (QREFELT $ 27))
+                . #2=(|PGE;mathieu22;LPg;10|))
           (EXIT
            (COND
-            ((SPADCALL (LENGTH |l|) 11 (QREFELT $ 28))
-             (|error| "Exactly 11 integers for mathieu11 needed !"))
+            ((SPADCALL (LENGTH |l|) 22 (QREFELT $ 28))
+             (|error| "Exactly 22 integers for mathieu22 needed !"))
             ('T
              (SEQ
               (LETT |a|
                     (LIST
                      (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                           (SPADCALL |l| 10 (QREFELT $ 29)))
-                     (LIST (SPADCALL |l| 2 (QREFELT $ 29))
-                           (SPADCALL |l| 8 (QREFELT $ 29)))
-                     (LIST (SPADCALL |l| 3 (QREFELT $ 29))
-                           (SPADCALL |l| 11 (QREFELT $ 29)))
+                           (SPADCALL |l| 2 (QREFELT $ 29))
+                           (SPADCALL |l| 4 (QREFELT $ 29))
+                           (SPADCALL |l| 8 (QREFELT $ 29))
+                           (SPADCALL |l| 16 (QREFELT $ 29))
+                           (SPADCALL |l| 9 (QREFELT $ 29))
+                           (SPADCALL |l| 18 (QREFELT $ 29))
+                           (SPADCALL |l| 13 (QREFELT $ 29))
+                           (SPADCALL |l| 3 (QREFELT $ 29))
+                           (SPADCALL |l| 6 (QREFELT $ 29))
+                           (SPADCALL |l| 12 (QREFELT $ 29)))
                      (LIST (SPADCALL |l| 5 (QREFELT $ 29))
-                           (SPADCALL |l| 7 (QREFELT $ 29))))
-                    . #1#)
-              (EXIT
-               (|PGE;llli2gp|
-                (LIST |a|
-                      (LIST
-                       (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                             (SPADCALL |l| 4 (QREFELT $ 29))
-                             (SPADCALL |l| 7 (QREFELT $ 29))
-                             (SPADCALL |l| 6 (QREFELT $ 29)))
-                       (LIST (SPADCALL |l| 2 (QREFELT $ 29))
-                             (SPADCALL |l| 11 (QREFELT $ 29))
-                             (SPADCALL |l| 10 (QREFELT $ 29))
-                             (SPADCALL |l| 9 (QREFELT $ 29)))))
-                $)))))))))) 
+                           (SPADCALL |l| 10 (QREFELT $ 29))
+                           (SPADCALL |l| 20 (QREFELT $ 29))
+                           (SPADCALL |l| 17 (QREFELT $ 29))
+                           (SPADCALL |l| 11 (QREFELT $ 29))
+                           (SPADCALL |l| 22 (QREFELT $ 29))
+                           (SPADCALL |l| 21 (QREFELT $ 29))
+                           (SPADCALL |l| 19 (QREFELT $ 29))
+                           (SPADCALL |l| 15 (QREFELT $ 29))
+                           (SPADCALL |l| 7 (QREFELT $ 29))
+                           (SPADCALL |l| 14 (QREFELT $ 29))))
+                    . #2#)
+              (LETT |b|
+                    (LIST
+                     (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                           (SPADCALL |l| 2 (QREFELT $ 29))
+                           (SPADCALL |l| 6 (QREFELT $ 29))
+                           (SPADCALL |l| 18 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 3 (QREFELT $ 29))
+                           (SPADCALL |l| 15 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 5 (QREFELT $ 29))
+                           (SPADCALL |l| 8 (QREFELT $ 29))
+                           (SPADCALL |l| 21 (QREFELT $ 29))
+                           (SPADCALL |l| 13 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 7 (QREFELT $ 29))
+                           (SPADCALL |l| 9 (QREFELT $ 29))
+                           (SPADCALL |l| 20 (QREFELT $ 29))
+                           (SPADCALL |l| 12 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 10 (QREFELT $ 29))
+                           (SPADCALL |l| 16 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 11 (QREFELT $ 29))
+                           (SPADCALL |l| 19 (QREFELT $ 29))
+                           (SPADCALL |l| 14 (QREFELT $ 29))
+                           (SPADCALL |l| 22 (QREFELT $ 29))))
+                    . #2#)
+              (EXIT (|PGE;llli2gp| (LIST |a| |b|) $))))))))) 
 
-(DEFUN |PGE;mathieu11;Pg;7| ($) (SPADCALL (|PGE;li1n| 11 $) (QREFELT $ 30))) 
+(SDEFUN |PGE;mathieu22;Pg;11| (($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| 22 $) (QREFELT $ 34))) 
 
-(DEFUN |PGE;mathieu12;LPg;8| (|l| $)
-  (PROG (|a|)
-    (RETURN
-     (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 27)) . #1=(|PGE;mathieu12;LPg;8|))
+(SDEFUN |PGE;mathieu23;LPg;12|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|b| (|List| (|List| #1=(|Integer|)))) (|a| (|List| (|List| #1#))))
+         (SEQ
+          (LETT |l| (SPADCALL |l| (QREFELT $ 27))
+                . #2=(|PGE;mathieu23;LPg;12|))
           (EXIT
            (COND
-            ((SPADCALL (LENGTH |l|) 12 (QREFELT $ 28))
-             (|error| "Exactly 12 integers for mathieu12 needed !"))
+            ((SPADCALL (LENGTH |l|) 23 (QREFELT $ 28))
+             (|error| "Exactly 23 integers for mathieu23 needed !"))
             ('T
              (SEQ
               (LETT |a|
@@ -146,224 +278,122 @@
                            (SPADCALL |l| 8 (QREFELT $ 29))
                            (SPADCALL |l| 9 (QREFELT $ 29))
                            (SPADCALL |l| 10 (QREFELT $ 29))
-                           (SPADCALL |l| 11 (QREFELT $ 29))))
-                    . #1#)
-              (EXIT
-               (|PGE;llli2gp|
-                (LIST |a|
-                      (LIST
-                       (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                             (SPADCALL |l| 6 (QREFELT $ 29))
-                             (SPADCALL |l| 5 (QREFELT $ 29))
-                             (SPADCALL |l| 8 (QREFELT $ 29))
-                             (SPADCALL |l| 3 (QREFELT $ 29))
-                             (SPADCALL |l| 7 (QREFELT $ 29))
-                             (SPADCALL |l| 4 (QREFELT $ 29))
-                             (SPADCALL |l| 2 (QREFELT $ 29))
-                             (SPADCALL |l| 9 (QREFELT $ 29))
-                             (SPADCALL |l| 10 (QREFELT $ 29)))
-                       (LIST (SPADCALL |l| 11 (QREFELT $ 29))
-                             (SPADCALL |l| 12 (QREFELT $ 29)))))
-                $)))))))))) 
+                           (SPADCALL |l| 11 (QREFELT $ 29))
+                           (SPADCALL |l| 12 (QREFELT $ 29))
+                           (SPADCALL |l| 13 (QREFELT $ 29))
+                           (SPADCALL |l| 14 (QREFELT $ 29))
+                           (SPADCALL |l| 15 (QREFELT $ 29))
+                           (SPADCALL |l| 16 (QREFELT $ 29))
+                           (SPADCALL |l| 17 (QREFELT $ 29))
+                           (SPADCALL |l| 18 (QREFELT $ 29))
+                           (SPADCALL |l| 19 (QREFELT $ 29))
+                           (SPADCALL |l| 20 (QREFELT $ 29))
+                           (SPADCALL |l| 21 (QREFELT $ 29))
+                           (SPADCALL |l| 22 (QREFELT $ 29))
+                           (SPADCALL |l| 23 (QREFELT $ 29))))
+                    . #2#)
+              (LETT |b|
+                    (LIST
+                     (LIST (SPADCALL |l| 2 (QREFELT $ 29))
+                           (SPADCALL |l| 16 (QREFELT $ 29))
+                           (SPADCALL |l| 9 (QREFELT $ 29))
+                           (SPADCALL |l| 6 (QREFELT $ 29))
+                           (SPADCALL |l| 8 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 3 (QREFELT $ 29))
+                           (SPADCALL |l| 12 (QREFELT $ 29))
+                           (SPADCALL |l| 13 (QREFELT $ 29))
+                           (SPADCALL |l| 18 (QREFELT $ 29))
+                           (SPADCALL |l| 4 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 7 (QREFELT $ 29))
+                           (SPADCALL |l| 17 (QREFELT $ 29))
+                           (SPADCALL |l| 10 (QREFELT $ 29))
+                           (SPADCALL |l| 11 (QREFELT $ 29))
+                           (SPADCALL |l| 22 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 14 (QREFELT $ 29))
+                           (SPADCALL |l| 19 (QREFELT $ 29))
+                           (SPADCALL |l| 21 (QREFELT $ 29))
+                           (SPADCALL |l| 20 (QREFELT $ 29))
+                           (SPADCALL |l| 15 (QREFELT $ 29))))
+                    . #2#)
+              (EXIT (|PGE;llli2gp| (LIST |a| |b|) $))))))))) 
 
-(DEFUN |PGE;mathieu12;Pg;9| ($) (SPADCALL (|PGE;li1n| 12 $) (QREFELT $ 32))) 
+(SDEFUN |PGE;mathieu23;Pg;13| (($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| 23 $) (QREFELT $ 36))) 
 
-(DEFUN |PGE;mathieu22;LPg;10| (|l| $)
-  (PROG (|b| |a|)
-    (RETURN
-     (SEQ
-      (LETT |l| (SPADCALL |l| (QREFELT $ 27)) . #1=(|PGE;mathieu22;LPg;10|))
-      (EXIT
-       (COND
-        ((SPADCALL (LENGTH |l|) 22 (QREFELT $ 28))
-         (|error| "Exactly 22 integers for mathieu22 needed !"))
-        ('T
+(SDEFUN |PGE;mathieu24;LPg;14|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|b| (|List| (|List| #1=(|Integer|)))) (|a| (|List| (|List| #1#))))
          (SEQ
-          (LETT |a|
-                (LIST
-                 (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                       (SPADCALL |l| 2 (QREFELT $ 29))
-                       (SPADCALL |l| 4 (QREFELT $ 29))
-                       (SPADCALL |l| 8 (QREFELT $ 29))
-                       (SPADCALL |l| 16 (QREFELT $ 29))
-                       (SPADCALL |l| 9 (QREFELT $ 29))
-                       (SPADCALL |l| 18 (QREFELT $ 29))
-                       (SPADCALL |l| 13 (QREFELT $ 29))
-                       (SPADCALL |l| 3 (QREFELT $ 29))
-                       (SPADCALL |l| 6 (QREFELT $ 29))
-                       (SPADCALL |l| 12 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 5 (QREFELT $ 29))
-                       (SPADCALL |l| 10 (QREFELT $ 29))
-                       (SPADCALL |l| 20 (QREFELT $ 29))
-                       (SPADCALL |l| 17 (QREFELT $ 29))
-                       (SPADCALL |l| 11 (QREFELT $ 29))
-                       (SPADCALL |l| 22 (QREFELT $ 29))
-                       (SPADCALL |l| 21 (QREFELT $ 29))
-                       (SPADCALL |l| 19 (QREFELT $ 29))
-                       (SPADCALL |l| 15 (QREFELT $ 29))
-                       (SPADCALL |l| 7 (QREFELT $ 29))
-                       (SPADCALL |l| 14 (QREFELT $ 29))))
-                . #1#)
-          (LETT |b|
-                (LIST
-                 (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                       (SPADCALL |l| 2 (QREFELT $ 29))
-                       (SPADCALL |l| 6 (QREFELT $ 29))
-                       (SPADCALL |l| 18 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 3 (QREFELT $ 29))
-                       (SPADCALL |l| 15 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 5 (QREFELT $ 29))
-                       (SPADCALL |l| 8 (QREFELT $ 29))
-                       (SPADCALL |l| 21 (QREFELT $ 29))
-                       (SPADCALL |l| 13 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 7 (QREFELT $ 29))
-                       (SPADCALL |l| 9 (QREFELT $ 29))
-                       (SPADCALL |l| 20 (QREFELT $ 29))
-                       (SPADCALL |l| 12 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 10 (QREFELT $ 29))
-                       (SPADCALL |l| 16 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 11 (QREFELT $ 29))
-                       (SPADCALL |l| 19 (QREFELT $ 29))
-                       (SPADCALL |l| 14 (QREFELT $ 29))
-                       (SPADCALL |l| 22 (QREFELT $ 29))))
-                . #1#)
-          (EXIT (|PGE;llli2gp| (LIST |a| |b|) $)))))))))) 
+          (LETT |l| (SPADCALL |l| (QREFELT $ 27))
+                . #2=(|PGE;mathieu24;LPg;14|))
+          (EXIT
+           (COND
+            ((SPADCALL (LENGTH |l|) 24 (QREFELT $ 28))
+             (|error| "Exactly 24 integers for mathieu24 needed !"))
+            ('T
+             (SEQ
+              (LETT |a|
+                    (LIST
+                     (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                           (SPADCALL |l| 16 (QREFELT $ 29))
+                           (SPADCALL |l| 10 (QREFELT $ 29))
+                           (SPADCALL |l| 22 (QREFELT $ 29))
+                           (SPADCALL |l| 24 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 2 (QREFELT $ 29))
+                           (SPADCALL |l| 12 (QREFELT $ 29))
+                           (SPADCALL |l| 18 (QREFELT $ 29))
+                           (SPADCALL |l| 21 (QREFELT $ 29))
+                           (SPADCALL |l| 7 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 4 (QREFELT $ 29))
+                           (SPADCALL |l| 5 (QREFELT $ 29))
+                           (SPADCALL |l| 8 (QREFELT $ 29))
+                           (SPADCALL |l| 6 (QREFELT $ 29))
+                           (SPADCALL |l| 17 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 9 (QREFELT $ 29))
+                           (SPADCALL |l| 11 (QREFELT $ 29))
+                           (SPADCALL |l| 13 (QREFELT $ 29))
+                           (SPADCALL |l| 19 (QREFELT $ 29))
+                           (SPADCALL |l| 15 (QREFELT $ 29))))
+                    . #2#)
+              (LETT |b|
+                    (LIST
+                     (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                           (SPADCALL |l| 22 (QREFELT $ 29))
+                           (SPADCALL |l| 13 (QREFELT $ 29))
+                           (SPADCALL |l| 14 (QREFELT $ 29))
+                           (SPADCALL |l| 6 (QREFELT $ 29))
+                           (SPADCALL |l| 20 (QREFELT $ 29))
+                           (SPADCALL |l| 3 (QREFELT $ 29))
+                           (SPADCALL |l| 21 (QREFELT $ 29))
+                           (SPADCALL |l| 8 (QREFELT $ 29))
+                           (SPADCALL |l| 11 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 2 (QREFELT $ 29))
+                           (SPADCALL |l| 10 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 4 (QREFELT $ 29))
+                           (SPADCALL |l| 15 (QREFELT $ 29))
+                           (SPADCALL |l| 18 (QREFELT $ 29))
+                           (SPADCALL |l| 17 (QREFELT $ 29))
+                           (SPADCALL |l| 16 (QREFELT $ 29))
+                           (SPADCALL |l| 5 (QREFELT $ 29))
+                           (SPADCALL |l| 9 (QREFELT $ 29))
+                           (SPADCALL |l| 19 (QREFELT $ 29))
+                           (SPADCALL |l| 12 (QREFELT $ 29))
+                           (SPADCALL |l| 7 (QREFELT $ 29)))
+                     (LIST (SPADCALL |l| 23 (QREFELT $ 29))
+                           (SPADCALL |l| 24 (QREFELT $ 29))))
+                    . #2#)
+              (EXIT (|PGE;llli2gp| (LIST |a| |b|) $))))))))) 
 
-(DEFUN |PGE;mathieu22;Pg;11| ($) (SPADCALL (|PGE;li1n| 22 $) (QREFELT $ 34))) 
+(SDEFUN |PGE;mathieu24;Pg;15| (($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| 24 $) (QREFELT $ 38))) 
 
-(DEFUN |PGE;mathieu23;LPg;12| (|l| $)
-  (PROG (|b| |a|)
-    (RETURN
-     (SEQ
-      (LETT |l| (SPADCALL |l| (QREFELT $ 27)) . #1=(|PGE;mathieu23;LPg;12|))
-      (EXIT
-       (COND
-        ((SPADCALL (LENGTH |l|) 23 (QREFELT $ 28))
-         (|error| "Exactly 23 integers for mathieu23 needed !"))
-        ('T
+(SDEFUN |PGE;janko2;LPg;16|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|b| (|List| (|List| #1=(|Integer|)))) (|a| (|List| (|List| #1#))))
          (SEQ
-          (LETT |a|
-                (LIST
-                 (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                       (SPADCALL |l| 2 (QREFELT $ 29))
-                       (SPADCALL |l| 3 (QREFELT $ 29))
-                       (SPADCALL |l| 4 (QREFELT $ 29))
-                       (SPADCALL |l| 5 (QREFELT $ 29))
-                       (SPADCALL |l| 6 (QREFELT $ 29))
-                       (SPADCALL |l| 7 (QREFELT $ 29))
-                       (SPADCALL |l| 8 (QREFELT $ 29))
-                       (SPADCALL |l| 9 (QREFELT $ 29))
-                       (SPADCALL |l| 10 (QREFELT $ 29))
-                       (SPADCALL |l| 11 (QREFELT $ 29))
-                       (SPADCALL |l| 12 (QREFELT $ 29))
-                       (SPADCALL |l| 13 (QREFELT $ 29))
-                       (SPADCALL |l| 14 (QREFELT $ 29))
-                       (SPADCALL |l| 15 (QREFELT $ 29))
-                       (SPADCALL |l| 16 (QREFELT $ 29))
-                       (SPADCALL |l| 17 (QREFELT $ 29))
-                       (SPADCALL |l| 18 (QREFELT $ 29))
-                       (SPADCALL |l| 19 (QREFELT $ 29))
-                       (SPADCALL |l| 20 (QREFELT $ 29))
-                       (SPADCALL |l| 21 (QREFELT $ 29))
-                       (SPADCALL |l| 22 (QREFELT $ 29))
-                       (SPADCALL |l| 23 (QREFELT $ 29))))
-                . #1#)
-          (LETT |b|
-                (LIST
-                 (LIST (SPADCALL |l| 2 (QREFELT $ 29))
-                       (SPADCALL |l| 16 (QREFELT $ 29))
-                       (SPADCALL |l| 9 (QREFELT $ 29))
-                       (SPADCALL |l| 6 (QREFELT $ 29))
-                       (SPADCALL |l| 8 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 3 (QREFELT $ 29))
-                       (SPADCALL |l| 12 (QREFELT $ 29))
-                       (SPADCALL |l| 13 (QREFELT $ 29))
-                       (SPADCALL |l| 18 (QREFELT $ 29))
-                       (SPADCALL |l| 4 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 7 (QREFELT $ 29))
-                       (SPADCALL |l| 17 (QREFELT $ 29))
-                       (SPADCALL |l| 10 (QREFELT $ 29))
-                       (SPADCALL |l| 11 (QREFELT $ 29))
-                       (SPADCALL |l| 22 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 14 (QREFELT $ 29))
-                       (SPADCALL |l| 19 (QREFELT $ 29))
-                       (SPADCALL |l| 21 (QREFELT $ 29))
-                       (SPADCALL |l| 20 (QREFELT $ 29))
-                       (SPADCALL |l| 15 (QREFELT $ 29))))
-                . #1#)
-          (EXIT (|PGE;llli2gp| (LIST |a| |b|) $)))))))))) 
-
-(DEFUN |PGE;mathieu23;Pg;13| ($) (SPADCALL (|PGE;li1n| 23 $) (QREFELT $ 36))) 
-
-(DEFUN |PGE;mathieu24;LPg;14| (|l| $)
-  (PROG (|b| |a|)
-    (RETURN
-     (SEQ
-      (LETT |l| (SPADCALL |l| (QREFELT $ 27)) . #1=(|PGE;mathieu24;LPg;14|))
-      (EXIT
-       (COND
-        ((SPADCALL (LENGTH |l|) 24 (QREFELT $ 28))
-         (|error| "Exactly 24 integers for mathieu24 needed !"))
-        ('T
-         (SEQ
-          (LETT |a|
-                (LIST
-                 (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                       (SPADCALL |l| 16 (QREFELT $ 29))
-                       (SPADCALL |l| 10 (QREFELT $ 29))
-                       (SPADCALL |l| 22 (QREFELT $ 29))
-                       (SPADCALL |l| 24 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 2 (QREFELT $ 29))
-                       (SPADCALL |l| 12 (QREFELT $ 29))
-                       (SPADCALL |l| 18 (QREFELT $ 29))
-                       (SPADCALL |l| 21 (QREFELT $ 29))
-                       (SPADCALL |l| 7 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 4 (QREFELT $ 29))
-                       (SPADCALL |l| 5 (QREFELT $ 29))
-                       (SPADCALL |l| 8 (QREFELT $ 29))
-                       (SPADCALL |l| 6 (QREFELT $ 29))
-                       (SPADCALL |l| 17 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 9 (QREFELT $ 29))
-                       (SPADCALL |l| 11 (QREFELT $ 29))
-                       (SPADCALL |l| 13 (QREFELT $ 29))
-                       (SPADCALL |l| 19 (QREFELT $ 29))
-                       (SPADCALL |l| 15 (QREFELT $ 29))))
-                . #1#)
-          (LETT |b|
-                (LIST
-                 (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                       (SPADCALL |l| 22 (QREFELT $ 29))
-                       (SPADCALL |l| 13 (QREFELT $ 29))
-                       (SPADCALL |l| 14 (QREFELT $ 29))
-                       (SPADCALL |l| 6 (QREFELT $ 29))
-                       (SPADCALL |l| 20 (QREFELT $ 29))
-                       (SPADCALL |l| 3 (QREFELT $ 29))
-                       (SPADCALL |l| 21 (QREFELT $ 29))
-                       (SPADCALL |l| 8 (QREFELT $ 29))
-                       (SPADCALL |l| 11 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 2 (QREFELT $ 29))
-                       (SPADCALL |l| 10 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 4 (QREFELT $ 29))
-                       (SPADCALL |l| 15 (QREFELT $ 29))
-                       (SPADCALL |l| 18 (QREFELT $ 29))
-                       (SPADCALL |l| 17 (QREFELT $ 29))
-                       (SPADCALL |l| 16 (QREFELT $ 29))
-                       (SPADCALL |l| 5 (QREFELT $ 29))
-                       (SPADCALL |l| 9 (QREFELT $ 29))
-                       (SPADCALL |l| 19 (QREFELT $ 29))
-                       (SPADCALL |l| 12 (QREFELT $ 29))
-                       (SPADCALL |l| 7 (QREFELT $ 29)))
-                 (LIST (SPADCALL |l| 23 (QREFELT $ 29))
-                       (SPADCALL |l| 24 (QREFELT $ 29))))
-                . #1#)
-          (EXIT (|PGE;llli2gp| (LIST |a| |b|) $)))))))))) 
-
-(DEFUN |PGE;mathieu24;Pg;15| ($) (SPADCALL (|PGE;li1n| 24 $) (QREFELT $ 38))) 
-
-(DEFUN |PGE;janko2;LPg;16| (|l| $)
-  (PROG (|b| |a|)
-    (RETURN
-     (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 27)) . #1=(|PGE;janko2;LPg;16|))
+          (LETT |l| (SPADCALL |l| (QREFELT $ 27)) . #2=(|PGE;janko2;LPg;16|))
           (EXIT
            (COND
             ((SPADCALL (LENGTH |l|) 100 (QREFELT $ 28))
@@ -470,7 +500,7 @@
                            (SPADCALL |l| 97 (QREFELT $ 29))
                            (SPADCALL |l| 98 (QREFELT $ 29))
                            (SPADCALL |l| 99 (QREFELT $ 29))))
-                    . #1#)
+                    . #2#)
               (LETT |b|
                     (LIST
                      (LIST (SPADCALL |l| 1 (QREFELT $ 29))
@@ -573,207 +603,226 @@
                            (SPADCALL |l| 88 (QREFELT $ 29))
                            (SPADCALL |l| 29 (QREFELT $ 29))
                            (SPADCALL |l| 12 (QREFELT $ 29))))
-                    . #1#)
-              (EXIT (|PGE;llli2gp| (LIST |a| |b|) $)))))))))) 
+                    . #2#)
+              (EXIT (|PGE;llli2gp| (LIST |a| |b|) $))))))))) 
 
-(DEFUN |PGE;janko2;Pg;17| ($) (SPADCALL (|PGE;li1n| 100 $) (QREFELT $ 40))) 
+(SDEFUN |PGE;janko2;Pg;17| (($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| 100 $) (QREFELT $ 40))) 
 
-(DEFUN |PGE;abelianGroup;LPg;18| (|l| $)
-  (PROG (|element| |gens| #1=#:G168 |i| #2=#:G167 #3=#:G166 |n|)
-    (RETURN
-     (SEQ (LETT |gens| NIL . #4=(|PGE;abelianGroup;LPg;18|))
-          (LETT |element| 1 . #4#)
-          (SEQ (LETT |n| NIL . #4#) (LETT #3# |l| . #4#) G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |n| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
-               (SEQ
-                (EXIT
-                 (COND
-                  ((SPADCALL |n| 1 (QREFELT $ 43))
+(SDEFUN |PGE;abelianGroup;LPg;18|
+        ((|l| |List| (|PositiveInteger|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|element| (|Integer|))
+          (|gens| (|List| (|List| (|List| (|Integer|))))) (#1=#:G168 NIL)
+          (|i| NIL) (#2=#:G167 NIL) (#3=#:G166 NIL) (|n| NIL))
+         (SEQ (LETT |gens| NIL . #4=(|PGE;abelianGroup;LPg;18|))
+              (LETT |element| 1 . #4#)
+              (SEQ (LETT |n| NIL . #4#) (LETT #3# |l| . #4#) G190
+                   (COND
+                    ((OR (ATOM #3#) (PROGN (LETT |n| (CAR #3#) . #4#) NIL))
+                     (GO G191)))
                    (SEQ
-                    (LETT |gens|
-                          (CONS
-                           (SPADCALL
-                            (PROGN
-                             (LETT #2# NIL . #4#)
-                             (SEQ (LETT |i| |element| . #4#)
-                                  (LETT #1# (- (+ |element| |n|) 1) . #4#) G190
-                                  (COND ((> |i| #1#) (GO G191)))
-                                  (SEQ (EXIT (LETT #2# (CONS |i| #2#) . #4#)))
-                                  (LETT |i| (+ |i| 1) . #4#) (GO G190) G191
-                                  (EXIT (NREVERSE #2#))))
-                            (QREFELT $ 21))
-                           |gens|)
-                          . #4#)
-                    (EXIT (LETT |element| (+ |element| |n|) . #4#)))))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT
-           (|PGE;llli2gp|
-            (COND ((EQL (LENGTH |gens|) 0) (LIST (LIST (LIST 1)))) ('T |gens|))
-            $)))))) 
-
-(DEFUN |PGE;alternatingGroup;LPg;19| (|l| $)
-  (PROG (|gens| |tmp| #1=#:G177 |i| #2=#:G176)
-    (RETURN
-     (SEQ
-      (LETT |l| (SPADCALL |l| (QREFELT $ 27))
-            . #3=(|PGE;alternatingGroup;LPg;19|))
-      (EXIT
-       (COND
-        ((EQL (LENGTH |l|) 0)
-         (|error| "Cannot construct alternating group on empty set"))
-        ((< (LENGTH |l|) 3)
-         (|PGE;llli2gp| (LIST (LIST (LIST (SPADCALL |l| 1 (QREFELT $ 29)))))
-          $))
-        ((EQL (LENGTH |l|) 3)
-         (|PGE;llli2gp|
-          (LIST
-           (LIST
-            (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                  (SPADCALL |l| 2 (QREFELT $ 29))
-                  (SPADCALL |l| 3 (QREFELT $ 29)))))
-          $))
-        (#4='T
-         (SEQ
-          (LETT |tmp|
-                (PROGN
-                 (LETT #2# NIL . #3#)
-                 (SEQ (LETT |i| 3 . #3#) (LETT #1# (LENGTH |l|) . #3#) G190
-                      (COND ((> |i| #1#) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #2# (CONS (SPADCALL |l| |i| (QREFELT $ 29)) #2#)
-                              . #3#)))
-                      (LETT |i| (+ |i| 1) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
-          (LETT |gens|
-                (LIST (LIST |tmp|)
-                      (LIST
-                       (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                             (SPADCALL |l| 2 (QREFELT $ 29))
-                             (SPADCALL |l| 3 (QREFELT $ 29)))))
-                . #3#)
-          (EXIT
-           (COND ((ODDP (LENGTH |l|)) (|PGE;llli2gp| |gens| $))
-                 (#4#
-                  (SEQ
-                   (SPADCALL |gens| 1
-                             (CONS
-                              (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                                    (SPADCALL |l| 2 (QREFELT $ 29)))
-                              (SPADCALL |gens| 1 (QREFELT $ 46)))
-                             (QREFELT $ 47))
-                   (EXIT (|PGE;llli2gp| |gens| $)))))))))))))) 
-
-(DEFUN |PGE;alternatingGroup;PiPg;20| (|n| $)
-  (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 48))) 
-
-(DEFUN |PGE;symmetricGroup;LPg;21| (|l| $)
-  (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 27)) |PGE;symmetricGroup;LPg;21|)
-       (EXIT
-        (COND
-         ((EQL (LENGTH |l|) 0)
-          (|error| "Cannot construct symmetric group on empty set !"))
-         ((< (LENGTH |l|) 3) (|PGE;llli2gp| (LIST (LIST |l|)) $))
-         ('T
-          (|PGE;llli2gp|
-           (LIST (LIST |l|)
-                 (LIST
-                  (LIST (SPADCALL |l| 1 (QREFELT $ 29))
-                        (SPADCALL |l| 2 (QREFELT $ 29)))))
-           $)))))) 
-
-(DEFUN |PGE;symmetricGroup;PiPg;22| (|n| $)
-  (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 50))) 
-
-(DEFUN |PGE;cyclicGroup;LPg;23| (|l| $)
-  (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 27)) |PGE;cyclicGroup;LPg;23|)
-       (EXIT
-        (COND
-         ((EQL (LENGTH |l|) 0)
-          (|error| "Cannot construct cyclic group on empty set"))
-         ('T (|PGE;llli2gp| (LIST (LIST |l|)) $)))))) 
-
-(DEFUN |PGE;cyclicGroup;PiPg;24| (|n| $)
-  (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 52))) 
-
-(DEFUN |PGE;dihedralGroup;LPg;25| (|l| $)
-  (PROG (|tmp| #1=#:G191 |i| #2=#:G190)
-    (RETURN
-     (SEQ
-      (LETT |l| (SPADCALL |l| (QREFELT $ 27))
-            . #3=(|PGE;dihedralGroup;LPg;25|))
-      (EXIT
-       (COND
-        ((< (LENGTH |l|) 3)
-         (|error| "in dihedralGroup: Minimum of 3 elements needed !"))
-        ('T
-         (SEQ
-          (LETT |tmp|
-                (PROGN
-                 (LETT #2# NIL . #3#)
-                 (SEQ (LETT |i| 1 . #3#)
-                      (LETT #1# (QUOTIENT2 (LENGTH |l|) 2) . #3#) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #2#
+                    (EXIT
+                     (COND
+                      ((SPADCALL |n| 1 (QREFELT $ 43))
+                       (SEQ
+                        (LETT |gens|
                               (CONS
-                               (LIST (SPADCALL |l| |i| (QREFELT $ 29))
-                                     (SPADCALL |l| (+ (- (LENGTH |l|) |i|) 1)
-                                               (QREFELT $ 29)))
-                               #2#)
-                              . #3#)))
-                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #3#)
-          (EXIT (|PGE;llli2gp| (LIST (LIST |l|) |tmp|) $)))))))))) 
+                               (SPADCALL
+                                (PROGN
+                                 (LETT #2# NIL . #4#)
+                                 (SEQ (LETT |i| |element| . #4#)
+                                      (LETT #1# (- (+ |element| |n|) 1) . #4#)
+                                      G190 (COND ((> |i| #1#) (GO G191)))
+                                      (SEQ
+                                       (EXIT (LETT #2# (CONS |i| #2#) . #4#)))
+                                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191
+                                      (EXIT (NREVERSE #2#))))
+                                (QREFELT $ 21))
+                               |gens|)
+                              . #4#)
+                        (EXIT (LETT |element| (+ |element| |n|) . #4#)))))))
+                   (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
+              (EXIT
+               (|PGE;llli2gp|
+                (COND ((EQL (LENGTH |gens|) 0) (LIST (LIST (LIST 1))))
+                      ('T |gens|))
+                $))))) 
 
-(DEFUN |PGE;dihedralGroup;PiPg;26| (|n| $)
-  (COND ((EQL |n| 1) (SPADCALL 2 (QREFELT $ 51)))
-        ((EQL |n| 2)
-         (|PGE;llli2gp| (LIST (LIST (LIST 1 2)) (LIST (LIST 3 4))) $))
-        ('T (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 54))))) 
+(SDEFUN |PGE;alternatingGroup;LPg;19|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|gens| (|List| (|List| (|List| #1=(|Integer|)))))
+          (|tmp| (|List| #1#)) (#2=#:G177 NIL) (|i| NIL) (#3=#:G176 NIL))
+         (SEQ
+          (LETT |l| (SPADCALL |l| (QREFELT $ 27))
+                . #4=(|PGE;alternatingGroup;LPg;19|))
+          (EXIT
+           (COND
+            ((EQL (LENGTH |l|) 0)
+             (|error| "Cannot construct alternating group on empty set"))
+            ((< (LENGTH |l|) 3)
+             (|PGE;llli2gp|
+              (LIST (LIST (LIST (SPADCALL |l| 1 (QREFELT $ 29))))) $))
+            ((EQL (LENGTH |l|) 3)
+             (|PGE;llli2gp|
+              (LIST
+               (LIST
+                (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                      (SPADCALL |l| 2 (QREFELT $ 29))
+                      (SPADCALL |l| 3 (QREFELT $ 29)))))
+              $))
+            (#5='T
+             (SEQ
+              (LETT |tmp|
+                    (PROGN
+                     (LETT #3# NIL . #4#)
+                     (SEQ (LETT |i| 3 . #4#) (LETT #2# (LENGTH |l|) . #4#) G190
+                          (COND ((> |i| #2#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #3#
+                                  (CONS (SPADCALL |l| |i| (QREFELT $ 29)) #3#)
+                                  . #4#)))
+                          (LETT |i| (+ |i| 1) . #4#) (GO G190) G191
+                          (EXIT (NREVERSE #3#))))
+                    . #4#)
+              (LETT |gens|
+                    (LIST (LIST |tmp|)
+                          (LIST
+                           (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                                 (SPADCALL |l| 2 (QREFELT $ 29))
+                                 (SPADCALL |l| 3 (QREFELT $ 29)))))
+                    . #4#)
+              (EXIT
+               (COND ((ODDP (LENGTH |l|)) (|PGE;llli2gp| |gens| $))
+                     (#5#
+                      (SEQ
+                       (SPADCALL |gens| 1
+                                 (CONS
+                                  (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                                        (SPADCALL |l| 2 (QREFELT $ 29)))
+                                  (SPADCALL |gens| 1 (QREFELT $ 46)))
+                                 (QREFELT $ 47))
+                       (EXIT (|PGE;llli2gp| |gens| $))))))))))))) 
+
+(SDEFUN |PGE;alternatingGroup;PiPg;20|
+        ((|n| |PositiveInteger|) ($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 48))) 
+
+(SDEFUN |PGE;symmetricGroup;LPg;21|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SEQ
+         (LETT |l| (SPADCALL |l| (QREFELT $ 27)) |PGE;symmetricGroup;LPg;21|)
+         (EXIT
+          (COND
+           ((EQL (LENGTH |l|) 0)
+            (|error| "Cannot construct symmetric group on empty set !"))
+           ((< (LENGTH |l|) 3) (|PGE;llli2gp| (LIST (LIST |l|)) $))
+           ('T
+            (|PGE;llli2gp|
+             (LIST (LIST |l|)
+                   (LIST
+                    (LIST (SPADCALL |l| 1 (QREFELT $ 29))
+                          (SPADCALL |l| 2 (QREFELT $ 29)))))
+             $)))))) 
+
+(SDEFUN |PGE;symmetricGroup;PiPg;22|
+        ((|n| |PositiveInteger|) ($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 50))) 
+
+(SDEFUN |PGE;cyclicGroup;LPg;23|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SEQ (LETT |l| (SPADCALL |l| (QREFELT $ 27)) |PGE;cyclicGroup;LPg;23|)
+             (EXIT
+              (COND
+               ((EQL (LENGTH |l|) 0)
+                (|error| "Cannot construct cyclic group on empty set"))
+               ('T (|PGE;llli2gp| (LIST (LIST |l|)) $)))))) 
+
+(SDEFUN |PGE;cyclicGroup;PiPg;24|
+        ((|n| |PositiveInteger|) ($ |PermutationGroup| (|Integer|)))
+        (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 52))) 
+
+(SDEFUN |PGE;dihedralGroup;LPg;25|
+        ((|l| |List| (|Integer|)) ($ |PermutationGroup| (|Integer|)))
+        (SPROG
+         ((|tmp| (|List| (|List| (|Integer|)))) (#1=#:G191 NIL) (|i| NIL)
+          (#2=#:G190 NIL))
+         (SEQ
+          (LETT |l| (SPADCALL |l| (QREFELT $ 27))
+                . #3=(|PGE;dihedralGroup;LPg;25|))
+          (EXIT
+           (COND
+            ((< (LENGTH |l|) 3)
+             (|error| "in dihedralGroup: Minimum of 3 elements needed !"))
+            ('T
+             (SEQ
+              (LETT |tmp|
+                    (PROGN
+                     (LETT #2# NIL . #3#)
+                     (SEQ (LETT |i| 1 . #3#)
+                          (LETT #1# (QUOTIENT2 (LENGTH |l|) 2) . #3#) G190
+                          (COND ((|greater_SI| |i| #1#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #2#
+                                  (CONS
+                                   (LIST (SPADCALL |l| |i| (QREFELT $ 29))
+                                         (SPADCALL |l|
+                                                   (+ (- (LENGTH |l|) |i|) 1)
+                                                   (QREFELT $ 29)))
+                                   #2#)
+                                  . #3#)))
+                          (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                          (EXIT (NREVERSE #2#))))
+                    . #3#)
+              (EXIT (|PGE;llli2gp| (LIST (LIST |l|) |tmp|) $))))))))) 
+
+(SDEFUN |PGE;dihedralGroup;PiPg;26|
+        ((|n| |PositiveInteger|) ($ |PermutationGroup| (|Integer|)))
+        (COND ((EQL |n| 1) (SPADCALL 2 (QREFELT $ 51)))
+              ((EQL |n| 2)
+               (|PGE;llli2gp| (LIST (LIST (LIST 1 2)) (LIST (LIST 3 4))) $))
+              ('T (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 54))))) 
 
 (DECLAIM (NOTINLINE |PermutationGroupExamples;|)) 
 
 (DEFUN |PermutationGroupExamples| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G194)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|PermutationGroupExamples|)
-                . #2=(|PermutationGroupExamples|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|PermutationGroupExamples|
-                         (LIST
-                          (CONS NIL (CONS 1 (|PermutationGroupExamples;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G194)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|PermutationGroupExamples|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|PermutationGroupExamples|)
+                    . #2=(|PermutationGroupExamples|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|PermutationGroupExamples|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|PermutationGroupExamples;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|PermutationGroupExamples|)))))))))) 
 
 (DEFUN |PermutationGroupExamples;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|PermutationGroupExamples|)
-            . #1=(|PermutationGroupExamples|))
-      (LETT $ (GETREFV 56) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PermutationGroupExamples| NIL
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|PermutationGroupExamples|)
+                . #1=(|PermutationGroupExamples|))
+          (LETT $ (GETREFV 56) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PermutationGroupExamples| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PermutationGroupExamples| '|infovec|
           (LIST

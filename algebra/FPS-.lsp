@@ -1,60 +1,62 @@
 
-(DEFUN |FPS-;float;2IS;1| (|ma| |ex| $)
-  (SPADCALL |ma| |ex| (SPADCALL (QREFELT $ 8)) (QREFELT $ 10))) 
+(SDEFUN |FPS-;float;2IS;1| ((|ma| |Integer|) (|ex| |Integer|) ($ S))
+        (SPADCALL |ma| |ex| (SPADCALL (QREFELT $ 8)) (QREFELT $ 10))) 
 
-(DEFUN |FPS-;digits;Pi;2| ($)
-  (PROG (#1=#:G111)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (MAX 1
-                    (QUOTIENT2
-                     (SPADCALL 4004 (- (SPADCALL (QREFELT $ 13)) 1)
-                               (QREFELT $ 14))
-                     13301))
-               |FPS-;digits;Pi;2|)
-       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
+(SDEFUN |FPS-;digits;Pi;2| (($ |PositiveInteger|))
+        (SPROG ((#1=#:G111 NIL))
+               (PROG1
+                   (LETT #1#
+                         (MAX 1
+                              (QUOTIENT2
+                               (SPADCALL 4004 (- (SPADCALL (QREFELT $ 13)) 1)
+                                         (QREFELT $ 14))
+                               13301))
+                         |FPS-;digits;Pi;2|)
+                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
 
-(DEFUN |FPS-;toString;SNniS;3| (|x| |n| $)
-  (PROG (|res| |x2| |tenn| |x0| |x1|)
-    (RETURN
-     (SEQ
-      (LETT |x1| (SPADCALL |x| (QREFELT $ 17)) . #1=(|FPS-;toString;SNniS;3|))
-      (LETT |x0| (SPADCALL (SPADCALL |x| |x1| (QREFELT $ 18)) (QREFELT $ 19))
-            . #1#)
-      (LETT |tenn| (SPADCALL 1 |n| 10 (QREFELT $ 10)) . #1#)
-      (LETT |x2|
-            (SPADCALL (SPADCALL |tenn| |x0| (QREFELT $ 20)) (QREFELT $ 17))
-            . #1#)
-      (LETT |res|
-            (LIST (STRINGIMAGE (SPADCALL |x1| (QREFELT $ 21))) "."
-                  (STRINGIMAGE (SPADCALL |x2| (QREFELT $ 21))))
-            . #1#)
-      (EXIT (SPADCALL (ELT $ 23) |res| (QREFELT $ 26))))))) 
+(SDEFUN |FPS-;toString;SNniS;3|
+        ((|x| S) (|n| |NonNegativeInteger|) ($ |String|))
+        (SPROG
+         ((|res| (|List| (|String|))) (|x2| (S)) (|tenn| (S)) (|x0| (S))
+          (|x1| (S)))
+         (SEQ
+          (LETT |x1| (SPADCALL |x| (QREFELT $ 17))
+                . #1=(|FPS-;toString;SNniS;3|))
+          (LETT |x0|
+                (SPADCALL (SPADCALL |x| |x1| (QREFELT $ 18)) (QREFELT $ 19))
+                . #1#)
+          (LETT |tenn| (SPADCALL 1 |n| 10 (QREFELT $ 10)) . #1#)
+          (LETT |x2|
+                (SPADCALL (SPADCALL |tenn| |x0| (QREFELT $ 20)) (QREFELT $ 17))
+                . #1#)
+          (LETT |res|
+                (LIST (STRINGIMAGE (SPADCALL |x1| (QREFELT $ 21))) "."
+                      (STRINGIMAGE (SPADCALL |x2| (QREFELT $ 21))))
+                . #1#)
+          (EXIT (SPADCALL (ELT $ 23) |res| (QREFELT $ 26)))))) 
 
 (DECLAIM (NOTINLINE |FloatingPointSystem&;|)) 
 
 (DEFUN |FloatingPointSystem&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FloatingPointSystem&|))
-      (LETT |dv$| (LIST '|FloatingPointSystem&| DV$1) . #1#)
-      (LETT $ (GETREFV 29) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|arbitraryExponent|))
-                                          (|HasCategory| |#1|
-                                                         '(|arbitraryPrecision|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FloatingPointSystem&|))
+          (LETT |dv$| (LIST '|FloatingPointSystem&| DV$1) . #1#)
+          (LETT $ (GETREFV 29) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|arbitraryExponent|))
+                                              (|HasCategory| |#1|
+                                                             '(|arbitraryPrecision|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FloatingPointSystem&| '|infovec|
           (LIST

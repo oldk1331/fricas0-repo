@@ -1,58 +1,67 @@
 
-(DEFUN |REALSOLV;prn2rfi| (|p| $)
-  (SPADCALL (ELT $ 8) (CONS #'|REALSOLV;prn2rfi!0| $) |p| (QREFELT $ 19))) 
+(SDEFUN |REALSOLV;prn2rfi|
+        ((|p| |Polynomial| (|Fraction| (|Integer|)))
+         ($ |Fraction| (|Polynomial| (|Integer|))))
+        (SPADCALL (ELT $ 8) (CONS #'|REALSOLV;prn2rfi!0| $) |p| (QREFELT $ 19))) 
 
-(DEFUN |REALSOLV;prn2rfi!0| (|x| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 12))
-            (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 12))
-            (QREFELT $ 14))) 
+(SDEFUN |REALSOLV;prn2rfi!0| ((|x| NIL) ($ NIL))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 12))
+                  (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 12))
+                  (QREFELT $ 14))) 
 
-(DEFUN |REALSOLV;pi2rfi| (|p| $) (SPADCALL |p| (QREFELT $ 21))) 
+(SDEFUN |REALSOLV;pi2rfi|
+        ((|p| |Polynomial| (|Integer|))
+         ($ |Fraction| (|Polynomial| (|Integer|))))
+        (SPADCALL |p| (QREFELT $ 21))) 
 
-(DEFUN |REALSOLV;solve;PFL;3| (|p| |eps| $)
-  (SPADCALL (|REALSOLV;prn2rfi| |p| $) |eps| (QREFELT $ 25))) 
+(SDEFUN |REALSOLV;solve;PFL;3|
+        ((|p| |Polynomial| (|Fraction| (|Integer|))) (|eps| |Float|)
+         ($ |List| (|Float|)))
+        (SPADCALL (|REALSOLV;prn2rfi| |p| $) |eps| (QREFELT $ 25))) 
 
-(DEFUN |REALSOLV;solve;PFL;4| (|p| |eps| $)
-  (SPADCALL (SPADCALL |p| (QREFELT $ 21)) |eps| (QREFELT $ 25))) 
+(SDEFUN |REALSOLV;solve;PFL;4|
+        ((|p| |Polynomial| (|Integer|)) (|eps| |Float|) ($ |List| (|Float|)))
+        (SPADCALL (SPADCALL |p| (QREFELT $ 21)) |eps| (QREFELT $ 25))) 
 
-(DEFUN |REALSOLV;realSolve;LLFL;5| (|lp| |lv| |eps| $)
-  (SPADCALL
-   (SPADCALL (CONS (|function| |REALSOLV;pi2rfi|) $) |lp| (QREFELT $ 32)) |lv|
-   |eps| (QREFELT $ 35))) 
+(SDEFUN |REALSOLV;realSolve;LLFL;5|
+        ((|lp| |List| (|Polynomial| (|Integer|))) (|lv| |List| (|Symbol|))
+         (|eps| |Float|) ($ |List| (|List| (|Float|))))
+        (SPADCALL
+         (SPADCALL (CONS (|function| |REALSOLV;pi2rfi|) $) |lp| (QREFELT $ 32))
+         |lv| |eps| (QREFELT $ 35))) 
 
 (DECLAIM (NOTINLINE |RealSolvePackage;|)) 
 
 (DEFUN |RealSolvePackage| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G111)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|RealSolvePackage|)
-                . #2=(|RealSolvePackage|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|RealSolvePackage|
-                         (LIST (CONS NIL (CONS 1 (|RealSolvePackage;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G111)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|RealSolvePackage|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|RealSolvePackage|)
+                    . #2=(|RealSolvePackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|RealSolvePackage|
+                             (LIST (CONS NIL (CONS 1 (|RealSolvePackage;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|RealSolvePackage|)))))))))) 
 
 (DEFUN |RealSolvePackage;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|RealSolvePackage|) . #1=(|RealSolvePackage|))
-      (LETT $ (GETREFV 37) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|RealSolvePackage| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|RealSolvePackage|) . #1=(|RealSolvePackage|))
+          (LETT $ (GETREFV 37) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|RealSolvePackage| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RealSolvePackage| '|infovec|
           (LIST

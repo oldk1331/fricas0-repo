@@ -1,109 +1,132 @@
 
-(DEFUN |SCPKG;matrix2Vector| (|m| $)
-  (PROG (|li| |lili|)
-    (RETURN
-     (SEQ
-      (LETT |lili| (SPADCALL |m| (QREFELT $ 9)) . #1=(|SCPKG;matrix2Vector|))
-      (LETT |li| (SPADCALL (ELT $ 11) |lili| (QREFELT $ 13)) . #1#)
-      (EXIT (SPADCALL |li| (QREFELT $ 15))))))) 
+(SDEFUN |SCPKG;matrix2Vector| ((|m| |Matrix| R) ($ |Vector| R))
+        (SPROG ((|li| (|List| R)) (|lili| (|List| (|List| R))))
+               (SEQ
+                (LETT |lili| (SPADCALL |m| (QREFELT $ 9))
+                      . #1=(|SCPKG;matrix2Vector|))
+                (LETT |li| (SPADCALL (ELT $ 11) |lili| (QREFELT $ 13)) . #1#)
+                (EXIT (SPADCALL |li| (QREFELT $ 15)))))) 
 
-(DEFUN |SCPKG;coordinates;MLV;2| (|x| |b| $)
-  (PROG (#1=#:G123 |res| |i| |transitionMatrix| |n| |m| #2=#:G118)
-    (RETURN
-     (SEQ
-      (LETT |m|
-            (PROG1
-                (LETT #2# (SPADCALL |b| (QREFELT $ 18))
-                      . #3=(|SCPKG;coordinates;MLV;2|))
-              (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
-            . #3#)
-      (LETT |n|
-            (* (ANROWS (SPADCALL |b| 1 (QREFELT $ 20)))
-               (ANCOLS (SPADCALL |b| 1 (QREFELT $ 20))))
-            . #3#)
-      (LETT |transitionMatrix| (MAKE_MATRIX1 |n| |m| (|spadConstant| $ 21))
-            . #3#)
-      (SEQ (LETT |i| 1 . #3#) G190 (COND ((|greater_SI| |i| |m|) (GO G191)))
-           (SEQ
-            (EXIT
-             (SPADCALL |transitionMatrix| |i|
-                       (|SCPKG;matrix2Vector| (SPADCALL |b| |i| (QREFELT $ 20))
-                        $)
-                       (QREFELT $ 22))))
-           (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-      (LETT |res|
-            (SPADCALL |transitionMatrix| (|SCPKG;matrix2Vector| |x| $)
-                      (QREFELT $ 26))
-            . #3#)
-      (COND
-       ((NULL (NULL (QCDR |res|)))
-        (|error| "coordinates: the second argument is linearly dependent")))
-      (EXIT
-       (COND
-        ((QEQCAR (QCAR |res|) 1)
-         (|error|
-          "coordinates: first argument is not in linear span of second argument"))
-        ('T
-         (PROG2 (LETT #1# (QCAR |res|) . #3#)
-             (QCDR #1#)
-           (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6)) #1#))))))))) 
+(SDEFUN |SCPKG;coordinates;MLV;2|
+        ((|x| |Matrix| R) (|b| |List| (|Matrix| R)) ($ |Vector| R))
+        (SPROG
+         ((#1=#:G123 NIL)
+          (|res|
+           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+                     (|:| |basis| (|List| (|Vector| R)))))
+          (|i| NIL) (|transitionMatrix| (|Matrix| R))
+          (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
+          (#2=#:G118 NIL))
+         (SEQ
+          (LETT |m|
+                (PROG1
+                    (LETT #2# (SPADCALL |b| (QREFELT $ 18))
+                          . #3=(|SCPKG;coordinates;MLV;2|))
+                  (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                . #3#)
+          (LETT |n|
+                (* (ANROWS (SPADCALL |b| 1 (QREFELT $ 20)))
+                   (ANCOLS (SPADCALL |b| 1 (QREFELT $ 20))))
+                . #3#)
+          (LETT |transitionMatrix| (MAKE_MATRIX1 |n| |m| (|spadConstant| $ 21))
+                . #3#)
+          (SEQ (LETT |i| 1 . #3#) G190
+               (COND ((|greater_SI| |i| |m|) (GO G191)))
+               (SEQ
+                (EXIT
+                 (SPADCALL |transitionMatrix| |i|
+                           (|SCPKG;matrix2Vector|
+                            (SPADCALL |b| |i| (QREFELT $ 20)) $)
+                           (QREFELT $ 22))))
+               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+          (LETT |res|
+                (SPADCALL |transitionMatrix| (|SCPKG;matrix2Vector| |x| $)
+                          (QREFELT $ 26))
+                . #3#)
+          (COND
+           ((NULL (NULL (QCDR |res|)))
+            (|error|
+             "coordinates: the second argument is linearly dependent")))
+          (EXIT
+           (COND
+            ((QEQCAR (QCAR |res|) 1)
+             (|error|
+              "coordinates: first argument is not in linear span of second argument"))
+            ('T
+             (PROG2 (LETT #1# (QCAR |res|) . #3#)
+                 (QCDR #1#)
+               (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6))
+                              #1#)))))))) 
 
-(DEFUN |SCPKG;structuralConstants;LV;3| (|b| $)
-  (PROG (|k| |covec| |j| |i| |sC| #1=#:G135 #2=#:G136 |m| #3=#:G127)
-    (RETURN
-     (SEQ
-      (LETT |m|
-            (PROG1
-                (LETT #3# (SPADCALL |b| (QREFELT $ 18))
-                      . #4=(|SCPKG;structuralConstants;LV;3|))
-              (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
-            . #4#)
-      (LETT |sC|
-            (PROGN
-             (LETT #2# (GETREFV |m|) . #4#)
-             (SEQ (LETT |k| 1 . #4#) (LETT #1# 0 . #4#) G190
-                  (COND ((|greater_SI| |k| |m|) (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (SETELT #2# #1#
-                            (MAKE_MATRIX1 |m| |m| (|spadConstant| $ 21)))))
-                  (LETT #1#
-                        (PROG1 (|inc_SI| #1#) (LETT |k| (|inc_SI| |k|) . #4#))
-                        . #4#)
-                  (GO G190) G191 (EXIT NIL))
-             #2#)
-            . #4#)
-      (SEQ (LETT |i| 1 . #4#) G190 (COND ((|greater_SI| |i| |m|) (GO G191)))
-           (SEQ
-            (EXIT
-             (SEQ (LETT |j| 1 . #4#) G190
-                  (COND ((|greater_SI| |j| |m|) (GO G191)))
-                  (SEQ
-                   (LETT |covec|
-                         (SPADCALL
-                          (SPADCALL (SPADCALL |b| |i| (QREFELT $ 20))
-                                    (SPADCALL |b| |j| (QREFELT $ 20))
-                                    (QREFELT $ 28))
-                          |b| (QREFELT $ 27))
-                         . #4#)
-                   (EXIT
-                    (SEQ (LETT |k| 1 . #4#) G190
-                         (COND ((|greater_SI| |k| |m|) (GO G191)))
-                         (SEQ
-                          (EXIT
-                           (SPADCALL (SPADCALL |sC| |k| (QREFELT $ 30)) |i| |j|
-                                     (SPADCALL |covec| |k| (QREFELT $ 31))
-                                     (QREFELT $ 32))))
-                         (LETT |k| (|inc_SI| |k|) . #4#) (GO G190) G191
-                         (EXIT NIL))))
-                  (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191 (EXIT NIL))))
-           (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-      (EXIT |sC|))))) 
+(SDEFUN |SCPKG;structuralConstants;LV;3|
+        ((|b| |List| (|Matrix| R)) ($ |Vector| (|Matrix| R)))
+        (SPROG
+         ((|k| NIL) (|covec| (|Vector| R)) (|j| NIL) (|i| NIL)
+          (|sC| (|Vector| (|Matrix| R))) (#1=#:G135 NIL) (#2=#:G136 NIL)
+          (|m| (|NonNegativeInteger|)) (#3=#:G127 NIL))
+         (SEQ
+          (LETT |m|
+                (PROG1
+                    (LETT #3# (SPADCALL |b| (QREFELT $ 18))
+                          . #4=(|SCPKG;structuralConstants;LV;3|))
+                  (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                . #4#)
+          (LETT |sC|
+                (PROGN
+                 (LETT #2# (GETREFV |m|) . #4#)
+                 (SEQ (LETT |k| 1 . #4#) (LETT #1# 0 . #4#) G190
+                      (COND ((|greater_SI| |k| |m|) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (SETELT #2# #1#
+                                (MAKE_MATRIX1 |m| |m| (|spadConstant| $ 21)))))
+                      (LETT #1#
+                            (PROG1 (|inc_SI| #1#)
+                              (LETT |k| (|inc_SI| |k|) . #4#))
+                            . #4#)
+                      (GO G190) G191 (EXIT NIL))
+                 #2#)
+                . #4#)
+          (SEQ (LETT |i| 1 . #4#) G190
+               (COND ((|greater_SI| |i| |m|) (GO G191)))
+               (SEQ
+                (EXIT
+                 (SEQ (LETT |j| 1 . #4#) G190
+                      (COND ((|greater_SI| |j| |m|) (GO G191)))
+                      (SEQ
+                       (LETT |covec|
+                             (SPADCALL
+                              (SPADCALL (SPADCALL |b| |i| (QREFELT $ 20))
+                                        (SPADCALL |b| |j| (QREFELT $ 20))
+                                        (QREFELT $ 28))
+                              |b| (QREFELT $ 27))
+                             . #4#)
+                       (EXIT
+                        (SEQ (LETT |k| 1 . #4#) G190
+                             (COND ((|greater_SI| |k| |m|) (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (SPADCALL (SPADCALL |sC| |k| (QREFELT $ 30)) |i|
+                                         |j|
+                                         (SPADCALL |covec| |k| (QREFELT $ 31))
+                                         (QREFELT $ 32))))
+                             (LETT |k| (|inc_SI| |k|) . #4#) (GO G190) G191
+                             (EXIT NIL))))
+                      (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
+                      (EXIT NIL))))
+               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+          (EXIT |sC|)))) 
 
-(DEFUN |SCPKG;structuralConstants;LMV;4| (|ls| |mt| $)
-  (PROG (|lscopy| |gamma| |c| |p| |j| |i| |s| |mat| |nn|)
-    (RETURN
-     (SEQ (LETT |nn| (LENGTH |ls|) . #1=(|SCPKG;structuralConstants;LMV;4|))
+(SDEFUN |SCPKG;structuralConstants;LMV;4|
+        ((|ls| |List| (|Symbol|)) (|mt| |Matrix| (|Polynomial| R))
+         ($ |Vector| (|Matrix| (|Polynomial| R))))
+        (SPROG
+         ((|lscopy| (|List| (|Symbol|)))
+          (|gamma| (|List| (|Matrix| (|Polynomial| R)))) (|c| (|Polynomial| R))
+          (|p| (|Polynomial| R)) (|j| NIL) (|i| NIL) (|s| (|Symbol|))
+          (|mat| (|Matrix| (|Polynomial| R))) (|nn| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |nn| (LENGTH |ls|) . #1=(|SCPKG;structuralConstants;LMV;4|))
           (COND
            ((OR (SPADCALL (ANROWS |mt|) |nn| (QREFELT $ 36))
                 (SPADCALL (ANCOLS |mt|) |nn| (QREFELT $ 36)))
@@ -144,12 +167,20 @@
                 (LETT |gamma| (CONS |mat| |gamma|) . #1#)
                 (EXIT (LETT |lscopy| (CDR |lscopy|) . #1#)))
                NIL (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 48))))))) 
+          (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 48)))))) 
 
-(DEFUN |SCPKG;structuralConstants;LMV;5| (|ls| |mt| $)
-  (PROG (|lscopy| |gamma| |c| |p| |q| |r| |j| |i| |s| |mat| |nn|)
-    (RETURN
-     (SEQ (LETT |nn| (LENGTH |ls|) . #1=(|SCPKG;structuralConstants;LMV;5|))
+(SDEFUN |SCPKG;structuralConstants;LMV;5|
+        ((|ls| |List| (|Symbol|)) (|mt| |Matrix| (|Fraction| (|Polynomial| R)))
+         ($ |Vector| (|Matrix| (|Fraction| (|Polynomial| R)))))
+        (SPROG
+         ((|lscopy| (|List| (|Symbol|)))
+          (|gamma| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))
+          (|c| (|Polynomial| R)) (|p| (|Polynomial| R)) (|q| (|Polynomial| R))
+          (|r| (|Fraction| (|Polynomial| R))) (|j| NIL) (|i| NIL)
+          (|s| (|Symbol|)) (|mat| (|Matrix| (|Fraction| (|Polynomial| R))))
+          (|nn| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |nn| (LENGTH |ls|) . #1=(|SCPKG;structuralConstants;LMV;5|))
           (COND
            ((OR (SPADCALL (ANROWS |mt|) |nn| (QREFELT $ 36))
                 (SPADCALL (ANCOLS |mt|) |nn| (QREFELT $ 36)))
@@ -206,45 +237,45 @@
                 (LETT |gamma| (CONS |mat| |gamma|) . #1#)
                 (EXIT (LETT |lscopy| (CDR |lscopy|) . #1#)))
                NIL (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 58))))))) 
+          (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 58)))))) 
 
 (DECLAIM (NOTINLINE |StructuralConstantsPackage;|)) 
 
 (DEFUN |StructuralConstantsPackage| (#1=#:G158)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G159)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|StructuralConstantsPackage|)
-                                           '|domainEqualList|)
-                . #3=(|StructuralConstantsPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|StructuralConstantsPackage;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G159)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|StructuralConstantsPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|StructuralConstantsPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|StructuralConstantsPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|StructuralConstantsPackage;| #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|StructuralConstantsPackage|)))))))))) 
 
 (DEFUN |StructuralConstantsPackage;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|StructuralConstantsPackage|))
-      (LETT |dv$| (LIST '|StructuralConstantsPackage| DV$1) . #1#)
-      (LETT $ (GETREFV 61) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|StructuralConstantsPackage| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|StructuralConstantsPackage|))
+          (LETT |dv$| (LIST '|StructuralConstantsPackage| DV$1) . #1#)
+          (LETT $ (GETREFV 61) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|StructuralConstantsPackage|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|StructuralConstantsPackage| '|infovec|
           (LIST

@@ -1,55 +1,55 @@
 
-(DEFUN |PINTERP;interpolate;Up2LUp;1| (|qx| |lx| |ly| $)
-  (PROG (|px|)
-    (RETURN
-     (SEQ
-      (LETT |px| (SPADCALL |lx| |ly| (QREFELT $ 11))
-            |PINTERP;interpolate;Up2LUp;1|)
-      (EXIT (SPADCALL |px| |qx| (QREFELT $ 12))))))) 
+(SDEFUN |PINTERP;interpolate;Up2LUp;1|
+        ((|qx| |UnivariatePolynomial| |xx| F) (|lx| |List| F) (|ly| |List| F)
+         ($ |UnivariatePolynomial| |xx| F))
+        (SPROG ((|px| (|UnivariatePolynomial| |xx| F)))
+               (SEQ
+                (LETT |px| (SPADCALL |lx| |ly| (QREFELT $ 11))
+                      |PINTERP;interpolate;Up2LUp;1|)
+                (EXIT (SPADCALL |px| |qx| (QREFELT $ 12)))))) 
 
-(DEFUN |PINTERP;interpolate;2LSup;2| (|lx| |ly| $)
-  (SPADCALL |lx| |ly| (QREFELT $ 16))) 
+(SDEFUN |PINTERP;interpolate;2LSup;2|
+        ((|lx| |List| F) (|ly| |List| F) ($ |SparseUnivariatePolynomial| F))
+        (SPADCALL |lx| |ly| (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |PolynomialInterpolation;|)) 
 
 (DEFUN |PolynomialInterpolation| (&REST #1=#:G106)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G107)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PolynomialInterpolation|)
-                                           '|domainEqualList|)
-                . #3=(|PolynomialInterpolation|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PolynomialInterpolation;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G107)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|PolynomialInterpolation|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolynomialInterpolation|)
+                                               '|domainEqualList|)
+                    . #3=(|PolynomialInterpolation|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolynomialInterpolation;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PolynomialInterpolation|)))))))))) 
 
 (DEFUN |PolynomialInterpolation;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialInterpolation|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|PolynomialInterpolation| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 18) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PolynomialInterpolation|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialInterpolation|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|PolynomialInterpolation| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 18) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PolynomialInterpolation|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PolynomialInterpolation| '|infovec|
           (LIST

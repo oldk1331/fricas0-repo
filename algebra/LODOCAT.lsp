@@ -23,33 +23,32 @@
       #2#)))) 
 
 (DEFUN |LinearOrdinaryDifferentialOperatorCategory;| (|t#1|)
-  (PROG (#1=#:G104)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND
-                           (|LinearOrdinaryDifferentialOperatorCategory;CAT|)
-                           ('T
-                            (LETT
-                             |LinearOrdinaryDifferentialOperatorCategory;CAT|
-                             (|Join|
-                              (|UnivariateSkewPolynomialCategory| '|t#1|)
-                              (|Eltable| '|t#1| '|t#1|)
-                              (|mkCategory|
-                               '(((D ($)) T) ((|adjoint| ($ $)) T)
-                                 ((|symmetricProduct| ($ $ $))
-                                  (|has| |t#1| (|Field|)))
-                                 ((|symmetricPower|
-                                   ($ $ (|NonNegativeInteger|)))
-                                  (|has| |t#1| (|Field|)))
-                                 ((|symmetricSquare| ($ $))
-                                  (|has| |t#1| (|Field|)))
-                                 ((|directSum| ($ $ $))
-                                  (|has| |t#1| (|Field|))))
-                               NIL '((|NonNegativeInteger|)) NIL))
-                             . #2=(|LinearOrdinaryDifferentialOperatorCategory|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|LinearOrdinaryDifferentialOperatorCategory|
-                     (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G104 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND
+                               (|LinearOrdinaryDifferentialOperatorCategory;CAT|)
+                               ('T
+                                (LETT
+                                 |LinearOrdinaryDifferentialOperatorCategory;CAT|
+                                 (|Join|
+                                  (|UnivariateSkewPolynomialCategory| '|t#1|)
+                                  (|Eltable| '|t#1| '|t#1|)
+                                  (|mkCategory|
+                                   '(((D ($)) T) ((|adjoint| ($ $)) T)
+                                     ((|symmetricProduct| ($ $ $))
+                                      (|has| |t#1| (|Field|)))
+                                     ((|symmetricPower|
+                                       ($ $ (|NonNegativeInteger|)))
+                                      (|has| |t#1| (|Field|)))
+                                     ((|symmetricSquare| ($ $))
+                                      (|has| |t#1| (|Field|)))
+                                     ((|directSum| ($ $ $))
+                                      (|has| |t#1| (|Field|))))
+                                   NIL '((|NonNegativeInteger|)) NIL))
+                                 . #2=(|LinearOrdinaryDifferentialOperatorCategory|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|LinearOrdinaryDifferentialOperatorCategory|
+                         (|devaluate| |t#1|)))))) 

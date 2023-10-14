@@ -1,156 +1,181 @@
 
-(DEFUN |SYMS;newEntry| ($)
-  (VECTOR (SPADCALL (QREFELT $ 12)) (CONS 1 "void") NIL)) 
+(SDEFUN |SYMS;newEntry| (($ |Entry|))
+        (VECTOR (SPADCALL (QREFELT $ 12)) (CONS 1 "void") NIL)) 
 
-(DEFUN |SYMS;checkIfEntryExists| (|name| |tab| $)
-  (SEQ
-   (COND ((SPADCALL |name| |tab| (QREFELT $ 15)) (SPADCALL (QREFELT $ 17)))
-         ('T
-          (SEQ (SPADCALL |tab| |name| (|SYMS;newEntry| $) (QREFELT $ 18))
-               (EXIT (SPADCALL (QREFELT $ 17)))))))) 
+(SDEFUN |SYMS;checkIfEntryExists| ((|name| |Symbol|) (|tab| $) ($ |Void|))
+        (SEQ
+         (COND
+          ((SPADCALL |name| |tab| (QREFELT $ 15)) (SPADCALL (QREFELT $ 17)))
+          ('T
+           (SEQ (SPADCALL |tab| |name| (|SYMS;newEntry| $) (QREFELT $ 18))
+                (EXIT (SPADCALL (QREFELT $ 17)))))))) 
 
-(DEFUN |SYMS;returnTypeOf;S$U;3| (|name| |tab| $)
-  (QVELT (SPADCALL |tab| |name| (QREFELT $ 19)) 1)) 
+(SDEFUN |SYMS;returnTypeOf;S$U;3|
+        ((|name| |Symbol|) (|tab| $)
+         ($ |Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void")))
+        (QVELT (SPADCALL |tab| |name| (QREFELT $ 19)) 1)) 
 
-(DEFUN |SYMS;argumentListOf;S$L;4| (|name| |tab| $)
-  (QVELT (SPADCALL |tab| |name| (QREFELT $ 19)) 2)) 
+(SDEFUN |SYMS;argumentListOf;S$L;4|
+        ((|name| |Symbol|) (|tab| $) ($ |List| (|Symbol|)))
+        (QVELT (SPADCALL |tab| |name| (QREFELT $ 19)) 2)) 
 
-(DEFUN |SYMS;symbolTableOf;S$St;5| (|name| |tab| $)
-  (QVELT (SPADCALL |tab| |name| (QREFELT $ 19)) 0)) 
+(SDEFUN |SYMS;symbolTableOf;S$St;5|
+        ((|name| |Symbol|) (|tab| $) ($ |SymbolTable|))
+        (QVELT (SPADCALL |tab| |name| (QREFELT $ 19)) 0)) 
 
-(DEFUN |SYMS;coerce;$Of;6| (|u| $) (SPADCALL |u| (QREFELT $ 26))) 
+(SDEFUN |SYMS;coerce;$Of;6| ((|u| $) ($ |OutputForm|))
+        (SPADCALL |u| (QREFELT $ 26))) 
 
-(DEFUN |SYMS;showTheSymbolTable;$;7| ($) (QREFELT $ 9)) 
+(SDEFUN |SYMS;showTheSymbolTable;$;7| (($ $)) (QREFELT $ 9)) 
 
-(DEFUN |SYMS;clearTheSymbolTable;V;8| ($)
-  (SEQ (SETELT $ 9 (SPADCALL (QREFELT $ 8))) (EXIT (SPADCALL (QREFELT $ 17))))) 
+(SDEFUN |SYMS;clearTheSymbolTable;V;8| (($ |Void|))
+        (SEQ (SETELT $ 9 (SPADCALL (QREFELT $ 8)))
+             (EXIT (SPADCALL (QREFELT $ 17))))) 
 
-(DEFUN |SYMS;clearTheSymbolTable;SV;9| (|u| $)
-  (SEQ (SPADCALL |u| (QREFELT $ 9) (QREFELT $ 31))
-       (EXIT (SPADCALL (QREFELT $ 17))))) 
+(SDEFUN |SYMS;clearTheSymbolTable;SV;9| ((|u| |Symbol|) ($ |Void|))
+        (SEQ (SPADCALL |u| (QREFELT $ 9) (QREFELT $ 31))
+             (EXIT (SPADCALL (QREFELT $ 17))))) 
 
-(DEFUN |SYMS;empty;$;10| ($) (SPADCALL (QREFELT $ 8))) 
+(SDEFUN |SYMS;empty;$;10| (($ $)) (SPADCALL (QREFELT $ 8))) 
 
-(DEFUN |SYMS;currentSubProgram;S;11| ($) (QREFELT $ 10)) 
+(SDEFUN |SYMS;currentSubProgram;S;11| (($ |Symbol|)) (QREFELT $ 10)) 
 
-(DEFUN |SYMS;endSubProgram;S;12| ($) (SETELT $ 10 'MAIN)) 
+(SDEFUN |SYMS;endSubProgram;S;12| (($ |Symbol|)) (SETELT $ 10 'MAIN)) 
 
-(DEFUN |SYMS;newSubProgram;SV;13| (|u| $)
-  (SEQ (SPADCALL (QREFELT $ 9) |u| (|SYMS;newEntry| $) (QREFELT $ 18))
-       (SETELT $ 10 |u|) (EXIT (SPADCALL (QREFELT $ 17))))) 
+(SDEFUN |SYMS;newSubProgram;SV;13| ((|u| |Symbol|) ($ |Void|))
+        (SEQ (SPADCALL (QREFELT $ 9) |u| (|SYMS;newEntry| $) (QREFELT $ 18))
+             (SETELT $ 10 |u|) (EXIT (SPADCALL (QREFELT $ 17))))) 
 
-(DEFUN |SYMS;argumentList!;SL$V;14| (|u| |args| |symbols| $)
-  (SEQ (|SYMS;checkIfEntryExists| |u| |symbols| $)
-       (EXIT (QSETVELT (SPADCALL |symbols| |u| (QREFELT $ 19)) 2 |args|)))) 
+(SDEFUN |SYMS;argumentList!;SL$V;14|
+        ((|u| |Symbol|) (|args| |List| (|Symbol|)) (|symbols| $) ($ |Void|))
+        (SEQ (|SYMS;checkIfEntryExists| |u| |symbols| $)
+             (EXIT
+              (QSETVELT (SPADCALL |symbols| |u| (QREFELT $ 19)) 2 |args|)))) 
 
-(DEFUN |SYMS;argumentList!;SLV;15| (|u| |args| $)
-  (SPADCALL |u| |args| (QREFELT $ 9) (QREFELT $ 37))) 
+(SDEFUN |SYMS;argumentList!;SLV;15|
+        ((|u| |Symbol|) (|args| |List| (|Symbol|)) ($ |Void|))
+        (SPADCALL |u| |args| (QREFELT $ 9) (QREFELT $ 37))) 
 
-(DEFUN |SYMS;argumentList!;LV;16| (|args| $)
-  (SEQ (|SYMS;checkIfEntryExists| (QREFELT $ 10) (QREFELT $ 9) $)
-       (EXIT
-        (QSETVELT (SPADCALL (QREFELT $ 9) (QREFELT $ 10) (QREFELT $ 19)) 2
-                  |args|)))) 
+(SDEFUN |SYMS;argumentList!;LV;16| ((|args| |List| (|Symbol|)) ($ |Void|))
+        (SEQ (|SYMS;checkIfEntryExists| (QREFELT $ 10) (QREFELT $ 9) $)
+             (EXIT
+              (QSETVELT (SPADCALL (QREFELT $ 9) (QREFELT $ 10) (QREFELT $ 19))
+                        2 |args|)))) 
 
-(DEFUN |SYMS;returnType!;SU$V;17| (|u| |type| |symbols| $)
-  (SEQ (|SYMS;checkIfEntryExists| |u| |symbols| $)
-       (EXIT (QSETVELT (SPADCALL |symbols| |u| (QREFELT $ 19)) 1 |type|)))) 
+(SDEFUN |SYMS;returnType!;SU$V;17|
+        ((|u| |Symbol|)
+         (|type| |Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void"))
+         (|symbols| $) ($ |Void|))
+        (SEQ (|SYMS;checkIfEntryExists| |u| |symbols| $)
+             (EXIT
+              (QSETVELT (SPADCALL |symbols| |u| (QREFELT $ 19)) 1 |type|)))) 
 
-(DEFUN |SYMS;returnType!;SUV;18| (|u| |type| $)
-  (SPADCALL |u| |type| (QREFELT $ 9) (QREFELT $ 40))) 
+(SDEFUN |SYMS;returnType!;SUV;18|
+        ((|u| |Symbol|)
+         (|type| |Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void"))
+         ($ |Void|))
+        (SPADCALL |u| |type| (QREFELT $ 9) (QREFELT $ 40))) 
 
-(DEFUN |SYMS;returnType!;UV;19| (|type| $)
-  (SEQ (|SYMS;checkIfEntryExists| (QREFELT $ 10) (QREFELT $ 9) $)
-       (EXIT
-        (QSETVELT (SPADCALL (QREFELT $ 9) (QREFELT $ 10) (QREFELT $ 19)) 1
-                  |type|)))) 
+(SDEFUN |SYMS;returnType!;UV;19|
+        ((|type| |Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| "void"))
+         ($ |Void|))
+        (SEQ (|SYMS;checkIfEntryExists| (QREFELT $ 10) (QREFELT $ 9) $)
+             (EXIT
+              (QSETVELT (SPADCALL (QREFELT $ 9) (QREFELT $ 10) (QREFELT $ 19))
+                        1 |type|)))) 
 
-(DEFUN |SYMS;declare!;S2Ft;20| (|u| |type| $)
-  (SPADCALL |u| |type| (QREFELT $ 10) (QREFELT $ 9) (QREFELT $ 44))) 
+(SDEFUN |SYMS;declare!;S2Ft;20|
+        ((|u| |Symbol|) (|type| |FortranType|) ($ |FortranType|))
+        (SPADCALL |u| |type| (QREFELT $ 10) (QREFELT $ 9) (QREFELT $ 44))) 
 
-(DEFUN |SYMS;declare!;SFtS$Ft;21| (|u| |type| |asp| |symbols| $)
-  (SEQ (|SYMS;checkIfEntryExists| |asp| |symbols| $)
-       (EXIT
-        (SPADCALL |u| |type|
-                  (QVELT (SPADCALL |symbols| |asp| (QREFELT $ 19)) 0)
-                  (QREFELT $ 46))))) 
+(SDEFUN |SYMS;declare!;SFtS$Ft;21|
+        ((|u| |Symbol|) (|type| |FortranType|) (|asp| |Symbol|) (|symbols| $)
+         ($ |FortranType|))
+        (SEQ (|SYMS;checkIfEntryExists| |asp| |symbols| $)
+             (EXIT
+              (SPADCALL |u| |type|
+                        (QVELT (SPADCALL |symbols| |asp| (QREFELT $ 19)) 0)
+                        (QREFELT $ 46))))) 
 
-(DEFUN |SYMS;declare!;LFtS$Ft;22| (|u| |type| |asp| |syms| $)
-  (SEQ (|SYMS;checkIfEntryExists| |asp| |syms| $)
-       (EXIT
-        (SPADCALL |u| |type| (QVELT (SPADCALL |syms| |asp| (QREFELT $ 19)) 0)
-                  (QREFELT $ 47))))) 
+(SDEFUN |SYMS;declare!;LFtS$Ft;22|
+        ((|u| |List| (|Symbol|)) (|type| |FortranType|) (|asp| |Symbol|)
+         (|syms| $) ($ |FortranType|))
+        (SEQ (|SYMS;checkIfEntryExists| |asp| |syms| $)
+             (EXIT
+              (SPADCALL |u| |type|
+                        (QVELT (SPADCALL |syms| |asp| (QREFELT $ 19)) 0)
+                        (QREFELT $ 47))))) 
 
-(DEFUN |SYMS;declare!;SFtSFt;23| (|u| |type| |asp| $)
-  (SEQ (|SYMS;checkIfEntryExists| |asp| (QREFELT $ 9) $)
-       (EXIT
-        (SPADCALL |u| |type|
-                  (QVELT (SPADCALL (QREFELT $ 9) |asp| (QREFELT $ 19)) 0)
-                  (QREFELT $ 46))))) 
+(SDEFUN |SYMS;declare!;SFtSFt;23|
+        ((|u| |Symbol|) (|type| |FortranType|) (|asp| |Symbol|)
+         ($ |FortranType|))
+        (SEQ (|SYMS;checkIfEntryExists| |asp| (QREFELT $ 9) $)
+             (EXIT
+              (SPADCALL |u| |type|
+                        (QVELT (SPADCALL (QREFELT $ 9) |asp| (QREFELT $ 19)) 0)
+                        (QREFELT $ 46))))) 
 
-(DEFUN |SYMS;printHeader;S$V;24| (|u| |symbols| $)
-  (PROG (|entry|)
-    (RETURN
-     (SEQ
-      (LETT |entry| (SPADCALL |symbols| |u| (QREFELT $ 19))
-            |SYMS;printHeader;S$V;24|)
-      (|fortFormatHead| (SPADCALL (QVELT |entry| 1) (QREFELT $ 50))
-                        (SPADCALL |u| (QREFELT $ 51))
-                        (SPADCALL (QVELT |entry| 2) (QREFELT $ 52)))
-      (EXIT (SPADCALL (QVELT |entry| 0) (QREFELT $ 53))))))) 
+(SDEFUN |SYMS;printHeader;S$V;24| ((|u| |Symbol|) (|symbols| $) ($ |Void|))
+        (SPROG ((|entry| (|Entry|)))
+               (SEQ
+                (LETT |entry| (SPADCALL |symbols| |u| (QREFELT $ 19))
+                      |SYMS;printHeader;S$V;24|)
+                (|fortFormatHead| (SPADCALL (QVELT |entry| 1) (QREFELT $ 50))
+                                  (SPADCALL |u| (QREFELT $ 51))
+                                  (SPADCALL (QVELT |entry| 2) (QREFELT $ 52)))
+                (EXIT (SPADCALL (QVELT |entry| 0) (QREFELT $ 53)))))) 
 
-(DEFUN |SYMS;printHeader;SV;25| (|u| $)
-  (SPADCALL |u| (QREFELT $ 9) (QREFELT $ 54))) 
+(SDEFUN |SYMS;printHeader;SV;25| ((|u| |Symbol|) ($ |Void|))
+        (SPADCALL |u| (QREFELT $ 9) (QREFELT $ 54))) 
 
-(DEFUN |SYMS;printHeader;V;26| ($)
-  (SPADCALL (QREFELT $ 10) (QREFELT $ 9) (QREFELT $ 54))) 
+(SDEFUN |SYMS;printHeader;V;26| (($ |Void|))
+        (SPADCALL (QREFELT $ 10) (QREFELT $ 9) (QREFELT $ 54))) 
 
-(DEFUN |SYMS;printTypes;SV;27| (|u| $)
-  (SPADCALL (QVELT (SPADCALL (QREFELT $ 9) |u| (QREFELT $ 19)) 0)
-            (QREFELT $ 53))) 
+(SDEFUN |SYMS;printTypes;SV;27| ((|u| |Symbol|) ($ |Void|))
+        (SPADCALL (QVELT (SPADCALL (QREFELT $ 9) |u| (QREFELT $ 19)) 0)
+                  (QREFELT $ 53))) 
 
 (DECLAIM (NOTINLINE |TheSymbolTable;|)) 
 
 (DEFUN |TheSymbolTable| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G161)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|TheSymbolTable|)
-                . #2=(|TheSymbolTable|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|TheSymbolTable|
-                         (LIST (CONS NIL (CONS 1 (|TheSymbolTable;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G161)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|TheSymbolTable|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|TheSymbolTable|)
+                    . #2=(|TheSymbolTable|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|TheSymbolTable|
+                             (LIST (CONS NIL (CONS 1 (|TheSymbolTable;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|TheSymbolTable|)))))))))) 
 
 (DEFUN |TheSymbolTable;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|TheSymbolTable|) . #1=(|TheSymbolTable|))
-      (LETT $ (GETREFV 58) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TheSymbolTable| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Record| (|:| |symtab| (|SymbolTable|))
-                          (|:| |returnType|
-                               (|Union| (|:| |fst| (|FortranScalarType|))
-                                        (|:| |void| "void")))
-                          (|:| |argList| (|List| (|Symbol|)))))
-      (QSETREFV $ 7 (|Table| (|Symbol|) (QREFELT $ 6)))
-      (QSETREFV $ 9 (SPADCALL (QREFELT $ 8)))
-      (QSETREFV $ 10 'MAIN)
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TheSymbolTable|) . #1=(|TheSymbolTable|))
+          (LETT $ (GETREFV 58) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TheSymbolTable| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |symtab| (|SymbolTable|))
+                              (|:| |returnType|
+                                   (|Union| (|:| |fst| (|FortranScalarType|))
+                                            (|:| |void| "void")))
+                              (|:| |argList| (|List| (|Symbol|)))))
+          (QSETREFV $ 7 (|Table| (|Symbol|) (QREFELT $ 6)))
+          (QSETREFV $ 9 (SPADCALL (QREFELT $ 8)))
+          (QSETREFV $ 10 'MAIN)
+          $))) 
 
 (MAKEPROP '|TheSymbolTable| '|infovec|
           (LIST

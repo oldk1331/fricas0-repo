@@ -1,711 +1,774 @@
 
-(DEFUN |EXPRODE;localInteger| (|n| $)
-  (COND ((QREFELT $ 14) |n|) ('T (SPADCALL (QREFELT $ 13) |n| (QREFELT $ 15))))) 
+(SDEFUN |EXPRODE;localInteger| ((|n| F) ($ F))
+        (COND ((QREFELT $ 14) |n|)
+              ('T (SPADCALL (QREFELT $ 13) |n| (QREFELT $ 15))))) 
 
-(DEFUN |EXPRODE;diffRhs| (|f| |g| $)
-  (|EXPRODE;diffRhsK| (SPADCALL |f| (QREFELT $ 17)) |g| $)) 
+(SDEFUN |EXPRODE;diffRhs| ((|f| F) (|g| F) ($ F))
+        (|EXPRODE;diffRhsK| (SPADCALL |f| (QREFELT $ 17)) |g| $)) 
 
-(DEFUN |EXPRODE;k2exquo| (|k| $)
-  (PROG (#1=#:G117 |f| #2=#:G116 |op|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL
-         (LETT |op| (SPADCALL |k| (QREFELT $ 19)) . #3=(|EXPRODE;k2exquo|))
-         '|%diff| (QREFELT $ 21))
-        (|error| "Improper differential equation"))
-       ('T
-        (SPADCALL |op|
-                  (PROGN
-                   (LETT #2# NIL . #3#)
-                   (SEQ (LETT |f| NIL . #3#)
-                        (LETT #1# (SPADCALL |k| (QREFELT $ 23)) . #3#) G190
-                        (COND
-                         ((OR (ATOM #1#)
-                              (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
-                          (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (LETT #2# (CONS (|EXPRODE;div2exquo| |f| $) #2#)
-                                . #3#)))
-                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                        (EXIT (NREVERSE #2#))))
-                  (QREFELT $ 25)))))))) 
-
-(DEFUN |EXPRODE;smp2exquo| (|p| $)
-  (SPADCALL (CONS (|function| |EXPRODE;k2exquo|) $) (ELT $ 26) |p|
-            (QREFELT $ 31))) 
-
-(DEFUN |EXPRODE;div2exquo| (|f| $)
-  (PROG (|d|)
-    (RETURN
-     (SEQ (LETT |d| (SPADCALL |f| (QREFELT $ 33)) |EXPRODE;div2exquo|)
-          (EXIT
-           (COND ((SPADCALL |d| (|spadConstant| $ 36) (QREFELT $ 37)) |f|)
-                 ('T
-                  (SPADCALL (QREFELT $ 12)
-                            (|EXPRODE;smp2exquo| (SPADCALL |f| (QREFELT $ 38))
-                             $)
-                            (|EXPRODE;smp2exquo| |d| $) (QREFELT $ 39))))))))) 
-
-(DEFUN |EXPRODE;diffRhsK| (|k| |g| $)
-  (PROG (|h|)
-    (RETURN
-     (SEQ (LETT |h| (SPADCALL |g| |k| (QREFELT $ 41)) |EXPRODE;diffRhsK|)
+(SDEFUN |EXPRODE;k2exquo| ((|k| |Kernel| F) ($ F))
+        (SPROG
+         ((#1=#:G117 NIL) (|f| NIL) (#2=#:G116 NIL) (|op| (|BasicOperator|)))
+         (SEQ
           (COND
-           ((SPADCALL (SPADCALL (SPADCALL |h| (QREFELT $ 44)) (QREFELT $ 46)) 1
-                      (QREFELT $ 47))
-            (COND
-             ((SPADCALL (SPADCALL |h| (QREFELT $ 48)) (QREFELT $ 49))
-              (EXIT
-               (SPADCALL
-                (SPADCALL
-                 (SPADCALL (SPADCALL |h| (QREFELT $ 44)) 0 (QREFELT $ 51))
-                 (SPADCALL (SPADCALL |h| (QREFELT $ 44)) 1 (QREFELT $ 51))
-                 (QREFELT $ 52))
-                (QREFELT $ 53)))))))
-          (EXIT (|error| "Improper differential equation")))))) 
+           ((SPADCALL
+             (LETT |op| (SPADCALL |k| (QREFELT $ 19)) . #3=(|EXPRODE;k2exquo|))
+             '|%diff| (QREFELT $ 21))
+            (|error| "Improper differential equation"))
+           ('T
+            (SPADCALL |op|
+                      (PROGN
+                       (LETT #2# NIL . #3#)
+                       (SEQ (LETT |f| NIL . #3#)
+                            (LETT #1# (SPADCALL |k| (QREFELT $ 23)) . #3#) G190
+                            (COND
+                             ((OR (ATOM #1#)
+                                  (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (LETT #2# (CONS (|EXPRODE;div2exquo| |f| $) #2#)
+                                    . #3#)))
+                            (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                            (EXIT (NREVERSE #2#))))
+                      (QREFELT $ 25))))))) 
 
-(DEFUN |EXPRODE;checkCompat| (|y| |eqx| |eqy| $)
-  (COND
-   ((SPADCALL (SPADCALL |eqy| (QREFELT $ 55))
-              (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 56)) (QREFELT $ 15))
-              (QREFELT $ 57))
-    (SPADCALL |eqy| (QREFELT $ 56)))
-   ('T (|error| "Improper initial value")))) 
+(SDEFUN |EXPRODE;smp2exquo|
+        ((|p| |SparseMultivariatePolynomial| R (|Kernel| F)) ($ F))
+        (SPADCALL (CONS (|function| |EXPRODE;k2exquo|) $) (ELT $ 26) |p|
+                  (QREFELT $ 31))) 
 
-(DEFUN |EXPRODE;findCompat| (|yx| |l| $)
-  (PROG (#1=#:G129 #2=#:G131 #3=#:G132 |eq|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ
-         (EXIT
-          (SEQ (LETT |eq| NIL . #4=(|EXPRODE;findCompat|)) (LETT #3# |l| . #4#)
-               G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |eq| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
+(SDEFUN |EXPRODE;div2exquo| ((|f| F) ($ F))
+        (SPROG ((|d| (|SparseMultivariatePolynomial| R (|Kernel| F))))
                (SEQ
+                (LETT |d| (SPADCALL |f| (QREFELT $ 33)) |EXPRODE;div2exquo|)
                 (EXIT
                  (COND
-                  ((SPADCALL |yx| (SPADCALL |eq| (QREFELT $ 55))
-                             (QREFELT $ 57))
-                   (PROGN
-                    (LETT #1#
-                          (PROGN
-                           (LETT #2# (SPADCALL |eq| (QREFELT $ 56)) . #4#)
-                           (GO #2#))
-                          . #4#)
-                    (GO #1#))))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT (|error| "Improper initial value"))))
-      #2# (EXIT #2#))))) 
+                  ((SPADCALL |d| (|spadConstant| $ 36) (QREFELT $ 37)) |f|)
+                  ('T
+                   (SPADCALL (QREFELT $ 12)
+                             (|EXPRODE;smp2exquo| (SPADCALL |f| (QREFELT $ 38))
+                              $)
+                             (|EXPRODE;smp2exquo| |d| $) (QREFELT $ 39)))))))) 
 
-(DEFUN |EXPRODE;findEq| (|k| |x| |sys| $)
-  (PROG (#1=#:G134 #2=#:G136 #3=#:G137 |eq|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |k|
-              (SPADCALL
-               (SPADCALL (SPADCALL |k| (QREFELT $ 58)) |x| (QREFELT $ 59))
-               (QREFELT $ 17))
-              . #4=(|EXPRODE;findEq|))
-        (SEQ
-         (EXIT
-          (SEQ (LETT |eq| NIL . #4#) (LETT #3# |sys| . #4#) G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |eq| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
+(SDEFUN |EXPRODE;diffRhsK| ((|k| |Kernel| F) (|g| F) ($ F))
+        (SPROG ((|h| (|Fraction| (|SparseUnivariatePolynomial| F))))
                (SEQ
-                (EXIT
-                 (COND
-                  ((SPADCALL |k| (SPADCALL |eq| (QREFELT $ 61)) (QREFELT $ 63))
-                   (PROGN
-                    (LETT #1# (PROGN (LETT #2# |eq| . #4#) (GO #2#)) . #4#)
-                    (GO #1#))))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT (|error| "Improper differential equation"))))
-      #2# (EXIT #2#))))) 
-
-(DEFUN |EXPRODE;checkOrder1| (|diffeq| |y| |yx| |x| |sy| $)
-  (|EXPRODE;div2exquo|
-   (SPADCALL
-    (|EXPRODE;diffRhs|
-     (SPADCALL (SPADCALL |yx| (QREFELT $ 58)) |x| (QREFELT $ 59)) |diffeq| $)
-    (LIST |yx|) (LIST |sy|) (QREFELT $ 64))
-   $)) 
-
-(DEFUN |EXPRODE;checkOrderN| (|diffeq| |y| |yx| |x| |sy| |n| $)
-  (PROG (|lv| |m| |l| |f| |i|)
-    (RETURN
-     (SEQ
-      (COND ((ZEROP |n|) (|error| "No initial value(s) given"))
-            ('T
-             (SEQ
-              (LETT |m|
-                    (SPADCALL
-                     (SPADCALL
-                      (LETT |l|
-                            (LIST
-                             (SPADCALL
-                              (LETT |f| (SPADCALL |yx| (QREFELT $ 58))
-                                    . #1=(|EXPRODE;checkOrderN|))
-                              (QREFELT $ 17)))
-                            . #1#)
-                      (QREFELT $ 66))
-                     (QREFELT $ 67))
-                    . #1#)
-              (LETT |lv|
-                    (LIST
-                     (SPADCALL (QREFELT $ 11) |sy|
-                               (|EXPRODE;localInteger| |m| $) (QREFELT $ 39)))
-                    . #1#)
-              (SEQ (LETT |i| 2 . #1#) G190
-                   (COND ((|greater_SI| |i| |n|) (GO G191)))
-                   (SEQ
-                    (LETT |l|
-                          (CONS
-                           (SPADCALL
-                            (LETT |f| (SPADCALL |f| |x| (QREFELT $ 59)) . #1#)
-                            (QREFELT $ 17))
-                           |l|)
-                          . #1#)
+                (LETT |h| (SPADCALL |g| |k| (QREFELT $ 41)) |EXPRODE;diffRhsK|)
+                (COND
+                 ((SPADCALL
+                   (SPADCALL (SPADCALL |h| (QREFELT $ 44)) (QREFELT $ 46)) 1
+                   (QREFELT $ 47))
+                  (COND
+                   ((SPADCALL (SPADCALL |h| (QREFELT $ 48)) (QREFELT $ 49))
                     (EXIT
-                     (LETT |lv|
-                           (CONS
-                            (SPADCALL (QREFELT $ 11) |sy|
-                                      (|EXPRODE;localInteger|
-                                       (LETT |m|
-                                             (SPADCALL |m|
-                                                       (|spadConstant| $ 35)
-                                                       (QREFELT $ 68))
-                                             . #1#)
-                                       $)
-                                      (QREFELT $ 39))
-                            |lv|)
-                           . #1#)))
-                   (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-              (EXIT
-               (|EXPRODE;div2exquo|
-                (SPADCALL
-                 (|EXPRODE;diffRhs| (SPADCALL |f| |x| (QREFELT $ 59)) |diffeq|
-                  $)
-                 |l| |lv| (QREFELT $ 64))
-                $))))))))) 
+                     (SPADCALL
+                      (SPADCALL
+                       (SPADCALL (SPADCALL |h| (QREFELT $ 44)) 0
+                                 (QREFELT $ 51))
+                       (SPADCALL (SPADCALL |h| (QREFELT $ 44)) 1
+                                 (QREFELT $ 51))
+                       (QREFELT $ 52))
+                      (QREFELT $ 53)))))))
+                (EXIT (|error| "Improper differential equation"))))) 
 
-(DEFUN |EXPRODE;checkSystem| (|diffeq| |yx| |lv| $)
-  (PROG (#1=#:G145 #2=#:G147 #3=#:G148 |k|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ
-         (EXIT
-          (SEQ (LETT |k| NIL . #4=(|EXPRODE;checkSystem|))
-               (LETT #3# (SPADCALL |diffeq| (QREFELT $ 61)) . #4#) G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |k| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
+(SDEFUN |EXPRODE;checkCompat|
+        ((|y| |BasicOperator|) (|eqx| |Equation| F) (|eqy| |Equation| F) ($ F))
+        (COND
+         ((SPADCALL (SPADCALL |eqy| (QREFELT $ 55))
+                    (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 56))
+                              (QREFELT $ 15))
+                    (QREFELT $ 57))
+          (SPADCALL |eqy| (QREFELT $ 56)))
+         ('T (|error| "Improper initial value")))) 
+
+(SDEFUN |EXPRODE;findCompat| ((|yx| F) (|l| |List| (|Equation| F)) ($ F))
+        (SPROG ((#1=#:G129 NIL) (#2=#:G131 NIL) (#3=#:G132 NIL) (|eq| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((SPADCALL |k| '|%diff| (QREFELT $ 69))
-                   (PROGN
-                    (LETT #1#
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |eq| NIL . #4=(|EXPRODE;findCompat|))
+                         (LETT #3# |l| . #4#) G190
+                         (COND
+                          ((OR (ATOM #3#)
+                               (PROGN (LETT |eq| (CAR #3#) . #4#) NIL))
+                           (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((SPADCALL |yx| (SPADCALL |eq| (QREFELT $ 55))
+                                       (QREFELT $ 57))
+                             (PROGN
+                              (LETT #1#
+                                    (PROGN
+                                     (LETT #2# (SPADCALL |eq| (QREFELT $ 56))
+                                           . #4#)
+                                     (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT (|error| "Improper initial value"))))
+                #2# (EXIT #2#)))) 
+
+(SDEFUN |EXPRODE;findEq|
+        ((|k| |Kernel| F) (|x| |Symbol|) (|sys| |List| F) ($ F))
+        (SPROG ((#1=#:G134 NIL) (#2=#:G136 NIL) (#3=#:G137 NIL) (|eq| NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (LETT |k|
+                        (SPADCALL
+                         (SPADCALL (SPADCALL |k| (QREFELT $ 58)) |x|
+                                   (QREFELT $ 59))
+                         (QREFELT $ 17))
+                        . #4=(|EXPRODE;findEq|))
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |eq| NIL . #4#) (LETT #3# |sys| . #4#) G190
+                         (COND
+                          ((OR (ATOM #3#)
+                               (PROGN (LETT |eq| (CAR #3#) . #4#) NIL))
+                           (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((SPADCALL |k| (SPADCALL |eq| (QREFELT $ 61))
+                                       (QREFELT $ 63))
+                             (PROGN
+                              (LETT #1# (PROGN (LETT #2# |eq| . #4#) (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT (|error| "Improper differential equation"))))
+                #2# (EXIT #2#)))) 
+
+(SDEFUN |EXPRODE;checkOrder1|
+        ((|diffeq| F) (|y| |BasicOperator|) (|yx| |Kernel| F) (|x| |Symbol|)
+         (|sy| F) ($ F))
+        (|EXPRODE;div2exquo|
+         (SPADCALL
+          (|EXPRODE;diffRhs|
+           (SPADCALL (SPADCALL |yx| (QREFELT $ 58)) |x| (QREFELT $ 59))
+           |diffeq| $)
+          (LIST |yx|) (LIST |sy|) (QREFELT $ 64))
+         $)) 
+
+(SDEFUN |EXPRODE;checkOrderN|
+        ((|diffeq| F) (|y| |BasicOperator|) (|yx| |Kernel| F) (|x| |Symbol|)
+         (|sy| F) (|n| |NonNegativeInteger|) ($ F))
+        (SPROG
+         ((|lv| (|List| F)) (|m| (F)) (|l| (|List| (|Kernel| F))) (|f| (F))
+          (|i| NIL))
+         (SEQ
+          (COND ((ZEROP |n|) (|error| "No initial value(s) given"))
+                ('T
+                 (SEQ
+                  (LETT |m|
+                        (SPADCALL
+                         (SPADCALL
+                          (LETT |l|
+                                (LIST
+                                 (SPADCALL
+                                  (LETT |f| (SPADCALL |yx| (QREFELT $ 58))
+                                        . #1=(|EXPRODE;checkOrderN|))
+                                  (QREFELT $ 17)))
+                                . #1#)
+                          (QREFELT $ 66))
+                         (QREFELT $ 67))
+                        . #1#)
+                  (LETT |lv|
+                        (LIST
+                         (SPADCALL (QREFELT $ 11) |sy|
+                                   (|EXPRODE;localInteger| |m| $)
+                                   (QREFELT $ 39)))
+                        . #1#)
+                  (SEQ (LETT |i| 2 . #1#) G190
+                       (COND ((|greater_SI| |i| |n|) (GO G191)))
+                       (SEQ
+                        (LETT |l|
+                              (CONS
+                               (SPADCALL
+                                (LETT |f| (SPADCALL |f| |x| (QREFELT $ 59))
+                                      . #1#)
+                                (QREFELT $ 17))
+                               |l|)
+                              . #1#)
+                        (EXIT
+                         (LETT |lv|
+                               (CONS
+                                (SPADCALL (QREFELT $ 11) |sy|
+                                          (|EXPRODE;localInteger|
+                                           (LETT |m|
+                                                 (SPADCALL |m|
+                                                           (|spadConstant| $
+                                                                           35)
+                                                           (QREFELT $ 68))
+                                                 . #1#)
+                                           $)
+                                          (QREFELT $ 39))
+                                |lv|)
+                               . #1#)))
+                       (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                       (EXIT NIL))
+                  (EXIT
+                   (|EXPRODE;div2exquo|
+                    (SPADCALL
+                     (|EXPRODE;diffRhs| (SPADCALL |f| |x| (QREFELT $ 59))
+                      |diffeq| $)
+                     |l| |lv| (QREFELT $ 64))
+                    $)))))))) 
+
+(SDEFUN |EXPRODE;checkSystem|
+        ((|diffeq| F) (|yx| |List| (|Kernel| F)) (|lv| |List| F) ($ F))
+        (SPROG ((#1=#:G145 NIL) (#2=#:G147 NIL) (#3=#:G148 NIL) (|k| NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |k| NIL . #4=(|EXPRODE;checkSystem|))
+                         (LETT #3# (SPADCALL |diffeq| (QREFELT $ 61)) . #4#)
+                         G190
+                         (COND
+                          ((OR (ATOM #3#)
+                               (PROGN (LETT |k| (CAR #3#) . #4#) NIL))
+                           (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((SPADCALL |k| '|%diff| (QREFELT $ 69))
+                             (PROGN
+                              (LETT #1#
+                                    (PROGN
+                                     (LETT #2#
+                                           (|EXPRODE;div2exquo|
+                                            (SPADCALL
+                                             (|EXPRODE;diffRhsK| |k| |diffeq|
+                                              $)
+                                             |yx| |lv| (QREFELT $ 64))
+                                            $)
+                                           . #4#)
+                                     (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT (|spadConstant| $ 70))))
+                #2# (EXIT #2#)))) 
+
+(SDEFUN |EXPRODE;seriesSolve;LLELA;13|
+        ((|l| |List| (|Equation| F)) (|y| |List| (|BasicOperator|))
+         (|eqx| |Equation| F) (|eqy| |List| (|Equation| F)) ($ |Any|))
+        (SPROG ((#1=#:G152 NIL) (|deq| NIL) (#2=#:G151 NIL))
+               (SEQ
+                (SPADCALL
+                 (PROGN
+                  (LETT #2# NIL . #3=(|EXPRODE;seriesSolve;LLELA;13|))
+                  (SEQ (LETT |deq| NIL . #3#) (LETT #1# |l| . #3#) G190
+                       (COND
+                        ((OR (ATOM #1#)
+                             (PROGN (LETT |deq| (CAR #1#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2#
+                               (CONS
+                                (SPADCALL (SPADCALL |deq| (QREFELT $ 55))
+                                          (SPADCALL |deq| (QREFELT $ 56))
+                                          (QREFELT $ 71))
+                                #2#)
+                               . #3#)))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 |y| |eqx| |eqy| (QREFELT $ 75))))) 
+
+(SDEFUN |EXPRODE;seriesSolve;LLELA;14|
+        ((|l| |List| (|Equation| F)) (|y| |List| (|BasicOperator|))
+         (|eqx| |Equation| F) (|y0| |List| F) ($ |Any|))
+        (SPROG ((#1=#:G157 NIL) (|deq| NIL) (#2=#:G156 NIL))
+               (SEQ
+                (SPADCALL
+                 (PROGN
+                  (LETT #2# NIL . #3=(|EXPRODE;seriesSolve;LLELA;14|))
+                  (SEQ (LETT |deq| NIL . #3#) (LETT #1# |l| . #3#) G190
+                       (COND
+                        ((OR (ATOM #1#)
+                             (PROGN (LETT |deq| (CAR #1#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2#
+                               (CONS
+                                (SPADCALL (SPADCALL |deq| (QREFELT $ 55))
+                                          (SPADCALL |deq| (QREFELT $ 56))
+                                          (QREFELT $ 71))
+                                #2#)
+                               . #3#)))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 |y| |eqx| |y0| (QREFELT $ 77))))) 
+
+(SDEFUN |EXPRODE;seriesSolve;LLELA;15|
+        ((|l| |List| F) (|ly| |List| (|BasicOperator|)) (|eqx| |Equation| F)
+         (|eqy| |List| (|Equation| F)) ($ |Any|))
+        (SPROG ((#1=#:G161 NIL) (|y| NIL) (#2=#:G160 NIL))
+               (SEQ
+                (SPADCALL |l| |ly| |eqx|
                           (PROGN
-                           (LETT #2#
-                                 (|EXPRODE;div2exquo|
-                                  (SPADCALL (|EXPRODE;diffRhsK| |k| |diffeq| $)
-                                            |yx| |lv| (QREFELT $ 64))
-                                  $)
-                                 . #4#)
-                           (GO #2#))
-                          . #4#)
-                    (GO #1#))))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT (|spadConstant| $ 70))))
-      #2# (EXIT #2#))))) 
+                           (LETT #2# NIL . #3=(|EXPRODE;seriesSolve;LLELA;15|))
+                           (SEQ (LETT |y| NIL . #3#) (LETT #1# |ly| . #3#) G190
+                                (COND
+                                 ((OR (ATOM #1#)
+                                      (PROGN (LETT |y| (CAR #1#) . #3#) NIL))
+                                  (GO G191)))
+                                (SEQ
+                                 (EXIT
+                                  (LETT #2#
+                                        (CONS
+                                         (|EXPRODE;findCompat|
+                                          (SPADCALL |y|
+                                                    (SPADCALL |eqx|
+                                                              (QREFELT $ 56))
+                                                    (QREFELT $ 15))
+                                          |eqy| $)
+                                         #2#)
+                                        . #3#)))
+                                (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                (EXIT (NREVERSE #2#))))
+                          (QREFELT $ 77))))) 
 
-(DEFUN |EXPRODE;seriesSolve;LLELA;13| (|l| |y| |eqx| |eqy| $)
-  (PROG (#1=#:G152 |deq| #2=#:G151)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #2# NIL . #3=(|EXPRODE;seriesSolve;LLELA;13|))
-        (SEQ (LETT |deq| NIL . #3#) (LETT #1# |l| . #3#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |deq| (CAR #1#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #2#
-                     (CONS
-                      (SPADCALL (SPADCALL |deq| (QREFELT $ 55))
-                                (SPADCALL |deq| (QREFELT $ 56)) (QREFELT $ 71))
-                      #2#)
-                     . #3#)))
-             (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-       |y| |eqx| |eqy| (QREFELT $ 75)))))) 
+(SDEFUN |EXPRODE;seriesSolve;EBo2EA;16|
+        ((|diffeq| |Equation| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
+         (|eqy| |Equation| F) ($ |Any|))
+        (SPADCALL
+         (SPADCALL (SPADCALL |diffeq| (QREFELT $ 55))
+                   (SPADCALL |diffeq| (QREFELT $ 56)) (QREFELT $ 71))
+         |y| |eqx| |eqy| (QREFELT $ 79))) 
 
-(DEFUN |EXPRODE;seriesSolve;LLELA;14| (|l| |y| |eqx| |y0| $)
-  (PROG (#1=#:G157 |deq| #2=#:G156)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #2# NIL . #3=(|EXPRODE;seriesSolve;LLELA;14|))
-        (SEQ (LETT |deq| NIL . #3#) (LETT #1# |l| . #3#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |deq| (CAR #1#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #2#
-                     (CONS
-                      (SPADCALL (SPADCALL |deq| (QREFELT $ 55))
-                                (SPADCALL |deq| (QREFELT $ 56)) (QREFELT $ 71))
-                      #2#)
-                     . #3#)))
-             (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-       |y| |eqx| |y0| (QREFELT $ 77)))))) 
+(SDEFUN |EXPRODE;seriesSolve;EBoEFA;17|
+        ((|diffeq| |Equation| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
+         (|y0| F) ($ |Any|))
+        (SPADCALL
+         (SPADCALL (SPADCALL |diffeq| (QREFELT $ 55))
+                   (SPADCALL |diffeq| (QREFELT $ 56)) (QREFELT $ 71))
+         |y| |eqx| |y0| (QREFELT $ 81))) 
 
-(DEFUN |EXPRODE;seriesSolve;LLELA;15| (|l| |ly| |eqx| |eqy| $)
-  (PROG (#1=#:G161 |y| #2=#:G160)
-    (RETURN
-     (SEQ
-      (SPADCALL |l| |ly| |eqx|
+(SDEFUN |EXPRODE;seriesSolve;EBoELA;18|
+        ((|diffeq| |Equation| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
+         (|y0| |List| F) ($ |Any|))
+        (SPADCALL
+         (SPADCALL (SPADCALL |diffeq| (QREFELT $ 55))
+                   (SPADCALL |diffeq| (QREFELT $ 56)) (QREFELT $ 71))
+         |y| |eqx| |y0| (QREFELT $ 83))) 
+
+(SDEFUN |EXPRODE;seriesSolve;FBo2EA;19|
+        ((|diffeq| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
+         (|eqy| |Equation| F) ($ |Any|))
+        (SPADCALL |diffeq| |y| |eqx| (|EXPRODE;checkCompat| |y| |eqx| |eqy| $)
+                  (QREFELT $ 81))) 
+
+(SDEFUN |EXPRODE;seriesSolve;FBoEFA;20|
+        ((|diffeq| F) (|y| |BasicOperator|) (|eqx| |Equation| F) (|y0| F)
+         ($ |Any|))
+        (SPROG
+         ((|center| (F)) (|f| (F)) (|yx| (|Kernel| F)) (|sy| (|Symbol|))
+          (|x| (|Symbol|)) (#1=#:G167 NIL))
+         (SEQ
+          (LETT |x|
+                (PROG2
+                    (LETT #1#
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |eqx| (QREFELT $ 55))
+                                     (QREFELT $ 17))
+                           (QREFELT $ 86))
+                          . #2=(|EXPRODE;seriesSolve;FBoEFA;20|))
+                    (QCDR #1#)
+                  (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
+                . #2#)
+          (LETT |sy| (SPADCALL |y| (QREFELT $ 87)) . #2#)
+          (LETT |yx|
+                (SPADCALL
+                 (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 55)) (QREFELT $ 15))
+                 (QREFELT $ 17))
+                . #2#)
+          (LETT |f|
+                (|EXPRODE;checkOrder1| |diffeq| |y| |yx| |x|
+                 (SPADCALL |sy| (QREFELT $ 88)) $)
+                . #2#)
+          (LETT |center| (SPADCALL |eqx| (QREFELT $ 56)) . #2#)
+          (EXIT
+           (SPADCALL
+            (SPADCALL
+             (SPADCALL |f| |sy|
+                       (|compiledLookupCheck| '|compiledFunction|
+                                              (LIST
+                                               (LIST '|Mapping|
+                                                     (LIST
+                                                      '|UnivariateTaylorSeries|
+                                                      (|devaluate| (ELT $ 7))
+                                                      |x| |center|)
+                                                     (LIST
+                                                      '|UnivariateTaylorSeries|
+                                                      (|devaluate| (ELT $ 7))
+                                                      |x| |center|))
+                                               (|devaluate| (ELT $ 7))
+                                               (LIST '|Symbol|))
+                                              (|MakeUnaryCompiledFunction|
+                                               (ELT $ 7)
+                                               (|UnivariateTaylorSeries|
+                                                (ELT $ 7) |x| |center|)
+                                               (|UnivariateTaylorSeries|
+                                                (ELT $ 7) |x| |center|))))
+             |y0|
+             (|compiledLookupCheck| '|ode1|
+                                    (LIST
+                                     (LIST '|UnivariateTaylorSeries|
+                                           (|devaluate| (ELT $ 7)) |x|
+                                           |center|)
+                                     (LIST '|Mapping|
+                                           (LIST '|UnivariateTaylorSeries|
+                                                 (|devaluate| (ELT $ 7)) |x|
+                                                 |center|)
+                                           (LIST '|UnivariateTaylorSeries|
+                                                 (|devaluate| (ELT $ 7)) |x|
+                                                 |center|))
+                                     (|devaluate| (ELT $ 7)))
+                                    (|UnivariateTaylorSeriesODESolver|
+                                     (ELT $ 7)
+                                     (|UnivariateTaylorSeries| (ELT $ 7) |x|
+                                                               |center|))))
+            (|compiledLookupCheck| '|coerce|
+                                   (LIST (LIST '|Any|)
+                                         (LIST '|UnivariateTaylorSeries|
+                                               (|devaluate| (ELT $ 7)) |x|
+                                               |center|))
+                                   (|AnyFunctions1|
+                                    (|UnivariateTaylorSeries| (ELT $ 7) |x|
+                                                              |center|)))))))) 
+
+(SDEFUN |EXPRODE;seriesSolve;FBoELA;21|
+        ((|diffeq| F) (|y| |BasicOperator|) (|eqx| |Equation| F)
+         (|y0| |List| F) ($ |Any|))
+        (SPROG
+         ((|center| (F)) (|f| (F)) (|yx| (|Kernel| F)) (|sy| (|Symbol|))
+          (|x| (|Symbol|)) (#1=#:G173 NIL))
+         (SEQ
+          (LETT |x|
+                (PROG2
+                    (LETT #1#
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |eqx| (QREFELT $ 55))
+                                     (QREFELT $ 17))
+                           (QREFELT $ 86))
+                          . #2=(|EXPRODE;seriesSolve;FBoELA;21|))
+                    (QCDR #1#)
+                  (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
+                . #2#)
+          (LETT |sy| (SPADCALL (QREFELT $ 89)) . #2#)
+          (LETT |yx|
+                (SPADCALL
+                 (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 55)) (QREFELT $ 15))
+                 (QREFELT $ 17))
+                . #2#)
+          (LETT |f|
+                (|EXPRODE;checkOrderN| |diffeq| |y| |yx| |x|
+                 (SPADCALL |sy| (QREFELT $ 88)) (LENGTH |y0|) $)
+                . #2#)
+          (LETT |center| (SPADCALL |eqx| (QREFELT $ 56)) . #2#)
+          (EXIT
+           (SPADCALL
+            (SPADCALL
+             (SPADCALL |f| |sy|
+                       (|compiledLookupCheck| '|compiledFunction|
+                                              (LIST
+                                               (LIST '|Mapping|
+                                                     (LIST
+                                                      '|UnivariateTaylorSeries|
+                                                      (|devaluate| (ELT $ 7))
+                                                      |x| |center|)
+                                                     (LIST '|List|
+                                                           (LIST
+                                                            '|UnivariateTaylorSeries|
+                                                            (|devaluate|
+                                                             (ELT $ 7))
+                                                            |x| |center|)))
+                                               (|devaluate| (ELT $ 7))
+                                               (LIST '|Symbol|))
+                                              (|MakeUnaryCompiledFunction|
+                                               (ELT $ 7)
+                                               (|List|
+                                                (|UnivariateTaylorSeries|
+                                                 (ELT $ 7) |x| |center|))
+                                               (|UnivariateTaylorSeries|
+                                                (ELT $ 7) |x| |center|))))
+             |y0|
+             (|compiledLookupCheck| '|ode|
+                                    (LIST
+                                     (LIST '|UnivariateTaylorSeries|
+                                           (|devaluate| (ELT $ 7)) |x|
+                                           |center|)
+                                     (LIST '|Mapping|
+                                           (LIST '|UnivariateTaylorSeries|
+                                                 (|devaluate| (ELT $ 7)) |x|
+                                                 |center|)
+                                           (LIST '|List|
+                                                 (LIST
+                                                  '|UnivariateTaylorSeries|
+                                                  (|devaluate| (ELT $ 7)) |x|
+                                                  |center|)))
+                                     (LIST '|List| (|devaluate| (ELT $ 7))))
+                                    (|UnivariateTaylorSeriesODESolver|
+                                     (ELT $ 7)
+                                     (|UnivariateTaylorSeries| (ELT $ 7) |x|
+                                                               |center|))))
+            (|compiledLookupCheck| '|coerce|
+                                   (LIST (LIST '|Any|)
+                                         (LIST '|UnivariateTaylorSeries|
+                                               (|devaluate| (ELT $ 7)) |x|
+                                               |center|))
+                                   (|AnyFunctions1|
+                                    (|UnivariateTaylorSeries| (ELT $ 7) |x|
+                                                              |center|)))))))) 
+
+(SDEFUN |EXPRODE;seriesSolve;LLELA;22|
+        ((|sys| |List| F) (|ly| |List| (|BasicOperator|)) (|eqx| |Equation| F)
+         (|l0| |List| F) ($ |Any|))
+        (SPROG
+         ((#1=#:G199 NIL) (|f| NIL) (#2=#:G198 NIL) (|center| (F))
+          (|l| (|List| F)) (#3=#:G197 NIL) (|eq| NIL) (#4=#:G196 NIL)
+          (#5=#:G195 NIL) (|k| NIL) (#6=#:G194 NIL) (|lelt| (|List| F))
+          (|m| (F)) (#7=#:G193 NIL) (#8=#:G192 NIL)
+          (|yx| (|List| (|Kernel| F))) (#9=#:G191 NIL) (|y| NIL)
+          (#10=#:G190 NIL) (|fsy| (F)) (|sy| (|Symbol|)) (|x| (|Symbol|))
+          (#11=#:G179 NIL) (|kx| (|Kernel| F)))
+         (SEQ
+          (LETT |x|
+                (PROG2
+                    (LETT #11#
+                          (SPADCALL
+                           (LETT |kx|
+                                 (SPADCALL (SPADCALL |eqx| (QREFELT $ 55))
+                                           (QREFELT $ 17))
+                                 . #12=(|EXPRODE;seriesSolve;LLELA;22|))
+                           (QREFELT $ 86))
+                          . #12#)
+                    (QCDR #11#)
+                  (|check_union| (QEQCAR #11# 0) (|Symbol|) #11#))
+                . #12#)
+          (LETT |fsy|
+                (SPADCALL (LETT |sy| (SPADCALL (QREFELT $ 89)) . #12#)
+                          (QREFELT $ 88))
+                . #12#)
+          (LETT |m|
+                (SPADCALL (- (SPADCALL |l0| (QREFELT $ 90)) 1) (QREFELT $ 67))
+                . #12#)
+          (LETT |yx|
+                (CONS |kx|
+                      (PROGN
+                       (LETT #10# NIL . #12#)
+                       (SEQ (LETT |y| NIL . #12#) (LETT #9# |ly| . #12#) G190
+                            (COND
+                             ((OR (ATOM #9#)
+                                  (PROGN (LETT |y| (CAR #9#) . #12#) NIL))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (LETT #10#
+                                    (CONS
+                                     (SPADCALL
+                                      (SPADCALL |y|
+                                                (SPADCALL |eqx| (QREFELT $ 55))
+                                                (QREFELT $ 15))
+                                      (QREFELT $ 17))
+                                     #10#)
+                                    . #12#)))
+                            (LETT #9# (CDR #9#) . #12#) (GO G190) G191
+                            (EXIT (NREVERSE #10#)))))
+                . #12#)
+          (LETT |lelt|
                 (PROGN
-                 (LETT #2# NIL . #3=(|EXPRODE;seriesSolve;LLELA;15|))
-                 (SEQ (LETT |y| NIL . #3#) (LETT #1# |ly| . #3#) G190
+                 (LETT #8# NIL . #12#)
+                 (SEQ (LETT |k| NIL . #12#) (LETT #7# |yx| . #12#) G190
                       (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |y| (CAR #1#) . #3#) NIL))
+                       ((OR (ATOM #7#) (PROGN (LETT |k| (CAR #7#) . #12#) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2#
+                        (LETT #8#
                               (CONS
-                               (|EXPRODE;findCompat|
-                                (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 56))
-                                          (QREFELT $ 15))
-                                |eqy| $)
-                               #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                (QREFELT $ 77)))))) 
-
-(DEFUN |EXPRODE;seriesSolve;EBo2EA;16| (|diffeq| |y| |eqx| |eqy| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL |diffeq| (QREFELT $ 55))
-             (SPADCALL |diffeq| (QREFELT $ 56)) (QREFELT $ 71))
-   |y| |eqx| |eqy| (QREFELT $ 79))) 
-
-(DEFUN |EXPRODE;seriesSolve;EBoEFA;17| (|diffeq| |y| |eqx| |y0| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL |diffeq| (QREFELT $ 55))
-             (SPADCALL |diffeq| (QREFELT $ 56)) (QREFELT $ 71))
-   |y| |eqx| |y0| (QREFELT $ 81))) 
-
-(DEFUN |EXPRODE;seriesSolve;EBoELA;18| (|diffeq| |y| |eqx| |y0| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL |diffeq| (QREFELT $ 55))
-             (SPADCALL |diffeq| (QREFELT $ 56)) (QREFELT $ 71))
-   |y| |eqx| |y0| (QREFELT $ 83))) 
-
-(DEFUN |EXPRODE;seriesSolve;FBo2EA;19| (|diffeq| |y| |eqx| |eqy| $)
-  (SPADCALL |diffeq| |y| |eqx| (|EXPRODE;checkCompat| |y| |eqx| |eqy| $)
-            (QREFELT $ 81))) 
-
-(DEFUN |EXPRODE;seriesSolve;FBoEFA;20| (|diffeq| |y| |eqx| |y0| $)
-  (PROG (|center| |f| |yx| |sy| |x| #1=#:G167)
-    (RETURN
-     (SEQ
-      (LETT |x|
-            (PROG2
-                (LETT #1#
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |eqx| (QREFELT $ 55))
-                                 (QREFELT $ 17))
-                       (QREFELT $ 86))
-                      . #2=(|EXPRODE;seriesSolve;FBoEFA;20|))
-                (QCDR #1#)
-              (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
-            . #2#)
-      (LETT |sy| (SPADCALL |y| (QREFELT $ 87)) . #2#)
-      (LETT |yx|
-            (SPADCALL
-             (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 55)) (QREFELT $ 15))
-             (QREFELT $ 17))
-            . #2#)
-      (LETT |f|
-            (|EXPRODE;checkOrder1| |diffeq| |y| |yx| |x|
-             (SPADCALL |sy| (QREFELT $ 88)) $)
-            . #2#)
-      (LETT |center| (SPADCALL |eqx| (QREFELT $ 56)) . #2#)
-      (EXIT
-       (SPADCALL
-        (SPADCALL
-         (SPADCALL |f| |sy|
-                   (|compiledLookupCheck| '|compiledFunction|
-                                          (LIST
-                                           (LIST '|Mapping|
-                                                 (LIST
-                                                  '|UnivariateTaylorSeries|
-                                                  (|devaluate| (ELT $ 7)) |x|
-                                                  |center|)
-                                                 (LIST
-                                                  '|UnivariateTaylorSeries|
-                                                  (|devaluate| (ELT $ 7)) |x|
-                                                  |center|))
-                                           (|devaluate| (ELT $ 7))
-                                           (LIST '|Symbol|))
-                                          (|MakeUnaryCompiledFunction|
-                                           (ELT $ 7)
-                                           (|UnivariateTaylorSeries| (ELT $ 7)
-                                                                     |x|
-                                                                     |center|)
-                                           (|UnivariateTaylorSeries| (ELT $ 7)
-                                                                     |x|
-                                                                     |center|))))
-         |y0|
-         (|compiledLookupCheck| '|ode1|
-                                (LIST
-                                 (LIST '|UnivariateTaylorSeries|
-                                       (|devaluate| (ELT $ 7)) |x| |center|)
-                                 (LIST '|Mapping|
-                                       (LIST '|UnivariateTaylorSeries|
-                                             (|devaluate| (ELT $ 7)) |x|
-                                             |center|)
-                                       (LIST '|UnivariateTaylorSeries|
-                                             (|devaluate| (ELT $ 7)) |x|
-                                             |center|))
-                                 (|devaluate| (ELT $ 7)))
-                                (|UnivariateTaylorSeriesODESolver| (ELT $ 7)
-                                                                   (|UnivariateTaylorSeries|
-                                                                    (ELT $ 7)
-                                                                    |x|
-                                                                    |center|))))
-        (|compiledLookupCheck| '|coerce|
-                               (LIST (LIST '|Any|)
-                                     (LIST '|UnivariateTaylorSeries|
-                                           (|devaluate| (ELT $ 7)) |x|
-                                           |center|))
-                               (|AnyFunctions1|
-                                (|UnivariateTaylorSeries| (ELT $ 7) |x|
-                                                          |center|))))))))) 
-
-(DEFUN |EXPRODE;seriesSolve;FBoELA;21| (|diffeq| |y| |eqx| |y0| $)
-  (PROG (|center| |f| |yx| |sy| |x| #1=#:G173)
-    (RETURN
-     (SEQ
-      (LETT |x|
-            (PROG2
-                (LETT #1#
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |eqx| (QREFELT $ 55))
-                                 (QREFELT $ 17))
-                       (QREFELT $ 86))
-                      . #2=(|EXPRODE;seriesSolve;FBoELA;21|))
-                (QCDR #1#)
-              (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
-            . #2#)
-      (LETT |sy| (SPADCALL (QREFELT $ 89)) . #2#)
-      (LETT |yx|
-            (SPADCALL
-             (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 55)) (QREFELT $ 15))
-             (QREFELT $ 17))
-            . #2#)
-      (LETT |f|
-            (|EXPRODE;checkOrderN| |diffeq| |y| |yx| |x|
-             (SPADCALL |sy| (QREFELT $ 88)) (LENGTH |y0|) $)
-            . #2#)
-      (LETT |center| (SPADCALL |eqx| (QREFELT $ 56)) . #2#)
-      (EXIT
-       (SPADCALL
-        (SPADCALL
-         (SPADCALL |f| |sy|
-                   (|compiledLookupCheck| '|compiledFunction|
-                                          (LIST
-                                           (LIST '|Mapping|
-                                                 (LIST
-                                                  '|UnivariateTaylorSeries|
-                                                  (|devaluate| (ELT $ 7)) |x|
-                                                  |center|)
-                                                 (LIST '|List|
+                               (SPADCALL (QREFELT $ 11) |fsy|
+                                         (|EXPRODE;localInteger|
+                                          (LETT |m|
+                                                (SPADCALL |m|
+                                                          (|spadConstant| $ 35)
+                                                          (QREFELT $ 68))
+                                                . #12#)
+                                          $)
+                                         (QREFELT $ 39))
+                               #8#)
+                              . #12#)))
+                      (LETT #7# (CDR #7#) . #12#) (GO G190) G191
+                      (EXIT (NREVERSE #8#))))
+                . #12#)
+          (LETT |sys|
+                (PROGN
+                 (LETT #6# NIL . #12#)
+                 (SEQ (LETT |k| NIL . #12#) (LETT #5# (CDR |yx|) . #12#) G190
+                      (COND
+                       ((OR (ATOM #5#) (PROGN (LETT |k| (CAR #5#) . #12#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #6# (CONS (|EXPRODE;findEq| |k| |x| |sys| $) #6#)
+                              . #12#)))
+                      (LETT #5# (CDR #5#) . #12#) (GO G190) G191
+                      (EXIT (NREVERSE #6#))))
+                . #12#)
+          (LETT |l|
+                (PROGN
+                 (LETT #4# NIL . #12#)
+                 (SEQ (LETT |eq| NIL . #12#) (LETT #3# |sys| . #12#) G190
+                      (COND
+                       ((OR (ATOM #3#)
+                            (PROGN (LETT |eq| (CAR #3#) . #12#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #4#
+                              (CONS (|EXPRODE;checkSystem| |eq| |yx| |lelt| $)
+                                    #4#)
+                              . #12#)))
+                      (LETT #3# (CDR #3#) . #12#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #12#)
+          (LETT |center| (SPADCALL |eqx| (QREFELT $ 56)) . #12#)
+          (EXIT
+           (SPADCALL
+            (SPADCALL |l0|
+                      (PROGN
+                       (LETT #2# NIL . #12#)
+                       (SEQ (LETT |f| NIL . #12#) (LETT #1# |l| . #12#) G190
+                            (COND
+                             ((OR (ATOM #1#)
+                                  (PROGN (LETT |f| (CAR #1#) . #12#) NIL))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (LETT #2#
+                                    (CONS
+                                     (SPADCALL |f| |sy|
+                                               (|compiledLookupCheck|
+                                                '|compiledFunction|
+                                                (LIST
+                                                 (LIST '|Mapping|
                                                        (LIST
                                                         '|UnivariateTaylorSeries|
                                                         (|devaluate| (ELT $ 7))
-                                                        |x| |center|)))
-                                           (|devaluate| (ELT $ 7))
-                                           (LIST '|Symbol|))
-                                          (|MakeUnaryCompiledFunction|
-                                           (ELT $ 7)
-                                           (|List|
-                                            (|UnivariateTaylorSeries| (ELT $ 7)
-                                                                      |x|
-                                                                      |center|))
-                                           (|UnivariateTaylorSeries| (ELT $ 7)
-                                                                     |x|
-                                                                     |center|))))
-         |y0|
-         (|compiledLookupCheck| '|ode|
-                                (LIST
-                                 (LIST '|UnivariateTaylorSeries|
-                                       (|devaluate| (ELT $ 7)) |x| |center|)
-                                 (LIST '|Mapping|
-                                       (LIST '|UnivariateTaylorSeries|
-                                             (|devaluate| (ELT $ 7)) |x|
-                                             |center|)
-                                       (LIST '|List|
-                                             (LIST '|UnivariateTaylorSeries|
-                                                   (|devaluate| (ELT $ 7)) |x|
-                                                   |center|)))
-                                 (LIST '|List| (|devaluate| (ELT $ 7))))
-                                (|UnivariateTaylorSeriesODESolver| (ELT $ 7)
-                                                                   (|UnivariateTaylorSeries|
-                                                                    (ELT $ 7)
-                                                                    |x|
-                                                                    |center|))))
-        (|compiledLookupCheck| '|coerce|
-                               (LIST (LIST '|Any|)
-                                     (LIST '|UnivariateTaylorSeries|
-                                           (|devaluate| (ELT $ 7)) |x|
-                                           |center|))
-                               (|AnyFunctions1|
-                                (|UnivariateTaylorSeries| (ELT $ 7) |x|
-                                                          |center|))))))))) 
-
-(DEFUN |EXPRODE;seriesSolve;LLELA;22| (|sys| |ly| |eqx| |l0| $)
-  (PROG (#1=#:G199 |f| #2=#:G198 |center| |l| #3=#:G197 |eq| #4=#:G196
-         #5=#:G195 |k| #6=#:G194 |lelt| |m| #7=#:G193 #8=#:G192 |yx| #9=#:G191
-         |y| #10=#:G190 |fsy| |sy| |x| #11=#:G179 |kx|)
-    (RETURN
-     (SEQ
-      (LETT |x|
-            (PROG2
-                (LETT #11#
-                      (SPADCALL
-                       (LETT |kx|
-                             (SPADCALL (SPADCALL |eqx| (QREFELT $ 55))
-                                       (QREFELT $ 17))
-                             . #12=(|EXPRODE;seriesSolve;LLELA;22|))
-                       (QREFELT $ 86))
-                      . #12#)
-                (QCDR #11#)
-              (|check_union| (QEQCAR #11# 0) (|Symbol|) #11#))
-            . #12#)
-      (LETT |fsy|
-            (SPADCALL (LETT |sy| (SPADCALL (QREFELT $ 89)) . #12#)
-                      (QREFELT $ 88))
-            . #12#)
-      (LETT |m| (SPADCALL (- (SPADCALL |l0| (QREFELT $ 90)) 1) (QREFELT $ 67))
-            . #12#)
-      (LETT |yx|
-            (CONS |kx|
-                  (PROGN
-                   (LETT #10# NIL . #12#)
-                   (SEQ (LETT |y| NIL . #12#) (LETT #9# |ly| . #12#) G190
-                        (COND
-                         ((OR (ATOM #9#)
-                              (PROGN (LETT |y| (CAR #9#) . #12#) NIL))
-                          (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (LETT #10#
-                                (CONS
-                                 (SPADCALL
-                                  (SPADCALL |y| (SPADCALL |eqx| (QREFELT $ 55))
-                                            (QREFELT $ 15))
-                                  (QREFELT $ 17))
-                                 #10#)
-                                . #12#)))
-                        (LETT #9# (CDR #9#) . #12#) (GO G190) G191
-                        (EXIT (NREVERSE #10#)))))
-            . #12#)
-      (LETT |lelt|
-            (PROGN
-             (LETT #8# NIL . #12#)
-             (SEQ (LETT |k| NIL . #12#) (LETT #7# |yx| . #12#) G190
-                  (COND
-                   ((OR (ATOM #7#) (PROGN (LETT |k| (CAR #7#) . #12#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #8#
-                          (CONS
-                           (SPADCALL (QREFELT $ 11) |fsy|
-                                     (|EXPRODE;localInteger|
-                                      (LETT |m|
-                                            (SPADCALL |m| (|spadConstant| $ 35)
-                                                      (QREFELT $ 68))
-                                            . #12#)
-                                      $)
-                                     (QREFELT $ 39))
-                           #8#)
-                          . #12#)))
-                  (LETT #7# (CDR #7#) . #12#) (GO G190) G191
-                  (EXIT (NREVERSE #8#))))
-            . #12#)
-      (LETT |sys|
-            (PROGN
-             (LETT #6# NIL . #12#)
-             (SEQ (LETT |k| NIL . #12#) (LETT #5# (CDR |yx|) . #12#) G190
-                  (COND
-                   ((OR (ATOM #5#) (PROGN (LETT |k| (CAR #5#) . #12#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #6# (CONS (|EXPRODE;findEq| |k| |x| |sys| $) #6#)
-                          . #12#)))
-                  (LETT #5# (CDR #5#) . #12#) (GO G190) G191
-                  (EXIT (NREVERSE #6#))))
-            . #12#)
-      (LETT |l|
-            (PROGN
-             (LETT #4# NIL . #12#)
-             (SEQ (LETT |eq| NIL . #12#) (LETT #3# |sys| . #12#) G190
-                  (COND
-                   ((OR (ATOM #3#) (PROGN (LETT |eq| (CAR #3#) . #12#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #4#
-                          (CONS (|EXPRODE;checkSystem| |eq| |yx| |lelt| $) #4#)
-                          . #12#)))
-                  (LETT #3# (CDR #3#) . #12#) (GO G190) G191
-                  (EXIT (NREVERSE #4#))))
-            . #12#)
-      (LETT |center| (SPADCALL |eqx| (QREFELT $ 56)) . #12#)
-      (EXIT
-       (SPADCALL
-        (SPADCALL |l0|
-                  (PROGN
-                   (LETT #2# NIL . #12#)
-                   (SEQ (LETT |f| NIL . #12#) (LETT #1# |l| . #12#) G190
-                        (COND
-                         ((OR (ATOM #1#)
-                              (PROGN (LETT |f| (CAR #1#) . #12#) NIL))
-                          (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (LETT #2#
-                                (CONS
-                                 (SPADCALL |f| |sy|
-                                           (|compiledLookupCheck|
-                                            '|compiledFunction|
-                                            (LIST
-                                             (LIST '|Mapping|
-                                                   (LIST
-                                                    '|UnivariateTaylorSeries|
-                                                    (|devaluate| (ELT $ 7)) |x|
-                                                    |center|)
-                                                   (LIST '|List|
-                                                         (LIST
-                                                          '|UnivariateTaylorSeries|
-                                                          (|devaluate|
-                                                           (ELT $ 7))
-                                                          |x| |center|)))
-                                             (|devaluate| (ELT $ 7))
-                                             (LIST '|Symbol|))
-                                            (|MakeUnaryCompiledFunction|
-                                             (ELT $ 7)
-                                             (|List|
+                                                        |x| |center|)
+                                                       (LIST '|List|
+                                                             (LIST
+                                                              '|UnivariateTaylorSeries|
+                                                              (|devaluate|
+                                                               (ELT $ 7))
+                                                              |x| |center|)))
+                                                 (|devaluate| (ELT $ 7))
+                                                 (LIST '|Symbol|))
+                                                (|MakeUnaryCompiledFunction|
+                                                 (ELT $ 7)
+                                                 (|List|
+                                                  (|UnivariateTaylorSeries|
+                                                   (ELT $ 7) |x| |center|))
+                                                 (|UnivariateTaylorSeries|
+                                                  (ELT $ 7) |x| |center|))))
+                                     #2#)
+                                    . #12#)))
+                            (LETT #1# (CDR #1#) . #12#) (GO G190) G191
+                            (EXIT (NREVERSE #2#))))
+                      (|compiledLookupCheck| '|mpsode|
+                                             (LIST
+                                              (LIST '|List|
+                                                    (LIST
+                                                     '|UnivariateTaylorSeries|
+                                                     (|devaluate| (ELT $ 7))
+                                                     |x| |center|))
+                                              (LIST '|List|
+                                                    (|devaluate| (ELT $ 7)))
+                                              (LIST '|List|
+                                                    (LIST '|Mapping|
+                                                          (LIST
+                                                           '|UnivariateTaylorSeries|
+                                                           (|devaluate|
+                                                            (ELT $ 7))
+                                                           |x| |center|)
+                                                          (LIST '|List|
+                                                                (LIST
+                                                                 '|UnivariateTaylorSeries|
+                                                                 (|devaluate|
+                                                                  (ELT $ 7))
+                                                                 |x|
+                                                                 |center|)))))
+                                             (|UnivariateTaylorSeriesODESolver|
+                                              (ELT $ 7)
                                               (|UnivariateTaylorSeries|
-                                               (ELT $ 7) |x| |center|))
-                                             (|UnivariateTaylorSeries|
-                                              (ELT $ 7) |x| |center|))))
-                                 #2#)
-                                . #12#)))
-                        (LETT #1# (CDR #1#) . #12#) (GO G190) G191
-                        (EXIT (NREVERSE #2#))))
-                  (|compiledLookupCheck| '|mpsode|
-                                         (LIST
-                                          (LIST '|List|
-                                                (LIST '|UnivariateTaylorSeries|
-                                                      (|devaluate| (ELT $ 7))
-                                                      |x| |center|))
-                                          (LIST '|List|
-                                                (|devaluate| (ELT $ 7)))
-                                          (LIST '|List|
-                                                (LIST '|Mapping|
-                                                      (LIST
-                                                       '|UnivariateTaylorSeries|
-                                                       (|devaluate| (ELT $ 7))
-                                                       |x| |center|)
-                                                      (LIST '|List|
-                                                            (LIST
-                                                             '|UnivariateTaylorSeries|
-                                                             (|devaluate|
-                                                              (ELT $ 7))
-                                                             |x| |center|)))))
-                                         (|UnivariateTaylorSeriesODESolver|
-                                          (ELT $ 7)
-                                          (|UnivariateTaylorSeries| (ELT $ 7)
-                                                                    |x|
-                                                                    |center|))))
-        (|compiledLookupCheck| '|coerce|
-                               (LIST (LIST '|Any|)
-                                     (LIST '|List|
-                                           (LIST '|UnivariateTaylorSeries|
-                                                 (|devaluate| (ELT $ 7)) |x|
-                                                 |center|)))
-                               (|AnyFunctions1|
-                                (|List|
-                                 (|UnivariateTaylorSeries| (ELT $ 7) |x|
-                                                           |center|)))))))))) 
+                                               (ELT $ 7) |x| |center|))))
+            (|compiledLookupCheck| '|coerce|
+                                   (LIST (LIST '|Any|)
+                                         (LIST '|List|
+                                               (LIST '|UnivariateTaylorSeries|
+                                                     (|devaluate| (ELT $ 7))
+                                                     |x| |center|)))
+                                   (|AnyFunctions1|
+                                    (|List|
+                                     (|UnivariateTaylorSeries| (ELT $ 7) |x|
+                                                               |center|))))))))) 
 
 (DECLAIM (NOTINLINE |ExpressionSpaceODESolver;|)) 
 
 (DEFUN |ExpressionSpaceODESolver| (&REST #1=#:G200)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G201)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ExpressionSpaceODESolver|)
-                                           '|domainEqualList|)
-                . #3=(|ExpressionSpaceODESolver|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ExpressionSpaceODESolver;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G201)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|ExpressionSpaceODESolver|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ExpressionSpaceODESolver|)
+                                               '|domainEqualList|)
+                    . #3=(|ExpressionSpaceODESolver|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ExpressionSpaceODESolver;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ExpressionSpaceODESolver|)))))))))) 
 
 (DEFUN |ExpressionSpaceODESolver;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ExpressionSpaceODESolver|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|ExpressionSpaceODESolver| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 91) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ExpressionSpaceODESolver|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 11 (SPADCALL '|elt| (QREFELT $ 10)))
-      (QSETREFV $ 12 (SPADCALL '|exquo| (QREFELT $ 10)))
-      (QSETREFV $ 13 (SPADCALL '|integer| (QREFELT $ 10)))
-      (QSETREFV $ 14 (|HasCategory| |#1| '(|IntegerNumberSystem|)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|ExpressionSpaceODESolver|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|ExpressionSpaceODESolver| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 91) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ExpressionSpaceODESolver|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 11 (SPADCALL '|elt| (QREFELT $ 10)))
+          (QSETREFV $ 12 (SPADCALL '|exquo| (QREFELT $ 10)))
+          (QSETREFV $ 13 (SPADCALL '|integer| (QREFELT $ 10)))
+          (QSETREFV $ 14 (|HasCategory| |#1| '(|IntegerNumberSystem|)))
+          $))) 
 
 (MAKEPROP '|ExpressionSpaceODESolver| '|infovec|
           (LIST

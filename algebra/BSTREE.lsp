@@ -1,144 +1,153 @@
 
-(DEFUN |BSTREE;binarySearchTree;L$;1| (|u| $)
-  (PROG (#1=#:G110 |x| |tree|)
-    (RETURN
-     (SEQ
-      (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
-            ('T
-             (SEQ
-              (LETT |tree| (SPADCALL (|SPADfirst| |u|) (QREFELT $ 9))
-                    . #2=(|BSTREE;binarySearchTree;L$;1|))
-              (SEQ (LETT |x| NIL . #2#) (LETT #1# (CDR |u|) . #2#) G190
-                   (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
-                     (GO G191)))
-                   (SEQ (EXIT (SPADCALL |x| |tree| (QREFELT $ 10))))
-                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-              (EXIT |tree|)))))))) 
+(SDEFUN |BSTREE;binarySearchTree;L$;1| ((|u| |List| S) ($ $))
+        (SPROG ((#1=#:G110 NIL) (|x| NIL) (|tree| ($)))
+               (SEQ
+                (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
+                      ('T
+                       (SEQ
+                        (LETT |tree| (SPADCALL (|SPADfirst| |u|) (QREFELT $ 9))
+                              . #2=(|BSTREE;binarySearchTree;L$;1|))
+                        (SEQ (LETT |x| NIL . #2#) (LETT #1# (CDR |u|) . #2#)
+                             G190
+                             (COND
+                              ((OR (ATOM #1#)
+                                   (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                               (GO G191)))
+                             (SEQ (EXIT (SPADCALL |x| |tree| (QREFELT $ 10))))
+                             (LETT #1# (CDR #1#) . #2#) (GO G190) G191
+                             (EXIT NIL))
+                        (EXIT |tree|))))))) 
 
-(DEFUN |BSTREE;insert!;S2$;2| (|x| |t| $)
-  (SEQ
-   (COND ((SPADCALL |t| (QREFELT $ 14)) (SPADCALL |x| (QREFELT $ 9)))
-         ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 16))
-          (SEQ
-           (SPADCALL |t|
-                     (SPADCALL |x| (SPADCALL |t| (QREFELT $ 17))
-                               (QREFELT $ 10))
-                     (QREFELT $ 18))
-           (EXIT |t|)))
-         ('T
-          (SEQ
-           (SPADCALL |t|
-                     (SPADCALL |x| (SPADCALL |t| (QREFELT $ 19))
-                               (QREFELT $ 10))
-                     (QREFELT $ 20))
-           (EXIT |t|)))))) 
-
-(DEFUN |BSTREE;split;S$R;3| (|x| |t| $)
-  (PROG (|a|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |t| (QREFELT $ 14))
-        (CONS (SPADCALL (QREFELT $ 8)) (SPADCALL (QREFELT $ 8))))
-       ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 21))
+(SDEFUN |BSTREE;insert!;S2$;2| ((|x| S) (|t| $) ($ $))
         (SEQ
-         (LETT |a| (SPADCALL |x| (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 23))
-               . #1=(|BSTREE;split;S$R;3|))
-         (EXIT
-          (CONS
-           (SPADCALL (SPADCALL |t| (QREFELT $ 19))
-                     (SPADCALL |t| (QREFELT $ 15)) (QCAR |a|) (QREFELT $ 24))
-           (QCDR |a|)))))
-       ('T
-        (SEQ
-         (LETT |a| (SPADCALL |x| (SPADCALL |t| (QREFELT $ 19)) (QREFELT $ 23))
-               . #1#)
-         (EXIT
-          (CONS (QCAR |a|)
-                (SPADCALL (QCDR |a|) (SPADCALL |t| (QREFELT $ 15))
-                          (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 24))))))))))) 
+         (COND ((SPADCALL |t| (QREFELT $ 14)) (SPADCALL |x| (QREFELT $ 9)))
+               ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 16))
+                (SEQ
+                 (SPADCALL |t|
+                           (SPADCALL |x| (SPADCALL |t| (QREFELT $ 17))
+                                     (QREFELT $ 10))
+                           (QREFELT $ 18))
+                 (EXIT |t|)))
+               ('T
+                (SEQ
+                 (SPADCALL |t|
+                           (SPADCALL |x| (SPADCALL |t| (QREFELT $ 19))
+                                     (QREFELT $ 10))
+                           (QREFELT $ 20))
+                 (EXIT |t|)))))) 
 
-(DEFUN |BSTREE;insertRoot!;S2$;4| (|x| |t| $)
-  (PROG (|a|)
-    (RETURN
-     (SEQ
-      (LETT |a| (SPADCALL |x| |t| (QREFELT $ 23)) |BSTREE;insertRoot!;S2$;4|)
-      (EXIT (SPADCALL (QCAR |a|) |x| (QCDR |a|) (QREFELT $ 24))))))) 
+(SDEFUN |BSTREE;split;S$R;3|
+        ((|x| S) (|t| $) ($ |Record| (|:| |less| $) (|:| |greater| $)))
+        (SPROG ((|a| (|Record| (|:| |less| $) (|:| |greater| $))))
+               (SEQ
+                (COND
+                 ((SPADCALL |t| (QREFELT $ 14))
+                  (CONS (SPADCALL (QREFELT $ 8)) (SPADCALL (QREFELT $ 8))))
+                 ((SPADCALL |x| (SPADCALL |t| (QREFELT $ 15)) (QREFELT $ 21))
+                  (SEQ
+                   (LETT |a|
+                         (SPADCALL |x| (SPADCALL |t| (QREFELT $ 17))
+                                   (QREFELT $ 23))
+                         . #1=(|BSTREE;split;S$R;3|))
+                   (EXIT
+                    (CONS
+                     (SPADCALL (SPADCALL |t| (QREFELT $ 19))
+                               (SPADCALL |t| (QREFELT $ 15)) (QCAR |a|)
+                               (QREFELT $ 24))
+                     (QCDR |a|)))))
+                 ('T
+                  (SEQ
+                   (LETT |a|
+                         (SPADCALL |x| (SPADCALL |t| (QREFELT $ 19))
+                                   (QREFELT $ 23))
+                         . #1#)
+                   (EXIT
+                    (CONS (QCAR |a|)
+                          (SPADCALL (QCDR |a|) (SPADCALL |t| (QREFELT $ 15))
+                                    (SPADCALL |t| (QREFELT $ 17))
+                                    (QREFELT $ 24)))))))))) 
+
+(SDEFUN |BSTREE;insertRoot!;S2$;4| ((|x| S) (|t| $) ($ $))
+        (SPROG ((|a| (|Record| (|:| |less| $) (|:| |greater| $))))
+               (SEQ
+                (LETT |a| (SPADCALL |x| |t| (QREFELT $ 23))
+                      |BSTREE;insertRoot!;S2$;4|)
+                (EXIT (SPADCALL (QCAR |a|) |x| (QCDR |a|) (QREFELT $ 24)))))) 
 
 (DECLAIM (NOTINLINE |BinarySearchTree;|)) 
 
 (DEFUN |BinarySearchTree| (#1=#:G130)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G131)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|BinarySearchTree|)
-                                           '|domainEqualList|)
-                . #3=(|BinarySearchTree|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|BinarySearchTree;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G131)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|BinarySearchTree|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|BinarySearchTree|)
+                                               '|domainEqualList|)
+                    . #3=(|BinarySearchTree|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|BinarySearchTree;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|BinarySearchTree|)))))))))) 
 
 (DEFUN |BinarySearchTree;| (|#1|)
-  (PROG (|pv$| #1=#:G127 #2=#:G128 #3=#:G129 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|BinarySearchTree|))
-      (LETT |dv$| (LIST '|BinarySearchTree| DV$1) . #4#)
-      (LETT $ (GETREFV 40) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #3#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #2# #3#)
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #1#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #3#))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|BinarySearchTree| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
-      (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 128))
-      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-           (|augmentPredVector| $ 256))
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 512))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|BinaryTree| |#1|))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G127 NIL) (#2=#:G128 NIL) (#3=#:G129 NIL) ($ NIL)
+    (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|BinarySearchTree|))
+    (LETT |dv$| (LIST '|BinarySearchTree| DV$1) . #4#)
+    (LETT $ (GETREFV 40) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #3#)
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #2# #3#)
+                                        (LETT #1#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #1#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #3#))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|BinarySearchTree| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
+    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 128))
+    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| $ 256))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 512))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 7 (|BinaryTree| |#1|))
+    $))) 
 
 (MAKEPROP '|BinarySearchTree| '|infovec|
           (LIST

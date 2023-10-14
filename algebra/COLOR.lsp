@@ -1,132 +1,132 @@
 
-(DEFUN |COLOR;*;Df2$;1| (|f| |c| $)
-  (COND ((|zero?_DF| |f|) |c|)
-        ('T (CONS (QCAR |c|) (|mul_DF| |f| (QCDR |c|)))))) 
+(SDEFUN |COLOR;*;Df2$;1| ((|f| |DoubleFloat|) (|c| $) ($ $))
+        (COND ((|zero?_DF| |f|) |c|)
+              ('T (CONS (QCAR |c|) (|mul_DF| |f| (QCDR |c|)))))) 
 
-(DEFUN |COLOR;+;3$;2| (|x| |y| $)
-  (PROG (|ans| |offset| |diff| |moreThanHalf| |xHueSmaller| |c|)
-    (RETURN
-     (SEQ
-      (COND
-       ((EQL (QCAR |x|) (QCAR |y|))
-        (CONS (QCAR |x|) (|add_DF| (QCDR |x|) (QCDR |y|))))
-       (#1='T
-        (SEQ
-         (COND
-          ((SPADCALL (QCDR |y|) (QCDR |x|) (QREFELT $ 10))
-           (SEQ (LETT |c| |x| . #2=(|COLOR;+;3$;2|)) (LETT |x| |y| . #2#)
-                (EXIT (LETT |y| |c| . #2#)))))
-         (LETT |diff| (- (QCAR |x|) (QCAR |y|)) . #2#)
-         (SEQ (LETT |xHueSmaller| (< |diff| 0) . #2#)
-              (EXIT (COND (|xHueSmaller| (LETT |diff| (- |diff|) . #2#)))))
+(SDEFUN |COLOR;+;3$;2| ((|x| $) (|y| $) ($ $))
+        (SPROG
+         ((|ans| #1=(|Integer|)) (|offset| (|Integer|)) (|diff| #1#)
+          (|moreThanHalf| (|Boolean|)) (|xHueSmaller| (|Boolean|)) (|c| ($)))
          (SEQ
-          (LETT |moreThanHalf|
-                (SPADCALL |diff| (QUOTIENT2 27 2) (QREFELT $ 12)) . #2#)
-          (EXIT (COND (|moreThanHalf| (LETT |diff| (- 27 |diff|) . #2#)))))
-         (LETT |offset|
-               (TRUNCATE
-                (SPADCALL
-                 (|div_DF| (FLOAT |diff| MOST-POSITIVE-DOUBLE-FLOAT)
-                           (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                     (|div_DF| (QCDR |x|) (QCDR |y|))
-                                     (QREFELT $ 13)))
-                 (QREFELT $ 14)))
-               . #2#)
-         (COND
-          (|xHueSmaller|
-           (COND
-            (|moreThanHalf|
+          (COND
+           ((EQL (QCAR |x|) (QCAR |y|))
+            (CONS (QCAR |x|) (|add_DF| (QCDR |x|) (QCDR |y|))))
+           (#2='T
+            (SEQ
              (COND
-              ((OR |xHueSmaller| (NULL |moreThanHalf|))
-               (LETT |ans| (- (QCAR |x|) |offset|) . #2#))
-              ('T (LETT |ans| (+ (QCAR |x|) |offset|) . #2#))))
-            (#1# (LETT |ans| (+ (QCAR |x|) |offset|) . #2#))))
-          (|moreThanHalf| (LETT |ans| (+ (QCAR |x|) |offset|) . #2#))
-          (#1# (LETT |ans| (- (QCAR |x|) |offset|) . #2#)))
-         (COND ((< |ans| 0) (LETT |ans| (+ 27 |ans|) . #2#))
-               ((SPADCALL |ans| 27 (QREFELT $ 12))
-                (LETT |ans| (- |ans| 27) . #2#)))
-         (EXIT (CONS |ans| 1.0))))))))) 
+              ((SPADCALL (QCDR |y|) (QCDR |x|) (QREFELT $ 10))
+               (SEQ (LETT |c| |x| . #3=(|COLOR;+;3$;2|)) (LETT |x| |y| . #3#)
+                    (EXIT (LETT |y| |c| . #3#)))))
+             (LETT |diff| (- (QCAR |x|) (QCAR |y|)) . #3#)
+             (SEQ (LETT |xHueSmaller| (< |diff| 0) . #3#)
+                  (EXIT (COND (|xHueSmaller| (LETT |diff| (- |diff|) . #3#)))))
+             (SEQ
+              (LETT |moreThanHalf|
+                    (SPADCALL |diff| (QUOTIENT2 27 2) (QREFELT $ 12)) . #3#)
+              (EXIT (COND (|moreThanHalf| (LETT |diff| (- 27 |diff|) . #3#)))))
+             (LETT |offset|
+                   (TRUNCATE
+                    (SPADCALL
+                     (|div_DF| (FLOAT |diff| MOST-POSITIVE-DOUBLE-FLOAT)
+                               (SPADCALL (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
+                                         (|div_DF| (QCDR |x|) (QCDR |y|))
+                                         (QREFELT $ 13)))
+                     (QREFELT $ 14)))
+                   . #3#)
+             (COND
+              (|xHueSmaller|
+               (COND
+                (|moreThanHalf|
+                 (COND
+                  ((OR |xHueSmaller| (NULL |moreThanHalf|))
+                   (LETT |ans| (- (QCAR |x|) |offset|) . #3#))
+                  ('T (LETT |ans| (+ (QCAR |x|) |offset|) . #3#))))
+                (#2# (LETT |ans| (+ (QCAR |x|) |offset|) . #3#))))
+              (|moreThanHalf| (LETT |ans| (+ (QCAR |x|) |offset|) . #3#))
+              (#2# (LETT |ans| (- (QCAR |x|) |offset|) . #3#)))
+             (COND ((< |ans| 0) (LETT |ans| (+ 27 |ans|) . #3#))
+                   ((SPADCALL |ans| 27 (QREFELT $ 12))
+                    (LETT |ans| (- |ans| 27) . #3#)))
+             (EXIT (CONS |ans| 1.0)))))))) 
 
-(DEFUN |COLOR;=;2$B;3| (|x| |y| $)
-  (COND ((EQL (QCAR |x|) (QCAR |y|)) (|eql_DF| (QCDR |x|) (QCDR |y|)))
-        ('T 'NIL))) 
+(SDEFUN |COLOR;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((EQL (QCAR |x|) (QCAR |y|)) (|eql_DF| (QCDR |x|) (QCDR |y|)))
+              ('T 'NIL))) 
 
 (PUT '|COLOR;red;$;4| '|SPADreplace| '(XLAM NIL (CONS 1 1.0))) 
 
-(DEFUN |COLOR;red;$;4| ($) (CONS 1 1.0)) 
+(SDEFUN |COLOR;red;$;4| (($ $)) (CONS 1 1.0)) 
 
 (PUT '|COLOR;yellow;$;5| '|SPADreplace| '(XLAM NIL (CONS 11 1.0))) 
 
-(DEFUN |COLOR;yellow;$;5| ($) (CONS 11 1.0)) 
+(SDEFUN |COLOR;yellow;$;5| (($ $)) (CONS 11 1.0)) 
 
 (PUT '|COLOR;green;$;6| '|SPADreplace| '(XLAM NIL (CONS 14 1.0))) 
 
-(DEFUN |COLOR;green;$;6| ($) (CONS 14 1.0)) 
+(SDEFUN |COLOR;green;$;6| (($ $)) (CONS 14 1.0)) 
 
 (PUT '|COLOR;blue;$;7| '|SPADreplace| '(XLAM NIL (CONS 22 1.0))) 
 
-(DEFUN |COLOR;blue;$;7| ($) (CONS 22 1.0)) 
+(SDEFUN |COLOR;blue;$;7| (($ $)) (CONS 22 1.0)) 
 
 (PUT '|COLOR;hue;$I;8| '|SPADreplace| 'QCAR) 
 
-(DEFUN |COLOR;hue;$I;8| (|c| $) (QCAR |c|)) 
+(SDEFUN |COLOR;hue;$I;8| ((|c| $) ($ |Integer|)) (QCAR |c|)) 
 
-(DEFUN |COLOR;*;Pi2$;9| (|i| |c| $)
-  (SPADCALL (FLOAT |i| MOST-POSITIVE-DOUBLE-FLOAT) |c| (QREFELT $ 8))) 
+(SDEFUN |COLOR;*;Pi2$;9| ((|i| |PositiveInteger|) (|c| $) ($ $))
+        (SPADCALL (FLOAT |i| MOST-POSITIVE-DOUBLE-FLOAT) |c| (QREFELT $ 8))) 
 
 (PUT '|COLOR;numberOfHues;Pi;10| '|SPADreplace| '(XLAM NIL 27)) 
 
-(DEFUN |COLOR;numberOfHues;Pi;10| ($) 27) 
+(SDEFUN |COLOR;numberOfHues;Pi;10| (($ |PositiveInteger|)) 27) 
 
-(DEFUN |COLOR;color;I$;11| (|i| $)
-  (SEQ
-   (COND
-    ((OR (< |i| 0) (SPADCALL |i| 27 (QREFELT $ 12)))
-     (|error|
-      (|concat| "Color should be in the range 1.." (|::| 27 (|String|))))))
-   (EXIT (CONS |i| 1.0)))) 
+(SDEFUN |COLOR;color;I$;11| ((|i| |Integer|) ($ $))
+        (SEQ
+         (COND
+          ((OR (< |i| 0) (SPADCALL |i| 27 (QREFELT $ 12)))
+           (|error|
+            (|concat| "Color should be in the range 1.."
+                      (|::| 27 (|String|))))))
+         (EXIT (CONS |i| 1.0)))) 
 
-(DEFUN |COLOR;coerce;$Of;12| (|c| $)
-  (SPADCALL
-   (LIST "Hue: " (SPADCALL (QCAR |c|) (QREFELT $ 27)) "  Weight: "
-         (SPADCALL (QCDR |c|) (QREFELT $ 28)))
-   (QREFELT $ 30))) 
+(SDEFUN |COLOR;coerce;$Of;12| ((|c| $) ($ |OutputForm|))
+        (SPADCALL
+         (LIST "Hue: " (SPADCALL (QCAR |c|) (QREFELT $ 27)) "  Weight: "
+               (SPADCALL (QCDR |c|) (QREFELT $ 28)))
+         (QREFELT $ 30))) 
 
 (DECLAIM (NOTINLINE |Color;|)) 
 
 (DEFUN |Color| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G133)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Color|) . #2=(|Color|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Color|
-                         (LIST (CONS NIL (CONS 1 (|Color;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Color|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G133)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Color|) . #2=(|Color|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Color|
+                             (LIST (CONS NIL (CONS 1 (|Color;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Color|)))))))))) 
 
 (DEFUN |Color;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Color|) . #1=(|Color|))
-      (LETT $ (GETREFV 35) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Color| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Record| (|:| |hue| (|Integer|))
-                          (|:| |weight| (|DoubleFloat|))))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Color|) . #1=(|Color|))
+          (LETT $ (GETREFV 35) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Color| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |hue| (|Integer|))
+                              (|:| |weight| (|DoubleFloat|))))
+          $))) 
 
 (MAKEPROP '|Color| '|infovec|
           (LIST

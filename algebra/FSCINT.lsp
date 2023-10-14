@@ -1,195 +1,216 @@
 
-(DEFUN |FSCINT;K2KG| (|k| $)
-  (SPADCALL
-   (SPADCALL
-    (SPADCALL (|SPADfirst| (SPADCALL |k| (QREFELT $ 11))) (QREFELT $ 14))
-    (QREFELT $ 15))
-   (QREFELT $ 17))) 
+(SDEFUN |FSCINT;K2KG|
+        ((|k| |Kernel| F) ($ |Kernel| (|Expression| (|Complex| R))))
+        (SPADCALL
+         (SPADCALL
+          (SPADCALL (|SPADfirst| (SPADCALL |k| (QREFELT $ 11))) (QREFELT $ 14))
+          (QREFELT $ 15))
+         (QREFELT $ 17))) 
 
-(DEFUN |FSCINT;complexIntegrate;FSF;2| (|f| |x| $)
-  (SPADCALL (SPADCALL (SPADCALL |f| |x| (QREFELT $ 20)) (QREFELT $ 22)) |x|
-            (QREFELT $ 24))) 
+(SDEFUN |FSCINT;complexIntegrate;FSF;2| ((|f| F) (|x| |Symbol|) ($ F))
+        (SPADCALL (SPADCALL (SPADCALL |f| |x| (QREFELT $ 20)) (QREFELT $ 22))
+                  |x| (QREFELT $ 24))) 
 
-(DEFUN |FSCINT;internalIntegrate0;FSIr;3| (|f| |x| $)
-  (SPADCALL |f| |x| (ELT $ 28) (ELT $ 32) (QREFELT $ 35))) 
+(SDEFUN |FSCINT;internalIntegrate0;FSIr;3|
+        ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+        (SPADCALL |f| |x| (ELT $ 28) (ELT $ 32) (QREFELT $ 35))) 
 
-(DEFUN |FSCINT;internalIntegrate0;FSIr;4| (|f| |x| $)
-  (SPADCALL |f| |x| (QREFELT $ 28))) 
+(SDEFUN |FSCINT;internalIntegrate0;FSIr;4|
+        ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+        (SPADCALL |f| |x| (QREFELT $ 28))) 
 
-(DEFUN |FSCINT;internalIntegrate0;FSIr;5| (|f| |x| $)
-  (SPADCALL |f| |x| (QREFELT $ 28))) 
+(SDEFUN |FSCINT;internalIntegrate0;FSIr;5|
+        ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+        (SPADCALL |f| |x| (QREFELT $ 28))) 
 
-(DEFUN |FSCINT;internalIntegrate0;FSIr;6| (|f| |x| $)
-  (SPADCALL |f| |x| (QREFELT $ 28))) 
+(SDEFUN |FSCINT;internalIntegrate0;FSIr;6|
+        ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+        (SPADCALL |f| |x| (QREFELT $ 28))) 
 
-(DEFUN |FSCINT;internalIntegrate;FSIr;7| (|f| |x| $)
-  (PROG (|g| |h| #1=#:G136 |k| #2=#:G135 #3=#:G134 #4=#:G133)
-    (RETURN
-     (SEQ
-      (LETT |f| (SPADCALL |f| (SPADCALL |x| (QREFELT $ 37)) (QREFELT $ 38))
-            . #5=(|FSCINT;internalIntegrate;FSIr;7|))
-      (EXIT
-       (COND
-        ((SPADCALL
-          (CONS #'|FSCINT;internalIntegrate;FSIr;7!0| (VECTOR (QREFELT $ 8) $))
-          (PROGN
-           (LETT #4# NIL . #5#)
-           (SEQ (LETT |k| NIL . #5#)
-                (LETT #3#
-                      (SPADCALL
-                       (LETT |g| (SPADCALL |f| |x| (QREFELT $ 44)) . #5#)
-                       (QREFELT $ 46))
-                      . #5#)
-                G190
-                (COND
-                 ((OR (ATOM #3#) (PROGN (LETT |k| (CAR #3#) . #5#) NIL))
-                  (GO G191)))
-                (SEQ
-                 (EXIT
-                  (COND
-                   ((SPADCALL |x|
-                              (SPADCALL (SPADCALL |k| (QREFELT $ 47))
-                                        (QREFELT $ 49))
-                              (QREFELT $ 50))
-                    (LETT #4# (CONS |k| #4#) . #5#)))))
-                (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                (EXIT (NREVERSE #4#))))
-          (QREFELT $ 53))
+(SDEFUN |FSCINT;internalIntegrate;FSIr;7|
+        ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
+        (SPROG
+         ((|g| (F)) (|h| (|Expression| (|Complex| R))) (#1=#:G136 NIL)
+          (|k| NIL) (#2=#:G135 NIL) (#3=#:G134 NIL) (#4=#:G133 NIL))
          (SEQ
-          (LETT |h|
-                (SPADCALL (SPADCALL |g| (QREFELT $ 14))
-                          (PROGN
-                           (LETT #2# NIL . #5#)
-                           (SEQ (LETT |k| NIL . #5#)
-                                (LETT #1# (SPADCALL |f| (QREFELT $ 46)) . #5#)
-                                G190
-                                (COND
-                                 ((OR (ATOM #1#)
-                                      (PROGN (LETT |k| (CAR #1#) . #5#) NIL))
-                                  (GO G191)))
-                                (SEQ
-                                 (EXIT
-                                  (COND
-                                   ((COND
-                                     ((SPADCALL |k| '|tan| (QREFELT $ 54)) 'T)
-                                     (#6='T
-                                      (SPADCALL |k| '|cot| (QREFELT $ 54))))
-                                    (LETT #2# (CONS (|FSCINT;K2KG| |k| $) #2#)
-                                          . #5#)))))
-                                (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-                                (EXIT (NREVERSE #2#))))
-                          (QREFELT $ 56))
-                . #5#)
+          (LETT |f| (SPADCALL |f| (SPADCALL |x| (QREFELT $ 37)) (QREFELT $ 38))
+                . #5=(|FSCINT;internalIntegrate;FSIr;7|))
           (EXIT
            (COND
-            ((SPADCALL (LETT |g| (SPADCALL |h| (QREFELT $ 57)) . #5#)
-                       (QREFELT $ 59))
+            ((SPADCALL
+              (CONS #'|FSCINT;internalIntegrate;FSIr;7!0|
+                    (VECTOR (QREFELT $ 8) $))
+              (PROGN
+               (LETT #4# NIL . #5#)
+               (SEQ (LETT |k| NIL . #5#)
+                    (LETT #3#
+                          (SPADCALL
+                           (LETT |g| (SPADCALL |f| |x| (QREFELT $ 44)) . #5#)
+                           (QREFELT $ 46))
+                          . #5#)
+                    G190
+                    (COND
+                     ((OR (ATOM #3#) (PROGN (LETT |k| (CAR #3#) . #5#) NIL))
+                      (GO G191)))
+                    (SEQ
+                     (EXIT
+                      (COND
+                       ((SPADCALL |x|
+                                  (SPADCALL (SPADCALL |k| (QREFELT $ 47))
+                                            (QREFELT $ 49))
+                                  (QREFELT $ 50))
+                        (LETT #4# (CONS |k| #4#) . #5#)))))
+                    (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                    (EXIT (NREVERSE #4#))))
+              (QREFELT $ 53))
+             (SEQ
+              (LETT |h|
+                    (SPADCALL (SPADCALL |g| (QREFELT $ 14))
+                              (PROGN
+                               (LETT #2# NIL . #5#)
+                               (SEQ (LETT |k| NIL . #5#)
+                                    (LETT #1# (SPADCALL |f| (QREFELT $ 46))
+                                          . #5#)
+                                    G190
+                                    (COND
+                                     ((OR (ATOM #1#)
+                                          (PROGN
+                                           (LETT |k| (CAR #1#) . #5#)
+                                           NIL))
+                                      (GO G191)))
+                                    (SEQ
+                                     (EXIT
+                                      (COND
+                                       ((COND
+                                         ((SPADCALL |k| '|tan| (QREFELT $ 54))
+                                          'T)
+                                         (#6='T
+                                          (SPADCALL |k| '|cot|
+                                                    (QREFELT $ 54))))
+                                        (LETT #2#
+                                              (CONS (|FSCINT;K2KG| |k| $) #2#)
+                                              . #5#)))))
+                                    (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                                    (EXIT (NREVERSE #2#))))
+                              (QREFELT $ 56))
+                    . #5#)
+              (EXIT
+               (COND
+                ((SPADCALL (LETT |g| (SPADCALL |h| (QREFELT $ 57)) . #5#)
+                           (QREFELT $ 59))
+                 (SPADCALL
+                  (SPADCALL (QVELT (SPADCALL |g| |x| (QREFELT $ 61)) 0)
+                            (QREFELT $ 63))
+                  |x| (QREFELT $ 36)))
+                ((SPADCALL
+                  (LETT |g|
+                        (SPADCALL
+                         (LETT |h|
+                               (SPADCALL
+                                (QVELT (SPADCALL |h| |x| (QREFELT $ 66)) 0)
+                                (QREFELT $ 68))
+                               . #5#)
+                         (QREFELT $ 57))
+                        . #5#)
+                  (QREFELT $ 59))
+                 (SPADCALL |g| |x| (QREFELT $ 36)))
+                (#6#
+                 (SPADCALL (ELT $ 57) (SPADCALL |h| |x| (QREFELT $ 71))
+                           (QREFELT $ 74)))))))
+            (#6#
              (SPADCALL
               (SPADCALL (QVELT (SPADCALL |g| |x| (QREFELT $ 61)) 0)
                         (QREFELT $ 63))
-              |x| (QREFELT $ 36)))
-            ((SPADCALL
-              (LETT |g|
-                    (SPADCALL
-                     (LETT |h|
-                           (SPADCALL
-                            (QVELT (SPADCALL |h| |x| (QREFELT $ 66)) 0)
-                            (QREFELT $ 68))
-                           . #5#)
-                     (QREFELT $ 57))
-                    . #5#)
-              (QREFELT $ 59))
-             (SPADCALL |g| |x| (QREFELT $ 36)))
-            (#6#
-             (SPADCALL (ELT $ 57) (SPADCALL |h| |x| (QREFELT $ 71))
-                       (QREFELT $ 74)))))))
-        (#6#
-         (SPADCALL
-          (SPADCALL (QVELT (SPADCALL |g| |x| (QREFELT $ 61)) 0) (QREFELT $ 63))
-          |x| (QREFELT $ 36))))))))) 
+              |x| (QREFELT $ 36)))))))) 
 
-(DEFUN |FSCINT;internalIntegrate;FSIr;7!0| (|x1| $$)
-  (PROG ($ RTRIG)
-    (LETT $ (QREFELT $$ 1) . #1=(|FSCINT;internalIntegrate;FSIr;7|))
-    (LETT RTRIG (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN (SPADCALL (SPADCALL |x1| (QREFELT $ 40)) RTRIG (QREFELT $ 42)))))) 
+(SDEFUN |FSCINT;internalIntegrate;FSIr;7!0| ((|x1| NIL) ($$ NIL))
+        (PROG ($ RTRIG)
+          (LETT $ (QREFELT $$ 1) . #1=(|FSCINT;internalIntegrate;FSIr;7|))
+          (LETT RTRIG (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL (SPADCALL |x1| (QREFELT $ 40)) RTRIG (QREFELT $ 42)))))) 
 
 (DECLAIM (NOTINLINE |FunctionSpaceComplexIntegration;|)) 
 
 (DEFUN |FunctionSpaceComplexIntegration| (&REST #1=#:G137)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G138)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FunctionSpaceComplexIntegration|)
-                                           '|domainEqualList|)
-                . #3=(|FunctionSpaceComplexIntegration|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |FunctionSpaceComplexIntegration;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G138)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|FunctionSpaceComplexIntegration|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FunctionSpaceComplexIntegration|)
+                                               '|domainEqualList|)
+                    . #3=(|FunctionSpaceComplexIntegration|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |FunctionSpaceComplexIntegration;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FunctionSpaceComplexIntegration|)))))))))) 
 
 (DEFUN |FunctionSpaceComplexIntegration;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionSpaceComplexIntegration|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|FunctionSpaceComplexIntegration| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 75) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FunctionSpaceComplexIntegration|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 '|rtrig|)
-      (COND
-       ((|HasCategory| |#1| '(|ConvertibleTo| (|Pattern| (|Integer|))))
-        (COND
-         ((|HasCategory| |#1| '(|PatternMatchable| (|Integer|)))
-          (PROGN
-           (QSETREFV $ 26
-                     (COND
-                      ((|HasCategory| |#2| '(|LiouvillianFunctionCategory|))
-                       (|HasCategory| |#2| '(|RetractableTo| (|Symbol|))))
-                      ('T 'NIL)))
-           (COND
-            ((QREFELT $ 26)
-             (PROGN
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|FunctionSpaceComplexIntegration|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|FunctionSpaceComplexIntegration| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 75) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FunctionSpaceComplexIntegration|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 '|rtrig|)
+          (COND
+           ((|HasCategory| |#1| '(|ConvertibleTo| (|Pattern| (|Integer|))))
+            (COND
+             ((|HasCategory| |#1| '(|PatternMatchable| (|Integer|)))
+              (PROGN
+               (QSETREFV $ 26
+                         (COND
+                          ((|HasCategory| |#2|
+                                          '(|LiouvillianFunctionCategory|))
+                           (|HasCategory| |#2| '(|RetractableTo| (|Symbol|))))
+                          ('T 'NIL)))
+               (COND
+                ((QREFELT $ 26)
+                 (PROGN
+                  (QSETREFV $ 36
+                            (CONS
+                             (|dispatchFunction|
+                              |FSCINT;internalIntegrate0;FSIr;3|)
+                             $))))
+                ('T
+                 (QSETREFV $ 36
+                           (CONS
+                            (|dispatchFunction|
+                             |FSCINT;internalIntegrate0;FSIr;4|)
+                            $))))))
+             ('T
               (QSETREFV $ 36
                         (CONS
                          (|dispatchFunction|
-                          |FSCINT;internalIntegrate0;FSIr;3|)
-                         $))))
-            ('T
-             (QSETREFV $ 36
-                       (CONS
-                        (|dispatchFunction| |FSCINT;internalIntegrate0;FSIr;4|)
-                        $))))))
-         ('T
-          (QSETREFV $ 36
-                    (CONS
-                     (|dispatchFunction| |FSCINT;internalIntegrate0;FSIr;5|)
-                     $)))))
-       ('T
-        (QSETREFV $ 36
-                  (CONS (|dispatchFunction| |FSCINT;internalIntegrate0;FSIr;6|)
-                        $))))
-      $)))) 
+                          |FSCINT;internalIntegrate0;FSIr;5|)
+                         $)))))
+           ('T
+            (QSETREFV $ 36
+                      (CONS
+                       (|dispatchFunction| |FSCINT;internalIntegrate0;FSIr;6|)
+                       $))))
+          $))) 
 
 (MAKEPROP '|FunctionSpaceComplexIntegration| '|infovec|
           (LIST

@@ -1,434 +1,465 @@
 
-(DEFUN |ELFUTS;sncndnre| (|m| |s0| |c0| |d0| |scd| |dx| |sign| $)
-  (PROG ()
-    (RETURN
-     (LIST
-      (SPADCALL |s0| (CONS #'|ELFUTS;sncndnre!0| (VECTOR |dx| $ |scd|))
-                (QREFELT $ 16))
-      (SPADCALL |c0| (CONS #'|ELFUTS;sncndnre!1| (VECTOR |dx| $ |scd| |sign|))
-                (QREFELT $ 16))
-      (SPADCALL |d0|
-                (CONS #'|ELFUTS;sncndnre!2| (VECTOR |dx| |scd| $ |m| |sign|))
-                (QREFELT $ 16)))))) 
+(SDEFUN |ELFUTS;sncndnre|
+        ((|m| |Coef|) (|s0| |Coef|) (|c0| |Coef|) (|d0| |Coef|)
+         (|scd| |List| (|Stream| |Coef|)) (|dx| |Stream| |Coef|)
+         (|sign| |Coef|) ($ |List| (|Stream| |Coef|)))
+        (SPROG NIL
+               (LIST
+                (SPADCALL |s0|
+                          (CONS #'|ELFUTS;sncndnre!0| (VECTOR |dx| $ |scd|))
+                          (QREFELT $ 16))
+                (SPADCALL |c0|
+                          (CONS #'|ELFUTS;sncndnre!1|
+                                (VECTOR |dx| $ |scd| |sign|))
+                          (QREFELT $ 16))
+                (SPADCALL |d0|
+                          (CONS #'|ELFUTS;sncndnre!2|
+                                (VECTOR |dx| |scd| $ |m| |sign|))
+                          (QREFELT $ 16))))) 
 
-(DEFUN |ELFUTS;sncndnre!2| ($$)
-  (PROG (|sign| |m| $ |scd| |dx|)
-    (LETT |sign| (QREFELT $$ 4) . #1=(|ELFUTS;sncndnre|))
-    (LETT |m| (QREFELT $$ 3) . #1#)
-    (LETT $ (QREFELT $$ 2) . #1#)
-    (LETT |scd| (QREFELT $$ 1) . #1#)
-    (LETT |dx| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL
-       (SPADCALL
-        (SPADCALL (SPADCALL |sign| |m| (QREFELT $ 22))
-                  (SPADCALL |scd| (|spadConstant| $ 20) (QREFELT $ 12))
-                  (QREFELT $ 21))
-        (SPADCALL |scd| 2 (QREFELT $ 12)) (QREFELT $ 14))
-       |dx| (QREFELT $ 14)))))) 
+(SDEFUN |ELFUTS;sncndnre!2| (($$ NIL))
+        (PROG (|sign| |m| $ |scd| |dx|)
+          (LETT |sign| (QREFELT $$ 4) . #1=(|ELFUTS;sncndnre|))
+          (LETT |m| (QREFELT $$ 3) . #1#)
+          (LETT $ (QREFELT $$ 2) . #1#)
+          (LETT |scd| (QREFELT $$ 1) . #1#)
+          (LETT |dx| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL
+             (SPADCALL
+              (SPADCALL (SPADCALL |sign| |m| (QREFELT $ 22))
+                        (SPADCALL |scd| (|spadConstant| $ 20) (QREFELT $ 12))
+                        (QREFELT $ 21))
+              (SPADCALL |scd| 2 (QREFELT $ 12)) (QREFELT $ 14))
+             |dx| (QREFELT $ 14)))))) 
 
-(DEFUN |ELFUTS;sncndnre!1| ($$)
-  (PROG (|sign| |scd| $ |dx|)
-    (LETT |sign| (QREFELT $$ 3) . #1=(|ELFUTS;sncndnre|))
-    (LETT |scd| (QREFELT $$ 2) . #1#)
-    (LETT $ (QREFELT $$ 1) . #1#)
-    (LETT |dx| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL
-       (SPADCALL
-        (SPADCALL |sign| (SPADCALL |scd| (|spadConstant| $ 20) (QREFELT $ 12))
-                  (QREFELT $ 21))
-        (SPADCALL |scd| 3 (QREFELT $ 12)) (QREFELT $ 14))
-       |dx| (QREFELT $ 14)))))) 
+(SDEFUN |ELFUTS;sncndnre!1| (($$ NIL))
+        (PROG (|sign| |scd| $ |dx|)
+          (LETT |sign| (QREFELT $$ 3) . #1=(|ELFUTS;sncndnre|))
+          (LETT |scd| (QREFELT $$ 2) . #1#)
+          (LETT $ (QREFELT $$ 1) . #1#)
+          (LETT |dx| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL
+             (SPADCALL
+              (SPADCALL |sign|
+                        (SPADCALL |scd| (|spadConstant| $ 20) (QREFELT $ 12))
+                        (QREFELT $ 21))
+              (SPADCALL |scd| 3 (QREFELT $ 12)) (QREFELT $ 14))
+             |dx| (QREFELT $ 14)))))) 
 
-(DEFUN |ELFUTS;sncndnre!0| ($$)
-  (PROG (|scd| $ |dx|)
-    (LETT |scd| (QREFELT $$ 2) . #1=(|ELFUTS;sncndnre|))
-    (LETT $ (QREFELT $$ 1) . #1#)
-    (LETT |dx| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL
-       (SPADCALL (SPADCALL |scd| 2 (QREFELT $ 12))
-                 (SPADCALL |scd| 3 (QREFELT $ 12)) (QREFELT $ 14))
-       |dx| (QREFELT $ 14)))))) 
+(SDEFUN |ELFUTS;sncndnre!0| (($$ NIL))
+        (PROG (|scd| $ |dx|)
+          (LETT |scd| (QREFELT $$ 2) . #1=(|ELFUTS;sncndnre|))
+          (LETT $ (QREFELT $$ 1) . #1#)
+          (LETT |dx| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL
+             (SPADCALL (SPADCALL |scd| 2 (QREFELT $ 12))
+                       (SPADCALL |scd| 3 (QREFELT $ 12)) (QREFELT $ 14))
+             |dx| (QREFELT $ 14)))))) 
 
-(DEFUN |ELFUTS;sncndn;SCoefL;2| (|z| |m| $)
-  (PROG (|dn1| |cn1| |sn1| |invden| #1=#:G114 |c1| |dn0| |cn0| |sn0| |scd|
-         |z0|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |z| (QREFELT $ 24))
-        (LIST (SPADCALL (|spadConstant| $ 25) (QREFELT $ 27))
-              (SPADCALL (|spadConstant| $ 17) (QREFELT $ 27))
-              (SPADCALL (|spadConstant| $ 17) (QREFELT $ 27))))
-       (#2='T
-        (SEQ
-         (LETT |z0| (SPADCALL |z| (QREFELT $ 28))
-               . #3=(|ELFUTS;sncndn;SCoefL;2|))
-         (EXIT
+(SDEFUN |ELFUTS;sncndn;SCoefL;2|
+        ((|z| |Stream| |Coef|) (|m| |Coef|) ($ |List| (|Stream| |Coef|)))
+        (SPROG
+         ((|dn1| #1=(|Stream| |Coef|)) (|cn1| #1#) (|sn1| #1#)
+          (|invden| (|Stream| |Coef|)) (#2=#:G114 NIL) (|c1| (|Coef|))
+          (|dn0| (|Coef|)) (|cn0| (|Coef|)) (|sn0| (|Coef|))
+          (|scd| (|List| (|Stream| |Coef|))) (|z0| (|Coef|)))
+         (SEQ
           (COND
-           ((SPADCALL |z0| (|spadConstant| $ 25) (QREFELT $ 29))
-            (SPADCALL (CONS #'|ELFUTS;sncndn;SCoefL;2!0| (VECTOR |z| $ |m|)) 3
-                      (QREFELT $ 34)))
-           ((QREFELT $ 8)
+           ((SPADCALL |z| (QREFELT $ 24))
+            (LIST (SPADCALL (|spadConstant| $ 25) (QREFELT $ 27))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 27))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 27))))
+           (#3='T
             (SEQ
-             (LETT |scd|
-                   (SPADCALL
-                    (CONS #'|ELFUTS;sncndn;SCoefL;2!1| (VECTOR |z| $ |m|)) 3
-                    (QREFELT $ 34))
-                   . #3#)
-             (LETT |sn0| (SPADCALL |z0| |m| (QREFELT $ 35)) . #3#)
-             (LETT |cn0| (SPADCALL |z0| |m| (QREFELT $ 36)) . #3#)
-             (LETT |dn0| (SPADCALL |z0| |m| (QREFELT $ 37)) . #3#)
-             (LETT |c1|
-                   (SPADCALL |m| (SPADCALL |sn0| 2 (QREFELT $ 38))
-                             (QREFELT $ 22))
-                   . #3#)
-             (LETT |invden|
-                   (PROG2
-                       (LETT #1#
+             (LETT |z0| (SPADCALL |z| (QREFELT $ 28))
+                   . #4=(|ELFUTS;sncndn;SCoefL;2|))
+             (EXIT
+              (COND
+               ((SPADCALL |z0| (|spadConstant| $ 25) (QREFELT $ 29))
+                (SPADCALL
+                 (CONS #'|ELFUTS;sncndn;SCoefL;2!0| (VECTOR |z| $ |m|)) 3
+                 (QREFELT $ 34)))
+               ((QREFELT $ 8)
+                (SEQ
+                 (LETT |scd|
+                       (SPADCALL
+                        (CONS #'|ELFUTS;sncndn;SCoefL;2!1| (VECTOR |z| $ |m|))
+                        3 (QREFELT $ 34))
+                       . #4#)
+                 (LETT |sn0| (SPADCALL |z0| |m| (QREFELT $ 35)) . #4#)
+                 (LETT |cn0| (SPADCALL |z0| |m| (QREFELT $ 36)) . #4#)
+                 (LETT |dn0| (SPADCALL |z0| |m| (QREFELT $ 37)) . #4#)
+                 (LETT |c1|
+                       (SPADCALL |m| (SPADCALL |sn0| 2 (QREFELT $ 38))
+                                 (QREFELT $ 22))
+                       . #4#)
+                 (LETT |invden|
+                       (PROG2
+                           (LETT #2#
+                                 (SPADCALL
+                                  (SPADCALL
+                                   (SPADCALL (|spadConstant| $ 17)
+                                             (QREFELT $ 27))
+                                   (SPADCALL
+                                    (SPADCALL |c1|
+                                              (SPADCALL |scd| 1 (QREFELT $ 12))
+                                              (QREFELT $ 21))
+                                    (SPADCALL |scd| 1 (QREFELT $ 12))
+                                    (QREFELT $ 14))
+                                   (QREFELT $ 39))
+                                  (QREFELT $ 41))
+                                 . #4#)
+                           (QCDR #2#)
+                         (|check_union| (QEQCAR #2# 0) (|Stream| (QREFELT $ 6))
+                                        #2#))
+                       . #4#)
+                 (LETT |sn1|
+                       (SPADCALL |invden|
+                                 (SPADCALL
+                                  (SPADCALL
+                                   (SPADCALL |cn0| |dn0| (QREFELT $ 22))
+                                   (SPADCALL |scd| 1 (QREFELT $ 12))
+                                   (QREFELT $ 21))
+                                  (SPADCALL
+                                   (SPADCALL |sn0|
+                                             (SPADCALL |scd| 2 (QREFELT $ 12))
+                                             (QREFELT $ 21))
+                                   (SPADCALL |scd| 3 (QREFELT $ 12))
+                                   (QREFELT $ 14))
+                                  (QREFELT $ 42))
+                                 (QREFELT $ 14))
+                       . #4#)
+                 (LETT |cn1|
+                       (SPADCALL |invden|
+                                 (SPADCALL
+                                  (SPADCALL |cn0|
+                                            (SPADCALL |scd| 2 (QREFELT $ 12))
+                                            (QREFELT $ 21))
+                                  (SPADCALL
+                                   (SPADCALL
+                                    (SPADCALL |sn0| |dn0| (QREFELT $ 22))
+                                    (SPADCALL |scd| 1 (QREFELT $ 12))
+                                    (QREFELT $ 21))
+                                   (SPADCALL |scd| 3 (QREFELT $ 12))
+                                   (QREFELT $ 14))
+                                  (QREFELT $ 39))
+                                 (QREFELT $ 14))
+                       . #4#)
+                 (LETT |dn1|
+                       (SPADCALL |invden|
+                                 (SPADCALL
+                                  (SPADCALL |dn0|
+                                            (SPADCALL |scd| 3 (QREFELT $ 12))
+                                            (QREFELT $ 21))
+                                  (SPADCALL
+                                   (SPADCALL
+                                    (SPADCALL
+                                     (SPADCALL |m| |sn0| (QREFELT $ 22)) |cn0|
+                                     (QREFELT $ 22))
+                                    (SPADCALL |scd| 1 (QREFELT $ 12))
+                                    (QREFELT $ 21))
+                                   (SPADCALL |scd| 2 (QREFELT $ 12))
+                                   (QREFELT $ 14))
+                                  (QREFELT $ 39))
+                                 (QREFELT $ 14))
+                       . #4#)
+                 (EXIT (LIST |sn1| |cn1| |dn1|))))
+               (#3#
+                (|error|
+                 "ELFUTS:sncndn: constant coefficient should be 0")))))))))) 
+
+(SDEFUN |ELFUTS;sncndn;SCoefL;2!1| ((|x| NIL) ($$ NIL))
+        (PROG (|m| $ |z|)
+          (LETT |m| (QREFELT $$ 2) . #1=(|ELFUTS;sncndn;SCoefL;2|))
+          (LETT $ (QREFELT $$ 1) . #1#)
+          (LETT |z| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (|ELFUTS;sncndnre| |m| (|spadConstant| $ 25) (|spadConstant| $ 17)
+             (|spadConstant| $ 17) |x| (SPADCALL |z| (QREFELT $ 30))
+             (SPADCALL (|spadConstant| $ 17) (QREFELT $ 31)) $))))) 
+
+(SDEFUN |ELFUTS;sncndn;SCoefL;2!0| ((|x| NIL) ($$ NIL))
+        (PROG (|m| $ |z|)
+          (LETT |m| (QREFELT $$ 2) . #1=(|ELFUTS;sncndn;SCoefL;2|))
+          (LETT $ (QREFELT $$ 1) . #1#)
+          (LETT |z| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (|ELFUTS;sncndnre| |m| (|spadConstant| $ 25) (|spadConstant| $ 17)
+             (|spadConstant| $ 17) |x| (SPADCALL |z| (QREFELT $ 30))
+             (SPADCALL (|spadConstant| $ 17) (QREFELT $ 31)) $))))) 
+
+(SDEFUN |ELFUTS;jacobiSn;UTSCoefUTS;3| ((|z| UTS) (|m| |Coef|) ($ UTS))
+        (SPADCALL
+         (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43))
+                   1 (QREFELT $ 12))
+         (QREFELT $ 45))) 
+
+(SDEFUN |ELFUTS;jacobiCn;UTSCoefUTS;4| ((|z| UTS) (|m| |Coef|) ($ UTS))
+        (SPADCALL
+         (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43))
+                   2 (QREFELT $ 12))
+         (QREFELT $ 45))) 
+
+(SDEFUN |ELFUTS;jacobiDn;UTSCoefUTS;5| ((|z| UTS) (|m| |Coef|) ($ UTS))
+        (SPADCALL
+         (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43))
+                   3 (QREFELT $ 12))
+         (QREFELT $ 45))) 
+
+(SDEFUN |ELFUTS;ellipticE;UTSCoefUTS;6| ((|z| UTS) (|m| |Coef|) ($ UTS))
+        (SPROG
+         ((|c0| (|Coef|)) (|z0| (|Coef|)) (|s2| (UTS)) (|s1| (UTS))
+          (|dz| (UTS)) (|cz| (|Stream| |Coef|)))
+         (SEQ
+          (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
+                . #1=(|ELFUTS;ellipticE;UTSCoefUTS;6|))
+          (EXIT
+           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
+                 (#2='T
+                  (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
+                       (LETT |s1|
                              (SPADCALL
-                              (SPADCALL
-                               (SPADCALL (|spadConstant| $ 17) (QREFELT $ 27))
-                               (SPADCALL
-                                (SPADCALL |c1|
-                                          (SPADCALL |scd| 1 (QREFELT $ 12))
-                                          (QREFELT $ 21))
-                                (SPADCALL |scd| 1 (QREFELT $ 12))
-                                (QREFELT $ 14))
-                               (QREFELT $ 39))
-                              (QREFELT $ 41))
-                             . #3#)
-                       (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6))
-                                    #1#))
-                   . #3#)
-             (LETT |sn1|
-                   (SPADCALL |invden|
+                              (SPADCALL (|spadConstant| $ 18)
+                                        (SPADCALL |m|
+                                                  (SPADCALL |z| 2
+                                                            (QREFELT $ 50))
+                                                  (QREFELT $ 51))
+                                        (QREFELT $ 52))
+                              (QREFELT $ 53))
+                             . #1#)
+                       (LETT |s2|
                              (SPADCALL
-                              (SPADCALL (SPADCALL |cn0| |dn0| (QREFELT $ 22))
-                                        (SPADCALL |scd| 1 (QREFELT $ 12))
-                                        (QREFELT $ 21))
-                              (SPADCALL
-                               (SPADCALL |sn0|
-                                         (SPADCALL |scd| 2 (QREFELT $ 12))
-                                         (QREFELT $ 21))
-                               (SPADCALL |scd| 3 (QREFELT $ 12))
-                               (QREFELT $ 14))
-                              (QREFELT $ 42))
-                             (QREFELT $ 14))
-                   . #3#)
-             (LETT |cn1|
-                   (SPADCALL |invden|
-                             (SPADCALL
-                              (SPADCALL |cn0| (SPADCALL |scd| 2 (QREFELT $ 12))
-                                        (QREFELT $ 21))
-                              (SPADCALL
-                               (SPADCALL (SPADCALL |sn0| |dn0| (QREFELT $ 22))
-                                         (SPADCALL |scd| 1 (QREFELT $ 12))
-                                         (QREFELT $ 21))
-                               (SPADCALL |scd| 3 (QREFELT $ 12))
-                               (QREFELT $ 14))
-                              (QREFELT $ 39))
-                             (QREFELT $ 14))
-                   . #3#)
-             (LETT |dn1|
-                   (SPADCALL |invden|
-                             (SPADCALL
-                              (SPADCALL |dn0| (SPADCALL |scd| 3 (QREFELT $ 12))
-                                        (QREFELT $ 21))
-                              (SPADCALL
-                               (SPADCALL
-                                (SPADCALL (SPADCALL |m| |sn0| (QREFELT $ 22))
-                                          |cn0| (QREFELT $ 22))
-                                (SPADCALL |scd| 1 (QREFELT $ 12))
-                                (QREFELT $ 21))
-                               (SPADCALL |scd| 2 (QREFELT $ 12))
-                               (QREFELT $ 14))
-                              (QREFELT $ 39))
-                             (QREFELT $ 14))
-                   . #3#)
-             (EXIT (LIST |sn1| |cn1| |dn1|))))
-           (#2#
-            (|error|
-             "ELFUTS:sncndn: constant coefficient should be 0"))))))))))) 
-
-(DEFUN |ELFUTS;sncndn;SCoefL;2!1| (|x| $$)
-  (PROG (|m| $ |z|)
-    (LETT |m| (QREFELT $$ 2) . #1=(|ELFUTS;sncndn;SCoefL;2|))
-    (LETT $ (QREFELT $$ 1) . #1#)
-    (LETT |z| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (|ELFUTS;sncndnre| |m| (|spadConstant| $ 25) (|spadConstant| $ 17)
-       (|spadConstant| $ 17) |x| (SPADCALL |z| (QREFELT $ 30))
-       (SPADCALL (|spadConstant| $ 17) (QREFELT $ 31)) $))))) 
-
-(DEFUN |ELFUTS;sncndn;SCoefL;2!0| (|x| $$)
-  (PROG (|m| $ |z|)
-    (LETT |m| (QREFELT $$ 2) . #1=(|ELFUTS;sncndn;SCoefL;2|))
-    (LETT $ (QREFELT $$ 1) . #1#)
-    (LETT |z| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (|ELFUTS;sncndnre| |m| (|spadConstant| $ 25) (|spadConstant| $ 17)
-       (|spadConstant| $ 17) |x| (SPADCALL |z| (QREFELT $ 30))
-       (SPADCALL (|spadConstant| $ 17) (QREFELT $ 31)) $))))) 
-
-(DEFUN |ELFUTS;jacobiSn;UTSCoefUTS;3| (|z| |m| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43)) 1
-             (QREFELT $ 12))
-   (QREFELT $ 45))) 
-
-(DEFUN |ELFUTS;jacobiCn;UTSCoefUTS;4| (|z| |m| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43)) 2
-             (QREFELT $ 12))
-   (QREFELT $ 45))) 
-
-(DEFUN |ELFUTS;jacobiDn;UTSCoefUTS;5| (|z| |m| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL (SPADCALL |z| (QREFELT $ 44)) |m| (QREFELT $ 43)) 3
-             (QREFELT $ 12))
-   (QREFELT $ 45))) 
-
-(DEFUN |ELFUTS;ellipticE;UTSCoefUTS;6| (|z| |m| $)
-  (PROG (|c0| |z0| |s2| |s1| |dz| |cz|)
-    (RETURN
-     (SEQ
-      (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
-            . #1=(|ELFUTS;ellipticE;UTSCoefUTS;6|))
-      (EXIT
-       (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
-             (#2='T
-              (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
-                   (LETT |s1|
-                         (SPADCALL
-                          (SPADCALL (|spadConstant| $ 18)
-                                    (SPADCALL |m|
-                                              (SPADCALL |z| 2 (QREFELT $ 50))
-                                              (QREFELT $ 51))
-                                    (QREFELT $ 52))
-                          (QREFELT $ 53))
-                         . #1#)
-                   (LETT |s2|
-                         (SPADCALL
-                          (SPADCALL (|spadConstant| $ 18)
-                                    (SPADCALL |z| 2 (QREFELT $ 50))
-                                    (QREFELT $ 52))
-                          (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
-                                    (QREFELT $ 56))
-                          (QREFELT $ 57))
-                         . #1#)
-                   (LETT |z0| (SPADCALL |z| 0 (QREFELT $ 59)) . #1#)
-                   (EXIT
-                    (COND
-                     ((SPADCALL |z0| (|spadConstant| $ 25) (QREFELT $ 29))
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |s1| |s2| (QREFELT $ 60)) |dz|
-                                 (QREFELT $ 60))
-                       (QREFELT $ 61)))
-                     ((QREFELT $ 8)
-                      (SEQ (LETT |c0| (SPADCALL |z0| |m| (QREFELT $ 62)) . #1#)
-                           (EXIT
-                            (SPADCALL (SPADCALL |c0| (QREFELT $ 63))
-                                      (SPADCALL
-                                       (SPADCALL
-                                        (SPADCALL |s1| |s2| (QREFELT $ 60))
-                                        |dz| (QREFELT $ 60))
-                                       (QREFELT $ 61))
-                                      (QREFELT $ 64)))))
-                     (#2#
-                      (|error|
-                       "ELFUTS:ellipticE: constant coefficient should be 0")))))))))))) 
-
-(DEFUN |ELFUTS;ellipticF;UTSCoefUTS;7| (|z| |m| $)
-  (PROG (|c0| |z0| |s2| |s1| |dz| |cz|)
-    (RETURN
-     (SEQ
-      (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
-            . #1=(|ELFUTS;ellipticF;UTSCoefUTS;7|))
-      (EXIT
-       (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
-             (#2='T
-              (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
-                   (LETT |s1|
-                         (SPADCALL
-                          (SPADCALL (|spadConstant| $ 18)
-                                    (SPADCALL |m|
-                                              (SPADCALL |z| 2 (QREFELT $ 50))
-                                              (QREFELT $ 51))
-                                    (QREFELT $ 52))
-                          (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
-                                    (QREFELT $ 56))
-                          (QREFELT $ 57))
-                         . #1#)
-                   (LETT |s2|
-                         (SPADCALL
-                          (SPADCALL (|spadConstant| $ 18)
-                                    (SPADCALL |z| 2 (QREFELT $ 50))
-                                    (QREFELT $ 52))
-                          (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
-                                    (QREFELT $ 56))
-                          (QREFELT $ 57))
-                         . #1#)
-                   (LETT |z0| (SPADCALL |z| 0 (QREFELT $ 59)) . #1#)
-                   (EXIT
-                    (COND
-                     ((SPADCALL |z0| (|spadConstant| $ 25) (QREFELT $ 29))
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |s1| |s2| (QREFELT $ 60)) |dz|
-                                 (QREFELT $ 60))
-                       (QREFELT $ 61)))
-                     ((QREFELT $ 8)
-                      (SEQ (LETT |c0| (SPADCALL |z0| |m| (QREFELT $ 66)) . #1#)
-                           (EXIT
-                            (SPADCALL (SPADCALL |c0| (QREFELT $ 63))
-                                      (SPADCALL
-                                       (SPADCALL
-                                        (SPADCALL |s1| |s2| (QREFELT $ 60))
-                                        |dz| (QREFELT $ 60))
-                                       (QREFELT $ 61))
-                                      (QREFELT $ 64)))))
-                     (#2#
-                      (|error|
-                       "ELFUTS:ellipticF: constant coefficient should be 0")))))))))))) 
-
-(DEFUN |ELFUTS;ellipticPi;UTS2CoefUTS;8| (|z| |n| |m| $)
-  (PROG (|c0| |z0| |ss| |s2| |s1| |dz| |cz|)
-    (RETURN
-     (SEQ
-      (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
-            . #1=(|ELFUTS;ellipticPi;UTS2CoefUTS;8|))
-      (EXIT
-       (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
-             (#2='T
-              (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
-                   (LETT |s1|
-                         (SPADCALL
-                          (SPADCALL (|spadConstant| $ 18)
-                                    (SPADCALL |m|
-                                              (SPADCALL |z| 2 (QREFELT $ 50))
-                                              (QREFELT $ 51))
-                                    (QREFELT $ 52))
-                          (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
-                                    (QREFELT $ 56))
-                          (QREFELT $ 57))
-                         . #1#)
-                   (LETT |s2|
-                         (SPADCALL
-                          (SPADCALL (|spadConstant| $ 18)
-                                    (SPADCALL |z| 2 (QREFELT $ 50))
-                                    (QREFELT $ 52))
-                          (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
-                                    (QREFELT $ 56))
-                          (QREFELT $ 57))
-                         . #1#)
-                   (LETT |ss|
-                         (SPADCALL
-                          (SPADCALL
-                           (SPADCALL
-                            (SPADCALL
-                             (SPADCALL (|spadConstant| $ 18)
-                                       (SPADCALL |n|
-                                                 (SPADCALL |z| 2
-                                                           (QREFELT $ 50))
-                                                 (QREFELT $ 51))
-                                       (QREFELT $ 52))
-                             (SPADCALL (|spadConstant| $ 68) (QREFELT $ 56))
-                             (QREFELT $ 57))
-                            |s1| (QREFELT $ 60))
-                           |s2| (QREFELT $ 60))
-                          |dz| (QREFELT $ 60))
-                         . #1#)
-                   (LETT |z0| (SPADCALL |z| 0 (QREFELT $ 59)) . #1#)
-                   (EXIT
-                    (COND
-                     ((SPADCALL |z0| (|spadConstant| $ 25) (QREFELT $ 29))
-                      (SPADCALL |ss| (QREFELT $ 61)))
-                     ((QREFELT $ 8)
-                      (SEQ
-                       (LETT |c0| (SPADCALL |z0| |n| |m| (QREFELT $ 69)) . #1#)
+                              (SPADCALL (|spadConstant| $ 18)
+                                        (SPADCALL |z| 2 (QREFELT $ 50))
+                                        (QREFELT $ 52))
+                              (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
+                                        (QREFELT $ 56))
+                              (QREFELT $ 57))
+                             . #1#)
+                       (LETT |z0| (SPADCALL |z| 0 (QREFELT $ 59)) . #1#)
                        (EXIT
-                        (SPADCALL (SPADCALL |c0| (QREFELT $ 63))
-                                  (SPADCALL |ss| (QREFELT $ 61))
-                                  (QREFELT $ 64)))))
-                     (#2#
-                      (|error|
-                       "ELFUTS:ellipticPi: constant coefficient should be 0")))))))))))) 
+                        (COND
+                         ((SPADCALL |z0| (|spadConstant| $ 25) (QREFELT $ 29))
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |s1| |s2| (QREFELT $ 60)) |dz|
+                                     (QREFELT $ 60))
+                           (QREFELT $ 61)))
+                         ((QREFELT $ 8)
+                          (SEQ
+                           (LETT |c0| (SPADCALL |z0| |m| (QREFELT $ 62)) . #1#)
+                           (EXIT
+                            (SPADCALL (SPADCALL |c0| (QREFELT $ 63))
+                                      (SPADCALL
+                                       (SPADCALL
+                                        (SPADCALL |s1| |s2| (QREFELT $ 60))
+                                        |dz| (QREFELT $ 60))
+                                       (QREFELT $ 61))
+                                      (QREFELT $ 64)))))
+                         (#2#
+                          (|error|
+                           "ELFUTS:ellipticE: constant coefficient should be 0"))))))))))) 
+
+(SDEFUN |ELFUTS;ellipticF;UTSCoefUTS;7| ((|z| UTS) (|m| |Coef|) ($ UTS))
+        (SPROG
+         ((|c0| (|Coef|)) (|z0| (|Coef|)) (|s2| (UTS)) (|s1| (UTS))
+          (|dz| (UTS)) (|cz| (|Stream| |Coef|)))
+         (SEQ
+          (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
+                . #1=(|ELFUTS;ellipticF;UTSCoefUTS;7|))
+          (EXIT
+           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
+                 (#2='T
+                  (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
+                       (LETT |s1|
+                             (SPADCALL
+                              (SPADCALL (|spadConstant| $ 18)
+                                        (SPADCALL |m|
+                                                  (SPADCALL |z| 2
+                                                            (QREFELT $ 50))
+                                                  (QREFELT $ 51))
+                                        (QREFELT $ 52))
+                              (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
+                                        (QREFELT $ 56))
+                              (QREFELT $ 57))
+                             . #1#)
+                       (LETT |s2|
+                             (SPADCALL
+                              (SPADCALL (|spadConstant| $ 18)
+                                        (SPADCALL |z| 2 (QREFELT $ 50))
+                                        (QREFELT $ 52))
+                              (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
+                                        (QREFELT $ 56))
+                              (QREFELT $ 57))
+                             . #1#)
+                       (LETT |z0| (SPADCALL |z| 0 (QREFELT $ 59)) . #1#)
+                       (EXIT
+                        (COND
+                         ((SPADCALL |z0| (|spadConstant| $ 25) (QREFELT $ 29))
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |s1| |s2| (QREFELT $ 60)) |dz|
+                                     (QREFELT $ 60))
+                           (QREFELT $ 61)))
+                         ((QREFELT $ 8)
+                          (SEQ
+                           (LETT |c0| (SPADCALL |z0| |m| (QREFELT $ 66)) . #1#)
+                           (EXIT
+                            (SPADCALL (SPADCALL |c0| (QREFELT $ 63))
+                                      (SPADCALL
+                                       (SPADCALL
+                                        (SPADCALL |s1| |s2| (QREFELT $ 60))
+                                        |dz| (QREFELT $ 60))
+                                       (QREFELT $ 61))
+                                      (QREFELT $ 64)))))
+                         (#2#
+                          (|error|
+                           "ELFUTS:ellipticF: constant coefficient should be 0"))))))))))) 
+
+(SDEFUN |ELFUTS;ellipticPi;UTS2CoefUTS;8|
+        ((|z| UTS) (|n| |Coef|) (|m| |Coef|) ($ UTS))
+        (SPROG
+         ((|c0| (|Coef|)) (|z0| (|Coef|)) (|ss| (UTS)) (|s2| (UTS))
+          (|s1| (UTS)) (|dz| (UTS)) (|cz| (|Stream| |Coef|)))
+         (SEQ
+          (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
+                . #1=(|ELFUTS;ellipticPi;UTS2CoefUTS;8|))
+          (EXIT
+           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
+                 (#2='T
+                  (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
+                       (LETT |s1|
+                             (SPADCALL
+                              (SPADCALL (|spadConstant| $ 18)
+                                        (SPADCALL |m|
+                                                  (SPADCALL |z| 2
+                                                            (QREFELT $ 50))
+                                                  (QREFELT $ 51))
+                                        (QREFELT $ 52))
+                              (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
+                                        (QREFELT $ 56))
+                              (QREFELT $ 57))
+                             . #1#)
+                       (LETT |s2|
+                             (SPADCALL
+                              (SPADCALL (|spadConstant| $ 18)
+                                        (SPADCALL |z| 2 (QREFELT $ 50))
+                                        (QREFELT $ 52))
+                              (SPADCALL (SPADCALL 1 2 (QREFELT $ 55))
+                                        (QREFELT $ 56))
+                              (QREFELT $ 57))
+                             . #1#)
+                       (LETT |ss|
+                             (SPADCALL
+                              (SPADCALL
+                               (SPADCALL
+                                (SPADCALL
+                                 (SPADCALL (|spadConstant| $ 18)
+                                           (SPADCALL |n|
+                                                     (SPADCALL |z| 2
+                                                               (QREFELT $ 50))
+                                                     (QREFELT $ 51))
+                                           (QREFELT $ 52))
+                                 (SPADCALL (|spadConstant| $ 68)
+                                           (QREFELT $ 56))
+                                 (QREFELT $ 57))
+                                |s1| (QREFELT $ 60))
+                               |s2| (QREFELT $ 60))
+                              |dz| (QREFELT $ 60))
+                             . #1#)
+                       (LETT |z0| (SPADCALL |z| 0 (QREFELT $ 59)) . #1#)
+                       (EXIT
+                        (COND
+                         ((SPADCALL |z0| (|spadConstant| $ 25) (QREFELT $ 29))
+                          (SPADCALL |ss| (QREFELT $ 61)))
+                         ((QREFELT $ 8)
+                          (SEQ
+                           (LETT |c0| (SPADCALL |z0| |n| |m| (QREFELT $ 69))
+                                 . #1#)
+                           (EXIT
+                            (SPADCALL (SPADCALL |c0| (QREFELT $ 63))
+                                      (SPADCALL |ss| (QREFELT $ 61))
+                                      (QREFELT $ 64)))))
+                         (#2#
+                          (|error|
+                           "ELFUTS:ellipticPi: constant coefficient should be 0"))))))))))) 
 
 (DECLAIM (NOTINLINE |EllipticFunctionsUnivariateTaylorSeries;|)) 
 
 (DEFUN |EllipticFunctionsUnivariateTaylorSeries| (&REST #1=#:G135)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G136)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|EllipticFunctionsUnivariateTaylorSeries|)
-                                           '|domainEqualList|)
-                . #3=(|EllipticFunctionsUnivariateTaylorSeries|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY
-                   (|function| |EllipticFunctionsUnivariateTaylorSeries;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G136)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|EllipticFunctionsUnivariateTaylorSeries|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|EllipticFunctionsUnivariateTaylorSeries|)
+                                               '|domainEqualList|)
+                    . #3=(|EllipticFunctionsUnivariateTaylorSeries|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |EllipticFunctionsUnivariateTaylorSeries;|)
+                       #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|EllipticFunctionsUnivariateTaylorSeries|)))))))))) 
 
 (DEFUN |EllipticFunctionsUnivariateTaylorSeries;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|EllipticFunctionsUnivariateTaylorSeries|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|EllipticFunctionsUnivariateTaylorSeries| DV$1 DV$2)
-            . #1#)
-      (LETT $ (GETREFV 71) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache|
-                  '|EllipticFunctionsUnivariateTaylorSeries| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (|HasCategory| |#1| '(|SpecialFunctionCategory|)))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 65
-                   (CONS (|dispatchFunction| |ELFUTS;ellipticE;UTSCoefUTS;6|)
-                         $))
-         (QSETREFV $ 67
-                   (CONS (|dispatchFunction| |ELFUTS;ellipticF;UTSCoefUTS;7|)
-                         $))
-         (QSETREFV $ 70
-                   (CONS (|dispatchFunction| |ELFUTS;ellipticPi;UTS2CoefUTS;8|)
-                         $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|EllipticFunctionsUnivariateTaylorSeries|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$|
+                (LIST '|EllipticFunctionsUnivariateTaylorSeries| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 71) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|Algebra|
+                                                               (|Fraction|
+                                                                (|Integer|))))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|EllipticFunctionsUnivariateTaylorSeries|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 (|HasCategory| |#1| '(|SpecialFunctionCategory|)))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 65
+                       (CONS
+                        (|dispatchFunction| |ELFUTS;ellipticE;UTSCoefUTS;6|)
+                        $))
+             (QSETREFV $ 67
+                       (CONS
+                        (|dispatchFunction| |ELFUTS;ellipticF;UTSCoefUTS;7|)
+                        $))
+             (QSETREFV $ 70
+                       (CONS
+                        (|dispatchFunction| |ELFUTS;ellipticPi;UTS2CoefUTS;8|)
+                        $)))))
+          $))) 
 
 (MAKEPROP '|EllipticFunctionsUnivariateTaylorSeries| '|infovec|
           (LIST

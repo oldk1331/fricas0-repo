@@ -1,82 +1,86 @@
 
-(DEFUN |INPRODPF;applyOverZ| (|f| |st| $)
-  (PROG (|stZ|)
-    (RETURN
-     (SEQ
-      (LETT |stZ| (SPADCALL (ELT $ 9) |st| (QREFELT $ 14))
-            |INPRODPF;applyOverZ|)
-      (EXIT (SPADCALL (ELT $ 15) (SPADCALL |stZ| |f|) (QREFELT $ 18))))))) 
+(SDEFUN |INPRODPF;applyOverZ|
+        ((|f| |Mapping| (|Stream| (|Integer|)) (|Stream| (|Integer|)))
+         (|st| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|stZ| (|Stream| (|Integer|))))
+               (SEQ
+                (LETT |stZ| (SPADCALL (ELT $ 9) |st| (QREFELT $ 14))
+                      |INPRODPF;applyOverZ|)
+                (EXIT
+                 (SPADCALL (ELT $ 15) (SPADCALL |stZ| |f|) (QREFELT $ 18)))))) 
 
-(DEFUN |INPRODPF;infiniteProduct;2UTS;2| (|x| $)
-  (SPADCALL (|INPRODPF;applyOverZ| (ELT $ 20) (SPADCALL |x| (QREFELT $ 21)) $)
-            (QREFELT $ 22))) 
+(SDEFUN |INPRODPF;infiniteProduct;2UTS;2| ((|x| UTS) ($ UTS))
+        (SPADCALL
+         (|INPRODPF;applyOverZ| (ELT $ 20) (SPADCALL |x| (QREFELT $ 21)) $)
+         (QREFELT $ 22))) 
 
-(DEFUN |INPRODPF;evenInfiniteProduct;2UTS;3| (|x| $)
-  (SPADCALL (|INPRODPF;applyOverZ| (ELT $ 24) (SPADCALL |x| (QREFELT $ 21)) $)
-            (QREFELT $ 22))) 
+(SDEFUN |INPRODPF;evenInfiniteProduct;2UTS;3| ((|x| UTS) ($ UTS))
+        (SPADCALL
+         (|INPRODPF;applyOverZ| (ELT $ 24) (SPADCALL |x| (QREFELT $ 21)) $)
+         (QREFELT $ 22))) 
 
-(DEFUN |INPRODPF;oddInfiniteProduct;2UTS;4| (|x| $)
-  (SPADCALL (|INPRODPF;applyOverZ| (ELT $ 26) (SPADCALL |x| (QREFELT $ 21)) $)
-            (QREFELT $ 22))) 
+(SDEFUN |INPRODPF;oddInfiniteProduct;2UTS;4| ((|x| UTS) ($ UTS))
+        (SPADCALL
+         (|INPRODPF;applyOverZ| (ELT $ 26) (SPADCALL |x| (QREFELT $ 21)) $)
+         (QREFELT $ 22))) 
 
-(DEFUN |INPRODPF;generalInfiniteProduct;UTS2IUTS;5| (|x| |a| |d| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL
-      (|INPRODPF;applyOverZ|
-       (CONS #'|INPRODPF;generalInfiniteProduct;UTS2IUTS;5!0|
-             (VECTOR $ |d| |a|))
-       (SPADCALL |x| (QREFELT $ 21)) $)
-      (QREFELT $ 22))))) 
+(SDEFUN |INPRODPF;generalInfiniteProduct;UTS2IUTS;5|
+        ((|x| UTS) (|a| |Integer|) (|d| |Integer|) ($ UTS))
+        (SPROG NIL
+               (SPADCALL
+                (|INPRODPF;applyOverZ|
+                 (CONS #'|INPRODPF;generalInfiniteProduct;UTS2IUTS;5!0|
+                       (VECTOR $ |d| |a|))
+                 (SPADCALL |x| (QREFELT $ 21)) $)
+                (QREFELT $ 22)))) 
 
-(DEFUN |INPRODPF;generalInfiniteProduct;UTS2IUTS;5!0| (|z1| $$)
-  (PROG (|a| |d| $)
-    (LETT |a| (QREFELT $$ 2)
-          . #1=(|INPRODPF;generalInfiniteProduct;UTS2IUTS;5|))
-    (LETT |d| (QREFELT $$ 1) . #1#)
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |z1| |a| |d| (QREFELT $ 28)))))) 
+(SDEFUN |INPRODPF;generalInfiniteProduct;UTS2IUTS;5!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|a| |d| $)
+          (LETT |a| (QREFELT $$ 2)
+                . #1=(|INPRODPF;generalInfiniteProduct;UTS2IUTS;5|))
+          (LETT |d| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |z1| |a| |d| (QREFELT $ 28)))))) 
 
 (DECLAIM (NOTINLINE |InfiniteProductPrimeField;|)) 
 
 (DEFUN |InfiniteProductPrimeField| (&REST #1=#:G123)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G124)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|InfiniteProductPrimeField|)
-                                           '|domainEqualList|)
-                . #3=(|InfiniteProductPrimeField|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |InfiniteProductPrimeField;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G124)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|InfiniteProductPrimeField|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|InfiniteProductPrimeField|)
+                                               '|domainEqualList|)
+                    . #3=(|InfiniteProductPrimeField|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |InfiniteProductPrimeField;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|InfiniteProductPrimeField|)))))))))) 
 
 (DEFUN |InfiniteProductPrimeField;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteProductPrimeField|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|InfiniteProductPrimeField| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 30) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|InfiniteProductPrimeField|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|InfiniteProductPrimeField|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|InfiniteProductPrimeField| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 30) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|InfiniteProductPrimeField|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|InfiniteProductPrimeField| '|infovec|
           (LIST

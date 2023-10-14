@@ -16,38 +16,36 @@
       #2#)))) 
 
 (DEFUN |MultiDictionary;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|MultiDictionary;CAT|)
-                                ('T
-                                 (LETT |MultiDictionary;CAT|
-                                       (|Join| (|DictionaryOperations| '|t#1|)
-                                               (|mkCategory|
-                                                '(((|insert!|
-                                                    ($ |t#1| $
-                                                     (|NonNegativeInteger|)))
-                                                   T)
-                                                  ((|removeDuplicates!| ($ $))
-                                                   T)
-                                                  ((|duplicates|
-                                                    ((|List|
-                                                      (|Record|
-                                                       (|:| |entry| |t#1|)
-                                                       (|:| |count|
-                                                            (|NonNegativeInteger|))))
-                                                     $))
-                                                   T))
-                                                NIL
-                                                '((|List|
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|MultiDictionary;CAT|)
+                                    ('T
+                                     (LETT |MultiDictionary;CAT|
+                                           (|Join|
+                                            (|DictionaryOperations| '|t#1|)
+                                            (|mkCategory|
+                                             '(((|insert!|
+                                                 ($ |t#1| $
+                                                  (|NonNegativeInteger|)))
+                                                T)
+                                               ((|removeDuplicates!| ($ $)) T)
+                                               ((|duplicates|
+                                                 ((|List|
                                                    (|Record|
                                                     (|:| |entry| |t#1|)
                                                     (|:| |count|
                                                          (|NonNegativeInteger|))))
-                                                  (|NonNegativeInteger|))
-                                                NIL))
-                                       . #2=(|MultiDictionary|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|MultiDictionary| (|devaluate| |t#1|))))))) 
+                                                  $))
+                                                T))
+                                             NIL
+                                             '((|List|
+                                                (|Record| (|:| |entry| |t#1|)
+                                                          (|:| |count|
+                                                               (|NonNegativeInteger|))))
+                                               (|NonNegativeInteger|))
+                                             NIL))
+                                           . #2=(|MultiDictionary|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|MultiDictionary| (|devaluate| |t#1|)))))) 

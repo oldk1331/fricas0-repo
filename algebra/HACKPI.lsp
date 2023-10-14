@@ -1,113 +1,127 @@
 
-(DEFUN |HACKPI;pi;$;1| ($)
-  (SPADCALL (SPADCALL 1 1 (QREFELT $ 13)) (QREFELT $ 14))) 
+(SDEFUN |HACKPI;pi;$;1| (($ $))
+        (SPADCALL (SPADCALL 1 1 (QREFELT $ 13)) (QREFELT $ 14))) 
 
 (PUT '|HACKPI;convert;$F;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |HACKPI;convert;$F;2| (|x| $) |x|) 
+(SDEFUN |HACKPI;convert;$F;2|
+        ((|x| $) ($ |Fraction| (|SparseUnivariatePolynomial| (|Integer|)))) |x|) 
 
-(DEFUN |HACKPI;convert;$F;3| (|x| $) (SPADCALL |x| (QREFELT $ 18))) 
+(SDEFUN |HACKPI;convert;$F;3| ((|x| $) ($ |Float|))
+        (SPADCALL |x| (QREFELT $ 18))) 
 
-(DEFUN |HACKPI;convert;$Df;4| (|x| $) (SPADCALL |x| (QREFELT $ 21))) 
+(SDEFUN |HACKPI;convert;$Df;4| ((|x| $) ($ |DoubleFloat|))
+        (SPADCALL |x| (QREFELT $ 21))) 
 
-(DEFUN |HACKPI;coerce;$Df;5| (|x| $)
-  (|div_DF| (|HACKPI;p2sf| (SPADCALL |x| (QREFELT $ 23)) $)
-            (|HACKPI;p2sf| (SPADCALL |x| (QREFELT $ 24)) $))) 
+(SDEFUN |HACKPI;coerce;$Df;5| ((|x| $) ($ |DoubleFloat|))
+        (|div_DF| (|HACKPI;p2sf| (SPADCALL |x| (QREFELT $ 23)) $)
+                  (|HACKPI;p2sf| (SPADCALL |x| (QREFELT $ 24)) $))) 
 
-(DEFUN |HACKPI;coerce;$F;6| (|x| $)
-  (SPADCALL (|HACKPI;p2f| (SPADCALL |x| (QREFELT $ 23)) $)
-            (|HACKPI;p2f| (SPADCALL |x| (QREFELT $ 24)) $) (QREFELT $ 25))) 
+(SDEFUN |HACKPI;coerce;$F;6| ((|x| $) ($ |Float|))
+        (SPADCALL (|HACKPI;p2f| (SPADCALL |x| (QREFELT $ 23)) $)
+                  (|HACKPI;p2f| (SPADCALL |x| (QREFELT $ 24)) $)
+                  (QREFELT $ 25))) 
 
-(DEFUN |HACKPI;p2o| (|p| $)
-  (SPADCALL |p| (SPADCALL (QREFELT $ 7) (QREFELT $ 28)) (QREFELT $ 29))) 
+(SDEFUN |HACKPI;p2o|
+        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |OutputForm|))
+        (SPADCALL |p| (SPADCALL (QREFELT $ 7) (QREFELT $ 28)) (QREFELT $ 29))) 
 
-(DEFUN |HACKPI;p2i| (|p| $) (SPADCALL (|HACKPI;p2p| |p| $) (QREFELT $ 32))) 
+(SDEFUN |HACKPI;p2i|
+        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |InputForm|))
+        (SPADCALL (|HACKPI;p2p| |p| $) (QREFELT $ 32))) 
 
-(DEFUN |HACKPI;p2p| (|p| $)
-  (PROG (|ans|)
-    (RETURN
-     (SEQ (LETT |ans| (|spadConstant| $ 33) . #1=(|HACKPI;p2p|))
-          (SEQ G190
-               (COND
-                ((NULL (SPADCALL |p| (|spadConstant| $ 36) (QREFELT $ 38)))
-                 (GO G191)))
-               (SEQ
-                (LETT |ans|
-                      (SPADCALL |ans|
-                                (SPADCALL
-                                 (SPADCALL (SPADCALL |p| (QREFELT $ 39))
-                                           (QREFELT $ 40))
-                                 (QREFELT $ 7) (SPADCALL |p| (QREFELT $ 41))
-                                 (QREFELT $ 42))
-                                (QREFELT $ 43))
-                      . #1#)
-                (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 44)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |ans|))))) 
+(SDEFUN |HACKPI;p2p|
+        ((|p| |SparseUnivariatePolynomial| (|Integer|))
+         ($ |Polynomial| (|Integer|)))
+        (SPROG ((|ans| (|Polynomial| (|Integer|))))
+               (SEQ (LETT |ans| (|spadConstant| $ 33) . #1=(|HACKPI;p2p|))
+                    (SEQ G190
+                         (COND
+                          ((NULL
+                            (SPADCALL |p| (|spadConstant| $ 36)
+                                      (QREFELT $ 38)))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |ans|
+                                (SPADCALL |ans|
+                                          (SPADCALL
+                                           (SPADCALL
+                                            (SPADCALL |p| (QREFELT $ 39))
+                                            (QREFELT $ 40))
+                                           (QREFELT $ 7)
+                                           (SPADCALL |p| (QREFELT $ 41))
+                                           (QREFELT $ 42))
+                                          (QREFELT $ 43))
+                                . #1#)
+                          (EXIT
+                           (LETT |p| (SPADCALL |p| (QREFELT $ 44)) . #1#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |ans|)))) 
 
-(DEFUN |HACKPI;coerce;$Of;10| (|x| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)) |HACKPI;coerce;$Of;10|)
-          (EXIT
-           (COND ((QEQCAR |r| 0) (|HACKPI;p2o| (QCDR |r|) $))
-                 ('T
-                  (SPADCALL (|HACKPI;p2o| (SPADCALL |x| (QREFELT $ 23)) $)
-                            (|HACKPI;p2o| (SPADCALL |x| (QREFELT $ 24)) $)
-                            (QREFELT $ 47))))))))) 
+(SDEFUN |HACKPI;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
+        (SPROG
+         ((|r| (|Union| (|SparseUnivariatePolynomial| (|Integer|)) "failed")))
+         (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)) |HACKPI;coerce;$Of;10|)
+              (EXIT
+               (COND ((QEQCAR |r| 0) (|HACKPI;p2o| (QCDR |r|) $))
+                     ('T
+                      (SPADCALL (|HACKPI;p2o| (SPADCALL |x| (QREFELT $ 23)) $)
+                                (|HACKPI;p2o| (SPADCALL |x| (QREFELT $ 24)) $)
+                                (QREFELT $ 47)))))))) 
 
-(DEFUN |HACKPI;convert;$If;11| (|x| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)) |HACKPI;convert;$If;11|)
-          (EXIT
-           (COND ((QEQCAR |r| 0) (|HACKPI;p2i| (QCDR |r|) $))
-                 ('T
-                  (SPADCALL (|HACKPI;p2i| (SPADCALL |x| (QREFELT $ 23)) $)
-                            (|HACKPI;p2i| (SPADCALL |x| (QREFELT $ 24)) $)
-                            (QREFELT $ 49))))))))) 
+(SDEFUN |HACKPI;convert;$If;11| ((|x| $) ($ |InputForm|))
+        (SPROG
+         ((|r| (|Union| (|SparseUnivariatePolynomial| (|Integer|)) "failed")))
+         (SEQ (LETT |r| (SPADCALL |x| (QREFELT $ 46)) |HACKPI;convert;$If;11|)
+              (EXIT
+               (COND ((QEQCAR |r| 0) (|HACKPI;p2i| (QCDR |r|) $))
+                     ('T
+                      (SPADCALL (|HACKPI;p2i| (SPADCALL |x| (QREFELT $ 23)) $)
+                                (|HACKPI;p2i| (SPADCALL |x| (QREFELT $ 24)) $)
+                                (QREFELT $ 49)))))))) 
 
-(DEFUN |HACKPI;p2sf| (|p| $)
-  (SPADCALL (SPADCALL (ELT $ 51) |p| (QREFELT $ 55))
-            (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT) (QREFELT $ 56))) 
+(SDEFUN |HACKPI;p2sf|
+        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |DoubleFloat|))
+        (SPADCALL (SPADCALL (ELT $ 51) |p| (QREFELT $ 55))
+                  (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT) (QREFELT $ 56))) 
 
-(DEFUN |HACKPI;p2f| (|p| $)
-  (SPADCALL (SPADCALL (ELT $ 57) |p| (QREFELT $ 61)) (SPADCALL (QREFELT $ 62))
-            (QREFELT $ 63))) 
+(SDEFUN |HACKPI;p2f|
+        ((|p| |SparseUnivariatePolynomial| (|Integer|)) ($ |Float|))
+        (SPADCALL (SPADCALL (ELT $ 57) |p| (QREFELT $ 61))
+                  (SPADCALL (QREFELT $ 62)) (QREFELT $ 63))) 
 
 (DECLAIM (NOTINLINE |Pi;|)) 
 
 (DEFUN |Pi| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G149)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Pi|) . #2=(|Pi|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Pi|
-                         (LIST (CONS NIL (CONS 1 (|Pi;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Pi|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G149)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Pi|) . #2=(|Pi|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Pi|
+                             (LIST (CONS NIL (CONS 1 (|Pi;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Pi|)))))))))) 
 
 (DEFUN |Pi;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Pi|) . #1=(|Pi|))
-      (LETT $ (GETREFV 83) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Pi| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|Fraction| (|SparseUnivariatePolynomial| (|Integer|))))
-      (QSETREFV $ 7 '|%pi|)
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Pi|) . #1=(|Pi|))
+          (LETT $ (GETREFV 83) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Pi| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Fraction| (|SparseUnivariatePolynomial| (|Integer|))))
+          (QSETREFV $ 7 '|%pi|)
+          $))) 
 
 (MAKEPROP '|Pi| '|infovec|
           (LIST

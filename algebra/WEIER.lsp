@@ -1,214 +1,252 @@
 
-(DEFUN |WEIER;transback| (|smps| $)
-  (COND
-   ((OR (SPADCALL |smps| (QREFELT $ 9))
-        (SPADCALL (SPADCALL |smps| (QREFELT $ 12)) (QREFELT $ 13)))
-    NIL)
-   ('T
-    (CONS (SPADCALL (CONS #'|WEIER;transback!0| $) |smps| (QREFELT $ 19))
-          (|WEIER;transback|
-           (SPADCALL (CONS #'|WEIER;transback!1| $) |smps| (QREFELT $ 28))
-           $))))) 
+(SDEFUN |WEIER;transback|
+        ((|smps| |Stream| (|TaylorSeries| R)) ($ |List| (|TaylorSeries| R)))
+        (COND
+         ((OR (SPADCALL |smps| (QREFELT $ 9))
+              (SPADCALL (SPADCALL |smps| (QREFELT $ 12)) (QREFELT $ 13)))
+          NIL)
+         ('T
+          (CONS (SPADCALL (CONS #'|WEIER;transback!0| $) |smps| (QREFELT $ 19))
+                (|WEIER;transback|
+                 (SPADCALL (CONS #'|WEIER;transback!1| $) |smps|
+                           (QREFELT $ 28))
+                 $))))) 
 
-(DEFUN |WEIER;transback!1| (|ss| $)
-  (SPADCALL |ss| (|spadConstant| $ 24) (QREFELT $ 25))) 
+(SDEFUN |WEIER;transback!1| ((|ss| NIL) ($ NIL))
+        (SPADCALL |ss| (|spadConstant| $ 24) (QREFELT $ 25))) 
 
-(DEFUN |WEIER;transback!0| (|ss| $)
-  (COND ((SPADCALL |ss| (QREFELT $ 13)) (|spadConstant| $ 15))
-        ('T (SPADCALL |ss| (QREFELT $ 16))))) 
+(SDEFUN |WEIER;transback!0| ((|ss| NIL) ($ NIL))
+        (COND ((SPADCALL |ss| (QREFELT $ 13)) (|spadConstant| $ 15))
+              ('T (SPADCALL |ss| (QREFELT $ 16))))) 
 
-(DEFUN |WEIER;streamlikeUniv| (|p| |n| $)
-  (PROG (#1=#:G118)
-    (RETURN
-     (COND
-      ((EQL |n| 0)
-       (SPADCALL (SPADCALL |p| 0 (QREFELT $ 32)) (SPADCALL (QREFELT $ 33))
-                 (QREFELT $ 34)))
-      ('T
-       (SPADCALL (SPADCALL |p| |n| (QREFELT $ 32))
-                 (|WEIER;streamlikeUniv| |p|
-                  (PROG1 (LETT #1# (- |n| 1) |WEIER;streamlikeUniv|)
-                    (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
-                  $)
-                 (QREFELT $ 34))))))) 
+(SDEFUN |WEIER;streamlikeUniv|
+        ((|p| |SparseUnivariatePolynomial| (|Polynomial| R))
+         (|n| |NonNegativeInteger|) ($ |Stream| (|Polynomial| R)))
+        (SPROG ((#1=#:G118 NIL))
+               (COND
+                ((EQL |n| 0)
+                 (SPADCALL (SPADCALL |p| 0 (QREFELT $ 32))
+                           (SPADCALL (QREFELT $ 33)) (QREFELT $ 34)))
+                ('T
+                 (SPADCALL (SPADCALL |p| |n| (QREFELT $ 32))
+                           (|WEIER;streamlikeUniv| |p|
+                            (PROG1 (LETT #1# (- |n| 1) |WEIER;streamlikeUniv|)
+                              (|check_subtype| (>= #1# 0)
+                                               '(|NonNegativeInteger|) #1#))
+                            $)
+                           (QREFELT $ 34)))))) 
 
-(DEFUN |WEIER;transpose| (|s| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|WEIER;transpose!0| (VECTOR $ |s|)) (QREFELT $ 41))))) 
+(SDEFUN |WEIER;transpose|
+        ((|s| |Stream| (|Stream| (|Polynomial| R)))
+         ($ |Stream| (|Stream| (|Polynomial| R))))
+        (SPROG NIL
+               (SPADCALL (CONS #'|WEIER;transpose!0| (VECTOR $ |s|))
+                         (QREFELT $ 41)))) 
 
-(DEFUN |WEIER;transpose!0| ($$)
-  (PROG (|s| $)
-    (LETT |s| (QREFELT $$ 1) . #1=(|WEIER;transpose|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (COND ((SPADCALL |s| (QREFELT $ 35)) (SPADCALL (QREFELT $ 36)))
-            ('T
-             (SPADCALL (SPADCALL (ELT $ 16) |s| (QREFELT $ 19))
-                       (|WEIER;transpose|
-                        (SPADCALL (ELT $ 37) (SPADCALL |s| (QREFELT $ 38))
-                                  (QREFELT $ 28))
-                        $)
-                       (QREFELT $ 39)))))))) 
+(SDEFUN |WEIER;transpose!0| (($$ NIL))
+        (PROG (|s| $)
+          (LETT |s| (QREFELT $$ 1) . #1=(|WEIER;transpose|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (COND ((SPADCALL |s| (QREFELT $ 35)) (SPADCALL (QREFELT $ 36)))
+                  ('T
+                   (SPADCALL (SPADCALL (ELT $ 16) |s| (QREFELT $ 19))
+                             (|WEIER;transpose|
+                              (SPADCALL (ELT $ 37)
+                                        (SPADCALL |s| (QREFELT $ 38))
+                                        (QREFELT $ 28))
+                              $)
+                             (QREFELT $ 39)))))))) 
 
-(DEFUN |WEIER;sts2stst| (|var| |sts| $)
-  (PROG (|si0|)
-    (RETURN
-     (SEQ (LETT |si0| (SPADCALL 0 (QREFELT $ 45)) |WEIER;sts2stst|)
-          (EXIT
-           (SPADCALL (CONS #'|WEIER;sts2stst!0| $)
-                     (SPADCALL (CONS #'|WEIER;sts2stst!1| (VECTOR $ |var|))
-                               |sts| (QREFELT $ 52))
-                     |si0| (QREFELT $ 56))))))) 
+(SDEFUN |WEIER;sts2stst|
+        ((|var| |Symbol|) (|sts| |Stream| (|Polynomial| R))
+         ($ |Stream| (|Stream| (|Polynomial| R))))
+        (SPROG ((|si0| (|Stream| (|NonNegativeInteger|))))
+               (SEQ (LETT |si0| (SPADCALL 0 (QREFELT $ 45)) |WEIER;sts2stst|)
+                    (EXIT
+                     (SPADCALL (CONS #'|WEIER;sts2stst!0| $)
+                               (SPADCALL
+                                (CONS #'|WEIER;sts2stst!1| (VECTOR $ |var|))
+                                |sts| (QREFELT $ 52))
+                               |si0| (QREFELT $ 56)))))) 
 
-(DEFUN |WEIER;sts2stst!1| (|p| $$)
-  (PROG (|var| $)
-    (LETT |var| (QREFELT $$ 1) . #1=(|WEIER;sts2stst|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |p| |var| (QREFELT $ 48)))))) 
+(SDEFUN |WEIER;sts2stst!1| ((|p| NIL) ($$ NIL))
+        (PROG (|var| $)
+          (LETT |var| (QREFELT $$ 1) . #1=(|WEIER;sts2stst|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |p| |var| (QREFELT $ 48)))))) 
 
-(DEFUN |WEIER;sts2stst!0| (|x| |y| $) (|WEIER;streamlikeUniv| |x| |y| $)) 
+(SDEFUN |WEIER;sts2stst!0| ((|x| NIL) (|y| NIL) ($ NIL))
+        (|WEIER;streamlikeUniv| |x| |y| $)) 
 
-(DEFUN |WEIER;tp| (|v| |sts| $)
-  (|WEIER;transpose| (|WEIER;sts2stst| |v| |sts| $) $)) 
+(SDEFUN |WEIER;tp|
+        ((|v| |Symbol|) (|sts| |Stream| (|Polynomial| R))
+         ($ |Stream| (|Stream| (|Polynomial| R))))
+        (|WEIER;transpose| (|WEIER;sts2stst| |v| |sts| $) $)) 
 
-(DEFUN |WEIER;maptake| (|n| |p| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|WEIER;maptake!0| (VECTOR $ |n|)) |p| (QREFELT $ 28))))) 
+(SDEFUN |WEIER;maptake|
+        ((|n| |NonNegativeInteger|) (|p| |Stream| (|Stream| (|Polynomial| R)))
+         ($ |Stream| (|TaylorSeries| R)))
+        (SPROG NIL
+               (SPADCALL (CONS #'|WEIER;maptake!0| (VECTOR $ |n|)) |p|
+                         (QREFELT $ 28)))) 
 
-(DEFUN |WEIER;maptake!0| (|ss| $$)
-  (PROG (|n| $)
-    (LETT |n| (QREFELT $$ 1) . #1=(|WEIER;maptake|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 57)))))) 
+(SDEFUN |WEIER;maptake!0| ((|ss| NIL) ($$ NIL))
+        (PROG (|n| $)
+          (LETT |n| (QREFELT $$ 1) . #1=(|WEIER;maptake|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 57)))))) 
 
-(DEFUN |WEIER;mapdrop| (|n| |p| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|WEIER;mapdrop!0| (VECTOR $ |n|)) |p| (QREFELT $ 28))))) 
+(SDEFUN |WEIER;mapdrop|
+        ((|n| |NonNegativeInteger|) (|p| |Stream| (|Stream| (|Polynomial| R)))
+         ($ |Stream| (|TaylorSeries| R)))
+        (SPROG NIL
+               (SPADCALL (CONS #'|WEIER;mapdrop!0| (VECTOR $ |n|)) |p|
+                         (QREFELT $ 28)))) 
 
-(DEFUN |WEIER;mapdrop!0| (|ss| $$)
-  (PROG (|n| $)
-    (LETT |n| (QREFELT $$ 1) . #1=(|WEIER;mapdrop|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 25)))))) 
+(SDEFUN |WEIER;mapdrop!0| ((|ss| NIL) ($$ NIL))
+        (PROG (|n| $)
+          (LETT |n| (QREFELT $$ 1) . #1=(|WEIER;mapdrop|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |ss| |n| (QREFELT $ 25)))))) 
 
-(DEFUN |WEIER;weier| (|v| |sts| $)
-  (PROG (|q| |f| |e| |b| #1=#:G156 |a| |c| |b0| |a0| |p|)
-    (RETURN
-     (SEQ (LETT |p| (|WEIER;tp| |v| |sts| $) . #2=(|WEIER;weier|))
-          (LETT |b| (SPADCALL |p| (QREFELT $ 58)) . #2#)
-          (SEQ
-           (EXIT
-            (SEQ (LETT |a0| 0 . #2#) G190 NIL
-                 (SEQ
-                  (EXIT
-                   (COND
-                    ((OR (EQL |a0| 1000) (SPADCALL |b| (QREFELT $ 13)))
-                     (|error|
-                      "can not find power of variable with constant coefficient"))
-                    ('T
-                     (SEQ (LETT |b0| (SPADCALL |b| (QREFELT $ 16)) . #2#)
-                          (EXIT
-                           (COND
-                            ((SPADCALL |b0| (|spadConstant| $ 15)
-                                       (QREFELT $ 59))
-                             (SEQ
-                              (LETT |b| (SPADCALL |b| (QREFELT $ 37)) . #2#)
-                              (EXIT "iterate")))
-                            ('T
-                             (SEQ
-                              (LETT |c| (SPADCALL |b0| (QREFELT $ 61)) . #2#)
+(SDEFUN |WEIER;weier|
+        ((|v| |Symbol|) (|sts| |Stream| (|Polynomial| R))
+         ($ |Stream| (|TaylorSeries| R)))
+        (SPROG
+         ((|q| (|Stream| (|TaylorSeries| R))) (|f| (|Stream| (|Polynomial| R)))
+          (|e| (|Union| (|Stream| (|Polynomial| R)) "failed"))
+          (|b| (|Stream| (|Polynomial| R))) (#1=#:G156 NIL)
+          (|a| (|NonNegativeInteger|)) (|c| (|Union| R "failed"))
+          (|b0| (|Polynomial| R)) (|a0| NIL)
+          (|p| (|Stream| (|TaylorSeries| R))))
+         (SEQ (LETT |p| (|WEIER;tp| |v| |sts| $) . #2=(|WEIER;weier|))
+              (LETT |b| (SPADCALL |p| (QREFELT $ 58)) . #2#)
+              (SEQ
+               (EXIT
+                (SEQ (LETT |a0| 0 . #2#) G190 NIL
+                     (SEQ
+                      (EXIT
+                       (COND
+                        ((OR (EQL |a0| 1000) (SPADCALL |b| (QREFELT $ 13)))
+                         (|error|
+                          "can not find power of variable with constant coefficient"))
+                        ('T
+                         (SEQ (LETT |b0| (SPADCALL |b| (QREFELT $ 16)) . #2#)
                               (EXIT
                                (COND
-                                ((QEQCAR |c| 0)
-                                 (SEQ (LETT |a| |a0| . #2#)
-                                      (EXIT
-                                       (PROGN
-                                        (LETT #1# |$NoValue| . #2#)
-                                        (GO #1#)))))
+                                ((SPADCALL |b0| (|spadConstant| $ 15)
+                                           (QREFELT $ 59))
+                                 (SEQ
+                                  (LETT |b| (SPADCALL |b| (QREFELT $ 37))
+                                        . #2#)
+                                  (EXIT "iterate")))
                                 ('T
-                                 (LETT |b| (SPADCALL |b| (QREFELT $ 37))
-                                       . #2#)))))))))))))
-                 (LETT |a0| (|inc_SI| |a0|) . #2#) (GO G190) G191 (EXIT NIL)))
-           #1# (EXIT #1#))
-          (LETT |e| (SPADCALL |b| (QREFELT $ 63)) . #2#)
-          (LETT |f|
-                (COND ((QEQCAR |e| 1) (|error| "no reciprocal"))
-                      ('T (QCDR |e|)))
-                . #2#)
-          (LETT |q|
-                (SPADCALL (|WEIER;qqq| |a| |f| (SPADCALL |p| (QREFELT $ 64)) $)
-                          (QREFELT $ 67))
-                . #2#)
-          (EXIT (|WEIER;maptake| |a| (SPADCALL |p| |q| (QREFELT $ 69)) $)))))) 
+                                 (SEQ
+                                  (LETT |c| (SPADCALL |b0| (QREFELT $ 61))
+                                        . #2#)
+                                  (EXIT
+                                   (COND
+                                    ((QEQCAR |c| 0)
+                                     (SEQ (LETT |a| |a0| . #2#)
+                                          (EXIT
+                                           (PROGN
+                                            (LETT #1# |$NoValue| . #2#)
+                                            (GO #1#)))))
+                                    ('T
+                                     (LETT |b| (SPADCALL |b| (QREFELT $ 37))
+                                           . #2#)))))))))))))
+                     (LETT |a0| (|inc_SI| |a0|) . #2#) (GO G190) G191
+                     (EXIT NIL)))
+               #1# (EXIT #1#))
+              (LETT |e| (SPADCALL |b| (QREFELT $ 63)) . #2#)
+              (LETT |f|
+                    (COND ((QEQCAR |e| 1) (|error| "no reciprocal"))
+                          ('T (QCDR |e|)))
+                    . #2#)
+              (LETT |q|
+                    (SPADCALL
+                     (|WEIER;qqq| |a| |f| (SPADCALL |p| (QREFELT $ 64)) $)
+                     (QREFELT $ 67))
+                    . #2#)
+              (EXIT
+               (|WEIER;maptake| |a| (SPADCALL |p| |q| (QREFELT $ 69)) $))))) 
 
-(DEFUN |WEIER;qq| (|a| |e| |p| |c| $)
-  (SPADCALL |e|
-            (SPADCALL (SPADCALL |e| (QREFELT $ 70))
-                      (|WEIER;mapdrop| |a| (SPADCALL |p| |c| (QREFELT $ 69)) $)
-                      (QREFELT $ 71))
-            (QREFELT $ 72))) 
+(SDEFUN |WEIER;qq|
+        ((|a| |NonNegativeInteger|) (|e| |TaylorSeries| R)
+         (|p| |Stream| (|TaylorSeries| R)) (|c| |Stream| (|TaylorSeries| R))
+         ($ |Stream| (|TaylorSeries| R)))
+        (SPADCALL |e|
+                  (SPADCALL (SPADCALL |e| (QREFELT $ 70))
+                            (|WEIER;mapdrop| |a|
+                             (SPADCALL |p| |c| (QREFELT $ 69)) $)
+                            (QREFELT $ 71))
+                  (QREFELT $ 72))) 
 
-(DEFUN |WEIER;qqq| (|a| |e| |p| $)
-  (PROG () (RETURN (CONS #'|WEIER;qqq!0| (VECTOR $ |p| |e| |a|))))) 
+(SDEFUN |WEIER;qqq|
+        ((|a| |NonNegativeInteger|) (|e| |TaylorSeries| R)
+         (|p| |Stream| (|TaylorSeries| R))
+         ($ |Mapping| (|Stream| (|TaylorSeries| R))
+          (|Stream| (|TaylorSeries| R))))
+        (SPROG NIL (CONS #'|WEIER;qqq!0| (VECTOR $ |p| |e| |a|)))) 
 
-(DEFUN |WEIER;qqq!0| (|s| $$)
-  (PROG (|a| |e| |p| $)
-    (LETT |a| (QREFELT $$ 3) . #1=(|WEIER;qqq|))
-    (LETT |e| (QREFELT $$ 2) . #1#)
-    (LETT |p| (QREFELT $$ 1) . #1#)
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (|WEIER;qq| |a| |e| |p| |s| $))))) 
+(SDEFUN |WEIER;qqq!0| ((|s| NIL) ($$ NIL))
+        (PROG (|a| |e| |p| $)
+          (LETT |a| (QREFELT $$ 3) . #1=(|WEIER;qqq|))
+          (LETT |e| (QREFELT $$ 2) . #1#)
+          (LETT |p| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (|WEIER;qq| |a| |e| |p| |s| $))))) 
 
-(DEFUN |WEIER;wei| (|v| |s| $) (|WEIER;weier| |v| |s| $)) 
+(SDEFUN |WEIER;wei|
+        ((|v| |Symbol|) (|s| |TaylorSeries| R) ($ |Stream| (|TaylorSeries| R)))
+        (|WEIER;weier| |v| |s| $)) 
 
-(DEFUN |WEIER;weierstrass;STsL;12| (|v| |smps| $)
-  (COND
-   ((SPADCALL (SPADCALL |smps| (|spadConstant| $ 74) (QREFELT $ 75))
-              (|spadConstant| $ 29) (QREFELT $ 76))
-    NIL)
-   ('T (|WEIER;transback| (|WEIER;wei| |v| |smps| $) $)))) 
+(SDEFUN |WEIER;weierstrass;STsL;12|
+        ((|v| |Symbol|) (|smps| |TaylorSeries| R)
+         ($ |List| (|TaylorSeries| R)))
+        (COND
+         ((SPADCALL (SPADCALL |smps| (|spadConstant| $ 74) (QREFELT $ 75))
+                    (|spadConstant| $ 29) (QREFELT $ 76))
+          NIL)
+         ('T (|WEIER;transback| (|WEIER;wei| |v| |smps| $) $)))) 
 
 (DECLAIM (NOTINLINE |WeierstrassPreparation;|)) 
 
 (DEFUN |WeierstrassPreparation| (#1=#:G169)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G170)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|WeierstrassPreparation|)
-                                           '|domainEqualList|)
-                . #3=(|WeierstrassPreparation|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|WeierstrassPreparation;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G170)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|WeierstrassPreparation|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|WeierstrassPreparation|)
+                                               '|domainEqualList|)
+                    . #3=(|WeierstrassPreparation|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|WeierstrassPreparation;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|WeierstrassPreparation|)))))))))) 
 
 (DEFUN |WeierstrassPreparation;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|WeierstrassPreparation|))
-      (LETT |dv$| (LIST '|WeierstrassPreparation| DV$1) . #1#)
-      (LETT $ (GETREFV 79) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|WeierstrassPreparation| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|WeierstrassPreparation|))
+          (LETT |dv$| (LIST '|WeierstrassPreparation| DV$1) . #1#)
+          (LETT $ (GETREFV 79) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|WeierstrassPreparation| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|WeierstrassPreparation| '|infovec|
           (LIST

@@ -1,143 +1,144 @@
 
 (PUT '|ARRAY1;qelt;$IS;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
-(DEFUN |ARRAY1;qelt;$IS;1| (|x| |i| $) (QAREF1O |x| |i| 1)) 
+(SDEFUN |ARRAY1;qelt;$IS;1| ((|x| $) (|i| |Integer|) ($ S)) (QAREF1O |x| |i| 1)) 
 
 (PUT '|ARRAY1;qsetelt!;$I2S;2| '|SPADreplace|
      '(XLAM (|x| |i| |s|) (QSETAREF1O |x| |i| |s| 1))) 
 
-(DEFUN |ARRAY1;qsetelt!;$I2S;2| (|x| |i| |s| $) (QSETAREF1O |x| |i| |s| 1)) 
+(SDEFUN |ARRAY1;qsetelt!;$I2S;2| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
+        (QSETAREF1O |x| |i| |s| 1)) 
 
-(DEFUN |ARRAY1;oneDimensionalArray;L$;3| (|u| $)
-  (PROG (|i| #1=#:G2135 |x| |a| |n|)
-    (RETURN
-     (SEQ (LETT |n| (LENGTH |u|) . #2=(|ARRAY1;oneDimensionalArray;L$;3|))
-          (EXIT
-           (COND ((EQL |n| 0) (MAKE-ARRAY 0))
-                 ('T
-                  (SEQ (LETT |a| (MAKEARR1 |n| (|SPADfirst| |u|)) . #2#)
-                       (SEQ (LETT |x| NIL . #2#) (LETT #1# (CDR |u|) . #2#)
-                            (LETT |i| 2 . #2#) G190
-                            (COND
-                             ((OR (|greater_SI| |i| |n|) (ATOM #1#)
-                                  (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
-                              (GO G191)))
-                            (SEQ (EXIT (SPADCALL |a| |i| |x| (QREFELT $ 10))))
-                            (LETT |i|
-                                  (PROG1 (|inc_SI| |i|)
-                                    (LETT #1# (CDR #1#) . #2#))
-                                  . #2#)
-                            (GO G190) G191 (EXIT NIL))
-                       (EXIT |a|))))))))) 
+(SDEFUN |ARRAY1;oneDimensionalArray;L$;3| ((|u| |List| S) ($ $))
+        (SPROG
+         ((|i| NIL) (#1=#:G2135 NIL) (|x| NIL) (|a| ($))
+          (|n| (|NonNegativeInteger|)))
+         (SEQ (LETT |n| (LENGTH |u|) . #2=(|ARRAY1;oneDimensionalArray;L$;3|))
+              (EXIT
+               (COND ((EQL |n| 0) (MAKE-ARRAY 0))
+                     ('T
+                      (SEQ (LETT |a| (MAKEARR1 |n| (|SPADfirst| |u|)) . #2#)
+                           (SEQ (LETT |x| NIL . #2#) (LETT #1# (CDR |u|) . #2#)
+                                (LETT |i| 2 . #2#) G190
+                                (COND
+                                 ((OR (|greater_SI| |i| |n|) (ATOM #1#)
+                                      (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                                  (GO G191)))
+                                (SEQ
+                                 (EXIT (SPADCALL |a| |i| |x| (QREFELT $ 10))))
+                                (LETT |i|
+                                      (PROG1 (|inc_SI| |i|)
+                                        (LETT #1# (CDR #1#) . #2#))
+                                      . #2#)
+                                (GO G190) G191 (EXIT NIL))
+                           (EXIT |a|)))))))) 
 
 (PUT '|ARRAY1;oneDimensionalArray;NniS$;4| '|SPADreplace| 'MAKEARR1) 
 
-(DEFUN |ARRAY1;oneDimensionalArray;NniS$;4| (|n| |s| $) (MAKEARR1 |n| |s|)) 
+(SDEFUN |ARRAY1;oneDimensionalArray;NniS$;4|
+        ((|n| |NonNegativeInteger|) (|s| S) ($ $)) (MAKEARR1 |n| |s|)) 
 
 (DECLAIM (NOTINLINE |OneDimensionalArray;|)) 
 
 (DEFUN |OneDimensionalArray| (#1=#:G2149)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G2150)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|OneDimensionalArray|)
-                                           '|domainEqualList|)
-                . #3=(|OneDimensionalArray|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|OneDimensionalArray;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G2150)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|OneDimensionalArray|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|OneDimensionalArray|)
+                                               '|domainEqualList|)
+                    . #3=(|OneDimensionalArray|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|OneDimensionalArray;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|OneDimensionalArray|)))))))))) 
 
 (DEFUN |OneDimensionalArray;| (|#1|)
-  (PROG (#1=#:G2148 |pv$| #2=#:G2144 #3=#:G2145 #4=#:G2146 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #5=(|OneDimensionalArray|))
-      (LETT |dv$| (LIST '|OneDimensionalArray| DV$1) . #5#)
-      (LETT $ (GETREFV 32) . #5#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#1| '(|OrderedSet|))
-                                          (LETT #4#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #5#)
-                                          (OR
-                                           (|HasCategory| |#1| '(|OrderedSet|))
-                                           #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #4#)
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            #4#))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #5#)
-                                          (OR #3#
+  (SPROG
+   ((#1=#:G2148 NIL) (|pv$| NIL) (#2=#:G2144 NIL) (#3=#:G2145 NIL)
+    (#4=#:G2146 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #5=(|OneDimensionalArray|))
+    (LETT |dv$| (LIST '|OneDimensionalArray| DV$1) . #5#)
+    (LETT $ (GETREFV 32) . #5#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| |#1| '(|OrderedSet|))
+                                        (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|OrderedSet|))
-                                              #4#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #5#)
-                                          (OR #2#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #4#))))
-                      . #5#))
-      (|haddProp| |$ConstructorCache| '|OneDimensionalArray| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-           (|augmentPredVector| $ 2048))
-      (AND #4# #1# (|augmentPredVector| $ 4096))
-      (AND #3# #1# (|augmentPredVector| $ 8192))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 16384))
-      (AND (|HasCategory| |#1| '(|OrderedSet|))
-           (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 32768))
-      (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 65536))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+                                                             '(|SetCategory|))
+                                              . #5#)
+                                        (OR
+                                         (|HasCategory| |#1| '(|OrderedSet|))
+                                         #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #4#)
+                                        (OR
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#1| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          #4#))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|OrderedSet|))
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|BasicType|))
+                                              . #5#)
+                                        (OR #3#
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedSet|))
+                                            #4#)
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #5#)
+                                        (OR #2#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #4#))))
+                    . #5#))
+    (|haddProp| |$ConstructorCache| '|OneDimensionalArray| (LIST DV$1)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
+         (|augmentPredVector| $ 2048))
+    (AND #4# #1# (|augmentPredVector| $ 4096))
+    (AND #3# #1# (|augmentPredVector| $ 8192))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 16384))
+    (AND (|HasCategory| |#1| '(|OrderedSet|))
+         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32768))
+    (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 65536))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|OneDimensionalArray| '|infovec|
           (LIST

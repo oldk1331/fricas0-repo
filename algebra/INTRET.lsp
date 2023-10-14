@@ -1,47 +1,48 @@
 
-(DEFUN |INTRET;integer;SI;1| (|s| $) (SPADCALL |s| (QREFELT $ 8))) 
+(SDEFUN |INTRET;integer;SI;1| ((|s| S) ($ |Integer|))
+        (SPADCALL |s| (QREFELT $ 8))) 
 
-(DEFUN |INTRET;integer?;SB;2| (|s| $) (QEQCAR (SPADCALL |s| (QREFELT $ 11)) 0)) 
+(SDEFUN |INTRET;integer?;SB;2| ((|s| S) ($ |Boolean|))
+        (QEQCAR (SPADCALL |s| (QREFELT $ 11)) 0)) 
 
-(DEFUN |INTRET;integerIfCan;SU;3| (|s| $) (SPADCALL |s| (QREFELT $ 11))) 
+(SDEFUN |INTRET;integerIfCan;SU;3| ((|s| S) ($ |Union| (|Integer|) "failed"))
+        (SPADCALL |s| (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |IntegerRetractions;|)) 
 
 (DEFUN |IntegerRetractions| (#1=#:G112)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G113)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|IntegerRetractions|)
-                                           '|domainEqualList|)
-                . #3=(|IntegerRetractions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|IntegerRetractions;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G113)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|IntegerRetractions|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegerRetractions|)
+                                               '|domainEqualList|)
+                    . #3=(|IntegerRetractions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|IntegerRetractions;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IntegerRetractions|)))))))))) 
 
 (DEFUN |IntegerRetractions;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegerRetractions|))
-      (LETT |dv$| (LIST '|IntegerRetractions| DV$1) . #1#)
-      (LETT $ (GETREFV 15) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|IntegerRetractions| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegerRetractions|))
+          (LETT |dv$| (LIST '|IntegerRetractions| DV$1) . #1#)
+          (LETT $ (GETREFV 15) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|IntegerRetractions| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|IntegerRetractions| '|infovec|
           (LIST

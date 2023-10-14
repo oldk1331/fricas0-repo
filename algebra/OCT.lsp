@@ -1,169 +1,178 @@
 
-(DEFUN |OCT;Zero;$;1| ($) (CONS (|spadConstant| $ 11) (|spadConstant| $ 11))) 
+(SDEFUN |OCT;Zero;$;1| (($ $))
+        (CONS (|spadConstant| $ 11) (|spadConstant| $ 11))) 
 
-(DEFUN |OCT;One;$;2| ($) (CONS (|spadConstant| $ 14) (|spadConstant| $ 11))) 
+(SDEFUN |OCT;One;$;2| (($ $))
+        (CONS (|spadConstant| $ 14) (|spadConstant| $ 11))) 
 
-(DEFUN |OCT;real;$R;3| (|x| $) (SPADCALL (QCAR |x|) (QREFELT $ 15))) 
+(SDEFUN |OCT;real;$R;3| ((|x| $) ($ R)) (SPADCALL (QCAR |x|) (QREFELT $ 15))) 
 
-(DEFUN |OCT;imagi;$R;4| (|x| $) (SPADCALL (QCAR |x|) (QREFELT $ 17))) 
+(SDEFUN |OCT;imagi;$R;4| ((|x| $) ($ R)) (SPADCALL (QCAR |x|) (QREFELT $ 17))) 
 
-(DEFUN |OCT;imagj;$R;5| (|x| $) (SPADCALL (QCAR |x|) (QREFELT $ 19))) 
+(SDEFUN |OCT;imagj;$R;5| ((|x| $) ($ R)) (SPADCALL (QCAR |x|) (QREFELT $ 19))) 
 
-(DEFUN |OCT;imagk;$R;6| (|x| $) (SPADCALL (QCAR |x|) (QREFELT $ 21))) 
+(SDEFUN |OCT;imagk;$R;6| ((|x| $) ($ R)) (SPADCALL (QCAR |x|) (QREFELT $ 21))) 
 
-(DEFUN |OCT;imagE;$R;7| (|x| $) (SPADCALL (QCDR |x|) (QREFELT $ 15))) 
+(SDEFUN |OCT;imagE;$R;7| ((|x| $) ($ R)) (SPADCALL (QCDR |x|) (QREFELT $ 15))) 
 
-(DEFUN |OCT;imagI;$R;8| (|x| $) (SPADCALL (QCDR |x|) (QREFELT $ 17))) 
+(SDEFUN |OCT;imagI;$R;8| ((|x| $) ($ R)) (SPADCALL (QCDR |x|) (QREFELT $ 17))) 
 
-(DEFUN |OCT;imagJ;$R;9| (|x| $) (SPADCALL (QCDR |x|) (QREFELT $ 19))) 
+(SDEFUN |OCT;imagJ;$R;9| ((|x| $) ($ R)) (SPADCALL (QCDR |x|) (QREFELT $ 19))) 
 
-(DEFUN |OCT;imagK;$R;10| (|x| $) (SPADCALL (QCDR |x|) (QREFELT $ 21))) 
+(SDEFUN |OCT;imagK;$R;10| ((|x| $) ($ R)) (SPADCALL (QCDR |x|) (QREFELT $ 21))) 
 
-(DEFUN |OCT;octon;8R$;11| (|a| |b| |c| |d| |f| |g| |h| |i| $)
-  (CONS (SPADCALL |a| |b| |c| |d| (QREFELT $ 27))
-        (SPADCALL |f| |g| |h| |i| (QREFELT $ 27)))) 
+(SDEFUN |OCT;octon;8R$;11|
+        ((|a| R) (|b| R) (|c| R) (|d| R) (|f| R) (|g| R) (|h| R) (|i| R) ($ $))
+        (CONS (SPADCALL |a| |b| |c| |d| (QREFELT $ 27))
+              (SPADCALL |f| |g| |h| |i| (QREFELT $ 27)))) 
 
 (PUT '|OCT;octon;2Q$;12| '|SPADreplace| 'CONS) 
 
-(DEFUN |OCT;octon;2Q$;12| (|p| |q| $) (CONS |p| |q|)) 
+(SDEFUN |OCT;octon;2Q$;12| ((|p| |Quaternion| R) (|q| |Quaternion| R) ($ $))
+        (CONS |p| |q|)) 
 
-(DEFUN |OCT;coerce;Q$;13| (|q| $) (CONS |q| (|spadConstant| $ 11))) 
+(SDEFUN |OCT;coerce;Q$;13| ((|q| |Quaternion| R) ($ $))
+        (CONS |q| (|spadConstant| $ 11))) 
 
-(DEFUN |OCT;retract;$Q;14| (|x| $)
-  (SEQ
-   (COND
-    ((SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 32))
-     (COND
-      ((SPADCALL (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 32))
-       (COND
-        ((SPADCALL (SPADCALL |x| (QREFELT $ 25)) (QREFELT $ 32))
+(SDEFUN |OCT;retract;$Q;14| ((|x| $) ($ |Quaternion| R))
+        (SEQ
          (COND
-          ((NULL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 32)))
-           (EXIT (|error| #1="Cannot retract octonion to quaternion.")))))
-        (#2='T (EXIT (|error| #1#)))))
-      (#2# (EXIT (|error| #1#)))))
-    (#2# (EXIT (|error| #1#))))
-   (EXIT
-    (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (SPADCALL |x| (QREFELT $ 18))
-              (SPADCALL |x| (QREFELT $ 20)) (SPADCALL |x| (QREFELT $ 22))
-              (QREFELT $ 27))))) 
-
-(DEFUN |OCT;retractIfCan;$U;15| (|x| $)
-  (SEQ
-   (COND
-    ((SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 32))
-     (COND
-      ((SPADCALL (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 32))
-       (COND
-        ((SPADCALL (SPADCALL |x| (QREFELT $ 25)) (QREFELT $ 32))
-         (COND
-          ((NULL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 32)))
-           (EXIT (CONS 1 #1="failed")))))
-        (#2='T (EXIT (CONS 1 #1#)))))
-      (#2# (EXIT (CONS 1 #1#)))))
-    (#2# (EXIT (CONS 1 #1#))))
-   (EXIT
-    (CONS 0
+          ((SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 32))
+           (COND
+            ((SPADCALL (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 32))
+             (COND
+              ((SPADCALL (SPADCALL |x| (QREFELT $ 25)) (QREFELT $ 32))
+               (COND
+                ((NULL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 32)))
+                 (EXIT
+                  (|error| #1="Cannot retract octonion to quaternion.")))))
+              (#2='T (EXIT (|error| #1#)))))
+            (#2# (EXIT (|error| #1#)))))
+          (#2# (EXIT (|error| #1#))))
+         (EXIT
           (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (SPADCALL |x| (QREFELT $ 18))
                     (SPADCALL |x| (QREFELT $ 20)) (SPADCALL |x| (QREFELT $ 22))
-                    (QREFELT $ 27)))))) 
+                    (QREFELT $ 27))))) 
 
-(DEFUN |OCT;*;3$;16| (|x| |y| $)
-  (CONS
-   (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 36))
-             (SPADCALL (SPADCALL (QCDR |y|) (QREFELT $ 37)) (QCDR |x|)
-                       (QREFELT $ 36))
-             (QREFELT $ 38))
-   (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 36))
-             (SPADCALL (QCDR |x|) (SPADCALL (QCAR |y|) (QREFELT $ 37))
-                       (QREFELT $ 36))
-             (QREFELT $ 39)))) 
+(SDEFUN |OCT;retractIfCan;$U;15|
+        ((|x| $) ($ |Union| (|Quaternion| R) "failed"))
+        (SEQ
+         (COND
+          ((SPADCALL (SPADCALL |x| (QREFELT $ 23)) (QREFELT $ 32))
+           (COND
+            ((SPADCALL (SPADCALL |x| (QREFELT $ 24)) (QREFELT $ 32))
+             (COND
+              ((SPADCALL (SPADCALL |x| (QREFELT $ 25)) (QREFELT $ 32))
+               (COND
+                ((NULL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 32)))
+                 (EXIT (CONS 1 #1="failed")))))
+              (#2='T (EXIT (CONS 1 #1#)))))
+            (#2# (EXIT (CONS 1 #1#)))))
+          (#2# (EXIT (CONS 1 #1#))))
+         (EXIT
+          (CONS 0
+                (SPADCALL (SPADCALL |x| (QREFELT $ 16))
+                          (SPADCALL |x| (QREFELT $ 18))
+                          (SPADCALL |x| (QREFELT $ 20))
+                          (SPADCALL |x| (QREFELT $ 22)) (QREFELT $ 27)))))) 
+
+(SDEFUN |OCT;*;3$;16| ((|x| $) (|y| $) ($ $))
+        (CONS
+         (SPADCALL (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 36))
+                   (SPADCALL (SPADCALL (QCDR |y|) (QREFELT $ 37)) (QCDR |x|)
+                             (QREFELT $ 36))
+                   (QREFELT $ 38))
+         (SPADCALL (SPADCALL (QCDR |y|) (QCAR |x|) (QREFELT $ 36))
+                   (SPADCALL (QCDR |x|) (SPADCALL (QCAR |y|) (QREFELT $ 37))
+                             (QREFELT $ 36))
+                   (QREFELT $ 39)))) 
 
 (DECLAIM (NOTINLINE |Octonion;|)) 
 
 (DEFUN |Octonion| (#1=#:G168)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G169)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|Octonion|)
-                                           '|domainEqualList|)
-                . #3=(|Octonion|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Octonion;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Octonion|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G169)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Octonion|)
+                                               '|domainEqualList|)
+                    . #3=(|Octonion|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Octonion;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Octonion|)))))))))) 
 
 (DEFUN |Octonion;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Octonion|))
-      (LETT |dv$| (LIST '|Octonion| DV$1) . #1#)
-      (LETT $ (GETREFV 61) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#1| '(|OrderedSet|))
-                                          (|HasCategory| |#1| '(|Finite|))
-                                          (|HasCategory| |#1|
-                                                         (LIST '|InnerEvalable|
-                                                               '(|Symbol|)
-                                                               (|devaluate|
-                                                                |#1|)))
-                                          (|HasCategory| |#1|
-                                                         (LIST '|Evalable|
-                                                               (|devaluate|
-                                                                |#1|)))
-                                          (|HasCategory| |#1|
-                                                         (LIST '|Eltable|
-                                                               (|devaluate|
-                                                                |#1|)
-                                                               (|devaluate|
-                                                                |#1|)))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           (|HasCategory| (|Quaternion| |#1|)
-                                                          '(|RetractableTo|
-                                                            (|Fraction|
-                                                             (|Integer|)))))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Integer|)))
-                                           (|HasCategory| (|Quaternion| |#1|)
-                                                          '(|RetractableTo|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RealNumberSystem|))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegerNumberSystem|))
-                                          (|HasCategory| |#1| '(|Field|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|Octonion| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7
-                (|Record| (|:| |e| (|Quaternion| |#1|))
-                          (|:| E (|Quaternion| |#1|))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Octonion|))
+          (LETT |dv$| (LIST '|Octonion| DV$1) . #1#)
+          (LETT $ (GETREFV 61) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicNonZero|))
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicZero|))
+                                              (|HasCategory| |#1|
+                                                             '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedSet|))
+                                              (|HasCategory| |#1| '(|Finite|))
+                                              (|HasCategory| |#1|
+                                                             (LIST
+                                                              '|InnerEvalable|
+                                                              '(|Symbol|)
+                                                              (|devaluate|
+                                                               |#1|)))
+                                              (|HasCategory| |#1|
+                                                             (LIST '|Evalable|
+                                                                   (|devaluate|
+                                                                    |#1|)))
+                                              (|HasCategory| |#1|
+                                                             (LIST '|Eltable|
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   (|devaluate|
+                                                                    |#1|)))
+                                              (OR
+                                               (|HasCategory| |#1|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory|
+                                                (|Quaternion| |#1|)
+                                                '(|RetractableTo|
+                                                  (|Fraction| (|Integer|)))))
+                                              (OR
+                                               (|HasCategory| |#1|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory|
+                                                (|Quaternion| |#1|)
+                                                '(|RetractableTo|
+                                                  (|Integer|))))
+                                              (|HasCategory| |#1|
+                                                             '(|RealNumberSystem|))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegerNumberSystem|))
+                                              (|HasCategory| |#1| '(|Field|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|Octonion| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7
+                    (|Record| (|:| |e| (|Quaternion| |#1|))
+                              (|:| E (|Quaternion| |#1|))))
+          $))) 
 
 (MAKEPROP '|Octonion| '|infovec|
           (LIST

@@ -18,28 +18,28 @@
       #2#)))) 
 
 (DEFUN |TensorPowerCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2| |t#3|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                            (|devaluate| |t#3|)))
-                (COND (|TensorPowerCategory;CAT|)
-                      ('T
-                       (LETT |TensorPowerCategory;CAT|
-                             (|Join| (|Module| '|t#2|)
-                                     (|mkCategory|
-                                      '(((|tensor| ($ (|List| |t#3|))) T))
-                                      '(((|Algebra| |t#2|)
-                                         (|has| |t#3| (|Algebra| |t#2|)))
-                                        ((|TensorProductCategory| |t#2| |t#3|
-                                                                  |t#3|)
-                                         T))
-                                      '((|List| |t#3|)) NIL))
-                             . #2=(|TensorPowerCategory|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|TensorPowerCategory| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|) (|devaluate| |t#3|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2| |t#3|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
+                                (|devaluate| |t#3|)))
+                    (COND (|TensorPowerCategory;CAT|)
+                          ('T
+                           (LETT |TensorPowerCategory;CAT|
+                                 (|Join| (|Module| '|t#2|)
+                                         (|mkCategory|
+                                          '(((|tensor| ($ (|List| |t#3|))) T))
+                                          '(((|Algebra| |t#2|)
+                                             (|has| |t#3| (|Algebra| |t#2|)))
+                                            ((|TensorProductCategory| |t#2|
+                                                                      |t#3|
+                                                                      |t#3|)
+                                             T))
+                                          '((|List| |t#3|)) NIL))
+                                 . #2=(|TensorPowerCategory|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|TensorPowerCategory| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 

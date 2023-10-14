@@ -15,15 +15,15 @@
            #2#)))) 
 
 (DEFUN |Dictionary;| (|t#1|)
-  (PROG (#1=#:G107)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|Dictionary;CAT|)
-                                ('T
-                                 (LETT |Dictionary;CAT|
-                                       (|Join| (|DictionaryOperations| '|t#1|))
-                                       . #2=(|Dictionary|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|Dictionary| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G107 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|Dictionary;CAT|)
+                                    ('T
+                                     (LETT |Dictionary;CAT|
+                                           (|Join|
+                                            (|DictionaryOperations| '|t#1|))
+                                           . #2=(|Dictionary|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|Dictionary| (|devaluate| |t#1|)))))) 

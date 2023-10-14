@@ -1,27 +1,26 @@
 
-(DEFUN |RADCAT-;sqrt;2S;1| (|x| $)
-  (SPADCALL |x| (SPADCALL (SPADCALL 2 (QREFELT $ 9)) (QREFELT $ 10))
-            (QREFELT $ 11))) 
+(SDEFUN |RADCAT-;sqrt;2S;1| ((|x| S) ($ S))
+        (SPADCALL |x| (SPADCALL (SPADCALL 2 (QREFELT $ 9)) (QREFELT $ 10))
+                  (QREFELT $ 11))) 
 
-(DEFUN |RADCAT-;nthRoot;SIS;2| (|x| |n| $)
-  (SPADCALL |x| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))
-            (QREFELT $ 11))) 
+(SDEFUN |RADCAT-;nthRoot;SIS;2| ((|x| S) (|n| |Integer|) ($ S))
+        (SPADCALL |x| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))
+                  (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |RadicalCategory&;|)) 
 
 (DEFUN |RadicalCategory&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|RadicalCategory&|))
-      (LETT |dv$| (LIST '|RadicalCategory&| DV$1) . #1#)
-      (LETT $ (GETREFV 14) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|RadicalCategory&|))
+          (LETT |dv$| (LIST '|RadicalCategory&| DV$1) . #1#)
+          (LETT $ (GETREFV 14) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RadicalCategory&| '|infovec|
           (LIST

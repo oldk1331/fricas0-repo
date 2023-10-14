@@ -9,16 +9,15 @@
           (T (SETQ |RadicalCategory;AL| (|RadicalCategory;|)))))) 
 
 (DEFUN |RadicalCategory;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|Join|
-                (|mkCategory|
-                 '(((|sqrt| ($ $)) T) ((|nthRoot| ($ $ (|Integer|))) T)
-                   ((^ ($ $ (|Fraction| (|Integer|)))) T))
-                 NIL '((|Fraction| (|Integer|)) (|Integer|)) NIL))
-               |RadicalCategory|)
-       (SETELT #1# 0 '(|RadicalCategory|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|Join|
+                    (|mkCategory|
+                     '(((|sqrt| ($ $)) T) ((|nthRoot| ($ $ (|Integer|))) T)
+                       ((^ ($ $ (|Fraction| (|Integer|)))) T))
+                     NIL '((|Fraction| (|Integer|)) (|Integer|)) NIL))
+                   |RadicalCategory|)
+           (SETELT #1# 0 '(|RadicalCategory|))))) 
 
 (MAKEPROP '|RadicalCategory| 'NILADIC T) 

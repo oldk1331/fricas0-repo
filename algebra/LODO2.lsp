@@ -1,69 +1,69 @@
 
-(DEFUN |LODO2;elt;$2M;1| (|p| |m| $)
-  (SPADCALL |p| (ELT $ 9) |m| (QREFELT $ 12))) 
+(SDEFUN |LODO2;elt;$2M;1| ((|p| $) (|m| M) ($ M))
+        (SPADCALL |p| (ELT $ 9) |m| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperator2;|)) 
 
 (DEFUN |LinearOrdinaryDifferentialOperator2| (&REST #1=#:G121)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G122)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|LinearOrdinaryDifferentialOperator2|)
-                                           '|domainEqualList|)
-                . #3=(|LinearOrdinaryDifferentialOperator2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |LinearOrdinaryDifferentialOperator2;|)
-                         #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G122)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|LinearOrdinaryDifferentialOperator2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|LinearOrdinaryDifferentialOperator2|)
+                                               '|domainEqualList|)
+                    . #3=(|LinearOrdinaryDifferentialOperator2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |LinearOrdinaryDifferentialOperator2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|LinearOrdinaryDifferentialOperator2|)))))))))) 
 
 (DEFUN |LinearOrdinaryDifferentialOperator2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|LinearOrdinaryDifferentialOperator2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperator2| DV$1 DV$2)
-            . #1#)
-      (LETT $ (GETREFV 30) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#1| '(|GcdDomain|))
-                                          (|HasCategory| |#1| '(|Field|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|LinearOrdinaryDifferentialOperator2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|LinearOrdinaryDifferentialOperator2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperator2| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 30) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|CommutativeRing|))
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegralDomain|))
+                                              (|HasCategory| |#1|
+                                                             '(|GcdDomain|))
+                                              (|HasCategory| |#1| '(|Field|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|LinearOrdinaryDifferentialOperator2| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|LinearOrdinaryDifferentialOperator2| '|infovec|
           (LIST

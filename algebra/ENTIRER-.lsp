@@ -1,59 +1,64 @@
 
-(DEFUN |ENTIRER-;unitNormal;SR;1| (|x| $)
-  (VECTOR (|spadConstant| $ 7) |x| (|spadConstant| $ 7))) 
+(SDEFUN |ENTIRER-;unitNormal;SR;1|
+        ((|x| S)
+         ($ |Record| (|:| |unit| S) (|:| |canonical| S) (|:| |associate| S)))
+        (VECTOR (|spadConstant| $ 7) |x| (|spadConstant| $ 7))) 
 
-(DEFUN |ENTIRER-;unitCanonical;2S;2| (|x| $)
-  (QVELT (SPADCALL |x| (QREFELT $ 10)) 1)) 
+(SDEFUN |ENTIRER-;unitCanonical;2S;2| ((|x| S) ($ S))
+        (QVELT (SPADCALL |x| (QREFELT $ 10)) 1)) 
 
-(DEFUN |ENTIRER-;recip;SU;3| (|x| $)
-  (COND ((SPADCALL |x| (QREFELT $ 13)) (CONS 1 "failed"))
-        ('T (SPADCALL (|spadConstant| $ 7) |x| (QREFELT $ 15))))) 
+(SDEFUN |ENTIRER-;recip;SU;3| ((|x| S) ($ |Union| S "failed"))
+        (COND ((SPADCALL |x| (QREFELT $ 13)) (CONS 1 "failed"))
+              ('T (SPADCALL (|spadConstant| $ 7) |x| (QREFELT $ 15))))) 
 
-(DEFUN |ENTIRER-;unit?;SB;4| (|x| $)
-  (COND ((QEQCAR (SPADCALL |x| (QREFELT $ 17)) 1) 'NIL) ('T 'T))) 
+(SDEFUN |ENTIRER-;unit?;SB;4| ((|x| S) ($ |Boolean|))
+        (COND ((QEQCAR (SPADCALL |x| (QREFELT $ 17)) 1) 'NIL) ('T 'T))) 
 
-(DEFUN |ENTIRER-;associates?;2SB;5| (|x| |y| $)
-  (SPADCALL (QVELT (SPADCALL |x| (QREFELT $ 10)) 1)
-            (QVELT (SPADCALL |y| (QREFELT $ 10)) 1) (QREFELT $ 19))) 
+(SDEFUN |ENTIRER-;associates?;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
+        (SPADCALL (QVELT (SPADCALL |x| (QREFELT $ 10)) 1)
+                  (QVELT (SPADCALL |y| (QREFELT $ 10)) 1) (QREFELT $ 19))) 
 
-(DEFUN |ENTIRER-;associates?;2SB;6| (|x| |y| $)
-  (COND ((SPADCALL |x| (QREFELT $ 13)) (SPADCALL |y| (QREFELT $ 13)))
-        ((OR (SPADCALL |y| (QREFELT $ 13))
-             (OR (QEQCAR (SPADCALL |x| |y| (QREFELT $ 15)) 1)
-                 (QEQCAR (SPADCALL |y| |x| (QREFELT $ 15)) 1)))
-         'NIL)
-        ('T 'T))) 
+(SDEFUN |ENTIRER-;associates?;2SB;6| ((|x| S) (|y| S) ($ |Boolean|))
+        (COND ((SPADCALL |x| (QREFELT $ 13)) (SPADCALL |y| (QREFELT $ 13)))
+              ((OR (SPADCALL |y| (QREFELT $ 13))
+                   (OR (QEQCAR (SPADCALL |x| |y| (QREFELT $ 15)) 1)
+                       (QEQCAR (SPADCALL |y| |x| (QREFELT $ 15)) 1)))
+               'NIL)
+              ('T 'T))) 
 
-(DEFUN |ENTIRER-;annihilate?;2SB;7| (|x| |y| $)
-  (COND ((SPADCALL |x| (QREFELT $ 13)) 'T) ('T (SPADCALL |y| (QREFELT $ 13))))) 
+(SDEFUN |ENTIRER-;annihilate?;2SB;7| ((|x| S) (|y| S) ($ |Boolean|))
+        (COND ((SPADCALL |x| (QREFELT $ 13)) 'T)
+              ('T (SPADCALL |y| (QREFELT $ 13))))) 
 
 (DECLAIM (NOTINLINE |EntireRing&;|)) 
 
 (DEFUN |EntireRing&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|EntireRing&|))
-      (LETT |dv$| (LIST '|EntireRing&| DV$1) . #1#)
-      (LETT $ (GETREFV 22) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND ((|HasCategory| |#1| '(|Field|)))
-            ('T
-             (QSETREFV $ 9
-                       (CONS (|dispatchFunction| |ENTIRER-;unitNormal;SR;1|)
-                             $))))
-      (COND
-       ((|HasCategory| |#1| '(|canonicalUnitNormal|))
-        (QSETREFV $ 20
-                  (CONS (|dispatchFunction| |ENTIRER-;associates?;2SB;5|) $)))
-       ('T
-        (QSETREFV $ 20
-                  (CONS (|dispatchFunction| |ENTIRER-;associates?;2SB;6|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|EntireRing&|))
+          (LETT |dv$| (LIST '|EntireRing&| DV$1) . #1#)
+          (LETT $ (GETREFV 22) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND ((|HasCategory| |#1| '(|Field|)))
+                ('T
+                 (QSETREFV $ 9
+                           (CONS
+                            (|dispatchFunction| |ENTIRER-;unitNormal;SR;1|)
+                            $))))
+          (COND
+           ((|HasCategory| |#1| '(|canonicalUnitNormal|))
+            (QSETREFV $ 20
+                      (CONS (|dispatchFunction| |ENTIRER-;associates?;2SB;5|)
+                            $)))
+           ('T
+            (QSETREFV $ 20
+                      (CONS (|dispatchFunction| |ENTIRER-;associates?;2SB;6|)
+                            $))))
+          $))) 
 
 (MAKEPROP '|EntireRing&| '|infovec|
           (LIST

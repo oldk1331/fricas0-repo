@@ -17,21 +17,20 @@
       #2#)))) 
 
 (DEFUN |BinaryTreeCategory;| (|t#1|)
-  (PROG (#1=#:G107)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|BinaryTreeCategory;CAT|)
-                                ('T
-                                 (LETT |BinaryTreeCategory;CAT|
-                                       (|Join|
-                                        (|BinaryRecursiveAggregate| '|t#1|)
-                                        (|shallowlyMutable|)
-                                        (|finiteAggregate|)
-                                        (|mkCategory|
-                                         '(((|node| ($ $ |t#1| $)) T)) NIL 'NIL
-                                         NIL))
-                                       . #2=(|BinaryTreeCategory|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|BinaryTreeCategory| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G107 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|BinaryTreeCategory;CAT|)
+                                    ('T
+                                     (LETT |BinaryTreeCategory;CAT|
+                                           (|Join|
+                                            (|BinaryRecursiveAggregate| '|t#1|)
+                                            (|shallowlyMutable|)
+                                            (|finiteAggregate|)
+                                            (|mkCategory|
+                                             '(((|node| ($ $ |t#1| $)) T)) NIL
+                                             'NIL NIL))
+                                           . #2=(|BinaryTreeCategory|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|BinaryTreeCategory| (|devaluate| |t#1|)))))) 

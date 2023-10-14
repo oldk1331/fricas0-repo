@@ -21,159 +21,176 @@
       #2#)))) 
 
 (DEFUN |TwoDimensionalArrayCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G166)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2| |t#3|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                            (|devaluate| |t#3|)))
-                (COND (|TwoDimensionalArrayCategory;CAT|)
-                      ('T
-                       (LETT |TwoDimensionalArrayCategory;CAT|
-                             (|Join| (|HomogeneousAggregate| '|t#1|)
-                                     (|shallowlyMutable|) (|finiteAggregate|)
-                                     (|mkCategory|
-                                      '(((|new|
-                                          ($ (|NonNegativeInteger|)
-                                           (|NonNegativeInteger|) |t#1|))
-                                         T)
-                                        ((|qnew|
-                                          ($ (|NonNegativeInteger|)
-                                           (|NonNegativeInteger|)))
-                                         T)
-                                        ((|fill!| ($ $ |t#1|)) T)
-                                        ((|minRowIndex| ((|Integer|) $)) T)
-                                        ((|maxRowIndex| ((|Integer|) $)) T)
-                                        ((|minColIndex| ((|Integer|) $)) T)
-                                        ((|maxColIndex| ((|Integer|) $)) T)
-                                        ((|nrows| ((|NonNegativeInteger|) $))
-                                         T)
-                                        ((|ncols| ((|NonNegativeInteger|) $))
-                                         T)
-                                        ((|elt|
-                                          (|t#1| $ (|Integer|) (|Integer|)))
-                                         T)
-                                        ((|qelt|
-                                          (|t#1| $ (|Integer|) (|Integer|)))
-                                         T)
-                                        ((|elt|
-                                          (|t#1| $ (|Integer|) (|Integer|)
-                                           |t#1|))
-                                         T)
-                                        ((|row| (|t#2| $ (|Integer|))) T)
-                                        ((|column| (|t#3| $ (|Integer|))) T)
-                                        ((|parts| ((|List| |t#1|) $)) T)
-                                        ((|listOfLists|
-                                          ((|List| (|List| |t#1|)) $))
-                                         T)
-                                        ((|subMatrix|
-                                          ($ $ (|Integer|) (|Integer|)
-                                           (|Integer|) (|Integer|)))
-                                         T)
-                                        ((|elt|
-                                          ($ $ (|List| (|Integer|))
-                                           (|List| (|Integer|))))
-                                         T)
-                                        ((|elt|
-                                          ($ $ (|Segment| (|Integer|))
-                                           (|Segment| (|Integer|))))
-                                         T)
-                                        ((|elt|
-                                          ($ $ (|List| (|Segment| (|Integer|)))
-                                           (|List| (|Segment| (|Integer|)))))
-                                         T)
-                                        ((|setelt|
-                                          (|t#1| $ (|Integer|) (|Integer|)
-                                           |t#1|))
-                                         T)
-                                        ((|qsetelt!|
-                                          (|t#1| $ (|Integer|) (|Integer|)
-                                           |t#1|))
-                                         T)
-                                        ((|setRow!| ($ $ (|Integer|) |t#2|)) T)
-                                        ((|setColumn!| ($ $ (|Integer|) |t#3|))
-                                         T)
-                                        ((|setelt|
-                                          ($ $ (|List| (|Integer|))
-                                           (|List| (|Integer|)) $))
-                                         T)
-                                        ((|setelt|
-                                          ($ $ (|Segment| (|Integer|))
-                                           (|Segment| (|Integer|)) $))
-                                         T)
-                                        ((|setelt|
-                                          ($ $ (|List| (|Segment| (|Integer|)))
-                                           (|List| (|Segment| (|Integer|))) $))
-                                         T)
-                                        ((|setsubMatrix!|
-                                          ($ $ (|Integer|) (|Integer|) $))
-                                         T)
-                                        ((|swapRows!|
-                                          ($ $ (|Integer|) (|Integer|)))
-                                         T)
-                                        ((|swapColumns!|
-                                          ($ $ (|Integer|) (|Integer|)))
-                                         T)
-                                        ((|transpose| ($ $)) T)
-                                        ((|squareTop| ($ $)) T)
-                                        ((|horizConcat| ($ $ $)) T)
-                                        ((|horizConcat| ($ (|List| $))) T)
-                                        ((|vertConcat| ($ $ $)) T)
-                                        ((|vertConcat| ($ (|List| $))) T)
-                                        ((|blockConcat|
-                                          ($ (|List| (|List| $))))
-                                         T)
-                                        ((|vertSplit|
-                                          ((|List| $) $ (|PositiveInteger|)))
-                                         T)
-                                        ((|vertSplit|
-                                          ((|List| $) $
-                                           (|List| (|PositiveInteger|))))
-                                         T)
-                                        ((|horizSplit|
-                                          ((|List| $) $ (|PositiveInteger|)))
-                                         T)
-                                        ((|horizSplit|
-                                          ((|List| $) $
-                                           (|List| (|PositiveInteger|))))
-                                         T)
-                                        ((|blockSplit|
-                                          ((|List| (|List| $)) $
-                                           (|PositiveInteger|)
-                                           (|PositiveInteger|)))
-                                         T)
-                                        ((|blockSplit|
-                                          ((|List| (|List| $)) $
-                                           (|List| (|PositiveInteger|))
-                                           (|List| (|PositiveInteger|))))
-                                         T)
-                                        ((|map| ($ (|Mapping| |t#1| |t#1|) $))
-                                         T)
-                                        ((|map!| ($ (|Mapping| |t#1| |t#1|) $))
-                                         T)
-                                        ((|map|
-                                          ($ (|Mapping| |t#1| |t#1| |t#1|) $
-                                           $))
-                                         T)
-                                        ((|map|
-                                          ($ (|Mapping| |t#1| |t#1| |t#1|) $ $
-                                           |t#1|))
-                                         T))
-                                      NIL
-                                      '((|List| (|List| $))
-                                        (|List| (|PositiveInteger|))
-                                        (|PositiveInteger|) (|List| $)
-                                        (|Integer|)
-                                        (|List| (|Segment| (|Integer|)))
-                                        (|Segment| (|Integer|))
-                                        (|List| (|Integer|))
-                                        (|List| (|List| |t#1|)) (|List| |t#1|)
-                                        (|NonNegativeInteger|))
-                                      NIL))
-                             . #2=(|TwoDimensionalArrayCategory|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|TwoDimensionalArrayCategory| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|) (|devaluate| |t#3|))))))) 
+  (SPROG ((#1=#:G166 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2| |t#3|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
+                                (|devaluate| |t#3|)))
+                    (COND (|TwoDimensionalArrayCategory;CAT|)
+                          ('T
+                           (LETT |TwoDimensionalArrayCategory;CAT|
+                                 (|Join| (|HomogeneousAggregate| '|t#1|)
+                                         (|shallowlyMutable|)
+                                         (|finiteAggregate|)
+                                         (|mkCategory|
+                                          '(((|new|
+                                              ($ (|NonNegativeInteger|)
+                                               (|NonNegativeInteger|) |t#1|))
+                                             T)
+                                            ((|qnew|
+                                              ($ (|NonNegativeInteger|)
+                                               (|NonNegativeInteger|)))
+                                             T)
+                                            ((|fill!| ($ $ |t#1|)) T)
+                                            ((|minRowIndex| ((|Integer|) $)) T)
+                                            ((|maxRowIndex| ((|Integer|) $)) T)
+                                            ((|minColIndex| ((|Integer|) $)) T)
+                                            ((|maxColIndex| ((|Integer|) $)) T)
+                                            ((|nrows|
+                                              ((|NonNegativeInteger|) $))
+                                             T)
+                                            ((|ncols|
+                                              ((|NonNegativeInteger|) $))
+                                             T)
+                                            ((|elt|
+                                              (|t#1| $ (|Integer|)
+                                               (|Integer|)))
+                                             T)
+                                            ((|qelt|
+                                              (|t#1| $ (|Integer|)
+                                               (|Integer|)))
+                                             T)
+                                            ((|elt|
+                                              (|t#1| $ (|Integer|) (|Integer|)
+                                               |t#1|))
+                                             T)
+                                            ((|row| (|t#2| $ (|Integer|))) T)
+                                            ((|column| (|t#3| $ (|Integer|)))
+                                             T)
+                                            ((|parts| ((|List| |t#1|) $)) T)
+                                            ((|listOfLists|
+                                              ((|List| (|List| |t#1|)) $))
+                                             T)
+                                            ((|subMatrix|
+                                              ($ $ (|Integer|) (|Integer|)
+                                               (|Integer|) (|Integer|)))
+                                             T)
+                                            ((|elt|
+                                              ($ $ (|List| (|Integer|))
+                                               (|List| (|Integer|))))
+                                             T)
+                                            ((|elt|
+                                              ($ $ (|Segment| (|Integer|))
+                                               (|Segment| (|Integer|))))
+                                             T)
+                                            ((|elt|
+                                              ($ $
+                                               (|List| (|Segment| (|Integer|)))
+                                               (|List|
+                                                (|Segment| (|Integer|)))))
+                                             T)
+                                            ((|setelt|
+                                              (|t#1| $ (|Integer|) (|Integer|)
+                                               |t#1|))
+                                             T)
+                                            ((|qsetelt!|
+                                              (|t#1| $ (|Integer|) (|Integer|)
+                                               |t#1|))
+                                             T)
+                                            ((|setRow!|
+                                              ($ $ (|Integer|) |t#2|))
+                                             T)
+                                            ((|setColumn!|
+                                              ($ $ (|Integer|) |t#3|))
+                                             T)
+                                            ((|setelt|
+                                              ($ $ (|List| (|Integer|))
+                                               (|List| (|Integer|)) $))
+                                             T)
+                                            ((|setelt|
+                                              ($ $ (|Segment| (|Integer|))
+                                               (|Segment| (|Integer|)) $))
+                                             T)
+                                            ((|setelt|
+                                              ($ $
+                                               (|List| (|Segment| (|Integer|)))
+                                               (|List| (|Segment| (|Integer|)))
+                                               $))
+                                             T)
+                                            ((|setsubMatrix!|
+                                              ($ $ (|Integer|) (|Integer|) $))
+                                             T)
+                                            ((|swapRows!|
+                                              ($ $ (|Integer|) (|Integer|)))
+                                             T)
+                                            ((|swapColumns!|
+                                              ($ $ (|Integer|) (|Integer|)))
+                                             T)
+                                            ((|transpose| ($ $)) T)
+                                            ((|squareTop| ($ $)) T)
+                                            ((|horizConcat| ($ $ $)) T)
+                                            ((|horizConcat| ($ (|List| $))) T)
+                                            ((|vertConcat| ($ $ $)) T)
+                                            ((|vertConcat| ($ (|List| $))) T)
+                                            ((|blockConcat|
+                                              ($ (|List| (|List| $))))
+                                             T)
+                                            ((|vertSplit|
+                                              ((|List| $) $
+                                               (|PositiveInteger|)))
+                                             T)
+                                            ((|vertSplit|
+                                              ((|List| $) $
+                                               (|List| (|PositiveInteger|))))
+                                             T)
+                                            ((|horizSplit|
+                                              ((|List| $) $
+                                               (|PositiveInteger|)))
+                                             T)
+                                            ((|horizSplit|
+                                              ((|List| $) $
+                                               (|List| (|PositiveInteger|))))
+                                             T)
+                                            ((|blockSplit|
+                                              ((|List| (|List| $)) $
+                                               (|PositiveInteger|)
+                                               (|PositiveInteger|)))
+                                             T)
+                                            ((|blockSplit|
+                                              ((|List| (|List| $)) $
+                                               (|List| (|PositiveInteger|))
+                                               (|List| (|PositiveInteger|))))
+                                             T)
+                                            ((|map|
+                                              ($ (|Mapping| |t#1| |t#1|) $))
+                                             T)
+                                            ((|map!|
+                                              ($ (|Mapping| |t#1| |t#1|) $))
+                                             T)
+                                            ((|map|
+                                              ($ (|Mapping| |t#1| |t#1| |t#1|)
+                                               $ $))
+                                             T)
+                                            ((|map|
+                                              ($ (|Mapping| |t#1| |t#1| |t#1|)
+                                               $ $ |t#1|))
+                                             T))
+                                          NIL
+                                          '((|List| (|List| $))
+                                            (|List| (|PositiveInteger|))
+                                            (|PositiveInteger|) (|List| $)
+                                            (|Integer|)
+                                            (|List| (|Segment| (|Integer|)))
+                                            (|Segment| (|Integer|))
+                                            (|List| (|Integer|))
+                                            (|List| (|List| |t#1|))
+                                            (|List| |t#1|)
+                                            (|NonNegativeInteger|))
+                                          NIL))
+                                 . #2=(|TwoDimensionalArrayCategory|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|TwoDimensionalArrayCategory| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 

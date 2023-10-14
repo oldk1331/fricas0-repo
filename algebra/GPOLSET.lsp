@@ -1,171 +1,178 @@
 
-(DEFUN |GPOLSET;construct;L$;1| (|lp| $) (SPADCALL |lp| (QREFELT $ 12))) 
+(SDEFUN |GPOLSET;construct;L$;1| ((|lp| |List| P) ($ $))
+        (SPADCALL |lp| (QREFELT $ 12))) 
 
-(DEFUN |GPOLSET;copy;2$;2| (|ps| $)
-  (SPADCALL (SPADCALL (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 15))
-            (QREFELT $ 13))) 
+(SDEFUN |GPOLSET;copy;2$;2| ((|ps| $) ($ $))
+        (SPADCALL (SPADCALL (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 15))
+                  (QREFELT $ 13))) 
 
 (PUT '|GPOLSET;empty;$;3| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(DEFUN |GPOLSET;empty;$;3| ($) NIL) 
+(SDEFUN |GPOLSET;empty;$;3| (($ $)) NIL) 
 
 (PUT '|GPOLSET;parts;$L;4| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
 
-(DEFUN |GPOLSET;parts;$L;4| (|ps| $) |ps|) 
+(SDEFUN |GPOLSET;parts;$L;4| ((|ps| $) ($ |List| P)) |ps|) 
 
-(DEFUN |GPOLSET;map;M2$;5| (|f| |ps| $)
-  (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 20))
-            (QREFELT $ 13))) 
+(SDEFUN |GPOLSET;map;M2$;5| ((|f| |Mapping| P P) (|ps| $) ($ $))
+        (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 20))
+                  (QREFELT $ 13))) 
 
-(DEFUN |GPOLSET;map!;M2$;6| (|f| |ps| $)
-  (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 22))
-            (QREFELT $ 13))) 
+(SDEFUN |GPOLSET;map!;M2$;6| ((|f| |Mapping| P P) (|ps| $) ($ $))
+        (SPADCALL (SPADCALL |f| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 22))
+                  (QREFELT $ 13))) 
 
-(DEFUN |GPOLSET;member?;P$B;7| (|p| |ps| $)
-  (SPADCALL |p| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 25))) 
+(SDEFUN |GPOLSET;member?;P$B;7| ((|p| P) (|ps| $) ($ |Boolean|))
+        (SPADCALL |p| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 25))) 
 
-(DEFUN |GPOLSET;=;2$B;8| (|ps1| |ps2| $)
-  (PROG (#1=#:G120 |p| #2=#:G119 #3=#:G118 #4=#:G117)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (SPADCALL
-        (PROGN
-         (LETT #4# NIL . #5=(|GPOLSET;=;2$B;8|))
-         (SEQ (LETT |p| NIL . #5#)
-              (LETT #3# (SPADCALL |ps1| (QREFELT $ 18)) . #5#) G190
-              (COND
-               ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #5#) NIL))
-                (GO G191)))
-              (SEQ (EXIT (LETT #4# (CONS |p| #4#) . #5#)))
-              (LETT #3# (CDR #3#) . #5#) (GO G190) G191 (EXIT (NREVERSE #4#))))
-        (QREFELT $ 28))
-       (SPADCALL
-        (PROGN
-         (LETT #2# NIL . #5#)
-         (SEQ (LETT |p| NIL . #5#)
-              (LETT #1# (SPADCALL |ps2| (QREFELT $ 18)) . #5#) G190
-              (COND
-               ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #5#) NIL))
-                (GO G191)))
-              (SEQ (EXIT (LETT #2# (CONS |p| #2#) . #5#)))
-              (LETT #1# (CDR #1#) . #5#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-        (QREFELT $ 28))
-       (QREFELT $ 29)))))) 
+(SDEFUN |GPOLSET;=;2$B;8| ((|ps1| $) (|ps2| $) ($ |Boolean|))
+        (SPROG
+         ((#1=#:G120 NIL) (|p| NIL) (#2=#:G119 NIL) (#3=#:G118 NIL)
+          (#4=#:G117 NIL))
+         (SEQ
+          (SPADCALL
+           (SPADCALL
+            (PROGN
+             (LETT #4# NIL . #5=(|GPOLSET;=;2$B;8|))
+             (SEQ (LETT |p| NIL . #5#)
+                  (LETT #3# (SPADCALL |ps1| (QREFELT $ 18)) . #5#) G190
+                  (COND
+                   ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #5#) NIL))
+                    (GO G191)))
+                  (SEQ (EXIT (LETT #4# (CONS |p| #4#) . #5#)))
+                  (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                  (EXIT (NREVERSE #4#))))
+            (QREFELT $ 28))
+           (SPADCALL
+            (PROGN
+             (LETT #2# NIL . #5#)
+             (SEQ (LETT |p| NIL . #5#)
+                  (LETT #1# (SPADCALL |ps2| (QREFELT $ 18)) . #5#) G190
+                  (COND
+                   ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #5#) NIL))
+                    (GO G191)))
+                  (SEQ (EXIT (LETT #2# (CONS |p| #2#) . #5#)))
+                  (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                  (EXIT (NREVERSE #2#))))
+            (QREFELT $ 28))
+           (QREFELT $ 29))))) 
 
-(DEFUN |GPOLSET;coerce;$Of;9| (|ps| $)
-  (PROG (#1=#:G127 |p| #2=#:G126 |lp|)
-    (RETURN
-     (SEQ
-      (LETT |lp|
-            (SPADCALL (ELT $ 31) (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 33))
-            . #3=(|GPOLSET;coerce;$Of;9|))
-      (EXIT
-       (SPADCALL
-        (PROGN
-         (LETT #2# NIL . #3#)
-         (SEQ (LETT |p| NIL . #3#) (LETT #1# |lp| . #3#) G190
-              (COND
-               ((OR (ATOM #1#) (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
-                (GO G191)))
-              (SEQ
-               (EXIT
-                (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 35)) #2#) . #3#)))
-              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-        (QREFELT $ 37))))))) 
+(SDEFUN |GPOLSET;coerce;$Of;9| ((|ps| $) ($ |OutputForm|))
+        (SPROG ((#1=#:G127 NIL) (|p| NIL) (#2=#:G126 NIL) (|lp| (|List| P)))
+               (SEQ
+                (LETT |lp|
+                      (SPADCALL (ELT $ 31) (SPADCALL |ps| (QREFELT $ 14))
+                                (QREFELT $ 33))
+                      . #3=(|GPOLSET;coerce;$Of;9|))
+                (EXIT
+                 (SPADCALL
+                  (PROGN
+                   (LETT #2# NIL . #3#)
+                   (SEQ (LETT |p| NIL . #3#) (LETT #1# |lp| . #3#) G190
+                        (COND
+                         ((OR (ATOM #1#)
+                              (PROGN (LETT |p| (CAR #1#) . #3#) NIL))
+                          (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (LETT #2# (CONS (SPADCALL |p| (QREFELT $ 35)) #2#)
+                                . #3#)))
+                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (EXIT (NREVERSE #2#))))
+                  (QREFELT $ 37)))))) 
 
-(DEFUN |GPOLSET;mvar;$VarSet;10| (|ps| $)
-  (PROG (|lv|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |ps| (QREFELT $ 39))
-        (|error| "Error from GPOLSET in mvar : #1 is empty"))
-       (#1='T
-        (SEQ
-         (LETT |lv| (SPADCALL |ps| (QREFELT $ 41)) |GPOLSET;mvar;$VarSet;10|)
-         (EXIT
-          (COND
-           ((NULL |lv|)
-            (|error|
-             "Error from GPOLSET in mvar : every polynomial in #1 is constant"))
-           (#1# (SPADCALL (ELT $ 42) |lv| (QREFELT $ 44)))))))))))) 
+(SDEFUN |GPOLSET;mvar;$VarSet;10| ((|ps| $) ($ |VarSet|))
+        (SPROG ((|lv| (|List| |VarSet|)))
+               (SEQ
+                (COND
+                 ((SPADCALL |ps| (QREFELT $ 39))
+                  (|error| "Error from GPOLSET in mvar : #1 is empty"))
+                 (#1='T
+                  (SEQ
+                   (LETT |lv| (SPADCALL |ps| (QREFELT $ 41))
+                         |GPOLSET;mvar;$VarSet;10|)
+                   (EXIT
+                    (COND
+                     ((NULL |lv|)
+                      (|error|
+                       "Error from GPOLSET in mvar : every polynomial in #1 is constant"))
+                     (#1# (SPADCALL (ELT $ 42) |lv| (QREFELT $ 44))))))))))) 
 
-(DEFUN |GPOLSET;retractIfCan;LU;11| (|lp| $)
-  (CONS 0 (SPADCALL |lp| (QREFELT $ 13)))) 
+(SDEFUN |GPOLSET;retractIfCan;LU;11| ((|lp| |List| P) ($ |Union| $ "failed"))
+        (CONS 0 (SPADCALL |lp| (QREFELT $ 13)))) 
 
 (PUT '|GPOLSET;coerce;$L;12| '|SPADreplace| '(XLAM (|ps|) |ps|)) 
 
-(DEFUN |GPOLSET;coerce;$L;12| (|ps| $) |ps|) 
+(SDEFUN |GPOLSET;coerce;$L;12| ((|ps| $) ($ |List| P)) |ps|) 
 
-(DEFUN |GPOLSET;convert;L$;13| (|lp| $) (SPADCALL |lp| (QREFELT $ 13))) 
+(SDEFUN |GPOLSET;convert;L$;13| ((|lp| |List| P) ($ $))
+        (SPADCALL |lp| (QREFELT $ 13))) 
 
 (DECLAIM (NOTINLINE |GeneralPolynomialSet;|)) 
 
 (DEFUN |GeneralPolynomialSet| (&REST #1=#:G151)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G152)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|GeneralPolynomialSet|)
-                                           '|domainEqualList|)
-                . #3=(|GeneralPolynomialSet|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |GeneralPolynomialSet;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G152)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|GeneralPolynomialSet|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|GeneralPolynomialSet|)
+                                               '|domainEqualList|)
+                    . #3=(|GeneralPolynomialSet|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |GeneralPolynomialSet;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|GeneralPolynomialSet|)))))))))) 
 
 (DEFUN |GeneralPolynomialSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G150 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralPolynomialSet|))
-      (LETT DV$2 (|devaluate| |#2|) . #2#)
-      (LETT DV$3 (|devaluate| |#3|) . #2#)
-      (LETT DV$4 (|devaluate| |#4|) . #2#)
-      (LETT |dv$| (LIST '|GeneralPolynomialSet| DV$1 DV$2 DV$3 DV$4) . #2#)
-      (LETT $ (GETREFV 63) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (AND
-                                           (|HasCategory| |#4|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#4|)))
-                                           (|HasCategory| |#4|
-                                                          '(|SetCategory|)))
-                                          (|HasCategory| |#4|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#4| '(|BasicType|))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|GeneralPolynomialSet|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 16))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
-           (|augmentPredVector| $ 32))
-      (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 64))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 10 (|List| |#4|))
-      $)))) 
+  (SPROG
+   ((#1=#:G150 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+    (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralPolynomialSet|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT DV$3 (|devaluate| |#3|) . #2#)
+    (LETT DV$4 (|devaluate| |#4|) . #2#)
+    (LETT |dv$| (LIST '|GeneralPolynomialSet| DV$1 DV$2 DV$3 DV$4) . #2#)
+    (LETT $ (GETREFV 63) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (AND
+                                         (|HasCategory| |#4|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#4|)))
+                                         (|HasCategory| |#4| '(|SetCategory|)))
+                                        (|HasCategory| |#4|
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| |#4| '(|BasicType|))
+                                        (|HasCategory| |#1|
+                                                       '(|IntegralDomain|))))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|GeneralPolynomialSet|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 16))
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
+         (|augmentPredVector| $ 32))
+    (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 64))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 10 (|List| |#4|))
+    $))) 
 
 (MAKEPROP '|GeneralPolynomialSet| '|infovec|
           (LIST

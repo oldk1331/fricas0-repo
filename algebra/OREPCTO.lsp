@@ -1,15 +1,23 @@
 
-(DEFUN |OREPCTO;times;2CAMC;1| (|x| |y| |sigma| |delta| $)
-  (COND ((SPADCALL |y| (QREFELT $ 9)) (|spadConstant| $ 10))
-        ('T
-         (QCAR
-          (|OREPCTO;times2| (SPADCALL |x| (QREFELT $ 12)) |x| |y| |sigma|
-           |delta| $))))) 
+(SDEFUN |OREPCTO;times;2CAMC;1|
+        ((|x| C) (|y| C) (|sigma| |Automorphism| R) (|delta| |Mapping| R R)
+         ($ C))
+        (COND ((SPADCALL |y| (QREFELT $ 9)) (|spadConstant| $ 10))
+              ('T
+               (QCAR
+                (|OREPCTO;times2| (SPADCALL |x| (QREFELT $ 12)) |x| |y| |sigma|
+                 |delta| $))))) 
 
-(DEFUN |OREPCTO;times2| (|n| |x| |y| |sigma| |delta| $)
-  (PROG (|y1| |z| |b| |m| |pp| |x1| |n1| |u|)
-    (RETURN
-     (SEQ (LETT |u| (SPADCALL |n| 1 (QREFELT $ 19)) . #1=(|OREPCTO;times2|))
+(SDEFUN |OREPCTO;times2|
+        ((|n| |NonNegativeInteger|) (|x| C) (|y| C) (|sigma| |Automorphism| R)
+         (|delta| |Mapping| R R) ($ |Record| (|:| |prod| C) (|:| |yton| C)))
+        (SPROG
+         ((|y1| (C)) (|z| (C)) (|b| (R)) (|m| (|NonNegativeInteger|))
+          (|pp| (|Record| (|:| |prod| C) (|:| |yton| C))) (|x1| (C))
+          (|n1| (|NonNegativeInteger|))
+          (|u| (|Union| (|NonNegativeInteger|) "failed")))
+         (SEQ
+          (LETT |u| (SPADCALL |n| 1 (QREFELT $ 19)) . #1=(|OREPCTO;times2|))
           (EXIT
            (COND
             ((QEQCAR |u| 1)
@@ -62,230 +70,253 @@
                                  (QREFELT $ 22))
                        (QCAR |pp|) (QREFELT $ 27))
                       |z|))
-                    (#2# (CONS (QCAR |pp|) |z|)))))))))))) 
+                    (#2# (CONS (QCAR |pp|) |z|))))))))))) 
 
-(DEFUN |OREPCTO;apply;C2RAMR;3| (|p| |c| |x| |sigma| |delta| $)
-  (PROG (|xn| |w| #1=#:G135 |i|)
-    (RETURN
-     (SEQ (LETT |w| (|spadConstant| $ 20) . #2=(|OREPCTO;apply;C2RAMR;3|))
-          (LETT |xn| |x| . #2#)
-          (SEQ (LETT |i| 0 . #2#)
-               (LETT #1# (SPADCALL |p| (QREFELT $ 12)) . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
+(SDEFUN |OREPCTO;apply;C2RAMR;3|
+        ((|p| C) (|c| R) (|x| R) (|sigma| |Automorphism| R)
+         (|delta| |Mapping| R R) ($ R))
+        (SPROG ((|xn| (R)) (|w| (R)) (#1=#:G135 NIL) (|i| NIL))
                (SEQ
-                (LETT |w|
-                      (SPADCALL |w|
-                                (SPADCALL (SPADCALL |p| |i| (QREFELT $ 28))
-                                          |xn| (QREFELT $ 29))
-                                (QREFELT $ 30))
-                      . #2#)
-                (EXIT
-                 (LETT |xn|
-                       (SPADCALL
-                        (SPADCALL |c| (SPADCALL |sigma| |xn| (QREFELT $ 25))
-                                  (QREFELT $ 29))
-                        (SPADCALL |xn| |delta|) (QREFELT $ 30))
-                       . #2#)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |w|))))) 
+                (LETT |w| (|spadConstant| $ 20)
+                      . #2=(|OREPCTO;apply;C2RAMR;3|))
+                (LETT |xn| |x| . #2#)
+                (SEQ (LETT |i| 0 . #2#)
+                     (LETT #1# (SPADCALL |p| (QREFELT $ 12)) . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
+                     (SEQ
+                      (LETT |w|
+                            (SPADCALL |w|
+                                      (SPADCALL
+                                       (SPADCALL |p| |i| (QREFELT $ 28)) |xn|
+                                       (QREFELT $ 29))
+                                      (QREFELT $ 30))
+                            . #2#)
+                      (EXIT
+                       (LETT |xn|
+                             (SPADCALL
+                              (SPADCALL |c|
+                                        (SPADCALL |sigma| |xn| (QREFELT $ 25))
+                                        (QREFELT $ 29))
+                              (SPADCALL |xn| |delta|) (QREFELT $ 30))
+                             . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |w|)))) 
 
-(DEFUN |OREPCTO;localLeftDivide| (|a| |b| |sigma| |b1| $)
-  (PROG (|qr| |q| #1=#:G142 |n| |m|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |b| (QREFELT $ 9)) (|error| "leftDivide: division by 0"))
-       (#2='T
-        (SEQ
-         (EXIT
-          (SEQ
-           (COND
-            ((SPADCALL |a| (QREFELT $ 9))
-             (EXIT (CONS (|spadConstant| $ 10) |a|)))
-            (#2#
-             (SEQ
-              (LETT |n|
-                    (SPADCALL (SPADCALL |a| (QREFELT $ 12))
-                              (LETT |m| (SPADCALL |b| (QREFELT $ 12))
-                                    . #3=(|OREPCTO;localLeftDivide|))
-                              (QREFELT $ 19))
-                    . #3#)
-              (EXIT
+(SDEFUN |OREPCTO;localLeftDivide|
+        ((|a| C) (|b| C) (|sigma| |Automorphism| R) (|b1| R)
+         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        (SPROG
+         ((|qr| (|Record| (|:| |quotient| C) (|:| |remainder| C))) (|q| (C))
+          (#1=#:G142 NIL) (|n| (|Union| (|NonNegativeInteger|) "failed"))
+          (|m| (|NonNegativeInteger|)))
+         (SEQ
+          (COND
+           ((SPADCALL |b| (QREFELT $ 9)) (|error| "leftDivide: division by 0"))
+           (#2='T
+            (SEQ
+             (EXIT
+              (SEQ
                (COND
-                ((QEQCAR |n| 1)
-                 (PROGN
-                  (LETT #1# (CONS (|spadConstant| $ 10) |a|) . #3#)
-                  (GO #1#))))))))
-           (LETT |q|
-                 (SPADCALL
-                  (SPADCALL (SPADCALL |sigma| (- |m|) (QREFELT $ 33))
-                            (SPADCALL |b1| (SPADCALL |a| (QREFELT $ 21))
-                                      (QREFELT $ 29))
-                            (QREFELT $ 25))
-                  (QCDR |n|) (QREFELT $ 26))
-                 . #3#)
-           (LETT |qr|
-                 (|OREPCTO;localLeftDivide|
-                  (SPADCALL |a| (SPADCALL |b| |q| (QREFELT $ 34))
-                            (QREFELT $ 35))
-                  |b| |sigma| |b1| $)
-                 . #3#)
-           (EXIT
-            (CONS (SPADCALL |q| (QCAR |qr|) (QREFELT $ 27)) (QCDR |qr|)))))
-         #1# (EXIT #1#)))))))) 
+                ((SPADCALL |a| (QREFELT $ 9))
+                 (EXIT (CONS (|spadConstant| $ 10) |a|)))
+                (#2#
+                 (SEQ
+                  (LETT |n|
+                        (SPADCALL (SPADCALL |a| (QREFELT $ 12))
+                                  (LETT |m| (SPADCALL |b| (QREFELT $ 12))
+                                        . #3=(|OREPCTO;localLeftDivide|))
+                                  (QREFELT $ 19))
+                        . #3#)
+                  (EXIT
+                   (COND
+                    ((QEQCAR |n| 1)
+                     (PROGN
+                      (LETT #1# (CONS (|spadConstant| $ 10) |a|) . #3#)
+                      (GO #1#))))))))
+               (LETT |q|
+                     (SPADCALL
+                      (SPADCALL (SPADCALL |sigma| (- |m|) (QREFELT $ 33))
+                                (SPADCALL |b1| (SPADCALL |a| (QREFELT $ 21))
+                                          (QREFELT $ 29))
+                                (QREFELT $ 25))
+                      (QCDR |n|) (QREFELT $ 26))
+                     . #3#)
+               (LETT |qr|
+                     (|OREPCTO;localLeftDivide|
+                      (SPADCALL |a| (SPADCALL |b| |q| (QREFELT $ 34))
+                                (QREFELT $ 35))
+                      |b| |sigma| |b1| $)
+                     . #3#)
+               (EXIT
+                (CONS (SPADCALL |q| (QCAR |qr|) (QREFELT $ 27)) (QCDR |qr|)))))
+             #1# (EXIT #1#))))))) 
 
-(DEFUN |OREPCTO;localRightDivide| (|a| |b| |sigma| |b1| $)
-  (PROG (|qr| |q| #1=#:G151 |n| |m|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |b| (QREFELT $ 9)) (|error| "rightDivide: division by 0"))
-       (#2='T
-        (SEQ
-         (EXIT
-          (SEQ
-           (COND
-            ((SPADCALL |a| (QREFELT $ 9))
-             (EXIT (CONS (|spadConstant| $ 10) |a|)))
-            (#2#
-             (SEQ
-              (LETT |n|
-                    (SPADCALL (SPADCALL |a| (QREFELT $ 12))
-                              (LETT |m| (SPADCALL |b| (QREFELT $ 12))
-                                    . #3=(|OREPCTO;localRightDivide|))
-                              (QREFELT $ 19))
-                    . #3#)
-              (EXIT
+(SDEFUN |OREPCTO;localRightDivide|
+        ((|a| C) (|b| C) (|sigma| |Automorphism| R) (|b1| R)
+         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        (SPROG
+         ((|qr| (|Record| (|:| |quotient| C) (|:| |remainder| C))) (|q| (C))
+          (#1=#:G151 NIL) (|n| (|Union| (|NonNegativeInteger|) "failed"))
+          (|m| (|NonNegativeInteger|)))
+         (SEQ
+          (COND
+           ((SPADCALL |b| (QREFELT $ 9))
+            (|error| "rightDivide: division by 0"))
+           (#2='T
+            (SEQ
+             (EXIT
+              (SEQ
                (COND
-                ((QEQCAR |n| 1)
-                 (PROGN
-                  (LETT #1# (CONS (|spadConstant| $ 10) |a|) . #3#)
-                  (GO #1#))))))))
-           (LETT |q|
-                 (SPADCALL
-                  (SPADCALL (SPADCALL |a| (QREFELT $ 21))
-                            (SPADCALL
-                             (SPADCALL |sigma| (QCDR |n|) (QREFELT $ 33)) |b1|
-                             (QREFELT $ 25))
-                            (QREFELT $ 29))
-                  (QCDR |n|) (QREFELT $ 26))
-                 . #3#)
-           (LETT |qr|
-                 (|OREPCTO;localRightDivide|
-                  (SPADCALL |a| (SPADCALL |q| |b| (QREFELT $ 34))
-                            (QREFELT $ 35))
-                  |b| |sigma| |b1| $)
-                 . #3#)
-           (EXIT
-            (CONS (SPADCALL |q| (QCAR |qr|) (QREFELT $ 27)) (QCDR |qr|)))))
-         #1# (EXIT #1#)))))))) 
+                ((SPADCALL |a| (QREFELT $ 9))
+                 (EXIT (CONS (|spadConstant| $ 10) |a|)))
+                (#2#
+                 (SEQ
+                  (LETT |n|
+                        (SPADCALL (SPADCALL |a| (QREFELT $ 12))
+                                  (LETT |m| (SPADCALL |b| (QREFELT $ 12))
+                                        . #3=(|OREPCTO;localRightDivide|))
+                                  (QREFELT $ 19))
+                        . #3#)
+                  (EXIT
+                   (COND
+                    ((QEQCAR |n| 1)
+                     (PROGN
+                      (LETT #1# (CONS (|spadConstant| $ 10) |a|) . #3#)
+                      (GO #1#))))))))
+               (LETT |q|
+                     (SPADCALL
+                      (SPADCALL (SPADCALL |a| (QREFELT $ 21))
+                                (SPADCALL
+                                 (SPADCALL |sigma| (QCDR |n|) (QREFELT $ 33))
+                                 |b1| (QREFELT $ 25))
+                                (QREFELT $ 29))
+                      (QCDR |n|) (QREFELT $ 26))
+                     . #3#)
+               (LETT |qr|
+                     (|OREPCTO;localRightDivide|
+                      (SPADCALL |a| (SPADCALL |q| |b| (QREFELT $ 34))
+                                (QREFELT $ 35))
+                      |b| |sigma| |b1| $)
+                     . #3#)
+               (EXIT
+                (CONS (SPADCALL |q| (QCAR |qr|) (QREFELT $ 27)) (QCDR |qr|)))))
+             #1# (EXIT #1#))))))) 
 
-(DEFUN |OREPCTO;monicLeftDivide;2CAR;6| (|a| |b| |sigma| $)
-  (PROG (#1=#:G156 |u|)
-    (RETURN
-     (COND
-      ((SPADCALL
-        (LETT |u| (SPADCALL |b| (QREFELT $ 21))
-              . #2=(|OREPCTO;monicLeftDivide;2CAR;6|))
-        (QREFELT $ 36))
-       (|OREPCTO;localLeftDivide| |a| |b| |sigma|
-        (PROG2 (LETT #1# (SPADCALL |u| (QREFELT $ 37)) . #2#)
-            (QCDR #1#)
-          (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
-        $))
-      ('T (|error| "monicLeftDivide: divisor is not monic")))))) 
+(SDEFUN |OREPCTO;monicLeftDivide;2CAR;6|
+        ((|a| C) (|b| C) (|sigma| |Automorphism| R)
+         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        (SPROG ((#1=#:G156 NIL) (|u| (R)))
+               (COND
+                ((SPADCALL
+                  (LETT |u| (SPADCALL |b| (QREFELT $ 21))
+                        . #2=(|OREPCTO;monicLeftDivide;2CAR;6|))
+                  (QREFELT $ 36))
+                 (|OREPCTO;localLeftDivide| |a| |b| |sigma|
+                  (PROG2 (LETT #1# (SPADCALL |u| (QREFELT $ 37)) . #2#)
+                      (QCDR #1#)
+                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                  $))
+                ('T (|error| "monicLeftDivide: divisor is not monic"))))) 
 
-(DEFUN |OREPCTO;monicRightDivide;2CAR;7| (|a| |b| |sigma| $)
-  (PROG (#1=#:G163 |u|)
-    (RETURN
-     (COND
-      ((SPADCALL
-        (LETT |u| (SPADCALL |b| (QREFELT $ 21))
-              . #2=(|OREPCTO;monicRightDivide;2CAR;7|))
-        (QREFELT $ 36))
-       (|OREPCTO;localRightDivide| |a| |b| |sigma|
-        (PROG2 (LETT #1# (SPADCALL |u| (QREFELT $ 37)) . #2#)
-            (QCDR #1#)
-          (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
-        $))
-      ('T (|error| "monicRightDivide: divisor is not monic")))))) 
+(SDEFUN |OREPCTO;monicRightDivide;2CAR;7|
+        ((|a| C) (|b| C) (|sigma| |Automorphism| R)
+         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        (SPROG ((#1=#:G163 NIL) (|u| (R)))
+               (COND
+                ((SPADCALL
+                  (LETT |u| (SPADCALL |b| (QREFELT $ 21))
+                        . #2=(|OREPCTO;monicRightDivide;2CAR;7|))
+                  (QREFELT $ 36))
+                 (|OREPCTO;localRightDivide| |a| |b| |sigma|
+                  (PROG2 (LETT #1# (SPADCALL |u| (QREFELT $ 37)) . #2#)
+                      (QCDR #1#)
+                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                  $))
+                ('T (|error| "monicRightDivide: divisor is not monic"))))) 
 
-(DEFUN |OREPCTO;leftDivide;2CAR;8| (|a| |b| |sigma| $)
-  (|OREPCTO;localLeftDivide| |a| |b| |sigma|
-   (SPADCALL (SPADCALL |b| (QREFELT $ 21)) (QREFELT $ 41)) $)) 
+(SDEFUN |OREPCTO;leftDivide;2CAR;8|
+        ((|a| C) (|b| C) (|sigma| |Automorphism| R)
+         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        (|OREPCTO;localLeftDivide| |a| |b| |sigma|
+         (SPADCALL (SPADCALL |b| (QREFELT $ 21)) (QREFELT $ 41)) $)) 
 
-(DEFUN |OREPCTO;rightDivide;2CAR;9| (|a| |b| |sigma| $)
-  (|OREPCTO;localRightDivide| |a| |b| |sigma|
-   (SPADCALL (SPADCALL |b| (QREFELT $ 21)) (QREFELT $ 41)) $)) 
+(SDEFUN |OREPCTO;rightDivide;2CAR;9|
+        ((|a| C) (|b| C) (|sigma| |Automorphism| R)
+         ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
+        (|OREPCTO;localRightDivide| |a| |b| |sigma|
+         (SPADCALL (SPADCALL |b| (QREFELT $ 21)) (QREFELT $ 41)) $)) 
 
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomialCategoryOps;|)) 
 
 (DEFUN |UnivariateSkewPolynomialCategoryOps| (&REST #1=#:G171)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G172)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|UnivariateSkewPolynomialCategoryOps|)
-                                           '|domainEqualList|)
-                . #3=(|UnivariateSkewPolynomialCategoryOps|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |UnivariateSkewPolynomialCategoryOps;|)
-                         #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G172)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|UnivariateSkewPolynomialCategoryOps|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|UnivariateSkewPolynomialCategoryOps|)
+                                               '|domainEqualList|)
+                    . #3=(|UnivariateSkewPolynomialCategoryOps|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |UnivariateSkewPolynomialCategoryOps;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariateSkewPolynomialCategoryOps|)))))))))) 
 
 (DEFUN |UnivariateSkewPolynomialCategoryOps;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|UnivariateSkewPolynomialCategoryOps|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|UnivariateSkewPolynomialCategoryOps| DV$1 DV$2)
-            . #1#)
-      (LETT $ (GETREFV 44) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST (|HasCategory| |#1| '(|Field|))
-                                               (|HasCategory| |#1|
-                                                              '(|IntegralDomain|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|UnivariateSkewPolynomialCategoryOps|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (PROGN
-         (QSETREFV $ 39
-                   (CONS (|dispatchFunction| |OREPCTO;monicLeftDivide;2CAR;6|)
-                         $))
-         (QSETREFV $ 40
-                   (CONS (|dispatchFunction| |OREPCTO;monicRightDivide;2CAR;7|)
-                         $)))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 42
-                   (CONS (|dispatchFunction| |OREPCTO;leftDivide;2CAR;8|) $))
-         (QSETREFV $ 43
-                   (CONS (|dispatchFunction| |OREPCTO;rightDivide;2CAR;9|)
-                         $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|UnivariateSkewPolynomialCategoryOps|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|UnivariateSkewPolynomialCategoryOps| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 44) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1| '(|Field|))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegralDomain|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|UnivariateSkewPolynomialCategoryOps| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 2)
+            (PROGN
+             (QSETREFV $ 39
+                       (CONS
+                        (|dispatchFunction| |OREPCTO;monicLeftDivide;2CAR;6|)
+                        $))
+             (QSETREFV $ 40
+                       (CONS
+                        (|dispatchFunction| |OREPCTO;monicRightDivide;2CAR;7|)
+                        $)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 42
+                       (CONS (|dispatchFunction| |OREPCTO;leftDivide;2CAR;8|)
+                             $))
+             (QSETREFV $ 43
+                       (CONS (|dispatchFunction| |OREPCTO;rightDivide;2CAR;9|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|UnivariateSkewPolynomialCategoryOps| '|infovec|
           (LIST

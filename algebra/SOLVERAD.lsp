@@ -1,724 +1,846 @@
 
-(DEFUN |SOLVERAD;New| (|s| $)
-  (PROG (S)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |s| (|spadConstant| $ 13) (QREFELT $ 15))
-        (|spadConstant| $ 13))
-       ('T
-        (SEQ
-         (LETT S
-               (SPADCALL
-                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 17)) (QREFELT $ 19))
-                          (QREFELT $ 21))
-                (QREFELT $ 22))
-               |SOLVERAD;New|)
-         (SETELT $ 7
-                 (APPEND (LIST (SPADCALL S |s| (QREFELT $ 23))) (QREFELT $ 7)))
-         (EXIT S)))))))) 
-
-(DEFUN |SOLVERAD;linear| (|u| $)
-  (LIST
-   (SPADCALL
-    (SPADCALL (SPADCALL (SPADCALL |u| 0 (QREFELT $ 26)) (QREFELT $ 27))
-              (QREFELT $ 28))
-    (SPADCALL (SPADCALL |u| 1 (QREFELT $ 26)) (QREFELT $ 28)) (QREFELT $ 31)))) 
-
-(DEFUN |SOLVERAD;quadratic| (|u| $)
-  (SPADCALL (SPADCALL (ELT $ 28) |u| (QREFELT $ 35)) (QREFELT $ 38))) 
-
-(DEFUN |SOLVERAD;cubic| (|u| $)
-  (SPADCALL (SPADCALL (ELT $ 28) |u| (QREFELT $ 35)) (QREFELT $ 39))) 
-
-(DEFUN |SOLVERAD;quartic| (|u| $)
-  (SPADCALL (SPADCALL (ELT $ 28) |u| (QREFELT $ 35)) (QREFELT $ 40))) 
-
-(DEFUN |SOLVERAD;rad| (|n| $) (SPADCALL |n| (QREFELT $ 42))) 
-
-(DEFUN |SOLVERAD;wrap| (|s| $)
-  (COND ((QREFELT $ 8) (|SOLVERAD;New| |s| $)) ('T |s|))) 
-
-(DEFUN |SOLVERAD;findGenZeros| (|rlp| |rlv| $)
-  (PROG (|res| #1=#:G128 |vv| #2=#:G129 |p| #3=#:G127 #4=#:G126 |r| #5=#:G125
-         |v| |pp|)
-    (RETURN
-     (SEQ (LETT |pp| (|SPADfirst| |rlp|) . #6=(|SOLVERAD;findGenZeros|))
-          (LETT |v| (|SPADfirst| |rlv|) . #6#) (LETT |rlv| (CDR |rlv|) . #6#)
-          (LETT |res| NIL . #6#)
-          (LETT |res|
-                (APPEND
-                 (PROGN
-                  (LETT #5# NIL . #6#)
-                  (SEQ (LETT |r| NIL . #6#)
-                       (LETT #4#
-                             (SPADCALL (SPADCALL |pp| (QREFELT $ 21)) |v|
-                                       (QREFELT $ 43))
-                             . #6#)
-                       G190
-                       (COND
-                        ((OR (ATOM #4#) (PROGN (LETT |r| (CAR #4#) . #6#) NIL))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (LETT #5#
-                               (CONS
-                                (REVERSE
-                                 (CONS |r|
-                                       (PROGN
-                                        (LETT #3# NIL . #6#)
-                                        (SEQ (LETT |p| NIL . #6#)
-                                             (LETT #2# (CDR |rlp|) . #6#)
-                                             (LETT |vv| NIL . #6#)
-                                             (LETT #1# |rlv| . #6#) G190
-                                             (COND
-                                              ((OR (ATOM #1#)
-                                                   (PROGN
-                                                    (LETT |vv| (CAR #1#) . #6#)
-                                                    NIL)
-                                                   (ATOM #2#)
-                                                   (PROGN
-                                                    (LETT |p| (CAR #2#) . #6#)
-                                                    NIL))
-                                               (GO G191)))
-                                             (SEQ
-                                              (EXIT
-                                               (LETT #3#
-                                                     (CONS
-                                                      (SPADCALL
-                                                       (SPADCALL
-                                                        (SPADCALL
-                                                         (SPADCALL
-                                                          (SPADCALL
-                                                           (SPADCALL |p| |vv|
-                                                                     (QREFELT $
-                                                                              45))
-                                                           0 (QREFELT $ 26))
-                                                          (QREFELT $ 28))
-                                                         (QREFELT $ 46))
-                                                        (SPADCALL
-                                                         (SPADCALL
-                                                          (SPADCALL |p| |vv|
-                                                                    (QREFELT $
-                                                                             45))
-                                                          (QREFELT $ 47))
-                                                         (QREFELT $ 28))
-                                                        (QREFELT $ 31))
-                                                       (SPADCALL |v|
-                                                                 (QREFELT $
-                                                                          49))
-                                                       |r| (QREFELT $ 51))
-                                                      #3#)
-                                                     . #6#)))
-                                             (LETT #1#
-                                                   (PROG1 (CDR #1#)
-                                                     (LETT #2# (CDR #2#)
-                                                           . #6#))
-                                                   . #6#)
-                                             (GO G190) G191
-                                             (EXIT (NREVERSE #3#))))))
-                                #5#)
-                               . #6#)))
-                       (LETT #4# (CDR #4#) . #6#) (GO G190) G191
-                       (EXIT (NREVERSE #5#))))
-                 |res|)
-                . #6#)
-          (EXIT |res|))))) 
-
-(DEFUN |SOLVERAD;findZeros| (|rlp| |rlv| $)
-  (PROG (|res| |rlv1| |lv1| |p1| |res1| #1=#:G140 |par| |parRes| #2=#:G138 |p|
-         #3=#:G139 |v| #4=#:G137)
-    (RETURN
-     (SEQ
-      (LETT |parRes|
-            (PROGN
-             (LETT #4# NIL . #5=(|SOLVERAD;findZeros|))
-             (SEQ (LETT |v| NIL . #5#) (LETT #3# |rlv| . #5#)
-                  (LETT |p| NIL . #5#) (LETT #2# |rlp| . #5#) G190
-                  (COND
-                   ((OR (ATOM #2#) (PROGN (LETT |p| (CAR #2#) . #5#) NIL)
-                        (ATOM #3#) (PROGN (LETT |v| (CAR #3#) . #5#) NIL))
-                    (GO G191)))
+(SDEFUN |SOLVERAD;New| ((|s| |Expression| R) ($ |Expression| R))
+        (SPROG ((S (|Expression| R)))
+               (SEQ
+                (COND
+                 ((SPADCALL |s| (|spadConstant| $ 13) (QREFELT $ 15))
+                  (|spadConstant| $ 13))
+                 ('T
                   (SEQ
-                   (EXIT
-                    (LETT #4#
-                          (CONS
-                           (SPADCALL (SPADCALL |p| (QREFELT $ 21)) |v|
-                                     (QREFELT $ 43))
-                           #4#)
-                          . #5#)))
-                  (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #5#)) . #5#)
-                  (GO G190) G191 (EXIT (NREVERSE #4#))))
-            . #5#)
-      (LETT |parRes| (|SOLVERAD;select| |parRes| $) . #5#)
-      (LETT |res| NIL . #5#)
-      (SEQ (LETT |par| NIL . #5#) (LETT #1# |parRes| . #5#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |par| (CAR #1#) . #5#) NIL))
-             (GO G191)))
-           (SEQ (LETT |res1| (LIST (|SPADfirst| |par|)) . #5#)
-                (LETT |lv1|
-                      (LIST (SPADCALL (|SPADfirst| |rlv|) (QREFELT $ 49)))
-                      . #5#)
-                (LETT |rlv1| (CDR |rlv|) . #5#) (LETT |p1| (CDR |par|) . #5#)
-                (SEQ G190
-                     (COND
-                      ((NULL (SPADCALL |p1| NIL (QREFELT $ 52))) (GO G191)))
-                     (SEQ
-                      (LETT |res1|
-                            (CONS
-                             (SPADCALL (|SPADfirst| |p1|) |lv1| |res1|
-                                       (QREFELT $ 55))
-                             |res1|)
-                            . #5#)
-                      (LETT |p1| (CDR |p1|) . #5#)
-                      (LETT |lv1|
-                            (CONS
-                             (SPADCALL (|SPADfirst| |rlv1|) (QREFELT $ 49))
-                             |lv1|)
-                            . #5#)
-                      (EXIT (LETT |rlv1| (CDR |rlv1|) . #5#)))
-                     NIL (GO G190) G191 (EXIT NIL))
-                (EXIT (LETT |res| (CONS |res1| |res|) . #5#)))
-           (LETT #1# (CDR #1#) . #5#) (GO G190) G191 (EXIT NIL))
-      (EXIT |res|))))) 
+                   (LETT S
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL (SPADCALL (QREFELT $ 17)) (QREFELT $ 19))
+                           (QREFELT $ 21))
+                          (QREFELT $ 22))
+                         |SOLVERAD;New|)
+                   (SETELT $ 7
+                           (APPEND (LIST (SPADCALL S |s| (QREFELT $ 23)))
+                                   (QREFELT $ 7)))
+                   (EXIT S))))))) 
 
-(DEFUN |SOLVERAD;radicalSolve;FSL;10| (|pol| |v| $)
-  (PROG (#1=#:G144 |r| #2=#:G143)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #2# NIL . #3=(|SOLVERAD;radicalSolve;FSL;10|))
-       (SEQ (LETT |r| NIL . #3#)
-            (LETT #1# (SPADCALL |pol| |v| (QREFELT $ 43)) . #3#) G190
-            (COND
-             ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#) . #3#) NIL))
-              (GO G191)))
-            (SEQ
-             (EXIT
-              (LETT #2#
-                    (CONS
-                     (SPADCALL (SPADCALL |v| (QREFELT $ 56)) |r|
-                               (QREFELT $ 57))
-                     #2#)
-                    . #3#)))
-            (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-            (EXIT (NREVERSE #2#)))))))) 
+(SDEFUN |SOLVERAD;linear|
+        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
+         ($ |List| (|Expression| R)))
+        (LIST
+         (SPADCALL
+          (SPADCALL (SPADCALL (SPADCALL |u| 0 (QREFELT $ 26)) (QREFELT $ 27))
+                    (QREFELT $ 28))
+          (SPADCALL (SPADCALL |u| 1 (QREFELT $ 26)) (QREFELT $ 28))
+          (QREFELT $ 31)))) 
 
-(DEFUN |SOLVERAD;radicalSolve;FL;11| (|p| $)
-  (PROG (|lv|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |p| (QREFELT $ 60)) (|error| "equation is always satisfied"))
-       (#1='T
-        (SEQ
-         (LETT |lv|
-               (SPADCALL
-                (SPADCALL
-                 (SPADCALL (SPADCALL |p| (QREFELT $ 61)) (QREFELT $ 63))
-                 (SPADCALL (SPADCALL |p| (QREFELT $ 64)) (QREFELT $ 63))
-                 (QREFELT $ 65))
-                (QREFELT $ 66))
-               |SOLVERAD;radicalSolve;FL;11|)
-         (EXIT
-          (COND ((NULL |lv|) (|error| "inconsistent equation"))
-                ((SPADCALL (LENGTH |lv|) 1 (QREFELT $ 67))
-                 (|error| "too many variables"))
-                (#1# (SPADCALL |p| (|SPADfirst| |lv|) (QREFELT $ 59)))))))))))) 
+(SDEFUN |SOLVERAD;quadratic|
+        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
+         ($ |List| (|Expression| R)))
+        (SPADCALL (SPADCALL (ELT $ 28) |u| (QREFELT $ 35)) (QREFELT $ 38))) 
 
-(DEFUN |SOLVERAD;radicalSolve;EL;12| (|eq| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL |eq| (QREFELT $ 70)) (SPADCALL |eq| (QREFELT $ 71))
-             (QREFELT $ 72))
-   (QREFELT $ 68))) 
+(SDEFUN |SOLVERAD;cubic|
+        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
+         ($ |List| (|Expression| R)))
+        (SPADCALL (SPADCALL (ELT $ 28) |u| (QREFELT $ 35)) (QREFELT $ 39))) 
 
-(DEFUN |SOLVERAD;radicalSolve;ESL;13| (|eq| |v| $)
-  (SPADCALL
-   (SPADCALL (SPADCALL |eq| (QREFELT $ 70)) (SPADCALL |eq| (QREFELT $ 71))
-             (QREFELT $ 72))
-   |v| (QREFELT $ 59))) 
+(SDEFUN |SOLVERAD;quartic|
+        ((|u| |SparseUnivariatePolynomial| (|Polynomial| R))
+         ($ |List| (|Expression| R)))
+        (SPADCALL (SPADCALL (ELT $ 28) |u| (QREFELT $ 35)) (QREFELT $ 40))) 
 
-(DEFUN |SOLVERAD;radicalRoots;LLL;14| (|lp| |lv| $)
-  (PROG (#1=#:G160 #2=#:G159 #3=#:G161 #4=#:G171 |res| |rpRes| #5=#:G170
-         |result| #6=#:G154 #7=#:G153 #8=#:G155 #9=#:G169 |listGen| #10=#:G168
-         #11=#:G167 #12=#:G166 #13=#:G165 |rlv| |parRes|)
-    (RETURN
-     (SEQ
-      (LETT |parRes| (SPADCALL |lp| |lv| (QREFELT $ 78))
-            . #14=(|SOLVERAD;radicalRoots;LLL;14|))
-      (EXIT
-       (COND
-        ((SPADCALL |parRes| (SPADCALL NIL (QREFELT $ 80)) (QREFELT $ 81)) NIL)
-        (#15='T
-         (SEQ (LETT |rlv| (REVERSE |lv|) . #14#)
-              (LETT |rpRes|
-                    (PROGN
-                     (LETT #13# NIL . #14#)
-                     (SEQ (LETT |res| NIL . #14#) (LETT #12# |parRes| . #14#)
-                          G190
-                          (COND
-                           ((OR (ATOM #12#)
-                                (PROGN (LETT |res| (CAR #12#) . #14#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (LETT #13# (CONS (REVERSE |res|) #13#) . #14#)))
-                          (LETT #12# (CDR #12#) . #14#) (GO G190) G191
-                          (EXIT (NREVERSE #13#))))
-                    . #14#)
-              (LETT |listGen|
-                    (PROGN
-                     (LETT #11# NIL . #14#)
-                     (SEQ (LETT |res| NIL . #14#) (LETT #10# |rpRes| . #14#)
-                          G190
-                          (COND
-                           ((OR (ATOM #10#)
-                                (PROGN (LETT |res| (CAR #10#) . #14#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (COND
-                             ((|SOLVERAD;isGeneric?| |res| |rlv| $)
-                              (LETT #11# (CONS |res| #11#) . #14#)))))
-                          (LETT #10# (CDR #10#) . #14#) (GO G190) G191
-                          (EXIT (NREVERSE #11#))))
-                    . #14#)
-              (LETT |result| NIL . #14#)
-              (COND
-               ((SPADCALL |listGen| NIL (QREFELT $ 82))
-                (SEQ
-                 (LETT |result|
-                       (PROGN
-                        (LETT #6# NIL . #14#)
-                        (SEQ (LETT |res| NIL . #14#)
-                             (LETT #9# |listGen| . #14#) G190
-                             (COND
-                              ((OR (ATOM #9#)
-                                   (PROGN (LETT |res| (CAR #9#) . #14#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (PROGN
-                                (LETT #8#
-                                      (|SOLVERAD;findGenZeros| |res| |rlv| $)
-                                      . #14#)
-                                (COND (#6# (LETT #7# (APPEND #7# #8#) . #14#))
-                                      ('T
-                                       (PROGN
-                                        (LETT #7# #8# . #14#)
-                                        (LETT #6# 'T . #14#)))))))
-                             (LETT #9# (CDR #9#) . #14#) (GO G190) G191
-                             (EXIT NIL))
-                        (COND (#6# #7#) (#15# NIL)))
-                       . #14#)
-                 (EXIT
-                  (SEQ (LETT |res| NIL . #14#) (LETT #5# |listGen| . #14#) G190
-                       (COND
-                        ((OR (ATOM #5#)
-                             (PROGN (LETT |res| (CAR #5#) . #14#) NIL))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (LETT |rpRes|
-                               (SPADCALL |rpRes|
-                                         (SPADCALL |res| |rpRes|
-                                                   (QREFELT $ 83))
-                                         (QREFELT $ 84))
-                               . #14#)))
-                       (LETT #5# (CDR #5#) . #14#) (GO G190) G191
-                       (EXIT NIL))))))
-              (EXIT
-               (COND ((SPADCALL |rpRes| NIL (QREFELT $ 81)) |result|)
-                     (#15#
-                      (APPEND
-                       (PROGN
-                        (LETT #1# NIL . #14#)
-                        (SEQ (LETT |res| NIL . #14#) (LETT #4# |rpRes| . #14#)
-                             G190
-                             (COND
-                              ((OR (ATOM #4#)
-                                   (PROGN (LETT |res| (CAR #4#) . #14#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (PROGN
-                                (LETT #3# (|SOLVERAD;findZeros| |res| |rlv| $)
-                                      . #14#)
-                                (COND (#1# (LETT #2# (APPEND #2# #3#) . #14#))
-                                      ('T
-                                       (PROGN
-                                        (LETT #2# #3# . #14#)
-                                        (LETT #1# 'T . #14#)))))))
-                             (LETT #4# (CDR #4#) . #14#) (GO G190) G191
-                             (EXIT NIL))
-                        (COND (#1# #2#) (#15# NIL)))
-                       |result|)))))))))))) 
+(SDEFUN |SOLVERAD;rad| ((|n| |PositiveInteger|) ($ |Expression| R))
+        (SPADCALL |n| (QREFELT $ 42))) 
 
-(DEFUN |SOLVERAD;radicalSolve;LLL;15| (|lp| |lv| $)
-  (PROG (#1=#:G175 |lres| #2=#:G174)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #2# NIL . #3=(|SOLVERAD;radicalSolve;LLL;15|))
-       (SEQ (LETT |lres| NIL . #3#)
-            (LETT #1# (SPADCALL |lp| |lv| (QREFELT $ 86)) . #3#) G190
-            (COND
-             ((OR (ATOM #1#) (PROGN (LETT |lres| (CAR #1#) . #3#) NIL))
-              (GO G191)))
-            (SEQ
-             (EXIT
-              (LETT #2# (CONS (|SOLVERAD;makeEq| |lres| |lv| $) #2#) . #3#)))
-            (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-            (EXIT (NREVERSE #2#)))))))) 
+(SDEFUN |SOLVERAD;wrap| ((|s| |Expression| R) ($ |Expression| R))
+        (COND ((QREFELT $ 8) (|SOLVERAD;New| |s| $)) ('T |s|))) 
 
-(DEFUN |SOLVERAD;radicalSolve;LL;16| (|lp| $)
-  (PROG (#1=#:G184 |lres| #2=#:G183 |lv| #3=#:G177 #4=#:G176 #5=#:G178
-         #6=#:G182 |p|)
-    (RETURN
-     (SEQ
-      (LETT |lv|
-            (PROGN
-             (LETT #3# NIL . #7=(|SOLVERAD;radicalSolve;LL;16|))
-             (SEQ (LETT |p| NIL . #7#) (LETT #6# |lp| . #7#) G190
-                  (COND
-                   ((OR (ATOM #6#) (PROGN (LETT |p| (CAR #6#) . #7#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (PROGN
-                     (LETT #5#
-                           (SPADCALL
-                            (SPADCALL (SPADCALL |p| (QREFELT $ 61))
-                                      (QREFELT $ 63))
-                            (SPADCALL (SPADCALL |p| (QREFELT $ 64))
-                                      (QREFELT $ 63))
-                            (QREFELT $ 89))
-                           . #7#)
-                     (COND
-                      (#3# (LETT #4# (SPADCALL #4# #5# (QREFELT $ 89)) . #7#))
-                      ('T (PROGN (LETT #4# #5# . #7#) (LETT #3# 'T . #7#)))))))
-                  (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL))
-             (COND (#3# #4#) ('T (|IdentityError| '|setUnion|))))
-            . #7#)
-      (EXIT
-       (PROGN
-        (LETT #2# NIL . #7#)
-        (SEQ (LETT |lres| NIL . #7#)
-             (LETT #1# (SPADCALL |lp| |lv| (QREFELT $ 86)) . #7#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |lres| (CAR #1#) . #7#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #2# (CONS (|SOLVERAD;makeEq| |lres| |lv| $) #2#) . #7#)))
-             (LETT #1# (CDR #1#) . #7#) (GO G190) G191
-             (EXIT (NREVERSE #2#))))))))) 
-
-(DEFUN |SOLVERAD;radicalSolve;LLL;17| (|le| |lv| $)
-  (PROG (#1=#:G192 |lres| #2=#:G191 |lp| #3=#:G190 |p| #4=#:G189)
-    (RETURN
-     (SEQ
-      (LETT |lp|
-            (PROGN
-             (LETT #4# NIL . #5=(|SOLVERAD;radicalSolve;LLL;17|))
-             (SEQ (LETT |p| NIL . #5#) (LETT #3# |le| . #5#) G190
-                  (COND
-                   ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #5#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #4#
-                          (CONS
-                           (SPADCALL (SPADCALL |p| (QREFELT $ 71))
-                                     (SPADCALL |p| (QREFELT $ 70))
-                                     (QREFELT $ 72))
-                           #4#)
-                          . #5#)))
-                  (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                  (EXIT (NREVERSE #4#))))
-            . #5#)
-      (EXIT
-       (PROGN
-        (LETT #2# NIL . #5#)
-        (SEQ (LETT |lres| NIL . #5#)
-             (LETT #1# (SPADCALL |lp| |lv| (QREFELT $ 86)) . #5#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |lres| (CAR #1#) . #5#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #2# (CONS (|SOLVERAD;makeEq| |lres| |lv| $) #2#) . #5#)))
-             (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-             (EXIT (NREVERSE #2#))))))))) 
-
-(DEFUN |SOLVERAD;radicalSolve;LL;18| (|le| $)
-  (PROG (#1=#:G204 |lres| #2=#:G203 |lv| #3=#:G195 #4=#:G194 #5=#:G196
-         #6=#:G202 |p| |lp| #7=#:G201 #8=#:G200)
-    (RETURN
-     (SEQ
-      (LETT |lp|
-            (PROGN
-             (LETT #8# NIL . #9=(|SOLVERAD;radicalSolve;LL;18|))
-             (SEQ (LETT |p| NIL . #9#) (LETT #7# |le| . #9#) G190
-                  (COND
-                   ((OR (ATOM #7#) (PROGN (LETT |p| (CAR #7#) . #9#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #8#
-                          (CONS
-                           (SPADCALL (SPADCALL |p| (QREFELT $ 71))
-                                     (SPADCALL |p| (QREFELT $ 70))
-                                     (QREFELT $ 72))
-                           #8#)
-                          . #9#)))
-                  (LETT #7# (CDR #7#) . #9#) (GO G190) G191
-                  (EXIT (NREVERSE #8#))))
-            . #9#)
-      (LETT |lv|
-            (PROGN
-             (LETT #3# NIL . #9#)
-             (SEQ (LETT |p| NIL . #9#) (LETT #6# |lp| . #9#) G190
-                  (COND
-                   ((OR (ATOM #6#) (PROGN (LETT |p| (CAR #6#) . #9#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (PROGN
-                     (LETT #5#
-                           (SPADCALL
-                            (SPADCALL (SPADCALL |p| (QREFELT $ 61))
-                                      (QREFELT $ 63))
-                            (SPADCALL (SPADCALL |p| (QREFELT $ 64))
-                                      (QREFELT $ 63))
-                            (QREFELT $ 89))
-                           . #9#)
-                     (COND
-                      (#3# (LETT #4# (SPADCALL #4# #5# (QREFELT $ 89)) . #9#))
-                      ('T (PROGN (LETT #4# #5# . #9#) (LETT #3# 'T . #9#)))))))
-                  (LETT #6# (CDR #6#) . #9#) (GO G190) G191 (EXIT NIL))
-             (COND (#3# #4#) ('T (|IdentityError| '|setUnion|))))
-            . #9#)
-      (EXIT
-       (PROGN
-        (LETT #2# NIL . #9#)
-        (SEQ (LETT |lres| NIL . #9#)
-             (LETT #1# (SPADCALL |lp| |lv| (QREFELT $ 86)) . #9#) G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |lres| (CAR #1#) . #9#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #2# (CONS (|SOLVERAD;makeEq| |lres| |lv| $) #2#) . #9#)))
-             (LETT #1# (CDR #1#) . #9#) (GO G190) G191
-             (EXIT (NREVERSE #2#))))))))) 
-
-(DEFUN |SOLVERAD;contractSolve;ESSt;19| (|eq| |v| $)
-  (|SOLVERAD;solveInner|
-   (SPADCALL
-    (SPADCALL (SPADCALL |eq| (QREFELT $ 70)) (SPADCALL |eq| (QREFELT $ 71))
-              (QREFELT $ 72))
-    (QREFELT $ 61))
-   |v| 'T $)) 
-
-(DEFUN |SOLVERAD;contractSolve;FSSt;20| (|pq| |v| $)
-  (|SOLVERAD;solveInner| (SPADCALL |pq| (QREFELT $ 61)) |v| 'T $)) 
-
-(DEFUN |SOLVERAD;radicalRoots;FSL;21| (|pq| |v| $)
-  (SPADCALL (|SOLVERAD;solveInner| (SPADCALL |pq| (QREFELT $ 61)) |v| 'NIL $)
-            (QREFELT $ 97))) 
-
-(DEFUN |SOLVERAD;isGeneric?| (|rlp| |rlv| $)
-  (PROG (#1=#:G209 #2=#:G208 #3=#:G210 #4=#:G212 |f| #5=#:G213 |x|)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #1# NIL . #6=(|SOLVERAD;isGeneric?|))
-       (SEQ (LETT |x| NIL . #6#) (LETT #5# (CDR |rlv|) . #6#)
-            (LETT |f| NIL . #6#) (LETT #4# (CDR |rlp|) . #6#) G190
-            (COND
-             ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #6#) NIL) (ATOM #5#)
-                  (PROGN (LETT |x| (CAR #5#) . #6#) NIL))
-              (GO G191)))
-            (SEQ
-             (EXIT
-              (PROGN
-               (LETT #3# (EQL (SPADCALL |f| |x| (QREFELT $ 98)) 1) . #6#)
-               (COND (#1# (LETT #2# (COND (#2# #3#) ('T 'NIL)) . #6#))
-                     ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
-            (LETT #4# (PROG1 (CDR #4#) (LETT #5# (CDR #5#) . #6#)) . #6#)
-            (GO G190) G191 (EXIT NIL))
-       (COND (#1# #2#) ('T 'T))))))) 
-
-(DEFUN |SOLVERAD;select| (|lp| $)
-  (PROG (#1=#:G215 #2=#:G214 #3=#:G216 #4=#:G221 |lsel| #5=#:G220 #6=#:G219
-         |f|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |lp| NIL (QREFELT $ 99)) (SPADCALL NIL (QREFELT $ 100)))
-            (#7='T
-             (PROGN
-              (LETT #1# NIL . #8=(|SOLVERAD;select|))
-              (SEQ (LETT |f| NIL . #8#) (LETT #6# (|SPADfirst| |lp|) . #8#)
-                   G190
-                   (COND
-                    ((OR (ATOM #6#) (PROGN (LETT |f| (CAR #6#) . #8#) NIL))
-                     (GO G191)))
-                   (SEQ
-                    (EXIT
+(SDEFUN |SOLVERAD;findGenZeros|
+        ((|rlp| |List| (|Polynomial| R)) (|rlv| |List| (|Symbol|))
+         ($ |List| (|List| (|Expression| R))))
+        (SPROG
+         ((|res| (|List| (|List| (|Expression| R)))) (#1=#:G128 NIL) (|vv| NIL)
+          (#2=#:G129 NIL) (|p| NIL) (#3=#:G127 NIL) (#4=#:G126 NIL) (|r| NIL)
+          (#5=#:G125 NIL) (|v| (|Symbol|)) (|pp| (|Polynomial| R)))
+         (SEQ (LETT |pp| (|SPADfirst| |rlp|) . #6=(|SOLVERAD;findGenZeros|))
+              (LETT |v| (|SPADfirst| |rlv|) . #6#)
+              (LETT |rlv| (CDR |rlv|) . #6#) (LETT |res| NIL . #6#)
+              (LETT |res|
+                    (APPEND
                      (PROGN
-                      (LETT #3#
-                            (PROGN
-                             (LETT #5# NIL . #8#)
-                             (SEQ (LETT |lsel| NIL . #8#)
-                                  (LETT #4# (|SOLVERAD;select| (CDR |lp|) $)
-                                        . #8#)
-                                  G190
-                                  (COND
-                                   ((OR (ATOM #4#)
-                                        (PROGN
-                                         (LETT |lsel| (CAR #4#) . #8#)
-                                         NIL))
-                                    (GO G191)))
-                                  (SEQ
-                                   (EXIT
-                                    (LETT #5# (CONS (CONS |f| |lsel|) #5#)
-                                          . #8#)))
-                                  (LETT #4# (CDR #4#) . #8#) (GO G190) G191
-                                  (EXIT (NREVERSE #5#))))
-                            . #8#)
-                      (COND (#1# (LETT #2# (APPEND #2# #3#) . #8#))
-                            ('T
-                             (PROGN
-                              (LETT #2# #3# . #8#)
-                              (LETT #1# 'T . #8#)))))))
-                   (LETT #6# (CDR #6#) . #8#) (GO G190) G191 (EXIT NIL))
-              (COND (#1# #2#) (#7# NIL))))))))) 
-
-(DEFUN |SOLVERAD;makeEq| (|nres| |lv| $)
-  (PROG (#1=#:G225 |x| #2=#:G226 |r| #3=#:G224)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #3# NIL . #4=(|SOLVERAD;makeEq|))
-       (SEQ (LETT |r| NIL . #4#) (LETT #2# |nres| . #4#) (LETT |x| NIL . #4#)
-            (LETT #1# |lv| . #4#) G190
-            (COND
-             ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #4#) NIL) (ATOM #2#)
-                  (PROGN (LETT |r| (CAR #2#) . #4#) NIL))
-              (GO G191)))
-            (SEQ
-             (EXIT
-              (LETT #3#
-                    (CONS
-                     (SPADCALL (SPADCALL |x| (QREFELT $ 56)) |r|
-                               (QREFELT $ 57))
-                     #3#)
-                    . #4#)))
-            (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#)) . #4#)
-            (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
-
-(DEFUN |SOLVERAD;solveInner| (|pq| |v| |contractFlag| $)
-  (PROG (|re| |solutions| #1=#:G241 |i| T0 |s| #2=#:G240 |l| |unsolved| |n| |u|
-         |t| |constants| |ff| #3=#:G239 |f| |factors|)
-    (RETURN
-     (SEQ (SETELT $ 7 NIL) (SETELT $ 8 |contractFlag|)
-          (LETT |factors|
-                (SPADCALL (SPADCALL |pq| (QREFELT $ 103)) (QREFELT $ 106))
-                . #4=(|SOLVERAD;solveInner|))
-          (LETT |constants| NIL . #4#) (LETT |unsolved| NIL . #4#)
-          (LETT |solutions| NIL . #4#)
-          (SEQ (LETT |f| NIL . #4#) (LETT #3# |factors| . #4#) G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |f| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
-               (SEQ (LETT |ff| (QCAR |f|) . #4#)
-                    (COND
-                     ((NULL
-                       (SPADCALL |v| (SPADCALL |ff| (QREFELT $ 63))
-                                 (QREFELT $ 107)))
-                      (EXIT (LETT |constants| (CONS |ff| |constants|) . #4#))))
-                    (LETT |u| (SPADCALL |ff| |v| (QREFELT $ 45)) . #4#)
-                    (LETT |t| (SPADCALL |u| (QREFELT $ 110)) . #4#)
-                    (LETT |u| (QCAR |t|) . #4#)
-                    (LETT |n| (SPADCALL |u| (QREFELT $ 111)) . #4#)
-                    (LETT |l|
-                          (COND ((EQL |n| 1) (|SOLVERAD;linear| |u| $))
-                                ((EQL |n| 2) (|SOLVERAD;quadratic| |u| $))
-                                ((EQL |n| 3) (|SOLVERAD;cubic| |u| $))
-                                ((EQL |n| 4) (|SOLVERAD;quartic| |u| $))
-                                ('T
-                                 (SEQ
-                                  (LETT |unsolved| (CONS |ff| |unsolved|)
-                                        . #4#)
-                                  (EXIT NIL))))
-                          . #4#)
-                    (EXIT
-                     (SEQ (LETT |s| NIL . #4#) (LETT #2# |l| . #4#) G190
-                          (COND
-                           ((OR (ATOM #2#)
-                                (PROGN (LETT |s| (CAR #2#) . #4#) NIL))
-                            (GO G191)))
-                          (SEQ
+                      (LETT #5# NIL . #6#)
+                      (SEQ (LETT |r| NIL . #6#)
+                           (LETT #4#
+                                 (SPADCALL (SPADCALL |pp| (QREFELT $ 21)) |v|
+                                           (QREFELT $ 43))
+                                 . #6#)
+                           G190
                            (COND
-                            ((SPADCALL (QCDR |t|) 1 (QREFELT $ 113))
-                             (LETT |s| (|SOLVERAD;wrap| |s| $) . #4#)))
-                           (LETT T0 (SPADCALL |s| (QCDR |t|) (QREFELT $ 114))
-                                 . #4#)
-                           (SEQ (LETT |i| 1 . #4#) (LETT #1# (QCDR |f|) . #4#)
-                                G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
-                                (SEQ
-                                 (EXIT
-                                  (LETT |solutions| (APPEND T0 |solutions|)
-                                        . #4#)))
-                                (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-                                (EXIT NIL))
-                           (EXIT (LETT |re| (QREFELT $ 7) . #4#)))
-                          (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                          (EXIT NIL))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |solutions| (QREFELT $ 7) (QREFELT $ 115))))))) 
+                            ((OR (ATOM #4#)
+                                 (PROGN (LETT |r| (CAR #4#) . #6#) NIL))
+                             (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (LETT #5#
+                                   (CONS
+                                    (REVERSE
+                                     (CONS |r|
+                                           (PROGN
+                                            (LETT #3# NIL . #6#)
+                                            (SEQ (LETT |p| NIL . #6#)
+                                                 (LETT #2# (CDR |rlp|) . #6#)
+                                                 (LETT |vv| NIL . #6#)
+                                                 (LETT #1# |rlv| . #6#) G190
+                                                 (COND
+                                                  ((OR (ATOM #1#)
+                                                       (PROGN
+                                                        (LETT |vv| (CAR #1#)
+                                                              . #6#)
+                                                        NIL)
+                                                       (ATOM #2#)
+                                                       (PROGN
+                                                        (LETT |p| (CAR #2#)
+                                                              . #6#)
+                                                        NIL))
+                                                   (GO G191)))
+                                                 (SEQ
+                                                  (EXIT
+                                                   (LETT #3#
+                                                         (CONS
+                                                          (SPADCALL
+                                                           (SPADCALL
+                                                            (SPADCALL
+                                                             (SPADCALL
+                                                              (SPADCALL
+                                                               (SPADCALL |p|
+                                                                         |vv|
+                                                                         (QREFELT
+                                                                          $
+                                                                          45))
+                                                               0
+                                                               (QREFELT $ 26))
+                                                              (QREFELT $ 28))
+                                                             (QREFELT $ 46))
+                                                            (SPADCALL
+                                                             (SPADCALL
+                                                              (SPADCALL |p|
+                                                                        |vv|
+                                                                        (QREFELT
+                                                                         $ 45))
+                                                              (QREFELT $ 47))
+                                                             (QREFELT $ 28))
+                                                            (QREFELT $ 31))
+                                                           (SPADCALL |v|
+                                                                     (QREFELT $
+                                                                              49))
+                                                           |r| (QREFELT $ 51))
+                                                          #3#)
+                                                         . #6#)))
+                                                 (LETT #1#
+                                                       (PROG1 (CDR #1#)
+                                                         (LETT #2# (CDR #2#)
+                                                               . #6#))
+                                                       . #6#)
+                                                 (GO G190) G191
+                                                 (EXIT (NREVERSE #3#))))))
+                                    #5#)
+                                   . #6#)))
+                           (LETT #4# (CDR #4#) . #6#) (GO G190) G191
+                           (EXIT (NREVERSE #5#))))
+                     |res|)
+                    . #6#)
+              (EXIT |res|)))) 
+
+(SDEFUN |SOLVERAD;findZeros|
+        ((|rlp| |List| (|Polynomial| R)) (|rlv| |List| (|Symbol|))
+         ($ |List| (|List| (|Expression| R))))
+        (SPROG
+         ((|res| (|List| (|List| (|Expression| R))))
+          (|rlv1| (|List| (|Symbol|)))
+          (|lv1| (|List| (|Kernel| (|Expression| R))))
+          (|p1| (|List| (|Expression| R))) (|res1| (|List| (|Expression| R)))
+          (#1=#:G140 NIL) (|par| NIL)
+          (|parRes| (|List| (|List| (|Expression| R)))) (#2=#:G138 NIL)
+          (|p| NIL) (#3=#:G139 NIL) (|v| NIL) (#4=#:G137 NIL))
+         (SEQ
+          (LETT |parRes|
+                (PROGN
+                 (LETT #4# NIL . #5=(|SOLVERAD;findZeros|))
+                 (SEQ (LETT |v| NIL . #5#) (LETT #3# |rlv| . #5#)
+                      (LETT |p| NIL . #5#) (LETT #2# |rlp| . #5#) G190
+                      (COND
+                       ((OR (ATOM #2#) (PROGN (LETT |p| (CAR #2#) . #5#) NIL)
+                            (ATOM #3#) (PROGN (LETT |v| (CAR #3#) . #5#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #4#
+                              (CONS
+                               (SPADCALL (SPADCALL |p| (QREFELT $ 21)) |v|
+                                         (QREFELT $ 43))
+                               #4#)
+                              . #5#)))
+                      (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #5#))
+                            . #5#)
+                      (GO G190) G191 (EXIT (NREVERSE #4#))))
+                . #5#)
+          (LETT |parRes| (|SOLVERAD;select| |parRes| $) . #5#)
+          (LETT |res| NIL . #5#)
+          (SEQ (LETT |par| NIL . #5#) (LETT #1# |parRes| . #5#) G190
+               (COND
+                ((OR (ATOM #1#) (PROGN (LETT |par| (CAR #1#) . #5#) NIL))
+                 (GO G191)))
+               (SEQ (LETT |res1| (LIST (|SPADfirst| |par|)) . #5#)
+                    (LETT |lv1|
+                          (LIST (SPADCALL (|SPADfirst| |rlv|) (QREFELT $ 49)))
+                          . #5#)
+                    (LETT |rlv1| (CDR |rlv|) . #5#)
+                    (LETT |p1| (CDR |par|) . #5#)
+                    (SEQ G190
+                         (COND
+                          ((NULL (SPADCALL |p1| NIL (QREFELT $ 52)))
+                           (GO G191)))
+                         (SEQ
+                          (LETT |res1|
+                                (CONS
+                                 (SPADCALL (|SPADfirst| |p1|) |lv1| |res1|
+                                           (QREFELT $ 55))
+                                 |res1|)
+                                . #5#)
+                          (LETT |p1| (CDR |p1|) . #5#)
+                          (LETT |lv1|
+                                (CONS
+                                 (SPADCALL (|SPADfirst| |rlv1|) (QREFELT $ 49))
+                                 |lv1|)
+                                . #5#)
+                          (EXIT (LETT |rlv1| (CDR |rlv1|) . #5#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT (LETT |res| (CONS |res1| |res|) . #5#)))
+               (LETT #1# (CDR #1#) . #5#) (GO G190) G191 (EXIT NIL))
+          (EXIT |res|)))) 
+
+(SDEFUN |SOLVERAD;radicalSolve;FSL;10|
+        ((|pol| |Fraction| (|Polynomial| R)) (|v| |Symbol|)
+         ($ |List| (|Equation| (|Expression| R))))
+        (SPROG ((#1=#:G144 NIL) (|r| NIL) (#2=#:G143 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #2# NIL . #3=(|SOLVERAD;radicalSolve;FSL;10|))
+                 (SEQ (LETT |r| NIL . #3#)
+                      (LETT #1# (SPADCALL |pol| |v| (QREFELT $ 43)) . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2#
+                              (CONS
+                               (SPADCALL (SPADCALL |v| (QREFELT $ 56)) |r|
+                                         (QREFELT $ 57))
+                               #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))))) 
+
+(SDEFUN |SOLVERAD;radicalSolve;FL;11|
+        ((|p| |Fraction| (|Polynomial| R))
+         ($ |List| (|Equation| (|Expression| R))))
+        (SPROG ((|lv| (|List| (|Symbol|))))
+               (SEQ
+                (COND
+                 ((SPADCALL |p| (QREFELT $ 60))
+                  (|error| "equation is always satisfied"))
+                 (#1='T
+                  (SEQ
+                   (LETT |lv|
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |p| (QREFELT $ 61))
+                                     (QREFELT $ 63))
+                           (SPADCALL (SPADCALL |p| (QREFELT $ 64))
+                                     (QREFELT $ 63))
+                           (QREFELT $ 65))
+                          (QREFELT $ 66))
+                         |SOLVERAD;radicalSolve;FL;11|)
+                   (EXIT
+                    (COND ((NULL |lv|) (|error| "inconsistent equation"))
+                          ((SPADCALL (LENGTH |lv|) 1 (QREFELT $ 67))
+                           (|error| "too many variables"))
+                          (#1#
+                           (SPADCALL |p| (|SPADfirst| |lv|)
+                                     (QREFELT $ 59))))))))))) 
+
+(SDEFUN |SOLVERAD;radicalSolve;EL;12|
+        ((|eq| |Equation| (|Fraction| (|Polynomial| R)))
+         ($ |List| (|Equation| (|Expression| R))))
+        (SPADCALL
+         (SPADCALL (SPADCALL |eq| (QREFELT $ 70))
+                   (SPADCALL |eq| (QREFELT $ 71)) (QREFELT $ 72))
+         (QREFELT $ 68))) 
+
+(SDEFUN |SOLVERAD;radicalSolve;ESL;13|
+        ((|eq| |Equation| (|Fraction| (|Polynomial| R))) (|v| |Symbol|)
+         ($ |List| (|Equation| (|Expression| R))))
+        (SPADCALL
+         (SPADCALL (SPADCALL |eq| (QREFELT $ 70))
+                   (SPADCALL |eq| (QREFELT $ 71)) (QREFELT $ 72))
+         |v| (QREFELT $ 59))) 
+
+(SDEFUN |SOLVERAD;radicalRoots;LLL;14|
+        ((|lp| |List| (|Fraction| (|Polynomial| R))) (|lv| |List| (|Symbol|))
+         ($ |List| (|List| (|Expression| R))))
+        (SPROG
+         ((#1=#:G160 NIL) (#2=#:G159 #3=(|List| (|List| (|Expression| R))))
+          (#4=#:G161 #3#) (#5=#:G171 NIL) (|res| NIL)
+          (|rpRes| (|List| #6=(|List| (|Polynomial| R)))) (#7=#:G170 NIL)
+          (|result| (|List| (|List| (|Expression| R)))) (#8=#:G154 NIL)
+          (#9=#:G153 #10=(|List| (|List| (|Expression| R)))) (#11=#:G155 #10#)
+          (#12=#:G169 NIL) (|listGen| (|List| #6#)) (#13=#:G168 NIL)
+          (#14=#:G167 NIL) (#15=#:G166 NIL) (#16=#:G165 NIL)
+          (|rlv| (|List| (|Symbol|)))
+          (|parRes| (|List| (|List| (|Polynomial| R)))))
+         (SEQ
+          (LETT |parRes| (SPADCALL |lp| |lv| (QREFELT $ 78))
+                . #17=(|SOLVERAD;radicalRoots;LLL;14|))
+          (EXIT
+           (COND
+            ((SPADCALL |parRes| (SPADCALL NIL (QREFELT $ 80)) (QREFELT $ 81))
+             NIL)
+            (#18='T
+             (SEQ (LETT |rlv| (REVERSE |lv|) . #17#)
+                  (LETT |rpRes|
+                        (PROGN
+                         (LETT #16# NIL . #17#)
+                         (SEQ (LETT |res| NIL . #17#)
+                              (LETT #15# |parRes| . #17#) G190
+                              (COND
+                               ((OR (ATOM #15#)
+                                    (PROGN (LETT |res| (CAR #15#) . #17#) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (EXIT
+                                (LETT #16# (CONS (REVERSE |res|) #16#)
+                                      . #17#)))
+                              (LETT #15# (CDR #15#) . #17#) (GO G190) G191
+                              (EXIT (NREVERSE #16#))))
+                        . #17#)
+                  (LETT |listGen|
+                        (PROGN
+                         (LETT #14# NIL . #17#)
+                         (SEQ (LETT |res| NIL . #17#)
+                              (LETT #13# |rpRes| . #17#) G190
+                              (COND
+                               ((OR (ATOM #13#)
+                                    (PROGN (LETT |res| (CAR #13#) . #17#) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (EXIT
+                                (COND
+                                 ((|SOLVERAD;isGeneric?| |res| |rlv| $)
+                                  (LETT #14# (CONS |res| #14#) . #17#)))))
+                              (LETT #13# (CDR #13#) . #17#) (GO G190) G191
+                              (EXIT (NREVERSE #14#))))
+                        . #17#)
+                  (LETT |result| NIL . #17#)
+                  (COND
+                   ((SPADCALL |listGen| NIL (QREFELT $ 82))
+                    (SEQ
+                     (LETT |result|
+                           (PROGN
+                            (LETT #8# NIL . #17#)
+                            (SEQ (LETT |res| NIL . #17#)
+                                 (LETT #12# |listGen| . #17#) G190
+                                 (COND
+                                  ((OR (ATOM #12#)
+                                       (PROGN
+                                        (LETT |res| (CAR #12#) . #17#)
+                                        NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (PROGN
+                                    (LETT #11#
+                                          (|SOLVERAD;findGenZeros| |res| |rlv|
+                                           $)
+                                          . #17#)
+                                    (COND
+                                     (#8# (LETT #9# (APPEND #9# #11#) . #17#))
+                                     ('T
+                                      (PROGN
+                                       (LETT #9# #11# . #17#)
+                                       (LETT #8# 'T . #17#)))))))
+                                 (LETT #12# (CDR #12#) . #17#) (GO G190) G191
+                                 (EXIT NIL))
+                            (COND (#8# #9#) (#18# NIL)))
+                           . #17#)
+                     (EXIT
+                      (SEQ (LETT |res| NIL . #17#) (LETT #7# |listGen| . #17#)
+                           G190
+                           (COND
+                            ((OR (ATOM #7#)
+                                 (PROGN (LETT |res| (CAR #7#) . #17#) NIL))
+                             (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (LETT |rpRes|
+                                   (SPADCALL |rpRes|
+                                             (SPADCALL |res| |rpRes|
+                                                       (QREFELT $ 83))
+                                             (QREFELT $ 84))
+                                   . #17#)))
+                           (LETT #7# (CDR #7#) . #17#) (GO G190) G191
+                           (EXIT NIL))))))
+                  (EXIT
+                   (COND ((SPADCALL |rpRes| NIL (QREFELT $ 81)) |result|)
+                         (#18#
+                          (APPEND
+                           (PROGN
+                            (LETT #1# NIL . #17#)
+                            (SEQ (LETT |res| NIL . #17#)
+                                 (LETT #5# |rpRes| . #17#) G190
+                                 (COND
+                                  ((OR (ATOM #5#)
+                                       (PROGN
+                                        (LETT |res| (CAR #5#) . #17#)
+                                        NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (PROGN
+                                    (LETT #4#
+                                          (|SOLVERAD;findZeros| |res| |rlv| $)
+                                          . #17#)
+                                    (COND
+                                     (#1# (LETT #2# (APPEND #2# #4#) . #17#))
+                                     ('T
+                                      (PROGN
+                                       (LETT #2# #4# . #17#)
+                                       (LETT #1# 'T . #17#)))))))
+                                 (LETT #5# (CDR #5#) . #17#) (GO G190) G191
+                                 (EXIT NIL))
+                            (COND (#1# #2#) (#18# NIL)))
+                           |result|))))))))))) 
+
+(SDEFUN |SOLVERAD;radicalSolve;LLL;15|
+        ((|lp| |List| (|Fraction| (|Polynomial| R))) (|lv| |List| (|Symbol|))
+         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        (SPROG ((#1=#:G175 NIL) (|lres| NIL) (#2=#:G174 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #2# NIL . #3=(|SOLVERAD;radicalSolve;LLL;15|))
+                 (SEQ (LETT |lres| NIL . #3#)
+                      (LETT #1# (SPADCALL |lp| |lv| (QREFELT $ 86)) . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#)
+                            (PROGN (LETT |lres| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (|SOLVERAD;makeEq| |lres| |lv| $) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))))) 
+
+(SDEFUN |SOLVERAD;radicalSolve;LL;16|
+        ((|lp| |List| (|Fraction| (|Polynomial| R)))
+         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        (SPROG
+         ((#1=#:G184 NIL) (|lres| NIL) (#2=#:G183 NIL)
+          (|lv| #3=(|List| (|Symbol|))) (#4=#:G177 NIL) (#5=#:G176 #3#)
+          (#6=#:G178 #3#) (#7=#:G182 NIL) (|p| NIL))
+         (SEQ
+          (LETT |lv|
+                (PROGN
+                 (LETT #4# NIL . #8=(|SOLVERAD;radicalSolve;LL;16|))
+                 (SEQ (LETT |p| NIL . #8#) (LETT #7# |lp| . #8#) G190
+                      (COND
+                       ((OR (ATOM #7#) (PROGN (LETT |p| (CAR #7#) . #8#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (PROGN
+                         (LETT #6#
+                               (SPADCALL
+                                (SPADCALL (SPADCALL |p| (QREFELT $ 61))
+                                          (QREFELT $ 63))
+                                (SPADCALL (SPADCALL |p| (QREFELT $ 64))
+                                          (QREFELT $ 63))
+                                (QREFELT $ 89))
+                               . #8#)
+                         (COND
+                          (#4#
+                           (LETT #5# (SPADCALL #5# #6# (QREFELT $ 89)) . #8#))
+                          ('T
+                           (PROGN
+                            (LETT #5# #6# . #8#)
+                            (LETT #4# 'T . #8#)))))))
+                      (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL))
+                 (COND (#4# #5#) ('T (|IdentityError| '|setUnion|))))
+                . #8#)
+          (EXIT
+           (PROGN
+            (LETT #2# NIL . #8#)
+            (SEQ (LETT |lres| NIL . #8#)
+                 (LETT #1# (SPADCALL |lp| |lv| (QREFELT $ 86)) . #8#) G190
+                 (COND
+                  ((OR (ATOM #1#) (PROGN (LETT |lres| (CAR #1#) . #8#) NIL))
+                   (GO G191)))
+                 (SEQ
+                  (EXIT
+                   (LETT #2# (CONS (|SOLVERAD;makeEq| |lres| |lv| $) #2#)
+                         . #8#)))
+                 (LETT #1# (CDR #1#) . #8#) (GO G190) G191
+                 (EXIT (NREVERSE #2#)))))))) 
+
+(SDEFUN |SOLVERAD;radicalSolve;LLL;17|
+        ((|le| |List| (|Equation| (|Fraction| (|Polynomial| R))))
+         (|lv| |List| (|Symbol|))
+         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        (SPROG
+         ((#1=#:G192 NIL) (|lres| NIL) (#2=#:G191 NIL)
+          (|lp| (|List| (|Fraction| (|Polynomial| R)))) (#3=#:G190 NIL)
+          (|p| NIL) (#4=#:G189 NIL))
+         (SEQ
+          (LETT |lp|
+                (PROGN
+                 (LETT #4# NIL . #5=(|SOLVERAD;radicalSolve;LLL;17|))
+                 (SEQ (LETT |p| NIL . #5#) (LETT #3# |le| . #5#) G190
+                      (COND
+                       ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #5#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #4#
+                              (CONS
+                               (SPADCALL (SPADCALL |p| (QREFELT $ 71))
+                                         (SPADCALL |p| (QREFELT $ 70))
+                                         (QREFELT $ 72))
+                               #4#)
+                              . #5#)))
+                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #5#)
+          (EXIT
+           (PROGN
+            (LETT #2# NIL . #5#)
+            (SEQ (LETT |lres| NIL . #5#)
+                 (LETT #1# (SPADCALL |lp| |lv| (QREFELT $ 86)) . #5#) G190
+                 (COND
+                  ((OR (ATOM #1#) (PROGN (LETT |lres| (CAR #1#) . #5#) NIL))
+                   (GO G191)))
+                 (SEQ
+                  (EXIT
+                   (LETT #2# (CONS (|SOLVERAD;makeEq| |lres| |lv| $) #2#)
+                         . #5#)))
+                 (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                 (EXIT (NREVERSE #2#)))))))) 
+
+(SDEFUN |SOLVERAD;radicalSolve;LL;18|
+        ((|le| |List| (|Equation| (|Fraction| (|Polynomial| R))))
+         ($ |List| (|List| (|Equation| (|Expression| R)))))
+        (SPROG
+         ((#1=#:G204 NIL) (|lres| NIL) (#2=#:G203 NIL)
+          (|lv| #3=(|List| (|Symbol|))) (#4=#:G195 NIL) (#5=#:G194 #3#)
+          (#6=#:G196 #3#) (#7=#:G202 NIL) (|p| NIL)
+          (|lp| (|List| (|Fraction| (|Polynomial| R)))) (#8=#:G201 NIL)
+          (#9=#:G200 NIL))
+         (SEQ
+          (LETT |lp|
+                (PROGN
+                 (LETT #9# NIL . #10=(|SOLVERAD;radicalSolve;LL;18|))
+                 (SEQ (LETT |p| NIL . #10#) (LETT #8# |le| . #10#) G190
+                      (COND
+                       ((OR (ATOM #8#) (PROGN (LETT |p| (CAR #8#) . #10#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #9#
+                              (CONS
+                               (SPADCALL (SPADCALL |p| (QREFELT $ 71))
+                                         (SPADCALL |p| (QREFELT $ 70))
+                                         (QREFELT $ 72))
+                               #9#)
+                              . #10#)))
+                      (LETT #8# (CDR #8#) . #10#) (GO G190) G191
+                      (EXIT (NREVERSE #9#))))
+                . #10#)
+          (LETT |lv|
+                (PROGN
+                 (LETT #4# NIL . #10#)
+                 (SEQ (LETT |p| NIL . #10#) (LETT #7# |lp| . #10#) G190
+                      (COND
+                       ((OR (ATOM #7#) (PROGN (LETT |p| (CAR #7#) . #10#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (PROGN
+                         (LETT #6#
+                               (SPADCALL
+                                (SPADCALL (SPADCALL |p| (QREFELT $ 61))
+                                          (QREFELT $ 63))
+                                (SPADCALL (SPADCALL |p| (QREFELT $ 64))
+                                          (QREFELT $ 63))
+                                (QREFELT $ 89))
+                               . #10#)
+                         (COND
+                          (#4#
+                           (LETT #5# (SPADCALL #5# #6# (QREFELT $ 89)) . #10#))
+                          ('T
+                           (PROGN
+                            (LETT #5# #6# . #10#)
+                            (LETT #4# 'T . #10#)))))))
+                      (LETT #7# (CDR #7#) . #10#) (GO G190) G191 (EXIT NIL))
+                 (COND (#4# #5#) ('T (|IdentityError| '|setUnion|))))
+                . #10#)
+          (EXIT
+           (PROGN
+            (LETT #2# NIL . #10#)
+            (SEQ (LETT |lres| NIL . #10#)
+                 (LETT #1# (SPADCALL |lp| |lv| (QREFELT $ 86)) . #10#) G190
+                 (COND
+                  ((OR (ATOM #1#) (PROGN (LETT |lres| (CAR #1#) . #10#) NIL))
+                   (GO G191)))
+                 (SEQ
+                  (EXIT
+                   (LETT #2# (CONS (|SOLVERAD;makeEq| |lres| |lv| $) #2#)
+                         . #10#)))
+                 (LETT #1# (CDR #1#) . #10#) (GO G190) G191
+                 (EXIT (NREVERSE #2#)))))))) 
+
+(SDEFUN |SOLVERAD;contractSolve;ESSt;19|
+        ((|eq| |Equation| (|Fraction| (|Polynomial| R))) (|v| |Symbol|)
+         ($ |SuchThat| (|List| (|Expression| R))
+          (|List| (|Equation| (|Expression| R)))))
+        (|SOLVERAD;solveInner|
+         (SPADCALL
+          (SPADCALL (SPADCALL |eq| (QREFELT $ 70))
+                    (SPADCALL |eq| (QREFELT $ 71)) (QREFELT $ 72))
+          (QREFELT $ 61))
+         |v| 'T $)) 
+
+(SDEFUN |SOLVERAD;contractSolve;FSSt;20|
+        ((|pq| |Fraction| (|Polynomial| R)) (|v| |Symbol|)
+         ($ |SuchThat| (|List| (|Expression| R))
+          (|List| (|Equation| (|Expression| R)))))
+        (|SOLVERAD;solveInner| (SPADCALL |pq| (QREFELT $ 61)) |v| 'T $)) 
+
+(SDEFUN |SOLVERAD;radicalRoots;FSL;21|
+        ((|pq| |Fraction| (|Polynomial| R)) (|v| |Symbol|)
+         ($ |List| (|Expression| R)))
+        (SPADCALL
+         (|SOLVERAD;solveInner| (SPADCALL |pq| (QREFELT $ 61)) |v| 'NIL $)
+         (QREFELT $ 97))) 
+
+(SDEFUN |SOLVERAD;isGeneric?|
+        ((|rlp| |List| (|Polynomial| R)) (|rlv| |List| (|Symbol|))
+         ($ |Boolean|))
+        (SPROG
+         ((#1=#:G209 NIL) (#2=#:G208 #3=(|Boolean|)) (#4=#:G210 #3#)
+          (#5=#:G212 NIL) (|f| NIL) (#6=#:G213 NIL) (|x| NIL))
+         (SEQ
+          (PROGN
+           (LETT #1# NIL . #7=(|SOLVERAD;isGeneric?|))
+           (SEQ (LETT |x| NIL . #7#) (LETT #6# (CDR |rlv|) . #7#)
+                (LETT |f| NIL . #7#) (LETT #5# (CDR |rlp|) . #7#) G190
+                (COND
+                 ((OR (ATOM #5#) (PROGN (LETT |f| (CAR #5#) . #7#) NIL)
+                      (ATOM #6#) (PROGN (LETT |x| (CAR #6#) . #7#) NIL))
+                  (GO G191)))
+                (SEQ
+                 (EXIT
+                  (PROGN
+                   (LETT #4# (EQL (SPADCALL |f| |x| (QREFELT $ 98)) 1) . #7#)
+                   (COND (#1# (LETT #2# (COND (#2# #4#) ('T 'NIL)) . #7#))
+                         ('T
+                          (PROGN (LETT #2# #4# . #7#) (LETT #1# 'T . #7#)))))))
+                (LETT #5# (PROG1 (CDR #5#) (LETT #6# (CDR #6#) . #7#)) . #7#)
+                (GO G190) G191 (EXIT NIL))
+           (COND (#1# #2#) ('T 'T)))))) 
+
+(SDEFUN |SOLVERAD;select|
+        ((|lp| |List| (|List| (|Expression| R)))
+         ($ . #1=(|List| (|List| (|Expression| R)))))
+        (SPROG
+         ((#2=#:G215 NIL) (#3=#:G214 #1#) (#4=#:G216 #1#) (#5=#:G221 NIL)
+          (|lsel| NIL) (#6=#:G220 NIL) (#7=#:G219 NIL) (|f| NIL))
+         (SEQ
+          (COND
+           ((SPADCALL |lp| NIL (QREFELT $ 99)) (SPADCALL NIL (QREFELT $ 100)))
+           (#8='T
+            (PROGN
+             (LETT #2# NIL . #9=(|SOLVERAD;select|))
+             (SEQ (LETT |f| NIL . #9#) (LETT #7# (|SPADfirst| |lp|) . #9#) G190
+                  (COND
+                   ((OR (ATOM #7#) (PROGN (LETT |f| (CAR #7#) . #9#) NIL))
+                    (GO G191)))
+                  (SEQ
+                   (EXIT
+                    (PROGN
+                     (LETT #4#
+                           (PROGN
+                            (LETT #6# NIL . #9#)
+                            (SEQ (LETT |lsel| NIL . #9#)
+                                 (LETT #5# (|SOLVERAD;select| (CDR |lp|) $)
+                                       . #9#)
+                                 G190
+                                 (COND
+                                  ((OR (ATOM #5#)
+                                       (PROGN
+                                        (LETT |lsel| (CAR #5#) . #9#)
+                                        NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT #6# (CONS (CONS |f| |lsel|) #6#)
+                                         . #9#)))
+                                 (LETT #5# (CDR #5#) . #9#) (GO G190) G191
+                                 (EXIT (NREVERSE #6#))))
+                           . #9#)
+                     (COND (#2# (LETT #3# (APPEND #3# #4#) . #9#))
+                           ('T
+                            (PROGN
+                             (LETT #3# #4# . #9#)
+                             (LETT #2# 'T . #9#)))))))
+                  (LETT #7# (CDR #7#) . #9#) (GO G190) G191 (EXIT NIL))
+             (COND (#2# #3#) (#8# NIL)))))))) 
+
+(SDEFUN |SOLVERAD;makeEq|
+        ((|nres| |List| (|Expression| R)) (|lv| |List| (|Symbol|))
+         ($ |List| (|Equation| (|Expression| R))))
+        (SPROG
+         ((#1=#:G225 NIL) (|x| NIL) (#2=#:G226 NIL) (|r| NIL) (#3=#:G224 NIL))
+         (SEQ
+          (PROGN
+           (LETT #3# NIL . #4=(|SOLVERAD;makeEq|))
+           (SEQ (LETT |r| NIL . #4#) (LETT #2# |nres| . #4#)
+                (LETT |x| NIL . #4#) (LETT #1# |lv| . #4#) G190
+                (COND
+                 ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #4#) NIL)
+                      (ATOM #2#) (PROGN (LETT |r| (CAR #2#) . #4#) NIL))
+                  (GO G191)))
+                (SEQ
+                 (EXIT
+                  (LETT #3#
+                        (CONS
+                         (SPADCALL (SPADCALL |x| (QREFELT $ 56)) |r|
+                                   (QREFELT $ 57))
+                         #3#)
+                        . #4#)))
+                (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#)) . #4#)
+                (GO G190) G191 (EXIT (NREVERSE #3#))))))) 
+
+(SDEFUN |SOLVERAD;solveInner|
+        ((|pq| |Polynomial| R) (|v| |Symbol|) (|contractFlag| |Boolean|)
+         ($ |SuchThat| (|List| (|Expression| R))
+          (|List| (|Equation| (|Expression| R)))))
+        (SPROG
+         ((|re| (|List| (|Equation| (|Expression| R))))
+          (|solutions| (|List| (|Expression| R))) (#1=#:G241 NIL) (|i| NIL)
+          (T0 (|List| (|Expression| R))) (|s| (|Expression| R)) (#2=#:G240 NIL)
+          (|l| (|List| (|Expression| R)))
+          (|unsolved| (|List| (|Polynomial| R))) (|n| (|NonNegativeInteger|))
+          (|u| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+          (|t|
+           (|Record|
+            (|:| |pol| (|SparseUnivariatePolynomial| (|Polynomial| R)))
+            (|:| |deg| (|PositiveInteger|))))
+          (|constants| (|List| (|Polynomial| R))) (|ff| #3=(|Polynomial| R))
+          (#4=#:G239 NIL) (|f| NIL)
+          (|factors|
+           (|List|
+            (|Record| (|:| |factor| #3#) (|:| |exponent| (|Integer|))))))
+         (SEQ (SETELT $ 7 NIL) (SETELT $ 8 |contractFlag|)
+              (LETT |factors|
+                    (SPADCALL (SPADCALL |pq| (QREFELT $ 103)) (QREFELT $ 106))
+                    . #5=(|SOLVERAD;solveInner|))
+              (LETT |constants| NIL . #5#) (LETT |unsolved| NIL . #5#)
+              (LETT |solutions| NIL . #5#)
+              (SEQ (LETT |f| NIL . #5#) (LETT #4# |factors| . #5#) G190
+                   (COND
+                    ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #5#) NIL))
+                     (GO G191)))
+                   (SEQ (LETT |ff| (QCAR |f|) . #5#)
+                        (COND
+                         ((NULL
+                           (SPADCALL |v| (SPADCALL |ff| (QREFELT $ 63))
+                                     (QREFELT $ 107)))
+                          (EXIT
+                           (LETT |constants| (CONS |ff| |constants|) . #5#))))
+                        (LETT |u| (SPADCALL |ff| |v| (QREFELT $ 45)) . #5#)
+                        (LETT |t| (SPADCALL |u| (QREFELT $ 110)) . #5#)
+                        (LETT |u| (QCAR |t|) . #5#)
+                        (LETT |n| (SPADCALL |u| (QREFELT $ 111)) . #5#)
+                        (LETT |l|
+                              (COND ((EQL |n| 1) (|SOLVERAD;linear| |u| $))
+                                    ((EQL |n| 2) (|SOLVERAD;quadratic| |u| $))
+                                    ((EQL |n| 3) (|SOLVERAD;cubic| |u| $))
+                                    ((EQL |n| 4) (|SOLVERAD;quartic| |u| $))
+                                    ('T
+                                     (SEQ
+                                      (LETT |unsolved| (CONS |ff| |unsolved|)
+                                            . #5#)
+                                      (EXIT NIL))))
+                              . #5#)
+                        (EXIT
+                         (SEQ (LETT |s| NIL . #5#) (LETT #2# |l| . #5#) G190
+                              (COND
+                               ((OR (ATOM #2#)
+                                    (PROGN (LETT |s| (CAR #2#) . #5#) NIL))
+                                (GO G191)))
+                              (SEQ
+                               (COND
+                                ((SPADCALL (QCDR |t|) 1 (QREFELT $ 113))
+                                 (LETT |s| (|SOLVERAD;wrap| |s| $) . #5#)))
+                               (LETT T0
+                                     (SPADCALL |s| (QCDR |t|) (QREFELT $ 114))
+                                     . #5#)
+                               (SEQ (LETT |i| 1 . #5#)
+                                    (LETT #1# (QCDR |f|) . #5#) G190
+                                    (COND ((|greater_SI| |i| #1#) (GO G191)))
+                                    (SEQ
+                                     (EXIT
+                                      (LETT |solutions| (APPEND T0 |solutions|)
+                                            . #5#)))
+                                    (LETT |i| (|inc_SI| |i|) . #5#) (GO G190)
+                                    G191 (EXIT NIL))
+                               (EXIT (LETT |re| (QREFELT $ 7) . #5#)))
+                              (LETT #2# (CDR #2#) . #5#) (GO G190) G191
+                              (EXIT NIL))))
+                   (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
+              (EXIT (SPADCALL |solutions| (QREFELT $ 7) (QREFELT $ 115)))))) 
 
 (DECLAIM (NOTINLINE |RadicalSolvePackage;|)) 
 
 (DEFUN |RadicalSolvePackage| (#1=#:G242)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G243)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|RadicalSolvePackage|)
-                                           '|domainEqualList|)
-                . #3=(|RadicalSolvePackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|RadicalSolvePackage;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G243)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|RadicalSolvePackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|RadicalSolvePackage|)
+                                               '|domainEqualList|)
+                    . #3=(|RadicalSolvePackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|RadicalSolvePackage;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RadicalSolvePackage|)))))))))) 
 
 (DEFUN |RadicalSolvePackage;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|RadicalSolvePackage|))
-      (LETT |dv$| (LIST '|RadicalSolvePackage| DV$1) . #1#)
-      (LETT $ (GETREFV 116) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|RadicalSolvePackage| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 NIL)
-      (QSETREFV $ 8 'NIL)
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|RadicalSolvePackage|))
+          (LETT |dv$| (LIST '|RadicalSolvePackage| DV$1) . #1#)
+          (LETT $ (GETREFV 116) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|RadicalSolvePackage| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 NIL)
+          (QSETREFV $ 8 'NIL)
+          $))) 
 
 (MAKEPROP '|RadicalSolvePackage| '|infovec|
           (LIST

@@ -1,9 +1,42 @@
 
-(DEFUN |PATTERN2;map;MPP;1| (|f| |p| $)
-  (PROG (|sy| |wr| |w| |xr| |x| #1=#:G159 #2=#:G158 |l| #3=#:G157 #4=#:G156
-         |vr| |v| #5=#:G155 #6=#:G154 |ur| |u| |r|)
-    (RETURN
-     (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 10)) . #7=(|PATTERN2;map;MPP;1|))
+(SDEFUN |PATTERN2;map;MPP;1|
+        ((|f| |Mapping| S R) (|p| |Pattern| R) ($ |Pattern| S))
+        (SPROG
+         ((|sy| (|Symbol|))
+          (|wr|
+           (|Record| (|:| |val| (|Pattern| R))
+                     (|:| |exponent| (|NonNegativeInteger|))))
+          (|w|
+           (|Union|
+            (|Record| (|:| |val| (|Pattern| R))
+                      (|:| |exponent| (|NonNegativeInteger|)))
+            "failed"))
+          (|xr|
+           (|Record| (|:| |val| (|Pattern| R)) (|:| |exponent| (|Pattern| R))))
+          (|x|
+           (|Union|
+            (|Record| (|:| |val| (|Pattern| R)) (|:| |exponent| (|Pattern| R)))
+            "failed"))
+          (#1=#:G159 NIL) (#2=#:G158 NIL)
+          (|l| (|Union| (|List| (|Pattern| R)) "failed")) (#3=#:G157 NIL)
+          (#4=#:G156 NIL)
+          (|vr| (|Record| (|:| |num| (|Pattern| R)) (|:| |den| (|Pattern| R))))
+          (|v|
+           (|Union|
+            (|Record| (|:| |num| (|Pattern| R)) (|:| |den| (|Pattern| R)))
+            "failed"))
+          (#5=#:G155 NIL) (#6=#:G154 NIL)
+          (|ur|
+           (|Record| (|:| |op| (|BasicOperator|))
+                     (|:| |arg| (|List| (|Pattern| R)))))
+          (|u|
+           (|Union|
+            (|Record| (|:| |op| (|BasicOperator|))
+                      (|:| |arg| (|List| (|Pattern| R))))
+            "failed"))
+          (|r| (|Union| R "failed")))
+         (SEQ
+          (LETT |r| (SPADCALL |p| (QREFELT $ 10)) . #7=(|PATTERN2;map;MPP;1|))
           (EXIT
            (COND
             ((QEQCAR |r| 0)
@@ -157,48 +190,46 @@
                                                  (SPADCALL |p| (QREFELT $ 46))
                                                  (QREFELT $ 47))
                                                 (QREFELT $
-                                                         48))))))))))))))))))))))))))))))))))) 
+                                                         48)))))))))))))))))))))))))))))))))) 
 
 (DECLAIM (NOTINLINE |PatternFunctions2;|)) 
 
 (DEFUN |PatternFunctions2| (&REST #1=#:G160)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G161)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PatternFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|PatternFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PatternFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G161)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|PatternFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PatternFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|PatternFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PatternFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PatternFunctions2|)))))))))) 
 
 (DEFUN |PatternFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|PatternFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 49) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PatternFunctions2| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|PatternFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 49) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PatternFunctions2| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PatternFunctions2| '|infovec|
           (LIST

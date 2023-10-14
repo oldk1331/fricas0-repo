@@ -17,43 +17,47 @@
       #2#)))) 
 
 (DEFUN |DifferentialExtension;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|DifferentialExtension;CAT|)
-                                ('T
-                                 (LETT |DifferentialExtension;CAT|
-                                       (|Join| (|Ring|)
-                                               (|mkCategory|
-                                                '(((|differentiate|
-                                                    ($ $
-                                                     (|Mapping| |t#1| |t#1|)))
-                                                   T)
-                                                  ((|differentiate|
-                                                    ($ $
-                                                     (|Mapping| |t#1| |t#1|)
-                                                     (|NonNegativeInteger|)))
-                                                   T)
-                                                  ((D
-                                                    ($ $
-                                                     (|Mapping| |t#1| |t#1|)))
-                                                   T)
-                                                  ((D
-                                                    ($ $
-                                                     (|Mapping| |t#1| |t#1|)
-                                                     (|NonNegativeInteger|)))
-                                                   T))
-                                                '(((|DifferentialRing|)
-                                                   (|has| |t#1|
-                                                          (|DifferentialRing|)))
-                                                  ((|PartialDifferentialRing|
-                                                    (|Symbol|))
-                                                   (|has| |t#1|
-                                                          (|PartialDifferentialRing|
-                                                           (|Symbol|)))))
-                                                '((|NonNegativeInteger|)) NIL))
-                                       . #2=(|DifferentialExtension|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|DifferentialExtension| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|DifferentialExtension;CAT|)
+                                    ('T
+                                     (LETT |DifferentialExtension;CAT|
+                                           (|Join| (|Ring|)
+                                                   (|mkCategory|
+                                                    '(((|differentiate|
+                                                        ($ $
+                                                         (|Mapping| |t#1|
+                                                                    |t#1|)))
+                                                       T)
+                                                      ((|differentiate|
+                                                        ($ $
+                                                         (|Mapping| |t#1|
+                                                                    |t#1|)
+                                                         (|NonNegativeInteger|)))
+                                                       T)
+                                                      ((D
+                                                        ($ $
+                                                         (|Mapping| |t#1|
+                                                                    |t#1|)))
+                                                       T)
+                                                      ((D
+                                                        ($ $
+                                                         (|Mapping| |t#1|
+                                                                    |t#1|)
+                                                         (|NonNegativeInteger|)))
+                                                       T))
+                                                    '(((|DifferentialRing|)
+                                                       (|has| |t#1|
+                                                              (|DifferentialRing|)))
+                                                      ((|PartialDifferentialRing|
+                                                        (|Symbol|))
+                                                       (|has| |t#1|
+                                                              (|PartialDifferentialRing|
+                                                               (|Symbol|)))))
+                                                    '((|NonNegativeInteger|))
+                                                    NIL))
+                                           . #2=(|DifferentialExtension|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|DifferentialExtension| (|devaluate| |t#1|)))))) 

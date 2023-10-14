@@ -1,112 +1,122 @@
 
-(DEFUN |CLAGG-;find;MAU;1| (|f| |c| $)
-  (SPADCALL |f| (SPADCALL |c| (QREFELT $ 9)) (QREFELT $ 12))) 
+(SDEFUN |CLAGG-;find;MAU;1|
+        ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |Union| S "failed"))
+        (SPADCALL |f| (SPADCALL |c| (QREFELT $ 9)) (QREFELT $ 12))) 
 
-(DEFUN |CLAGG-;reduce;MAS;2| (|f| |x| $)
-  (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 15))) 
+(SDEFUN |CLAGG-;reduce;MAS;2| ((|f| |Mapping| S S S) (|x| A) ($ S))
+        (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 15))) 
 
-(DEFUN |CLAGG-;reduce;MA2S;3| (|f| |x| |s| $)
-  (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) |s| (QREFELT $ 17))) 
+(SDEFUN |CLAGG-;reduce;MA2S;3| ((|f| |Mapping| S S S) (|x| A) (|s| S) ($ S))
+        (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) |s| (QREFELT $ 17))) 
 
-(DEFUN |CLAGG-;remove;M2A;4| (|f| |x| $)
-  (SPADCALL (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 19))
-            (QREFELT $ 20))) 
+(SDEFUN |CLAGG-;remove;M2A;4| ((|f| |Mapping| (|Boolean|) S) (|x| A) ($ A))
+        (SPADCALL (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 19))
+                  (QREFELT $ 20))) 
 
-(DEFUN |CLAGG-;select;M2A;5| (|f| |x| $)
-  (SPADCALL (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 22))
-            (QREFELT $ 20))) 
+(SDEFUN |CLAGG-;select;M2A;5| ((|f| |Mapping| (|Boolean|) S) (|x| A) ($ A))
+        (SPADCALL (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 22))
+                  (QREFELT $ 20))) 
 
-(DEFUN |CLAGG-;remove;S2A;6| (|s| |x| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|CLAGG-;remove;S2A;6!0| (VECTOR $ |s|)) |x|
-               (QREFELT $ 26))))) 
+(SDEFUN |CLAGG-;remove;S2A;6| ((|s| S) (|x| A) ($ A))
+        (SPROG NIL
+               (SPADCALL (CONS #'|CLAGG-;remove;S2A;6!0| (VECTOR $ |s|)) |x|
+                         (QREFELT $ 26)))) 
 
-(DEFUN |CLAGG-;remove;S2A;6!0| (|y| $$)
-  (PROG (|s| $)
-    (LETT |s| (QREFELT $$ 1) . #1=(|CLAGG-;remove;S2A;6|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |y| |s| (QREFELT $ 25)))))) 
+(SDEFUN |CLAGG-;remove;S2A;6!0| ((|y| NIL) ($$ NIL))
+        (PROG (|s| $)
+          (LETT |s| (QREFELT $$ 1) . #1=(|CLAGG-;remove;S2A;6|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |y| |s| (QREFELT $ 25)))))) 
 
-(DEFUN |CLAGG-;reduce;MA3S;7| (|f| |x| |s1| |s2| $)
-  (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) |s1| |s2| (QREFELT $ 28))) 
+(SDEFUN |CLAGG-;reduce;MA3S;7|
+        ((|f| |Mapping| S S S) (|x| A) (|s1| S) (|s2| S) ($ S))
+        (SPADCALL |f| (SPADCALL |x| (QREFELT $ 9)) |s1| |s2| (QREFELT $ 28))) 
 
-(DEFUN |CLAGG-;removeDuplicates;2A;8| (|x| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 30))
-            (QREFELT $ 20))) 
+(SDEFUN |CLAGG-;removeDuplicates;2A;8| ((|x| A) ($ A))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 30))
+                  (QREFELT $ 20))) 
 
-(DEFUN |CLAGG-;convert;AIf;9| (|x| $)
-  (PROG (|a_form| |l_form| |p_form| #1=#:G142 |el| #2=#:G141)
-    (RETURN
-     (SEQ
-      (LETT |p_form|
-            (PROGN
-             (LETT #2# NIL . #3=(|CLAGG-;convert;AIf;9|))
-             (SEQ (LETT |el| NIL . #3#)
-                  (LETT #1# (SPADCALL |x| (QREFELT $ 9)) . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #2# (CONS (SPADCALL |el| (QREFELT $ 33)) #2#)
-                          . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (LETT |l_form| (CONS (SPADCALL '|construct| (QREFELT $ 35)) |p_form|)
-            . #3#)
-      (LETT |a_form| (SPADCALL |l_form| (QREFELT $ 37)) . #3#)
-      (EXIT (SPADCALL '|construct| (LIST |a_form|) (QREFELT $ 40))))))) 
+(SDEFUN |CLAGG-;convert;AIf;9| ((|x| A) ($ |InputForm|))
+        (SPROG
+         ((|a_form| (|InputForm|)) (|l_form| (|List| (|InputForm|)))
+          (|p_form| (|List| (|InputForm|))) (#1=#:G142 NIL) (|el| NIL)
+          (#2=#:G141 NIL))
+         (SEQ
+          (LETT |p_form|
+                (PROGN
+                 (LETT #2# NIL . #3=(|CLAGG-;convert;AIf;9|))
+                 (SEQ (LETT |el| NIL . #3#)
+                      (LETT #1# (SPADCALL |x| (QREFELT $ 9)) . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |el| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (SPADCALL |el| (QREFELT $ 33)) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (LETT |l_form| (CONS (SPADCALL '|construct| (QREFELT $ 35)) |p_form|)
+                . #3#)
+          (LETT |a_form| (SPADCALL |l_form| (QREFELT $ 37)) . #3#)
+          (EXIT (SPADCALL '|construct| (LIST |a_form|) (QREFELT $ 40)))))) 
 
 (DECLAIM (NOTINLINE |Collection&;|)) 
 
 (DEFUN |Collection&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Collection&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|Collection&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 42) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#2| '(|BasicType|))
-                                          (|HasCategory| |#1|
-                                                         '(|finiteAggregate|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 13 (CONS (|dispatchFunction| |CLAGG-;find;MAU;1|) $))
-         (QSETREFV $ 16 (CONS (|dispatchFunction| |CLAGG-;reduce;MAS;2|) $))
-         (QSETREFV $ 18 (CONS (|dispatchFunction| |CLAGG-;reduce;MA2S;3|) $))
-         (QSETREFV $ 21 (CONS (|dispatchFunction| |CLAGG-;remove;M2A;4|) $))
-         (QSETREFV $ 23 (CONS (|dispatchFunction| |CLAGG-;select;M2A;5|) $))
-         (COND
-          ((|testBitVector| |pv$| 2)
-           (PROGN
-            (QSETREFV $ 27 (CONS (|dispatchFunction| |CLAGG-;remove;S2A;6|) $))
-            (QSETREFV $ 29
-                      (CONS (|dispatchFunction| |CLAGG-;reduce;MA3S;7|) $))
-            (QSETREFV $ 31
-                      (CONS (|dispatchFunction| |CLAGG-;removeDuplicates;2A;8|)
-                            $)))))
-         (COND
-          ((|testBitVector| |pv$| 1)
-           (QSETREFV $ 41
-                     (CONS (|dispatchFunction| |CLAGG-;convert;AIf;9|) $)))))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Collection&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|Collection&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 42) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              (|HasCategory| |#2|
+                                                             '(|BasicType|))
+                                              (|HasCategory| |#1|
+                                                             '(|finiteAggregate|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 3)
+            (PROGN
+             (QSETREFV $ 13 (CONS (|dispatchFunction| |CLAGG-;find;MAU;1|) $))
+             (QSETREFV $ 16
+                       (CONS (|dispatchFunction| |CLAGG-;reduce;MAS;2|) $))
+             (QSETREFV $ 18
+                       (CONS (|dispatchFunction| |CLAGG-;reduce;MA2S;3|) $))
+             (QSETREFV $ 21
+                       (CONS (|dispatchFunction| |CLAGG-;remove;M2A;4|) $))
+             (QSETREFV $ 23
+                       (CONS (|dispatchFunction| |CLAGG-;select;M2A;5|) $))
+             (COND
+              ((|testBitVector| |pv$| 2)
+               (PROGN
+                (QSETREFV $ 27
+                          (CONS (|dispatchFunction| |CLAGG-;remove;S2A;6|) $))
+                (QSETREFV $ 29
+                          (CONS (|dispatchFunction| |CLAGG-;reduce;MA3S;7|) $))
+                (QSETREFV $ 31
+                          (CONS
+                           (|dispatchFunction| |CLAGG-;removeDuplicates;2A;8|)
+                           $)))))
+             (COND
+              ((|testBitVector| |pv$| 1)
+               (QSETREFV $ 41
+                         (CONS (|dispatchFunction| |CLAGG-;convert;AIf;9|)
+                               $)))))))
+          $))) 
 
 (MAKEPROP '|Collection&| '|infovec|
           (LIST

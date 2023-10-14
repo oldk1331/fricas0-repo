@@ -1,51 +1,59 @@
 
-(DEFUN |PLOT1;plot;SSSP;1| (|f| |x| |xRange| $)
-  (SPADCALL (SPADCALL |f| |x| (QREFELT $ 10)) |xRange| (QREFELT $ 13))) 
+(SDEFUN |PLOT1;plot;SSSP;1|
+        ((|f| S) (|x| |Symbol|) (|xRange| |Segment| (|DoubleFloat|))
+         ($ |Plot|))
+        (SPADCALL (SPADCALL |f| |x| (QREFELT $ 10)) |xRange| (QREFELT $ 13))) 
 
-(DEFUN |PLOT1;plotPolar;SSP;2| (|f| |theta| $)
-  (SPADCALL (SPADCALL |f| |theta| (QREFELT $ 10)) (QREFELT $ 15))) 
+(SDEFUN |PLOT1;plotPolar;SSP;2| ((|f| S) (|theta| |Symbol|) ($ |Plot|))
+        (SPADCALL (SPADCALL |f| |theta| (QREFELT $ 10)) (QREFELT $ 15))) 
 
-(DEFUN |PLOT1;plot;2SSSP;3| (|f1| |f2| |t| |tRange| $)
-  (SPADCALL (SPADCALL |f1| |t| (QREFELT $ 10))
-            (SPADCALL |f2| |t| (QREFELT $ 10)) |tRange| (QREFELT $ 17))) 
+(SDEFUN |PLOT1;plot;2SSSP;3|
+        ((|f1| S) (|f2| S) (|t| |Symbol|) (|tRange| |Segment| (|DoubleFloat|))
+         ($ |Plot|))
+        (SPADCALL (SPADCALL |f1| |t| (QREFELT $ 10))
+                  (SPADCALL |f2| |t| (QREFELT $ 10)) |tRange| (QREFELT $ 17))) 
 
-(DEFUN |PLOT1;plotPolar;SSSP;4| (|f| |theta| |thetaRange| $)
-  (SPADCALL (SPADCALL |f| |theta| (QREFELT $ 10)) |thetaRange| (QREFELT $ 19))) 
+(SDEFUN |PLOT1;plotPolar;SSSP;4|
+        ((|f| S) (|theta| |Symbol|) (|thetaRange| |Segment| (|DoubleFloat|))
+         ($ |Plot|))
+        (SPADCALL (SPADCALL |f| |theta| (QREFELT $ 10)) |thetaRange|
+                  (QREFELT $ 19))) 
 
 (DECLAIM (NOTINLINE |PlotFunctions1;|)) 
 
 (DEFUN |PlotFunctions1| (#1=#:G112)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G113)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|PlotFunctions1|)
-                                           '|domainEqualList|)
-                . #3=(|PlotFunctions1|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|PlotFunctions1;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G113)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|PlotFunctions1|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PlotFunctions1|)
+                                               '|domainEqualList|)
+                    . #3=(|PlotFunctions1|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|PlotFunctions1;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PlotFunctions1|)))))))))) 
 
 (DEFUN |PlotFunctions1;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PlotFunctions1|))
-      (LETT |dv$| (LIST '|PlotFunctions1| DV$1) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PlotFunctions1| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PlotFunctions1|))
+          (LETT |dv$| (LIST '|PlotFunctions1| DV$1) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PlotFunctions1| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PlotFunctions1| '|infovec|
           (LIST

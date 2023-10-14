@@ -1,144 +1,157 @@
 
-(DEFUN |FINRALG-;discriminant;VR;1| (|v| $)
-  (SPADCALL (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 12))) 
+(SDEFUN |FINRALG-;discriminant;VR;1| ((|v| |Vector| S) ($ R))
+        (SPADCALL (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 12))) 
 
-(DEFUN |FINRALG-;coordinates;2VM;2| (|v| |b| $)
-  (PROG (#1=#:G114 |i| |j| |m|)
-    (RETURN
-     (SEQ
-      (LETT |m| (MAKE_MATRIX1 (QVSIZE |v|) (QVSIZE |b|) (|spadConstant| $ 14))
-            . #2=(|FINRALG-;coordinates;2VM;2|))
-      (SEQ (LETT |j| 1 . #2#) (LETT |i| (SPADCALL |v| (QREFELT $ 17)) . #2#)
-           (LETT #1# (QVSIZE |v|) . #2#) G190 (COND ((> |i| #1#) (GO G191)))
-           (SEQ
-            (EXIT
-             (SPADCALL |m| |j|
-                       (SPADCALL (QAREF1O |v| |i| 1) |b| (QREFELT $ 19))
-                       (QREFELT $ 20))))
-           (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (|inc_SI| |j|) . #2#)) . #2#)
-           (GO G190) G191 (EXIT NIL))
-      (EXIT |m|))))) 
-
-(DEFUN |FINRALG-;represents;VVS;3| (|v| |b| $)
-  (PROG (#1=#:G116 #2=#:G115 #3=#:G117 #4=#:G120 |i| |m|)
-    (RETURN
-     (SEQ
-      (LETT |m| (- (SPADCALL |v| (QREFELT $ 22)) 1)
-            . #5=(|FINRALG-;represents;VVS;3|))
-      (EXIT
-       (PROGN
-        (LETT #1# NIL . #5#)
-        (SEQ (LETT |i| 1 . #5#) (LETT #4# (SPADCALL (QREFELT $ 24)) . #5#) G190
-             (COND ((|greater_SI| |i| #4#) (GO G191)))
-             (SEQ
-              (EXIT
-               (PROGN
-                (LETT #3#
-                      (SPADCALL (SPADCALL |v| (+ |i| |m|) (QREFELT $ 25))
-                                (SPADCALL |b| (+ |i| |m|) (QREFELT $ 26))
-                                (QREFELT $ 27))
-                      . #5#)
-                (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 28)) . #5#))
-                      ('T (PROGN (LETT #2# #3# . #5#) (LETT #1# 'T . #5#)))))))
-             (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
-        (COND (#1# #2#) ('T (|spadConstant| $ 29))))))))) 
-
-(DEFUN |FINRALG-;traceMatrix;VM;4| (|v| $)
-  (PROG (#1=#:G127 |j| #2=#:G126 #3=#:G125 |i| #4=#:G124)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #4# NIL . #5=(|FINRALG-;traceMatrix;VM;4|))
-        (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 17)) . #5#)
-             (LETT #3# (QVSIZE |v|) . #5#) G190 (COND ((> |i| #3#) (GO G191)))
-             (SEQ
-              (EXIT
-               (LETT #4#
-                     (CONS
-                      (PROGN
-                       (LETT #2# NIL . #5#)
-                       (SEQ (LETT |j| (SPADCALL |v| (QREFELT $ 17)) . #5#)
-                            (LETT #1# (QVSIZE |v|) . #5#) G190
-                            (COND ((> |j| #1#) (GO G191)))
-                            (SEQ
-                             (EXIT
-                              (LETT #2#
-                                    (CONS
-                                     (SPADCALL
-                                      (SPADCALL
-                                       (SPADCALL |v| |i| (QREFELT $ 26))
-                                       (SPADCALL |v| |j| (QREFELT $ 26))
-                                       (QREFELT $ 31))
-                                      (QREFELT $ 32))
-                                     #2#)
-                                    . #5#)))
-                            (LETT |j| (+ |j| 1) . #5#) (GO G190) G191
-                            (EXIT (NREVERSE #2#))))
-                      #4#)
-                     . #5#)))
-             (LETT |i| (+ |i| 1) . #5#) (GO G190) G191 (EXIT (NREVERSE #4#))))
-       (QREFELT $ 34)))))) 
-
-(DEFUN |FINRALG-;regularRepresentation;SVM;5| (|x| |b| $)
-  (PROG (#1=#:G133 |i| #2=#:G132 |m|)
-    (RETURN
-     (SEQ
-      (LETT |m| (- (SPADCALL |b| (QREFELT $ 17)) 1)
-            . #3=(|FINRALG-;regularRepresentation;SVM;5|))
-      (EXIT
-       (SPADCALL
-        (SPADCALL
-         (PROGN
-          (LETT #2# NIL . #3#)
-          (SEQ (LETT |i| 1 . #3#) (LETT #1# (SPADCALL (QREFELT $ 24)) . #3#)
-               G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+(SDEFUN |FINRALG-;coordinates;2VM;2|
+        ((|v| |Vector| S) (|b| |Vector| S) ($ |Matrix| R))
+        (SPROG ((#1=#:G114 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
                (SEQ
-                (EXIT
-                 (LETT #2#
-                       (CONS
-                        (SPADCALL
-                         (SPADCALL
-                          (SPADCALL |x|
+                (LETT |m|
+                      (MAKE_MATRIX1 (QVSIZE |v|) (QVSIZE |b|)
+                                    (|spadConstant| $ 14))
+                      . #2=(|FINRALG-;coordinates;2VM;2|))
+                (SEQ (LETT |j| 1 . #2#)
+                     (LETT |i| (SPADCALL |v| (QREFELT $ 17)) . #2#)
+                     (LETT #1# (QVSIZE |v|) . #2#) G190
+                     (COND ((> |i| #1#) (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (SPADCALL |m| |j|
+                                 (SPADCALL (QAREF1O |v| |i| 1) |b|
+                                           (QREFELT $ 19))
+                                 (QREFELT $ 20))))
+                     (LETT |i|
+                           (PROG1 (+ |i| 1) (LETT |j| (|inc_SI| |j|) . #2#))
+                           . #2#)
+                     (GO G190) G191 (EXIT NIL))
+                (EXIT |m|)))) 
+
+(SDEFUN |FINRALG-;represents;VVS;3| ((|v| |Vector| R) (|b| |Vector| S) ($ S))
+        (SPROG
+         ((#1=#:G116 NIL) (#2=#:G115 (S)) (#3=#:G117 (S)) (#4=#:G120 NIL)
+          (|i| NIL) (|m| (|Integer|)))
+         (SEQ
+          (LETT |m| (- (SPADCALL |v| (QREFELT $ 22)) 1)
+                . #5=(|FINRALG-;represents;VVS;3|))
+          (EXIT
+           (PROGN
+            (LETT #1# NIL . #5#)
+            (SEQ (LETT |i| 1 . #5#) (LETT #4# (SPADCALL (QREFELT $ 24)) . #5#)
+                 G190 (COND ((|greater_SI| |i| #4#) (GO G191)))
+                 (SEQ
+                  (EXIT
+                   (PROGN
+                    (LETT #3#
+                          (SPADCALL (SPADCALL |v| (+ |i| |m|) (QREFELT $ 25))
                                     (SPADCALL |b| (+ |i| |m|) (QREFELT $ 26))
-                                    (QREFELT $ 31))
-                          |b| (QREFELT $ 19))
-                         (QREFELT $ 37))
-                        #2#)
-                       . #3#)))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-               (EXIT (NREVERSE #2#))))
-         (QREFELT $ 34))
-        (QREFELT $ 38))))))) 
+                                    (QREFELT $ 27))
+                          . #5#)
+                    (COND
+                     (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 28)) . #5#))
+                     ('T (PROGN (LETT #2# #3# . #5#) (LETT #1# 'T . #5#)))))))
+                 (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
+            (COND (#1# #2#) ('T (|spadConstant| $ 29)))))))) 
+
+(SDEFUN |FINRALG-;traceMatrix;VM;4| ((|v| |Vector| S) ($ |Matrix| R))
+        (SPROG
+         ((#1=#:G127 NIL) (|j| NIL) (#2=#:G126 NIL) (#3=#:G125 NIL) (|i| NIL)
+          (#4=#:G124 NIL))
+         (SEQ
+          (SPADCALL
+           (PROGN
+            (LETT #4# NIL . #5=(|FINRALG-;traceMatrix;VM;4|))
+            (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 17)) . #5#)
+                 (LETT #3# (QVSIZE |v|) . #5#) G190
+                 (COND ((> |i| #3#) (GO G191)))
+                 (SEQ
+                  (EXIT
+                   (LETT #4#
+                         (CONS
+                          (PROGN
+                           (LETT #2# NIL . #5#)
+                           (SEQ (LETT |j| (SPADCALL |v| (QREFELT $ 17)) . #5#)
+                                (LETT #1# (QVSIZE |v|) . #5#) G190
+                                (COND ((> |j| #1#) (GO G191)))
+                                (SEQ
+                                 (EXIT
+                                  (LETT #2#
+                                        (CONS
+                                         (SPADCALL
+                                          (SPADCALL
+                                           (SPADCALL |v| |i| (QREFELT $ 26))
+                                           (SPADCALL |v| |j| (QREFELT $ 26))
+                                           (QREFELT $ 31))
+                                          (QREFELT $ 32))
+                                         #2#)
+                                        . #5#)))
+                                (LETT |j| (+ |j| 1) . #5#) (GO G190) G191
+                                (EXIT (NREVERSE #2#))))
+                          #4#)
+                         . #5#)))
+                 (LETT |i| (+ |i| 1) . #5#) (GO G190) G191
+                 (EXIT (NREVERSE #4#))))
+           (QREFELT $ 34))))) 
+
+(SDEFUN |FINRALG-;regularRepresentation;SVM;5|
+        ((|x| S) (|b| |Vector| S) ($ |Matrix| R))
+        (SPROG ((#1=#:G133 NIL) (|i| NIL) (#2=#:G132 NIL) (|m| (|Integer|)))
+               (SEQ
+                (LETT |m| (- (SPADCALL |b| (QREFELT $ 17)) 1)
+                      . #3=(|FINRALG-;regularRepresentation;SVM;5|))
+                (EXIT
+                 (SPADCALL
+                  (SPADCALL
+                   (PROGN
+                    (LETT #2# NIL . #3#)
+                    (SEQ (LETT |i| 1 . #3#)
+                         (LETT #1# (SPADCALL (QREFELT $ 24)) . #3#) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (LETT #2#
+                                 (CONS
+                                  (SPADCALL
+                                   (SPADCALL
+                                    (SPADCALL |x|
+                                              (SPADCALL |b| (+ |i| |m|)
+                                                        (QREFELT $ 26))
+                                              (QREFELT $ 31))
+                                    |b| (QREFELT $ 19))
+                                   (QREFELT $ 37))
+                                  #2#)
+                                 . #3#)))
+                         (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                         (EXIT (NREVERSE #2#))))
+                   (QREFELT $ 34))
+                  (QREFELT $ 38)))))) 
 
 (DECLAIM (NOTINLINE |FiniteRankAlgebra&;|)) 
 
 (DEFUN |FiniteRankAlgebra&| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteRankAlgebra&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|FiniteRankAlgebra&| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 40) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#2|
-                                                         '(|CharacteristicZero|))
-                                          (|HasCategory| |#2| '(|Field|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteRankAlgebra&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|FiniteRankAlgebra&| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 40) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|CharacteristicNonZero|))
+                                              (|HasCategory| |#2|
+                                                             '(|CharacteristicZero|))
+                                              (|HasCategory| |#2| '(|Field|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FiniteRankAlgebra&| '|infovec|
           (LIST

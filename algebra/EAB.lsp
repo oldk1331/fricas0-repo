@@ -1,106 +1,113 @@
 
-(DEFUN |EAB;=;2$B;1| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 8))) 
+(SDEFUN |EAB;=;2$B;1| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPADCALL |x| |y| (QREFELT $ 8))) 
 
-(DEFUN |EAB;<;2$B;2| (|x| |y| $)
-  (COND ((NULL |x|) (COND ((NULL |y|) 'NIL) (#1='T 'T))) ((NULL |y|) 'NIL)
-        (#1#
-         (COND
-          ((EQL (|SPADfirst| |x|) (|SPADfirst| |y|))
-           (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 10)))
-          (#1#
-           (SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 12))))))) 
-
-(DEFUN |EAB;coerce;L$;3| (|li| $)
-  (PROG (#1=#:G115 |x|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |x| NIL . #2=(|EAB;coerce;L$;3|)) (LETT #1# |li| . #2#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL)) (GO G191)))
-           (SEQ
-            (EXIT
-             (COND
-              ((SPADCALL |x| 1 (QREFELT $ 13))
+(SDEFUN |EAB;<;2$B;2| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((NULL |x|) (COND ((NULL |y|) 'NIL) (#1='T 'T)))
+              ((NULL |y|) 'NIL)
+              (#1#
                (COND
-                ((SPADCALL |x| 0 (QREFELT $ 13))
-                 (|error| "coerce: values can only be 0 and 1")))))))
-           (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |li|))))) 
+                ((EQL (|SPADfirst| |x|) (|SPADfirst| |y|))
+                 (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 10)))
+                (#1#
+                 (SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|)
+                           (QREFELT $ 12))))))) 
 
-(DEFUN |EAB;degree;$Nni;4| (|x| $)
-  (PROG (#1=#:G122 #2=#:G120 #3=#:G119 #4=#:G121 #5=#:G124 #6=#:G103)
-    (RETURN
-     (SEQ
-      (PROG1
-          (LETT #1#
+(SDEFUN |EAB;coerce;L$;3| ((|li| |List| (|Integer|)) ($ $))
+        (SPROG ((#1=#:G115 NIL) (|x| NIL))
+               (SEQ
+                (SEQ (LETT |x| NIL . #2=(|EAB;coerce;L$;3|))
+                     (LETT #1# |li| . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (COND
+                        ((SPADCALL |x| 1 (QREFELT $ 13))
+                         (COND
+                          ((SPADCALL |x| 0 (QREFELT $ 13))
+                           (|error| "coerce: values can only be 0 and 1")))))))
+                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |li|)))) 
+
+(SDEFUN |EAB;degree;$Nni;4| ((|x| $) ($ |NonNegativeInteger|))
+        (SPROG
+         ((#1=#:G122 NIL) (#2=#:G120 NIL) (#3=#:G119 #4=(|Integer|))
+          (#5=#:G121 #4#) (#6=#:G124 NIL) (#7=#:G103 NIL))
+         (SEQ
+          (PROG1
+              (LETT #1#
+                    (PROGN
+                     (LETT #2# NIL . #8=(|EAB;degree;$Nni;4|))
+                     (SEQ (LETT #7# NIL . #8#) (LETT #6# |x| . #8#) G190
+                          (COND
+                           ((OR (ATOM #6#)
+                                (PROGN (LETT #7# (CAR #6#) . #8#) NIL))
+                            (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (PROGN
+                             (LETT #5# #7# . #8#)
+                             (COND (#2# (LETT #3# (+ #3# #5#) . #8#))
+                                   ('T
+                                    (PROGN
+                                     (LETT #3# #5# . #8#)
+                                     (LETT #2# 'T . #8#)))))))
+                          (LETT #6# (CDR #6#) . #8#) (GO G190) G191 (EXIT NIL))
+                     (COND (#2# #3#) ('T 0)))
+                    . #8#)
+            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
+
+(SDEFUN |EAB;exponents;$L;5| ((|x| $) ($ |List| (|Integer|)))
+        (SPADCALL |x| (QREFELT $ 18))) 
+
+(SDEFUN |EAB;Nul;Nni$;6| ((|n| |NonNegativeInteger|) ($ $))
+        (SPROG ((|i| NIL) (#1=#:G128 NIL))
+               (SEQ
                 (PROGN
-                 (LETT #2# NIL . #7=(|EAB;degree;$Nni;4|))
-                 (SEQ (LETT #6# NIL . #7#) (LETT #5# |x| . #7#) G190
-                      (COND
-                       ((OR (ATOM #5#) (PROGN (LETT #6# (CAR #5#) . #7#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (PROGN
-                         (LETT #4# #6# . #7#)
-                         (COND (#2# (LETT #3# (+ #3# #4#) . #7#))
-                               ('T
-                                (PROGN
-                                 (LETT #3# #4# . #7#)
-                                 (LETT #2# 'T . #7#)))))))
-                      (LETT #5# (CDR #5#) . #7#) (GO G190) G191 (EXIT NIL))
-                 (COND (#2# #3#) ('T 0)))
-                . #7#)
-        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))))) 
+                 (LETT #1# NIL . #2=(|EAB;Nul;Nni$;6|))
+                 (SEQ (LETT |i| 1 . #2#) G190
+                      (COND ((|greater_SI| |i| |n|) (GO G191)))
+                      (SEQ (EXIT (LETT #1# (CONS 0 #1#) . #2#)))
+                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                      (EXIT (NREVERSE #1#))))))) 
 
-(DEFUN |EAB;exponents;$L;5| (|x| $) (SPADCALL |x| (QREFELT $ 18))) 
-
-(DEFUN |EAB;Nul;Nni$;6| (|n| $)
-  (PROG (|i| #1=#:G128)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #1# NIL . #2=(|EAB;Nul;Nni$;6|))
-       (SEQ (LETT |i| 1 . #2#) G190 (COND ((|greater_SI| |i| |n|) (GO G191)))
-            (SEQ (EXIT (LETT #1# (CONS 0 #1#) . #2#)))
-            (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-            (EXIT (NREVERSE #1#)))))))) 
-
-(DEFUN |EAB;coerce;$Of;7| (|x| $) (SPADCALL |x| (QREFELT $ 22))) 
+(SDEFUN |EAB;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
+        (SPADCALL |x| (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |ExtAlgBasis;|)) 
 
 (DEFUN |ExtAlgBasis| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G131)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|ExtAlgBasis|)
-                . #2=(|ExtAlgBasis|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|ExtAlgBasis|
-                         (LIST (CONS NIL (CONS 1 (|ExtAlgBasis;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|ExtAlgBasis|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G131)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|ExtAlgBasis|)
+                    . #2=(|ExtAlgBasis|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|ExtAlgBasis|
+                             (LIST (CONS NIL (CONS 1 (|ExtAlgBasis;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|ExtAlgBasis|)))))))))) 
 
 (DEFUN |ExtAlgBasis;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|ExtAlgBasis|) . #1=(|ExtAlgBasis|))
-      (LETT $ (GETREFV 27) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ExtAlgBasis| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|List| (|Integer|)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ExtAlgBasis|) . #1=(|ExtAlgBasis|))
+          (LETT $ (GETREFV 27) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ExtAlgBasis| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|List| (|Integer|)))
+          $))) 
 
 (MAKEPROP '|ExtAlgBasis| '|infovec|
           (LIST

@@ -1,72 +1,79 @@
 
-(DEFUN |FFF;createLowComplexityNormalBasis;PiU;1| (|n| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |n| (QREFELT $ 10))
-            |FFF;createLowComplexityNormalBasis;PiU;1|)
-      (EXIT
-       (COND ((QEQCAR |u| 1) (CONS 0 (SPADCALL |n| (QREFELT $ 13))))
-             ('T (CONS 1 (QCDR |u|))))))))) 
+(SDEFUN |FFF;createLowComplexityNormalBasis;PiU;1|
+        ((|n| |PositiveInteger|)
+         ($ |Union| (|SparseUnivariatePolynomial| GF)
+          (|Vector|
+           (|List|
+            (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))))
+        (SPROG
+         ((|u|
+           (|Union|
+            (|Vector|
+             (|List|
+              (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
+            "failed")))
+         (SEQ
+          (LETT |u| (SPADCALL |n| (QREFELT $ 10))
+                |FFF;createLowComplexityNormalBasis;PiU;1|)
+          (EXIT
+           (COND ((QEQCAR |u| 1) (CONS 0 (SPADCALL |n| (QREFELT $ 13))))
+                 ('T (CONS 1 (QCDR |u|)))))))) 
 
-(DEFUN |FFF;createLowComplexityTable;PiU;2| (|n| $)
-  (PROG (|l| |term| |j| |v| |i| |multtable| |m| |lvjh| |help| |lvj| |x| |vec|
-         |vt| |jt| |t| |pkn| |p1| |multmat| #1=#:G132 |t1| |k| |a| #2=#:G166
-         |p| |q|)
-    (RETURN
-     (SEQ
-      (LETT |q| (SPADCALL (QREFELT $ 17))
-            . #3=(|FFF;createLowComplexityTable;PiU;2|))
-      (LETT |p| (SPADCALL (QREFELT $ 18)) . #3#) (LETT |k| 0 . #3#)
-      (SEQ (LETT |i| 1 . #3#) (LETT #2# (- |n| 1) . #3#) G190
-           (COND ((OR (|greater_SI| |i| #2#) (NULL (EQL |k| 0))) (GO G191)))
-           (SEQ
-            (EXIT
-             (COND
-              ((SPADCALL (+ (* |i| |n|) 1) (QREFELT $ 23))
+(SDEFUN |FFF;createLowComplexityTable;PiU;2|
+        ((|n| |PositiveInteger|)
+         ($ |Union|
+          (|Vector|
+           (|List|
+            #1=(|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
+          "failed"))
+        (SPROG
+         ((|l|
+           (|List|
+            (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
+          (|term| #1#) (|j| NIL) (|v| (|Vector| (|PrimeField| |p|))) (|i| NIL)
+          (|multtable|
+           (|Vector|
+            (|List|
+             (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
+          (|m| (|NonNegativeInteger|)) (|lvjh| (|Integer|))
+          (|help| (|PrimeField| |p1|)) (|lvj| (|Matrix| (|Integer|))) (|x| NIL)
+          (|vec| (|Vector| (|Integer|))) (|vt| (|Integer|)) (|jt| (|Integer|))
+          (|t| (|PrimeField| |p1|)) (|pkn| (|PrimeField| |p1|))
+          (|p1| (|NonNegativeInteger|))
+          (|multmat| (|Matrix| (|PrimeField| |p|))) (#2=#:G132 NIL)
+          (|t1| (|PrimeField| (+ (* |k| |n|) (|One|))))
+          (|k| (|NonNegativeInteger|)) (|a| (|Integer|)) (#3=#:G166 NIL)
+          (|p| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |q| (SPADCALL (QREFELT $ 17))
+                . #4=(|FFF;createLowComplexityTable;PiU;2|))
+          (LETT |p| (SPADCALL (QREFELT $ 18)) . #4#) (LETT |k| 0 . #4#)
+          (SEQ (LETT |i| 1 . #4#) (LETT #3# (- |n| 1) . #4#) G190
                (COND
-                ((NULL (EQL |p| (+ (* |i| |n|) 1)))
+                ((OR (|greater_SI| |i| #3#) (NULL (EQL |k| 0))) (GO G191)))
+               (SEQ
+                (EXIT
                  (COND
-                  ((SPADCALL
-                    (SPADCALL |q|
-                              (|compiledLookupCheck| '|coerce|
-                                                     (LIST '$
-                                                           (LIST '|Integer|))
-                                                     (|PrimeField|
-                                                      (+ (* |i| |n|)
-                                                         (|One|)))))
-                    (|compiledLookupCheck| '|primitive?|
-                                           (LIST (LIST '|Boolean|) '$)
-                                           (|PrimeField|
-                                            (+ (* |i| |n|) (|One|)))))
-                   (SEQ (LETT |a| 1 . #3#) (LETT |k| |i| . #3#)
-                        (EXIT
-                         (LETT |t1|
-                               (SPADCALL
-                                (SPADCALL |q|
-                                          (|compiledLookupCheck| '|coerce|
-                                                                 (LIST '$
-                                                                       (LIST
-                                                                        '|Integer|))
-                                                                 (|PrimeField|
-                                                                  (+
-                                                                   (* |k| |n|)
-                                                                   (|One|)))))
-                                |n|
-                                (|compiledLookupCheck| '^
-                                                       (LIST '$ '$
-                                                             (LIST '|Integer|))
-                                                       (|PrimeField|
-                                                        (+ (* |k| |n|)
-                                                           (|One|)))))
-                               . #3#))))
-                  ('T
-                   (SEQ
-                    (EXIT
+                  ((SPADCALL (+ (* |i| |n|) 1) (QREFELT $ 23))
+                   (COND
+                    ((NULL (EQL |p| (+ (* |i| |n|) 1)))
                      (COND
-                      ((EQL
-                        (GCD |n|
-                             (LETT |a|
+                      ((SPADCALL
+                        (SPADCALL |q|
+                                  (|compiledLookupCheck| '|coerce|
+                                                         (LIST '$
+                                                               (LIST
+                                                                '|Integer|))
+                                                         (|PrimeField|
+                                                          (+ (* |i| |n|)
+                                                             (|One|)))))
+                        (|compiledLookupCheck| '|primitive?|
+                                               (LIST (LIST '|Boolean|) '$)
+                                               (|PrimeField|
+                                                (+ (* |i| |n|) (|One|)))))
+                       (SEQ (LETT |a| 1 . #4#) (LETT |k| |i| . #4#)
+                            (EXIT
+                             (LETT |t1|
                                    (SPADCALL
                                     (SPADCALL |q|
                                               (|compiledLookupCheck| '|coerce|
@@ -75,285 +82,283 @@
                                                                             '|Integer|))
                                                                      (|PrimeField|
                                                                       (+
-                                                                       (* |n|
-                                                                          |i|)
+                                                                       (* |k|
+                                                                          |n|)
                                                                        (|One|)))))
-                                    (|compiledLookupCheck| '|discreteLog|
-                                                           (LIST
-                                                            (LIST
-                                                             '|NonNegativeInteger|)
-                                                            '$)
+                                    |n|
+                                    (|compiledLookupCheck| '^
+                                                           (LIST '$ '$
+                                                                 (LIST
+                                                                  '|Integer|))
                                                            (|PrimeField|
-                                                            (+ (* |n| |i|)
+                                                            (+ (* |k| |n|)
                                                                (|One|)))))
-                                   . #3#))
-                        1)
-                       (PROGN
-                        (LETT #1#
-                              (SEQ (LETT |k| |i| . #3#)
-                                   (EXIT
-                                    (LETT |t1|
+                                   . #4#))))
+                      ('T
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((EQL
+                            (GCD |n|
+                                 (LETT |a|
+                                       (SPADCALL
+                                        (SPADCALL |q|
+                                                  (|compiledLookupCheck|
+                                                   '|coerce|
+                                                   (LIST '$ (LIST '|Integer|))
+                                                   (|PrimeField|
+                                                    (+ (* |n| |i|) (|One|)))))
+                                        (|compiledLookupCheck| '|discreteLog|
+                                                               (LIST
+                                                                (LIST
+                                                                 '|NonNegativeInteger|)
+                                                                '$)
+                                                               (|PrimeField|
+                                                                (+ (* |n| |i|)
+                                                                   (|One|)))))
+                                       . #4#))
+                            1)
+                           (PROGN
+                            (LETT #2#
+                                  (SEQ (LETT |k| |i| . #4#)
+                                       (EXIT
+                                        (LETT |t1|
+                                              (SPADCALL
+                                               (SPADCALL
+                                                (|compiledLookupCheck|
+                                                 '|primitiveElement| (LIST '$)
+                                                 (|PrimeField|
+                                                  (+ (* |k| |n|) (|One|)))))
+                                               |n|
+                                               (|compiledLookupCheck| '^
+                                                                      (LIST '$
+                                                                            '$
+                                                                            (LIST
+                                                                             '|Integer|))
+                                                                      (|PrimeField|
+                                                                       (+
+                                                                        (* |k|
+                                                                           |n|)
+                                                                        (|One|)))))
+                                              . #4#)))
+                                  . #4#)
+                            (GO #2#)))))
+                        #2# (EXIT #2#))))))))))
+               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+          (EXIT
+           (COND ((EQL |k| 0) (CONS 1 "failed"))
+                 (#5='T
+                  (SEQ
+                   (LETT |multmat|
+                         (SPADCALL |n| |n|
+                                   (|compiledLookupCheck| '|zero|
+                                                          (LIST '$
+                                                                (LIST
+                                                                 '|NonNegativeInteger|)
+                                                                (LIST
+                                                                 '|NonNegativeInteger|))
+                                                          (|Matrix|
+                                                           (|PrimeField|
+                                                            |p|))))
+                         . #4#)
+                   (LETT |p1| (+ (* |k| |n|) 1) . #4#)
+                   (LETT |pkn|
+                         (SPADCALL |q|
+                                   (|compiledLookupCheck| '|coerce|
+                                                          (LIST '$
+                                                                (LIST
+                                                                 '|Integer|))
+                                                          (|PrimeField| |p1|)))
+                         . #4#)
+                   (LETT |t| |t1| . #4#)
+                   (COND
+                    ((ODDP |k|)
+                     (SEQ (LETT |jt| (+ (QUOTIENT2 |n| 2) 1) . #4#)
+                          (EXIT
+                           (LETT |vt|
+                                 (+
+                                  (SPADCALL (QUOTIENT2 (- |k| |a|) 2) |k|
+                                            (QREFELT $ 24))
+                                  1)
+                                 . #4#))))
+                    (#5#
+                     (SEQ (LETT |jt| 1 . #4#)
+                          (EXIT (LETT |vt| (+ (QUOTIENT2 |k| 2) 1) . #4#)))))
+                   (LETT |vec| (SPADCALL |p1| (QREFELT $ 26)) . #4#)
+                   (SEQ (LETT |x| 1 . #4#) G190
+                        (COND ((|greater_SI| |x| |k|) (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (SEQ (LETT |l| 1 . #4#) G190
+                               (COND ((|greater_SI| |l| |n|) (GO G191)))
+                               (SEQ
+                                (EXIT
+                                 (SPADCALL |vec|
+                                           (+
+                                            (SPADCALL
+                                             (SPADCALL |t| (- |x| 1)
+                                                       (|compiledLookupCheck|
+                                                        '^
+                                                        (LIST '$ '$
+                                                              (LIST
+                                                               '|Integer|))
+                                                        (|PrimeField| |p1|)))
+                                             (SPADCALL |pkn| (- |l| 1)
+                                                       (|compiledLookupCheck|
+                                                        '^
+                                                        (LIST '$ '$
+                                                              (LIST
+                                                               '|Integer|))
+                                                        (|PrimeField| |p1|)))
+                                             (|compiledLookupCheck| '*
+                                                                    (LIST '$ '$
+                                                                          '$)
+                                                                    (|PrimeField|
+                                                                     (+
+                                                                      (* |k|
+                                                                         |n|)
+                                                                      (|One|)))))
+                                            1)
+                                           (SPADCALL |l| |p1| (QREFELT $ 24))
+                                           (QREFELT $ 27))))
+                               (LETT |l| (|inc_SI| |l|) . #4#) (GO G190) G191
+                               (EXIT NIL))))
+                        (LETT |x| (|inc_SI| |x|) . #4#) (GO G190) G191
+                        (EXIT NIL))
+                   (LETT |lvj| (SPADCALL |k| |n| (QREFELT $ 29)) . #4#)
+                   (SEQ (LETT |v| 1 . #4#) G190
+                        (COND ((|greater_SI| |v| |k|) (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (SEQ (LETT |j| 1 . #4#) G190
+                               (COND ((|greater_SI| |j| |n|) (GO G191)))
+                               (SEQ
+                                (EXIT
+                                 (COND
+                                  ((OR (SPADCALL |j| |jt| (QREFELT $ 30))
+                                       (SPADCALL |v| |vt| (QREFELT $ 30)))
+                                   (SEQ
+                                    (LETT |help|
                                           (SPADCALL
                                            (SPADCALL
-                                            (|compiledLookupCheck|
-                                             '|primitiveElement| (LIST '$)
-                                             (|PrimeField|
-                                              (+ (* |k| |n|) (|One|)))))
-                                           |n|
-                                           (|compiledLookupCheck| '^
+                                            (SPADCALL |t| (- |v| 1)
+                                                      (|compiledLookupCheck| '^
+                                                                             (LIST
+                                                                              '$
+                                                                              '$
+                                                                              (LIST
+                                                                               '|Integer|))
+                                                                             (|PrimeField|
+                                                                              |p1|)))
+                                            (SPADCALL |pkn| (- |j| 1)
+                                                      (|compiledLookupCheck| '^
+                                                                             (LIST
+                                                                              '$
+                                                                              '$
+                                                                              (LIST
+                                                                               '|Integer|))
+                                                                             (|PrimeField|
+                                                                              |p1|)))
+                                            (|compiledLookupCheck| '*
+                                                                   (LIST '$ '$
+                                                                         '$)
+                                                                   (|PrimeField|
+                                                                    (+
+                                                                     (* |k|
+                                                                        |n|)
+                                                                     (|One|)))))
+                                           (SPADCALL
+                                            (|compiledLookupCheck| '|One|
+                                                                   (LIST '$)
+                                                                   (|PrimeField|
+                                                                    (+
+                                                                     (* |k|
+                                                                        |n|)
+                                                                     (|One|)))))
+                                           (|compiledLookupCheck| '+
                                                                   (LIST '$ '$
-                                                                        (LIST
-                                                                         '|Integer|))
+                                                                        '$)
                                                                   (|PrimeField|
                                                                    (+
                                                                     (* |k| |n|)
                                                                     (|One|)))))
-                                          . #3#)))
-                              . #3#)
-                        (GO #1#)))))
-                    #1# (EXIT #1#))))))))))
-           (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-      (EXIT
-       (COND ((EQL |k| 0) (CONS 1 "failed"))
-             (#4='T
-              (SEQ
-               (LETT |multmat|
-                     (SPADCALL |n| |n|
-                               (|compiledLookupCheck| '|zero|
-                                                      (LIST '$
-                                                            (LIST
-                                                             '|NonNegativeInteger|)
-                                                            (LIST
-                                                             '|NonNegativeInteger|))
-                                                      (|Matrix|
-                                                       (|PrimeField| |p|))))
-                     . #3#)
-               (LETT |p1| (+ (* |k| |n|) 1) . #3#)
-               (LETT |pkn|
-                     (SPADCALL |q|
-                               (|compiledLookupCheck| '|coerce|
-                                                      (LIST '$
-                                                            (LIST '|Integer|))
-                                                      (|PrimeField| |p1|)))
-                     . #3#)
-               (LETT |t| |t1| . #3#)
-               (COND
-                ((ODDP |k|)
-                 (SEQ (LETT |jt| (+ (QUOTIENT2 |n| 2) 1) . #3#)
-                      (EXIT
-                       (LETT |vt|
-                             (+
-                              (SPADCALL (QUOTIENT2 (- |k| |a|) 2) |k|
-                                        (QREFELT $ 24))
-                              1)
-                             . #3#))))
-                (#4#
-                 (SEQ (LETT |jt| 1 . #3#)
-                      (EXIT (LETT |vt| (+ (QUOTIENT2 |k| 2) 1) . #3#)))))
-               (LETT |vec| (SPADCALL |p1| (QREFELT $ 26)) . #3#)
-               (SEQ (LETT |x| 1 . #3#) G190
-                    (COND ((|greater_SI| |x| |k|) (GO G191)))
-                    (SEQ
-                     (EXIT
-                      (SEQ (LETT |l| 1 . #3#) G190
-                           (COND ((|greater_SI| |l| |n|) (GO G191)))
-                           (SEQ
-                            (EXIT
-                             (SPADCALL |vec|
-                                       (+
-                                        (SPADCALL
-                                         (SPADCALL |t| (- |x| 1)
-                                                   (|compiledLookupCheck| '^
-                                                                          (LIST
-                                                                           '$
-                                                                           '$
-                                                                           (LIST
-                                                                            '|Integer|))
-                                                                          (|PrimeField|
-                                                                           |p1|)))
-                                         (SPADCALL |pkn| (- |l| 1)
-                                                   (|compiledLookupCheck| '^
-                                                                          (LIST
-                                                                           '$
-                                                                           '$
-                                                                           (LIST
-                                                                            '|Integer|))
-                                                                          (|PrimeField|
-                                                                           |p1|)))
-                                         (|compiledLookupCheck| '*
-                                                                (LIST '$ '$ '$)
-                                                                (|PrimeField|
-                                                                 (+ (* |k| |n|)
-                                                                    (|One|)))))
-                                        1)
-                                       (SPADCALL |l| |p1| (QREFELT $ 24))
-                                       (QREFELT $ 27))))
-                           (LETT |l| (|inc_SI| |l|) . #3#) (GO G190) G191
-                           (EXIT NIL))))
-                    (LETT |x| (|inc_SI| |x|) . #3#) (GO G190) G191 (EXIT NIL))
-               (LETT |lvj| (SPADCALL |k| |n| (QREFELT $ 29)) . #3#)
-               (SEQ (LETT |v| 1 . #3#) G190
-                    (COND ((|greater_SI| |v| |k|) (GO G191)))
-                    (SEQ
-                     (EXIT
-                      (SEQ (LETT |j| 1 . #3#) G190
-                           (COND ((|greater_SI| |j| |n|) (GO G191)))
-                           (SEQ
-                            (EXIT
-                             (COND
-                              ((OR (SPADCALL |j| |jt| (QREFELT $ 30))
-                                   (SPADCALL |v| |vt| (QREFELT $ 30)))
-                               (SEQ
-                                (LETT |help|
-                                      (SPADCALL
-                                       (SPADCALL
-                                        (SPADCALL |t| (- |v| 1)
-                                                  (|compiledLookupCheck| '^
-                                                                         (LIST
-                                                                          '$ '$
-                                                                          (LIST
-                                                                           '|Integer|))
-                                                                         (|PrimeField|
-                                                                          |p1|)))
-                                        (SPADCALL |pkn| (- |j| 1)
-                                                  (|compiledLookupCheck| '^
-                                                                         (LIST
-                                                                          '$ '$
-                                                                          (LIST
-                                                                           '|Integer|))
-                                                                         (|PrimeField|
-                                                                          |p1|)))
-                                        (|compiledLookupCheck| '*
-                                                               (LIST '$ '$ '$)
-                                                               (|PrimeField|
-                                                                (+ (* |k| |n|)
-                                                                   (|One|)))))
-                                       (SPADCALL
-                                        (|compiledLookupCheck| '|One| (LIST '$)
-                                                               (|PrimeField|
-                                                                (+ (* |k| |n|)
-                                                                   (|One|)))))
-                                       (|compiledLookupCheck| '+
-                                                              (LIST '$ '$ '$)
-                                                              (|PrimeField|
-                                                               (+ (* |k| |n|)
-                                                                  (|One|)))))
-                                      . #3#)
-                                (EXIT
-                                 (SPADCALL |lvj| |v| |j|
-                                           (SPADCALL |vec| (+ |help| 1)
-                                                     (QREFELT $ 31))
-                                           (QREFELT $ 32))))))))
-                           (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
-                           (EXIT NIL))))
-                    (LETT |v| (|inc_SI| |v|) . #3#) (GO G190) G191 (EXIT NIL))
-               (SEQ (LETT |j| 1 . #3#) G190
-                    (COND ((|greater_SI| |j| |n|) (GO G191)))
-                    (SEQ
-                     (EXIT
-                      (COND
-                       ((SPADCALL |j| |jt| (QREFELT $ 30))
-                        (SEQ (LETT |v| 1 . #3#) G190
-                             (COND ((|greater_SI| |v| |k|) (GO G191)))
-                             (SEQ
-                              (LETT |lvjh|
-                                    (SPADCALL |lvj| |v| |j| (QREFELT $ 33))
-                                    . #3#)
-                              (EXIT
-                               (SPADCALL |multmat| |j| |lvjh|
-                                         (SPADCALL
-                                          (SPADCALL |multmat| |j| |lvjh|
-                                                    (|compiledLookupCheck|
-                                                     '|elt|
-                                                     (LIST
-                                                      (LIST '|PrimeField| |p|)
-                                                      '$ (LIST '|Integer|)
-                                                      (LIST '|Integer|))
-                                                     (|Matrix|
-                                                      (|PrimeField| |p|))))
-                                          (SPADCALL
-                                           (|compiledLookupCheck| '|One|
-                                                                  (LIST '$)
-                                                                  (|PrimeField|
-                                                                   |p|)))
-                                          (|compiledLookupCheck| '+
-                                                                 (LIST '$ '$
-                                                                       '$)
-                                                                 (|PrimeField|
-                                                                  |p|)))
-                                         (|compiledLookupCheck| '|setelt|
-                                                                (LIST
-                                                                 (LIST
-                                                                  '|PrimeField|
-                                                                  |p|)
-                                                                 '$
-                                                                 (LIST
-                                                                  '|Integer|)
-                                                                 (LIST
-                                                                  '|Integer|)
-                                                                 (LIST
-                                                                  '|PrimeField|
-                                                                  |p|))
-                                                                (|Matrix|
-                                                                 (|PrimeField|
-                                                                  |p|))))))
-                             (LETT |v| (|inc_SI| |v|) . #3#) (GO G190) G191
-                             (EXIT NIL))))))
-                    (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))
-               (SEQ (LETT |i| 1 . #3#) G190
-                    (COND ((|greater_SI| |i| |n|) (GO G191)))
-                    (SEQ
-                     (EXIT
-                      (SPADCALL |multmat| |jt| |i|
-                                (SPADCALL (SPADCALL (- |k|) |p| (QREFELT $ 24))
-                                          (|compiledLookupCheck| '|coerce|
-                                                                 (LIST '$
-                                                                       (LIST
-                                                                        '|Integer|))
-                                                                 (|PrimeField|
-                                                                  |p|)))
-                                (|compiledLookupCheck| '|setelt|
-                                                       (LIST
-                                                        (LIST '|PrimeField|
-                                                              |p|)
-                                                        '$ (LIST '|Integer|)
-                                                        (LIST '|Integer|)
-                                                        (LIST '|PrimeField|
-                                                              |p|))
-                                                       (|Matrix|
-                                                        (|PrimeField| |p|))))))
-                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-               (SEQ (LETT |v| 1 . #3#) G190
-                    (COND ((|greater_SI| |v| |k|) (GO G191)))
-                    (SEQ
-                     (EXIT
-                      (COND
-                       ((SPADCALL |v| |vt| (QREFELT $ 30))
+                                          . #4#)
+                                    (EXIT
+                                     (SPADCALL |lvj| |v| |j|
+                                               (SPADCALL |vec| (+ |help| 1)
+                                                         (QREFELT $ 31))
+                                               (QREFELT $ 32))))))))
+                               (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
+                               (EXIT NIL))))
+                        (LETT |v| (|inc_SI| |v|) . #4#) (GO G190) G191
+                        (EXIT NIL))
+                   (SEQ (LETT |j| 1 . #4#) G190
+                        (COND ((|greater_SI| |j| |n|) (GO G191)))
                         (SEQ
-                         (LETT |lvjh| (SPADCALL |lvj| |v| |jt| (QREFELT $ 33))
-                               . #3#)
                          (EXIT
-                          (SPADCALL |multmat| |jt| |lvjh|
+                          (COND
+                           ((SPADCALL |j| |jt| (QREFELT $ 30))
+                            (SEQ (LETT |v| 1 . #4#) G190
+                                 (COND ((|greater_SI| |v| |k|) (GO G191)))
+                                 (SEQ
+                                  (LETT |lvjh|
+                                        (SPADCALL |lvj| |v| |j| (QREFELT $ 33))
+                                        . #4#)
+                                  (EXIT
+                                   (SPADCALL |multmat| |j| |lvjh|
+                                             (SPADCALL
+                                              (SPADCALL |multmat| |j| |lvjh|
+                                                        (|compiledLookupCheck|
+                                                         '|elt|
+                                                         (LIST
+                                                          (LIST '|PrimeField|
+                                                                |p|)
+                                                          '$ (LIST '|Integer|)
+                                                          (LIST '|Integer|))
+                                                         (|Matrix|
+                                                          (|PrimeField| |p|))))
+                                              (SPADCALL
+                                               (|compiledLookupCheck| '|One|
+                                                                      (LIST '$)
+                                                                      (|PrimeField|
+                                                                       |p|)))
+                                              (|compiledLookupCheck| '+
+                                                                     (LIST '$
+                                                                           '$
+                                                                           '$)
+                                                                     (|PrimeField|
+                                                                      |p|)))
+                                             (|compiledLookupCheck| '|setelt|
+                                                                    (LIST
+                                                                     (LIST
+                                                                      '|PrimeField|
+                                                                      |p|)
+                                                                     '$
+                                                                     (LIST
+                                                                      '|Integer|)
+                                                                     (LIST
+                                                                      '|Integer|)
+                                                                     (LIST
+                                                                      '|PrimeField|
+                                                                      |p|))
+                                                                    (|Matrix|
+                                                                     (|PrimeField|
+                                                                      |p|))))))
+                                 (LETT |v| (|inc_SI| |v|) . #4#) (GO G190) G191
+                                 (EXIT NIL))))))
+                        (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
+                        (EXIT NIL))
+                   (SEQ (LETT |i| 1 . #4#) G190
+                        (COND ((|greater_SI| |i| |n|) (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (SPADCALL |multmat| |jt| |i|
                                     (SPADCALL
-                                     (SPADCALL |multmat| |jt| |lvjh|
-                                               (|compiledLookupCheck| '|elt|
-                                                                      (LIST
-                                                                       (LIST
-                                                                        '|PrimeField|
-                                                                        |p|)
-                                                                       '$
-                                                                       (LIST
-                                                                        '|Integer|)
-                                                                       (LIST
-                                                                        '|Integer|))
-                                                                      (|Matrix|
-                                                                       (|PrimeField|
-                                                                        |p|))))
-                                     (SPADCALL
-                                      (|compiledLookupCheck| '|One| (LIST '$)
-                                                             (|PrimeField|
-                                                              |p|)))
-                                     (|compiledLookupCheck| '+ (LIST '$ '$ '$)
+                                     (SPADCALL (- |k|) |p| (QREFELT $ 24))
+                                     (|compiledLookupCheck| '|coerce|
+                                                            (LIST '$
+                                                                  (LIST
+                                                                   '|Integer|))
                                                             (|PrimeField|
                                                              |p|)))
                                     (|compiledLookupCheck| '|setelt|
@@ -367,311 +372,456 @@
                                                                   |p|))
                                                            (|Matrix|
                                                             (|PrimeField|
-                                                             |p|))))))))))
-                    (LETT |v| (|inc_SI| |v|) . #3#) (GO G190) G191 (EXIT NIL))
-               (LETT |m| (ANROWS |multmat|) . #3#)
-               (LETT |multtable| (MAKEARR1 |m| NIL) . #3#)
-               (SEQ (LETT |i| 1 . #3#) G190
-                    (COND ((|greater_SI| |i| |m|) (GO G191)))
-                    (SEQ (LETT |l| NIL . #3#)
-                         (LETT |v|
-                               (SPADCALL |multmat| |i|
-                                         (|compiledLookupCheck| '|row|
-                                                                (LIST
-                                                                 (LIST
-                                                                  '|Vector|
-                                                                  (LIST
-                                                                   '|PrimeField|
-                                                                   |p|))
-                                                                 '$
-                                                                 (LIST
-                                                                  '|Integer|))
-                                                                (|Matrix|
+                                                             |p|))))))
+                        (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                        (EXIT NIL))
+                   (SEQ (LETT |v| 1 . #4#) G190
+                        (COND ((|greater_SI| |v| |k|) (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (COND
+                           ((SPADCALL |v| |vt| (QREFELT $ 30))
+                            (SEQ
+                             (LETT |lvjh|
+                                   (SPADCALL |lvj| |v| |jt| (QREFELT $ 33))
+                                   . #4#)
+                             (EXIT
+                              (SPADCALL |multmat| |jt| |lvjh|
+                                        (SPADCALL
+                                         (SPADCALL |multmat| |jt| |lvjh|
+                                                   (|compiledLookupCheck|
+                                                    '|elt|
+                                                    (LIST
+                                                     (LIST '|PrimeField| |p|)
+                                                     '$ (LIST '|Integer|)
+                                                     (LIST '|Integer|))
+                                                    (|Matrix|
+                                                     (|PrimeField| |p|))))
+                                         (SPADCALL
+                                          (|compiledLookupCheck| '|One|
+                                                                 (LIST '$)
                                                                  (|PrimeField|
-                                                                  |p|))))
-                               . #3#)
-                         (SEQ (LETT |j| 1 . #3#) G190
-                              (COND ((|greater_SI| |j| |m|) (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (COND
-                                 ((SPADCALL
-                                   (SPADCALL |v| |j|
-                                             (|compiledLookupCheck| '|elt|
+                                                                  |p|)))
+                                         (|compiledLookupCheck| '+
+                                                                (LIST '$ '$ '$)
+                                                                (|PrimeField|
+                                                                 |p|)))
+                                        (|compiledLookupCheck| '|setelt|
+                                                               (LIST
+                                                                (LIST
+                                                                 '|PrimeField|
+                                                                 |p|)
+                                                                '$
+                                                                (LIST
+                                                                 '|Integer|)
+                                                                (LIST
+                                                                 '|Integer|)
+                                                                (LIST
+                                                                 '|PrimeField|
+                                                                 |p|))
+                                                               (|Matrix|
+                                                                (|PrimeField|
+                                                                 |p|))))))))))
+                        (LETT |v| (|inc_SI| |v|) . #4#) (GO G190) G191
+                        (EXIT NIL))
+                   (LETT |m| (ANROWS |multmat|) . #4#)
+                   (LETT |multtable| (MAKEARR1 |m| NIL) . #4#)
+                   (SEQ (LETT |i| 1 . #4#) G190
+                        (COND ((|greater_SI| |i| |m|) (GO G191)))
+                        (SEQ (LETT |l| NIL . #4#)
+                             (LETT |v|
+                                   (SPADCALL |multmat| |i|
+                                             (|compiledLookupCheck| '|row|
                                                                     (LIST
                                                                      (LIST
-                                                                      '|PrimeField|
-                                                                      |p|)
+                                                                      '|Vector|
+                                                                      (LIST
+                                                                       '|PrimeField|
+                                                                       |p|))
                                                                      '$
                                                                      (LIST
                                                                       '|Integer|))
-                                                                    (|Vector|
+                                                                    (|Matrix|
                                                                      (|PrimeField|
                                                                       |p|))))
-                                   (SPADCALL
-                                    (|compiledLookupCheck| '|Zero| (LIST '$)
-                                                           (|PrimeField| |p|)))
-                                   (|compiledLookupCheck| '~=
-                                                          (LIST
-                                                           (LIST '|Boolean|) '$
-                                                           '$)
-                                                          (|PrimeField| |p|)))
+                                   . #4#)
+                             (SEQ (LETT |j| 1 . #4#) G190
+                                  (COND ((|greater_SI| |j| |m|) (GO G191)))
                                   (SEQ
-                                   (LETT |term|
-                                         (CONS
-                                          (SPADCALL
-                                           (SPADCALL
-                                            (SPADCALL
-                                             (SPADCALL |v| |j|
-                                                       (|compiledLookupCheck|
-                                                        '|elt|
-                                                        (LIST
-                                                         (LIST '|PrimeField|
-                                                               |p|)
-                                                         '$ (LIST '|Integer|))
-                                                        (|Vector|
-                                                         (|PrimeField| |p|))))
-                                             (|compiledLookupCheck| '-
-                                                                    (LIST '$
-                                                                          '$)
-                                                                    (|PrimeField|
-                                                                     |p|)))
-                                            (|compiledLookupCheck| '|convert|
-                                                                   (LIST
-                                                                    (LIST
-                                                                     '|Integer|)
-                                                                    '$)
-                                                                   (|PrimeField|
-                                                                    |p|)))
-                                           (QREFELT $ 34))
-                                          (- |j| 2))
-                                         . #3#)
                                    (EXIT
-                                    (LETT |l| (CONS |term| |l|) . #3#)))))))
-                              (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
-                              (EXIT NIL))
-                         (EXIT
-                          (QSETAREF1O |multtable| |i|
-                                      (SPADCALL |l| (QREFELT $ 36)) 1)))
-                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-               (EXIT (CONS 0 |multtable|)))))))))) 
+                                    (COND
+                                     ((SPADCALL
+                                       (SPADCALL |v| |j|
+                                                 (|compiledLookupCheck| '|elt|
+                                                                        (LIST
+                                                                         (LIST
+                                                                          '|PrimeField|
+                                                                          |p|)
+                                                                         '$
+                                                                         (LIST
+                                                                          '|Integer|))
+                                                                        (|Vector|
+                                                                         (|PrimeField|
+                                                                          |p|))))
+                                       (SPADCALL
+                                        (|compiledLookupCheck| '|Zero|
+                                                               (LIST '$)
+                                                               (|PrimeField|
+                                                                |p|)))
+                                       (|compiledLookupCheck| '~=
+                                                              (LIST
+                                                               (LIST
+                                                                '|Boolean|)
+                                                               '$ '$)
+                                                              (|PrimeField|
+                                                               |p|)))
+                                      (SEQ
+                                       (LETT |term|
+                                             (CONS
+                                              (SPADCALL
+                                               (SPADCALL
+                                                (SPADCALL
+                                                 (SPADCALL |v| |j|
+                                                           (|compiledLookupCheck|
+                                                            '|elt|
+                                                            (LIST
+                                                             (LIST
+                                                              '|PrimeField|
+                                                              |p|)
+                                                             '$
+                                                             (LIST '|Integer|))
+                                                            (|Vector|
+                                                             (|PrimeField|
+                                                              |p|))))
+                                                 (|compiledLookupCheck| '-
+                                                                        (LIST
+                                                                         '$ '$)
+                                                                        (|PrimeField|
+                                                                         |p|)))
+                                                (|compiledLookupCheck|
+                                                 '|convert|
+                                                 (LIST (LIST '|Integer|) '$)
+                                                 (|PrimeField| |p|)))
+                                               (QREFELT $ 34))
+                                              (- |j| 2))
+                                             . #4#)
+                                       (EXIT
+                                        (LETT |l| (CONS |term| |l|)
+                                              . #4#)))))))
+                                  (LETT |j| (|inc_SI| |j|) . #4#) (GO G190)
+                                  G191 (EXIT NIL))
+                             (EXIT
+                              (QSETAREF1O |multtable| |i|
+                                          (SPADCALL |l| (QREFELT $ 36)) 1)))
+                        (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                        (EXIT NIL))
+                   (EXIT (CONS 0 |multtable|))))))))) 
 
-(DEFUN |FFF;sizeMultiplication;VNni;3| (|m| $)
-  (PROG (|s| #1=#:G174 |i|)
-    (RETURN
-     (SEQ (LETT |s| 0 . #2=(|FFF;sizeMultiplication;VNni;3|))
-          (SEQ (LETT |i| 1 . #2#) (LETT #1# (QVSIZE |m|) . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
-               (SEQ
-                (EXIT
-                 (LETT |s| (+ |s| (LENGTH (SPADCALL |m| |i| (QREFELT $ 38))))
-                       . #2#)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |s|))))) 
+(SDEFUN |FFF;sizeMultiplication;VNni;3|
+        ((|m| |Vector|
+          (|List| (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
+         ($ |NonNegativeInteger|))
+        (SPROG ((|s| (|NonNegativeInteger|)) (#1=#:G174 NIL) (|i| NIL))
+               (SEQ (LETT |s| 0 . #2=(|FFF;sizeMultiplication;VNni;3|))
+                    (SEQ (LETT |i| 1 . #2#) (LETT #1# (QVSIZE |m|) . #2#) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (LETT |s|
+                                 (+ |s|
+                                    (LENGTH (SPADCALL |m| |i| (QREFELT $ 38))))
+                                 . #2#)))
+                         (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                         (EXIT NIL))
+                    (EXIT |s|)))) 
 
-(DEFUN |FFF;createMultiplicationTable;SupV;4| (|f| $)
-  (PROG (|l| |term| #1=#:G197 |j| |v| |i| |multtable| |mat| #2=#:G182 |mat1|
-         |h| |g| |qexp| |w| |qpow| |e| |m1| |m| |sizeGF|)
-    (RETURN
-     (SEQ
-      (LETT |sizeGF| (SPADCALL (QREFELT $ 17))
-            . #3=(|FFF;createMultiplicationTable;SupV;4|))
-      (LETT |m| (SPADCALL |f| (QREFELT $ 40)) . #3#)
-      (EXIT
-       (COND
-        ((EQL |m| 1)
-         (VECTOR
-          (LIST
-           (CONS (SPADCALL (SPADCALL |f| 0 (QREFELT $ 43)) (QREFELT $ 44))
-                 -1))))
-        (#4='T
-         (SEQ (LETT |m1| (- |m| 1) . #3#) (SPADCALL |f| (QREFELT $ 46))
-              (LETT |e|
-                    (SPADCALL
-                     (SPADCALL
-                      (SPADCALL (|spadConstant| $ 19) 1 (QREFELT $ 47))
-                      (QREFELT $ 48))
-                     |sizeGF| (QREFELT $ 49))
-                    . #3#)
-              (LETT |w| (|spadConstant| $ 50) . #3#)
-              (LETT |qpow| (MAKEARR1 |m| (|spadConstant| $ 51)) . #3#)
-              (QSETAREF1 |qpow| 0 (|spadConstant| $ 50))
-              (SEQ (LETT |i| 1 . #3#) G190
-                   (COND ((|greater_SI| |i| |m1|) (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (QSETAREF1 |qpow| |i|
-                                (LETT |w| (SPADCALL |w| |e| (QREFELT $ 52))
-                                      . #3#))))
-                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-              (LETT |qexp| (MAKEARR1 |m| (|spadConstant| $ 51)) . #3#)
-              (QSETAREF1 |qexp| 0
+(SDEFUN |FFF;createMultiplicationTable;SupV;4|
+        ((|f| |SparseUnivariatePolynomial| GF)
+         ($ |Vector|
+          (|List|
+           #1=(|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
+        (SPROG
+         ((|l|
+           (|List|
+            (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
+          (|term| #1#) (#2=#:G197 NIL) (|j| NIL) (|v| (|Vector| GF)) (|i| NIL)
+          (|multtable|
+           (|Vector|
+            (|List|
+             (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
+          (|mat| (|Matrix| GF)) (#3=#:G182 NIL)
+          (|mat1| (|Union| (|Matrix| GF) "failed"))
+          (|h| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
+          (|g| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
+          (|qexp|
+           #4=(|PrimitiveArray|
+               (|ModMonic| GF (|SparseUnivariatePolynomial| GF))))
+          (|w| (|ModMonic| GF (|SparseUnivariatePolynomial| GF))) (|qpow| #4#)
+          (|e| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
+          (|m1| (|Integer|)) (|m| (|PositiveInteger|))
+          (|sizeGF| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |sizeGF| (SPADCALL (QREFELT $ 17))
+                . #5=(|FFF;createMultiplicationTable;SupV;4|))
+          (LETT |m| (SPADCALL |f| (QREFELT $ 40)) . #5#)
+          (EXIT
+           (COND
+            ((EQL |m| 1)
+             (VECTOR
+              (LIST
+               (CONS (SPADCALL (SPADCALL |f| 0 (QREFELT $ 43)) (QREFELT $ 44))
+                     -1))))
+            (#6='T
+             (SEQ (LETT |m1| (- |m| 1) . #5#) (SPADCALL |f| (QREFELT $ 46))
+                  (LETT |e|
+                        (SPADCALL
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 19) 1 (QREFELT $ 47))
-                          (QREFELT $ 48)))
-              (LETT |mat| (SPADCALL |m| |m| (QREFELT $ 54)) . #3#)
-              (QSETAREF2O |mat| 2 1 (|spadConstant| $ 19) 1 1)
-              (LETT |h| (QAREF1 |qpow| 1) . #3#) (QSETAREF1 |qexp| 1 |h|)
-              (SPADCALL |mat| 2 (SPADCALL |h| (QREFELT $ 56)) (QREFELT $ 57))
-              (SEQ (LETT |i| 2 . #3#) G190
-                   (COND ((|greater_SI| |i| |m1|) (GO G191)))
-                   (SEQ (LETT |g| (|spadConstant| $ 51) . #3#)
-                        (SEQ G190
-                             (COND
-                              ((NULL
-                                (SPADCALL |h| (|spadConstant| $ 51)
-                                          (QREFELT $ 58)))
-                               (GO G191)))
-                             (SEQ
-                              (LETT |g|
-                                    (SPADCALL |g|
-                                              (SPADCALL
-                                               (SPADCALL |h| (QREFELT $ 59))
-                                               (QAREF1 |qpow|
-                                                       (SPADCALL |h|
-                                                                 (QREFELT $
-                                                                          60)))
-                                               (QREFELT $ 61))
-                                              (QREFELT $ 62))
-                                    . #3#)
-                              (EXIT
-                               (LETT |h| (SPADCALL |h| (QREFELT $ 63)) . #3#)))
-                             NIL (GO G190) G191 (EXIT NIL))
-                        (QSETAREF1 |qexp| |i| |g|)
+                          (QREFELT $ 48))
+                         |sizeGF| (QREFELT $ 49))
+                        . #5#)
+                  (LETT |w| (|spadConstant| $ 50) . #5#)
+                  (LETT |qpow| (MAKEARR1 |m| (|spadConstant| $ 51)) . #5#)
+                  (QSETAREF1 |qpow| 0 (|spadConstant| $ 50))
+                  (SEQ (LETT |i| 1 . #5#) G190
+                       (COND ((|greater_SI| |i| |m1|) (GO G191)))
+                       (SEQ
                         (EXIT
-                         (SPADCALL |mat| (+ |i| 1)
-                                   (SPADCALL (LETT |h| |g| . #3#)
-                                             (QREFELT $ 56))
-                                   (QREFELT $ 57))))
-                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-              (LETT |mat1| (SPADCALL |mat| (QREFELT $ 65)) . #3#)
-              (EXIT
-               (COND
-                ((SPADCALL |mat1| (CONS 1 "failed") (QREFELT $ 67))
-                 (|error|
-                  "createMultiplicationTable: polynomial must be normal"))
-                (#4#
-                 (SEQ
-                  (LETT |mat|
-                        (PROG2 (LETT #2# |mat1| . #3#)
-                            (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 0)
-                                         (|Matrix| (QREFELT $ 6)) #2#))
-                        . #3#)
-                  (LETT |multtable| (MAKEARR1 |m| NIL) . #3#)
-                  (SEQ (LETT |i| 1 . #3#) G190
-                       (COND ((|greater_SI| |i| |m|) (GO G191)))
-                       (SEQ (LETT |l| NIL . #3#)
-                            (LETT |v|
-                                  (SPADCALL |mat|
-                                            (SPADCALL
-                                             (SPADCALL
-                                              (QAREF1 |qexp| (- |i| 1))
-                                              (QAREF1 |qexp| 0) (QREFELT $ 52))
-                                             (QREFELT $ 56))
-                                            (QREFELT $ 68))
-                                  . #3#)
-                            (SEQ (LETT |j| 1 . #3#)
-                                 (LETT #1# (SPADCALL |m| (QREFELT $ 70)) . #3#)
-                                 G190 (COND ((|greater_SI| |j| #1#) (GO G191)))
-                                 (SEQ
-                                  (EXIT
-                                   (COND
-                                    ((SPADCALL
-                                      (SPADCALL |v| |j| (QREFELT $ 71))
-                                      (|spadConstant| $ 20) (QREFELT $ 72))
-                                     (SEQ
-                                      (LETT |term|
-                                            (CONS
-                                             (SPADCALL |v| |j| (QREFELT $ 71))
-                                             (|sub_SI| |j| 2))
-                                            . #3#)
-                                      (EXIT
-                                       (LETT |l| (CONS |term| |l|) . #3#)))))))
-                                 (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
-                                 (EXIT NIL))
-                            (EXIT
-                             (QSETAREF1O |multtable| |i|
-                                         (SPADCALL |l| (QREFELT $ 36)) 1)))
-                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                         (QSETAREF1 |qpow| |i|
+                                    (LETT |w| (SPADCALL |w| |e| (QREFELT $ 52))
+                                          . #5#))))
+                       (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
                        (EXIT NIL))
-                  (EXIT |multtable|))))))))))))) 
+                  (LETT |qexp| (MAKEARR1 |m| (|spadConstant| $ 51)) . #5#)
+                  (QSETAREF1 |qexp| 0
+                             (SPADCALL
+                              (SPADCALL (|spadConstant| $ 19) 1 (QREFELT $ 47))
+                              (QREFELT $ 48)))
+                  (LETT |mat| (SPADCALL |m| |m| (QREFELT $ 54)) . #5#)
+                  (QSETAREF2O |mat| 2 1 (|spadConstant| $ 19) 1 1)
+                  (LETT |h| (QAREF1 |qpow| 1) . #5#) (QSETAREF1 |qexp| 1 |h|)
+                  (SPADCALL |mat| 2 (SPADCALL |h| (QREFELT $ 56))
+                            (QREFELT $ 57))
+                  (SEQ (LETT |i| 2 . #5#) G190
+                       (COND ((|greater_SI| |i| |m1|) (GO G191)))
+                       (SEQ (LETT |g| (|spadConstant| $ 51) . #5#)
+                            (SEQ G190
+                                 (COND
+                                  ((NULL
+                                    (SPADCALL |h| (|spadConstant| $ 51)
+                                              (QREFELT $ 58)))
+                                   (GO G191)))
+                                 (SEQ
+                                  (LETT |g|
+                                        (SPADCALL |g|
+                                                  (SPADCALL
+                                                   (SPADCALL |h|
+                                                             (QREFELT $ 59))
+                                                   (QAREF1 |qpow|
+                                                           (SPADCALL |h|
+                                                                     (QREFELT $
+                                                                              60)))
+                                                   (QREFELT $ 61))
+                                                  (QREFELT $ 62))
+                                        . #5#)
+                                  (EXIT
+                                   (LETT |h| (SPADCALL |h| (QREFELT $ 63))
+                                         . #5#)))
+                                 NIL (GO G190) G191 (EXIT NIL))
+                            (QSETAREF1 |qexp| |i| |g|)
+                            (EXIT
+                             (SPADCALL |mat| (+ |i| 1)
+                                       (SPADCALL (LETT |h| |g| . #5#)
+                                                 (QREFELT $ 56))
+                                       (QREFELT $ 57))))
+                       (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                       (EXIT NIL))
+                  (LETT |mat1| (SPADCALL |mat| (QREFELT $ 65)) . #5#)
+                  (EXIT
+                   (COND
+                    ((SPADCALL |mat1| (CONS 1 "failed") (QREFELT $ 67))
+                     (|error|
+                      "createMultiplicationTable: polynomial must be normal"))
+                    (#6#
+                     (SEQ
+                      (LETT |mat|
+                            (PROG2 (LETT #3# |mat1| . #5#)
+                                (QCDR #3#)
+                              (|check_union| (QEQCAR #3# 0)
+                                             (|Matrix| (QREFELT $ 6)) #3#))
+                            . #5#)
+                      (LETT |multtable| (MAKEARR1 |m| NIL) . #5#)
+                      (SEQ (LETT |i| 1 . #5#) G190
+                           (COND ((|greater_SI| |i| |m|) (GO G191)))
+                           (SEQ (LETT |l| NIL . #5#)
+                                (LETT |v|
+                                      (SPADCALL |mat|
+                                                (SPADCALL
+                                                 (SPADCALL
+                                                  (QAREF1 |qexp| (- |i| 1))
+                                                  (QAREF1 |qexp| 0)
+                                                  (QREFELT $ 52))
+                                                 (QREFELT $ 56))
+                                                (QREFELT $ 68))
+                                      . #5#)
+                                (SEQ (LETT |j| 1 . #5#)
+                                     (LETT #2# (SPADCALL |m| (QREFELT $ 70))
+                                           . #5#)
+                                     G190
+                                     (COND ((|greater_SI| |j| #2#) (GO G191)))
+                                     (SEQ
+                                      (EXIT
+                                       (COND
+                                        ((SPADCALL
+                                          (SPADCALL |v| |j| (QREFELT $ 71))
+                                          (|spadConstant| $ 20) (QREFELT $ 72))
+                                         (SEQ
+                                          (LETT |term|
+                                                (CONS
+                                                 (SPADCALL |v| |j|
+                                                           (QREFELT $ 71))
+                                                 (|sub_SI| |j| 2))
+                                                . #5#)
+                                          (EXIT
+                                           (LETT |l| (CONS |term| |l|)
+                                                 . #5#)))))))
+                                     (LETT |j| (|inc_SI| |j|) . #5#) (GO G190)
+                                     G191 (EXIT NIL))
+                                (EXIT
+                                 (QSETAREF1O |multtable| |i|
+                                             (SPADCALL |l| (QREFELT $ 36)) 1)))
+                           (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                           (EXIT NIL))
+                      (EXIT |multtable|)))))))))))) 
 
-(DEFUN |FFF;createZechTable;SupPa;5| (|f| $)
-  (PROG (|a| #1=#:G211 |i| #2=#:G210 #3=#:G209 |primElement| |helparr|
-         |zechlog| |qm1| |m| #4=#:G198 |sizeGF|)
-    (RETURN
-     (SEQ
-      (LETT |sizeGF| (SPADCALL (QREFELT $ 17))
-            . #5=(|FFF;createZechTable;SupPa;5|))
-      (LETT |m|
-            (PROG1 (LETT #4# (SPADCALL |f| (QREFELT $ 40)) . #5#)
-              (|check_subtype| (> #4# 0) '(|PositiveInteger|) #4#))
-            . #5#)
-      (LETT |qm1| (- (SPADCALL |sizeGF| |m| (QREFELT $ 74)) 1) . #5#)
-      (LETT |zechlog|
-            (MAKEARR1
-             (QUOTIENT2 (+ (SPADCALL |sizeGF| |m| (QREFELT $ 74)) 1) 2) -1)
-            . #5#)
-      (LETT |helparr| (MAKEARR1 (EXPT |sizeGF| |m|) 0) . #5#)
-      (LETT |primElement|
-            (SPADCALL (SPADCALL (|spadConstant| $ 19) 1 (QREFELT $ 47))
-                      (|compiledLookupCheck| '|reduce|
-                                             (LIST '$
+(SDEFUN |FFF;createZechTable;SupPa;5|
+        ((|f| |SparseUnivariatePolynomial| GF)
+         ($ |PrimitiveArray| (|SingleInteger|)))
+        (SPROG
+         ((|a|
+           #1=(|SimpleAlgebraicExtension| GF (|SparseUnivariatePolynomial| GF)
+                                          |f|))
+          (#2=#:G211 NIL) (|i| NIL) (#3=#:G210 NIL) (#4=#:G209 NIL)
+          (|primElement| #1#)
+          (|helparr| #5=(|PrimitiveArray| (|SingleInteger|))) (|zechlog| #5#)
+          (|qm1| (|SingleInteger|)) (|m| (|PositiveInteger|)) (#6=#:G198 NIL)
+          (|sizeGF| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |sizeGF| (SPADCALL (QREFELT $ 17))
+                . #7=(|FFF;createZechTable;SupPa;5|))
+          (LETT |m|
+                (PROG1 (LETT #6# (SPADCALL |f| (QREFELT $ 40)) . #7#)
+                  (|check_subtype| (> #6# 0) '(|PositiveInteger|) #6#))
+                . #7#)
+          (LETT |qm1| (- (SPADCALL |sizeGF| |m| (QREFELT $ 74)) 1) . #7#)
+          (LETT |zechlog|
+                (MAKEARR1
+                 (QUOTIENT2 (+ (SPADCALL |sizeGF| |m| (QREFELT $ 74)) 1) 2) -1)
+                . #7#)
+          (LETT |helparr| (MAKEARR1 (EXPT |sizeGF| |m|) 0) . #7#)
+          (LETT |primElement|
+                (SPADCALL (SPADCALL (|spadConstant| $ 19) 1 (QREFELT $ 47))
+                          (|compiledLookupCheck| '|reduce|
+                                                 (LIST '$
+                                                       (LIST
+                                                        '|SparseUnivariatePolynomial|
+                                                        (|devaluate|
+                                                         (ELT $ 6))))
+                                                 (|SimpleAlgebraicExtension|
+                                                  (ELT $ 6)
+                                                  (|SparseUnivariatePolynomial|
+                                                   (ELT $ 6))
+                                                  |f|)))
+                . #7#)
+          (LETT |a| |primElement| . #7#)
+          (SEQ (LETT |i| 1 . #7#) (LETT #4# (|sub_SI| |qm1| 1) . #7#) G190
+               (COND ((|greater_SI| |i| #4#) (GO G191)))
+               (SEQ
+                (QSETAREF1 |helparr|
+                           (SPADCALL
+                            (SPADCALL |a|
+                                      (SPADCALL
+                                       (|compiledLookupCheck| '|One| (LIST '$)
+                                                              (|SimpleAlgebraicExtension|
+                                                               (ELT $ 6)
+                                                               (|SparseUnivariatePolynomial|
+                                                                (ELT $ 6))
+                                                               |f|)))
+                                      (|compiledLookupCheck| '- (LIST '$ '$ '$)
+                                                             (|SimpleAlgebraicExtension|
+                                                              (ELT $ 6)
+                                                              (|SparseUnivariatePolynomial|
+                                                               (ELT $ 6))
+                                                              |f|)))
+                            (|compiledLookupCheck| '|lookup|
                                                    (LIST
-                                                    '|SparseUnivariatePolynomial|
-                                                    (|devaluate| (ELT $ 6))))
-                                             (|SimpleAlgebraicExtension|
-                                              (ELT $ 6)
-                                              (|SparseUnivariatePolynomial|
-                                               (ELT $ 6))
-                                              |f|)))
-            . #5#)
-      (LETT |a| |primElement| . #5#)
-      (SEQ (LETT |i| 1 . #5#) (LETT #3# (|sub_SI| |qm1| 1) . #5#) G190
-           (COND ((|greater_SI| |i| #3#) (GO G191)))
-           (SEQ
-            (QSETAREF1 |helparr|
-                       (SPADCALL
-                        (SPADCALL |a|
-                                  (SPADCALL
-                                   (|compiledLookupCheck| '|One| (LIST '$)
-                                                          (|SimpleAlgebraicExtension|
-                                                           (ELT $ 6)
-                                                           (|SparseUnivariatePolynomial|
-                                                            (ELT $ 6))
-                                                           |f|)))
-                                  (|compiledLookupCheck| '- (LIST '$ '$ '$)
-                                                         (|SimpleAlgebraicExtension|
-                                                          (ELT $ 6)
-                                                          (|SparseUnivariatePolynomial|
-                                                           (ELT $ 6))
-                                                          |f|)))
-                        (|compiledLookupCheck| '|lookup|
-                                               (LIST (LIST '|PositiveInteger|)
-                                                     '$)
-                                               (|SimpleAlgebraicExtension|
-                                                (ELT $ 6)
-                                                (|SparseUnivariatePolynomial|
-                                                 (ELT $ 6))
-                                                |f|)))
-                       (SPADCALL |i| (QREFELT $ 70)))
-            (EXIT
-             (LETT |a|
-                   (SPADCALL |a| |primElement|
-                             (|compiledLookupCheck| '* (LIST '$ '$ '$)
-                                                    (|SimpleAlgebraicExtension|
-                                                     (ELT $ 6)
-                                                     (|SparseUnivariatePolynomial|
-                                                      (ELT $ 6))
-                                                     |f|)))
-                   . #5#)))
-           (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
-      (EXIT
-       (COND
-        ((EQL (SPADCALL (QREFELT $ 18)) 2)
-         (SEQ (LETT |a| |primElement| . #5#)
-              (SEQ (LETT |i| 1 . #5#) (LETT #2# (|quo_SI| |qm1| 2) . #5#) G190
+                                                    (LIST '|PositiveInteger|)
+                                                    '$)
+                                                   (|SimpleAlgebraicExtension|
+                                                    (ELT $ 6)
+                                                    (|SparseUnivariatePolynomial|
+                                                     (ELT $ 6))
+                                                    |f|)))
+                           (SPADCALL |i| (QREFELT $ 70)))
+                (EXIT
+                 (LETT |a|
+                       (SPADCALL |a| |primElement|
+                                 (|compiledLookupCheck| '* (LIST '$ '$ '$)
+                                                        (|SimpleAlgebraicExtension|
+                                                         (ELT $ 6)
+                                                         (|SparseUnivariatePolynomial|
+                                                          (ELT $ 6))
+                                                         |f|)))
+                       . #7#)))
+               (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL))
+          (EXIT
+           (COND
+            ((EQL (SPADCALL (QREFELT $ 18)) 2)
+             (SEQ (LETT |a| |primElement| . #7#)
+                  (SEQ (LETT |i| 1 . #7#) (LETT #3# (|quo_SI| |qm1| 2) . #7#)
+                       G190 (COND ((|greater_SI| |i| #3#) (GO G191)))
+                       (SEQ
+                        (QSETAREF1 |zechlog| |i|
+                                   (QAREF1 |helparr|
+                                           (SPADCALL |a|
+                                                     (|compiledLookupCheck|
+                                                      '|lookup|
+                                                      (LIST
+                                                       (LIST
+                                                        '|PositiveInteger|)
+                                                       '$)
+                                                      (|SimpleAlgebraicExtension|
+                                                       (ELT $ 6)
+                                                       (|SparseUnivariatePolynomial|
+                                                        (ELT $ 6))
+                                                       |f|)))))
+                        (EXIT
+                         (LETT |a|
+                               (SPADCALL |a| |primElement|
+                                         (|compiledLookupCheck| '*
+                                                                (LIST '$ '$ '$)
+                                                                (|SimpleAlgebraicExtension|
+                                                                 (ELT $ 6)
+                                                                 (|SparseUnivariatePolynomial|
+                                                                  (ELT $ 6))
+                                                                 |f|)))
+                               . #7#)))
+                       (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                       (EXIT NIL))
+                  (EXIT |zechlog|)))
+            ('T
+             (SEQ
+              (LETT |a|
+                    (SPADCALL
+                     (|compiledLookupCheck| '|One| (LIST '$)
+                                            (|SimpleAlgebraicExtension|
+                                             (ELT $ 6)
+                                             (|SparseUnivariatePolynomial|
+                                              (ELT $ 6))
+                                             |f|)))
+                    . #7#)
+              (SEQ (LETT |i| 0 . #7#)
+                   (LETT #2# (|quo_SI| (|sub_SI| |qm1| 2) 2) . #7#) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
                    (SEQ
                     (QSETAREF1 |zechlog| |i|
@@ -696,54 +846,19 @@
                                                              (|SparseUnivariatePolynomial|
                                                               (ELT $ 6))
                                                              |f|)))
-                           . #5#)))
-                   (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
-              (EXIT |zechlog|)))
-        ('T
-         (SEQ
-          (LETT |a|
-                (SPADCALL
-                 (|compiledLookupCheck| '|One| (LIST '$)
-                                        (|SimpleAlgebraicExtension| (ELT $ 6)
-                                                                    (|SparseUnivariatePolynomial|
-                                                                     (ELT $ 6))
-                                                                    |f|)))
-                . #5#)
-          (SEQ (LETT |i| 0 . #5#)
-               (LETT #1# (|quo_SI| (|sub_SI| |qm1| 2) 2) . #5#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
-               (SEQ
-                (QSETAREF1 |zechlog| |i|
-                           (QAREF1 |helparr|
-                                   (SPADCALL |a|
-                                             (|compiledLookupCheck| '|lookup|
-                                                                    (LIST
-                                                                     (LIST
-                                                                      '|PositiveInteger|)
-                                                                     '$)
-                                                                    (|SimpleAlgebraicExtension|
-                                                                     (ELT $ 6)
-                                                                     (|SparseUnivariatePolynomial|
-                                                                      (ELT $
-                                                                           6))
-                                                                     |f|)))))
-                (EXIT
-                 (LETT |a|
-                       (SPADCALL |a| |primElement|
-                                 (|compiledLookupCheck| '* (LIST '$ '$ '$)
-                                                        (|SimpleAlgebraicExtension|
-                                                         (ELT $ 6)
-                                                         (|SparseUnivariatePolynomial|
-                                                          (ELT $ 6))
-                                                         |f|)))
-                       . #5#)))
-               (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
-          (EXIT |zechlog|))))))))) 
+                           . #7#)))
+                   (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL))
+              (EXIT |zechlog|)))))))) 
 
-(DEFUN |FFF;createMultiplicationMatrix;VM;6| (|m| $)
-  (PROG (#1=#:G218 |t| |i| |mat| |n|)
-    (RETURN
-     (SEQ (LETT |n| (QVSIZE |m|) . #2=(|FFF;createMultiplicationMatrix;VM;6|))
+(SDEFUN |FFF;createMultiplicationMatrix;VM;6|
+        ((|m| |Vector|
+          (|List| (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
+         ($ |Matrix| GF))
+        (SPROG
+         ((#1=#:G218 NIL) (|t| NIL) (|i| NIL) (|mat| (|Matrix| GF))
+          (|n| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |n| (QVSIZE |m|) . #2=(|FFF;createMultiplicationMatrix;VM;6|))
           (LETT |mat| (SPADCALL |n| |n| (QREFELT $ 54)) . #2#)
           (SEQ (LETT |i| 1 . #2#) G190
                (COND ((|greater_SI| |i| |n|) (GO G191)))
@@ -760,45 +875,43 @@
                                     (QCAR |t|) 1 1)))
                       (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |mat|))))) 
+          (EXIT |mat|)))) 
 
 (DECLAIM (NOTINLINE |FiniteFieldFunctions;|)) 
 
 (DEFUN |FiniteFieldFunctions| (#1=#:G219)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G220)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|FiniteFieldFunctions|)
-                                           '|domainEqualList|)
-                . #3=(|FiniteFieldFunctions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|FiniteFieldFunctions;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G220)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|FiniteFieldFunctions|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldFunctions|)
+                                               '|domainEqualList|)
+                    . #3=(|FiniteFieldFunctions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FiniteFieldFunctions;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FiniteFieldFunctions|)))))))))) 
 
 (DEFUN |FiniteFieldFunctions;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteFieldFunctions|))
-      (LETT |dv$| (LIST '|FiniteFieldFunctions| DV$1) . #1#)
-      (LETT $ (GETREFV 83) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FiniteFieldFunctions| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteFieldFunctions|))
+          (LETT |dv$| (LIST '|FiniteFieldFunctions| DV$1) . #1#)
+          (LETT $ (GETREFV 83) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FiniteFieldFunctions| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|FiniteFieldFunctions| '|infovec|
           (LIST

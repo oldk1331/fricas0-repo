@@ -1,111 +1,128 @@
 
-(DEFUN |IRRF2F;toEF| (|i| $) (SPADCALL (ELT $ 9) |i| (QREFELT $ 14))) 
+(SDEFUN |IRRF2F;toEF|
+        ((|i| |IntegrationResult| (|Fraction| (|Polynomial| R)))
+         ($ |IntegrationResult| (|Expression| R)))
+        (SPADCALL (ELT $ 9) |i| (QREFELT $ 14))) 
 
-(DEFUN |IRRF2F;expand;IrL;2| (|i| $)
-  (SPADCALL (|IRRF2F;toEF| |i| $) (QREFELT $ 17))) 
+(SDEFUN |IRRF2F;expand;IrL;2|
+        ((|i| |IntegrationResult| (|Fraction| (|Polynomial| R)))
+         ($ |List| (|Expression| R)))
+        (SPADCALL (|IRRF2F;toEF| |i| $) (QREFELT $ 17))) 
 
-(DEFUN |IRRF2F;complexExpand;IrE;3| (|i| $)
-  (SPADCALL (|IRRF2F;toEF| |i| $) (QREFELT $ 19))) 
+(SDEFUN |IRRF2F;complexExpand;IrE;3|
+        ((|i| |IntegrationResult| (|Fraction| (|Polynomial| R)))
+         ($ |Expression| R))
+        (SPADCALL (|IRRF2F;toEF| |i| $) (QREFELT $ 19))) 
 
-(DEFUN |IRRF2F;split;2Ir;4| (|i| $)
-  (SPADCALL (ELT $ 21) (SPADCALL (|IRRF2F;toEF| |i| $) (QREFELT $ 22))
-            (QREFELT $ 25))) 
+(SDEFUN |IRRF2F;split;2Ir;4|
+        ((|i| |IntegrationResult| (|Fraction| (|Polynomial| R)))
+         ($ |IntegrationResult| (|Fraction| (|Polynomial| R))))
+        (SPADCALL (ELT $ 21) (SPADCALL (|IRRF2F;toEF| |i| $) (QREFELT $ 22))
+                  (QREFELT $ 25))) 
 
-(DEFUN |IRRF2F;complexIntegrate;FSE;5| (|f| |x| $)
-  (SPADCALL (SPADCALL |f| |x| (QREFELT $ 29)) (QREFELT $ 20))) 
+(SDEFUN |IRRF2F;complexIntegrate;FSE;5|
+        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|) ($ |Expression| R))
+        (SPADCALL (SPADCALL |f| |x| (QREFELT $ 29)) (QREFELT $ 20))) 
 
-(DEFUN |IRRF2F;integrate;FSU;6| (|f| |x| $)
-  (CONS 0 (SPADCALL |f| |x| (QREFELT $ 30)))) 
+(SDEFUN |IRRF2F;integrate;FSU;6|
+        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
+         ($ |Union| (|Expression| R) (|List| (|Expression| R))))
+        (CONS 0 (SPADCALL |f| |x| (QREFELT $ 30)))) 
 
-(DEFUN |IRRF2F;integrate;FSU;7| (|f| |x| $)
-  (PROG (|l| #1=#:G124 |g| #2=#:G123)
-    (RETURN
-     (SEQ
-      (LETT |l|
-            (PROGN
-             (LETT #2# NIL . #3=(|IRRF2F;integrate;FSU;7|))
-             (SEQ (LETT |g| NIL . #3#)
-                  (LETT #1#
-                        (SPADCALL (SPADCALL |f| |x| (QREFELT $ 29))
-                                  (QREFELT $ 18))
-                        . #3#)
-                  G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |g| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #2#
-                          (CONS
-                           (SPADCALL (SPADCALL |g| (QREFELT $ 34)) |x|
-                                     (QREFELT $ 36))
-                           #2#)
-                          . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (EXIT
-       (COND ((NULL (CDR |l|)) (CONS 0 (|SPADfirst| |l|)))
-             ('T (CONS 1 |l|)))))))) 
+(SDEFUN |IRRF2F;integrate;FSU;7|
+        ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
+         ($ |Union| (|Expression| R) (|List| (|Expression| R))))
+        (SPROG
+         ((|l| (|List| (|Expression| R))) (#1=#:G124 NIL) (|g| NIL)
+          (#2=#:G123 NIL))
+         (SEQ
+          (LETT |l|
+                (PROGN
+                 (LETT #2# NIL . #3=(|IRRF2F;integrate;FSU;7|))
+                 (SEQ (LETT |g| NIL . #3#)
+                      (LETT #1#
+                            (SPADCALL (SPADCALL |f| |x| (QREFELT $ 29))
+                                      (QREFELT $ 18))
+                            . #3#)
+                      G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |g| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2#
+                              (CONS
+                               (SPADCALL (SPADCALL |g| (QREFELT $ 34)) |x|
+                                         (QREFELT $ 36))
+                               #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (EXIT
+           (COND ((NULL (CDR |l|)) (CONS 0 (|SPADfirst| |l|)))
+                 ('T (CONS 1 |l|))))))) 
 
 (DECLAIM (NOTINLINE |IntegrationResultRFToFunction;|)) 
 
 (DEFUN |IntegrationResultRFToFunction| (#1=#:G125)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G126)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|IntegrationResultRFToFunction|)
-                                           '|domainEqualList|)
-                . #3=(|IntegrationResultRFToFunction|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|IntegrationResultRFToFunction;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G126)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|IntegrationResultRFToFunction|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegrationResultRFToFunction|)
+                                               '|domainEqualList|)
+                    . #3=(|IntegrationResultRFToFunction|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|IntegrationResultRFToFunction;| #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|IntegrationResultRFToFunction|)))))))))) 
 
 (DEFUN |IntegrationResultRFToFunction;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegrationResultRFToFunction|))
-      (LETT |dv$| (LIST '|IntegrationResultRFToFunction| DV$1) . #1#)
-      (LETT $ (GETREFV 37) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|IntegrationResultRFToFunction|
-                  (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 30
-                   (CONS (|dispatchFunction| |IRRF2F;complexIntegrate;FSE;5|)
-                         $))
-         (COND
-          ((|HasSignature| |#1| (LIST '|imaginary| (LIST (|devaluate| |#1|))))
-           (QSETREFV $ 32
-                     (CONS (|dispatchFunction| |IRRF2F;integrate;FSU;6|) $)))
-          ('T
-           (QSETREFV $ 32
-                     (CONS (|dispatchFunction| |IRRF2F;integrate;FSU;7|)
-                           $)))))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegrationResultRFToFunction|))
+          (LETT |dv$| (LIST '|IntegrationResultRFToFunction| DV$1) . #1#)
+          (LETT $ (GETREFV 37) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|CharacteristicZero|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|IntegrationResultRFToFunction|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 30
+                       (CONS
+                        (|dispatchFunction| |IRRF2F;complexIntegrate;FSE;5|)
+                        $))
+             (COND
+              ((|HasSignature| |#1|
+                               (LIST '|imaginary| (LIST (|devaluate| |#1|))))
+               (QSETREFV $ 32
+                         (CONS (|dispatchFunction| |IRRF2F;integrate;FSU;6|)
+                               $)))
+              ('T
+               (QSETREFV $ 32
+                         (CONS (|dispatchFunction| |IRRF2F;integrate;FSU;7|)
+                               $)))))))
+          $))) 
 
 (MAKEPROP '|IntegrationResultRFToFunction| '|infovec|
           (LIST

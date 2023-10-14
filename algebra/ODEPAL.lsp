@@ -1,77 +1,91 @@
 
-(DEFUN |ODEPAL;algDsolve;LodoRR;1| (|l| |g| $)
-  (PROG (|u| |bas| #1=#:G123 |v| #2=#:G122 |sol| |rec|)
-    (RETURN
-     (SEQ
-      (LETT |rec| (SPADCALL |l| |g| (QREFELT $ 13))
-            . #3=(|ODEPAL;algDsolve;LodoRR;1|))
-      (LETT |sol|
-            (SPADCALL (QCAR |rec|) (QCDR |rec|) (ELT $ 19) (QREFELT $ 26))
-            . #3#)
-      (LETT |bas|
-            (PROGN
-             (LETT #2# NIL . #3#)
-             (SEQ (LETT |v| NIL . #3#) (LETT #1# (QCDR |sol|) . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 29)) #2#) . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (LETT |u| (QCAR |sol|) . #3#)
-      (EXIT
-       (COND
-        ((QEQCAR |u| 0)
-         (CONS (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 29))) |bas|))
-        ('T (CONS (CONS 1 "failed") |bas|)))))))) 
+(SDEFUN |ODEPAL;algDsolve;LodoRR;1|
+        ((|l| |LinearOrdinaryDifferentialOperator1| R) (|g| R)
+         ($ |Record| (|:| |particular| (|Union| R "failed"))
+          (|:| |basis| (|List| R))))
+        (SPROG
+         ((|u| #1=(|Union| (|Vector| (|Fraction| UP)) "failed"))
+          (|bas| (|List| R)) (#2=#:G123 NIL) (|v| NIL) (#3=#:G122 NIL)
+          (|sol|
+           (|Record| (|:| |particular| #1#)
+                     (|:| |basis| (|List| (|Vector| (|Fraction| UP))))))
+          (|rec|
+           (|Record|
+            (|:| |mat|
+                 (|Matrix|
+                  (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+            (|:| |vec| (|Vector| (|Fraction| UP))))))
+         (SEQ
+          (LETT |rec| (SPADCALL |l| |g| (QREFELT $ 13))
+                . #4=(|ODEPAL;algDsolve;LodoRR;1|))
+          (LETT |sol|
+                (SPADCALL (QCAR |rec|) (QCDR |rec|) (ELT $ 19) (QREFELT $ 26))
+                . #4#)
+          (LETT |bas|
+                (PROGN
+                 (LETT #3# NIL . #4#)
+                 (SEQ (LETT |v| NIL . #4#) (LETT #2# (QCDR |sol|) . #4#) G190
+                      (COND
+                       ((OR (ATOM #2#) (PROGN (LETT |v| (CAR #2#) . #4#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #3# (CONS (SPADCALL |v| (QREFELT $ 29)) #3#)
+                              . #4#)))
+                      (LETT #2# (CDR #2#) . #4#) (GO G190) G191
+                      (EXIT (NREVERSE #3#))))
+                . #4#)
+          (LETT |u| (QCAR |sol|) . #4#)
+          (EXIT
+           (COND
+            ((QEQCAR |u| 0)
+             (CONS (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 29))) |bas|))
+            ('T (CONS (CONS 1 "failed") |bas|))))))) 
 
 (DECLAIM (NOTINLINE |PureAlgebraicLODE;|)) 
 
 (DEFUN |PureAlgebraicLODE| (&REST #1=#:G124)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G125)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PureAlgebraicLODE|)
-                                           '|domainEqualList|)
-                . #3=(|PureAlgebraicLODE|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PureAlgebraicLODE;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G125)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|PureAlgebraicLODE|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PureAlgebraicLODE|)
+                                               '|domainEqualList|)
+                    . #3=(|PureAlgebraicLODE|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PureAlgebraicLODE;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PureAlgebraicLODE|)))))))))) 
 
 (DEFUN |PureAlgebraicLODE;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PureAlgebraicLODE|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|PureAlgebraicLODE| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 33) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PureAlgebraicLODE|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|PureAlgebraicLODE|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|PureAlgebraicLODE| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 33) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|PureAlgebraicLODE|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|PureAlgebraicLODE| '|infovec|
           (LIST

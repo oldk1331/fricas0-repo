@@ -9,11 +9,10 @@
           (T (SETQ |arbitraryExponent;AL| (|arbitraryExponent;|)))))) 
 
 (DEFUN |arbitraryExponent;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
-               |arbitraryExponent|)
-       (SETELT #1# 0 '(|arbitraryExponent|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
+                   |arbitraryExponent|)
+           (SETELT #1# 0 '(|arbitraryExponent|))))) 
 
 (MAKEPROP '|arbitraryExponent| 'NILADIC T) 

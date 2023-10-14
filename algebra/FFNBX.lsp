@@ -2,59 +2,58 @@
 (DECLAIM (NOTINLINE |FiniteFieldNormalBasisExtension;|)) 
 
 (DEFUN |FiniteFieldNormalBasisExtension| (&REST #1=#:G143)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G144)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FiniteFieldNormalBasisExtension|)
-                                           '|domainEqualList|)
-                . #3=(|FiniteFieldNormalBasisExtension|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |FiniteFieldNormalBasisExtension;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G144)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|FiniteFieldNormalBasisExtension|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldNormalBasisExtension|)
+                                               '|domainEqualList|)
+                    . #3=(|FiniteFieldNormalBasisExtension|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |FiniteFieldNormalBasisExtension;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteFieldNormalBasisExtension|)))))))))) 
 
 (DEFUN |FiniteFieldNormalBasisExtension;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G142 $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldNormalBasisExtension|))
-      (LETT DV$2 (|devaluate| |#2|) . #2#)
-      (LETT |dv$| (LIST '|FiniteFieldNormalBasisExtension| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 50) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|Finite|))
-                                                . #2#)
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicNonZero|))
-                                           #1#)))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|FiniteFieldNormalBasisExtension|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G142 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldNormalBasisExtension|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT |dv$| (LIST '|FiniteFieldNormalBasisExtension| DV$1 DV$2) . #2#)
+    (LETT $ (GETREFV 50) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (LETT #1#
+                                              (|HasCategory| |#1| '(|Finite|))
+                                              . #2#)
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicNonZero|))
+                                         #1#)))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|FiniteFieldNormalBasisExtension|
+                (LIST DV$1 DV$2) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|FiniteFieldNormalBasisExtension| '|infovec|
           (LIST

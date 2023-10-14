@@ -1,123 +1,159 @@
 
-(DEFUN |IR2;NLE2F| (|func| |r| $)
-  (CONS (SPADCALL (QCAR |r|) |func|) (SPADCALL (QCDR |r|) |func|))) 
+(SDEFUN |IR2;NLE2F|
+        ((|func| |Mapping| F E) (|r| |Record| (|:| |coeff| E) (|:| |logand| E))
+         ($ |Record| (|:| |coeff| F) (|:| |logand| F)))
+        (CONS (SPADCALL (QCAR |r|) |func|) (SPADCALL (QCDR |r|) |func|))) 
 
-(DEFUN |IR2;NEE2F| (|func| |n| $)
-  (CONS (SPADCALL (QCAR |n|) |func|) (SPADCALL (QCDR |n|) |func|))) 
+(SDEFUN |IR2;NEE2F|
+        ((|func| |Mapping| F E)
+         (|n| |Record| (|:| |integrand| E) (|:| |intvar| E))
+         ($ |Record| (|:| |integrand| F) (|:| |intvar| F)))
+        (CONS (SPADCALL (QCAR |n|) |func|) (SPADCALL (QCDR |n|) |func|))) 
 
-(DEFUN |IR2;map;MUU;3| (|func| |u| $)
-  (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-        ('T (CONS 0 (SPADCALL (QCDR |u|) |func|))))) 
+(SDEFUN |IR2;map;MUU;3|
+        ((|func| |Mapping| F E) (|u| |Union| E "failed")
+         ($ |Union| F "failed"))
+        (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+              ('T (CONS 0 (SPADCALL (QCDR |u|) |func|))))) 
 
-(DEFUN |IR2;map;MIrIr;4| (|func| |ir| $)
-  (PROG (#1=#:G135 |g| #2=#:G134 #3=#:G133 |f| #4=#:G132)
-    (RETURN
-     (SEQ
-      (SPADCALL (SPADCALL (SPADCALL |ir| (QREFELT $ 13)) |func|)
-                (PROGN
-                 (LETT #4# NIL . #5=(|IR2;map;MIrIr;4|))
-                 (SEQ (LETT |f| NIL . #5#)
-                      (LETT #3# (SPADCALL |ir| (QREFELT $ 16)) . #5#) G190
-                      (COND
-                       ((OR (ATOM #3#) (PROGN (LETT |f| (CAR #3#) . #5#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #4# (CONS (|IR2;LGE2F| |func| |f| $) #4#)
-                              . #5#)))
-                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
-                      (EXIT (NREVERSE #4#))))
-                (PROGN
-                 (LETT #2# NIL . #5#)
-                 (SEQ (LETT |g| NIL . #5#)
-                      (LETT #1# (SPADCALL |ir| (QREFELT $ 19)) . #5#) G190
-                      (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |g| (CAR #1#) . #5#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #2# (CONS (|IR2;NEE2F| |func| |g| $) #2#)
-                              . #5#)))
-                      (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                (QREFELT $ 25)))))) 
+(SDEFUN |IR2;map;MIrIr;4|
+        ((|func| |Mapping| F E) (|ir| |IntegrationResult| E)
+         ($ |IntegrationResult| F))
+        (SPROG
+         ((#1=#:G135 NIL) (|g| NIL) (#2=#:G134 NIL) (#3=#:G133 NIL) (|f| NIL)
+          (#4=#:G132 NIL))
+         (SEQ
+          (SPADCALL (SPADCALL (SPADCALL |ir| (QREFELT $ 13)) |func|)
+                    (PROGN
+                     (LETT #4# NIL . #5=(|IR2;map;MIrIr;4|))
+                     (SEQ (LETT |f| NIL . #5#)
+                          (LETT #3# (SPADCALL |ir| (QREFELT $ 16)) . #5#) G190
+                          (COND
+                           ((OR (ATOM #3#)
+                                (PROGN (LETT |f| (CAR #3#) . #5#) NIL))
+                            (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #4# (CONS (|IR2;LGE2F| |func| |f| $) #4#)
+                                  . #5#)))
+                          (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                          (EXIT (NREVERSE #4#))))
+                    (PROGN
+                     (LETT #2# NIL . #5#)
+                     (SEQ (LETT |g| NIL . #5#)
+                          (LETT #1# (SPADCALL |ir| (QREFELT $ 19)) . #5#) G190
+                          (COND
+                           ((OR (ATOM #1#)
+                                (PROGN (LETT |g| (CAR #1#) . #5#) NIL))
+                            (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #2# (CONS (|IR2;NEE2F| |func| |g| $) #2#)
+                                  . #5#)))
+                          (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                          (EXIT (NREVERSE #2#))))
+                    (QREFELT $ 25))))) 
 
-(DEFUN |IR2;map;MUU;5| (|func| |u| $)
-  (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-        ('T
-         (CONS 0
-               (CONS (SPADCALL (QCAR (QCDR |u|)) |func|)
-                     (SPADCALL (QCDR (QCDR |u|)) |func|)))))) 
+(SDEFUN |IR2;map;MUU;5|
+        ((|func| |Mapping| F E)
+         (|u| |Union| (|Record| (|:| |ratpart| E) (|:| |coeff| E)) "failed")
+         ($ |Union| (|Record| (|:| |ratpart| F) (|:| |coeff| F)) "failed"))
+        (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+              ('T
+               (CONS 0
+                     (CONS (SPADCALL (QCAR (QCDR |u|)) |func|)
+                           (SPADCALL (QCDR (QCDR |u|)) |func|)))))) 
 
-(DEFUN |IR2;map;MUU;6| (|func| |u| $)
-  (PROG (#1=#:G177 |f| #2=#:G176)
-    (RETURN
-     (SEQ
-      (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-            ('T
-             (CONS 0
-                   (CONS (SPADCALL (QCAR (QCDR |u|)) |func|)
-                         (PROGN
-                          (LETT #2# NIL . #3=(|IR2;map;MUU;6|))
-                          (SEQ (LETT |f| NIL . #3#)
-                               (LETT #1# (QCDR (QCDR |u|)) . #3#) G190
-                               (COND
-                                ((OR (ATOM #1#)
-                                     (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
-                                 (GO G191)))
-                               (SEQ
-                                (EXIT
-                                 (LETT #2#
-                                       (CONS (|IR2;NLE2F| |func| |f| $) #2#)
-                                       . #3#)))
-                               (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                               (EXIT (NREVERSE #2#)))))))))))) 
+(SDEFUN |IR2;map;MUU;6|
+        ((|func| |Mapping| F E)
+         (|u| |Union|
+          (|Record| (|:| |mainpart| E)
+                    (|:| |limitedlogs|
+                         (|List| (|Record| (|:| |coeff| E) (|:| |logand| E)))))
+          "failed")
+         ($ |Union|
+          (|Record| (|:| |mainpart| F)
+                    (|:| |limitedlogs|
+                         (|List| (|Record| (|:| |coeff| F) (|:| |logand| F)))))
+          "failed"))
+        (SPROG ((#1=#:G177 NIL) (|f| NIL) (#2=#:G176 NIL))
+               (SEQ
+                (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                      ('T
+                       (CONS 0
+                             (CONS (SPADCALL (QCAR (QCDR |u|)) |func|)
+                                   (PROGN
+                                    (LETT #2# NIL . #3=(|IR2;map;MUU;6|))
+                                    (SEQ (LETT |f| NIL . #3#)
+                                         (LETT #1# (QCDR (QCDR |u|)) . #3#)
+                                         G190
+                                         (COND
+                                          ((OR (ATOM #1#)
+                                               (PROGN
+                                                (LETT |f| (CAR #1#) . #3#)
+                                                NIL))
+                                           (GO G191)))
+                                         (SEQ
+                                          (EXIT
+                                           (LETT #2#
+                                                 (CONS
+                                                  (|IR2;NLE2F| |func| |f| $)
+                                                  #2#)
+                                                 . #3#)))
+                                         (LETT #1# (CDR #1#) . #3#) (GO G190)
+                                         G191 (EXIT (NREVERSE #2#))))))))))) 
 
-(DEFUN |IR2;LGE2F| (|func| |lg| $)
-  (VECTOR (QVELT |lg| 0) (SPADCALL |func| (QVELT |lg| 1) (QREFELT $ 42))
-          (SPADCALL |func| (QVELT |lg| 2) (QREFELT $ 42)))) 
+(SDEFUN |IR2;LGE2F|
+        ((|func| |Mapping| F E)
+         (|lg| |Record| (|:| |scalar| (|Fraction| (|Integer|)))
+          (|:| |coeff| (|SparseUnivariatePolynomial| E))
+          (|:| |logand| (|SparseUnivariatePolynomial| E)))
+         ($ |Record| (|:| |scalar| (|Fraction| (|Integer|)))
+          (|:| |coeff| (|SparseUnivariatePolynomial| F))
+          (|:| |logand| (|SparseUnivariatePolynomial| F))))
+        (VECTOR (QVELT |lg| 0) (SPADCALL |func| (QVELT |lg| 1) (QREFELT $ 42))
+                (SPADCALL |func| (QVELT |lg| 2) (QREFELT $ 42)))) 
 
 (DECLAIM (NOTINLINE |IntegrationResultFunctions2;|)) 
 
 (DEFUN |IntegrationResultFunctions2| (&REST #1=#:G183)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G184)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|IntegrationResultFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|IntegrationResultFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |IntegrationResultFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G184)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|IntegrationResultFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IntegrationResultFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|IntegrationResultFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |IntegrationResultFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|IntegrationResultFunctions2|)))))))))) 
 
 (DEFUN |IntegrationResultFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegrationResultFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|IntegrationResultFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 43) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|IntegrationResultFunctions2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegrationResultFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|IntegrationResultFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 43) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|IntegrationResultFunctions2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|IntegrationResultFunctions2| '|infovec|
           (LIST

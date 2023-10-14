@@ -1,124 +1,165 @@
 
-(DEFUN |LODOF;factor;LodoML;1| (|l| |zeros| $)
-  (|LODOF;innerFactor| |l| |zeros| (ELT $ 12) 'T $)) 
+(SDEFUN |LODOF;factor;LodoML;1|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|zeros| |Mapping| (|List| F) UP)
+         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        (|LODOF;innerFactor| |l| |zeros| (ELT $ 12) 'T $)) 
 
-(DEFUN |LODOF;expsol| (|l| |zeros| |ezfactor| $)
-  (PROG (|sol|)
-    (RETURN
-     (COND
-      ((NULL
-        (LETT |sol| (|LODOF;expsols| |l| |zeros| |ezfactor| 'NIL $)
-              |LODOF;expsol|))
-       (CONS 1 "failed"))
-      ('T (CONS 0 (|SPADfirst| |sol|))))))) 
+(SDEFUN |LODOF;expsol|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|zeros| |Mapping| (|List| F) UP)
+         (|ezfactor| |Mapping| (|Factored| UP) UP)
+         ($ |Union| (|Fraction| UP) "failed"))
+        (SPROG ((|sol| (|List| (|Fraction| UP))))
+               (COND
+                ((NULL
+                  (LETT |sol| (|LODOF;expsols| |l| |zeros| |ezfactor| 'NIL $)
+                        |LODOF;expsol|))
+                 (CONS 1 "failed"))
+                ('T (CONS 0 (|SPADfirst| |sol|)))))) 
 
-(DEFUN |LODOF;expsols| (|l| |zeros| |ezfactor| |all?| $)
-  (PROG (|sol| #1=#:G131 |f| #2=#:G130)
-    (RETURN
-     (SEQ
-      (LETT |sol|
-            (PROGN
-             (LETT #2# NIL . #3=(|LODOF;expsols|))
-             (SEQ (LETT |f| NIL . #3#)
-                  (LETT #1#
-                        (QCDR
-                         (SPADCALL |l| (|spadConstant| $ 19) (QREFELT $ 23)))
-                        . #3#)
-                  G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (COND
-                     ((SPADCALL |f| (|spadConstant| $ 19) (QREFELT $ 25))
-                      (LETT #2#
-                            (CONS
-                             (SPADCALL (SPADCALL |f| (QREFELT $ 26)) |f|
-                                       (QREFELT $ 27))
-                             #2#)
-                            . #3#)))))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (COND ((NULL |all?|) (COND ((NULL (NULL |sol|)) (EXIT |sol|)))))
-      (EXIT
-       (SPADCALL |sol| (SPADCALL |l| |zeros| |ezfactor| (QREFELT $ 31))
-                 (QREFELT $ 32))))))) 
+(SDEFUN |LODOF;expsols|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|zeros| |Mapping| (|List| F) UP)
+         (|ezfactor| |Mapping| (|Factored| UP) UP) (|all?| |Boolean|)
+         ($ |List| (|Fraction| UP)))
+        (SPROG
+         ((|sol| (|List| (|Fraction| UP))) (#1=#:G131 NIL) (|f| NIL)
+          (#2=#:G130 NIL))
+         (SEQ
+          (LETT |sol|
+                (PROGN
+                 (LETT #2# NIL . #3=(|LODOF;expsols|))
+                 (SEQ (LETT |f| NIL . #3#)
+                      (LETT #1#
+                            (QCDR
+                             (SPADCALL |l| (|spadConstant| $ 19)
+                                       (QREFELT $ 23)))
+                            . #3#)
+                      G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((SPADCALL |f| (|spadConstant| $ 19) (QREFELT $ 25))
+                          (LETT #2#
+                                (CONS
+                                 (SPADCALL (SPADCALL |f| (QREFELT $ 26)) |f|
+                                           (QREFELT $ 27))
+                                 #2#)
+                                . #3#)))))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (COND ((NULL |all?|) (COND ((NULL (NULL |sol|)) (EXIT |sol|)))))
+          (EXIT
+           (SPADCALL |sol| (SPADCALL |l| |zeros| |ezfactor| (QREFELT $ 31))
+                     (QREFELT $ 32)))))) 
 
-(DEFUN |LODOF;opeval| (|l1| |l2| $)
-  (PROG (|l2n| |ans| #1=#:G136 |i|)
-    (RETURN
-     (SEQ (LETT |ans| (|spadConstant| $ 33) . #2=(|LODOF;opeval|))
-          (LETT |l2n| (|spadConstant| $ 34) . #2#)
-          (SEQ (LETT |i| 0 . #2#)
-               (LETT #1# (SPADCALL |l1| (QREFELT $ 36)) . #2#) G190
-               (COND ((|greater_SI| |i| #1#) (GO G191)))
-               (SEQ
-                (LETT |ans|
-                      (SPADCALL |ans|
-                                (SPADCALL (SPADCALL |l1| |i| (QREFELT $ 37))
-                                          |l2n| (QREFELT $ 38))
-                                (QREFELT $ 39))
-                      . #2#)
-                (EXIT (LETT |l2n| (SPADCALL |l2| |l2n| (QREFELT $ 40)) . #2#)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT |ans|))))) 
+(SDEFUN |LODOF;opeval|
+        ((|l1| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|l2| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         ($ |LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+        (SPROG
+         ((|l2n| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+          (|ans| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+          (#1=#:G136 NIL) (|i| NIL))
+         (SEQ (LETT |ans| (|spadConstant| $ 33) . #2=(|LODOF;opeval|))
+              (LETT |l2n| (|spadConstant| $ 34) . #2#)
+              (SEQ (LETT |i| 0 . #2#)
+                   (LETT #1# (SPADCALL |l1| (QREFELT $ 36)) . #2#) G190
+                   (COND ((|greater_SI| |i| #1#) (GO G191)))
+                   (SEQ
+                    (LETT |ans|
+                          (SPADCALL |ans|
+                                    (SPADCALL
+                                     (SPADCALL |l1| |i| (QREFELT $ 37)) |l2n|
+                                     (QREFELT $ 38))
+                                    (QREFELT $ 39))
+                          . #2#)
+                    (EXIT
+                     (LETT |l2n| (SPADCALL |l2| |l2n| (QREFELT $ 40)) . #2#)))
+                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+              (EXIT |ans|)))) 
 
-(DEFUN |LODOF;recurfactor| (|l| |r| |zeros| |ezfactor| |adj?| $)
-  (PROG (|q| #1=#:G138)
-    (RETURN
-     (SEQ
-      (LETT |q|
-            (PROG2
-                (LETT #1# (SPADCALL |l| |r| (QREFELT $ 42))
-                      . #2=(|LODOF;recurfactor|))
-                (QCDR #1#)
-              (|check_union| (QEQCAR #1# 0)
-                             (|LinearOrdinaryDifferentialOperator1|
-                              (|Fraction| (QREFELT $ 7)))
-                             #1#))
-            . #2#)
-      (EXIT (|LODOF;innerFactor| |q| |zeros| |ezfactor| 'T $)))))) 
+(SDEFUN |LODOF;recurfactor|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|r| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|zeros| |Mapping| (|List| F) UP)
+         (|ezfactor| |Mapping| (|Factored| UP) UP) (|adj?| |Boolean|)
+         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        (SPROG
+         ((|q| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+          (#1=#:G138 NIL))
+         (SEQ
+          (LETT |q|
+                (PROG2
+                    (LETT #1# (SPADCALL |l| |r| (QREFELT $ 42))
+                          . #2=(|LODOF;recurfactor|))
+                    (QCDR #1#)
+                  (|check_union| (QEQCAR #1# 0)
+                                 (|LinearOrdinaryDifferentialOperator1|
+                                  (|Fraction| (QREFELT $ 7)))
+                                 #1#))
+                . #2#)
+          (EXIT (|LODOF;innerFactor| |q| |zeros| |ezfactor| 'T $))))) 
 
-(DEFUN |LODOF;rfactor| (|op| |r| |zeros| |ezfactor| |adj?| $)
-  (PROG (|op1|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (SPADCALL (SPADCALL |r| (QREFELT $ 36)) 1 (QREFELT $ 44))
-            (NULL
-             (SPADCALL (SPADCALL |r| (QREFELT $ 45)) (|spadConstant| $ 46)
-                       (QREFELT $ 47))))
-        (|LODOF;recurfactor| |op| |r| |zeros| |ezfactor| |adj?| $))
-       ('T
-        (SEQ
-         (LETT |op1|
-               (|LODOF;opeval| |op|
-                (SPADCALL (QREFELT $ 10)
-                          (SPADCALL (SPADCALL |r| 0 (QREFELT $ 37))
-                                    (QREFELT $ 48))
-                          (QREFELT $ 49))
-                $)
-               |LODOF;rfactor|)
-         (EXIT
-          (SPADCALL (CONS #'|LODOF;rfactor!0| (VECTOR $ |r|))
-                    (|LODOF;recurfactor| |op1| (QREFELT $ 10) |zeros|
-                     |ezfactor| |adj?| $)
-                    (QREFELT $ 51)))))))))) 
+(SDEFUN |LODOF;rfactor|
+        ((|op| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|r| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|zeros| |Mapping| (|List| F) UP)
+         (|ezfactor| |Mapping| (|Factored| UP) UP) (|adj?| |Boolean|)
+         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        (SPROG
+         ((|op1| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+         (SEQ
+          (COND
+           ((OR (SPADCALL (SPADCALL |r| (QREFELT $ 36)) 1 (QREFELT $ 44))
+                (NULL
+                 (SPADCALL (SPADCALL |r| (QREFELT $ 45)) (|spadConstant| $ 46)
+                           (QREFELT $ 47))))
+            (|LODOF;recurfactor| |op| |r| |zeros| |ezfactor| |adj?| $))
+           ('T
+            (SEQ
+             (LETT |op1|
+                   (|LODOF;opeval| |op|
+                    (SPADCALL (QREFELT $ 10)
+                              (SPADCALL (SPADCALL |r| 0 (QREFELT $ 37))
+                                        (QREFELT $ 48))
+                              (QREFELT $ 49))
+                    $)
+                   |LODOF;rfactor|)
+             (EXIT
+              (SPADCALL (CONS #'|LODOF;rfactor!0| (VECTOR $ |r|))
+                        (|LODOF;recurfactor| |op1| (QREFELT $ 10) |zeros|
+                         |ezfactor| |adj?| $)
+                        (QREFELT $ 51))))))))) 
 
-(DEFUN |LODOF;rfactor!0| (|z1| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|LODOF;rfactor|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (|LODOF;opeval| |z1| |r| $))))) 
+(SDEFUN |LODOF;rfactor!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|LODOF;rfactor|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (|LODOF;opeval| |z1| |r| $))))) 
 
-(DEFUN |LODOF;innerFactor| (|l| |zeros| |ezfactor| |r1?| $)
-  (PROG (#1=#:G174 #2=#:G178 |u| #3=#:G179 |i| |ll| |n|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |n| (SPADCALL |l| (QREFELT $ 36)) . #4=(|LODOF;innerFactor|))
+(SDEFUN |LODOF;innerFactor|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|zeros| |Mapping| (|List| F) UP)
+         (|ezfactor| |Mapping| (|Factored| UP) UP) (|r1?| |Boolean|)
+         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        (SPROG
+         ((#1=#:G174 NIL) (#2=#:G178 NIL)
+          (|u|
+           (|Union| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+                    "failed"))
+          (#3=#:G179 NIL) (|i| NIL)
+          (|ll| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+          (|n| (|NonNegativeInteger|)))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |n| (SPADCALL |l| (QREFELT $ 36)) . #4=(|LODOF;innerFactor|))
             (EXIT
              (COND ((SPADCALL |n| 1 (QREFELT $ 53)) (LIST |l|))
                    ('T
@@ -190,148 +231,172 @@
                               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT (LIST |l|))))))))
-      #2# (EXIT #2#))))) 
+          #2# (EXIT #2#)))) 
 
-(DEFUN |LODOF;rightFactor| (|l| |n| |zeros| |ezfactor| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (COND
-       ((EQL |n| 1)
-        (SEQ
-         (LETT |u| (|LODOF;expsol| |l| |zeros| |ezfactor| $)
-               |LODOF;rightFactor|)
-         (EXIT
-          (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                (#1='T
-                 (CONS 0
-                       (SPADCALL (SPADCALL (QREFELT $ 9))
-                                 (SPADCALL (QCDR |u|) (QREFELT $ 48))
-                                 (QREFELT $ 49))))))))
-       (#1# (CONS 1 "failed"))))))) 
+(SDEFUN |LODOF;rightFactor|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         (|n| |NonNegativeInteger|) (|zeros| |Mapping| (|List| F) UP)
+         (|ezfactor| |Mapping| (|Factored| UP) UP)
+         ($ |Union| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+          "failed"))
+        (SPROG ((|u| (|Union| (|Fraction| UP) "failed")))
+               (SEQ
+                (COND
+                 ((EQL |n| 1)
+                  (SEQ
+                   (LETT |u| (|LODOF;expsol| |l| |zeros| |ezfactor| $)
+                         |LODOF;rightFactor|)
+                   (EXIT
+                    (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                          (#1='T
+                           (CONS 0
+                                 (SPADCALL (SPADCALL (QREFELT $ 9))
+                                           (SPADCALL (QCDR |u|) (QREFELT $ 48))
+                                           (QREFELT $ 49))))))))
+                 (#1# (CONS 1 "failed")))))) 
 
-(DEFUN |LODOF;zro| (|p| |ezfactor| $)
-  (PROG (#1=#:G194 |r| #2=#:G193)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (PROGN
-        (LETT #2# NIL . #3=(|LODOF;zro|))
-        (SEQ (LETT |r| NIL . #3#)
-             (LETT #1# (SPADCALL (SPADCALL |p| |ezfactor|) (QREFELT $ 61))
-                   . #3#)
-             G190
-             (COND
-              ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT (LETT #2# (CONS (|LODOF;zro1| (QCAR |r|) $) #2#) . #3#)))
-             (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-       (QREFELT $ 64)))))) 
+(SDEFUN |LODOF;zro|
+        ((|p| UP) (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| F))
+        (SPROG ((#1=#:G194 NIL) (|r| NIL) (#2=#:G193 NIL))
+               (SEQ
+                (SPADCALL
+                 (PROGN
+                  (LETT #2# NIL . #3=(|LODOF;zro|))
+                  (SEQ (LETT |r| NIL . #3#)
+                       (LETT #1#
+                             (SPADCALL (SPADCALL |p| |ezfactor|)
+                                       (QREFELT $ 61))
+                             . #3#)
+                       G190
+                       (COND
+                        ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2# (CONS (|LODOF;zro1| (QCAR |r|) $) #2#)
+                               . #3#)))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 (QREFELT $ 64))))) 
 
-(DEFUN |LODOF;zro1| (|p| $)
-  (LIST
-   (SPADCALL (SPADCALL (LIST #'|LODOF;zro1!0|) |p| (QREFELT $ 68))
-             (QREFELT $ 70)))) 
+(SDEFUN |LODOF;zro1| ((|p| UP) ($ |List| F))
+        (LIST
+         (SPADCALL (SPADCALL (LIST #'|LODOF;zro1!0|) |p| (QREFELT $ 68))
+                   (QREFELT $ 70)))) 
 
-(DEFUN |LODOF;zro1!0| (|z1| $$) |z1|) 
+(SDEFUN |LODOF;zro1!0| ((|z1| NIL) ($$ NIL)) |z1|) 
 
-(DEFUN |LODOF;factor;LodoL;11| (|l| $)
-  (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor;LodoL;11!0| $) (ELT $ 72) 'T
-   $)) 
+(SDEFUN |LODOF;factor;LodoL;11|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor;LodoL;11!0| $)
+         (ELT $ 72) 'T $)) 
 
-(DEFUN |LODOF;factor;LodoL;11!0| (|p1| $) (|LODOF;zro| |p1| (ELT $ 72) $)) 
+(SDEFUN |LODOF;factor;LodoL;11!0| ((|p1| NIL) ($ NIL))
+        (|LODOF;zro| |p1| (ELT $ 72) $)) 
 
-(DEFUN |LODOF;factor1;LodoL;12| (|l| $)
-  (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;12!0| $) (ELT $ 72)
-   'NIL $)) 
+(SDEFUN |LODOF;factor1;LodoL;12|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;12!0| $)
+         (ELT $ 72) 'NIL $)) 
 
-(DEFUN |LODOF;factor1;LodoL;12!0| (|p1| $) (|LODOF;zro| |p1| (ELT $ 72) $)) 
+(SDEFUN |LODOF;factor1;LodoL;12!0| ((|p1| NIL) ($ NIL))
+        (|LODOF;zro| |p1| (ELT $ 72) $)) 
 
-(DEFUN |LODOF;factor;LodoL;13| (|l| $)
-  (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor;LodoL;13!0| $) (ELT $ 12) 'T
-   $)) 
+(SDEFUN |LODOF;factor;LodoL;13|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor;LodoL;13!0| $)
+         (ELT $ 12) 'T $)) 
 
-(DEFUN |LODOF;factor;LodoL;13!0| (|p1| $) (|LODOF;zro| |p1| (ELT $ 12) $)) 
+(SDEFUN |LODOF;factor;LodoL;13!0| ((|p1| NIL) ($ NIL))
+        (|LODOF;zro| |p1| (ELT $ 12) $)) 
 
-(DEFUN |LODOF;factor1;LodoL;14| (|l| $)
-  (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;14!0| $) (ELT $ 12)
-   'NIL $)) 
+(SDEFUN |LODOF;factor1;LodoL;14|
+        ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
+        (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;14!0| $)
+         (ELT $ 12) 'NIL $)) 
 
-(DEFUN |LODOF;factor1;LodoL;14!0| (|p1| $) (|LODOF;zro| |p1| (ELT $ 12) $)) 
+(SDEFUN |LODOF;factor1;LodoL;14!0| ((|p1| NIL) ($ NIL))
+        (|LODOF;zro| |p1| (ELT $ 12) $)) 
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorFactorizer;|)) 
 
 (DEFUN |LinearOrdinaryDifferentialOperatorFactorizer| (&REST #1=#:G214)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G215)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|LinearOrdinaryDifferentialOperatorFactorizer|)
-                                           '|domainEqualList|)
-                . #3=(|LinearOrdinaryDifferentialOperatorFactorizer|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY
-                   (|function| |LinearOrdinaryDifferentialOperatorFactorizer;|)
-                   #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G215)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|LinearOrdinaryDifferentialOperatorFactorizer|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|LinearOrdinaryDifferentialOperatorFactorizer|)
+                                               '|domainEqualList|)
+                    . #3=(|LinearOrdinaryDifferentialOperatorFactorizer|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function|
+                        |LinearOrdinaryDifferentialOperatorFactorizer;|)
+                       #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|LinearOrdinaryDifferentialOperatorFactorizer|)))))))))) 
 
 (DEFUN |LinearOrdinaryDifferentialOperatorFactorizer;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|LinearOrdinaryDifferentialOperatorFactorizer|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$|
-            (LIST '|LinearOrdinaryDifferentialOperatorFactorizer| DV$1 DV$2)
-            . #1#)
-      (LETT $ (GETREFV 75) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|AlgebraicallyClosedField|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache|
-                  '|LinearOrdinaryDifferentialOperatorFactorizer|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 10 (SPADCALL (QREFELT $ 9)))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (COND
-          ((|domainEqual| |#1| (|AlgebraicNumber|))
-           (PROGN
-            (QSETREFV $ 73
-                      (CONS (|dispatchFunction| |LODOF;factor;LodoL;11|) $))
-            (QSETREFV $ 74
-                      (CONS (|dispatchFunction| |LODOF;factor1;LodoL;12|) $))))
-          ('T
-           (PROGN
-            (QSETREFV $ 73
-                      (CONS (|dispatchFunction| |LODOF;factor;LodoL;13|) $))
-            (QSETREFV $ 74
-                      (CONS (|dispatchFunction| |LODOF;factor1;LodoL;14|)
-                            $))))))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|LinearOrdinaryDifferentialOperatorFactorizer|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$|
+                (LIST '|LinearOrdinaryDifferentialOperatorFactorizer| DV$1
+                      DV$2)
+                . #1#)
+          (LETT $ (GETREFV 75) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|AlgebraicallyClosedField|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|LinearOrdinaryDifferentialOperatorFactorizer|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 10 (SPADCALL (QREFELT $ 9)))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (COND
+              ((|domainEqual| |#1| (|AlgebraicNumber|))
+               (PROGN
+                (QSETREFV $ 73
+                          (CONS (|dispatchFunction| |LODOF;factor;LodoL;11|)
+                                $))
+                (QSETREFV $ 74
+                          (CONS (|dispatchFunction| |LODOF;factor1;LodoL;12|)
+                                $))))
+              ('T
+               (PROGN
+                (QSETREFV $ 73
+                          (CONS (|dispatchFunction| |LODOF;factor;LodoL;13|)
+                                $))
+                (QSETREFV $ 74
+                          (CONS (|dispatchFunction| |LODOF;factor1;LodoL;14|)
+                                $))))))))
+          $))) 
 
 (MAKEPROP '|LinearOrdinaryDifferentialOperatorFactorizer| '|infovec|
           (LIST

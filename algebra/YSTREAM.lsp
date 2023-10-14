@@ -1,79 +1,82 @@
 
-(DEFUN |YSTREAM;Y;MS;1| (|f| $)
-  (PROG (|j| |y|)
-    (RETURN
-     (SEQ (LETT |y| (CONS (QREFELT $ 7) 0) . #1=(|YSTREAM;Y;MS;1|))
-          (LETT |j| (SPADCALL |y| |f|) . #1#)
-          (RPLACA |y| (SPADCALL |j| (QREFELT $ 9)))
-          (RPLACD |y| (SPADCALL |j| (QREFELT $ 10))) (EXIT |y|))))) 
+(SDEFUN |YSTREAM;Y;MS;1|
+        ((|f| |Mapping| #1=(|Stream| A) (|Stream| A)) ($ |Stream| A))
+        (SPROG ((|j| #1#) (|y| (|Stream| A)))
+               (SEQ (LETT |y| (CONS (QREFELT $ 7) 0) . #2=(|YSTREAM;Y;MS;1|))
+                    (LETT |j| (SPADCALL |y| |f|) . #2#)
+                    (RPLACA |y| (SPADCALL |j| (QREFELT $ 9)))
+                    (RPLACD |y| (SPADCALL |j| (QREFELT $ 10))) (EXIT |y|)))) 
 
-(DEFUN |YSTREAM;Y;MIL;2| (|g| |n| $)
-  (PROG (#1=#:G113 |xi| #2=#:G114 |ji| |j| |x| |i| #3=#:G112)
-    (RETURN
-     (SEQ
-      (LETT |x|
-            (PROGN
-             (LETT #3# NIL . #4=(|YSTREAM;Y;MIL;2|))
-             (SEQ (LETT |i| 1 . #4#) G190
-                  (COND ((|greater_SI| |i| |n|) (GO G191)))
-                  (SEQ
-                   (EXIT (LETT #3# (CONS (CONS (QREFELT $ 7) 0) #3#) . #4#)))
-                  (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-                  (EXIT (NREVERSE #3#))))
-            . #4#)
-      (LETT |j| (SPADCALL |x| |g|) . #4#)
-      (SEQ (LETT |ji| NIL . #4#) (LETT #2# |j| . #4#) (LETT |xi| NIL . #4#)
-           (LETT #1# |x| . #4#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |xi| (CAR #1#) . #4#) NIL) (ATOM #2#)
-                 (PROGN (LETT |ji| (CAR #2#) . #4#) NIL))
-             (GO G191)))
-           (SEQ (RPLACA |xi| (SPADCALL |ji| (QREFELT $ 9)))
-                (EXIT (RPLACD |xi| (SPADCALL |ji| (QREFELT $ 10)))))
-           (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#)) . #4#)
-           (GO G190) G191 (EXIT NIL))
-      (EXIT |x|))))) 
+(SDEFUN |YSTREAM;Y;MIL;2|
+        ((|g| |Mapping| #1=(|List| (|Stream| A)) (|List| (|Stream| A)))
+         (|n| |Integer|) ($ |List| (|Stream| A)))
+        (SPROG
+         ((#2=#:G113 NIL) (|xi| NIL) (#3=#:G114 NIL) (|ji| NIL) (|j| #1#)
+          (|x| (|List| (|Stream| A))) (|i| NIL) (#4=#:G112 NIL))
+         (SEQ
+          (LETT |x|
+                (PROGN
+                 (LETT #4# NIL . #5=(|YSTREAM;Y;MIL;2|))
+                 (SEQ (LETT |i| 1 . #5#) G190
+                      (COND ((|greater_SI| |i| |n|) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #4# (CONS (CONS (QREFELT $ 7) 0) #4#) . #5#)))
+                      (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #5#)
+          (LETT |j| (SPADCALL |x| |g|) . #5#)
+          (SEQ (LETT |ji| NIL . #5#) (LETT #3# |j| . #5#) (LETT |xi| NIL . #5#)
+               (LETT #2# |x| . #5#) G190
+               (COND
+                ((OR (ATOM #2#) (PROGN (LETT |xi| (CAR #2#) . #5#) NIL)
+                     (ATOM #3#) (PROGN (LETT |ji| (CAR #3#) . #5#) NIL))
+                 (GO G191)))
+               (SEQ (RPLACA |xi| (SPADCALL |ji| (QREFELT $ 9)))
+                    (EXIT (RPLACD |xi| (SPADCALL |ji| (QREFELT $ 10)))))
+               (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #5#)) . #5#)
+               (GO G190) G191 (EXIT NIL))
+          (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |ParadoxicalCombinatorsForStreams;|)) 
 
 (DEFUN |ParadoxicalCombinatorsForStreams| (#1=#:G115)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G116)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|ParadoxicalCombinatorsForStreams|)
-                                           '|domainEqualList|)
-                . #3=(|ParadoxicalCombinatorsForStreams|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|ParadoxicalCombinatorsForStreams;| #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G116)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|ParadoxicalCombinatorsForStreams|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ParadoxicalCombinatorsForStreams|)
+                                               '|domainEqualList|)
+                    . #3=(|ParadoxicalCombinatorsForStreams|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|ParadoxicalCombinatorsForStreams;| #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ParadoxicalCombinatorsForStreams|)))))))))) 
 
 (DEFUN |ParadoxicalCombinatorsForStreams;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ParadoxicalCombinatorsForStreams|))
-      (LETT |dv$| (LIST '|ParadoxicalCombinatorsForStreams| DV$1) . #1#)
-      (LETT $ (GETREFV 17) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ParadoxicalCombinatorsForStreams|
-                  (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 |$UninitializedStream|)
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|ParadoxicalCombinatorsForStreams|))
+          (LETT |dv$| (LIST '|ParadoxicalCombinatorsForStreams| DV$1) . #1#)
+          (LETT $ (GETREFV 17) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ParadoxicalCombinatorsForStreams|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 |$UninitializedStream|)
+          $))) 
 
 (MAKEPROP '|ParadoxicalCombinatorsForStreams| '|infovec|
           (LIST

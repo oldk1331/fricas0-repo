@@ -1,132 +1,148 @@
 
 (PUT '|U32MAT;minRowIndex;$I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(DEFUN |U32MAT;minRowIndex;$I;1| (|x| $) 0) 
+(SDEFUN |U32MAT;minRowIndex;$I;1| ((|x| $) ($ |Integer|)) 0) 
 
 (PUT '|U32MAT;minColIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(DEFUN |U32MAT;minColIndex;$I;2| (|x| $) 0) 
+(SDEFUN |U32MAT;minColIndex;$I;2| ((|x| $) ($ |Integer|)) 0) 
 
 (PUT '|U32MAT;nrows;$Nni;3| '|SPADreplace| 'ANROWS_U32) 
 
-(DEFUN |U32MAT;nrows;$Nni;3| (|x| $) (ANROWS_U32 |x|)) 
+(SDEFUN |U32MAT;nrows;$Nni;3| ((|x| $) ($ |NonNegativeInteger|))
+        (ANROWS_U32 |x|)) 
 
 (PUT '|U32MAT;ncols;$Nni;4| '|SPADreplace| 'ANCOLS_U32) 
 
-(DEFUN |U32MAT;ncols;$Nni;4| (|x| $) (ANCOLS_U32 |x|)) 
+(SDEFUN |U32MAT;ncols;$Nni;4| ((|x| $) ($ |NonNegativeInteger|))
+        (ANCOLS_U32 |x|)) 
 
-(DEFUN |U32MAT;maxRowIndex;$I;5| (|x| $) (- (ANROWS_U32 |x|) 1)) 
+(SDEFUN |U32MAT;maxRowIndex;$I;5| ((|x| $) ($ |Integer|))
+        (- (ANROWS_U32 |x|) 1)) 
 
-(DEFUN |U32MAT;maxColIndex;$I;6| (|x| $) (- (ANCOLS_U32 |x|) 1)) 
+(SDEFUN |U32MAT;maxColIndex;$I;6| ((|x| $) ($ |Integer|))
+        (- (ANCOLS_U32 |x|) 1)) 
 
 (PUT '|U32MAT;qelt;$3I;7| '|SPADreplace| 'AREF2_U32) 
 
-(DEFUN |U32MAT;qelt;$3I;7| (|m| |i| |j| $) (AREF2_U32 |m| |i| |j|)) 
+(SDEFUN |U32MAT;qelt;$3I;7|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) ($ |Integer|))
+        (AREF2_U32 |m| |i| |j|)) 
 
 (PUT '|U32MAT;elt;$3I;8| '|SPADreplace| 'AREF2_U32) 
 
-(DEFUN |U32MAT;elt;$3I;8| (|m| |i| |j| $) (AREF2_U32 |m| |i| |j|)) 
+(SDEFUN |U32MAT;elt;$3I;8|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) ($ |Integer|))
+        (AREF2_U32 |m| |i| |j|)) 
 
 (PUT '|U32MAT;qsetelt!;$4I;9| '|SPADreplace| 'SETAREF2_U32) 
 
-(DEFUN |U32MAT;qsetelt!;$4I;9| (|m| |i| |j| |r| $)
-  (SETAREF2_U32 |m| |i| |j| |r|)) 
+(SDEFUN |U32MAT;qsetelt!;$4I;9|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| . #2=(|Integer|))
+         ($ . #2#))
+        (SETAREF2_U32 |m| |i| |j| |r|)) 
 
 (PUT '|U32MAT;setelt;$4I;10| '|SPADreplace| 'SETAREF2_U32) 
 
-(DEFUN |U32MAT;setelt;$4I;10| (|m| |i| |j| |r| $)
-  (SETAREF2_U32 |m| |i| |j| |r|)) 
+(SDEFUN |U32MAT;setelt;$4I;10|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| . #2=(|Integer|))
+         ($ . #2#))
+        (SETAREF2_U32 |m| |i| |j| |r|)) 
 
 (PUT '|U32MAT;empty;$;11| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX_U32 0 0))) 
 
-(DEFUN |U32MAT;empty;$;11| ($) (MAKE_MATRIX_U32 0 0)) 
+(SDEFUN |U32MAT;empty;$;11| (($ $)) (MAKE_MATRIX_U32 0 0)) 
 
 (PUT '|U32MAT;qnew;2I$;12| '|SPADreplace| 'MAKE_MATRIX_U32) 
 
-(DEFUN |U32MAT;qnew;2I$;12| (|rows| |cols| $) (MAKE_MATRIX_U32 |rows| |cols|)) 
+(SDEFUN |U32MAT;qnew;2I$;12| ((|rows| |Integer|) (|cols| |Integer|) ($ $))
+        (MAKE_MATRIX_U32 |rows| |cols|)) 
 
 (PUT '|U32MAT;new;2NniI$;13| '|SPADreplace| 'MAKE_MATRIX1_U32) 
 
-(DEFUN |U32MAT;new;2NniI$;13| (|rows| |cols| |a| $)
-  (MAKE_MATRIX1_U32 |rows| |cols| |a|)) 
+(SDEFUN |U32MAT;new;2NniI$;13|
+        ((|rows| . #1=(|NonNegativeInteger|)) (|cols| . #1#) (|a| |Integer|)
+         ($ $))
+        (MAKE_MATRIX1_U32 |rows| |cols| |a|)) 
 
 (DECLAIM (NOTINLINE |U32Matrix;|)) 
 
 (DEFUN |U32Matrix| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G2264)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|U32Matrix|) . #2=(|U32Matrix|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|U32Matrix|
-                         (LIST (CONS NIL (CONS 1 (|U32Matrix;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|U32Matrix|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G2264)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|U32Matrix|)
+                    . #2=(|U32Matrix|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|U32Matrix|
+                             (LIST (CONS NIL (CONS 1 (|U32Matrix;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|U32Matrix|)))))))))) 
 
 (DEFUN |U32Matrix;| ()
-  (PROG (|dv$| $ #1=#:G2262 #2=#:G2261 #3=#:G2260 |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|U32Matrix|) . #4=(|U32Matrix|))
-      (LETT $ (GETREFV 45) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (LETT #1#
-                                                (|HasCategory| (|Integer|)
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| (|Integer|)
-                                                          '(|Evalable|
-                                                            (|Integer|)))
-                                           #1#)
-                                          (LETT #2#
-                                                (|HasCategory| (|Integer|)
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #2# #1#)
-                                          (LETT #3#
-                                                (|HasCategory| (|Integer|)
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #3#
-                                              (AND
-                                               (|HasCategory| (|Integer|)
-                                                              '(|Evalable|
-                                                                (|Integer|)))
-                                               #1#))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|AbelianGroup|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|Monoid|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|EuclideanDomain|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|Field|))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|U32Matrix| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) #2#
-           (|augmentPredVector| $ 8192))
-      (AND (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #2#) #1#)
-           (|augmentPredVector| $ 16384))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|dv$| NIL) ($ NIL) (#1=#:G2262 NIL) (#2=#:G2261 NIL) (#3=#:G2260 NIL)
+    (|pv$| NIL))
+   (PROGN
+    (LETT |dv$| '(|U32Matrix|) . #4=(|U32Matrix|))
+    (LETT $ (GETREFV 45) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (LETT #1#
+                                              (|HasCategory| (|Integer|)
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| (|Integer|)
+                                                        '(|Evalable|
+                                                          (|Integer|)))
+                                         #1#)
+                                        (LETT #2#
+                                              (|HasCategory| (|Integer|)
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #2# #1#)
+                                        (LETT #3#
+                                              (|HasCategory| (|Integer|)
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #3#
+                                            (AND
+                                             (|HasCategory| (|Integer|)
+                                                            '(|Evalable|
+                                                              (|Integer|)))
+                                             #1#))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|AbelianGroup|))
+                                        (|HasCategory| (|Integer|) '(|Monoid|))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|EuclideanDomain|))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|CommutativeRing|))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|Field|))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|U32Matrix| NIL (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) #2#
+         (|augmentPredVector| $ 8192))
+    (AND (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #2#) #1#)
+         (|augmentPredVector| $ 16384))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|U32Matrix| '|infovec|
           (LIST

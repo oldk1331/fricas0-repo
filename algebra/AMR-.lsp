@@ -1,82 +1,84 @@
 
-(DEFUN |AMR-;monomial?;SB;1| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 11))) 
+(SDEFUN |AMR-;monomial?;SB;1| ((|x| S) ($ |Boolean|))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 11))) 
 
-(DEFUN |AMR-;map;M2S;2| (|fn| |x| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |x| (QREFELT $ 11)) (|spadConstant| $ 13))
-            (#1='T
-             (SEQ
-              (LETT |r| (SPADCALL (SPADCALL |x| (QREFELT $ 14)) |fn|)
-                    |AMR-;map;M2S;2|)
-              (EXIT
-               (COND
-                ((SPADCALL |r| (QREFELT $ 15))
-                 (SPADCALL |fn| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 17)))
-                (#1#
-                 (SPADCALL
-                  (SPADCALL |r| (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 19))
-                  (SPADCALL |fn| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 17))
-                  (QREFELT $ 20)))))))))))) 
+(SDEFUN |AMR-;map;M2S;2| ((|fn| |Mapping| R R) (|x| S) ($ S))
+        (SPROG ((|r| (R)))
+               (SEQ
+                (COND ((SPADCALL |x| (QREFELT $ 11)) (|spadConstant| $ 13))
+                      (#1='T
+                       (SEQ
+                        (LETT |r| (SPADCALL (SPADCALL |x| (QREFELT $ 14)) |fn|)
+                              |AMR-;map;M2S;2|)
+                        (EXIT
+                         (COND
+                          ((SPADCALL |r| (QREFELT $ 15))
+                           (SPADCALL |fn| (SPADCALL |x| (QREFELT $ 9))
+                                     (QREFELT $ 17)))
+                          (#1#
+                           (SPADCALL
+                            (SPADCALL |r| (SPADCALL |x| (QREFELT $ 18))
+                                      (QREFELT $ 19))
+                            (SPADCALL |fn| (SPADCALL |x| (QREFELT $ 9))
+                                      (QREFELT $ 17))
+                            (QREFELT $ 20))))))))))) 
 
-(DEFUN |AMR-;*;F2S;3| (|q| |p| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|AMR-;*;F2S;3!0| (VECTOR $ |q|)) |p| (QREFELT $ 17))))) 
+(SDEFUN |AMR-;*;F2S;3| ((|q| |Fraction| (|Integer|)) (|p| S) ($ S))
+        (SPROG NIL
+               (SPADCALL (CONS #'|AMR-;*;F2S;3!0| (VECTOR $ |q|)) |p|
+                         (QREFELT $ 17)))) 
 
-(DEFUN |AMR-;*;F2S;3!0| (|x1| $$)
-  (PROG (|q| $)
-    (LETT |q| (QREFELT $$ 1) . #1=(|AMR-;*;F2S;3|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |q| |x1| (QREFELT $ 23)))))) 
+(SDEFUN |AMR-;*;F2S;3!0| ((|x1| NIL) ($$ NIL))
+        (PROG (|q| $)
+          (LETT |q| (QREFELT $$ 1) . #1=(|AMR-;*;F2S;3|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |q| |x1| (QREFELT $ 23)))))) 
 
 (DECLAIM (NOTINLINE |AbelianMonoidRing&;|)) 
 
 (DEFUN |AbelianMonoidRing&| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianMonoidRing&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|AbelianMonoidRing&| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 28) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#2|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#2|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#2|
-                                                         '(|CharacteristicZero|))
-                                          (|HasCategory| |#2|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#1|
-                                                         '(|VariablesCommuteWithCoefficients|))
-                                          (|HasCategory| |#2| '(|Field|))
-                                          (|HasCategory| |#2| '(|Ring|))
-                                          (|HasCategory| |#2| '(|SemiRing|))
-                                          (|HasCategory| |#2|
-                                                         '(|CancellationAbelianMonoid|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 24 (CONS (|dispatchFunction| |AMR-;*;F2S;3|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianMonoidRing&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|AbelianMonoidRing&| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 28) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|Algebra|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#2|
+                                                             '(|IntegralDomain|))
+                                              (|HasCategory| |#2|
+                                                             '(|CharacteristicNonZero|))
+                                              (|HasCategory| |#2|
+                                                             '(|CharacteristicZero|))
+                                              (|HasCategory| |#2|
+                                                             '(|CommutativeRing|))
+                                              (|HasCategory| |#1|
+                                                             '(|VariablesCommuteWithCoefficients|))
+                                              (|HasCategory| |#2| '(|Field|))
+                                              (|HasCategory| |#2| '(|Ring|))
+                                              (|HasCategory| |#2|
+                                                             '(|SemiRing|))
+                                              (|HasCategory| |#2|
+                                                             '(|CancellationAbelianMonoid|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV $ 24 (CONS (|dispatchFunction| |AMR-;*;F2S;3|) $))))
+          $))) 
 
 (MAKEPROP '|AbelianMonoidRing&| '|infovec|
           (LIST

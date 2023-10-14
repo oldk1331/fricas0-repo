@@ -1,90 +1,95 @@
 
 (PUT '|SEGBIND;equation;SS$;1| '|SPADreplace| 'CONS) 
 
-(DEFUN |SEGBIND;equation;SS$;1| (|x| |s| $) (CONS |x| |s|)) 
+(SDEFUN |SEGBIND;equation;SS$;1| ((|x| |Symbol|) (|s| |Segment| S) ($ $))
+        (CONS |x| |s|)) 
 
 (PUT '|SEGBIND;variable;$S;2| '|SPADreplace| 'QCAR) 
 
-(DEFUN |SEGBIND;variable;$S;2| (|b| $) (QCAR |b|)) 
+(SDEFUN |SEGBIND;variable;$S;2| ((|b| $) ($ |Symbol|)) (QCAR |b|)) 
 
 (PUT '|SEGBIND;segment;$S;3| '|SPADreplace| 'QCDR) 
 
-(DEFUN |SEGBIND;segment;$S;3| (|b| $) (QCDR |b|)) 
+(SDEFUN |SEGBIND;segment;$S;3| ((|b| $) ($ |Segment| S)) (QCDR |b|)) 
 
-(DEFUN |SEGBIND;=;2$B;4| (|b1| |b2| $)
-  (COND
-   ((EQUAL (SPADCALL |b1| (QREFELT $ 11)) (SPADCALL |b2| (QREFELT $ 11)))
-    (SPADCALL (SPADCALL |b1| (QREFELT $ 12)) (SPADCALL |b2| (QREFELT $ 12))
-              (QREFELT $ 14)))
-   ('T 'NIL))) 
+(SDEFUN |SEGBIND;=;2$B;4| ((|b1| $) (|b2| $) ($ |Boolean|))
+        (COND
+         ((EQUAL (SPADCALL |b1| (QREFELT $ 11)) (SPADCALL |b2| (QREFELT $ 11)))
+          (SPADCALL (SPADCALL |b1| (QREFELT $ 12))
+                    (SPADCALL |b2| (QREFELT $ 12)) (QREFELT $ 14)))
+         ('T 'NIL))) 
 
-(DEFUN |SEGBIND;coerce;$Of;5| (|b| $)
-  (SPADCALL (SPADCALL (SPADCALL |b| (QREFELT $ 11)) (QREFELT $ 17))
-            (SPADCALL (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 18))
-            (QREFELT $ 19))) 
+(SDEFUN |SEGBIND;coerce;$Of;5| ((|b| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL (SPADCALL |b| (QREFELT $ 11)) (QREFELT $ 17))
+                  (SPADCALL (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 18))
+                  (QREFELT $ 19))) 
 
-(DEFUN |SEGBIND;convert;$If;6| (|b| $)
-  (SPADCALL '|equation|
-            (LIST (SPADCALL (SPADCALL |b| (QREFELT $ 11)) (QREFELT $ 22))
-                  (SPADCALL (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 23)))
-            (QREFELT $ 26))) 
+(SDEFUN |SEGBIND;convert;$If;6| ((|b| $) ($ |InputForm|))
+        (SPADCALL '|equation|
+                  (LIST (SPADCALL (SPADCALL |b| (QREFELT $ 11)) (QREFELT $ 22))
+                        (SPADCALL (SPADCALL |b| (QREFELT $ 12))
+                                  (QREFELT $ 23)))
+                  (QREFELT $ 26))) 
 
 (DECLAIM (NOTINLINE |SegmentBinding;|)) 
 
 (DEFUN |SegmentBinding| (#1=#:G115)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G116)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|SegmentBinding|)
-                                           '|domainEqualList|)
-                . #3=(|SegmentBinding|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|SegmentBinding;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G116)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|SegmentBinding|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SegmentBinding|)
+                                               '|domainEqualList|)
+                    . #3=(|SegmentBinding|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|SegmentBinding;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|SegmentBinding|)))))))))) 
 
 (DEFUN |SegmentBinding;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|SegmentBinding|))
-      (LETT |dv$| (LIST '|SegmentBinding| DV$1) . #1#)
-      (LETT $ (GETREFV 31) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#1|
-                                                         '(|SetCategory|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|SegmentBinding| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7
-                (|Record| (|:| |var| (|Symbol|)) (|:| |seg| (|Segment| |#1|))))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (PROGN
-         (QSETREFV $ 15 (CONS (|dispatchFunction| |SEGBIND;=;2$B;4|) $))
-         (QSETREFV $ 20
-                   (CONS (|dispatchFunction| |SEGBIND;coerce;$Of;5|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 27
-                   (CONS (|dispatchFunction| |SEGBIND;convert;$If;6|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|SegmentBinding|))
+          (LETT |dv$| (LIST '|SegmentBinding| DV$1) . #1#)
+          (LETT $ (GETREFV 31) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|SegmentBinding| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7
+                    (|Record| (|:| |var| (|Symbol|))
+                              (|:| |seg| (|Segment| |#1|))))
+          (COND
+           ((|testBitVector| |pv$| 2)
+            (PROGN
+             (QSETREFV $ 15 (CONS (|dispatchFunction| |SEGBIND;=;2$B;4|) $))
+             (QSETREFV $ 20
+                       (CONS (|dispatchFunction| |SEGBIND;coerce;$Of;5|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 27
+                       (CONS (|dispatchFunction| |SEGBIND;convert;$If;6|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|SegmentBinding| '|infovec|
           (LIST

@@ -16,58 +16,60 @@
       #2#)))) 
 
 (DEFUN |ExtensionField;| (|t#1|)
-  (PROG (#1=#:G104)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|ExtensionField;CAT|)
-                                ('T
-                                 (LETT |ExtensionField;CAT|
-                                       (|Join| (|Field|)
-                                               (|RetractableTo| '|t#1|)
-                                               (|VectorSpace| '|t#1|)
-                                               (|mkCategory|
-                                                '(((|algebraic?|
-                                                    ((|Boolean|) $))
-                                                   T)
-                                                  ((|transcendent?|
-                                                    ((|Boolean|) $))
-                                                   T)
-                                                  ((|inGroundField?|
-                                                    ((|Boolean|) $))
-                                                   T)
-                                                  ((|degree|
-                                                    ((|OnePointCompletion|
-                                                      (|PositiveInteger|))
-                                                     $))
-                                                   T)
-                                                  ((|extensionDegree|
-                                                    ((|OnePointCompletion|
-                                                      (|PositiveInteger|))))
-                                                   T)
-                                                  ((|transcendenceDegree|
-                                                    ((|NonNegativeInteger|)))
-                                                   T)
-                                                  ((|Frobenius| ($ $))
-                                                   (|has| |t#1| (|Finite|)))
-                                                  ((|Frobenius|
-                                                    ($ $
-                                                     (|NonNegativeInteger|)))
-                                                   (|has| |t#1| (|Finite|))))
-                                                '(((|CharacteristicZero|)
-                                                   (|has| |t#1|
-                                                          (|CharacteristicZero|)))
-                                                  ((|FieldOfPrimeCharacteristic|)
-                                                   (|has| |t#1|
-                                                          (|CharacteristicNonZero|)))
-                                                  ((|FieldOfPrimeCharacteristic|)
-                                                   (|has| |t#1| (|Finite|))))
-                                                '((|NonNegativeInteger|)
-                                                  (|OnePointCompletion|
-                                                   (|PositiveInteger|))
-                                                  (|Boolean|))
-                                                NIL))
-                                       . #2=(|ExtensionField|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|ExtensionField| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G104 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|ExtensionField;CAT|)
+                                    ('T
+                                     (LETT |ExtensionField;CAT|
+                                           (|Join| (|Field|)
+                                                   (|RetractableTo| '|t#1|)
+                                                   (|VectorSpace| '|t#1|)
+                                                   (|mkCategory|
+                                                    '(((|algebraic?|
+                                                        ((|Boolean|) $))
+                                                       T)
+                                                      ((|transcendent?|
+                                                        ((|Boolean|) $))
+                                                       T)
+                                                      ((|inGroundField?|
+                                                        ((|Boolean|) $))
+                                                       T)
+                                                      ((|degree|
+                                                        ((|OnePointCompletion|
+                                                          (|PositiveInteger|))
+                                                         $))
+                                                       T)
+                                                      ((|extensionDegree|
+                                                        ((|OnePointCompletion|
+                                                          (|PositiveInteger|))))
+                                                       T)
+                                                      ((|transcendenceDegree|
+                                                        ((|NonNegativeInteger|)))
+                                                       T)
+                                                      ((|Frobenius| ($ $))
+                                                       (|has| |t#1|
+                                                              (|Finite|)))
+                                                      ((|Frobenius|
+                                                        ($ $
+                                                         (|NonNegativeInteger|)))
+                                                       (|has| |t#1|
+                                                              (|Finite|))))
+                                                    '(((|CharacteristicZero|)
+                                                       (|has| |t#1|
+                                                              (|CharacteristicZero|)))
+                                                      ((|FieldOfPrimeCharacteristic|)
+                                                       (|has| |t#1|
+                                                              (|CharacteristicNonZero|)))
+                                                      ((|FieldOfPrimeCharacteristic|)
+                                                       (|has| |t#1|
+                                                              (|Finite|))))
+                                                    '((|NonNegativeInteger|)
+                                                      (|OnePointCompletion|
+                                                       (|PositiveInteger|))
+                                                      (|Boolean|))
+                                                    NIL))
+                                           . #2=(|ExtensionField|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|ExtensionField| (|devaluate| |t#1|)))))) 

@@ -9,17 +9,16 @@
           (T (SETQ |NonAssociativeRng;AL| (|NonAssociativeRng;|)))))) 
 
 (DEFUN |NonAssociativeRng;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|Join| (|AbelianGroup|) (|Monad|)
-                       (|mkCategory|
-                        '(((|associator| ($ $ $ $)) T)
-                          ((|commutator| ($ $ $)) T)
-                          ((|antiCommutator| ($ $ $)) T))
-                        NIL 'NIL NIL))
-               |NonAssociativeRng|)
-       (SETELT #1# 0 '(|NonAssociativeRng|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|Join| (|AbelianGroup|) (|Monad|)
+                           (|mkCategory|
+                            '(((|associator| ($ $ $ $)) T)
+                              ((|commutator| ($ $ $)) T)
+                              ((|antiCommutator| ($ $ $)) T))
+                            NIL 'NIL NIL))
+                   |NonAssociativeRng|)
+           (SETELT #1# 0 '(|NonAssociativeRng|))))) 
 
 (MAKEPROP '|NonAssociativeRng| 'NILADIC T) 

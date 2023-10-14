@@ -1,62 +1,65 @@
 
-(DEFUN |FCOMP;sin;E$;1| (|e| $) (CONS 'T |e|)) 
+(SDEFUN |FCOMP;sin;E$;1| ((|e| E) ($ $)) (CONS 'T |e|)) 
 
-(DEFUN |FCOMP;cos;E$;2| (|e| $) (CONS 'NIL |e|)) 
+(SDEFUN |FCOMP;cos;E$;2| ((|e| E) ($ $)) (CONS 'NIL |e|)) 
 
 (PUT '|FCOMP;sin?;$B;3| '|SPADreplace| 'QCAR) 
 
-(DEFUN |FCOMP;sin?;$B;3| (|x| $) (QCAR |x|)) 
+(SDEFUN |FCOMP;sin?;$B;3| ((|x| $) ($ |Boolean|)) (QCAR |x|)) 
 
 (PUT '|FCOMP;argument;$E;4| '|SPADreplace| 'QCDR) 
 
-(DEFUN |FCOMP;argument;$E;4| (|x| $) (QCDR |x|)) 
+(SDEFUN |FCOMP;argument;$E;4| ((|x| $) ($ E)) (QCDR |x|)) 
 
-(DEFUN |FCOMP;coerce;$Of;5| (|x| $)
-  (SPADCALL (COND ((QCAR |x|) "sin") ('T "cos"))
-            (SPADCALL (SPADCALL (QCDR |x|) (QREFELT $ 14)) (QREFELT $ 15))
-            (QREFELT $ 16))) 
+(SDEFUN |FCOMP;coerce;$Of;5| ((|x| $) ($ |OutputForm|))
+        (SPADCALL (COND ((QCAR |x|) "sin") ('T "cos"))
+                  (SPADCALL (SPADCALL (QCDR |x|) (QREFELT $ 14))
+                            (QREFELT $ 15))
+                  (QREFELT $ 16))) 
 
-(DEFUN |FCOMP;<;2$B;6| (|x| |y| $)
-  (COND ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 18)) 'T)
-        ((OR (SPADCALL (QCDR |y|) (QCDR |x|) (QREFELT $ 18)) (QCAR |x|)) 'NIL)
-        ('T (QCAR |y|)))) 
+(SDEFUN |FCOMP;<;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 18)) 'T)
+              ((OR (SPADCALL (QCDR |y|) (QCDR |x|) (QREFELT $ 18)) (QCAR |x|))
+               'NIL)
+              ('T (QCAR |y|)))) 
 
 (DECLAIM (NOTINLINE |FourierComponent;|)) 
 
 (DEFUN |FourierComponent| (#1=#:G120)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G121)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|FourierComponent|)
-                                           '|domainEqualList|)
-                . #3=(|FourierComponent|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|FourierComponent;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G121)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|FourierComponent|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|FourierComponent|)
+                                               '|domainEqualList|)
+                    . #3=(|FourierComponent|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|FourierComponent;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FourierComponent|)))))))))) 
 
 (DEFUN |FourierComponent;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FourierComponent|))
-      (LETT |dv$| (LIST '|FourierComponent| DV$1) . #1#)
-      (LETT $ (GETREFV 23) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|FourierComponent| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|Record| (|:| |SinIfTrue| (|Boolean|)) (|:| |arg| |#1|)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FourierComponent|))
+          (LETT |dv$| (LIST '|FourierComponent| DV$1) . #1#)
+          (LETT $ (GETREFV 23) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|FourierComponent| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7
+                    (|Record| (|:| |SinIfTrue| (|Boolean|)) (|:| |arg| |#1|)))
+          $))) 
 
 (MAKEPROP '|FourierComponent| '|infovec|
           (LIST

@@ -1,141 +1,161 @@
 
-(DEFUN |STINPROD;infiniteProduct;2S;1| (|st| $)
-  (SPADCALL (SPADCALL (SPADCALL |st| (QREFELT $ 9)) (QREFELT $ 11))
-            (QREFELT $ 12))) 
+(SDEFUN |STINPROD;infiniteProduct;2S;1|
+        ((|st| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPADCALL (SPADCALL (SPADCALL |st| (QREFELT $ 9)) (QREFELT $ 11))
+                  (QREFELT $ 12))) 
 
-(DEFUN |STINPROD;evenInfiniteProduct;2S;2| (|st| $)
-  (SPADCALL (SPADCALL (SPADCALL |st| (QREFELT $ 9)) (QREFELT $ 14))
-            (QREFELT $ 12))) 
+(SDEFUN |STINPROD;evenInfiniteProduct;2S;2|
+        ((|st| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPADCALL (SPADCALL (SPADCALL |st| (QREFELT $ 9)) (QREFELT $ 14))
+                  (QREFELT $ 12))) 
 
-(DEFUN |STINPROD;oddInfiniteProduct;2S;3| (|st| $)
-  (SPADCALL (SPADCALL (SPADCALL |st| (QREFELT $ 9)) (QREFELT $ 16))
-            (QREFELT $ 12))) 
+(SDEFUN |STINPROD;oddInfiniteProduct;2S;3|
+        ((|st| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPADCALL (SPADCALL (SPADCALL |st| (QREFELT $ 9)) (QREFELT $ 16))
+                  (QREFELT $ 12))) 
 
-(DEFUN |STINPROD;generalInfiniteProduct;S2IS;4| (|st| |a| |d| $)
-  (SPADCALL (SPADCALL (SPADCALL |st| (QREFELT $ 9)) |a| |d| (QREFELT $ 19))
-            (QREFELT $ 12))) 
+(SDEFUN |STINPROD;generalInfiniteProduct;S2IS;4|
+        ((|st| |Stream| |Coef|) (|a| |Integer|) (|d| |Integer|)
+         ($ |Stream| |Coef|))
+        (SPADCALL
+         (SPADCALL (SPADCALL |st| (QREFELT $ 9)) |a| |d| (QREFELT $ 19))
+         (QREFELT $ 12))) 
 
-(DEFUN |STINPROD;applyOverQF| (|f| |st| $)
-  (PROG (|stQF|)
-    (RETURN
-     (SEQ
-      (LETT |stQF| (SPADCALL (ELT $ 22) |st| (QREFELT $ 26))
-            |STINPROD;applyOverQF|)
-      (EXIT (SPADCALL (ELT $ 27) (SPADCALL |stQF| |f|) (QREFELT $ 30))))))) 
+(SDEFUN |STINPROD;applyOverQF|
+        ((|f| |Mapping| (|Stream| (|Fraction| |Coef|))
+          (|Stream| (|Fraction| |Coef|)))
+         (|st| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (SPROG ((|stQF| (|Stream| (|Fraction| |Coef|))))
+               (SEQ
+                (LETT |stQF| (SPADCALL (ELT $ 22) |st| (QREFELT $ 26))
+                      |STINPROD;applyOverQF|)
+                (EXIT
+                 (SPADCALL (ELT $ 27) (SPADCALL |stQF| |f|) (QREFELT $ 30)))))) 
 
-(DEFUN |STINPROD;infiniteProduct;2S;6| (|st| $)
-  (|STINPROD;applyOverQF| (CONS #'|STINPROD;infiniteProduct;2S;6!0| $) |st| $)) 
+(SDEFUN |STINPROD;infiniteProduct;2S;6|
+        ((|st| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|STINPROD;applyOverQF| (CONS #'|STINPROD;infiniteProduct;2S;6!0| $)
+         |st| $)) 
 
-(DEFUN |STINPROD;infiniteProduct;2S;6!0| (|z1| $)
-  (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) (QREFELT $ 34))
-            (QREFELT $ 35))) 
+(SDEFUN |STINPROD;infiniteProduct;2S;6!0| ((|z1| NIL) ($ NIL))
+        (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) (QREFELT $ 34))
+                  (QREFELT $ 35))) 
 
-(DEFUN |STINPROD;evenInfiniteProduct;2S;7| (|st| $)
-  (|STINPROD;applyOverQF| (CONS #'|STINPROD;evenInfiniteProduct;2S;7!0| $) |st|
-   $)) 
+(SDEFUN |STINPROD;evenInfiniteProduct;2S;7|
+        ((|st| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|STINPROD;applyOverQF|
+         (CONS #'|STINPROD;evenInfiniteProduct;2S;7!0| $) |st| $)) 
 
-(DEFUN |STINPROD;evenInfiniteProduct;2S;7!0| (|z1| $)
-  (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) (QREFELT $ 36))
-            (QREFELT $ 35))) 
+(SDEFUN |STINPROD;evenInfiniteProduct;2S;7!0| ((|z1| NIL) ($ NIL))
+        (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) (QREFELT $ 36))
+                  (QREFELT $ 35))) 
 
-(DEFUN |STINPROD;oddInfiniteProduct;2S;8| (|st| $)
-  (|STINPROD;applyOverQF| (CONS #'|STINPROD;oddInfiniteProduct;2S;8!0| $) |st|
-   $)) 
+(SDEFUN |STINPROD;oddInfiniteProduct;2S;8|
+        ((|st| |Stream| |Coef|) ($ |Stream| |Coef|))
+        (|STINPROD;applyOverQF| (CONS #'|STINPROD;oddInfiniteProduct;2S;8!0| $)
+         |st| $)) 
 
-(DEFUN |STINPROD;oddInfiniteProduct;2S;8!0| (|z1| $)
-  (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) (QREFELT $ 37))
-            (QREFELT $ 35))) 
+(SDEFUN |STINPROD;oddInfiniteProduct;2S;8!0| ((|z1| NIL) ($ NIL))
+        (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) (QREFELT $ 37))
+                  (QREFELT $ 35))) 
 
-(DEFUN |STINPROD;generalInfiniteProduct;S2IS;9| (|st| |a| |d| $)
-  (PROG ()
-    (RETURN
-     (|STINPROD;applyOverQF|
-      (CONS #'|STINPROD;generalInfiniteProduct;S2IS;9!0| (VECTOR |d| |a| $))
-      |st| $)))) 
+(SDEFUN |STINPROD;generalInfiniteProduct;S2IS;9|
+        ((|st| |Stream| |Coef|) (|a| |Integer|) (|d| |Integer|)
+         ($ |Stream| |Coef|))
+        (SPROG NIL
+               (|STINPROD;applyOverQF|
+                (CONS #'|STINPROD;generalInfiniteProduct;S2IS;9!0|
+                      (VECTOR |d| |a| $))
+                |st| $))) 
 
-(DEFUN |STINPROD;generalInfiniteProduct;S2IS;9!0| (|z1| $$)
-  (PROG ($ |a| |d|)
-    (LETT $ (QREFELT $$ 2) . #1=(|STINPROD;generalInfiniteProduct;S2IS;9|))
-    (LETT |a| (QREFELT $$ 1) . #1#)
-    (LETT |d| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL
-       (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) |a| |d| (QREFELT $ 38))
-       (QREFELT $ 35)))))) 
+(SDEFUN |STINPROD;generalInfiniteProduct;S2IS;9!0| ((|z1| NIL) ($$ NIL))
+        (PROG ($ |a| |d|)
+          (LETT $ (QREFELT $$ 2)
+                . #1=(|STINPROD;generalInfiniteProduct;S2IS;9|))
+          (LETT |a| (QREFELT $$ 1) . #1#)
+          (LETT |d| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL
+             (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) |a| |d| (QREFELT $ 38))
+             (QREFELT $ 35)))))) 
 
 (DECLAIM (NOTINLINE |StreamInfiniteProduct;|)) 
 
 (DEFUN |StreamInfiniteProduct| (#1=#:G117)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G118)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|StreamInfiniteProduct|)
-                                           '|domainEqualList|)
-                . #3=(|StreamInfiniteProduct|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|StreamInfiniteProduct;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|StreamInfiniteProduct|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|StreamInfiniteProduct|)
+                                               '|domainEqualList|)
+                    . #3=(|StreamInfiniteProduct|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|StreamInfiniteProduct;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|StreamInfiniteProduct|)))))))))) 
 
 (DEFUN |StreamInfiniteProduct;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|StreamInfiniteProduct|))
-      (LETT |dv$| (LIST '|StreamInfiniteProduct| DV$1) . #1#)
-      (LETT $ (GETREFV 39) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|StreamInfiniteProduct| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#1| '(|Field|))
-        (PROGN
-         (QSETREFV $ 13
-                   (CONS (|dispatchFunction| |STINPROD;infiniteProduct;2S;1|)
-                         $))
-         (QSETREFV $ 15
-                   (CONS
-                    (|dispatchFunction| |STINPROD;evenInfiniteProduct;2S;2|)
-                    $))
-         (QSETREFV $ 17
-                   (CONS
-                    (|dispatchFunction| |STINPROD;oddInfiniteProduct;2S;3|) $))
-         (QSETREFV $ 20
-                   (CONS
-                    (|dispatchFunction|
-                     |STINPROD;generalInfiniteProduct;S2IS;4|)
-                    $))))
-       ('T
-        (PROGN
-         (QSETREFV $ 13
-                   (CONS (|dispatchFunction| |STINPROD;infiniteProduct;2S;6|)
-                         $))
-         (QSETREFV $ 15
-                   (CONS
-                    (|dispatchFunction| |STINPROD;evenInfiniteProduct;2S;7|)
-                    $))
-         (QSETREFV $ 17
-                   (CONS
-                    (|dispatchFunction| |STINPROD;oddInfiniteProduct;2S;8|) $))
-         (QSETREFV $ 20
-                   (CONS
-                    (|dispatchFunction|
-                     |STINPROD;generalInfiniteProduct;S2IS;9|)
-                    $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|StreamInfiniteProduct|))
+          (LETT |dv$| (LIST '|StreamInfiniteProduct| DV$1) . #1#)
+          (LETT $ (GETREFV 39) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|StreamInfiniteProduct| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| '(|Field|))
+            (PROGN
+             (QSETREFV $ 13
+                       (CONS
+                        (|dispatchFunction| |STINPROD;infiniteProduct;2S;1|)
+                        $))
+             (QSETREFV $ 15
+                       (CONS
+                        (|dispatchFunction|
+                         |STINPROD;evenInfiniteProduct;2S;2|)
+                        $))
+             (QSETREFV $ 17
+                       (CONS
+                        (|dispatchFunction| |STINPROD;oddInfiniteProduct;2S;3|)
+                        $))
+             (QSETREFV $ 20
+                       (CONS
+                        (|dispatchFunction|
+                         |STINPROD;generalInfiniteProduct;S2IS;4|)
+                        $))))
+           ('T
+            (PROGN
+             (QSETREFV $ 13
+                       (CONS
+                        (|dispatchFunction| |STINPROD;infiniteProduct;2S;6|)
+                        $))
+             (QSETREFV $ 15
+                       (CONS
+                        (|dispatchFunction|
+                         |STINPROD;evenInfiniteProduct;2S;7|)
+                        $))
+             (QSETREFV $ 17
+                       (CONS
+                        (|dispatchFunction| |STINPROD;oddInfiniteProduct;2S;8|)
+                        $))
+             (QSETREFV $ 20
+                       (CONS
+                        (|dispatchFunction|
+                         |STINPROD;generalInfiniteProduct;S2IS;9|)
+                        $)))))
+          $))) 
 
 (MAKEPROP '|StreamInfiniteProduct| '|infovec|
           (LIST

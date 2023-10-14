@@ -1,43 +1,41 @@
 
 (PUT '|NONE;coerce;$Of;1| '|SPADreplace| '(XLAM (|none|) "NONE")) 
 
-(DEFUN |NONE;coerce;$Of;1| (|none| $) "NONE") 
+(SDEFUN |NONE;coerce;$Of;1| ((|none| $) ($ |OutputForm|)) "NONE") 
 
 (PUT '|NONE;=;2$B;2| '|SPADreplace| 'EQ) 
 
-(DEFUN |NONE;=;2$B;2| (|x| |y| $) (EQ |x| |y|)) 
+(SDEFUN |NONE;=;2$B;2| ((|x| $) (|y| $) ($ |Boolean|)) (EQ |x| |y|)) 
 
 (DECLAIM (NOTINLINE |None;|)) 
 
 (DEFUN |None| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G106)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|None|) . #2=(|None|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|None|
-                         (LIST (CONS NIL (CONS 1 (|None;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|None|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G106)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|None|) . #2=(|None|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|None|
+                             (LIST (CONS NIL (CONS 1 (|None;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|None|)))))))))) 
 
 (DEFUN |None;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|None|) . #1=(|None|))
-      (LETT $ (GETREFV 13) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|None| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|None|) . #1=(|None|))
+          (LETT $ (GETREFV 13) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|None| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|None| '|infovec|
           (LIST

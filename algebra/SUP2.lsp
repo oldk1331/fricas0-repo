@@ -1,51 +1,54 @@
 
-(DEFUN |SUP2;map;MSupSup;1| (|f| |p| $) (SPADCALL |f| |p| (QREFELT $ 12))) 
+(SDEFUN |SUP2;map;MSupSup;1|
+        ((|f| |Mapping| S R) (|p| |SparseUnivariatePolynomial| R)
+         ($ |SparseUnivariatePolynomial| S))
+        (SPADCALL |f| |p| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |SparseUnivariatePolynomialFunctions2;|)) 
 
 (DEFUN |SparseUnivariatePolynomialFunctions2| (&REST #1=#:G105)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G106)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|SparseUnivariatePolynomialFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|SparseUnivariatePolynomialFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |SparseUnivariatePolynomialFunctions2;|)
-                         #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G106)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|SparseUnivariatePolynomialFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SparseUnivariatePolynomialFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|SparseUnivariatePolynomialFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |SparseUnivariatePolynomialFunctions2;|)
+                       #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseUnivariatePolynomialFunctions2|)))))))))) 
 
 (DEFUN |SparseUnivariatePolynomialFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|SparseUnivariatePolynomialFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|SparseUnivariatePolynomialFunctions2| DV$1 DV$2)
-            . #1#)
-      (LETT $ (GETREFV 14) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|SparseUnivariatePolynomialFunctions2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|SparseUnivariatePolynomialFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|SparseUnivariatePolynomialFunctions2| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 14) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|SparseUnivariatePolynomialFunctions2| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|SparseUnivariatePolynomialFunctions2| '|infovec|
           (LIST

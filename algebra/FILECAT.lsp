@@ -17,30 +17,29 @@
       #2#)))) 
 
 (DEFUN |FileCategory;| (|t#1| |t#2|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (COND (|FileCategory;CAT|)
-                      ('T
-                       (LETT |FileCategory;CAT|
-                             (|Join| (|SetCategory|)
-                                     (|mkCategory|
-                                      '(((|open| ($ |t#1|)) T)
-                                        ((|open| ($ |t#1| (|String|))) T)
-                                        ((|reopen!| ($ $ (|String|))) T)
-                                        ((|close!| ($ $)) T)
-                                        ((|name| (|t#1| $)) T)
-                                        ((|iomode| ((|String|) $)) T)
-                                        ((|read!| (|t#2| $)) T)
-                                        ((|write!| (|t#2| $ |t#2|)) T)
-                                        ((|flush| ((|Void|) $)) T))
-                                      NIL '((|Void|) (|String|)) NIL))
-                             . #2=(|FileCategory|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|FileCategory| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (COND (|FileCategory;CAT|)
+                          ('T
+                           (LETT |FileCategory;CAT|
+                                 (|Join| (|SetCategory|)
+                                         (|mkCategory|
+                                          '(((|open| ($ |t#1|)) T)
+                                            ((|open| ($ |t#1| (|String|))) T)
+                                            ((|reopen!| ($ $ (|String|))) T)
+                                            ((|close!| ($ $)) T)
+                                            ((|name| (|t#1| $)) T)
+                                            ((|iomode| ((|String|) $)) T)
+                                            ((|read!| (|t#2| $)) T)
+                                            ((|write!| (|t#2| $ |t#2|)) T)
+                                            ((|flush| ((|Void|) $)) T))
+                                          NIL '((|Void|) (|String|)) NIL))
+                                 . #2=(|FileCategory|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|FileCategory| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

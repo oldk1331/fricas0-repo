@@ -17,22 +17,22 @@
       #2#)))) 
 
 (DEFUN |NonAssociativeAlgebra;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|NonAssociativeAlgebra;CAT|)
-                                ('T
-                                 (LETT |NonAssociativeAlgebra;CAT|
-                                       (|Join| (|NonAssociativeRng|)
-                                               (|Module| '|t#1|)
-                                               (|mkCategory|
-                                                '(((|plenaryPower|
-                                                    ($ $ (|PositiveInteger|)))
-                                                   T))
-                                                NIL '((|PositiveInteger|))
-                                                NIL))
-                                       . #2=(|NonAssociativeAlgebra|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|NonAssociativeAlgebra| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|NonAssociativeAlgebra;CAT|)
+                                    ('T
+                                     (LETT |NonAssociativeAlgebra;CAT|
+                                           (|Join| (|NonAssociativeRng|)
+                                                   (|Module| '|t#1|)
+                                                   (|mkCategory|
+                                                    '(((|plenaryPower|
+                                                        ($ $
+                                                         (|PositiveInteger|)))
+                                                       T))
+                                                    NIL '((|PositiveInteger|))
+                                                    NIL))
+                                           . #2=(|NonAssociativeAlgebra|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|NonAssociativeAlgebra| (|devaluate| |t#1|)))))) 

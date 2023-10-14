@@ -2,153 +2,161 @@
 (DECLAIM (NOTINLINE |BalancedPAdicRational;|)) 
 
 (DEFUN |BalancedPAdicRational| (#1=#:G140)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G141)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|BalancedPAdicRational|)
-                                           '|domainEqualList|)
-                . #3=(|BalancedPAdicRational|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|BalancedPAdicRational;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G141)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|BalancedPAdicRational|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|BalancedPAdicRational|)
+                                               '|domainEqualList|)
+                    . #3=(|BalancedPAdicRational|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|BalancedPAdicRational;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|BalancedPAdicRational|)))))))))) 
 
 (DEFUN |BalancedPAdicRational;| (|#1|)
-  (PROG (|pv$| #1=#:G139 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|BalancedPAdicRational|))
-      (LETT |dv$| (LIST '|BalancedPAdicRational| DV$1) . #2#)
-      (LETT $ (GETREFV 58) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|PolynomialFactorizationExplicit|))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|RetractableTo| (|Symbol|)))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|CharacteristicNonZero|))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|CharacteristicZero|))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|ConvertibleTo| (|InputForm|)))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|RealConstant|))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|OrderedIntegralDomain|))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|OrderedSet|))
-                                          (OR
-                                           (|HasCategory|
-                                            (|BalancedPAdicInteger| |#1|)
-                                            '(|OrderedIntegralDomain|))
-                                           (|HasCategory|
-                                            (|BalancedPAdicInteger| |#1|)
-                                            '(|OrderedSet|)))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|RetractableTo| (|Integer|)))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|StepThrough|))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           (LIST '|InnerEvalable| '(|Symbol|)
-                                                 (LIST '|BalancedPAdicInteger|
-                                                       (|devaluate| |#1|))))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           (LIST '|Evalable|
-                                                 (LIST '|BalancedPAdicInteger|
-                                                       (|devaluate| |#1|))))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           (LIST '|Eltable|
-                                                 (LIST '|BalancedPAdicInteger|
-                                                       (|devaluate| |#1|))
-                                                 (LIST '|BalancedPAdicInteger|
-                                                       (|devaluate| |#1|))))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|PartialDifferentialRing|
-                                             (|Symbol|)))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|DifferentialRing|))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|LinearlyExplicitRingOver|
-                                             (|Integer|)))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|ConvertibleTo|
-                                             (|Pattern| (|Float|))))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|ConvertibleTo|
-                                             (|Pattern| (|Integer|))))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|PatternMatchable| (|Float|)))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|PatternMatchable| (|Integer|)))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|EuclideanDomain|))
-                                          (|HasCategory|
-                                           (|BalancedPAdicInteger| |#1|)
-                                           '(|IntegerNumberSystem|))
-                                          (LETT #1#
-                                                (|HasCategory|
-                                                 (|BalancedPAdicInteger| |#1|)
-                                                 '(|Comparable|))
-                                                . #2#)
-                                          (OR #1#
+  (SPROG ((|pv$| NIL) (#1=#:G139 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #2=(|BalancedPAdicRational|))
+          (LETT |dv$| (LIST '|BalancedPAdicRational| DV$1) . #2#)
+          (LETT $ (GETREFV 58) . #2#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|PolynomialFactorizationExplicit|))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|RetractableTo| (|Symbol|)))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|CharacteristicNonZero|))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|CharacteristicZero|))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|ConvertibleTo|
+                                                 (|InputForm|)))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|RealConstant|))
                                               (|HasCategory|
                                                (|BalancedPAdicInteger| |#1|)
                                                '(|OrderedIntegralDomain|))
                                               (|HasCategory|
                                                (|BalancedPAdicInteger| |#1|)
-                                               '(|OrderedSet|)))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|BalancedPAdicRational| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|CharacteristicNonZero|))
-           (|HasCategory| (|BalancedPAdicInteger| |#1|)
-                          '(|PolynomialFactorizationExplicit|))
-           (|augmentPredVector| $ 33554432))
-      (AND
-       (OR
-        (AND (|HasCategory| $ '(|CharacteristicNonZero|))
-             (|HasCategory| (|BalancedPAdicInteger| |#1|)
-                            '(|PolynomialFactorizationExplicit|)))
-        (|HasCategory| (|BalancedPAdicInteger| |#1|)
-                       '(|CharacteristicNonZero|)))
-       (|augmentPredVector| $ 67108864))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+                                               '(|OrderedSet|))
+                                              (OR
+                                               (|HasCategory|
+                                                (|BalancedPAdicInteger| |#1|)
+                                                '(|OrderedIntegralDomain|))
+                                               (|HasCategory|
+                                                (|BalancedPAdicInteger| |#1|)
+                                                '(|OrderedSet|)))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|RetractableTo| (|Integer|)))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|StepThrough|))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               (LIST '|InnerEvalable|
+                                                     '(|Symbol|)
+                                                     (LIST
+                                                      '|BalancedPAdicInteger|
+                                                      (|devaluate| |#1|))))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               (LIST '|Evalable|
+                                                     (LIST
+                                                      '|BalancedPAdicInteger|
+                                                      (|devaluate| |#1|))))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               (LIST '|Eltable|
+                                                     (LIST
+                                                      '|BalancedPAdicInteger|
+                                                      (|devaluate| |#1|))
+                                                     (LIST
+                                                      '|BalancedPAdicInteger|
+                                                      (|devaluate| |#1|))))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|PartialDifferentialRing|
+                                                 (|Symbol|)))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|DifferentialRing|))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|LinearlyExplicitRingOver|
+                                                 (|Integer|)))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|ConvertibleTo|
+                                                 (|Pattern| (|Float|))))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|ConvertibleTo|
+                                                 (|Pattern| (|Integer|))))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|PatternMatchable| (|Float|)))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|PatternMatchable|
+                                                 (|Integer|)))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|EuclideanDomain|))
+                                              (|HasCategory|
+                                               (|BalancedPAdicInteger| |#1|)
+                                               '(|IntegerNumberSystem|))
+                                              (LETT #1#
+                                                    (|HasCategory|
+                                                     (|BalancedPAdicInteger|
+                                                      |#1|)
+                                                     '(|Comparable|))
+                                                    . #2#)
+                                              (OR #1#
+                                                  (|HasCategory|
+                                                   (|BalancedPAdicInteger|
+                                                    |#1|)
+                                                   '(|OrderedIntegralDomain|))
+                                                  (|HasCategory|
+                                                   (|BalancedPAdicInteger|
+                                                    |#1|)
+                                                   '(|OrderedSet|)))))
+                          . #2#))
+          (|haddProp| |$ConstructorCache| '|BalancedPAdicRational| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+               (|HasCategory| (|BalancedPAdicInteger| |#1|)
+                              '(|PolynomialFactorizationExplicit|))
+               (|augmentPredVector| $ 33554432))
+          (AND
+           (OR
+            (AND (|HasCategory| $ '(|CharacteristicNonZero|))
+                 (|HasCategory| (|BalancedPAdicInteger| |#1|)
+                                '(|PolynomialFactorizationExplicit|)))
+            (|HasCategory| (|BalancedPAdicInteger| |#1|)
+                           '(|CharacteristicNonZero|)))
+           (|augmentPredVector| $ 67108864))
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|BalancedPAdicRational| '|infovec|
           (LIST

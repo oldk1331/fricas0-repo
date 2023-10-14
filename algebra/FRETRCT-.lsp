@@ -1,80 +1,88 @@
 
-(DEFUN |FRETRCT-;coerce;IA;1| (|n| $)
-  (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))) 
+(SDEFUN |FRETRCT-;coerce;IA;1| ((|n| |Integer|) ($ A))
+        (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))) 
 
-(DEFUN |FRETRCT-;retract;AI;2| (|r| $)
-  (SPADCALL (SPADCALL |r| (QREFELT $ 12)) (QREFELT $ 13))) 
+(SDEFUN |FRETRCT-;retract;AI;2| ((|r| A) ($ |Integer|))
+        (SPADCALL (SPADCALL |r| (QREFELT $ 12)) (QREFELT $ 13))) 
 
-(DEFUN |FRETRCT-;retractIfCan;AU;3| (|r| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 16)) |FRETRCT-;retractIfCan;AU;3|)
-          (EXIT
-           (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                 ('T (SPADCALL (QCDR |u|) (QREFELT $ 18))))))))) 
+(SDEFUN |FRETRCT-;retractIfCan;AU;3| ((|r| A) ($ |Union| (|Integer|) "failed"))
+        (SPROG ((|u| (|Union| S "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |r| (QREFELT $ 16))
+                      |FRETRCT-;retractIfCan;AU;3|)
+                (EXIT
+                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                       ('T (SPADCALL (QCDR |u|) (QREFELT $ 18)))))))) 
 
-(DEFUN |FRETRCT-;coerce;FA;4| (|n| $)
-  (SPADCALL (SPADCALL |n| (QREFELT $ 21)) (QREFELT $ 10))) 
+(SDEFUN |FRETRCT-;coerce;FA;4| ((|n| |Fraction| (|Integer|)) ($ A))
+        (SPADCALL (SPADCALL |n| (QREFELT $ 21)) (QREFELT $ 10))) 
 
-(DEFUN |FRETRCT-;retract;AF;5| (|r| $)
-  (SPADCALL (SPADCALL |r| (QREFELT $ 12)) (QREFELT $ 23))) 
+(SDEFUN |FRETRCT-;retract;AF;5| ((|r| A) ($ |Fraction| (|Integer|)))
+        (SPADCALL (SPADCALL |r| (QREFELT $ 12)) (QREFELT $ 23))) 
 
-(DEFUN |FRETRCT-;retractIfCan;AU;6| (|r| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ (LETT |u| (SPADCALL |r| (QREFELT $ 16)) |FRETRCT-;retractIfCan;AU;6|)
-          (EXIT
-           (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                 ('T (SPADCALL (QCDR |u|) (QREFELT $ 26))))))))) 
+(SDEFUN |FRETRCT-;retractIfCan;AU;6|
+        ((|r| A) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        (SPROG ((|u| (|Union| S "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |r| (QREFELT $ 16))
+                      |FRETRCT-;retractIfCan;AU;6|)
+                (EXIT
+                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                       ('T (SPADCALL (QCDR |u|) (QREFELT $ 26)))))))) 
 
 (DECLAIM (NOTINLINE |FullyRetractableTo&;|)) 
 
 (DEFUN |FullyRetractableTo&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FullyRetractableTo&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|FullyRetractableTo&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 28) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#2|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND ((|domainEqual| |#2| (|Integer|)))
-            ((|testBitVector| |pv$| 2)
-             (PROGN
-              (QSETREFV $ 11
-                        (CONS (|dispatchFunction| |FRETRCT-;coerce;IA;1|) $))
-              (QSETREFV $ 14
-                        (CONS (|dispatchFunction| |FRETRCT-;retract;AI;2|) $))
-              (QSETREFV $ 19
-                        (CONS (|dispatchFunction| |FRETRCT-;retractIfCan;AU;3|)
-                              $)))))
-      (COND ((|domainEqual| |#2| (|Fraction| (|Integer|))))
-            ((|testBitVector| |pv$| 1)
-             (PROGN
-              (QSETREFV $ 22
-                        (CONS (|dispatchFunction| |FRETRCT-;coerce;FA;4|) $))
-              (QSETREFV $ 24
-                        (CONS (|dispatchFunction| |FRETRCT-;retract;AF;5|) $))
-              (QSETREFV $ 27
-                        (CONS (|dispatchFunction| |FRETRCT-;retractIfCan;AU;6|)
-                              $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FullyRetractableTo&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|FullyRetractableTo&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 28) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|RetractableTo|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#2|
+                                                             '(|RetractableTo|
+                                                               (|Integer|)))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND ((|domainEqual| |#2| (|Integer|)))
+                ((|testBitVector| |pv$| 2)
+                 (PROGN
+                  (QSETREFV $ 11
+                            (CONS (|dispatchFunction| |FRETRCT-;coerce;IA;1|)
+                                  $))
+                  (QSETREFV $ 14
+                            (CONS (|dispatchFunction| |FRETRCT-;retract;AI;2|)
+                                  $))
+                  (QSETREFV $ 19
+                            (CONS
+                             (|dispatchFunction| |FRETRCT-;retractIfCan;AU;3|)
+                             $)))))
+          (COND ((|domainEqual| |#2| (|Fraction| (|Integer|))))
+                ((|testBitVector| |pv$| 1)
+                 (PROGN
+                  (QSETREFV $ 22
+                            (CONS (|dispatchFunction| |FRETRCT-;coerce;FA;4|)
+                                  $))
+                  (QSETREFV $ 24
+                            (CONS (|dispatchFunction| |FRETRCT-;retract;AF;5|)
+                                  $))
+                  (QSETREFV $ 27
+                            (CONS
+                             (|dispatchFunction| |FRETRCT-;retractIfCan;AU;6|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|FullyRetractableTo&| '|infovec|
           (LIST

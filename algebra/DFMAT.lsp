@@ -1,134 +1,147 @@
 
 (PUT '|DFMAT;minRowIndex;$I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(DEFUN |DFMAT;minRowIndex;$I;1| (|x| $) 0) 
+(SDEFUN |DFMAT;minRowIndex;$I;1| ((|x| $) ($ |Integer|)) 0) 
 
 (PUT '|DFMAT;minColIndex;$I;2| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(DEFUN |DFMAT;minColIndex;$I;2| (|x| $) 0) 
+(SDEFUN |DFMAT;minColIndex;$I;2| ((|x| $) ($ |Integer|)) 0) 
 
 (PUT '|DFMAT;nrows;$Nni;3| '|SPADreplace| 'DANROWS) 
 
-(DEFUN |DFMAT;nrows;$Nni;3| (|x| $) (DANROWS |x|)) 
+(SDEFUN |DFMAT;nrows;$Nni;3| ((|x| $) ($ |NonNegativeInteger|)) (DANROWS |x|)) 
 
 (PUT '|DFMAT;ncols;$Nni;4| '|SPADreplace| 'DANCOLS) 
 
-(DEFUN |DFMAT;ncols;$Nni;4| (|x| $) (DANCOLS |x|)) 
+(SDEFUN |DFMAT;ncols;$Nni;4| ((|x| $) ($ |NonNegativeInteger|)) (DANCOLS |x|)) 
 
-(DEFUN |DFMAT;maxRowIndex;$I;5| (|x| $) (- (DANROWS |x|) 1)) 
+(SDEFUN |DFMAT;maxRowIndex;$I;5| ((|x| $) ($ |Integer|)) (- (DANROWS |x|) 1)) 
 
-(DEFUN |DFMAT;maxColIndex;$I;6| (|x| $) (- (DANCOLS |x|) 1)) 
+(SDEFUN |DFMAT;maxColIndex;$I;6| ((|x| $) ($ |Integer|)) (- (DANCOLS |x|) 1)) 
 
 (PUT '|DFMAT;qelt;$2IDf;7| '|SPADreplace| 'DAREF2) 
 
-(DEFUN |DFMAT;qelt;$2IDf;7| (|m| |i| |j| $) (DAREF2 |m| |i| |j|)) 
+(SDEFUN |DFMAT;qelt;$2IDf;7|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) ($ |DoubleFloat|))
+        (DAREF2 |m| |i| |j|)) 
 
 (PUT '|DFMAT;elt;$2IDf;8| '|SPADreplace| 'DAREF2) 
 
-(DEFUN |DFMAT;elt;$2IDf;8| (|m| |i| |j| $) (DAREF2 |m| |i| |j|)) 
+(SDEFUN |DFMAT;elt;$2IDf;8|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) ($ |DoubleFloat|))
+        (DAREF2 |m| |i| |j|)) 
 
 (PUT '|DFMAT;qsetelt!;$2I2Df;9| '|SPADreplace| 'DSETAREF2) 
 
-(DEFUN |DFMAT;qsetelt!;$2I2Df;9| (|m| |i| |j| |r| $)
-  (DSETAREF2 |m| |i| |j| |r|)) 
+(SDEFUN |DFMAT;qsetelt!;$2I2Df;9|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| . #2=(|DoubleFloat|))
+         ($ . #2#))
+        (DSETAREF2 |m| |i| |j| |r|)) 
 
 (PUT '|DFMAT;setelt;$2I2Df;10| '|SPADreplace| 'DSETAREF2) 
 
-(DEFUN |DFMAT;setelt;$2I2Df;10| (|m| |i| |j| |r| $) (DSETAREF2 |m| |i| |j| |r|)) 
+(SDEFUN |DFMAT;setelt;$2I2Df;10|
+        ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| . #2=(|DoubleFloat|))
+         ($ . #2#))
+        (DSETAREF2 |m| |i| |j| |r|)) 
 
 (PUT '|DFMAT;empty;$;11| '|SPADreplace| '(XLAM NIL (MAKE-DOUBLE-MATRIX 0 0))) 
 
-(DEFUN |DFMAT;empty;$;11| ($) (MAKE-DOUBLE-MATRIX 0 0)) 
+(SDEFUN |DFMAT;empty;$;11| (($ $)) (MAKE-DOUBLE-MATRIX 0 0)) 
 
 (PUT '|DFMAT;qnew;2I$;12| '|SPADreplace| 'MAKE-DOUBLE-MATRIX) 
 
-(DEFUN |DFMAT;qnew;2I$;12| (|rows| |cols| $) (MAKE-DOUBLE-MATRIX |rows| |cols|)) 
+(SDEFUN |DFMAT;qnew;2I$;12| ((|rows| |Integer|) (|cols| |Integer|) ($ $))
+        (MAKE-DOUBLE-MATRIX |rows| |cols|)) 
 
 (PUT '|DFMAT;new;2NniDf$;13| '|SPADreplace| 'MAKE-DOUBLE-MATRIX1) 
 
-(DEFUN |DFMAT;new;2NniDf$;13| (|rows| |cols| |a| $)
-  (MAKE-DOUBLE-MATRIX1 |rows| |cols| |a|)) 
+(SDEFUN |DFMAT;new;2NniDf$;13|
+        ((|rows| . #1=(|NonNegativeInteger|)) (|cols| . #1#)
+         (|a| |DoubleFloat|) ($ $))
+        (MAKE-DOUBLE-MATRIX1 |rows| |cols| |a|)) 
 
 (DECLAIM (NOTINLINE |DoubleFloatMatrix;|)) 
 
 (DEFUN |DoubleFloatMatrix| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G2427)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatMatrix|)
-                . #2=(|DoubleFloatMatrix|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|DoubleFloatMatrix|
-                         (LIST (CONS NIL (CONS 1 (|DoubleFloatMatrix;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G2427)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|DoubleFloatMatrix|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatMatrix|)
+                    . #2=(|DoubleFloatMatrix|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|DoubleFloatMatrix|
+                             (LIST
+                              (CONS NIL (CONS 1 (|DoubleFloatMatrix;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|DoubleFloatMatrix|)))))))))) 
 
 (DEFUN |DoubleFloatMatrix;| ()
-  (PROG (|dv$| $ #1=#:G2425 #2=#:G2424 #3=#:G2423 |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|DoubleFloatMatrix|) . #4=(|DoubleFloatMatrix|))
-      (LETT $ (GETREFV 48) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (LETT #1#
-                                                (|HasCategory| (|DoubleFloat|)
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| (|DoubleFloat|)
-                                                          '(|Evalable|
-                                                            (|DoubleFloat|)))
-                                           #1#)
-                                          (LETT #2#
-                                                (|HasCategory| (|DoubleFloat|)
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #2# #1#)
-                                          (LETT #3#
-                                                (|HasCategory| (|DoubleFloat|)
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #3#
-                                              (AND
-                                               (|HasCategory| (|DoubleFloat|)
-                                                              '(|Evalable|
-                                                                (|DoubleFloat|)))
-                                               #1#))
-                                          (|HasCategory| (|DoubleFloat|)
-                                                         '(|AbelianGroup|))
-                                          (|HasCategory| (|DoubleFloat|)
-                                                         '(|Monoid|))
-                                          (|HasCategory| (|DoubleFloat|)
-                                                         '(|EuclideanDomain|))
-                                          (|HasCategory| (|DoubleFloat|)
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| (|DoubleFloat|)
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| (|DoubleFloat|)
-                                                         '(|Field|))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|DoubleFloatMatrix| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) #2#
-           (|augmentPredVector| $ 8192))
-      (AND (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #2#) #1#)
-           (|augmentPredVector| $ 16384))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|dv$| NIL) ($ NIL) (#1=#:G2425 NIL) (#2=#:G2424 NIL) (#3=#:G2423 NIL)
+    (|pv$| NIL))
+   (PROGN
+    (LETT |dv$| '(|DoubleFloatMatrix|) . #4=(|DoubleFloatMatrix|))
+    (LETT $ (GETREFV 48) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (LETT #1#
+                                              (|HasCategory| (|DoubleFloat|)
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| (|DoubleFloat|)
+                                                        '(|Evalable|
+                                                          (|DoubleFloat|)))
+                                         #1#)
+                                        (LETT #2#
+                                              (|HasCategory| (|DoubleFloat|)
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #2# #1#)
+                                        (LETT #3#
+                                              (|HasCategory| (|DoubleFloat|)
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #3#
+                                            (AND
+                                             (|HasCategory| (|DoubleFloat|)
+                                                            '(|Evalable|
+                                                              (|DoubleFloat|)))
+                                             #1#))
+                                        (|HasCategory| (|DoubleFloat|)
+                                                       '(|AbelianGroup|))
+                                        (|HasCategory| (|DoubleFloat|)
+                                                       '(|Monoid|))
+                                        (|HasCategory| (|DoubleFloat|)
+                                                       '(|EuclideanDomain|))
+                                        (|HasCategory| (|DoubleFloat|)
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| (|DoubleFloat|)
+                                                       '(|CommutativeRing|))
+                                        (|HasCategory| (|DoubleFloat|)
+                                                       '(|Field|))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|DoubleFloatMatrix| NIL (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) #2#
+         (|augmentPredVector| $ 8192))
+    (AND (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #2#) #1#)
+         (|augmentPredVector| $ 16384))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|DoubleFloatMatrix| '|infovec|
           (LIST

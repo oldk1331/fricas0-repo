@@ -11,16 +11,15 @@
                    (|PrimitiveFunctionCategory;|)))))) 
 
 (DEFUN |PrimitiveFunctionCategory;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|Join|
-                (|mkCategory|
-                 '(((|integral| ($ $ (|Symbol|))) T)
-                   ((|integral| ($ $ (|SegmentBinding| $))) T))
-                 NIL '((|SegmentBinding| $) (|Symbol|)) NIL))
-               |PrimitiveFunctionCategory|)
-       (SETELT #1# 0 '(|PrimitiveFunctionCategory|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|Join|
+                    (|mkCategory|
+                     '(((|integral| ($ $ (|Symbol|))) T)
+                       ((|integral| ($ $ (|SegmentBinding| $))) T))
+                     NIL '((|SegmentBinding| $) (|Symbol|)) NIL))
+                   |PrimitiveFunctionCategory|)
+           (SETELT #1# 0 '(|PrimitiveFunctionCategory|))))) 
 
 (MAKEPROP '|PrimitiveFunctionCategory| 'NILADIC T) 

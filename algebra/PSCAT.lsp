@@ -18,36 +18,38 @@
       #2#)))) 
 
 (DEFUN |PowerSeriesCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G108)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2| |t#3|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                            (|devaluate| |t#3|)))
-                (COND (|PowerSeriesCategory;CAT|)
-                      ('T
-                       (LETT |PowerSeriesCategory;CAT|
-                             (|Join| (|AbelianMonoidRing| '|t#1| '|t#2|)
-                                     (|VariablesCommuteWithCoefficients|)
-                                     (|mkCategory|
-                                      '(((|monomial| ($ $ |t#3| |t#2|)) T)
-                                        ((|monomial|
-                                          ($ $ (|List| |t#3|) (|List| |t#2|)))
-                                         T)
-                                        ((|leadingMonomial| ($ $)) T)
-                                        ((|leadingCoefficient| (|t#1| $)) T)
-                                        ((|degree| (|t#2| $)) T)
-                                        ((|variables| ((|List| |t#3|) $)) T)
-                                        ((|pole?| ((|Boolean|) $)) T)
-                                        ((|complete| ($ $)) T))
-                                      NIL
-                                      '((|Boolean|) (|List| |t#3|)
-                                        (|List| |t#2|))
-                                      NIL))
-                             . #2=(|PowerSeriesCategory|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|PowerSeriesCategory| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|) (|devaluate| |t#3|))))))) 
+  (SPROG ((#1=#:G108 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2| |t#3|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
+                                (|devaluate| |t#3|)))
+                    (COND (|PowerSeriesCategory;CAT|)
+                          ('T
+                           (LETT |PowerSeriesCategory;CAT|
+                                 (|Join| (|AbelianMonoidRing| '|t#1| '|t#2|)
+                                         (|VariablesCommuteWithCoefficients|)
+                                         (|mkCategory|
+                                          '(((|monomial| ($ $ |t#3| |t#2|)) T)
+                                            ((|monomial|
+                                              ($ $ (|List| |t#3|)
+                                               (|List| |t#2|)))
+                                             T)
+                                            ((|leadingMonomial| ($ $)) T)
+                                            ((|leadingCoefficient| (|t#1| $))
+                                             T)
+                                            ((|degree| (|t#2| $)) T)
+                                            ((|variables| ((|List| |t#3|) $))
+                                             T)
+                                            ((|pole?| ((|Boolean|) $)) T)
+                                            ((|complete| ($ $)) T))
+                                          NIL
+                                          '((|Boolean|) (|List| |t#3|)
+                                            (|List| |t#2|))
+                                          NIL))
+                                 . #2=(|PowerSeriesCategory|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|PowerSeriesCategory| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|) (|devaluate| |t#3|)))))) 

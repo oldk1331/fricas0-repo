@@ -1,285 +1,325 @@
 
-(DEFUN |BOP;is?;$SB;1| (|op| |s| $) (EQUAL (SPADCALL |op| (QREFELT $ 13)) |s|)) 
+(SDEFUN |BOP;is?;$SB;1| ((|op| $) (|s| |Symbol|) ($ |Boolean|))
+        (EQUAL (SPADCALL |op| (QREFELT $ 13)) |s|)) 
 
 (PUT '|BOP;name;$S;2| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 0))) 
 
-(DEFUN |BOP;name;$S;2| (|op| $) (QVELT |op| 0)) 
+(SDEFUN |BOP;name;$S;2| ((|op| $) ($ |Symbol|)) (QVELT |op| 0)) 
 
 (PUT '|BOP;properties;$Al;3| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 2))) 
 
-(DEFUN |BOP;properties;$Al;3| (|op| $) (QVELT |op| 2)) 
+(SDEFUN |BOP;properties;$Al;3|
+        ((|op| $) ($ |AssociationList| (|Symbol|) (|None|))) (QVELT |op| 2)) 
 
-(DEFUN |BOP;setProperties;$Al$;4| (|op| |l| $)
-  (SEQ (QSETVELT |op| 2 |l|) (EXIT |op|))) 
+(SDEFUN |BOP;setProperties;$Al$;4|
+        ((|op| $) (|l| |AssociationList| (|Symbol|) (|None|)) ($ $))
+        (SEQ (QSETVELT |op| 2 |l|) (EXIT |op|))) 
 
-(DEFUN |BOP;operator;S$;5| (|s| $)
-  (|BOP;oper| |s| -1 (SPADCALL (QREFELT $ 19)) $)) 
+(SDEFUN |BOP;operator;S$;5| ((|s| |Symbol|) ($ $))
+        (|BOP;oper| |s| -1 (SPADCALL (QREFELT $ 19)) $)) 
 
-(DEFUN |BOP;operator;SNni$;6| (|s| |n| $)
-  (|BOP;oper| |s| (SPADCALL |n| (QREFELT $ 23)) (SPADCALL (QREFELT $ 19)) $)) 
+(SDEFUN |BOP;operator;SNni$;6|
+        ((|s| |Symbol|) (|n| |NonNegativeInteger|) ($ $))
+        (|BOP;oper| |s| (SPADCALL |n| (QREFELT $ 23)) (SPADCALL (QREFELT $ 19))
+         $)) 
 
-(DEFUN |BOP;property;$SU;7| (|op| |name| $)
-  (SPADCALL |name| (QVELT |op| 2) (QREFELT $ 27))) 
+(SDEFUN |BOP;property;$SU;7|
+        ((|op| $) (|name| |Symbol|) ($ |Union| (|None|) "failed"))
+        (SPADCALL |name| (QVELT |op| 2) (QREFELT $ 27))) 
 
-(DEFUN |BOP;assert;$S$;8| (|op| |s| $) (SPADCALL |op| |s| NIL (QREFELT $ 30))) 
+(SDEFUN |BOP;assert;$S$;8| ((|op| $) (|s| |Symbol|) ($ $))
+        (SPADCALL |op| |s| NIL (QREFELT $ 30))) 
 
-(DEFUN |BOP;has?;$SB;9| (|op| |name| $)
-  (SPADCALL |name| (QVELT |op| 2) (QREFELT $ 32))) 
+(SDEFUN |BOP;has?;$SB;9| ((|op| $) (|name| |Symbol|) ($ |Boolean|))
+        (SPADCALL |name| (QVELT |op| 2) (QREFELT $ 32))) 
 
 (PUT '|BOP;oper| '|SPADreplace| 'VECTOR) 
 
-(DEFUN |BOP;oper| (|se| |n| |prop| $) (VECTOR |se| |n| |prop|)) 
+(SDEFUN |BOP;oper|
+        ((|se| |Symbol|) (|n| |SingleInteger|)
+         (|prop| |AssociationList| (|Symbol|) (|None|)) ($ $))
+        (VECTOR |se| |n| |prop|)) 
 
-(DEFUN |BOP;weight;$Nni$;11| (|op| |n| $)
-  (SPADCALL |op| (QREFELT $ 9) |n| (QREFELT $ 30))) 
+(SDEFUN |BOP;weight;$Nni$;11| ((|op| $) (|n| |NonNegativeInteger|) ($ $))
+        (SPADCALL |op| (QREFELT $ 9) |n| (QREFELT $ 30))) 
 
-(DEFUN |BOP;nullary?;$B;12| (|op| $) (|zero?_SI| (QVELT |op| 1))) 
+(SDEFUN |BOP;nullary?;$B;12| ((|op| $) ($ |Boolean|))
+        (|zero?_SI| (QVELT |op| 1))) 
 
-(DEFUN |BOP;unary?;$B;13| (|op| $) (|eql_SI| (QVELT |op| 1) 1)) 
+(SDEFUN |BOP;unary?;$B;13| ((|op| $) ($ |Boolean|)) (|eql_SI| (QVELT |op| 1) 1)) 
 
-(DEFUN |BOP;nary?;$B;14| (|op| $) (|negative?_SI| (QVELT |op| 1))) 
+(SDEFUN |BOP;nary?;$B;14| ((|op| $) ($ |Boolean|))
+        (|negative?_SI| (QVELT |op| 1))) 
 
-(DEFUN |BOP;equality;$M$;15| (|op| |func| $)
-  (SPADCALL |op| (QREFELT $ 8) |func| (QREFELT $ 30))) 
+(SDEFUN |BOP;equality;$M$;15|
+        ((|op| $) (|func| |Mapping| (|Boolean|) $ $) ($ $))
+        (SPADCALL |op| (QREFELT $ 8) |func| (QREFELT $ 30))) 
 
-(DEFUN |BOP;comparison;$M$;16| (|op| |func| $)
-  (SPADCALL |op| (QREFELT $ 7) |func| (QREFELT $ 30))) 
+(SDEFUN |BOP;comparison;$M$;16|
+        ((|op| $) (|func| |Mapping| (|Boolean|) $ $) ($ $))
+        (SPADCALL |op| (QREFELT $ 7) |func| (QREFELT $ 30))) 
 
-(DEFUN |BOP;display;$M$;17| (|op| |f| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL |op| (CONS #'|BOP;display;$M$;17!0| (VECTOR |f| $))
-               (QREFELT $ 45))))) 
+(SDEFUN |BOP;display;$M$;17|
+        ((|op| $) (|f| |Mapping| (|OutputForm|) (|OutputForm|)) ($ $))
+        (SPROG NIL
+               (SPADCALL |op| (CONS #'|BOP;display;$M$;17!0| (VECTOR |f| $))
+                         (QREFELT $ 45)))) 
 
-(DEFUN |BOP;display;$M$;17!0| (|l1| $$)
-  (PROG ($ |f|)
-    (LETT $ (QREFELT $$ 1) . #1=(|BOP;display;$M$;17|))
-    (LETT |f| (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL (SPADCALL |l1| (QREFELT $ 43)) |f|))))) 
+(SDEFUN |BOP;display;$M$;17!0| ((|l1| NIL) ($$ NIL))
+        (PROG ($ |f|)
+          (LETT $ (QREFELT $$ 1) . #1=(|BOP;display;$M$;17|))
+          (LETT |f| (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL (SPADCALL |l1| (QREFELT $ 43)) |f|))))) 
 
-(DEFUN |BOP;deleteProperty!;$S$;18| (|op| |name| $)
-  (SEQ (SPADCALL |name| (SPADCALL |op| (QREFELT $ 17)) (QREFELT $ 48))
-       (EXIT |op|))) 
+(SDEFUN |BOP;deleteProperty!;$S$;18| ((|op| $) (|name| |Symbol|) ($ $))
+        (SEQ (SPADCALL |name| (SPADCALL |op| (QREFELT $ 17)) (QREFELT $ 48))
+             (EXIT |op|))) 
 
-(DEFUN |BOP;setProperty;$SN$;19| (|op| |name| |valu| $)
-  (SEQ (SPADCALL (QVELT |op| 2) |name| |valu| (QREFELT $ 50)) (EXIT |op|))) 
+(SDEFUN |BOP;setProperty;$SN$;19|
+        ((|op| $) (|name| |Symbol|) (|valu| |None|) ($ $))
+        (SEQ (SPADCALL (QVELT |op| 2) |name| |valu| (QREFELT $ 50))
+             (EXIT |op|))) 
 
-(DEFUN |BOP;coerce;$Of;20| (|op| $)
-  (SPADCALL (SPADCALL |op| (QREFELT $ 13)) (QREFELT $ 51))) 
+(SDEFUN |BOP;coerce;$Of;20| ((|op| $) ($ |OutputForm|))
+        (SPADCALL (SPADCALL |op| (QREFELT $ 13)) (QREFELT $ 51))) 
 
-(DEFUN |BOP;input;$M$;21| (|op| |f| $)
-  (SPADCALL |op| (QREFELT $ 11) |f| (QREFELT $ 30))) 
+(SDEFUN |BOP;input;$M$;21|
+        ((|op| $) (|f| |Mapping| (|InputForm|) (|List| (|InputForm|))) ($ $))
+        (SPADCALL |op| (QREFELT $ 11) |f| (QREFELT $ 30))) 
 
-(DEFUN |BOP;display;$M$;22| (|op| |f| $)
-  (SPADCALL |op| (QREFELT $ 10) |f| (QREFELT $ 30))) 
+(SDEFUN |BOP;display;$M$;22|
+        ((|op| $) (|f| |Mapping| (|OutputForm|) (|List| (|OutputForm|))) ($ $))
+        (SPADCALL |op| (QREFELT $ 10) |f| (QREFELT $ 30))) 
 
-(DEFUN |BOP;display;$U;23| (|op| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |op| (QREFELT $ 10) (QREFELT $ 28))
-            |BOP;display;$U;23|)
-      (EXIT
-       (COND ((QEQCAR |u| 1) (CONS 1 "failed")) ('T (CONS 0 (QCDR |u|))))))))) 
+(SDEFUN |BOP;display;$U;23|
+        ((|op| $)
+         ($ |Union| (|Mapping| (|OutputForm|) (|List| (|OutputForm|)))
+          "failed"))
+        (SPROG ((|u| (|Union| (|None|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |op| (QREFELT $ 10) (QREFELT $ 28))
+                      |BOP;display;$U;23|)
+                (EXIT
+                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                       ('T (CONS 0 (QCDR |u|)))))))) 
 
-(DEFUN |BOP;input;$U;24| (|op| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ
-      (LETT |u| (SPADCALL |op| (QREFELT $ 11) (QREFELT $ 28))
-            |BOP;input;$U;24|)
-      (EXIT
-       (COND ((QEQCAR |u| 1) (CONS 1 "failed")) ('T (CONS 0 (QCDR |u|))))))))) 
+(SDEFUN |BOP;input;$U;24|
+        ((|op| $)
+         ($ |Union| (|Mapping| (|InputForm|) (|List| (|InputForm|))) "failed"))
+        (SPROG ((|u| (|Union| (|None|) "failed")))
+               (SEQ
+                (LETT |u| (SPADCALL |op| (QREFELT $ 11) (QREFELT $ 28))
+                      |BOP;input;$U;24|)
+                (EXIT
+                 (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                       ('T (CONS 0 (QCDR |u|)))))))) 
 
-(DEFUN |BOP;arity;$U;25| (|op| $)
-  (PROG (#1=#:G179 |n|)
-    (RETURN
-     (COND
-      ((|negative?_SI| (LETT |n| (QVELT |op| 1) . #2=(|BOP;arity;$U;25|)))
-       (CONS 1 "failed"))
-      ('T
-       (CONS 0
-             (PROG1 (LETT #1# |n| . #2#)
-               (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))))))) 
-
-(DEFUN |BOP;copy;2$;26| (|op| $)
-  (PROG (#1=#:G189 |r| #2=#:G188)
-    (RETURN
-     (SEQ
-      (|BOP;oper| (SPADCALL |op| (QREFELT $ 13)) (QVELT |op| 1)
-       (SPADCALL
-        (PROGN
-         (LETT #2# NIL . #3=(|BOP;copy;2$;26|))
-         (SEQ (LETT |r| NIL . #3#)
-              (LETT #1#
-                    (SPADCALL (SPADCALL |op| (QREFELT $ 17)) (QREFELT $ 63))
-                    . #3#)
-              G190
-              (COND
-               ((OR (ATOM #1#) (PROGN (LETT |r| (CAR #1#) . #3#) NIL))
-                (GO G191)))
-              (SEQ
-               (EXIT (LETT #2# (CONS (CONS (QCAR |r|) (QCDR |r|)) #2#) . #3#)))
-              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-        (QREFELT $ 64))
-       $))))) 
-
-(DEFUN |BOP;=;2$B;27| (|op1| |op2| $)
-  (PROG (|func|)
-    (RETURN
-     (SEQ
-      (COND ((EQ |op1| |op2|) 'T)
-            ((OR
-              (SPADCALL (SPADCALL |op1| (QREFELT $ 13))
-                        (SPADCALL |op2| (QREFELT $ 13)) (QREFELT $ 66))
-              (OR (SPADCALL (QVELT |op1| 1) (QVELT |op2| 1) (QREFELT $ 67))
-                  (SPADCALL
-                   (SPADCALL
-                    (SPADCALL (SPADCALL |op1| (QREFELT $ 17)) (QREFELT $ 69))
-                    (QREFELT $ 71))
-                   (SPADCALL
-                    (SPADCALL (SPADCALL |op2| (QREFELT $ 17)) (QREFELT $ 69))
-                    (QREFELT $ 71))
-                   (QREFELT $ 72))))
-             'NIL)
-            ('T
-             (SEQ
-              (LETT |func| (SPADCALL |op1| (QREFELT $ 8) (QREFELT $ 28))
-                    |BOP;=;2$B;27|)
-              (EXIT
-               (COND ((QEQCAR |func| 0) (SPADCALL |op1| |op2| (QCDR |func|)))
-                     ('T 'T)))))))))) 
-
-(DEFUN |BOP;weight;$Nni;28| (|op| $)
-  (PROG (|w|)
-    (RETURN
-     (SEQ
-      (LETT |w| (SPADCALL |op| (QREFELT $ 9) (QREFELT $ 28))
-            |BOP;weight;$Nni;28|)
-      (EXIT (COND ((QEQCAR |w| 1) 1) ('T (QCDR |w|)))))))) 
-
-(DEFUN |BOP;<;2$B;29| (|op1| |op2| $)
-  (PROG (|func| |n2| |d2| |n1| |d1| |k2| |k1| |w2| |w1|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL
-         (LETT |w1| (SPADCALL |op1| (QREFELT $ 74)) . #1=(|BOP;<;2$B;29|))
-         (LETT |w2| (SPADCALL |op2| (QREFELT $ 74)) . #1#) (QREFELT $ 75))
-        (< |w1| |w2|))
-       ((SPADCALL (QVELT |op1| 1) (QVELT |op2| 1) (QREFELT $ 67))
-        (|less_SI| (QVELT |op1| 1) (QVELT |op2| 1)))
-       ((SPADCALL (SPADCALL |op1| (QREFELT $ 13))
-                  (SPADCALL |op2| (QREFELT $ 13)) (QREFELT $ 66))
-        (GGREATERP (SPADCALL |op2| (QREFELT $ 13))
-                   (SPADCALL |op1| (QREFELT $ 13))))
-       (#2='T
-        (SEQ
-         (LETT |n1|
-               (SPADCALL
-                (LETT |k1|
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |op1| (QREFELT $ 17))
-                                 (QREFELT $ 69))
-                       (QREFELT $ 71))
-                      . #1#)
-                (QREFELT $ 76))
-               . #1#)
-         (LETT |n2|
-               (SPADCALL
-                (LETT |k2|
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |op2| (QREFELT $ 17))
-                                 (QREFELT $ 69))
-                       (QREFELT $ 71))
-                      . #1#)
-                (QREFELT $ 76))
-               . #1#)
-         (EXIT
-          (COND ((SPADCALL |n1| |n2| (QREFELT $ 75)) (< |n1| |n2|))
-                ((NULL
-                  (ZEROP
-                   (LETT |n1|
-                         (SPADCALL
-                          (LETT |d1| (SPADCALL |k1| |k2| (QREFELT $ 77)) . #1#)
-                          (QREFELT $ 76))
-                         . #1#)))
-                 (COND
-                  ((SPADCALL |n1|
-                             (LETT |n2|
-                                   (SPADCALL
-                                    (LETT |d2|
-                                          (SPADCALL |k2| |k1| (QREFELT $ 77))
-                                          . #1#)
-                                    (QREFELT $ 76))
-                                   . #1#)
-                             (QREFELT $ 75))
-                   (< |n1| |n2|))
-                  (#2#
-                   (GGREATERP (SPADCALL |d2| (QREFELT $ 78))
-                              (SPADCALL |d1| (QREFELT $ 78))))))
+(SDEFUN |BOP;arity;$U;25|
+        ((|op| $) ($ |Union| (|NonNegativeInteger|) "failed"))
+        (SPROG ((#1=#:G179 NIL) (|n| (|SingleInteger|)))
+               (COND
+                ((|negative?_SI|
+                  (LETT |n| (QVELT |op| 1) . #2=(|BOP;arity;$U;25|)))
+                 (CONS 1 "failed"))
                 ('T
-                 (SEQ
-                  (LETT |func| (SPADCALL |op1| (QREFELT $ 7) (QREFELT $ 28))
-                        . #1#)
-                  (EXIT
-                   (COND
-                    ((QEQCAR |func| 0) (SPADCALL |op1| |op2| (QCDR |func|)))
-                    (#2#
+                 (CONS 0
+                       (PROG1 (LETT #1# |n| . #2#)
+                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
+                                          #1#))))))) 
+
+(SDEFUN |BOP;copy;2$;26| ((|op| $) ($ $))
+        (SPROG ((#1=#:G189 NIL) (|r| NIL) (#2=#:G188 NIL))
+               (SEQ
+                (|BOP;oper| (SPADCALL |op| (QREFELT $ 13)) (QVELT |op| 1)
+                 (SPADCALL
+                  (PROGN
+                   (LETT #2# NIL . #3=(|BOP;copy;2$;26|))
+                   (SEQ (LETT |r| NIL . #3#)
+                        (LETT #1#
+                              (SPADCALL (SPADCALL |op| (QREFELT $ 17))
+                                        (QREFELT $ 63))
+                              . #3#)
+                        G190
+                        (COND
+                         ((OR (ATOM #1#)
+                              (PROGN (LETT |r| (CAR #1#) . #3#) NIL))
+                          (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (LETT #2# (CONS (CONS (QCAR |r|) (QCDR |r|)) #2#)
+                                . #3#)))
+                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (EXIT (NREVERSE #2#))))
+                  (QREFELT $ 64))
+                 $)))) 
+
+(SDEFUN |BOP;=;2$B;27| ((|op1| $) (|op2| $) ($ |Boolean|))
+        (SPROG ((|func| (|Union| (|None|) "failed")))
+               (SEQ
+                (COND ((EQ |op1| |op2|) 'T)
+                      ((OR
+                        (SPADCALL (SPADCALL |op1| (QREFELT $ 13))
+                                  (SPADCALL |op2| (QREFELT $ 13))
+                                  (QREFELT $ 66))
+                        (OR
+                         (SPADCALL (QVELT |op1| 1) (QVELT |op2| 1)
+                                   (QREFELT $ 67))
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |op1| (QREFELT $ 17))
+                                     (QREFELT $ 69))
+                           (QREFELT $ 71))
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |op2| (QREFELT $ 17))
+                                     (QREFELT $ 69))
+                           (QREFELT $ 71))
+                          (QREFELT $ 72))))
+                       'NIL)
+                      ('T
+                       (SEQ
+                        (LETT |func|
+                              (SPADCALL |op1| (QREFELT $ 8) (QREFELT $ 28))
+                              |BOP;=;2$B;27|)
+                        (EXIT
+                         (COND
+                          ((QEQCAR |func| 0)
+                           (SPADCALL |op1| |op2| (QCDR |func|)))
+                          ('T 'T))))))))) 
+
+(SDEFUN |BOP;weight;$Nni;28| ((|op| $) ($ |NonNegativeInteger|))
+        (SPROG ((|w| (|Union| (|None|) "failed")))
+               (SEQ
+                (LETT |w| (SPADCALL |op| (QREFELT $ 9) (QREFELT $ 28))
+                      |BOP;weight;$Nni;28|)
+                (EXIT (COND ((QEQCAR |w| 1) 1) ('T (QCDR |w|))))))) 
+
+(SDEFUN |BOP;<;2$B;29| ((|op1| $) (|op2| $) ($ |Boolean|))
+        (SPROG
+         ((|func| (|Union| (|None|) "failed")) (|n2| #1=(|NonNegativeInteger|))
+          (|d2| #2=(|Set| (|Symbol|))) (|n1| #1#) (|d1| #2#)
+          (|k2| #3=(|Set| (|Symbol|))) (|k1| #3#)
+          (|w2| #4=(|NonNegativeInteger|)) (|w1| #4#))
+         (SEQ
+          (COND
+           ((SPADCALL
+             (LETT |w1| (SPADCALL |op1| (QREFELT $ 74)) . #5=(|BOP;<;2$B;29|))
+             (LETT |w2| (SPADCALL |op2| (QREFELT $ 74)) . #5#) (QREFELT $ 75))
+            (< |w1| |w2|))
+           ((SPADCALL (QVELT |op1| 1) (QVELT |op2| 1) (QREFELT $ 67))
+            (|less_SI| (QVELT |op1| 1) (QVELT |op2| 1)))
+           ((SPADCALL (SPADCALL |op1| (QREFELT $ 13))
+                      (SPADCALL |op2| (QREFELT $ 13)) (QREFELT $ 66))
+            (GGREATERP (SPADCALL |op2| (QREFELT $ 13))
+                       (SPADCALL |op1| (QREFELT $ 13))))
+           (#6='T
+            (SEQ
+             (LETT |n1|
+                   (SPADCALL
+                    (LETT |k1|
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |op1| (QREFELT $ 17))
+                                     (QREFELT $ 69))
+                           (QREFELT $ 71))
+                          . #5#)
+                    (QREFELT $ 76))
+                   . #5#)
+             (LETT |n2|
+                   (SPADCALL
+                    (LETT |k2|
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |op2| (QREFELT $ 17))
+                                     (QREFELT $ 69))
+                           (QREFELT $ 71))
+                          . #5#)
+                    (QREFELT $ 76))
+                   . #5#)
+             (EXIT
+              (COND ((SPADCALL |n1| |n2| (QREFELT $ 75)) (< |n1| |n2|))
+                    ((NULL
+                      (ZEROP
+                       (LETT |n1|
+                             (SPADCALL
+                              (LETT |d1| (SPADCALL |k1| |k2| (QREFELT $ 77))
+                                    . #5#)
+                              (QREFELT $ 76))
+                             . #5#)))
+                     (COND
+                      ((SPADCALL |n1|
+                                 (LETT |n2|
+                                       (SPADCALL
+                                        (LETT |d2|
+                                              (SPADCALL |k2| |k1|
+                                                        (QREFELT $ 77))
+                                              . #5#)
+                                        (QREFELT $ 76))
+                                       . #5#)
+                                 (QREFELT $ 75))
+                       (< |n1| |n2|))
+                      (#6#
+                       (GGREATERP (SPADCALL |d2| (QREFELT $ 78))
+                                  (SPADCALL |d1| (QREFELT $ 78))))))
+                    ('T
                      (SEQ
                       (LETT |func|
-                            (SPADCALL |op1| (QREFELT $ 8) (QREFELT $ 28))
-                            . #1#)
+                            (SPADCALL |op1| (QREFELT $ 7) (QREFELT $ 28))
+                            . #5#)
                       (EXIT
                        (COND
                         ((QEQCAR |func| 0)
-                         (COND ((SPADCALL |op1| |op2| (QCDR |func|)) 'NIL)
-                               (#2# 'T)))
-                        (#2# 'NIL)))))))))))))))))) 
+                         (SPADCALL |op1| |op2| (QCDR |func|)))
+                        (#6#
+                         (SEQ
+                          (LETT |func|
+                                (SPADCALL |op1| (QREFELT $ 8) (QREFELT $ 28))
+                                . #5#)
+                          (EXIT
+                           (COND
+                            ((QEQCAR |func| 0)
+                             (COND ((SPADCALL |op1| |op2| (QCDR |func|)) 'NIL)
+                                   (#6# 'T)))
+                            (#6# 'NIL))))))))))))))))) 
 
 (DECLAIM (NOTINLINE |BasicOperator;|)) 
 
 (DEFUN |BasicOperator| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G226)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|BasicOperator|)
-                . #2=(|BasicOperator|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|BasicOperator|
-                         (LIST (CONS NIL (CONS 1 (|BasicOperator;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G226)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|BasicOperator|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|BasicOperator|)
+                    . #2=(|BasicOperator|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|BasicOperator|
+                             (LIST (CONS NIL (CONS 1 (|BasicOperator;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|BasicOperator|)))))))))) 
 
 (DEFUN |BasicOperator;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|BasicOperator|) . #1=(|BasicOperator|))
-      (LETT $ (GETREFV 82) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|BasicOperator| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Record| (|:| |opname| (|Symbol|))
-                          (|:| |narg| (|SingleInteger|))
-                          (|:| |props|
-                               (|AssociationList| (|Symbol|) (|None|)))))
-      (QSETREFV $ 7 '|%less?|)
-      (QSETREFV $ 8 '|%equal?|)
-      (QSETREFV $ 9 '|%weight|)
-      (QSETREFV $ 10 '|%display|)
-      (QSETREFV $ 11 '|%input|)
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|BasicOperator|) . #1=(|BasicOperator|))
+          (LETT $ (GETREFV 82) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|BasicOperator| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |opname| (|Symbol|))
+                              (|:| |narg| (|SingleInteger|))
+                              (|:| |props|
+                                   (|AssociationList| (|Symbol|) (|None|)))))
+          (QSETREFV $ 7 '|%less?|)
+          (QSETREFV $ 8 '|%equal?|)
+          (QSETREFV $ 9 '|%weight|)
+          (QSETREFV $ 10 '|%display|)
+          (QSETREFV $ 11 '|%input|)
+          $))) 
 
 (MAKEPROP '|BasicOperator| '|infovec|
           (LIST

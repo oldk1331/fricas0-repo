@@ -1,162 +1,237 @@
 
-(DEFUN |QALGSET2;f| (|v| $)
-  (PROG (#1=#:G107)
-    (RETURN
-     (SPADCALL
-      (PROG2
-          (LETT #1# (SPADCALL (SPADCALL |v| (QREFELT $ 16)) (QREFELT $ 13))
-                |QALGSET2;f|)
-          (QCDR #1#)
-        (|check_union| (QEQCAR #1# 0) (|OrderedVariableList| (QREFELT $ 10))
-                       #1#))
-      (QREFELT $ 18))))) 
-
-(DEFUN |QALGSET2;g| (|v| $)
-  (PROG (#1=#:G111)
-    (RETURN
-     (COND ((SPADCALL |v| (QREFELT $ 14) (QREFELT $ 20)) (|spadConstant| $ 22))
-           ('T
-            (SPADCALL
-             (PROG2
-                 (LETT #1#
-                       (SPADCALL (SPADCALL |v| (QREFELT $ 23)) (QREFELT $ 24))
-                       |QALGSET2;g|)
-                 (QCDR #1#)
-               (|check_union| (QEQCAR #1# 0)
-                              (|OrderedVariableList| (QREFELT $ 6)) #1#))
-             (QREFELT $ 25))))))) 
-
-(DEFUN |QALGSET2;npoly| (|p| $)
-  (SPADCALL (CONS #'|QALGSET2;npoly!0| $) (ELT $ 27) |p| (QREFELT $ 31))) 
-
-(DEFUN |QALGSET2;npoly!0| (|z1| $) (|QALGSET2;f| |z1| $)) 
-
-(DEFUN |QALGSET2;oldpoly| (|q| $)
-  (PROG (|x|)
-    (RETURN
-     (SEQ (LETT |x| (SPADCALL |q| (QREFELT $ 33)) |QALGSET2;oldpoly|)
-          (EXIT
-           (COND
-            ((QEQCAR |x| 1)
-             (CONS 0 (SPADCALL (SPADCALL |q| (QREFELT $ 34)) (QREFELT $ 35))))
-            ((SPADCALL (QCDR |x|) (QREFELT $ 14) (QREFELT $ 20))
-             (CONS 1 "failed"))
-            ('T
-             (CONS 0
-                   (SPADCALL (CONS #'|QALGSET2;oldpoly!0| $) (ELT $ 35) |q|
-                             (QREFELT $ 39)))))))))) 
-
-(DEFUN |QALGSET2;oldpoly!0| (|z1| $) (|QALGSET2;g| |z1| $)) 
-
-(DEFUN |QALGSET2;radicalSimplify;2Qas;5| (|x| $)
-  (PROG (|y| |ngb| |gb| |k| |id| |gen| #1=#:G135 |g| #2=#:G134 |tp| |t| |n0|
-         |z0|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (SPADCALL |x| (QREFELT $ 42)) (CONS 0 'T) (QREFELT $ 43))
-        |x|)
-       (#3='T
-        (SEQ
-         (LETT |z0| (SPADCALL |x| (QREFELT $ 45))
-               . #4=(|QALGSET2;radicalSimplify;2Qas;5|))
-         (LETT |n0| (SPADCALL |x| (QREFELT $ 46)) . #4#)
-         (LETT |t| (SPADCALL (QREFELT $ 14) (QREFELT $ 18)) . #4#)
-         (LETT |tp|
+(SDEFUN |QALGSET2;f|
+        ((|v| |OrderedVariableList| |vl|)
+         ($ |DistributedMultivariatePolynomial| |newvl|
+          (|Fraction| (|Integer|))))
+        (SPROG ((#1=#:G107 NIL))
                (SPADCALL
-                (SPADCALL |t| (|QALGSET2;npoly| |n0| $) (QREFELT $ 47))
-                (|spadConstant| $ 48) (QREFELT $ 49))
-               . #4#)
-         (LETT |gen|
-               (CONS |tp|
-                     (PROGN
-                      (LETT #2# NIL . #4#)
-                      (SEQ (LETT |g| NIL . #4#) (LETT #1# |z0| . #4#) G190
-                           (COND
-                            ((OR (ATOM #1#)
-                                 (PROGN (LETT |g| (CAR #1#) . #4#) NIL))
-                             (GO G191)))
-                           (SEQ
-                            (EXIT
-                             (LETT #2# (CONS (|QALGSET2;npoly| |g| $) #2#)
-                                   . #4#)))
-                           (LETT #1# (CDR #1#) . #4#) (GO G190) G191
-                           (EXIT (NREVERSE #2#)))))
-               . #4#)
-         (LETT |id| (SPADCALL |gen| (QREFELT $ 52)) . #4#)
-         (LETT |ngb| (SPADCALL (SPADCALL |id| (QREFELT $ 54)) (QREFELT $ 55))
-               . #4#)
-         (EXIT
+                (PROG2
+                    (LETT #1#
+                          (SPADCALL (SPADCALL |v| (QREFELT $ 16))
+                                    (QREFELT $ 13))
+                          |QALGSET2;f|)
+                    (QCDR #1#)
+                  (|check_union| (QEQCAR #1# 0)
+                                 (|OrderedVariableList| (QREFELT $ 10)) #1#))
+                (QREFELT $ 18)))) 
+
+(SDEFUN |QALGSET2;g|
+        ((|v| |OrderedVariableList| |newvl|)
+         ($ |DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
+        (SPROG ((#1=#:G111 NIL))
+               (COND
+                ((SPADCALL |v| (QREFELT $ 14) (QREFELT $ 20))
+                 (|spadConstant| $ 22))
+                ('T
+                 (SPADCALL
+                  (PROG2
+                      (LETT #1#
+                            (SPADCALL (SPADCALL |v| (QREFELT $ 23))
+                                      (QREFELT $ 24))
+                            |QALGSET2;g|)
+                      (QCDR #1#)
+                    (|check_union| (QEQCAR #1# 0)
+                                   (|OrderedVariableList| (QREFELT $ 6)) #1#))
+                  (QREFELT $ 25)))))) 
+
+(SDEFUN |QALGSET2;npoly|
+        ((|p| |DistributedMultivariatePolynomial| |vl|
+          (|Fraction| (|Integer|)))
+         ($ |DistributedMultivariatePolynomial| |newvl|
+          (|Fraction| (|Integer|))))
+        (SPADCALL (CONS #'|QALGSET2;npoly!0| $) (ELT $ 27) |p| (QREFELT $ 31))) 
+
+(SDEFUN |QALGSET2;npoly!0| ((|z1| NIL) ($ NIL)) (|QALGSET2;f| |z1| $)) 
+
+(SDEFUN |QALGSET2;oldpoly|
+        ((|q| |DistributedMultivariatePolynomial| |newvl|
+          (|Fraction| (|Integer|)))
+         ($ |Union|
+          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))
+          "failed"))
+        (SPROG ((|x| (|Union| (|OrderedVariableList| |newvl|) "failed")))
+               (SEQ (LETT |x| (SPADCALL |q| (QREFELT $ 33)) |QALGSET2;oldpoly|)
+                    (EXIT
+                     (COND
+                      ((QEQCAR |x| 1)
+                       (CONS 0
+                             (SPADCALL (SPADCALL |q| (QREFELT $ 34))
+                                       (QREFELT $ 35))))
+                      ((SPADCALL (QCDR |x|) (QREFELT $ 14) (QREFELT $ 20))
+                       (CONS 1 "failed"))
+                      ('T
+                       (CONS 0
+                             (SPADCALL (CONS #'|QALGSET2;oldpoly!0| $)
+                                       (ELT $ 35) |q| (QREFELT $ 39))))))))) 
+
+(SDEFUN |QALGSET2;oldpoly!0| ((|z1| NIL) ($ NIL)) (|QALGSET2;g| |z1| $)) 
+
+(SDEFUN |QALGSET2;radicalSimplify;2Qas;5|
+        ((|x| |QuasiAlgebraicSet| (|Fraction| (|Integer|))
+          (|OrderedVariableList| |vl|)
+          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
+          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
+         ($ |QuasiAlgebraicSet| (|Fraction| (|Integer|))
+          (|OrderedVariableList| |vl|)
+          (|DirectProduct| (|#| |vl|) (|NonNegativeInteger|))
+          (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))))
+        (SPROG
+         ((|y|
+           (|QuasiAlgebraicSet| (|Fraction| (|Integer|))
+                                (|OrderedVariableList| |vl|)
+                                (|DirectProduct| (|#| |vl|)
+                                                 (|NonNegativeInteger|))
+                                (|DistributedMultivariatePolynomial| |vl|
+                                                                     (|Fraction|
+                                                                      (|Integer|)))))
+          (|ngb|
+           (|List|
+            (|DistributedMultivariatePolynomial| |newvl|
+                                                 (|Fraction| (|Integer|)))))
+          (|gb|
+           (|List|
+            (|DistributedMultivariatePolynomial| |vl|
+                                                 (|Fraction| (|Integer|)))))
+          (|k|
+           (|Union|
+            (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|)))
+            "failed"))
+          (|id|
+           (|PolynomialIdeal| (|Fraction| (|Integer|))
+                              (|DirectProduct| (|#| |newvl|)
+                                               (|NonNegativeInteger|))
+                              (|OrderedVariableList| |newvl|)
+                              (|DistributedMultivariatePolynomial| |newvl|
+                                                                   (|Fraction|
+                                                                    (|Integer|)))))
+          (|gen|
+           (|List|
+            (|DistributedMultivariatePolynomial| |newvl|
+                                                 (|Fraction| (|Integer|)))))
+          (#1=#:G135 NIL) (|g| NIL) (#2=#:G134 NIL)
+          (|tp|
+           (|DistributedMultivariatePolynomial| |newvl|
+                                                (|Fraction| (|Integer|))))
+          (|t|
+           (|DistributedMultivariatePolynomial| |newvl|
+                                                (|Fraction| (|Integer|))))
+          (|n0|
+           (|DistributedMultivariatePolynomial| |vl| (|Fraction| (|Integer|))))
+          (|z0|
+           (|List|
+            (|DistributedMultivariatePolynomial| |vl|
+                                                 (|Fraction| (|Integer|))))))
+         (SEQ
           (COND
-           ((SPADCALL (|spadConstant| $ 48) |ngb| (QREFELT $ 56))
-            (SPADCALL (QREFELT $ 57)))
-           (#3#
-            (SEQ (LETT |gb| NIL . #4#)
-                 (SEQ G190
-                      (COND
-                       ((NULL (COND ((NULL |ngb|) 'NIL) ('T 'T))) (GO G191)))
-                      (SEQ
-                       (SEQ
-                        (LETT |k| (|QALGSET2;oldpoly| (|SPADfirst| |ngb|) $)
-                              . #4#)
-                        (EXIT
-                         (COND
-                          ((QEQCAR |k| 0)
-                           (LETT |gb| (CONS (QCDR |k|) |gb|) . #4#)))))
-                       (EXIT (LETT |ngb| (CDR |ngb|) . #4#)))
-                      NIL (GO G190) G191 (EXIT NIL))
-                 (LETT |y|
-                       (SPADCALL |gb|
-                                 (SPADCALL (SPADCALL |n0| |gb| (QREFELT $ 59))
-                                           (QREFELT $ 60))
-                                 (QREFELT $ 61))
-                       . #4#)
-                 (EXIT (SPADCALL |y| (CONS 0 'NIL) (QREFELT $ 62)))))))))))))) 
+           ((SPADCALL (SPADCALL |x| (QREFELT $ 42)) (CONS 0 'T) (QREFELT $ 43))
+            |x|)
+           (#3='T
+            (SEQ
+             (LETT |z0| (SPADCALL |x| (QREFELT $ 45))
+                   . #4=(|QALGSET2;radicalSimplify;2Qas;5|))
+             (LETT |n0| (SPADCALL |x| (QREFELT $ 46)) . #4#)
+             (LETT |t| (SPADCALL (QREFELT $ 14) (QREFELT $ 18)) . #4#)
+             (LETT |tp|
+                   (SPADCALL
+                    (SPADCALL |t| (|QALGSET2;npoly| |n0| $) (QREFELT $ 47))
+                    (|spadConstant| $ 48) (QREFELT $ 49))
+                   . #4#)
+             (LETT |gen|
+                   (CONS |tp|
+                         (PROGN
+                          (LETT #2# NIL . #4#)
+                          (SEQ (LETT |g| NIL . #4#) (LETT #1# |z0| . #4#) G190
+                               (COND
+                                ((OR (ATOM #1#)
+                                     (PROGN (LETT |g| (CAR #1#) . #4#) NIL))
+                                 (GO G191)))
+                               (SEQ
+                                (EXIT
+                                 (LETT #2# (CONS (|QALGSET2;npoly| |g| $) #2#)
+                                       . #4#)))
+                               (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                               (EXIT (NREVERSE #2#)))))
+                   . #4#)
+             (LETT |id| (SPADCALL |gen| (QREFELT $ 52)) . #4#)
+             (LETT |ngb|
+                   (SPADCALL (SPADCALL |id| (QREFELT $ 54)) (QREFELT $ 55))
+                   . #4#)
+             (EXIT
+              (COND
+               ((SPADCALL (|spadConstant| $ 48) |ngb| (QREFELT $ 56))
+                (SPADCALL (QREFELT $ 57)))
+               (#3#
+                (SEQ (LETT |gb| NIL . #4#)
+                     (SEQ G190
+                          (COND
+                           ((NULL (COND ((NULL |ngb|) 'NIL) ('T 'T)))
+                            (GO G191)))
+                          (SEQ
+                           (SEQ
+                            (LETT |k|
+                                  (|QALGSET2;oldpoly| (|SPADfirst| |ngb|) $)
+                                  . #4#)
+                            (EXIT
+                             (COND
+                              ((QEQCAR |k| 0)
+                               (LETT |gb| (CONS (QCDR |k|) |gb|) . #4#)))))
+                           (EXIT (LETT |ngb| (CDR |ngb|) . #4#)))
+                          NIL (GO G190) G191 (EXIT NIL))
+                     (LETT |y|
+                           (SPADCALL |gb|
+                                     (SPADCALL
+                                      (SPADCALL |n0| |gb| (QREFELT $ 59))
+                                      (QREFELT $ 60))
+                                     (QREFELT $ 61))
+                           . #4#)
+                     (EXIT
+                      (SPADCALL |y| (CONS 0 'NIL) (QREFELT $ 62))))))))))))) 
 
 (DECLAIM (NOTINLINE |QuasiAlgebraicSet2;|)) 
 
 (DEFUN |QuasiAlgebraicSet2| (#1=#:G136)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G137)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|QuasiAlgebraicSet2|)
-                                           '|domainEqualList|)
-                . #3=(|QuasiAlgebraicSet2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|QuasiAlgebraicSet2;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G137)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|QuasiAlgebraicSet2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|QuasiAlgebraicSet2|)
+                                               '|domainEqualList|)
+                    . #3=(|QuasiAlgebraicSet2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|QuasiAlgebraicSet2;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|QuasiAlgebraicSet2|)))))))))) 
 
 (DEFUN |QuasiAlgebraicSet2;| (|#1|)
-  (PROG (#1=#:G107 |pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|QuasiAlgebraicSet2|))
-      (LETT |dv$| (LIST '|QuasiAlgebraicSet2| DV$1) . #2#)
-      (LETT $ (GETREFV 64) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #2#))
-      (|haddProp| |$ConstructorCache| '|QuasiAlgebraicSet2| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 9 (SPADCALL (QREFELT $ 8)))
-      (QSETREFV $ 10 (CONS (QREFELT $ 9) |#1|))
-      (QSETREFV $ 14
-                (PROG2 (LETT #1# (SPADCALL (QREFELT $ 9) (QREFELT $ 13)) . #2#)
-                    (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|OrderedVariableList| (QREFELT $ 10)) #1#)))
-      $)))) 
+  (SPROG ((#1=#:G107 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #2=(|QuasiAlgebraicSet2|))
+          (LETT |dv$| (LIST '|QuasiAlgebraicSet2| DV$1) . #2#)
+          (LETT $ (GETREFV 64) . #2#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #2#))
+          (|haddProp| |$ConstructorCache| '|QuasiAlgebraicSet2| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 9 (SPADCALL (QREFELT $ 8)))
+          (QSETREFV $ 10 (CONS (QREFELT $ 9) |#1|))
+          (QSETREFV $ 14
+                    (PROG2
+                        (LETT #1# (SPADCALL (QREFELT $ 9) (QREFELT $ 13))
+                              . #2#)
+                        (QCDR #1#)
+                      (|check_union| (QEQCAR #1# 0)
+                                     (|OrderedVariableList| (QREFELT $ 10))
+                                     #1#)))
+          $))) 
 
 (MAKEPROP '|QuasiAlgebraicSet2| '|infovec|
           (LIST

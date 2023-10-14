@@ -1,211 +1,224 @@
 
-(DEFUN |HOAGG-;eval;ALA;1| (|u| |l| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|HOAGG-;eval;ALA;1!0| (VECTOR $ |l|)) |u|
-               (QREFELT $ 11))))) 
+(SDEFUN |HOAGG-;eval;ALA;1| ((|u| A) (|l| |List| (|Equation| S)) ($ A))
+        (SPROG NIL
+               (SPADCALL (CONS #'|HOAGG-;eval;ALA;1!0| (VECTOR $ |l|)) |u|
+                         (QREFELT $ 11)))) 
 
-(DEFUN |HOAGG-;eval;ALA;1!0| (|x| $$)
-  (PROG (|l| $)
-    (LETT |l| (QREFELT $$ 1) . #1=(|HOAGG-;eval;ALA;1|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |x| |l| (QREFELT $ 9)))))) 
+(SDEFUN |HOAGG-;eval;ALA;1!0| ((|x| NIL) ($$ NIL))
+        (PROG (|l| $)
+          (LETT |l| (QREFELT $$ 1) . #1=(|HOAGG-;eval;ALA;1|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |x| |l| (QREFELT $ 9)))))) 
 
-(DEFUN |HOAGG-;#;ANni;2| (|c| $) (LENGTH (SPADCALL |c| (QREFELT $ 14)))) 
+(SDEFUN |HOAGG-;#;ANni;2| ((|c| A) ($ |NonNegativeInteger|))
+        (LENGTH (SPADCALL |c| (QREFELT $ 14)))) 
 
-(DEFUN |HOAGG-;any?;MAB;3| (|f| |c| $)
-  (PROG (#1=#:G120 #2=#:G121 |x|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |x| NIL . #3=(|HOAGG-;any?;MAB;3|))
-             (LETT #2# (SPADCALL |c| (QREFELT $ 14)) . #3#) G190
-             (COND
-              ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((SPADCALL |x| |f|) (PROGN (LETT #1# 'T . #3#) (GO #1#))))))
-             (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT 'NIL)))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |HOAGG-;every?;MAB;4| (|f| |c| $)
-  (PROG (#1=#:G125 #2=#:G126 |x|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |x| NIL . #3=(|HOAGG-;every?;MAB;4|))
-             (LETT #2# (SPADCALL |c| (QREFELT $ 14)) . #3#) G190
-             (COND
-              ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((COND ((SPADCALL |x| |f|) 'NIL) ('T 'T))
-                 (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
-             (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT 'T)))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |HOAGG-;count;MANni;5| (|f| |c| $)
-  (PROG (#1=#:G128 #2=#:G127 #3=#:G129 #4=#:G131 |x|)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #1# NIL . #5=(|HOAGG-;count;MANni;5|))
-       (SEQ (LETT |x| NIL . #5#) (LETT #4# (SPADCALL |c| (QREFELT $ 14)) . #5#)
-            G190
-            (COND
-             ((OR (ATOM #4#) (PROGN (LETT |x| (CAR #4#) . #5#) NIL))
-              (GO G191)))
-            (SEQ
-             (EXIT
-              (COND
-               ((SPADCALL |x| |f|)
-                (PROGN
-                 (LETT #3# 1 . #5#)
-                 (COND (#1# (LETT #2# (+ #2# #3#) . #5#))
-                       ('T
-                        (PROGN (LETT #2# #3# . #5#) (LETT #1# 'T . #5#)))))))))
-            (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-       (COND (#1# #2#) ('T 0))))))) 
-
-(DEFUN |HOAGG-;members;AL;6| (|x| $) (SPADCALL |x| (QREFELT $ 14))) 
-
-(DEFUN |HOAGG-;count;SANni;7| (|s| |x| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|HOAGG-;count;SANni;7!0| (VECTOR $ |s|)) |x|
-               (QREFELT $ 24))))) 
-
-(DEFUN |HOAGG-;count;SANni;7!0| (|y| $$)
-  (PROG (|s| $)
-    (LETT |s| (QREFELT $$ 1) . #1=(|HOAGG-;count;SANni;7|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |s| |y| (QREFELT $ 23)))))) 
-
-(DEFUN |HOAGG-;member?;SAB;8| (|e| |c| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|HOAGG-;member?;SAB;8!0| (VECTOR $ |e|)) |c|
-               (QREFELT $ 26))))) 
-
-(DEFUN |HOAGG-;member?;SAB;8!0| (|x| $$)
-  (PROG (|e| $)
-    (LETT |e| (QREFELT $$ 1) . #1=(|HOAGG-;member?;SAB;8|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |e| |x| (QREFELT $ 23)))))) 
-
-(DEFUN |HOAGG-;=;2AB;9| (|x| |y| $)
-  (PROG (#1=#:G140 #2=#:G141 |a| #3=#:G142 |b|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND
-        ((NULL (SPADCALL |x| (SPADCALL |y| (QREFELT $ 28)) (QREFELT $ 29)))
-         'NIL)
-        ('T
-         (SEQ
-          (SEQ (LETT |b| NIL . #4=(|HOAGG-;=;2AB;9|))
-               (LETT #3# (SPADCALL |y| (QREFELT $ 14)) . #4#)
-               (LETT |a| NIL . #4#)
-               (LETT #2# (SPADCALL |x| (QREFELT $ 14)) . #4#) G190
-               (COND
-                ((OR (ATOM #2#) (PROGN (LETT |a| (CAR #2#) . #4#) NIL)
-                     (ATOM #3#) (PROGN (LETT |b| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
+(SDEFUN |HOAGG-;any?;MAB;3|
+        ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |Boolean|))
+        (SPROG ((#1=#:G120 NIL) (#2=#:G121 NIL) (|x| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((SPADCALL |a| |b| (QREFELT $ 30))
-                   (PROGN (LETT #1# 'NIL . #4#) (GO #1#))))))
-               (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #4#)) . #4#)
-               (GO G190) G191 (EXIT NIL))
-          (EXIT 'T)))))
-      #1# (EXIT #1#))))) 
+                 (SEQ
+                  (SEQ (LETT |x| NIL . #3=(|HOAGG-;any?;MAB;3|))
+                       (LETT #2# (SPADCALL |c| (QREFELT $ 14)) . #3#) G190
+                       (COND
+                        ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL |x| |f|)
+                           (PROGN (LETT #1# 'T . #3#) (GO #1#))))))
+                       (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                  (EXIT 'NIL)))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |HOAGG-;coerce;AOf;10| (|x| $)
-  (PROG (#1=#:G147 |a| #2=#:G146)
-    (RETURN
-     (SEQ
-      (SPADCALL
-       (SPADCALL
-        (PROGN
-         (LETT #2# NIL . #3=(|HOAGG-;coerce;AOf;10|))
-         (SEQ (LETT |a| NIL . #3#)
-              (LETT #1# (SPADCALL |x| (QREFELT $ 14)) . #3#) G190
-              (COND
-               ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
-                (GO G191)))
-              (SEQ
-               (EXIT
-                (LETT #2# (CONS (SPADCALL |a| (QREFELT $ 33)) #2#) . #3#)))
-              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-        (QREFELT $ 35))
-       (QREFELT $ 36)))))) 
+(SDEFUN |HOAGG-;every?;MAB;4|
+        ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |Boolean|))
+        (SPROG ((#1=#:G125 NIL) (#2=#:G126 NIL) (|x| NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (SEQ (LETT |x| NIL . #3=(|HOAGG-;every?;MAB;4|))
+                       (LETT #2# (SPADCALL |c| (QREFELT $ 14)) . #3#) G190
+                       (COND
+                        ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((COND ((SPADCALL |x| |f|) 'NIL) ('T 'T))
+                           (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                       (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                  (EXIT 'T)))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |HOAGG-;count;MANni;5|
+        ((|f| |Mapping| (|Boolean|) S) (|c| A) ($ |NonNegativeInteger|))
+        (SPROG
+         ((#1=#:G128 NIL) (#2=#:G127 #3=(|NonNegativeInteger|)) (#4=#:G129 #3#)
+          (#5=#:G131 NIL) (|x| NIL))
+         (SEQ
+          (PROGN
+           (LETT #1# NIL . #6=(|HOAGG-;count;MANni;5|))
+           (SEQ (LETT |x| NIL . #6#)
+                (LETT #5# (SPADCALL |c| (QREFELT $ 14)) . #6#) G190
+                (COND
+                 ((OR (ATOM #5#) (PROGN (LETT |x| (CAR #5#) . #6#) NIL))
+                  (GO G191)))
+                (SEQ
+                 (EXIT
+                  (COND
+                   ((SPADCALL |x| |f|)
+                    (PROGN
+                     (LETT #4# 1 . #6#)
+                     (COND (#1# (LETT #2# (+ #2# #4#) . #6#))
+                           ('T
+                            (PROGN
+                             (LETT #2# #4# . #6#)
+                             (LETT #1# 'T . #6#)))))))))
+                (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
+           (COND (#1# #2#) ('T 0)))))) 
+
+(SDEFUN |HOAGG-;members;AL;6| ((|x| A) ($ |List| S))
+        (SPADCALL |x| (QREFELT $ 14))) 
+
+(SDEFUN |HOAGG-;count;SANni;7| ((|s| S) (|x| A) ($ |NonNegativeInteger|))
+        (SPROG NIL
+               (SPADCALL (CONS #'|HOAGG-;count;SANni;7!0| (VECTOR $ |s|)) |x|
+                         (QREFELT $ 24)))) 
+
+(SDEFUN |HOAGG-;count;SANni;7!0| ((|y| NIL) ($$ NIL))
+        (PROG (|s| $)
+          (LETT |s| (QREFELT $$ 1) . #1=(|HOAGG-;count;SANni;7|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |s| |y| (QREFELT $ 23)))))) 
+
+(SDEFUN |HOAGG-;member?;SAB;8| ((|e| S) (|c| A) ($ |Boolean|))
+        (SPROG NIL
+               (SPADCALL (CONS #'|HOAGG-;member?;SAB;8!0| (VECTOR $ |e|)) |c|
+                         (QREFELT $ 26)))) 
+
+(SDEFUN |HOAGG-;member?;SAB;8!0| ((|x| NIL) ($$ NIL))
+        (PROG (|e| $)
+          (LETT |e| (QREFELT $$ 1) . #1=(|HOAGG-;member?;SAB;8|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |e| |x| (QREFELT $ 23)))))) 
+
+(SDEFUN |HOAGG-;=;2AB;9| ((|x| A) (|y| A) ($ |Boolean|))
+        (SPROG
+         ((#1=#:G140 NIL) (#2=#:G141 NIL) (|a| NIL) (#3=#:G142 NIL) (|b| NIL))
+         (SEQ
+          (EXIT
+           (COND
+            ((NULL (SPADCALL |x| (SPADCALL |y| (QREFELT $ 28)) (QREFELT $ 29)))
+             'NIL)
+            ('T
+             (SEQ
+              (SEQ (LETT |b| NIL . #4=(|HOAGG-;=;2AB;9|))
+                   (LETT #3# (SPADCALL |y| (QREFELT $ 14)) . #4#)
+                   (LETT |a| NIL . #4#)
+                   (LETT #2# (SPADCALL |x| (QREFELT $ 14)) . #4#) G190
+                   (COND
+                    ((OR (ATOM #2#) (PROGN (LETT |a| (CAR #2#) . #4#) NIL)
+                         (ATOM #3#) (PROGN (LETT |b| (CAR #3#) . #4#) NIL))
+                     (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (COND
+                      ((SPADCALL |a| |b| (QREFELT $ 30))
+                       (PROGN (LETT #1# 'NIL . #4#) (GO #1#))))))
+                   (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #4#))
+                         . #4#)
+                   (GO G190) G191 (EXIT NIL))
+              (EXIT 'T)))))
+          #1# (EXIT #1#)))) 
+
+(SDEFUN |HOAGG-;coerce;AOf;10| ((|x| A) ($ |OutputForm|))
+        (SPROG ((#1=#:G147 NIL) (|a| NIL) (#2=#:G146 NIL))
+               (SEQ
+                (SPADCALL
+                 (SPADCALL
+                  (PROGN
+                   (LETT #2# NIL . #3=(|HOAGG-;coerce;AOf;10|))
+                   (SEQ (LETT |a| NIL . #3#)
+                        (LETT #1# (SPADCALL |x| (QREFELT $ 14)) . #3#) G190
+                        (COND
+                         ((OR (ATOM #1#)
+                              (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
+                          (GO G191)))
+                        (SEQ
+                         (EXIT
+                          (LETT #2# (CONS (SPADCALL |a| (QREFELT $ 33)) #2#)
+                                . #3#)))
+                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                        (EXIT (NREVERSE #2#))))
+                  (QREFELT $ 35))
+                 (QREFELT $ 36))))) 
 
 (DECLAIM (NOTINLINE |HomogeneousAggregate&;|)) 
 
 (DEFUN |HomogeneousAggregate&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|HomogeneousAggregate&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|HomogeneousAggregate&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 39) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2| '(|BasicType|))
-                                          (|HasCategory| |#1|
-                                                         '(|finiteAggregate|))
-                                          (|HasCategory| |#1|
-                                                         '(|shallowlyMutable|))
-                                          (|HasCategory| |#2|
-                                                         (LIST '|Evalable|
-                                                               (|devaluate|
-                                                                |#2|)))
-                                          (|HasCategory| |#2| '(|SetCategory|))
-                                          (|HasCategory| |#2|
-                                                         '(|CoercibleTo|
-                                                           (|OutputForm|)))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 4)
-        (QSETREFV $ 12 (CONS (|dispatchFunction| |HOAGG-;eval;ALA;1|) $))))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (PROGN
-         (QSETREFV $ 16 (CONS (|dispatchFunction| |HOAGG-;#;ANni;2|) $))
-         (QSETREFV $ 19 (CONS (|dispatchFunction| |HOAGG-;any?;MAB;3|) $))
-         (QSETREFV $ 20 (CONS (|dispatchFunction| |HOAGG-;every?;MAB;4|) $))
-         (QSETREFV $ 21 (CONS (|dispatchFunction| |HOAGG-;count;MANni;5|) $))
-         (QSETREFV $ 22 (CONS (|dispatchFunction| |HOAGG-;members;AL;6|) $))
-         (COND
-          ((|testBitVector| |pv$| 1)
-           (PROGN
-            (QSETREFV $ 25
-                      (CONS (|dispatchFunction| |HOAGG-;count;SANni;7|) $))
-            (QSETREFV $ 27
-                      (CONS (|dispatchFunction| |HOAGG-;member?;SAB;8|) $))
-            (QSETREFV $ 31 (CONS (|dispatchFunction| |HOAGG-;=;2AB;9|) $)))))
-         (COND
-          ((|testBitVector| |pv$| 6)
-           (QSETREFV $ 37
-                     (CONS (|dispatchFunction| |HOAGG-;coerce;AOf;10|) $)))))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|HomogeneousAggregate&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|HomogeneousAggregate&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 39) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|BasicType|))
+                                              (|HasCategory| |#1|
+                                                             '(|finiteAggregate|))
+                                              (|HasCategory| |#1|
+                                                             '(|shallowlyMutable|))
+                                              (|HasCategory| |#2|
+                                                             (LIST '|Evalable|
+                                                                   (|devaluate|
+                                                                    |#2|)))
+                                              (|HasCategory| |#2|
+                                                             '(|SetCategory|))
+                                              (|HasCategory| |#2|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 4)
+            (QSETREFV $ 12 (CONS (|dispatchFunction| |HOAGG-;eval;ALA;1|) $))))
+          (COND
+           ((|testBitVector| |pv$| 2)
+            (PROGN
+             (QSETREFV $ 16 (CONS (|dispatchFunction| |HOAGG-;#;ANni;2|) $))
+             (QSETREFV $ 19 (CONS (|dispatchFunction| |HOAGG-;any?;MAB;3|) $))
+             (QSETREFV $ 20
+                       (CONS (|dispatchFunction| |HOAGG-;every?;MAB;4|) $))
+             (QSETREFV $ 21
+                       (CONS (|dispatchFunction| |HOAGG-;count;MANni;5|) $))
+             (QSETREFV $ 22
+                       (CONS (|dispatchFunction| |HOAGG-;members;AL;6|) $))
+             (COND
+              ((|testBitVector| |pv$| 1)
+               (PROGN
+                (QSETREFV $ 25
+                          (CONS (|dispatchFunction| |HOAGG-;count;SANni;7|) $))
+                (QSETREFV $ 27
+                          (CONS (|dispatchFunction| |HOAGG-;member?;SAB;8|) $))
+                (QSETREFV $ 31
+                          (CONS (|dispatchFunction| |HOAGG-;=;2AB;9|) $)))))
+             (COND
+              ((|testBitVector| |pv$| 6)
+               (QSETREFV $ 37
+                         (CONS (|dispatchFunction| |HOAGG-;coerce;AOf;10|)
+                               $)))))))
+          $))) 
 
 (MAKEPROP '|HomogeneousAggregate&| '|infovec|
           (LIST

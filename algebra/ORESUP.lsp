@@ -1,109 +1,122 @@
 
-(DEFUN |ORESUP;^;$Pi$;1| (|x| |n| $) (SPADCALL |x| |n| (QREFELT $ 11))) 
+(SDEFUN |ORESUP;^;$Pi$;1| ((|x| $) (|n| |PositiveInteger|) ($ $))
+        (SPADCALL |x| |n| (QREFELT $ 11))) 
 
-(DEFUN |ORESUP;^;$Nni$;2| (|x| |n| $)
-  (COND ((ZEROP |n|) (|spadConstant| $ 13))
-        ('T (SPADCALL |x| |n| (QREFELT $ 11))))) 
+(SDEFUN |ORESUP;^;$Nni$;2| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+        (COND ((ZEROP |n|) (|spadConstant| $ 13))
+              ('T (SPADCALL |x| |n| (QREFELT $ 11))))) 
 
-(DEFUN |ORESUP;*;3$;3| (|x| |y| $)
-  (SPADCALL |x| |y| (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 19))) 
+(SDEFUN |ORESUP;*;3$;3| ((|x| $) (|y| $) ($ $))
+        (SPADCALL |x| |y| (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 19))) 
 
-(DEFUN |ORESUP;*;$R$;4| (|x| |r| $)
-  (SPADCALL |x| (SPADCALL |r| (|spadConstant| $ 13) (QREFELT $ 22))
-            (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 19))) 
+(SDEFUN |ORESUP;*;$R$;4| ((|x| $) (|r| R) ($ $))
+        (SPADCALL |x| (SPADCALL |r| (|spadConstant| $ 13) (QREFELT $ 22))
+                  (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 19))) 
 
-(DEFUN |ORESUP;apply;$3R;5| (|p| |c| |r| $)
-  (SPADCALL |p| |c| |r| (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 24))) 
+(SDEFUN |ORESUP;apply;$3R;5| ((|p| $) (|c| R) (|r| R) ($ R))
+        (SPADCALL |p| |c| |r| (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 24))) 
 
-(DEFUN |ORESUP;monicLeftDivide;2$R;6| (|a| |b| $)
-  (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 27))) 
+(SDEFUN |ORESUP;monicLeftDivide;2$R;6|
+        ((|a| $) (|b| $)
+         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 27))) 
 
-(DEFUN |ORESUP;monicRightDivide;2$R;7| (|a| |b| $)
-  (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 30))) 
+(SDEFUN |ORESUP;monicRightDivide;2$R;7|
+        ((|a| $) (|b| $)
+         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 30))) 
 
-(DEFUN |ORESUP;leftDivide;2$R;8| (|a| |b| $)
-  (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 32))) 
+(SDEFUN |ORESUP;leftDivide;2$R;8|
+        ((|a| $) (|b| $)
+         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 32))) 
 
-(DEFUN |ORESUP;rightDivide;2$R;9| (|a| |b| $)
-  (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 34))) 
+(SDEFUN |ORESUP;rightDivide;2$R;9|
+        ((|a| $) (|b| $)
+         ($ |Record| (|:| |quotient| . #1=($)) (|:| |remainder| . #1#)))
+        (SPADCALL |a| |b| (QREFELT $ 7) (QREFELT $ 34))) 
 
 (DECLAIM (NOTINLINE |SparseUnivariateSkewPolynomial;|)) 
 
 (DEFUN |SparseUnivariateSkewPolynomial| (&REST #1=#:G135)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G136)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|SparseUnivariateSkewPolynomial|)
-                                           '|domainEqualList|)
-                . #3=(|SparseUnivariateSkewPolynomial|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |SparseUnivariateSkewPolynomial;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G136)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|SparseUnivariateSkewPolynomial|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|SparseUnivariateSkewPolynomial|)
+                                               '|domainEqualList|)
+                    . #3=(|SparseUnivariateSkewPolynomial|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |SparseUnivariateSkewPolynomial;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseUnivariateSkewPolynomial|)))))))))) 
 
 (DEFUN |SparseUnivariateSkewPolynomial;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|SparseUnivariateSkewPolynomial|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|SparseUnivariateSkewPolynomial| DV$1 DV$2 DV$3)
-            . #1#)
-      (LETT $ (GETREFV 49) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CommutativeRing|))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory| |#1| '(|GcdDomain|))
-                                          (|HasCategory| |#1| '(|Field|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|SparseUnivariateSkewPolynomial|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 4)
-        (PROGN
-         (QSETREFV $ 29
-                   (CONS (|dispatchFunction| |ORESUP;monicLeftDivide;2$R;6|)
-                         $))
-         (QSETREFV $ 31
-                   (CONS (|dispatchFunction| |ORESUP;monicRightDivide;2$R;7|)
-                         $)))))
-      (COND
-       ((|testBitVector| |pv$| 6)
-        (PROGN
-         (QSETREFV $ 33
-                   (CONS (|dispatchFunction| |ORESUP;leftDivide;2$R;8|) $))
-         (QSETREFV $ 35
-                   (CONS (|dispatchFunction| |ORESUP;rightDivide;2$R;9|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|SparseUnivariateSkewPolynomial|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|SparseUnivariateSkewPolynomial| DV$1 DV$2 DV$3)
+                . #1#)
+          (LETT $ (GETREFV 49) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|CommutativeRing|))
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegralDomain|))
+                                              (|HasCategory| |#1|
+                                                             '(|GcdDomain|))
+                                              (|HasCategory| |#1| '(|Field|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|SparseUnivariateSkewPolynomial|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 4)
+            (PROGN
+             (QSETREFV $ 29
+                       (CONS
+                        (|dispatchFunction| |ORESUP;monicLeftDivide;2$R;6|) $))
+             (QSETREFV $ 31
+                       (CONS
+                        (|dispatchFunction| |ORESUP;monicRightDivide;2$R;7|)
+                        $)))))
+          (COND
+           ((|testBitVector| |pv$| 6)
+            (PROGN
+             (QSETREFV $ 33
+                       (CONS (|dispatchFunction| |ORESUP;leftDivide;2$R;8|) $))
+             (QSETREFV $ 35
+                       (CONS (|dispatchFunction| |ORESUP;rightDivide;2$R;9|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|SparseUnivariateSkewPolynomial| '|infovec|
           (LIST

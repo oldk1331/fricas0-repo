@@ -16,22 +16,22 @@
       #2#)))) 
 
 (DEFUN |Coalgebra;| (|t#1| |t#2|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (COND (|Coalgebra;CAT|)
-                      ('T
-                       (LETT |Coalgebra;CAT|
-                             (|Join| (|Module| '|t#1|)
-                                     (|mkCategory|
-                                      '(((|coproduct| (|t#2| $)) T)
-                                        ((|counit| (|t#1| $)) T))
-                                      NIL 'NIL NIL))
-                             . #2=(|Coalgebra|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|Coalgebra| (|devaluate| |t#1|) (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (COND (|Coalgebra;CAT|)
+                          ('T
+                           (LETT |Coalgebra;CAT|
+                                 (|Join| (|Module| '|t#1|)
+                                         (|mkCategory|
+                                          '(((|coproduct| (|t#2| $)) T)
+                                            ((|counit| (|t#1| $)) T))
+                                          NIL 'NIL NIL))
+                                 . #2=(|Coalgebra|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|Coalgebra| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

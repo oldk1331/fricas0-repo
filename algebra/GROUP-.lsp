@@ -1,42 +1,42 @@
 
-(DEFUN |GROUP-;/;3S;1| (|x| |y| $)
-  (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 8))) 
+(SDEFUN |GROUP-;/;3S;1| ((|x| S) (|y| S) ($ S))
+        (SPADCALL |x| (SPADCALL |y| (QREFELT $ 7)) (QREFELT $ 8))) 
 
-(DEFUN |GROUP-;recip;SU;2| (|x| $) (CONS 0 (SPADCALL |x| (QREFELT $ 7)))) 
+(SDEFUN |GROUP-;recip;SU;2| ((|x| S) ($ |Union| S "failed"))
+        (CONS 0 (SPADCALL |x| (QREFELT $ 7)))) 
 
-(DEFUN |GROUP-;^;SIS;3| (|x| |n| $)
-  (COND ((ZEROP |n|) (|spadConstant| $ 12))
-        ((< |n| 0)
-         (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (- |n|) (QREFELT $ 15)))
-        ('T (SPADCALL |x| |n| (QREFELT $ 15))))) 
+(SDEFUN |GROUP-;^;SIS;3| ((|x| S) (|n| |Integer|) ($ S))
+        (COND ((ZEROP |n|) (|spadConstant| $ 12))
+              ((< |n| 0)
+               (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (- |n|) (QREFELT $ 15)))
+              ('T (SPADCALL |x| |n| (QREFELT $ 15))))) 
 
-(DEFUN |GROUP-;conjugate;3S;4| (|p| |q| $)
-  (SPADCALL (SPADCALL (SPADCALL |q| (QREFELT $ 7)) |p| (QREFELT $ 8)) |q|
-            (QREFELT $ 8))) 
+(SDEFUN |GROUP-;conjugate;3S;4| ((|p| S) (|q| S) ($ S))
+        (SPADCALL (SPADCALL (SPADCALL |q| (QREFELT $ 7)) |p| (QREFELT $ 8)) |q|
+                  (QREFELT $ 8))) 
 
-(DEFUN |GROUP-;commutator;3S;5| (|p| |q| $)
-  (SPADCALL
-   (SPADCALL
-    (SPADCALL (SPADCALL |p| (QREFELT $ 7)) (SPADCALL |q| (QREFELT $ 7))
-              (QREFELT $ 8))
-    |p| (QREFELT $ 8))
-   |q| (QREFELT $ 8))) 
+(SDEFUN |GROUP-;commutator;3S;5| ((|p| S) (|q| S) ($ S))
+        (SPADCALL
+         (SPADCALL
+          (SPADCALL (SPADCALL |p| (QREFELT $ 7)) (SPADCALL |q| (QREFELT $ 7))
+                    (QREFELT $ 8))
+          |p| (QREFELT $ 8))
+         |q| (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |Group&;|)) 
 
 (DEFUN |Group&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Group&|))
-      (LETT |dv$| (LIST '|Group&| DV$1) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Group&|))
+          (LETT |dv$| (LIST '|Group&| DV$1) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Group&| '|infovec|
           (LIST

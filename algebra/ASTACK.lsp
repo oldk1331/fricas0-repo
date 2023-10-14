@@ -1,133 +1,140 @@
 
-(DEFUN |ASTACK;#;$Nni;1| (|s| $) (SPADCALL |s| (QREFELT $ 9))) 
+(SDEFUN |ASTACK;#;$Nni;1| ((|s| $) ($ |NonNegativeInteger|))
+        (SPADCALL |s| (QREFELT $ 9))) 
 
-(DEFUN |ASTACK;=;2$B;2| (|s| |t| $) (SPADCALL |s| |t| (QREFELT $ 12))) 
+(SDEFUN |ASTACK;=;2$B;2| ((|s| $) (|t| $) ($ |Boolean|))
+        (SPADCALL |s| |t| (QREFELT $ 12))) 
 
-(DEFUN |ASTACK;copy;2$;3| (|s| $) (SPADCALL |s| (QREFELT $ 14))) 
+(SDEFUN |ASTACK;copy;2$;3| ((|s| $) ($ $)) (SPADCALL |s| (QREFELT $ 14))) 
 
-(DEFUN |ASTACK;coerce;$Of;4| (|d| $)
-  (PROG (#1=#:G113 |i| #2=#:G112)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |d| (QREFELT $ 16)) (SPADCALL NIL (QREFELT $ 19)))
-            ('T
-             (SPADCALL
-              (PROGN
-               (LETT #2# NIL . #3=(|ASTACK;coerce;$Of;4|))
-               (SEQ (LETT |i| 0 . #3#)
-                    (LETT #1# (- (SPADCALL |d| (QREFELT $ 10)) 1) . #3#) G190
-                    (COND ((|greater_SI| |i| #1#) (GO G191)))
-                    (SEQ
-                     (EXIT
-                      (LETT #2#
-                            (CONS
-                             (SPADCALL (SPADCALL |d| |i| (QREFELT $ 21))
-                                       (QREFELT $ 22))
-                             #2#)
-                            . #3#)))
-                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                    (EXIT (NREVERSE #2#))))
-              (QREFELT $ 24)))))))) 
+(SDEFUN |ASTACK;coerce;$Of;4| ((|d| $) ($ |OutputForm|))
+        (SPROG ((#1=#:G113 NIL) (|i| NIL) (#2=#:G112 NIL))
+               (SEQ
+                (COND
+                 ((SPADCALL |d| (QREFELT $ 16)) (SPADCALL NIL (QREFELT $ 19)))
+                 ('T
+                  (SPADCALL
+                   (PROGN
+                    (LETT #2# NIL . #3=(|ASTACK;coerce;$Of;4|))
+                    (SEQ (LETT |i| 0 . #3#)
+                         (LETT #1# (- (SPADCALL |d| (QREFELT $ 10)) 1) . #3#)
+                         G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (LETT #2#
+                                 (CONS
+                                  (SPADCALL (SPADCALL |d| |i| (QREFELT $ 21))
+                                            (QREFELT $ 22))
+                                  #2#)
+                                 . #3#)))
+                         (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                         (EXIT (NREVERSE #2#))))
+                   (QREFELT $ 24))))))) 
 
-(DEFUN |ASTACK;depth;$Nni;5| (|s| $) (SPADCALL |s| (QREFELT $ 10))) 
+(SDEFUN |ASTACK;depth;$Nni;5| ((|s| $) ($ |NonNegativeInteger|))
+        (SPADCALL |s| (QREFELT $ 10))) 
 
-(DEFUN |ASTACK;empty?;$B;6| (|s| $) (SPADCALL |s| (QREFELT $ 27))) 
+(SDEFUN |ASTACK;empty?;$B;6| ((|s| $) ($ |Boolean|))
+        (SPADCALL |s| (QREFELT $ 27))) 
 
-(DEFUN |ASTACK;extract!;$S;7| (|s| $) (SPADCALL |s| (QREFELT $ 28))) 
+(SDEFUN |ASTACK;extract!;$S;7| ((|s| $) ($ S)) (SPADCALL |s| (QREFELT $ 28))) 
 
-(DEFUN |ASTACK;insert!;S2$;8| (|e| |s| $)
-  (SEQ (SPADCALL |e| |s| (QREFELT $ 30)) (EXIT |s|))) 
+(SDEFUN |ASTACK;insert!;S2$;8| ((|e| S) (|s| $) ($ $))
+        (SEQ (SPADCALL |e| |s| (QREFELT $ 30)) (EXIT |s|))) 
 
-(DEFUN |ASTACK;push!;S$S;9| (|e| |s| $)
-  (SEQ (SPADCALL |e| |s| (QREFELT $ 32)) (EXIT |e|))) 
+(SDEFUN |ASTACK;push!;S$S;9| ((|e| S) (|s| $) ($ S))
+        (SEQ (SPADCALL |e| |s| (QREFELT $ 32)) (EXIT |e|))) 
 
-(DEFUN |ASTACK;pop!;$S;10| (|s| $)
-  (PROG (|r| |m|)
-    (RETURN
-     (SEQ (COND ((SPADCALL |s| (QREFELT $ 16)) (|error| "empty stack")))
-          (LETT |m| (SPADCALL |s| (QREFELT $ 33)) . #1=(|ASTACK;pop!;$S;10|))
-          (LETT |r| (SPADCALL |s| |m| (QREFELT $ 21)) . #1#)
-          (SPADCALL |s| |m| (QREFELT $ 34)) (EXIT |r|))))) 
+(SDEFUN |ASTACK;pop!;$S;10| ((|s| $) ($ S))
+        (SPROG ((|r| (S)) (|m| (|Integer|)))
+               (SEQ
+                (COND ((SPADCALL |s| (QREFELT $ 16)) (|error| "empty stack")))
+                (LETT |m| (SPADCALL |s| (QREFELT $ 33))
+                      . #1=(|ASTACK;pop!;$S;10|))
+                (LETT |r| (SPADCALL |s| |m| (QREFELT $ 21)) . #1#)
+                (SPADCALL |s| |m| (QREFELT $ 34)) (EXIT |r|)))) 
 
-(DEFUN |ASTACK;top;$S;11| (|s| $)
-  (COND ((SPADCALL |s| (QREFELT $ 16)) (|error| "empty stack"))
-        ('T (SPADCALL |s| (SPADCALL |s| (QREFELT $ 33)) (QREFELT $ 21))))) 
+(SDEFUN |ASTACK;top;$S;11| ((|s| $) ($ S))
+        (COND ((SPADCALL |s| (QREFELT $ 16)) (|error| "empty stack"))
+              ('T (SPADCALL |s| (SPADCALL |s| (QREFELT $ 33)) (QREFELT $ 21))))) 
 
-(DEFUN |ASTACK;arrayStack;L$;12| (|l| $) (SPADCALL |l| (QREFELT $ 36))) 
+(SDEFUN |ASTACK;arrayStack;L$;12| ((|l| |List| S) ($ $))
+        (SPADCALL |l| (QREFELT $ 36))) 
 
-(DEFUN |ASTACK;empty;$;13| ($) (SPADCALL 0 0 (QREFELT $ 38))) 
+(SDEFUN |ASTACK;empty;$;13| (($ $)) (SPADCALL 0 0 (QREFELT $ 38))) 
 
 (DECLAIM (NOTINLINE |ArrayStack;|)) 
 
 (DEFUN |ArrayStack| (#1=#:G133)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G134)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|ArrayStack|)
-                                           '|domainEqualList|)
-                . #3=(|ArrayStack|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|ArrayStack;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|ArrayStack|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G134)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|ArrayStack|)
+                                               '|domainEqualList|)
+                    . #3=(|ArrayStack|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|ArrayStack;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|ArrayStack|)))))))))) 
 
 (DEFUN |ArrayStack;| (|#1|)
-  (PROG (|pv$| #1=#:G130 #2=#:G131 #3=#:G132 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|ArrayStack|))
-      (LETT |dv$| (LIST '|ArrayStack| DV$1) . #4#)
-      (LETT $ (GETREFV 47) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #3#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #2# #3#)
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #1#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #3#))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|ArrayStack| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
-      (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 256))
-      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-           (|augmentPredVector| $ 512))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|IndexedFlexibleArray| |#1| 0))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G130 NIL) (#2=#:G131 NIL) (#3=#:G132 NIL) ($ NIL)
+    (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|ArrayStack|))
+    (LETT |dv$| (LIST '|ArrayStack| DV$1) . #4#)
+    (LETT $ (GETREFV 47) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #3#)
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #2# #3#)
+                                        (LETT #1#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #1#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #3#))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|ArrayStack| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
+    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 256))
+    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| $ 512))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 7 (|IndexedFlexibleArray| |#1| 0))
+    $))) 
 
 (MAKEPROP '|ArrayStack| '|infovec|
           (LIST

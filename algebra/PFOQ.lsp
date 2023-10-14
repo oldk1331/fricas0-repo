@@ -1,203 +1,234 @@
 
-(DEFUN |PFOQ;torsion?;FdB;1| (|d| $) (QEQCAR (SPADCALL |d| (QREFELT $ 11)) 0)) 
+(SDEFUN |PFOQ;torsion?;FdB;1|
+        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
+         ($ |Boolean|))
+        (QEQCAR (SPADCALL |d| (QREFELT $ 11)) 0)) 
 
-(DEFUN |PFOQ;ratcurve| (|d| |modulus| |disc| $)
-  (PROG (|m| |n| |p| |bad| |r| |bd| |s| |b| |h| |hh| |mn| |nm| |i|)
-    (RETURN
-     (SEQ
-      (LETT |mn|
-            (SPADCALL
-             (LETT |nm|
-                   (SPADCALL
-                    (LETT |i| (SPADCALL |d| (QREFELT $ 15))
-                          . #1=(|PFOQ;ratcurve|))
-                    (QREFELT $ 17))
-                   . #1#)
-             (QREFELT $ 19))
-            . #1#)
-      (LETT |h|
-            (SPADCALL
-             (LETT |hh| (SPADCALL |nm| (+ |mn| 1) (QREFELT $ 22)) . #1#)
-             (QREFELT $ 23))
-            . #1#)
-      (LETT |s|
-            (QCAR
-             (SPADCALL (SPADCALL (SPADCALL |hh| (QREFELT $ 25)) (QREFELT $ 26))
-                       (LETT |b|
-                             (SPADCALL
-                              (SPADCALL (SPADCALL |nm| |mn| (QREFELT $ 22))
-                                        (QREFELT $ 27))
-                              (QREFELT $ 26))
-                             . #1#)
-                       (QREFELT $ 29)))
-            . #1#)
-      (LETT |bd| (SPADCALL (SPADCALL |i| (QREFELT $ 30)) (QREFELT $ 33)) . #1#)
-      (LETT |r| (SPADCALL |s| |b| (QREFELT $ 35)) . #1#)
-      (LETT |bad|
-            (SPADCALL
-             (LIST |disc| (SPADCALL |r| (QREFELT $ 36))
-                   (SPADCALL |r| (QREFELT $ 37)) (* (QCAR |bd|) (QCDR |bd|))
-                   (SPADCALL |h| (QREFELT $ 38)))
-             (QREFELT $ 40))
-            . #1#)
-      (LETT |n|
-            (|PFOQ;rat| |modulus| |d|
-             (LETT |p| (SPADCALL |bad| (QREFELT $ 42)) . #1#) $)
-            . #1#)
-      (EXIT
-       (COND ((EQL |n| 1) |n|)
-             (#2='T
-              (SEQ
-               (LETT |m|
-                     (|PFOQ;rat| |modulus| |d|
-                      (SPADCALL (SPADCALL |p| |bad| (QREFELT $ 43))
-                                (QREFELT $ 42))
-                      $)
-                     . #1#)
-               (EXIT (COND ((EQL |n| |m|) |n|) (#2# 0))))))))))) 
-
-(DEFUN |PFOQ;rat| (|pp| |d| |p| $)
-  (PROG (|gf|)
-    (RETURN
-     (SEQ (LETT |gf| (|InnerPrimeField| |p|) |PFOQ;rat|)
+(SDEFUN |PFOQ;ratcurve|
+        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
+         (|modulus| UPUP) (|disc| |Integer|) ($ |NonNegativeInteger|))
+        (SPROG
+         ((|m| #1=(|NonNegativeInteger|)) (|n| #1#) (|p| (|PositiveInteger|))
+          (|bad| (|Integer|)) (|r| (|Fraction| (|Integer|)))
+          (|bd| (|Record| (|:| |den| (|Integer|)) (|:| |gcdnum| (|Integer|))))
+          (|s| (UP)) (|b| (UP)) (|h| (UPUP)) (|hh| (R)) (|mn| (|Integer|))
+          (|nm| (|Vector| R))
+          (|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R)))
+         (SEQ
+          (LETT |mn|
+                (SPADCALL
+                 (LETT |nm|
+                       (SPADCALL
+                        (LETT |i| (SPADCALL |d| (QREFELT $ 15))
+                              . #2=(|PFOQ;ratcurve|))
+                        (QREFELT $ 17))
+                       . #2#)
+                 (QREFELT $ 19))
+                . #2#)
+          (LETT |h|
+                (SPADCALL
+                 (LETT |hh| (SPADCALL |nm| (+ |mn| 1) (QREFELT $ 22)) . #2#)
+                 (QREFELT $ 23))
+                . #2#)
+          (LETT |s|
+                (QCAR
+                 (SPADCALL
+                  (SPADCALL (SPADCALL |hh| (QREFELT $ 25)) (QREFELT $ 26))
+                  (LETT |b|
+                        (SPADCALL
+                         (SPADCALL (SPADCALL |nm| |mn| (QREFELT $ 22))
+                                   (QREFELT $ 27))
+                         (QREFELT $ 26))
+                        . #2#)
+                  (QREFELT $ 29)))
+                . #2#)
+          (LETT |bd| (SPADCALL (SPADCALL |i| (QREFELT $ 30)) (QREFELT $ 33))
+                . #2#)
+          (LETT |r| (SPADCALL |s| |b| (QREFELT $ 35)) . #2#)
+          (LETT |bad|
+                (SPADCALL
+                 (LIST |disc| (SPADCALL |r| (QREFELT $ 36))
+                       (SPADCALL |r| (QREFELT $ 37))
+                       (* (QCAR |bd|) (QCDR |bd|))
+                       (SPADCALL |h| (QREFELT $ 38)))
+                 (QREFELT $ 40))
+                . #2#)
+          (LETT |n|
+                (|PFOQ;rat| |modulus| |d|
+                 (LETT |p| (SPADCALL |bad| (QREFELT $ 42)) . #2#) $)
+                . #2#)
           (EXIT
-           (SPADCALL |d| |pp| (CONS #'|PFOQ;rat!0| (VECTOR |gf| $))
-                     (|compiledLookupCheck| '|order|
-                                            (LIST (LIST '|NonNegativeInteger|)
-                                                  (LIST '|FiniteDivisor|
-                                                        (LIST '|Fraction|
-                                                              (LIST
-                                                               '|Integer|))
-                                                        (|devaluate| (ELT $ 6))
-                                                        (|devaluate| (ELT $ 7))
-                                                        (|devaluate|
-                                                         (ELT $ 8)))
-                                                  (|devaluate| (ELT $ 7))
-                                                  (LIST '|Mapping|
-                                                        (|devaluate| |gf|)
-                                                        (LIST '|Fraction|
-                                                              (LIST
-                                                               '|Integer|))))
-                                            (|ReducedDivisor|
-                                             (|Fraction| (|Integer|)) (ELT $ 6)
-                                             (ELT $ 7) (ELT $ 8) |gf|)))))))) 
+           (COND ((EQL |n| 1) |n|)
+                 (#3='T
+                  (SEQ
+                   (LETT |m|
+                         (|PFOQ;rat| |modulus| |d|
+                          (SPADCALL (SPADCALL |p| |bad| (QREFELT $ 43))
+                                    (QREFELT $ 42))
+                          $)
+                         . #2#)
+                   (EXIT (COND ((EQL |n| |m|) |n|) (#3# 0)))))))))) 
 
-(DEFUN |PFOQ;rat!0| (|z1| $$)
-  (PROG ($ |gf|)
-    (LETT $ (QREFELT $$ 1) . #1=(|PFOQ;rat|))
-    (LETT |gf| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL
-       (SPADCALL (SPADCALL |z1| (QREFELT $ 36))
-                 (|compiledLookupCheck| '|coerce| (LIST '$ (LIST '|Integer|))
-                                        |gf|))
-       (SPADCALL (SPADCALL |z1| (QREFELT $ 37))
-                 (|compiledLookupCheck| '|coerce| (LIST '$ (LIST '|Integer|))
-                                        |gf|))
-       (|compiledLookupCheck| '/ (LIST '$ '$ '$) |gf|)))))) 
+(SDEFUN |PFOQ;rat|
+        ((|pp| UPUP) (|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
+         (|p| |PositiveInteger|) ($ |NonNegativeInteger|))
+        (SPROG
+         ((|gf|
+           (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
+                   (|ConvertibleTo| (|Integer|)))))
+         (SEQ (LETT |gf| (|InnerPrimeField| |p|) |PFOQ;rat|)
+              (EXIT
+               (SPADCALL |d| |pp| (CONS #'|PFOQ;rat!0| (VECTOR |gf| $))
+                         (|compiledLookupCheck| '|order|
+                                                (LIST
+                                                 (LIST '|NonNegativeInteger|)
+                                                 (LIST '|FiniteDivisor|
+                                                       (LIST '|Fraction|
+                                                             (LIST '|Integer|))
+                                                       (|devaluate| (ELT $ 6))
+                                                       (|devaluate| (ELT $ 7))
+                                                       (|devaluate| (ELT $ 8)))
+                                                 (|devaluate| (ELT $ 7))
+                                                 (LIST '|Mapping|
+                                                       (|devaluate| |gf|)
+                                                       (LIST '|Fraction|
+                                                             (LIST
+                                                              '|Integer|))))
+                                                (|ReducedDivisor|
+                                                 (|Fraction| (|Integer|))
+                                                 (ELT $ 6) (ELT $ 7) (ELT $ 8)
+                                                 |gf|))))))) 
 
-(DEFUN |PFOQ;possibleOrder| (|d| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (ZEROP (SPADCALL (QREFELT $ 45)))
-            (EQL
-             (QVSIZE (SPADCALL (SPADCALL |d| (QREFELT $ 15)) (QREFELT $ 17)))
-             1))
-        1)
-       ('T
-        (SEQ
-         (LETT |r| (SPADCALL (SPADCALL (QREFELT $ 46)) (QREFELT $ 47))
-               |PFOQ;possibleOrder|)
-         (EXIT (|PFOQ;ratcurve| |d| |r| (SPADCALL |r| (QREFELT $ 48)) $))))))))) 
+(SDEFUN |PFOQ;rat!0| ((|z1| NIL) ($$ NIL))
+        (PROG ($ |gf|)
+          (LETT $ (QREFELT $$ 1) . #1=(|PFOQ;rat|))
+          (LETT |gf| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL
+             (SPADCALL (SPADCALL |z1| (QREFELT $ 36))
+                       (|compiledLookupCheck| '|coerce|
+                                              (LIST '$ (LIST '|Integer|))
+                                              |gf|))
+             (SPADCALL (SPADCALL |z1| (QREFELT $ 37))
+                       (|compiledLookupCheck| '|coerce|
+                                              (LIST '$ (LIST '|Integer|))
+                                              |gf|))
+             (|compiledLookupCheck| '/ (LIST '$ '$ '$) |gf|)))))) 
 
-(DEFUN |PFOQ;order;FdU;5| (|d| $)
-  (PROG (|n|)
-    (RETURN
-     (COND
-      ((OR
-        (ZEROP
-         (LETT |n|
-               (|PFOQ;possibleOrder|
-                (LETT |d| (SPADCALL |d| (QREFELT $ 49))
-                      . #1=(|PFOQ;order;FdU;5|))
-                $)
-               . #1#))
-        (NULL
-         (SPADCALL (SPADCALL (SPADCALL |n| |d| (QREFELT $ 50)) (QREFELT $ 49))
-                   (QREFELT $ 51))))
-       (CONS 1 "failed"))
-      ('T (CONS 0 |n|)))))) 
+(SDEFUN |PFOQ;possibleOrder|
+        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
+         ($ |NonNegativeInteger|))
+        (SPROG ((|r| (UPUP)))
+               (SEQ
+                (COND
+                 ((OR (ZEROP (SPADCALL (QREFELT $ 45)))
+                      (EQL
+                       (QVSIZE
+                        (SPADCALL (SPADCALL |d| (QREFELT $ 15))
+                                  (QREFELT $ 17)))
+                       1))
+                  1)
+                 ('T
+                  (SEQ
+                   (LETT |r|
+                         (SPADCALL (SPADCALL (QREFELT $ 46)) (QREFELT $ 47))
+                         |PFOQ;possibleOrder|)
+                   (EXIT
+                    (|PFOQ;ratcurve| |d| |r| (SPADCALL |r| (QREFELT $ 48))
+                     $)))))))) 
 
-(DEFUN |PFOQ;torsionIfCan;FdU;6| (|d| $)
-  (PROG (|g| |n|)
-    (RETURN
-     (SEQ
-      (COND
-       ((ZEROP
-         (LETT |n|
-               (|PFOQ;possibleOrder|
-                (LETT |d| (SPADCALL |d| (QREFELT $ 49))
-                      . #1=(|PFOQ;torsionIfCan;FdU;6|))
-                $)
-               . #1#))
-        (CONS 1 "failed"))
-       (#2='T
-        (SEQ
-         (LETT |g|
-               (SPADCALL
-                (SPADCALL (SPADCALL |n| |d| (QREFELT $ 50)) (QREFELT $ 49))
-                (QREFELT $ 53))
-               . #1#)
-         (EXIT
-          (COND ((QEQCAR |g| 1) (CONS 1 "failed"))
-                (#2# (CONS 0 (CONS |n| (QCDR |g|))))))))))))) 
+(SDEFUN |PFOQ;order;FdU;5|
+        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
+         ($ |Union| (|NonNegativeInteger|) "failed"))
+        (SPROG ((|n| (|NonNegativeInteger|)))
+               (COND
+                ((OR
+                  (ZEROP
+                   (LETT |n|
+                         (|PFOQ;possibleOrder|
+                          (LETT |d| (SPADCALL |d| (QREFELT $ 49))
+                                . #1=(|PFOQ;order;FdU;5|))
+                          $)
+                         . #1#))
+                  (NULL
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |n| |d| (QREFELT $ 50)) (QREFELT $ 49))
+                    (QREFELT $ 51))))
+                 (CONS 1 "failed"))
+                ('T (CONS 0 |n|))))) 
+
+(SDEFUN |PFOQ;torsionIfCan;FdU;6|
+        ((|d| |FiniteDivisor| (|Fraction| (|Integer|)) UP UPUP R)
+         ($ |Union|
+          (|Record| (|:| |order| (|NonNegativeInteger|)) (|:| |function| R))
+          "failed"))
+        (SPROG ((|g| (|Union| R "failed")) (|n| (|NonNegativeInteger|)))
+               (SEQ
+                (COND
+                 ((ZEROP
+                   (LETT |n|
+                         (|PFOQ;possibleOrder|
+                          (LETT |d| (SPADCALL |d| (QREFELT $ 49))
+                                . #1=(|PFOQ;torsionIfCan;FdU;6|))
+                          $)
+                         . #1#))
+                  (CONS 1 "failed"))
+                 (#2='T
+                  (SEQ
+                   (LETT |g|
+                         (SPADCALL
+                          (SPADCALL (SPADCALL |n| |d| (QREFELT $ 50))
+                                    (QREFELT $ 49))
+                          (QREFELT $ 53))
+                         . #1#)
+                   (EXIT
+                    (COND ((QEQCAR |g| 1) (CONS 1 "failed"))
+                          (#2# (CONS 0 (CONS |n| (QCDR |g|)))))))))))) 
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrderRational;|)) 
 
 (DEFUN |PointsOfFiniteOrderRational| (&REST #1=#:G144)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G145)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PointsOfFiniteOrderRational|)
-                                           '|domainEqualList|)
-                . #3=(|PointsOfFiniteOrderRational|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PointsOfFiniteOrderRational;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G145)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|PointsOfFiniteOrderRational|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PointsOfFiniteOrderRational|)
+                                               '|domainEqualList|)
+                    . #3=(|PointsOfFiniteOrderRational|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |PointsOfFiniteOrderRational;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|PointsOfFiniteOrderRational|)))))))))) 
 
 (DEFUN |PointsOfFiniteOrderRational;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PointsOfFiniteOrderRational|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|PointsOfFiniteOrderRational| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 57) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PointsOfFiniteOrderRational|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PointsOfFiniteOrderRational|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|PointsOfFiniteOrderRational| DV$1 DV$2 DV$3)
+                . #1#)
+          (LETT $ (GETREFV 57) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PointsOfFiniteOrderRational|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PointsOfFiniteOrderRational| '|infovec|
           (LIST

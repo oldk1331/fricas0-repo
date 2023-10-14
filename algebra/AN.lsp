@@ -1,54 +1,53 @@
 
-(DEFUN |AN;zero?;$B;1| (|a| $)
-  (SPADCALL |a| (|spadConstant| $ 7) (QREFELT $ 10))) 
+(SDEFUN |AN;zero?;$B;1| ((|a| $) ($ |Boolean|))
+        (SPADCALL |a| (|spadConstant| $ 7) (QREFELT $ 10))) 
 
-(DEFUN |AN;one?;$B;2| (|a| $)
-  (SPADCALL |a| (|spadConstant| $ 12) (QREFELT $ 10))) 
+(SDEFUN |AN;one?;$B;2| ((|a| $) ($ |Boolean|))
+        (SPADCALL |a| (|spadConstant| $ 12) (QREFELT $ 10))) 
 
-(DEFUN |AN;=;2$B;3| (|a| |b| $)
-  (SPADCALL (SPADCALL |a| |b| (QREFELT $ 15)) (|spadConstant| $ 7)
-            (QREFELT $ 10))) 
+(SDEFUN |AN;=;2$B;3| ((|a| $) (|b| $) ($ |Boolean|))
+        (SPADCALL (SPADCALL |a| |b| (QREFELT $ 15)) (|spadConstant| $ 7)
+                  (QREFELT $ 10))) 
 
-(DEFUN |AN;convert;$If;4| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 20))) 
+(SDEFUN |AN;convert;$If;4| ((|x| $) ($ |InputForm|))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |AlgebraicNumber;|)) 
 
 (DEFUN |AlgebraicNumber| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G138)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|AlgebraicNumber|)
-                . #2=(|AlgebraicNumber|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|AlgebraicNumber|
-                         (LIST (CONS NIL (CONS 1 (|AlgebraicNumber;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G138)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|AlgebraicNumber|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|AlgebraicNumber|)
+                    . #2=(|AlgebraicNumber|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|AlgebraicNumber|
+                             (LIST (CONS NIL (CONS 1 (|AlgebraicNumber;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|AlgebraicNumber|)))))))))) 
 
 (DEFUN |AlgebraicNumber;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|AlgebraicNumber|) . #1=(|AlgebraicNumber|))
-      (LETT $ (GETREFV 68) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|AlgebraicNumber| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (AND (|HasCategory| $ '(|Ring|)) (|augmentPredVector| $ 1))
-      (AND (|HasCategory| $ '(|RetractableTo| (|Integer|)))
-           (|augmentPredVector| $ 2))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|InnerAlgebraicNumber|))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|AlgebraicNumber|) . #1=(|AlgebraicNumber|))
+          (LETT $ (GETREFV 68) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|AlgebraicNumber| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (AND (|HasCategory| $ '(|Ring|)) (|augmentPredVector| $ 1))
+          (AND (|HasCategory| $ '(|RetractableTo| (|Integer|)))
+               (|augmentPredVector| $ 2))
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|InnerAlgebraicNumber|))
+          $))) 
 
 (MAKEPROP '|AlgebraicNumber| '|infovec|
           (LIST

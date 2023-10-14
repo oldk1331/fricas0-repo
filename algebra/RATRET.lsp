@@ -1,47 +1,49 @@
 
-(DEFUN |RATRET;rational;SF;1| (|s| $) (SPADCALL |s| (QREFELT $ 8))) 
+(SDEFUN |RATRET;rational;SF;1| ((|s| S) ($ |Fraction| (|Integer|)))
+        (SPADCALL |s| (QREFELT $ 8))) 
 
-(DEFUN |RATRET;rational?;SB;2| (|s| $) (QEQCAR (SPADCALL |s| (QREFELT $ 11)) 0)) 
+(SDEFUN |RATRET;rational?;SB;2| ((|s| S) ($ |Boolean|))
+        (QEQCAR (SPADCALL |s| (QREFELT $ 11)) 0)) 
 
-(DEFUN |RATRET;rationalIfCan;SU;3| (|s| $) (SPADCALL |s| (QREFELT $ 11))) 
+(SDEFUN |RATRET;rationalIfCan;SU;3|
+        ((|s| S) ($ |Union| (|Fraction| (|Integer|)) "failed"))
+        (SPADCALL |s| (QREFELT $ 11))) 
 
 (DECLAIM (NOTINLINE |RationalRetractions;|)) 
 
 (DEFUN |RationalRetractions| (#1=#:G112)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G113)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|RationalRetractions|)
-                                           '|domainEqualList|)
-                . #3=(|RationalRetractions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|RationalRetractions;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G113)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|RationalRetractions|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|RationalRetractions|)
+                                               '|domainEqualList|)
+                    . #3=(|RationalRetractions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|RationalRetractions;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|RationalRetractions|)))))))))) 
 
 (DEFUN |RationalRetractions;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalRetractions|))
-      (LETT |dv$| (LIST '|RationalRetractions| DV$1) . #1#)
-      (LETT $ (GETREFV 15) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|RationalRetractions| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalRetractions|))
+          (LETT |dv$| (LIST '|RationalRetractions| DV$1) . #1#)
+          (LETT $ (GETREFV 15) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|RationalRetractions| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RationalRetractions| '|infovec|
           (LIST

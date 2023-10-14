@@ -2,50 +2,52 @@
 (DECLAIM (NOTINLINE |GuessPolynomialInteger;|)) 
 
 (DEFUN |GuessPolynomialInteger| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G118)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|GuessPolynomialInteger|)
-                . #2=(|GuessPolynomialInteger|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|GuessPolynomialInteger|
-                         (LIST
-                          (CONS NIL (CONS 1 (|GuessPolynomialInteger;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G118)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|GuessPolynomialInteger|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|GuessPolynomialInteger|)
+                    . #2=(|GuessPolynomialInteger|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|GuessPolynomialInteger|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|GuessPolynomialInteger;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|GuessPolynomialInteger|)))))))))) 
 
 (DEFUN |GuessPolynomialInteger;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|GuessPolynomialInteger|) . #1=(|GuessPolynomialInteger|))
-      (LETT $ (GETREFV 26) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (AND
-                                           (|HasCategory|
-                                            (|Fraction|
-                                             (|Polynomial| (|Integer|)))
-                                            '(|RetractableTo| (|Symbol|)))
-                                           (|HasCategory|
-                                            (|Polynomial| (|Integer|))
-                                            '(|RetractableTo| (|Symbol|))))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|GuessPolynomialInteger| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|GuessPolynomialInteger|)
+                . #1=(|GuessPolynomialInteger|))
+          (LETT $ (GETREFV 26) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (AND
+                                               (|HasCategory|
+                                                (|Fraction|
+                                                 (|Polynomial| (|Integer|)))
+                                                '(|RetractableTo| (|Symbol|)))
+                                               (|HasCategory|
+                                                (|Polynomial| (|Integer|))
+                                                '(|RetractableTo|
+                                                  (|Symbol|))))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|GuessPolynomialInteger| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|GuessPolynomialInteger| '|infovec|
           (LIST

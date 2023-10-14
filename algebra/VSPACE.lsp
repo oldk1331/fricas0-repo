@@ -16,21 +16,21 @@
       #2#)))) 
 
 (DEFUN |VectorSpace;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|VectorSpace;CAT|)
-                                ('T
-                                 (LETT |VectorSpace;CAT|
-                                       (|Join| (|Module| '|t#1|)
-                                               (|mkCategory|
-                                                '(((/ ($ $ |t#1|)) T)
-                                                  ((|dimension|
-                                                    ((|CardinalNumber|)))
-                                                   T))
-                                                NIL '((|CardinalNumber|)) NIL))
-                                       . #2=(|VectorSpace|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|VectorSpace| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|VectorSpace;CAT|)
+                                    ('T
+                                     (LETT |VectorSpace;CAT|
+                                           (|Join| (|Module| '|t#1|)
+                                                   (|mkCategory|
+                                                    '(((/ ($ $ |t#1|)) T)
+                                                      ((|dimension|
+                                                        ((|CardinalNumber|)))
+                                                       T))
+                                                    NIL '((|CardinalNumber|))
+                                                    NIL))
+                                           . #2=(|VectorSpace|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|VectorSpace| (|devaluate| |t#1|)))))) 

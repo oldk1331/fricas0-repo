@@ -1,95 +1,114 @@
 
-(DEFUN |FRNAALG-;min_poly_from_matrix| (|mx| |x| $)
-  (PROG (|res| |i| |vectorOfCoef| |cond| |k|)
-    (RETURN
-     (SEQ (LETT |k| 1 . #1=(|FRNAALG-;min_poly_from_matrix|))
-          (LETT |cond| (SPADCALL |x| (QREFELT $ 9)) . #1#)
-          (SEQ G190
-               (COND
-                ((NULL (EQL (SPADCALL |cond| (QREFELT $ 13)) |k|)) (GO G191)))
-               (SEQ (LETT |k| (+ |k| 1) . #1#)
-                    (LETT |x| (SPADCALL |mx| |x| (QREFELT $ 17)) . #1#)
+(SDEFUN |FRNAALG-;min_poly_from_matrix|
+        ((|mx| |Matrix| (|Polynomial| R)) (|x| |Matrix| (|Polynomial| R))
+         ($ |SparseUnivariatePolynomial| (|Polynomial| R)))
+        (SPROG
+         ((|res| (|SparseUnivariatePolynomial| (|Polynomial| R))) (|i| NIL)
+          (|vectorOfCoef| (|Vector| (|Polynomial| R)))
+          (|cond| (|Matrix| (|Polynomial| R))) (|k| (|PositiveInteger|)))
+         (SEQ (LETT |k| 1 . #1=(|FRNAALG-;min_poly_from_matrix|))
+              (LETT |cond| (SPADCALL |x| (QREFELT $ 9)) . #1#)
+              (SEQ G190
+                   (COND
+                    ((NULL (EQL (SPADCALL |cond| (QREFELT $ 13)) |k|))
+                     (GO G191)))
+                   (SEQ (LETT |k| (+ |k| 1) . #1#)
+                        (LETT |x| (SPADCALL |mx| |x| (QREFELT $ 17)) . #1#)
+                        (EXIT
+                         (LETT |cond| (SPADCALL |cond| |x| (QREFELT $ 18))
+                               . #1#)))
+                   NIL (GO G190) G191 (EXIT NIL))
+              (LETT |vectorOfCoef|
+                    (|SPADfirst| (SPADCALL |cond| (QREFELT $ 20))) . #1#)
+              (LETT |res| (|spadConstant| $ 21) . #1#)
+              (SEQ (LETT |i| 1 . #1#) G190
+                   (COND ((|greater_SI| |i| |k|) (GO G191)))
+                   (SEQ
                     (EXIT
-                     (LETT |cond| (SPADCALL |cond| |x| (QREFELT $ 18)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (LETT |vectorOfCoef| (|SPADfirst| (SPADCALL |cond| (QREFELT $ 20)))
-                . #1#)
-          (LETT |res| (|spadConstant| $ 21) . #1#)
-          (SEQ (LETT |i| 1 . #1#) G190
-               (COND ((|greater_SI| |i| |k|) (GO G191)))
-               (SEQ
-                (EXIT
-                 (LETT |res|
-                       (SPADCALL |res|
-                                 (SPADCALL
-                                  (SPADCALL |vectorOfCoef| |i| (QREFELT $ 25))
-                                  |i| (QREFELT $ 26))
-                                 (QREFELT $ 27))
-                       . #1#)))
-               (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-          (EXIT |res|))))) 
+                     (LETT |res|
+                           (SPADCALL |res|
+                                     (SPADCALL
+                                      (SPADCALL |vectorOfCoef| |i|
+                                                (QREFELT $ 25))
+                                      |i| (QREFELT $ 26))
+                                     (QREFELT $ 27))
+                           . #1#)))
+                   (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+              (EXIT |res|)))) 
 
-(DEFUN |FRNAALG-;rank_polynomial| (|left| $)
-  (PROG (|cijk| |mxjk| |k| |j| |mo| |i| |mx| |x| |symbolsForCoef| #1=#:G130
-         #2=#:G132 #3=#:G131 |listOfNumbers| |q| #4=#:G129 |gamma| |b| |n|)
-    (RETURN
-     (SEQ
-      (LETT |n| (SPADCALL (QREFELT $ 11)) . #5=(|FRNAALG-;rank_polynomial|))
-      (LETT |b| (SPADCALL (QREFELT $ 29)) . #5#)
-      (LETT |gamma| (SPADCALL |b| (QREFELT $ 31)) . #5#)
-      (LETT |listOfNumbers|
-            (PROGN
-             (LETT #4# NIL . #5#)
-             (SEQ (LETT |q| 1 . #5#) G190
-                  (COND ((|greater_SI| |q| |n|) (GO G191)))
-                  (SEQ (EXIT (LETT #4# (CONS (STRINGIMAGE |q|) #4#) . #5#)))
-                  (LETT |q| (|inc_SI| |q|) . #5#) (GO G190) G191
-                  (EXIT (NREVERSE #4#))))
-            . #5#)
-      (LETT |symbolsForCoef|
-            (PROGN
-             (LETT #3# (GETREFV (SIZE |listOfNumbers|)) . #5#)
-             (SEQ (LETT |i| NIL . #5#) (LETT #2# |listOfNumbers| . #5#)
-                  (LETT #1# 0 . #5#) G190
-                  (COND
-                   ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #5#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (SETELT #3# #1#
-                            (SPADCALL (STRCONC "%" (STRCONC "x" |i|))
-                                      (QREFELT $ 34)))))
-                  (LETT #1# (PROG1 (|inc_SI| #1#) (LETT #2# (CDR #2#) . #5#))
-                        . #5#)
-                  (GO G190) G191 (EXIT NIL))
-             #3#)
-            . #5#)
-      (LETT |x| (MAKE_MATRIX1 |n| 1 (|spadConstant| $ 35)) . #5#)
-      (LETT |mx| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 35)) . #5#)
-      (SEQ (LETT |i| 1 . #5#) G190 (COND ((|greater_SI| |i| |n|) (GO G191)))
-           (SEQ
-            (LETT |mo|
-                  (SPADCALL (|spadConstant| $ 38)
-                            (LIST
-                             (SPADCALL |symbolsForCoef| |i| (QREFELT $ 40)))
-                            (LIST 1) (QREFELT $ 43))
-                  . #5#)
-            (QSETAREF2O |x| |i| 1 |mo| 1 1)
-            (EXIT
-             (SEQ (LETT |j| 1 . #5#) G190
-                  (COND ((|greater_SI| |j| |n|) (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (SEQ (LETT |k| 1 . #5#) G190
-                         (COND ((|greater_SI| |k| |n|) (GO G191)))
-                         (SEQ (LETT |mxjk| (QAREF2O |mx| |j| |k| 1 1) . #5#)
+(SDEFUN |FRNAALG-;rank_polynomial|
+        ((|left| |Boolean|) ($ |SparseUnivariatePolynomial| (|Polynomial| R)))
+        (SPROG
+         ((|cijk| (R)) (|mxjk| (|Polynomial| R)) (|k| NIL) (|j| NIL)
+          (|mo| (|Polynomial| R)) (|i| NIL)
+          (|mx| #1=(|Matrix| (|Polynomial| R))) (|x| #1#)
+          (|symbolsForCoef| (|Vector| (|Symbol|))) (#2=#:G130 NIL)
+          (#3=#:G132 NIL) (#4=#:G131 NIL) (|listOfNumbers| (|List| (|String|)))
+          (|q| NIL) (#5=#:G129 NIL) (|gamma| (|Vector| (|Matrix| R)))
+          (|b| (|Vector| S)) (|n| (|PositiveInteger|)))
+         (SEQ
+          (LETT |n| (SPADCALL (QREFELT $ 11))
+                . #6=(|FRNAALG-;rank_polynomial|))
+          (LETT |b| (SPADCALL (QREFELT $ 29)) . #6#)
+          (LETT |gamma| (SPADCALL |b| (QREFELT $ 31)) . #6#)
+          (LETT |listOfNumbers|
+                (PROGN
+                 (LETT #5# NIL . #6#)
+                 (SEQ (LETT |q| 1 . #6#) G190
+                      (COND ((|greater_SI| |q| |n|) (GO G191)))
+                      (SEQ
+                       (EXIT (LETT #5# (CONS (STRINGIMAGE |q|) #5#) . #6#)))
+                      (LETT |q| (|inc_SI| |q|) . #6#) (GO G190) G191
+                      (EXIT (NREVERSE #5#))))
+                . #6#)
+          (LETT |symbolsForCoef|
+                (PROGN
+                 (LETT #4# (GETREFV (SIZE |listOfNumbers|)) . #6#)
+                 (SEQ (LETT |i| NIL . #6#) (LETT #3# |listOfNumbers| . #6#)
+                      (LETT #2# 0 . #6#) G190
+                      (COND
+                       ((OR (ATOM #3#) (PROGN (LETT |i| (CAR #3#) . #6#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (SETELT #4# #2#
+                                (SPADCALL (STRCONC "%" (STRCONC "x" |i|))
+                                          (QREFELT $ 34)))))
+                      (LETT #2#
+                            (PROG1 (|inc_SI| #2#) (LETT #3# (CDR #3#) . #6#))
+                            . #6#)
+                      (GO G190) G191 (EXIT NIL))
+                 #4#)
+                . #6#)
+          (LETT |x| (MAKE_MATRIX1 |n| 1 (|spadConstant| $ 35)) . #6#)
+          (LETT |mx| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 35)) . #6#)
+          (SEQ (LETT |i| 1 . #6#) G190
+               (COND ((|greater_SI| |i| |n|) (GO G191)))
+               (SEQ
+                (LETT |mo|
+                      (SPADCALL (|spadConstant| $ 38)
+                                (LIST
+                                 (SPADCALL |symbolsForCoef| |i|
+                                           (QREFELT $ 40)))
+                                (LIST 1) (QREFELT $ 43))
+                      . #6#)
+                (QSETAREF2O |x| |i| 1 |mo| 1 1)
+                (EXIT
+                 (SEQ (LETT |j| 1 . #6#) G190
+                      (COND ((|greater_SI| |j| |n|) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (SEQ (LETT |k| 1 . #6#) G190
+                             (COND ((|greater_SI| |k| |n|) (GO G191)))
+                             (SEQ
+                              (LETT |mxjk| (QAREF2O |mx| |j| |k| 1 1) . #6#)
                               (LETT |cijk|
                                     (COND
                                      ((OR |left| 'T)
                                       (SPADCALL
                                        (SPADCALL |gamma| |j| (QREFELT $ 45))
                                        |i| |k| (QREFELT $ 46))))
-                                    . #5#)
+                                    . #6#)
                               (EXIT
                                (QSETAREF2O |mx| |j| |k|
                                            (SPADCALL |mxjk|
@@ -97,239 +116,86 @@
                                                                (QREFELT $ 47))
                                                      (QREFELT $ 48))
                                            1 1)))
-                         (LETT |k| (|inc_SI| |k|) . #5#) (GO G190) G191
-                         (EXIT NIL))))
-                  (LETT |j| (|inc_SI| |j|) . #5#) (GO G190) G191 (EXIT NIL))))
-           (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
-      (EXIT (|FRNAALG-;min_poly_from_matrix| |mx| |x| $)))))) 
-
-(DEFUN |FRNAALG-;leftRankPolynomial;Sup;3| ($)
-  (|FRNAALG-;rank_polynomial| 'T $)) 
-
-(DEFUN |FRNAALG-;rightRankPolynomial;Sup;4| ($)
-  (|FRNAALG-;rank_polynomial| 'NIL $)) 
-
-(DEFUN |FRNAALG-;leftUnitsInternal| ($)
-  (PROG (|j| |addOn| |z| |i| |k| |rhs| |cond| |gamma| |b| |n|)
-    (RETURN
-     (SEQ
-      (LETT |n| (SPADCALL (QREFELT $ 11)) . #1=(|FRNAALG-;leftUnitsInternal|))
-      (LETT |b| (SPADCALL (QREFELT $ 29)) . #1#)
-      (LETT |gamma| (SPADCALL |b| (QREFELT $ 31)) . #1#)
-      (LETT |cond|
-            (MAKE_MATRIX1 (SPADCALL |n| 2 (QREFELT $ 51)) |n|
-                          (|spadConstant| $ 37))
-            . #1#)
-      (LETT |rhs|
-            (MAKEARR1 (SPADCALL |n| 2 (QREFELT $ 51)) (|spadConstant| $ 37))
-            . #1#)
-      (LETT |z| 0 . #1#) (LETT |addOn| (|spadConstant| $ 37) . #1#)
-      (SEQ (LETT |k| 1 . #1#) G190 (COND ((|greater_SI| |k| |n|) (GO G191)))
-           (SEQ
-            (EXIT
-             (SEQ (LETT |i| 1 . #1#) G190
-                  (COND ((|greater_SI| |i| |n|) (GO G191)))
-                  (SEQ (LETT |z| (+ |z| 1) . #1#)
-                       (LETT |addOn|
-                             (COND ((EQL |k| |i|) (|spadConstant| $ 14))
-                                   ('T (|spadConstant| $ 37)))
-                             . #1#)
-                       (SPADCALL |rhs| |z| |addOn| (QREFELT $ 53))
-                       (EXIT
-                        (SEQ (LETT |j| 1 . #1#) G190
-                             (COND ((|greater_SI| |j| |n|) (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (SPADCALL |cond| |z| |j|
-                                         (SPADCALL
-                                          (SPADCALL |gamma| |k| (QREFELT $ 45))
-                                          |j| |i| (QREFELT $ 46))
-                                         (QREFELT $ 54))))
-                             (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191
+                             (LETT |k| (|inc_SI| |k|) . #6#) (GO G190) G191
                              (EXIT NIL))))
-                  (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))))
-           (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191 (EXIT NIL))
-      (EXIT (SPADCALL |cond| |rhs| (QREFELT $ 58))))))) 
+                      (LETT |j| (|inc_SI| |j|) . #6#) (GO G190) G191
+                      (EXIT NIL))))
+               (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
+          (EXIT (|FRNAALG-;min_poly_from_matrix| |mx| |x| $))))) 
 
-(DEFUN |FRNAALG-;leftUnit;U;6| ($)
-  (PROG (#1=#:G147 |res|)
-    (RETURN
-     (SEQ
-      (LETT |res| (|FRNAALG-;leftUnitsInternal| $)
-            . #2=(|FRNAALG-;leftUnit;U;6|))
-      (EXIT
-       (COND
-        ((QEQCAR (QCAR |res|) 1)
-         (SEQ (SPADCALL "this algebra has no left unit" (QREFELT $ 61))
-              (EXIT (CONS 1 "failed"))))
-        ('T
-         (CONS 0
-               (SPADCALL
-                (PROG2 (LETT #1# (QCAR |res|) . #2#)
-                    (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7)) #1#))
-                (QREFELT $ 62)))))))))) 
+(SDEFUN |FRNAALG-;leftRankPolynomial;Sup;3|
+        (($ |SparseUnivariatePolynomial| (|Polynomial| R)))
+        (|FRNAALG-;rank_polynomial| 'T $)) 
 
-(DEFUN |FRNAALG-;leftUnits;U;7| ($)
-  (PROG (#1=#:G161 |res|)
-    (RETURN
-     (SEQ
-      (LETT |res| (|FRNAALG-;leftUnitsInternal| $)
-            . #2=(|FRNAALG-;leftUnits;U;7|))
-      (EXIT
-       (COND
-        ((QEQCAR (QCAR |res|) 1)
-         (SEQ (SPADCALL "this algebra has no left unit" (QREFELT $ 61))
-              (EXIT (CONS 1 "failed"))))
-        ('T
-         (CONS 0
-               (CONS
-                (SPADCALL
-                 (PROG2 (LETT #1# (QCAR |res|) . #2#)
-                     (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7)) #1#))
-                 (QREFELT $ 62))
-                (SPADCALL (ELT $ 62) (QCDR |res|) (QREFELT $ 69))))))))))) 
+(SDEFUN |FRNAALG-;rightRankPolynomial;Sup;4|
+        (($ |SparseUnivariatePolynomial| (|Polynomial| R)))
+        (|FRNAALG-;rank_polynomial| 'NIL $)) 
 
-(DEFUN |FRNAALG-;rightUnitsInternal| ($)
-  (PROG (|j| |addOn| |z| |i| |k| |rhs| |condo| |gamma| |b| |n|)
-    (RETURN
-     (SEQ
-      (LETT |n| (SPADCALL (QREFELT $ 11)) . #1=(|FRNAALG-;rightUnitsInternal|))
-      (LETT |b| (SPADCALL (QREFELT $ 29)) . #1#)
-      (LETT |gamma| (SPADCALL |b| (QREFELT $ 31)) . #1#)
-      (LETT |condo|
-            (MAKE_MATRIX1 (SPADCALL |n| 2 (QREFELT $ 51)) |n|
-                          (|spadConstant| $ 37))
-            . #1#)
-      (LETT |rhs|
-            (MAKEARR1 (SPADCALL |n| 2 (QREFELT $ 51)) (|spadConstant| $ 37))
-            . #1#)
-      (LETT |z| 0 . #1#) (LETT |addOn| (|spadConstant| $ 37) . #1#)
-      (SEQ (LETT |k| 1 . #1#) G190 (COND ((|greater_SI| |k| |n|) (GO G191)))
-           (SEQ
-            (EXIT
-             (SEQ (LETT |i| 1 . #1#) G190
-                  (COND ((|greater_SI| |i| |n|) (GO G191)))
-                  (SEQ (LETT |z| (+ |z| 1) . #1#)
-                       (LETT |addOn|
-                             (COND ((EQL |k| |i|) (|spadConstant| $ 14))
-                                   ('T (|spadConstant| $ 37)))
-                             . #1#)
-                       (SPADCALL |rhs| |z| |addOn| (QREFELT $ 53))
-                       (EXIT
-                        (SEQ (LETT |j| 1 . #1#) G190
-                             (COND ((|greater_SI| |j| |n|) (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (SPADCALL |condo| |z| |j|
-                                         (SPADCALL
-                                          (SPADCALL |gamma| |k| (QREFELT $ 45))
-                                          |i| |j| (QREFELT $ 46))
-                                         (QREFELT $ 54))))
-                             (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191
-                             (EXIT NIL))))
-                  (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))))
-           (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191 (EXIT NIL))
-      (EXIT (SPADCALL |condo| |rhs| (QREFELT $ 58))))))) 
-
-(DEFUN |FRNAALG-;rightUnit;U;9| ($)
-  (PROG (#1=#:G183 |res|)
-    (RETURN
-     (SEQ
-      (LETT |res| (|FRNAALG-;rightUnitsInternal| $)
-            . #2=(|FRNAALG-;rightUnit;U;9|))
-      (EXIT
-       (COND
-        ((QEQCAR (QCAR |res|) 1)
-         (SEQ (SPADCALL "this algebra has no right unit" (QREFELT $ 61))
-              (EXIT (CONS 1 "failed"))))
-        ('T
-         (CONS 0
-               (SPADCALL
-                (PROG2 (LETT #1# (QCAR |res|) . #2#)
-                    (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7)) #1#))
-                (QREFELT $ 62)))))))))) 
-
-(DEFUN |FRNAALG-;rightUnits;U;10| ($)
-  (PROG (#1=#:G194 |res|)
-    (RETURN
-     (SEQ
-      (LETT |res| (|FRNAALG-;rightUnitsInternal| $)
-            . #2=(|FRNAALG-;rightUnits;U;10|))
-      (EXIT
-       (COND
-        ((QEQCAR (QCAR |res|) 1)
-         (SEQ (SPADCALL "this algebra has no right unit" (QREFELT $ 61))
-              (EXIT (CONS 1 "failed"))))
-        ('T
-         (CONS 0
-               (CONS
-                (SPADCALL
-                 (PROG2 (LETT #1# (QCAR |res|) . #2#)
-                     (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7)) #1#))
-                 (QREFELT $ 62))
-                (SPADCALL (ELT $ 62) (QCDR |res|) (QREFELT $ 69))))))))))) 
-
-(DEFUN |FRNAALG-;unit;U;11| ($)
-  (PROG (#1=#:G210 |res| |j| |addOn| |z| |i| |k| |u| |rhs| |cond| |gamma| |b|
-         |n|)
-    (RETURN
-     (SEQ (LETT |n| (SPADCALL (QREFELT $ 11)) . #2=(|FRNAALG-;unit;U;11|))
-          (LETT |b| (SPADCALL (QREFELT $ 29)) . #2#)
-          (LETT |gamma| (SPADCALL |b| (QREFELT $ 31)) . #2#)
+(SDEFUN |FRNAALG-;leftUnitsInternal|
+        (($ |Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+          (|:| |basis| (|List| (|Vector| R)))))
+        (SPROG
+         ((|j| NIL) (|addOn| (R)) (|z| (|Integer|)) (|i| NIL) (|k| NIL)
+          (|rhs| (|Vector| R)) (|cond| (|Matrix| R))
+          (|gamma| (|Vector| (|Matrix| R))) (|b| (|Vector| S))
+          (|n| (|PositiveInteger|)))
+         (SEQ
+          (LETT |n| (SPADCALL (QREFELT $ 11))
+                . #1=(|FRNAALG-;leftUnitsInternal|))
+          (LETT |b| (SPADCALL (QREFELT $ 29)) . #1#)
+          (LETT |gamma| (SPADCALL |b| (QREFELT $ 31)) . #1#)
           (LETT |cond|
-                (MAKE_MATRIX1 (* 2 (SPADCALL |n| 2 (QREFELT $ 51))) |n|
+                (MAKE_MATRIX1 (SPADCALL |n| 2 (QREFELT $ 51)) |n|
                               (|spadConstant| $ 37))
-                . #2#)
+                . #1#)
           (LETT |rhs|
-                (MAKEARR1 (* 2 (SPADCALL |n| 2 (QREFELT $ 51)))
+                (MAKEARR1 (SPADCALL |n| 2 (QREFELT $ 51))
                           (|spadConstant| $ 37))
-                . #2#)
-          (LETT |z| 0 . #2#) (LETT |u| (* |n| |n|) . #2#)
-          (LETT |addOn| (|spadConstant| $ 37) . #2#)
-          (SEQ (LETT |k| 1 . #2#) G190
+                . #1#)
+          (LETT |z| 0 . #1#) (LETT |addOn| (|spadConstant| $ 37) . #1#)
+          (SEQ (LETT |k| 1 . #1#) G190
                (COND ((|greater_SI| |k| |n|) (GO G191)))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |i| 1 . #2#) G190
+                 (SEQ (LETT |i| 1 . #1#) G190
                       (COND ((|greater_SI| |i| |n|) (GO G191)))
-                      (SEQ (LETT |z| (+ |z| 1) . #2#)
+                      (SEQ (LETT |z| (+ |z| 1) . #1#)
                            (LETT |addOn|
                                  (COND ((EQL |k| |i|) (|spadConstant| $ 14))
                                        ('T (|spadConstant| $ 37)))
-                                 . #2#)
+                                 . #1#)
                            (SPADCALL |rhs| |z| |addOn| (QREFELT $ 53))
-                           (SPADCALL |rhs| |u| |addOn| (QREFELT $ 53))
                            (EXIT
-                            (SEQ (LETT |j| 1 . #2#) G190
+                            (SEQ (LETT |j| 1 . #1#) G190
                                  (COND ((|greater_SI| |j| |n|) (GO G191)))
                                  (SEQ
-                                  (SPADCALL |cond| |z| |j|
-                                            (SPADCALL
-                                             (SPADCALL |gamma| |k|
-                                                       (QREFELT $ 45))
-                                             |j| |i| (QREFELT $ 46))
-                                            (QREFELT $ 54))
                                   (EXIT
-                                   (SPADCALL |cond| |u| |j|
+                                   (SPADCALL |cond| |z| |j|
                                              (SPADCALL
                                               (SPADCALL |gamma| |k|
                                                         (QREFELT $ 45))
-                                              |i| |j| (QREFELT $ 46))
+                                              |j| |i| (QREFELT $ 46))
                                              (QREFELT $ 54))))
-                                 (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191
+                                 (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191
                                  (EXIT NIL))))
-                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                      (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
                       (EXIT NIL))))
-               (LETT |k| (|inc_SI| |k|) . #2#) (GO G190) G191 (EXIT NIL))
-          (LETT |res| (SPADCALL |cond| |rhs| (QREFELT $ 58)) . #2#)
+               (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191 (EXIT NIL))
+          (EXIT (SPADCALL |cond| |rhs| (QREFELT $ 58)))))) 
+
+(SDEFUN |FRNAALG-;leftUnit;U;6| (($ |Union| S "failed"))
+        (SPROG
+         ((#1=#:G147 NIL)
+          (|res|
+           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+                     (|:| |basis| (|List| (|Vector| R))))))
+         (SEQ
+          (LETT |res| (|FRNAALG-;leftUnitsInternal| $)
+                . #2=(|FRNAALG-;leftUnit;U;6|))
           (EXIT
            (COND
             ((QEQCAR (QCAR |res|) 1)
-             (SEQ (SPADCALL "this algebra has no unit" (QREFELT $ 61))
+             (SEQ (SPADCALL "this algebra has no left unit" (QREFELT $ 61))
                   (EXIT (CONS 1 "failed"))))
             ('T
              (CONS 0
@@ -338,111 +204,324 @@
                         (QCDR #1#)
                       (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
                                      #1#))
-                    (QREFELT $ 62)))))))))) 
+                    (QREFELT $ 62))))))))) 
 
-(DEFUN |FRNAALG-;apply;M2S;12| (|m| |a| $)
-  (PROG (|v|)
-    (RETURN
-     (SEQ
-      (LETT |v| (SPADCALL |a| (QREFELT $ 76)) . #1=(|FRNAALG-;apply;M2S;12|))
-      (LETT |v| (SPADCALL |m| |v| (QREFELT $ 77)) . #1#)
-      (EXIT (SPADCALL |v| (QREFELT $ 78))))))) 
+(SDEFUN |FRNAALG-;leftUnits;U;7|
+        (($ |Union| (|Record| (|:| |particular| S) (|:| |basis| (|List| S)))
+          "failed"))
+        (SPROG
+         ((#1=#:G161 NIL)
+          (|res|
+           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+                     (|:| |basis| (|List| (|Vector| R))))))
+         (SEQ
+          (LETT |res| (|FRNAALG-;leftUnitsInternal| $)
+                . #2=(|FRNAALG-;leftUnits;U;7|))
+          (EXIT
+           (COND
+            ((QEQCAR (QCAR |res|) 1)
+             (SEQ (SPADCALL "this algebra has no left unit" (QREFELT $ 61))
+                  (EXIT (CONS 1 "failed"))))
+            ('T
+             (CONS 0
+                   (CONS
+                    (SPADCALL
+                     (PROG2 (LETT #1# (QCAR |res|) . #2#)
+                         (QCDR #1#)
+                       (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
+                                      #1#))
+                     (QREFELT $ 62))
+                    (SPADCALL (ELT $ 62) (QCDR |res|) (QREFELT $ 69)))))))))) 
 
-(DEFUN |FRNAALG-;structuralConstants;V;13| ($)
-  (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 31))) 
-
-(DEFUN |FRNAALG-;conditionsForIdempotents;L;14| ($)
-  (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 82))) 
-
-(DEFUN |FRNAALG-;convert;SV;15| (|x| $)
-  (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 84))) 
-
-(DEFUN |FRNAALG-;convert;VS;16| (|v| $)
-  (SPADCALL |v| (SPADCALL (QREFELT $ 29)) (QREFELT $ 86))) 
-
-(DEFUN |FRNAALG-;leftTraceMatrix;M;17| ($)
-  (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 88))) 
-
-(DEFUN |FRNAALG-;rightTraceMatrix;M;18| ($)
-  (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 90))) 
-
-(DEFUN |FRNAALG-;leftDiscriminant;R;19| ($)
-  (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 92))) 
-
-(DEFUN |FRNAALG-;rightDiscriminant;R;20| ($)
-  (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 94))) 
-
-(DEFUN |FRNAALG-;leftRegularRepresentation;SM;21| (|x| $)
-  (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 96))) 
-
-(DEFUN |FRNAALG-;rightRegularRepresentation;SM;22| (|x| $)
-  (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 98))) 
-
-(DEFUN |FRNAALG-;coordinates;VM;23| (|x| $)
-  (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 100))) 
-
-(DEFUN |FRNAALG-;represents;VS;24| (|v| $)
-  (SPADCALL |v| (SPADCALL (QREFELT $ 29)) (QREFELT $ 86))) 
-
-(DEFUN |FRNAALG-;coordinates;VM;25| (|v| $)
-  (PROG (#1=#:G232 |i| |j| |m|)
-    (RETURN
-     (SEQ
-      (LETT |m|
-            (MAKE_MATRIX1 (QVSIZE |v|) (SPADCALL (QREFELT $ 11))
+(SDEFUN |FRNAALG-;rightUnitsInternal|
+        (($ |Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+          (|:| |basis| (|List| (|Vector| R)))))
+        (SPROG
+         ((|j| NIL) (|addOn| (R)) (|z| (|Integer|)) (|i| NIL) (|k| NIL)
+          (|rhs| (|Vector| R)) (|condo| (|Matrix| R))
+          (|gamma| (|Vector| (|Matrix| R))) (|b| (|Vector| S))
+          (|n| (|PositiveInteger|)))
+         (SEQ
+          (LETT |n| (SPADCALL (QREFELT $ 11))
+                . #1=(|FRNAALG-;rightUnitsInternal|))
+          (LETT |b| (SPADCALL (QREFELT $ 29)) . #1#)
+          (LETT |gamma| (SPADCALL |b| (QREFELT $ 31)) . #1#)
+          (LETT |condo|
+                (MAKE_MATRIX1 (SPADCALL |n| 2 (QREFELT $ 51)) |n|
+                              (|spadConstant| $ 37))
+                . #1#)
+          (LETT |rhs|
+                (MAKEARR1 (SPADCALL |n| 2 (QREFELT $ 51))
                           (|spadConstant| $ 37))
-            . #2=(|FRNAALG-;coordinates;VM;25|))
-      (SEQ (LETT |j| 1 . #2#) (LETT |i| (SPADCALL |v| (QREFELT $ 104)) . #2#)
-           (LETT #1# (QVSIZE |v|) . #2#) G190 (COND ((> |i| #1#) (GO G191)))
-           (SEQ
-            (EXIT
-             (SPADCALL |m| |j| (SPADCALL (QAREF1O |v| |i| 1) (QREFELT $ 76))
-                       (QREFELT $ 105))))
-           (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (|inc_SI| |j|) . #2#)) . #2#)
-           (GO G190) G191 (EXIT NIL))
-      (EXIT |m|))))) 
+                . #1#)
+          (LETT |z| 0 . #1#) (LETT |addOn| (|spadConstant| $ 37) . #1#)
+          (SEQ (LETT |k| 1 . #1#) G190
+               (COND ((|greater_SI| |k| |n|) (GO G191)))
+               (SEQ
+                (EXIT
+                 (SEQ (LETT |i| 1 . #1#) G190
+                      (COND ((|greater_SI| |i| |n|) (GO G191)))
+                      (SEQ (LETT |z| (+ |z| 1) . #1#)
+                           (LETT |addOn|
+                                 (COND ((EQL |k| |i|) (|spadConstant| $ 14))
+                                       ('T (|spadConstant| $ 37)))
+                                 . #1#)
+                           (SPADCALL |rhs| |z| |addOn| (QREFELT $ 53))
+                           (EXIT
+                            (SEQ (LETT |j| 1 . #1#) G190
+                                 (COND ((|greater_SI| |j| |n|) (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (SPADCALL |condo| |z| |j|
+                                             (SPADCALL
+                                              (SPADCALL |gamma| |k|
+                                                        (QREFELT $ 45))
+                                              |i| |j| (QREFELT $ 46))
+                                             (QREFELT $ 54))))
+                                 (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191
+                                 (EXIT NIL))))
+                      (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                      (EXIT NIL))))
+               (LETT |k| (|inc_SI| |k|) . #1#) (GO G190) G191 (EXIT NIL))
+          (EXIT (SPADCALL |condo| |rhs| (QREFELT $ 58)))))) 
+
+(SDEFUN |FRNAALG-;rightUnit;U;9| (($ |Union| S "failed"))
+        (SPROG
+         ((#1=#:G183 NIL)
+          (|res|
+           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+                     (|:| |basis| (|List| (|Vector| R))))))
+         (SEQ
+          (LETT |res| (|FRNAALG-;rightUnitsInternal| $)
+                . #2=(|FRNAALG-;rightUnit;U;9|))
+          (EXIT
+           (COND
+            ((QEQCAR (QCAR |res|) 1)
+             (SEQ (SPADCALL "this algebra has no right unit" (QREFELT $ 61))
+                  (EXIT (CONS 1 "failed"))))
+            ('T
+             (CONS 0
+                   (SPADCALL
+                    (PROG2 (LETT #1# (QCAR |res|) . #2#)
+                        (QCDR #1#)
+                      (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
+                                     #1#))
+                    (QREFELT $ 62))))))))) 
+
+(SDEFUN |FRNAALG-;rightUnits;U;10|
+        (($ |Union| (|Record| (|:| |particular| S) (|:| |basis| (|List| S)))
+          "failed"))
+        (SPROG
+         ((#1=#:G194 NIL)
+          (|res|
+           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+                     (|:| |basis| (|List| (|Vector| R))))))
+         (SEQ
+          (LETT |res| (|FRNAALG-;rightUnitsInternal| $)
+                . #2=(|FRNAALG-;rightUnits;U;10|))
+          (EXIT
+           (COND
+            ((QEQCAR (QCAR |res|) 1)
+             (SEQ (SPADCALL "this algebra has no right unit" (QREFELT $ 61))
+                  (EXIT (CONS 1 "failed"))))
+            ('T
+             (CONS 0
+                   (CONS
+                    (SPADCALL
+                     (PROG2 (LETT #1# (QCAR |res|) . #2#)
+                         (QCDR #1#)
+                       (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
+                                      #1#))
+                     (QREFELT $ 62))
+                    (SPADCALL (ELT $ 62) (QCDR |res|) (QREFELT $ 69)))))))))) 
+
+(SDEFUN |FRNAALG-;unit;U;11| (($ |Union| S "failed"))
+        (SPROG
+         ((#1=#:G210 NIL)
+          (|res|
+           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+                     (|:| |basis| (|List| (|Vector| R)))))
+          (|j| NIL) (|addOn| (R)) (|z| (|Integer|)) (|i| NIL) (|k| NIL)
+          (|u| (|Integer|)) (|rhs| (|Vector| R)) (|cond| (|Matrix| R))
+          (|gamma| (|Vector| (|Matrix| R))) (|b| (|Vector| S))
+          (|n| (|PositiveInteger|)))
+         (SEQ (LETT |n| (SPADCALL (QREFELT $ 11)) . #2=(|FRNAALG-;unit;U;11|))
+              (LETT |b| (SPADCALL (QREFELT $ 29)) . #2#)
+              (LETT |gamma| (SPADCALL |b| (QREFELT $ 31)) . #2#)
+              (LETT |cond|
+                    (MAKE_MATRIX1 (* 2 (SPADCALL |n| 2 (QREFELT $ 51))) |n|
+                                  (|spadConstant| $ 37))
+                    . #2#)
+              (LETT |rhs|
+                    (MAKEARR1 (* 2 (SPADCALL |n| 2 (QREFELT $ 51)))
+                              (|spadConstant| $ 37))
+                    . #2#)
+              (LETT |z| 0 . #2#) (LETT |u| (* |n| |n|) . #2#)
+              (LETT |addOn| (|spadConstant| $ 37) . #2#)
+              (SEQ (LETT |k| 1 . #2#) G190
+                   (COND ((|greater_SI| |k| |n|) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (SEQ (LETT |i| 1 . #2#) G190
+                          (COND ((|greater_SI| |i| |n|) (GO G191)))
+                          (SEQ (LETT |z| (+ |z| 1) . #2#)
+                               (LETT |addOn|
+                                     (COND
+                                      ((EQL |k| |i|) (|spadConstant| $ 14))
+                                      ('T (|spadConstant| $ 37)))
+                                     . #2#)
+                               (SPADCALL |rhs| |z| |addOn| (QREFELT $ 53))
+                               (SPADCALL |rhs| |u| |addOn| (QREFELT $ 53))
+                               (EXIT
+                                (SEQ (LETT |j| 1 . #2#) G190
+                                     (COND ((|greater_SI| |j| |n|) (GO G191)))
+                                     (SEQ
+                                      (SPADCALL |cond| |z| |j|
+                                                (SPADCALL
+                                                 (SPADCALL |gamma| |k|
+                                                           (QREFELT $ 45))
+                                                 |j| |i| (QREFELT $ 46))
+                                                (QREFELT $ 54))
+                                      (EXIT
+                                       (SPADCALL |cond| |u| |j|
+                                                 (SPADCALL
+                                                  (SPADCALL |gamma| |k|
+                                                            (QREFELT $ 45))
+                                                  |i| |j| (QREFELT $ 46))
+                                                 (QREFELT $ 54))))
+                                     (LETT |j| (|inc_SI| |j|) . #2#) (GO G190)
+                                     G191 (EXIT NIL))))
+                          (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                          (EXIT NIL))))
+                   (LETT |k| (|inc_SI| |k|) . #2#) (GO G190) G191 (EXIT NIL))
+              (LETT |res| (SPADCALL |cond| |rhs| (QREFELT $ 58)) . #2#)
+              (EXIT
+               (COND
+                ((QEQCAR (QCAR |res|) 1)
+                 (SEQ (SPADCALL "this algebra has no unit" (QREFELT $ 61))
+                      (EXIT (CONS 1 "failed"))))
+                ('T
+                 (CONS 0
+                       (SPADCALL
+                        (PROG2 (LETT #1# (QCAR |res|) . #2#)
+                            (QCDR #1#)
+                          (|check_union| (QEQCAR #1# 0)
+                                         (|Vector| (QREFELT $ 7)) #1#))
+                        (QREFELT $ 62))))))))) 
+
+(SDEFUN |FRNAALG-;apply;M2S;12| ((|m| |Matrix| R) (|a| S) ($ S))
+        (SPROG ((|v| (|Vector| R)))
+               (SEQ
+                (LETT |v| (SPADCALL |a| (QREFELT $ 76))
+                      . #1=(|FRNAALG-;apply;M2S;12|))
+                (LETT |v| (SPADCALL |m| |v| (QREFELT $ 77)) . #1#)
+                (EXIT (SPADCALL |v| (QREFELT $ 78)))))) 
+
+(SDEFUN |FRNAALG-;structuralConstants;V;13| (($ |Vector| (|Matrix| R)))
+        (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 31))) 
+
+(SDEFUN |FRNAALG-;conditionsForIdempotents;L;14| (($ |List| (|Polynomial| R)))
+        (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 82))) 
+
+(SDEFUN |FRNAALG-;convert;SV;15| ((|x| S) ($ |Vector| R))
+        (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 84))) 
+
+(SDEFUN |FRNAALG-;convert;VS;16| ((|v| |Vector| R) ($ S))
+        (SPADCALL |v| (SPADCALL (QREFELT $ 29)) (QREFELT $ 86))) 
+
+(SDEFUN |FRNAALG-;leftTraceMatrix;M;17| (($ |Matrix| R))
+        (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 88))) 
+
+(SDEFUN |FRNAALG-;rightTraceMatrix;M;18| (($ |Matrix| R))
+        (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 90))) 
+
+(SDEFUN |FRNAALG-;leftDiscriminant;R;19| (($ R))
+        (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 92))) 
+
+(SDEFUN |FRNAALG-;rightDiscriminant;R;20| (($ R))
+        (SPADCALL (SPADCALL (QREFELT $ 29)) (QREFELT $ 94))) 
+
+(SDEFUN |FRNAALG-;leftRegularRepresentation;SM;21| ((|x| S) ($ |Matrix| R))
+        (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 96))) 
+
+(SDEFUN |FRNAALG-;rightRegularRepresentation;SM;22| ((|x| S) ($ |Matrix| R))
+        (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 98))) 
+
+(SDEFUN |FRNAALG-;coordinates;VM;23| ((|x| |Vector| S) ($ |Matrix| R))
+        (SPADCALL |x| (SPADCALL (QREFELT $ 29)) (QREFELT $ 100))) 
+
+(SDEFUN |FRNAALG-;represents;VS;24| ((|v| |Vector| R) ($ S))
+        (SPADCALL |v| (SPADCALL (QREFELT $ 29)) (QREFELT $ 86))) 
+
+(SDEFUN |FRNAALG-;coordinates;VM;25| ((|v| |Vector| S) ($ |Matrix| R))
+        (SPROG ((#1=#:G232 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
+               (SEQ
+                (LETT |m|
+                      (MAKE_MATRIX1 (QVSIZE |v|) (SPADCALL (QREFELT $ 11))
+                                    (|spadConstant| $ 37))
+                      . #2=(|FRNAALG-;coordinates;VM;25|))
+                (SEQ (LETT |j| 1 . #2#)
+                     (LETT |i| (SPADCALL |v| (QREFELT $ 104)) . #2#)
+                     (LETT #1# (QVSIZE |v|) . #2#) G190
+                     (COND ((> |i| #1#) (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (SPADCALL |m| |j|
+                                 (SPADCALL (QAREF1O |v| |i| 1) (QREFELT $ 76))
+                                 (QREFELT $ 105))))
+                     (LETT |i|
+                           (PROG1 (+ |i| 1) (LETT |j| (|inc_SI| |j|) . #2#))
+                           . #2#)
+                     (GO G190) G191 (EXIT NIL))
+                (EXIT |m|)))) 
 
 (DECLAIM (NOTINLINE |FramedNonAssociativeAlgebra&;|)) 
 
 (DEFUN |FramedNonAssociativeAlgebra&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FramedNonAssociativeAlgebra&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|FramedNonAssociativeAlgebra&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 106) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2| '(|Field|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 49
-                   (CONS
-                    (|dispatchFunction| |FRNAALG-;leftRankPolynomial;Sup;3|)
-                    $))
-         (QSETREFV $ 50
-                   (CONS
-                    (|dispatchFunction| |FRNAALG-;rightRankPolynomial;Sup;4|)
-                    $))
-         NIL
-         (QSETREFV $ 64 (CONS (|dispatchFunction| |FRNAALG-;leftUnit;U;6|) $))
-         (QSETREFV $ 72 (CONS (|dispatchFunction| |FRNAALG-;leftUnits;U;7|) $))
-         NIL
-         (QSETREFV $ 73 (CONS (|dispatchFunction| |FRNAALG-;rightUnit;U;9|) $))
-         (QSETREFV $ 74
-                   (CONS (|dispatchFunction| |FRNAALG-;rightUnits;U;10|) $))
-         (QSETREFV $ 75 (CONS (|dispatchFunction| |FRNAALG-;unit;U;11|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FramedNonAssociativeAlgebra&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|FramedNonAssociativeAlgebra&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 106) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2| '(|Field|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 49
+                       (CONS
+                        (|dispatchFunction|
+                         |FRNAALG-;leftRankPolynomial;Sup;3|)
+                        $))
+             (QSETREFV $ 50
+                       (CONS
+                        (|dispatchFunction|
+                         |FRNAALG-;rightRankPolynomial;Sup;4|)
+                        $))
+             NIL
+             (QSETREFV $ 64
+                       (CONS (|dispatchFunction| |FRNAALG-;leftUnit;U;6|) $))
+             (QSETREFV $ 72
+                       (CONS (|dispatchFunction| |FRNAALG-;leftUnits;U;7|) $))
+             NIL
+             (QSETREFV $ 73
+                       (CONS (|dispatchFunction| |FRNAALG-;rightUnit;U;9|) $))
+             (QSETREFV $ 74
+                       (CONS (|dispatchFunction| |FRNAALG-;rightUnits;U;10|)
+                             $))
+             (QSETREFV $ 75
+                       (CONS (|dispatchFunction| |FRNAALG-;unit;U;11|) $)))))
+          $))) 
 
 (MAKEPROP '|FramedNonAssociativeAlgebra&| '|infovec|
           (LIST

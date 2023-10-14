@@ -2,59 +2,58 @@
 (DECLAIM (NOTINLINE |FiniteFieldCyclicGroupExtension;|)) 
 
 (DEFUN |FiniteFieldCyclicGroupExtension| (&REST #1=#:G138)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G139)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|FiniteFieldCyclicGroupExtension|)
-                                           '|domainEqualList|)
-                . #3=(|FiniteFieldCyclicGroupExtension|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY (|function| |FiniteFieldCyclicGroupExtension;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G139)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|FiniteFieldCyclicGroupExtension|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|FiniteFieldCyclicGroupExtension|)
+                                               '|domainEqualList|)
+                    . #3=(|FiniteFieldCyclicGroupExtension|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |FiniteFieldCyclicGroupExtension;|)
+                             #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|FiniteFieldCyclicGroupExtension|)))))))))) 
 
 (DEFUN |FiniteFieldCyclicGroupExtension;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G137 $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldCyclicGroupExtension|))
-      (LETT DV$2 (|devaluate| |#2|) . #2#)
-      (LETT |dv$| (LIST '|FiniteFieldCyclicGroupExtension| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 48) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|Finite|))
-                                                . #2#)
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicNonZero|))
-                                           #1#)))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|FiniteFieldCyclicGroupExtension|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G137 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldCyclicGroupExtension|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT |dv$| (LIST '|FiniteFieldCyclicGroupExtension| DV$1 DV$2) . #2#)
+    (LETT $ (GETREFV 48) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (LETT #1#
+                                              (|HasCategory| |#1| '(|Finite|))
+                                              . #2#)
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|CharacteristicNonZero|))
+                                         #1#)))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|FiniteFieldCyclicGroupExtension|
+                (LIST DV$1 DV$2) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|FiniteFieldCyclicGroupExtension| '|infovec|
           (LIST

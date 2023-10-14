@@ -1,117 +1,126 @@
 
-(DEFUN |VIEWDEF;viewPosDefault;L;1| ($)
-  (LIST (SPADCALL (QREFELT $ 27) (QREFELT $ 50))
-        (SPADCALL (QREFELT $ 28) (QREFELT $ 50)))) 
+(SDEFUN |VIEWDEF;viewPosDefault;L;1| (($ |List| (|NonNegativeInteger|)))
+        (LIST (SPADCALL (QREFELT $ 27) (QREFELT $ 50))
+              (SPADCALL (QREFELT $ 28) (QREFELT $ 50)))) 
 
-(DEFUN |VIEWDEF;viewPosDefault;2L;2| (|l| $)
-  (COND
-   ((< (SPADCALL |l| (QREFELT $ 53)) 2)
-    (|error| "viewPosDefault expects a list with two elements"))
-   ('T
-    (LIST (SPADCALL (QREFELT $ 27) (|SPADfirst| |l|) (QREFELT $ 54))
-          (SPADCALL (QREFELT $ 28) (SPADCALL |l| (QREFELT $ 55))
-                    (QREFELT $ 54)))))) 
+(SDEFUN |VIEWDEF;viewPosDefault;2L;2|
+        ((|l| |List| (|NonNegativeInteger|)) ($ |List| (|NonNegativeInteger|)))
+        (COND
+         ((< (SPADCALL |l| (QREFELT $ 53)) 2)
+          (|error| "viewPosDefault expects a list with two elements"))
+         ('T
+          (LIST (SPADCALL (QREFELT $ 27) (|SPADfirst| |l|) (QREFELT $ 54))
+                (SPADCALL (QREFELT $ 28) (SPADCALL |l| (QREFELT $ 55))
+                          (QREFELT $ 54)))))) 
 
-(DEFUN |VIEWDEF;viewSizeDefault;L;3| ($)
-  (LIST (SPADCALL (QREFELT $ 29) (QREFELT $ 57))
-        (SPADCALL (QREFELT $ 30) (QREFELT $ 57)))) 
+(SDEFUN |VIEWDEF;viewSizeDefault;L;3| (($ |List| (|PositiveInteger|)))
+        (LIST (SPADCALL (QREFELT $ 29) (QREFELT $ 57))
+              (SPADCALL (QREFELT $ 30) (QREFELT $ 57)))) 
 
-(DEFUN |VIEWDEF;viewSizeDefault;2L;4| (|l| $)
-  (COND
-   ((< (LENGTH |l|) 2)
-    (|error| "viewSizeDefault expects a list with two elements"))
-   ('T
-    (LIST (SPADCALL (QREFELT $ 29) (|SPADfirst| |l|) (QREFELT $ 60))
-          (SPADCALL (QREFELT $ 30) (SPADCALL |l| (QREFELT $ 61))
-                    (QREFELT $ 60)))))) 
+(SDEFUN |VIEWDEF;viewSizeDefault;2L;4|
+        ((|l| |List| (|PositiveInteger|)) ($ |List| (|PositiveInteger|)))
+        (COND
+         ((< (LENGTH |l|) 2)
+          (|error| "viewSizeDefault expects a list with two elements"))
+         ('T
+          (LIST (SPADCALL (QREFELT $ 29) (|SPADfirst| |l|) (QREFELT $ 60))
+                (SPADCALL (QREFELT $ 30) (SPADCALL |l| (QREFELT $ 61))
+                          (QREFELT $ 60)))))) 
 
-(DEFUN |VIEWDEF;viewDefaults;V;5| ($)
-  (SEQ
-   (SETELT $ 12
-           (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
-                     (QREFELT $ 11)))
-   (SETELT $ 15
-           (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 13)) (QREFELT $ 14))
-                     (QREFELT $ 11)))
-   (SETELT $ 17
-           (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 16))
-                     (QREFELT $ 11)))
-   (SETELT $ 19
-           (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 18)) (QREFELT $ 16))
-                     (QREFELT $ 11)))
-   (SETELT $ 23 (SPADCALL 3 (QREFELT $ 22)))
-   (SETELT $ 27 (SPADCALL 0 (QREFELT $ 26)))
-   (SETELT $ 28 (SPADCALL 0 (QREFELT $ 26)))
-   (SETELT $ 29 (SPADCALL 400 (QREFELT $ 22)))
-   (EXIT (SETELT $ 30 (SPADCALL 427 (QREFELT $ 22)))))) 
+(SDEFUN |VIEWDEF;viewDefaults;V;5| (($ |Void|))
+        (SEQ
+         (SETELT $ 12
+                 (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
+                           (QREFELT $ 11)))
+         (SETELT $ 15
+                 (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 13)) (QREFELT $ 14))
+                           (QREFELT $ 11)))
+         (SETELT $ 17
+                 (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 16))
+                           (QREFELT $ 11)))
+         (SETELT $ 19
+                 (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 18)) (QREFELT $ 16))
+                           (QREFELT $ 11)))
+         (SETELT $ 23 (SPADCALL 3 (QREFELT $ 22)))
+         (SETELT $ 27 (SPADCALL 0 (QREFELT $ 26)))
+         (SETELT $ 28 (SPADCALL 0 (QREFELT $ 26)))
+         (SETELT $ 29 (SPADCALL 400 (QREFELT $ 22)))
+         (EXIT (SETELT $ 30 (SPADCALL 427 (QREFELT $ 22)))))) 
 
-(DEFUN |VIEWDEF;pointColorDefault;P;6| ($)
-  (SPADCALL (QREFELT $ 12) (QREFELT $ 65))) 
+(SDEFUN |VIEWDEF;pointColorDefault;P;6| (($ |Palette|))
+        (SPADCALL (QREFELT $ 12) (QREFELT $ 65))) 
 
-(DEFUN |VIEWDEF;pointColorDefault;2P;7| (|p| $)
-  (SPADCALL (QREFELT $ 12) |p| (QREFELT $ 67))) 
+(SDEFUN |VIEWDEF;pointColorDefault;2P;7| ((|p| |Palette|) ($ |Palette|))
+        (SPADCALL (QREFELT $ 12) |p| (QREFELT $ 67))) 
 
-(DEFUN |VIEWDEF;lineColorDefault;P;8| ($)
-  (SPADCALL (QREFELT $ 15) (QREFELT $ 65))) 
+(SDEFUN |VIEWDEF;lineColorDefault;P;8| (($ |Palette|))
+        (SPADCALL (QREFELT $ 15) (QREFELT $ 65))) 
 
-(DEFUN |VIEWDEF;lineColorDefault;2P;9| (|p| $)
-  (SPADCALL (QREFELT $ 15) |p| (QREFELT $ 67))) 
+(SDEFUN |VIEWDEF;lineColorDefault;2P;9| ((|p| |Palette|) ($ |Palette|))
+        (SPADCALL (QREFELT $ 15) |p| (QREFELT $ 67))) 
 
-(DEFUN |VIEWDEF;axesColorDefault;P;10| ($)
-  (SPADCALL (QREFELT $ 17) (QREFELT $ 65))) 
+(SDEFUN |VIEWDEF;axesColorDefault;P;10| (($ |Palette|))
+        (SPADCALL (QREFELT $ 17) (QREFELT $ 65))) 
 
-(DEFUN |VIEWDEF;axesColorDefault;2P;11| (|p| $)
-  (SPADCALL (QREFELT $ 17) |p| (QREFELT $ 67))) 
+(SDEFUN |VIEWDEF;axesColorDefault;2P;11| ((|p| |Palette|) ($ |Palette|))
+        (SPADCALL (QREFELT $ 17) |p| (QREFELT $ 67))) 
 
-(DEFUN |VIEWDEF;unitsColorDefault;P;12| ($)
-  (SPADCALL (QREFELT $ 19) (QREFELT $ 65))) 
+(SDEFUN |VIEWDEF;unitsColorDefault;P;12| (($ |Palette|))
+        (SPADCALL (QREFELT $ 19) (QREFELT $ 65))) 
 
-(DEFUN |VIEWDEF;unitsColorDefault;2P;13| (|p| $)
-  (SPADCALL (QREFELT $ 19) |p| (QREFELT $ 67))) 
+(SDEFUN |VIEWDEF;unitsColorDefault;2P;13| ((|p| |Palette|) ($ |Palette|))
+        (SPADCALL (QREFELT $ 19) |p| (QREFELT $ 67))) 
 
-(DEFUN |VIEWDEF;pointSizeDefault;Pi;14| ($)
-  (SPADCALL (QREFELT $ 23) (QREFELT $ 57))) 
+(SDEFUN |VIEWDEF;pointSizeDefault;Pi;14| (($ |PositiveInteger|))
+        (SPADCALL (QREFELT $ 23) (QREFELT $ 57))) 
 
-(DEFUN |VIEWDEF;pointSizeDefault;2Pi;15| (|x| $)
-  (SPADCALL (QREFELT $ 23) |x| (QREFELT $ 60))) 
+(SDEFUN |VIEWDEF;pointSizeDefault;2Pi;15|
+        ((|x| |PositiveInteger|) ($ |PositiveInteger|))
+        (SPADCALL (QREFELT $ 23) |x| (QREFELT $ 60))) 
 
-(DEFUN |VIEWDEF;var1StepsDefault;Pi;16| ($)
-  (SPADCALL (QREFELT $ 35) (QREFELT $ 57))) 
+(SDEFUN |VIEWDEF;var1StepsDefault;Pi;16| (($ |PositiveInteger|))
+        (SPADCALL (QREFELT $ 35) (QREFELT $ 57))) 
 
-(DEFUN |VIEWDEF;var1StepsDefault;2Pi;17| (|i| $)
-  (SPADCALL (QREFELT $ 35) |i| (QREFELT $ 60))) 
+(SDEFUN |VIEWDEF;var1StepsDefault;2Pi;17|
+        ((|i| |PositiveInteger|) ($ |PositiveInteger|))
+        (SPADCALL (QREFELT $ 35) |i| (QREFELT $ 60))) 
 
-(DEFUN |VIEWDEF;var2StepsDefault;Pi;18| ($)
-  (SPADCALL (QREFELT $ 36) (QREFELT $ 57))) 
+(SDEFUN |VIEWDEF;var2StepsDefault;Pi;18| (($ |PositiveInteger|))
+        (SPADCALL (QREFELT $ 36) (QREFELT $ 57))) 
 
-(DEFUN |VIEWDEF;var2StepsDefault;2Pi;19| (|i| $)
-  (SPADCALL (QREFELT $ 36) |i| (QREFELT $ 60))) 
+(SDEFUN |VIEWDEF;var2StepsDefault;2Pi;19|
+        ((|i| |PositiveInteger|) ($ |PositiveInteger|))
+        (SPADCALL (QREFELT $ 36) |i| (QREFELT $ 60))) 
 
-(DEFUN |VIEWDEF;tubePointsDefault;Pi;20| ($)
-  (SPADCALL (QREFELT $ 37) (QREFELT $ 57))) 
+(SDEFUN |VIEWDEF;tubePointsDefault;Pi;20| (($ |PositiveInteger|))
+        (SPADCALL (QREFELT $ 37) (QREFELT $ 57))) 
 
-(DEFUN |VIEWDEF;tubePointsDefault;2Pi;21| (|i| $)
-  (SPADCALL (QREFELT $ 37) |i| (QREFELT $ 60))) 
+(SDEFUN |VIEWDEF;tubePointsDefault;2Pi;21|
+        ((|i| |PositiveInteger|) ($ |PositiveInteger|))
+        (SPADCALL (QREFELT $ 37) |i| (QREFELT $ 60))) 
 
-(DEFUN |VIEWDEF;tubeRadiusDefault;Df;22| ($)
-  (SPADCALL (QREFELT $ 45) (QREFELT $ 83))) 
+(SDEFUN |VIEWDEF;tubeRadiusDefault;Df;22| (($ |DoubleFloat|))
+        (SPADCALL (QREFELT $ 45) (QREFELT $ 83))) 
 
-(DEFUN |VIEWDEF;tubeRadiusDefault;FDf;23| (|f| $)
-  (SPADCALL (QREFELT $ 45) (SPADCALL |f| (QREFELT $ 42)) (QREFELT $ 85))) 
+(SDEFUN |VIEWDEF;tubeRadiusDefault;FDf;23| ((|f| |Float|) ($ |DoubleFloat|))
+        (SPADCALL (QREFELT $ 45) (SPADCALL |f| (QREFELT $ 42)) (QREFELT $ 85))) 
 
 (PUT '|VIEWDEF;viewWriteAvailable;L;24| '|SPADreplace|
      '(XLAM NIL (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE"))) 
 
-(DEFUN |VIEWDEF;viewWriteAvailable;L;24| ($)
-  (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE")) 
+(SDEFUN |VIEWDEF;viewWriteAvailable;L;24| (($ |List| (|String|)))
+        (LIST "PIXMAP" "BITMAP" "POSTSCRIPT" "IMAGE")) 
 
-(DEFUN |VIEWDEF;viewWriteDefault;L;25| ($)
-  (SPADCALL (QREFELT $ 34) (QREFELT $ 88))) 
+(SDEFUN |VIEWDEF;viewWriteDefault;L;25| (($ |List| (|String|)))
+        (SPADCALL (QREFELT $ 34) (QREFELT $ 88))) 
 
-(DEFUN |VIEWDEF;viewWriteDefault;2L;26| (|listOfThings| $)
-  (PROG (|thingsToWrite| |writeTypeInt| #1=#:G139 |aTypeOfFile|)
-    (RETURN
-     (SEQ (LETT |thingsToWrite| NIL . #2=(|VIEWDEF;viewWriteDefault;2L;26|))
+(SDEFUN |VIEWDEF;viewWriteDefault;2L;26|
+        ((|listOfThings| |List| (|String|)) ($ |List| (|String|)))
+        (SPROG
+         ((|thingsToWrite| (|List| (|String|))) (|writeTypeInt| (|Integer|))
+          (#1=#:G139 NIL) (|aTypeOfFile| NIL))
+         (SEQ
+          (LETT |thingsToWrite| NIL . #2=(|VIEWDEF;viewWriteDefault;2L;26|))
           (SEQ (LETT |aTypeOfFile| NIL . #2#) (LETT #1# |listOfThings| . #2#)
                G190
                (COND
@@ -135,68 +144,72 @@
                          (APPEND |thingsToWrite| (LIST |aTypeOfFile|))
                          . #2#)))))
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL (QREFELT $ 34) |thingsToWrite| (QREFELT $ 93))))))) 
+          (EXIT (SPADCALL (QREFELT $ 34) |thingsToWrite| (QREFELT $ 93)))))) 
 
 (DECLAIM (NOTINLINE |ViewDefaultsPackage;|)) 
 
 (DEFUN |ViewDefaultsPackage| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G141)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|)
-                . #2=(|ViewDefaultsPackage|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|ViewDefaultsPackage|
-                         (LIST (CONS NIL (CONS 1 (|ViewDefaultsPackage;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G141)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|ViewDefaultsPackage|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|)
+                    . #2=(|ViewDefaultsPackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|ViewDefaultsPackage|
+                             (LIST
+                              (CONS NIL (CONS 1 (|ViewDefaultsPackage;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|ViewDefaultsPackage|)))))))))) 
 
 (DEFUN |ViewDefaultsPackage;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|ViewDefaultsPackage|) . #1=(|ViewDefaultsPackage|))
-      (LETT $ (GETREFV 95) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ViewDefaultsPackage| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 12
-                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
-                          (QREFELT $ 11)))
-      (QSETREFV $ 15
-                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 13)) (QREFELT $ 14))
-                          (QREFELT $ 11)))
-      (QSETREFV $ 17
-                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 16))
-                          (QREFELT $ 11)))
-      (QSETREFV $ 19
-                (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 18)) (QREFELT $ 16))
-                          (QREFELT $ 11)))
-      (QSETREFV $ 23 (SPADCALL 3 (QREFELT $ 22)))
-      (QSETREFV $ 27 (SPADCALL 0 (QREFELT $ 26)))
-      (QSETREFV $ 28 (SPADCALL 0 (QREFELT $ 26)))
-      (QSETREFV $ 29 (SPADCALL 400 (QREFELT $ 22)))
-      (QSETREFV $ 30 (SPADCALL 400 (QREFELT $ 22)))
-      (QSETREFV $ 34 (SPADCALL NIL (QREFELT $ 33)))
-      (QSETREFV $ 35 (SPADCALL 27 (QREFELT $ 22)))
-      (QSETREFV $ 36 (SPADCALL 27 (QREFELT $ 22)))
-      (QSETREFV $ 37 (SPADCALL 6 (QREFELT $ 22)))
-      (QSETREFV $ 45
-                (SPADCALL
-                 (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 40)) (QREFELT $ 42))
-                 (QREFELT $ 44)))
-      (QSETREFV $ 49 (SPADCALL 'NIL (QREFELT $ 48)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|ViewDefaultsPackage|) . #1=(|ViewDefaultsPackage|))
+          (LETT $ (GETREFV 95) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ViewDefaultsPackage| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 12
+                    (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))
+                              (QREFELT $ 11)))
+          (QSETREFV $ 15
+                    (SPADCALL
+                     (SPADCALL (SPADCALL (QREFELT $ 13)) (QREFELT $ 14))
+                     (QREFELT $ 11)))
+          (QSETREFV $ 17
+                    (SPADCALL
+                     (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 16))
+                     (QREFELT $ 11)))
+          (QSETREFV $ 19
+                    (SPADCALL
+                     (SPADCALL (SPADCALL (QREFELT $ 18)) (QREFELT $ 16))
+                     (QREFELT $ 11)))
+          (QSETREFV $ 23 (SPADCALL 3 (QREFELT $ 22)))
+          (QSETREFV $ 27 (SPADCALL 0 (QREFELT $ 26)))
+          (QSETREFV $ 28 (SPADCALL 0 (QREFELT $ 26)))
+          (QSETREFV $ 29 (SPADCALL 400 (QREFELT $ 22)))
+          (QSETREFV $ 30 (SPADCALL 400 (QREFELT $ 22)))
+          (QSETREFV $ 34 (SPADCALL NIL (QREFELT $ 33)))
+          (QSETREFV $ 35 (SPADCALL 27 (QREFELT $ 22)))
+          (QSETREFV $ 36 (SPADCALL 27 (QREFELT $ 22)))
+          (QSETREFV $ 37 (SPADCALL 6 (QREFELT $ 22)))
+          (QSETREFV $ 45
+                    (SPADCALL
+                     (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 40))
+                               (QREFELT $ 42))
+                     (QREFELT $ 44)))
+          (QSETREFV $ 49 (SPADCALL 'NIL (QREFELT $ 48)))
+          $))) 
 
 (MAKEPROP '|ViewDefaultsPackage| '|infovec|
           (LIST

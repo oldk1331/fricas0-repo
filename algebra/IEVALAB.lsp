@@ -15,19 +15,18 @@
       #2#)))) 
 
 (DEFUN |InnerEvalable;| (|t#1| |t#2|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (|Join|
-                 (|mkCategory|
-                  '(((|eval| ($ $ |t#1| |t#2|)) T)
-                    ((|eval| ($ $ (|List| |t#1|) (|List| |t#2|))) T))
-                  NIL '((|List| |t#1|) (|List| |t#2|)) NIL)))
-               |InnerEvalable|)
-       (SETELT #1# 0
-               (LIST '|InnerEvalable| (|devaluate| |t#1|)
-                     (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (|Join|
+                     (|mkCategory|
+                      '(((|eval| ($ $ |t#1| |t#2|)) T)
+                        ((|eval| ($ $ (|List| |t#1|) (|List| |t#2|))) T))
+                      NIL '((|List| |t#1|) (|List| |t#2|)) NIL)))
+                   |InnerEvalable|)
+           (SETELT #1# 0
+                   (LIST '|InnerEvalable| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

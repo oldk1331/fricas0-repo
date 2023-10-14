@@ -1,601 +1,634 @@
 
-(DEFUN |EFUPXS;nthRootIfCan;UPXSNniU;1| (|upxs| |n| $)
-  (PROG (|ulsRoot| |uls| |coef| |deg| |r|)
-    (RETURN
-     (SEQ
-      (COND ((EQL |n| 1) (CONS 0 |upxs|))
-            (#1='T
-             (SEQ
-              (LETT |r| (SPADCALL |upxs| (QREFELT $ 14))
-                    . #2=(|EFUPXS;nthRootIfCan;UPXSNniU;1|))
-              (LETT |uls| (SPADCALL |upxs| (QREFELT $ 15)) . #2#)
-              (LETT |deg| (SPADCALL |uls| (QREFELT $ 17)) . #2#)
-              (COND
-               ((SPADCALL
-                 (LETT |coef| (SPADCALL |uls| |deg| (QREFELT $ 18)) . #2#)
-                 (QREFELT $ 20))
-                (SEQ
-                 (LETT |deg| (SPADCALL |uls| (+ |deg| 1000) (QREFELT $ 21))
-                       . #2#)
-                 (EXIT
+(SDEFUN |EFUPXS;nthRootIfCan;UPXSNniU;1|
+        ((|upxs| UPXS) (|n| |NonNegativeInteger|) ($ |Union| UPXS #1="failed"))
+        (SPROG
+         ((|ulsRoot| (|Union| ULS #1#)) (|uls| (ULS)) (|coef| (|Coef|))
+          (|deg| (|Integer|)) (|r| (|Fraction| (|Integer|))))
+         (SEQ
+          (COND ((EQL |n| 1) (CONS 0 |upxs|))
+                (#2='T
+                 (SEQ
+                  (LETT |r| (SPADCALL |upxs| (QREFELT $ 14))
+                        . #3=(|EFUPXS;nthRootIfCan;UPXSNniU;1|))
+                  (LETT |uls| (SPADCALL |upxs| (QREFELT $ 15)) . #3#)
+                  (LETT |deg| (SPADCALL |uls| (QREFELT $ 17)) . #3#)
                   (COND
                    ((SPADCALL
-                     (LETT |coef| (SPADCALL |uls| |deg| (QREFELT $ 18)) . #2#)
+                     (LETT |coef| (SPADCALL |uls| |deg| (QREFELT $ 18)) . #3#)
                      (QREFELT $ 20))
-                    (|error|
-                     "root of series with many leading zero coefficients")))))))
-              (LETT |uls|
-                    (SPADCALL |uls|
-                              (SPADCALL (|spadConstant| $ 11) (- |deg|)
-                                        (QREFELT $ 22))
-                              (QREFELT $ 23))
-                    . #2#)
-              (LETT |ulsRoot| (SPADCALL |uls| |n| (QREFELT $ 26)) . #2#)
-              (EXIT
-               (COND ((QEQCAR |ulsRoot| 1) (CONS 1 "failed"))
-                     (#1#
-                      (CONS 0
-                            (SPADCALL
-                             (SPADCALL |r| (QCDR |ulsRoot|) (QREFELT $ 27))
-                             (SPADCALL (|spadConstant| $ 11)
-                                       (SPADCALL
-                                        (SPADCALL |deg| |r| (QREFELT $ 28))
-                                        (SPADCALL (SPADCALL |n| (QREFELT $ 29))
-                                                  (QREFELT $ 30))
-                                        (QREFELT $ 31))
-                                       (QREFELT $ 32))
-                             (QREFELT $ 33))))))))))))) 
+                    (SEQ
+                     (LETT |deg| (SPADCALL |uls| (+ |deg| 1000) (QREFELT $ 21))
+                           . #3#)
+                     (EXIT
+                      (COND
+                       ((SPADCALL
+                         (LETT |coef| (SPADCALL |uls| |deg| (QREFELT $ 18))
+                               . #3#)
+                         (QREFELT $ 20))
+                        (|error|
+                         "root of series with many leading zero coefficients")))))))
+                  (LETT |uls|
+                        (SPADCALL |uls|
+                                  (SPADCALL (|spadConstant| $ 11) (- |deg|)
+                                            (QREFELT $ 22))
+                                  (QREFELT $ 23))
+                        . #3#)
+                  (LETT |ulsRoot| (SPADCALL |uls| |n| (QREFELT $ 26)) . #3#)
+                  (EXIT
+                   (COND ((QEQCAR |ulsRoot| 1) (CONS 1 "failed"))
+                         (#2#
+                          (CONS 0
+                                (SPADCALL
+                                 (SPADCALL |r| (QCDR |ulsRoot|) (QREFELT $ 27))
+                                 (SPADCALL (|spadConstant| $ 11)
+                                           (SPADCALL
+                                            (SPADCALL |deg| |r| (QREFELT $ 28))
+                                            (SPADCALL
+                                             (SPADCALL |n| (QREFELT $ 29))
+                                             (QREFELT $ 30))
+                                            (QREFELT $ 31))
+                                           (QREFELT $ 32))
+                                 (QREFELT $ 33)))))))))))) 
 
-(DEFUN |EFUPXS;^;UPXSFUPXS;2| (|upxs| |q| $)
-  (PROG (|ulsPow| |coef| |deg| |uls| |r| |den| |num|)
-    (RETURN
-     (SEQ
-      (LETT |num| (SPADCALL |q| (QREFELT $ 36)) . #1=(|EFUPXS;^;UPXSFUPXS;2|))
-      (LETT |den| (SPADCALL |q| (QREFELT $ 37)) . #1#)
-      (EXIT
-       (COND ((EQL |den| 1) (SPADCALL |upxs| |num| (QREFELT $ 38)))
-             ('T
-              (SEQ (LETT |r| (SPADCALL |upxs| (QREFELT $ 14)) . #1#)
-                   (LETT |uls| (SPADCALL |upxs| (QREFELT $ 15)) . #1#)
-                   (LETT |deg| (SPADCALL |uls| (QREFELT $ 17)) . #1#)
-                   (COND
-                    ((SPADCALL
-                      (LETT |coef| (SPADCALL |uls| |deg| (QREFELT $ 18)) . #1#)
-                      (QREFELT $ 20))
-                     (SEQ
-                      (LETT |deg|
-                            (SPADCALL |uls| (+ |deg| 1000) (QREFELT $ 21))
-                            . #1#)
-                      (EXIT
+(SDEFUN |EFUPXS;^;UPXSFUPXS;2|
+        ((|upxs| UPXS) (|q| |Fraction| (|Integer|)) ($ UPXS))
+        (SPROG
+         ((|ulsPow| (ULS)) (|coef| (|Coef|)) (|deg| (|Integer|)) (|uls| (ULS))
+          (|r| (|Fraction| (|Integer|))) (|den| (|Integer|))
+          (|num| (|Integer|)))
+         (SEQ
+          (LETT |num| (SPADCALL |q| (QREFELT $ 36))
+                . #1=(|EFUPXS;^;UPXSFUPXS;2|))
+          (LETT |den| (SPADCALL |q| (QREFELT $ 37)) . #1#)
+          (EXIT
+           (COND ((EQL |den| 1) (SPADCALL |upxs| |num| (QREFELT $ 38)))
+                 ('T
+                  (SEQ (LETT |r| (SPADCALL |upxs| (QREFELT $ 14)) . #1#)
+                       (LETT |uls| (SPADCALL |upxs| (QREFELT $ 15)) . #1#)
+                       (LETT |deg| (SPADCALL |uls| (QREFELT $ 17)) . #1#)
                        (COND
                         ((SPADCALL
                           (LETT |coef| (SPADCALL |uls| |deg| (QREFELT $ 18))
                                 . #1#)
                           (QREFELT $ 20))
-                         (|error|
-                          "power of series with many leading zero coefficients")))))))
-                   (LETT |ulsPow|
-                         (SPADCALL
-                          (SPADCALL |uls|
-                                    (SPADCALL (|spadConstant| $ 11) (- |deg|)
-                                              (QREFELT $ 22))
-                                    (QREFELT $ 23))
-                          |q| (QREFELT $ 39))
-                         . #1#)
-                   (EXIT
-                    (SPADCALL (SPADCALL |r| |ulsPow| (QREFELT $ 27))
-                              (SPADCALL (|spadConstant| $ 11)
-                                        (SPADCALL
-                                         (SPADCALL |deg| |q| (QREFELT $ 28))
-                                         |r| (QREFELT $ 31))
-                                        (QREFELT $ 32))
-                              (QREFELT $ 33))))))))))) 
+                         (SEQ
+                          (LETT |deg|
+                                (SPADCALL |uls| (+ |deg| 1000) (QREFELT $ 21))
+                                . #1#)
+                          (EXIT
+                           (COND
+                            ((SPADCALL
+                              (LETT |coef|
+                                    (SPADCALL |uls| |deg| (QREFELT $ 18))
+                                    . #1#)
+                              (QREFELT $ 20))
+                             (|error|
+                              "power of series with many leading zero coefficients")))))))
+                       (LETT |ulsPow|
+                             (SPADCALL
+                              (SPADCALL |uls|
+                                        (SPADCALL (|spadConstant| $ 11)
+                                                  (- |deg|) (QREFELT $ 22))
+                                        (QREFELT $ 23))
+                              |q| (QREFELT $ 39))
+                             . #1#)
+                       (EXIT
+                        (SPADCALL (SPADCALL |r| |ulsPow| (QREFELT $ 27))
+                                  (SPADCALL (|spadConstant| $ 11)
+                                            (SPADCALL
+                                             (SPADCALL |deg| |q|
+                                                       (QREFELT $ 28))
+                                             |r| (QREFELT $ 31))
+                                            (QREFELT $ 32))
+                                  (QREFELT $ 33)))))))))) 
 
-(DEFUN |EFUPXS;applyIfCan| (|fcn| |upxs| $)
-  (PROG (|uls|)
-    (RETURN
-     (SEQ
-      (LETT |uls| (SPADCALL (SPADCALL |upxs| (QREFELT $ 15)) |fcn|)
-            |EFUPXS;applyIfCan|)
-      (EXIT
-       (COND ((QEQCAR |uls| 1) (CONS 1 "failed"))
-             ('T
-              (CONS 0
-                    (SPADCALL (SPADCALL |upxs| (QREFELT $ 14)) (QCDR |uls|)
-                              (QREFELT $ 27)))))))))) 
+(SDEFUN |EFUPXS;applyIfCan|
+        ((|fcn| |Mapping| #1=(|Union| ULS "failed") ULS) (|upxs| UPXS)
+         ($ |Union| UPXS "failed"))
+        (SPROG ((|uls| #1#))
+               (SEQ
+                (LETT |uls| (SPADCALL (SPADCALL |upxs| (QREFELT $ 15)) |fcn|)
+                      |EFUPXS;applyIfCan|)
+                (EXIT
+                 (COND ((QEQCAR |uls| 1) (CONS 1 "failed"))
+                       ('T
+                        (CONS 0
+                              (SPADCALL (SPADCALL |upxs| (QREFELT $ 14))
+                                        (QCDR |uls|) (QREFELT $ 27))))))))) 
 
-(DEFUN |EFUPXS;expIfCan;UPXSU;4| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 41) |upxs| $)) 
+(SDEFUN |EFUPXS;expIfCan;UPXSU;4| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 41) |upxs| $)) 
 
-(DEFUN |EFUPXS;logIfCan;UPXSU;5| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 43) |upxs| $)) 
+(SDEFUN |EFUPXS;logIfCan;UPXSU;5| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 43) |upxs| $)) 
 
-(DEFUN |EFUPXS;sinIfCan;UPXSU;6| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 45) |upxs| $)) 
+(SDEFUN |EFUPXS;sinIfCan;UPXSU;6| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 45) |upxs| $)) 
 
-(DEFUN |EFUPXS;cosIfCan;UPXSU;7| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 47) |upxs| $)) 
+(SDEFUN |EFUPXS;cosIfCan;UPXSU;7| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 47) |upxs| $)) 
 
-(DEFUN |EFUPXS;tanIfCan;UPXSU;8| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 49) |upxs| $)) 
+(SDEFUN |EFUPXS;tanIfCan;UPXSU;8| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 49) |upxs| $)) 
 
-(DEFUN |EFUPXS;cotIfCan;UPXSU;9| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 51) |upxs| $)) 
+(SDEFUN |EFUPXS;cotIfCan;UPXSU;9| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 51) |upxs| $)) 
 
-(DEFUN |EFUPXS;secIfCan;UPXSU;10| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 53) |upxs| $)) 
+(SDEFUN |EFUPXS;secIfCan;UPXSU;10| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 53) |upxs| $)) 
 
-(DEFUN |EFUPXS;cscIfCan;UPXSU;11| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 55) |upxs| $)) 
+(SDEFUN |EFUPXS;cscIfCan;UPXSU;11| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 55) |upxs| $)) 
 
-(DEFUN |EFUPXS;atanIfCan;UPXSU;12| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 57) |upxs| $)) 
+(SDEFUN |EFUPXS;atanIfCan;UPXSU;12| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 57) |upxs| $)) 
 
-(DEFUN |EFUPXS;acotIfCan;UPXSU;13| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 59) |upxs| $)) 
+(SDEFUN |EFUPXS;acotIfCan;UPXSU;13| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 59) |upxs| $)) 
 
-(DEFUN |EFUPXS;sinhIfCan;UPXSU;14| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 61) |upxs| $)) 
+(SDEFUN |EFUPXS;sinhIfCan;UPXSU;14| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 61) |upxs| $)) 
 
-(DEFUN |EFUPXS;coshIfCan;UPXSU;15| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 63) |upxs| $)) 
+(SDEFUN |EFUPXS;coshIfCan;UPXSU;15| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 63) |upxs| $)) 
 
-(DEFUN |EFUPXS;tanhIfCan;UPXSU;16| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 65) |upxs| $)) 
+(SDEFUN |EFUPXS;tanhIfCan;UPXSU;16| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 65) |upxs| $)) 
 
-(DEFUN |EFUPXS;cothIfCan;UPXSU;17| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 67) |upxs| $)) 
+(SDEFUN |EFUPXS;cothIfCan;UPXSU;17| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 67) |upxs| $)) 
 
-(DEFUN |EFUPXS;sechIfCan;UPXSU;18| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 69) |upxs| $)) 
+(SDEFUN |EFUPXS;sechIfCan;UPXSU;18| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 69) |upxs| $)) 
 
-(DEFUN |EFUPXS;cschIfCan;UPXSU;19| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 71) |upxs| $)) 
+(SDEFUN |EFUPXS;cschIfCan;UPXSU;19| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 71) |upxs| $)) 
 
-(DEFUN |EFUPXS;asinhIfCan;UPXSU;20| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 73) |upxs| $)) 
+(SDEFUN |EFUPXS;asinhIfCan;UPXSU;20| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 73) |upxs| $)) 
 
-(DEFUN |EFUPXS;acoshIfCan;UPXSU;21| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 75) |upxs| $)) 
+(SDEFUN |EFUPXS;acoshIfCan;UPXSU;21| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 75) |upxs| $)) 
 
-(DEFUN |EFUPXS;atanhIfCan;UPXSU;22| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 77) |upxs| $)) 
+(SDEFUN |EFUPXS;atanhIfCan;UPXSU;22| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 77) |upxs| $)) 
 
-(DEFUN |EFUPXS;acothIfCan;UPXSU;23| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 79) |upxs| $)) 
+(SDEFUN |EFUPXS;acothIfCan;UPXSU;23| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 79) |upxs| $)) 
 
-(DEFUN |EFUPXS;asechIfCan;UPXSU;24| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 81) |upxs| $)) 
+(SDEFUN |EFUPXS;asechIfCan;UPXSU;24| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 81) |upxs| $)) 
 
-(DEFUN |EFUPXS;acschIfCan;UPXSU;25| (|upxs| $)
-  (|EFUPXS;applyIfCan| (ELT $ 83) |upxs| $)) 
+(SDEFUN |EFUPXS;acschIfCan;UPXSU;25| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (|EFUPXS;applyIfCan| (ELT $ 83) |upxs| $)) 
 
-(DEFUN |EFUPXS;asinIfCan;UPXSU;26| (|upxs| $)
-  (PROG (|cc| |coef|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
-                  (|spadConstant| $ 87) (QREFELT $ 89))
-        (CONS 1 "failed"))
-       (#1='T
-        (SEQ
-         (LETT |coef| (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 90))
-               . #2=(|EFUPXS;asinIfCan;UPXSU;26|))
-         (EXIT
-          (COND
-           ((SPADCALL |coef| (|spadConstant| $ 85) (QREFELT $ 91))
-            (CONS 0
-                  (SPADCALL
-                   (SPADCALL
-                    (SPADCALL
-                     (SPADCALL (|spadConstant| $ 92)
-                               (SPADCALL |upxs| |upxs| (QREFELT $ 33))
-                               (QREFELT $ 93))
-                     (SPADCALL (SPADCALL 1 2 (QREFELT $ 94)) (QREFELT $ 95))
-                     (QREFELT $ 96))
-                    (SPADCALL |upxs| (QREFELT $ 97)) (QREFELT $ 33))
-                   (QREFELT $ 98))))
-           ((QREFELT $ 10)
-            (SEQ
-             (LETT |cc|
-                   (SPADCALL (SPADCALL |coef| (QREFELT $ 99)) (QREFELT $ 100))
-                   . #2#)
-             (EXIT
-              (CONS 0
-                    (SPADCALL |cc|
-                              (SPADCALL
-                               (SPADCALL
-                                (SPADCALL
-                                 (SPADCALL (|spadConstant| $ 92)
-                                           (SPADCALL |upxs| |upxs|
-                                                     (QREFELT $ 33))
-                                           (QREFELT $ 93))
-                                 (SPADCALL (SPADCALL 1 2 (QREFELT $ 94))
-                                           (QREFELT $ 95))
-                                 (QREFELT $ 96))
-                                (SPADCALL |upxs| (QREFELT $ 97))
-                                (QREFELT $ 33))
-                               (QREFELT $ 98))
-                              (QREFELT $ 101))))))
-           (#1# (CONS 1 "failed"))))))))))) 
-
-(DEFUN |EFUPXS;acosIfCan;UPXSU;27| (|upxs| $)
-  (PROG (|cc|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR
-         (SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
+(SDEFUN |EFUPXS;asinIfCan;UPXSU;26| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (SPROG ((|cc| (UPXS)) (|coef| (|Coef|)))
+               (SEQ
+                (COND
+                 ((SPADCALL
+                   (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
                    (|spadConstant| $ 87) (QREFELT $ 89))
-         (NULL (QREFELT $ 10)))
-        (CONS 1 "failed"))
-       ('T
-        (SEQ
-         (LETT |cc|
-               (SPADCALL
-                (SPADCALL
-                 (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 90))
-                 (QREFELT $ 103))
-                (QREFELT $ 100))
-               |EFUPXS;acosIfCan;UPXSU;27|)
-         (EXIT
-          (CONS 0
-                (SPADCALL |cc|
-                          (SPADCALL
-                           (SPADCALL
+                  (CONS 1 "failed"))
+                 (#1='T
+                  (SEQ
+                   (LETT |coef|
+                         (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 90))
+                         . #2=(|EFUPXS;asinIfCan;UPXSU;26|))
+                   (EXIT
+                    (COND
+                     ((SPADCALL |coef| (|spadConstant| $ 85) (QREFELT $ 91))
+                      (CONS 0
                             (SPADCALL
                              (SPADCALL
-                              (SPADCALL (|spadConstant| $ 92)
-                                        (SPADCALL |upxs| |upxs| (QREFELT $ 33))
-                                        (QREFELT $ 93))
-                              (SPADCALL (SPADCALL 1 2 (QREFELT $ 94))
-                                        (QREFELT $ 95))
-                              (QREFELT $ 96))
-                             (SPADCALL |upxs| (QREFELT $ 97)) (QREFELT $ 33))
-                            (QREFELT $ 104))
-                           (QREFELT $ 98))
-                          (QREFELT $ 101))))))))))) 
+                              (SPADCALL
+                               (SPADCALL (|spadConstant| $ 92)
+                                         (SPADCALL |upxs| |upxs|
+                                                   (QREFELT $ 33))
+                                         (QREFELT $ 93))
+                               (SPADCALL (SPADCALL 1 2 (QREFELT $ 94))
+                                         (QREFELT $ 95))
+                               (QREFELT $ 96))
+                              (SPADCALL |upxs| (QREFELT $ 97)) (QREFELT $ 33))
+                             (QREFELT $ 98))))
+                     ((QREFELT $ 10)
+                      (SEQ
+                       (LETT |cc|
+                             (SPADCALL (SPADCALL |coef| (QREFELT $ 99))
+                                       (QREFELT $ 100))
+                             . #2#)
+                       (EXIT
+                        (CONS 0
+                              (SPADCALL |cc|
+                                        (SPADCALL
+                                         (SPADCALL
+                                          (SPADCALL
+                                           (SPADCALL (|spadConstant| $ 92)
+                                                     (SPADCALL |upxs| |upxs|
+                                                               (QREFELT $ 33))
+                                                     (QREFELT $ 93))
+                                           (SPADCALL
+                                            (SPADCALL 1 2 (QREFELT $ 94))
+                                            (QREFELT $ 95))
+                                           (QREFELT $ 96))
+                                          (SPADCALL |upxs| (QREFELT $ 97))
+                                          (QREFELT $ 33))
+                                         (QREFELT $ 98))
+                                        (QREFELT $ 101))))))
+                     (#1# (CONS 1 "failed")))))))))) 
 
-(DEFUN |EFUPXS;asecIfCan;UPXSU;28| (|upxs| $)
-  (PROG (|rec| |f| |cc|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR
-         (SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
-                   (|spadConstant| $ 87) (QREFELT $ 89))
-         (NULL (QREFELT $ 10)))
-        (CONS 1 "failed"))
-       ('T
-        (SEQ
-         (LETT |cc|
-               (SPADCALL
-                (SPADCALL
-                 (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 90))
-                 (QREFELT $ 106))
-                (QREFELT $ 100))
-               . #1=(|EFUPXS;asecIfCan;UPXSU;28|))
-         (LETT |f|
-               (SPADCALL
-                (SPADCALL
-                 (SPADCALL (SPADCALL |upxs| |upxs| (QREFELT $ 33))
-                           (|spadConstant| $ 92) (QREFELT $ 93))
-                 (SPADCALL (SPADCALL 1 2 (QREFELT $ 94)) (QREFELT $ 95))
-                 (QREFELT $ 96))
-                (SPADCALL |upxs| (QREFELT $ 97)) (QREFELT $ 33))
-               . #1#)
-         (LETT |rec| (SPADCALL |upxs| (QREFELT $ 108)) . #1#)
-         (EXIT
-          (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
-                ('T
-                 (CONS 0
-                       (SPADCALL |cc|
-                                 (SPADCALL
-                                  (SPADCALL |f| (QCDR |rec|) (QREFELT $ 33))
-                                  (QREFELT $ 98))
-                                 (QREFELT $ 101))))))))))))) 
-
-(DEFUN |EFUPXS;acscIfCan;UPXSU;29| (|upxs| $)
-  (PROG (|rec| |f| |cc|)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR
-         (SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
-                   (|spadConstant| $ 87) (QREFELT $ 89))
-         (NULL (QREFELT $ 10)))
-        (CONS 1 "failed"))
-       ('T
-        (SEQ
-         (LETT |cc|
-               (SPADCALL
-                (SPADCALL
-                 (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 90))
-                 (QREFELT $ 110))
-                (QREFELT $ 100))
-               . #1=(|EFUPXS;acscIfCan;UPXSU;29|))
-         (LETT |f|
-               (SPADCALL
-                (SPADCALL
-                 (SPADCALL
-                  (SPADCALL (SPADCALL |upxs| |upxs| (QREFELT $ 33))
-                            (|spadConstant| $ 92) (QREFELT $ 93))
-                  (SPADCALL (SPADCALL 1 2 (QREFELT $ 94)) (QREFELT $ 95))
-                  (QREFELT $ 96))
-                 (SPADCALL |upxs| (QREFELT $ 97)) (QREFELT $ 33))
-                (QREFELT $ 104))
-               . #1#)
-         (LETT |rec| (SPADCALL |upxs| (QREFELT $ 108)) . #1#)
-         (EXIT
-          (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
-                ('T
-                 (CONS 0
-                       (SPADCALL |cc|
-                                 (SPADCALL
-                                  (SPADCALL |f| (QCDR |rec|) (QREFELT $ 33))
-                                  (QREFELT $ 98))
-                                 (QREFELT $ 101))))))))))))) 
-
-(DEFUN |EFUPXS;asinhIfCan;UPXSU;30| (|upxs| $)
-  (COND
-   ((OR
-     (SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
-               (|spadConstant| $ 87) (QREFELT $ 89))
-     (NULL
-      (OR (QREFELT $ 10)
-          (SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 90))
-                    (|spadConstant| $ 85) (QREFELT $ 91)))))
-    (CONS 1 "failed"))
-   ('T
-    (CONS 0
-          (SPADCALL
-           (SPADCALL |upxs|
-                     (SPADCALL
-                      (SPADCALL (|spadConstant| $ 92)
-                                (SPADCALL |upxs| |upxs| (QREFELT $ 33))
-                                (QREFELT $ 101))
-                      (SPADCALL 1 2 (QREFELT $ 94)) (QREFELT $ 96))
-                     (QREFELT $ 101))
-           (QREFELT $ 112)))))) 
-
-(DEFUN |EFUPXS;acoshIfCan;UPXSU;31| (|upxs| $)
-  (COND
-   ((QREFELT $ 10)
-    (COND
-     ((SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
-                (|spadConstant| $ 87) (QREFELT $ 89))
-      (CONS 1 "failed"))
-     (#1='T
-      (CONS 0
-            (SPADCALL
-             (SPADCALL |upxs|
-                       (SPADCALL
-                        (SPADCALL (SPADCALL |upxs| |upxs| (QREFELT $ 33))
-                                  (|spadConstant| $ 92) (QREFELT $ 93))
-                        (SPADCALL 1 2 (QREFELT $ 94)) (QREFELT $ 96))
-                       (QREFELT $ 101))
-             (QREFELT $ 112))))))
-   (#1# (CONS 1 "failed")))) 
-
-(DEFUN |EFUPXS;asechIfCan;UPXSU;32| (|upxs| $)
-  (PROG (|rec|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QREFELT $ 10)
-        (COND
-         ((SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
+(SDEFUN |EFUPXS;acosIfCan;UPXSU;27| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (SPROG ((|cc| (UPXS)))
+               (SEQ
+                (COND
+                 ((OR
+                   (SPADCALL
+                    (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
                     (|spadConstant| $ 87) (QREFELT $ 89))
-          (CONS 1 "failed"))
-         (#1='T
-          (SEQ
-           (LETT |rec| (SPADCALL |upxs| (QREFELT $ 108))
-                 |EFUPXS;asechIfCan;UPXSU;32|)
-           (EXIT
-            (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
-                  (#1#
-                   (CONS 0
+                   (NULL (QREFELT $ 10)))
+                  (CONS 1 "failed"))
+                 ('T
+                  (SEQ
+                   (LETT |cc|
                          (SPADCALL
                           (SPADCALL
-                           (SPADCALL (|spadConstant| $ 92)
+                           (SPADCALL |upxs| (|spadConstant| $ 87)
+                                     (QREFELT $ 90))
+                           (QREFELT $ 103))
+                          (QREFELT $ 100))
+                         |EFUPXS;acosIfCan;UPXSU;27|)
+                   (EXIT
+                    (CONS 0
+                          (SPADCALL |cc|
+                                    (SPADCALL
                                      (SPADCALL
-                                      (SPADCALL (|spadConstant| $ 92)
-                                                (SPADCALL |upxs| |upxs|
-                                                          (QREFELT $ 33))
-                                                (QREFELT $ 93))
-                                      (SPADCALL 1 2 (QREFELT $ 94))
-                                      (QREFELT $ 114))
-                                     (QREFELT $ 101))
-                           (QCDR |rec|) (QREFELT $ 33))
-                          (QREFELT $ 112))))))))))
-       (#1# (CONS 1 "failed"))))))) 
+                                      (SPADCALL
+                                       (SPADCALL
+                                        (SPADCALL (|spadConstant| $ 92)
+                                                  (SPADCALL |upxs| |upxs|
+                                                            (QREFELT $ 33))
+                                                  (QREFELT $ 93))
+                                        (SPADCALL (SPADCALL 1 2 (QREFELT $ 94))
+                                                  (QREFELT $ 95))
+                                        (QREFELT $ 96))
+                                       (SPADCALL |upxs| (QREFELT $ 97))
+                                       (QREFELT $ 33))
+                                      (QREFELT $ 104))
+                                     (QREFELT $ 98))
+                                    (QREFELT $ 101)))))))))) 
 
-(DEFUN |EFUPXS;acschIfCan;UPXSU;33| (|upxs| $)
-  (PROG (|rec|)
-    (RETURN
-     (SEQ
-      (COND
-       ((QREFELT $ 10)
-        (COND
-         ((SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
+(SDEFUN |EFUPXS;asecIfCan;UPXSU;28| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (SPROG ((|rec| (|Union| UPXS "failed")) (|f| (UPXS)) (|cc| (UPXS)))
+               (SEQ
+                (COND
+                 ((OR
+                   (SPADCALL
+                    (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
                     (|spadConstant| $ 87) (QREFELT $ 89))
-          (CONS 1 "failed"))
-         (#1='T
-          (SEQ
-           (LETT |rec| (SPADCALL |upxs| (QREFELT $ 108))
-                 |EFUPXS;acschIfCan;UPXSU;33|)
-           (EXIT
-            (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
-                  (#1#
-                   (CONS 0
+                   (NULL (QREFELT $ 10)))
+                  (CONS 1 "failed"))
+                 ('T
+                  (SEQ
+                   (LETT |cc|
                          (SPADCALL
                           (SPADCALL
-                           (SPADCALL (|spadConstant| $ 92)
-                                     (SPADCALL
-                                      (SPADCALL (|spadConstant| $ 92)
-                                                (SPADCALL |upxs| |upxs|
-                                                          (QREFELT $ 33))
-                                                (QREFELT $ 101))
-                                      (SPADCALL 1 2 (QREFELT $ 94))
-                                      (QREFELT $ 114))
-                                     (QREFELT $ 101))
-                           (QCDR |rec|) (QREFELT $ 33))
-                          (QREFELT $ 112))))))))))
-       (#1# (CONS 1 "failed"))))))) 
+                           (SPADCALL |upxs| (|spadConstant| $ 87)
+                                     (QREFELT $ 90))
+                           (QREFELT $ 106))
+                          (QREFELT $ 100))
+                         . #1=(|EFUPXS;asecIfCan;UPXSU;28|))
+                   (LETT |f|
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL (SPADCALL |upxs| |upxs| (QREFELT $ 33))
+                                     (|spadConstant| $ 92) (QREFELT $ 93))
+                           (SPADCALL (SPADCALL 1 2 (QREFELT $ 94))
+                                     (QREFELT $ 95))
+                           (QREFELT $ 96))
+                          (SPADCALL |upxs| (QREFELT $ 97)) (QREFELT $ 33))
+                         . #1#)
+                   (LETT |rec| (SPADCALL |upxs| (QREFELT $ 108)) . #1#)
+                   (EXIT
+                    (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
+                          ('T
+                           (CONS 0
+                                 (SPADCALL |cc|
+                                           (SPADCALL
+                                            (SPADCALL |f| (QCDR |rec|)
+                                                      (QREFELT $ 33))
+                                            (QREFELT $ 98))
+                                           (QREFELT $ 101)))))))))))) 
 
-(DEFUN |EFUPXS;applyOrError| (|fcn| |name| |upxs| $)
-  (PROG (|ans|)
-    (RETURN
-     (SEQ (LETT |ans| (SPADCALL |upxs| |fcn|) |EFUPXS;applyOrError|)
-          (EXIT
-           (COND
-            ((QEQCAR |ans| 1)
-             (|error|
-              (SPADCALL (STRCONC |name| " of function with singularity")
-                        (QREFELT $ 117))))
-            ('T (QCDR |ans|)))))))) 
+(SDEFUN |EFUPXS;acscIfCan;UPXSU;29| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (SPROG ((|rec| (|Union| UPXS "failed")) (|f| (UPXS)) (|cc| (UPXS)))
+               (SEQ
+                (COND
+                 ((OR
+                   (SPADCALL
+                    (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
+                    (|spadConstant| $ 87) (QREFELT $ 89))
+                   (NULL (QREFELT $ 10)))
+                  (CONS 1 "failed"))
+                 ('T
+                  (SEQ
+                   (LETT |cc|
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL |upxs| (|spadConstant| $ 87)
+                                     (QREFELT $ 90))
+                           (QREFELT $ 110))
+                          (QREFELT $ 100))
+                         . #1=(|EFUPXS;acscIfCan;UPXSU;29|))
+                   (LETT |f|
+                         (SPADCALL
+                          (SPADCALL
+                           (SPADCALL
+                            (SPADCALL (SPADCALL |upxs| |upxs| (QREFELT $ 33))
+                                      (|spadConstant| $ 92) (QREFELT $ 93))
+                            (SPADCALL (SPADCALL 1 2 (QREFELT $ 94))
+                                      (QREFELT $ 95))
+                            (QREFELT $ 96))
+                           (SPADCALL |upxs| (QREFELT $ 97)) (QREFELT $ 33))
+                          (QREFELT $ 104))
+                         . #1#)
+                   (LETT |rec| (SPADCALL |upxs| (QREFELT $ 108)) . #1#)
+                   (EXIT
+                    (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
+                          ('T
+                           (CONS 0
+                                 (SPADCALL |cc|
+                                           (SPADCALL
+                                            (SPADCALL |f| (QCDR |rec|)
+                                                      (QREFELT $ 33))
+                                            (QREFELT $ 98))
+                                           (QREFELT $ 101)))))))))))) 
 
-(DEFUN |EFUPXS;exp;2UPXS;35| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 42) "exp" |upxs| $)) 
+(SDEFUN |EFUPXS;asinhIfCan;UPXSU;30| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (COND
+         ((OR
+           (SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
+                     (|spadConstant| $ 87) (QREFELT $ 89))
+           (NULL
+            (OR (QREFELT $ 10)
+                (SPADCALL
+                 (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 90))
+                 (|spadConstant| $ 85) (QREFELT $ 91)))))
+          (CONS 1 "failed"))
+         ('T
+          (CONS 0
+                (SPADCALL
+                 (SPADCALL |upxs|
+                           (SPADCALL
+                            (SPADCALL (|spadConstant| $ 92)
+                                      (SPADCALL |upxs| |upxs| (QREFELT $ 33))
+                                      (QREFELT $ 101))
+                            (SPADCALL 1 2 (QREFELT $ 94)) (QREFELT $ 96))
+                           (QREFELT $ 101))
+                 (QREFELT $ 112)))))) 
 
-(DEFUN |EFUPXS;log;2UPXS;36| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 44) "log" |upxs| $)) 
+(SDEFUN |EFUPXS;acoshIfCan;UPXSU;31| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (COND
+         ((QREFELT $ 10)
+          (COND
+           ((SPADCALL (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
+                      (|spadConstant| $ 87) (QREFELT $ 89))
+            (CONS 1 "failed"))
+           (#1='T
+            (CONS 0
+                  (SPADCALL
+                   (SPADCALL |upxs|
+                             (SPADCALL
+                              (SPADCALL (SPADCALL |upxs| |upxs| (QREFELT $ 33))
+                                        (|spadConstant| $ 92) (QREFELT $ 93))
+                              (SPADCALL 1 2 (QREFELT $ 94)) (QREFELT $ 96))
+                             (QREFELT $ 101))
+                   (QREFELT $ 112))))))
+         (#1# (CONS 1 "failed")))) 
 
-(DEFUN |EFUPXS;sin;2UPXS;37| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 46) "sin" |upxs| $)) 
+(SDEFUN |EFUPXS;asechIfCan;UPXSU;32| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (SPROG ((|rec| (|Union| UPXS "failed")))
+               (SEQ
+                (COND
+                 ((QREFELT $ 10)
+                  (COND
+                   ((SPADCALL
+                     (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
+                     (|spadConstant| $ 87) (QREFELT $ 89))
+                    (CONS 1 "failed"))
+                   (#1='T
+                    (SEQ
+                     (LETT |rec| (SPADCALL |upxs| (QREFELT $ 108))
+                           |EFUPXS;asechIfCan;UPXSU;32|)
+                     (EXIT
+                      (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
+                            (#1#
+                             (CONS 0
+                                   (SPADCALL
+                                    (SPADCALL
+                                     (SPADCALL (|spadConstant| $ 92)
+                                               (SPADCALL
+                                                (SPADCALL (|spadConstant| $ 92)
+                                                          (SPADCALL |upxs|
+                                                                    |upxs|
+                                                                    (QREFELT $
+                                                                             33))
+                                                          (QREFELT $ 93))
+                                                (SPADCALL 1 2 (QREFELT $ 94))
+                                                (QREFELT $ 114))
+                                               (QREFELT $ 101))
+                                     (QCDR |rec|) (QREFELT $ 33))
+                                    (QREFELT $ 112))))))))))
+                 (#1# (CONS 1 "failed")))))) 
 
-(DEFUN |EFUPXS;cos;2UPXS;38| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 48) "cos" |upxs| $)) 
+(SDEFUN |EFUPXS;acschIfCan;UPXSU;33| ((|upxs| UPXS) ($ |Union| UPXS "failed"))
+        (SPROG ((|rec| (|Union| UPXS "failed")))
+               (SEQ
+                (COND
+                 ((QREFELT $ 10)
+                  (COND
+                   ((SPADCALL
+                     (SPADCALL |upxs| (|spadConstant| $ 87) (QREFELT $ 88))
+                     (|spadConstant| $ 87) (QREFELT $ 89))
+                    (CONS 1 "failed"))
+                   (#1='T
+                    (SEQ
+                     (LETT |rec| (SPADCALL |upxs| (QREFELT $ 108))
+                           |EFUPXS;acschIfCan;UPXSU;33|)
+                     (EXIT
+                      (COND ((QEQCAR |rec| 1) (CONS 1 "failed"))
+                            (#1#
+                             (CONS 0
+                                   (SPADCALL
+                                    (SPADCALL
+                                     (SPADCALL (|spadConstant| $ 92)
+                                               (SPADCALL
+                                                (SPADCALL (|spadConstant| $ 92)
+                                                          (SPADCALL |upxs|
+                                                                    |upxs|
+                                                                    (QREFELT $
+                                                                             33))
+                                                          (QREFELT $ 101))
+                                                (SPADCALL 1 2 (QREFELT $ 94))
+                                                (QREFELT $ 114))
+                                               (QREFELT $ 101))
+                                     (QCDR |rec|) (QREFELT $ 33))
+                                    (QREFELT $ 112))))))))))
+                 (#1# (CONS 1 "failed")))))) 
 
-(DEFUN |EFUPXS;tan;2UPXS;39| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 50) "tan" |upxs| $)) 
+(SDEFUN |EFUPXS;applyOrError|
+        ((|fcn| |Mapping| #1=(|Union| UPXS "failed") UPXS) (|name| |String|)
+         (|upxs| UPXS) ($ UPXS))
+        (SPROG ((|ans| #1#))
+               (SEQ (LETT |ans| (SPADCALL |upxs| |fcn|) |EFUPXS;applyOrError|)
+                    (EXIT
+                     (COND
+                      ((QEQCAR |ans| 1)
+                       (|error|
+                        (SPADCALL
+                         (STRCONC |name| " of function with singularity")
+                         (QREFELT $ 117))))
+                      ('T (QCDR |ans|))))))) 
 
-(DEFUN |EFUPXS;cot;2UPXS;40| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 52) "cot" |upxs| $)) 
+(SDEFUN |EFUPXS;exp;2UPXS;35| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 42) "exp" |upxs| $)) 
 
-(DEFUN |EFUPXS;sec;2UPXS;41| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 54) "sec" |upxs| $)) 
+(SDEFUN |EFUPXS;log;2UPXS;36| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 44) "log" |upxs| $)) 
 
-(DEFUN |EFUPXS;csc;2UPXS;42| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 56) "csc" |upxs| $)) 
+(SDEFUN |EFUPXS;sin;2UPXS;37| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 46) "sin" |upxs| $)) 
 
-(DEFUN |EFUPXS;asin;2UPXS;43| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 102) "asin" |upxs| $)) 
+(SDEFUN |EFUPXS;cos;2UPXS;38| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 48) "cos" |upxs| $)) 
 
-(DEFUN |EFUPXS;acos;2UPXS;44| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 105) "acos" |upxs| $)) 
+(SDEFUN |EFUPXS;tan;2UPXS;39| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 50) "tan" |upxs| $)) 
 
-(DEFUN |EFUPXS;atan;2UPXS;45| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 58) "atan" |upxs| $)) 
+(SDEFUN |EFUPXS;cot;2UPXS;40| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 52) "cot" |upxs| $)) 
 
-(DEFUN |EFUPXS;acot;2UPXS;46| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 60) "acot" |upxs| $)) 
+(SDEFUN |EFUPXS;sec;2UPXS;41| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 54) "sec" |upxs| $)) 
 
-(DEFUN |EFUPXS;asec;2UPXS;47| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 109) "asec" |upxs| $)) 
+(SDEFUN |EFUPXS;csc;2UPXS;42| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 56) "csc" |upxs| $)) 
 
-(DEFUN |EFUPXS;acsc;2UPXS;48| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 111) "acsc" |upxs| $)) 
+(SDEFUN |EFUPXS;asin;2UPXS;43| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 102) "asin" |upxs| $)) 
 
-(DEFUN |EFUPXS;sinh;2UPXS;49| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 62) "sinh" |upxs| $)) 
+(SDEFUN |EFUPXS;acos;2UPXS;44| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 105) "acos" |upxs| $)) 
 
-(DEFUN |EFUPXS;cosh;2UPXS;50| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 64) "cosh" |upxs| $)) 
+(SDEFUN |EFUPXS;atan;2UPXS;45| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 58) "atan" |upxs| $)) 
 
-(DEFUN |EFUPXS;tanh;2UPXS;51| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 66) "tanh" |upxs| $)) 
+(SDEFUN |EFUPXS;acot;2UPXS;46| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 60) "acot" |upxs| $)) 
 
-(DEFUN |EFUPXS;coth;2UPXS;52| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 68) "coth" |upxs| $)) 
+(SDEFUN |EFUPXS;asec;2UPXS;47| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 109) "asec" |upxs| $)) 
 
-(DEFUN |EFUPXS;sech;2UPXS;53| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 70) "sech" |upxs| $)) 
+(SDEFUN |EFUPXS;acsc;2UPXS;48| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 111) "acsc" |upxs| $)) 
 
-(DEFUN |EFUPXS;csch;2UPXS;54| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 72) "csch" |upxs| $)) 
+(SDEFUN |EFUPXS;sinh;2UPXS;49| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 62) "sinh" |upxs| $)) 
 
-(DEFUN |EFUPXS;asinh;2UPXS;55| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 74) "asinh" |upxs| $)) 
+(SDEFUN |EFUPXS;cosh;2UPXS;50| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 64) "cosh" |upxs| $)) 
 
-(DEFUN |EFUPXS;acosh;2UPXS;56| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 76) "acosh" |upxs| $)) 
+(SDEFUN |EFUPXS;tanh;2UPXS;51| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 66) "tanh" |upxs| $)) 
 
-(DEFUN |EFUPXS;atanh;2UPXS;57| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 78) "atanh" |upxs| $)) 
+(SDEFUN |EFUPXS;coth;2UPXS;52| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 68) "coth" |upxs| $)) 
 
-(DEFUN |EFUPXS;acoth;2UPXS;58| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 80) "acoth" |upxs| $)) 
+(SDEFUN |EFUPXS;sech;2UPXS;53| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 70) "sech" |upxs| $)) 
 
-(DEFUN |EFUPXS;asech;2UPXS;59| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 82) "asech" |upxs| $)) 
+(SDEFUN |EFUPXS;csch;2UPXS;54| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 72) "csch" |upxs| $)) 
 
-(DEFUN |EFUPXS;acsch;2UPXS;60| (|upxs| $)
-  (|EFUPXS;applyOrError| (ELT $ 84) "acsch" |upxs| $)) 
+(SDEFUN |EFUPXS;asinh;2UPXS;55| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 74) "asinh" |upxs| $)) 
+
+(SDEFUN |EFUPXS;acosh;2UPXS;56| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 76) "acosh" |upxs| $)) 
+
+(SDEFUN |EFUPXS;atanh;2UPXS;57| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 78) "atanh" |upxs| $)) 
+
+(SDEFUN |EFUPXS;acoth;2UPXS;58| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 80) "acoth" |upxs| $)) 
+
+(SDEFUN |EFUPXS;asech;2UPXS;59| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 82) "asech" |upxs| $)) 
+
+(SDEFUN |EFUPXS;acsch;2UPXS;60| ((|upxs| UPXS) ($ UPXS))
+        (|EFUPXS;applyOrError| (ELT $ 84) "acsch" |upxs| $)) 
 
 (DECLAIM (NOTINLINE |ElementaryFunctionsUnivariatePuiseuxSeries;|)) 
 
 (DEFUN |ElementaryFunctionsUnivariatePuiseuxSeries| (&REST #1=#:G502)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G503)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ElementaryFunctionsUnivariatePuiseuxSeries|)
-                                           '|domainEqualList|)
-                . #3=(|ElementaryFunctionsUnivariatePuiseuxSeries|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY
-                   (|function| |ElementaryFunctionsUnivariatePuiseuxSeries;|)
-                   #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G503)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|ElementaryFunctionsUnivariatePuiseuxSeries|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ElementaryFunctionsUnivariatePuiseuxSeries|)
+                                               '|domainEqualList|)
+                    . #3=(|ElementaryFunctionsUnivariatePuiseuxSeries|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function|
+                        |ElementaryFunctionsUnivariatePuiseuxSeries;|)
+                       #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|ElementaryFunctionsUnivariatePuiseuxSeries|)))))))))) 
 
 (DEFUN |ElementaryFunctionsUnivariatePuiseuxSeries;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|ElementaryFunctionsUnivariatePuiseuxSeries|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$|
-            (LIST '|ElementaryFunctionsUnivariatePuiseuxSeries| DV$1 DV$2 DV$3
-                  DV$4)
-            . #1#)
-      (LETT $ (GETREFV 143) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1| '(|Field|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache|
-                  '|ElementaryFunctionsUnivariatePuiseuxSeries|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 10 (|HasCategory| |#1| '(|TranscendentalFunctionCategory|)))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 40 (CONS (|dispatchFunction| |EFUPXS;^;UPXSFUPXS;2|) $))))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|)
+          . #1=(|ElementaryFunctionsUnivariatePuiseuxSeries|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$|
+          (LIST '|ElementaryFunctionsUnivariatePuiseuxSeries| DV$1 DV$2 DV$3
+                DV$4)
+          . #1#)
+    (LETT $ (GETREFV 143) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST (|HasCategory| |#1| '(|Field|))))
+                    . #1#))
+    (|haddProp| |$ConstructorCache|
+                '|ElementaryFunctionsUnivariatePuiseuxSeries|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 10 (|HasCategory| |#1| '(|TranscendentalFunctionCategory|)))
+    (COND
+     ((|testBitVector| |pv$| 1)
+      (QSETREFV $ 40 (CONS (|dispatchFunction| |EFUPXS;^;UPXSFUPXS;2|) $))))
+    $))) 
 
 (MAKEPROP '|ElementaryFunctionsUnivariatePuiseuxSeries| '|infovec|
           (LIST

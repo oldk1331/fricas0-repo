@@ -1,88 +1,100 @@
 
-(DEFUN |MTHING;mergeDifference;3L;1| (|x| |y| $)
-  (SEQ
-   (COND ((OR (NULL |x|) (NULL |y|)) |x|)
-         ('T
-          (SEQ (|MTHING;mergeDifference1| |x| (|SPADfirst| |y|) (CDR |y|) $)
-               (EXIT
-                (COND
-                 ((SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 8))
-                  (CDR |x|))
-                 ('T |x|)))))))) 
+(SDEFUN |MTHING;mergeDifference;3L;1|
+        ((|x| |List| S) (|y| |List| S) ($ |List| S))
+        (SEQ
+         (COND ((OR (NULL |x|) (NULL |y|)) |x|)
+               ('T
+                (SEQ
+                 (|MTHING;mergeDifference1| |x| (|SPADfirst| |y|) (CDR |y|) $)
+                 (EXIT
+                  (COND
+                   ((SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|)
+                              (QREFELT $ 8))
+                    (CDR |x|))
+                   ('T |x|)))))))) 
 
-(DEFUN |MTHING;mergeDifference1| (|x| |fy| |ry| $)
-  (PROG (#1=#:G113 |frx| |rx|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |rx| |x| . #2=(|MTHING;mergeDifference1|))
-            (EXIT
-             (SEQ G190
-                  (COND ((NULL (COND ((NULL |rx|) 'NIL) ('T 'T))) (GO G191)))
-                  (SEQ (LETT |rx| (CDR |rx|) . #2#)
-                       (LETT |frx| (|SPADfirst| |rx|) . #2#)
+(SDEFUN |MTHING;mergeDifference1|
+        ((|x| . #1=(|List| S)) (|fy| S) (|ry| |List| S) ($ |List| S))
+        (SPROG ((#2=#:G113 NIL) (|frx| (S)) (|rx| #1#))
+               (SEQ
+                (EXIT
+                 (SEQ (LETT |rx| |x| . #3=(|MTHING;mergeDifference1|))
+                      (EXIT
                        (SEQ G190
                             (COND
-                             ((NULL (SPADCALL |fy| |frx| (QREFELT $ 11)))
+                             ((NULL (COND ((NULL |rx|) 'NIL) ('T 'T)))
                               (GO G191)))
-                            (SEQ
-                             (EXIT
-                              (COND
-                               ((NULL |ry|)
-                                (PROGN (LETT #1# |x| . #2#) (GO #1#)))
-                               ('T
-                                (SEQ (LETT |fy| (|SPADfirst| |ry|) . #2#)
-                                     (EXIT (LETT |ry| (CDR |ry|) . #2#)))))))
-                            NIL (GO G190) G191 (EXIT NIL))
-                       (EXIT
-                        (COND
-                         ((SPADCALL |frx| |fy| (QREFELT $ 8))
-                          (SEQ (SPADCALL |x| '|rest| (CDR |rx|) (QREFELT $ 13))
-                               (EXIT
-                                (COND
-                                 ((NULL |ry|)
-                                  (PROGN (LETT #1# |x| . #2#) (GO #1#)))
-                                 ('T
-                                  (SEQ (LETT |fy| (|SPADfirst| |ry|) . #2#)
+                            (SEQ (LETT |rx| (CDR |rx|) . #3#)
+                                 (LETT |frx| (|SPADfirst| |rx|) . #3#)
+                                 (SEQ G190
+                                      (COND
+                                       ((NULL
+                                         (SPADCALL |fy| |frx| (QREFELT $ 11)))
+                                        (GO G191)))
+                                      (SEQ
                                        (EXIT
-                                        (LETT |ry| (CDR |ry|) . #2#))))))))
-                         ('T (LETT |x| |rx| . #2#)))))
-                  NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
+                                        (COND
+                                         ((NULL |ry|)
+                                          (PROGN
+                                           (LETT #2# |x| . #3#)
+                                           (GO #2#)))
+                                         ('T
+                                          (SEQ
+                                           (LETT |fy| (|SPADfirst| |ry|) . #3#)
+                                           (EXIT
+                                            (LETT |ry| (CDR |ry|) . #3#)))))))
+                                      NIL (GO G190) G191 (EXIT NIL))
+                                 (EXIT
+                                  (COND
+                                   ((SPADCALL |frx| |fy| (QREFELT $ 8))
+                                    (SEQ
+                                     (SPADCALL |x| '|rest| (CDR |rx|)
+                                               (QREFELT $ 13))
+                                     (EXIT
+                                      (COND
+                                       ((NULL |ry|)
+                                        (PROGN (LETT #2# |x| . #3#) (GO #2#)))
+                                       ('T
+                                        (SEQ
+                                         (LETT |fy| (|SPADfirst| |ry|) . #3#)
+                                         (EXIT
+                                          (LETT |ry| (CDR |ry|) . #3#))))))))
+                                   ('T (LETT |x| |rx| . #3#)))))
+                            NIL (GO G190) G191 (EXIT NIL)))))
+                #2# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |MergeThing;|)) 
 
 (DEFUN |MergeThing| (#1=#:G114)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G115)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|MergeThing|)
-                                           '|domainEqualList|)
-                . #3=(|MergeThing|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|MergeThing;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|MergeThing|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G115)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|MergeThing|)
+                                               '|domainEqualList|)
+                    . #3=(|MergeThing|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|MergeThing;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|MergeThing|)))))))))) 
 
 (DEFUN |MergeThing;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|MergeThing|))
-      (LETT |dv$| (LIST '|MergeThing| DV$1) . #1#)
-      (LETT $ (GETREFV 14) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|MergeThing| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|MergeThing|))
+          (LETT |dv$| (LIST '|MergeThing| DV$1) . #1#)
+          (LETT $ (GETREFV 14) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|MergeThing| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|MergeThing| '|infovec|
           (LIST

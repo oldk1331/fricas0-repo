@@ -1,101 +1,105 @@
 
 (PUT '|TABLEAU;tableau;L$;1| '|SPADreplace| '(XLAM (|lls|) |lls|)) 
 
-(DEFUN |TABLEAU;tableau;L$;1| (|lls| $) |lls|) 
+(SDEFUN |TABLEAU;tableau;L$;1| ((|lls| |List| (|List| S)) ($ $)) |lls|) 
 
 (PUT '|TABLEAU;listOfLists;$L;2| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |TABLEAU;listOfLists;$L;2| (|x| $) |x|) 
+(SDEFUN |TABLEAU;listOfLists;$L;2| ((|x| $) ($ |List| (|List| S))) |x|) 
 
-(DEFUN |TABLEAU;makeupv| (|n| |ls| $)
-  (PROG (#1=#:G109 |i| #2=#:G110 |s| |v|)
-    (RETURN
-     (SEQ
-      (LETT |v| (SPADCALL |n| (SPADCALL " " (QREFELT $ 13)) (QREFELT $ 16))
-            . #3=(|TABLEAU;makeupv|))
-      (SEQ (LETT |s| NIL . #3#) (LETT #2# |ls| . #3#) (LETT |i| 1 . #3#)
-           (LETT #1# (LENGTH |ls|) . #3#) G190
-           (COND
-            ((OR (|greater_SI| |i| #1#) (ATOM #2#)
-                 (PROGN (LETT |s| (CAR #2#) . #3#) NIL))
-             (GO G191)))
-           (SEQ
-            (EXIT
-             (SPADCALL |v| |i|
-                       (SPADCALL (SPADCALL |s| (QREFELT $ 17)) (QREFELT $ 18))
-                       (QREFELT $ 20))))
-           (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #2# (CDR #2#) . #3#)) . #3#)
-           (GO G190) G191 (EXIT NIL))
-      (EXIT |v|))))) 
+(SDEFUN |TABLEAU;makeupv|
+        ((|n| |NonNegativeInteger|) (|ls| |List| S) ($ |List| (|OutputForm|)))
+        (SPROG
+         ((#1=#:G109 NIL) (|i| NIL) (#2=#:G110 NIL) (|s| NIL)
+          (|v| (|List| (|OutputForm|))))
+         (SEQ
+          (LETT |v| (SPADCALL |n| (SPADCALL " " (QREFELT $ 13)) (QREFELT $ 16))
+                . #3=(|TABLEAU;makeupv|))
+          (SEQ (LETT |s| NIL . #3#) (LETT #2# |ls| . #3#) (LETT |i| 1 . #3#)
+               (LETT #1# (LENGTH |ls|) . #3#) G190
+               (COND
+                ((OR (|greater_SI| |i| #1#) (ATOM #2#)
+                     (PROGN (LETT |s| (CAR #2#) . #3#) NIL))
+                 (GO G191)))
+               (SEQ
+                (EXIT
+                 (SPADCALL |v| |i|
+                           (SPADCALL (SPADCALL |s| (QREFELT $ 17))
+                                     (QREFELT $ 18))
+                           (QREFELT $ 20))))
+               (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #2# (CDR #2#) . #3#))
+                     . #3#)
+               (GO G190) G191 (EXIT NIL))
+          (EXIT |v|)))) 
 
-(DEFUN |TABLEAU;maketab| (|lls| $)
-  (PROG (|ll| #1=#:G117 |i| #2=#:G116 |sz|)
-    (RETURN
-     (SEQ
-      (LETT |ll|
-            (COND ((NULL |lls|) (LIST (SPADCALL (QREFELT $ 21))))
-                  ('T
-                   (SEQ
-                    (LETT |sz| (LENGTH (|SPADfirst| |lls|))
-                          . #3=(|TABLEAU;maketab|))
-                    (EXIT
-                     (PROGN
-                      (LETT #2# NIL . #3#)
-                      (SEQ (LETT |i| NIL . #3#) (LETT #1# |lls| . #3#) G190
-                           (COND
-                            ((OR (ATOM #1#)
-                                 (PROGN (LETT |i| (CAR #1#) . #3#) NIL))
-                             (GO G191)))
-                           (SEQ
-                            (EXIT
-                             (LETT #2#
-                                   (CONS
-                                    (SPADCALL (|TABLEAU;makeupv| |sz| |i| $)
-                                              (QREFELT $ 23))
-                                    #2#)
-                                   . #3#)))
-                           (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                           (EXIT (NREVERSE #2#))))))))
-            . #3#)
-      (EXIT (SPADCALL |ll| (QREFELT $ 24))))))) 
+(SDEFUN |TABLEAU;maketab| ((|lls| |List| (|List| S)) ($ |OutputForm|))
+        (SPROG
+         ((|ll| (|List| (|OutputForm|))) (#1=#:G117 NIL) (|i| NIL)
+          (#2=#:G116 NIL) (|sz| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |ll|
+                (COND ((NULL |lls|) (LIST (SPADCALL (QREFELT $ 21))))
+                      ('T
+                       (SEQ
+                        (LETT |sz| (LENGTH (|SPADfirst| |lls|))
+                              . #3=(|TABLEAU;maketab|))
+                        (EXIT
+                         (PROGN
+                          (LETT #2# NIL . #3#)
+                          (SEQ (LETT |i| NIL . #3#) (LETT #1# |lls| . #3#) G190
+                               (COND
+                                ((OR (ATOM #1#)
+                                     (PROGN (LETT |i| (CAR #1#) . #3#) NIL))
+                                 (GO G191)))
+                               (SEQ
+                                (EXIT
+                                 (LETT #2#
+                                       (CONS
+                                        (SPADCALL
+                                         (|TABLEAU;makeupv| |sz| |i| $)
+                                         (QREFELT $ 23))
+                                        #2#)
+                                       . #3#)))
+                               (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                               (EXIT (NREVERSE #2#))))))))
+                . #3#)
+          (EXIT (SPADCALL |ll| (QREFELT $ 24)))))) 
 
-(DEFUN |TABLEAU;coerce;$Of;5| (|x| $)
-  (|TABLEAU;maketab| (SPADCALL |x| (QREFELT $ 10)) $)) 
+(SDEFUN |TABLEAU;coerce;$Of;5| ((|x| $) ($ |OutputForm|))
+        (|TABLEAU;maketab| (SPADCALL |x| (QREFELT $ 10)) $)) 
 
 (DECLAIM (NOTINLINE |Tableau;|)) 
 
 (DEFUN |Tableau| (#1=#:G119)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G120)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|Tableau|)
-                                           '|domainEqualList|)
-                . #3=(|Tableau|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|Tableau;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tableau|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G120)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|Tableau|)
+                                               '|domainEqualList|)
+                    . #3=(|Tableau|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|Tableau;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|Tableau|)))))))))) 
 
 (DEFUN |Tableau;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Tableau|))
-      (LETT |dv$| (LIST '|Tableau| DV$1) . #1#)
-      (LETT $ (GETREFV 26) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Tableau| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|List| (|List| |#1|)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Tableau|))
+          (LETT |dv$| (LIST '|Tableau| DV$1) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Tableau| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|List| (|List| |#1|)))
+          $))) 
 
 (MAKEPROP '|Tableau| '|infovec|
           (LIST

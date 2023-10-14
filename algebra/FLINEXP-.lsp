@@ -1,49 +1,55 @@
 
-(DEFUN |FLINEXP-;reducedSystem;MM;1| (|m| $)
-  (SPADCALL (SPADCALL |m| (QREFELT $ 10)) (QREFELT $ 12))) 
+(SDEFUN |FLINEXP-;reducedSystem;MM;1|
+        ((|m| |Matrix| S) ($ |Matrix| (|Integer|)))
+        (SPADCALL (SPADCALL |m| (QREFELT $ 10)) (QREFELT $ 12))) 
 
-(DEFUN |FLINEXP-;reducedSystem;MVR;2| (|m| |v| $)
-  (PROG (|rec|)
-    (RETURN
-     (SEQ
-      (LETT |rec| (SPADCALL |m| |v| (QREFELT $ 16))
-            |FLINEXP-;reducedSystem;MVR;2|)
-      (EXIT (SPADCALL (QCAR |rec|) (QCDR |rec|) (QREFELT $ 18))))))) 
+(SDEFUN |FLINEXP-;reducedSystem;MVR;2|
+        ((|m| |Matrix| S) (|v| |Vector| S)
+         ($ |Record| (|:| |mat| (|Matrix| (|Integer|)))
+          (|:| |vec| (|Vector| (|Integer|)))))
+        (SPROG
+         ((|rec| (|Record| (|:| |mat| (|Matrix| R)) (|:| |vec| (|Vector| R)))))
+         (SEQ
+          (LETT |rec| (SPADCALL |m| |v| (QREFELT $ 16))
+                |FLINEXP-;reducedSystem;MVR;2|)
+          (EXIT (SPADCALL (QCAR |rec|) (QCDR |rec|) (QREFELT $ 18)))))) 
 
 (DECLAIM (NOTINLINE |FullyLinearlyExplicitRingOver&;|)) 
 
 (DEFUN |FullyLinearlyExplicitRingOver&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|FullyLinearlyExplicitRingOver&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|FullyLinearlyExplicitRingOver&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 20) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND ((|domainEqual| |#2| (|Integer|)))
-            ((|testBitVector| |pv$| 1)
-             (PROGN
-              (QSETREFV $ 13
-                        (CONS
-                         (|dispatchFunction| |FLINEXP-;reducedSystem;MM;1|) $))
-              (QSETREFV $ 19
-                        (CONS
-                         (|dispatchFunction| |FLINEXP-;reducedSystem;MVR;2|)
-                         $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|FullyLinearlyExplicitRingOver&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|FullyLinearlyExplicitRingOver&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 20) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|LinearlyExplicitRingOver|
+                                                               (|Integer|)))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND ((|domainEqual| |#2| (|Integer|)))
+                ((|testBitVector| |pv$| 1)
+                 (PROGN
+                  (QSETREFV $ 13
+                            (CONS
+                             (|dispatchFunction| |FLINEXP-;reducedSystem;MM;1|)
+                             $))
+                  (QSETREFV $ 19
+                            (CONS
+                             (|dispatchFunction|
+                              |FLINEXP-;reducedSystem;MVR;2|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|FullyLinearlyExplicitRingOver&| '|infovec|
           (LIST

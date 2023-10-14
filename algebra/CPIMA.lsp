@@ -1,90 +1,90 @@
 
-(DEFUN |CPIMA;XtoY| (Q $) (SPADCALL (CONS #'|CPIMA;XtoY!0| $) Q (QREFELT $ 17))) 
+(SDEFUN |CPIMA;XtoY| ((Q |PolR|) ($ |SparseUnivariatePolynomial| |PolR|))
+        (SPADCALL (CONS #'|CPIMA;XtoY!0| $) Q (QREFELT $ 17))) 
 
-(DEFUN |CPIMA;XtoY!0| (|x| $)
-  (SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 13))) 
+(SDEFUN |CPIMA;XtoY!0| ((|x| NIL) ($ NIL))
+        (SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 13))) 
 
-(DEFUN |CPIMA;characteristicPolynomial;EPolR;2| (|x| $)
-  (PROG (#1=#:G106 |Qx|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |Qx| (SPADCALL |x| (QREFELT $ 24))
-              . #2=(|CPIMA;characteristicPolynomial;EPolR;2|))
-        (EXIT
-         (PROGN
-          (LETT #1#
-                (SPADCALL (QREFELT $ 19)
-                          (SPADCALL (QREFELT $ 23) (|CPIMA;XtoY| |Qx| $)
-                                    (QREFELT $ 25))
-                          (QREFELT $ 26))
-                . #2#)
-          (GO #1#)))))
-      #1# (EXIT #1#))))) 
+(SDEFUN |CPIMA;characteristicPolynomial;EPolR;2| ((|x| E) ($ |PolR|))
+        (SPROG ((#1=#:G106 NIL) (|Qx| (|PolR|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (LETT |Qx| (SPADCALL |x| (QREFELT $ 24))
+                        . #2=(|CPIMA;characteristicPolynomial;EPolR;2|))
+                  (EXIT
+                   (PROGN
+                    (LETT #1#
+                          (SPADCALL (QREFELT $ 19)
+                                    (SPADCALL (QREFELT $ 23)
+                                              (|CPIMA;XtoY| |Qx| $)
+                                              (QREFELT $ 25))
+                                    (QREFELT $ 26))
+                          . #2#)
+                    (GO #1#)))))
+                #1# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomialInMonogenicalAlgebra;|)) 
 
 (DEFUN |CharacteristicPolynomialInMonogenicalAlgebra| (&REST #1=#:G107)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G108)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|CharacteristicPolynomialInMonogenicalAlgebra|)
-                                           '|domainEqualList|)
-                . #3=(|CharacteristicPolynomialInMonogenicalAlgebra|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY
-                   (|function| |CharacteristicPolynomialInMonogenicalAlgebra;|)
-                   #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G108)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|CharacteristicPolynomialInMonogenicalAlgebra|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|CharacteristicPolynomialInMonogenicalAlgebra|)
+                                               '|domainEqualList|)
+                    . #3=(|CharacteristicPolynomialInMonogenicalAlgebra|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function|
+                        |CharacteristicPolynomialInMonogenicalAlgebra;|)
+                       #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|CharacteristicPolynomialInMonogenicalAlgebra|)))))))))) 
 
 (DEFUN |CharacteristicPolynomialInMonogenicalAlgebra;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|CharacteristicPolynomialInMonogenicalAlgebra|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$|
-            (LIST '|CharacteristicPolynomialInMonogenicalAlgebra| DV$1 DV$2
-                  DV$3)
-            . #1#)
-      (LETT $ (GETREFV 28) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache|
-                  '|CharacteristicPolynomialInMonogenicalAlgebra|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 19 (|CPIMA;XtoY| (SPADCALL (QREFELT $ 18)) $))
-      (QSETREFV $ 23
-                (SPADCALL (SPADCALL (|spadConstant| $ 20) 1 (QREFELT $ 13)) 0
-                          (QREFELT $ 22)))
-      (COND
-       ((|HasCategory| |#2| '(|CommutativeRing|))
-        (QSETREFV $ 27
-                  (CONS
-                   (|dispatchFunction|
-                    |CPIMA;characteristicPolynomial;EPolR;2|)
-                   $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|CharacteristicPolynomialInMonogenicalAlgebra|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$|
+                (LIST '|CharacteristicPolynomialInMonogenicalAlgebra| DV$1 DV$2
+                      DV$3)
+                . #1#)
+          (LETT $ (GETREFV 28) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|CharacteristicPolynomialInMonogenicalAlgebra|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 19 (|CPIMA;XtoY| (SPADCALL (QREFELT $ 18)) $))
+          (QSETREFV $ 23
+                    (SPADCALL (SPADCALL (|spadConstant| $ 20) 1 (QREFELT $ 13))
+                              0 (QREFELT $ 22)))
+          (COND
+           ((|HasCategory| |#2| '(|CommutativeRing|))
+            (QSETREFV $ 27
+                      (CONS
+                       (|dispatchFunction|
+                        |CPIMA;characteristicPolynomial;EPolR;2|)
+                       $))))
+          $))) 
 
 (MAKEPROP '|CharacteristicPolynomialInMonogenicalAlgebra| '|infovec|
           (LIST

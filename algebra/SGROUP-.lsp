@@ -1,21 +1,21 @@
 
-(DEFUN |SGROUP-;^;SPiS;1| (|x| |n| $) (SPADCALL |x| |n| (QREFELT $ 9))) 
+(SDEFUN |SGROUP-;^;SPiS;1| ((|x| S) (|n| |PositiveInteger|) ($ S))
+        (SPADCALL |x| |n| (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |SemiGroup&;|)) 
 
 (DEFUN |SemiGroup&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|SemiGroup&|))
-      (LETT |dv$| (LIST '|SemiGroup&| DV$1) . #1#)
-      (LETT $ (GETREFV 11) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|SemiGroup&|))
+          (LETT |dv$| (LIST '|SemiGroup&| DV$1) . #1#)
+          (LETT $ (GETREFV 11) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|SemiGroup&| '|infovec|
           (LIST

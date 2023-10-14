@@ -2,82 +2,80 @@
 (DECLAIM (NOTINLINE |RegularChain;|)) 
 
 (DEFUN |RegularChain| (&REST #1=#:G135)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G136)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|RegularChain|)
-                                           '|domainEqualList|)
-                . #3=(|RegularChain|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |RegularChain;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G136)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|RegularChain|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|RegularChain|)
+                                               '|domainEqualList|)
+                    . #3=(|RegularChain|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |RegularChain;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|RegularChain|)))))))))) 
 
 (DEFUN |RegularChain;| (|#1| |#2|)
-  (PROG (#1=#:G134 |pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #2=(|RegularChain|))
-      (LETT DV$2 (|devaluate| |#2|) . #2#)
-      (LETT |dv$| (LIST '|RegularChain| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 43) . #2#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (AND
-                                           (|HasCategory|
-                                            (|NewSparseMultivariatePolynomial|
-                                             |#1| (|OrderedVariableList| |#2|))
-                                            (LIST '|Evalable|
-                                                  (LIST
-                                                   '|NewSparseMultivariatePolynomial|
-                                                   (|devaluate| |#1|)
-                                                   (LIST '|OrderedVariableList|
-                                                         (|devaluate| |#2|)))))
-                                           (|HasCategory|
-                                            (|NewSparseMultivariatePolynomial|
-                                             |#1| (|OrderedVariableList| |#2|))
-                                            '(|SetCategory|)))
-                                          (|HasCategory|
-                                           (|NewSparseMultivariatePolynomial|
-                                            |#1| (|OrderedVariableList| |#2|))
-                                           '(|ConvertibleTo| (|InputForm|)))
-                                          (|HasCategory|
-                                           (|NewSparseMultivariatePolynomial|
-                                            |#1| (|OrderedVariableList| |#2|))
-                                           '(|BasicType|))
-                                          (|HasCategory| |#1|
-                                                         '(|IntegralDomain|))
-                                          (|HasCategory|
-                                           (|OrderedVariableList| |#2|)
-                                           '(|Finite|))))
-                      . #2#))
-      (|haddProp| |$ConstructorCache| '|RegularChain| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
-           (|augmentPredVector| $ 64))
-      (AND #1#
-           (|HasCategory|
-            (|NewSparseMultivariatePolynomial| |#1|
-                                               (|OrderedVariableList| |#2|))
-            '(|BasicType|))
-           (|augmentPredVector| $ 128))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((#1=#:G134 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #2=(|RegularChain|))
+    (LETT DV$2 (|devaluate| |#2|) . #2#)
+    (LETT |dv$| (LIST '|RegularChain| DV$1 DV$2) . #2#)
+    (LETT $ (GETREFV 43) . #2#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (AND
+                                         (|HasCategory|
+                                          (|NewSparseMultivariatePolynomial|
+                                           |#1| (|OrderedVariableList| |#2|))
+                                          (LIST '|Evalable|
+                                                (LIST
+                                                 '|NewSparseMultivariatePolynomial|
+                                                 (|devaluate| |#1|)
+                                                 (LIST '|OrderedVariableList|
+                                                       (|devaluate| |#2|)))))
+                                         (|HasCategory|
+                                          (|NewSparseMultivariatePolynomial|
+                                           |#1| (|OrderedVariableList| |#2|))
+                                          '(|SetCategory|)))
+                                        (|HasCategory|
+                                         (|NewSparseMultivariatePolynomial|
+                                          |#1| (|OrderedVariableList| |#2|))
+                                         '(|ConvertibleTo| (|InputForm|)))
+                                        (|HasCategory|
+                                         (|NewSparseMultivariatePolynomial|
+                                          |#1| (|OrderedVariableList| |#2|))
+                                         '(|BasicType|))
+                                        (|HasCategory| |#1|
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory|
+                                         (|OrderedVariableList| |#2|)
+                                         '(|Finite|))))
+                    . #2#))
+    (|haddProp| |$ConstructorCache| '|RegularChain| (LIST DV$1 DV$2)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
+         (|augmentPredVector| $ 64))
+    (AND #1#
+         (|HasCategory|
+          (|NewSparseMultivariatePolynomial| |#1| (|OrderedVariableList| |#2|))
+          '(|BasicType|))
+         (|augmentPredVector| $ 128))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|RegularChain| '|infovec|
           (LIST

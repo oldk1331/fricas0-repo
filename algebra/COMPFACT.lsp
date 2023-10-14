@@ -1,231 +1,277 @@
 
-(DEFUN |COMPFACT;myMap| (|r| $)
-  (PROG (|cr|)
-    (RETURN
-     (SEQ
-      (COND
-       ((|domainEqual| (|Complex| (QREFELT $ 6)) (|Complex| (|Integer|)))
-        (SEQ (LETT |cr| |r| |COMPFACT;myMap|)
-             (EXIT
-              (SPADCALL
-               (SPADCALL (SPADCALL |cr| (QREFELT $ 13)) (QREFELT $ 15))
-               (SPADCALL (SPADCALL |cr| (QREFELT $ 16)) (QREFELT $ 15))
-               (QREFELT $ 18)))))
-       ((|domainEqual| (|Complex| (QREFELT $ 6))
-                       (|Complex| (|Fraction| (|Integer|))))
-        |r|)))))) 
+(SDEFUN |COMPFACT;myMap|
+        ((|r| |Complex| RR) ($ |Complex| (|Fraction| (|Integer|))))
+        (SPROG ((|cr| (|Complex| (|Integer|))))
+               (SEQ
+                (COND
+                 ((|domainEqual| (|Complex| (QREFELT $ 6))
+                                 (|Complex| (|Integer|)))
+                  (SEQ (LETT |cr| |r| |COMPFACT;myMap|)
+                       (EXIT
+                        (SPADCALL
+                         (SPADCALL (SPADCALL |cr| (QREFELT $ 13))
+                                   (QREFELT $ 15))
+                         (SPADCALL (SPADCALL |cr| (QREFELT $ 16))
+                                   (QREFELT $ 15))
+                         (QREFELT $ 18)))))
+                 ((|domainEqual| (|Complex| (QREFELT $ 6))
+                                 (|Complex| (|Fraction| (|Integer|))))
+                  |r|))))) 
 
-(DEFUN |COMPFACT;compND| (|cc| $)
-  (PROG (#1=#:G107 |ccd| |dcci| |dccr| |cci| |ccr|)
-    (RETURN
-     (SEQ (LETT |ccr| (SPADCALL |cc| (QREFELT $ 19)) . #2=(|COMPFACT;compND|))
-          (LETT |cci| (SPADCALL |cc| (QREFELT $ 20)) . #2#)
-          (LETT |dccr| (SPADCALL |ccr| (QREFELT $ 21)) . #2#)
-          (LETT |dcci| (SPADCALL |cci| (QREFELT $ 21)) . #2#)
-          (LETT |ccd| (SPADCALL |dccr| |dcci| (QREFELT $ 22)) . #2#)
+(SDEFUN |COMPFACT;compND|
+        ((|cc| |Complex| (|Fraction| (|Integer|)))
+         ($ |Record| (|:| |cnum| (|Complex| (|Integer|)))
+          (|:| |cden| (|Integer|))))
+        (SPROG
+         ((#1=#:G107 NIL) (|ccd| (|Integer|)) (|dcci| #2=(|Integer|))
+          (|dccr| #2#) (|cci| (|Fraction| (|Integer|)))
+          (|ccr| (|Fraction| (|Integer|))))
+         (SEQ
+          (LETT |ccr| (SPADCALL |cc| (QREFELT $ 19)) . #3=(|COMPFACT;compND|))
+          (LETT |cci| (SPADCALL |cc| (QREFELT $ 20)) . #3#)
+          (LETT |dccr| (SPADCALL |ccr| (QREFELT $ 21)) . #3#)
+          (LETT |dcci| (SPADCALL |cci| (QREFELT $ 21)) . #3#)
+          (LETT |ccd| (SPADCALL |dccr| |dcci| (QREFELT $ 22)) . #3#)
           (EXIT
            (CONS
             (SPADCALL
              (*
-              (PROG2 (LETT #1# (SPADCALL |ccd| |dccr| (QREFELT $ 24)) . #2#)
+              (PROG2 (LETT #1# (SPADCALL |ccd| |dccr| (QREFELT $ 24)) . #3#)
                   (QCDR #1#)
                 (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))
               (SPADCALL |ccr| (QREFELT $ 25)))
              (*
-              (PROG2 (LETT #1# (SPADCALL |ccd| |dcci| (QREFELT $ 24)) . #2#)
+              (PROG2 (LETT #1# (SPADCALL |ccd| |dcci| (QREFELT $ 24)) . #3#)
                   (QCDR #1#)
                 (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))
               (SPADCALL |cci| (QREFELT $ 25)))
              (QREFELT $ 26))
-            |ccd|)))))) 
+            |ccd|))))) 
 
-(DEFUN |COMPFACT;conv| (|f| $)
-  (PROG (|dris1| |pris| #1=#:G113 |dris| |cdf| |cf| #2=#:G120 |i| |pdris|)
-    (RETURN
-     (SEQ (LETT |pris| (|spadConstant| $ 28) . #3=(|COMPFACT;conv|))
-          (LETT |dris| 1 . #3#) (LETT |dris1| 1 . #3#) (LETT |pdris| 1 . #3#)
-          (SEQ (LETT |i| 0 . #3#)
-               (LETT #2# (SPADCALL |f| (QREFELT $ 31)) . #3#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
-               (SEQ (LETT |cf| (SPADCALL |f| |i| (QREFELT $ 32)) . #3#)
-                    (EXIT
-                     (COND
-                      ((SPADCALL |cf| (|spadConstant| $ 35) (QREFELT $ 37))
-                       "next i")
-                      ('T
-                       (SEQ (LETT |cdf| (|COMPFACT;compND| |cf| $) . #3#)
-                            (LETT |dris|
-                                  (SPADCALL (QCDR |cdf|) |dris1|
-                                            (QREFELT $ 22))
-                                  . #3#)
-                            (LETT |pris|
-                                  (SPADCALL
-                                   (SPADCALL
-                                    (PROG2
-                                        (LETT #1#
-                                              (SPADCALL |dris| |dris1|
-                                                        (QREFELT $ 24))
-                                              . #3#)
-                                        (QCDR #1#)
-                                      (|check_union| (QEQCAR #1# 0) (|Integer|)
-                                                     #1#))
-                                    |pris| (QREFELT $ 38))
-                                   (SPADCALL
-                                    (PROG2
-                                        (LETT #1#
-                                              (SPADCALL |dris| (QCDR |cdf|)
-                                                        (QREFELT $ 24))
-                                              . #3#)
-                                        (QCDR #1#)
-                                      (|check_union| (QEQCAR #1# 0) (|Integer|)
-                                                     #1#))
-                                    (SPADCALL (QCAR |cdf|) |i| (QREFELT $ 39))
-                                    (QREFELT $ 38))
-                                   (QREFELT $ 40))
-                                  . #3#)
-                            (EXIT (LETT |dris1| |dris| . #3#)))))))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT (CONS |pris| (SPADCALL |dris| (QREFELT $ 15)))))))) 
+(SDEFUN |COMPFACT;conv|
+        ((|f| |SparseUnivariatePolynomial|
+          (|Complex| (|Fraction| (|Integer|))))
+         ($ |Record|
+          (|:| |convP| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
+          (|:| |convD| (|Fraction| (|Integer|)))))
+        (SPROG
+         ((|dris1| #1=(|Integer|))
+          (|pris| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
+          (#2=#:G113 NIL) (|dris| #1#)
+          (|cdf|
+           (|Record| (|:| |cnum| (|Complex| (|Integer|)))
+                     (|:| |cden| (|Integer|))))
+          (|cf| (|Complex| (|Fraction| (|Integer|)))) (#3=#:G120 NIL) (|i| NIL)
+          (|pdris| #1#))
+         (SEQ (LETT |pris| (|spadConstant| $ 28) . #4=(|COMPFACT;conv|))
+              (LETT |dris| 1 . #4#) (LETT |dris1| 1 . #4#)
+              (LETT |pdris| 1 . #4#)
+              (SEQ (LETT |i| 0 . #4#)
+                   (LETT #3# (SPADCALL |f| (QREFELT $ 31)) . #4#) G190
+                   (COND ((|greater_SI| |i| #3#) (GO G191)))
+                   (SEQ (LETT |cf| (SPADCALL |f| |i| (QREFELT $ 32)) . #4#)
+                        (EXIT
+                         (COND
+                          ((SPADCALL |cf| (|spadConstant| $ 35) (QREFELT $ 37))
+                           "next i")
+                          ('T
+                           (SEQ (LETT |cdf| (|COMPFACT;compND| |cf| $) . #4#)
+                                (LETT |dris|
+                                      (SPADCALL (QCDR |cdf|) |dris1|
+                                                (QREFELT $ 22))
+                                      . #4#)
+                                (LETT |pris|
+                                      (SPADCALL
+                                       (SPADCALL
+                                        (PROG2
+                                            (LETT #2#
+                                                  (SPADCALL |dris| |dris1|
+                                                            (QREFELT $ 24))
+                                                  . #4#)
+                                            (QCDR #2#)
+                                          (|check_union| (QEQCAR #2# 0)
+                                                         (|Integer|) #2#))
+                                        |pris| (QREFELT $ 38))
+                                       (SPADCALL
+                                        (PROG2
+                                            (LETT #2#
+                                                  (SPADCALL |dris| (QCDR |cdf|)
+                                                            (QREFELT $ 24))
+                                                  . #4#)
+                                            (QCDR #2#)
+                                          (|check_union| (QEQCAR #2# 0)
+                                                         (|Integer|) #2#))
+                                        (SPADCALL (QCAR |cdf|) |i|
+                                                  (QREFELT $ 39))
+                                        (QREFELT $ 38))
+                                       (QREFELT $ 40))
+                                      . #4#)
+                                (EXIT (LETT |dris1| |dris| . #4#)))))))
+                   (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+              (EXIT (CONS |pris| (SPADCALL |dris| (QREFELT $ 15))))))) 
 
-(DEFUN |COMPFACT;backConv| (|ffr| $)
-  (PROG (|uconst| |const| |lc| |ris| |expf| |fact| #1=#:G135 |ff| #2=#:G134 |f|
-         #3=#:G133)
-    (RETURN
-     (SEQ
-      (COND
-       ((|domainEqual| (|Complex| (QREFELT $ 6))
-                       (|Complex| (|Fraction| (|Integer|))))
-        (SPADCALL (SPADCALL |ffr| (QREFELT $ 42))
-                  (PROGN
-                   (LETT #3# NIL . #4=(|COMPFACT;backConv|))
-                   (SEQ (LETT |f| NIL . #4#)
-                        (LETT #2# (SPADCALL |ffr| (QREFELT $ 46)) . #4#) G190
-                        (COND
-                         ((OR (ATOM #2#)
-                              (PROGN (LETT |f| (CAR #2#) . #4#) NIL))
-                          (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (LETT #3#
-                                (CONS
-                                 (VECTOR (QVELT |f| 0) (QVELT |f| 1)
-                                         (QVELT |f| 2))
-                                 #3#)
-                                . #4#)))
-                        (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                        (EXIT (NREVERSE #3#))))
-                  (QREFELT $ 50)))
-       ((|domainEqual| (|Complex| (QREFELT $ 6)) (|Complex| (|Integer|)))
-        (SEQ (LETT |const| (SPADCALL |ffr| (QREFELT $ 42)) . #4#)
-             (LETT |ris| NIL . #4#)
-             (SEQ (LETT |ff| NIL . #4#)
-                  (LETT #1# (SPADCALL |ffr| (QREFELT $ 46)) . #4#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |ff| (CAR #1#) . #4#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (LETT |fact|
-                         (SPADCALL (QCAR (|COMPFACT;conv| (QVELT |ff| 1) $))
-                                   (QREFELT $ 51))
-                         . #4#)
-                   (LETT |expf| (QVELT |ff| 2) . #4#)
-                   (LETT |ris|
-                         (CONS (VECTOR (QVELT |ff| 0) |fact| |expf|) |ris|)
-                         . #4#)
-                   (LETT |lc|
-                         (|COMPFACT;myMap| (SPADCALL |fact| (QREFELT $ 53)) $)
-                         . #4#)
-                   (EXIT
-                    (LETT |const|
-                          (SPADCALL |const|
-                                    (SPADCALL
-                                     (SPADCALL
-                                      (SPADCALL (QVELT |ff| 1) (QREFELT $ 54))
-                                      |lc| (QREFELT $ 55))
-                                     |expf| (QREFELT $ 56))
-                                    (QREFELT $ 57))
-                          . #4#)))
-                  (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
-             (LETT |uconst|
-                   (QCAR
-                    (|COMPFACT;compND| (SPADCALL |const| 0 (QREFELT $ 32)) $))
-                   . #4#)
-             (EXIT
-              (SPADCALL (SPADCALL |uconst| (QREFELT $ 58)) |ris|
-                        (QREFELT $ 50)))))))))) 
+(SDEFUN |COMPFACT;backConv|
+        ((|ffr| |Factored|
+          (|SparseUnivariatePolynomial| (|Complex| (|Fraction| (|Integer|)))))
+         ($ |Factored| PR))
+        (SPROG
+         ((|uconst| (|Complex| (|Integer|)))
+          (|const|
+           (|SparseUnivariatePolynomial| (|Complex| (|Fraction| (|Integer|)))))
+          (|lc| (|Complex| (|Fraction| (|Integer|))))
+          (|ris|
+           (|List|
+            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |fctr| PR) (|:| |xpnt| (|Integer|)))))
+          (|expf| (|Integer|))
+          (|fact| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
+          (#1=#:G135 NIL) (|ff| NIL) (#2=#:G134 NIL) (|f| NIL) (#3=#:G133 NIL))
+         (SEQ
+          (COND
+           ((|domainEqual| (|Complex| (QREFELT $ 6))
+                           (|Complex| (|Fraction| (|Integer|))))
+            (SPADCALL (SPADCALL |ffr| (QREFELT $ 42))
+                      (PROGN
+                       (LETT #3# NIL . #4=(|COMPFACT;backConv|))
+                       (SEQ (LETT |f| NIL . #4#)
+                            (LETT #2# (SPADCALL |ffr| (QREFELT $ 46)) . #4#)
+                            G190
+                            (COND
+                             ((OR (ATOM #2#)
+                                  (PROGN (LETT |f| (CAR #2#) . #4#) NIL))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (LETT #3#
+                                    (CONS
+                                     (VECTOR (QVELT |f| 0) (QVELT |f| 1)
+                                             (QVELT |f| 2))
+                                     #3#)
+                                    . #4#)))
+                            (LETT #2# (CDR #2#) . #4#) (GO G190) G191
+                            (EXIT (NREVERSE #3#))))
+                      (QREFELT $ 50)))
+           ((|domainEqual| (|Complex| (QREFELT $ 6)) (|Complex| (|Integer|)))
+            (SEQ (LETT |const| (SPADCALL |ffr| (QREFELT $ 42)) . #4#)
+                 (LETT |ris| NIL . #4#)
+                 (SEQ (LETT |ff| NIL . #4#)
+                      (LETT #1# (SPADCALL |ffr| (QREFELT $ 46)) . #4#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |ff| (CAR #1#) . #4#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (LETT |fact|
+                             (SPADCALL
+                              (QCAR (|COMPFACT;conv| (QVELT |ff| 1) $))
+                              (QREFELT $ 51))
+                             . #4#)
+                       (LETT |expf| (QVELT |ff| 2) . #4#)
+                       (LETT |ris|
+                             (CONS (VECTOR (QVELT |ff| 0) |fact| |expf|) |ris|)
+                             . #4#)
+                       (LETT |lc|
+                             (|COMPFACT;myMap| (SPADCALL |fact| (QREFELT $ 53))
+                              $)
+                             . #4#)
+                       (EXIT
+                        (LETT |const|
+                              (SPADCALL |const|
+                                        (SPADCALL
+                                         (SPADCALL
+                                          (SPADCALL (QVELT |ff| 1)
+                                                    (QREFELT $ 54))
+                                          |lc| (QREFELT $ 55))
+                                         |expf| (QREFELT $ 56))
+                                        (QREFELT $ 57))
+                              . #4#)))
+                      (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
+                 (LETT |uconst|
+                       (QCAR
+                        (|COMPFACT;compND| (SPADCALL |const| 0 (QREFELT $ 32))
+                         $))
+                       . #4#)
+                 (EXIT
+                  (SPADCALL (SPADCALL |uconst| (QREFELT $ 58)) |ris|
+                            (QREFELT $ 50))))))))) 
 
-(DEFUN |COMPFACT;factor;PRF;5| (|pol| $)
-  (PROG (|ffr| |ratPol|)
-    (RETURN
-     (SEQ (LETT |ratPol| (|spadConstant| $ 59) . #1=(|COMPFACT;factor;PRF;5|))
+(SDEFUN |COMPFACT;factor;PRF;5| ((|pol| PR) ($ |Factored| PR))
+        (SPROG
+         ((|ffr|
+           (|Factored|
+            (|SparseUnivariatePolynomial|
+             (|Complex| (|Fraction| (|Integer|))))))
+          (|ratPol|
+           (|SparseUnivariatePolynomial|
+            (|Complex| (|Fraction| (|Integer|))))))
+         (SEQ
+          (LETT |ratPol| (|spadConstant| $ 59) . #1=(|COMPFACT;factor;PRF;5|))
           (LETT |ratPol|
                 (SPADCALL (CONS (|function| |COMPFACT;myMap|) $) |pol|
                           (QREFELT $ 61))
                 . #1#)
           (LETT |ffr| (SPADCALL |ratPol| (QREFELT $ 62)) . #1#)
-          (EXIT (|COMPFACT;backConv| |ffr| $)))))) 
+          (EXIT (|COMPFACT;backConv| |ffr| $))))) 
 
 (DECLAIM (NOTINLINE |ComplexFactorization;|)) 
 
 (DEFUN |ComplexFactorization| (&REST #1=#:G139)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G140)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ComplexFactorization|)
-                                           '|domainEqualList|)
-                . #3=(|ComplexFactorization|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ComplexFactorization;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G140)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|ComplexFactorization|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ComplexFactorization|)
+                                               '|domainEqualList|)
+                    . #3=(|ComplexFactorization|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ComplexFactorization;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ComplexFactorization|)))))))))) 
 
 (DEFUN |ComplexFactorization;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ComplexFactorization|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|ComplexFactorization| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 64) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ComplexFactorization| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8
-                (|SimpleAlgebraicExtensionAlgFactor|
-                 (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
-                 (|Complex| (|Fraction| (|Integer|)))
-                 (|SparseUnivariatePolynomial|
-                  (|Complex| (|Fraction| (|Integer|))))))
-      (QSETREFV $ 9
-                (|UnivariatePolynomialCategoryFunctions2| (|Complex| |#1|) |#2|
-                                                          (|Complex|
-                                                           (|Fraction|
-                                                            (|Integer|)))
-                                                          (|SparseUnivariatePolynomial|
-                                                           (|Complex|
-                                                            (|Fraction|
-                                                             (|Integer|))))))
-      (QSETREFV $ 10
-                (|UnivariatePolynomialCategoryFunctions2|
-                 (|Complex| (|Fraction| (|Integer|)))
-                 (|SparseUnivariatePolynomial|
-                  (|Complex| (|Fraction| (|Integer|))))
-                 (|Complex| |#1|) |#2|))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|ComplexFactorization|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|ComplexFactorization| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 64) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ComplexFactorization|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8
+                    (|SimpleAlgebraicExtensionAlgFactor|
+                     (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
+                     (|Complex| (|Fraction| (|Integer|)))
+                     (|SparseUnivariatePolynomial|
+                      (|Complex| (|Fraction| (|Integer|))))))
+          (QSETREFV $ 9
+                    (|UnivariatePolynomialCategoryFunctions2| (|Complex| |#1|)
+                                                              |#2|
+                                                              (|Complex|
+                                                               (|Fraction|
+                                                                (|Integer|)))
+                                                              (|SparseUnivariatePolynomial|
+                                                               (|Complex|
+                                                                (|Fraction|
+                                                                 (|Integer|))))))
+          (QSETREFV $ 10
+                    (|UnivariatePolynomialCategoryFunctions2|
+                     (|Complex| (|Fraction| (|Integer|)))
+                     (|SparseUnivariatePolynomial|
+                      (|Complex| (|Fraction| (|Integer|))))
+                     (|Complex| |#1|) |#2|))
+          $))) 
 
 (MAKEPROP '|ComplexFactorization| '|infovec|
           (LIST

@@ -1,49 +1,48 @@
 
-(DEFUN |KERNEL2;constantKernel;RK;1| (|r| $)
-  (SPADCALL (SPADCALL |r| (QREFELT $ 10)) NIL 1 (QREFELT $ 14))) 
+(SDEFUN |KERNEL2;constantKernel;RK;1| ((|r| R) ($ |Kernel| S))
+        (SPADCALL (SPADCALL |r| (QREFELT $ 10)) NIL 1 (QREFELT $ 14))) 
 
-(DEFUN |KERNEL2;constantIfCan;KU;2| (|k| $)
-  (SPADCALL (SPADCALL |k| (QREFELT $ 16)) (QREFELT $ 18))) 
+(SDEFUN |KERNEL2;constantIfCan;KU;2| ((|k| |Kernel| S) ($ |Union| R "failed"))
+        (SPADCALL (SPADCALL |k| (QREFELT $ 16)) (QREFELT $ 18))) 
 
 (DECLAIM (NOTINLINE |KernelFunctions2;|)) 
 
 (DEFUN |KernelFunctions2| (&REST #1=#:G108)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G109)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|KernelFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|KernelFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |KernelFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G109)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|KernelFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|KernelFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|KernelFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |KernelFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|KernelFunctions2|)))))))))) 
 
 (DEFUN |KernelFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|KernelFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|KernelFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 20) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|KernelFunctions2| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|KernelFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|KernelFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 20) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|KernelFunctions2| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|KernelFunctions2| '|infovec|
           (LIST

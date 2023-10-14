@@ -1,118 +1,121 @@
 
 (PUT '|PENDTREE;coerce;$T;1| '|SPADreplace| '(XLAM (|t|) |t|)) 
 
-(DEFUN |PENDTREE;coerce;$T;1| (|t| $) |t|) 
+(SDEFUN |PENDTREE;coerce;$T;1| ((|t| $) ($ |Tree| S)) |t|) 
 
-(DEFUN |PENDTREE;ptree;S$;2| (|n| $) (SPADCALL |n| NIL (QREFELT $ 11))) 
+(SDEFUN |PENDTREE;ptree;S$;2| ((|n| S) ($ $)) (SPADCALL |n| NIL (QREFELT $ 11))) 
 
-(DEFUN |PENDTREE;ptree;3$;3| (|l| |r| $)
-  (SPADCALL (SPADCALL |r| (QREFELT $ 13))
-            (SPADCALL |l| (SPADCALL |r| (QREFELT $ 14)) (QREFELT $ 16))
-            (QREFELT $ 11))) 
+(SDEFUN |PENDTREE;ptree;3$;3| ((|l| $) (|r| $) ($ $))
+        (SPADCALL (SPADCALL |r| (QREFELT $ 13))
+                  (SPADCALL |l| (SPADCALL |r| (QREFELT $ 14)) (QREFELT $ 16))
+                  (QREFELT $ 11))) 
 
-(DEFUN |PENDTREE;leaf?;$B;4| (|t| $)
-  (SPADCALL (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 19))) 
+(SDEFUN |PENDTREE;leaf?;$B;4| ((|t| $) ($ |Boolean|))
+        (SPADCALL (SPADCALL |t| (QREFELT $ 14)) (QREFELT $ 19))) 
 
-(DEFUN |PENDTREE;=;2$B;5| (|t1| |t2| $) (SPADCALL |t1| |t2| (QREFELT $ 21))) 
+(SDEFUN |PENDTREE;=;2$B;5| ((|t1| $) (|t2| $) ($ |Boolean|))
+        (SPADCALL |t1| |t2| (QREFELT $ 21))) 
 
-(DEFUN |PENDTREE;left;2$;6| (|b| $)
-  (COND ((SPADCALL |b| (QREFELT $ 20)) (|error| "ptree:no left"))
-        ('T (SPADCALL (SPADCALL |b| (QREFELT $ 14)) (QREFELT $ 22))))) 
+(SDEFUN |PENDTREE;left;2$;6| ((|b| $) ($ $))
+        (COND ((SPADCALL |b| (QREFELT $ 20)) (|error| "ptree:no left"))
+              ('T (SPADCALL (SPADCALL |b| (QREFELT $ 14)) (QREFELT $ 22))))) 
 
-(DEFUN |PENDTREE;right;2$;7| (|b| $)
-  (COND ((SPADCALL |b| (QREFELT $ 20)) (|error| "ptree:no right"))
-        ('T
-         (SPADCALL (SPADCALL |b| (QREFELT $ 13))
-                   (SPADCALL (SPADCALL |b| (QREFELT $ 14)) (QREFELT $ 24))
-                   (QREFELT $ 11))))) 
+(SDEFUN |PENDTREE;right;2$;7| ((|b| $) ($ $))
+        (COND ((SPADCALL |b| (QREFELT $ 20)) (|error| "ptree:no right"))
+              ('T
+               (SPADCALL (SPADCALL |b| (QREFELT $ 13))
+                         (SPADCALL (SPADCALL |b| (QREFELT $ 14))
+                                   (QREFELT $ 24))
+                         (QREFELT $ 11))))) 
 
-(DEFUN |PENDTREE;value;$S;8| (|b| $)
-  (COND ((SPADCALL |b| (QREFELT $ 20)) (SPADCALL |b| (QREFELT $ 13)))
-        ('T (|error| "the pendant tree has no value")))) 
+(SDEFUN |PENDTREE;value;$S;8| ((|b| $) ($ S))
+        (COND ((SPADCALL |b| (QREFELT $ 20)) (SPADCALL |b| (QREFELT $ 13)))
+              ('T (|error| "the pendant tree has no value")))) 
 
-(DEFUN |PENDTREE;coerce;$Of;9| (|b| $)
-  (COND
-   ((SPADCALL |b| (QREFELT $ 20))
-    (SPADCALL (SPADCALL |b| (QREFELT $ 13)) (QREFELT $ 28)))
-   ('T
-    (SPADCALL
-     (SPADCALL
-      (LIST (SPADCALL (SPADCALL |b| (QREFELT $ 23)) (QREFELT $ 29))
-            (SPADCALL (SPADCALL |b| (QREFELT $ 25)) (QREFELT $ 29)))
-      (QREFELT $ 30))
-     (QREFELT $ 31))))) 
+(SDEFUN |PENDTREE;coerce;$Of;9| ((|b| $) ($ |OutputForm|))
+        (COND
+         ((SPADCALL |b| (QREFELT $ 20))
+          (SPADCALL (SPADCALL |b| (QREFELT $ 13)) (QREFELT $ 28)))
+         ('T
+          (SPADCALL
+           (SPADCALL
+            (LIST (SPADCALL (SPADCALL |b| (QREFELT $ 23)) (QREFELT $ 29))
+                  (SPADCALL (SPADCALL |b| (QREFELT $ 25)) (QREFELT $ 29)))
+            (QREFELT $ 30))
+           (QREFELT $ 31))))) 
 
 (DECLAIM (NOTINLINE |PendantTree;|)) 
 
 (DEFUN |PendantTree| (#1=#:G125)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G126)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|PendantTree|)
-                                           '|domainEqualList|)
-                . #3=(|PendantTree|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|PendantTree;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|PendantTree|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G126)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PendantTree|)
+                                               '|domainEqualList|)
+                    . #3=(|PendantTree|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|PendantTree;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|PendantTree|)))))))))) 
 
 (DEFUN |PendantTree;| (|#1|)
-  (PROG (|pv$| #1=#:G122 #2=#:G123 #3=#:G124 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|PendantTree|))
-      (LETT |dv$| (LIST '|PendantTree| DV$1) . #4#)
-      (LETT $ (GETREFV 45) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #3#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|BasicType|))
-                                                . #4#)
-                                          (OR #2# #3#)
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #4#)
-                                          (OR #1#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #3#))))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|PendantTree| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
-      (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 128))
-      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
-           (|augmentPredVector| $ 256))
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 512))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|Tree| |#1|))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) (#1=#:G122 NIL) (#2=#:G123 NIL) (#3=#:G124 NIL) ($ NIL)
+    (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|PendantTree|))
+    (LETT |dv$| (LIST '|PendantTree| DV$1) . #4#)
+    (LETT $ (GETREFV 45) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #3#)
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|BasicType|))
+                                              . #4#)
+                                        (OR #2# #3#)
+                                        (LETT #1#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #4#)
+                                        (OR #1#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #3#))))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|PendantTree| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
+    (AND #2# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 128))
+    (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+         (|augmentPredVector| $ 256))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 512))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 7 (|Tree| |#1|))
+    $))) 
 
 (MAKEPROP '|PendantTree| '|infovec|
           (LIST

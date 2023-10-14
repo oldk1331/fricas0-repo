@@ -1,138 +1,148 @@
 
-(DEFUN |EXPRSOL;replaceDiffs;FBoSF;1| (|expr| |op| |sy| $)
-  (PROG (|differentiand| |args| |arg| #1=#:G112 |k| |lk|)
-    (RETURN
-     (SEQ
-      (LETT |lk| (SPADCALL |expr| (QREFELT $ 17))
-            . #2=(|EXPRSOL;replaceDiffs;FBoSF;1|))
-      (SEQ (LETT |k| NIL . #2#) (LETT #1# |lk| . #2#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#) . #2#) NIL)) (GO G191)))
-           (SEQ
-            (COND
-             ((SPADCALL |k| |op| (QREFELT $ 20))
-              (SEQ
-               (LETT |arg| (|SPADfirst| (SPADCALL |k| (QREFELT $ 22))) . #2#)
-               (EXIT
+(SDEFUN |EXPRSOL;replaceDiffs;FBoSF;1|
+        ((|expr| F) (|op| |BasicOperator|) (|sy| |Symbol|) ($ F))
+        (SPROG
+         ((|differentiand| (F)) (|args| (|List| F)) (|arg| (F)) (#1=#:G112 NIL)
+          (|k| NIL) (|lk| (|List| (|Kernel| F))))
+         (SEQ
+          (LETT |lk| (SPADCALL |expr| (QREFELT $ 17))
+                . #2=(|EXPRSOL;replaceDiffs;FBoSF;1|))
+          (SEQ (LETT |k| NIL . #2#) (LETT #1# |lk| . #2#) G190
+               (COND
+                ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#) . #2#) NIL))
+                 (GO G191)))
+               (SEQ
                 (COND
-                 ((SPADCALL |arg| (SPADCALL |sy| (QREFELT $ 23))
-                            (QREFELT $ 24))
-                  (LETT |expr|
-                        (SPADCALL |expr| (LIST |k|)
-                                  (LIST
-                                   (SPADCALL (SPADCALL |op| (QREFELT $ 25))
-                                             (QREFELT $ 23)))
-                                  (QREFELT $ 27))
-                        . #2#))
-                 ('T
-                  (LETT |expr|
-                        (SPADCALL |expr| (LIST |k|)
-                                  (LIST
-                                   (SPADCALL (QREFELT $ 13)
-                                             (LIST
-                                              (SPADCALL
-                                               (SPADCALL |op| (QREFELT $ 25))
-                                               (QREFELT $ 23))
-                                              (SPADCALL |arg| |op| |sy|
-                                                        (QREFELT $ 28)))
-                                             (QREFELT $ 29)))
-                                  (QREFELT $ 27))
-                        . #2#)))))))
-            (EXIT
-             (COND
-              ((SPADCALL |k| '|%diff| (QREFELT $ 30))
-               (SEQ (LETT |args| (SPADCALL |k| (QREFELT $ 22)) . #2#)
-                    (LETT |differentiand|
-                          (SPADCALL
-                           (SPADCALL (SPADCALL |args| 1 (QREFELT $ 34))
-                                     (SPADCALL
-                                      (SPADCALL |args| 2 (QREFELT $ 34))
-                                      (SPADCALL |args| 3 (QREFELT $ 34))
-                                      (QREFELT $ 36))
-                                     (QREFELT $ 38))
-                           |op| |sy| (QREFELT $ 28))
-                          . #2#)
-                    (EXIT
-                     (LETT |expr|
-                           (SPADCALL |expr| (LIST |k|)
-                                     (LIST
-                                      (SPADCALL (QREFELT $ 14) |differentiand|
-                                                (QREFELT $ 39)))
-                                     (QREFELT $ 27))
-                           . #2#)))))))
-           (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |expr|))))) 
+                 ((SPADCALL |k| |op| (QREFELT $ 20))
+                  (SEQ
+                   (LETT |arg| (|SPADfirst| (SPADCALL |k| (QREFELT $ 22)))
+                         . #2#)
+                   (EXIT
+                    (COND
+                     ((SPADCALL |arg| (SPADCALL |sy| (QREFELT $ 23))
+                                (QREFELT $ 24))
+                      (LETT |expr|
+                            (SPADCALL |expr| (LIST |k|)
+                                      (LIST
+                                       (SPADCALL (SPADCALL |op| (QREFELT $ 25))
+                                                 (QREFELT $ 23)))
+                                      (QREFELT $ 27))
+                            . #2#))
+                     ('T
+                      (LETT |expr|
+                            (SPADCALL |expr| (LIST |k|)
+                                      (LIST
+                                       (SPADCALL (QREFELT $ 13)
+                                                 (LIST
+                                                  (SPADCALL
+                                                   (SPADCALL |op|
+                                                             (QREFELT $ 25))
+                                                   (QREFELT $ 23))
+                                                  (SPADCALL |arg| |op| |sy|
+                                                            (QREFELT $ 28)))
+                                                 (QREFELT $ 29)))
+                                      (QREFELT $ 27))
+                            . #2#)))))))
+                (EXIT
+                 (COND
+                  ((SPADCALL |k| '|%diff| (QREFELT $ 30))
+                   (SEQ (LETT |args| (SPADCALL |k| (QREFELT $ 22)) . #2#)
+                        (LETT |differentiand|
+                              (SPADCALL
+                               (SPADCALL (SPADCALL |args| 1 (QREFELT $ 34))
+                                         (SPADCALL
+                                          (SPADCALL |args| 2 (QREFELT $ 34))
+                                          (SPADCALL |args| 3 (QREFELT $ 34))
+                                          (QREFELT $ 36))
+                                         (QREFELT $ 38))
+                               |op| |sy| (QREFELT $ 28))
+                              . #2#)
+                        (EXIT
+                         (LETT |expr|
+                               (SPADCALL |expr| (LIST |k|)
+                                         (LIST
+                                          (SPADCALL (QREFELT $ 14)
+                                                    |differentiand|
+                                                    (QREFELT $ 39)))
+                                         (QREFELT $ 27))
+                               . #2#)))))))
+               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+          (EXIT |expr|)))) 
 
-(DEFUN |EXPRSOL;seriesSolve;FBoSLUTSF;2| (|expr| |op| |sy| |l| $)
-  (PROG (|f| |ex|)
-    (RETURN
-     (SEQ
-      (LETT |ex| (SPADCALL |expr| |op| |sy| (QREFELT $ 28))
-            . #1=(|EXPRSOL;seriesSolve;FBoSLUTSF;2|))
-      (LETT |f|
-            (SPADCALL |ex| (SPADCALL |op| (QREFELT $ 25)) |sy| (QREFELT $ 42))
-            . #1#)
-      (EXIT
-       (SPADCALL (CONS #'|EXPRSOL;seriesSolve;FBoSLUTSF;2!0| (VECTOR |f| $))
-                 |l| (QREFELT $ 50))))))) 
+(SDEFUN |EXPRSOL;seriesSolve;FBoSLUTSF;2|
+        ((|expr| F) (|op| |BasicOperator|) (|sy| |Symbol|) (|l| |List| F)
+         ($ UTSF))
+        (SPROG ((|f| (|Mapping| UTSSMPF UTSSMPF UTSSMPF)) (|ex| (F)))
+               (SEQ
+                (LETT |ex| (SPADCALL |expr| |op| |sy| (QREFELT $ 28))
+                      . #1=(|EXPRSOL;seriesSolve;FBoSLUTSF;2|))
+                (LETT |f|
+                      (SPADCALL |ex| (SPADCALL |op| (QREFELT $ 25)) |sy|
+                                (QREFELT $ 42))
+                      . #1#)
+                (EXIT
+                 (SPADCALL
+                  (CONS #'|EXPRSOL;seriesSolve;FBoSLUTSF;2!0| (VECTOR |f| $))
+                  |l| (QREFELT $ 50)))))) 
 
-(DEFUN |EXPRSOL;seriesSolve;FBoSLUTSF;2!0| (|x| $$)
-  (PROG ($ |f|)
-    (LETT $ (QREFELT $$ 1) . #1=(|EXPRSOL;seriesSolve;FBoSLUTSF;2|))
-    (LETT |f| (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL |x|
-                (SPADCALL (|spadConstant| $ 44) (|spadConstant| $ 46)
-                          (QREFELT $ 47))
-                |f|))))) 
+(SDEFUN |EXPRSOL;seriesSolve;FBoSLUTSF;2!0| ((|x| NIL) ($$ NIL))
+        (PROG ($ |f|)
+          (LETT $ (QREFELT $$ 1) . #1=(|EXPRSOL;seriesSolve;FBoSLUTSF;2|))
+          (LETT |f| (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL |x|
+                      (SPADCALL (|spadConstant| $ 44) (|spadConstant| $ 46)
+                                (QREFELT $ 47))
+                      |f|))))) 
 
 (DECLAIM (NOTINLINE |ExpressionSolve;|)) 
 
 (DEFUN |ExpressionSolve| (&REST #1=#:G116)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G117)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ExpressionSolve|)
-                                           '|domainEqualList|)
-                . #3=(|ExpressionSolve|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ExpressionSolve;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G117)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|ExpressionSolve|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ExpressionSolve|)
+                                               '|domainEqualList|)
+                    . #3=(|ExpressionSolve|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ExpressionSolve;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ExpressionSolve|)))))))))) 
 
 (DEFUN |ExpressionSolve;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ExpressionSolve|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|ExpressionSolve| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 52) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ExpressionSolve|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 13 (SPADCALL '|elt| (QREFELT $ 12)))
-      (QSETREFV $ 14 (SPADCALL 'D (QREFELT $ 12)))
-      (QSETREFV $ 15 (SPADCALL '|coerce| (QREFELT $ 12)))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|ExpressionSolve|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|ExpressionSolve| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 52) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|ExpressionSolve|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 13 (SPADCALL '|elt| (QREFELT $ 12)))
+    (QSETREFV $ 14 (SPADCALL 'D (QREFELT $ 12)))
+    (QSETREFV $ 15 (SPADCALL '|coerce| (QREFELT $ 12)))
+    $))) 
 
 (MAKEPROP '|ExpressionSolve| '|infovec|
           (LIST

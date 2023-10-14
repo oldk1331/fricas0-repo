@@ -1,40 +1,50 @@
 
-(DEFUN |UPDECOMP;rightFactorIfCan;UPNniRU;1| (|p| |dq| |lcq| $)
-  (PROG (|q| #1=#:G116 #2=#:G130 |cquo| |c| #3=#:G131 |i| |k| |lcp| |s| |n|
-         |nc| |dp|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |dp| (SPADCALL |p| (QREFELT $ 9))
-              . #4=(|UPDECOMP;rightFactorIfCan;UPNniRU;1|))
-        (EXIT
-         (COND
-          ((SPADCALL |lcq| (QREFELT $ 11))
-           (|error| "rightFactorIfCan: leading coefficient may not be zero"))
-          ((OR (ZEROP |dp|) (ZEROP |dq|)) (CONS 1 "failed"))
-          ('T
-           (SEQ (LETT |nc| (SPADCALL |dp| |dq| (QREFELT $ 13)) . #4#)
-                (EXIT
-                 (COND ((QEQCAR |nc| 1) (CONS 1 "failed"))
-                       ('T
-                        (SEQ (LETT |n| (QCDR |nc|) . #4#)
-                             (LETT |s|
-                                   (PROG2
-                                       (LETT #1#
-                                             (SPADCALL |dq| 1 (QREFELT $ 16))
-                                             . #4#)
-                                       (QCDR #1#)
-                                     (|check_union| (QEQCAR #1# 0)
-                                                    (|NonNegativeInteger|)
-                                                    #1#))
-                                   . #4#)
-                             (LETT |lcp| (SPADCALL |p| (QREFELT $ 17)) . #4#)
-                             (LETT |q| (SPADCALL |lcq| |dq| (QREFELT $ 18))
-                                   . #4#)
-                             (SEQ (LETT |k| 1 . #4#) G190
-                                  (COND ((|greater_SI| |k| |s|) (GO G191)))
-                                  (SEQ (LETT |c| (|spadConstant| $ 19) . #4#)
+(SDEFUN |UPDECOMP;rightFactorIfCan;UPNniRU;1|
+        ((|p| UP) (|dq| |NonNegativeInteger|) (|lcq| R)
+         ($ |Union| UP "failed"))
+        (SPROG
+         ((|q| (UP)) (#1=#:G116 NIL) (#2=#:G130 NIL)
+          (|cquo| (|Union| R "failed")) (|c| (R)) (#3=#:G131 NIL) (|i| NIL)
+          (|k| NIL) (|lcp| (R)) (|s| (|NonNegativeInteger|))
+          (|n| (|NonNegativeInteger|))
+          (|nc| (|Union| (|NonNegativeInteger|) "failed"))
+          (|dp| (|NonNegativeInteger|)))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |dp| (SPADCALL |p| (QREFELT $ 9))
+                  . #4=(|UPDECOMP;rightFactorIfCan;UPNniRU;1|))
+            (EXIT
+             (COND
+              ((SPADCALL |lcq| (QREFELT $ 11))
+               (|error|
+                "rightFactorIfCan: leading coefficient may not be zero"))
+              ((OR (ZEROP |dp|) (ZEROP |dq|)) (CONS 1 "failed"))
+              ('T
+               (SEQ (LETT |nc| (SPADCALL |dp| |dq| (QREFELT $ 13)) . #4#)
+                    (EXIT
+                     (COND ((QEQCAR |nc| 1) (CONS 1 "failed"))
+                           ('T
+                            (SEQ (LETT |n| (QCDR |nc|) . #4#)
+                                 (LETT |s|
+                                       (PROG2
+                                           (LETT #1#
+                                                 (SPADCALL |dq| 1
+                                                           (QREFELT $ 16))
+                                                 . #4#)
+                                           (QCDR #1#)
+                                         (|check_union| (QEQCAR #1# 0)
+                                                        (|NonNegativeInteger|)
+                                                        #1#))
+                                       . #4#)
+                                 (LETT |lcp| (SPADCALL |p| (QREFELT $ 17))
+                                       . #4#)
+                                 (LETT |q| (SPADCALL |lcq| |dq| (QREFELT $ 18))
+                                       . #4#)
+                                 (SEQ (LETT |k| 1 . #4#) G190
+                                      (COND ((|greater_SI| |k| |s|) (GO G191)))
+                                      (SEQ
+                                       (LETT |c| (|spadConstant| $ 19) . #4#)
                                        (SEQ (LETT |i| 0 . #4#)
                                             (LETT #3#
                                                   (PROG2
@@ -169,32 +179,41 @@
                                                            (QREFELT $ 18))
                                                           (QREFELT $ 27))
                                                 . #4#)))))
-                                  (LETT |k| (|inc_SI| |k|) . #4#) (GO G190)
-                                  G191 (EXIT NIL))
-                             (EXIT (CONS 0 |q|))))))))))))
-      #2# (EXIT #2#))))) 
+                                      (LETT |k| (|inc_SI| |k|) . #4#) (GO G190)
+                                      G191 (EXIT NIL))
+                                 (EXIT (CONS 0 |q|))))))))))))
+          #2# (EXIT #2#)))) 
 
-(DEFUN |UPDECOMP;monicRightFactorIfCan;UPNniU;2| (|p| |dq| $)
-  (SPADCALL |p| |dq| (|spadConstant| $ 14) (QREFELT $ 29))) 
+(SDEFUN |UPDECOMP;monicRightFactorIfCan;UPNniU;2|
+        ((|p| UP) (|dq| |NonNegativeInteger|) ($ |Union| UP "failed"))
+        (SPADCALL |p| |dq| (|spadConstant| $ 14) (QREFELT $ 29))) 
 
-(DEFUN |UPDECOMP;leftFactorIfCan;2UPU;3| (|f| |h| $)
-  (PROG (|g| #1=#:G150 |r| |qr| |qrf| |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |g| (|spadConstant| $ 31)
-              . #2=(|UPDECOMP;leftFactorIfCan;2UPU;3|))
-        (EXIT
-         (COND ((ZEROP (SPADCALL |h| (QREFELT $ 9))) (CONS 1 "failed"))
-               ('T
-                (SEQ
-                 (SEQ (LETT |i| 0 . #2#) G190
-                      (COND
-                       ((NULL
-                         (COND ((SPADCALL |f| (QREFELT $ 32)) 'NIL) ('T 'T)))
-                        (GO G191)))
-                      (SEQ (LETT |qrf| (SPADCALL |f| |h| (QREFELT $ 36)) . #2#)
+(SDEFUN |UPDECOMP;leftFactorIfCan;2UPU;3|
+        ((|f| UP) (|h| UP) ($ |Union| UP "failed"))
+        (SPROG
+         ((|g| (UP)) (#1=#:G150 NIL) (|r| (UP))
+          (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
+          (|qrf|
+           (|Union| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))
+                    "failed"))
+          (|i| NIL))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |g| (|spadConstant| $ 31)
+                  . #2=(|UPDECOMP;leftFactorIfCan;2UPU;3|))
+            (EXIT
+             (COND ((ZEROP (SPADCALL |h| (QREFELT $ 9))) (CONS 1 "failed"))
+                   ('T
+                    (SEQ
+                     (SEQ (LETT |i| 0 . #2#) G190
+                          (COND
+                           ((NULL
+                             (COND ((SPADCALL |f| (QREFELT $ 32)) 'NIL)
+                                   ('T 'T)))
+                            (GO G191)))
+                          (SEQ
+                           (LETT |qrf| (SPADCALL |f| |h| (QREFELT $ 36)) . #2#)
                            (EXIT
                             (COND
                              ((QEQCAR |qrf| 1)
@@ -219,120 +238,129 @@
                                                    (QREFELT $ 27))
                                          . #2#)
                                    (EXIT (LETT |f| (QCAR |qr|) . #2#)))))))
-                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                      (EXIT NIL))
-                 (EXIT (CONS 0 |g|))))))))
-      #1# (EXIT #1#))))) 
+                          (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                          (EXIT NIL))
+                     (EXIT (CONS 0 |g|))))))))
+          #1# (EXIT #1#)))) 
 
-(DEFUN |UPDECOMP;monicDecomposeIfCan;UPU;4| (|f| $)
-  (PROG (#1=#:G170 |g| |h| #2=#:G171 #3=#:G156 |dh| |df|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |df| (SPADCALL |f| (QREFELT $ 9))
-              . #4=(|UPDECOMP;monicDecomposeIfCan;UPU;4|))
-        (EXIT
-         (COND ((ZEROP |df|) (CONS 1 "failed"))
-               ('T
-                (SEQ
-                 (SEQ (LETT |dh| 2 . #4#)
-                      (LETT #2#
-                            (PROG2
-                                (LETT #3# (SPADCALL |df| 1 (QREFELT $ 16))
-                                      . #4#)
-                                (QCDR #3#)
-                              (|check_union| (QEQCAR #3# 0)
-                                             (|NonNegativeInteger|) #3#))
-                            . #4#)
-                      G190 (COND ((|greater_SI| |dh| #2#) (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (COND
-                         ((ZEROP (REM |df| |dh|))
+(SDEFUN |UPDECOMP;monicDecomposeIfCan;UPU;4|
+        ((|f| UP)
+         ($ |Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed"))
+        (SPROG
+         ((#1=#:G170 NIL) (|g| (|Union| UP "failed"))
+          (|h| (|Union| UP "failed")) (#2=#:G171 NIL) (#3=#:G156 NIL)
+          (|dh| NIL) (|df| (|NonNegativeInteger|)))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |df| (SPADCALL |f| (QREFELT $ 9))
+                  . #4=(|UPDECOMP;monicDecomposeIfCan;UPU;4|))
+            (EXIT
+             (COND ((ZEROP |df|) (CONS 1 "failed"))
+                   ('T
+                    (SEQ
+                     (SEQ (LETT |dh| 2 . #4#)
+                          (LETT #2#
+                                (PROG2
+                                    (LETT #3# (SPADCALL |df| 1 (QREFELT $ 16))
+                                          . #4#)
+                                    (QCDR #3#)
+                                  (|check_union| (QEQCAR #3# 0)
+                                                 (|NonNegativeInteger|) #3#))
+                                . #4#)
+                          G190 (COND ((|greater_SI| |dh| #2#) (GO G191)))
                           (SEQ
-                           (LETT |h| (SPADCALL |f| |dh| (QREFELT $ 30)) . #4#)
                            (EXIT
                             (COND
-                             ((QEQCAR |h| 0)
+                             ((ZEROP (REM |df| |dh|))
                               (SEQ
-                               (LETT |g|
-                                     (SPADCALL |f| (QCDR |h|) (QREFELT $ 39))
+                               (LETT |h| (SPADCALL |f| |dh| (QREFELT $ 30))
                                      . #4#)
                                (EXIT
                                 (COND
-                                 ((QEQCAR |g| 0)
-                                  (PROGN
-                                   (LETT #1#
-                                         (CONS 0 (CONS (QCDR |g|) (QCDR |h|)))
+                                 ((QEQCAR |h| 0)
+                                  (SEQ
+                                   (LETT |g|
+                                         (SPADCALL |f| (QCDR |h|)
+                                                   (QREFELT $ 39))
                                          . #4#)
-                                   (GO #1#))))))))))))))
-                      (LETT |dh| (|inc_SI| |dh|) . #4#) (GO G190) G191
-                      (EXIT NIL))
-                 (EXIT (CONS 1 "failed"))))))))
-      #1# (EXIT #1#))))) 
+                                   (EXIT
+                                    (COND
+                                     ((QEQCAR |g| 0)
+                                      (PROGN
+                                       (LETT #1#
+                                             (CONS 0
+                                                   (CONS (QCDR |g|)
+                                                         (QCDR |h|)))
+                                             . #4#)
+                                       (GO #1#))))))))))))))
+                          (LETT |dh| (|inc_SI| |dh|) . #4#) (GO G190) G191
+                          (EXIT NIL))
+                     (EXIT (CONS 1 "failed"))))))))
+          #1# (EXIT #1#)))) 
 
-(DEFUN |UPDECOMP;monicCompleteDecompose;UPL;5| (|f| $)
-  (PROG (|lr| |cf|)
-    (RETURN
-     (SEQ
-      (LETT |cf| (SPADCALL |f| (QREFELT $ 42))
-            . #1=(|UPDECOMP;monicCompleteDecompose;UPL;5|))
-      (EXIT
-       (COND ((QEQCAR |cf| 1) (LIST |f|))
-             ('T
-              (SEQ (LETT |lr| (QCDR |cf|) . #1#)
-                   (EXIT
-                    (APPEND (SPADCALL (QCAR |lr|) (QREFELT $ 44))
-                            (LIST (QCDR |lr|)))))))))))) 
+(SDEFUN |UPDECOMP;monicCompleteDecompose;UPL;5| ((|f| UP) ($ |List| UP))
+        (SPROG
+         ((|lr| (|Record| (|:| |left| UP) (|:| |right| UP)))
+          (|cf|
+           (|Union| (|Record| (|:| |left| UP) (|:| |right| UP)) "failed")))
+         (SEQ
+          (LETT |cf| (SPADCALL |f| (QREFELT $ 42))
+                . #1=(|UPDECOMP;monicCompleteDecompose;UPL;5|))
+          (EXIT
+           (COND ((QEQCAR |cf| 1) (LIST |f|))
+                 ('T
+                  (SEQ (LETT |lr| (QCDR |cf|) . #1#)
+                       (EXIT
+                        (APPEND (SPADCALL (QCAR |lr|) (QREFELT $ 44))
+                                (LIST (QCDR |lr|))))))))))) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialDecompositionPackage;|)) 
 
 (DEFUN |UnivariatePolynomialDecompositionPackage| (&REST #1=#:G179)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G180)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|UnivariatePolynomialDecompositionPackage|)
-                                           '|domainEqualList|)
-                . #3=(|UnivariatePolynomialDecompositionPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (APPLY
-                   (|function| |UnivariatePolynomialDecompositionPackage;|)
-                   #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G180)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|UnivariatePolynomialDecompositionPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|UnivariatePolynomialDecompositionPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|UnivariatePolynomialDecompositionPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY
+                       (|function| |UnivariatePolynomialDecompositionPackage;|)
+                       #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariatePolynomialDecompositionPackage|)))))))))) 
 
 (DEFUN |UnivariatePolynomialDecompositionPackage;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|UnivariatePolynomialDecompositionPackage|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|UnivariatePolynomialDecompositionPackage| DV$1 DV$2)
-            . #1#)
-      (LETT $ (GETREFV 45) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache|
-                  '|UnivariatePolynomialDecompositionPackage| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|UnivariatePolynomialDecompositionPackage|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$|
+                (LIST '|UnivariatePolynomialDecompositionPackage| DV$1 DV$2)
+                . #1#)
+          (LETT $ (GETREFV 45) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|UnivariatePolynomialDecompositionPackage|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|UnivariatePolynomialDecompositionPackage| '|infovec|
           (LIST

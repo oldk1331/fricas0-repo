@@ -1,485 +1,504 @@
 
 (PUT '|OUTFORM;print;$V;1| '|SPADreplace| '|mathprint|) 
 
-(DEFUN |OUTFORM;print;$V;1| (|x| $) (|mathprint| |x|)) 
+(SDEFUN |OUTFORM;print;$V;1| ((|x| $) ($ |Void|)) (|mathprint| |x|)) 
 
-(DEFUN |OUTFORM;message;S$;2| (|s| $)
-  (COND ((SPADCALL |s| (QREFELT $ 11)) (SPADCALL (QREFELT $ 12))) ('T |s|))) 
+(SDEFUN |OUTFORM;message;S$;2| ((|s| |String|) ($ $))
+        (COND ((SPADCALL |s| (QREFELT $ 11)) (SPADCALL (QREFELT $ 12)))
+              ('T |s|))) 
 
-(DEFUN |OUTFORM;messagePrint;SV;3| (|s| $)
-  (SPADCALL (SPADCALL |s| (QREFELT $ 13)) (QREFELT $ 8))) 
+(SDEFUN |OUTFORM;messagePrint;SV;3| ((|s| |String|) ($ |Void|))
+        (SPADCALL (SPADCALL |s| (QREFELT $ 13)) (QREFELT $ 8))) 
 
 (PUT '|OUTFORM;=;2$B;4| '|SPADreplace| 'EQUAL) 
 
-(DEFUN |OUTFORM;=;2$B;4| (|a| |b| $) (EQUAL |a| |b|)) 
+(SDEFUN |OUTFORM;=;2$B;4| ((|a| $) (|b| $) ($ |Boolean|)) (EQUAL |a| |b|)) 
 
-(DEFUN |OUTFORM;=;3$;5| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '= $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;=;3$;5| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '= $) |a| |b|) (QREFELT $ 17))) 
 
 (PUT '|OUTFORM;coerce;2$;6| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(DEFUN |OUTFORM;coerce;2$;6| (|a| $) |a|) 
+(SDEFUN |OUTFORM;coerce;2$;6| ((|a| $) ($ |OutputForm|)) |a|) 
 
 (PUT '|OUTFORM;outputForm;I$;7| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
-(DEFUN |OUTFORM;outputForm;I$;7| (|n| $) |n|) 
+(SDEFUN |OUTFORM;outputForm;I$;7| ((|n| |Integer|) ($ $)) |n|) 
 
 (PUT '|OUTFORM;outputForm;S$;8| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
-(DEFUN |OUTFORM;outputForm;S$;8| (|e| $) |e|) 
+(SDEFUN |OUTFORM;outputForm;S$;8| ((|e| |Symbol|) ($ $)) |e|) 
 
 (PUT '|OUTFORM;outputForm;Df$;9| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
-(DEFUN |OUTFORM;outputForm;Df$;9| (|f| $) |f|) 
+(SDEFUN |OUTFORM;outputForm;Df$;9| ((|f| |DoubleFloat|) ($ $)) |f|) 
 
 (PUT '|OUTFORM;sform| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(DEFUN |OUTFORM;sform| (|s| $) |s|) 
+(SDEFUN |OUTFORM;sform| ((|s| |String|) ($ $)) |s|) 
 
 (PUT '|OUTFORM;eform| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
-(DEFUN |OUTFORM;eform| (|e| $) |e|) 
+(SDEFUN |OUTFORM;eform| ((|e| |Symbol|) ($ $)) |e|) 
 
 (PUT '|OUTFORM;iform| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
-(DEFUN |OUTFORM;iform| (|n| $) |n|) 
+(SDEFUN |OUTFORM;iform| ((|n| |Integer|) ($ $)) |n|) 
 
-(DEFUN |OUTFORM;outputForm;S$;13| (|s| $)
-  (|OUTFORM;sform|
-   (SPADCALL (STR_ELT #1="\" " 0) (SPADCALL |s| (STR_ELT #1# 0) (QREFELT $ 28))
-             (QREFELT $ 29))
-   $)) 
+(SDEFUN |OUTFORM;outputForm;S$;13| ((|s| |String|) ($ $))
+        (|OUTFORM;sform|
+         (SPADCALL (STR_ELT #1="\" " 0)
+                   (SPADCALL |s| (STR_ELT #1# 0) (QREFELT $ 28))
+                   (QREFELT $ 29))
+         $)) 
 
 (PUT '|OUTFORM;width;$I;14| '|SPADreplace| '|outformWidth|) 
 
-(DEFUN |OUTFORM;width;$I;14| (|a| $) (|outformWidth| |a|)) 
+(SDEFUN |OUTFORM;width;$I;14| ((|a| $) ($ |Integer|)) (|outformWidth| |a|)) 
 
 (PUT '|OUTFORM;height;$I;15| '|SPADreplace| '|height|) 
 
-(DEFUN |OUTFORM;height;$I;15| (|a| $) (|height| |a|)) 
+(SDEFUN |OUTFORM;height;$I;15| ((|a| $) ($ |Integer|)) (|height| |a|)) 
 
 (PUT '|OUTFORM;subHeight;$I;16| '|SPADreplace| '|subspan|) 
 
-(DEFUN |OUTFORM;subHeight;$I;16| (|a| $) (|subspan| |a|)) 
+(SDEFUN |OUTFORM;subHeight;$I;16| ((|a| $) ($ |Integer|)) (|subspan| |a|)) 
 
 (PUT '|OUTFORM;superHeight;$I;17| '|SPADreplace| '|superspan|) 
 
-(DEFUN |OUTFORM;superHeight;$I;17| (|a| $) (|superspan| |a|)) 
+(SDEFUN |OUTFORM;superHeight;$I;17| ((|a| $) ($ |Integer|)) (|superspan| |a|)) 
 
 (PUT '|OUTFORM;height;I;18| '|SPADreplace| '(XLAM NIL 20)) 
 
-(DEFUN |OUTFORM;height;I;18| ($) 20) 
+(SDEFUN |OUTFORM;height;I;18| (($ |Integer|)) 20) 
 
 (PUT '|OUTFORM;width;I;19| '|SPADreplace| '(XLAM NIL 66)) 
 
-(DEFUN |OUTFORM;width;I;19| ($) 66) 
+(SDEFUN |OUTFORM;width;I;19| (($ |Integer|)) 66) 
 
-(DEFUN |OUTFORM;center;$I$;20| (|a| |w| $)
-  (SPADCALL
-   (SPADCALL (QUOTIENT2 (- |w| (SPADCALL |a| (QREFELT $ 31))) 2)
-             (QREFELT $ 37))
-   |a| (QREFELT $ 38))) 
+(SDEFUN |OUTFORM;center;$I$;20| ((|a| $) (|w| |Integer|) ($ $))
+        (SPADCALL
+         (SPADCALL (QUOTIENT2 (- |w| (SPADCALL |a| (QREFELT $ 31))) 2)
+                   (QREFELT $ 37))
+         |a| (QREFELT $ 38))) 
 
-(DEFUN |OUTFORM;left;$I$;21| (|a| |w| $)
-  (SPADCALL |a| (SPADCALL (- |w| (SPADCALL |a| (QREFELT $ 31))) (QREFELT $ 37))
-            (QREFELT $ 38))) 
+(SDEFUN |OUTFORM;left;$I$;21| ((|a| $) (|w| |Integer|) ($ $))
+        (SPADCALL |a|
+                  (SPADCALL (- |w| (SPADCALL |a| (QREFELT $ 31)))
+                            (QREFELT $ 37))
+                  (QREFELT $ 38))) 
 
-(DEFUN |OUTFORM;right;$I$;22| (|a| |w| $)
-  (SPADCALL (SPADCALL (- |w| (SPADCALL |a| (QREFELT $ 31))) (QREFELT $ 37)) |a|
-            (QREFELT $ 38))) 
+(SDEFUN |OUTFORM;right;$I$;22| ((|a| $) (|w| |Integer|) ($ $))
+        (SPADCALL
+         (SPADCALL (- |w| (SPADCALL |a| (QREFELT $ 31))) (QREFELT $ 37)) |a|
+         (QREFELT $ 38))) 
 
-(DEFUN |OUTFORM;center;2$;23| (|a| $)
-  (SPADCALL |a| (SPADCALL (QREFELT $ 36)) (QREFELT $ 39))) 
+(SDEFUN |OUTFORM;center;2$;23| ((|a| $) ($ $))
+        (SPADCALL |a| (SPADCALL (QREFELT $ 36)) (QREFELT $ 39))) 
 
-(DEFUN |OUTFORM;left;2$;24| (|a| $)
-  (SPADCALL |a| (SPADCALL (QREFELT $ 36)) (QREFELT $ 40))) 
+(SDEFUN |OUTFORM;left;2$;24| ((|a| $) ($ $))
+        (SPADCALL |a| (SPADCALL (QREFELT $ 36)) (QREFELT $ 40))) 
 
-(DEFUN |OUTFORM;right;2$;25| (|a| $)
-  (SPADCALL |a| (SPADCALL (QREFELT $ 36)) (QREFELT $ 41))) 
+(SDEFUN |OUTFORM;right;2$;25| ((|a| $) ($ $))
+        (SPADCALL |a| (SPADCALL (QREFELT $ 36)) (QREFELT $ 41))) 
 
-(DEFUN |OUTFORM;vspace;I$;26| (|n| $)
-  (COND ((EQL |n| 0) (SPADCALL (QREFELT $ 12)))
-        ('T
-         (SPADCALL (|OUTFORM;sform| " " $) (SPADCALL (- |n| 1) (QREFELT $ 45))
-                   (QREFELT $ 46))))) 
+(SDEFUN |OUTFORM;vspace;I$;26| ((|n| |Integer|) ($ $))
+        (COND ((EQL |n| 0) (SPADCALL (QREFELT $ 12)))
+              ('T
+               (SPADCALL (|OUTFORM;sform| " " $)
+                         (SPADCALL (- |n| 1) (QREFELT $ 45)) (QREFELT $ 46))))) 
 
-(DEFUN |OUTFORM;hspace;I$;27| (|n| $)
-  (COND ((EQL |n| 0) (SPADCALL (QREFELT $ 12)))
-        ('T (|OUTFORM;sform| (|fillerSpaces| |n| " ") $)))) 
+(SDEFUN |OUTFORM;hspace;I$;27| ((|n| |Integer|) ($ $))
+        (COND ((EQL |n| 0) (SPADCALL (QREFELT $ 12)))
+              ('T (|OUTFORM;sform| (|fillerSpaces| |n| " ") $)))) 
 
-(DEFUN |OUTFORM;rspace;2I$;28| (|n| |m| $)
-  (COND ((OR (EQL |n| 0) (EQL |m| 0)) (SPADCALL (QREFELT $ 12)))
-        ('T
-         (SPADCALL (SPADCALL |n| (QREFELT $ 37))
-                   (SPADCALL |n| (- |m| 1) (QREFELT $ 47)) (QREFELT $ 46))))) 
+(SDEFUN |OUTFORM;rspace;2I$;28| ((|n| |Integer|) (|m| |Integer|) ($ $))
+        (COND ((OR (EQL |n| 0) (EQL |m| 0)) (SPADCALL (QREFELT $ 12)))
+              ('T
+               (SPADCALL (SPADCALL |n| (QREFELT $ 37))
+                         (SPADCALL |n| (- |m| 1) (QREFELT $ 47))
+                         (QREFELT $ 46))))) 
 
-(DEFUN |OUTFORM;matrix;L$;29| (|ll| $)
-  (PROG (|lv| #1=#:G1613 |l| #2=#:G1612)
-    (RETURN
-     (SEQ
-      (LETT |lv|
-            (PROGN
-             (LETT #2# NIL . #3=(|OUTFORM;matrix;L$;29|))
-             (SEQ (LETT |l| NIL . #3#) (LETT #1# |ll| . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |l| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ (EXIT (LETT #2# (CONS (LIST2VEC |l|) #2#) . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (EXIT (CONS (|OUTFORM;eform| 'MATRIX $) (LIST2VEC |lv|))))))) 
+(SDEFUN |OUTFORM;matrix;L$;29| ((|ll| |List| (|List| $)) ($ $))
+        (SPROG ((|lv| (|List| $)) (#1=#:G1613 NIL) (|l| NIL) (#2=#:G1612 NIL))
+               (SEQ
+                (LETT |lv|
+                      (PROGN
+                       (LETT #2# NIL . #3=(|OUTFORM;matrix;L$;29|))
+                       (SEQ (LETT |l| NIL . #3#) (LETT #1# |ll| . #3#) G190
+                            (COND
+                             ((OR (ATOM #1#)
+                                  (PROGN (LETT |l| (CAR #1#) . #3#) NIL))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT (LETT #2# (CONS (LIST2VEC |l|) #2#) . #3#)))
+                            (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                            (EXIT (NREVERSE #2#))))
+                      . #3#)
+                (EXIT (CONS (|OUTFORM;eform| 'MATRIX $) (LIST2VEC |lv|)))))) 
 
-(DEFUN |OUTFORM;pile;L$;30| (|l| $) (CONS (|OUTFORM;eform| 'SC $) |l|)) 
+(SDEFUN |OUTFORM;pile;L$;30| ((|l| |List| $) ($ $))
+        (CONS (|OUTFORM;eform| 'SC $) |l|)) 
 
-(DEFUN |OUTFORM;commaSeparate;L$;31| (|l| $)
-  (CONS (|OUTFORM;eform| 'AGGLST $) |l|)) 
+(SDEFUN |OUTFORM;commaSeparate;L$;31| ((|l| |List| $) ($ $))
+        (CONS (|OUTFORM;eform| 'AGGLST $) |l|)) 
 
-(DEFUN |OUTFORM;semicolonSeparate;L$;32| (|l| $)
-  (CONS (|OUTFORM;eform| 'AGGSET $) |l|)) 
+(SDEFUN |OUTFORM;semicolonSeparate;L$;32| ((|l| |List| $) ($ $))
+        (CONS (|OUTFORM;eform| 'AGGSET $) |l|)) 
 
-(DEFUN |OUTFORM;blankSeparate;L$;33| (|l| $)
-  (PROG (|l1| #1=#:G1621 |u| |c|)
-    (RETURN
-     (SEQ
-      (LETT |c| (|OUTFORM;eform| 'CONCATB $)
-            . #2=(|OUTFORM;blankSeparate;L$;33|))
-      (LETT |l1| NIL . #2#)
-      (SEQ (LETT |u| NIL . #2#) (LETT #1# (SPADCALL |l| (QREFELT $ 54)) . #2#)
-           G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#) . #2#) NIL)) (GO G191)))
-           (SEQ
-            (EXIT
-             (COND
-              ((EQCAR |u| |c|)
-               (LETT |l1| (SPADCALL (CDR |u|) |l1| (QREFELT $ 55)) . #2#))
-              ('T (LETT |l1| (CONS |u| |l1|) . #2#)))))
-           (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT (CONS |c| |l1|)))))) 
+(SDEFUN |OUTFORM;blankSeparate;L$;33| ((|l| |List| $) ($ $))
+        (SPROG ((|l1| (|List| $)) (#1=#:G1621 NIL) (|u| NIL) (|c| ($)))
+               (SEQ
+                (LETT |c| (|OUTFORM;eform| 'CONCATB $)
+                      . #2=(|OUTFORM;blankSeparate;L$;33|))
+                (LETT |l1| NIL . #2#)
+                (SEQ (LETT |u| NIL . #2#)
+                     (LETT #1# (SPADCALL |l| (QREFELT $ 54)) . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |u| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (COND
+                        ((EQCAR |u| |c|)
+                         (LETT |l1| (SPADCALL (CDR |u|) |l1| (QREFELT $ 55))
+                               . #2#))
+                        ('T (LETT |l1| (CONS |u| |l1|) . #2#)))))
+                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT (CONS |c| |l1|))))) 
 
-(DEFUN |OUTFORM;brace;2$;34| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'BRACE $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;brace;2$;34| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'BRACE $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;brace;L$;35| (|l| $)
-  (SPADCALL (SPADCALL |l| (QREFELT $ 51)) (QREFELT $ 57))) 
+(SDEFUN |OUTFORM;brace;L$;35| ((|l| |List| $) ($ $))
+        (SPADCALL (SPADCALL |l| (QREFELT $ 51)) (QREFELT $ 57))) 
 
-(DEFUN |OUTFORM;bracket;2$;36| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'BRACKET $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;bracket;2$;36| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'BRACKET $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;bracket;L$;37| (|l| $)
-  (SPADCALL (SPADCALL |l| (QREFELT $ 51)) (QREFELT $ 59))) 
+(SDEFUN |OUTFORM;bracket;L$;37| ((|l| |List| $) ($ $))
+        (SPADCALL (SPADCALL |l| (QREFELT $ 51)) (QREFELT $ 59))) 
 
-(DEFUN |OUTFORM;paren;2$;38| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'PAREN $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;paren;2$;38| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'PAREN $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;paren;L$;39| (|l| $)
-  (SPADCALL (SPADCALL |l| (QREFELT $ 51)) (QREFELT $ 61))) 
+(SDEFUN |OUTFORM;paren;L$;39| ((|l| |List| $) ($ $))
+        (SPADCALL (SPADCALL |l| (QREFELT $ 51)) (QREFELT $ 61))) 
 
-(DEFUN |OUTFORM;sub;3$;40| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'SUB $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;sub;3$;40| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'SUB $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;super;3$;41| (|a| |b| $)
-  (SPADCALL
-   (LIST (|OUTFORM;eform| 'SUPERSUB $) |a| (|OUTFORM;sform| " " $) |b|)
-   (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;super;3$;41| ((|a| $) (|b| $) ($ $))
+        (SPADCALL
+         (LIST (|OUTFORM;eform| 'SUPERSUB $) |a| (|OUTFORM;sform| " " $) |b|)
+         (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;presub;3$;42| (|a| |b| $)
-  (SPADCALL
-   (LIST (|OUTFORM;eform| 'SUPERSUB $) |a| (|OUTFORM;sform| " " $)
-         (|OUTFORM;sform| " " $) (|OUTFORM;sform| " " $) |b|)
-   (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;presub;3$;42| ((|a| $) (|b| $) ($ $))
+        (SPADCALL
+         (LIST (|OUTFORM;eform| 'SUPERSUB $) |a| (|OUTFORM;sform| " " $)
+               (|OUTFORM;sform| " " $) (|OUTFORM;sform| " " $) |b|)
+         (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;presuper;3$;43| (|a| |b| $)
-  (SPADCALL
-   (LIST (|OUTFORM;eform| 'SUPERSUB $) |a| (|OUTFORM;sform| " " $)
-         (|OUTFORM;sform| " " $) |b|)
-   (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;presuper;3$;43| ((|a| $) (|b| $) ($ $))
+        (SPADCALL
+         (LIST (|OUTFORM;eform| 'SUPERSUB $) |a| (|OUTFORM;sform| " " $)
+               (|OUTFORM;sform| " " $) |b|)
+         (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;scripts;$L$;44| (|a| |l| $)
-  (COND ((SPADCALL |l| (QREFELT $ 67)) |a|)
-        ((SPADCALL (SPADCALL |l| (QREFELT $ 68)) (QREFELT $ 67))
-         (SPADCALL |a| (SPADCALL |l| (QREFELT $ 69)) (QREFELT $ 63)))
-        ('T (CONS (|OUTFORM;eform| 'SUPERSUB $) (CONS |a| |l|))))) 
+(SDEFUN |OUTFORM;scripts;$L$;44| ((|a| $) (|l| |List| $) ($ $))
+        (COND ((SPADCALL |l| (QREFELT $ 67)) |a|)
+              ((SPADCALL (SPADCALL |l| (QREFELT $ 68)) (QREFELT $ 67))
+               (SPADCALL |a| (SPADCALL |l| (QREFELT $ 69)) (QREFELT $ 63)))
+              ('T (CONS (|OUTFORM;eform| 'SUPERSUB $) (CONS |a| |l|))))) 
 
-(DEFUN |OUTFORM;supersub;$L$;45| (|a| |l| $)
-  (SEQ
-   (COND
-    ((ODDP (SPADCALL |l| (QREFELT $ 72)))
-     (LETT |l| (SPADCALL |l| (LIST (SPADCALL (QREFELT $ 12))) (QREFELT $ 55))
-           |OUTFORM;supersub;$L$;45|)))
-   (EXIT (CONS (|OUTFORM;eform| 'ALTSUPERSUB $) (CONS |a| |l|))))) 
+(SDEFUN |OUTFORM;supersub;$L$;45| ((|a| $) (|l| |List| $) ($ $))
+        (SEQ
+         (COND
+          ((ODDP (SPADCALL |l| (QREFELT $ 72)))
+           (LETT |l|
+                 (SPADCALL |l| (LIST (SPADCALL (QREFELT $ 12))) (QREFELT $ 55))
+                 |OUTFORM;supersub;$L$;45|)))
+         (EXIT (CONS (|OUTFORM;eform| 'ALTSUPERSUB $) (CONS |a| |l|))))) 
 
-(DEFUN |OUTFORM;hconcat;3$;46| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'CONCAT $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;hconcat;3$;46| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'CONCAT $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;hconcat;L$;47| (|l| $) (CONS (|OUTFORM;eform| 'CONCAT $) |l|)) 
+(SDEFUN |OUTFORM;hconcat;L$;47| ((|l| |List| $) ($ $))
+        (CONS (|OUTFORM;eform| 'CONCAT $) |l|)) 
 
-(DEFUN |OUTFORM;vconcat;3$;48| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'VCONCAT $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;vconcat;3$;48| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'VCONCAT $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;vconcat;L$;49| (|l| $) (CONS (|OUTFORM;eform| 'VCONCAT $) |l|)) 
+(SDEFUN |OUTFORM;vconcat;L$;49| ((|l| |List| $) ($ $))
+        (CONS (|OUTFORM;eform| 'VCONCAT $) |l|)) 
 
-(DEFUN |OUTFORM;~=;3$;50| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '~= $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;~=;3$;50| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '~= $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;<;3$;51| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '< $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;<;3$;51| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '< $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;>;3$;52| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '> $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;>;3$;52| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '> $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;<=;3$;53| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '<= $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;<=;3$;53| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '<= $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;>=;3$;54| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '>= $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;>=;3$;54| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '>= $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;+;3$;55| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '+ $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;+;3$;55| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '+ $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;-;3$;56| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '- $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;-;3$;56| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '- $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;-;2$;57| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '- $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;-;2$;57| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '- $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;*;3$;58| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '* $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;*;3$;58| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '* $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;/;3$;59| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '/ $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;/;3$;59| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '/ $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;^;3$;60| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '^ $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;^;3$;60| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '^ $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;rem;3$;61| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '|rem| $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;rem;3$;61| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '|rem| $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;quo;3$;62| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '|quo| $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;quo;3$;62| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '|quo| $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;exquo;3$;63| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '|exquo| $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;exquo;3$;63| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '|exquo| $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;and;3$;64| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '|and| $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;and;3$;64| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '|and| $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;or;3$;65| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '|or| $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;or;3$;65| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '|or| $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;not;2$;66| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| '|not| $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;not;2$;66| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| '|not| $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;SEGMENT;3$;67| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'SEGMENT $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;SEGMENT;3$;67| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'SEGMENT $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;SEGMENT;2$;68| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'SEGMENT $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;SEGMENT;2$;68| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'SEGMENT $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;binomial;3$;69| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'BINOMIAL $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;binomial;3$;69| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'BINOMIAL $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;empty;$;70| ($)
-  (SPADCALL (LIST (|OUTFORM;eform| 'NOTHING $)) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;empty;$;70| (($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'NOTHING $)) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;infix?;$B;71| (|a| $)
-  (PROG (|e| #1=#:G1665)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |e|
-              (COND ((IDENTP |a|) |a|) ((STRINGP |a|) (INTERN |a|))
-                    (#2='T
-                     (PROGN
-                      (LETT #1# 'NIL . #3=(|OUTFORM;infix?;$B;71|))
-                      (GO #1#))))
-              . #3#)
-        (EXIT (COND ((GET |e| 'INFIXOP) 'T) (#2# 'NIL)))))
-      #1# (EXIT #1#))))) 
+(SDEFUN |OUTFORM;infix?;$B;71| ((|a| $) ($ |Boolean|))
+        (SPROG ((|e| ($)) (#1=#:G1665 NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (LETT |e|
+                        (COND ((IDENTP |a|) |a|) ((STRINGP |a|) (INTERN |a|))
+                              (#2='T
+                               (PROGN
+                                (LETT #1# 'NIL . #3=(|OUTFORM;infix?;$B;71|))
+                                (GO #1#))))
+                        . #3#)
+                  (EXIT (COND ((GET |e| 'INFIXOP) 'T) (#2# 'NIL)))))
+                #1# (EXIT #1#)))) 
 
 (PUT '|OUTFORM;elt;$L$;72| '|SPADreplace| 'CONS) 
 
-(DEFUN |OUTFORM;elt;$L$;72| (|a| |l| $) (CONS |a| |l|)) 
+(SDEFUN |OUTFORM;elt;$L$;72| ((|a| $) (|l| |List| $) ($ $)) (CONS |a| |l|)) 
 
-(DEFUN |OUTFORM;prefix;$L$;73| (|a| |l| $)
-  (COND ((NULL (SPADCALL |a| (QREFELT $ 96))) (CONS |a| |l|))
-        ('T
-         (SPADCALL |a| (SPADCALL (SPADCALL |l| (QREFELT $ 51)) (QREFELT $ 61))
-                   (QREFELT $ 38))))) 
+(SDEFUN |OUTFORM;prefix;$L$;73| ((|a| $) (|l| |List| $) ($ $))
+        (COND ((NULL (SPADCALL |a| (QREFELT $ 96))) (CONS |a| |l|))
+              ('T
+               (SPADCALL |a|
+                         (SPADCALL (SPADCALL |l| (QREFELT $ 51))
+                                   (QREFELT $ 61))
+                         (QREFELT $ 38))))) 
 
-(DEFUN |OUTFORM;infix;$L$;74| (|a| |l| $)
-  (COND ((SPADCALL |l| (QREFELT $ 67)) (SPADCALL (QREFELT $ 12)))
-        ((SPADCALL (SPADCALL |l| (QREFELT $ 68)) (QREFELT $ 67))
-         (SPADCALL |l| (QREFELT $ 69)))
-        ((SPADCALL |a| (QREFELT $ 96)) (CONS |a| |l|))
-        ('T
-         (SPADCALL
-          (LIST (SPADCALL |l| (QREFELT $ 69)) |a|
-                (SPADCALL |a| (SPADCALL |l| (QREFELT $ 68)) (QREFELT $ 99)))
-          (QREFELT $ 74))))) 
+(SDEFUN |OUTFORM;infix;$L$;74| ((|a| $) (|l| |List| $) ($ $))
+        (COND ((SPADCALL |l| (QREFELT $ 67)) (SPADCALL (QREFELT $ 12)))
+              ((SPADCALL (SPADCALL |l| (QREFELT $ 68)) (QREFELT $ 67))
+               (SPADCALL |l| (QREFELT $ 69)))
+              ((SPADCALL |a| (QREFELT $ 96)) (CONS |a| |l|))
+              ('T
+               (SPADCALL
+                (LIST (SPADCALL |l| (QREFELT $ 69)) |a|
+                      (SPADCALL |a| (SPADCALL |l| (QREFELT $ 68))
+                                (QREFELT $ 99)))
+                (QREFELT $ 74))))) 
 
-(DEFUN |OUTFORM;infix;4$;75| (|a| |b| |c| $)
-  (COND
-   ((SPADCALL |a| (QREFELT $ 96)) (SPADCALL (LIST |a| |b| |c|) (QREFELT $ 17)))
-   ('T (SPADCALL (LIST |b| |a| |c|) (QREFELT $ 74))))) 
+(SDEFUN |OUTFORM;infix;4$;75| ((|a| $) (|b| $) (|c| $) ($ $))
+        (COND
+         ((SPADCALL |a| (QREFELT $ 96))
+          (SPADCALL (LIST |a| |b| |c|) (QREFELT $ 17)))
+         ('T (SPADCALL (LIST |b| |a| |c|) (QREFELT $ 74))))) 
 
-(DEFUN |OUTFORM;postfix;3$;76| (|a| |b| $) (SPADCALL |b| |a| (QREFELT $ 38))) 
+(SDEFUN |OUTFORM;postfix;3$;76| ((|a| $) (|b| $) ($ $))
+        (SPADCALL |b| |a| (QREFELT $ 38))) 
 
-(DEFUN |OUTFORM;add_prime| (|a| |s| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'PRIME $) |a| |s|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;add_prime| ((|a| $) (|s| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'PRIME $) |a| |s|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;string;2$;78| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'STRING $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;string;2$;78| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'STRING $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;quote;2$;79| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'QUOTE $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;quote;2$;79| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'QUOTE $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;overbar;2$;80| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'OVERBAR $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;overbar;2$;80| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'OVERBAR $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;dot;2$;81| (|a| $)
-  (SPADCALL |a| (|OUTFORM;sform| "." $) (QREFELT $ 64))) 
+(SDEFUN |OUTFORM;dot;2$;81| ((|a| $) ($ $))
+        (SPADCALL |a| (|OUTFORM;sform| "." $) (QREFELT $ 64))) 
 
-(DEFUN |OUTFORM;prime;2$;82| (|a| $) (SPADCALL |a| 1 (QREFELT $ 106))) 
+(SDEFUN |OUTFORM;prime;2$;82| ((|a| $) ($ $)) (SPADCALL |a| 1 (QREFELT $ 106))) 
 
-(DEFUN |OUTFORM;dot;$Nni$;83| (|a| |nn| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ
-      (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| "."))
-            |OUTFORM;dot;$Nni$;83|)
-      (EXIT (SPADCALL |a| (|OUTFORM;sform| |s| $) (QREFELT $ 64))))))) 
+(SDEFUN |OUTFORM;dot;$Nni$;83| ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
+        (SPROG ((|s| (|String|)))
+               (SEQ
+                (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| "."))
+                      |OUTFORM;dot;$Nni$;83|)
+                (EXIT (SPADCALL |a| (|OUTFORM;sform| |s| $) (QREFELT $ 64)))))) 
 
-(DEFUN |OUTFORM;prime;$Nni$;84| (|a| |nn| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ
-      (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| ","))
-            |OUTFORM;prime;$Nni$;84|)
-      (EXIT (|OUTFORM;add_prime| |a| (|OUTFORM;sform| |s| $) $)))))) 
+(SDEFUN |OUTFORM;prime;$Nni$;84| ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
+        (SPROG ((|s| (|String|)))
+               (SEQ
+                (LETT |s| (|make_full_CVEC| |nn| (|STR_to_CHAR| ","))
+                      |OUTFORM;prime;$Nni$;84|)
+                (EXIT (|OUTFORM;add_prime| |a| (|OUTFORM;sform| |s| $) $))))) 
 
-(DEFUN |OUTFORM;overlabel;3$;85| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'OVERLABEL $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;overlabel;3$;85| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'OVERLABEL $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;box;2$;86| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'BOX $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;box;2$;86| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'BOX $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;zag;3$;87| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'ZAG $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;zag;3$;87| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'ZAG $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;root;2$;88| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'ROOT $) |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;root;2$;88| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'ROOT $) |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;root;3$;89| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'ROOT $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;root;3$;89| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'ROOT $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;over;3$;90| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'OVER $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;over;3$;90| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'OVER $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;slash;3$;91| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'SLASH $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;slash;3$;91| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'SLASH $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;assign;3$;92| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'LET $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;assign;3$;92| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'LET $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;label;3$;93| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'EQUATNUM $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;label;3$;93| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'EQUATNUM $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;rarrow;3$;94| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'TAG $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;rarrow;3$;94| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'TAG $) |a| |b|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;differentiate;$Nni$;95| (|a| |nn| $)
-  (PROG (|s| |r| #1=#:G1697)
-    (RETURN
-     (SEQ
-      (COND ((ZEROP |nn|) |a|) ((< |nn| 4) (SPADCALL |a| |nn| (QREFELT $ 106)))
-            ('T
-             (SEQ
-              (LETT |r|
-                    (SPADCALL
-                     (PROG1
-                         (LETT #1# |nn|
-                               . #2=(|OUTFORM;differentiate;$Nni$;95|))
-                       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
-                     (QREFELT $ 121))
-                    . #2#)
-              (LETT |s| (SPADCALL |r| (QREFELT $ 122)) . #2#)
-              (EXIT
-               (|OUTFORM;add_prime| |a|
-                (SPADCALL (|OUTFORM;sform| |s| $) (QREFELT $ 61)) $))))))))) 
+(SDEFUN |OUTFORM;differentiate;$Nni$;95|
+        ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
+        (SPROG ((|s| (|String|)) (|r| (|String|)) (#1=#:G1697 NIL))
+               (SEQ
+                (COND ((ZEROP |nn|) |a|)
+                      ((< |nn| 4) (SPADCALL |a| |nn| (QREFELT $ 106)))
+                      ('T
+                       (SEQ
+                        (LETT |r|
+                              (SPADCALL
+                               (PROG1
+                                   (LETT #1# |nn|
+                                         . #2=(|OUTFORM;differentiate;$Nni$;95|))
+                                 (|check_subtype| (> #1# 0)
+                                                  '(|PositiveInteger|) #1#))
+                               (QREFELT $ 121))
+                              . #2#)
+                        (LETT |s| (SPADCALL |r| (QREFELT $ 122)) . #2#)
+                        (EXIT
+                         (|OUTFORM;add_prime| |a|
+                          (SPADCALL (|OUTFORM;sform| |s| $) (QREFELT $ 61))
+                          $)))))))) 
 
-(DEFUN |OUTFORM;sum;2$;96| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'SIGMA $) (SPADCALL (QREFELT $ 12)) |a|)
-            (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;sum;2$;96| ((|a| $) ($ $))
+        (SPADCALL
+         (LIST (|OUTFORM;eform| 'SIGMA $) (SPADCALL (QREFELT $ 12)) |a|)
+         (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;sum;3$;97| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'SIGMA $) |b| |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;sum;3$;97| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'SIGMA $) |b| |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;sum;4$;98| (|a| |b| |c| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'SIGMA2 $) |b| |c| |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;sum;4$;98| ((|a| $) (|b| $) (|c| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'SIGMA2 $) |b| |c| |a|)
+                  (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;prod;2$;99| (|a| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'PI $) (SPADCALL (QREFELT $ 12)) |a|)
-            (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;prod;2$;99| ((|a| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'PI $) (SPADCALL (QREFELT $ 12)) |a|)
+                  (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;prod;3$;100| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'PI $) |b| |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;prod;3$;100| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'PI $) |b| |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;prod;4$;101| (|a| |b| |c| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'PI2 $) |b| |c| |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;prod;4$;101| ((|a| $) (|b| $) (|c| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'PI2 $) |b| |c| |a|) (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;int;2$;102| (|a| $)
-  (SPADCALL
-   (LIST (|OUTFORM;eform| 'INTSIGN $) (SPADCALL (QREFELT $ 12))
-         (SPADCALL (QREFELT $ 12)) |a|)
-   (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;int;2$;102| ((|a| $) ($ $))
+        (SPADCALL
+         (LIST (|OUTFORM;eform| 'INTSIGN $) (SPADCALL (QREFELT $ 12))
+               (SPADCALL (QREFELT $ 12)) |a|)
+         (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;int;3$;103| (|a| |b| $)
-  (SPADCALL
-   (LIST (|OUTFORM;eform| 'INTSIGN $) |b| (SPADCALL (QREFELT $ 12)) |a|)
-   (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;int;3$;103| ((|a| $) (|b| $) ($ $))
+        (SPADCALL
+         (LIST (|OUTFORM;eform| 'INTSIGN $) |b| (SPADCALL (QREFELT $ 12)) |a|)
+         (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;int;4$;104| (|a| |b| |c| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'INTSIGN $) |b| |c| |a|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;int;4$;104| ((|a| $) (|b| $) (|c| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'INTSIGN $) |b| |c| |a|)
+                  (QREFELT $ 17))) 
 
-(DEFUN |OUTFORM;tensor;3$;105| (|a| |b| $)
-  (SPADCALL (LIST (|OUTFORM;eform| 'TENSOR $) |a| |b|) (QREFELT $ 17))) 
+(SDEFUN |OUTFORM;tensor;3$;105| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (LIST (|OUTFORM;eform| 'TENSOR $) |a| |b|) (QREFELT $ 17))) 
 
 (DECLAIM (NOTINLINE |OutputForm;|)) 
 
 (DEFUN |OutputForm| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G1712)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|OutputForm|)
-                . #2=(|OutputForm|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|OutputForm|
-                         (LIST (CONS NIL (CONS 1 (|OutputForm;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|OutputForm|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G1712)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|OutputForm|)
+                    . #2=(|OutputForm|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|OutputForm|
+                             (LIST (CONS NIL (CONS 1 (|OutputForm;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#) (HREM |$ConstructorCache| '|OutputForm|)))))))))) 
 
 (DEFUN |OutputForm;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|OutputForm|) . #1=(|OutputForm|))
-      (LETT $ (GETREFV 136) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OutputForm| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|SExpression|))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OutputForm|) . #1=(|OutputForm|))
+          (LETT $ (GETREFV 136) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OutputForm| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|SExpression|))
+          $))) 
 
 (MAKEPROP '|OutputForm| '|infovec|
           (LIST

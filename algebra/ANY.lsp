@@ -1,55 +1,60 @@
 
 (PUT '|ANY;obj;$N;1| '|SPADreplace| 'QCDR) 
 
-(DEFUN |ANY;obj;$N;1| (|x| $) (QCDR |x|)) 
+(SDEFUN |ANY;obj;$N;1| ((|x| $) ($ |None|)) (QCDR |x|)) 
 
 (PUT '|ANY;dom;$Se;2| '|SPADreplace| 'QCAR) 
 
-(DEFUN |ANY;dom;$Se;2| (|x| $) (QCAR |x|)) 
+(SDEFUN |ANY;dom;$Se;2| ((|x| $) ($ |SExpression|)) (QCAR |x|)) 
 
 (PUT '|ANY;domainOf;$Of;3| '|SPADreplace| 'QCAR) 
 
-(DEFUN |ANY;domainOf;$Of;3| (|x| $) (QCAR |x|)) 
+(SDEFUN |ANY;domainOf;$Of;3| ((|x| $) ($ |OutputForm|)) (QCAR |x|)) 
 
-(DEFUN |ANY;=;2$B;4| (|x| |y| $)
-  (PROG (|Dx| |dy| |dx|)
-    (RETURN
-     (SEQ (LETT |dx| (SPADCALL |x| (QREFELT $ 14)) . #1=(|ANY;=;2$B;4|))
-          (LETT |dy| (SPADCALL |y| (QREFELT $ 14)) . #1#)
-          (EXIT
-           (COND ((SPADCALL |dx| |dy| (QREFELT $ 17)) 'NIL)
-                 (#2='T
-                  (SEQ (LETT |Dx| (|evalType| |dx|) . #1#)
-                       (EXIT
-                        (COND
-                         ((|HasCategory| |Dx| '(|BasicType|))
-                          (SPADCALL (SPADCALL |x| (QREFELT $ 12))
-                                    (SPADCALL |y| (QREFELT $ 12))
-                                    (|compiledLookupCheck| '=
-                                                           (LIST
-                                                            (LIST '|Boolean|)
-                                                            '$ '$)
-                                                           |Dx|)))
-                         (#2#
-                          (EQ (SPADCALL |x| (QREFELT $ 12))
-                              (SPADCALL |y| (QREFELT $ 12)))))))))))))) 
+(SDEFUN |ANY;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((|Dx| (|Type|)) (|dy| #1=(|SExpression|)) (|dx| #1#))
+               (SEQ
+                (LETT |dx| (SPADCALL |x| (QREFELT $ 14)) . #2=(|ANY;=;2$B;4|))
+                (LETT |dy| (SPADCALL |y| (QREFELT $ 14)) . #2#)
+                (EXIT
+                 (COND ((SPADCALL |dx| |dy| (QREFELT $ 17)) 'NIL)
+                       (#3='T
+                        (SEQ (LETT |Dx| (|evalType| |dx|) . #2#)
+                             (EXIT
+                              (COND
+                               ((|HasCategory| |Dx| '(|BasicType|))
+                                (SPADCALL (SPADCALL |x| (QREFELT $ 12))
+                                          (SPADCALL |y| (QREFELT $ 12))
+                                          (|compiledLookupCheck| '=
+                                                                 (LIST
+                                                                  (LIST
+                                                                   '|Boolean|)
+                                                                  '$ '$)
+                                                                 |Dx|)))
+                               (#3#
+                                (EQ (SPADCALL |x| (QREFELT $ 12))
+                                    (SPADCALL |y| (QREFELT $ 12))))))))))))) 
 
-(DEFUN |ANY;objectOf;$Of;5| (|x| $)
-  (|spad2BootCoerce| (QCDR |x|) (QCAR |x|)
-                     (SPADCALL '|OutputForm| (QREFELT $ 21)))) 
+(SDEFUN |ANY;objectOf;$Of;5| ((|x| $) ($ |OutputForm|))
+        (|spad2BootCoerce| (QCDR |x|) (QCAR |x|)
+                           (SPADCALL '|OutputForm| (QREFELT $ 21)))) 
 
-(DEFUN |ANY;showTypeInOutput;BS;6| (|b| $)
-  (SEQ (SETELT $ 10 (SPADCALL |b| (QREFELT $ 9)))
-       (EXIT
-        (COND
-         (|b| "Type of object will be displayed in output of a member of Any")
-         ('T
-          "Type of object will not be displayed in output of a member of Any"))))) 
+(SDEFUN |ANY;showTypeInOutput;BS;6| ((|b| |Boolean|) ($ |String|))
+        (SEQ (SETELT $ 10 (SPADCALL |b| (QREFELT $ 9)))
+             (EXIT
+              (COND
+               (|b|
+                "Type of object will be displayed in output of a member of Any")
+               ('T
+                "Type of object will not be displayed in output of a member of Any"))))) 
 
-(DEFUN |ANY;coerce;$Of;7| (|x| $)
-  (PROG (#1=#:G126 |a| #2=#:G125 |dom1| |p| |obj1|)
-    (RETURN
-     (SEQ (LETT |obj1| (SPADCALL |x| (QREFELT $ 22)) . #3=(|ANY;coerce;$Of;7|))
+(SDEFUN |ANY;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
+        (SPROG
+         ((#1=#:G126 NIL) (|a| NIL) (#2=#:G125 NIL)
+          (|dom1| (|List| (|Symbol|))) (|p| (|Symbol|))
+          (|obj1| (|OutputForm|)))
+         (SEQ
+          (LETT |obj1| (SPADCALL |x| (QREFELT $ 22)) . #3=(|ANY;coerce;$Of;7|))
           (COND
            ((NULL (SPADCALL (QREFELT $ 10) (QREFELT $ 25))) (EXIT |obj1|)))
           (LETT |dom1|
@@ -79,52 +84,51 @@
                                       . #3#)))
                               (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                               (EXIT (NREVERSE #2#))))))
-            (QREFELT $ 30))))))) 
+            (QREFELT $ 30)))))) 
 
-(DEFUN |ANY;any;SeN$;8| (|domain| |object| $)
-  (SEQ
-   (COND ((|isValidType| |domain|) (CONS |domain| |object|))
-         (#1='T
-          (SEQ (LETT |domain| (|devaluate| |domain|) |ANY;any;SeN$;8|)
-               (EXIT
-                (COND ((|isValidType| |domain|) (CONS |domain| |object|))
-                      (#1#
-                       (|error|
-                        "function any must have a domain as first argument"))))))))) 
+(SDEFUN |ANY;any;SeN$;8| ((|domain| |SExpression|) (|object| |None|) ($ $))
+        (SEQ
+         (COND ((|isValidType| |domain|) (CONS |domain| |object|))
+               (#1='T
+                (SEQ (LETT |domain| (|devaluate| |domain|) |ANY;any;SeN$;8|)
+                     (EXIT
+                      (COND ((|isValidType| |domain|) (CONS |domain| |object|))
+                            (#1#
+                             (|error|
+                              "function any must have a domain as first argument"))))))))) 
 
 (DECLAIM (NOTINLINE |Any;|)) 
 
 (DEFUN |Any| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G131)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Any|) . #2=(|Any|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Any|
-                         (LIST (CONS NIL (CONS 1 (|Any;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Any|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G131)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Any|) . #2=(|Any|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Any|
+                             (LIST (CONS NIL (CONS 1 (|Any;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Any|)))))))))) 
 
 (DEFUN |Any;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Any|) . #1=(|Any|))
-      (LETT $ (GETREFV 35) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Any| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|Record| (|:| |dm| (|SExpression|)) (|:| |ob| (|None|))))
-      (QSETREFV $ 10 (SPADCALL 'NIL (QREFELT $ 9)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Any|) . #1=(|Any|))
+          (LETT $ (GETREFV 35) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Any| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |dm| (|SExpression|)) (|:| |ob| (|None|))))
+          (QSETREFV $ 10 (SPADCALL 'NIL (QREFELT $ 9)))
+          $))) 
 
 (MAKEPROP '|Any| '|infovec|
           (LIST

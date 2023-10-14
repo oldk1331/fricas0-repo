@@ -1,41 +1,41 @@
 
 (PUT '|OPQUERY;getDatabase;SD;1| '|SPADreplace| '|getBrowseDatabase|) 
 
-(DEFUN |OPQUERY;getDatabase;SD;1| (|s| $) (|getBrowseDatabase| |s|)) 
+(SDEFUN |OPQUERY;getDatabase;SD;1|
+        ((|s| |String|) ($ |Database| (|IndexCard|))) (|getBrowseDatabase| |s|)) 
 
 (DECLAIM (NOTINLINE |OperationsQuery;|)) 
 
 (DEFUN |OperationsQuery| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G105)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|OperationsQuery|)
-                . #2=(|OperationsQuery|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|OperationsQuery|
-                         (LIST (CONS NIL (CONS 1 (|OperationsQuery;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G105)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|OperationsQuery|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|OperationsQuery|)
+                    . #2=(|OperationsQuery|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|OperationsQuery|
+                             (LIST (CONS NIL (CONS 1 (|OperationsQuery;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|OperationsQuery|)))))))))) 
 
 (DEFUN |OperationsQuery;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|OperationsQuery|) . #1=(|OperationsQuery|))
-      (LETT $ (GETREFV 9) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OperationsQuery| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OperationsQuery|) . #1=(|OperationsQuery|))
+          (LETT $ (GETREFV 9) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OperationsQuery| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|OperationsQuery| '|infovec|
           (LIST

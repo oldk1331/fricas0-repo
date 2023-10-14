@@ -1,69 +1,71 @@
 
-(DEFUN |UNISEG2;map;MUsUs;1| (|f| |u| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ
-      (LETT |s| (SPADCALL (SPADCALL |u| (QREFELT $ 9)) |f|)
-            |UNISEG2;map;MUsUs;1|)
-      (EXIT
-       (COND
-        ((SPADCALL |u| (QREFELT $ 11))
-         (SPADCALL |s| (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |f|)
-                   (QREFELT $ 14)))
-        ('T (SPADCALL |s| (QREFELT $ 15))))))))) 
+(SDEFUN |UNISEG2;map;MUsUs;1|
+        ((|f| |Mapping| S R) (|u| |UniversalSegment| R)
+         ($ |UniversalSegment| S))
+        (SPROG ((|s| (S)))
+               (SEQ
+                (LETT |s| (SPADCALL (SPADCALL |u| (QREFELT $ 9)) |f|)
+                      |UNISEG2;map;MUsUs;1|)
+                (EXIT
+                 (COND
+                  ((SPADCALL |u| (QREFELT $ 11))
+                   (SPADCALL |s| (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |f|)
+                             (QREFELT $ 14)))
+                  ('T (SPADCALL |s| (QREFELT $ 15)))))))) 
 
-(DEFUN |UNISEG2;map;MUsS;2| (|f| |u| $)
-  (SPADCALL |f| (SPADCALL |u| (QREFELT $ 19)) (QREFELT $ 22))) 
+(SDEFUN |UNISEG2;map;MUsS;2|
+        ((|f| |Mapping| S R) (|u| |UniversalSegment| R) ($ |Stream| S))
+        (SPADCALL |f| (SPADCALL |u| (QREFELT $ 19)) (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |UniversalSegmentFunctions2;|)) 
 
 (DEFUN |UniversalSegmentFunctions2| (&REST #1=#:G109)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G110)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|UniversalSegmentFunctions2|)
-                                           '|domainEqualList|)
-                . #3=(|UniversalSegmentFunctions2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |UniversalSegmentFunctions2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G110)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|UniversalSegmentFunctions2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|UniversalSegmentFunctions2|)
+                                               '|domainEqualList|)
+                    . #3=(|UniversalSegmentFunctions2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |UniversalSegmentFunctions2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UniversalSegmentFunctions2|)))))))))) 
 
 (DEFUN |UniversalSegmentFunctions2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|UniversalSegmentFunctions2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|UniversalSegmentFunctions2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|OrderedRing|))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|UniversalSegmentFunctions2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 23 (CONS (|dispatchFunction| |UNISEG2;map;MUsS;2|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|UniversalSegmentFunctions2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|UniversalSegmentFunctions2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedRing|))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|UniversalSegmentFunctions2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV $ 23
+                      (CONS (|dispatchFunction| |UNISEG2;map;MUsS;2|) $))))
+          $))) 
 
 (MAKEPROP '|UniversalSegmentFunctions2| '|infovec|
           (LIST

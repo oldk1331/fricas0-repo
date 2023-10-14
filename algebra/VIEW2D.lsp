@@ -1,232 +1,298 @@
 
-(DEFUN |VIEW2D;checkViewport| (|viewport| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ (|sockSendInt| |$ViewportServer| (QVELT |viewport| 0))
-          (LETT |i| (|sockGetInt| |$ViewportServer|) |VIEW2D;checkViewport|)
-          (EXIT
-           (COND
-            ((< |i| 0)
-             (SEQ (QSETVELT |viewport| 0 0)
-                  (EXIT (|error| "This viewport has already been closed!"))))
-            ('T 'T))))))) 
+(SDEFUN |VIEW2D;checkViewport| ((|viewport| $) ($ |Boolean|))
+        (SPROG ((|i| NIL))
+               (SEQ (|sockSendInt| |$ViewportServer| (QVELT |viewport| 0))
+                    (LETT |i| (|sockGetInt| |$ViewportServer|)
+                          |VIEW2D;checkViewport|)
+                    (EXIT
+                     (COND
+                      ((< |i| 0)
+                       (SEQ (QSETVELT |viewport| 0 0)
+                            (EXIT
+                             (|error|
+                              "This viewport has already been closed!"))))
+                      ('T 'T)))))) 
 
-(DEFUN |VIEW2D;doOptions| (|v| $)
-  (QSETVELT |v| 3 (SPADCALL (QVELT |v| 7) "FriCAS2D" (QREFELT $ 21)))) 
+(SDEFUN |VIEW2D;doOptions| ((|v| |Rep|) ($ |Void|))
+        (QSETVELT |v| 3 (SPADCALL (QVELT |v| 7) "FriCAS2D" (QREFELT $ 21)))) 
 
 (PUT '|VIEW2D;options;$L;3| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 7))) 
 
-(DEFUN |VIEW2D;options;$L;3| (|viewport| $) (QVELT |viewport| 7)) 
+(SDEFUN |VIEW2D;options;$L;3| ((|viewport| $) ($ |List| (|DrawOption|)))
+        (QVELT |viewport| 7)) 
 
-(DEFUN |VIEW2D;options;$L$;4| (|viewport| |opts| $)
-  (SEQ (QSETVELT |viewport| 7 |opts|) (EXIT |viewport|))) 
+(SDEFUN |VIEW2D;options;$L$;4|
+        ((|viewport| $) (|opts| |List| (|DrawOption|)) ($ $))
+        (SEQ (QSETVELT |viewport| 7 |opts|) (EXIT |viewport|))) 
 
-(DEFUN |VIEW2D;putGraph;$GiPiV;5| (|viewport| |aGraph| |which| $)
-  (SEQ
-   (COND
-    ((OR (SPADCALL |which| 9 (QREFELT $ 25)) (< |which| 1))
-     (|error|
-      "Trying to put a graph with a negative index or too big an index")))
-   (EXIT
-    (SPADCALL (QVELT |viewport| 1) |which| (CONS 0 |aGraph|) (QREFELT $ 29))))) 
+(SDEFUN |VIEW2D;putGraph;$GiPiV;5|
+        ((|viewport| $) (|aGraph| |GraphImage|) (|which| |PositiveInteger|)
+         ($ |Void|))
+        (SEQ
+         (COND
+          ((OR (SPADCALL |which| 9 (QREFELT $ 25)) (< |which| 1))
+           (|error|
+            "Trying to put a graph with a negative index or too big an index")))
+         (EXIT
+          (SPADCALL (QVELT |viewport| 1) |which| (CONS 0 |aGraph|)
+                    (QREFELT $ 29))))) 
 
-(DEFUN |VIEW2D;getGraph;$PiGi;6| (|viewport| |which| $)
-  (PROG (#1=#:G164)
-    (RETURN
-     (SEQ
-      (COND
-       ((OR (SPADCALL |which| 9 (QREFELT $ 25)) (< |which| 1))
-        (|error|
-         "Trying to get a graph with a negative index or too big an index")))
-      (EXIT
-       (COND
-        ((QEQCAR (SPADCALL (QVELT |viewport| 1) |which| (QREFELT $ 33)) 1)
-         (|error| "Graph is undefined!"))
-        ('T
-         (PROG2
-             (LETT #1# (SPADCALL (QVELT |viewport| 1) |which| (QREFELT $ 33))
-                   |VIEW2D;getGraph;$PiGi;6|)
-             (QCDR #1#)
-           (|check_union| (QEQCAR #1# 0) (|GraphImage|) #1#))))))))) 
+(SDEFUN |VIEW2D;getGraph;$PiGi;6|
+        ((|viewport| $) (|which| |PositiveInteger|) ($ |GraphImage|))
+        (SPROG ((#1=#:G164 NIL))
+               (SEQ
+                (COND
+                 ((OR (SPADCALL |which| 9 (QREFELT $ 25)) (< |which| 1))
+                  (|error|
+                   "Trying to get a graph with a negative index or too big an index")))
+                (EXIT
+                 (COND
+                  ((QEQCAR
+                    (SPADCALL (QVELT |viewport| 1) |which| (QREFELT $ 33)) 1)
+                   (|error| "Graph is undefined!"))
+                  ('T
+                   (PROG2
+                       (LETT #1#
+                             (SPADCALL (QVELT |viewport| 1) |which|
+                                       (QREFELT $ 33))
+                             |VIEW2D;getGraph;$PiGi;6|)
+                       (QCDR #1#)
+                     (|check_union| (QEQCAR #1# 0) (|GraphImage|) #1#)))))))) 
 
 (PUT '|VIEW2D;graphStates;$V;7| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 2))) 
 
-(DEFUN |VIEW2D;graphStates;$V;7| (|viewport| $) (QVELT |viewport| 2)) 
+(SDEFUN |VIEW2D;graphStates;$V;7|
+        ((|viewport| $)
+         ($ |Vector|
+          (|Record| (|:| |scaleX| (|DoubleFloat|))
+                    (|:| |scaleY| (|DoubleFloat|))
+                    (|:| |deltaX| (|DoubleFloat|))
+                    (|:| |deltaY| (|DoubleFloat|)) (|:| |points| (|Integer|))
+                    (|:| |connect| (|Integer|)) (|:| |spline| (|Integer|))
+                    (|:| |axes| (|Integer|)) (|:| |axesColor| (|Palette|))
+                    (|:| |units| (|Integer|)) (|:| |unitsColor| (|Palette|))
+                    (|:| |showing| (|Integer|)))))
+        (QVELT |viewport| 2)) 
 
 (PUT '|VIEW2D;graphs;$V;8| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 1))) 
 
-(DEFUN |VIEW2D;graphs;$V;8| (|viewport| $) (QVELT |viewport| 1)) 
+(SDEFUN |VIEW2D;graphs;$V;8|
+        ((|viewport| $) ($ |Vector| (|Union| (|GraphImage|) "undefined")))
+        (QVELT |viewport| 1)) 
 
 (PUT '|VIEW2D;key;$I;9| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 0))) 
 
-(DEFUN |VIEW2D;key;$I;9| (|viewport| $) (QVELT |viewport| 0)) 
+(SDEFUN |VIEW2D;key;$I;9| ((|viewport| $) ($ |Integer|)) (QVELT |viewport| 0)) 
 
-(DEFUN |VIEW2D;dimensions;$2Nni2PiV;10|
-       (|viewport| |ViewX| |ViewY| |ViewWidth| |ViewHeight| $)
-  (SEQ (QSETVELT |viewport| 4 (CONS |ViewX| |ViewY|))
-       (EXIT (QSETVELT |viewport| 5 (CONS |ViewWidth| |ViewHeight|))))) 
+(SDEFUN |VIEW2D;dimensions;$2Nni2PiV;10|
+        ((|viewport| $) (|ViewX| |NonNegativeInteger|)
+         (|ViewY| |NonNegativeInteger|) (|ViewWidth| |PositiveInteger|)
+         (|ViewHeight| |PositiveInteger|) ($ |Void|))
+        (SEQ (QSETVELT |viewport| 4 (CONS |ViewX| |ViewY|))
+             (EXIT (QSETVELT |viewport| 5 (CONS |ViewWidth| |ViewHeight|))))) 
 
-(DEFUN |VIEW2D;move;$2NniV;11| (|viewport| |xLoc| |yLoc| $)
-  (PROG (#1=#:G185)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (QSETVELT |viewport| 4 (CONS |xLoc| |yLoc|))
-            (EXIT
-             (COND
-              ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-               (PROGN
-                (LETT #1#
-                      (SEQ (|sockSendInt| |$ViewportServer| 3)
-                           (|sockSendInt| |$ViewportServer| 102)
-                           (EXIT
-                            (COND
-                             ((|VIEW2D;checkViewport| |viewport| $)
-                              (SEQ (|sockSendInt| |$ViewportServer| |xLoc|)
-                                   (|sockSendInt| |$ViewportServer| |yLoc|)
-                                   (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                      |VIEW2D;move;$2NniV;11|)
-                (GO #1#)))))))
-      #1# (EXIT #1#))))) 
+(SDEFUN |VIEW2D;move;$2NniV;11|
+        ((|viewport| $) (|xLoc| |NonNegativeInteger|)
+         (|yLoc| |NonNegativeInteger|) ($ |Void|))
+        (SPROG ((#1=#:G185 NIL))
+               (SEQ
+                (EXIT
+                 (SEQ (QSETVELT |viewport| 4 (CONS |xLoc| |yLoc|))
+                      (EXIT
+                       (COND
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                                   (QREFELT $ 42))
+                         (PROGN
+                          (LETT #1#
+                                (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                     (|sockSendInt| |$ViewportServer| 102)
+                                     (EXIT
+                                      (COND
+                                       ((|VIEW2D;checkViewport| |viewport| $)
+                                        (SEQ
+                                         (|sockSendInt| |$ViewportServer|
+                                                        |xLoc|)
+                                         (|sockSendInt| |$ViewportServer|
+                                                        |yLoc|)
+                                         (EXIT
+                                          (|sockGetInt|
+                                           |$ViewportServer|)))))))
+                                |VIEW2D;move;$2NniV;11|)
+                          (GO #1#)))))))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |VIEW2D;update;$GiPiV;12| (|viewport| |graph| |slot| $)
-  (SEQ
-   (COND
-    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-     (SEQ (|sockSendInt| |$ViewportServer| 3)
-          (|sockSendInt| |$ViewportServer| 106)
-          (EXIT
-           (COND
-            ((|VIEW2D;checkViewport| |viewport| $)
-             (SEQ
-              (|sockSendInt| |$ViewportServer|
-                             (SPADCALL |graph| (QREFELT $ 44)))
-              (|sockSendInt| |$ViewportServer| |slot|)
-              (EXIT (|sockGetInt| |$ViewportServer|))))))))
-    ('T (SPADCALL (QREFELT $ 45)))))) 
-
-(DEFUN |VIEW2D;resize;$2PiV;13| (|viewport| |xSize| |ySize| $)
-  (PROG (#1=#:G196)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (QSETVELT |viewport| 5 (CONS |xSize| |ySize|))
-            (EXIT
-             (COND
-              ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-               (PROGN
-                (LETT #1#
-                      (SEQ (|sockSendInt| |$ViewportServer| 3)
-                           (|sockSendInt| |$ViewportServer| 103)
-                           (EXIT
-                            (COND
-                             ((|VIEW2D;checkViewport| |viewport| $)
-                              (SEQ (|sockSendInt| |$ViewportServer| |xSize|)
-                                   (|sockSendInt| |$ViewportServer| |ySize|)
-                                   (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                      |VIEW2D;resize;$2PiV;13|)
-                (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;translate;$Pi2FV;14|
-       (|viewport| |graphIndex| |xTranslateF| |yTranslateF| $)
-  (PROG (#1=#:G201 |yTranslate| |xTranslate|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |xTranslate| (SPADCALL |xTranslateF| (QREFELT $ 12))
-              . #2=(|VIEW2D;translate;$Pi2FV;14|))
-        (LETT |yTranslate| (SPADCALL |yTranslateF| (QREFELT $ 12)) . #2#)
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 2
-                  |xTranslate|)
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 3
-                  |yTranslate|)
-        (EXIT
+(SDEFUN |VIEW2D;update;$GiPiV;12|
+        ((|viewport| $) (|graph| |GraphImage|) (|slot| |PositiveInteger|)
+         ($ |Void|))
+        (SEQ
          (COND
           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 0)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
+           (SEQ (|sockSendInt| |$ViewportServer| 3)
+                (|sockSendInt| |$ViewportServer| 106)
+                (EXIT
+                 (COND
+                  ((|VIEW2D;checkViewport| |viewport| $)
+                   (SEQ
+                    (|sockSendInt| |$ViewportServer|
+                                   (SPADCALL |graph| (QREFELT $ 44)))
+                    (|sockSendInt| |$ViewportServer| |slot|)
+                    (EXIT (|sockGetInt| |$ViewportServer|))))))))
+          ('T (SPADCALL (QREFELT $ 45)))))) 
+
+(SDEFUN |VIEW2D;resize;$2PiV;13|
+        ((|viewport| $) (|xSize| |PositiveInteger|) (|ySize| |PositiveInteger|)
+         ($ |Void|))
+        (SPROG ((#1=#:G196 NIL))
+               (SEQ
+                (EXIT
+                 (SEQ (QSETVELT |viewport| 5 (CONS |xSize| |ySize|))
+                      (EXIT
+                       (COND
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                                   (QREFELT $ 42))
+                         (PROGN
+                          (LETT #1#
+                                (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                     (|sockSendInt| |$ViewportServer| 103)
+                                     (EXIT
+                                      (COND
+                                       ((|VIEW2D;checkViewport| |viewport| $)
+                                        (SEQ
+                                         (|sockSendInt| |$ViewportServer|
+                                                        |xSize|)
+                                         (|sockSendInt| |$ViewportServer|
+                                                        |ySize|)
+                                         (EXIT
+                                          (|sockGetInt|
+                                           |$ViewportServer|)))))))
+                                |VIEW2D;resize;$2PiV;13|)
+                          (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;translate;$Pi2FV;14|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|)
+         (|xTranslateF| |Float|) (|yTranslateF| |Float|) ($ |Void|))
+        (SPROG
+         ((#1=#:G201 NIL) (|yTranslate| #2=(|DoubleFloat|)) (|xTranslate| #2#))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |xTranslate| (SPADCALL |xTranslateF| (QREFELT $ 12))
+                  . #3=(|VIEW2D;translate;$Pi2FV;14|))
+            (LETT |yTranslate| (SPADCALL |yTranslateF| (QREFELT $ 12)) . #3#)
+            (COND
+             ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+              (|error| "Referring to a graph with too big an index")))
+            (QSETVELT
+             (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 2
+             |xTranslate|)
+            (QSETVELT
+             (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 3
+             |yTranslate|)
+            (EXIT
+             (COND
+              ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
+               (PROGN
+                (LETT #1#
+                      (SEQ (|sockSendInt| |$ViewportServer| 3)
+                           (|sockSendInt| |$ViewportServer| 0)
+                           (EXIT
+                            (COND
+                             ((|VIEW2D;checkViewport| |viewport| $)
+                              (SEQ
+                               (|sockSendInt| |$ViewportServer| |graphIndex|)
                                (|sockSendFloat| |$ViewportServer| |xTranslate|)
                                (|sockSendFloat| |$ViewportServer| |yTranslate|)
                                (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
+                      . #3#)
+                (GO #1#)))))))
+          #1# (EXIT #1#)))) 
 
-(DEFUN |VIEW2D;scale;$Pi2FV;15| (|viewport| |graphIndex| |xScaleF| |yScaleF| $)
-  (PROG (#1=#:G206 |yScale| |xScale|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |xScale| (SPADCALL |xScaleF| (QREFELT $ 12))
-              . #2=(|VIEW2D;scale;$Pi2FV;15|))
-        (LETT |yScale| (SPADCALL |yScaleF| (QREFELT $ 12)) . #2#)
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 0
-                  |xScale|)
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 1
-                  |yScale|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 1)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (|sockSendFloat| |$ViewportServer| |xScale|)
-                               (|sockSendFloat| |$ViewportServer| |yScale|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
+(SDEFUN |VIEW2D;scale;$Pi2FV;15|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|xScaleF| |Float|)
+         (|yScaleF| |Float|) ($ |Void|))
+        (SPROG ((#1=#:G206 NIL) (|yScale| #2=(|DoubleFloat|)) (|xScale| #2#))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (LETT |xScale| (SPADCALL |xScaleF| (QREFELT $ 12))
+                        . #3=(|VIEW2D;scale;$Pi2FV;15|))
+                  (LETT |yScale| (SPADCALL |yScaleF| (QREFELT $ 12)) . #3#)
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   0 |xScale|)
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   1 |yScale|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 1)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (|sockSendFloat| |$ViewportServer|
+                                                      |xScale|)
+                                     (|sockSendFloat| |$ViewportServer|
+                                                      |yScale|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #3#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |VIEW2D;viewport2D;$;16| ($)
-  (VECTOR 0 (MAKEARR1 9 (CONS 1 "undefined"))
-          (MAKEARR1 9 (MOVEVEC (MAKE-VEC 12) (QREFELT $ 17))) "FriCAS2D"
-          (CONS (SPADCALL (SPADCALL (QREFELT $ 53)) 1 (QREFELT $ 54))
-                (SPADCALL (SPADCALL (QREFELT $ 53)) 2 (QREFELT $ 54)))
-          (CONS (SPADCALL (SPADCALL (QREFELT $ 56)) 1 (QREFELT $ 57))
-                (SPADCALL (SPADCALL (QREFELT $ 56)) 2 (QREFELT $ 57)))
-          (LIST 0) NIL)) 
+(SDEFUN |VIEW2D;viewport2D;$;16| (($ $))
+        (VECTOR 0 (MAKEARR1 9 (CONS 1 "undefined"))
+                (MAKEARR1 9 (MOVEVEC (MAKE-VEC 12) (QREFELT $ 17))) "FriCAS2D"
+                (CONS (SPADCALL (SPADCALL (QREFELT $ 53)) 1 (QREFELT $ 54))
+                      (SPADCALL (SPADCALL (QREFELT $ 53)) 2 (QREFELT $ 54)))
+                (CONS (SPADCALL (SPADCALL (QREFELT $ 56)) 1 (QREFELT $ 57))
+                      (SPADCALL (SPADCALL (QREFELT $ 56)) 2 (QREFELT $ 57)))
+                (LIST 0) NIL)) 
 
-(DEFUN |VIEW2D;makeViewport2D;GiL$;17| (|g| |opts| $)
-  (PROG (|viewport|)
-    (RETURN
-     (SEQ
-      (LETT |viewport| (SPADCALL (QREFELT $ 58))
-            |VIEW2D;makeViewport2D;GiL$;17|)
-      (SPADCALL (QVELT |viewport| 1) 1 (CONS 0 |g|) (QREFELT $ 29))
-      (QSETVELT |viewport| 7 |opts|)
-      (EXIT (|VIEW2D;makeViewport2D0| |viewport| $)))))) 
+(SDEFUN |VIEW2D;makeViewport2D;GiL$;17|
+        ((|g| |GraphImage|) (|opts| |List| (|DrawOption|)) ($ $))
+        (SPROG ((|viewport| ($)))
+               (SEQ
+                (LETT |viewport| (SPADCALL (QREFELT $ 58))
+                      |VIEW2D;makeViewport2D;GiL$;17|)
+                (SPADCALL (QVELT |viewport| 1) 1 (CONS 0 |g|) (QREFELT $ 29))
+                (QSETVELT |viewport| 7 |opts|)
+                (EXIT (|VIEW2D;makeViewport2D0| |viewport| $))))) 
 
-(DEFUN |VIEW2D;makeViewport2D;2$;18| (|viewport| $)
-  (|VIEW2D;makeViewport2D0| (MOVEVEC (MAKE-VEC 8) |viewport|) $)) 
+(SDEFUN |VIEW2D;makeViewport2D;2$;18| ((|viewport| $) ($ $))
+        (|VIEW2D;makeViewport2D0| (MOVEVEC (MAKE-VEC 8) |viewport|) $)) 
 
-(DEFUN |VIEW2D;makeViewport2D0| (|viewportDollar| $)
-  (PROG (|hueShade| |gs| |g| |i| |viewport|)
-    (RETURN
-     (SEQ (LETT |viewport| |viewportDollar| . #1=(|VIEW2D;makeViewport2D0|))
+(SDEFUN |VIEW2D;makeViewport2D0| ((|viewportDollar| $) ($ $))
+        (SPROG
+         ((|hueShade| (|Integer|))
+          (|gs|
+           (|Record| (|:| |scaleX| (|DoubleFloat|))
+                     (|:| |scaleY| (|DoubleFloat|))
+                     (|:| |deltaX| (|DoubleFloat|))
+                     (|:| |deltaY| (|DoubleFloat|)) (|:| |points| (|Integer|))
+                     (|:| |connect| (|Integer|)) (|:| |spline| (|Integer|))
+                     (|:| |axes| (|Integer|)) (|:| |axesColor| (|Palette|))
+                     (|:| |units| (|Integer|)) (|:| |unitsColor| (|Palette|))
+                     (|:| |showing| (|Integer|))))
+          (|g| (|Union| (|GraphImage|) "undefined")) (|i| NIL)
+          (|viewport| (|Rep|)))
+         (SEQ
+          (LETT |viewport| |viewportDollar| . #1=(|VIEW2D;makeViewport2D0|))
           (|VIEW2D;doOptions| |viewport| $)
           (|sayBrightly|
            (LIST
@@ -287,505 +353,585 @@
                                          (QVELT |gs| 11))))))))
                (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
           (QSETVELT |viewport| 0 (|sockGetInt| |$ViewportServer|))
-          (EXIT |viewport|))))) 
+          (EXIT |viewport|)))) 
 
-(DEFUN |VIEW2D;graphState;$Pi4Df4IPIPIV;20|
-       (|viewport| |num| |sX| |sY| |dX| |dY| |Points| |Lines| |Spline| |Axes|
-        |AxesColor| |Units| |UnitsColor| |Showing| $)
-  (SPADCALL (QVELT |viewport| 2) |num|
-            (VECTOR |sX| |sY| |dX| |dY| |Points| |Lines| |Spline| |Axes|
-                    |AxesColor| |Units| |UnitsColor| |Showing|)
-            (QREFELT $ 66))) 
+(SDEFUN |VIEW2D;graphState;$Pi4Df4IPIPIV;20|
+        ((|viewport| $) (|num| |PositiveInteger|) (|sX| |DoubleFloat|)
+         (|sY| |DoubleFloat|) (|dX| |DoubleFloat|) (|dY| |DoubleFloat|)
+         (|Points| |Integer|) (|Lines| |Integer|) (|Spline| |Integer|)
+         (|Axes| |Integer|) (|AxesColor| |Palette|) (|Units| |Integer|)
+         (|UnitsColor| |Palette|) (|Showing| |Integer|) ($ |Void|))
+        (SPADCALL (QVELT |viewport| 2) |num|
+                  (VECTOR |sX| |sY| |dX| |dY| |Points| |Lines| |Spline| |Axes|
+                          |AxesColor| |Units| |UnitsColor| |Showing|)
+                  (QREFELT $ 66))) 
 
-(DEFUN |VIEW2D;title;$SV;21| (|viewport| |Title| $)
-  (PROG (#1=#:G243)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (QSETVELT |viewport| 3 |Title|)
-            (EXIT
-             (COND
-              ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-               (PROGN
-                (LETT #1#
-                      (SEQ (|sockSendInt| |$ViewportServer| 3)
-                           (|sockSendInt| |$ViewportServer| 104)
-                           (EXIT
-                            (COND
-                             ((|VIEW2D;checkViewport| |viewport| $)
-                              (SEQ (|sockSendString| |$ViewportServer| |Title|)
-                                   (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                      |VIEW2D;title;$SV;21|)
-                (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;reset;$V;22| (|viewport| $)
-  (SEQ
-   (COND
-    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-     (SEQ (|sockSendInt| |$ViewportServer| 3)
-          (|sockSendInt| |$ViewportServer| 100)
-          (EXIT
-           (COND
-            ((|VIEW2D;checkViewport| |viewport| $)
-             (SEQ (|sockSendInt| |$ViewportServer| 5)
-                  (EXIT (|sockGetInt| |$ViewportServer|))))))))
-    ('T (SPADCALL (QREFELT $ 45)))))) 
-
-(DEFUN |VIEW2D;axes;$PiSV;23| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G253 |status|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (COND
-         ((EQUAL |onOff| "on") (LETT |status| 1 . #2=(|VIEW2D;axes;$PiSV;23|)))
-         ('T (LETT |status| 0 . #2#)))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 7
-                  |status|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 8)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (|sockSendInt| |$ViewportServer| |status|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;axes;$PiPV;24| (|viewport| |graphIndex| |color| $)
-  (PROG (#1=#:G258 |hueShade|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 8
-                  |color|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 112)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (LETT |hueShade|
-                                     (+
-                                      (SPADCALL
-                                       (SPADCALL |color| (QREFELT $ 62))
-                                       (QREFELT $ 63))
-                                      (* (SPADCALL |color| (QREFELT $ 64))
-                                         (SPADCALL (QREFELT $ 65))))
-                                     . #2=(|VIEW2D;axes;$PiPV;24|))
-                               (|sockSendInt| |$ViewportServer| |hueShade|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;units;$PiSV;25| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G263 |status|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (COND
-         ((EQUAL |onOff| "on")
-          (LETT |status| 1 . #2=(|VIEW2D;units;$PiSV;25|)))
-         ('T (LETT |status| 0 . #2#)))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 9
-                  |status|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 9)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (|sockSendInt| |$ViewportServer| |status|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;units;$PiPV;26| (|viewport| |graphIndex| |color| $)
-  (PROG (#1=#:G268 |hueShade|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
-                  10 |color|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 113)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (LETT |hueShade|
-                                     (+
-                                      (SPADCALL
-                                       (SPADCALL |color| (QREFELT $ 62))
-                                       (QREFELT $ 63))
-                                      (* (SPADCALL |color| (QREFELT $ 64))
-                                         (SPADCALL (QREFELT $ 65))))
-                                     . #2=(|VIEW2D;units;$PiPV;26|))
-                               (|sockSendInt| |$ViewportServer| |hueShade|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;connect;$PiSV;27| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G273 |status|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (COND
-         ((EQUAL |onOff| "on")
-          (LETT |status| 1 . #2=(|VIEW2D;connect;$PiSV;27|)))
-         ('T (LETT |status| 0 . #2#)))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 5
-                  |status|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 3)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (|sockSendInt| |$ViewportServer| |status|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;points;$PiSV;28| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G278 |status|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (COND
-         ((EQUAL |onOff| "on")
-          (LETT |status| 1 . #2=(|VIEW2D;points;$PiSV;28|)))
-         ('T (LETT |status| 0 . #2#)))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 4
-                  |status|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 2)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (|sockSendInt| |$ViewportServer| |status|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;region;$PiSV;29| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G283 |status|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (COND
-         ((EQUAL |onOff| "on")
-          (LETT |status| 1 . #2=(|VIEW2D;region;$PiSV;29|)))
-         ('T (LETT |status| 0 . #2#)))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48)) 6
-                  |status|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 4)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (|sockSendInt| |$ViewportServer| |status|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;show;$PiSV;30| (|viewport| |graphIndex| |onOff| $)
-  (PROG (#1=#:G288 |status|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
-          (|error| "Referring to a graph with too big an index")))
-        (COND
-         ((EQUAL |onOff| "on") (LETT |status| 1 . #2=(|VIEW2D;show;$PiSV;30|)))
-         ('T (LETT |status| 0 . #2#)))
-        (QSETVELT (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
-                  11 |status|)
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 105)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ (|sockSendInt| |$ViewportServer| |graphIndex|)
-                               (|sockSendInt| |$ViewportServer| |status|)
-                               (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  . #2#)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;controlPanel;$SV;31| (|viewport| |onOff| $)
-  (PROG (#1=#:G294)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (COND
-         ((EQUAL |onOff| "on")
-          (PROGN (RPLACA #2=(QVELT |viewport| 6) 1) (QCAR #2#)))
-         ('T (PROGN (RPLACA #3=(QVELT |viewport| 6) 0) (QCAR #3#))))
-        (EXIT
-         (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-           (PROGN
-            (LETT #1#
-                  (SEQ (|sockSendInt| |$ViewportServer| 3)
-                       (|sockSendInt| |$ViewportServer| 6)
-                       (EXIT
-                        (COND
-                         ((|VIEW2D;checkViewport| |viewport| $)
-                          (SEQ
-                           (|sockSendInt| |$ViewportServer|
-                                          (QCAR (QVELT |viewport| 6)))
-                           (EXIT (|sockGetInt| |$ViewportServer|)))))))
-                  |VIEW2D;controlPanel;$SV;31|)
-            (GO #1#)))))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |VIEW2D;close;$V;32| (|viewport| $)
-  (SEQ
-   (COND
-    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-     (SEQ (|sockSendInt| |$ViewportServer| 3)
-          (|sockSendInt| |$ViewportServer| 7)
-          (EXIT
-           (COND
-            ((|VIEW2D;checkViewport| |viewport| $)
-             (SEQ (|sockGetInt| |$ViewportServer|)
-                  (EXIT (QSETVELT |viewport| 0 0))))))))
-    ('T (SPADCALL (QREFELT $ 45)))))) 
-
-(DEFUN |VIEW2D;coerce;$Of;33| (|viewport| $)
-  (COND
-   ((EQL (SPADCALL |viewport| (QREFELT $ 39)) 0)
-    (SPADCALL
-     (LIST "Closed or Undefined TwoDimensionalViewport: "
-           (SPADCALL (QVELT |viewport| 3) (QREFELT $ 81)))
-     (QREFELT $ 83)))
-   ('T
-    (SPADCALL
-     (LIST "TwoDimensionalViewport: "
-           (SPADCALL (QVELT |viewport| 3) (QREFELT $ 81)))
-     (QREFELT $ 83))))) 
-
-(DEFUN |VIEW2D;write;$3S;34| (|viewport| |Filename| |aThingToWrite| $)
-  (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 86))) 
-
-(DEFUN |VIEW2D;write;$2S;35| (|viewport| |Filename| $)
-  (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 88)) (QREFELT $ 86))) 
-
-(DEFUN |VIEW2D;write;$SLS;36| (|viewport| |Filename| |thingsToWrite| $)
-  (PROG (#1=#:G314 |writeTypeInt| #2=#:G316 |aTypeOfFile| |m| |avail|
-         |stringToSend|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |stringToSend| "" . #3=(|VIEW2D;write;$SLS;36|))
-            (EXIT
-             (COND
-              ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
-               (PROGN
-                (LETT #1#
-                      (SEQ (|sockSendInt| |$ViewportServer| 3)
-                           (|sockSendInt| |$ViewportServer| 110)
-                           (EXIT
-                            (COND
-                             ((|VIEW2D;checkViewport| |viewport| $)
-                              (SEQ
-                               (|sockSendString| |$ViewportServer| |Filename|)
-                               (LETT |m|
-                                     (SPADCALL
-                                      (LETT |avail| (SPADCALL (QREFELT $ 90))
-                                            . #3#)
-                                      (QREFELT $ 91))
-                                     . #3#)
-                               (SEQ (LETT |aTypeOfFile| NIL . #3#)
-                                    (LETT #2# |thingsToWrite| . #3#) G190
-                                    (COND
-                                     ((OR (ATOM #2#)
-                                          (PROGN
-                                           (LETT |aTypeOfFile| (CAR #2#) . #3#)
-                                           NIL))
-                                      (GO G191)))
-                                    (SEQ
-                                     (LETT |writeTypeInt|
-                                           (-
-                                            (SPADCALL
-                                             (SPADCALL |aTypeOfFile|
-                                                       (QREFELT $ 92))
-                                             |avail| (QREFELT $ 93))
-                                            |m|)
-                                           . #3#)
+(SDEFUN |VIEW2D;title;$SV;21| ((|viewport| $) (|Title| |String|) ($ |Void|))
+        (SPROG ((#1=#:G243 NIL))
+               (SEQ
+                (EXIT
+                 (SEQ (QSETVELT |viewport| 3 |Title|)
+                      (EXIT
+                       (COND
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                                   (QREFELT $ 42))
+                         (PROGN
+                          (LETT #1#
+                                (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                     (|sockSendInt| |$ViewportServer| 104)
                                      (EXIT
                                       (COND
-                                       ((< |writeTypeInt| 0)
-                                        (|sayBrightly|
-                                         (LIST "  > "
-                                               (SPADCALL
-                                                (STRCONC |aTypeOfFile|
-                                                         " is not a valid file type for writing a 2D viewport")
-                                                (QREFELT $ 81)))))
-                                       ('T
-                                        (|sockSendInt| |$ViewportServer|
-                                                       (+ |writeTypeInt|
-                                                          1))))))
-                                    (LETT #2# (CDR #2#) . #3#) (GO G190) G191
-                                    (EXIT NIL))
-                               (|sockSendInt| |$ViewportServer| 0)
-                               (|sockGetInt| |$ViewportServer|)
-                               (EXIT |Filename|))))))
-                      . #3#)
-                (GO #1#)))))))
-      #1# (EXIT #1#))))) 
+                                       ((|VIEW2D;checkViewport| |viewport| $)
+                                        (SEQ
+                                         (|sockSendString| |$ViewportServer|
+                                                           |Title|)
+                                         (EXIT
+                                          (|sockGetInt|
+                                           |$ViewportServer|)))))))
+                                |VIEW2D;title;$SV;21|)
+                          (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;reset;$V;22| ((|viewport| $) ($ |Void|))
+        (SEQ
+         (COND
+          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
+           (SEQ (|sockSendInt| |$ViewportServer| 3)
+                (|sockSendInt| |$ViewportServer| 100)
+                (EXIT
+                 (COND
+                  ((|VIEW2D;checkViewport| |viewport| $)
+                   (SEQ (|sockSendInt| |$ViewportServer| 5)
+                        (EXIT (|sockGetInt| |$ViewportServer|))))))))
+          ('T (SPADCALL (QREFELT $ 45)))))) 
+
+(SDEFUN |VIEW2D;axes;$PiSV;23|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
+         ($ |Void|))
+        (SPROG ((#1=#:G253 NIL) (|status| (|Integer|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (COND
+                   ((EQUAL |onOff| "on")
+                    (LETT |status| 1 . #2=(|VIEW2D;axes;$PiSV;23|)))
+                   ('T (LETT |status| 0 . #2#)))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   7 |status|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 8)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (|sockSendInt| |$ViewportServer| |status|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #2#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;axes;$PiPV;24|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|color| |Palette|)
+         ($ |Void|))
+        (SPROG ((#1=#:G258 NIL) (|hueShade| (|Integer|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   8 |color|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 112)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (LETT |hueShade|
+                                           (+
+                                            (SPADCALL
+                                             (SPADCALL |color| (QREFELT $ 62))
+                                             (QREFELT $ 63))
+                                            (*
+                                             (SPADCALL |color| (QREFELT $ 64))
+                                             (SPADCALL (QREFELT $ 65))))
+                                           . #2=(|VIEW2D;axes;$PiPV;24|))
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |hueShade|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #2#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;units;$PiSV;25|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
+         ($ |Void|))
+        (SPROG ((#1=#:G263 NIL) (|status| (|Integer|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (COND
+                   ((EQUAL |onOff| "on")
+                    (LETT |status| 1 . #2=(|VIEW2D;units;$PiSV;25|)))
+                   ('T (LETT |status| 0 . #2#)))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   9 |status|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 9)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (|sockSendInt| |$ViewportServer| |status|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #2#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;units;$PiPV;26|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|color| |Palette|)
+         ($ |Void|))
+        (SPROG ((#1=#:G268 NIL) (|hueShade| (|Integer|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   10 |color|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 113)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (LETT |hueShade|
+                                           (+
+                                            (SPADCALL
+                                             (SPADCALL |color| (QREFELT $ 62))
+                                             (QREFELT $ 63))
+                                            (*
+                                             (SPADCALL |color| (QREFELT $ 64))
+                                             (SPADCALL (QREFELT $ 65))))
+                                           . #2=(|VIEW2D;units;$PiPV;26|))
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |hueShade|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #2#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;connect;$PiSV;27|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
+         ($ |Void|))
+        (SPROG ((#1=#:G273 NIL) (|status| (|Integer|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (COND
+                   ((EQUAL |onOff| "on")
+                    (LETT |status| 1 . #2=(|VIEW2D;connect;$PiSV;27|)))
+                   ('T (LETT |status| 0 . #2#)))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   5 |status|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 3)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (|sockSendInt| |$ViewportServer| |status|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #2#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;points;$PiSV;28|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
+         ($ |Void|))
+        (SPROG ((#1=#:G278 NIL) (|status| (|Integer|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (COND
+                   ((EQUAL |onOff| "on")
+                    (LETT |status| 1 . #2=(|VIEW2D;points;$PiSV;28|)))
+                   ('T (LETT |status| 0 . #2#)))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   4 |status|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 2)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (|sockSendInt| |$ViewportServer| |status|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #2#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;region;$PiSV;29|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
+         ($ |Void|))
+        (SPROG ((#1=#:G283 NIL) (|status| (|Integer|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (COND
+                   ((EQUAL |onOff| "on")
+                    (LETT |status| 1 . #2=(|VIEW2D;region;$PiSV;29|)))
+                   ('T (LETT |status| 0 . #2#)))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   6 |status|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 4)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (|sockSendInt| |$ViewportServer| |status|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #2#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;show;$PiSV;30|
+        ((|viewport| $) (|graphIndex| |PositiveInteger|) (|onOff| |String|)
+         ($ |Void|))
+        (SPROG ((#1=#:G288 NIL) (|status| (|Integer|)))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL |graphIndex| 9 (QREFELT $ 25))
+                    (|error| "Referring to a graph with too big an index")))
+                  (COND
+                   ((EQUAL |onOff| "on")
+                    (LETT |status| 1 . #2=(|VIEW2D;show;$PiSV;30|)))
+                   ('T (LETT |status| 0 . #2#)))
+                  (QSETVELT
+                   (SPADCALL (QVELT |viewport| 2) |graphIndex| (QREFELT $ 48))
+                   11 |status|)
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 105)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    |graphIndex|)
+                                     (|sockSendInt| |$ViewportServer| |status|)
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            . #2#)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;controlPanel;$SV;31|
+        ((|viewport| $) (|onOff| |String|) ($ |Void|))
+        (SPROG ((#1=#:G294 NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((EQUAL |onOff| "on")
+                    (PROGN (RPLACA #2=(QVELT |viewport| 6) 1) (QCAR #2#)))
+                   ('T (PROGN (RPLACA #3=(QVELT |viewport| 6) 0) (QCAR #3#))))
+                  (EXIT
+                   (COND
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                               (QREFELT $ 42))
+                     (PROGN
+                      (LETT #1#
+                            (SEQ (|sockSendInt| |$ViewportServer| 3)
+                                 (|sockSendInt| |$ViewportServer| 6)
+                                 (EXIT
+                                  (COND
+                                   ((|VIEW2D;checkViewport| |viewport| $)
+                                    (SEQ
+                                     (|sockSendInt| |$ViewportServer|
+                                                    (QCAR
+                                                     (QVELT |viewport| 6)))
+                                     (EXIT
+                                      (|sockGetInt| |$ViewportServer|)))))))
+                            |VIEW2D;controlPanel;$SV;31|)
+                      (GO #1#)))))))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |VIEW2D;close;$V;32| ((|viewport| $) ($ |Void|))
+        (SEQ
+         (COND
+          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0 (QREFELT $ 42))
+           (SEQ (|sockSendInt| |$ViewportServer| 3)
+                (|sockSendInt| |$ViewportServer| 7)
+                (EXIT
+                 (COND
+                  ((|VIEW2D;checkViewport| |viewport| $)
+                   (SEQ (|sockGetInt| |$ViewportServer|)
+                        (EXIT (QSETVELT |viewport| 0 0))))))))
+          ('T (SPADCALL (QREFELT $ 45)))))) 
+
+(SDEFUN |VIEW2D;coerce;$Of;33| ((|viewport| $) ($ |OutputForm|))
+        (COND
+         ((EQL (SPADCALL |viewport| (QREFELT $ 39)) 0)
+          (SPADCALL
+           (LIST "Closed or Undefined TwoDimensionalViewport: "
+                 (SPADCALL (QVELT |viewport| 3) (QREFELT $ 81)))
+           (QREFELT $ 83)))
+         ('T
+          (SPADCALL
+           (LIST "TwoDimensionalViewport: "
+                 (SPADCALL (QVELT |viewport| 3) (QREFELT $ 81)))
+           (QREFELT $ 83))))) 
+
+(SDEFUN |VIEW2D;write;$3S;34|
+        ((|viewport| $) (|Filename| |String|) (|aThingToWrite| |String|)
+         ($ |String|))
+        (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 86))) 
+
+(SDEFUN |VIEW2D;write;$2S;35|
+        ((|viewport| $) (|Filename| |String|) ($ |String|))
+        (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 88))
+                  (QREFELT $ 86))) 
+
+(SDEFUN |VIEW2D;write;$SLS;36|
+        ((|viewport| $) (|Filename| |String|)
+         (|thingsToWrite| |List| (|String|)) ($ |String|))
+        (SPROG
+         ((#1=#:G314 NIL) (|writeTypeInt| (|Integer|)) (#2=#:G316 NIL)
+          (|aTypeOfFile| NIL) (|m| (|Integer|)) (|avail| (|List| (|String|)))
+          (|stringToSend| (|String|)))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |stringToSend| "" . #3=(|VIEW2D;write;$SLS;36|))
+                (EXIT
+                 (COND
+                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 39)) 0
+                             (QREFELT $ 42))
+                   (PROGN
+                    (LETT #1#
+                          (SEQ (|sockSendInt| |$ViewportServer| 3)
+                               (|sockSendInt| |$ViewportServer| 110)
+                               (EXIT
+                                (COND
+                                 ((|VIEW2D;checkViewport| |viewport| $)
+                                  (SEQ
+                                   (|sockSendString| |$ViewportServer|
+                                                     |Filename|)
+                                   (LETT |m|
+                                         (SPADCALL
+                                          (LETT |avail|
+                                                (SPADCALL (QREFELT $ 90))
+                                                . #3#)
+                                          (QREFELT $ 91))
+                                         . #3#)
+                                   (SEQ (LETT |aTypeOfFile| NIL . #3#)
+                                        (LETT #2# |thingsToWrite| . #3#) G190
+                                        (COND
+                                         ((OR (ATOM #2#)
+                                              (PROGN
+                                               (LETT |aTypeOfFile| (CAR #2#)
+                                                     . #3#)
+                                               NIL))
+                                          (GO G191)))
+                                        (SEQ
+                                         (LETT |writeTypeInt|
+                                               (-
+                                                (SPADCALL
+                                                 (SPADCALL |aTypeOfFile|
+                                                           (QREFELT $ 92))
+                                                 |avail| (QREFELT $ 93))
+                                                |m|)
+                                               . #3#)
+                                         (EXIT
+                                          (COND
+                                           ((< |writeTypeInt| 0)
+                                            (|sayBrightly|
+                                             (LIST "  > "
+                                                   (SPADCALL
+                                                    (STRCONC |aTypeOfFile|
+                                                             " is not a valid file type for writing a 2D viewport")
+                                                    (QREFELT $ 81)))))
+                                           ('T
+                                            (|sockSendInt| |$ViewportServer|
+                                                           (+ |writeTypeInt|
+                                                              1))))))
+                                        (LETT #2# (CDR #2#) . #3#) (GO G190)
+                                        G191 (EXIT NIL))
+                                   (|sockSendInt| |$ViewportServer| 0)
+                                   (|sockGetInt| |$ViewportServer|)
+                                   (EXIT |Filename|))))))
+                          . #3#)
+                    (GO #1#)))))))
+          #1# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |TwoDimensionalViewport;|)) 
 
 (DEFUN |TwoDimensionalViewport| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G318)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|TwoDimensionalViewport|)
-                . #2=(|TwoDimensionalViewport|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|TwoDimensionalViewport|
-                         (LIST
-                          (CONS NIL (CONS 1 (|TwoDimensionalViewport;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G318)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|TwoDimensionalViewport|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|TwoDimensionalViewport|)
+                    . #2=(|TwoDimensionalViewport|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|TwoDimensionalViewport|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1 (|TwoDimensionalViewport;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|TwoDimensionalViewport|)))))))))) 
 
 (DEFUN |TwoDimensionalViewport;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|TwoDimensionalViewport|) . #1=(|TwoDimensionalViewport|))
-      (LETT $ (GETREFV 97) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TwoDimensionalViewport| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Record| (|:| |key| (|Integer|))
-                          (|:| |graphsField|
-                               (|Vector| (|Union| (|GraphImage|) "undefined")))
-                          (|:| |graphStatesField|
-                               (|Vector|
-                                (|Record| (|:| |scaleX| (|DoubleFloat|))
-                                          (|:| |scaleY| (|DoubleFloat|))
-                                          (|:| |deltaX| (|DoubleFloat|))
-                                          (|:| |deltaY| (|DoubleFloat|))
-                                          (|:| |points| (|Integer|))
-                                          (|:| |connect| (|Integer|))
-                                          (|:| |spline| (|Integer|))
-                                          (|:| |axes| (|Integer|))
-                                          (|:| |axesColor| (|Palette|))
-                                          (|:| |units| (|Integer|))
-                                          (|:| |unitsColor| (|Palette|))
-                                          (|:| |showing| (|Integer|)))))
-                          (|:| |title| (|String|))
-                          (|:| |moveTo|
-                               (|Record| (|:| X (|NonNegativeInteger|))
-                                         (|:| Y (|NonNegativeInteger|))))
-                          (|:| |size|
-                               (|Record| (|:| X (|PositiveInteger|))
-                                         (|:| Y (|PositiveInteger|))))
-                          (|:| |flags| (|Record| (|:| |showCP| (|Integer|))))
-                          (|:| |optionsField| (|List| (|DrawOption|)))))
-      (QSETREFV $ 17
-                (VECTOR
-                 (SPADCALL (SPADCALL 9 -1 10 (QREFELT $ 10)) (QREFELT $ 12))
-                 (SPADCALL (SPADCALL 9 -1 10 (QREFELT $ 10)) (QREFELT $ 12))
-                 0.0 0.0 1 1 0 1 (SPADCALL (QREFELT $ 15)) 0
-                 (SPADCALL (QREFELT $ 16)) 1))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TwoDimensionalViewport|)
+                . #1=(|TwoDimensionalViewport|))
+          (LETT $ (GETREFV 97) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TwoDimensionalViewport| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |key| (|Integer|))
+                              (|:| |graphsField|
+                                   (|Vector|
+                                    (|Union| (|GraphImage|) "undefined")))
+                              (|:| |graphStatesField|
+                                   (|Vector|
+                                    (|Record| (|:| |scaleX| (|DoubleFloat|))
+                                              (|:| |scaleY| (|DoubleFloat|))
+                                              (|:| |deltaX| (|DoubleFloat|))
+                                              (|:| |deltaY| (|DoubleFloat|))
+                                              (|:| |points| (|Integer|))
+                                              (|:| |connect| (|Integer|))
+                                              (|:| |spline| (|Integer|))
+                                              (|:| |axes| (|Integer|))
+                                              (|:| |axesColor| (|Palette|))
+                                              (|:| |units| (|Integer|))
+                                              (|:| |unitsColor| (|Palette|))
+                                              (|:| |showing| (|Integer|)))))
+                              (|:| |title| (|String|))
+                              (|:| |moveTo|
+                                   (|Record| (|:| X (|NonNegativeInteger|))
+                                             (|:| Y (|NonNegativeInteger|))))
+                              (|:| |size|
+                                   (|Record| (|:| X (|PositiveInteger|))
+                                             (|:| Y (|PositiveInteger|))))
+                              (|:| |flags|
+                                   (|Record| (|:| |showCP| (|Integer|))))
+                              (|:| |optionsField| (|List| (|DrawOption|)))))
+          (QSETREFV $ 17
+                    (VECTOR
+                     (SPADCALL (SPADCALL 9 -1 10 (QREFELT $ 10))
+                               (QREFELT $ 12))
+                     (SPADCALL (SPADCALL 9 -1 10 (QREFELT $ 10))
+                               (QREFELT $ 12))
+                     0.0 0.0 1 1 0 1 (SPADCALL (QREFELT $ 15)) 0
+                     (SPADCALL (QREFELT $ 16)) 1))
+          $))) 
 
 (MAKEPROP '|TwoDimensionalViewport| '|infovec|
           (LIST

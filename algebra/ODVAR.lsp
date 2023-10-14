@@ -1,56 +1,57 @@
 
 (PUT '|ODVAR;makeVariable;SNni$;1| '|SPADreplace| 'CONS) 
 
-(DEFUN |ODVAR;makeVariable;SNni$;1| (|s| |n| $) (CONS |s| |n|)) 
+(SDEFUN |ODVAR;makeVariable;SNni$;1| ((|s| S) (|n| |NonNegativeInteger|) ($ $))
+        (CONS |s| |n|)) 
 
 (PUT '|ODVAR;variable;$S;2| '|SPADreplace| 'QCAR) 
 
-(DEFUN |ODVAR;variable;$S;2| (|v| $) (QCAR |v|)) 
+(SDEFUN |ODVAR;variable;$S;2| ((|v| $) ($ S)) (QCAR |v|)) 
 
 (PUT '|ODVAR;order;$Nni;3| '|SPADreplace| 'QCDR) 
 
-(DEFUN |ODVAR;order;$Nni;3| (|v| $) (QCDR |v|)) 
+(SDEFUN |ODVAR;order;$Nni;3| ((|v| $) ($ |NonNegativeInteger|)) (QCDR |v|)) 
 
 (DECLAIM (NOTINLINE |OrderlyDifferentialVariable;|)) 
 
 (DEFUN |OrderlyDifferentialVariable| (#1=#:G111)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G112)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|OrderlyDifferentialVariable|)
-                                           '|domainEqualList|)
-                . #3=(|OrderlyDifferentialVariable|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|OrderlyDifferentialVariable;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G112)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|OrderlyDifferentialVariable|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|OrderlyDifferentialVariable|)
+                                               '|domainEqualList|)
+                    . #3=(|OrderlyDifferentialVariable|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|OrderlyDifferentialVariable;| #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|OrderlyDifferentialVariable|)))))))))) 
 
 (DEFUN |OrderlyDifferentialVariable;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|OrderlyDifferentialVariable|))
-      (LETT |dv$| (LIST '|OrderlyDifferentialVariable| DV$1) . #1#)
-      (LETT $ (GETREFV 18) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OrderlyDifferentialVariable|
-                  (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7
-                (|Record| (|:| |var| |#1|) (|:| |ord| (|NonNegativeInteger|))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|OrderlyDifferentialVariable|))
+          (LETT |dv$| (LIST '|OrderlyDifferentialVariable| DV$1) . #1#)
+          (LETT $ (GETREFV 18) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OrderlyDifferentialVariable|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7
+                    (|Record| (|:| |var| |#1|)
+                              (|:| |ord| (|NonNegativeInteger|))))
+          $))) 
 
 (MAKEPROP '|OrderlyDifferentialVariable| '|infovec|
           (LIST

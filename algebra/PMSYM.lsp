@@ -1,64 +1,65 @@
 
-(DEFUN |PMSYM;patternMatch;SP2Pmr;1| (|s| |p| |l| $)
-  (PROG (#1=#:G109 |u|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |p| (QREFELT $ 9)) (SPADCALL |p| |s| |l| (QREFELT $ 12)))
-       ((SPADCALL |p| (QREFELT $ 13))
-        (SEQ
-         (EXIT
-          (SEQ
-           (SEQ
-            (LETT |u| (SPADCALL |p| (QREFELT $ 15))
-                  . #2=(|PMSYM;patternMatch;SP2Pmr;1|))
-            (EXIT
-             (COND
-              ((QEQCAR |u| 0)
-               (COND
-                ((EQUAL (QCDR |u|) |s|)
-                 (PROGN (LETT #1# |l| . #2#) (GO #1#))))))))
-           (EXIT (SPADCALL (QREFELT $ 16)))))
-         #1# (EXIT #1#)))
-       ('T (SPADCALL (QREFELT $ 16)))))))) 
+(SDEFUN |PMSYM;patternMatch;SP2Pmr;1|
+        ((|s| |Symbol|) (|p| |Pattern| S)
+         (|l| |PatternMatchResult| S (|Symbol|))
+         ($ |PatternMatchResult| S (|Symbol|)))
+        (SPROG ((#1=#:G109 NIL) (|u| (|Union| (|Symbol|) "failed")))
+               (SEQ
+                (COND
+                 ((SPADCALL |p| (QREFELT $ 9))
+                  (SPADCALL |p| |s| |l| (QREFELT $ 12)))
+                 ((SPADCALL |p| (QREFELT $ 13))
+                  (SEQ
+                   (EXIT
+                    (SEQ
+                     (SEQ
+                      (LETT |u| (SPADCALL |p| (QREFELT $ 15))
+                            . #2=(|PMSYM;patternMatch;SP2Pmr;1|))
+                      (EXIT
+                       (COND
+                        ((QEQCAR |u| 0)
+                         (COND
+                          ((EQUAL (QCDR |u|) |s|)
+                           (PROGN (LETT #1# |l| . #2#) (GO #1#))))))))
+                     (EXIT (SPADCALL (QREFELT $ 16)))))
+                   #1# (EXIT #1#)))
+                 ('T (SPADCALL (QREFELT $ 16))))))) 
 
 (DECLAIM (NOTINLINE |PatternMatchSymbol;|)) 
 
 (DEFUN |PatternMatchSymbol| (#1=#:G113)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G114)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|PatternMatchSymbol|)
-                                           '|domainEqualList|)
-                . #3=(|PatternMatchSymbol|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|PatternMatchSymbol;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G114)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|PatternMatchSymbol|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PatternMatchSymbol|)
+                                               '|domainEqualList|)
+                    . #3=(|PatternMatchSymbol|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|PatternMatchSymbol;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|PatternMatchSymbol|)))))))))) 
 
 (DEFUN |PatternMatchSymbol;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternMatchSymbol|))
-      (LETT |dv$| (LIST '|PatternMatchSymbol| DV$1) . #1#)
-      (LETT $ (GETREFV 18) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PatternMatchSymbol| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PatternMatchSymbol|))
+          (LETT |dv$| (LIST '|PatternMatchSymbol| DV$1) . #1#)
+          (LETT $ (GETREFV 18) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PatternMatchSymbol| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PatternMatchSymbol| '|infovec|
           (LIST

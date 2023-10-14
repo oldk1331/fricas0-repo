@@ -2,49 +2,51 @@
 (DECLAIM (NOTINLINE |GuessPolynomial;|)) 
 
 (DEFUN |GuessPolynomial| (#1=#:G121)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G122)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|GuessPolynomial|)
-                                           '|domainEqualList|)
-                . #3=(|GuessPolynomial|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|GuessPolynomial;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G122)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|GuessPolynomial|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|GuessPolynomial|)
+                                               '|domainEqualList|)
+                    . #3=(|GuessPolynomial|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|GuessPolynomial;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|GuessPolynomial|)))))))))) 
 
 (DEFUN |GuessPolynomial;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|GuessPolynomial|))
-      (LETT |dv$| (LIST '|GuessPolynomial| DV$1) . #1#)
-      (LETT $ (GETREFV 32) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (AND
-                                           (|HasCategory|
-                                            (|Fraction| (|Polynomial| |#1|))
-                                            '(|RetractableTo| (|Symbol|)))
-                                           (|HasCategory| (|Polynomial| |#1|)
-                                                          '(|RetractableTo|
-                                                            (|Symbol|))))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|GuessPolynomial| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|GuessPolynomial|))
+          (LETT |dv$| (LIST '|GuessPolynomial| DV$1) . #1#)
+          (LETT $ (GETREFV 32) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (AND
+                                               (|HasCategory|
+                                                (|Fraction|
+                                                 (|Polynomial| |#1|))
+                                                '(|RetractableTo| (|Symbol|)))
+                                               (|HasCategory|
+                                                (|Polynomial| |#1|)
+                                                '(|RetractableTo|
+                                                  (|Symbol|))))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|GuessPolynomial| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|GuessPolynomial| '|infovec|
           (LIST

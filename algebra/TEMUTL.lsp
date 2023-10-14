@@ -1,55 +1,54 @@
 
-(DEFUN |TEMUTL;stripC| (|s| |u| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ (LETT |i| (SPADCALL |u| |s| 1 (QREFELT $ 10)) |TEMUTL;stripC|)
-          (EXIT
-           (COND ((EQL |i| 0) |s|)
-                 ('T
-                  (SPADCALL |s| (SPADCALL |i| (QREFELT $ 13))
-                            (QREFELT $ 14))))))))) 
+(SDEFUN |TEMUTL;stripC| ((|s| |String|) (|u| |String|) ($ |String|))
+        (SPROG ((|i| (|Integer|)))
+               (SEQ
+                (LETT |i| (SPADCALL |u| |s| 1 (QREFELT $ 10)) |TEMUTL;stripC|)
+                (EXIT
+                 (COND ((EQL |i| 0) |s|)
+                       ('T
+                        (SPADCALL |s| (SPADCALL |i| (QREFELT $ 13))
+                                  (QREFELT $ 14)))))))) 
 
-(DEFUN |TEMUTL;stripCommentsAndBlanks;2S;2| (|s| $)
-  (SPADCALL (|TEMUTL;stripC| (|TEMUTL;stripC| |s| "++" $) "--" $)
-            (|STR_to_CHAR| " ") (QREFELT $ 16))) 
+(SDEFUN |TEMUTL;stripCommentsAndBlanks;2S;2| ((|s| |String|) ($ |String|))
+        (SPADCALL (|TEMUTL;stripC| (|TEMUTL;stripC| |s| "++" $) "--" $)
+                  (|STR_to_CHAR| " ") (QREFELT $ 16))) 
 
-(DEFUN |TEMUTL;interpretString;SA;3| (|s| $)
-  (SPADCALL (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 20))) 
+(SDEFUN |TEMUTL;interpretString;SA;3| ((|s| |String|) ($ |Any|))
+        (SPADCALL (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |TemplateUtilities;|)) 
 
 (DEFUN |TemplateUtilities| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G108)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|TemplateUtilities|)
-                . #2=(|TemplateUtilities|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|TemplateUtilities|
-                         (LIST (CONS NIL (CONS 1 (|TemplateUtilities;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G108)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|TemplateUtilities|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|TemplateUtilities|)
+                    . #2=(|TemplateUtilities|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|TemplateUtilities|
+                             (LIST
+                              (CONS NIL (CONS 1 (|TemplateUtilities;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|TemplateUtilities|)))))))))) 
 
 (DEFUN |TemplateUtilities;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|TemplateUtilities|) . #1=(|TemplateUtilities|))
-      (LETT $ (GETREFV 22) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TemplateUtilities| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TemplateUtilities|) . #1=(|TemplateUtilities|))
+          (LETT $ (GETREFV 22) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TemplateUtilities| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|TemplateUtilities| '|infovec|
           (LIST

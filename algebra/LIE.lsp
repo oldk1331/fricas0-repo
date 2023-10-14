@@ -1,106 +1,108 @@
 
-(DEFUN |LIE;*;3$;1| (|a| |b| $)
-  (SPADCALL (SPADCALL |a| |b| (QREFELT $ 9)) (SPADCALL |b| |a| (QREFELT $ 9))
-            (QREFELT $ 10))) 
+(SDEFUN |LIE;*;3$;1| ((|a| $) (|b| $) ($ $))
+        (SPADCALL (SPADCALL |a| |b| (QREFELT $ 9))
+                  (SPADCALL |b| |a| (QREFELT $ 9)) (QREFELT $ 10))) 
 
 (PUT '|LIE;coerce;$A;2| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(DEFUN |LIE;coerce;$A;2| (|a| $) |a|) 
+(SDEFUN |LIE;coerce;$A;2| ((|a| $) ($ A)) |a|) 
 
 (PUT '|LIE;coerce;A$;3| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
-(DEFUN |LIE;coerce;A$;3| (|a| $) |a|) 
+(SDEFUN |LIE;coerce;A$;3| ((|a| A) ($ $)) |a|) 
 
-(DEFUN |LIE;^;$Pi$;4| (|a| |n| $)
-  (COND ((EQL |n| 1) |a|) ('T (|spadConstant| $ 15)))) 
+(SDEFUN |LIE;^;$Pi$;4| ((|a| $) (|n| |PositiveInteger|) ($ $))
+        (COND ((EQL |n| 1) |a|) ('T (|spadConstant| $ 15)))) 
 
 (DECLAIM (NOTINLINE |AssociatedLieAlgebra;|)) 
 
 (DEFUN |AssociatedLieAlgebra| (&REST #1=#:G115)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G116)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|AssociatedLieAlgebra|)
-                                           '|domainEqualList|)
-                . #3=(|AssociatedLieAlgebra|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |AssociatedLieAlgebra;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G116)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|AssociatedLieAlgebra|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|AssociatedLieAlgebra|)
+                                               '|domainEqualList|)
+                    . #3=(|AssociatedLieAlgebra|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |AssociatedLieAlgebra;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|AssociatedLieAlgebra|)))))))))) 
 
 (DEFUN |AssociatedLieAlgebra;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|AssociatedLieAlgebra|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|AssociatedLieAlgebra| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 36) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2|
-                                                         (LIST
-                                                          '|FramedNonAssociativeAlgebra|
-                                                          (|devaluate| |#1|)))
-                                          (|HasCategory| |#2|
-                                                         (LIST
-                                                          '|FiniteRankNonAssociativeAlgebra|
-                                                          (|devaluate| |#1|)))
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|IntegralDomain|))
-                                            (|HasCategory| |#2|
-                                                           (LIST
-                                                            '|FiniteRankNonAssociativeAlgebra|
-                                                            (|devaluate|
-                                                             |#1|))))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           '(|IntegralDomain|))
-                                            (|HasCategory| |#2|
-                                                           (LIST
-                                                            '|FramedNonAssociativeAlgebra|
-                                                            (|devaluate|
-                                                             |#1|)))))
-                                          (OR
-                                           (|HasCategory| |#2|
-                                                          (LIST
-                                                           '|FiniteRankNonAssociativeAlgebra|
-                                                           (|devaluate| |#1|)))
-                                           (|HasCategory| |#2|
-                                                          (LIST
-                                                           '|FramedNonAssociativeAlgebra|
-                                                           (|devaluate|
-                                                            |#1|))))
-                                          (AND (|HasCategory| |#1| '(|Field|))
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|AssociatedLieAlgebra|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|AssociatedLieAlgebra| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 36) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             (LIST
+                                                              '|FramedNonAssociativeAlgebra|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                              (|HasCategory| |#2|
+                                                             (LIST
+                                                              '|FiniteRankNonAssociativeAlgebra|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                              (OR
+                                               (AND
+                                                (|HasCategory| |#1|
+                                                               '(|IntegralDomain|))
+                                                (|HasCategory| |#2|
+                                                               (LIST
+                                                                '|FiniteRankNonAssociativeAlgebra|
+                                                                (|devaluate|
+                                                                 |#1|))))
+                                               (AND
+                                                (|HasCategory| |#1|
+                                                               '(|IntegralDomain|))
+                                                (|HasCategory| |#2|
+                                                               (LIST
+                                                                '|FramedNonAssociativeAlgebra|
+                                                                (|devaluate|
+                                                                 |#1|)))))
+                                              (OR
+                                               (|HasCategory| |#2|
+                                                              (LIST
+                                                               '|FiniteRankNonAssociativeAlgebra|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                               (|HasCategory| |#2|
+                                                              (LIST
+                                                               '|FramedNonAssociativeAlgebra|
+                                                               (|devaluate|
+                                                                |#1|))))
+                                              (AND
+                                               (|HasCategory| |#1| '(|Field|))
                                                (|HasCategory| |#2|
                                                               (LIST
                                                                '|FramedNonAssociativeAlgebra|
                                                                (|devaluate|
                                                                 |#1|))))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|AssociatedLieAlgebra| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 5 |#2|)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 |#2|)
-      $)))) 
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|AssociatedLieAlgebra|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 5 |#2|)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 8 |#2|)
+          $))) 
 
 (MAKEPROP '|AssociatedLieAlgebra| '|infovec|
           (LIST

@@ -1,41 +1,43 @@
 
-(DEFUN |INFINITY;infinity;Opc;1| ($) (SPADCALL (QREFELT $ 7))) 
+(SDEFUN |INFINITY;infinity;Opc;1| (($ |OnePointCompletion| (|Integer|)))
+        (SPADCALL (QREFELT $ 7))) 
 
-(DEFUN |INFINITY;plusInfinity;Oc;2| ($) (SPADCALL (QREFELT $ 10))) 
+(SDEFUN |INFINITY;plusInfinity;Oc;2| (($ |OrderedCompletion| (|Integer|)))
+        (SPADCALL (QREFELT $ 10))) 
 
-(DEFUN |INFINITY;minusInfinity;Oc;3| ($) (SPADCALL (QREFELT $ 12))) 
+(SDEFUN |INFINITY;minusInfinity;Oc;3| (($ |OrderedCompletion| (|Integer|)))
+        (SPADCALL (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |Infinity;|)) 
 
 (DEFUN |Infinity| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G107)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|Infinity|) . #2=(|Infinity|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|Infinity|
-                         (LIST (CONS NIL (CONS 1 (|Infinity;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|Infinity|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G107)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|Infinity|)
+                    . #2=(|Infinity|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|Infinity|
+                             (LIST (CONS NIL (CONS 1 (|Infinity;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|Infinity|)))))))))) 
 
 (DEFUN |Infinity;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|Infinity|) . #1=(|Infinity|))
-      (LETT $ (GETREFV 14) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|Infinity| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|Infinity|) . #1=(|Infinity|))
+          (LETT $ (GETREFV 14) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|Infinity| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Infinity| '|infovec|
           (LIST

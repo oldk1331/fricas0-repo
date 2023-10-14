@@ -1,162 +1,170 @@
 
-(DEFUN |IBITS;minIndex;$I;1| (|u| $) (QREFELT $ 6)) 
+(SDEFUN |IBITS;minIndex;$I;1| ((|u| $) ($ |Integer|)) (QREFELT $ 6)) 
 
-(DEFUN |IBITS;range| (|v| |i| $)
-  (SEQ
-   (COND
-    ((>= |i| 0) (COND ((< |i| (SPADCALL |v| (QREFELT $ 10))) (EXIT |i|)))))
-   (EXIT (|error| "Index out of range")))) 
+(SDEFUN |IBITS;range| ((|v| $) (|i| |Integer|) ($ |Integer|))
+        (SEQ
+         (COND
+          ((>= |i| 0)
+           (COND ((< |i| (SPADCALL |v| (QREFELT $ 10))) (EXIT |i|)))))
+         (EXIT (|error| "Index out of range")))) 
 
-(DEFUN |IBITS;coerce;$Of;3| (|v| $)
-  (PROG (#1=#:G118 |i| |j| |s| |f| |t|)
-    (RETURN
-     (SEQ (LETT |t| (|STR_to_CHAR| "1") . #2=(|IBITS;coerce;$Of;3|))
-          (LETT |f| (|STR_to_CHAR| "0") . #2#)
-          (LETT |s|
-                (|make_full_CVEC| (SPADCALL |v| (QREFELT $ 10))
-                                  (STR_ELT "   " 0))
-                . #2#)
-          (SEQ (LETT |j| (QREFELT $ 6) . #2#)
-               (LETT |i| (SPADCALL |s| (QREFELT $ 12)) . #2#)
-               (LETT #1# (SPADCALL |s| (QREFELT $ 13)) . #2#) G190
-               (COND ((> |i| #1#) (GO G191)))
-               (SEQ
-                (EXIT
-                 (SPADCALL |s| |i|
-                           (COND ((SPADCALL |v| |j| (QREFELT $ 15)) |t|)
-                                 ('T |f|))
-                           (QREFELT $ 17))))
-               (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1) . #2#)) . #2#)
-               (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |s| (QREFELT $ 19))))))) 
+(SDEFUN |IBITS;coerce;$Of;3| ((|v| $) ($ |OutputForm|))
+        (SPROG
+         ((#1=#:G118 NIL) (|i| NIL) (|j| NIL) (|s| (|String|))
+          (|f| #2=(|Character|)) (|t| #2#))
+         (SEQ (LETT |t| (|STR_to_CHAR| "1") . #3=(|IBITS;coerce;$Of;3|))
+              (LETT |f| (|STR_to_CHAR| "0") . #3#)
+              (LETT |s|
+                    (|make_full_CVEC| (SPADCALL |v| (QREFELT $ 10))
+                                      (STR_ELT "   " 0))
+                    . #3#)
+              (SEQ (LETT |j| (QREFELT $ 6) . #3#)
+                   (LETT |i| (SPADCALL |s| (QREFELT $ 12)) . #3#)
+                   (LETT #1# (SPADCALL |s| (QREFELT $ 13)) . #3#) G190
+                   (COND ((> |i| #1#) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (SPADCALL |s| |i|
+                               (COND ((SPADCALL |v| |j| (QREFELT $ 15)) |t|)
+                                     ('T |f|))
+                               (QREFELT $ 17))))
+                   (LETT |i| (PROG1 (+ |i| 1) (LETT |j| (+ |j| 1) . #3#))
+                         . #3#)
+                   (GO G190) G191 (EXIT NIL))
+              (EXIT (SPADCALL |s| (QREFELT $ 19)))))) 
 
-(DEFUN |IBITS;new;NniB$;4| (|n| |b| $) (|make_BVEC| |n| (|bool_to_bit| |b|))) 
+(SDEFUN |IBITS;new;NniB$;4| ((|n| |NonNegativeInteger|) (|b| |Boolean|) ($ $))
+        (|make_BVEC| |n| (|bool_to_bit| |b|))) 
 
 (PUT '|IBITS;empty;$;5| '|SPADreplace| '(XLAM NIL (|make_BVEC| 0 0))) 
 
-(DEFUN |IBITS;empty;$;5| ($) (|make_BVEC| 0 0)) 
+(SDEFUN |IBITS;empty;$;5| (($ $)) (|make_BVEC| 0 0)) 
 
 (PUT '|IBITS;copy;2$;6| '|SPADreplace| '|copy_BVEC|) 
 
-(DEFUN |IBITS;copy;2$;6| (|v| $) (|copy_BVEC| |v|)) 
+(SDEFUN |IBITS;copy;2$;6| ((|v| $) ($ $)) (|copy_BVEC| |v|)) 
 
 (PUT '|IBITS;#;$Nni;7| '|SPADreplace| '|size_BVEC|) 
 
-(DEFUN |IBITS;#;$Nni;7| (|v| $) (|size_BVEC| |v|)) 
+(SDEFUN |IBITS;#;$Nni;7| ((|v| $) ($ |NonNegativeInteger|)) (|size_BVEC| |v|)) 
 
 (PUT '|IBITS;=;2$B;8| '|SPADreplace| '|equal_BVEC|) 
 
-(DEFUN |IBITS;=;2$B;8| (|v| |u| $) (|equal_BVEC| |v| |u|)) 
+(SDEFUN |IBITS;=;2$B;8| ((|v| $) (|u| $) ($ |Boolean|)) (|equal_BVEC| |v| |u|)) 
 
 (PUT '|IBITS;<;2$B;9| '|SPADreplace| '(XLAM (|v| |u|) (|greater_BVEC| |u| |v|))) 
 
-(DEFUN |IBITS;<;2$B;9| (|v| |u| $) (|greater_BVEC| |u| |v|)) 
+(SDEFUN |IBITS;<;2$B;9| ((|v| $) (|u| $) ($ |Boolean|))
+        (|greater_BVEC| |u| |v|)) 
 
-(DEFUN |IBITS;and;3$;10| (|u| |v| $)
-  (COND
-   ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
-    (|and_BVEC| |v| |u|))
-   ('T (SPADCALL (ELT $ 26) |v| |u| (QREFELT $ 28))))) 
+(SDEFUN |IBITS;and;3$;10| ((|u| $) (|v| $) ($ $))
+        (COND
+         ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
+          (|and_BVEC| |v| |u|))
+         ('T (SPADCALL (ELT $ 26) |v| |u| (QREFELT $ 28))))) 
 
-(DEFUN |IBITS;or;3$;11| (|u| |v| $)
-  (COND
-   ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
-    (|or_BVEC| |v| |u|))
-   ('T (SPADCALL (ELT $ 30) |v| |u| (QREFELT $ 28))))) 
+(SDEFUN |IBITS;or;3$;11| ((|u| $) (|v| $) ($ $))
+        (COND
+         ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
+          (|or_BVEC| |v| |u|))
+         ('T (SPADCALL (ELT $ 30) |v| |u| (QREFELT $ 28))))) 
 
-(DEFUN |IBITS;xor;3$;12| (|v| |u| $)
-  (COND
-   ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
-    (|xor_BVEC| |v| |u|))
-   ('T (SPADCALL (ELT $ 32) |v| |u| (QREFELT $ 28))))) 
+(SDEFUN |IBITS;xor;3$;12| ((|v| $) (|u| $) ($ $))
+        (COND
+         ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
+          (|xor_BVEC| |v| |u|))
+         ('T (SPADCALL (ELT $ 32) |v| |u| (QREFELT $ 28))))) 
 
-(DEFUN |IBITS;setelt;$I2B;13| (|v| |i| |f| $)
-  (SETELT_BVEC |v| (|IBITS;range| |v| (- |i| (QREFELT $ 6)) $)
-               (|bool_to_bit| |f|))) 
+(SDEFUN |IBITS;setelt;$I2B;13|
+        ((|v| $) (|i| |Integer|) (|f| . #1=(|Boolean|)) ($ . #1#))
+        (SETELT_BVEC |v| (|IBITS;range| |v| (- |i| (QREFELT $ 6)) $)
+                     (|bool_to_bit| |f|))) 
 
-(DEFUN |IBITS;elt;$IB;14| (|v| |i| $)
-  (|bit_to_bool| (ELT_BVEC |v| (|IBITS;range| |v| (- |i| (QREFELT $ 6)) $)))) 
+(SDEFUN |IBITS;elt;$IB;14| ((|v| $) (|i| |Integer|) ($ |Boolean|))
+        (|bit_to_bool|
+         (ELT_BVEC |v| (|IBITS;range| |v| (- |i| (QREFELT $ 6)) $)))) 
 
 (PUT '|IBITS;Not;2$;15| '|SPADreplace| '|not_BVEC|) 
 
-(DEFUN |IBITS;Not;2$;15| (|v| $) (|not_BVEC| |v|)) 
+(SDEFUN |IBITS;Not;2$;15| ((|v| $) ($ $)) (|not_BVEC| |v|)) 
 
-(DEFUN |IBITS;And;3$;16| (|u| |v| $)
-  (COND
-   ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
-    (|and_BVEC| |v| |u|))
-   ('T (SPADCALL (ELT $ 26) |v| |u| (QREFELT $ 28))))) 
+(SDEFUN |IBITS;And;3$;16| ((|u| $) (|v| $) ($ $))
+        (COND
+         ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
+          (|and_BVEC| |v| |u|))
+         ('T (SPADCALL (ELT $ 26) |v| |u| (QREFELT $ 28))))) 
 
-(DEFUN |IBITS;Or;3$;17| (|u| |v| $)
-  (COND
-   ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
-    (|or_BVEC| |v| |u|))
-   ('T (SPADCALL (ELT $ 30) |v| |u| (QREFELT $ 28))))) 
+(SDEFUN |IBITS;Or;3$;17| ((|u| $) (|v| $) ($ $))
+        (COND
+         ((EQL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10)))
+          (|or_BVEC| |v| |u|))
+         ('T (SPADCALL (ELT $ 30) |v| |u| (QREFELT $ 28))))) 
 
 (DECLAIM (NOTINLINE |IndexedBits;|)) 
 
 (DEFUN |IndexedBits| (#1=#:G155)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G156)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|IndexedBits|)
-                                           '|domainEqualList|)
-                . #3=(|IndexedBits|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|IndexedBits;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|IndexedBits|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G156)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedBits|)
+                                               '|domainEqualList|)
+                    . #3=(|IndexedBits|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|IndexedBits;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedBits|)))))))))) 
 
 (DEFUN |IndexedBits;| (|#1|)
-  (PROG (#1=#:G153 #2=#:G154 |pv$| #3=#:G152 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedBits|))
-      (LETT |dv$| (LIST '|IndexedBits| DV$1) . #4#)
-      (LETT $ (GETREFV 50) . #4#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| (|Boolean|)
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| (|Boolean|)
-                                                         '(|OrderedSet|))
-                                          (|HasCategory| (|Boolean|)
-                                                         '(|BasicType|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (LETT #3#
-                                                (|HasCategory| (|Boolean|)
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| (|Boolean|)
-                                                          '(|Evalable|
-                                                            (|Boolean|)))
-                                           #3#)))
-                      . #4#))
-      (|haddProp| |$ConstructorCache| '|IndexedBits| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (LETT #2# (|HasCategory| $ '(|shallowlyMutable|)) . #4#)
-           (|augmentPredVector| $ 64))
-      (AND #2# (|HasCategory| (|Boolean|) '(|OrderedSet|))
-           (|augmentPredVector| $ 128))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
-           (|augmentPredVector| $ 256))
-      (AND #1# #3# (|augmentPredVector| $ 512))
-      (AND #1# (|HasCategory| (|Boolean|) '(|BasicType|))
-           (|augmentPredVector| $ 1024))
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((#1=#:G153 NIL) (#2=#:G154 NIL) (|pv$| NIL) (#3=#:G152 NIL) ($ NIL)
+    (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedBits|))
+    (LETT |dv$| (LIST '|IndexedBits| DV$1) . #4#)
+    (LETT $ (GETREFV 50) . #4#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| (|Boolean|)
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| (|Boolean|)
+                                                       '(|OrderedSet|))
+                                        (|HasCategory| (|Boolean|)
+                                                       '(|BasicType|))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|OrderedSet|))
+                                        (LETT #3#
+                                              (|HasCategory| (|Boolean|)
+                                                             '(|SetCategory|))
+                                              . #4#)
+                                        (AND
+                                         (|HasCategory| (|Boolean|)
+                                                        '(|Evalable|
+                                                          (|Boolean|)))
+                                         #3#)))
+                    . #4#))
+    (|haddProp| |$ConstructorCache| '|IndexedBits| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (LETT #2# (|HasCategory| $ '(|shallowlyMutable|)) . #4#)
+         (|augmentPredVector| $ 64))
+    (AND #2# (|HasCategory| (|Boolean|) '(|OrderedSet|))
+         (|augmentPredVector| $ 128))
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
+         (|augmentPredVector| $ 256))
+    (AND #1# #3# (|augmentPredVector| $ 512))
+    (AND #1# (|HasCategory| (|Boolean|) '(|BasicType|))
+         (|augmentPredVector| $ 1024))
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|IndexedBits| '|infovec|
           (LIST

@@ -1,103 +1,114 @@
 
-(DEFUN |RIDIST;uniform;SM;1| (|aTob| $)
-  (PROG () (RETURN (SEQ (CONS #'|RIDIST;uniform;SM;1!0| (VECTOR $ |aTob|)))))) 
+(SDEFUN |RIDIST;uniform;SM;1|
+        ((|aTob| |Segment| (|Integer|)) ($ |Mapping| (|Integer|)))
+        (SPROG NIL (SEQ (CONS #'|RIDIST;uniform;SM;1!0| (VECTOR $ |aTob|))))) 
 
-(DEFUN |RIDIST;uniform;SM;1!0| ($$)
-  (PROG (|aTob| $)
-    (LETT |aTob| (QREFELT $$ 1) . #1=(|RIDIST;uniform;SM;1|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (PROG (|a| |b| |l| |m| #2=#:G123 |w| |mqnext| |n| |mq|)
-        (RETURN
-         (SEQ (LETT |a| (SPADCALL |aTob| (QREFELT $ 8)) NIL)
-              (LETT |b| (SPADCALL |aTob| (QREFELT $ 9)) NIL)
-              (LETT |l| (SPADCALL |a| |b| (QREFELT $ 10)) NIL)
-              (LETT |m|
-                    (SPADCALL
-                     (SPADCALL (SPADCALL |a| |b| (QREFELT $ 11))
-                               (QREFELT $ 12))
-                     (|spadConstant| $ 26) (QREFELT $ 14))
-                    NIL)
-              (LETT |w|
-                    (SPADCALL 2
-                              (PROG1
-                                  (LETT #2#
-                                        (SPADCALL
-                                         (SPADCALL (SPADCALL (QREFELT $ 16))
-                                                   (QREFELT $ 18))
-                                         2 (QREFELT $ 19))
-                                        NIL)
-                                (|check_subtype| (>= #2# 0)
-                                                 '(|NonNegativeInteger|) #2#))
-                              (QREFELT $ 30))
-                    NIL)
-              (LETT |n| (|spadConstant| $ 22) NIL) (LETT |mq| |m| NIL)
-              (SEQ G190
-                   (COND
-                    ((NULL
-                      (SPADCALL
-                       (LETT |mqnext| (SPADCALL |mq| |w| (QREFELT $ 19)) NIL)
-                       (|spadConstant| $ 22) (QREFELT $ 24)))
-                     (GO G191)))
-                   (SEQ
-                    (LETT |n|
-                          (SPADCALL |n| (|spadConstant| $ 26) (QREFELT $ 28))
-                          NIL)
-                    (EXIT (LETT |mq| |mqnext| NIL)))
-                   NIL (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |mq| |n| |w| |l| (QREFELT $ 29)))))))))) 
+(SDEFUN |RIDIST;uniform;SM;1!0| (($$ NIL))
+        (PROG (|aTob| $)
+          (LETT |aTob| (QREFELT $$ 1) . #1=(|RIDIST;uniform;SM;1|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPROG
+             ((|a| NIL) (|b| NIL) (|l| NIL) (|m| NIL) (#2=#:G123 NIL) (|w| NIL)
+              (|mqnext| NIL) (|n| NIL) (|mq| NIL))
+             (SEQ (LETT |a| (SPADCALL |aTob| (QREFELT $ 8)) NIL)
+                  (LETT |b| (SPADCALL |aTob| (QREFELT $ 9)) NIL)
+                  (LETT |l| (SPADCALL |a| |b| (QREFELT $ 10)) NIL)
+                  (LETT |m|
+                        (SPADCALL
+                         (SPADCALL (SPADCALL |a| |b| (QREFELT $ 11))
+                                   (QREFELT $ 12))
+                         (|spadConstant| $ 26) (QREFELT $ 14))
+                        NIL)
+                  (LETT |w|
+                        (SPADCALL 2
+                                  (PROG1
+                                      (LETT #2#
+                                            (SPADCALL
+                                             (SPADCALL
+                                              (SPADCALL (QREFELT $ 16))
+                                              (QREFELT $ 18))
+                                             2 (QREFELT $ 19))
+                                            NIL)
+                                    (|check_subtype| (>= #2# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     #2#))
+                                  (QREFELT $ 30))
+                        NIL)
+                  (LETT |n| (|spadConstant| $ 22) NIL) (LETT |mq| |m| NIL)
+                  (SEQ G190
+                       (COND
+                        ((NULL
+                          (SPADCALL
+                           (LETT |mqnext| (SPADCALL |mq| |w| (QREFELT $ 19))
+                                 NIL)
+                           (|spadConstant| $ 22) (QREFELT $ 24)))
+                         (GO G191)))
+                       (SEQ
+                        (LETT |n|
+                              (SPADCALL |n| (|spadConstant| $ 26)
+                                        (QREFELT $ 28))
+                              NIL)
+                        (EXIT (LETT |mq| |mqnext| NIL)))
+                       NIL (GO G190) G191 (EXIT NIL))
+                  (EXIT (SPADCALL |mq| |n| |w| |l| (QREFELT $ 29))))))))) 
 
-(DEFUN |RIDIST;ridHack1;5I;2| (|mq| |n| |w| |l| $)
-  (PROG (|r| |i|)
-    (RETURN
-     (SEQ
-      (LETT |r| (SPADCALL |mq| (QREFELT $ 33)) . #1=(|RIDIST;ridHack1;5I;2|))
-      (SEQ (LETT |i| 1 . #1#) G190 (COND ((|greater_SI| |i| |n|) (GO G191)))
-           (SEQ
-            (EXIT
-             (LETT |r| (+ (* |r| |w|) (SPADCALL |w| (QREFELT $ 33))) . #1#)))
-           (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-      (EXIT (+ |r| |l|)))))) 
+(SDEFUN |RIDIST;ridHack1;5I;2|
+        ((|mq| |Integer|) (|n| |Integer|) (|w| |Integer|) (|l| |Integer|)
+         ($ |Integer|))
+        (SPROG ((|r| (|Integer|)) (|i| NIL))
+               (SEQ
+                (LETT |r| (SPADCALL |mq| (QREFELT $ 33))
+                      . #1=(|RIDIST;ridHack1;5I;2|))
+                (SEQ (LETT |i| 1 . #1#) G190
+                     (COND ((|greater_SI| |i| |n|) (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (LETT |r| (+ (* |r| |w|) (SPADCALL |w| (QREFELT $ 33)))
+                             . #1#)))
+                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (EXIT (+ |r| |l|))))) 
 
 (DECLAIM (NOTINLINE |RandomIntegerDistributions;|)) 
 
 (DEFUN |RandomIntegerDistributions| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G134)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|RandomIntegerDistributions|)
-                . #2=(|RandomIntegerDistributions|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|RandomIntegerDistributions|
-                         (LIST
-                          (CONS NIL
-                                (CONS 1 (|RandomIntegerDistributions;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G134)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache| '|RandomIntegerDistributions|))))))))))) 
+             ((LETT #1#
+                    (HGET |$ConstructorCache| '|RandomIntegerDistributions|)
+                    . #2=(|RandomIntegerDistributions|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|RandomIntegerDistributions|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1
+                                          (|RandomIntegerDistributions;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|RandomIntegerDistributions|)))))))))) 
 
 (DEFUN |RandomIntegerDistributions;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|RandomIntegerDistributions|)
-            . #1=(|RandomIntegerDistributions|))
-      (LETT $ (GETREFV 35) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|RandomIntegerDistributions| NIL
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|RandomIntegerDistributions|)
+                . #1=(|RandomIntegerDistributions|))
+          (LETT $ (GETREFV 35) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|RandomIntegerDistributions| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RandomIntegerDistributions| '|infovec|
           (LIST

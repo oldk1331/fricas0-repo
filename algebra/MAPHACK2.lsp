@@ -1,53 +1,52 @@
 
 (PUT '|MAPHACK2;arg1;ACA;1| '|SPADreplace| '(XLAM (|a| |c|) |a|)) 
 
-(DEFUN |MAPHACK2;arg1;ACA;1| (|a| |c| $) |a|) 
+(SDEFUN |MAPHACK2;arg1;ACA;1| ((|a| A) (|c| C) ($ A)) |a|) 
 
 (PUT '|MAPHACK2;arg2;A2C;2| '|SPADreplace| '(XLAM (|a| |c|) |c|)) 
 
-(DEFUN |MAPHACK2;arg2;A2C;2| (|a| |c| $) |c|) 
+(SDEFUN |MAPHACK2;arg2;A2C;2| ((|a| A) (|c| C) ($ C)) |c|) 
 
 (DECLAIM (NOTINLINE |MappingPackageInternalHacks2;|)) 
 
 (DEFUN |MappingPackageInternalHacks2| (&REST #1=#:G105)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G106)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|MappingPackageInternalHacks2|)
-                                           '|domainEqualList|)
-                . #3=(|MappingPackageInternalHacks2|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |MappingPackageInternalHacks2;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G106)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|MappingPackageInternalHacks2|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MappingPackageInternalHacks2|)
+                                               '|domainEqualList|)
+                    . #3=(|MappingPackageInternalHacks2|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |MappingPackageInternalHacks2;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|MappingPackageInternalHacks2|)))))))))) 
 
 (DEFUN |MappingPackageInternalHacks2;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|MappingPackageInternalHacks2|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|MappingPackageInternalHacks2| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 10) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|MappingPackageInternalHacks2|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|MappingPackageInternalHacks2|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|MappingPackageInternalHacks2| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 10) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|MappingPackageInternalHacks2|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|MappingPackageInternalHacks2| '|infovec|
           (LIST

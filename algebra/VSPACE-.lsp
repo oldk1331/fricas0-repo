@@ -1,24 +1,23 @@
 
-(DEFUN |VSPACE-;/;ASA;1| (|v| |s| $)
-  (SPADCALL (SPADCALL |s| (QREFELT $ 8)) |v| (QREFELT $ 9))) 
+(SDEFUN |VSPACE-;/;ASA;1| ((|v| A) (|s| S) ($ A))
+        (SPADCALL (SPADCALL |s| (QREFELT $ 8)) |v| (QREFELT $ 9))) 
 
 (DECLAIM (NOTINLINE |VectorSpace&;|)) 
 
 (DEFUN |VectorSpace&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|VectorSpace&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|VectorSpace&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 11) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|VectorSpace&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|VectorSpace&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 11) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|VectorSpace&| '|infovec|
           (LIST

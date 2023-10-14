@@ -1,120 +1,126 @@
 
-(DEFUN |DBLRESP;remove0| (|p| $)
-  (PROG (#1=#:G104)
-    (RETURN
-     (SPADCALL
-      (PROG2
-          (LETT #1#
-                (SPADCALL |p|
-                          (SPADCALL (|spadConstant| $ 10)
-                                    (SPADCALL |p| (QREFELT $ 13))
-                                    (QREFELT $ 14))
-                          (QREFELT $ 16))
-                |DBLRESP;remove0|)
-          (QCDR #1#)
-        (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
-      (QREFELT $ 17))))) 
-
-(DEFUN |DBLRESP;UP22| (|p| $) (SPADCALL (ELT $ 18) |p| (QREFELT $ 22))) 
-
-(DEFUN |DBLRESP;UP23| (|p| $)
-  (SPADCALL (CONS #'|DBLRESP;UP23!0| $) |p| (QREFELT $ 28))) 
-
-(DEFUN |DBLRESP;UP23!0| (|x1| $)
-  (|DBLRESP;UP22| (SPADCALL |x1| (QREFELT $ 24)) $)) 
-
-(DEFUN |DBLRESP;doubleResultant;RMUP;4| (|h| |derivation| $)
-  (PROG (|r| |d| #1=#:G112 |g| |cd|)
-    (RETURN
-     (SEQ
-      (LETT |cd| (SPADCALL (SPADCALL |h| (QREFELT $ 29)) (QREFELT $ 32))
-            . #2=(|DBLRESP;doubleResultant;RMUP;4|))
-      (LETT |d|
-            (PROG2
-                (LETT #1#
-                      (SPADCALL (QCDR |cd|)
-                                (LETT |g|
-                                      (SPADCALL (QCDR |cd|)
-                                                (SPADCALL (QCDR |cd|)
-                                                          |derivation|)
-                                                (QREFELT $ 33))
-                                      . #2#)
-                                (QREFELT $ 16))
-                      . #2#)
-                (QCDR #1#)
-              (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
-            . #2#)
-      (LETT |r|
-            (SPADCALL
-             (SPADCALL
-              (SPADCALL
+(SDEFUN |DBLRESP;remove0| ((|p| UP) ($ UP))
+        (SPROG ((#1=#:G104 NIL))
                (SPADCALL
-                (SPADCALL (|DBLRESP;UP23| (QCAR |cd|) $)
-                          (SPADCALL
-                           (SPADCALL
-                            (SPADCALL
-                             (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 14))
-                             (QREFELT $ 34))
-                            (|DBLRESP;UP22|
-                             (SPADCALL |g| (SPADCALL |d| |derivation|)
-                                       (QREFELT $ 35))
-                             $)
-                            (QREFELT $ 36))
-                           (QREFELT $ 37))
-                          (QREFELT $ 38))
-                (|DBLRESP;UP23| (SPADCALL (QREFELT $ 39)) $) (QREFELT $ 40))
-               (QREFELT $ 42))
-              (QREFELT $ 43))
-             (QREFELT $ 42))
-            . #2#)
-      (EXIT
-       (|DBLRESP;remove0| (SPADCALL |r| (|DBLRESP;UP22| |d| $) (QREFELT $ 44))
-        $)))))) 
+                (PROG2
+                    (LETT #1#
+                          (SPADCALL |p|
+                                    (SPADCALL (|spadConstant| $ 10)
+                                              (SPADCALL |p| (QREFELT $ 13))
+                                              (QREFELT $ 14))
+                                    (QREFELT $ 16))
+                          |DBLRESP;remove0|)
+                    (QCDR #1#)
+                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                (QREFELT $ 17)))) 
+
+(SDEFUN |DBLRESP;UP22| ((|p| UP) ($ |SparseUnivariatePolynomial| UP))
+        (SPADCALL (ELT $ 18) |p| (QREFELT $ 22))) 
+
+(SDEFUN |DBLRESP;UP23|
+        ((|p| UPUP)
+         ($ |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| UP)))
+        (SPADCALL (CONS #'|DBLRESP;UP23!0| $) |p| (QREFELT $ 28))) 
+
+(SDEFUN |DBLRESP;UP23!0| ((|x1| NIL) ($ NIL))
+        (|DBLRESP;UP22| (SPADCALL |x1| (QREFELT $ 24)) $)) 
+
+(SDEFUN |DBLRESP;doubleResultant;RMUP;4|
+        ((|h| R) (|derivation| |Mapping| UP UP) ($ UP))
+        (SPROG
+         ((|r| (|SparseUnivariatePolynomial| UP)) (|d| (UP)) (#1=#:G112 NIL)
+          (|g| (UP)) (|cd| (|Record| (|:| |num| UPUP) (|:| |den| UP))))
+         (SEQ
+          (LETT |cd| (SPADCALL (SPADCALL |h| (QREFELT $ 29)) (QREFELT $ 32))
+                . #2=(|DBLRESP;doubleResultant;RMUP;4|))
+          (LETT |d|
+                (PROG2
+                    (LETT #1#
+                          (SPADCALL (QCDR |cd|)
+                                    (LETT |g|
+                                          (SPADCALL (QCDR |cd|)
+                                                    (SPADCALL (QCDR |cd|)
+                                                              |derivation|)
+                                                    (QREFELT $ 33))
+                                          . #2#)
+                                    (QREFELT $ 16))
+                          . #2#)
+                    (QCDR #1#)
+                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                . #2#)
+          (LETT |r|
+                (SPADCALL
+                 (SPADCALL
+                  (SPADCALL
+                   (SPADCALL
+                    (SPADCALL (|DBLRESP;UP23| (QCAR |cd|) $)
+                              (SPADCALL
+                               (SPADCALL
+                                (SPADCALL
+                                 (SPADCALL (|spadConstant| $ 10) 1
+                                           (QREFELT $ 14))
+                                 (QREFELT $ 34))
+                                (|DBLRESP;UP22|
+                                 (SPADCALL |g| (SPADCALL |d| |derivation|)
+                                           (QREFELT $ 35))
+                                 $)
+                                (QREFELT $ 36))
+                               (QREFELT $ 37))
+                              (QREFELT $ 38))
+                    (|DBLRESP;UP23| (SPADCALL (QREFELT $ 39)) $)
+                    (QREFELT $ 40))
+                   (QREFELT $ 42))
+                  (QREFELT $ 43))
+                 (QREFELT $ 42))
+                . #2#)
+          (EXIT
+           (|DBLRESP;remove0|
+            (SPADCALL |r| (|DBLRESP;UP22| |d| $) (QREFELT $ 44)) $))))) 
 
 (DECLAIM (NOTINLINE |DoubleResultantPackage;|)) 
 
 (DEFUN |DoubleResultantPackage| (&REST #1=#:G117)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G118)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|DoubleResultantPackage|)
-                                           '|domainEqualList|)
-                . #3=(|DoubleResultantPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |DoubleResultantPackage;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|DoubleResultantPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|DoubleResultantPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|DoubleResultantPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |DoubleResultantPackage;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|DoubleResultantPackage|)))))))))) 
 
 (DEFUN |DoubleResultantPackage;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|DoubleResultantPackage|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT |dv$| (LIST '|DoubleResultantPackage| DV$1 DV$2 DV$3 DV$4) . #1#)
-      (LETT $ (GETREFV 47) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|DoubleResultantPackage|
-                  (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|DoubleResultantPackage|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT |dv$| (LIST '|DoubleResultantPackage| DV$1 DV$2 DV$3 DV$4) . #1#)
+    (LETT $ (GETREFV 47) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|DoubleResultantPackage|
+                (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|DoubleResultantPackage| '|infovec|
           (LIST

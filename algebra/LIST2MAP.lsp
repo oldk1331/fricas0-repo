@@ -1,97 +1,101 @@
 
-(DEFUN |LIST2MAP;match;LLM;1| (|la| |lb| $)
-  (PROG () (RETURN (CONS #'|LIST2MAP;match;LLM;1!0| (VECTOR $ |lb| |la|))))) 
+(SDEFUN |LIST2MAP;match;LLM;1|
+        ((|la| |List| A) (|lb| |List| B) ($ |Mapping| B A))
+        (SPROG NIL (CONS #'|LIST2MAP;match;LLM;1!0| (VECTOR $ |lb| |la|)))) 
 
-(DEFUN |LIST2MAP;match;LLM;1!0| (|z1| $$)
-  (PROG (|la| |lb| $)
-    (LETT |la| (QREFELT $$ 2) . #1=(|LIST2MAP;match;LLM;1|))
-    (LETT |lb| (QREFELT $$ 1) . #1#)
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |la| |lb| |z1| (QREFELT $ 10)))))) 
+(SDEFUN |LIST2MAP;match;LLM;1!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|la| |lb| $)
+          (LETT |la| (QREFELT $$ 2) . #1=(|LIST2MAP;match;LLM;1|))
+          (LETT |lb| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |la| |lb| |z1| (QREFELT $ 10)))))) 
 
-(DEFUN |LIST2MAP;match;LLAB;2| (|la| |lb| |a| $)
-  (SPADCALL |lb| (SPADCALL |a| |la| (QREFELT $ 14)) (QREFELT $ 15))) 
+(SDEFUN |LIST2MAP;match;LLAB;2| ((|la| |List| A) (|lb| |List| B) (|a| A) ($ B))
+        (SPADCALL |lb| (SPADCALL |a| |la| (QREFELT $ 14)) (QREFELT $ 15))) 
 
-(DEFUN |LIST2MAP;match;LLBM;3| (|la| |lb| |b| $)
-  (PROG ()
-    (RETURN (CONS #'|LIST2MAP;match;LLBM;3!0| (VECTOR $ |b| |lb| |la|))))) 
+(SDEFUN |LIST2MAP;match;LLBM;3|
+        ((|la| |List| A) (|lb| |List| B) (|b| B) ($ |Mapping| B A))
+        (SPROG NIL (CONS #'|LIST2MAP;match;LLBM;3!0| (VECTOR $ |b| |lb| |la|)))) 
 
-(DEFUN |LIST2MAP;match;LLBM;3!0| (|z1| $$)
-  (PROG (|la| |lb| |b| $)
-    (LETT |la| (QREFELT $$ 3) . #1=(|LIST2MAP;match;LLBM;3|))
-    (LETT |lb| (QREFELT $$ 2) . #1#)
-    (LETT |b| (QREFELT $$ 1) . #1#)
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |la| |lb| |z1| |b| (QREFELT $ 16)))))) 
+(SDEFUN |LIST2MAP;match;LLBM;3!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|la| |lb| |b| $)
+          (LETT |la| (QREFELT $$ 3) . #1=(|LIST2MAP;match;LLBM;3|))
+          (LETT |lb| (QREFELT $$ 2) . #1#)
+          (LETT |b| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |la| |lb| |z1| |b| (QREFELT $ 16)))))) 
 
-(DEFUN |LIST2MAP;match;LL2M;4| (|la| |lb| |f| $)
-  (PROG ()
-    (RETURN (CONS #'|LIST2MAP;match;LL2M;4!0| (VECTOR $ |f| |lb| |la|))))) 
+(SDEFUN |LIST2MAP;match;LL2M;4|
+        ((|la| |List| A) (|lb| |List| B) (|f| |Mapping| B A) ($ |Mapping| B A))
+        (SPROG NIL (CONS #'|LIST2MAP;match;LL2M;4!0| (VECTOR $ |f| |lb| |la|)))) 
 
-(DEFUN |LIST2MAP;match;LL2M;4!0| (|z1| $$)
-  (PROG (|la| |lb| |f| $)
-    (LETT |la| (QREFELT $$ 3) . #1=(|LIST2MAP;match;LL2M;4|))
-    (LETT |lb| (QREFELT $$ 2) . #1#)
-    (LETT |f| (QREFELT $$ 1) . #1#)
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |la| |lb| |z1| |f| (QREFELT $ 18)))))) 
+(SDEFUN |LIST2MAP;match;LL2M;4!0| ((|z1| NIL) ($$ NIL))
+        (PROG (|la| |lb| |f| $)
+          (LETT |la| (QREFELT $$ 3) . #1=(|LIST2MAP;match;LL2M;4|))
+          (LETT |lb| (QREFELT $$ 2) . #1#)
+          (LETT |f| (QREFELT $$ 1) . #1#)
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |la| |lb| |z1| |f| (QREFELT $ 18)))))) 
 
-(DEFUN |LIST2MAP;match;LLA2B;5| (|la| |lb| |a| |b| $)
-  (PROG (|p|)
-    (RETURN
-     (COND
-      ((<
-        (LETT |p| (SPADCALL |a| |la| (QREFELT $ 14)) |LIST2MAP;match;LLA2B;5|)
-        (SPADCALL |la| (QREFELT $ 20)))
-       |b|)
-      ('T (SPADCALL |lb| |p| (QREFELT $ 15))))))) 
+(SDEFUN |LIST2MAP;match;LLA2B;5|
+        ((|la| |List| A) (|lb| |List| B) (|a| A) (|b| B) ($ B))
+        (SPROG ((|p| (|Integer|)))
+               (COND
+                ((<
+                  (LETT |p| (SPADCALL |a| |la| (QREFELT $ 14))
+                        |LIST2MAP;match;LLA2B;5|)
+                  (SPADCALL |la| (QREFELT $ 20)))
+                 |b|)
+                ('T (SPADCALL |lb| |p| (QREFELT $ 15)))))) 
 
-(DEFUN |LIST2MAP;match;LLAMB;6| (|la| |lb| |a| |f| $)
-  (PROG (|p|)
-    (RETURN
-     (COND
-      ((<
-        (LETT |p| (SPADCALL |a| |la| (QREFELT $ 14)) |LIST2MAP;match;LLAMB;6|)
-        (SPADCALL |la| (QREFELT $ 20)))
-       (SPADCALL |a| |f|))
-      ('T (SPADCALL |lb| |p| (QREFELT $ 15))))))) 
+(SDEFUN |LIST2MAP;match;LLAMB;6|
+        ((|la| |List| A) (|lb| |List| B) (|a| A) (|f| |Mapping| B A) ($ B))
+        (SPROG ((|p| (|Integer|)))
+               (COND
+                ((<
+                  (LETT |p| (SPADCALL |a| |la| (QREFELT $ 14))
+                        |LIST2MAP;match;LLAMB;6|)
+                  (SPADCALL |la| (QREFELT $ 20)))
+                 (SPADCALL |a| |f|))
+                ('T (SPADCALL |lb| |p| (QREFELT $ 15)))))) 
 
 (DECLAIM (NOTINLINE |ListToMap;|)) 
 
 (DEFUN |ListToMap| (&REST #1=#:G118)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G119)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ListToMap|)
-                                           '|domainEqualList|)
-                . #3=(|ListToMap|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ListToMap;|) #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|ListToMap|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G119)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ListToMap|)
+                                               '|domainEqualList|)
+                    . #3=(|ListToMap|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ListToMap;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|ListToMap|)))))))))) 
 
 (DEFUN |ListToMap;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ListToMap|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|ListToMap| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ListToMap| (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|ListToMap|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|ListToMap| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ListToMap| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|ListToMap| '|infovec|
           (LIST

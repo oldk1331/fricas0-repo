@@ -1,94 +1,101 @@
 
-(DEFUN |MCDEN;clearDenominator;MM;1| (|m| $)
-  (PROG (|d|)
-    (RETURN
-     (SEQ (LETT |d| (SPADCALL |m| (QREFELT $ 9)) |MCDEN;clearDenominator;MM;1|)
-          (EXIT
-           (SPADCALL (CONS #'|MCDEN;clearDenominator;MM;1!0| (VECTOR $ |d|))
-                     |m| (QREFELT $ 15))))))) 
+(SDEFUN |MCDEN;clearDenominator;MM;1| ((|m| |Matrix| Q) ($ |Matrix| R))
+        (SPROG ((|d| (R)))
+               (SEQ
+                (LETT |d| (SPADCALL |m| (QREFELT $ 9))
+                      |MCDEN;clearDenominator;MM;1|)
+                (EXIT
+                 (SPADCALL
+                  (CONS #'|MCDEN;clearDenominator;MM;1!0| (VECTOR $ |d|)) |m|
+                  (QREFELT $ 15)))))) 
 
-(DEFUN |MCDEN;clearDenominator;MM;1!0| (|x| $$)
-  (PROG (|d| $)
-    (LETT |d| (QREFELT $$ 1) . #1=(|MCDEN;clearDenominator;MM;1|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN (SPADCALL (SPADCALL |d| |x| (QREFELT $ 10)) (QREFELT $ 11)))))) 
+(SDEFUN |MCDEN;clearDenominator;MM;1!0| ((|x| NIL) ($$ NIL))
+        (PROG (|d| $)
+          (LETT |d| (QREFELT $$ 1) . #1=(|MCDEN;clearDenominator;MM;1|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL (SPADCALL |d| |x| (QREFELT $ 10)) (QREFELT $ 11)))))) 
 
-(DEFUN |MCDEN;splitDenominator;MR;2| (|m| $)
-  (PROG (|d|)
-    (RETURN
-     (SEQ (LETT |d| (SPADCALL |m| (QREFELT $ 9)) |MCDEN;splitDenominator;MR;2|)
-          (EXIT
-           (CONS
-            (SPADCALL (CONS #'|MCDEN;splitDenominator;MR;2!0| (VECTOR $ |d|))
-                      |m| (QREFELT $ 15))
-            |d|)))))) 
+(SDEFUN |MCDEN;splitDenominator;MR;2|
+        ((|m| |Matrix| Q) ($ |Record| (|:| |num| (|Matrix| R)) (|:| |den| R)))
+        (SPROG ((|d| (R)))
+               (SEQ
+                (LETT |d| (SPADCALL |m| (QREFELT $ 9))
+                      |MCDEN;splitDenominator;MR;2|)
+                (EXIT
+                 (CONS
+                  (SPADCALL
+                   (CONS #'|MCDEN;splitDenominator;MR;2!0| (VECTOR $ |d|)) |m|
+                   (QREFELT $ 15))
+                  |d|))))) 
 
-(DEFUN |MCDEN;splitDenominator;MR;2!0| (|x| $$)
-  (PROG (|d| $)
-    (LETT |d| (QREFELT $$ 1) . #1=(|MCDEN;splitDenominator;MR;2|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN (SPADCALL (SPADCALL |d| |x| (QREFELT $ 10)) (QREFELT $ 11)))))) 
+(SDEFUN |MCDEN;splitDenominator;MR;2!0| ((|x| NIL) ($$ NIL))
+        (PROG (|d| $)
+          (LETT |d| (QREFELT $$ 1) . #1=(|MCDEN;splitDenominator;MR;2|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL (SPADCALL |d| |x| (QREFELT $ 10)) (QREFELT $ 11)))))) 
 
-(DEFUN |MCDEN;commonDenominator;MR;3| (|m| $)
-  (SPADCALL (SPADCALL (ELT $ 19) (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24))
-            (QREFELT $ 26))) 
+(SDEFUN |MCDEN;commonDenominator;MR;3| ((|m| |Matrix| Q) ($ R))
+        (SPADCALL
+         (SPADCALL (ELT $ 19) (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24))
+         (QREFELT $ 26))) 
 
-(DEFUN |MCDEN;commonDenominator;MR;4| (|m| $)
-  (SPADCALL (ELT $ 27)
-            (SPADCALL (ELT $ 19) (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24))
-            (|spadConstant| $ 28) (QREFELT $ 30))) 
+(SDEFUN |MCDEN;commonDenominator;MR;4| ((|m| |Matrix| Q) ($ R))
+        (SPADCALL (ELT $ 27)
+                  (SPADCALL (ELT $ 19) (SPADCALL |m| (QREFELT $ 21))
+                            (QREFELT $ 24))
+                  (|spadConstant| $ 28) (QREFELT $ 30))) 
 
 (DECLAIM (NOTINLINE |MatrixCommonDenominator;|)) 
 
 (DEFUN |MatrixCommonDenominator| (&REST #1=#:G117)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G118)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|MatrixCommonDenominator|)
-                                           '|domainEqualList|)
-                . #3=(|MatrixCommonDenominator|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |MatrixCommonDenominator;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|MatrixCommonDenominator|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MatrixCommonDenominator|)
+                                               '|domainEqualList|)
+                    . #3=(|MatrixCommonDenominator|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MatrixCommonDenominator;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|MatrixCommonDenominator|)))))))))) 
 
 (DEFUN |MatrixCommonDenominator;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|MatrixCommonDenominator|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|MatrixCommonDenominator| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 31) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|MatrixCommonDenominator|
-                  (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#1| '(|GcdDomain|))
-        (QSETREFV $ 9
-                  (CONS (|dispatchFunction| |MCDEN;commonDenominator;MR;3|)
-                        $)))
-       ('T
-        (QSETREFV $ 9
-                  (CONS (|dispatchFunction| |MCDEN;commonDenominator;MR;4|)
-                        $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|MatrixCommonDenominator|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|MatrixCommonDenominator| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 31) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|MatrixCommonDenominator|
+                      (LIST DV$1 DV$2) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| '(|GcdDomain|))
+            (QSETREFV $ 9
+                      (CONS (|dispatchFunction| |MCDEN;commonDenominator;MR;3|)
+                            $)))
+           ('T
+            (QSETREFV $ 9
+                      (CONS (|dispatchFunction| |MCDEN;commonDenominator;MR;4|)
+                            $))))
+          $))) 
 
 (MAKEPROP '|MatrixCommonDenominator| '|infovec|
           (LIST

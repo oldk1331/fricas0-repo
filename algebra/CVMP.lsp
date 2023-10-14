@@ -1,13 +1,17 @@
 
-(DEFUN |CVMP;imbedFP| (|r| $)
-  (SPADCALL (SPADCALL |r| (QREFELT $ 8)) (QREFELT $ 10))) 
+(SDEFUN |CVMP;imbedFP| ((|r| R) ($ |Fraction| (|Polynomial| R)))
+        (SPADCALL (SPADCALL |r| (QREFELT $ 8)) (QREFELT $ 10))) 
 
-(DEFUN |CVMP;imbedP| (|r| $) (SPADCALL |r| (QREFELT $ 8))) 
+(SDEFUN |CVMP;imbedP| ((|r| R) ($ |Polynomial| R)) (SPADCALL |r| (QREFELT $ 8))) 
 
-(DEFUN |CVMP;coerceP;VV;3| (|g| $)
-  (PROG (|l| |m2| #1=#:G110 |m| |lim|)
-    (RETURN
-     (SEQ (LETT |lim| (SPADCALL |g| (QREFELT $ 13)) . #2=(|CVMP;coerceP;VV;3|))
+(SDEFUN |CVMP;coerceP;VV;3|
+        ((|g| |Vector| (|Matrix| R)) ($ |Vector| (|Matrix| (|Polynomial| R))))
+        (SPROG
+         ((|l| (|List| (|Matrix| (|Polynomial| R))))
+          (|m2| (|Matrix| (|Polynomial| R))) (#1=#:G110 NIL) (|m| NIL)
+          (|lim| (|List| (|Matrix| R))))
+         (SEQ
+          (LETT |lim| (SPADCALL |g| (QREFELT $ 13)) . #2=(|CVMP;coerceP;VV;3|))
           (LETT |l| NIL . #2#)
           (SEQ (LETT |m| NIL . #2#) (LETT #1# |lim| . #2#) G190
                (COND
@@ -20,12 +24,17 @@
                       . #2#)
                 (EXIT (LETT |l| (CONS |m2| |l|) . #2#)))
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 21))))))) 
+          (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 21)))))) 
 
-(DEFUN |CVMP;coerce;VV;4| (|g| $)
-  (PROG (|l| |m3| #1=#:G116 |m| |lim|)
-    (RETURN
-     (SEQ (LETT |lim| (SPADCALL |g| (QREFELT $ 13)) . #2=(|CVMP;coerce;VV;4|))
+(SDEFUN |CVMP;coerce;VV;4|
+        ((|g| |Vector| (|Matrix| R))
+         ($ |Vector| (|Matrix| (|Fraction| (|Polynomial| R)))))
+        (SPROG
+         ((|l| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))
+          (|m3| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G116 NIL)
+          (|m| NIL) (|lim| (|List| (|Matrix| R))))
+         (SEQ
+          (LETT |lim| (SPADCALL |g| (QREFELT $ 13)) . #2=(|CVMP;coerce;VV;4|))
           (LETT |l| NIL . #2#)
           (SEQ (LETT |m| NIL . #2#) (LETT #1# |lim| . #2#) G190
                (COND
@@ -38,45 +47,44 @@
                       . #2#)
                 (EXIT (LETT |l| (CONS |m3| |l|) . #2#)))
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 29))))))) 
+          (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 29)))))) 
 
 (DECLAIM (NOTINLINE |CoerceVectorMatrixPackage;|)) 
 
 (DEFUN |CoerceVectorMatrixPackage| (#1=#:G117)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G118)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|CoerceVectorMatrixPackage|)
-                                           '|domainEqualList|)
-                . #3=(|CoerceVectorMatrixPackage|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|CoerceVectorMatrixPackage;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G118)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|CoerceVectorMatrixPackage|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|CoerceVectorMatrixPackage|)
+                                               '|domainEqualList|)
+                    . #3=(|CoerceVectorMatrixPackage|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|CoerceVectorMatrixPackage;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|CoerceVectorMatrixPackage|)))))))))) 
 
 (DEFUN |CoerceVectorMatrixPackage;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|CoerceVectorMatrixPackage|))
-      (LETT |dv$| (LIST '|CoerceVectorMatrixPackage| DV$1) . #1#)
-      (LETT $ (GETREFV 31) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|CoerceVectorMatrixPackage| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|CoerceVectorMatrixPackage|))
+          (LETT |dv$| (LIST '|CoerceVectorMatrixPackage| DV$1) . #1#)
+          (LETT $ (GETREFV 31) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|CoerceVectorMatrixPackage|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|CoerceVectorMatrixPackage| '|infovec|
           (LIST

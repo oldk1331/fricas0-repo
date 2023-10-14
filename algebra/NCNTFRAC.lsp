@@ -1,94 +1,100 @@
 
-(DEFUN |NCNTFRAC;cfc| (|a| $)
-  (PROG ()
-    (RETURN
-     (SEQ (SPADCALL (CONS #'|NCNTFRAC;cfc!0| (VECTOR $ |a|)) (QREFELT $ 18)))))) 
+(SDEFUN |NCNTFRAC;cfc| ((|a| F) ($ |Stream| (|Integer|)))
+        (SPROG NIL
+               (SEQ
+                (SPADCALL (CONS #'|NCNTFRAC;cfc!0| (VECTOR $ |a|))
+                          (QREFELT $ 18))))) 
 
-(DEFUN |NCNTFRAC;cfc!0| ($$)
-  (PROG (|a| $)
-    (LETT |a| (QREFELT $$ 1) . #1=(|NCNTFRAC;cfc|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (PROG (|aa| |b|)
-        (RETURN
-         (SEQ (LETT |aa| (SPADCALL |a| (QREFELT $ 8)) NIL)
-              (EXIT
-               (COND
-                ((SPADCALL
-                  (LETT |b|
-                        (SPADCALL |a| (SPADCALL |aa| (QREFELT $ 9))
-                                  (QREFELT $ 10))
-                        NIL)
-                  (QREFELT $ 12))
-                 (SPADCALL |aa| (SPADCALL (QREFELT $ 14)) (QREFELT $ 15)))
-                ('T
-                 (SPADCALL |aa|
-                           (|NCNTFRAC;cfc| (SPADCALL |b| (QREFELT $ 16)) $)
-                           (QREFELT $ 15)))))))))))) 
+(SDEFUN |NCNTFRAC;cfc!0| (($$ NIL))
+        (PROG (|a| $)
+          (LETT |a| (QREFELT $$ 1) . #1=(|NCNTFRAC;cfc|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPROG ((|aa| NIL) (|b| NIL))
+                   (SEQ (LETT |aa| (SPADCALL |a| (QREFELT $ 8)) NIL)
+                        (EXIT
+                         (COND
+                          ((SPADCALL
+                            (LETT |b|
+                                  (SPADCALL |a| (SPADCALL |aa| (QREFELT $ 9))
+                                            (QREFELT $ 10))
+                                  NIL)
+                            (QREFELT $ 12))
+                           (SPADCALL |aa| (SPADCALL (QREFELT $ 14))
+                                     (QREFELT $ 15)))
+                          ('T
+                           (SPADCALL |aa|
+                                     (|NCNTFRAC;cfc|
+                                      (SPADCALL |b| (QREFELT $ 16)) $)
+                                     (QREFELT $ 15))))))))))) 
 
-(DEFUN |NCNTFRAC;continuedFraction;FCf;2| (|a| $)
-  (PROG (|b| |aa|)
-    (RETURN
-     (SEQ
-      (LETT |aa| (SPADCALL |a| (QREFELT $ 8))
-            . #1=(|NCNTFRAC;continuedFraction;FCf;2|))
-      (EXIT
-       (COND
-        ((SPADCALL
-          (LETT |b| (SPADCALL |a| (SPADCALL |aa| (QREFELT $ 9)) (QREFELT $ 10))
-                . #1#)
-          (QREFELT $ 12))
-         (SPADCALL |aa| (SPADCALL (QREFELT $ 14)) (QREFELT $ 20)))
-        ('T
-         (SEQ
-          (COND
-           ((SPADCALL |b| (QREFELT $ 21))
-            (SEQ (LETT |aa| (- |aa| 1) . #1#)
-                 (EXIT
-                  (LETT |b| (SPADCALL |b| (|spadConstant| $ 22) (QREFELT $ 24))
-                        . #1#)))))
-          (EXIT
-           (SPADCALL |aa| (|NCNTFRAC;cfc| (SPADCALL |b| (QREFELT $ 16)) $)
-                     (QREFELT $ 20))))))))))) 
+(SDEFUN |NCNTFRAC;continuedFraction;FCf;2|
+        ((|a| F) ($ |ContinuedFraction| (|Integer|)))
+        (SPROG ((|b| (F)) (|aa| (|Integer|)))
+               (SEQ
+                (LETT |aa| (SPADCALL |a| (QREFELT $ 8))
+                      . #1=(|NCNTFRAC;continuedFraction;FCf;2|))
+                (EXIT
+                 (COND
+                  ((SPADCALL
+                    (LETT |b|
+                          (SPADCALL |a| (SPADCALL |aa| (QREFELT $ 9))
+                                    (QREFELT $ 10))
+                          . #1#)
+                    (QREFELT $ 12))
+                   (SPADCALL |aa| (SPADCALL (QREFELT $ 14)) (QREFELT $ 20)))
+                  ('T
+                   (SEQ
+                    (COND
+                     ((SPADCALL |b| (QREFELT $ 21))
+                      (SEQ (LETT |aa| (- |aa| 1) . #1#)
+                           (EXIT
+                            (LETT |b|
+                                  (SPADCALL |b| (|spadConstant| $ 22)
+                                            (QREFELT $ 24))
+                                  . #1#)))))
+                    (EXIT
+                     (SPADCALL |aa|
+                               (|NCNTFRAC;cfc| (SPADCALL |b| (QREFELT $ 16)) $)
+                               (QREFELT $ 20)))))))))) 
 
 (DECLAIM (NOTINLINE |NumericContinuedFraction;|)) 
 
 (DEFUN |NumericContinuedFraction| (#1=#:G118)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G119)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|NumericContinuedFraction|)
-                                           '|domainEqualList|)
-                . #3=(|NumericContinuedFraction|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|NumericContinuedFraction;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G119)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|NumericContinuedFraction|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|NumericContinuedFraction|)
+                                               '|domainEqualList|)
+                    . #3=(|NumericContinuedFraction|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|NumericContinuedFraction;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|NumericContinuedFraction|)))))))))) 
 
 (DEFUN |NumericContinuedFraction;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|NumericContinuedFraction|))
-      (LETT |dv$| (LIST '|NumericContinuedFraction| DV$1) . #1#)
-      (LETT $ (GETREFV 26) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|NumericContinuedFraction| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|NumericContinuedFraction|))
+          (LETT |dv$| (LIST '|NumericContinuedFraction| DV$1) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|NumericContinuedFraction|
+                      (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|NumericContinuedFraction| '|infovec|
           (LIST

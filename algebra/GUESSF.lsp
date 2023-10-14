@@ -2,43 +2,43 @@
 (DECLAIM (NOTINLINE |GuessFinite;|)) 
 
 (DEFUN |GuessFinite| (#1=#:G121)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G122)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|GuessFinite|)
-                                           '|domainEqualList|)
-                . #3=(|GuessFinite|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|GuessFinite;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|GuessFinite|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G122)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|GuessFinite|)
+                                               '|domainEqualList|)
+                    . #3=(|GuessFinite|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|GuessFinite;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|GuessFinite|)))))))))) 
 
 (DEFUN |GuessFinite;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|GuessFinite|))
-      (LETT |dv$| (LIST '|GuessFinite| DV$1) . #1#)
-      (LETT $ (GETREFV 31) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Symbol|)))))
-                      . #1#))
-      (|haddProp| |$ConstructorCache| '|GuessFinite| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|GuessFinite|))
+          (LETT |dv$| (LIST '|GuessFinite| DV$1) . #1#)
+          (LETT $ (GETREFV 31) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|RetractableTo|
+                                                               (|Symbol|)))))
+                          . #1#))
+          (|haddProp| |$ConstructorCache| '|GuessFinite| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|GuessFinite| '|infovec|
           (LIST

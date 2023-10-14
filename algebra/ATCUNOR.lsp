@@ -9,11 +9,10 @@
           (T (SETQ |canonicalUnitNormal;AL| (|canonicalUnitNormal;|)))))) 
 
 (DEFUN |canonicalUnitNormal;| ()
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
-               |canonicalUnitNormal|)
-       (SETELT #1# 0 '(|canonicalUnitNormal|)))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
+                   |canonicalUnitNormal|)
+           (SETELT #1# 0 '(|canonicalUnitNormal|))))) 
 
 (MAKEPROP '|canonicalUnitNormal| 'NILADIC T) 

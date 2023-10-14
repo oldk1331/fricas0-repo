@@ -2,37 +2,36 @@
 (DECLAIM (NOTINLINE |PAdicInteger;|)) 
 
 (DEFUN |PAdicInteger| (#1=#:G118)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G119)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|PAdicInteger|)
-                                           '|domainEqualList|)
-                . #3=(|PAdicInteger|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|PAdicInteger;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G119)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|PAdicInteger|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|PAdicInteger|)
+                                               '|domainEqualList|)
+                    . #3=(|PAdicInteger|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|PAdicInteger;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|PAdicInteger|)))))))))) 
 
 (DEFUN |PAdicInteger;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PAdicInteger|))
-      (LETT |dv$| (LIST '|PAdicInteger| DV$1) . #1#)
-      (LETT $ (GETREFV 28) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PAdicInteger| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PAdicInteger|))
+          (LETT |dv$| (LIST '|PAdicInteger| DV$1) . #1#)
+          (LETT $ (GETREFV 28) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PAdicInteger| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PAdicInteger| '|infovec|
           (LIST

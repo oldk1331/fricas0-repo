@@ -1,37 +1,38 @@
 
-(DEFUN |ABELMON-;zero?;SB;1| (|x| $)
-  (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9))) 
+(SDEFUN |ABELMON-;zero?;SB;1| ((|x| S) ($ |Boolean|))
+        (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
-(DEFUN |ABELMON-;*;Pi2S;2| (|n| |x| $) (SPADCALL |n| |x| (QREFELT $ 12))) 
+(SDEFUN |ABELMON-;*;Pi2S;2| ((|n| |PositiveInteger|) (|x| S) ($ S))
+        (SPADCALL |n| |x| (QREFELT $ 12))) 
 
-(DEFUN |ABELMON-;sample;S;3| ($) (|spadConstant| $ 7)) 
+(SDEFUN |ABELMON-;sample;S;3| (($ S)) (|spadConstant| $ 7)) 
 
-(DEFUN |ABELMON-;*;Nni2S;4| (|n| |x| $)
-  (COND ((ZEROP |n|) (|spadConstant| $ 7))
-        ('T (SPADCALL |n| |x| (QREFELT $ 17))))) 
+(SDEFUN |ABELMON-;*;Nni2S;4| ((|n| |NonNegativeInteger|) (|x| S) ($ S))
+        (COND ((ZEROP |n|) (|spadConstant| $ 7))
+              ('T (SPADCALL |n| |x| (QREFELT $ 17))))) 
 
-(DEFUN |ABELMON-;opposite?;2SB;5| (|x| |y| $)
-  (SPADCALL (SPADCALL |x| |y| (QREFELT $ 19)) (QREFELT $ 20))) 
+(SDEFUN |ABELMON-;opposite?;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
+        (SPADCALL (SPADCALL |x| |y| (QREFELT $ 19)) (QREFELT $ 20))) 
 
 (DECLAIM (NOTINLINE |AbelianMonoid&;|)) 
 
 (DEFUN |AbelianMonoid&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianMonoid&|))
-      (LETT |dv$| (LIST '|AbelianMonoid&| DV$1) . #1#)
-      (LETT $ (GETREFV 22) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND ((|HasCategory| |#1| '(|Ring|)))
-            ('T
-             (QSETREFV $ 18
-                       (CONS (|dispatchFunction| |ABELMON-;*;Nni2S;4|) $))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|AbelianMonoid&|))
+          (LETT |dv$| (LIST '|AbelianMonoid&| DV$1) . #1#)
+          (LETT $ (GETREFV 22) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND ((|HasCategory| |#1| '(|Ring|)))
+                ('T
+                 (QSETREFV $ 18
+                           (CONS (|dispatchFunction| |ABELMON-;*;Nni2S;4|)
+                                 $))))
+          $))) 
 
 (MAKEPROP '|AbelianMonoid&| '|infovec|
           (LIST

@@ -1,149 +1,168 @@
 
-(DEFUN |IXAGG-;elt;SIndex2Entry;1| (|a| |i| |x| $)
-  (COND ((SPADCALL |i| |a| (QREFELT $ 10)) (SPADCALL |a| |i| (QREFELT $ 11)))
-        ('T |x|))) 
+(SDEFUN |IXAGG-;elt;SIndex2Entry;1|
+        ((|a| S) (|i| |Index|) (|x| |Entry|) ($ |Entry|))
+        (COND
+         ((SPADCALL |i| |a| (QREFELT $ 10)) (SPADCALL |a| |i| (QREFELT $ 11)))
+         ('T |x|))) 
 
-(DEFUN |IXAGG-;entries;SL;2| (|x| $) (SPADCALL |x| (QREFELT $ 14))) 
+(SDEFUN |IXAGG-;entries;SL;2| ((|x| S) ($ |List| |Entry|))
+        (SPADCALL |x| (QREFELT $ 14))) 
 
-(DEFUN |IXAGG-;entry?;EntrySB;3| (|x| |a| $) (SPADCALL |x| |a| (QREFELT $ 16))) 
+(SDEFUN |IXAGG-;entry?;EntrySB;3| ((|x| |Entry|) (|a| S) ($ |Boolean|))
+        (SPADCALL |x| |a| (QREFELT $ 16))) 
 
-(DEFUN |IXAGG-;maxIndex;SIndex;4| (|a| $)
-  (PROG (#1=#:G118 #2=#:G117 #3=#:G119 #4=#:G121 #5=#:G103)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #1# NIL . #6=(|IXAGG-;maxIndex;SIndex;4|))
-       (SEQ (LETT #5# NIL . #6#) (LETT #4# (SPADCALL |a| (QREFELT $ 19)) . #6#)
-            G190
-            (COND
-             ((OR (ATOM #4#) (PROGN (LETT #5# (CAR #4#) . #6#) NIL))
-              (GO G191)))
-            (SEQ
-             (EXIT
-              (PROGN
-               (LETT #3# #5# . #6#)
-               (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 20)) . #6#))
-                     ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
-            (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
-       (COND (#1# #2#) ('T (|IdentityError| '|max|)))))))) 
+(SDEFUN |IXAGG-;maxIndex;SIndex;4| ((|a| S) ($ |Index|))
+        (SPROG
+         ((#1=#:G118 NIL) (#2=#:G117 (|Index|)) (#3=#:G119 (|Index|))
+          (#4=#:G121 NIL) (#5=#:G103 NIL))
+         (SEQ
+          (PROGN
+           (LETT #1# NIL . #6=(|IXAGG-;maxIndex;SIndex;4|))
+           (SEQ (LETT #5# NIL . #6#)
+                (LETT #4# (SPADCALL |a| (QREFELT $ 19)) . #6#) G190
+                (COND
+                 ((OR (ATOM #4#) (PROGN (LETT #5# (CAR #4#) . #6#) NIL))
+                  (GO G191)))
+                (SEQ
+                 (EXIT
+                  (PROGN
+                   (LETT #3# #5# . #6#)
+                   (COND
+                    (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 20)) . #6#))
+                    ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
+                (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
+           (COND (#1# #2#) ('T (|IdentityError| '|max|))))))) 
 
-(DEFUN |IXAGG-;minIndex;SIndex;5| (|a| $)
-  (PROG (#1=#:G123 #2=#:G122 #3=#:G124 #4=#:G126 #5=#:G104)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #1# NIL . #6=(|IXAGG-;minIndex;SIndex;5|))
-       (SEQ (LETT #5# NIL . #6#) (LETT #4# (SPADCALL |a| (QREFELT $ 19)) . #6#)
-            G190
-            (COND
-             ((OR (ATOM #4#) (PROGN (LETT #5# (CAR #4#) . #6#) NIL))
-              (GO G191)))
-            (SEQ
-             (EXIT
-              (PROGN
-               (LETT #3# #5# . #6#)
-               (COND (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 22)) . #6#))
-                     ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
-            (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
-       (COND (#1# #2#) ('T (|IdentityError| '|min|)))))))) 
+(SDEFUN |IXAGG-;minIndex;SIndex;5| ((|a| S) ($ |Index|))
+        (SPROG
+         ((#1=#:G123 NIL) (#2=#:G122 (|Index|)) (#3=#:G124 (|Index|))
+          (#4=#:G126 NIL) (#5=#:G104 NIL))
+         (SEQ
+          (PROGN
+           (LETT #1# NIL . #6=(|IXAGG-;minIndex;SIndex;5|))
+           (SEQ (LETT #5# NIL . #6#)
+                (LETT #4# (SPADCALL |a| (QREFELT $ 19)) . #6#) G190
+                (COND
+                 ((OR (ATOM #4#) (PROGN (LETT #5# (CAR #4#) . #6#) NIL))
+                  (GO G191)))
+                (SEQ
+                 (EXIT
+                  (PROGN
+                   (LETT #3# #5# . #6#)
+                   (COND
+                    (#1# (LETT #2# (SPADCALL #2# #3# (QREFELT $ 22)) . #6#))
+                    ('T (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
+                (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
+           (COND (#1# #2#) ('T (|IdentityError| '|min|))))))) 
 
-(DEFUN |IXAGG-;first;SEntry;6| (|a| $)
-  (SPADCALL |a| (SPADCALL |a| (QREFELT $ 24)) (QREFELT $ 25))) 
+(SDEFUN |IXAGG-;first;SEntry;6| ((|a| S) ($ |Entry|))
+        (SPADCALL |a| (SPADCALL |a| (QREFELT $ 24)) (QREFELT $ 25))) 
 
-(DEFUN |IXAGG-;map;M2S;7| (|f| |a| $)
-  (SPADCALL |f| (SPADCALL |a| (QREFELT $ 27)) (QREFELT $ 29))) 
+(SDEFUN |IXAGG-;map;M2S;7| ((|f| |Mapping| |Entry| |Entry|) (|a| S) ($ S))
+        (SPADCALL |f| (SPADCALL |a| (QREFELT $ 27)) (QREFELT $ 29))) 
 
-(DEFUN |IXAGG-;map!;M2S;8| (|f| |a| $)
-  (PROG (#1=#:G133 |i|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |i| NIL . #2=(|IXAGG-;map!;M2S;8|))
-           (LETT #1# (SPADCALL |a| (QREFELT $ 19)) . #2#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#) . #2#) NIL)) (GO G191)))
-           (SEQ
-            (EXIT
-             (SPADCALL |a| |i| (SPADCALL (SPADCALL |a| |i| (QREFELT $ 11)) |f|)
-                       (QREFELT $ 31))))
-           (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |a|))))) 
+(SDEFUN |IXAGG-;map!;M2S;8| ((|f| |Mapping| |Entry| |Entry|) (|a| S) ($ S))
+        (SPROG ((#1=#:G133 NIL) (|i| NIL))
+               (SEQ
+                (SEQ (LETT |i| NIL . #2=(|IXAGG-;map!;M2S;8|))
+                     (LETT #1# (SPADCALL |a| (QREFELT $ 19)) . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ
+                      (EXIT
+                       (SPADCALL |a| |i|
+                                 (SPADCALL (SPADCALL |a| |i| (QREFELT $ 11))
+                                           |f|)
+                                 (QREFELT $ 31))))
+                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |a|)))) 
 
-(DEFUN |IXAGG-;fill!;SEntryS;9| (|a| |x| $)
-  (PROG (#1=#:G137 |i|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |i| NIL . #2=(|IXAGG-;fill!;SEntryS;9|))
-           (LETT #1# (SPADCALL |a| (QREFELT $ 19)) . #2#) G190
-           (COND
-            ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#) . #2#) NIL)) (GO G191)))
-           (SEQ (EXIT (SPADCALL |a| |i| |x| (QREFELT $ 31))))
-           (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-      (EXIT |a|))))) 
+(SDEFUN |IXAGG-;fill!;SEntryS;9| ((|a| S) (|x| |Entry|) ($ S))
+        (SPROG ((#1=#:G137 NIL) (|i| NIL))
+               (SEQ
+                (SEQ (LETT |i| NIL . #2=(|IXAGG-;fill!;SEntryS;9|))
+                     (LETT #1# (SPADCALL |a| (QREFELT $ 19)) . #2#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |i| (CAR #1#) . #2#) NIL))
+                       (GO G191)))
+                     (SEQ (EXIT (SPADCALL |a| |i| |x| (QREFELT $ 31))))
+                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT |a|)))) 
 
-(DEFUN |IXAGG-;swap!;S2IndexV;10| (|a| |i| |j| $)
-  (PROG (|t|)
-    (RETURN
-     (SEQ
-      (LETT |t| (SPADCALL |a| |i| (QREFELT $ 25)) |IXAGG-;swap!;S2IndexV;10|)
-      (SPADCALL |a| |i| (SPADCALL |a| |j| (QREFELT $ 25)) (QREFELT $ 31))
-      (SPADCALL |a| |j| |t| (QREFELT $ 31)) (EXIT (SPADCALL (QREFELT $ 35))))))) 
+(SDEFUN |IXAGG-;swap!;S2IndexV;10|
+        ((|a| S) (|i| |Index|) (|j| |Index|) ($ |Void|))
+        (SPROG ((|t| (|Entry|)))
+               (SEQ
+                (LETT |t| (SPADCALL |a| |i| (QREFELT $ 25))
+                      |IXAGG-;swap!;S2IndexV;10|)
+                (SPADCALL |a| |i| (SPADCALL |a| |j| (QREFELT $ 25))
+                          (QREFELT $ 31))
+                (SPADCALL |a| |j| |t| (QREFELT $ 31))
+                (EXIT (SPADCALL (QREFELT $ 35)))))) 
 
 (DECLAIM (NOTINLINE |IndexedAggregate&;|)) 
 
 (DEFUN |IndexedAggregate&| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|IndexedAggregate&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|IndexedAggregate&| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 37) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|shallowlyMutable|))
-                                          (|HasCategory| |#2| '(|OrderedSet|))
-                                          (|HasCategory| |#1|
-                                                         '(|finiteAggregate|))
-                                          (|HasCategory| |#3|
-                                                         '(|SetCategory|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 15 (CONS (|dispatchFunction| |IXAGG-;entries;SL;2|) $))
-         (COND
-          ((|testBitVector| |pv$| 4)
-           (QSETREFV $ 17
-                     (CONS (|dispatchFunction| |IXAGG-;entry?;EntrySB;3|)
-                           $)))))))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (PROGN
-         (QSETREFV $ 21
-                   (CONS (|dispatchFunction| |IXAGG-;maxIndex;SIndex;4|) $))
-         (QSETREFV $ 23
-                   (CONS (|dispatchFunction| |IXAGG-;minIndex;SIndex;5|) $))
-         (QSETREFV $ 26
-                   (CONS (|dispatchFunction| |IXAGG-;first;SEntry;6|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 30 (CONS (|dispatchFunction| |IXAGG-;map;M2S;7|) $))
-         (QSETREFV $ 32 (CONS (|dispatchFunction| |IXAGG-;map!;M2S;8|) $))
-         (QSETREFV $ 33 (CONS (|dispatchFunction| |IXAGG-;fill!;SEntryS;9|) $))
-         (QSETREFV $ 36
-                   (CONS (|dispatchFunction| |IXAGG-;swap!;S2IndexV;10|) $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|IndexedAggregate&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|IndexedAggregate&| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 37) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|shallowlyMutable|))
+                                              (|HasCategory| |#2|
+                                                             '(|OrderedSet|))
+                                              (|HasCategory| |#1|
+                                                             '(|finiteAggregate|))
+                                              (|HasCategory| |#3|
+                                                             '(|SetCategory|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 3)
+            (PROGN
+             (QSETREFV $ 15
+                       (CONS (|dispatchFunction| |IXAGG-;entries;SL;2|) $))
+             (COND
+              ((|testBitVector| |pv$| 4)
+               (QSETREFV $ 17
+                         (CONS (|dispatchFunction| |IXAGG-;entry?;EntrySB;3|)
+                               $)))))))
+          (COND
+           ((|testBitVector| |pv$| 2)
+            (PROGN
+             (QSETREFV $ 21
+                       (CONS (|dispatchFunction| |IXAGG-;maxIndex;SIndex;4|)
+                             $))
+             (QSETREFV $ 23
+                       (CONS (|dispatchFunction| |IXAGG-;minIndex;SIndex;5|)
+                             $))
+             (QSETREFV $ 26
+                       (CONS (|dispatchFunction| |IXAGG-;first;SEntry;6|)
+                             $)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 30 (CONS (|dispatchFunction| |IXAGG-;map;M2S;7|) $))
+             (QSETREFV $ 32 (CONS (|dispatchFunction| |IXAGG-;map!;M2S;8|) $))
+             (QSETREFV $ 33
+                       (CONS (|dispatchFunction| |IXAGG-;fill!;SEntryS;9|) $))
+             (QSETREFV $ 36
+                       (CONS (|dispatchFunction| |IXAGG-;swap!;S2IndexV;10|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|IndexedAggregate&| '|infovec|
           (LIST

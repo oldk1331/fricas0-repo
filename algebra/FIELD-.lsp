@@ -1,65 +1,72 @@
 
-(DEFUN |FIELD-;unitNormal;SR;1| (|x| $)
-  (COND
-   ((SPADCALL |x| (QREFELT $ 8))
-    (VECTOR (|spadConstant| $ 9) (|spadConstant| $ 10) (|spadConstant| $ 9)))
-   ('T (VECTOR |x| (|spadConstant| $ 9) (SPADCALL |x| (QREFELT $ 11)))))) 
+(SDEFUN |FIELD-;unitNormal;SR;1|
+        ((|x| S)
+         ($ |Record| (|:| |unit| S) (|:| |canonical| S) (|:| |associate| S)))
+        (COND
+         ((SPADCALL |x| (QREFELT $ 8))
+          (VECTOR (|spadConstant| $ 9) (|spadConstant| $ 10)
+                  (|spadConstant| $ 9)))
+         ('T (VECTOR |x| (|spadConstant| $ 9) (SPADCALL |x| (QREFELT $ 11)))))) 
 
-(DEFUN |FIELD-;unitCanonical;2S;2| (|x| $)
-  (COND ((SPADCALL |x| (QREFELT $ 8)) |x|) ('T (|spadConstant| $ 9)))) 
+(SDEFUN |FIELD-;unitCanonical;2S;2| ((|x| S) ($ S))
+        (COND ((SPADCALL |x| (QREFELT $ 8)) |x|) ('T (|spadConstant| $ 9)))) 
 
-(DEFUN |FIELD-;associates?;2SB;3| (|x| |y| $)
-  (COND ((SPADCALL |x| (QREFELT $ 8)) (SPADCALL |y| (QREFELT $ 8)))
-        ((SPADCALL |y| (QREFELT $ 8)) 'NIL) ('T 'T))) 
+(SDEFUN |FIELD-;associates?;2SB;3| ((|x| S) (|y| S) ($ |Boolean|))
+        (COND ((SPADCALL |x| (QREFELT $ 8)) (SPADCALL |y| (QREFELT $ 8)))
+              ((SPADCALL |y| (QREFELT $ 8)) 'NIL) ('T 'T))) 
 
-(DEFUN |FIELD-;inv;2S;4| (|x| $)
-  (PROG (|u|)
-    (RETURN
-     (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 17)) |FIELD-;inv;2S;4|)
-          (EXIT
-           (COND ((QEQCAR |u| 1) (|error| "not invertible"))
-                 ('T (QCDR |u|)))))))) 
+(SDEFUN |FIELD-;inv;2S;4| ((|x| S) ($ S))
+        (SPROG ((|u| (|Union| S "failed")))
+               (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 17)) |FIELD-;inv;2S;4|)
+                    (EXIT
+                     (COND ((QEQCAR |u| 1) (|error| "not invertible"))
+                           ('T (QCDR |u|))))))) 
 
-(DEFUN |FIELD-;exquo;2SU;5| (|x| |y| $)
-  (COND ((SPADCALL |y| (|spadConstant| $ 10) (QREFELT $ 19)) (CONS 1 "failed"))
-        ('T (CONS 0 (SPADCALL |x| |y| (QREFELT $ 20)))))) 
+(SDEFUN |FIELD-;exquo;2SU;5| ((|x| S) (|y| S) ($ |Union| S "failed"))
+        (COND
+         ((SPADCALL |y| (|spadConstant| $ 10) (QREFELT $ 19))
+          (CONS 1 "failed"))
+         ('T (CONS 0 (SPADCALL |x| |y| (QREFELT $ 20)))))) 
 
-(DEFUN |FIELD-;gcd;3S;6| (|x| |y| $) (|spadConstant| $ 9)) 
+(SDEFUN |FIELD-;gcd;3S;6| ((|x| S) (|y| S) ($ S)) (|spadConstant| $ 9)) 
 
 (PUT '|FIELD-;euclideanSize;SNni;7| '|SPADreplace| '(XLAM (|x|) 0)) 
 
-(DEFUN |FIELD-;euclideanSize;SNni;7| (|x| $) 0) 
+(SDEFUN |FIELD-;euclideanSize;SNni;7| ((|x| S) ($ |NonNegativeInteger|)) 0) 
 
 (PUT '|FIELD-;prime?;SB;8| '|SPADreplace| '(XLAM (|x|) 'NIL)) 
 
-(DEFUN |FIELD-;prime?;SB;8| (|x| $) 'NIL) 
+(SDEFUN |FIELD-;prime?;SB;8| ((|x| S) ($ |Boolean|)) 'NIL) 
 
-(DEFUN |FIELD-;squareFree;SF;9| (|x| $) (SPADCALL |x| (QREFELT $ 27))) 
+(SDEFUN |FIELD-;squareFree;SF;9| ((|x| S) ($ |Factored| S))
+        (SPADCALL |x| (QREFELT $ 27))) 
 
-(DEFUN |FIELD-;factor;SF;10| (|x| $) (SPADCALL |x| (QREFELT $ 27))) 
+(SDEFUN |FIELD-;factor;SF;10| ((|x| S) ($ |Factored| S))
+        (SPADCALL |x| (QREFELT $ 27))) 
 
-(DEFUN |FIELD-;/;3S;11| (|x| |y| $)
-  (COND ((SPADCALL |y| (QREFELT $ 8)) (|error| "catdef: division by zero"))
-        ('T (SPADCALL |x| (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 31))))) 
+(SDEFUN |FIELD-;/;3S;11| ((|x| S) (|y| S) ($ S))
+        (COND
+         ((SPADCALL |y| (QREFELT $ 8)) (|error| "catdef: division by zero"))
+         ('T (SPADCALL |x| (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 31))))) 
 
-(DEFUN |FIELD-;divide;2SR;12| (|x| |y| $)
-  (CONS (SPADCALL |x| |y| (QREFELT $ 20)) (|spadConstant| $ 10))) 
+(SDEFUN |FIELD-;divide;2SR;12|
+        ((|x| S) (|y| S) ($ |Record| (|:| |quotient| S) (|:| |remainder| S)))
+        (CONS (SPADCALL |x| |y| (QREFELT $ 20)) (|spadConstant| $ 10))) 
 
 (DECLAIM (NOTINLINE |Field&;|)) 
 
 (DEFUN |Field&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|Field&|))
-      (LETT |dv$| (LIST '|Field&| DV$1) . #1#)
-      (LETT $ (GETREFV 36) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|Field&|))
+          (LETT |dv$| (LIST '|Field&| DV$1) . #1#)
+          (LETT $ (GETREFV 36) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|Field&| '|infovec|
           (LIST

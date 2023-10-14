@@ -1,467 +1,500 @@
 
 (PUT '|ILIST;#;$Nni;1| '|SPADreplace| 'LENGTH) 
 
-(DEFUN |ILIST;#;$Nni;1| (|x| $) (LENGTH |x|)) 
+(SDEFUN |ILIST;#;$Nni;1| ((|x| $) ($ |NonNegativeInteger|)) (LENGTH |x|)) 
 
 (PUT '|ILIST;concat;S2$;2| '|SPADreplace| 'CONS) 
 
-(DEFUN |ILIST;concat;S2$;2| (|s| |x| $) (CONS |s| |x|)) 
+(SDEFUN |ILIST;concat;S2$;2| ((|s| S) (|x| $) ($ $)) (CONS |s| |x|)) 
 
 (PUT '|ILIST;eq?;2$B;3| '|SPADreplace| 'EQ) 
 
-(DEFUN |ILIST;eq?;2$B;3| (|x| |y| $) (EQ |x| |y|)) 
+(SDEFUN |ILIST;eq?;2$B;3| ((|x| $) (|y| $) ($ |Boolean|)) (EQ |x| |y|)) 
 
 (PUT '|ILIST;first;$S;4| '|SPADreplace| '|SPADfirst|) 
 
-(DEFUN |ILIST;first;$S;4| (|x| $) (|SPADfirst| |x|)) 
+(SDEFUN |ILIST;first;$S;4| ((|x| $) ($ S)) (|SPADfirst| |x|)) 
 
 (PUT '|ILIST;elt;$firstS;5| '|SPADreplace|
      '(XLAM (|x| "first") (|SPADfirst| |x|))) 
 
-(DEFUN |ILIST;elt;$firstS;5| (|x| T3 $) (|SPADfirst| |x|)) 
+(SDEFUN |ILIST;elt;$firstS;5| ((|x| $) (T3 "first") ($ S)) (|SPADfirst| |x|)) 
 
 (PUT '|ILIST;empty;$;6| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(DEFUN |ILIST;empty;$;6| ($) NIL) 
+(SDEFUN |ILIST;empty;$;6| (($ $)) NIL) 
 
 (PUT '|ILIST;empty?;$B;7| '|SPADreplace| 'NULL) 
 
-(DEFUN |ILIST;empty?;$B;7| (|x| $) (NULL |x|)) 
+(SDEFUN |ILIST;empty?;$B;7| ((|x| $) ($ |Boolean|)) (NULL |x|)) 
 
 (PUT '|ILIST;rest;2$;8| '|SPADreplace| 'CDR) 
 
-(DEFUN |ILIST;rest;2$;8| (|x| $) (CDR |x|)) 
+(SDEFUN |ILIST;rest;2$;8| ((|x| $) ($ $)) (CDR |x|)) 
 
 (PUT '|ILIST;elt;$rest$;9| '|SPADreplace| '(XLAM (|x| "rest") (CDR |x|))) 
 
-(DEFUN |ILIST;elt;$rest$;9| (|x| T4 $) (CDR |x|)) 
+(SDEFUN |ILIST;elt;$rest$;9| ((|x| $) (T4 "rest") ($ $)) (CDR |x|)) 
 
-(DEFUN |ILIST;setfirst!;$2S;10| (|x| |s| $)
-  (COND ((SPADCALL |x| (QREFELT $ 17)) (|error| "Cannot update an empty list"))
-        ('T (QCAR (RPLACA |x| |s|))))) 
+(SDEFUN |ILIST;setfirst!;$2S;10| ((|x| $) (|s| S) ($ S))
+        (COND
+         ((SPADCALL |x| (QREFELT $ 17))
+          (|error| "Cannot update an empty list"))
+         ('T (QCAR (RPLACA |x| |s|))))) 
 
-(DEFUN |ILIST;setelt;$first2S;11| (|x| T11 |s| $)
-  (COND ((SPADCALL |x| (QREFELT $ 17)) (|error| "Cannot update an empty list"))
-        ('T (QCAR (RPLACA |x| |s|))))) 
+(SDEFUN |ILIST;setelt;$first2S;11| ((|x| $) (T11 "first") (|s| S) ($ S))
+        (COND
+         ((SPADCALL |x| (QREFELT $ 17))
+          (|error| "Cannot update an empty list"))
+         ('T (QCAR (RPLACA |x| |s|))))) 
 
-(DEFUN |ILIST;setrest!;3$;12| (|x| |y| $)
-  (COND ((SPADCALL |x| (QREFELT $ 17)) (|error| "Cannot update an empty list"))
-        ('T (QCDR (RPLACD |x| |y|))))) 
+(SDEFUN |ILIST;setrest!;3$;12| ((|x| $) (|y| $) ($ $))
+        (COND
+         ((SPADCALL |x| (QREFELT $ 17))
+          (|error| "Cannot update an empty list"))
+         ('T (QCDR (RPLACD |x| |y|))))) 
 
-(DEFUN |ILIST;setelt;$rest2$;13| (|x| T12 |y| $)
-  (COND ((SPADCALL |x| (QREFELT $ 17)) (|error| "Cannot update an empty list"))
-        ('T (QCDR (RPLACD |x| |y|))))) 
+(SDEFUN |ILIST;setelt;$rest2$;13| ((|x| $) (T12 "rest") (|y| $) ($ $))
+        (COND
+         ((SPADCALL |x| (QREFELT $ 17))
+          (|error| "Cannot update an empty list"))
+         ('T (QCDR (RPLACD |x| |y|))))) 
 
 (PUT '|ILIST;construct;L$;14| '|SPADreplace| '(XLAM (|l|) |l|)) 
 
-(DEFUN |ILIST;construct;L$;14| (|l| $) |l|) 
+(SDEFUN |ILIST;construct;L$;14| ((|l| |List| S) ($ $)) |l|) 
 
 (PUT '|ILIST;parts;$L;15| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
-(DEFUN |ILIST;parts;$L;15| (|s| $) |s|) 
+(SDEFUN |ILIST;parts;$L;15| ((|s| $) ($ |List| S)) |s|) 
 
 (PUT '|ILIST;reverse!;2$;16| '|SPADreplace| 'NREVERSE) 
 
-(DEFUN |ILIST;reverse!;2$;16| (|x| $) (NREVERSE |x|)) 
+(SDEFUN |ILIST;reverse!;2$;16| ((|x| $) ($ $)) (NREVERSE |x|)) 
 
 (PUT '|ILIST;reverse;2$;17| '|SPADreplace| 'REVERSE) 
 
-(DEFUN |ILIST;reverse;2$;17| (|x| $) (REVERSE |x|)) 
+(SDEFUN |ILIST;reverse;2$;17| ((|x| $) ($ $)) (REVERSE |x|)) 
 
-(DEFUN |ILIST;minIndex;$I;18| (|x| $) (QREFELT $ 7)) 
+(SDEFUN |ILIST;minIndex;$I;18| ((|x| $) ($ |Integer|)) (QREFELT $ 7)) 
 
-(DEFUN |ILIST;rest;$Nni$;19| (|x| |n| $)
-  (PROG (|i|)
-    (RETURN
-     (SEQ
-      (SEQ (LETT |i| 1 . #1=(|ILIST;rest;$Nni$;19|)) G190
-           (COND ((|greater_SI| |i| |n|) (GO G191)))
-           (SEQ (COND ((NULL |x|) (|error| "index out of range")))
-                (EXIT (LETT |x| (QCDR |x|) . #1#)))
-           (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-      (EXIT |x|))))) 
-
-(DEFUN |ILIST;copy;2$;20| (|x| $)
-  (PROG (|y| |i|)
-    (RETURN
-     (SEQ (LETT |y| (SPADCALL (QREFELT $ 16)) . #1=(|ILIST;copy;2$;20|))
-          (SEQ (LETT |i| 0 . #1#) G190
-               (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+(SDEFUN |ILIST;rest;$Nni$;19| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
+        (SPROG ((|i| NIL))
                (SEQ
-                (COND
-                 ((EQ |i| 1000)
-                  (COND
-                   ((SPADCALL |x| (QREFELT $ 33)) (|error| "cyclic list")))))
-                (LETT |y| (CONS (QCAR |x|) |y|) . #1#)
-                (EXIT (LETT |x| (QCDR |x|) . #1#)))
-               (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-          (EXIT (NREVERSE |y|)))))) 
+                (SEQ (LETT |i| 1 . #1=(|ILIST;rest;$Nni$;19|)) G190
+                     (COND ((|greater_SI| |i| |n|) (GO G191)))
+                     (SEQ (COND ((NULL |x|) (|error| "index out of range")))
+                          (EXIT (LETT |x| (QCDR |x|) . #1#)))
+                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (EXIT |x|)))) 
 
-(DEFUN |ILIST;coerce;$Of;21| (|x| $)
-  (PROG (|z| |y| |s|)
-    (RETURN
-     (SEQ (LETT |y| NIL . #1=(|ILIST;coerce;$Of;21|))
-          (LETT |s| (SPADCALL |x| (QREFELT $ 35)) . #1#)
-          (SEQ G190
-               (COND ((NULL (COND ((EQ |x| |s|) 'NIL) ('T 'T))) (GO G191)))
+(SDEFUN |ILIST;copy;2$;20| ((|x| $) ($ $))
+        (SPROG ((|y| ($)) (|i| NIL))
                (SEQ
-                (LETT |y|
-                      (CONS
-                       (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 37))
-                       |y|)
-                      . #1#)
-                (EXIT (LETT |x| (SPADCALL |x| (QREFELT $ 18)) . #1#)))
-               NIL (GO G190) G191 (EXIT NIL))
-          (LETT |y| (NREVERSE |y|) . #1#)
-          (EXIT
-           (COND ((SPADCALL |s| (QREFELT $ 17)) (SPADCALL |y| (QREFELT $ 39)))
-                 ('T
-                  (SEQ
-                   (LETT |z|
-                         (SPADCALL
-                          (SPADCALL (SPADCALL |x| (QREFELT $ 13))
-                                    (QREFELT $ 37))
-                          (QREFELT $ 41))
-                         . #1#)
-                   (SEQ G190
-                        (COND
-                         ((NULL
-                           (COND ((EQ |s| (SPADCALL |x| (QREFELT $ 18))) 'NIL)
-                                 ('T 'T)))
-                          (GO G191)))
-                        (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 18)) . #1#)
-                             (EXIT
-                              (LETT |z|
-                                    (CONS
-                                     (SPADCALL (SPADCALL |x| (QREFELT $ 13))
-                                               (QREFELT $ 37))
-                                     |z|)
-                                    . #1#)))
-                        NIL (GO G190) G191 (EXIT NIL))
-                   (EXIT
-                    (SPADCALL
-                     (SPADCALL |y|
-                               (SPADCALL
-                                (SPADCALL (NREVERSE |z|) (QREFELT $ 42))
-                                (QREFELT $ 43))
-                               (QREFELT $ 44))
-                     (QREFELT $ 39))))))))))) 
-
-(DEFUN |ILIST;=;2$B;22| (|x| |y| $)
-  (PROG (#1=#:G1029)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND ((EQ |x| |y|) 'T)
-             (#2='T
-              (SEQ
-               (SEQ G190
-                    (COND
-                     ((NULL (COND ((OR (NULL |x|) (NULL |y|)) 'NIL) ('T 'T)))
-                      (GO G191)))
-                    (SEQ
-                     (EXIT
+                (LETT |y| (SPADCALL (QREFELT $ 16)) . #1=(|ILIST;copy;2$;20|))
+                (SEQ (LETT |i| 0 . #1#) G190
+                     (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+                     (SEQ
                       (COND
-                       ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 46))
-                        (PROGN
-                         (LETT #1# 'NIL . #3=(|ILIST;=;2$B;22|))
-                         (GO #1#)))
-                       ('T
-                        (SEQ (LETT |x| (QCDR |x|) . #3#)
-                             (EXIT (LETT |y| (QCDR |y|) . #3#)))))))
-                    NIL (GO G190) G191 (EXIT NIL))
-               (EXIT (COND ((NULL |x|) (NULL |y|)) (#2# 'NIL)))))))
-      #1# (EXIT #1#))))) 
+                       ((EQ |i| 1000)
+                        (COND
+                         ((SPADCALL |x| (QREFELT $ 33))
+                          (|error| "cyclic list")))))
+                      (LETT |y| (CONS (QCAR |x|) |y|) . #1#)
+                      (EXIT (LETT |x| (QCDR |x|) . #1#)))
+                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (EXIT (NREVERSE |y|))))) 
 
-(DEFUN |ILIST;member?;S$B;23| (|s| |x| $)
-  (PROG (#1=#:G1034)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ G190 (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
-             (SEQ
+(SDEFUN |ILIST;coerce;$Of;21| ((|x| $) ($ |OutputForm|))
+        (SPROG
+         ((|z| (|List| (|OutputForm|))) (|y| (|List| (|OutputForm|)))
+          (|s| ($)))
+         (SEQ (LETT |y| NIL . #1=(|ILIST;coerce;$Of;21|))
+              (LETT |s| (SPADCALL |x| (QREFELT $ 35)) . #1#)
+              (SEQ G190
+                   (COND ((NULL (COND ((EQ |x| |s|) 'NIL) ('T 'T))) (GO G191)))
+                   (SEQ
+                    (LETT |y|
+                          (CONS
+                           (SPADCALL (SPADCALL |x| (QREFELT $ 13))
+                                     (QREFELT $ 37))
+                           |y|)
+                          . #1#)
+                    (EXIT (LETT |x| (SPADCALL |x| (QREFELT $ 18)) . #1#)))
+                   NIL (GO G190) G191 (EXIT NIL))
+              (LETT |y| (NREVERSE |y|) . #1#)
               (EXIT
                (COND
-                ((SPADCALL |s| (QCAR |x|) (QREFELT $ 48))
-                 (PROGN (LETT #1# 'T . #2=(|ILIST;member?;S$B;23|)) (GO #1#)))
-                ('T (LETT |x| (QCDR |x|) . #2#)))))
-             NIL (GO G190) G191 (EXIT NIL))
-        (EXIT 'NIL)))
-      #1# (EXIT #1#))))) 
+                ((SPADCALL |s| (QREFELT $ 17)) (SPADCALL |y| (QREFELT $ 39)))
+                ('T
+                 (SEQ
+                  (LETT |z|
+                        (SPADCALL
+                         (SPADCALL (SPADCALL |x| (QREFELT $ 13))
+                                   (QREFELT $ 37))
+                         (QREFELT $ 41))
+                        . #1#)
+                  (SEQ G190
+                       (COND
+                        ((NULL
+                          (COND ((EQ |s| (SPADCALL |x| (QREFELT $ 18))) 'NIL)
+                                ('T 'T)))
+                         (GO G191)))
+                       (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 18)) . #1#)
+                            (EXIT
+                             (LETT |z|
+                                   (CONS
+                                    (SPADCALL (SPADCALL |x| (QREFELT $ 13))
+                                              (QREFELT $ 37))
+                                    |z|)
+                                   . #1#)))
+                       NIL (GO G190) G191 (EXIT NIL))
+                  (EXIT
+                   (SPADCALL
+                    (SPADCALL |y|
+                              (SPADCALL
+                               (SPADCALL (NREVERSE |z|) (QREFELT $ 42))
+                               (QREFELT $ 43))
+                              (QREFELT $ 44))
+                    (QREFELT $ 39)))))))))) 
 
-(DEFUN |ILIST;latex;$S;24| (|x| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ (LETT |s| "\\left[" . #1=(|ILIST;latex;$S;24|))
-          (SEQ G190 (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+(SDEFUN |ILIST;=;2$B;22| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((#1=#:G1029 NIL))
                (SEQ
-                (LETT |s| (STRCONC |s| (SPADCALL (QCAR |x|) (QREFELT $ 51)))
-                      . #1#)
-                (LETT |x| (QCDR |x|) . #1#)
                 (EXIT
-                 (COND
-                  ((NULL (NULL |x|)) (LETT |s| (STRCONC |s| ", ") . #1#)))))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT (STRCONC |s| " \\right]")))))) 
+                 (COND ((EQ |x| |y|) 'T)
+                       (#2='T
+                        (SEQ
+                         (SEQ G190
+                              (COND
+                               ((NULL
+                                 (COND ((OR (NULL |x|) (NULL |y|)) 'NIL)
+                                       ('T 'T)))
+                                (GO G191)))
+                              (SEQ
+                               (EXIT
+                                (COND
+                                 ((SPADCALL (QCAR |x|) (QCAR |y|)
+                                            (QREFELT $ 46))
+                                  (PROGN
+                                   (LETT #1# 'NIL . #3=(|ILIST;=;2$B;22|))
+                                   (GO #1#)))
+                                 ('T
+                                  (SEQ (LETT |x| (QCDR |x|) . #3#)
+                                       (EXIT (LETT |y| (QCDR |y|) . #3#)))))))
+                              NIL (GO G190) G191 (EXIT NIL))
+                         (EXIT (COND ((NULL |x|) (NULL |y|)) (#2# 'NIL)))))))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |ILIST;hashUpdate!;Hs$Hs;25| (|s| |x| $)
-  (SEQ
-   (SEQ G190 (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+(SDEFUN |ILIST;member?;S$B;23| ((|s| S) (|x| $) ($ |Boolean|))
+        (SPROG ((#1=#:G1034 NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (SEQ G190
+                       (COND
+                        ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL |s| (QCAR |x|) (QREFELT $ 48))
+                           (PROGN
+                            (LETT #1# 'T . #2=(|ILIST;member?;S$B;23|))
+                            (GO #1#)))
+                          ('T (LETT |x| (QCDR |x|) . #2#)))))
+                       NIL (GO G190) G191 (EXIT NIL))
+                  (EXIT 'NIL)))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |ILIST;latex;$S;24| ((|x| $) ($ |String|))
+        (SPROG ((|s| (|String|)))
+               (SEQ (LETT |s| "\\left[" . #1=(|ILIST;latex;$S;24|))
+                    (SEQ G190
+                         (COND
+                          ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+                         (SEQ
+                          (LETT |s|
+                                (STRCONC |s|
+                                         (SPADCALL (QCAR |x|) (QREFELT $ 51)))
+                                . #1#)
+                          (LETT |x| (QCDR |x|) . #1#)
+                          (EXIT
+                           (COND
+                            ((NULL (NULL |x|))
+                             (LETT |s| (STRCONC |s| ", ") . #1#)))))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT (STRCONC |s| " \\right]"))))) 
+
+(SDEFUN |ILIST;hashUpdate!;Hs$Hs;25|
+        ((|s| |HashState|) (|x| $) ($ |HashState|))
         (SEQ
-         (LETT |s| (SPADCALL |s| (QCAR |x|) (QREFELT $ 54))
-               . #1=(|ILIST;hashUpdate!;Hs$Hs;25|))
-         (EXIT (LETT |x| (QCDR |x|) . #1#)))
-        NIL (GO G190) G191 (EXIT NIL))
-   (EXIT |s|))) 
-
-(DEFUN |ILIST;concat!;3$;26| (|x| |y| $)
-  (PROG (|z|)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL |x|)
-        (COND ((NULL |y|) |x|)
-              (#1='T
-               (SEQ (PUSH (SPADCALL |y| (QREFELT $ 13)) |x|)
-                    (QRPLACD |x| (SPADCALL |y| (QREFELT $ 18))) (EXIT |x|)))))
-       (#1#
-        (SEQ (LETT |z| |x| . #2=(|ILIST;concat!;3$;26|))
-             (SEQ G190
-                  (COND
-                   ((NULL (COND ((NULL (QCDR |z|)) 'NIL) ('T 'T))) (GO G191)))
-                  (SEQ (EXIT (LETT |z| (QCDR |z|) . #2#))) NIL (GO G190) G191
-                  (EXIT NIL))
-             (QRPLACD |z| |y|) (EXIT |x|)))))))) 
-
-(DEFUN |ILIST;removeDuplicates!;2$;27| (|l| $)
-  (PROG (|pp| |pr| |p| |f|)
-    (RETURN
-     (SEQ (LETT |p| |l| . #1=(|ILIST;removeDuplicates!;2$;27|))
-          (SEQ G190 (COND ((NULL (COND ((NULL |p|) 'NIL) ('T 'T))) (GO G191)))
-               (SEQ (LETT |pp| |p| . #1#) (LETT |f| (QCAR |p|) . #1#)
-                    (LETT |p| (QCDR |p|) . #1#)
-                    (EXIT
-                     (SEQ G190
-                          (COND
-                           ((NULL
-                             (COND ((NULL (LETT |pr| (QCDR |pp|) . #1#)) 'NIL)
-                                   ('T 'T)))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (COND
-                             ((SPADCALL (QCAR |pr|) |f| (QREFELT $ 48))
-                              (QRPLACD |pp| (QCDR |pr|)))
-                             ('T (LETT |pp| |pr| . #1#)))))
-                          NIL (GO G190) G191 (EXIT NIL))))
-               NIL (GO G190) G191 (EXIT NIL))
-          (EXIT |l|))))) 
-
-(DEFUN |ILIST;sort!;M2$;28| (|f| |l| $)
-  (|ILIST;mergeSort| |f| |l| (SPADCALL |l| (QREFELT $ 9)) $)) 
-
-(DEFUN |ILIST;merge!;M3$;29| (|f| |p| |q| $)
-  (PROG (|t| |r|)
-    (RETURN
-     (SEQ
-      (COND ((NULL |p|) |q|) ((NULL |q|) |p|)
-            ((EQ |p| |q|) (|error| "cannot merge a list into itself"))
-            (#1='T
-             (SEQ
-              (COND
-               ((SPADCALL (QCAR |p|) (QCAR |q|) |f|)
-                (SEQ
-                 (LETT |r| (LETT |t| |p| . #2=(|ILIST;merge!;M3$;29|)) . #2#)
-                 (EXIT (LETT |p| (QCDR |p|) . #2#))))
-               (#1#
-                (SEQ (LETT |r| (LETT |t| |q| . #2#) . #2#)
-                     (EXIT (LETT |q| (QCDR |q|) . #2#)))))
-              (SEQ G190
-                   (COND
-                    ((NULL (COND ((OR (NULL |p|) (NULL |q|)) 'NIL) ('T 'T)))
-                     (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (COND
-                      ((SPADCALL (QCAR |p|) (QCAR |q|) |f|)
-                       (SEQ (QRPLACD |t| |p|) (LETT |t| |p| . #2#)
-                            (EXIT (LETT |p| (QCDR |p|) . #2#))))
-                      ('T
-                       (SEQ (QRPLACD |t| |q|) (LETT |t| |q| . #2#)
-                            (EXIT (LETT |q| (QCDR |q|) . #2#)))))))
-                   NIL (GO G190) G191 (EXIT NIL))
-              (QRPLACD |t| (COND ((NULL |p|) |q|) (#1# |p|))) (EXIT |r|)))))))) 
-
-(DEFUN |ILIST;split!;$I$;30| (|p| |n| $)
-  (PROG (|q| #1=#:G1080)
-    (RETURN
-     (SEQ
-      (COND ((< |n| 1) (|error| "index out of range"))
-            ('T
-             (SEQ
-              (LETT |p|
-                    (SPADCALL |p|
-                              (PROG1
-                                  (LETT #1# (- |n| 1)
-                                        . #2=(|ILIST;split!;$I$;30|))
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
-                              (QREFELT $ 32))
-                    . #2#)
-              (LETT |q| (QCDR |p|) . #2#) (QRPLACD |p| NIL) (EXIT |q|)))))))) 
-
-(DEFUN |ILIST;mergeSort| (|f| |p| |n| $)
-  (PROG (|q| |l| #1=#:G1084)
-    (RETURN
-     (SEQ
-      (COND
-       ((EQL |n| 2)
-        (COND
-         ((SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 18)) (QREFELT $ 13))
-                    (SPADCALL |p| (QREFELT $ 13)) |f|)
-          (LETT |p| (SPADCALL |p| (QREFELT $ 28)) . #2=(|ILIST;mergeSort|))))))
-      (EXIT
-       (COND ((< |n| 3) |p|)
-             ('T
+         (SEQ G190 (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
               (SEQ
-               (LETT |l|
-                     (PROG1 (LETT #1# (QUOTIENT2 |n| 2) . #2#)
-                       (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                        #1#))
-                     . #2#)
-               (LETT |q| (SPADCALL |p| |l| (QREFELT $ 61)) . #2#)
-               (LETT |p| (|ILIST;mergeSort| |f| |p| |l| $) . #2#)
-               (LETT |q| (|ILIST;mergeSort| |f| |q| (- |n| |l|) $) . #2#)
-               (EXIT (SPADCALL |f| |p| |q| (QREFELT $ 60))))))))))) 
+               (LETT |s| (SPADCALL |s| (QCAR |x|) (QREFELT $ 54))
+                     . #1=(|ILIST;hashUpdate!;Hs$Hs;25|))
+               (EXIT (LETT |x| (QCDR |x|) . #1#)))
+              NIL (GO G190) G191 (EXIT NIL))
+         (EXIT |s|))) 
+
+(SDEFUN |ILIST;concat!;3$;26| ((|x| $) (|y| $) ($ $))
+        (SPROG ((|z| ($)))
+               (SEQ
+                (COND
+                 ((NULL |x|)
+                  (COND ((NULL |y|) |x|)
+                        (#1='T
+                         (SEQ (PUSH (SPADCALL |y| (QREFELT $ 13)) |x|)
+                              (QRPLACD |x| (SPADCALL |y| (QREFELT $ 18)))
+                              (EXIT |x|)))))
+                 (#1#
+                  (SEQ (LETT |z| |x| . #2=(|ILIST;concat!;3$;26|))
+                       (SEQ G190
+                            (COND
+                             ((NULL (COND ((NULL (QCDR |z|)) 'NIL) ('T 'T)))
+                              (GO G191)))
+                            (SEQ (EXIT (LETT |z| (QCDR |z|) . #2#))) NIL
+                            (GO G190) G191 (EXIT NIL))
+                       (QRPLACD |z| |y|) (EXIT |x|))))))) 
+
+(SDEFUN |ILIST;removeDuplicates!;2$;27| ((|l| $) ($ $))
+        (SPROG ((|pp| ($)) (|pr| NIL) (|p| ($)) (|f| (S)))
+               (SEQ (LETT |p| |l| . #1=(|ILIST;removeDuplicates!;2$;27|))
+                    (SEQ G190
+                         (COND
+                          ((NULL (COND ((NULL |p|) 'NIL) ('T 'T))) (GO G191)))
+                         (SEQ (LETT |pp| |p| . #1#) (LETT |f| (QCAR |p|) . #1#)
+                              (LETT |p| (QCDR |p|) . #1#)
+                              (EXIT
+                               (SEQ G190
+                                    (COND
+                                     ((NULL
+                                       (COND
+                                        ((NULL (LETT |pr| (QCDR |pp|) . #1#))
+                                         'NIL)
+                                        ('T 'T)))
+                                      (GO G191)))
+                                    (SEQ
+                                     (EXIT
+                                      (COND
+                                       ((SPADCALL (QCAR |pr|) |f|
+                                                  (QREFELT $ 48))
+                                        (QRPLACD |pp| (QCDR |pr|)))
+                                       ('T (LETT |pp| |pr| . #1#)))))
+                                    NIL (GO G190) G191 (EXIT NIL))))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |l|)))) 
+
+(SDEFUN |ILIST;sort!;M2$;28| ((|f| |Mapping| (|Boolean|) S S) (|l| $) ($ $))
+        (|ILIST;mergeSort| |f| |l| (SPADCALL |l| (QREFELT $ 9)) $)) 
+
+(SDEFUN |ILIST;merge!;M3$;29|
+        ((|f| |Mapping| (|Boolean|) S S) (|p| $) (|q| $) ($ $))
+        (SPROG ((|t| ($)) (|r| ($)))
+               (SEQ
+                (COND ((NULL |p|) |q|) ((NULL |q|) |p|)
+                      ((EQ |p| |q|)
+                       (|error| "cannot merge a list into itself"))
+                      (#1='T
+                       (SEQ
+                        (COND
+                         ((SPADCALL (QCAR |p|) (QCAR |q|) |f|)
+                          (SEQ
+                           (LETT |r|
+                                 (LETT |t| |p| . #2=(|ILIST;merge!;M3$;29|))
+                                 . #2#)
+                           (EXIT (LETT |p| (QCDR |p|) . #2#))))
+                         (#1#
+                          (SEQ (LETT |r| (LETT |t| |q| . #2#) . #2#)
+                               (EXIT (LETT |q| (QCDR |q|) . #2#)))))
+                        (SEQ G190
+                             (COND
+                              ((NULL
+                                (COND ((OR (NULL |p|) (NULL |q|)) 'NIL)
+                                      ('T 'T)))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (COND
+                                ((SPADCALL (QCAR |p|) (QCAR |q|) |f|)
+                                 (SEQ (QRPLACD |t| |p|) (LETT |t| |p| . #2#)
+                                      (EXIT (LETT |p| (QCDR |p|) . #2#))))
+                                ('T
+                                 (SEQ (QRPLACD |t| |q|) (LETT |t| |q| . #2#)
+                                      (EXIT (LETT |q| (QCDR |q|) . #2#)))))))
+                             NIL (GO G190) G191 (EXIT NIL))
+                        (QRPLACD |t| (COND ((NULL |p|) |q|) (#1# |p|)))
+                        (EXIT |r|))))))) 
+
+(SDEFUN |ILIST;split!;$I$;30| ((|p| $) (|n| |Integer|) ($ $))
+        (SPROG ((|q| NIL) (#1=#:G1080 NIL))
+               (SEQ
+                (COND ((< |n| 1) (|error| "index out of range"))
+                      ('T
+                       (SEQ
+                        (LETT |p|
+                              (SPADCALL |p|
+                                        (PROG1
+                                            (LETT #1# (- |n| 1)
+                                                  . #2=(|ILIST;split!;$I$;30|))
+                                          (|check_subtype| (>= #1# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           #1#))
+                                        (QREFELT $ 32))
+                              . #2#)
+                        (LETT |q| (QCDR |p|) . #2#) (QRPLACD |p| NIL)
+                        (EXIT |q|))))))) 
+
+(SDEFUN |ILIST;mergeSort|
+        ((|f| |Mapping| (|Boolean|) S S) (|p| $) (|n| |Integer|) ($ $))
+        (SPROG ((|q| ($)) (|l| (|NonNegativeInteger|)) (#1=#:G1084 NIL))
+               (SEQ
+                (COND
+                 ((EQL |n| 2)
+                  (COND
+                   ((SPADCALL
+                     (SPADCALL (SPADCALL |p| (QREFELT $ 18)) (QREFELT $ 13))
+                     (SPADCALL |p| (QREFELT $ 13)) |f|)
+                    (LETT |p| (SPADCALL |p| (QREFELT $ 28))
+                          . #2=(|ILIST;mergeSort|))))))
+                (EXIT
+                 (COND ((< |n| 3) |p|)
+                       ('T
+                        (SEQ
+                         (LETT |l|
+                               (PROG1 (LETT #1# (QUOTIENT2 |n| 2) . #2#)
+                                 (|check_subtype| (>= #1# 0)
+                                                  '(|NonNegativeInteger|) #1#))
+                               . #2#)
+                         (LETT |q| (SPADCALL |p| |l| (QREFELT $ 61)) . #2#)
+                         (LETT |p| (|ILIST;mergeSort| |f| |p| |l| $) . #2#)
+                         (LETT |q| (|ILIST;mergeSort| |f| |q| (- |n| |l|) $)
+                               . #2#)
+                         (EXIT (SPADCALL |f| |p| |q| (QREFELT $ 60)))))))))) 
 
 (DECLAIM (NOTINLINE |IndexedList;|)) 
 
 (DEFUN |IndexedList| (&REST #1=#:G1105)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G1106)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|IndexedList|)
-                                           '|domainEqualList|)
-                . #3=(|IndexedList|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |IndexedList;|) #1#)
-                (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|IndexedList|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G1106)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedList|)
+                                               '|domainEqualList|)
+                    . #3=(|IndexedList|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |IndexedList;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|IndexedList|)))))))))) 
 
 (DEFUN |IndexedList;| (|#1| |#2|)
-  (PROG (#1=#:G1103 #2=#:G1104 |pv$| #3=#:G1100 #4=#:G1101 $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedList|))
-      (LETT DV$2 (|devaluate| |#2|) . #5#)
-      (LETT |dv$| (LIST '|IndexedList| DV$1 DV$2) . #5#)
-      (LETT $ (GETREFV 75) . #5#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
+  (SPROG
+   ((#1=#:G1103 NIL) (#2=#:G1104 NIL) (|pv$| NIL) (#3=#:G1100 NIL)
+    (#4=#:G1101 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedList|))
+    (LETT DV$2 (|devaluate| |#2|) . #5#)
+    (LETT |dv$| (LIST '|IndexedList| DV$1 DV$2) . #5#)
+    (LETT $ (GETREFV 75) . #5#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|ConvertibleTo|
+                                                         (|InputForm|)))
+                                        (|HasCategory| |#1| '(|OrderedSet|))
+                                        (|HasCategory| |#1| '(|BasicType|))
+                                        (LETT #4#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #5#)
+                                        (OR (|HasCategory| |#1| '(|BasicType|))
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedSet|))
+                                            #4#)
+                                        (OR
+                                         (|HasCategory| |#1| '(|OrderedSet|))
+                                         #4#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
+                                                              (|devaluate|
+                                                               |#1|)))
+                                         #4#)
+                                        (OR
+                                         (AND
                                           (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (|HasCategory| |#1| '(|OrderedSet|))
-                                          (|HasCategory| |#1| '(|BasicType|))
-                                          (LETT #4#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #5#)
-                                          (OR
-                                           (|HasCategory| |#1| '(|BasicType|))
-                                           (|HasCategory| |#1| '(|OrderedSet|))
-                                           #4#)
-                                          (OR
-                                           (|HasCategory| |#1| '(|OrderedSet|))
-                                           #4#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #4#)
-                                          (OR
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            (|HasCategory| |#1|
-                                                           '(|OrderedSet|)))
-                                           (AND
-                                            (|HasCategory| |#1|
-                                                           (LIST '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#1|)))
-                                            #4#))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                . #5#)
-                                          (OR #3#
-                                              (AND
-                                               (|HasCategory| |#1|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#1|)))
-                                               #4#))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))))
-                      . #5#))
-      (|haddProp| |$ConstructorCache| '|IndexedList| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 2048))
-      (AND
-       (LETT #2#
-             (AND (|HasCategory| |#1| '(|BasicType|))
-                  (|HasCategory| $ '(|finiteAggregate|)))
-             . #5#)
-       (|augmentPredVector| $ 4096))
-      (AND (OR #2# #4#) (|augmentPredVector| $ 8192))
-      (AND #4# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 16384))
-      (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)) . #5#)
-           (|augmentPredVector| $ 32768))
-      (AND (|HasCategory| |#1| '(|OrderedSet|)) #1#
-           (|augmentPredVector| $ 65536))
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 9)
-        (QSETREFV $ 45 (CONS (|dispatchFunction| |ILIST;coerce;$Of;21|) $))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 47 (CONS (|dispatchFunction| |ILIST;=;2$B;22|) $))
-         (QSETREFV $ 49
-                   (CONS (|dispatchFunction| |ILIST;member?;S$B;23|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 4)
-        (PROGN
-         (QSETREFV $ 52 (CONS (|dispatchFunction| |ILIST;latex;$S;24|) $))
-         (QSETREFV $ 55
-                   (CONS (|dispatchFunction| |ILIST;hashUpdate!;Hs$Hs;25|)
-                         $)))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (QSETREFV $ 57
-                  (CONS (|dispatchFunction| |ILIST;removeDuplicates!;2$;27|)
-                        $))))
-      $)))) 
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          (|HasCategory| |#1| '(|OrderedSet|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
+                                          #4#))
+                                        (LETT #3#
+                                              (|HasCategory| |#1|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              . #5#)
+                                        (OR #3#
+                                            (AND
+                                             (|HasCategory| |#1|
+                                                            (LIST '|Evalable|
+                                                                  (|devaluate|
+                                                                   |#1|)))
+                                             #4#))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|OrderedSet|))))
+                    . #5#))
+    (|haddProp| |$ConstructorCache| '|IndexedList| (LIST DV$1 DV$2) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 2048))
+    (AND
+     (LETT #2#
+           (AND (|HasCategory| |#1| '(|BasicType|))
+                (|HasCategory| $ '(|finiteAggregate|)))
+           . #5#)
+     (|augmentPredVector| $ 4096))
+    (AND (OR #2# #4#) (|augmentPredVector| $ 8192))
+    (AND #4# (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 16384))
+    (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)) . #5#)
+         (|augmentPredVector| $ 32768))
+    (AND (|HasCategory| |#1| '(|OrderedSet|)) #1#
+         (|augmentPredVector| $ 65536))
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|testBitVector| |pv$| 9)
+      (QSETREFV $ 45 (CONS (|dispatchFunction| |ILIST;coerce;$Of;21|) $))))
+    (COND
+     ((|testBitVector| |pv$| 3)
+      (PROGN
+       (QSETREFV $ 47 (CONS (|dispatchFunction| |ILIST;=;2$B;22|) $))
+       (QSETREFV $ 49 (CONS (|dispatchFunction| |ILIST;member?;S$B;23|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 4)
+      (PROGN
+       (QSETREFV $ 52 (CONS (|dispatchFunction| |ILIST;latex;$S;24|) $))
+       (QSETREFV $ 55
+                 (CONS (|dispatchFunction| |ILIST;hashUpdate!;Hs$Hs;25|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 3)
+      (QSETREFV $ 57
+                (CONS (|dispatchFunction| |ILIST;removeDuplicates!;2$;27|)
+                      $))))
+    $))) 
 
 (MAKEPROP '|IndexedList| '|infovec|
           (LIST

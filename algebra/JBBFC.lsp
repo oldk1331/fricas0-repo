@@ -20,17 +20,18 @@
       #2#)))) 
 
 (DEFUN |JetBundleBaseFunctionCategory;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|JetBundleBaseFunctionCategory;CAT|)
-                                ('T
-                                 (LETT |JetBundleBaseFunctionCategory;CAT|
-                                       (|Join|
-                                        (|JetBundleFunctionCategory| '|t#1|))
-                                       . #2=(|JetBundleBaseFunctionCategory|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|JetBundleBaseFunctionCategory| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|JetBundleBaseFunctionCategory;CAT|)
+                                    ('T
+                                     (LETT |JetBundleBaseFunctionCategory;CAT|
+                                           (|Join|
+                                            (|JetBundleFunctionCategory|
+                                             '|t#1|))
+                                           . #2=(|JetBundleBaseFunctionCategory|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|JetBundleBaseFunctionCategory|
+                         (|devaluate| |t#1|)))))) 

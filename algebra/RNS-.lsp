@@ -1,104 +1,107 @@
 
 (PUT '|RNS-;characteristic;Nni;1| '|SPADreplace| '(XLAM NIL 0)) 
 
-(DEFUN |RNS-;characteristic;Nni;1| ($) 0) 
+(SDEFUN |RNS-;characteristic;Nni;1| (($ |NonNegativeInteger|)) 0) 
 
-(DEFUN |RNS-;fractionPart;2S;2| (|x| $)
-  (SPADCALL |x| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 10))) 
+(SDEFUN |RNS-;fractionPart;2S;2| ((|x| S) ($ S))
+        (SPADCALL |x| (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 10))) 
 
-(DEFUN |RNS-;truncate;2S;3| (|x| $)
-  (COND
-   ((SPADCALL |x| (QREFELT $ 13))
-    (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 15))
-              (QREFELT $ 14)))
-   ('T (SPADCALL |x| (QREFELT $ 15))))) 
+(SDEFUN |RNS-;truncate;2S;3| ((|x| S) ($ S))
+        (COND
+         ((SPADCALL |x| (QREFELT $ 13))
+          (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 15))
+                    (QREFELT $ 14)))
+         ('T (SPADCALL |x| (QREFELT $ 15))))) 
 
-(DEFUN |RNS-;round;2S;4| (|x| $)
-  (COND
-   ((SPADCALL |x| (QREFELT $ 13))
-    (SPADCALL
-     (SPADCALL |x|
-               (SPADCALL (|spadConstant| $ 17) (SPADCALL 2 (QREFELT $ 19))
-                         (QREFELT $ 20))
-               (QREFELT $ 10))
-     (QREFELT $ 9)))
-   ('T
-    (SPADCALL
-     (SPADCALL |x|
-               (SPADCALL (|spadConstant| $ 17) (SPADCALL 2 (QREFELT $ 19))
-                         (QREFELT $ 20))
-               (QREFELT $ 21))
-     (QREFELT $ 9))))) 
+(SDEFUN |RNS-;round;2S;4| ((|x| S) ($ S))
+        (COND
+         ((SPADCALL |x| (QREFELT $ 13))
+          (SPADCALL
+           (SPADCALL |x|
+                     (SPADCALL (|spadConstant| $ 17)
+                               (SPADCALL 2 (QREFELT $ 19)) (QREFELT $ 20))
+                     (QREFELT $ 10))
+           (QREFELT $ 9)))
+         ('T
+          (SPADCALL
+           (SPADCALL |x|
+                     (SPADCALL (|spadConstant| $ 17)
+                               (SPADCALL 2 (QREFELT $ 19)) (QREFELT $ 20))
+                     (QREFELT $ 21))
+           (QREFELT $ 9))))) 
 
-(DEFUN |RNS-;norm;2S;5| (|x| $) (SPADCALL |x| (QREFELT $ 23))) 
+(SDEFUN |RNS-;norm;2S;5| ((|x| S) ($ S)) (SPADCALL |x| (QREFELT $ 23))) 
 
-(DEFUN |RNS-;coerce;FS;6| (|x| $)
-  (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 19))
-            (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 19))
-            (QREFELT $ 20))) 
+(SDEFUN |RNS-;coerce;FS;6| ((|x| |Fraction| (|Integer|)) ($ S))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 19))
+                  (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 19))
+                  (QREFELT $ 20))) 
 
-(DEFUN |RNS-;convert;SP;7| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QREFELT $ 32))) 
+(SDEFUN |RNS-;convert;SP;7| ((|x| S) ($ |Pattern| (|Float|)))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QREFELT $ 32))) 
 
-(DEFUN |RNS-;floor;2S;8| (|x| $)
-  (PROG (|x1|)
-    (RETURN
-     (SEQ
-      (LETT |x1| (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 19))
-            |RNS-;floor;2S;8|)
-      (EXIT
-       (COND ((SPADCALL |x| |x1| (QREFELT $ 35)) |x|)
-             ((SPADCALL |x| (|spadConstant| $ 36) (QREFELT $ 37))
-              (SPADCALL |x1| (|spadConstant| $ 17) (QREFELT $ 10)))
-             ('T |x1|))))))) 
+(SDEFUN |RNS-;floor;2S;8| ((|x| S) ($ S))
+        (SPROG ((|x1| (S)))
+               (SEQ
+                (LETT |x1|
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 19))
+                      |RNS-;floor;2S;8|)
+                (EXIT
+                 (COND ((SPADCALL |x| |x1| (QREFELT $ 35)) |x|)
+                       ((SPADCALL |x| (|spadConstant| $ 36) (QREFELT $ 37))
+                        (SPADCALL |x1| (|spadConstant| $ 17) (QREFELT $ 10)))
+                       ('T |x1|)))))) 
 
-(DEFUN |RNS-;ceiling;2S;9| (|x| $)
-  (PROG (|x1|)
-    (RETURN
-     (SEQ
-      (LETT |x1| (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 19))
-            |RNS-;ceiling;2S;9|)
-      (EXIT
-       (COND ((SPADCALL |x| |x1| (QREFELT $ 35)) |x|)
-             ((SPADCALL |x| (|spadConstant| $ 36) (QREFELT $ 39))
-              (SPADCALL |x1| (|spadConstant| $ 17) (QREFELT $ 21)))
-             ('T |x1|))))))) 
+(SDEFUN |RNS-;ceiling;2S;9| ((|x| S) ($ S))
+        (SPROG ((|x1| (S)))
+               (SEQ
+                (LETT |x1|
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 19))
+                      |RNS-;ceiling;2S;9|)
+                (EXIT
+                 (COND ((SPADCALL |x| |x1| (QREFELT $ 35)) |x|)
+                       ((SPADCALL |x| (|spadConstant| $ 36) (QREFELT $ 39))
+                        (SPADCALL |x1| (|spadConstant| $ 17) (QREFELT $ 21)))
+                       ('T |x1|)))))) 
 
-(DEFUN |RNS-;patternMatch;SP2Pmr;10| (|x| |p| |l| $)
-  (PROG (|r|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |p| (QREFELT $ 41)) (SPADCALL |p| |x| |l| (QREFELT $ 43)))
-       ((SPADCALL |p| (QREFELT $ 44))
-        (SEQ
-         (LETT |r| (SPADCALL |p| (QREFELT $ 46)) |RNS-;patternMatch;SP2Pmr;10|)
-         (EXIT
-          (COND
-           ((QEQCAR |r| 0)
-            (COND
-             ((SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QCDR |r|)
-                        (QREFELT $ 47))
-              |l|)
-             (#1='T (SPADCALL (QREFELT $ 48)))))
-           (#1# (SPADCALL (QREFELT $ 48)))))))
-       (#1# (SPADCALL (QREFELT $ 48)))))))) 
+(SDEFUN |RNS-;patternMatch;SP2Pmr;10|
+        ((|x| S) (|p| |Pattern| (|Float|))
+         (|l| |PatternMatchResult| (|Float|) S)
+         ($ |PatternMatchResult| (|Float|) S))
+        (SPROG ((|r| (|Union| (|Float|) "failed")))
+               (SEQ
+                (COND
+                 ((SPADCALL |p| (QREFELT $ 41))
+                  (SPADCALL |p| |x| |l| (QREFELT $ 43)))
+                 ((SPADCALL |p| (QREFELT $ 44))
+                  (SEQ
+                   (LETT |r| (SPADCALL |p| (QREFELT $ 46))
+                         |RNS-;patternMatch;SP2Pmr;10|)
+                   (EXIT
+                    (COND
+                     ((QEQCAR |r| 0)
+                      (COND
+                       ((SPADCALL (SPADCALL |x| (QREFELT $ 30)) (QCDR |r|)
+                                  (QREFELT $ 47))
+                        |l|)
+                       (#1='T (SPADCALL (QREFELT $ 48)))))
+                     (#1# (SPADCALL (QREFELT $ 48)))))))
+                 (#1# (SPADCALL (QREFELT $ 48))))))) 
 
 (DECLAIM (NOTINLINE |RealNumberSystem&;|)) 
 
 (DEFUN |RealNumberSystem&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|RealNumberSystem&|))
-      (LETT |dv$| (LIST '|RealNumberSystem&| DV$1) . #1#)
-      (LETT $ (GETREFV 53) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|RealNumberSystem&|))
+          (LETT |dv$| (LIST '|RealNumberSystem&| DV$1) . #1#)
+          (LETT $ (GETREFV 53) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RealNumberSystem&| '|infovec|
           (LIST

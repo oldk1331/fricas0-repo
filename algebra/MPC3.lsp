@@ -1,8 +1,11 @@
 
-(DEFUN |MPC3;map;MPR1PR2;1| (|f| |p| $)
-  (PROG (|up| |ans| |x2| |c| |x1|)
-    (RETURN
-     (SEQ (LETT |x1| (SPADCALL |p| (QREFELT $ 14)) . #1=(|MPC3;map;MPR1PR2;1|))
+(SDEFUN |MPC3;map;MPR1PR2;1|
+        ((|f| |Mapping| |Vars2| |Vars1|) (|p| PR1) ($ PR2))
+        (SPROG
+         ((|up| (|SparseUnivariatePolynomial| PR1)) (|ans| (PR2))
+          (|x2| (|Vars2|)) (|c| (R)) (|x1| (|Union| |Vars1| "failed")))
+         (SEQ
+          (LETT |x1| (SPADCALL |p| (QREFELT $ 14)) . #1=(|MPC3;map;MPR1PR2;1|))
           (EXIT
            (COND
             ((QEQCAR |x1| 1)
@@ -32,60 +35,59 @@
                         (EXIT
                          (LETT |up| (SPADCALL |up| (QREFELT $ 33)) . #1#)))
                        NIL (GO G190) G191 (EXIT NIL))
-                  (EXIT |ans|))))))))) 
+                  (EXIT |ans|)))))))) 
 
 (DECLAIM (NOTINLINE |MPolyCatFunctions3;|)) 
 
 (DEFUN |MPolyCatFunctions3| (&REST #1=#:G114)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G115)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|MPolyCatFunctions3|)
-                                           '|domainEqualList|)
-                . #3=(|MPolyCatFunctions3|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |MPolyCatFunctions3;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G115)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|MPolyCatFunctions3|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|MPolyCatFunctions3|)
+                                               '|domainEqualList|)
+                    . #3=(|MPolyCatFunctions3|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |MPolyCatFunctions3;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|MPolyCatFunctions3|)))))))))) 
 
 (DEFUN |MPolyCatFunctions3;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7|)
-  (PROG (|pv$| $ |dv$| DV$7 DV$6 DV$5 DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|MPolyCatFunctions3|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT DV$5 (|devaluate| |#5|) . #1#)
-      (LETT DV$6 (|devaluate| |#6|) . #1#)
-      (LETT DV$7 (|devaluate| |#7|) . #1#)
-      (LETT |dv$|
-            (LIST '|MPolyCatFunctions3| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7)
-            . #1#)
-      (LETT $ (GETREFV 34) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|MPolyCatFunctions3|
-                  (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (QSETREFV $ 10 |#5|)
-      (QSETREFV $ 11 |#6|)
-      (QSETREFV $ 12 |#7|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL)
+    (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|MPolyCatFunctions3|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$5 (|devaluate| |#5|) . #1#)
+    (LETT DV$6 (|devaluate| |#6|) . #1#)
+    (LETT DV$7 (|devaluate| |#7|) . #1#)
+    (LETT |dv$| (LIST '|MPolyCatFunctions3| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7)
+          . #1#)
+    (LETT $ (GETREFV 34) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|MPolyCatFunctions3|
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (QSETREFV $ 10 |#5|)
+    (QSETREFV $ 11 |#6|)
+    (QSETREFV $ 12 |#7|)
+    (SETF |pv$| (QREFELT $ 3))
+    $))) 
 
 (MAKEPROP '|MPolyCatFunctions3| '|infovec|
           (LIST

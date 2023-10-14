@@ -1,279 +1,312 @@
 
-(DEFUN |BRAGG-;elt;AleftA;1| (|x| T3 $) (SPADCALL |x| (QREFELT $ 8))) 
+(SDEFUN |BRAGG-;elt;AleftA;1| ((|x| A) (T3 "left") ($ A))
+        (SPADCALL |x| (QREFELT $ 8))) 
 
-(DEFUN |BRAGG-;elt;ArightA;2| (|x| T4 $) (SPADCALL |x| (QREFELT $ 11))) 
+(SDEFUN |BRAGG-;elt;ArightA;2| ((|x| A) (T4 "right") ($ A))
+        (SPADCALL |x| (QREFELT $ 11))) 
 
-(DEFUN |BRAGG-;leaf?;AB;3| (|x| $)
-  (COND ((SPADCALL |x| (QREFELT $ 15)) 'T)
-        ((SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 15))
-         (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15)))
-        ('T 'NIL))) 
+(SDEFUN |BRAGG-;leaf?;AB;3| ((|x| A) ($ |Boolean|))
+        (COND ((SPADCALL |x| (QREFELT $ 15)) 'T)
+              ((SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 15))
+               (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15)))
+              ('T 'NIL))) 
 
-(DEFUN |BRAGG-;leaves;AL;4| (|t| $)
-  (COND ((SPADCALL |t| (QREFELT $ 15)) NIL)
-        ((SPADCALL |t| (QREFELT $ 17)) (LIST (SPADCALL |t| (QREFELT $ 18))))
-        ('T
-         (SPADCALL (SPADCALL (SPADCALL |t| (QREFELT $ 8)) (QREFELT $ 20))
-                   (SPADCALL (SPADCALL |t| (QREFELT $ 11)) (QREFELT $ 20))
-                   (QREFELT $ 21))))) 
+(SDEFUN |BRAGG-;leaves;AL;4| ((|t| A) ($ |List| S))
+        (COND ((SPADCALL |t| (QREFELT $ 15)) NIL)
+              ((SPADCALL |t| (QREFELT $ 17))
+               (LIST (SPADCALL |t| (QREFELT $ 18))))
+              ('T
+               (SPADCALL (SPADCALL (SPADCALL |t| (QREFELT $ 8)) (QREFELT $ 20))
+                         (SPADCALL (SPADCALL |t| (QREFELT $ 11))
+                                   (QREFELT $ 20))
+                         (QREFELT $ 21))))) 
 
-(DEFUN |BRAGG-;nodes;AL;5| (|x| $)
-  (PROG (|l|)
-    (RETURN
-     (SEQ (LETT |l| NIL |BRAGG-;nodes;AL;5|)
-          (EXIT
-           (COND ((SPADCALL |x| (QREFELT $ 15)) |l|)
-                 ('T
-                  (SPADCALL
-                   (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 24))
-                   (SPADCALL (LIST |x|)
-                             (SPADCALL (SPADCALL |x| (QREFELT $ 11))
+(SDEFUN |BRAGG-;nodes;AL;5| ((|x| A) ($ |List| A))
+        (SPROG ((|l| (|List| A)))
+               (SEQ (LETT |l| NIL |BRAGG-;nodes;AL;5|)
+                    (EXIT
+                     (COND ((SPADCALL |x| (QREFELT $ 15)) |l|)
+                           ('T
+                            (SPADCALL
+                             (SPADCALL (SPADCALL |x| (QREFELT $ 8))
                                        (QREFELT $ 24))
-                             (QREFELT $ 26))
-                   (QREFELT $ 26))))))))) 
+                             (SPADCALL (LIST |x|)
+                                       (SPADCALL (SPADCALL |x| (QREFELT $ 11))
+                                                 (QREFELT $ 24))
+                                       (QREFELT $ 26))
+                             (QREFELT $ 26)))))))) 
 
-(DEFUN |BRAGG-;children;AL;6| (|x| $)
-  (PROG (|l|)
-    (RETURN
-     (SEQ (LETT |l| NIL |BRAGG-;children;AL;6|)
-          (EXIT
-           (COND ((SPADCALL |x| (QREFELT $ 15)) |l|)
-                 ((SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 15))
-                  (LIST (SPADCALL |x| (QREFELT $ 11))))
-                 ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))
-                  (LIST (SPADCALL |x| (QREFELT $ 8))))
-                 ('T
-                  (LIST (SPADCALL |x| (QREFELT $ 8))
-                        (SPADCALL |x| (QREFELT $ 11)))))))))) 
+(SDEFUN |BRAGG-;children;AL;6| ((|x| A) ($ |List| A))
+        (SPROG ((|l| (|List| A)))
+               (SEQ (LETT |l| NIL |BRAGG-;children;AL;6|)
+                    (EXIT
+                     (COND ((SPADCALL |x| (QREFELT $ 15)) |l|)
+                           ((SPADCALL (SPADCALL |x| (QREFELT $ 8))
+                                      (QREFELT $ 15))
+                            (LIST (SPADCALL |x| (QREFELT $ 11))))
+                           ((SPADCALL (SPADCALL |x| (QREFELT $ 11))
+                                      (QREFELT $ 15))
+                            (LIST (SPADCALL |x| (QREFELT $ 8))))
+                           ('T
+                            (LIST (SPADCALL |x| (QREFELT $ 8))
+                                  (SPADCALL |x| (QREFELT $ 11))))))))) 
 
-(DEFUN |BRAGG-;node?;2AB;7| (|u| |v| $)
-  (PROG (#1=#:G154 #2=#:G157 #3=#:G158 |y|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND ((SPADCALL |v| (QREFELT $ 15)) 'NIL)
-             ((SPADCALL |u| |v| (QREFELT $ 29)) 'T)
-             ('T
-              (SEQ
+(SDEFUN |BRAGG-;node?;2AB;7| ((|u| A) (|v| A) ($ |Boolean|))
+        (SPROG ((#1=#:G154 NIL) (#2=#:G157 NIL) (#3=#:G158 NIL) (|y| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| NIL . #4=(|BRAGG-;node?;2AB;7|))
-                      (LETT #3# (SPADCALL |v| (QREFELT $ 30)) . #4#) G190
-                      (COND
-                       ((OR (ATOM #3#) (PROGN (LETT |y| (CAR #3#) . #4#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (COND
-                         ((SPADCALL |u| |y| (QREFELT $ 31))
-                          (PROGN
-                           (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #2#))
-                                 . #4#)
-                           (GO #1#))))))
-                      (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                #1# (EXIT #1#))
-               (EXIT 'NIL)))))
-      #2# (EXIT #2#))))) 
+                 (COND ((SPADCALL |v| (QREFELT $ 15)) 'NIL)
+                       ((SPADCALL |u| |v| (QREFELT $ 29)) 'T)
+                       ('T
+                        (SEQ
+                         (SEQ
+                          (EXIT
+                           (SEQ (LETT |y| NIL . #4=(|BRAGG-;node?;2AB;7|))
+                                (LETT #3# (SPADCALL |v| (QREFELT $ 30)) . #4#)
+                                G190
+                                (COND
+                                 ((OR (ATOM #3#)
+                                      (PROGN (LETT |y| (CAR #3#) . #4#) NIL))
+                                  (GO G191)))
+                                (SEQ
+                                 (EXIT
+                                  (COND
+                                   ((SPADCALL |u| |y| (QREFELT $ 31))
+                                    (PROGN
+                                     (LETT #1#
+                                           (PROGN (LETT #2# 'T . #4#) (GO #2#))
+                                           . #4#)
+                                     (GO #1#))))))
+                                (LETT #3# (CDR #3#) . #4#) (GO G190) G191
+                                (EXIT NIL)))
+                          #1# (EXIT #1#))
+                         (EXIT 'NIL)))))
+                #2# (EXIT #2#)))) 
 
-(DEFUN |BRAGG-;=;2AB;8| (|x| |y| $)
-  (COND ((SPADCALL |x| (QREFELT $ 15)) (SPADCALL |y| (QREFELT $ 15)))
-        ((OR
-          (OR (SPADCALL |y| (QREFELT $ 15))
-              (NULL
-               (SPADCALL (SPADCALL |x| (QREFELT $ 18))
-                         (SPADCALL |y| (QREFELT $ 18)) (QREFELT $ 33))))
-          (NULL
-           (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (SPADCALL |y| (QREFELT $ 8))
-                     (QREFELT $ 29))))
-         'NIL)
-        ('T
-         (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |y| (QREFELT $ 11))
-                   (QREFELT $ 29))))) 
+(SDEFUN |BRAGG-;=;2AB;8| ((|x| A) (|y| A) ($ |Boolean|))
+        (COND ((SPADCALL |x| (QREFELT $ 15)) (SPADCALL |y| (QREFELT $ 15)))
+              ((OR
+                (OR (SPADCALL |y| (QREFELT $ 15))
+                    (NULL
+                     (SPADCALL (SPADCALL |x| (QREFELT $ 18))
+                               (SPADCALL |y| (QREFELT $ 18)) (QREFELT $ 33))))
+                (NULL
+                 (SPADCALL (SPADCALL |x| (QREFELT $ 8))
+                           (SPADCALL |y| (QREFELT $ 8)) (QREFELT $ 29))))
+               'NIL)
+              ('T
+               (SPADCALL (SPADCALL |x| (QREFELT $ 11))
+                         (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 29))))) 
 
-(DEFUN |BRAGG-;member?;SAB;9| (|x| |u| $)
-  (COND ((SPADCALL |u| (QREFELT $ 15)) 'NIL)
-        ((OR (SPADCALL |x| (SPADCALL |u| (QREFELT $ 18)) (QREFELT $ 33))
-             (SPADCALL |x| (SPADCALL |u| (QREFELT $ 8)) (QREFELT $ 35)))
-         'T)
-        ('T (SPADCALL |x| (SPADCALL |u| (QREFELT $ 11)) (QREFELT $ 35))))) 
+(SDEFUN |BRAGG-;member?;SAB;9| ((|x| S) (|u| A) ($ |Boolean|))
+        (COND ((SPADCALL |u| (QREFELT $ 15)) 'NIL)
+              ((OR (SPADCALL |x| (SPADCALL |u| (QREFELT $ 18)) (QREFELT $ 33))
+                   (SPADCALL |x| (SPADCALL |u| (QREFELT $ 8)) (QREFELT $ 35)))
+               'T)
+              ('T (SPADCALL |x| (SPADCALL |u| (QREFELT $ 11)) (QREFELT $ 35))))) 
 
-(DEFUN |BRAGG-;coerce;AOf;10| (|t| $)
-  (PROG (|r| |l| |v|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |t| (QREFELT $ 15)) "[]")
-            (#1='T
-             (SEQ
-              (LETT |v| (SPADCALL (SPADCALL |t| (QREFELT $ 18)) (QREFELT $ 38))
-                    . #2=(|BRAGG-;coerce;AOf;10|))
-              (EXIT
-               (COND
-                ((SPADCALL (SPADCALL |t| (QREFELT $ 8)) (QREFELT $ 15))
-                 (COND
-                  ((SPADCALL (SPADCALL |t| (QREFELT $ 11)) (QREFELT $ 15)) |v|)
-                  (#1#
-                   (SEQ
-                    (LETT |r|
-                          (SPADCALL (SPADCALL |t| (QREFELT $ 11))
-                                    (QREFELT $ 39))
-                          . #2#)
-                    (EXIT (SPADCALL (LIST "." |v| |r|) (QREFELT $ 40)))))))
-                (#1#
-                 (SEQ
-                  (LETT |l|
-                        (SPADCALL (SPADCALL |t| (QREFELT $ 8)) (QREFELT $ 39))
-                        . #2#)
-                  (LETT |r|
-                        (COND
-                         ((SPADCALL (SPADCALL |t| (QREFELT $ 11))
-                                    (QREFELT $ 15))
-                          ".")
-                         (#1#
-                          (SPADCALL (SPADCALL |t| (QREFELT $ 11))
-                                    (QREFELT $ 39))))
-                        . #2#)
-                  (EXIT (SPADCALL (LIST |l| |v| |r|) (QREFELT $ 40)))))))))))))) 
-
-(DEFUN |BRAGG-;#;ANni;11| (|x| $) (|BRAGG-;aggCount| |x| 0 $)) 
-
-(DEFUN |BRAGG-;aggCount| (|x| |k| $)
-  (PROG (#1=#:G181 |y|)
-    (RETURN
-     (SEQ
-      (COND ((SPADCALL |x| (QREFELT $ 15)) 0)
-            ('T
-             (SEQ (LETT |k| (+ |k| 1) . #2=(|BRAGG-;aggCount|))
-                  (COND
-                   ((EQL |k| 1000)
-                    (COND
-                     ((SPADCALL |x| (QREFELT $ 44))
-                      (EXIT (|error| "cyclic tree"))))))
-                  (SEQ (LETT |y| NIL . #2#)
-                       (LETT #1# (SPADCALL |x| (QREFELT $ 30)) . #2#) G190
-                       (COND
-                        ((OR (ATOM #1#) (PROGN (LETT |y| (CAR #1#) . #2#) NIL))
-                         (GO G191)))
+(SDEFUN |BRAGG-;coerce;AOf;10| ((|t| A) ($ |OutputForm|))
+        (SPROG ((|r| #1=(|OutputForm|)) (|l| #1#) (|v| (|OutputForm|)))
+               (SEQ
+                (COND ((SPADCALL |t| (QREFELT $ 15)) "[]")
+                      (#2='T
                        (SEQ
-                        (EXIT (LETT |k| (|BRAGG-;aggCount| |y| |k| $) . #2#)))
-                       (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-                  (EXIT |k|)))))))) 
+                        (LETT |v|
+                              (SPADCALL (SPADCALL |t| (QREFELT $ 18))
+                                        (QREFELT $ 38))
+                              . #3=(|BRAGG-;coerce;AOf;10|))
+                        (EXIT
+                         (COND
+                          ((SPADCALL (SPADCALL |t| (QREFELT $ 8))
+                                     (QREFELT $ 15))
+                           (COND
+                            ((SPADCALL (SPADCALL |t| (QREFELT $ 11))
+                                       (QREFELT $ 15))
+                             |v|)
+                            (#2#
+                             (SEQ
+                              (LETT |r|
+                                    (SPADCALL (SPADCALL |t| (QREFELT $ 11))
+                                              (QREFELT $ 39))
+                                    . #3#)
+                              (EXIT
+                               (SPADCALL (LIST "." |v| |r|)
+                                         (QREFELT $ 40)))))))
+                          (#2#
+                           (SEQ
+                            (LETT |l|
+                                  (SPADCALL (SPADCALL |t| (QREFELT $ 8))
+                                            (QREFELT $ 39))
+                                  . #3#)
+                            (LETT |r|
+                                  (COND
+                                   ((SPADCALL (SPADCALL |t| (QREFELT $ 11))
+                                              (QREFELT $ 15))
+                                    ".")
+                                   (#2#
+                                    (SPADCALL (SPADCALL |t| (QREFELT $ 11))
+                                              (QREFELT $ 39))))
+                                  . #3#)
+                            (EXIT
+                             (SPADCALL (LIST |l| |v| |r|)
+                                       (QREFELT $ 40))))))))))))) 
 
-(DEFUN |BRAGG-;cyclic?;AB;13| (|x| $)
-  (COND ((SPADCALL |x| (QREFELT $ 15)) 'NIL)
-        ('T (|BRAGG-;isCycle?| |x| NIL $)))) 
+(SDEFUN |BRAGG-;#;ANni;11| ((|x| A) ($ |NonNegativeInteger|))
+        (|BRAGG-;aggCount| |x| 0 $)) 
 
-(DEFUN |BRAGG-;isCycle?| (|x| |acc| $)
-  (PROG (#1=#:G186 #2=#:G190 #3=#:G191 |y|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (COND ((SPADCALL |x| (QREFELT $ 15)) 'NIL)
-             ((|BRAGG-;eqMember?| |x| |acc| $) 'T)
-             (#4='T
-              (SEQ
+(SDEFUN |BRAGG-;aggCount|
+        ((|x| A) (|k| |NonNegativeInteger|) ($ |NonNegativeInteger|))
+        (SPROG ((#1=#:G181 NIL) (|y| NIL))
+               (SEQ
+                (COND ((SPADCALL |x| (QREFELT $ 15)) 0)
+                      ('T
+                       (SEQ (LETT |k| (+ |k| 1) . #2=(|BRAGG-;aggCount|))
+                            (COND
+                             ((EQL |k| 1000)
+                              (COND
+                               ((SPADCALL |x| (QREFELT $ 44))
+                                (EXIT (|error| "cyclic tree"))))))
+                            (SEQ (LETT |y| NIL . #2#)
+                                 (LETT #1# (SPADCALL |x| (QREFELT $ 30)) . #2#)
+                                 G190
+                                 (COND
+                                  ((OR (ATOM #1#)
+                                       (PROGN (LETT |y| (CAR #1#) . #2#) NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT |k| (|BRAGG-;aggCount| |y| |k| $)
+                                         . #2#)))
+                                 (LETT #1# (CDR #1#) . #2#) (GO G190) G191
+                                 (EXIT NIL))
+                            (EXIT |k|))))))) 
+
+(SDEFUN |BRAGG-;cyclic?;AB;13| ((|x| A) ($ |Boolean|))
+        (COND ((SPADCALL |x| (QREFELT $ 15)) 'NIL)
+              ('T (|BRAGG-;isCycle?| |x| NIL $)))) 
+
+(SDEFUN |BRAGG-;isCycle?| ((|x| A) (|acc| |List| A) ($ |Boolean|))
+        (SPROG ((#1=#:G186 NIL) (#2=#:G190 NIL) (#3=#:G191 NIL) (|y| NIL))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |y| NIL . #5=(|BRAGG-;isCycle?|))
-                      (LETT #3# (SPADCALL |x| (QREFELT $ 30)) . #5#) G190
-                      (COND
-                       ((OR (ATOM #3#) (PROGN (LETT |y| (CAR #3#) . #5#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (COND
-                         ((COND ((SPADCALL |y| (QREFELT $ 15)) 'NIL) (#4# 'T))
-                          (COND
-                           ((|BRAGG-;isCycle?| |y| |acc| $)
-                            (PROGN
-                             (LETT #1# (PROGN (LETT #2# 'T . #5#) (GO #2#))
-                                   . #5#)
-                             (GO #1#))))))))
-                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191 (EXIT NIL)))
-                #1# (EXIT #1#))
-               (EXIT 'NIL)))))
-      #2# (EXIT #2#))))) 
+                 (COND ((SPADCALL |x| (QREFELT $ 15)) 'NIL)
+                       ((|BRAGG-;eqMember?| |x| |acc| $) 'T)
+                       (#4='T
+                        (SEQ
+                         (SEQ
+                          (EXIT
+                           (SEQ (LETT |y| NIL . #5=(|BRAGG-;isCycle?|))
+                                (LETT #3# (SPADCALL |x| (QREFELT $ 30)) . #5#)
+                                G190
+                                (COND
+                                 ((OR (ATOM #3#)
+                                      (PROGN (LETT |y| (CAR #3#) . #5#) NIL))
+                                  (GO G191)))
+                                (SEQ
+                                 (EXIT
+                                  (COND
+                                   ((COND ((SPADCALL |y| (QREFELT $ 15)) 'NIL)
+                                          (#4# 'T))
+                                    (COND
+                                     ((|BRAGG-;isCycle?| |y| |acc| $)
+                                      (PROGN
+                                       (LETT #1#
+                                             (PROGN
+                                              (LETT #2# 'T . #5#)
+                                              (GO #2#))
+                                             . #5#)
+                                       (GO #1#))))))))
+                                (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                                (EXIT NIL)))
+                          #1# (EXIT #1#))
+                         (EXIT 'NIL)))))
+                #2# (EXIT #2#)))) 
 
-(DEFUN |BRAGG-;eqMember?| (|y| |l| $)
-  (PROG (#1=#:G193 #2=#:G195 #3=#:G196 |x|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ
-         (EXIT
-          (SEQ (LETT |x| NIL . #4=(|BRAGG-;eqMember?|)) (LETT #3# |l| . #4#)
-               G190
-               (COND
-                ((OR (ATOM #3#) (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
+(SDEFUN |BRAGG-;eqMember?| ((|y| A) (|l| |List| A) ($ |Boolean|))
+        (SPROG ((#1=#:G193 NIL) (#2=#:G195 NIL) (#3=#:G196 NIL) (|x| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((SPADCALL |x| |y| (QREFELT $ 46))
-                   (PROGN
-                    (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #2#)) . #4#)
-                    (GO #1#))))))
-               (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT 'NIL)))
-      #2# (EXIT #2#))))) 
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |x| NIL . #4=(|BRAGG-;eqMember?|))
+                         (LETT #3# |l| . #4#) G190
+                         (COND
+                          ((OR (ATOM #3#)
+                               (PROGN (LETT |x| (CAR #3#) . #4#) NIL))
+                           (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((SPADCALL |x| |y| (QREFELT $ 46))
+                             (PROGN
+                              (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT 'NIL)))
+                #2# (EXIT #2#)))) 
 
-(DEFUN |BRAGG-;setelt;Aleft2A;16| (|x| T5 |b| $)
-  (SPADCALL |x| |b| (QREFELT $ 47))) 
+(SDEFUN |BRAGG-;setelt;Aleft2A;16| ((|x| A) (T5 "left") (|b| A) ($ A))
+        (SPADCALL |x| |b| (QREFELT $ 47))) 
 
-(DEFUN |BRAGG-;setelt;Aright2A;17| (|x| T6 |b| $)
-  (SPADCALL |x| |b| (QREFELT $ 49))) 
+(SDEFUN |BRAGG-;setelt;Aright2A;17| ((|x| A) (T6 "right") (|b| A) ($ A))
+        (SPADCALL |x| |b| (QREFELT $ 49))) 
 
 (DECLAIM (NOTINLINE |BinaryRecursiveAggregate&;|)) 
 
 (DEFUN |BinaryRecursiveAggregate&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|BinaryRecursiveAggregate&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|BinaryRecursiveAggregate&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 52) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|shallowlyMutable|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|HasCategory| |#1| (LIST '|SetAggregate| (|devaluate| |#2|)))
-        (COND
-         ((|HasCategory| |#2| '(|SetCategory|))
-          (PROGN
-           (QSETREFV $ 32 (CONS (|dispatchFunction| |BRAGG-;node?;2AB;7|) $))
-           (QSETREFV $ 34 (CONS (|dispatchFunction| |BRAGG-;=;2AB;8|) $))
-           (COND
-            ((|HasCategory| |#1| '(|finiteAggregate|))
-             (QSETREFV $ 36
-                       (CONS (|dispatchFunction| |BRAGG-;member?;SAB;9|)
-                             $)))))))))
-      (COND
-       ((|HasCategory| |#2| '(|SetCategory|))
-        (QSETREFV $ 41 (CONS (|dispatchFunction| |BRAGG-;coerce;AOf;10|) $))))
-      (COND
-       ((|HasCategory| |#1| '(|finiteAggregate|))
-        (PROGN
-         (QSETREFV $ 43 (CONS (|dispatchFunction| |BRAGG-;#;ANni;11|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 1)
-        (PROGN
-         (QSETREFV $ 48
-                   (CONS (|dispatchFunction| |BRAGG-;setelt;Aleft2A;16|) $))
-         (QSETREFV $ 50
-                   (CONS (|dispatchFunction| |BRAGG-;setelt;Aright2A;17|)
-                         $)))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|BinaryRecursiveAggregate&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|BinaryRecursiveAggregate&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 52) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#1|
+                                                             '(|shallowlyMutable|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|HasCategory| |#1| (LIST '|SetAggregate| (|devaluate| |#2|)))
+            (COND
+             ((|HasCategory| |#2| '(|SetCategory|))
+              (PROGN
+               (QSETREFV $ 32
+                         (CONS (|dispatchFunction| |BRAGG-;node?;2AB;7|) $))
+               (QSETREFV $ 34 (CONS (|dispatchFunction| |BRAGG-;=;2AB;8|) $))
+               (COND
+                ((|HasCategory| |#1| '(|finiteAggregate|))
+                 (QSETREFV $ 36
+                           (CONS (|dispatchFunction| |BRAGG-;member?;SAB;9|)
+                                 $)))))))))
+          (COND
+           ((|HasCategory| |#2| '(|SetCategory|))
+            (QSETREFV $ 41
+                      (CONS (|dispatchFunction| |BRAGG-;coerce;AOf;10|) $))))
+          (COND
+           ((|HasCategory| |#1| '(|finiteAggregate|))
+            (PROGN
+             (QSETREFV $ 43
+                       (CONS (|dispatchFunction| |BRAGG-;#;ANni;11|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (PROGN
+             (QSETREFV $ 48
+                       (CONS (|dispatchFunction| |BRAGG-;setelt;Aleft2A;16|)
+                             $))
+             (QSETREFV $ 50
+                       (CONS (|dispatchFunction| |BRAGG-;setelt;Aright2A;17|)
+                             $)))))
+          $))) 
 
 (MAKEPROP '|BinaryRecursiveAggregate&| '|infovec|
           (LIST

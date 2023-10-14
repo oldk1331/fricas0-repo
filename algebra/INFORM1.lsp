@@ -1,69 +1,70 @@
 
-(DEFUN |INFORM1;getType;If;1| ($) (QREFELT $ 7)) 
+(SDEFUN |INFORM1;getType;If;1| (($ |InputForm|)) (QREFELT $ 7)) 
 
-(DEFUN |INFORM1;packageCall;SIf;2| (|name| $)
-  (SPADCALL
-   (LIST (SPADCALL '|$elt| (QREFELT $ 11)) (QREFELT $ 7)
-         (SPADCALL |name| (QREFELT $ 11)))
-   (QREFELT $ 13))) 
+(SDEFUN |INFORM1;packageCall;SIf;2| ((|name| |Symbol|) ($ |InputForm|))
+        (SPADCALL
+         (LIST (SPADCALL '|$elt| (QREFELT $ 11)) (QREFELT $ 7)
+               (SPADCALL |name| (QREFELT $ 11)))
+         (QREFELT $ 13))) 
 
-(DEFUN |INFORM1;packageCall;SLIf;3| (|name| |args| $)
-  (SPADCALL (CONS (SPADCALL |name| (QREFELT $ 14)) |args|) (QREFELT $ 13))) 
+(SDEFUN |INFORM1;packageCall;SLIf;3|
+        ((|name| |Symbol|) (|args| |List| (|InputForm|)) ($ |InputForm|))
+        (SPADCALL (CONS (SPADCALL |name| (QREFELT $ 14)) |args|)
+                  (QREFELT $ 13))) 
 
-(DEFUN |INFORM1;coerceToType;2If;4| (|form| $)
-  (SPADCALL (LIST (SPADCALL '|::| (QREFELT $ 11)) |form| (QREFELT $ 7))
-            (QREFELT $ 13))) 
+(SDEFUN |INFORM1;coerceToType;2If;4| ((|form| |InputForm|) ($ |InputForm|))
+        (SPADCALL (LIST (SPADCALL '|::| (QREFELT $ 11)) |form| (QREFELT $ 7))
+                  (QREFELT $ 13))) 
 
-(DEFUN |INFORM1;atType;2If;5| (|form| $)
-  (SPADCALL (LIST (SPADCALL '@ (QREFELT $ 11)) |form| (QREFELT $ 7))
-            (QREFELT $ 13))) 
+(SDEFUN |INFORM1;atType;2If;5| ((|form| |InputForm|) ($ |InputForm|))
+        (SPADCALL (LIST (SPADCALL '@ (QREFELT $ 11)) |form| (QREFELT $ 7))
+                  (QREFELT $ 13))) 
 
-(DEFUN |INFORM1;pretendOfType;2If;6| (|form| $)
-  (SPADCALL (LIST (SPADCALL '|pretend| (QREFELT $ 11)) |form| (QREFELT $ 7))
-            (QREFELT $ 13))) 
+(SDEFUN |INFORM1;pretendOfType;2If;6| ((|form| |InputForm|) ($ |InputForm|))
+        (SPADCALL
+         (LIST (SPADCALL '|pretend| (QREFELT $ 11)) |form| (QREFELT $ 7))
+         (QREFELT $ 13))) 
 
-(DEFUN |INFORM1;interpret;IfR;7| (|form| $)
-  (SPADCALL (SPADCALL (SPADCALL |form| (QREFELT $ 18)) (QREFELT $ 21))
-            (QREFELT $ 23))) 
+(SDEFUN |INFORM1;interpret;IfR;7| ((|form| |InputForm|) ($ R))
+        (SPADCALL (SPADCALL (SPADCALL |form| (QREFELT $ 18)) (QREFELT $ 21))
+                  (QREFELT $ 23))) 
 
 (DECLAIM (NOTINLINE |InputFormFunctions1;|)) 
 
 (DEFUN |InputFormFunctions1| (#1=#:G110)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G111)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|InputFormFunctions1|)
-                                           '|domainEqualList|)
-                . #3=(|InputFormFunctions1|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|InputFormFunctions1;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G111)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache| '|InputFormFunctions1|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|InputFormFunctions1|)
+                                               '|domainEqualList|)
+                    . #3=(|InputFormFunctions1|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|InputFormFunctions1;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|InputFormFunctions1|)))))))))) 
 
 (DEFUN |InputFormFunctions1;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|InputFormFunctions1|))
-      (LETT |dv$| (LIST '|InputFormFunctions1| DV$1) . #1#)
-      (LETT $ (GETREFV 25) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|InputFormFunctions1| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7 (|typeToInputForm| |#1|))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|InputFormFunctions1|))
+          (LETT |dv$| (LIST '|InputFormFunctions1| DV$1) . #1#)
+          (LETT $ (GETREFV 25) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|InputFormFunctions1| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7 (|typeToInputForm| |#1|))
+          $))) 
 
 (MAKEPROP '|InputFormFunctions1| '|infovec|
           (LIST

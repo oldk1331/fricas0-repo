@@ -1,233 +1,253 @@
 
-(DEFUN |KAFILE;defstream| (|fn| |mode| $)
-  (COND ((EQUAL |mode| "input") (|rMkIstream| (SPADCALL |fn| (QREFELT $ 11))))
-        ((EQUAL |mode| "output") (|rMkOstream| (SPADCALL |fn| (QREFELT $ 11))))
-        ('T
-         (|error|
-          (LIST "IO mode must be input or output"
-                (SPADCALL |mode| (QREFELT $ 13))))))) 
+(SDEFUN |KAFILE;defstream|
+        ((|fn| |FileName|) (|mode| |String|) ($ |SExpression|))
+        (COND
+         ((EQUAL |mode| "input") (|rMkIstream| (SPADCALL |fn| (QREFELT $ 11))))
+         ((EQUAL |mode| "output")
+          (|rMkOstream| (SPADCALL |fn| (QREFELT $ 11))))
+         ('T
+          (|error|
+           (LIST "IO mode must be input or output"
+                 (SPADCALL |mode| (QREFELT $ 13))))))) 
 
-(DEFUN |KAFILE;=;2$B;2| (|f1| |f2| $)
-  (SPADCALL (QVELT |f1| 0) (QVELT |f2| 0) (QREFELT $ 15))) 
+(SDEFUN |KAFILE;=;2$B;2| ((|f1| $) (|f2| $) ($ |Boolean|))
+        (SPADCALL (QVELT |f1| 0) (QVELT |f2| 0) (QREFELT $ 15))) 
 
-(DEFUN |KAFILE;coerce;$Of;3| (|f| $) (SPADCALL (QVELT |f| 0) (QREFELT $ 17))) 
+(SDEFUN |KAFILE;coerce;$Of;3| ((|f| $) ($ |OutputForm|))
+        (SPADCALL (QVELT |f| 0) (QREFELT $ 17))) 
 
-(DEFUN |KAFILE;open;Fn$;4| (|fname| $)
-  (SPADCALL |fname| "either" (QREFELT $ 19))) 
+(SDEFUN |KAFILE;open;Fn$;4| ((|fname| |FileName|) ($ $))
+        (SPADCALL |fname| "either" (QREFELT $ 19))) 
 
-(DEFUN |KAFILE;open;FnS$;5| (|fname| |mode| $)
-  (COND
-   ((EQUAL |mode| "either")
-    (COND
-     ((SPADCALL |fname| (QREFELT $ 21))
-      (SPADCALL |fname| "input" (QREFELT $ 19)))
-     (#1='T
-      (SPADCALL (SPADCALL |fname| "output" (QREFELT $ 19)) "input"
-                (QREFELT $ 22)))))
-   (#1# (VECTOR |fname| (|KAFILE;defstream| |fname| |mode| $) |mode|)))) 
+(SDEFUN |KAFILE;open;FnS$;5| ((|fname| |FileName|) (|mode| |String|) ($ $))
+        (COND
+         ((EQUAL |mode| "either")
+          (COND
+           ((SPADCALL |fname| (QREFELT $ 21))
+            (SPADCALL |fname| "input" (QREFELT $ 19)))
+           (#1='T
+            (SPADCALL (SPADCALL |fname| "output" (QREFELT $ 19)) "input"
+                      (QREFELT $ 22)))))
+         (#1# (VECTOR |fname| (|KAFILE;defstream| |fname| |mode| $) |mode|)))) 
 
-(DEFUN |KAFILE;reopen!;$S$;6| (|f| |mode| $)
-  (SEQ (SPADCALL |f| (QREFELT $ 23))
-       (COND
-        ((SPADCALL |mode| "closed" (QREFELT $ 24))
-         (SEQ (QSETVELT |f| 1 (|KAFILE;defstream| (QVELT |f| 0) |mode| $))
-              (EXIT (QSETVELT |f| 2 |mode|)))))
-       (EXIT |f|))) 
+(SDEFUN |KAFILE;reopen!;$S$;6| ((|f| $) (|mode| |String|) ($ $))
+        (SEQ (SPADCALL |f| (QREFELT $ 23))
+             (COND
+              ((SPADCALL |mode| "closed" (QREFELT $ 24))
+               (SEQ
+                (QSETVELT |f| 1 (|KAFILE;defstream| (QVELT |f| 0) |mode| $))
+                (EXIT (QSETVELT |f| 2 |mode|)))))
+             (EXIT |f|))) 
 
-(DEFUN |KAFILE;close!;2$;7| (|f| $)
-  (SEQ
-   (COND
-    ((SPADCALL (QVELT |f| 2) "closed" (QREFELT $ 24))
-     (SEQ (RSHUT (QVELT |f| 1)) (EXIT (QSETVELT |f| 2 "closed")))))
-   (EXIT |f|))) 
+(SDEFUN |KAFILE;close!;2$;7| ((|f| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL (QVELT |f| 2) "closed" (QREFELT $ 24))
+           (SEQ (RSHUT (QVELT |f| 1)) (EXIT (QSETVELT |f| 2 "closed")))))
+         (EXIT |f|))) 
 
-(DEFUN |KAFILE;read!;$R;8| (|f| $)
-  (PROG (|k| |ix| |ks|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 24))
-        (|error|
-         (LIST "File not in read state" (SPADCALL |f| (QREFELT $ 18)))))
-       (#1='T
-        (SEQ (LETT |ks| (RKEYIDS (QVELT |f| 0)) . #2=(|KAFILE;read!;$R;8|))
-             (EXIT
-              (COND
-               ((NULL |ks|)
-                (|error|
-                 (LIST "Attempt to read empty file"
-                       (SPADCALL |f| (QREFELT $ 18)))))
-               (#1#
-                (SEQ (LETT |ix| (RANDOM (LENGTH |ks|)) . #2#)
-                     (LETT |k| (PNAME (SPADCALL |ks| |ix| (QREFELT $ 28)))
-                           . #2#)
-                     (EXIT (CONS |k| (SPADRREAD |k| (QVELT |f| 1))))))))))))))) 
+(SDEFUN |KAFILE;read!;$R;8|
+        ((|f| $) ($ |Record| (|:| |key| (|String|)) (|:| |entry| |Entry|)))
+        (SPROG ((|k| (|String|)) (|ix| (|Integer|)) (|ks| (|List| (|Symbol|))))
+               (SEQ
+                (COND
+                 ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 24))
+                  (|error|
+                   (LIST "File not in read state"
+                         (SPADCALL |f| (QREFELT $ 18)))))
+                 (#1='T
+                  (SEQ
+                   (LETT |ks| (RKEYIDS (QVELT |f| 0))
+                         . #2=(|KAFILE;read!;$R;8|))
+                   (EXIT
+                    (COND
+                     ((NULL |ks|)
+                      (|error|
+                       (LIST "Attempt to read empty file"
+                             (SPADCALL |f| (QREFELT $ 18)))))
+                     (#1#
+                      (SEQ (LETT |ix| (RANDOM (LENGTH |ks|)) . #2#)
+                           (LETT |k|
+                                 (PNAME (SPADCALL |ks| |ix| (QREFELT $ 28)))
+                                 . #2#)
+                           (EXIT
+                            (CONS |k| (SPADRREAD |k| (QVELT |f| 1)))))))))))))) 
 
-(DEFUN |KAFILE;write!;$2R;9| (|f| |pr| $)
-  (SEQ
-   (COND
-    ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 24))
-     (|error| (LIST "File not in write state" (SPADCALL |f| (QREFELT $ 18)))))
-    ('T (SEQ (SPADRWRITE (QCAR |pr|) (QCDR |pr|) (QVELT |f| 1)) (EXIT |pr|)))))) 
+(SDEFUN |KAFILE;write!;$2R;9|
+        ((|f| $)
+         (|pr| . #1=(|Record| (|:| |key| (|String|)) (|:| |entry| |Entry|)))
+         ($ . #1#))
+        (SEQ
+         (COND
+          ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 24))
+           (|error|
+            (LIST "File not in write state" (SPADCALL |f| (QREFELT $ 18)))))
+          ('T
+           (SEQ (SPADRWRITE (QCAR |pr|) (QCDR |pr|) (QVELT |f| 1))
+                (EXIT |pr|)))))) 
 
 (PUT '|KAFILE;name;$Fn;10| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 0))) 
 
-(DEFUN |KAFILE;name;$Fn;10| (|f| $) (QVELT |f| 0)) 
+(SDEFUN |KAFILE;name;$Fn;10| ((|f| $) ($ |FileName|)) (QVELT |f| 0)) 
 
 (PUT '|KAFILE;iomode;$S;11| '|SPADreplace| '(XLAM (|f|) (QVELT |f| 2))) 
 
-(DEFUN |KAFILE;iomode;$S;11| (|f| $) (QVELT |f| 2)) 
+(SDEFUN |KAFILE;iomode;$S;11| ((|f| $) ($ |String|)) (QVELT |f| 2)) 
 
-(DEFUN |KAFILE;empty;$;12| ($)
-  (PROG (|fn|)
-    (RETURN
-     (SEQ
-      (LETT |fn| (SPADCALL "" "kaf" "sdata" (QREFELT $ 34))
-            |KAFILE;empty;$;12|)
-      (EXIT (SPADCALL |fn| (QREFELT $ 20))))))) 
+(SDEFUN |KAFILE;empty;$;12| (($ $))
+        (SPROG ((|fn| (|FileName|)))
+               (SEQ
+                (LETT |fn| (SPADCALL "" "kaf" "sdata" (QREFELT $ 34))
+                      |KAFILE;empty;$;12|)
+                (EXIT (SPADCALL |fn| (QREFELT $ 20)))))) 
 
-(DEFUN |KAFILE;keys;$L;13| (|f| $)
-  (PROG (#1=#:G161 |n| #2=#:G160 |l|)
-    (RETURN
-     (SEQ (SPADCALL |f| (QREFELT $ 23))
-          (LETT |l| (RKEYIDS (QVELT |f| 0)) . #3=(|KAFILE;keys;$L;13|))
-          (EXIT
-           (PROGN
-            (LETT #2# NIL . #3#)
-            (SEQ (LETT |n| NIL . #3#) (LETT #1# |l| . #3#) G190
-                 (COND
-                  ((OR (ATOM #1#) (PROGN (LETT |n| (CAR #1#) . #3#) NIL))
-                   (GO G191)))
-                 (SEQ (EXIT (LETT #2# (CONS (PNAME |n|) #2#) . #3#)))
-                 (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                 (EXIT (NREVERSE #2#))))))))) 
+(SDEFUN |KAFILE;keys;$L;13| ((|f| $) ($ |List| (|String|)))
+        (SPROG
+         ((#1=#:G161 NIL) (|n| NIL) (#2=#:G160 NIL)
+          (|l| (|List| (|SExpression|))))
+         (SEQ (SPADCALL |f| (QREFELT $ 23))
+              (LETT |l| (RKEYIDS (QVELT |f| 0)) . #3=(|KAFILE;keys;$L;13|))
+              (EXIT
+               (PROGN
+                (LETT #2# NIL . #3#)
+                (SEQ (LETT |n| NIL . #3#) (LETT #1# |l| . #3#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |n| (CAR #1#) . #3#) NIL))
+                       (GO G191)))
+                     (SEQ (EXIT (LETT #2# (CONS (PNAME |n|) #2#) . #3#)))
+                     (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                     (EXIT (NREVERSE #2#)))))))) 
 
-(DEFUN |KAFILE;#;$Nni;14| (|f| $) (LENGTH (SPADCALL |f| (QREFELT $ 37)))) 
+(SDEFUN |KAFILE;#;$Nni;14| ((|f| $) ($ |NonNegativeInteger|))
+        (LENGTH (SPADCALL |f| (QREFELT $ 37)))) 
 
-(DEFUN |KAFILE;elt;$SEntry;15| (|f| |k| $)
-  (SEQ (SPADCALL |f| "input" (QREFELT $ 22))
-       (EXIT (SPADRREAD |k| (QVELT |f| 1))))) 
+(SDEFUN |KAFILE;elt;$SEntry;15| ((|f| $) (|k| |String|) ($ |Entry|))
+        (SEQ (SPADCALL |f| "input" (QREFELT $ 22))
+             (EXIT (SPADRREAD |k| (QVELT |f| 1))))) 
 
-(DEFUN |KAFILE;setelt;$S2Entry;16| (|f| |k| |e| $)
-  (SEQ (SPADCALL |f| "output" (QREFELT $ 22))
-       (UNWIND-PROTECT (SPADCALL |f| (CONS |k| |e|) (QREFELT $ 31))
-         (SPADCALL |f| (QREFELT $ 23)))
-       (SPADCALL |f| (QREFELT $ 23)) (EXIT |e|))) 
+(SDEFUN |KAFILE;setelt;$S2Entry;16|
+        ((|f| $) (|k| |String|) (|e| |Entry|) ($ |Entry|))
+        (SEQ (SPADCALL |f| "output" (QREFELT $ 22))
+             (UNWIND-PROTECT (SPADCALL |f| (CONS |k| |e|) (QREFELT $ 31))
+               (SPADCALL |f| (QREFELT $ 23)))
+             (SPADCALL |f| (QREFELT $ 23)) (EXIT |e|))) 
 
-(DEFUN |KAFILE;search;S$U;17| (|k| |f| $)
-  (SEQ
-   (COND
-    ((NULL (SPADCALL |k| (SPADCALL |f| (QREFELT $ 37)) (QREFELT $ 42)))
-     (CONS 1 "failed"))
-    ('T
-     (SEQ (SPADCALL |f| "input" (QREFELT $ 22))
-          (EXIT (CONS 0 (SPADRREAD |k| (QVELT |f| 1))))))))) 
+(SDEFUN |KAFILE;search;S$U;17|
+        ((|k| |String|) (|f| $) ($ |Union| |Entry| "failed"))
+        (SEQ
+         (COND
+          ((NULL (SPADCALL |k| (SPADCALL |f| (QREFELT $ 37)) (QREFELT $ 42)))
+           (CONS 1 "failed"))
+          ('T
+           (SEQ (SPADCALL |f| "input" (QREFELT $ 22))
+                (EXIT (CONS 0 (SPADRREAD |k| (QVELT |f| 1))))))))) 
 
-(DEFUN |KAFILE;remove!;S$U;18| (|k| |f| $)
-  (PROG (|result|)
-    (RETURN
-     (SEQ
-      (LETT |result| (SPADCALL |k| |f| (QREFELT $ 44)) |KAFILE;remove!;S$U;18|)
-      (EXIT
-       (COND ((QEQCAR |result| 1) |result|)
-             ('T
-              (SEQ (SPADCALL |f| (QREFELT $ 23))
-                   (RDROPITEMS (NAMESTRING (QVELT |f| 0)) (LIST |k|))
-                   (EXIT |result|))))))))) 
+(SDEFUN |KAFILE;remove!;S$U;18|
+        ((|k| |String|) (|f| $) ($ |Union| |Entry| #1="failed"))
+        (SPROG ((|result| (|Union| |Entry| #1#)))
+               (SEQ
+                (LETT |result| (SPADCALL |k| |f| (QREFELT $ 44))
+                      |KAFILE;remove!;S$U;18|)
+                (EXIT
+                 (COND ((QEQCAR |result| 1) |result|)
+                       ('T
+                        (SEQ (SPADCALL |f| (QREFELT $ 23))
+                             (RDROPITEMS (NAMESTRING (QVELT |f| 0)) (LIST |k|))
+                             (EXIT |result|)))))))) 
 
-(DEFUN |KAFILE;pack!;2$;19| (|f| $)
-  (SEQ (SPADCALL |f| (QREFELT $ 23)) (EXIT |f|))) 
+(SDEFUN |KAFILE;pack!;2$;19| ((|f| $) ($ $))
+        (SEQ (SPADCALL |f| (QREFELT $ 23)) (EXIT |f|))) 
 
 (DECLAIM (NOTINLINE |KeyedAccessFile;|)) 
 
 (DEFUN |KeyedAccessFile| (#1=#:G222)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G223)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|KeyedAccessFile|)
-                                           '|domainEqualList|)
-                . #3=(|KeyedAccessFile|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|KeyedAccessFile;| #1#) (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G223)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|KeyedAccessFile|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|KeyedAccessFile|)
+                                               '|domainEqualList|)
+                    . #3=(|KeyedAccessFile|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|KeyedAccessFile;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|KeyedAccessFile|)))))))))) 
 
 (DEFUN |KeyedAccessFile;| (|#1|)
-  (PROG (#1=#:G221 |pv$| #2=#:G220 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|KeyedAccessFile|))
-      (LETT |dv$| (LIST '|KeyedAccessFile| DV$1) . #3#)
-      (LETT $ (GETREFV 64) . #3#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (AND
-                                           (|HasCategory|
-                                            (|Record| (|:| |key| (|String|))
-                                                      (|:| |entry| |#1|))
-                                            (LIST '|Evalable|
-                                                  (LIST '|Record|
-                                                        '(|:| |key| (|String|))
-                                                        (LIST '|:| '|entry|
+  (SPROG
+   ((#1=#:G221 NIL) (|pv$| NIL) (#2=#:G220 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #3=(|KeyedAccessFile|))
+    (LETT |dv$| (LIST '|KeyedAccessFile| DV$1) . #3#)
+    (LETT $ (GETREFV 64) . #3#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (AND
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|String|))
+                                                    (|:| |entry| |#1|))
+                                          (LIST '|Evalable|
+                                                (LIST '|Record|
+                                                      '(|:| |key| (|String|))
+                                                      (LIST '|:| '|entry|
+                                                            (|devaluate|
+                                                             |#1|)))))
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| (|String|))
+                                                    (|:| |entry| |#1|))
+                                          '(|SetCategory|)))
+                                        (|HasCategory|
+                                         (|Record| (|:| |key| (|String|))
+                                                   (|:| |entry| |#1|))
+                                         '(|ConvertibleTo| (|InputForm|)))
+                                        (|HasCategory| |#1| '(|BasicType|))
+                                        (LETT #2#
+                                              (|HasCategory| |#1|
+                                                             '(|SetCategory|))
+                                              . #3#)
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        (LIST '|Evalable|
                                                               (|devaluate|
-                                                               |#1|)))))
-                                           (|HasCategory|
-                                            (|Record| (|:| |key| (|String|))
-                                                      (|:| |entry| |#1|))
-                                            '(|SetCategory|)))
-                                          (|HasCategory|
-                                           (|Record| (|:| |key| (|String|))
-                                                     (|:| |entry| |#1|))
-                                           '(|ConvertibleTo| (|InputForm|)))
-                                          (|HasCategory| |#1| '(|BasicType|))
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #3#)
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#1|)))
-                                           #2#)
-                                          (|HasCategory| (|String|)
-                                                         '(|OrderedSet|))
-                                          (|HasCategory|
-                                           (|Record| (|:| |key| (|String|))
-                                                     (|:| |entry| |#1|))
-                                           '(|BasicType|))))
-                      . #3#))
-      (|haddProp| |$ConstructorCache| '|KeyedAccessFile| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 128))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
-           (|augmentPredVector| $ 256))
-      (AND (|HasCategory| |#1| '(|BasicType|)) #1# (|augmentPredVector| $ 512))
-      (AND #2# #1# (|augmentPredVector| $ 1024))
-      (AND #1#
-           (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| |#1|))
-                          '(|BasicType|))
-           (|augmentPredVector| $ 2048))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7
-                (|Record| (|:| |car| (|SExpression|))
-                          (|:| |cdr| (|SExpression|))))
-      (QSETREFV $ 8
-                (|Record| (|:| |fileName| (|FileName|))
-                          (|:| |fileState| (|SExpression|))
-                          (|:| |fileIOmode| (|String|))))
-      $)))) 
+                                                               |#1|)))
+                                         #2#)
+                                        (|HasCategory| (|String|)
+                                                       '(|OrderedSet|))
+                                        (|HasCategory|
+                                         (|Record| (|:| |key| (|String|))
+                                                   (|:| |entry| |#1|))
+                                         '(|BasicType|))))
+                    . #3#))
+    (|haddProp| |$ConstructorCache| '|KeyedAccessFile| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 128))
+    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
+         (|augmentPredVector| $ 256))
+    (AND (|HasCategory| |#1| '(|BasicType|)) #1# (|augmentPredVector| $ 512))
+    (AND #2# #1# (|augmentPredVector| $ 1024))
+    (AND #1#
+         (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| |#1|))
+                        '(|BasicType|))
+         (|augmentPredVector| $ 2048))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 7
+              (|Record| (|:| |car| (|SExpression|))
+                        (|:| |cdr| (|SExpression|))))
+    (QSETREFV $ 8
+              (|Record| (|:| |fileName| (|FileName|))
+                        (|:| |fileState| (|SExpression|))
+                        (|:| |fileIOmode| (|String|))))
+    $))) 
 
 (MAKEPROP '|KeyedAccessFile| '|infovec|
           (LIST

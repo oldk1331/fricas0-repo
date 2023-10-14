@@ -1,1331 +1,1483 @@
 
-(DEFUN |ELIPIDF;rabs| (|x| $)
-  (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 36))) 
+(SDEFUN |ELIPIDF;rabs| ((|x| |Complex| (|DoubleFloat|)) ($ |DoubleFloat|))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 36))) 
 
-(DEFUN |ELIPIDF;ellipticRC;3Df;2| (|x| |y| $)
-  (PROG (Q |mu| |lambda| #1=#:G113 S0 S1 |sn2| |sn| |mu_inv|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |mu| (|mul_DF| (QREFELT $ 7) (|add_DF| (|add_DF| |x| |y|) |y|))
-              . #2=(|ELIPIDF;ellipticRC;3Df;2|))
-        (LETT Q (|mul_DF| (QREFELT $ 16) (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)))
-              . #2#)
-        (EXIT
-         (SEQ G190 NIL
-              (SEQ
-               (EXIT
-                (COND
-                 ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
-                  (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #2#)
-                       (LETT |sn| (|mul_DF| |mu_inv| (|sub_DF| |y| |mu|))
-                             . #2#)
-                       (LETT |sn2| (|mul_DF| |sn| |sn|) . #2#)
-                       (LETT S1
-                             (|add_DF| (QREFELT $ 11)
-                                       (|mul_DF| |sn2|
-                                                 (|add_DF| (QREFELT $ 13)
-                                                           (|mul_DF| |sn2|
-                                                                     (QREFELT $
-                                                                              15)))))
-                             . #2#)
-                       (LETT S0
-                             (|add_DF| (QREFELT $ 10)
-                                       (|mul_DF| |sn2|
-                                                 (|add_DF| (QREFELT $ 12)
-                                                           (|mul_DF| |sn2|
-                                                                     (QREFELT $
-                                                                              14)))))
-                             . #2#)
-                       (EXIT
-                        (PROGN
-                         (LETT #1#
-                               (|mul_DF| (|qsqrt_DF| |mu_inv|)
-                                         (|add_DF| 1.0
-                                                   (|mul_DF| |sn2|
-                                                             (|add_DF| S0
-                                                                       (|mul_DF|
-                                                                        |sn|
-                                                                        S1)))))
-                               . #2#)
-                         (GO #1#)))))
-                 ('T
-                  (SEQ
-                   (LETT |lambda|
-                         (|add_DF|
-                          (|mul_DF|
-                           (|mul_DF| (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                     (|qsqrt_DF| |x|))
-                           (|qsqrt_DF| |y|))
-                          |y|)
-                         . #2#)
-                   (LETT |x| (|mul_DF| (QREFELT $ 8) (|add_DF| |x| |lambda|))
-                         . #2#)
-                   (LETT |y| (|mul_DF| (QREFELT $ 8) (|add_DF| |y| |lambda|))
-                         . #2#)
-                   (LETT |mu| (|mul_DF| (QREFELT $ 8) (|add_DF| |mu| |lambda|))
-                         . #2#)
-                   (EXIT (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #2#)))))))
-              NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |ELIPIDF;ellipticRF;4Df;3| (|x| |y| |z| $)
-  (PROG (Q |mu| |lambda| |znroot| |ynroot| |xnroot| #1=#:G119 |s| |e3| |e2|
-         |zndev| |yndev| |xndev| |mu_inv| |zadev| |yadev| |xadev|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |mu| (|mul_DF| (QREFELT $ 7) (|add_DF| (|add_DF| |x| |y|) |z|))
-              . #2=(|ELIPIDF;ellipticRF;4Df;3|))
-        (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #2#)
-        (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #2#)
-        (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #2#)
-        (LETT Q
-              (|mul_DF| (QREFELT $ 21)
-                        (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
-              . #2#)
-        (EXIT
-         (SEQ G190 NIL
-              (SEQ
-               (EXIT
-                (COND
-                 ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
-                  (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #2#)
-                       (LETT |xndev| (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|)
-                             . #2#)
-                       (LETT |yndev| (|mul_DF| (|sub_DF| |mu| |y|) |mu_inv|)
-                             . #2#)
-                       (LETT |zndev| (|mul_DF| (|sub_DF| |mu| |z|) |mu_inv|)
-                             . #2#)
-                       (LETT |e2|
-                             (|sub_DF| (|mul_DF| |xndev| |yndev|)
-                                       (|mul_DF| |zndev| |zndev|))
-                             . #2#)
-                       (LETT |e3| (|mul_DF| (|mul_DF| |xndev| |yndev|) |zndev|)
-                             . #2#)
-                       (LETT |s|
-                             (|add_DF|
-                              (|add_DF| 1.0
-                                        (|mul_DF|
-                                         (|sub_DF|
-                                          (|sub_DF|
-                                           (|mul_DF| (QREFELT $ 17) |e2|)
-                                           (QREFELT $ 18))
-                                          (|mul_DF| (QREFELT $ 11) |e3|))
-                                         |e2|))
-                              (|mul_DF| (QREFELT $ 20) |e3|))
-                             . #2#)
-                       (EXIT
-                        (PROGN
-                         (LETT #1# (|mul_DF| |s| (|qsqrt_DF| |mu_inv|)) . #2#)
-                         (GO #1#)))))
-                 ('T
-                  (SEQ (LETT |xnroot| (|qsqrt_DF| |x|) . #2#)
-                       (LETT |ynroot| (|qsqrt_DF| |y|) . #2#)
-                       (LETT |znroot| (|qsqrt_DF| |z|) . #2#)
-                       (LETT |lambda|
-                             (|add_DF|
-                              (|mul_DF| |xnroot| (|add_DF| |ynroot| |znroot|))
-                              (|mul_DF| |ynroot| |znroot|))
-                             . #2#)
-                       (LETT |x|
-                             (|mul_DF| (QREFELT $ 8) (|add_DF| |x| |lambda|))
-                             . #2#)
-                       (LETT |y|
-                             (|mul_DF| (QREFELT $ 8) (|add_DF| |y| |lambda|))
-                             . #2#)
-                       (LETT |z|
-                             (|mul_DF| (QREFELT $ 8) (|add_DF| |z| |lambda|))
-                             . #2#)
-                       (LETT |mu|
-                             (|mul_DF| (QREFELT $ 8) (|add_DF| |mu| |lambda|))
-                             . #2#)
-                       (EXIT (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #2#)))))))
-              NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |ELIPIDF;ellipticRD;4Df;4| (|x| |y| |z| $)
-  (PROG (Q |mu| |power4| |sigma| |lambda| |znroot| |ynroot| |xnroot| #1=#:G125
-         |ss| |s2| |s1| |ef| |ed| |ec| |eb| |ea| |zndev| |yndev| |xndev|
-         |mu_inv| |zadev| |yadev| |xadev|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |sigma| 0.0 . #2=(|ELIPIDF;ellipticRD;4Df;4|))
-            (LETT |power4| 1.0 . #2#)
+(SDEFUN |ELIPIDF;ellipticRC;3Df;2|
+        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) ($ |DoubleFloat|))
+        (SPROG
+         ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|lambda| #2=(|DoubleFloat|))
+          (#3=#:G113 NIL) (S0 #2#) (S1 #2#) (|sn2| #1#) (|sn| #1#)
+          (|mu_inv| (|DoubleFloat|)))
+         (SEQ
+          (EXIT
+           (SEQ
             (LETT |mu|
-                  (|mul_DF| (QREFELT $ 9)
-                            (|add_DF| (|add_DF| |x| |y|)
-                                      (|mul_DF|
-                                       (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                       |z|)))
-                  . #2#)
-            (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #2#)
-            (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #2#)
-            (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #2#)
+                  (|mul_DF| (QREFELT $ 7) (|add_DF| (|add_DF| |x| |y|) |y|))
+                  . #4=(|ELIPIDF;ellipticRC;3Df;2|))
             (LETT Q
-                  (|mul_DF| (QREFELT $ 27)
-                            (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
-                  . #2#)
+                  (|mul_DF| (QREFELT $ 16)
+                            (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)))
+                  . #4#)
             (EXIT
              (SEQ G190 NIL
                   (SEQ
                    (EXIT
                     (COND
                      ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
-                      (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #2#)
-                           (LETT |xndev|
-                                 (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|) . #2#)
-                           (LETT |yndev|
-                                 (|mul_DF| (|sub_DF| |mu| |y|) |mu_inv|) . #2#)
-                           (LETT |zndev|
-                                 (|mul_DF| (|sub_DF| |mu| |z|) |mu_inv|) . #2#)
-                           (LETT |ea| (|mul_DF| |xndev| |yndev|) . #2#)
-                           (LETT |eb| (|mul_DF| |zndev| |zndev|) . #2#)
-                           (LETT |ec| (|sub_DF| |ea| |eb|) . #2#)
-                           (LETT |ed|
-                                 (|sub_DF| |ea|
-                                           (|mul_DF|
-                                            (FLOAT 6
-                                                   MOST-POSITIVE-DOUBLE-FLOAT)
-                                            |eb|))
-                                 . #2#)
-                           (LETT |ef| (|add_DF| (|add_DF| |ed| |ec|) |ec|)
-                                 . #2#)
-                           (LETT |s1|
-                                 (|mul_DF| |ed|
-                                           (|sub_DF|
-                                            (|add_DF| (QREFELT $ 22)
-                                                      (|mul_DF|
-                                                       (|mul_DF| (QREFELT $ 8)
-                                                                 (QREFELT $
-                                                                          24))
-                                                       |ed|))
-                                            (|mul_DF|
-                                             (|mul_DF|
-                                              (|mul_DF| (QREFELT $ 26)
-                                                        (QREFELT $ 25))
-                                              |zndev|)
-                                             |ef|)))
-                                 . #2#)
-                           (LETT |s2|
-                                 (|mul_DF| |zndev|
-                                           (|add_DF|
-                                            (|mul_DF| (QREFELT $ 23) |ef|)
-                                            (|mul_DF| |zndev|
-                                                      (|add_DF|
-                                                       (|minus_DF|
-                                                        (|mul_DF|
-                                                         (QREFELT $ 24) |ec|))
-                                                       (|mul_DF|
-                                                        (|mul_DF| |zndev|
-                                                                  (QREFELT $
-                                                                           25))
-                                                        |ea|)))))
-                                 . #2#)
-                           (LETT |ss|
-                                 (|mul_DF|
-                                  (|mul_DF| (|add_DF| 1.0 (|add_DF| |s1| |s2|))
-                                            |mu_inv|)
-                                  (|qsqrt_DF| |mu_inv|))
-                                 . #2#)
+                      (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #4#)
+                           (LETT |sn| (|mul_DF| |mu_inv| (|sub_DF| |y| |mu|))
+                                 . #4#)
+                           (LETT |sn2| (|mul_DF| |sn| |sn|) . #4#)
+                           (LETT S1
+                                 (|add_DF| (QREFELT $ 11)
+                                           (|mul_DF| |sn2|
+                                                     (|add_DF| (QREFELT $ 13)
+                                                               (|mul_DF| |sn2|
+                                                                         (QREFELT
+                                                                          $
+                                                                          15)))))
+                                 . #4#)
+                           (LETT S0
+                                 (|add_DF| (QREFELT $ 10)
+                                           (|mul_DF| |sn2|
+                                                     (|add_DF| (QREFELT $ 12)
+                                                               (|mul_DF| |sn2|
+                                                                         (QREFELT
+                                                                          $
+                                                                          14)))))
+                                 . #4#)
                            (EXIT
                             (PROGN
-                             (LETT #1#
-                                   (|add_DF|
-                                    (|mul_DF|
-                                     (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                     |sigma|)
-                                    (|mul_DF| |power4| |ss|))
-                                   . #2#)
-                             (GO #1#)))))
+                             (LETT #3#
+                                   (|mul_DF| (|qsqrt_DF| |mu_inv|)
+                                             (|add_DF| 1.0
+                                                       (|mul_DF| |sn2|
+                                                                 (|add_DF| S0
+                                                                           (|mul_DF|
+                                                                            |sn|
+                                                                            S1)))))
+                                   . #4#)
+                             (GO #3#)))))
                      ('T
-                      (SEQ (LETT |xnroot| (|qsqrt_DF| |x|) . #2#)
-                           (LETT |ynroot| (|qsqrt_DF| |y|) . #2#)
-                           (LETT |znroot| (|qsqrt_DF| |z|) . #2#)
+                      (SEQ
+                       (LETT |lambda|
+                             (|add_DF|
+                              (|mul_DF|
+                               (|mul_DF| (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
+                                         (|qsqrt_DF| |x|))
+                               (|qsqrt_DF| |y|))
+                              |y|)
+                             . #4#)
+                       (LETT |x|
+                             (|mul_DF| (QREFELT $ 8) (|add_DF| |x| |lambda|))
+                             . #4#)
+                       (LETT |y|
+                             (|mul_DF| (QREFELT $ 8) (|add_DF| |y| |lambda|))
+                             . #4#)
+                       (LETT |mu|
+                             (|mul_DF| (QREFELT $ 8) (|add_DF| |mu| |lambda|))
+                             . #4#)
+                       (EXIT (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #4#)))))))
+                  NIL (GO G190) G191 (EXIT NIL)))))
+          #3# (EXIT #3#)))) 
+
+(SDEFUN |ELIPIDF;ellipticRF;4Df;3|
+        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
+         ($ |DoubleFloat|))
+        (SPROG
+         ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|lambda| #2=(|DoubleFloat|))
+          (|znroot| #3=(|DoubleFloat|)) (|ynroot| #3#) (|xnroot| #3#)
+          (#4=#:G119 NIL) (|s| #2#) (|e3| #1#) (|e2| (|DoubleFloat|))
+          (|zndev| #1#) (|yndev| #1#) (|xndev| #1#) (|mu_inv| (|DoubleFloat|))
+          (|zadev| #5=(|DoubleFloat|)) (|yadev| #5#) (|xadev| #5#))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |mu|
+                  (|mul_DF| (QREFELT $ 7) (|add_DF| (|add_DF| |x| |y|) |z|))
+                  . #6=(|ELIPIDF;ellipticRF;4Df;3|))
+            (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #6#)
+            (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #6#)
+            (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #6#)
+            (LETT Q
+                  (|mul_DF| (QREFELT $ 21)
+                            (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
+                  . #6#)
+            (EXIT
+             (SEQ G190 NIL
+                  (SEQ
+                   (EXIT
+                    (COND
+                     ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
+                      (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #6#)
+                           (LETT |xndev|
+                                 (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|) . #6#)
+                           (LETT |yndev|
+                                 (|mul_DF| (|sub_DF| |mu| |y|) |mu_inv|) . #6#)
+                           (LETT |zndev|
+                                 (|mul_DF| (|sub_DF| |mu| |z|) |mu_inv|) . #6#)
+                           (LETT |e2|
+                                 (|sub_DF| (|mul_DF| |xndev| |yndev|)
+                                           (|mul_DF| |zndev| |zndev|))
+                                 . #6#)
+                           (LETT |e3|
+                                 (|mul_DF| (|mul_DF| |xndev| |yndev|) |zndev|)
+                                 . #6#)
+                           (LETT |s|
+                                 (|add_DF|
+                                  (|add_DF| 1.0
+                                            (|mul_DF|
+                                             (|sub_DF|
+                                              (|sub_DF|
+                                               (|mul_DF| (QREFELT $ 17) |e2|)
+                                               (QREFELT $ 18))
+                                              (|mul_DF| (QREFELT $ 11) |e3|))
+                                             |e2|))
+                                  (|mul_DF| (QREFELT $ 20) |e3|))
+                                 . #6#)
+                           (EXIT
+                            (PROGN
+                             (LETT #4# (|mul_DF| |s| (|qsqrt_DF| |mu_inv|))
+                                   . #6#)
+                             (GO #4#)))))
+                     ('T
+                      (SEQ (LETT |xnroot| (|qsqrt_DF| |x|) . #6#)
+                           (LETT |ynroot| (|qsqrt_DF| |y|) . #6#)
+                           (LETT |znroot| (|qsqrt_DF| |z|) . #6#)
                            (LETT |lambda|
                                  (|add_DF|
                                   (|mul_DF| |xnroot|
                                             (|add_DF| |ynroot| |znroot|))
                                   (|mul_DF| |ynroot| |znroot|))
-                                 . #2#)
-                           (LETT |sigma|
-                                 (|add_DF| |sigma|
-                                           (|div_DF| |power4|
-                                                     (|mul_DF| |znroot|
-                                                               (|add_DF| |z|
-                                                                         |lambda|))))
-                                 . #2#)
-                           (LETT |power4| (|mul_DF| (QREFELT $ 8) |power4|)
-                                 . #2#)
+                                 . #6#)
                            (LETT |x|
                                  (|mul_DF| (QREFELT $ 8)
                                            (|add_DF| |x| |lambda|))
-                                 . #2#)
+                                 . #6#)
                            (LETT |y|
                                  (|mul_DF| (QREFELT $ 8)
                                            (|add_DF| |y| |lambda|))
-                                 . #2#)
+                                 . #6#)
                            (LETT |z|
                                  (|mul_DF| (QREFELT $ 8)
                                            (|add_DF| |z| |lambda|))
-                                 . #2#)
+                                 . #6#)
                            (LETT |mu|
                                  (|mul_DF| (QREFELT $ 8)
                                            (|add_DF| |mu| |lambda|))
-                                 . #2#)
+                                 . #6#)
                            (EXIT
-                            (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #2#)))))))
+                            (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #6#)))))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
+          #4# (EXIT #4#)))) 
 
-(DEFUN |ELIPIDF;ellipticRJ;5Df;5| (|x| |y| |z| |p| $)
-  (PROG (Q |mu| |power4| |sigma| |beta| |alfa| |lambda| |znroot| |ynroot|
-         |xnroot| #1=#:G131 |ss| |s3| |s2| |s1| |e3| |e2| |ec| |eb| |ea|
-         |pndev| |zndev| |yndev| |xndev| |mu_inv| |padev| |zadev| |yadev|
-         |xadev|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ (LETT |sigma| 0.0 . #2=(|ELIPIDF;ellipticRJ;5Df;5|))
-            (LETT |power4| 1.0 . #2#)
+(SDEFUN |ELIPIDF;ellipticRD;4Df;4|
+        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
+         ($ |DoubleFloat|))
+        (SPROG
+         ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|power4| (|DoubleFloat|))
+          (|sigma| (|DoubleFloat|)) (|lambda| #2=(|DoubleFloat|))
+          (|znroot| #3=(|DoubleFloat|)) (|ynroot| #3#) (|xnroot| #3#)
+          (#4=#:G125 NIL) (|ss| #1#) (|s2| #1#) (|s1| #1#) (|ef| #2#)
+          (|ed| #5=(|DoubleFloat|)) (|ec| #5#) (|eb| #1#) (|ea| #1#)
+          (|zndev| #1#) (|yndev| #1#) (|xndev| #1#) (|mu_inv| (|DoubleFloat|))
+          (|zadev| #6=(|DoubleFloat|)) (|yadev| #6#) (|xadev| #6#))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |sigma| 0.0 . #7=(|ELIPIDF;ellipticRD;4Df;4|))
+                (LETT |power4| 1.0 . #7#)
+                (LETT |mu|
+                      (|mul_DF| (QREFELT $ 9)
+                                (|add_DF| (|add_DF| |x| |y|)
+                                          (|mul_DF|
+                                           (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                                           |z|)))
+                      . #7#)
+                (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #7#)
+                (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #7#)
+                (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #7#)
+                (LETT Q
+                      (|mul_DF| (QREFELT $ 27)
+                                (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
+                      . #7#)
+                (EXIT
+                 (SEQ G190 NIL
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
+                          (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #7#)
+                               (LETT |xndev|
+                                     (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|)
+                                     . #7#)
+                               (LETT |yndev|
+                                     (|mul_DF| (|sub_DF| |mu| |y|) |mu_inv|)
+                                     . #7#)
+                               (LETT |zndev|
+                                     (|mul_DF| (|sub_DF| |mu| |z|) |mu_inv|)
+                                     . #7#)
+                               (LETT |ea| (|mul_DF| |xndev| |yndev|) . #7#)
+                               (LETT |eb| (|mul_DF| |zndev| |zndev|) . #7#)
+                               (LETT |ec| (|sub_DF| |ea| |eb|) . #7#)
+                               (LETT |ed|
+                                     (|sub_DF| |ea|
+                                               (|mul_DF|
+                                                (FLOAT 6
+                                                       MOST-POSITIVE-DOUBLE-FLOAT)
+                                                |eb|))
+                                     . #7#)
+                               (LETT |ef| (|add_DF| (|add_DF| |ed| |ec|) |ec|)
+                                     . #7#)
+                               (LETT |s1|
+                                     (|mul_DF| |ed|
+                                               (|sub_DF|
+                                                (|add_DF| (QREFELT $ 22)
+                                                          (|mul_DF|
+                                                           (|mul_DF|
+                                                            (QREFELT $ 8)
+                                                            (QREFELT $ 24))
+                                                           |ed|))
+                                                (|mul_DF|
+                                                 (|mul_DF|
+                                                  (|mul_DF| (QREFELT $ 26)
+                                                            (QREFELT $ 25))
+                                                  |zndev|)
+                                                 |ef|)))
+                                     . #7#)
+                               (LETT |s2|
+                                     (|mul_DF| |zndev|
+                                               (|add_DF|
+                                                (|mul_DF| (QREFELT $ 23) |ef|)
+                                                (|mul_DF| |zndev|
+                                                          (|add_DF|
+                                                           (|minus_DF|
+                                                            (|mul_DF|
+                                                             (QREFELT $ 24)
+                                                             |ec|))
+                                                           (|mul_DF|
+                                                            (|mul_DF| |zndev|
+                                                                      (QREFELT
+                                                                       $ 25))
+                                                            |ea|)))))
+                                     . #7#)
+                               (LETT |ss|
+                                     (|mul_DF|
+                                      (|mul_DF|
+                                       (|add_DF| 1.0 (|add_DF| |s1| |s2|))
+                                       |mu_inv|)
+                                      (|qsqrt_DF| |mu_inv|))
+                                     . #7#)
+                               (EXIT
+                                (PROGN
+                                 (LETT #4#
+                                       (|add_DF|
+                                        (|mul_DF|
+                                         (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                                         |sigma|)
+                                        (|mul_DF| |power4| |ss|))
+                                       . #7#)
+                                 (GO #4#)))))
+                         ('T
+                          (SEQ (LETT |xnroot| (|qsqrt_DF| |x|) . #7#)
+                               (LETT |ynroot| (|qsqrt_DF| |y|) . #7#)
+                               (LETT |znroot| (|qsqrt_DF| |z|) . #7#)
+                               (LETT |lambda|
+                                     (|add_DF|
+                                      (|mul_DF| |xnroot|
+                                                (|add_DF| |ynroot| |znroot|))
+                                      (|mul_DF| |ynroot| |znroot|))
+                                     . #7#)
+                               (LETT |sigma|
+                                     (|add_DF| |sigma|
+                                               (|div_DF| |power4|
+                                                         (|mul_DF| |znroot|
+                                                                   (|add_DF|
+                                                                    |z|
+                                                                    |lambda|))))
+                                     . #7#)
+                               (LETT |power4| (|mul_DF| (QREFELT $ 8) |power4|)
+                                     . #7#)
+                               (LETT |x|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |x| |lambda|))
+                                     . #7#)
+                               (LETT |y|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |y| |lambda|))
+                                     . #7#)
+                               (LETT |z|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |z| |lambda|))
+                                     . #7#)
+                               (LETT |mu|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |mu| |lambda|))
+                                     . #7#)
+                               (EXIT
+                                (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #7#)))))))
+                      NIL (GO G190) G191 (EXIT NIL)))))
+          #4# (EXIT #4#)))) 
+
+(SDEFUN |ELIPIDF;ellipticRJ;5Df;5|
+        ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
+         (|p| |DoubleFloat|) ($ |DoubleFloat|))
+        (SPROG
+         ((Q #1=(|DoubleFloat|)) (|mu| #1#) (|power4| (|DoubleFloat|))
+          (|sigma| (|DoubleFloat|)) (|beta| #1#) (|alfa| #2=(|DoubleFloat|))
+          (|lambda| #2#) (|znroot| #3=(|DoubleFloat|)) (|ynroot| #3#)
+          (|xnroot| #3#) (#4=#:G131 NIL) (|ss| #1#) (|s3| #5=(|DoubleFloat|))
+          (|s2| #1#) (|s1| #1#) (|e3| #2#) (|e2| #5#) (|ec| #1#) (|eb| #1#)
+          (|ea| #2#) (|pndev| #1#) (|zndev| #1#) (|yndev| #1#) (|xndev| #1#)
+          (|mu_inv| (|DoubleFloat|)) (|padev| #6=(|DoubleFloat|)) (|zadev| #6#)
+          (|yadev| #6#) (|xadev| #6#))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |sigma| 0.0 . #7=(|ELIPIDF;ellipticRJ;5Df;5|))
+                (LETT |power4| 1.0 . #7#)
+                (LETT |mu|
+                      (|mul_DF| (QREFELT $ 9)
+                                (|add_DF|
+                                 (|add_DF| (|add_DF| (|add_DF| |x| |y|) |z|)
+                                           |p|)
+                                 |p|))
+                      . #7#)
+                (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #7#)
+                (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #7#)
+                (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #7#)
+                (LETT |padev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |p|)) . #7#)
+                (LETT Q
+                      (|mul_DF| (QREFELT $ 27)
+                                (|max_DF| (|max_DF| |xadev| |yadev|)
+                                          (|max_DF| |zadev| |padev|)))
+                      . #7#)
+                (EXIT
+                 (SEQ G190 NIL
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
+                          (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #7#)
+                               (LETT |xndev|
+                                     (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|)
+                                     . #7#)
+                               (LETT |yndev|
+                                     (|mul_DF| (|sub_DF| |mu| |y|) |mu_inv|)
+                                     . #7#)
+                               (LETT |zndev|
+                                     (|mul_DF| (|sub_DF| |mu| |z|) |mu_inv|)
+                                     . #7#)
+                               (LETT |pndev|
+                                     (|mul_DF| (|sub_DF| |mu| |p|) |mu_inv|)
+                                     . #7#)
+                               (LETT |ea|
+                                     (|add_DF|
+                                      (|mul_DF| |xndev|
+                                                (|add_DF| |yndev| |zndev|))
+                                      (|mul_DF| |yndev| |zndev|))
+                                     . #7#)
+                               (LETT |eb|
+                                     (|mul_DF| (|mul_DF| |xndev| |yndev|)
+                                               |zndev|)
+                                     . #7#)
+                               (LETT |ec| (|mul_DF| |pndev| |pndev|) . #7#)
+                               (LETT |e2|
+                                     (|sub_DF| |ea|
+                                               (|mul_DF|
+                                                (FLOAT 3
+                                                       MOST-POSITIVE-DOUBLE-FLOAT)
+                                                |ec|))
+                                     . #7#)
+                               (LETT |e3|
+                                     (|add_DF| |eb|
+                                               (|mul_DF|
+                                                (|mul_DF|
+                                                 (FLOAT 2
+                                                        MOST-POSITIVE-DOUBLE-FLOAT)
+                                                 |pndev|)
+                                                (|sub_DF| |ea| |ec|)))
+                                     . #7#)
+                               (LETT |s1|
+                                     (|mul_DF| |e2|
+                                               (|sub_DF|
+                                                (|add_DF|
+                                                 (|minus_DF| (QREFELT $ 28))
+                                                 (|mul_DF| (QREFELT $ 31)
+                                                           |e2|))
+                                                (|mul_DF| (QREFELT $ 32)
+                                                          |e3|)))
+                                     . #7#)
+                               (LETT |s2|
+                                     (|mul_DF| |eb|
+                                               (|add_DF|
+                                                (|mul_DF| (QREFELT $ 6)
+                                                          (QREFELT $ 7))
+                                                (|mul_DF| |pndev|
+                                                          (|add_DF|
+                                                           (|minus_DF|
+                                                            (|add_DF|
+                                                             (QREFELT $ 29)
+                                                             (QREFELT $ 29)))
+                                                           (|mul_DF| |pndev|
+                                                                     (QREFELT $
+                                                                              30))))))
+                                     . #7#)
+                               (LETT |s3|
+                                     (|sub_DF|
+                                      (|mul_DF| (|mul_DF| |pndev| |ea|)
+                                                (|sub_DF| (QREFELT $ 7)
+                                                          (|mul_DF| |pndev|
+                                                                    (QREFELT $
+                                                                             29))))
+                                      (|mul_DF|
+                                       (|mul_DF| (QREFELT $ 7) |pndev|) |ec|))
+                                     . #7#)
+                               (LETT |ss|
+                                     (|mul_DF|
+                                      (|mul_DF|
+                                       (|add_DF| 1.0
+                                                 (|add_DF| (|add_DF| |s1| |s2|)
+                                                           |s3|))
+                                       |mu_inv|)
+                                      (|qsqrt_DF| |mu_inv|))
+                                     . #7#)
+                               (EXIT
+                                (PROGN
+                                 (LETT #4#
+                                       (|add_DF|
+                                        (|mul_DF|
+                                         (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                                         |sigma|)
+                                        (|mul_DF| |power4| |ss|))
+                                       . #7#)
+                                 (GO #4#)))))
+                         ('T
+                          (SEQ (LETT |xnroot| (|qsqrt_DF| |x|) . #7#)
+                               (LETT |ynroot| (|qsqrt_DF| |y|) . #7#)
+                               (LETT |znroot| (|qsqrt_DF| |z|) . #7#)
+                               (LETT |lambda|
+                                     (|add_DF|
+                                      (|mul_DF| |xnroot|
+                                                (|add_DF| |ynroot| |znroot|))
+                                      (|mul_DF| |ynroot| |znroot|))
+                                     . #7#)
+                               (LETT |alfa|
+                                     (|add_DF|
+                                      (|mul_DF| |p|
+                                                (|add_DF|
+                                                 (|add_DF| |xnroot| |ynroot|)
+                                                 |znroot|))
+                                      (|mul_DF| (|mul_DF| |xnroot| |ynroot|)
+                                                |znroot|))
+                                     . #7#)
+                               (LETT |alfa| (|mul_DF| |alfa| |alfa|) . #7#)
+                               (LETT |beta|
+                                     (|mul_DF|
+                                      (|mul_DF| |p| (|add_DF| |p| |lambda|))
+                                      (|add_DF| |p| |lambda|))
+                                     . #7#)
+                               (LETT |sigma|
+                                     (|add_DF| |sigma|
+                                               (|mul_DF| |power4|
+                                                         (SPADCALL |alfa|
+                                                                   |beta|
+                                                                   (QREFELT $
+                                                                            39))))
+                                     . #7#)
+                               (LETT |power4| (|mul_DF| (QREFELT $ 8) |power4|)
+                                     . #7#)
+                               (LETT |x|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |x| |lambda|))
+                                     . #7#)
+                               (LETT |y|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |y| |lambda|))
+                                     . #7#)
+                               (LETT |z|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |z| |lambda|))
+                                     . #7#)
+                               (LETT |p|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |p| |lambda|))
+                                     . #7#)
+                               (LETT |mu|
+                                     (|mul_DF| (QREFELT $ 8)
+                                               (|add_DF| |mu| |lambda|))
+                                     . #7#)
+                               (EXIT
+                                (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #7#)))))))
+                      NIL (GO G190) G191 (EXIT NIL)))))
+          #4# (EXIT #4#)))) 
+
+(SDEFUN |ELIPIDF;ellipticF;3Df;6|
+        ((|z| |DoubleFloat|) (|m| |DoubleFloat|) ($ |DoubleFloat|))
+        (|mul_DF| |z|
+                  (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
+                            (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|))
+                            1.0 (QREFELT $ 40)))) 
+
+(SDEFUN |ELIPIDF;ellipticK;2Df;7| ((|m| |DoubleFloat|) ($ |DoubleFloat|))
+        (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0 (QREFELT $ 40))) 
+
+(SDEFUN |ELIPIDF;ellipticE;3Df;8|
+        ((|z| |DoubleFloat|) (|m| |DoubleFloat|) ($ |DoubleFloat|))
+        (|sub_DF|
+         (|mul_DF| |z|
+                   (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
+                             (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|))
+                             1.0 (QREFELT $ 40)))
+         (|mul_DF|
+          (|mul_DF|
+           (|mul_DF|
+            (|mul_DF| (|div_DF| |m| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)) |z|)
+            |z|)
+           |z|)
+          (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
+                    (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|)) 1.0
+                    (QREFELT $ 41))))) 
+
+(SDEFUN |ELIPIDF;ellipticE;2Df;9| ((|m| |DoubleFloat|) ($ |DoubleFloat|))
+        (|sub_DF| (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0 (QREFELT $ 40))
+                  (|mul_DF| (|div_DF| |m| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT))
+                            (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0
+                                      (QREFELT $ 41))))) 
+
+(SDEFUN |ELIPIDF;ellipticPi;4Df;10|
+        ((|z| |DoubleFloat|) (|n| |DoubleFloat|) (|m| |DoubleFloat|)
+         ($ |DoubleFloat|))
+        (|add_DF|
+         (|mul_DF| |z|
+                   (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
+                             (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|))
+                             1.0 (QREFELT $ 40)))
+         (|mul_DF|
+          (|mul_DF|
+           (|mul_DF|
+            (|mul_DF| (|div_DF| |n| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)) |z|)
+            |z|)
+           |z|)
+          (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
+                    (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|)) 1.0
+                    (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |n| |z|) |z|))
+                    (QREFELT $ 42))))) 
+
+(SDEFUN |ELIPIDF;ellipticRC;3C;11|
+        ((|x| |Complex| (|DoubleFloat|)) (|y| |Complex| (|DoubleFloat|))
+         ($ |Complex| (|DoubleFloat|)))
+        (SPROG
+         ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
+          (|lambda| #1=(|Complex| (|DoubleFloat|))) (#2=#:G142 NIL) (S0 #1#)
+          (S1 #1#) (|sn2| #3=(|Complex| (|DoubleFloat|))) (|sn| #3#)
+          (|mu_inv| (|Complex| (|DoubleFloat|))))
+         (SEQ
+          (EXIT
+           (SEQ
             (LETT |mu|
-                  (|mul_DF| (QREFELT $ 9)
-                            (|add_DF|
-                             (|add_DF| (|add_DF| (|add_DF| |x| |y|) |z|) |p|)
-                             |p|))
-                  . #2#)
-            (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #2#)
-            (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #2#)
-            (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #2#)
-            (LETT |padev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |p|)) . #2#)
+                  (SPADCALL (QREFELT $ 7)
+                            (SPADCALL (SPADCALL |x| |y| (QREFELT $ 48)) |y|
+                                      (QREFELT $ 48))
+                            (QREFELT $ 49))
+                  . #4=(|ELIPIDF;ellipticRC;3C;11|))
+            (LETT Q
+                  (|mul_DF| (QREFELT $ 16)
+                            (|ELIPIDF;rabs| (SPADCALL |mu| |x| (QREFELT $ 50))
+                             $))
+                  . #4#)
+            (EXIT
+             (SEQ G190 NIL
+                  (SEQ
+                   (EXIT
+                    (COND
+                     ((|less_DF| Q (|ELIPIDF;rabs| |mu| $))
+                      (SEQ
+                       (LETT |mu_inv|
+                             (SPADCALL (|spadConstant| $ 51) |mu|
+                                       (QREFELT $ 52))
+                             . #4#)
+                       (LETT |sn|
+                             (SPADCALL |mu_inv|
+                                       (SPADCALL |y| |mu| (QREFELT $ 50))
+                                       (QREFELT $ 53))
+                             . #4#)
+                       (LETT |sn2| (SPADCALL |sn| |sn| (QREFELT $ 53)) . #4#)
+                       (LETT S1
+                             (SPADCALL (SPADCALL (QREFELT $ 11) (QREFELT $ 54))
+                                       (SPADCALL |sn2|
+                                                 (SPADCALL
+                                                  (SPADCALL (QREFELT $ 13)
+                                                            (QREFELT $ 54))
+                                                  (SPADCALL |sn2|
+                                                            (SPADCALL
+                                                             (QREFELT $ 15)
+                                                             (QREFELT $ 54))
+                                                            (QREFELT $ 53))
+                                                  (QREFELT $ 48))
+                                                 (QREFELT $ 53))
+                                       (QREFELT $ 48))
+                             . #4#)
+                       (LETT S0
+                             (SPADCALL (SPADCALL (QREFELT $ 10) (QREFELT $ 54))
+                                       (SPADCALL |sn2|
+                                                 (SPADCALL
+                                                  (SPADCALL (QREFELT $ 12)
+                                                            (QREFELT $ 54))
+                                                  (SPADCALL |sn2|
+                                                            (SPADCALL
+                                                             (QREFELT $ 14)
+                                                             (QREFELT $ 54))
+                                                            (QREFELT $ 53))
+                                                  (QREFELT $ 48))
+                                                 (QREFELT $ 53))
+                                       (QREFELT $ 48))
+                             . #4#)
+                       (EXIT
+                        (PROGN
+                         (LETT #2#
+                               (SPADCALL (SPADCALL |mu_inv| (QREFELT $ 55))
+                                         (SPADCALL (|spadConstant| $ 51)
+                                                   (SPADCALL |sn2|
+                                                             (SPADCALL S0
+                                                                       (SPADCALL
+                                                                        |sn| S1
+                                                                        (QREFELT
+                                                                         $ 53))
+                                                                       (QREFELT
+                                                                        $ 48))
+                                                             (QREFELT $ 53))
+                                                   (QREFELT $ 48))
+                                         (QREFELT $ 53))
+                               . #4#)
+                         (GO #2#)))))
+                     ('T
+                      (SEQ
+                       (LETT |lambda|
+                             (SPADCALL
+                              (SPADCALL
+                               (SPADCALL (SPADCALL 2 (QREFELT $ 57))
+                                         (SPADCALL |x| (QREFELT $ 55))
+                                         (QREFELT $ 53))
+                               (SPADCALL |y| (QREFELT $ 55)) (QREFELT $ 53))
+                              |y| (QREFELT $ 48))
+                             . #4#)
+                       (LETT |x|
+                             (SPADCALL (QREFELT $ 8)
+                                       (SPADCALL |x| |lambda| (QREFELT $ 48))
+                                       (QREFELT $ 49))
+                             . #4#)
+                       (LETT |y|
+                             (SPADCALL (QREFELT $ 8)
+                                       (SPADCALL |y| |lambda| (QREFELT $ 48))
+                                       (QREFELT $ 49))
+                             . #4#)
+                       (LETT |mu|
+                             (SPADCALL (QREFELT $ 8)
+                                       (SPADCALL |mu| |lambda| (QREFELT $ 48))
+                                       (QREFELT $ 49))
+                             . #4#)
+                       (EXIT (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #4#)))))))
+                  NIL (GO G190) G191 (EXIT NIL)))))
+          #2# (EXIT #2#)))) 
+
+(SDEFUN |ELIPIDF;ellipticRF;4C;12|
+        ((|x| |Complex| (|DoubleFloat|)) (|y| |Complex| (|DoubleFloat|))
+         (|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        (SPROG
+         ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
+          (|lambda| #1=(|Complex| (|DoubleFloat|)))
+          (|znroot| #2=(|Complex| (|DoubleFloat|))) (|ynroot| #2#)
+          (|xnroot| #2#) (#3=#:G148 NIL) (|s| #1#)
+          (|e3| #4=(|Complex| (|DoubleFloat|)))
+          (|e2| (|Complex| (|DoubleFloat|))) (|zndev| #4#) (|yndev| #4#)
+          (|xndev| #4#) (|mu_inv| (|Complex| (|DoubleFloat|)))
+          (|zadev| #5=(|DoubleFloat|)) (|yadev| #5#) (|xadev| #5#))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |mu|
+                  (SPADCALL (QREFELT $ 7)
+                            (SPADCALL (SPADCALL |x| |y| (QREFELT $ 48)) |z|
+                                      (QREFELT $ 48))
+                            (QREFELT $ 49))
+                  . #6=(|ELIPIDF;ellipticRF;4C;12|))
+            (LETT |xadev| (|ELIPIDF;rabs| (SPADCALL |mu| |x| (QREFELT $ 50)) $)
+                  . #6#)
+            (LETT |yadev| (|ELIPIDF;rabs| (SPADCALL |mu| |y| (QREFELT $ 50)) $)
+                  . #6#)
+            (LETT |zadev| (|ELIPIDF;rabs| (SPADCALL |mu| |z| (QREFELT $ 50)) $)
+                  . #6#)
+            (LETT Q
+                  (|mul_DF| (QREFELT $ 21)
+                            (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
+                  . #6#)
+            (EXIT
+             (SEQ G190 NIL
+                  (SEQ
+                   (EXIT
+                    (COND
+                     ((|less_DF| Q (|ELIPIDF;rabs| |mu| $))
+                      (SEQ
+                       (LETT |mu_inv|
+                             (SPADCALL (|spadConstant| $ 51) |mu|
+                                       (QREFELT $ 52))
+                             . #6#)
+                       (LETT |xndev|
+                             (SPADCALL (SPADCALL |mu| |x| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #6#)
+                       (LETT |yndev|
+                             (SPADCALL (SPADCALL |mu| |y| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #6#)
+                       (LETT |zndev|
+                             (SPADCALL (SPADCALL |mu| |z| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #6#)
+                       (LETT |e2|
+                             (SPADCALL
+                              (SPADCALL |xndev| |yndev| (QREFELT $ 53))
+                              (SPADCALL |zndev| |zndev| (QREFELT $ 53))
+                              (QREFELT $ 50))
+                             . #6#)
+                       (LETT |e3|
+                             (SPADCALL
+                              (SPADCALL |xndev| |yndev| (QREFELT $ 53)) |zndev|
+                              (QREFELT $ 53))
+                             . #6#)
+                       (LETT |s|
+                             (SPADCALL
+                              (SPADCALL (|spadConstant| $ 51)
+                                        (SPADCALL
+                                         (SPADCALL
+                                          (SPADCALL
+                                           (SPADCALL (QREFELT $ 17) |e2|
+                                                     (QREFELT $ 49))
+                                           (SPADCALL (QREFELT $ 18)
+                                                     (QREFELT $ 54))
+                                           (QREFELT $ 50))
+                                          (SPADCALL (QREFELT $ 11) |e3|
+                                                    (QREFELT $ 49))
+                                          (QREFELT $ 50))
+                                         |e2| (QREFELT $ 53))
+                                        (QREFELT $ 48))
+                              (SPADCALL (QREFELT $ 20) |e3| (QREFELT $ 49))
+                              (QREFELT $ 48))
+                             . #6#)
+                       (EXIT
+                        (PROGN
+                         (LETT #3#
+                               (SPADCALL |s| (SPADCALL |mu_inv| (QREFELT $ 55))
+                                         (QREFELT $ 53))
+                               . #6#)
+                         (GO #3#)))))
+                     ('T
+                      (SEQ (LETT |xnroot| (SPADCALL |x| (QREFELT $ 55)) . #6#)
+                           (LETT |ynroot| (SPADCALL |y| (QREFELT $ 55)) . #6#)
+                           (LETT |znroot| (SPADCALL |z| (QREFELT $ 55)) . #6#)
+                           (LETT |lambda|
+                                 (SPADCALL
+                                  (SPADCALL |xnroot|
+                                            (SPADCALL |ynroot| |znroot|
+                                                      (QREFELT $ 48))
+                                            (QREFELT $ 53))
+                                  (SPADCALL |ynroot| |znroot| (QREFELT $ 53))
+                                  (QREFELT $ 48))
+                                 . #6#)
+                           (LETT |x|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |x| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #6#)
+                           (LETT |y|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |y| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #6#)
+                           (LETT |z|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |z| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #6#)
+                           (LETT |mu|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |mu| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #6#)
+                           (EXIT
+                            (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #6#)))))))
+                  NIL (GO G190) G191 (EXIT NIL)))))
+          #3# (EXIT #3#)))) 
+
+(SDEFUN |ELIPIDF;ellipticRD;4C;13|
+        ((|x| |Complex| (|DoubleFloat|)) (|y| |Complex| (|DoubleFloat|))
+         (|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        (SPROG
+         ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
+          (|power4| (|Complex| (|DoubleFloat|)))
+          (|sigma| (|Complex| (|DoubleFloat|)))
+          (|lambda| #1=(|Complex| (|DoubleFloat|)))
+          (|znroot| #2=(|Complex| (|DoubleFloat|))) (|ynroot| #2#)
+          (|xnroot| #2#) (#3=#:G154 NIL) (|ss| #4=(|Complex| (|DoubleFloat|)))
+          (|s2| #4#) (|s1| #4#) (|ef| #1#)
+          (|ed| #5=(|Complex| (|DoubleFloat|))) (|ec| #5#) (|eb| #4#)
+          (|ea| #4#) (|zndev| #4#) (|yndev| #4#) (|xndev| #4#)
+          (|mu_inv| (|Complex| (|DoubleFloat|))) (|zadev| #6=(|DoubleFloat|))
+          (|yadev| #6#) (|xadev| #6#))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |sigma| (|spadConstant| $ 60)
+                  . #7=(|ELIPIDF;ellipticRD;4C;13|))
+            (LETT |power4| (|spadConstant| $ 51) . #7#)
+            (LETT |mu|
+                  (SPADCALL (QREFELT $ 9)
+                            (SPADCALL (SPADCALL |x| |y| (QREFELT $ 48))
+                                      (SPADCALL (SPADCALL 3 (QREFELT $ 57)) |z|
+                                                (QREFELT $ 53))
+                                      (QREFELT $ 48))
+                            (QREFELT $ 49))
+                  . #7#)
+            (LETT |xadev| (|ELIPIDF;rabs| (SPADCALL |mu| |x| (QREFELT $ 50)) $)
+                  . #7#)
+            (LETT |yadev| (|ELIPIDF;rabs| (SPADCALL |mu| |y| (QREFELT $ 50)) $)
+                  . #7#)
+            (LETT |zadev| (|ELIPIDF;rabs| (SPADCALL |mu| |z| (QREFELT $ 50)) $)
+                  . #7#)
+            (LETT Q
+                  (|mul_DF| (QREFELT $ 27)
+                            (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
+                  . #7#)
+            (EXIT
+             (SEQ G190 NIL
+                  (SEQ
+                   (EXIT
+                    (COND
+                     ((|less_DF| Q (|ELIPIDF;rabs| |mu| $))
+                      (SEQ
+                       (LETT |mu_inv|
+                             (SPADCALL (|spadConstant| $ 51) |mu|
+                                       (QREFELT $ 52))
+                             . #7#)
+                       (LETT |xndev|
+                             (SPADCALL (SPADCALL |mu| |x| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |yndev|
+                             (SPADCALL (SPADCALL |mu| |y| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |zndev|
+                             (SPADCALL (SPADCALL |mu| |z| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |ea| (SPADCALL |xndev| |yndev| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |eb| (SPADCALL |zndev| |zndev| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |ec| (SPADCALL |ea| |eb| (QREFELT $ 50)) . #7#)
+                       (LETT |ed|
+                             (SPADCALL |ea|
+                                       (SPADCALL
+                                        (FLOAT 6 MOST-POSITIVE-DOUBLE-FLOAT)
+                                        |eb| (QREFELT $ 49))
+                                       (QREFELT $ 50))
+                             . #7#)
+                       (LETT |ef|
+                             (SPADCALL (SPADCALL |ed| |ec| (QREFELT $ 48)) |ec|
+                                       (QREFELT $ 48))
+                             . #7#)
+                       (LETT |s1|
+                             (SPADCALL |ed|
+                                       (SPADCALL
+                                        (SPADCALL
+                                         (SPADCALL (QREFELT $ 22)
+                                                   (QREFELT $ 54))
+                                         (SPADCALL
+                                          (|mul_DF| (QREFELT $ 8)
+                                                    (QREFELT $ 24))
+                                          |ed| (QREFELT $ 49))
+                                         (QREFELT $ 48))
+                                        (SPADCALL
+                                         (SPADCALL
+                                          (|mul_DF| (QREFELT $ 26)
+                                                    (QREFELT $ 25))
+                                          |zndev| (QREFELT $ 49))
+                                         |ef| (QREFELT $ 53))
+                                        (QREFELT $ 50))
+                                       (QREFELT $ 53))
+                             . #7#)
+                       (LETT |s2|
+                             (SPADCALL |zndev|
+                                       (SPADCALL
+                                        (SPADCALL (QREFELT $ 23) |ef|
+                                                  (QREFELT $ 49))
+                                        (SPADCALL |zndev|
+                                                  (SPADCALL
+                                                   (SPADCALL
+                                                    (SPADCALL (QREFELT $ 24)
+                                                              |ec|
+                                                              (QREFELT $ 49))
+                                                    (QREFELT $ 61))
+                                                   (SPADCALL
+                                                    (SPADCALL |zndev|
+                                                              (QREFELT $ 25)
+                                                              (QREFELT $ 62))
+                                                    |ea| (QREFELT $ 53))
+                                                   (QREFELT $ 48))
+                                                  (QREFELT $ 53))
+                                        (QREFELT $ 48))
+                                       (QREFELT $ 53))
+                             . #7#)
+                       (LETT |ss|
+                             (SPADCALL
+                              (SPADCALL
+                               (SPADCALL (|spadConstant| $ 51)
+                                         (SPADCALL |s1| |s2| (QREFELT $ 48))
+                                         (QREFELT $ 48))
+                               |mu_inv| (QREFELT $ 53))
+                              (SPADCALL |mu_inv| (QREFELT $ 55))
+                              (QREFELT $ 53))
+                             . #7#)
+                       (EXIT
+                        (PROGN
+                         (LETT #3#
+                               (SPADCALL
+                                (SPADCALL (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                                          |sigma| (QREFELT $ 49))
+                                (SPADCALL |power4| |ss| (QREFELT $ 53))
+                                (QREFELT $ 48))
+                               . #7#)
+                         (GO #3#)))))
+                     ('T
+                      (SEQ (LETT |xnroot| (SPADCALL |x| (QREFELT $ 55)) . #7#)
+                           (LETT |ynroot| (SPADCALL |y| (QREFELT $ 55)) . #7#)
+                           (LETT |znroot| (SPADCALL |z| (QREFELT $ 55)) . #7#)
+                           (LETT |lambda|
+                                 (SPADCALL
+                                  (SPADCALL |xnroot|
+                                            (SPADCALL |ynroot| |znroot|
+                                                      (QREFELT $ 48))
+                                            (QREFELT $ 53))
+                                  (SPADCALL |ynroot| |znroot| (QREFELT $ 53))
+                                  (QREFELT $ 48))
+                                 . #7#)
+                           (LETT |sigma|
+                                 (SPADCALL |sigma|
+                                           (SPADCALL |power4|
+                                                     (SPADCALL |znroot|
+                                                               (SPADCALL |z|
+                                                                         |lambda|
+                                                                         (QREFELT
+                                                                          $
+                                                                          48))
+                                                               (QREFELT $ 53))
+                                                     (QREFELT $ 52))
+                                           (QREFELT $ 48))
+                                 . #7#)
+                           (LETT |power4|
+                                 (SPADCALL (QREFELT $ 8) |power4|
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |x|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |x| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |y|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |y| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |z|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |z| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |mu|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |mu| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (EXIT
+                            (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #7#)))))))
+                  NIL (GO G190) G191 (EXIT NIL)))))
+          #3# (EXIT #3#)))) 
+
+(SDEFUN |ELIPIDF;ellipticRJ;5C;14|
+        ((|x| |Complex| (|DoubleFloat|)) (|y| |Complex| (|DoubleFloat|))
+         (|z| |Complex| (|DoubleFloat|)) (|p| |Complex| (|DoubleFloat|))
+         ($ |Complex| (|DoubleFloat|)))
+        (SPROG
+         ((Q (|DoubleFloat|)) (|mu| (|Complex| (|DoubleFloat|)))
+          (|power4| (|Complex| (|DoubleFloat|)))
+          (|sigma| (|Complex| (|DoubleFloat|)))
+          (|beta| #1=(|Complex| (|DoubleFloat|)))
+          (|alfa| #2=(|Complex| (|DoubleFloat|))) (|lambda| #2#)
+          (|znroot| #3=(|Complex| (|DoubleFloat|))) (|ynroot| #3#)
+          (|xnroot| #3#) (#4=#:G160 NIL) (|ss| #1#)
+          (|s3| #5=(|Complex| (|DoubleFloat|))) (|s2| #1#) (|s1| #1#)
+          (|e3| #2#) (|e2| #5#) (|ec| #1#) (|eb| #1#) (|ea| #2#) (|pndev| #1#)
+          (|zndev| #1#) (|yndev| #1#) (|xndev| #1#)
+          (|mu_inv| (|Complex| (|DoubleFloat|))) (|padev| #6=(|DoubleFloat|))
+          (|zadev| #6#) (|yadev| #6#) (|xadev| #6#))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |sigma| (|spadConstant| $ 60)
+                  . #7=(|ELIPIDF;ellipticRJ;5C;14|))
+            (LETT |power4| (|spadConstant| $ 51) . #7#)
+            (LETT |mu|
+                  (SPADCALL (QREFELT $ 9)
+                            (SPADCALL
+                             (SPADCALL
+                              (SPADCALL (SPADCALL |x| |y| (QREFELT $ 48)) |z|
+                                        (QREFELT $ 48))
+                              |p| (QREFELT $ 48))
+                             |p| (QREFELT $ 48))
+                            (QREFELT $ 49))
+                  . #7#)
+            (LETT |xadev| (|ELIPIDF;rabs| (SPADCALL |mu| |x| (QREFELT $ 50)) $)
+                  . #7#)
+            (LETT |yadev| (|ELIPIDF;rabs| (SPADCALL |mu| |y| (QREFELT $ 50)) $)
+                  . #7#)
+            (LETT |zadev| (|ELIPIDF;rabs| (SPADCALL |mu| |z| (QREFELT $ 50)) $)
+                  . #7#)
+            (LETT |padev| (|ELIPIDF;rabs| (SPADCALL |mu| |p| (QREFELT $ 50)) $)
+                  . #7#)
             (LETT Q
                   (|mul_DF| (QREFELT $ 27)
                             (|max_DF| (|max_DF| |xadev| |yadev|)
                                       (|max_DF| |zadev| |padev|)))
-                  . #2#)
+                  . #7#)
             (EXIT
              (SEQ G190 NIL
                   (SEQ
                    (EXIT
                     (COND
-                     ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
-                      (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #2#)
-                           (LETT |xndev|
-                                 (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|) . #2#)
-                           (LETT |yndev|
-                                 (|mul_DF| (|sub_DF| |mu| |y|) |mu_inv|) . #2#)
-                           (LETT |zndev|
-                                 (|mul_DF| (|sub_DF| |mu| |z|) |mu_inv|) . #2#)
-                           (LETT |pndev|
-                                 (|mul_DF| (|sub_DF| |mu| |p|) |mu_inv|) . #2#)
-                           (LETT |ea|
-                                 (|add_DF|
-                                  (|mul_DF| |xndev| (|add_DF| |yndev| |zndev|))
-                                  (|mul_DF| |yndev| |zndev|))
-                                 . #2#)
-                           (LETT |eb|
-                                 (|mul_DF| (|mul_DF| |xndev| |yndev|) |zndev|)
-                                 . #2#)
-                           (LETT |ec| (|mul_DF| |pndev| |pndev|) . #2#)
-                           (LETT |e2|
-                                 (|sub_DF| |ea|
-                                           (|mul_DF|
-                                            (FLOAT 3
-                                                   MOST-POSITIVE-DOUBLE-FLOAT)
-                                            |ec|))
-                                 . #2#)
-                           (LETT |e3|
-                                 (|add_DF| |eb|
-                                           (|mul_DF|
-                                            (|mul_DF|
-                                             (FLOAT 2
-                                                    MOST-POSITIVE-DOUBLE-FLOAT)
-                                             |pndev|)
-                                            (|sub_DF| |ea| |ec|)))
-                                 . #2#)
-                           (LETT |s1|
-                                 (|mul_DF| |e2|
-                                           (|sub_DF|
-                                            (|add_DF|
-                                             (|minus_DF| (QREFELT $ 28))
-                                             (|mul_DF| (QREFELT $ 31) |e2|))
-                                            (|mul_DF| (QREFELT $ 32) |e3|)))
-                                 . #2#)
-                           (LETT |s2|
-                                 (|mul_DF| |eb|
-                                           (|add_DF|
-                                            (|mul_DF| (QREFELT $ 6)
-                                                      (QREFELT $ 7))
-                                            (|mul_DF| |pndev|
-                                                      (|add_DF|
-                                                       (|minus_DF|
-                                                        (|add_DF|
-                                                         (QREFELT $ 29)
-                                                         (QREFELT $ 29)))
-                                                       (|mul_DF| |pndev|
-                                                                 (QREFELT $
-                                                                          30))))))
-                                 . #2#)
-                           (LETT |s3|
-                                 (|sub_DF|
-                                  (|mul_DF| (|mul_DF| |pndev| |ea|)
-                                            (|sub_DF| (QREFELT $ 7)
-                                                      (|mul_DF| |pndev|
-                                                                (QREFELT $
-                                                                         29))))
-                                  (|mul_DF| (|mul_DF| (QREFELT $ 7) |pndev|)
-                                            |ec|))
-                                 . #2#)
-                           (LETT |ss|
-                                 (|mul_DF|
-                                  (|mul_DF|
-                                   (|add_DF| 1.0
-                                             (|add_DF| (|add_DF| |s1| |s2|)
-                                                       |s3|))
-                                   |mu_inv|)
-                                  (|qsqrt_DF| |mu_inv|))
-                                 . #2#)
-                           (EXIT
-                            (PROGN
-                             (LETT #1#
-                                   (|add_DF|
-                                    (|mul_DF|
-                                     (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                     |sigma|)
-                                    (|mul_DF| |power4| |ss|))
-                                   . #2#)
-                             (GO #1#)))))
-                     ('T
-                      (SEQ (LETT |xnroot| (|qsqrt_DF| |x|) . #2#)
-                           (LETT |ynroot| (|qsqrt_DF| |y|) . #2#)
-                           (LETT |znroot| (|qsqrt_DF| |z|) . #2#)
-                           (LETT |lambda|
-                                 (|add_DF|
-                                  (|mul_DF| |xnroot|
-                                            (|add_DF| |ynroot| |znroot|))
-                                  (|mul_DF| |ynroot| |znroot|))
-                                 . #2#)
-                           (LETT |alfa|
-                                 (|add_DF|
-                                  (|mul_DF| |p|
-                                            (|add_DF|
-                                             (|add_DF| |xnroot| |ynroot|)
-                                             |znroot|))
-                                  (|mul_DF| (|mul_DF| |xnroot| |ynroot|)
-                                            |znroot|))
-                                 . #2#)
-                           (LETT |alfa| (|mul_DF| |alfa| |alfa|) . #2#)
-                           (LETT |beta|
-                                 (|mul_DF|
-                                  (|mul_DF| |p| (|add_DF| |p| |lambda|))
-                                  (|add_DF| |p| |lambda|))
-                                 . #2#)
-                           (LETT |sigma|
-                                 (|add_DF| |sigma|
-                                           (|mul_DF| |power4|
-                                                     (SPADCALL |alfa| |beta|
-                                                               (QREFELT $
-                                                                        39))))
-                                 . #2#)
-                           (LETT |power4| (|mul_DF| (QREFELT $ 8) |power4|)
-                                 . #2#)
-                           (LETT |x|
-                                 (|mul_DF| (QREFELT $ 8)
-                                           (|add_DF| |x| |lambda|))
-                                 . #2#)
-                           (LETT |y|
-                                 (|mul_DF| (QREFELT $ 8)
-                                           (|add_DF| |y| |lambda|))
-                                 . #2#)
-                           (LETT |z|
-                                 (|mul_DF| (QREFELT $ 8)
-                                           (|add_DF| |z| |lambda|))
-                                 . #2#)
-                           (LETT |p|
-                                 (|mul_DF| (QREFELT $ 8)
-                                           (|add_DF| |p| |lambda|))
-                                 . #2#)
-                           (LETT |mu|
-                                 (|mul_DF| (QREFELT $ 8)
-                                           (|add_DF| |mu| |lambda|))
-                                 . #2#)
-                           (EXIT
-                            (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #2#)))))))
-                  NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |ELIPIDF;ellipticF;3Df;6| (|z| |m| $)
-  (|mul_DF| |z|
-            (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
-                      (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|)) 1.0
-                      (QREFELT $ 40)))) 
-
-(DEFUN |ELIPIDF;ellipticK;2Df;7| (|m| $)
-  (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0 (QREFELT $ 40))) 
-
-(DEFUN |ELIPIDF;ellipticE;3Df;8| (|z| |m| $)
-  (|sub_DF|
-   (|mul_DF| |z|
-             (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
-                       (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|)) 1.0
-                       (QREFELT $ 40)))
-   (|mul_DF|
-    (|mul_DF|
-     (|mul_DF|
-      (|mul_DF| (|div_DF| |m| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)) |z|) |z|)
-     |z|)
-    (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
-              (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|)) 1.0
-              (QREFELT $ 41))))) 
-
-(DEFUN |ELIPIDF;ellipticE;2Df;9| (|m| $)
-  (|sub_DF| (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0 (QREFELT $ 40))
-            (|mul_DF| (|div_DF| |m| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT))
-                      (SPADCALL 0.0 (|sub_DF| 1.0 |m|) 1.0 (QREFELT $ 41))))) 
-
-(DEFUN |ELIPIDF;ellipticPi;4Df;10| (|z| |n| |m| $)
-  (|add_DF|
-   (|mul_DF| |z|
-             (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
-                       (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|)) 1.0
-                       (QREFELT $ 40)))
-   (|mul_DF|
-    (|mul_DF|
-     (|mul_DF|
-      (|mul_DF| (|div_DF| |n| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)) |z|) |z|)
-     |z|)
-    (SPADCALL (|sub_DF| 1.0 (|mul_DF| |z| |z|))
-              (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |m| |z|) |z|)) 1.0
-              (|sub_DF| 1.0 (|mul_DF| (|mul_DF| |n| |z|) |z|))
-              (QREFELT $ 42))))) 
-
-(DEFUN |ELIPIDF;ellipticRC;3C;11| (|x| |y| $)
-  (PROG (Q |mu| |lambda| #1=#:G142 S0 S1 |sn2| |sn| |mu_inv|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |mu|
-              (SPADCALL (QREFELT $ 7)
-                        (SPADCALL (SPADCALL |x| |y| (QREFELT $ 48)) |y|
-                                  (QREFELT $ 48))
-                        (QREFELT $ 49))
-              . #2=(|ELIPIDF;ellipticRC;3C;11|))
-        (LETT Q
-              (|mul_DF| (QREFELT $ 16)
-                        (|ELIPIDF;rabs| (SPADCALL |mu| |x| (QREFELT $ 50)) $))
-              . #2#)
-        (EXIT
-         (SEQ G190 NIL
-              (SEQ
-               (EXIT
-                (COND
-                 ((|less_DF| Q (|ELIPIDF;rabs| |mu| $))
-                  (SEQ
-                   (LETT |mu_inv|
-                         (SPADCALL (|spadConstant| $ 51) |mu| (QREFELT $ 52))
-                         . #2#)
-                   (LETT |sn|
-                         (SPADCALL |mu_inv| (SPADCALL |y| |mu| (QREFELT $ 50))
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |sn2| (SPADCALL |sn| |sn| (QREFELT $ 53)) . #2#)
-                   (LETT S1
-                         (SPADCALL (SPADCALL (QREFELT $ 11) (QREFELT $ 54))
-                                   (SPADCALL |sn2|
-                                             (SPADCALL
-                                              (SPADCALL (QREFELT $ 13)
-                                                        (QREFELT $ 54))
-                                              (SPADCALL |sn2|
-                                                        (SPADCALL
-                                                         (QREFELT $ 15)
-                                                         (QREFELT $ 54))
-                                                        (QREFELT $ 53))
-                                              (QREFELT $ 48))
-                                             (QREFELT $ 53))
-                                   (QREFELT $ 48))
-                         . #2#)
-                   (LETT S0
-                         (SPADCALL (SPADCALL (QREFELT $ 10) (QREFELT $ 54))
-                                   (SPADCALL |sn2|
-                                             (SPADCALL
-                                              (SPADCALL (QREFELT $ 12)
-                                                        (QREFELT $ 54))
-                                              (SPADCALL |sn2|
-                                                        (SPADCALL
-                                                         (QREFELT $ 14)
-                                                         (QREFELT $ 54))
-                                                        (QREFELT $ 53))
-                                              (QREFELT $ 48))
-                                             (QREFELT $ 53))
-                                   (QREFELT $ 48))
-                         . #2#)
-                   (EXIT
-                    (PROGN
-                     (LETT #1#
-                           (SPADCALL (SPADCALL |mu_inv| (QREFELT $ 55))
-                                     (SPADCALL (|spadConstant| $ 51)
-                                               (SPADCALL |sn2|
-                                                         (SPADCALL S0
-                                                                   (SPADCALL
-                                                                    |sn| S1
-                                                                    (QREFELT $
-                                                                             53))
-                                                                   (QREFELT $
-                                                                            48))
-                                                         (QREFELT $ 53))
-                                               (QREFELT $ 48))
-                                     (QREFELT $ 53))
-                           . #2#)
-                     (GO #1#)))))
-                 ('T
-                  (SEQ
-                   (LETT |lambda|
-                         (SPADCALL
-                          (SPADCALL
-                           (SPADCALL (SPADCALL 2 (QREFELT $ 57))
-                                     (SPADCALL |x| (QREFELT $ 55))
-                                     (QREFELT $ 53))
-                           (SPADCALL |y| (QREFELT $ 55)) (QREFELT $ 53))
-                          |y| (QREFELT $ 48))
-                         . #2#)
-                   (LETT |x|
-                         (SPADCALL (QREFELT $ 8)
-                                   (SPADCALL |x| |lambda| (QREFELT $ 48))
-                                   (QREFELT $ 49))
-                         . #2#)
-                   (LETT |y|
-                         (SPADCALL (QREFELT $ 8)
-                                   (SPADCALL |y| |lambda| (QREFELT $ 48))
-                                   (QREFELT $ 49))
-                         . #2#)
-                   (LETT |mu|
-                         (SPADCALL (QREFELT $ 8)
-                                   (SPADCALL |mu| |lambda| (QREFELT $ 48))
-                                   (QREFELT $ 49))
-                         . #2#)
-                   (EXIT (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #2#)))))))
-              NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |ELIPIDF;ellipticRF;4C;12| (|x| |y| |z| $)
-  (PROG (Q |mu| |lambda| |znroot| |ynroot| |xnroot| #1=#:G148 |s| |e3| |e2|
-         |zndev| |yndev| |xndev| |mu_inv| |zadev| |yadev| |xadev|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |mu|
-              (SPADCALL (QREFELT $ 7)
-                        (SPADCALL (SPADCALL |x| |y| (QREFELT $ 48)) |z|
-                                  (QREFELT $ 48))
-                        (QREFELT $ 49))
-              . #2=(|ELIPIDF;ellipticRF;4C;12|))
-        (LETT |xadev| (|ELIPIDF;rabs| (SPADCALL |mu| |x| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT |yadev| (|ELIPIDF;rabs| (SPADCALL |mu| |y| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT |zadev| (|ELIPIDF;rabs| (SPADCALL |mu| |z| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT Q
-              (|mul_DF| (QREFELT $ 21)
-                        (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
-              . #2#)
-        (EXIT
-         (SEQ G190 NIL
-              (SEQ
-               (EXIT
-                (COND
-                 ((|less_DF| Q (|ELIPIDF;rabs| |mu| $))
-                  (SEQ
-                   (LETT |mu_inv|
-                         (SPADCALL (|spadConstant| $ 51) |mu| (QREFELT $ 52))
-                         . #2#)
-                   (LETT |xndev|
-                         (SPADCALL (SPADCALL |mu| |x| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |yndev|
-                         (SPADCALL (SPADCALL |mu| |y| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |zndev|
-                         (SPADCALL (SPADCALL |mu| |z| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |e2|
-                         (SPADCALL (SPADCALL |xndev| |yndev| (QREFELT $ 53))
-                                   (SPADCALL |zndev| |zndev| (QREFELT $ 53))
-                                   (QREFELT $ 50))
-                         . #2#)
-                   (LETT |e3|
-                         (SPADCALL (SPADCALL |xndev| |yndev| (QREFELT $ 53))
-                                   |zndev| (QREFELT $ 53))
-                         . #2#)
-                   (LETT |s|
-                         (SPADCALL
-                          (SPADCALL (|spadConstant| $ 51)
-                                    (SPADCALL
-                                     (SPADCALL
-                                      (SPADCALL
-                                       (SPADCALL (QREFELT $ 17) |e2|
-                                                 (QREFELT $ 49))
-                                       (SPADCALL (QREFELT $ 18) (QREFELT $ 54))
+                     ((|less_DF| Q (|ELIPIDF;rabs| |mu| $))
+                      (SEQ
+                       (LETT |mu_inv|
+                             (SPADCALL (|spadConstant| $ 51) |mu|
+                                       (QREFELT $ 52))
+                             . #7#)
+                       (LETT |xndev|
+                             (SPADCALL (SPADCALL |mu| |x| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |yndev|
+                             (SPADCALL (SPADCALL |mu| |y| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |zndev|
+                             (SPADCALL (SPADCALL |mu| |z| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |pndev|
+                             (SPADCALL (SPADCALL |mu| |p| (QREFELT $ 50))
+                                       |mu_inv| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |ea|
+                             (SPADCALL
+                              (SPADCALL |xndev|
+                                        (SPADCALL |yndev| |zndev|
+                                                  (QREFELT $ 48))
+                                        (QREFELT $ 53))
+                              (SPADCALL |yndev| |zndev| (QREFELT $ 53))
+                              (QREFELT $ 48))
+                             . #7#)
+                       (LETT |eb|
+                             (SPADCALL
+                              (SPADCALL |xndev| |yndev| (QREFELT $ 53)) |zndev|
+                              (QREFELT $ 53))
+                             . #7#)
+                       (LETT |ec| (SPADCALL |pndev| |pndev| (QREFELT $ 53))
+                             . #7#)
+                       (LETT |e2|
+                             (SPADCALL |ea|
+                                       (SPADCALL
+                                        (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                                        |ec| (QREFELT $ 49))
                                        (QREFELT $ 50))
-                                      (SPADCALL (QREFELT $ 11) |e3|
-                                                (QREFELT $ 49))
-                                      (QREFELT $ 50))
-                                     |e2| (QREFELT $ 53))
-                                    (QREFELT $ 48))
-                          (SPADCALL (QREFELT $ 20) |e3| (QREFELT $ 49))
-                          (QREFELT $ 48))
-                         . #2#)
-                   (EXIT
-                    (PROGN
-                     (LETT #1#
-                           (SPADCALL |s| (SPADCALL |mu_inv| (QREFELT $ 55))
-                                     (QREFELT $ 53))
-                           . #2#)
-                     (GO #1#)))))
-                 ('T
-                  (SEQ (LETT |xnroot| (SPADCALL |x| (QREFELT $ 55)) . #2#)
-                       (LETT |ynroot| (SPADCALL |y| (QREFELT $ 55)) . #2#)
-                       (LETT |znroot| (SPADCALL |z| (QREFELT $ 55)) . #2#)
-                       (LETT |lambda|
-                             (SPADCALL
-                              (SPADCALL |xnroot|
-                                        (SPADCALL |ynroot| |znroot|
-                                                  (QREFELT $ 48))
-                                        (QREFELT $ 53))
-                              (SPADCALL |ynroot| |znroot| (QREFELT $ 53))
-                              (QREFELT $ 48))
-                             . #2#)
-                       (LETT |x|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |x| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |y|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |y| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |z|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |z| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |mu|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |mu| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (EXIT (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #2#)))))))
-              NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |ELIPIDF;ellipticRD;4C;13| (|x| |y| |z| $)
-  (PROG (Q |mu| |power4| |sigma| |lambda| |znroot| |ynroot| |xnroot| #1=#:G154
-         |ss| |s2| |s1| |ef| |ed| |ec| |eb| |ea| |zndev| |yndev| |xndev|
-         |mu_inv| |zadev| |yadev| |xadev|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |sigma| (|spadConstant| $ 60) . #2=(|ELIPIDF;ellipticRD;4C;13|))
-        (LETT |power4| (|spadConstant| $ 51) . #2#)
-        (LETT |mu|
-              (SPADCALL (QREFELT $ 9)
-                        (SPADCALL (SPADCALL |x| |y| (QREFELT $ 48))
-                                  (SPADCALL (SPADCALL 3 (QREFELT $ 57)) |z|
-                                            (QREFELT $ 53))
-                                  (QREFELT $ 48))
-                        (QREFELT $ 49))
-              . #2#)
-        (LETT |xadev| (|ELIPIDF;rabs| (SPADCALL |mu| |x| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT |yadev| (|ELIPIDF;rabs| (SPADCALL |mu| |y| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT |zadev| (|ELIPIDF;rabs| (SPADCALL |mu| |z| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT Q
-              (|mul_DF| (QREFELT $ 27)
-                        (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
-              . #2#)
-        (EXIT
-         (SEQ G190 NIL
-              (SEQ
-               (EXIT
-                (COND
-                 ((|less_DF| Q (|ELIPIDF;rabs| |mu| $))
-                  (SEQ
-                   (LETT |mu_inv|
-                         (SPADCALL (|spadConstant| $ 51) |mu| (QREFELT $ 52))
-                         . #2#)
-                   (LETT |xndev|
-                         (SPADCALL (SPADCALL |mu| |x| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |yndev|
-                         (SPADCALL (SPADCALL |mu| |y| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |zndev|
-                         (SPADCALL (SPADCALL |mu| |z| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |ea| (SPADCALL |xndev| |yndev| (QREFELT $ 53)) . #2#)
-                   (LETT |eb| (SPADCALL |zndev| |zndev| (QREFELT $ 53)) . #2#)
-                   (LETT |ec| (SPADCALL |ea| |eb| (QREFELT $ 50)) . #2#)
-                   (LETT |ed|
-                         (SPADCALL |ea|
-                                   (SPADCALL
-                                    (FLOAT 6 MOST-POSITIVE-DOUBLE-FLOAT) |eb|
-                                    (QREFELT $ 49))
-                                   (QREFELT $ 50))
-                         . #2#)
-                   (LETT |ef|
-                         (SPADCALL (SPADCALL |ed| |ec| (QREFELT $ 48)) |ec|
-                                   (QREFELT $ 48))
-                         . #2#)
-                   (LETT |s1|
-                         (SPADCALL |ed|
-                                   (SPADCALL
-                                    (SPADCALL
-                                     (SPADCALL (QREFELT $ 22) (QREFELT $ 54))
-                                     (SPADCALL
-                                      (|mul_DF| (QREFELT $ 8) (QREFELT $ 24))
-                                      |ed| (QREFELT $ 49))
-                                     (QREFELT $ 48))
-                                    (SPADCALL
-                                     (SPADCALL
-                                      (|mul_DF| (QREFELT $ 26) (QREFELT $ 25))
-                                      |zndev| (QREFELT $ 49))
-                                     |ef| (QREFELT $ 53))
-                                    (QREFELT $ 50))
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |s2|
-                         (SPADCALL |zndev|
-                                   (SPADCALL
-                                    (SPADCALL (QREFELT $ 23) |ef|
-                                              (QREFELT $ 49))
-                                    (SPADCALL |zndev|
-                                              (SPADCALL
-                                               (SPADCALL
-                                                (SPADCALL (QREFELT $ 24) |ec|
-                                                          (QREFELT $ 49))
-                                                (QREFELT $ 61))
-                                               (SPADCALL
-                                                (SPADCALL |zndev|
-                                                          (QREFELT $ 25)
-                                                          (QREFELT $ 62))
-                                                |ea| (QREFELT $ 53))
-                                               (QREFELT $ 48))
-                                              (QREFELT $ 53))
-                                    (QREFELT $ 48))
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |ss|
-                         (SPADCALL
-                          (SPADCALL
-                           (SPADCALL (|spadConstant| $ 51)
-                                     (SPADCALL |s1| |s2| (QREFELT $ 48))
-                                     (QREFELT $ 48))
-                           |mu_inv| (QREFELT $ 53))
-                          (SPADCALL |mu_inv| (QREFELT $ 55)) (QREFELT $ 53))
-                         . #2#)
-                   (EXIT
-                    (PROGN
-                     (LETT #1#
-                           (SPADCALL
-                            (SPADCALL (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                      |sigma| (QREFELT $ 49))
-                            (SPADCALL |power4| |ss| (QREFELT $ 53))
-                            (QREFELT $ 48))
-                           . #2#)
-                     (GO #1#)))))
-                 ('T
-                  (SEQ (LETT |xnroot| (SPADCALL |x| (QREFELT $ 55)) . #2#)
-                       (LETT |ynroot| (SPADCALL |y| (QREFELT $ 55)) . #2#)
-                       (LETT |znroot| (SPADCALL |z| (QREFELT $ 55)) . #2#)
-                       (LETT |lambda|
-                             (SPADCALL
-                              (SPADCALL |xnroot|
-                                        (SPADCALL |ynroot| |znroot|
-                                                  (QREFELT $ 48))
-                                        (QREFELT $ 53))
-                              (SPADCALL |ynroot| |znroot| (QREFELT $ 53))
-                              (QREFELT $ 48))
-                             . #2#)
-                       (LETT |sigma|
-                             (SPADCALL |sigma|
-                                       (SPADCALL |power4|
-                                                 (SPADCALL |znroot|
-                                                           (SPADCALL |z|
-                                                                     |lambda|
-                                                                     (QREFELT $
-                                                                              48))
-                                                           (QREFELT $ 53))
-                                                 (QREFELT $ 52))
-                                       (QREFELT $ 48))
-                             . #2#)
-                       (LETT |power4|
-                             (SPADCALL (QREFELT $ 8) |power4| (QREFELT $ 49))
-                             . #2#)
-                       (LETT |x|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |x| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |y|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |y| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |z|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |z| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |mu|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |mu| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (EXIT (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #2#)))))))
-              NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |ELIPIDF;ellipticRJ;5C;14| (|x| |y| |z| |p| $)
-  (PROG (Q |mu| |power4| |sigma| |beta| |alfa| |lambda| |znroot| |ynroot|
-         |xnroot| #1=#:G160 |ss| |s3| |s2| |s1| |e3| |e2| |ec| |eb| |ea|
-         |pndev| |zndev| |yndev| |xndev| |mu_inv| |padev| |zadev| |yadev|
-         |xadev|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |sigma| (|spadConstant| $ 60) . #2=(|ELIPIDF;ellipticRJ;5C;14|))
-        (LETT |power4| (|spadConstant| $ 51) . #2#)
-        (LETT |mu|
-              (SPADCALL (QREFELT $ 9)
-                        (SPADCALL
-                         (SPADCALL
-                          (SPADCALL (SPADCALL |x| |y| (QREFELT $ 48)) |z|
-                                    (QREFELT $ 48))
-                          |p| (QREFELT $ 48))
-                         |p| (QREFELT $ 48))
-                        (QREFELT $ 49))
-              . #2#)
-        (LETT |xadev| (|ELIPIDF;rabs| (SPADCALL |mu| |x| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT |yadev| (|ELIPIDF;rabs| (SPADCALL |mu| |y| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT |zadev| (|ELIPIDF;rabs| (SPADCALL |mu| |z| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT |padev| (|ELIPIDF;rabs| (SPADCALL |mu| |p| (QREFELT $ 50)) $)
-              . #2#)
-        (LETT Q
-              (|mul_DF| (QREFELT $ 27)
-                        (|max_DF| (|max_DF| |xadev| |yadev|)
-                                  (|max_DF| |zadev| |padev|)))
-              . #2#)
-        (EXIT
-         (SEQ G190 NIL
-              (SEQ
-               (EXIT
-                (COND
-                 ((|less_DF| Q (|ELIPIDF;rabs| |mu| $))
-                  (SEQ
-                   (LETT |mu_inv|
-                         (SPADCALL (|spadConstant| $ 51) |mu| (QREFELT $ 52))
-                         . #2#)
-                   (LETT |xndev|
-                         (SPADCALL (SPADCALL |mu| |x| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |yndev|
-                         (SPADCALL (SPADCALL |mu| |y| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |zndev|
-                         (SPADCALL (SPADCALL |mu| |z| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |pndev|
-                         (SPADCALL (SPADCALL |mu| |p| (QREFELT $ 50)) |mu_inv|
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |ea|
-                         (SPADCALL
-                          (SPADCALL |xndev|
-                                    (SPADCALL |yndev| |zndev| (QREFELT $ 48))
-                                    (QREFELT $ 53))
-                          (SPADCALL |yndev| |zndev| (QREFELT $ 53))
-                          (QREFELT $ 48))
-                         . #2#)
-                   (LETT |eb|
-                         (SPADCALL (SPADCALL |xndev| |yndev| (QREFELT $ 53))
-                                   |zndev| (QREFELT $ 53))
-                         . #2#)
-                   (LETT |ec| (SPADCALL |pndev| |pndev| (QREFELT $ 53)) . #2#)
-                   (LETT |e2|
-                         (SPADCALL |ea|
-                                   (SPADCALL
-                                    (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT) |ec|
-                                    (QREFELT $ 49))
-                                   (QREFELT $ 50))
-                         . #2#)
-                   (LETT |e3|
-                         (SPADCALL |eb|
-                                   (SPADCALL
-                                    (SPADCALL
-                                     (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
-                                     |pndev| (QREFELT $ 49))
-                                    (SPADCALL |ea| |ec| (QREFELT $ 50))
-                                    (QREFELT $ 53))
-                                   (QREFELT $ 48))
-                         . #2#)
-                   (LETT |s1|
-                         (SPADCALL |e2|
-                                   (SPADCALL
-                                    (SPADCALL
-                                     (SPADCALL
-                                      (SPADCALL (QREFELT $ 28) (QREFELT $ 54))
-                                      (QREFELT $ 61))
-                                     (SPADCALL (QREFELT $ 31) |e2|
-                                               (QREFELT $ 49))
-                                     (QREFELT $ 48))
-                                    (SPADCALL (QREFELT $ 32) |e3|
-                                              (QREFELT $ 49))
-                                    (QREFELT $ 50))
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |s2|
-                         (SPADCALL |eb|
-                                   (SPADCALL
-                                    (SPADCALL (QREFELT $ 6)
-                                              (SPADCALL (QREFELT $ 7)
-                                                        (QREFELT $ 54))
-                                              (QREFELT $ 49))
-                                    (SPADCALL |pndev|
-                                              (SPADCALL
-                                               (SPADCALL
-                                                (SPADCALL
-                                                 (|add_DF| (QREFELT $ 29)
-                                                           (QREFELT $ 29))
-                                                 (QREFELT $ 54))
-                                                (QREFELT $ 61))
-                                               (SPADCALL |pndev| (QREFELT $ 30)
-                                                         (QREFELT $ 62))
-                                               (QREFELT $ 48))
-                                              (QREFELT $ 53))
-                                    (QREFELT $ 48))
-                                   (QREFELT $ 53))
-                         . #2#)
-                   (LETT |s3|
-                         (SPADCALL
-                          (SPADCALL (SPADCALL |pndev| |ea| (QREFELT $ 53))
-                                    (SPADCALL
-                                     (SPADCALL (QREFELT $ 7) (QREFELT $ 54))
-                                     (SPADCALL |pndev| (QREFELT $ 29)
-                                               (QREFELT $ 62))
-                                     (QREFELT $ 50))
-                                    (QREFELT $ 53))
-                          (SPADCALL
-                           (SPADCALL (QREFELT $ 7) |pndev| (QREFELT $ 49)) |ec|
-                           (QREFELT $ 53))
-                          (QREFELT $ 50))
-                         . #2#)
-                   (LETT |ss|
-                         (SPADCALL
-                          (SPADCALL
-                           (SPADCALL (|spadConstant| $ 51)
-                                     (SPADCALL
-                                      (SPADCALL |s1| |s2| (QREFELT $ 48)) |s3|
-                                      (QREFELT $ 48))
-                                     (QREFELT $ 48))
-                           |mu_inv| (QREFELT $ 53))
-                          (SPADCALL |mu_inv| (QREFELT $ 55)) (QREFELT $ 53))
-                         . #2#)
-                   (EXIT
-                    (PROGN
-                     (LETT #1#
-                           (SPADCALL
-                            (SPADCALL (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                                      |sigma| (QREFELT $ 49))
-                            (SPADCALL |power4| |ss| (QREFELT $ 53))
-                            (QREFELT $ 48))
-                           . #2#)
-                     (GO #1#)))))
-                 ('T
-                  (SEQ (LETT |xnroot| (SPADCALL |x| (QREFELT $ 55)) . #2#)
-                       (LETT |ynroot| (SPADCALL |y| (QREFELT $ 55)) . #2#)
-                       (LETT |znroot| (SPADCALL |z| (QREFELT $ 55)) . #2#)
-                       (LETT |lambda|
-                             (SPADCALL
-                              (SPADCALL |xnroot|
-                                        (SPADCALL |ynroot| |znroot|
-                                                  (QREFELT $ 48))
-                                        (QREFELT $ 53))
-                              (SPADCALL |ynroot| |znroot| (QREFELT $ 53))
-                              (QREFELT $ 48))
-                             . #2#)
-                       (LETT |alfa|
-                             (SPADCALL
-                              (SPADCALL |p|
+                             . #7#)
+                       (LETT |e3|
+                             (SPADCALL |eb|
+                                       (SPADCALL
                                         (SPADCALL
-                                         (SPADCALL |xnroot| |ynroot|
+                                         (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)
+                                         |pndev| (QREFELT $ 49))
+                                        (SPADCALL |ea| |ec| (QREFELT $ 50))
+                                        (QREFELT $ 53))
+                                       (QREFELT $ 48))
+                             . #7#)
+                       (LETT |s1|
+                             (SPADCALL |e2|
+                                       (SPADCALL
+                                        (SPADCALL
+                                         (SPADCALL
+                                          (SPADCALL (QREFELT $ 28)
+                                                    (QREFELT $ 54))
+                                          (QREFELT $ 61))
+                                         (SPADCALL (QREFELT $ 31) |e2|
+                                                   (QREFELT $ 49))
+                                         (QREFELT $ 48))
+                                        (SPADCALL (QREFELT $ 32) |e3|
+                                                  (QREFELT $ 49))
+                                        (QREFELT $ 50))
+                                       (QREFELT $ 53))
+                             . #7#)
+                       (LETT |s2|
+                             (SPADCALL |eb|
+                                       (SPADCALL
+                                        (SPADCALL (QREFELT $ 6)
+                                                  (SPADCALL (QREFELT $ 7)
+                                                            (QREFELT $ 54))
+                                                  (QREFELT $ 49))
+                                        (SPADCALL |pndev|
+                                                  (SPADCALL
+                                                   (SPADCALL
+                                                    (SPADCALL
+                                                     (|add_DF| (QREFELT $ 29)
+                                                               (QREFELT $ 29))
+                                                     (QREFELT $ 54))
+                                                    (QREFELT $ 61))
+                                                   (SPADCALL |pndev|
+                                                             (QREFELT $ 30)
+                                                             (QREFELT $ 62))
                                                    (QREFELT $ 48))
-                                         |znroot| (QREFELT $ 48))
+                                                  (QREFELT $ 53))
+                                        (QREFELT $ 48))
+                                       (QREFELT $ 53))
+                             . #7#)
+                       (LETT |s3|
+                             (SPADCALL
+                              (SPADCALL (SPADCALL |pndev| |ea| (QREFELT $ 53))
+                                        (SPADCALL
+                                         (SPADCALL (QREFELT $ 7)
+                                                   (QREFELT $ 54))
+                                         (SPADCALL |pndev| (QREFELT $ 29)
+                                                   (QREFELT $ 62))
+                                         (QREFELT $ 50))
                                         (QREFELT $ 53))
                               (SPADCALL
-                               (SPADCALL |xnroot| |ynroot| (QREFELT $ 53))
-                               |znroot| (QREFELT $ 53))
-                              (QREFELT $ 48))
-                             . #2#)
-                       (LETT |alfa| (SPADCALL |alfa| |alfa| (QREFELT $ 53))
-                             . #2#)
-                       (LETT |beta|
+                               (SPADCALL (QREFELT $ 7) |pndev| (QREFELT $ 49))
+                               |ec| (QREFELT $ 53))
+                              (QREFELT $ 50))
+                             . #7#)
+                       (LETT |ss|
                              (SPADCALL
-                              (SPADCALL |p|
-                                        (SPADCALL |p| |lambda| (QREFELT $ 48))
-                                        (QREFELT $ 53))
-                              (SPADCALL |p| |lambda| (QREFELT $ 48))
+                              (SPADCALL
+                               (SPADCALL (|spadConstant| $ 51)
+                                         (SPADCALL
+                                          (SPADCALL |s1| |s2| (QREFELT $ 48))
+                                          |s3| (QREFELT $ 48))
+                                         (QREFELT $ 48))
+                               |mu_inv| (QREFELT $ 53))
+                              (SPADCALL |mu_inv| (QREFELT $ 55))
                               (QREFELT $ 53))
-                             . #2#)
-                       (LETT |sigma|
-                             (SPADCALL |sigma|
-                                       (SPADCALL |power4|
-                                                 (SPADCALL |alfa| |beta|
-                                                           (QREFELT $ 58))
-                                                 (QREFELT $ 53))
-                                       (QREFELT $ 48))
-                             . #2#)
-                       (LETT |power4|
-                             (SPADCALL (QREFELT $ 8) |power4| (QREFELT $ 49))
-                             . #2#)
-                       (LETT |x|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |x| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |y|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |y| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |z|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |z| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |p|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |p| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (LETT |mu|
-                             (SPADCALL (QREFELT $ 8)
-                                       (SPADCALL |mu| |lambda| (QREFELT $ 48))
-                                       (QREFELT $ 49))
-                             . #2#)
-                       (EXIT (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #2#)))))))
-              NIL (GO G190) G191 (EXIT NIL)))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |ELIPIDF;ellipticF;3C;15| (|z| |m| $)
-  (SPADCALL |z|
-            (SPADCALL
-             (SPADCALL (|spadConstant| $ 51) (SPADCALL |z| |z| (QREFELT $ 53))
-                       (QREFELT $ 50))
-             (SPADCALL (|spadConstant| $ 51)
-                       (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z|
-                                 (QREFELT $ 53))
-                       (QREFELT $ 50))
-             (|spadConstant| $ 51) (QREFELT $ 59))
-            (QREFELT $ 53))) 
-
-(DEFUN |ELIPIDF;ellipticK;2C;16| (|m| $)
-  (SPADCALL (|spadConstant| $ 60)
-            (SPADCALL (|spadConstant| $ 51) |m| (QREFELT $ 50))
-            (|spadConstant| $ 51) (QREFELT $ 59))) 
-
-(DEFUN |ELIPIDF;ellipticE;3C;17| (|z| |m| $)
-  (SPADCALL
-   (SPADCALL |z|
-             (SPADCALL
-              (SPADCALL (|spadConstant| $ 51) (SPADCALL |z| |z| (QREFELT $ 53))
-                        (QREFELT $ 50))
-              (SPADCALL (|spadConstant| $ 51)
-                        (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z|
+                             . #7#)
+                       (EXIT
+                        (PROGN
+                         (LETT #4#
+                               (SPADCALL
+                                (SPADCALL (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                                          |sigma| (QREFELT $ 49))
+                                (SPADCALL |power4| |ss| (QREFELT $ 53))
+                                (QREFELT $ 48))
+                               . #7#)
+                         (GO #4#)))))
+                     ('T
+                      (SEQ (LETT |xnroot| (SPADCALL |x| (QREFELT $ 55)) . #7#)
+                           (LETT |ynroot| (SPADCALL |y| (QREFELT $ 55)) . #7#)
+                           (LETT |znroot| (SPADCALL |z| (QREFELT $ 55)) . #7#)
+                           (LETT |lambda|
+                                 (SPADCALL
+                                  (SPADCALL |xnroot|
+                                            (SPADCALL |ynroot| |znroot|
+                                                      (QREFELT $ 48))
+                                            (QREFELT $ 53))
+                                  (SPADCALL |ynroot| |znroot| (QREFELT $ 53))
+                                  (QREFELT $ 48))
+                                 . #7#)
+                           (LETT |alfa|
+                                 (SPADCALL
+                                  (SPADCALL |p|
+                                            (SPADCALL
+                                             (SPADCALL |xnroot| |ynroot|
+                                                       (QREFELT $ 48))
+                                             |znroot| (QREFELT $ 48))
+                                            (QREFELT $ 53))
+                                  (SPADCALL
+                                   (SPADCALL |xnroot| |ynroot| (QREFELT $ 53))
+                                   |znroot| (QREFELT $ 53))
+                                  (QREFELT $ 48))
+                                 . #7#)
+                           (LETT |alfa| (SPADCALL |alfa| |alfa| (QREFELT $ 53))
+                                 . #7#)
+                           (LETT |beta|
+                                 (SPADCALL
+                                  (SPADCALL |p|
+                                            (SPADCALL |p| |lambda|
+                                                      (QREFELT $ 48))
+                                            (QREFELT $ 53))
+                                  (SPADCALL |p| |lambda| (QREFELT $ 48))
                                   (QREFELT $ 53))
-                        (QREFELT $ 50))
-              (|spadConstant| $ 51) (QREFELT $ 59))
-             (QREFELT $ 53))
-   (SPADCALL
-    (SPADCALL
-     (SPADCALL
-      (SPADCALL (SPADCALL |m| (SPADCALL 3 (QREFELT $ 57)) (QREFELT $ 52)) |z|
-                (QREFELT $ 53))
-      |z| (QREFELT $ 53))
-     |z| (QREFELT $ 53))
-    (SPADCALL
-     (SPADCALL (|spadConstant| $ 51) (SPADCALL |z| |z| (QREFELT $ 53))
-               (QREFELT $ 50))
-     (SPADCALL (|spadConstant| $ 51)
-               (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z| (QREFELT $ 53))
-               (QREFELT $ 50))
-     (|spadConstant| $ 51) (QREFELT $ 63))
-    (QREFELT $ 53))
-   (QREFELT $ 50))) 
+                                 . #7#)
+                           (LETT |sigma|
+                                 (SPADCALL |sigma|
+                                           (SPADCALL |power4|
+                                                     (SPADCALL |alfa| |beta|
+                                                               (QREFELT $ 58))
+                                                     (QREFELT $ 53))
+                                           (QREFELT $ 48))
+                                 . #7#)
+                           (LETT |power4|
+                                 (SPADCALL (QREFELT $ 8) |power4|
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |x|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |x| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |y|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |y| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |z|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |z| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |p|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |p| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (LETT |mu|
+                                 (SPADCALL (QREFELT $ 8)
+                                           (SPADCALL |mu| |lambda|
+                                                     (QREFELT $ 48))
+                                           (QREFELT $ 49))
+                                 . #7#)
+                           (EXIT
+                            (LETT Q (|mul_DF| (QREFELT $ 8) Q) . #7#)))))))
+                  NIL (GO G190) G191 (EXIT NIL)))))
+          #4# (EXIT #4#)))) 
 
-(DEFUN |ELIPIDF;ellipticE;2C;18| (|m| $)
-  (SPADCALL
-   (SPADCALL (|spadConstant| $ 60)
-             (SPADCALL (|spadConstant| $ 51) |m| (QREFELT $ 50))
-             (|spadConstant| $ 51) (QREFELT $ 59))
-   (SPADCALL (SPADCALL |m| (SPADCALL 3 (QREFELT $ 57)) (QREFELT $ 52))
-             (SPADCALL (|spadConstant| $ 60)
-                       (SPADCALL (|spadConstant| $ 51) |m| (QREFELT $ 50))
-                       (|spadConstant| $ 51) (QREFELT $ 63))
-             (QREFELT $ 53))
-   (QREFELT $ 50))) 
+(SDEFUN |ELIPIDF;ellipticF;3C;15|
+        ((|z| |Complex| (|DoubleFloat|)) (|m| |Complex| (|DoubleFloat|))
+         ($ |Complex| (|DoubleFloat|)))
+        (SPADCALL |z|
+                  (SPADCALL
+                   (SPADCALL (|spadConstant| $ 51)
+                             (SPADCALL |z| |z| (QREFELT $ 53)) (QREFELT $ 50))
+                   (SPADCALL (|spadConstant| $ 51)
+                             (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z|
+                                       (QREFELT $ 53))
+                             (QREFELT $ 50))
+                   (|spadConstant| $ 51) (QREFELT $ 59))
+                  (QREFELT $ 53))) 
 
-(DEFUN |ELIPIDF;ellipticPi;4C;19| (|z| |n| |m| $)
-  (SPADCALL
-   (SPADCALL |z|
-             (SPADCALL
-              (SPADCALL (|spadConstant| $ 51) (SPADCALL |z| |z| (QREFELT $ 53))
-                        (QREFELT $ 50))
-              (SPADCALL (|spadConstant| $ 51)
-                        (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z|
-                                  (QREFELT $ 53))
-                        (QREFELT $ 50))
-              (|spadConstant| $ 51) (QREFELT $ 59))
-             (QREFELT $ 53))
-   (SPADCALL
-    (SPADCALL
-     (SPADCALL
-      (SPADCALL (SPADCALL |n| (SPADCALL 3 (QREFELT $ 57)) (QREFELT $ 52)) |z|
-                (QREFELT $ 53))
-      |z| (QREFELT $ 53))
-     |z| (QREFELT $ 53))
-    (SPADCALL
-     (SPADCALL (|spadConstant| $ 51) (SPADCALL |z| |z| (QREFELT $ 53))
-               (QREFELT $ 50))
-     (SPADCALL (|spadConstant| $ 51)
-               (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z| (QREFELT $ 53))
-               (QREFELT $ 50))
-     (|spadConstant| $ 51)
-     (SPADCALL (|spadConstant| $ 51)
-               (SPADCALL (SPADCALL |n| |z| (QREFELT $ 53)) |z| (QREFELT $ 53))
-               (QREFELT $ 50))
-     (QREFELT $ 64))
-    (QREFELT $ 53))
-   (QREFELT $ 48))) 
+(SDEFUN |ELIPIDF;ellipticK;2C;16|
+        ((|m| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        (SPADCALL (|spadConstant| $ 60)
+                  (SPADCALL (|spadConstant| $ 51) |m| (QREFELT $ 50))
+                  (|spadConstant| $ 51) (QREFELT $ 59))) 
+
+(SDEFUN |ELIPIDF;ellipticE;3C;17|
+        ((|z| |Complex| (|DoubleFloat|)) (|m| |Complex| (|DoubleFloat|))
+         ($ |Complex| (|DoubleFloat|)))
+        (SPADCALL
+         (SPADCALL |z|
+                   (SPADCALL
+                    (SPADCALL (|spadConstant| $ 51)
+                              (SPADCALL |z| |z| (QREFELT $ 53)) (QREFELT $ 50))
+                    (SPADCALL (|spadConstant| $ 51)
+                              (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z|
+                                        (QREFELT $ 53))
+                              (QREFELT $ 50))
+                    (|spadConstant| $ 51) (QREFELT $ 59))
+                   (QREFELT $ 53))
+         (SPADCALL
+          (SPADCALL
+           (SPADCALL
+            (SPADCALL (SPADCALL |m| (SPADCALL 3 (QREFELT $ 57)) (QREFELT $ 52))
+                      |z| (QREFELT $ 53))
+            |z| (QREFELT $ 53))
+           |z| (QREFELT $ 53))
+          (SPADCALL
+           (SPADCALL (|spadConstant| $ 51) (SPADCALL |z| |z| (QREFELT $ 53))
+                     (QREFELT $ 50))
+           (SPADCALL (|spadConstant| $ 51)
+                     (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z|
+                               (QREFELT $ 53))
+                     (QREFELT $ 50))
+           (|spadConstant| $ 51) (QREFELT $ 63))
+          (QREFELT $ 53))
+         (QREFELT $ 50))) 
+
+(SDEFUN |ELIPIDF;ellipticE;2C;18|
+        ((|m| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        (SPADCALL
+         (SPADCALL (|spadConstant| $ 60)
+                   (SPADCALL (|spadConstant| $ 51) |m| (QREFELT $ 50))
+                   (|spadConstant| $ 51) (QREFELT $ 59))
+         (SPADCALL (SPADCALL |m| (SPADCALL 3 (QREFELT $ 57)) (QREFELT $ 52))
+                   (SPADCALL (|spadConstant| $ 60)
+                             (SPADCALL (|spadConstant| $ 51) |m|
+                                       (QREFELT $ 50))
+                             (|spadConstant| $ 51) (QREFELT $ 63))
+                   (QREFELT $ 53))
+         (QREFELT $ 50))) 
+
+(SDEFUN |ELIPIDF;ellipticPi;4C;19|
+        ((|z| |Complex| (|DoubleFloat|)) (|n| |Complex| (|DoubleFloat|))
+         (|m| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
+        (SPADCALL
+         (SPADCALL |z|
+                   (SPADCALL
+                    (SPADCALL (|spadConstant| $ 51)
+                              (SPADCALL |z| |z| (QREFELT $ 53)) (QREFELT $ 50))
+                    (SPADCALL (|spadConstant| $ 51)
+                              (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z|
+                                        (QREFELT $ 53))
+                              (QREFELT $ 50))
+                    (|spadConstant| $ 51) (QREFELT $ 59))
+                   (QREFELT $ 53))
+         (SPADCALL
+          (SPADCALL
+           (SPADCALL
+            (SPADCALL (SPADCALL |n| (SPADCALL 3 (QREFELT $ 57)) (QREFELT $ 52))
+                      |z| (QREFELT $ 53))
+            |z| (QREFELT $ 53))
+           |z| (QREFELT $ 53))
+          (SPADCALL
+           (SPADCALL (|spadConstant| $ 51) (SPADCALL |z| |z| (QREFELT $ 53))
+                     (QREFELT $ 50))
+           (SPADCALL (|spadConstant| $ 51)
+                     (SPADCALL (SPADCALL |m| |z| (QREFELT $ 53)) |z|
+                               (QREFELT $ 53))
+                     (QREFELT $ 50))
+           (|spadConstant| $ 51)
+           (SPADCALL (|spadConstant| $ 51)
+                     (SPADCALL (SPADCALL |n| |z| (QREFELT $ 53)) |z|
+                               (QREFELT $ 53))
+                     (QREFELT $ 50))
+           (QREFELT $ 64))
+          (QREFELT $ 53))
+         (QREFELT $ 48))) 
 
 (DECLAIM (NOTINLINE |DoubleFloatEllipticIntegrals;|)) 
 
 (DEFUN |DoubleFloatEllipticIntegrals| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G167)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatEllipticIntegrals|)
-                . #2=(|DoubleFloatEllipticIntegrals|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|DoubleFloatEllipticIntegrals|
-                         (LIST
-                          (CONS NIL
-                                (CONS 1 (|DoubleFloatEllipticIntegrals;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G167)
+           (RETURN
             (COND
-             ((NOT #1#)
-              (HREM |$ConstructorCache|
-                    '|DoubleFloatEllipticIntegrals|))))))))))) 
+             ((LETT #1#
+                    (HGET |$ConstructorCache| '|DoubleFloatEllipticIntegrals|)
+                    . #2=(|DoubleFloatEllipticIntegrals|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache|
+                             '|DoubleFloatEllipticIntegrals|
+                             (LIST
+                              (CONS NIL
+                                    (CONS 1
+                                          (|DoubleFloatEllipticIntegrals;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache|
+                        '|DoubleFloatEllipticIntegrals|)))))))))) 
 
 (DEFUN |DoubleFloatEllipticIntegrals;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|DoubleFloatEllipticIntegrals|)
-            . #1=(|DoubleFloatEllipticIntegrals|))
-      (LETT $ (GETREFV 70) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|DoubleFloatEllipticIntegrals| NIL
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6 (|div_DF| 1.0 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 7 (|div_DF| 1.0 (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 8 (|div_DF| 1.0 (FLOAT 4 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 9 (|div_DF| 1.0 (FLOAT 5 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 10
-                (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 11 (|div_DF| 1.0 (FLOAT 7 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 12
-                (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 8 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 13
-                (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 22 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 14
-                (|div_DF| (FLOAT 159 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 208 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 15
-                (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 8 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 16 (FLOAT 94 MOST-POSITIVE-DOUBLE-FLOAT))
-      (QSETREFV $ 17 (|div_DF| 1.0 (FLOAT 24 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 18 (|div_DF| 1.0 (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 19
-                (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 44 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 20 (|div_DF| 1.0 (FLOAT 14 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 21 (FLOAT 427 MOST-POSITIVE-DOUBLE-FLOAT))
-      (QSETREFV $ 22
-                (|minus_DF|
-                 (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                           (FLOAT 14 MOST-POSITIVE-DOUBLE-FLOAT))))
-      (QSETREFV $ 23 (|div_DF| 1.0 (FLOAT 6 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 24
-                (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 22 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 25
-                (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 26 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 26
-                (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 27 (FLOAT 646 MOST-POSITIVE-DOUBLE-FLOAT))
-      (QSETREFV $ 28
-                (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 14 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 29
-                (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 22 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 30
-                (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 26 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 31
-                (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 88 MOST-POSITIVE-DOUBLE-FLOAT)))
-      (QSETREFV $ 32
-                (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
-                          (FLOAT 52 MOST-POSITIVE-DOUBLE-FLOAT)))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|DoubleFloatEllipticIntegrals|)
+                . #1=(|DoubleFloatEllipticIntegrals|))
+          (LETT $ (GETREFV 70) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|DoubleFloatEllipticIntegrals| NIL
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6 (|div_DF| 1.0 (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 7 (|div_DF| 1.0 (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 8 (|div_DF| 1.0 (FLOAT 4 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 9 (|div_DF| 1.0 (FLOAT 5 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 10
+                    (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 11 (|div_DF| 1.0 (FLOAT 7 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 12
+                    (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 8 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 13
+                    (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 22 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 14
+                    (|div_DF| (FLOAT 159 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 208 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 15
+                    (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 8 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 16 (FLOAT 94 MOST-POSITIVE-DOUBLE-FLOAT))
+          (QSETREFV $ 17 (|div_DF| 1.0 (FLOAT 24 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 18 (|div_DF| 1.0 (FLOAT 10 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 19
+                    (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 44 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 20 (|div_DF| 1.0 (FLOAT 14 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 21 (FLOAT 427 MOST-POSITIVE-DOUBLE-FLOAT))
+          (QSETREFV $ 22
+                    (|minus_DF|
+                     (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                               (FLOAT 14 MOST-POSITIVE-DOUBLE-FLOAT))))
+          (QSETREFV $ 23 (|div_DF| 1.0 (FLOAT 6 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 24
+                    (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 22 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 25
+                    (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 26 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 26
+                    (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 2 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 27 (FLOAT 646 MOST-POSITIVE-DOUBLE-FLOAT))
+          (QSETREFV $ 28
+                    (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 14 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 29
+                    (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 22 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 30
+                    (|div_DF| (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 26 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 31
+                    (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 88 MOST-POSITIVE-DOUBLE-FLOAT)))
+          (QSETREFV $ 32
+                    (|div_DF| (FLOAT 9 MOST-POSITIVE-DOUBLE-FLOAT)
+                              (FLOAT 52 MOST-POSITIVE-DOUBLE-FLOAT)))
+          $))) 
 
 (MAKEPROP '|DoubleFloatEllipticIntegrals| '|infovec|
           (LIST

@@ -1,68 +1,70 @@
 
-(DEFUN |MODMONOM;<;2$B;1| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 8))) 
+(SDEFUN |MODMONOM;<;2$B;1| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPADCALL |x| |y| (QREFELT $ 8))) 
 
 (PUT '|MODMONOM;exponent;$E;2| '|SPADreplace| 'QCDR) 
 
-(DEFUN |MODMONOM;exponent;$E;2| (|x| $) (QCDR |x|)) 
+(SDEFUN |MODMONOM;exponent;$E;2| ((|x| $) ($ E)) (QCDR |x|)) 
 
 (PUT '|MODMONOM;index;$IS;3| '|SPADreplace| 'QCAR) 
 
-(DEFUN |MODMONOM;index;$IS;3| (|x| $) (QCAR |x|)) 
+(SDEFUN |MODMONOM;index;$IS;3| ((|x| $) ($ IS)) (QCAR |x|)) 
 
 (PUT '|MODMONOM;coerce;$R;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |MODMONOM;coerce;$R;4| (|x| $) |x|) 
+(SDEFUN |MODMONOM;coerce;$R;4|
+        ((|x| $) ($ |Record| (|:| |index| IS) (|:| |exponent| E))) |x|) 
 
 (PUT '|MODMONOM;coerce;R$;5| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(DEFUN |MODMONOM;coerce;R$;5| (|x| $) |x|) 
+(SDEFUN |MODMONOM;coerce;R$;5|
+        ((|x| |Record| (|:| |index| IS) (|:| |exponent| E)) ($ $)) |x|) 
 
 (PUT '|MODMONOM;construct;ISE$;6| '|SPADreplace| 'CONS) 
 
-(DEFUN |MODMONOM;construct;ISE$;6| (|i| |e| $) (CONS |i| |e|)) 
+(SDEFUN |MODMONOM;construct;ISE$;6| ((|i| IS) (|e| E) ($ $)) (CONS |i| |e|)) 
 
 (DECLAIM (NOTINLINE |ModuleMonomial;|)) 
 
 (DEFUN |ModuleMonomial| (&REST #1=#:G116)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G117)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|ModuleMonomial|)
-                                           '|domainEqualList|)
-                . #3=(|ModuleMonomial|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |ModuleMonomial;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G117)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|ModuleMonomial|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|ModuleMonomial|)
+                                               '|domainEqualList|)
+                    . #3=(|ModuleMonomial|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |ModuleMonomial;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|ModuleMonomial|)))))))))) 
 
 (DEFUN |ModuleMonomial;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|ModuleMonomial|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|ModuleMonomial| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|ModuleMonomial| (LIST DV$1 DV$2 DV$3)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 9 (|Record| (|:| |index| |#1|) (|:| |exponent| |#2|)))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|ModuleMonomial|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|ModuleMonomial| DV$1 DV$2 DV$3) . #1#)
+          (LETT $ (GETREFV 21) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|ModuleMonomial|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 9 (|Record| (|:| |index| |#1|) (|:| |exponent| |#2|)))
+          $))) 
 
 (MAKEPROP '|ModuleMonomial| '|infovec|
           (LIST

@@ -1,85 +1,100 @@
 
-(DEFUN |RRCC-;zero?;ThePolsSB;1| (|toTest| |rootChar| $)
-  (EQL (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0)) 
+(SDEFUN |RRCC-;zero?;ThePolsSB;1|
+        ((|toTest| |ThePols|) (|rootChar| S) ($ |Boolean|))
+        (EQL (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0)) 
 
-(DEFUN |RRCC-;negative?;ThePolsSB;2| (|toTest| |rootChar| $)
-  (< (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0)) 
+(SDEFUN |RRCC-;negative?;ThePolsSB;2|
+        ((|toTest| |ThePols|) (|rootChar| S) ($ |Boolean|))
+        (< (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0)) 
 
-(DEFUN |RRCC-;positive?;ThePolsSB;3| (|toTest| |rootChar| $)
-  (SPADCALL (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0 (QREFELT $ 14))) 
+(SDEFUN |RRCC-;positive?;ThePolsSB;3|
+        ((|toTest| |ThePols|) (|rootChar| S) ($ |Boolean|))
+        (SPADCALL (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0
+                  (QREFELT $ 14))) 
 
-(DEFUN |RRCC-;rootOf;ThePolsPiU;4| (|pol| |n| $)
-  (PROG (|liste|)
-    (RETURN
-     (SEQ
-      (LETT |liste| (SPADCALL |pol| (QREFELT $ 17))
-            |RRCC-;rootOf;ThePolsPiU;4|)
-      (EXIT
-       (COND ((SPADCALL (LENGTH |liste|) |n| (QREFELT $ 19)) (CONS 1 "failed"))
-             ('T (CONS 0 (SPADCALL |liste| |n| (QREFELT $ 21)))))))))) 
-
-(DEFUN |RRCC-;recip;ThePolsSU;5| (|toInv| |rootChar| $)
-  (PROG (|d| |defPol| #1=#:G126 |res|)
-    (RETURN
-     (SEQ
-      (COND
-       ((EQL (SPADCALL |toInv| (QREFELT $ 25)) 0)
-        (SEQ
-         (LETT |res|
-               (SPADCALL (SPADCALL |toInv| (QREFELT $ 26)) (QREFELT $ 27))
-               . #2=(|RRCC-;recip;ThePolsSU;5|))
-         (EXIT
-          (COND ((QEQCAR |res| 1) (CONS 1 "failed"))
-                (#3='T (CONS 0 (SPADCALL (QCDR |res|) (QREFELT $ 28))))))))
-       (#3#
-        (SEQ (LETT |defPol| (SPADCALL |rootChar| (QREFELT $ 29)) . #2#)
-             (LETT |d| (SPADCALL (LIST |defPol| |toInv|) (QREFELT $ 31)) . #2#)
-             (EXIT
-              (COND
-               ((SPADCALL (QCDR |d|) |rootChar| (QREFELT $ 32))
-                (CONS 1 "failed"))
-               (#3#
-                (SEQ
+(SDEFUN |RRCC-;rootOf;ThePolsPiU;4|
+        ((|pol| |ThePols|) (|n| |PositiveInteger|) ($ |Union| S "failed"))
+        (SPROG ((|liste| (|List| S)))
+               (SEQ
+                (LETT |liste| (SPADCALL |pol| (QREFELT $ 17))
+                      |RRCC-;rootOf;ThePolsPiU;4|)
+                (EXIT
                  (COND
-                  ((SPADCALL (SPADCALL (QCDR |d|) (QREFELT $ 25)) 0
-                             (QREFELT $ 33))
-                   (SEQ
-                    (LETT |defPol|
-                          (PROG2
-                              (LETT #1#
-                                    (SPADCALL |defPol| (QCDR |d|)
-                                              (QREFELT $ 34))
-                                    . #2#)
-                              (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) (QREFELT $ 8) #1#))
-                          . #2#)
-                    (EXIT
-                     (LETT |d|
-                           (SPADCALL (LIST |defPol| |toInv|) (QREFELT $ 31))
-                           . #2#)))))
+                  ((SPADCALL (LENGTH |liste|) |n| (QREFELT $ 19))
+                   (CONS 1 "failed"))
+                  ('T (CONS 0 (SPADCALL |liste| |n| (QREFELT $ 21))))))))) 
+
+(SDEFUN |RRCC-;recip;ThePolsSU;5|
+        ((|toInv| |ThePols|) (|rootChar| S) ($ |Union| |ThePols| "failed"))
+        (SPROG
+         ((|d|
+           (|Record| (|:| |coef| (|List| |ThePols|))
+                     (|:| |generator| |ThePols|)))
+          (|defPol| (|ThePols|)) (#1=#:G126 NIL)
+          (|res| (|Union| |TheField| "failed")))
+         (SEQ
+          (COND
+           ((EQL (SPADCALL |toInv| (QREFELT $ 25)) 0)
+            (SEQ
+             (LETT |res|
+                   (SPADCALL (SPADCALL |toInv| (QREFELT $ 26)) (QREFELT $ 27))
+                   . #2=(|RRCC-;recip;ThePolsSU;5|))
+             (EXIT
+              (COND ((QEQCAR |res| 1) (CONS 1 "failed"))
+                    (#3='T (CONS 0 (SPADCALL (QCDR |res|) (QREFELT $ 28))))))))
+           (#3#
+            (SEQ (LETT |defPol| (SPADCALL |rootChar| (QREFELT $ 29)) . #2#)
+                 (LETT |d| (SPADCALL (LIST |defPol| |toInv|) (QREFELT $ 31))
+                       . #2#)
                  (EXIT
-                  (CONS 0 (SPADCALL (QCAR |d|) 2 (QREFELT $ 36))))))))))))))) 
+                  (COND
+                   ((SPADCALL (QCDR |d|) |rootChar| (QREFELT $ 32))
+                    (CONS 1 "failed"))
+                   (#3#
+                    (SEQ
+                     (COND
+                      ((SPADCALL (SPADCALL (QCDR |d|) (QREFELT $ 25)) 0
+                                 (QREFELT $ 33))
+                       (SEQ
+                        (LETT |defPol|
+                              (PROG2
+                                  (LETT #1#
+                                        (SPADCALL |defPol| (QCDR |d|)
+                                                  (QREFELT $ 34))
+                                        . #2#)
+                                  (QCDR #1#)
+                                (|check_union| (QEQCAR #1# 0) (QREFELT $ 8)
+                                               #1#))
+                              . #2#)
+                        (EXIT
+                         (LETT |d|
+                               (SPADCALL (LIST |defPol| |toInv|)
+                                         (QREFELT $ 31))
+                               . #2#)))))
+                     (EXIT
+                      (CONS 0 (SPADCALL (QCAR |d|) 2 (QREFELT $ 36)))))))))))))) 
 
 (DECLAIM (NOTINLINE |RealRootCharacterizationCategory&;|)) 
 
 (DEFUN |RealRootCharacterizationCategory&| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|RealRootCharacterizationCategory&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|RealRootCharacterizationCategory&| DV$1 DV$2 DV$3)
-            . #1#)
-      (LETT $ (GETREFV 39) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|RealRootCharacterizationCategory&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$|
+                (LIST '|RealRootCharacterizationCategory&| DV$1 DV$2 DV$3)
+                . #1#)
+          (LETT $ (GETREFV 39) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RealRootCharacterizationCategory&| '|infovec|
           (LIST

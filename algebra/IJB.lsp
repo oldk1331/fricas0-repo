@@ -1,99 +1,102 @@
 
-(DEFUN |IJB;setNotation;2S;1| (|s| $)
-  (PROG (|t|)
-    (RETURN
-     (SEQ
-      (COND
-       ((NULL (SPADCALL |s| (LIST '|Multi| '|Repeated|) (QREFELT $ 16)))
-        (|error| "Unknown notation"))
-       ('T
-        (SEQ (LETT |t| (QREFELT $ 12) |IJB;setNotation;2S;1|) (SETELT $ 12 |s|)
-             (EXIT |t|)))))))) 
+(SDEFUN |IJB;setNotation;2S;1| ((|s| |Symbol|) ($ |Symbol|))
+        (SPROG ((|t| (|Symbol|)))
+               (SEQ
+                (COND
+                 ((NULL
+                   (SPADCALL |s| (LIST '|Multi| '|Repeated|) (QREFELT $ 16)))
+                  (|error| "Unknown notation"))
+                 ('T
+                  (SEQ (LETT |t| (QREFELT $ 12) |IJB;setNotation;2S;1|)
+                       (SETELT $ 12 |s|) (EXIT |t|))))))) 
 
-(DEFUN |IJB;getNotation;S;2| ($) (QREFELT $ 12)) 
+(SDEFUN |IJB;getNotation;S;2| (($ |Symbol|)) (QREFELT $ 12)) 
 
-(DEFUN |IJB;multiIndex;$L;3| (|jv| $)
-  (SPADCALL (CDR (CDR |jv|)) (QREFELT $ 19))) 
+(SDEFUN |IJB;multiIndex;$L;3| ((|jv| $) ($ |List| (|NonNegativeInteger|)))
+        (SPADCALL (CDR (CDR |jv|)) (QREFELT $ 19))) 
 
-(DEFUN |IJB;index;$Pi;4| (|jv| $)
-  (PROG (#1=#:G115)
-    (RETURN
-     (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)) |IJB;index;$Pi;4|)
-       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
+(SDEFUN |IJB;index;$Pi;4| ((|jv| $) ($ |PositiveInteger|))
+        (SPROG ((#1=#:G115 NIL))
+               (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)) |IJB;index;$Pi;4|)
+                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
 
-(DEFUN |IJB;type;$S;5| (|jv| $)
-  (PROG (|t|)
-    (RETURN
-     (SEQ (LETT |t| (|SPADfirst| |jv|) |IJB;type;$S;5|)
-          (EXIT
-           (COND ((ZEROP |t|) '|Const|) ((EQL |t| 1) '|Indep|)
-                 ((EQL |t| 2) '|Dep|) ('T '|Deriv|))))))) 
+(SDEFUN |IJB;type;$S;5| ((|jv| $) ($ |Symbol|))
+        (SPROG ((|t| (|NonNegativeInteger|)))
+               (SEQ (LETT |t| (|SPADfirst| |jv|) |IJB;type;$S;5|)
+                    (EXIT
+                     (COND ((ZEROP |t|) '|Const|) ((EQL |t| 1) '|Indep|)
+                           ((EQL |t| 2) '|Dep|) ('T '|Deriv|)))))) 
 
-(DEFUN |IJB;CheckZeroIndex| (|il| $)
-  (PROG (#1=#:G123 #2=#:G124 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |i| NIL . #3=(|IJB;CheckZeroIndex|)) (LETT #2# |il| . #3#)
-             G190
-             (COND
-              ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #3#) NIL))
-               (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((NULL (ZEROP |i|)) (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
-             (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT 'T)))
-      #1# (EXIT #1#))))) 
+(SDEFUN |IJB;CheckZeroIndex|
+        ((|il| |List| (|NonNegativeInteger|)) ($ |Boolean|))
+        (SPROG ((#1=#:G123 NIL) (#2=#:G124 NIL) (|i| NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (SEQ (LETT |i| NIL . #3=(|IJB;CheckZeroIndex|))
+                       (LETT #2# |il| . #3#) G190
+                       (COND
+                        ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((NULL (ZEROP |i|))
+                           (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                       (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                  (EXIT 'T)))
+                #1# (EXIT #1#)))) 
 
-(DEFUN |IJB;X;Pi$;7| (|up| $)
-  (COND
-   ((SPADCALL |up| (QREFELT $ 9) (QREFELT $ 25))
-    (|error| "Improper upper index"))
-   ('T (LIST 1 |up|)))) 
+(SDEFUN |IJB;X;Pi$;7| ((|up| |PositiveInteger|) ($ $))
+        (COND
+         ((SPADCALL |up| (QREFELT $ 9) (QREFELT $ 25))
+          (|error| "Improper upper index"))
+         ('T (LIST 1 |up|)))) 
 
-(DEFUN |IJB;U;Pi$;8| (|up| $)
-  (PROG (#1=#:G129 |i| #2=#:G128)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |up| (QREFELT $ 10) (QREFELT $ 25))
-        (|error| "Improper upper index"))
-       ('T
-        (CONS 2
-              (CONS |up|
-                    (PROGN
-                     (LETT #2# NIL . #3=(|IJB;U;Pi$;8|))
-                     (SEQ (LETT |i| 1 . #3#) (LETT #1# (QREFELT $ 9) . #3#)
-                          G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
-                          (SEQ (EXIT (LETT #2# (CONS 0 #2#) . #3#)))
-                          (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                          (EXIT (NREVERSE #2#)))))))))))) 
+(SDEFUN |IJB;U;Pi$;8| ((|up| |PositiveInteger|) ($ $))
+        (SPROG ((#1=#:G129 NIL) (|i| NIL) (#2=#:G128 NIL))
+               (SEQ
+                (COND
+                 ((SPADCALL |up| (QREFELT $ 10) (QREFELT $ 25))
+                  (|error| "Improper upper index"))
+                 ('T
+                  (CONS 2
+                        (CONS |up|
+                              (PROGN
+                               (LETT #2# NIL . #3=(|IJB;U;Pi$;8|))
+                               (SEQ (LETT |i| 1 . #3#)
+                                    (LETT #1# (QREFELT $ 9) . #3#) G190
+                                    (COND ((|greater_SI| |i| #1#) (GO G191)))
+                                    (SEQ (EXIT (LETT #2# (CONS 0 #2#) . #3#)))
+                                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190)
+                                    G191 (EXIT (NREVERSE #2#))))))))))) 
 
-(DEFUN |IJB;Pm;PiL$;9| (|up| |lo| $)
-  (COND
-   ((SPADCALL |up| (QREFELT $ 10) (QREFELT $ 25))
-    (|error| "Improper upper index"))
-   ((SPADCALL (SPADCALL |lo| (QREFELT $ 29)) (QREFELT $ 9) (QREFELT $ 30))
-    (|error| |errmsg1|))
-   ((|IJB;CheckZeroIndex| |lo| $) (SPADCALL |up| (QREFELT $ 27)))
-   ('T (CONS 3 (CONS |up| |lo|))))) 
+(SDEFUN |IJB;Pm;PiL$;9|
+        ((|up| |PositiveInteger|) (|lo| |List| (|NonNegativeInteger|)) ($ $))
+        (COND
+         ((SPADCALL |up| (QREFELT $ 10) (QREFELT $ 25))
+          (|error| "Improper upper index"))
+         ((SPADCALL (SPADCALL |lo| (QREFELT $ 29)) (QREFELT $ 9)
+                    (QREFELT $ 30))
+          (|error| |errmsg1|))
+         ((|IJB;CheckZeroIndex| |lo| $) (SPADCALL |up| (QREFELT $ 27)))
+         ('T (CONS 3 (CONS |up| |lo|))))) 
 
 (PUT '|IJB;One;$;10| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
-(DEFUN |IJB;One;$;10| ($) (LIST 0 1)) 
+(SDEFUN |IJB;One;$;10| (($ $)) (LIST 0 1)) 
 
-(DEFUN |IJB;numIndVar;Pi;11| ($) (QREFELT $ 9)) 
+(SDEFUN |IJB;numIndVar;Pi;11| (($ |PositiveInteger|)) (QREFELT $ 9)) 
 
-(DEFUN |IJB;numDepVar;Pi;12| ($) (QREFELT $ 10)) 
+(SDEFUN |IJB;numDepVar;Pi;12| (($ |PositiveInteger|)) (QREFELT $ 10)) 
 
-(DEFUN |IJB;name;$S;13| (|jv| $)
-  (PROG (#1=#:G152 |j| #2=#:G151 #3=#:G150 #4=#:G149 #5=#:G148 |i| #6=#:G147
-         #7=#:G146 #8=#:G145 |jt|)
-    (RETURN
-     (SEQ (LETT |jt| (SPADCALL |jv| (QREFELT $ 24)) . #9=(|IJB;name;$S;13|))
+(SDEFUN |IJB;name;$S;13| ((|jv| $) ($ |Symbol|))
+        (SPROG
+         ((#1=#:G152 NIL) (|j| NIL) (#2=#:G151 NIL) (#3=#:G150 NIL)
+          (#4=#:G149 NIL) (#5=#:G148 NIL) (|i| NIL) (#6=#:G147 NIL)
+          (#7=#:G146 NIL) (#8=#:G145 NIL) (|jt| (|Symbol|)))
+         (SEQ
+          (LETT |jt| (SPADCALL |jv| (QREFELT $ 24)) . #9=(|IJB;name;$S;13|))
           (EXIT
            (COND ((EQUAL |jt| '|Const|) '|1|)
                  ((EQUAL |jt| '|Indep|)
@@ -237,121 +240,132 @@
                                     (LETT #1# (CDR #1#) . #9#) (GO G190) G191
                                     (EXIT (NREVERSE #2#))))
                               (QREFELT $ 48)))
-                            (QREFELT $ 45))))))))) 
+                            (QREFELT $ 45)))))))) 
 
 (PUT '|IJB;opdisp| '|SPADreplace| '|SPADfirst|) 
 
-(DEFUN |IJB;opdisp| (|l| $) (|SPADfirst| |l|)) 
+(SDEFUN |IJB;opdisp| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
+        (|SPADfirst| |l|)) 
 
-(DEFUN |IJB;coerce;$E;15| (|jv| $)
-  (PROG (|arg| #1=#:G163 |j| #2=#:G162 #3=#:G161 |i| #4=#:G160 |jop| |tmp|
-         |opname|)
-    (RETURN
-     (SEQ
-      (COND
-       ((EQUAL (SPADCALL |jv| (QREFELT $ 24)) '|Const|) (|spadConstant| $ 51))
-       (#5='T
-        (SEQ
-         (LETT |opname| (SPADCALL |jv| (QREFELT $ 49))
-               . #6=(|IJB;coerce;$E;15|))
-         (LETT |jop| (SPADCALL |opname| (QREFELT $ 53)) . #6#)
-         (SPADCALL |jop| (CONS (|function| |IJB;opdisp|) $) (QREFELT $ 55))
-         (LETT |tmp| (SPADCALL |jv| (QREFELT $ 58)) . #6#)
-         (LETT |jop| (SPADCALL |jop| '|%symbol| |tmp| (QREFELT $ 59)) . #6#)
-         (LETT |tmp| (SPADCALL (SPADCALL |jv| (QREFELT $ 60)) (QREFELT $ 62))
-               . #6#)
-         (LETT |jop| (SPADCALL |jop| '|%weight| |tmp| (QREFELT $ 59)) . #6#)
-         (LETT |tmp| (SPADCALL (SPADCALL |jv| (QREFELT $ 24)) (QREFELT $ 64))
-               . #6#)
-         (LETT |jop| (SPADCALL |jop| '|%jet| |tmp| (QREFELT $ 59)) . #6#)
-         (COND
-          ((EQUAL (SPADCALL (QREFELT $ 18)) '|Multi|)
-           (LETT |arg|
-                 (PROGN
-                  (LETT #4# NIL . #6#)
-                  (SEQ (LETT |i| NIL . #6#)
-                       (LETT #3# (SPADCALL |jv| (QREFELT $ 21)) . #6#) G190
-                       (COND
-                        ((OR (ATOM #3#) (PROGN (LETT |i| (CAR #3#) . #6#) NIL))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (LETT #4# (CONS (SPADCALL |i| (QREFELT $ 66)) #4#)
-                               . #6#)))
-                       (LETT #3# (CDR #3#) . #6#) (GO G190) G191
-                       (EXIT (NREVERSE #4#))))
-                 . #6#))
-          (#5#
-           (LETT |arg|
-                 (PROGN
-                  (LETT #2# NIL . #6#)
-                  (SEQ (LETT |j| NIL . #6#)
-                       (LETT #1# (SPADCALL |jv| (QREFELT $ 47)) . #6#) G190
-                       (COND
-                        ((OR (ATOM #1#) (PROGN (LETT |j| (CAR #1#) . #6#) NIL))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (LETT #2# (CONS (SPADCALL |j| (QREFELT $ 66)) #2#)
-                               . #6#)))
-                       (LETT #1# (CDR #1#) . #6#) (GO G190) G191
-                       (EXIT (NREVERSE #2#))))
-                 . #6#)))
-         (LETT |arg|
-               (SPADCALL
-                (LIST (SPADCALL |opname| (QREFELT $ 67))
-                      (SPADCALL (SPADCALL |jv| (QREFELT $ 23)) (QREFELT $ 66)))
-                |arg| (QREFELT $ 69))
-               . #6#)
-         (EXIT (SPADCALL |jop| |arg| (QREFELT $ 70)))))))))) 
+(SDEFUN |IJB;coerce;$E;15| ((|jv| $) ($ |Expression| (|Integer|)))
+        (SPROG
+         ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G163 NIL) (|j| NIL)
+          (#2=#:G162 NIL) (#3=#:G161 NIL) (|i| NIL) (#4=#:G160 NIL)
+          (|jop| (|BasicOperator|)) (|tmp| (|None|)) (|opname| (|Symbol|)))
+         (SEQ
+          (COND
+           ((EQUAL (SPADCALL |jv| (QREFELT $ 24)) '|Const|)
+            (|spadConstant| $ 51))
+           (#5='T
+            (SEQ
+             (LETT |opname| (SPADCALL |jv| (QREFELT $ 49))
+                   . #6=(|IJB;coerce;$E;15|))
+             (LETT |jop| (SPADCALL |opname| (QREFELT $ 53)) . #6#)
+             (SPADCALL |jop| (CONS (|function| |IJB;opdisp|) $) (QREFELT $ 55))
+             (LETT |tmp| (SPADCALL |jv| (QREFELT $ 58)) . #6#)
+             (LETT |jop| (SPADCALL |jop| '|%symbol| |tmp| (QREFELT $ 59))
+                   . #6#)
+             (LETT |tmp|
+                   (SPADCALL (SPADCALL |jv| (QREFELT $ 60)) (QREFELT $ 62))
+                   . #6#)
+             (LETT |jop| (SPADCALL |jop| '|%weight| |tmp| (QREFELT $ 59))
+                   . #6#)
+             (LETT |tmp|
+                   (SPADCALL (SPADCALL |jv| (QREFELT $ 24)) (QREFELT $ 64))
+                   . #6#)
+             (LETT |jop| (SPADCALL |jop| '|%jet| |tmp| (QREFELT $ 59)) . #6#)
+             (COND
+              ((EQUAL (SPADCALL (QREFELT $ 18)) '|Multi|)
+               (LETT |arg|
+                     (PROGN
+                      (LETT #4# NIL . #6#)
+                      (SEQ (LETT |i| NIL . #6#)
+                           (LETT #3# (SPADCALL |jv| (QREFELT $ 21)) . #6#) G190
+                           (COND
+                            ((OR (ATOM #3#)
+                                 (PROGN (LETT |i| (CAR #3#) . #6#) NIL))
+                             (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (LETT #4# (CONS (SPADCALL |i| (QREFELT $ 66)) #4#)
+                                   . #6#)))
+                           (LETT #3# (CDR #3#) . #6#) (GO G190) G191
+                           (EXIT (NREVERSE #4#))))
+                     . #6#))
+              (#5#
+               (LETT |arg|
+                     (PROGN
+                      (LETT #2# NIL . #6#)
+                      (SEQ (LETT |j| NIL . #6#)
+                           (LETT #1# (SPADCALL |jv| (QREFELT $ 47)) . #6#) G190
+                           (COND
+                            ((OR (ATOM #1#)
+                                 (PROGN (LETT |j| (CAR #1#) . #6#) NIL))
+                             (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (LETT #2# (CONS (SPADCALL |j| (QREFELT $ 66)) #2#)
+                                   . #6#)))
+                           (LETT #1# (CDR #1#) . #6#) (GO G190) G191
+                           (EXIT (NREVERSE #2#))))
+                     . #6#)))
+             (LETT |arg|
+                   (SPADCALL
+                    (LIST (SPADCALL |opname| (QREFELT $ 67))
+                          (SPADCALL (SPADCALL |jv| (QREFELT $ 23))
+                                    (QREFELT $ 66)))
+                    |arg| (QREFELT $ 69))
+                   . #6#)
+             (EXIT (SPADCALL |jop| |arg| (QREFELT $ 70))))))))) 
 
 (DECLAIM (NOTINLINE |IndexedJetBundle;|)) 
 
 (DEFUN |IndexedJetBundle| (&REST #1=#:G170)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G171)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|IndexedJetBundle|)
-                                           '|domainEqualList|)
-                . #3=(|IndexedJetBundle|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |IndexedJetBundle;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G171)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|IndexedJetBundle|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|IndexedJetBundle|)
+                                               '|domainEqualList|)
+                    . #3=(|IndexedJetBundle|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |IndexedJetBundle;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|IndexedJetBundle|)))))))))) 
 
 (DEFUN |IndexedJetBundle;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (|pv$| $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|IndexedJetBundle|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT DV$4 (|devaluate| |#4|) . #1#)
-      (LETT DV$5 (|devaluate| |#5|) . #1#)
-      (LETT |dv$| (LIST '|IndexedJetBundle| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-      (LETT $ (GETREFV 78) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|IndexedJetBundle|
-                  (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (QSETREFV $ 9 |#4|)
-      (QSETREFV $ 10 |#5|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 11 (|List| (|NonNegativeInteger|)))
-      (QSETREFV $ 12 '|Repeated|)
-      $)))) 
+  (SPROG
+   ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
+    (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|IndexedJetBundle|))
+    (LETT DV$2 (|devaluate| |#2|) . #1#)
+    (LETT DV$3 (|devaluate| |#3|) . #1#)
+    (LETT DV$4 (|devaluate| |#4|) . #1#)
+    (LETT DV$5 (|devaluate| |#5|) . #1#)
+    (LETT |dv$| (LIST '|IndexedJetBundle| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
+    (LETT $ (GETREFV 78) . #1#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+    (|haddProp| |$ConstructorCache| '|IndexedJetBundle|
+                (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (QSETREFV $ 8 |#3|)
+    (QSETREFV $ 9 |#4|)
+    (QSETREFV $ 10 |#5|)
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 11 (|List| (|NonNegativeInteger|)))
+    (QSETREFV $ 12 '|Repeated|)
+    $))) 
 
 (MAKEPROP '|IndexedJetBundle| '|infovec|
           (LIST

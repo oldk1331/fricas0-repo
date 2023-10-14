@@ -1,94 +1,111 @@
 
-(DEFUN |POLTOPOL;variable1| (|xx| $)
-  (PROG (#1=#:G104)
-    (RETURN
-     (PROG2 (LETT #1# (SPADCALL |xx| (QREFELT $ 11)) |POLTOPOL;variable1|)
-         (QCDR #1#)
-       (|check_union| (QEQCAR #1# 0) (|OrderedVariableList| (QREFELT $ 6))
-                      #1#))))) 
+(SDEFUN |POLTOPOL;variable1| ((|xx| |Symbol|) ($ |OrderedVariableList| |lv|))
+        (SPROG ((#1=#:G104 NIL))
+               (PROG2
+                   (LETT #1# (SPADCALL |xx| (QREFELT $ 11))
+                         |POLTOPOL;variable1|)
+                   (QCDR #1#)
+                 (|check_union| (QEQCAR #1# 0)
+                                (|OrderedVariableList| (QREFELT $ 6)) #1#)))) 
 
-(DEFUN |POLTOPOL;pToHdmp;PHdmp;2| (|pol| $)
-  (SPADCALL (CONS (|function| |POLTOPOL;variable1|) $) |pol| (QREFELT $ 16))) 
+(SDEFUN |POLTOPOL;pToHdmp;PHdmp;2|
+        ((|pol| |Polynomial| R)
+         ($ |HomogeneousDistributedMultivariatePolynomial| |lv| R))
+        (SPADCALL (CONS (|function| |POLTOPOL;variable1|) $) |pol|
+                  (QREFELT $ 16))) 
 
-(DEFUN |POLTOPOL;hdmpToP;HdmpP;3| (|hdpol| $)
-  (SPADCALL (ELT $ 18) |hdpol| (QREFELT $ 21))) 
+(SDEFUN |POLTOPOL;hdmpToP;HdmpP;3|
+        ((|hdpol| |HomogeneousDistributedMultivariatePolynomial| |lv| R)
+         ($ |Polynomial| R))
+        (SPADCALL (ELT $ 18) |hdpol| (QREFELT $ 21))) 
 
-(DEFUN |POLTOPOL;dmpToP;DmpP;4| (|dpol| $)
-  (SPADCALL (ELT $ 18) |dpol| (QREFELT $ 25))) 
+(SDEFUN |POLTOPOL;dmpToP;DmpP;4|
+        ((|dpol| |DistributedMultivariatePolynomial| |lv| R)
+         ($ |Polynomial| R))
+        (SPADCALL (ELT $ 18) |dpol| (QREFELT $ 25))) 
 
-(DEFUN |POLTOPOL;pToDmp;PDmp;5| (|pol| $)
-  (SPADCALL (CONS (|function| |POLTOPOL;variable1|) $) |pol| (QREFELT $ 28))) 
+(SDEFUN |POLTOPOL;pToDmp;PDmp;5|
+        ((|pol| |Polynomial| R) ($ |DistributedMultivariatePolynomial| |lv| R))
+        (SPADCALL (CONS (|function| |POLTOPOL;variable1|) $) |pol|
+                  (QREFELT $ 28))) 
 
-(DEFUN |POLTOPOL;dmpToHdmp;DmpHdmp;6| (|dpol| $)
-  (COND
-   ((SPADCALL |dpol| (|spadConstant| $ 31) (QREFELT $ 33))
-    (|spadConstant| $ 34))
-   ('T
-    (SPADCALL
-     (SPADCALL (SPADCALL |dpol| (QREFELT $ 35))
-               (SPADCALL
-                (SPADCALL (SPADCALL |dpol| (QREFELT $ 37)) (QREFELT $ 39))
-                (QREFELT $ 41))
-               (QREFELT $ 42))
-     (SPADCALL (SPADCALL |dpol| (QREFELT $ 43)) (QREFELT $ 44))
-     (QREFELT $ 45))))) 
-
-(DEFUN |POLTOPOL;hdmpToDmp;HdmpDmp;7| (|hdpol| $)
-  (PROG (|dd|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL |hdpol| (|spadConstant| $ 34) (QREFELT $ 46))
-        (|spadConstant| $ 31))
-       ('T
-        (SEQ
-         (LETT |dd|
-               (SPADCALL
-                (SPADCALL (SPADCALL |hdpol| (QREFELT $ 47)) (QREFELT $ 48))
-                (QREFELT $ 49))
-               |POLTOPOL;hdmpToDmp;HdmpDmp;7|)
-         (EXIT
+(SDEFUN |POLTOPOL;dmpToHdmp;DmpHdmp;6|
+        ((|dpol| |DistributedMultivariatePolynomial| |lv| R)
+         ($ |HomogeneousDistributedMultivariatePolynomial| |lv| R))
+        (COND
+         ((SPADCALL |dpol| (|spadConstant| $ 31) (QREFELT $ 33))
+          (|spadConstant| $ 34))
+         ('T
           (SPADCALL
-           (SPADCALL (SPADCALL |hdpol| (QREFELT $ 50)) |dd| (QREFELT $ 51))
-           (SPADCALL (SPADCALL |hdpol| (QREFELT $ 52)) (QREFELT $ 53))
-           (QREFELT $ 54)))))))))) 
+           (SPADCALL (SPADCALL |dpol| (QREFELT $ 35))
+                     (SPADCALL
+                      (SPADCALL (SPADCALL |dpol| (QREFELT $ 37))
+                                (QREFELT $ 39))
+                      (QREFELT $ 41))
+                     (QREFELT $ 42))
+           (SPADCALL (SPADCALL |dpol| (QREFELT $ 43)) (QREFELT $ 44))
+           (QREFELT $ 45))))) 
+
+(SDEFUN |POLTOPOL;hdmpToDmp;HdmpDmp;7|
+        ((|hdpol| |HomogeneousDistributedMultivariatePolynomial| |lv| R)
+         ($ |DistributedMultivariatePolynomial| |lv| R))
+        (SPROG ((|dd| (|DirectProduct| (|#| |lv|) (|NonNegativeInteger|))))
+               (SEQ
+                (COND
+                 ((SPADCALL |hdpol| (|spadConstant| $ 34) (QREFELT $ 46))
+                  (|spadConstant| $ 31))
+                 ('T
+                  (SEQ
+                   (LETT |dd|
+                         (SPADCALL
+                          (SPADCALL (SPADCALL |hdpol| (QREFELT $ 47))
+                                    (QREFELT $ 48))
+                          (QREFELT $ 49))
+                         |POLTOPOL;hdmpToDmp;HdmpDmp;7|)
+                   (EXIT
+                    (SPADCALL
+                     (SPADCALL (SPADCALL |hdpol| (QREFELT $ 50)) |dd|
+                               (QREFELT $ 51))
+                     (SPADCALL (SPADCALL |hdpol| (QREFELT $ 52))
+                               (QREFELT $ 53))
+                     (QREFELT $ 54))))))))) 
 
 (DECLAIM (NOTINLINE |PolToPol;|)) 
 
 (DEFUN |PolToPol| (&REST #1=#:G118)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G119)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|PolToPol|)
-                                           '|domainEqualList|)
-                . #3=(|PolToPol|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |PolToPol;|) #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|PolToPol|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G119)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|PolToPol|)
+                                               '|domainEqualList|)
+                    . #3=(|PolToPol|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |PolToPol;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|PolToPol|)))))))))) 
 
 (DEFUN |PolToPol;| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|PolToPol|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|PolToPol| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 55) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|PolToPol| (LIST DV$1 DV$2) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|PolToPol|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|PolToPol| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 55) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|PolToPol| (LIST DV$1 DV$2)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|PolToPol| '|infovec|
           (LIST

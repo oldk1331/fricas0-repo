@@ -1,93 +1,101 @@
 
-(DEFUN |TEXTFILE;read!;$S;1| (|f| $) (SPADCALL |f| (QREFELT $ 8))) 
+(SDEFUN |TEXTFILE;read!;$S;1| ((|f| $) ($ |String|))
+        (SPADCALL |f| (QREFELT $ 8))) 
 
-(DEFUN |TEXTFILE;readIfCan!;$U;2| (|f| $) (SPADCALL |f| (QREFELT $ 11))) 
+(SDEFUN |TEXTFILE;readIfCan!;$U;2| ((|f| $) ($ |Union| (|String|) "failed"))
+        (SPADCALL |f| (QREFELT $ 11))) 
 
-(DEFUN |TEXTFILE;readLine!;$S;3| (|f| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 14))
-        (|error| "File not in read state"))
-       (#1='T
-        (SEQ (LETT |s| (|read-line| (QVELT |f| 1)) |TEXTFILE;readLine!;$S;3|)
-             (EXIT
-              (COND ((PLACEP |s|) (|error| "End of file")) (#1# |s|)))))))))) 
+(SDEFUN |TEXTFILE;readLine!;$S;3| ((|f| $) ($ |String|))
+        (SPROG ((|s| (|String|)))
+               (SEQ
+                (COND
+                 ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 14))
+                  (|error| "File not in read state"))
+                 (#1='T
+                  (SEQ
+                   (LETT |s| (|read-line| (QVELT |f| 1))
+                         |TEXTFILE;readLine!;$S;3|)
+                   (EXIT
+                    (COND ((PLACEP |s|) (|error| "End of file"))
+                          (#1# |s|))))))))) 
 
-(DEFUN |TEXTFILE;readLineIfCan!;$U;4| (|f| $)
-  (PROG (|s|)
-    (RETURN
-     (SEQ
-      (COND
-       ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 14))
-        (|error| "File not in read state"))
-       (#1='T
+(SDEFUN |TEXTFILE;readLineIfCan!;$U;4|
+        ((|f| $) ($ |Union| (|String|) "failed"))
+        (SPROG ((|s| (|String|)))
+               (SEQ
+                (COND
+                 ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 14))
+                  (|error| "File not in read state"))
+                 (#1='T
+                  (SEQ
+                   (LETT |s| (|read-line| (QVELT |f| 1))
+                         |TEXTFILE;readLineIfCan!;$U;4|)
+                   (EXIT
+                    (COND ((PLACEP |s|) (CONS 1 "failed"))
+                          (#1# (CONS 0 |s|)))))))))) 
+
+(SDEFUN |TEXTFILE;write!;$2S;5| ((|f| $) (|x| . #1=(|String|)) ($ . #1#))
         (SEQ
-         (LETT |s| (|read-line| (QVELT |f| 1)) |TEXTFILE;readLineIfCan!;$U;4|)
-         (EXIT
-          (COND ((PLACEP |s|) (CONS 1 "failed")) (#1# (CONS 0 |s|))))))))))) 
+         (COND
+          ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
+           (|error| "File not in write state"))
+          ('T (SEQ (PRINTEXP |x| (QVELT |f| 1)) (EXIT |x|)))))) 
 
-(DEFUN |TEXTFILE;write!;$2S;5| (|f| |x| $)
-  (SEQ
-   (COND
-    ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
-     (|error| "File not in write state"))
-    ('T (SEQ (PRINTEXP |x| (QVELT |f| 1)) (EXIT |x|)))))) 
+(SDEFUN |TEXTFILE;writeLine!;$S;6| ((|f| $) ($ |String|))
+        (SEQ
+         (COND
+          ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
+           (|error| "File not in write state"))
+          ('T (SEQ (TERPRI (QVELT |f| 1)) (EXIT "")))))) 
 
-(DEFUN |TEXTFILE;writeLine!;$S;6| (|f| $)
-  (SEQ
-   (COND
-    ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
-     (|error| "File not in write state"))
-    ('T (SEQ (TERPRI (QVELT |f| 1)) (EXIT "")))))) 
+(SDEFUN |TEXTFILE;writeLine!;$2S;7| ((|f| $) (|x| |String|) ($ |String|))
+        (SEQ
+         (COND
+          ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
+           (|error| "File not in write state"))
+          ('T
+           (SEQ (PRINTEXP |x| (QVELT |f| 1)) (TERPRI (QVELT |f| 1))
+                (EXIT |x|)))))) 
 
-(DEFUN |TEXTFILE;writeLine!;$2S;7| (|f| |x| $)
-  (SEQ
-   (COND
-    ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 14))
-     (|error| "File not in write state"))
-    ('T (SEQ (PRINTEXP |x| (QVELT |f| 1)) (TERPRI (QVELT |f| 1)) (EXIT |x|)))))) 
-
-(DEFUN |TEXTFILE;endOfFile?;$B;8| (|f| $)
-  (COND ((OR (EQUAL (QVELT |f| 2) "output") (NULL (EOFP (QVELT |f| 1)))) 'NIL)
-        ('T 'T))) 
+(SDEFUN |TEXTFILE;endOfFile?;$B;8| ((|f| $) ($ |Boolean|))
+        (COND
+         ((OR (EQUAL (QVELT |f| 2) "output") (NULL (EOFP (QVELT |f| 1)))) 'NIL)
+         ('T 'T))) 
 
 (DECLAIM (NOTINLINE |TextFile;|)) 
 
 (DEFUN |TextFile| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G147)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|TextFile|) . #2=(|TextFile|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|TextFile|
-                         (LIST (CONS NIL (CONS 1 (|TextFile;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|TextFile|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G147)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|TextFile|)
+                    . #2=(|TextFile|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|TextFile|
+                             (LIST (CONS NIL (CONS 1 (|TextFile;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|TextFile|)))))))))) 
 
 (DEFUN |TextFile;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|TextFile|) . #1=(|TextFile|))
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TextFile| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Record| (|:| |fileName| (|FileName|))
-                          (|:| |fileState| (|SExpression|))
-                          (|:| |fileIOmode| (|String|))))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|TextFile|) . #1=(|TextFile|))
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TextFile| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |fileName| (|FileName|))
+                              (|:| |fileState| (|SExpression|))
+                              (|:| |fileIOmode| (|String|))))
+          $))) 
 
 (MAKEPROP '|TextFile| '|infovec|
           (LIST

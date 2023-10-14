@@ -1,83 +1,88 @@
 
-(DEFUN |OMPKG;OMunhandledSymbol;2SE;1| (|u| |v| $)
-  (|error|
-   (SPADCALL
-    (SPADCALL
-     (LIST "AXIOM is unable to process the symbol " |u| " from CD " |v| ".")
-     (QREFELT $ 8))
-    (QREFELT $ 10)))) 
+(SDEFUN |OMPKG;OMunhandledSymbol;2SE;1|
+        ((|u| |String|) (|v| |String|) ($ |Exit|))
+        (|error|
+         (SPADCALL
+          (SPADCALL
+           (LIST "AXIOM is unable to process the symbol " |u| " from CD " |v|
+                 ".")
+           (QREFELT $ 8))
+          (QREFELT $ 10)))) 
 
-(DEFUN |OMPKG;OMread;OmdA;2| (|dev| $)
-  (SPADCALL (OM-READ |dev|) (QREFELT $ 15))) 
+(SDEFUN |OMPKG;OMread;OmdA;2| ((|dev| |OpenMathDevice|) ($ |Any|))
+        (SPADCALL (OM-READ |dev|) (QREFELT $ 15))) 
 
-(DEFUN |OMPKG;OMreadFile;SA;3| (|filename| $)
-  (PROG (|res| |dev|)
-    (RETURN
-     (SEQ
-      (LETT |dev|
-            (SPADCALL |filename| "r" (SPADCALL (QREFELT $ 19)) (QREFELT $ 20))
-            . #1=(|OMPKG;OMreadFile;SA;3|))
-      (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 15)) . #1#)
-      (SPADCALL |dev| (QREFELT $ 22)) (EXIT |res|))))) 
+(SDEFUN |OMPKG;OMreadFile;SA;3| ((|filename| |String|) ($ |Any|))
+        (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)))
+               (SEQ
+                (LETT |dev|
+                      (SPADCALL |filename| "r" (SPADCALL (QREFELT $ 19))
+                                (QREFELT $ 20))
+                      . #1=(|OMPKG;OMreadFile;SA;3|))
+                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 15)) . #1#)
+                (SPADCALL |dev| (QREFELT $ 22)) (EXIT |res|)))) 
 
-(DEFUN |OMPKG;OMreadStr;SA;4| (|str| $)
-  (PROG (|res| |dev| |strp|)
-    (RETURN
-     (SEQ
-      (LETT |strp| (OM-STRINGTOSTRINGPTR |str|) . #1=(|OMPKG;OMreadStr;SA;4|))
-      (LETT |dev| (SPADCALL |strp| (SPADCALL (QREFELT $ 19)) (QREFELT $ 24))
-            . #1#)
-      (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 15)) . #1#)
-      (SPADCALL |dev| (QREFELT $ 22)) (EXIT |res|))))) 
+(SDEFUN |OMPKG;OMreadStr;SA;4| ((|str| |String|) ($ |Any|))
+        (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)) (|strp| NIL))
+               (SEQ
+                (LETT |strp| (OM-STRINGTOSTRINGPTR |str|)
+                      . #1=(|OMPKG;OMreadStr;SA;4|))
+                (LETT |dev|
+                      (SPADCALL |strp| (SPADCALL (QREFELT $ 19))
+                                (QREFELT $ 24))
+                      . #1#)
+                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 15)) . #1#)
+                (SPADCALL |dev| (QREFELT $ 22)) (EXIT |res|)))) 
 
 (PUT '|OMPKG;OMlistCDs;L;5| '|SPADreplace| 'OM-LISTCDS) 
 
-(DEFUN |OMPKG;OMlistCDs;L;5| ($) (OM-LISTCDS)) 
+(SDEFUN |OMPKG;OMlistCDs;L;5| (($ |List| (|String|))) (OM-LISTCDS)) 
 
 (PUT '|OMPKG;OMlistSymbols;SL;6| '|SPADreplace| 'OM-LISTSYMBOLS) 
 
-(DEFUN |OMPKG;OMlistSymbols;SL;6| (|cd| $) (OM-LISTSYMBOLS |cd|)) 
+(SDEFUN |OMPKG;OMlistSymbols;SL;6| ((|cd| |String|) ($ |List| (|String|)))
+        (OM-LISTSYMBOLS |cd|)) 
 
-(DEFUN |OMPKG;OMsupportsCD?;SB;7| (|cd| $)
-  (COND ((SPADCALL (OM-SUPPORTSCD |cd|) (QREFELT $ 31)) 'NIL) ('T 'T))) 
+(SDEFUN |OMPKG;OMsupportsCD?;SB;7| ((|cd| |String|) ($ |Boolean|))
+        (COND ((SPADCALL (OM-SUPPORTSCD |cd|) (QREFELT $ 31)) 'NIL) ('T 'T))) 
 
-(DEFUN |OMPKG;OMsupportsSymbol?;2SB;8| (|cd| |name| $)
-  (COND ((SPADCALL (OM-SUPPORTSSYMBOL |cd| |name|) (QREFELT $ 31)) 'NIL)
-        ('T 'T))) 
+(SDEFUN |OMPKG;OMsupportsSymbol?;2SB;8|
+        ((|cd| |String|) (|name| |String|) ($ |Boolean|))
+        (COND ((SPADCALL (OM-SUPPORTSSYMBOL |cd| |name|) (QREFELT $ 31)) 'NIL)
+              ('T 'T))) 
 
 (DECLAIM (NOTINLINE |OpenMathPackage;|)) 
 
 (DEFUN |OpenMathPackage| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G118)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|OpenMathPackage|)
-                . #2=(|OpenMathPackage|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|OpenMathPackage|
-                         (LIST (CONS NIL (CONS 1 (|OpenMathPackage;|))))))
-                (LETT #1# T . #2#))
+  (SPROG NIL
+         (PROG (#1=#:G118)
+           (RETURN
             (COND
-             ((NOT #1#) (HREM |$ConstructorCache| '|OpenMathPackage|))))))))))) 
+             ((LETT #1# (HGET |$ConstructorCache| '|OpenMathPackage|)
+                    . #2=(|OpenMathPackage|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|OpenMathPackage|
+                             (LIST (CONS NIL (CONS 1 (|OpenMathPackage;|))))))
+                    (LETT #1# T . #2#))
+                (COND
+                 ((NOT #1#)
+                  (HREM |$ConstructorCache| '|OpenMathPackage|)))))))))) 
 
 (DEFUN |OpenMathPackage;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|OpenMathPackage|) . #1=(|OpenMathPackage|))
-      (LETT $ (GETREFV 34) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|OpenMathPackage| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|OpenMathPackage|) . #1=(|OpenMathPackage|))
+          (LETT $ (GETREFV 34) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|OpenMathPackage| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|OpenMathPackage| '|infovec|
           (LIST

@@ -1,82 +1,89 @@
 
-(DEFUN |TSEREXPL;taylor_via_deriv;ULSLLULS;1| (|f| |lx| |ld| $)
-  (PROG (|lxt| #1=#:G107 |x| #2=#:G106 |ft|)
-    (RETURN
-     (SEQ
-      (LETT |ft| (SPADCALL |f| (QREFELT $ 9))
-            . #3=(|TSEREXPL;taylor_via_deriv;ULSLLULS;1|))
-      (LETT |lxt|
-            (PROGN
-             (LETT #2# NIL . #3#)
-             (SEQ (LETT |x| NIL . #3#) (LETT #1# |lx| . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 9)) #2#) . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
-      (EXIT
-       (SPADCALL (SPADCALL |ft| |lxt| |ld| (QREFELT $ 14)) (QREFELT $ 15))))))) 
+(SDEFUN |TSEREXPL;taylor_via_deriv;ULSLLULS;1|
+        ((|f| ULS) (|lx| |List| ULS) (|ld| |List| (|Mapping| |Coef| |Coef|))
+         ($ ULS))
+        (SPROG
+         ((|lxt| (|List| UTS)) (#1=#:G107 NIL) (|x| NIL) (#2=#:G106 NIL)
+          (|ft| (UTS)))
+         (SEQ
+          (LETT |ft| (SPADCALL |f| (QREFELT $ 9))
+                . #3=(|TSEREXPL;taylor_via_deriv;ULSLLULS;1|))
+          (LETT |lxt|
+                (PROGN
+                 (LETT #2# NIL . #3#)
+                 (SEQ (LETT |x| NIL . #3#) (LETT #1# |lx| . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 9)) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (EXIT
+           (SPADCALL (SPADCALL |ft| |lxt| |ld| (QREFELT $ 14))
+                     (QREFELT $ 15)))))) 
 
-(DEFUN |TSEREXPL;taylor_via_lode;LULSLULS;2| (|la| |z| |lc| $)
-  (PROG (|zt|)
-    (RETURN
-     (SEQ
-      (LETT |zt| (SPADCALL |z| (QREFELT $ 9))
-            |TSEREXPL;taylor_via_lode;LULSLULS;2|)
-      (EXIT
-       (SPADCALL (SPADCALL |la| |zt| |lc| (QREFELT $ 19)) (QREFELT $ 15))))))) 
+(SDEFUN |TSEREXPL;taylor_via_lode;LULSLULS;2|
+        ((|la| |List| UTS) (|z| ULS) (|lc| |List| |Coef|) ($ ULS))
+        (SPROG ((|zt| (UTS)))
+               (SEQ
+                (LETT |zt| (SPADCALL |z| (QREFELT $ 9))
+                      |TSEREXPL;taylor_via_lode;LULSLULS;2|)
+                (EXIT
+                 (SPADCALL (SPADCALL |la| |zt| |lc| (QREFELT $ 19))
+                           (QREFELT $ 15)))))) 
 
-(DEFUN |TSEREXPL;applyTaylor;M2ULS;3| (|g| |f| $)
-  (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 22))
-            (QREFELT $ 15))) 
+(SDEFUN |TSEREXPL;applyTaylor;M2ULS;3|
+        ((|g| |Mapping| UTS UTS) (|f| ULS) ($ ULS))
+        (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 22))
+                  (QREFELT $ 15))) 
 
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionLaurent;|)) 
 
 (DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G112)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G113)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|TaylorSeriesExpansionLaurent|)
-                                           '|domainEqualList|)
-                . #3=(|TaylorSeriesExpansionLaurent|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |TaylorSeriesExpansionLaurent;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G113)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|TaylorSeriesExpansionLaurent|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|TaylorSeriesExpansionLaurent|)
+                                               '|domainEqualList|)
+                    . #3=(|TaylorSeriesExpansionLaurent|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (APPLY (|function| |TaylorSeriesExpansionLaurent;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|TaylorSeriesExpansionLaurent|)))))))))) 
 
 (DEFUN |TaylorSeriesExpansionLaurent;| (|#1| |#2| |#3|)
-  (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|TaylorSeriesExpansionLaurent|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT DV$3 (|devaluate| |#3|) . #1#)
-      (LETT |dv$| (LIST '|TaylorSeriesExpansionLaurent| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 24) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TaylorSeriesExpansionLaurent|
-                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (QSETREFV $ 8 |#3|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|TaylorSeriesExpansionLaurent|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT DV$3 (|devaluate| |#3|) . #1#)
+          (LETT |dv$| (LIST '|TaylorSeriesExpansionLaurent| DV$1 DV$2 DV$3)
+                . #1#)
+          (LETT $ (GETREFV 24) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TaylorSeriesExpansionLaurent|
+                      (LIST DV$1 DV$2 DV$3) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (QSETREFV $ 8 |#3|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|TaylorSeriesExpansionLaurent| '|infovec|
           (LIST

@@ -1,65 +1,70 @@
 
 (PUT '|TUBE;getCurve;$Curve;1| '|SPADreplace| '(XLAM (|plot|) (QVELT |plot| 0))) 
 
-(DEFUN |TUBE;getCurve;$Curve;1| (|plot| $) (QVELT |plot| 0)) 
+(SDEFUN |TUBE;getCurve;$Curve;1| ((|plot| $) ($ |Curve|)) (QVELT |plot| 0)) 
 
 (PUT '|TUBE;listLoops;$L;2| '|SPADreplace| '(XLAM (|plot|) (QVELT |plot| 1))) 
 
-(DEFUN |TUBE;listLoops;$L;2| (|plot| $) (QVELT |plot| 1)) 
+(SDEFUN |TUBE;listLoops;$L;2|
+        ((|plot| $) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
+        (QVELT |plot| 1)) 
 
 (PUT '|TUBE;closed?;$B;3| '|SPADreplace| '(XLAM (|plot|) (QVELT |plot| 2))) 
 
-(DEFUN |TUBE;closed?;$B;3| (|plot| $) (QVELT |plot| 2)) 
+(SDEFUN |TUBE;closed?;$B;3| ((|plot| $) ($ |Boolean|)) (QVELT |plot| 2)) 
 
-(DEFUN |TUBE;open?;$B;4| (|plot| $) (COND ((QVELT |plot| 2) 'NIL) ('T 'T))) 
+(SDEFUN |TUBE;open?;$B;4| ((|plot| $) ($ |Boolean|))
+        (COND ((QVELT |plot| 2) 'NIL) ('T 'T))) 
 
 (PUT '|TUBE;setClosed;$2B;5| '|SPADreplace|
      '(XLAM (|plot| |flag|) (QSETVELT |plot| 2 |flag|))) 
 
-(DEFUN |TUBE;setClosed;$2B;5| (|plot| |flag| $) (QSETVELT |plot| 2 |flag|)) 
+(SDEFUN |TUBE;setClosed;$2B;5| ((|plot| $) (|flag| |Boolean|) ($ |Boolean|))
+        (QSETVELT |plot| 2 |flag|)) 
 
 (PUT '|TUBE;tube;CurveLB$;6| '|SPADreplace| 'VECTOR) 
 
-(DEFUN |TUBE;tube;CurveLB$;6| (|curve| |ll| |b| $) (VECTOR |curve| |ll| |b|)) 
+(SDEFUN |TUBE;tube;CurveLB$;6|
+        ((|curve| |Curve|) (|ll| |List| (|List| (|Point| (|DoubleFloat|))))
+         (|b| |Boolean|) ($ $))
+        (VECTOR |curve| |ll| |b|)) 
 
 (DECLAIM (NOTINLINE |TubePlot;|)) 
 
 (DEFUN |TubePlot| (#1=#:G113)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G114)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|TubePlot|)
-                                           '|domainEqualList|)
-                . #3=(|TubePlot|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|TubePlot;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|TubePlot|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G114)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|TubePlot|)
+                                               '|domainEqualList|)
+                    . #3=(|TubePlot|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|TubePlot;| #1#) (LETT #2# T . #3#))
+                (COND ((NOT #2#) (HREM |$ConstructorCache| '|TubePlot|)))))))))) 
 
 (DEFUN |TubePlot;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|TubePlot|))
-      (LETT |dv$| (LIST '|TubePlot| DV$1) . #1#)
-      (LETT $ (GETREFV 16) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|TubePlot| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 7
-                (|Record| (|:| |parCurve| |#1|)
-                          (|:| |loops|
-                               (|List| (|List| (|Point| (|DoubleFloat|)))))
-                          (|:| |closedTube?| (|Boolean|))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|TubePlot|))
+          (LETT |dv$| (LIST '|TubePlot| DV$1) . #1#)
+          (LETT $ (GETREFV 16) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|TubePlot| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7
+                    (|Record| (|:| |parCurve| |#1|)
+                              (|:| |loops|
+                                   (|List| (|List| (|Point| (|DoubleFloat|)))))
+                              (|:| |closedTube?| (|Boolean|))))
+          $))) 
 
 (MAKEPROP '|TubePlot| '|infovec|
           (LIST

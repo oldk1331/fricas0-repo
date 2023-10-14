@@ -1,47 +1,48 @@
 
-(DEFUN |RULECOLD;name;$S;1| (|r| $) (QREFELT $ 6)) 
+(SDEFUN |RULECOLD;name;$S;1| ((|r| $) ($ |Symbol|)) (QREFELT $ 6)) 
 
-(DEFUN |RULECOLD;coerce;$Of;2| (|r| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 
+(SDEFUN |RULECOLD;coerce;$Of;2| ((|r| $) ($ |OutputForm|))
+        (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 
 
 (PUT '|RULECOLD;=;2$B;3| '|SPADreplace| '(XLAM (|x| |y|) 'T)) 
 
-(DEFUN |RULECOLD;=;2$B;3| (|x| |y| $) 'T) 
+(SDEFUN |RULECOLD;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|)) 'T) 
 
-(DEFUN |RULECOLD;latex;$S;4| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
+(SDEFUN |RULECOLD;latex;$S;4| ((|x| $) ($ |String|))
+        (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
 
 (DECLAIM (NOTINLINE |RuleCalled;|)) 
 
 (DEFUN |RuleCalled| (#1=#:G107)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G108)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|RuleCalled|)
-                                           '|domainEqualList|)
-                . #3=(|RuleCalled|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT (PROG1 (|RuleCalled;| #1#) (LETT #2# T . #3#))
-            (COND ((NOT #2#) (HREM |$ConstructorCache| '|RuleCalled|))))))))))) 
+  (SPROG NIL
+         (PROG (#2=#:G108)
+           (RETURN
+            (COND
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|RuleCalled|)
+                                               '|domainEqualList|)
+                    . #3=(|RuleCalled|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT (PROG1 (|RuleCalled;| #1#) (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|RuleCalled|)))))))))) 
 
 (DEFUN |RuleCalled;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|RuleCalled|))
-      (LETT |dv$| (LIST '|RuleCalled| DV$1) . #1#)
-      (LETT $ (GETREFV 19) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|RuleCalled| (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|RuleCalled|))
+          (LETT |dv$| (LIST '|RuleCalled| DV$1) . #1#)
+          (LETT $ (GETREFV 19) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|RuleCalled| (LIST DV$1) (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|RuleCalled| '|infovec|
           (LIST

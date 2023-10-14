@@ -16,19 +16,19 @@
       #2#)))) 
 
 (DEFUN |BiModule;| (|t#1| |t#2|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV|
-                (PAIR '(|t#1| |t#2|)
-                      (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
-                (COND (|BiModule;CAT|)
-                      ('T
-                       (LETT |BiModule;CAT|
-                             (|Join| (|LeftModule| '|t#1|)
-                                     (|RightModule| '|t#2|))
-                             . #2=(|BiModule|)))))
-               . #2#)
-       (SETELT #1# 0
-               (LIST '|BiModule| (|devaluate| |t#1|) (|devaluate| |t#2|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV|
+                    (PAIR '(|t#1| |t#2|)
+                          (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
+                    (COND (|BiModule;CAT|)
+                          ('T
+                           (LETT |BiModule;CAT|
+                                 (|Join| (|LeftModule| '|t#1|)
+                                         (|RightModule| '|t#2|))
+                                 . #2=(|BiModule|)))))
+                   . #2#)
+           (SETELT #1# 0
+                   (LIST '|BiModule| (|devaluate| |t#1|)
+                         (|devaluate| |t#2|)))))) 

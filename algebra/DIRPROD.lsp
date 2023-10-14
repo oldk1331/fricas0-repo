@@ -1,994 +1,978 @@
 
-(DEFUN |DIRPROD;coerce;$V;1| (|z| $) (SPADCALL |z| (QREFELT $ 9))) 
+(SDEFUN |DIRPROD;coerce;$V;1| ((|z| $) ($ |Vector| R))
+        (SPADCALL |z| (QREFELT $ 9))) 
 
-(DEFUN |DIRPROD;coerce;R$;2| (|r| $) (MAKEARR1 (QREFELT $ 6) |r|)) 
+(SDEFUN |DIRPROD;coerce;R$;2| ((|r| R) ($ $)) (MAKEARR1 (QREFELT $ 6) |r|)) 
 
 (PUT '|DIRPROD;parts;$L;3| '|SPADreplace| 'VEC2LIST) 
 
-(DEFUN |DIRPROD;parts;$L;3| (|x| $) (VEC2LIST |x|)) 
+(SDEFUN |DIRPROD;parts;$L;3| ((|x| $) ($ |List| R)) (VEC2LIST |x|)) 
 
-(DEFUN |DIRPROD;directProduct;V$;4| (|z| $)
-  (COND
-   ((SPADCALL |z| (QREFELT $ 6) (QREFELT $ 16)) (SPADCALL |z| (QREFELT $ 9)))
-   ('T (|error| "Not of the correct length")))) 
+(SDEFUN |DIRPROD;directProduct;V$;4| ((|z| |Vector| R) ($ $))
+        (COND
+         ((SPADCALL |z| (QREFELT $ 6) (QREFELT $ 16))
+          (SPADCALL |z| (QREFELT $ 9)))
+         ('T (|error| "Not of the correct length")))) 
 
-(DEFUN |DIRPROD;same?| (|z| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|DIRPROD;same?!0| (VECTOR $ |z|)) |z| (QREFELT $ 23))))) 
+(SDEFUN |DIRPROD;same?| ((|z| $) ($ |Boolean|))
+        (SPROG NIL
+               (SPADCALL (CONS #'|DIRPROD;same?!0| (VECTOR $ |z|)) |z|
+                         (QREFELT $ 23)))) 
 
-(DEFUN |DIRPROD;same?!0| (|x| $$)
-  (PROG (|z| $)
-    (LETT |z| (QREFELT $$ 1) . #1=(|DIRPROD;same?|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (SPADCALL |x| (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19)) (QREFELT $ 20))
-                (QREFELT $ 21)))))) 
+(SDEFUN |DIRPROD;same?!0| ((|x| NIL) ($$ NIL))
+        (PROG (|z| $)
+          (LETT |z| (QREFELT $$ 1) . #1=(|DIRPROD;same?|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN
+           (PROGN
+            (SPADCALL |x|
+                      (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19))
+                                (QREFELT $ 20))
+                      (QREFELT $ 21)))))) 
 
-(DEFUN |DIRPROD;=;2$B;6| (|x| |y| $)
-  (PROG (#1=#:G120 #2=#:G122 #3=#:G123 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ
-         (EXIT
-          (SEQ (LETT |i| 0 . #4=(|DIRPROD;=;2$B;6|))
-               (LETT #3# (- (QREFELT $ 6) 1) . #4#) G190
-               (COND ((|greater_SI| |i| #3#) (GO G191)))
+(SDEFUN |DIRPROD;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((#1=#:G120 NIL) (#2=#:G122 NIL) (#3=#:G123 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((NULL (EQL (QREFELT |x| |i|) (QREFELT |y| |i|)))
-                   (PROGN
-                    (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#)) . #4#)
-                    (GO #1#))))))
-               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT 'T)))
-      #2# (EXIT #2#))))) 
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |i| 0 . #4=(|DIRPROD;=;2$B;6|))
+                         (LETT #3# (- (QREFELT $ 6) 1) . #4#) G190
+                         (COND ((|greater_SI| |i| #3#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((NULL (EQL (QREFELT |x| |i|) (QREFELT |y| |i|)))
+                             (PROGN
+                              (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                         (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT 'T)))
+                #2# (EXIT #2#)))) 
 
-(DEFUN |DIRPROD;=;2$B;7| (|x| |y| $)
-  (PROG (#1=#:G125 #2=#:G127 #3=#:G128 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ
-         (EXIT
-          (SEQ (LETT |i| 0 . #4=(|DIRPROD;=;2$B;7|))
-               (LETT #3# (- (QREFELT $ 6) 1) . #4#) G190
-               (COND ((|greater_SI| |i| #3#) (GO G191)))
+(SDEFUN |DIRPROD;=;2$B;7| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((#1=#:G125 NIL) (#2=#:G127 NIL) (#3=#:G128 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((NULL (EQL (QREFELT |x| |i|) (QREFELT |y| |i|)))
-                   (PROGN
-                    (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#)) . #4#)
-                    (GO #1#))))))
-               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT 'T)))
-      #2# (EXIT #2#))))) 
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |i| 0 . #4=(|DIRPROD;=;2$B;7|))
+                         (LETT #3# (- (QREFELT $ 6) 1) . #4#) G190
+                         (COND ((|greater_SI| |i| #3#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((NULL (EQL (QREFELT |x| |i|) (QREFELT |y| |i|)))
+                             (PROGN
+                              (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                         (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT 'T)))
+                #2# (EXIT #2#)))) 
 
-(DEFUN |DIRPROD;=;2$B;8| (|x| |y| $)
-  (PROG (#1=#:G130 #2=#:G132 #3=#:G133 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ
-         (EXIT
-          (SEQ (LETT |i| 1 . #4=(|DIRPROD;=;2$B;8|))
-               (LETT #3# (QREFELT $ 6) . #4#) G190
-               (COND ((|greater_SI| |i| #3#) (GO G191)))
+(SDEFUN |DIRPROD;=;2$B;8| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((#1=#:G130 NIL) (#2=#:G132 NIL) (#3=#:G133 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((NULL
-                    (SPADCALL (QAREF1O |x| |i| 1) (QAREF1O |y| |i| 1)
-                              (QREFELT $ 21)))
-                   (PROGN
-                    (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#)) . #4#)
-                    (GO #1#))))))
-               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL)))
-         #1# (EXIT #1#))
-        (EXIT 'T)))
-      #2# (EXIT #2#))))) 
+                 (SEQ
+                  (SEQ
+                   (EXIT
+                    (SEQ (LETT |i| 1 . #4=(|DIRPROD;=;2$B;8|))
+                         (LETT #3# (QREFELT $ 6) . #4#) G190
+                         (COND ((|greater_SI| |i| #3#) (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((NULL
+                              (SPADCALL (QAREF1O |x| |i| 1) (QAREF1O |y| |i| 1)
+                                        (QREFELT $ 21)))
+                             (PROGN
+                              (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                                    . #4#)
+                              (GO #1#))))))
+                         (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                         (EXIT NIL)))
+                   #1# (EXIT #1#))
+                  (EXIT 'T)))
+                #2# (EXIT #2#)))) 
 
-(DEFUN |DIRPROD;retract;$R;9| (|z| $)
-  (COND
-   ((|DIRPROD;same?| |z| $)
-    (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19)) (QREFELT $ 20)))
-   ('T (|error| "Not retractable")))) 
+(SDEFUN |DIRPROD;retract;$R;9| ((|z| $) ($ R))
+        (COND
+         ((|DIRPROD;same?| |z| $)
+          (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19)) (QREFELT $ 20)))
+         ('T (|error| "Not retractable")))) 
 
-(DEFUN |DIRPROD;retractIfCan;$U;10| (|z| $)
-  (COND
-   ((|DIRPROD;same?| |z| $)
-    (CONS 0 (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19)) (QREFELT $ 20))))
-   ('T (CONS 1 "failed")))) 
+(SDEFUN |DIRPROD;retractIfCan;$U;10| ((|z| $) ($ |Union| R "failed"))
+        (COND
+         ((|DIRPROD;same?| |z| $)
+          (CONS 0 (SPADCALL |z| (SPADCALL |z| (QREFELT $ 19)) (QREFELT $ 20))))
+         ('T (CONS 1 "failed")))) 
 
-(DEFUN |DIRPROD;index;Pi$;11| (|n| $)
-  (PROG (L #1=#:G145 |p| #2=#:G150 |i| #3=#:G144 N)
-    (RETURN
-     (SEQ (LETT N (SPADCALL (QREFELT $ 28)) . #4=(|DIRPROD;index;Pi$;11|))
-          (LETT |p| (- |n| 1) . #4#)
-          (LETT L
-                (LIST
-                 (SPADCALL
-                  (PROG1 (LETT #3# (+ (REM |p| N) 1) . #4#)
-                    (|check_subtype| (> #3# 0) '(|PositiveInteger|) #3#))
-                  (QREFELT $ 30)))
-                . #4#)
-          (SEQ (LETT |i| 2 . #4#) (LETT #2# (QREFELT $ 6) . #4#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
-               (SEQ (LETT |p| (QUOTIENT2 |p| N) . #4#)
+(SDEFUN |DIRPROD;index;Pi$;11| ((|n| |PositiveInteger|) ($ $))
+        (SPROG
+         ((L (|List| R)) (#1=#:G145 NIL) (|p| (|Integer|)) (#2=#:G150 NIL)
+          (|i| NIL) (#3=#:G144 NIL) (N (|Integer|)))
+         (SEQ (LETT N (SPADCALL (QREFELT $ 28)) . #4=(|DIRPROD;index;Pi$;11|))
+              (LETT |p| (- |n| 1) . #4#)
+              (LETT L
+                    (LIST
+                     (SPADCALL
+                      (PROG1 (LETT #3# (+ (REM |p| N) 1) . #4#)
+                        (|check_subtype| (> #3# 0) '(|PositiveInteger|) #3#))
+                      (QREFELT $ 30)))
+                    . #4#)
+              (SEQ (LETT |i| 2 . #4#) (LETT #2# (QREFELT $ 6) . #4#) G190
+                   (COND ((|greater_SI| |i| #2#) (GO G191)))
+                   (SEQ (LETT |p| (QUOTIENT2 |p| N) . #4#)
+                        (EXIT
+                         (LETT L
+                               (CONS
+                                (SPADCALL
+                                 (PROG1 (LETT #1# (+ (REM |p| N) 1) . #4#)
+                                   (|check_subtype| (> #1# 0)
+                                                    '(|PositiveInteger|) #1#))
+                                 (QREFELT $ 30))
+                                L)
+                               . #4#)))
+                   (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+              (EXIT (SPADCALL L (QREFELT $ 31)))))) 
+
+(SDEFUN |DIRPROD;random;$;12| (($ $))
+        (SPROG ((#1=#:G153 NIL) (#2=#:G155 NIL) (|i| NIL) (#3=#:G154 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #3# (GETREFV #4=(QREFELT $ 6))
+                       . #5=(|DIRPROD;random;$;12|))
+                 (SEQ (LETT |i| 1 . #5#) (LETT #2# #4# . #5#)
+                      (LETT #1# 0 . #5#) G190
+                      (COND ((|greater_SI| |i| #2#) (GO G191)))
+                      (SEQ (EXIT (SETELT #3# #1# (SPADCALL (QREFELT $ 33)))))
+                      (LETT #1#
+                            (PROG1 (|inc_SI| #1#)
+                              (LETT |i| (|inc_SI| |i|) . #5#))
+                            . #5#)
+                      (GO G190) G191 (EXIT NIL))
+                 #3#)))) 
+
+(SDEFUN |DIRPROD;lookup;$Pi;13| ((|x| $) ($ |PositiveInteger|))
+        (SPROG
+         ((#1=#:G157 NIL) (L (|Integer|)) (#2=#:G160 NIL) (|i| NIL)
+          (N (|Integer|)))
+         (SEQ (LETT N (SPADCALL (QREFELT $ 28)) . #3=(|DIRPROD;lookup;$Pi;13|))
+              (LETT L
+                    (-
+                     (SPADCALL (SPADCALL |x| 1 (QREFELT $ 20)) (QREFELT $ 36))
+                     1)
+                    . #3#)
+              (SEQ (LETT |i| 2 . #3#) (LETT #2# (QREFELT $ 6) . #3#) G190
+                   (COND ((|greater_SI| |i| #2#) (GO G191)))
+                   (SEQ
                     (EXIT
                      (LETT L
-                           (CONS
-                            (SPADCALL
-                             (PROG1 (LETT #1# (+ (REM |p| N) 1) . #4#)
-                               (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                                #1#))
-                             (QREFELT $ 30))
-                            L)
-                           . #4#)))
-               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL L (QREFELT $ 31))))))) 
+                           (-
+                            (+ (* L N)
+                               (SPADCALL (SPADCALL |x| |i| (QREFELT $ 20))
+                                         (QREFELT $ 36)))
+                            1)
+                           . #3#)))
+                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+              (EXIT
+               (PROG1 (LETT #1# (+ L 1) . #3#)
+                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
 
-(DEFUN |DIRPROD;random;$;12| ($)
-  (PROG (#1=#:G153 #2=#:G155 |i| #3=#:G154)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #3# (GETREFV #4=(QREFELT $ 6)) . #5=(|DIRPROD;random;$;12|))
-       (SEQ (LETT |i| 1 . #5#) (LETT #2# #4# . #5#) (LETT #1# 0 . #5#) G190
-            (COND ((|greater_SI| |i| #2#) (GO G191)))
-            (SEQ (EXIT (SETELT #3# #1# (SPADCALL (QREFELT $ 33)))))
-            (LETT #1# (PROG1 (|inc_SI| #1#) (LETT |i| (|inc_SI| |i|) . #5#))
-                  . #5#)
-            (GO G190) G191 (EXIT NIL))
-       #3#))))) 
+(SDEFUN |DIRPROD;+;3$;14| ((|u| $) (|v| $) ($ $))
+        (SPADCALL (ELT $ 38) |u| |v| (QREFELT $ 40))) 
 
-(DEFUN |DIRPROD;lookup;$Pi;13| (|x| $)
-  (PROG (#1=#:G157 L #2=#:G160 |i| N)
-    (RETURN
-     (SEQ (LETT N (SPADCALL (QREFELT $ 28)) . #3=(|DIRPROD;lookup;$Pi;13|))
-          (LETT L
-                (- (SPADCALL (SPADCALL |x| 1 (QREFELT $ 20)) (QREFELT $ 36)) 1)
-                . #3#)
-          (SEQ (LETT |i| 2 . #3#) (LETT #2# (QREFELT $ 6) . #3#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
+(SDEFUN |DIRPROD;Zero;$;15| (($ $)) (SPADCALL (QREFELT $ 6) (QREFELT $ 42))) 
+
+(SDEFUN |DIRPROD;One;$;16| (($ $))
+        (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 44))) 
+
+(SDEFUN |DIRPROD;*;$R$;17| ((|u| $) (|r| R) ($ $))
+        (SPROG NIL
+               (SPADCALL (CONS #'|DIRPROD;*;$R$;17!0| (VECTOR $ |r|)) |u|
+                         (QREFELT $ 47)))) 
+
+(SDEFUN |DIRPROD;*;$R$;17!0| ((|x| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|DIRPROD;*;$R$;17|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |x| |r| (QREFELT $ 45)))))) 
+
+(SDEFUN |DIRPROD;*;R2$;18| ((|r| R) (|u| $) ($ $))
+        (SPROG NIL
+               (SPADCALL (CONS #'|DIRPROD;*;R2$;18!0| (VECTOR $ |r|)) |u|
+                         (QREFELT $ 47)))) 
+
+(SDEFUN |DIRPROD;*;R2$;18!0| ((|x| NIL) ($$ NIL))
+        (PROG (|r| $)
+          (LETT |r| (QREFELT $$ 1) . #1=(|DIRPROD;*;R2$;18|))
+          (LETT $ (QREFELT $$ 0) . #1#)
+          (RETURN (PROGN (SPADCALL |r| |x| (QREFELT $ 45)))))) 
+
+(SDEFUN |DIRPROD;*;3$;19| ((|x| $) (|y| $) ($ $))
+        (SPROG ((#1=#:G172 NIL) (#2=#:G174 NIL) (|i| NIL) (#3=#:G173 NIL))
+               (SEQ
+                (PROGN
+                 (LETT #3# (GETREFV #4=(QREFELT $ 6)) . #5=(|DIRPROD;*;3$;19|))
+                 (SEQ (LETT |i| 1 . #5#) (LETT #2# #4# . #5#)
+                      (LETT #1# 0 . #5#) G190
+                      (COND ((|greater_SI| |i| #2#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (SETELT #3# #1#
+                                (SPADCALL (SPADCALL |x| |i| (QREFELT $ 20))
+                                          (SPADCALL |y| |i| (QREFELT $ 20))
+                                          (QREFELT $ 45)))))
+                      (LETT #1#
+                            (PROG1 (|inc_SI| #1#)
+                              (LETT |i| (|inc_SI| |i|) . #5#))
+                            . #5#)
+                      (GO G190) G191 (EXIT NIL))
+                 #3#)))) 
+
+(SDEFUN |DIRPROD;subtractIfCan;2$U;20| ((|u| $) (|v| $) ($ |Union| $ "failed"))
+        (SPROG
+         ((#1=#:G184 NIL) (|c| (|Union| R "failed")) (#2=#:G185 NIL) (|i| NIL)
+          (|w| ($)))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |w| (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 51))
+                  . #3=(|DIRPROD;subtractIfCan;2$U;20|))
+            (SEQ (LETT |i| 1 . #3#) (LETT #2# (QREFELT $ 6) . #3#) G190
+                 (COND ((|greater_SI| |i| #2#) (GO G191)))
+                 (SEQ
+                  (LETT |c|
+                        (SPADCALL (QAREF1O |u| |i| 1) (QAREF1O |v| |i| 1)
+                                  (QREFELT $ 53))
+                        . #3#)
+                  (EXIT
+                   (COND
+                    ((QEQCAR |c| 1)
+                     (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #1#)))
+                    ('T (QSETAREF1O |w| |i| (QCDR |c|) 1)))))
+                 (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+            (EXIT (CONS 0 |w|))))
+          #1# (EXIT #1#)))) 
+
+(SDEFUN |DIRPROD;*;3$;21| ((|u| $) (|v| $) ($ $))
+        (SPADCALL (ELT $ 45) |u| |v| (QREFELT $ 40))) 
+
+(SDEFUN |DIRPROD;recip;$U;22| ((|z| $) ($ |Union| $ #1="failed"))
+        (SPROG
+         ((#2=#:G198 NIL) (|u| (|Union| R #1#)) (#3=#:G199 NIL) (|i| NIL)
+          (|w| ($)))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |w| (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 51))
+                  . #4=(|DIRPROD;recip;$U;22|))
+            (SEQ (LETT |i| (SPADCALL |w| (QREFELT $ 19)) . #4#)
+                 (LETT #3# (SPADCALL |w| (QREFELT $ 55)) . #4#) G190
+                 (COND ((> |i| #3#) (GO G191)))
+                 (SEQ
+                  (LETT |u|
+                        (SPADCALL (SPADCALL |z| |i| (QREFELT $ 56))
+                                  (QREFELT $ 57))
+                        . #4#)
+                  (EXIT
+                   (COND
+                    ((QEQCAR |u| 1)
+                     (PROGN (LETT #2# (CONS 1 "failed") . #4#) (GO #2#)))
+                    ('T (QSETAREF1O |w| |i| (QCDR |u|) 1)))))
+                 (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
+            (EXIT (CONS 0 |w|))))
+          #2# (EXIT #2#)))) 
+
+(SDEFUN |DIRPROD;unitVector;Pi$;23| ((|i| |PositiveInteger|) ($ $))
+        (SPROG ((|v| ($)))
+               (SEQ
+                (LETT |v| (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 51))
+                      |DIRPROD;unitVector;Pi$;23|)
+                (SPADCALL |v| |i| (|spadConstant| $ 44) (QREFELT $ 59))
+                (EXIT |v|)))) 
+
+(SDEFUN |DIRPROD;<;2$B;24| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG
+         ((#1=#:G202 NIL) (#2=#:G206 NIL) (|b| NIL) (|a| NIL) (#3=#:G207 NIL)
+          (|i| NIL))
+         (SEQ
+          (EXIT
+           (SEQ
+            (SEQ (LETT |i| 0 . #4=(|DIRPROD;<;2$B;24|))
+                 (LETT #3# (- (QREFELT $ 6) 1) . #4#) G190
+                 (COND ((|greater_SI| |i| #3#) (GO G191)))
+                 (SEQ (LETT |a| (QREFELT |x| |i|) . #4#)
+                      (LETT |b| (QREFELT |y| |i|) . #4#)
+                      (EXIT
+                       (COND
+                        ((QLESSP |a| |b|) (PROGN (LETT #2# 'T . #4#) (GO #2#)))
+                        ('T
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((QLESSP |b| |a|)
+                             (PROGN
+                              (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                                    . #4#)
+                              (GO #1#)))))
+                          #1# (EXIT #1#))))))
+                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+            (EXIT 'NIL)))
+          #2# (EXIT #2#)))) 
+
+(SDEFUN |DIRPROD;<;2$B;25| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG
+         ((#1=#:G208 NIL) (#2=#:G212 NIL) (|b| NIL) (|a| NIL) (#3=#:G213 NIL)
+          (|i| NIL))
+         (SEQ
+          (EXIT
+           (SEQ
+            (SEQ (LETT |i| 0 . #4=(|DIRPROD;<;2$B;25|))
+                 (LETT #3# (- (QREFELT $ 6) 1) . #4#) G190
+                 (COND ((|greater_SI| |i| #3#) (GO G191)))
+                 (SEQ (LETT |a| (QREFELT |x| |i|) . #4#)
+                      (LETT |b| (QREFELT |y| |i|) . #4#)
+                      (EXIT
+                       (COND
+                        ((QLESSP |a| |b|) (PROGN (LETT #2# 'T . #4#) (GO #2#)))
+                        ('T
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((QLESSP |b| |a|)
+                             (PROGN
+                              (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                                    . #4#)
+                              (GO #1#)))))
+                          #1# (EXIT #1#))))))
+                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+            (EXIT 'NIL)))
+          #2# (EXIT #2#)))) 
+
+(SDEFUN |DIRPROD;<;2$B;26| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((#1=#:G214 NIL) (#2=#:G218 NIL) (#3=#:G219 NIL) (|i| NIL))
                (SEQ
                 (EXIT
-                 (LETT L
-                       (-
-                        (+ (* L N)
-                           (SPADCALL (SPADCALL |x| |i| (QREFELT $ 20))
-                                     (QREFELT $ 36)))
-                        1)
-                       . #3#)))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT
-           (PROG1 (LETT #1# (+ L 1) . #3#)
-             (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))))) 
-
-(DEFUN |DIRPROD;+;3$;14| (|u| |v| $)
-  (SPADCALL (ELT $ 38) |u| |v| (QREFELT $ 40))) 
-
-(DEFUN |DIRPROD;Zero;$;15| ($) (SPADCALL (QREFELT $ 6) (QREFELT $ 42))) 
-
-(DEFUN |DIRPROD;One;$;16| ($) (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 44))) 
-
-(DEFUN |DIRPROD;*;$R$;17| (|u| |r| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|DIRPROD;*;$R$;17!0| (VECTOR $ |r|)) |u|
-               (QREFELT $ 47))))) 
-
-(DEFUN |DIRPROD;*;$R$;17!0| (|x| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|DIRPROD;*;$R$;17|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |x| |r| (QREFELT $ 45)))))) 
-
-(DEFUN |DIRPROD;*;R2$;18| (|r| |u| $)
-  (PROG ()
-    (RETURN
-     (SPADCALL (CONS #'|DIRPROD;*;R2$;18!0| (VECTOR $ |r|)) |u|
-               (QREFELT $ 47))))) 
-
-(DEFUN |DIRPROD;*;R2$;18!0| (|x| $$)
-  (PROG (|r| $)
-    (LETT |r| (QREFELT $$ 1) . #1=(|DIRPROD;*;R2$;18|))
-    (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |r| |x| (QREFELT $ 45)))))) 
-
-(DEFUN |DIRPROD;*;3$;19| (|x| |y| $)
-  (PROG (#1=#:G172 #2=#:G174 |i| #3=#:G173)
-    (RETURN
-     (SEQ
-      (PROGN
-       (LETT #3# (GETREFV #4=(QREFELT $ 6)) . #5=(|DIRPROD;*;3$;19|))
-       (SEQ (LETT |i| 1 . #5#) (LETT #2# #4# . #5#) (LETT #1# 0 . #5#) G190
-            (COND ((|greater_SI| |i| #2#) (GO G191)))
-            (SEQ
-             (EXIT
-              (SETELT #3# #1#
-                      (SPADCALL (SPADCALL |x| |i| (QREFELT $ 20))
-                                (SPADCALL |y| |i| (QREFELT $ 20))
-                                (QREFELT $ 45)))))
-            (LETT #1# (PROG1 (|inc_SI| #1#) (LETT |i| (|inc_SI| |i|) . #5#))
-                  . #5#)
-            (GO G190) G191 (EXIT NIL))
-       #3#))))) 
-
-(DEFUN |DIRPROD;subtractIfCan;2$U;20| (|u| |v| $)
-  (PROG (#1=#:G184 |c| #2=#:G185 |i| |w|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |w| (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 51))
-              . #3=(|DIRPROD;subtractIfCan;2$U;20|))
-        (SEQ (LETT |i| 1 . #3#) (LETT #2# (QREFELT $ 6) . #3#) G190
-             (COND ((|greater_SI| |i| #2#) (GO G191)))
-             (SEQ
-              (LETT |c|
-                    (SPADCALL (QAREF1O |u| |i| 1) (QAREF1O |v| |i| 1)
-                              (QREFELT $ 53))
-                    . #3#)
-              (EXIT
-               (COND
-                ((QEQCAR |c| 1)
-                 (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #1#)))
-                ('T (QSETAREF1O |w| |i| (QCDR |c|) 1)))))
-             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT (CONS 0 |w|))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |DIRPROD;*;3$;21| (|u| |v| $)
-  (SPADCALL (ELT $ 45) |u| |v| (QREFELT $ 40))) 
-
-(DEFUN |DIRPROD;recip;$U;22| (|z| $)
-  (PROG (#1=#:G198 |u| #2=#:G199 |i| |w|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (LETT |w| (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 51))
-              . #3=(|DIRPROD;recip;$U;22|))
-        (SEQ (LETT |i| (SPADCALL |w| (QREFELT $ 19)) . #3#)
-             (LETT #2# (SPADCALL |w| (QREFELT $ 55)) . #3#) G190
-             (COND ((> |i| #2#) (GO G191)))
-             (SEQ
-              (LETT |u|
-                    (SPADCALL (SPADCALL |z| |i| (QREFELT $ 56)) (QREFELT $ 57))
-                    . #3#)
-              (EXIT
-               (COND
-                ((QEQCAR |u| 1)
-                 (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #1#)))
-                ('T (QSETAREF1O |w| |i| (QCDR |u|) 1)))))
-             (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT (CONS 0 |w|))))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |DIRPROD;unitVector;Pi$;23| (|i| $)
-  (PROG (|v|)
-    (RETURN
-     (SEQ
-      (LETT |v| (MAKEARR1 (QREFELT $ 6) (|spadConstant| $ 51))
-            |DIRPROD;unitVector;Pi$;23|)
-      (SPADCALL |v| |i| (|spadConstant| $ 44) (QREFELT $ 59)) (EXIT |v|))))) 
-
-(DEFUN |DIRPROD;<;2$B;24| (|x| |y| $)
-  (PROG (#1=#:G202 #2=#:G206 |b| |a| #3=#:G207 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |i| 0 . #4=(|DIRPROD;<;2$B;24|))
-             (LETT #3# (- (QREFELT $ 6) 1) . #4#) G190
-             (COND ((|greater_SI| |i| #3#) (GO G191)))
-             (SEQ (LETT |a| (QREFELT |x| |i|) . #4#)
-                  (LETT |b| (QREFELT |y| |i|) . #4#)
-                  (EXIT
-                   (COND
-                    ((QLESSP |a| |b|) (PROGN (LETT #2# 'T . #4#) (GO #2#)))
-                    ('T
-                     (SEQ
-                      (EXIT
-                       (COND
-                        ((QLESSP |b| |a|)
-                         (PROGN
-                          (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
-                                . #4#)
-                          (GO #1#)))))
-                      #1# (EXIT #1#))))))
-             (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-        (EXIT 'NIL)))
-      #2# (EXIT #2#))))) 
-
-(DEFUN |DIRPROD;<;2$B;25| (|x| |y| $)
-  (PROG (#1=#:G208 #2=#:G212 |b| |a| #3=#:G213 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |i| 0 . #4=(|DIRPROD;<;2$B;25|))
-             (LETT #3# (- (QREFELT $ 6) 1) . #4#) G190
-             (COND ((|greater_SI| |i| #3#) (GO G191)))
-             (SEQ (LETT |a| (QREFELT |x| |i|) . #4#)
-                  (LETT |b| (QREFELT |y| |i|) . #4#)
-                  (EXIT
-                   (COND
-                    ((QLESSP |a| |b|) (PROGN (LETT #2# 'T . #4#) (GO #2#)))
-                    ('T
-                     (SEQ
-                      (EXIT
-                       (COND
-                        ((QLESSP |b| |a|)
-                         (PROGN
-                          (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
-                                . #4#)
-                          (GO #1#)))))
-                      #1# (EXIT #1#))))))
-             (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-        (EXIT 'NIL)))
-      #2# (EXIT #2#))))) 
-
-(DEFUN |DIRPROD;<;2$B;26| (|x| |y| $)
-  (PROG (#1=#:G214 #2=#:G218 #3=#:G219 |i|)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
-        (SEQ (LETT |i| 1 . #4=(|DIRPROD;<;2$B;26|))
-             (LETT #3# (QREFELT $ 6) . #4#) G190
-             (COND ((|greater_SI| |i| #3#) (GO G191)))
-             (SEQ
-              (EXIT
-               (COND
-                ((SPADCALL (SPADCALL |x| |i| (QREFELT $ 56))
-                           (SPADCALL |y| |i| (QREFELT $ 56)) (QREFELT $ 62))
-                 (PROGN (LETT #2# 'T . #4#) (GO #2#)))
-                ('T
                  (SEQ
-                  (EXIT
-                   (COND
-                    ((SPADCALL (SPADCALL |x| |i| (QREFELT $ 56))
-                               (SPADCALL |y| |i| (QREFELT $ 56))
-                               (QREFELT $ 63))
-                     (PROGN
-                      (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#)) . #4#)
-                      (GO #1#)))))
-                  #1# (EXIT #1#))))))
-             (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-        (EXIT 'NIL)))
-      #2# (EXIT #2#))))) 
+                  (SEQ (LETT |i| 1 . #4=(|DIRPROD;<;2$B;26|))
+                       (LETT #3# (QREFELT $ 6) . #4#) G190
+                       (COND ((|greater_SI| |i| #3#) (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL (SPADCALL |x| |i| (QREFELT $ 56))
+                                     (SPADCALL |y| |i| (QREFELT $ 56))
+                                     (QREFELT $ 62))
+                           (PROGN (LETT #2# 'T . #4#) (GO #2#)))
+                          ('T
+                           (SEQ
+                            (EXIT
+                             (COND
+                              ((SPADCALL (SPADCALL |x| |i| (QREFELT $ 56))
+                                         (SPADCALL |y| |i| (QREFELT $ 56))
+                                         (QREFELT $ 63))
+                               (PROGN
+                                (LETT #1#
+                                      (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                                      . #4#)
+                                (GO #1#)))))
+                            #1# (EXIT #1#))))))
+                       (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                       (EXIT NIL))
+                  (EXIT 'NIL)))
+                #2# (EXIT #2#)))) 
 
-(DEFUN |DIRPROD;sup;3$;27| (|x| |y| $)
-  (SPADCALL (ELT $ 64) |x| |y| (QREFELT $ 40))) 
+(SDEFUN |DIRPROD;sup;3$;27| ((|x| $) (|y| $) ($ $))
+        (SPADCALL (ELT $ 64) |x| |y| (QREFELT $ 40))) 
 
 (DECLAIM (NOTINLINE |DirectProduct;|)) 
 
 (DEFUN |DirectProduct| (&REST #1=#:G237)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G238)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (|devaluateList| #1#)
-                                           (HGET |$ConstructorCache|
-                                                 '|DirectProduct|)
-                                           '|domainEqualList|)
-                . #3=(|DirectProduct|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (APPLY (|function| |DirectProduct;|) #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G238)
+           (RETURN
             (COND
-             ((NOT #2#) (HREM |$ConstructorCache| '|DirectProduct|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (|devaluateList| #1#)
+                                               (HGET |$ConstructorCache|
+                                                     '|DirectProduct|)
+                                               '|domainEqualList|)
+                    . #3=(|DirectProduct|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (APPLY (|function| |DirectProduct;|) #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#) (HREM |$ConstructorCache| '|DirectProduct|)))))))))) 
 
 (DEFUN |DirectProduct;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G231 #2=#:G232 #3=#:G233 #4=#:G234 #5=#:G235 #6=#:G236 $
-         |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #7=(|DirectProduct|))
-      (LETT DV$2 (|devaluate| |#2|) . #7#)
-      (LETT |dv$| (LIST '|DirectProduct| DV$1 DV$2) . #7#)
-      (LETT $ (GETREFV 89) . #7#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST (|HasCategory| |#2| '(|Field|))
-                                               (|HasCategory| |#2| '(|Ring|))
-                                               (|HasCategory| |#2|
-                                                              '(|OrderedAbelianMonoidSup|))
-                                               (LETT #6#
-                                                     (|HasCategory| |#2|
-                                                                    '(|OrderedRing|))
-                                                     . #7#)
-                                               (OR
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoidSup|))
-                                                #6#)
-                                               (|HasCategory| |#2| '(|Monoid|))
-                                               (|HasCategory| |#2|
-                                                              '(|unitsKnown|))
-                                               (LETT #5#
-                                                     (|HasCategory| |#2|
-                                                                    '(|CommutativeRing|))
-                                                     . #7#)
-                                               (OR #5#
+  (SPROG
+   ((|pv$| NIL) (#1=#:G231 NIL) (#2=#:G232 NIL) (#3=#:G233 NIL) (#4=#:G234 NIL)
+    (#5=#:G235 NIL) (#6=#:G236 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #7=(|DirectProduct|))
+    (LETT DV$2 (|devaluate| |#2|) . #7#)
+    (LETT |dv$| (LIST '|DirectProduct| DV$1 DV$2) . #7#)
+    (LETT $ (GETREFV 89) . #7#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST (|HasCategory| |#2| '(|Field|))
+                                             (|HasCategory| |#2| '(|Ring|))
+                                             (|HasCategory| |#2|
+                                                            '(|OrderedAbelianMonoidSup|))
+                                             (LETT #6#
                                                    (|HasCategory| |#2|
-                                                                  '(|Field|))
+                                                                  '(|OrderedRing|))
+                                                   . #7#)
+                                             (OR
+                                              (|HasCategory| |#2|
+                                                             '(|OrderedAbelianMonoidSup|))
+                                              #6#)
+                                             (|HasCategory| |#2| '(|Monoid|))
+                                             (|HasCategory| |#2|
+                                                            '(|unitsKnown|))
+                                             (LETT #5#
                                                    (|HasCategory| |#2|
-                                                                  '(|Ring|)))
-                                               (OR #5#
-                                                   (|HasCategory| |#2|
-                                                                  '(|Field|)))
-                                               (OR #5#
-                                                   (|HasCategory| |#2|
-                                                                  '(|Ring|)))
-                                               (|HasCategory| |#2| '(|Finite|))
-                                               (|HasCategory| |#2|
-                                                              '(|LinearlyExplicitRingOver|
-                                                                (|Integer|)))
-                                               (|HasCategory| |#2|
-                                                              '(|PartialDifferentialRing|
-                                                                (|Symbol|)))
-                                               (LETT #4#
-                                                     (|HasCategory| |#2|
-                                                                    '(|DifferentialRing|))
-                                                     . #7#)
-                                               (OR
-                                                (|HasCategory| |#2|
-                                                               '(|LinearlyExplicitRingOver|
-                                                                 (|Integer|)))
-                                                (|HasCategory| |#2|
-                                                               '(|PartialDifferentialRing|
-                                                                 (|Symbol|)))
-                                                (|HasCategory| |#2|
-                                                               '(|CancellationAbelianMonoid|))
-                                                #5# #4# #6#
-                                                (|HasCategory| |#2| '(|Ring|)))
-                                               (OR
-                                                (|HasCategory| |#2|
-                                                               '(|LinearlyExplicitRingOver|
-                                                                 (|Integer|)))
-                                                (|HasCategory| |#2|
-                                                               '(|PartialDifferentialRing|
-                                                                 (|Symbol|)))
-                                                #5# #4# #6#
-                                                (|HasCategory| |#2| '(|Ring|)))
-                                               (|HasCategory| |#2|
-                                                              '(|SetCategory|))
-                                               (|HasCategory| |#2|
-                                                              '(|BasicType|))
-                                               (AND
-                                                (|HasCategory| |#2|
-                                                               (LIST
-                                                                '|Evalable|
-                                                                (|devaluate|
-                                                                 |#2|)))
-                                                (|HasCategory| |#2|
-                                                               '(|SetCategory|)))
-                                               (|HasCategory| (|Integer|)
-                                                              '(|OrderedSet|))
-                                               (AND
-                                                (|HasCategory| |#2|
-                                                               '(|LinearlyExplicitRingOver|
-                                                                 (|Integer|)))
-                                                (|HasCategory| |#2| '(|Ring|)))
-                                               (AND #4#
-                                                    (|HasCategory| |#2|
-                                                                   '(|Ring|)))
-                                               (AND
-                                                (|HasCategory| |#2|
-                                                               '(|PartialDifferentialRing|
-                                                                 (|Symbol|)))
-                                                (|HasCategory| |#2| '(|Ring|)))
-                                               (OR
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|AbelianGroup|))
-                                                 (|HasCategory| |#2|
-                                                                '(|Field|)))
-                                                (|HasCategory| |#2| '(|Ring|)))
-                                               (OR
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|AbelianGroup|))
-                                                 (|HasCategory| |#2|
-                                                                '(|Field|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|AbelianGroup|))
-                                                 (|HasCategory| |#2|
-                                                                '(|Ring|)))
-                                                (|HasCategory| |#2|
-                                                               '(|CancellationAbelianMonoid|)))
-                                               (OR
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|AbelianMonoid|))
-                                                 (|HasCategory| |#2|
-                                                                '(|Field|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|AbelianMonoid|))
-                                                 (|HasCategory| |#2|
-                                                                '(|Ring|)))
-                                                (|HasCategory| |#2|
-                                                               '(|CancellationAbelianMonoid|)))
-                                               (LETT #3#
-                                                     (|HasCategory| |#2|
-                                                                    '(|AbelianSemiGroup|))
-                                                     . #7#)
-                                               (OR
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|LinearlyExplicitRingOver|
-                                                                  (|Integer|))))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|PartialDifferentialRing|
-                                                                  (|Symbol|))))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 #3#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|CancellationAbelianMonoid|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 #5#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 #4#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|Field|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|Finite|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|Monoid|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|OrderedAbelianMonoidSup|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 #6#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|Ring|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|SetCategory|))))
-                                               (OR
-                                                (|HasCategory| |#2|
-                                                               '(|LinearlyExplicitRingOver|
-                                                                 (|Integer|)))
-                                                (|HasCategory| |#2|
-                                                               '(|PartialDifferentialRing|
-                                                                 (|Symbol|)))
-                                                #3#
-                                                (|HasCategory| |#2|
-                                                               '(|BasicType|))
-                                                (|HasCategory| |#2|
-                                                               '(|CancellationAbelianMonoid|))
-                                                #5# #4#
-                                                (|HasCategory| |#2| '(|Field|))
-                                                (|HasCategory| |#2|
-                                                               '(|Finite|))
-                                                (|HasCategory| |#2|
-                                                               '(|Monoid|))
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoidSup|))
-                                                #6#
-                                                (|HasCategory| |#2| '(|Ring|))
-                                                (|HasCategory| |#2|
-                                                               '(|SetCategory|)))
-                                               (OR
-                                                (|HasCategory| |#2|
-                                                               '(|LinearlyExplicitRingOver|
-                                                                 (|Integer|)))
-                                                (|HasCategory| |#2|
-                                                               '(|PartialDifferentialRing|
-                                                                 (|Symbol|)))
-                                                #3#
-                                                (|HasCategory| |#2|
-                                                               '(|CancellationAbelianMonoid|))
-                                                #5# #4#
-                                                (|HasCategory| |#2| '(|Field|))
-                                                (|HasCategory| |#2|
-                                                               '(|Finite|))
-                                                (|HasCategory| |#2|
-                                                               '(|Monoid|))
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoidSup|))
-                                                #6#
-                                                (|HasCategory| |#2| '(|Ring|))
-                                                (|HasCategory| |#2|
-                                                               '(|SetCategory|)))
-                                               (OR
-                                                (|HasCategory| |#2|
-                                                               '(|LinearlyExplicitRingOver|
-                                                                 (|Integer|)))
-                                                (|HasCategory| |#2|
-                                                               '(|PartialDifferentialRing|
-                                                                 (|Symbol|)))
-                                                #3#
-                                                (|HasCategory| |#2|
-                                                               '(|CancellationAbelianMonoid|))
-                                                #5# #4#
-                                                (|HasCategory| |#2| '(|Field|))
-                                                #6#
-                                                (|HasCategory| |#2| '(|Ring|)))
-                                               (|HasCategory| |#2|
-                                                              '(|CoercibleTo|
-                                                                (|OutputForm|)))
-                                               (LETT #2#
-                                                     (AND
-                                                      (|HasCategory| |#2|
-                                                                     '(|RetractableTo|
-                                                                       (|Integer|)))
-                                                      (|HasCategory| |#2|
-                                                                     '(|SetCategory|)))
-                                                     . #7#)
-                                               (OR
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|LinearlyExplicitRingOver|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|))))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|PartialDifferentialRing|
-                                                                  (|Symbol|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|))))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 #3#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|CancellationAbelianMonoid|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 #5#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 #4#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|Field|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|Finite|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|Monoid|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|OrderedAbelianMonoidSup|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 #6#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|Ring|)))
-                                                #2#)
-                                               (OR #2#
-                                                   (|HasCategory| |#2|
-                                                                  '(|Ring|)))
-                                               (LETT #1#
-                                                     (AND
-                                                      (|HasCategory| |#2|
-                                                                     '(|RetractableTo|
-                                                                       (|Fraction|
-                                                                        (|Integer|))))
-                                                      (|HasCategory| |#2|
-                                                                     '(|SetCategory|)))
-                                                     . #7#)
-                                               (OR
-                                                (|HasCategory| |#2|
-                                                               '(|CoercibleTo|
-                                                                 (|OutputForm|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                (LIST
-                                                                 '|Evalable|
-                                                                 (|devaluate|
-                                                                  |#2|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|SetCategory|)))
-                                                #1# #2#
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|AbelianGroup|))
+                                                                  '(|CommutativeRing|))
+                                                   . #7#)
+                                             (OR #5#
                                                  (|HasCategory| |#2|
                                                                 '(|Field|))
                                                  (|HasCategory| |#2|
                                                                 '(|Ring|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|AbelianMonoid|))
-                                                 (|HasCategory| |#2|
-                                                                '(|CancellationAbelianMonoid|))
-                                                 (|HasCategory| |#2|
-                                                                '(|Field|))))
-                                               (OR
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|LinearlyExplicitRingOver|
-                                                                  (|Integer|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|)))))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|PartialDifferentialRing|
-                                                                  (|Symbol|)))
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|)))))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
-                                                 #3#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
-                                                 (|HasCategory| |#2|
-                                                                '(|CancellationAbelianMonoid|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
-                                                 #5#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
-                                                 #4#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
+                                             (OR #5#
                                                  (|HasCategory| |#2|
                                                                 '(|Field|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
-                                                 (|HasCategory| |#2|
-                                                                '(|Finite|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
-                                                 (|HasCategory| |#2|
-                                                                '(|Monoid|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
-                                                 (|HasCategory| |#2|
-                                                                '(|OrderedAbelianMonoidSup|)))
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
-                                                 #6#)
-                                                (AND
-                                                 (|HasCategory| |#2|
-                                                                '(|RetractableTo|
-                                                                  (|Fraction|
-                                                                   (|Integer|))))
+                                             (OR #5#
                                                  (|HasCategory| |#2|
                                                                 '(|Ring|)))
-                                                #1#)))
-                      . #7#))
-      (|haddProp| |$ConstructorCache| '|DirectProduct| (LIST DV$1 DV$2)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (AND (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 549755813888))
+                                             (|HasCategory| |#2| '(|Finite|))
+                                             (|HasCategory| |#2|
+                                                            '(|LinearlyExplicitRingOver|
+                                                              (|Integer|)))
+                                             (|HasCategory| |#2|
+                                                            '(|PartialDifferentialRing|
+                                                              (|Symbol|)))
+                                             (LETT #4#
+                                                   (|HasCategory| |#2|
+                                                                  '(|DifferentialRing|))
+                                                   . #7#)
+                                             (OR
+                                              (|HasCategory| |#2|
+                                                             '(|LinearlyExplicitRingOver|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#2|
+                                                             '(|PartialDifferentialRing|
+                                                               (|Symbol|)))
+                                              (|HasCategory| |#2|
+                                                             '(|CancellationAbelianMonoid|))
+                                              #5# #4# #6#
+                                              (|HasCategory| |#2| '(|Ring|)))
+                                             (OR
+                                              (|HasCategory| |#2|
+                                                             '(|LinearlyExplicitRingOver|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#2|
+                                                             '(|PartialDifferentialRing|
+                                                               (|Symbol|)))
+                                              #5# #4# #6#
+                                              (|HasCategory| |#2| '(|Ring|)))
+                                             (|HasCategory| |#2|
+                                                            '(|SetCategory|))
+                                             (|HasCategory| |#2|
+                                                            '(|BasicType|))
+                                             (AND
+                                              (|HasCategory| |#2|
+                                                             (LIST '|Evalable|
+                                                                   (|devaluate|
+                                                                    |#2|)))
+                                              (|HasCategory| |#2|
+                                                             '(|SetCategory|)))
+                                             (|HasCategory| (|Integer|)
+                                                            '(|OrderedSet|))
+                                             (AND
+                                              (|HasCategory| |#2|
+                                                             '(|LinearlyExplicitRingOver|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#2| '(|Ring|)))
+                                             (AND #4#
+                                                  (|HasCategory| |#2|
+                                                                 '(|Ring|)))
+                                             (AND
+                                              (|HasCategory| |#2|
+                                                             '(|PartialDifferentialRing|
+                                                               (|Symbol|)))
+                                              (|HasCategory| |#2| '(|Ring|)))
+                                             (OR
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianGroup|))
+                                               (|HasCategory| |#2| '(|Field|)))
+                                              (|HasCategory| |#2| '(|Ring|)))
+                                             (OR
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianGroup|))
+                                               (|HasCategory| |#2| '(|Field|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianGroup|))
+                                               (|HasCategory| |#2| '(|Ring|)))
+                                              (|HasCategory| |#2|
+                                                             '(|CancellationAbelianMonoid|)))
+                                             (OR
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianMonoid|))
+                                               (|HasCategory| |#2| '(|Field|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianMonoid|))
+                                               (|HasCategory| |#2| '(|Ring|)))
+                                              (|HasCategory| |#2|
+                                                             '(|CancellationAbelianMonoid|)))
+                                             (LETT #3#
+                                                   (|HasCategory| |#2|
+                                                                  '(|AbelianSemiGroup|))
+                                                   . #7#)
+                                             (OR
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|LinearlyExplicitRingOver|
+                                                                (|Integer|))))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|PartialDifferentialRing|
+                                                                (|Symbol|))))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               #3#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|CancellationAbelianMonoid|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               #5#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               #4#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2| '(|Field|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|Finite|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|Monoid|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|OrderedAbelianMonoidSup|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               #6#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2| '(|Ring|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|SetCategory|))))
+                                             (OR
+                                              (|HasCategory| |#2|
+                                                             '(|LinearlyExplicitRingOver|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#2|
+                                                             '(|PartialDifferentialRing|
+                                                               (|Symbol|)))
+                                              #3#
+                                              (|HasCategory| |#2|
+                                                             '(|BasicType|))
+                                              (|HasCategory| |#2|
+                                                             '(|CancellationAbelianMonoid|))
+                                              #5# #4#
+                                              (|HasCategory| |#2| '(|Field|))
+                                              (|HasCategory| |#2| '(|Finite|))
+                                              (|HasCategory| |#2| '(|Monoid|))
+                                              (|HasCategory| |#2|
+                                                             '(|OrderedAbelianMonoidSup|))
+                                              #6#
+                                              (|HasCategory| |#2| '(|Ring|))
+                                              (|HasCategory| |#2|
+                                                             '(|SetCategory|)))
+                                             (OR
+                                              (|HasCategory| |#2|
+                                                             '(|LinearlyExplicitRingOver|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#2|
+                                                             '(|PartialDifferentialRing|
+                                                               (|Symbol|)))
+                                              #3#
+                                              (|HasCategory| |#2|
+                                                             '(|CancellationAbelianMonoid|))
+                                              #5# #4#
+                                              (|HasCategory| |#2| '(|Field|))
+                                              (|HasCategory| |#2| '(|Finite|))
+                                              (|HasCategory| |#2| '(|Monoid|))
+                                              (|HasCategory| |#2|
+                                                             '(|OrderedAbelianMonoidSup|))
+                                              #6#
+                                              (|HasCategory| |#2| '(|Ring|))
+                                              (|HasCategory| |#2|
+                                                             '(|SetCategory|)))
+                                             (OR
+                                              (|HasCategory| |#2|
+                                                             '(|LinearlyExplicitRingOver|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#2|
+                                                             '(|PartialDifferentialRing|
+                                                               (|Symbol|)))
+                                              #3#
+                                              (|HasCategory| |#2|
+                                                             '(|CancellationAbelianMonoid|))
+                                              #5# #4#
+                                              (|HasCategory| |#2| '(|Field|))
+                                              #6#
+                                              (|HasCategory| |#2| '(|Ring|)))
+                                             (|HasCategory| |#2|
+                                                            '(|CoercibleTo|
+                                                              (|OutputForm|)))
+                                             (LETT #2#
+                                                   (AND
+                                                    (|HasCategory| |#2|
+                                                                   '(|RetractableTo|
+                                                                     (|Integer|)))
+                                                    (|HasCategory| |#2|
+                                                                   '(|SetCategory|)))
+                                                   . #7#)
+                                             (OR
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|LinearlyExplicitRingOver|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|))))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|PartialDifferentialRing|
+                                                                (|Symbol|)))
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|))))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               #3#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#2|
+                                                              '(|CancellationAbelianMonoid|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               #5#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               #4#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#2| '(|Field|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#2|
+                                                              '(|Finite|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#2|
+                                                              '(|Monoid|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#2|
+                                                              '(|OrderedAbelianMonoidSup|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               #6#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#2| '(|Ring|)))
+                                              #2#)
+                                             (OR #2#
+                                                 (|HasCategory| |#2|
+                                                                '(|Ring|)))
+                                             (LETT #1#
+                                                   (AND
+                                                    (|HasCategory| |#2|
+                                                                   '(|RetractableTo|
+                                                                     (|Fraction|
+                                                                      (|Integer|))))
+                                                    (|HasCategory| |#2|
+                                                                   '(|SetCategory|)))
+                                                   . #7#)
+                                             (OR
+                                              (|HasCategory| |#2|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               (|HasCategory| |#2|
+                                                              '(|SetCategory|)))
+                                              #1# #2#
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianGroup|))
+                                               (|HasCategory| |#2| '(|Field|))
+                                               (|HasCategory| |#2| '(|Ring|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|AbelianMonoid|))
+                                               (|HasCategory| |#2|
+                                                              '(|CancellationAbelianMonoid|))
+                                               (|HasCategory| |#2|
+                                                              '(|Field|))))
+                                             (OR
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|LinearlyExplicitRingOver|
+                                                                (|Integer|)))
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|)))))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|PartialDifferentialRing|
+                                                                (|Symbol|)))
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|)))))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               #3#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#2|
+                                                              '(|CancellationAbelianMonoid|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               #5#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               #4#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#2| '(|Field|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#2|
+                                                              '(|Finite|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#2|
+                                                              '(|Monoid|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#2|
+                                                              '(|OrderedAbelianMonoidSup|)))
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               #6#)
+                                              (AND
+                                               (|HasCategory| |#2|
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               (|HasCategory| |#2| '(|Ring|)))
+                                              #1#)))
+                    . #7#))
+    (|haddProp| |$ConstructorCache| '|DirectProduct| (LIST DV$1 DV$2)
+                (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (QSETREFV $ 7 |#2|)
+    (AND (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 549755813888))
+    (AND (|HasCategory| |#2| '(|BasicType|))
+         (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 1099511627776))
+    (AND (|HasCategory| |#2| '(|SetCategory|))
+         (|HasCategory| $ '(|finiteAggregate|))
+         (|augmentPredVector| $ 2199023255552))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 4398046511104))
+    (AND
+     (OR
       (AND (|HasCategory| |#2| '(|BasicType|))
-           (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 1099511627776))
-      (AND (|HasCategory| |#2| '(|SetCategory|))
-           (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 2199023255552))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 4398046511104))
-      (AND
-       (OR
-        (AND (|HasCategory| |#2| '(|BasicType|))
-             (|HasCategory| $ '(|finiteAggregate|)))
-        (|HasCategory| |#2| '(|SetCategory|)))
-       (|augmentPredVector| $ 8796093022208))
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 8 (|Vector| |#2|))
+           (|HasCategory| $ '(|finiteAggregate|)))
+      (|HasCategory| |#2| '(|SetCategory|)))
+     (|augmentPredVector| $ 8796093022208))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 8 (|Vector| |#2|))
+    (COND
+     ((|testBitVector| |pv$| 18)
+      (PROGN
+       (COND
+        ((|domainEqual| |#2| (|NonNegativeInteger|))
+         (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;6|) $)))
+        ((|domainEqual| |#2| (|Integer|))
+         (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;7|) $)))
+        ('T (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;8|) $))))
+       (QSETREFV $ 25 (CONS (|dispatchFunction| |DIRPROD;retract;$R;9|) $))
+       (QSETREFV $ 27
+                 (CONS (|dispatchFunction| |DIRPROD;retractIfCan;$U;10|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 12)
+      (PROGN
+       (QSETREFV $ 32 (CONS (|dispatchFunction| |DIRPROD;index;Pi$;11|) $))
+       (QSETREFV $ 34 (CONS (|dispatchFunction| |DIRPROD;random;$;12|) $))
+       (QSETREFV $ 37 (CONS (|dispatchFunction| |DIRPROD;lookup;$Pi;13|) $)))))
+    (COND
+     ((|testBitVector| |pv$| 28)
+      (QSETREFV $ 41 (CONS (|dispatchFunction| |DIRPROD;+;3$;14|) $))))
+    (COND
+     ((|HasCategory| |#2| '(|AbelianMonoid|))
+      (QSETREFV $ 43
+                (CONS #'|makeSpadConstant|
+                      (LIST (|dispatchFunction| |DIRPROD;Zero;$;15|) $ 43)))))
+    (COND
+     ((|testBitVector| |pv$| 6)
+      (PROGN
+       (QSETREFV $ 35
+                 (CONS #'|makeSpadConstant|
+                       (LIST (|dispatchFunction| |DIRPROD;One;$;16|) $ 35)))
+       (QSETREFV $ 48 (CONS (|dispatchFunction| |DIRPROD;*;$R$;17|) $))
+       (QSETREFV $ 49 (CONS (|dispatchFunction| |DIRPROD;*;R2$;18|) $))
+       (QSETREFV $ 50 (CONS (|dispatchFunction| |DIRPROD;*;3$;19|) $)))))
+    (COND
+     ((|HasCategory| |#2| '(|CancellationAbelianMonoid|))
+      (QSETREFV $ 54
+                (CONS (|dispatchFunction| |DIRPROD;subtractIfCan;2$U;20|) $))))
+    (COND
+     ((|testBitVector| |pv$| 2)
+      (PROGN
+       (QSETREFV $ 50 (CONS (|dispatchFunction| |DIRPROD;*;3$;21|) $))
+       (QSETREFV $ 58 (CONS (|dispatchFunction| |DIRPROD;recip;$U;22|) $))
+       (QSETREFV $ 60
+                 (CONS (|dispatchFunction| |DIRPROD;unitVector;Pi$;23|) $)))))
+    (COND
+     ((|HasCategory| |#2| '(|OrderedSet|))
       (COND
-       ((|testBitVector| |pv$| 18)
-        (PROGN
-         (COND
-          ((|domainEqual| |#2| (|NonNegativeInteger|))
-           (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;6|) $)))
-          ((|domainEqual| |#2| (|Integer|))
-           (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;7|) $)))
-          ('T (QSETREFV $ 24 (CONS (|dispatchFunction| |DIRPROD;=;2$B;8|) $))))
-         (QSETREFV $ 25 (CONS (|dispatchFunction| |DIRPROD;retract;$R;9|) $))
-         (QSETREFV $ 27
-                   (CONS (|dispatchFunction| |DIRPROD;retractIfCan;$U;10|)
-                         $)))))
-      (COND
-       ((|testBitVector| |pv$| 12)
-        (PROGN
-         (QSETREFV $ 32 (CONS (|dispatchFunction| |DIRPROD;index;Pi$;11|) $))
-         (QSETREFV $ 34 (CONS (|dispatchFunction| |DIRPROD;random;$;12|) $))
-         (QSETREFV $ 37
-                   (CONS (|dispatchFunction| |DIRPROD;lookup;$Pi;13|) $)))))
-      (COND
-       ((|testBitVector| |pv$| 28)
-        (QSETREFV $ 41 (CONS (|dispatchFunction| |DIRPROD;+;3$;14|) $))))
-      (COND
-       ((|HasCategory| |#2| '(|AbelianMonoid|))
-        (QSETREFV $ 43
-                  (CONS #'|makeSpadConstant|
-                        (LIST (|dispatchFunction| |DIRPROD;Zero;$;15|) $
-                              43)))))
-      (COND
-       ((|testBitVector| |pv$| 6)
-        (PROGN
-         (QSETREFV $ 35
-                   (CONS #'|makeSpadConstant|
-                         (LIST (|dispatchFunction| |DIRPROD;One;$;16|) $ 35)))
-         (QSETREFV $ 48 (CONS (|dispatchFunction| |DIRPROD;*;$R$;17|) $))
-         (QSETREFV $ 49 (CONS (|dispatchFunction| |DIRPROD;*;R2$;18|) $))
-         (QSETREFV $ 50 (CONS (|dispatchFunction| |DIRPROD;*;3$;19|) $)))))
-      (COND
-       ((|HasCategory| |#2| '(|CancellationAbelianMonoid|))
-        (QSETREFV $ 54
-                  (CONS (|dispatchFunction| |DIRPROD;subtractIfCan;2$U;20|)
-                        $))))
-      (COND
-       ((|testBitVector| |pv$| 2)
-        (PROGN
-         (QSETREFV $ 50 (CONS (|dispatchFunction| |DIRPROD;*;3$;21|) $))
-         (QSETREFV $ 58 (CONS (|dispatchFunction| |DIRPROD;recip;$U;22|) $))
-         (QSETREFV $ 60
-                   (CONS (|dispatchFunction| |DIRPROD;unitVector;Pi$;23|)
-                         $)))))
-      (COND
-       ((|HasCategory| |#2| '(|OrderedSet|))
-        (COND
-         ((|domainEqual| |#2| (|NonNegativeInteger|))
-          (QSETREFV $ 61 (CONS (|dispatchFunction| |DIRPROD;<;2$B;24|) $)))
-         ((|domainEqual| |#2| (|Integer|))
-          (QSETREFV $ 61 (CONS (|dispatchFunction| |DIRPROD;<;2$B;25|) $)))
-         ('T
-          (QSETREFV $ 61 (CONS (|dispatchFunction| |DIRPROD;<;2$B;26|) $))))))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (QSETREFV $ 65 (CONS (|dispatchFunction| |DIRPROD;sup;3$;27|) $))))
-      $)))) 
+       ((|domainEqual| |#2| (|NonNegativeInteger|))
+        (QSETREFV $ 61 (CONS (|dispatchFunction| |DIRPROD;<;2$B;24|) $)))
+       ((|domainEqual| |#2| (|Integer|))
+        (QSETREFV $ 61 (CONS (|dispatchFunction| |DIRPROD;<;2$B;25|) $)))
+       ('T (QSETREFV $ 61 (CONS (|dispatchFunction| |DIRPROD;<;2$B;26|) $))))))
+    (COND
+     ((|testBitVector| |pv$| 3)
+      (QSETREFV $ 65 (CONS (|dispatchFunction| |DIRPROD;sup;3$;27|) $))))
+    $))) 
 
 (MAKEPROP '|DirectProduct| '|infovec|
           (LIST

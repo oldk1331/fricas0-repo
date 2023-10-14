@@ -15,28 +15,27 @@
            #2#)))) 
 
 (DEFUN |Evalable;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|Evalable;CAT|)
-                                ('T
-                                 (LETT |Evalable;CAT|
-                                       (|Join| (|InnerEvalable| '|t#1| '|t#1|)
-                                               (|mkCategory|
-                                                '(((|eval|
-                                                    ($ $ (|Equation| |t#1|)))
-                                                   T)
-                                                  ((|eval|
-                                                    ($ $
-                                                     (|List|
-                                                      (|Equation| |t#1|))))
-                                                   T))
-                                                NIL
-                                                '((|List| (|Equation| |t#1|))
-                                                  (|Equation| |t#1|))
-                                                NIL))
-                                       . #2=(|Evalable|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|Evalable| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|Evalable;CAT|)
+                                    ('T
+                                     (LETT |Evalable;CAT|
+                                           (|Join|
+                                            (|InnerEvalable| '|t#1| '|t#1|)
+                                            (|mkCategory|
+                                             '(((|eval|
+                                                 ($ $ (|Equation| |t#1|)))
+                                                T)
+                                               ((|eval|
+                                                 ($ $
+                                                  (|List| (|Equation| |t#1|))))
+                                                T))
+                                             NIL
+                                             '((|List| (|Equation| |t#1|))
+                                               (|Equation| |t#1|))
+                                             NIL))
+                                           . #2=(|Evalable|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|Evalable| (|devaluate| |t#1|)))))) 

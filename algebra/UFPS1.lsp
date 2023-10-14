@@ -1,50 +1,53 @@
 
-(DEFUN |UFPS1;hadamard;3Ufps;1| (|f| |g| $)
-  (SPADCALL
-   (SPADCALL (ELT $ 7) (SPADCALL |f| (QREFELT $ 10))
-             (SPADCALL |g| (QREFELT $ 10)) (QREFELT $ 13))
-   (QREFELT $ 14))) 
+(SDEFUN |UFPS1;hadamard;3Ufps;1|
+        ((|f| |UnivariateFormalPowerSeries| |Coef|)
+         (|g| |UnivariateFormalPowerSeries| |Coef|)
+         ($ |UnivariateFormalPowerSeries| |Coef|))
+        (SPADCALL
+         (SPADCALL (ELT $ 7) (SPADCALL |f| (QREFELT $ 10))
+                   (SPADCALL |g| (QREFELT $ 10)) (QREFELT $ 13))
+         (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |UnivariateFormalPowerSeriesFunctions;|)) 
 
 (DEFUN |UnivariateFormalPowerSeriesFunctions| (#1=#:G104)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G105)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|UnivariateFormalPowerSeriesFunctions|)
-                                           '|domainEqualList|)
-                . #3=(|UnivariateFormalPowerSeriesFunctions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|UnivariateFormalPowerSeriesFunctions;| #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G105)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|UnivariateFormalPowerSeriesFunctions|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|UnivariateFormalPowerSeriesFunctions|)
+                                               '|domainEqualList|)
+                    . #3=(|UnivariateFormalPowerSeriesFunctions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|UnivariateFormalPowerSeriesFunctions;| #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|UnivariateFormalPowerSeriesFunctions|)))))))))) 
 
 (DEFUN |UnivariateFormalPowerSeriesFunctions;| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #1=(|UnivariateFormalPowerSeriesFunctions|))
-      (LETT |dv$| (LIST '|UnivariateFormalPowerSeriesFunctions| DV$1) . #1#)
-      (LETT $ (GETREFV 16) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|UnivariateFormalPowerSeriesFunctions|
-                  (LIST DV$1) (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|)
+                . #1=(|UnivariateFormalPowerSeriesFunctions|))
+          (LETT |dv$| (LIST '|UnivariateFormalPowerSeriesFunctions| DV$1)
+                . #1#)
+          (LETT $ (GETREFV 16) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache|
+                      '|UnivariateFormalPowerSeriesFunctions| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|UnivariateFormalPowerSeriesFunctions| '|infovec|
           (LIST

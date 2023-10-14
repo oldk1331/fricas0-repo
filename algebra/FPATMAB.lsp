@@ -17,27 +17,28 @@
       #2#)))) 
 
 (DEFUN |FullyPatternMatchable;| (|t#1|)
-  (PROG (#1=#:G103)
-    (RETURN
-     (PROG1
-         (LETT #1#
-               (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                          (COND (|FullyPatternMatchable;CAT|)
-                                ('T
-                                 (LETT |FullyPatternMatchable;CAT|
-                                       (|Join| (|Type|)
-                                               (|mkCategory| NIL
-                                                             '(((|PatternMatchable|
-                                                                 (|Integer|))
-                                                                (|has| |t#1|
-                                                                       (|PatternMatchable|
-                                                                        (|Integer|))))
-                                                               ((|PatternMatchable|
-                                                                 (|Float|))
-                                                                (|has| |t#1|
-                                                                       (|PatternMatchable|
-                                                                        (|Float|)))))
-                                                             'NIL NIL))
-                                       . #2=(|FullyPatternMatchable|)))))
-               . #2#)
-       (SETELT #1# 0 (LIST '|FullyPatternMatchable| (|devaluate| |t#1|))))))) 
+  (SPROG ((#1=#:G103 NIL))
+         (PROG1
+             (LETT #1#
+                   (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
+                              (COND (|FullyPatternMatchable;CAT|)
+                                    ('T
+                                     (LETT |FullyPatternMatchable;CAT|
+                                           (|Join| (|Type|)
+                                                   (|mkCategory| NIL
+                                                                 '(((|PatternMatchable|
+                                                                     (|Integer|))
+                                                                    (|has|
+                                                                     |t#1|
+                                                                     (|PatternMatchable|
+                                                                      (|Integer|))))
+                                                                   ((|PatternMatchable|
+                                                                     (|Float|))
+                                                                    (|has|
+                                                                     |t#1|
+                                                                     (|PatternMatchable|
+                                                                      (|Float|)))))
+                                                                 'NIL NIL))
+                                           . #2=(|FullyPatternMatchable|)))))
+                   . #2#)
+           (SETELT #1# 0 (LIST '|FullyPatternMatchable| (|devaluate| |t#1|)))))) 

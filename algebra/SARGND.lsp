@@ -1,195 +1,212 @@
 
 (PUT '|SARGND;spnt;2Df$;1| '|SPADreplace| 'CONS) 
 
-(DEFUN |SARGND;spnt;2Df$;1| (|a| |b| $) (CONS |a| |b|)) 
+(SDEFUN |SARGND;spnt;2Df$;1| ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) ($ $))
+        (CONS |a| |b|)) 
 
 (PUT '|SARGND;spnt;3Df$;2| '|SPADreplace| '(XLAM (|a| |b| |c|) (CONS |a| |b|))) 
 
-(DEFUN |SARGND;spnt;3Df$;2| (|a| |b| |c| $) (CONS |a| |b|)) 
+(SDEFUN |SARGND;spnt;3Df$;2|
+        ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) (|c| . #1#) ($ $))
+        (CONS |a| |b|)) 
 
 (PUT '|SARGND;svec;2Df$;3| '|SPADreplace| 'CONS) 
 
-(DEFUN |SARGND;svec;2Df$;3| (|a| |b| $) (CONS |a| |b|)) 
+(SDEFUN |SARGND;svec;2Df$;3| ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) ($ $))
+        (CONS |a| |b|)) 
 
 (PUT '|SARGND;svec;3Df$;4| '|SPADreplace| '(XLAM (|a| |b| |c|) (CONS |a| |b|))) 
 
-(DEFUN |SARGND;svec;3Df$;4| (|a| |b| |c| $) (CONS |a| |b|)) 
+(SDEFUN |SARGND;svec;3Df$;4|
+        ((|a| . #1=(|DoubleFloat|)) (|b| . #1#) (|c| . #1#) ($ $))
+        (CONS |a| |b|)) 
 
-(DEFUN |SARGND;min;3$;5| (|a| |b| $)
-  (PROG (|im| |re|)
-    (RETURN
-     (SEQ (LETT |re| (|min_DF| (QCAR |a|) (QCAR |b|)) . #1=(|SARGND;min;3$;5|))
-          (LETT |im| (|min_DF| (QCDR |a|) (QCDR |b|)) . #1#)
-          (EXIT (CONS |re| |im|)))))) 
+(SDEFUN |SARGND;min;3$;5| ((|a| $) (|b| $) ($ $))
+        (SPROG ((|im| #1=(|DoubleFloat|)) (|re| #1#))
+               (SEQ
+                (LETT |re| (|min_DF| (QCAR |a|) (QCAR |b|))
+                      . #2=(|SARGND;min;3$;5|))
+                (LETT |im| (|min_DF| (QCDR |a|) (QCDR |b|)) . #2#)
+                (EXIT (CONS |re| |im|))))) 
 
-(DEFUN |SARGND;max;3$;6| (|a| |b| $)
-  (PROG (|im| |re|)
-    (RETURN
-     (SEQ (LETT |re| (|max_DF| (QCAR |a|) (QCAR |b|)) . #1=(|SARGND;max;3$;6|))
-          (LETT |im| (|max_DF| (QCDR |a|) (QCDR |b|)) . #1#)
-          (EXIT (CONS |re| |im|)))))) 
+(SDEFUN |SARGND;max;3$;6| ((|a| $) (|b| $) ($ $))
+        (SPROG ((|im| #1=(|DoubleFloat|)) (|re| #1#))
+               (SEQ
+                (LETT |re| (|max_DF| (QCAR |a|) (QCAR |b|))
+                      . #2=(|SARGND;max;3$;6|))
+                (LETT |im| (|max_DF| (QCDR |a|) (QCDR |b|)) . #2#)
+                (EXIT (CONS |re| |im|))))) 
 
 (PUT '|SARGND;dimension;$Pi;7| '|SPADreplace| '(XLAM (|p|) 2)) 
 
-(DEFUN |SARGND;dimension;$Pi;7| (|p| $) 2) 
+(SDEFUN |SARGND;dimension;$Pi;7| ((|p| $) ($ |PositiveInteger|)) 2) 
 
-(DEFUN |SARGND;nan?| (|x| $) (SPADCALL |x| |x| (QREFELT $ 17))) 
+(SDEFUN |SARGND;nan?| ((|x| |DoubleFloat|) ($ |Boolean|))
+        (SPADCALL |x| |x| (QREFELT $ 17))) 
 
-(DEFUN |SARGND;Pnan?;$B;9| (|p| $)
-  (COND ((OR (|SARGND;nan?| (QCAR |p|) $) (|SARGND;nan?| (QCDR |p|) $)) 'T)
-        ('T 'NIL))) 
+(SDEFUN |SARGND;Pnan?;$B;9| ((|p| $) ($ |Boolean|))
+        (COND
+         ((OR (|SARGND;nan?| (QCAR |p|) $) (|SARGND;nan?| (QCDR |p|) $)) 'T)
+         ('T 'NIL))) 
 
-(DEFUN |SARGND;unitVector;2$;10| (|p| $)
-  (PROG (|factor|)
-    (RETURN
-     (SEQ
-      (LETT |factor|
-            (SPADCALL
-             (|add_DF| (|mul_DF| (QCAR |p|) (QCAR |p|))
-                       (|mul_DF| (QCDR |p|) (QCDR |p|)))
-             (QREFELT $ 19))
-            |SARGND;unitVector;2$;10|)
-      (EXIT
-       (CONS (|div_DF| (QCAR |p|) |factor|) (|div_DF| (QCDR |p|) |factor|))))))) 
+(SDEFUN |SARGND;unitVector;2$;10| ((|p| $) ($ $))
+        (SPROG ((|factor| (|DoubleFloat|)))
+               (SEQ
+                (LETT |factor|
+                      (SPADCALL
+                       (|add_DF| (|mul_DF| (QCAR |p|) (QCAR |p|))
+                                 (|mul_DF| (QCDR |p|) (QCDR |p|)))
+                       (QREFELT $ 19))
+                      |SARGND;unitVector;2$;10|)
+                (EXIT
+                 (CONS (|div_DF| (QCAR |p|) |factor|)
+                       (|div_DF| (QCDR |p|) |factor|)))))) 
 
-(DEFUN |SARGND;distanceSquared;2$Df;11| (|p1| |p2| $)
-  (|add_DF| (|expt_DF_I| (|sub_DF| (QCAR |p1|) (QCAR |p2|)) 2)
-            (|expt_DF_I| (|sub_DF| (QCDR |p1|) (QCDR |p2|)) 2))) 
+(SDEFUN |SARGND;distanceSquared;2$Df;11| ((|p1| $) (|p2| $) ($ |DoubleFloat|))
+        (|add_DF| (|expt_DF_I| (|sub_DF| (QCAR |p1|) (QCAR |p2|)) 2)
+                  (|expt_DF_I| (|sub_DF| (QCDR |p1|) (QCDR |p2|)) 2))) 
 
-(DEFUN |SARGND;parallel;2$Df;12| (|x| |y| $)
-  (|add_DF| (|mul_DF| (QCAR |x|) (QCAR |y|)) (|mul_DF| (QCDR |x|) (QCDR |y|)))) 
+(SDEFUN |SARGND;parallel;2$Df;12| ((|x| $) (|y| $) ($ |DoubleFloat|))
+        (|add_DF| (|mul_DF| (QCAR |x|) (QCAR |y|))
+                  (|mul_DF| (QCDR |x|) (QCDR |y|)))) 
 
 (PUT '|SARGND;perpendicular;3$;13| '|SPADreplace|
      '(XLAM (|x| |y|) (CONS 0.0 1.0))) 
 
-(DEFUN |SARGND;perpendicular;3$;13| (|x| |y| $) (CONS 0.0 1.0)) 
+(SDEFUN |SARGND;perpendicular;3$;13| ((|x| $) (|y| $) ($ $)) (CONS 0.0 1.0)) 
 
-(DEFUN |SARGND;*;Df2$;14| (|s| |x| $)
-  (CONS (|mul_DF| (QCAR |x|) |s|) (|mul_DF| (QCDR |x|) |s|))) 
+(SDEFUN |SARGND;*;Df2$;14| ((|s| |DoubleFloat|) (|x| $) ($ $))
+        (CONS (|mul_DF| (QCAR |x|) |s|) (|mul_DF| (QCDR |x|) |s|))) 
 
-(DEFUN |SARGND;+;3$;15| (|x| |y| $)
-  (CONS (|add_DF| (QCAR |x|) (QCAR |y|)) (|add_DF| (QCDR |x|) (QCDR |y|)))) 
+(SDEFUN |SARGND;+;3$;15| ((|x| $) (|y| $) ($ $))
+        (CONS (|add_DF| (QCAR |x|) (QCAR |y|))
+              (|add_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(DEFUN |SARGND;-;3$;16| (|x| |y| $)
-  (CONS (|sub_DF| (QCAR |x|) (QCAR |y|)) (|sub_DF| (QCDR |x|) (QCDR |y|)))) 
+(SDEFUN |SARGND;-;3$;16| ((|x| $) (|y| $) ($ $))
+        (CONS (|sub_DF| (QCAR |x|) (QCAR |y|))
+              (|sub_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(DEFUN |SARGND;inBounds?;3$B;17| (|pt| |mns| |mxs| $)
-  (COND
-   ((OR (|less_DF| (QCAR |pt|) (QCAR |mns|))
-        (OR (SPADCALL (QCAR |pt|) (QCAR |mxs|) (QREFELT $ 27))
-            (OR (|less_DF| (QCDR |pt|) (QCDR |mns|))
-                (SPADCALL (QCDR |pt|) (QCDR |mxs|) (QREFELT $ 27)))))
-    'NIL)
-   ('T 'T))) 
+(SDEFUN |SARGND;inBounds?;3$B;17| ((|pt| $) (|mns| $) (|mxs| $) ($ |Boolean|))
+        (COND
+         ((OR (|less_DF| (QCAR |pt|) (QCAR |mns|))
+              (OR (SPADCALL (QCAR |pt|) (QCAR |mxs|) (QREFELT $ 27))
+                  (OR (|less_DF| (QCDR |pt|) (QCDR |mns|))
+                      (SPADCALL (QCDR |pt|) (QCDR |mxs|) (QREFELT $ 27)))))
+          'NIL)
+         ('T 'T))) 
 
 (PUT '|SARGND;screenCoordX;$Df;18| '|SPADreplace| 'QCAR) 
 
-(DEFUN |SARGND;screenCoordX;$Df;18| (|pt| $) (QCAR |pt|)) 
+(SDEFUN |SARGND;screenCoordX;$Df;18| ((|pt| $) ($ |DoubleFloat|)) (QCAR |pt|)) 
 
 (PUT '|SARGND;screenCoordY;$Df;19| '|SPADreplace| 'QCDR) 
 
-(DEFUN |SARGND;screenCoordY;$Df;19| (|pt| $) (QCDR |pt|)) 
+(SDEFUN |SARGND;screenCoordY;$Df;19| ((|pt| $) ($ |DoubleFloat|)) (QCDR |pt|)) 
 
 (PUT '|SARGND;screenCoordZ;$Df;20| '|SPADreplace| '(XLAM (|pt|) 0.0)) 
 
-(DEFUN |SARGND;screenCoordZ;$Df;20| (|pt| $) 0.0) 
+(SDEFUN |SARGND;screenCoordZ;$Df;20| ((|pt| $) ($ |DoubleFloat|)) 0.0) 
 
-(DEFUN |SARGND;screenCoords;$L;21| (|pt| $) (LIST (QCAR |pt|) (QCDR |pt|))) 
+(SDEFUN |SARGND;screenCoords;$L;21| ((|pt| $) ($ |List| (|DoubleFloat|)))
+        (LIST (QCAR |pt|) (QCDR |pt|))) 
 
-(DEFUN |SARGND;extendedCoords;$L;22| (|pt| $) (LIST (QCAR |pt|) (QCDR |pt|))) 
+(SDEFUN |SARGND;extendedCoords;$L;22| ((|pt| $) ($ |List| (|DoubleFloat|)))
+        (LIST (QCAR |pt|) (QCDR |pt|))) 
 
-(DEFUN |SARGND;toPoint;2$;23| (|p| $) (CONS (QCAR |p|) (QCDR |p|))) 
+(SDEFUN |SARGND;toPoint;2$;23| ((|p| $) ($ $)) (CONS (QCAR |p|) (QCDR |p|))) 
 
-(DEFUN |SARGND;toVector;2$;24| (|p| $) (CONS (QCAR |p|) (QCDR |p|))) 
+(SDEFUN |SARGND;toVector;2$;24| ((|p| $) ($ $)) (CONS (QCAR |p|) (QCDR |p|))) 
 
 (PUT '|SARGND;isPoint?;$B;25| '|SPADreplace| '(XLAM (|p|) 'T)) 
 
-(DEFUN |SARGND;isPoint?;$B;25| (|p| $) 'T) 
+(SDEFUN |SARGND;isPoint?;$B;25| ((|p| $) ($ |Boolean|)) 'T) 
 
 (PUT '|SARGND;isVector?;$B;26| '|SPADreplace| '(XLAM (|p|) 'T)) 
 
-(DEFUN |SARGND;isVector?;$B;26| (|p| $) 'T) 
+(SDEFUN |SARGND;isVector?;$B;26| ((|p| $) ($ |Boolean|)) 'T) 
 
-(DEFUN |SARGND;coerce;$C;27| (|me| $)
-  (SPADCALL (QCAR |me|) (QCDR |me|) (QREFELT $ 40))) 
+(SDEFUN |SARGND;coerce;$C;27| ((|me| $) ($ |Complex| (|DoubleFloat|)))
+        (SPADCALL (QCAR |me|) (QCDR |me|) (QREFELT $ 40))) 
 
-(DEFUN |SARGND;coerce;C$;28| (|cmpx| $)
-  (CONS (SPADCALL |cmpx| (QREFELT $ 42)) (SPADCALL |cmpx| (QREFELT $ 43)))) 
+(SDEFUN |SARGND;coerce;C$;28| ((|cmpx| |Complex| (|DoubleFloat|)) ($ $))
+        (CONS (SPADCALL |cmpx| (QREFELT $ 42))
+              (SPADCALL |cmpx| (QREFELT $ 43)))) 
 
 (PUT '|SARGND;hash;$Si;29| '|SPADreplace| '(XLAM (|s|) 0)) 
 
-(DEFUN |SARGND;hash;$Si;29| (|s| $) 0) 
+(SDEFUN |SARGND;hash;$Si;29| ((|s| $) ($ |SingleInteger|)) 0) 
 
 (PUT '|SARGND;latex;$S;30| '|SPADreplace|
      '(XLAM (|s|) "\\mbox{\\bf Unimplemented}")) 
 
-(DEFUN |SARGND;latex;$S;30| (|s| $) "\\mbox{\\bf Unimplemented}") 
+(SDEFUN |SARGND;latex;$S;30| ((|s| $) ($ |String|))
+        "\\mbox{\\bf Unimplemented}") 
 
-(DEFUN |SARGND;=;2$B;31| (|x| |y| $)
-  (PROG (#1=#:G158)
-    (RETURN
-     (SEQ
-      (EXIT
-       (SEQ
+(SDEFUN |SARGND;=;2$B;31| ((|x| $) (|y| $) ($ |Boolean|))
+        (SPROG ((#1=#:G158 NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (COND
+                   ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 17))
+                    (PROGN (LETT #1# 'NIL . #2=(|SARGND;=;2$B;31|)) (GO #1#))))
+                  (COND
+                   ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 17))
+                    (PROGN (LETT #1# 'NIL . #2#) (GO #1#))))
+                  (EXIT 'T)))
+                #1# (EXIT #1#)))) 
+
+(SDEFUN |SARGND;~=;2$B;32| ((|x| $) (|y| $) ($ |Boolean|))
+        (COND ((SPADCALL |x| |y| (QREFELT $ 49)) 'NIL) ('T 'T))) 
+
+(SDEFUN |SARGND;coerce;$Of;33| ((|pt| $) ($ |OutputForm|))
         (COND
-         ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 17))
-          (PROGN (LETT #1# 'NIL . #2=(|SARGND;=;2$B;31|)) (GO #1#))))
-        (COND
-         ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 17))
-          (PROGN (LETT #1# 'NIL . #2#) (GO #1#))))
-        (EXIT 'T)))
-      #1# (EXIT #1#))))) 
-
-(DEFUN |SARGND;~=;2$B;32| (|x| |y| $)
-  (COND ((SPADCALL |x| |y| (QREFELT $ 49)) 'NIL) ('T 'T))) 
-
-(DEFUN |SARGND;coerce;$Of;33| (|pt| $)
-  (COND
-   ((|less_DF| (QCDR |pt|) 0.0)
-    (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT $ 52))
-              (SPADCALL (SPADCALL '|%i| (QREFELT $ 54))
-                        (SPADCALL (|minus_DF| (QCDR |pt|)) (QREFELT $ 52))
-                        (QREFELT $ 55))
-              (QREFELT $ 56)))
-   ('T
-    (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT $ 52))
-              (SPADCALL (SPADCALL '|%i| (QREFELT $ 54))
-                        (SPADCALL (QCDR |pt|) (QREFELT $ 52)) (QREFELT $ 55))
-              (QREFELT $ 57))))) 
+         ((|less_DF| (QCDR |pt|) 0.0)
+          (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT $ 52))
+                    (SPADCALL (SPADCALL '|%i| (QREFELT $ 54))
+                              (SPADCALL (|minus_DF| (QCDR |pt|))
+                                        (QREFELT $ 52))
+                              (QREFELT $ 55))
+                    (QREFELT $ 56)))
+         ('T
+          (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT $ 52))
+                    (SPADCALL (SPADCALL '|%i| (QREFELT $ 54))
+                              (SPADCALL (QCDR |pt|) (QREFELT $ 52))
+                              (QREFELT $ 55))
+                    (QREFELT $ 57))))) 
 
 (DECLAIM (NOTINLINE |SArgand;|)) 
 
 (DEFUN |SArgand| ()
-  (PROG ()
-    (RETURN
-     (PROG (#1=#:G163)
-       (RETURN
-        (COND
-         ((LETT #1# (HGET |$ConstructorCache| '|SArgand|) . #2=(|SArgand|))
-          (|CDRwithIncrement| (CDAR #1#)))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1
-                  (CDDAR
-                   (HPUT |$ConstructorCache| '|SArgand|
-                         (LIST (CONS NIL (CONS 1 (|SArgand;|))))))
-                (LETT #1# T . #2#))
-            (COND ((NOT #1#) (HREM |$ConstructorCache| '|SArgand|))))))))))) 
+  (SPROG NIL
+         (PROG (#1=#:G163)
+           (RETURN
+            (COND
+             ((LETT #1# (HGET |$ConstructorCache| '|SArgand|) . #2=(|SArgand|))
+              (|CDRwithIncrement| (CDAR #1#)))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1
+                      (CDDAR
+                       (HPUT |$ConstructorCache| '|SArgand|
+                             (LIST (CONS NIL (CONS 1 (|SArgand;|))))))
+                    (LETT #1# T . #2#))
+                (COND ((NOT #1#) (HREM |$ConstructorCache| '|SArgand|)))))))))) 
 
 (DEFUN |SArgand;| ()
-  (PROG (|dv$| $ |pv$|)
-    (RETURN
-     (PROGN
-      (LETT |dv$| '(|SArgand|) . #1=(|SArgand|))
-      (LETT $ (GETREFV 61) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|haddProp| |$ConstructorCache| '|SArgand| NIL (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (SETF |pv$| (QREFELT $ 3))
-      (QSETREFV $ 6
-                (|Record| (|:| |r| (|DoubleFloat|)) (|:| |i| (|DoubleFloat|))))
-      $)))) 
+  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+         (PROGN
+          (LETT |dv$| '(|SArgand|) . #1=(|SArgand|))
+          (LETT $ (GETREFV 61) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|haddProp| |$ConstructorCache| '|SArgand| NIL (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 6
+                    (|Record| (|:| |r| (|DoubleFloat|))
+                              (|:| |i| (|DoubleFloat|))))
+          $))) 
 
 (MAKEPROP '|SArgand| '|infovec|
           (LIST

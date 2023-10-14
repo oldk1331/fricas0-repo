@@ -1,66 +1,71 @@
 
-(DEFUN |DIOPS-;construct;LA;1| (|l| $) (SPADCALL |l| (QREFELT $ 9))) 
+(SDEFUN |DIOPS-;construct;LA;1| ((|l| |List| S) ($ A))
+        (SPADCALL |l| (QREFELT $ 9))) 
 
-(DEFUN |DIOPS-;dictionary;A;2| ($) (SPADCALL (QREFELT $ 11))) 
+(SDEFUN |DIOPS-;dictionary;A;2| (($ A)) (SPADCALL (QREFELT $ 11))) 
 
-(DEFUN |DIOPS-;copy;2A;3| (|d| $)
-  (SPADCALL (SPADCALL |d| (QREFELT $ 13)) (QREFELT $ 9))) 
+(SDEFUN |DIOPS-;copy;2A;3| ((|d| A) ($ A))
+        (SPADCALL (SPADCALL |d| (QREFELT $ 13)) (QREFELT $ 9))) 
 
-(DEFUN |DIOPS-;coerce;AOf;4| (|s| $)
-  (PROG (#1=#:G116 |x| #2=#:G115)
-    (RETURN
-     (SEQ
-      (SPADCALL (SPADCALL "dictionary" (QREFELT $ 17))
-                (PROGN
-                 (LETT #2# NIL . #3=(|DIOPS-;coerce;AOf;4|))
-                 (SEQ (LETT |x| NIL . #3#)
-                      (LETT #1# (SPADCALL |s| (QREFELT $ 13)) . #3#) G190
-                      (COND
-                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
-                        (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 18)) #2#)
-                              . #3#)))
-                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                (QREFELT $ 20)))))) 
+(SDEFUN |DIOPS-;coerce;AOf;4| ((|s| A) ($ |OutputForm|))
+        (SPROG ((#1=#:G116 NIL) (|x| NIL) (#2=#:G115 NIL))
+               (SEQ
+                (SPADCALL (SPADCALL "dictionary" (QREFELT $ 17))
+                          (PROGN
+                           (LETT #2# NIL . #3=(|DIOPS-;coerce;AOf;4|))
+                           (SEQ (LETT |x| NIL . #3#)
+                                (LETT #1# (SPADCALL |s| (QREFELT $ 13)) . #3#)
+                                G190
+                                (COND
+                                 ((OR (ATOM #1#)
+                                      (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                                  (GO G191)))
+                                (SEQ
+                                 (EXIT
+                                  (LETT #2#
+                                        (CONS (SPADCALL |x| (QREFELT $ 18))
+                                              #2#)
+                                        . #3#)))
+                                (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                (EXIT (NREVERSE #2#))))
+                          (QREFELT $ 20))))) 
 
 (DECLAIM (NOTINLINE |DictionaryOperations&;|)) 
 
 (DEFUN |DictionaryOperations&| (|#1| |#2|)
-  (PROG (|pv$| $ |dv$| DV$2 DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|DictionaryOperations&|))
-      (LETT DV$2 (|devaluate| |#2|) . #1#)
-      (LETT |dv$| (LIST '|DictionaryOperations&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 22) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#2| '(|BasicType|))
-                                          (|HasCategory| |#2|
-                                                         '(|CoercibleTo|
-                                                           (|OutputForm|)))
-                                          (|HasCategory| |#1|
-                                                         '(|finiteAggregate|))))
-                      . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (QSETREFV $ 7 |#2|)
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 14 (CONS (|dispatchFunction| |DIOPS-;copy;2A;3|) $))
-         (COND
-          ((|testBitVector| |pv$| 2)
-           (QSETREFV $ 21
-                     (CONS (|dispatchFunction| |DIOPS-;coerce;AOf;4|) $)))))))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|DictionaryOperations&|))
+          (LETT DV$2 (|devaluate| |#2|) . #1#)
+          (LETT |dv$| (LIST '|DictionaryOperations&| DV$1 DV$2) . #1#)
+          (LETT $ (GETREFV 22) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|BasicType|))
+                                              (|HasCategory| |#2|
+                                                             '(|CoercibleTo|
+                                                               (|OutputForm|)))
+                                              (|HasCategory| |#1|
+                                                             '(|finiteAggregate|))))
+                          . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (QSETREFV $ 7 |#2|)
+          (SETF |pv$| (QREFELT $ 3))
+          (COND
+           ((|testBitVector| |pv$| 3)
+            (PROGN
+             (QSETREFV $ 14 (CONS (|dispatchFunction| |DIOPS-;copy;2A;3|) $))
+             (COND
+              ((|testBitVector| |pv$| 2)
+               (QSETREFV $ 21
+                         (CONS (|dispatchFunction| |DIOPS-;coerce;AOf;4|)
+                               $)))))))
+          $))) 
 
 (MAKEPROP '|DictionaryOperations&| '|infovec|
           (LIST

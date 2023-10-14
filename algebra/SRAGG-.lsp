@@ -1,38 +1,39 @@
 
-(DEFUN |SRAGG-;trim;SCS;1| (|s| |c| $)
-  (SPADCALL (SPADCALL |s| |c| (QREFELT $ 8)) |c| (QREFELT $ 9))) 
+(SDEFUN |SRAGG-;trim;SCS;1| ((|s| S) (|c| |Character|) ($ S))
+        (SPADCALL (SPADCALL |s| |c| (QREFELT $ 8)) |c| (QREFELT $ 9))) 
 
-(DEFUN |SRAGG-;trim;SCcS;2| (|s| |cc| $)
-  (SPADCALL (SPADCALL |s| |cc| (QREFELT $ 12)) |cc| (QREFELT $ 13))) 
+(SDEFUN |SRAGG-;trim;SCcS;2| ((|s| S) (|cc| |CharacterClass|) ($ S))
+        (SPADCALL (SPADCALL |s| |cc| (QREFELT $ 12)) |cc| (QREFELT $ 13))) 
 
-(DEFUN |SRAGG-;lowerCase;2S;3| (|s| $)
-  (SPADCALL (SPADCALL |s| (QREFELT $ 15)) (QREFELT $ 16))) 
+(SDEFUN |SRAGG-;lowerCase;2S;3| ((|s| S) ($ S))
+        (SPADCALL (SPADCALL |s| (QREFELT $ 15)) (QREFELT $ 16))) 
 
-(DEFUN |SRAGG-;upperCase;2S;4| (|s| $)
-  (SPADCALL (SPADCALL |s| (QREFELT $ 15)) (QREFELT $ 18))) 
+(SDEFUN |SRAGG-;upperCase;2S;4| ((|s| S) ($ S))
+        (SPADCALL (SPADCALL |s| (QREFELT $ 15)) (QREFELT $ 18))) 
 
-(DEFUN |SRAGG-;prefix?;2SB;5| (|s| |t| $)
-  (SPADCALL |s| |t| (SPADCALL |t| (QREFELT $ 21)) (QREFELT $ 23))) 
+(SDEFUN |SRAGG-;prefix?;2SB;5| ((|s| S) (|t| S) ($ |Boolean|))
+        (SPADCALL |s| |t| (SPADCALL |t| (QREFELT $ 21)) (QREFELT $ 23))) 
 
-(DEFUN |SRAGG-;coerce;CS;6| (|c| $) (SPADCALL 1 |c| (QREFELT $ 26))) 
+(SDEFUN |SRAGG-;coerce;CS;6| ((|c| |Character|) ($ S))
+        (SPADCALL 1 |c| (QREFELT $ 26))) 
 
-(DEFUN |SRAGG-;elt;3S;7| (|s| |t| $) (SPADCALL |s| |t| (QREFELT $ 28))) 
+(SDEFUN |SRAGG-;elt;3S;7| ((|s| S) (|t| S) ($ S))
+        (SPADCALL |s| |t| (QREFELT $ 28))) 
 
 (DECLAIM (NOTINLINE |StringAggregate&;|)) 
 
 (DEFUN |StringAggregate&| (|#1|)
-  (PROG (|pv$| $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #1=(|StringAggregate&|))
-      (LETT |dv$| (LIST '|StringAggregate&| DV$1) . #1#)
-      (LETT $ (GETREFV 32) . #1#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (SETF |pv$| (QREFELT $ 3))
-      $)))) 
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|StringAggregate&|))
+          (LETT |dv$| (LIST '|StringAggregate&| DV$1) . #1#)
+          (LETT $ (GETREFV 32) . #1#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|StringAggregate&| '|infovec|
           (LIST

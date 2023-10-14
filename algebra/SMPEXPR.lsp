@@ -1,276 +1,280 @@
 
-(DEFUN |SMPEXPR;log;2$;1| (|p| $)
-  (SEQ
-   (COND
-    ((SPADCALL |p| (QREFELT $ 8))
-     (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 10))
-               (QREFELT $ 11)))
-    ('T
-     (SEQ
-      (SPADCALL
-       (SPADCALL "log p for p= " (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))
-       (QREFELT $ 17))
-      (EXIT
-       (|error|
-        "SUPTRAFUN: log only defined for elements of the coefficient ring"))))))) 
+(SDEFUN |SMPEXPR;log;2$;1| ((|p| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL |p| (QREFELT $ 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 10))
+                     (QREFELT $ 11)))
+          ('T
+           (SEQ
+            (SPADCALL
+             (SPADCALL "log p for p= " (SPADCALL |p| (QREFELT $ 13))
+                       (QREFELT $ 14))
+             (QREFELT $ 17))
+            (EXIT
+             (|error|
+              "SUPTRAFUN: log only defined for elements of the coefficient ring"))))))) 
 
-(DEFUN |SMPEXPR;exp;2$;2| (|p| $)
-  (SEQ
-   (COND
-    ((SPADCALL |p| (QREFELT $ 8))
-     (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 19))
-               (QREFELT $ 11)))
-    ('T
-     (SEQ
-      (SPADCALL
-       (SPADCALL "exp p for p= " (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))
-       (QREFELT $ 17))
-      (EXIT
-       (|error|
-        "SUPTRAFUN: exp only defined for elements of the coefficient ring"))))))) 
+(SDEFUN |SMPEXPR;exp;2$;2| ((|p| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL |p| (QREFELT $ 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 19))
+                     (QREFELT $ 11)))
+          ('T
+           (SEQ
+            (SPADCALL
+             (SPADCALL "exp p for p= " (SPADCALL |p| (QREFELT $ 13))
+                       (QREFELT $ 14))
+             (QREFELT $ 17))
+            (EXIT
+             (|error|
+              "SUPTRAFUN: exp only defined for elements of the coefficient ring"))))))) 
 
-(DEFUN |SMPEXPR;sin;2$;3| (|p| $)
-  (SEQ
-   (COND
-    ((SPADCALL |p| (QREFELT $ 8))
-     (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 21))
-               (QREFELT $ 11)))
-    ('T
-     (SEQ
-      (SPADCALL
-       (SPADCALL "sin p for p= " (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))
-       (QREFELT $ 17))
-      (EXIT
-       (|error|
-        "SUPTRAFUN: sin only defined for elements of the coefficient ring"))))))) 
+(SDEFUN |SMPEXPR;sin;2$;3| ((|p| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL |p| (QREFELT $ 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 21))
+                     (QREFELT $ 11)))
+          ('T
+           (SEQ
+            (SPADCALL
+             (SPADCALL "sin p for p= " (SPADCALL |p| (QREFELT $ 13))
+                       (QREFELT $ 14))
+             (QREFELT $ 17))
+            (EXIT
+             (|error|
+              "SUPTRAFUN: sin only defined for elements of the coefficient ring"))))))) 
 
-(DEFUN |SMPEXPR;asin;2$;4| (|p| $)
-  (SEQ
-   (COND
-    ((SPADCALL |p| (QREFELT $ 8))
-     (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 23))
-               (QREFELT $ 11)))
-    ('T
-     (SEQ
-      (SPADCALL
-       (SPADCALL "asin p for p= " (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))
-       (QREFELT $ 17))
-      (EXIT
-       (|error|
-        "SUPTRAFUN: asin only defined for elements of the coefficient ring"))))))) 
+(SDEFUN |SMPEXPR;asin;2$;4| ((|p| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL |p| (QREFELT $ 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 23))
+                     (QREFELT $ 11)))
+          ('T
+           (SEQ
+            (SPADCALL
+             (SPADCALL "asin p for p= " (SPADCALL |p| (QREFELT $ 13))
+                       (QREFELT $ 14))
+             (QREFELT $ 17))
+            (EXIT
+             (|error|
+              "SUPTRAFUN: asin only defined for elements of the coefficient ring"))))))) 
 
-(DEFUN |SMPEXPR;cos;2$;5| (|p| $)
-  (SEQ
-   (COND
-    ((SPADCALL |p| (QREFELT $ 8))
-     (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 25))
-               (QREFELT $ 11)))
-    ('T
-     (SEQ
-      (SPADCALL
-       (SPADCALL "cos p for p= " (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))
-       (QREFELT $ 17))
-      (EXIT
-       (|error|
-        "SUPTRAFUN: cos only defined for elements of the coefficient ring"))))))) 
+(SDEFUN |SMPEXPR;cos;2$;5| ((|p| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL |p| (QREFELT $ 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 25))
+                     (QREFELT $ 11)))
+          ('T
+           (SEQ
+            (SPADCALL
+             (SPADCALL "cos p for p= " (SPADCALL |p| (QREFELT $ 13))
+                       (QREFELT $ 14))
+             (QREFELT $ 17))
+            (EXIT
+             (|error|
+              "SUPTRAFUN: cos only defined for elements of the coefficient ring"))))))) 
 
-(DEFUN |SMPEXPR;acos;2$;6| (|p| $)
-  (SEQ
-   (COND
-    ((SPADCALL |p| (QREFELT $ 8))
-     (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 27))
-               (QREFELT $ 11)))
-    ('T
-     (SEQ
-      (SPADCALL
-       (SPADCALL "acos p for p= " (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))
-       (QREFELT $ 17))
-      (EXIT
-       (|error|
-        "SUPTRAFUN: acos only defined for elements of the coefficient ring"))))))) 
+(SDEFUN |SMPEXPR;acos;2$;6| ((|p| $) ($ $))
+        (SEQ
+         (COND
+          ((SPADCALL |p| (QREFELT $ 8))
+           (SPADCALL (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 27))
+                     (QREFELT $ 11)))
+          ('T
+           (SEQ
+            (SPADCALL
+             (SPADCALL "acos p for p= " (SPADCALL |p| (QREFELT $ 13))
+                       (QREFELT $ 14))
+             (QREFELT $ 17))
+            (EXIT
+             (|error|
+              "SUPTRAFUN: acos only defined for elements of the coefficient ring"))))))) 
 
 (DECLAIM (NOTINLINE |SparseMultivariatePolynomialExpressions;|)) 
 
 (DEFUN |SparseMultivariatePolynomialExpressions| (#1=#:G166)
-  (PROG ()
-    (RETURN
-     (PROG (#2=#:G167)
-       (RETURN
-        (COND
-         ((LETT #2#
-                (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
-                                           (HGET |$ConstructorCache|
-                                                 '|SparseMultivariatePolynomialExpressions|)
-                                           '|domainEqualList|)
-                . #3=(|SparseMultivariatePolynomialExpressions|))
-          (|CDRwithIncrement| #2#))
-         ('T
-          (UNWIND-PROTECT
-              (PROG1 (|SparseMultivariatePolynomialExpressions;| #1#)
-                (LETT #2# T . #3#))
+  (SPROG NIL
+         (PROG (#2=#:G167)
+           (RETURN
             (COND
-             ((NOT #2#)
-              (HREM |$ConstructorCache|
-                    '|SparseMultivariatePolynomialExpressions|))))))))))) 
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SparseMultivariatePolynomialExpressions|)
+                                               '|domainEqualList|)
+                    . #3=(|SparseMultivariatePolynomialExpressions|))
+              (|CDRwithIncrement| #2#))
+             ('T
+              (UNWIND-PROTECT
+                  (PROG1 (|SparseMultivariatePolynomialExpressions;| #1#)
+                    (LETT #2# T . #3#))
+                (COND
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache|
+                        '|SparseMultivariatePolynomialExpressions|)))))))))) 
 
 (DEFUN |SparseMultivariatePolynomialExpressions;| (|#1|)
-  (PROG (#1=#:G165 |pv$| #2=#:G162 #3=#:G163 #4=#:G164 $ |dv$| DV$1)
-    (RETURN
-     (PROGN
-      (LETT DV$1 (|devaluate| |#1|)
-            . #5=(|SparseMultivariatePolynomialExpressions|))
-      (LETT |dv$| (LIST '|SparseMultivariatePolynomialExpressions| DV$1) . #5#)
-      (LETT $ (GETREFV 73) . #5#)
-      (QSETREFV $ 0 |dv$|)
-      (QSETREFV $ 3
-                (LETT |pv$|
-                      (|buildPredVector| 0 0
-                                         (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|PolynomialFactorizationExplicit|))
-                                          (|HasCategory| |#1| '(|EntireRing|))
-                                          (LETT #4#
-                                                (|HasCategory| |#1|
-                                                               '(|GcdDomain|))
-                                                . #5#)
-                                          (OR #4#
+  (SPROG
+   ((#1=#:G165 NIL) (|pv$| NIL) (#2=#:G162 NIL) (#3=#:G163 NIL) (#4=#:G164 NIL)
+    ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|)
+          . #5=(|SparseMultivariatePolynomialExpressions|))
+    (LETT |dv$| (LIST '|SparseMultivariatePolynomialExpressions| DV$1) . #5#)
+    (LETT $ (GETREFV 73) . #5#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|PolynomialFactorizationExplicit|))
+                                        (|HasCategory| |#1| '(|EntireRing|))
+                                        (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|)))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|PatternMatchable|
-                                                            (|Float|)))
-                                           (|HasCategory|
-                                            (|NonNegativeInteger|)
-                                            '(|PatternMatchable| (|Float|))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|PatternMatchable|
-                                                            (|Integer|)))
-                                           (|HasCategory|
-                                            (|NonNegativeInteger|)
-                                            '(|PatternMatchable| (|Integer|))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Float|))))
-                                           (|HasCategory|
-                                            (|NonNegativeInteger|)
-                                            '(|ConvertibleTo|
-                                              (|Pattern| (|Float|)))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|Pattern|
-                                                             (|Integer|))))
-                                           (|HasCategory|
-                                            (|NonNegativeInteger|)
-                                            '(|ConvertibleTo|
-                                              (|Pattern| (|Integer|)))))
-                                          (AND
-                                           (|HasCategory| |#1|
-                                                          '(|ConvertibleTo|
-                                                            (|InputForm|)))
-                                           (|HasCategory|
-                                            (|NonNegativeInteger|)
-                                            '(|ConvertibleTo| (|InputForm|))))
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicNonZero|))
-                                          (|HasCategory| |#1|
-                                                         '(|CharacteristicZero|))
-                                          (OR
-                                           (|HasCategory| |#1| '(|EntireRing|))
-                                           #4#)
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          (|HasCategory| |#1|
-                                                         '(|RetractableTo|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|canonicalUnitNormal|))
-                                          (|HasCategory| |#1| '(|Comparable|))
-                                          (|HasCategory| |#1|
-                                                         '(|LinearlyExplicitRingOver|
-                                                           (|Integer|)))
-                                          (|HasCategory| |#1|
-                                                         '(|TranscendentalFunctionCategory|))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|Algebra|
-                                                            (|Fraction|
-                                                             (|Integer|))))
-                                           (|HasCategory| |#1|
-                                                          '(|RetractableTo|
-                                                            (|Fraction|
-                                                             (|Integer|)))))
-                                          (|HasCategory| |#1| '(|Field|))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|CommutativeRing|))
-                                                . #5#)
-                                          (OR #3#
+                                                             '(|GcdDomain|))
+                                              . #5#)
+                                        (OR #4#
+                                            (|HasCategory| |#1|
+                                                           '(|PolynomialFactorizationExplicit|)))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|PatternMatchable|
+                                                          (|Float|)))
+                                         (|HasCategory| (|NonNegativeInteger|)
+                                                        '(|PatternMatchable|
+                                                          (|Float|))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|PatternMatchable|
+                                                          (|Integer|)))
+                                         (|HasCategory| (|NonNegativeInteger|)
+                                                        '(|PatternMatchable|
+                                                          (|Integer|))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Float|))))
+                                         (|HasCategory| (|NonNegativeInteger|)
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Float|)))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Integer|))))
+                                         (|HasCategory| (|NonNegativeInteger|)
+                                                        '(|ConvertibleTo|
+                                                          (|Pattern|
+                                                           (|Integer|)))))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|ConvertibleTo|
+                                                          (|InputForm|)))
+                                         (|HasCategory| (|NonNegativeInteger|)
+                                                        '(|ConvertibleTo|
+                                                          (|InputForm|))))
+                                        (|HasCategory| |#1|
+                                                       '(|Algebra|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicNonZero|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (OR
+                                         (|HasCategory| |#1| '(|EntireRing|))
+                                         #4#)
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|RetractableTo|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1|
+                                                       '(|canonicalUnitNormal|))
+                                        (|HasCategory| |#1| '(|Comparable|))
+                                        (|HasCategory| |#1|
+                                                       '(|LinearlyExplicitRingOver|
+                                                         (|Integer|)))
+                                        (|HasCategory| |#1|
+                                                       '(|TranscendentalFunctionCategory|))
+                                        (OR
+                                         (|HasCategory| |#1|
+                                                        '(|Algebra|
+                                                          (|Fraction|
+                                                           (|Integer|))))
+                                         (|HasCategory| |#1|
+                                                        '(|RetractableTo|
+                                                          (|Fraction|
+                                                           (|Integer|)))))
+                                        (|HasCategory| |#1| '(|Field|))
+                                        (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|EntireRing|)))
-                                          (OR #3# #4#
+                                                             '(|CommutativeRing|))
+                                              . #5#)
+                                        (OR #3#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|)))
+                                        (OR #3# #4#
+                                            (|HasCategory| |#1|
+                                                           '(|PolynomialFactorizationExplicit|)))
+                                        (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|IntegralDomain|))
-                                                . #5#)
-                                          (OR #3# #4# #2#
-                                              (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|)))
-                                          (OR #4# #2#
-                                              (|HasCategory| |#1|
-                                                             '(|PolynomialFactorizationExplicit|)))
-                                          (OR #3# #4# #2#) (OR #4# #2#)
-                                          (OR #3#
-                                              (|HasCategory| |#1|
-                                                             '(|EntireRing|))
-                                              #4# #2#)))
-                      . #5#))
-      (|haddProp| |$ConstructorCache|
-                  '|SparseMultivariatePolynomialExpressions| (LIST DV$1)
-                  (CONS 1 $))
-      (|stuffDomainSlots| $)
-      (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|CommutativeRing|))
-           (|augmentPredVector| $ 1073741824))
-      (AND
-       (LETT #1#
-             (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
-                  (|HasCategory| $ '(|CharacteristicNonZero|)))
-             . #5#)
-       (|augmentPredVector| $ 2147483648))
-      (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
-           (|augmentPredVector| $ 4294967296))
-      (AND
-       (OR (|HasCategory| |#1| '(|EntireRing|))
-           (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-       (|augmentPredVector| $ 8589934592))
-      (AND
-       (OR #4#
-           (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-       (|augmentPredVector| $ 17179869184))
-      (SETF |pv$| (QREFELT $ 3))
-      (COND
-       ((|testBitVector| |pv$| 19)
-        (PROGN
-         (QSETREFV $ 18 (CONS (|dispatchFunction| |SMPEXPR;log;2$;1|) $))
-         (QSETREFV $ 20 (CONS (|dispatchFunction| |SMPEXPR;exp;2$;2|) $))
-         (QSETREFV $ 22 (CONS (|dispatchFunction| |SMPEXPR;sin;2$;3|) $))
-         (QSETREFV $ 24 (CONS (|dispatchFunction| |SMPEXPR;asin;2$;4|) $))
-         (QSETREFV $ 26 (CONS (|dispatchFunction| |SMPEXPR;cos;2$;5|) $))
-         (QSETREFV $ 28 (CONS (|dispatchFunction| |SMPEXPR;acos;2$;6|) $)))))
-      $)))) 
+                                                             '(|IntegralDomain|))
+                                              . #5#)
+                                        (OR #3# #4# #2#
+                                            (|HasCategory| |#1|
+                                                           '(|PolynomialFactorizationExplicit|)))
+                                        (OR #4# #2#
+                                            (|HasCategory| |#1|
+                                                           '(|PolynomialFactorizationExplicit|)))
+                                        (OR #3# #4# #2#) (OR #4# #2#)
+                                        (OR #3#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|))
+                                            #4# #2#)))
+                    . #5#))
+    (|haddProp| |$ConstructorCache| '|SparseMultivariatePolynomialExpressions|
+                (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND (|HasCategory| $ '(|CommutativeRing|))
+         (|augmentPredVector| $ 1073741824))
+    (AND
+     (LETT #1#
+           (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
+                (|HasCategory| $ '(|CharacteristicNonZero|)))
+           . #5#)
+     (|augmentPredVector| $ 2147483648))
+    (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
+         (|augmentPredVector| $ 4294967296))
+    (AND
+     (OR (|HasCategory| |#1| '(|EntireRing|))
+         (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 8589934592))
+    (AND
+     (OR #4# (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 17179869184))
+    (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|testBitVector| |pv$| 19)
+      (PROGN
+       (QSETREFV $ 18 (CONS (|dispatchFunction| |SMPEXPR;log;2$;1|) $))
+       (QSETREFV $ 20 (CONS (|dispatchFunction| |SMPEXPR;exp;2$;2|) $))
+       (QSETREFV $ 22 (CONS (|dispatchFunction| |SMPEXPR;sin;2$;3|) $))
+       (QSETREFV $ 24 (CONS (|dispatchFunction| |SMPEXPR;asin;2$;4|) $))
+       (QSETREFV $ 26 (CONS (|dispatchFunction| |SMPEXPR;cos;2$;5|) $))
+       (QSETREFV $ 28 (CONS (|dispatchFunction| |SMPEXPR;acos;2$;6|) $)))))
+    $))) 
 
 (MAKEPROP '|SparseMultivariatePolynomialExpressions| '|infovec|
           (LIST
