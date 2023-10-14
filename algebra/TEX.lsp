@@ -1000,13 +1000,13 @@
          (SEQ (LETT |intSplitLen| 20 . #1=(|TEX;formatExpr|))
               (EXIT
                (COND
-                ((ATOM |expr|)
+                ((SPADCALL |expr| (QREFELT $ 67))
                  (SEQ (LETT |str| (|TEX;stringify| |expr| $) . #1#)
                       (LETT |len| (QCSIZE |str|) . #1#)
                       (EXIT
                        (COND
-                        ((FIXP |expr|)
-                         (SEQ (LETT |i| |expr| . #1#)
+                        ((SPADCALL |expr| (QREFELT $ 68))
+                         (SEQ (LETT |i| (SPADCALL |expr| (QREFELT $ 69)) . #1#)
                               (EXIT
                                (COND
                                 ((OR (< |i| 0) (SPADCALL |i| 9 (QREFELT $ 52)))
@@ -1040,7 +1040,7 @@
                                                               (SPADCALL
                                                                (+ |intSplitLen|
                                                                   1)
-                                                               (QREFELT $ 66))
+                                                               (QREFELT $ 70))
                                                               (QREFELT $ 45))
                                                     . #1#)))
                                             NIL (GO G190) G191 (EXIT NIL))
@@ -1063,7 +1063,7 @@
                                            (EXIT
                                             (SPADCALL |nstr|
                                                       (SPADCALL 2
-                                                                (QREFELT $ 66))
+                                                                (QREFELT $ 70))
                                                       (QREFELT $ 45))))))))
                                   $))
                                 ('T |str|)))))
@@ -1097,7 +1097,7 @@
                            ((SPADCALL |len| 1 (QREFELT $ 52))
                             (COND
                              ((SPADCALL (SPADCALL |str| 1 (QREFELT $ 42))
-                                        (QREFELT $ 67))
+                                        (QREFELT $ 71))
                               (EXIT (|TEX;group| |str| $))))))
                           (COND
                            ((SPADCALL |len| 0 (QREFELT $ 52))
@@ -1114,22 +1114,23 @@
                                         (|STR_to_CHAR| " "))
                               (EXIT "{\\ }")))))
                           (COND
-                           ((SYMBOLP |expr|)
-                            (SEQ (LETT |op| |expr| . #1#)
-                                 (LETT |i|
-                                       (SPADCALL |op| (QREFELT $ 20)
-                                                 (QREFELT $ 61))
-                                       . #1#)
-                                 (EXIT
-                                  (COND
-                                   ((SPADCALL |i| 0 (QREFELT $ 52))
-                                    (LETT |str|
-                                          (SPADCALL (QREFELT $ 21) |i|
-                                                    (QREFELT $ 68))
-                                          . #1#)))))))
+                           ((SPADCALL |expr| (QREFELT $ 72))
+                            (SEQ
+                             (LETT |op| (SPADCALL |expr| (QREFELT $ 73)) . #1#)
+                             (LETT |i|
+                                   (SPADCALL |op| (QREFELT $ 20)
+                                             (QREFELT $ 61))
+                                   . #1#)
+                             (EXIT
+                              (COND
+                               ((SPADCALL |i| 0 (QREFELT $ 52))
+                                (LETT |str|
+                                      (SPADCALL (QREFELT $ 21) |i|
+                                                (QREFELT $ 74))
+                                      . #1#)))))))
                           (LETT |i|
                                 (SPADCALL (|STR_to_CHAR| " ") |str|
-                                          (QREFELT $ 70))
+                                          (QREFELT $ 76))
                                 . #1#)
                           (EXIT
                            (COND
@@ -1139,72 +1140,59 @@
                             (#2# |str|)))))))))
                 (#2#
                  (SEQ (LETT |l| |expr| . #1#)
+                      (LETT |opf| (SPADCALL |expr| (QREFELT $ 77)) . #1#)
+                      (LETT |args| (SPADCALL |expr| (QREFELT $ 78)) . #1#)
+                      (LETT |nargs| (LENGTH |args|) . #1#)
                       (EXIT
-                       (COND ((NULL |l|) (QREFELT $ 7))
-                             (#2#
-                              (SEQ (LETT |opf| (|SPADfirst| |l|) . #1#)
-                                   (LETT |args| (CDR |l|) . #1#)
-                                   (LETT |nargs| (LENGTH |args|) . #1#)
-                                   (EXIT
+                       (COND
+                        ((SPADCALL |opf| (QREFELT $ 72))
+                         (SEQ (LETT |op| (SPADCALL |opf| (QREFELT $ 73)) . #1#)
+                              (EXIT
+                               (COND
+                                ((SPADCALL |op| (QREFELT $ 19) (QREFELT $ 79))
+                                 (|TEX;formatSpecial| |op| |args| |prec| $))
+                                ((SPADCALL |op| (QREFELT $ 17) (QREFELT $ 79))
+                                 (|TEX;formatPlex| |op| |args| |prec| $))
+                                ((EQL 0 |nargs|) (|TEX;formatNullary| |op| $))
+                                (#2#
+                                 (SEQ
+                                  (COND
+                                   ((EQL 1 |nargs|)
                                     (COND
-                                     ((SYMBOLP |opf|)
-                                      (SEQ (LETT |op| |opf| . #1#)
-                                           (EXIT
-                                            (COND
-                                             ((SPADCALL |op| (QREFELT $ 19)
-                                                        (QREFELT $ 71))
-                                              (|TEX;formatSpecial| |op| |args|
-                                               |prec| $))
-                                             ((SPADCALL |op| (QREFELT $ 17)
-                                                        (QREFELT $ 71))
-                                              (|TEX;formatPlex| |op| |args|
-                                               |prec| $))
-                                             ((EQL 0 |nargs|)
-                                              (|TEX;formatNullary| |op| $))
-                                             (#2#
-                                              (SEQ
-                                               (COND
-                                                ((EQL 1 |nargs|)
-                                                 (COND
-                                                  ((SPADCALL |op|
-                                                             (QREFELT $ 10)
-                                                             (QREFELT $ 71))
-                                                   (EXIT
-                                                    (|TEX;formatUnary| |op|
-                                                     (|SPADfirst| |args|)
-                                                     |prec| $))))))
-                                               (COND
-                                                ((EQL 2 |nargs|)
-                                                 (COND
-                                                  ((SPADCALL |op|
-                                                             (QREFELT $ 12)
-                                                             (QREFELT $ 71))
-                                                   (EXIT
-                                                    (|TEX;formatBinary| |op|
-                                                     |args| |prec| $))))))
-                                               (EXIT
-                                                (COND
-                                                 ((SPADCALL |op| (QREFELT $ 16)
-                                                            (QREFELT $ 71))
-                                                  (|TEX;formatNaryNoGroup| |op|
-                                                   "" 0 |args| |prec| $))
-                                                 ((SPADCALL |op| (QREFELT $ 14)
-                                                            (QREFELT $ 71))
-                                                  (|TEX;formatNary| |op| "" 0
-                                                   |args| |prec| $))
-                                                 (#2#
-                                                  (|TEX;formatFunction|
-                                                   (|SPADfirst| |l|) |args|
-                                                   |prec| $))))))))))
-                                     (#2#
-                                      (|TEX;formatFunction| (|SPADfirst| |l|)
-                                       |args| |prec| $))))))))))))))) 
+                                     ((SPADCALL |op| (QREFELT $ 10)
+                                                (QREFELT $ 79))
+                                      (EXIT
+                                       (|TEX;formatUnary| |op|
+                                        (|SPADfirst| |args|) |prec| $))))))
+                                  (COND
+                                   ((EQL 2 |nargs|)
+                                    (COND
+                                     ((SPADCALL |op| (QREFELT $ 12)
+                                                (QREFELT $ 79))
+                                      (EXIT
+                                       (|TEX;formatBinary| |op| |args| |prec|
+                                        $))))))
+                                  (EXIT
+                                   (COND
+                                    ((SPADCALL |op| (QREFELT $ 16)
+                                               (QREFELT $ 79))
+                                     (|TEX;formatNaryNoGroup| |op| "" 0 |args|
+                                      |prec| $))
+                                    ((SPADCALL |op| (QREFELT $ 14)
+                                               (QREFELT $ 79))
+                                     (|TEX;formatNary| |op| "" 0 |args| |prec|
+                                      $))
+                                    (#2#
+                                     (|TEX;formatFunction| |opf| |args| |prec|
+                                      $))))))))))
+                        (#2#
+                         (|TEX;formatFunction| |opf| |args| |prec| $))))))))))) 
 
 (DECLAIM (NOTINLINE |TexFormat;|)) 
 
 (DEFUN |TexFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G410)
+         (PROG (#1=#:G409)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TexFormat|)
@@ -1224,7 +1212,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|TexFormat|) . #1=(|TexFormat|))
-          (LETT $ (GETREFV 74) . #1#)
+          (LETT $ (GETREFV 82) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|TexFormat| NIL (CONS 1 $))
@@ -1278,19 +1266,22 @@
               (|List| $) (40 . |split|) (46 . >) (52 . |empty?|)
               (57 . |concat|) (|List| 23) (62 . |second|) (67 . ~=) (|Symbol|)
               (73 . |string|) (|List| 58) (78 . |position|) (|List| 25)
-              (84 . |elt|) (90 . ~=) (96 . ~=) (102 . |segment|)
-              (107 . |digit?|) (112 . |elt|) (118 . |char|) (123 . |position|)
-              (129 . |member?|) (|SingleInteger|) (|HashState|))
-           '#(~= 135 |tex| 141 |setTex!| 146 |setPrologue!| 152 |setEpilogue!|
-              158 |prologue| 164 |new| 169 |latex| 173 |hashUpdate!| 178 |hash|
-              184 |epilogue| 189 |display| 194 |convert| 205 |coerce| 218 =
-              228)
+              (84 . |elt|) (90 . ~=) (96 . ~=) (|OutputFormTools|)
+              (102 . |atom?|) (107 . |integer?|) (112 . |integer|)
+              (117 . |segment|) (122 . |digit?|) (127 . |symbol?|)
+              (132 . |symbol|) (137 . |elt|) (143 . |char|) (148 . |position|)
+              (154 . |operator|) (159 . |arguments|) (164 . |member?|)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 170 |tex| 176 |setTex!| 181 |setPrologue!| 187 |setEpilogue!|
+              193 |prologue| 199 |new| 204 |latex| 208 |hashUpdate!| 213 |hash|
+              219 |epilogue| 224 |display| 229 |convert| 240 |coerce| 253 =
+              263)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 23))
-                        (|makeByteWordVec2| 73
+                        (|makeByteWordVec2| 81
                                             '(0 27 0 28 1 31 23 0 38 2 41 40 0
                                               25 42 2 43 0 25 25 44 2 41 0 0 43
                                               45 3 41 40 0 25 40 46 2 48 47 0 0
@@ -1298,14 +1289,17 @@
                                               1 41 47 0 53 1 41 0 50 54 1 55 23
                                               0 56 2 41 47 0 0 57 1 58 41 0 59
                                               2 60 25 58 0 61 2 62 25 0 25 63 2
-                                              25 47 0 0 64 2 58 47 0 0 65 1 43
-                                              0 25 66 1 40 47 0 67 2 31 41 0 25
-                                              68 1 40 0 41 69 2 41 25 40 0 70 2
-                                              60 47 58 0 71 2 0 47 0 0 1 1 0 31
+                                              25 47 0 0 64 2 58 47 0 0 65 1 66
+                                              47 23 67 1 66 47 23 68 1 66 25 23
+                                              69 1 43 0 25 70 1 40 47 0 71 1 66
+                                              47 23 72 1 66 58 23 73 2 31 41 0
+                                              25 74 1 40 0 41 75 2 41 25 40 0
+                                              76 1 66 23 23 77 1 66 55 23 78 2
+                                              60 47 58 0 79 2 0 47 0 0 1 1 0 31
                                               0 33 2 0 31 0 31 36 2 0 31 0 31
                                               35 2 0 31 0 31 37 1 0 31 0 32 0 0
-                                              0 22 1 0 41 0 1 2 0 73 73 0 1 1 0
-                                              72 0 1 1 0 31 0 34 2 0 27 0 25 29
+                                              0 22 1 0 41 0 1 2 0 81 81 0 1 1 0
+                                              80 0 1 1 0 31 0 34 2 0 27 0 25 29
                                               1 0 27 0 30 2 0 0 23 25 26 3 0 0
                                               23 25 23 1 1 0 0 23 24 1 0 23 0
                                               39 2 0 47 0 0 1)))))

@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4774 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4778 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -257,12 +257,12 @@
  |RationalLODE| |ReduceLODE| |RationalRicDE| |SystemODESolver| |ODETools|
  |OrderedDirectProduct| |OrderlyDifferentialPolynomial|
  |OrdinaryDifferentialRing| |OrderlyDifferentialVariable| |OrderedExpression|
- |OrderedFreeMonoid| |OrderedIntegralDomain| |OpenMath&| |OpenMath|
- |OpenMathConnection| |OpenMathDevice| |OpenMathEncoding| |OpenMathError|
- |OpenMathErrorKind| |ExpressionToOpenMath| |OppositeMonogenicLinearOperator|
- |OpenMathPackage| |OrderedMultisetAggregate| |OpenMathServerPackage|
- |OnePointCompletion| |OnePointCompletionFunctions2| |Operator|
- |OperationsQuery| |OrderedCompletion| |OrderedCompletionFunctions2|
+ |OrderedFreeMonoid| |OutputFormTools| |OrderedIntegralDomain| |OpenMath&|
+ |OpenMath| |OpenMathConnection| |OpenMathDevice| |OpenMathEncoding|
+ |OpenMathError| |OpenMathErrorKind| |ExpressionToOpenMath|
+ |OppositeMonogenicLinearOperator| |OpenMathPackage| |OrderedMultisetAggregate|
+ |OpenMathServerPackage| |OnePointCompletion| |OnePointCompletionFunctions2|
+ |Operator| |OperationsQuery| |OrderedCompletion| |OrderedCompletionFunctions2|
  |OrderedFinite| |OrderingFunctions| |OrderedMonoid| |OrderedRing&|
  |OrderedRing| |OrderedSet&| |OrderedSet| |UnivariateSkewPolynomialCategory&|
  |UnivariateSkewPolynomialCategory| |UnivariateSkewPolynomialCategoryOps|
@@ -685,44 +685,44 @@
  |isLambda?| |isCompound?| |parseLambda| |lambda| |laplace|
  |trailingCoefficient| |normalizeIfCan| |polCase| |distFact| |identification|
  |LyndonCoordinates| |LyndonBasis| |zeroDimensional?| |fglmIfCan|
- |lexTriangular| |squareFreeLexTriangular| |belong?| |operator| |fresnelC|
- |fresnelS| |erfi| |erf| |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos|
- |groebgen| |totolex| |minPol| |computeBasis| |coord| |anticoord|
- |intcompBasis| |choosemon| |close!| |pack!| |library| |complexLimit|
- |linearlyDependent?| |linearDependence| |solveLinear| |reducedSystem|
- |setDifference| |setIntersection| |setUnion| |append| |null| |nil|
- |substitute| |duplicates?| |mapGen| |mapExpon| |commutativeEquality|
- |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm|
- |listOfMonoms| |insert| |delete| |symmetricSquare| |factor1|
- |symmetricProduct| |symmetricPower| |directSum| |entries| |loop| |lcmCoef|
- |solveLinearPolynomialEquationByFractions| |hasSolution?| |linSolve|
- |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
- |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
- |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
- |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|
- |algebraicGcd| |pseudoRem| |canonicalIfCan| |pack_modulus| |MPtoMPT|
- |pack_exps| |repack1| |pack_exps0| |m_inverse| |element| |rowMatrix| |rows|
- |columnMatrix| |columns| |subMatrix| |bandMatrix| |blockSplit| |iter| |arg1|
- |arg2| |comp| |nullary| |id| |recur| |const| |curry| |diag| |curryRight|
- |curryLeft| |constantRight| |constantLeft| |twist| |kronecker_prod1|
- |positivePower| |kroneckerSum| |kroneckerProduct| |elRow1!| |elRow2!|
- |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!| |minus!|
- |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
- |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
- |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
- |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |toPermutation|
- |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint| |multifunctionGraph|
- |minimumExponent| |maximumExponent| |precision| |mantissa| |rowEch|
- |rowEchLocal| |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
- |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
- |corrPoly| |lifting| |lifting1| |exprex| |coerceS| |HP_solve_I| |HP_solve_A|
- |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA|
- |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly|
- |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
- |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
- |exQuo| |moebius| |cumulant2moment| |moment2cumulant| |moment2nthJacobi|
- |moment2jacobi| |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
- |booleanCumulant2moment| |moment2booleanCumulant| |monotoneCumulant2moment|
+ |lexTriangular| |squareFreeLexTriangular| |belong?| |fresnelC| |fresnelS|
+ |erfi| |erf| |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen|
+ |totolex| |minPol| |computeBasis| |coord| |anticoord| |intcompBasis|
+ |choosemon| |close!| |pack!| |library| |complexLimit| |linearlyDependent?|
+ |linearDependence| |solveLinear| |reducedSystem| |setDifference|
+ |setIntersection| |setUnion| |append| |null| |nil| |substitute| |duplicates?|
+ |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult| |makeUnit|
+ |reverse!| |reverse| |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete|
+ |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower| |directSum|
+ |entries| |loop| |lcmCoef| |solveLinearPolynomialEquationByFractions|
+ |hasSolution?| |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse|
+ |LyndonWordsList| |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?|
+ |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
+ |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
+ |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
+ |canonicalIfCan| |pack_modulus| |MPtoMPT| |pack_exps| |repack1| |pack_exps0|
+ |m_inverse| |element| |rowMatrix| |rows| |columnMatrix| |columns| |subMatrix|
+ |bandMatrix| |blockSplit| |iter| |arg1| |arg2| |comp| |nullary| |id| |recur|
+ |const| |curry| |diag| |curryRight| |curryLeft| |constantRight| |constantLeft|
+ |twist| |kronecker_prod1| |positivePower| |kroneckerSum| |kroneckerProduct|
+ |elRow1!| |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!|
+ |plus!| |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!|
+ |gradient| |divergence| |laplacian| |hessian| |bandedHessian| |jacobian|
+ |bandedJacobian| |duplicates| |removeDuplicates!| |linears| |ddFact|
+ |separateFactors| |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc|
+ |toPermutation| |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint|
+ |multifunctionGraph| |minimumExponent| |maximumExponent| |precision|
+ |mantissa| |rowEch| |rowEchLocal| |rowEchelonLocal| |normalizedDivide|
+ |maxint| |binaryFunction| |makeFloatFunction| |function| |makeRecord|
+ |unaryFunction| |compiledFunction| |corrPoly| |lifting| |lifting1| |exprex|
+ |coerceS| |HP_solve_I| |HP_solve_A| |HP_solve_P| |HP_solve_PA| |HP_solve_M|
+ |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA|
+ |get_variables| |unpack_poly| |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA|
+ |VSUPS_to_VPA| |frobenius| |computePowers| |An| |UnVectorise| |Vectorise|
+ |setPoly| |index| |exponent| |exQuo| |moebius| |cumulant2moment|
+ |moment2cumulant| |moment2nthJacobi| |moment2jacobi| |moment2jacobi2|
+ |freeCumulant2moment| |moment2freeCumulant| |booleanCumulant2moment|
+ |moment2booleanCumulant| |monotoneCumulant2moment|
  |monotoneCumulant2momentPoly| |qcumulant2nthmoment| |hankelDeterminant|
  |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant| |rightRecip|
  |leftRecip| |leftPower| |rightPower| |derivationCoordinates| |generator|
@@ -751,49 +751,50 @@
  |constantCoefficientRicDE| |changeVar| |ratDsolve|
  |indicialEquationAtInfinity| |reduceLODE| |singRicDE| |polyRicDE| |ricDsolve|
  |triangulate| |solveInField| |wronskianMatrix| |variationOfParameters|
- |factors| |nthFactor| |nthExpon| |overlap| |hcrf| |hclf| |lexico| |OMmakeConn|
- |OMcloseConn| |OMconnInDevice| |OMconnOutDevice| |OMconnectTCP| |OMbindTCP|
- |OMopenFile| |OMopenString| |OMclose| |OMsetEncoding| |OMputApp| |OMputAtp|
- |OMputAttr| |OMputBind| |OMputBVar| |OMputError| |OMputObject| |OMputEndApp|
- |OMputEndAtp| |OMputEndAttr| |OMputEndBind| |OMputEndBVar| |OMputEndError|
- |OMputEndObject| |OMputInteger| |OMputFloat| |OMputVariable| |OMputString|
- |OMputSymbol| |OMgetApp| |OMgetAtp| |OMgetAttr| |OMgetBind| |OMgetBVar|
- |OMgetError| |OMgetObject| |OMgetEndApp| |OMgetEndAtp| |OMgetEndAttr|
- |OMgetEndBind| |OMgetEndBVar| |OMgetEndError| |OMgetEndObject| |OMgetInteger|
- |OMgetFloat| |OMgetVariable| |OMgetString| |OMgetSymbol| |OMgetType|
- |OMencodingBinary| |OMencodingSGML| |OMencodingXML| |OMencodingUnknown|
- |omError| |errorInfo| |errorKind| |OMReadError?| |OMUnknownSymbol?|
- |OMUnknownCD?| |OMParseError?| |OMwrite| |po| |op| |OMread| |OMreadFile|
- |OMreadStr| |OMlistCDs| |OMlistSymbols| |OMsupportsCD?| |OMsupportsSymbol?|
- |OMunhandledSymbol| |OMreceive| |OMsend| |OMserve| |infinity| |makeop|
- |opeval| |evaluateInverse| |evaluate| |conjug| |getDatabase| |whatInfinity|
- |infinite?| |finite?| |minusInfinity| |plusInfinity| |pureLex| |totalLex|
- |reverseLex| |leftLcm| |rightExtendedGcd| |rightGcd| |rightExactQuotient|
- |rightRemainder| |rightQuotient| |rightLcm| |leftExtendedGcd| |leftGcd|
- |leftExactQuotient| |leftRemainder| |leftQuotient| |times| |monicLeftDivide|
- |monicRightDivide| |leftDivide| |rightDivide| |output| |outputList| |or| |and|
- |quo| |rem| ~= |blankSeparate| |semicolonSeparate| |commaSeparate| |pile|
- |paren| |bracket| |prod| |overlabel| |overbar| |prime| |quote| |supersub|
- |presuper| |presub| |super| |sub| |rarrow| |assign| |slash| |over| |zag| |box|
- |label| |infix?| |postfix| |infix| |prefix| |vconcat| |hconcat| |rspace|
- |vspace| |hspace| |messagePrint| |message| |padecf| |pade| |root|
- |quotientByP| |moduloP| |modulus| |digits| |continuedFraction| |light|
- |pastel| |bright| |dim| |dark| |motzkinPathArray| |jacobiPathArray| |bottom|
- |surface| |coordinate| |partitions| |conjugates| |shuffle| |shufflein|
- |sequences| |permutations| |lists| |atoms| |makeResult| |is?| |Is|
- |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed| |failed?|
- |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?| |topPredicate|
- |setTopPredicate| |patternVariable| |withPredicates| |setPredicates|
- |predicates| |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?|
- |inR?| |isList| |isQuotient| |isOp| |predicate| |satisfy?| |addBadValue|
- |badValues| |retractable?| |listOfTerms| |One| |leftFactor|
- |rightFactorCandidate| |adjoint| |id_map| |diff_map| |ptree| |coerceImages|
- |fixedPoints| |odd?| |even?| |numberOfCycles| |cyclePartition|
- |coerceListOfPairs| |coercePreimagesImages| |listRepresentation| |permanent|
- |cycles| |cycle| |perm_to_vec| |initializeGroupForWordProblem| |movedPoints|
- |wordInGenerators| |wordInStrongGenerators| |orbits| |orbit|
- |permutationGroup| |wordsForStrongGenerators| |strongGenerators| |base|
- |generators| |bivariateSLPEBR| |solveLinearPolynomialEquationByRecursion|
+ |factors| |nthFactor| |nthExpon| |overlap| |hcrf| |hclf| |lexico| |operator|
+ |arguments| |has_op?| |is_symbol?| |OMmakeConn| |OMcloseConn| |OMconnInDevice|
+ |OMconnOutDevice| |OMconnectTCP| |OMbindTCP| |OMopenFile| |OMopenString|
+ |OMclose| |OMsetEncoding| |OMputApp| |OMputAtp| |OMputAttr| |OMputBind|
+ |OMputBVar| |OMputError| |OMputObject| |OMputEndApp| |OMputEndAtp|
+ |OMputEndAttr| |OMputEndBind| |OMputEndBVar| |OMputEndError| |OMputEndObject|
+ |OMputInteger| |OMputFloat| |OMputVariable| |OMputString| |OMputSymbol|
+ |OMgetApp| |OMgetAtp| |OMgetAttr| |OMgetBind| |OMgetBVar| |OMgetError|
+ |OMgetObject| |OMgetEndApp| |OMgetEndAtp| |OMgetEndAttr| |OMgetEndBind|
+ |OMgetEndBVar| |OMgetEndError| |OMgetEndObject| |OMgetInteger| |OMgetFloat|
+ |OMgetVariable| |OMgetString| |OMgetSymbol| |OMgetType| |OMencodingBinary|
+ |OMencodingSGML| |OMencodingXML| |OMencodingUnknown| |omError| |errorInfo|
+ |errorKind| |OMReadError?| |OMUnknownSymbol?| |OMUnknownCD?| |OMParseError?|
+ |OMwrite| |po| |op| |OMread| |OMreadFile| |OMreadStr| |OMlistCDs|
+ |OMlistSymbols| |OMsupportsCD?| |OMsupportsSymbol?| |OMunhandledSymbol|
+ |OMreceive| |OMsend| |OMserve| |infinity| |makeop| |opeval| |evaluateInverse|
+ |evaluate| |conjug| |getDatabase| |whatInfinity| |infinite?| |finite?|
+ |minusInfinity| |plusInfinity| |pureLex| |totalLex| |reverseLex| |leftLcm|
+ |rightExtendedGcd| |rightGcd| |rightExactQuotient| |rightRemainder|
+ |rightQuotient| |rightLcm| |leftExtendedGcd| |leftGcd| |leftExactQuotient|
+ |leftRemainder| |leftQuotient| |times| |monicLeftDivide| |monicRightDivide|
+ |leftDivide| |rightDivide| |output| |outputList| |or| |and| |quo| |rem| ~=
+ |blankSeparate| |semicolonSeparate| |commaSeparate| |pile| |paren| |bracket|
+ |prod| |overlabel| |overbar| |prime| |quote| |supersub| |presuper| |presub|
+ |super| |sub| |rarrow| |assign| |slash| |over| |zag| |box| |label| |infix?|
+ |postfix| |infix| |prefix| |vconcat| |hconcat| |rspace| |vspace| |hspace|
+ |messagePrint| |message| |padecf| |pade| |root| |quotientByP| |moduloP|
+ |modulus| |digits| |continuedFraction| |light| |pastel| |bright| |dim| |dark|
+ |motzkinPathArray| |jacobiPathArray| |bottom| |surface| |coordinate|
+ |partitions| |conjugates| |shuffle| |shufflein| |sequences| |permutations|
+ |lists| |atoms| |makeResult| |is?| |Is| |addMatchRestricted| |insertMatch|
+ |addMatch| |getMatch| |failed| |failed?| |optpair| |getBadValues|
+ |resetBadValues| |hasTopPredicate?| |topPredicate| |setTopPredicate|
+ |patternVariable| |withPredicates| |setPredicates| |predicates|
+ |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?| |inR?| |isList|
+ |isQuotient| |isOp| |predicate| |satisfy?| |addBadValue| |badValues|
+ |retractable?| |listOfTerms| |One| |leftFactor| |rightFactorCandidate|
+ |adjoint| |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?|
+ |even?| |numberOfCycles| |cyclePartition| |coerceListOfPairs|
+ |coercePreimagesImages| |listRepresentation| |permanent| |cycles| |cycle|
+ |perm_to_vec| |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
+ |wordInStrongGenerators| |orbits| |orbit| |permutationGroup|
+ |wordsForStrongGenerators| |strongGenerators| |base| |generators|
+ |bivariateSLPEBR| |solveLinearPolynomialEquationByRecursion|
  |factorByRecursion| |factorSquareFreeByRecursion| |randomR| |factorSFBRlcUnit|
  |charthRoot| |conditionP| |solveLinearPolynomialEquation|
  |factorSquareFreePolynomial| |factorPolynomial| |squareFreePolynomial|
