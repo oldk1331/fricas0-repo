@@ -25,11 +25,11 @@
         (SPROG ((|t2| NIL) (|t1| NIL) (#2=#:G2089 NIL) (|j| NIL))
                (SEQ
                 (COND
-                 ((OR (< |i1| 1)
+                 ((OR (< |i1| (SPADCALL |x| (QREFELT $ 8)))
                       (OR
                        (SPADCALL |i1| (SPADCALL |x| (QREFELT $ 12))
                                  (QREFELT $ 14))
-                       (OR (< |i2| 1)
+                       (OR (< |i2| (SPADCALL |x| (QREFELT $ 8)))
                            (SPADCALL |i2| (SPADCALL |x| (QREFELT $ 12))
                                      (QREFELT $ 14)))))
                   (|error| "swapRows!: index out of range"))
@@ -37,16 +37,17 @@
                   (COND ((EQL |i1| |i2|) |x|)
                         ('T
                          (SEQ
-                          (SEQ (LETT |j| 1 . #3=(|MATRIX;swapRows!;$2I$;5|))
-                               (LETT #2# (SPADCALL |x| (QREFELT $ 15)) . #3#)
-                               G190 (COND ((|greater_SI| |j| #2#) (GO G191)))
-                               (SEQ
-                                (LETT |t1| (QAREF2O |x| |i1| |j| 1 1) . #3#)
+                          (SEQ
+                           (LETT |j| (SPADCALL |x| (QREFELT $ 9))
+                                 . #3=(|MATRIX;swapRows!;$2I$;5|))
+                           (LETT #2# (SPADCALL |x| (QREFELT $ 15)) . #3#) G190
+                           (COND ((> |j| #2#) (GO G191)))
+                           (SEQ (LETT |t1| (QAREF2O |x| |i1| |j| 1 1) . #3#)
                                 (LETT |t2| (QAREF2O |x| |i2| |j| 1 1) . #3#)
                                 (QSETAREF2O |x| |i1| |j| |t2| 1 1)
                                 (EXIT (QSETAREF2O |x| |i2| |j| |t1| 1 1)))
-                               (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
-                               (EXIT NIL))
+                           (LETT |j| (+ |j| 1) . #3#) (GO G190) G191
+                           (EXIT NIL))
                           (EXIT |x|))))))))) 
 
 (SDEFUN |MATRIX;copy;2$;6| ((|m| $) ($ $))
@@ -55,21 +56,21 @@
          (SEQ
           (LETT |ans| (MAKE_MATRIX (ANROWS |m|) (ANCOLS |m|))
                 . #3=(|MATRIX;copy;2$;6|))
-          (SEQ (LETT |i| 1 . #3#)
+          (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 8)) . #3#)
                (LETT #2# (SPADCALL |m| (QREFELT $ 12)) . #3#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
+               (COND ((> |i| #2#) (GO G191)))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |j| 1 . #3#)
+                 (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 9)) . #3#)
                       (LETT #1# (SPADCALL |m| (QREFELT $ 15)) . #3#) G190
-                      (COND ((|greater_SI| |j| #1#) (GO G191)))
+                      (COND ((> |j| #1#) (GO G191)))
                       (SEQ
                        (EXIT
-                        (QSETAREF2O |ans| |i| |j| (QAREF2O |m| |i| |j| 1 1) 1
-                                    1)))
-                      (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
-                      (EXIT NIL))))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                        (SPADCALL |ans| |i| |j|
+                                  (SPADCALL |m| |i| |j| (QREFELT $ 10))
+                                  (QREFELT $ 11))))
+                      (LETT |j| (+ |j| 1) . #3#) (GO G190) G191 (EXIT NIL))))
+               (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT |ans|)))) 
 
 (SDEFUN |MATRIX;determinant;$R;7| ((|x| $) ($ R)) (SPADCALL |x| (QREFELT $ 19))) 
@@ -97,21 +98,20 @@
          (SEQ (LETT |n| (QVSIZE |v|) . #4=(|MATRIX;diagonalMatrix;V$;14|))
               (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 37)) . #4#)
               (SEQ (LETT |k| (SPADCALL |v| (QREFELT $ 39)) . #4#)
-                   (LETT #3# (QVSIZE |v|) . #4#) (LETT |j| 1 . #4#)
+                   (LETT #3# (QVSIZE |v|) . #4#)
+                   (LETT |j| (SPADCALL |ans| (QREFELT $ 9)) . #4#)
                    (LETT #2# (SPADCALL |ans| (QREFELT $ 15)) . #4#)
-                   (LETT |i| 1 . #4#)
+                   (LETT |i| (SPADCALL |ans| (QREFELT $ 8)) . #4#)
                    (LETT #1# (SPADCALL |ans| (QREFELT $ 12)) . #4#) G190
-                   (COND
-                    ((OR (|greater_SI| |i| #1#) (|greater_SI| |j| #2#)
-                         (> |k| #3#))
-                     (GO G191)))
+                   (COND ((OR (> |i| #1#) (> |j| #2#) (> |k| #3#)) (GO G191)))
                    (SEQ
-                    (EXIT (QSETAREF2O |ans| |i| |j| (QAREF1O |v| |k| 1) 1 1)))
+                    (EXIT
+                     (SPADCALL |ans| |i| |j| (QAREF1O |v| |k| 1)
+                               (QREFELT $ 11))))
                    (LETT |i|
-                         (PROG1 (|inc_SI| |i|)
+                         (PROG1 (+ |i| 1)
                            (LETT |j|
-                                 (PROG1 (|inc_SI| |j|)
-                                   (LETT |k| (+ |k| 1) . #4#))
+                                 (PROG1 (+ |j| 1) (LETT |k| (+ |k| 1) . #4#))
                                  . #4#))
                          . #4#)
                    (GO G190) G191 (EXIT NIL))

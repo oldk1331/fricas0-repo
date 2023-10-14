@@ -82,27 +82,27 @@
                 . #6#)
           (SEQ (LETT |i| 0 . #6#) (LETT #3# (- |l| 1) . #6#) (LETT |k| 0 . #6#)
                G190 (COND ((|greater_SI| |i| #3#) (GO G191)))
-               (SEQ (EXIT (QESET |r| |k| (QENUM |s| |i|))))
+               (SEQ (EXIT (STR_SETELT |r| |k| (STR_ELT |s| |i|))))
                (LETT |k| (PROG1 (|inc_SI| |k|) (LETT |i| (|inc_SI| |i|) . #6#))
                      . #6#)
                (GO G190) G191 (EXIT NIL))
           (SEQ (LETT |i| 0 . #6#) (LETT #2# (- |n| 1) . #6#)
                (LETT |k| |k| . #6#) G190
                (COND ((|greater_SI| |i| #2#) (GO G191)))
-               (SEQ (EXIT (QESET |r| |k| (QENUM |t| |i|))))
+               (SEQ (EXIT (STR_SETELT |r| |k| (STR_ELT |t| |i|))))
                (LETT |k| (PROG1 (+ |k| 1) (LETT |i| (|inc_SI| |i|) . #6#))
                      . #6#)
                (GO G190) G191 (EXIT NIL))
           (SEQ (LETT |i| (+ |h| 1) . #6#) (LETT #1# (- |m| 1) . #6#)
                (LETT |k| |k| . #6#) G190 (COND ((> |i| #1#) (GO G191)))
-               (SEQ (EXIT (QESET |r| |k| (QENUM |s| |i|))))
+               (SEQ (EXIT (STR_SETELT |r| |k| (STR_ELT |s| |i|))))
                (LETT |k| (PROG1 (+ |k| 1) (LETT |i| (+ |i| 1) . #6#)) . #6#)
                (GO G190) G191 (EXIT NIL))
           (EXIT |r|)))) 
 
 (SDEFUN |ISTRING;qsetelt!;$I2C;16|
         ((|s| $) (|i| |Integer|) (|c| . #1=(|Character|)) ($ . #1#))
-        (QESET |s| (- |i| (QREFELT $ 6)) |c|)) 
+        (STR_SETELT |s| (- |i| (QREFELT $ 6)) |c|)) 
 
 (SDEFUN |ISTRING;setelt;$I2C;17|
         ((|s| $) (|i| |Integer|) (|c| . #1=(|Character|)) ($ . #1#))
@@ -110,7 +110,7 @@
          ((OR (< |i| (QREFELT $ 6))
               (SPADCALL |i| (SPADCALL |s| (QREFELT $ 42)) (QREFELT $ 45)))
           (|error| "index out of range"))
-         ('T (QESET |s| (- |i| (QREFELT $ 6)) |c|)))) 
+         ('T (STR_SETELT |s| (- |i| (QREFELT $ 6)) |c|)))) 
 
 (SDEFUN |ISTRING;substring?;2$IB;18|
         ((|part| $) (|whole| $) (|startpos| |Integer|) ($ |Boolean|))
@@ -137,8 +137,8 @@
                                  (EXIT
                                   (COND
                                    ((NULL
-                                     (|eql_SI| (QENUM |part| |ip|)
-                                               (QENUM |whole| |iw|)))
+                                     (|eql_SI| (STR_ELT |part| |ip|)
+                                               (STR_ELT |whole| |iw|)))
                                     (PROGN
                                      (LETT #1#
                                            (PROGN
@@ -189,7 +189,7 @@
                                 (SEQ
                                  (EXIT
                                   (COND
-                                   ((|eql_SI| (QENUM |t| |r|) |c|)
+                                   ((|eql_SI| (STR_ELT |t| |r|) |c|)
                                     (PROGN
                                      (LETT #2# (+ |r| (QREFELT $ 6)) . #4#)
                                      (GO #2#))))))
@@ -218,7 +218,7 @@
                                 (SEQ
                                  (EXIT
                                   (COND
-                                   ((SPADCALL (QENUM |t| |r|) |cc|
+                                   ((SPADCALL (STR_ELT |t| |r|) |cc|
                                               (QREFELT $ 50))
                                     (PROGN
                                      (LETT #2# (+ |r| (QREFELT $ 6)) . #4#)
@@ -475,14 +475,14 @@
                 (RPLACSTR |y| |s| |m| |x| 0 |m|) (EXIT |y|)))) 
 
 (SDEFUN |ISTRING;qelt;$IC;31| ((|s| $) (|i| |Integer|) ($ |Character|))
-        (QENUM |s| (- |i| (QREFELT $ 6)))) 
+        (STR_ELT |s| (- |i| (QREFELT $ 6)))) 
 
 (SDEFUN |ISTRING;elt;$IC;32| ((|s| $) (|i| |Integer|) ($ |Character|))
         (COND
          ((OR (< |i| (QREFELT $ 6))
               (SPADCALL |i| (SPADCALL |s| (QREFELT $ 42)) (QREFELT $ 45)))
           (|error| "index out of range"))
-         ('T (QENUM |s| (- |i| (QREFELT $ 6)))))) 
+         ('T (STR_ELT |s| (- |i| (QREFELT $ 6)))))) 
 
 (SDEFUN |ISTRING;elt;$Us$;33|
         ((|s| $) (|sg| |UniversalSegment| (|Integer|)) ($ $))

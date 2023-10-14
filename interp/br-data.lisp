@@ -4,7 +4,7 @@
 (IN-PACKAGE "BOOT")
  
 ; lefts u ==
-;    [x for x in HKEYS  _*HASCATEGORY_-HASH_* | rest x = u]
+;    [x for x in HKEYS  $has_category_hash | rest x = u]
  
 (DEFUN |lefts| (|u|)
   (PROG ()
@@ -17,7 +17,7 @@
           ('T
            (AND (EQUAL (CDR |x|) |u|) (SETQ |bfVar#2| (CONS |x| |bfVar#2|)))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
-      NIL (HKEYS *HASCATEGORY-HASH*) NIL))))
+      NIL (HKEYS |$has_category_hash|) NIL))))
  
 ; buildLibdb(:options) ==  --called by make-databases (daase.lisp.pamphlet)
 ;   domainList := IFCAR options  --build local libdb if list of domains is given
@@ -1976,7 +1976,7 @@
 ; domainsOf(conform,domname,:options) ==
 ;   $hasArgList := IFCAR options
 ;   conname := opOf conform
-;   u := [key for key in HKEYS _*HASCATEGORY_-HASH_*
+;   u := [key for key in HKEYS $has_category_hash
 ;     | key is [anc,: =conname]]
 ;   --u is list of pairs (a . b) where b = conname
 ;   --we sort u then replace each b by the predicate for which this is true
@@ -2002,7 +2002,7 @@
                          (EQUAL (CDR |key|) |conname|)
                          (SETQ |bfVar#83| (CONS |key| |bfVar#83|)))))
                   (SETQ |bfVar#82| (CDR |bfVar#82|))))
-               NIL (HKEYS *HASCATEGORY-HASH*) NIL))
+               NIL (HKEYS |$has_category_hash|) NIL))
       (SETQ |s| (|listSort| #'GLESSEQP (COPY |u|)))
       (SETQ |s|
               ((LAMBDA (|bfVar#85| |bfVar#84| |pair|)

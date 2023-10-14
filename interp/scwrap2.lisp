@@ -122,6 +122,30 @@
  
 (DEFVAR |$compiler_output_stream| NIL)
  
+; DEFPARAMETER($file_apply, nil)
+ 
+(DEFPARAMETER |$file_apply| NIL)
+ 
+; output_lisp_form(form) ==
+;     if $file_apply then FUNCALL($file_apply, form, form)
+ 
+(DEFUN |output_lisp_form| (|form|)
+  (PROG ()
+    (RETURN (COND (|$file_apply| (FUNCALL |$file_apply| |form| |form|))))))
+ 
+; output_lisp_defparameter(x, y) ==
+;     form := ['DEFPARAMETER, x, ["QUOTE", y]]
+;     output_lisp_form(form)
+;     EVAL(form)
+ 
+(DEFUN |output_lisp_defparameter| (|x| |y|)
+  (PROG (|form|)
+    (RETURN
+     (PROGN
+      (SETQ |form| (LIST 'DEFPARAMETER |x| (LIST 'QUOTE |y|)))
+      (|output_lisp_form| |form|)
+      (EVAL |form|)))))
+ 
 ; print_defun(name, body) ==
 ;     print_full2(body, $compiler_output_stream)
  
@@ -130,7 +154,7 @@
  
 ; spadCompile(name) ==
 ;     $comp370_apply : local := FUNCTION print_defun
-;     _*FILEACTQ_-APPLY_* : local := FUNCTION print_defun
+;     $file_apply : local := FUNCTION print_defun
 ;     _*EOF_* : local := false
 ;     _/EDITFILE : local := name
 ;     $InteractiveMode : local := false
@@ -151,16 +175,16 @@
  
 (DEFUN |spadCompile| (|name|)
   (PROG (|$ncMsgList| |$InteractiveFrame| |$docList| $COMBLOCKLIST
-         |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY*
+         |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* |$file_apply|
          |$comp370_apply| |res| |a|)
     (DECLARE
      (SPECIAL |$ncMsgList| |$InteractiveFrame| |$docList| $COMBLOCKLIST
-      |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY*
+      |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* |$file_apply|
       |$comp370_apply|))
     (RETURN
      (PROGN
       (SETQ |$comp370_apply| #'|print_defun|)
-      (SETQ *FILEACTQ-APPLY* #'|print_defun|)
+      (SETQ |$file_apply| #'|print_defun|)
       (SETQ *EOF* NIL)
       (SETQ /EDITFILE |name|)
       (SETQ |$InteractiveMode| NIL)

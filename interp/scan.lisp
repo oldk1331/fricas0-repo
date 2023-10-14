@@ -1413,7 +1413,7 @@
                                        (SETQ |eql|
                                                (EQL (STR_ELT |s| |k|)
                                                     (STR_ELT |l|
-                                                     (+ |k| |i|))))))
+                                                             (+ |k| |i|))))))
                                      (SETQ |k| (+ |k| 1))))
                                   (- |ls| 1) 1)
                                  (COND (|eql| (SETQ |s1| |s|) T)

@@ -189,7 +189,7 @@
 ;     lamex := ["LAMBDA", arg,
 ;                 ["LET", [g2],
 ;                   ["COND", la1, la2]]]
-;     SETANDFILE(al, nil)
+;     output_lisp_defparameter(al, nil)
 ;     u := [name,lamex]
 ;     if $PrettyPrint then PRETTYPRINT(u)
 ;     COMP370(u)
@@ -237,7 +237,7 @@
       (SETQ |lamex|
               (LIST 'LAMBDA |arg|
                     (LIST 'LET (LIST |g2|) (LIST 'COND |la1| |la2|))))
-      (SETANDFILE |al| NIL)
+      (|output_lisp_defparameter| |al| NIL)
       (SETQ |u| (LIST |name| |lamex|))
       (COND (|$PrettyPrint| (PRETTYPRINT |u|)))
       (COMP370 |u|)

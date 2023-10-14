@@ -87,8 +87,8 @@
 ;   cacheCountCode:= ['countCircularAlist,cacheName,cacheCount]
 ;   cacheVector:= mkCacheVec(op,cacheName,cacheType,
 ;     cacheResetCode,cacheCountCode)
-;   LAM_,EVALANDFILEACTQ ['PUT, MKQ op, MKQ 'cacheInfo, MKQ cacheVector]
-;   LAM_,EVALANDFILEACTQ cacheResetCode
+;   output_lisp_form(['PUT, MKQ op, MKQ 'cacheInfo, MKQ cacheVector])
+;   output_lisp_form(cacheResetCode)
 ;   if $InteractiveMode then stopTimingProcess 'compilation
 ;   op
  
@@ -202,9 +202,9 @@
          (SETQ |cacheVector|
                  (|mkCacheVec| |op| |cacheName| |cacheType| |cacheResetCode|
                   |cacheCountCode|))
-         (|LAM,EVALANDFILEACTQ|
+         (|output_lisp_form|
           (LIST 'PUT (MKQ |op|) (MKQ '|cacheInfo|) (MKQ |cacheVector|)))
-         (|LAM,EVALANDFILEACTQ| |cacheResetCode|)
+         (|output_lisp_form| |cacheResetCode|)
          (COND (|$InteractiveMode| (|stopTimingProcess| '|compilation|)))
          |op|)))))))
  
@@ -309,8 +309,8 @@
 ;     cacheCountCode:= ['hashCount,cacheName]
 ;     cacheVector:=
 ;       mkCacheVec(op,cacheName,cacheType,cacheResetCode,cacheCountCode)
-;     LAM_,EVALANDFILEACTQ ['PUT, MKQ op, MKQ 'cacheInfo, MKQ cacheVector]
-;     LAM_,EVALANDFILEACTQ cacheResetCode
+;     output_lisp_form(['PUT, MKQ op, MKQ 'cacheInfo, MKQ cacheVector])
+;     output_lisp_form(cacheResetCode)
 ;   op
  
 (DEFUN |compHash| (|op| |argl| |body| |cacheNameOrNil| |eqEtc| |countFl|)
@@ -458,9 +458,9 @@
            (SETQ |cacheVector|
                    (|mkCacheVec| |op| |cacheName| |cacheType| |cacheResetCode|
                     |cacheCountCode|))
-           (|LAM,EVALANDFILEACTQ|
+           (|output_lisp_form|
             (LIST 'PUT (MKQ |op|) (MKQ '|cacheInfo|) (MKQ |cacheVector|)))
-           (|LAM,EVALANDFILEACTQ| |cacheResetCode|)))
+           (|output_lisp_form| |cacheResetCode|)))
          |op|)))))))
  
 ; CDRwithIncrement x ==

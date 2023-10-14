@@ -4880,7 +4880,8 @@
                    (COND ((> |i| |n|) (RETURN NIL))
                          (#1#
                           (QSETVELT |nob| |i|
-                           (|writify,writifyInner| (QVELT |ob| |i|)))))
+                                    (|writify,writifyInner|
+                                     (QVELT |ob| |i|)))))
                    (SETQ |i| (+ |i| 1))))
                 0)
                |nob|))))
@@ -5201,7 +5202,8 @@
                  (COND ((> |i| |n|) (RETURN NIL))
                        (#1#
                         (QSETVELT |nob| |i|
-                         (|dewritify,dewritifyInner| (QVELT |ob| |i|)))))
+                                  (|dewritify,dewritifyInner|
+                                   (QVELT |ob| |i|)))))
                  (SETQ |i| (+ |i| 1))))
               0)
              |nob|))

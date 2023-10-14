@@ -1097,8 +1097,7 @@
 ;         $byteVec :local := nil
 ;         $NRTslot1PredicateList :=
 ;           [simpBool x for x in $NRTslot1PredicateList]
-;         outputLispForm('loadTimeStuff,
-;           ['MAKEPROP,MKQ $op,''infovec,getInfovecCode()])
+;         output_lisp_form(['MAKEPROP,MKQ $op,''infovec,getInfovecCode()])
 ;       $lisplibOperationAlist:= operationAlist
 ;       $lisplibMissingFunctions:= $CheckVectorList
 ;     if null argl then
@@ -1301,7 +1300,7 @@
                                    (CONS (|simpBool| |x|) |bfVar#42|))))
                          (SETQ |bfVar#41| (CDR |bfVar#41|))))
                       NIL |$NRTslot1PredicateList| NIL))
-             (|outputLispForm| '|loadTimeStuff|
+             (|output_lisp_form|
               (LIST 'MAKEPROP (MKQ |$op|) ''|infovec| (|getInfovecCode|)))))
            (SETQ |$lisplibOperationAlist| |operationAlist|)
            (SETQ |$lisplibMissingFunctions| |$CheckVectorList|)))
@@ -3024,12 +3023,12 @@
 ;         --good for performance (LISPLLIB size, BPI size, NILSEC)
 ;   CONTAINED("",body) => sayBrightly ['"  ",:bright nam,'" not compiled"]
 ;   if vl is [:vl',E] and body is [nam',: =vl'] then
-;       LAM_,EVALANDFILEACTQ ['PUT,MKQ nam,MKQ 'SPADreplace,MKQ nam']
+;       output_lisp_form(['PUT,MKQ nam,MKQ 'SPADreplace,MKQ nam'])
 ;       sayBrightly ['"     ",:bright nam,'"is replaced by",:bright nam']
 ;   else if (ATOM body or and/[ATOM x for x in body])
 ;          and vl is [:vl',E] and not CONTAINED(E,body) then
 ;            macform := ['XLAM,vl',body]
-;            LAM_,EVALANDFILEACTQ ['PUT,MKQ nam,MKQ 'SPADreplace,MKQ macform]
+;            output_lisp_form(['PUT,MKQ nam,MKQ 'SPADreplace,MKQ macform])
 ;            sayBrightly ['"     ",:bright nam,'"is replaced by",:bright body]
 ;   $insideCapsuleFunctionIfTrue => first COMP LIST form
 ;   compileConstructor form
@@ -3058,7 +3057,7 @@
                 (PROGN (SETQ |vl'| (NREVERSE |vl'|)) #2#) (CONSP |body|)
                 (PROGN (SETQ |nam'| (CAR |body|)) #2#)
                 (EQUAL (CDR |body|) |vl'|))
-           (|LAM,EVALANDFILEACTQ|
+           (|output_lisp_form|
             (LIST 'PUT (MKQ |nam|) (MKQ '|SPADreplace|) (MKQ |nam'|)))
            (|sayBrightly|
             (CONS "     "
@@ -3084,7 +3083,7 @@
             (PROGN (SETQ |vl'| (NREVERSE |vl'|)) #2#)
             (NULL (CONTAINED E |body|)))
            (SETQ |macform| (LIST 'XLAM |vl'| |body|))
-           (|LAM,EVALANDFILEACTQ|
+           (|output_lisp_form|
             (LIST 'PUT (MKQ |nam|) (MKQ '|SPADreplace|) (MKQ |macform|)))
            (|sayBrightly|
             (CONS "     "
@@ -3114,7 +3113,7 @@
 ;     'spad_CLAM
 ;   compForm:= LIST [fn,[lambdaOrSlam,vl,:bodyl]]
 ;   auxfn := INTERNL(fn, '";")
-;   LAM_,EVALANDFILEACTQ(["DECLAIM", ["NOTINLINE", auxfn]])
+;   output_lisp_form(["DECLAIM", ["NOTINLINE", auxfn]])
 ;   if kind = 'category
 ;       then u:= compAndDefine compForm
 ;       else u:=COMP compForm
@@ -3136,7 +3135,7 @@
       (SETQ |compForm|
               (LIST (LIST |fn| (CONS |lambdaOrSlam| (CONS |vl| |bodyl|)))))
       (SETQ |auxfn| (INTERNL |fn| ";"))
-      (|LAM,EVALANDFILEACTQ| (LIST 'DECLAIM (LIST 'NOTINLINE |auxfn|)))
+      (|output_lisp_form| (LIST 'DECLAIM (LIST 'NOTINLINE |auxfn|)))
       (COND ((EQ |kind| '|category|) (SETQ |u| (|compAndDefine| |compForm|)))
             (#2# (SETQ |u| (COMP |compForm|))))
       (|clearConstructorCache| |fn|)
@@ -4441,7 +4440,7 @@
 ;   null rest $definition => body
 ;            --should not bother if it will only be called once
 ;   name := INTERN STRCONC(IFCAR $definition, ";CAT")
-;   SETANDFILE(name,nil)
+;   output_lisp_defparameter(name, nil)
 ;   body:= ["COND",[name],['(QUOTE T),['SETQ,name,body]]]
 ;   body
  
@@ -4467,7 +4466,7 @@
             ('T
              (PROGN
               (SETQ |name| (INTERN (STRCONC (IFCAR |$definition|) '|;CAT|)))
-              (SETANDFILE |name| NIL)
+              (|output_lisp_defparameter| |name| NIL)
               (SETQ |body|
                       (LIST 'COND (LIST |name|)
                             (LIST ''T (LIST 'SETQ |name| |body|))))

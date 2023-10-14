@@ -63,21 +63,22 @@
 
 (SDEFUN |DFLOAT;bits;Pi;11| (($ |PositiveInteger|))
         (SPROG ((#1=#:G402 NIL))
-               (COND ((EQL (FLOAT-RADIX 0.0) 2) (FLOAT-DIGITS 0.0))
-                     ((EQL (FLOAT-RADIX 0.0) 16) (* 4 (FLOAT-DIGITS 0.0)))
-                     ('T
-                      (PROG1
-                          (LETT #1#
-                                (TRUNCATE
-                                 (SPADCALL (FLOAT-DIGITS 0.0)
-                                           (SPADCALL
-                                            (FLOAT (FLOAT-RADIX 0.0)
-                                                   MOST-POSITIVE-DOUBLE-FLOAT)
-                                            (QREFELT $ 30))
-                                           (QREFELT $ 31)))
-                                |DFLOAT;bits;Pi;11|)
-                        (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                         #1#)))))) 
+               (COND
+                ((EQL (SPADCALL (QREFELT $ 25)) 2) (SPADCALL (QREFELT $ 29)))
+                ((EQL (SPADCALL (QREFELT $ 25)) 16)
+                 (* 4 (SPADCALL (QREFELT $ 29))))
+                ('T
+                 (PROG1
+                     (LETT #1#
+                           (TRUNCATE
+                            (SPADCALL (SPADCALL (QREFELT $ 29))
+                                      (SPADCALL
+                                       (FLOAT (SPADCALL (QREFELT $ 25))
+                                              MOST-POSITIVE-DOUBLE-FLOAT)
+                                       (QREFELT $ 30))
+                                      (QREFELT $ 31)))
+                           |DFLOAT;bits;Pi;11|)
+                   (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
 
 (PUT '|DFLOAT;max;$;12| '|SPADreplace| '(XLAM NIL MOST-POSITIVE-DOUBLE-FLOAT)) 
 
@@ -88,7 +89,7 @@
 (SDEFUN |DFLOAT;min;$;13| (($ $)) MOST-NEGATIVE-DOUBLE-FLOAT) 
 
 (SDEFUN |DFLOAT;order;$I;14| ((|a| $) ($ |Integer|))
-        (- (+ (FLOAT-DIGITS 0.0) (SPADCALL |a| (QREFELT $ 28))) 1)) 
+        (- (+ (SPADCALL (QREFELT $ 29)) (SPADCALL |a| (QREFELT $ 28))) 1)) 
 
 (PUT '|DFLOAT;Zero;$;15| '|SPADreplace|
      '(XLAM NIL (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT))) 
@@ -498,11 +499,11 @@
         (SPROG ((#1=#:G519 NIL))
                (SPADCALL |x|
                          (PROG1
-                             (LETT #1# (- (FLOAT-DIGITS 0.0) 1)
+                             (LETT #1# (- (SPADCALL (QREFELT $ 29)) 1)
                                    |DFLOAT;retract;$F;98|)
                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
                                             #1#))
-                         (FLOAT-RADIX 0.0) (QREFELT $ 159)))) 
+                         (SPADCALL (QREFELT $ 25)) (QREFELT $ 159)))) 
 
 (SDEFUN |DFLOAT;retractIfCan;$U;99|
         ((|x| $) ($ |Union| (|Fraction| (|Integer|)) "failed"))
@@ -510,11 +511,11 @@
                (CONS 0
                      (SPADCALL |x|
                                (PROG1
-                                   (LETT #1# (- (FLOAT-DIGITS 0.0) 1)
+                                   (LETT #1# (- (SPADCALL (QREFELT $ 29)) 1)
                                          |DFLOAT;retractIfCan;$U;99|)
                                  (|check_subtype| (>= #1# 0)
                                                   '(|NonNegativeInteger|) #1#))
-                               (FLOAT-RADIX 0.0) (QREFELT $ 159))))) 
+                               (SPADCALL (QREFELT $ 25)) (QREFELT $ 159))))) 
 
 (SDEFUN |DFLOAT;retract;$I;100| ((|x| $) ($ |Integer|))
         (SPROG ((|n| (|Integer|)))
@@ -555,7 +556,7 @@
                   (SEQ
                    (LETT |s| (SPADCALL |x| (QREFELT $ 169))
                          . #2=(|DFLOAT;manexp|))
-                   (LETT |x| (FLOAT-SIGN 1.0 |x|) . #2#)
+                   (LETT |x| (SPADCALL |x| (QREFELT $ 162)) . #2#)
                    (COND
                     ((SPADCALL |x| MOST-POSITIVE-DOUBLE-FLOAT (QREFELT $ 161))
                      (PROGN
@@ -572,15 +573,15 @@
                       (GO #1#))))
                    (LETT |me| (MANEXP |x|) . #2#)
                    (LETT |two53|
-                         (SPADCALL (FLOAT-RADIX 0.0) (FLOAT-DIGITS 0.0)
-                                   (QREFELT $ 170))
+                         (SPADCALL (SPADCALL (QREFELT $ 25))
+                                   (SPADCALL (QREFELT $ 29)) (QREFELT $ 170))
                          . #2#)
                    (EXIT
                     (CONS
                      (* |s|
                         (TRUNCATE
                          (SPADCALL |two53| (QCAR |me|) (QREFELT $ 31))))
-                     (- (QCDR |me|) (FLOAT-DIGITS 0.0))))))))
+                     (- (QCDR |me|) (SPADCALL (QREFELT $ 29)))))))))
           #1# (EXIT #1#)))) 
 
 (SDEFUN |DFLOAT;rationalApproximation;$2NniF;105|
@@ -606,7 +607,7 @@
              (LETT |nu| (QCAR |#G141|) . #12#)
              (LETT |ex| (QCDR |#G141|) . #12#)
              |#G141|)
-            (LETT BASE (FLOAT-RADIX 0.0) . #12#)
+            (LETT BASE (SPADCALL (QREFELT $ 25)) . #12#)
             (EXIT
              (COND
               ((>= |ex| 0)

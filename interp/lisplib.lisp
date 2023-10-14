@@ -36,14 +36,14 @@
 ; rwriteLispForm(key,form) ==
 ;   if $LISPLIB then
 ;     rwrite( key,form,$libFile)
-;     outputLispForm(key,form)
+;     output_lisp_form(form)
  
 (DEFUN |rwriteLispForm| (|key| |form|)
   (PROG ()
     (RETURN
      (COND
       ($LISPLIB (|rwrite| |key| |form| |$libFile|)
-       (|outputLispForm| |key| |form|))))))
+       (|output_lisp_form| |form|))))))
  
 ; unInstantiate(clist) ==
 ;   for c in clist repeat

@@ -77,14 +77,14 @@
          ($ |OutputForm|))
         (COND
          ((SPADCALL (QCDR |t|) (|spadConstant| $ 19) (QREFELT $ 17))
-          (SPADCALL (NUM2USTR (|STR_to_CHAR| "e"))
-                    (SPADCALL (QCAR |t|) (QREFELT $ 21)) (QREFELT $ 22)))
+          (SPADCALL (SPADCALL (|STR_to_CHAR| "e") (QREFELT $ 22))
+                    (SPADCALL (QCAR |t|) (QREFELT $ 23)) (QREFELT $ 24)))
          ('T
-          (SPADCALL (NUM2USTR (|STR_to_CHAR| "e"))
-                    (SPADCALL (SPADCALL (QCDR |t|) (QREFELT $ 23))
-                              (SPADCALL (QCAR |t|) (QREFELT $ 21))
-                              (QREFELT $ 24))
-                    (QREFELT $ 22))))) 
+          (SPADCALL (SPADCALL (|STR_to_CHAR| "e") (QREFELT $ 22))
+                    (SPADCALL (SPADCALL (QCDR |t|) (QREFELT $ 25))
+                              (SPADCALL (QCAR |t|) (QREFELT $ 23))
+                              (QREFELT $ 26))
+                    (QREFELT $ 24))))) 
 
 (SDEFUN |LEXP;identification;2$L;4| ((|x| $) (|y| $) ($ |List| (|Equation| R)))
         (SPROG
@@ -93,9 +93,9 @@
                (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))))
           (|l1| #1#))
          (SEQ
-          (LETT |l1| (SPADCALL |x| (QREFELT $ 27))
+          (LETT |l1| (SPADCALL |x| (QREFELT $ 29))
                 . #2=(|LEXP;identification;2$L;4|))
-          (LETT |l2| (SPADCALL |y| (QREFELT $ 27)) . #2#)
+          (LETT |l2| (SPADCALL |y| (QREFELT $ 29)) . #2#)
           (EXIT (|LEXP;ident| |l1| |l2| $))))) 
 
 (SDEFUN |LEXP;LyndonCoordinates;$L;5|
@@ -111,7 +111,7 @@
                 (PROGN
                  (LETT #3# NIL . #4=(|LEXP;LyndonCoordinates;$L;5|))
                  (SEQ (LETT |t| NIL . #4#)
-                      (LETT #2# (SPADCALL |x| (QREFELT $ 32)) . #4#) G190
+                      (LETT #2# (SPADCALL |x| (QREFELT $ 34)) . #4#) G190
                       (COND
                        ((OR (ATOM #2#) (PROGN (LETT |t| (CAR #2#) . #4#) NIL))
                         (GO G191)))
@@ -119,7 +119,7 @@
                        (EXIT
                         (COND
                          ((QEQCAR
-                           (LETT |l| (SPADCALL (QCAR |t|) (QREFELT $ 35))
+                           (LETT |l| (SPADCALL (QCAR |t|) (QREFELT $ 37))
                                  . #4#)
                            0)
                           (LETT #3#
@@ -139,7 +139,7 @@
           (EXIT
            (LETT |lt|
                  (SPADCALL (CONS (|function| |LEXP;compareTerm1s|) $) |lt|
-                           (QREFELT $ 37))
+                           (QREFELT $ 39))
                  . #4#))))) 
 
 (SDEFUN |LEXP;*;3$;6| ((|x| $) (|y| $) ($ $))
@@ -148,15 +148,15 @@
                          (PROG1 (LETT #1# (QREFELT $ 8) |LEXP;*;3$;6|)
                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
                                             #1#))
-                         (QREFELT $ 39)))) 
+                         (QREFELT $ 41)))) 
 
 (SDEFUN |LEXP;exp;Lp$;7| ((|p| |LiePolynomial| |VarSet| R) ($ $))
         (SPROG ((#1=#:G142 NIL))
-               (SPADCALL (SPADCALL |p| (QREFELT $ 42))
+               (SPADCALL (SPADCALL |p| (QREFELT $ 44))
                          (PROG1 (LETT #1# (QREFELT $ 8) |LEXP;exp;Lp$;7|)
                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
                                             #1#))
-                         (QREFELT $ 43)))) 
+                         (QREFELT $ 45)))) 
 
 (SDEFUN |LEXP;log;$Lp;8| ((|p| $) ($ |LiePolynomial| |VarSet| R))
         (SPROG ((#1=#:G149 NIL) (#2=#:G147 NIL))
@@ -170,8 +170,8 @@
                                       (|check_subtype| (>= #2# 0)
                                                        '(|NonNegativeInteger|)
                                                        #2#))
-                                    (QREFELT $ 45))
-                          (QREFELT $ 47))
+                                    (QREFELT $ 47))
+                          (QREFELT $ 49))
                          . #3#)
                    (QCDR #1#)
                  (|check_union| (QEQCAR #1# 0)
@@ -185,14 +185,14 @@
            (|List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R)))))
          (SEQ
           (COND
-           ((SPADCALL |p| (|spadConstant| $ 49) (QREFELT $ 50))
-            (SPADCALL (|spadConstant| $ 19) (QREFELT $ 23)))
+           ((SPADCALL |p| (|spadConstant| $ 51) (QREFELT $ 52))
+            (SPADCALL (|spadConstant| $ 19) (QREFELT $ 25)))
            ('T
             (SEQ
-             (LETT |lt| (SPADCALL |p| (QREFELT $ 27))
+             (LETT |lt| (SPADCALL |p| (QREFELT $ 29))
                    . #3=(|LEXP;coerce;$Of;9|))
              (EXIT
-              (SPADCALL (ELT $ 24)
+              (SPADCALL (ELT $ 26)
                         (PROGN
                          (LETT #2# NIL . #3#)
                          (SEQ (LETT |t| NIL . #3#) (LETT #1# |lt| . #3#) G190
@@ -206,7 +206,7 @@
                                       . #3#)))
                               (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                               (EXIT (NREVERSE #2#))))
-                        (QREFELT $ 53))))))))) 
+                        (QREFELT $ 55))))))))) 
 
 (SDEFUN |LEXP;LyndonBasis;LL;10|
         ((|lv| |List| |VarSet|) ($ |List| (|LiePolynomial| |VarSet| R)))
@@ -215,7 +215,7 @@
                 (PROGN
                  (LETT #2# NIL . #3=(|LEXP;LyndonBasis;LL;10|))
                  (SEQ (LETT |l| NIL . #3#)
-                      (LETT #1# (SPADCALL |lv| (QREFELT $ 8) (QREFELT $ 58))
+                      (LETT #1# (SPADCALL |lv| (QREFELT $ 8) (QREFELT $ 60))
                             . #3#)
                       G190
                       (COND
@@ -223,7 +223,7 @@
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |l| (QREFELT $ 59)) #2#)
+                        (LETT #2# (CONS (SPADCALL |l| (QREFELT $ 61)) #2#)
                               . #3#)))
                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
@@ -241,11 +241,11 @@
           (#1=#:G171 NIL) (|t| NIL) (#2=#:G170 NIL))
          (SEQ
           (COND
-           ((SPADCALL |x| (|spadConstant| $ 49) (QREFELT $ 50))
-            (|spadConstant| $ 49))
+           ((SPADCALL |x| (|spadConstant| $ 51) (QREFELT $ 52))
+            (|spadConstant| $ 51))
            ('T
             (SEQ
-             (LETT |lt| (SPADCALL (SPADCALL |x| (QREFELT $ 63)) (QREFELT $ 32))
+             (LETT |lt| (SPADCALL (SPADCALL |x| (QREFELT $ 65)) (QREFELT $ 34))
                    . #3=(|LEXP;inv;2$;12|))
              (LETT |lt|
                    (PROGN
@@ -263,8 +263,8 @@
                                         (COND
                                          ((ODDP
                                            (SPADCALL (QCAR |t|)
-                                                     (QREFELT $ 64)))
-                                          (SPADCALL (QCDR |t|) (QREFELT $ 65)))
+                                                     (QREFELT $ 66)))
+                                          (SPADCALL (QCDR |t|) (QREFELT $ 67)))
                                          ('T (QCDR |t|))))
                                   #2#)
                                  . #3#)))
@@ -302,7 +302,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|LieExponentials| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 73) . #1#)
+          (LETT $ (GETREFV 75) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|LieExponentials|
@@ -321,28 +321,28 @@
               (|local| |#2|) (|local| |#3|) '|Rep| (0 . |Zero|) (|Equation| 7)
               (4 . |equation|) (|Boolean|) (|LyndonWord| 6) (10 . =) (16 . -)
               (22 . =) (28 . |lexico|) (34 . |One|) (|OutputForm|)
-              (38 . |coerce|) (43 . ^) (49 . |coerce|) (54 . *)
-              (|Record| (|:| |k| 14) (|:| |c| 7)) (|List| 25)
-              |LEXP;LyndonCoordinates;$L;5| (|List| 11)
-              |LEXP;identification;2$L;4| (|Record| (|:| |k| 34) (|:| |c| 7))
-              (|List| 30) (60 . |listOfTerms|) (|Union| 14 '"failed")
-              (|PoincareBirkhoffWittLyndonBasis| 6) (65 . |retractIfCan|)
-              (|Mapping| 13 25 25) (70 . |sort|) (|NonNegativeInteger|)
-              (76 . |product|) |LEXP;*;3$;6| (|LiePolynomial| 6 7)
-              (83 . |coerce|) (88 . |exp|) |LEXP;exp;Lp$;7| (94 . |log|)
-              (|Union| 41 '"failed") (100 . |LiePolyIfCan|) |LEXP;log;$Lp;8|
-              (105 . |One|) (109 . =) (|Mapping| 20 20 20) (|List| 20)
-              (115 . |reduce|) |LEXP;coerce;$Of;9| (|List| $) (|List| 6)
-              (|PositiveInteger|) (121 . |LyndonWordsList|) (127 . |LiePoly|)
-              (|List| 41) |LEXP;LyndonBasis;LL;10| |LEXP;coerce;$Xpbwp;11|
-              (132 . |mirror|) (137 . |length|) (142 . -) |LEXP;inv;2$;12|
+              (|Character|) (38 . |coerce|) (43 . |coerce|) (48 . ^)
+              (54 . |coerce|) (59 . *) (|Record| (|:| |k| 14) (|:| |c| 7))
+              (|List| 27) |LEXP;LyndonCoordinates;$L;5| (|List| 11)
+              |LEXP;identification;2$L;4| (|Record| (|:| |k| 36) (|:| |c| 7))
+              (|List| 32) (65 . |listOfTerms|) (|Union| 14 '"failed")
+              (|PoincareBirkhoffWittLyndonBasis| 6) (70 . |retractIfCan|)
+              (|Mapping| 13 27 27) (75 . |sort|) (|NonNegativeInteger|)
+              (81 . |product|) |LEXP;*;3$;6| (|LiePolynomial| 6 7)
+              (88 . |coerce|) (93 . |exp|) |LEXP;exp;Lp$;7| (99 . |log|)
+              (|Union| 43 '"failed") (105 . |LiePolyIfCan|) |LEXP;log;$Lp;8|
+              (110 . |One|) (114 . =) (|Mapping| 20 20 20) (|List| 20)
+              (120 . |reduce|) |LEXP;coerce;$Of;9| (|List| $) (|List| 6)
+              (|PositiveInteger|) (126 . |LyndonWordsList|) (132 . |LiePoly|)
+              (|List| 43) |LEXP;LyndonBasis;LL;10| |LEXP;coerce;$Xpbwp;11|
+              (137 . |mirror|) (142 . |length|) (147 . -) |LEXP;inv;2$;12|
               (|XDistributedPolynomial| 6 7) (|Integer|) (|Union| $ '"failed")
               (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 147 |varList| 153 |sample| 158 |recip| 162 |one?| 167 |mirror|
-              172 |log| 177 |listOfTerms| 182 |latex| 187 |inv| 192
-              |identification| 197 |hashUpdate!| 203 |hash| 209 |exp| 214
-              |conjugate| 219 |commutator| 225 |coerce| 231 ^ 246 |One| 264
-              |LyndonCoordinates| 268 |LyndonBasis| 273 = 278 / 284 * 290)
+           '#(~= 152 |varList| 158 |sample| 163 |recip| 167 |one?| 172 |mirror|
+              177 |log| 182 |listOfTerms| 187 |latex| 192 |inv| 197
+              |identification| 202 |hashUpdate!| 208 |hash| 214 |exp| 219
+              |conjugate| 224 |commutator| 230 |coerce| 236 ^ 251 |One| 269
+              |LyndonCoordinates| 273 |LyndonBasis| 278 = 283 / 289 * 295)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -351,23 +351,24 @@
                   (CONS
                    '#((|Group|) (|Monoid|) (|SemiGroup|) (|SetCategory|)
                       (|BasicType|) (|unitsKnown|) (|CoercibleTo| 20))
-                   (|makeByteWordVec2| 72
+                   (|makeByteWordVec2| 74
                                        '(0 7 0 10 2 11 0 7 7 12 2 14 13 0 0 15
                                          2 7 0 0 0 16 2 7 13 0 0 17 2 14 13 0 0
-                                         18 0 7 0 19 1 14 20 0 21 2 20 0 0 0 22
-                                         1 7 20 0 23 2 20 0 0 0 24 1 0 31 0 32
-                                         1 34 33 0 35 2 26 0 36 0 37 3 9 0 0 0
-                                         38 39 1 9 0 41 42 2 9 0 0 38 43 2 9 0
-                                         0 38 45 1 9 46 0 47 0 0 0 49 2 0 13 0
-                                         0 50 2 52 20 51 0 53 2 14 55 56 57 58
-                                         1 41 0 14 59 1 0 0 0 63 1 34 38 0 64 1
-                                         7 0 0 65 2 0 13 0 0 1 1 0 56 0 1 0 0 0
-                                         1 1 0 69 0 1 1 0 13 0 1 1 0 0 0 63 1 0
-                                         41 0 48 1 0 31 0 32 1 0 71 0 1 1 0 0 0
-                                         66 2 0 28 0 0 29 2 0 70 70 0 1 1 0 72
-                                         0 1 1 0 0 41 44 2 0 0 0 0 1 2 0 0 0 0
-                                         1 1 0 67 0 1 1 0 5 0 62 1 0 20 0 54 2
-                                         0 0 0 68 1 2 0 0 0 38 1 2 0 0 0 57 1 0
-                                         0 0 49 1 0 26 0 27 1 0 60 56 61 2 0 13
-                                         0 0 50 2 0 0 0 0 1 2 0 0 0 0 40)))))
+                                         18 0 7 0 19 1 21 20 0 22 1 14 20 0 23
+                                         2 20 0 0 0 24 1 7 20 0 25 2 20 0 0 0
+                                         26 1 0 33 0 34 1 36 35 0 37 2 28 0 38
+                                         0 39 3 9 0 0 0 40 41 1 9 0 43 44 2 9 0
+                                         0 40 45 2 9 0 0 40 47 1 9 48 0 49 0 0
+                                         0 51 2 0 13 0 0 52 2 54 20 53 0 55 2
+                                         14 57 58 59 60 1 43 0 14 61 1 0 0 0 65
+                                         1 36 40 0 66 1 7 0 0 67 2 0 13 0 0 1 1
+                                         0 58 0 1 0 0 0 1 1 0 71 0 1 1 0 13 0 1
+                                         1 0 0 0 65 1 0 43 0 50 1 0 33 0 34 1 0
+                                         73 0 1 1 0 0 0 68 2 0 30 0 0 31 2 0 72
+                                         72 0 1 1 0 74 0 1 1 0 0 43 46 2 0 0 0
+                                         0 1 2 0 0 0 0 1 1 0 69 0 1 1 0 5 0 64
+                                         1 0 20 0 56 2 0 0 0 70 1 2 0 0 0 40 1
+                                         2 0 0 0 59 1 0 0 0 51 1 0 28 0 29 1 0
+                                         62 58 63 2 0 13 0 0 52 2 0 0 0 0 1 2 0
+                                         0 0 0 42)))))
            '|lookupComplete|)) 

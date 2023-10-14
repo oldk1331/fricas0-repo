@@ -43,9 +43,8 @@
 
 (SDEFUN |CHAR;newline;$;12| (($ $)) (SPADCALL 10 (QREFELT $ 13))) 
 
-(PUT '|CHAR;coerce;$Of;13| '|SPADreplace| 'NUM2USTR) 
-
-(SDEFUN |CHAR;coerce;$Of;13| ((|c| $) ($ |OutputForm|)) (NUM2USTR |c|)) 
+(SDEFUN |CHAR;coerce;$Of;13| ((|c| $) ($ |OutputForm|))
+        (NUM2USTR (SPADCALL |c| (QREFELT $ 16)))) 
 
 (SDEFUN |CHAR;digit?;$B;14| ((|c| $) ($ |Boolean|))
         (SPADCALL |c| (|spadConstant| $ 27) (QREFELT $ 29))) 
@@ -73,10 +72,10 @@
 (SDEFUN |CHAR;char;S$;21| ((|s| |String|) ($ $)) (|STR_to_CHAR| |s|)) 
 
 (SDEFUN |CHAR;upperCase;2$;22| ((|c| $) ($ $))
-        (QENUM (PNAME (UPCASE (NUM2CHAR |c|))) 0)) 
+        (STR_ELT (PNAME (UPCASE (NUM2CHAR (SPADCALL |c| (QREFELT $ 16))))) 0)) 
 
 (SDEFUN |CHAR;lowerCase;2$;23| ((|c| $) ($ $))
-        (QENUM (PNAME (DOWNCASE (NUM2CHAR |c|))) 0)) 
+        (STR_ELT (PNAME (DOWNCASE (NUM2CHAR (SPADCALL |c| (QREFELT $ 16))))) 0)) 
 
 (PUT '|CHAR;hashUpdate!;Hs$Hs;24| '|SPADreplace| 'HASHSTATEUPDATE) 
 
