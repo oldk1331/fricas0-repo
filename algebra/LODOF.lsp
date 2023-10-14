@@ -81,7 +81,6 @@
                               (|Fraction| (QREFELT $ 7)))
                              #1#))
             . #2#)
-      (COND (|adj?| (LETT |q| (SPADCALL |q| (QREFELT $ 43)) . #2#)))
       (EXIT (|LODOF;innerFactor| |q| |zeros| |ezfactor| 'T $)))))) 
 
 (DEFUN |LODOF;rfactor| (|op| |r| |zeros| |ezfactor| |adj?| $)
@@ -89,10 +88,10 @@
     (RETURN
      (SEQ
       (COND
-       ((OR (SPADCALL (SPADCALL |r| (QREFELT $ 36)) 1 (QREFELT $ 45))
+       ((OR (SPADCALL (SPADCALL |r| (QREFELT $ 36)) 1 (QREFELT $ 44))
             (NULL
-             (SPADCALL (SPADCALL |r| (QREFELT $ 46)) (|spadConstant| $ 47)
-                       (QREFELT $ 48))))
+             (SPADCALL (SPADCALL |r| (QREFELT $ 45)) (|spadConstant| $ 46)
+                       (QREFELT $ 47))))
         (|LODOF;recurfactor| |op| |r| |zeros| |ezfactor| |adj?| $))
        ('T
         (SEQ
@@ -100,15 +99,15 @@
                (|LODOF;opeval| |op|
                 (SPADCALL (QREFELT $ 10)
                           (SPADCALL (SPADCALL |r| 0 (QREFELT $ 37))
-                                    (QREFELT $ 49))
-                          (QREFELT $ 50))
+                                    (QREFELT $ 48))
+                          (QREFELT $ 49))
                 $)
                |LODOF;rfactor|)
          (EXIT
           (SPADCALL (CONS #'|LODOF;rfactor!0| (VECTOR $ |r|))
                     (|LODOF;recurfactor| |op1| (QREFELT $ 10) |zeros|
                      |ezfactor| |adj?| $)
-                    (QREFELT $ 52)))))))))) 
+                    (QREFELT $ 51)))))))))) 
 
 (DEFUN |LODOF;rfactor!0| (|z1| $$)
   (PROG (|r| $)
@@ -117,15 +116,15 @@
     (RETURN (PROGN (|LODOF;opeval| |z1| |r| $))))) 
 
 (DEFUN |LODOF;innerFactor| (|l| |zeros| |ezfactor| |r1?| $)
-  (PROG (#1=#:G195 #2=#:G199 |u| #3=#:G200 |i| |ll| |n|)
+  (PROG (#1=#:G196 #2=#:G200 |u| #3=#:G201 |i| |ll| |n|)
     (RETURN
      (SEQ
       (EXIT
        (SEQ (LETT |n| (SPADCALL |l| (QREFELT $ 36)) . #4=(|LODOF;innerFactor|))
             (EXIT
-             (COND ((SPADCALL |n| 1 (QREFELT $ 54)) (LIST |l|))
+             (COND ((SPADCALL |n| 1 (QREFELT $ 53)) (LIST |l|))
                    ('T
-                    (SEQ (LETT |ll| (SPADCALL |l| (QREFELT $ 43)) . #4#)
+                    (SEQ (LETT |ll| (SPADCALL |l| (QREFELT $ 54)) . #4#)
                          (SEQ (LETT |i| 1 . #4#)
                               (LETT #3# (QUOTIENT2 |n| 2) . #4#) G190
                               (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -133,7 +132,7 @@
                                (EXIT
                                 (SEQ
                                  (COND
-                                  ((OR |r1?| (SPADCALL |i| 1 (QREFELT $ 45)))
+                                  ((OR |r1?| (SPADCALL |i| 1 (QREFELT $ 44)))
                                    (SEQ
                                     (LETT |u|
                                           (|LODOF;rightFactor| |l| |i| |zeros|
@@ -174,10 +173,17 @@
                                                       (CONS
                                                        (SPADCALL (QCDR |u|)
                                                                  (QREFELT $
-                                                                          43))
-                                                       (|LODOF;rfactor| |ll|
-                                                        (QCDR |u|) |zeros|
-                                                        |ezfactor| 'T $))
+                                                                          54))
+                                                       (SPADCALL (ELT $ 54)
+                                                                 (NREVERSE
+                                                                  (|LODOF;rfactor|
+                                                                   |ll|
+                                                                   (QCDR |u|)
+                                                                   |zeros|
+                                                                   |ezfactor|
+                                                                   'T $))
+                                                                 (QREFELT $
+                                                                          51)))
                                                       . #4#)
                                                 (GO #2#))
                                                . #4#)
@@ -202,12 +208,12 @@
                 (#1='T
                  (CONS 0
                        (SPADCALL (SPADCALL (QREFELT $ 9))
-                                 (SPADCALL (QCDR |u|) (QREFELT $ 49))
-                                 (QREFELT $ 50))))))))
+                                 (SPADCALL (QCDR |u|) (QREFELT $ 48))
+                                 (QREFELT $ 49))))))))
        (#1# (CONS 1 "failed"))))))) 
 
 (DEFUN |LODOF;zro| (|p| |ezfactor| $)
-  (PROG (#1=#:G215 |r| #2=#:G214)
+  (PROG (#1=#:G216 |r| #2=#:G215)
     (RETURN
      (SEQ
       (SPADCALL
@@ -256,10 +262,10 @@
 
 (DEFUN |LODOF;factor1;LodoL;14!0| (|p1| $) (|LODOF;zro| |p1| (ELT $ 12) $)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorFactorizer| (&REST #1=#:G235)
+(DEFUN |LinearOrdinaryDifferentialOperatorFactorizer| (&REST #1=#:G236)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G236)
+     (PROG (#2=#:G237)
        (RETURN
         (COND
          ((LETT #2#
@@ -340,12 +346,11 @@
               (|RationalRicDE| 6 7) (44 . |ricDsolve|) (51 . |concat|)
               (57 . |Zero|) (61 . |One|) (|NonNegativeInteger|) (65 . |degree|)
               (70 . |coefficient|) (76 . *) (82 . +) (88 . *)
-              (|Union| $ '"failed") (94 . |rightExactQuotient|)
-              (100 . |adjoint|) (105 . |One|) (109 . >)
-              (115 . |leadingCoefficient|) (120 . |One|) (124 . =)
-              (130 . |coerce|) (135 . -) (|Mapping| 8 8) (141 . |map!|)
-              (147 . |One|) (151 . <=) (157 . |concat!|) (|PositiveInteger|)
-              (163 . *)
+              (|Union| $ '"failed") (94 . |rightExactQuotient|) (100 . |One|)
+              (104 . >) (110 . |leadingCoefficient|) (115 . |One|) (119 . =)
+              (125 . |coerce|) (130 . -) (|Mapping| 8 8) (136 . |map!|)
+              (142 . |One|) (146 . <=) (152 . |adjoint|) (157 . |concat!|)
+              (|PositiveInteger|) (163 . *)
               (|Record| (|:| |factor| 7) (|:| |exponent| (|Integer|)))
               (|List| 58) (|Factored| 7) (169 . |factors|) (|List| $)
               (|List| 6) (174 . |concat|) (|SparseUnivariatePolynomial| 6)
@@ -366,15 +371,15 @@
                                                    33 0 8 0 34 1 8 35 0 36 2 8
                                                    18 0 35 37 2 8 0 18 0 38 2 8
                                                    0 0 0 39 2 8 0 0 0 40 2 8 41
-                                                   0 0 42 1 8 0 0 43 0 6 0 44 2
-                                                   35 24 0 0 45 1 8 18 0 46 0
-                                                   18 0 47 2 18 24 0 0 48 1 8 0
-                                                   18 49 2 8 0 0 0 50 2 13 0 51
-                                                   0 52 0 7 0 53 2 35 24 0 0 54
-                                                   2 13 0 0 8 55 2 35 0 56 0 57
-                                                   1 60 59 0 61 1 63 0 62 64 2
-                                                   67 65 66 7 68 1 6 0 69 70 1
-                                                   71 60 7 72 1 0 13 8 73 1 0
+                                                   0 0 42 0 6 0 43 2 35 24 0 0
+                                                   44 1 8 18 0 45 0 18 0 46 2
+                                                   18 24 0 0 47 1 8 0 18 48 2 8
+                                                   0 0 0 49 2 13 0 50 0 51 0 7
+                                                   0 52 2 35 24 0 0 53 1 8 0 0
+                                                   54 2 13 0 0 8 55 2 35 0 56 0
+                                                   57 1 60 59 0 61 1 63 0 62 64
+                                                   2 67 65 66 7 68 1 6 0 69 70
+                                                   1 71 60 7 72 1 0 13 8 73 1 0
                                                    13 8 74 1 1 13 8 74 1 1 13 8
                                                    73 2 0 13 8 14 15)))))
            '|lookupComplete|)) 

@@ -171,43 +171,54 @@
           (EXIT |ans|))))) 
 
 (DEFUN |ODERTRIC;polyRicDE;LodoML;12| (|l| |zeros| $)
-  (PROG (|ans| |p| #1=#:G217 |a| |rec| |lc|)
+  (PROG (|ans| |p| #1=#:G219 |a| #2=#:G218 |rec| |lc|)
     (RETURN
      (SEQ
       (LETT |ans| (LIST (CONS (|spadConstant| $ 18) |l|))
-            . #2=(|ODERTRIC;polyRicDE;LodoML;12|))
+            . #3=(|ODERTRIC;polyRicDE;LodoML;12|))
       (EXIT
-       (COND ((NULL (LETT |lc| (SPADCALL |l| (QREFELT $ 73)) . #2#)) |ans|)
+       (COND ((NULL (LETT |lc| (SPADCALL |l| (QREFELT $ 73)) . #3#)) |ans|)
              ('T
-              (SEQ (LETT |rec| (|SPADfirst| |lc|) . #2#)
-                   (SEQ (LETT |a| NIL . #2#)
-                        (LETT #1# (SPADCALL (QCDR |rec|) |zeros|) . #2#) G190
-                        (COND
-                         ((OR (ATOM #1#)
-                              (PROGN (LETT |a| (CAR #1#) . #2#) NIL))
-                          (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (COND
-                           ((SPADCALL |a| (|spadConstant| $ 17) (QREFELT $ 75))
-                            (COND
-                             ((SPADCALL
-                               (LETT |p|
-                                     (|ODERTRIC;newtonSolution| |l| |a|
-                                      (QCAR |rec|) |zeros| $)
-                                     . #2#)
-                               (|spadConstant| $ 18) (QREFELT $ 76))
-                              (LETT |ans|
-                                    (CONS
-                                     (CONS |p|
-                                           (SPADCALL |l| |p| (QREFELT $ 77)))
-                                     |ans|)
-                                    . #2#)))))))
-                        (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-                   (EXIT |ans|))))))))) 
+              (SEQ
+               (SEQ (LETT |rec| NIL . #3#) (LETT #2# (REVERSE |lc|) . #3#) G190
+                    (COND
+                     ((OR (ATOM #2#) (PROGN (LETT |rec| (CAR #2#) . #3#) NIL))
+                      (GO G191)))
+                    (SEQ
+                     (EXIT
+                      (SEQ (LETT |a| NIL . #3#)
+                           (LETT #1# (SPADCALL (QCDR |rec|) |zeros|) . #3#)
+                           G190
+                           (COND
+                            ((OR (ATOM #1#)
+                                 (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
+                             (GO G191)))
+                           (SEQ
+                            (EXIT
+                             (COND
+                              ((SPADCALL |a| (|spadConstant| $ 17)
+                                         (QREFELT $ 75))
+                               (COND
+                                ((SPADCALL
+                                  (LETT |p|
+                                        (|ODERTRIC;newtonSolution| |l| |a|
+                                         (QCAR |rec|) |zeros| $)
+                                        . #3#)
+                                  (|spadConstant| $ 18) (QREFELT $ 76))
+                                 (LETT |ans|
+                                       (CONS
+                                        (CONS |p|
+                                              (SPADCALL |l| |p|
+                                                        (QREFELT $ 77)))
+                                        |ans|)
+                                       . #3#)))))))
+                           (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                           (EXIT NIL))))
+                    (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+               (EXIT |ans|))))))))) 
 
 (DEFUN |ODERTRIC;reverseUP| (|p| $)
-  (PROG (|ans| #1=#:G218 |n|)
+  (PROG (|ans| #1=#:G220 |n|)
     (RETURN
      (SEQ (LETT |ans| (|spadConstant| $ 82) . #2=(|ODERTRIC;reverseUP|))
           (LETT |n| (SPADCALL |p| (QREFELT $ 83)) . #2#)
@@ -237,7 +248,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |ODERTRIC;reverseUTS| (|s| |n| $)
-  (PROG (#1=#:G224 #2=#:G223 #3=#:G225 #4=#:G226 |i|)
+  (PROG (#1=#:G226 #2=#:G225 #3=#:G227 #4=#:G228 |i|)
     (RETURN
      (SEQ
       (PROGN
@@ -259,7 +270,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 18)))))))) 
 
 (DEFUN |ODERTRIC;newtonSolution| (|l| |a| |n| |zeros| $)
-  (PROG (|sols| #1=#:G250 |sol| #2=#:G249 |neq| |atn| |u| |aeq| |s| #3=#:G237
+  (PROG (|sols| #1=#:G252 |sol| #2=#:G251 |neq| |atn| |u| |aeq| |s| #3=#:G239
          |d| |c| |m| |op| |mu|)
     (RETURN
      (SEQ (LETT |m| 0 . #4=(|ODERTRIC;newtonSolution|))
@@ -345,7 +356,7 @@
                                          (QREFELT $ 90))))))))))))) 
 
 (DEFUN |ODERTRIC;newtonSolve| (|eq| |a| |n| $)
-  (PROG (|sol| #1=#:G257 |xquo| |i| |deq|)
+  (PROG (|sol| #1=#:G259 |xquo| |i| |deq|)
     (RETURN
      (SEQ
       (EXIT
@@ -374,7 +385,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ODERTRIC;ricDsolve;LodoMML;17| (|l| |zeros| |ezfactor| $)
-  (PROG (#1=#:G263 #2=#:G266 |ans| #3=#:G269 |f| #4=#:G268 #5=#:G267 |rec| |n|)
+  (PROG (#1=#:G265 #2=#:G268 |ans| #3=#:G271 |f| #4=#:G270 #5=#:G269 |rec| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -432,7 +443,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ODERTRIC;nonSingSolve| (|n| |l| |zeros| $)
-  (PROG (#1=#:G276 #2=#:G279 |ans| #3=#:G280 |rec|)
+  (PROG (#1=#:G278 #2=#:G281 |ans| #3=#:G282 |rec|)
     (RETURN
      (SEQ
       (EXIT
@@ -470,7 +481,7 @@
         ('T (SPADCALL (SPADCALL |p| (QREFELT $ 115)) |zeros|)))) 
 
 (DEFUN |ODERTRIC;nopoly| (|n| |p| |l| |zeros| $)
-  (PROG (#1=#:G287 #2=#:G290 |ans| #3=#:G293 |f| #4=#:G292 #5=#:G291 |rec|)
+  (PROG (#1=#:G289 #2=#:G292 |ans| #3=#:G295 |f| #4=#:G294 #5=#:G293 |rec|)
     (RETURN
      (SEQ
       (EXIT
@@ -545,7 +556,7 @@
     (RETURN (PROGN (|ODERTRIC;constantRic| |z| |zeros| $))))) 
 
 (DEFUN |ODERTRIC;solveModulo| (|c| |h| $)
-  (PROG (#1=#:G304 |s| #2=#:G303 |sol| |unk| |rec|)
+  (PROG (#1=#:G306 |s| #2=#:G305 |sol| |unk| |rec|)
     (RETURN
      (SEQ
       (LETT |rec|
@@ -631,7 +642,7 @@
     (RETURN (PROGN (|ODERTRIC;zro| |z| |ezfactor| $))))) 
 
 (DEFUN |ODERTRIC;zro| (|p| |ezfactor| $)
-  (PROG (#1=#:G321 |r| #2=#:G320)
+  (PROG (#1=#:G323 |r| #2=#:G322)
     (RETURN
      (SEQ
       (SPADCALL
@@ -657,10 +668,10 @@
 
 (DEFUN |ODERTRIC;zro1!0| (|z| $$) |z|) 
 
-(DEFUN |RationalRicDE| (&REST #1=#:G325)
+(DEFUN |RationalRicDE| (&REST #1=#:G327)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G326)
+     (PROG (#2=#:G328)
        (RETURN
         (COND
          ((LETT #2#
