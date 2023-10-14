@@ -8,7 +8,7 @@
              (EXIT (SPADCALL |dev| (QREFELT $ 20))))) 
 
 (SDEFUN |FLOAT;OMwrite;$S;2| ((|x| $) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|FLOAT;OMwrite;$S;2|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|
@@ -22,7 +22,7 @@
                     (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
 (SDEFUN |FLOAT;OMwrite;$BS;3| ((|x| $) (|wholeObj| |Boolean|) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|FLOAT;OMwrite;$BS;3|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|
@@ -1073,8 +1073,8 @@
 
 (SDEFUN |FLOAT;sqrt;2$;38| ((|x| $) ($ $))
         (SPROG
-         ((|i| (|Integer|)) (|p| (|Integer|)) (|l| NIL) (|e| (|Integer|))
-          (|m| (|Integer|)))
+         ((|i| (|Integer|)) (|p| (|Integer|)) (|l| (|Integer|))
+          (|e| (|Integer|)) (|m| (|Integer|)))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT $ 35)) (|error| "negative sqrt"))
                 ('T
@@ -1697,16 +1697,17 @@
 
 (SDEFUN |FLOAT;length10| ((|n| |Integer|) ($ |Integer|))
         (SPROG
-         ((|lower| (|Integer|)) (#1=#:G547 NIL)
-          (|upper| (|NonNegativeInteger|)) (|ln| NIL))
+         ((|lower| #1=(|Integer|)) (#2=#:G547 NIL) (|upper| #1#)
+          (|ln| (|Integer|)))
          (SEQ
           (LETT |ln|
-                (INTEGER-LENGTH (LETT |n| (ABS |n|) . #2=(|FLOAT;length10|)))
-                . #2#)
-          (LETT |upper| (QUOTIENT2 (* 76573 |ln|) 254370) . #2#)
+                (INTEGER-LENGTH (LETT |n| (ABS |n|) . #3=(|FLOAT;length10|)))
+                . #3#)
+          (LETT |upper| (QUOTIENT2 (SPADCALL 76573 |ln| (QREFELT $ 60)) 254370)
+                . #3#)
           (LETT |lower|
                 (QUOTIENT2 (SPADCALL 21306 (- |ln| 1) (QREFELT $ 60)) 70777)
-                . #2#)
+                . #3#)
           (EXIT
            (COND ((EQL |upper| |lower|) (+ |upper| 1))
                  ('T
@@ -1714,14 +1715,14 @@
                    (LETT |n|
                          (QUOTIENT2 |n|
                                     (EXPT 10
-                                          (PROG1 (LETT #1# |lower| . #2#)
-                                            (|check_subtype| (>= #1# 0)
+                                          (PROG1 (LETT #2# |lower| . #3#)
+                                            (|check_subtype| (>= #2# 0)
                                                              '(|NonNegativeInteger|)
-                                                             #1#))))
-                         . #2#)
+                                                             #2#))))
+                         . #3#)
                    (SEQ G190 (COND ((NULL (>= |n| 10)) (GO G191)))
-                        (SEQ (LETT |n| (QUOTIENT2 |n| 10) . #2#)
-                             (EXIT (LETT |lower| (+ |lower| 1) . #2#)))
+                        (SEQ (LETT |n| (QUOTIENT2 |n| 10) . #3#)
+                             (EXIT (LETT |lower| (+ |lower| 1) . #3#)))
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT (+ |lower| 1))))))))) 
 

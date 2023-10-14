@@ -60,7 +60,7 @@
         ((|rows| . #1=(|NonNegativeInteger|)) (|cols| . #1#)
          (|a| |Complex| (|DoubleFloat|)) ($ $))
         (SPROG
-         ((#2=#:G2585 NIL) (|j| NIL) (#3=#:G2584 NIL) (|i| NIL) (|res| NIL))
+         ((#2=#:G2585 NIL) (|j| NIL) (#3=#:G2584 NIL) (|i| NIL) (|res| ($)))
          (SEQ
           (LETT |res| (MAKE-CDOUBLE-MATRIX |rows| |cols|)
                 . #4=(|CDFMAT;new;2NniC$;13|))

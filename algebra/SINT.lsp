@@ -10,7 +10,7 @@
           ('T (SPADCALL |dev| |x| (QREFELT $ 13)))))) 
 
 (SDEFUN |SINT;OMwrite;$S;2| ((|x| $) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|SINT;OMwrite;$S;2|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|
@@ -24,7 +24,7 @@
                     (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
 (SDEFUN |SINT;OMwrite;$BS;3| ((|x| $) (|wholeObj| |Boolean|) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|SINT;OMwrite;$BS;3|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|
@@ -235,7 +235,7 @@
         (CONS |m| |v|)) 
 
 (SDEFUN |SINT;positiveRemainder;3$;51| ((|x| $) (|n| $) ($ $))
-        (SPROG ((|r| NIL))
+        (SPROG ((|r| ($)))
                (SEQ
                 (LETT |r| (|rem_SI| |x| |n|) |SINT;positiveRemainder;3$;51|)
                 (EXIT

@@ -29,7 +29,7 @@
 
 (SDEFUN |CDFVEC;new;NniC$;7|
         ((|n| |NonNegativeInteger|) (|x| |Complex| (|DoubleFloat|)) ($ $))
-        (SPROG ((|res| NIL))
+        (SPROG ((|res| ($)))
                (SEQ (LETT |res| (MAKE-CDOUBLE-VECTOR |n|) |CDFVEC;new;NniC$;7|)
                     (EXIT (SPADCALL |res| |x| (QREFELT $ 15)))))) 
 

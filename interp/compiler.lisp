@@ -2278,6 +2278,8 @@
 ;            (T:=comp(val,maxm'',E)) => T
 ;         (T:= comp(val,$EmptyMode,E)) and getmode(T.mode,E) =>
 ;           assignError(val,T.mode,id,m'')
+;   m'' = $EmptyMode and T.mode = $EmptyMode and not(GENSYMP(id)) =>
+;       stackMessage ["No mode in assignment to: ", id]
 ;   finish_setq_single(T, m, id, val, currentProplist)
  
 (DEFUN |setqSingle| (|id| |val| |m| E)
@@ -2289,7 +2291,8 @@
       (SETQ |currentProplist| (|getProplist| |id| E))
       (SETQ |m''|
               (OR (|get| |id| '|mode| E) (|getmode| |id| E)
-                  (COND ((EQUAL |m| |$NoValueMode|) |$EmptyMode|) ('T |m|))))
+                  (COND ((EQUAL |m| |$NoValueMode|) |$EmptyMode|)
+                        (#1='T |m|))))
       (SETQ T$
               (OR
                (COND ((SETQ T$ (|comp| |val| |m''| E)) T$)
@@ -2303,7 +2306,11 @@
                            (|getmode| (CADR T$) E))
                       (|assignError| |val| (CADR T$) |id| |m''|)))
                (RETURN NIL)))
-      (|finish_setq_single| T$ |m| |id| |val| |currentProplist|)))))
+      (COND
+       ((AND (EQUAL |m''| |$EmptyMode|) (EQUAL (CADR T$) |$EmptyMode|)
+             (NULL (GENSYMP |id|)))
+        (|stackMessage| (LIST '|No mode in assignment to: | |id|)))
+       (#1# (|finish_setq_single| T$ |m| |id| |val| |currentProplist|)))))))
  
 ; finish_setq_single(T, m, id, val, currentProplist) ==
 ;   T' := [x, m', e'] := convert(T, m) or return nil

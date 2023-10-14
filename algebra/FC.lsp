@@ -114,7 +114,7 @@
 
 (SDEFUN |FC;getElseIf| ((|f| $) ($ |SExpression|))
         (SPROG
-         ((|expr| NIL) (|elseBranch| ($)) (#1=#:G168 NIL)
+         ((|expr| (|SExpression|)) (|elseBranch| ($)) (#1=#:G168 NIL)
           (|rec|
            (|Union| (|:| |nullBranch| "null")
                     (|:| |assignmentBranch|
@@ -306,7 +306,7 @@
         ((|rec| |Record| (|:| |switch| (|Switch|)) (|:| |thenClause| $)
           (|:| |elseClause| $))
          ($ |SExpression|))
-        (SPROG ((|expr| NIL) (|elseBranch| ($)))
+        (SPROG ((|expr| (|SExpression|)) (|elseBranch| ($)))
                (SEQ
                 (LETT |expr|
                       (APPEND
@@ -374,7 +374,7 @@
           (|:| |span| #2=(|Polynomial| (|Integer|))) (|:| |body| $))
          ($ |SExpression|))
         (SPROG
-         ((|expr| NIL) (|lab| (|SingleInteger|)) (|increment| #2#)
+         ((|expr| (|SExpression|)) (|lab| (|SingleInteger|)) (|increment| #2#)
           (|rnge| #1#))
          (SEQ (LETT |rnge| (QVELT |rec| 0) . #3=(|FC;getFor|))
               (LETT |increment| (QVELT |rec| 1) . #3#)

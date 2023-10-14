@@ -18,7 +18,7 @@
          (LIST (SPADCALL '+-> (QREFELT $ 16)) (|INFORM;tuplify| |l| $) |f|) $)) 
 
 (SDEFUN |INFORM;interpret;$A;7| ((|x| $) ($ |Any|))
-        (SPROG ((|v| NIL))
+        (SPROG ((|v| (|None|)))
                (SEQ (LETT |v| (|interpret| |x|) |INFORM;interpret;$A;7|)
                     (EXIT
                      (|mkObj| (|unwrap| (|objVal| |v|)) (|objMode| |v|)))))) 
@@ -265,34 +265,33 @@
          (QREFELT $ 44))) 
 
 (SDEFUN |INFORM;mkProperOp| ((|name| |Symbol|) ($ $))
-        (SPROG ((|op| NIL) (|nme| ($)))
+        (SPROG ((|op| ($)) (|nme| ($)))
                (SEQ
                 (LETT |op|
                       (|mkAtree|
                        (LETT |nme| (SPADCALL |name| (QREFELT $ 16))
                              . #1=(|INFORM;mkProperOp|)))
                       . #1#)
-                (|transferPropsToNode| |nme| |op|)
-                (EXIT (SPADCALL |op| (QREFELT $ 52)))))) 
+                (|transferPropsToNode| |nme| |op|) (EXIT |op|)))) 
 
 (SDEFUN |INFORM;binary;$L$;17| ((|op| $) (|args| |List| $) ($ $))
         (SPROG ((|n| (|NonNegativeInteger|)))
                (SEQ
-                (LETT |n| (SPADCALL |args| (QREFELT $ 54))
+                (LETT |n| (SPADCALL |args| (QREFELT $ 53))
                       |INFORM;binary;$L$;17|)
                 (EXIT
                  (COND ((< |n| 2) (|error| "Need at least 2 arguments"))
                        ((EQL |n| 2)
                         (SPADCALL
                          (LIST |op| (SPADCALL |args| (QREFELT $ 33))
-                               (SPADCALL |args| (QREFELT $ 55)))
-                         (QREFELT $ 52)))
+                               (SPADCALL |args| (QREFELT $ 54)))
+                         (QREFELT $ 55)))
                        ('T
                         (SPADCALL
                          (LIST |op| (SPADCALL |args| (QREFELT $ 33))
                                (SPADCALL |op| (SPADCALL |args| (QREFELT $ 31))
                                          (QREFELT $ 56)))
-                         (QREFELT $ 52)))))))) 
+                         (QREFELT $ 55)))))))) 
 
 (SDEFUN |INFORM;tuplify| ((|l| |List| (|Symbol|)) ($ $))
         (SPROG ((#1=#:G171 NIL) (|x| NIL) (#2=#:G170 NIL))
@@ -331,9 +330,9 @@
                       (SPADCALL
                        (SPADCALL (+ 1 (LENGTH |l|))
                                  (SPADCALL (SPADCALL (QREFELT $ 37))
-                                           (QREFELT $ 52))
+                                           (QREFELT $ 55))
                                  (QREFELT $ 57))
-                       (QREFELT $ 52))
+                       (QREFELT $ 55))
                       . #3=(|INFORM;function;$LS$;19|))
                 (EXIT
                  (|INFORM;conv|
@@ -461,8 +460,8 @@
               (76 . |coerce|) (81 . |string?|) (86 . |string|) (91 . |symbol?|)
               (96 . |symbol|) (101 . |concat|) |INFORM;unparse;$S;12|
               |INFORM;parse;S$;13| |INFORM;declare;LS;14| (106 . |car|)
-              (111 . |cdr|) |INFORM;compile;SLS;15| (116 . |convert|)
-              (|NonNegativeInteger|) (121 . |#|) (126 . |last|)
+              (111 . |cdr|) |INFORM;compile;SLS;15| (|NonNegativeInteger|)
+              (116 . |#|) (121 . |last|) (126 . |convert|)
               |INFORM;binary;$L$;17| (131 . |new|) (137 . |cons|)
               |INFORM;function;$LS$;19| (143 . =) |INFORM;+;3$;20|
               |INFORM;*;3$;21| (149 . >) |INFORM;^;$I$;22| |INFORM;^;$Nni$;23|
@@ -489,8 +488,8 @@
                                               37 1 15 38 0 39 1 15 0 38 40 1 0
                                               24 0 41 1 0 38 0 42 1 0 24 0 43 1
                                               0 15 0 44 1 38 0 13 45 1 0 0 0 49
-                                              1 0 0 0 50 1 0 0 13 52 1 28 53 0
-                                              54 1 28 2 0 55 2 28 0 53 2 57 2
+                                              1 0 0 0 50 1 28 52 0 53 1 28 2 0
+                                              54 1 0 0 13 55 2 28 0 52 2 57 2
                                               28 0 2 0 58 2 0 24 0 0 60 2 7 24
                                               0 0 63 1 0 38 0 46 1 0 24 0 43 1
                                               0 15 0 44 1 0 24 0 41 1 0 38 0 42
@@ -498,10 +497,10 @@
                                               0 20 3 0 0 0 17 15 59 1 0 0 0 36
                                               1 0 13 0 26 1 0 15 13 48 1 0 0 5
                                               12 1 0 5 0 11 1 0 0 21 23 1 0 0 7
-                                              8 1 0 0 15 16 1 0 0 13 52 2 0 15
+                                              8 1 0 0 15 16 1 0 0 13 55 2 0 15
                                               15 13 51 1 0 0 0 50 1 0 0 0 49 2
                                               0 0 0 13 56 1 0 24 0 25 2 0 0 0
-                                              53 65 2 0 0 0 7 64 0 0 0 9 0 0 0
+                                              52 65 2 0 0 0 7 64 0 0 0 9 0 0 0
                                               10 2 0 24 0 0 60 2 0 0 0 0 66 2 0
                                               0 0 0 61 2 0 0 0 0 62)))))
            '|lookupIncomplete|)) 

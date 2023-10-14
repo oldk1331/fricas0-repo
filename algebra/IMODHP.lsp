@@ -119,11 +119,11 @@
           (|:| |eval1expbuf| (|SortedExponentVector|)))
          ($ |Union| (|List| (|U32Vector|)) "failed"))
         (SPROG
-         ((|resl| (|List| (|U32Vector|))) (|nlc| NIL) (|dms| (|SingleInteger|))
-          (#2=#:G172 NIL) (|dm| #3=(|Integer|)) (|nm| #3#)
-          (|nlcq| (|Fraction| (|Polynomial| (|Integer|)))) (#4=#:G174 NIL)
-          (|j| NIL) (|ress| (|U32Vector|)) (|n| (|NonNegativeInteger|))
-          (#5=#:G173 NIL) (|gv0| NIL) (|p| #1#))
+         ((|resl| (|List| (|U32Vector|))) (|nlc| (|Integer|))
+          (|dms| (|SingleInteger|)) (#2=#:G172 NIL) (|dm| #3=(|Integer|))
+          (|nm| #3#) (|nlcq| (|Fraction| (|Polynomial| (|Integer|))))
+          (#4=#:G174 NIL) (|j| NIL) (|ress| (|U32Vector|))
+          (|n| (|NonNegativeInteger|)) (#5=#:G173 NIL) (|gv0| NIL) (|p| #1#))
          (SEQ
           (EXIT
            (SEQ (LETT |p| (QVELT |pss| 5) . #6=(|IMODHP;eval1s|))

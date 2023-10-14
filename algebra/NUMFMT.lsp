@@ -40,62 +40,59 @@
         (SPADCALL |c1| (SPADCALL "E" (QREFELT $ 13)) (QREFELT $ 15))) 
 
 (SDEFUN |NUMFMT;ScanFloatIgnoreSpaces;SF;5| ((|s| |String|) ($ |Float|))
-        (SPROG ((|f| (|Integer|)) (|sCheck| (|SExpression|)) (|sex| NIL))
-               (SEQ
-                (LETT |s| (|NUMFMT;contract| |s| $)
-                      . #1=(|NUMFMT;ScanFloatIgnoreSpaces;SF;5|))
-                (COND
-                 ((NULL (|NUMFMT;check| |s| $))
-                  (EXIT (|error| "Non-numeric value"))))
-                (LETT |sex|
-                      (|interpret| (|packageTran| (|ncParseFromString| |s|)))
-                      . #1#)
-                (LETT |sCheck|
-                      (SPADCALL (SPADCALL |sex| (QREFELT $ 23)) (QREFELT $ 23))
-                      . #1#)
-                (EXIT
-                 (COND
-                  ((|BooleanEquality|
-                    (SPADCALL |sCheck| (QREFELT $ 22) (QREFELT $ 24)) 'T)
-                   (LETT |f|
-                         (SPADCALL (SPADCALL |sex| (QREFELT $ 25))
-                                   (QREFELT $ 25))
-                         . #1#))
-                  ((|BooleanEquality|
-                    (SPADCALL (SPADCALL |sex| (QREFELT $ 25)) (QREFELT $ 26))
-                    'T)
-                   (SEQ (LETT |f| (SPADCALL |sex| (QREFELT $ 25)) . #1#)
-                        (EXIT (SPADCALL |f| (QREFELT $ 29)))))
-                  ('T (|error| "Non-numeric value"))))))) 
+        (SPROG
+         ((|f| (|Integer|)) (|sCheck| (|SExpression|)) (|sex| (|SExpression|)))
+         (SEQ
+          (LETT |s| (|NUMFMT;contract| |s| $)
+                . #1=(|NUMFMT;ScanFloatIgnoreSpaces;SF;5|))
+          (COND
+           ((NULL (|NUMFMT;check| |s| $))
+            (EXIT (|error| "Non-numeric value"))))
+          (LETT |sex| (|interpret| (|packageTran| (|ncParseFromString| |s|)))
+                . #1#)
+          (LETT |sCheck|
+                (SPADCALL (SPADCALL |sex| (QREFELT $ 23)) (QREFELT $ 23))
+                . #1#)
+          (EXIT
+           (COND
+            ((|BooleanEquality|
+              (SPADCALL |sCheck| (QREFELT $ 22) (QREFELT $ 24)) 'T)
+             (LETT |f|
+                   (SPADCALL (SPADCALL |sex| (QREFELT $ 25)) (QREFELT $ 25))
+                   . #1#))
+            ((|BooleanEquality|
+              (SPADCALL (SPADCALL |sex| (QREFELT $ 25)) (QREFELT $ 26)) 'T)
+             (SEQ (LETT |f| (SPADCALL |sex| (QREFELT $ 25)) . #1#)
+                  (EXIT (SPADCALL |f| (QREFELT $ 29)))))
+            ('T (|error| "Non-numeric value"))))))) 
 
 (SDEFUN |NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6|
         ((|s| |String|) ($ |Union| (|Float|) "failed"))
-        (SPROG ((|f| (|Integer|)) (|sCheck| (|SExpression|)) (|sex| NIL))
-               (SEQ
-                (LETT |s| (|NUMFMT;contract| |s| $)
-                      . #1=(|NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6|))
-                (COND ((NULL (|NUMFMT;check| |s| $)) (EXIT (CONS 1 "failed"))))
-                (LETT |sex|
-                      (|interpret| (|packageTran| (|ncParseFromString| |s|)))
-                      . #1#)
-                (LETT |sCheck|
-                      (SPADCALL (SPADCALL |sex| (QREFELT $ 23)) (QREFELT $ 23))
-                      . #1#)
-                (EXIT
-                 (COND
-                  ((|BooleanEquality|
-                    (SPADCALL |sCheck| (QREFELT $ 22) (QREFELT $ 24)) 'T)
-                   (LETT |f|
-                         (CONS 0
-                               (SPADCALL (SPADCALL |sex| (QREFELT $ 25))
-                                         (QREFELT $ 25)))
-                         . #1#))
-                  ((|BooleanEquality|
-                    (SPADCALL (SPADCALL |sex| (QREFELT $ 25)) (QREFELT $ 26))
-                    'T)
-                   (SEQ (LETT |f| (SPADCALL |sex| (QREFELT $ 25)) . #1#)
-                        (EXIT (CONS 0 (SPADCALL |f| (QREFELT $ 29))))))
-                  ('T (CONS 1 "failed"))))))) 
+        (SPROG
+         ((|f| (|Integer|)) (|sCheck| (|SExpression|)) (|sex| (|SExpression|)))
+         (SEQ
+          (LETT |s| (|NUMFMT;contract| |s| $)
+                . #1=(|NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6|))
+          (COND ((NULL (|NUMFMT;check| |s| $)) (EXIT (CONS 1 "failed"))))
+          (LETT |sex| (|interpret| (|packageTran| (|ncParseFromString| |s|)))
+                . #1#)
+          (LETT |sCheck|
+                (SPADCALL (SPADCALL |sex| (QREFELT $ 23)) (QREFELT $ 23))
+                . #1#)
+          (EXIT
+           (COND
+            ((|BooleanEquality|
+              (SPADCALL |sCheck| (QREFELT $ 22) (QREFELT $ 24)) 'T)
+             (LETT |f|
+                   (CONS 0
+                         (SPADCALL (SPADCALL |sex| (QREFELT $ 25))
+                                   (QREFELT $ 25)))
+                   . #1#))
+            ((|BooleanEquality|
+              (SPADCALL (SPADCALL |sex| (QREFELT $ 25)) (QREFELT $ 26)) 'T)
+             (SEQ (LETT |f| (SPADCALL |sex| (QREFELT $ 25)) . #1#)
+                  (EXIT (CONS 0 (SPADCALL |f| (QREFELT $ 29))))))
+            ('T (CONS 1 "failed"))))))) 
 
 (PUT '|NUMFMT;FormatArabic;PiS;7| '|SPADreplace| 'STRINGIMAGE) 
 

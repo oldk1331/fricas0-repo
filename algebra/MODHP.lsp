@@ -94,10 +94,10 @@
         ((|llfi| |List| (|List| (|Fraction| (|Integer|)))) (|n| |Integer|)
          (|prime| |Integer|) ($ |Union| (|List| (|U32Vector|)) "failed"))
         (SPROG
-         ((|resl| (|List| (|U32Vector|))) (|nlc| NIL) (|dms| (|SingleInteger|))
-          (#1=#:G170 NIL) (|dm| #2=(|Integer|)) (|nm| #2#) (#3=#:G172 NIL)
-          (|j| NIL) (#4=#:G173 NIL) (|el| NIL) (|pa| (|U32Vector|))
-          (|nn| (|Integer|)) (#5=#:G171 NIL) (|lfi| NIL))
+         ((|resl| (|List| (|U32Vector|))) (|nlc| (|Integer|))
+          (|dms| (|SingleInteger|)) (#1=#:G170 NIL) (|dm| #2=(|Integer|))
+          (|nm| #2#) (#3=#:G172 NIL) (|j| NIL) (#4=#:G173 NIL) (|el| NIL)
+          (|pa| (|U32Vector|)) (|nn| (|Integer|)) (#5=#:G171 NIL) (|lfi| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |resl| NIL . #6=(|MODHP;LLFI_to_LPA;L2IU;5|))
@@ -156,10 +156,10 @@
          (|n| |Integer|) (|vars| |List| (|Symbol|)) (|pts| |List| (|Integer|))
          (|prime| |Integer|) ($ |Union| (|List| (|U32Vector|)) "failed"))
         (SPROG
-         ((|resl| (|List| (|U32Vector|))) (|nlc| NIL) (|dms| (|SingleInteger|))
-          (#1=#:G184 NIL) (|dm| #2=(|Integer|)) (|nm| #2#) (#3=#:G186 NIL)
-          (|j| NIL) (#4=#:G187 NIL) (|el| NIL) (|pa| (|U32Vector|))
-          (#5=#:G185 NIL) (|lfi| NIL))
+         ((|resl| (|List| (|U32Vector|))) (|nlc| (|Integer|))
+          (|dms| (|SingleInteger|)) (#1=#:G184 NIL) (|dm| #2=(|Integer|))
+          (|nm| #2#) (#3=#:G186 NIL) (|j| NIL) (#4=#:G187 NIL) (|el| NIL)
+          (|pa| (|U32Vector|)) (#5=#:G185 NIL) (|lfi| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |resl| NIL . #6=(|MODHP;LLFPI_to_LPA;LILLIU;6|))

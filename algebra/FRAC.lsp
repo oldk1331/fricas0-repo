@@ -70,7 +70,7 @@
              (EXIT (SPADCALL |dev| (QREFELT $ 36))))) 
 
 (SDEFUN |FRAC;OMwrite;$S;13| ((|x| $) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|FRAC;OMwrite;$S;13|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|
@@ -84,7 +84,7 @@
                     (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
 (SDEFUN |FRAC;OMwrite;$BS;14| ((|x| $) (|wholeObj| |Boolean|) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|FRAC;OMwrite;$BS;14|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|

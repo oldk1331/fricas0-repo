@@ -312,7 +312,7 @@
 
 (SDEFUN |DIRPROD;<;2$B;24| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G216 NIL) (#2=#:G217 NIL) (|b| NIL) (|a| NIL) (#3=#:G218 NIL)
+         ((#1=#:G216 NIL) (#2=#:G217 NIL) (|b| (R)) (|a| (R)) (#3=#:G218 NIL)
           (|i| NIL))
          (SEQ
           (EXIT
@@ -342,7 +342,7 @@
 
 (SDEFUN |DIRPROD;<;2$B;25| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G224 NIL) (#2=#:G225 NIL) (|b| NIL) (|a| NIL) (#3=#:G226 NIL)
+         ((#1=#:G224 NIL) (#2=#:G225 NIL) (|b| (R)) (|a| (R)) (#3=#:G226 NIL)
           (|i| NIL))
          (SEQ
           (EXIT

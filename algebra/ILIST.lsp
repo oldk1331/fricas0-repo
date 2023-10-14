@@ -266,7 +266,7 @@
                        (QRPLACD |z| |y|) (EXIT |x|))))))) 
 
 (SDEFUN |ILIST;removeDuplicates!;2$;29| ((|l| $) ($ $))
-        (SPROG ((|pp| ($)) (|pr| NIL) (|p| ($)) (|f| (S)))
+        (SPROG ((|pp| ($)) (|pr| ($)) (|p| ($)) (|f| (S)))
                (SEQ (LETT |p| |l| . #1=(|ILIST;removeDuplicates!;2$;29|))
                     (SEQ G190
                          (COND
@@ -335,7 +335,7 @@
                         (EXIT |r|))))))) 
 
 (SDEFUN |ILIST;split!;$I$;32| ((|p| $) (|n| |Integer|) ($ $))
-        (SPROG ((|q| NIL) (#1=#:G1094 NIL))
+        (SPROG ((|q| ($)) (#1=#:G1094 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "index out of range"))
                       ('T

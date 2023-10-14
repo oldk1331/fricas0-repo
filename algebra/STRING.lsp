@@ -8,7 +8,7 @@
 (SDEFUN |STRING;string;I$;2| ((|n| |Integer|) ($ $)) (STRINGIMAGE |n|)) 
 
 (SDEFUN |STRING;OMwrite;2$;3| ((|x| $) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|STRING;OMwrite;2$;3|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|
@@ -22,7 +22,7 @@
                     (LETT |s| (OM-STRINGPTRTOSTRING |sp|) . #1#) (EXIT |s|)))) 
 
 (SDEFUN |STRING;OMwrite;$B$;4| ((|x| $) (|wholeObj| |Boolean|) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|STRING;OMwrite;$B$;4|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|

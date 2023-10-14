@@ -14,7 +14,7 @@
 
 (SDEFUN |HASHTBL;remove!;Key$U;4|
         ((|k| |Key|) (|t| $) ($ |Union| |Entry| "failed"))
-        (SPROG ((|r| NIL))
+        (SPROG ((|r| (|None|)))
                (SEQ
                 (LETT |r| (HGET2 |t| |k| (QREFELT $ 9))
                       |HASHTBL;remove!;Key$U;4|)
@@ -27,7 +27,7 @@
 
 (SDEFUN |HASHTBL;search;Key$U;6|
         ((|k| |Key|) (|t| $) ($ |Union| |Entry| "failed"))
-        (SPROG ((|r| NIL))
+        (SPROG ((|r| (|None|)))
                (SEQ
                 (LETT |r| (HGET2 |t| |k| (QREFELT $ 9))
                       |HASHTBL;search;Key$U;6|)

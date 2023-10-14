@@ -254,21 +254,19 @@
 (SDEFUN |NBLM;mul_by_binomial_pointwise|
         ((|v| |U32Vector|) (|pt| |Integer|) (|pts| |U32Vector|) (|p| |Integer|)
          ($ |Void|))
-        (SPROG ((|pp| NIL) (#1=#:G182 NIL) (|i| NIL) (|n| (|SingleInteger|)))
-               (SEQ
-                (LETT |n| (QV_LEN_U32 |v|)
-                      . #2=(|NBLM;mul_by_binomial_pointwise|))
-                (EXIT
-                 (SEQ (LETT |i| 0 . #2#) (LETT #1# (|sub_SI| |n| 1) . #2#) G190
-                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                      (SEQ
-                       (LETT |pp| (|addmod_SI| (ELT_U32 |pts| |i|) |pt| |p|)
-                             . #2#)
-                       (EXIT
-                        (SETELT_U32 |v| |i|
-                                    (QSMULMOD32 (ELT_U32 |v| |i|) |pp| |p|))))
-                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                      (EXIT NIL)))))) 
+        (SPROG
+         ((|pp| (|Integer|)) (#1=#:G182 NIL) (|i| NIL) (|n| (|SingleInteger|)))
+         (SEQ
+          (LETT |n| (QV_LEN_U32 |v|) . #2=(|NBLM;mul_by_binomial_pointwise|))
+          (EXIT
+           (SEQ (LETT |i| 0 . #2#) (LETT #1# (|sub_SI| |n| 1) . #2#) G190
+                (COND ((|greater_SI| |i| #1#) (GO G191)))
+                (SEQ
+                 (LETT |pp| (|addmod_SI| (ELT_U32 |pts| |i|) |pt| |p|) . #2#)
+                 (EXIT
+                  (SETELT_U32 |v| |i|
+                              (QSMULMOD32 (ELT_U32 |v| |i|) |pp| |p|))))
+                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL)))))) 
 
 (SDEFUN |NBLM;naiveBeckermannLabahn0;2VVNniIM2MV;9|
         ((|mp| |Vector| (|U32Vector|)) (|vp| |Vector| (|U32Vector|))
@@ -279,10 +277,10 @@
          (|up_poly| |Mapping| (|Void|) (|U32Vector|) (|Integer|) (|Integer|))
          ($ |Void|))
         (SPROG
-         ((|vckinv| (|Integer|)) (|k| NIL) (|vcinv| NIL) (|maxd| (|Integer|))
-          (|cpi| (|Integer|)) (|pi| (|Integer|)) (|pt| (|Integer|)) (|l| NIL)
-          (|s1| #1=(|Integer|)) (|m1| #1#) (|vc| (|Vector| (|Integer|)))
-          (|m| (|NonNegativeInteger|)))
+         ((|vckinv| (|Integer|)) (|k| NIL) (|vcinv| (|Integer|))
+          (|maxd| (|Integer|)) (|cpi| (|Integer|)) (|pi| (|Integer|))
+          (|pt| (|Integer|)) (|l| NIL) (|s1| #1=(|Integer|)) (|m1| #1#)
+          (|vc| (|Vector| (|Integer|))) (|m| (|NonNegativeInteger|)))
          (SEQ
           (LETT |m| (QVSIZE |vd|)
                 . #2=(|NBLM;naiveBeckermannLabahn0;2VVNniIM2MV;9|))

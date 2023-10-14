@@ -78,16 +78,13 @@
                           (#1# (CONS 0 |x|)))))))))) 
 
 (SDEFUN |FILE;write!;$2S;12| ((|f| $) (|x| S) ($ S))
-        (SPROG ((|z| NIL))
-               (SEQ
-                (COND
-                 ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 26))
-                  (|error| "File not in write state"))
-                 ('T
-                  (SEQ
-                   (LETT |z| (|print_full2| |x| (QVELT |f| 1))
-                         |FILE;write!;$2S;12|)
-                   (TERPRI (QVELT |f| 1)) (EXIT |x|))))))) 
+        (SEQ
+         (COND
+          ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 26))
+           (|error| "File not in write state"))
+          ('T
+           (SEQ (|print_full2| |x| (QVELT |f| 1)) (TERPRI (QVELT |f| 1))
+                (EXIT |x|)))))) 
 
 (SDEFUN |FILE;flush;$V;13| ((|f| $) ($ |Void|))
         (COND

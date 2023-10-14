@@ -63,7 +63,7 @@
            (|Record| (|:| |cycle?| (|Boolean|))
                      (|:| |prefix| (|NonNegativeInteger|))
                      (|:| |period| (|NonNegativeInteger|))))
-          (|y| ($)) (|count| NIL))
+          (|y| ($)) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |count| |$streamCount| . #4=(|STREAM;streamCountCoerce|))
               (LETT |y| |x| . #4#)
               (SEQ (LETT |i| 1 . #4#) G190

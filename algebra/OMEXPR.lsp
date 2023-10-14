@@ -337,7 +337,7 @@
              #3# (EXIT #1#))))))) 
 
 (SDEFUN |OMEXPR;OMwrite;ES;13| ((|ex| |Expression| R) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|OMEXPR;OMwrite;ES;13|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|
@@ -352,7 +352,7 @@
 
 (SDEFUN |OMEXPR;OMwrite;EBS;14|
         ((|ex| |Expression| R) (|wholeObj| |Boolean|) ($ |String|))
-        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
+        (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| (|None|)))
                (SEQ (LETT |s| "" . #1=(|OMEXPR;OMwrite;EBS;14|))
                     (LETT |sp| (OM-STRINGTOSTRINGPTR |s|) . #1#)
                     (LETT |dev|

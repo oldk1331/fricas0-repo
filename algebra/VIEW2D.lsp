@@ -1,6 +1,6 @@
 
 (SDEFUN |VIEW2D;checkViewport| ((|viewport| $) ($ |Boolean|))
-        (SPROG ((|i| NIL))
+        (SPROG ((|i| (|Integer|)))
                (SEQ (|sockSendInt| |$ViewportServer| (QVELT |viewport| 0))
                     (LETT |i| (|sockGetInt| |$ViewportServer|)
                           |VIEW2D;checkViewport|)

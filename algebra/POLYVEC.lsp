@@ -316,7 +316,7 @@
          ((#1=#:G194 NIL) (|c| #2=(|Integer|)) (|dr1| #3=(|SingleInteger|))
           (|r1| #4=(|U32Vector|)) (|dr0| #3#) (|r0| #4#)
           (|tmp| #5=(|SingleInteger|)) (|tmpp| (|U32Vector|)) (#6=#:G193 NIL)
-          (|c0| #2#) (|c1| NIL) (|delta| #5#))
+          (|c0| #2#) (|c1| (|Integer|)) (|delta| #5#))
          (SEQ
           (EXIT
            (SEQ
@@ -681,9 +681,9 @@
           (|t0| #3#) (|#G126| #3#) (|#G125| #3#) (|s1| #3#) (|s0| #3#)
           (|#G124| #3#) (|#G123| #3#) (|dr1| #4=(|SingleInteger|)) (|dr0| #4#)
           (|#G122| #5=(|SingleInteger|)) (|#G121| #4#) (|r1| #3#) (|r0| #3#)
-          (|#G120| #3#) (|#G119| #3#) (#6=#:G258 NIL) (|c0| #1#) (|c1| NIL)
-          (|delta| #5#) (|ds| #7=(|SingleInteger|)) (|dt| #7#)
-          (|swapped| (|Boolean|)) (|#G117| (|U32Vector|))
+          (|#G120| #3#) (|#G119| #3#) (#6=#:G258 NIL) (|c0| #1#)
+          (|c1| (|Integer|)) (|delta| #5#) (|ds| #7=(|SingleInteger|))
+          (|dt| #7#) (|swapped| (|Boolean|)) (|#G117| (|U32Vector|))
           (|#G116| (|U32Vector|)))
          (SEQ
           (EXIT
@@ -854,9 +854,10 @@
         ((|x| |U32Vector|) (|y| |U32Vector|) (|p| |Integer|) ($ |Integer|))
         (SPROG
          ((|res| (|SingleInteger|)) (#1=#:G274 NIL)
-          (|dr0| #2=(|SingleInteger|)) (|c1| NIL) (|delta| (|SingleInteger|))
-          (|c0| (|Integer|)) (|dr1| #2#) (|#G134| #2#) (|#G133| #2#)
-          (|r1| #3=(|U32Vector|)) (|r0| #3#) (|#G132| #3#) (|#G131| #3#))
+          (|dr0| #2=(|SingleInteger|)) (|c1| (|Integer|))
+          (|delta| (|SingleInteger|)) (|c0| (|Integer|)) (|dr1| #2#)
+          (|#G134| #2#) (|#G133| #2#) (|r1| #3=(|U32Vector|)) (|r0| #3#)
+          (|#G132| #3#) (|#G131| #3#))
          (SEQ
           (EXIT
            (SEQ

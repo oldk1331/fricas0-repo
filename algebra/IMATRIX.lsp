@@ -2,7 +2,7 @@
 (SDEFUN |IMATRIX;swapRows!;$2I$;1|
         ((|x| $) (|i1| . #1=(|Integer|)) (|i2| . #1#) ($ $))
         (SPROG
-         ((|t2| NIL) (|t1| NIL) (#2=#:G117 NIL) (|j| NIL) (|co| (|Integer|))
+         ((|t2| (R)) (|t1| (R)) (#2=#:G117 NIL) (|j| NIL) (|co| (|Integer|))
           (|ro| (|Integer|)))
          (SEQ
           (COND

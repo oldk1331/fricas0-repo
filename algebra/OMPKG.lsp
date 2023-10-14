@@ -23,7 +23,7 @@
                 (SPADCALL |dev| (QREFELT $ 22)) (EXIT |res|)))) 
 
 (SDEFUN |OMPKG;OMreadStr;SA;4| ((|str| |String|) ($ |Any|))
-        (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)) (|strp| NIL))
+        (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)) (|strp| (|None|)))
                (SEQ
                 (LETT |strp| (OM-STRINGTOSTRINGPTR |str|)
                       . #1=(|OMPKG;OMreadStr;SA;4|))

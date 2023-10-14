@@ -22,7 +22,7 @@
 
 (SDEFUN |MATRIX;swapRows!;$2I$;5|
         ((|x| $) (|i1| . #1=(|Integer|)) (|i2| . #1#) ($ $))
-        (SPROG ((|t2| NIL) (|t1| NIL) (#2=#:G2112 NIL) (|j| NIL))
+        (SPROG ((|t2| (R)) (|t1| (R)) (#2=#:G2112 NIL) (|j| NIL))
                (SEQ
                 (COND
                  ((OR (< |i1| (SPADCALL |x| (QREFELT $ 8)))
