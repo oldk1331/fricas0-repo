@@ -57,7 +57,7 @@
              (FLOAT (QREFELT $ 15) MOST-POSITIVE-DOUBLE-FLOAT))
             . #10#)
       (LETT |funTable|
-            (SPADCALL
+            (MAKE_MATRIX1
              (+
               (PROG1 (LETT #9# (QREFELT $ 14) . #10#)
                 (|check_subtype| (>= #9# 0) '(|NonNegativeInteger|) #9#))
@@ -66,7 +66,7 @@
               (PROG1 (LETT #8# (QREFELT $ 15) . #10#)
                 (|check_subtype| (>= #8# 0) '(|NonNegativeInteger|) #8#))
               1)
-             (CONS 0.0 0.0) (QREFELT $ 29))
+             (CONS 0.0 0.0))
             . #10#)
       (LETT |real| (SPADCALL |realRange| (QREFELT $ 24)) . #10#)
       (SEQ (LETT |i| 1 . #10#) (LETT #7# (+ (QREFELT $ 14) 1) . #10#) G190
@@ -76,17 +76,17 @@
                      G190 (COND ((|greater_SI| |j| #6#) (GO G191)))
                      (SEQ
                       (LETT |z|
-                            (SPADCALL (SPADCALL |real| |imag| (QREFELT $ 31))
+                            (SPADCALL (SPADCALL |real| |imag| (QREFELT $ 27))
                                       |f|)
                             . #10#)
                       (SPADCALL |funTable| |i| |j|
                                 (CONS
                                  (|DRAWCX;clipFun|
-                                  (SPADCALL (SPADCALL |z| (QREFELT $ 32))
-                                            (QREFELT $ 33))
+                                  (SPADCALL (SPADCALL |z| (QREFELT $ 28))
+                                            (QREFELT $ 29))
                                   $)
-                                 (SPADCALL |z| (QREFELT $ 34)))
-                                (QREFELT $ 35))
+                                 (SPADCALL |z| (QREFELT $ 30)))
+                                (QREFELT $ 33))
                       (EXIT (LETT |imag| (|add_DF| |imag| |delImag|) . #10#)))
                      (LETT |j| (|inc_SI| |j|) . #10#) (GO G190) G191
                      (EXIT NIL))
@@ -106,10 +106,10 @@
                              (LIST |real| |imag|
                                    (QCAR
                                     (SPADCALL |funTable| |i| |j|
-                                              (QREFELT $ 36)))
+                                              (QREFELT $ 34)))
                                    (QCDR
                                     (SPADCALL |funTable| |i| |j|
-                                              (QREFELT $ 36))))
+                                              (QREFELT $ 34))))
                              (QREFELT $ 21))
                             . #10#)
                       (LETT |lp| (CONS |p| |lp|) . #10#)
@@ -119,7 +119,7 @@
                 (LETT |real| (|add_DF| |real| |delReal|) . #10#)
                 (EXIT (LETT |llp| (CONS |lp| |llp|) . #10#)))
            (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191 (EXIT NIL))
-      (LETT |space| (SPADCALL |llp| (QREFELT $ 39)) . #10#)
+      (LETT |space| (SPADCALL |llp| (QREFELT $ 37)) . #10#)
       (COND
        (|arrows?|
         (SEQ (LETT |real| (SPADCALL |realRange| (QREFELT $ 24)) . #10#)
@@ -134,14 +134,14 @@
                          (SEQ
                           (LETT |arg|
                                 (QCDR
-                                 (SPADCALL |funTable| |i| |j| (QREFELT $ 36)))
+                                 (SPADCALL |funTable| |i| |j| (QREFELT $ 34)))
                                 . #10#)
                           (LETT |p1|
                                 (SPADCALL
                                  (LIST |real| |imag|
                                        (QCAR
                                         (SPADCALL |funTable| |i| |j|
-                                                  (QREFELT $ 36)))
+                                                  (QREFELT $ 34)))
                                        |arg|)
                                  (QREFELT $ 21))
                                 . #10#)
@@ -172,7 +172,7 @@
                                      (PROGN (LETT |a| (CAR #1#) . #10#) NIL))
                                  (GO G191)))
                                (SEQ
-                                (EXIT (SPADCALL |space| |a| (QREFELT $ 41))))
+                                (EXIT (SPADCALL |space| |a| (QREFELT $ 39))))
                                (LETT #1# (CDR #1#) . #10#) (GO G190) G191
                                (EXIT NIL))
                           (EXIT
@@ -182,7 +182,7 @@
                     (EXIT (LETT |real| (|add_DF| |real| |delReal|) . #10#)))
                    (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191
                    (EXIT NIL))))))
-      (EXIT (SPADCALL |space| "Complex Function" (QREFELT $ 44))))))) 
+      (EXIT (SPADCALL |space| "Complex Function" (QREFELT $ 42))))))) 
 
 (DEFUN |DRAWCX;drawComplexVectorField;M2STdv;4| (|f| |realRange| |imagRange| $)
   (PROG (|real| |imag| #1=#:G169 |a| |arrow| |p2| |scaleLen| |p1| |len| |arg|
@@ -201,7 +201,7 @@
                        (SPADCALL |imagRange| (QREFELT $ 24)))
              (FLOAT (QREFELT $ 15) MOST-POSITIVE-DOUBLE-FLOAT))
             . #4#)
-      (LETT |space| (SPADCALL (QREFELT $ 48)) . #4#)
+      (LETT |space| (SPADCALL (QREFELT $ 46)) . #4#)
       (LETT |real| (SPADCALL |realRange| (QREFELT $ 24)) . #4#)
       (SEQ (LETT |i| 1 . #4#) (LETT #3# (+ (QREFELT $ 14) 1) . #4#) G190
            (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -210,14 +210,14 @@
                      G190 (COND ((|greater_SI| |j| #2#) (GO G191)))
                      (SEQ
                       (LETT |z|
-                            (SPADCALL (SPADCALL |real| |imag| (QREFELT $ 31))
+                            (SPADCALL (SPADCALL |real| |imag| (QREFELT $ 27))
                                       |f|)
                             . #4#)
-                      (LETT |arg| (SPADCALL |z| (QREFELT $ 34)) . #4#)
+                      (LETT |arg| (SPADCALL |z| (QREFELT $ 30)) . #4#)
                       (LETT |len|
                             (|DRAWCX;clipFun|
-                             (SPADCALL (SPADCALL |z| (QREFELT $ 32))
-                                       (QREFELT $ 33))
+                             (SPADCALL (SPADCALL |z| (QREFELT $ 28))
+                                       (QREFELT $ 29))
                              $)
                             . #4#)
                       (LETT |p1|
@@ -243,14 +243,14 @@
                             ((OR (ATOM #1#)
                                  (PROGN (LETT |a| (CAR #1#) . #4#) NIL))
                              (GO G191)))
-                           (SEQ (EXIT (SPADCALL |space| |a| (QREFELT $ 41))))
+                           (SEQ (EXIT (SPADCALL |space| |a| (QREFELT $ 39))))
                            (LETT #1# (CDR #1#) . #4#) (GO G190) G191
                            (EXIT NIL))
                       (EXIT (LETT |imag| (|add_DF| |imag| |delImag|) . #4#)))
                      (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191 (EXIT NIL))
                 (EXIT (LETT |real| (|add_DF| |real| |delReal|) . #4#)))
            (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-      (EXIT (SPADCALL |space| "Complex Vector Field" (QREFELT $ 44))))))) 
+      (EXIT (SPADCALL |space| "Complex Vector Field" (QREFELT $ 42))))))) 
 
 (DEFUN |DRAWCX;setRealSteps;2I;5| (|n| $) (SETELT $ 14 |n|)) 
 
@@ -283,7 +283,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|DrawComplex|) . #1=(|DrawComplex|))
-      (LETT $ (GETREFV 53) . #1#)
+      (LETT $ (GETREFV 51) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|DrawComplex| NIL (CONS 1 $))
@@ -307,36 +307,35 @@
               '|arrowAngle| '|realSteps| '|imagSteps| '|clipValue| (12 . |One|)
               (|Point| 10) (16 . |elt|) (|List| 10) (22 . |point|)
               (|Segment| 10) (27 . |hi|) (32 . |lo|) (37 . |Zero|)
-              (|NonNegativeInteger|) (|Record| (|:| |rr| 10) (|:| |th| 10))
-              (|TwoDimensionalArray| 27) (41 . |new|) (|Complex| 10)
-              (48 . |complex|) (54 . |norm|) (59 . |sqrt|) (64 . |argument|)
-              (69 . |setelt|) (77 . |elt|) (|List| 40) (|ThreeSpace| 10)
-              (84 . |mesh|) (|List| 18) (89 . |curve|) (|String|)
-              (|ThreeDimensionalViewport|) (95 . |makeViewport3D|)
-              (|Mapping| 30 30) (|Boolean|) |DRAWCX;drawComplex;M2SBTdv;3|
-              (101 . |create3Space|) |DRAWCX;drawComplexVectorField;M2STdv;4|
+              (|Complex| 10) (41 . |complex|) (47 . |norm|) (52 . |sqrt|)
+              (57 . |argument|) (|Record| (|:| |rr| 10) (|:| |th| 10))
+              (|TwoDimensionalArray| 31) (62 . |setelt|) (70 . |elt|)
+              (|List| 38) (|ThreeSpace| 10) (77 . |mesh|) (|List| 18)
+              (82 . |curve|) (|String|) (|ThreeDimensionalViewport|)
+              (88 . |makeViewport3D|) (|Mapping| 26 26) (|Boolean|)
+              |DRAWCX;drawComplex;M2SBTdv;3| (94 . |create3Space|)
+              |DRAWCX;drawComplexVectorField;M2STdv;4|
               |DRAWCX;setRealSteps;2I;5| |DRAWCX;setImagSteps;2I;6|
               |DRAWCX;setClipValue;2Df;7|)
-           '#(|setRealSteps| 105 |setImagSteps| 110 |setClipValue| 115
-              |drawComplexVectorField| 120 |drawComplex| 127)
+           '#(|setRealSteps| 98 |setImagSteps| 103 |setClipValue| 108
+              |drawComplexVectorField| 113 |drawComplex| 120)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 52
+                             (|makeByteWordVec2| 50
                                                  '(3 8 0 6 6 7 9 1 8 10 0 11 0
                                                    8 0 17 2 18 10 0 6 19 1 18 0
                                                    20 21 1 22 10 0 23 1 22 10 0
-                                                   24 0 8 0 25 3 28 0 26 26 27
-                                                   29 2 30 0 10 10 31 1 30 10 0
-                                                   32 1 10 0 0 33 1 30 10 0 34
-                                                   4 28 27 0 6 6 27 35 3 28 27
-                                                   0 6 6 36 1 38 0 37 39 2 38 0
-                                                   0 40 41 2 43 0 38 42 44 0 38
-                                                   0 48 1 0 6 6 50 1 0 6 6 51 1
-                                                   0 10 10 52 3 0 43 45 22 22
-                                                   49 4 0 43 45 22 22 46
-                                                   47)))))
+                                                   24 0 8 0 25 2 26 0 10 10 27
+                                                   1 26 10 0 28 1 10 0 0 29 1
+                                                   26 10 0 30 4 32 31 0 6 6 31
+                                                   33 3 32 31 0 6 6 34 1 36 0
+                                                   35 37 2 36 0 0 38 39 2 41 0
+                                                   36 40 42 0 36 0 46 1 0 6 6
+                                                   48 1 0 6 6 49 1 0 10 10 50 3
+                                                   0 41 43 22 22 47 4 0 41 43
+                                                   22 22 44 45)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DrawComplex| 'NILADIC T) 

@@ -269,8 +269,8 @@
 ;     val' is [ =0,:.] => coerceInt(object, D)
 ;     NIL
 ;   type is ['Matrix,D] =>
-;     n := # val'
-;     m := # val'.0
+;     n := ANROWS(val')
+;     m := ANCOLS(val')
 ;     n = m => objNew(val,['SquareMatrix,n,D])
 ;     objNew(val,['RectangularMatrix,n,m,D])
 ;   type is ['RectangularMatrix,n,m,D] =>
@@ -400,8 +400,8 @@
               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                    (PROGN (SETQ D (CAR |ISTMP#1|)) #1#))))
         (PROGN
-         (SETQ |n| (LENGTH |val'|))
-         (SETQ |m| (LENGTH (ELT |val'| 0)))
+         (SETQ |n| (ANROWS |val'|))
+         (SETQ |m| (ANCOLS |val'|))
          (COND ((EQUAL |n| |m|) (|objNew| |val| (LIST '|SquareMatrix| |n| D)))
                (#1# (|objNew| |val| (LIST '|RectangularMatrix| |n| |m| D))))))
        ((AND (CONSP |type|) (EQ (CAR |type|) '|RectangularMatrix|)

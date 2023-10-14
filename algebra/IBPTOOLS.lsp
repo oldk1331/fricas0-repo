@@ -83,11 +83,9 @@
     (RETURN
      (SEQ
       (EXIT
-       (SEQ (LETT |m| (QVSIZE |mat|) . #2=(|IBPTOOLS;mapMatrixIfCan;MMU;4|))
-            (LETT |n| (SPADCALL |mat| (QREFELT $ 36)) . #2#)
-            (LETT |matOut|
-                  (SPADCALL |m| |n| (|spadConstant| $ 10) (QREFELT $ 39))
-                  . #2#)
+       (SEQ (LETT |m| (ANROWS |mat|) . #2=(|IBPTOOLS;mapMatrixIfCan;MMU;4|))
+            (LETT |n| (ANCOLS |mat|) . #2#)
+            (LETT |matOut| (MAKE_MATRIX1 |m| |n| (|spadConstant| $ 10)) . #2#)
             (SEQ (LETT |i| 1 . #2#) G190
                  (COND ((|greater_SI| |i| |m|) (GO G191)))
                  (SEQ
@@ -117,22 +115,22 @@
   (PROG (|ans|)
     (RETURN
      (SEQ
-      (LETT |ans| (|spadConstant| $ 43)
+      (LETT |ans| (|spadConstant| $ 40)
             . #1=(|IBPTOOLS;mapBivariate;MUPSup;5|))
       (SEQ G190
            (COND
-            ((NULL (COND ((SPADCALL |poly| (QREFELT $ 44)) 'NIL) ('T 'T)))
+            ((NULL (COND ((SPADCALL |poly| (QREFELT $ 41)) 'NIL) ('T 'T)))
              (GO G191)))
            (SEQ
             (LETT |ans|
                   (SPADCALL |ans|
                             (SPADCALL
-                             (SPADCALL |f| (SPADCALL |poly| (QREFELT $ 45))
+                             (SPADCALL |f| (SPADCALL |poly| (QREFELT $ 42))
                                        (QREFELT $ 30))
-                             (SPADCALL |poly| (QREFELT $ 46)) (QREFELT $ 47))
-                            (QREFELT $ 48))
+                             (SPADCALL |poly| (QREFELT $ 43)) (QREFELT $ 44))
+                            (QREFELT $ 45))
                   . #1#)
-            (EXIT (LETT |poly| (SPADCALL |poly| (QREFELT $ 49)) . #1#)))
+            (EXIT (LETT |poly| (SPADCALL |poly| (QREFELT $ 46)) . #1#)))
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT |ans|))))) 
 
@@ -170,7 +168,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT |dv$| (LIST '|IntegralBasisPolynomialTools| DV$1 DV$2 DV$3 DV$4)
             . #1#)
-      (LETT $ (GETREFV 51) . #1#)
+      (LETT $ (GETREFV 48) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|IntegralBasisPolynomialTools|
@@ -195,31 +193,30 @@
               (61 . +) (67 . |reductum|) (|Mapping| 9 6)
               |IBPTOOLS;mapUnivariate;MRSup;2| (|Union| 7 '"failed")
               (|Union| 6 '"failed") (|Mapping| 32 9)
-              |IBPTOOLS;mapUnivariateIfCan;MSupU;3| (|Matrix| 12)
-              (72 . |ncols|) (77 . |Zero|) (|Matrix| 7) (81 . |new|)
-              (|Union| 38 '"failed") |IBPTOOLS;mapMatrixIfCan;MMU;4|
-              (|SparseUnivariatePolynomial| 12) (88 . |Zero|) (92 . |zero?|)
-              (97 . |leadingCoefficient|) (102 . |degree|) (107 . |monomial|)
-              (113 . +) (119 . |reductum|) |IBPTOOLS;mapBivariate;MUPSup;5|)
-           '#(|mapUnivariateIfCan| 124 |mapUnivariate| 130 |mapMatrixIfCan| 142
-              |mapBivariate| 148)
+              |IBPTOOLS;mapUnivariateIfCan;MSupU;3| (72 . |Zero|)
+              (|Union| (|Matrix| 7) '"failed") (|Matrix| 12)
+              |IBPTOOLS;mapMatrixIfCan;MMU;4| (|SparseUnivariatePolynomial| 12)
+              (76 . |Zero|) (80 . |zero?|) (85 . |leadingCoefficient|)
+              (90 . |degree|) (95 . |monomial|) (101 . +) (107 . |reductum|)
+              |IBPTOOLS;mapBivariate;MUPSup;5|)
+           '#(|mapUnivariateIfCan| 112 |mapUnivariate| 118 |mapMatrixIfCan| 130
+              |mapBivariate| 136)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 50
+                             (|makeByteWordVec2| 47
                                                  '(0 7 0 10 1 12 11 0 13 1 12 9
                                                    0 14 1 12 15 0 16 2 7 0 6 15
                                                    17 2 7 0 0 0 18 1 12 0 0 19
                                                    0 12 0 22 1 7 11 0 23 1 7 6
                                                    0 24 1 7 15 0 25 2 12 0 9 15
                                                    26 2 12 0 0 0 27 1 7 0 0 28
-                                                   1 35 15 0 36 0 6 0 37 3 38 0
-                                                   15 15 7 39 0 42 0 43 1 8 11
-                                                   0 44 1 8 7 0 45 1 8 15 0 46
-                                                   2 42 0 12 15 47 2 42 0 0 0
-                                                   48 1 8 0 0 49 2 0 31 33 12
-                                                   34 2 0 12 29 7 30 2 0 7 20
-                                                   12 21 2 0 40 33 35 41 2 0 42
-                                                   29 8 50)))))
+                                                   0 6 0 35 0 39 0 40 1 8 11 0
+                                                   41 1 8 7 0 42 1 8 15 0 43 2
+                                                   39 0 12 15 44 2 39 0 0 0 45
+                                                   1 8 0 0 46 2 0 31 33 12 34 2
+                                                   0 12 29 7 30 2 0 7 20 12 21
+                                                   2 0 36 33 37 38 2 0 39 29 8
+                                                   47)))))
            '|lookupComplete|)) 

@@ -4,7 +4,7 @@
 (DEFUN |REP;evalvect| (|vect| |alg| |x| $)
   (PROG (|v| |i| |w| |xx| |n|)
     (RETURN
-     (SEQ (LETT |n| (QVSIZE |vect|) . #1=(|REP;evalvect|))
+     (SEQ (LETT |n| (ANROWS |vect|) . #1=(|REP;evalvect|))
           (LETT |xx| (SPADCALL |x| (QREFELT $ 9)) . #1#)
           (LETT |w| (SPADCALL |n| 1 (QREFELT $ 14)) . #1#)
           (SEQ (LETT |i| 1 . #1#) G190
@@ -48,7 +48,7 @@
 (DEFUN |REP;radicalEigenvector;EML;5| (|alpha| A $)
   (PROG (#1=#:G147 |v| #2=#:G146 |j| |i| B |n|)
     (RETURN
-     (SEQ (LETT |n| (QVSIZE A) . #3=(|REP;radicalEigenvector;EML;5|))
+     (SEQ (LETT |n| (ANROWS A) . #3=(|REP;radicalEigenvector;EML;5|))
           (LETT B (SPADCALL |n| |n| (QREFELT $ 14)) . #3#)
           (SEQ (LETT |i| 1 . #3#) G190
                (COND ((|greater_SI| |i| |n|) (GO G191)))
@@ -90,7 +90,7 @@
      (SEQ
       (LETT |leig| (SPADCALL A (QREFELT $ 51))
             . #8=(|REP;radicalEigenvectors;ML;6|))
-      (LETT |n| (QVSIZE A) . #8#) (LETT |sln| NIL . #8#)
+      (LETT |n| (ANROWS A) . #8#) (LETT |sln| NIL . #8#)
       (SEQ (LETT |eig| NIL . #8#) (LETT #7# |leig| . #8#) G190
            (COND
             ((OR (ATOM #7#) (PROGN (LETT |eig| (CAR #7#) . #8#) NIL))
@@ -200,7 +200,7 @@
             ('T
              (SEQ
               (LETT |v| (|SPADfirst| |lvect|) . #7=(|REP;gramschmidt;2L;7|))
-              (LETT |n| (QVSIZE |v|) . #7#)
+              (LETT |n| (ANROWS |v|) . #7#)
               (LETT RMR
                     (|RectangularMatrix|
                      (PROG1 (LETT #6# |n| . #7#)
@@ -299,7 +299,7 @@
                   (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
              (COND (#2# #3#) (#7='T NIL)))
             . #6#)
-      (LETT |n| (QVSIZE A) . #6#)
+      (LETT |n| (ANROWS A) . #6#)
       (EXIT
        (COND ((< (LENGTH |lef|) |n|) (CONS 1 "failed"))
              (#7#
@@ -325,7 +325,7 @@
         (SEQ (LETT |basis| NIL . #2=(|REP;orthonormalBasis;ML;9|))
              (LETT |lvec| NIL . #2#)
              (LETT |alglist| (SPADCALL A (QREFELT $ 57)) . #2#)
-             (LETT |n| (QVSIZE A) . #2#)
+             (LETT |n| (ANROWS A) . #2#)
              (SEQ (LETT |alterm| NIL . #2#) (LETT #1# |alglist| . #2#) G190
                   (COND
                    ((OR (ATOM #1#) (PROGN (LETT |alterm| (CAR #1#) . #2#) NIL))

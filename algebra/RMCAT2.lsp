@@ -6,26 +6,25 @@
     (RETURN
      (SEQ
       (LETT |ans|
-            (SPADCALL (QREFELT $ 6) (QREFELT $ 7) (|spadConstant| $ 16)
-                      (QREFELT $ 19))
+            (MAKE_MATRIX1 (QREFELT $ 6) (QREFELT $ 7) (|spadConstant| $ 16))
             . #5=(|RMCAT2;map;MM1M2;1|))
-      (SEQ (LETT |k| (SPADCALL |ans| (QREFELT $ 23)) . #5#)
-           (LETT #4# (SPADCALL |ans| (QREFELT $ 24)) . #5#)
-           (LETT |i| (SPADCALL |mat| (QREFELT $ 21)) . #5#)
-           (LETT #3# (SPADCALL |mat| (QREFELT $ 22)) . #5#) G190
+      (SEQ (LETT |k| (SPADCALL |ans| (QREFELT $ 20)) . #5#)
+           (LETT #4# (SPADCALL |ans| (QREFELT $ 21)) . #5#)
+           (LETT |i| (SPADCALL |mat| (QREFELT $ 18)) . #5#)
+           (LETT #3# (SPADCALL |mat| (QREFELT $ 19)) . #5#) G190
            (COND ((OR (> |i| #3#) (> |k| #4#)) (GO G191)))
            (SEQ
             (EXIT
-             (SEQ (LETT |l| (SPADCALL |ans| (QREFELT $ 27)) . #5#)
-                  (LETT #2# (SPADCALL |ans| (QREFELT $ 28)) . #5#)
-                  (LETT |j| (SPADCALL |mat| (QREFELT $ 25)) . #5#)
-                  (LETT #1# (SPADCALL |mat| (QREFELT $ 26)) . #5#) G190
+             (SEQ (LETT |l| (SPADCALL |ans| (QREFELT $ 24)) . #5#)
+                  (LETT #2# (SPADCALL |ans| (QREFELT $ 25)) . #5#)
+                  (LETT |j| (SPADCALL |mat| (QREFELT $ 22)) . #5#)
+                  (LETT #1# (SPADCALL |mat| (QREFELT $ 23)) . #5#) G190
                   (COND ((OR (> |j| #1#) (> |l| #2#)) (GO G191)))
                   (SEQ
                    (EXIT
                     (QSETAREF2O |ans| |k| |l|
                                 (SPADCALL
-                                 (SPADCALL |mat| |i| |j| (QREFELT $ 29)) |f|)
+                                 (SPADCALL |mat| |i| |j| (QREFELT $ 26)) |f|)
                                 1 1)))
                   (LETT |j| (PROG1 (+ |j| 1) (LETT |l| (+ |l| 1) . #5#)) . #5#)
                   (GO G190) G191 (EXIT NIL))))
@@ -37,18 +36,18 @@
   (PROG (|s| #1=#:G142 |j| #2=#:G141 |i|)
     (RETURN
      (SEQ (LETT |s| |ident| . #3=(|RMCAT2;reduce;MM12R2;2|))
-          (SEQ (LETT |i| (SPADCALL |mat| (QREFELT $ 21)) . #3#)
-               (LETT #2# (SPADCALL |mat| (QREFELT $ 22)) . #3#) G190
+          (SEQ (LETT |i| (SPADCALL |mat| (QREFELT $ 18)) . #3#)
+               (LETT #2# (SPADCALL |mat| (QREFELT $ 19)) . #3#) G190
                (COND ((> |i| #2#) (GO G191)))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |j| (SPADCALL |mat| (QREFELT $ 25)) . #3#)
-                      (LETT #1# (SPADCALL |mat| (QREFELT $ 26)) . #3#) G190
+                 (SEQ (LETT |j| (SPADCALL |mat| (QREFELT $ 22)) . #3#)
+                      (LETT #1# (SPADCALL |mat| (QREFELT $ 23)) . #3#) G190
                       (COND ((> |j| #1#) (GO G191)))
                       (SEQ
                        (EXIT
                         (LETT |s|
-                              (SPADCALL (SPADCALL |mat| |i| |j| (QREFELT $ 29))
+                              (SPADCALL (SPADCALL |mat| |i| |j| (QREFELT $ 26))
                                         |s| |f|)
                               . #3#)))
                       (LETT |j| (+ |j| 1) . #3#) (GO G190) G191 (EXIT NIL))))
@@ -101,7 +100,7 @@
             (LIST '|RectangularMatrixCategoryFunctions2| DV$1 DV$2 DV$3 DV$4
                   DV$5 DV$6 DV$7 DV$8 DV$9 DV$10)
             . #1#)
-      (LETT $ (GETREFV 34) . #1#)
+      (LETT $ (GETREFV 31) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|RectangularMatrixCategoryFunctions2|
@@ -126,22 +125,21 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) (|local| |#6|)
               (|local| |#7|) (|local| |#8|) (|local| |#9|) (|local| |#10|)
-              (0 . |Zero|) (|NonNegativeInteger|) (|Matrix| 12) (4 . |new|)
-              (|Integer|) (11 . |minRowIndex|) (16 . |maxRowIndex|)
-              (21 . |minRowIndex|) (26 . |maxRowIndex|) (31 . |minColIndex|)
-              (36 . |maxColIndex|) (41 . |minColIndex|) (46 . |maxColIndex|)
-              (51 . |qelt|) (|Mapping| 12 8) |RMCAT2;map;MM1M2;1|
+              (0 . |Zero|) (|Integer|) (4 . |minRowIndex|) (9 . |maxRowIndex|)
+              (14 . |minRowIndex|) (19 . |maxRowIndex|) (24 . |minColIndex|)
+              (29 . |maxColIndex|) (34 . |minColIndex|) (39 . |maxColIndex|)
+              (44 . |qelt|) (|Mapping| 12 8) |RMCAT2;map;MM1M2;1|
               (|Mapping| 12 8 12) |RMCAT2;reduce;MM12R2;2|)
-           '#(|reduce| 58 |map| 65) 'NIL
+           '#(|reduce| 51 |map| 58) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(0 12 0 16 3 18 0 17 17 12 19
-                                                   1 11 20 0 21 1 11 20 0 22 1
-                                                   15 20 0 23 1 15 20 0 24 1 11
-                                                   20 0 25 1 11 20 0 26 1 15 20
-                                                   0 27 1 15 20 0 28 3 11 8 0
-                                                   20 20 29 3 0 12 32 11 12 33
-                                                   2 0 15 30 11 31)))))
+                             (|makeByteWordVec2| 30
+                                                 '(0 12 0 16 1 11 17 0 18 1 11
+                                                   17 0 19 1 15 17 0 20 1 15 17
+                                                   0 21 1 11 17 0 22 1 11 17 0
+                                                   23 1 15 17 0 24 1 15 17 0 25
+                                                   3 11 8 0 17 17 26 3 0 12 29
+                                                   11 12 30 2 0 15 27 11
+                                                   28)))))
            '|lookupComplete|)) 

@@ -523,13 +523,7 @@
                       (|compiledLookupCheck| '* (LIST '$ '$ '$)
                                              (|Matrix| FSUP)))
             . #2#)
-      (LETT |nc|
-            (SPADCALL |yy|
-                      (|compiledLookupCheck| '|ncols|
-                                             (LIST (LIST '|NonNegativeInteger|)
-                                                   '$)
-                                             (|Matrix| FSUP)))
-            . #2#)
+      (LETT |nc| (ANCOLS |yy|) . #2#)
       (LETT |var|
             (SPADCALL
              (SPADCALL (|spadConstant| $ 20) 1
@@ -547,23 +541,13 @@
                  (LETT #1#
                        (SPADCALL
                         (SPADCALL |yy|
-                                  (SPADCALL
-                                   (SPADCALL |yy|
-                                             (|compiledLookupCheck| '|ncols|
-                                                                    (LIST
-                                                                     (LIST
-                                                                      '|NonNegativeInteger|)
-                                                                     '$)
-                                                                    (|Matrix|
-                                                                     FSUP)))
-                                   |var|
-                                   (|compiledLookupCheck| '|scalarMatrix|
-                                                          (LIST '$
-                                                                (LIST
-                                                                 '|NonNegativeInteger|)
-                                                                (|devaluate|
-                                                                 FSUP))
-                                                          (|Matrix| FSUP)))
+                                  (SPADCALL (ANCOLS |yy|) |var|
+                                            (|compiledLookupCheck|
+                                             '|scalarMatrix|
+                                             (LIST '$
+                                                   (LIST '|NonNegativeInteger|)
+                                                   (|devaluate| FSUP))
+                                             (|Matrix| FSUP)))
                                   (|compiledLookupCheck| '+ (LIST '$ '$ '$)
                                                          (|Matrix| FSUP)))
                         (|compiledLookupCheck| '|inverse|

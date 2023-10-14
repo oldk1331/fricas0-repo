@@ -379,7 +379,7 @@
             ((EQL |k| 0)
              (COND
               ((QEQCAR (QREFELT $ 41) 0)
-               (SPADCALL 1 1 (QCDR (QREFELT $ 41)) (QREFELT $ 30)))
+               (MAKE_MATRIX1 1 1 (QCDR (QREFELT $ 41))))
               (#7='T (|error| "need 1"))))
             ((EQL |k| 1) (SPADCALL (|SPADfirst| |l|) (QREFELT $ 54)))
             (#7#
@@ -462,9 +462,8 @@
                              ((OR (ATOM #4#)
                                   (PROGN (LETT |a| (CAR #4#) . #5#) NIL))
                               (GO G191)))
-                            (SEQ (LETT |nr| (QVSIZE |a|) . #5#)
-                                 (LETT |nc| (SPADCALL |a| (QREFELT $ 12))
-                                       . #5#)
+                            (SEQ (LETT |nr| (ANROWS |a|) . #5#)
+                                 (LETT |nc| (ANCOLS |a|) . #5#)
                                  (EXIT
                                   (COND
                                    ((SPADCALL |nr| |nc| (QREFELT $ 32))
@@ -598,10 +597,8 @@
                (COND
                 ((OR (ATOM #4#) (PROGN (LETT |mat| (CAR #4#) . #5#) NIL))
                  (GO G191)))
-               (SEQ (LETT |rows| (+ |rows| (QVSIZE |mat|)) . #5#)
-                    (EXIT
-                     (LETT |cols| (+ |cols| (SPADCALL |mat| (QREFELT $ 12)))
-                           . #5#)))
+               (SEQ (LETT |rows| (+ |rows| (ANROWS |mat|)) . #5#)
+                    (EXIT (LETT |cols| (+ |cols| (ANCOLS |mat|)) . #5#)))
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
           (LETT |ans| (SPADCALL |rows| |cols| (QREFELT $ 36)) . #5#)
           (LETT |loR| 1 . #5#) (LETT |loC| 1 . #5#)
@@ -609,8 +606,8 @@
                (COND
                 ((OR (ATOM #3#) (PROGN (LETT |mat| (CAR #3#) . #5#) NIL))
                  (GO G191)))
-               (SEQ (LETT |hiR| (- (+ |loR| (QVSIZE |mat|)) 1) . #5#)
-                    (LETT |hiC| (- (+ |loC| (QVSIZE |mat|)) 1) . #5#)
+               (SEQ (LETT |hiR| (- (+ |loR| (ANROWS |mat|)) 1) . #5#)
+                    (LETT |hiC| (- (+ |loC| (ANROWS |mat|)) 1) . #5#)
                     (SEQ (LETT |k| 1 . #5#)
                          (LETT #2# (SPADCALL |mat| (QREFELT $ 18)) . #5#)
                          (LETT |i| |loR| . #5#) G190

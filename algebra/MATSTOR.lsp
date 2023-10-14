@@ -8,12 +8,12 @@
 (DEFUN |MATSTOR;copy!;3M;2| (|c| |a| $)
   (PROG (#1=#:G163 |j| |cRow| |aRow| #2=#:G162 |i| |cc| |aa| |n| |m|)
     (RETURN
-     (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;copy!;3M;2|))
-          (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
+     (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;copy!;3M;2|))
+          (LETT |n| (ANCOLS |a|) . #3#)
           (COND
-           ((EQL (QVSIZE |c|) |m|)
+           ((EQL (ANROWS |c|) |m|)
             (COND
-             ((NULL (EQL (SPADCALL |c| (QREFELT $ 9)) |n|))
+             ((NULL (EQL (ANCOLS |c|) |n|))
               (EXIT
                (|error| #4="copy!: matrices of incompatible dimensions")))))
            ('T (EXIT (|error| #4#))))
@@ -37,19 +37,19 @@
   (PROG (#1=#:G174 |j| |cRow| |bRow| |aRow| #2=#:G173 |i| |cc| |bb| |aa| |n|
          |m|)
     (RETURN
-     (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;plus!;4M;3|))
-          (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
+     (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;plus!;4M;3|))
+          (LETT |n| (ANCOLS |a|) . #3#)
           (COND
-           ((EQL (QVSIZE |b|) |m|)
+           ((EQL (ANROWS |b|) |m|)
             (COND
-             ((NULL (EQL (SPADCALL |b| (QREFELT $ 9)) |n|))
+             ((NULL (EQL (ANCOLS |b|) |n|))
               (EXIT
                (|error| #4="plus!: matrices of incompatible dimensions")))))
            (#5='T (EXIT (|error| #4#))))
           (COND
-           ((EQL (QVSIZE |c|) |m|)
+           ((EQL (ANROWS |c|) |m|)
             (COND
-             ((NULL (EQL (SPADCALL |c| (QREFELT $ 9)) |n|))
+             ((NULL (EQL (ANCOLS |c|) |n|))
               (EXIT
                (|error| #6="plus!: matrices of incompatible dimensions")))))
            (#5# (EXIT (|error| #6#))))
@@ -69,7 +69,7 @@
                             (QSETAREF1 |cRow| |j|
                                        (SPADCALL (QAREF1 |aRow| |j|)
                                                  (QAREF1 |bRow| |j|)
-                                                 (QREFELT $ 12)))))
+                                                 (QREFELT $ 10)))))
                           (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                           (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
@@ -78,12 +78,12 @@
 (DEFUN |MATSTOR;minus!;3M;4| (|c| |a| $)
   (PROG (#1=#:G183 |j| |cRow| |aRow| #2=#:G182 |i| |cc| |aa| |n| |m|)
     (RETURN
-     (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;minus!;3M;4|))
-          (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
+     (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;minus!;3M;4|))
+          (LETT |n| (ANCOLS |a|) . #3#)
           (COND
-           ((EQL (QVSIZE |c|) |m|)
+           ((EQL (ANROWS |c|) |m|)
             (COND
-             ((NULL (EQL (SPADCALL |c| (QREFELT $ 9)) |n|))
+             ((NULL (EQL (ANCOLS |c|) |n|))
               (EXIT
                (|error| #4="minus!: matrices of incompatible dimensions")))))
            ('T (EXIT (|error| #4#))))
@@ -100,7 +100,7 @@
                            (EXIT
                             (QSETAREF1 |cRow| |j|
                                        (SPADCALL (QAREF1 |aRow| |j|)
-                                                 (QREFELT $ 14)))))
+                                                 (QREFELT $ 12)))))
                           (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                           (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
@@ -110,19 +110,19 @@
   (PROG (#1=#:G194 |j| |cRow| |bRow| |aRow| #2=#:G193 |i| |cc| |bb| |aa| |n|
          |m|)
     (RETURN
-     (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;minus!;4M;5|))
-          (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
+     (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;minus!;4M;5|))
+          (LETT |n| (ANCOLS |a|) . #3#)
           (COND
-           ((EQL (QVSIZE |b|) |m|)
+           ((EQL (ANROWS |b|) |m|)
             (COND
-             ((NULL (EQL (SPADCALL |b| (QREFELT $ 9)) |n|))
+             ((NULL (EQL (ANCOLS |b|) |n|))
               (EXIT
                (|error| #4="minus!: matrices of incompatible dimensions")))))
            (#5='T (EXIT (|error| #4#))))
           (COND
-           ((EQL (QVSIZE |c|) |m|)
+           ((EQL (ANROWS |c|) |m|)
             (COND
-             ((NULL (EQL (SPADCALL |c| (QREFELT $ 9)) |n|))
+             ((NULL (EQL (ANCOLS |c|) |n|))
               (EXIT
                (|error| #6="minus!: matrices of incompatible dimensions")))))
            (#5# (EXIT (|error| #6#))))
@@ -142,7 +142,7 @@
                             (QSETAREF1 |cRow| |j|
                                        (SPADCALL (QAREF1 |aRow| |j|)
                                                  (QAREF1 |bRow| |j|)
-                                                 (QREFELT $ 16)))))
+                                                 (QREFELT $ 14)))))
                           (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                           (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
@@ -151,12 +151,12 @@
 (DEFUN |MATSTOR;leftScalarTimes!;MR2M;6| (|c| |r| |a| $)
   (PROG (#1=#:G203 |j| |cRow| |aRow| #2=#:G202 |i| |cc| |aa| |n| |m|)
     (RETURN
-     (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;leftScalarTimes!;MR2M;6|))
-          (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
+     (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;leftScalarTimes!;MR2M;6|))
+          (LETT |n| (ANCOLS |a|) . #3#)
           (COND
-           ((EQL (QVSIZE |c|) |m|)
+           ((EQL (ANROWS |c|) |m|)
             (COND
-             ((NULL (EQL (SPADCALL |c| (QREFELT $ 9)) |n|))
+             ((NULL (EQL (ANCOLS |c|) |n|))
               (EXIT
                (|error|
                 #4="leftScalarTimes!: matrices of incompatible dimensions")))))
@@ -174,7 +174,7 @@
                            (EXIT
                             (QSETAREF1 |cRow| |j|
                                        (SPADCALL |r| (QAREF1 |aRow| |j|)
-                                                 (QREFELT $ 18)))))
+                                                 (QREFELT $ 16)))))
                           (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                           (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
@@ -183,12 +183,12 @@
 (DEFUN |MATSTOR;rightScalarTimes!;2MRM;7| (|c| |a| |r| $)
   (PROG (#1=#:G212 |j| |cRow| |aRow| #2=#:G211 |i| |cc| |aa| |n| |m|)
     (RETURN
-     (SEQ (LETT |m| (QVSIZE |a|) . #3=(|MATSTOR;rightScalarTimes!;2MRM;7|))
-          (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #3#)
+     (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;rightScalarTimes!;2MRM;7|))
+          (LETT |n| (ANCOLS |a|) . #3#)
           (COND
-           ((EQL (QVSIZE |c|) |m|)
+           ((EQL (ANROWS |c|) |m|)
             (COND
-             ((NULL (EQL (SPADCALL |c| (QREFELT $ 9)) |n|))
+             ((NULL (EQL (ANCOLS |c|) |n|))
               (EXIT
                (|error|
                 #4="rightScalarTimes!: matrices of incompatible dimensions")))))
@@ -206,7 +206,7 @@
                            (EXIT
                             (QSETAREF1 |cRow| |j|
                                        (SPADCALL (QAREF1 |aRow| |j|) |r|
-                                                 (QREFELT $ 18)))))
+                                                 (QREFELT $ 16)))))
                           (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                           (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
@@ -224,15 +224,14 @@
   (PROG (|sum| |k| |cRow| |aRow| |i| #1=#:G225 |j| |n1| |m1| |bCol| |cc| |bb|
          |aa| |p| |n| |m|)
     (RETURN
-     (SEQ (LETT |m| (QVSIZE |a|) . #2=(|MATSTOR;times!;4M;9|))
-          (LETT |n| (SPADCALL |a| (QREFELT $ 9)) . #2#)
-          (LETT |p| (SPADCALL |b| (QREFELT $ 9)) . #2#)
+     (SEQ (LETT |m| (ANROWS |a|) . #2=(|MATSTOR;times!;4M;9|))
+          (LETT |n| (ANCOLS |a|) . #2#) (LETT |p| (ANCOLS |b|) . #2#)
           (COND
-           ((EQL (QVSIZE |b|) |n|)
+           ((EQL (ANROWS |b|) |n|)
             (COND
-             ((EQL (QVSIZE |c|) |m|)
+             ((EQL (ANROWS |c|) |m|)
               (COND
-               ((NULL (EQL (SPADCALL |c| (QREFELT $ 9)) |p|))
+               ((NULL (EQL (ANCOLS |c|) |p|))
                 (EXIT
                  (|error| #3="times!: matrices of incompatible dimensions")))))
              (#4='T (EXIT (|error| #3#)))))
@@ -240,7 +239,7 @@
           (LETT |aa| (|MATSTOR;rep| |a| $) . #2#)
           (LETT |bb| (|MATSTOR;rep| |b| $) . #2#)
           (LETT |cc| (|MATSTOR;rep| |c| $) . #2#)
-          (LETT |bCol| (MAKEARR1 |n| (|spadConstant| $ 21)) . #2#)
+          (LETT |bCol| (MAKEARR1 |n| (|spadConstant| $ 19)) . #2#)
           (LETT |m1| (- |m| 1) . #2#) (LETT |n1| (- |n| 1) . #2#)
           (SEQ (LETT |j| 0 . #2#) (LETT #1# (- |p| 1) . #2#) G190
                (COND ((|greater_SI| |j| #1#) (GO G191)))
@@ -250,7 +249,7 @@
                           (COND ((|greater_SI| |i| |m1|) (GO G191)))
                           (SEQ (LETT |aRow| (QAREF1 |aa| |i|) . #2#)
                                (LETT |cRow| (QAREF1 |cc| |i|) . #2#)
-                               (LETT |sum| (|spadConstant| $ 21) . #2#)
+                               (LETT |sum| (|spadConstant| $ 19) . #2#)
                                (SEQ (LETT |k| 0 . #2#) G190
                                     (COND ((|greater_SI| |k| |n1|) (GO G191)))
                                     (SEQ
@@ -260,8 +259,8 @@
                                                       (SPADCALL
                                                        (QAREF1 |aRow| |k|)
                                                        (QAREF1 |bCol| |k|)
-                                                       (QREFELT $ 18))
-                                                      (QREFELT $ 12))
+                                                       (QREFELT $ 16))
+                                                      (QREFELT $ 10))
                                             . #2#)))
                                     (LETT |k| (|inc_SI| |k|) . #2#) (GO G190)
                                     G191 (EXIT NIL))
@@ -276,37 +275,37 @@
     (RETURN
      (SEQ
       (EXIT
-       (SEQ (LETT |mm| (QVSIZE |a|) . #2=(|MATSTOR;power!;4MNniM;10|))
-            (LETT |nn| (SPADCALL |a| (QREFELT $ 9)) . #2#)
+       (SEQ (LETT |mm| (ANROWS |a|) . #2=(|MATSTOR;power!;4MNniM;10|))
+            (LETT |nn| (ANCOLS |a|) . #2#)
             (EXIT
              (COND
               ((EQL |mm| |nn|)
                (SEQ
                 (COND
-                 ((EQL (QVSIZE |b|) |mm|)
+                 ((EQL (ANROWS |b|) |mm|)
                   (COND
-                   ((NULL (EQL (SPADCALL |b| (QREFELT $ 9)) |nn|))
+                   ((NULL (EQL (ANCOLS |b|) |nn|))
                     (EXIT
                      (|error|
                       #3="power!: matrices of incompatible dimensions")))))
                  (#4='T (EXIT (|error| #3#))))
                 (COND
-                 ((EQL (QVSIZE |c|) |mm|)
+                 ((EQL (ANROWS |c|) |mm|)
                   (COND
-                   ((NULL (EQL (SPADCALL |c| (QREFELT $ 9)) |nn|))
+                   ((NULL (EQL (ANCOLS |c|) |nn|))
                     (EXIT
                      (|error|
                       #5="power!: matrices of incompatible dimensions")))))
                  (#4# (EXIT (|error| #5#))))
                 (COND
-                 ((EQL (QVSIZE |m|) |mm|)
+                 ((EQL (ANROWS |m|) |mm|)
                   (COND
-                   ((NULL (EQL (SPADCALL |m| (QREFELT $ 9)) |nn|))
+                   ((NULL (EQL (ANCOLS |m|) |nn|))
                     (EXIT
                      (|error|
                       #6="power!: matrices of incompatible dimensions")))))
                  (#4# (EXIT (|error| #6#))))
-                (LETT |flag| 'NIL . #2#) (SPADCALL |b| |m| (QREFELT $ 11))
+                (LETT |flag| 'NIL . #2#) (SPADCALL |b| |m| (QREFELT $ 9))
                 (EXIT
                  (SEQ G190 NIL
                       (SEQ
@@ -314,18 +313,18 @@
                         ((ODDP |p|)
                          (COND
                           (|flag|
-                           (SEQ (SPADCALL |c| |b| |a| (QREFELT $ 22))
-                                (EXIT (SPADCALL |a| |c| (QREFELT $ 11)))))
+                           (SEQ (SPADCALL |c| |b| |a| (QREFELT $ 20))
+                                (EXIT (SPADCALL |a| |c| (QREFELT $ 9)))))
                           ('T
                            (SEQ (LETT |flag| 'T . #2#)
-                                (EXIT (SPADCALL |a| |b| (QREFELT $ 11))))))))
+                                (EXIT (SPADCALL |a| |b| (QREFELT $ 9))))))))
                        (EXIT
                         (COND
                          ((EQL |p| 1) (PROGN (LETT #1# |a| . #2#) (GO #1#)))
                          ('T
                           (SEQ (LETT |p| (QUOTIENT2 |p| 2) . #2#)
-                               (SPADCALL |c| |b| |b| (QREFELT $ 22))
-                               (EXIT (SPADCALL |b| |c| (QREFELT $ 11))))))))
+                               (SPADCALL |c| |b| |b| (QREFELT $ 20))
+                               (EXIT (SPADCALL |b| |c| (QREFELT $ 9))))))))
                       NIL (GO G190) G191 (EXIT NIL)))))
               (#4# (|error| "power!: matrix must be square"))))))
       #1# (EXIT #1#))))) 
@@ -335,14 +334,14 @@
     (RETURN
      (SEQ
       (COND
-       ((NULL (SPADCALL |m| (QREFELT $ 25)))
+       ((NULL (SPADCALL |m| (QREFELT $ 24)))
         (|error| "^: matrix must be square"))
        ('T
         (SEQ
-         (LETT |a| (SPADCALL |m| (QREFELT $ 26)) . #1=(|MATSTOR;^;MNniM;11|))
-         (LETT |b| (SPADCALL |m| (QREFELT $ 26)) . #1#)
-         (LETT |c| (SPADCALL |m| (QREFELT $ 26)) . #1#)
-         (EXIT (SPADCALL |a| |b| |c| |m| |n| (QREFELT $ 23)))))))))) 
+         (LETT |a| (SPADCALL |m| (QREFELT $ 25)) . #1=(|MATSTOR;^;MNniM;11|))
+         (LETT |b| (SPADCALL |m| (QREFELT $ 25)) . #1#)
+         (LETT |c| (SPADCALL |m| (QREFELT $ 25)) . #1#)
+         (EXIT (SPADCALL |a| |b| |c| |m| |n| (QREFELT $ 22)))))))))) 
 
 (DECLAIM (NOTINLINE |StorageEfficientMatrixOperations;|)) 
 
@@ -374,7 +373,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|StorageEfficientMatrixOperations|))
       (LETT |dv$| (LIST '|StorageEfficientMatrixOperations| DV$1) . #1#)
-      (LETT $ (GETREFV 28) . #1#)
+      (LETT $ (GETREFV 27) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|StorageEfficientMatrixOperations|
@@ -386,28 +385,27 @@
 
 (MAKEPROP '|StorageEfficientMatrixOperations| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
-              (|Matrix| 6) (0 . |ncols|) (5 . |One|) |MATSTOR;copy!;3M;2|
-              (9 . +) |MATSTOR;plus!;4M;3| (15 . -) |MATSTOR;minus!;3M;4|
-              (20 . -) |MATSTOR;minus!;4M;5| (26 . *)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Matrix| 6)
+              |MATSTOR;copy!;3M;2| (4 . +) |MATSTOR;plus!;4M;3| (10 . -)
+              |MATSTOR;minus!;3M;4| (15 . -) |MATSTOR;minus!;4M;5| (21 . *)
               |MATSTOR;leftScalarTimes!;MR2M;6|
-              |MATSTOR;rightScalarTimes!;2MRM;7| (32 . |Zero|)
-              |MATSTOR;times!;4M;9| |MATSTOR;power!;4MNniM;10| (|Boolean|)
-              (36 . |square?|) (41 . |copy|) |MATSTOR;^;MNniM;11|)
-           '#(|times!| 46 |rightScalarTimes!| 53 |power!| 60 |plus!| 69
-              |minus!| 76 |leftScalarTimes!| 89 |copy!| 96 ^ 102)
+              |MATSTOR;rightScalarTimes!;2MRM;7| (27 . |Zero|)
+              |MATSTOR;times!;4M;9| (|NonNegativeInteger|)
+              |MATSTOR;power!;4MNniM;10| (|Boolean|) (31 . |square?|)
+              (36 . |copy|) |MATSTOR;^;MNniM;11|)
+           '#(|times!| 41 |rightScalarTimes!| 48 |power!| 55 |plus!| 64
+              |minus!| 71 |leftScalarTimes!| 84 |copy!| 91 ^ 97)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 27
-                                                 '(1 8 7 0 9 0 6 0 10 2 6 0 0 0
-                                                   12 1 6 0 0 14 2 6 0 0 0 16 2
-                                                   6 0 0 0 18 0 6 0 21 1 8 24 0
-                                                   25 1 8 0 0 26 3 0 8 8 8 8 22
-                                                   3 0 8 8 8 6 20 5 0 8 8 8 8 8
-                                                   7 23 3 0 8 8 8 8 13 3 0 8 8
-                                                   8 8 17 2 0 8 8 8 15 3 0 8 8
-                                                   6 8 19 2 0 8 8 8 11 2 0 8 8
-                                                   7 27)))))
+                             (|makeByteWordVec2| 26
+                                                 '(0 6 0 7 2 6 0 0 0 10 1 6 0 0
+                                                   12 2 6 0 0 0 14 2 6 0 0 0 16
+                                                   0 6 0 19 1 8 23 0 24 1 8 0 0
+                                                   25 3 0 8 8 8 8 20 3 0 8 8 8
+                                                   6 18 5 0 8 8 8 8 8 21 22 3 0
+                                                   8 8 8 8 11 3 0 8 8 8 8 15 2
+                                                   0 8 8 8 13 3 0 8 8 6 8 17 2
+                                                   0 8 8 8 9 2 0 8 8 21 26)))))
            '|lookupComplete|)) 

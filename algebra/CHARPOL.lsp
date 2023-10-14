@@ -7,16 +7,16 @@
      (SEQ
       (LETT |dimA|
             (PROG1
-                (LETT #1# (QVSIZE A)
+                (LETT #1# (ANROWS A)
                       . #2=(|CHARPOL;characteristicPolynomial;M2R;1|))
               (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
             . #2#)
       (EXIT
        (COND
-        ((SPADCALL |dimA| (SPADCALL A (QREFELT $ 9)) (QREFELT $ 11))
+        ((SPADCALL |dimA| (ANCOLS A) (QREFELT $ 9))
          (|error| " The matrix is not square"))
         ('T
-         (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 12)) . #2#)
+         (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 11)) . #2#)
               (SEQ (LETT |i| 1 . #2#) G190
                    (COND ((|greater_SI| |i| |dimA|) (GO G191)))
                    (SEQ
@@ -25,17 +25,17 @@
                          (SEQ
                           (EXIT
                            (SPADCALL B |i| |j|
-                                     (SPADCALL A |i| |j| (QREFELT $ 14))
-                                     (QREFELT $ 15))))
+                                     (SPADCALL A |i| |j| (QREFELT $ 13))
+                                     (QREFELT $ 14))))
                          (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT
                      (SPADCALL B |i| |i|
-                               (SPADCALL (SPADCALL B |i| |i| (QREFELT $ 14))
-                                         |v| (QREFELT $ 16))
-                               (QREFELT $ 15))))
+                               (SPADCALL (SPADCALL B |i| |i| (QREFELT $ 13))
+                                         |v| (QREFELT $ 15))
+                               (QREFELT $ 14))))
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL B (QREFELT $ 17))))))))))) 
+              (EXIT (SPADCALL B (QREFELT $ 16))))))))))) 
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomialPackage;|)) 
 
@@ -67,7 +67,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|CharacteristicPolynomialPackage|))
       (LETT |dv$| (LIST '|CharacteristicPolynomialPackage| DV$1) . #1#)
-      (LETT $ (GETREFV 19) . #1#)
+      (LETT $ (GETREFV 18) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|CharacteristicPolynomialPackage|
@@ -79,18 +79,17 @@
 
 (MAKEPROP '|CharacteristicPolynomialPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
-              (|Matrix| 6) (0 . |ncols|) (|Boolean|) (5 . ~=) (11 . |zero|)
-              (|Integer|) (17 . |elt|) (24 . |setelt|) (32 . -)
-              (38 . |determinant|) |CHARPOL;characteristicPolynomial;M2R;1|)
-           '#(|characteristicPolynomial| 43) 'NIL
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|)
+              (|NonNegativeInteger|) (0 . ~=) (|Matrix| 6) (6 . |zero|)
+              (|Integer|) (12 . |elt|) (19 . |setelt|) (27 . -)
+              (33 . |determinant|) |CHARPOL;characteristicPolynomial;M2R;1|)
+           '#(|characteristicPolynomial| 38) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 18
-                                                 '(1 8 7 0 9 2 7 10 0 0 11 2 8
-                                                   0 7 7 12 3 8 6 0 13 13 14 4
-                                                   8 6 0 13 13 6 15 2 6 0 0 0
-                                                   16 1 8 6 0 17 2 0 6 8 6
-                                                   18)))))
+                             (|makeByteWordVec2| 17
+                                                 '(2 8 7 0 0 9 2 10 0 8 8 11 3
+                                                   10 6 0 12 12 13 4 10 6 0 12
+                                                   12 6 14 2 6 0 0 0 15 1 10 6
+                                                   0 16 2 0 6 10 6 17)))))
            '|lookupComplete|)) 

@@ -139,21 +139,10 @@
                                                                       |sae|)))
                                     . #6#)
                               (LETT |tmpMat|
-                                    (SPADCALL |n| |n|
-                                              (SPADCALL
-                                               (|compiledLookupCheck| '|Zero|
-                                                                      (LIST '$)
-                                                                      |sae|))
-                                              (|compiledLookupCheck| '|new|
-                                                                     (LIST '$
-                                                                           (LIST
-                                                                            '|NonNegativeInteger|)
-                                                                           (LIST
-                                                                            '|NonNegativeInteger|)
-                                                                           (|devaluate|
-                                                                            |sae|))
-                                                                     (|Matrix|
-                                                                      |sae|)))
+                                    (MAKE_MATRIX1 |n| |n|
+                                                  (SPADCALL
+                                                   (|compiledLookupCheck|
+                                                    '|Zero| (LIST '$) |sae|)))
                                     . #6#)
                               (SEQ (LETT |r| 2 . #6#)
                                    (LETT #4# (SPADCALL |p| |q| (QREFELT $ 28))
@@ -394,14 +383,10 @@
                 (#3#
                  (SEQ (LETT |bas| (MAKEARR1 |n| (|spadConstant| $ 32)) . #2#)
                       (LETT |pows| (MAKEARR1 |n| (|spadConstant| $ 32)) . #2#)
-                      (LETT |tfm|
-                            (SPADCALL |n| |n| (|spadConstant| $ 42)
-                                      (QREFELT $ 61))
+                      (LETT |tfm| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 42))
                             . #2#)
                       (LETT |matrixOut|
-                            (SPADCALL |n| |n| (|spadConstant| $ 42)
-                                      (QREFELT $ 61))
-                            . #2#)
+                            (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 42)) . #2#)
                       (SEQ (LETT |prime| NIL . #2#) (LETT #1# |singList| . #2#)
                            G190
                            (COND
@@ -425,10 +410,10 @@
                                 (LETT |mat|
                                       (SPADCALL
                                        (SPADCALL |rbden| |runningRb|
-                                                 (QREFELT $ 62))
+                                                 (QREFELT $ 61))
                                        (SPADCALL |runningRbden| |rb|
-                                                 (QREFELT $ 62))
-                                       (QREFELT $ 63))
+                                                 (QREFELT $ 61))
+                                       (QREFELT $ 62))
                                       . #2#)
                                 (LETT |runningRbden|
                                       (SPADCALL |runningRbden| |rbden|
@@ -473,11 +458,8 @@
         ('T
          (SEQ (LETT |bas| (MAKEARR1 |n| (|spadConstant| $ 32)) . #1#)
               (LETT |pows| (MAKEARR1 |n| (|spadConstant| $ 32)) . #1#)
-              (LETT |tfm|
-                    (SPADCALL |n| |n| (|spadConstant| $ 42) (QREFELT $ 61))
-                    . #1#)
-              (LETT |matrixOut|
-                    (SPADCALL |n| |n| (|spadConstant| $ 42) (QREFELT $ 61))
+              (LETT |tfm| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 42)) . #1#)
+              (LETT |matrixOut| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 42))
                     . #1#)
               (LETT |lb|
                     (|WFFINTBS;iLocalIntegralBasis| |bas| |pows| |tfm|
@@ -520,7 +502,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT |dv$| (LIST '|WildFunctionFieldIntegralBasis| DV$1 DV$2 DV$3 DV$4)
             . #1#)
-      (LETT $ (GETREFV 67) . #1#)
+      (LETT $ (GETREFV 66) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|WildFunctionFieldIntegralBasis|
@@ -554,15 +536,15 @@
               (148 . |rowEchelon|) (153 . |divideIfCan!|) (161 . =)
               (167 . |quo|) (173 . |sizeLess?|) (179 . |exquo|)
               (185 . |traceMatrix|) (189 . |determinant|) (194 . |zero?|)
-              (199 . |new|) (206 . *) (212 . |vertConcat|)
+              (199 . *) (205 . |vertConcat|)
               (|Record| (|:| |basis| 30) (|:| |basisDen| 7)
                         (|:| |basisInv| 30))
               |WFFINTBS;integralBasis;R;3| |WFFINTBS;localIntegralBasis;RR;4|)
-           '#(|localIntegralBasis| 218 |integralBasis| 223) 'NIL
+           '#(|localIntegralBasis| 211 |integralBasis| 216) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 66
+                             (|makeByteWordVec2| 65
                                                  '(1 11 10 7 12 1 10 14 0 15 0
                                                    6 0 16 2 18 17 0 0 19 0 9 20
                                                    21 0 9 22 23 2 7 0 0 0 24 0
@@ -580,7 +562,7 @@
                                                    2 7 17 0 0 54 2 7 0 0 0 55 2
                                                    7 17 0 0 56 2 7 39 0 0 57 0
                                                    9 30 58 1 30 7 0 59 1 7 17 0
-                                                   60 3 30 0 25 25 7 61 2 30 0
-                                                   7 0 62 2 30 0 0 0 63 1 0 64
-                                                   7 66 0 0 64 65)))))
+                                                   60 2 30 0 7 0 61 2 30 0 0 0
+                                                   62 1 0 63 7 65 0 0 63
+                                                   64)))))
            '|lookupComplete|)) 

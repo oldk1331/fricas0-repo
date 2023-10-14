@@ -182,10 +182,10 @@
            (#3# (EXIT (|error| #2#))))
           (COND
            ((OR
-             (SPADCALL (LETT |n| (QVSIZE |rb1|) . #1#) (QVSIZE |rbinv1|)
+             (SPADCALL (LETT |n| (ANROWS |rb1|) . #1#) (ANROWS |rbinv1|)
                        (QREFELT $ 47))
-             (OR (SPADCALL |n| (QVSIZE |rb2|) (QREFELT $ 47))
-                 (SPADCALL |n| (QVSIZE |rbinv2|) (QREFELT $ 47))))
+             (OR (SPADCALL |n| (ANROWS |rb2|) (QREFELT $ 47))
+                 (SPADCALL |n| (ANROWS |rbinv2|) (QREFELT $ 47))))
             (EXIT (|error| "moduleSum: matrices of incompatible dimensions"))))
           (COND
            ((OR (SPADCALL |rbden1| (QREFELT $ 17))

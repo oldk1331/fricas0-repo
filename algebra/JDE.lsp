@@ -1789,8 +1789,7 @@
                       (QREFELT $ 172))
             . #9#)
       (LETT |mco|
-            (SPADCALL (LENGTH |lchi|) (QREFELT $ 10) (|spadConstant| $ 48)
-                      (QREFELT $ 174))
+            (MAKE_MATRIX1 (LENGTH |lchi|) (QREFELT $ 10) (|spadConstant| $ 48))
             . #9#)
       (SEQ (LETT |chi| NIL . #9#) (LETT #7# |lchi| . #9#) (LETT |i| 1 . #9#)
            G190
@@ -1811,7 +1810,7 @@
                                                               '(|PositiveInteger|)
                                                               #5#))
                                            (QREFELT $ 163))
-                                          (QREFELT $ 175))
+                                          (QREFELT $ 173))
                                 1 1)))
                   (LETT |j| (|inc_SI| |j|) . #9#) (GO G190) G191 (EXIT NIL))))
            (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #7# (CDR #7#) . #9#)) . #9#)
@@ -1910,7 +1909,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|JetDifferentialEquation|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|JetDifferentialEquation| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 178) . #1#)
+      (LETT $ (GETREFV 176) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|JetDifferentialEquation|
@@ -1978,7 +1977,7 @@
               (|Record| (|:| |DPhi| $) (|:| |JVars| 61)) (415 . |formalDiff2|)
               (|List| 61) (422 . |jacobiMatrix|) |JDE;prolong;$R;17|
               |JDE;prolong;$NniR;18| (428 . |extractSymbol|)
-              (|Record| (|:| |Ech| $) (|:| |Lt| 173) (|:| |Pivots| 31)
+              (|Record| (|:| |Ech| $) (|:| |Lt| (|Matrix| 7)) (|:| |Pivots| 31)
                         (|:| |Rank| 14))
               (433 . |rowEchelon|) |JDE;extractSymbol;$BSem;19|
               (438 . |pivots|) (443 . |class|)
@@ -1992,19 +1991,18 @@
               (513 . |differentials|) (518 . |last|) (523 . X) (528 . >)
               (534 . |coefficients|) (539 . |index|) (544 . |multiIndex|)
               (|Vector| 7) (549 . |entries|) (554 . |zero?|)
-              |JDE;tableau;SemJdSem;25| (559 . |variables|) (|Matrix| 7)
-              (565 . |new|) (572 . |coefficient|) (|List| 160)
-              |JDE;tableau;SemLSem;26|)
-           '#(|tableau| 578 |simplify| 590 |setSimpMode| 595 |retract| 600
-              |prolongSymbol| 605 |prolongMV| 610 |prolong| 615 |project| 626
-              |printSys| 632 |order| 637 |makeSystem| 642 |join| 647
-              |jacobiMatrix| 653 |insert| 658 |extractSymbol| 664 |display| 670
-              |dimension| 675 |copy| 681 |coerce| 686 |analyseSymbol| 691)
+              |JDE;tableau;SemJdSem;25| (559 . |variables|)
+              (565 . |coefficient|) (|List| 160) |JDE;tableau;SemLSem;26|)
+           '#(|tableau| 571 |simplify| 583 |setSimpMode| 588 |retract| 593
+              |prolongSymbol| 598 |prolongMV| 603 |prolong| 608 |project| 619
+              |printSys| 625 |order| 630 |makeSystem| 635 |join| 640
+              |jacobiMatrix| 646 |insert| 651 |extractSymbol| 657 |display| 663
+              |dimension| 668 |copy| 674 |coerce| 679 |analyseSymbol| 684)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 177
+                             (|makeByteWordVec2| 175
                                                  '(0 6 8 9 0 6 8 11 1 16 14 0
                                                    17 2 16 14 0 18 19 2 21 20 0
                                                    18 22 2 14 0 0 0 23 2 16 14
@@ -2057,17 +2055,16 @@
                                                    20 0 0 164 1 160 31 0 165 1
                                                    6 8 0 166 1 6 16 0 167 1 168
                                                    31 0 169 1 7 20 0 170 2 6 52
-                                                   14 8 172 3 173 0 14 14 7 174
-                                                   2 160 7 0 6 175 2 0 33 33
-                                                   176 177 2 0 33 33 160 171 1
-                                                   0 126 0 127 1 0 14 14 15 1 0
-                                                   31 0 43 1 0 33 33 151 1 0
-                                                   141 141 152 1 0 126 0 133 2
-                                                   0 126 0 14 134 2 0 0 0 14
-                                                   128 1 0 46 31 54 1 0 14 0 38
-                                                   1 0 0 31 89 2 0 0 0 0 96 1 0
-                                                   44 0 45 2 0 0 31 0 97 2 0 33
-                                                   0 20 138 1 0 58 0 66 2 0 14
-                                                   0 14 102 1 0 0 0 37 1 0 46 0
-                                                   55 1 0 141 33 142)))))
+                                                   14 8 172 2 160 7 0 6 173 2 0
+                                                   33 33 174 175 2 0 33 33 160
+                                                   171 1 0 126 0 127 1 0 14 14
+                                                   15 1 0 31 0 43 1 0 33 33 151
+                                                   1 0 141 141 152 1 0 126 0
+                                                   133 2 0 126 0 14 134 2 0 0 0
+                                                   14 128 1 0 46 31 54 1 0 14 0
+                                                   38 1 0 0 31 89 2 0 0 0 0 96
+                                                   1 0 44 0 45 2 0 0 31 0 97 2
+                                                   0 33 0 20 138 1 0 58 0 66 2
+                                                   0 14 0 14 102 1 0 0 0 37 1 0
+                                                   46 0 55 1 0 141 33 142)))))
            '|lookupComplete|)) 

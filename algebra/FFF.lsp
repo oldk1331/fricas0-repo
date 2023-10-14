@@ -371,7 +371,7 @@
                                                             (|PrimeField|
                                                              |p|))))))))))
                     (LETT |v| (|inc_SI| |v|) . #3#) (GO G190) G191 (EXIT NIL))
-               (LETT |m| (QVSIZE |multmat|) . #3#)
+               (LETT |m| (ANROWS |multmat|) . #3#)
                (LETT |multtable| (MAKEARR1 |m| NIL) . #3#)
                (SEQ (LETT |i| 1 . #3#) G190
                     (COND ((|greater_SI| |i| |m|) (GO G191)))

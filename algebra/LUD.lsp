@@ -173,9 +173,8 @@
   (PROG (|res| |v| #1=#:G172 |i| |n| |Alu|)
     (RETURN
      (SEQ (LETT |Alu| (SPADCALL A (QREFELT $ 24)) . #2=(|LUD;LUInverse;MR;3|))
-          (LETT |n| (SPADCALL A (QREFELT $ 30)) . #2#)
-          (LETT |res| (SPADCALL |n| |n| (|spadConstant| $ 20) (QREFELT $ 31))
-                . #2#)
+          (LETT |n| (ANCOLS A) . #2#)
+          (LETT |res| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 20)) . #2#)
           (SEQ (LETT |i| 1 . #2#) (LETT #1# (SPADCALL A (QREFELT $ 10)) . #2#)
                G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                (SEQ (LETT |v| (MAKEARR1 |n| (|spadConstant| $ 20)) . #2#)
@@ -185,7 +184,7 @@
                            (SPADCALL |res| |i|
                                      (SPADCALL (QVELT |Alu| 0) (QVELT |Alu| 1)
                                                |v| (QREFELT $ 28))
-                                     (QREFELT $ 32))
+                                     (QREFELT $ 29))
                            . #2#)))
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS |res| (QVELT |Alu| 2))))))) 
@@ -216,7 +215,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|LUDecomposition|))
       (LETT |dv$| (LIST '|LUDecomposition| DV$1) . #1#)
-      (LETT $ (GETREFV 35) . #1#)
+      (LETT $ (GETREFV 32) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|LUDecomposition| (LIST DV$1)
@@ -234,22 +233,20 @@
               (35 . -) (41 . |zero?|) (46 . |Zero|) (50 . |swapRows!|) (57 . /)
               (|Record| (|:| LU 7) (|:| |Perm| 27) (|:| |Pivots| (|List| 6)))
               |LUD;LUDecomp;MR;1| (|Vector| 6) (63 . |copy|) (|Vector| 9)
-              |LUD;LUSolve;MV2V;2| (|NonNegativeInteger|) (68 . |ncols|)
-              (73 . |new|) (80 . |setColumn!|)
+              |LUD;LUSolve;MV2V;2| (68 . |setColumn!|)
               (|Record| (|:| |Inv| 7) (|:| |Pivots| (|List| 6)))
               |LUD;LUInverse;MR;3|)
-           '#(|LUSolve| 87 |LUInverse| 94 |LUDecomp| 99) 'NIL
+           '#(|LUSolve| 75 |LUInverse| 82 |LUDecomp| 87) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 34
+                             (|makeByteWordVec2| 31
                                                  '(1 7 0 0 8 1 7 9 0 10 1 7 9 0
                                                    11 2 9 12 0 0 13 0 6 0 14 0
                                                    15 0 16 2 6 0 0 0 17 2 6 0 0
                                                    0 18 1 6 12 0 19 0 6 0 20 3
                                                    7 0 0 9 9 21 2 6 0 0 0 22 1
-                                                   25 0 0 26 1 7 29 0 30 3 7 0
-                                                   29 29 6 31 3 7 0 0 9 25 32 3
-                                                   0 25 7 27 25 28 1 0 33 7 34
+                                                   25 0 0 26 3 7 0 0 9 25 29 3
+                                                   0 25 7 27 25 28 1 0 30 7 31
                                                    1 0 23 7 24)))))
            '|lookupComplete|)) 

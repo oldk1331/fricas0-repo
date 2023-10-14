@@ -14,21 +14,20 @@
     (RETURN
      (SEQ
       (LETT |ans|
-            (SPADCALL (QREFELT $ 7) (QVSIZE |v|) (|spadConstant| $ 19)
-                      (QREFELT $ 21))
+            (MAKE_MATRIX1 (QREFELT $ 7) (QVSIZE |v|) (|spadConstant| $ 19))
             . #3=(|DIRPCAT-;equation2R|))
-      (SEQ (LETT |i| 1 . #3#) (LETT #2# (SPADCALL |ans| (QREFELT $ 22)) . #3#)
+      (SEQ (LETT |i| 1 . #3#) (LETT #2# (SPADCALL |ans| (QREFELT $ 21)) . #3#)
            G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
            (SEQ
             (EXIT
              (SEQ (LETT |j| 1 . #3#)
-                  (LETT #1# (SPADCALL |ans| (QREFELT $ 23)) . #3#) G190
+                  (LETT #1# (SPADCALL |ans| (QREFELT $ 22)) . #3#) G190
                   (COND ((|greater_SI| |j| #1#) (GO G191)))
                   (SEQ
                    (EXIT
                     (QSETAREF2O |ans| |i| |j|
                                 (SPADCALL (QAREF1O |v| |j| 1) |i|
-                                          (QREFELT $ 24))
+                                          (QREFELT $ 23))
                                 1 1)))
                   (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))))
            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
@@ -39,55 +38,54 @@
     (RETURN
      (SEQ
       (COND
-       ((SPADCALL |m| (QREFELT $ 27))
-        (SPADCALL 0 0 (|spadConstant| $ 19) (QREFELT $ 21)))
+       ((SPADCALL |m| (QREFELT $ 26)) (MAKE_MATRIX1 0 0 (|spadConstant| $ 19)))
        ('T
-        (SPADCALL (ELT $ 28)
+        (SPADCALL (ELT $ 27)
                   (PROGN
                    (LETT #2# NIL . #3=(|DIRPCAT-;reducedSystem;MM;5|))
                    (SEQ (LETT |i| 1 . #3#)
-                        (LETT #1# (SPADCALL |m| (QREFELT $ 29)) . #3#) G190
+                        (LETT #1# (SPADCALL |m| (QREFELT $ 28)) . #3#) G190
                         (COND ((|greater_SI| |i| #1#) (GO G191)))
                         (SEQ
                          (EXIT
                           (LETT #2#
                                 (CONS
                                  (|DIRPCAT-;equation2R|
-                                  (SPADCALL |m| |i| (QREFELT $ 31)) $)
+                                  (SPADCALL |m| |i| (QREFELT $ 30)) $)
                                  #2#)
                                 . #3#)))
                         (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                         (EXIT (NREVERSE #2#))))
-                  (QREFELT $ 34)))))))) 
+                  (QREFELT $ 33)))))))) 
 
 (DEFUN |DIRPCAT-;reducedSystem;MVR;6| (|m| |v| $)
   (PROG (|vh| |rh|)
     (RETURN
      (SEQ
       (LETT |vh|
-            (COND ((SPADCALL |v| (QREFELT $ 37)) (MAKE-ARRAY 0))
+            (COND ((SPADCALL |v| (QREFELT $ 36)) (MAKE-ARRAY 0))
                   ('T
                    (SEQ
                     (LETT |rh|
-                          (SPADCALL (SPADCALL |v| (QREFELT $ 38))
-                                    (QREFELT $ 39))
+                          (SPADCALL (SPADCALL |v| (QREFELT $ 37))
+                                    (QREFELT $ 38))
                           . #1=(|DIRPCAT-;reducedSystem;MVR;6|))
-                    (EXIT (SPADCALL |rh| 1 (QREFELT $ 41))))))
+                    (EXIT (SPADCALL |rh| 1 (QREFELT $ 40))))))
             . #1#)
-      (EXIT (CONS (SPADCALL |m| (QREFELT $ 39)) |vh|)))))) 
+      (EXIT (CONS (SPADCALL |m| (QREFELT $ 38)) |vh|)))))) 
 
 (DEFUN |DIRPCAT-;/;SRS;7| (|x| |b| $)
-  (SPADCALL |x| (SPADCALL |b| (QREFELT $ 45)) (QREFELT $ 46))) 
+  (SPADCALL |x| (SPADCALL |b| (QREFELT $ 44)) (QREFELT $ 45))) 
 
-(DEFUN |DIRPCAT-;dimension;Cn;8| ($) (SPADCALL (QREFELT $ 7) (QREFELT $ 49))) 
+(DEFUN |DIRPCAT-;dimension;Cn;8| ($) (SPADCALL (QREFELT $ 7) (QREFELT $ 48))) 
 
-(DEFUN |DIRPCAT-;size;Nni;9| ($) (EXPT (SPADCALL (QREFELT $ 51)) (QREFELT $ 7))) 
+(DEFUN |DIRPCAT-;size;Nni;9| ($) (EXPT (SPADCALL (QREFELT $ 50)) (QREFELT $ 7))) 
 
 (DEFUN |DIRPCAT-;index;PiS;10| (|n| $)
   (PROG (|n0| #1=#:G165 |d| #2=#:G170 |i| |r| |s|)
     (RETURN
-     (SEQ (LETT |s| (SPADCALL (QREFELT $ 51)) . #3=(|DIRPCAT-;index;PiS;10|))
-          (LETT |r| (MAKEARR1 (QREFELT $ 7) (SPADCALL 1 (QREFELT $ 54))) . #3#)
+     (SEQ (LETT |s| (SPADCALL (QREFELT $ 50)) . #3=(|DIRPCAT-;index;PiS;10|))
+          (LETT |r| (MAKEARR1 (QREFELT $ 7) (SPADCALL 1 (QREFELT $ 53))) . #3#)
           (LETT |n0| (- |n| 1) . #3#)
           (SEQ (LETT |i| 1 . #3#) (LETT #2# (QREFELT $ 7) . #3#) G190
                (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -97,16 +95,16 @@
                                (PROG1 (LETT #1# (+ 1 (QCDR |d|)) . #3#)
                                  (|check_subtype| (> #1# 0)
                                                   '(|PositiveInteger|) #1#))
-                               (QREFELT $ 54))
-                              (QREFELT $ 55))
+                               (QREFELT $ 53))
+                              (QREFELT $ 54))
                     (EXIT (LETT |n0| (QCAR |d|) . #3#)))
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |r| (QREFELT $ 56))))))) 
+          (EXIT (SPADCALL |r| (QREFELT $ 55))))))) 
 
 (DEFUN |DIRPCAT-;lookup;SPi;11| (|v| $)
   (PROG (#1=#:G173 |pow| |res| #2=#:G176 |i| |s|)
     (RETURN
-     (SEQ (LETT |s| (SPADCALL (QREFELT $ 51)) . #3=(|DIRPCAT-;lookup;SPi;11|))
+     (SEQ (LETT |s| (SPADCALL (QREFELT $ 50)) . #3=(|DIRPCAT-;lookup;SPi;11|))
           (LETT |pow| 1 . #3#) (LETT |res| 1 . #3#)
           (SEQ (LETT |i| 1 . #3#) (LETT #2# (QREFELT $ 7) . #3#) G190
                (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -115,8 +113,8 @@
                       (+ |res|
                          (*
                           (-
-                           (SPADCALL (SPADCALL |v| |i| (QREFELT $ 58))
-                                     (QREFELT $ 59))
+                           (SPADCALL (SPADCALL |v| |i| (QREFELT $ 57))
+                                     (QREFELT $ 58))
                            1)
                           |pow|))
                       . #3#)
@@ -136,7 +134,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT |dv$| (LIST '|DirectProductCategory&| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 68) . #1#)
+      (LETT $ (GETREFV 67) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -175,23 +173,23 @@
          (QSETREFV $ 18
                    (CONS (|dispatchFunction| |DIRPCAT-;differentiate;SMS;3|)
                          $))
-         (QSETREFV $ 36
+         (QSETREFV $ 35
                    (CONS (|dispatchFunction| |DIRPCAT-;reducedSystem;MM;5|) $))
-         (QSETREFV $ 44
+         (QSETREFV $ 43
                    (CONS (|dispatchFunction| |DIRPCAT-;reducedSystem;MVR;6|)
                          $)))))
       (COND
        ((|testBitVector| |pv$| 1)
         (PROGN
-         (QSETREFV $ 47 (CONS (|dispatchFunction| |DIRPCAT-;/;SRS;7|) $))
-         (QSETREFV $ 50
+         (QSETREFV $ 46 (CONS (|dispatchFunction| |DIRPCAT-;/;SRS;7|) $))
+         (QSETREFV $ 49
                    (CONS (|dispatchFunction| |DIRPCAT-;dimension;Cn;8|) $)))))
       (COND
        ((|testBitVector| |pv$| 6)
         (PROGN
-         (QSETREFV $ 52 (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;9|) $))
-         (QSETREFV $ 57 (CONS (|dispatchFunction| |DIRPCAT-;index;PiS;10|) $))
-         (QSETREFV $ 60
+         (QSETREFV $ 51 (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;9|) $))
+         (QSETREFV $ 56 (CONS (|dispatchFunction| |DIRPCAT-;index;PiS;10|) $))
+         (QSETREFV $ 59
                    (CONS (|dispatchFunction| |DIRPCAT-;lookup;SPi;11|) $)))))
       $)))) 
 
@@ -201,48 +199,48 @@
               (|local| |#3|) (|Integer|) (0 . |coerce|) (5 . |coerce|)
               (10 . |coerce|) (|NonNegativeInteger|) (15 . |characteristic|)
               (19 . |characteristic|) (|Mapping| 8 8) (23 . |map|)
-              (29 . |differentiate|) (35 . |Zero|) (|Matrix| 8) (39 . |new|)
-              (46 . |maxRowIndex|) (51 . |maxColIndex|) (56 . |qelt|)
-              (|Boolean|) (|Matrix| 6) (62 . |empty?|) (67 . |vertConcat|)
-              (73 . |maxRowIndex|) (|Vector| 6) (78 . |row|)
-              (|Mapping| 20 20 20) (|List| 20) (84 . |reduce|) (|Matrix| $)
-              (90 . |reducedSystem|) (95 . |empty?|) (100 . |coerce|)
-              (105 . |reducedSystem|) (|Vector| 8) (110 . |column|)
-              (|Record| (|:| |mat| 20) (|:| |vec| 40)) (|Vector| $)
-              (116 . |reducedSystem|) (122 . |inv|) (127 . *) (133 . /)
-              (|CardinalNumber|) (139 . |coerce|) (144 . |dimension|)
-              (148 . |size|) (152 . |size|) (|PositiveInteger|) (156 . |index|)
-              (161 . |setelt|) (168 . |directProduct|) (173 . |index|)
-              (178 . |elt|) (184 . |lookup|) (189 . |lookup|) (|Fraction| 9)
-              (|OutputForm|) (|Symbol|) (|List| 63) (|List| 13) (|Matrix| 9)
-              (|Record| (|:| |mat| 66) (|:| |vec| (|Vector| 9))))
-           '#(|size| 194 |reducedSystem| 198 |lookup| 209 |index| 214
-              |dimension| 219 |differentiate| 223 |coerce| 229 |characteristic|
-              234 / 238)
+              (29 . |differentiate|) (35 . |Zero|) (|Matrix| 8)
+              (39 . |maxRowIndex|) (44 . |maxColIndex|) (49 . |qelt|)
+              (|Boolean|) (|Matrix| 6) (55 . |empty?|) (60 . |vertConcat|)
+              (66 . |maxRowIndex|) (|Vector| 6) (71 . |row|)
+              (|Mapping| 20 20 20) (|List| 20) (77 . |reduce|) (|Matrix| $)
+              (83 . |reducedSystem|) (88 . |empty?|) (93 . |coerce|)
+              (98 . |reducedSystem|) (|Vector| 8) (103 . |column|)
+              (|Record| (|:| |mat| 20) (|:| |vec| 39)) (|Vector| $)
+              (109 . |reducedSystem|) (115 . |inv|) (120 . *) (126 . /)
+              (|CardinalNumber|) (132 . |coerce|) (137 . |dimension|)
+              (141 . |size|) (145 . |size|) (|PositiveInteger|) (149 . |index|)
+              (154 . |setelt|) (161 . |directProduct|) (166 . |index|)
+              (171 . |elt|) (177 . |lookup|) (182 . |lookup|) (|Fraction| 9)
+              (|OutputForm|) (|Symbol|) (|List| 62) (|List| 13) (|Matrix| 9)
+              (|Record| (|:| |mat| 65) (|:| |vec| (|Vector| 9))))
+           '#(|size| 187 |reducedSystem| 191 |lookup| 202 |index| 207
+              |dimension| 212 |differentiate| 216 |coerce| 222 |characteristic|
+              227 / 231)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 60
+                             (|makeByteWordVec2| 59
                                                  '(1 8 0 9 10 1 6 0 8 11 1 0 0
                                                    9 12 0 8 13 14 0 0 13 15 2 6
                                                    0 16 0 17 2 0 0 0 16 18 0 8
-                                                   0 19 3 20 0 13 13 8 21 1 20
-                                                   9 0 22 1 20 9 0 23 2 6 8 0 9
-                                                   24 1 26 25 0 27 2 20 0 0 0
-                                                   28 1 26 9 0 29 2 26 30 0 9
-                                                   31 2 33 20 32 0 34 1 0 20 35
-                                                   36 1 30 25 0 37 1 26 0 30 38
-                                                   1 6 20 35 39 2 20 40 0 9 41
-                                                   2 0 42 35 43 44 1 8 0 0 45 2
-                                                   6 0 0 8 46 2 0 0 0 8 47 1 48
-                                                   0 13 49 0 0 48 50 0 8 13 51
-                                                   0 0 13 52 1 8 0 53 54 3 40 8
-                                                   0 9 8 55 1 6 0 40 56 1 0 0
-                                                   53 57 2 6 8 0 9 58 1 8 53 0
-                                                   59 1 0 53 0 60 0 0 13 52 1 0
-                                                   20 35 36 2 0 42 35 43 44 1 0
-                                                   53 0 60 1 0 0 53 57 0 0 48
-                                                   50 2 0 0 0 16 18 1 0 0 9 12
-                                                   0 0 13 15 2 0 0 0 8 47)))))
+                                                   0 19 1 20 9 0 21 1 20 9 0 22
+                                                   2 6 8 0 9 23 1 25 24 0 26 2
+                                                   20 0 0 0 27 1 25 9 0 28 2 25
+                                                   29 0 9 30 2 32 20 31 0 33 1
+                                                   0 20 34 35 1 29 24 0 36 1 25
+                                                   0 29 37 1 6 20 34 38 2 20 39
+                                                   0 9 40 2 0 41 34 42 43 1 8 0
+                                                   0 44 2 6 0 0 8 45 2 0 0 0 8
+                                                   46 1 47 0 13 48 0 0 47 49 0
+                                                   8 13 50 0 0 13 51 1 8 0 52
+                                                   53 3 39 8 0 9 8 54 1 6 0 39
+                                                   55 1 0 0 52 56 2 6 8 0 9 57
+                                                   1 8 52 0 58 1 0 52 0 59 0 0
+                                                   13 51 1 0 20 34 35 2 0 41 34
+                                                   42 43 1 0 52 0 59 1 0 0 52
+                                                   56 0 0 47 49 2 0 0 0 16 18 1
+                                                   0 0 9 12 0 0 13 15 2 0 0 0 8
+                                                   46)))))
            '|lookupComplete|)) 

@@ -35,7 +35,7 @@
   (PROG (|i| |l| |k| |v| #1=#:G169 |j| |n|)
     (RETURN
      (SEQ (LETT |i| 1 . #2=(|PSEUDLIN;companionBlocks;MVL;4|))
-          (LETT |n| (QVSIZE R) . #2#) (LETT |l| NIL . #2#)
+          (LETT |n| (ANROWS R) . #2#) (LETT |l| NIL . #2#)
           (SEQ G190 (COND ((NULL (SPADCALL |i| |n| (QREFELT $ 22))) (GO G191)))
                (SEQ (LETT |j| |i| . #2#)
                     (SEQ G190
@@ -81,7 +81,7 @@
     (RETURN
      (SEQ
       (EXIT
-       (SEQ (LETT N (QVSIZE M) . #6=(|PSEUDLIN;normalForm0|))
+       (SEQ (LETT N (ANROWS M) . #6=(|PSEUDLIN;normalForm0|))
             (LETT B
                   (SPADCALL
                    (PROGN

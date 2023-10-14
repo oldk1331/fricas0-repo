@@ -172,16 +172,14 @@
       (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15))
             . #3=(|MCALCFN;bandedHessian;FFLASNniM;8|))
       (LETT |n| (LENGTH |xlist|) . #3#)
-      (LETT |bandM|
-            (SPADCALL (+ |k| 1) |n| (|spadConstant| $ 17) (QREFELT $ 34))
-            . #3#)
+      (LETT |bandM| (MAKE_MATRIX1 (+ |k| 1) |n| (|spadConstant| $ 17)) . #3#)
       (SEQ (LETT |j| 1 . #3#) G190 (COND ((|greater_SI| |j| |n|) (GO G191)))
            (SEQ
             (EXIT
              (SPADCALL |bandM| 1 |j|
                        (SPADCALL |v| (SPADCALL |xlist| |j| (QREFELT $ 20)) 2
-                                 (QREFELT $ 35))
-                       (QREFELT $ 36))))
+                                 (QREFELT $ 34))
+                       (QREFELT $ 35))))
            (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))
       (SEQ (LETT |iw| 2 . #3#) (LETT #2# (+ |k| 1) . #3#) G190
            (COND ((|greater_SI| |iw| #2#) (GO G191)))
@@ -198,7 +196,7 @@
                                          (SPADCALL |xlist| (- (+ |j| |iw|) 1)
                                                    (QREFELT $ 20)))
                                         (QREFELT $ 26))
-                              (QREFELT $ 36))))
+                              (QREFELT $ 35))))
                   (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))))
            (LETT |iw| (|inc_SI| |iw|) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT |bandM|))))) 
@@ -252,9 +250,7 @@
             . #3=(|MCALCFN;bandedJacobian;FLAFFLAS2NniM;10|))
       (LETT |n| (LENGTH |xlist|) . #3#)
       (LETT |bandM|
-            (SPADCALL (+ (+ |kl| |ku|) 1) |n| (|spadConstant| $ 17)
-                      (QREFELT $ 34))
-            . #3#)
+            (MAKE_MATRIX1 (+ (+ |kl| |ku|) 1) |n| (|spadConstant| $ 17)) . #3#)
       (SEQ (LETT |j| 1 . #3#) G190 (COND ((|greater_SI| |j| |n|) (GO G191)))
            (SEQ
             (EXIT
@@ -262,7 +258,7 @@
                        (SPADCALL (SPADCALL |vf| |j| (QREFELT $ 23))
                                  (SPADCALL |xlist| |j| (QREFELT $ 20))
                                  (QREFELT $ 10))
-                       (QREFELT $ 36))))
+                       (QREFELT $ 35))))
            (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))
       (SEQ (LETT |iw| (+ |ku| 2) . #3#) (LETT #2# (+ (+ |ku| |kl|) 1) . #3#)
            G190 (COND ((> |iw| #2#) (GO G191)))
@@ -279,7 +275,7 @@
                                          (QREFELT $ 23))
                                (SPADCALL |xlist| |j| (QREFELT $ 20))
                                (QREFELT $ 10))
-                              (QREFELT $ 36))))
+                              (QREFELT $ 35))))
                   (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))))
            (LETT |iw| (+ |iw| 1) . #3#) (GO G190) G191 (EXIT NIL))
       (SEQ (LETT |iw| 1 . #3#) G190 (COND ((|greater_SI| |iw| |ku|) (GO G191)))
@@ -295,7 +291,7 @@
                                          (QREFELT $ 23))
                                (SPADCALL |xlist| |j| (QREFELT $ 20))
                                (QREFELT $ 10))
-                              (QREFELT $ 36))))
+                              (QREFELT $ 35))))
                   (LETT |j| (+ |j| 1) . #3#) (GO G190) G191 (EXIT NIL))))
            (LETT |iw| (|inc_SI| |iw|) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT |bandM|))))) 
@@ -334,7 +330,7 @@
       (LETT DV$4 (|devaluate| |#4|) . #1#)
       (LETT |dv$| (LIST '|MultiVariableCalculusFunctions| DV$1 DV$2 DV$3 DV$4)
             . #1#)
-      (LETT $ (GETREFV 39) . #1#)
+      (LETT $ (GETREFV 38) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|MultiVariableCalculusFunctions|
@@ -357,26 +353,25 @@
               |MCALCFN;divergence;FLAFFLASF;4| |MCALCFN;laplacian;FFLASF;5|
               (49 . D) (|List| 11) (|Matrix| 7) (55 . |matrix|)
               |MCALCFN;hessian;FFLASM;6| |MCALCFN;jacobian;FLAFFLASM;9|
-              (60 . |One|) (|NonNegativeInteger|) (64 . |new|) (71 . D)
-              (78 . |setelt|) |MCALCFN;bandedHessian;FFLASNniM;8|
+              (60 . |One|) (|NonNegativeInteger|) (64 . D) (71 . |setelt|)
+              |MCALCFN;bandedHessian;FFLASNniM;8|
               |MCALCFN;bandedJacobian;FLAFFLAS2NniM;10|)
-           '#(|laplacian| 86 |jacobian| 92 |hessian| 98 |gradient| 104
-              |divergence| 110 |bandedJacobian| 116 |bandedHessian| 124)
+           '#(|laplacian| 79 |jacobian| 85 |hessian| 91 |gradient| 97
+              |divergence| 103 |bandedJacobian| 109 |bandedHessian| 117)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 38
+                             (|makeByteWordVec2| 37
                                                  '(2 7 0 0 6 10 1 12 0 11 13 1
                                                    9 14 0 15 0 7 0 17 2 12 7 0
                                                    18 19 2 14 6 0 18 20 2 7 0 0
                                                    0 21 1 8 18 0 22 2 8 7 0 18
                                                    23 2 7 0 0 14 26 1 28 0 27
-                                                   29 0 7 0 32 3 28 0 33 33 7
-                                                   34 3 7 0 0 6 33 35 4 28 7 0
-                                                   18 18 7 36 2 0 7 7 9 25 2 0
-                                                   28 8 9 31 2 0 28 7 9 30 2 0
-                                                   12 7 9 16 2 0 7 8 9 24 4 0
-                                                   28 8 9 33 33 38 3 0 28 7 9
-                                                   33 37)))))
+                                                   29 0 7 0 32 3 7 0 0 6 33 34
+                                                   4 28 7 0 18 18 7 35 2 0 7 7
+                                                   9 25 2 0 28 8 9 31 2 0 28 7
+                                                   9 30 2 0 12 7 9 16 2 0 7 8 9
+                                                   24 4 0 28 8 9 33 33 37 3 0
+                                                   28 7 9 33 36)))))
            '|lookupComplete|)) 

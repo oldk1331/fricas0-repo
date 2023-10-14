@@ -189,7 +189,7 @@
      (SEQ
       (EXIT
        (SEQ
-        (LETT |ans| (MAKEARR1 (QVSIZE |mat|) (|spadConstant| $ 52))
+        (LETT |ans| (MAKEARR1 (ANROWS |mat|) (|spadConstant| $ 52))
               . #6=(|INTHERAL;localsolve|))
         (EXIT
          (COND

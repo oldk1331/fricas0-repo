@@ -47,7 +47,7 @@
 (DEFUN |INEP;evalvect| (|vect| |alg| $)
   (PROG (|v| |polf| |i| |w| |n|)
     (RETURN
-     (SEQ (LETT |n| (QVSIZE |vect|) . #1=(|INEP;evalvect|))
+     (SEQ (LETT |n| (ANROWS |vect|) . #1=(|INEP;evalvect|))
           (LETT |w| (SPADCALL |n| 1 (QREFELT $ 36)) . #1#)
           (SEQ (LETT |i| 1 . #1#) G190
                (COND ((|greater_SI| |i| |n|) (GO G191)))
@@ -67,7 +67,7 @@
          |wf| #2=#:G187 |vecr| B1 |alpha| |pol| #3=#:G186 |ff| |lff| AM MM
          |dimA|)
     (RETURN
-     (SEQ (LETT |dimA| (QVSIZE A) . #4=(|INEP;inteigen|))
+     (SEQ (LETT |dimA| (ANROWS A) . #4=(|INEP;inteigen|))
           (LETT MM
                 (|ModularField| (|SparseUnivariatePolynomial| (QREFELT $ 6))
                                 (|SparseUnivariatePolynomial| (QREFELT $ 6))
@@ -389,7 +389,7 @@
       (LETT |pol| (SPADCALL A (QREFELT $ 93))
             . #5=(|INEP;innerEigenvectors;MParML;10|))
       (LETT |sln1| (|INEP;inteigen| A |pol| |fact| $) . #5#)
-      (LETT |n| (QVSIZE A) . #5#) (LETT |sln| NIL . #5#)
+      (LETT |n| (ANROWS A) . #5#) (LETT |sln| NIL . #5#)
       (SEQ (LETT |lev| NIL . #5#) (LETT #4# |sln1| . #5#) G190
            (COND
             ((OR (ATOM #4#) (PROGN (LETT |lev| (CAR #4#) . #5#) NIL))
@@ -448,12 +448,12 @@
     (RETURN
      (SEQ
       (LETT |dimA|
-            (PROG1 (LETT #1# (QVSIZE A) . #2=(|INEP;charpol;MSup;11|))
+            (PROG1 (LETT #1# (ANROWS A) . #2=(|INEP;charpol;MSup;11|))
               (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
             . #2#)
       (EXIT
        (COND
-        ((SPADCALL |dimA| (SPADCALL A (QREFELT $ 98)) (QREFELT $ 99))
+        ((SPADCALL |dimA| (ANCOLS A) (QREFELT $ 98))
          (|error| " The matrix is not square"))
         ('T
          (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 65)) . #2#)
@@ -476,10 +476,10 @@
                                (SPADCALL (SPADCALL B |i| |i| (QREFELT $ 39))
                                          (SPADCALL (|spadConstant| $ 20) 1
                                                    (QREFELT $ 63))
-                                         (QREFELT $ 100))
+                                         (QREFELT $ 99))
                                (QREFELT $ 66))))
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL B (QREFELT $ 101))))))))))) 
+              (EXIT (SPADCALL B (QREFELT $ 100))))))))))) 
 
 (DECLAIM (NOTINLINE |InnerNumericEigenPackage;|)) 
 
@@ -512,7 +512,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT |dv$| (LIST '|InnerNumericEigenPackage| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 102) . #1#)
+      (LETT $ (GETREFV 101) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|InnerNumericEigenPackage|
@@ -568,12 +568,12 @@
               (|Record| (|:| |outval| 7) (|:| |outmult| 37)
                         (|:| |outvect| (|List| 35)))
               (|List| 94) (|Mapping| 48 18) |INEP;innerEigenvectors;MParML;10|
-              (282 . |ncols|) (287 . ~=) (293 . -) (299 . |determinant|))
-           '#(|solve1| 304 |innerEigenvectors| 310 |charpol| 317) 'NIL
+              (282 . ~=) (288 . -) (294 . |determinant|))
+           '#(|solve1| 299 |innerEigenvectors| 305 |charpol| 312) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 101
+                             (|makeByteWordVec2| 100
                                                  '(1 10 9 0 11 1 12 0 10 13 1
                                                    14 0 10 15 1 14 12 0 16 1 12
                                                    12 0 17 1 18 6 0 19 0 6 0 20
@@ -599,8 +599,8 @@
                                                    78 18 8 81 1 14 10 0 82 1 14
                                                    10 0 83 2 84 0 37 37 85 2 89
                                                    86 87 88 90 2 91 78 86 8 92
-                                                   1 54 34 0 98 2 34 22 0 0 99
-                                                   2 18 0 0 0 100 1 38 18 0 101
-                                                   2 0 78 18 8 81 3 0 95 54 8
-                                                   96 97 1 0 18 54 93)))))
+                                                   2 34 22 0 0 98 2 18 0 0 0 99
+                                                   1 38 18 0 100 2 0 78 18 8 81
+                                                   3 0 95 54 8 96 97 1 0 18 54
+                                                   93)))))
            '|lookupComplete|)) 
