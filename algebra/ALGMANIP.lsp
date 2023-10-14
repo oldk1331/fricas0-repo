@@ -105,7 +105,7 @@
         (QREFELT $ 51))))))) 
 
 (DEFUN |ALGMANIP;innerRF| (|x| |ll| $)
-  (PROG (|q| #1=#:G196 |kk| #2=#:G195 #3=#:G161 #4=#:G192 #5=#:G194 #6=#:G193
+  (PROG (|q| #1=#:G200 |kk| #2=#:G199 #3=#:G161 #4=#:G196 #5=#:G198 #6=#:G197
          |l| |lk| |k|)
     (RETURN
      (SEQ
@@ -242,8 +242,8 @@
     (RETURN (PROGN (|ALGMANIP;innerRF| |z1| |ll| $))))) 
 
 (DEFUN |ALGMANIP;fp_root| (|fp| |op| |n| $)
-  (PROG (|res| |rr| |ce| #1=#:G204 |ne| #2=#:G203 #3=#:G201 |nn| |ng| #4=#:G199
-         #5=#:G209 |fr| |u|)
+  (PROG (|res| |rr| |ce| #1=#:G208 |ne| #2=#:G207 #3=#:G205 |nn| |ng| #4=#:G203
+         #5=#:G213 |fr| |u|)
     (RETURN
      (SEQ (LETT |res| (|spadConstant| $ 67) . #6=(|ALGMANIP;fp_root|))
           (COND
@@ -319,7 +319,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |ALGMANIP;pol_root| (|p| |op| |n| $)
-  (PROG (|pp| #1=#:G211 |cp|)
+  (PROG (|pp| #1=#:G215 |cp|)
     (RETURN
      (SEQ (LETT |cp| (SPADCALL |p| (QREFELT $ 86)) . #2=(|ALGMANIP;pol_root|))
           (SPADCALL |cp| (QREFELT $ 87))
@@ -347,7 +347,7 @@
             (QREFELT $ 85))))))) 
 
 (DEFUN |ALGMANIP;root_factor_k| (|k| $)
-  (PROG (|op| |n| #1=#:G215 |nf| |x|)
+  (PROG (|op| |n| #1=#:G219 |nf| |x|)
     (RETURN
      (SEQ
       (LETT |x| (|SPADfirst| (SPADCALL |k| (QREFELT $ 47)))
@@ -364,7 +364,7 @@
                  (QREFELT $ 51))))))) 
 
 (DEFUN |ALGMANIP;rootFactor;2F;14| (|x| $)
-  (PROG (#1=#:G222 |k| #2=#:G221 |lk|)
+  (PROG (#1=#:G226 |k| #2=#:G225 |lk|)
     (RETURN
      (SEQ
       (LETT |lk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
@@ -401,7 +401,7 @@
   (|ALGMANIP;inroot| |op| |x| |n| $)) 
 
 (DEFUN |ALGMANIP;breakup| (|l| $)
-  (PROG (|ll| |others| |expo| |same| |arg| #1=#:G236 |kk| |n| |a| |k|)
+  (PROG (|ll| |others| |expo| |same| |arg| #1=#:G240 |kk| |n| |a| |k|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) NIL)
@@ -451,8 +451,8 @@
                          |ll|))))))))) 
 
 (DEFUN |ALGMANIP;rootProduct;2F;18| (|x| $)
-  (PROG (|lv| #1=#:G238 #2=#:G247 |m| #3=#:G246 |k| |n| |dx| |nx| |k0| |l|
-         #4=#:G245 |rec|)
+  (PROG (|lv| #1=#:G242 #2=#:G251 |m| #3=#:G250 |k| |n| |dx| |nx| |k0| |l|
+         #4=#:G249 |rec|)
     (RETURN
      (SEQ
       (SEQ (LETT |rec| NIL . #5=(|ALGMANIP;rootProduct;2F;18|))
@@ -529,7 +529,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |ALGMANIP;rootPower;2F;19| (|x| $)
-  (PROG (#1=#:G251 |k|)
+  (PROG (#1=#:G255 |k|)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #2=(|ALGMANIP;rootPower;2F;19|))
@@ -550,7 +550,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |ALGMANIP;radeval| (|p| |k| $)
-  (PROG (|q| |ans| |term| |g| |d| |n| #1=#:G252 |a| |arg|)
+  (PROG (|q| |ans| |term| |g| |d| |n| #1=#:G256 |a| |arg|)
     (RETURN
      (SEQ
       (LETT |a|
@@ -607,7 +607,7 @@
                  (QREFELT $ 117))))))) 
 
 (DEFUN |ALGMANIP;inroot| (|op| |x| |n| $)
-  (PROG (#1=#:G286 |qr| |q| |pr| |u| #2=#:G288 |num|)
+  (PROG (#1=#:G290 |qr| |q| |pr| |u| #2=#:G292 |num|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (|spadConstant| $ 67) (QREFELT $ 103)) |x|)
@@ -689,7 +689,7 @@
               #2# (EXIT #2#)))))))) 
 
 (DEFUN |ALGMANIP;sroot| (|k| $)
-  (PROG (|pr| #1=#:G290 |arg|)
+  (PROG (|pr| #1=#:G294 |arg|)
     (RETURN
      (SEQ
       (LETT |pr|
@@ -712,7 +712,7 @@
                  (QREFELT $ 85))))))) 
 
 (DEFUN |ALGMANIP;rootSimp;2F;23| (|x| $)
-  (PROG (#1=#:G298 |k| #2=#:G297 |lk|)
+  (PROG (#1=#:G302 |k| #2=#:G301 |lk|)
     (RETURN
      (SEQ
       (LETT |lk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
@@ -734,10 +734,10 @@
 
 (DECLAIM (NOTINLINE |AlgebraicManipulations;|)) 
 
-(DEFUN |AlgebraicManipulations| (&REST #1=#:G299)
+(DEFUN |AlgebraicManipulations| (&REST #1=#:G303)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G300)
+     (PROG (#2=#:G304)
        (RETURN
         (COND
          ((LETT #2#
