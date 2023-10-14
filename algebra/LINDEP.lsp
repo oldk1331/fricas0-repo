@@ -40,57 +40,61 @@
        (|LINDEP;aNonZeroSolution|
         (SPADCALL (SPADCALL |v| (QREFELT $ 20)) (QREFELT $ 22)) $)))))) 
 
-(DEFUN |LINDEP;solveLinear;VRU;4| (|v| |c| $)
-  (COND
-   ((SPADCALL |c| (QREFELT $ 18))
-    (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| $ 29))))
-   ((SPADCALL |v| (QREFELT $ 30)) (CONS 1 "failed"))
-   ('T
-    (SPADCALL (SPADCALL |v| (QREFELT $ 20)) (MAKEARR1 1 |c|) (QREFELT $ 31))))) 
+(DEFUN |LINDEP;solveLinear;VRR;4| (|v| |c| $)
+  (SPADCALL (SPADCALL |v| (QREFELT $ 20)) (MAKEARR1 1 |c|) (QREFELT $ 30))) 
 
-(DEFUN |LINDEP;solveLinear;MVU;5| (|m| |v| $)
+(DEFUN |LINDEP;solveLinear;MVR;5| (|m| |v| $)
   (PROG (|sys|)
     (RETURN
      (SEQ
-      (COND
-       ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT $ 33)) (QREFELT $ 34))
-        (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| $ 29))))
-       ('T
-        (SEQ
-         (LETT |sys| (SPADCALL |m| |v| (QREFELT $ 37))
-               |LINDEP;solveLinear;MVU;5|)
-         (EXIT (SPADCALL (QCAR |sys|) (QCDR |sys|) (QREFELT $ 40)))))))))) 
+      (LETT |sys| (SPADCALL |m| |v| (QREFELT $ 34)) |LINDEP;solveLinear;MVR;5|)
+      (EXIT (SPADCALL (QCAR |sys|) (QCDR |sys|) (QREFELT $ 37))))))) 
 
-(DEFUN |LINDEP;solveLinear;VRU;6| (|v| |c| $)
+(DEFUN |LINDEP;particularSolution;VRU;6| (|v| |c| $)
   (COND
    ((SPADCALL |c| (QREFELT $ 18))
-    (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| $ 42))))
-   ((SPADCALL |v| (QREFELT $ 30)) (CONS 1 "failed"))
-   ('T
-    (SPADCALL (SPADCALL |v| (QREFELT $ 20)) (MAKEARR1 1 |c|) (QREFELT $ 44))))) 
+    (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| $ 38))))
+   ((SPADCALL |v| (QREFELT $ 39)) (CONS 1 "failed"))
+   ('T (QCAR (SPADCALL |v| |c| (QREFELT $ 31)))))) 
 
-(DEFUN |LINDEP;solveLinear;MVU;7| (|m| |v| $)
+(DEFUN |LINDEP;particularSolution;MVU;7| (|m| |v| $)
+  (COND
+   ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT $ 41)) (QREFELT $ 42))
+    (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| $ 38))))
+   ('T (QCAR (SPADCALL |m| |v| (QREFELT $ 30)))))) 
+
+(DEFUN |LINDEP;solveLinear;VRR;8| (|v| |c| $)
+  (SPADCALL (SPADCALL |v| (QREFELT $ 20)) (MAKEARR1 1 |c|) (QREFELT $ 46))) 
+
+(DEFUN |LINDEP;solveLinear;MVR;9| (|m| |v| $)
   (PROG (|sys|)
     (RETURN
      (SEQ
-      (COND
-       ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT $ 33)) (QREFELT $ 34))
-        (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| $ 42))))
-       ('T
-        (SEQ
-         (LETT |sys| (SPADCALL |m| |v| (QREFELT $ 37))
-               |LINDEP;solveLinear;MVU;7|)
-         (EXIT
-          (SPADCALL (SPADCALL (ELT $ 46) (QCAR |sys|) (QREFELT $ 50))
-                    (SPADCALL (ELT $ 46) (QCDR |sys|) (QREFELT $ 53))
-                    (QREFELT $ 55)))))))))) 
+      (LETT |sys| (SPADCALL |m| |v| (QREFELT $ 34)) |LINDEP;solveLinear;MVR;9|)
+      (EXIT
+       (SPADCALL (SPADCALL (ELT $ 49) (QCAR |sys|) (QREFELT $ 53))
+                 (SPADCALL (ELT $ 49) (QCDR |sys|) (QREFELT $ 56))
+                 (QREFELT $ 58))))))) 
+
+(DEFUN |LINDEP;particularSolution;VRU;10| (|v| |c| $)
+  (COND
+   ((SPADCALL |c| (QREFELT $ 18))
+    (CONS 0 (MAKEARR1 (QVSIZE |v|) (|spadConstant| $ 59))))
+   ((SPADCALL |v| (QREFELT $ 39)) (CONS 1 "failed"))
+   ('T (QCAR (SPADCALL |v| |c| (QREFELT $ 47)))))) 
+
+(DEFUN |LINDEP;particularSolution;MVU;11| (|m| |v| $)
+  (COND
+   ((SPADCALL |v| (SPADCALL (QVSIZE |v|) (QREFELT $ 41)) (QREFELT $ 42))
+    (CONS 0 (MAKEARR1 (ANCOLS |m|) (|spadConstant| $ 59))))
+   ('T (QCAR (SPADCALL |m| |v| (QREFELT $ 46)))))) 
 
 (DECLAIM (NOTINLINE |LinearDependence;|)) 
 
-(DEFUN |LinearDependence| (&REST #1=#:G156)
+(DEFUN |LinearDependence| (&REST #1=#:G168)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G157)
+     (PROG (#2=#:G169)
        (RETURN
         (COND
          ((LETT #2#
@@ -108,13 +112,13 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|LinearDependence|))))))))))) 
 
 (DEFUN |LinearDependence;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G155 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G167 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|LinearDependence|))
       (LETT DV$2 (|devaluate| |#2|) . #2#)
       (LETT |dv$| (LIST '|LinearDependence| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 56) . #2#)
+      (LETT $ (GETREFV 62) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -134,59 +138,82 @@
       (COND
        ((|testBitVector| |pv$| 1)
         (PROGN
-         (QSETREFV $ 32
-                   (CONS (|dispatchFunction| |LINDEP;solveLinear;VRU;4|) $))
          (QSETREFV $ 31
-                   (CONS (|dispatchFunction| |LINDEP;solveLinear;MVU;5|) $))))
+                   (CONS (|dispatchFunction| |LINDEP;solveLinear;VRR;4|) $))
+         (QSETREFV $ 30
+                   (CONS (|dispatchFunction| |LINDEP;solveLinear;MVR;5|) $))
+         (QSETREFV $ 40
+                   (CONS (|dispatchFunction| |LINDEP;particularSolution;VRU;6|)
+                         $))
+         (QSETREFV $ 43
+                   (CONS (|dispatchFunction| |LINDEP;particularSolution;MVU;7|)
+                         $))))
        ('T
         (PROGN
-         (QSETREFV $ 45
-                   (CONS (|dispatchFunction| |LINDEP;solveLinear;VRU;6|) $))
-         (QSETREFV $ 44
-                   (CONS (|dispatchFunction| |LINDEP;solveLinear;MVU;7|) $)))))
+         (QSETREFV $ 47
+                   (CONS (|dispatchFunction| |LINDEP;solveLinear;VRR;8|) $))
+         (QSETREFV $ 46
+                   (CONS (|dispatchFunction| |LINDEP;solveLinear;MVR;9|) $))
+         (QSETREFV $ 60
+                   (CONS
+                    (|dispatchFunction| |LINDEP;particularSolution;VRU;10|) $))
+         (QSETREFV $ 61
+                   (CONS
+                    (|dispatchFunction| |LINDEP;particularSolution;MVU;11|)
+                    $)))))
       $)))) 
 
 (MAKEPROP '|LinearDependence| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|List| 38)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|List| 35)
               (|Matrix| 6) (0 . |nullSpace|) (5 . |One|) (9 . |One|)
               (|Integer|) (|Vector| 7) (13 . |minIndex|) (18 . |elt|)
               (|Boolean|) (24 . |zero?|) (|Matrix| 7) (29 . |transpose|)
               (|Matrix| $) (34 . |reducedSystem|) (|NonNegativeInteger|)
               (39 . |nullity|) (44 . |positive?|)
-              |LINDEP;linearlyDependent?;VB;2| (|Union| 38 '"failed")
-              |LINDEP;linearDependence;VU;3| (49 . |Zero|) (53 . |empty?|)
-              (58 . |solveLinear|) (64 . |solveLinear|) (70 . |zero|) (75 . =)
-              (|Record| (|:| |mat| 9) (|:| |vec| 38)) (|Vector| $)
-              (81 . |reducedSystem|) (|Vector| 6)
-              (|LinearSystemMatrixPackage| 6 38 38 9)
-              (87 . |particularSolution|) (|Fraction| 6) (93 . |Zero|)
-              (|Union| 51 '"failed") (97 . |solveLinear|) (103 . |solveLinear|)
-              (109 . |coerce|) (|Matrix| 41) (|Mapping| 41 6)
-              (|MatrixCategoryFunctions2| 6 38 38 9 41 51 51 47) (114 . |map|)
-              (|Vector| 41) (|VectorFunctions2| 6 41) (120 . |map|)
-              (|LinearSystemMatrixPackage| 41 51 51 47)
-              (126 . |particularSolution|))
-           '#(|solveLinear| 132 |linearlyDependent?| 156 |linearDependence|
-              161)
+              |LINDEP;linearlyDependent?;VB;2| (|Union| 35 '"failed")
+              |LINDEP;linearDependence;VU;3|
+              (|Record| (|:| |particular| 27) (|:| |basis| 8))
+              (49 . |solveLinear|) (55 . |solveLinear|)
+              (|Record| (|:| |mat| 9) (|:| |vec| 35)) (|Vector| $)
+              (61 . |reducedSystem|) (|Vector| 6)
+              (|LinearSystemMatrixPackage| 6 35 35 9) (67 . |solve|)
+              (73 . |Zero|) (77 . |empty?|) (82 . |particularSolution|)
+              (88 . |zero|) (93 . =) (99 . |particularSolution|)
+              (|Union| 54 '"failed")
+              (|Record| (|:| |particular| 44) (|:| |basis| (|List| 54)))
+              (105 . |solveLinear|) (111 . |solveLinear|) (|Fraction| 6)
+              (117 . |coerce|) (|Matrix| 48) (|Mapping| 48 6)
+              (|MatrixCategoryFunctions2| 6 35 35 9 48 54 54 50) (122 . |map|)
+              (|Vector| 48) (|VectorFunctions2| 6 48) (128 . |map|)
+              (|LinearSystemMatrixPackage| 48 54 54 50) (134 . |solve|)
+              (140 . |Zero|) (144 . |particularSolution|)
+              (150 . |particularSolution|))
+           '#(|solveLinear| 156 |particularSolution| 180 |linearlyDependent?|
+              204 |linearDependence| 209)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 55
+                             (|makeByteWordVec2| 61
                                                  '(1 9 8 0 10 0 6 0 11 0 7 0 12
                                                    1 14 13 0 15 2 14 7 0 13 16
                                                    1 7 17 0 18 1 19 0 14 20 1 7
                                                    9 21 22 1 9 23 0 24 1 13 17
-                                                   0 25 0 6 0 29 1 14 17 0 30 2
-                                                   0 27 19 14 31 2 0 27 14 7 32
-                                                   1 14 0 23 33 2 14 17 0 0 34
-                                                   2 7 35 21 36 37 2 39 27 9 38
-                                                   40 0 41 0 42 2 0 43 19 14 44
-                                                   2 0 43 14 7 45 1 41 0 6 46 2
-                                                   49 47 48 9 50 2 52 51 48 38
-                                                   53 2 54 43 47 51 55 2 1 27
-                                                   14 7 32 2 1 27 19 14 31 2 2
-                                                   43 19 14 44 2 2 43 14 7 45 1
-                                                   0 17 14 26 1 0 27 14 28)))))
+                                                   0 25 2 0 29 19 14 30 2 0 29
+                                                   14 7 31 2 7 32 21 33 34 2 36
+                                                   29 9 35 37 0 6 0 38 1 14 17
+                                                   0 39 2 0 27 14 7 40 1 14 0
+                                                   23 41 2 14 17 0 0 42 2 0 27
+                                                   19 14 43 2 0 45 19 14 46 2 0
+                                                   45 14 7 47 1 48 0 6 49 2 52
+                                                   50 51 9 53 2 55 54 51 35 56
+                                                   2 57 45 50 54 58 0 48 0 59 2
+                                                   0 44 14 7 60 2 0 44 19 14 61
+                                                   2 1 29 14 7 31 2 1 29 19 14
+                                                   30 2 2 45 19 14 46 2 2 45 14
+                                                   7 47 2 1 27 14 7 40 2 1 27
+                                                   19 14 43 2 2 44 14 7 60 2 2
+                                                   44 19 14 61 1 0 17 14 26 1 0
+                                                   27 14 28)))))
            '|lookupComplete|)) 

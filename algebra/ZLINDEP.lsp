@@ -7,18 +7,24 @@
 (DEFUN |ZLINDEP;linearDependenceOverZ;VU;2| (|v| $)
   (SPADCALL |v| (QREFELT $ 13))) 
 
-(DEFUN |ZLINDEP;solveLinearlyOverQ;VRU;3| (|v| |c| $)
+(DEFUN |ZLINDEP;particularSolutionOverQ;VRU;3| (|v| |c| $)
   (SPADCALL |v| |c| (QREFELT $ 16))) 
 
-(DEFUN |ZLINDEP;solveLinearlyOverQ;MVU;4| (|m| |v| $)
+(DEFUN |ZLINDEP;particularSolutionOverQ;MVU;4| (|m| |v| $)
   (SPADCALL |m| |v| (QREFELT $ 19))) 
+
+(DEFUN |ZLINDEP;solveLinearlyOverQ;VRR;5| (|v| |c| $)
+  (SPADCALL |v| |c| (QREFELT $ 22))) 
+
+(DEFUN |ZLINDEP;solveLinearlyOverQ;MVR;6| (|m| |v| $)
+  (SPADCALL |m| |v| (QREFELT $ 24))) 
 
 (DECLAIM (NOTINLINE |IntegerLinearDependence;|)) 
 
-(DEFUN |IntegerLinearDependence| (#1=#:G116)
+(DEFUN |IntegerLinearDependence| (#1=#:G120)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G117)
+     (PROG (#2=#:G121)
        (RETURN
         (COND
          ((LETT #2#
@@ -41,7 +47,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegerLinearDependence|))
       (LETT |dv$| (LIST '|IntegerLinearDependence| DV$1) . #1#)
-      (LETT $ (GETREFV 21) . #1#)
+      (LETT $ (GETREFV 26) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|IntegerLinearDependence| (LIST DV$1)
@@ -59,18 +65,26 @@
               (|Union| (|Vector| (|Integer|)) '"failed")
               (5 . |linearDependence|) |ZLINDEP;linearDependenceOverZ;VU;2|
               (|Union| (|Vector| (|Fraction| (|Integer|))) '"failed")
-              (10 . |solveLinear|) |ZLINDEP;solveLinearlyOverQ;VRU;3|
-              (|Matrix| 6) (16 . |solveLinear|)
-              |ZLINDEP;solveLinearlyOverQ;MVU;4|)
-           '#(|solveLinearlyOverQ| 22 |linearlyDependentOverZ?| 34
-              |linearDependenceOverZ| 39)
+              (10 . |particularSolution|)
+              |ZLINDEP;particularSolutionOverQ;VRU;3| (|Matrix| 6)
+              (16 . |particularSolution|)
+              |ZLINDEP;particularSolutionOverQ;MVU;4|
+              (|Record| (|:| |particular| 15)
+                        (|:| |basis|
+                             (|List| (|Vector| (|Fraction| (|Integer|))))))
+              (22 . |solveLinear|) |ZLINDEP;solveLinearlyOverQ;VRR;5|
+              (28 . |solveLinear|) |ZLINDEP;solveLinearlyOverQ;MVR;6|)
+           '#(|solveLinearlyOverQ| 34 |particularSolutionOverQ| 46
+              |linearlyDependentOverZ?| 58 |linearDependenceOverZ| 63)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 20
+                             (|makeByteWordVec2| 25
                                                  '(1 9 7 8 10 1 9 12 8 13 2 9
-                                                   15 8 6 16 2 9 15 18 8 19 2 0
-                                                   15 18 8 20 2 0 15 8 6 17 1 0
+                                                   15 8 6 16 2 9 15 18 8 19 2 9
+                                                   21 8 6 22 2 9 21 18 8 24 2 0
+                                                   21 18 8 25 2 0 21 8 6 23 2 0
+                                                   15 8 6 17 2 0 15 18 8 20 1 0
                                                    7 8 11 1 0 12 8 14)))))
            '|lookupComplete|)) 

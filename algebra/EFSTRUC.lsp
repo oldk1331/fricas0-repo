@@ -2904,7 +2904,7 @@
               (|Vector| 7) (177 . |setelt|) (184 . |elt|) (|OutputForm|)
               (190 . |coerce|) (|Void|) (195 . |print|) (|Matrix| 7)
               (200 . |setelt|) (|Union| 113 '"failed")
-              (|IntegerLinearDependence| 7) (208 . |solveLinearlyOverQ|)
+              (|IntegerLinearDependence| 7) (208 . |particularSolutionOverQ|)
               (214 . |One|) 'ALGOP (|BasicOperator|) (218 . |operator|)
               (223 . |has?|) (229 . |elt|) (|Union| 39 '#1#)
               (235 . |retractIfCan|) (240 . |kernels|) (245 . =) (251 . -)
@@ -2938,7 +2938,7 @@
               (|Record| (|:| |func| 7) (|:| |kers| 37) (|:| |vals| 31))
               |EFSTRUC;rischNormalize;FLR;44| |EFSTRUC;rischNormalize;FSR;45|
               |EFSTRUC;rootNormalize;FKF;46| (624 . |construct|)
-              (629 . |solveLinearlyOverQ|) (|Union| 7 '"failed")
+              (629 . |particularSolutionOverQ|) (|Union| 7 '"failed")
               |EFSTRUC;validExponential;LFSU;49|
               (|Record| (|:| |exponent| 63) (|:| |coef| 7) (|:| |radicand| 7))
               (|PolynomialRoots| (|IndexedExponents| 29) 29 6 124 7)

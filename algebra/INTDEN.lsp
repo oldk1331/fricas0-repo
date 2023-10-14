@@ -2151,7 +2151,7 @@
               (138 . |monomial|) (144 . |coerce|) (149 . -) (155 . |eval|)
               (162 . |is?|) (|Kernel| $) (168 . |coerce|) (|Vector| 12)
               (173 . |vector|) (|Union| 68 '"failed")
-              (|IntegerLinearDependence| 12) (178 . |solveLinearlyOverQ|)
+              (|IntegerLinearDependence| 12) (178 . |particularSolutionOverQ|)
               (|Record| (|:| |num| (|List| 31)) (|:| |den| 31)) (|Vector| 160)
               (|InnerCommonDenominator| 31 160 (|List| 31) 68)
               (184 . |splitDenominator|) (189 . ~=) (195 . ^)

@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4735 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4736 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -1090,4 +1090,4 @@
  |constant?| |coef| |mindeg| |maxdeg| |coerce| |#| |reductum| |map| *
  |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
  |realSolve| |positiveSolve| |squareFree| |convert| |linearlyDependentOverZ?|
- |linearDependenceOverZ| |solveLinearlyOverQ|) 
+ |linearDependenceOverZ| |particularSolutionOverQ| |solveLinearlyOverQ|) 
