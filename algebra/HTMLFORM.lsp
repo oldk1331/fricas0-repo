@@ -967,10 +967,10 @@
               . #4=(|HTMLFORM;formatSub|))
         (COND
          ((NULL |atomE|)
-          (SEQ (COND ((QREFELT $ 21) (|sayHtml| "formatSub: expr=empty")))
+          (SEQ (COND ((QREFELT $ 21) (|sayHtml| "formatSub: expr = empty")))
                (EXIT
                 (PROGN
-                 (LETT #1# (SPADCALL "formatSub: expr=empty" (QREFELT $ 53))
+                 (LETT #1# (SPADCALL "formatSub: expr = empty" (QREFELT $ 53))
                        . #4#)
                  (GO #1#))))))
         (LETT |op| (|HTMLFORM;stringify| (|SPADfirst| |atomE|) $) . #4#)
