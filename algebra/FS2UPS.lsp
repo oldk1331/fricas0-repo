@@ -4,7 +4,7 @@
 (DEFUN |FS2UPS;ratIfCan| (|fcn| $) (SPADCALL |fcn| (QREFELT $ 16))) 
 
 (DEFUN |FS2UPS;carefulNthRootIfCan| (|ups| |n| |posCheck?| |rightOnly?| $)
-  (PROG (|ans| #1=#:G287 |signum| |coef| |deg|)
+  (PROG (|ans| #1=#:G289 |signum| |coef| |deg|)
     (RETURN
      (SEQ
       (EXIT
@@ -162,7 +162,7 @@
 
 (DEFUN |FS2UPS;listToUPS|
        (|list| |feToUPS| |posCheck?| |atanFlag| |ans| |op| $)
-  (PROG (#1=#:G346 |term|)
+  (PROG (#1=#:G348 |term|)
     (RETURN
      (SEQ
       (EXIT
@@ -198,7 +198,7 @@
                           (#2# (CONS 0 |power|)))))))))))) 
 
 (DEFUN |FS2UPS;powerToUPS| (|fcn| |n| |posCheck?| |atanFlag| $)
-  (PROG (|coef| |deg| |ups| #1=#:G355 |b|)
+  (PROG (|coef| |deg| |ups| #1=#:G357 |b|)
     (RETURN
      (SEQ
       (LETT |b| (SPADCALL |fcn| |posCheck?| |atanFlag| (QREFELT $ 48))
@@ -239,8 +239,8 @@
                (EXIT (CONS 0 (SPADCALL |ups| |n| (QREFELT $ 67)))))))))))) 
 
 (DEFUN |FS2UPS;handle_args| (|args| |posCheck?| |atanFlag| $)
-  (PROG (|lsers| |lsere| |lcoef| |losers| |coef| #1=#:G388 |ups| #2=#:G370
-         |nsu| #3=#:G389 |arg|)
+  (PROG (|lsers| |lsere| |lcoef| |losers| |coef| #1=#:G390 |ups| #2=#:G372
+         |nsu| #3=#:G391 |arg|)
     (RETURN
      (SEQ
       (EXIT
@@ -322,7 +322,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FS2UPS;do_taylor_via_deriv| (|nf| |lsyms| |lser| $)
-  (PROG (|ups| |lders| #1=#:G403 |sym| #2=#:G402)
+  (PROG (|ups| |lders| #1=#:G405 |sym| #2=#:G404)
     (RETURN
      (SEQ
       (LETT |lders|
@@ -356,7 +356,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G399 |sym| #3=#:G398)
+      (PROG (#2=#:G401 |sym| #3=#:G400)
         (RETURN
          (SEQ
           (SPADCALL |c|
@@ -387,7 +387,7 @@
     (RETURN (PROGN (SPADCALL |c| |sym| (QREFELT $ 76)))))) 
 
 (DEFUN |FS2UPS;do_taylor_via_deriv2| (|nk| |lsyms| |lser| $)
-  (PROG (|ups| |lders| #1=#:G417 |sym| #2=#:G416)
+  (PROG (|ups| |lders| #1=#:G419 |sym| #2=#:G418)
     (RETURN
      (SEQ
       (LETT |lders|
@@ -421,7 +421,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G413 |sym| #3=#:G412)
+      (PROG (#2=#:G415 |sym| #3=#:G414)
         (RETURN
          (SEQ
           (SPADCALL |c|
@@ -452,7 +452,7 @@
     (RETURN (PROGN (SPADCALL |c| |sym| (QREFELT $ 76)))))) 
 
 (DEFUN |FS2UPS;convert_args| (|lsers| |lsere| |lser0| $)
-  (PROG (|nargs| |lser| |lsyms| |nsym| #1=#:G423 |s| #2=#:G424 |e| #3=#:G425
+  (PROG (|nargs| |lser| |lsyms| |nsym| #1=#:G425 |s| #2=#:G426 |e| #3=#:G427
          |c|)
     (RETURN
      (SEQ (LETT |lsyms| NIL . #4=(|FS2UPS;convert_args|))
@@ -686,8 +686,8 @@
               (QREFELT $ 75)))))))) 
 
 (DEFUN |FS2UPS;do_diff_eq| (|ker| |losers| |lsers| |lsere| |lser0| |getEq| $)
-  (PROG (|ups| |lc| #1=#:G457 |c| #2=#:G456 |nker| #3=#:G455 |lsyms| |sym|
-         |ecl| #4=#:G454 #5=#:G453 |cn1| |cn| |z0| |nargs| |cargs|)
+  (PROG (|ups| |lc| #1=#:G459 |c| #2=#:G458 |nker| #3=#:G457 |lsyms| |sym|
+         |ecl| #4=#:G456 #5=#:G455 |cn1| |cn| |z0| |nargs| |cargs|)
     (RETURN
      (SEQ
       (LETT |cargs| (|FS2UPS;convert_args| |lsers| |lsere| |lser0| $)
@@ -786,7 +786,7 @@
 
 (DEFUN |FS2UPS;do_weierstrass|
        (|losers| |lsers| |lsere| |lser0| |ef| |k| |cz| $)
-  (PROG (#1=#:G465 |nres2| |lsyms| |nres| |nargs| |cargs| |z_inv| |coef| |deg|
+  (PROG (#1=#:G467 |nres2| |lsyms| |nres| |nargs| |cargs| |z_inv| |coef| |deg|
          |z_ser|)
     (RETURN
      (SEQ
@@ -848,7 +848,7 @@
                 (SPADCALL |nargs| 2 (QREFELT $ 95)) |f| |ef|))))) 
 
 (DEFUN |FS2UPS;spec_to_UPS| (|ker| |args| |posCheck?| |atanFlag| $)
-  (PROG (|nker| |nargs| |cargs| #1=#:G582 |nexpr| |narg1| |arg1| |ii| |ir| |nm|
+  (PROG (|nker| |nargs| |cargs| #1=#:G584 |nexpr| |narg1| |arg1| |ii| |ir| |nm|
          |lser0| |lsere| |lsers| |losers| |ares| |aresu|)
     (RETURN
      (SEQ
@@ -1084,7 +1084,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FS2UPS;do_prim| (|ker| |arg0| |posCheck?| |atanFlag| $)
-  (PROG (#1=#:G590 |ns| |nf| |c0|)
+  (PROG (#1=#:G592 |ns| |nf| |c0|)
     (RETURN
      (SEQ
       (EXIT
@@ -1108,7 +1108,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FS2UPS;prim_to_UPS| (|ker| |args| |posCheck?| |atanFlag| $)
-  (PROG (|coef| #1=#:G609 |ups| #2=#:G370 |nsu| |arg| |nm|)
+  (PROG (|coef| #1=#:G613 |ups| #2=#:G372 |nsu| |arg| |nm|)
     (RETURN
      (SEQ
       (EXIT
@@ -1153,7 +1153,8 @@
                                         (QREFELT $ 20))
                               . #3#)
                         (COND
-                         ((OR (EQUAL |nm| '|Ei|) (EQUAL |nm| '|Ci|))
+                         ((OR (EQUAL |nm| '|Ei|)
+                              (OR (EQUAL |nm| '|Ci|) (EQUAL |nm| '|Chi|)))
                           (EXIT
                            (COND
                             ((SPADCALL |coef| (|spadConstant| $ 22)
@@ -1183,9 +1184,10 @@
                               |atanFlag| $))))))
                         (COND
                          ((OR (EQUAL |nm| '|Si|)
-                              (OR (EQUAL |nm| '|erf|)
-                                  (OR (EQUAL |nm| '|fresnelS|)
-                                      (EQUAL |nm| '|fresnelC|))))
+                              (OR (EQUAL |nm| '|Shi|)
+                                  (OR (EQUAL |nm| '|erf|)
+                                      (OR (EQUAL |nm| '|fresnelS|)
+                                          (EQUAL |nm| '|fresnelC|)))))
                           (EXIT
                            (|FS2UPS;do_prim| |ker| |coef| |posCheck?|
                             |atanFlag| $))))
@@ -1197,7 +1199,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FS2UPS;kernelToUPS| (|ker| |posCheck?| |atanFlag| $)
-  (PROG (#1=#:G628 |n| |arg| |op| |args| |sym|)
+  (PROG (#1=#:G632 |n| |arg| |op| |args| |sym|)
     (RETURN
      (SEQ
       (LETT |sym| (SPADCALL |ker| (QREFELT $ 148)) . #2=(|FS2UPS;kernelToUPS|))
@@ -1286,7 +1288,7 @@
                       (#2# (CONS 0 (CDR |ans|))))))))))))) 
 
 (DEFUN |FS2UPS;logToUPS| (|arg| |posCheck?| |atanFlag| $)
-  (PROG (#1=#:G660 #2=#:G662 #3=#:G664 |signum| |coef| |ups| #4=#:G370
+  (PROG (#1=#:G664 #2=#:G666 #3=#:G668 |signum| |coef| |ups| #4=#:G372
          |result|)
     (RETURN
      (SEQ
@@ -1354,8 +1356,8 @@
   (SPADCALL (SPADCALL |arg| (QREFELT $ 157)) |arg| (QREFELT $ 142))) 
 
 (DEFUN |FS2UPS;atancotToUPS| (|arg| |posCheck?| |atanFlag| |plusMinus| $)
-  (PROG (|cc| |n| |left?| |posNegPi2| |signum| |lc| #1=#:G691 |rn| #2=#:G689
-         |ord| |coef| |ups| #3=#:G370 |result|)
+  (PROG (|cc| |n| |left?| |posNegPi2| |signum| |lc| #1=#:G695 |rn| #2=#:G693
+         |ord| |coef| |ups| #3=#:G372 |result|)
     (RETURN
      (SEQ
       (EXIT
@@ -1673,7 +1675,7 @@
             (QREFELT $ 199))) 
 
 (DEFUN |FS2UPS;k2Elem| (|k| $)
-  (PROG (|cosz| |sinz| |iez| |ez| |z| |args| #1=#:G790 |a| #2=#:G789)
+  (PROG (|cosz| |sinz| |iez| |ez| |z| |args| #1=#:G794 |a| #2=#:G793)
     (RETURN
      (SEQ
       (LETT |args|
@@ -1803,7 +1805,7 @@
                                   "exprToGenUPS: neither a sum, product, power, nor kernel")))))))))))))))))))))))) 
 
 (DEFUN |FS2UPS;opsInvolvingX| (|fcn| $)
-  (PROG (|opList| |op| #1=#:G837 |k| #2=#:G836)
+  (PROG (|opList| |op| #1=#:G841 |k| #2=#:G840)
     (RETURN
      (SEQ
       (LETT |opList|
@@ -1834,7 +1836,7 @@
       (EXIT (SPADCALL |opList| (QREFELT $ 214))))))) 
 
 (DEFUN |FS2UPS;opInOpList?| (|name| |opList| $)
-  (PROG (#1=#:G839 #2=#:G841 #3=#:G842 |op|)
+  (PROG (#1=#:G843 #2=#:G845 #3=#:G846 |op|)
     (RETURN
      (SEQ
       (EXIT
@@ -1868,7 +1870,7 @@
             ('T 'NIL))))))) 
 
 (DEFUN |FS2UPS;productOfNonZeroes?| (|fcn| $)
-  (PROG (#1=#:G853 #2=#:G857 #3=#:G858 |term| |prod|)
+  (PROG (#1=#:G857 #2=#:G861 #3=#:G862 |term| |prod|)
     (RETURN
      (SEQ
       (EXIT
@@ -1911,7 +1913,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FS2UPS;powerToGenUPS| (|fcn| |n| |posCheck?| |atanFlag| $)
-  (PROG (|xOpList| |coef| |deg| |ups| #1=#:G370 |b|)
+  (PROG (|xOpList| |coef| |deg| |ups| #1=#:G372 |b|)
     (RETURN
      (SEQ
       (LETT |b| (|FS2UPS;iExprToGenUPS| |fcn| |posCheck?| |atanFlag| $)
@@ -1971,7 +1973,7 @@
                        "lowest order coefficient involves x" $)))))))))))))))) 
 
 (DEFUN |FS2UPS;kernelToGenUPS| (|ker| |posCheck?| |atanFlag| $)
-  (PROG (#1=#:G886 |n| |arg| |args| |sym|)
+  (PROG (#1=#:G890 |n| |arg| |args| |sym|)
     (RETURN
      (SEQ
       (LETT |sym| (SPADCALL |ker| (QREFELT $ 148))
@@ -2045,8 +2047,8 @@
                       (#2# (CONS 0 (CDR |ans|))))))))))))) 
 
 (DEFUN |FS2UPS;logToGenUPS| (|arg| |posCheck?| |atanFlag| $)
-  (PROG (|logTerm| |term1| |pow| |mon| |negRat?| |rat| |cen| |lt| #1=#:G922
-         #2=#:G924 |signum| |coef| |deg| |ups| #3=#:G370 |result|)
+  (PROG (|logTerm| |term1| |pow| |mon| |negRat?| |rat| |cen| |lt| #1=#:G926
+         #2=#:G928 |signum| |coef| |deg| |ups| #3=#:G372 |result|)
     (RETURN
      (SEQ
       (EXIT
@@ -2222,8 +2224,8 @@
 
 (DEFUN |FS2UPS;atancotToGenUPS|
        (|fe| |arg| |posCheck?| |atanFlag| |plusMinus| $)
-  (PROG (|cc| |n| |left?| |posNegPi2| |signum| |lc| #1=#:G969 |rn| #2=#:G967
-         |yCoef| |y| |ord| |coef| |ups| #3=#:G370 |trouble| |result|)
+  (PROG (|cc| |n| |left?| |posNegPi2| |signum| |lc| #1=#:G973 |rn| #2=#:G971
+         |yCoef| |y| |ord| |coef| |ups| #3=#:G372 |trouble| |result|)
     (RETURN
      (SEQ
       (EXIT
@@ -2445,7 +2447,7 @@
 
 (DEFUN |FS2UPS;genUPSApplyIfCan|
        (|fcn| |arg| |fcnName| |posCheck?| |atanFlag| $)
-  (PROG (#1=#:G977 |xOpList| |lc| |deg| |ups| #2=#:G370 |series|)
+  (PROG (#1=#:G981 |xOpList| |lc| |deg| |ups| #2=#:G372 |series|)
     (RETURN
      (SEQ
       (LETT |series| (|FS2UPS;iExprToGenUPS| |arg| |posCheck?| |atanFlag| $)
@@ -2594,10 +2596,10 @@
                         (SPADCALL (CDR |expon|) (CDR |logBase|) (QREFELT $ 53))
                         |posCheck?| |atanFlag| $)))))))))))) 
 
-(DEFUN |FunctionSpaceToUnivariatePowerSeries| (&REST #1=#:G1043)
+(DEFUN |FunctionSpaceToUnivariatePowerSeries| (&REST #1=#:G1047)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1044)
+     (PROG (#2=#:G1048)
        (RETURN
         (COND
          ((LETT #2#

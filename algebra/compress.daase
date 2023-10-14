@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4677 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4679 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -665,16 +665,16 @@
  |normalizeIfCan| |polCase| |distFact| |identification| |LyndonCoordinates|
  |LyndonBasis| |zeroDimensional?| |fglmIfCan| |groebner| |lexTriangular|
  |squareFreeLexTriangular| |belong?| |operator| |fresnelC| |fresnelS| |erf|
- |dilog| |li| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex| |minPol|
- |computeBasis| |coord| |anticoord| |intcompBasis| |choosemon| |close!| |pack!|
- |library| |complexLimit| |linearlyDependent?| |linearDependence| |solveLinear|
- |reducedSystem| |setDifference| |setIntersection| |setUnion| |append| |null|
- |nil| |substitute| |duplicates?| |mapGen| |mapExpon| |commutativeEquality|
- |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm|
- |listOfMonoms| |insert| |delete| |symmetricSquare| |factor1|
- |symmetricProduct| |symmetricPower| |directSum| |entries| |loop|
- |solveLinearPolynomialEquationByFractions| |hasSolution?| |linSolve|
- |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
+ |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex|
+ |minPol| |computeBasis| |coord| |anticoord| |intcompBasis| |choosemon|
+ |close!| |pack!| |library| |complexLimit| |linearlyDependent?|
+ |linearDependence| |solveLinear| |reducedSystem| |setDifference|
+ |setIntersection| |setUnion| |append| |null| |nil| |substitute| |duplicates?|
+ |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult| |makeUnit|
+ |reverse!| |reverse| |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete|
+ |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower| |directSum|
+ |entries| |loop| |solveLinearPolynomialEquationByFractions| |hasSolution?|
+ |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
  |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
  |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
  |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|

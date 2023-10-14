@@ -19,9 +19,9 @@
                        (|TranscendentalFunctionCategory|)
                        (|mkCategory|
                         '(((|Ei| ($ $)) T) ((|Si| ($ $)) T) ((|Ci| ($ $)) T)
-                          ((|li| ($ $)) T) ((|dilog| ($ $)) T)
-                          ((|erf| ($ $)) T) ((|fresnelS| ($ $)) T)
-                          ((|fresnelC| ($ $)) T))
+                          ((|Shi| ($ $)) T) ((|Chi| ($ $)) T) ((|li| ($ $)) T)
+                          ((|dilog| ($ $)) T) ((|erf| ($ $)) T)
+                          ((|fresnelS| ($ $)) T) ((|fresnelC| ($ $)) T))
                         NIL 'NIL NIL))
                |LiouvillianFunctionCategory|)
        (SETELT #1# 0 '(|LiouvillianFunctionCategory|)))))) 

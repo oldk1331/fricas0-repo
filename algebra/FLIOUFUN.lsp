@@ -1137,6 +1137,31 @@
                (QREFELT $ 74))
      (QREFELT $ 54))))) 
 
+(DEFUN |FLIOUFUN;Chi;2C;29| (|z| $)
+  (SPADCALL
+   (SPADCALL
+    (SPADCALL
+     (SPADCALL
+      (SPADCALL (|spadConstant| $ 7) (|spadConstant| $ 20) (QREFELT $ 16)) |z|
+      (QREFELT $ 25))
+     (QREFELT $ 74))
+    (SPADCALL |z| (QREFELT $ 67)) (QREFELT $ 35))
+   (SPADCALL
+    (SPADCALL
+     (SPADCALL (|spadConstant| $ 7) (|spadConstant| $ 20) (QREFELT $ 16)) |z|
+     (QREFELT $ 25))
+    (QREFELT $ 67))
+   (QREFELT $ 55))) 
+
+(DEFUN |FLIOUFUN;Chi;2F;30| (|x| $)
+  (COND
+   ((SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 70)) (|error| "Chi: x <= 0"))
+   ('T
+    (SPADCALL
+     (SPADCALL (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 16))
+               (QREFELT $ 76))
+     (QREFELT $ 54))))) 
+
 (DEFUN |FLIOUFUN;si_series| (|z| |n| $)
   (PROG (|tk| |k2| |res| |term| |k1| |i| |z2|)
     (RETURN
@@ -1221,7 +1246,7 @@
                  (QREFELT $ 25))))))) 
 
 (DEFUN |FLIOUFUN;si_z| (|z| $)
-  (PROG (|pi_fac| #1=#:G253 #2=#:G256 |res| |n| |nf| |np| |npf| |sp| |dnz| |oz|
+  (PROG (|pi_fac| #1=#:G255 #2=#:G258 |res| |n| |nf| |np| |npf| |sp| |dnz| |oz|
          |prec| |nz| |obits|)
     (RETURN
      (SEQ
@@ -1315,23 +1340,40 @@
                     (QREFELT $ 42)))))))))))
       #2# (EXIT #2#))))) 
 
-(DEFUN |FLIOUFUN;Si;2C;32| (|z| $)
+(DEFUN |FLIOUFUN;Si;2C;34| (|z| $)
   (PROG (|obits|)
     (RETURN
-     (SEQ (LETT |obits| (SPADCALL (QREFELT $ 10)) |FLIOUFUN;Si;2C;32|)
+     (SEQ (LETT |obits| (SPADCALL (QREFELT $ 10)) |FLIOUFUN;Si;2C;34|)
           (EXIT
            (|finally| (|FLIOUFUN;si_z| |z| $)
                       (SPADCALL |obits| (QREFELT $ 19)))))))) 
 
-(DEFUN |FLIOUFUN;Si;2F;33| (|z| $)
+(DEFUN |FLIOUFUN;Si;2F;35| (|z| $)
   (SPADCALL
-   (SPADCALL (SPADCALL |z| (|spadConstant| $ 7) (QREFELT $ 16)) (QREFELT $ 76))
+   (SPADCALL (SPADCALL |z| (|spadConstant| $ 7) (QREFELT $ 16)) (QREFELT $ 78))
+   (QREFELT $ 54))) 
+
+(DEFUN |FLIOUFUN;Shi;2C;36| (|z| $)
+  (SPADCALL
+   (SPADCALL
+    (SPADCALL (|spadConstant| $ 7) (|spadConstant| $ 20) (QREFELT $ 16))
+    (SPADCALL
+     (SPADCALL
+      (SPADCALL (|spadConstant| $ 7) (|spadConstant| $ 20) (QREFELT $ 16)) |z|
+      (QREFELT $ 25))
+     (QREFELT $ 78))
+    (QREFELT $ 25))
+   (QREFELT $ 42))) 
+
+(DEFUN |FLIOUFUN;Shi;2F;37| (|x| $)
+  (SPADCALL
+   (SPADCALL (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 16)) (QREFELT $ 80))
    (QREFELT $ 54))) 
 
 (DEFUN |FloatLiouvilianFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G261)
+     (PROG (#1=#:G265)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FloatLiouvilianFunctions|)
@@ -1355,7 +1397,7 @@
      (PROGN
       (LETT |dv$| '(|FloatLiouvilianFunctions|)
             . #1=(|FloatLiouvilianFunctions|))
-      (LETT $ (GETREFV 78) . #1#)
+      (LETT $ (GETREFV 82) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|FloatLiouvilianFunctions| NIL
@@ -1385,14 +1427,16 @@
               |FLIOUFUN;fresnelS;2F;16| (223 . |sqrt|) (228 . |log|) (233 . <)
               |FLIOUFUN;Ei;2C;20| (239 . <=) |FLIOUFUN;Ei;2F;21|
               |FLIOUFUN;li;2C;22| |FLIOUFUN;li;2F;23| |FLIOUFUN;Ci;2C;27|
-              |FLIOUFUN;Ci;2F;28| |FLIOUFUN;Si;2C;32| |FLIOUFUN;Si;2F;33|)
+              |FLIOUFUN;Ci;2F;28| |FLIOUFUN;Chi;2C;29| |FLIOUFUN;Chi;2F;30|
+              |FLIOUFUN;Si;2C;34| |FLIOUFUN;Si;2F;35| |FLIOUFUN;Shi;2C;36|
+              |FLIOUFUN;Shi;2F;37|)
            '#(|li| 245 |gamma| 255 |fresnelS| 259 |fresnelC| 269 |erf| 279 |Si|
-              289 |Ei| 299 |Ci| 309)
+              289 |Shi| 299 |Ei| 309 |Ci| 319 |Chi| 329)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 77
+                             (|makeByteWordVec2| 81
                                                  '(0 6 0 7 0 6 9 10 0 6 9 11 2
                                                    13 12 0 0 14 2 15 0 6 6 16 0
                                                    6 0 17 2 13 0 9 0 18 1 6 9 9
@@ -1414,12 +1458,14 @@
                                                    0 60 1 15 6 0 61 1 47 0 0 66
                                                    1 15 0 0 67 2 6 12 0 0 68 2
                                                    6 12 0 0 70 1 0 15 15 72 1 0
-                                                   6 6 73 0 0 15 24 1 0 15 15
-                                                   64 1 0 6 6 65 1 0 15 15 62 1
-                                                   0 6 6 63 1 0 15 15 56 1 0 6
-                                                   6 57 1 0 15 15 76 1 0 6 6 77
-                                                   1 0 15 15 69 1 0 6 6 71 1 0
-                                                   15 15 74 1 0 6 6 75)))))
+                                                   6 6 73 0 0 15 24 1 0 6 6 65
+                                                   1 0 15 15 64 1 0 6 6 63 1 0
+                                                   15 15 62 1 0 6 6 57 1 0 15
+                                                   15 56 1 0 6 6 79 1 0 15 15
+                                                   78 1 0 15 15 80 1 0 6 6 81 1
+                                                   0 15 15 69 1 0 6 6 71 1 0 6
+                                                   6 75 1 0 15 15 74 1 0 6 6 77
+                                                   1 0 15 15 76)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FloatLiouvilianFunctions| 'NILADIC T) 
