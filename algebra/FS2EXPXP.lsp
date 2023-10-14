@@ -611,18 +611,18 @@
                           (QREFELT $ 127))
                 . #1#)
           (EXIT
-           (COND
-            ((QEQCAR |result| 1) (CONS 0 (SPADCALL |ups| (QREFELT $ 124))))
-            (#2#
-             (CONS 0
-                   (SPADCALL (CDR |result|)
-                             (SPADCALL
-                              (SPADCALL |ups|
-                                        (SPADCALL |lc| (|spadConstant| $ 117)
-                                                  (QREFELT $ 116))
-                                        (QREFELT $ 128))
-                              (QREFELT $ 124))
-                             (QREFELT $ 129)))))))))))))) 
+           (COND ((QEQCAR |result| 1) |result|)
+                 (#2#
+                  (CONS 0
+                        (SPADCALL (CDR |result|)
+                                  (SPADCALL
+                                   (SPADCALL |ups|
+                                             (SPADCALL |lc|
+                                                       (|spadConstant| $ 117)
+                                                       (QREFELT $ 116))
+                                             (QREFELT $ 128))
+                                   (QREFELT $ 124))
+                                  (QREFELT $ 129)))))))))))))) 
 
 (DEFUN |FS2EXPXP;exponential| (|f| |posCheck?| $)
   (PROG (|coef| |expon| |taylorPart| |singPart|)
