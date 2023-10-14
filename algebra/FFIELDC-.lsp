@@ -43,8 +43,8 @@
             . #2=(|FFIELDC-;createPrimitiveElement;S;8|))
       (LETT |start|
             (COND
-             ((SPADCALL (SPADCALL (QREFELT $ 40)) (CONS 1 "polynomial")
-                        (QREFELT $ 41))
+             ((SPADCALL (SPADCALL (QREFELT $ 39)) (CONS 1 "polynomial")
+                        (QREFELT $ 40))
               (SPADCALL (QREFELT $ 34)))
              ('T 1))
             . #2#)
@@ -70,7 +70,7 @@
       (COND ((SPADCALL |a| (QREFELT $ 14)) 'NIL)
             (#2='T
              (SEQ
-              (LETT |explist| (SPADCALL (QREFELT $ 45))
+              (LETT |explist| (SPADCALL (QREFELT $ 44))
                     . #3=(|FFIELDC-;primitive?;SB;9|))
               (LETT |q| (- (SPADCALL (QREFELT $ 33)) 1) . #3#)
               (LETT |equalone| 'NIL . #3#)
@@ -84,8 +84,8 @@
                      (LETT |equalone|
                            (SPADCALL
                             (SPADCALL |a| (QUOTIENT2 |q| (QCAR |exp|))
-                                      (QREFELT $ 46))
-                            (|spadConstant| $ 38) (QREFELT $ 47))
+                                      (QREFELT $ 45))
+                            (|spadConstant| $ 46) (QREFELT $ 47))
                            . #3#)))
                    (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
               (EXIT (COND (|equalone| 'NIL) (#2# 'T)))))))))) 
@@ -101,7 +101,7 @@
         (SEQ
          (LETT |ord| (- (SPADCALL (QREFELT $ 33)) 1)
                . #3=(|FFIELDC-;order;SPi;10|))
-         (LETT |a| 0 . #3#) (LETT |lof| (SPADCALL (QREFELT $ 45)) . #3#)
+         (LETT |a| 0 . #3#) (LETT |lof| (SPADCALL (QREFELT $ 44)) . #3#)
          (SEQ (LETT |rec| NIL . #3#) (LETT #2# |lof| . #3#) G190
               (COND
                ((OR (ATOM #2#) (PROGN (LETT |rec| (CAR #2#) . #3#) NIL))
@@ -111,8 +111,8 @@
                      (QUOTIENT2 |ord| (LETT |primeDivisor| (QCAR |rec|) . #3#))
                      . #3#)
                (LETT |goon|
-                     (SPADCALL (SPADCALL |e| |a| (QREFELT $ 46))
-                               (|spadConstant| $ 38) (QREFELT $ 47))
+                     (SPADCALL (SPADCALL |e| |a| (QREFELT $ 45))
+                               (|spadConstant| $ 46) (QREFELT $ 47))
                      . #3#)
                (SEQ (LETT |j| 0 . #3#) (LETT #1# (- (QCDR |rec|) 2) . #3#) G190
                     (COND
@@ -121,8 +121,8 @@
                          (LETT |a| (QUOTIENT2 |ord| |primeDivisor|) . #3#)
                          (EXIT
                           (LETT |goon|
-                                (SPADCALL (SPADCALL |e| |a| (QREFELT $ 46))
-                                          (|spadConstant| $ 38) (QREFELT $ 47))
+                                (SPADCALL (SPADCALL |e| |a| (QREFELT $ 45))
+                                          (|spadConstant| $ 46) (QREFELT $ 47))
                                 . #3#)))
                     (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191 (EXIT NIL))
                (EXIT (COND (|goon| (LETT |ord| |a| . #3#)))))
@@ -140,7 +140,7 @@
         (|error| "discreteLog: logarithm of zero"))
        (#3='T
         (SEQ
-         (LETT |faclist| (SPADCALL (QREFELT $ 45))
+         (LETT |faclist| (SPADCALL (QREFELT $ 44))
                . #4=(|FFIELDC-;discreteLog;SNni;11|))
          (LETT |a| |b| . #4#) (LETT |gen| (SPADCALL (QREFELT $ 50)) . #4#)
          (EXIT
@@ -171,7 +171,7 @@
                                              . #4#)
                                        (LETT |c|
                                              (SPADCALL |a| |exp|
-                                                       (QREFELT $ 46))
+                                                       (QREFELT $ 45))
                                              . #4#)
                                        (LETT |end| (QUOTIENT2 (- |fac| 1) |n|)
                                              . #4#)
@@ -214,7 +214,7 @@
                                                                             |n|))
                                                                           (QREFELT
                                                                            $
-                                                                           46))
+                                                                           45))
                                                                 (QREFELT $ 56))
                                                       . #4#)))))
                                             (LETT |i| (|inc_SI| |i|) . #4#)
@@ -233,7 +233,7 @@
                                                                       (-
                                                                        |disc1|)
                                                                       (QREFELT
-                                                                       $ 46))
+                                                                       $ 45))
                                                             (QREFELT $ 56))
                                                   . #4#))))
                                          ('T
@@ -287,7 +287,7 @@
                  (SEQ (LETT |fac| (QCAR |f|) . #4#)
                       (LETT |primroot|
                             (SPADCALL |logbase| (QUOTIENT2 |groupord| |fac|)
-                                      (QREFELT $ 46))
+                                      (QREFELT $ 45))
                             . #4#)
                       (EXIT
                        (SEQ (LETT |t| 0 . #4#)
@@ -297,7 +297,7 @@
                                  (LETT |rhoHelp|
                                        (SPADCALL |primroot|
                                                  (SPADCALL |a| |exp|
-                                                           (QREFELT $ 46))
+                                                           (QREFELT $ 45))
                                                  |fac| (QREFELT $ 67))
                                        . #4#)
                                  (EXIT
@@ -319,7 +319,7 @@
                                             (SPADCALL |a|
                                                       (SPADCALL |logbase|
                                                                 (- |rho|)
-                                                                (QREFELT $ 46))
+                                                                (QREFELT $ 45))
                                                       (QREFELT $ 56))
                                             . #4#)))))))
                             (LETT |t| (|inc_SI| |t|) . #4#) (GO G190) G191
@@ -402,11 +402,11 @@
               (|Matrix| $) |FFIELDC-;conditionP;MU;5| (|NonNegativeInteger|)
               (45 . |size|) (49 . |characteristic|) (53 . ^)
               |FFIELDC-;charthRoot;2S;6| |FFIELDC-;charthRoot;SU;7|
-              (59 . |One|) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (63 . |representationType|) (67 . =)
+              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+              (59 . |representationType|) (63 . =)
               |FFIELDC-;createPrimitiveElement;S;8|
-              (|Record| (|:| |factor| 18) (|:| |exponent| 18)) (|List| 43)
-              (73 . |factorsOfCyclicGroupSize|) (77 . ^) (83 . =)
+              (|Record| (|:| |factor| 18) (|:| |exponent| 18)) (|List| 42)
+              (69 . |factorsOfCyclicGroupSize|) (73 . ^) (79 . |One|) (83 . =)
               |FFIELDC-;primitive?;SB;9| |FFIELDC-;order;SPi;10|
               (89 . |primitiveElement|) (|Table| 10 32)
               (93 . |tableForDiscreteLogarithm|) (98 . |#|)
@@ -438,23 +438,23 @@
                                                    19 0 18 20 1 23 22 0 24 1 6
                                                    0 0 25 2 27 0 26 0 28 0 6 32
                                                    33 0 6 32 34 2 6 0 0 32 35 0
-                                                   6 0 38 0 6 39 40 2 39 13 0 0
-                                                   41 0 6 44 45 2 6 0 0 18 46 2
-                                                   6 13 0 0 47 0 6 0 50 1 6 51
-                                                   18 52 1 51 32 0 53 2 51 54
-                                                   10 0 55 2 6 0 0 0 56 1 60 58
-                                                   59 61 1 18 62 0 63 1 64 44 0
-                                                   65 3 66 54 6 6 32 67 2 18 0
-                                                   32 0 68 1 72 70 71 73 1 74
-                                                   70 71 75 0 71 0 76 2 71 13 0
-                                                   0 77 0 70 0 78 2 74 80 71 13
-                                                   81 1 71 0 6 82 2 70 0 71 18
-                                                   83 2 70 0 0 0 84 0 70 0 85 2
-                                                   70 0 71 0 86 2 87 0 0 0 88 1
-                                                   0 13 0 48 1 0 10 0 49 1 0 19
-                                                   0 21 1 0 15 0 16 0 0 0 9 2 0
-                                                   89 89 89 90 1 0 32 0 57 2 0
-                                                   54 0 0 69 1 0 0 0 8 0 0 0 42
-                                                   1 0 29 30 31 1 0 0 0 36 1 0
-                                                   15 0 37)))))
+                                                   6 38 39 2 38 13 0 0 40 0 6
+                                                   43 44 2 6 0 0 18 45 0 6 0 46
+                                                   2 6 13 0 0 47 0 6 0 50 1 6
+                                                   51 18 52 1 51 32 0 53 2 51
+                                                   54 10 0 55 2 6 0 0 0 56 1 60
+                                                   58 59 61 1 18 62 0 63 1 64
+                                                   43 0 65 3 66 54 6 6 32 67 2
+                                                   18 0 32 0 68 1 72 70 71 73 1
+                                                   74 70 71 75 0 71 0 76 2 71
+                                                   13 0 0 77 0 70 0 78 2 74 80
+                                                   71 13 81 1 71 0 6 82 2 70 0
+                                                   71 18 83 2 70 0 0 0 84 0 70
+                                                   0 85 2 70 0 71 0 86 2 87 0 0
+                                                   0 88 1 0 13 0 48 1 0 10 0 49
+                                                   1 0 19 0 21 1 0 15 0 16 0 0
+                                                   0 9 2 0 89 89 89 90 1 0 32 0
+                                                   57 2 0 54 0 0 69 1 0 0 0 8 0
+                                                   0 0 41 1 0 29 30 31 1 0 0 0
+                                                   36 1 0 15 0 37)))))
            '|lookupComplete|)) 

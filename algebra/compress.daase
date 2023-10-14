@@ -725,7 +725,7 @@
  |naiveBeckermannLabahnMultipoint| |naiveBeckermannLabahn1|
  |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis| |complexEigenvalues|
  |complexEigenvectors| |newton| |groebner| |redPol| |hMonic| |virtualDegree|
- |sPol| |qcoerce| |shift| |normalizedAssociate| |normalize| |outputArgs|
+ |sPol| |shift| |normalizedAssociate| |normalize| |outputArgs|
  |normInvertible?| |normFactors| |npcoef| |listexp| |characteristicPolynomial|
  |realEigenvalues| |realEigenvectors| |halfExtendedResultant2|
  |halfExtendedResultant1| |extendedResultant| |subResultantsChain|
@@ -794,7 +794,7 @@
  |partialFraction| |gcdPrimitive| |symmetricGroup| |alternatingGroup|
  |abelianGroup| |cyclicGroup| |dihedralGroup| |mathieu11| |mathieu12|
  |mathieu22| |mathieu23| |mathieu24| |janko2| |rubiksGroup| |youngGroup|
- |lexGroebner| |totalGroebner| |expressIdealMember| |principalIdeal|
+ |lexGroebner| |totalGroebner| |qcoerce| |expressIdealMember| |principalIdeal|
  |LagrangeInterpolation| |psolve| |wrregime| |rdregime| |bsolve| |dmp2rfi|
  |se2rfi| |pr2dmp| |hasoln| |ParCondList| |redpps| |B1solve| |factorset|
  |maxrank| |minrank| |minset| |nextSublist| |overset?| |ParCond| |redmat|

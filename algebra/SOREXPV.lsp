@@ -4,7 +4,7 @@
 (DEFUN |SortedExponentVector| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2623)
+     (PROG (#1=#:G2624)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SortedExponentVector|)
@@ -22,7 +22,7 @@
               (HREM |$ConstructorCache| '|SortedExponentVector|))))))))))) 
 
 (DEFUN |SortedExponentVector;| ()
-  (PROG (|dv$| $ #1=#:G2619 #2=#:G2620 #3=#:G2618 #4=#:G2617 |pv$| #5=#:G2621)
+  (PROG (|dv$| $ #1=#:G2620 #2=#:G2621 #3=#:G2619 #4=#:G2618 |pv$| #5=#:G2622)
     (RETURN
      (PROGN
       (LETT |dv$| '(|SortedExponentVector|) . #6=(|SortedExponentVector|))
