@@ -276,14 +276,13 @@
 ; $trans_key_id := [ _
 ;                 ["break", "break"], _
 ;                 ["DEFAULT", "default"], _
-;                 ["RULE", "rule"], _
-;                 ["fooo", "baaar"] _
+;                 ["RULE", "rule"] _
 ;                 ]
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$trans_key_id|
           (LIST (LIST '|break| '|break|) (LIST 'DEFAULT '|default|)
-                (LIST 'RULE '|rule|) (LIST '|fooo| '|baaar|))))
+                (LIST 'RULE '|rule|))))
  
 ; DEFVAR($paren_level)
  
