@@ -294,14 +294,18 @@
                 (|newLookupInAddChain| |op| |sig| |domain| |dollar|))
                (#1# NIL)))))))))
  
+; AND_char := ELT('"&", 0)
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |AND_char| (ELT "&" 0)))
+ 
 ; isDefaultPackageForm? x == x is [op,:.]
-;   and IDENTP op and (s := PNAME op).(MAXINDEX s) = "&"
+;   and IDENTP op and (s := PNAME op).(MAXINDEX s) = AND_char
  
 (DEFUN |isDefaultPackageForm?| (|x|)
   (PROG (|op| |s|)
     (RETURN
      (AND (CONSP |x|) (PROGN (SETQ |op| (CAR |x|)) 'T) (IDENTP |op|)
-          (EQ (ELT (SETQ |s| (PNAME |op|)) (MAXINDEX |s|)) '&)))))
+          (EQUAL (ELT (SETQ |s| (PNAME |op|)) (MAXINDEX |s|)) |AND_char|)))))
  
 ; newLookupInAddChain(op,sig,addFormDomain,dollar) ==
 ;   if $monitorNewWorld then sayLooking1('"looking up add-chain: ",addFormDomain)
