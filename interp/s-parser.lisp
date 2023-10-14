@@ -49,8 +49,6 @@
 ;           ["add", 400, 120],   ["with", 2000, 400, ["parse_InfixWith"]], _
 ;           ["has", 400, 400], _
 ;           ["where", 121, 104], _
-;           ["when", 112, 190], _
-;           ["otherwise", 119, 190, ["parse_Suffix"]], _
 ;           ["is", 400, 400],    ["isnt", 400, 400], _
 ;           ["and", 250, 251],   ["or", 200, 201], _
 ;           ["/\", 250, 251],   ["\/", 200, 201], _
@@ -69,7 +67,6 @@
 ;           ["until", 130, 190, ["parse_Loop"]], _
 ;           ["repeat", 130, 190, ["parse_Loop"]], _
 ;           ["import", 120, 0, ["parse_Import"]], _
-;           ["unless"], _
 ;           ["add", 900, 120], _
 ;           ["with", 1000, 300, ["parse_With"]], _
 ;           ["has", 400, 400], _
@@ -85,8 +82,6 @@
 ;           ["~", 260, 259, nil], _
 ;           ["=", 400, 700], _
 ;           ["return", 202, 201, ["parse_Return"]], _
-;           ["leave", 202, 201, ["parse_Leave"]], _
-;           ["exit", 202, 201, ["parse_Exit"]], _
 ;           ["from"], _
 ;           ["iterate"], _
 ;           ["yield"], _
@@ -95,7 +90,6 @@
 ;           ["catch", 0, 114], _
 ;           ["finally", 0, 114], _
 ;           ["|", 0, 190], _
-;           ["suchthat"], _
 ;           ["then", 0, 114], _
 ;           ["else", 0, 114]] repeat
 ;         MAKEOP(j, "Nud")
@@ -123,11 +117,9 @@
              (LIST '= 400 400) (LIST '^= 400 400) (LIST '~= 400 400)
              (LIST '|in| 400 400) (LIST '|case| 400 400) (LIST '|add| 400 120)
              (LIST '|with| 2000 400 (LIST '|parse_InfixWith|))
-             (LIST '|has| 400 400) (LIST '|where| 121 104)
-             (LIST '|when| 112 190)
-             (LIST '|otherwise| 119 190 (LIST '|parse_Suffix|))
-             (LIST '|is| 400 400) (LIST '|isnt| 400 400) (LIST '|and| 250 251)
-             (LIST '|or| 200 201) (LIST '|/\\| 250 251) (LIST '|\\/| 200 201)
+             (LIST '|has| 400 400) (LIST '|where| 121 104) (LIST '|is| 400 400)
+             (LIST '|isnt| 400 400) (LIST '|and| 250 251) (LIST '|or| 200 201)
+             (LIST '|/\\| 250 251) (LIST '|\\/| 200 201)
              (LIST '|..| 'SEGMENT 401 699 (LIST '|parse_Seg|))
              (LIST '=> 123 103) (LIST '+-> 995 112) (LIST '== 'DEF 122 121)
              (LIST '==> 'MDEF 122 121) (LIST '|\|| 108 111)
@@ -144,21 +136,19 @@
              (LIST '|while| 130 190 (LIST '|parse_Loop|))
              (LIST '|until| 130 190 (LIST '|parse_Loop|))
              (LIST '|repeat| 130 190 (LIST '|parse_Loop|))
-             (LIST '|import| 120 0 (LIST '|parse_Import|)) (LIST '|unless|)
+             (LIST '|import| 120 0 (LIST '|parse_Import|))
              (LIST '|add| 900 120) (LIST '|with| 1000 300 (LIST '|parse_With|))
              (LIST '|has| 400 400) (LIST '- 701 700) (LIST '|#| 999 998)
              (LIST '! 1002 1001) (LIST '|'| 999 999 (LIST '|parse_Data|))
              (LIST '<< 122 120 (LIST '|parse_LabelExpr|)) (LIST '>>)
              (LIST '-> 1001 1002) (LIST '|:| 194 195) (LIST '|not| 260 259 NIL)
              (LIST '~ 260 259 NIL) (LIST '= 400 700)
-             (LIST '|return| 202 201 (LIST '|parse_Return|))
-             (LIST '|leave| 202 201 (LIST '|parse_Leave|))
-             (LIST '|exit| 202 201 (LIST '|parse_Exit|)) (LIST '|from|)
+             (LIST '|return| 202 201 (LIST '|parse_Return|)) (LIST '|from|)
              (LIST '|iterate|) (LIST '|yield|)
              (LIST '|if| 130 0 (LIST '|parse_Conditional|))
              (LIST '|try| 130 0 (LIST '|parse_Try|)) (LIST '|catch| 0 114)
-             (LIST '|finally| 0 114) (LIST '|\|| 0 190) (LIST '|suchthat|)
-             (LIST '|then| 0 114) (LIST '|else| 0 114))
+             (LIST '|finally| 0 114) (LIST '|\|| 0 190) (LIST '|then| 0 114)
+             (LIST '|else| 0 114))
        NIL)))))
  
 ; init_parser_properties()
@@ -717,44 +707,6 @@
             (PROGN
              (MUST (|parse_Expression|))
              (|push_form1| '|return| (|pop_stack_1|))))))))
- 
-; parse_Exit() ==
-;     not(match_symbol "exit") => nil
-;     OR(parse_Expression(), push_reduction("parse_Exit", "$NoValue"))
-;     push_form1("exit", pop_stack_1())
- 
-(DEFUN |parse_Exit| ()
-  (PROG ()
-    (RETURN
-     (COND ((NULL (|match_symbol| '|exit|)) NIL)
-           ('T
-            (PROGN
-             (OR (|parse_Expression|)
-                 (|push_reduction| '|parse_Exit| '|$NoValue|))
-             (|push_form1| '|exit| (|pop_stack_1|))))))))
- 
-; parse_Leave() ==
-;     not(match_symbol "leave") => nil
-;     OR(parse_Expression(), push_reduction("parse_Leave", "$NoValue"))
-;     match_symbol "from" =>
-;         MUST parse_Label()
-;         push_form2("leaveFrom", pop_stack_1(), pop_stack_1())
-;     push_form1("leave", pop_stack_1())
- 
-(DEFUN |parse_Leave| ()
-  (PROG ()
-    (RETURN
-     (COND ((NULL (|match_symbol| '|leave|)) NIL)
-           (#1='T
-            (PROGN
-             (OR (|parse_Expression|)
-                 (|push_reduction| '|parse_Leave| '|$NoValue|))
-             (COND
-              ((|match_symbol| '|from|)
-               (PROGN
-                (MUST (|parse_Label|))
-                (|push_form2| '|leaveFrom| (|pop_stack_1|) (|pop_stack_1|))))
-              (#1# (|push_form1| '|leave| (|pop_stack_1|))))))))))
  
 ; parse_Seg() ==
 ;     not(parse_GliphTok "..") => nil

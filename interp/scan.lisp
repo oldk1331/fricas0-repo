@@ -80,7 +80,6 @@
 ;            ['"is", "IS" ],_
 ;            ['"isnt", "ISNT" ],_
 ;            ['"iterate", "ITERATE"],_
-;            ['"leave",  "LEAVE"],_
 ;            ['"local", "local" ],_
 ;            ['"macro", "MACRO" ],_
 ;            ['"mod", "MOD" ],_
@@ -171,10 +170,9 @@
                 (LIST "has" 'HAS) (LIST "if" 'IF) (LIST "import" 'IMPORT)
                 (LIST "in" 'IN) (LIST "inline" 'INLINE) (LIST "is" 'IS)
                 (LIST "isnt" 'ISNT) (LIST "iterate" 'ITERATE)
-                (LIST "leave" 'LEAVE) (LIST "local" '|local|)
-                (LIST "macro" 'MACRO) (LIST "mod" 'MOD) (LIST "not" 'NOT)
-                (LIST "or" 'OR) (LIST "pretend" 'PRETEND) (LIST "quo" 'QUO)
-                (LIST "rem" 'REM) (LIST "repeat" 'REPEAT)
+                (LIST "local" '|local|) (LIST "macro" 'MACRO) (LIST "mod" 'MOD)
+                (LIST "not" 'NOT) (LIST "or" 'OR) (LIST "pretend" 'PRETEND)
+                (LIST "quo" 'QUO) (LIST "rem" 'REM) (LIST "repeat" 'REPEAT)
                 (LIST "return" 'RETURN) (LIST "rule" 'RULE) (LIST "then" 'THEN)
                 (LIST "try" 'TRY) (LIST "until" 'UNTIL) (LIST "where" 'WHERE)
                 (LIST "while" 'WHILE) (LIST "with" 'WITH) (LIST "yield" 'YIELD)

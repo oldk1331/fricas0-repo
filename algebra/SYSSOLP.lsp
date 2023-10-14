@@ -38,7 +38,7 @@
                   (EXIT
                    (COND
                     ((SPADCALL |x| |lx| (QREFELT $ 23))
-                     (PROGN (LETT #1# |x| . #3#) (GO #1#))))))
+                     (PROGN (LETT #1# |$NoValue| . #3#) (GO #1#))))))
                  (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL)))
            #1# (EXIT #1#))
           (LETT |up| (SPADCALL |np| |x| (QREFELT $ 25)) . #3#)
