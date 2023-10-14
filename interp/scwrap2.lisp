@@ -227,9 +227,7 @@
 ;                 ["WHERE", "where"], _
 ;                 ["WHILE", "while"], _
 ;                 ["WITH", "with"], _
-;                 ["SETTAB", "("], _
 ;                 ["BACKSET", ";"], _
-;                 ["BACKTAB", ")"], _
 ;                 ["CATCH", "catch"], _
 ;                 ["TRY", "try"], _
 ;                 ["FINALLY", "finally"]]
@@ -254,8 +252,8 @@
                 (LIST 'SEG '|..|) (LIST 'SEMICOLON '|;|) (LIST 'SLASH '/)
                 (LIST 'THEN '|then|) (LIST 'TIMES '*) (LIST 'UNTIL '|until|)
                 (LIST 'WHERE '|where|) (LIST 'WHILE '|while|)
-                (LIST 'WITH '|with|) (LIST 'SETTAB '|(|) (LIST 'BACKSET '|;|)
-                (LIST 'BACKTAB '|)|) (LIST 'CATCH '|catch|) (LIST 'TRY '|try|)
+                (LIST 'WITH '|with|) (LIST 'BACKSET '|;|)
+                (LIST 'CATCH '|catch|) (LIST 'TRY '|try|)
                 (LIST 'FINALLY '|finally|))))
  
 ; $trans_key_id := [ _
