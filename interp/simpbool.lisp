@@ -430,19 +430,6 @@
              (#1# (CONS |h| (|orDel| |a| |t|)))))
       (#1# (LIST |a|))))))
  
-; ordList l ==
-;   l is [h,:t] and t => orDel(h,ordList t)
-;   l
- 
-(DEFUN |ordList| (|l|)
-  (PROG (|h| |t|)
-    (RETURN
-     (COND
-      ((AND (CONSP |l|) (PROGN (SETQ |h| (CAR |l|)) (SETQ |t| (CDR |l|)) #1='T)
-            |t|)
-       (|orDel| |h| (|ordList| |t|)))
-      (#1# |l|)))))
- 
 ; ordUnion(a,b) ==
 ;   a isnt [c,:r] => b
 ;   b isnt [d,:s] => a

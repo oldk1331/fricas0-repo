@@ -3233,35 +3233,34 @@
 ; -- fn is the name of some category/domain/package constructor;
 ; -- we will cache all of its values on $ConstructorCache with reference
 ; -- counts
+;   kind := GETDATABASE(fn,'CONSTRUCTORKIND)
 ;   lambdaOrSlam :=
-;     GETDATABASE(fn,'CONSTRUCTORKIND) = 'category => 'SPADSLAM
+;     kind = 'category => 'SPADSLAM
 ;     $mutableDomain => 'LAMBDA
 ;     'spad_CLAM
 ;   compForm:= LIST [fn,[lambdaOrSlam,vl,:bodyl]]
-;   if GETDATABASE(fn,'CONSTRUCTORKIND) = 'category
+;   if kind = 'category
 ;       then u:= compAndDefine compForm
 ;       else u:=COMP compForm
 ;   clearConstructorCache fn      --clear cache for constructor
 ;   first u
  
 (DEFUN |compileConstructor1| (|form|)
-  (PROG (|fn| |key| |vl| |bodyl| |lambdaOrSlam| |compForm| |u|)
+  (PROG (|fn| |key| |vl| |bodyl| |kind| |lambdaOrSlam| |compForm| |u|)
     (RETURN
      (PROGN
       (SETQ |fn| (CAR |form|))
       (SETQ |key| (CAADR . #1=(|form|)))
       (SETQ |vl| (CADADR . #1#))
       (SETQ |bodyl| (CDDADR . #1#))
+      (SETQ |kind| (GETDATABASE |fn| 'CONSTRUCTORKIND))
       (SETQ |lambdaOrSlam|
-              (COND
-               ((EQ (GETDATABASE |fn| 'CONSTRUCTORKIND) '|category|) 'SPADSLAM)
-               (|$mutableDomain| 'LAMBDA) (#2='T '|spad_CLAM|)))
+              (COND ((EQ |kind| '|category|) 'SPADSLAM)
+                    (|$mutableDomain| 'LAMBDA) (#2='T '|spad_CLAM|)))
       (SETQ |compForm|
               (LIST (LIST |fn| (CONS |lambdaOrSlam| (CONS |vl| |bodyl|)))))
-      (COND
-       ((EQ (GETDATABASE |fn| 'CONSTRUCTORKIND) '|category|)
-        (SETQ |u| (|compAndDefine| |compForm|)))
-       (#2# (SETQ |u| (COMP |compForm|))))
+      (COND ((EQ |kind| '|category|) (SETQ |u| (|compAndDefine| |compForm|)))
+            (#2# (SETQ |u| (COMP |compForm|))))
       (|clearConstructorCache| |fn|)
       (CAR |u|)))))
  
