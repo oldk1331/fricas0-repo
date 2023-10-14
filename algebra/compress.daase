@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4768 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4769 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -771,7 +771,7 @@
  |reverseLex| |leftLcm| |rightExtendedGcd| |rightGcd| |rightExactQuotient|
  |rightRemainder| |rightQuotient| |rightLcm| |leftExtendedGcd| |leftGcd|
  |leftExactQuotient| |leftRemainder| |leftQuotient| |times| |monicLeftDivide|
- |monicRightDivide| |leftDivide| |rightDivide| |hermiteH| |laguerreL|
+ |monicRightDivide| |leftDivide| |rightDivide| |hermiteH| |laguerreL| |output|
  |outputList| |or| |and| |quo| |rem| ~= |blankSeparate| |semicolonSeparate|
  |commaSeparate| |pile| |paren| |bracket| |prod| |overlabel| |overbar| |prime|
  |quote| |supersub| |presuper| |presub| |super| |sub| |rarrow| |assign| |slash|
@@ -992,8 +992,8 @@
  |generalInfiniteProduct| |tensorMap| |stransform| |stranslate| |identity|
  |xform| |compound| |STransform1| |STransform2| |STransform|
  |distributionBySTransform| |freeMultiplicativeConvolution| |filterUntil|
- |filterWhile| |stream| |showAll?| |showAllElements| |output| |cons| |delay|
- |findCycle| |repeating?| |repeating| |ucodeToString| |exquo| |recip|
+ |filterWhile| |stream| |showAll?| |showAllElements| |showElements| |cons|
+ |delay| |findCycle| |repeating?| |repeating| |ucodeToString| |exquo| |recip|
  |integers| |oddintegers| |int| |mapmult| |deriv| |gderiv| |compose| |addiag|
  |lazyIntegrate| |nlde| |powern| |mapdiv| |lazyGintegrate| |power| |sincos|
  |sinhcosh| |asin| |acos| |atan| |acot| |asec| |acsc| |sinh| |cosh| |tanh|
