@@ -64,10 +64,16 @@
   (PROG () (RETURN (PROGN (|sayBrightly| |msg|) (|read-line| *TERMINAL-IO*)))))
  
 ; errorSupervisor(errorType,errorMsg) ==
+;   $BreakMode = 'trapSpadErrors => THROW('trapSpadErrors, $numericFailure)
 ;   errorSupervisor1(errorType,errorMsg,$BreakMode)
  
 (DEFUN |errorSupervisor| (|errorType| |errorMsg|)
-  (PROG () (RETURN (|errorSupervisor1| |errorType| |errorMsg| |$BreakMode|))))
+  (PROG ()
+    (RETURN
+     (COND
+      ((EQ |$BreakMode| '|trapSpadErrors|)
+       (THROW '|trapSpadErrors| |$numericFailure|))
+      ('T (|errorSupervisor1| |errorType| |errorMsg| |$BreakMode|))))))
  
 ; errorSupervisor1(errorType,errorMsg,$BreakMode) ==
 ;   BUMPCOMPERRORCOUNT()
