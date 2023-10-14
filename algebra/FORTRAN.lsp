@@ -50,8 +50,7 @@
               (EXIT (SPADCALL (QREFELT $ 34)))))) 
 
 (SDEFUN |FORTRAN;mkString| ((|l| |List| (|Symbol|)) ($ |String|))
-        (SPADCALL (SPADCALL (SPADCALL |l| (QREFELT $ 30)) (QREFELT $ 37))
-                  (QREFELT $ 39))) 
+        (SPADCALL (SPADCALL |l| (QREFELT $ 37)) (QREFELT $ 39))) 
 
 (SDEFUN |FORTRAN;checkVariables|
         ((|user| |List| (|Symbol|)) (|target| |List| (|Symbol|)) ($ |Void|))
@@ -781,7 +780,7 @@
                                               20 19 24 1 26 25 0 27 1 19 25 0
                                               28 1 29 25 0 30 1 11 18 0 31 1 20
                                               18 19 32 1 20 18 19 33 0 18 0 34
-                                              1 36 0 25 37 1 36 38 0 39 1 19 0
+                                              1 29 36 0 37 1 36 38 0 39 1 19 0
                                               0 40 2 29 0 41 0 42 2 29 0 0 0 43
                                               2 29 44 0 0 45 1 38 25 0 46 1 47
                                               29 0 48 2 16 0 19 47 49 0 16 0 50

@@ -120,7 +120,7 @@
                          (QREFELT $ 46))))) 
 
 (SDEFUN |OUTFORM;matrix;L$;29| ((|ll| |List| (|List| $)) ($ $))
-        (SPROG ((|lv| (|List| $)) (#1=#:G1632 NIL) (|l| NIL) (#2=#:G1631 NIL))
+        (SPROG ((|lv| (|List| $)) (#1=#:G1631 NIL) (|l| NIL) (#2=#:G1630 NIL))
                (SEQ
                 (LETT |lv|
                       (PROGN
@@ -147,7 +147,7 @@
         (CONS (|OUTFORM;eform| 'AGGSET $) |l|)) 
 
 (SDEFUN |OUTFORM;blankSeparate;L$;33| ((|l| |List| $) ($ $))
-        (SPROG ((|l1| (|List| $)) (#1=#:G1640 NIL) (|u| NIL) (|c| ($)))
+        (SPROG ((|l1| (|List| $)) (#1=#:G1639 NIL) (|u| NIL) (|c| ($)))
                (SEQ
                 (LETT |c| (|OUTFORM;eform| 'CONCATB $)
                       . #2=(|OUTFORM;blankSeparate;L$;33|))
@@ -296,7 +296,7 @@
         (SPADCALL (LIST (|OUTFORM;eform| 'NOTHING $)) (QREFELT $ 17))) 
 
 (SDEFUN |OUTFORM;infix?;$B;71| ((|a| $) ($ |Boolean|))
-        (SPROG ((|e| ($)) (#1=#:G1685 NIL))
+        (SPROG ((|e| ($)) (#1=#:G1684 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -305,7 +305,7 @@
                               (#2='T
                                (PROGN
                                 (LETT #1# 'NIL . #3=(|OUTFORM;infix?;$B;71|))
-                                (GO #4=#:G1684))))
+                                (GO #4=#:G1683))))
                         . #3#)
                   (EXIT (COND ((GET |e| 'INFIXOP) 'T) (#2# 'NIL)))))
                 #4# (EXIT #1#)))) 
@@ -406,7 +406,7 @@
 
 (SDEFUN |OUTFORM;differentiate;$Nni$;95|
         ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
-        (SPROG ((|s| (|String|)) (|r| (|String|)) (#1=#:G1717 NIL))
+        (SPROG ((|s| (|String|)) (|r| (|String|)) (#1=#:G1716 NIL))
                (SEQ
                 (COND ((ZEROP |nn|) |a|)
                       ((< |nn| 4) (SPADCALL |a| |nn| (QREFELT $ 106)))
@@ -471,7 +471,7 @@
 
 (DEFUN |OutputForm| ()
   (SPROG NIL
-         (PROG (#1=#:G1732)
+         (PROG (#1=#:G1731)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|OutputForm|)

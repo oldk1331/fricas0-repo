@@ -17,15 +17,14 @@
                |SExpressionCategory;AL|))
       #2#)))) 
 
-(DEFUN |SExpressionCategory;| (|t#1| |t#2| |t#3| |t#4| |t#5|)
+(DEFUN |SExpressionCategory;| (|t#1| |t#2| |t#3| |t#4|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(|t#1| |t#2| |t#3| |t#4| |t#5|)
+                    (PAIR '(|t#1| |t#2| |t#3| |t#4|)
                           (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
-                                (|devaluate| |t#3|) (|devaluate| |t#4|)
-                                (|devaluate| |t#5|)))
+                                (|devaluate| |t#3|) (|devaluate| |t#4|)))
                     (COND (|SExpressionCategory;CAT|)
                           ('T
                            (LETT |SExpressionCategory;CAT|
@@ -45,13 +44,11 @@
                                             ((|symbol| (|t#2| $)) T)
                                             ((|integer| (|t#3| $)) T)
                                             ((|float| (|t#4| $)) T)
-                                            ((|expr| (|t#5| $)) T)
                                             ((|convert| ($ (|List| $))) T)
                                             ((|convert| ($ |t#1|)) T)
                                             ((|convert| ($ |t#2|)) T)
                                             ((|convert| ($ |t#3|)) T)
                                             ((|convert| ($ |t#4|)) T)
-                                            ((|convert| ($ |t#5|)) T)
                                             ((|car| ($ $)) T) ((|cdr| ($ $)) T)
                                             ((|#| ((|Integer|) $)) T)
                                             ((|elt| ($ $ (|Integer|))) T)
@@ -66,4 +63,4 @@
            (SETELT #1# 0
                    (LIST '|SExpressionCategory| (|devaluate| |t#1|)
                          (|devaluate| |t#2|) (|devaluate| |t#3|)
-                         (|devaluate| |t#4|) (|devaluate| |t#5|)))))) 
+                         (|devaluate| |t#4|)))))) 

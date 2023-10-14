@@ -39,7 +39,7 @@
         (SETELT_U8 |x| |i| |s|)) 
 
 (SDEFUN |U8VEC;fill!;$I$;9| ((|x| $) (|s| |Integer|) ($ $))
-        (SPROG ((#1=#:G2352 NIL) (|i| NIL))
+        (SPROG ((#1=#:G2351 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0 . #2=(|U8VEC;fill!;$I$;9|))
                      (LETT #1# (|sub_SI| (QV_LEN_U8 |x|) 1) . #2#) G190
@@ -52,7 +52,7 @@
 
 (DEFUN |U8Vector| ()
   (SPROG NIL
-         (PROG (#1=#:G2366)
+         (PROG (#1=#:G2365)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|U8Vector|)
@@ -69,8 +69,8 @@
 
 (DEFUN |U8Vector;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2362 NIL) (#2=#:G2363 NIL) (#3=#:G2361 NIL)
-    (#4=#:G2360 NIL) (|pv$| NIL) (#5=#:G2364 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G2361 NIL) (#2=#:G2362 NIL) (#3=#:G2360 NIL)
+    (#4=#:G2359 NIL) (|pv$| NIL) (#5=#:G2363 NIL))
    (PROGN
     (LETT |dv$| '(|U8Vector|) . #6=(|U8Vector|))
     (LETT $ (GETREFV 34) . #6#)

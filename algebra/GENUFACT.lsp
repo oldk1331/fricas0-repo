@@ -16,7 +16,7 @@
            (|UnivariatePolynomialCategory|
             (|Fraction| (|Polynomial| (|Integer|)))))
           (|up| (|UnivariatePolynomialCategory| (|Fraction| (|Integer|))))
-          (|var| (|Symbol|)) (|giform| (|InputForm|)))
+          (|var| (|Symbol|)) (|giform| (|OutputForm|)))
          (SEQ
           (COND
            ((|domainEqual| (QREFELT $ 6) (|Integer|))
@@ -35,14 +35,11 @@
                             (LIST '|generator|
                                   (LIST (|devaluate| (QREFELT $ 6)))))
             (SEQ
-             (LETT |giform|
-                   (SPADCALL
-                    (SPADCALL (SPADCALL (QREFELT $ 32)) (QREFELT $ 33))
-                    (QREFELT $ 35))
+             (LETT |giform| (SPADCALL (SPADCALL (QREFELT $ 32)) (QREFELT $ 33))
                    . #1=(|GENUFACT;factor;SupF;2|))
              (COND
-              ((SPADCALL |giform| (QREFELT $ 37))
-               (SEQ (LETT |var| (SPADCALL |giform| (QREFELT $ 39)) . #1#)
+              ((SYMBOLP |giform|)
+               (SEQ (LETT |var| |giform| . #1#)
                     (LETT |up|
                           (|UnivariatePolynomial| |var|
                                                   (|Fraction| (|Integer|)))
@@ -106,11 +103,11 @@
                                                   (|SparseUnivariatePolynomial|
                                                    (ELT $ 6))))))
                (#2#
-                (SEQ (|GENUFACT;factorWarning| (SPADCALL |f| (QREFELT $ 40)) $)
-                     (EXIT (SPADCALL |f| (QREFELT $ 42)))))))))
+                (SEQ (|GENUFACT;factorWarning| (SPADCALL |f| (QREFELT $ 34)) $)
+                     (EXIT (SPADCALL |f| (QREFELT $ 36)))))))))
            (#2#
-            (SEQ (|GENUFACT;factorWarning| (SPADCALL |f| (QREFELT $ 40)) $)
-                 (EXIT (SPADCALL |f| (QREFELT $ 42))))))))) 
+            (SEQ (|GENUFACT;factorWarning| (SPADCALL |f| (QREFELT $ 34)) $)
+                 (EXIT (SPADCALL |f| (QREFELT $ 36))))))))) 
 
 (DECLAIM (NOTINLINE |GenUFactorize;|)) 
 
@@ -136,7 +133,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|GenUFactorize|))
           (LETT |dv$| (LIST '|GenUFactorize| DV$1) . #1#)
-          (LETT $ (GETREFV 44) . #1#)
+          (LETT $ (GETREFV 38) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|GenUFactorize| (LIST DV$1)
@@ -158,21 +155,18 @@
               (|ComplexFactorization| (|Integer|) 19) (30 . |factor|)
               (|ComplexFactorization| (|Fraction| (|Integer|)) 19)
               (35 . |factor|) (|AlgFactor| 19) (40 . |factor|)
-              (45 . |generator|) (49 . |coerce|) (|InputForm|) (54 . |convert|)
-              (|Boolean|) (59 . |symbol?|) (|Symbol|) (64 . |symbol|)
-              (69 . |coerce|) (|Factored| $) (74 . |squareFree|)
-              |GENUFACT;factor;SupF;2|)
-           '#(|factor| 79) 'NIL
+              (45 . |generator|) (49 . |coerce|) (54 . |coerce|) (|Factored| $)
+              (59 . |squareFree|) |GENUFACT;factor;SupF;2|)
+           '#(|factor| 64) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 43
+                             (|makeByteWordVec2| 37
                                                  '(1 9 7 8 10 1 12 7 11 13 1 16
                                                    14 15 17 1 20 18 19 21 1 22
                                                    18 19 23 1 24 18 19 25 1 26
                                                    18 19 27 1 28 18 19 29 1 30
                                                    18 19 31 0 6 0 32 1 6 11 0
-                                                   33 1 34 0 11 35 1 34 36 0 37
-                                                   1 34 38 0 39 1 19 11 0 40 1
-                                                   19 41 0 42 1 0 18 19 43)))))
+                                                   33 1 19 11 0 34 1 19 35 0 36
+                                                   1 0 18 19 37)))))
            '|lookupComplete|)) 

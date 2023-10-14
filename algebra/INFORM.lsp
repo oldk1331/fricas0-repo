@@ -466,8 +466,8 @@
               |INFORM;binary;$L$;17| (131 . |new|) (137 . |cons|)
               |INFORM;function;$LS$;19| (143 . =) |INFORM;+;3$;20|
               |INFORM;*;3$;21| (149 . >) |INFORM;^;$I$;22| |INFORM;^;$Nni$;23|
-              |INFORM;/;3$;24| (|List| 7) (|OutputForm|) (|HashState|)
-              (|SingleInteger|))
+              |INFORM;/;3$;24| (|List| 7) (|SingleInteger|) (|HashState|)
+              (|OutputForm|))
            '#(|unparse| 155 |symbol?| 160 |symbol| 165 |string?| 170 |string|
               175 |parse| 180 |lambda| 185 |interpret| 191 |function| 196
               |flatten| 203 |destruct| 208 |declare| 213 |convert| 218
@@ -477,9 +477,9 @@
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL NIL)
                        (CONS
-                        '#((|SExpressionCategory| 38 15 7 21 68)
-                           (|SetCategory|) (|BasicType|) (|ConvertibleTo| 5)
-                           (|CoercibleTo| 68))
+                        '#((|SExpressionCategory| 38 15 7 21) (|SetCategory|)
+                           (|BasicType|) (|ConvertibleTo| 5)
+                           (|CoercibleTo| 70))
                         (|makeByteWordVec2| 66
                                             '(1 0 0 7 8 1 5 0 13 14 1 0 0 15 16
                                               1 6 0 21 22 1 0 24 0 25 1 0 13 0

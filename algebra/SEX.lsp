@@ -3,7 +3,7 @@
 
 (DEFUN |SExpression| ()
   (SPROG NIL
-         (PROG (#1=#:G1781)
+         (PROG (#1=#:G1780)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|SExpression|)
@@ -33,15 +33,15 @@
 
 (MAKEPROP '|SExpression| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|SExpressionOf| 10 11 6 9 8) (|Integer|)
-              (|List| 6) (|OutputForm|) (|DoubleFloat|) (|String|) (|Symbol|)
-              (|List| $) (|Boolean|) (|HashState|) (|SingleInteger|))
+           '#(NIL NIL NIL NIL NIL (|SExpressionOf| 9 10 7 8) (|List| 7)
+              (|Integer|) (|DoubleFloat|) (|String|) (|Symbol|) (|List| $)
+              (|Boolean|) (|HashState|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SExpressionCategory| 10 11 6 9 8) (|SetCategory|)
-                           (|BasicType|) (|CoercibleTo| 8))
+                        '#((|SExpressionCategory| 9 10 7 8) (|SetCategory|)
+                           (|BasicType|) (|CoercibleTo| 14))
                         (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 
 

@@ -14,9 +14,9 @@
 
 (DECLAIM (NOTINLINE |TwoDimensionalArray;|)) 
 
-(DEFUN |TwoDimensionalArray| (#1=#:G2233)
+(DEFUN |TwoDimensionalArray| (#1=#:G2232)
   (SPROG NIL
-         (PROG (#2=#:G2234)
+         (PROG (#2=#:G2233)
            (RETURN
             (COND
              ((LETT #2#
@@ -35,7 +35,7 @@
 
 (DEFUN |TwoDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2230 NIL) (#2=#:G2231 NIL) (#3=#:G2232 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G2229 NIL) (#2=#:G2230 NIL) (#3=#:G2231 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|TwoDimensionalArray|))
