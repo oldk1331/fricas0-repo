@@ -161,13 +161,17 @@
   (PROG () (RETURN (|coerceRe2E| |x| (ELT |dom| 3)))))
  
 ; coerceVal2E(x,m) ==
+;    -- first catch "failed" etc.
+;    STRINGP m and (x = m) => STRCONC('"_"", x, '"_"")
 ;    objValUnwrap coerceByFunction(objNewWrap(x, m), $OutputForm)
  
 (DEFUN |coerceVal2E| (|x| |m|)
   (PROG ()
     (RETURN
-     (|objValUnwrap|
-      (|coerceByFunction| (|objNewWrap| |x| |m|) |$OutputForm|)))))
+     (COND ((AND (STRINGP |m|) (EQUAL |x| |m|)) (STRCONC "\"" |x| "\""))
+           ('T
+            (|objValUnwrap|
+             (|coerceByFunction| (|objNewWrap| |x| |m|) |$OutputForm|)))))))
  
 ; findEqualFun(dom) ==
 ;   compiledLookup('_=,[$Boolean,'$,'$],dom)
@@ -412,7 +416,6 @@
 ;           FUNCALL(typeFun,x)
 ;       if found then
 ;           if p is ['EQCAR, :.] then x := rest x
-;           STRINGP b => res := x  -- to catch "failed" etc.
 ;           res := coerceVal2E(x,b)
 ;   not(found) =>
 ;     error '"Union bug: Cannot find appropriate branch for coerce to E"
@@ -457,8 +460,7 @@
               (|found|
                (COND
                 ((AND (CONSP |p|) (EQ (CAR |p|) 'EQCAR)) (SETQ |x| (CDR |x|))))
-               (COND ((STRINGP |b|) (SETQ |res| |x|))
-                     (#1# (SETQ |res| (|coerceVal2E| |x| |b|)))))))))
+               (SETQ |res| (|coerceVal2E| |x| |b|)))))))
           (SETQ |bfVar#14| (CDR |bfVar#14|))
           (SETQ |bfVar#15| (CDR |bfVar#15|))))
        (|stripUnionTags| |branches|) NIL |predlist| NIL)

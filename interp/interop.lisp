@@ -2035,6 +2035,7 @@
 ;           lazyDomainSet(y,dollar,u)               --old style has [$,code,:lazyt]
 ;       constructor? v or MEMQ(v,'(Record Union Mapping)) =>
 ;         lazyDomainSet(y,dollar,u)                       --new style has lazyt
+;       v = 'QUOTE => first(rest(y))
 ;       y
 ;     y
 ;   u is ['NRTEVAL,y] =>
@@ -2081,7 +2082,7 @@
                      ((OR (|constructor?| |v|)
                           (MEMQ |v| '(|Record| |Union| |Mapping|)))
                       (|lazyDomainSet| |y| |dollar| |u|))
-                     (#1# |y|)))
+                     ((EQ |v| 'QUOTE) (CAR (CDR |y|))) (#1# |y|)))
                    (#1# |y|)))
             ((AND (CONSP |u|) (EQ (CAR |u|) 'NRTEVAL)
                   (PROGN

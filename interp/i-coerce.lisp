@@ -2063,7 +2063,6 @@
 ;   else startTimingProcess 'coercion
 ;   -- next 2 lines handle cases like '"failed"
 ;   result :=
-;     expr2 and (t1 = val) => objNew(val,$OutputForm)
 ;     expr2 and t1 is ['Variable,var] => objNewWrap(var,$OutputForm)
 ;     coerceInt0(triple,t2)
 ;   if expr2 then stopTimingProcess 'print
@@ -2114,8 +2113,6 @@
                        (#1# (|startTimingProcess| '|coercion|)))
                  (SETQ |result|
                          (COND
-                          ((AND |expr2| (EQUAL |t1| |val|))
-                           (|objNew| |val| |$OutputForm|))
                           ((AND |expr2| (CONSP |t1|)
                                 (EQ (CAR |t1|) '|Variable|)
                                 (PROGN
@@ -2246,7 +2243,7 @@
 ;     t1 = PNAME(v) => objNewWrap(v,t2)
 ;     NIL
 ;   (STRINGP t1) and (t1 = unwrap val) =>
-;     t2 = $OutputForm => objNew(t1,$OutputForm)
+;     t2 = $OutputForm => objNew(STRCONC('"_"", t1, '"_""), $OutputForm)
 ;     NIL
 ;   atom t1 => NIL
 ; 
@@ -2440,7 +2437,7 @@
                           ((AND (STRINGP |t1|) (EQUAL |t1| (|unwrap| |val|)))
                            (COND
                             ((EQUAL |t2| |$OutputForm|)
-                             (|objNew| |t1| |$OutputForm|))
+                             (|objNew| (STRCONC "\"" |t1| "\"") |$OutputForm|))
                             (#1# NIL)))
                           ((ATOM |t1|) NIL)
                           (#1#
