@@ -637,7 +637,7 @@
 ;   null _/TIMERLIST => sayBrightly '"   no functions are timed"
 ;   for timer in _/TIMERLIST repeat
 ;     sayBrightly ["  ",:bright timer,'_:,'" ",
-;       EVAL(INTERN STRCONC(timer,'"_,TIMER")) / 
+;       EVAL(INTERN STRCONC(timer, '"_,TIMER")) /
 ;         FLOAT($timerTicksPerSecond, 0.0), '" sec."]
  
 (DEFUN |ptimers| ()

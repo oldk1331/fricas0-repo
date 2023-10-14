@@ -5917,7 +5917,7 @@
 620750`\spad{polyRicDE(op,{} zeros)} returns \spad{[[p1,{} L1],{} [p2,{} L2],{} ... ,{} [pk,{}Lk]]} such that the polynomial part of any rational solution of the associated Riccati equation of \spad{op y = 0} must be one of the \spad{pi}\spad{'s} (up to the constant coefficient),{} in which case the equation for \spad{z 
 620750`--= y e^{-int p}} is \spad{\spad{Li} z = 0}. \spad{zeros} is a zero finder in \spad{UP}.
 620942`\spad{polyRicDE(op,{} zeros)} returns \spad{[[p1,{} L1],{} [p2,{} L2],{} ... ,{} [pk,{} Lk]]} such that the polynomial part of any rational solution of the associated Riccati equation of \spad{op y=0} must be one of the \spad{pi}\spad{'s} (up to the constant coefficient),{} in which case the equation for \spad{z=y e^{-int p}} is \spad{\spad{Li} z =0}. \spad{zeros} is a zero finder in \spad{UP}.
-621103`\spad{pomopo!(p1,{}r,{}e,{}p2)} returns \spad{p1 + monomial(e,{}r) * p2} and may use \spad{p1} as workspace. The constaant \spad{r} is assumed to be nonzero.
+621103`\spad{pomopo!(p1,{}r,{}e,{}p2)} returns \spad{p1 + monomial(e,{}r) * p2} and may use \spad{p1} as workspace. The constant \spad{r} is assumed to be nonzero.
 621170`\spad{pop!(s)} returns the top element \spad{x},{} destructively removing \spad{x} from \spad{s}. Note: Use \axiom{top(\spad{s})} to obtain \spad{x} without removing it from \spad{s}. Error: if \spad{s} is empty.
 621215`\spad{popFortranOutputStack()} pops the Fortran output stack
 621286`\spad{position(x)} returns the integer \spad{n} associated to \spad{x}.
