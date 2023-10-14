@@ -3633,7 +3633,6 @@
 ;   -- evaluates a modemap with signature sig and condition mmC
 ;   -- the result is a list of lists [sig,slot,cond] or NIL
 ;   --if $Coerce is NIL, tar has to be the same as the computed target type
-; --if CONTAINED('LinearlyExplicitRingOver,mmC) then hohoho()
 ;   mS:= NIL
 ;   for st in evalMmStack mmC repeat
 ;     SL:= evalMmCond(op,sig,st)
