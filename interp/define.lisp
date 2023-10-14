@@ -1034,20 +1034,9 @@
 ;     -- generate slots for arguments first, then for $NRTaddForm in compAdd
 ;     for x in argl repeat NRTgetLocalIndex x
 ;     [.,.,$e]:= compMakeDeclaration([":",'_$,target],m,$e)
-;     --The following loop sees if we can economise on ADDed operations
-;     --by using those of Rep, if that is the same. Example: DIRPROD
+; 
 ;     if $insideCategoryPackageIfTrue~= true  then
-;       if body is ['add,ab:=[fn,:.],['CAPSULE,:cb]] and MEMQ(fn,'(List Vector))
-;          and FindRep(cb) = ab
-;                where FindRep cb ==
-;                  u:=
-;                    while cb repeat
-;                      ATOM cb => return nil
-;                      cb is [['LET,'Rep,v,:.],:.] => return (u:=v)
-;                      cb := rest cb
-;                  u
-;       then $e:= augModemapsFromCategoryRep('_$,ab,cb,target,$e)
-;       else $e:= augModemapsFromCategory('_$,'_$,'_$,target,$e)
+;         $e := augModemapsFromCategory('_$, '_$, '_$, target, $e)
 ;     $signature:= signature'
 ;     parSignature:= SUBLIS($pairlis,signature')
 ;     parForm:= SUBLIS($pairlis,form)
@@ -1126,11 +1115,10 @@
          |$genSDVar| |$setelt| |$insideFunctorIfTrue| |$getDomainCode|
          |$CheckVectorList| |$functorLocalParameters| |$functorForm|
          |$Representation| |$signature| |$op| |$form| |$functorStats|
-         |$functionStats| |$addForm| |libFn| |key| |modemap| |operationAlist|
-         |fun| |lamOrSlam| |body'| T$ |rettype| |op'| |argPars| |parForm|
-         |parSignature| |cb| |ISTMP#4| |ISTMP#3| |ab| |fn| |ISTMP#2| |ISTMP#1|
-         |ds| |LETTMP#1| |target| |signature'| |argl| |originale| |body|
-         |signature| |form|)
+         |$functionStats| |$addForm| |libFn| |key| |ISTMP#1| |modemap|
+         |operationAlist| |fun| |lamOrSlam| |body'| T$ |rettype| |op'|
+         |argPars| |parForm| |parSignature| |ds| |LETTMP#1| |target|
+         |signature'| |argl| |originale| |body| |signature| |form|)
     (DECLARE
      (SPECIAL |$byteVec| |$byteAddress| |$lookupFunction| |$functionLocations|
       |$template| |$NRTdeltaLength| |$NRTaddList| |$NRTdeltaListComp|
@@ -1236,30 +1224,7 @@
       (SETQ |$e| (CADDR |LETTMP#1|))
       (COND
        ((NOT (EQUAL |$insideCategoryPackageIfTrue| T))
-        (COND
-         ((AND (CONSP |body|) (EQ (CAR |body|) '|add|)
-               (PROGN
-                (SETQ |ISTMP#1| (CDR |body|))
-                (AND (CONSP |ISTMP#1|)
-                     (PROGN
-                      (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                      (AND (CONSP |ISTMP#2|)
-                           (PROGN (SETQ |fn| (CAR |ISTMP#2|)) #2#)))
-                     (PROGN (SETQ |ab| (CAR |ISTMP#1|)) #2#)
-                     (PROGN
-                      (SETQ |ISTMP#3| (CDR |ISTMP#1|))
-                      (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
-                           (PROGN
-                            (SETQ |ISTMP#4| (CAR |ISTMP#3|))
-                            (AND (CONSP |ISTMP#4|)
-                                 (EQ (CAR |ISTMP#4|) 'CAPSULE)
-                                 (PROGN (SETQ |cb| (CDR |ISTMP#4|)) #2#)))))))
-               (MEMQ |fn| '(|List| |Vector|))
-               (EQUAL (|compDefineFunctor1,FindRep| |cb|) |ab|))
-          (SETQ |$e|
-                  (|augModemapsFromCategoryRep| '$ |ab| |cb| |target| |$e|)))
-         (#2#
-          (SETQ |$e| (|augModemapsFromCategory| '$ '$ '$ |target| |$e|))))))
+        (SETQ |$e| (|augModemapsFromCategory| '$ '$ '$ |target| |$e|))))
       (SETQ |$signature| |signature'|)
       (SETQ |parSignature| (SUBLIS |$pairlis| |signature'|))
       (SETQ |parForm| (SUBLIS |$pairlis| |form|))
@@ -1345,37 +1310,6 @@
            (|evalAndRwriteLispForm| 'NILADIC
             (LIST 'MAKEPROP (LIST 'QUOTE |op'|) (LIST 'QUOTE 'NILADIC) T))))
          (LIST |fun| (CONS '|Mapping| |signature'|) |originale|))))))))
-(DEFUN |compDefineFunctor1,FindRep| (|cb|)
-  (PROG (|ISTMP#1| |ISTMP#2| |ISTMP#3| |v| |u|)
-    (RETURN
-     (PROGN
-      (SETQ |u|
-              ((LAMBDA ()
-                 (LOOP
-                  (COND ((NOT |cb|) (RETURN NIL))
-                        (#1='T
-                         (COND ((ATOM |cb|) (RETURN NIL))
-                               ((AND (CONSP |cb|)
-                                     (PROGN
-                                      (SETQ |ISTMP#1| (CAR |cb|))
-                                      (AND (CONSP |ISTMP#1|)
-                                           (EQ (CAR |ISTMP#1|) 'LET)
-                                           (PROGN
-                                            (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                            (AND (CONSP |ISTMP#2|)
-                                                 (EQ (CAR |ISTMP#2|) '|Rep|)
-                                                 (PROGN
-                                                  (SETQ |ISTMP#3|
-                                                          (CDR |ISTMP#2|))
-                                                  (AND (CONSP |ISTMP#3|)
-                                                       (PROGN
-                                                        (SETQ |v|
-                                                                (CAR
-                                                                 |ISTMP#3|))
-                                                        #1#))))))))
-                                (RETURN (SETQ |u| |v|)))
-                               (#1# (SETQ |cb| (CDR |cb|))))))))))
-      |u|))))
  
 ; compFunctorBody(body,m,e,parForm) ==
 ;   $bootStrapMode = true =>
