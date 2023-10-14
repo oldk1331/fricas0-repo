@@ -190,13 +190,32 @@
        (- (LENGTH |str|) 1) 0)
       (REM |h| |$hashModulus|)))))
  
+; $hashZ1 := 1100661313
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |$hashZ1| 1100661313))
+ 
+; $hashZ2 := 1433925857
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |$hashZ2| 1433925857))
+ 
+; $hashZZ := 4903203917250634599
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |$hashZZ| 4903203917250634599))
+ 
 ; hashCombine(hash1, hash2) ==
-;          MOD(ASH(LOGAND(hash2, 16777215), 6) + hash1, $hashModulus)
+;          h1 := LOGAND(hash1, ASH(1, 32) - 1)
+;          h2 := LOGAND(hash2, ASH(1, 32) - 1)
+;          LOGAND(ASH((h1*$hashZ1 + h2*$hashZ2) * $hashZZ, -32), 1073741823)
  
 (DEFUN |hashCombine| (|hash1| |hash2|)
-  (PROG ()
+  (PROG (|h1| |h2|)
     (RETURN
-     (MOD (+ (ASH (LOGAND |hash2| 16777215) 6) |hash1|) |$hashModulus|))))
+     (PROGN
+      (SETQ |h1| (LOGAND |hash1| (- (ASH 1 32) 1)))
+      (SETQ |h2| (LOGAND |hash2| (- (ASH 1 32) 1)))
+      (LOGAND
+       (ASH (* (+ (* |h1| |$hashZ1|) (* |h2| |$hashZ2|)) |$hashZZ|) (- 32))
+       1073741823)))))
  
 ; $VoidHash := hashString '"Void"
  
