@@ -32,7 +32,7 @@
   (PROG (|st|)
     (RETURN
      (SEQ (QSETVELT |v| 2 (SPADCALL (QVELT |v| 12) "FriCAS3D" (QREFELT $ 37)))
-          (LETT |st| (SPADCALL (QVELT |v| 12) "wireMesh" (QREFELT $ 38))
+          (LETT |st| (SPADCALL (QVELT |v| 12) "render" (QREFELT $ 38))
                 |VIEW3D;doOptions|)
           (COND
            ((OR (EQUAL |st| "shade") (EQUAL |st| "render"))
@@ -41,7 +41,8 @@
             (QSETVELT (QVELT |v| 7) 1 7))
            ((EQUAL |st| "contour") (QSETVELT (QVELT |v| 7) 1 24))
            ((EQUAL |st| "smooth") (QSETVELT (QVELT |v| 7) 1 22))
-           ('T (QSETVELT (QVELT |v| 7) 1 9)))
+           ((EQUAL |st| "wireMesh") (QSETVELT (QVELT |v| 7) 1 9))
+           ('T (QSETVELT (QVELT |v| 7) 1 3)))
           (EXIT
            (QSETVELT |v| 5
                      (SPADCALL (QVELT |v| 12)
@@ -65,7 +66,7 @@
                   (SPADCALL (QREFELT $ 23) (QREFELT $ 39)) 1.0 1.0 1.0
                   (SPADCALL (QREFELT $ 24) (QREFELT $ 39))
                   (SPADCALL (QREFELT $ 25) (QREFELT $ 39)))
-          (CONS 0 27) (VECTOR 0 9 1 0 0 0) (VECTOR 0.0 0.0 1.0 0.0 0.0 1.0)
+          (CONS 0 27) (VECTOR 0 3 1 0 1 0) (VECTOR 0.0 0.0 1.0 0.0 0.0 1.0)
           (VECTOR 1 (FLOAT 500 MOST-POSITIVE-DOUBLE-FLOAT)
                   (FLOAT -250 MOST-POSITIVE-DOUBLE-FLOAT))
           (VECTOR 0.0 1.0 0.0 1.0 0.0 1.0 0 1) (SPADCALL (QREFELT $ 51)) NIL)) 
