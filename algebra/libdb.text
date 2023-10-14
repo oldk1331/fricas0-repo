@@ -9416,7 +9416,7 @@ otaylor_via_deriv`3`n`(Coef,List(PS),List((Coef)->Coef))->PS`cTaylorSeriesExpans
 otaylor_via_deriv`3`n`(Coef,List(PS),List((Coef)->Coef))->PS`xTaylorSeriesExpansion&(S,Coef,Expon,Var,PS,UTS)``1154100
 otaylor_via_deriv`3`n`(PS,List(PS),List((Coef)->Coef))->PS`cTaylorSeriesExpansion(Coef,Expon,Var,PS,UTS)``1154298
 otaylor_via_deriv`3`n`(PS,List(PS),List((Coef)->Coef))->PS`xTaylorSeriesExpansion&(S,Coef,Expon,Var,PS,UTS)``1154496
-otaylor_via_lode`3`n`(List(PS),PS,List(Coef))->PS`cTaylorSeriesExpansion(Coef,Expon,Var,PS,UTS)``1154694
+otaylor_via_lode`3`n`(List(UTS),PS,List(Coef))->PS`cTaylorSeriesExpansion(Coef,Expon,Var,PS,UTS)``1154694
 otensor`1`n`(List(B))->_$`dTensorPower(n,R,B,M)``0
 otensor`1`n`(List(M))->S`xTensorPowerCategory&(S,n,R,M)``0
 otensor`1`x`(List(M))->_$`cTensorPowerCategory(n,R,M)``1154848

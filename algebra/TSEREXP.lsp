@@ -36,11 +36,11 @@
                        (|List| (|Mapping| |t#1| |t#1|))))
                      T)
                     ((|taylor_via_lode|
-                      (|t#4| (|List| |t#4|) |t#4| (|List| |t#1|)))
+                      (|t#4| (|List| |t#5|) |t#4| (|List| |t#1|)))
                      T)
                     ((|applyTaylor| (|t#4| (|Mapping| |t#5| |t#5|) |t#4|)) T))
                   NIL
-                  '((|List| |t#4|) (|List| |t#1|)
+                  '((|List| |t#5|) (|List| |t#1|) (|List| |t#4|)
                     (|List| (|Mapping| |t#1| |t#1|)))
                   NIL)))
                |TaylorSeriesExpansion|)

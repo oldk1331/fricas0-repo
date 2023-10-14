@@ -8155,7 +8155,7 @@
        (|ofCategory| *2 (|PowerSeriesCategory| *4 *5 *6))
        (|ofCategory| *7 (|UnivariateTaylorSeriesCategory| *4))))) 
 (((*1 *2 *3 *2 *4)
-  (AND (|isDomain| *3 (|List| *2)) (|isDomain| *4 (|List| *5))
+  (AND (|isDomain| *3 (|List| *8)) (|isDomain| *4 (|List| *5))
        (|ofCategory| *1 (|TaylorSeriesExpansion| *5 *6 *7 *2 *8))
        (|ofCategory| *5 (|Algebra| (|Fraction| (|Integer|))))
        (|ofCategory| *6 (|OrderedAbelianMonoid|))

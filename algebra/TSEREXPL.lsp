@@ -24,35 +24,22 @@
        (SPADCALL (SPADCALL |ft| |lxt| |ld| (QREFELT $ 14)) (QREFELT $ 15))))))) 
 
 (DEFUN |TSEREXPL;taylor_via_lode;LULSLULS;2| (|la| |z| |lc| $)
-  (PROG (|lat| #1=#:G134 |a| #2=#:G133 |zt|)
+  (PROG (|zt|)
     (RETURN
      (SEQ
       (LETT |zt| (SPADCALL |z| (QREFELT $ 9))
-            . #3=(|TSEREXPL;taylor_via_lode;LULSLULS;2|))
-      (LETT |lat|
-            (PROGN
-             (LETT #2# NIL . #3#)
-             (SEQ (LETT |a| NIL . #3#) (LETT #1# |la| . #3#) G190
-                  (COND
-                   ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
-                    (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (LETT #2# (CONS (SPADCALL |a| (QREFELT $ 9)) #2#) . #3#)))
-                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))
-            . #3#)
+            |TSEREXPL;taylor_via_lode;LULSLULS;2|)
       (EXIT
-       (SPADCALL (SPADCALL |lat| |zt| |lc| (QREFELT $ 19)) (QREFELT $ 15))))))) 
+       (SPADCALL (SPADCALL |la| |zt| |lc| (QREFELT $ 19)) (QREFELT $ 15))))))) 
 
 (DEFUN |TSEREXPL;applyTaylor;M2ULS;3| (|g| |f| $)
   (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 22))
             (QREFELT $ 15))) 
 
-(DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G137)
+(DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#
@@ -111,7 +98,7 @@
                         (|makeByteWordVec2| 23
                                             '(1 8 7 0 9 3 13 7 7 10 12 14 1 8 0
                                               7 15 3 13 7 10 7 18 19 2 13 7 21
-                                              7 22 3 0 8 16 8 18 20 3 0 8 8 16
+                                              7 22 3 0 8 10 8 18 20 3 0 8 8 16
                                               12 17 3 0 8 6 16 12 1 2 0 8 21 8
                                               23)))))
            '|lookupComplete|)) 

@@ -33992,7 +33992,7 @@ NIL
   ((|#5| (|Mapping| |#6| |#6|) |#5|)
    "\\spad{applyTaylor(g,{} f)} applies \\spad{g} to \\spad{f}"))
  (|taylor_via_lode|
-  ((|#5| (|List| |#5|) |#5| (|List| |#2|))
+  ((|#5| (|List| |#6|) |#5| (|List| |#2|))
    "\\spad{taylor_via_lode([a0,{}...,{}ak],{} z,{} [c0,{} ...,{} ck])} expands into Taylor series solution of the linear ordinary differential equation"))
  (|taylor_via_deriv|
   ((|#5| |#5| (|List| |#5|) (|List| (|Mapping| |#2| |#2|)))
@@ -34005,7 +34005,7 @@ NIL
   ((|#4| (|Mapping| |#5| |#5|) |#4|)
    "\\spad{applyTaylor(g,{} f)} applies \\spad{g} to \\spad{f}"))
  (|taylor_via_lode|
-  ((|#4| (|List| |#4|) |#4| (|List| |#1|))
+  ((|#4| (|List| |#5|) |#4| (|List| |#1|))
    "\\spad{taylor_via_lode([a0,{}...,{}ak],{} z,{} [c0,{} ...,{} ck])} expands into Taylor series solution of the linear ordinary differential equation"))
  (|taylor_via_deriv|
   ((|#4| |#4| (|List| |#4|) (|List| (|Mapping| |#1| |#1|)))
