@@ -34,6 +34,8 @@
             . #1#)
       (EXIT (SPADCALL (ELT $ 23) |res| (QREFELT $ 26))))))) 
 
+(DECLAIM (NOTINLINE |FloatingPointSystem&;|)) 
+
 (DEFUN |FloatingPointSystem&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

@@ -23,6 +23,8 @@
 
 (DEFUN |PTPACK;shade;PR;9| (|p| $) (SPADCALL |p| 4 (QREFELT $ 10))) 
 
+(DECLAIM (NOTINLINE |PointPackage;|)) 
+
 (DEFUN |PointPackage| (#1=#:G138)
   (PROG ()
     (RETURN

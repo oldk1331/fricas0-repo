@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |PriorityQueueAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |PriorityQueueAggregate;|)) 
+
 (DEFPARAMETER |PriorityQueueAggregate;AL| 'NIL) 
 
 (DEFUN |PriorityQueueAggregate| (#1=#:G128)

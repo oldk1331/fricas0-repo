@@ -124,6 +124,8 @@
 (DEFUN |ITAYLOR;order;$Nni;23| (|x| $)
   (|ITAYLOR;iOrder2| (|ITAYLOR;stream| |x| $) 0 $)) 
 
+(DECLAIM (NOTINLINE |InnerTaylorSeries;|)) 
+
 (DEFUN |InnerTaylorSeries| (#1=#:G184)
   (PROG ()
     (RETURN

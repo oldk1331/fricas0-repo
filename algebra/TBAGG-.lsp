@@ -315,6 +315,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |tally|))))) 
 
+(DECLAIM (NOTINLINE |TableAggregate&;|)) 
+
 (DEFUN |TableAggregate&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

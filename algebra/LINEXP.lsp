@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |LinearlyExplicitRingOver;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |LinearlyExplicitRingOver;|)) 
+
 (DEFPARAMETER |LinearlyExplicitRingOver;AL| 'NIL) 
 
 (DEFUN |LinearlyExplicitRingOver| (#1=#:G128)

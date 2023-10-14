@@ -68,6 +68,8 @@
               (GO G190) G191 (EXIT NIL))
          (EXIT |ip|)))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialInterpolationAlgorithms;|)) 
+
 (DEFUN |PolynomialInterpolationAlgorithms| (&REST #1=#:G138)
   (PROG ()
     (RETURN

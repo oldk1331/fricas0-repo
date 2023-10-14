@@ -919,6 +919,8 @@
                    (QREFELT $ 65)))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |STransform;|)) 
+
 (DEFUN |STransform| (#1=#:G245)
   (PROG ()
     (RETURN

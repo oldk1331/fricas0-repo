@@ -1053,6 +1053,8 @@
    ((EQL (LENGTH (QCDR |f|)) 1) (CONS (LIST (|spadConstant| $ 29)) (QCDR |f|)))
    ('T |f|))) 
 
+(DECLAIM (NOTINLINE |JetBundleLinearFunction;|)) 
+
 (DEFUN |JetBundleLinearFunction| (&REST #1=#:G486)
   (PROG ()
     (RETURN

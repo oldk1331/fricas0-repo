@@ -40,6 +40,8 @@
                              #3#)
                             (QREFELT $ 27)))))))))))))) 
 
+(DECLAIM (NOTINLINE |FramedNonAssociativeAlgebraFunctions2;|)) 
+
 (DEFUN |FramedNonAssociativeAlgebraFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN

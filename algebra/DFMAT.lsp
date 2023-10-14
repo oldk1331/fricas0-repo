@@ -51,6 +51,8 @@
 (DEFUN |DFMAT;new;2NniDf$;13| (|rows| |cols| |a| $)
   (MAKE-DOUBLE-MATRIX1 |rows| |cols| |a|)) 
 
+(DECLAIM (NOTINLINE |DoubleFloatMatrix;|)) 
+
 (DEFUN |DoubleFloatMatrix| ()
   (PROG ()
     (RETURN

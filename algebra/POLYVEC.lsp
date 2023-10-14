@@ -869,6 +869,8 @@
                                     NIL (GO G190) G191 (EXIT NIL)))))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |U32VectorPolynomialOperations;|)) 
+
 (DEFUN |U32VectorPolynomialOperations| ()
   (PROG ()
     (RETURN

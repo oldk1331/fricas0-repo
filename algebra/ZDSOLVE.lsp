@@ -954,6 +954,8 @@
 (DEFUN |ZDSOLVE;univariateSolve;LL;24| (|lp| $)
   (SPADCALL |lp| 'NIL 'NIL 'NIL (QREFELT $ 142))) 
 
+(DECLAIM (NOTINLINE |ZeroDimensionalSolvePackage;|)) 
+
 (DEFUN |ZeroDimensionalSolvePackage| (&REST #1=#:G376)
   (PROG ()
     (RETURN

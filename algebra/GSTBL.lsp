@@ -20,6 +20,8 @@
      (SEQ (LETT |u| (SPADCALL |k| |t| (QREFELT $ 12)) |GSTBL;search;Key$U;3|)
           (EXIT (COND ((QEQCAR |u| 1) (CONS 0 (QREFELT $ 9))) ('T |u|))))))) 
 
+(DECLAIM (NOTINLINE |GeneralSparseTable;|)) 
+
 (DEFUN |GeneralSparseTable| (&REST #1=#:G189)
   (PROG ()
     (RETURN

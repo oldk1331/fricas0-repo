@@ -362,6 +362,8 @@
              (QREFELT $ 42))
    |eps| (QREFELT $ 48))) 
 
+(DECLAIM (NOTINLINE |FloatingComplexPackage;|)) 
+
 (DEFUN |FloatingComplexPackage| (#1=#:G200)
   (PROG ()
     (RETURN

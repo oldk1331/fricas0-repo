@@ -2038,6 +2038,8 @@
           (SPADCALL (LIST |sipol| |svpol| |sdpol| |stpol|)
                     (QREFELT $ 245)))))))))) 
 
+(DECLAIM (NOTINLINE |RecursivePolynomialCategory&;|)) 
+
 (DEFUN |RecursivePolynomialCategory&| (|#1| |#2| |#3| |#4|)
   (PROG (#1=#:G619 #2=#:G916 |i| #3=#:G915 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN

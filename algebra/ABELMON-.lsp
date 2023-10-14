@@ -12,6 +12,8 @@
   (COND ((ZEROP |n|) (|spadConstant| $ 7))
         ('T (SPADCALL |n| |x| (QREFELT $ 17))))) 
 
+(DECLAIM (NOTINLINE |AbelianMonoid&;|)) 
+
 (DEFUN |AbelianMonoid&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

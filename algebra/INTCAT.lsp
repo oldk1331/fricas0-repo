@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |IntervalCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |IntervalCategory;|)) 
+
 (DEFPARAMETER |IntervalCategory;AL| 'NIL) 
 
 (DEFUN |IntervalCategory| (#1=#:G129)

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |ConvertibleTo;|)) 
+
 (DEFPARAMETER |ConvertibleTo;AL| 'NIL) 
 
 (DEFUN |ConvertibleTo| (#1=#:G128)

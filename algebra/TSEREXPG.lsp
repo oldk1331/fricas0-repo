@@ -159,6 +159,8 @@
                                (QREFELT $ 64))
                      (QREFELT $ 59))))))))))) 
 
+(DECLAIM (NOTINLINE |TaylorSeriesExpansionGeneralized;|)) 
+
 (DEFUN |TaylorSeriesExpansionGeneralized| (&REST #1=#:G171)
   (PROG ()
     (RETURN

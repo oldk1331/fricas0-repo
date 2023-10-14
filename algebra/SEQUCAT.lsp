@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |SequenceCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |SequenceCategory;|)) 
+
 (DEFPARAMETER |SequenceCategory;AL| 'NIL) 
 
 (DEFUN |SequenceCategory| (#1=#:G128)

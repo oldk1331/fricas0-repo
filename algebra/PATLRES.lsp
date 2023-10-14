@@ -38,6 +38,8 @@
     (SPADCALL (SPADCALL |r| (QREFELT $ 15)) (QREFELT $ 29)))
    ('T (|RecordPrint| |r| (QREFELT $ 9))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchListResult;|)) 
+
 (DEFUN |PatternMatchListResult| (&REST #1=#:G148)
   (PROG ()
     (RETURN

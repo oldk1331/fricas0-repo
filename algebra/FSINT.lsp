@@ -513,6 +513,8 @@
 (DEFUN |FSINT;integrate;FSU;12!0| (|x1| $)
   (SPADCALL (SPADCALL |x1| (QREFELT $ 54)) '|tan| (QREFELT $ 29))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceIntegration;|)) 
+
 (DEFUN |FunctionSpaceIntegration| (&REST #1=#:G257)
   (PROG ()
     (RETURN

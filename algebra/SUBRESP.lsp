@@ -153,6 +153,8 @@
                    (#5# (QSETAREF1 |res| (SPADCALL |p2| (QREFELT $ 21)) |p2|)))
                   (EXIT |res|))))))))))))) 
 
+(DECLAIM (NOTINLINE |SubResultantPackage;|)) 
+
 (DEFUN |SubResultantPackage| (&REST #1=#:G169)
   (PROG ()
     (RETURN

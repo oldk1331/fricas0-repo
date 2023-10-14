@@ -3292,6 +3292,8 @@
                  (GO #1#)))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |PseudoRemainderSequence;|)) 
+
 (DEFUN |PseudoRemainderSequence| (&REST #1=#:G868)
   (PROG ()
     (RETURN

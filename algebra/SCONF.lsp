@@ -359,6 +359,8 @@
             . #3#)
       (EXIT (SPADCALL |eles| (QREFELT $ 64))))))) 
 
+(DECLAIM (NOTINLINE |SConformal;|)) 
+
 (DEFUN |SConformal| (#1=#:G212)
   (PROG ()
     (RETURN

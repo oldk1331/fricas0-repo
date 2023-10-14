@@ -77,6 +77,8 @@
                  (COND (#1# #2#) (#8# (|spadConstant| $ 38))))
                 (QREFELT $ 37)))))))))) 
 
+(DECLAIM (NOTINLINE |MPolyCatPolyFactorizer;|)) 
+
 (DEFUN |MPolyCatPolyFactorizer| (&REST #1=#:G149)
   (PROG ()
     (RETURN

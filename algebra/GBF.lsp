@@ -477,6 +477,8 @@
 (DEFUN |GBF;groebnerFactorize;LBL;11| (|basis| |info| $)
   (SPADCALL |basis| NIL |info| (QREFELT $ 65))) 
 
+(DECLAIM (NOTINLINE |GroebnerFactorizationPackage;|)) 
+
 (DEFUN |GroebnerFactorizationPackage| (&REST #1=#:G225)
   (PROG ()
     (RETURN

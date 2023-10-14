@@ -550,6 +550,8 @@
                                 NIL (GO G190) G191 (EXIT NIL))
                            (EXIT (SPADCALL |rs| (QREFELT $ 88)))))))))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialSetCategory&;|)) 
+
 (DEFUN |PolynomialSetCategory&| (|#1| |#2| |#3| |#4| |#5|)
   (PROG (|pv$| $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN

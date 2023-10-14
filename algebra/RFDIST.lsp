@@ -190,6 +190,8 @@
                (SPADCALL |n| (SPADCALL |d| (QREFELT $ 32))
                          (QREFELT $ 14)))))))))) 
 
+(DECLAIM (NOTINLINE |RandomFloatDistributions;|)) 
+
 (DEFUN |RandomFloatDistributions| ()
   (PROG ()
     (RETURN

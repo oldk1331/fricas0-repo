@@ -4,6 +4,8 @@
 (DEFUN |MTSCAT-;coefficient;SVarNniS;1| (|s| |v| |n| $)
   (SPADCALL |s| (LIST |v|) (LIST |n|) (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |MultivariateTaylorSeriesCategory&;|)) 
+
 (DEFUN |MultivariateTaylorSeriesCategory&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

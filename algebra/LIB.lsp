@@ -9,6 +9,8 @@
 (DEFUN |LIB;setelt;$S2A;3| (|f| |v| |val| $)
   (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) |val| (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |Library;|)) 
+
 (DEFUN |Library| ()
   (PROG ()
     (RETURN

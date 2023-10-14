@@ -4,6 +4,8 @@
 (DEFUN |LIECAT-;/;SRS;1| (|x| |r| $)
   (SPADCALL (SPADCALL |r| (QREFELT $ 8)) |x| (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |LieAlgebra&;|)) 
+
 (DEFUN |LieAlgebra&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

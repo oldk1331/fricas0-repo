@@ -21,6 +21,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |f| |s| (QREFELT $ 23)))))) 
 
+(DECLAIM (NOTINLINE |FiniteDivisorFunctions2;|)) 
+
 (DEFUN |FiniteDivisorFunctions2| (&REST #1=#:G161)
   (PROG ()
     (RETURN

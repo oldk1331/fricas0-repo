@@ -1260,6 +1260,8 @@
          'NIL)
         ('T 'T))))))) 
 
+(DECLAIM (NOTINLINE |PointsOfFiniteOrder;|)) 
+
 (DEFUN |PointsOfFiniteOrder| (&REST #1=#:G514)
   (PROG ()
     (RETURN

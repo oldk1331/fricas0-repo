@@ -75,6 +75,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x| |ee| (QREFELT $ 24)))))) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomialDivisionPackage;|)) 
+
 (DEFUN |UnivariatePolynomialDivisionPackage| (&REST #1=#:G151)
   (PROG ()
     (RETURN

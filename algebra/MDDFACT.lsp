@@ -616,6 +616,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |tt|))))) 
 
+(DECLAIM (NOTINLINE |ModularDistinctDegreeFactorizer;|)) 
+
 (DEFUN |ModularDistinctDegreeFactorizer| (#1=#:G321)
   (PROG ()
     (RETURN

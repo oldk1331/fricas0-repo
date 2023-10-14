@@ -52,6 +52,8 @@
                  (EXIT (SPADCALL |conn| |val| (QREFELT $ 44))))
             NIL (GO G190) G191 (EXIT NIL))))))) 
 
+(DECLAIM (NOTINLINE |OpenMathServerPackage;|)) 
+
 (DEFUN |OpenMathServerPackage| ()
   (PROG ()
     (RETURN

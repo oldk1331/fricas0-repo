@@ -57,6 +57,8 @@
            (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |s|))))) 
 
+(DECLAIM (NOTINLINE |PrimitiveArray;|)) 
+
 (DEFUN |PrimitiveArray| (#1=#:G1788)
   (PROG ()
     (RETURN

@@ -115,6 +115,8 @@
                        . #4#)
                  (EXIT (SPADCALL |y| (CONS 0 'NIL) (QREFELT $ 62)))))))))))))) 
 
+(DECLAIM (NOTINLINE |QuasiAlgebraicSet2;|)) 
+
 (DEFUN |QuasiAlgebraicSet2| (#1=#:G160)
   (PROG ()
     (RETURN

@@ -58,6 +58,8 @@
        (SPADCALL |a| |f|))
       ('T (SPADCALL |lb| |p| (QREFELT $ 15))))))) 
 
+(DECLAIM (NOTINLINE |ListToMap;|)) 
+
 (DEFUN |ListToMap| (&REST #1=#:G142)
   (PROG ()
     (RETURN

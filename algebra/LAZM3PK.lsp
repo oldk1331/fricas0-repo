@@ -160,6 +160,8 @@
              (LETT #1# (CDR #1#) . #4#) (GO G190) G191
              (EXIT (NREVERSE #2#))))))))) 
 
+(DECLAIM (NOTINLINE |LazardSetSolvingPackage;|)) 
+
 (DEFUN |LazardSetSolvingPackage| (&REST #1=#:G175)
   (PROG ()
     (RETURN

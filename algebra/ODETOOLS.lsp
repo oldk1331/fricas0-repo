@@ -90,6 +90,8 @@
                             (GO G190) G191 (EXIT NIL))
                            (EXIT (CONS 0 |ans|))))))))))))) 
 
+(DECLAIM (NOTINLINE |ODETools;|)) 
+
 (DEFUN |ODETools| (&REST #1=#:G157)
   (PROG ()
     (RETURN

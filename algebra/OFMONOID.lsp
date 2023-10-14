@@ -178,6 +178,8 @@
 
 (DEFUN |OFMONOID;mirror;2$;9| (|x| $) (SPADCALL |x| (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |OrderedFreeMonoid;|)) 
+
 (DEFUN |OrderedFreeMonoid| (#1=#:G202)
   (PROG ()
     (RETURN

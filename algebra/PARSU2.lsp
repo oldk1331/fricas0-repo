@@ -6,6 +6,8 @@
             (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|)
             (SPADCALL (SPADCALL |c| 3 (QREFELT $ 10)) |f|) (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |ParametricSurfaceFunctions2;|)) 
+
 (DEFUN |ParametricSurfaceFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

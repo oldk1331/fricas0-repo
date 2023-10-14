@@ -33,6 +33,8 @@
                 (QREFELT $ 11))
       (SPADCALL |lab| (+ |c| 1) (+ |c| 1) (QREFELT $ 11)) (EXIT |vv|))))) 
 
+(DECLAIM (NOTINLINE |GrayCode;|)) 
+
 (DEFUN |GrayCode| ()
   (PROG ()
     (RETURN

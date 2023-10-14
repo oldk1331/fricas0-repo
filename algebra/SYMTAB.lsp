@@ -343,6 +343,8 @@
             . #4#)
       (|fortFormatTypes| "EXTERNAL" |el|) (EXIT (SPADCALL (QREFELT $ 64))))))) 
 
+(DECLAIM (NOTINLINE |SymbolTable;|)) 
+
 (DEFUN |SymbolTable| ()
   (PROG ()
     (RETURN

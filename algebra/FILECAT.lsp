@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FileCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FileCategory;|)) 
+
 (DEFPARAMETER |FileCategory;AL| 'NIL) 
 
 (DEFUN |FileCategory| (&REST #1=#:G128)

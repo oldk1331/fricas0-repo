@@ -1670,6 +1670,8 @@
         (EXIT |s|)))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |FiniteGraph&;|)) 
+
 (DEFUN |FiniteGraph&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

@@ -76,6 +76,8 @@
 (DEFUN |STACK;stack;L$;17| (|s| $)
   (SPADCALL (SPADCALL |s| (QREFELT $ 26)) (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |Stack;|)) 
+
 (DEFUN |Stack| (#1=#:G161)
   (PROG ()
     (RETURN

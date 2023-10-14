@@ -636,6 +636,8 @@
             (EXIT (SPADCALL NIL (QREFELT $ 87)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |FunctionGraph;|)) 
+
 (DEFUN |FunctionGraph| (#1=#:G370)
   (PROG ()
     (RETURN

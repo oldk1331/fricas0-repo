@@ -189,6 +189,8 @@
            (GO G190) G191 (EXIT NIL))
       (EXIT |e2|))))) 
 
+(DECLAIM (NOTINLINE |JetCoordinateTransformation;|)) 
+
 (DEFUN |JetCoordinateTransformation| (&REST #1=#:G177)
   (PROG ()
     (RETURN

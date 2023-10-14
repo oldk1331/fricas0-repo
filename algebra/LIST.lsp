@@ -112,6 +112,8 @@
                    (EXIT (NREVERSE #2#)))))
        (QREFELT $ 42)))))) 
 
+(DECLAIM (NOTINLINE |List;|)) 
+
 (DEFUN |List| (#1=#:G1591)
   (PROG ()
     (RETURN

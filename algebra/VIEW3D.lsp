@@ -1271,6 +1271,8 @@
                 (GO #1#)))))))
           #1# (EXIT #1#))))))))) 
 
+(DECLAIM (NOTINLINE |ThreeDimensionalViewport;|)) 
+
 (DEFUN |ThreeDimensionalViewport| ()
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |IndexedAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |IndexedAggregate;|)) 
+
 (DEFPARAMETER |IndexedAggregate;AL| 'NIL) 
 
 (DEFUN |IndexedAggregate| (&REST #1=#:G131)

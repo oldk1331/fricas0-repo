@@ -7,6 +7,8 @@
 
 (DEFUN |BINARY;coerce;$Re;2| (|x| $) |x|) 
 
+(DECLAIM (NOTINLINE |BinaryExpansion;|)) 
+
 (DEFUN |BinaryExpansion| ()
   (PROG ()
     (RETURN

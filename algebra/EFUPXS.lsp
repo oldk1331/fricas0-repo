@@ -536,6 +536,8 @@
 (DEFUN |EFUPXS;acsch;2UPXS;60| (|upxs| $)
   (|EFUPXS;applyOrError| (ELT $ 84) "acsch" |upxs| $)) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionsUnivariatePuiseuxSeries;|)) 
+
 (DEFUN |ElementaryFunctionsUnivariatePuiseuxSeries| (&REST #1=#:G526)
   (PROG ()
     (RETURN

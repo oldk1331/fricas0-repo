@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |SegmentExpansionCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |SegmentExpansionCategory;|)) 
+
 (DEFPARAMETER |SegmentExpansionCategory;AL| 'NIL) 
 
 (DEFUN |SegmentExpansionCategory| (&REST #1=#:G128)

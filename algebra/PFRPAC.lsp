@@ -108,6 +108,8 @@
                                         (|AnyFunctions1|
                                          (|PartialFraction| |up|))))))))) 
 
+(DECLAIM (NOTINLINE |PartialFractionPackage;|)) 
+
 (DEFUN |PartialFractionPackage| (#1=#:G142)
   (PROG ()
     (RETURN

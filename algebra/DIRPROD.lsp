@@ -374,6 +374,8 @@
 (DEFUN |DIRPROD;sup;3$;27| (|x| |y| $)
   (SPADCALL (ELT $ 64) |x| |y| (QREFELT $ 40))) 
 
+(DECLAIM (NOTINLINE |DirectProduct;|)) 
+
 (DEFUN |DirectProduct| (&REST #1=#:G261)
   (PROG ()
     (RETURN

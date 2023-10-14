@@ -982,6 +982,8 @@
 (DEFUN |POLYCAT-;convert;SIf;40| (|p| $)
   (SPADCALL (ELT $ 208) (ELT $ 209) |p| (QREFELT $ 213))) 
 
+(DECLAIM (NOTINLINE |PolynomialCategory&;|)) 
+
 (DEFUN |PolynomialCategory&| (|#1| |#2| |#3| |#4|)
   (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN

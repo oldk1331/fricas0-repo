@@ -436,6 +436,8 @@
 
 (DEFUN |FFNBP;normalElement;$;54| ($) (SPADCALL (QREFELT $ 17) (QREFELT $ 90))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldNormalBasisExtensionByPolynomial;|)) 
+
 (DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G317)
   (PROG ()
     (RETURN

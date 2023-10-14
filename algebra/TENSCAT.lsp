@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |TensorProductCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |TensorProductCategory;|)) 
+
 (DEFPARAMETER |TensorProductCategory;AL| 'NIL) 
 
 (DEFUN |TensorProductCategory| (&REST #1=#:G128)

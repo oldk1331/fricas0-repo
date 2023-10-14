@@ -427,6 +427,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|ITRIGMNP;ker2explogs| |x| |l| $))))) 
 
+(DECLAIM (NOTINLINE |InnerTrigonometricManipulations;|)) 
+
 (DEFUN |InnerTrigonometricManipulations| (&REST #1=#:G254)
   (PROG ()
     (RETURN

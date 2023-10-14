@@ -419,6 +419,8 @@
 
 (DEFUN |MFLOAT;characteristic;Nni;47| ($) 0) 
 
+(DECLAIM (NOTINLINE |MachineFloat;|)) 
+
 (DEFUN |MachineFloat| ()
   (PROG ()
     (RETURN

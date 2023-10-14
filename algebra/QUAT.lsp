@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |Quaternion;|)) 
+
 (DEFUN |Quaternion| (#1=#:G144)
   (PROG ()
     (RETURN

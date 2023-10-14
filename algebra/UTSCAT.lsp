@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |UnivariateTaylorSeriesCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |UnivariateTaylorSeriesCategory;|)) 
+
 (DEFPARAMETER |UnivariateTaylorSeriesCategory;AL| 'NIL) 
 
 (DEFUN |UnivariateTaylorSeriesCategory| (#1=#:G148)

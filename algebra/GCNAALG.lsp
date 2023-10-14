@@ -404,6 +404,8 @@
 (DEFUN |GCNAALG;generic;S$;23| (|s| $)
   (SPADCALL |s| (SPADCALL (QREFELT $ 56)) (QREFELT $ 101))) 
 
+(DECLAIM (NOTINLINE |GenericNonAssociativeAlgebra;|)) 
+
 (DEFUN |GenericNonAssociativeAlgebra| (&REST #1=#:G240)
   (PROG ()
     (RETURN

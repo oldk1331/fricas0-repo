@@ -51,6 +51,8 @@
 (DEFUN |FS2;map;MAB;4| (|f| |x| $)
   (|FS2;smpmap| |f| (SPADCALL |x| (QREFELT $ 23)) $)) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceFunctions2;|)) 
+
 (DEFUN |FunctionSpaceFunctions2| (&REST #1=#:G249)
   (PROG ()
     (RETURN

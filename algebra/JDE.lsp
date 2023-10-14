@@ -1880,6 +1880,8 @@
            (LETT #4# (CDR #4#) . #9#) (GO G190) G191 (EXIT NIL))
       (EXIT |res|))))) 
 
+(DECLAIM (NOTINLINE |JetDifferentialEquation;|)) 
+
 (DEFUN |JetDifferentialEquation| (&REST #1=#:G577)
   (PROG ()
     (RETURN

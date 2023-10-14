@@ -493,6 +493,8 @@
 
 (DEFUN |MODOP;conjug;2R;41| (|r| $) |r|) 
 
+(DECLAIM (NOTINLINE |ModuleOperator;|)) 
+
 (DEFUN |ModuleOperator| (&REST #1=#:G317)
   (PROG ()
     (RETURN

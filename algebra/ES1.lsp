@@ -23,6 +23,8 @@
        (COND ((QEQCAR |p| 0) (SPADCALL |args| (QCDR |p|)))
              ('T (|error| "Operator does not have required property")))))))) 
 
+(DECLAIM (NOTINLINE |ExpressionSpaceFunctions1;|)) 
+
 (DEFUN |ExpressionSpaceFunctions1| (&REST #1=#:G137)
   (PROG ()
     (RETURN

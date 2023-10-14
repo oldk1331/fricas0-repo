@@ -398,6 +398,8 @@
            (COND ((QEQCAR |yinv| 1) (CONS 1 "failed"))
                  ('T (CONS 0 (SPADCALL |x| (QCDR |yinv|) (QREFELT $ 38)))))))))) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionsGeneralizedUnivariatePowerSeries;|)) 
+
 (DEFUN |ElementaryFunctionsGeneralizedUnivariatePowerSeries| (&REST #1=#:G223)
   (PROG ()
     (RETURN

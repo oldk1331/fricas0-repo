@@ -720,6 +720,8 @@
                 (GO #1#)))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |TwoDimensionalViewport;|)) 
+
 (DEFUN |TwoDimensionalViewport| ()
   (PROG ()
     (RETURN

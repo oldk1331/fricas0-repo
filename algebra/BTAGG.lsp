@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |BitAggregate;|)) 
+
 (DEFPARAMETER |BitAggregate;AL| 'NIL) 
 
 (DEFUN |BitAggregate| ()

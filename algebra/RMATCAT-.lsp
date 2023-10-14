@@ -212,6 +212,8 @@
               (EXIT 'T)))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |RectangularMatrixCategory&;|)) 
+
 (DEFUN |RectangularMatrixCategory&| (|#1| |#2| |#3| |#4| |#5| |#6|)
   (PROG (|pv$| $ |dv$| DV$6 DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN

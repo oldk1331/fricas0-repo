@@ -91,6 +91,8 @@
                                  (STRCONC " \\over "
                                           (STRCONC |dl| " }"))))))))))))) 
 
+(DECLAIM (NOTINLINE |Localize;|)) 
+
 (DEFUN |Localize| (&REST #1=#:G160)
   (PROG ()
     (RETURN

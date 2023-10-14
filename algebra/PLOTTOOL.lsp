@@ -94,6 +94,8 @@
      (|PLOTTOOL;yRange| |llp| $) $))
    ('T (LIST (|PLOTTOOL;xRange| |llp| $) (|PLOTTOOL;yRange| |llp| $))))) 
 
+(DECLAIM (NOTINLINE |PlotTools;|)) 
+
 (DEFUN |PlotTools| ()
   (PROG ()
     (RETURN

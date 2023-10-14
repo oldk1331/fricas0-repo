@@ -25,6 +25,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |z1| |lalg| (QREFELT $ 13)))))) 
 
+(DECLAIM (NOTINLINE |AlgebraicMultFact;|)) 
+
 (DEFUN |AlgebraicMultFact| (&REST #1=#:G131)
   (PROG ()
     (RETURN

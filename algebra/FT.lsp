@@ -121,6 +121,8 @@
 (DEFUN |FT;fortranLogical;$;14| ($)
   (SPADCALL (SPADCALL "logical" (QREFELT $ 30)) (QREFELT $ 28))) 
 
+(DECLAIM (NOTINLINE |FortranType;|)) 
+
 (DEFUN |FortranType| ()
   (PROG ()
     (RETURN

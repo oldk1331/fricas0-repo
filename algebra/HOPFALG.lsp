@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |HopfAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |HopfAlgebra;|)) 
+
 (DEFPARAMETER |HopfAlgebra;AL| 'NIL) 
 
 (DEFUN |HopfAlgebra| (&REST #1=#:G128)

@@ -705,6 +705,8 @@
                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
                 (|LODEEF;homosolve1| |op| (QCDR |rec|) |k| |x| $)))))))))) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionLODESolver;|)) 
+
 (DEFUN |ElementaryFunctionLODESolver| (&REST #1=#:G337)
   (PROG ()
     (RETURN

@@ -48,6 +48,8 @@
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))))))) 
 
+(DECLAIM (NOTINLINE |PartialDifferentialOperator;|)) 
+
 (DEFUN |PartialDifferentialOperator| (&REST #1=#:G162)
   (PROG ()
     (RETURN

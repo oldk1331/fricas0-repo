@@ -204,6 +204,8 @@
             (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 80))
             (QREFELT $ 81))) 
 
+(DECLAIM (NOTINLINE |RewriteRule;|)) 
+
 (DEFUN |RewriteRule| (&REST #1=#:G204)
   (PROG ()
     (RETURN

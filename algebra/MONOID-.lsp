@@ -14,6 +14,8 @@
   (COND ((ZEROP |n|) (|spadConstant| $ 7))
         ('T (SPADCALL |x| |n| (QREFELT $ 16))))) 
 
+(DECLAIM (NOTINLINE |Monoid&;|)) 
+
 (DEFUN |Monoid&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

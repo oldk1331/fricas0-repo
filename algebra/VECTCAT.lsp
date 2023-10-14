@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |VectorCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |VectorCategory;|)) 
+
 (DEFPARAMETER |VectorCategory;AL| 'NIL) 
 
 (DEFUN |VectorCategory| (#1=#:G132)

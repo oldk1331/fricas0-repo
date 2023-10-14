@@ -33,6 +33,8 @@
      (SPADCALL |fn| (SPADCALL |spol| (QREFELT $ 22)) (QREFELT $ 24))
      (QREFELT $ 25))))) 
 
+(DECLAIM (NOTINLINE |EvaluateCycleIndicators;|)) 
+
 (DEFUN |EvaluateCycleIndicators| (#1=#:G135)
   (PROG ()
     (RETURN

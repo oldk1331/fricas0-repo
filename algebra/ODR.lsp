@@ -22,6 +22,8 @@
 (DEFUN |ODR;inv;2$;6| (|p| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 11)) (QREFELT $ 19))) 
 
+(DECLAIM (NOTINLINE |OrdinaryDifferentialRing;|)) 
+
 (DEFUN |OrdinaryDifferentialRing| (&REST #1=#:G148)
   (PROG ()
     (RETURN

@@ -39,6 +39,8 @@
 (DEFUN |JBBFC-;P;NniS;6| (|i| $)
   (|error| "Only functions of independent variables allowed")) 
 
+(DECLAIM (NOTINLINE |JetBundleBaseFunctionCategory&;|)) 
+
 (DEFUN |JetBundleBaseFunctionCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

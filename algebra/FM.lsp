@@ -278,6 +278,8 @@
                    (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))))))) 
 
+(DECLAIM (NOTINLINE |FreeModule;|)) 
+
 (DEFUN |FreeModule| (&REST #1=#:G239)
   (PROG ()
     (RETURN

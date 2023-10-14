@@ -2803,6 +2803,8 @@
    (QVELT (SPADCALL (SPADCALL |f| |x| (QREFELT $ 20)) |x| (QREFELT $ 181)) 0)
    $)) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionStructurePackage;|)) 
+
 (DEFUN |ElementaryFunctionStructurePackage| (&REST #1=#:G964)
   (PROG ()
     (RETURN

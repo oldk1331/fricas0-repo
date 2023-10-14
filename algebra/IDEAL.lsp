@@ -1422,6 +1422,8 @@
 
 (DEFUN |IDEAL;zero?;$B;38| (I $) (NULL (QCAR (SPADCALL I (QREFELT $ 68))))) 
 
+(DECLAIM (NOTINLINE |PolynomialIdeal;|)) 
+
 (DEFUN |PolynomialIdeal| (&REST #1=#:G462)
   (PROG ()
     (RETURN

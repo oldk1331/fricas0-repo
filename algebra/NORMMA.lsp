@@ -31,6 +31,8 @@
            (SPADCALL (SPADCALL |p| (QREFELT $ 16) (QREFELT $ 33))
                      (QREFELT $ 34))))))) 
 
+(DECLAIM (NOTINLINE |NormInMonogenicAlgebra;|)) 
+
 (DEFUN |NormInMonogenicAlgebra| (&REST #1=#:G132)
   (PROG ()
     (RETURN

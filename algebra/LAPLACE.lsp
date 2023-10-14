@@ -774,6 +774,8 @@
                                                             (QREFELT $
                                                                      37)))))))))))))))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |LaplaceTransform;|)) 
+
 (DEFUN |LaplaceTransform| (&REST #1=#:G362)
   (PROG ()
     (RETURN

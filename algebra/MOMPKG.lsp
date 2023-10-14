@@ -413,6 +413,8 @@
 (DEFUN |MOMPKG;moment2monotonecumulant;2S;15!0| (|s| $)
   (SPADCALL (QVELT |s| 1) (QREFELT $ 110))) 
 
+(DECLAIM (NOTINLINE |MomentPackage;|)) 
+
 (DEFUN |MomentPackage| (#1=#:G214)
   (PROG ()
     (RETURN

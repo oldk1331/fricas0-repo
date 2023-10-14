@@ -145,6 +145,8 @@
                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 9) #1#))
                (QREFELT $ 43))))) 
 
+(DECLAIM (NOTINLINE |UTSodetools;|)) 
+
 (DEFUN |UTSodetools| (&REST #1=#:G157)
   (PROG ()
     (RETURN

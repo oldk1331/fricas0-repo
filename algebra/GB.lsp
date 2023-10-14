@@ -215,6 +215,8 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 28)) (SPADCALL |y| (QREFELT $ 28))
             (QREFELT $ 29))) 
 
+(DECLAIM (NOTINLINE |GroebnerPackage;|)) 
+
 (DEFUN |GroebnerPackage| (&REST #1=#:G156)
   (PROG ()
     (RETURN

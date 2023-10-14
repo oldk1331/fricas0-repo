@@ -20,6 +20,8 @@
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |w|))))) 
 
+(DECLAIM (NOTINLINE |ApplyUnivariateSkewPolynomial;|)) 
+
 (DEFUN |ApplyUnivariateSkewPolynomial| (&REST #1=#:G133)
   (PROG ()
     (RETURN

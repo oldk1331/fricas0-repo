@@ -825,6 +825,8 @@
                          (EXIT (NREVERSE #4#)))))))
             (#7# (LIST NIL))))))) 
 
+(DECLAIM (NOTINLINE |SystemSolvePackage;|)) 
+
 (DEFUN |SystemSolvePackage| (#1=#:G283)
   (PROG ()
     (RETURN

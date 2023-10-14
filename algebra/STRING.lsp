@@ -54,6 +54,8 @@
 
 (DEFUN |STRING;qsetelt!;$I2C;9| (|s| |i| |c| $) (STR_SETELT1 |s| |i| |c|)) 
 
+(DECLAIM (NOTINLINE |String;|)) 
+
 (DEFUN |String| ()
   (PROG ()
     (RETURN

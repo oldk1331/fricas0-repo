@@ -79,6 +79,8 @@
   (VECTOR (QVELT |lg| 0) (SPADCALL |func| (QVELT |lg| 1) (QREFELT $ 42))
           (SPADCALL |func| (QVELT |lg| 2) (QREFELT $ 42)))) 
 
+(DECLAIM (NOTINLINE |IntegrationResultFunctions2;|)) 
+
 (DEFUN |IntegrationResultFunctions2| (&REST #1=#:G207)
   (PROG ()
     (RETURN

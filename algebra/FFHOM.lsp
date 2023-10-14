@@ -351,6 +351,8 @@
          (SPADCALL (QREFELT $ 21) (SPADCALL |x| (QREFELT $ 92)) (QREFELT $ 77))
          (QREFELT $ 93))))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldHomomorphisms;|)) 
+
 (DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G194)
   (PROG ()
     (RETURN

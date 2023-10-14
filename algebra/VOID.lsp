@@ -8,6 +8,8 @@
 (DEFUN |VOID;coerce;$Of;2| (|v| $)
   (SPADCALL (SPADCALL (QREFELT $ 7)) (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |Void;|)) 
+
 (DEFUN |Void| ()
   (PROG ()
     (RETURN

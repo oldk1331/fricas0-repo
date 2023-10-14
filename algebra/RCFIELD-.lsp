@@ -114,6 +114,8 @@
 (DEFUN |RCFIELD-;allRootsOf;PL;14| (|p| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 70)) (QREFELT $ 71))) 
 
+(DECLAIM (NOTINLINE |RealClosedField&;|)) 
+
 (DEFUN |RealClosedField&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

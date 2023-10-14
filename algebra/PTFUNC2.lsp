@@ -27,6 +27,8 @@
              (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT (NREVERSE #3#))))
        (QREFELT $ 15)))))) 
 
+(DECLAIM (NOTINLINE |PointFunctions2;|)) 
+
 (DEFUN |PointFunctions2| (&REST #1=#:G134)
   (PROG ()
     (RETURN

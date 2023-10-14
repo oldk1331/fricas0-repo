@@ -343,6 +343,8 @@
            (COND ((QEQCAR |q| 1) (|error| "not divisible"))
                  ('T (CONS (QCDR |q|) (|spadConstant| $ 20))))))))) 
 
+(DECLAIM (NOTINLINE |ModMonic;|)) 
+
 (DEFUN |ModMonic| (|#1| |#2|)
   (PROG (#1=#:G132 #2=#:G262 |pv$| #3=#:G258 #4=#:G259 #5=#:G260 #6=#:G261 $
          |dv$| DV$2 DV$1)

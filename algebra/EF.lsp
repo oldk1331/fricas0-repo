@@ -1799,6 +1799,8 @@
 
 (DEFUN |EF;iiacsch;2F;127| (|x| $) (|EF;iacsch| |x| $)) 
 
+(DECLAIM (NOTINLINE |ElementaryFunction;|)) 
+
 (DEFUN |ElementaryFunction| (&REST #1=#:G834)
   (PROG ()
     (RETURN

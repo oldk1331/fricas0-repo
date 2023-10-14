@@ -54,6 +54,8 @@
                       (CONS 0 (QCDR |u|)))
                      ('T (CONS 0 (- (QCDR |u|))))))))))))) 
 
+(DECLAIM (NOTINLINE |InnerPolySign;|)) 
+
 (DEFUN |InnerPolySign| (&REST #1=#:G155)
   (PROG ()
     (RETURN

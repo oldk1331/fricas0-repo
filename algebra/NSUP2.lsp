@@ -3,6 +3,8 @@
 
 (DEFUN |NSUP2;map;MNsupNsup;1| (|f| |p| $) (SPADCALL |f| |p| (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |NewSparseUnivariatePolynomialFunctions2;|)) 
+
 (DEFUN |NewSparseUnivariatePolynomialFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

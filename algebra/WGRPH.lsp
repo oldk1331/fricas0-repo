@@ -1372,6 +1372,8 @@
            (LETT |u| (|inc_SI| |u|) . #1#) (GO G190) G191 (EXIT NIL))
       (EXIT |m|))))) 
 
+(DECLAIM (NOTINLINE |WeightedGraph;|)) 
+
 (DEFUN |WeightedGraph| (&REST #1=#:G545)
   (PROG ()
     (RETURN

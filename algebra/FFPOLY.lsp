@@ -2269,6 +2269,8 @@
               . #3#)))
       (EXIT (SPADCALL |n| (QREFELT $ 111))))))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldPolynomialPackage;|)) 
+
 (DEFUN |FiniteFieldPolynomialPackage| (#1=#:G776)
   (PROG ()
     (RETURN

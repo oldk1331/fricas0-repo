@@ -17,6 +17,8 @@
 
 (DEFUN |QEQUAT;value;$S;4| (|q| $) (QCDR |q|)) 
 
+(DECLAIM (NOTINLINE |QueryEquation;|)) 
+
 (DEFUN |QueryEquation| ()
   (PROG ()
     (RETURN

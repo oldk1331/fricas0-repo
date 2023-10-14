@@ -1088,6 +1088,8 @@
                                   (|TEX;formatFunction| (|SPADfirst| |l|)
                                    |args| |prec| $)))))))))))))))) 
 
+(DECLAIM (NOTINLINE |TexFormat;|)) 
+
 (DEFUN |TexFormat| ()
   (PROG ()
     (RETURN

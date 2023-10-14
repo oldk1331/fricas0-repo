@@ -145,6 +145,8 @@
          (|makeFort1| |name| |arguments| |aArgs| |dummies| |symbolList| |res|
                       NIL |asps|)))))))) 
 
+(DECLAIM (NOTINLINE |FortranPackage;|)) 
+
 (DEFUN |FortranPackage| ()
   (PROG ()
     (RETURN

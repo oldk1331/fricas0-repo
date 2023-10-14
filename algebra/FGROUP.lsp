@@ -71,6 +71,8 @@
                       (SPADCALL (SPADCALL (NREVERSE |r|) |q| (QREFELT $ 42))
                                 (QREFELT $ 40)))))))))))) 
 
+(DECLAIM (NOTINLINE |FreeGroup;|)) 
+
 (DEFUN |FreeGroup| (#1=#:G178)
   (PROG ()
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |SetCategory;|)) 
+
 (DEFPARAMETER |SetCategory;AL| 'NIL) 
 
 (DEFUN |SetCategory| ()

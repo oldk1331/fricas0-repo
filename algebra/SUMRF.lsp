@@ -114,6 +114,8 @@
            (SPADCALL (QCAR |rec|) (SPADCALL (QCDR |rec|) (QREFELT $ 61))
                      (QREFELT $ 62))))))) 
 
+(DECLAIM (NOTINLINE |RationalFunctionSum;|)) 
+
 (DEFUN |RationalFunctionSum| (#1=#:G160)
   (PROG ()
     (RETURN

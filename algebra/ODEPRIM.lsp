@@ -403,6 +403,8 @@
               (|ODEPRIM;denom0| (SPADCALL |l| (QREFELT $ 69)) |l| |d| |e| |h|
                $))))))))) 
 
+(DECLAIM (NOTINLINE |PrimitiveRatDE;|)) 
+
 (DEFUN |PrimitiveRatDE| (&REST #1=#:G230)
   (PROG ()
     (RETURN

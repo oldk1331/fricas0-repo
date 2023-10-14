@@ -43,6 +43,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |fbc| |fab| |a| (QREFELT $ 20)))))) 
 
+(DECLAIM (NOTINLINE |MappingPackage3;|)) 
+
 (DEFUN |MappingPackage3| (&REST #1=#:G145)
   (PROG ()
     (RETURN

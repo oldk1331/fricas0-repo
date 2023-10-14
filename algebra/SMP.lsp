@@ -1460,6 +1460,8 @@
          (SPADCALL (|SMP;monomials1| (QCDR |p|) NIL NIL NIL $)
                    (QREFELT $ 205))))) 
 
+(DECLAIM (NOTINLINE |SparseMultivariatePolynomial;|)) 
+
 (DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G655)
   (PROG ()
     (RETURN

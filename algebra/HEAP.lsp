@@ -124,6 +124,8 @@
 (DEFUN |HEAP;merge!;3$;11| (|a| |b| $)
   (|HEAP;makeHeap| (SPADCALL |a| |b| (QREFELT $ 25)) $)) 
 
+(DECLAIM (NOTINLINE |Heap;|)) 
+
 (DEFUN |Heap| (#1=#:G167)
   (PROG ()
     (RETURN

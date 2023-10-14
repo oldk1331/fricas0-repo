@@ -63,6 +63,8 @@
                ('T (|IRREDFFX;getIrredPoly| 1 |n| $))))
         ('T (|IRREDFFX;getIrredPoly| (+ (QREFELT $ 11) 1) |n| $)))) 
 
+(DECLAIM (NOTINLINE |IrredPolyOverFiniteField;|)) 
+
 (DEFUN |IrredPolyOverFiniteField| (#1=#:G151)
   (PROG ()
     (RETURN

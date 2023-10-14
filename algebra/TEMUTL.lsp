@@ -18,6 +18,8 @@
 (DEFUN |TEMUTL;interpretString;SA;3| (|s| $)
   (SPADCALL (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 20))) 
 
+(DECLAIM (NOTINLINE |TemplateUtilities;|)) 
+
 (DEFUN |TemplateUtilities| ()
   (PROG ()
     (RETURN

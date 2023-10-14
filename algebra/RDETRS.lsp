@@ -607,6 +607,8 @@
                     (COND ((QEQCAR |n| 0) (MAX (QCDR |n|) (- |dc| |db|)))
                           (#2# (- |dc| |db|)))))))))))) 
 
+(DECLAIM (NOTINLINE |TranscendentalRischDESystem;|)) 
+
 (DEFUN |TranscendentalRischDESystem| (&REST #1=#:G296)
   (PROG ()
     (RETURN

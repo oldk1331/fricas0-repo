@@ -1580,6 +1580,8 @@
                  (COND (#1# #2#) ('T (|spadConstant| $ 40))))
                 (QREFELT $ 95)))))) 
 
+(DECLAIM (NOTINLINE |ElementaryRischDE;|)) 
+
 (DEFUN |ElementaryRischDE| (&REST #1=#:G699)
   (PROG ()
     (RETURN

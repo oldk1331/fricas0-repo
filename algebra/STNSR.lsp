@@ -21,6 +21,8 @@
     (RETURN
      (PROGN (SPADCALL (SPADCALL |s| (QREFELT $ 14)) |f| (QREFELT $ 16)))))) 
 
+(DECLAIM (NOTINLINE |StreamTensor;|)) 
+
 (DEFUN |StreamTensor| (#1=#:G138)
   (PROG ()
     (RETURN

@@ -111,6 +111,8 @@
   (SPADCALL (QVELT (SPADCALL (QREFELT $ 9) |u| (QREFELT $ 19)) 0)
             (QREFELT $ 53))) 
 
+(DECLAIM (NOTINLINE |TheSymbolTable;|)) 
+
 (DEFUN |TheSymbolTable| ()
   (PROG ()
     (RETURN

@@ -304,6 +304,8 @@
               (LETT |i| (+ |i| 1) . #10#) (GO G190) G191 (EXIT NIL)))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |PrimitiveElement;|)) 
+
 (DEFUN |PrimitiveElement| (#1=#:G214)
   (PROG ()
     (RETURN

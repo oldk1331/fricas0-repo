@@ -59,6 +59,8 @@
            (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |t|))))) 
 
+(DECLAIM (NOTINLINE |Dictionary&;|)) 
+
 (DEFUN |Dictionary&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

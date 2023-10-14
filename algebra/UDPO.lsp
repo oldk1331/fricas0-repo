@@ -91,6 +91,8 @@
 
 (DEFUN |UDPO;largest;LS;9| (|x| $) (SPADCALL |x| (ELT $ 30) (QREFELT $ 27))) 
 
+(DECLAIM (NOTINLINE |UserDefinedPartialOrdering;|)) 
+
 (DEFUN |UserDefinedPartialOrdering| (#1=#:G169)
   (PROG ()
     (RETURN

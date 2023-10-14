@@ -1285,6 +1285,8 @@
                (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |lp| (QREFELT $ 132))))))) 
 
+(DECLAIM (NOTINLINE |MultifunctionGraph;|)) 
+
 (DEFUN |MultifunctionGraph| (#1=#:G604)
   (PROG ()
     (RETURN

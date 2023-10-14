@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceToUnivariatePowerSeries;|)) 
+
 (DEFUN |FunctionSpaceToUnivariatePowerSeries| (&REST #1=#:G139)
   (PROG ()
     (RETURN

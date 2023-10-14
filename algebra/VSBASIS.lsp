@@ -401,6 +401,8 @@
        (COND ((QEQCAR |res| 1) (|error| "Vector not in the subspace"))
              ('T (QCDR |res|)))))))) 
 
+(DECLAIM (NOTINLINE |VectorSpaceBasis;|)) 
+
 (DEFUN |VectorSpaceBasis| (#1=#:G240)
   (PROG ()
     (RETURN

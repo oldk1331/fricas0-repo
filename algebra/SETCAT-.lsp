@@ -9,6 +9,8 @@
 
 (DEFUN |SETCAT-;latex;SS;2| (|s| $) "\\mbox{\\bf Unimplemented}") 
 
+(DECLAIM (NOTINLINE |SetCategory&;|)) 
+
 (DEFUN |SetCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

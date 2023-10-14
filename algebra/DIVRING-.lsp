@@ -17,6 +17,8 @@
              (QREFELT $ 21))
    |x| (QREFELT $ 22))) 
 
+(DECLAIM (NOTINLINE |DivisionRing&;|)) 
+
 (DEFUN |DivisionRing&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

@@ -6,6 +6,8 @@
             (SPADCALL |f| (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 16))
             (QREFELT $ 18))) 
 
+(DECLAIM (NOTINLINE |SegmentBindingFunctions2;|)) 
+
 (DEFUN |SegmentBindingFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

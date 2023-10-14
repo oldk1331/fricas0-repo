@@ -201,6 +201,8 @@
 (DEFUN |TABLBUMP;bat;TL;14| (|tb| $)
   (SPADCALL (SPADCALL |tb| (QREFELT $ 41)) (QREFELT $ 40))) 
 
+(DECLAIM (NOTINLINE |TableauxBumpers;|)) 
+
 (DEFUN |TableauxBumpers| (#1=#:G186)
   (PROG ()
     (RETURN

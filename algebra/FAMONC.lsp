@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FreeAbelianMonoidCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FreeAbelianMonoidCategory;|)) 
+
 (DEFPARAMETER |FreeAbelianMonoidCategory;AL| 'NIL) 
 
 (DEFUN |FreeAbelianMonoidCategory| (&REST #1=#:G128)

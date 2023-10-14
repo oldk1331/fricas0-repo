@@ -807,6 +807,8 @@
 (DEFUN |SHP;countRealRootsMultiple;UpI;22| (|p1| $)
   (SPADCALL |p1| (|spadConstant| $ 12) (QREFELT $ 53))) 
 
+(DECLAIM (NOTINLINE |SturmHabichtPackage;|)) 
+
 (DEFUN |SturmHabichtPackage| (&REST #1=#:G480)
   (PROG ()
     (RETURN

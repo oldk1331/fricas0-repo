@@ -20,6 +20,8 @@
 
 (DEFUN |DLIST;datalist;L$;7| (|x| $) (SPADCALL |x| (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |DataList;|)) 
+
 (DEFUN |DataList| (#1=#:G146)
   (PROG ()
     (RETURN

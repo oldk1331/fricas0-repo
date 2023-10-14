@@ -20,6 +20,8 @@
 
 (DEFUN |SRAGG-;elt;3S;7| (|s| |t| $) (SPADCALL |s| |t| (QREFELT $ 28))) 
 
+(DECLAIM (NOTINLINE |StringAggregate&;|)) 
+
 (DEFUN |StringAggregate&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

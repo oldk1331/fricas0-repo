@@ -7,6 +7,8 @@
              (SPADCALL |g| (QREFELT $ 10)) (QREFELT $ 13))
    (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |UnivariateFormalPowerSeriesFunctions;|)) 
+
 (DEFUN |UnivariateFormalPowerSeriesFunctions| (#1=#:G128)
   (PROG ()
     (RETURN

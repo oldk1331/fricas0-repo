@@ -308,6 +308,8 @@
              (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
         (COND (#1# #2#) ('T (SPADCALL (QREFELT $ 58)))))))))) 
 
+(DECLAIM (NOTINLINE |LyndonWord;|)) 
+
 (DEFUN |LyndonWord| (#1=#:G200)
   (PROG ()
     (RETURN

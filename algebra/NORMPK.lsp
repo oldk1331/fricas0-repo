@@ -242,6 +242,8 @@
                    (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT |lpwt|)))))))) 
 
+(DECLAIM (NOTINLINE |NormalizationPackage;|)) 
+
 (DEFUN |NormalizationPackage| (&REST #1=#:G209)
   (PROG ()
     (RETURN

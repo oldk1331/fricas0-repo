@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |LinearAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |LinearAggregate;|)) 
+
 (DEFPARAMETER |LinearAggregate;AL| 'NIL) 
 
 (DEFUN |LinearAggregate| (#1=#:G130)

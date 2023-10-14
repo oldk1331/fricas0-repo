@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |HomogeneousAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |HomogeneousAggregate;|)) 
+
 (DEFPARAMETER |HomogeneousAggregate;AL| 'NIL) 
 
 (DEFUN |HomogeneousAggregate| (#1=#:G130)

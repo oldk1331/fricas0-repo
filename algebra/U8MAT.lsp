@@ -50,6 +50,8 @@
 (DEFUN |U8MAT;new;2NniI$;13| (|rows| |cols| |a| $)
   (MAKE_MATRIX1_U8 |rows| |cols| |a|)) 
 
+(DECLAIM (NOTINLINE |U8Matrix;|)) 
+
 (DEFUN |U8Matrix| ()
   (PROG ()
     (RETURN

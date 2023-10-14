@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |RealRootCharacterizationCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |RealRootCharacterizationCategory;|)) 
+
 (DEFPARAMETER |RealRootCharacterizationCategory;AL| 'NIL) 
 
 (DEFUN |RealRootCharacterizationCategory| (&REST #1=#:G132)

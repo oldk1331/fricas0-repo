@@ -33,6 +33,8 @@
 
 (DEFUN |RESRING;coerce;$Of;13| (|x| $) (SPADCALL |x| (QREFELT $ 45))) 
 
+(DECLAIM (NOTINLINE |ResidueRing;|)) 
+
 (DEFUN |ResidueRing| (&REST #1=#:G144)
   (PROG ()
     (RETURN

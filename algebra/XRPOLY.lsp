@@ -805,6 +805,8 @@
                     . #8#)
               (EXIT (SPADCALL |lv| (QREFELT $ 123)))))))))) 
 
+(DECLAIM (NOTINLINE |XRecursivePolynomial;|)) 
+
 (DEFUN |XRecursivePolynomial| (&REST #1=#:G315)
   (PROG ()
     (RETURN

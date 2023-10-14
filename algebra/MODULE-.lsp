@@ -3,6 +3,8 @@
 
 (DEFUN |MODULE-;*;SRS;1| (|x| |r| $) (SPADCALL |r| |x| (QREFELT $ 8))) 
 
+(DECLAIM (NOTINLINE |Module&;|)) 
+
 (DEFUN |Module&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

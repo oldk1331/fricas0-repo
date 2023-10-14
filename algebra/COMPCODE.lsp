@@ -235,6 +235,8 @@
            (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT (SPADCALL |f1| (QREFELT $ 43))))))) 
 
+(DECLAIM (NOTINLINE |compCode;|)) 
+
 (DEFUN |compCode| ()
   (PROG ()
     (RETURN

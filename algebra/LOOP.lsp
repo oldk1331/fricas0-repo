@@ -107,6 +107,8 @@
                   (SPADCALL '] (QREFELT $ 29)))
             (QREFELT $ 31))))))) 
 
+(DECLAIM (NOTINLINE |Loop;|)) 
+
 (DEFUN |Loop| ()
   (PROG ()
     (RETURN

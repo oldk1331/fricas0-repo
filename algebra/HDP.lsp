@@ -45,6 +45,8 @@
                      (EXIT 'NIL)))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |HomogeneousDirectProduct;|)) 
+
 (DEFUN |HomogeneousDirectProduct| (&REST #1=#:G160)
   (PROG ()
     (RETURN

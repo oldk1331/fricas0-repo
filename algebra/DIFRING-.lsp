@@ -15,6 +15,8 @@
 
 (DEFUN |DIFRING-;D;SNniS;3| (|r| |n| $) (SPADCALL |r| |n| (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |DifferentialRing&;|)) 
+
 (DEFUN |DifferentialRing&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

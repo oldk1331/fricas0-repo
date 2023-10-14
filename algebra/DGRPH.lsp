@@ -1452,6 +1452,8 @@
                (GO G190) G191 (EXIT NIL))
           (EXIT (CONS |obs| |ars|)))))) 
 
+(DECLAIM (NOTINLINE |DirectedGraph;|)) 
+
 (DEFUN |DirectedGraph| (#1=#:G619)
   (PROG ()
     (RETURN

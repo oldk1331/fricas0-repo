@@ -13,6 +13,8 @@
 
 (DEFUN |ITUPLE;construct;$S;5| (|x| $) |x|) 
 
+(DECLAIM (NOTINLINE |InfiniteTuple;|)) 
+
 (DEFUN |InfiniteTuple| (#1=#:G136)
   (PROG ()
     (RETURN

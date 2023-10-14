@@ -66,6 +66,8 @@
        (SPADCALL (SPADCALL |z1| (QREFELT $ 32)) |a| |d| (QREFELT $ 38))
        (QREFELT $ 35)))))) 
 
+(DECLAIM (NOTINLINE |StreamInfiniteProduct;|)) 
+
 (DEFUN |StreamInfiniteProduct| (#1=#:G141)
   (PROG ()
     (RETURN

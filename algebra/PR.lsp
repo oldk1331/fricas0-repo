@@ -863,6 +863,8 @@
 (DEFUN |PR;/;$R$;35| (|x| |r| $)
   (SPADCALL (SPADCALL |r| (QREFELT $ 60)) |x| (QREFELT $ 50))) 
 
+(DECLAIM (NOTINLINE |PolynomialRing;|)) 
+
 (DEFUN |PolynomialRing| (&REST #1=#:G418)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |StreamAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |StreamAggregate;|)) 
+
 (DEFPARAMETER |StreamAggregate;AL| 'NIL) 
 
 (DEFUN |StreamAggregate| (#1=#:G139)

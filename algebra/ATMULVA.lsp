@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |multiplicativeValuation;|)) 
+
 (DEFPARAMETER |multiplicativeValuation;AL| 'NIL) 
 
 (DEFUN |multiplicativeValuation| ()

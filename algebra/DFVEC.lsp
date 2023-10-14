@@ -56,6 +56,8 @@
            (GO G190) G191 (EXIT NIL))
       (EXIT |x|))))) 
 
+(DECLAIM (NOTINLINE |DoubleFloatVector;|)) 
+
 (DEFUN |DoubleFloatVector| ()
   (PROG ()
     (RETURN

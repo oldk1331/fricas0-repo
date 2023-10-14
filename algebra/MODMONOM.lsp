@@ -23,6 +23,8 @@
 
 (DEFUN |MODMONOM;construct;ISE$;6| (|i| |e| $) (CONS |i| |e|)) 
 
+(DECLAIM (NOTINLINE |ModuleMonomial;|)) 
+
 (DEFUN |ModuleMonomial| (&REST #1=#:G140)
   (PROG ()
     (RETURN

@@ -42,6 +42,8 @@
             (SPADCALL (ELT $ 19) (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24))
             (|spadConstant| $ 28) (QREFELT $ 30))) 
 
+(DECLAIM (NOTINLINE |MatrixCommonDenominator;|)) 
+
 (DEFUN |MatrixCommonDenominator| (&REST #1=#:G141)
   (PROG ()
     (RETURN

@@ -1026,6 +1026,8 @@
        'NIL)
       ('T (QEQCAR (QVELT (|SPADfirst| |l|) 0) 3)))))) 
 
+(DECLAIM (NOTINLINE |Factored;|)) 
+
 (DEFUN |Factored| (#1=#:G629)
   (PROG ()
     (RETURN

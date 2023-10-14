@@ -119,6 +119,8 @@
           (|spadConstant| $ 7)))
    (QREFELT $ 10))) 
 
+(DECLAIM (NOTINLINE |DenavitHartenbergMatrix;|)) 
+
 (DEFUN |DenavitHartenbergMatrix| (#1=#:G150)
   (PROG ()
     (RETURN

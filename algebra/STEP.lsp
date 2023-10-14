@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |StepThrough;|)) 
+
 (DEFPARAMETER |StepThrough;AL| 'NIL) 
 
 (DEFUN |StepThrough| ()

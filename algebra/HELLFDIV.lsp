@@ -414,6 +414,8 @@
        (SPADCALL (|HELLFDIV;makeDivisor| |a| |bb| (|spadConstant| $ 29) $)
                  (QREFELT $ 67))))))) 
 
+(DECLAIM (NOTINLINE |HyperellipticFiniteDivisor;|)) 
+
 (DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G231)
   (PROG ()
     (RETURN

@@ -73,6 +73,8 @@
        (|DBLRESP;remove0| (SPADCALL |r| (|DBLRESP;UP22| |d| $) (QREFELT $ 44))
         $)))))) 
 
+(DECLAIM (NOTINLINE |DoubleResultantPackage;|)) 
+
 (DEFUN |DoubleResultantPackage| (&REST #1=#:G141)
   (PROG ()
     (RETURN

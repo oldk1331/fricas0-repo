@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |SquareMatrixCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |SquareMatrixCategory;|)) 
+
 (DEFPARAMETER |SquareMatrixCategory;AL| 'NIL) 
 
 (DEFUN |SquareMatrixCategory| (&REST #1=#:G136)

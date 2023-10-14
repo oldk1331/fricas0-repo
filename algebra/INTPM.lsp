@@ -1128,6 +1128,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 166)))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchIntegration;|)) 
+
 (DEFUN |PatternMatchIntegration| (&REST #1=#:G340)
   (PROG ()
     (RETURN

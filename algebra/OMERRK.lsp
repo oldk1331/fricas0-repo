@@ -34,6 +34,8 @@
 
 (DEFUN |OMERRK;coerce;$Of;7| (|e| $) (SPADCALL |e| (QREFELT $ 20))) 
 
+(DECLAIM (NOTINLINE |OpenMathErrorKind;|)) 
+
 (DEFUN |OpenMathErrorKind| ()
   (PROG ()
     (RETURN

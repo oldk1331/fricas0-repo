@@ -3,6 +3,8 @@
 
 (DEFUN |TOPSP;createThreeSpace;Ts;1| ($) (SPADCALL (QREFELT $ 7))) 
 
+(DECLAIM (NOTINLINE |TopLevelThreeSpace;|)) 
+
 (DEFUN |TopLevelThreeSpace| ()
   (PROG ()
     (RETURN

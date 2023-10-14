@@ -24,6 +24,8 @@
 
 (DEFUN |TUBE;tube;CurveLB$;6| (|curve| |ll| |b| $) (VECTOR |curve| |ll| |b|)) 
 
+(DECLAIM (NOTINLINE |TubePlot;|)) 
+
 (DEFUN |TubePlot| (#1=#:G137)
   (PROG ()
     (RETURN

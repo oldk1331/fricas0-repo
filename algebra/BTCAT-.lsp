@@ -39,6 +39,8 @@
                (EXIT
                 (|BTCAT-;treeCount| (SPADCALL |t| (QREFELT $ 14)) |k| $))))))) 
 
+(DECLAIM (NOTINLINE |BinaryTreeCategory&;|)) 
+
 (DEFUN |BinaryTreeCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

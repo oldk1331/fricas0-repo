@@ -842,6 +842,8 @@
                    (LETT #3# (CDR #3#) . #10#) (GO G190) G191 (EXIT NIL))
               (EXIT JV)))))))) 
 
+(DECLAIM (NOTINLINE |JetBundleCategory&;|)) 
+
 (DEFUN |JetBundleCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

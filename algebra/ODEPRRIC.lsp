@@ -832,6 +832,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL (QCAR |z|) |b| (QREFELT $ 53)))))) 
 
+(DECLAIM (NOTINLINE |PrimitiveRatRicDE;|)) 
+
 (DEFUN |PrimitiveRatRicDE| (&REST #1=#:G368)
   (PROG ()
     (RETURN

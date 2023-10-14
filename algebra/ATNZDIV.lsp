@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |noZeroDivisors;|)) 
+
 (DEFPARAMETER |noZeroDivisors;AL| 'NIL) 
 
 (DEFUN |noZeroDivisors| ()

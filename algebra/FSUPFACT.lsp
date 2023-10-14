@@ -252,6 +252,8 @@
   (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 100)) (QREFELT $ 102))
             (QREFELT $ 103))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceUnivariatePolynomialFactor;|)) 
+
 (DEFUN |FunctionSpaceUnivariatePolynomialFactor| (&REST #1=#:G209)
   (PROG ()
     (RETURN

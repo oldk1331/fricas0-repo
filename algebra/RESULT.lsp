@@ -82,6 +82,8 @@
 
 (DEFUN |RESULT;showScalarValues;2B;6| (|b| $) (SETELT $ 11 |b|)) 
 
+(DECLAIM (NOTINLINE |Result;|)) 
+
 (DEFUN |Result| ()
   (PROG ()
     (RETURN

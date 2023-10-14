@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |ListAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |ListAggregate;|)) 
+
 (DEFPARAMETER |ListAggregate;AL| 'NIL) 
 
 (DEFUN |ListAggregate| (#1=#:G176)

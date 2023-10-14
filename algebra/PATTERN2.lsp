@@ -161,6 +161,8 @@
                                                 (QREFELT $
                                                          48))))))))))))))))))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |PatternFunctions2;|)) 
+
 (DEFUN |PatternFunctions2| (&REST #1=#:G184)
   (PROG ()
     (RETURN

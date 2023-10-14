@@ -663,6 +663,8 @@
                               (QREFELT $ 62)))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |DoubleFloat;|)) 
+
 (DEFUN |DoubleFloat| ()
   (PROG ()
     (RETURN

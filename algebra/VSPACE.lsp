@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |VectorSpace;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |VectorSpace;|)) 
+
 (DEFPARAMETER |VectorSpace;AL| 'NIL) 
 
 (DEFUN |VectorSpace| (#1=#:G128)

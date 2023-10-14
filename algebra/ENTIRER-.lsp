@@ -26,6 +26,8 @@
          'NIL)
         ('T 'T))) 
 
+(DECLAIM (NOTINLINE |EntireRing&;|)) 
+
 (DEFUN |EntireRing&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

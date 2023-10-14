@@ -550,6 +550,8 @@
           (LETT |hg| (|INMODGCD;height| |g| $) . #1#)
           (EXIT (SPADCALL 2 (MIN |hf| |hg|) (QREFELT $ 71))))))) 
 
+(DECLAIM (NOTINLINE |InnerModularGcd;|)) 
+
 (DEFUN |InnerModularGcd| (&REST #1=#:G274)
   (PROG ()
     (RETURN

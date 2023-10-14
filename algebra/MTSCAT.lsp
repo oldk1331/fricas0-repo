@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MultivariateTaylorSeriesCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MultivariateTaylorSeriesCategory;|)) 
+
 (DEFPARAMETER |MultivariateTaylorSeriesCategory;AL| 'NIL) 
 
 (DEFUN |MultivariateTaylorSeriesCategory| (&REST #1=#:G129)

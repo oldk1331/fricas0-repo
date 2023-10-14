@@ -185,6 +185,8 @@
                 (#1#
                  (|SMATCAT-;positivePower| (QCDR |xInv|) (- |n|) $))))))))))) 
 
+(DECLAIM (NOTINLINE |SquareMatrixCategory&;|)) 
+
 (DEFUN |SquareMatrixCategory&| (|#1| |#2| |#3| |#4| |#5|)
   (PROG (|pv$| $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |TwoDimensionalArrayCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |TwoDimensionalArrayCategory;|)) 
+
 (DEFPARAMETER |TwoDimensionalArrayCategory;AL| 'NIL) 
 
 (DEFUN |TwoDimensionalArrayCategory| (&REST #1=#:G150)

@@ -97,6 +97,8 @@
           (EXIT (SPADCALL (QREFELT $ 19)))))
     ('T (SPADCALL (QREFELT $ 19)))))) 
 
+(DECLAIM (NOTINLINE |TabulatedComputationPackage;|)) 
+
 (DEFUN |TabulatedComputationPackage| (&REST #1=#:G155)
   (PROG ()
     (RETURN

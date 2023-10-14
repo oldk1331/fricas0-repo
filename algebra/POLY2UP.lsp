@@ -12,6 +12,8 @@
 
 (DEFUN |POLY2UP;univariate;PVUp;1!0| (|x1| $$) |x1|) 
 
+(DECLAIM (NOTINLINE |PolynomialToUnivariatePolynomial;|)) 
+
 (DEFUN |PolynomialToUnivariatePolynomial| (&REST #1=#:G130)
   (PROG ()
     (RETURN

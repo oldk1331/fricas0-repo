@@ -7,6 +7,8 @@
          (CONS (SPADCALL (|SPADfirst| |la|) (|SPADfirst| |lb|) |fn|)
                (SPADCALL |fn| (CDR |la|) (CDR |lb|) (QREFELT $ 13)))))) 
 
+(DECLAIM (NOTINLINE |ListFunctions3;|)) 
+
 (DEFUN |ListFunctions3| (&REST #1=#:G135)
   (PROG ()
     (RETURN

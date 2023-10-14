@@ -659,6 +659,8 @@
         (LETT |finallist| (CONS |m| |finallist|) . #14#)))
       (EXIT |finallist|))))) 
 
+(DECLAIM (NOTINLINE |GeneralHenselPackage;|)) 
+
 (DEFUN |GeneralHenselPackage| (&REST #1=#:G348)
   (PROG ()
     (RETURN

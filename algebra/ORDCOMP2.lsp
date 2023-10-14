@@ -14,6 +14,8 @@
        (SPADCALL (SPADCALL (SPADCALL |r| (QREFELT $ 17)) |f|) (QREFELT $ 18)))
       ((|eql_SI| |n| 1) |p|) ('T |m|))))) 
 
+(DECLAIM (NOTINLINE |OrderedCompletionFunctions2;|)) 
+
 (DEFUN |OrderedCompletionFunctions2| (&REST #1=#:G132)
   (PROG ()
     (RETURN

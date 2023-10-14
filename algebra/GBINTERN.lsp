@@ -741,6 +741,8 @@
               (SPADCALL (SPADCALL |ll| (QREFELT $ 88)) (QREFELT $ 81))
               (SPADCALL 1 (QREFELT $ 79)) (EXIT |n|))))))))) 
 
+(DECLAIM (NOTINLINE |GroebnerInternalPackage;|)) 
+
 (DEFUN |GroebnerInternalPackage| (&REST #1=#:G288)
   (PROG ()
     (RETURN

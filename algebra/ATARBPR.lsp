@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |arbitraryPrecision;|)) 
+
 (DEFPARAMETER |arbitraryPrecision;AL| 'NIL) 
 
 (DEFUN |arbitraryPrecision| ()

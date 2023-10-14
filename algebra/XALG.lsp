@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |XAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |XAlgebra;|)) 
+
 (DEFPARAMETER |XAlgebra;AL| 'NIL) 
 
 (DEFUN |XAlgebra| (#1=#:G128)

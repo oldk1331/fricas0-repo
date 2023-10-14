@@ -695,6 +695,8 @@
 (DEFUN |HEUGCD;gcdcofact;2L;19| (|listf| $)
   (|HEUGCD;internal| (CONS 3 "gcdcofact") |listf| $)) 
 
+(DECLAIM (NOTINLINE |HeuGcd;|)) 
+
 (DEFUN |HeuGcd| (#1=#:G326)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFUN |UP2;map;MUpUp;1| (|f| |p| $) (SPADCALL |f| |p| (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomialFunctions2;|)) 
+
 (DEFUN |UnivariatePolynomialFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

@@ -1574,6 +1574,8 @@
                         (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
                    (EXIT (CONS 0 |ansC|)))))))))) 
 
+(DECLAIM (NOTINLINE |CliffordAlgebra;|)) 
+
 (DEFUN |CliffordAlgebra| (&REST #1=#:G480)
   (PROG ()
     (RETURN

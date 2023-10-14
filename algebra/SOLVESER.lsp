@@ -140,6 +140,8 @@
             (EXIT (CONS 0 |resul|))))))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |TransSolvePackageService;|)) 
+
 (DEFUN |TransSolvePackageService| (#1=#:G199)
   (PROG ()
     (RETURN

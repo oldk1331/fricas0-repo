@@ -764,6 +764,8 @@
         (SPADCALL "total tests: " (STRINGIMAGE |totalTests|) (QREFELT $ 25))
         (QREFELT $ 27))))))) 
 
+(DECLAIM (NOTINLINE |UnittestCount;|)) 
+
 (DEFUN |UnittestCount| ()
   (PROG ()
     (RETURN

@@ -903,6 +903,8 @@
                   (SPADCALL "  Groebner Basis Polynomials. " (QREFELT $ 14))
                   (EXIT (|GBEUCLID;prinb| 2 $)))))))))) 
 
+(DECLAIM (NOTINLINE |EuclideanGroebnerBasisPackage;|)) 
+
 (DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G318)
   (PROG ()
     (RETURN

@@ -47,6 +47,8 @@
 (DEFUN |FIELD-;divide;2SR;12| (|x| |y| $)
   (CONS (SPADCALL |x| |y| (QREFELT $ 20)) (|spadConstant| $ 10))) 
 
+(DECLAIM (NOTINLINE |Field&;|)) 
+
 (DEFUN |Field&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |Operator;|)) 
+
 (DEFUN |Operator| (#1=#:G137)
   (PROG ()
     (RETURN

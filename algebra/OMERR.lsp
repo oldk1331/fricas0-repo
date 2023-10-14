@@ -50,6 +50,8 @@
 
 (DEFUN |OMERR;errorInfo;$L;4| (|e| $) (QCDR |e|)) 
 
+(DECLAIM (NOTINLINE |OpenMathError;|)) 
+
 (DEFUN |OpenMathError| ()
   (PROG ()
     (RETURN

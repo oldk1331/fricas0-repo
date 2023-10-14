@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FiniteAbelianMonoidRing;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FiniteAbelianMonoidRing;|)) 
+
 (DEFPARAMETER |FiniteAbelianMonoidRing;AL| 'NIL) 
 
 (DEFUN |FiniteAbelianMonoidRing| (&REST #1=#:G137)

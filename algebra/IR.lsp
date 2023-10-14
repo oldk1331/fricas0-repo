@@ -477,6 +477,8 @@
              (QREFELT $ 56))
    (QREFELT $ 99))) 
 
+(DECLAIM (NOTINLINE |IntegrationResult;|)) 
+
 (DEFUN |IntegrationResult| (#1=#:G296)
   (PROG ()
     (RETURN

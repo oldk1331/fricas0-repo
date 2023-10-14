@@ -95,6 +95,8 @@
              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
        $))))) 
 
+(DECLAIM (NOTINLINE |PatternFunctions1;|)) 
+
 (DEFUN |PatternFunctions1| (&REST #1=#:G159)
   (PROG ()
     (RETURN

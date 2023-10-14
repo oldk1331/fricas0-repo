@@ -89,6 +89,8 @@
              (|error|
               "rischDEsys: can only handle rational functions for now")))))))))))) 
 
+(DECLAIM (NOTINLINE |ElementaryRischDESystem;|)) 
+
 (DEFUN |ElementaryRischDESystem| (&REST #1=#:G176)
   (PROG ()
     (RETURN

@@ -156,6 +156,8 @@
 
 (DEFUN |MESH;meshFun2Var;MU2SLTs;8!0| (|z1| |z2| $$) |z1|) 
 
+(DECLAIM (NOTINLINE |MeshCreationRoutinesForThreeDimensions;|)) 
+
 (DEFUN |MeshCreationRoutinesForThreeDimensions| ()
   (PROG ()
     (RETURN

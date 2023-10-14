@@ -561,6 +561,8 @@
                    (SPADCALL |c2| (QREFELT $ 51)) (QREFELT $ 52)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |compUtil;|)) 
+
 (DEFUN |compUtil| (#1=#:G220)
   (PROG ()
     (RETURN

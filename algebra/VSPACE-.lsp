@@ -4,6 +4,8 @@
 (DEFUN |VSPACE-;/;ASA;1| (|v| |s| $)
   (SPADCALL (SPADCALL |s| (QREFELT $ 8)) |v| (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |VectorSpace&;|)) 
+
 (DEFUN |VectorSpace&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

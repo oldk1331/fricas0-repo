@@ -162,6 +162,8 @@
              (LETT #1# (CDR #1#) . #5#) (GO G190) G191
              (EXIT (NREVERSE #2#))))))))) 
 
+(DECLAIM (NOTINLINE |PolyGroebner;|)) 
+
 (DEFUN |PolyGroebner| (#1=#:G143)
   (PROG ()
     (RETURN

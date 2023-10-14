@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |SegmentCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |SegmentCategory;|)) 
+
 (DEFPARAMETER |SegmentCategory;AL| 'NIL) 
 
 (DEFUN |SegmentCategory| (#1=#:G128)

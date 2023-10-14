@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FiniteLinearAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FiniteLinearAggregate;|)) 
+
 (DEFPARAMETER |FiniteLinearAggregate;AL| 'NIL) 
 
 (DEFUN |FiniteLinearAggregate| (#1=#:G128)

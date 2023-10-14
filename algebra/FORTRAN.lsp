@@ -596,6 +596,8 @@
                          (QREFELT $ 128))
                (QREFELT $ 121)))))))))))))) 
 
+(DECLAIM (NOTINLINE |FortranProgram;|)) 
+
 (DEFUN |FortranProgram| (&REST #1=#:G289)
   (PROG ()
     (RETURN

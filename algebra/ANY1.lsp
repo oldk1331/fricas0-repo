@@ -15,6 +15,8 @@
   (COND ((SPADCALL |a| (QREFELT $ 13)) (SPADCALL |a| (QREFELT $ 19)))
         ('T (|error| "Cannot retract value.")))) 
 
+(DECLAIM (NOTINLINE |AnyFunctions1;|)) 
+
 (DEFUN |AnyFunctions1| (#1=#:G141)
   (PROG ()
     (RETURN

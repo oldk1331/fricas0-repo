@@ -65,6 +65,8 @@
 (DEFUN |CDEN;commonDenominator;AR;5!0| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |CommonDenominator;|)) 
+
 (DEFUN |CommonDenominator| (&REST #1=#:G144)
   (PROG ()
     (RETURN

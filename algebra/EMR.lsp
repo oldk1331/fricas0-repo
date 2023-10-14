@@ -202,6 +202,8 @@
 (DEFUN |EMR;elt;$2R;7| (|x| |s| $)
   (SPADCALL (SPADCALL (QCAR |x|) |s| (QREFELT $ 43)) (QCDR |x|) (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |EuclideanModularRing;|)) 
+
 (DEFUN |EuclideanModularRing| (&REST #1=#:G228)
   (PROG ()
     (RETURN

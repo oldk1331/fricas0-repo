@@ -54,6 +54,8 @@
            (SPADCALL |aa| (|NCNTFRAC;cfc| (SPADCALL |b| (QREFELT $ 16)) $)
                      (QREFELT $ 20))))))))))) 
 
+(DECLAIM (NOTINLINE |NumericContinuedFraction;|)) 
+
 (DEFUN |NumericContinuedFraction| (#1=#:G142)
   (PROG ()
     (RETURN

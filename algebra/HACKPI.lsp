@@ -77,6 +77,8 @@
   (SPADCALL (SPADCALL (ELT $ 57) |p| (QREFELT $ 61)) (SPADCALL (QREFELT $ 62))
             (QREFELT $ 63))) 
 
+(DECLAIM (NOTINLINE |Pi;|)) 
+
 (DEFUN |Pi| ()
   (PROG ()
     (RETURN

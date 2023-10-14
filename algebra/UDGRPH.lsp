@@ -1121,6 +1121,8 @@
            (LETT #1# (CDR #1#) . #7#) (GO G190) G191 (EXIT NIL))
       (EXIT (CONS |newObjs| |newArrs|)))))) 
 
+(DECLAIM (NOTINLINE |UndirectedGraph;|)) 
+
 (DEFUN |UndirectedGraph| (#1=#:G436)
   (PROG ()
     (RETURN

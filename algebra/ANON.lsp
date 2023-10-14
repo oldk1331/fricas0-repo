@@ -5,6 +5,8 @@
 
 (DEFUN |ANON;coerce;$Of;1| (|x| $) |x|) 
 
+(DECLAIM (NOTINLINE |AnonymousFunction;|)) 
+
 (DEFUN |AnonymousFunction| ()
   (PROG ()
     (RETURN

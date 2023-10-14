@@ -556,6 +556,8 @@
             (EXIT 'T)))))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |IndexedString;|)) 
+
 (DEFUN |IndexedString| (#1=#:G1384)
   (PROG ()
     (RETURN

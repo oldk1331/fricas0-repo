@@ -384,6 +384,8 @@
               (EXIT 'T)))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |XHashTable;|)) 
+
 (DEFUN |XHashTable| (&REST #1=#:G353)
   (PROG ()
     (RETURN

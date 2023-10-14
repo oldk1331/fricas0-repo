@@ -732,6 +732,8 @@
                        (EXIT (NREVERSE #2#))))
                  (QREFELT $ 45))))))) 
 
+(DECLAIM (NOTINLINE |AlgebraicManipulations;|)) 
+
 (DEFUN |AlgebraicManipulations| (&REST #1=#:G299)
   (PROG ()
     (RETURN

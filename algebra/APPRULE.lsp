@@ -331,6 +331,8 @@
                               (#18# |subject|)))))))))))))))))
       #15# (EXIT #15#))))) 
 
+(DECLAIM (NOTINLINE |ApplyRules;|)) 
+
 (DEFUN |ApplyRules| (&REST #1=#:G226)
   (PROG ()
     (RETURN

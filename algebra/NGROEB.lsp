@@ -404,6 +404,8 @@
                     (#1#
                      (CONS |f1| (|NGROEB;updatF| |h| |deg| (CDR F) $)))))))))))) 
 
+(DECLAIM (NOTINLINE |NGroebnerPackage;|)) 
+
 (DEFUN |NGroebnerPackage| (&REST #1=#:G225)
   (PROG ()
     (RETURN

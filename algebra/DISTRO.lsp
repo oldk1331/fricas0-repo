@@ -426,6 +426,8 @@
             |DISTRO;^;$Pi$;43|)
       (EXIT (SPADCALL (SPADCALL |momn| (QREFELT $ 13)) (QREFELT $ 14))))))) 
 
+(DECLAIM (NOTINLINE |Distribution;|)) 
+
 (DEFUN |Distribution| (#1=#:G241)
   (PROG ()
     (RETURN

@@ -63,6 +63,8 @@
            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT (SPADCALL |v| (QREFELT $ 26))))))) 
 
+(DECLAIM (NOTINLINE |SymmetricFunctions;|)) 
+
 (DEFUN |SymmetricFunctions| (#1=#:G139)
   (PROG ()
     (RETURN

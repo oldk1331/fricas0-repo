@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FiniteRankAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FiniteRankAlgebra;|)) 
+
 (DEFPARAMETER |FiniteRankAlgebra;AL| 'NIL) 
 
 (DEFUN |FiniteRankAlgebra| (&REST #1=#:G128)

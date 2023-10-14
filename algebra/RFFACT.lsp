@@ -39,6 +39,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|RFFACT;likuniv| |x| |dummy| |d| $))))) 
 
+(DECLAIM (NOTINLINE |RationalFunctionFactor;|)) 
+
 (DEFUN |RationalFunctionFactor| (#1=#:G132)
   (PROG ()
     (RETURN

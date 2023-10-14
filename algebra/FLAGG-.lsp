@@ -44,6 +44,8 @@
 
 (DEFUN |FLAGG-;sort!;2A;9| (|l| $) (SPADCALL (ELT $ 18) |l| (QREFELT $ 31))) 
 
+(DECLAIM (NOTINLINE |FiniteLinearAggregate&;|)) 
+
 (DEFUN |FiniteLinearAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

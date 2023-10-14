@@ -1002,6 +1002,8 @@
                        (SPADCALL |hi| |n| (QREFELT $ 150))
                        (QREFELT $ 20))))))))) 
 
+(DECLAIM (NOTINLINE |Interval;|)) 
+
 (DEFUN |Interval| (#1=#:G399)
   (PROG ()
     (RETURN

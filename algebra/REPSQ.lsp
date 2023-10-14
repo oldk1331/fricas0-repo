@@ -12,6 +12,8 @@
          (SPADCALL (SPADCALL |x| |x| (QREFELT $ 7)) (ASH |n| -1)
                    (QREFELT $ 9))))) 
 
+(DECLAIM (NOTINLINE |RepeatedSquaring;|)) 
+
 (DEFUN |RepeatedSquaring| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

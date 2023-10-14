@@ -95,6 +95,8 @@
          (SPADCALL (QCDR |c|) (QREFELT $ 28)))
    (QREFELT $ 30))) 
 
+(DECLAIM (NOTINLINE |Color;|)) 
+
 (DEFUN |Color| ()
   (PROG ()
     (RETURN

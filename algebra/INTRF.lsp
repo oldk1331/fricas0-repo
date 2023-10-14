@@ -72,6 +72,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 11)))))) 
 
+(DECLAIM (NOTINLINE |RationalFunctionIntegration;|)) 
+
 (DEFUN |RationalFunctionIntegration| (#1=#:G160)
   (PROG ()
     (RETURN

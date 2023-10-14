@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |RecursiveAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |RecursiveAggregate;|)) 
+
 (DEFPARAMETER |RecursiveAggregate;AL| 'NIL) 
 
 (DEFUN |RecursiveAggregate| (#1=#:G128)

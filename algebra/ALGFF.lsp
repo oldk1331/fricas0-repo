@@ -483,6 +483,8 @@
               'NIL)
              ('T 'T))))))) 
 
+(DECLAIM (NOTINLINE |AlgebraicFunctionField;|)) 
+
 (DEFUN |AlgebraicFunctionField| (&REST #1=#:G298)
   (PROG ()
     (RETURN

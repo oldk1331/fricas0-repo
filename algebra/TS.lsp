@@ -20,6 +20,8 @@
                (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
           (EXIT |sum|))))) 
 
+(DECLAIM (NOTINLINE |TaylorSeries;|)) 
+
 (DEFUN |TaylorSeries| (#1=#:G140)
   (PROG ()
     (RETURN

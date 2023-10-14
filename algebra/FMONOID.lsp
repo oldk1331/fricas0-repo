@@ -437,6 +437,8 @@
                    (#5# 'NIL)))))
       #3# (EXIT #3#))))) 
 
+(DECLAIM (NOTINLINE |FreeMonoid;|)) 
+
 (DEFUN |FreeMonoid| (#1=#:G267)
   (PROG ()
     (RETURN

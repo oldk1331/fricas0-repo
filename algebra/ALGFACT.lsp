@@ -379,6 +379,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |alpha| |x| (QREFELT $ 68)))))) 
 
+(DECLAIM (NOTINLINE |AlgFactor;|)) 
+
 (DEFUN |AlgFactor| (#1=#:G191)
   (PROG ()
     (RETURN

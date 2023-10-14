@@ -44,6 +44,8 @@
       (QREFELT $ 30))
      (QREFELT $ 31))))) 
 
+(DECLAIM (NOTINLINE |PendantTree;|)) 
+
 (DEFUN |PendantTree| (#1=#:G149)
   (PROG ()
     (RETURN

@@ -317,6 +317,8 @@
        (|OMEXPR;outputOMExpr| |dev| |ex| $)
        (EXIT (COND (|wholeObj| (SPADCALL |dev| (QREFELT $ 73))))))) 
 
+(DECLAIM (NOTINLINE |ExpressionToOpenMath;|)) 
+
 (DEFUN |ExpressionToOpenMath| (#1=#:G226)
   (PROG ()
     (RETURN

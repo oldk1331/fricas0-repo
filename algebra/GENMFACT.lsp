@@ -38,6 +38,8 @@
              (SPADCALL |p| (QREFELT $ 23)))
             (#1# (|error| "factor for this domain is unimplemented"))))))))))))) 
 
+(DECLAIM (NOTINLINE |GeneralizedMultivariateFactorize;|)) 
+
 (DEFUN |GeneralizedMultivariateFactorize| (&REST #1=#:G130)
   (PROG ()
     (RETURN

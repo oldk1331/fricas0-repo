@@ -225,6 +225,8 @@
                (EXIT (NREVERSE #2#)))))))
       #3# (EXIT #3#))))) 
 
+(DECLAIM (NOTINLINE |ConstantLODE;|)) 
+
 (DEFUN |ConstantLODE| (&REST #1=#:G170)
   (PROG ()
     (RETURN

@@ -25,6 +25,8 @@
   (SPADCALL (SPADCALL "ref" (QREFELT $ 17))
             (LIST (SPADCALL (QCAR |p|) (QREFELT $ 18))) (QREFELT $ 20))) 
 
+(DECLAIM (NOTINLINE |Reference;|)) 
+
 (DEFUN |Reference| (#1=#:G1799)
   (PROG ()
     (RETURN

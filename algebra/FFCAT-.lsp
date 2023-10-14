@@ -827,6 +827,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x| |d| (QREFELT $ 191)))))) 
 
+(DECLAIM (NOTINLINE |FunctionFieldCategory&;|)) 
+
 (DEFUN |FunctionFieldCategory&| (|#1| |#2| |#3| |#4|)
   (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN

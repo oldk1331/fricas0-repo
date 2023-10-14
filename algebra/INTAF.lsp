@@ -251,6 +251,8 @@
     (|INTAF;algintegrate| |f| |t| |y| |derivation| $))
    ('T (|error| "failed - cannot handle that integrand")))) 
 
+(DECLAIM (NOTINLINE |AlgebraicIntegration;|)) 
+
 (DEFUN |AlgebraicIntegration| (&REST #1=#:G158)
   (PROG ()
     (RETURN

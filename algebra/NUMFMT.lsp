@@ -333,6 +333,8 @@
          (PROG1 (LETT #1# |tot| . #3#)
            (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))))))) 
 
+(DECLAIM (NOTINLINE |NumberFormats;|)) 
+
 (DEFUN |NumberFormats| ()
   (PROG ()
     (RETURN

@@ -116,6 +116,8 @@
                      (LETT #6# (CDR #6#) . #8#) (GO G190) G191 (EXIT NIL))
                 (COND (#1# #2#) (#7# (|spadConstant| $ 9)))))))))))) 
 
+(DECLAIM (NOTINLINE |SymmetricPolynomial;|)) 
+
 (DEFUN |SymmetricPolynomial| (#1=#:G168)
   (PROG ()
     (RETURN

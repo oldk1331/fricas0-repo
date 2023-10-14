@@ -6,6 +6,8 @@
             (SPADCALL |f| (SPADCALL |ups| (QREFELT $ 16)) (QREFELT $ 20))
             (QREFELT $ 22))) 
 
+(DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesFunctions2;|)) 
+
 (DEFUN |UnivariatePuiseuxSeriesFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

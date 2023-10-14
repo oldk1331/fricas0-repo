@@ -489,6 +489,8 @@
                               (EXIT (NREVERSE #2#)))))
                        (QREFELT $ 100)))))))) 
 
+(DECLAIM (NOTINLINE |LiePolynomial;|)) 
+
 (DEFUN |LiePolynomial| (&REST #1=#:G273)
   (PROG ()
     (RETURN

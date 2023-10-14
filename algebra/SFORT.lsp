@@ -38,6 +38,8 @@
       (|dispfortexp1| (LIST "=" |fname| |val|)) (|dispfortexp1| "RETURN")
       (|dispfortexp1| "END") (EXIT (SPADCALL (QREFELT $ 22))))))) 
 
+(DECLAIM (NOTINLINE |SimpleFortranProgram;|)) 
+
 (DEFUN |SimpleFortranProgram| (&REST #1=#:G143)
   (PROG ()
     (RETURN

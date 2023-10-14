@@ -30,6 +30,8 @@
                  NIL (GO G190) G191 (EXIT NIL))))
           (EXIT (NREVERSE |lr|)))))) 
 
+(DECLAIM (NOTINLINE |SegmentFunctions2;|)) 
+
 (DEFUN |SegmentFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN

@@ -1053,6 +1053,8 @@
         (EXIT |f|)))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |PolynomialGcdPackage;|)) 
+
 (DEFUN |PolynomialGcdPackage| (&REST #1=#:G368)
   (PROG ()
     (RETURN

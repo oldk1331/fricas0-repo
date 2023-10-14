@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FiniteDivisorCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FiniteDivisorCategory;|)) 
+
 (DEFPARAMETER |FiniteDivisorCategory;AL| 'NIL) 
 
 (DEFUN |FiniteDivisorCategory| (&REST #1=#:G128)

@@ -65,6 +65,8 @@
            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT |res|))))) 
 
+(DECLAIM (NOTINLINE |ComplexDoubleFloatMatrix;|)) 
+
 (DEFUN |ComplexDoubleFloatMatrix| ()
   (PROG ()
     (RETURN

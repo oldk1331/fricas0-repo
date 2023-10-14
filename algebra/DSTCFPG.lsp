@@ -65,6 +65,8 @@
       (SPADCALL |zz| (SPADCALL |a| (|spadConstant| $ 15) (QREFELT $ 35))
                 (QREFELT $ 36)))))) 
 
+(DECLAIM (NOTINLINE |DistributionContinuedFractionPackage;|)) 
+
 (DEFUN |DistributionContinuedFractionPackage| (&REST #1=#:G138)
   (PROG ()
     (RETURN

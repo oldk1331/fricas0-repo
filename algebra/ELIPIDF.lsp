@@ -1231,6 +1231,8 @@
     (QREFELT $ 53))
    (QREFELT $ 48))) 
 
+(DECLAIM (NOTINLINE |DoubleFloatEllipticIntegrals;|)) 
+
 (DEFUN |DoubleFloatEllipticIntegrals| ()
   (PROG ()
     (RETURN

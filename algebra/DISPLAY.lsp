@@ -114,6 +114,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |sum|))))) 
 
+(DECLAIM (NOTINLINE |DisplayPackage;|)) 
+
 (DEFUN |DisplayPackage| ()
   (PROG ()
     (RETURN

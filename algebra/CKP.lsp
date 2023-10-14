@@ -892,6 +892,8 @@
       (|CKP;displayCartan| |CompSys| |PrevDeDim| |q| |s| |Cartan| $)
       (EXIT (VECTOR |PrevDe| |CompSys| |q| |s| |PrevDeDim| |Cartan|)))))) 
 
+(DECLAIM (NOTINLINE |CartanKuranishi;|)) 
+
 (DEFUN |CartanKuranishi| (&REST #1=#:G423)
   (PROG ()
     (RETURN

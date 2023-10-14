@@ -429,6 +429,8 @@
 (DEFUN |SKICOMB;coerce;$Of;23| (|n| $)
   (SPADCALL (SPADCALL |n| (QREFELT $ 43)) (QREFELT $ 51))) 
 
+(DECLAIM (NOTINLINE |SKICombinators;|)) 
+
 (DEFUN |SKICombinators| (#1=#:G289)
   (PROG ()
     (RETURN

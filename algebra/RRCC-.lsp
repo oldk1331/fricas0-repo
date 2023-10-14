@@ -62,6 +62,8 @@
                  (EXIT
                   (CONS 0 (SPADCALL (QCAR |d|) 2 (QREFELT $ 37))))))))))))))) 
 
+(DECLAIM (NOTINLINE |RealRootCharacterizationCategory&;|)) 
+
 (DEFUN |RealRootCharacterizationCategory&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

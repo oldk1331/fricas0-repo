@@ -80,6 +80,8 @@
             . #6#)
       (EXIT |answer|))))) 
 
+(DECLAIM (NOTINLINE |ComplexIntegerSolveLinearPolynomialEquation;|)) 
+
 (DEFUN |ComplexIntegerSolveLinearPolynomialEquation| (&REST #1=#:G148)
   (PROG ()
     (RETURN

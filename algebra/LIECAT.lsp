@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |LieAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |LieAlgebra;|)) 
+
 (DEFPARAMETER |LieAlgebra;AL| 'NIL) 
 
 (DEFUN |LieAlgebra| (#1=#:G128)

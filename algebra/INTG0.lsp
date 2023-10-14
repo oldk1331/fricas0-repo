@@ -541,6 +541,8 @@
                       |y| (QREFELT $ 77)))
                |bas|)))))))) 
 
+(DECLAIM (NOTINLINE |GenusZeroIntegration;|)) 
+
 (DEFUN |GenusZeroIntegration| (&REST #1=#:G274)
   (PROG ()
     (RETURN

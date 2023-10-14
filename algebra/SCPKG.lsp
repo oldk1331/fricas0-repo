@@ -213,6 +213,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL (REVERSE |gamma|) (QREFELT $ 65))))))) 
 
+(DECLAIM (NOTINLINE |StructuralConstantsPackage;|)) 
+
 (DEFUN |StructuralConstantsPackage| (#1=#:G182)
   (PROG ()
     (RETURN

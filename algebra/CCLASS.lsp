@@ -223,6 +223,8 @@
             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
             (EXIT (NREVERSE #2#)))))))) 
 
+(DECLAIM (NOTINLINE |CharacterClass;|)) 
+
 (DEFUN |CharacterClass| ()
   (PROG ()
     (RETURN

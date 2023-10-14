@@ -255,6 +255,8 @@
 (DEFUN |JDIFF;contract;Jvf$D;18| (|v| |om| $)
   (SPADCALL |om| |v| (QREFELT $ 67))) 
 
+(DECLAIM (NOTINLINE |JetDifferential;|)) 
+
 (DEFUN |JetDifferential| (&REST #1=#:G221)
   (PROG ()
     (RETURN

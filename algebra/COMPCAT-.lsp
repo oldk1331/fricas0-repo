@@ -1054,6 +1054,8 @@
                (SPADCALL |e| (SPADCALL |t| (QREFELT $ 270)) (QREFELT $ 121))
                (QREFELT $ 30)))))))))))))) 
 
+(DECLAIM (NOTINLINE |ComplexCategory&;|)) 
+
 (DEFUN |ComplexCategory&| (|#1| |#2|)
   (PROG (#1=#:G380 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN

@@ -37,6 +37,8 @@
             (LIST (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 19)))
             (QREFELT $ 23))) 
 
+(DECLAIM (NOTINLINE |Finite&;|)) 
+
 (DEFUN |Finite&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

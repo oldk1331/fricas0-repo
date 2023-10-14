@@ -177,6 +177,8 @@
                      (QREFELT $ 43))
            (QREFELT $ 44)))))))))) 
 
+(DECLAIM (NOTINLINE |RationalInterpolation;|)) 
+
 (DEFUN |RationalInterpolation| (&REST #1=#:G161)
   (PROG ()
     (RETURN

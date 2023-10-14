@@ -267,6 +267,8 @@
                (QREFELT $ 50))
      (SPADCALL (SPADCALL |f| (QREFELT $ 33)) (QREFELT $ 55)) (QREFELT $ 54))))) 
 
+(DECLAIM (NOTINLINE |FreeNilpotentLie;|)) 
+
 (DEFUN |FreeNilpotentLie| (&REST #1=#:G164)
   (PROG ()
     (RETURN

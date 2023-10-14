@@ -38,6 +38,8 @@
 
 (DEFUN |IMATRIX;inverse;$U;8| (|x| $) (SPADCALL |x| (QREFELT $ 31))) 
 
+(DECLAIM (NOTINLINE |IndexedMatrix;|)) 
+
 (DEFUN |IndexedMatrix| (&REST #1=#:G160)
   (PROG ()
     (RETURN

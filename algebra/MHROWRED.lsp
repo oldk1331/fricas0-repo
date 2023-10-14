@@ -793,6 +793,8 @@
        #4# (EXIT #4#))
       (EXIT |x|))))) 
 
+(DECLAIM (NOTINLINE |ModularHermitianRowReduction;|)) 
+
 (DEFUN |ModularHermitianRowReduction| (#1=#:G346)
   (PROG ()
     (RETURN

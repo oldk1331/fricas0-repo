@@ -18,6 +18,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|MMAP;rfmap| |f| |x| $))))) 
 
+(DECLAIM (NOTINLINE |MultipleMap;|)) 
+
 (DEFUN |MultipleMap| (&REST #1=#:G133)
   (PROG ()
     (RETURN

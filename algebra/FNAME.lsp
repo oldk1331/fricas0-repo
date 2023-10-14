@@ -48,6 +48,8 @@
 
 (DEFUN |FNAME;new;3S$;12| (|d| |pref| |e| $) (|fnameNew| |d| |pref| |e|)) 
 
+(DECLAIM (NOTINLINE |FileName;|)) 
+
 (DEFUN |FileName| ()
   (PROG ()
     (RETURN

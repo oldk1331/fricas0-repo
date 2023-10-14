@@ -50,6 +50,8 @@
        (COND ((NULL (CDR |l|)) (CONS 0 (|SPADfirst| |l|)))
              ('T (CONS 1 |l|)))))))) 
 
+(DECLAIM (NOTINLINE |IntegrationResultRFToFunction;|)) 
+
 (DEFUN |IntegrationResultRFToFunction| (#1=#:G149)
   (PROG ()
     (RETURN

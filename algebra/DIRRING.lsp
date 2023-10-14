@@ -382,6 +382,8 @@
         (EXIT 'T)))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |DirichletRing;|)) 
+
 (DEFUN |DirichletRing| (#1=#:G319)
   (PROG ()
     (RETURN

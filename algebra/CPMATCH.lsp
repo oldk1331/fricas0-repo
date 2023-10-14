@@ -34,6 +34,8 @@
                         (QREFELT $ 39))
               (QREFELT $ 42))))) 
 
+(DECLAIM (NOTINLINE |ComplexPatternMatch;|)) 
+
 (DEFUN |ComplexPatternMatch| (&REST #1=#:G137)
   (PROG ()
     (RETURN

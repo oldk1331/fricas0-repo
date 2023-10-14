@@ -59,6 +59,8 @@
 
 (DEFUN |ASTACK;empty;$;13| ($) (SPADCALL 0 0 (QREFELT $ 38))) 
 
+(DECLAIM (NOTINLINE |ArrayStack;|)) 
+
 (DEFUN |ArrayStack| (#1=#:G157)
   (PROG ()
     (RETURN

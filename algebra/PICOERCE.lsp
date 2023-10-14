@@ -14,6 +14,8 @@
   (SPADCALL (SPADCALL (ELT $ 17) |p| (QREFELT $ 21)) (SPADCALL (QREFELT $ 22))
             (QREFELT $ 23))) 
 
+(DECLAIM (NOTINLINE |PiCoercions;|)) 
+
 (DEFUN |PiCoercions| (#1=#:G130)
   (PROG ()
     (RETURN

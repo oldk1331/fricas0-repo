@@ -94,6 +94,8 @@
            (COND ((QEQCAR |u| 1) (|error| "not invertible"))
                  ('T (QCDR |u|)))))))) 
 
+(DECLAIM (NOTINLINE |ModularRing;|)) 
+
 (DEFUN |ModularRing| (&REST #1=#:G184)
   (PROG ()
     (RETURN

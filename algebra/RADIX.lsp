@@ -377,6 +377,8 @@
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS (NREVERSE |ritspfx|) (NREVERSE |ritscyc|))))))) 
 
+(DECLAIM (NOTINLINE |RadixExpansion;|)) 
+
 (DEFUN |RadixExpansion| (#1=#:G303)
   (PROG ()
     (RETURN

@@ -709,6 +709,8 @@
                          (QREFELT $ 101))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionODESolver;|)) 
+
 (DEFUN |ElementaryFunctionODESolver| (&REST #1=#:G348)
   (PROG ()
     (RETURN

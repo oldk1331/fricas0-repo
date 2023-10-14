@@ -235,6 +235,8 @@
           (EXIT |new|)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |IntegerRoots;|)) 
+
 (DEFUN |IntegerRoots| (#1=#:G184)
   (PROG ()
     (RETURN

@@ -24,6 +24,8 @@
     |p| (QREFELT $ 8))
    |q| (QREFELT $ 8))) 
 
+(DECLAIM (NOTINLINE |Group&;|)) 
+
 (DEFUN |Group&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

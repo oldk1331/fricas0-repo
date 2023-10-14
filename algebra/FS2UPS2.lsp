@@ -2725,6 +2725,8 @@
                         (SPADCALL (CDR |expon|) (CDR |logBase|) (QREFELT $ 57))
                         |opt_rec| $)))))))))))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceToUnivariatePowerSeries2;|)) 
+
 (DEFUN |FunctionSpaceToUnivariatePowerSeries2| (&REST #1=#:G1080)
   (PROG ()
     (RETURN

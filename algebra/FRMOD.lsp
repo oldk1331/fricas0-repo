@@ -186,6 +186,8 @@
   (SPADCALL (SPADCALL (SPADCALL |i| (QREFELT $ 67)) (QREFELT $ 25))
             (SPADCALL (QREFELT $ 10) (QREFELT $ 25)) (QREFELT $ 65))) 
 
+(DECLAIM (NOTINLINE |FramedModule;|)) 
+
 (DEFUN |FramedModule| (&REST #1=#:G174)
   (PROG ()
     (RETURN

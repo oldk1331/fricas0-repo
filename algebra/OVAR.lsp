@@ -68,6 +68,8 @@
 (DEFUN |OVAR;hashUpdate!;Hs$Hs;13| (|hs| |s| $)
   (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
+(DECLAIM (NOTINLINE |OrderedVariableList;|)) 
+
 (DEFUN |OrderedVariableList| (#1=#:G151)
   (PROG ()
     (RETURN

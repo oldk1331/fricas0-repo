@@ -292,6 +292,8 @@
                                          $))))))))))))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |ExponentialExpansion;|)) 
+
 (DEFUN |ExponentialExpansion| (&REST #1=#:G237)
   (PROG ()
     (RETURN

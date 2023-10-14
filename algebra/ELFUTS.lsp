@@ -364,6 +364,8 @@
                       (|error|
                        "ELFUTS:ellipticPi: constant coefficient should be 0")))))))))))) 
 
+(DECLAIM (NOTINLINE |EllipticFunctionsUnivariateTaylorSeries;|)) 
+
 (DEFUN |EllipticFunctionsUnivariateTaylorSeries| (&REST #1=#:G159)
   (PROG ()
     (RETURN

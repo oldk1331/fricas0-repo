@@ -4,6 +4,8 @@
 (DEFUN |FDIVCAT-;principal?;SB;1| (|d| $)
   (QEQCAR (SPADCALL |d| (QREFELT $ 12)) 0)) 
 
+(DECLAIM (NOTINLINE |FiniteDivisorCategory&;|)) 
+
 (DEFUN |FiniteDivisorCategory&| (|#1| |#2| |#3| |#4| |#5|)
   (PROG (|pv$| $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN

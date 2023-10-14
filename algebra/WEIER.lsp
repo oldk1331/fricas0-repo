@@ -174,6 +174,8 @@
     NIL)
    ('T (|WEIER;transback| (|WEIER;wei| |v| |smps| $) $)))) 
 
+(DECLAIM (NOTINLINE |WeierstrassPreparation;|)) 
+
 (DEFUN |WeierstrassPreparation| (#1=#:G193)
   (PROG ()
     (RETURN

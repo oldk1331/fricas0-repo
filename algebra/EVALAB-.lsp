@@ -26,6 +26,8 @@
                       (GO G190) G191 (EXIT (NREVERSE #3#))))
                 (QREFELT $ 9)))))) 
 
+(DECLAIM (NOTINLINE |Evalable&;|)) 
+
 (DEFUN |Evalable&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FiniteSetAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FiniteSetAggregate;|)) 
+
 (DEFPARAMETER |FiniteSetAggregate;AL| 'NIL) 
 
 (DEFUN |FiniteSetAggregate| (#1=#:G135)

@@ -56,6 +56,8 @@
 (DEFUN |SWITCH;EQ;2U$;11| (|r1| |r2| $)
   (CONS (SPADCALL 'EQ (QREFELT $ 9)) (LIST |r1| |r2|))) 
 
+(DECLAIM (NOTINLINE |Switch;|)) 
+
 (DEFUN |Switch| ()
   (PROG ()
     (RETURN

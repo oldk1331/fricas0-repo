@@ -5,6 +5,8 @@
   (SPADCALL (SPADCALL (SPADCALL |eqn| (QREFELT $ 9)) |fn|)
             (SPADCALL (SPADCALL |eqn| (QREFELT $ 10)) |fn|) (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |EquationFunctions2;|)) 
+
 (DEFUN |EquationFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

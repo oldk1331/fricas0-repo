@@ -1489,6 +1489,8 @@
            (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
       (EXIT (SPADCALL "PLOT" (NREVERSE |f|) (QREFELT $ 105))))))) 
 
+(DECLAIM (NOTINLINE |Plot;|)) 
+
 (DEFUN |Plot| ()
   (PROG ()
     (RETURN

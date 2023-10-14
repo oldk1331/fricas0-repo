@@ -81,6 +81,8 @@
 
 (DEFUN |CHAR;hashUpdate!;Hs$Hs;24| (|hs| |c| $) (HASHSTATEUPDATE |hs| |c|)) 
 
+(DECLAIM (NOTINLINE |Character;|)) 
+
 (DEFUN |Character| ()
   (PROG ()
     (RETURN

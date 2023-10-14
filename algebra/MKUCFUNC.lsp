@@ -35,6 +35,8 @@
          |t| (QREFELT $ 20))
         (QREFELT $ 11))))))) 
 
+(DECLAIM (NOTINLINE |MakeUnaryCompiledFunction;|)) 
+
 (DEFUN |MakeUnaryCompiledFunction| (&REST #1=#:G135)
   (PROG ()
     (RETURN

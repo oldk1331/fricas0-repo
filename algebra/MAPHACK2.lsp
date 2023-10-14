@@ -9,6 +9,8 @@
 
 (DEFUN |MAPHACK2;arg2;A2C;2| (|a| |c| $) |c|) 
 
+(DECLAIM (NOTINLINE |MappingPackageInternalHacks2;|)) 
+
 (DEFUN |MappingPackageInternalHacks2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

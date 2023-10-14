@@ -26,6 +26,8 @@
 
 (DEFUN |DISTRO2;coerce;DD;5| (|x| $) (SPADCALL (ELT $ 22) |x| (QREFELT $ 20))) 
 
+(DECLAIM (NOTINLINE |DistributionFunctions2;|)) 
+
 (DEFUN |DistributionFunctions2| (&REST #1=#:G138)
   (PROG ()
     (RETURN

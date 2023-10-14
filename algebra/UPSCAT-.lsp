@@ -36,6 +36,8 @@
 (DEFUN |UPSCAT-;variables;SL;7| (|f| $)
   (SPADCALL (SPADCALL (QREFELT $ 26)) (QREFELT $ 27))) 
 
+(DECLAIM (NOTINLINE |UnivariatePowerSeriesCategory&;|)) 
+
 (DEFUN |UnivariatePowerSeriesCategory&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

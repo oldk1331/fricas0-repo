@@ -135,6 +135,8 @@
 
 (DEFUN |LSQM;rank;Pi;8| ($) (* (QREFELT $ 6) (QREFELT $ 6))) 
 
+(DECLAIM (NOTINLINE |LieSquareMatrix;|)) 
+
 (DEFUN |LieSquareMatrix| (&REST #1=#:G184)
   (PROG ()
     (RETURN

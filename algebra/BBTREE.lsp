@@ -137,6 +137,8 @@
                                      (QREFELT $ 35))
                            (EXIT |x|)))))))))))) 
 
+(DECLAIM (NOTINLINE |BalancedBinaryTree;|)) 
+
 (DEFUN |BalancedBinaryTree| (#1=#:G198)
   (PROG ()
     (RETURN

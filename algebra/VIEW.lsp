@@ -81,6 +81,8 @@
       (SPADCALL |v| |graf| 1 (QREFELT $ 27))
       (EXIT (SPADCALL |v| (QREFELT $ 28))))))) 
 
+(DECLAIM (NOTINLINE |ViewportPackage;|)) 
+
 (DEFUN |ViewportPackage| ()
   (PROG ()
     (RETURN

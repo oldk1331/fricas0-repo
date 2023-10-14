@@ -5,6 +5,8 @@
   (SPADCALL (SPADCALL (SPADCALL |gr| (QREFELT $ 9)) |fn|)
             (SPADCALL (SPADCALL |gr| (QREFELT $ 10)) |fn|) (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |ComplexFunctions2;|)) 
+
 (DEFUN |ComplexFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

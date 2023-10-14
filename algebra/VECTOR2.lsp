@@ -38,6 +38,8 @@
             (EXIT (CONS 0 (SPADCALL (NREVERSE |res|) (QREFELT $ 25))))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |VectorFunctions2;|)) 
+
 (DEFUN |VectorFunctions2| (&REST #1=#:G153)
   (PROG ()
     (RETURN

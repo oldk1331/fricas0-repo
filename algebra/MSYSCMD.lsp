@@ -5,6 +5,8 @@
 
 (DEFUN |MSYSCMD;systemCommand;SV;1| (|cmd| $) (|doSystemCommand| |cmd|)) 
 
+(DECLAIM (NOTINLINE |MoreSystemCommands;|)) 
+
 (DEFUN |MoreSystemCommands| ()
   (PROG ()
     (RETURN

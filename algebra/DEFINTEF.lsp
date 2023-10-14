@@ -644,6 +644,8 @@
                 (EXIT (CONS 1 |ans|))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionDefiniteIntegration;|)) 
+
 (DEFUN |ElementaryFunctionDefiniteIntegration| (&REST #1=#:G358)
   (PROG ()
     (RETURN

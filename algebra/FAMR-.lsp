@@ -178,6 +178,8 @@
                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
                 (QREFELT $ 52)))))))))) 
 
+(DECLAIM (NOTINLINE |FiniteAbelianMonoidRing&;|)) 
+
 (DEFUN |FiniteAbelianMonoidRing&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

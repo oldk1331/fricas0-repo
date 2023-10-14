@@ -980,6 +980,8 @@
                       (GO #1#)))))
                   #1# (EXIT #1#))))))))))))) 
 
+(DECLAIM (NOTINLINE |MrvLimitPackage;|)) 
+
 (DEFUN |MrvLimitPackage| ()
   (PROG ()
     (RETURN

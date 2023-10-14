@@ -1085,6 +1085,8 @@
                                   (|MMLFORM;formatFunction| (|SPADfirst| |l|)
                                    |args| |prec| $)))))))))))))))) 
 
+(DECLAIM (NOTINLINE |MathMLFormat;|)) 
+
 (DEFUN |MathMLFormat| ()
   (PROG ()
     (RETURN

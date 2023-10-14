@@ -590,6 +590,8 @@
                                  (QVELT |state| 0) (QREFELT $ 53))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |VectorModularReconstructor;|)) 
+
 (DEFUN |VectorModularReconstructor| ()
   (PROG ()
     (RETURN

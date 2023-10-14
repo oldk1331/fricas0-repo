@@ -726,6 +726,8 @@
                      (SPADCALL (ELT $ 84) (NREVERSE |l|)
                                (QREFELT $ 87)))))))))))) 
 
+(DECLAIM (NOTINLINE |InnerPAdicInteger;|)) 
+
 (DEFUN |InnerPAdicInteger| (&REST #1=#:G440)
   (PROG ()
     (RETURN

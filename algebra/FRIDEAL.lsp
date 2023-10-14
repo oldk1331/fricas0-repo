@@ -598,6 +598,8 @@
         (EXIT |i|)))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |FractionalIdeal;|)) 
+
 (DEFUN |FractionalIdeal| (&REST #1=#:G321)
   (PROG ()
     (RETURN

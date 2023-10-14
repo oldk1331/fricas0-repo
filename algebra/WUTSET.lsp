@@ -451,6 +451,8 @@
       (EXIT
        (SPADCALL (ELT $ 84) (SPADCALL |lts| (QREFELT $ 79)) (QREFELT $ 86))))))) 
 
+(DECLAIM (NOTINLINE |WuWenTsunTriangularSet;|)) 
+
 (DEFUN |WuWenTsunTriangularSet| (&REST #1=#:G305)
   (PROG ()
     (RETURN

@@ -17,6 +17,8 @@
 (DEFUN |NCEP;complexEigenvectors;MParL;4| (|m| |eps| $)
   (SPADCALL |m| |eps| (ELT $ 22) (QREFELT $ 26))) 
 
+(DECLAIM (NOTINLINE |NumericComplexEigenPackage;|)) 
+
 (DEFUN |NumericComplexEigenPackage| (#1=#:G134)
   (PROG ()
     (RETURN

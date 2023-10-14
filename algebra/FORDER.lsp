@@ -26,6 +26,8 @@
               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |FindOrderFinite;|)) 
+
 (DEFUN |FindOrderFinite| (&REST #1=#:G132)
   (PROG ()
     (RETURN

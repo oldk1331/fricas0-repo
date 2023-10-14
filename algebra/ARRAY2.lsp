@@ -12,6 +12,8 @@
 (DEFUN |ARRAY2;qsetelt!;$2I2R;2| (|m| |i| |j| |r| $)
   (QSETAREF2O |m| |i| |j| |r| 1 1)) 
 
+(DECLAIM (NOTINLINE |TwoDimensionalArray;|)) 
+
 (DEFUN |TwoDimensionalArray| (#1=#:G2245)
   (PROG ()
     (RETURN

@@ -108,6 +108,8 @@
              (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
         (COND (#1# #2#) ('T (|spadConstant| $ 57))))))))) 
 
+(DECLAIM (NOTINLINE |FramedAlgebra&;|)) 
+
 (DEFUN |FramedAlgebra&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

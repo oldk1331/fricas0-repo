@@ -220,6 +220,8 @@
   (|OREPCTO;localRightDivide| |a| |b| |sigma|
    (SPADCALL (SPADCALL |b| (QREFELT $ 21)) (QREFELT $ 41)) $)) 
 
+(DECLAIM (NOTINLINE |UnivariateSkewPolynomialCategoryOps;|)) 
+
 (DEFUN |UnivariateSkewPolynomialCategoryOps| (&REST #1=#:G195)
   (PROG ()
     (RETURN

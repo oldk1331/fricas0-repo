@@ -262,6 +262,8 @@
 
 (DEFUN |LODOF;factor1;LodoL;14!0| (|p1| $) (|LODOF;zro| |p1| (ELT $ 12) $)) 
 
+(DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorFactorizer;|)) 
+
 (DEFUN |LinearOrdinaryDifferentialOperatorFactorizer| (&REST #1=#:G238)
   (PROG ()
     (RETURN

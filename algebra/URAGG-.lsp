@@ -430,6 +430,8 @@
              (SPADCALL |x| (SPADCALL (QREFELT $ 64)) (QREFELT $ 57))
              (EXIT |y|)))))))) 
 
+(DECLAIM (NOTINLINE |UnaryRecursiveAggregate&;|)) 
+
 (DEFUN |UnaryRecursiveAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

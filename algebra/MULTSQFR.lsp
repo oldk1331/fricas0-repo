@@ -932,6 +932,8 @@
             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
             (EXIT (NREVERSE #2#)))))))) 
 
+(DECLAIM (NOTINLINE |MultivariateSquareFree;|)) 
+
 (DEFUN |MultivariateSquareFree| (&REST #1=#:G340)
   (PROG ()
     (RETURN

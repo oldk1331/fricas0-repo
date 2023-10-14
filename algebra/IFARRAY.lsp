@@ -416,6 +416,8 @@
                                 (QREFELT $ 50)))
                      (#2# |a|))))))))))) 
 
+(DECLAIM (NOTINLINE |IndexedFlexibleArray;|)) 
+
 (DEFUN |IndexedFlexibleArray| (&REST #1=#:G294)
   (PROG ()
     (RETURN

@@ -692,6 +692,8 @@
                (CONS (CONS (QCAR (|SPADfirst| |x|)) |u|)
                      (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 64))))))))))) 
 
+(DECLAIM (NOTINLINE |IndexedDirectProductObject;|)) 
+
 (DEFUN |IndexedDirectProductObject| (&REST #1=#:G335)
   (PROG ()
     (RETURN

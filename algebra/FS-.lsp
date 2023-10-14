@@ -1596,6 +1596,8 @@
             (SPADCALL (SPADCALL |x| (QREFELT $ 285)) (QREFELT $ 262))
             (QREFELT $ 339))) 
 
+(DECLAIM (NOTINLINE |FunctionSpace&;|)) 
+
 (DEFUN |FunctionSpace&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

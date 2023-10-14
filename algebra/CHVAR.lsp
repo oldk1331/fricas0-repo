@@ -360,6 +360,8 @@
                              (EXIT NIL))
                         (COND (#1# #2#) (#7# (|spadConstant| $ 14))))))))))))) 
 
+(DECLAIM (NOTINLINE |ChangeOfVariable;|)) 
+
 (DEFUN |ChangeOfVariable| (&REST #1=#:G205)
   (PROG ()
     (RETURN

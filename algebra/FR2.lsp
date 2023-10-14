@@ -31,6 +31,8 @@
                  (COND (#1# #2#) ('T (|spadConstant| $ 17))))
                 (QREFELT $ 18)))))) 
 
+(DECLAIM (NOTINLINE |FactoredFunctions2;|)) 
+
 (DEFUN |FactoredFunctions2| (&REST #1=#:G134)
   (PROG ()
     (RETURN

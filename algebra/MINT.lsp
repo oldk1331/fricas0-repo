@@ -35,6 +35,8 @@
 
 (DEFUN |MINT;retractIfCan;$U;6| (|u| $) (CONS 0 |u|)) 
 
+(DECLAIM (NOTINLINE |MachineInteger;|)) 
+
 (DEFUN |MachineInteger| ()
   (PROG ()
     (RETURN

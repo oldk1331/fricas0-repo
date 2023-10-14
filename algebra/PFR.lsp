@@ -580,6 +580,8 @@
                       (SPADCALL (ELT $ 96) (REVERSE |l|)
                                 (QREFELT $ 99)))))))))))) 
 
+(DECLAIM (NOTINLINE |PartialFraction;|)) 
+
 (DEFUN |PartialFraction| (#1=#:G323)
   (PROG ()
     (RETURN

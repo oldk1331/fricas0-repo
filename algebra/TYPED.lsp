@@ -82,6 +82,8 @@
 (DEFUN |TYPED;coerce;$Of;9| (|n| $)
   (SPADCALL (SPADCALL |n| (QREFELT $ 17)) (QREFELT $ 33))) 
 
+(DECLAIM (NOTINLINE |Typed;|)) 
+
 (DEFUN |Typed| ()
   (PROG ()
     (RETURN

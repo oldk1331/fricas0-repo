@@ -91,6 +91,8 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT |m|)))))))) 
 
+(DECLAIM (NOTINLINE |SortPackage;|)) 
+
 (DEFUN |SortPackage| (&REST #1=#:G162)
   (PROG ()
     (RETURN

@@ -9,6 +9,8 @@
            (COND ((QEQCAR |u| 1) (|error| "not retractable"))
                  ('T (QCDR |u|)))))))) 
 
+(DECLAIM (NOTINLINE |RetractableFrom&;|)) 
+
 (DEFUN |RetractableFrom&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

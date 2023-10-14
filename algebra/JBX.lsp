@@ -44,6 +44,8 @@
              (|error| "Only functions of independent variables allowed"))
             ('T (QCDR |px|)))))))) 
 
+(DECLAIM (NOTINLINE |JetBundleXExpression;|)) 
+
 (DEFUN |JetBundleXExpression| (#1=#:G210)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MaybeSkewPolynomialCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MaybeSkewPolynomialCategory;|)) 
+
 (DEFPARAMETER |MaybeSkewPolynomialCategory;AL| 'NIL) 
 
 (DEFUN |MaybeSkewPolynomialCategory| (&REST #1=#:G131)

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |TrigonometricFunctionCategory;|)) 
+
 (DEFPARAMETER |TrigonometricFunctionCategory;AL| 'NIL) 
 
 (DEFUN |TrigonometricFunctionCategory| ()

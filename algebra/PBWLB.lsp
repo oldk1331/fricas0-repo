@@ -143,6 +143,8 @@
            (COND ((EQL |lx| |ly|) (|PBWLB;recursif| |x| |y| $))
                  ('T (< |lx| |ly|)))))))) 
 
+(DECLAIM (NOTINLINE |PoincareBirkhoffWittLyndonBasis;|)) 
+
 (DEFUN |PoincareBirkhoffWittLyndonBasis| (#1=#:G171)
   (PROG ()
     (RETURN

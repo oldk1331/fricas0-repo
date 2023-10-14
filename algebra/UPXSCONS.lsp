@@ -715,6 +715,8 @@
 (DEFUN |UPXSCONS;acsch;2$;85| (|upxs| $)
   (|UPXSCONS;applyUnary| (ELT $ 197) |upxs| $)) 
 
+(DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructor;|)) 
+
 (DEFUN |UnivariatePuiseuxSeriesConstructor| (&REST #1=#:G396)
   (PROG ()
     (RETURN

@@ -226,6 +226,8 @@
        (|error| "Empty set"))
       ('T (SPADCALL (ELT $ 61) |l| (QREFELT $ 59))))))) 
 
+(DECLAIM (NOTINLINE |FiniteSetAggregate&;|)) 
+
 (DEFUN |FiniteSetAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

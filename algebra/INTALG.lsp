@@ -1267,6 +1267,8 @@
       (SPADCALL (SPADCALL (SPADCALL |x1| (QREFELT $ 21)) |derivation|)
                 (QREFELT $ 233)))))) 
 
+(DECLAIM (NOTINLINE |AlgebraicIntegrate;|)) 
+
 (DEFUN |AlgebraicIntegrate| (&REST #1=#:G609)
   (PROG ()
     (RETURN

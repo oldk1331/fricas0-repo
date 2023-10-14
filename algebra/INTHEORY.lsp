@@ -603,6 +603,8 @@
                 (COND ((ODDP (SPADCALL |t| (QREFELT $ 72))) -1) (#4# 1)))))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |IntegerNumberTheoryFunctions;|)) 
+
 (DEFUN |IntegerNumberTheoryFunctions| ()
   (PROG ()
     (RETURN

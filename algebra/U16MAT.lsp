@@ -52,6 +52,8 @@
 (DEFUN |U16MAT;new;2NniI$;13| (|rows| |cols| |a| $)
   (MAKE_MATRIX1_U16 |rows| |cols| |a|)) 
 
+(DECLAIM (NOTINLINE |U16Matrix;|)) 
+
 (DEFUN |U16Matrix| ()
   (PROG ()
     (RETURN

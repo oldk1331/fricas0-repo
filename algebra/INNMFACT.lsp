@@ -1549,6 +1549,8 @@
                   (COND (#1# #2#) ('T (|spadConstant| $ 150))))
                  (QREFELT $ 161))))))) 
 
+(DECLAIM (NOTINLINE |InnerMultFact;|)) 
+
 (DEFUN |InnerMultFact| (&REST #1=#:G620)
   (PROG ()
     (RETURN

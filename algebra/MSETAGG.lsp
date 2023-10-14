@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MultisetAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MultisetAggregate;|)) 
+
 (DEFPARAMETER |MultisetAggregate;AL| 'NIL) 
 
 (DEFUN |MultisetAggregate| (#1=#:G128)

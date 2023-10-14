@@ -138,6 +138,8 @@
                 (SPADCALL |r| (QREFELT $ 24)))))
         ('T (LIST (CONS (SPADCALL |a| (QREFELT $ 23)) |r|))))) 
 
+(DECLAIM (NOTINLINE |FourierSeries;|)) 
+
 (DEFUN |FourierSeries| (&REST #1=#:G164)
   (PROG ()
     (RETURN

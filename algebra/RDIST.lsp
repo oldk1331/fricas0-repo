@@ -90,6 +90,8 @@
                                    (|spadConstant| $ 29) (QREFELT $ 13))
                          (QREFELT $ 22)))))))))) 
 
+(DECLAIM (NOTINLINE |RandomDistributions;|)) 
+
 (DEFUN |RandomDistributions| (#1=#:G168)
   (PROG ()
     (RETURN

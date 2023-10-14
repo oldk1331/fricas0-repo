@@ -23,6 +23,8 @@
         ((OR (SPADCALL (QCDR |y|) (QCDR |x|) (QREFELT $ 18)) (QCAR |x|)) 'NIL)
         ('T (QCAR |y|)))) 
 
+(DECLAIM (NOTINLINE |FourierComponent;|)) 
+
 (DEFUN |FourierComponent| (#1=#:G144)
   (PROG ()
     (RETURN

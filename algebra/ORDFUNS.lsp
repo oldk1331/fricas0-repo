@@ -104,6 +104,8 @@
                      (EXIT 'NIL)))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |OrderingFunctions;|)) 
+
 (DEFUN |OrderingFunctions| (&REST #1=#:G158)
   (PROG ()
     (RETURN

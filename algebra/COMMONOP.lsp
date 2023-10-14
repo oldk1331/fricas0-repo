@@ -228,6 +228,8 @@
 (DEFUN |COMMONOP;startUp!0| (|z1| $)
   (SPADCALL (SPADCALL 'A (QREFELT $ 144)) |z1| (QREFELT $ 161))) 
 
+(DECLAIM (NOTINLINE |CommonOperators;|)) 
+
 (DEFUN |CommonOperators| ()
   (PROG ()
     (RETURN

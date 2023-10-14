@@ -3,6 +3,8 @@
 
 (DEFUN |SGROUP-;^;SPiS;1| (|x| |n| $) (SPADCALL |x| |n| (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |SemiGroup&;|)) 
+
 (DEFUN |SemiGroup&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

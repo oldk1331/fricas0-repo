@@ -1430,6 +1430,8 @@
                (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
           (EXIT |newmat|))))) 
 
+(DECLAIM (NOTINLINE |ParametricLinearEquations;|)) 
+
 (DEFUN |ParametricLinearEquations| (&REST #1=#:G453)
   (PROG ()
     (RETURN

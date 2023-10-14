@@ -193,6 +193,8 @@
       (SPADCALL |x| (SPADCALL (SPADCALL |s| (QREFELT $ 18)) (QREFELT $ 60))
                 (QREFELT $ 50)))))) 
 
+(DECLAIM (NOTINLINE |UniversalSegment;|)) 
+
 (DEFUN |UniversalSegment| (#1=#:G229)
   (PROG ()
     (RETURN

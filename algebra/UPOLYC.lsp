@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |UnivariatePolynomialCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomialCategory;|)) 
+
 (DEFPARAMETER |UnivariatePolynomialCategory;AL| 'NIL) 
 
 (DEFUN |UnivariatePolynomialCategory| (#1=#:G167)

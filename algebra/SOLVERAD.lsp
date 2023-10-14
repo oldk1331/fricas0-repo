@@ -682,6 +682,8 @@
                (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |solutions| (QREFELT $ 7) (QREFELT $ 115))))))) 
 
+(DECLAIM (NOTINLINE |RadicalSolvePackage;|)) 
+
 (DEFUN |RadicalSolvePackage| (#1=#:G266)
   (PROG ()
     (RETURN

@@ -668,6 +668,8 @@
             (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T (|spadConstant| $ 70)))))))) 
 
+(DECLAIM (NOTINLINE |NPCoef;|)) 
+
 (DEFUN |NPCoef| (&REST #1=#:G301)
   (PROG ()
     (RETURN

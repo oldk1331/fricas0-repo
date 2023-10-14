@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FortranFunctionCategory;|)) 
+
 (DEFPARAMETER |FortranFunctionCategory;AL| 'NIL) 
 
 (DEFUN |FortranFunctionCategory| ()

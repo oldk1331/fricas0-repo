@@ -43,6 +43,8 @@
   (SPADCALL (ELT $ 11) (SPADCALL (ELT $ 21) |l| (QREFELT $ 16))
             (|spadConstant| $ 22) (QREFELT $ 24))) 
 
+(DECLAIM (NOTINLINE |InnerCommonDenominator;|)) 
+
 (DEFUN |InnerCommonDenominator| (&REST #1=#:G145)
   (PROG ()
     (RETURN

@@ -12,6 +12,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x| |v| (QREFELT $ 11)))))) 
 
+(DECLAIM (NOTINLINE |PartialDifferentialOperatorHelper;|)) 
+
 (DEFUN |PartialDifferentialOperatorHelper| (&REST #1=#:G131)
   (PROG ()
     (RETURN

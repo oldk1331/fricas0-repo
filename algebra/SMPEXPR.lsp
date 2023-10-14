@@ -91,6 +91,8 @@
        (|error|
         "SUPTRAFUN: acos only defined for elements of the coefficient ring"))))))) 
 
+(DECLAIM (NOTINLINE |SparseMultivariatePolynomialExpressions;|)) 
+
 (DEFUN |SparseMultivariatePolynomialExpressions| (#1=#:G190)
   (PROG ()
     (RETURN

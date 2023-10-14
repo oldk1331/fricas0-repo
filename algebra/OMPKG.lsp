@@ -47,6 +47,8 @@
   (COND ((SPADCALL (OM-SUPPORTSSYMBOL |cd| |name|) (QREFELT $ 31)) 'NIL)
         ('T 'T))) 
 
+(DECLAIM (NOTINLINE |OpenMathPackage;|)) 
+
 (DEFUN |OpenMathPackage| ()
   (PROG ()
     (RETURN

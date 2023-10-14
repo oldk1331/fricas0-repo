@@ -21,6 +21,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |res|))))) 
 
+(DECLAIM (NOTINLINE |MonoidRingFunctions2;|)) 
+
 (DEFUN |MonoidRingFunctions2| (&REST #1=#:G133)
   (PROG ()
     (RETURN

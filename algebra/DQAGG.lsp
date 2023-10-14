@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |DequeueAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |DequeueAggregate;|)) 
+
 (DEFPARAMETER |DequeueAggregate;AL| 'NIL) 
 
 (DEFUN |DequeueAggregate| (#1=#:G128)

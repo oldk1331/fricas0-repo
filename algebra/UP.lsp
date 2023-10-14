@@ -7,6 +7,8 @@
 (DEFUN |UP;coerce;V$;2| (|v| $)
   (SPADCALL (|spadConstant| $ 15) 1 (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomial;|)) 
+
 (DEFUN |UnivariatePolynomial| (&REST #1=#:G179)
   (PROG ()
     (RETURN

@@ -119,6 +119,8 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT (SPADCALL |b0| |u| (QREFELT $ 18)))))))))) 
 
+(DECLAIM (NOTINLINE |NonCommutativeOperatorDivision;|)) 
+
 (DEFUN |NonCommutativeOperatorDivision| (&REST #1=#:G158)
   (PROG ()
     (RETURN

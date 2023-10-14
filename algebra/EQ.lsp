@@ -309,6 +309,8 @@
                  (SPADCALL (SPADCALL |eq1| (QREFELT $ 21)) |eq3|
                            (QREFELT $ 92)))))))) 
 
+(DECLAIM (NOTINLINE |Equation;|)) 
+
 (DEFUN |Equation| (#1=#:G228)
   (PROG ()
     (RETURN

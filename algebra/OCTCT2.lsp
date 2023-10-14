@@ -11,6 +11,8 @@
             (SPADCALL (SPADCALL |u| (QREFELT $ 16)) |fn|)
             (SPADCALL (SPADCALL |u| (QREFELT $ 17)) |fn|) (QREFELT $ 18))) 
 
+(DECLAIM (NOTINLINE |OctonionCategoryFunctions2;|)) 
+
 (DEFUN |OctonionCategoryFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

@@ -8,6 +8,8 @@
 
 (DEFUN |UPXSCCA-;retractIfCan;SU;3| (|x| $) (SPADCALL |x| (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructorCategory&;|)) 
+
 (DEFUN |UnivariatePuiseuxSeriesConstructorCategory&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

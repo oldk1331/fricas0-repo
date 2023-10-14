@@ -33,6 +33,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |s| |v| (QREFELT $ 18)))))) 
 
+(DECLAIM (NOTINLINE |DifferentialExtension&;|)) 
+
 (DEFUN |DifferentialExtension&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

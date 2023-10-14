@@ -75,6 +75,8 @@
       (EXIT
        (SPADCALL (SPADCALL |p1| |q1| (QREFELT $ 22)) |n| (QREFELT $ 23))))))) 
 
+(DECLAIM (NOTINLINE |XExponentialPackage;|)) 
+
 (DEFUN |XExponentialPackage| (&REST #1=#:G142)
   (PROG ()
     (RETURN

@@ -43,6 +43,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |ans|))))) 
 
+(DECLAIM (NOTINLINE |CommuteUnivariatePolynomialCategory;|)) 
+
 (DEFUN |CommuteUnivariatePolynomialCategory| (&REST #1=#:G135)
   (PROG ()
     (RETURN

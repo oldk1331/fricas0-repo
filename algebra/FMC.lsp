@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FortranMatrixCategory;|)) 
+
 (DEFPARAMETER |FortranMatrixCategory;AL| 'NIL) 
 
 (DEFUN |FortranMatrixCategory| ()

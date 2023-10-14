@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |DictionaryOperations;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |DictionaryOperations;|)) 
+
 (DEFPARAMETER |DictionaryOperations;AL| 'NIL) 
 
 (DEFUN |DictionaryOperations| (#1=#:G128)

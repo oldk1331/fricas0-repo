@@ -18,6 +18,8 @@
 (DEFUN |DSMP;coerce;Smp$;2!0| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 21)) (QREFELT $ 22))) 
 
+(DECLAIM (NOTINLINE |DifferentialSparseMultivariatePolynomial;|)) 
+
 (DEFUN |DifferentialSparseMultivariatePolynomial| (&REST #1=#:G182)
   (PROG ()
     (RETURN

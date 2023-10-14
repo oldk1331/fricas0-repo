@@ -894,6 +894,8 @@
 (DEFUN |SFQCMPK;prepareDecompose;LL2BL;21!0| (|x| |y| $)
   (SPADCALL (QVELT |x| 1) (QVELT |y| 1) (QREFELT $ 38))) 
 
+(DECLAIM (NOTINLINE |SquareFreeQuasiComponentPackage;|)) 
+
 (DEFUN |SquareFreeQuasiComponentPackage| (&REST #1=#:G440)
   (PROG ()
     (RETURN

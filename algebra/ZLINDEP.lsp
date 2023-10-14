@@ -13,6 +13,8 @@
 (DEFUN |ZLINDEP;solveLinearlyOverQ;MVU;4| (|m| |v| $)
   (SPADCALL |m| |v| (QREFELT $ 19))) 
 
+(DECLAIM (NOTINLINE |IntegerLinearDependence;|)) 
+
 (DEFUN |IntegerLinearDependence| (#1=#:G140)
   (PROG ()
     (RETURN

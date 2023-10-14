@@ -379,6 +379,8 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT |n|)))))) 
 
+(DECLAIM (NOTINLINE |IntegerPrimesPackage;|)) 
+
 (DEFUN |IntegerPrimesPackage| (#1=#:G221)
   (PROG ()
     (RETURN

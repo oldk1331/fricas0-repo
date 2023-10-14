@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FieldOfPrimeCharacteristic;|)) 
+
 (DEFPARAMETER |FieldOfPrimeCharacteristic;AL| 'NIL) 
 
 (DEFUN |FieldOfPrimeCharacteristic| ()

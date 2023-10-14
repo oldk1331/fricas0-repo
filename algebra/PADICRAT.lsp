@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |PAdicRational;|)) 
+
 (DEFUN |PAdicRational| (#1=#:G164)
   (PROG ()
     (RETURN

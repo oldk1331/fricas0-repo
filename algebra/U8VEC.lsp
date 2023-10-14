@@ -44,6 +44,8 @@
            (GO G190) G191 (EXIT NIL))
       (EXIT |x|))))) 
 
+(DECLAIM (NOTINLINE |U8Vector;|)) 
+
 (DEFUN |U8Vector| ()
   (PROG ()
     (RETURN

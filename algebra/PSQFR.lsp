@@ -317,6 +317,8 @@
                                  (QREFELT $ 52))
                        |pfaclist| (QREFELT $ 33))))))))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialSquareFree;|)) 
+
 (DEFUN |PolynomialSquareFree| (&REST #1=#:G209)
   (PROG ()
     (RETURN

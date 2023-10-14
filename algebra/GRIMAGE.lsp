@@ -697,6 +697,8 @@
             (COND ((EQL |p| 1) " point list") ('T " point lists")))
       (QREFELT $ 112))))) 
 
+(DECLAIM (NOTINLINE |GraphImage;|)) 
+
 (DEFUN |GraphImage| ()
   (PROG ()
     (RETURN

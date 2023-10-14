@@ -156,6 +156,8 @@
        (SPADCALL (SPADCALL (ELT $ 64) |stUP| (QREFELT $ 67))
                  (QREFELT $ 68))))))) 
 
+(DECLAIM (NOTINLINE |InfiniteProductFiniteField;|)) 
+
 (DEFUN |InfiniteProductFiniteField| (&REST #1=#:G171)
   (PROG ()
     (RETURN

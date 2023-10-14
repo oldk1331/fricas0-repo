@@ -126,6 +126,8 @@
            (PROG1 (LETT #1# |res| . #3#)
              (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))))) 
 
+(DECLAIM (NOTINLINE |DirectProductCategory&;|)) 
+
 (DEFUN |DirectProductCategory&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

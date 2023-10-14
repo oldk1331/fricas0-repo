@@ -26,6 +26,8 @@
 
 (DEFUN |OMCONN;OMbindTCP;$SiB;6| (|conn| |port| $) (OM-BINDTCP |conn| |port|)) 
 
+(DECLAIM (NOTINLINE |OpenMathConnection;|)) 
+
 (DEFUN |OpenMathConnection| ()
   (PROG ()
     (RETURN

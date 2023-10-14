@@ -741,6 +741,8 @@
                       (EXIT (NREVERSE #2#))))
                 (QREFELT $ 94)))))) 
 
+(DECLAIM (NOTINLINE |DifferentialPolynomialCategory&;|)) 
+
 (DEFUN |DifferentialPolynomialCategory&| (|#1| |#2| |#3| |#4| |#5|)
   (PROG (|pv$| $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN

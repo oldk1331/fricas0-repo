@@ -1076,6 +1076,8 @@
                     . #10#)
               (EXIT (SPADCALL |ress| |tv| |sval| (QREFELT $ 85))))))))))) 
 
+(DECLAIM (NOTINLINE |ModularAlgebraicGcd;|)) 
+
 (DEFUN |ModularAlgebraicGcd| (&REST #1=#:G331)
   (PROG ()
     (RETURN

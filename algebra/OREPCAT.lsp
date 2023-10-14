@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |UnivariateSkewPolynomialCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |UnivariateSkewPolynomialCategory;|)) 
+
 (DEFPARAMETER |UnivariateSkewPolynomialCategory;AL| 'NIL) 
 
 (DEFUN |UnivariateSkewPolynomialCategory| (#1=#:G140)

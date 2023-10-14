@@ -177,6 +177,8 @@
 (DEFUN |SMPCOER;remap_variables;SmpLLSmp;3!0| (|x| |y| $)
   (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |SparsePolynomialCoercionHelpers;|)) 
+
 (DEFUN |SparsePolynomialCoercionHelpers| (&REST #1=#:G187)
   (PROG ()
     (RETURN

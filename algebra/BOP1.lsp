@@ -155,6 +155,8 @@
 
 (DEFUN |BOP1;constantOperator;ABo;15| (|a| $) (|BOP1;constOp| |a| $)) 
 
+(DECLAIM (NOTINLINE |BasicOperatorFunctions1;|)) 
+
 (DEFUN |BasicOperatorFunctions1| (#1=#:G359)
   (PROG ()
     (RETURN

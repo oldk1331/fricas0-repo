@@ -9,6 +9,8 @@
   (SPADCALL |x| (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))
             (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |RadicalCategory&;|)) 
+
 (DEFUN |RadicalCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

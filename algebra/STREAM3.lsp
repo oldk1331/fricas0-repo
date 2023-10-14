@@ -53,6 +53,8 @@
     (LETT |g| (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL (SPADCALL |x| (QREFELT $ 16)) |z| |g|))))) 
 
+(DECLAIM (NOTINLINE |StreamFunctions3;|)) 
+
 (DEFUN |StreamFunctions3| (&REST #1=#:G169)
   (PROG ()
     (RETURN

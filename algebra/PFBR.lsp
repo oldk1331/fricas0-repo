@@ -1457,6 +1457,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |z| |lvppList| |sl| (QREFELT $ 92)))))) 
 
+(DECLAIM (NOTINLINE |PolynomialFactorizationByRecursion;|)) 
+
 (DEFUN |PolynomialFactorizationByRecursion| (&REST #1=#:G456)
   (PROG ()
     (RETURN

@@ -387,6 +387,8 @@
                    (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
               (COND (#1# #2#) (#5# 'NIL))))))))) 
 
+(DECLAIM (NOTINLINE |QuasiAlgebraicSet;|)) 
+
 (DEFUN |QuasiAlgebraicSet| (&REST #1=#:G249)
   (PROG ()
     (RETURN

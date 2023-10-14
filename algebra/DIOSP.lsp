@@ -288,6 +288,8 @@
                (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT |flag|))))) 
 
+(DECLAIM (NOTINLINE |DiophantineSolutionPackage;|)) 
+
 (DEFUN |DiophantineSolutionPackage| ()
   (PROG ()
     (RETURN

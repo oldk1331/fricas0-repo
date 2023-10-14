@@ -954,6 +954,8 @@
                                                    |a|))
                                        |any1|))))))))))) 
 
+(DECLAIM (NOTINLINE |ExpressionToUnivariatePowerSeries;|)) 
+
 (DEFUN |ExpressionToUnivariatePowerSeries| (&REST #1=#:G299)
   (PROG ()
     (RETURN

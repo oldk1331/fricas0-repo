@@ -7,6 +7,8 @@
 
 (DEFUN |INTRET;integerIfCan;SU;3| (|s| $) (SPADCALL |s| (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |IntegerRetractions;|)) 
+
 (DEFUN |IntegerRetractions| (#1=#:G136)
   (PROG ()
     (RETURN

@@ -103,6 +103,8 @@
                (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT |s|))))) 
 
+(DECLAIM (NOTINLINE |MatrixCategoryFunctions2;|)) 
+
 (DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G165)
   (PROG ()
     (RETURN

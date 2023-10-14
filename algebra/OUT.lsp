@@ -36,6 +36,8 @@
         (QREFELT $ 22))
        (QREFELT $ 9)))))) 
 
+(DECLAIM (NOTINLINE |OutputPackage;|)) 
+
 (DEFUN |OutputPackage| ()
   (PROG ()
     (RETURN

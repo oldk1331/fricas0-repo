@@ -10,6 +10,8 @@
 (DEFUN |PMASS;optional;SE;3| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 8)) (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |PatternMatchAssertions;|)) 
+
 (DEFUN |PatternMatchAssertions| ()
   (PROG ()
     (RETURN

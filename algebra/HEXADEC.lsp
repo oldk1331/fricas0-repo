@@ -7,6 +7,8 @@
 
 (DEFUN |HEXADEC;coerce;$Re;2| (|x| $) |x|) 
 
+(DECLAIM (NOTINLINE |HexadecimalExpansion;|)) 
+
 (DEFUN |HexadecimalExpansion| ()
   (PROG ()
     (RETURN

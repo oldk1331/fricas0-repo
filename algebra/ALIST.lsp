@@ -172,6 +172,8 @@
                      (SEQ (SPADCALL |prev| (CDR |curr|) (QREFELT $ 26))
                           (EXIT (CONS 0 (QCDR (|SPADfirst| |curr|))))))))))))))) 
 
+(DECLAIM (NOTINLINE |AssociationList;|)) 
+
 (DEFUN |AssociationList| (&REST #1=#:G287)
   (PROG ()
     (RETURN

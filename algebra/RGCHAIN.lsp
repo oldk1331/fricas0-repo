@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |RegularChain;|)) 
+
 (DEFUN |RegularChain| (&REST #1=#:G159)
   (PROG ()
     (RETURN

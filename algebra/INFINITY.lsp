@@ -7,6 +7,8 @@
 
 (DEFUN |INFINITY;minusInfinity;Oc;3| ($) (SPADCALL (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |Infinity;|)) 
+
 (DEFUN |Infinity| ()
   (PROG ()
     (RETURN

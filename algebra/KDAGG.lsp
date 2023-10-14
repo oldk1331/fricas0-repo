@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |KeyedDictionary;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |KeyedDictionary;|)) 
+
 (DEFPARAMETER |KeyedDictionary;AL| 'NIL) 
 
 (DEFUN |KeyedDictionary| (&REST #1=#:G131)

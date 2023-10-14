@@ -1570,6 +1570,8 @@
                   (LETT |k| (|inc_SI| |k|) . #3#) (GO G190) G191 (EXIT NIL))
              (EXIT |res|)))))))) 
 
+(DECLAIM (NOTINLINE |SparseEchelonMatrix;|)) 
+
 (DEFUN |SparseEchelonMatrix| (&REST #1=#:G601)
   (PROG ()
     (RETURN

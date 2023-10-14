@@ -72,6 +72,8 @@
              (QCDR #2#)
            (|check_union| (QEQCAR #2# 0) P #2#)))))))) 
 
+(DECLAIM (NOTINLINE |ParallelIntegrationTools;|)) 
+
 (DEFUN |ParallelIntegrationTools| (&REST #1=#:G145)
   (PROG ()
     (RETURN

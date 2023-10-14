@@ -190,6 +190,8 @@
                            NIL (GO G190) G191 (EXIT NIL)))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |IntegerNumberSystem&;|)) 
+
 (DEFUN |IntegerNumberSystem&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

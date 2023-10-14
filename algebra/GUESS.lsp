@@ -6642,6 +6642,8 @@
                  (QREFELT $ 654))
                 (SPADCALL |q| (QREFELT $ 671))))))) 
 
+(DECLAIM (NOTINLINE |Guess;|)) 
+
 (DEFUN |Guess| (&REST #1=#:G1818)
   (PROG ()
     (RETURN

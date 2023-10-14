@@ -87,6 +87,8 @@
                     (SPADCALL (ELT $ 47) (QCDR |sys|) (QREFELT $ 54))
                     (QREFELT $ 56)))))))))) 
 
+(DECLAIM (NOTINLINE |LinearDependence;|)) 
+
 (DEFUN |LinearDependence| (&REST #1=#:G180)
   (PROG ()
     (RETURN

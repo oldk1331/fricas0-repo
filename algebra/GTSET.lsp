@@ -128,6 +128,8 @@
          (CONS 1 "failed"))
         ('T (CONS 0 (|GTSET;per| (CONS |p| (|GTSET;rep| |ts| $)) $))))) 
 
+(DECLAIM (NOTINLINE |GeneralTriangularSet;|)) 
+
 (DEFUN |GeneralTriangularSet| (&REST #1=#:G214)
   (PROG ()
     (RETURN

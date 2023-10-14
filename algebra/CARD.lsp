@@ -124,6 +124,8 @@
 (DEFUN |CARD;generalizedContinuumHypothesisAssumed;2B;18| (|b| $)
   (SPADCALL (QREFELT $ 10) |b| (QREFELT $ 44))) 
 
+(DECLAIM (NOTINLINE |CardinalNumber;|)) 
+
 (DEFUN |CardinalNumber| ()
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FunctionFieldCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FunctionFieldCategory;|)) 
+
 (DEFPARAMETER |FunctionFieldCategory;AL| 'NIL) 
 
 (DEFUN |FunctionFieldCategory| (&REST #1=#:G144)

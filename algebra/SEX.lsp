@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |SExpression;|)) 
+
 (DEFUN |SExpression| ()
   (PROG ()
     (RETURN

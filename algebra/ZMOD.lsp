@@ -178,6 +178,8 @@
 (DEFUN |ZMOD;hashUpdate!;Hs$Hs;40| (|hs| |s| $)
   (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
 
+(DECLAIM (NOTINLINE |IntegerMod;|)) 
+
 (DEFUN |IntegerMod| (#1=#:G196)
   (PROG ()
     (RETURN

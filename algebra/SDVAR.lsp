@@ -22,6 +22,8 @@
     (SPADCALL (SPADCALL |v| (QREFELT $ 10)) (SPADCALL |u| (QREFELT $ 10))
               (QREFELT $ 14))))) 
 
+(DECLAIM (NOTINLINE |SequentialDifferentialVariable;|)) 
+
 (DEFUN |SequentialDifferentialVariable| (#1=#:G139)
   (PROG ()
     (RETURN

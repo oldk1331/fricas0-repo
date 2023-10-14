@@ -138,6 +138,8 @@
                  (EXIT (NREVERSE #2#))))
            (QREFELT $ 49)))))))))) 
 
+(DECLAIM (NOTINLINE |SupFractionFactorizer;|)) 
+
 (DEFUN |SupFractionFactorizer| (&REST #1=#:G164)
   (PROG ()
     (RETURN

@@ -4,6 +4,8 @@
 (DEFUN |LALG-;coerce;RS;1| (|x| $)
   (SPADCALL |x| (|spadConstant| $ 8) (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |LeftAlgebra&;|)) 
+
 (DEFUN |LeftAlgebra&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

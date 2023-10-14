@@ -168,6 +168,8 @@
                  (SPADCALL |n| (|spadConstant| $ 15) (QREFELT $ 26))))
         ('T (|FFINTBAS;iIntegralBasis| |tfm| |disc| |prime| $)))))))) 
 
+(DECLAIM (NOTINLINE |FunctionFieldIntegralBasis;|)) 
+
 (DEFUN |FunctionFieldIntegralBasis| (&REST #1=#:G164)
   (PROG ()
     (RETURN

@@ -11,6 +11,8 @@
 (DEFUN |GRALG-;*;SRS;4| (|x| |r| $)
   (SPADCALL |x| (SPADCALL |r| (QREFELT $ 10)) (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |GradedAlgebra&;|)) 
+
 (DEFUN |GradedAlgebra&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

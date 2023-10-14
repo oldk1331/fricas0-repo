@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |DoublyLinkedAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |DoublyLinkedAggregate;|)) 
+
 (DEFPARAMETER |DoublyLinkedAggregate;AL| 'NIL) 
 
 (DEFUN |DoublyLinkedAggregate| (#1=#:G128)

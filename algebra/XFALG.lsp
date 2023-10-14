@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |XFreeAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |XFreeAlgebra;|)) 
+
 (DEFPARAMETER |XFreeAlgebra;AL| 'NIL) 
 
 (DEFUN |XFreeAlgebra| (&REST #1=#:G129)

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FortranProgramCategory;|)) 
+
 (DEFPARAMETER |FortranProgramCategory;AL| 'NIL) 
 
 (DEFUN |FortranProgramCategory| ()

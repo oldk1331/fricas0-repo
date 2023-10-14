@@ -22,6 +22,8 @@
    (SPADCALL (CONS (|function| |REALSOLV;pi2rfi|) $) |lp| (QREFELT $ 32)) |lv|
    |eps| (QREFELT $ 35))) 
 
+(DECLAIM (NOTINLINE |RealSolvePackage;|)) 
+
 (DEFUN |RealSolvePackage| ()
   (PROG ()
     (RETURN

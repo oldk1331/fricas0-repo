@@ -28,6 +28,8 @@
                       (EXIT (NREVERSE #2#))))
                 (QREFELT $ 20)))))) 
 
+(DECLAIM (NOTINLINE |DictionaryOperations&;|)) 
+
 (DEFUN |DictionaryOperations&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

@@ -65,6 +65,8 @@
 
 (DEFUN |FOP;showFortranOutputStack;S;6| ($) (QREFELT $ 8)) 
 
+(DECLAIM (NOTINLINE |FortranOutputStackPackage;|)) 
+
 (DEFUN |FortranOutputStackPackage| ()
   (PROG ()
     (RETURN

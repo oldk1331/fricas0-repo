@@ -15,6 +15,8 @@
      (SEQ (LETT |r| (SPADCALL (QREFELT $ 15)) |UDVO;getVariableOrder;R;4|)
           (EXIT (CONS (REVERSE (QCDR |r|)) (REVERSE (QCAR |r|)))))))) 
 
+(DECLAIM (NOTINLINE |UserDefinedVariableOrdering;|)) 
+
 (DEFUN |UserDefinedVariableOrdering| ()
   (PROG ()
     (RETURN

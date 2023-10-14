@@ -132,6 +132,8 @@
 
 (DEFUN |TSEREXPT;applyTaylor;M2UTS;4| (|g| |f| $) (SPADCALL |f| |g|)) 
 
+(DECLAIM (NOTINLINE |TaylorSeriesExpansionTaylor;|)) 
+
 (DEFUN |TaylorSeriesExpansionTaylor| (&REST #1=#:G174)
   (PROG ()
     (RETURN

@@ -29,6 +29,8 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (SPADCALL |x| (QREFELT $ 16))
             (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |TrigonometricFunctionCategory&;|)) 
+
 (DEFUN |TrigonometricFunctionCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

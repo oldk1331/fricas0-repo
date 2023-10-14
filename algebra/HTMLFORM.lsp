@@ -1508,6 +1508,8 @@
                                 (|HTMLFORM;formatFunction| |op1| |args| |prec|
                                  $)))))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |HTMLFormat;|)) 
+
 (DEFUN |HTMLFormat| ()
   (PROG ()
     (RETURN

@@ -18,6 +18,8 @@
 
 (DEFUN |LSMP1;rank;MVNni;7| (|m| |c| $) (SPADCALL |m| |c| (QREFELT $ 28))) 
 
+(DECLAIM (NOTINLINE |LinearSystemMatrixPackage1;|)) 
+
 (DEFUN |LinearSystemMatrixPackage1| (#1=#:G141)
   (PROG ()
     (RETURN

@@ -380,6 +380,8 @@
            (QCDR #1#)
          (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))))))) 
 
+(DECLAIM (NOTINLINE |NumberFieldIntegralBasis;|)) 
+
 (DEFUN |NumberFieldIntegralBasis| (&REST #1=#:G242)
   (PROG ()
     (RETURN

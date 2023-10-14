@@ -44,6 +44,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT (NREVERSE |ml|)))))) 
 
+(DECLAIM (NOTINLINE |MaybeSkewPolynomialCategory&;|)) 
+
 (DEFUN |MaybeSkewPolynomialCategory&| (|#1| |#2| |#3| |#4|)
   (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN

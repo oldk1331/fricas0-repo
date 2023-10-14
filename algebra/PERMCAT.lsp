@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |PermutationCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |PermutationCategory;|)) 
+
 (DEFPARAMETER |PermutationCategory;AL| 'NIL) 
 
 (DEFUN |PermutationCategory| (#1=#:G128)

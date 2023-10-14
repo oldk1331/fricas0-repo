@@ -7,6 +7,8 @@
 (DEFUN |PMPRED;suchThat;SLE;2| (|p| |l| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 9)) |l| (QREFELT $ 15))) 
 
+(DECLAIM (NOTINLINE |AttachPredicates;|)) 
+
 (DEFUN |AttachPredicates| (#1=#:G130)
   (PROG ()
     (RETURN

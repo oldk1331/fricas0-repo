@@ -408,6 +408,8 @@
              (|error| "Illegal Symbol Detected:" (|::| |u| (|String|))))
             ('T (QCDR |res|)))))))) 
 
+(DECLAIM (NOTINLINE |FortranExpression;|)) 
+
 (DEFUN |FortranExpression| (&REST #1=#:G290)
   (PROG ()
     (RETURN

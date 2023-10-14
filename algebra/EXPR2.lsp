@@ -27,6 +27,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 13)))))) 
 
+(DECLAIM (NOTINLINE |ExpressionFunctions2;|)) 
+
 (DEFUN |ExpressionFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN

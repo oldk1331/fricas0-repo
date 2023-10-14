@@ -309,6 +309,8 @@
 (DEFUN |POLYCATQ;P2UP| (|p| |x| $)
   (SPADCALL (ELT $ 56) (SPADCALL |p| |x| (QREFELT $ 91)) (QREFELT $ 95))) 
 
+(DECLAIM (NOTINLINE |PolynomialCategoryQuotientFunctions;|)) 
+
 (DEFUN |PolynomialCategoryQuotientFunctions| (&REST #1=#:G232)
   (PROG ()
     (RETURN

@@ -25,6 +25,8 @@
 (DEFUN |RANDSRC;randnum;2I;5| (|n| $)
   (QUOTIENT2 (* |n| (SPADCALL (QREFELT $ 12))) (QREFELT $ 6))) 
 
+(DECLAIM (NOTINLINE |RandomNumberSource;|)) 
+
 (DEFUN |RandomNumberSource| ()
   (PROG ()
     (RETURN

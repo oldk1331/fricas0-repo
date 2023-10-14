@@ -10,6 +10,8 @@
 (DEFUN |ITFUN3;map;MItSS;3| (|f| |s1| |s2| $)
   (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |InfiniteTupleFunctions3;|)) 
+
 (DEFUN |InfiniteTupleFunctions3| (&REST #1=#:G136)
   (PROG ()
     (RETURN

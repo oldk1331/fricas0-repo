@@ -874,6 +874,8 @@
                    (QREFELT $ 59)))))
       #4# (EXIT #4#))))) 
 
+(DECLAIM (NOTINLINE |SBoundary;|)) 
+
 (DEFUN |SBoundary| (#1=#:G255)
   (PROG ()
     (RETURN

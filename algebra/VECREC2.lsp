@@ -455,6 +455,8 @@
                                  (QREFELT $ 37))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |VectorIntegerReconstructor;|)) 
+
 (DEFUN |VectorIntegerReconstructor| ()
   (PROG ()
     (RETURN

@@ -272,6 +272,8 @@
 
 (DEFUN |FFP;characteristic;Nni;39| ($) (SPADCALL (QREFELT $ 142))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldExtensionByPolynomial;|)) 
+
 (DEFUN |FiniteFieldExtensionByPolynomial| (&REST #1=#:G266)
   (PROG ()
     (RETURN

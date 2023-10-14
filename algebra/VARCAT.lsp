@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |VarCat;|)) 
+
 (DEFPARAMETER |VarCat;AL| 'NIL) 
 
 (DEFUN |VarCat| ()

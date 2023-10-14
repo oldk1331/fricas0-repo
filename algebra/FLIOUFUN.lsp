@@ -1370,6 +1370,8 @@
    (SPADCALL (SPADCALL |x| (|spadConstant| $ 7) (QREFELT $ 16)) (QREFELT $ 79))
    (QREFELT $ 53))) 
 
+(DECLAIM (NOTINLINE |FloatLiouvilianFunctions;|)) 
+
 (DEFUN |FloatLiouvilianFunctions| ()
   (PROG ()
     (RETURN

@@ -42,6 +42,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 29))))))) 
 
+(DECLAIM (NOTINLINE |CoerceVectorMatrixPackage;|)) 
+
 (DEFUN |CoerceVectorMatrixPackage| (#1=#:G141)
   (PROG ()
     (RETURN

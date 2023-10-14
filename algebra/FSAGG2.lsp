@@ -13,6 +13,8 @@
    (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) |ident| (QREFELT $ 21))
    (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |FiniteSetAggregateFunctions2;|)) 
+
 (DEFUN |FiniteSetAggregateFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN

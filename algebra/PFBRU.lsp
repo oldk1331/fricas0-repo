@@ -1009,6 +1009,8 @@
                 (QREFELT $ 80)))))))
       #13# (EXIT #13#))))) 
 
+(DECLAIM (NOTINLINE |PolynomialFactorizationByRecursionUnivariate;|)) 
+
 (DEFUN |PolynomialFactorizationByRecursionUnivariate| (&REST #1=#:G381)
   (PROG ()
     (RETURN

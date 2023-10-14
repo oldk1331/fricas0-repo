@@ -11,6 +11,8 @@
     (COND ((SPADCALL |y| |x| (QREFELT $ 8)) 'NIL) (#1='T 'T)))
    (#1# 'NIL))) 
 
+(DECLAIM (NOTINLINE |PartialOrder&;|)) 
+
 (DEFUN |PartialOrder&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

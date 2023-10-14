@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |SpecialFunctionCategory;|)) 
+
 (DEFPARAMETER |SpecialFunctionCategory;AL| 'NIL) 
 
 (DEFUN |SpecialFunctionCategory| ()

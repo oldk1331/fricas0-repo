@@ -132,6 +132,8 @@
          (QREFELT $ 41))
         (QREFELT $ 31))))))) 
 
+(DECLAIM (NOTINLINE |PointsOfFiniteOrderTools;|)) 
+
 (DEFUN |PointsOfFiniteOrderTools| (&REST #1=#:G164)
   (PROG ()
     (RETURN

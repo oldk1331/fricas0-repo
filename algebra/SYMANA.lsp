@@ -608,6 +608,8 @@
        (SPADCALL (APPEND |isc| |sys|) (APPEND |ijb| |sjb|) |vf|
                  (QREFELT $ 81))))))) 
 
+(DECLAIM (NOTINLINE |SymmetryAnalysis;|)) 
+
 (DEFUN |SymmetryAnalysis| (&REST #1=#:G321)
   (PROG ()
     (RETURN

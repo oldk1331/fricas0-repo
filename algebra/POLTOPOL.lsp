@@ -55,6 +55,8 @@
            (SPADCALL (SPADCALL |hdpol| (QREFELT $ 52)) (QREFELT $ 53))
            (QREFELT $ 54)))))))))) 
 
+(DECLAIM (NOTINLINE |PolToPol;|)) 
+
 (DEFUN |PolToPol| (&REST #1=#:G142)
   (PROG ()
     (RETURN

@@ -778,6 +778,8 @@
                            (GO #1#)))))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |RegularTriangularSet;|)) 
+
 (DEFUN |RegularTriangularSet| (&REST #1=#:G400)
   (PROG ()
     (RETURN

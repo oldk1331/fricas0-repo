@@ -239,6 +239,8 @@
                                (#2# 'T)))
                         (#2# 'NIL)))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |BasicOperator;|)) 
+
 (DEFUN |BasicOperator| ()
   (PROG ()
     (RETURN

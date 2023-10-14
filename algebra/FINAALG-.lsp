@@ -1659,6 +1659,8 @@
          (QREFELT $ 114))
         (QREFELT $ 120))))))) 
 
+(DECLAIM (NOTINLINE |FiniteRankNonAssociativeAlgebra&;|)) 
+
 (DEFUN |FiniteRankNonAssociativeAlgebra&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

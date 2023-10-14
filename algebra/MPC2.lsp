@@ -38,6 +38,8 @@
                (SPADCALL (|MPC2;supMap| |fn| |supr| $) |var|
                          (QREFELT $ 35))))))))))) 
 
+(DECLAIM (NOTINLINE |MPolyCatFunctions2;|)) 
+
 (DEFUN |MPolyCatFunctions2| (&REST #1=#:G141)
   (PROG ()
     (RETURN

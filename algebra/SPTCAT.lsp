@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |SPointCategory;|)) 
+
 (DEFPARAMETER |SPointCategory;AL| 'NIL) 
 
 (DEFUN |SPointCategory| ()

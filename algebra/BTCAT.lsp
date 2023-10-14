@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |BinaryTreeCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |BinaryTreeCategory;|)) 
+
 (DEFPARAMETER |BinaryTreeCategory;AL| 'NIL) 
 
 (DEFUN |BinaryTreeCategory| (#1=#:G132)

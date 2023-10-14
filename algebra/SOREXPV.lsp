@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |SortedExponentVector;|)) 
+
 (DEFUN |SortedExponentVector| ()
   (PROG ()
     (RETURN

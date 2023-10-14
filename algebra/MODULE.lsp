@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |Module;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |Module;|)) 
+
 (DEFPARAMETER |Module;AL| 'NIL) 
 
 (DEFUN |Module| (#1=#:G128)

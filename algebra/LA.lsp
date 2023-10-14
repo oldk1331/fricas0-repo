@@ -14,6 +14,8 @@
 
 (DEFUN |LA;characteristic;Nni;3| ($) (SPADCALL (QREFELT $ 18))) 
 
+(DECLAIM (NOTINLINE |LocalAlgebra;|)) 
+
 (DEFUN |LocalAlgebra| (&REST #1=#:G133)
   (PROG ()
     (RETURN

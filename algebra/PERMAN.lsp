@@ -360,6 +360,8 @@
                                            #1#)))))))))
       #9# (EXIT #9#))))) 
 
+(DECLAIM (NOTINLINE |Permanent;|)) 
+
 (DEFUN |Permanent| (&REST #1=#:G189)
   (PROG ()
     (RETURN

@@ -158,6 +158,8 @@
             . #2#)
       (EXIT (VECTOR (SPADCALL |cc1| |c1| (QREFELT $ 13)) |cc1| |cc2|)))))) 
 
+(DECLAIM (NOTINLINE |GcdDomain&;|)) 
+
 (DEFUN |GcdDomain&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

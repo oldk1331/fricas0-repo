@@ -5,6 +5,8 @@
   (SPADCALL (SPADCALL |f| (SPADCALL |uts| (QREFELT $ 11)) (QREFELT $ 15))
             (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |UnivariateTaylorSeriesFunctions2;|)) 
+
 (DEFUN |UnivariateTaylorSeriesFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

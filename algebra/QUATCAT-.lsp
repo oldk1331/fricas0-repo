@@ -295,6 +295,8 @@
     (CONS 0 (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 75))))
    ('T (CONS 1 "failed")))) 
 
+(DECLAIM (NOTINLINE |QuaternionCategory&;|)) 
+
 (DEFUN |QuaternionCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

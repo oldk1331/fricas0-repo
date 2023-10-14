@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |Type;|)) 
+
 (DEFPARAMETER |Type;AL| 'NIL) 
 
 (DEFUN |Type| ()

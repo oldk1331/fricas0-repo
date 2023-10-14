@@ -2376,6 +2376,8 @@
       (EXIT
        (SPADCALL (SPADCALL "ACPLOT" (QREFELT $ 145)) |ff| (QREFELT $ 150))))))) 
 
+(DECLAIM (NOTINLINE |PlaneAlgebraicCurvePlot;|)) 
+
 (DEFUN |PlaneAlgebraicCurvePlot| ()
   (PROG ()
     (RETURN

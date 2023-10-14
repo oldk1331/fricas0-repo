@@ -791,6 +791,8 @@
          (< (SPADCALL |a| (QREFELT $ 46)) (SPADCALL |b| (QREFELT $ 46))))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |OneDimensionalArrayAggregate&;|)) 
+
 (DEFUN |OneDimensionalArrayAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

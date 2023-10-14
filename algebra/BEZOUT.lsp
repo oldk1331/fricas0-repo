@@ -316,6 +316,8 @@
                     (QREFELT $ 34)))))
        ('T (|error| "bezoutDiscriminant: leading coefficient must be 1"))))))) 
 
+(DECLAIM (NOTINLINE |BezoutMatrix;|)) 
+
 (DEFUN |BezoutMatrix| (&REST #1=#:G184)
   (PROG ()
     (RETURN

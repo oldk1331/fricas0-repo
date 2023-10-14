@@ -693,6 +693,8 @@
             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
             (EXIT (NREVERSE #2#)))))))) 
 
+(DECLAIM (NOTINLINE |IntegrationResultToFunction;|)) 
+
 (DEFUN |IntegrationResultToFunction| (&REST #1=#:G285)
   (PROG ()
     (RETURN

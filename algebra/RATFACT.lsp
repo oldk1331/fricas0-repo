@@ -109,6 +109,8 @@
                  (EXIT (NREVERSE #2#))))
            (QREFELT $ 38)))))))))) 
 
+(DECLAIM (NOTINLINE |RationalFactorize;|)) 
+
 (DEFUN |RationalFactorize| (#1=#:G163)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |ExtensionField;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |ExtensionField;|)) 
+
 (DEFPARAMETER |ExtensionField;AL| 'NIL) 
 
 (DEFUN |ExtensionField| (#1=#:G129)

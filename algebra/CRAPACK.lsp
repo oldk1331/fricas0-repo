@@ -227,6 +227,8 @@
                   (QREFELT $ 37))
         (QREFELT $ 18))))))) 
 
+(DECLAIM (NOTINLINE |CRApackage;|)) 
+
 (DEFUN |CRApackage| (#1=#:G186)
   (PROG ()
     (RETURN

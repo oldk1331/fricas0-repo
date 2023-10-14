@@ -734,6 +734,8 @@
               (SPADCALL (SPADCALL |k| (QREFELT $ 30)) (QREFELT $ 155))
               (QREFELT $ 156))))) 
 
+(DECLAIM (NOTINLINE |AlgebraicFunction;|)) 
+
 (DEFUN |AlgebraicFunction| (&REST #1=#:G464)
   (PROG ()
     (RETURN

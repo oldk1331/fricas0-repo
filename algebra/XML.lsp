@@ -43,6 +43,8 @@
       (SPADCALL |content| |f1| (QREFELT $ 20))
       (EXIT (SPADCALL |f1| (QREFELT $ 17))))))) 
 
+(DECLAIM (NOTINLINE |ExportXml;|)) 
+
 (DEFUN |ExportXml| ()
   (PROG ()
     (RETURN

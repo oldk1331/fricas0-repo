@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |LeftAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |LeftAlgebra;|)) 
+
 (DEFPARAMETER |LeftAlgebra;AL| 'NIL) 
 
 (DEFUN |LeftAlgebra| (#1=#:G128)

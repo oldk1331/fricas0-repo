@@ -63,6 +63,8 @@
   (SEQ (SPADCALL |d| (REVERSE (SPADCALL |d| (QREFELT $ 11))) (QREFELT $ 19))
        (EXIT |d|))) 
 
+(DECLAIM (NOTINLINE |Dequeue;|)) 
+
 (DEFUN |Dequeue| (#1=#:G157)
   (PROG ()
     (RETURN

@@ -577,6 +577,8 @@
 (DEFUN |GENUPS;series;FESEUsFA;18| (|an| |n| |eq| |seg| |r| $)
   (SPADCALL |an| |n| |eq| |seg| |r| (QREFELT $ 67))) 
 
+(DECLAIM (NOTINLINE |GenerateUnivariatePowerSeries;|)) 
+
 (DEFUN |GenerateUnivariatePowerSeries| (&REST #1=#:G211)
   (PROG ()
     (RETURN

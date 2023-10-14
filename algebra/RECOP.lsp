@@ -1291,6 +1291,8 @@
                   |dummyF| |xF|)
                  (QREFELT $ 57))))))) 
 
+(DECLAIM (NOTINLINE |RecurrenceOperator;|)) 
+
 (DEFUN |RecurrenceOperator| (&REST #1=#:G394)
   (PROG ()
     (RETURN

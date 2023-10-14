@@ -290,6 +290,8 @@
              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
        |lv| (QREFELT $ 54)))))) 
 
+(DECLAIM (NOTINLINE |NonLinearSolvePackage;|)) 
+
 (DEFUN |NonLinearSolvePackage| (#1=#:G199)
   (PROG ()
     (RETURN

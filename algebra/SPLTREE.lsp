@@ -638,6 +638,8 @@
          (QCAR #2#))))
       (EXIT (SPADCALL |a| (QREFELT $ 75))))))) 
 
+(DECLAIM (NOTINLINE |SplittingTree;|)) 
+
 (DEFUN |SplittingTree| (&REST #1=#:G357)
   (PROG ()
     (RETURN

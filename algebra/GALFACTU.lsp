@@ -317,6 +317,8 @@
 
 (DEFUN |GALFACTU;bombieriNorm;UPF;11| (|f| $) (SPADCALL |f| 2 (QREFELT $ 62))) 
 
+(DECLAIM (NOTINLINE |GaloisGroupFactorizationUtilities;|)) 
+
 (DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G187)
   (PROG ()
     (RETURN

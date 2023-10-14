@@ -160,6 +160,8 @@
             (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T 1))))))) 
 
+(DECLAIM (NOTINLINE |Partition;|)) 
+
 (DEFUN |Partition| ()
   (PROG ()
     (RETURN

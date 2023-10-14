@@ -30,6 +30,8 @@
          (CONS (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 29))) |bas|))
         ('T (CONS (CONS 1 "failed") |bas|)))))))) 
 
+(DECLAIM (NOTINLINE |PureAlgebraicLODE;|)) 
+
 (DEFUN |PureAlgebraicLODE| (&REST #1=#:G148)
   (PROG ()
     (RETURN

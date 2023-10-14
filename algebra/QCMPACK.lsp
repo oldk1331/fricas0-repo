@@ -837,6 +837,8 @@
 (DEFUN |QCMPACK;prepareDecompose;LL2BL;20!0| (|x| |y| $)
   (SPADCALL (QVELT |x| 1) (QVELT |y| 1) (QREFELT $ 38))) 
 
+(DECLAIM (NOTINLINE |QuasiComponentPackage;|)) 
+
 (DEFUN |QuasiComponentPackage| (&REST #1=#:G421)
   (PROG ()
     (RETURN

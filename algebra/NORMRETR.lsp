@@ -98,6 +98,8 @@
         (EXIT (CONS 0 |fft|))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |NormRetractPackage;|)) 
+
 (DEFUN |NormRetractPackage| (&REST #1=#:G154)
   (PROG ()
     (RETURN

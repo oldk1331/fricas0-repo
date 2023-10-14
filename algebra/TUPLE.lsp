@@ -41,6 +41,8 @@
              (EXIT (NREVERSE #2#))))
        (QREFELT $ 22)))))) 
 
+(DECLAIM (NOTINLINE |Tuple;|)) 
+
 (DEFUN |Tuple| (#1=#:G144)
   (PROG ()
     (RETURN

@@ -7,6 +7,8 @@
 (DEFUN |KERNEL2;constantIfCan;KU;2| (|k| $)
   (SPADCALL (SPADCALL |k| (QREFELT $ 16)) (QREFELT $ 18))) 
 
+(DECLAIM (NOTINLINE |KernelFunctions2;|)) 
+
 (DEFUN |KernelFunctions2| (&REST #1=#:G132)
   (PROG ()
     (RETURN

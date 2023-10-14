@@ -70,6 +70,8 @@
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |u| |l| (QREFELT $ 14))))))) 
 
+(DECLAIM (NOTINLINE |FactoredFunctionUtilities;|)) 
+
 (DEFUN |FactoredFunctionUtilities| (#1=#:G148)
   (PROG ()
     (RETURN

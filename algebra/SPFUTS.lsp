@@ -187,6 +187,8 @@
                  (SPADCALL (SPADCALL |lsigma| (QREFELT $ 56)) (QREFELT $ 12))
                  (QREFELT $ 15))))))) 
 
+(DECLAIM (NOTINLINE |SpecialFunctionUnivariateTaylorSeries;|)) 
+
 (DEFUN |SpecialFunctionUnivariateTaylorSeries| (&REST #1=#:G157)
   (PROG ()
     (RETURN

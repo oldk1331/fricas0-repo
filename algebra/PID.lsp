@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |PrincipalIdealDomain;|)) 
+
 (DEFPARAMETER |PrincipalIdealDomain;AL| 'NIL) 
 
 (DEFUN |PrincipalIdealDomain| ()

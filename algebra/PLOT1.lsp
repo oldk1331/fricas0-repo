@@ -14,6 +14,8 @@
 (DEFUN |PLOT1;plotPolar;SSSP;4| (|f| |theta| |thetaRange| $)
   (SPADCALL (SPADCALL |f| |theta| (QREFELT $ 10)) |thetaRange| (QREFELT $ 19))) 
 
+(DECLAIM (NOTINLINE |PlotFunctions1;|)) 
+
 (DEFUN |PlotFunctions1| (#1=#:G136)
   (PROG ()
     (RETURN

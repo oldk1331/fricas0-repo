@@ -143,6 +143,8 @@
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT |root|))))))))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldPolynomialPackage2;|)) 
+
 (DEFUN |FiniteFieldPolynomialPackage2| (&REST #1=#:G149)
   (PROG ()
     (RETURN

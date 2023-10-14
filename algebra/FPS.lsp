@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FloatingPointSystem;|)) 
+
 (DEFPARAMETER |FloatingPointSystem;AL| 'NIL) 
 
 (DEFUN |FloatingPointSystem| ()

@@ -13,6 +13,8 @@
 
 (DEFUN |VARIABLE;latex;$S;5| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |Variable;|)) 
+
 (DEFUN |Variable| (#1=#:G132)
   (PROG ()
     (RETURN

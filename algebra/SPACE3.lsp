@@ -827,6 +827,8 @@
               (COND ((EQL |sizo| 1) " component") ('T " components")))
         (QREFELT $ 110))))))) 
 
+(DECLAIM (NOTINLINE |ThreeSpace;|)) 
+
 (DEFUN |ThreeSpace| (#1=#:G371)
   (PROG ()
     (RETURN

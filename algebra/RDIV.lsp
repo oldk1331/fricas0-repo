@@ -175,6 +175,8 @@
                                                      (ELT $ 10))))
                                                   |curve|)))))))) 
 
+(DECLAIM (NOTINLINE |ReducedDivisor;|)) 
+
 (DEFUN |ReducedDivisor| (&REST #1=#:G143)
   (PROG ()
     (RETURN

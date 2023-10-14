@@ -51,6 +51,8 @@
 (DEFUN |ELAGG-;merge!;3A;13| (|x| |y| $)
   (SPADCALL (ELT $ 37) |x| |y| (QREFELT $ 39))) 
 
+(DECLAIM (NOTINLINE |ExtensibleLinearAggregate&;|)) 
+
 (DEFUN |ExtensibleLinearAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

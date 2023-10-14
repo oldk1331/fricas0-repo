@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |RetractableTo;|)) 
+
 (DEFPARAMETER |RetractableTo;AL| 'NIL) 
 
 (DEFUN |RetractableTo| (#1=#:G128)

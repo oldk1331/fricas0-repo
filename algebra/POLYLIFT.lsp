@@ -46,6 +46,8 @@
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT |ans|))))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialCategoryLifting;|)) 
+
 (DEFUN |PolynomialCategoryLifting| (&REST #1=#:G141)
   (PROG ()
     (RETURN

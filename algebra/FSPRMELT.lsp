@@ -298,6 +298,8 @@
                |k| (SPADCALL |k| (QREFELT $ 39)) (QREFELT $ 84)))))
        ('T (|error| "GCD not of degree 1"))))))) 
 
+(DECLAIM (NOTINLINE |FunctionSpacePrimitiveElement;|)) 
+
 (DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G183)
   (PROG ()
     (RETURN

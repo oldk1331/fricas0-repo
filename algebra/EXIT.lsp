@@ -11,6 +11,8 @@
 
 (DEFUN |EXIT;=;2$B;2| (|n1| |n2| $) (|error| "Cannot use an Exit value.")) 
 
+(DECLAIM (NOTINLINE |Exit;|)) 
+
 (DEFUN |Exit| ()
   (PROG ()
     (RETURN

@@ -37,6 +37,8 @@
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL B (QREFELT $ 17))))))))))) 
 
+(DECLAIM (NOTINLINE |CharacteristicPolynomialPackage;|)) 
+
 (DEFUN |CharacteristicPolynomialPackage| (#1=#:G135)
   (PROG ()
     (RETURN

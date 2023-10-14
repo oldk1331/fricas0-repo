@@ -448,6 +448,8 @@
          (QCDR #1#)
        (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))) 
 
+(DECLAIM (NOTINLINE |IntegerCombinatoricFunctions;|)) 
+
 (DEFUN |IntegerCombinatoricFunctions| (#1=#:G208)
   (PROG ()
     (RETURN

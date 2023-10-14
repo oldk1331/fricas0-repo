@@ -2214,6 +2214,8 @@
              (SPADCALL |x| (QREFELT $ 90)) (QREFELT $ 124))
    (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |FloatEllipticFunctions;|)) 
+
 (DEFUN |FloatEllipticFunctions| ()
   (PROG ()
     (RETURN

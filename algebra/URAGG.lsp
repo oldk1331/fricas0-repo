@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |UnaryRecursiveAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |UnaryRecursiveAggregate;|)) 
+
 (DEFPARAMETER |UnaryRecursiveAggregate;AL| 'NIL) 
 
 (DEFUN |UnaryRecursiveAggregate| (#1=#:G171)

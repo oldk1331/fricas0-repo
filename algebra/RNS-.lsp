@@ -86,6 +86,8 @@
            (#1# (SPADCALL (QREFELT $ 48)))))))
        (#1# (SPADCALL (QREFELT $ 48)))))))) 
 
+(DECLAIM (NOTINLINE |RealNumberSystem&;|)) 
+
 (DEFUN |RealNumberSystem&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

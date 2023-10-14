@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |lazyRepresentation;|)) 
+
 (DEFPARAMETER |lazyRepresentation;AL| 'NIL) 
 
 (DEFUN |lazyRepresentation| ()

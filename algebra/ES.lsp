@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |ExpressionSpace;|)) 
+
 (DEFPARAMETER |ExpressionSpace;AL| 'NIL) 
 
 (DEFUN |ExpressionSpace| ()

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |StackAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |StackAggregate;|)) 
+
 (DEFPARAMETER |StackAggregate;AL| 'NIL) 
 
 (DEFUN |StackAggregate| (#1=#:G128)

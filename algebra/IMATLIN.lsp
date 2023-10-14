@@ -704,6 +704,8 @@
                       (SPADCALL AB |kmin| |kmax| (+ |lmin| |ndim|)
                                 (+ |lmax| |ndim|) (QREFELT $ 51))))))))))))) 
 
+(DECLAIM (NOTINLINE |InnerMatrixLinearAlgebraFunctions;|)) 
+
 (DEFUN |InnerMatrixLinearAlgebraFunctions| (&REST #1=#:G240)
   (PROG ()
     (RETURN

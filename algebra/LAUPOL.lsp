@@ -388,6 +388,8 @@
                          (SPADCALL |b| (QREFELT $ 19)))
                       (QCDR (QCDR |bc|)) $)))))))))) 
 
+(DECLAIM (NOTINLINE |LaurentPolynomial;|)) 
+
 (DEFUN |LaurentPolynomial| (&REST #1=#:G282)
   (PROG ()
     (RETURN

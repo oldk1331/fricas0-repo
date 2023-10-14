@@ -403,6 +403,8 @@
 (DEFUN |SET;map!;M2$;30| (|f| |s| $)
   (SEQ (SPADCALL |f| |s| (QREFELT $ 54)) (EXIT (SPADCALL |s| (QREFELT $ 75))))) 
 
+(DECLAIM (NOTINLINE |Set;|)) 
+
 (DEFUN |Set| (#1=#:G258)
   (PROG ()
     (RETURN

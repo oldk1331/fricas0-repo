@@ -549,6 +549,8 @@
                                (|NSUP;per| (REVERSE |qq|) $)
                                (QREFELT $ 23)))))))))))) 
 
+(DECLAIM (NOTINLINE |NewSparseUnivariatePolynomial;|)) 
+
 (DEFUN |NewSparseUnivariatePolynomial| (#1=#:G346)
   (PROG ()
     (RETURN

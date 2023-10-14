@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |OctonionCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |OctonionCategory;|)) 
+
 (DEFPARAMETER |OctonionCategory;AL| 'NIL) 
 
 (DEFUN |OctonionCategory| (#1=#:G194)

@@ -227,6 +227,8 @@
                     (QREFELT $ 23))
                    (QREFELT $ 30))))))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialRoots;|)) 
+
 (DEFUN |PolynomialRoots| (&REST #1=#:G197)
   (PROG ()
     (RETURN

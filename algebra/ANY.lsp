@@ -94,6 +94,8 @@
                        (|error|
                         "function any must have a domain as first argument"))))))))) 
 
+(DECLAIM (NOTINLINE |Any;|)) 
+
 (DEFUN |Any| ()
   (PROG ()
     (RETURN

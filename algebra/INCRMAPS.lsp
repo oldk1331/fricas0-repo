@@ -15,6 +15,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |n| |x| (QREFELT $ 8)))))) 
 
+(DECLAIM (NOTINLINE |IncrementingMaps;|)) 
+
 (DEFUN |IncrementingMaps| (#1=#:G132)
   (PROG ()
     (RETURN

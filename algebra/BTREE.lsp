@@ -56,6 +56,8 @@
   (COND ((SPADCALL |t1| (QREFELT $ 18)) (|error| "binaryTree:no right to set"))
         ('T (SPADCALL |t1| |t2| (QREFELT $ 29))))) 
 
+(DECLAIM (NOTINLINE |BinaryTree;|)) 
+
 (DEFUN |BinaryTree| (#1=#:G163)
   (PROG ()
     (RETURN

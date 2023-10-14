@@ -232,6 +232,8 @@
             (LETT #4# (CDR #4#) NIL) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T (|spadConstant| $ 31)))))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchPolynomialCategory;|)) 
+
 (DEFUN |PatternMatchPolynomialCategory| (&REST #1=#:G209)
   (PROG ()
     (RETURN

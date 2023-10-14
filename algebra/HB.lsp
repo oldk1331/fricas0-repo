@@ -139,6 +139,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |v|))))) 
 
+(DECLAIM (NOTINLINE |HallBasis;|)) 
+
 (DEFUN |HallBasis| ()
   (PROG ()
     (RETURN

@@ -48,6 +48,8 @@
          $))
        ('T (|error| "suchThat must be applied to symbols only"))))))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceAttachPredicates;|)) 
+
 (DEFUN |FunctionSpaceAttachPredicates| (&REST #1=#:G147)
   (PROG ()
     (RETURN

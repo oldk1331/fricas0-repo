@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FullyEvalableOver;|)) 
+
 (DEFPARAMETER |FullyEvalableOver;AL| 'NIL) 
 
 (DEFUN |FullyEvalableOver| (#1=#:G128)

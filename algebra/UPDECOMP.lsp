@@ -288,6 +288,8 @@
                     (APPEND (SPADCALL (QCAR |lr|) (QREFELT $ 44))
                             (LIST (QCDR |lr|)))))))))))) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomialDecompositionPackage;|)) 
+
 (DEFUN |UnivariatePolynomialDecompositionPackage| (&REST #1=#:G203)
   (PROG ()
     (RETURN

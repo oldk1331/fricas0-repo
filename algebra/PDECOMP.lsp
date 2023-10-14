@@ -122,6 +122,8 @@
                  (SPADCALL (SPADCALL |h| 0 (QREFELT $ 34)) 0 (QREFELT $ 19))
                  (QREFELT $ 39))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialDecomposition;|)) 
+
 (DEFUN |PolynomialDecomposition| (&REST #1=#:G181)
   (PROG ()
     (RETURN

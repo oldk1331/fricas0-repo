@@ -181,6 +181,8 @@
       (SPADCALL (|STEXPS;exp00| (SPADCALL |y| (QREFELT $ 50)) $) |z|
                 (QREFELT $ 39)))))) 
 
+(DECLAIM (NOTINLINE |StreamExponentialSeriesOperations;|)) 
+
 (DEFUN |StreamExponentialSeriesOperations| (#1=#:G211)
   (PROG ()
     (RETURN

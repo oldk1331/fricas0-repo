@@ -42,6 +42,8 @@
                    (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))))))) 
 
+(DECLAIM (NOTINLINE |MonadWithUnit&;|)) 
+
 (DEFUN |MonadWithUnit&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

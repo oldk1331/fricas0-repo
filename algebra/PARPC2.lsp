@@ -5,6 +5,8 @@
   (SPADCALL (SPADCALL (SPADCALL |c| 1 (QREFELT $ 10)) |f|)
             (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|) (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |ParametricPlaneCurveFunctions2;|)) 
+
 (DEFUN |ParametricPlaneCurveFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

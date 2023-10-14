@@ -84,6 +84,8 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 44)) (QREFELT $ 45)))
    (QREFELT $ 47))) 
 
+(DECLAIM (NOTINLINE |Matrix;|)) 
+
 (DEFUN |Matrix| (#1=#:G2156)
   (PROG ()
     (RETURN

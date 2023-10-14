@@ -14,6 +14,8 @@
              (SPADCALL (SPADCALL (QCDR |u|) |f|) (QREFELT $ 16)))
             ('T |i|))))))) 
 
+(DECLAIM (NOTINLINE |OnePointCompletionFunctions2;|)) 
+
 (DEFUN |OnePointCompletionFunctions2| (&REST #1=#:G134)
   (PROG ()
     (RETURN

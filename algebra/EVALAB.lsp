@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |Evalable;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |Evalable;|)) 
+
 (DEFPARAMETER |Evalable;AL| 'NIL) 
 
 (DEFUN |Evalable| (#1=#:G128)

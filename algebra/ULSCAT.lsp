@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |UnivariateLaurentSeriesCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |UnivariateLaurentSeriesCategory;|)) 
+
 (DEFPARAMETER |UnivariateLaurentSeriesCategory;AL| 'NIL) 
 
 (DEFUN |UnivariateLaurentSeriesCategory| (#1=#:G129)

@@ -5,6 +5,8 @@
 
 (DEFUN |NONE1;coerce;SN;1| (|s| $) |s|) 
 
+(DECLAIM (NOTINLINE |NoneFunctions1;|)) 
+
 (DEFUN |NoneFunctions1| (#1=#:G128)
   (PROG ()
     (RETURN

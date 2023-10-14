@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FortranMachineTypeCategory;|)) 
+
 (DEFPARAMETER |FortranMachineTypeCategory;AL| 'NIL) 
 
 (DEFUN |FortranMachineTypeCategory| ()

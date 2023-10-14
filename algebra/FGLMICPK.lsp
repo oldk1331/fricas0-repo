@@ -185,6 +185,8 @@
              (LETT #1# (CDR #1#) . #9#) (GO G190) G191
              (EXIT (NREVERSE #2#))))))))) 
 
+(DECLAIM (NOTINLINE |FGLMIfCanPackage;|)) 
+
 (DEFUN |FGLMIfCanPackage| (&REST #1=#:G183)
   (PROG ()
     (RETURN

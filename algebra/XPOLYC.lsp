@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |XPolynomialsCat;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |XPolynomialsCat;|)) 
+
 (DEFPARAMETER |XPolynomialsCat;AL| 'NIL) 
 
 (DEFUN |XPolynomialsCat| (&REST #1=#:G128)

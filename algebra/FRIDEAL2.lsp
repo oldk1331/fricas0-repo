@@ -59,6 +59,8 @@
       (SPADCALL (SPADCALL (SPADCALL |s| (QREFELT $ 24)) |f|)
                 (SPADCALL (SPADCALL |s| (QREFELT $ 25)) |f|) (QREFELT $ 26)))))) 
 
+(DECLAIM (NOTINLINE |FractionalIdealFunctions2;|)) 
+
 (DEFUN |FractionalIdealFunctions2| (&REST #1=#:G141)
   (PROG ()
     (RETURN

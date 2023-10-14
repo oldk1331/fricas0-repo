@@ -350,6 +350,8 @@
 (DEFUN |RSETCAT-;intersect;P2L;15| (|p| |lts| $)
   (SPADCALL (LIST |p|) |lts| (QREFELT $ 75))) 
 
+(DECLAIM (NOTINLINE |RegularTriangularSetCategory&;|)) 
+
 (DEFUN |RegularTriangularSetCategory&| (|#1| |#2| |#3| |#4| |#5|)
   (PROG (|pv$| $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN

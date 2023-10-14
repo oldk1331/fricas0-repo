@@ -160,6 +160,8 @@
                               (SPADCALL |v| (QREFELT $ 63)) (QREFELT $ 64))
                     (QREFELT $ 65)))))))))) 
 
+(DECLAIM (NOTINLINE |SparseMultivariateSkewPolynomial;|)) 
+
 (DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G204)
   (PROG ()
     (RETURN

@@ -577,6 +577,8 @@
                 . #3#)
           (EXIT (SPADCALL |branches| (QREFELT $ 105))))))))))) 
 
+(DECLAIM (NOTINLINE |RegularSetDecompositionPackage;|)) 
+
 (DEFUN |RegularSetDecompositionPackage| (&REST #1=#:G316)
   (PROG ()
     (RETURN

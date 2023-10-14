@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FreeModuleCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FreeModuleCategory;|)) 
+
 (DEFPARAMETER |FreeModuleCategory;AL| 'NIL) 
 
 (DEFUN |FreeModuleCategory| (&REST #1=#:G132)

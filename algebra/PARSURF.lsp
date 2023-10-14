@@ -11,6 +11,8 @@
         ((EQL |n| 3) (QVELT |c| 2))
         ('T (|error| "coordinate: index out of bounds")))) 
 
+(DECLAIM (NOTINLINE |ParametricSurface;|)) 
+
 (DEFUN |ParametricSurface| (#1=#:G132)
   (PROG ()
     (RETURN

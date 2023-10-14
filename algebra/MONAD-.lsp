@@ -37,6 +37,8 @@
                        (EXIT NIL))
                   (EXIT |res|)))))))) 
 
+(DECLAIM (NOTINLINE |Monad&;|)) 
+
 (DEFUN |Monad&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

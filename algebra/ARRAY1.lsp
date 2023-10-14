@@ -36,6 +36,8 @@
 
 (DEFUN |ARRAY1;oneDimensionalArray;NniS$;4| (|n| |s| $) (MAKEARR1 |n| |s|)) 
 
+(DECLAIM (NOTINLINE |OneDimensionalArray;|)) 
+
 (DEFUN |OneDimensionalArray| (#1=#:G2179)
   (PROG ()
     (RETURN

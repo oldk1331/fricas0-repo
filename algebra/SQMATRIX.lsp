@@ -143,6 +143,8 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 41)) (QREFELT $ 74)))
    (QREFELT $ 76))) 
 
+(DECLAIM (NOTINLINE |SquareMatrix;|)) 
+
 (DEFUN |SquareMatrix| (&REST #1=#:G202)
   (PROG ()
     (RETURN

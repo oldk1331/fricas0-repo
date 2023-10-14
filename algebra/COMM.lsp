@@ -41,6 +41,8 @@
                           (SPADCALL (QCDR |xx|) (QREFELT $ 18)))
                     (QREFELT $ 20)))))))))) 
 
+(DECLAIM (NOTINLINE |Commutator;|)) 
+
 (DEFUN |Commutator| ()
   (PROG ()
     (RETURN

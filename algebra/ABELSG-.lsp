@@ -3,6 +3,8 @@
 
 (DEFUN |ABELSG-;*;Pi2S;1| (|n| |x| $) (SPADCALL |n| |x| (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |AbelianSemiGroup&;|)) 
+
 (DEFUN |AbelianSemiGroup&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

@@ -14,6 +14,8 @@
   (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) (SPADCALL |y| |x| (QREFELT $ 7))
             (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |NonAssociativeRng&;|)) 
+
 (DEFUN |NonAssociativeRng&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

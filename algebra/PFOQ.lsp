@@ -157,6 +157,8 @@
           (COND ((QEQCAR |g| 1) (CONS 1 "failed"))
                 (#2# (CONS 0 (CONS |n| (QCDR |g|))))))))))))) 
 
+(DECLAIM (NOTINLINE |PointsOfFiniteOrderRational;|)) 
+
 (DEFUN |PointsOfFiniteOrderRational| (&REST #1=#:G168)
   (PROG ()
     (RETURN

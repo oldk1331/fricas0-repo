@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |OneDimensionalArrayAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |OneDimensionalArrayAggregate;|)) 
+
 (DEFPARAMETER |OneDimensionalArrayAggregate;AL| 'NIL) 
 
 (DEFUN |OneDimensionalArrayAggregate| (#1=#:G159)

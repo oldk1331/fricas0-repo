@@ -2066,6 +2066,8 @@
                        (|LIMITPS;locallimitcomplex| |fcn| |x| |a|
                         $)))))))))))))) 
 
+(DECLAIM (NOTINLINE |PowerSeriesLimitPackage;|)) 
+
 (DEFUN |PowerSeriesLimitPackage| (&REST #1=#:G689)
   (PROG ()
     (RETURN

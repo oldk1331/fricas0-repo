@@ -17,6 +17,8 @@
   (SPADCALL "|" (SPADCALL (QCAR |w|) (QREFELT $ 13))
             (SPADCALL (QCDR |w|) (QREFELT $ 14)) (QREFELT $ 15))) 
 
+(DECLAIM (NOTINLINE |SuchThat;|)) 
+
 (DEFUN |SuchThat| (&REST #1=#:G134)
   (PROG ()
     (RETURN

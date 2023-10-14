@@ -659,6 +659,8 @@
        ((NULL (|GROEBSOL;zeroDim?| |leq1| |lvar| $)) (EXIT (CONS 1 "failed"))))
       (EXIT (CONS 0 |leq1|)))))) 
 
+(DECLAIM (NOTINLINE |GroebnerSolve;|)) 
+
 (DEFUN |GroebnerSolve| (&REST #1=#:G266)
   (PROG ()
     (RETURN

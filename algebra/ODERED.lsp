@@ -61,6 +61,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |diff| |f1| (QREFELT $ 23)))))) 
 
+(DECLAIM (NOTINLINE |ReduceLODE;|)) 
+
 (DEFUN |ReduceLODE| (&REST #1=#:G139)
   (PROG ()
     (RETURN

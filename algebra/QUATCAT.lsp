@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |QuaternionCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |QuaternionCategory;|)) 
+
 (DEFPARAMETER |QuaternionCategory;AL| 'NIL) 
 
 (DEFUN |QuaternionCategory| (#1=#:G161)

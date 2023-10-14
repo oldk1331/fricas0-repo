@@ -51,6 +51,8 @@
                     (QREFELT $ 17))
           (EXIT (|Void|)))))) 
 
+(DECLAIM (NOTINLINE |XmlAttribute;|)) 
+
 (DEFUN |XmlAttribute| ()
   (PROG ()
     (RETURN

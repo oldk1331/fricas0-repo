@@ -140,6 +140,8 @@
                 (EXIT (CONS 0 |ans|))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |RetractSolvePackage;|)) 
+
 (DEFUN |RetractSolvePackage| (&REST #1=#:G171)
   (PROG ()
     (RETURN

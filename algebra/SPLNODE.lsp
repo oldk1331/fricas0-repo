@@ -139,6 +139,8 @@
       (LETT |l| (LIST |o1| |o2| |o3|) . #1#)
       (EXIT (SPADCALL (SPADCALL |l| (QREFELT $ 48)) (QREFELT $ 49))))))) 
 
+(DECLAIM (NOTINLINE |SplittingNode;|)) 
+
 (DEFUN |SplittingNode| (&REST #1=#:G181)
   (PROG ()
     (RETURN

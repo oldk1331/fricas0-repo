@@ -899,6 +899,8 @@
 (DEFUN |DRAWCFUN;draw;M2STdv;36| (|s| |uSeg| |vSeg| $)
   (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 164))) 
 
+(DECLAIM (NOTINLINE |TopLevelDrawFunctionsForCompiledFunctions;|)) 
+
 (DEFUN |TopLevelDrawFunctionsForCompiledFunctions| ()
   (PROG ()
     (RETURN

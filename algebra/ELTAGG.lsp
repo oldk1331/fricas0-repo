@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |EltableAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |EltableAggregate;|)) 
+
 (DEFPARAMETER |EltableAggregate;AL| 'NIL) 
 
 (DEFUN |EltableAggregate| (&REST #1=#:G128)

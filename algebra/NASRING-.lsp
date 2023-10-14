@@ -4,6 +4,8 @@
 (DEFUN |NASRING-;coerce;IS;1| (|n| $)
   (SPADCALL |n| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |NonAssociativeRing&;|)) 
+
 (DEFUN |NonAssociativeRing&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

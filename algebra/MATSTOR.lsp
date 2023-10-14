@@ -344,6 +344,8 @@
          (LETT |c| (SPADCALL |m| (QREFELT $ 26)) . #1#)
          (EXIT (SPADCALL |a| |b| |c| |m| |n| (QREFELT $ 23)))))))))) 
 
+(DECLAIM (NOTINLINE |StorageEfficientMatrixOperations;|)) 
+
 (DEFUN |StorageEfficientMatrixOperations| (#1=#:G244)
   (PROG ()
     (RETURN

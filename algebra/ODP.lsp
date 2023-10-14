@@ -3,6 +3,8 @@
 
 (DEFUN |ODP;<;2$B;1| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 8))) 
 
+(DECLAIM (NOTINLINE |OrderedDirectProduct;|)) 
+
 (DEFUN |OrderedDirectProduct| (&REST #1=#:G150)
   (PROG ()
     (RETURN

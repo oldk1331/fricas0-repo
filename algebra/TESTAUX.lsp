@@ -239,6 +239,8 @@
     (SPADCALL |inp| (LIST (SPADCALL |ex| (QREFELT $ 24))) (QREFELT $ 61)))
    ('T (SPADCALL |inp| NIL (QREFELT $ 61))))) 
 
+(DECLAIM (NOTINLINE |UnittestAux;|)) 
+
 (DEFUN |UnittestAux| (#1=#:G205)
   (PROG ()
     (RETURN

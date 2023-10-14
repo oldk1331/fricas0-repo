@@ -65,6 +65,8 @@
               (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
             (QREFELT $ 14))))))) 
 
+(DECLAIM (NOTINLINE |HyperbolicFunctionCategory&;|)) 
+
 (DEFUN |HyperbolicFunctionCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

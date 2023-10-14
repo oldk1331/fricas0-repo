@@ -648,6 +648,8 @@
        #1# (EXIT #1#))
       (EXIT (CONS |x| |w|)))))) 
 
+(DECLAIM (NOTINLINE |SystemODESolver;|)) 
+
 (DEFUN |SystemODESolver| (&REST #1=#:G311)
   (PROG ()
     (RETURN

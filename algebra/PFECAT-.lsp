@@ -78,6 +78,8 @@
 (DEFUN |PFECAT-;solveLinearPolynomialEquation;LSupU;4| (|lf| |g| $)
   (SPADCALL |lf| |g| (QREFELT $ 43))) 
 
+(DECLAIM (NOTINLINE |PolynomialFactorizationExplicit&;|)) 
+
 (DEFUN |PolynomialFactorizationExplicit&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

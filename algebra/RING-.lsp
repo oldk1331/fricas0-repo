@@ -4,6 +4,8 @@
 (DEFUN |RING-;coerce;IS;1| (|n| $)
   (SPADCALL |n| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |Ring&;|)) 
+
 (DEFUN |Ring&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |RightModule;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |RightModule;|)) 
+
 (DEFPARAMETER |RightModule;AL| 'NIL) 
 
 (DEFUN |RightModule| (#1=#:G128)

@@ -314,6 +314,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL (QCAR |ur|) |l1| (QREFELT $ 44)))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchPushDown;|)) 
+
 (DEFUN |PatternMatchPushDown| (&REST #1=#:G239)
   (PROG ()
     (RETURN

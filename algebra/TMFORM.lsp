@@ -891,6 +891,8 @@
                                   (|TMFORM;formatFunction| (|SPADfirst| |l|)
                                    |args| |prec| $)))))))))))))))) 
 
+(DECLAIM (NOTINLINE |TexmacsFormat;|)) 
+
 (DEFUN |TexmacsFormat| ()
   (PROG ()
     (RETURN

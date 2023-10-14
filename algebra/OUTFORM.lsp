@@ -449,6 +449,8 @@
 (DEFUN |OUTFORM;tensor;3$;105| (|a| |b| $)
   (SPADCALL (LIST (|OUTFORM;eform| 'TENSOR $) |a| |b|) (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |OutputForm;|)) 
+
 (DEFUN |OutputForm| ()
   (PROG ()
     (RETURN

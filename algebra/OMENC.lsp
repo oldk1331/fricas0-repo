@@ -24,6 +24,8 @@
 
 (DEFUN |OMENC;OMencodingSGML;$;6| ($) (SPADCALL 3 (QREFELT $ 10))) 
 
+(DECLAIM (NOTINLINE |OpenMathEncoding;|)) 
+
 (DEFUN |OpenMathEncoding| ()
   (PROG ()
     (RETURN

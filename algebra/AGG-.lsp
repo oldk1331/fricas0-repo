@@ -16,6 +16,8 @@
 
 (DEFUN |AGG-;size?;SNniB;6| (|a| |n| $) (EQL (SPADCALL |a| (QREFELT $ 12)) |n|)) 
 
+(DECLAIM (NOTINLINE |Aggregate&;|)) 
+
 (DEFUN |Aggregate&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

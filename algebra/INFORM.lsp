@@ -378,6 +378,8 @@
   (COND ((SPADCALL |s2| (|spadConstant| $ 10) (QREFELT $ 60)) |s1|)
         ('T (|INFORM;conv| (LIST (SPADCALL '/ (QREFELT $ 16)) |s1| |s2|) $)))) 
 
+(DECLAIM (NOTINLINE |InputForm;|)) 
+
 (DEFUN |InputForm| ()
   (PROG ()
     (RETURN

@@ -7,6 +7,8 @@
 (DEFUN |FPC-;primeFrobenius;SNniS;2| (|a| |s| $)
   (SPADCALL |a| (EXPT (SPADCALL (QREFELT $ 8)) |s|) (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |FieldOfPrimeCharacteristic&;|)) 
+
 (DEFUN |FieldOfPrimeCharacteristic&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

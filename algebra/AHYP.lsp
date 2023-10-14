@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |ArcHyperbolicFunctionCategory;|)) 
+
 (DEFPARAMETER |ArcHyperbolicFunctionCategory;AL| 'NIL) 
 
 (DEFUN |ArcHyperbolicFunctionCategory| ()

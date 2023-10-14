@@ -349,6 +349,8 @@
                 (QREFELT $ 42))
       (EXIT P))))) 
 
+(DECLAIM (NOTINLINE |PseudoLinearNormalForm;|)) 
+
 (DEFUN |PseudoLinearNormalForm| (#1=#:G224)
   (PROG ()
     (RETURN

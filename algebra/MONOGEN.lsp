@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MonogenicAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MonogenicAlgebra;|)) 
+
 (DEFPARAMETER |MonogenicAlgebra;AL| 'NIL) 
 
 (DEFUN |MonogenicAlgebra| (&REST #1=#:G128)

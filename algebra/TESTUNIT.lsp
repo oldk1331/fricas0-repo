@@ -211,6 +211,8 @@
       (|TESTUNIT;interpretFunction1| '|xftestLibraryErrorAux| |inp| |s| $)
       (SPADCALL (QREFELT $ 36)) (EXIT (SPADCALL (QREFELT $ 32))))))) 
 
+(DECLAIM (NOTINLINE |Unittest;|)) 
+
 (DEFUN |Unittest| ()
   (PROG ()
     (RETURN

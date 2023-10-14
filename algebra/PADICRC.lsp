@@ -386,6 +386,8 @@
                            (SPADCALL (ELT $ 83) (NREVERSE |l|)
                                      (QREFELT $ 86))))))))))))) 
 
+(DECLAIM (NOTINLINE |PAdicRationalConstructor;|)) 
+
 (DEFUN |PAdicRationalConstructor| (&REST #1=#:G451)
   (PROG ()
     (RETURN

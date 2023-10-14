@@ -199,6 +199,8 @@
                (GO G190) G191 (EXIT NIL))
           (EXIT |w|))))) 
 
+(DECLAIM (NOTINLINE |WeightedPolynomials;|)) 
+
 (DEFUN |WeightedPolynomials| (&REST #1=#:G194)
   (PROG ()
     (RETURN

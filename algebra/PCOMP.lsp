@@ -22,6 +22,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |r|))))) 
 
+(DECLAIM (NOTINLINE |PolynomialComposition;|)) 
+
 (DEFUN |PolynomialComposition| (&REST #1=#:G131)
   (PROG ()
     (RETURN

@@ -1339,6 +1339,8 @@
                 #2# (EXIT #2#)))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceToExponentialExpansion;|)) 
+
 (DEFUN |FunctionSpaceToExponentialExpansion| (&REST #1=#:G520)
   (PROG ()
     (RETURN

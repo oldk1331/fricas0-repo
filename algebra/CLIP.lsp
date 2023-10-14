@@ -660,6 +660,8 @@
   (|CLIP;iClipParametric| |l| (SPADCALL 1 2 (QREFELT $ 58))
    (SPADCALL 5 1 (QREFELT $ 58)) $)) 
 
+(DECLAIM (NOTINLINE |TwoDimensionalPlotClipping;|)) 
+
 (DEFUN |TwoDimensionalPlotClipping| ()
   (PROG ()
     (RETURN

@@ -81,6 +81,8 @@
                        (QREFELT $ 36))
              (QREFELT $ 39)))) 
 
+(DECLAIM (NOTINLINE |Octonion;|)) 
+
 (DEFUN |Octonion| (#1=#:G192)
   (PROG ()
     (RETURN

@@ -285,6 +285,8 @@
                           (QREFELT $ 19))
                 |lffe| (QREFELT $ 39))))))))))))))) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomialSquareFree;|)) 
+
 (DEFUN |UnivariatePolynomialSquareFree| (&REST #1=#:G219)
   (PROG ()
     (RETURN

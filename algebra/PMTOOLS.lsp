@@ -462,6 +462,8 @@
           ('T (|spadConstant| $ 54))))
    ('T (|spadConstant| $ 53)))) 
 
+(DECLAIM (NOTINLINE |PatternMatchTools;|)) 
+
 (DEFUN |PatternMatchTools| (&REST #1=#:G339)
   (PROG ()
     (RETURN

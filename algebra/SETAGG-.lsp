@@ -14,6 +14,8 @@
 (DEFUN |SETAGG-;difference;ASA;4| (|s| |x| $)
   (SPADCALL |s| (SPADCALL (LIST |x|) (QREFELT $ 12)) (QREFELT $ 8))) 
 
+(DECLAIM (NOTINLINE |SetAggregate&;|)) 
+
 (DEFUN |SetAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

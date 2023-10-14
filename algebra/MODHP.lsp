@@ -1673,6 +1673,8 @@
        (|list| |degs| |kind| |qvar| |sigma| |gen| |check| $)
   (CONS 1 'T)) 
 
+(DECLAIM (NOTINLINE |ModularHermitePade;|)) 
+
 (DEFUN |ModularHermitePade| ()
   (PROG ()
     (RETURN

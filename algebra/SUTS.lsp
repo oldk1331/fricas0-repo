@@ -789,6 +789,8 @@
                      (SPADCALL |x| (QREFELT $ 53)) (|spadConstant| $ 199)
                      (QREFELT $ 200))))))) 
 
+(DECLAIM (NOTINLINE |SparseUnivariateTaylorSeries;|)) 
+
 (DEFUN |SparseUnivariateTaylorSeries| (&REST #1=#:G387)
   (PROG ()
     (RETURN

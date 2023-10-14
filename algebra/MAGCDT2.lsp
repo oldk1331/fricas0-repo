@@ -264,6 +264,8 @@
                         (EXIT NIL))
                    (EXIT |res|))))))))) 
 
+(DECLAIM (NOTINLINE |ModularAlgebraicGcdTools2;|)) 
+
 (DEFUN |ModularAlgebraicGcdTools2| ()
   (PROG ()
     (RETURN

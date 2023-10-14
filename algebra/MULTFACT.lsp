@@ -21,6 +21,8 @@
 (DEFUN |MULTFACT;factor;SupF;2| (|up| $)
   (SPADCALL |up| (ELT $ 20) (QREFELT $ 27))) 
 
+(DECLAIM (NOTINLINE |MultivariateFactorize;|)) 
+
 (DEFUN |MultivariateFactorize| (&REST #1=#:G132)
   (PROG ()
     (RETURN

@@ -932,6 +932,8 @@
 (DEFUN |ILOGIC;coerce;$Of;28| (|n| $)
   (SPADCALL (SPADCALL |n| (QREFELT $ 46)) (QREFELT $ 50))) 
 
+(DECLAIM (NOTINLINE |ILogic;|)) 
+
 (DEFUN |ILogic| ()
   (PROG ()
     (RETURN

@@ -30,6 +30,8 @@
                              (EXIT (NREVERSE #2#))))
                        (QREFELT $ 19)))))))) 
 
+(DECLAIM (NOTINLINE |IndexedExponents;|)) 
+
 (DEFUN |IndexedExponents| (#1=#:G148)
   (PROG ()
     (RETURN

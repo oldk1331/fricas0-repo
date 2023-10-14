@@ -193,6 +193,8 @@
                    (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |curve| |loops| 'NIL (QREFELT $ 45)))))))))) 
 
+(DECLAIM (NOTINLINE |NumericTubePlot;|)) 
+
 (DEFUN |NumericTubePlot| (#1=#:G162)
   (PROG ()
     (RETURN

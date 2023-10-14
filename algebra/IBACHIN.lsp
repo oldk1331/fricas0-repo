@@ -470,6 +470,8 @@
           (LETT |matInv| (SPADCALL |mat| |denLCM| (QREFELT $ 79)) . #4#)
           (EXIT (VECTOR |mat| |denLCM| |matInv|)))))))))) 
 
+(DECLAIM (NOTINLINE |ChineseRemainderToolsForIntegralBases;|)) 
+
 (DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G216)
   (PROG ()
     (RETURN

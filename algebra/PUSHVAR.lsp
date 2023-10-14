@@ -155,6 +155,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|PUSHVAR;pushupCoef| |y| |lv| $))))) 
 
+(DECLAIM (NOTINLINE |PushVariables;|)) 
+
 (DEFUN |PushVariables| (&REST #1=#:G176)
   (PROG ()
     (RETURN

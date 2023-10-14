@@ -38,6 +38,8 @@
 
 (DEFUN |LODOCAT-;symmetricSquare;2S;4| (|l| $) (SPADCALL |l| 2 (QREFELT $ 25))) 
 
+(DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorCategory&;|)) 
+
 (DEFUN |LinearOrdinaryDifferentialOperatorCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

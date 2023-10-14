@@ -269,6 +269,8 @@
                     (QREFELT $ 61))
                    (QREFELT $ 20))))))))))))) 
 
+(DECLAIM (NOTINLINE |RationalFunctionLimitPackage;|)) 
+
 (DEFUN |RationalFunctionLimitPackage| (#1=#:G247)
   (PROG ()
     (RETURN

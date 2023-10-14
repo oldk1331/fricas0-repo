@@ -61,6 +61,8 @@
       (SPADCALL (SPADCALL |x| (QREFELT $ 15)) (SPADCALL |x1| (QREFELT $ 15))
                 (QREFELT $ 20)))))) 
 
+(DECLAIM (NOTINLINE |MakeCachableSet;|)) 
+
 (DEFUN |MakeCachableSet| (#1=#:G148)
   (PROG ()
     (RETURN

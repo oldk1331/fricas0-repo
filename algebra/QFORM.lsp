@@ -27,6 +27,8 @@
             . #1#)
       (EXIT (SPADCALL (LIST |qf| |mif|) (QREFELT $ 24))))))) 
 
+(DECLAIM (NOTINLINE |QuadraticForm;|)) 
+
 (DEFUN |QuadraticForm| (&REST #1=#:G138)
   (PROG ()
     (RETURN

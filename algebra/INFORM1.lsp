@@ -28,6 +28,8 @@
   (SPADCALL (SPADCALL (SPADCALL |form| (QREFELT $ 18)) (QREFELT $ 21))
             (QREFELT $ 23))) 
 
+(DECLAIM (NOTINLINE |InputFormFunctions1;|)) 
+
 (DEFUN |InputFormFunctions1| (#1=#:G134)
   (PROG ()
     (RETURN

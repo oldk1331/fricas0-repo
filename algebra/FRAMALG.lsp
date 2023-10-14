@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FramedAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FramedAlgebra;|)) 
+
 (DEFPARAMETER |FramedAlgebra;AL| 'NIL) 
 
 (DEFUN |FramedAlgebra| (&REST #1=#:G128)

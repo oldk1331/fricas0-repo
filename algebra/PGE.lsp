@@ -739,6 +739,8 @@
          (|PGE;llli2gp| (LIST (LIST (LIST 1 2)) (LIST (LIST 3 4))) $))
         ('T (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 54))))) 
 
+(DECLAIM (NOTINLINE |PermutationGroupExamples;|)) 
+
 (DEFUN |PermutationGroupExamples| ()
   (PROG ()
     (RETURN

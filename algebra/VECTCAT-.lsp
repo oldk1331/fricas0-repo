@@ -152,6 +152,8 @@
 (DEFUN |VECTCAT-;magnitude;SR;12| (|p| $)
   (SPADCALL (SPADCALL |p| |p| (QREFELT $ 45)) (QREFELT $ 46))) 
 
+(DECLAIM (NOTINLINE |VectorCategory&;|)) 
+
 (DEFUN |VectorCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

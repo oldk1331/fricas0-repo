@@ -1816,6 +1816,8 @@
     (LETT $ (QREFELT $$ 0) NIL)
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
+(DECLAIM (NOTINLINE |ElementaryIntegration;|)) 
+
 (DEFUN |ElementaryIntegration| (&REST #1=#:G686)
   (PROG ()
     (RETURN

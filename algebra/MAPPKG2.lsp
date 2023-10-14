@@ -32,6 +32,8 @@
 
 (DEFUN |MAPPKG2;diag;MM;4!0| (|a1| |faac|) (SPADCALL |a1| |a1| |faac|)) 
 
+(DECLAIM (NOTINLINE |MappingPackage2;|)) 
+
 (DEFUN |MappingPackage2| (&REST #1=#:G138)
   (PROG ()
     (RETURN

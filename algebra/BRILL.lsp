@@ -179,6 +179,8 @@
      (#1='T 'NIL)))
    (#1# 'NIL))) 
 
+(DECLAIM (NOTINLINE |BrillhartTests;|)) 
+
 (DEFUN |BrillhartTests| (#1=#:G168)
   (PROG ()
     (RETURN

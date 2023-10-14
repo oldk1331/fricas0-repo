@@ -13,6 +13,8 @@
 (DEFUN |XF-;Frobenius;SNniS;4| (|a| |s| $)
   (SPADCALL |a| (EXPT (SPADCALL (QREFELT $ 15)) |s|) (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |ExtensionField&;|)) 
+
 (DEFUN |ExtensionField&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

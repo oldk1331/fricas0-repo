@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FiniteGraph;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FiniteGraph;|)) 
+
 (DEFPARAMETER |FiniteGraph;AL| 'NIL) 
 
 (DEFUN |FiniteGraph| (#1=#:G182)

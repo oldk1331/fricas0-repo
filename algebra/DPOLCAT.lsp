@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |DifferentialPolynomialCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |DifferentialPolynomialCategory;|)) 
+
 (DEFPARAMETER |DifferentialPolynomialCategory;AL| 'NIL) 
 
 (DEFUN |DifferentialPolynomialCategory| (&REST #1=#:G146)

@@ -404,6 +404,8 @@
   (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 144))
             (QREFELT $ 50))) 
 
+(DECLAIM (NOTINLINE |UnivariateTaylorSeriesCategory&;|)) 
+
 (DEFUN |UnivariateTaylorSeriesCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

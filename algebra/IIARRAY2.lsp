@@ -106,6 +106,8 @@
                (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT (STRCONC |s| "\\end{array} \\right]")))))) 
 
+(DECLAIM (NOTINLINE |InnerIndexedTwoDimensionalArray;|)) 
+
 (DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2235)
   (PROG ()
     (RETURN

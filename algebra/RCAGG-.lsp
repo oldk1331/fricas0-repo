@@ -25,6 +25,8 @@
             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
             (EXIT (NREVERSE #2#)))))))) 
 
+(DECLAIM (NOTINLINE |RecursiveAggregate&;|)) 
+
 (DEFUN |RecursiveAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

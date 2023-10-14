@@ -54,6 +54,8 @@
   (SPADCALL "%e" (SPADCALL (SPADCALL |f| (QREFELT $ 10)) (QREFELT $ 35))
             (QREFELT $ 36))) 
 
+(DECLAIM (NOTINLINE |ExponentialOfUnivariatePuiseuxSeries;|)) 
+
 (DEFUN |ExponentialOfUnivariatePuiseuxSeries| (&REST #1=#:G170)
   (PROG ()
     (RETURN

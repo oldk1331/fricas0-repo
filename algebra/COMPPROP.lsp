@@ -30,6 +30,8 @@
          (COND ((SPADCALL |p| (QREFELT $ 9)) "") (#1# "not ")) "solid")
    (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |SubSpaceComponentProperty;|)) 
+
 (DEFUN |SubSpaceComponentProperty| ()
   (PROG ()
     (RETURN

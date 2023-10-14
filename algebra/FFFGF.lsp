@@ -60,6 +60,8 @@
        (SPADCALL |x| (SPADCALL |den| |i| (QREFELT $ 11)) (QREFELT $ 27))
        (QREFELT $ 28)))))) 
 
+(DECLAIM (NOTINLINE |FractionFreeFastGaussianFractions;|)) 
+
 (DEFUN |FractionFreeFastGaussianFractions| (&REST #1=#:G139)
   (PROG ()
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |RealClosedField;|)) 
+
 (DEFPARAMETER |RealClosedField;AL| 'NIL) 
 
 (DEFUN |RealClosedField| ()

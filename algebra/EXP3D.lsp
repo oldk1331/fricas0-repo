@@ -169,6 +169,8 @@
            (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT (SPADCALL |f1| (QREFELT $ 38))))))) 
 
+(DECLAIM (NOTINLINE |Export3D;|)) 
+
 (DEFUN |Export3D| ()
   (PROG ()
     (RETURN

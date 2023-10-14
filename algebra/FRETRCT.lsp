@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FullyRetractableTo;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FullyRetractableTo;|)) 
+
 (DEFPARAMETER |FullyRetractableTo;AL| 'NIL) 
 
 (DEFUN |FullyRetractableTo| (#1=#:G128)

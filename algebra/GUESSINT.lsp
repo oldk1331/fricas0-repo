@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |GuessInteger;|)) 
+
 (DEFUN |GuessInteger| ()
   (PROG ()
     (RETURN

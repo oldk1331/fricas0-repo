@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |AlgebraicallyClosedFunctionSpace;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |AlgebraicallyClosedFunctionSpace;|)) 
+
 (DEFPARAMETER |AlgebraicallyClosedFunctionSpace;AL| 'NIL) 
 
 (DEFUN |AlgebraicallyClosedFunctionSpace| (#1=#:G140)

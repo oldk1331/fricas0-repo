@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |GradedAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |GradedAlgebra;|)) 
+
 (DEFPARAMETER |GradedAlgebra;AL| 'NIL) 
 
 (DEFUN |GradedAlgebra| (&REST #1=#:G128)

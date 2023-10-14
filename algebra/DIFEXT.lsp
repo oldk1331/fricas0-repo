@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |DifferentialExtension;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |DifferentialExtension;|)) 
+
 (DEFPARAMETER |DifferentialExtension;AL| 'NIL) 
 
 (DEFUN |DifferentialExtension| (#1=#:G128)

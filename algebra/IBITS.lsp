@@ -95,6 +95,8 @@
     (|or_BVEC| |v| |u|))
    ('T (SPADCALL (ELT $ 30) |v| |u| (QREFELT $ 28))))) 
 
+(DECLAIM (NOTINLINE |IndexedBits;|)) 
+
 (DEFUN |IndexedBits| (#1=#:G179)
   (PROG ()
     (RETURN

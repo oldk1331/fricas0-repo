@@ -122,6 +122,8 @@
        (COND ((QEQCAR |bc| 1) (CONS 1 "failed"))
              ('T (CONS 0 (SPADCALL (QCAR (QCDR |bc|)) (QREFELT $ 11)))))))))) 
 
+(DECLAIM (NOTINLINE |MonogenicAlgebra&;|)) 
+
 (DEFUN |MonogenicAlgebra&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

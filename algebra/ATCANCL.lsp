@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |canonicalsClosed;|)) 
+
 (DEFPARAMETER |canonicalsClosed;AL| 'NIL) 
 
 (DEFUN |canonicalsClosed| ()

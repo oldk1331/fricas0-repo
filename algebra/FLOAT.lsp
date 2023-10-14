@@ -2450,6 +2450,8 @@
               NIL (GO G190) G191 (EXIT NIL)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |Float;|)) 
+
 (DEFUN |Float| ()
   (PROG ()
     (RETURN

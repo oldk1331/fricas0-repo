@@ -343,6 +343,8 @@
                                                             (QREFELT $
                                                                      51)))))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |EuclideanDomain&;|)) 
+
 (DEFUN |EuclideanDomain&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

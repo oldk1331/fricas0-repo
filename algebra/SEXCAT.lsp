@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |SExpressionCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |SExpressionCategory;|)) 
+
 (DEFPARAMETER |SExpressionCategory;AL| 'NIL) 
 
 (DEFUN |SExpressionCategory| (&REST #1=#:G128)

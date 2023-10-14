@@ -118,6 +118,8 @@
 (DEFUN |BALFACT;balancedFactorisation;UPLF;4!0| (|z1| $)
   (SPADCALL |z1| (|spadConstant| $ 28) (QREFELT $ 29))) 
 
+(DECLAIM (NOTINLINE |BalancedFactorisation;|)) 
+
 (DEFUN |BalancedFactorisation| (&REST #1=#:G152)
   (PROG ()
     (RETURN

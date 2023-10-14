@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |Eltable;|)) 
+
 (DEFPARAMETER |Eltable;AL| 'NIL) 
 
 (DEFUN |Eltable| (&REST #1=#:G128)

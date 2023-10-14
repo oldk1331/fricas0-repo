@@ -29,6 +29,8 @@
                     (QREFELT $ 23))
                    (QREFELT $ 24))))))))) 
 
+(DECLAIM (NOTINLINE |RomanNumeral;|)) 
+
 (DEFUN |RomanNumeral| ()
   (PROG ()
     (RETURN

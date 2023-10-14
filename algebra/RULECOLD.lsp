@@ -11,6 +11,8 @@
 
 (DEFUN |RULECOLD;latex;$S;4| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
 
+(DECLAIM (NOTINLINE |RuleCalled;|)) 
+
 (DEFUN |RuleCalled| (#1=#:G131)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |Bialgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |Bialgebra;|)) 
+
 (DEFPARAMETER |Bialgebra;AL| 'NIL) 
 
 (DEFUN |Bialgebra| (&REST #1=#:G128)

@@ -77,6 +77,8 @@
                       (QREFELT $ 55)))
            (#1# (SPADCALL (QCDR |u|) (QREFELT $ 55)))))))))))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceReduce;|)) 
+
 (DEFUN |FunctionSpaceReduce| (&REST #1=#:G155)
   (PROG ()
     (RETURN

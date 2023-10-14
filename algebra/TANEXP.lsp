@@ -153,6 +153,8 @@
          (COND (#1# #2#) (#10# (|spadConstant| $ 42))))
         (QREFELT $ 43))))))) 
 
+(DECLAIM (NOTINLINE |TangentExpansions;|)) 
+
 (DEFUN |TangentExpansions| (#1=#:G160)
   (PROG ()
     (RETURN

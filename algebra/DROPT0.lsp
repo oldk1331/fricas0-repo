@@ -124,6 +124,8 @@
       (LETT |u| (SPADCALL |l| '|unit| (QREFELT $ 62)) |DROPT0;units;L2L;16|)
       (EXIT (COND ((QEQCAR |u| 1) |s|) ('T (QCDR |u|)))))))) 
 
+(DECLAIM (NOTINLINE |DrawOptionFunctions0;|)) 
+
 (DEFUN |DrawOptionFunctions0| ()
   (PROG ()
     (RETURN

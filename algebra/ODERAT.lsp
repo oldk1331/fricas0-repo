@@ -757,6 +757,8 @@
                (EXIT (NREVERSE #2#))))
          $))))))) 
 
+(DECLAIM (NOTINLINE |RationalLODE;|)) 
+
 (DEFUN |RationalLODE| (&REST #1=#:G296)
   (PROG ()
     (RETURN

@@ -1081,6 +1081,8 @@
                        (GO #1#)))))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |ModularHermitePadeSolver;|)) 
+
 (DEFUN |ModularHermitePadeSolver| (&REST #1=#:G1152)
   (PROG ()
     (RETURN

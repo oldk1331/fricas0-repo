@@ -425,6 +425,8 @@
   (COND ((EQL |n| 1) |f|)
         ('T (SPADCALL |f| (SPADCALL |n| (QREFELT $ 27)) (QREFELT $ 128))))) 
 
+(DECLAIM (NOTINLINE |FullPartialFractionExpansion;|)) 
+
 (DEFUN |FullPartialFractionExpansion| (&REST #1=#:G212)
   (PROG ()
     (RETURN

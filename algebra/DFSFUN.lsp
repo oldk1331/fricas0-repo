@@ -282,6 +282,8 @@
          (SPADCALL |athird| |eta| (QREFELT $ 15)) (QREFELT $ 41))
         (QREFELT $ 27))))))) 
 
+(DECLAIM (NOTINLINE |DoubleFloatSpecialFunctions;|)) 
+
 (DEFUN |DoubleFloatSpecialFunctions| ()
   (PROG ()
     (RETURN

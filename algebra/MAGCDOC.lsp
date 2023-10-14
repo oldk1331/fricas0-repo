@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |ModularAlgebraicGcdOperations;|)) 
+
 (DEFPARAMETER |ModularAlgebraicGcdOperations;AL| 'NIL) 
 
 (DEFUN |ModularAlgebraicGcdOperations| (&REST #1=#:G128)

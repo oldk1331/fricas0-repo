@@ -70,6 +70,8 @@
 
 (DEFUN |EAB;coerce;$Of;7| (|x| $) (SPADCALL |x| (QREFELT $ 22))) 
 
+(DECLAIM (NOTINLINE |ExtAlgBasis;|)) 
+
 (DEFUN |ExtAlgBasis| ()
   (PROG ()
     (RETURN

@@ -791,6 +791,8 @@
 (DEFUN |LAMBDA;coerce;$Of;30| (|n| $)
   (SPADCALL (SPADCALL |n| NIL (QREFELT $ 45)) (QREFELT $ 55))) 
 
+(DECLAIM (NOTINLINE |Lambda;|)) 
+
 (DEFUN |Lambda| (#1=#:G385)
   (PROG ()
     (RETURN

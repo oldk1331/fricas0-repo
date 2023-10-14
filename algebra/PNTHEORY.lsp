@@ -393,6 +393,8 @@
          (QSETVELT (QREFELT $ 25) 0 |n|) (QSETVELT (QREFELT $ 25) 1 |p|)
          (QSETVELT (QREFELT $ 25) 2 |q|) (EXIT |p|)))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialNumberTheoryFunctions;|)) 
+
 (DEFUN |PolynomialNumberTheoryFunctions| ()
   (PROG ()
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |TaylorSeriesExpansion;|)) 
+
 (DEFPARAMETER |TaylorSeriesExpansion;AL| 'NIL) 
 
 (DEFUN |TaylorSeriesExpansion| (&REST #1=#:G128)

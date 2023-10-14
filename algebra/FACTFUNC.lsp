@@ -119,6 +119,8 @@
                        (LETT #2# (CDR #2#) . #4#) (GO G190) G191
                        (EXIT (NREVERSE #3#)))))))))) 
 
+(DECLAIM (NOTINLINE |FactoredFunctions;|)) 
+
 (DEFUN |FactoredFunctions| (#1=#:G163)
   (PROG ()
     (RETURN

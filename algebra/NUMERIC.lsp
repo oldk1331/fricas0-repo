@@ -500,6 +500,8 @@
           "Cannot compute the numerical value of a non-constant expression"))
         ('T (QCDR |ans|)))))))) 
 
+(DECLAIM (NOTINLINE |Numeric;|)) 
+
 (DEFUN |Numeric| (#1=#:G361)
   (PROG ()
     (RETURN

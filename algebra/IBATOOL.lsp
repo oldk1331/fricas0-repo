@@ -206,6 +206,8 @@
           (LETT |rbinv| (SPADCALL |rb| |den| (QREFELT $ 53)) . #1#)
           (EXIT (VECTOR |rb| |den| |rbinv|)))))) 
 
+(DECLAIM (NOTINLINE |IntegralBasisTools;|)) 
+
 (DEFUN |IntegralBasisTools| (&REST #1=#:G189)
   (PROG ()
     (RETURN

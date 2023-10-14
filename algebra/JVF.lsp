@@ -567,6 +567,8 @@
 
 (DEFUN |JVF;lie;3$;20| (|v| |w| $) (SPADCALL |v| |w| (QREFELT $ 91))) 
 
+(DECLAIM (NOTINLINE |JetVectorField;|)) 
+
 (DEFUN |JetVectorField| (&REST #1=#:G291)
   (PROG ()
     (RETURN

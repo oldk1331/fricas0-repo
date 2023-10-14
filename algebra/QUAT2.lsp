@@ -73,6 +73,8 @@
      (SPADCALL (QVELT |x| 1) (QVELT |y| 2) (QREFELT $ 19)) (QREFELT $ 20))
     (SPADCALL (QVELT |x| 2) (QVELT |y| 1) (QREFELT $ 19)) (QREFELT $ 21)))) 
 
+(DECLAIM (NOTINLINE |GeneralQuaternion;|)) 
+
 (DEFUN |GeneralQuaternion| (&REST #1=#:G154)
   (PROG ()
     (RETURN

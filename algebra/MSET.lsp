@@ -558,6 +558,8 @@
 
 (DEFUN |MSET;<=;2$B;44| (|m1| |m2| $) (SPADCALL |m1| |m2| (QREFELT $ 84))) 
 
+(DECLAIM (NOTINLINE |Multiset;|)) 
+
 (DEFUN |Multiset| (#1=#:G314)
   (PROG ()
     (RETURN

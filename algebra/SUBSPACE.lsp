@@ -515,6 +515,8 @@
             (COND ((EQL |s| 1) " component") ('T " components")))
       (QREFELT $ 84))))) 
 
+(DECLAIM (NOTINLINE |SubSpace;|)) 
+
 (DEFUN |SubSpace| (&REST #1=#:G308)
   (PROG ()
     (RETURN

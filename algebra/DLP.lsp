@@ -93,6 +93,8 @@
                             (QREFELT $ 14))
                            (EXIT (CONS 1 "failed")))))))))))))) 
 
+(DECLAIM (NOTINLINE |DiscreteLogarithmPackage;|)) 
+
 (DEFUN |DiscreteLogarithmPackage| (#1=#:G149)
   (PROG ()
     (RETURN

@@ -44,6 +44,8 @@
            (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |x|))))) 
 
+(DECLAIM (NOTINLINE |U32Vector;|)) 
+
 (DEFUN |U32Vector| ()
   (PROG ()
     (RETURN

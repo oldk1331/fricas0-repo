@@ -300,6 +300,8 @@
            (LETT |iw| (|inc_SI| |iw|) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT |bandM|))))) 
 
+(DECLAIM (NOTINLINE |MultiVariableCalculusFunctions;|)) 
+
 (DEFUN |MultiVariableCalculusFunctions| (&REST #1=#:G183)
   (PROG ()
     (RETURN

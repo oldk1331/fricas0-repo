@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MultiDictionary;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MultiDictionary;|)) 
+
 (DEFPARAMETER |MultiDictionary;AL| 'NIL) 
 
 (DEFUN |MultiDictionary| (#1=#:G128)

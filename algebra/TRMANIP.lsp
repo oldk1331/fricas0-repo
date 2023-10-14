@@ -1032,6 +1032,8 @@
     (QREFELT $ 180))
    (QREFELT $ 90))) 
 
+(DECLAIM (NOTINLINE |TranscendentalManipulations;|)) 
+
 (DEFUN |TranscendentalManipulations| (&REST #1=#:G408)
   (PROG ()
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |PartialTranscendentalFunctions;|)) 
+
 (DEFPARAMETER |PartialTranscendentalFunctions;AL| 'NIL) 
 
 (DEFUN |PartialTranscendentalFunctions| (#1=#:G128)

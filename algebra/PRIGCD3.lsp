@@ -313,6 +313,8 @@
               NIL (GO G190) G191 (EXIT NIL)))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |PrimGCD;|)) 
+
 (DEFUN |PrimGCD| ()
   (PROG ()
     (RETURN

@@ -844,6 +844,8 @@
                  (LETT |p2| (SPADCALL |p2| (QREFELT $ 87)) . #1#)))))))))
          (EXIT (SPADCALL |p1| |p2| |ts| 'NIL 'NIL (QREFELT $ 49)))))))))) 
 
+(DECLAIM (NOTINLINE |RegularTriangularSetGcdPackage;|)) 
+
 (DEFUN |RegularTriangularSetGcdPackage| (&REST #1=#:G352)
   (PROG ()
     (RETURN

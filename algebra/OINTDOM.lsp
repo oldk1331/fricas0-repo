@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |OrderedIntegralDomain;|)) 
+
 (DEFPARAMETER |OrderedIntegralDomain;AL| 'NIL) 
 
 (DEFUN |OrderedIntegralDomain| ()

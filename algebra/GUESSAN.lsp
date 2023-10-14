@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |GuessAlgebraicNumber;|)) 
+
 (DEFUN |GuessAlgebraicNumber| ()
   (PROG ()
     (RETURN

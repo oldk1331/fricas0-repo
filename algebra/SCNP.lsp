@@ -745,6 +745,8 @@
             (EXIT |s|)))
       #5# (EXIT #5#))))) 
 
+(DECLAIM (NOTINLINE |SceneNamedPoints;|)) 
+
 (DEFUN |SceneNamedPoints| (#1=#:G270)
   (PROG ()
     (RETURN

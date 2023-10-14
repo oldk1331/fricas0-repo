@@ -199,6 +199,8 @@
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT |p1|)))))))) 
 
+(DECLAIM (NOTINLINE |OrthogonalPolynomialFunctions;|)) 
+
 (DEFUN |OrthogonalPolynomialFunctions| (#1=#:G156)
   (PROG ()
     (RETURN

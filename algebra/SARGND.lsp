@@ -159,6 +159,8 @@
                         (SPADCALL (QCDR |pt|) (QREFELT $ 52)) (QREFELT $ 55))
               (QREFELT $ 57))))) 
 
+(DECLAIM (NOTINLINE |SArgand;|)) 
+
 (DEFUN |SArgand| ()
   (PROG ()
     (RETURN

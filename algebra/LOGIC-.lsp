@@ -7,6 +7,8 @@
              (QREFELT $ 8))
    (QREFELT $ 7))) 
 
+(DECLAIM (NOTINLINE |Logic&;|)) 
+
 (DEFUN |Logic&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

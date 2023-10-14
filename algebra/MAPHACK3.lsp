@@ -3,6 +3,8 @@
 
 (DEFUN |MAPHACK3;comp;MMAC;1| (|g| |h| |x| $) (SPADCALL (SPADCALL |x| |h|) |g|)) 
 
+(DECLAIM (NOTINLINE |MappingPackageInternalHacks3;|)) 
+
 (DEFUN |MappingPackageInternalHacks3| (&REST #1=#:G130)
   (PROG ()
     (RETURN

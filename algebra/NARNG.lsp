@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |NonAssociativeRng;|)) 
+
 (DEFPARAMETER |NonAssociativeRng;AL| 'NIL) 
 
 (DEFUN |NonAssociativeRng| ()

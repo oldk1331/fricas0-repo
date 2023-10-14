@@ -579,6 +579,8 @@
                                      (CONS (CONS 0 |sol|)
                                            |lsol|)))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |SmithNormalForm;|)) 
+
 (DEFUN |SmithNormalForm| (&REST #1=#:G250)
   (PROG ()
     (RETURN

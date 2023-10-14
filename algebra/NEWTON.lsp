@@ -54,6 +54,8 @@
 (DEFUN |NEWTON;newton;LSup;3| (|yl| $)
   (|NEWTON;newtonAux| (|spadConstant| $ 8) (|spadConstant| $ 8) |yl| $)) 
 
+(DECLAIM (NOTINLINE |NewtonInterpolation;|)) 
+
 (DEFUN |NewtonInterpolation| (#1=#:G139)
   (PROG ()
     (RETURN

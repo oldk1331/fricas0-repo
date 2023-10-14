@@ -162,6 +162,8 @@
                    (QREFELT $ 53)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |STransformPackage;|)) 
+
 (DEFUN |STransformPackage| (&REST #1=#:G150)
   (PROG ()
     (RETURN

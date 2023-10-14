@@ -225,6 +225,8 @@
           (CONS (SPADCALL |g| (QREFELT $ 72))
                 (SPADCALL |g| (QREFELT $ 69))))))))))) 
 
+(DECLAIM (NOTINLINE |MPolyCatRationalFunctionFactorizer;|)) 
+
 (DEFUN |MPolyCatRationalFunctionFactorizer| (&REST #1=#:G175)
   (PROG ()
     (RETURN

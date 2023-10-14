@@ -252,6 +252,8 @@
             (LETT #4# (CDR #4#) NIL) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T (|spadConstant| $ 36)))))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchFunctionSpace;|)) 
+
 (DEFUN |PatternMatchFunctionSpace| (&REST #1=#:G198)
   (PROG ()
     (RETURN

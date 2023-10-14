@@ -76,6 +76,8 @@
        (SPADCALL (SPADCALL (SPADCALL |mgf| (QREFELT $ 39)) (QREFELT $ 16))
                  (QREFELT $ 23))))))) 
 
+(DECLAIM (NOTINLINE |DistributionPackage;|)) 
+
 (DEFUN |DistributionPackage| (#1=#:G142)
   (PROG ()
     (RETURN

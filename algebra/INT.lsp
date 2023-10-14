@@ -284,6 +284,8 @@
         ((SPADCALL |q| (QREFELT $ 115)) (SPADCALL |p| (QREFELT $ 116)))
         ('T (SPADCALL (LIST |p| |q|) (QREFELT $ 119))))) 
 
+(DECLAIM (NOTINLINE |Integer;|)) 
+
 (DEFUN |Integer| ()
   (PROG ()
     (RETURN

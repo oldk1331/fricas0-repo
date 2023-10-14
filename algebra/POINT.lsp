@@ -55,6 +55,8 @@
 (DEFUN |POINT;extend;$L$;5| (|p| |l| $)
   (SPADCALL |p| (SPADCALL |l| (QREFELT $ 13)) (QREFELT $ 25))) 
 
+(DECLAIM (NOTINLINE |Point;|)) 
+
 (DEFUN |Point| (#1=#:G153)
   (PROG ()
     (RETURN

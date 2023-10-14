@@ -721,6 +721,8 @@
                                   (EXIT NIL))
                              (EXIT (CONS |c| |factorlist|)))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |UnivariateFactorize;|)) 
+
 (DEFUN |UnivariateFactorize| (#1=#:G318)
   (PROG ()
     (RETURN

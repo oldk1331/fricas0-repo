@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |SetAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |SetAggregate;|)) 
+
 (DEFPARAMETER |SetAggregate;AL| 'NIL) 
 
 (DEFUN |SetAggregate| (#1=#:G128)

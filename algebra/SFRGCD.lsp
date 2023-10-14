@@ -1257,6 +1257,8 @@
 (DEFUN |SFRGCD;stoseInvertibleSet;PTSL;21| (|p| |ts| $)
   (SPADCALL |p| |ts| (QREFELT $ 115))) 
 
+(DECLAIM (NOTINLINE |SquareFreeRegularTriangularSetGcdPackage;|)) 
+
 (DEFUN |SquareFreeRegularTriangularSetGcdPackage| (&REST #1=#:G448)
   (PROG ()
     (RETURN

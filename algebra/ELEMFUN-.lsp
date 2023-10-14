@@ -5,6 +5,8 @@
   (SPADCALL (SPADCALL |y| (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 8))
             (QREFELT $ 9))) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionCategory&;|)) 
+
 (DEFUN |ElementaryFunctionCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

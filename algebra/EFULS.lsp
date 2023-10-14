@@ -721,6 +721,8 @@
                      (QREFELT $ 105)))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionsUnivariateLaurentSeries;|)) 
+
 (DEFUN |ElementaryFunctionsUnivariateLaurentSeries| (&REST #1=#:G494)
   (PROG ()
     (RETURN

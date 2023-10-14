@@ -9,6 +9,8 @@
             (SPADCALL (SPADCALL |rf| (QREFELT $ 19)) (QREFELT $ 16))
             (QREFELT $ 20))) 
 
+(DECLAIM (NOTINLINE |PolynomialAN2Expression;|)) 
+
 (DEFUN |PolynomialAN2Expression| ()
   (PROG ()
     (RETURN

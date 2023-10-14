@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |GradedModule;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |GradedModule;|)) 
+
 (DEFPARAMETER |GradedModule;AL| 'NIL) 
 
 (DEFUN |GradedModule| (&REST #1=#:G128)

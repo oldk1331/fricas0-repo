@@ -1304,6 +1304,8 @@
           (SPADCALL (STRCONC "acsch: " (QREFELT $ 8)) (QREFELT $ 35))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |StreamTranscendentalFunctions;|)) 
+
 (DEFUN |StreamTranscendentalFunctions| (#1=#:G432)
   (PROG ()
     (RETURN

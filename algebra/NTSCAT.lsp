@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |NormalizedTriangularSetCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |NormalizedTriangularSetCategory;|)) 
+
 (DEFPARAMETER |NormalizedTriangularSetCategory;AL| 'NIL) 
 
 (DEFUN |NormalizedTriangularSetCategory| (&REST #1=#:G128)

@@ -75,6 +75,8 @@
          (COND (#1# #2#) ('T (|spadConstant| $ 49))))
         (QREFELT $ 50))))))) 
 
+(DECLAIM (NOTINLINE |MRationalFactorize;|)) 
+
 (DEFUN |MRationalFactorize| (&REST #1=#:G153)
   (PROG ()
     (RETURN

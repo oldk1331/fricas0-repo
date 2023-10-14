@@ -12,6 +12,8 @@
 
 (DEFUN |PI;qcoerce;I$;1| (|n| $) |n|) 
 
+(DECLAIM (NOTINLINE |PositiveInteger;|)) 
+
 (DEFUN |PositiveInteger| ()
   (PROG ()
     (RETURN

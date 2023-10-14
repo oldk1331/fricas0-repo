@@ -48,6 +48,8 @@
         (|PMLSAGG;match| (SPADCALL |l| (QREFELT $ 31)) (CDR |lp|) |r| |new?|
          $))))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchListAggregate;|)) 
+
 (DEFUN |PatternMatchListAggregate| (&REST #1=#:G146)
   (PROG ()
     (RETURN

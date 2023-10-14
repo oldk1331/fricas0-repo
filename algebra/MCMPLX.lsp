@@ -25,6 +25,8 @@
             (SPADCALL (SPADCALL |u| (QREFELT $ 31)) (QREFELT $ 30))
             (QREFELT $ 32))) 
 
+(DECLAIM (NOTINLINE |MachineComplex;|)) 
+
 (DEFUN |MachineComplex| ()
   (PROG ()
     (RETURN

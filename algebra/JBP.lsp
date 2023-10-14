@@ -85,6 +85,8 @@
                                                             (|#| LJV)
                                                             (|NonNegativeInteger|)))))))))) 
 
+(DECLAIM (NOTINLINE |JetBundlePolynomial;|)) 
+
 (DEFUN |JetBundlePolynomial| (&REST #1=#:G197)
   (PROG ()
     (RETURN

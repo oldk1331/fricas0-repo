@@ -317,6 +317,8 @@
                                    (QREFELT $ 14))
                          (QREFELT $ 52)))))))))) 
 
+(DECLAIM (NOTINLINE |TrigonometricManipulations;|)) 
+
 (DEFUN |TrigonometricManipulations| (&REST #1=#:G205)
   (PROG ()
     (RETURN

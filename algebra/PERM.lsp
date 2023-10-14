@@ -653,6 +653,8 @@
                   (QREFELT $ 98))
                  (QREFELT $ 99))))))) 
 
+(DECLAIM (NOTINLINE |Permutation;|)) 
+
 (DEFUN |Permutation| (#1=#:G311)
   (PROG ()
     (RETURN

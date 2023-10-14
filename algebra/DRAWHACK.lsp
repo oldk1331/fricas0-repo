@@ -4,6 +4,8 @@
 (DEFUN |DRAWHACK;coerce;SbSb;1| (|s| $)
   (SPADCALL (ELT $ 10) |s| (QREFELT $ 15))) 
 
+(DECLAIM (NOTINLINE |DrawNumericHack;|)) 
+
 (DEFUN |DrawNumericHack| (#1=#:G129)
   (PROG ()
     (RETURN

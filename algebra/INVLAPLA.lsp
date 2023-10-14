@@ -258,6 +258,8 @@
                     (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
                (COND (#1# #2#) (#6# (|spadConstant| $ 17)))))))))))) 
 
+(DECLAIM (NOTINLINE |InverseLaplaceTransform;|)) 
+
 (DEFUN |InverseLaplaceTransform| (&REST #1=#:G185)
   (PROG ()
     (RETURN

@@ -1700,6 +1700,8 @@
 (DEFUN |PERMGRP;initializeGroupForWordProblem;$V;50| (|gp| $)
   (SPADCALL |gp| 0 1 (QREFELT $ 165))) 
 
+(DECLAIM (NOTINLINE |PermutationGroup;|)) 
+
 (DEFUN |PermutationGroup| (#1=#:G526)
   (PROG ()
     (RETURN

@@ -264,6 +264,8 @@
                 . #1#)
           (EXIT (|UPXS;termsToOutputForm| |m| |rat| |p| |xxx| $)))))) 
 
+(DECLAIM (NOTINLINE |UnivariatePuiseuxSeries;|)) 
+
 (DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G229)
   (PROG ()
     (RETURN

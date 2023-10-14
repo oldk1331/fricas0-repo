@@ -38,6 +38,8 @@
   (COND ((EQUAL |st| "right") 1) ((EQUAL |st| "left") -1)
         ('T (|error| "Unknown option")))) 
 
+(DECLAIM (NOTINLINE |ToolsForSign;|)) 
+
 (DEFUN |ToolsForSign| (#1=#:G157)
   (PROG ()
     (RETURN

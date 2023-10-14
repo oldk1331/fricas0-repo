@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MatrixCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MatrixCategory;|)) 
+
 (DEFPARAMETER |MatrixCategory;AL| 'NIL) 
 
 (DEFUN |MatrixCategory| (&REST #1=#:G185)

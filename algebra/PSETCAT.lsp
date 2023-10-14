@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |PolynomialSetCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |PolynomialSetCategory;|)) 
+
 (DEFPARAMETER |PolynomialSetCategory;AL| 'NIL) 
 
 (DEFUN |PolynomialSetCategory| (&REST #1=#:G173)

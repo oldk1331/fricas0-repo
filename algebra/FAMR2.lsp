@@ -10,6 +10,8 @@
           (SPADCALL |f| (SPADCALL |a| (QREFELT $ 17)) (QREFELT $ 19))
           (QREFELT $ 20))))) 
 
+(DECLAIM (NOTINLINE |FiniteAbelianMonoidRingFunctions2;|)) 
+
 (DEFUN |FiniteAbelianMonoidRingFunctions2| (&REST #1=#:G131)
   (PROG ()
     (RETURN

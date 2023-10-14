@@ -3,6 +3,8 @@
 
 (DEFUN |SAEFACT;factor;UPAF;1| (|q| $) (SPADCALL |q| (ELT $ 11) (QREFELT $ 15))) 
 
+(DECLAIM (NOTINLINE |SimpleAlgebraicExtensionAlgFactor;|)) 
+
 (DEFUN |SimpleAlgebraicExtensionAlgFactor| (&REST #1=#:G129)
   (PROG ()
     (RETURN

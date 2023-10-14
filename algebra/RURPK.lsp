@@ -307,6 +307,8 @@
 
 (DEFUN |RURPK;rur;LL;3| (|lp| $) (SPADCALL |lp| 'T (QREFELT $ 74))) 
 
+(DECLAIM (NOTINLINE |RationalUnivariateRepresentationPackage;|)) 
+
 (DEFUN |RationalUnivariateRepresentationPackage| (&REST #1=#:G200)
   (PROG ()
     (RETURN

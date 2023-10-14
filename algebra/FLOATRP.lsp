@@ -324,6 +324,8 @@
              (QREFELT $ 38))
    |eps| (QREFELT $ 44))) 
 
+(DECLAIM (NOTINLINE |FloatingRealPackage;|)) 
+
 (DEFUN |FloatingRealPackage| (#1=#:G196)
   (PROG ()
     (RETURN

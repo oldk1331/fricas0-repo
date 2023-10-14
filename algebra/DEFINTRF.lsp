@@ -87,6 +87,8 @@
                 ((QCDR |z|) (|error| "integrate: pole in path of integration"))
                 (#1# (|DEFINTRF;nopole| |f| |x| |a| |b| $))))))))))) 
 
+(DECLAIM (NOTINLINE |RationalFunctionDefiniteIntegration;|)) 
+
 (DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G177)
   (PROG ()
     (RETURN

@@ -15,6 +15,8 @@
 
 (DEFUN |RULESET;rules;$L;6| (|x| $) (SPADCALL |x| (QREFELT $ 26))) 
 
+(DECLAIM (NOTINLINE |Ruleset;|)) 
+
 (DEFUN |Ruleset| (&REST #1=#:G133)
   (PROG ()
     (RETURN

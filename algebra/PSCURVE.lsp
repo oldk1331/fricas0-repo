@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |PlottableSpaceCurveCategory;|)) 
+
 (DEFPARAMETER |PlottableSpaceCurveCategory;AL| 'NIL) 
 
 (DEFUN |PlottableSpaceCurveCategory| ()

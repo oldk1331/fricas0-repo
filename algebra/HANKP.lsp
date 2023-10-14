@@ -69,6 +69,8 @@
                                (EXIT (NREVERSE #3#))))
                          (QREFELT $ 18)))))))))) 
 
+(DECLAIM (NOTINLINE |HankelPackage;|)) 
+
 (DEFUN |HankelPackage| (#1=#:G142)
   (PROG ()
     (RETURN

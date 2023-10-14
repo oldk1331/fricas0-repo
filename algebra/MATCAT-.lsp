@@ -2101,6 +2101,8 @@
                  (#2#
                   (SPADCALL (QCDR |xInv|) (- |n|) (QREFELT $ 98)))))))))))))) 
 
+(DECLAIM (NOTINLINE |MatrixCategory&;|)) 
+
 (DEFUN |MatrixCategory&| (|#1| |#2| |#3| |#4|)
   (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN

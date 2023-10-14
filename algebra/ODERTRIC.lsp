@@ -668,6 +668,8 @@
 
 (DEFUN |ODERTRIC;zro1!0| (|z| $$) |z|) 
 
+(DECLAIM (NOTINLINE |RationalRicDE;|)) 
+
 (DEFUN |RationalRicDE| (&REST #1=#:G329)
   (PROG ()
     (RETURN

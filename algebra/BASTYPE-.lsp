@@ -4,6 +4,8 @@
 (DEFUN |BASTYPE-;~=;2SB;1| (|x| |y| $)
   (COND ((SPADCALL |x| |y| (QREFELT $ 8)) 'NIL) ('T 'T))) 
 
+(DECLAIM (NOTINLINE |BasicType&;|)) 
+
 (DEFUN |BasicType&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

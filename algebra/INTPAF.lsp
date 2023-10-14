@@ -1888,6 +1888,8 @@
          (SPADCALL |eq| |g| |kx| |y| (QREFELT $ 14) (QCAR (QCDR |v|))
                    (QCDR (QCDR |v|)) (QREFELT $ 189))))))))) 
 
+(DECLAIM (NOTINLINE |PureAlgebraicIntegration;|)) 
+
 (DEFUN |PureAlgebraicIntegration| (&REST #1=#:G577)
   (PROG ()
     (RETURN

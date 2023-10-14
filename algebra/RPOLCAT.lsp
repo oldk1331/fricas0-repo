@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |RecursivePolynomialCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |RecursivePolynomialCategory;|)) 
+
 (DEFPARAMETER |RecursivePolynomialCategory;AL| 'NIL) 
 
 (DEFUN |RecursivePolynomialCategory| (&REST #1=#:G264)

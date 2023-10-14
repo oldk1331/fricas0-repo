@@ -269,6 +269,8 @@
                      (EXIT |ans|)))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |AlgebraicHermiteIntegration;|)) 
+
 (DEFUN |AlgebraicHermiteIntegration| (&REST #1=#:G408)
   (PROG ()
     (RETURN

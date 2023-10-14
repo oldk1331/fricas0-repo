@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |NonAssociativeAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |NonAssociativeAlgebra;|)) 
+
 (DEFPARAMETER |NonAssociativeAlgebra;AL| 'NIL) 
 
 (DEFUN |NonAssociativeAlgebra| (#1=#:G128)

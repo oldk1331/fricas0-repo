@@ -138,6 +138,8 @@
            (COND ((EQL |lx| |ly|) (|MAGMA;recursif| |x| |y| $))
                  ('T (< |lx| |ly|)))))))) 
 
+(DECLAIM (NOTINLINE |Magma;|)) 
+
 (DEFUN |Magma| (#1=#:G167)
   (PROG ()
     (RETURN

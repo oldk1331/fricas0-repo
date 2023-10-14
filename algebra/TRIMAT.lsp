@@ -188,6 +188,8 @@
            (LETT |i| (+ |i| 1) . #10#) (GO G190) G191 (EXIT NIL))
       (EXIT AI))))) 
 
+(DECLAIM (NOTINLINE |TriangularMatrixOperations;|)) 
+
 (DEFUN |TriangularMatrixOperations| (&REST #1=#:G171)
   (PROG ()
     (RETURN

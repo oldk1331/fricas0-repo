@@ -21,6 +21,8 @@
   (SPADCALL (SPADCALL '|e| (QREFELT $ 15)) (SPADCALL |x| (QREFELT $ 16))
             (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |OrdSetInts;|)) 
+
 (DEFUN |OrdSetInts| ()
   (PROG ()
     (RETURN

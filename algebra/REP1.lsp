@@ -451,6 +451,8 @@
            (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
       (EXIT |res|))))) 
 
+(DECLAIM (NOTINLINE |RepresentationPackage1;|)) 
+
 (DEFUN |RepresentationPackage1| (#1=#:G219)
   (PROG ()
     (RETURN

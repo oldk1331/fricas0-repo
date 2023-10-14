@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |DistributionCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |DistributionCategory;|)) 
+
 (DEFPARAMETER |DistributionCategory;AL| 'NIL) 
 
 (DEFUN |DistributionCategory| (#1=#:G128)

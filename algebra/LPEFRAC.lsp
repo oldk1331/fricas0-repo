@@ -86,6 +86,8 @@
                             (EXIT (NREVERSE #3#))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |LinearPolynomialEquationByFractions;|)) 
+
 (DEFUN |LinearPolynomialEquationByFractions| (#1=#:G154)
   (PROG ()
     (RETURN

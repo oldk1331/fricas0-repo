@@ -500,6 +500,8 @@
                           (EXIT (NREVERSE #2#))))
                     (QREFELT $ 69)))))))))) 
 
+(DECLAIM (NOTINLINE |DistinctDegreeFactorize;|)) 
+
 (DEFUN |DistinctDegreeFactorize| (&REST #1=#:G237)
   (PROG ()
     (RETURN

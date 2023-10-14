@@ -680,6 +680,8 @@
 
 (DEFUN |FC;call;S$;80| (|s| $) (CONS (CONS 6 "call") (CONS 7 |s|))) 
 
+(DECLAIM (NOTINLINE |FortranCode;|)) 
+
 (DEFUN |FortranCode| ()
   (PROG ()
     (RETURN

@@ -228,6 +228,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |g|))))) 
 
+(DECLAIM (NOTINLINE |ListMonoidOps;|)) 
+
 (DEFUN |ListMonoidOps| (&REST #1=#:G239)
   (PROG ()
     (RETURN

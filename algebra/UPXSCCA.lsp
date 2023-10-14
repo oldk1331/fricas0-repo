@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |UnivariatePuiseuxSeriesConstructorCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructorCategory;|)) 
+
 (DEFPARAMETER |UnivariatePuiseuxSeriesConstructorCategory;AL| 'NIL) 
 
 (DEFUN |UnivariatePuiseuxSeriesConstructorCategory| (&REST #1=#:G128)

@@ -101,6 +101,8 @@
         (SEQ (|GENUFACT;factorWarning| (SPADCALL |f| (QREFELT $ 40)) $)
              (EXIT (SPADCALL |f| (QREFELT $ 42)))))))))) 
 
+(DECLAIM (NOTINLINE |GenUFactorize;|)) 
+
 (DEFUN |GenUFactorize| (#1=#:G137)
   (PROG ()
     (RETURN

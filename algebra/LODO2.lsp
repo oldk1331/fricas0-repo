@@ -4,6 +4,8 @@
 (DEFUN |LODO2;elt;$2M;1| (|p| |m| $)
   (SPADCALL |p| (ELT $ 9) |m| (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperator2;|)) 
+
 (DEFUN |LinearOrdinaryDifferentialOperator2| (&REST #1=#:G145)
   (PROG ()
     (RETURN

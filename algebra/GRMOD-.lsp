@@ -4,6 +4,8 @@
 (DEFUN |GRMOD-;-;3S;1| (|x| |y| $)
   (SPADCALL |x| (SPADCALL |y| (QREFELT $ 9)) (QREFELT $ 10))) 
 
+(DECLAIM (NOTINLINE |GradedModule&;|)) 
+
 (DEFUN |GradedModule&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

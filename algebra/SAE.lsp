@@ -347,6 +347,8 @@
               (EXIT
                (COND ((EQL |n| 0) |co|) (#1# (* |co| (EXPT |p| |n|)))))))))))) 
 
+(DECLAIM (NOTINLINE |SimpleAlgebraicExtension;|)) 
+
 (DEFUN |SimpleAlgebraicExtension| (&REST #1=#:G261)
   (PROG ()
     (RETURN

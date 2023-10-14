@@ -764,6 +764,8 @@
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |mat|))))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldFunctions;|)) 
+
 (DEFUN |FiniteFieldFunctions| (#1=#:G243)
   (PROG ()
     (RETURN

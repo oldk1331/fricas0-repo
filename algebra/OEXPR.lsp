@@ -23,6 +23,8 @@
                         (COND ((QEQCAR |s| 0) (EQL (QCDR |s|) 1))
                               (#2# (|error| "can not determine sign")))))))))))) 
 
+(DECLAIM (NOTINLINE |OrderedExpression;|)) 
+
 (DEFUN |OrderedExpression| ()
   (PROG ()
     (RETURN

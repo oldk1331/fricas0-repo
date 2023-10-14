@@ -36,6 +36,8 @@
                                   (QREFELT $ 17)))))))
                (#3# (SPADCALL (QREFELT $ 24)))))))))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchQuotientFieldCategory;|)) 
+
 (DEFUN |PatternMatchQuotientFieldCategory| (&REST #1=#:G142)
   (PROG ()
     (RETURN

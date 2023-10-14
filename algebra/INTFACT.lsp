@@ -536,6 +536,8 @@
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT (SPADCALL |u| |flb| (QREFELT $ 29)))))))))))))) 
 
+(DECLAIM (NOTINLINE |IntegerFactorizationPackage;|)) 
+
 (DEFUN |IntegerFactorizationPackage| (#1=#:G239)
   (PROG ()
     (RETURN

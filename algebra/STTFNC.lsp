@@ -362,6 +362,8 @@
 (DEFUN |STTFNC;acsch;2S;27| (|z| $)
   (|error| "acsch: acsch undefined on this coefficient domain")) 
 
+(DECLAIM (NOTINLINE |StreamTranscendentalFunctionsNonCommutative;|)) 
+
 (DEFUN |StreamTranscendentalFunctionsNonCommutative| (#1=#:G240)
   (PROG ()
     (RETURN

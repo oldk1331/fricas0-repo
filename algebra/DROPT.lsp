@@ -166,6 +166,8 @@
         (EXIT (CONS 1 "failed"))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |DrawOption;|)) 
+
 (DEFUN |DrawOption| ()
   (PROG ()
     (RETURN

@@ -608,6 +608,8 @@
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |res| |vn| |nvd| |p| (QREFELT $ 57))))))) 
 
+(DECLAIM (NOTINLINE |NaiveBeckermannLabahnModular;|)) 
+
 (DEFUN |NaiveBeckermannLabahnModular| ()
   (PROG ()
     (RETURN

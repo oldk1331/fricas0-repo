@@ -116,6 +116,8 @@
             . #1#)
       (EXIT (SPADCALL (QCDR |nrep|) |lres| (QREFELT $ 29))))))) 
 
+(DECLAIM (NOTINLINE |TaylorSeriesExpansionPuiseux;|)) 
+
 (DEFUN |TaylorSeriesExpansionPuiseux| (&REST #1=#:G181)
   (PROG ()
     (RETURN

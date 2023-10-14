@@ -167,6 +167,8 @@
           (LETT |ffr| (SPADCALL |ratPol| (QREFELT $ 62)) . #1#)
           (EXIT (|COMPFACT;backConv| |ffr| $)))))) 
 
+(DECLAIM (NOTINLINE |ComplexFactorization;|)) 
+
 (DEFUN |ComplexFactorization| (&REST #1=#:G163)
   (PROG ()
     (RETURN

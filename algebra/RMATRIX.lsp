@@ -123,6 +123,8 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 55)))
    (QREFELT $ 57))) 
 
+(DECLAIM (NOTINLINE |RectangularMatrix;|)) 
+
 (DEFUN |RectangularMatrix| (&REST #1=#:G176)
   (PROG ()
     (RETURN

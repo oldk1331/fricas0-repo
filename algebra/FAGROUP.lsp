@@ -57,6 +57,8 @@
                                  (SPADCALL |b| |lc| (QREFELT $ 20))
                                  (QREFELT $ 21)))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |FreeAbelianGroup;|)) 
+
 (DEFUN |FreeAbelianGroup| (#1=#:G160)
   (PROG ()
     (RETURN

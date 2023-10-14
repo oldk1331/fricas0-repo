@@ -310,6 +310,8 @@
               (LETT |j| (|inc_SI| |j|) . #8#) (GO G190) G191 (EXIT NIL)))))
       #4# (EXIT #4#))))) 
 
+(DECLAIM (NOTINLINE |PadeApproximants;|)) 
+
 (DEFUN |PadeApproximants| (&REST #1=#:G199)
   (PROG ()
     (RETURN

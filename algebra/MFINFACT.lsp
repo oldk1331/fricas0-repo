@@ -1847,6 +1847,8 @@
                       (COND (#1# #2#) (#13# (|spadConstant| $ 81))))
                      (QREFELT $ 217))))))))))) 
 
+(DECLAIM (NOTINLINE |MultFiniteFactorize;|)) 
+
 (DEFUN |MultFiniteFactorize| (&REST #1=#:G510)
   (PROG ()
     (RETURN

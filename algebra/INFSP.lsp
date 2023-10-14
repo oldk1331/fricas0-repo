@@ -1059,6 +1059,8 @@
                (LETT #7# (CDR #7#) . #41#) (GO G190) G191 (EXIT NIL))
           (EXIT |result|))))))))) 
 
+(DECLAIM (NOTINLINE |InnerNumericFloatSolvePackage;|)) 
+
 (DEFUN |InnerNumericFloatSolvePackage| (&REST #1=#:G353)
   (PROG ()
     (RETURN

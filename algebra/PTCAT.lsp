@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |PointCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |PointCategory;|)) 
+
 (DEFPARAMETER |PointCategory;AL| 'NIL) 
 
 (DEFUN |PointCategory| (#1=#:G128)

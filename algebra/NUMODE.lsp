@@ -494,6 +494,8 @@
                         (QREFELT $ 19))))
             (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))))))) 
 
+(DECLAIM (NOTINLINE |NumericalOrdinaryDifferentialEquations;|)) 
+
 (DEFUN |NumericalOrdinaryDifferentialEquations| ()
   (PROG ()
     (RETURN

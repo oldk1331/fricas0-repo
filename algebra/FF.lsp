@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FiniteField;|)) 
+
 (DEFUN |FiniteField| (&REST #1=#:G162)
   (PROG ()
     (RETURN

@@ -13,6 +13,8 @@
 
 (DEFUN |ODVAR;order;$Nni;3| (|v| $) (QCDR |v|)) 
 
+(DECLAIM (NOTINLINE |OrderlyDifferentialVariable;|)) 
+
 (DEFUN |OrderlyDifferentialVariable| (#1=#:G135)
   (PROG ()
     (RETURN

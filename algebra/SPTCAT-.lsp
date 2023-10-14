@@ -27,6 +27,8 @@
 (DEFUN |SPTCAT-;distance;2SDf;6| (|p1| |p2| $)
   (SPADCALL (SPADCALL |p1| |p2| (QREFELT $ 19)) (QREFELT $ 20))) 
 
+(DECLAIM (NOTINLINE |SPointCategory&;|)) 
+
 (DEFUN |SPointCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

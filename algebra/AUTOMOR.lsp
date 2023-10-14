@@ -125,6 +125,8 @@
     (RETURN
      (PROGN (SPADCALL |f| (SPADCALL |g| |u1| (QREFELT $ 11)) (QREFELT $ 11)))))) 
 
+(DECLAIM (NOTINLINE |Automorphism;|)) 
+
 (DEFUN |Automorphism| (#1=#:G178)
   (PROG ()
     (RETURN

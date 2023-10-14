@@ -107,6 +107,8 @@
     (SPADCALL (SPADCALL |x| (SPADCALL |y| (QREFELT $ 46)) (QREFELT $ 40))
               (SPADCALL |y| (QREFELT $ 47)) (QREFELT $ 45))))) 
 
+(DECLAIM (NOTINLINE |Complex;|)) 
+
 (DEFUN |Complex| (#1=#:G2547)
   (PROG ()
     (RETURN

@@ -1678,6 +1678,8 @@
                                               (QREFELT $ 27))
                                     |eps| (QREFELT $ 96)))))))))))))))) 
 
+(DECLAIM (NOTINLINE |FloatSpecialFunctions;|)) 
+
 (DEFUN |FloatSpecialFunctions| ()
   (PROG ()
     (RETURN

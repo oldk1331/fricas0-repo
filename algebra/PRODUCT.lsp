@@ -140,6 +140,8 @@
                           (SPADCALL |xb| |yb| (QREFELT $ 79)))
                          (#2# 'NIL))))))))))) 
 
+(DECLAIM (NOTINLINE |Product;|)) 
+
 (DEFUN |Product| (&REST #1=#:G177)
   (PROG ()
     (RETURN

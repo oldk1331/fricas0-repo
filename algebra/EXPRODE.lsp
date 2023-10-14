@@ -664,6 +664,8 @@
                                  (|UnivariateTaylorSeries| (ELT $ 7) |x|
                                                            |center|)))))))))) 
 
+(DECLAIM (NOTINLINE |ExpressionSpaceODESolver;|)) 
+
 (DEFUN |ExpressionSpaceODESolver| (&REST #1=#:G224)
   (PROG ()
     (RETURN

@@ -102,6 +102,8 @@
 
 (DEFUN |GPOLSET;convert;L$;13| (|lp| $) (SPADCALL |lp| (QREFELT $ 13))) 
 
+(DECLAIM (NOTINLINE |GeneralPolynomialSet;|)) 
+
 (DEFUN |GeneralPolynomialSet| (&REST #1=#:G175)
   (PROG ()
     (RETURN

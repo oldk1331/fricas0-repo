@@ -220,6 +220,8 @@
        (|x| |y| |z| |colorFcn| |tRange| |rad| |n| $)
   (SPADCALL |x| |y| |z| |colorFcn| |tRange| |rad| |n| "open" (QREFELT $ 47))) 
 
+(DECLAIM (NOTINLINE |ExpressionTubePlot;|)) 
+
 (DEFUN |ExpressionTubePlot| ()
   (PROG ()
     (RETURN

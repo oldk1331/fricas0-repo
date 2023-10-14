@@ -155,6 +155,8 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT |r|))))) 
 
+(DECLAIM (NOTINLINE |FiniteLinearAggregateSort;|)) 
+
 (DEFUN |FiniteLinearAggregateSort| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

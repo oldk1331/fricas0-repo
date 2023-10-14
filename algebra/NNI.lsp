@@ -26,6 +26,8 @@
      (SEQ (LETT |c| (- |x| |y|) |NNI;subtractIfCan;2$U;4|)
           (EXIT (COND ((< |c| 0) (CONS 1 "failed")) ('T (CONS 0 |c|)))))))) 
 
+(DECLAIM (NOTINLINE |NonNegativeInteger;|)) 
+
 (DEFUN |NonNegativeInteger| ()
   (PROG ()
     (RETURN

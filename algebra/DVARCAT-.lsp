@@ -47,6 +47,8 @@
 
 (DEFUN |DVARCAT-;weight;ANni;9| (|v| $) (SPADCALL |v| (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |DifferentialVariableCategory&;|)) 
+
 (DEFUN |DifferentialVariableCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

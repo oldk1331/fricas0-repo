@@ -222,6 +222,8 @@
         (EXIT (SPADCALL (SPADCALL |term| (QREFELT $ 54)) (QREFELT $ 37)))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |RationalFunctionSign;|)) 
+
 (DEFUN |RationalFunctionSign| (#1=#:G200)
   (PROG ()
     (RETURN

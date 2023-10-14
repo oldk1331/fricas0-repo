@@ -205,6 +205,8 @@
 (DEFUN |IAN;convert;$C;20| (|x| $)
   (SPADCALL (SPADCALL (ELT $ 123) |x| (QREFELT $ 127)) (QREFELT $ 128))) 
 
+(DECLAIM (NOTINLINE |InnerAlgebraicNumber;|)) 
+
 (DEFUN |InnerAlgebraicNumber| ()
   (PROG ()
     (RETURN

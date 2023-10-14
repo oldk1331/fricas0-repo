@@ -505,6 +505,8 @@
             . #5#)
       (EXIT (SPADCALL |l| (QREFELT $ 68))))))) 
 
+(DECLAIM (NOTINLINE |TwoDimensionalArrayCategory&;|)) 
+
 (DEFUN |TwoDimensionalArrayCategory&| (|#1| |#2| |#3| |#4|)
   (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN

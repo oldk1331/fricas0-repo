@@ -713,6 +713,8 @@
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT (CONS |a| |b|)))))))))) 
 
+(DECLAIM (NOTINLINE |RealZeroPackage;|)) 
+
 (DEFUN |RealZeroPackage| (#1=#:G261)
   (PROG ()
     (RETURN

@@ -96,6 +96,8 @@
              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
        (QREFELT $ 52)))))) 
 
+(DECLAIM (NOTINLINE |InnerFreeAbelianMonoid;|)) 
+
 (DEFUN |InnerFreeAbelianMonoid| (&REST #1=#:G166)
   (PROG ()
     (RETURN

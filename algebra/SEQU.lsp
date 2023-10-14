@@ -108,6 +108,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x| |a| (QREFELT $ 19)))))) 
 
+(DECLAIM (NOTINLINE |Sequence;|)) 
+
 (DEFUN |Sequence| (#1=#:G169)
   (PROG ()
     (RETURN

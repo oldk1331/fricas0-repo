@@ -23,6 +23,8 @@
 
 (DEFUN |JORDAN;^;$Pi$;4| (|a| |n| $) |a|) 
 
+(DECLAIM (NOTINLINE |AssociatedJordanAlgebra;|)) 
+
 (DEFUN |AssociatedJordanAlgebra| (&REST #1=#:G141)
   (PROG ()
     (RETURN

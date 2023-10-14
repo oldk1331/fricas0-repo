@@ -88,6 +88,8 @@
 
 (DEFUN |FST;doubleComplex?;$B;13| (|t| $) (QEQCAR |t| 6)) 
 
+(DECLAIM (NOTINLINE |FortranScalarType;|)) 
+
 (DEFUN |FortranScalarType| ()
   (PROG ()
     (RETURN

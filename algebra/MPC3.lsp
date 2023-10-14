@@ -36,6 +36,8 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT |ans|))))))))) 
 
+(DECLAIM (NOTINLINE |MPolyCatFunctions3;|)) 
+
 (DEFUN |MPolyCatFunctions3| (&REST #1=#:G138)
   (PROG ()
     (RETURN

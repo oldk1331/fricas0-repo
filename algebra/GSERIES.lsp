@@ -125,6 +125,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|GSERIES;integrateWithOneAnswer| |x| |s| $))))) 
 
+(DECLAIM (NOTINLINE |GeneralUnivariatePowerSeries;|)) 
+
 (DEFUN |GeneralUnivariatePowerSeries| (&REST #1=#:G188)
   (PROG ()
     (RETURN

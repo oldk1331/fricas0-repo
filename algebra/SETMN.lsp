@@ -259,6 +259,8 @@
           (EXIT
            (CONS 0 (CONS |newb| (COND ((EQL |i| |p|) (QCDR |s|)) ('T 0))))))))) 
 
+(DECLAIM (NOTINLINE |SetOfMIntegersInOneToN;|)) 
+
 (DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G233)
   (PROG ()
     (RETURN

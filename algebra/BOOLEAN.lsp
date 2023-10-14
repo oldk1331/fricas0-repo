@@ -77,6 +77,8 @@
   (COND (|x| (SPADCALL "true" (QREFELT $ 36)))
         ('T (SPADCALL "false" (QREFELT $ 36))))) 
 
+(DECLAIM (NOTINLINE |Boolean;|)) 
+
 (DEFUN |Boolean| ()
   (PROG ()
     (RETURN

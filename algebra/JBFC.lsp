@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |JetBundleFunctionCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |JetBundleFunctionCategory;|)) 
+
 (DEFPARAMETER |JetBundleFunctionCategory;AL| 'NIL) 
 
 (DEFUN |JetBundleFunctionCategory| (#1=#:G183)

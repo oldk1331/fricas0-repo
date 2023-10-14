@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |OrderlyDifferentialPolynomial;|)) 
+
 (DEFUN |OrderlyDifferentialPolynomial| (#1=#:G173)
   (PROG ()
     (RETURN

@@ -5,6 +5,8 @@
   (SPADCALL (SPADCALL |f| (SPADCALL |f1| (QREFELT $ 14)) (QREFELT $ 17))
             (QREFELT $ 18))) 
 
+(DECLAIM (NOTINLINE |FunctionFieldCategoryFunctions2;|)) 
+
 (DEFUN |FunctionFieldCategoryFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

@@ -25,6 +25,8 @@
 
 (DEFUN |SAOS;convert;$S;7| (|a| $) (SPADCALL "?" (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |SingletonAsOrderedSet;|)) 
+
 (DEFUN |SingletonAsOrderedSet| ()
   (PROG ()
     (RETURN

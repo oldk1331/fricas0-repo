@@ -911,6 +911,8 @@
 (DEFUN |GENUSER;pi;$;67| ($)
   (SPADCALL (SPADCALL (QREFELT $ 167)) (|spadConstant| $ 21) (QREFELT $ 35))) 
 
+(DECLAIM (NOTINLINE |GeneralizedUnivariatePowerSeries;|)) 
+
 (DEFUN |GeneralizedUnivariatePowerSeries| (&REST #1=#:G768)
   (PROG ()
     (RETURN

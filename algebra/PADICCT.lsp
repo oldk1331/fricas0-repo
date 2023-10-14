@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |PAdicIntegerCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |PAdicIntegerCategory;|)) 
+
 (DEFPARAMETER |PAdicIntegerCategory;AL| 'NIL) 
 
 (DEFUN |PAdicIntegerCategory| (#1=#:G128)

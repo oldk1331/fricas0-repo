@@ -1763,6 +1763,8 @@
           (GO #1#)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |InnerModularHermitePade;|)) 
+
 (DEFUN |InnerModularHermitePade| ()
   (PROG ()
     (RETURN

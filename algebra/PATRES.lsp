@@ -112,6 +112,8 @@
         ('T
          (SPADCALL (SPADCALL |p| (QREFELT $ 17)) (QCDR |l|) (QREFELT $ 29))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchResult;|)) 
+
 (DEFUN |PatternMatchResult| (&REST #1=#:G204)
   (PROG ()
     (RETURN

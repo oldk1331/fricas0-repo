@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |SolvableSkewPolynomialCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |SolvableSkewPolynomialCategory;|)) 
+
 (DEFPARAMETER |SolvableSkewPolynomialCategory;AL| 'NIL) 
 
 (DEFUN |SolvableSkewPolynomialCategory| (&REST #1=#:G128)

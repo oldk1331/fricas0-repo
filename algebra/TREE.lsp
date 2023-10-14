@@ -974,6 +974,8 @@
               (EXIT
                (|TREE;eqUnion| (SPADCALL |u| (QREFELT $ 83)) |newV| $))))))))) 
 
+(DECLAIM (NOTINLINE |Tree;|)) 
+
 (DEFUN |Tree| (#1=#:G454)
   (PROG ()
     (RETURN

@@ -241,6 +241,8 @@
                . #3#)
          (EXIT (SPADCALL |jop| |arg| (QREFELT $ 72)))))))))) 
 
+(DECLAIM (NOTINLINE |JetBundle;|)) 
+
 (DEFUN |JetBundle| (&REST #1=#:G205)
   (PROG ()
     (RETURN

@@ -273,6 +273,8 @@
                (|error|
                 "Guess: homogeneous requires that maxShift/maxDerivative is at least one or maxSubst is at least two")))))))))))))) 
 
+(DECLAIM (NOTINLINE |GuessOptionFunctions0;|)) 
+
 (DEFUN |GuessOptionFunctions0| ()
   (PROG ()
     (RETURN

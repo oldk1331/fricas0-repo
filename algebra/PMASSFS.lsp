@@ -41,6 +41,8 @@
     (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmmultiple| $))
    ('T (|error| "multiple must be applied to symbols only")))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceAssertions;|)) 
+
 (DEFUN |FunctionSpaceAssertions| (&REST #1=#:G152)
   (PROG ()
     (RETURN

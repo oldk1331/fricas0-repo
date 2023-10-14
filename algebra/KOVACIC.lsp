@@ -117,6 +117,8 @@
         (EXIT 'T)))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |Kovacic;|)) 
+
 (DEFUN |Kovacic| (&REST #1=#:G164)
   (PROG ()
     (RETURN

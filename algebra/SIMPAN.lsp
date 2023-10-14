@@ -4,6 +4,8 @@
 (DEFUN |SIMPAN;simplify;AnE;1| (|a| $)
   (SPADCALL (SPADCALL |a| (QREFELT $ 8)) (QREFELT $ 10))) 
 
+(DECLAIM (NOTINLINE |SimplifyAlgebraicNumberConvertPackage;|)) 
+
 (DEFUN |SimplifyAlgebraicNumberConvertPackage| ()
   (PROG ()
     (RETURN

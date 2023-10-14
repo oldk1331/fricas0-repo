@@ -1355,6 +1355,8 @@
                       (GO G190) G191 (EXIT NIL))
                  #3#)))))))))) 
 
+(DECLAIM (NOTINLINE |AlgebraPackage;|)) 
+
 (DEFUN |AlgebraPackage| (&REST #1=#:G375)
   (PROG ()
     (RETURN

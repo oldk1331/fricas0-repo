@@ -1201,6 +1201,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|STTAYLOR;powerre| |s| |x| |y| $))))) 
 
+(DECLAIM (NOTINLINE |StreamTaylorSeriesOperations;|)) 
+
 (DEFUN |StreamTaylorSeriesOperations| (#1=#:G683)
   (PROG ()
     (RETURN

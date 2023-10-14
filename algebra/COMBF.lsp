@@ -919,6 +919,8 @@
                              (QREFELT $ 37))
                    (QREFELT $ 39))))) 
 
+(DECLAIM (NOTINLINE |CombinatorialFunction;|)) 
+
 (DEFUN |CombinatorialFunction| (&REST #1=#:G437)
   (PROG ()
     (RETURN

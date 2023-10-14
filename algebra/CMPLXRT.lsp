@@ -61,6 +61,8 @@
            (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
       (EXIT |ris|))))) 
 
+(DECLAIM (NOTINLINE |ComplexRootPackage;|)) 
+
 (DEFUN |ComplexRootPackage| (&REST #1=#:G138)
   (PROG ()
     (RETURN

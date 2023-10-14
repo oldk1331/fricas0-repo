@@ -580,6 +580,8 @@
                     (EXIT (NREVERSE #2#))))
               (QREFELT $ 60)))))))) 
 
+(DECLAIM (NOTINLINE |GcdBasis;|)) 
+
 (DEFUN |GcdBasis| (#1=#:G191)
   (PROG ()
     (RETURN

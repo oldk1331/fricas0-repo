@@ -53,6 +53,8 @@
             . #6#)
       (EXIT |answer|))))) 
 
+(DECLAIM (NOTINLINE |IntegerSolveLinearPolynomialEquation;|)) 
+
 (DEFUN |IntegerSolveLinearPolynomialEquation| ()
   (PROG ()
     (RETURN

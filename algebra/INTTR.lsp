@@ -1292,6 +1292,8 @@
             (CONS 1 "failed"))
            (#1# (CONS 0 (CONS (QVELT |r| 0) |c|)))))))))))) 
 
+(DECLAIM (NOTINLINE |TranscendentalIntegration;|)) 
+
 (DEFUN |TranscendentalIntegration| (&REST #1=#:G595)
   (PROG ()
     (RETURN

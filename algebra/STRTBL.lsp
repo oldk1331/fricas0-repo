@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |StringTable;|)) 
+
 (DEFUN |StringTable| (#1=#:G180)
   (PROG ()
     (RETURN

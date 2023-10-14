@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |AbelianMonoidRing;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |AbelianMonoidRing;|)) 
+
 (DEFPARAMETER |AbelianMonoidRing;AL| 'NIL) 
 
 (DEFUN |AbelianMonoidRing| (&REST #1=#:G130)

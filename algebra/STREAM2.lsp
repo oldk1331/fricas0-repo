@@ -62,6 +62,8 @@
          (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 13)) |b| |h|) |h|
                    (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 26))))) 
 
+(DECLAIM (NOTINLINE |StreamFunctions2;|)) 
+
 (DEFUN |StreamFunctions2| (&REST #1=#:G174)
   (PROG ()
     (RETURN

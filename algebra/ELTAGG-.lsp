@@ -6,6 +6,8 @@
 (DEFUN |ELTAGG-;qsetelt!;SDom2Im;2| (|a| |x| |y| $)
   (SPADCALL |a| |x| |y| (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |EltableAggregate&;|)) 
+
 (DEFUN |EltableAggregate&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

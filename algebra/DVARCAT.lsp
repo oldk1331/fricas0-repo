@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |DifferentialVariableCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |DifferentialVariableCategory;|)) 
+
 (DEFPARAMETER |DifferentialVariableCategory;AL| 'NIL) 
 
 (DEFUN |DifferentialVariableCategory| (#1=#:G133)

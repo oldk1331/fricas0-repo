@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FiniteAlgebraicExtensionField;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FiniteAlgebraicExtensionField;|)) 
+
 (DEFPARAMETER |FiniteAlgebraicExtensionField;AL| 'NIL) 
 
 (DEFUN |FiniteAlgebraicExtensionField| (#1=#:G135)

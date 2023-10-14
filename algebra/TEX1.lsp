@@ -4,6 +4,8 @@
 (DEFUN |TEX1;coerce;STf;1| (|s| $)
   (SPADCALL (SPADCALL |s| (QREFELT $ 8)) (QREFELT $ 10))) 
 
+(DECLAIM (NOTINLINE |TexFormat1;|)) 
+
 (DEFUN |TexFormat1| (#1=#:G128)
   (PROG ()
     (RETURN

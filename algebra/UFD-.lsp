@@ -30,6 +30,8 @@
 (DEFUN |UFD-;prime?;SB;2| (|x| $)
   (EQL (LENGTH (SPADCALL (SPADCALL |x| (QREFELT $ 17)) (QREFELT $ 21))) 1)) 
 
+(DECLAIM (NOTINLINE |UniqueFactorizationDomain&;|)) 
+
 (DEFUN |UniqueFactorizationDomain&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

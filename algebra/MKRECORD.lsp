@@ -5,6 +5,8 @@
 
 (DEFUN |MKRECORD;makeRecord;ST$R;1| (|s| |t| $) (CONS |s| |t|)) 
 
+(DECLAIM (NOTINLINE |MakeRecord;|)) 
+
 (DEFUN |MakeRecord| (&REST #1=#:G130)
   (PROG ()
     (RETURN

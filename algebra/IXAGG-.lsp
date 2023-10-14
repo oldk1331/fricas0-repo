@@ -90,6 +90,8 @@
       (SPADCALL |a| |i| (SPADCALL |a| |j| (QREFELT $ 25)) (QREFELT $ 31))
       (SPADCALL |a| |j| |t| (QREFELT $ 31)) (EXIT (SPADCALL (QREFELT $ 35))))))) 
 
+(DECLAIM (NOTINLINE |IndexedAggregate&;|)) 
+
 (DEFUN |IndexedAggregate&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

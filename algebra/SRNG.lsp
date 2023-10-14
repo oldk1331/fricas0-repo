@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |SemiRng;|)) 
+
 (DEFPARAMETER |SemiRng;AL| 'NIL) 
 
 (DEFUN |SemiRng| ()

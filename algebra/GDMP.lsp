@@ -731,6 +731,8 @@
               (COND ((EQL 1 (LENGTH |lt|)) (|SPADfirst| |lt|))
                     (#5# (SPADCALL (ELT $ 145) |lt| (QREFELT $ 144)))))))))))) 
 
+(DECLAIM (NOTINLINE |GeneralDistributedMultivariatePolynomial;|)) 
+
 (DEFUN |GeneralDistributedMultivariatePolynomial| (&REST #1=#:G358)
   (PROG ()
     (RETURN

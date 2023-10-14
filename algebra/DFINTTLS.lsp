@@ -698,6 +698,8 @@
                      (EXIT (CONS 0 |i|))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |DefiniteIntegrationTools;|)) 
+
 (DEFUN |DefiniteIntegrationTools| (&REST #1=#:G375)
   (PROG ()
     (RETURN

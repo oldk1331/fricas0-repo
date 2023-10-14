@@ -475,6 +475,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|UTS;integrateWithOneAnswer| |y| |s| $))))) 
 
+(DECLAIM (NOTINLINE |UnivariateTaylorSeries;|)) 
+
 (DEFUN |UnivariateTaylorSeries| (&REST #1=#:G283)
   (PROG ()
     (RETURN

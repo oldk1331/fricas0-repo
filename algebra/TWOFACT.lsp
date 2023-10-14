@@ -1109,6 +1109,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x| |val| (QREFELT $ 94)))))) 
 
+(DECLAIM (NOTINLINE |TwoFactorize;|)) 
+
 (DEFUN |TwoFactorize| (#1=#:G319)
   (PROG ()
     (RETURN

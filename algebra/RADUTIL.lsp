@@ -12,6 +12,8 @@
                           (LIST (LIST '|Any|) (LIST '|RadixExpansion| |b|))
                           (|AnyFunctions1| (|RadixExpansion| |b|))))) 
 
+(DECLAIM (NOTINLINE |RadixUtilities;|)) 
+
 (DEFUN |RadixUtilities| ()
   (PROG ()
     (RETURN

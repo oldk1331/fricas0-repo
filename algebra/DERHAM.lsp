@@ -114,6 +114,8 @@
                                 (EXIT (NREVERSE #2#))))
                           (QREFELT $ 46)))))))))))) 
 
+(DECLAIM (NOTINLINE |DeRhamComplex;|)) 
+
 (DEFUN |DeRhamComplex| (&REST #1=#:G167)
   (PROG ()
     (RETURN

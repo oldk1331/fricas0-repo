@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |PolynomialFactorizationExplicit;|)) 
+
 (DEFPARAMETER |PolynomialFactorizationExplicit;AL| 'NIL) 
 
 (DEFUN |PolynomialFactorizationExplicit| ()

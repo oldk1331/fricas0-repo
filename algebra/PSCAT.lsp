@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |PowerSeriesCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |PowerSeriesCategory;|)) 
+
 (DEFPARAMETER |PowerSeriesCategory;AL| 'NIL) 
 
 (DEFUN |PowerSeriesCategory| (&REST #1=#:G133)

@@ -34,6 +34,8 @@
          |t| (QREFELT $ 18))
         (QREFELT $ 12))))))) 
 
+(DECLAIM (NOTINLINE |MakeBinaryCompiledFunction;|)) 
+
 (DEFUN |MakeBinaryCompiledFunction| (&REST #1=#:G136)
   (PROG ()
     (RETURN

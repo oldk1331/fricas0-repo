@@ -73,6 +73,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|RF;foo| |ls| |lv| |z1| $))))) 
 
+(DECLAIM (NOTINLINE |RationalFunction;|)) 
+
 (DEFUN |RationalFunction| (#1=#:G148)
   (PROG ()
     (RETURN

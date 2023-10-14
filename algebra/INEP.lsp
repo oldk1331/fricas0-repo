@@ -481,6 +481,8 @@
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL B (QREFELT $ 101))))))))))) 
 
+(DECLAIM (NOTINLINE |InnerNumericEigenPackage;|)) 
+
 (DEFUN |InnerNumericEigenPackage| (&REST #1=#:G225)
   (PROG ()
     (RETURN

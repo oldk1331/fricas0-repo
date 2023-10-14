@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MonoidRingCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MonoidRingCategory;|)) 
+
 (DEFPARAMETER |MonoidRingCategory;AL| 'NIL) 
 
 (DEFUN |MonoidRingCategory| (&REST #1=#:G128)

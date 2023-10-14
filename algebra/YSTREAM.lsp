@@ -36,6 +36,8 @@
            (GO G190) G191 (EXIT NIL))
       (EXIT |x|))))) 
 
+(DECLAIM (NOTINLINE |ParadoxicalCombinatorsForStreams;|)) 
+
 (DEFUN |ParadoxicalCombinatorsForStreams| (#1=#:G139)
   (PROG ()
     (RETURN

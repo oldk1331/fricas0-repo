@@ -242,6 +242,8 @@
                   (LETT |l| (NREVERSE |l|) . #1#)
                   (EXIT (SPADCALL (ELT $ 65) |l| (QREFELT $ 68))))))))))) 
 
+(DECLAIM (NOTINLINE |SmallOrdinal;|)) 
+
 (DEFUN |SmallOrdinal| ()
   (PROG ()
     (RETURN

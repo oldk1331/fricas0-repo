@@ -520,6 +520,8 @@
 
 (DEFUN |SYMBOL;sample;$;36| ($) (SPADCALL "aSymbol" (QREFELT $ 44))) 
 
+(DECLAIM (NOTINLINE |Symbol;|)) 
+
 (DEFUN |Symbol| ()
   (PROG ()
     (RETURN

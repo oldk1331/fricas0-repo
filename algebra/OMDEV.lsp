@@ -177,6 +177,8 @@
 
 (DEFUN |OMDEV;OMgetType;$S;43| (|dev| $) (OM-GETTYPE |dev|)) 
 
+(DECLAIM (NOTINLINE |OpenMathDevice;|)) 
+
 (DEFUN |OpenMathDevice| ()
   (PROG ()
     (RETURN

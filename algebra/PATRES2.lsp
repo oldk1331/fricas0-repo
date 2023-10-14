@@ -26,6 +26,8 @@
                     (EXIT (NREVERSE #2#))))
               (QREFELT $ 19)))))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchResultFunctions2;|)) 
+
 (DEFUN |PatternMatchResultFunctions2| (&REST #1=#:G136)
   (PROG ()
     (RETURN

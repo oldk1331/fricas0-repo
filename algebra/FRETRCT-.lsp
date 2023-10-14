@@ -29,6 +29,8 @@
            (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                  ('T (SPADCALL (QCDR |u|) (QREFELT $ 26))))))))) 
 
+(DECLAIM (NOTINLINE |FullyRetractableTo&;|)) 
+
 (DEFUN |FullyRetractableTo&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

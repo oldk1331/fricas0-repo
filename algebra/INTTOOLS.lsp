@@ -332,6 +332,8 @@
                         (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
                    (EXIT (SPADCALL |ans| |lg| |nl| (QREFELT $ 109))))))))))) 
 
+(DECLAIM (NOTINLINE |IntegrationTools;|)) 
+
 (DEFUN |IntegrationTools| (&REST #1=#:G232)
   (PROG ()
     (RETURN

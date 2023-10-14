@@ -115,6 +115,8 @@
          (QREFELT $ 37))
         (QREFELT $ 41))))))) 
 
+(DECLAIM (NOTINLINE |FiniteRankAlgebra&;|)) 
+
 (DEFUN |FiniteRankAlgebra&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

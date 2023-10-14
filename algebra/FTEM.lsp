@@ -100,6 +100,8 @@
           (QREFELT $ 37)))))
       (EXIT (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 38))))))) 
 
+(DECLAIM (NOTINLINE |FortranTemplate;|)) 
+
 (DEFUN |FortranTemplate| ()
   (PROG ()
     (RETURN

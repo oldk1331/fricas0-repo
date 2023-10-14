@@ -148,6 +148,8 @@
                 . #1#)
           (EXIT (CONS |pt| (SPADCALL |ans| |pt| (QREFELT $ 36)))))))) 
 
+(DECLAIM (NOTINLINE |TubePlotTools;|)) 
+
 (DEFUN |TubePlotTools| ()
   (PROG ()
     (RETURN

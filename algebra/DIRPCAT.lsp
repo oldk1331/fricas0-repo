@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |DirectProductCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |DirectProductCategory;|)) 
+
 (DEFPARAMETER |DirectProductCategory;AL| 'NIL) 
 
 (DEFUN |DirectProductCategory| (&REST #1=#:G132)

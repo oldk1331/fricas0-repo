@@ -2089,6 +2089,8 @@
          (VECTOR (|spadConstant| $ 177) |rf| (|spadConstant| $ 191)))
         (#4# (QCDR |res|)))))))) 
 
+(DECLAIM (NOTINLINE |DenominatorIntegration;|)) 
+
 (DEFUN |DenominatorIntegration| (#1=#:G500)
   (PROG ()
     (RETURN

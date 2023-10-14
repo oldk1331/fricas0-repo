@@ -31,6 +31,8 @@
           (COND ((NULL (EQ |r| (QREFELT $ 9))) (EXIT (CONS 0 |r|))))
           (EXIT (CONS 1 "failed")))))) 
 
+(DECLAIM (NOTINLINE |HashTable;|)) 
+
 (DEFUN |HashTable| (&REST #1=#:G197)
   (PROG ()
     (RETURN

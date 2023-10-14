@@ -128,6 +128,8 @@
 
 (DEFUN |PARRPKG;bottom;SS;5| (|x| $) (SPADCALL (ELT $ 21) |x| (QREFELT $ 24))) 
 
+(DECLAIM (NOTINLINE |PathArrayPackage;|)) 
+
 (DEFUN |PathArrayPackage| (#1=#:G147)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |UnivariatePowerSeriesCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |UnivariatePowerSeriesCategory;|)) 
+
 (DEFPARAMETER |UnivariatePowerSeriesCategory;AL| 'NIL) 
 
 (DEFUN |UnivariatePowerSeriesCategory| (&REST #1=#:G133)

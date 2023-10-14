@@ -17,6 +17,8 @@
     (QREFELT $ 17))
    (EXIT |name|))) 
 
+(DECLAIM (NOTINLINE |MakeFunction;|)) 
+
 (DEFUN |MakeFunction| (#1=#:G132)
   (PROG ()
     (RETURN

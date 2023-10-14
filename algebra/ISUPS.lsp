@@ -3298,6 +3298,8 @@
        (COND ((NULL |l|) (SPADCALL (|spadConstant| $ 30) (QREFELT $ 198)))
              (#1# (SPADCALL (ELT $ 212) (NREVERSE |l|) (QREFELT $ 215))))))))) 
 
+(DECLAIM (NOTINLINE |InnerSparseUnivariatePowerSeries;|)) 
+
 (DEFUN |InnerSparseUnivariatePowerSeries| (#1=#:G1375)
   (PROG ()
     (RETURN

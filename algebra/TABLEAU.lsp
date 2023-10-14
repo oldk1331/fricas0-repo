@@ -64,6 +64,8 @@
 (DEFUN |TABLEAU;coerce;$Of;5| (|x| $)
   (|TABLEAU;maketab| (SPADCALL |x| (QREFELT $ 10)) $)) 
 
+(DECLAIM (NOTINLINE |Tableau;|)) 
+
 (DEFUN |Tableau| (#1=#:G143)
   (PROG ()
     (RETURN

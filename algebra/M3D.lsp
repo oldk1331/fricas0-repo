@@ -351,6 +351,8 @@
                   (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
              (LETT |resultMatrix| |row3| . #4#) (EXIT |resultMatrix|)))))))) 
 
+(DECLAIM (NOTINLINE |ThreeDimensionalMatrix;|)) 
+
 (DEFUN |ThreeDimensionalMatrix| (#1=#:G201)
   (PROG ()
     (RETURN

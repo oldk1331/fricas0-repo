@@ -21,6 +21,8 @@
            (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
       (EXIT |x|))))) 
 
+(DECLAIM (NOTINLINE |MappingPackageInternalHacks1;|)) 
+
 (DEFUN |MappingPackageInternalHacks1| (#1=#:G135)
   (PROG ()
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |HyperbolicFunctionCategory;|)) 
+
 (DEFPARAMETER |HyperbolicFunctionCategory;AL| 'NIL) 
 
 (DEFUN |HyperbolicFunctionCategory| ()

@@ -311,6 +311,8 @@
         (EXIT |s|)))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |ListMultiDictionary;|)) 
+
 (DEFUN |ListMultiDictionary| (#1=#:G246)
   (PROG ()
     (RETURN

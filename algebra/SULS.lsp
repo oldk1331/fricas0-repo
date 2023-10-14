@@ -324,6 +324,8 @@
                  (SPADCALL |uls| (QREFELT $ 12)) (|spadConstant| $ 146)
                  (QREFELT $ 148))))))) 
 
+(DECLAIM (NOTINLINE |SparseUnivariateLaurentSeries;|)) 
+
 (DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G299)
   (PROG ()
     (RETURN

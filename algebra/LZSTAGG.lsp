@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |LazyStreamAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |LazyStreamAggregate;|)) 
+
 (DEFPARAMETER |LazyStreamAggregate;AL| 'NIL) 
 
 (DEFUN |LazyStreamAggregate| (#1=#:G218)

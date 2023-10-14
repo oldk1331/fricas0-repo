@@ -7,6 +7,8 @@
 
 (DEFUN |RATRET;rationalIfCan;SU;3| (|s| $) (SPADCALL |s| (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |RationalRetractions;|)) 
+
 (DEFUN |RationalRetractions| (#1=#:G136)
   (PROG ()
     (RETURN

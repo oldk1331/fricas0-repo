@@ -91,6 +91,8 @@
     (|error| "File not in write state"))
    ('T (FORCE-OUTPUT (QVELT |f| 1))))) 
 
+(DECLAIM (NOTINLINE |File;|)) 
+
 (DEFUN |File| (#1=#:G176)
   (PROG ()
     (RETURN

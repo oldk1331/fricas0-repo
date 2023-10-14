@@ -1120,6 +1120,8 @@
   (SPADCALL (SPADCALL (QVELT |rootChar| 0) (QVELT |rootChar| 1) (QREFELT $ 31))
             (SPADCALL 2 (QREFELT $ 35)) (QREFELT $ 18))) 
 
+(DECLAIM (NOTINLINE |RightOpenIntervalRootCharacterization;|)) 
+
 (DEFUN |RightOpenIntervalRootCharacterization| (&REST #1=#:G378)
   (PROG ()
     (RETURN

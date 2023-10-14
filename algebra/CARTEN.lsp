@@ -1129,6 +1129,8 @@
            (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |z|))))) 
 
+(DECLAIM (NOTINLINE |CartesianTensor;|)) 
+
 (DEFUN |CartesianTensor| (&REST #1=#:G368)
   (PROG ()
     (RETURN

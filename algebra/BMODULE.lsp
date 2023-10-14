@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |BiModule;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |BiModule;|)) 
+
 (DEFPARAMETER |BiModule;AL| 'NIL) 
 
 (DEFUN |BiModule| (&REST #1=#:G128)

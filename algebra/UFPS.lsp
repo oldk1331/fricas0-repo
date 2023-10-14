@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |UnivariateFormalPowerSeries;|)) 
+
 (DEFUN |UnivariateFormalPowerSeries| (#1=#:G143)
   (PROG ()
     (RETURN

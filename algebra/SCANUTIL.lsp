@@ -142,6 +142,8 @@
                                 (EXIT NIL))
                            (EXIT |res|))))))))))))) 
 
+(DECLAIM (NOTINLINE |ScanningUtilities;|)) 
+
 (DEFUN |ScanningUtilities| ()
   (PROG ()
     (RETURN

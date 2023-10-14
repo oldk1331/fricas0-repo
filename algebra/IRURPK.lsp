@@ -369,6 +369,8 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT |toSave|))))) 
 
+(DECLAIM (NOTINLINE |InternalRationalUnivariateRepresentationPackage;|)) 
+
 (DEFUN |InternalRationalUnivariateRepresentationPackage| (&REST #1=#:G235)
   (PROG ()
     (RETURN

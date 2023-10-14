@@ -886,6 +886,8 @@
          (EXIT (SPADCALL |num| |den| (QREFELT $ 152)))))
        ('T (|error| "unimplemented"))))))) 
 
+(DECLAIM (NOTINLINE |ComplexRootFindingPackage;|)) 
+
 (DEFUN |ComplexRootFindingPackage| (&REST #1=#:G274)
   (PROG ()
     (RETURN

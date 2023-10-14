@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FreeLieAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FreeLieAlgebra;|)) 
+
 (DEFPARAMETER |FreeLieAlgebra;AL| 'NIL) 
 
 (DEFUN |FreeLieAlgebra| (&REST #1=#:G128)

@@ -17,6 +17,8 @@
 (DEFUN |NREP;realEigenvectors;MParL;4| (|m| |eps| $)
   (SPADCALL |m| |eps| (ELT $ 22) (QREFELT $ 26))) 
 
+(DECLAIM (NOTINLINE |NumericRealEigenPackage;|)) 
+
 (DEFUN |NumericRealEigenPackage| (#1=#:G134)
   (PROG ()
     (RETURN

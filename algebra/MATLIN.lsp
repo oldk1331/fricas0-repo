@@ -885,6 +885,8 @@
 
 (DEFUN |MATLIN;determinant;MR;26| (|x| $) (SPADCALL |x| (QREFELT $ 31))) 
 
+(DECLAIM (NOTINLINE |MatrixLinearAlgebraFunctions;|)) 
+
 (DEFUN |MatrixLinearAlgebraFunctions| (&REST #1=#:G344)
   (PROG ()
     (RETURN

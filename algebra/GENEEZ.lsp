@@ -973,6 +973,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (|GENEEZ;reduceList| |x| |pmod| $))))) 
 
+(DECLAIM (NOTINLINE |GenExEuclid;|)) 
+
 (DEFUN |GenExEuclid| (&REST #1=#:G335)
   (PROG ()
     (RETURN

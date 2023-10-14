@@ -55,6 +55,8 @@
   (COND ((OR (EQUAL (QVELT |f| 2) "output") (NULL (EOFP (QVELT |f| 1)))) 'NIL)
         ('T 'T))) 
 
+(DECLAIM (NOTINLINE |TextFile;|)) 
+
 (DEFUN |TextFile| ()
   (PROG ()
     (RETURN

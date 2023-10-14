@@ -27,6 +27,8 @@
                                     (QREFELT $ 18))
                           (QREFELT $ 19)))))))))) 
 
+(DECLAIM (NOTINLINE |StreamFunctions1;|)) 
+
 (DEFUN |StreamFunctions1| (#1=#:G141)
   (PROG ()
     (RETURN

@@ -1573,6 +1573,8 @@
                      (LETT #1# (CDR #1#) . #14#) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))))))))) 
 
+(DECLAIM (NOTINLINE |JetBundleFunctionCategory&;|)) 
+
 (DEFUN |JetBundleFunctionCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

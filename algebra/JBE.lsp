@@ -1134,6 +1134,8 @@
             . #1#)
       (EXIT (|JBE;kernel0| |op| |args| $)))))) 
 
+(DECLAIM (NOTINLINE |JetBundleExpression;|)) 
+
 (DEFUN |JetBundleExpression| (#1=#:G481)
   (PROG ()
     (RETURN

@@ -68,6 +68,8 @@
                  (QREFELT $ 6) $))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |SplitHomogeneousDirectProduct;|)) 
+
 (DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G167)
   (PROG ()
     (RETURN

@@ -146,6 +146,8 @@
            (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |fr|))))) 
 
+(DECLAIM (NOTINLINE |CyclotomicPolynomialPackage;|)) 
+
 (DEFUN |CyclotomicPolynomialPackage| ()
   (PROG ()
     (RETURN

@@ -417,6 +417,8 @@
                              (EXIT (NREVERSE #2#))))
                        (QREFELT $ 60)))))))) 
 
+(DECLAIM (NOTINLINE |AntiSymm;|)) 
+
 (DEFUN |AntiSymm| (&REST #1=#:G313)
   (PROG ()
     (RETURN

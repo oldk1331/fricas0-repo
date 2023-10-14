@@ -50,6 +50,8 @@
 (DEFUN |QUEUE;queue;L$;10| (|q| $)
   (SPADCALL (SPADCALL |q| (QREFELT $ 27)) (QREFELT $ 28))) 
 
+(DECLAIM (NOTINLINE |Queue;|)) 
+
 (DEFUN |Queue| (#1=#:G156)
   (PROG ()
     (RETURN

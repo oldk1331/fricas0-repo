@@ -253,6 +253,8 @@
       (EXIT
        (COND ((QEQCAR |u| 0) (QCDR |u|)) ('T (SPADCALL (QREFELT $ 12))))))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchKernel;|)) 
+
 (DEFUN |PatternMatchKernel| (&REST #1=#:G218)
   (PROG ()
     (RETURN

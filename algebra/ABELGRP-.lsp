@@ -14,6 +14,8 @@
         ((SPADCALL |n| 0 (QREFELT $ 19)) (SPADCALL |n| |x| (QREFELT $ 22)))
         ('T (SPADCALL (- |n|) (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 22))))) 
 
+(DECLAIM (NOTINLINE |AbelianGroup&;|)) 
+
 (DEFUN |AbelianGroup&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

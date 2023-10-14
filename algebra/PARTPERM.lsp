@@ -175,6 +175,8 @@
                       (EXIT (NREVERSE #1#))))
                 (QREFELT $ 38)))))) 
 
+(DECLAIM (NOTINLINE |PartitionsAndPermutations;|)) 
+
 (DEFUN |PartitionsAndPermutations| ()
   (PROG ()
     (RETURN

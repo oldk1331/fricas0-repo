@@ -9,6 +9,8 @@
 
 (DEFUN |NONE;=;2$B;2| (|x| |y| $) (EQ |x| |y|)) 
 
+(DECLAIM (NOTINLINE |None;|)) 
+
 (DEFUN |None| ()
   (PROG ()
     (RETURN

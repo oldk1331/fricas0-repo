@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |RadicalCategory;|)) 
+
 (DEFPARAMETER |RadicalCategory;AL| 'NIL) 
 
 (DEFUN |RadicalCategory| ()

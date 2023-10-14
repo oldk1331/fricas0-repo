@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |TensorPowerCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |TensorPowerCategory;|)) 
+
 (DEFPARAMETER |TensorPowerCategory;AL| 'NIL) 
 
 (DEFUN |TensorPowerCategory| (&REST #1=#:G128)

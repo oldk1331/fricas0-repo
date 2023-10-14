@@ -179,6 +179,8 @@
             . #1#)
       (EXIT (|MOEBIUS;proportional?| |list1| |list2| $)))))) 
 
+(DECLAIM (NOTINLINE |MoebiusTransform;|)) 
+
 (DEFUN |MoebiusTransform| (#1=#:G180)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |LinearOrdinaryDifferentialOperatorCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorCategory;|)) 
+
 (DEFPARAMETER |LinearOrdinaryDifferentialOperatorCategory;AL| 'NIL) 
 
 (DEFUN |LinearOrdinaryDifferentialOperatorCategory| (#1=#:G129)

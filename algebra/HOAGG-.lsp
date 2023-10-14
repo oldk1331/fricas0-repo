@@ -151,6 +151,8 @@
         (QREFELT $ 35))
        (QREFELT $ 36)))))) 
 
+(DECLAIM (NOTINLINE |HomogeneousAggregate&;|)) 
+
 (DEFUN |HomogeneousAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

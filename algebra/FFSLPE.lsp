@@ -85,6 +85,8 @@
             (SPADCALL |p| (QREFELT $ 14) (QREFELT $ 15) (QREFELT $ 32)) . #7#)
       (EXIT |answer|))))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldSolveLinearPolynomialEquation;|)) 
+
 (DEFUN |FiniteFieldSolveLinearPolynomialEquation| (&REST #1=#:G153)
   (PROG ()
     (RETURN

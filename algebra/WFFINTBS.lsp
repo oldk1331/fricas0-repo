@@ -486,6 +486,8 @@
               (EXIT
                (VECTOR (QVELT |lb| 0) (QVELT |lb| 1) (QVELT |lb| 2))))))))))) 
 
+(DECLAIM (NOTINLINE |WildFunctionFieldIntegralBasis;|)) 
+
 (DEFUN |WildFunctionFieldIntegralBasis| (&REST #1=#:G192)
   (PROG ()
     (RETURN

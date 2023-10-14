@@ -266,6 +266,8 @@
                       |lvar| |lval| $)))))))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |LeadingCoefDetermination;|)) 
+
 (DEFUN |LeadingCoefDetermination| (&REST #1=#:G194)
   (PROG ()
     (RETURN

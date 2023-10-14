@@ -319,6 +319,8 @@
                     (COND ((SPADCALL (REM |p| 4) 3 (QREFELT $ 56)) 'NIL)
                           (#2# (SPADCALL |p| (QREFELT $ 64))))))))))))) 
 
+(DECLAIM (NOTINLINE |GaussianFactorizationPackage;|)) 
+
 (DEFUN |GaussianFactorizationPackage| ()
   (PROG ()
     (RETURN

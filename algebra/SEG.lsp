@@ -148,6 +148,8 @@
                  NIL (GO G190) G191 (EXIT NIL))))
           (EXIT (NREVERSE |lr|)))))) 
 
+(DECLAIM (NOTINLINE |Segment;|)) 
+
 (DEFUN |Segment| (#1=#:G170)
   (PROG ()
     (RETURN

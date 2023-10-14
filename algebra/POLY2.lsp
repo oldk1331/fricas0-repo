@@ -13,6 +13,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL (SPADCALL |x2| |f|) (QREFELT $ 11)))))) 
 
+(DECLAIM (NOTINLINE |PolynomialFunctions2;|)) 
+
 (DEFUN |PolynomialFunctions2| (&REST #1=#:G130)
   (PROG ()
     (RETURN

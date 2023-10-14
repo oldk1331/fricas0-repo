@@ -852,6 +852,8 @@
 (DEFUN |SUP;/;$R$;44| (|p| |co| $)
   (SPADCALL (SPADCALL |co| (QREFELT $ 135)) |p| (QREFELT $ 101))) 
 
+(DECLAIM (NOTINLINE |SparseUnivariatePolynomial;|)) 
+
 (DEFUN |SparseUnivariatePolynomial| (#1=#:G438)
   (PROG ()
     (RETURN

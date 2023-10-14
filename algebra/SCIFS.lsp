@@ -582,6 +582,8 @@
                (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL |res| (QREFELT $ 71))))))) 
 
+(DECLAIM (NOTINLINE |SceneIFS;|)) 
+
 (DEFUN |SceneIFS| (#1=#:G247)
   (PROG ()
     (RETURN

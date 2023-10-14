@@ -337,6 +337,8 @@
                (LETT |q| (|ILIST;mergeSort| |f| |q| (- |n| |l|) $) . #2#)
                (EXIT (SPADCALL |f| |p| |q| (QREFELT $ 60))))))))))) 
 
+(DECLAIM (NOTINLINE |IndexedList;|)) 
+
 (DEFUN |IndexedList| (&REST #1=#:G1150)
   (PROG ()
     (RETURN

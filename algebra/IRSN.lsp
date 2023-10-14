@@ -456,6 +456,8 @@
                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                  (EXIT (NREVERSE #2#))))))))) 
 
+(DECLAIM (NOTINLINE |IrrRepSymNatPackage;|)) 
+
 (DEFUN |IrrRepSymNatPackage| ()
   (PROG ()
     (RETURN

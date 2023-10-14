@@ -116,6 +116,8 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT (VECTOR (SPADCALL |p| |g0| (QREFELT $ 15)) |a| |qhat|)))))) 
 
+(DECLAIM (NOTINLINE |TranscendentalHermiteIntegration;|)) 
+
 (DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G149)
   (PROG ()
     (RETURN

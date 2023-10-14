@@ -61,6 +61,8 @@
       (LETT |a_form| (SPADCALL |l_form| (QREFELT $ 37)) . #3#)
       (EXIT (SPADCALL '|construct| (LIST |a_form|) (QREFELT $ 40))))))) 
 
+(DECLAIM (NOTINLINE |Collection&;|)) 
+
 (DEFUN |Collection&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

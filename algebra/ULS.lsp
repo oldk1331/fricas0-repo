@@ -17,6 +17,8 @@
 
 (DEFUN |ULS;integrate;$V$;5| (|x| |v| $) (SPADCALL |x| (QREFELT $ 25))) 
 
+(DECLAIM (NOTINLINE |UnivariateLaurentSeries;|)) 
+
 (DEFUN |UnivariateLaurentSeries| (&REST #1=#:G184)
   (PROG ()
     (RETURN

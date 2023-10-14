@@ -107,6 +107,8 @@
                                                 (QREFELT $ 23))
                                       (QREFELT $ 46))))))))))))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceSum;|)) 
+
 (DEFUN |FunctionSpaceSum| (&REST #1=#:G158)
   (PROG ()
     (RETURN

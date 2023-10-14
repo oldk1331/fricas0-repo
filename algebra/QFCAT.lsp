@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |QuotientFieldCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |QuotientFieldCategory;|)) 
+
 (DEFPARAMETER |QuotientFieldCategory;AL| 'NIL) 
 
 (DEFUN |QuotientFieldCategory| (#1=#:G128)

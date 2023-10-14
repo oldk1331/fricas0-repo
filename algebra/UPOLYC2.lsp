@@ -68,6 +68,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |ans|))))) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomialCategoryFunctions2;|)) 
+
 (DEFUN |UnivariatePolynomialCategoryFunctions2| (&REST #1=#:G148)
   (PROG ()
     (RETURN

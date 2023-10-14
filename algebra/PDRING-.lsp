@@ -49,6 +49,8 @@
 (DEFUN |PDRING-;D;ALLA;7| (|r| |lv| |ln| $)
   (SPADCALL |r| |lv| |ln| (QREFELT $ 20))) 
 
+(DECLAIM (NOTINLINE |PartialDifferentialRing&;|)) 
+
 (DEFUN |PartialDifferentialRing&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

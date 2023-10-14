@@ -238,6 +238,8 @@
                . #3#)
          (EXIT |lt|)))))))) 
 
+(DECLAIM (NOTINLINE |LieExponentials;|)) 
+
 (DEFUN |LieExponentials| (&REST #1=#:G199)
   (PROG ()
     (RETURN

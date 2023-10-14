@@ -104,6 +104,8 @@
              (LETT #1# (CDR #1#) . #5#) (GO G190) G191
              (EXIT (NREVERSE #2#))))))))) 
 
+(DECLAIM (NOTINLINE |JetGroebner;|)) 
+
 (DEFUN |JetGroebner| (&REST #1=#:G159)
   (PROG ()
     (RETURN

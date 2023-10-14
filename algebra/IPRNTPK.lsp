@@ -4,6 +4,8 @@
 (DEFUN |IPRNTPK;iprint;SV;1| (|s| $)
   (SEQ (PRINC (SPADCALL |s| (QREFELT $ 8))) (EXIT (FORCE-OUTPUT)))) 
 
+(DECLAIM (NOTINLINE |InternalPrintPackage;|)) 
+
 (DEFUN |InternalPrintPackage| ()
   (PROG ()
     (RETURN

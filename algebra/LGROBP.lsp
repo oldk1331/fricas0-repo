@@ -890,6 +890,8 @@
             . #8#)
       (LETT LL (SPADCALL LL (QREFELT $ 114)) . #8#) (EXIT (CONS LL |ll|)))))) 
 
+(DECLAIM (NOTINLINE |LinGroebnerPackage;|)) 
+
 (DEFUN |LinGroebnerPackage| (&REST #1=#:G293)
   (PROG ()
     (RETURN

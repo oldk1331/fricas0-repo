@@ -31,6 +31,8 @@
             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
             (EXIT (NREVERSE #2#)))))))) 
 
+(DECLAIM (NOTINLINE |KeyedDictionary&;|)) 
+
 (DEFUN |KeyedDictionary&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

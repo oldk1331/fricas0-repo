@@ -382,6 +382,8 @@
               (|spadConstant| $ 31))
              ('T (|mulmod_SI| |m| |x| (QREFELT $ 22))))))))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldCyclicGroupExtensionByPolynomial;|)) 
+
 (DEFUN |FiniteFieldCyclicGroupExtensionByPolynomial| (&REST #1=#:G295)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |BinaryRecursiveAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |BinaryRecursiveAggregate;|)) 
+
 (DEFPARAMETER |BinaryRecursiveAggregate;AL| 'NIL) 
 
 (DEFUN |BinaryRecursiveAggregate| (#1=#:G157)

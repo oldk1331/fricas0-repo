@@ -3007,6 +3007,8 @@
 
 (DEFUN |FSPECF;iiMeijerG| (|l| $) (SPADCALL (QREFELT $ 34) |l| (QREFELT $ 91))) 
 
+(DECLAIM (NOTINLINE |FunctionalSpecialFunction;|)) 
+
 (DEFUN |FunctionalSpecialFunction| (&REST #1=#:G1141)
   (PROG ()
     (RETURN

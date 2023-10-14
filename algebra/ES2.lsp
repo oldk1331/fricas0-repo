@@ -19,6 +19,8 @@
                       (EXIT (NREVERSE #2#))))
                 (QREFELT $ 15)))))) 
 
+(DECLAIM (NOTINLINE |ExpressionSpaceFunctions2;|)) 
+
 (DEFUN |ExpressionSpaceFunctions2| (&REST #1=#:G132)
   (PROG ()
     (RETURN

@@ -531,6 +531,8 @@
     (CONS 0 (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 73))))
    ('T (CONS 1 "failed")))) 
 
+(DECLAIM (NOTINLINE |OctonionCategory&;|)) 
+
 (DEFUN |OctonionCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

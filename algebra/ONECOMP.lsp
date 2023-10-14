@@ -96,6 +96,8 @@
        (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
              ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 48)))))))))) 
 
+(DECLAIM (NOTINLINE |OnePointCompletion;|)) 
+
 (DEFUN |OnePointCompletion| (#1=#:G190)
   (PROG ()
     (RETURN

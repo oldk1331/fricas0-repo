@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |GuessPolynomialInteger;|)) 
+
 (DEFUN |GuessPolynomialInteger| ()
   (PROG ()
     (RETURN

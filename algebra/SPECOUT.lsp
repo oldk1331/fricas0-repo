@@ -32,6 +32,8 @@
   (SEQ (|texFormat| (|SPECOUT;juxtaposeTerms| |l| $))
        (EXIT (SPADCALL (QREFELT $ 10))))) 
 
+(DECLAIM (NOTINLINE |SpecialOutputPackage;|)) 
+
 (DEFUN |SpecialOutputPackage| ()
   (PROG ()
     (RETURN

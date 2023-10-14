@@ -9,6 +9,8 @@
 (DEFUN |LIST2;reduce;ML2B;3| (|f| |l| |b| $)
   (SPADCALL |f| |l| |b| (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |ListFunctions2;|)) 
+
 (DEFUN |ListFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN

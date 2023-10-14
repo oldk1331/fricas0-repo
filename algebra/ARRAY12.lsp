@@ -9,6 +9,8 @@
 (DEFUN |ARRAY12;reduce;MOda2B;3| (|f| |v| |b| $)
   (SPADCALL |f| |v| |b| (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |OneDimensionalArrayFunctions2;|)) 
+
 (DEFUN |OneDimensionalArrayFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN

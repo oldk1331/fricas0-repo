@@ -583,6 +583,8 @@
            (LETT |k| (|inc_SI| |k|) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT M))))) 
 
+(DECLAIM (NOTINLINE |FractionFreeFastGaussian;|)) 
+
 (DEFUN |FractionFreeFastGaussian| (&REST #1=#:G259)
   (PROG ()
     (RETURN

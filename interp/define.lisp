@@ -3176,6 +3176,8 @@
 ;     $mutableDomain => 'LAMBDA
 ;     'spad_CLAM
 ;   compForm:= LIST [fn,[lambdaOrSlam,vl,:bodyl]]
+;   auxfn := INTERNL(fn, '";")
+;   LAM_,EVALANDFILEACTQ(["DECLAIM", ["NOTINLINE", auxfn]])
 ;   if kind = 'category
 ;       then u:= compAndDefine compForm
 ;       else u:=COMP compForm
@@ -3183,7 +3185,7 @@
 ;   first u
  
 (DEFUN |compileConstructor1| (|form|)
-  (PROG (|fn| |key| |vl| |bodyl| |kind| |lambdaOrSlam| |compForm| |u|)
+  (PROG (|fn| |key| |vl| |bodyl| |kind| |lambdaOrSlam| |compForm| |auxfn| |u|)
     (RETURN
      (PROGN
       (SETQ |fn| (CAR |form|))
@@ -3196,6 +3198,8 @@
                     (|$mutableDomain| 'LAMBDA) (#2='T '|spad_CLAM|)))
       (SETQ |compForm|
               (LIST (LIST |fn| (CONS |lambdaOrSlam| (CONS |vl| |bodyl|)))))
+      (SETQ |auxfn| (INTERNL |fn| ";"))
+      (|LAM,EVALANDFILEACTQ| (LIST 'DECLAIM (LIST 'NOTINLINE |auxfn|)))
       (COND ((EQ |kind| '|category|) (SETQ |u| (|compAndDefine| |compForm|)))
             (#2# (SETQ |u| (COMP |compForm|))))
       (|clearConstructorCache| |fn|)

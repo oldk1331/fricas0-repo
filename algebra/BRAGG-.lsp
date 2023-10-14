@@ -226,6 +226,8 @@
 (DEFUN |BRAGG-;setelt;Aright2A;17| (|x| T6 |b| $)
   (SPADCALL |x| |b| (QREFELT $ 49))) 
 
+(DECLAIM (NOTINLINE |BinaryRecursiveAggregate&;|)) 
+
 (DEFUN |BinaryRecursiveAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

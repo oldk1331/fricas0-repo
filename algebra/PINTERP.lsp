@@ -12,6 +12,8 @@
 (DEFUN |PINTERP;interpolate;2LSup;2| (|lx| |ly| $)
   (SPADCALL |lx| |ly| (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |PolynomialInterpolation;|)) 
+
 (DEFUN |PolynomialInterpolation| (&REST #1=#:G130)
   (PROG ()
     (RETURN

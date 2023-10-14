@@ -7,6 +7,8 @@
 (DEFUN |GUESSF1;EXPRR2F;EF;2| (|p| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 13)) (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |GuessFiniteFunctions;|)) 
+
 (DEFUN |GuessFiniteFunctions| (#1=#:G129)
   (PROG ()
     (RETURN

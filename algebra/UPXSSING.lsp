@@ -499,6 +499,8 @@
                                             (QREFELT $
                                                      68))))))))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesWithExponentialSingularity;|)) 
+
 (DEFUN |UnivariatePuiseuxSeriesWithExponentialSingularity| (&REST #1=#:G306)
   (PROG ()
     (RETURN

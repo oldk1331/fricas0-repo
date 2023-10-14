@@ -14,6 +14,8 @@
 (DEFUN |AN;convert;$If;4| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 18)) (QREFELT $ 20))) 
 
+(DECLAIM (NOTINLINE |AlgebraicNumber;|)) 
+
 (DEFUN |AlgebraicNumber| ()
   (PROG ()
     (RETURN

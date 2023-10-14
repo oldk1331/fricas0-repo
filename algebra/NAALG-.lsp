@@ -24,6 +24,8 @@
                          (SPADCALL |a| |n1| (QREFELT $ 10))
                          (QREFELT $ 11)))))))))) 
 
+(DECLAIM (NOTINLINE |NonAssociativeAlgebra&;|)) 
+
 (DEFUN |NonAssociativeAlgebra&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

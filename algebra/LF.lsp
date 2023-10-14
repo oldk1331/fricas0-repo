@@ -306,6 +306,8 @@
           (QREFELT $ 126)))
    $)) 
 
+(DECLAIM (NOTINLINE |LiouvillianFunction;|)) 
+
 (DEFUN |LiouvillianFunction| (&REST #1=#:G282)
   (PROG ()
     (RETURN

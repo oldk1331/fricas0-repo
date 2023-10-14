@@ -293,6 +293,8 @@
 (DEFUN |XPR;/;$R$;20| (|x| |r| $)
   (SPADCALL (SPADCALL |r| (QREFELT $ 56)) |x| (QREFELT $ 41))) 
 
+(DECLAIM (NOTINLINE |XPolynomialRing;|)) 
+
 (DEFUN |XPolynomialRing| (&REST #1=#:G223)
   (PROG ()
     (RETURN

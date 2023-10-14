@@ -571,6 +571,8 @@
                     (#2# |s|)))
                   (#2# (CONS 1 "failed")))))))))))))) 
 
+(DECLAIM (NOTINLINE |ElementaryFunctionSign;|)) 
+
 (DEFUN |ElementaryFunctionSign| (&REST #1=#:G321)
   (PROG ()
     (RETURN

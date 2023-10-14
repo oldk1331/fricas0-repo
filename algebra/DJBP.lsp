@@ -671,6 +671,8 @@
   (SEQ (SPADCALL "groebner$DJBP" (QREFELT $ 153))
        (EXIT (SPADCALL |lp| (QREFELT $ 155))))) 
 
+(DECLAIM (NOTINLINE |DistributedJetBundlePolynomial;|)) 
+
 (DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G371)
   (PROG ()
     (RETURN

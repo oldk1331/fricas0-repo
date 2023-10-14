@@ -44,6 +44,8 @@
 (DEFUN |REAL0Q;refine;Pol2RU;7| (|f| |int| |bounds| $)
   (SPADCALL (|REAL0Q;convert2PolInt| |f| $) |int| |bounds| (QREFELT $ 34))) 
 
+(DECLAIM (NOTINLINE |RealZeroPackageQ;|)) 
+
 (DEFUN |RealZeroPackageQ| (#1=#:G148)
   (PROG ()
     (RETURN

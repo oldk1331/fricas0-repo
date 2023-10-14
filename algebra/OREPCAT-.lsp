@@ -262,6 +262,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT (VECTOR |a| |u0| |v0| (SPADCALL |u| |a0| (QREFELT $ 55)))))))) 
 
+(DECLAIM (NOTINLINE |UnivariateSkewPolynomialCategory&;|)) 
+
 (DEFUN |UnivariateSkewPolynomialCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

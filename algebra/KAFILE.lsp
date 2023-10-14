@@ -140,6 +140,8 @@
 (DEFUN |KAFILE;pack!;2$;19| (|f| $)
   (SEQ (SPADCALL |f| (QREFELT $ 23)) (EXIT |f|))) 
 
+(DECLAIM (NOTINLINE |KeyedAccessFile;|)) 
+
 (DEFUN |KeyedAccessFile| (#1=#:G246)
   (PROG ()
     (RETURN

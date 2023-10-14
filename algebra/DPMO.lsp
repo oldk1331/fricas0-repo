@@ -19,6 +19,8 @@
             (GO G190) G191 (EXIT NIL))
        #3#))))) 
 
+(DECLAIM (NOTINLINE |DirectProductModule;|)) 
+
 (DEFUN |DirectProductModule| (&REST #1=#:G154)
   (PROG ()
     (RETURN

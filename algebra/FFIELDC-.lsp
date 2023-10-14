@@ -375,6 +375,8 @@
 (DEFUN |FFIELDC-;gcdPolynomial;3Sup;16| (|f| |g| $)
   (SPADCALL |f| |g| (QREFELT $ 88))) 
 
+(DECLAIM (NOTINLINE |FiniteFieldCategory&;|)) 
+
 (DEFUN |FiniteFieldCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

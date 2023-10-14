@@ -172,6 +172,8 @@
 (DEFUN |IALGFACT;convrt| (|q| $)
   (SPADCALL (SPADCALL (ELT $ 56) |q| (QREFELT $ 59)) (QREFELT $ 61))) 
 
+(DECLAIM (NOTINLINE |InnerAlgFactor;|)) 
+
 (DEFUN |InnerAlgFactor| (&REST #1=#:G171)
   (PROG ()
     (RETURN

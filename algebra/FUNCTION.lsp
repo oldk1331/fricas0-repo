@@ -11,6 +11,8 @@
 
 (DEFUN |FUNCTION;latex;$S;4| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
 
+(DECLAIM (NOTINLINE |FunctionCalled;|)) 
+
 (DEFUN |FunctionCalled| (#1=#:G131)
   (PROG ()
     (RETURN

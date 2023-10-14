@@ -152,6 +152,8 @@
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT |ris|))))))))) 
 
+(DECLAIM (NOTINLINE |FactoringUtilities;|)) 
+
 (DEFUN |FactoringUtilities| (&REST #1=#:G160)
   (PROG ()
     (RETURN

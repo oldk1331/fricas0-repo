@@ -1217,6 +1217,8 @@
             . #1#)
       (EXIT (|ULSCONS;termsToOutputForm| |m| |p| |xxx| $)))))) 
 
+(DECLAIM (NOTINLINE |UnivariateLaurentSeriesConstructor;|)) 
+
 (DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G571)
   (PROG ()
     (RETURN

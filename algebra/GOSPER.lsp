@@ -528,6 +528,8 @@
             (EXIT (CONS 0 (SPADCALL |rt| (QREFELT $ 111))))))
           #1# (EXIT #1#))))))))) 
 
+(DECLAIM (NOTINLINE |GosperSummationMethod;|)) 
+
 (DEFUN |GosperSummationMethod| (&REST #1=#:G250)
   (PROG ()
     (RETURN

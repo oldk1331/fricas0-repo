@@ -305,6 +305,8 @@
             . #3#)
       (EXIT (SPADCALL (ELT $ 9) |stSol| (QREFELT $ 21))))))) 
 
+(DECLAIM (NOTINLINE |UnivariateTaylorSeriesODESolver;|)) 
+
 (DEFUN |UnivariateTaylorSeriesODESolver| (&REST #1=#:G260)
   (PROG ()
     (RETURN

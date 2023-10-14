@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |OpenMath;|)) 
+
 (DEFPARAMETER |OpenMath;AL| 'NIL) 
 
 (DEFUN |OpenMath| ()

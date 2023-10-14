@@ -61,6 +61,8 @@
                              (QREFELT $ 33))
                    (QREFELT $ 23)))))))) 
 
+(DECLAIM (NOTINLINE |DistributionPolynomialPackage;|)) 
+
 (DEFUN |DistributionPolynomialPackage| (&REST #1=#:G141)
   (PROG ()
     (RETURN

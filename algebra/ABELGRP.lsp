@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |AbelianGroup;|)) 
+
 (DEFPARAMETER |AbelianGroup;AL| 'NIL) 
 
 (DEFUN |AbelianGroup| ()

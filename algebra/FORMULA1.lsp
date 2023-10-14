@@ -4,6 +4,8 @@
 (DEFUN |FORMULA1;coerce;SSff;1| (|s| $)
   (SPADCALL (SPADCALL |s| (QREFELT $ 8)) (QREFELT $ 10))) 
 
+(DECLAIM (NOTINLINE |ScriptFormulaFormat1;|)) 
+
 (DEFUN |ScriptFormulaFormat1| (#1=#:G128)
   (PROG ()
     (RETURN

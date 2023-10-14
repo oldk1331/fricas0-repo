@@ -155,6 +155,8 @@
                       (SPADCALL |c| (QREFELT $ 42)) (QREFELT $ 47))
             (QREFELT $ 48))) 
 
+(DECLAIM (NOTINLINE |GaloisGroupPolynomialUtilities;|)) 
+
 (DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G170)
   (PROG ()
     (RETURN

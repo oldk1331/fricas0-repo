@@ -206,6 +206,8 @@
                                (EXIT (CONS 0 (* |a| (EXPT |b| |e|))))))
                              (#1# (CONS 1 "failed"))))))))))))))) 
 
+(DECLAIM (NOTINLINE |MakeFloatCompiledFunction;|)) 
+
 (DEFUN |MakeFloatCompiledFunction| (#1=#:G189)
   (PROG ()
     (RETURN

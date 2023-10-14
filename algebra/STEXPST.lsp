@@ -92,6 +92,8 @@
       (SPADCALL (SPADCALL (SPADCALL |y| (QREFELT $ 28)) (QREFELT $ 25))
                 (SPADCALL |z| (QREFELT $ 20)) (QREFELT $ 9)))))) 
 
+(DECLAIM (NOTINLINE |StreamExponentialSeriesTranscendentalFunctions;|)) 
+
 (DEFUN |StreamExponentialSeriesTranscendentalFunctions| (#1=#:G141)
   (PROG ()
     (RETURN

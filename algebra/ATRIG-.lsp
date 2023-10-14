@@ -17,6 +17,8 @@
            (COND ((QEQCAR |a| 1) (|error| "acsc: no reciprocal"))
                  ('T (SPADCALL (QCDR |a|) (QREFELT $ 11))))))))) 
 
+(DECLAIM (NOTINLINE |ArcTrigonometricFunctionCategory&;|)) 
+
 (DEFUN |ArcTrigonometricFunctionCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

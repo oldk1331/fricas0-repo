@@ -745,6 +745,8 @@
                (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
           (EXIT |colematrix|))))) 
 
+(DECLAIM (NOTINLINE |SymmetricGroupCombinatoricFunctions;|)) 
+
 (DEFUN |SymmetricGroupCombinatoricFunctions| ()
   (PROG ()
     (RETURN

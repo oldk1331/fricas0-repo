@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |Collection;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |Collection;|)) 
+
 (DEFPARAMETER |Collection;AL| 'NIL) 
 
 (DEFUN |Collection| (#1=#:G128)

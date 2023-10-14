@@ -4717,6 +4717,8 @@
                 . #12#)
           (EXIT |s|))))) 
 
+(DECLAIM (NOTINLINE |Scene;|)) 
+
 (DEFUN |Scene| (#1=#:G1535)
   (PROG ()
     (RETURN

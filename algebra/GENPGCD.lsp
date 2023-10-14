@@ -999,6 +999,8 @@
                          (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
                        (QREFELT $ 70)))))))) 
 
+(DECLAIM (NOTINLINE |GeneralPolynomialGcdPackage;|)) 
+
 (DEFUN |GeneralPolynomialGcdPackage| (&REST #1=#:G336)
   (PROG ()
     (RETURN

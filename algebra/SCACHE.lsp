@@ -258,6 +258,8 @@
                 (QREFELT $ 16))
       (|SCACHE;insertBefore| |before| |x| $) (EXIT |x|))))) 
 
+(DECLAIM (NOTINLINE |SortedCache;|)) 
+
 (DEFUN |SortedCache| (#1=#:G209)
   (PROG ()
     (RETURN

@@ -1270,6 +1270,8 @@
             |PATTERN;patternVariable;S3B$;59|)
       (EXIT (|PATTERN;mkPat| (ZEROP (QVELT |rsy| 0)) (CONS 4 |rsy|) 0 $)))))) 
 
+(DECLAIM (NOTINLINE |Pattern;|)) 
+
 (DEFUN |Pattern| (#1=#:G730)
   (PROG ()
     (RETURN

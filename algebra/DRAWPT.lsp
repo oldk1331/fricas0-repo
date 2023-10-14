@@ -119,6 +119,8 @@
                                               |l|
                                               (QREFELT $ 31))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |TopLevelDrawFunctionsForPoints;|)) 
+
 (DEFUN |TopLevelDrawFunctionsForPoints| ()
   (PROG ()
     (RETURN

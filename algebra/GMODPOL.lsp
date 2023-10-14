@@ -39,6 +39,8 @@
           (SPADCALL (SPADCALL |p| (QREFELT $ 39)) |mp| (QREFELT $ 40))
           (QREFELT $ 34))))) 
 
+(DECLAIM (NOTINLINE |GeneralModulePolynomial;|)) 
+
 (DEFUN |GeneralModulePolynomial| (&REST #1=#:G159)
   (PROG ()
     (RETURN

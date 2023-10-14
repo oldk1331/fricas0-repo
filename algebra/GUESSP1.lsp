@@ -53,6 +53,8 @@
   (SPADCALL (|GUESSP1;SMP2S| (SPADCALL |p| (QREFELT $ 43)) $)
             (|GUESSP1;SMP2S| (SPADCALL |p| (QREFELT $ 44)) $) (QREFELT $ 45))) 
 
+(DECLAIM (NOTINLINE |GuessPolynomialFunctions;|)) 
+
 (DEFUN |GuessPolynomialFunctions| (#1=#:G147)
   (PROG ()
     (RETURN

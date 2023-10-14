@@ -646,6 +646,8 @@
                                (|FORMULA;formatFunction| |op| |args| |prec|
                                 $))))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |ScriptFormulaFormat;|)) 
+
 (DEFUN |ScriptFormulaFormat| ()
   (PROG ()
     (RETURN

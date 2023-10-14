@@ -42,6 +42,8 @@
       (SPADCALL (SPADCALL (SPADCALL |d| |x| (QREFELT $ 14)) (QREFELT $ 15))
                 (QREFELT $ 16)))))) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomialCommonDenominator;|)) 
+
 (DEFUN |UnivariatePolynomialCommonDenominator| (&REST #1=#:G136)
   (PROG ()
     (RETURN

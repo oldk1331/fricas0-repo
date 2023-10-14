@@ -166,6 +166,8 @@
                                       #1#))
                      (QREFELT $ 64)))))))))) 
 
+(DECLAIM (NOTINLINE |ExpressionLinearSolve;|)) 
+
 (DEFUN |ExpressionLinearSolve| (#1=#:G186)
   (PROG ()
     (RETURN

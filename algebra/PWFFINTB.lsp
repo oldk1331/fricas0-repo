@@ -1033,6 +1033,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (VECTOR |runningRb| |runningRbden| |runningRbinv|)))))))))) 
 
+(DECLAIM (NOTINLINE |PAdicWildFunctionFieldIntegralBasis;|)) 
+
 (DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G236)
   (PROG ()
     (RETURN

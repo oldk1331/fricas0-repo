@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MultivariateSkewPolynomialCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MultivariateSkewPolynomialCategory;|)) 
+
 (DEFPARAMETER |MultivariateSkewPolynomialCategory;AL| 'NIL) 
 
 (DEFUN |MultivariateSkewPolynomialCategory| (&REST #1=#:G128)

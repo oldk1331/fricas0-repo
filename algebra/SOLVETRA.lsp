@@ -1614,6 +1614,8 @@
             . #3#)
       (EXIT (|SOLVETRA;solveList| |lexpr| |lvar| $)))))) 
 
+(DECLAIM (NOTINLINE |TransSolvePackage;|)) 
+
 (DEFUN |TransSolvePackage| (#1=#:G578)
   (PROG ()
     (RETURN

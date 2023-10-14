@@ -90,6 +90,8 @@
                       (CONS (SPADCALL |i2| (QCAR (QCDR |i1|)) (QREFELT $ 38))
                             (QCDR (QCDR |i1|))))))))))))) 
 
+(DECLAIM (NOTINLINE |RationalIntegration;|)) 
+
 (DEFUN |RationalIntegration| (&REST #1=#:G159)
   (PROG ()
     (RETURN

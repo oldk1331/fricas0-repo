@@ -153,6 +153,8 @@
        (SPADCALL (SPADCALL |acplot| (QREFELT $ 85)) |ptCol| |crCol|
                  (SPADCALL (QREFELT $ 87)) |l| (QREFELT $ 90))))))) 
 
+(DECLAIM (NOTINLINE |TopLevelDrawFunctionsForAlgebraicCurves;|)) 
+
 (DEFUN |TopLevelDrawFunctionsForAlgebraicCurves| (&REST #1=#:G159)
   (PROG ()
     (RETURN

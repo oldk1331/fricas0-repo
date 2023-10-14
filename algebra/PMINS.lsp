@@ -171,6 +171,8 @@
 (DEFUN |PMINS;patternMatchInner!0| (|i1| |i2| $)
   (CONS 0 (SPADCALL |i1| |i2| (QREFELT $ 43)))) 
 
+(DECLAIM (NOTINLINE |PatternMatchIntegerNumberSystem;|)) 
+
 (DEFUN |PatternMatchIntegerNumberSystem| (#1=#:G186)
   (PROG ()
     (RETURN

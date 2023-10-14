@@ -149,6 +149,8 @@
                   (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
              (EXIT (SPADCALL (ELT $ 49) |le| (QREFELT $ 52)))))))))) 
 
+(DECLAIM (NOTINLINE |TensorProduct;|)) 
+
 (DEFUN |TensorProduct| (&REST #1=#:G171)
   (PROG ()
     (RETURN

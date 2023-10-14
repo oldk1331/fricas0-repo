@@ -12,6 +12,8 @@
 
 (DEFUN |INTBIT;bitTruth;2IB;3| (|n| |i| $) (INTEGER-BIT |n| |i|)) 
 
+(DECLAIM (NOTINLINE |IntegerBits;|)) 
+
 (DEFUN |IntegerBits| ()
   (PROG ()
     (RETURN

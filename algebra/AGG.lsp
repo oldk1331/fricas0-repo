@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |Aggregate;|)) 
+
 (DEFPARAMETER |Aggregate;AL| 'NIL) 
 
 (DEFUN |Aggregate| ()

@@ -38,6 +38,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |y| |ls| |lv| (QREFELT $ 17)))))) 
 
+(DECLAIM (NOTINLINE |FullyEvalableOver&;|)) 
+
 (DEFUN |FullyEvalableOver&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

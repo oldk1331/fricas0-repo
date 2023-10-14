@@ -1424,6 +1424,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |outList|))))) 
 
+(DECLAIM (NOTINLINE |Plot3D;|)) 
+
 (DEFUN |Plot3D| ()
   (PROG ()
     (RETURN

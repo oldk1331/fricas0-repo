@@ -83,6 +83,8 @@
      (|error| "file must be in read state"))
     ('T (SEQ (FILE-POSITION (QVELT |f| 1) |i|) (EXIT |i|)))))) 
 
+(DECLAIM (NOTINLINE |BinaryFile;|)) 
+
 (DEFUN |BinaryFile| ()
   (PROG ()
     (RETURN

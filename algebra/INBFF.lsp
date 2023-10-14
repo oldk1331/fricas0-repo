@@ -555,6 +555,8 @@
             (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T (|spadConstant| $ 94)))))))) 
 
+(DECLAIM (NOTINLINE |InnerNormalBasisFieldFunctions;|)) 
+
 (DEFUN |InnerNormalBasisFieldFunctions| (#1=#:G255)
   (PROG ()
     (RETURN

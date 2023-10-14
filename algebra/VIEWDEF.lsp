@@ -139,6 +139,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (SPADCALL (QREFELT $ 34) |thingsToWrite| (QREFELT $ 93))))))) 
 
+(DECLAIM (NOTINLINE |ViewDefaultsPackage;|)) 
+
 (DEFUN |ViewDefaultsPackage| ()
   (PROG ()
     (RETURN

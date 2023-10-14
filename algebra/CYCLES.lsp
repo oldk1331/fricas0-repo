@@ -595,6 +595,8 @@
                . #6#)
          (EXIT (SPADCALL |a| (QREFELT $ 70)))))))))) 
 
+(DECLAIM (NOTINLINE |CycleIndicators;|)) 
+
 (DEFUN |CycleIndicators| ()
   (PROG ()
     (RETURN

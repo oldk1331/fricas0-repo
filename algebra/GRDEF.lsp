@@ -25,6 +25,8 @@
 
 (DEFUN |GRDEF;screenResolution;2I;12| (|n| $) (SPADCALL |n| (QREFELT $ 29))) 
 
+(DECLAIM (NOTINLINE |GraphicsDefaults;|)) 
+
 (DEFUN |GraphicsDefaults| ()
   (PROG ()
     (RETURN

@@ -181,6 +181,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |y| RTRIG (QREFELT $ 48)))))) 
 
+(DECLAIM (NOTINLINE |ComplexTrigonometricManipulations;|)) 
+
 (DEFUN |ComplexTrigonometricManipulations| (&REST #1=#:G174)
   (PROG ()
     (RETURN

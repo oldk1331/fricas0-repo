@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |OrderedMultisetAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |OrderedMultisetAggregate;|)) 
+
 (DEFPARAMETER |OrderedMultisetAggregate;AL| 'NIL) 
 
 (DEFUN |OrderedMultisetAggregate| (#1=#:G128)

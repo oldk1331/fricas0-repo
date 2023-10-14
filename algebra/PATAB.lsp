@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |Patternable;|)) 
+
 (DEFPARAMETER |Patternable;AL| 'NIL) 
 
 (DEFUN |Patternable| (#1=#:G128)

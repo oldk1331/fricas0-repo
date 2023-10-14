@@ -155,6 +155,8 @@
     (|error| "index out of range"))
    ('T (SPADCALL |x| |i| |s| (QREFELT $ 25))))) 
 
+(DECLAIM (NOTINLINE |IndexedOneDimensionalArray;|)) 
+
 (DEFUN |IndexedOneDimensionalArray| (&REST #1=#:G1228)
   (PROG ()
     (RETURN

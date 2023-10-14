@@ -17,6 +17,8 @@
 
 (DEFUN |HASHSTAT;modulo| (|hs| |i| $) (HASHSTATEMOD |hs| |i|)) 
 
+(DECLAIM (NOTINLINE |HashState;|)) 
+
 (DEFUN |HashState| ()
   (PROG ()
     (RETURN

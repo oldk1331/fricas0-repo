@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |EqTable;|)) 
+
 (DEFUN |EqTable| (&REST #1=#:G180)
   (PROG ()
     (RETURN

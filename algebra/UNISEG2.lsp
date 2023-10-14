@@ -17,6 +17,8 @@
 (DEFUN |UNISEG2;map;MUsS;2| (|f| |u| $)
   (SPADCALL |f| (SPADCALL |u| (QREFELT $ 19)) (QREFELT $ 22))) 
 
+(DECLAIM (NOTINLINE |UniversalSegmentFunctions2;|)) 
+
 (DEFUN |UniversalSegmentFunctions2| (&REST #1=#:G133)
   (PROG ()
     (RETURN

@@ -337,6 +337,8 @@
            (SPADCALL (SPADCALL |s| (QREFELT $ 59))
                      (SPADCALL |eles| (QREFELT $ 61)) (QREFELT $ 62))))))) 
 
+(DECLAIM (NOTINLINE |SCartesian;|)) 
+
 (DEFUN |SCartesian| (#1=#:G224)
   (PROG ()
     (RETURN

@@ -29,6 +29,8 @@
   (SPADCALL (SPADCALL (SPADCALL |p| |x| (QREFELT $ 21)) (QREFELT $ 26))
             (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 28))) 
 
+(DECLAIM (NOTINLINE |Polynomial;|)) 
+
 (DEFUN |Polynomial| (#1=#:G170)
   (PROG ()
     (RETURN

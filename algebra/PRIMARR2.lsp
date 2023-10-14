@@ -9,6 +9,8 @@
 (DEFUN |PRIMARR2;reduce;MPa2B;3| (|f| |v| |b| $)
   (SPADCALL |f| |v| |b| (QREFELT $ 17))) 
 
+(DECLAIM (NOTINLINE |PrimitiveArrayFunctions2;|)) 
+
 (DEFUN |PrimitiveArrayFunctions2| (&REST #1=#:G135)
   (PROG ()
     (RETURN

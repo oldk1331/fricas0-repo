@@ -24,6 +24,8 @@
          #1# (EXIT #1#)))
        ('T (SPADCALL (QREFELT $ 16)))))))) 
 
+(DECLAIM (NOTINLINE |PatternMatchSymbol;|)) 
+
 (DEFUN |PatternMatchSymbol| (#1=#:G137)
   (PROG ()
     (RETURN

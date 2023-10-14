@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |Monoid;|)) 
+
 (DEFPARAMETER |Monoid;AL| 'NIL) 
 
 (DEFUN |Monoid| ()

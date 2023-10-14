@@ -381,6 +381,8 @@
                              (EXIT (NREVERSE #2#))))
                        (QREFELT $ 88))))))))) 
 
+(DECLAIM (NOTINLINE |Kernel;|)) 
+
 (DEFUN |Kernel| (#1=#:G265)
   (PROG ()
     (RETURN

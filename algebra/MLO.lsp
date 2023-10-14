@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |MonogenicLinearOperator;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |MonogenicLinearOperator;|)) 
+
 (DEFPARAMETER |MonogenicLinearOperator;AL| 'NIL) 
 
 (DEFUN |MonogenicLinearOperator| (#1=#:G128)

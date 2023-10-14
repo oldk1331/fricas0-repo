@@ -68,6 +68,8 @@
       (LETT |a| (SPADCALL |x| |t| (QREFELT $ 23)) |BSTREE;insertRoot!;S2$;4|)
       (EXIT (SPADCALL (QCAR |a|) |x| (QCDR |a|) (QREFELT $ 24))))))) 
 
+(DECLAIM (NOTINLINE |BinarySearchTree;|)) 
+
 (DEFUN |BinarySearchTree| (#1=#:G154)
   (PROG ()
     (RETURN

@@ -35,6 +35,8 @@
 
 (DEFUN |JBSA;coerce;$E;15| (|jv| $) (SPADCALL |jv| (QREFELT $ 61))) 
 
+(DECLAIM (NOTINLINE |JetBundleSymAna;|)) 
+
 (DEFUN |JetBundleSymAna| (&REST #1=#:G174)
   (PROG ()
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |LiouvillianFunctionCategory;|)) 
+
 (DEFPARAMETER |LiouvillianFunctionCategory;AL| 'NIL) 
 
 (DEFUN |LiouvillianFunctionCategory| ()

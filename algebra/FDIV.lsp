@@ -317,6 +317,8 @@
          (QREFELT $ 56))
         (QREFELT $ 40))))))) 
 
+(DECLAIM (NOTINLINE |FiniteDivisor;|)) 
+
 (DEFUN |FiniteDivisor| (&REST #1=#:G222)
   (PROG ()
     (RETURN

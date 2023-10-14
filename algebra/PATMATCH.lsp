@@ -77,6 +77,8 @@
 
 (DEFUN |PATMATCH;Is;SubjectPatPmr;7| (|s| |p| $) (|PATMATCH;ist| |s| |p| $)) 
 
+(DECLAIM (NOTINLINE |PatternMatch;|)) 
+
 (DEFUN |PatternMatch| (&REST #1=#:G151)
   (PROG ()
     (RETURN

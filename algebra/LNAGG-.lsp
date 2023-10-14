@@ -32,6 +32,8 @@
 (DEFUN |LNAGG-;maxIndex;AI;6| (|l| $)
   (+ (- (SPADCALL |l| (QREFELT $ 23)) 1) (SPADCALL |l| (QREFELT $ 9)))) 
 
+(DECLAIM (NOTINLINE |LinearAggregate&;|)) 
+
 (DEFUN |LinearAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

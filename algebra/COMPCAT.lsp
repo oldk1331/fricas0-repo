@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |ComplexCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |ComplexCategory;|)) 
+
 (DEFPARAMETER |ComplexCategory;AL| 'NIL) 
 
 (DEFUN |ComplexCategory| (#1=#:G171)

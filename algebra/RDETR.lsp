@@ -467,6 +467,8 @@
                              ((QEQCAR |n| 0) (MAX (QCDR |n|) (- |dc| |db|)))
                              (#2# (- |dc| |db|)))))))))))))))) 
 
+(DECLAIM (NOTINLINE |TranscendentalRischDE;|)) 
+
 (DEFUN |TranscendentalRischDE| (&REST #1=#:G253)
   (PROG ()
     (RETURN

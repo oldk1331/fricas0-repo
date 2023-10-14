@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |BagAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |BagAggregate;|)) 
+
 (DEFPARAMETER |BagAggregate;AL| 'NIL) 
 
 (DEFUN |BagAggregate| (#1=#:G128)

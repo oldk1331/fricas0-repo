@@ -79,6 +79,8 @@
                  ((EQUAL |s| "doc") (|dbComments| |x|))
                  ('T (|error| "unknown selector")))))))) 
 
+(DECLAIM (NOTINLINE |IndexCard;|)) 
+
 (DEFUN |IndexCard| ()
   (PROG ()
     (RETURN

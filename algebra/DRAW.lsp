@@ -280,6 +280,8 @@
 (DEFUN |DRAW;draw;Ps2SbTdv;16| (|s| |uBind| |vBind| $)
   (SPADCALL |s| |uBind| |vBind| NIL (QREFELT $ 71))) 
 
+(DECLAIM (NOTINLINE |TopLevelDrawFunctions;|)) 
+
 (DEFUN |TopLevelDrawFunctions| (#1=#:G223)
   (PROG ()
     (RETURN

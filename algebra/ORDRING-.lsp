@@ -18,6 +18,8 @@
         ((SPADCALL |x| (QREFELT $ 16)) (|spadConstant| $ 7))
         ('T (|error| "x satisfies neither positive?, negative? or zero?")))) 
 
+(DECLAIM (NOTINLINE |OrderedRing&;|)) 
+
 (DEFUN |OrderedRing&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

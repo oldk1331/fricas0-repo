@@ -136,6 +136,8 @@
            NIL (GO G190) G191 (EXIT NIL))
       (EXIT |ans|))))) 
 
+(DECLAIM (NOTINLINE |IntegralBasisPolynomialTools;|)) 
+
 (DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G186)
   (PROG ()
     (RETURN

@@ -203,6 +203,8 @@
            (EXIT (CONS 1 "failed"))))
          #1# (EXIT #1#)))))))) 
 
+(DECLAIM (NOTINLINE |ODEIntegration;|)) 
+
 (DEFUN |ODEIntegration| (&REST #1=#:G205)
   (PROG ()
     (RETURN

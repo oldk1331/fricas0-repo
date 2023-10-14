@@ -757,6 +757,8 @@
                                    (QREFELT $ 52))
                          (QREFELT $ 49))))))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialSolveByFormulas;|)) 
+
 (DEFUN |PolynomialSolveByFormulas| (&REST #1=#:G216)
   (PROG ()
     (RETURN

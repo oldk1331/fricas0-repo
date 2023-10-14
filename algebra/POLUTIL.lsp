@@ -166,6 +166,8 @@
                     (SPADCALL (CDR (CDR |l|)) |s| |sh|
                               (QREFELT $ 37))))))))))))) 
 
+(DECLAIM (NOTINLINE |RealPolynomialUtilitiesPackage;|)) 
+
 (DEFUN |RealPolynomialUtilitiesPackage| (&REST #1=#:G168)
   (PROG ()
     (RETURN

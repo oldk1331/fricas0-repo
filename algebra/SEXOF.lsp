@@ -172,6 +172,8 @@
            (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |b|))))) 
 
+(DECLAIM (NOTINLINE |SExpressionOf;|)) 
+
 (DEFUN |SExpressionOf| (&REST #1=#:G187)
   (PROG ()
     (RETURN

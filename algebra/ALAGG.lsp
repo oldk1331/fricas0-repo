@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |AssociationListAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |AssociationListAggregate;|)) 
+
 (DEFPARAMETER |AssociationListAggregate;AL| 'NIL) 
 
 (DEFUN |AssociationListAggregate| (&REST #1=#:G131)

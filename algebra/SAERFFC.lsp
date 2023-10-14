@@ -3,6 +3,8 @@
 
 (DEFUN |SAERFFC;factor;UPAF;1| (|q| $) (SPADCALL |q| (ELT $ 11) (QREFELT $ 15))) 
 
+(DECLAIM (NOTINLINE |SAERationalFunctionAlgFactor;|)) 
+
 (DEFUN |SAERationalFunctionAlgFactor| (&REST #1=#:G129)
   (PROG ()
     (RETURN

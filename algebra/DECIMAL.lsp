@@ -7,6 +7,8 @@
 
 (DEFUN |DECIMAL;coerce;$Re;2| (|x| $) |x|) 
 
+(DECLAIM (NOTINLINE |DecimalExpansion;|)) 
+
 (DEFUN |DecimalExpansion| ()
   (PROG ()
     (RETURN

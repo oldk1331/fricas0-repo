@@ -915,6 +915,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |a1| |cp| (QREFELT $ 112)))))) 
 
+(DECLAIM (NOTINLINE |NewSparseMultivariatePolynomial;|)) 
+
 (DEFUN |NewSparseMultivariatePolynomial| (&REST #1=#:G501)
   (PROG ()
     (RETURN

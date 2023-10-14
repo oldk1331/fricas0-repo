@@ -307,6 +307,8 @@
                . #6#)
          (EXIT (SPADCALL |jop| |arg| (QREFELT $ 70)))))))))) 
 
+(DECLAIM (NOTINLINE |IndexedJetBundle;|)) 
+
 (DEFUN |IndexedJetBundle| (&REST #1=#:G194)
   (PROG ()
     (RETURN

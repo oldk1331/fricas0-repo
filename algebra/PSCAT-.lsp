@@ -85,6 +85,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |r1| |r| (QREFELT $ 29)))))) 
 
+(DECLAIM (NOTINLINE |PowerSeriesCategory&;|)) 
+
 (DEFUN |PowerSeriesCategory&| (|#1| |#2| |#3| |#4|)
   (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN

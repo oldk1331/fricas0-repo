@@ -1396,6 +1396,8 @@
                                             (EXIT (NREVERSE #2#))))
                                       (QREFELT $ 38))))))))))))))))))))))) 
 
+(DECLAIM (NOTINLINE |IdealDecompositionPackage;|)) 
+
 (DEFUN |IdealDecompositionPackage| (#1=#:G412)
   (PROG ()
     (RETURN

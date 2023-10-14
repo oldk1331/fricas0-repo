@@ -16,6 +16,8 @@
 (DEFUN |LIE;^;$Pi$;4| (|a| |n| $)
   (COND ((EQL |n| 1) |a|) ('T (|spadConstant| $ 15)))) 
 
+(DECLAIM (NOTINLINE |AssociatedLieAlgebra;|)) 
+
 (DEFUN |AssociatedLieAlgebra| (&REST #1=#:G139)
   (PROG ()
     (RETURN

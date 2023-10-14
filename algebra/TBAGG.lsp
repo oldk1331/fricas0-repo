@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |TableAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |TableAggregate;|)) 
+
 (DEFPARAMETER |TableAggregate;AL| 'NIL) 
 
 (DEFUN |TableAggregate| (&REST #1=#:G135)

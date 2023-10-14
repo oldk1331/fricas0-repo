@@ -36,6 +36,8 @@
   (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 22))
             (QREFELT $ 15))) 
 
+(DECLAIM (NOTINLINE |TaylorSeriesExpansionLaurent;|)) 
+
 (DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G136)
   (PROG ()
     (RETURN

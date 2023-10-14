@@ -115,6 +115,8 @@
             . #1#)
       (EXIT |fa|))))) 
 
+(DECLAIM (NOTINLINE |FortranCodePackage1;|)) 
+
 (DEFUN |FortranCodePackage1| ()
   (PROG ()
     (RETURN

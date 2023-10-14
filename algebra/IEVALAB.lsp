@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |InnerEvalable;|)) 
+
 (DEFPARAMETER |InnerEvalable;AL| 'NIL) 
 
 (DEFUN |InnerEvalable| (&REST #1=#:G128)

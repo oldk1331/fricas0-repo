@@ -1378,6 +1378,8 @@
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT |toSave|))))))))) 
 
+(DECLAIM (NOTINLINE |PolynomialSetUtilitiesPackage;|)) 
+
 (DEFUN |PolynomialSetUtilitiesPackage| (&REST #1=#:G606)
   (PROG ()
     (RETURN

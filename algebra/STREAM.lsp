@@ -1056,6 +1056,8 @@
           (#1='T |x|)))
         (#1# (|STREAM;suntill| |p| |x| $)))) 
 
+(DECLAIM (NOTINLINE |Stream;|)) 
+
 (DEFUN |Stream| (#1=#:G779)
   (PROG ()
     (RETURN

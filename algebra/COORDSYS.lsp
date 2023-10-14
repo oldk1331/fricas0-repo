@@ -357,6 +357,8 @@
                         (QREFELT $ 15))
               (EXIT |pt|)))))))) 
 
+(DECLAIM (NOTINLINE |CoordinateSystems;|)) 
+
 (DEFUN |CoordinateSystems| (#1=#:G161)
   (PROG ()
     (RETURN

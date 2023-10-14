@@ -89,6 +89,8 @@
                           (QREFELT $ 47))
                 |f|))))) 
 
+(DECLAIM (NOTINLINE |ExpressionSolve;|)) 
+
 (DEFUN |ExpressionSolve| (&REST #1=#:G140)
   (PROG ()
     (RETURN

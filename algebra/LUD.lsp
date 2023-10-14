@@ -190,6 +190,8 @@
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS |res| (QVELT |Alu| 2))))))) 
 
+(DECLAIM (NOTINLINE |LUDecomposition;|)) 
+
 (DEFUN |LUDecomposition| (#1=#:G173)
   (PROG ()
     (RETURN

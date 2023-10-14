@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |ThreeSpaceCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |ThreeSpaceCategory;|)) 
+
 (DEFPARAMETER |ThreeSpaceCategory;AL| 'NIL) 
 
 (DEFUN |ThreeSpaceCategory| (#1=#:G128)

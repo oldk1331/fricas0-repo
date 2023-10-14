@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |PartialDifferentialRing;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |PartialDifferentialRing;|)) 
+
 (DEFPARAMETER |PartialDifferentialRing;AL| 'NIL) 
 
 (DEFUN |PartialDifferentialRing| (#1=#:G128)

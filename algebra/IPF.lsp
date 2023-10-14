@@ -191,6 +191,8 @@
 
 (DEFUN |IPF;charthRoot;2$;26| (|x| $) |x|) 
 
+(DECLAIM (NOTINLINE |InnerPrimeField;|)) 
+
 (DEFUN |InnerPrimeField| (#1=#:G236)
   (PROG ()
     (RETURN

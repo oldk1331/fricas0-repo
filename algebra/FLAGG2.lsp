@@ -234,6 +234,8 @@
                (LETT |i| (+ |i| 1) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |w|))))) 
 
+(DECLAIM (NOTINLINE |FiniteLinearAggregateFunctions2;|)) 
+
 (DEFUN |FiniteLinearAggregateFunctions2| (&REST #1=#:G192)
   (PROG ()
     (RETURN

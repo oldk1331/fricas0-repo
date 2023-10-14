@@ -5,6 +5,8 @@
   (COND ((EQL (QREFELT $ 7) 2) (SPADCALL (LIST |a| |b|) (QREFELT $ 11)))
         ('T (|error| "not of order 2!")))) 
 
+(DECLAIM (NOTINLINE |TensorPowerCategory&;|)) 
+
 (DEFUN |TensorPowerCategory&| (|#1| |#2| |#3| |#4|)
   (PROG (|pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |FiniteFieldCategory;|)) 
+
 (DEFPARAMETER |FiniteFieldCategory;AL| 'NIL) 
 
 (DEFUN |FiniteFieldCategory| ()

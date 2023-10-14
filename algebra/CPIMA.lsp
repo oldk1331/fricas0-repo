@@ -25,6 +25,8 @@
           (GO #1#)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |CharacteristicPolynomialInMonogenicalAlgebra;|)) 
+
 (DEFUN |CharacteristicPolynomialInMonogenicalAlgebra| (&REST #1=#:G131)
   (PROG ()
     (RETURN

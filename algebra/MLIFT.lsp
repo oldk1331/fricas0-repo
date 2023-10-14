@@ -902,6 +902,8 @@
                (LETT |k| (+ |k| -1) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |new|))))) 
 
+(DECLAIM (NOTINLINE |MultivariateLifting;|)) 
+
 (DEFUN |MultivariateLifting| (&REST #1=#:G300)
   (PROG ()
     (RETURN

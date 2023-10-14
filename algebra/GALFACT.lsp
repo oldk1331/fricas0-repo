@@ -1885,6 +1885,8 @@
   (SPADCALL |d| |p| (SPADCALL (SPADCALL |p| (QREFELT $ 38)) 1 (QREFELT $ 159))
             2 'NIL (QREFELT $ 167))) 
 
+(DECLAIM (NOTINLINE |GaloisGroupFactorizer;|)) 
+
 (DEFUN |GaloisGroupFactorizer| (#1=#:G589)
   (PROG ()
     (RETURN

@@ -195,6 +195,8 @@
                   (SPADCALL |n| (QREFELT $ 111)) (QREFELT $ 112))
         (SPADCALL |n| 1 (QREFELT $ 114)))))))) 
 
+(DECLAIM (NOTINLINE |QuotientFieldCategory&;|)) 
+
 (DEFUN |QuotientFieldCategory&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

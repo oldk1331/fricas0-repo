@@ -2583,6 +2583,8 @@
         (SPADCALL "Jacobi identity holds" (QREFELT $ 76)) (EXIT 'T)))
       #2# (EXIT #2#))))) 
 
+(DECLAIM (NOTINLINE |AlgebraGivenByStructuralConstants;|)) 
+
 (DEFUN |AlgebraGivenByStructuralConstants| (&REST #1=#:G403)
   (PROG ()
     (RETURN

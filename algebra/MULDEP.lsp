@@ -122,6 +122,8 @@
                                (EXIT
                                 (|MULDEP;solveOverQ| |m| |qv| $))))))))))))) 
 
+(DECLAIM (NOTINLINE |MultiplicativeDependence;|)) 
+
 (DEFUN |MultiplicativeDependence| ()
   (PROG ()
     (RETURN

@@ -279,6 +279,8 @@
                           NIL (GO G190) G191 (EXIT NIL))
                      (EXIT (NREVERSE |ans|))))))))))))) 
 
+(DECLAIM (NOTINLINE |AlgebraicallyClosedField&;|)) 
+
 (DEFUN |AlgebraicallyClosedField&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

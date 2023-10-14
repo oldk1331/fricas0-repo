@@ -811,6 +811,8 @@
                  (LETT #1# (CDR #1#) . #5#) (GO G190) G191
                  (EXIT (NREVERSE #2#))))))))) 
 
+(DECLAIM (NOTINLINE |MonoidRing;|)) 
+
 (DEFUN |MonoidRing| (&REST #1=#:G439)
   (PROG ()
     (RETURN

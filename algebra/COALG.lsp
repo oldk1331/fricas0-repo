@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |Coalgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |Coalgebra;|)) 
+
 (DEFPARAMETER |Coalgebra;AL| 'NIL) 
 
 (DEFUN |Coalgebra| (&REST #1=#:G128)

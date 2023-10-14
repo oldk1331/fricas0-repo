@@ -1579,6 +1579,8 @@
 
 (DEFUN |EXPR;convert;$If;218| (|x| $) (SPADCALL |x| (QREFELT $ 468))) 
 
+(DECLAIM (NOTINLINE |Expression;|)) 
+
 (DEFUN |Expression| (#1=#:G715)
   (PROG ()
     (RETURN

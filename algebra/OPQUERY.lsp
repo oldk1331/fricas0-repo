@@ -5,6 +5,8 @@
 
 (DEFUN |OPQUERY;getDatabase;SD;1| (|s| $) (|getBrowseDatabase| |s|)) 
 
+(DECLAIM (NOTINLINE |OperationsQuery;|)) 
+
 (DEFUN |OperationsQuery| ()
   (PROG ()
     (RETURN

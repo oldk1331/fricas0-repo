@@ -321,6 +321,8 @@
                          (QREFELT $ 39))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |NonLinearFirstOrderODESolver;|)) 
+
 (DEFUN |NonLinearFirstOrderODESolver| (&REST #1=#:G223)
   (PROG ()
     (RETURN

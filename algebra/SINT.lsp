@@ -246,6 +246,8 @@
   (COND ((|less_SI| |x| 0) (VECTOR -1 (|minus_SI| |x|) -1))
         ('T (VECTOR 1 |x| 1)))) 
 
+(DECLAIM (NOTINLINE |SingleInteger;|)) 
+
 (DEFUN |SingleInteger| ()
   (PROG ()
     (RETURN

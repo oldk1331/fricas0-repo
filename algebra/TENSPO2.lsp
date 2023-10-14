@@ -24,6 +24,8 @@
            (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |res|))))) 
 
+(DECLAIM (NOTINLINE |TensorPowerFunctions2;|)) 
+
 (DEFUN |TensorPowerFunctions2| (&REST #1=#:G134)
   (PROG ()
     (RETURN

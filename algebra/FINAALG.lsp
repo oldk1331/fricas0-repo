@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FiniteRankNonAssociativeAlgebra;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FiniteRankNonAssociativeAlgebra;|)) 
+
 (DEFPARAMETER |FiniteRankNonAssociativeAlgebra;AL| 'NIL) 
 
 (DEFUN |FiniteRankNonAssociativeAlgebra| (#1=#:G149)

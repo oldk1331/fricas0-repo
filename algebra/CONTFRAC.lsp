@@ -636,6 +636,8 @@
                           (SPADCALL (SPADCALL |wh| (QREFELT $ 118)) |e|
                                     (QREFELT $ 124))))))))))))) 
 
+(DECLAIM (NOTINLINE |ContinuedFraction;|)) 
+
 (DEFUN |ContinuedFraction| (#1=#:G333)
   (PROG ()
     (RETURN

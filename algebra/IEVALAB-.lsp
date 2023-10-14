@@ -4,6 +4,8 @@
 (DEFUN |IEVALAB-;eval;SABS;1| (|f| |x| |v| $)
   (SPADCALL |f| (LIST |x|) (LIST |v|) (QREFELT $ 11))) 
 
+(DECLAIM (NOTINLINE |InnerEvalable&;|)) 
+
 (DEFUN |InnerEvalable&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

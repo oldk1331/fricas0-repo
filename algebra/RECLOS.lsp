@@ -467,6 +467,8 @@
 
 (DEFUN |RECLOS;coerce;TheField$;35| (|rn| $) (CONS 0 |rn|)) 
 
+(DECLAIM (NOTINLINE |RealClosure;|)) 
+
 (DEFUN |RealClosure| (#1=#:G331)
   (PROG ()
     (RETURN

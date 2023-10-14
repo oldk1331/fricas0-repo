@@ -566,6 +566,8 @@
           (EXIT
            (COND ((QEQCAR |u| 0) (SPADCALL (QCDR |u|) |pred?|)) ('T 'NIL))))))) 
 
+(DECLAIM (NOTINLINE |ExpressionSpace&;|)) 
+
 (DEFUN |ExpressionSpace&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

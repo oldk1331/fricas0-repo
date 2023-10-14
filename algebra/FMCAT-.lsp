@@ -41,6 +41,8 @@
             NIL (GO G190) G191 (EXIT NIL)))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |FreeModuleCategory&;|)) 
+
 (DEFUN |FreeModuleCategory&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

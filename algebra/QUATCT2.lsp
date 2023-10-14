@@ -7,6 +7,8 @@
             (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |fn|)
             (SPADCALL (SPADCALL |u| (QREFELT $ 13)) |fn|) (QREFELT $ 14))) 
 
+(DECLAIM (NOTINLINE |QuaternionCategoryFunctions2;|)) 
+
 (DEFUN |QuaternionCategoryFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN

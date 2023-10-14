@@ -7,6 +7,8 @@
 (DEFUN |OREUP;coerce;$Of;2| (|p| $)
   (SPADCALL |p| (SPADCALL (QREFELT $ 6) (QREFELT $ 21)) (QREFELT $ 22))) 
 
+(DECLAIM (NOTINLINE |UnivariateSkewPolynomial;|)) 
+
 (DEFUN |UnivariateSkewPolynomial| (&REST #1=#:G146)
   (PROG ()
     (RETURN

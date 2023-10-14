@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |QueueAggregate;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |QueueAggregate;|)) 
+
 (DEFPARAMETER |QueueAggregate;AL| 'NIL) 
 
 (DEFUN |QueueAggregate| (#1=#:G128)

@@ -105,6 +105,8 @@
        (VECTOR (QCAR |qr|) (SPADCALL (QCDR |eeu|) (QCAR |rec|) (QREFELT $ 45))
                (SPADCALL (QCAR |eeu|) (QCDR |rec|) (QREFELT $ 45)))))))) 
 
+(DECLAIM (NOTINLINE |MonomialExtensionTools;|)) 
+
 (DEFUN |MonomialExtensionTools| (&REST #1=#:G165)
   (PROG ()
     (RETURN

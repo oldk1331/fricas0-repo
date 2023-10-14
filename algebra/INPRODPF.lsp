@@ -39,6 +39,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |z1| |a| |d| (QREFELT $ 28)))))) 
 
+(DECLAIM (NOTINLINE |InfiniteProductPrimeField;|)) 
+
 (DEFUN |InfiniteProductPrimeField| (&REST #1=#:G147)
   (PROG ()
     (RETURN

@@ -92,6 +92,8 @@
             . #7#)
       (EXIT (CONS (SPADCALL |vp| |v| (QREFELT $ 54)) |d|)))))) 
 
+(DECLAIM (NOTINLINE |InnerPolySum;|)) 
+
 (DEFUN |InnerPolySum| (&REST #1=#:G149)
   (PROG ()
     (RETURN

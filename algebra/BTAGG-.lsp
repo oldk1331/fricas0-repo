@@ -17,6 +17,8 @@
 (DEFUN |BTAGG-;nor;3S;6| (|v| |u| $)
   (SPADCALL (ELT $ 22) |v| |u| (QREFELT $ 16))) 
 
+(DECLAIM (NOTINLINE |BitAggregate&;|)) 
+
 (DEFUN |BitAggregate&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

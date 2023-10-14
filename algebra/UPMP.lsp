@@ -137,6 +137,8 @@
                        (QREFELT $ 27))
              (SPADCALL |w| |d| (QREFELT $ 27)) (QREFELT $ 26)))))))))))) 
 
+(DECLAIM (NOTINLINE |UnivariatePolynomialMultiplicationPackage;|)) 
+
 (DEFUN |UnivariatePolynomialMultiplicationPackage| (&REST #1=#:G168)
   (PROG ()
     (RETURN

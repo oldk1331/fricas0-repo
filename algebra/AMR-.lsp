@@ -34,6 +34,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |q| |x1| (QREFELT $ 23)))))) 
 
+(DECLAIM (NOTINLINE |AbelianMonoidRing&;|)) 
+
 (DEFUN |AbelianMonoidRing&| (|#1| |#2| |#3|)
   (PROG (|pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN

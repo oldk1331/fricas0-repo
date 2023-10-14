@@ -586,6 +586,8 @@
                          . #1#)
                    (EXIT (|MAGCDT3;mreduction| |x| |mu| $)))))))))) 
 
+(DECLAIM (NOTINLINE |ModularAlgebraicGcdTools3;|)) 
+
 (DEFUN |ModularAlgebraicGcdTools3| ()
   (PROG ()
     (RETURN

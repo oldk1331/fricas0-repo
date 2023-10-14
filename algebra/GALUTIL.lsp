@@ -159,6 +159,8 @@
 (DEFUN |GALUTIL;fillPascalTriangle;V;9| ($)
   (SPADCALL (QREFELT $ 28) 2 (QREFELT $ 29))) 
 
+(DECLAIM (NOTINLINE |GaloisGroupUtilities;|)) 
+
 (DEFUN |GaloisGroupUtilities| (#1=#:G159)
   (PROG ()
     (RETURN

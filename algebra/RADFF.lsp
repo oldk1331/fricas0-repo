@@ -579,6 +579,8 @@
         (#2='T 'T)))
       (#2# 'NIL))))) 
 
+(DECLAIM (NOTINLINE |RadicalFunctionField;|)) 
+
 (DEFUN |RadicalFunctionField| (&REST #1=#:G357)
   (PROG ()
     (RETURN

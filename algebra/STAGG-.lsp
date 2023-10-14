@@ -217,6 +217,8 @@
           (SEQ (SPADCALL (SPADCALL |x| (QREFELT $ 43)) |y| (QREFELT $ 44))
                (EXIT |x|)))))) 
 
+(DECLAIM (NOTINLINE |StreamAggregate&;|)) 
+
 (DEFUN |StreamAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

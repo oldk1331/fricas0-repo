@@ -120,6 +120,8 @@
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |bound|))))) 
 
+(DECLAIM (NOTINLINE |BoundIntegerRoots;|)) 
+
 (DEFUN |BoundIntegerRoots| (&REST #1=#:G163)
   (PROG ()
     (RETURN

@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |PatternMatchable;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |PatternMatchable;|)) 
+
 (DEFPARAMETER |PatternMatchable;AL| 'NIL) 
 
 (DEFUN |PatternMatchable| (#1=#:G128)

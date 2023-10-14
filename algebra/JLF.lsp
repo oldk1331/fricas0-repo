@@ -1647,6 +1647,8 @@
              (LETT #1# (CDR #1#) . #5#) (GO G190) G191
              (EXIT (NREVERSE #2#))))))))) 
 
+(DECLAIM (NOTINLINE |JetLazyFunction;|)) 
+
 (DEFUN |JetLazyFunction| (&REST #1=#:G591)
   (PROG ()
     (RETURN

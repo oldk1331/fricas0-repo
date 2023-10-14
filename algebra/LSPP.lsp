@@ -65,6 +65,8 @@
      (SEQ (LETT |r| (SPADCALL |ps| |vs| (QREFELT $ 40)) |LSPP;linSolve;LLR;3|)
           (EXIT (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 44))))))) 
 
+(DECLAIM (NOTINLINE |LinearSystemPolynomialPackage;|)) 
+
 (DEFUN |LinearSystemPolynomialPackage| (&REST #1=#:G148)
   (PROG ()
     (RETURN

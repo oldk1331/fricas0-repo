@@ -338,6 +338,8 @@
             (GO #1#)))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |XDistributedPolynomial;|)) 
+
 (DEFUN |XDistributedPolynomial| (&REST #1=#:G216)
   (PROG ()
     (RETURN

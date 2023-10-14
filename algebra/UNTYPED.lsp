@@ -56,6 +56,8 @@
 (DEFUN |UNTYPED;coerce;$Of;9| (|n| $)
   (SPADCALL (SPADCALL |n| (QREFELT $ 14)) (QREFELT $ 29))) 
 
+(DECLAIM (NOTINLINE |Untyped;|)) 
+
 (DEFUN |Untyped| ()
   (PROG ()
     (RETURN

@@ -173,6 +173,8 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |p|))))) 
 
+(DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorsOps;|)) 
+
 (DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G159)
   (PROG ()
     (RETURN

@@ -63,6 +63,8 @@
                  (SPADCALL |x| (QREFELT $ 12)) (SPADCALL |x| (QREFELT $ 55))
                  (QREFELT $ 57))))))) 
 
+(DECLAIM (NOTINLINE |SparseUnivariatePuiseuxSeries;|)) 
+
 (DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G186)
   (PROG ()
     (RETURN

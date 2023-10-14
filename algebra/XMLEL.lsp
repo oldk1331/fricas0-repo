@@ -144,6 +144,8 @@
         (SPADCALL |f1| "}" (QREFELT $ 27)) (EXIT (|Void|))))
       #3# (EXIT #3#))))) 
 
+(DECLAIM (NOTINLINE |XmlElement;|)) 
+
 (DEFUN |XmlElement| ()
   (PROG ()
     (RETURN

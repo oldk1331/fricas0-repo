@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |RectangularMatrixCategory;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |RectangularMatrixCategory;|)) 
+
 (DEFPARAMETER |RectangularMatrixCategory;AL| 'NIL) 
 
 (DEFUN |RectangularMatrixCategory| (&REST #1=#:G134)

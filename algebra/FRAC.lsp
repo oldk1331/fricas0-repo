@@ -862,6 +862,8 @@
     (RETURN
      (PROGN (SPADCALL (SPADCALL |x| |denpp| (QREFELT $ 85)) (QREFELT $ 15)))))) 
 
+(DECLAIM (NOTINLINE |Fraction;|)) 
+
 (DEFUN |Fraction| (#1=#:G979)
   (PROG ()
     (RETURN

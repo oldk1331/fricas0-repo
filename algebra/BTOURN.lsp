@@ -33,6 +33,8 @@
                      (QREFELT $ 20))
            (EXIT |t|)))))) 
 
+(DECLAIM (NOTINLINE |BinaryTournament;|)) 
+
 (DEFUN |BinaryTournament| (#1=#:G143)
   (PROG ()
     (RETURN

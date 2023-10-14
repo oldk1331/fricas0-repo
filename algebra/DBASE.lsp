@@ -85,6 +85,8 @@
           (LETT #1# (PROG1 (CDR #1#) (LETT |i| (|inc_SI| |i|) . #2#)) . #2#)
           (GO G190) G191 (EXIT NIL))))) 
 
+(DECLAIM (NOTINLINE |Database;|)) 
+
 (DEFUN |Database| (#1=#:G149)
   (PROG ()
     (RETURN

@@ -60,6 +60,8 @@
             (GO G190) G191 (EXIT NIL))
        #7#))))) 
 
+(DECLAIM (NOTINLINE |DirectProductMatrixModule;|)) 
+
 (DEFUN |DirectProductMatrixModule| (&REST #1=#:G163)
   (PROG ()
     (RETURN

@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |OrderedFinite;|)) 
+
 (DEFPARAMETER |OrderedFinite;AL| 'NIL) 
 
 (DEFUN |OrderedFinite| ()

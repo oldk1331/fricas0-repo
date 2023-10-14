@@ -235,6 +235,8 @@
                          (QREFELT $ 24))
                (QREFELT $ 25))))) 
 
+(DECLAIM (NOTINLINE |TaylorSolve;|)) 
+
 (DEFUN |TaylorSolve| (&REST #1=#:G401)
   (PROG ()
     (RETURN

@@ -667,6 +667,8 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |z1| |r| (QREFELT $ 195)))))) 
 
+(DECLAIM (NOTINLINE |SparseMultivariateTaylorSeries;|)) 
+
 (DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G424)
   (PROG ()
     (RETURN

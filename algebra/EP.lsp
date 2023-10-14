@@ -484,6 +484,8 @@
                (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT (APPEND |ratSol| |algSol|)))))) 
 
+(DECLAIM (NOTINLINE |EigenPackage;|)) 
+
 (DEFUN |EigenPackage| (#1=#:G260)
   (PROG ()
     (RETURN

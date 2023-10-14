@@ -17,6 +17,8 @@
 (DEFUN |ORDSET-;<=;2SB;6| (|x| |y| $)
   (COND ((SPADCALL |y| |x| (QREFELT $ 8)) 'NIL) ('T 'T))) 
 
+(DECLAIM (NOTINLINE |OrderedSet&;|)) 
+
 (DEFUN |OrderedSet&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

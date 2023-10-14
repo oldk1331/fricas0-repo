@@ -62,6 +62,8 @@
            (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
       (EXIT (+ |r| |l|)))))) 
 
+(DECLAIM (NOTINLINE |RandomIntegerDistributions;|)) 
+
 (DEFUN |RandomIntegerDistributions| ()
   (PROG ()
     (RETURN

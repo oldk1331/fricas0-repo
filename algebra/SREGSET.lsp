@@ -813,6 +813,8 @@
                            (GO #1#)))))))))))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |SquareFreeRegularTriangularSet;|)) 
+
 (DEFUN |SquareFreeRegularTriangularSet| (&REST #1=#:G408)
   (PROG ()
     (RETURN

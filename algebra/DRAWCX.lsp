@@ -258,6 +258,8 @@
 
 (DEFUN |DRAWCX;setClipValue;2Df;7| (|clip| $) (SETELT $ 16 |clip|)) 
 
+(DECLAIM (NOTINLINE |DrawComplex;|)) 
+
 (DEFUN |DrawComplex| ()
   (PROG ()
     (RETURN

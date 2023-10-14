@@ -135,6 +135,8 @@
            (COND ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) |y| (QREFELT $ 16)))
                  ('T (SPADCALL |p| |y| (QREFELT $ 50))))))))) 
 
+(DECLAIM (NOTINLINE |AlgebraicallyClosedFunctionSpace&;|)) 
+
 (DEFUN |AlgebraicallyClosedFunctionSpace&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

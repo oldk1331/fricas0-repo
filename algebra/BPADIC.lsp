@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |BalancedPAdicInteger;|)) 
+
 (DEFUN |BalancedPAdicInteger| (#1=#:G142)
   (PROG ()
     (RETURN

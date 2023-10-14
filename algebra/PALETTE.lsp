@@ -39,6 +39,8 @@
          " palette")
    (QREFELT $ 22))) 
 
+(DECLAIM (NOTINLINE |Palette;|)) 
+
 (DEFUN |Palette| ()
   (PROG ()
     (RETURN

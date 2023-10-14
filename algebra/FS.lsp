@@ -3,6 +3,8 @@
 
 (DEFPARAMETER |FunctionSpace;CAT| 'NIL) 
 
+(DECLAIM (NOTINLINE |FunctionSpace;|)) 
+
 (DEFPARAMETER |FunctionSpace;AL| 'NIL) 
 
 (DEFUN |FunctionSpace| (#1=#:G170)

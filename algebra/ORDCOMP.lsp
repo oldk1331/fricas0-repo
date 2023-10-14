@@ -144,6 +144,8 @@
        (COND ((QEQCAR |r| 1) (CONS 1 "failed"))
              ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 55)))))))))) 
 
+(DECLAIM (NOTINLINE |OrderedCompletion;|)) 
+
 (DEFUN |OrderedCompletion| (#1=#:G207)
   (PROG ()
     (RETURN

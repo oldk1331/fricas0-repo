@@ -600,6 +600,8 @@
           (#3# 'NIL)))))
       #1# (EXIT #1#))))) 
 
+(DECLAIM (NOTINLINE |ListAggregate&;|)) 
+
 (DEFUN |ListAggregate&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

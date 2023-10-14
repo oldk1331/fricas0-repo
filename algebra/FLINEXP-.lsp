@@ -12,6 +12,8 @@
             |FLINEXP-;reducedSystem;MVR;2|)
       (EXIT (SPADCALL (QCAR |rec|) (QCDR |rec|) (QREFELT $ 18))))))) 
 
+(DECLAIM (NOTINLINE |FullyLinearlyExplicitRingOver&;|)) 
+
 (DEFUN |FullyLinearlyExplicitRingOver&| (|#1| |#2|)
   (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN

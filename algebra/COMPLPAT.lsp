@@ -13,6 +13,8 @@
                         (QREFELT $ 18))
               (QREFELT $ 19))))) 
 
+(DECLAIM (NOTINLINE |ComplexPattern;|)) 
+
 (DEFUN |ComplexPattern| (&REST #1=#:G130)
   (PROG ()
     (RETURN

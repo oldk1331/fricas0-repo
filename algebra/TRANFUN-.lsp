@@ -86,6 +86,8 @@
     (QREFELT $ 21))
    (SPADCALL 2 (QREFELT $ 28)) (QREFELT $ 23))) 
 
+(DECLAIM (NOTINLINE |TranscendentalFunctionCategory&;|)) 
+
 (DEFUN |TranscendentalFunctionCategory&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN

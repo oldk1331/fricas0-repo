@@ -18,6 +18,8 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 17)))
    (QREFELT $ 19))) 
 
+(DECLAIM (NOTINLINE |Vector;|)) 
+
 (DEFUN |Vector| (#1=#:G2108)
   (PROG ()
     (RETURN

@@ -542,6 +542,8 @@
          (|error| "zeroSetSplit$LEXTRIPK: #1 not zero-dimensional"))
         ('T (SPADCALL (QCDR |bar|) |norm?| (QREFELT $ 69))))))))) 
 
+(DECLAIM (NOTINLINE |LexTriangularPackage;|)) 
+
 (DEFUN |LexTriangularPackage| (&REST #1=#:G248)
   (PROG ()
     (RETURN

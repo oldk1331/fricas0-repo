@@ -17,6 +17,8 @@
   (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) |a| |d| (QREFELT $ 19))
             (QREFELT $ 12))) 
 
+(DECLAIM (NOTINLINE |InfiniteProductCharacteristicZero;|)) 
+
 (DEFUN |InfiniteProductCharacteristicZero| (&REST #1=#:G131)
   (PROG ()
     (RETURN

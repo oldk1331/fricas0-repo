@@ -117,6 +117,8 @@
     (RETURN
      (PROGN (SPADCALL (SPADCALL |x1| (QREFELT $ 40)) RTRIG (QREFELT $ 42)))))) 
 
+(DECLAIM (NOTINLINE |FunctionSpaceComplexIntegration;|)) 
+
 (DEFUN |FunctionSpaceComplexIntegration| (&REST #1=#:G161)
   (PROG ()
     (RETURN

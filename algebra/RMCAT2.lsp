@@ -55,6 +55,8 @@
                (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT |s|))))) 
 
+(DECLAIM (NOTINLINE |RectangularMatrixCategoryFunctions2;|)) 
+
 (DEFUN |RectangularMatrixCategoryFunctions2| (&REST #1=#:G143)
   (PROG ()
     (RETURN

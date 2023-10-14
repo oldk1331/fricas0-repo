@@ -1,6 +1,8 @@
 
 (/VERSIONCHECK 2) 
 
+(DECLAIM (NOTINLINE |canonicalUnitNormal;|)) 
+
 (DEFPARAMETER |canonicalUnitNormal;AL| 'NIL) 
 
 (DEFUN |canonicalUnitNormal| ()
