@@ -2983,14 +2983,15 @@
 ; form2FenceQuote x ==
 ;   NUMBERP x => [STRINGIMAGE x]
 ;   SYMBOLP x => [FORMAT(NIL, '"|~a|", x)]
-;   atom    x => '"??"
+;   atom    x => ['"??"]
 ;   ['"(",:form2FenceQuote first x,:form2FenceQuoteTail rest x]
  
 (DEFUN |form2FenceQuote| (|x|)
   (PROG ()
     (RETURN
      (COND ((NUMBERP |x|) (LIST (STRINGIMAGE |x|)))
-           ((SYMBOLP |x|) (LIST (FORMAT NIL "|~a|" |x|))) ((ATOM |x|) "??")
+           ((SYMBOLP |x|) (LIST (FORMAT NIL "|~a|" |x|)))
+           ((ATOM |x|) (LIST "??"))
            ('T
             (CONS "("
                   (APPEND (|form2FenceQuote| (CAR |x|))
