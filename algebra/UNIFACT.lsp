@@ -1,7 +1,7 @@
 
 (SDEFUN |UNIFACT;factor;ZPF;1| ((|m| ZP) ($ |Factored| ZP))
         (SPROG
-         ((#1=#:G141 NIL) (|u| NIL) (#2=#:G140 NIL)
+         ((#1=#:G142 NIL) (|u| NIL) (#2=#:G141 NIL)
           (|ctp|
            (|Record| (|:| |unit| (|Integer|)) (|:| |canonical| (|Integer|))
                      (|:| |associate| (|Integer|))))
@@ -42,7 +42,7 @@
 
 (SDEFUN |UNIFACT;factorSquareFree;ZPF;2| ((|m| ZP) ($ |Factored| ZP))
         (SPROG
-         ((#1=#:G155 NIL) (|u| NIL) (#2=#:G154 NIL)
+         ((#1=#:G156 NIL) (|u| NIL) (#2=#:G155 NIL)
           (|ctp|
            (|Record| (|:| |unit| (|Integer|)) (|:| |canonical| (|Integer|))
                      (|:| |associate| (|Integer|))))
@@ -92,7 +92,7 @@
 
 (SDEFUN |UNIFACT;eisenstein| ((|m| ZP) ($ |Boolean|))
         (SPROG
-         ((#1=#:G168 NIL) (#2=#:G169 NIL) (|r| NIL)
+         ((#1=#:G169 NIL) (#2=#:G170 NIL) (|r| NIL)
           (|fc| (|Factored| (|Integer|))) (|trail| #3=(|Integer|)) (|lead| #3#)
           (|c| (|Integer|)))
          (SEQ
@@ -141,7 +141,7 @@
                                                 (QREFELT $ 37))
                                       (PROGN
                                        (LETT #1# 'T . #4#)
-                                       (GO #5=#:G167))))))))))
+                                       (GO #5=#:G168))))))))))
                               (LETT #2# (CDR #2#) . #4#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT 'NIL)))))))
@@ -170,14 +170,14 @@
 
 (SDEFUN |UNIFACT;bound| ((|m| ZP) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G187 NIL) (|cbound| (|PositiveInteger|))
-          (|j| (|PositiveInteger|)) (#2=#:G184 NIL)
-          (|bin0| #3=(|NonNegativeInteger|)) (#4=#:G183 NIL) (|bin1| #3#)
-          (#5=#:G190 NIL) (#6=#:G182 NIL) (|i| NIL) (#7=#:G180 NIL)
-          (|nm| (|NonNegativeInteger|)) (#8=#:G178 NIL) (|norm| (|Integer|))
-          (#9=#:G176 NIL) (#10=#:G175 #11=(|Integer|)) (#12=#:G177 #11#)
+         ((#1=#:G188 NIL) (|cbound| (|PositiveInteger|))
+          (|j| (|PositiveInteger|)) (#2=#:G185 NIL)
+          (|bin0| #3=(|NonNegativeInteger|)) (#4=#:G184 NIL) (|bin1| #3#)
+          (#5=#:G191 NIL) (#6=#:G183 NIL) (|i| NIL) (#7=#:G181 NIL)
+          (|nm| (|NonNegativeInteger|)) (#8=#:G179 NIL) (|norm| (|Integer|))
+          (#9=#:G177 NIL) (#10=#:G176 #11=(|Integer|)) (#12=#:G178 #11#)
           (|k| NIL) (|nmq2| (|NonNegativeInteger|))
-          (|lcm| (|NonNegativeInteger|)) (#13=#:G174 NIL))
+          (|lcm| (|NonNegativeInteger|)) (#13=#:G175 NIL))
          (SEQ
           (LETT |lcm|
                 (PROG1
@@ -263,8 +263,8 @@
           (|Record| (|:| |factor| ZP) (|:| |degree| (|Integer|))))
          ($ |Integer|))
         (SPROG
-         ((|ans| (|Integer|)) (#1=#:G195 NIL) (|d| (|NonNegativeInteger|))
-          (#2=#:G201 NIL) (|dd| NIL))
+         ((|ans| (|Integer|)) (#1=#:G196 NIL) (|d| (|NonNegativeInteger|))
+          (#2=#:G202 NIL) (|dd| NIL))
          (SEQ (LETT |ans| 0 . #3=(|UNIFACT;numFactors|))
               (SEQ (LETT |dd| NIL . #3#) (LETT #2# |ddlist| . #3#) G190
                    (COND
@@ -310,43 +310,41 @@
               (LETT |disc| (|spadConstant| $ 22) . #2#) (LETT |q| 2 . #2#)
               (SEQ G190 (COND ((NULL (< |k| |ddRep|)) (GO G191)))
                    (SEQ (LETT |q| (SPADCALL |q| (QREFELT $ 49)) . #2#)
-                        (LETT |rr| (REM |lcm| |q|) . #2#)
                         (EXIT
-                         (COND ((EQL |rr| 0) "next prime")
-                               ('T
-                                (SEQ
-                                 (LETT |disc|
-                                       (SPADCALL |m|
-                                                 (SPADCALL |m| (QREFELT $ 50))
-                                                 |q| (QREFELT $ 52))
-                                       . #2#)
-                                 (EXIT
-                                  (COND
-                                   ((SPADCALL (SPADCALL |disc| (QREFELT $ 42))
-                                              0 (QREFELT $ 44))
-                                    "next prime")
-                                   ('T
-                                    (SEQ (LETT |k| (+ |k| 1) . #2#)
-                                         (LETT |newdd|
-                                               (SPADCALL |m| |q|
-                                                         (QREFELT $ 55))
-                                               . #2#)
-                                         (LETT |n|
-                                               (|UNIFACT;numFactors| |newdd| $)
-                                               . #2#)
-                                         (EXIT
-                                          (COND
-                                           ((< |n| 9)
-                                            (SEQ (LETT |ddSave| |newdd| . #2#)
-                                                 (LETT |qSave| |q| . #2#)
-                                                 (EXIT (LETT |k| 5 . #2#))))
-                                           ((OR (EQL |numberOfFactors| 0)
-                                                (< |n| |numberOfFactors|))
-                                            (SEQ (LETT |ddSave| |newdd| . #2#)
-                                                 (LETT |qSave| |q| . #2#)
-                                                 (EXIT
-                                                  (LETT |numberOfFactors| |n|
-                                                        . #2#)))))))))))))))
+                         (COND
+                          ((EQL (LETT |rr| (REM |lcm| |q|) . #2#) 0)
+                           "next prime")
+                          ('T
+                           (SEQ
+                            (LETT |disc|
+                                  (SPADCALL |m| (SPADCALL |m| (QREFELT $ 50))
+                                            |q| (QREFELT $ 52))
+                                  . #2#)
+                            (EXIT
+                             (COND
+                              ((SPADCALL (SPADCALL |disc| (QREFELT $ 42)) 0
+                                         (QREFELT $ 44))
+                               "next prime")
+                              ('T
+                               (SEQ (LETT |k| (+ |k| 1) . #2#)
+                                    (LETT |newdd|
+                                          (SPADCALL |m| |q| (QREFELT $ 55))
+                                          . #2#)
+                                    (LETT |n| (|UNIFACT;numFactors| |newdd| $)
+                                          . #2#)
+                                    (EXIT
+                                     (COND
+                                      ((< |n| 9)
+                                       (SEQ (LETT |ddSave| |newdd| . #2#)
+                                            (LETT |qSave| |q| . #2#)
+                                            (EXIT (LETT |k| 5 . #2#))))
+                                      ((OR (EQL |numberOfFactors| 0)
+                                           (< |n| |numberOfFactors|))
+                                       (SEQ (LETT |ddSave| |newdd| . #2#)
+                                            (LETT |qSave| |q| . #2#)
+                                            (EXIT
+                                             (LETT |numberOfFactors| |n|
+                                                   . #2#)))))))))))))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (CONS |qSave| |ddSave|))))) 
 
@@ -382,8 +380,8 @@
 
 (SDEFUN |UNIFACT;henselfact| ((|m| ZP) ($ |List| ZP))
         (SPROG
-         ((#1=#:G225 NIL) (#2=#:G224 #3=(|List| ZP)) (#4=#:G226 #3#)
-          (#5=#:G231 NIL) (|mm| (ZP)) (|faclist| #3#) (#6=#:G222 NIL)
+         ((#1=#:G226 NIL) (#2=#:G225 #3=(|List| ZP)) (#4=#:G227 #3#)
+          (#5=#:G232 NIL) (|mm| (ZP)) (|faclist| #3#) (#6=#:G223 NIL)
           (|deggcd| (|NonNegativeInteger|)))
          (SEQ
           (LETT |deggcd| (SPADCALL |m| (QREFELT $ 42))
@@ -439,7 +437,7 @@
 
 (SDEFUN |UNIFACT;quadratic| ((|m| ZP) ($ |List| ZP))
         (SPROG
-         ((#1=#:G235 NIL) (|m0| (ZP)) (|beta| (|Integer|))
+         ((#1=#:G236 NIL) (|m0| (ZP)) (|beta| (|Integer|))
           (|alpha| (|Integer|)) (|d| (|Integer|)) (|d2| (|Integer|)))
          (SEQ
           (LETT |d|
@@ -509,15 +507,15 @@
         (SPROG
          ((|factorlist|
            (|List| (|Record| (|:| |irr| ZP) (|:| |pow| (|Integer|)))))
-          (#1=#:G295 NIL) (|pf| NIL) (#2=#:G294 NIL) (|fln| (|List| ZP))
-          (#3=#:G293 NIL) (#4=#:G292 NIL) (|pol| (ZP)) (|d1| #5=(|Integer|))
-          (#6=#:G291 NIL) (|l1| NIL)
+          (#1=#:G296 NIL) (|pf| NIL) (#2=#:G295 NIL) (|fln| (|List| ZP))
+          (#3=#:G294 NIL) (#4=#:G293 NIL) (|pol| (ZP)) (|d1| #5=(|Integer|))
+          (#6=#:G292 NIL) (|l1| NIL)
           (|llf| (|List| (|Record| (|:| |factor| ZP) (|:| |exponent| #5#))))
-          (|irrFact| (|Factored| ZP)) (#7=#:G290 NIL) (#8=#:G289 NIL)
-          (#9=#:G288 NIL) (|v| NIL) (#10=#:G287 NIL) (|lf1| (ZP)) (|lf0| (ZP))
+          (|irrFact| (|Factored| ZP)) (#7=#:G291 NIL) (#8=#:G290 NIL)
+          (#9=#:G289 NIL) (|v| NIL) (#10=#:G288 NIL) (|lf1| (ZP)) (|lf0| (ZP))
           (|#G35| (ZP)) (|#G34| (ZP)) (|lfq| (|List| ZP)) (|fac| (ZP))
-          (#11=#:G286 NIL) (|sfac| NIL) (#12=#:G285 NIL) (|lcPol| (ZP))
-          (|d| (|NonNegativeInteger|)) (|c| (|Integer|)) (#13=#:G248 NIL))
+          (#11=#:G287 NIL) (|sfac| NIL) (#12=#:G286 NIL) (|lcPol| (ZP))
+          (|d| (|NonNegativeInteger|)) (|c| (|Integer|)) (#13=#:G249 NIL))
          (SEQ (LETT |factorlist| NIL . #14=(|UNIFACT;henselFact;ZPBR;16|))
               (LETT |c| (SPADCALL |m| (QREFELT $ 27)) . #14#)
               (LETT |m|
@@ -834,9 +832,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateFactorize;|)) 
 
-(DEFUN |UnivariateFactorize| (#1=#:G296)
+(DEFUN |UnivariateFactorize| (#1=#:G297)
   (SPROG NIL
-         (PROG (#2=#:G297)
+         (PROG (#2=#:G298)
            (RETURN
             (COND
              ((LETT #2#

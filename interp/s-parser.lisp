@@ -334,8 +334,8 @@
  
 ; dollarTran(dom, expr) ==
 ;     expr is [fun, :args] and not(NULL(args)) =>
-;         [["elt", dom, fun], :args]
-;     ["elt", dom, expr]
+;         [["Sel", dom, fun], :args]
+;     ["Sel", dom, expr]
  
 (DEFUN |dollarTran| (|dom| |expr|)
   (PROG (|fun| |args|)
@@ -344,8 +344,8 @@
       ((AND (CONSP |expr|)
             (PROGN (SETQ |fun| (CAR |expr|)) (SETQ |args| (CDR |expr|)) #1='T)
             (NULL (NULL |args|)))
-       (CONS (LIST '|elt| |dom| |fun|) |args|))
-      (#1# (LIST '|elt| |dom| |expr|))))))
+       (CONS (LIST '|Sel| |dom| |fun|) |args|))
+      (#1# (LIST '|Sel| |dom| |expr|))))))
  
 ; parse_new_expr() ==
 ;     $reduction_stack := nil

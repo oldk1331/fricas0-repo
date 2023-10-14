@@ -6,10 +6,10 @@
           (|degSTF| #2=(|NonNegativeInteger|)) (|degh| #2#)
           (|h| (|SparseUnivariatePolynomial| F)) (|j| NIL)
           (|trModp| (|SparseUnivariatePolynomial| F)) (|beta| (F))
-          (#3=#:G125 NIL) (|i| NIL) (|basispointer| (|Integer|))
+          (#3=#:G127 NIL) (|i| NIL) (|basispointer| (|Integer|))
           (|basis| (|Vector| F))
           (|qexp| (|PrimitiveArray| (|SparseUnivariatePolynomial| GF)))
-          (|p| #1#) (|deg| (|PositiveInteger|)) (#4=#:G108 NIL)
+          (|p| #1#) (|deg| (|PositiveInteger|)) (#4=#:G109 NIL)
           (|sizeGF| (|NonNegativeInteger|)))
          (SEQ
           (LETT |sizeGF| (SPADCALL (QREFELT $ 9))
@@ -151,9 +151,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldPolynomialPackage2;|)) 
 
-(DEFUN |FiniteFieldPolynomialPackage2| (&REST #1=#:G126)
+(DEFUN |FiniteFieldPolynomialPackage2| (&REST #1=#:G128)
   (SPROG NIL
-         (PROG (#2=#:G127)
+         (PROG (#2=#:G129)
            (RETURN
             (COND
              ((LETT #2#

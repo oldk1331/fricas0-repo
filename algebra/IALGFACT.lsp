@@ -7,25 +7,25 @@
           (|lsols| (|List| |AlPol|)) (|newf| (|AlPol|)))
          (SEQ
           (LETT |pol|
-                (SPADCALL (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 14))
+                (SPADCALL (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 13))
                           (SPADCALL
                            (SPADCALL
-                            (SPADCALL (SPADCALL |k| (QREFELT $ 16)) 1
+                            (SPADCALL (SPADCALL |k| (QREFELT $ 15)) 1
                                       (QREFELT $ 17))
                             (QREFELT $ 18))
-                           0 (QREFELT $ 14))
+                           0 (QREFELT $ 13))
                           (QREFELT $ 19))
                 . #3=(|IALGFACT;perturbfactor|))
           (LETT |newf| (SPADCALL |f| |pol| (QREFELT $ 20)) . #3#)
           (LETT |lsols| (|IALGFACT;irrfactor| |newf| |k| |fact| $) . #3#)
           (LETT |pol|
-                (SPADCALL (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 14))
+                (SPADCALL (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 13))
                           (SPADCALL
                            (SPADCALL
-                            (SPADCALL (SPADCALL |k| (QREFELT $ 16)) 1
+                            (SPADCALL (SPADCALL |k| (QREFELT $ 15)) 1
                                       (QREFELT $ 17))
                             (QREFELT $ 18))
-                           0 (QREFELT $ 14))
+                           0 (QREFELT $ 13))
                           (QREFELT $ 21))
                 . #3#)
           (EXIT
@@ -242,15 +242,15 @@
 (MAKEPROP '|InnerAlgFactor| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |One|) (4 . |One|) (8 . |One|)
-              (|NonNegativeInteger|) (12 . |monomial|) (|Integer|)
-              (18 . |coerce|) (23 . |monomial|) (29 . |reduce|) (34 . -)
-              (40 . |elt|) (46 . +) (52 . |degree|)
-              (|Record| (|:| |factor| 7) (|:| |exponent| 15)) (|List| 23)
+              (|local| |#3|) (|local| |#4|) (0 . |One|) (4 . |One|)
+              (|NonNegativeInteger|) (8 . |monomial|) (|Integer|)
+              (14 . |coerce|) (19 . |One|) (23 . |monomial|) (29 . |reduce|)
+              (34 . -) (40 . |elt|) (46 . +) (52 . |degree|)
+              (|Record| (|:| |factor| 7) (|:| |exponent| 14)) (|List| 23)
               (|Factored| 7) (57 . |factors|) (62 . |gcd|)
               (|Union| $ '"failed") (68 . |exquo|) (|Factored| $)
               (74 . |squareFree|) (|Factored| 9) (79 . |unit|)
-              (|Record| (|:| |factor| 9) (|:| |exponent| 15)) (|List| 34)
+              (|Record| (|:| |factor| 9) (|:| |exponent| 14)) (|List| 34)
               (84 . |factors|) (89 . |primeFactor|) (95 . *) (101 . |One|)
               (105 . *) (|Mapping| 25 7) |IALGFACT;factor;AlPolMF;3|
               (111 . |definingPolynomial|) '|p| (115 . |coerce|)
@@ -266,14 +266,14 @@
                  (CONS '#()
                        (CONS '#()
                              (|makeByteWordVec2| 61
-                                                 '(0 8 0 10 0 6 0 11 0 7 0 12 2
-                                                   9 0 8 13 14 1 6 0 15 16 2 7
-                                                   0 6 13 17 1 8 0 7 18 2 9 0 0
+                                                 '(0 8 0 10 0 6 0 11 2 9 0 8 12
+                                                   13 1 6 0 14 15 0 7 0 16 2 7
+                                                   0 6 12 17 1 8 0 7 18 2 9 0 0
                                                    0 19 2 9 0 0 0 20 2 9 0 0 0
-                                                   21 1 9 13 0 22 1 25 24 0 26
+                                                   21 1 9 12 0 22 1 25 24 0 26
                                                    2 9 0 0 0 27 2 9 28 0 0 29 1
                                                    9 30 0 31 1 32 9 0 33 1 32
-                                                   35 0 36 2 32 0 9 15 37 2 32
+                                                   35 0 36 2 32 0 9 14 37 2 32
                                                    0 0 0 38 0 32 0 39 2 32 0 9
                                                    0 40 0 8 7 43 1 7 0 6 45 2
                                                    48 46 47 7 49 2 46 7 0 0 51

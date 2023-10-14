@@ -111,7 +111,7 @@
 ;     postAtom x
 ;   op := first x
 ;   IDENTP(op) and (f := GET(op, 'postTran)) => FUNCALL(f, x)
-;   op is ['elt,a,b] =>
+;   op is ['Sel, a, b] =>
 ;     u:= postTran [b,:rest x]
 ;     [postTran op,:rest u]
 ;   op~=(y:= postOp op) => [y,:postTranList rest x]
@@ -127,7 +127,7 @@
              (COND
               ((AND (IDENTP |op|) (SETQ |f| (GET |op| '|postTran|)))
                (FUNCALL |f| |x|))
-              ((AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+              ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
                     (PROGN
                      (SETQ |ISTMP#1| (CDR |op|))
                      (AND (CONSP |ISTMP#1|)
@@ -159,7 +159,7 @@
  
 ; postBigFloat x ==
 ;   [.,mant, expon] := x
-;   postTran [["elt", '(Float), 'float], [",", [",", mant, expon], 10]]
+;   postTran [["Sel", '(Float), 'float], [",", [",", mant, expon], 10]]
  
 (DEFUN |postBigFloat| (|x|)
   (PROG (|mant| |expon|)
@@ -168,7 +168,7 @@
       (SETQ |mant| (CADR . #1=(|x|)))
       (SETQ |expon| (CADDR . #1#))
       (|postTran|
-       (LIST (LIST '|elt| '(|Float|) '|float|)
+       (LIST (LIST '|Sel| '(|Float|) '|float|)
              (LIST '|,| (LIST '|,| |mant| |expon|) 10)))))))
  
 ; postAdd ['add,a,:b] ==
@@ -789,27 +789,6 @@
              NIL |form| NIL)
             (|postTran| |rhs|))))))
  
-; postElt (u is [.,a,b]) ==
-;   a:= postTran a
-;   b is ['Sequence,:.] =>
-;       BREAK()
-;       [['elt,a,'makeRecord],:postTranList rest b]
-;   ['elt,a,postTran b]
- 
-(DEFUN |postElt| (|u|)
-  (PROG (|a| |b|)
-    (RETURN
-     (PROGN
-      (SETQ |a| (CADR . #1=(|u|)))
-      (SETQ |b| (CADDR . #1#))
-      (SETQ |a| (|postTran| |a|))
-      (COND
-       ((AND (CONSP |b|) (EQ (CAR |b|) '|Sequence|))
-        (PROGN
-         (BREAK)
-         (CONS (LIST '|elt| |a| '|makeRecord|) (|postTranList| (CDR |b|)))))
-       ('T (LIST '|elt| |a| (|postTran| |b|))))))))
- 
 ; postExit ["=>",a,b] == ['IF,postTran a,['exit,postTran b],'noBranch]
  
 (DEFUN |postExit| (|bfVar#32|)
@@ -1025,8 +1004,8 @@
        (CONS "   Improper placement of segment" (|bright| |key|)))))))
  
 ; postCollect [constructOp,:m,x] ==
-;   x is [['elt,D,'construct],:y] =>
-;     postCollect [['elt,D,'COLLECT],:m,['construct,:y]]
+;   x is [['Sel, D, 'construct], :y] =>
+;     postCollect [['Sel, D, 'COLLECT], :m, ['construct, :y]]
 ;   itl:= postIteratorList m
 ;   x:= (x is ['construct,r] => r; x)  --added 84/8/31
 ;   y:= postTran x
@@ -1054,7 +1033,7 @@
        ((AND (CONSP |x|)
              (PROGN
               (SETQ |ISTMP#1| (CAR |x|))
-              (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|elt|)
+              (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Sel|)
                    (PROGN
                     (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                     (AND (CONSP |ISTMP#2|)
@@ -1065,7 +1044,7 @@
                                (EQ (CAR |ISTMP#3|) '|construct|)))))))
              (PROGN (SETQ |y| (CDR |x|)) #1='T))
         (|postCollect|
-         (CONS (LIST '|elt| D 'COLLECT)
+         (CONS (LIST '|Sel| D 'COLLECT)
                (APPEND |m| (CONS (CONS '|construct| |y|) NIL)))))
        (#1#
         (PROGN

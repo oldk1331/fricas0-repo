@@ -20,7 +20,7 @@
 ; parseTran x ==
 ;   atom x => parseAtom x
 ;   [op, :argl] := x
-;   u := (op is ['elt, ., x] => x; op)
+;   u := (op is ['Sel, ., x] => x; op)
 ;   SYMBOLP(u) and (fn := GET(u, 'parseTran)) =>
 ;       if op ~= u then SAY(["parseTran op ~= u", op, u])
 ;       FUNCALL(fn, argl)
@@ -36,7 +36,7 @@
              (SETQ |argl| (CDR |x|))
              (SETQ |u|
                      (COND
-                      ((AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+                      ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
                             (PROGN
                              (SETQ |ISTMP#1| (CDR |op|))
                              (AND (CONSP |ISTMP#1|)

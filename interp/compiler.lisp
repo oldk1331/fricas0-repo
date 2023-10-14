@@ -1361,7 +1361,7 @@
 ;   -- used in case: f(g(x)) where f is in domain introduced by
 ;   -- comping g, e.g. for (ELT (ELT x a) b), environment can have no
 ;   -- modemap with selector b
-;   form is ["elt",a,.] =>
+;   form is ["Sel", a, .] =>
 ;     ([.,.,e]:= comp(a,$EmptyMode,e) or return nil; compForm1(form,m,e))
 ;   u:= for x in argl repeat [.,.,e]:= comp(x,$EmptyMode,e) or return "failed"
 ;   u="failed" => nil
@@ -1373,7 +1373,7 @@
      (PROGN
       (SETQ |argl| (CDR |form|))
       (COND ((NULL |$tryRecompileArguments|) NIL)
-            ((AND (CONSP |form|) (EQ (CAR |form|) '|elt|)
+            ((AND (CONSP |form|) (EQ (CAR |form|) '|Sel|)
                   (PROGN
                    (SETQ |ISTMP#1| (CDR |form|))
                    (AND (CONSP |ISTMP#1|)
@@ -1455,7 +1455,7 @@
 ;   op="error" =>
 ;     [[op,:[([.,.,e]:=outputComp(x,e)).expr
 ;       for x in argl]],m,e]
-;   op is ["elt",domain,op'] =>
+;   op is ["Sel", domain, op'] =>
 ;     domain="Lisp" =>
 ;       --op'='QUOTE and null rest argl => [first argl,m,e]
 ;       [[op',:[([.,.,e]:= compOrCroak(x,$EmptyMode,e)).expr for x in argl]],m,e]
@@ -1507,7 +1507,7 @@
                    (SETQ |bfVar#29| (CDR |bfVar#29|))))
                 NIL |argl| NIL))
          |m| |e|))
-       ((AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+       ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
              (PROGN
               (SETQ |ISTMP#1| (CDR |op|))
               (AND (CONSP |ISTMP#1|)
@@ -1920,7 +1920,7 @@
        (#1# T$))))))
  
 ; getFormModemaps(form is [op,:argl],e) ==
-;   op is ["elt",domain,op1] =>
+;   op is ["Sel", domain, op1] =>
 ;     [x for x in getFormModemaps([op1,:argl],e) | x is [[ =domain,:.],:.]]
 ;   null atom op => nil
 ;   modemapList:= get(op,"modemap",e)
@@ -1945,7 +1945,7 @@
       (SETQ |op| (CAR |form|))
       (SETQ |argl| (CDR |form|))
       (COND
-       ((AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+       ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
              (PROGN
               (SETQ |ISTMP#1| (CDR |op|))
               (AND (CONSP |ISTMP#1|)
@@ -3497,8 +3497,7 @@
          (|modifyModeStack| |m'| |index|)
          (LIST (LIST '|TAGGEDreturn| 0 |u|) |m| |e'|))))))))
  
-; compElt(form,m,E) ==
-;   form isnt ["elt",aDomain,anOp] => compForm(form,m,E)
+; compSel(form is ["elt", aDomain, anOp], m, E) ==
 ;   aDomain="Lisp" =>
 ;     [anOp',m,E] where anOp'() == (anOp=$Zero => 0; anOp=$One => 1; anOp)
 ;   isDomainForm(aDomain,E) =>
@@ -3522,60 +3521,52 @@
 ;     convert([["call",val],first rest sig,E], m) --implies fn calls used to access constants
 ;   compForm(form,m,E)
  
-(DEFUN |compElt| (|form| |m| E)
-  (PROG (|ISTMP#1| |aDomain| |ISTMP#2| |anOp| |mmList| |n| |modemap| |sig|
-         |pred| |val|)
+(DEFUN |compSel| (|form| |m| E)
+  (PROG (|aDomain| |anOp| |mmList| |n| |modemap| |sig| |pred| |val| |ISTMP#1|)
     (RETURN
-     (COND
-      ((NOT
-        (AND (CONSP |form|) (EQ (CAR |form|) '|elt|)
-             (PROGN
-              (SETQ |ISTMP#1| (CDR |form|))
-              (AND (CONSP |ISTMP#1|)
-                   (PROGN
-                    (SETQ |aDomain| (CAR |ISTMP#1|))
-                    (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                         (PROGN (SETQ |anOp| (CAR |ISTMP#2|)) #1='T)))))))
-       (|compForm| |form| |m| E))
-      ((EQ |aDomain| '|Lisp|)
-       (LIST
-        (COND ((EQUAL |anOp| |$Zero|) 0) ((EQUAL |anOp| |$One|) 1)
-              (#1# |anOp|))
-        |m| E))
-      ((|isDomainForm| |aDomain| E)
-       (PROGN
-        (SETQ E (|addDomain| |aDomain| E))
-        (SETQ |mmList| (|getModemapListFromDomain| |anOp| 0 |aDomain| E))
-        (SETQ |modemap|
+     (PROGN
+      (SETQ |aDomain| (CADR . #1=(|form|)))
+      (SETQ |anOp| (CADDR . #1#))
+      (COND
+       ((EQ |aDomain| '|Lisp|)
+        (LIST
+         (COND ((EQUAL |anOp| |$Zero|) 0) ((EQUAL |anOp| |$One|) 1)
+               (#2='T |anOp|))
+         |m| E))
+       ((|isDomainForm| |aDomain| E)
+        (PROGN
+         (SETQ E (|addDomain| |aDomain| E))
+         (SETQ |mmList| (|getModemapListFromDomain| |anOp| 0 |aDomain| E))
+         (SETQ |modemap|
+                 (PROGN
+                  (SETQ |n| (LENGTH |mmList|))
+                  (COND ((EQL 1 |n|) (ELT |mmList| 0))
+                        ((EQL 0 |n|)
+                         (RETURN
+                          (|stackMessage|
+                           (LIST "Operation " '|%b| |anOp| '|%d|
+                                 "missing from domain: " |aDomain|))))
+                        (#2#
+                         (PROGN
+                          (|stackWarning|
+                           (LIST "more than 1 modemap for: " |anOp| " with dc="
+                                 |aDomain| " ===>" |mmList|))
+                          (ELT |mmList| 0))))))
+         (SETQ |sig| (CAR |modemap|))
+         (SETQ |pred| (CAADR . #3=(|modemap|)))
+         (SETQ |val| (CADADR . #3#))
+         (COND
+          ((AND (NOT (EQL (LENGTH |sig|) 2))
                 (PROGN
-                 (SETQ |n| (LENGTH |mmList|))
-                 (COND ((EQL 1 |n|) (ELT |mmList| 0))
-                       ((EQL 0 |n|)
-                        (RETURN
-                         (|stackMessage|
-                          (LIST "Operation " '|%b| |anOp| '|%d|
-                                "missing from domain: " |aDomain|))))
-                       (#1#
-                        (PROGN
-                         (|stackWarning|
-                          (LIST "more than 1 modemap for: " |anOp| " with dc="
-                                |aDomain| " ===>" |mmList|))
-                         (ELT |mmList| 0))))))
-        (SETQ |sig| (CAR |modemap|))
-        (SETQ |pred| (CAADR . #2=(|modemap|)))
-        (SETQ |val| (CADADR . #2#))
-        (COND
-         ((AND (NOT (EQL (LENGTH |sig|) 2))
-               (PROGN
-                (SETQ |ISTMP#1| (NULL |val|))
-                (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|elt|))))
-          NIL)
-         (#1#
-          (PROGN
-           (SETQ |val| (|genDeltaEntry| (CONS (|opOf| |anOp|) |modemap|)))
-           (|convert| (LIST (LIST '|call| |val|) (CAR (CDR |sig|)) E) |m|))))))
-      (#1# (|compForm| |form| |m| E))))))
+                 (SETQ |ISTMP#1| (NULL |val|))
+                 (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|elt|))))
+           NIL)
+          (#2#
+           (PROGN
+            (SETQ |val| (|genDeltaEntry| (CONS (|opOf| |anOp|) |modemap|)))
+            (|convert| (LIST (LIST '|call| |val|) (CAR (CDR |sig|)) E)
+             |m|))))))
+       (#2# (|compForm| |form| |m| E)))))))
  
 ; compHas(pred is ["has",a,b],m,$e) ==
 ;   --b is (":",:.) => (.,.,E):= comp(b,$EmptyMode,E)

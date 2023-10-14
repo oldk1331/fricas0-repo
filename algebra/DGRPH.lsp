@@ -132,21 +132,21 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|a| #1#) (#2=#:G294 NIL) (|arrNum| NIL)
+          (|a| #1#) (#2=#:G334 NIL) (|arrNum| NIL)
           (|verts|
            (|List|
             #3=(|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                          (|:| |posY| (|NonNegativeInteger|)))))
-          (|o| #3#) (#4=#:G292 NIL) (|vert| NIL) (#5=#:G293 NIL) (|i| NIL)
-          (#6=#:G269 NIL) (#7=#:G268 NIL) (|pout| #8=(|Integer|)) (|pin| #8#)
-          (#9=#:G291 NIL) (|pt| NIL) (|preim| #10=(|List| S))
+          (|o| #3#) (#4=#:G332 NIL) (|vert| NIL) (#5=#:G333 NIL) (|i| NIL)
+          (#6=#:G309 NIL) (#7=#:G308 NIL) (|pout| #8=(|Integer|)) (|pin| #8#)
+          (#9=#:G331 NIL) (|pt| NIL) (|preim| #10=(|List| S))
           (|im| #11=(|List| S))
           (|lr| (|Record| (|:| |preimage| #10#) (|:| |image| #11#)))
-          (#12=#:G289 NIL) (|perm| NIL) (#13=#:G290 NIL) (|pi| NIL)
-          (|tab| (|List| (|List| (|NonNegativeInteger|)))) (#14=#:G288 NIL)
-          (#15=#:G287 NIL) (#16=#:G286 NIL) (|b| NIL) (#17=#:G285 NIL)
-          (|obs| (|List| S)) (#18=#:G284 NIL) (|v| NIL) (#19=#:G282 NIL)
-          (#20=#:G283 NIL) (|px| NIL))
+          (#12=#:G329 NIL) (|perm| NIL) (#13=#:G330 NIL) (|pi| NIL)
+          (|tab| (|List| (|List| (|NonNegativeInteger|)))) (#14=#:G328 NIL)
+          (#15=#:G327 NIL) (#16=#:G326 NIL) (|b| NIL) (#17=#:G325 NIL)
+          (|obs| (|List| S)) (#18=#:G324 NIL) (|v| NIL) (#19=#:G322 NIL)
+          (#20=#:G323 NIL) (|px| NIL))
          (SEQ (LETT |obs| NIL . #21=(|DGRPH;directedGraph;L$;5|))
               (SEQ (LETT |px| 1 . #21#) (LETT #20# (LENGTH |perms|) . #21#)
                    (LETT |perm| NIL . #21#) (LETT #19# |perms| . #21#) G190
@@ -334,7 +334,7 @@
         ((|s| $) (|nm| |String|) (|n1| . #1=(|NonNegativeInteger|))
          (|n2| . #1#) ($ $))
         (SPROG
-         ((#2=#:G312 NIL)
+         ((#2=#:G352 NIL)
           (|arrs|
            (|List|
             (|Record| (|:| |name| (|String|))
@@ -366,7 +366,7 @@
                  (COND
                   ((SPADCALL |arrss| NIL (QREFELT $ 42))
                    (SEQ (PROGN (RPLACD |s| (LIST |a|)) (QCDR |s|))
-                        (EXIT (PROGN (LETT #2# |s| . #3#) (GO #4=#:G311)))))
+                        (EXIT (PROGN (LETT #2# |s| . #3#) (GO #4=#:G351)))))
                   ('T
                    (SEQ
                     (LETT |arrs| (SPADCALL |arrss| |a| (QREFELT $ 26)) . #3#)
@@ -378,7 +378,7 @@
         ((|s| $) (|nm| |String|) (|n1| . #1=(|NonNegativeInteger|))
          (|n2| . #1#) (|mp| |List| #1#) ($ $))
         (SPROG
-         ((#2=#:G320 NIL)
+         ((#2=#:G360 NIL)
           (|arrs|
            (|List|
             (|Record| (|:| |name| (|String|))
@@ -410,7 +410,7 @@
                  (COND
                   ((SPADCALL |arrss| NIL (QREFELT $ 42))
                    (SEQ (PROGN (RPLACD |s| (LIST |a|)) (QCDR |s|))
-                        (EXIT (PROGN (LETT #2# |s| . #3#) (GO #4=#:G319)))))
+                        (EXIT (PROGN (LETT #2# |s| . #3#) (GO #4=#:G359)))))
                   ('T
                    (SEQ
                     (LETT |arrs| (SPADCALL |arrss| |a| (QREFELT $ 26)) . #3#)
@@ -458,10 +458,10 @@
                         (|:| |xOffset| #4=(|Integer|))
                         (|:| |yOffset| #5=(|Integer|))
                         (|:| |map| #6=(|List| (|NonNegativeInteger|)))))
-          (|toOb3| #7=(|NonNegativeInteger|)) (|fromOb3| #7#) (#8=#:G350 NIL)
-          (|endi| NIL) (#9=#:G351 NIL) (|starti| NIL) (|map3| #6#)
+          (|toOb3| #7=(|NonNegativeInteger|)) (|fromOb3| #7#) (#8=#:G390 NIL)
+          (|endi| NIL) (#9=#:G391 NIL) (|starti| NIL) (|map3| #6#)
           (|yOffset3| #5#) (|xOffset3| #4#) (|arrType3| #3#) (|name3| #2#)
-          (#10=#:G349 NIL) (|oa3| NIL)
+          (#10=#:G389 NIL) (|oa3| NIL)
           (|outerArrows|
            (|List|
             (|Record| (|:| |name| (|String|))
@@ -471,8 +471,8 @@
                       (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
                       (|:| |map| (|List| (|NonNegativeInteger|))))))
           (|map2| #6#) (|yOffset2| #5#) (|xOffset2| #4#) (|toOb2| #7#)
-          (|fromOb2| #7#) (|arrType2| #3#) (|name2| #2#) (#11=#:G348 NIL)
-          (|a3| NIL) (#12=#:G346 NIL) (|a2| NIL) (#13=#:G347 NIL) (|a2n| NIL)
+          (|fromOb2| #7#) (|arrType2| #3#) (|name2| #2#) (#11=#:G388 NIL)
+          (|a3| NIL) (#12=#:G386 NIL) (|a2| NIL) (#13=#:G387 NIL) (|a2n| NIL)
           (|iv|
            (|List|
             (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
@@ -496,12 +496,12 @@
            (|List|
             (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                       (|:| |posY| (|NonNegativeInteger|)))))
-          (|ob2| #14#) (|py| #7#) (|px| #7#) (#15=#:G345 NIL) (|ob| NIL)
+          (|ob2| #14#) (|py| #7#) (|px| #7#) (#15=#:G385 NIL) (|ob| NIL)
           (|obs|
            (|List|
             (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                       (|:| |posY| (|NonNegativeInteger|)))))
-          (|v3| ($)) (#16=#:G344 NIL) (|v2| NIL)
+          (|v3| ($)) (#16=#:G384 NIL) (|v2| NIL)
           (|v|
            (|List|
             (|Record| (|:| |value| $) (|:| |posX| (|NonNegativeInteger|))
@@ -684,7 +684,7 @@
            (|List|
             #2=(|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                          (|:| |posY| (|NonNegativeInteger|)))))
-          (|o| #2#) (#3=#:G368 NIL) (|ob| NIL) (#4=#:G369 NIL) (|obn| NIL))
+          (|o| #2#) (#3=#:G408 NIL) (|ob| NIL) (#4=#:G409 NIL) (|obn| NIL))
          (SEQ (LETT |obs| NIL . #5=(|DGRPH;cycleOpen;LS$;15|))
               (LETT |ars| NIL . #5#) (LETT |arn| 1 . #5#)
               (SEQ (LETT |obn| 1 . #5#) (LETT #4# (LENGTH |objs|) . #5#)
@@ -740,7 +740,7 @@
            (|List|
             #2=(|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                          (|:| |posY| (|NonNegativeInteger|)))))
-          (|o| #2#) (#3=#:G379 NIL) (|ob| NIL) (#4=#:G380 NIL) (|obn| NIL))
+          (|o| #2#) (#3=#:G419 NIL) (|ob| NIL) (#4=#:G420 NIL) (|obn| NIL))
          (SEQ (LETT |obs| NIL . #5=(|DGRPH;cycleClosed;LS$;16|))
               (LETT |ars| NIL . #5#) (LETT |arn| 1 . #5#)
               (SEQ (LETT |obn| 1 . #5#) (LETT #4# (LENGTH |objs|) . #5#)
@@ -795,7 +795,7 @@
            (|List|
             #2=(|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                          (|:| |posY| (|NonNegativeInteger|)))))
-          (|o| #2#) (#3=#:G387 NIL) (|ob| NIL) (#4=#:G388 NIL) (|obn| NIL))
+          (|o| #2#) (#3=#:G427 NIL) (|ob| NIL) (#4=#:G428 NIL) (|obn| NIL))
          (SEQ (LETT |obs| NIL . #5=(|DGRPH;unit;LS$;17|))
               (LETT |ars| NIL . #5#) (LETT |arn| 1 . #5#)
               (SEQ (LETT |obn| 1 . #5#) (LETT #4# (LENGTH |objs|) . #5#)
@@ -837,12 +837,12 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|a| #1#) (#2=#:G400 NIL) (|obm| NIL)
+          (|a| #1#) (#2=#:G440 NIL) (|obm| NIL)
           (|obs|
            (|List|
             #3=(|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                          (|:| |posY| (|NonNegativeInteger|)))))
-          (|o| #3#) (#4=#:G398 NIL) (|ob| NIL) (#5=#:G399 NIL) (|obn| NIL))
+          (|o| #3#) (#4=#:G438 NIL) (|ob| NIL) (#5=#:G439 NIL) (|obn| NIL))
          (SEQ (LETT |obs| NIL . #6=(|DGRPH;kgraph;LS$;18|))
               (LETT |ars| NIL . #6#) (LETT |arn| 1 . #6#)
               (SEQ (LETT |obn| 1 . #6#) (LETT #5# (LENGTH |objs|) . #6#)
@@ -903,7 +903,7 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|arr| #1#) (#2=#:G408 NIL) (|ba| NIL)
+          (|arr| #1#) (#2=#:G448 NIL) (|ba| NIL)
           (|bStart| (|NonNegativeInteger|))
           (|lo|
            (|List|
@@ -949,15 +949,15 @@
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
           (|arr| #1#) (|fromI| #2=(|NonNegativeInteger|)) (|toI| #2#)
-          (#3=#:G428 NIL) (|ba| NIL) (|bStart| #4=(|NonNegativeInteger|))
-          (|bmap| (|List| (|NonNegativeInteger|))) (#5=#:G416 NIL)
+          (#3=#:G468 NIL) (|ba| NIL) (|bStart| #4=(|NonNegativeInteger|))
+          (|bmap| (|List| (|NonNegativeInteger|))) (#5=#:G456 NIL)
           (|newIndex| #4#)
           (|mergedObjects|
            (|List|
             (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                       (|:| |posY| (|NonNegativeInteger|)))))
-          (|i| (|Integer|)) (#6=#:G427 NIL) (|bob| NIL) (#7=#:G426 NIL)
-          (|x| NIL) (#8=#:G425 NIL))
+          (|i| (|Integer|)) (#6=#:G467 NIL) (|bob| NIL) (#7=#:G466 NIL)
+          (|x| NIL) (#8=#:G465 NIL))
          (SEQ
           (LETT |bmap|
                 (PROGN
@@ -1039,8 +1039,8 @@
           (|sp| (|Product| S S)) (|heighta| (|NonNegativeInteger|))
           (|widtha| (|NonNegativeInteger|)) (|y| #1=(|NonNegativeInteger|))
           (|x| #1#) (|byi| #2=(|NonNegativeInteger|))
-          (|bxi| #3=(|NonNegativeInteger|)) (|bi| (S)) (#4=#:G439 NIL)
-          (|boi| NIL) (|ayi| #2#) (|axi| #3#) (|ai| (S)) (#5=#:G438 NIL)
+          (|bxi| #3=(|NonNegativeInteger|)) (|bi| (S)) (#4=#:G479 NIL)
+          (|boi| NIL) (|ayi| #2#) (|axi| #3#) (|ai| (S)) (#5=#:G478 NIL)
           (|aoi| NIL))
          (SEQ (LETT |newObjs| NIL . #6=(|DGRPH;objProd|))
               (SEQ (LETT |aoi| NIL . #6#) (LETT #5# (QCAR |a|) . #6#) G190
@@ -1093,7 +1093,7 @@
 (SDEFUN |DGRPH;indexProd|
         ((|aObj| $) (|a| |NonNegativeInteger|) (|b| |NonNegativeInteger|)
          ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G440 NIL))
+        (SPROG ((#1=#:G480 NIL))
                (+ |a|
                   (*
                    (PROG1 (LETT #1# (- |b| 1) |DGRPH;indexProd|)
@@ -1111,8 +1111,8 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|arr| #1#) (|an| (|String|)) (#2=#:G462 NIL) (|bv| NIL)
-          (#3=#:G461 NIL) (|bu| NIL) (#4=#:G460 NIL) (|av| NIL) (#5=#:G459 NIL)
+          (|arr| #1#) (|an| (|String|)) (#2=#:G502 NIL) (|bv| NIL)
+          (#3=#:G501 NIL) (|bu| NIL) (#4=#:G500 NIL) (|av| NIL) (#5=#:G499 NIL)
           (|au| NIL))
          (SEQ (LETT |newArrs| NIL . #6=(|DGRPH;*;2$Dg;23|))
               (SEQ (LETT |au| 1 . #6#) (LETT #5# (LENGTH (QCAR |a|)) . #6#)
@@ -1191,8 +1191,8 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|arr| #1#) (|an| (|String|)) (#2=#:G487 NIL) (|bv| NIL)
-          (#3=#:G486 NIL) (|bu| NIL) (#4=#:G485 NIL) (|av| NIL) (#5=#:G484 NIL)
+          (|arr| #1#) (|an| (|String|)) (#2=#:G527 NIL) (|bv| NIL)
+          (#3=#:G526 NIL) (|bu| NIL) (#4=#:G525 NIL) (|av| NIL) (#5=#:G524 NIL)
           (|au| NIL))
          (SEQ (LETT |newArrs| NIL . #6=(|DGRPH;cartesian;2$Dg;24|))
               (SEQ (LETT |au| 1 . #6#) (LETT #5# (LENGTH (QCAR |a|)) . #6#)
@@ -1417,8 +1417,8 @@
                      (|:| |posY| #2=(|NonNegativeInteger|))))
           (|sp| (S)) (|heighta| (|NonNegativeInteger|))
           (|widtha| (|NonNegativeInteger|)) (|y| #3=(|NonNegativeInteger|))
-          (|x| #3#) (|byi| #2#) (|bxi| #1#) (|bi| (S)) (#4=#:G496 NIL)
-          (|boi| NIL) (|ayi| #2#) (|axi| #1#) (|ai| (S)) (#5=#:G495 NIL)
+          (|x| #3#) (|byi| #2#) (|bxi| #1#) (|bi| (S)) (#4=#:G536 NIL)
+          (|boi| NIL) (|ayi| #2#) (|axi| #1#) (|ai| (S)) (#5=#:G535 NIL)
           (|aoi| NIL))
          (SEQ (LETT |newObjs| NIL . #6=(|DGRPH;closedObjProd|))
               (SEQ (LETT |aoi| NIL . #6#) (LETT #5# (QCAR |a|) . #6#) G190
@@ -1478,8 +1478,8 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|arr| #1#) (|an| (|String|)) (#2=#:G517 NIL) (|bv| NIL)
-          (#3=#:G516 NIL) (|bu| NIL) (#4=#:G515 NIL) (|av| NIL) (#5=#:G514 NIL)
+          (|arr| #1#) (|an| (|String|)) (#2=#:G557 NIL) (|bv| NIL)
+          (#3=#:G556 NIL) (|bu| NIL) (#4=#:G555 NIL) (|av| NIL) (#5=#:G554 NIL)
           (|au| NIL))
          (SEQ (LETT |newArrs| NIL . #6=(|DGRPH;closedTensor;2$M$;26|))
               (SEQ (LETT |au| 1 . #6#) (LETT #5# (LENGTH (QCAR |a|)) . #6#)
@@ -1558,8 +1558,8 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|arr| #1#) (|an| (|String|)) (#2=#:G543 NIL) (|bv| NIL)
-          (#3=#:G542 NIL) (|bu| NIL) (#4=#:G541 NIL) (|av| NIL) (#5=#:G540 NIL)
+          (|arr| #1#) (|an| (|String|)) (#2=#:G583 NIL) (|bv| NIL)
+          (#3=#:G582 NIL) (|bu| NIL) (#4=#:G581 NIL) (|av| NIL) (#5=#:G580 NIL)
           (|au| NIL))
          (SEQ (LETT |newArrs| NIL . #6=(|DGRPH;closedCartesian;2$M$;27|))
               (SEQ (LETT |au| 1 . #6#) (LETT #5# (LENGTH (QCAR |a|)) . #6#)
@@ -1786,7 +1786,7 @@
                      (|:| |toOb| (|NonNegativeInteger|))
                      (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
                      (|:| |map| (|List| (|NonNegativeInteger|)))))
-          (#1=#:G554 NIL) (|j| NIL) (#2=#:G553 NIL) (|i| NIL)
+          (#1=#:G594 NIL) (|j| NIL) (#2=#:G593 NIL) (|i| NIL)
           (|ars|
            (|List|
             (|Record| (|:| |name| (|String|))
@@ -1841,14 +1841,14 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|newArr| #2#) (#3=#:G571 NIL) (|oldArrow| NIL) (#4=#:G559 NIL)
-          (#5=#:G558 NIL) (|i| (|NonNegativeInteger|)) (#6=#:G570 NIL)
+          (|newArr| #2#) (#3=#:G611 NIL) (|oldArrow| NIL) (#4=#:G599 NIL)
+          (#5=#:G598 NIL) (|i| (|NonNegativeInteger|)) (#6=#:G610 NIL)
           (|oi| NIL)
           (|newObjs|
            (|List|
             (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                       (|:| |posY| (|NonNegativeInteger|)))))
-          (#7=#:G569 NIL) (|o| NIL) (#8=#:G568 NIL))
+          (#7=#:G609 NIL) (|o| NIL) (#8=#:G608 NIL))
          (SEQ
           (LETT |newObjs|
                 (PROGN
@@ -1929,14 +1929,14 @@
                          (|:| |xOffset| (|Integer|))
                          (|:| |yOffset| (|Integer|))
                          (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (|newArr| #2#) (#3=#:G588 NIL) (|oldArrow| NIL) (#4=#:G576 NIL)
-          (#5=#:G575 NIL) (|i| (|NonNegativeInteger|)) (#6=#:G587 NIL)
+          (|newArr| #2#) (#3=#:G628 NIL) (|oldArrow| NIL) (#4=#:G616 NIL)
+          (#5=#:G615 NIL) (|i| (|NonNegativeInteger|)) (#6=#:G627 NIL)
           (|oi| NIL)
           (|newObjs|
            (|List|
             (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                       (|:| |posY| (|NonNegativeInteger|)))))
-          (#7=#:G586 NIL) (|o| NIL) (#8=#:G585 NIL))
+          (#7=#:G626 NIL) (|o| NIL) (#8=#:G625 NIL))
          (SEQ
           (LETT |newObjs|
                 (PROGN
@@ -2027,7 +2027,7 @@
           (|o|
            (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
                      (|:| |posY| (|NonNegativeInteger|))))
-          (#2=#:G596 NIL) (|ob| NIL) (#3=#:G597 NIL) (|obn| NIL))
+          (#2=#:G636 NIL) (|ob| NIL) (#3=#:G637 NIL) (|obn| NIL))
          (SEQ (LETT |obs| NIL . #4=(|DGRPH;coerce;L$;32|))
               (LETT |ars| NIL . #4#) (LETT |arn| 1 . #4#)
               (SEQ (LETT |obn| 1 . #4#) (LETT #3# (LENGTH |lst|) . #4#)
@@ -2063,9 +2063,9 @@
 
 (DECLAIM (NOTINLINE |DirectedGraph;|)) 
 
-(DEFUN |DirectedGraph| (#1=#:G598)
+(DEFUN |DirectedGraph| (#1=#:G638)
   (SPROG NIL
-         (PROG (#2=#:G599)
+         (PROG (#2=#:G639)
            (RETURN
             (COND
              ((LETT #2#

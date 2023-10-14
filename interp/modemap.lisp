@@ -101,7 +101,7 @@
        (|get| |op| '|modemap| |e|) NIL)))))
  
 ; getModemapList(op,numOfArgs,e) ==
-;   op is ['elt,D,op'] => getModemapListFromDomain(op',numOfArgs,D,e)
+;   op is ['Sel, D, op'] => getModemapListFromDomain(op', numOfArgs, D, e)
 ;   [mm for
 ;     (mm:= [[.,.,:sigl],:.]) in get(op,'modemap,e) | numOfArgs=#sigl]
  
@@ -109,7 +109,7 @@
   (PROG (|ISTMP#1| D |ISTMP#2| |op'| |sigl|)
     (RETURN
      (COND
-      ((AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+      ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
             (PROGN
              (SETQ |ISTMP#1| (CDR |op|))
              (AND (CONSP |ISTMP#1|)

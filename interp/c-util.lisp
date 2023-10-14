@@ -1124,13 +1124,13 @@
  
 ; isSideEffectFree op ==
 ;   constructor? op or member(op,$SideEffectFreeFunctionList) or
-;     op is ["elt",.,op'] and isSideEffectFree op'
+;     op is ["Sel", ., op'] and isSideEffectFree op'
  
 (DEFUN |isSideEffectFree| (|op|)
   (PROG (|ISTMP#1| |ISTMP#2| |op'|)
     (RETURN
      (OR (|constructor?| |op|) (|member| |op| |$SideEffectFreeFunctionList|)
-         (AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+         (AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)
               (PROGN
                (SETQ |ISTMP#1| (CDR |op|))
                (AND (CONSP |ISTMP#1|)

@@ -281,7 +281,7 @@
                 . #4=(|PSQFR;squareFree;PF;5|))
           (EXIT
            (COND ((QEQCAR |mv| 1) (SPADCALL |p| NIL (QREFELT $ 33)))
-                 ((SPADCALL (SPADCALL (QREFELT $ 11)) 0 (QREFELT $ 57))
+                 ((SPADCALL (SPADCALL (QREFELT $ 11)) 0 (QREFELT $ 55))
                   (|PSQFR;finSqFr| |p| (SPADCALL |p| (QREFELT $ 14)) $))
                  (#5='T
                   (SEQ
@@ -375,7 +375,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|PolynomialSquareFree| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 58) . #1#)
+    (LETT $ (GETREFV 56) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|PolynomialSquareFree|
@@ -410,12 +410,12 @@
               (|List| 43) (102 . |factorList|) (107 . =)
               |PSQFR;squareFree;PF;5| (113 . *) (119 . |One|) (123 . ~=)
               (129 . |unit|) (134 . |coefficient|) (|Union| 6 '"failed")
-              (140 . |mainVariable|) (145 . |Zero|) (149 . |Zero|) (153 . ~=))
-           '#(|squareFree| 159) 'NIL
+              (140 . |mainVariable|) (145 . ~=))
+           '#(|squareFree| 151) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 57
+                             (|makeByteWordVec2| 55
                                                  '(0 8 10 11 1 9 13 0 14 2 9 15
                                                    0 6 16 2 18 17 0 10 19 2 18
                                                    0 20 0 21 2 9 0 15 6 22 2 18
@@ -428,7 +428,6 @@
                                                    45 2 29 35 0 0 46 2 9 0 0 0
                                                    48 0 8 0 49 2 9 35 0 0 50 1
                                                    40 18 0 51 2 18 9 0 10 52 1
-                                                   9 53 0 54 0 7 0 55 0 8 0 56
-                                                   2 10 35 0 0 57 1 0 26 9
-                                                   47)))))
+                                                   9 53 0 54 2 10 35 0 0 55 1 0
+                                                   26 9 47)))))
            '|lookupComplete|)) 

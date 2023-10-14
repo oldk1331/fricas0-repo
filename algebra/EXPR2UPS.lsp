@@ -552,7 +552,7 @@
             (|UnivariateLaurentSeriesConstructorCategory| FE
                                                           (|UnivariateTaylorSeries|
                                                            FE |x|
-                                                           (|elt| FE
+                                                           (|Sel| FE
                                                             (|Zero|))))
             (CATEGORY |domain| (SIGNATURE |coerce| ($ (|Variable| |x|)))
              (SIGNATURE |differentiate| ($ $ (|Variable| |x|)))
@@ -607,7 +607,7 @@
             (|UnivariateLaurentSeriesConstructorCategory| FE
                                                           (|UnivariateTaylorSeries|
                                                            FE |x|
-                                                           (|elt| FE
+                                                           (|Sel| FE
                                                             (|Zero|))))
             (CATEGORY |domain| (SIGNATURE |coerce| ($ (|Variable| |x|)))
              (SIGNATURE |differentiate| ($ $ (|Variable| |x|)))
@@ -902,7 +902,7 @@
             (|UnivariatePuiseuxSeriesConstructorCategory| FE
                                                           (|UnivariateLaurentSeries|
                                                            FE |x|
-                                                           #1=(|elt| FE
+                                                           #1=(|Sel| FE
                                                                (|Zero|))))
             (|RetractableTo| (|UnivariateTaylorSeries| FE |x| #1#))
             (CATEGORY |domain| (SIGNATURE |coerce| ($ (|Variable| |x|)))
@@ -960,7 +960,7 @@
             (|UnivariatePuiseuxSeriesConstructorCategory| FE
                                                           (|UnivariateLaurentSeries|
                                                            FE |x|
-                                                           #1=(|elt| FE
+                                                           #1=(|Sel| FE
                                                                (|Zero|))))
             (|RetractableTo| (|UnivariateTaylorSeries| FE |x| #1#))
             (CATEGORY |domain| (SIGNATURE |coerce| ($ (|Variable| |x|)))
@@ -1335,7 +1335,7 @@
             (|UnivariatePuiseuxSeriesConstructorCategory| FE
                                                           (|UnivariateLaurentSeries|
                                                            FE |x|
-                                                           #1=(|elt| FE
+                                                           #1=(|Sel| FE
                                                                (|Zero|))))
             (|RetractableTo| (|UnivariateTaylorSeries| FE |x| #1#))
             (CATEGORY |domain| (SIGNATURE |coerce| ($ (|Variable| |x|)))
@@ -1393,7 +1393,7 @@
             (|UnivariatePuiseuxSeriesConstructorCategory| FE
                                                           (|UnivariateLaurentSeries|
                                                            FE |x|
-                                                           #1=(|elt| FE
+                                                           #1=(|Sel| FE
                                                                (|Zero|))))
             (|RetractableTo| (|UnivariateTaylorSeries| FE |x| #1#))
             (CATEGORY |domain| (SIGNATURE |coerce| ($ (|Variable| |x|)))
