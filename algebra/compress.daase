@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4770 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4768 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -647,7 +647,7 @@
  |reduction| |signAround| |invmod| |powmod| |mulmod| |submod| |addmod| |mask|
  |dec| |inc| |symmetricRemainder| |positiveRemainder| |bit?| |algint|
  |algintegrate| |palgintegrate| |palginfieldint| |palgextintegrate| |bitLength|
- |bitCoef| |bitTruth| |contains?| |inf| |qinterval| |interval| |li_int|
+ |bitCoef| |bitTruth| |contains?| |width| |inf| |qinterval| |interval| |li_int|
  |poly_int| |solve_u| |lfextendedint| |lflogint| |lfinfieldint| |lfintegrate|
  |lfextlimint| |BasicMethod| |PollardSmallFactor| |palgint0| |palgextint0|
  |palglimint0| |palgRDE0| |rationalize_ir| |palgLODE0| |carmichaelLambda|
@@ -679,50 +679,50 @@
  |jacobiMatrix| |makeSystem| |setSimpMode| |extractSymbol| |analyseSymbol|
  |prolongSymbol| |prolongMV| |project| |contract| |differentials| |dP| |dU|
  |dX| |d| |eqRep?| |ground?| |eval1| |prolong| |lie| |directions| |diffP|
- |diffU| |diffX| |search| |keys| |key?| |symbolIfCan| |kernel| |argument|
- |constantKernel| |constantIfCan| |kovacic| |toStringConven| |unbind| |bind|
- |subst| |free?| |getBoundValue| |isFreeNode?| |isBoundNode?| |isLambda?|
- |isCompound?| |parseLambda| |lambda| |laplace| |trailingCoefficient|
- |normalizeIfCan| |polCase| |distFact| |identification| |LyndonCoordinates|
- |LyndonBasis| |zeroDimensional?| |fglmIfCan| |lexTriangular|
- |squareFreeLexTriangular| |belong?| |operator| |fresnelC| |fresnelS| |erfi|
- |erf| |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex|
- |minPol| |computeBasis| |coord| |anticoord| |intcompBasis| |choosemon|
- |close!| |pack!| |library| |complexLimit| |linearlyDependent?|
- |linearDependence| |solveLinear| |reducedSystem| |setDifference|
- |setIntersection| |setUnion| |append| |null| |nil| |substitute| |duplicates?|
- |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult| |makeUnit|
- |reverse!| |reverse| |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete|
- |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower| |directSum|
- |entries| |loop| |lcmCoef| |solveLinearPolynomialEquationByFractions|
- |hasSolution?| |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse|
- |LyndonWordsList| |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?|
- |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
- |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
- |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
- |canonicalIfCan| |pack_modulus| |MPtoMPT| |pack_exps| |repack1| |pack_exps0|
- |m_inverse| |element| |rowMatrix| |rows| |columnMatrix| |columns| |subMatrix|
- |bandMatrix| |blockSplit| |iter| |arg1| |arg2| |comp| |nullary| |id| |recur|
- |const| |curry| |diag| |curryRight| |curryLeft| |constantRight| |constantLeft|
- |twist| |kronecker_prod1| |positivePower| |kroneckerSum| |kroneckerProduct|
- |elRow1!| |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!|
- |plus!| |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!|
- |gradient| |divergence| |laplacian| |hessian| |bandedHessian| |jacobian|
- |bandedJacobian| |duplicates| |removeDuplicates!| |linears| |ddFact|
- |separateFactors| |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc|
- |toPermutation| |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint|
- |multifunctionGraph| |minimumExponent| |maximumExponent| |precision|
- |mantissa| |rowEch| |rowEchLocal| |rowEchelonLocal| |normalizedDivide|
- |maxint| |binaryFunction| |makeFloatFunction| |function| |makeRecord|
- |unaryFunction| |compiledFunction| |corrPoly| |lifting| |lifting1| |exprex|
- |coerceS| |HP_solve_I| |HP_solve_A| |HP_solve_P| |HP_solve_PA| |HP_solve_M|
- |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA|
- |get_variables| |unpack_poly| |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA|
- |VSUPS_to_VPA| |frobenius| |computePowers| |An| |UnVectorise| |Vectorise|
- |setPoly| |index| |exponent| |exQuo| |moebius| |cumulant2moment|
- |moment2cumulant| |moment2nthJacobi| |moment2jacobi| |moment2jacobi2|
- |freeCumulant2moment| |moment2freeCumulant| |booleanCumulant2moment|
- |moment2booleanCumulant| |monotoneCumulant2moment|
+ |diffU| |diffX| |search| |keys| |key?| |symbolIfCan| |kernel| |height|
+ |argument| |constantKernel| |constantIfCan| |kovacic| |toStringConven|
+ |unbind| |bind| |subst| |free?| |getBoundValue| |isFreeNode?| |isBoundNode?|
+ |isLambda?| |isCompound?| |parseLambda| |lambda| |laplace|
+ |trailingCoefficient| |normalizeIfCan| |polCase| |distFact| |identification|
+ |LyndonCoordinates| |LyndonBasis| |zeroDimensional?| |fglmIfCan|
+ |lexTriangular| |squareFreeLexTriangular| |belong?| |operator| |fresnelC|
+ |fresnelS| |erfi| |erf| |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos|
+ |groebgen| |totolex| |minPol| |computeBasis| |coord| |anticoord|
+ |intcompBasis| |choosemon| |close!| |pack!| |library| |complexLimit|
+ |linearlyDependent?| |linearDependence| |solveLinear| |reducedSystem|
+ |setDifference| |setIntersection| |setUnion| |append| |null| |nil|
+ |substitute| |duplicates?| |mapGen| |mapExpon| |commutativeEquality|
+ |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm|
+ |listOfMonoms| |insert| |delete| |symmetricSquare| |factor1|
+ |symmetricProduct| |symmetricPower| |directSum| |entries| |loop| |lcmCoef|
+ |solveLinearPolynomialEquationByFractions| |hasSolution?| |linSolve|
+ |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
+ |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
+ |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
+ |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|
+ |algebraicGcd| |pseudoRem| |canonicalIfCan| |pack_modulus| |MPtoMPT|
+ |pack_exps| |repack1| |pack_exps0| |m_inverse| |element| |rowMatrix| |rows|
+ |columnMatrix| |columns| |subMatrix| |bandMatrix| |blockSplit| |iter| |arg1|
+ |arg2| |comp| |nullary| |id| |recur| |const| |curry| |diag| |curryRight|
+ |curryLeft| |constantRight| |constantLeft| |twist| |kronecker_prod1|
+ |positivePower| |kroneckerSum| |kroneckerProduct| |elRow1!| |elRow2!|
+ |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!| |minus!|
+ |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
+ |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
+ |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
+ |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |toPermutation|
+ |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint| |multifunctionGraph|
+ |minimumExponent| |maximumExponent| |precision| |mantissa| |rowEch|
+ |rowEchLocal| |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
+ |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
+ |corrPoly| |lifting| |lifting1| |exprex| |coerceS| |HP_solve_I| |HP_solve_A|
+ |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA|
+ |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly|
+ |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
+ |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
+ |exQuo| |moebius| |cumulant2moment| |moment2cumulant| |moment2nthJacobi|
+ |moment2jacobi| |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
+ |booleanCumulant2moment| |moment2booleanCumulant| |monotoneCumulant2moment|
  |monotoneCumulant2momentPoly| |qcumulant2nthmoment| |hankelDeterminant|
  |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant| |rightRecip|
  |leftRecip| |leftPower| |rightPower| |derivationCoordinates| |generator|
@@ -776,14 +776,13 @@
  |commaSeparate| |pile| |paren| |bracket| |prod| |overlabel| |overbar| |prime|
  |quote| |supersub| |presuper| |presub| |super| |sub| |rarrow| |assign| |slash|
  |over| |zag| |box| |label| |infix?| |postfix| |infix| |prefix| |vconcat|
- |hconcat| |rspace| |vspace| |hspace| |superHeight| |subHeight| |height|
- |width| |messagePrint| |message| |padecf| |pade| |root| |quotientByP|
- |moduloP| |modulus| |digits| |continuedFraction| |light| |pastel| |bright|
- |dim| |dark| |motzkinPathArray| |jacobiPathArray| |bottom| |surface|
- |coordinate| |partitions| |conjugates| |shuffle| |shufflein| |sequences|
- |permutations| |lists| |atoms| |makeResult| |is?| |Is| |addMatchRestricted|
- |insertMatch| |addMatch| |getMatch| |failed| |failed?| |optpair|
- |getBadValues| |resetBadValues| |hasTopPredicate?| |topPredicate|
+ |hconcat| |rspace| |vspace| |hspace| |messagePrint| |message| |padecf| |pade|
+ |root| |quotientByP| |moduloP| |modulus| |digits| |continuedFraction| |light|
+ |pastel| |bright| |dim| |dark| |motzkinPathArray| |jacobiPathArray| |bottom|
+ |surface| |coordinate| |partitions| |conjugates| |shuffle| |shufflein|
+ |sequences| |permutations| |lists| |atoms| |makeResult| |is?| |Is|
+ |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed| |failed?|
+ |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?| |topPredicate|
  |setTopPredicate| |patternVariable| |withPredicates| |setPredicates|
  |predicates| |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?|
  |inR?| |isList| |isQuotient| |isOp| |predicate| |satisfy?| |addBadValue|
