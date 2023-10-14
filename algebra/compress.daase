@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4674 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4677 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -163,8 +163,8 @@
  |InfiniteProductFiniteField| |InfiniteProductPrimeField| |InnerPolySign|
  |IntegerNumberSystem&| |IntegerNumberSystem| |Integer| |InnerTable|
  |AlgebraicIntegration| |AlgebraicIntegrate| |IntegerBits| |IntervalCategory|
- |IntegralDomain&| |IntegralDomain| |ElementaryIntegration|
- |IntegerFactorizationPackage| |GenusZeroIntegration|
+ |DenominatorIntegration| |IntegralDomain&| |IntegralDomain|
+ |ElementaryIntegration| |IntegerFactorizationPackage| |GenusZeroIntegration|
  |IntegerNumberTheoryFunctions| |AlgebraicHermiteIntegration|
  |TranscendentalHermiteIntegration| |PureAlgebraicIntegration|
  |PatternMatchIntegration| |RationalIntegration| |IntegerRetractions|
@@ -626,54 +626,55 @@
  |addmod| |mask| |dec| |inc| |symmetricRemainder| |positiveRemainder| |bit?|
  |algint| |algintegrate| |palgintegrate| |palginfieldint| |palgextintegrate|
  |bitLength| |bitCoef| |bitTruth| |contains?| |inf| |qinterval| |interval|
- |unit?| |associates?| |unitCanonical| |unitNormal| |lfextendedint|
- |lflimitedint| |lfinfieldint| |lfintegrate| |lfextlimint| |BasicMethod|
- |PollardSmallFactor| |palgint0| |palgextint0| |palglimint0| |palgRDE0|
- |palgLODE0| |carmichaelLambda| |chineseRemainder| |divisors| |eulerPhi|
- |fibonacci| |harmonic| |jacobi| |moebiusMu| |numberOfDivisors| |sumOfDivisors|
- |sumOfKthPowerDivisors| |HermiteIntegrate| |palgint| |palgextint| |palglimint|
- |palgRDE| |palgLODE| |splitConstant| |pmComplexintegrate| |pmintegrate|
- |infieldint| |extendedint| |limitedint| |integerIfCan| |internalIntegrate|
- |infieldIntegrate| |limitedIntegrate| |extendedIntegrate| |varselect| |kmax|
- |ksec| |vark| |removeConstantTerm| |mkPrim| |intPatternMatch| |primintegrate|
- |expintegrate| |tanintegrate| |primextendedint| |expextendedint|
- |primlimitedint| |explimitedint| |primextintfrac| |primlimintfrac|
- |primintfldpoly| |expintfldpoly| |monomialIntegrate| |monomialIntPoly|
- |inverseLaplace| |iprint| |elem?| |notelem| |logpart| |ratpart| |mkAnswer|
- |perfectNthPower?| |perfectNthRoot| |approxNthRoot| |perfectSquare?|
- |perfectSqrt| |approxSqrt| |generateIrredPoly| |complexExpand|
- |complexIntegrate| |dimensionOfIrreducibleRepresentation|
- |irreducibleRepresentation| |checkRur| |cAcsch| |cAsech| |cAcoth| |cAtanh|
- |cAcosh| |cAsinh| |cCsch| |cSech| |cCoth| |cTanh| |cCosh| |cSinh| |cAcsc|
- |cAsec| |cAcot| |cAtan| |cAcos| |cAsin| |cCsc| |cSec| |cCot| |cTan| |cCos|
- |cSin| |cLog| |cExp| |cRationalPower| |cPower| |seriesToOutputForm| |iCompose|
- |taylorQuoByVar| |iExquo| |getStream| |getRef| |makeSeries| GF2FG FG2F F2FG
- |explogs2trigs| |trigs2explogs| |swap!| |fill!| |minIndex| |maxIndex| |entry?|
- |indices| |index?| |dimS| |dimJ| |Pr| |Pm| |integrateIfCan| |derivativeOf?|
- |weight| |type| |allRepeated| |m2r| |r2m| |repeatedIndex| |multiIndex|
- |numerJP| |autoReduce| |reduceMod| |simpMod| |simpOne| |dSubst| |solveFor|
- |sortLD| |leadingDer| |freeOf?| |orderDim| |formalDiff2| |formalDiff| |class|
- |const?| |jetVariables| |numDepVar| |numIndVar| |getNotation| |setNotation| P
- U X |ground| |printSys| |jacobiMatrix| |makeSystem| |setSimpMode|
- |extractSymbol| |analyseSymbol| |prolongSymbol| |prolongMV| |project|
- |contract| |differentials| |dP| |dU| |dX| |d| |eqRep?| |ground?| |eval1|
- |prolong| |lie| |directions| |diffP| |diffU| |diffX| |search| |keys| |key?|
- |symbolIfCan| |kernel| |argument| |constantKernel| |constantIfCan| |kovacic|
- |toStringConven| |unbind| |bind| |subst| |free?| |getBoundValue| |isFreeNode?|
- |isBoundNode?| |isLambda?| |isCompound?| |parseLambda| |lambda| |laplace|
- |trailingCoefficient| |normalizeIfCan| |polCase| |distFact| |identification|
- |LyndonCoordinates| |LyndonBasis| |zeroDimensional?| |fglmIfCan| |groebner|
- |lexTriangular| |squareFreeLexTriangular| |belong?| |operator| |fresnelC|
- |fresnelS| |erf| |dilog| |li| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex|
- |minPol| |computeBasis| |coord| |anticoord| |intcompBasis| |choosemon|
- |close!| |pack!| |library| |complexLimit| |linearlyDependent?|
- |linearDependence| |solveLinear| |reducedSystem| |setDifference|
- |setIntersection| |setUnion| |append| |null| |nil| |substitute| |duplicates?|
- |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult| |makeUnit|
- |reverse!| |reverse| |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete|
- |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower| |directSum|
- |entries| |loop| |solveLinearPolynomialEquationByFractions| |hasSolution?|
- |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
+ |li_int| |poly_int| |unit?| |associates?| |unitCanonical| |unitNormal|
+ |lfextendedint| |lflimitedint| |lfinfieldint| |lfintegrate| |lfextlimint|
+ |BasicMethod| |PollardSmallFactor| |palgint0| |palgextint0| |palglimint0|
+ |palgRDE0| |palgLODE0| |carmichaelLambda| |chineseRemainder| |divisors|
+ |eulerPhi| |fibonacci| |harmonic| |jacobi| |moebiusMu| |numberOfDivisors|
+ |sumOfDivisors| |sumOfKthPowerDivisors| |HermiteIntegrate| |palgint|
+ |palgextint| |palglimint| |palgRDE| |palgLODE| |splitConstant|
+ |pmComplexintegrate| |pmintegrate| |infieldint| |extendedint| |limitedint|
+ |integerIfCan| |internalIntegrate| |infieldIntegrate| |limitedIntegrate|
+ |extendedIntegrate| |varselect| |kmax| |ksec| |vark| |removeConstantTerm|
+ |mkPrim| |intPatternMatch| |primintegrate| |expintegrate| |tanintegrate|
+ |primextendedint| |expextendedint| |primlimitedint| |explimitedint|
+ |primextintfrac| |primlimintfrac| |primintfldpoly| |expintfldpoly|
+ |monomialIntegrate| |monomialIntPoly| |inverseLaplace| |iprint| |elem?|
+ |notelem| |logpart| |ratpart| |mkAnswer| |perfectNthPower?| |perfectNthRoot|
+ |approxNthRoot| |perfectSquare?| |perfectSqrt| |approxSqrt|
+ |generateIrredPoly| |complexExpand| |complexIntegrate|
+ |dimensionOfIrreducibleRepresentation| |irreducibleRepresentation| |checkRur|
+ |cAcsch| |cAsech| |cAcoth| |cAtanh| |cAcosh| |cAsinh| |cCsch| |cSech| |cCoth|
+ |cTanh| |cCosh| |cSinh| |cAcsc| |cAsec| |cAcot| |cAtan| |cAcos| |cAsin| |cCsc|
+ |cSec| |cCot| |cTan| |cCos| |cSin| |cLog| |cExp| |cRationalPower| |cPower|
+ |seriesToOutputForm| |iCompose| |taylorQuoByVar| |iExquo| |getStream| |getRef|
+ |makeSeries| GF2FG FG2F F2FG |explogs2trigs| |trigs2explogs| |swap!| |fill!|
+ |minIndex| |maxIndex| |entry?| |indices| |index?| |dimS| |dimJ| |Pr| |Pm|
+ |integrateIfCan| |derivativeOf?| |weight| |type| |allRepeated| |m2r| |r2m|
+ |repeatedIndex| |multiIndex| |numerJP| |autoReduce| |reduceMod| |simpMod|
+ |simpOne| |dSubst| |solveFor| |sortLD| |leadingDer| |freeOf?| |orderDim|
+ |formalDiff2| |formalDiff| |class| |const?| |jetVariables| |numDepVar|
+ |numIndVar| |getNotation| |setNotation| P U X |ground| |printSys|
+ |jacobiMatrix| |makeSystem| |setSimpMode| |extractSymbol| |analyseSymbol|
+ |prolongSymbol| |prolongMV| |project| |contract| |differentials| |dP| |dU|
+ |dX| |d| |eqRep?| |ground?| |eval1| |prolong| |lie| |directions| |diffP|
+ |diffU| |diffX| |search| |keys| |key?| |symbolIfCan| |kernel| |argument|
+ |constantKernel| |constantIfCan| |kovacic| |toStringConven| |unbind| |bind|
+ |subst| |free?| |getBoundValue| |isFreeNode?| |isBoundNode?| |isLambda?|
+ |isCompound?| |parseLambda| |lambda| |laplace| |trailingCoefficient|
+ |normalizeIfCan| |polCase| |distFact| |identification| |LyndonCoordinates|
+ |LyndonBasis| |zeroDimensional?| |fglmIfCan| |groebner| |lexTriangular|
+ |squareFreeLexTriangular| |belong?| |operator| |fresnelC| |fresnelS| |erf|
+ |dilog| |li| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex| |minPol|
+ |computeBasis| |coord| |anticoord| |intcompBasis| |choosemon| |close!| |pack!|
+ |library| |complexLimit| |linearlyDependent?| |linearDependence| |solveLinear|
+ |reducedSystem| |setDifference| |setIntersection| |setUnion| |append| |null|
+ |nil| |substitute| |duplicates?| |mapGen| |mapExpon| |commutativeEquality|
+ |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm|
+ |listOfMonoms| |insert| |delete| |symmetricSquare| |factor1|
+ |symmetricProduct| |symmetricPower| |directSum| |entries| |loop|
+ |solveLinearPolynomialEquationByFractions| |hasSolution?| |linSolve|
+ |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
  |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
  |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
  |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|
