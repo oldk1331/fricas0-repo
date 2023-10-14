@@ -8,7 +8,7 @@
 (DEFUN |LIMITPS;constant?| (|fcn| $) (NULL (SPADCALL |fcn| (QREFELT $ 11)))) 
 
 (DEFUN |LIMITPS;firstNonLogPtr| (|fcn| |x| $)
-  (PROG (|list| #1=#:G240 |ker|)
+  (PROG (|list| #1=#:G260 |ker|)
     (RETURN
      (SEQ
       (EXIT
@@ -52,9 +52,30 @@
                                           (OR
                                            (SPADCALL |ker| '|fresnelS|
                                                      (QREFELT $ 18))
-                                           (SPADCALL |ker| '|fresnelC|
-                                                     (QREFELT $
-                                                              18))))))))))))))
+                                           (OR
+                                            (SPADCALL |ker| '|fresnelC|
+                                                      (QREFELT $ 18))
+                                            (OR
+                                             (SPADCALL |ker| '|Si|
+                                                       (QREFELT $ 18))
+                                             (SPADCALL |ker| '|airyAi|
+                                                       (QREFELT $
+                                                                18))))))))))))))))
+    'T)
+   ('T 'NIL))) 
+
+(DEFUN |LIMITPS;finiteValueAtPlusInfinity?| (|ker| $)
+  (COND
+   ((OR (|LIMITPS;finiteValueAtInfinity?| |ker| $)
+        (OR (SPADCALL |ker| '|Ci| (QREFELT $ 18))
+            (SPADCALL |ker| '|airyAiPrime| (QREFELT $ 18))))
+    'T)
+   ('T 'NIL))) 
+
+(DEFUN |LIMITPS;finiteValueAtMinusInfinity?| (|ker| $)
+  (COND
+   ((OR (|LIMITPS;finiteValueAtInfinity?| |ker| $)
+        (SPADCALL |ker| '|airyBi| (QREFELT $ 18)))
     'T)
    ('T 'NIL))) 
 
@@ -62,9 +83,22 @@
   (COND
    ((OR (SPADCALL |ker| '|exp| (QREFELT $ 18))
         (OR (SPADCALL |ker| '|sinh| (QREFELT $ 18))
-            (SPADCALL |ker| '|cosh| (QREFELT $ 18))))
+            (OR (SPADCALL |ker| '|cosh| (QREFELT $ 18))
+                (SPADCALL |ker| '|Shi| (QREFELT $ 18)))))
     'T)
    ('T 'NIL))) 
+
+(DEFUN |LIMITPS;knownValueAtPlusInfinity?| (|ker| $)
+  (COND
+   ((OR (|LIMITPS;knownValueAtInfinity?| |ker| $)
+        (OR (SPADCALL |ker| '|airyBi| (QREFELT $ 18))
+            (OR (SPADCALL |ker| '|airyBiPrime| (QREFELT $ 18))
+                (SPADCALL |ker| '|Chi| (QREFELT $ 18)))))
+    'T)
+   ('T 'NIL))) 
+
+(DEFUN |LIMITPS;knownValueAtMinusInfinity?| (|ker| $)
+  (COND ((|LIMITPS;knownValueAtInfinity?| |ker| $) 'T) ('T 'NIL))) 
 
 (DEFUN |LIMITPS;leftOrRight| (|fcn| |x| |limVal| $)
   (PROG (|inf| |val| |value|)
@@ -89,8 +123,8 @@
                  (#2# |inf|))))))))))) 
 
 (DEFUN |LIMITPS;specialLimit| (|fcn| |x| $)
-  (PROG (#1=#:G279 |den| |num| |finVal| |valu| |val| |fval| #2=#:G282 |k|
-         |xkers| #3=#:G281 #4=#:G280)
+  (PROG (#1=#:G316 |den| |num| |finVal| |valu| |val| |fval| #2=#:G319 |k|
+         |xkers| #3=#:G318 #4=#:G317)
     (RETURN
      (SEQ
       (EXIT
@@ -184,7 +218,7 @@
 
 (DEFUN |LIMITPS;specialLimitNormalize| (|fcn| |x| $)
   (PROG (|lim| |limm| |limVal| |expKerLim| |cc| |eq| |vv| |fval| |expKer|
-         |expKers| #1=#:G306 |k| #2=#:G305 |xkers| #3=#:G304 #4=#:G303 |nfcn|)
+         |expKers| #1=#:G343 |k| #2=#:G342 |xkers| #3=#:G341 #4=#:G340 |nfcn|)
     (RETURN
      (SEQ
       (LETT |nfcn| (SPADCALL |fcn| (QREFELT $ 40))
@@ -283,8 +317,8 @@
                                                |x| $)))))))))))))))))))))))))))) 
 
 (DEFUN |LIMITPS;specialLimit1| (|fcn| |x| $)
-  (PROG (|limVal| |argLim| |lim| |cc| |eq| |vv| |ker| |xkers| #1=#:G322 |k|
-         #2=#:G321)
+  (PROG (|limVal| |argLim| |lim| |cc| |eq| |vv| |ker| |xkers| #1=#:G359 |k|
+         #2=#:G358)
     (RETURN
      (SEQ
       (LETT |xkers|
@@ -345,7 +379,7 @@
 
 (DEFUN |LIMITPS;specialLimitKernel| (|ker| |x| $)
   (PROG (|val| |kerValue| |inf| |f| |var| |lim| |limm| |arg| |args| |argLim|
-         #1=#:G382 |li| #2=#:G328)
+         #1=#:G426 |li| #2=#:G365)
     (RETURN
      (SEQ
       (EXIT
@@ -474,8 +508,8 @@
                                             (CONS 0 (QCDR |kerValue|)))))))))
                                      ((|eql_SI| |inf| 1)
                                       (COND
-                                       ((|LIMITPS;finiteValueAtInfinity?| |ker|
-                                         $)
+                                       ((|LIMITPS;finiteValueAtPlusInfinity?|
+                                         |ker| $)
                                         (SEQ
                                          (LETT |val|
                                                (COND
@@ -530,22 +564,38 @@
                                                    (SPADCALL 8 (QREFELT $ 64))
                                                    (QREFELT $ 37))
                                                   (QREFELT $ 65)))
+                                                ((SPADCALL |ker| '|Si|
+                                                           (QREFELT $ 18))
+                                                 (SPADCALL
+                                                  (SPADCALL (QREFELT $ 63))
+                                                  (SPADCALL 2 (QREFELT $ 64))
+                                                  (QREFELT $ 37)))
+                                                ((OR
+                                                  (SPADCALL |ker| '|Ci|
+                                                            (QREFELT $ 18))
+                                                  (OR
+                                                   (SPADCALL |ker| '|airyAi|
+                                                             (QREFELT $ 18))
+                                                   (SPADCALL |ker|
+                                                             '|airyAiPrime|
+                                                             (QREFELT $ 18))))
+                                                 (|spadConstant| $ 8))
                                                 ('T
                                                  (|error|
-                                                  "finiteValueAtInfinity? true, but unknown value at infinity")))
+                                                  "Finite but unknown value at infinity")))
                                                . #3#)
                                          (EXIT
                                           (CONS 0
                                                 (SPADCALL |val|
                                                           (QREFELT $ 38))))))
-                                       ((|LIMITPS;knownValueAtInfinity?| |ker|
-                                         $)
+                                       ((|LIMITPS;knownValueAtPlusInfinity?|
+                                         |ker| $)
                                         (CONS 0 |lim|))
                                        (#4# (CONS 1 "failed"))))
                                      (#4#
                                       (COND
-                                       ((|LIMITPS;finiteValueAtInfinity?| |ker|
-                                         $)
+                                       ((|LIMITPS;finiteValueAtMinusInfinity?|
+                                         |ker| $)
                                         (SEQ
                                          (LETT |val|
                                                (COND
@@ -610,16 +660,30 @@
                                                     (QREFELT $ 37))
                                                    (QREFELT $ 65))
                                                   (QREFELT $ 66)))
+                                                ((SPADCALL |ker| '|Si|
+                                                           (QREFELT $ 18))
+                                                 (SPADCALL
+                                                  (SPADCALL
+                                                   (SPADCALL (QREFELT $ 63))
+                                                   (SPADCALL 2 (QREFELT $ 64))
+                                                   (QREFELT $ 37))
+                                                  (QREFELT $ 66)))
+                                                ((OR
+                                                  (SPADCALL |ker| '|airyAi|
+                                                            (QREFELT $ 18))
+                                                  (SPADCALL |ker| '|airyBi|
+                                                            (QREFELT $ 18)))
+                                                 (|spadConstant| $ 8))
                                                 ('T
                                                  (|error|
-                                                  "finiteValueAtInfinity? true, but unknown value at -infinity")))
+                                                  "Finite but unknown value at minus infinity")))
                                                . #3#)
                                          (EXIT
                                           (CONS 0
                                                 (SPADCALL |val|
                                                           (QREFELT $ 38))))))
-                                       ((|LIMITPS;knownValueAtInfinity?| |ker|
-                                         $)
+                                       ((|LIMITPS;knownValueAtMinusInfinity?|
+                                         |ker| $)
                                         (COND
                                          ((SPADCALL |ker| '|exp|
                                                     (QREFELT $ 18))
@@ -632,7 +696,9 @@
                                          ((SPADCALL |ker| '|cosh|
                                                     (QREFELT $ 18))
                                           (CONS 0 (SPADCALL (QREFELT $ 67))))
-                                         (#4# (CONS 1 "failed"))))
+                                         (#4#
+                                          (|error|
+                                           "knownValueAtMinusInfinity? true but value unknown"))))
                                        (#4# (CONS 1 "failed"))))))))))))))))))
       #1# (EXIT #1#))))) 
 
@@ -718,12 +784,12 @@
                     (QREFELT $ 35))
           |x| $)))))))) 
 
-(DEFUN |LIMITPS;limit;FEESU;15| (|fcn| |eq| |str| $)
+(DEFUN |LIMITPS;limit;FEESU;19| (|fcn| |eq| |str| $)
   (PROG (|xK| |a| |x| |xx|)
     (RETURN
      (SEQ
       (LETT |xx| (SPADCALL (SPADCALL |eq| (QREFELT $ 73)) (QREFELT $ 75))
-            . #1=(|LIMITPS;limit;FEESU;15|))
+            . #1=(|LIMITPS;limit;FEESU;19|))
       (EXIT
        (COND
         ((QEQCAR |xx| 1) (|error| "limit:left hand side must be a variable"))
@@ -740,7 +806,7 @@
                 |x| $)))))))))) 
 
 (DEFUN |LIMITPS;anyRootsOrAtrigs?| (|fcn| $)
-  (PROG (#1=#:G421 #2=#:G428 #3=#:G429 |kernel|)
+  (PROG (#1=#:G465 #2=#:G472 #3=#:G473 |kernel|)
     (RETURN
      (SEQ
       (EXIT
@@ -772,7 +838,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LIMITPS;complLimit| (|fcn| |x| $)
-  (PROG (|answer| |lim| #1=#:G456 |uls| |lseries| |lpack| |upxs| |pseries|
+  (PROG (|answer| |lim| #1=#:G500 |uls| |lseries| |lpack| |upxs| |pseries|
          |ppack| |Upx| |Efuls| |Uls| |Uts|)
     (RETURN
      (SEQ
@@ -1110,7 +1176,7 @@
                                              (QREFELT $ 89))))))))))))))))) 
 
 (DEFUN |LIMITPS;realLimit| (|fcn| |x| $)
-  (PROG (|answer| |lim| #1=#:G534 |cl| |ordl| |uls| |right| |left| |fcn0| |xK|
+  (PROG (|answer| |lim| #1=#:G578 |cl| |ordl| |uls| |right| |left| |fcn0| |xK|
          |problem| |function| |trouble| |lseries| |lpack| |cp| |ordp| |upxs|
          |pseries| |ppack| |Upx| |Efuls| |Uls| |Uts|)
     (RETURN
@@ -1557,7 +1623,7 @@
                                                 (ELT $ 9))))))))))) 
 
 (DEFUN |LIMITPS;limitPlus| (|fcn| |x| $)
-  (PROG (|xLim| |answer| |lim| #1=#:G579 |cl| |ordl| |uls| |pp| |ff| |trouble|
+  (PROG (|xLim| |answer| |lim| #1=#:G623 |cl| |ordl| |uls| |pp| |ff| |trouble|
          |lseries| |lpack| |cp| |ordp| |upxs| |pseries| |ppack| |Upx| |Efuls|
          |Uls| |Uts|)
     (RETURN
@@ -1872,12 +1938,12 @@
           (#8# (CONS 0 (SPADCALL (QCDR |lim|) (QREFELT $ 38))))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |LIMITPS;limit;FEEU;24| (|fcn| |eq| $)
+(DEFUN |LIMITPS;limit;FEEU;28| (|fcn| |eq| $)
   (PROG (|a| |x| |xx| |f|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 99)) (QREFELT $ 34))
-            . #1=(|LIMITPS;limit;FEEU;24|))
+            . #1=(|LIMITPS;limit;FEEU;28|))
       (EXIT
        (COND
         ((QEQCAR |f| 1) (|error| "limit:left hand side must be a variable"))
@@ -1892,12 +1958,12 @@
                       (LETT |a| (SPADCALL |eq| (QREFELT $ 100)) . #1#)
                       (EXIT (|LIMITPS;locallimit| |fcn| |x| |a| $)))))))))))))) 
 
-(DEFUN |LIMITPS;complexLimit;FEEU;25| (|fcn| |eq| $)
+(DEFUN |LIMITPS;complexLimit;FEEU;29| (|fcn| |eq| $)
   (PROG (|a| |x| |xx| |f|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL (SPADCALL |eq| (QREFELT $ 105)) (QREFELT $ 72))
-            . #1=(|LIMITPS;complexLimit;FEEU;25|))
+            . #1=(|LIMITPS;complexLimit;FEEU;29|))
       (EXIT
        (COND
         ((QEQCAR |f| 1) (|error| "limit:left hand side must be a variable"))
@@ -1914,10 +1980,10 @@
                        (|LIMITPS;locallimitcomplex| |fcn| |x| |a|
                         $)))))))))))))) 
 
-(DEFUN |PowerSeriesLimitPackage| (&REST #1=#:G616)
+(DEFUN |PowerSeriesLimitPackage| (&REST #1=#:G660)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G617)
+     (PROG (#2=#:G661)
        (RETURN
         (COND
          ((LETT #2#
@@ -1977,7 +2043,7 @@
               (|OnePointCompletion| 7) (232 . |retractIfCan|) (237 . |lhs|)
               (|Union| 13 '"failed") (242 . |retractIfCan|) (247 . |rhs|)
               (|String|) (|ToolsForSign| 6) (252 . |direction|)
-              (|Union| 25 '"failed") |LIMITPS;limit;FEESU;15|
+              (|Union| 25 '"failed") |LIMITPS;limit;FEESU;19|
               (257 . |infinity|) (|Fraction| 31) (261 . |Zero|)
               (265 . |coerce|) (|Union| 31 '"failed")
               (|ElementaryFunctionSign| 6 7) (270 . |sign|) (275 . *)
@@ -1985,9 +2051,9 @@
               (301 . |zero?|) (306 . |kernel|) (311 . =) (317 . |coerce|)
               (|Equation| 25) (322 . |lhs|) (327 . |rhs|)
               (|Record| (|:| |leftHandLimit| 80) (|:| |rightHandLimit| 80))
-              (|Union| 25 101 '"failed") |LIMITPS;limit;FEEU;24|
+              (|Union| 25 101 '"failed") |LIMITPS;limit;FEEU;28|
               (|Equation| 71) (332 . |lhs|) (337 . |rhs|)
-              (|Union| 71 '"failed") |LIMITPS;complexLimit;FEEU;25|)
+              (|Union| 71 '"failed") |LIMITPS;complexLimit;FEEU;29|)
            '#(|limit| 342 |complexLimit| 355) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
