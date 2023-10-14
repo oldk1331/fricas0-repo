@@ -1297,7 +1297,7 @@
 ;   $devaluateList: local --Bound to ((#1 . dv$1)..) where &1 := devaluate #1 later
 ;   $devaluateList:= [[arg,:b] for arg in args for b in $ModeVariableList]
 ; ------------------------
-;   oldtime:= TEMPUS_-FUGIT()
+;   oldtime := get_run_time()
 ;   [catsig, :argsig] := sig
 ;   catvecListMaker:=REMDUP
 ;     [(comp(catsig, $EmptyMode, $e)).expr,
@@ -1365,7 +1365,7 @@
 ;   $getDomainCode:= nil
 ;     --if we didn't kill this, DEFINE would insert it in the wrong place
 ;   ans:= minimalise ans
-;   SAY ['"time taken in buildFunctor: ",TEMPUS_-FUGIT()-oldtime]
+;   SAY ['"time taken in buildFunctor: ", get_run_time() - oldtime]
 ;   --sayBrightly '"------------------functor code: -------------------"
 ;   --pp ans
 ;   ans
@@ -1423,7 +1423,7 @@
                   (SETQ |bfVar#54| (CDR |bfVar#54|))
                   (SETQ |bfVar#55| (CDR |bfVar#55|))))
                NIL |args| NIL |$ModeVariableList| NIL))
-      (SETQ |oldtime| (TEMPUS-FUGIT))
+      (SETQ |oldtime| (|get_run_time|))
       (SETQ |catsig| (CAR |sig|))
       (SETQ |argsig| (CDR |sig|))
       (SETQ |catvecListMaker|
@@ -1592,7 +1592,8 @@
                      (CONS '$ NIL))))
       (SETQ |$getDomainCode| NIL)
       (SETQ |ans| (|minimalise| |ans|))
-      (SAY (LIST "time taken in buildFunctor: " (- (TEMPUS-FUGIT) |oldtime|)))
+      (SAY
+       (LIST "time taken in buildFunctor: " (- (|get_run_time|) |oldtime|)))
       |ans|))))
  
 ; NRTcheckVector domainShell ==

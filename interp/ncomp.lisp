@@ -939,7 +939,7 @@
 ;     $form : local := nil
 ;     $e : local := $EmptyEnvironment
 ;     $genSDVar : local :=  0
-;     $previousTime : local :=  TEMPUS_-FUGIT()
+;     $previousTime : local := get_run_time()
 ;     compTopLevel(x, $EmptyMode,  [[[]]])
 ;     if $semanticErrorStack then displaySemanticErrors()
  
@@ -979,7 +979,7 @@
       (SETQ |$form| NIL)
       (SETQ |$e| |$EmptyEnvironment|)
       (SETQ |$genSDVar| 0)
-      (SETQ |$previousTime| (TEMPUS-FUGIT))
+      (SETQ |$previousTime| (|get_run_time|))
       (|compTopLevel| |x| |$EmptyMode| (LIST (LIST NIL)))
       (COND (|$semanticErrorStack| (|displaySemanticErrors|)))))))
  
@@ -1151,7 +1151,7 @@
 ;     $form : local := nil
 ;     $e : local := $EmptyEnvironment
 ;     $genSDVar : local := 0
-;     $previousTime : local := TEMPUS_-FUGIT()
+;     $previousTime : local := get_run_time()
 ;     $s : local := nil
 ;     $x : local := nil
 ;     $m : local := nil
@@ -1213,7 +1213,7 @@
       (SETQ |$form| NIL)
       (SETQ |$e| |$EmptyEnvironment|)
       (SETQ |$genSDVar| 0)
-      (SETQ |$previousTime| (TEMPUS-FUGIT))
+      (SETQ |$previousTime| (|get_run_time|))
       (SETQ |$s| NIL)
       (SETQ |$x| NIL)
       (SETQ |$m| NIL)

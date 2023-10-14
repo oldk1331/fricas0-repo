@@ -154,7 +154,7 @@
 ;   SAY("$x:= ",$x)
 ;   SAY("$m:= ",$m)
 ;   SAY "$f:="
-;   F_,PRINT_-ONE $f
+;   limited_print1_stdout($f)
 ;   nil
  
 (DEFUN |displayComp| (|level|)
@@ -179,7 +179,7 @@
       (SAY '|$x:= | |$x|)
       (SAY '|$m:= | |$m|)
       (SAY '|$f:=|)
-      (|F,PRINT-ONE| |$f|)
+      (|limited_print1_stdout| |$f|)
       NIL))))
  
 ; mkErrorExpr level ==
@@ -1611,7 +1611,7 @@
                  (|pmatchWithSl| (CDR |s|) (CDR |p|) |al'|)))))))
  
 ; elapsedTime() ==
-;   currentTime:= TEMPUS_-FUGIT()
+;   currentTime := get_run_time()
 ;   elapsedSeconds:= (currentTime-$previousTime)*1.0/$timerTicksPerSecond
 ;   $previousTime:= currentTime
 ;   elapsedSeconds
@@ -1620,7 +1620,7 @@
   (PROG (|elapsedSeconds| |currentTime|)
     (RETURN
      (PROGN
-      (SETQ |currentTime| (TEMPUS-FUGIT))
+      (SETQ |currentTime| (|get_run_time|))
       (SETQ |elapsedSeconds|
               (/ (* (- |currentTime| |$previousTime|) 1.0)
                  |$timerTicksPerSecond|))
