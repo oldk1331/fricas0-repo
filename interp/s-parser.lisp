@@ -72,10 +72,7 @@
 ;           ["has", 400, 400], _
 ;           ["-", 701, 700], _
 ;           ["#", 999, 998], _
-;           ["!", 1002, 1001], _
 ;           ["'", 999, 999, ["parse_Data"]], _
-;           ["<<", 122, 120, ["parse_LabelExpr"]], _
-;           [">>"], _
 ;           ["->", 1001, 1002], _
 ;           [":", 194, 195], _
 ;           ["not", 260, 259, NIL], _
@@ -139,9 +136,8 @@
              (LIST '|import| 120 0 (LIST '|parse_Import|))
              (LIST '|add| 900 120) (LIST '|with| 1000 300 (LIST '|parse_With|))
              (LIST '|has| 400 400) (LIST '- 701 700) (LIST '|#| 999 998)
-             (LIST '! 1002 1001) (LIST '|'| 999 999 (LIST '|parse_Data|))
-             (LIST '<< 122 120 (LIST '|parse_LabelExpr|)) (LIST '>>)
-             (LIST '-> 1001 1002) (LIST '|:| 194 195) (LIST '|not| 260 259 NIL)
+             (LIST '|'| 999 999 (LIST '|parse_Data|)) (LIST '-> 1001 1002)
+             (LIST '|:| 194 195) (LIST '|not| 260 259 NIL)
              (LIST '~ 260 259 NIL) (LIST '= 400 700)
              (LIST '|return| 202 201 (LIST '|parse_Return|)) (LIST '|from|)
              (LIST '|iterate|) (LIST '|yield|)
