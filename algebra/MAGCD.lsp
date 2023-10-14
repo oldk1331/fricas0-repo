@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MAGCD;algebraicGcd1a| (|x| |y| |mu| |vx| |lvz| $)
-  (PROG (|yu| |xu| #1=#:G163 |w1|)
+  (PROG (|yu| |xu| #1=#:G164 |w1|)
     (RETURN
      (SEQ
       (EXIT
@@ -27,7 +27,7 @@
 
 (DEFUN |MAGCD;eval1a| (|pol| |pt| |pss| $)
   (PROG (|res| |pk| |ptk| |ki| |j| |i| |t1| |ns| |n| |exps| |nexps| |coeffs|
-         |ncoeffs| |nn| #1=#:G180 |t0| |polu| #2=#:G179 |polr| |p|)
+         |ncoeffs| |nn| #1=#:G181 |t0| |polu| #2=#:G180 |polr| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -94,7 +94,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MAGCD;eval1| (|pol| |vv| |pt| |pss| $)
-  (PROG (|xr| |yu| |c1| |t1| #1=#:G198 |t0| |xu| #2=#:G197 |vx| |polr|)
+  (PROG (|xr| |yu| |c1| |t1| #1=#:G199 |t0| |xu| #2=#:G198 |vx| |polr|)
     (RETURN
      (SEQ
       (EXIT
@@ -167,14 +167,13 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MAGCD;compare_coeff1| (|nv| |exps| |nexps| $)
-  (PROG (#1=#:G199 #2=#:G203 #3=#:G204 |i| |nn| |ne|)
+  (PROG (#1=#:G200 #2=#:G204 #3=#:G205 |i| |nn| |ne|)
     (RETURN
      (SEQ
       (EXIT
        (SEQ
-        (LETT |ne| (- (QUOTIENT2 (QV_LEN_U32 |exps|) |nv|) 1)
-              . #4=(|MAGCD;compare_coeff1|))
-        (LETT |nn| (- (QUOTIENT2 (QV_LEN_U32 |nexps|) |nv|) 1) . #4#)
+        (LETT |ne| (- (QV_LEN_U32 |exps|) |nv|) . #4=(|MAGCD;compare_coeff1|))
+        (LETT |nn| (- (QV_LEN_U32 |nexps|) |nv|) . #4#)
         (SEQ (LETT |i| 0 . #4#) (LETT #3# (- |nv| 1) . #4#) G190
              (COND ((|greater_SI| |i| #3#) (GO G191)))
              (SEQ
@@ -251,10 +250,10 @@
                                                               6)))))))))))))))))))) 
 
 (DEFUN |MAGCD;algebraicGcd2| (|x| |y| |lm| |lv| |pss| $)
-  (PROG (#1=#:G255 |pp| |coeffs| |i| |jl| |ndl| #2=#:G261 |j| |ncoeffs| |n1|
-         |nn| |n0| |rstate| |ncc| |exps| |oer| |odl| |dl| |cc| |good_cnt|
-         |bad_cnt| |dg| |nexps| |gtf| #3=#:G232 |gtfp| #4=#:G227 |lcbad|
-         #5=#:G258 |m| #6=#:G259 |deg| #7=#:G260 |z| |lmt| #8=#:G257 #9=#:G256
+  (PROG (#1=#:G256 |pp| |good_cnt| |coeffs| |i| |jl| |ndl| #2=#:G262 |j|
+         |ncoeffs| |n1| |nn| |n0| |rstate| |ncc| |exps| |oer| |odl| |dl|
+         |bad_cnt| |cc| |dg| |nexps| |gtf| #3=#:G233 |gtfp| #4=#:G228 |lcbad|
+         #5=#:G259 |m| #6=#:G260 |deg| #7=#:G261 |z| |lmt| #8=#:G258 #9=#:G257
          |yt| |xt| |lt| |t| |nbv| |nlv| |vt| |dy| |dx| |prev_coeff1| |offsets|
          |vx| |p| |nv|)
     (RETURN
@@ -282,7 +281,8 @@
                                (SEQ (LETT |t| (RANDOM |p|) . #10#)
                                     (EXIT
                                      (COND
-                                      ((SPADCALL |t| |lt| (QREFELT $ 41)) 0)
+                                      ((SPADCALL |t| |lt| (QREFELT $ 41))
+                                       "iterate")
                                       ('T
                                        (SEQ (LETT |lt| (CONS |t| |lt|) . #10#)
                                             (LETT |xt|
@@ -455,199 +455,202 @@
                                                                          45)))
                                                   (SEQ
                                                    (LETT |exps| |nexps| . #10#)
-                                                   (EXIT
-                                                    (LETT |rstate|
-                                                          (SPADCALL
-                                                           (QV_LEN_U32
-                                                            |coeffs|)
-                                                           (QVELT |pss| 12)
-                                                           (QREFELT $ 44))
-                                                          . #10#)))))
-                                                (COND
-                                                 ((< (QVELT |pss| 2) |dg|)
-                                                  (SEQ
-                                                   (LETT |dg| (QVELT |pss| 2)
+                                                   (LETT |rstate|
+                                                         (SPADCALL
+                                                          (QV_LEN_U32 |coeffs|)
+                                                          (QVELT |pss| 12)
+                                                          (QREFELT $ 44))
                                                          . #10#)
                                                    (LETT |bad_cnt| 0 . #10#)
                                                    (EXIT
-                                                    (LETT |good_cnt| 1
+                                                    (LETT |good_cnt| 0
                                                           . #10#)))))
+                                                (COND
+                                                 ((< (QVELT |pss| 2) |dg|)
+                                                  (LETT |dg| (QVELT |pss| 2)
+                                                        . #10#)))
                                                 (LETT |cc|
                                                       (|MAGCD;compare_coeff1|
                                                        (+ |nv| |nbv|) |exps|
                                                        |nexps| $)
                                                       . #10#)
                                                 (EXIT
-                                                 (COND ((< |cc| 0) "iterate")
-                                                       ('T
-                                                        (SEQ
-                                                         (LETT |dl|
-                                                               (SPADCALL
-                                                                (+ |nv| |nbv|)
-                                                                |offsets|
-                                                                |exps|
-                                                                |offsets|
-                                                                |nexps|
-                                                                (QREFELT $ 49))
-                                                               . #10#)
-                                                         (LETT |odl|
-                                                               (SPADCALL |dl| 1
-                                                                         (QREFELT
-                                                                          $
-                                                                          50))
-                                                               . #10#)
-                                                         (LETT |ndl|
-                                                               (SPADCALL |dl| 2
-                                                                         (QREFELT
-                                                                          $
-                                                                          50))
-                                                               . #10#)
-                                                         (COND
-                                                          ((SPADCALL |odl| NIL
-                                                                     (QREFELT $
-                                                                              51))
-                                                           (SEQ
-                                                            (LETT |oer|
-                                                                  (SPADCALL
-                                                                   (+ |nv|
-                                                                      |nbv|)
-                                                                   |odl| |ndl|
-                                                                   |offsets|
-                                                                   |exps|
-                                                                   |offsets|
-                                                                   |nexps|
-                                                                   (QREFELT $
-                                                                            53))
-                                                                  . #10#)
-                                                            (LETT |exps|
-                                                                  (QCDR |oer|)
-                                                                  . #10#)
-                                                            (LETT |ncc|
-                                                                  (QUOTIENT2
-                                                                   (QV_LEN_U32
-                                                                    |exps|)
-                                                                   (+ |nv|
-                                                                      |nbv|))
-                                                                  . #10#)
-                                                            (EXIT
-                                                             (LETT |rstate|
-                                                                   (SPADCALL
-                                                                    |ncc| |p|
+                                                 (COND
+                                                  ((< |cc| 0)
+                                                   (SEQ
+                                                    (LETT |bad_cnt|
+                                                          (+ |bad_cnt| 1)
+                                                          . #10#)
+                                                    (EXIT
+                                                     (COND
+                                                      ((SPADCALL |bad_cnt|
+                                                                 (+ |good_cnt|
+                                                                    2)
+                                                                 (QREFELT $
+                                                                          32))
+                                                       (PROGN
+                                                        (LETT #1#
+                                                              (CONS 1 "failed")
+                                                              . #10#)
+                                                        (GO #1#)))))))
+                                                  ('T
+                                                   (SEQ
+                                                    (LETT |dl|
+                                                          (SPADCALL
+                                                           (+ |nv| |nbv|)
+                                                           |offsets| |exps|
+                                                           |offsets| |nexps|
+                                                           (QREFELT $ 49))
+                                                          . #10#)
+                                                    (LETT |odl|
+                                                          (SPADCALL |dl| 1
                                                                     (QREFELT $
-                                                                             44))
-                                                                   . #10#)))))
-                                                         (COND
-                                                          ((SPADCALL |ndl| NIL
-                                                                     (QREFELT $
-                                                                              51))
-                                                           (SEQ
-                                                            (LETT |n0|
-                                                                  (QV_LEN_U32
-                                                                   |coeffs|)
+                                                                             50))
+                                                          . #10#)
+                                                    (LETT |ndl|
+                                                          (SPADCALL |dl| 2
+                                                                    (QREFELT $
+                                                                             50))
+                                                          . #10#)
+                                                    (COND
+                                                     ((SPADCALL |odl| NIL
+                                                                (QREFELT $ 51))
+                                                      (SEQ
+                                                       (LETT |oer|
+                                                             (SPADCALL
+                                                              (+ |nv| |nbv|)
+                                                              |odl| |ndl|
+                                                              |offsets| |exps|
+                                                              |offsets| |nexps|
+                                                              (QREFELT $ 53))
+                                                             . #10#)
+                                                       (LETT |exps|
+                                                             (QCDR |oer|)
+                                                             . #10#)
+                                                       (LETT |ncc|
+                                                             (QUOTIENT2
+                                                              (QV_LEN_U32
+                                                               |exps|)
+                                                              (+ |nv| |nbv|))
+                                                             . #10#)
+                                                       (LETT |rstate|
+                                                             (SPADCALL |ncc|
+                                                                       |p|
+                                                                       (QREFELT
+                                                                        $ 44))
+                                                             . #10#)
+                                                       (EXIT
+                                                        (LETT |good_cnt| 0
+                                                              . #10#)))))
+                                                    (COND
+                                                     ((SPADCALL |ndl| NIL
+                                                                (QREFELT $ 51))
+                                                      (SEQ
+                                                       (LETT |n0|
+                                                             (QV_LEN_U32
+                                                              |coeffs|)
+                                                             . #10#)
+                                                       (LETT |nn|
+                                                             (LENGTH |ndl|)
+                                                             . #10#)
+                                                       (LETT |n1| (+ |n0| |nn|)
+                                                             . #10#)
+                                                       (LETT |ncoeffs|
+                                                             (GETREFV_U32 |n1|
+                                                                          0)
+                                                             . #10#)
+                                                       (LETT |i| 0 . #10#)
+                                                       (LETT |jl|
+                                                             (|SPADfirst|
+                                                              |ndl|)
+                                                             . #10#)
+                                                       (SEQ (LETT |j| 0 . #10#)
+                                                            (LETT #2#
+                                                                  (- |n1| 1)
                                                                   . #10#)
-                                                            (LETT |nn|
-                                                                  (LENGTH
-                                                                   |ndl|)
-                                                                  . #10#)
-                                                            (LETT |n1|
-                                                                  (+ |n0| |nn|)
-                                                                  . #10#)
-                                                            (LETT |ncoeffs|
-                                                                  (GETREFV_U32
-                                                                   |n1| 0)
-                                                                  . #10#)
-                                                            (LETT |i| 0 . #10#)
-                                                            (LETT |jl|
-                                                                  (|SPADfirst|
-                                                                   |ndl|)
-                                                                  . #10#)
+                                                            G190
+                                                            (COND
+                                                             ((|greater_SI| |j|
+                                                                            #2#)
+                                                              (GO G191)))
                                                             (SEQ
-                                                             (LETT |j| 0
-                                                                   . #10#)
-                                                             (LETT #2#
-                                                                   (- |n1| 1)
-                                                                   . #10#)
-                                                             G190
-                                                             (COND
-                                                              ((|greater_SI|
-                                                                |j| #2#)
-                                                               (GO G191)))
-                                                             (SEQ
-                                                              (EXIT
-                                                               (COND
-                                                                ((EQL |j| |jl|)
-                                                                 (SEQ
-                                                                  (SETELT_U32
-                                                                   |ncoeffs|
-                                                                   |j| 0)
-                                                                  (LETT |ndl|
-                                                                        (CDR
-                                                                         |ndl|)
-                                                                        . #10#)
-                                                                  (EXIT
-                                                                   (LETT |jl|
-                                                                         (COND
-                                                                          ((NULL
-                                                                            |ndl|)
-                                                                           |n1|)
-                                                                          ('T
-                                                                           (|SPADfirst|
-                                                                            |ndl|)))
-                                                                         . #10#))))
-                                                                ('T
-                                                                 (SEQ
-                                                                  (SETELT_U32
-                                                                   |ncoeffs|
-                                                                   |j|
-                                                                   (ELT_U32
-                                                                    |coeffs|
-                                                                    |i|))
-                                                                  (EXIT
-                                                                   (LETT |i|
-                                                                         (+ |i|
-                                                                            1)
-                                                                         . #10#)))))))
-                                                             (LETT |j|
-                                                                   (|inc_SI|
-                                                                    |j|)
-                                                                   . #10#)
-                                                             (GO G190) G191
-                                                             (EXIT NIL))
-                                                            (EXIT
-                                                             (LETT |coeffs|
-                                                                   |ncoeffs|
-                                                                   . #10#)))))
-                                                         (SPADCALL |coeffs| |t|
-                                                                   |rstate|
-                                                                   (QREFELT $
-                                                                            54))
-                                                         (LETT |pp|
-                                                               (SPADCALL
-                                                                |rstate|
-                                                                (+ |nv| |nbv|)
-                                                                |offsets|
-                                                                |offsets|
-                                                                |exps|
-                                                                (QREFELT $ 57))
-                                                               . #10#)
-                                                         (EXIT
-                                                          (COND
-                                                           ((QEQCAR |pp| 1)
-                                                            "iterate")
-                                                           ('T
-                                                            (PROGN
-                                                             (LETT #1#
-                                                                   (CONS 0
-                                                                         (QCDR
-                                                                          |pp|))
-                                                                   . #10#)
-                                                             (GO
-                                                              #1#))))))))))))))))))
+                                                             (EXIT
+                                                              (COND
+                                                               ((EQL |j| |jl|)
+                                                                (SEQ
+                                                                 (SETELT_U32
+                                                                  |ncoeffs| |j|
+                                                                  0)
+                                                                 (LETT |ndl|
+                                                                       (CDR
+                                                                        |ndl|)
+                                                                       . #10#)
+                                                                 (EXIT
+                                                                  (LETT |jl|
+                                                                        (COND
+                                                                         ((NULL
+                                                                           |ndl|)
+                                                                          |n1|)
+                                                                         ('T
+                                                                          (|SPADfirst|
+                                                                           |ndl|)))
+                                                                        . #10#))))
+                                                               ('T
+                                                                (SEQ
+                                                                 (SETELT_U32
+                                                                  |ncoeffs| |j|
+                                                                  (ELT_U32
+                                                                   |coeffs|
+                                                                   |i|))
+                                                                 (EXIT
+                                                                  (LETT |i|
+                                                                        (+ |i|
+                                                                           1)
+                                                                        . #10#)))))))
+                                                            (LETT |j|
+                                                                  (|inc_SI|
+                                                                   |j|)
+                                                                  . #10#)
+                                                            (GO G190) G191
+                                                            (EXIT NIL))
+                                                       (EXIT
+                                                        (LETT |coeffs|
+                                                              |ncoeffs|
+                                                              . #10#)))))
+                                                    (SPADCALL |coeffs| |t|
+                                                              |rstate|
+                                                              (QREFELT $ 54))
+                                                    (LETT |good_cnt|
+                                                          (+ |good_cnt| 1)
+                                                          . #10#)
+                                                    (LETT |pp|
+                                                          (SPADCALL |rstate|
+                                                                    (+ |nv|
+                                                                       |nbv|)
+                                                                    |offsets|
+                                                                    |offsets|
+                                                                    |exps|
+                                                                    (QREFELT $
+                                                                             57))
+                                                          . #10#)
+                                                    (EXIT
+                                                     (COND
+                                                      ((QEQCAR |pp| 1)
+                                                       "iterate")
+                                                      ('T
+                                                       (PROGN
+                                                        (LETT #1#
+                                                              (CONS 0
+                                                                    (QCDR
+                                                                     |pp|))
+                                                              . #10#)
+                                                        (GO
+                                                         #1#))))))))))))))))))
                                NIL (GO G190) G191 (EXIT NIL)))))))))
       #1# (EXIT #1#))))) 
 
 (DEFUN |MAGCD;trialDivision2| (|x| |g| |lm| |vx| |lvz| $)
-  (PROG (#1=#:G265 |m| #2=#:G264)
+  (PROG (#1=#:G266 |m| #2=#:G265)
     (RETURN
      (SEQ
       (SPADCALL |x| |g|
@@ -674,10 +677,10 @@
       (EXIT (SPADCALL |pres| |vx| (QREFELT $ 71))))))) 
 
 (DEFUN |MAGCD;algebraicGcd3a| (|x| |y| |lm| |lv| |pss| $)
-  (PROG (#1=#:G301 |res| |pp| |coeffs| |i| |jl| |ndl| #2=#:G307 |j| |ncoeffs|
-         |n1| |nn| |n0| |rstate| #3=#:G281 |ncc| |exps| |offsets| |oer| |odl|
-         |dl| |dg| |nexps| |gtp| |gtpp| |lcbad| #4=#:G304 |m| #5=#:G305 |deg|
-         #6=#:G306 |z| |lmp| #7=#:G303 #8=#:G302 |yp| |xp| |lp| |p| |nv| |nbv|
+  (PROG (#1=#:G302 |res| |pp| |coeffs| |i| |jl| |ndl| #2=#:G308 |j| |ncoeffs|
+         |n1| |nn| |n0| |rstate| #3=#:G282 |ncc| |exps| |offsets| |oer| |odl|
+         |dl| |dg| |nexps| |gtp| |gtpp| |lcbad| #4=#:G305 |m| #5=#:G306 |deg|
+         #6=#:G307 |z| |lmp| #7=#:G304 #8=#:G303 |yp| |xp| |lp| |p| |nv| |nbv|
          |lvz| |vx| |dy| |dx|)
     (RETURN
      (SEQ
@@ -689,6 +692,7 @@
             (LETT |nbv| (+ (LENGTH |lvz|) 1) . #9#)
             (LETT |nv| (LENGTH |lv|) . #9#)
             (LETT |offsets| (QVELT |pss| 11) . #9#)
+            (LETT |exps| (GETREFV_U32 0 0) . #9#)
             (EXIT
              (SEQ G190 NIL
                   (SEQ
@@ -962,9 +966,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MAGCD;algebraicGcd;2PLLSLP;10| (|x| |y| |lm| |lv| |vx| |lvz| $)
-  (PROG (|sval| #1=#:G330 |v| #2=#:G329 |ress| |pss| |msize| |ldeg| #3=#:G327
-         |m| #4=#:G328 |vz| #5=#:G326 |nlm| #6=#:G325 #7=#:G324 |ny| |nx|
-         |tval| #8=#:G323 #9=#:G322 |sv| |tv| |tvz| |tvx| |tv0| |na| |n|)
+  (PROG (|sval| #1=#:G331 |v| #2=#:G330 |ress| |pss| |msize| |ldeg| #3=#:G328
+         |m| #4=#:G329 |vz| #5=#:G327 |nlm| #6=#:G326 #7=#:G325 |ny| |nx|
+         |tval| #8=#:G324 #9=#:G323 |sv| |tv| |tvz| |tvx| |tv0| |na| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |lv|) . #10=(|MAGCD;algebraicGcd;2PLLSLP;10|))
           (LETT |na| (LENGTH |lvz|) . #10#)
@@ -1078,10 +1082,10 @@
 
 (DECLAIM (NOTINLINE |ModularAlgebraicGcd;|)) 
 
-(DEFUN |ModularAlgebraicGcd| (&REST #1=#:G331)
+(DEFUN |ModularAlgebraicGcd| (&REST #1=#:G332)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G332)
+     (PROG (#2=#:G333)
        (RETURN
         (COND
          ((LETT #2#
