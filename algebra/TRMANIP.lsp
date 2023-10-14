@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TRMANIP;expandTrigProducts;2F;1| (|e| $)
   (SPADCALL (LIST (QREFELT $ 23) (QREFELT $ 24) (QREFELT $ 25)) |e| 10
             (QREFELT $ 29))) 

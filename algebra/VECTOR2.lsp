@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VECTOR2;scan;MVBV;1| (|f| |v| |b| $)
   (SPADCALL |f| |v| |b| (QREFELT $ 12))) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DIFEXT-;differentiate;SMNniS;1| (|x| |derivation| |n| $)
   (PROG (|i|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRAC;coerce;S$;1| (|d| $) (CONS |d| (|spadConstant| $ 9))) 
 
 (DEFUN |FRAC;zero?;$B;2| (|x| $) (SPADCALL (QCAR |x|) (QREFELT $ 12))) 

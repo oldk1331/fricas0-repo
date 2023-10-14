@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |XML;writeXml;XeSV;1| (|content| |filename| $)
   (PROG (#1=#:G106 |line| |lines| |s1| |f1|)
     (RETURN

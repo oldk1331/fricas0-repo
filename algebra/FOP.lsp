@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|FOP;topFortranOutputStack;S;1| '|SPADreplace|
      '(XLAM NIL (STRINGIMAGE |$fortranOutputFile|))) 
 

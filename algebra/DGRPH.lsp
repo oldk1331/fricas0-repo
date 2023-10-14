@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DGRPH;directedGraph;L$;1| (|objs| $)
   (PROG (|obs| |o| #1=#:G133 |ob| #2=#:G134 |obn|)
     (RETURN

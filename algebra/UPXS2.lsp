@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPXS2;map;MUpsUps;1| (|f| |ups| $)
   (SPADCALL (SPADCALL |ups| (QREFELT $ 14))
             (SPADCALL |f| (SPADCALL |ups| (QREFELT $ 16)) (QREFELT $ 20))

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FiniteAlgebraicExtensionField;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FiniteAlgebraicExtensionField;|)) 

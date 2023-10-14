@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BSTREE;binarySearchTree;L$;1| (|u| $)
   (PROG (#1=#:G110 |x| |tree|)
     (RETURN

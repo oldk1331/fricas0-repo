@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFINTBAS;squaredFactors| (|px| $)
   (PROG (#1=#:G112 #2=#:G111 #3=#:G113 #4=#:G116 |ffe|)
     (RETURN

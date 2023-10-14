@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PERM;smallerElement?| (|a| |b| $)
   (COND
    ((|HasCategory| (QREFELT $ 6) '(|OrderedSet|))

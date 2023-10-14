@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODEPRIM;UP2UP2| (|p| $) (SPADCALL (ELT $ 12) |p| (QREFELT $ 16))) 
 
 (DEFUN |ODEPRIM;indicialEquations;LL;2| (|op| $)

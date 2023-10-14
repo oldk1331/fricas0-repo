@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OMLO;op;P$;1| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (DEFUN |OMLO;op;P$;1| (|a| $) |a|) 

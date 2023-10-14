@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SCANUTIL;parse_integer2| (|str| |i0| |l| |l2l| |tpl| $)
   (PROG (|res| |l2| |tp| |l1| |s1| |dig_val| #1=#:G120 |i| #2=#:G119 #3=#:G118
          |ten7| |ten| |b|)

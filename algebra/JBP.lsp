@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JBP;jetVariables;$L;1| (|p| $) (SPADCALL |p| (QREFELT $ 10))) 
 
 (DEFUN |JBP;subst;$JB2$;2| (|p| |jv| |exp| $)

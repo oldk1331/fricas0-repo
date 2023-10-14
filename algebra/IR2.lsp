@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IR2;NLE2F| (|func| |r| $)
   (CONS (SPADCALL (QCAR |r|) |func|) (SPADCALL (QCDR |r|) |func|))) 
 

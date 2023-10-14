@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TOOLSIGN;nonQsign;RU;1| (|r| $)
   (SPADCALL (SPADCALL |r| (QREFELT $ 9)) (QREFELT $ 12))) 
 

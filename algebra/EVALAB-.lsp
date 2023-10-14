@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EVALAB-;eval;SES;1| (|f| |eq| $)
   (SPADCALL |f| (LIST |eq|) (QREFELT $ 9))) 
 

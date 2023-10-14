@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ELINSOL;lin_coeff| (|x| |v| $)
   (PROG (|d| |ux|)
     (RETURN

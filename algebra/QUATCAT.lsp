@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |QuaternionCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |QuaternionCategory;|)) 

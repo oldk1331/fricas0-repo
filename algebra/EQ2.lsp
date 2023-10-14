@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EQ2;map;MEE;1| (|fn| |eqn| $)
   (SPADCALL (SPADCALL (SPADCALL |eqn| (QREFELT $ 9)) |fn|)
             (SPADCALL (SPADCALL |eqn| (QREFELT $ 10)) |fn|) (QREFELT $ 12))) 

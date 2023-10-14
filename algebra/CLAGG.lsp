@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |Collection;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |Collection;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ILOGIC;proposition;S$;1| (|s| $) (CONS 1 (LIST |s|))) 
 
 (DEFUN |ILOGIC;logicT;$;2| ($) (CONS 0 (LIST 'T))) 

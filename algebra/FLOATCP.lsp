@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FLOATCP;complexRoots;FParL;1| (|q| |eps| $)
   (PROG (|p|)
     (RETURN

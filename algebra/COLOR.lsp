@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COLOR;*;Df2$;1| (|f| |c| $)
   (COND ((|zero?_DF| |f|) |c|)
         ('T (CONS (QCAR |c|) (|mul_DF| |f| (QCDR |c|)))))) 

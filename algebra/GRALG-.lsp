@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GRALG-;Zero;S;1| ($) (SPADCALL (|spadConstant| $ 9) (QREFELT $ 10))) 
 
 (DEFUN |GRALG-;One;S;2| ($) (SPADCALL (|spadConstant| $ 12) (QREFELT $ 10))) 

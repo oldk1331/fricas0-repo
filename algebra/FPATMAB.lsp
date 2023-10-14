@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FullyPatternMatchable;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FullyPatternMatchable;|)) 

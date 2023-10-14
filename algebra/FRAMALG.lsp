@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FramedAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FramedAlgebra;|)) 

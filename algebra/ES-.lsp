@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ES-;box;2S;1| (|x| $) (SPADCALL (LIST |x|) (QREFELT $ 15))) 
 
 (DEFUN |ES-;paren;2S;2| (|x| $) (SPADCALL (LIST |x|) (QREFELT $ 17))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MODHP;SUPI_to_PA| (|poli| |p| $)
   (PROG (|nlc| |m| |pa| |n|)
     (RETURN

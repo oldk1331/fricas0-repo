@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTALG;F2UPR| (|f| $) (SPADCALL (|INTALG;F2R| |f| $) (QREFELT $ 20))) 
 
 (DEFUN |INTALG;F2R| (|f| $)

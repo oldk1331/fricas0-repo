@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FST;=;2$B;1| (|u| |v| $)
   (SEQ (COND ((QEQCAR |u| 0) (COND ((QEQCAR |v| 0) (EXIT 'T)))))
        (COND ((QEQCAR |u| 1) (COND ((QEQCAR |v| 1) (EXIT 'T)))))

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OMCONN;OMmakeConn;Si$;1| '|SPADreplace| 'OM-MAKECONN) 
 
 (DEFUN |OMCONN;OMmakeConn;Si$;1| (|timeout| $) (OM-MAKECONN |timeout|)) 

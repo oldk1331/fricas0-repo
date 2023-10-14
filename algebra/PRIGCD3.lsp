@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PRIGCD3;lcx0;SmpLR;1| (|p| |xvars| $)
   (PROG (#1=#:G123 |pr| |t0| |vx| |xr|)
     (RETURN

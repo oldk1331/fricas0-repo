@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |BagAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |BagAggregate;|)) 

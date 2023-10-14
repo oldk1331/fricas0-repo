@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |MultivariateTaylorSeriesCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |MultivariateTaylorSeriesCategory;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HOAGG-;eval;ALA;1| (|u| |l| $)
   (PROG ()
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAPHACK3;comp;MMAC;1| (|g| |h| |x| $) (SPADCALL (SPADCALL |x| |h|) |g|)) 
 
 (DECLAIM (NOTINLINE |MappingPackageInternalHacks3;|)) 

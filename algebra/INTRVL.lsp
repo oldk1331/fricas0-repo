@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTRVL;roundDown| (|u| $)
   (PROG (|dig| |eu| |l| |m| |prec|)
     (RETURN

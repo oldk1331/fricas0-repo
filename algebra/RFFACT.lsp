@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RFFACT;likuniv| (|p| |x| |d| $)
   (PROG ()
     (RETURN

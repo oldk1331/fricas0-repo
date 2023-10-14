@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |Approximate;|)) 
 
 (DEFPARAMETER |Approximate;AL| 'NIL) 

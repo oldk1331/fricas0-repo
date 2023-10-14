@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |GcdDomain;|)) 
 
 (DEFPARAMETER |GcdDomain;AL| 'NIL) 

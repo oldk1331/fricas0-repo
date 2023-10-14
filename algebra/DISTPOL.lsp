@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DISTPOL;eval;DUPSS;1| (|x| |p| $)
   (PROG (|res|)
     (RETURN

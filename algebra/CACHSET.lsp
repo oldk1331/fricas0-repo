@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |CachableSet;|)) 
 
 (DEFPARAMETER |CachableSet;AL| 'NIL) 

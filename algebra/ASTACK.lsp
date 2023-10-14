@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ASTACK;#;$Nni;1| (|s| $) (SPADCALL |s| (QREFELT $ 9))) 
 
 (DEFUN |ASTACK;=;2$B;2| (|s| |t| $) (SPADCALL |s| |t| (QREFELT $ 12))) 

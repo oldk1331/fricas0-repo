@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IMATRIX;swapRows!;$2I$;1| (|x| |i1| |i2| $)
   (PROG (|t2| |t1| #1=#:G116 |j| |co| |ro|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DRAWCFUN;drawToScaleRanges| (|xVals| |yVals| $)
   (PROG (|pad| |yDiff| |xDiff| |yLo| |yHi| |xLo| |xHi|)
     (RETURN

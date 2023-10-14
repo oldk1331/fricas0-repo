@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OEXPR;retract;E$;1| '|SPADreplace| '(XLAM (|e|) |e|)) 
 
 (DEFUN |OEXPR;retract;E$;1| (|e| $) |e|) 

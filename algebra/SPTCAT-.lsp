@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SPTCAT-;colinearity;2SDf;1| (|x| |y| $)
   (|div_DF| (|expt_DF_I| (SPADCALL |x| |y| (QREFELT $ 8)) 2)
             (|mul_DF| (SPADCALL |x| |x| (QREFELT $ 8))

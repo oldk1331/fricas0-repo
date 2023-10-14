@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LIMITRF;limit;FEU;1| (|f| |eq| $)
   (PROG (|a| |x| |xx|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |ComplexCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |ComplexCategory;|)) 

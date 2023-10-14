@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LGROBP;reduceRow| (M |v| |lastRow| |pivots| $)
   (PROG (|a1| #1=#:G114 |kk| #2=#:G122 |vk| |b| |k| |mj| |j| |dim|)
     (RETURN

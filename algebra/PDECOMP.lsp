@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PDECOMP;leftFactor;2UPU;1| (|f| |h| $)
   (PROG (|g| #1=#:G115 |r| |fr| |i|)
     (RETURN

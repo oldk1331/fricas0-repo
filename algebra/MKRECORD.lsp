@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MKRECORD;makeRecord;ST$R;1| '|SPADreplace| 'CONS) 
 
 (DEFUN |MKRECORD;makeRecord;ST$R;1| (|s| |t| $) (CONS |s| |t|)) 

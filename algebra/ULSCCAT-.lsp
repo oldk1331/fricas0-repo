@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ULSCCAT-;zero?;SB;1| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 11))) 
 

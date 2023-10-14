@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PWFFINTB;reducedDiscriminant;UPR;1| (|f| $)
   (PROG (|ans| |gg| |denom| |cden| |cc| |ee| |ff|)
     (RETURN

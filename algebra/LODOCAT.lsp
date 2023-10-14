@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |LinearOrdinaryDifferentialOperatorCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorCategory;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|PARPCURV;curve;2ComponentFunction$;1| '|SPADreplace| 'CONS) 
 
 (DEFUN |PARPCURV;curve;2ComponentFunction$;1| (|x| |y| $) (CONS |x| |y|)) 

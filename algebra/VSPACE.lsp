@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |VectorSpace;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |VectorSpace;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TENSPC-;tensor;2MS;1| (|a| |b| $)
   (COND ((EQL (QREFELT $ 7) 2) (SPADCALL (LIST |a| |b|) (QREFELT $ 11)))
         ('T (|error| "not of order 2!")))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |DictionaryOperations;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |DictionaryOperations;|)) 

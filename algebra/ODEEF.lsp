@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODEEF;solve;EBoSU;1| (|diffeq| |y| |x| $)
   (SPADCALL
    (SPADCALL (SPADCALL |diffeq| (QREFELT $ 9))

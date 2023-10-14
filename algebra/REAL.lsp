@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |RealConstant;|)) 
 
 (DEFPARAMETER |RealConstant;AL| 'NIL) 

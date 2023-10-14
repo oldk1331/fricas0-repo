@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |VariablesCommuteWithCoefficients;|)) 
 
 (DEFPARAMETER |VariablesCommuteWithCoefficients;AL| 'NIL) 

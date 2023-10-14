@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LIST2;map;MLL;1| (|f| |l| $) (SPADCALL |f| |l| (QREFELT $ 12))) 
 
 (DEFUN |LIST2;scan;MLBL;2| (|f| |l| |b| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAMA;expand| (|spi| $)
   (PROG (|l| |lr| |inc| |h|)
     (RETURN

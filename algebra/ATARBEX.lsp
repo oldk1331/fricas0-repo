@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |arbitraryExponent;|)) 
 
 (DEFPARAMETER |arbitraryExponent;AL| 'NIL) 

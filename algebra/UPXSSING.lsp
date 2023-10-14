@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPXSSING;retractIfCan;$U;1| (|f| $)
   (SEQ
    (COND

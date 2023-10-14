@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RFDIST;uniform01;F;1| ($)
   (SPADCALL (SPADCALL (SPADCALL (QREFELT $ 13)) (QREFELT $ 11)) (QREFELT $ 12)
             (QREFELT $ 14))) 

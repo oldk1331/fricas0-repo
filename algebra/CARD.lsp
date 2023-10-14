@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|CARD;Zero;$;1| '|SPADreplace| '(XLAM NIL (CONS -1 0))) 
 
 (DEFUN |CARD;Zero;$;1| ($) (CONS -1 0)) 

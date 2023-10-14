@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OMENC;=;2$B;1| '|SPADreplace| '|eql_SI|) 
 
 (DEFUN |OMENC;=;2$B;1| (|u| |v| $) (|eql_SI| |u| |v|)) 

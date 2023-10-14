@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |AUTOMOR;One;$;1| ($) (CONS (|function| |AUTOMOR;ident|) $)) 
 
 (PUT '|AUTOMOR;err| '|SPADreplace|

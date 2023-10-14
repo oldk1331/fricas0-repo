@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BOP1;evaluate;BoMBo;1| (|op| |func| $)
   (PROG ()
     (RETURN

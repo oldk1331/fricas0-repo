@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PR;One;$;1| ($)
   (LIST (CONS (|spadConstant| $ 10) (|spadConstant| $ 11)))) 
 

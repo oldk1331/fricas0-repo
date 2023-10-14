@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |MonogenicLinearOperator;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |MonogenicLinearOperator;|)) 

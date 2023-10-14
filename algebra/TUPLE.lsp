@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TUPLE;coerce;Pa$;1| (|x| $) (CONS (QVSIZE |x|) |x|)) 
 
 (PUT '|TUPLE;coerce;$Pa;2| '|SPADreplace| 'QCDR) 

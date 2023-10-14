@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VSPACE-;/;ASA;1| (|v| |s| $)
   (SPADCALL (SPADCALL |s| (QREFELT $ 8)) |v| (QREFELT $ 9))) 
 

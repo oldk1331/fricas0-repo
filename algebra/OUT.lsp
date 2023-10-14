@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OUT;output;OfV;1| (|e| $)
   (SEQ (|mathprint| |e|) (EXIT (SPADCALL (QREFELT $ 7))))) 
 

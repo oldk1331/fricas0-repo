@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DJBP;lookup| (|jv| $)
   (PROG (#1=#:G137 #2=#:G138 |i| #3=#:G139 |ljv|)
     (RETURN

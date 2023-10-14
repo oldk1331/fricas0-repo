@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ALGMFACT;factor;PLF;1| (|p| |lalg| $)
   (PROG ()
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IMODHP;eval1a| (|pol| |pt| |pss| $)
   (PROG (|res| |pk| |ptk| |ki| |j| |i| |t1| |n| |exps| |nexps| |coeffs|
          |ncoeffs| |nn| #1=#:G158 |t0| |ns| |polu| #2=#:G157 |polr| |p|)

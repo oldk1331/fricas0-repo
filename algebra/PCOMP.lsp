@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PCOMP;compose;3UP;1| (|g| |h| $)
   (PROG (|r|)
     (RETURN

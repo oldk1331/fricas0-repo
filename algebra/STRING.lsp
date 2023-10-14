@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|STRING;ucodeToString;I$;1| '|SPADreplace| 'NUM2USTR) 
 
 (DEFUN |STRING;ucodeToString;I$;1| (|n| $) (NUM2USTR |n|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFF;createLowComplexityNormalBasis;PiU;1| (|n| $)
   (PROG (|u|)
     (RETURN

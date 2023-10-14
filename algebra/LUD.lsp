@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LUD;LUDecomp;MR;1| (AA $)
   (PROG (|k| |d| |Pivs| |i0| |s| #1=#:G129 |i| #2=#:G128 #3=#:G127 |j| |PermV|
          #4=#:G110 |maxC| |minC| |maxR| |minR| A)

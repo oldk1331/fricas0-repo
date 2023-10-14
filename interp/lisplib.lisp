@@ -632,8 +632,6 @@
 ;   SETQ(ERRORS,0) -- ERRORS is a fluid variable for the compiler
 ;   $libFile:= writeLib(libName,'ERRORLIB)
 ;   $compiler_output_stream := make_compiler_output_stream($libFile, libName)
-;   if pathnameTypeId($edit_file) = 'SPAD
-;     then outputLispForm('VERSION,['_/VERSIONCHECK,_/MAJOR_-VERSION])
  
 (DEFUN |initializeLisplib| (|libName|)
   (PROG ()
@@ -643,10 +641,7 @@
       (SETQ ERRORS 0)
       (SETQ |$libFile| (|writeLib| |libName| 'ERRORLIB))
       (SETQ |$compiler_output_stream|
-              (|make_compiler_output_stream| |$libFile| |libName|))
-      (COND
-       ((EQ (|pathnameTypeId| |$edit_file|) 'SPAD)
-        (|outputLispForm| 'VERSION (LIST '/VERSIONCHECK /MAJOR-VERSION))))))))
+              (|make_compiler_output_stream| |$libFile| |libName|))))))
  
 ; finalizeLisplib libName ==
 ;   lisplibWrite('"constructorForm",removeZeroOne $lisplibForm,$libFile)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SWITCH;coerce;$Of;1| (|s| $)
   (PROG (|ran| #1=#:G121 |u| #2=#:G120 |rat|)
     (RETURN

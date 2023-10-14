@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STREAM3;mapp| (|g| |x| |y| $)
   (PROG ()
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TESTCNT;testsuite;SV;1| (|s| $)
   (SEQ (SPADCALL "clear all" (QREFELT $ 19))
        (EXIT (SPADCALL |s| (QREFELT $ 20))))) 

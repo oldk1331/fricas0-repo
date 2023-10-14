@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|ARRAY1;qelt;$IS;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
 (DEFUN |ARRAY1;qelt;$IS;1| (|x| |i| $) (QAREF1O |x| |i| 1)) 

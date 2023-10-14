@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |GuessPolynomial;|)) 
 
 (DEFUN |GuessPolynomial| (#1=#:G121)

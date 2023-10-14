@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |TensorProductProperty;|)) 
 
 (DEFPARAMETER |TensorProductProperty;AL| 'NIL) 

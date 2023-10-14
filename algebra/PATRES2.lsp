@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PATRES2;map;MPmrPmr;1| (|f| |r| $)
   (PROG (#1=#:G111 |rec| #2=#:G110)
     (RETURN

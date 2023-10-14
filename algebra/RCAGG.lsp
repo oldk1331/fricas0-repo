@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |RecursiveAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |RecursiveAggregate;|)) 

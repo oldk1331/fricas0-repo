@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FORDER;order;FdNni;1| (|d| $)
   (PROG (|dd| #1=#:G107 |i|)
     (RETURN

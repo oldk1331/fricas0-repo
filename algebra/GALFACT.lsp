@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GALFACT;useEisensteinCriterion?;B;1| ($) (QREFELT $ 11)) 
 
 (DEFUN |GALFACT;useEisensteinCriterion;2B;2| (|b| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FMONOID;One;$;1| ($) (SPADCALL (QREFELT $ 9))) 
 
 (DEFUN |FMONOID;one?;$B;2| (|f| $) (NULL (SPADCALL |f| (QREFELT $ 12)))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IR2F;cmplex| (|alpha| |p| $)
   (SPADCALL |alpha|
             (SPADCALL (SPADCALL |p| |alpha| (QREFELT $ 9)) (QREFELT $ 10))

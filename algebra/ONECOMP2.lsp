@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ONECOMP2;map;MOpcOpc;1| (|f| |r| $)
   (SPADCALL |f| |r| (SPADCALL (QREFELT $ 9)) (QREFELT $ 12))) 
 

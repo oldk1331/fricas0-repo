@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EVALCYC;evp| (|fn| |pt| $)
   (PROG (#1=#:G104 #2=#:G103 #3=#:G105 #4=#:G107 |i|)
     (RETURN

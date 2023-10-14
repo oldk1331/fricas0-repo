@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |PolynomialSetCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |PolynomialSetCategory;|)) 

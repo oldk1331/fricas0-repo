@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PRIMELT;multi| (|p| |v| $)
   (SPADCALL (SPADCALL (LIST #'|PRIMELT;multi!0|) |p| (QREFELT $ 9)) |v|
             (QREFELT $ 12))) 

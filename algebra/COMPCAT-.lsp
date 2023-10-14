@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMPCAT-;characteristicPolynomial;SSup;1| (|x| $)
   (PROG (|v|)
     (RETURN

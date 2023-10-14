@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |shallowlyMutable;|)) 
 
 (DEFPARAMETER |shallowlyMutable;AL| 'NIL) 

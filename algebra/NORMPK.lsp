@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NORMPK;normInvertible?;PTSL;1| (|p| |ts| $)
   (SPADCALL |p| |ts| (QREFELT $ 14))) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INEP;numeric| (|r| $)
   (COND
    ((|domainEqual| (QREFELT $ 6) (|Fraction| (|Integer|)))

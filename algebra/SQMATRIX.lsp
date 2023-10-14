@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SQMATRIX;Zero;$;1| ($) (QREFELT $ 10)) 
 
 (DEFUN |SQMATRIX;One;$;2| ($) (QREFELT $ 13)) 

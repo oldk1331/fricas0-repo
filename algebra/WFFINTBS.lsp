@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |WFFINTBS;listSquaredFactors| (|px| $)
   (PROG (|ans| #1=#:G117 |f| |factored|)
     (RETURN

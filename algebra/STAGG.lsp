@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |StreamAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |StreamAggregate;|)) 

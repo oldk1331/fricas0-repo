@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GOPT;maxLevel;U$;1| (|d| $)
   (CONS '|maxLevel| (SPADCALL |d| (QREFELT $ 10)))) 
 

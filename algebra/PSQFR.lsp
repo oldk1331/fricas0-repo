@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PSQFR;pPolRoot| (|f| $)
   (PROG (|uf| #1=#:G112 |mv| |lvar|)
     (RETURN

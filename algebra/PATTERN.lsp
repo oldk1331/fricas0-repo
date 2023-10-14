@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PATTERN;coerce;R$;1| (|r| $) (|PATTERN;mkPat| 'T (CONS 0 |r|) 0 $)) 
 
 (DEFUN |PATTERN;mkPat| (|c| |p| |l| $) (VECTOR |c| |p| |l| NIL (QREFELT $ 17))) 

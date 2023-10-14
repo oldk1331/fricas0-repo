@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|KERNEL;operator;$Bo;1| '|SPADreplace| 'SPAD-KERNEL-OP) 
 
 (DEFUN |KERNEL;operator;$Bo;1| (|k| $) (SPAD-KERNEL-OP |k|)) 

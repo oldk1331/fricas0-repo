@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SPLTREE;rep| '|SPADreplace| '(XLAM (|n|) |n|)) 
 
 (DEFUN |SPLTREE;rep| (|n| $) |n|) 

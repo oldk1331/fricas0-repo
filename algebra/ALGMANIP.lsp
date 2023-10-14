@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ALGMANIP;ratDenom;2F;1| (|x| $)
   (|ALGMANIP;innerRF| |x|
    (|ALGMANIP;algkernels| (SPADCALL |x| (QREFELT $ 15)) $) $)) 

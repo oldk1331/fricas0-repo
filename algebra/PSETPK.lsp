@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PSETPK;removeAssociates| (|lp| $)
   (PROG (#1=#:G212 |p| #2=#:G211)
     (RETURN

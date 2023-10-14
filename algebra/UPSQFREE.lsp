@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPSQFREE;squareFreePart;2P;1| (|p| $)
   (PROG (#1=#:G109)
     (RETURN

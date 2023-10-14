@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |ExtensibleLinearAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |ExtensibleLinearAggregate;|)) 

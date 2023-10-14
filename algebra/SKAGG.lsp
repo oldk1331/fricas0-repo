@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |StackAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |StackAggregate;|)) 

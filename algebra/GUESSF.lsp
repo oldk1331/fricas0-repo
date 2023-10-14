@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |GuessFinite;|)) 
 
 (DEFUN |GuessFinite| (#1=#:G121)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RDEEFS;basecase| (|nfp| |g1| |g2| |k| $)
   (PROG (|l| |ans|)
     (RETURN

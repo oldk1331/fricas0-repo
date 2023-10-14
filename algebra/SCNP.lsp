@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SCNP;namedPoints;LL$;1| (|ptin| |nmin| $) (CONS 0 (CONS |ptin| |nmin|))) 
 
 (DEFUN |SCNP;namedPoints;LL$;2| (|scin| |nmin| $) (CONS 1 (CONS |scin| |nmin|))) 

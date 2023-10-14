@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTAF;F2UPUP| (|f| |kx| |k| |p| $)
   (|INTAF;UP2UPUP| (SPADCALL |f| |k| |p| (QREFELT $ 11)) |kx| $)) 
 

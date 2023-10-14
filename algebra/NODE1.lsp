@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NODE1;solve;2FBoSU;1| (|m| |n| |y| |x| $)
   (PROG (|v| |w| |k1| |nn| |mm| |mu| |u| |d| |lv| |lk| |yx|)
     (RETURN

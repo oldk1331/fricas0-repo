@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |UnivariatePuiseuxSeriesConstructorCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructorCategory;|)) 

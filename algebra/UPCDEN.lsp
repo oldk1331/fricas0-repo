@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPCDEN;commonDenominator;UPR;1| (|p| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 10)) (QREFELT $ 12))) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FDIV;Zero;$;1| ($) (|spadConstant| $ 13)) 
 
 (DEFUN |FDIV;coerce;$Of;2| (|d| $) (SPADCALL |d| (QREFELT $ 16))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EXPRSOL;replaceDiffs;FBoSF;1| (|expr| |op| |sy| $)
   (PROG (|differentiand| |args| |arg| #1=#:G112 |k| |lk|)
     (RETURN

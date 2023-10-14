@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GRDEF;clipPointsDefault;B;1| ($) (QREFELT $ 6)) 
 
 (DEFUN |GRDEF;drawToScale;B;2| ($) (QREFELT $ 7)) 

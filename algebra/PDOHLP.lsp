@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PDOHLP;id_map;VarA;1| (|v| $) (|spadConstant| $ 9)) 
 
 (DEFUN |PDOHLP;diff_map;VarM;2| (|v| $)

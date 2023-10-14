@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |MaybeSkewPolynomialCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |MaybeSkewPolynomialCategory;|)) 

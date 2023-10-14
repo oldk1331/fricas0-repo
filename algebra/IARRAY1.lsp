@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|IARRAY1;#;$Nni;1| '|SPADreplace| 'QVSIZE) 
 
 (DEFUN |IARRAY1;#;$Nni;1| (|x| $) (QVSIZE |x|)) 

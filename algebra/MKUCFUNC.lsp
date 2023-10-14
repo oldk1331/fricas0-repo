@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MKUCFUNC;func| '|SPADreplace|
      '(XLAM (|name| |x|) (FUNCALL |name| |x| NIL))) 
 

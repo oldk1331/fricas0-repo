@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NCODIV;leftDivide;2PR;1| (|a| |b| $)
   (PROG (|q| |r| |h| #1=#:G107 |iv|)
     (RETURN

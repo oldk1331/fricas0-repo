@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TS;polynomial;$NniP;1| (|s| |n| $)
   (PROG (|sum| |i|)
     (RETURN

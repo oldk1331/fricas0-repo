@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DERHAM;totalDifferential;E$;1| (|f| $)
   (PROG (|divs| #1=#:G111 |i| #2=#:G110)
     (RETURN

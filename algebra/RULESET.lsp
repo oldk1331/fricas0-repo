@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RULESET;ruleset;L$;1| (|l| $) (SPADCALL |l| (QREFELT $ 11))) 
 
 (DEFUN |RULESET;coerce;$Of;2| (|x| $) (SPADCALL |x| (QREFELT $ 14))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |FiniteFieldCyclicGroupExtension;|)) 
 
 (DEFUN |FiniteFieldCyclicGroupExtension| (&REST #1=#:G138)

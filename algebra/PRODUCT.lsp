@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PRODUCT;coerce;$Of;1| (|x| $)
   (SPADCALL
    (LIST (SPADCALL (QCAR |x|) (QREFELT $ 10))

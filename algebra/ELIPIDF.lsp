@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ELIPIDF;rabs| (|x| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 36))) 
 

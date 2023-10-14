@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |REP;evalvect| (|vect| |alg| |x| $)
   (PROG (|v| |i| |w| |xx| |n|)
     (RETURN

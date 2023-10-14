@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JBSA;setNotation;2S;1| (|s| $)
   (SEQ (SPADCALL "only repeated index notation possible" (QREFELT $ 34))
        (EXIT '|Repeated|))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LIST2MAP;match;LLM;1| (|la| |lb| $)
   (PROG () (RETURN (CONS #'|LIST2MAP;match;LLM;1!0| (VECTOR $ |lb| |la|))))) 
 

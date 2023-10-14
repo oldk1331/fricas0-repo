@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DEFINTRF;integrate;FSbU;1| (|f| |s| $)
   (|DEFINTRF;int| |f| (SPADCALL |s| (QREFELT $ 9))
    (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 13))

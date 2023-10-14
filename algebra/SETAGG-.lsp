@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SETAGG-;symmetricDifference;3A;1| (|x| |y| $)
   (SPADCALL (SPADCALL |x| |y| (QREFELT $ 8)) (SPADCALL |y| |x| (QREFELT $ 8))
             (QREFELT $ 9))) 

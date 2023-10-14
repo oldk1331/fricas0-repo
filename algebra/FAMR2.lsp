@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FAMR2;map;MA1A2;1| (|f| |a| $)
   (COND ((SPADCALL |a| (QREFELT $ 12)) (|spadConstant| $ 13))
         ('T

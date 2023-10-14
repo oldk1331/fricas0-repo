@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |TensorProductCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |TensorProductCategory;|)) 

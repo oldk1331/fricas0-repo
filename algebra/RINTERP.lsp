@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RINTERP;interpolate;2L2NniF;1| (|xlist| |ylist| |m| |k| $)
   (PROG (|reslist| |i| #1=#:G136 #2=#:G135 |res| |collist| #3=#:G134 #4=#:G133
          #5=#:G132 |j| #6=#:G131 #7=#:G130 #8=#:G129 |tempvec| #9=#:G128

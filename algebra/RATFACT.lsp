@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RATFACT;factor;RPF;1| (|p| $)
   (PROG (#1=#:G120 |u| #2=#:G119 |ffact| |ipol| |pol| |pden| #3=#:G118 |c|
          #4=#:G117)

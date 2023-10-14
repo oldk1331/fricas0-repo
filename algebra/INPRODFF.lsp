@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INPRODFF;liftPoly| (|poly| $)
   (PROG (|ans| |coef|)
     (RETURN

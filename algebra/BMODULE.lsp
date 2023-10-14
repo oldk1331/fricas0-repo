@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |BiModule;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |BiModule;|)) 

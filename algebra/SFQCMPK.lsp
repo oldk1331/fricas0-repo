@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SFQCMPK;squareFreeFactors| (|lp| $)
   (PROG (|lsflp| |lsfp| #1=#:G172 |p|)
     (RETURN

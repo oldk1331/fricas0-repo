@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |VectorCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |VectorCategory;|)) 

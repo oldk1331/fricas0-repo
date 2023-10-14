@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|XRPOLY;construct| '|SPADreplace| '(XLAM (|lt|) |lt|)) 
 
 (DEFUN |XRPOLY;construct| (|lt| $) |lt|) 

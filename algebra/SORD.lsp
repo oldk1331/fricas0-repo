@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SORD;Zero;$;1| ($) (|spadConstant| $ 7)) 
 
 (DEFUN |SORD;One;$;2| ($) (|spadConstant| $ 9)) 

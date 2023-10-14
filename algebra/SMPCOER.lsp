@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SMPCOER;convert_sorted| (|p1| |lv1| |lv2| $)
   (PROG (|pu2| |p2| |t1| #1=#:G126 |t0| |pu1| #2=#:G125 |v2| |v1|)
     (RETURN

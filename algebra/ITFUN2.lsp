@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ITFUN2;map;MItIt;1| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |InfiniteTupleFunctions2;|)) 

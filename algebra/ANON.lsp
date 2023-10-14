@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|ANON;coerce;$Of;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (DEFUN |ANON;coerce;$Of;1| (|x| $) |x|) 

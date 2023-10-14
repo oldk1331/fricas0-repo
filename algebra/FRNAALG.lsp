@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FramedNonAssociativeAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FramedNonAssociativeAlgebra;|)) 

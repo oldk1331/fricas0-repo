@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GALUTIL;safeFloor;RI;1| (|x| $)
   (PROG (|shift|)
     (RETURN

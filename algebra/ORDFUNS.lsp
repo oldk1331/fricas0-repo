@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ORDFUNS;pureLex;2VB;1| (|v1| |v2| $)
   (PROG (#1=#:G113 #2=#:G114 |i|)
     (RETURN

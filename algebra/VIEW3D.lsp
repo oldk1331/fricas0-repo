@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VIEW3D;checkViewport| (|viewport| $)
   (PROG (|i|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DFLOAT;doubleFloatFormat;2S;1| (|s| $)
   (PROG (|ss|)
     (RETURN

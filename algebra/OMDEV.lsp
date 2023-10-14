@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OMDEV;OMopenFile;2SOme$;1| '|SPADreplace| 'OM-OPENFILEDEV) 
 
 (DEFUN |OMDEV;OMopenFile;2SOme$;1| (|fname| |fmode| |enc| $)

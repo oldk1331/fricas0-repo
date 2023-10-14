@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |PriorityQueueAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |PriorityQueueAggregate;|)) 

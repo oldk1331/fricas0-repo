@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SKICOMB;ski;3$;1| (|x| |y| $) (CONS 1 (CONS |x| |y|))) 
 
 (PUT '|SKICOMB;ski;UT$;2| '|SPADreplace| '(XLAM (|t1|) (CONS 2 |t1|))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |SquareFreeRegularTriangularSetCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |SquareFreeRegularTriangularSetCategory;|)) 

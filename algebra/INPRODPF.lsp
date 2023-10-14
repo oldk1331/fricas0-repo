@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INPRODPF;applyOverZ| (|f| |st| $)
   (PROG (|stZ|)
     (RETURN

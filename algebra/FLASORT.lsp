@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FLASORT;quickSort;M2V;1| (|l| |r| $)
   (|FLASORT;QuickSort| |l| |r| (SPADCALL |r| (QREFELT $ 9))
    (SPADCALL |r| (QREFELT $ 10)) $)) 

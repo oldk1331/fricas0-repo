@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SKSMP;D;Var$;1| (|v| $)
   (SPADCALL (|spadConstant| $ 10) |v| 1 (QREFELT $ 13))) 
 

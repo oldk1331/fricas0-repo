@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |LieAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |LieAlgebra;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|DFSFUN;Gamma;2C;1| '|SPADreplace| '|c_gamma|) 
 
 (DEFUN |DFSFUN;Gamma;2C;1| (|z| $) (|c_gamma| |z|)) 

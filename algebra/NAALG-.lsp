@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NAALG-;plenaryPower;SPiS;1| (|a| |n| $)
   (PROG (|n1| #1=#:G112 #2=#:G111)
     (RETURN

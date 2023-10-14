@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FullyLinearlyExplicitRingOver;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FullyLinearlyExplicitRingOver;|)) 

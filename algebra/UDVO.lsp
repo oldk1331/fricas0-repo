@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UDVO;setVariableOrder;LV;1| (|l| $)
   (SPADCALL (REVERSE |l|) (QREFELT $ 9))) 
 

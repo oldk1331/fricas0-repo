@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MODULE-;*;SRS;1| (|x| |r| $) (SPADCALL |r| |x| (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |Module&;|)) 

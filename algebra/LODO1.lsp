@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperator1;|)) 
 
 (DEFUN |LinearOrdinaryDifferentialOperator1| (#1=#:G119)

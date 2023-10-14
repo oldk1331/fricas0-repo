@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MAPHACK2;arg1;ACA;1| '|SPADreplace| '(XLAM (|a| |c|) |a|)) 
 
 (DEFUN |MAPHACK2;arg1;ACA;1| (|a| |c| $) |a|) 

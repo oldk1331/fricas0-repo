@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EUCDOM-;sizeLess?;2SB;1| (|x| |y| $)
   (COND ((SPADCALL |y| (QREFELT $ 8)) 'NIL) ((SPADCALL |x| (QREFELT $ 8)) 'T)
         ('T (< (SPADCALL |x| (QREFELT $ 10)) (SPADCALL |y| (QREFELT $ 10)))))) 

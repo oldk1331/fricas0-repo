@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |ThreeSpaceCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |ThreeSpaceCategory;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |PowerSeriesCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |PowerSeriesCategory;|)) 

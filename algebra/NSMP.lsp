@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NSMP;PSimp| (|up| |mv| $)
   (COND ((EQL (SPADCALL |up| (QREFELT $ 12)) 0) (SPADCALL |up| (QREFELT $ 14)))
         ('T (CONS 1 (CONS |mv| |up|))))) 

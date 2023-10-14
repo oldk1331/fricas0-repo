@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |MonogenicAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |MonogenicAlgebra;|)) 

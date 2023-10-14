@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |REP2;blockMultiply| (|a| |b| |li| |n| $)
   (PROG (#1=#:G123 #2=#:G122 #3=#:G124 |s| #4=#:G131 |j| #5=#:G130 #6=#:G129
          |i| #7=#:G128)

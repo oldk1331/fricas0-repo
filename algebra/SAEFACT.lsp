@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SAEFACT;factor;UPAF;1| (|q| $) (SPADCALL |q| (ELT $ 11) (QREFELT $ 15))) 
 
 (DECLAIM (NOTINLINE |SimpleAlgebraicExtensionAlgFactor;|)) 

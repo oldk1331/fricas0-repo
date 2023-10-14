@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |TranscendentalFunctionCategory;|)) 
 
 (DEFPARAMETER |TranscendentalFunctionCategory;AL| 'NIL) 

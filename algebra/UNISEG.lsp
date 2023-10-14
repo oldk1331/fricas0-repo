@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UNISEG;segment;S$;1| (|a| $) (CONS 0 (CONS |a| 1))) 
 
 (DEFUN |UNISEG;segment;2S$;2| (|a| |b| $) (CONS 1 (VECTOR |a| |b| 1))) 

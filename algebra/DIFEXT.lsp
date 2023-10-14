@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |DifferentialExtension;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |DifferentialExtension;|)) 

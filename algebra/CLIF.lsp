@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CLIF;characteristic;Nni;1| ($) (SPADCALL (QREFELT $ 24))) 
 
 (DEFUN |CLIF;dimension| ($) (SPADCALL (QREFELT $ 21) (QREFELT $ 27))) 

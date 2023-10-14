@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OPQUERY;getDatabase;SD;1| '|SPADreplace| '|getBrowseDatabase|) 
 
 (DEFUN |OPQUERY;getDatabase;SD;1| (|s| $) (|getBrowseDatabase| |s|)) 

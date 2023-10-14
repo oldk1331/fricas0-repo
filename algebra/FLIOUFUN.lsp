@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FLIOUFUN;gamma;C;1| ($)
   (PROG (|nbits| |obits|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TENSOR;termgreater?| (|t1| |t2| $)
   (SPADCALL (QCAR |t2|) (QCAR |t1|) (QREFELT $ 13))) 
 

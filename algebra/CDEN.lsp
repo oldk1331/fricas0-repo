@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CDEN;clearDenominator;2A;1| (|l| $)
   (PROG (|d|)
     (RETURN

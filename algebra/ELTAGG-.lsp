@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ELTAGG-;qelt;SDomIm;1| (|a| |x| $) (SPADCALL |a| |x| (QREFELT $ 9))) 
 
 (DEFUN |ELTAGG-;qsetelt!;SDom2Im;2| (|a| |x| |y| $)

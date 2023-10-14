@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SUPXS;getExpon| '|SPADreplace| 'QCAR) 
 
 (DEFUN |SUPXS;getExpon| (|pxs| $) (QCAR |pxs|)) 

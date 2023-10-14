@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OREUP;coerce;V$;1| (|v| $)
   (SPADCALL (|spadConstant| $ 14) 1 (QREFELT $ 16))) 
 

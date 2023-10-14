@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMBINAT;partition;2I;1| (|n| $)
   (PROG (|s| |t| #1=#:G122 |u| |l| |k| #2=#:G129 |i| #3=#:G118 |m|)
     (RETURN

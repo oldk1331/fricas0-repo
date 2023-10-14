@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CINTSLPE;solveLinearPolynomialEquation;LSupU;1| (|lp| |p| $)
   (PROG (|answer| #1=#:G112 |ans| |deg| #2=#:G109 #3=#:G108 #4=#:G110 #5=#:G123
          |u|)

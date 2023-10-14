@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OFMONOID;lquo;$SU;1| (|w| |l| $)
   (PROG (#1=#:G116 |fx| |x|)
     (RETURN

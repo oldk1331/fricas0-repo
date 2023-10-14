@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |StringAggregate;|)) 
 
 (DEFPARAMETER |StringAggregate;AL| 'NIL) 

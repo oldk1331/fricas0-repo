@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FileCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FileCategory;|)) 

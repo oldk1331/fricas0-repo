@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PGCD;failtest| (|f| |p1| |p2| $)
   (COND ((QEQCAR (SPADCALL |p1| |f| (QREFELT $ 19)) 1) 'T)
         ('T (QEQCAR (SPADCALL |p2| |f| (QREFELT $ 19)) 1)))) 

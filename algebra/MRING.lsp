@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MRING;coerce;L$;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (DEFUN |MRING;coerce;L$;1| (|x| $) |x|) 

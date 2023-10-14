@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SUTS;makeTerm| '|SPADreplace| 'CONS) 
 
 (DEFUN |SUTS;makeTerm| (|exp| |coef| $) (CONS |exp| |coef|)) 

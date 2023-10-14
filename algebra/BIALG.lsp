@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |Bialgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |Bialgebra;|)) 

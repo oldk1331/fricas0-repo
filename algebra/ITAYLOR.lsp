@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|ITAYLOR;stream| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (DEFUN |ITAYLOR;stream| (|x| $) |x|) 

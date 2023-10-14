@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|TREE;empty?;$B;1| '|SPADreplace| '(XLAM (|t|) (QEQCAR |t| 1))) 
 
 (DEFUN |TREE;empty?;$B;1| (|t| $) (QEQCAR |t| 1)) 

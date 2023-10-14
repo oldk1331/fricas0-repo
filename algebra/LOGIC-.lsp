@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LOGIC-;\\/;3S;1| (|x| |y| $)
   (SPADCALL
    (SPADCALL (SPADCALL |x| (QREFELT $ 7)) (SPADCALL |y| (QREFELT $ 7))

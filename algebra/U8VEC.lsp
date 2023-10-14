@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|U8VEC;#;$Nni;1| '|SPADreplace| 'QV_LEN_U8) 
 
 (DEFUN |U8VEC;#;$Nni;1| (|x| $) (QV_LEN_U8 |x|)) 

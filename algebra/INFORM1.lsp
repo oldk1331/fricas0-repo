@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INFORM1;getType;If;1| ($) (QREFELT $ 7)) 
 
 (DEFUN |INFORM1;packageCall;SIf;2| (|name| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|VECTOR;qelt;$IR;1| '|SPADreplace| '(XLAM (|x| |i|) (QAREF1O |x| |i| 1))) 
 
 (DEFUN |VECTOR;qelt;$IR;1| (|x| |i| $) (QAREF1O |x| |i| 1)) 

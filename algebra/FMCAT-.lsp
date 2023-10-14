@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FMCAT-;smaller?;2AB;1| (|p| |q| $)
   (PROG (#1=#:G120)
     (RETURN

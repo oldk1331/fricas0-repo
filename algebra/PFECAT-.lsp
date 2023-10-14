@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PFECAT-;gcdPolynomial;3Sup;1| (|f| |g| $)
   (PROG (#1=#:G119 |ans| |cg| |cf|)
     (RETURN

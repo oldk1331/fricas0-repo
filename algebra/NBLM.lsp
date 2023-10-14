@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NBLM;naiveBeckermannLabahn;VVNniIL;1| (|vp| |vn| |sigma| |prime| $)
   (SPADCALL |vp| |vn| |sigma| |prime|
             (CONS #'|NBLM;naiveBeckermannLabahn;VVNniIL;1!0| $)

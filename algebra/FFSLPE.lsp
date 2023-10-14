@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFSLPE;solveLinearPolynomialEquation;LFPPU;1| (|lp| |p| $)
   (PROG (|answer| #1=#:G113 #2=#:G116 |ans| |deg| #3=#:G110 #4=#:G109 #5=#:G111
          #6=#:G128 |u|)

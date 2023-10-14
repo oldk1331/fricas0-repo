@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |DivisionRing;|)) 
 
 (DEFPARAMETER |DivisionRing;AL| 'NIL) 

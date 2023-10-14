@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PSETCAT-;elements| (|ps| $)
   (PROG (|lp|)
     (RETURN (LETT |lp| (SPADCALL |ps| (QREFELT $ 12)) |PSETCAT-;elements|)))) 

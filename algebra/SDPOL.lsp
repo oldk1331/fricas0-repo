@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |SequentialDifferentialPolynomial;|)) 
 
 (DEFUN |SequentialDifferentialPolynomial| (#1=#:G149)

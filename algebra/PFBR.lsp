@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PFBR;hensel| (|pp| |vv| |r| |factors| $)
   (PROG (|n| |totdegree| #1=#:G182 #2=#:G181 #3=#:G183 #4=#:G185 #5=#:G184
          #6=#:G186 #7=#:G206 |u| #8=#:G205 |u1| #9=#:G194 |foundFactors|

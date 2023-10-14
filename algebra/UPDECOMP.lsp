@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPDECOMP;rightFactorIfCan;UPNniRU;1| (|p| |dq| |lcq| $)
   (PROG (|q| #1=#:G116 #2=#:G130 |cquo| |c| #3=#:G131 |i| |k| |lcp| |s| |n|
          |nc| |dp|)

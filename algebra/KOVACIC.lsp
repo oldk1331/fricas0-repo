@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |KOVACIC;kovacic;3FU;1| (|a0| |a1| |a2| $)
   (SPADCALL |a0| |a1| |a2| (ELT $ 9) (QREFELT $ 13))) 
 

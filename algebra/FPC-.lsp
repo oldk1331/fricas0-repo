@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FPC-;primeFrobenius;2S;1| (|a| $)
   (SPADCALL |a| (SPADCALL (QREFELT $ 8)) (QREFELT $ 11))) 
 

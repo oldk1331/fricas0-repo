@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ALGFF;branchPointAtInfinity?;B;1| ($)
   (SEQ
    (COND ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))

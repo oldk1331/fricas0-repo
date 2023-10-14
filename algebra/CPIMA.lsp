@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CPIMA;XtoY| (Q $) (SPADCALL (CONS #'|CPIMA;XtoY!0| $) Q (QREFELT $ 17))) 
 
 (DEFUN |CPIMA;XtoY!0| (|x| $)

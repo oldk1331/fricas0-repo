@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ORDCOMP2;map;MOcOc;1| (|f| |r| $)
   (SPADCALL |f| |r| (SPADCALL (QREFELT $ 9)) (SPADCALL (QREFELT $ 10))
             (QREFELT $ 13))) 

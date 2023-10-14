@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UNIFACT;factor;ZPF;1| (|m| $)
   (PROG (#1=#:G140 |u| #2=#:G139 |ctp| |flist|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PFBRU;solveLinearPolynomialEquationByRecursion;LSupU;1|
        (|lpolys| |pp| $)
   (PROG (|answer| #1=#:G169 |c| #2=#:G170 |d| #3=#:G168 #4=#:G160 |recAns|

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|VOID;void;$;1| '|SPADreplace| '|voidValue|) 
 
 (DEFUN |VOID;void;$;1| ($) (|voidValue|)) 

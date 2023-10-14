@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFIELDC-;differentiate;2S;1| (|x| $) (|spadConstant| $ 7)) 
 
 (DEFUN |FFIELDC-;init;S;2| ($) (|spadConstant| $ 7)) 

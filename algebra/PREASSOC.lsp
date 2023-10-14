@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PREASSOC;firstUncouplingMatrix;LPiU;1| (|op| |m| $)
   (PROG (|n|)
     (RETURN

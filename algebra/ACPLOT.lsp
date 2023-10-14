@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ACPLOT;NFtoSF| (|x| $) (|add_DF| 0.0 (SPADCALL |x| (QREFELT $ 22)))) 
 
 (DEFUN |ACPLOT;makePt| (|xx| |yy| $)

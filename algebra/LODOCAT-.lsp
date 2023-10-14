@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LODOCAT-;D;S;1| ($) (SPADCALL (|spadConstant| $ 9) 1 (QREFELT $ 11))) 
 
 (DEFUN |LODOCAT-;m1monom| (|n| $)

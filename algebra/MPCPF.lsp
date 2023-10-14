@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MPCPF;factor;PPRF;1| (|p| $)
   (PROG (#1=#:G117 #2=#:G116 #3=#:G118 #4=#:G124 |ff| |fcont| |ffact| #5=#:G123
          |u| #6=#:G122 |flist| |g| |vars| #7=#:G105 |c|)

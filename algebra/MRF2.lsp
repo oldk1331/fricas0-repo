@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MRF2;map;MMrMr;1| (|fn| |u| $)
   (PROG (|res| #1=#:G108 |te|)
     (RETURN

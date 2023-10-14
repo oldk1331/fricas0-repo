@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|EXIT;coerce;$Of;1| '|SPADreplace|
      '(XLAM (|n|) (|error| "Cannot use an Exit value."))) 
 

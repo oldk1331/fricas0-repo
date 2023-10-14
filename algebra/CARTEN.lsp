@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CARTEN;sample;$;1| ($) (SPADCALL (QREFELT $ 16))) 
 
 (DEFUN |CARTEN;int2index| (|n| |indv| $)

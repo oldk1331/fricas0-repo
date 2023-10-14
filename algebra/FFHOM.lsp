@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFHOM;compare| (|g| |f| $)
   (PROG (|equal| |g1| |f1| |i|)
     (RETURN

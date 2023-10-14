@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|AGG-;eq?;2SB;1| '|SPADreplace| 'EQ) 
 
 (DEFUN |AGG-;eq?;2SB;1| (|a| |b| $) (EQ |a| |b|)) 

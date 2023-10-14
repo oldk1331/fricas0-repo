@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LIST3;map;MLLL;1| (|fn| |la| |lb| $)
   (COND ((OR (NULL |la|) (NULL |lb|)) NIL)
         ('T

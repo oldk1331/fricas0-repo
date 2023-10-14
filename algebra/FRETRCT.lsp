@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FullyRetractableTo;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FullyRetractableTo;|)) 

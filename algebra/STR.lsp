@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STR;qelt| (|m| |i| |j| $)
   (PROG (#1=#:G107)
     (RETURN

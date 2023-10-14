@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ORTHPOL;laguerreL;Nni2R;1| (|n| |x| $)
   (PROG (|p0| |p1| |#G9| |#G8| #1=#:G106 |i| |#G6| |#G5|)
     (RETURN

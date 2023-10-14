@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INVLAPLA;inverseLaplace;F2SU;1| (|expr| |ivar| |ovar| $)
   (|INVLAPLA;ilt| |expr| |ivar| |ovar| $)) 
 

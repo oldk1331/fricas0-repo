@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OCT;Zero;$;1| ($) (CONS (|spadConstant| $ 11) (|spadConstant| $ 11))) 
 
 (DEFUN |OCT;One;$;2| ($) (CONS (|spadConstant| $ 14) (|spadConstant| $ 11))) 

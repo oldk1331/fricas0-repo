@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |REAL0;negate| (|int| $)
   (CONS (SPADCALL (QCDR |int|) (QREFELT $ 8))
         (SPADCALL (QCAR |int|) (QREFELT $ 8)))) 

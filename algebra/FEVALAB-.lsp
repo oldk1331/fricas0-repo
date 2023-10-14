@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FEVALAB-;elt;SRS;1| (|x| |r| $)
   (PROG ()
     (RETURN

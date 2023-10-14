@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IMATLIN;rowAllZeroes?| (|x| |i| $)
   (PROG (#1=#:G119 #2=#:G121 #3=#:G122 |j|)
     (RETURN

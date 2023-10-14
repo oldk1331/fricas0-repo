@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RDEEFX2;risch_de_ext;I2FSMMR;1| (|n| |f| |g| |x| |lim| |ext| $)
   (SPADCALL |n| |f| |g| |x| |lim| |ext| (QREFELT $ 20))) 
 

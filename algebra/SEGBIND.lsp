@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SEGBIND;equation;SS$;1| '|SPADreplace| 'CONS) 
 
 (DEFUN |SEGBIND;equation;SS$;1| (|x| |s| $) (CONS |x| |s|)) 

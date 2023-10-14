@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PRIMES;primes;2IL;1| (|m| |n| $)
   (PROG (|ll| #1=#:G140 |k| #2=#:G139 |m0|)
     (RETURN

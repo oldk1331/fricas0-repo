@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTHERTR;HermiteIntegrate;FMUPR;1| (|f| |derivation| |d0| $)
   (PROG (|qr| |hi| |rec|)
     (RETURN

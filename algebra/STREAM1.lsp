@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STREAM1;concat;SS;1| (|z| $)
   (PROG ()
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|DROPT;length| '|SPADreplace| 'LENGTH) 
 
 (DEFUN |DROPT;length| (|tup| $) (LENGTH |tup|)) 

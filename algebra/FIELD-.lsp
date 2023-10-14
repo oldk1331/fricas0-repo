@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FIELD-;unitNormal;SR;1| (|x| $)
   (COND
    ((SPADCALL |x| (QREFELT $ 8))

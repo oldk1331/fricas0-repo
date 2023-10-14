@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |QuotientFieldCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |QuotientFieldCategory;|)) 

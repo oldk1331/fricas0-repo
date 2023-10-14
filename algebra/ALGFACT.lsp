@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ALGFACT;allk| (|l| $)
   (PROG (#1=#:G112 |x| #2=#:G111)
     (RETURN

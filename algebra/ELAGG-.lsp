@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ELAGG-;delete;AIA;1| (|x| |i| $)
   (SPADCALL (SPADCALL |x| (QREFELT $ 8)) |i| (QREFELT $ 10))) 
 

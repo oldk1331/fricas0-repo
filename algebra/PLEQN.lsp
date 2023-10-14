@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PLEQN;inconsistent?;LB;1| (|pl| $)
   (PROG (#1=#:G138 #2=#:G140 #3=#:G141 |p|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JVF;diff;JB$;1| (|jb| $)
   (CONS (LIST (|spadConstant| $ 14)) (LIST |jb|))) 
 

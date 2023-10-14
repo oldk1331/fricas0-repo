@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |PartialOrder;|)) 
 
 (DEFPARAMETER |PartialOrder;AL| 'NIL) 

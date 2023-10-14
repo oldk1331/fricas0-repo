@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAPPKG1;nullary;AM;1| (|a| $) (CONS #'|MAPPKG1;nullary;AM;1!0| |a|)) 
 
 (DEFUN |MAPPKG1;nullary;AM;1!0| (|a|) |a|) 

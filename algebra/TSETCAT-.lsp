@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TSETCAT-;=;2SB;1| (|ts| |us| $)
   (PROG (#1=#:G178 #2=#:G175)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GRMOD-;-;3S;1| (|x| |y| $)
   (SPADCALL |x| (SPADCALL |y| (QREFELT $ 9)) (QREFELT $ 10))) 
 

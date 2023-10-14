@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CKP;setSimpMode;2Nni;1| (|i| $) (SPADCALL |i| (QREFELT $ 19))) 
 
 (DEFUN |CKP;setRedMode;2Nni;2| (|i| $)

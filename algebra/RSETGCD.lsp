@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RSETGCD;startTableGcd!;3SV;1| (|ok| |ko| |domainName| $)
   (SEQ (SPADCALL (QREFELT $ 15)) (SPADCALL |ok| |ko| (QREFELT $ 17))
        (SPADCALL |domainName| (QREFELT $ 18)) (EXIT (SPADCALL (QREFELT $ 19))))) 

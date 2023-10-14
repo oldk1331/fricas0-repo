@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTHEORY;harmonic;IF;1| (|n| $)
   (PROG (|h| |k| |s| |#G3|)
     (RETURN

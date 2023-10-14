@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PFOTOOLS;mix;LI;1| (|l| $)
   (PROG (#1=#:G112 |p| #2=#:G111 #3=#:G110 #4=#:G109)
     (RETURN

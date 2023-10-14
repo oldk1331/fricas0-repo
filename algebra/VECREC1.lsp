@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VECREC1;empty;2I$;1| (|npoly| |np| $)
   (PROG (|state| #1=#:G123 |i| |polyvec| #2=#:G118)
     (RETURN

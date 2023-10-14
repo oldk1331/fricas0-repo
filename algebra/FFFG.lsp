@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFFG;ShiftAction;2NniVD;1| (|k| |l| |f| $)
   (SPADCALL (EXPT |k| |l|) (SPADCALL |f| |k| (QREFELT $ 9)) (QREFELT $ 10))) 
 

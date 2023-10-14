@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OCTCT2;map;MOROS;1| (|fn| |u| $)
   (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 10)) |fn|)
             (SPADCALL (SPADCALL |u| (QREFELT $ 11)) |fn|)

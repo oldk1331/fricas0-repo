@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|GENUSER;terms;$S;1| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (DEFUN |GENUSER;terms;$S;1| (|x| $) |x|) 

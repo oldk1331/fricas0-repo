@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MFLOAT;retractIfCan;$U;1| (|u| $)
   (CONS 0
         (SPADCALL (SPADCALL |u| (QREFELT $ 16))

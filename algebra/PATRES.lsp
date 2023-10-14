@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PATRES;new;$;1| ($) (CONS 0 (SPADCALL (QREFELT $ 10)))) 
 
 (PUT '|PATRES;failed;$;2| '|SPADreplace| '(XLAM NIL (CONS 1 "failed"))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |HomogeneousAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |HomogeneousAggregate;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RIDIST;uniform;SM;1| (|aTob| $)
   (PROG () (RETURN (SEQ (CONS #'|RIDIST;uniform;SM;1!0| (VECTOR $ |aTob|)))))) 
 

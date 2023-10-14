@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FLAGG-;position;SAI;1| (|x| |t| $)
   (SPADCALL |x| |t| (SPADCALL |t| (QREFELT $ 9)) (QREFELT $ 10))) 
 

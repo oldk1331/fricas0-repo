@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IDPO;=;2$B;1| (|x| |y| $)
   (PROG (#1=#:G150)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JORDAN;*;3$;1| (|a| |b| $)
   (COND
    ((SPADCALL (QREFELT $ 11) (QREFELT $ 16))

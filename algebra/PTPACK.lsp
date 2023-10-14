@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PTPACK;xCoord;PR;1| (|p| $) (SPADCALL |p| 1 (QREFELT $ 10))) 
 
 (DEFUN |PTPACK;yCoord;PR;2| (|p| $) (SPADCALL |p| 2 (QREFELT $ 10))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |OrdinaryWeightedPolynomials;|)) 
 
 (DEFUN |OrdinaryWeightedPolynomials| (&REST #1=#:G106)

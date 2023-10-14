@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FAGROUP;-;2$;1| (|f| $) (SPADCALL (ELT $ 8) |f| (QREFELT $ 10))) 
 
 (DEFUN |FAGROUP;inmax| (|l| $)

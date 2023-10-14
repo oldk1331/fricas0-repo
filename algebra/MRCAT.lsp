@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |MonoidRingCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |MonoidRingCategory;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |XHASHTBL;localSearch| (|a| |k| |h| $)
   (PROG (|q| |mk| |p| #1=#:G130 #2=#:G120 |deletedPosition?| |h2| |h1| |n|)
     (RETURN

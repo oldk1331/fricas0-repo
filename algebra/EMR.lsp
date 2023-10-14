@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EMR;divide;2$R;1| (|x| |y| $)
   (PROG (|r| |yv| |invlcy| |xm| |t|)
     (RETURN

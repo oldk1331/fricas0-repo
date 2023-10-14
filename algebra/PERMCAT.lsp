@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |PermutationCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |PermutationCategory;|)) 

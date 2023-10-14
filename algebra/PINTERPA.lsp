@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PINTERPA;LagrangeInterpolation;2LP;1| (|lx| |ly| $)
   (PROG (|ip| |xp| |pp| #1=#:G113 |xj| |j| #2=#:G111 |xi| #3=#:G112 |yi| |i|)
     (RETURN

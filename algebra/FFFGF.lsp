@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFFGF;multiplyRows!| (|v| M $)
   (PROG (|j| |i| |n|)
     (RETURN

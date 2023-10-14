@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PAN2EXPR;coerce;PE;1| (|p| $)
   (SPADCALL (ELT $ 8) (ELT $ 10) |p| (QREFELT $ 15))) 
 

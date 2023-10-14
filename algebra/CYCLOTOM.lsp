@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CYCLOTOM;cyclotomic;ISup;1| (|n| $)
   (PROG (|l| #1=#:G110 #2=#:G109 #3=#:G107 #4=#:G115 |u| |g|)
     (RETURN

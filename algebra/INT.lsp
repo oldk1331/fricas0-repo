@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INT;writeOMInt| (|dev| |x| $)
   (SEQ
    (COND

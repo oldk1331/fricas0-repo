@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |CommutativeStar;|)) 
 
 (DEFPARAMETER |CommutativeStar;AL| 'NIL) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |REPSQ;expt;SPiS;1| (|x| |n| $)
   (COND ((EQL |n| 1) |x|)
         ((ODDP |n|)

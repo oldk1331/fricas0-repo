@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SUPFRACF;factor;SupF;1| (|p| $)
   (PROG (#1=#:G121 |u| #2=#:G120 |ffact| |ipol| |pol| |pden| #3=#:G119 |c|
          #4=#:G118)

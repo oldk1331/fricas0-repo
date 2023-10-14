@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RDETRS;monomRDEsys;3FMU;1| (|f| |g1| |g2| |derivation| $)
   (PROG (|u| |aa| |tt| #1=#:G132 |gg| |e| |d|)
     (RETURN

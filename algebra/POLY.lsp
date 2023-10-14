@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |POLY;coerce;$Of;1| (|p| $)
   (PROG (|a| #1=#:G107 |r|)
     (RETURN

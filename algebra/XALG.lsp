@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |XAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |XAlgebra;|)) 

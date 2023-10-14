@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TBCMPPK;initTable!;V;1| ($)
   (SEQ (SETELT $ 8 'T) (SETELT $ 11 (SPADCALL (QREFELT $ 10)))
        (EXIT (SPADCALL (QREFELT $ 19))))) 

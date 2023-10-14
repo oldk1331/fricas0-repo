@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RATRET;rational;SF;1| (|s| $) (SPADCALL |s| (QREFELT $ 8))) 
 
 (DEFUN |RATRET;rational?;SB;2| (|s| $) (QEQCAR (SPADCALL |s| (QREFELT $ 11)) 0)) 

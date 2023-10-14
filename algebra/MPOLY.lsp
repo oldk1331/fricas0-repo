@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |MultivariatePolynomial;|)) 
 
 (DEFUN |MultivariatePolynomial| (&REST #1=#:G142)

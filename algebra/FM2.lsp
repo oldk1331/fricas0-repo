@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FM2;linearExtend;MM1M2;1| (|f| |x| $)
   (PROG (|res| #1=#:G110 |t|)
     (RETURN

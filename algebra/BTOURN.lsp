@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BTOURN;binaryTournament;L$;1| (|u| $)
   (PROG (#1=#:G108 |x| |tree|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|COMPPROP;closed?;$B;1| '|SPADreplace| 'QCAR) 
 
 (DEFUN |COMPPROP;closed?;$B;1| (|p| $) (QCAR |p|)) 

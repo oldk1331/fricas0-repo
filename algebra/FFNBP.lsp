@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFNBP;coerce;GF$;1| (|v| $)
   (MAKEARR1 (QREFELT $ 17) (SPADCALL |v| (QREFELT $ 45) (QREFELT $ 50)))) 
 

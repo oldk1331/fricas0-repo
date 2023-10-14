@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMMONOP;operator;SBo;1| (|s| $)
   (PROG (#1=#:G107 #2=#:G109 #3=#:G110 |op|)
     (RETURN

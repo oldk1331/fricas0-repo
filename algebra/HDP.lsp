@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HDP;<;2$B;1| (|v1| |v2| $)
   (PROG (#1=#:G112 |i| |n2| |n1| #2=#:G113)
     (RETURN

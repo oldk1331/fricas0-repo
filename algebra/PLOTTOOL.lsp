@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PLOTTOOL;drawToScaleRanges| (|xVals| |yVals| $)
   (PROG (|pad| |yDiff| |yLo| |yHi| |xDiff| |xLo| |xHi|)
     (RETURN

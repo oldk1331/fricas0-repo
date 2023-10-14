@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PFRPAC;partialFraction;FSA;1| (|rf| |v| $)
   (PROG (|df|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RDIV;order;FdUPUPMNni;1| (|d| |pp| |f| $)
   (PROG (|r|)
     (RETURN

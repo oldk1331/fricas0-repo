@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FTEM;fortranLiteralLine;SV;1| (|s| $)
   (SEQ (PRINTEXP |s| |$fortranOutputStream|)
        (EXIT (TERPRI |$fortranOutputStream|)))) 

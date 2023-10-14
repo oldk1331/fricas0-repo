@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |KAFILE;defstream| (|fn| |mode| $)
   (COND ((EQUAL |mode| "input") (|rMkIstream| (SPADCALL |fn| (QREFELT $ 11))))
         ((EQUAL |mode| "output") (|rMkOstream| (SPADCALL |fn| (QREFELT $ 11))))

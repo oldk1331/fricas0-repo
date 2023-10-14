@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |HomogeneousDistributedMultivariatePolynomial;|)) 
 
 (DEFUN |HomogeneousDistributedMultivariatePolynomial| (&REST #1=#:G142)

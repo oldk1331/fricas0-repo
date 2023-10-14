@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MODRING;modulus;$Mod;1| '|SPADreplace| 'QCDR) 
 
 (DEFUN |MODRING;modulus;$Mod;1| (|x| $) (QCDR |x|)) 

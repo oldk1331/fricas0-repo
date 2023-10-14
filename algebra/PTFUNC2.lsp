@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PTFUNC2;map;MPP;1| (|mapping| |p| $)
   (PROG (#1=#:G104 #2=#:G109 |i| #3=#:G108)
     (RETURN

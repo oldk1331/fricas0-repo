@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NUMTUBE;colinearity| (|x| |y| $)
   (|div_DF| (|expt_DF_I| (SPADCALL |x| |y| (QREFELT $ 23)) 2)
             (|mul_DF| (SPADCALL |x| |x| (QREFELT $ 23))

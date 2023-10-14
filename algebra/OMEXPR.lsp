@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OMEXPR;outputOMArith1| (|dev| |sym| |args| $)
   (PROG (#1=#:G125 |arg|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JBE;coerce;JB$;1| (|jv| $) (SPADCALL |jv| (QREFELT $ 8))) 
 
 (PUT '|JBE;coerce;E$;2| '|SPADreplace| '(XLAM (|exp|) |exp|)) 

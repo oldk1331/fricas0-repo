@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMPCODE;genCatHeader| (|shortName| |longName| $)
   (LIST
    (SPADCALL (LIST ")abbrev category " |shortName| " " |longName|)

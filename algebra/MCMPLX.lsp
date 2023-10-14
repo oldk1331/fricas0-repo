@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MCMPLX;coerce;C$;1| (|u| $)
   (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 8)) (QREFELT $ 10))
             (SPADCALL (SPADCALL |u| (QREFELT $ 11)) (QREFELT $ 10))

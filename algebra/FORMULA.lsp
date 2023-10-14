@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FORMULA;new;$;1| ($)
   (VECTOR (LIST ".eq set blank @" ":df.") (LIST "") (LIST ":edf."))) 
 

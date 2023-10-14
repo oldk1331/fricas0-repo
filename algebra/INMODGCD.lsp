@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INMODGCD;reduction;BPRBP;1| (|u| |p| $)
   (PROG ()
     (RETURN

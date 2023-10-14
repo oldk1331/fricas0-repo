@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PERMAN;permanent3| (|x| $)
   (PROG (|a| |j| |vv| |b| #1=#:G118 |i| |k| |sgn| |w|)
     (RETURN

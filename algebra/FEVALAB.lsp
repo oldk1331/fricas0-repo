@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |FullyEvalableOver;|)) 
 
 (DEFPARAMETER |FullyEvalableOver;AL| 'NIL) 

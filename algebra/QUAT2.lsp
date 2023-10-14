@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |QUAT2;Zero;$;1| ($)
   (VECTOR (|spadConstant| $ 10) (|spadConstant| $ 10) (|spadConstant| $ 10)
           (|spadConstant| $ 10))) 

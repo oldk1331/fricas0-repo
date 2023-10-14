@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BRAGG-;elt;AleftA;1| (|x| T3 $) (SPADCALL |x| (QREFELT $ 8))) 
 
 (DEFUN |BRAGG-;elt;ArightA;2| (|x| T4 $) (SPADCALL |x| (QREFELT $ 11))) 

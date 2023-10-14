@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TRANFUN-;pi;S;1| ($)
   (SPADCALL 2 (SPADCALL (|spadConstant| $ 7) (QREFELT $ 8)) (QREFELT $ 10))) 
 

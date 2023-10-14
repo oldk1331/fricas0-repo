@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|PARSCURV;curve;3ComponentFunction$;1| '|SPADreplace| 'VECTOR) 
 
 (DEFUN |PARSCURV;curve;3ComponentFunction$;1| (|x| |y| |z| $)

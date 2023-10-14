@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STTFNC;exp;2S;1| (|z| $)
   (PROG (|expx|)
     (RETURN

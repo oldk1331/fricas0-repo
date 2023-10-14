@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRAC2;map;MFF;1| (|f| |r| $) (SPADCALL |f| |r| (QREFELT $ 12))) 
 
 (DECLAIM (NOTINLINE |FractionFunctions2;|)) 

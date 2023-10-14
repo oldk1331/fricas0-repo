@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INFORM;Zero;$;1| ($) (SPADCALL 0 (QREFELT $ 8))) 
 
 (DEFUN |INFORM;One;$;2| ($) (SPADCALL 1 (QREFELT $ 8))) 

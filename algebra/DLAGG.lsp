@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |DoublyLinkedAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |DoublyLinkedAggregate;|)) 

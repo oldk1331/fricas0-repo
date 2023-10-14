@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HB;lfunc;3I;1| (|d| |n| $)
   (PROG (|res| #1=#:G121 |sum| #2=#:G124 |m|)
     (RETURN

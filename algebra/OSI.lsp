@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OSI;=;2$B;1| '|SPADreplace| 'EQL) 
 
 (DEFUN |OSI;=;2$B;1| (|x| |y| $) (EQL |x| |y|)) 

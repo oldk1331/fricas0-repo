@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ELEMFUN-;^;3S;1| (|x| |y| $)
   (SPADCALL (SPADCALL |y| (SPADCALL |x| (QREFELT $ 7)) (QREFELT $ 8))
             (QREFELT $ 9))) 

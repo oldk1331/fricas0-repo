@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LMDICT;coerce;$Of;1| (|s| $)
   (PROG (#1=#:G124 |x| #2=#:G123)
     (RETURN

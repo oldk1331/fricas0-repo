@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |M3D;matrixConcat3D;S3$;1| (|dir| |mat1| |mat2| $)
   (PROG (|retVal| #1=#:G131 |j| |temp| #2=#:G130 |i| #3=#:G129 |matRep2|
          |matRep1| |kDim2| |jDim2| |iDim2| |kDim1| |jDim1| |iDim1| |mat2Dim|

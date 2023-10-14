@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |FiniteFieldExtension;|)) 
 
 (DEFUN |FiniteFieldExtension| (&REST #1=#:G138)

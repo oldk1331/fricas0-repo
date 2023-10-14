@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SHDP;lessThanRlex| (|v1| |v2| |low| |high| $)
   (PROG (#1=#:G114 |i| |n2| |n1|)
     (RETURN

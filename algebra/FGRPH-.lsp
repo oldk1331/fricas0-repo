@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FGRPH-;getVertexIndex;ASNni;1| (|s| |o| $)
   (PROG (#1=#:G168 |i| #2=#:G169 |v|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |APPLYORE;apply;PM2M;1| (|p| |f| |m| $)
   (PROG (|mn| |w| #1=#:G108 |i|)
     (RETURN

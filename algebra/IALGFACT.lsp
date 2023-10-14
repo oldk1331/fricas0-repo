@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IALGFACT;perturbfactor| (|f| |k| |fact| $)
   (PROG (#1=#:G112 |pp| #2=#:G111 |pol| |lsols| |newf|)
     (RETURN

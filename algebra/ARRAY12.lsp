@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ARRAY12;map;MOdaOda;1| (|f| |v| $) (SPADCALL |f| |v| (QREFELT $ 12))) 
 
 (DEFUN |ARRAY12;scan;MOdaBOda;2| (|f| |v| |b| $)

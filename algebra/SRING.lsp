@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |SemiRing;|)) 
 
 (DEFPARAMETER |SemiRing;AL| 'NIL) 

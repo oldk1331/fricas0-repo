@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JDIFF;d;JB$;1| (|jb| $) (CONS (LIST (|spadConstant| $ 9)) (LIST |jb|))) 
 
 (DEFUN |JDIFF;dX;Pi$;2| (|i| $)

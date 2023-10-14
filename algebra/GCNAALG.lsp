@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GCNAALG;eval| (|rf| |a| $)
   (PROG (|bot| |top| |lEq| #1=#:G118 |i| #2=#:G117 |s| #3=#:G116 |coefOfa|)
     (RETURN

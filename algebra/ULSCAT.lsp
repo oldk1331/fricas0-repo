@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |UnivariateLaurentSeriesCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesCategory;|)) 

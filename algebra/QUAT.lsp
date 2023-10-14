@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |Quaternion;|)) 
 
 (DEFUN |Quaternion| (#1=#:G120)

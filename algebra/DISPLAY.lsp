@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DISPLAY;bright;SL;1| (|s| $) (LIST (QREFELT $ 6) |s| (QREFELT $ 7))) 
 
 (DEFUN |DISPLAY;bright;2L;2| (|l| $)

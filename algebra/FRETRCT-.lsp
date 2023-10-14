@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRETRCT-;coerce;IA;1| (|n| $)
   (SPADCALL (SPADCALL |n| (QREFELT $ 9)) (QREFELT $ 10))) 
 

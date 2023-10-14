@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|UDGRPH;isDirected?;B;1| '|SPADreplace| '(XLAM NIL 'NIL)) 
 
 (DEFUN |UDGRPH;isDirected?;B;1| ($) 'NIL) 

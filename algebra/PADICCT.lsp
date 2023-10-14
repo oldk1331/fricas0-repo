@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |PAdicIntegerCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |PAdicIntegerCategory;|)) 

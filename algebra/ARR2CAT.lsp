@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |TwoDimensionalArrayCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |TwoDimensionalArrayCategory;|)) 

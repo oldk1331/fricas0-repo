@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STINPROD;infiniteProduct;2S;1| (|st| $)
   (SPADCALL (SPADCALL (SPADCALL |st| (QREFELT $ 9)) (QREFELT $ 11))
             (QREFELT $ 12))) 

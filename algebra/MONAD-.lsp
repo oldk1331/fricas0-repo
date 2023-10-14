@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MONAD-;^;SPiS;1| (|x| |n| $) (SPADCALL |x| |n| (QREFELT $ 9))) 
 
 (DEFUN |MONAD-;rightPower;SPiS;2| (|a| |n| $)

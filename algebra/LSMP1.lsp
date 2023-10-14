@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LSMP1;solve;MVR;1| (|m| |c| $) (SPADCALL |m| |c| (QREFELT $ 12))) 
 
 (DEFUN |LSMP1;solve;LVR;2| (|ll| |c| $)

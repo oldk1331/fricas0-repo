@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DHMATRIX;identity;$;1| ($)
   (SPADCALL
    (LIST

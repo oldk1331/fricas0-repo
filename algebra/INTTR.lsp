@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTTR;logprmderiv| (|f| |derivation| $)
   (SPADCALL (SPADCALL |f| |derivation| (QREFELT $ 12)) |f| (QREFELT $ 13))) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|INTBIT;bitLength;2I;1| '|SPADreplace| 'INTEGER-LENGTH) 
 
 (DEFUN |INTBIT;bitLength;2I;1| (|n| $) (INTEGER-LENGTH |n|)) 

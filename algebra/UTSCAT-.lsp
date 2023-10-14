@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UTSCAT-;zero?;SB;1| (|x| $)
   (PROG (|coefs|)
     (RETURN

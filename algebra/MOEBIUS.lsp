@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MOEBIUS;moebius;4F$;1| '|SPADreplace| 'VECTOR) 
 
 (DEFUN |MOEBIUS;moebius;4F$;1| (|aa| |bb| |cc| |dd| $)

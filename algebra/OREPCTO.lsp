@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OREPCTO;times;2CAMC;1| (|x| |y| |sigma| |delta| $)
   (COND ((SPADCALL |y| (QREFELT $ 9)) (|spadConstant| $ 10))
         ('T

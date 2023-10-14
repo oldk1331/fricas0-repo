@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SYMBOL;writeOMSym| (|dev| |x| $)
   (COND
    ((SPADCALL |x| (QREFELT $ 21))

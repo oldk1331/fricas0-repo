@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GUESSP1;m1| (|var| $) (SPADCALL |var| (QREFELT $ 9))) 
 
 (DEFUN |GUESSP1;m3| (|var| $) (SPADCALL |var| (QREFELT $ 11))) 

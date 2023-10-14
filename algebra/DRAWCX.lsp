@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DRAWCX;makeArrow| (|p1| |p2| |len| |arg| $)
   (PROG (|p4| |p3| |s2| |c2| |s1| |c1|)
     (RETURN

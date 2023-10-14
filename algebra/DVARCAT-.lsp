@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DVARCAT-;coerce;SA;1| (|s| $) (SPADCALL |s| 0 (QREFELT $ 9))) 
 
 (DEFUN |DVARCAT-;differentiate;2A;2| (|v| $) (SPADCALL |v| 1 (QREFELT $ 11))) 

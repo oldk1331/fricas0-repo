@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |QFCAT2;map;MRS;1| (|f| |r| $)
   (SPADCALL (SPADCALL (SPADCALL |r| (QREFELT $ 10)) |f|)
             (SPADCALL (SPADCALL |r| (QREFELT $ 11)) |f|) (QREFELT $ 12))) 

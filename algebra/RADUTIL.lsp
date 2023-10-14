@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RADUTIL;radix;FIA;1| (|q| |b| $)
   (SPADCALL
    (SPADCALL |q|

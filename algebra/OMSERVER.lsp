@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OMSERVER;OMreceive;OmcA;1| (|conn| $)
   (PROG (|dev|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HELLFDIV;Zero;$;1| ($) (SPADCALL (|spadConstant| $ 29) (QREFELT $ 30))) 
 
 (DEFUN |HELLFDIV;divisor;R$;2| (|g| $)

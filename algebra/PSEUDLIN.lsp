@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PSEUDLIN;inv| (|m| $)
   (PROG (#1=#:G108)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CRAPACK;modTree;R2L;1| (|a| |lm| $)
   (PROG (|t|)
     (RETURN

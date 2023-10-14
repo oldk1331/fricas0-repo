@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAGCDT2;pack_modulus;LLIU;1| (|lm| |lvz| |p| $)
   (PROG (|m| |vz|)
     (RETURN

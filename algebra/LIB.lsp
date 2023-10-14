@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LIB;library;Fn$;1| (|f| $) (SPADCALL |f| (QREFELT $ 8))) 
 
 (DEFUN |LIB;elt;$SA;2| (|f| |v| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SOLVERAD;New| (|s| $)
   (PROG (S)
     (RETURN

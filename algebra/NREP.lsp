@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NREP;characteristicPolynomial;MP;1| (|m| $)
   (PROG (|x|)
     (RETURN

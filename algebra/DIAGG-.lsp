@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DIAGG-;dictionary;LA;1| (|l| $)
   (PROG (#1=#:G117 |x| |d|)
     (RETURN

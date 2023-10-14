@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UTSODETL;UP2UTS;UPUTS;1| (|p| $)
   (PROG (#1=#:G104 #2=#:G103 #3=#:G105 #4=#:G108 |i| |q|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SMTS;extend;$Nni$;1| (|x| |n| $)
   (SPADCALL |x| (+ |n| 1) (QREFELT $ 13))) 
 

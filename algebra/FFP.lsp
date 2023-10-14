@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFP;generator;$;1| ($)
   (SPADCALL (SPADCALL (|spadConstant| $ 32) 1 (QREFELT $ 33)) (QREFELT $ 34))) 
 

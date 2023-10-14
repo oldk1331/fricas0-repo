@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MULDEP;solveOverQ| (|m| |v| $) (SPADCALL |m| |v| (QREFELT $ 10))) 
 
 (DEFUN |MULDEP;logDependenceQ;LFU;2| (|lq| |q| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PLOT1;plot;SSSP;1| (|f| |x| |xRange| $)
   (SPADCALL (SPADCALL |f| |x| (QREFELT $ 10)) |xRange| (QREFELT $ 13))) 
 

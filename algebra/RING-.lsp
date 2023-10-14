@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RING-;coerce;IS;1| (|n| $)
   (SPADCALL |n| (|spadConstant| $ 7) (QREFELT $ 9))) 
 

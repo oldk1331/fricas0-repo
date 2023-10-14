@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |RegularChain;|)) 
 
 (DEFUN |RegularChain| (&REST #1=#:G135)

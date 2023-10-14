@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LODEEF;smpxpart| (|p| |x| |l| |lp| $)
   (|LODEEF;downmp| (SPADCALL (|LODEEF;upmp| |p| |l| $) (QREFELT $ 13)) |l| |lp|
    $)) 

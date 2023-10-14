@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STAGG-;explicitlyFinite?;AB;1| (|x| $)
   (COND ((SPADCALL |x| (QREFELT $ 9)) 'NIL) ('T 'T))) 
 

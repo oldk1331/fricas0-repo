@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|GDMP;zero?;$B;1| '|SPADreplace| 'NULL) 
 
 (DEFUN |GDMP;zero?;$B;1| (|p| $) (NULL |p|)) 

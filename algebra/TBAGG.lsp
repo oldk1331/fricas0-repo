@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |TableAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |TableAggregate;|)) 

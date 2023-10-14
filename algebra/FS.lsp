@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FunctionSpace;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FunctionSpace;|)) 

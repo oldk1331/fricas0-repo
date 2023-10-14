@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SYMFUNC;symFunc;RPiV;1| (|x| |n| $)
   (|SYMFUNC;signFix|
    (SPADCALL

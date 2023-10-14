@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OMPKG;OMunhandledSymbol;2SE;1| (|u| |v| $)
   (|error|
    (SPADCALL

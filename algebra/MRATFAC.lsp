@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MRATFAC;numer1| (|c| $)
   (SPADCALL (SPADCALL |c| (QREFELT $ 11)) (QREFELT $ 13))) 
 

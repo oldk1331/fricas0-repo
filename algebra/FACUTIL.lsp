@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FACUTIL;lowerPolynomial;SupSup;1| (|f| $)
   (COND ((SPADCALL |f| (QREFELT $ 12)) (|spadConstant| $ 14))
         ('T

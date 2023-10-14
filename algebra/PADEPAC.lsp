@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PADEPAC;pade;2Nni2UtsU;1| (|n| |m| |u| |v| $)
   (PROG (|den| |num| |xpt| |ans|)
     (RETURN

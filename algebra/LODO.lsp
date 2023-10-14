@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LODO;coerce;$Of;1| (|l| $) (SPADCALL |l| (QREFELT $ 16) (QREFELT $ 17))) 
 
 (DEFUN |LODO;elt;$2A;2| (|p| |a| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RSETCAT-;purelyAlgebraic?;PSB;1| (|p| |ts| $)
   (COND ((SPADCALL |p| (QREFELT $ 12)) 'T)
         ((NULL (SPADCALL (SPADCALL |p| (QREFELT $ 13)) |ts| (QREFELT $ 14)))

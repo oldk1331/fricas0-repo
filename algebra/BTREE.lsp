@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BTREE;=;2$B;1| (|t1| |t2| $) (SPADCALL |t1| |t2| (QREFELT $ 9))) 
 
 (PUT '|BTREE;empty;$;2| '|SPADreplace| '(XLAM NIL NIL)) 

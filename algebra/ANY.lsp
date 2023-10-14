@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|ANY;obj;$N;1| '|SPADreplace| 'QCDR) 
 
 (DEFUN |ANY;obj;$N;1| (|x| $) (QCDR |x|)) 

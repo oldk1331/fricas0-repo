@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FM;*;R2$;1| (|r| |x| $)
   (PROG (#1=#:G121 |u| #2=#:G120)
     (RETURN

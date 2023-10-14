@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |MultiDictionary;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |MultiDictionary;|)) 

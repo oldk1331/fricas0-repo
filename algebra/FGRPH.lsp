@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FiniteGraph;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FiniteGraph;|)) 

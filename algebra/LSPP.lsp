@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LSPP;poly2vect| (|p| |vs| $)
   (PROG (|c| |u| #1=#:G111 |v| |i| |coefs|)
     (RETURN

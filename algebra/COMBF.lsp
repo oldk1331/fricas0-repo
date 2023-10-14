@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMBF;factorial;2F;1| (|x| $)
   (SPADCALL (QREFELT $ 13) |x| (QREFELT $ 21))) 
 

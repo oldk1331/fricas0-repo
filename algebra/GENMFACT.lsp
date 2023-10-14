@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GENMFACT;factor;PF;1| (|p| $)
   (SEQ
    (COND

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |REALSOLV;prn2rfi| (|p| $)
   (SPADCALL (ELT $ 8) (CONS #'|REALSOLV;prn2rfi!0| $) |p| (QREFELT $ 19))) 
 

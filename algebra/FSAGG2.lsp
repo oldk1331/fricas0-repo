@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FSAGG2;map;MAB;1| (|fn| |a| $)
   (SPADCALL (SPADCALL |fn| (SPADCALL |a| (QREFELT $ 11)) (QREFELT $ 15))
             (QREFELT $ 16))) 

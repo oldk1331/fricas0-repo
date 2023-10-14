@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DLP;shanksDiscLogAlgorithm;2MNniU;1| (|logbase| |c| |p| $)
   (PROG (|a| |disclog| |found| |rho| |i| |b| |end| #1=#:G124 #2=#:G112
          |exptable| |n| |l| #3=#:G123 |limit|)

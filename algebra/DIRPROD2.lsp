@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DIRPROD2;map;MDpDp;1| (|f| |v| $)
   (SPADCALL (SPADCALL |f| (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 15))
             (QREFELT $ 17))) 

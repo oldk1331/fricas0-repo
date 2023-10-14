@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BTAGG-;not;2S;1| (|v| $) (SPADCALL (ELT $ 8) |v| (QREFELT $ 10))) 
 
 (DEFUN |BTAGG-;~;2S;2| (|v| $) (SPADCALL (ELT $ 12) |v| (QREFELT $ 10))) 

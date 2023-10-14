@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |ElementaryFunctionCategory;|)) 
 
 (DEFPARAMETER |ElementaryFunctionCategory;AL| 'NIL) 

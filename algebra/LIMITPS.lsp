@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LIMITPS;is_exp_log| (|fcn| |x| $)
   (PROG (#1=#:G242 |nm| #2=#:G243 |k|)
     (RETURN

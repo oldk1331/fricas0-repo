@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SORTPAK;bubbleSort!;AMA;1| (|m| |f| $)
   (PROG (#1=#:G114 |j| #2=#:G113 |i| |n|)
     (RETURN

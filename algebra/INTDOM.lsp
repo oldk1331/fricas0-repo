@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |IntegralDomain;|)) 
 
 (DEFPARAMETER |IntegralDomain;AL| 'NIL) 

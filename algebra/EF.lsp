@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EF;pi;F;1| ($) (SPADCALL (SPADCALL (QREFELT $ 40)) (QREFELT $ 41))) 
 
 (DEFUN |EF;pi;F;2| ($) (QREFELT $ 42)) 

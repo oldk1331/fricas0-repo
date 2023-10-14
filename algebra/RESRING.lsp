@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RESRING;Zero;$;1| ($) (|spadConstant| $ 20)) 
 
 (DEFUN |RESRING;One;$;2| ($) (|spadConstant| $ 22)) 

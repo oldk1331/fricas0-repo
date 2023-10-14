@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NTPOLFN;cyclotomic;Nni2R;1| (|k| |x| $)
   (PROG (|r| |p| |c| |d|)
     (RETURN

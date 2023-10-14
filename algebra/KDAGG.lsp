@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |KeyedDictionary;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |KeyedDictionary;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PERMGRP;shortenWord| (|lw| |gp| $)
   (PROG (|do_res| |flag1| |newlw| #1=#:G161 |anzahl| |flag2| |res| |test|
          #2=#:G173 |el| |pos| #3=#:G172 |i| |orderList| #4=#:G171 |gen|

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GALPOLYU;factorsOfDegree;PiFL;1| (|d| |r| $)
   (PROG (|lfact| #1=#:G111 |i| #2=#:G110 |fr|)
     (RETURN

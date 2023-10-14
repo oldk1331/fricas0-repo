@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ORESUP;^;$Pi$;1| (|x| |n| $) (SPADCALL |x| |n| (QREFELT $ 11))) 
 
 (DEFUN |ORESUP;^;$Nni$;2| (|x| |n| $)

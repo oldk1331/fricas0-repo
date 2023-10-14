@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GB;monicize| (|p| $)
   (PROG (|lc|)
     (RETURN

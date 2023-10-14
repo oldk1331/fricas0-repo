@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TENSPOW;coerce;$Of;1| (|x| $)
   (PROG (|le| |ko| #1=#:G121 |b| #2=#:G120 #3=#:G119 |rec|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FDIV2;map;MFdFd;1| (|f| |d| $)
   (PROG (|rec|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HEAP;empty;$;1| ($) (SPADCALL (QREFELT $ 8))) 
 
 (DEFUN |HEAP;heap;L$;2| (|l| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMSYM;patternMatch;SP2Pmr;1| (|s| |p| |l| $)
   (PROG (#1=#:G109 |u|)
     (RETURN

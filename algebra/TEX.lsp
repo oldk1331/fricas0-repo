@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TEX;new;$;1| ($) (VECTOR (LIST "$$") (LIST "") (LIST "$$"))) 
 
 (DEFUN |TEX;newWithNum| (|stepNum| $)

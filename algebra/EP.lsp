@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EP;reduction| (|u| |p| $) (SPADCALL |u| |p| (QREFELT $ 10))) 
 
 (DEFUN |EP;merge| (|p| |q| $)

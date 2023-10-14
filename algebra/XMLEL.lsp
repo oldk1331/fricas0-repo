@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|XMLEL;xmlElement;SLL$;1| '|SPADreplace|
      '(XLAM (|name| |elements| |attributes|)
        (VECTOR |name| |elements| |attributes| ""))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ALGPKG;convVM| (|v| $)
   (PROG (|z| #1=#:G111 |j| #2=#:G110 |i| |cond|)
     (RETURN

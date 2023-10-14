@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |LeftOreRing;|)) 
 
 (DEFPARAMETER |LeftOreRing;AL| 'NIL) 

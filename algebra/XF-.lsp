@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |XF-;algebraic?;SB;1| (|a| $)
   (COND ((SPADCALL (SPADCALL |a| (QREFELT $ 9)) (QREFELT $ 11)) 'NIL) ('T 'T))) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |SparseTable;|)) 
 
 (DEFUN |SparseTable| (&REST #1=#:G156)

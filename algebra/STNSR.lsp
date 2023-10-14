@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STNSR;tensorMap;SMS;1| (|s| |f| $)
   (PROG ()
     (RETURN

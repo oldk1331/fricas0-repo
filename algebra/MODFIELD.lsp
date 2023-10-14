@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |ModularField;|)) 
 
 (DEFUN |ModularField| (&REST #1=#:G131)

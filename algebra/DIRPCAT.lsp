@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |DirectProductCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |DirectProductCategory;|)) 

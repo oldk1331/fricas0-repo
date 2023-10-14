@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |WGRPH;weightedGraph;L$;1| (|ob| $)
   (PROG (|objs| #1=#:G146 |x| #2=#:G145)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UTS2;map;MUTS1UTS2;1| (|f| |uts| $)
   (SPADCALL (SPADCALL |f| (SPADCALL |uts| (QREFELT $ 11)) (QREFELT $ 15))
             (QREFELT $ 16))) 

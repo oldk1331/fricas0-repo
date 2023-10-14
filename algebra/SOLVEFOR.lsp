@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SOLVEFOR;mapSolve;UPMR;1| (|p| |fn| $)
   (PROG (|locmap| |slist|)
     (RETURN

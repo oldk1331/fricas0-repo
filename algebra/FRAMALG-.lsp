@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRAMALG-;convert;SV;1| (|x| $) (SPADCALL |x| (QREFELT $ 10))) 
 
 (DEFUN |FRAMALG-;convert;VS;2| (|v| $) (SPADCALL |v| (QREFELT $ 12))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IAN;reducedSystem;MM;1| (|m| $)
   (PROG (|mz|)
     (RETURN

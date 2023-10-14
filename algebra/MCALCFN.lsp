@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MCALCFN;localGradient| (|v| |xlist| $)
   (PROG (#1=#:G106 |x| #2=#:G105)
     (RETURN

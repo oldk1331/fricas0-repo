@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |WEIER;transback| (|smps| $)
   (COND
    ((OR (SPADCALL |smps| (QREFELT $ 9))

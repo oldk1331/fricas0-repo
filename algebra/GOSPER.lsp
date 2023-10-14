@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GOSPER;deg0| (|p| |v| $)
   (COND ((SPADCALL |p| (QREFELT $ 13)) -1)
         ('T (SPADCALL |p| |v| (QREFELT $ 17))))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GRAY;firstSubsetGray;PiV;1| (|n| $)
   (PROG (#1=#:G107 |i| |vv|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FSPECF;abs;2F;1| (|x| $) (SPADCALL (QREFELT $ 13) |x| (QREFELT $ 35))) 
 
 (DEFUN |FSPECF;Gamma;2F;2| (|x| $) (SPADCALL (QREFELT $ 14) |x| (QREFELT $ 35))) 

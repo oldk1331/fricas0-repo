@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INFSP;numeric| (|r| $)
   (PROG (|gr|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LZSTAGG-;=;2AB;1| (|x| |y| $)
   (SEQ
    (COND ((SPADCALL |x| |y| (QREFELT $ 9)) 'T)

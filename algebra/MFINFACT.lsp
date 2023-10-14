@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MFINFACT;convertPUP| (|lfg| $)
   (PROG (#1=#:G148 |lff| #2=#:G147)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMM;=;2$B;1| (|x| |y| $)
   (PROG (|yy| |xx|)
     (RETURN

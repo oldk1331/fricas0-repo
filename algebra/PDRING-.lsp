@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PDRING-;differentiate;ALA;1| (|r| |l| $)
   (PROG (#1=#:G113 |s|)
     (RETURN

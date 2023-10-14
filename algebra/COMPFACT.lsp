@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMPFACT;myMap| (|r| $)
   (PROG (|cr|)
     (RETURN

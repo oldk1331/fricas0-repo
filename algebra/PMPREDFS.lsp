@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMPREDFS;suchThat;FMF;1| (|p| |f| $)
   (SPADCALL |p| (LIST |f|) (QREFELT $ 12))) 
 

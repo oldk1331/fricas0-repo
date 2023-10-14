@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |XPBWPOLY;outForm| (|t| $)
   (COND
    ((SPADCALL (QCDR |t|) (|spadConstant| $ 9) (QREFELT $ 11))

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DIRPROD;coerce;$V;1| (|z| $) (SPADCALL |z| (QREFELT $ 9))) 
 
 (DEFUN |DIRPROD;coerce;R$;2| (|r| $) (MAKEARR1 (QREFELT $ 6) |r|)) 

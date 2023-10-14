@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LAZM3PK;convert| (|st| $)
   (PROG (|ts| #1=#:G115 |p| |lp|)
     (RETURN

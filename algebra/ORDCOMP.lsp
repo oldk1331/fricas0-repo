@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|ORDCOMP;coerce;R$;1| '|SPADreplace| '(XLAM (|r|) (CONS 0 |r|))) 
 
 (DEFUN |ORDCOMP;coerce;R$;1| (|r| $) (CONS 0 |r|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PIT;split;PMR;1| (|p| |der| $)
   (PROG (|rec1| #1=#:G109 |pbar| |gdif| |gder| |p1| |rec0| |up1| |p0| |up| |v|)
     (RETURN

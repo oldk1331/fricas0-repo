@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RURPK;rur;L2BL;1| (|lp| |univ?| |check?| $)
   (PROG (|toReturn| |lc| #1=#:G171 |q| #2=#:G170 |g| #3=#:G119 #4=#:G169 |us|
          #5=#:G168 |lus| #6=#:G167 |ts| |toSee| |newlq| #7=#:G166 #8=#:G165

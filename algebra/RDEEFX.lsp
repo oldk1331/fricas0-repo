@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RDEEFX;P_to_UP| (|p| |k| $)
   (PROG (|up1|)
     (RETURN

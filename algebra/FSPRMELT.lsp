@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FSPRMELT;F2P| (|f| |l| $)
   (PROG ()
     (RETURN

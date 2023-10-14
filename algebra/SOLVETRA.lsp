@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SOLVETRA;solve;EL;1| (|oside| $)
   (PROG (|lv|)
     (RETURN

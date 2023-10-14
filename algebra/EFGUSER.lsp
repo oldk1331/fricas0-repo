@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EFGUSER;apply_taylor1| (|ft| |x| $)
   (PROG (|fxu| |s1| |c0|)
     (RETURN

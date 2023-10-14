@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LODOF;factor;LodoML;1| (|l| |zeros| $)
   (|LODOF;innerFactor| |l| |zeros| (ELT $ 12) 'T $)) 
 

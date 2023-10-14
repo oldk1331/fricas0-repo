@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UFPS1;hadamard;3Ufps;1| (|f| |g| $)
   (SPADCALL
    (SPADCALL (ELT $ 7) (SPADCALL |f| (QREFELT $ 10))

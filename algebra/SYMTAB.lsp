@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SYMTAB;coerce;$Of;1| (|t| $) (SPADCALL |t| (QREFELT $ 8))) 
 
 (PUT '|SYMTAB;coerce;$T;2| '|SPADreplace| '(XLAM (|t|) |t|)) 

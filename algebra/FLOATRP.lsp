@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FLOATRP;makeEq| (|nres| |lv| $)
   (PROG (#1=#:G108 |x| #2=#:G109 |r| #3=#:G107)
     (RETURN

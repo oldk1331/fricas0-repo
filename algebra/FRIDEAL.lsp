@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRIDEAL;One;$;1| ($)
   (CONS (VECTOR (|spadConstant| $ 15)) (|spadConstant| $ 12))) 
 

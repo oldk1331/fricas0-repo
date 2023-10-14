@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OMERRK;OMParseError?;$B;1| '|SPADreplace| '(XLAM (|u|) (QEQCAR |u| 0))) 
 
 (DEFUN |OMERRK;OMParseError?;$B;1| (|u| $) (QEQCAR |u| 0)) 

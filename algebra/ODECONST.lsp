@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODECONST;constDsolve;LFSR;1| (|op| |g| |x| $)
   (PROG (#1=#:G110 |b|)
     (RETURN

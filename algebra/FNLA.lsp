@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FNLA;dimension;Nni;1| ($) (QVSIZE (QREFELT $ 14))) 
 
 (DEFUN |FNLA;have| (|i| |j| $)

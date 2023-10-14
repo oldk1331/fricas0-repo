@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LEXTRIPK;trueVariables| (|lp| $)
   (PROG (|truels| #1=#:G121 #2=#:G127 |s| |lv|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MULTSQFR;nsqfree;SupLLR;1| (|oldf| |lvar| |ltry| $)
   (PROG (#1=#:G156 |lcr| |h1| |unitsq| #2=#:G170 |lpfact| |f0| |f| |sqdec|
          #3=#:G169 |h| |r1| #4=#:G153 |result0| |result| #5=#:G147 |ldeg|

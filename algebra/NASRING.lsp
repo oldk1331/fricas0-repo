@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |NonAssociativeRing;|)) 
 
 (DEFPARAMETER |NonAssociativeRing;AL| 'NIL) 

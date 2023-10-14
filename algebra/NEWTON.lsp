@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NEWTON;differences| (|yl| $)
   (PROG (#1=#:G107 |y1| #2=#:G108 |y2| #3=#:G106)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |AN;zero?;$B;1| (|a| $)
   (SPADCALL |a| (|spadConstant| $ 7) (QREFELT $ 10))) 
 

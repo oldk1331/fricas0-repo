@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LEXP;ident| (|l1| |l2| $)
   (PROG (|r| |c2| |u2| |c1| |u1| #1=#:G117 |t| #2=#:G116 #3=#:G115 #4=#:G114)
     (RETURN

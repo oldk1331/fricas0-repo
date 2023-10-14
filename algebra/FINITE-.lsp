@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FINITE-;random;S;1| ($)
   (PROG (#1=#:G111)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SMATCAT-;positivePower| (|x| |n| $)
   (PROG (|y|)
     (RETURN

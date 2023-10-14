@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |RealNumberSystem;|)) 
 
 (DEFPARAMETER |RealNumberSystem;AL| 'NIL) 

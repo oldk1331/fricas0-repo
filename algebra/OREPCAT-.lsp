@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OREPCAT-;coerce;RS;1| (|x| $) (SPADCALL |x| 0 (QREFELT $ 11))) 
 
 (DEFUN |OREPCAT-;coefficients;SL;2| (|l| $)

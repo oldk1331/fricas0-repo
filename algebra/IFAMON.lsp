@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IFAMON;Zero;$;1| ($) (SPADCALL (QREFELT $ 10))) 
 
 (DEFUN |IFAMON;zero?;$B;2| (|f| $) (NULL (SPADCALL |f| (QREFELT $ 14)))) 

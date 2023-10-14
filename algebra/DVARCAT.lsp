@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |DifferentialVariableCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |DifferentialVariableCategory;|)) 

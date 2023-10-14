@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MTSCAT-;coefficient;SVarNniS;1| (|s| |v| |n| $)
   (SPADCALL |s| (LIST |v|) (LIST |n|) (QREFELT $ 11))) 
 

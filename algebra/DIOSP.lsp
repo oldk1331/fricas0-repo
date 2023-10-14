@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DIOSP;dioSolve;ER;1| (|eq| $)
   (PROG (|vars| #1=#:G134 |x| #2=#:G133 |ihs| |hs| |sol| |graph| |mon| |c|
          #3=#:G132 |n| |p|)

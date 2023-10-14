@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |RealRootCharacterizationCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |RealRootCharacterizationCategory;|)) 

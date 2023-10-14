@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UNISEG2;map;MUsUs;1| (|f| |u| $)
   (PROG (|s|)
     (RETURN

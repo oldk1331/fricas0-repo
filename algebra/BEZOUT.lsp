@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BEZOUT;sylvesterMatrix;2UPM;1| (|p| |q| $)
   (PROG (#1=#:G121 |i| |q0| |deg| |coef| #2=#:G120 |p0| |maxC| |maxR| |minC|
          |minR| |sylmat| |n| |n2| |n1|)

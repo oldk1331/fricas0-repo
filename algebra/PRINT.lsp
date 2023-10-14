@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PRINT;print;OfV;1| (|x| $) (SPADCALL |x| (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |PrintPackage;|)) 

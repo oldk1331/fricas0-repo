@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RADFF;discriminant;F;1| ($)
   (SEQ
    (COND ((SPADCALL (QREFELT $ 20) (QREFELT $ 39)) (|RADFF;startUp| 'NIL $)))

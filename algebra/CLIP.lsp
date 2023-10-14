@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CLIP;Fnan?| (|x| $) (SPADCALL |x| |x| (QREFELT $ 8))) 
 
 (DEFUN |CLIP;Pnan?| (|p| $)

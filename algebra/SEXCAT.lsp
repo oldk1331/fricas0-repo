@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |SExpressionCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |SExpressionCategory;|)) 

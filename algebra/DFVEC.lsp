@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|DFVEC;qelt;$IDf;1| '|SPADreplace| 'DELT) 
 
 (DEFUN |DFVEC;qelt;$IDf;1| (|x| |i| $) (DELT |x| |i|)) 

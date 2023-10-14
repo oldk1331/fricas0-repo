@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |CancellationAbelianMonoid;|)) 
 
 (DEFPARAMETER |CancellationAbelianMonoid;AL| 'NIL) 

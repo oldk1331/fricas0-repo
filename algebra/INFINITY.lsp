@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INFINITY;infinity;Opc;1| ($) (SPADCALL (QREFELT $ 7))) 
 
 (DEFUN |INFINITY;plusInfinity;Oc;2| ($) (SPADCALL (QREFELT $ 10))) 

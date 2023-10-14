@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |KDAGG-;key?;KeySB;1| (|k| |t| $)
   (QEQCAR (SPADCALL |k| |t| (QREFELT $ 10)) 0)) 
 

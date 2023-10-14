@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IDEAL;npoly| (|f| $)
   (COND
    ((SPADCALL |f| (|spadConstant| $ 13) (QREFELT $ 15)) (|spadConstant| $ 16))

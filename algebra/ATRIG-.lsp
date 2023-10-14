@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ATRIG-;asec;2S;1| (|x| $)
   (PROG (|a|)
     (RETURN

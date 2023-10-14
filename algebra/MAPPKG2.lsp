@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAPPKG2;const;CM;1| (|c| $)
   (PROG () (RETURN (CONS #'|MAPPKG2;const;CM;1!0| (VECTOR $ |c|))))) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DPMO;*;R2$;1| (|r| |x| $)
   (PROG (#1=#:G105 #2=#:G107 |i| #3=#:G106)
     (RETURN

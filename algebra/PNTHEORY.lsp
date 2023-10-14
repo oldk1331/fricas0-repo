@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PNTHEORY;MonicQuotient| (|a| |b| $)
   (PROG (|da| |q| |t| #1=#:G118 |db|)
     (RETURN

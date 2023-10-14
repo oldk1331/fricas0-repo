@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |FreeAbelianMonoid;|)) 
 
 (DEFUN |FreeAbelianMonoid| (#1=#:G115)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FLINEXP-;reducedSystem;MM;1| (|m| $)
   (SPADCALL (SPADCALL |m| (QREFELT $ 10)) (QREFELT $ 12))) 
 

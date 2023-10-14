@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|CHAR;=;2$B;1| '|SPADreplace| '|eql_SI|) 
 
 (DEFUN |CHAR;=;2$B;1| (|a| |b| $) (|eql_SI| |a| |b|)) 

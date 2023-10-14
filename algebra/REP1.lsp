@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |REP1;calcCoef| (|beta| C $)
   (PROG (|prod| #1=#:G108 |i|)
     (RETURN

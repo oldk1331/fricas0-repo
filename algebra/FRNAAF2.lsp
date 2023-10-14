@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRNAAF2;map;MARAS;1| (|fn| |u| $)
   (PROG (#1=#:G108 #2=#:G110 |i| #3=#:G109 |ba| |vs| |vr|)
     (RETURN

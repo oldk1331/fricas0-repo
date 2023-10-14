@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LIECAT-;/;SRS;1| (|x| |r| $)
   (SPADCALL (SPADCALL |r| (QREFELT $ 8)) |x| (QREFELT $ 9))) 
 

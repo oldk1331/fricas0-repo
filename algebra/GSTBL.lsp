@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GSTBL;elt;$KeyEntry;1| (|t| |k| $)
   (PROG (|u|)
     (RETURN

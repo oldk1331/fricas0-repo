@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GBINTERN;virtualDegree;DpolNni;1| (|p| $) (SPADCALL |p| (QREFELT $ 11))) 
 
 (PUT '|GBINTERN;virtualDegree;DpolNni;2| '|SPADreplace| '(XLAM (|p|) 0)) 

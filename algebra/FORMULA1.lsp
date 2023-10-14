@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FORMULA1;coerce;SSff;1| (|s| $)
   (SPADCALL (SPADCALL |s| (QREFELT $ 8)) (QREFELT $ 10))) 
 

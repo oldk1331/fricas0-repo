@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CPMATCH;makeComplex| (|p| $)
   (PROG (|rcoef| |icoef| |up|)
     (RETURN

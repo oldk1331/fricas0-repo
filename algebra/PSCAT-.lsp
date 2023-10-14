@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PSCAT-;*;I2S;1| (|n| |ps| $)
   (PROG ()
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OVAR;convert;$S;1| (|s1| $)
   (SPADCALL (QREFELT $ 6) |s1| (QREFELT $ 12))) 
 

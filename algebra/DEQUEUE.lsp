@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DEQUEUE;bottom!;$S;1| (|d| $)
   (COND ((SPADCALL |d| (QREFELT $ 9)) (|error| "empty dequeue"))
         ('T (SPADCALL (SPADCALL |d| (QREFELT $ 11)) (QREFELT $ 12))))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |DistributionCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |DistributionCategory;|)) 

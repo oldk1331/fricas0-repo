@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EXPR2;map;MEE;1| (|f| |r| $) (SPADCALL |f| |r| (QREFELT $ 12))) 
 
 (DEFUN |EXPR2;map;MEE;2| (|f| |r| $)

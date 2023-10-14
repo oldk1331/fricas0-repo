@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NUMERIC;complexNumericIfCan;PU;1| (|p| $)
   (PROG (|p'|)
     (RETURN

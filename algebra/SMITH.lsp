@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SMITH;test1| (|sm| |b| |m1| $)
   (PROG (|km| #1=#:G116 #2=#:G120)
     (RETURN

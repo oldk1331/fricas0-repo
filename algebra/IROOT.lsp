@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IROOT;perfectSquare?;IB;1| (|a| $)
   (QEQCAR (SPADCALL |a| (QREFELT $ 14)) 0)) 
 

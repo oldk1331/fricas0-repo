@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ENTIRER-;unitNormal;SR;1| (|x| $)
   (VECTOR (|spadConstant| $ 7) |x| (|spadConstant| $ 7))) 
 

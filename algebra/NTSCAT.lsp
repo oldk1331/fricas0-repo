@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |NormalizedTriangularSetCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |NormalizedTriangularSetCategory;|)) 

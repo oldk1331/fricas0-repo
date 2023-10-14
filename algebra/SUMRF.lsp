@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SUMRF;sum;FSbU;1| (|f| |s| $)
   (PROG (|indef| |v|)
     (RETURN

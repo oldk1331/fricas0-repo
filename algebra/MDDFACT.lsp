@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MDDFACT;reduction| (|u| |p| $)
   (PROG ()
     (RETURN

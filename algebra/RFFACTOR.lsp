@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RFFACTOR;factorFraction;FF;1| (|p| $)
   (PROG (MFF FF MR)
     (RETURN

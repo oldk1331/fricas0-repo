@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PDO;adjoint;2$;1| (|x| $)
   (PROG (|xu| |res| |sign| |d| |v| #1=#:G112)
     (RETURN

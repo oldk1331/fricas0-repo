@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|PARSURF;surface;3ComponentFunction$;1| '|SPADreplace| 'VECTOR) 
 
 (DEFUN |PARSURF;surface;3ComponentFunction$;1| (|x| |y| |z| $)

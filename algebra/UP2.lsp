@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UP2;map;MUpUp;1| (|f| |p| $) (SPADCALL |f| |p| (QREFELT $ 14))) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialFunctions2;|)) 

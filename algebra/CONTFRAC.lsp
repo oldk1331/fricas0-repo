@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CONTFRAC;reducedForm;2$;1| (|c| $)
   (COND ((QCDR |c|) |c|)
         ((SPADCALL (QCDR (QCAR |c|)) (QREFELT $ 11))

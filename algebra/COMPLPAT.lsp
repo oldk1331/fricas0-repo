@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMPLPAT;convert;CSP;1| (|cs| $)
   (COND
    ((SPADCALL (SPADCALL |cs| (QREFELT $ 14)) (QREFELT $ 15))

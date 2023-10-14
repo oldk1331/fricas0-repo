@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NARNG-;associator;4S;1| (|x| |y| |z| $)
   (SPADCALL (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) |z| (QREFELT $ 7))
             (SPADCALL |x| (SPADCALL |y| |z| (QREFELT $ 7)) (QREFELT $ 7))

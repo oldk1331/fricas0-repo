@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPOLYC-;variables;SL;1| (|p| $)
   (COND
    ((OR (SPADCALL |p| (QREFELT $ 9)) (ZEROP (SPADCALL |p| (QREFELT $ 11))))

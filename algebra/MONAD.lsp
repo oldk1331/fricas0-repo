@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |Monad;|)) 
 
 (DEFPARAMETER |Monad;AL| 'NIL) 

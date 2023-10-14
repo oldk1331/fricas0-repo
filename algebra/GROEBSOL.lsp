@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GROEBSOL;testPower| (|uf| |x| |lpol| $)
   (PROG (|g| |linp| |lc| #1=#:G122 |trailp| |gg| |testquo| #2=#:G124 |df|)
     (RETURN

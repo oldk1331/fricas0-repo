@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|WUTSET;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (DEFUN |WUTSET;rep| (|s| $) |s|) 

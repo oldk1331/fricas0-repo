@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|UNTYPED;var;S$;1| '|SPADreplace| 'LIST) 
 
 (DEFUN |UNTYPED;var;S$;1| (|n| $) (LIST |n|)) 

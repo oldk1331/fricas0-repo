@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RRCC-;zero?;ThePolsSB;1| (|toTest| |rootChar| $)
   (EQL (SPADCALL |toTest| |rootChar| (QREFELT $ 10)) 0)) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ORDSET-;smaller?;2SB;1| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 8))) 
 
 (DEFUN |ORDSET-;max;3S;2| (|x| |y| $)

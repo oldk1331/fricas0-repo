@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |A1AGG-;parts;AL;1| (|x| $)
   (PROG (#1=#:G144 |i| #2=#:G143)
     (RETURN

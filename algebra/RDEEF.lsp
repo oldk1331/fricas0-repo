@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RDEEF;prim?| (|k| |x| $)
   (COND ((SPADCALL |k| '|log| (QREFELT $ 13)) 'T)
         ('T

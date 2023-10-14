@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODERED;matF2L| (|m| $) (SPADCALL (ELT $ 13) |m| (QREFELT $ 18))) 
 
 (DEFUN |ODERED;reduceLODE;LOAR;2| (|l| |g| $)

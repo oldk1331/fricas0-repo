@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|TUBE;getCurve;$Curve;1| '|SPADreplace| '(XLAM (|plot|) (QVELT |plot| 0))) 
 
 (DEFUN |TUBE;getCurve;$Curve;1| (|plot| $) (QVELT |plot| 0)) 

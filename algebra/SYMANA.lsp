@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SYMANA;ansatz;Jvf;1| ($)
   (PROG (|res| #1=#:G132 |f| |s| #2=#:G138 |i| #3=#:G128 #4=#:G137)
     (RETURN

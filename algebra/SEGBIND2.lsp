@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SEGBIND2;map;MSbSb;1| (|f| |b| $)
   (SPADCALL (SPADCALL |b| (QREFELT $ 10))
             (SPADCALL |f| (SPADCALL |b| (QREFELT $ 12)) (QREFELT $ 16))

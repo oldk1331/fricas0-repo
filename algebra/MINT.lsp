@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MINT;maxint;Pi;1| ($) (QREFELT $ 8)) 
 
 (DEFUN |MINT;maxint;2Pi;2| (|new| $)

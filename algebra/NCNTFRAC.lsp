@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NCNTFRAC;cfc| (|a| $)
   (PROG ()
     (RETURN

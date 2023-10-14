@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|VSBASIS;Zero;$;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
 (DEFUN |VSBASIS;Zero;$;1| ($) NIL) 

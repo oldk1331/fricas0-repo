@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FunctionFieldCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FunctionFieldCategory;|)) 

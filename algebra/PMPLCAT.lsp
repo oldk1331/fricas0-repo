@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMPLCAT;patternMatch;PP2Pmr;1| (|x| |p| |l| $)
   (SPADCALL |x| |p| |l| (ELT $ 14) (QREFELT $ 16))) 
 

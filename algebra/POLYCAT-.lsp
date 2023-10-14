@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |POLYCAT-;eval;SLS;1| (|p| |l| $)
   (PROG (#1=#:G146 |e| #2=#:G145 |lvar| #3=#:G144 #4=#:G143 #5=#:G136
          #6=#:G142)

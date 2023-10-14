@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FR;convert;$If;1| (|x| $)
   (PROG (|l| |iFun| |iExpon| |iFactor| #1=#:G194 |rec| |lf|)
     (RETURN

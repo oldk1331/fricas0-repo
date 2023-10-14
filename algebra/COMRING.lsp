@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |CommutativeRing;|)) 
 
 (DEFPARAMETER |CommutativeRing;AL| 'NIL) 

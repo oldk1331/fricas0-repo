@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SBOUND;nullBoundary;$;1| '|SPADreplace| '(XLAM NIL (CONS 0 "none"))) 
 
 (DEFUN |SBOUND;nullBoundary;$;1| ($) (CONS 0 "none")) 

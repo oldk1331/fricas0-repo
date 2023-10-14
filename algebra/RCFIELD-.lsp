@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RCFIELD-;sqrt;2S;1| (|a| $) (SPADCALL |a| 2 (QREFELT $ 8))) 
 
 (DEFUN |RCFIELD-;sqrt;FS;2| (|a| $)

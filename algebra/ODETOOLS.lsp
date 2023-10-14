@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODETOOLS;wronskianMatrix;LM;1| (|l| $)
   (SPADCALL |l| (LENGTH |l|) (QREFELT $ 13))) 
 

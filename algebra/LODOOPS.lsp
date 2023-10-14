@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LODOOPS;vec2LODO| (|v| $)
   (PROG (#1=#:G105 #2=#:G104 #3=#:G106 #4=#:G107 #5=#:G109 |i|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MLIFT;corrPoly;SupLLLLVRU;1|
        (|m| |lvar| |fval| |ld| |flist| |table| |pmod| $)
   (PROG (|diff| #1=#:G159 #2=#:G158 #3=#:G160 |i| |lcoef| #4=#:G172 |beta|

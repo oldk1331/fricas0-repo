@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPSCAT-;degree;SExpon;1| (|f| $) (SPADCALL |f| (QREFELT $ 9))) 
 
 (DEFUN |UPSCAT-;leadingCoefficient;SCoef;2| (|f| $)

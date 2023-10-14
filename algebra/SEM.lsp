@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SEM;greater| (|r1| |r2| $)
   (COND ((NULL (QCAR |r1|)) 'NIL) ((NULL (QCAR |r2|)) 'T)
         ('T

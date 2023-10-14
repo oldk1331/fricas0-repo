@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |OMERR;coerce;$Of;1| (|e| $)
   (PROG (|infoSize|)
     (RETURN

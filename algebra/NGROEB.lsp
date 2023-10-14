@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NGROEB;lcmCo| (|c1| |c2| $)
   (PROG (|lcc|)
     (RETURN

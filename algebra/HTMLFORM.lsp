@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HTMLFORM;coerce;OfS;1| (|expr| $)
   (SEQ
    (|HTMLFORM;outputTree|

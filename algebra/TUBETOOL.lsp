@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TUBETOOL;point;4DfP;1| (|x| |y| |z| |c| $)
   (PROG (|l|)
     (RETURN

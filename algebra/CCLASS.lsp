@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CCLASS;digit;$;1| ($) (SPADCALL "0123456789" (QREFELT $ 9))) 
 
 (DEFUN |CCLASS;hexDigit;$;2| ($)

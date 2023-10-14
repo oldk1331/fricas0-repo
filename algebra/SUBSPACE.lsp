@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SUBSPACE;leaf?;$B;1| (|space| $)
   (SPADCALL (SPADCALL |space| (QREFELT $ 11)) (QREFELT $ 14))) 
 

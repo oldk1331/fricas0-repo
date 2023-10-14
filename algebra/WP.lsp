@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |WP;changeWeightLevel;NniV;1| (|n| $) (SETELT $ 12 |n|)) 
 
 (DEFUN |WP;lookup| (|v| $)

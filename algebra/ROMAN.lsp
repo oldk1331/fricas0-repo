@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ROMAN;roman;I$;1| (|n| $) (SPADCALL |n| (QREFELT $ 6))) 
 
 (DEFUN |ROMAN;roman;S$;2| (|sy| $) (SPADCALL |sy| (QREFELT $ 9))) 

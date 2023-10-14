@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DROPT1;option;LSU;1| (|l| |s| $)
   (PROG (|u|)
     (RETURN

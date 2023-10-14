@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DIFRING-;D;2S;1| (|r| $) (SPADCALL |r| (QREFELT $ 7))) 
 
 (DEFUN |DIFRING-;differentiate;SNniS;2| (|r| |n| $)

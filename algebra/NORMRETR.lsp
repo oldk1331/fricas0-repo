@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NORMRETR;normFactors;ExtPL;1| (|p| $)
   (PROG (|facs| #1=#:G107 #2=#:G108 |i|)
     (RETURN

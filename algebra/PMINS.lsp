@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMINS;patternMatch;IP2Pmr;1| (|x| |p| |l| $)
   (COND ((SPADCALL |p| (QREFELT $ 9)) (SPADCALL |p| |x| |l| (QREFELT $ 11)))
         ('T (|PMINS;patternMatchInner| |x| |p| |l| $)))) 

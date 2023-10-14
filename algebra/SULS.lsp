@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SULS;variable;$S;1| (|x| $) (QREFELT $ 7)) 
 
 (DEFUN |SULS;center;$Coef;2| (|x| $) (QREFELT $ 8)) 

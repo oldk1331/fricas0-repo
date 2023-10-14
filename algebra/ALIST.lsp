@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ALIST;dictionary;$;1| ($) (SPADCALL NIL (QREFELT $ 11))) 
 
 (DEFUN |ALIST;empty;$;2| ($) (SPADCALL (QREFELT $ 12))) 

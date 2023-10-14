@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SGCF;numberOfImproperPartitionsInternal| (|n| |m| |cm| $)
   (PROG (|s| #1=#:G116 |i|)
     (RETURN

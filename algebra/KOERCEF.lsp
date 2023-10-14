@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |CoercibleFrom;|)) 
 
 (DEFPARAMETER |CoercibleFrom;AL| 'NIL) 

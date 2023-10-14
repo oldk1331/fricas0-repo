@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STEXPS;zro| ($) (SPADCALL (QREFELT $ 8))) 
 
 (DEFUN |STEXPS;stmult| (|n0| |x0| |y0| |ll0| $)

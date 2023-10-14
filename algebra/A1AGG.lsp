@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |OneDimensionalArrayAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |OneDimensionalArrayAggregate;|)) 

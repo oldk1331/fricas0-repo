@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STTAYLOR;zro| ($) (SPADCALL (QREFELT $ 8))) 
 
 (DEFUN |STTAYLOR;+;3S;2| (|x| |y| $)

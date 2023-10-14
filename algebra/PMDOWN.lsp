@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMDOWN;fixPredicate;MM;1| (|f| $)
   (PROG () (RETURN (CONS #'|PMDOWN;fixPredicate;MM;1!0| (VECTOR |f| $))))) 
 

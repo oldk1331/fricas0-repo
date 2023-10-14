@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TEMUTL;stripC| (|s| |u| $)
   (PROG (|i|)
     (RETURN

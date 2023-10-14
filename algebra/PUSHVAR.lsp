@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PUSHVAR;pushdown;PPROVPPR;1| (|g| |x| $)
   (SPADCALL |g| |x|
             (SPADCALL (|spadConstant| $ 13) (SPADCALL |x| (QREFELT $ 15)) 1

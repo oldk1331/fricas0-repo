@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFPOLY;revListToSUP| (|l| $)
   (PROG (|newl| #1=#:G165 |t|)
     (RETURN

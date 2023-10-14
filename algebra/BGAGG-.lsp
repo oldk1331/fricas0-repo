@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BGAGG-;bag;LA;1| (|l| $)
   (PROG (|x| #1=#:G113 |s|)
     (RETURN

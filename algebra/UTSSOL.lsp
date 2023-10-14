@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UTSSOL;seriesSolve;MLUTSF;1| (|f| |l| $)
   (PROG (|next| |st| |coeffs| |l2| |s1| |l1| #1=#:G376 |e| #2=#:G375)
     (RETURN

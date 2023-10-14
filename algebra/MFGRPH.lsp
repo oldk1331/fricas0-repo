@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MFGRPH;multifunctionGraph;L$;1| (|ob| $)
   (PROG (|objs| #1=#:G121 |x| #2=#:G120)
     (RETURN

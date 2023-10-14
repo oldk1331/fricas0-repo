@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ACFS-;rootOf;2S;1| (|p| $)
   (PROG (|l|)
     (RETURN

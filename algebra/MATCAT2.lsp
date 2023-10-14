@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MATCAT2;map;MM1M2;1| (|f| |m| $)
   (PROG (#1=#:G110 |j| #2=#:G111 |l| #3=#:G108 |i| #4=#:G109 |k| |ans|)
     (RETURN

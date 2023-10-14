@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FreeModuleCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FreeModuleCategory;|)) 

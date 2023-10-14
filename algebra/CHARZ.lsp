@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |CharacteristicZero;|)) 
 
 (DEFPARAMETER |CharacteristicZero;AL| 'NIL) 

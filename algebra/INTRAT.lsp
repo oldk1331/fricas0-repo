@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTRAT;infieldint;FU;1| (|f| $)
   (PROG (|rec|)
     (RETURN

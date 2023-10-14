@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |BalancedPAdicRational;|)) 
 
 (DEFUN |BalancedPAdicRational| (#1=#:G140)

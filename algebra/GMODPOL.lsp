@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GMODPOL;leadingMonomial;$Mm;1| (|p| $) (SPADCALL |p| (QREFELT $ 14))) 
 
 (DEFUN |GMODPOL;leadingExponent;$E;2| (|p| $)

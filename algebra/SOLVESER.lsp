@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SOLVESER;unvectorise;VFIF;1| (|vect| |var| |n| $)
   (PROG (|polyvar| #1=#:G106 |vecti| #2=#:G111 |i| Z)
     (RETURN

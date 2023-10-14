@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TRIGCAT-;csc;2S;1| (|x| $)
   (PROG (|a|)
     (RETURN

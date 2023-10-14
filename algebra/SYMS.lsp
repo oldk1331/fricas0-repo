@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SYMS;newEntry| ($)
   (VECTOR (SPADCALL (QREFELT $ 12)) (CONS 1 "void") NIL)) 
 

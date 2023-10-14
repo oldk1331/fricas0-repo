@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |POLYVEC;copy_first;2UvIV;1| (|np| |op| |n| $)
   (PROG (#1=#:G118 |j| |ns|)
     (RETURN

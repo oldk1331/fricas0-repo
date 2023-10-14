@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BRILL;squaredPolynomial| (|p| $)
   (PROG (|d|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SIGNEF;sign;FSOcU;1| (|f| |x| |a| $)
   (COND ((NULL (SPADCALL |f| (QREFELT $ 10))) (CONS 1 "failed"))
         ('T (|SIGNEF;insign| |f| |x| |a| 0 $)))) 

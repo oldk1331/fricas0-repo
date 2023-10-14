@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTDEN;MP_to_UP| (|p| |k| $)
   (PROG (|up1|)
     (RETURN

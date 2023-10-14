@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SET;#;$Nni;1| (|s| $) (SPADCALL |s| (QREFELT $ 9))) 
 
 (DEFUN |SET;brace;$;2| ($) (SPADCALL (QREFELT $ 11))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ARR2CAT-;any?;MSB;1| (|f| |m| $)
   (PROG (#1=#:G133 #2=#:G137 #3=#:G139 |j| #4=#:G138 |i|)
     (RETURN

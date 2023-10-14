@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |StringCategory;|)) 
 
 (DEFPARAMETER |StringCategory;AL| 'NIL) 

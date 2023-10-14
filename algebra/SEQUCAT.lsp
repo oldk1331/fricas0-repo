@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |SequenceCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |SequenceCategory;|)) 

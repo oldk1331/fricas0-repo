@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INPSIGN;signAround;UPRMU;1| (|p| |x| |rsign| $)
   (PROG (|ul| |ur|)
     (RETURN

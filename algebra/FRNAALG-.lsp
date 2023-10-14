@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRNAALG-;min_poly_from_matrix| (|mx| |x| $)
   (PROG (|res| |i| |vectorOfCoef| |cond| |k|)
     (RETURN

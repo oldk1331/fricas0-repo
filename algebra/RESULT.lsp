@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RESULT;cleanUpDomainForm| (|d| $)
   (PROG (#1=#:G116 |u| #2=#:G115)
     (RETURN

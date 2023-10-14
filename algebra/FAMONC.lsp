@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FreeAbelianMonoidCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FreeAbelianMonoidCategory;|)) 

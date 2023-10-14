@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |OrderedAbelianMonoid;|)) 
 
 (DEFPARAMETER |OrderedAbelianMonoid;AL| 'NIL) 

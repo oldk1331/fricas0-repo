@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |IndexedTwoDimensionalArray;|)) 
 
 (DEFUN |IndexedTwoDimensionalArray| (&REST #1=#:G109)

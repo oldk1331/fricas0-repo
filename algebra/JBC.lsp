@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |JetBundleCategory;|)) 
 
 (DEFPARAMETER |JetBundleCategory;AL| 'NIL) 

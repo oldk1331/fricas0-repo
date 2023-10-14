@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IRRF2F;toEF| (|i| $) (SPADCALL (ELT $ 9) |i| (QREFELT $ 14))) 
 
 (DEFUN |IRRF2F;expand;IrL;2| (|i| $)

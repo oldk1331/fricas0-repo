@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LOOP;loop;L$;1| (|lis| $)
   (PROG (|li| |lx| |minValue| |l2| |l1| #1=#:G118 |x| #2=#:G117)
     (RETURN

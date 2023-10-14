@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IRSN;aIdInverse| ($)
   (PROG (#1=#:G200 #2=#:G154 #3=#:G131 |i| #4=#:G210 |k| #5=#:G127 #6=#:G118
          |j| #7=#:G209 |l| #8=#:G208 |idperm| #9=#:G206 #10=#:G207)

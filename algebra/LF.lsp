@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LF;Si;2F;1| (|x| $) (SPADCALL (QREFELT $ 21) |x| (QREFELT $ 30))) 
 
 (DEFUN |LF;Ci;2F;2| (|x| $) (SPADCALL (QREFELT $ 22) |x| (QREFELT $ 30))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PRIMARR2;map;MPaPa;1| (|f| |v| $) (SPADCALL |f| |v| (QREFELT $ 12))) 
 
 (DEFUN |PRIMARR2;scan;MPaBPa;2| (|f| |v| |b| $)

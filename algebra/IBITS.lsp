@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IBITS;minIndex;$I;1| (|u| $) (QREFELT $ 6)) 
 
 (DEFUN |IBITS;range| (|v| |i| $)

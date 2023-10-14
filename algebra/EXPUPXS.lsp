@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EXPUPXS;exponential;Ups$;1| (|f| $) (SPADCALL |f| (QREFELT $ 10))) 
 
 (PUT '|EXPUPXS;exponent;$Ups;2| '|SPADreplace| '(XLAM (|f|) |f|)) 

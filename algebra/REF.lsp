@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|REF;=;2$B;1| '|SPADreplace| 'EQ) 
 
 (DEFUN |REF;=;2$B;1| (|p| |q| $) (EQ |p| |q|)) 

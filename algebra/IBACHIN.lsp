@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IBACHIN;applyFrobToMatrix| (|mat| |q| $)
   (PROG (|j| |i| |ans| |n| |m|)
     (RETURN

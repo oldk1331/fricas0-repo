@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |RecursivePolynomialCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |RecursivePolynomialCategory;|)) 

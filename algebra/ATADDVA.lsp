@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |additiveValuation;|)) 
 
 (DEFPARAMETER |additiveValuation;AL| 'NIL) 

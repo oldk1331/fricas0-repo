@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NORMMA;PolR2SUP| (|q| $) (SPADCALL (ELT $ 10) |q| (QREFELT $ 14))) 
 
 (DEFUN |NORMMA;norm;PolEPolR;2| (|q| $)

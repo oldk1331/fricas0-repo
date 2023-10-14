@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|BOOLEAN;test;2$;1| '|SPADreplace| '(XLAM (|a|) |a|)) 
 
 (DEFUN |BOOLEAN;test;2$;1| (|a| $) |a|) 

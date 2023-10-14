@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DBLRESP;remove0| (|p| $)
   (PROG (#1=#:G104)
     (RETURN

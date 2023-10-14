@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FS-;ground?;SB;1| (|x| $) (QEQCAR (SPADCALL |x| (QREFELT $ 18)) 0)) 
 
 (DEFUN |FS-;ground;SR;2| (|x| $) (SPADCALL |x| (QREFELT $ 21))) 

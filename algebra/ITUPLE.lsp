@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ITUPLE;stream;MS$;1| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 8))) 
 
 (DEFUN |ITUPLE;filterWhile;M2$;2| (|f| |x| $) (SPADCALL |f| |x| (QREFELT $ 11))) 

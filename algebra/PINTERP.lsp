@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PINTERP;interpolate;Up2LUp;1| (|qx| |lx| |ly| $)
   (PROG (|px|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ITFUN3;map;MItItIt;1| (|f| |s1| |s2| $)
   (SPADCALL |f| |s1| |s2| (QREFELT $ 14))) 
 

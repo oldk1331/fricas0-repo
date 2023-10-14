@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GPOLSET;construct;L$;1| (|lp| $) (SPADCALL |lp| (QREFELT $ 12))) 
 
 (DEFUN |GPOLSET;copy;2$;2| (|ps| $)

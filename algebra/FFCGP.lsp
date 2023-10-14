@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFCGP;tableForDiscreteLogarithm;IT;1| (|fac| $)
   (SPADCALL (QREFELT $ 40))) 
 

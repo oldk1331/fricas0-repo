@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MPC2;supMap| (|fn| |supr| $)
   (PROG (|c|)
     (RETURN

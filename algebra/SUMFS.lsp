@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SUMFS;newk| ($) (SPADCALL (SPADCALL (QREFELT $ 9)) (QREFELT $ 11))) 
 
 (DEFUN |SUMFS;sum;FSbF;2| (|x| |s| $)

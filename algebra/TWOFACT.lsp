@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TWOFACT;exchangeVars| (|p| $)
   (COND
    ((SPADCALL |p| (|spadConstant| $ 9) (QREFELT $ 11)) (|spadConstant| $ 9))

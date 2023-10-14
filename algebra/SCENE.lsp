@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SCENE;createSceneRoot;Sb$;1| (|bb| $) (VECTOR 'ROOT NIL (CONS 3 |bb|))) 
 
 (DEFUN |SCENE;createSceneRoot;R$;2| (|bb| $)

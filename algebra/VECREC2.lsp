@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VECREC2;modInverse| (|c| |p| $)
   (PROG (#1=#:G118)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |ExtensionField;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |ExtensionField;|)) 

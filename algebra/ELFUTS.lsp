@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ELFUTS;sncndnre| (|m| |s0| |c0| |d0| |scd| |dx| |sign| $)
   (PROG ()
     (RETURN

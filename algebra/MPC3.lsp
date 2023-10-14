@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MPC3;map;MPR1PR2;1| (|f| |p| $)
   (PROG (|up| |ans| |x2| |c| |x1|)
     (RETURN

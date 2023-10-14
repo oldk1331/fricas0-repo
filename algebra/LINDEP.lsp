@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LINDEP;aNonZeroSolution| (|m| $)
   (PROG (|ns|)
     (RETURN

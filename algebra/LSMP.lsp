@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LSMP;hasSolution?;MColB;1| (A |b| $)
   (EQL (SPADCALL A (QREFELT $ 11))
        (SPADCALL (|LSMP;systemMatrix| A |b| $) (QREFELT $ 11)))) 

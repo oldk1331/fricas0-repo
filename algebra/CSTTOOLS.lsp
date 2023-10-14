@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CSTTOOLS;cycleElt;STU;1| (|x| $)
   (PROG (#1=#:G115 #2=#:G121 |y| |i|)
     (RETURN

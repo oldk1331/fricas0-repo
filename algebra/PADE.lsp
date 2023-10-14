@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PADE;constInner| (|up| $) (CONS 0 (CONS (LIST |up|) NIL))) 
 
 (DEFUN |PADE;truncPoly| (|p| |n| $)

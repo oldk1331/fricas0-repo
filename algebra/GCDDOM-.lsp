@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GCDDOM-;lcm;3S;1| (|x| |y| $)
   (PROG (LCM)
     (RETURN

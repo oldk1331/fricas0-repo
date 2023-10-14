@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FACTFUNC;nthRoot;FNniR;1| (|ff| |n| $)
   (PROG (#1=#:G121 |radi| |coeff| |qr| #2=#:G119 #3=#:G128 |term| |d| #4=#:G117
          #5=#:G115 #6=#:G127 |t| #7=#:G126 |lf|)

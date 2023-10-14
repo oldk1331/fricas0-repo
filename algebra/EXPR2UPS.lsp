@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EXPR2UPS;performSubstitution| (|fcn| |x| |a| $)
   (PROG (|xFE|)
     (RETURN

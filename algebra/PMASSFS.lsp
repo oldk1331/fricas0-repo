@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMASSFS;mkk| (|op| $) (SPADCALL |op| NIL (QREFELT $ 10))) 
 
 (DEFUN |PMASSFS;ass| (|k| |s| $)

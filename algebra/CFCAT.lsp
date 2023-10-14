@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |CombinatorialFunctionCategory;|)) 
 
 (DEFPARAMETER |CombinatorialFunctionCategory;AL| 'NIL) 

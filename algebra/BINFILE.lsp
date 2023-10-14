@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BINFILE;defstream| (|fn| |mode| $)
   (COND
    ((EQUAL |mode| "input")

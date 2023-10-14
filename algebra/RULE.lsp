@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|RULE;pattern;$P;1| '|SPADreplace| '(XLAM (|x|) (QVELT |x| 0))) 
 
 (DEFUN |RULE;pattern;$P;1| (|x| $) (QVELT |x| 0)) 

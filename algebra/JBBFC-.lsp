@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|JBBFC-;U;PiS;1| '|SPADreplace|
      '(XLAM (|i|) (|error| "Only functions of independent variables allowed"))) 
 

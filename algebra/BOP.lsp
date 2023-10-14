@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BOP;is?;$SB;1| (|op| |s| $) (EQUAL (SPADCALL |op| (QREFELT $ 13)) |s|)) 
 
 (PUT '|BOP;name;$S;2| '|SPADreplace| '(XLAM (|op|) (QVELT |op| 0))) 

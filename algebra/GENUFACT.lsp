@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GENUFACT;factorWarning| (|f| $)
   (SPADCALL
    (LIST

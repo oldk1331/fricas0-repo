@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IPF;generator;$;1| ($) (|spadConstant| $ 15)) 
 
 (DEFUN |IPF;^;$I$;2| (|x| |n| $)

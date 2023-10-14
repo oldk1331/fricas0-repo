@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FEXPR;mkEqn| (|s1| |s2| $)
   (SPADCALL (SPADCALL |s2| (QREFELT $ 13))
             (SPADCALL

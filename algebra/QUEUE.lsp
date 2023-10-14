@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |QUEUE;enqueue!;S$S;1| (|e| |q| $)
   (SEQ
    (COND

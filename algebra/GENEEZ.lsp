@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GENEEZ;compBound;BPLNni;1| (|m| |listpolys| $)
   (PROG (#1=#:G128 |normprod| #2=#:G123 #3=#:G122 #4=#:G124 #5=#:G126 #6=#:G138
          |g| #7=#:G139 |df| |nm| #8=#:G120 #9=#:G119 #10=#:G121 #11=#:G137 |u|

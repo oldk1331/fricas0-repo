@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FELFUN;rabs;2F;1| (|r| $) (SPADCALL |r| (QREFELT $ 7))) 
 
 (DEFUN |FELFUN;rabs;CF;2| (|r| $)

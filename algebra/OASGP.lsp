@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |OrderedAbelianSemiGroup;|)) 
 
 (DEFPARAMETER |OrderedAbelianSemiGroup;AL| 'NIL) 

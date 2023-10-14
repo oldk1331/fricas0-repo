@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |XDPOLY;mindegTerm;$R;1| (|p| $) (SPADCALL |p| (QREFELT $ 10))) 
 
 (DEFUN |XDPOLY;sh;$Nni$;2| (|p| |n| $)

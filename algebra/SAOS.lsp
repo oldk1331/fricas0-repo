@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SAOS;create;$;1| '|SPADreplace| '(XLAM NIL "?")) 
 
 (DEFUN |SAOS;create;$;1| ($) "?") 

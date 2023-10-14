@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FORT;setLegalFortranSourceExtensions;2L;1| (|l| $) (SETELT $ 6 |l|)) 
 
 (DEFUN |FORT;checkExtension| (|fn| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|HASHTBL;keys;$L;1| '|SPADreplace| 'HKEYS) 
 
 (DEFUN |HASHTBL;keys;$L;1| (|t| $) (HKEYS |t|)) 

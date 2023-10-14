@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |UniqueFactorizationDomain;|)) 
 
 (DEFPARAMETER |UniqueFactorizationDomain;AL| 'NIL) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |MatrixCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |MatrixCategory;|)) 

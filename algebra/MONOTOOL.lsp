@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MONOTOOL;normalDenom;FMUP;1| (|f| |derivation| $)
   (QCAR (SPADCALL (SPADCALL |f| (QREFELT $ 9)) |derivation| (QREFELT $ 12)))) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODEINT;diff;SM;1| (|x| $)
   (PROG () (RETURN (CONS #'|ODEINT;diff;SM;1!0| (VECTOR $ |x|))))) 
 

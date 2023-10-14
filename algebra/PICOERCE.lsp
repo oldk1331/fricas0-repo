@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PICOERCE;coerce;PE;1| (|x| $)
   (PROG (|f|)
     (RETURN

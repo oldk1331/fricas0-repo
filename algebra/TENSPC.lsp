@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |TensorPowerCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |TensorPowerCategory;|)) 

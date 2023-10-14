@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAGCD;algebraicGcd1a| (|x| |y| |mu| |vx| |lvz| $)
   (PROG (|yu| |xu| #1=#:G140 |w1|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SDVAR;makeVariable;SNni$;1| '|SPADreplace| 'CONS) 
 
 (DEFUN |SDVAR;makeVariable;SNni$;1| (|s| |n| $) (CONS |s| |n|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RULECOLD;name;$S;1| (|r| $) (QREFELT $ 6)) 
 
 (DEFUN |RULECOLD;coerce;$Of;2| (|r| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GENPGCD;gcdPolynomial;3Sup;1| (|p1| |p2| $)
   (PROG (|v2| |v| #1=#:G175 |g| |v1| |pp2| |pp1| |vp2| |vp1| #2=#:G145 |c2|
          |c1| |#G9| |#G8|)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMPLEX2;map;MCC;1| (|fn| |gr| $)
   (SPADCALL (SPADCALL (SPADCALL |gr| (QREFELT $ 9)) |fn|)
             (SPADCALL (SPADCALL |gr| (QREFELT $ 10)) |fn|) (QREFELT $ 12))) 

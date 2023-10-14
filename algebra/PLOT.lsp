@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PLOT;Fnan?| (|x| $) (SPADCALL |x| |x| (QREFELT $ 17))) 
 
 (DEFUN |PLOT;Pnan?| (|x| $)

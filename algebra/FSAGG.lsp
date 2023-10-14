@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FiniteSetAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FiniteSetAggregate;|)) 

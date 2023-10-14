@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GALFACTU;height;UPF;1| (|p| $) (SPADCALL |p| (QREFELT $ 9))) 
 
 (DEFUN |GALFACTU;length;UPF;2| (|p| $) (SPADCALL |p| 1 (QREFELT $ 14))) 

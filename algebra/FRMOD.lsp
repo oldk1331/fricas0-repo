@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRMOD;One;$;1| ($) (QREFELT $ 10)) 
 
 (PUT '|FRMOD;module;V$;2| '|SPADreplace| '(XLAM (|v|) |v|)) 

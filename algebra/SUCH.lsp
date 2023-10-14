@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SUCH;construct;S1S2$;1| '|SPADreplace| 'CONS) 
 
 (DEFUN |SUCH;construct;S1S2$;1| (|o| |c| $) (CONS |o| |c|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LPEFRAC;pullback| (|pF| $)
   (PROG (|r| |c|)
     (RETURN

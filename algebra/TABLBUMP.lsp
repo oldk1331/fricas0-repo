@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TABLBUMP;bumprow;MLLR;1| (|cf| |x| |lls| $)
   (PROG (|rw| |y|)
     (RETURN

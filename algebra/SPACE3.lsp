@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SPACE3;convertSpace| (|space| $)
   (PROG (|lllipt| |llprop| |tmpllipt| |tmplipt| #1=#:G147 |point| |tmplprop|
          #2=#:G146 |curve| |lprop| #3=#:G145 |component|)

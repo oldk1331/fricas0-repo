@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|FNAME;=;2$B;1| '|SPADreplace| 'EQUAL) 
 
 (DEFUN |FNAME;=;2$B;1| (|f1| |f2| $) (EQUAL |f1| |f2|)) 

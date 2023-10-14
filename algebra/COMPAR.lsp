@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |Comparable;|)) 
 
 (DEFPARAMETER |Comparable;AL| 'NIL) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODEPRRIC;lambda| (|c| |l| $)
   (PROG ()
     (RETURN

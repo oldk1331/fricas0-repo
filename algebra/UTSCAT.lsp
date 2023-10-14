@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |UnivariateTaylorSeriesCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |UnivariateTaylorSeriesCategory;|)) 

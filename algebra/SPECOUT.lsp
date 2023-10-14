@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SPECOUT;juxtaposeTerms| (|l| $) (SPADCALL |l| (QREFELT $ 8))) 
 
 (DEFUN |SPECOUT;outputAsFortran;OfV;2| (|e| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LAPLACE;laplace;F2SF;1| (|f| |t| |s| $)
   (|LAPLACE;locallaplace| (SPADCALL |f| |t| (QREFELT $ 15)) |t|
    (SPADCALL |t| (QREFELT $ 16)) |s| (SPADCALL |s| (QREFELT $ 16)) $)) 

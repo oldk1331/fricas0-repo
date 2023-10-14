@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LO;Zero;$;1| ($) (CONS (|spadConstant| $ 10) (|spadConstant| $ 11))) 
 
 (DEFUN |LO;zero?;$B;2| (|x| $) (SPADCALL (QCAR |x|) (QREFELT $ 13))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |PointCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |PointCategory;|)) 

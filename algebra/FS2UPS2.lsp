@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FS2UPS2;ratIfCan| (|fcn| $) (SPADCALL |fcn| (QREFELT $ 17))) 
 
 (DEFUN |FS2UPS2;check_inverse| (|coef| |opt_rec| $)

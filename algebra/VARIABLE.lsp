@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VARIABLE;coerce;$S;1| (|x| $) (QREFELT $ 6)) 
 
 (DEFUN |VARIABLE;coerce;$Of;2| (|x| $) (SPADCALL (QREFELT $ 6) (QREFELT $ 10))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FGLMICPK;zeroDim?| (|lq2| $)
   (PROG (|lv| |x| #1=#:G110 |m| #2=#:G122 |q2| #3=#:G121 |s| #4=#:G120)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VIEWDEF;viewPosDefault;L;1| ($)
   (LIST (SPADCALL (QREFELT $ 27) (QREFELT $ 50))
         (SPADCALL (QREFELT $ 28) (QREFELT $ 50)))) 

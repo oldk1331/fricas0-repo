@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FiniteAbelianMonoidRing;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FiniteAbelianMonoidRing;|)) 

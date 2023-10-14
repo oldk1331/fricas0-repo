@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |XPolynomial;|)) 
 
 (DEFUN |XPolynomial| (#1=#:G115)

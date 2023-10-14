@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |XMLAT;xmlAttribute;2S$;1| (|name| |value| $)
   (CONS |name| (LIST |value|))) 
 

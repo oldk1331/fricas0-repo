@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |BinaryTreeCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |BinaryTreeCategory;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DSMP;retractIfCan;$U;1| (|p| $)
   (COND
    ((ZEROP (SPADCALL |p| (QREFELT $ 10)))

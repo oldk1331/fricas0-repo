@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FC;setLabelValue;2Si;1| (|u| $) (SETELT $ 10 |u|)) 
 
 (DEFUN |FC;newLabel| ($)

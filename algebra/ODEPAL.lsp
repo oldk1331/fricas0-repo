@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODEPAL;algDsolve;LodoRR;1| (|l| |g| $)
   (PROG (|u| |bas| #1=#:G123 |v| #2=#:G122 |sol| |rec|)
     (RETURN

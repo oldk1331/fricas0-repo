@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMPUTIL;Ski2Lambda| (|s| $)
   (PROG (#1=#:G151 |s112| |s12| |s2| |c112| |c111| |subsubnodes2| |c12| |c11|
          |subsubnodes| |s1| |c2| |c1| |subnodes| |strVar3| |strVar2| |strVar1|

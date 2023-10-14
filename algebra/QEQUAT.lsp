@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |QEQUAT;coerce;$Of;1| (|u| $)
   (SPADCALL (SPADCALL (QCAR |u|) (QREFELT $ 9))
             (SPADCALL (QCDR |u|) (QREFELT $ 11)) (QREFELT $ 12))) 

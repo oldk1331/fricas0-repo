@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GBEUCLID;euclideanGroebner;2L;1| (|Pol| $)
   (|GBEUCLID;eminGbasis| (|GBEUCLID;strongGbasis| |Pol| 0 0 $) $)) 
 

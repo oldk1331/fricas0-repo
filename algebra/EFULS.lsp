@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EFULS;nthRootUTS| (|uts| |n| $)
   (COND
    ((OR

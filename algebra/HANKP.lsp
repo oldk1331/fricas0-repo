@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HANKP;HankelMatrix;LM;1| (|l| $)
   (PROG (#1=#:G117 |x| |i| #2=#:G116 |lloc| |j| #3=#:G115 |n| #4=#:G106)
     (RETURN

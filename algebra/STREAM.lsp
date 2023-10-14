@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STREAM;explicitlyEmpty?;$B;1| (|x| $)
   (EQ (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 7))) 
 

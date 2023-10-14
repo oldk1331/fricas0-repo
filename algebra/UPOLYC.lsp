@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |UnivariatePolynomialCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialCategory;|)) 

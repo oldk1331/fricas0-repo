@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TESTAUX;nPassInc| (|s| |o| $) (SPADCALL (QREFELT $ 9))) 
 
 (DEFUN |TESTAUX;nFailInc| (|s| |o| $) (SPADCALL |s| |o| (QREFELT $ 12))) 

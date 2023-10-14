@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RDETR;polyRDE;3UPIMU;1| (|aa| |bb| |cc| |d| |derivation| $)
   (PROG (|uansw| |answ| |b0?| |n| |baseCase?| |dt| |u|)
     (RETURN

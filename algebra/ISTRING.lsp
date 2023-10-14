@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|ISTRING;new;NniC$;1| '|SPADreplace| '|make_full_CVEC|) 
 
 (DEFUN |ISTRING;new;NniC$;1| (|n| |c| $) (|make_full_CVEC| |n| |c|)) 

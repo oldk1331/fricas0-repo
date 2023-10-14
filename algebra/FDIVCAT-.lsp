@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FDIVCAT-;principal?;SB;1| (|d| $)
   (QEQCAR (SPADCALL |d| (QREFELT $ 12)) 0)) 
 

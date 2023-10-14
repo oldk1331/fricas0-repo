@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INCRMAPS;increment;M;1| ($) (CONS #'|INCRMAPS;increment;M;1!0| $)) 
 
 (DEFUN |INCRMAPS;increment;M;1!0| (|x| $)

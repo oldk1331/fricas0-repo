@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMQFCAT;patternMatch;QP2Pmr;1| (|x| |p| |l| $)
   (PROG (|ur| |u| #1=#:G107 |r|)
     (RETURN

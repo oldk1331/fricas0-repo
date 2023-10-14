@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GRIMAGE;numberCheck| (|nums| $)
   (PROG (#1=#:G120 #2=#:G118 #3=#:G122 |i|)
     (RETURN

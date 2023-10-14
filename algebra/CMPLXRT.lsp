@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CMPLXRT;complexZeros;UPParL;1| (|p| |eps| $)
   (PROG (|ris| #1=#:G113 |z| #2=#:G112 |lz| |p2| |p1| |q| |pp| #3=#:G111 |pf|
          |lpf| |vv| |x2| |x1|)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMTOOLS;negConstant| (|l| $)
   (PROG (#1=#:G145 #2=#:G147 |r| #3=#:G148 |x|)
     (RETURN

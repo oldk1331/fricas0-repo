@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DISTRO2;mapall;MDD;1| (|f| |x| $)
   (PROG (|bcum2| |fcum2| |cum2| |mom2|)
     (RETURN

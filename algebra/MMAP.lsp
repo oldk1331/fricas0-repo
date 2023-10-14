@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MMAP;rfmap| (|f| |q| $)
   (SPADCALL (SPADCALL |f| (SPADCALL |q| (QREFELT $ 13)) (QREFELT $ 16))
             (SPADCALL |f| (SPADCALL |q| (QREFELT $ 17)) (QREFELT $ 16))

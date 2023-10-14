@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IMATQF;qfMat| (|m| $) (SPADCALL (ELT $ 14) |m| (QREFELT $ 17))) 
 
 (DEFUN |IMATQF;rowEchelon;MM2;2| (|m| $)

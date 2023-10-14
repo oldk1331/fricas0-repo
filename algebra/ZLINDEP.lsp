@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ZLINDEP;linearlyDependentOverZ?;VB;1| (|v| $)
   (SPADCALL |v| (QREFELT $ 10))) 
 

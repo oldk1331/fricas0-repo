@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FreeLieAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FreeLieAlgebra;|)) 

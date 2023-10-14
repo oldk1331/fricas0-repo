@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FiniteDivisorCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FiniteDivisorCategory;|)) 

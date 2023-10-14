@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTFACT;squareFree;IF;1| (|n| $)
   (PROG (|y| |v| |m| |x| |lim| #1=#:G129 #2=#:G131 |l| |sv| |rec| |u|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DPOLCAT-;makeVariable;SM;1| (|s| $)
   (PROG () (RETURN (CONS #'|DPOLCAT-;makeVariable;SM;1!0| (VECTOR $ |s|))))) 
 

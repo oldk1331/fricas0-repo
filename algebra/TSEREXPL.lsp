@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TSEREXPL;taylor_via_deriv;ULSLLULS;1| (|f| |lx| |ld| $)
   (PROG (|lxt| #1=#:G107 |x| #2=#:G106 |ft|)
     (RETURN

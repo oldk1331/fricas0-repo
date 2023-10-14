@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TSEREXPG;stream_taylor| (|f| |x| |xn| |d| |n| $)
   (PROG ()
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RESLATC;coerce;SV;1| (|s| $) (SPADCALL (QREFELT $ 8))) 
 
 (PUT '|RESLATC;coerce;ES;2| '|SPADreplace|

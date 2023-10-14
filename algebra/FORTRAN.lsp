@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FORTRAN;makeRep| (|b| $) (CONS (SPADCALL (QREFELT $ 12)) |b|)) 
 
 (PUT '|FORTRAN;codeFrom| '|SPADreplace| 'QCDR) 

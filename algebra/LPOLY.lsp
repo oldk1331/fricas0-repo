@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LPOLY;eval1| (|lw| |v| |nv| $)
   (PROG (|r| |l| |s|)
     (RETURN

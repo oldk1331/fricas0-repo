@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LAUPOL;Zero;$;1| ($) (CONS (|spadConstant| $ 11) 0)) 
 
 (DEFUN |LAUPOL;One;$;2| ($) (CONS (|spadConstant| $ 14) 0)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PARTPERM;partitions;3IS;1| (M N |n| $)
   (PROG (|c|)
     (RETURN

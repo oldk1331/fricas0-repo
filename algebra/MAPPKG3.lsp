@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAPPKG3;curryRight;MBM;1| (|fabc| |b| $)
   (PROG () (RETURN (CONS #'|MAPPKG3;curryRight;MBM;1!0| (VECTOR |fabc| |b|))))) 
 

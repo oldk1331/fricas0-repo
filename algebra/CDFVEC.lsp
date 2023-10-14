@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|CDFVEC;qelt;$IC;1| '|SPADreplace| 'CDELT) 
 
 (DEFUN |CDFVEC;qelt;$IC;1| (|x| |i| $) (CDELT |x| |i|)) 

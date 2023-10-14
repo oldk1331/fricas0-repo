@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DEFINTEF;innerint;FS2OcBU;1| (|f| |x| |a| |b| |ignor?| $)
   (PROG (#1=#:G134 |v| |u|)
     (RETURN

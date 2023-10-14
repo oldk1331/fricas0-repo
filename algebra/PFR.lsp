@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PFR;copypf| (|a| $)
   (CONS (QCAR |a|) (SPADCALL (QCDR |a|) (QREFELT $ 10)))) 
 

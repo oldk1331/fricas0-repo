@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IBATOOL;diagonalProduct;MR;1| (|m| $)
   (PROG (|ans| #1=#:G116 |i| #2=#:G117 |j|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |BinaryRecursiveAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |BinaryRecursiveAggregate;|)) 

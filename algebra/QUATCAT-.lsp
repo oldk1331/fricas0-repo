@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |QUATCAT-;characteristic;Nni;1| ($) (SPADCALL (QREFELT $ 9))) 
 
 (DEFUN |QUATCAT-;conjugate;2S;2| (|x| $)

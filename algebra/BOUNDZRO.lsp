@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BOUNDZRO;qzroot1| (|p| $)
   (|BOUNDZRO;negint|
    (SPADCALL

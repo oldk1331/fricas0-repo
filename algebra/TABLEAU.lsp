@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|TABLEAU;tableau;L$;1| '|SPADreplace| '(XLAM (|lls|) |lls|)) 
 
 (DEFUN |TABLEAU;tableau;L$;1| (|lls| $) |lls|) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ZDSOLVE;convert;NsmpNsmp;1| (|q| $)
   (PROG (|q2| |lq2| |iq2| |v2| #1=#:G132 |d| |v|)
     (RETURN

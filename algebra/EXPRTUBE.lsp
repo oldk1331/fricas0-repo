@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EXPRTUBE;getVariable| (|x| |y| |z| $)
   (PROG (|t2| |t1| #1=#:G112 |varList3| |varList2| |varList1|)
     (RETURN

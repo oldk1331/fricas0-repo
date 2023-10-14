@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BALFACT;balancedFactorisation;2UPF;1| (|a| |b| $)
   (SPADCALL |a| (LIST |b|) (QREFELT $ 10))) 
 

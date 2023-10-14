@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DFINTTLS;variation| (|p| |a| $)
   (|DFINTTLS;var|
    (SPADCALL |p|

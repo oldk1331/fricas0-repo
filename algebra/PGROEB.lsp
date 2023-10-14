@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PGROEB;lexGroebner;LLL;1| (|lp| |lv| $)
   (PROG (#1=#:G110 |pp| #2=#:G109 |gb| |b| #3=#:G108 |pol| #4=#:G107 OV DP
          |DPoly| PP)

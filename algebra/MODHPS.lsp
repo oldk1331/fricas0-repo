@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MODHPS;HP_solve;LL2SNniMMU;1|
        (|l| |degs| |kind| |qvar| |sigma| |gen| |check| $)
   (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 17))) 

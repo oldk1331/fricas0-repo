@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BBTREE;leaf?;$B;1| (|x| $)
   (COND
    ((OR (SPADCALL |x| (QREFELT $ 9))

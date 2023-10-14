@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |EltableAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |EltableAggregate;|)) 

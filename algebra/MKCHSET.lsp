@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MKCHSET;position;$Nni;1| '|SPADreplace| 'QCDR) 
 
 (DEFUN |MKCHSET;position;$Nni;1| (|x| $) (QCDR |x|)) 

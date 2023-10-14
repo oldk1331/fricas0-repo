@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|OUTFORM;print;$V;1| '|SPADreplace| '|mathprint|) 
 
 (DEFUN |OUTFORM;print;$V;1| (|x| $) (|mathprint| |x|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |XFreeAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |XFreeAlgebra;|)) 

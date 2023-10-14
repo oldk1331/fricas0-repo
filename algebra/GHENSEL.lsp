@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GHENSEL;reduceCoef| (|c| |p| $)
   (COND ((SPADCALL |p| (QREFELT $ 9)) |c|)
         ((|domainEqual| (QREFELT $ 6) (|Integer|))

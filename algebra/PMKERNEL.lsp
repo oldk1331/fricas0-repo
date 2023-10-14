@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMKERNEL;patternMatchArg| (|ls| |lp| |l| $)
   (PROG (#1=#:G121 #2=#:G124 #3=#:G127 |p| #4=#:G128 |s| #5=#:G118 #6=#:G125
          #7=#:G126)

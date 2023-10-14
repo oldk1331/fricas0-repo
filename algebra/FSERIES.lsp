@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FSERIES;One;$;1| ($)
   (LIST
    (CONS (SPADCALL (|spadConstant| $ 12) (QREFELT $ 14))

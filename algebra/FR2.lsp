@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FR2;map;MFF;1| (|func| |f| $)
   (PROG (#1=#:G105 #2=#:G104 #3=#:G106 #4=#:G109 |g|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BITS;bits;NniB$;1| (|n| |b| $) (SPADCALL |n| |b| (QREFELT $ 8))) 
 
 (DECLAIM (NOTINLINE |Bits;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |POLTOPOL;variable1| (|xx| $)
   (PROG (#1=#:G104)
     (RETURN

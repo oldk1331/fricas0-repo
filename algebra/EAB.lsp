@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EAB;=;2$B;1| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 8))) 
 
 (DEFUN |EAB;<;2$B;2| (|x| |y| $)

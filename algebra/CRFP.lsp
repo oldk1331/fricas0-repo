@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CRFP;complexZeros;UPRL;1| (|p| |eps| $)
   (PROG (#1=#:G123 |linfac| #2=#:G122 |facs| |eps0|)
     (RETURN

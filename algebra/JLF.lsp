@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JLF;statistics;V;1| ($)
   (SEQ
    (SPADCALL

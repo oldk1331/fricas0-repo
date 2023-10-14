@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |IndexedVector;|)) 
 
 (DEFUN |IndexedVector| (&REST #1=#:G1353)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ISUMP;pmul| (|c| |p| $)
   (PROG (|pn| |rec|)
     (RETURN

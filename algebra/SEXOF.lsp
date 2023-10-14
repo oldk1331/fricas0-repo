@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SEXOF;coerce;$Of;1| (|b| $)
   (PROG (|l1| #1=#:G126 |l| |b1| #2=#:G125 |r|)
     (RETURN

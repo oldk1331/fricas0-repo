@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ZMOD;size;Nni;1| ($) (QREFELT $ 6)) 
 
 (DEFUN |ZMOD;characteristic;Nni;2| ($) (QREFELT $ 6)) 

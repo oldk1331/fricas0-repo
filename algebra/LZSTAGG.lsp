@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |LazyStreamAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |LazyStreamAggregate;|)) 

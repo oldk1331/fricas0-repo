@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FLAGG2;reduce;MA2R;1| (|fn| |l| |ident| $)
   (COND ((SPADCALL |l| (QREFELT $ 11)) |ident|)
         ('T

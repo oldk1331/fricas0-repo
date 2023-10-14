@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PARSU2;map;MPsPs;1| (|f| |c| $)
   (SPADCALL (SPADCALL (SPADCALL |c| 1 (QREFELT $ 10)) |f|)
             (SPADCALL (SPADCALL |c| 2 (QREFELT $ 10)) |f|)

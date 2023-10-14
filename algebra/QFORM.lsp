@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |QFORM;quadraticForm;Sm$;1| (|m| $)
   (COND
    ((NULL (SPADCALL |m| (QREFELT $ 10)))

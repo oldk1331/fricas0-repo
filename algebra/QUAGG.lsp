@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |QueueAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |QueueAggregate;|)) 

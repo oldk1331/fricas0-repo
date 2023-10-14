@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MTHING;mergeDifference;3L;1| (|x| |y| $)
   (SEQ
    (COND ((OR (NULL |x|) (NULL |y|)) |x|)

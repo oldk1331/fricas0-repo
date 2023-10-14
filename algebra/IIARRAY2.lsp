@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|IIARRAY2;empty;$;1| '|SPADreplace| '(XLAM NIL (MAKE_MATRIX 0 0))) 
 
 (DEFUN |IIARRAY2;empty;$;1| ($) (MAKE_MATRIX 0 0)) 

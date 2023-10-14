@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |XPolynomialsCat;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |XPolynomialsCat;|)) 

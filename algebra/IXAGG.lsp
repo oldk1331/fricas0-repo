@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |IndexedAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |IndexedAggregate;|)) 

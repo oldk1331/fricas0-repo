@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ANY1;retractable?;AB;1| (|a| $)
   (SPADCALL (SPADCALL |a| (QREFELT $ 10)) (QREFELT $ 7) (QREFELT $ 12))) 
 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODERTRIC;UP2SUP| (|p| $) (SPADCALL (ELT $ 12) |p| (QREFELT $ 16))) 
 
 (DEFUN |ODERTRIC;logDerOnly| (|l| $)

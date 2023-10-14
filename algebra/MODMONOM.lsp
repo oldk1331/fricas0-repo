@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MODMONOM;<;2$B;1| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 8))) 
 
 (PUT '|MODMONOM;exponent;$E;2| '|SPADreplace| 'QCDR) 

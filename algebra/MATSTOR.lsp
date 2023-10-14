@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MATSTOR;rep| '|SPADreplace| '(XLAM (|m|) |m|)) 
 
 (DEFUN |MATSTOR;rep| (|m| $) |m|) 

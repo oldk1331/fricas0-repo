@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TESTUNIT;interpretFunction1| (|f| |info| |arg| $)
   (PROG (|info_f| |ff| |if1|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HEXADEC;hex;F$;1| (|r| $) (SPADCALL |r| (QREFELT $ 7))) 
 
 (PUT '|HEXADEC;coerce;$Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GPOLCAT-;monomials;SL;1| (|p| $)
   (PROG (|ml|)
     (RETURN

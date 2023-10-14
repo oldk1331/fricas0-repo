@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MRVLIM;var_kers| (|e| $)
   (PROG (#1=#:G142 |kk| #2=#:G141)
     (RETURN

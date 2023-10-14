@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JBC-;m2r;LL;1| (|mi| $)
   (PROG (|k| |ri| |j| #1=#:G138 |i|)
     (RETURN

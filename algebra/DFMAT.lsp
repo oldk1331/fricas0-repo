@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|DFMAT;minRowIndex;$I;1| '|SPADreplace| '(XLAM (|x|) 0)) 
 
 (DEFUN |DFMAT;minRowIndex;$I;1| (|x| $) 0) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RANDSRC;randnum;I;1| ($)
   (PROG (|t|)
     (RETURN

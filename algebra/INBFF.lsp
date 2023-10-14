@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INBFF;inv;2V;1| (|a| $)
   (PROG (|erg| |b| #1=#:G120)
     (RETURN

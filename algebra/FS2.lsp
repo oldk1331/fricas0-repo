@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FS2;smpmap| (|fn| |p| $)
   (PROG ()
     (RETURN

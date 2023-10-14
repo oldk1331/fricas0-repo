@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FRIDEAL2;fmap| (|f| |a| $)
   (PROG (#1=#:G106 #2=#:G108 |i| #3=#:G107 |v|)
     (RETURN

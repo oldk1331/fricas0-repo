@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|NSUP;rep| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
 (DEFUN |NSUP;rep| (|s| $) |s|) 

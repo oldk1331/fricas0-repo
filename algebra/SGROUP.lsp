@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |SemiGroup;|)) 
 
 (DEFPARAMETER |SemiGroup;AL| 'NIL) 

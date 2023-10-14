@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VECTCAT-;+;3S;1| (|u| |v| $)
   (PROG (|n|)
     (RETURN

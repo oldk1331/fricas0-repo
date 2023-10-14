@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |PartialDifferentialRing;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |PartialDifferentialRing;|)) 

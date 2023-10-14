@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|DIRRING;per| '|SPADreplace| '(XLAM (|f|) |f|)) 
 
 (DEFUN |DIRRING;per| (|f| $) |f|) 

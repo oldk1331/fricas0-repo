@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|ILIST;#;$Nni;1| '|SPADreplace| 'LENGTH) 
 
 (DEFUN |ILIST;#;$Nni;1| (|x| $) (LENGTH |x|)) 

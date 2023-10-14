@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DRAW;draw;ExSbLTdv;1| (|f| |bind| |l| $)
   (PROG (|s|)
     (RETURN

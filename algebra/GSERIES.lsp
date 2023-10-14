@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|GSERIES;coerce;Ups$;1| '|SPADreplace| '(XLAM (|upxs|) |upxs|)) 
 
 (DEFUN |GSERIES;coerce;Ups$;1| (|upxs| $) |upxs|) 

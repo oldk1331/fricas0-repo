@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RETRACT-;retract;AS;1| (|s| $)
   (PROG (|u|)
     (RETURN

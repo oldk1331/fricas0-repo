@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MSYSCMD;systemCommand;SV;1| '|SPADreplace| '|doSystemCommand|) 
 
 (DEFUN |MSYSCMD;systemCommand;SV;1| (|cmd| $) (|doSystemCommand| |cmd|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |LeftAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |LeftAlgebra;|)) 

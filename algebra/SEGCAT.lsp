@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |SegmentCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |SegmentCategory;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPOLYC2;map;MPRPS;1| (|f| |p| $)
   (PROG (|ans| |nc|)
     (RETURN

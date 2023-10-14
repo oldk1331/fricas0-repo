@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JBFC-;X;PiS;1| (|i| $)
   (SPADCALL (SPADCALL |i| (QREFELT $ 11)) (QREFELT $ 12))) 
 

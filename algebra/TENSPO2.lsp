@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TENSPO2;linearExtend;MTpM2;1| (|f| |x| $)
   (PROG (|res| #1=#:G109 |t|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|COORDSYS;cartesian;2P;1| '|SPADreplace| '(XLAM (|pt|) |pt|)) 
 
 (DEFUN |COORDSYS;cartesian;2P;1| (|pt| $) |pt|) 

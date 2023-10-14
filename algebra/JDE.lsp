@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JDE;setSimpMode;2Nni;1| (|i| $)
   (PROG (|j|)
     (RETURN

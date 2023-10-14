@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DRAWHACK;coerce;SbSb;1| (|s| $)
   (SPADCALL (ELT $ 10) |s| (QREFELT $ 15))) 
 

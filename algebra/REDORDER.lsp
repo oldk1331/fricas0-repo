@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |REDORDER;localbinom| (|j| |i| $)
   (COND
    ((SPADCALL |j| |i| (QREFELT $ 12)) (SPADCALL |j| (+ |i| 1) (QREFELT $ 15)))

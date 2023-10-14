@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMMUPC;swap;2UPUP;1| (|poly| $)
   (PROG (|ans|)
     (RETURN

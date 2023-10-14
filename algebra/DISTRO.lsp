@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|DISTRO;rep| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
 (DEFUN |DISTRO;rep| (|x| $) |x|) 

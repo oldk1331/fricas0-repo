@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |AssociationListAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |AssociationListAggregate;|)) 

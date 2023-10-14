@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RNG-;annihilate?;2SB;1| (|x| |y| $)
   (SPADCALL (SPADCALL |x| |y| (QREFELT $ 7)) (QREFELT $ 9))) 
 

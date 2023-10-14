@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PATLRES;new;$;1| ($)
   (CONS (SPADCALL (QREFELT $ 11)) (SPADCALL (QREFELT $ 13)))) 
 

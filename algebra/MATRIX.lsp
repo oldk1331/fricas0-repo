@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|MATRIX;minRowIndex;$I;1| '|SPADreplace| '(XLAM (|x|) 1)) 
 
 (DEFUN |MATRIX;minRowIndex;$I;1| (|x| $) 1) 

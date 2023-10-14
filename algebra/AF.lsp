@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |AF;belong?;BoB;1| (|op| $)
   (COND ((SPADCALL |op| (QREFELT $ 8) (QREFELT $ 17)) 'T)
         ('T (SPADCALL |op| '|%root_sum| (QREFELT $ 18))))) 

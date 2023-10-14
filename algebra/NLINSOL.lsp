@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NLINSOL;solveInField;LL;1| (|l| $)
   (PROG (#1=#:G109 #2=#:G108 #3=#:G110 #4=#:G112 |p|)
     (RETURN

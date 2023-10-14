@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RPOLCAT-;coerce;SOf;1| (|p| $)
   (PROG (#1=#:G255 |dp| |tp| |ip|)
     (RETURN

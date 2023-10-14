@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|DBASE;coerce;L$;1| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
 (DEFUN |DBASE;coerce;L$;1| (|u| $) |u|) 

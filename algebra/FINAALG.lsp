@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |FiniteRankNonAssociativeAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |FiniteRankNonAssociativeAlgebra;|)) 

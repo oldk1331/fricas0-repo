@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DROPT0;adaptive;L2B;1| (|l| |s| $)
   (PROG (|u|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FCOMP;sin;E$;1| (|e| $) (CONS 'T |e|)) 
 
 (DEFUN |FCOMP;cos;E$;2| (|e| $) (CONS 'NIL |e|)) 

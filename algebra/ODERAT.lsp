@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODERAT;infOrder| (|f| $)
   (- (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (QREFELT $ 14))
      (SPADCALL (SPADCALL |f| (QREFELT $ 15)) (QREFELT $ 14)))) 

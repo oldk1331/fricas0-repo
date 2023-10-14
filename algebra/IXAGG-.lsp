@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IXAGG-;elt;SIndex2Entry;1| (|a| |i| |x| $)
   (COND ((SPADCALL |i| |a| (QREFELT $ 10)) (SPADCALL |a| |i| (QREFELT $ 11)))
         ('T |x|))) 

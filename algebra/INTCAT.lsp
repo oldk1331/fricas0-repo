@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |IntervalCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |IntervalCategory;|)) 

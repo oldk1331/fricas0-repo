@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RECOP;getINFOREC| (|infoOp| $)
   (PROG (#1=#:G141)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMPRED;suchThat;SME;1| (|p| |f| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 9)) |f| (QREFELT $ 12))) 
 

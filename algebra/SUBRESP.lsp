@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SUBRESP;primitivePart;UPRUP;1| (|p| |q| $)
   (PROG (|rec| #1=#:G114)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MESH;numberCheck| (|nums| $)
   (PROG (#1=#:G110 #2=#:G108 #3=#:G112 |i|)
     (RETURN

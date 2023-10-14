@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |Field;|)) 
 
 (DEFPARAMETER |Field;AL| 'NIL) 

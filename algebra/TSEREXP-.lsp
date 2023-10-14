@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TSEREXP-;taylor_via_deriv;CoefLLPS;1| (|f| |lx| |ld| $)
   (SPADCALL (SPADCALL |f| (|spadConstant| $ 12) (QREFELT $ 13)) |lx| |ld|
             (QREFELT $ 17))) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |QALGSET;factorset| (|y| $)
   (PROG (#1=#:G127 |j| #2=#:G126)
     (RETURN

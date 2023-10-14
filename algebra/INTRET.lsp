@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTRET;integer;SI;1| (|s| $) (SPADCALL |s| (QREFELT $ 8))) 
 
 (DEFUN |INTRET;integer?;SB;2| (|s| $) (QEQCAR (SPADCALL |s| (QREFELT $ 11)) 0)) 

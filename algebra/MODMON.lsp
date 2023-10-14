@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MODMON;setPoly;2Rep;1| (|mon| $)
   (PROG (#1=#:G123 |i| #2=#:G112 |copymon| |oldm|)
     (RETURN

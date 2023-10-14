@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PARRPKG;nextMotzkinRow| (|vv| |aa| |bb| |cc| $)
   (PROG (|vvnew| |vva| |vi| |vvc| |vvb|)
     (RETURN

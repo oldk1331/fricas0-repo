@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CLAGG-;find;MAU;1| (|f| |c| $)
   (SPADCALL |f| (SPADCALL |c| (QREFELT $ 9)) (QREFELT $ 12))) 
 

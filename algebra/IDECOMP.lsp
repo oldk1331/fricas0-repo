@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IDECOMP;convertQF| (|a| $)
   (SPADCALL (SPADCALL (SPADCALL |a| (QREFELT $ 9)) (QREFELT $ 11))
             (SPADCALL (SPADCALL |a| (QREFELT $ 12)) (QREFELT $ 11))

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TBAGG-;table;S;1| ($) (SPADCALL (QREFELT $ 9))) 
 
 (DEFUN |TBAGG-;table;LS;2| (|l| $) (SPADCALL |l| (QREFELT $ 13))) 

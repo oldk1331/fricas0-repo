@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |SolvableSkewPolynomialCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |SolvableSkewPolynomialCategory;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FCPAK1;zeroVector;SPFc;1| (|fname| |n| $)
   (PROG (|fa| |indices| |ip1| |segbp1| |segp1| |hp1| |lp1| |i1| |ue|)
     (RETURN

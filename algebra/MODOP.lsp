@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MODOP;One;$;1| ($)
   (SPADCALL (|spadConstant| $ 13) (|spadConstant| $ 15) (QREFELT $ 16))) 
 

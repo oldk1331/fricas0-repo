@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NUMODE;rk4a;VI4FIMV;1|
        (|ystart| |nvar| |x1| |x2| |eps| |htry| |nstep| |derivs| $)
   (PROG (|i| #1=#:G134 |x| |iter| |outlist| |m| |tiny| |step| |t6| #2=#:G124

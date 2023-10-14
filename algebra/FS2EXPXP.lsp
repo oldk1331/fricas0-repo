@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FS2EXPXP;ratIfCan| (|fcn| $) (SPADCALL |fcn| (QREFELT $ 16))) 
 
 (DEFUN |FS2EXPXP;stateSeriesProblem| (|function| |problem| $)

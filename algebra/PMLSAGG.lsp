@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMLSAGG;patternMatch;LP2Pmlr;1| (|l| |p| |r| $)
   (PROG (|u|)
     (RETURN

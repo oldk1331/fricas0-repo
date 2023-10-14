@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EFSTRUC;realElem| (|f| |l| $)
   (PROG ()
     (RETURN

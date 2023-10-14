@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |GradedAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |GradedAlgebra;|)) 

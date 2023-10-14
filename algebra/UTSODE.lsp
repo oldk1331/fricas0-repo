@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UTSODE;stFunc1;MM;1| (|f| $)
   (PROG () (RETURN (CONS #'|UTSODE;stFunc1;MM;1!0| (VECTOR |f| $))))) 
 

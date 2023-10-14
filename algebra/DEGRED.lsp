@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DEGRED;degrees| (|u| $)
   (PROG (|l|)
     (RETURN

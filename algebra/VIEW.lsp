@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |VIEW;graphCurves;LGi;1| (|listOfListsOfPoints| $)
   (SPADCALL |listOfListsOfPoints| (SPADCALL (QREFELT $ 8))
             (SPADCALL (QREFELT $ 9)) (SPADCALL (QREFELT $ 11)) NIL

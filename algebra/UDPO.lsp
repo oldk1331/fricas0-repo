@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UDPO;userOrdered?;B;1| ($)
   (COND
    ((NULL (SPADCALL (QREFELT $ 10) (QREFELT $ 12)))

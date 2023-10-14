@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ERROR;doit| (|s| $) (SEQ (|throwPatternMsg| |s| NIL) (EXIT "exit"))) 
 
 (DEFUN |ERROR;error;SE;2| (|s| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ODESYS;solve;MVMU;1| (|mm| |v| |solve| $)
   (PROG (|k| |l| |m| |solVec| #1=#:G151 |s| |nn| |er| |i| #2=#:G150 |sol|
          |SolMatrix| #3=#:G149 |part| |n| |sols| #4=#:G147 |u| #5=#:G148 |e|

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PMFS;patternMatch;FP2Pmr;1| (|x| |p| |l| $)
   (PROG (#1=#:G165 |ex| |ep| |uur| |uu| |u| |lx| |uq| |q| |v| |r|)
     (RETURN

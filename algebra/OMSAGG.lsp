@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |OrderedMultisetAggregate;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |OrderedMultisetAggregate;|)) 

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|ICARD;<;2$B;1| '|SPADreplace| '(XLAM (|x| |y|) (CGREATERP |y| |x|))) 
 
 (DEFUN |ICARD;<;2$B;1| (|x| |y| $) (CGREATERP |y| |x|)) 

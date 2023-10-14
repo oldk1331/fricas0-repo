@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ALGSC;recip;$U;1| (|x| $) (SPADCALL |x| (QREFELT $ 13))) 
 
 (DEFUN |ALGSC;*;Sm2$;2| (|m| |x| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LWORD;lyndon?;OfmB;1| (|w| $)
   (PROG (|f| #1=#:G115)
     (RETURN

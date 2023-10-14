@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PATTERN1;st| (|p| |l| $)
   (SPADCALL |p| (SPADCALL (SPADCALL |p| (QREFELT $ 10)) |l| (QREFELT $ 11))
             (QREFELT $ 12))) 

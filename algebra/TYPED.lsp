@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TYPED;var;S$;1| (|n| $) (CONS |n| (SPADCALL (QREFELT $ 8)))) 
 
 (PUT '|TYPED;var;SIl$;2| '|SPADreplace| 'CONS) 

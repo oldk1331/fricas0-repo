@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IRURPK;checkRur;TSLB;1| (|ts| |lts| $)
   (PROG (#1=#:G136 #2=#:G139 |rems| #3=#:G142 |p| #4=#:G141 |dlts| #5=#:G140
          |us| |lp| |dts| |z| |f0| #6=#:G129)

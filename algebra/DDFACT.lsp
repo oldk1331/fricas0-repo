@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DDFACT;ranpol| (|d| $)
   (PROG (|u| #1=#:G120 |j| |k1|)
     (RETURN

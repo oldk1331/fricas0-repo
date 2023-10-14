@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IR;-;2$;1| (|u| $) (SPADCALL -1 |u| (QREFELT $ 14))) 
 
 (DEFUN |IR;Zero;$;2| ($)

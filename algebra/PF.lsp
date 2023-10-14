@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |PrimeField;|)) 
 
 (DEFUN |PrimeField| (#1=#:G137)

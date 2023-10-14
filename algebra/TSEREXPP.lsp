@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TSEREXPP;rescale| (|p| |r0| |rn| $)
   (PROG (|s| #1=#:G103)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FSINT;K2KG| (|k| $)
   (SPADCALL
    (SPADCALL

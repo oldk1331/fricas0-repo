@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IJB;setNotation;2S;1| (|s| $)
   (PROG (|t|)
     (RETURN

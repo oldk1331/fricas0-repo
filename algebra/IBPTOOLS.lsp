@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IBPTOOLS;mapUnivariate;MSupR;1| (|f| |poly| $)
   (PROG (|ans|)
     (RETURN

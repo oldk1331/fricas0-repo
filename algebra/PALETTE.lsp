@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|PALETTE;dark;C$;1| '|SPADreplace| '(XLAM (|c|) (CONS 1 |c|))) 
 
 (DEFUN |PALETTE;dark;C$;1| (|c| $) (CONS 1 |c|)) 

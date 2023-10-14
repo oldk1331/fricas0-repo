@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SHP;subresultantSequenceBegin| (|p1| |p2| $)
   (PROG (|Lc2| #1=#:G126 |Lc1| |c1| #2=#:G123 |LSubr| |i| |in2| |in1| #3=#:G119
          |Pr| |n| #4=#:G117 |d2| |d1|)

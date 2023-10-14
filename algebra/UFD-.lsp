@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UFD-;squareFreePart;2S;1| (|x| $)
   (PROG (#1=#:G114 #2=#:G113 #3=#:G115 #4=#:G117 |f| |s|)
     (RETURN

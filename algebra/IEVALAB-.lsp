@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IEVALAB-;eval;SABS;1| (|f| |x| |v| $)
   (SPADCALL |f| (LIST |x|) (LIST |v|) (QREFELT $ 11))) 
 

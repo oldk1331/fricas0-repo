@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |Evalable;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |Evalable;|)) 

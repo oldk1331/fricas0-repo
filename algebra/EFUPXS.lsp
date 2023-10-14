@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EFUPXS;nthRootIfCan;UPXSNniU;1| (|upxs| |n| $)
   (PROG (|ulsRoot| |uls| |coef| |deg| |r|)
     (RETURN

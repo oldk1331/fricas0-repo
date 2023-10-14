@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EQ;factorAndSplit;$L;1| (|eq| $)
   (PROG (#1=#:G111 |rcf| #2=#:G110 |eq0|)
     (RETURN

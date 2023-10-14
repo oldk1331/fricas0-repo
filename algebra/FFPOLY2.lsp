@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FFPOLY2;rootOfIrreduciblePoly;SupF;1| (|pf| $)
   (PROG (|stillToFactor| |root| |degSTF| |degh| |h| |j| |trModp| |beta|
          #1=#:G124 |i| |basispointer| |basis| |qexp| |p| |deg| #2=#:G107

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CHVAR;eval;UPUP2FUPUP;1| (|p| |x| |y| $)
   (PROG ()
     (RETURN

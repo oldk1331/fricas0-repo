@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |FlexibleArray;|)) 
 
 (DEFUN |FlexibleArray| (#1=#:G115)

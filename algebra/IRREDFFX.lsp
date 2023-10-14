@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |IRREDFFX;qAdicExpansion| (|z| $)
   (PROG (|r| |qr|)
     (RETURN

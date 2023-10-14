@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |HEUGCD;myNextPrime| (|val| |bound| $) (SPADCALL |val| (QREFELT $ 10))) 
 
 (DEFUN |HEUGCD;constNotZero| (|f| $)

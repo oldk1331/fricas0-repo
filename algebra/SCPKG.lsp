@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SCPKG;matrix2Vector| (|m| $)
   (PROG (|li| |lili|)
     (RETURN

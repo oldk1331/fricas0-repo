@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EXPRODE;localInteger| (|n| $)
   (COND ((QREFELT $ 14) |n|) ('T (SPADCALL (QREFELT $ 13) |n| (QREFELT $ 15))))) 
 

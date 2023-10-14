@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RDIST;weighted;LM;1| (|lvw| $)
   (PROG (|totwt| #1=#:G117 |k| |i| |wv| |kv| |n| |kl| |w| |u| #2=#:G116 |r|
          |t|)

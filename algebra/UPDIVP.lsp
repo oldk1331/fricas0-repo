@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPDIVP;divideIfCan;2UPU;1| (|p1| |p2| $)
   (PROG (|q| |ee| #1=#:G109 #2=#:G126 |c| |e| |lc|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |YSTREAM;Y;MS;1| (|f| $)
   (PROG (|j| |y|)
     (RETURN

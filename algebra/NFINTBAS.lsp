@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NFINTBAS;frobMatrix| (|rb| |rbinv| |rbden| |p| $)
   (PROG (#1=#:G118 |mat| |a| #2=#:G124 |j| #3=#:G125 |jj| #4=#:G122 |i|
          #5=#:G123 |ii| |v| |b| |n|)

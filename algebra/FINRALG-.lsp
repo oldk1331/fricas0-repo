@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FINRALG-;discriminant;VR;1| (|v| $)
   (SPADCALL (SPADCALL |v| (QREFELT $ 11)) (QREFELT $ 12))) 
 

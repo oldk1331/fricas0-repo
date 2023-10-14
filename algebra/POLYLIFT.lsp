@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |POLYLIFT;map;MMPS;1| (|fv| |fc| |p| $)
   (PROG (|up| |ans| |t| |x1|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DIOPS-;construct;LA;1| (|l| $) (SPADCALL |l| (QREFELT $ 9))) 
 
 (DEFUN |DIOPS-;dictionary;A;2| ($) (SPADCALL (QREFELT $ 11))) 

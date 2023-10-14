@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |Logic;|)) 
 
 (DEFPARAMETER |Logic;AL| 'NIL) 

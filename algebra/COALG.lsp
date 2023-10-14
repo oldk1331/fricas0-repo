@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |Coalgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |Coalgebra;|)) 

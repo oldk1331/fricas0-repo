@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JGB;convert1| (|p| $)
   (PROG (|up| |res| |m| |clcup| |lcup| |x| |cc| |xx|)
     (RETURN

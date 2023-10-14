@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ES1;map;MSKS;1| (F2S |prop| |k| $)
   (PROG (|p| |args| #1=#:G112 |x| #2=#:G111)
     (RETURN

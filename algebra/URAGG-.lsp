@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |URAGG-;elt;AfirstS;1| (|x| T3 $) (SPADCALL |x| (QREFELT $ 8))) 
 
 (DEFUN |URAGG-;elt;AlastS;2| (|x| T4 $) (SPADCALL |x| (QREFELT $ 11))) 

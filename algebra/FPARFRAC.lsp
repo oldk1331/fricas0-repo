@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FPARFRAC;construct;L$;1| (|l| $) (CONS (|spadConstant| $ 13) |l|)) 
 
 (DEFUN |FPARFRAC;D;2$;2| (|r| $) (SPADCALL |r| (QREFELT $ 32))) 

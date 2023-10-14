@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PLOT3D;point| (|xx| |yy| |zz| |col| $)
   (PROG (|l|)
     (RETURN

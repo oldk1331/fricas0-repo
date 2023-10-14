@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAPHACK1;iter;MNni2A;1| (|g| |n| |x| $)
   (PROG (|i|)
     (RETURN

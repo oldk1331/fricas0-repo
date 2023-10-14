@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LAMBDA;lambda;Nni$;1| (|n1| $) (CONS 0 (LIST |n1|))) 
 
 (PUT '|LAMBDA;lambda;UT$;2| '|SPADreplace| '(XLAM (|var|) (CONS 1 |var|))) 

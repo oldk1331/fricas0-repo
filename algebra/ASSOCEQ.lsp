@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ASSOCEQ;makeMatrix| (|v| |n| $)
   (PROG (#1=#:G108 |i| #2=#:G107)
     (RETURN

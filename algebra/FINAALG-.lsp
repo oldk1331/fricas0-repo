@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FINAALG-;leftCharacteristicPolynomial;SSup;1| (|a| $)
   (PROG (|j| |i| |mb| |ma| |n|)
     (RETURN

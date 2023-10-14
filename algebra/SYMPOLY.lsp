@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SYMPOLY;*;3$;1| (|p1| |p2| $)
   (PROG (#1=#:G108 #2=#:G107 #3=#:G109 #4=#:G115 |t2| #5=#:G114 #6=#:G113 |t1|)
     (RETURN

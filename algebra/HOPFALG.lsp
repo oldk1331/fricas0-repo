@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |HopfAlgebra;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |HopfAlgebra;|)) 

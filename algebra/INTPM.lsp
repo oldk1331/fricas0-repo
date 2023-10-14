@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTPM;mkalist| (|res| $)
   (SPADCALL (SPADCALL |res| (QREFELT $ 54)) (QREFELT $ 56))) 
 

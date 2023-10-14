@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |LEADCDET;polCase;ZNniLB;1| (|d| |nk| |lval| $)
   (PROG (|distlist| #1=#:G120 |q| |y| #2=#:G112 #3=#:G121 #4=#:G111 |j| |i|)
     (RETURN

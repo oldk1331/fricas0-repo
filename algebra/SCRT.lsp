@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SCRT;spnt;2Df$;1| (|a| |b| $)
   (PROG (|pt|)
     (RETURN

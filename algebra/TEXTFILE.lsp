@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TEXTFILE;read!;$S;1| (|f| $) (SPADCALL |f| (QREFELT $ 8))) 
 
 (DEFUN |TEXTFILE;readIfCan!;$U;2| (|f| $) (SPADCALL |f| (QREFELT $ 11))) 

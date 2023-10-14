@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTHERAL;HermiteIntegrate;RMR;1| (|f| |derivation| $)
   (PROG (|iden| |inum| #1=#:G113 #2=#:G361 #3=#:G363 |i| #4=#:G362 |ratform|
          #5=#:G351 |sol| |p| |j| |nn| |sys| |u'| |u| #6=#:G349 |v| #7=#:G360

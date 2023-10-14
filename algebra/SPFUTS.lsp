@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SPFUTS;lambertW0;2UTS;1| (|x| $)
   (PROG (|dx|)
     (RETURN

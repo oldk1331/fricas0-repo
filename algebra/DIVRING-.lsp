@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DIVRING-;^;SIS;1| (|x| |n| $)
   (COND ((ZEROP |n|) (|spadConstant| $ 7))
         ((SPADCALL |x| (QREFELT $ 9))

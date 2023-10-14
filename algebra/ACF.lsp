@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |AlgebraicallyClosedField;|)) 
 
 (DEFPARAMETER |AlgebraicallyClosedField;AL| 'NIL) 

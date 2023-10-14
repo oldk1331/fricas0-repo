@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MAGMA;=;2$B;1| (|x| |y| $)
   (COND
    ((QEQCAR |x| 0)

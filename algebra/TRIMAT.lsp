@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TRIMAT;UpTriBddDenomInv;MRM;1| (A |denom| $)
   (PROG (#1=#:G104 #2=#:G114 #3=#:G113 #4=#:G115 #5=#:G124 |k| #6=#:G123 |j|
          #7=#:G122 |i| #8=#:G120 #9=#:G121 |offset| AI)

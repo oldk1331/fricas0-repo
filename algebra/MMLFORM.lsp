@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MMLFORM;has_op?| (|expr| |op| $)
   (PROG (|e1|)
     (RETURN

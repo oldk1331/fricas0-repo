@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MULTFACT;factor;PF;1| (|p| $)
   (SEQ
    (COND

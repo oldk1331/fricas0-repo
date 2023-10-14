@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |UPMP;noKaratsuba;3U;1| (|a| |b| $)
   (PROG (|res| #1=#:G125 |u| |lu|)
     (RETURN

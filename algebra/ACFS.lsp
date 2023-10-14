@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |AlgebraicallyClosedFunctionSpace;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |AlgebraicallyClosedFunctionSpace;|)) 

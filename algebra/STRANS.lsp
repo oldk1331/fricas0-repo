@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |STRANS;STransform1;DUTSR;1| (|x| $)
   (PROG (|res| |chi| |mom|)
     (RETURN

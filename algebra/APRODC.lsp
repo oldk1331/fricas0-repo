@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |AbelianProductCategory;|)) 
 
 (DEFPARAMETER |AbelianProductCategory;AL| 'NIL) 

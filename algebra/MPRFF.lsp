@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MPRFF;factor;PRFF;1| (|p| $)
   (PROG (#1=#:G114 #2=#:G113 #3=#:G115 #4=#:G123 |ff| |ffact| #5=#:G122
          #6=#:G121 |fcont| #7=#:G120 |x| #8=#:G119 |u| #9=#:G118 |flist| |denp|

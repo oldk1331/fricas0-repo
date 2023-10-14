@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PFOQ;torsion?;FdB;1| (|d| $) (QEQCAR (SPADCALL |d| (QREFELT $ 11)) 0)) 
 
 (DEFUN |PFOQ;ratcurve| (|d| |modulus| |disc| $)

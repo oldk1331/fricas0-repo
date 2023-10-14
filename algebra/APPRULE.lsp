@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |APPRULE;applist| (|lrule| |arglist| $)
   (PROG (#1=#:G115 |arg| #2=#:G114)
     (RETURN

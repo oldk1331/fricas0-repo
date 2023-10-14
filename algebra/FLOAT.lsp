@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FLOAT;writeOMFloat| (|dev| |x| $)
   (SEQ (SPADCALL |dev| (QREFELT $ 13))
        (SPADCALL |dev| "bigfloat1" "bigfloat" (QREFELT $ 15))

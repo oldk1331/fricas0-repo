@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SEG;SEGMENT;2S$;1| '|SPADreplace| '(XLAM (|a| |b|) (VECTOR |a| |b| 1))) 
 
 (DEFUN |SEG;SEGMENT;2S$;1| (|a| |b| $) (VECTOR |a| |b| 1)) 

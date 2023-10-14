@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SETMN;=;2$B;1| (|s1| |s2| $)
   (SPADCALL (QCAR |s1|) (QCAR |s2|) (QREFELT $ 20))) 
 

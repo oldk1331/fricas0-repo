@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DECLAIM (NOTINLINE |EuclideanDomain;|)) 
 
 (DEFPARAMETER |EuclideanDomain;AL| 'NIL) 

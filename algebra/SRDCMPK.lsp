@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SRDCMPK;KrullNumber;LLNni;1| (|lp| |lts| $)
   (PROG (|n| |ln| #1=#:G150 |ts| #2=#:G149)
     (RETURN

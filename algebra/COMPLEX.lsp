@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |COMPLEX;writeOMComplex| (|dev| |x| $)
   (SEQ (SPADCALL |dev| (QREFELT $ 10))
        (SPADCALL |dev| "complex1" "complex_cartesian" (QREFELT $ 12))

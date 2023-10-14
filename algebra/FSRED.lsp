@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FSRED;newReduc;V;1| ($)
   (PROG (#1=#:G107 |k|)
     (RETURN

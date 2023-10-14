@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |TANEXP;m1toN| (|n| $) (COND ((ODDP |n|) -1) ('T 1))) 
 
 (DEFUN |TANEXP;tanAn;RPiSup;2| (|a| |n| $)

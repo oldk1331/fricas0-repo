@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FSFUN;bernoulli_gamma_series| (|z| |n| $)
   (PROG (|s| |bk| |kinv| |zk| |k| |z2inv| |zinv|)
     (RETURN

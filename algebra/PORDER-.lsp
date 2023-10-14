@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PORDER-;>=;2SB;1| (|x| |y| $) (SPADCALL |y| |x| (QREFELT $ 8))) 
 
 (DEFUN |PORDER-;>;2SB;2| (|x| |y| $) (SPADCALL |y| |x| (QREFELT $ 10))) 

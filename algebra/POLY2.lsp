@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |POLY2;map;MPP;1| (|f| |p| $)
   (PROG ()
     (RETURN

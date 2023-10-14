@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CHARPOL;characteristicPolynomial;M2R;1| (A |v| $)
   (PROG (|j| |i| B |dimA| #1=#:G104)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RETSOL;PQ2P| (|p| $) (SPADCALL (ELT $ 8) |p| (QREFELT $ 13))) 
 
 (DEFUN |RETSOL;FQ2F| (|f| $)

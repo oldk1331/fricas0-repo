@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |XEXPPKG;log;XPOLYNniXPOLY;1| (|p| |n| $)
   (PROG (|k| |s| |k2| |k1| |i| |p1|)
     (RETURN

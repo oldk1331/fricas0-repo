@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SCACHE;expandCache| (|x| $)
   (PROG (#1=#:G118 |k| |ocache|)
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FAXF-;represents;VS;1| (|v| $)
   (PROG (|a| #1=#:G120 |i| |b|)
     (RETURN

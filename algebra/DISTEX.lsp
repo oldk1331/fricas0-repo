@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DISTEX;gaussianDistribution;RD;1| (|a| $)
   (PROG (|cumu|)
     (RETURN

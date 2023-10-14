@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |BINARY;binary;F$;1| (|r| $) (SPADCALL |r| (QREFELT $ 7))) 
 
 (PUT '|BINARY;coerce;$Re;2| '|SPADreplace| '(XLAM (|x|) |x|)) 

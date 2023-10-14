@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |REAL0Q;convert2PolInt| (|f| $)
   (PROG (|pden| #1=#:G108 |c| #2=#:G107)
     (RETURN

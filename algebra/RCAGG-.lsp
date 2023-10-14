@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |RCAGG-;elt;AvalueS;1| (|x| T3 $) (SPADCALL |x| (QREFELT $ 8))) 
 
 (DEFUN |RCAGG-;setelt;Avalue2S;2| (|x| T4 |y| $)

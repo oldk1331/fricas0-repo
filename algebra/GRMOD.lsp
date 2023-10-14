@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |GradedModule;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |GradedModule;|)) 

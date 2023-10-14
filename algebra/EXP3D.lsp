@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |EXP3D;faceIndex| (|subSp| $)
   (PROG (|faceIndexList| #1=#:G111 |poly|)
     (RETURN

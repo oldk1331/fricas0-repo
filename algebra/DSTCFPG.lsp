@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DSTCFPG;JContinuedFraction;DUpCf;1| (|x| |zz| $)
   (PROG (|bn1| |an1| |jac|)
     (RETURN

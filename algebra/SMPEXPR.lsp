@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SMPEXPR;log;2$;1| (|p| $)
   (SEQ
    (COND

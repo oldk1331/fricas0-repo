@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |POLYCATQ;univariate;FVF;1| (|f| |x| $)
   (SPADCALL (|POLYCATQ;P2UP| (SPADCALL |f| (QREFELT $ 11)) |x| $)
             (|POLYCATQ;P2UP| (SPADCALL |f| (QREFELT $ 12)) |x| $)

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GENUPS;genStream| (|f| |n| $)
   (PROG ()
     (RETURN

@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MONOGEN-;convert;SUP;1| (|x| $) (SPADCALL |x| (QREFELT $ 9))) 
 
 (DEFUN |MONOGEN-;convert;UPS;2| (|p| $) (SPADCALL |p| (QREFELT $ 11))) 

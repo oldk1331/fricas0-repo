@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |POLY2UP;univariate;PVUp;1| (|p| |y| $)
   (PROG (|q|)
     (RETURN

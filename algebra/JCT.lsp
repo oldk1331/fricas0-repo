@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |JCT;num1| ($)
   (COND
    ((OR

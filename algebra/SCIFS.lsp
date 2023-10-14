@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SCIFS;indexes;$L;1| '|SPADreplace| 'QCAR) 
 
 (DEFUN |SCIFS;indexes;$L;1| (|me| $) (QCAR |me|)) 

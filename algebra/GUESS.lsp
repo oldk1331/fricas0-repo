@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GUESS;ord1| (|x| |i| $)
   (PROG (#1=#:G271 |k| #2=#:G270 |j| #3=#:G269 #4=#:G268 |n|)
     (RETURN

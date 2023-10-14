@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |ALGEBRA-;coerce;RS;1| (|x| $)
   (SPADCALL |x| (|spadConstant| $ 8) (QREFELT $ 9))) 
 

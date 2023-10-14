@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |QCMPACK;squareFreeFactors| (|lp| $)
   (PROG (|lsflp| |lsfp| #1=#:G169 |p|)
     (RETURN

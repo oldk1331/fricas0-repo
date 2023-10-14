@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|EXPEXPAN;coeff| '|SPADreplace| '(XLAM (|term|) (QVELT |term| 0))) 
 
 (DEFUN |EXPEXPAN;coeff| (|term| $) (QVELT |term| 0)) 

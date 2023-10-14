@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |FAMR-;pomopo!;SRE2S;1| (|p1| |r| |e| |p2| $)
   (PROG ()
     (RETURN

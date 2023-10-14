@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NUMQUAD;aromberg;M4F3IR;1|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| |nint| $)
   (PROG (#1=#:G125 |x2| |x1| |done| |pts| |err| |sum| |ans| |i| |io| |hh|)

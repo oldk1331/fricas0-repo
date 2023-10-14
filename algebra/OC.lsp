@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFPARAMETER |OctonionCategory;CAT| 'NIL) 
 
 (DECLAIM (NOTINLINE |OctonionCategory;|)) 

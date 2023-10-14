@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |DLIST;elt;$unique$;1| (|x| T3 $) (SPADCALL |x| (QREFELT $ 7))) 
 
 (DEFUN |DLIST;elt;$sort$;2| (|x| T4 $) (SPADCALL |x| (QREFELT $ 10))) 

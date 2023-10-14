@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GOPT0;maxLevel;LU;1| (|l| $)
   (PROG (|opt|)
     (RETURN

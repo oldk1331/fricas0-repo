@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NPCOEF;npcoef;SupLLR;1| (|u| |factlist| |leadlist| $)
   (PROG (|detcoef| #1=#:G162 |i| |ltodel| |detufact| #2=#:G150 |uu| #3=#:G139
          #4=#:G138 #5=#:G140 #6=#:G161 |pol| |ltochange| |tablecoef| #7=#:G160

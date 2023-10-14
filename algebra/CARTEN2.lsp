@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |CARTEN2;reshape;LCtCt;1| (|l| |s| $) (SPADCALL |l| (QREFELT $ 12))) 
 
 (DEFUN |CARTEN2;map;MCtCt;2| (|f| |s| $)

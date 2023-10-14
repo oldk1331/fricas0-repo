@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |PATTERN2;map;MPP;1| (|f| |p| $)
   (PROG (|sy| |wr| |w| |xr| |x| #1=#:G159 #2=#:G158 |l| #3=#:G157 #4=#:G156
          |vr| |v| #5=#:G155 #6=#:G154 |ur| |u| |r|)

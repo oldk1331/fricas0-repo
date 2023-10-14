@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (PUT '|SFORT;fortran;SFstFS$;1| '|SPADreplace| 'VECTOR) 
 
 (DEFUN |SFORT;fortran;SFstFS$;1| (|fname| |ftype| |res| $)

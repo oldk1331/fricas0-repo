@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |GBF;createGroebnerBases|
        (|basis| |redPols| |nonZeroRestrictions| |inputPolys| |lcP|
         |listOfBases| |info| $)

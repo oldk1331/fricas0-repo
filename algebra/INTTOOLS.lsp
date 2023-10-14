@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |INTTOOLS;union;3L;1| (|l1| |l2| $) (SPADCALL |l1| |l2| (QREFELT $ 10))) 
 
 (DEFUN |INTTOOLS;varselect;LSL;2| (|l| |x| $)

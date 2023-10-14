@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |NASRING-;coerce;IS;1| (|n| $)
   (SPADCALL |n| (|spadConstant| $ 7) (QREFELT $ 9))) 
 

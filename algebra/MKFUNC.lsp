@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |MKFUNC;function;S2S;1| (|s| |name| $)
   (SPADCALL |s| |name| NIL (QREFELT $ 9))) 
 

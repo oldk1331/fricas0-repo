@@ -1,6 +1,4 @@
 
-(/VERSIONCHECK 2) 
-
 (DEFUN |SAE;size;Nni;1| ($) (EXPT (SPADCALL (QREFELT $ 39)) (QREFELT $ 17))) 
 
 (DEFUN |SAE;random;$;2| ($)
