@@ -18,55 +18,45 @@
       (|parseTran| |x|)))))
  
 ; parseTran x ==
-;   $op: local := nil
 ;   atom x => parseAtom x
-;   [$op,:argl]:= x
-;   u := g($op) where g op == (op is ['elt,op,x] => g x; op)
-;   u='construct =>
-;     r:= parseConstruct argl
-;     $op is ['elt,:.] => [parseTran $op,:rest r]
-;     r
-;   SYMBOLP(u) and (fn := GET(u, 'parseTran)) => FUNCALL(fn, argl)
-;   [parseTran $op,:parseTranList argl]
+;   [op, :argl] := x
+;   u := (op is ['elt, ., x] => x; op)
+;   SYMBOLP(u) and (fn := GET(u, 'parseTran)) =>
+;       if op ~= u then SAY(["parseTran op ~= u", op, u])
+;       FUNCALL(fn, argl)
+;   [parseTran op, :parseTranList argl]
  
 (DEFUN |parseTran| (|x|)
-  (PROG (|$op| |fn| |r| |u| |argl|)
-    (DECLARE (SPECIAL |$op|))
+  (PROG (|op| |argl| |ISTMP#1| |ISTMP#2| |u| |fn|)
     (RETURN
-     (PROGN
-      (SETQ |$op| NIL)
-      (COND ((ATOM |x|) (|parseAtom| |x|))
-            (#1='T
-             (PROGN
-              (SETQ |$op| (CAR |x|))
-              (SETQ |argl| (CDR |x|))
-              (SETQ |u| (|parseTran,g| |$op|))
-              (COND
-               ((EQ |u| '|construct|)
-                (PROGN
-                 (SETQ |r| (|parseConstruct| |argl|))
-                 (COND
-                  ((AND (CONSP |$op|) (EQ (CAR |$op|) '|elt|))
-                   (CONS (|parseTran| |$op|) (CDR |r|)))
-                  (#1# |r|))))
-               ((AND (SYMBOLP |u|) (SETQ |fn| (GET |u| '|parseTran|)))
-                (FUNCALL |fn| |argl|))
-               (#1# (CONS (|parseTran| |$op|) (|parseTranList| |argl|)))))))))))
-(DEFUN |parseTran,g| (|op|)
-  (PROG (|ISTMP#1| |ISTMP#2| |x|)
-    (RETURN
-     (COND
-      ((AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+     (COND ((ATOM |x|) (|parseAtom| |x|))
+           (#1='T
             (PROGN
-             (SETQ |ISTMP#1| (CDR |op|))
-             (AND (CONSP |ISTMP#1|)
-                  (PROGN
-                   (SETQ |op| (CAR |ISTMP#1|))
-                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                   (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                        (PROGN (SETQ |x| (CAR |ISTMP#2|)) #1='T))))))
-       (|parseTran,g| |x|))
-      (#1# |op|)))))
+             (SETQ |op| (CAR |x|))
+             (SETQ |argl| (CDR |x|))
+             (SETQ |u|
+                     (COND
+                      ((AND (CONSP |op|) (EQ (CAR |op|) '|elt|)
+                            (PROGN
+                             (SETQ |ISTMP#1| (CDR |op|))
+                             (AND (CONSP |ISTMP#1|)
+                                  (PROGN
+                                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                   (AND (CONSP |ISTMP#2|)
+                                        (EQ (CDR |ISTMP#2|) NIL)
+                                        (PROGN
+                                         (SETQ |x| (CAR |ISTMP#2|))
+                                         #1#))))))
+                       |x|)
+                      (#1# |op|)))
+             (COND
+              ((AND (SYMBOLP |u|) (SETQ |fn| (GET |u| '|parseTran|)))
+               (PROGN
+                (COND
+                 ((NOT (EQUAL |op| |u|))
+                  (SAY (LIST '|parseTran op ~= u| |op| |u|))))
+                (FUNCALL |fn| |argl|)))
+              (#1# (CONS (|parseTran| |op|) (|parseTranList| |argl|))))))))))
  
 ; parseAtom x ==
 ;  -- next line for compatibility with new compiler
@@ -87,24 +77,6 @@
     (RETURN
      (COND ((ATOM |l|) (|parseTran| |l|))
            ('T (CONS (|parseTran| (CAR |l|)) (|parseTranList| (CDR |l|))))))))
- 
-; DEFPARAMETER($insideConstructIfTrue, nil)
- 
-(DEFPARAMETER |$insideConstructIfTrue| NIL)
- 
-; parseConstruct u ==
-;   $insideConstructIfTrue: local:= true
-;   l:= parseTranList u
-;   ["construct",:l]
- 
-(DEFUN |parseConstruct| (|u|)
-  (PROG (|$insideConstructIfTrue| |l|)
-    (DECLARE (SPECIAL |$insideConstructIfTrue|))
-    (RETURN
-     (PROGN
-      (SETQ |$insideConstructIfTrue| T)
-      (SETQ |l| (|parseTranList| |u|))
-      (CONS '|construct| |l|)))))
  
 ; parseLeftArrow u == parseTran ["LET",:u]
  

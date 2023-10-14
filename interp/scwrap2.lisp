@@ -41,7 +41,7 @@
 (DEFUN |set_nonblank| (|val|) (PROG () (RETURN (SETF $NONBLANK |val|))))
  
 ; current_line_number() ==
-;     tok := CURRENT_-TOKEN()
+;     tok := current_token()
 ;     tok =>
 ;          pos := TOKEN_-NONBLANK(tok)
 ;          pos and INTEGERP(pos) => pos
@@ -52,7 +52,7 @@
   (PROG (|pos| |tok|)
     (RETURN
      (PROGN
-      (SETQ |tok| (CURRENT-TOKEN))
+      (SETQ |tok| (|current_token|))
       (COND
        (|tok|
         (PROGN
@@ -61,7 +61,7 @@
        (#1# NIL))))))
  
 ; spad_syntax_error(wanted, parsing) ==
-;     SPAD_ERROR_LOC(true)
+;     FORMAT(true, '"******** Spad syntax error detected ********")
 ;     if $prev_line then
 ;         FORMAT(true, '"~&The prior line was:~%~%~5D> ~A~%~%",
 ;            $prev_line_number, $prev_line)
@@ -75,7 +75,7 @@
   (PROG ()
     (RETURN
      (PROGN
-      (SPAD_ERROR_LOC T)
+      (FORMAT T "******** Spad syntax error detected ********")
       (COND
        (|$prev_line|
         (FORMAT T "~&The prior line was:~%~%~5D> ~A~%~%" |$prev_line_number|
@@ -111,9 +111,19 @@
  
 (DEFVAR |$restore_list| NIL)
  
+; DEFVAR($compiler_output_stream, nil)
+ 
+(DEFVAR |$compiler_output_stream| NIL)
+ 
+; print_defun(name, body) ==
+;     print_full2(body, $compiler_output_stream)
+ 
+(DEFUN |print_defun| (|name| |body|)
+  (PROG () (RETURN (|print_full2| |body| |$compiler_output_stream|))))
+ 
 ; spadCompile(name) ==
-;     $comp370_apply : local := FUNCTION PRINT_-DEFUN
-;     _*FILEACTQ_-APPLY_* : local := FUNCTION PRINT_-DEFUN
+;     $comp370_apply : local := FUNCTION print_defun
+;     _*FILEACTQ_-APPLY_* : local := FUNCTION print_defun
 ;     _*EOF_* : local := false
 ;     _/EDITFILE : local := name
 ;     $InteractiveMode : local := false
@@ -138,8 +148,8 @@
       |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY* |$comp370_apply|))
     (RETURN
      (PROGN
-      (SETQ |$comp370_apply| #'PRINT-DEFUN)
-      (SETQ *FILEACTQ-APPLY* #'PRINT-DEFUN)
+      (SETQ |$comp370_apply| #'|print_defun|)
+      (SETQ *FILEACTQ-APPLY* #'|print_defun|)
       (SETQ *EOF* NIL)
       (SETQ /EDITFILE |name|)
       (SETQ |$InteractiveMode| NIL)
