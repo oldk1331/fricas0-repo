@@ -277,7 +277,7 @@
               (|Mapping| 6 6) (86 . |map|) (92 . |map|) (98 . +)
               (104 . |empty|) (|List| $$) (108 . |null|) (113 . |first|)
               (118 . |rest|) (123 . SEGMENT) (129 . BY) (|List| 21)
-              (135 . |concat!|) (141 . |coerce|) (146 . |generate|) (|List| 6)
+              (135 . |concat!|) (141 . |coerce|) (146 . |stream|) (|List| 6)
               (152 . |expand|) (157 . |construct|) (162 . |concat|) (|String|)
               (|SingleInteger|) (|HashState|))
            '#(~= 168 |segment| 174 |map| 185 |low| 191 |lo| 196 |latex| 201

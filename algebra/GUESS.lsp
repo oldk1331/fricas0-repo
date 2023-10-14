@@ -6831,7 +6831,7 @@
               (|Union| 19 '"arbitrary") (846 . |maxPower|) (|Union| 19 50)
               (851 . |homogeneous|) (856 . |maxDerivative|) (861 . |Somos|)
               (|Stream| 14) (|PartitionsAndPermutations|) (866 . |partitions|)
-              (872 . |inc|) (|Mapping| 13 13) (|Stream| 13) (877 . |generate|)
+              (872 . |inc|) (|Mapping| 13 13) (|Stream| 13) (877 . |stream|)
               (883 . +) (889 . |partitions|) (|Stream| 252) (|Mapping| 252 13)
               (|StreamFunctions2| 13 252) (896 . |map|) (902 . |partitions|)
               (|StreamFunctions1| 14) (907 . |concat|) (912 . |cons|)

@@ -55,7 +55,7 @@
                                                      (|NonNegativeInteger|)))
                                                    T)
                                                   ((|dilate| ($ |t#1| $)) T)
-                                                  ((|generate|
+                                                  ((|sequence|
                                                     ($ (|Mapping| |t#1| |t#1|)
                                                      |t#1|))
                                                    T))

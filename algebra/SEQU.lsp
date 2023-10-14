@@ -86,7 +86,7 @@
    (SPADCALL (SPADCALL (|SEQU;rep| |x| $) |n| (QREFELT $ 39)) (QREFELT $ 41))
    (QREFELT $ 42))) 
 
-(DEFUN |SEQU;generate;MR$;17| (|f| |r| $)
+(DEFUN |SEQU;sequence;MR$;17| (|f| |r| $)
   (|SEQU;per| (SPADCALL |f| |r| (QREFELT $ 44)) $)) 
 
 (DEFUN |SEQU;coerce;$Of;18| (|mm| $)
@@ -193,8 +193,8 @@
               (|Boolean|) |SEQU;=;2$B;11| |SEQU;coerce;S$;12|
               |SEQU;sequence;S$;13| |SEQU;stream;$S;14| (|NonNegativeInteger|)
               (66 . |first|) |SEQU;first;$Nni$;15| (72 . |complete|)
-              (77 . |entries|) |SEQU;firstn;$NniL;16| (82 . |generate|)
-              |SEQU;generate;MR$;17| (|OutputForm|) (88 . |coerce|)
+              (77 . |entries|) |SEQU;firstn;$NniL;16| (82 . |stream|)
+              |SEQU;sequence;MR$;17| (|OutputForm|) (88 . |coerce|)
               |SEQU;coerce;$Of;18| |SEQU;dilate;R2$;19| (|Equation| 6)
               (|List| 50) (|Mapping| 33 6) (|Void|) (|UniversalSegment| 13)
               '"last" '"rest" '"first" '"value" (|List| $)
@@ -203,25 +203,24 @@
            '#(~= 93 |zero?| 99 |value| 104 |third| 109 |tail| 114 |swap!| 119
               |subtractIfCan| 126 |stream| 132 |split!| 137 |size?| 143
               |setvalue!| 149 |setrest!| 155 |setlast!| 161 |setfirst!| 167
-              |setelt| 173 |setchildren!| 215 |sequence| 221 |select| 226
-              |second| 232 |sample| 237 |rst| 241 |rest| 246 |removeDuplicates|
-              257 |remove| 262 |reduce| 274 |qsetelt!| 295 |qelt| 302
-              |possiblyInfinite?| 308 |parts| 313 |numberOfComputedEntries| 318
-              |nodes| 323 |node?| 328 |new| 334 |more?| 340 |minIndex| 346
-              |members| 351 |member?| 356 |maxIndex| 362 |map!| 367 |map| 373
-              |less?| 386 |leaves| 392 |leaf?| 397 |lazyEvaluate| 402 |lazy?|
-              407 |latex| 412 |last| 417 |insert| 428 |indices| 442 |index?|
-              447 |hashUpdate!| 453 |hash| 459 |generate| 464 |frst| 470
-              |firstn| 475 |first| 481 |find| 492 |fill!| 498 |extend| 504
-              |explicitlyFinite?| 510 |explicitlyEmpty?| 515 |explicitEntries?|
-              520 |every?| 525 |eval| 531 |eq?| 557 |entry?| 563 |entries| 569
-              |empty?| 574 |empty| 579 |elt| 583 |distance| 626 |dilate| 632
-              |delete| 638 |cyclic?| 650 |cycleTail| 655 |cycleSplit!| 660
-              |cycleLength| 665 |cycleEntry| 670 |count| 675 |copy| 687
-              |convert| 692 |construct| 697 |cons| 702 |concat!| 708 |concat|
-              720 |complete| 743 |coerce| 748 |children| 758 |child?| 763
-              |apply| 769 |any?| 775 |Zero| 781 = 785 - 791 + 802 * 808 |#|
-              838)
+              |setelt| 173 |setchildren!| 215 |sequence| 221 |select| 232
+              |second| 238 |sample| 243 |rst| 247 |rest| 252 |removeDuplicates|
+              263 |remove| 268 |reduce| 280 |qsetelt!| 301 |qelt| 308
+              |possiblyInfinite?| 314 |parts| 319 |numberOfComputedEntries| 324
+              |nodes| 329 |node?| 334 |new| 340 |more?| 346 |minIndex| 352
+              |members| 357 |member?| 362 |maxIndex| 368 |map!| 373 |map| 379
+              |less?| 392 |leaves| 398 |leaf?| 403 |lazyEvaluate| 408 |lazy?|
+              413 |latex| 418 |last| 423 |insert| 434 |indices| 448 |index?|
+              453 |hashUpdate!| 459 |hash| 465 |frst| 470 |firstn| 475 |first|
+              481 |find| 492 |fill!| 498 |extend| 504 |explicitlyFinite?| 510
+              |explicitlyEmpty?| 515 |explicitEntries?| 520 |every?| 525 |eval|
+              531 |eq?| 557 |entry?| 563 |entries| 569 |empty?| 574 |empty| 579
+              |elt| 583 |distance| 626 |dilate| 632 |delete| 638 |cyclic?| 650
+              |cycleTail| 655 |cycleSplit!| 660 |cycleLength| 665 |cycleEntry|
+              670 |count| 675 |copy| 687 |convert| 692 |construct| 697 |cons|
+              702 |concat!| 708 |concat| 720 |complete| 743 |coerce| 748
+              |children| 758 |child?| 763 |apply| 769 |any?| 775 |Zero| 781 =
+              785 - 791 + 802 * 808 |#| 838)
            'NIL
            (CONS
             (|makeByteWordVec2| 8
@@ -259,21 +258,21 @@
                                     12 0 0 0 1 2 12 6 0 6 1 2 12 6 0 6 1 3 12 6
                                     0 13 6 1 3 12 6 0 54 6 1 3 12 6 0 55 6 1 3
                                     12 0 0 56 0 1 3 12 6 0 57 6 1 3 12 6 0 58 6
-                                    1 2 12 0 0 59 1 1 0 0 5 36 2 0 0 52 0 1 1 0
-                                    6 0 1 0 0 0 1 1 0 0 0 1 2 0 0 0 38 1 1 0 0
-                                    0 1 1 10 0 0 1 2 10 0 6 0 1 2 0 0 52 0 1 4
-                                    10 6 20 0 6 6 1 3 9 6 20 0 6 1 2 9 6 20 0 1
-                                    3 12 6 0 13 6 1 2 0 6 0 13 1 1 0 33 0 1 1 9
-                                    9 0 1 1 0 38 0 1 1 0 59 0 1 2 3 33 0 0 1 2
-                                    0 0 38 6 1 2 0 33 0 38 1 1 6 13 0 1 1 9 9 0
-                                    1 2 10 33 6 0 1 1 6 13 0 1 2 12 0 29 0 1 3
-                                    0 0 20 0 0 26 2 0 0 29 0 30 2 0 33 0 38 1 1
-                                    0 9 0 1 1 0 33 0 1 1 0 0 0 1 1 0 33 0 1 1 0
-                                    63 0 1 2 0 0 0 38 1 1 0 6 0 1 3 0 0 6 0 13
-                                    1 3 0 0 0 0 13 1 1 0 16 0 1 2 0 33 13 0 1 2
-                                    0 64 64 0 1 1 0 62 0 1 2 0 0 29 6 45 1 0 6
-                                    0 1 2 0 9 0 38 43 2 0 0 0 38 40 1 0 6 0 1 2
-                                    0 66 52 0 1 2 12 0 0 6 1 2 0 0 0 13 1 1 0
+                                    1 2 12 0 0 59 1 2 0 0 29 6 45 1 0 0 5 36 2
+                                    0 0 52 0 1 1 0 6 0 1 0 0 0 1 1 0 0 0 1 2 0
+                                    0 0 38 1 1 0 0 0 1 1 10 0 0 1 2 10 0 6 0 1
+                                    2 0 0 52 0 1 4 10 6 20 0 6 6 1 3 9 6 20 0 6
+                                    1 2 9 6 20 0 1 3 12 6 0 13 6 1 2 0 6 0 13 1
+                                    1 0 33 0 1 1 9 9 0 1 1 0 38 0 1 1 0 59 0 1
+                                    2 3 33 0 0 1 2 0 0 38 6 1 2 0 33 0 38 1 1 6
+                                    13 0 1 1 9 9 0 1 2 10 33 6 0 1 1 6 13 0 1 2
+                                    12 0 29 0 1 3 0 0 20 0 0 26 2 0 0 29 0 30 2
+                                    0 33 0 38 1 1 0 9 0 1 1 0 33 0 1 1 0 0 0 1
+                                    1 0 33 0 1 1 0 63 0 1 2 0 0 0 38 1 1 0 6 0
+                                    1 3 0 0 6 0 13 1 3 0 0 0 0 13 1 1 0 16 0 1
+                                    2 0 33 13 0 1 2 0 64 64 0 1 1 0 62 0 1 1 0
+                                    6 0 1 2 0 9 0 38 43 2 0 0 0 38 40 1 0 6 0 1
+                                    2 0 66 52 0 1 2 12 0 0 6 1 2 0 0 0 13 1 1 0
                                     33 0 1 1 0 33 0 1 1 0 33 0 1 2 9 33 52 0 1
                                     3 4 0 0 9 9 1 2 4 0 0 50 1 3 4 0 0 6 6 1 2
                                     4 0 0 51 1 2 0 33 0 0 1 2 11 33 6 0 1 1 0 9

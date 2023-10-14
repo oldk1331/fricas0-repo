@@ -939,15 +939,15 @@
       (LETT |x| (|STREAM;expand!| |x| (+ |n| 1) $) |STREAM;setrest!;$I2$;62|)
       (EXIT (|STREAM;setrestt!| |x| |n| |y| $))))))) 
 
-(DEFUN |STREAM;generate;M$;63| (|f| $)
+(DEFUN |STREAM;stream;M$;63| (|f| $)
   (PROG ()
     (RETURN
-     (SPADCALL (CONS #'|STREAM;generate;M$;63!0| (VECTOR $ |f|))
+     (SPADCALL (CONS #'|STREAM;stream;M$;63!0| (VECTOR $ |f|))
                (QREFELT $ 46))))) 
 
-(DEFUN |STREAM;generate;M$;63!0| ($$)
+(DEFUN |STREAM;stream;M$;63!0| ($$)
   (PROG (|f| $)
-    (LETT |f| (QREFELT $$ 1) . #1=(|STREAM;generate;M$;63|))
+    (LETT |f| (QREFELT $$ 1) . #1=(|STREAM;stream;M$;63|))
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
@@ -973,7 +973,7 @@
               (EXIT
                (SPADCALL |ss| (|STREAM;gen| |f| |ss| $) (QREFELT $ 44)))))))))) 
 
-(DEFUN |STREAM;generate;MS$;65| (|f| |s| $)
+(DEFUN |STREAM;stream;MS$;65| (|f| |s| $)
   (SPADCALL |s| (|STREAM;gen| |f| |s| $) (QREFELT $ 44))) 
 
 (DEFUN |STREAM;concat;3$;66| (|x| |y| $)
@@ -1200,25 +1200,25 @@
               (216 . |repeating?|) |STREAM;explicitEntries?;$B;58|
               |STREAM;numberOfComputedEntries;$Nni;59| (222 . |void|)
               (226 . |output|) |STREAM;setrest!;$I2$;62| (|Mapping| 6)
-              |STREAM;generate;M$;63| |STREAM;generate;MS$;65|
+              |STREAM;stream;M$;63| |STREAM;stream;MS$;65|
               |STREAM;filterWhile;M2$;68| |STREAM;filterUntil;M2$;70|
               (|List| 127) (|Equation| 6) '"value" (|InputForm|)
               (|SingleInteger|) (|HashState|) (|List| 16)
               (|Union| 6 '"failed"))
-           '#(~= 232 |value| 238 |third| 243 |tail| 248 |swap!| 253 |split!|
-              260 |size?| 266 |showAllElements| 272 |showAll?| 277 |setvalue!|
-              281 |setrest!| 287 |setlast!| 300 |setfirst!| 306 |setelt| 312
-              |setchildren!| 354 |select| 360 |second| 366 |sample| 371 |rst|
-              375 |rest| 380 |repeating?| 391 |repeating| 397
-              |removeDuplicates| 402 |remove| 407 |reduce| 419 |qsetelt!| 440
-              |qelt| 447 |possiblyInfinite?| 453 |parts| 458 |output| 463
-              |numberOfComputedEntries| 469 |nodes| 474 |node?| 479 |new| 485
-              |more?| 491 |minIndex| 497 |members| 502 |member?| 507 |maxIndex|
-              513 |map!| 518 |map| 524 |less?| 537 |leaves| 543 |leaf?| 548
-              |lazyEvaluate| 553 |lazy?| 558 |latex| 563 |last| 568 |insert|
-              579 |indices| 593 |index?| 598 |hashUpdate!| 604 |hash| 610
-              |generate| 615 |frst| 626 |first| 631 |findCycle| 642 |find| 648
-              |filterWhile| 654 |filterUntil| 660 |fill!| 666 |extend| 672
+           '#(~= 232 |value| 238 |third| 243 |tail| 248 |swap!| 253 |stream|
+              260 |split!| 271 |size?| 277 |showAllElements| 283 |showAll?| 288
+              |setvalue!| 292 |setrest!| 298 |setlast!| 311 |setfirst!| 317
+              |setelt| 323 |setchildren!| 365 |select| 371 |second| 377
+              |sample| 382 |rst| 386 |rest| 391 |repeating?| 402 |repeating|
+              408 |removeDuplicates| 413 |remove| 418 |reduce| 430 |qsetelt!|
+              451 |qelt| 458 |possiblyInfinite?| 464 |parts| 469 |output| 474
+              |numberOfComputedEntries| 480 |nodes| 485 |node?| 490 |new| 496
+              |more?| 502 |minIndex| 508 |members| 513 |member?| 518 |maxIndex|
+              524 |map!| 529 |map| 535 |less?| 548 |leaves| 554 |leaf?| 559
+              |lazyEvaluate| 564 |lazy?| 569 |latex| 574 |last| 579 |insert|
+              590 |indices| 604 |index?| 609 |hashUpdate!| 615 |hash| 621
+              |frst| 626 |first| 631 |findCycle| 642 |find| 648 |filterWhile|
+              654 |filterUntil| 660 |fill!| 666 |extend| 672
               |explicitlyFinite?| 678 |explicitlyEmpty?| 683 |explicitEntries?|
               688 |every?| 693 |eval| 699 |eq?| 725 |entry?| 731 |entries| 737
               |empty?| 742 |empty| 747 |elt| 751 |distance| 794 |delete| 800
@@ -1261,27 +1261,27 @@
                                     2 16 0 0 0 95 2 6 12 0 0 112 2 0 12 0 0 113
                                     2 6 12 0 0 114 2 0 12 51 0 115 0 74 0 118 2
                                     0 74 16 0 119 2 11 12 0 0 1 1 0 6 0 1 1 0 6
-                                    0 1 1 0 0 0 50 3 13 74 0 16 16 75 2 13 0 0
-                                    16 109 2 0 12 0 26 1 1 1 19 0 39 0 1 12 40
-                                    2 13 6 0 6 1 2 13 0 0 0 97 3 0 0 0 16 0 120
-                                    2 13 6 0 6 106 2 13 6 0 6 101 3 13 6 0 16 6
-                                    54 3 13 6 0 83 6 88 3 13 6 0 107 6 108 3 13
-                                    0 0 104 0 105 3 13 6 0 102 6 103 3 13 6 0
-                                    128 6 1 2 13 0 0 28 1 2 0 0 55 0 57 1 0 6 0
-                                    1 0 0 0 1 1 0 0 0 15 2 0 0 0 26 87 1 0 0 0
-                                    31 2 1 12 51 0 115 1 0 0 51 111 1 10 0 0 1
-                                    2 10 0 6 0 1 2 0 0 55 0 56 4 10 6 63 0 6 6
-                                    1 3 9 6 63 0 6 1 2 9 6 63 0 1 3 13 6 0 16 6
-                                    1 2 0 6 0 16 1 1 0 12 0 1 1 9 51 0 1 2 1 74
-                                    16 0 119 1 0 26 0 117 1 0 28 0 1 2 1 12 0 0
-                                    1 2 0 0 26 6 1 2 0 12 0 26 1 1 8 16 0 1 1 9
-                                    51 0 1 2 10 12 6 0 1 1 8 16 0 1 2 13 0 59 0
-                                    72 3 0 0 63 0 0 66 2 0 0 59 0 62 2 0 12 0
-                                    26 1 1 0 51 0 1 1 0 12 0 1 1 0 0 0 89 1 0
-                                    12 0 14 1 1 21 0 1 2 0 0 0 26 1 1 0 6 0 1 3
-                                    0 0 0 0 16 1 3 0 0 6 0 16 1 1 0 132 0 1 2 0
-                                    12 16 0 73 2 1 131 131 0 1 1 1 130 0 1 2 0
-                                    0 59 6 123 1 0 0 121 122 1 0 6 0 11 2 0 0 0
+                                    0 1 1 0 0 0 50 3 13 74 0 16 16 75 2 0 0 59
+                                    6 123 1 0 0 121 122 2 13 0 0 16 109 2 0 12
+                                    0 26 1 1 1 19 0 39 0 1 12 40 2 13 6 0 6 1 2
+                                    13 0 0 0 97 3 0 0 0 16 0 120 2 13 6 0 6 106
+                                    2 13 6 0 6 101 3 13 6 0 16 6 54 3 13 6 0 83
+                                    6 88 3 13 6 0 107 6 108 3 13 0 0 104 0 105
+                                    3 13 6 0 102 6 103 3 13 6 0 128 6 1 2 13 0
+                                    0 28 1 2 0 0 55 0 57 1 0 6 0 1 0 0 0 1 1 0
+                                    0 0 15 2 0 0 0 26 87 1 0 0 0 31 2 1 12 51 0
+                                    115 1 0 0 51 111 1 10 0 0 1 2 10 0 6 0 1 2
+                                    0 0 55 0 56 4 10 6 63 0 6 6 1 3 9 6 63 0 6
+                                    1 2 9 6 63 0 1 3 13 6 0 16 6 1 2 0 6 0 16 1
+                                    1 0 12 0 1 1 9 51 0 1 2 1 74 16 0 119 1 0
+                                    26 0 117 1 0 28 0 1 2 1 12 0 0 1 2 0 0 26 6
+                                    1 2 0 12 0 26 1 1 8 16 0 1 1 9 51 0 1 2 10
+                                    12 6 0 1 1 8 16 0 1 2 13 0 59 0 72 3 0 0 63
+                                    0 0 66 2 0 0 59 0 62 2 0 12 0 26 1 1 0 51 0
+                                    1 1 0 12 0 1 1 0 0 0 89 1 0 12 0 14 1 1 21
+                                    0 1 2 0 0 0 26 1 1 0 6 0 1 3 0 0 0 0 16 1 3
+                                    0 0 6 0 16 1 1 0 132 0 1 2 0 12 16 0 73 2 1
+                                    131 131 0 1 1 1 130 0 1 1 0 6 0 11 2 0 0 0
                                     26 48 1 0 6 0 30 2 0 25 26 0 27 2 0 133 55
                                     0 1 2 0 0 55 0 124 2 0 0 55 0 125 2 13 0 0
                                     6 67 2 0 0 0 16 33 1 0 12 0 71 1 0 12 0 13

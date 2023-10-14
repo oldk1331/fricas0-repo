@@ -281,7 +281,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|SparseMultivariatePolynomialExpressions| 6)
               (0 . |coerce|) (|List| 9) (|Stream| 9) (5 . |coerce|) (|Integer|)
-              (10 . |inc|) (|Mapping| 14 14) (|Stream| 14) (15 . |generate|)
+              (10 . |inc|) (|Mapping| 14 14) (|Stream| 14) (15 . |stream|)
               (21 . |One|) (25 . |One|) (|NonNegativeInteger|) (29 . |One|)
               (|IndexedExponents| 21) (33 . |monomial|) (39 . |monomial|)
               (|Mapping| 9 14) (|StreamFunctions2| 14 9) (45 . |map|)
@@ -297,7 +297,7 @@
               (189 . |true|) (193 . ~=) (199 . +) (205 . |Zero|) (209 . |Zero|)
               (213 . |Zero|) (217 . |setelt|) (224 . |Zero|)
               (228 . |coefficient|) (234 . /) (240 . -) (|Mapping| 6)
-              (|Stream| 6) (245 . |generate|) (250 . |series|) (|Mapping| 8 8)
+              (|Stream| 6) (245 . |stream|) (250 . |series|) (|Mapping| 8 8)
               (|List| 6) |UTSSOL;seriesSolve;MLUTSF;1|)
            '#(|seriesSolve| 255) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)

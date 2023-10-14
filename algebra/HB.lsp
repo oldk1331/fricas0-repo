@@ -42,11 +42,11 @@
          'T)
         ('T 'NIL))) 
 
-(DEFUN |HB;generate;2NniV;3| (|n| |c| $)
+(DEFUN |HB;basis;2NniV;3| (|n| |c| $)
   (PROG (|numComms| |cW| |leftIndex| |newNumComms| #1=#:G164 |rightIndex|
          |done| |wt| |firstindex| |i| |v| #2=#:G152 |siz| |maxweight| |gens|)
     (RETURN
-     (SEQ (LETT |gens| |n| . #3=(|HB;generate;2NniV;3|))
+     (SEQ (LETT |gens| |n| . #3=(|HB;basis;2NniV;3|))
           (LETT |maxweight| |c| . #3#) (LETT |siz| 0 . #3#)
           (SEQ (LETT |i| 1 . #3#) G190
                (COND ((|greater_SI| |i| |maxweight|) (GO G191)))
@@ -177,8 +177,8 @@
               (|NonNegativeInteger|) (0 . *) (|Boolean|) (6 . <=)
               |HB;inHallBasis?;4IB;2| (|List| 6) (|Vector| 13) (12 . |setelt|)
               (|Vector| 6) (19 . |setelt|) (26 . >) (32 . |elt|) (38 . |elt|)
-              (44 . |elt|) |HB;generate;2NniV;3|)
-           '#(|lfunc| 50 |inHallBasis?| 56 |generate| 64) 'NIL
+              (44 . |elt|) |HB;basis;2NniV;3|)
+           '#(|lfunc| 50 |inHallBasis?| 56 |basis| 64) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()

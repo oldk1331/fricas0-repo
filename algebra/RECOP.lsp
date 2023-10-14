@@ -1388,7 +1388,7 @@
               (|Stream| 7) |RECOP;makeRec;BoSFLSF;7| (257 . |second|)
               (262 . |operator|) (267 . |less?|)
               (273 . |numberOfComputedEntries|) (278 . |elt|) (|Mapping| 19 19)
-              (|Stream| 19) (284 . |generate|) (290 . |rest|) (|Mapping| 7 19)
+              (|Stream| 19) (284 . |stream|) (290 . |rest|) (|Mapping| 7 19)
               (|StreamFunctions2| 19 7) (295 . |map|) (301 . |concat|)
               (307 . |rest|) (|BasicOperatorFunctions1| 7) (313 . |evaluate|)
               (|OutputForm|) (319 . |coerce|) (324 . |hconcat|)

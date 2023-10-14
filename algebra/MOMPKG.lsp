@@ -519,7 +519,7 @@
               (291 . |moment2Stransform|) '|t| (296 . *) (302 . *) (308 . +)
               (314 . |integrate|) (319 . |elt|) (325 . |first|)
               (|Record| (|:| |momt| (|List| 69)) (|:| |cum| 34) (|:| |mom| 7))
-              (|Mapping| 106 106) (|Stream| 106) (330 . |generate|)
+              (|Mapping| 106 106) (|Stream| 106) (330 . |stream|)
               (336 . |first|) (|Mapping| 6 106) (|StreamFunctions2| 106 6)
               (341 . |map|) (347 . |moment2monotonecumulant|))
            '#(|qcumulant2nthmoment| 352 |moment2nthjacobi| 359

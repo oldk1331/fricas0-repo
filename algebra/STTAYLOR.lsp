@@ -1293,10 +1293,10 @@
               |STTAYLOR;/;3S;9| |STTAYLOR;recip;SU;10| (|Integer|) (91 . <=)
               (97 . |One|) (101 . |Zero|) (105 . |One|) (109 . -)
               (115 . |concat|) |STTAYLOR;monom;AIS;13| (121 . |One|) (125 . +)
-              (|Mapping| 29 29) (|Stream| 29) (131 . |generate|) (137 . +)
-              (|Mapping| 39 39) (|Stream| 39) (143 . |generate|)
+              (|Mapping| 29 29) (|Stream| 29) (131 . |stream|) (137 . +)
+              (|Mapping| 39 39) (|Stream| 39) (143 . |stream|)
               |STTAYLOR;integers;IS;15| |STTAYLOR;oddintegers;IS;16|
-              (149 . |generate|) |STTAYLOR;int;AS;17| (155 . <) (|List| 6)
+              (149 . |stream|) |STTAYLOR;int;AS;17| (155 . <) (|List| 6)
               (161 . |cons|) (|SingleInteger|) (167 . |Zero|) (171 . |Zero|)
               (175 . =) (181 . |first|) (186 . |rest|)
               (191 . |explicitlyEmpty?|) (196 . |One|) (200 . -)

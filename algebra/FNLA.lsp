@@ -315,7 +315,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 8 23) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) '|Rep| (|Vector| 16)
-              (|NonNegativeInteger|) (|HallBasis|) (0 . |generate|) '|coms|
+              (|NonNegativeInteger|) (|HallBasis|) (0 . |basis|) '|coms|
               |FNLA;dimension;Nni;1| (|List| 17) (|Integer|) (6 . |elt|)
               (12 . |elt|) (|Boolean|) (18 . >) (24 . |Zero|) (|OrdSetInts|)
               (28 . |coerce|) (33 . |One|) (37 . |monomial|) (43 . >)
