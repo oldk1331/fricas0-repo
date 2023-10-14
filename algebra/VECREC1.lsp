@@ -416,17 +416,17 @@
                           (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
           (LETT |nnvars| (+ |var_cnt| 1) . #5#)
-          (LETT |nexps| (SPADCALL (* |m| |nnvars|) 0 (QREFELT $ 44)) . #5#)
+          (LETT |nexps| (GETREFV_U32 (* |m| |nnvars|) 0) . #5#)
           (LETT |ncoeffs| (GETREFV_U32 |m| 0) . #5#)
           (LETT |pi_cnt| (QVSIZE |poly_offsets|) . #5#)
           (LETT |npo| (MAKEARR1 |pi_cnt| 0) . #5#) (LETT |pi| 1 . #5#)
-          (LETT |opi| (SPADCALL |poly_offsets| |pi| (QREFELT $ 46)) . #5#)
+          (LETT |opi| (SPADCALL |poly_offsets| |pi| (QREFELT $ 44)) . #5#)
           (LETT |nm| 0 . #5#) (LETT |oei| 0 . #5#) (LETT |nei| 0 . #5#)
           (SEQ (LETT |i| 0 . #5#) (LETT #2# (- |n| 1) . #5#) G190
                (COND ((|greater_SI| |i| #2#) (GO G191)))
                (SEQ
                 (SEQ G190 (COND ((NULL (EQL |opi| |i|)) (GO G191)))
-                     (SEQ (SPADCALL |npo| |pi| |nm| (QREFELT $ 47))
+                     (SEQ (SPADCALL |npo| |pi| |nm| (QREFELT $ 45))
                           (LETT |pi| (+ |pi| 1) . #5#)
                           (EXIT
                            (LETT |opi|
@@ -434,7 +434,7 @@
                                   ((SPADCALL |pi| |pi_cnt| (QREFELT $ 37))
                                    (LETT |opi|
                                          (SPADCALL |poly_offsets| |pi|
-                                                   (QREFELT $ 46))
+                                                   (QREFELT $ 44))
                                          . #5#))
                                   ('T -1))
                                  . #5#)))
@@ -455,24 +455,22 @@
                                         ((|greater_SI| |i1| |var_cnt|)
                                          (GO G191)))
                                        (SEQ
-                                        (SPADCALL |nexps| |nei|
-                                                  (SPADCALL |exps| |oei0|
-                                                            (QREFELT $ 48))
-                                                  (QREFELT $ 49))
+                                        (SETELT_U32 |nexps| |nei|
+                                                    (ELT_U32 |exps| |oei0|))
                                         (LETT |nei| (|add_SI| |nei| 1) . #5#)
                                         (EXIT
                                          (LETT |oei0| (|add_SI| |oei0| 1)
                                                . #5#)))
                                        (LETT |i1| (|inc_SI| |i1|) . #5#)
                                        (GO G190) G191 (EXIT NIL))
-                                  (SPADCALL |nexps| |nei| |j| (QREFELT $ 49))
+                                  (SETELT_U32 |nexps| |nei| |j|)
                                   (EXIT
                                    (LETT |nei| (|add_SI| |nei| 1) . #5#)))))))
                      (LETT |j| (|inc_SI| |j|) . #5#) (GO G190) G191 (EXIT NIL))
                 (EXIT (LETT |oei| (|add_SI| |oei| |var_cnt|) . #5#)))
                (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
           (SEQ (LETT |i| |pi| . #5#) G190 (COND ((> |i| |pi_cnt|) (GO G191)))
-               (SEQ (EXIT (SPADCALL |npo| |i| |nm| (QREFELT $ 47))))
+               (SEQ (EXIT (SPADCALL |npo| |i| |nm| (QREFELT $ 45))))
                (LETT |i| (+ |i| 1) . #5#) (GO G190) G191 (EXIT NIL))
           (EXIT (VECTOR |nnvars| |npo| |nexps| |ncoeffs|)))))) 
 
@@ -487,14 +485,14 @@
       (LETT |res| (MAKEARR1 |np| (GETREFV_U32 0 0)) . #1#)
       (SEQ (LETT |ib| 1 . #1#) G190 (COND ((|greater_SI| |ib| |nb|) (GO G191)))
            (SEQ
-            (LETT |li| (SPADCALL |block_offsets| |ib| (QREFELT $ 46)) . #1#)
+            (LETT |li| (SPADCALL |block_offsets| |ib| (QREFELT $ 44)) . #1#)
             (LETT |hi|
                   (COND ((EQL |ib| |nb|) |np|)
                         ('T
-                         (SPADCALL |block_offsets| (+ |ib| 1) (QREFELT $ 46))))
+                         (SPADCALL |block_offsets| (+ |ib| 1) (QREFELT $ 44))))
                   . #1#)
             (LETT |hi| (- |hi| 1) . #1#)
-            (LETT |cden| (SPADCALL |dens| |li| |hi| |p| (QREFELT $ 52)) . #1#)
+            (LETT |cden| (SPADCALL |dens| |li| |hi| |p| (QREFELT $ 49)) . #1#)
             (LETT |dcden| (SPADCALL |cden| (QREFELT $ 29)) . #1#)
             (LETT |tmpp1| (GETREFV_U32 (+ |dcden| 1) 0) . #1#)
             (LETT |tmpp2| (GETREFV_U32 (+ |dcden| 1) 0) . #1#)
@@ -506,7 +504,7 @@
                            (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191
                            (EXIT NIL))
                       (SPADCALL |tmpp1| (QAREF1 |dens| |i|) |tmpp2| |p|
-                                (QREFELT $ 53))
+                                (QREFELT $ 50))
                       (LETT |dt| (SPADCALL |tmpp2| (QREFELT $ 29)) . #1#)
                       (EXIT
                        (QSETAREF1 |res| |i|
@@ -526,7 +524,7 @@
                                            "remove_denoms expect quotient to be 1"))))))
                                      (EXIT (QAREF1 |nums| |i|))))))))
                  (LETT |i| (+ |i| 1) . #1#) (GO G190) G191 (EXIT NIL))
-            (LETT |cfactor| (SPADCALL |res| |li| |hi| |p| (QREFELT $ 54))
+            (LETT |cfactor| (SPADCALL |res| |li| |hi| |p| (QREFELT $ 51))
                   . #1#)
             (LETT |dcf| (SPADCALL |cfactor| (QREFELT $ 29)) . #1#)
             (LETT |dtmp| |dcden| . #1#)
@@ -552,7 +550,7 @@
                                 (EXIT NIL))))
                          (SPADCALL |tmpp1| |resi| (+ |dresi| 1) (QREFELT $ 19))
                          (SPADCALL |tmpp1| |cfactor| |tmpp2| |p|
-                                   (QREFELT $ 53))
+                                   (QREFELT $ 50))
                          (LETT |dt| (SPADCALL |tmpp2| (QREFELT $ 29)) . #1#)
                          (QSETAREF1 |res| |i| (GETREFV_U32 (+ |dt| 1) 0))
                          (EXIT
@@ -567,9 +565,9 @@
   (PROG (|ppa|)
     (RETURN
      (SEQ
-      (LETT |ppa| (SPADCALL |block_offsets| |nums| |dens| |p| (QREFELT $ 55))
+      (LETT |ppa| (SPADCALL |block_offsets| |nums| |dens| |p| (QREFELT $ 52))
             |VECREC1;reconstruct;I2VSev2PaIR;9|)
-      (EXIT (SPADCALL |var_cnt| |poly_offsets| |exps| |ppa| (QREFELT $ 51))))))) 
+      (EXIT (SPADCALL |var_cnt| |poly_offsets| |exps| |ppa| (QREFELT $ 48))))))) 
 
 (DEFUN |VECREC1;reconstruct;$I2VSevU;10|
        (|statearg| |var_cnt| |block_offsets| |poly_offsets| |exps| $)
@@ -589,7 +587,7 @@
                  (CONS 0
                        (SPADCALL |var_cnt| |block_offsets| |poly_offsets|
                                  |exps| (QCAR |ppr|) (QCDR |ppr|)
-                                 (QVELT |state| 0) (QREFELT $ 56))))))))))
+                                 (QVELT |state| 0) (QREFELT $ 53))))))))))
       #1# (EXIT #1#))))) 
 
 (DEFUN |VectorModularReconstructor| ()
@@ -620,7 +618,7 @@
      (PROGN
       (LETT |dv$| '(|VectorModularReconstructor|)
             . #1=(|VectorModularReconstructor|))
-      (LETT $ (GETREFV 59) . #1#)
+      (LETT $ (GETREFV 56) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|VectorModularReconstructor| NIL
@@ -655,22 +653,22 @@
               (105 . <=) (111 . |mul|) (118 . |remainder!|)
               (|Record| (|:| |numers| 10) (|:| |denoms| 10))
               (|Union| 40 '"failed") |VECREC1;rational_reconstruction;$U;6|
-              (|SortedExponentVector|) (125 . |new|) (|Vector| 7) (131 . |elt|)
-              (137 . |setelt|) (144 . |elt|) (150 . |setelt|)
-              (|Record| (|:| |nvars| 7) (|:| |offsetdata| 45)
-                        (|:| |expdata| 43) (|:| |coeffdata| 17))
-              |VECREC1;repack_polys;IVSevPaR;7| (157 . |lcm|) (165 . |divide!|)
-              (173 . |gcd|) |VECREC1;remove_denoms;V2PaIPa;8|
-              |VECREC1;reconstruct;I2VSev2PaIR;9| (|Union| 50 '"failed")
+              (|Vector| 7) (125 . |elt|) (131 . |setelt|)
+              (|Record| (|:| |nvars| 7) (|:| |offsetdata| 43)
+                        (|:| |expdata| 47) (|:| |coeffdata| 17))
+              (|SortedExponentVector|) |VECREC1;repack_polys;IVSevPaR;7|
+              (138 . |lcm|) (146 . |divide!|) (154 . |gcd|)
+              |VECREC1;remove_denoms;V2PaIPa;8|
+              |VECREC1;reconstruct;I2VSev2PaIR;9| (|Union| 46 '"failed")
               |VECREC1;reconstruct;$I2VSevU;10|)
-           '#(|repack_polys| 181 |remove_denoms| 189 |reconstruct| 197
-              |rational_reconstruction| 217 |empty| 230 |chinese_update| 236
-              |add_slots| 243)
+           '#(|repack_polys| 162 |remove_denoms| 170 |reconstruct| 178
+              |rational_reconstruction| 198 |empty| 211 |chinese_update| 217
+              |add_slots| 224)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 58
+                             (|makeByteWordVec2| 55
                                                  '(1 10 9 0 11 2 7 0 15 0 16 3
                                                    18 12 17 17 7 19 4 18 7 17 7
                                                    7 7 20 2 7 0 0 0 21 2 7 9 0
@@ -681,18 +679,17 @@
                                                    7 30 3 18 17 17 17 7 31 2 7
                                                    9 0 0 32 4 18 12 17 7 7 7 33
                                                    2 7 9 0 0 37 3 18 17 17 17 7
-                                                   38 3 18 12 17 17 7 39 2 43 0
-                                                   25 7 44 2 45 7 0 7 46 3 45 7
-                                                   0 7 7 47 2 43 7 0 7 48 3 43
-                                                   7 0 7 7 49 4 18 17 10 7 7 7
-                                                   52 4 18 12 17 17 17 7 53 4
-                                                   18 17 10 7 7 7 54 4 0 50 7
-                                                   45 43 10 51 4 0 10 45 10 10
-                                                   7 55 5 0 57 0 7 45 45 43 58
-                                                   7 0 50 7 45 45 43 10 10 7 56
-                                                   1 0 41 0 42 4 0 35 17 17 7 7
-                                                   36 2 0 0 7 7 8 3 0 12 17 7 0
-                                                   28 2 0 12 13 0 14)))))
+                                                   38 3 18 12 17 17 7 39 2 43 7
+                                                   0 7 44 3 43 7 0 7 7 45 4 18
+                                                   17 10 7 7 7 49 4 18 12 17 17
+                                                   17 7 50 4 18 17 10 7 7 7 51
+                                                   4 0 46 7 43 47 10 48 4 0 10
+                                                   43 10 10 7 52 5 0 54 0 7 43
+                                                   43 47 55 7 0 46 7 43 43 47
+                                                   10 10 7 53 1 0 41 0 42 4 0
+                                                   35 17 17 7 7 36 2 0 0 7 7 8
+                                                   3 0 12 17 7 0 28 2 0 12 13 0
+                                                   14)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|VectorModularReconstructor| 'NILADIC T) 

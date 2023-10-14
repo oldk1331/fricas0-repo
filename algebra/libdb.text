@@ -6259,6 +6259,7 @@ omodifyPoint`3`n`(_$,NonNegativeInteger,Point(R))->_$`dSubSpace(n,R)``749210
 omodifyPointData`3`x`(_$,NonNegativeInteger,Point(DoubleFloat))->Void`dThreeDimensionalViewport``749525
 omodifyPointData`3`x`(_$,NonNegativeInteger,Point(R))->_$`cThreeSpaceCategory(R)``749792
 omodpeval`4`n`(Polynomial(Integer),List(Symbol),List(Integer),Integer)->Integer`pInnerModularHermitePade``0
+omodpreduction`2`n`(Polynomial(Integer),Integer)->Polynomial(Integer)`pInnerModularHermitePade``0
 omodTree`2`x`(R,List(R))->List(R)`pCRApackage(R)``750028
 omodularFactor`1`n`(UP)->Record(prime:Integer,factors:List(UP))`pGaloisGroupFactorizer(UP)``750073
 omodularGcd`1`n`(List(BP))->BP`pInnerModularGcd(R,BP,pMod,nextMod)``750571

@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4611 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4612 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -613,21 +613,21 @@
  |physicalLength| |flexibleArray| |toStringUnwrapped| |parseILTerm| |parseIL2|
  |parseIL| |opType| |deductions| |implies| |proposition| |logicF| |logicT|
  |generalizedInverse| |do_modular_solve| |do_poly_modular| |do_poly_integer|
- |merge_exponents| |merge2| |eval_and_solve| |modpeval| |setFieldInfo| |pol|
- |xn| |dAndcExp| |repSq| |expPot| |qPot| |lookup| |normal?| |normalElement|
- |minimalPolynomial| |increment| |incrementBy| |charpol| |solve1|
- |innerEigenvectors| |compile| |declare| |parse| |unparse| |flatten| |binary|
- |packageCall| |coerceToType| |atType| |pretendOfType| |interpret|
- |innerSolve1| |innerSolve| |makeEq| |modularGcdPrimitive| |modularGcd|
- |reduction| |signAround| |invmod| |powmod| |mulmod| |submod| |addmod| |mask|
- |dec| |inc| |symmetricRemainder| |positiveRemainder| |bit?| |algint|
- |algintegrate| |palgintegrate| |palginfieldint| |palgextintegrate| |bitLength|
- |bitCoef| |bitTruth| |contains?| |inf| |qinterval| |interval| |unit?|
- |associates?| |unitCanonical| |unitNormal| |lfextendedint| |lflimitedint|
- |lfinfieldint| |lfintegrate| |lfextlimint| |BasicMethod| |PollardSmallFactor|
- |palgint0| |palgextint0| |palglimint0| |palgRDE0| |palgLODE0|
- |carmichaelLambda| |chineseRemainder| |divisors| |eulerPhi| |fibonacci|
- |harmonic| |jacobi| |moebiusMu| |numberOfDivisors| |sumOfDivisors|
+ |merge_exponents| |merge2| |eval_and_solve| |modpeval| |modpreduction|
+ |setFieldInfo| |pol| |xn| |dAndcExp| |repSq| |expPot| |qPot| |lookup|
+ |normal?| |normalElement| |minimalPolynomial| |increment| |incrementBy|
+ |charpol| |solve1| |innerEigenvectors| |compile| |declare| |parse| |unparse|
+ |flatten| |binary| |packageCall| |coerceToType| |atType| |pretendOfType|
+ |interpret| |innerSolve1| |innerSolve| |makeEq| |modularGcdPrimitive|
+ |modularGcd| |reduction| |signAround| |invmod| |powmod| |mulmod| |submod|
+ |addmod| |mask| |dec| |inc| |symmetricRemainder| |positiveRemainder| |bit?|
+ |algint| |algintegrate| |palgintegrate| |palginfieldint| |palgextintegrate|
+ |bitLength| |bitCoef| |bitTruth| |contains?| |inf| |qinterval| |interval|
+ |unit?| |associates?| |unitCanonical| |unitNormal| |lfextendedint|
+ |lflimitedint| |lfinfieldint| |lfintegrate| |lfextlimint| |BasicMethod|
+ |PollardSmallFactor| |palgint0| |palgextint0| |palglimint0| |palgRDE0|
+ |palgLODE0| |carmichaelLambda| |chineseRemainder| |divisors| |eulerPhi|
+ |fibonacci| |harmonic| |jacobi| |moebiusMu| |numberOfDivisors| |sumOfDivisors|
  |sumOfKthPowerDivisors| |HermiteIntegrate| |palgint| |palgextint| |palglimint|
  |palgRDE| |palgLODE| |splitConstant| |pmComplexintegrate| |pmintegrate|
  |infieldint| |extendedint| |limitedint| |integerIfCan| |internalIntegrate|
