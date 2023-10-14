@@ -1,4 +1,4 @@
-330370              (|FunctionSpaceUnivariatePolynomialFactor| |GenUFactorize|
+330300              (|FunctionSpaceUnivariatePolynomialFactor| |GenUFactorize|
                                                                |LinearOrdinaryDifferentialOperatorFactorizer|)
 (|GenericNonAssociativeAlgebra|)
 (|Expression|)
@@ -4814,9 +4814,8 @@
                                      |FramedNonAssociativeAlgebraFunctions2|
                                      |FreeNilpotentLie|
                                      |FullyLinearlyExplicitRingOver&|
-                                     |FunctionFieldCategory&|
-                                     |GaloisGroupPolynomialUtilities|
-                                     |GcdBasis| |GenExEuclid|
+                                     |FunctionFieldCategory&| |GcdBasis|
+                                     |GenExEuclid|
                                      |GeneralDistributedMultivariatePolynomial|
                                      |GeneralQuaternion|
                                      |GenericNonAssociativeAlgebra|
@@ -5072,14 +5071,14 @@
 (|LiePolynomial| |XPBWPolynomial| |XPolynomial|)
 (|Scene| |XmlElement|)
 (|ExportXml| |Scene|)
-(("XmlElement" 0 330348) ("XmlAttribute" 0 330325)
- ("XRecursivePolynomial" 0 330276) ("XPolynomialRing" 0 330249)
- ("XPBWPolynomial" 0 330229) ("XDistributedPolynomial" 0 330120)
- ("WildFunctionFieldIntegralBasis" 0 330080) ("WeightedPolynomials" 0 330048)
- ("WeightedGraph" 0 330030) ("Void" 0 320834) ("ViewportPackage" 0 320745)
- ("ViewDefaultsPackage" 0 320477) ("VectorSpace&" 0 NIL)
- ("VectorModularReconstructor" 0 320427)
- ("VectorIntegerReconstructor" 0 320356) ("VectorFunctions2" 0 320025)
+(("XmlElement" 0 330278) ("XmlAttribute" 0 330255)
+ ("XRecursivePolynomial" 0 330206) ("XPolynomialRing" 0 330179)
+ ("XPBWPolynomial" 0 330159) ("XDistributedPolynomial" 0 330050)
+ ("WildFunctionFieldIntegralBasis" 0 330010) ("WeightedPolynomials" 0 329978)
+ ("WeightedGraph" 0 329960) ("Void" 0 320764) ("ViewportPackage" 0 320675)
+ ("ViewDefaultsPackage" 0 320407) ("VectorSpace&" 0 NIL)
+ ("VectorModularReconstructor" 0 320357)
+ ("VectorIntegerReconstructor" 0 320286) ("VectorFunctions2" 0 319955)
  ("VectorCategory&" 0 NIL) ("Vector" 0 309213) ("Variable" 0 308605)
  ("UserDefinedPartialOrdering" 0 308543)
  ("UniversalSegmentFunctions2" 0 308509) ("UniversalSegment" 0 307514)

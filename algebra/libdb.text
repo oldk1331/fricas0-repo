@@ -9800,7 +9800,8 @@ ounrankImproperPartitions1`3`x`(Integer,Integer,Integer)->List(Integer)`pSymmetr
 ounravel`1`x`(List(R))->_$`dCartesianTensor(minix,dim,R)``1219795
 ountab`2`n`(List(List(S)),List(List(List(S))))->List(List(S))`pTableauxBumpers(S)``1219918
 oUnVectorise`1`n`(Vector(R))->_$`dModMonic(R,Rep)``1220048
-ounvectorise`1`n`(Vector(R))->UP`pGaloisGroupPolynomialUtilities(R,UP)``1220091
+ounvectorise`1`n`(Vector(R))->S`xUnivariatePolynomialCategory&(S,R)``0
+ounvectorise`1`x`(Vector(R))->_$`cUnivariatePolynomialCategory(R)``1220091
 ounvectorise`3`n`(Vector(Expression(R)),Fraction(SparseUnivariatePolynomial(Expression(R))),Integer)->Fraction(SparseUnivariatePolynomial(Expression(R)))`pTransSolvePackageService(R)``1220219
 oUP2ifCan`1`n`(UP)->Union(overq:SparseUnivariatePolynomial(Fraction(Integer)),overan:SparseUnivariatePolynomial(AlgebraicNumber),failed:Boolean)`pFunctionSpaceUnivariatePolynomialFactor(R,F,UP)``1220452
 oUP2UTS`1`n`(UP)->UTS`pUTSodetools(F,UP,L,UTS)``1220511

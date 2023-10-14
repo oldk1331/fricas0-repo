@@ -952,28 +952,28 @@
  |diophantineSystem| |remap_variables| |csubst| |particularSolution| |mapSolve|
  |linear| |quadratic| |cubic| |quartic| |aLinear| |aQuadratic| |aCubic|
  |aQuartic| |radicalSolve| |radicalRoots| |contractSolve| |decomposeFunc|
- |unvectorise| |limitPart| |integerPart| |ordinalPower| |ordinalMul|
- |ordinalAdd| |omegapower| |omega| |bubbleSort!| |insertionSort!| |check|
- |objects| |lprop| |llprop| |lllp| |lllip| |lp| |mesh?| |mesh| |polygon?|
- |polygon| |closedCurve?| |closedCurve| |curve?| |curve| |point?|
- |enterPointData| |composites| |components| |numberOfComposites|
- |numberOfComponents| |create3Space| |outputAsFortran| |outputAsScript|
- |outputAsTex| |abs| |Beta| |digamma| |polygamma| |Gamma| |besselJ| |besselY|
- |besselI| |besselK| |airyAi| |airyAiPrime| |airyBi| |airyBiPrime| |lambertW|
- |polylog| |weierstrassP| |weierstrassPPrime| |weierstrassSigma|
- |weierstrassZeta| |whittakerM| |whittakerW| |angerJ| |weberE| |struveH|
- |struveL| |hankelH1| |hankelH2| |lommelS1| |lommelS2| |kummerM| |kummerU|
- |legendreP| |legendreQ| |kelvinBei| |kelvinBer| |kelvinKei| |kelvinKer|
- |ellipticK| |ellipticE| |ellipticF| |ellipticPi| |jacobiSn| |jacobiCn|
- |jacobiDn| |jacobiZeta| |jacobiTheta| |lerchPhi| |riemannZeta|
- |hypergeometricF| |meijerG| |lambertW0| |weierstrassP0| |weierstrassPPrime0|
- |weierstrassZeta0| |weierstrassSigma0| |subNode?| |infLex?| |setEmpty!|
- |setStatus!| |setCondition!| |setValue!| |copy| |status| |condition| |value|
- |splitNodeOf!| |remove!| |remove| |subNodeOf?| |nodeOf?| |result| |conditions|
- |updateStatus!| |extractSplittingLeaf| |extendedCoords| |screenCoords|
- |screenCoordZ| |screenCoordY| |screenCoordX| |inBounds?| |isVector?|
- |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity| |parallel|
- |distance| |distanceSquared| |Pnan?| |max| |min| |sivec| |svec| |sipnt| |spnt|
+ |limitPart| |integerPart| |ordinalPower| |ordinalMul| |ordinalAdd|
+ |omegapower| |omega| |bubbleSort!| |insertionSort!| |check| |objects| |lprop|
+ |llprop| |lllp| |lllip| |lp| |mesh?| |mesh| |polygon?| |polygon|
+ |closedCurve?| |closedCurve| |curve?| |curve| |point?| |enterPointData|
+ |composites| |components| |numberOfComposites| |numberOfComponents|
+ |create3Space| |outputAsFortran| |outputAsScript| |outputAsTex| |abs| |Beta|
+ |digamma| |polygamma| |Gamma| |besselJ| |besselY| |besselI| |besselK| |airyAi|
+ |airyAiPrime| |airyBi| |airyBiPrime| |lambertW| |polylog| |weierstrassP|
+ |weierstrassPPrime| |weierstrassSigma| |weierstrassZeta| |whittakerM|
+ |whittakerW| |angerJ| |weberE| |struveH| |struveL| |hankelH1| |hankelH2|
+ |lommelS1| |lommelS2| |kummerM| |kummerU| |legendreP| |legendreQ| |kelvinBei|
+ |kelvinBer| |kelvinKei| |kelvinKer| |ellipticK| |ellipticE| |ellipticF|
+ |ellipticPi| |jacobiSn| |jacobiCn| |jacobiDn| |jacobiZeta| |jacobiTheta|
+ |lerchPhi| |riemannZeta| |hypergeometricF| |meijerG| |lambertW0|
+ |weierstrassP0| |weierstrassPPrime0| |weierstrassZeta0| |weierstrassSigma0|
+ |subNode?| |infLex?| |setEmpty!| |setStatus!| |setCondition!| |setValue!|
+ |copy| |status| |condition| |value| |splitNodeOf!| |remove!| |remove|
+ |subNodeOf?| |nodeOf?| |result| |conditions| |updateStatus!|
+ |extractSplittingLeaf| |extendedCoords| |screenCoords| |screenCoordZ|
+ |screenCoordY| |screenCoordX| |inBounds?| |isVector?| |isPoint?| |toVector|
+ |toPoint| |perpendicular| |colinearity| |parallel| |distance|
+ |distanceSquared| |Pnan?| |max| |min| |sivec| |svec| |sipnt| |spnt|
  |squareMatrix| |transpose| |rightTrim| |leftTrim| |trim| |split| |position|
  |replace| |match?| |match| |substring?| |suffix?| |prefix?| |upperCase!|
  |upperCase| |lowerCase!| |lowerCase| |KrullNumber| |numberOfVariables|
@@ -1049,14 +1049,14 @@
  |karatsubaOnce| |karatsuba| |separate| |pseudoDivide| |pseudoQuotient|
  |composite| |subResultantGcd| |resultant| |discriminant| |pseudoRemainder|
  |shiftLeft| |shiftRight| |karatsubaDivide| |monicDivide| |divideExponents|
- |unmakeSUP| |makeSUP| |vectorise| |eval| |extend| |approximate| |truncate|
- |order| |center| |terms| |squareFreePart| |BumInSepFFE| |multiplyExponents|
- |laurentIfCan| |laurent| |laurentRep| |rationalPower| |puiseux| |dominantTerm|
- |limitPlus| |split!| |setlast!| |setrest!| |setelt| |setfirst!| |cycleSplit!|
- |concat!| |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail|
- |last| |rest| |elt| |first| |concat| |invmultisect| |multisect| |revert|
- |generalLambert| |evenlambert| |oddlambert| |lambert| |lagrange|
- |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
+ |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval| |extend| |approximate|
+ |truncate| |order| |center| |terms| |squareFreePart| |BumInSepFFE|
+ |multiplyExponents| |laurentIfCan| |laurent| |laurentRep| |rationalPower|
+ |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!| |setrest!| |setelt|
+ |setfirst!| |cycleSplit!| |concat!| |cycleTail| |cycleLength| |cycleEntry|
+ |third| |second| |tail| |last| |rest| |elt| |first| |concat| |invmultisect|
+ |multisect| |revert| |generalLambert| |evenlambert| |oddlambert| |lambert|
+ |lagrange| |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
  |multiplyCoefficients| |quoByVar| |coefficients| |series| |stFunc1| |stFunc2|
  |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP
  LODO2FUN RF2UTS |seriesSolve| |parseVarTerm| |parseVar| |toString| |getType|

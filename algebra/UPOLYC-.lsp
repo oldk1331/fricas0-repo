@@ -178,21 +178,42 @@
            (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
       (EXIT |v|))))) 
 
-(DEFUN |UPOLYC-;retract;SR;25| (|p| $)
+(DEFUN |UPOLYC-;unvectorise;VS;25| (|v| $)
+  (PROG (|p| #1=#:G225 #2=#:G229 |i|)
+    (RETURN
+     (SEQ (LETT |p| (|spadConstant| $ 60) . #3=(|UPOLYC-;unvectorise;VS;25|))
+          (SEQ (LETT |i| 1 . #3#) (LETT #2# (QVSIZE |v|) . #3#) G190
+               (COND ((|greater_SI| |i| #2#) (GO G191)))
+               (SEQ
+                (EXIT
+                 (LETT |p|
+                       (SPADCALL |p|
+                                 (SPADCALL (SPADCALL |v| |i| (QREFELT $ 112))
+                                           (PROG1 (LETT #1# (- |i| 1) . #3#)
+                                             (|check_subtype| (>= #1# 0)
+                                                              '(|NonNegativeInteger|)
+                                                              #1#))
+                                           (QREFELT $ 49))
+                                 (QREFELT $ 65))
+                       . #3#)))
+               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+          (EXIT |p|))))) 
+
+(DEFUN |UPOLYC-;retract;SR;26| (|p| $)
   (COND ((SPADCALL |p| (QREFELT $ 9)) (|spadConstant| $ 106))
         ((ZEROP (SPADCALL |p| (QREFELT $ 11))) (SPADCALL |p| (QREFELT $ 53)))
         ('T (|error| "Polynomial is not of degree 0")))) 
 
-(DEFUN |UPOLYC-;retractIfCan;SU;26| (|p| $)
+(DEFUN |UPOLYC-;retractIfCan;SU;27| (|p| $)
   (COND ((SPADCALL |p| (QREFELT $ 9)) (CONS 0 (|spadConstant| $ 106)))
         ((ZEROP (SPADCALL |p| (QREFELT $ 11)))
          (CONS 0 (SPADCALL |p| (QREFELT $ 53))))
         ('T (CONS 1 "failed")))) 
 
-(DEFUN |UPOLYC-;init;S;27| ($) (SPADCALL (|spadConstant| $ 115) (QREFELT $ 30))) 
+(DEFUN |UPOLYC-;init;S;28| ($) (SPADCALL (|spadConstant| $ 117) (QREFELT $ 30))) 
 
 (DEFUN |UPOLYC-;nextItemInner| (|n| $)
-  (PROG (|n3| #1=#:G242 |n2| |n1| |nn|)
+  (PROG (|n3| #1=#:G247 |n2| |n1| |nn|)
     (RETURN
      (SEQ
       (COND
@@ -200,14 +221,14 @@
         (CONS 0
               (SPADCALL
                (PROG2
-                   (LETT #1# (SPADCALL (|spadConstant| $ 106) (QREFELT $ 118))
+                   (LETT #1# (SPADCALL (|spadConstant| $ 106) (QREFELT $ 120))
                          . #2=(|UPOLYC-;nextItemInner|))
                    (QCDR #1#)
                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
                (QREFELT $ 30))))
        ((ZEROP (SPADCALL |n| (QREFELT $ 11)))
         (SEQ
-         (LETT |nn| (SPADCALL (SPADCALL |n| (QREFELT $ 53)) (QREFELT $ 118))
+         (LETT |nn| (SPADCALL (SPADCALL |n| (QREFELT $ 53)) (QREFELT $ 120))
                . #2#)
          (EXIT
           (COND ((QEQCAR |nn| 1) (CONS 1 "failed"))
@@ -232,8 +253,8 @@
                        (SPADCALL
                         (PROG2
                             (LETT #1#
-                                  (SPADCALL (|spadConstant| $ 115)
-                                            (QREFELT $ 118))
+                                  (SPADCALL (|spadConstant| $ 117)
+                                            (QREFELT $ 120))
                                   . #2#)
                             (QCDR #1#)
                           (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
@@ -242,7 +263,7 @@
                (#3#
                 (SEQ
                  (LETT |n3|
-                       (SPADCALL (SPADCALL |n| (QREFELT $ 53)) (QREFELT $ 118))
+                       (SPADCALL (SPADCALL |n| (QREFELT $ 53)) (QREFELT $ 120))
                        . #2#)
                  (EXIT
                   (COND ((QEQCAR |n3| 1) (CONS 1 "failed"))
@@ -252,67 +273,67 @@
                                          (SPADCALL |n| (QREFELT $ 11))
                                          (QREFELT $ 49))))))))))))))))) 
 
-(DEFUN |UPOLYC-;nextItem;SU;29| (|n| $)
-  (PROG (#1=#:G255 |n1|)
+(DEFUN |UPOLYC-;nextItem;SU;30| (|n| $)
+  (PROG (#1=#:G260 |n1|)
     (RETURN
      (SEQ
       (LETT |n1| (|UPOLYC-;nextItemInner| |n| $)
-            . #2=(|UPOLYC-;nextItem;SU;29|))
+            . #2=(|UPOLYC-;nextItem;SU;30|))
       (EXIT
        (COND
         ((QEQCAR |n1| 1)
          (CONS 0
                (SPADCALL
                 (PROG2
-                    (LETT #1# (SPADCALL (|spadConstant| $ 115) (QREFELT $ 118))
+                    (LETT #1# (SPADCALL (|spadConstant| $ 117) (QREFELT $ 120))
                           . #2#)
                     (QCDR #1#)
                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
                 (+ 1 (SPADCALL |n| (QREFELT $ 11))) (QREFELT $ 49))))
         ('T |n1|))))))) 
 
-(DEFUN |UPOLYC-;content;SSaosS;30| (|p| |v| $)
-  (SPADCALL (SPADCALL |p| (QREFELT $ 120)) (QREFELT $ 30))) 
+(DEFUN |UPOLYC-;content;SSaosS;31| (|p| |v| $)
+  (SPADCALL (SPADCALL |p| (QREFELT $ 122)) (QREFELT $ 30))) 
 
 (DEFUN |UPOLYC-;primeFactor| (|p| |q| $)
-  (PROG (|p1| #1=#:G261)
+  (PROG (|p1| #1=#:G266)
     (RETURN
      (SEQ
       (LETT |p1|
             (PROG2
                 (LETT #1#
-                      (SPADCALL |p| (SPADCALL |p| |q| (QREFELT $ 122))
-                                (QREFELT $ 123))
+                      (SPADCALL |p| (SPADCALL |p| |q| (QREFELT $ 124))
+                                (QREFELT $ 125))
                       . #2=(|UPOLYC-;primeFactor|))
                 (QCDR #1#)
               (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
             . #2#)
       (EXIT
-       (COND ((SPADCALL |p1| |p| (QREFELT $ 124)) |p|)
+       (COND ((SPADCALL |p1| |p| (QREFELT $ 126)) |p|)
              ('T (|UPOLYC-;primeFactor| |p1| |q| $)))))))) 
 
-(DEFUN |UPOLYC-;separate;2SR;32| (|p| |q| $)
-  (PROG (#1=#:G267 |a|)
+(DEFUN |UPOLYC-;separate;2SR;33| (|p| |q| $)
+  (PROG (#1=#:G272 |a|)
     (RETURN
      (SEQ
       (LETT |a| (|UPOLYC-;primeFactor| |p| |q| $)
-            . #2=(|UPOLYC-;separate;2SR;32|))
+            . #2=(|UPOLYC-;separate;2SR;33|))
       (EXIT
        (CONS |a|
-             (PROG2 (LETT #1# (SPADCALL |p| |a| (QREFELT $ 123)) . #2#)
+             (PROG2 (LETT #1# (SPADCALL |p| |a| (QREFELT $ 125)) . #2#)
                  (QCDR #1#)
                (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))))))) 
 
-(DEFUN |UPOLYC-;differentiate;SM2S;33| (|x| |deriv| |x'| $)
-  (PROG (|d| #1=#:G272 |lc| |dg|)
+(DEFUN |UPOLYC-;differentiate;SM2S;34| (|x| |deriv| |x'| $)
+  (PROG (|d| #1=#:G277 |lc| |dg|)
     (RETURN
      (SEQ
-      (LETT |d| (|spadConstant| $ 60) . #2=(|UPOLYC-;differentiate;SM2S;33|))
+      (LETT |d| (|spadConstant| $ 60) . #2=(|UPOLYC-;differentiate;SM2S;34|))
       (SEQ G190
            (COND
             ((NULL
               (SPADCALL (LETT |dg| (SPADCALL |x| (QREFELT $ 11)) . #2#) 0
-                        (QREFELT $ 127)))
+                        (QREFELT $ 129)))
              (GO G191)))
            (SEQ (LETT |lc| (SPADCALL |x| (QREFELT $ 53)) . #2#)
                 (LETT |d|
@@ -321,7 +342,7 @@
                                  (SPADCALL |x'|
                                            (SPADCALL
                                             (SPADCALL |dg| |lc|
-                                                      (QREFELT $ 128))
+                                                      (QREFELT $ 130))
                                             (PROG1 (LETT #1# (- |dg| 1) . #2#)
                                               (|check_subtype| (>= #1# 0)
                                                                '(|NonNegativeInteger|)
@@ -341,7 +362,7 @@
                  (QREFELT $ 65))))))) 
 
 (DEFUN |UPOLYC-;ncdiff| (|n| |x'| $)
-  (PROG (|n1| #1=#:G288)
+  (PROG (|n1| #1=#:G293)
     (RETURN
      (COND ((ZEROP |n|) (|spadConstant| $ 60))
            ((ZEROP
@@ -359,16 +380,16 @@
                        (|UPOLYC-;ncdiff| |n1| |x'| $) (QREFELT $ 71))
              (QREFELT $ 65))))))) 
 
-(DEFUN |UPOLYC-;differentiate;SM2S;35| (|x| |deriv| |x'| $)
+(DEFUN |UPOLYC-;differentiate;SM2S;36| (|x| |deriv| |x'| $)
   (PROG (|d| |lc| |dg|)
     (RETURN
      (SEQ
-      (LETT |d| (|spadConstant| $ 60) . #1=(|UPOLYC-;differentiate;SM2S;35|))
+      (LETT |d| (|spadConstant| $ 60) . #1=(|UPOLYC-;differentiate;SM2S;36|))
       (SEQ G190
            (COND
             ((NULL
               (SPADCALL (LETT |dg| (SPADCALL |x| (QREFELT $ 11)) . #1#) 0
-                        (QREFELT $ 127)))
+                        (QREFELT $ 129)))
              (GO G191)))
            (SEQ (LETT |lc| (SPADCALL |x| (QREFELT $ 53)) . #1#)
                 (LETT |d|
@@ -378,7 +399,7 @@
                                            (QREFELT $ 49))
                                  (QREFELT $ 65))
                        (SPADCALL |lc| (|UPOLYC-;ncdiff| |dg| |x'| $)
-                                 (QREFELT $ 131))
+                                 (QREFELT $ 133))
                        (QREFELT $ 65))
                       . #1#)
                 (EXIT (LETT |x| (SPADCALL |x| (QREFELT $ 55)) . #1#)))
@@ -389,25 +410,25 @@
                            (QREFELT $ 30))
                  (QREFELT $ 65))))))) 
 
-(DEFUN |UPOLYC-;differentiate;SMS;36| (|x| |deriv| $)
-  (SPADCALL |x| |deriv| (|spadConstant| $ 47) (QREFELT $ 132))) 
+(DEFUN |UPOLYC-;differentiate;SMS;37| (|x| |deriv| $)
+  (SPADCALL |x| |deriv| (|spadConstant| $ 47) (QREFELT $ 134))) 
 
-(DEFUN |UPOLYC-;differentiate;2S;37| (|x| $)
-  (PROG (|d| #1=#:G298 |dg|)
+(DEFUN |UPOLYC-;differentiate;2S;38| (|x| $)
+  (PROG (|d| #1=#:G303 |dg|)
     (RETURN
-     (SEQ (LETT |d| (|spadConstant| $ 60) . #2=(|UPOLYC-;differentiate;2S;37|))
+     (SEQ (LETT |d| (|spadConstant| $ 60) . #2=(|UPOLYC-;differentiate;2S;38|))
           (SEQ G190
                (COND
                 ((NULL
                   (SPADCALL (LETT |dg| (SPADCALL |x| (QREFELT $ 11)) . #2#) 0
-                            (QREFELT $ 127)))
+                            (QREFELT $ 129)))
                  (GO G191)))
                (SEQ
                 (LETT |d|
                       (SPADCALL |d|
                                 (SPADCALL
                                  (SPADCALL |dg| (SPADCALL |x| (QREFELT $ 53))
-                                           (QREFELT $ 128))
+                                           (QREFELT $ 130))
                                  (PROG1 (LETT #1# (- |dg| 1) . #2#)
                                    (|check_subtype| (>= #1# 0)
                                                     '(|NonNegativeInteger|)
@@ -419,22 +440,22 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |d|))))) 
 
-(DEFUN |UPOLYC-;differentiate;SSaosS;38| (|x| |v| $)
-  (SPADCALL |x| (QREFELT $ 135))) 
+(DEFUN |UPOLYC-;differentiate;SSaosS;39| (|x| |v| $)
+  (SPADCALL |x| (QREFELT $ 137))) 
 
-(DEFUN |UPOLYC-;elt;3F;39| (|g| |f| $)
-  (SPADCALL (SPADCALL (SPADCALL |g| (QREFELT $ 138)) |f| (QREFELT $ 140))
-            (SPADCALL (SPADCALL |g| (QREFELT $ 141)) |f| (QREFELT $ 140))
-            (QREFELT $ 142))) 
+(DEFUN |UPOLYC-;elt;3F;40| (|g| |f| $)
+  (SPADCALL (SPADCALL (SPADCALL |g| (QREFELT $ 140)) |f| (QREFELT $ 142))
+            (SPADCALL (SPADCALL |g| (QREFELT $ 143)) |f| (QREFELT $ 142))
+            (QREFELT $ 144))) 
 
-(DEFUN |UPOLYC-;pseudoQuotient;3S;40| (|p| |q| $)
-  (PROG (#1=#:G346 #2=#:G344 |n|)
+(DEFUN |UPOLYC-;pseudoQuotient;3S;41| (|p| |q| $)
+  (PROG (#1=#:G351 #2=#:G349 |n|)
     (RETURN
      (SEQ
       (LETT |n|
             (+ (- (SPADCALL |p| (QREFELT $ 11)) (SPADCALL |q| (QREFELT $ 11)))
                1)
-            . #3=(|UPOLYC-;pseudoQuotient;3S;40|))
+            . #3=(|UPOLYC-;pseudoQuotient;3S;41|))
       (EXIT
        (COND ((< |n| 1) (|spadConstant| $ 60))
              ('T
@@ -448,91 +469,91 @@
                                        (|check_subtype| (>= #2# 0)
                                                         '(|NonNegativeInteger|)
                                                         #2#))
-                                     (QREFELT $ 144))
-                           |p| (QREFELT $ 131))
-                          (SPADCALL |p| |q| (QREFELT $ 145)) (QREFELT $ 146))
-                         |q| (QREFELT $ 123))
+                                     (QREFELT $ 146))
+                           |p| (QREFELT $ 133))
+                          (SPADCALL |p| |q| (QREFELT $ 147)) (QREFELT $ 148))
+                         |q| (QREFELT $ 125))
                         . #3#)
                   (QCDR #1#)
                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))))))) 
 
-(DEFUN |UPOLYC-;pseudoDivide;2SR;41| (|p| |q| $)
-  (PROG (#1=#:G354 |lc| #2=#:G352 |prem| |n|)
+(DEFUN |UPOLYC-;pseudoDivide;2SR;42| (|p| |q| $)
+  (PROG (#1=#:G359 |lc| #2=#:G357 |prem| |n|)
     (RETURN
      (SEQ
       (LETT |n|
             (+ (- (SPADCALL |p| (QREFELT $ 11)) (SPADCALL |q| (QREFELT $ 11)))
                1)
-            . #3=(|UPOLYC-;pseudoDivide;2SR;41|))
+            . #3=(|UPOLYC-;pseudoDivide;2SR;42|))
       (EXIT
        (COND
         ((< |n| 1) (VECTOR (|spadConstant| $ 48) (|spadConstant| $ 60) |p|))
         ('T
-         (SEQ (LETT |prem| (SPADCALL |p| |q| (QREFELT $ 145)) . #3#)
+         (SEQ (LETT |prem| (SPADCALL |p| |q| (QREFELT $ 147)) . #3#)
               (LETT |lc|
                     (SPADCALL (SPADCALL |q| (QREFELT $ 53))
                               (PROG1 (LETT #2# |n| . #3#)
                                 (|check_subtype| (>= #2# 0)
                                                  '(|NonNegativeInteger|) #2#))
-                              (QREFELT $ 144))
+                              (QREFELT $ 146))
                     . #3#)
               (EXIT
                (VECTOR |lc|
                        (PROG2
                            (LETT #1#
                                  (SPADCALL
-                                  (SPADCALL (SPADCALL |lc| |p| (QREFELT $ 131))
-                                            |prem| (QREFELT $ 146))
-                                  |q| (QREFELT $ 123))
+                                  (SPADCALL (SPADCALL |lc| |p| (QREFELT $ 133))
+                                            |prem| (QREFELT $ 148))
+                                  |q| (QREFELT $ 125))
                                  . #3#)
                            (QCDR #1#)
                          (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
                        |prem|)))))))))) 
 
-(DEFUN |UPOLYC-;composite;FSU;42| (|f| |q| $)
+(DEFUN |UPOLYC-;composite;FSU;43| (|f| |q| $)
   (PROG (|d| |n|)
     (RETURN
      (SEQ
-      (LETT |n| (SPADCALL (SPADCALL |f| (QREFELT $ 138)) |q| (QREFELT $ 150))
-            . #1=(|UPOLYC-;composite;FSU;42|))
+      (LETT |n| (SPADCALL (SPADCALL |f| (QREFELT $ 140)) |q| (QREFELT $ 152))
+            . #1=(|UPOLYC-;composite;FSU;43|))
       (EXIT
        (COND ((QEQCAR |n| 1) (CONS 1 "failed"))
              (#2='T
               (SEQ
                (LETT |d|
-                     (SPADCALL (SPADCALL |f| (QREFELT $ 141)) |q|
-                               (QREFELT $ 150))
+                     (SPADCALL (SPADCALL |f| (QREFELT $ 143)) |q|
+                               (QREFELT $ 152))
                      . #1#)
                (EXIT
                 (COND ((QEQCAR |d| 1) (CONS 1 "failed"))
                       (#2#
                        (CONS 0
                              (SPADCALL (QCDR |n|) (QCDR |d|)
-                                       (QREFELT $ 151)))))))))))))) 
+                                       (QREFELT $ 153)))))))))))))) 
 
-(DEFUN |UPOLYC-;composite;2SU;43| (|p| |q| $)
-  (PROG (#1=#:G380 |w| |u| |v| |cqr|)
+(DEFUN |UPOLYC-;composite;2SU;44| (|p| |q| $)
+  (PROG (#1=#:G385 |w| |u| |v| |cqr|)
     (RETURN
      (SEQ
-      (COND ((SPADCALL |p| (QREFELT $ 154)) (CONS 0 |p|))
+      (COND ((SPADCALL |p| (QREFELT $ 156)) (CONS 0 |p|))
             ('T
              (SEQ
               (EXIT
                (SEQ
-                (LETT |cqr| (SPADCALL |p| |q| (QREFELT $ 155))
-                      . #2=(|UPOLYC-;composite;2SU;43|))
+                (LETT |cqr| (SPADCALL |p| |q| (QREFELT $ 157))
+                      . #2=(|UPOLYC-;composite;2SU;44|))
                 (COND
-                 ((SPADCALL (QVELT |cqr| 2) (QREFELT $ 154))
+                 ((SPADCALL (QVELT |cqr| 2) (QREFELT $ 156))
                   (SEQ
                    (LETT |v|
                          (SPADCALL (QVELT |cqr| 2) (QVELT |cqr| 0)
-                                   (QREFELT $ 156))
+                                   (QREFELT $ 158))
                          . #2#)
                    (EXIT
                     (COND
                      ((QEQCAR |v| 0)
                       (SEQ
-                       (LETT |u| (SPADCALL (QVELT |cqr| 1) |q| (QREFELT $ 150))
+                       (LETT |u| (SPADCALL (QVELT |cqr| 1) |q| (QREFELT $ 152))
                              . #2#)
                        (EXIT
                         (COND
@@ -540,7 +561,7 @@
                           (SEQ
                            (LETT |w|
                                  (SPADCALL (QCDR |u|) (QVELT |cqr| 0)
-                                           (QREFELT $ 156))
+                                           (QREFELT $ 158))
                                  . #2#)
                            (EXIT
                             (COND
@@ -561,18 +582,18 @@
                 (EXIT (CONS 1 "failed"))))
               #1# (EXIT #1#)))))))) 
 
-(DEFUN |UPOLYC-;elt;S2F;44| (|p| |f| $)
-  (PROG (|ans| #1=#:G387 |n|)
+(DEFUN |UPOLYC-;elt;S2F;45| (|p| |f| $)
+  (PROG (|ans| #1=#:G392 |n|)
     (RETURN
      (SEQ
-      (COND ((SPADCALL |p| (QREFELT $ 9)) (|spadConstant| $ 158))
+      (COND ((SPADCALL |p| (QREFELT $ 9)) (|spadConstant| $ 160))
             (#2='T
              (SEQ
               (LETT |ans|
                     (SPADCALL
                      (SPADCALL (SPADCALL |p| (QREFELT $ 53)) (QREFELT $ 30))
-                     (QREFELT $ 159))
-                    . #3=(|UPOLYC-;elt;S2F;44|))
+                     (QREFELT $ 161))
+                    . #3=(|UPOLYC-;elt;S2F;45|))
               (LETT |n| (SPADCALL |p| (QREFELT $ 11)) . #3#)
               (SEQ G190
                    (COND
@@ -603,23 +624,23 @@
                                                   (|check_subtype| (>= #1# 0)
                                                                    '(|NonNegativeInteger|)
                                                                    #1#))
-                                                (QREFELT $ 160))
-                                      (QREFELT $ 161))
+                                                (QREFELT $ 162))
+                                      (QREFELT $ 163))
                             (SPADCALL
                              (SPADCALL (SPADCALL |p| (QREFELT $ 53))
                                        (QREFELT $ 30))
-                             (QREFELT $ 159))
-                            (QREFELT $ 162))
+                             (QREFELT $ 161))
+                            (QREFELT $ 164))
                            . #3#)))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT
                (COND ((ZEROP |n|) |ans|)
                      (#2#
-                      (SPADCALL |ans| (SPADCALL |f| |n| (QREFELT $ 163))
-                                (QREFELT $ 161)))))))))))) 
+                      (SPADCALL |ans| (SPADCALL |f| |n| (QREFELT $ 165))
+                                (QREFELT $ 163)))))))))))) 
 
-(DEFUN |UPOLYC-;order;2SNni;45| (|p| |q| $)
-  (PROG (|ans| #1=#:G401 |u|)
+(DEFUN |UPOLYC-;order;2SNni;46| (|p| |q| $)
+  (PROG (|ans| #1=#:G406 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -629,10 +650,10 @@
         ((< (SPADCALL |q| (QREFELT $ 11)) 1)
          (|error| "order: place must be non-trivial"))
         ('T
-         (SEQ (LETT |ans| 0 . #2=(|UPOLYC-;order;2SNni;45|))
+         (SEQ (LETT |ans| 0 . #2=(|UPOLYC-;order;2SNni;46|))
               (EXIT
                (SEQ G190 NIL
-                    (SEQ (LETT |u| (SPADCALL |p| |q| (QREFELT $ 123)) . #2#)
+                    (SEQ (LETT |u| (SPADCALL |p| |q| (QREFELT $ 125)) . #2#)
                          (EXIT
                           (COND
                            ((QEQCAR |u| 1)
@@ -643,50 +664,50 @@
                     NIL (GO G190) G191 (EXIT NIL)))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |UPOLYC-;squareFree;SF;46| (|p| $) (SPADCALL |p| (QREFELT $ 167))) 
+(DEFUN |UPOLYC-;squareFree;SF;47| (|p| $) (SPADCALL |p| (QREFELT $ 169))) 
 
-(DEFUN |UPOLYC-;squareFreePart;2S;47| (|p| $) (SPADCALL |p| (QREFELT $ 169))) 
+(DEFUN |UPOLYC-;squareFreePart;2S;48| (|p| $) (SPADCALL |p| (QREFELT $ 171))) 
 
-(DEFUN |UPOLYC-;gcdPolynomial;3Sup;48| (|pp| |qq| $)
-  (COND ((SPADCALL |pp| (QREFELT $ 171)) (SPADCALL |qq| (QREFELT $ 172)))
-        ((SPADCALL |qq| (QREFELT $ 171)) (SPADCALL |pp| (QREFELT $ 172)))
+(DEFUN |UPOLYC-;gcdPolynomial;3Sup;49| (|pp| |qq| $)
+  (COND ((SPADCALL |pp| (QREFELT $ 173)) (SPADCALL |qq| (QREFELT $ 174)))
+        ((SPADCALL |qq| (QREFELT $ 173)) (SPADCALL |pp| (QREFELT $ 174)))
         ('T
          (SPADCALL
           (SPADCALL
-           (SPADCALL (SPADCALL |pp| (QREFELT $ 173))
-                     (SPADCALL |qq| (QREFELT $ 173)) (QREFELT $ 122))
+           (SPADCALL (SPADCALL |pp| (QREFELT $ 175))
+                     (SPADCALL |qq| (QREFELT $ 175)) (QREFELT $ 124))
            (SPADCALL
-            (SPADCALL (SPADCALL |pp| (QREFELT $ 174))
-                      (SPADCALL |qq| (QREFELT $ 174)) (QREFELT $ 175))
-            (QREFELT $ 174))
-           (QREFELT $ 176))
-          (QREFELT $ 172))))) 
+            (SPADCALL (SPADCALL |pp| (QREFELT $ 176))
+                      (SPADCALL |qq| (QREFELT $ 176)) (QREFELT $ 177))
+            (QREFELT $ 176))
+           (QREFELT $ 178))
+          (QREFELT $ 174))))) 
 
-(DEFUN |UPOLYC-;squareFreePolynomial;SupF;49| (|pp| $)
-  (SPADCALL |pp| (QREFELT $ 179))) 
+(DEFUN |UPOLYC-;squareFreePolynomial;SupF;50| (|pp| $)
+  (SPADCALL |pp| (QREFELT $ 181))) 
 
-(DEFUN |UPOLYC-;elt;F2R;50| (|f| |r| $)
-  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 138)) |r| (QREFELT $ 29))
-            (SPADCALL (SPADCALL |f| (QREFELT $ 141)) |r| (QREFELT $ 29))
-            (QREFELT $ 181))) 
+(DEFUN |UPOLYC-;elt;F2R;51| (|f| |r| $)
+  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 140)) |r| (QREFELT $ 29))
+            (SPADCALL (SPADCALL |f| (QREFELT $ 143)) |r| (QREFELT $ 29))
+            (QREFELT $ 183))) 
 
-(DEFUN |UPOLYC-;euclideanSize;SNni;51| (|x| $)
+(DEFUN |UPOLYC-;euclideanSize;SNni;52| (|x| $)
   (COND
    ((SPADCALL |x| (QREFELT $ 9))
     (|error| "euclideanSize called on 0 in Univariate Polynomial"))
    ('T (SPADCALL |x| (QREFELT $ 11))))) 
 
-(DEFUN |UPOLYC-;divide;2SR;52| (|x| |y| $)
-  (PROG (|quot| |n| #1=#:G415 |f| |lc|)
+(DEFUN |UPOLYC-;divide;2SR;53| (|x| |y| $)
+  (PROG (|quot| |n| #1=#:G420 |f| |lc|)
     (RETURN
      (SEQ
       (COND
        ((SPADCALL |y| (QREFELT $ 9))
         (|error| "division by 0 in Univariate Polynomials"))
        ('T
-        (SEQ (LETT |quot| (|spadConstant| $ 60) . #2=(|UPOLYC-;divide;2SR;52|))
+        (SEQ (LETT |quot| (|spadConstant| $ 60) . #2=(|UPOLYC-;divide;2SR;53|))
              (LETT |lc|
-                   (SPADCALL (SPADCALL |y| (QREFELT $ 53)) (QREFELT $ 184))
+                   (SPADCALL (SPADCALL |y| (QREFELT $ 53)) (QREFELT $ 186))
                    . #2#)
              (SEQ G190
                   (COND
@@ -699,7 +720,7 @@
                   (SEQ
                    (LETT |f|
                          (SPADCALL |lc| (SPADCALL |x| (QREFELT $ 53))
-                                   (QREFELT $ 185))
+                                   (QREFELT $ 187))
                          . #2#)
                    (LETT |n|
                          (PROG1
@@ -719,28 +740,28 @@
                           (SPADCALL |x|
                                     (SPADCALL (SPADCALL |f| |n| (QREFELT $ 49))
                                               |y| (QREFELT $ 71))
-                                    (QREFELT $ 146))
+                                    (QREFELT $ 148))
                           . #2#)))
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT (CONS |quot| |x|))))))))) 
 
-(DEFUN |UPOLYC-;integrate;2S;53| (|p| $)
+(DEFUN |UPOLYC-;integrate;2S;54| (|p| $)
   (PROG (|ans| |d| |l|)
     (RETURN
-     (SEQ (LETT |ans| (|spadConstant| $ 60) . #1=(|UPOLYC-;integrate;2S;53|))
+     (SEQ (LETT |ans| (|spadConstant| $ 60) . #1=(|UPOLYC-;integrate;2S;54|))
           (SEQ G190
                (COND
-                ((NULL (SPADCALL |p| (|spadConstant| $ 60) (QREFELT $ 187)))
+                ((NULL (SPADCALL |p| (|spadConstant| $ 60) (QREFELT $ 189)))
                  (GO G191)))
                (SEQ (LETT |l| (SPADCALL |p| (QREFELT $ 53)) . #1#)
                     (LETT |d| (+ 1 (SPADCALL |p| (QREFELT $ 11))) . #1#)
                     (LETT |ans|
                           (SPADCALL |ans|
                                     (SPADCALL
-                                     (SPADCALL (SPADCALL |d| (QREFELT $ 189))
-                                               (QREFELT $ 190))
+                                     (SPADCALL (SPADCALL |d| (QREFELT $ 191))
+                                               (QREFELT $ 192))
                                      (SPADCALL |l| |d| (QREFELT $ 49))
-                                     (QREFELT $ 191))
+                                     (QREFELT $ 193))
                                     (QREFELT $ 65))
                           . #1#)
                     (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 55)) . #1#)))
@@ -756,7 +777,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|UnivariatePolynomialCategory&|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|UnivariatePolynomialCategory&| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 199) . #1#)
+      (LETT $ (GETREFV 201) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -800,75 +821,75 @@
       (COND
        ((|testBitVector| |pv$| 6)
         (PROGN
-         (QSETREFV $ 116 (CONS (|dispatchFunction| |UPOLYC-;init;S;27|) $))
+         (QSETREFV $ 118 (CONS (|dispatchFunction| |UPOLYC-;init;S;28|) $))
          NIL
-         (QSETREFV $ 119
-                   (CONS (|dispatchFunction| |UPOLYC-;nextItem;SU;29|) $)))))
+         (QSETREFV $ 121
+                   (CONS (|dispatchFunction| |UPOLYC-;nextItem;SU;30|) $)))))
       (COND
        ((|testBitVector| |pv$| 3)
         (PROGN
-         (QSETREFV $ 121
-                   (CONS (|dispatchFunction| |UPOLYC-;content;SSaosS;30|) $))
+         (QSETREFV $ 123
+                   (CONS (|dispatchFunction| |UPOLYC-;content;SSaosS;31|) $))
          NIL
-         (QSETREFV $ 126
-                   (CONS (|dispatchFunction| |UPOLYC-;separate;2SR;32|) $)))))
+         (QSETREFV $ 128
+                   (CONS (|dispatchFunction| |UPOLYC-;separate;2SR;33|) $)))))
       (COND
        ((|testBitVector| |pv$| 5)
-        (QSETREFV $ 130
-                  (CONS (|dispatchFunction| |UPOLYC-;differentiate;SM2S;33|)
+        (QSETREFV $ 132
+                  (CONS (|dispatchFunction| |UPOLYC-;differentiate;SM2S;34|)
                         $)))
        ('T
         (PROGN
-         (QSETREFV $ 130
-                   (CONS (|dispatchFunction| |UPOLYC-;differentiate;SM2S;35|)
+         (QSETREFV $ 132
+                   (CONS (|dispatchFunction| |UPOLYC-;differentiate;SM2S;36|)
                          $)))))
       (COND
        ((|testBitVector| |pv$| 4)
         (PROGN
-         (QSETREFV $ 143 (CONS (|dispatchFunction| |UPOLYC-;elt;3F;39|) $))
-         (QSETREFV $ 147
-                   (CONS (|dispatchFunction| |UPOLYC-;pseudoQuotient;3S;40|)
-                         $))
+         (QSETREFV $ 145 (CONS (|dispatchFunction| |UPOLYC-;elt;3F;40|) $))
          (QSETREFV $ 149
-                   (CONS (|dispatchFunction| |UPOLYC-;pseudoDivide;2SR;41|) $))
-         (QSETREFV $ 153
-                   (CONS (|dispatchFunction| |UPOLYC-;composite;FSU;42|) $))
-         (QSETREFV $ 157
-                   (CONS (|dispatchFunction| |UPOLYC-;composite;2SU;43|) $))
-         (QSETREFV $ 164 (CONS (|dispatchFunction| |UPOLYC-;elt;S2F;44|) $))
-         (QSETREFV $ 165
-                   (CONS (|dispatchFunction| |UPOLYC-;order;2SNni;45|) $)))))
+                   (CONS (|dispatchFunction| |UPOLYC-;pseudoQuotient;3S;41|)
+                         $))
+         (QSETREFV $ 151
+                   (CONS (|dispatchFunction| |UPOLYC-;pseudoDivide;2SR;42|) $))
+         (QSETREFV $ 155
+                   (CONS (|dispatchFunction| |UPOLYC-;composite;FSU;43|) $))
+         (QSETREFV $ 159
+                   (CONS (|dispatchFunction| |UPOLYC-;composite;2SU;44|) $))
+         (QSETREFV $ 166 (CONS (|dispatchFunction| |UPOLYC-;elt;S2F;45|) $))
+         (QSETREFV $ 167
+                   (CONS (|dispatchFunction| |UPOLYC-;order;2SNni;46|) $)))))
       (COND
        ((|testBitVector| |pv$| 3)
         (PROGN
-         (QSETREFV $ 168
-                   (CONS (|dispatchFunction| |UPOLYC-;squareFree;SF;46|) $))
          (QSETREFV $ 170
-                   (CONS (|dispatchFunction| |UPOLYC-;squareFreePart;2S;47|)
+                   (CONS (|dispatchFunction| |UPOLYC-;squareFree;SF;47|) $))
+         (QSETREFV $ 172
+                   (CONS (|dispatchFunction| |UPOLYC-;squareFreePart;2S;48|)
                          $)))))
       (COND
        ((|HasCategory| |#2| '(|PolynomialFactorizationExplicit|))
         (PROGN
-         (QSETREFV $ 177
-                   (CONS (|dispatchFunction| |UPOLYC-;gcdPolynomial;3Sup;48|)
+         (QSETREFV $ 179
+                   (CONS (|dispatchFunction| |UPOLYC-;gcdPolynomial;3Sup;49|)
                          $))
-         (QSETREFV $ 180
+         (QSETREFV $ 182
                    (CONS
-                    (|dispatchFunction| |UPOLYC-;squareFreePolynomial;SupF;49|)
+                    (|dispatchFunction| |UPOLYC-;squareFreePolynomial;SupF;50|)
                     $)))))
       (COND
        ((|testBitVector| |pv$| 2)
         (PROGN
-         (QSETREFV $ 182 (CONS (|dispatchFunction| |UPOLYC-;elt;F2R;50|) $))
-         (QSETREFV $ 183
-                   (CONS (|dispatchFunction| |UPOLYC-;euclideanSize;SNni;51|)
+         (QSETREFV $ 184 (CONS (|dispatchFunction| |UPOLYC-;elt;F2R;51|) $))
+         (QSETREFV $ 185
+                   (CONS (|dispatchFunction| |UPOLYC-;euclideanSize;SNni;52|)
                          $))
-         (QSETREFV $ 186
-                   (CONS (|dispatchFunction| |UPOLYC-;divide;2SR;52|) $)))))
+         (QSETREFV $ 188
+                   (CONS (|dispatchFunction| |UPOLYC-;divide;2SR;53|) $)))))
       (COND
        ((|testBitVector| |pv$| 1)
-        (QSETREFV $ 192
-                  (CONS (|dispatchFunction| |UPOLYC-;integrate;2S;53|) $))))
+        (QSETREFV $ 194
+                  (CONS (|dispatchFunction| |UPOLYC-;integrate;2S;54|) $))))
       $)))) 
 
 (MAKEPROP '|UnivariatePolynomialCategory&| '|infovec|
@@ -883,7 +904,7 @@
               (32 . |eval|) (|List| 7) |UPOLYC-;eval;SLLS;7| (39 . |elt|)
               (45 . |coerce|) |UPOLYC-;eval;SSaosRS;8| (|Equation| 6)
               (50 . |lhs|) (|Union| 12 '"failed") (55 . |mainVariable|)
-              (60 . |rhs|) (|List| 195) |UPOLYC-;eval;SLS;9|
+              (60 . |rhs|) (|List| 197) |UPOLYC-;eval;SLS;9|
               |UPOLYC-;mainVariable;SU;10| (65 . |minimumDegree|)
               |UPOLYC-;minimumDegree;SSaosNni;11|
               |UPOLYC-;minimumDegree;SLL;12| (70 . +) (|Mapping| 10 10)
@@ -917,53 +938,54 @@
               (227 . |factorPolynomial|) (|Mapping| 6 51) (|Factored| 51)
               (|FactoredFunctions2| 51 6) (232 . |map|) (238 . |factor|)
               (243 . |Zero|) (|Integer|) (|Vector| 7) (247 . |minIndex|)
-              (252 . |coefficient|) |UPOLYC-;vectorise;SNniV;24|
-              |UPOLYC-;retract;SR;25| (|Union| 7 '"failed")
-              |UPOLYC-;retractIfCan;SU;26| (258 . |init|) (262 . |init|)
-              (|Union| $ '"failed") (266 . |nextItem|) (271 . |nextItem|)
-              (276 . |content|) (281 . |content|) (287 . |gcd|) (293 . |exquo|)
-              (299 . =) (|Record| (|:| |primePart| $) (|:| |commonPart| $))
-              (305 . |separate|) (311 . >) (317 . *) (|Mapping| 7 7)
-              (323 . |differentiate|) (330 . *) (336 . |differentiate|)
-              |UPOLYC-;differentiate;SMS;36| |UPOLYC-;differentiate;2S;37|
-              (343 . |differentiate|) |UPOLYC-;differentiate;SSaosS;38|
-              (|Fraction| 6) (348 . |numer|) (|Fraction| $) (353 . |elt|)
-              (359 . |denom|) (364 . /) (370 . |elt|) (376 . ^)
-              (382 . |pseudoRemainder|) (388 . -) (394 . |pseudoQuotient|)
+              (252 . |coefficient|) |UPOLYC-;vectorise;SNniV;24| (258 . |elt|)
+              |UPOLYC-;unvectorise;VS;25| |UPOLYC-;retract;SR;26|
+              (|Union| 7 '"failed") |UPOLYC-;retractIfCan;SU;27| (264 . |init|)
+              (268 . |init|) (|Union| $ '"failed") (272 . |nextItem|)
+              (277 . |nextItem|) (282 . |content|) (287 . |content|)
+              (293 . |gcd|) (299 . |exquo|) (305 . =)
+              (|Record| (|:| |primePart| $) (|:| |commonPart| $))
+              (311 . |separate|) (317 . >) (323 . *) (|Mapping| 7 7)
+              (329 . |differentiate|) (336 . *) (342 . |differentiate|)
+              |UPOLYC-;differentiate;SMS;37| |UPOLYC-;differentiate;2S;38|
+              (349 . |differentiate|) |UPOLYC-;differentiate;SSaosS;39|
+              (|Fraction| 6) (354 . |numer|) (|Fraction| $) (359 . |elt|)
+              (365 . |denom|) (370 . /) (376 . |elt|) (382 . ^)
+              (388 . |pseudoRemainder|) (394 . -) (400 . |pseudoQuotient|)
               (|Record| (|:| |coef| 7) (|:| |quotient| $) (|:| |remainder| $))
-              (400 . |pseudoDivide|) (406 . |composite|) (412 . /)
-              (|Union| 139 '"failed") (418 . |composite|) (424 . |ground?|)
-              (429 . |pseudoDivide|) (435 . |exquo|) (441 . |composite|)
-              (447 . |Zero|) (451 . |coerce|) (456 . ^) (462 . *) (468 . +)
-              (474 . ^) (480 . |elt|) (486 . |order|)
-              (|UnivariatePolynomialSquareFree| 7 6) (492 . |squareFree|)
-              (497 . |squareFree|) (502 . |squareFreePart|)
-              (507 . |squareFreePart|) (512 . |zero?|) (517 . |unitCanonical|)
-              (522 . |content|) (527 . |primitivePart|)
-              (532 . |subResultantGcd|) (538 . *) (544 . |gcdPolynomial|)
-              (|UnivariatePolynomialSquareFree| 6 75) (550 . |squareFree|)
-              (555 . |squareFreePolynomial|) (560 . /) (566 . |elt|)
-              (572 . |euclideanSize|) (577 . |inv|) (582 . *) (588 . |divide|)
-              (594 . ~=) (|Fraction| 107) (600 . |coerce|) (605 . |inv|)
-              (610 . *) (616 . |integrate|) (|Symbol|) (|List| 193)
-              (|Equation| $) (|Union| 107 '#1="failed") (|Union| 188 '#1#)
+              (406 . |pseudoDivide|) (412 . |composite|) (418 . /)
+              (|Union| 141 '"failed") (424 . |composite|) (430 . |ground?|)
+              (435 . |pseudoDivide|) (441 . |exquo|) (447 . |composite|)
+              (453 . |Zero|) (457 . |coerce|) (462 . ^) (468 . *) (474 . +)
+              (480 . ^) (486 . |elt|) (492 . |order|)
+              (|UnivariatePolynomialSquareFree| 7 6) (498 . |squareFree|)
+              (503 . |squareFree|) (508 . |squareFreePart|)
+              (513 . |squareFreePart|) (518 . |zero?|) (523 . |unitCanonical|)
+              (528 . |content|) (533 . |primitivePart|)
+              (538 . |subResultantGcd|) (544 . *) (550 . |gcdPolynomial|)
+              (|UnivariatePolynomialSquareFree| 6 75) (556 . |squareFree|)
+              (561 . |squareFreePolynomial|) (566 . /) (572 . |elt|)
+              (578 . |euclideanSize|) (583 . |inv|) (588 . *) (594 . |divide|)
+              (600 . ~=) (|Fraction| 107) (606 . |coerce|) (611 . |inv|)
+              (616 . *) (622 . |integrate|) (|List| 196) (|Symbol|)
+              (|Equation| $) (|Union| 107 '#1="failed") (|Union| 190 '#1#)
               (|OutputForm|))
-           '#(|vectorise| 621 |variables| 627 |unmakeSUP| 632 |totalDegree| 637
-              |squareFreePolynomial| 643 |squareFreePart| 648 |squareFree| 653
-              |solveLinearPolynomialEquation| 658 |shiftRight| 664 |shiftLeft|
-              670 |separate| 676 |retractIfCan| 682 |retract| 687
-              |pseudoQuotient| 692 |pseudoDivide| 698 |order| 704 |nextItem|
-              710 |monomial| 715 |minimumDegree| 722 |makeSUP| 734
-              |mainVariable| 739 |karatsubaDivide| 744 |integrate| 750 |init|
-              755 |gcdPolynomial| 759 |factorSquareFreePolynomial| 765
-              |factorPolynomial| 770 |factor| 775 |eval| 780 |euclideanSize|
-              814 |elt| 819 |divide| 837 |differentiate| 843 |degree| 867
-              |content| 879 |composite| 885 |coerce| 897)
+           '#(|vectorise| 627 |variables| 633 |unvectorise| 638 |unmakeSUP| 643
+              |totalDegree| 648 |squareFreePolynomial| 654 |squareFreePart| 659
+              |squareFree| 664 |solveLinearPolynomialEquation| 669 |shiftRight|
+              675 |shiftLeft| 681 |separate| 687 |retractIfCan| 693 |retract|
+              698 |pseudoQuotient| 703 |pseudoDivide| 709 |order| 715
+              |nextItem| 721 |monomial| 726 |minimumDegree| 733 |makeSUP| 745
+              |mainVariable| 750 |karatsubaDivide| 755 |integrate| 761 |init|
+              766 |gcdPolynomial| 770 |factorSquareFreePolynomial| 776
+              |factorPolynomial| 781 |factor| 786 |eval| 791 |euclideanSize|
+              825 |elt| 830 |divide| 848 |differentiate| 854 |degree| 878
+              |content| 890 |composite| 896 |coerce| 908)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 192
+                             (|makeByteWordVec2| 194
                                                  '(1 6 8 0 9 1 6 10 0 11 0 12 0
                                                    13 1 6 10 0 17 3 6 0 0 12 0
                                                    21 2 6 0 0 0 24 3 6 0 0 12 7
@@ -986,65 +1008,66 @@
                                                    97 99 1 7 84 80 100 2 103 98
                                                    101 102 104 1 0 88 0 105 0 7
                                                    0 106 1 108 107 0 109 2 6 7
-                                                   0 10 110 0 7 0 115 0 0 0 116
-                                                   1 7 117 0 118 1 0 117 0 119
-                                                   1 6 7 0 120 2 0 0 0 12 121 2
-                                                   6 0 0 0 122 2 6 117 0 0 123
-                                                   2 6 8 0 0 124 2 0 125 0 0
-                                                   126 2 10 8 0 0 127 2 7 0 10
-                                                   0 128 3 0 0 0 129 0 130 2 6
-                                                   0 7 0 131 3 6 0 0 129 0 132
-                                                   1 6 0 0 135 1 137 6 0 138 2
-                                                   6 139 0 139 140 1 137 6 0
-                                                   141 2 137 0 0 0 142 2 0 139
-                                                   139 139 143 2 7 0 0 10 144 2
-                                                   6 0 0 0 145 2 6 0 0 0 146 2
-                                                   0 0 0 0 147 2 0 148 0 0 149
-                                                   2 6 117 0 0 150 2 137 0 6 6
-                                                   151 2 0 152 139 0 153 1 6 8
-                                                   0 154 2 6 148 0 0 155 2 6
-                                                   117 0 7 156 2 0 117 0 0 157
-                                                   0 137 0 158 1 137 0 6 159 2
-                                                   137 0 0 107 160 2 137 0 0 0
-                                                   161 2 137 0 0 0 162 2 137 0
-                                                   0 10 163 2 0 139 0 139 164 2
-                                                   0 10 0 0 165 1 166 98 6 167
-                                                   1 0 88 0 168 1 166 6 6 169 1
-                                                   0 0 0 170 1 75 8 0 171 1 75
-                                                   0 0 172 1 75 6 0 173 1 75 0
-                                                   0 174 2 75 0 0 0 175 2 75 0
-                                                   6 0 176 2 0 80 80 80 177 1
-                                                   178 82 75 179 1 0 84 80 180
-                                                   2 7 0 0 0 181 2 0 7 139 7
-                                                   182 1 0 10 0 183 1 7 0 0 184
-                                                   2 7 0 0 0 185 2 0 67 0 0 186
-                                                   2 6 8 0 0 187 1 188 0 107
-                                                   189 1 188 0 0 190 2 6 0 188
-                                                   0 191 1 0 0 0 192 2 0 108 0
-                                                   10 111 1 0 14 0 15 1 0 0 51
-                                                   66 2 0 10 0 14 18 1 0 84 80
-                                                   180 1 0 0 0 170 1 0 88 0 168
-                                                   2 0 78 79 80 81 2 0 0 0 10
-                                                   70 2 0 0 0 10 72 2 0 125 0 0
-                                                   126 1 0 113 0 114 1 0 7 0
-                                                   112 2 0 0 0 0 147 2 0 148 0
-                                                   0 149 2 0 10 0 0 165 1 0 117
-                                                   0 119 3 0 0 0 12 10 46 2 0
-                                                   19 0 14 42 2 0 10 0 12 41 1
-                                                   0 51 0 58 1 0 34 0 39 2 0 67
-                                                   0 10 69 1 0 0 0 192 0 0 0
-                                                   116 2 0 80 80 80 177 1 0 84
-                                                   80 87 1 0 84 80 85 1 0 88 0
-                                                   105 3 0 0 0 14 22 23 3 0 0 0
-                                                   12 0 25 3 0 0 0 12 7 31 3 0
-                                                   0 0 14 27 28 2 0 0 0 37 38 1
-                                                   0 10 0 183 2 0 139 0 139 164
-                                                   2 0 7 139 7 182 2 0 139 139
-                                                   139 143 2 0 67 0 0 186 3 0 0
-                                                   0 129 0 130 2 0 0 0 129 133
-                                                   1 0 0 0 134 2 0 0 0 12 136 2
-                                                   0 10 0 12 16 2 0 19 0 14 20
-                                                   2 0 0 0 12 121 2 0 152 139 0
-                                                   153 2 0 117 0 0 157 1 0 0 12
+                                                   0 10 110 2 108 7 0 107 112 0
+                                                   7 0 117 0 0 0 118 1 7 119 0
+                                                   120 1 0 119 0 121 1 6 7 0
+                                                   122 2 0 0 0 12 123 2 6 0 0 0
+                                                   124 2 6 119 0 0 125 2 6 8 0
+                                                   0 126 2 0 127 0 0 128 2 10 8
+                                                   0 0 129 2 7 0 10 0 130 3 0 0
+                                                   0 131 0 132 2 6 0 7 0 133 3
+                                                   6 0 0 131 0 134 1 6 0 0 137
+                                                   1 139 6 0 140 2 6 141 0 141
+                                                   142 1 139 6 0 143 2 139 0 0
+                                                   0 144 2 0 141 141 141 145 2
+                                                   7 0 0 10 146 2 6 0 0 0 147 2
+                                                   6 0 0 0 148 2 0 0 0 0 149 2
+                                                   0 150 0 0 151 2 6 119 0 0
+                                                   152 2 139 0 6 6 153 2 0 154
+                                                   141 0 155 1 6 8 0 156 2 6
+                                                   150 0 0 157 2 6 119 0 7 158
+                                                   2 0 119 0 0 159 0 139 0 160
+                                                   1 139 0 6 161 2 139 0 0 107
+                                                   162 2 139 0 0 0 163 2 139 0
+                                                   0 0 164 2 139 0 0 10 165 2 0
+                                                   141 0 141 166 2 0 10 0 0 167
+                                                   1 168 98 6 169 1 0 88 0 170
+                                                   1 168 6 6 171 1 0 0 0 172 1
+                                                   75 8 0 173 1 75 0 0 174 1 75
+                                                   6 0 175 1 75 0 0 176 2 75 0
+                                                   0 0 177 2 75 0 6 0 178 2 0
+                                                   80 80 80 179 1 180 82 75 181
+                                                   1 0 84 80 182 2 7 0 0 0 183
+                                                   2 0 7 141 7 184 1 0 10 0 185
+                                                   1 7 0 0 186 2 7 0 0 0 187 2
+                                                   0 67 0 0 188 2 6 8 0 0 189 1
+                                                   190 0 107 191 1 190 0 0 192
+                                                   2 6 0 190 0 193 1 0 0 0 194
+                                                   2 0 108 0 10 111 1 0 14 0 15
+                                                   1 0 0 108 113 1 0 0 51 66 2
+                                                   0 10 0 14 18 1 0 84 80 182 1
+                                                   0 0 0 172 1 0 88 0 170 2 0
+                                                   78 79 80 81 2 0 0 0 10 70 2
+                                                   0 0 0 10 72 2 0 127 0 0 128
+                                                   1 0 115 0 116 1 0 7 0 114 2
+                                                   0 0 0 0 149 2 0 150 0 0 151
+                                                   2 0 10 0 0 167 1 0 119 0 121
+                                                   3 0 0 0 12 10 46 2 0 19 0 14
+                                                   42 2 0 10 0 12 41 1 0 51 0
+                                                   58 1 0 34 0 39 2 0 67 0 10
+                                                   69 1 0 0 0 194 0 0 0 118 2 0
+                                                   80 80 80 179 1 0 84 80 87 1
+                                                   0 84 80 85 1 0 88 0 105 3 0
+                                                   0 0 14 22 23 3 0 0 0 14 27
+                                                   28 3 0 0 0 12 0 25 3 0 0 0
+                                                   12 7 31 2 0 0 0 37 38 1 0 10
+                                                   0 185 2 0 141 0 141 166 2 0
+                                                   7 141 7 184 2 0 141 141 141
+                                                   145 2 0 67 0 0 188 3 0 0 0
+                                                   131 0 132 2 0 0 0 131 135 1
+                                                   0 0 0 136 2 0 0 0 12 138 2 0
+                                                   10 0 12 16 2 0 19 0 14 20 2
+                                                   0 0 0 12 123 2 0 154 141 0
+                                                   155 2 0 119 0 0 159 1 0 0 12
                                                    50)))))
            '|lookupComplete|)) 

@@ -67,31 +67,10 @@
 (DEFUN |GALPOLYU;monic?;UPB;4| (|p| $)
   (SPADCALL (SPADCALL |p| (QREFELT $ 26)) (|spadConstant| $ 27) (QREFELT $ 29))) 
 
-(DEFUN |GALPOLYU;unvectorise;VUP;5| (|v| $)
-  (PROG (|p| #1=#:G122 #2=#:G126 |i|)
+(DEFUN |GALPOLYU;reverse;2UP;5| (|p| $)
+  (PROG (|r| #1=#:G122 |i| |n|)
     (RETURN
-     (SEQ (LETT |p| (|spadConstant| $ 17) . #3=(|GALPOLYU;unvectorise;VUP;5|))
-          (SEQ (LETT |i| 1 . #3#) (LETT #2# (QVSIZE |v|) . #3#) G190
-               (COND ((|greater_SI| |i| #2#) (GO G191)))
-               (SEQ
-                (EXIT
-                 (LETT |p|
-                       (SPADCALL |p|
-                                 (SPADCALL (SPADCALL |v| |i| (QREFELT $ 32))
-                                           (PROG1 (LETT #1# (- |i| 1) . #3#)
-                                             (|check_subtype| (>= #1# 0)
-                                                              '(|NonNegativeInteger|)
-                                                              #1#))
-                                           (QREFELT $ 34))
-                                 (QREFELT $ 35))
-                       . #3#)))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT |p|))))) 
-
-(DEFUN |GALPOLYU;reverse;2UP;6| (|p| $)
-  (PROG (|r| #1=#:G127 |i| |n|)
-    (RETURN
-     (SEQ (LETT |r| (|spadConstant| $ 17) . #2=(|GALPOLYU;reverse;2UP;6|))
+     (SEQ (LETT |r| (|spadConstant| $ 17) . #2=(|GALPOLYU;reverse;2UP;5|))
           (LETT |n| (SPADCALL |p| (QREFELT $ 13)) . #2#)
           (SEQ (LETT |i| 0 . #2#) G190
                (COND ((|greater_SI| |i| |n|) (GO G191)))
@@ -105,14 +84,14 @@
                                               (|check_subtype| (>= #1# 0)
                                                                '(|NonNegativeInteger|)
                                                                #1#))
-                                            (QREFELT $ 37))
-                                  |i| (QREFELT $ 34))
-                                 (QREFELT $ 35))
+                                            (QREFELT $ 31))
+                                  |i| (QREFELT $ 32))
+                                 (QREFELT $ 33))
                        . #2#)))
                (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |r|))))) 
 
-(DEFUN |GALPOLYU;scaleRoots;UPRUP;7| (|p| |c| $)
+(DEFUN |GALPOLYU;scaleRoots;UPRUP;6| (|p| |c| $)
   (PROG (|mc| |r| |i| |n|)
     (RETURN
      (SEQ
@@ -120,11 +99,11 @@
             (#1='T
              (SEQ
               (LETT |n| (SPADCALL |p| (QREFELT $ 13))
-                    . #2=(|GALPOLYU;scaleRoots;UPRUP;7|))
+                    . #2=(|GALPOLYU;scaleRoots;UPRUP;6|))
               (EXIT
                (COND
-                ((SPADCALL |c| (QREFELT $ 39))
-                 (SPADCALL (SPADCALL |p| (QREFELT $ 26)) |n| (QREFELT $ 34)))
+                ((SPADCALL |c| (QREFELT $ 36))
+                 (SPADCALL (SPADCALL |p| (QREFELT $ 26)) |n| (QREFELT $ 32)))
                 (#1#
                  (SEQ (LETT |r| (|spadConstant| $ 17) . #2#)
                       (LETT |mc| (|spadConstant| $ 27) . #2#)
@@ -137,30 +116,30 @@
                                              (SPADCALL |mc|
                                                        (SPADCALL |p| |i|
                                                                  (QREFELT $
-                                                                          37))
-                                                       (QREFELT $ 40))
-                                             |i| (QREFELT $ 34))
-                                            (QREFELT $ 35))
+                                                                          31))
+                                                       (QREFELT $ 37))
+                                             |i| (QREFELT $ 32))
+                                            (QREFELT $ 33))
                                   . #2#)
                             (EXIT
-                             (LETT |mc| (SPADCALL |mc| |c| (QREFELT $ 40))
+                             (LETT |mc| (SPADCALL |mc| |c| (QREFELT $ 37))
                                    . #2#)))
                            (LETT |i| (+ |i| -1) . #2#) (GO G190) G191
                            (EXIT NIL))
                       (EXIT |r|)))))))))))) 
 
-(DEFUN |GALPOLYU;shiftRoots;UPRUP;8| (|p| |c| $)
-  (SPADCALL (SPADCALL (ELT $ 42) |p| (QREFELT $ 46))
-            (SPADCALL (SPADCALL (|spadConstant| $ 27) 1 (QREFELT $ 34))
-                      (SPADCALL |c| (QREFELT $ 42)) (QREFELT $ 47))
-            (QREFELT $ 48))) 
+(DEFUN |GALPOLYU;shiftRoots;UPRUP;7| (|p| |c| $)
+  (SPADCALL (SPADCALL (ELT $ 39) |p| (QREFELT $ 43))
+            (SPADCALL (SPADCALL (|spadConstant| $ 27) 1 (QREFELT $ 32))
+                      (SPADCALL |c| (QREFELT $ 39)) (QREFELT $ 44))
+            (QREFELT $ 45))) 
 
 (DECLAIM (NOTINLINE |GaloisGroupPolynomialUtilities;|)) 
 
-(DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G146)
+(DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G141)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G142)
        (RETURN
         (COND
          ((LETT #2#
@@ -186,7 +165,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|GaloisGroupPolynomialUtilities|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|GaloisGroupPolynomialUtilities| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 50) . #1#)
+      (LETT $ (GETREFV 47) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|GaloisGroupPolynomialUtilities|
@@ -208,32 +187,29 @@
               |GALPOLYU;factorOfDegree;PiFUP;2| (|List| 12) (|Multiset| 12)
               (25 . |multiset|) |GALPOLYU;degreePartition;FM;3|
               (30 . |leadingCoefficient|) (35 . |One|) (|Boolean|) (39 . =)
-              |GALPOLYU;monic?;UPB;4| (|Vector| 6) (45 . |elt|) (51 . |One|)
-              (55 . |monomial|) (61 . +) |GALPOLYU;unvectorise;VUP;5|
-              (67 . |coefficient|) |GALPOLYU;reverse;2UP;6| (73 . |zero?|)
-              (78 . *) |GALPOLYU;scaleRoots;UPRUP;7| (84 . |coerce|)
+              |GALPOLYU;monic?;UPB;4| (45 . |coefficient|) (51 . |monomial|)
+              (57 . +) |GALPOLYU;reverse;2UP;5| (63 . |One|) (67 . |zero?|)
+              (72 . *) |GALPOLYU;scaleRoots;UPRUP;6| (78 . |coerce|)
               (|SparseUnivariatePolynomial| 7) (|Mapping| 7 6)
-              (|UnivariatePolynomialCategoryFunctions2| 6 7 7 43) (89 . |map|)
-              (95 . -) (101 . |elt|) |GALPOLYU;shiftRoots;UPRUP;8|)
-           '#(|unvectorise| 107 |shiftRoots| 112 |scaleRoots| 118 |reverse| 124
-              |monic?| 129 |factorsOfDegree| 134 |factorOfDegree| 140
-              |degreePartition| 146)
+              (|UnivariatePolynomialCategoryFunctions2| 6 7 7 40) (83 . |map|)
+              (89 . -) (95 . |elt|) |GALPOLYU;shiftRoots;UPRUP;7|)
+           '#(|shiftRoots| 101 |scaleRoots| 107 |reverse| 113 |monic?| 118
+              |factorsOfDegree| 123 |factorOfDegree| 129 |degreePartition| 135)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 49
+                             (|makeByteWordVec2| 46
                                                  '(1 10 9 0 11 1 7 12 0 13 0 7
                                                    0 17 1 10 12 0 18 2 10 7 0
                                                    19 20 1 23 0 22 24 1 7 6 0
                                                    26 0 6 0 27 2 6 28 0 0 29 2
-                                                   31 6 0 19 32 0 7 0 33 2 7 0
-                                                   6 12 34 2 7 0 0 0 35 2 7 6 0
-                                                   12 37 1 6 28 0 39 2 6 0 0 0
-                                                   40 1 7 0 6 42 2 45 43 44 7
-                                                   46 2 7 0 0 0 47 2 43 7 0 7
-                                                   48 1 0 7 31 36 2 0 7 7 6 49
-                                                   2 0 7 7 6 41 1 0 7 7 38 1 0
-                                                   28 7 30 2 0 14 15 10 16 2 0
-                                                   7 15 10 21 1 0 23 10 25)))))
+                                                   7 6 0 12 31 2 7 0 6 12 32 2
+                                                   7 0 0 0 33 0 7 0 35 1 6 28 0
+                                                   36 2 6 0 0 0 37 1 7 0 6 39 2
+                                                   42 40 41 7 43 2 7 0 0 0 44 2
+                                                   40 7 0 7 45 2 0 7 7 6 46 2 0
+                                                   7 7 6 38 1 0 7 7 34 1 0 28 7
+                                                   30 2 0 14 15 10 16 2 0 7 15
+                                                   10 21 1 0 23 10 25)))))
            '|lookupComplete|)) 

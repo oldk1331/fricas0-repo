@@ -44,6 +44,9 @@
                                               ((|Vector| |t#1|) $
                                                (|NonNegativeInteger|)))
                                              T)
+                                            ((|unvectorise|
+                                              ($ (|Vector| |t#1|)))
+                                             T)
                                             ((|makeSUP|
                                               ((|SparseUnivariatePolynomial|
                                                 |t#1|)
