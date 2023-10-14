@@ -138,17 +138,21 @@
 ;     $InteractiveFrame : local := $compiler_InteractiveFrame
 ;     $MacroTable := MAKE_-HASH_-TABLE()
 ;     $restore_list := nil
+;     $ncMsgList : local := nil
 ;     a := ncloopIncFileName name
 ;     res := fakeloopInclude(name, nil)
+;     if not($ncMsgList = nil) then
+;         processMsgList($ncMsgList, nil)
 ;     true
  
 (DEFUN |spadCompile| (|name|)
-  (PROG (|$InteractiveFrame| |$docList| $COMBLOCKLIST |$spad_scanner|
-         |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY* |$comp370_apply|
-         |res| |a|)
+  (PROG (|$ncMsgList| |$InteractiveFrame| |$docList| $COMBLOCKLIST
+         |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY*
+         |$comp370_apply| |res| |a|)
     (DECLARE
-     (SPECIAL |$InteractiveFrame| |$docList| $COMBLOCKLIST |$spad_scanner|
-      |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY* |$comp370_apply|))
+     (SPECIAL |$ncMsgList| |$InteractiveFrame| |$docList| $COMBLOCKLIST
+      |$spad_scanner| |$InteractiveMode| /EDITFILE *EOF* *FILEACTQ-APPLY*
+      |$comp370_apply|))
     (RETURN
      (PROGN
       (SETQ |$comp370_apply| #'|print_defun|)
@@ -164,8 +168,10 @@
       (SETQ |$InteractiveFrame| |$compiler_InteractiveFrame|)
       (SETQ |$MacroTable| (MAKE-HASH-TABLE))
       (SETQ |$restore_list| NIL)
+      (SETQ |$ncMsgList| NIL)
       (SETQ |a| (|ncloopIncFileName| |name|))
       (SETQ |res| (|fakeloopInclude| |name| NIL))
+      (COND ((NULL (NULL |$ncMsgList|)) (|processMsgList| |$ncMsgList| NIL)))
       T))))
  
 ; DEFPARAMETER($toklst, nil)
