@@ -1091,7 +1091,7 @@
                       (EXIT
                        (COND
                         ((SPADCALL |opf| (QREFELT $ 70))
-                         (SEQ (LETT |op| |opf| . #1#)
+                         (SEQ (LETT |op| (SPADCALL |opf| (QREFELT $ 71)) . #1#)
                               (EXIT
                                (COND
                                 ((SPADCALL |op| (QREFELT $ 18) (QREFELT $ 76))

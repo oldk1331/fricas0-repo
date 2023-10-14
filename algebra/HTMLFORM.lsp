@@ -1386,22 +1386,29 @@
                  (COND
                   ((SPADCALL (|SPADfirst| |args|) '|...| (QREFELT $ 69))
                    (SPADCALL "&#x2026;" (QREFELT $ 57)))
-                  (#1='T
+                  ((NULL (SPADCALL (|SPADfirst| |args|) 'ZAG (QREFELT $ 70)))
+                   (SPADCALL
+                    (SPADCALL
+                     "formatZag: Last argument in ZAG construct unknown operator: "
+                     (|HTMLFORM;stringify| (|SPADfirst| |args|) $)
+                     (QREFELT $ 56))
+                    (QREFELT $ 57)))
+                  ('T
                    (SEQ
                     (LETT |tmpZag|
                           (SPADCALL (|SPADfirst| |args|) (QREFELT $ 46))
-                          . #2=(|HTMLFORM;formatZag|))
+                          . #1=(|HTMLFORM;formatZag|))
                     (LETT |fontAttrib|
                           (COND
                            ((< |nestLevel| 2) "span style='font-size:16px'")
                            ((EQL |nestLevel| 2) "span style='font-size:14px'")
                            ((EQL |nestLevel| 3) "span style='font-size:12px'")
                            ((EQL |nestLevel| 4) "span style='font-size:10px'")
-                           (#1# "span style='font-size:9px'"))
-                          . #2#)
+                           (#2='T "span style='font-size:9px'"))
+                          . #1#)
                     (EXIT
                      (COND
-                      ((SPADCALL (LENGTH |args|) 1 (QREFELT $ 71))
+                      ((SPADCALL (LENGTH |args|) 1 (QREFELT $ 72))
                        (|HTMLFORM;newNode| |fontAttrib|
                         (|HTMLFORM;buildZag|
                          (|HTMLFORM;formatHtml| (|SPADfirst| |tmpZag|)
@@ -1412,7 +1419,7 @@
                           $)
                          $)
                         $))
-                      ((SPADCALL (|SPADfirst| |args|) 'ZAG (QREFELT $ 72))
+                      (#2#
                        (|HTMLFORM;newNode| |fontAttrib|
                         (|HTMLFORM;buildOver|
                          (|HTMLFORM;formatHtml| (|SPADfirst| |tmpZag|)
@@ -1420,14 +1427,7 @@
                          (|HTMLFORM;formatHtml| (|SPADfirst| (CDR |tmpZag|))
                           (QREFELT $ 8) $)
                          $)
-                        $))
-                      (#1#
-                       (SPADCALL
-                        (SPADCALL
-                         "formatZag: Last argument in ZAG construct unknown operator: "
-                         (|HTMLFORM;stringify| (|SPADfirst| |args|) $)
-                         (QREFELT $ 56))
-                        (QREFELT $ 57)))))))))))) 
+                        $))))))))))) 
 
 (SDEFUN |HTMLFORM;formatNary|
         ((|op| |String|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
@@ -1548,7 +1548,7 @@
                                                         (QREFELT $ 55))
                                               (NULL
                                                (SPADCALL |a| '-
-                                                         (QREFELT $ 72))))
+                                                         (QREFELT $ 70))))
                                              (LETT |tags|
                                                    (APPEND |tags|
                                                            (LIST
@@ -1767,10 +1767,10 @@
               (92 . ~=) (98 . |elt|) (104 . |tree|) (|Symbol|) (109 . |string|)
               (114 . |second|) (119 . ~=) (125 . |position|) (132 . |elt|)
               (|List| 58) (138 . |position|) (|List| 47) (144 . |elt|)
-              (150 . |empty|) (154 . |is_symbol?|) (|NonNegativeInteger|)
-              (160 . >) (166 . |has_op?|) (172 . |position|) (178 . |symbol?|)
-              (183 . |symbol|) (188 . |member?|) (194 . |member?|)
-              (|SingleInteger|) (|HashState|))
+              (150 . |empty|) (154 . |is_symbol?|) (160 . |has_op?|)
+              (|NonNegativeInteger|) (166 . >) (172 . |position|)
+              (178 . |symbol?|) (183 . |symbol|) (188 . |member?|)
+              (194 . |member?|) (|SingleInteger|) (|HashState|))
            '#(~= 200 |latex| 206 |hashUpdate!| 211 |hash| 217 |exprex| 222
               |display| 227 |coerceS| 232 |coerceL| 237 |coerce| 242 = 252)
            'NIL
@@ -1791,12 +1791,12 @@
                                               1 45 23 0 60 2 47 34 0 0 61 3 22
                                               47 0 0 47 62 2 45 23 0 47 63 2 64
                                               47 58 0 65 2 66 47 0 47 67 0 31 0
-                                              68 2 42 34 23 58 69 2 70 34 0 0
-                                              71 2 42 34 23 58 72 2 53 47 22 0
-                                              73 1 42 34 23 74 1 42 58 23 75 2
-                                              64 34 58 0 76 2 53 34 22 0 77 2 0
-                                              34 0 0 1 1 0 22 0 1 2 0 79 79 0 1
-                                              1 0 78 0 1 1 0 22 23 40 1 0 27 22
+                                              68 2 42 34 23 58 69 2 42 34 23 58
+                                              70 2 71 34 0 0 72 2 53 47 22 0 73
+                                              1 42 34 23 74 1 42 58 23 75 2 64
+                                              34 58 0 76 2 53 34 22 0 77 2 0 34
+                                              0 0 1 1 0 22 0 1 2 0 79 79 0 1 1
+                                              0 78 0 1 1 0 22 23 40 1 0 27 22
                                               29 1 0 22 23 25 1 0 22 23 26 1 0
                                               22 23 24 1 0 23 0 1 2 0 34 0 0
                                               1)))))
