@@ -1182,8 +1182,8 @@
          (|vx| |Symbol|) (|lvz| |List| (|Symbol|))
          ($ |Polynomial| (|Integer|)))
         (SPROG
-         ((|sval| (|List| (|Polynomial| (|Integer|)))) (#1=#:G318 NIL)
-          (|v| NIL) (#2=#:G317 NIL) (|ress| (|Polynomial| (|Integer|)))
+         ((|sval| (|List| (|Polynomial| (|Integer|)))) (#1=#:G320 NIL)
+          (|v| NIL) (#2=#:G319 NIL) (|ress| (|Polynomial| (|Integer|)))
           (|pss|
            (|Record| (|:| |degx| (|Integer|)) (|:| |degy| (|Integer|))
                      (|:| |degg| (|Integer|)) (|:| |sizem| (|Integer|))
@@ -1195,12 +1195,12 @@
                      (|:| |svx| (|Symbol|)) (|:| |svz| (|List| (|Symbol|)))
                      (|:| |offsetdata| (|Vector| (|Integer|)))
                      (|:| |prime| (|Integer|))))
-          (|msize| (|Integer|)) (|ldeg| (|List| (|Integer|))) (#3=#:G315 NIL)
-          (|m| NIL) (#4=#:G316 NIL) (|vz| NIL) (#5=#:G314 NIL)
-          (|nlm| (|List| #6=(|Polynomial| (|Integer|)))) (#7=#:G313 NIL)
-          (#8=#:G312 NIL) (|ny| #6#) (|nx| #6#)
-          (|tval| (|List| (|Polynomial| (|Integer|)))) (#9=#:G311 NIL)
-          (#10=#:G310 NIL) (|sv| (|List| (|Symbol|)))
+          (|msize| (|Integer|)) (|ldeg| (|List| (|Integer|))) (#3=#:G317 NIL)
+          (|m| NIL) (#4=#:G318 NIL) (|vz| NIL) (#5=#:G316 NIL)
+          (|nlm| (|List| #6=(|Polynomial| (|Integer|)))) (#7=#:G315 NIL)
+          (#8=#:G314 NIL) (|ny| #6#) (|nx| #6#)
+          (|tval| (|List| (|Polynomial| (|Integer|)))) (#9=#:G313 NIL)
+          (#10=#:G312 NIL) (|sv| (|List| (|Symbol|)))
           (|tv| (|List| (|Symbol|))) (|tvz| (|List| (|Symbol|)))
           (|tvx| (|Symbol|)) (|tv0| (|List| (|Symbol|)))
           (|na| #11=(|NonNegativeInteger|)) (|n| #11#))
@@ -1322,9 +1322,9 @@
 
 (DECLAIM (NOTINLINE |ModularAlgebraicGcd;|)) 
 
-(DEFUN |ModularAlgebraicGcd| (&REST #1=#:G319)
+(DEFUN |ModularAlgebraicGcd| (&REST #1=#:G321)
   (SPROG NIL
-         (PROG (#2=#:G320)
+         (PROG (#2=#:G322)
            (RETURN
             (COND
              ((LETT #2#

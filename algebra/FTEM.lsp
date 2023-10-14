@@ -100,12 +100,10 @@
            ((NULL |active|)
             (|error|
              (SPADCALL
-              (SPADCALL
-               (LIST "Missing `endVerbatim' line in "
-                     (SPADCALL |tp| (QREFELT $ 33)))
-               (QREFELT $ 35))
-              (QREFELT $ 37)))))
-          (EXIT (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 38)))))) 
+              (LIST "Missing `endVerbatim' line in "
+                    (SPADCALL |tp| (QREFELT $ 33)))
+              (QREFELT $ 35)))))
+          (EXIT (SPADCALL (STRINGIMAGE |$fortranOutputFile|) (QREFELT $ 36)))))) 
 
 (DECLAIM (NOTINLINE |FortranTemplate;|)) 
 
@@ -132,7 +130,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|FortranTemplate|) . #1=(|FortranTemplate|))
-          (LETT $ (GETREFV 41) . #1#)
+          (LETT $ (GETREFV 40) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FortranTemplate| NIL (CONS 1 $))
@@ -153,34 +151,33 @@
               (19 . |empty?|) (|Integer|) (24 . |maxIndex|) (|Character|)
               (29 . |elt|) (35 . |setelt!|) (42 . |open|) (48 . |endOfFile?|)
               (|Any|) (53 . |interpretString|) (58 . |close!|) (63 . |coerce|)
-              (|List| $) (68 . |concat|) (|OutputForm|) (73 . |coerce|)
-              (78 . |coerce|) (|SingleInteger|) (|HashState|))
-           '#(~= 83 |write!| 89 |reopen!| 95 |read!| 101 |processTemplate| 106
-              |open| 117 |name| 128 |latex| 133 |iomode| 138 |hashUpdate!| 143
-              |hash| 149 |fortranLiteralLine| 154 |fortranLiteral| 159
-              |fortranCarriageReturn| 164 |flush| 168 |coerce| 173 |close!| 178
-              = 183)
+              (|List| $) (68 . |concat|) (73 . |coerce|) (|SingleInteger|)
+              (|HashState|) (|OutputForm|))
+           '#(~= 78 |write!| 84 |reopen!| 90 |read!| 96 |processTemplate| 101
+              |open| 112 |name| 123 |latex| 128 |iomode| 133 |hashUpdate!| 138
+              |hash| 144 |fortranLiteralLine| 149 |fortranLiteral| 154
+              |fortranCarriageReturn| 159 |flush| 163 |coerce| 168 |close!| 173
+              = 178)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|FileCategory| 12 8) (|SetCategory|) (|BasicType|)
-                           (|CoercibleTo| 36))
-                        (|makeByteWordVec2| 40
+                           (|CoercibleTo| 39))
+                        (|makeByteWordVec2| 39
                                             '(1 13 7 12 14 0 13 7 16 1 6 8 0 18
                                               1 19 8 8 20 1 8 21 0 22 1 8 23 0
                                               24 2 8 25 0 23 26 3 8 25 0 23 25
                                               27 2 5 0 12 8 28 1 6 21 0 29 1 19
                                               30 8 31 1 0 0 0 32 1 12 8 0 33 1
-                                              8 0 34 35 1 8 36 0 37 1 12 0 8 38
-                                              2 0 21 0 0 1 2 0 8 0 8 1 2 0 0 0
-                                              8 1 1 0 8 0 1 2 0 12 12 12 17 1 0
-                                              12 12 15 2 0 0 12 8 1 1 0 0 12 1
-                                              1 0 12 0 1 1 0 8 0 1 1 0 8 0 1 2
-                                              0 40 40 0 1 1 0 39 0 1 1 0 7 8 9
-                                              1 0 7 8 10 0 0 7 11 1 0 7 0 1 1 0
-                                              36 0 1 1 0 0 0 32 2 0 21 0 0
-                                              1)))))
+                                              8 0 34 35 1 12 0 8 36 2 0 21 0 0
+                                              1 2 0 8 0 8 1 2 0 0 0 8 1 1 0 8 0
+                                              1 2 0 12 12 12 17 1 0 12 12 15 2
+                                              0 0 12 8 1 1 0 0 12 1 1 0 12 0 1
+                                              1 0 8 0 1 1 0 8 0 1 2 0 38 38 0 1
+                                              1 0 37 0 1 1 0 7 8 9 1 0 7 8 10 0
+                                              0 7 11 1 0 7 0 1 1 0 39 0 1 1 0 0
+                                              0 32 2 0 21 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranTemplate| 'NILADIC T) 

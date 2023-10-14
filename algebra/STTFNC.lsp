@@ -14,10 +14,7 @@
                           (QREFELT $ 22))
                          |STTFNC;exp;2S;1|)
                    (EXIT (SPADCALL |expx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "exp: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "exp: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;log;2S;2| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|log1PlusX| (|Stream| |Coef|)))
@@ -27,8 +24,7 @@
                       (NULL
                        (SPADCALL (SPADCALL |z| (QREFELT $ 16))
                                  (|spadConstant| $ 13) (QREFELT $ 18))))
-                  (|error|
-                   (SPADCALL (STRCONC "log: " (QREFELT $ 8)) (QREFELT $ 26))))
+                  (|error| (STRCONC "log: " (QREFELT $ 8))))
                  ('T
                   (SEQ
                    (LETT |log1PlusX|
@@ -36,21 +32,21 @@
                           (SPADCALL
                            (SPADCALL (|spadConstant| $ 13) 0 (QREFELT $ 20))
                            (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                           (QREFELT $ 28))
-                          (QREFELT $ 29))
+                           (QREFELT $ 25))
+                          (QREFELT $ 26))
                          |STTFNC;log;2S;2|)
                    (EXIT
                     (SPADCALL |log1PlusX|
                               (SPADCALL |z|
                                         (SPADCALL (|spadConstant| $ 13) 0
                                                   (QREFELT $ 20))
-                                        (QREFELT $ 30))
+                                        (QREFELT $ 27))
                               (QREFELT $ 23))))))))) 
 
 (SDEFUN |STTFNC;^;3S;3|
         ((|z1| |Stream| |Coef|) (|z2| |Stream| |Coef|) ($ |Stream| |Coef|))
-        (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 31)) |z2| (QREFELT $ 32))
-                  (QREFELT $ 27))) 
+        (SPADCALL (SPADCALL (SPADCALL |z1| (QREFELT $ 28)) |z2| (QREFELT $ 29))
+                  (QREFELT $ 24))) 
 
 (SDEFUN |STTFNC;sin;2S;4| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|sinx| (|Stream| |Coef|)))
@@ -64,13 +60,10 @@
                    (LETT |sinx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 34))
+                          (QREFELT $ 31))
                          |STTFNC;sin;2S;4|)
                    (EXIT (SPADCALL |sinx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "sin: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "sin: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;cos;2S;5| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|cosx| (|Stream| |Coef|)))
@@ -84,13 +77,10 @@
                    (LETT |cosx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 36))
+                          (QREFELT $ 33))
                          |STTFNC;cos;2S;5|)
                    (EXIT (SPADCALL |cosx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "cos: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "cos: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;tan;2S;6| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|tanx| (|Stream| |Coef|)))
@@ -104,22 +94,18 @@
                    (LETT |tanx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 38))
+                          (QREFELT $ 35))
                          |STTFNC;tan;2S;6|)
                    (EXIT (SPADCALL |tanx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "tan: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "tan: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;cot;2S;7| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (COND
          ((SPADCALL |z| (QREFELT $ 12)) (|error| "cot: cot(0) is undefined"))
          ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
                     (QREFELT $ 18))
-          (|error| (SPADCALL (STRCONC "cot: " (QREFELT $ 9)) (QREFELT $ 26))))
-         ('T
-          (|error| (SPADCALL (STRCONC "cot: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
+          (|error| (STRCONC "cot: " (QREFELT $ 9))))
+         ('T (|error| (STRCONC "cot: " (QREFELT $ 7)))))) 
 
 (SDEFUN |STTFNC;sec;2S;8| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|secx| (|Stream| |Coef|)))
@@ -133,22 +119,18 @@
                    (LETT |secx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 41))
+                          (QREFELT $ 38))
                          |STTFNC;sec;2S;8|)
                    (EXIT (SPADCALL |secx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "sec: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "sec: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;csc;2S;9| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (COND
          ((SPADCALL |z| (QREFELT $ 12)) (|error| "csc: csc(0) is undefined"))
          ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
                     (QREFELT $ 18))
-          (|error| (SPADCALL (STRCONC "csc: " (QREFELT $ 9)) (QREFELT $ 26))))
-         ('T
-          (|error| (SPADCALL (STRCONC "csc: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
+          (|error| (STRCONC "csc: " (QREFELT $ 9))))
+         ('T (|error| (STRCONC "csc: " (QREFELT $ 7)))))) 
 
 (SDEFUN |STTFNC;asin;2S;10| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|asinx| (|Stream| |Coef|)))
@@ -162,13 +144,10 @@
                    (LETT |asinx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 44))
+                          (QREFELT $ 41))
                          |STTFNC;asin;2S;10|)
                    (EXIT (SPADCALL |asinx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "asin: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "asin: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;atan;2S;11| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|atanx| (|Stream| |Coef|)))
@@ -182,13 +161,10 @@
                    (LETT |atanx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 46))
+                          (QREFELT $ 43))
                          |STTFNC;atan;2S;11|)
                    (EXIT (SPADCALL |atanx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "atan: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "atan: " (QREFELT $ 7)))))))) 
 
 (PUT '|STTFNC;acos;2S;12| '|SPADreplace|
      '(XLAM (|z|) (|error| "acos: acos undefined on this coefficient domain"))) 
@@ -226,13 +202,10 @@
                    (LETT |sinhx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 52))
+                          (QREFELT $ 49))
                          |STTFNC;sinh;2S;16|)
                    (EXIT (SPADCALL |sinhx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "sinh: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "sinh: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;cosh;2S;17| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|coshx| (|Stream| |Coef|)))
@@ -246,13 +219,10 @@
                    (LETT |coshx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 54))
+                          (QREFELT $ 51))
                          |STTFNC;cosh;2S;17|)
                    (EXIT (SPADCALL |coshx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "cosh: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "cosh: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;tanh;2S;18| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|tanhx| (|Stream| |Coef|)))
@@ -266,23 +236,18 @@
                    (LETT |tanhx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 56))
+                          (QREFELT $ 53))
                          |STTFNC;tanh;2S;18|)
                    (EXIT (SPADCALL |tanhx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "tanh: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "tanh: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;coth;2S;19| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (COND
          ((SPADCALL |z| (QREFELT $ 12)) (|error| "coth: coth(0) is undefined"))
          ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
                     (QREFELT $ 18))
-          (|error| (SPADCALL (STRCONC "coth: " (QREFELT $ 9)) (QREFELT $ 26))))
-         ('T
-          (|error|
-           (SPADCALL (STRCONC "coth: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
+          (|error| (STRCONC "coth: " (QREFELT $ 9))))
+         ('T (|error| (STRCONC "coth: " (QREFELT $ 7)))))) 
 
 (SDEFUN |STTFNC;sech;2S;20| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|sechx| (|Stream| |Coef|)))
@@ -296,23 +261,18 @@
                    (LETT |sechx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 59))
+                          (QREFELT $ 56))
                          |STTFNC;sech;2S;20|)
                    (EXIT (SPADCALL |sechx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "sech: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "sech: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;csch;2S;21| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (COND
          ((SPADCALL |z| (QREFELT $ 12)) (|error| "csch: csch(0) is undefined"))
          ((SPADCALL (SPADCALL |z| (QREFELT $ 16)) (|spadConstant| $ 17)
                     (QREFELT $ 18))
-          (|error| (SPADCALL (STRCONC "csch: " (QREFELT $ 9)) (QREFELT $ 26))))
-         ('T
-          (|error|
-           (SPADCALL (STRCONC "csch: " (QREFELT $ 7)) (QREFELT $ 26)))))) 
+          (|error| (STRCONC "csch: " (QREFELT $ 9))))
+         ('T (|error| (STRCONC "csch: " (QREFELT $ 7)))))) 
 
 (SDEFUN |STTFNC;asinh;2S;22| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|asinhx| (|Stream| |Coef|)))
@@ -326,13 +286,10 @@
                    (LETT |asinhx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 62))
+                          (QREFELT $ 59))
                          |STTFNC;asinh;2S;22|)
                    (EXIT (SPADCALL |asinhx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "asinh: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "asinh: " (QREFELT $ 7)))))))) 
 
 (SDEFUN |STTFNC;atanh;2S;23| ((|z| |Stream| |Coef|) ($ |Stream| |Coef|))
         (SPROG ((|atanhx| (|Stream| |Coef|)))
@@ -346,13 +303,10 @@
                    (LETT |atanhx|
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 20))
-                          (QREFELT $ 64))
+                          (QREFELT $ 61))
                          |STTFNC;atanh;2S;23|)
                    (EXIT (SPADCALL |atanhx| |z| (QREFELT $ 23)))))
-                 ('T
-                  (|error|
-                   (SPADCALL (STRCONC "atanh: " (QREFELT $ 7))
-                             (QREFELT $ 26)))))))) 
+                 ('T (|error| (STRCONC "atanh: " (QREFELT $ 7)))))))) 
 
 (PUT '|STTFNC;acosh;2S;24| '|SPADreplace|
      '(XLAM (|z|)
@@ -413,7 +367,7 @@
           (LETT |dv$|
                 (LIST '|StreamTranscendentalFunctionsNonCommutative| DV$1)
                 . #1#)
-          (LETT $ (GETREFV 70) . #1#)
+          (LETT $ (GETREFV 67) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache|
@@ -434,54 +388,54 @@
               (|StreamTaylorSeriesOperations| 6) (9 . |coerce|) (14 . |frst|)
               (19 . |Zero|) (23 . =) (|Integer|) (29 . |monom|)
               (|StreamTranscendentalFunctions| 6) (35 . |exp|) (40 . |compose|)
-              (|OutputForm|) (|String|) (46 . |coerce|) |STTFNC;exp;2S;1|
-              (51 . +) (57 . |log|) (62 . -) |STTFNC;log;2S;2| (68 . *)
-              |STTFNC;^;3S;3| (74 . |sin|) |STTFNC;sin;2S;4| (79 . |cos|)
-              |STTFNC;cos;2S;5| (84 . |tan|) |STTFNC;tan;2S;6|
-              |STTFNC;cot;2S;7| (89 . |sec|) |STTFNC;sec;2S;8|
-              |STTFNC;csc;2S;9| (94 . |asin|) |STTFNC;asin;2S;10| (99 . |atan|)
-              |STTFNC;atan;2S;11| |STTFNC;acos;2S;12| |STTFNC;acot;2S;13|
-              |STTFNC;asec;2S;14| |STTFNC;acsc;2S;15| (104 . |sinh|)
-              |STTFNC;sinh;2S;16| (109 . |cosh|) |STTFNC;cosh;2S;17|
-              (114 . |tanh|) |STTFNC;tanh;2S;18| |STTFNC;coth;2S;19|
-              (119 . |sech|) |STTFNC;sech;2S;20| |STTFNC;csch;2S;21|
-              (124 . |asinh|) |STTFNC;asinh;2S;22| (129 . |atanh|)
-              |STTFNC;atanh;2S;23| |STTFNC;acosh;2S;24| |STTFNC;acoth;2S;25|
-              |STTFNC;asech;2S;26| |STTFNC;acsch;2S;27|)
-           '#(|tanh| 134 |tan| 139 |sinh| 144 |sin| 149 |sech| 154 |sec| 159
-              |log| 164 |exp| 169 |csch| 174 |csc| 179 |coth| 184 |cot| 189
-              |cosh| 194 |cos| 199 |atanh| 204 |atan| 209 |asinh| 214 |asin|
-              219 |asech| 224 |asec| 229 |acsch| 234 |acsc| 239 |acoth| 244
-              |acot| 249 |acosh| 254 |acos| 259 ^ 264)
+              |STTFNC;exp;2S;1| (46 . +) (52 . |log|) (57 . -)
+              |STTFNC;log;2S;2| (63 . *) |STTFNC;^;3S;3| (69 . |sin|)
+              |STTFNC;sin;2S;4| (74 . |cos|) |STTFNC;cos;2S;5| (79 . |tan|)
+              |STTFNC;tan;2S;6| |STTFNC;cot;2S;7| (84 . |sec|)
+              |STTFNC;sec;2S;8| |STTFNC;csc;2S;9| (89 . |asin|)
+              |STTFNC;asin;2S;10| (94 . |atan|) |STTFNC;atan;2S;11|
+              |STTFNC;acos;2S;12| |STTFNC;acot;2S;13| |STTFNC;asec;2S;14|
+              |STTFNC;acsc;2S;15| (99 . |sinh|) |STTFNC;sinh;2S;16|
+              (104 . |cosh|) |STTFNC;cosh;2S;17| (109 . |tanh|)
+              |STTFNC;tanh;2S;18| |STTFNC;coth;2S;19| (114 . |sech|)
+              |STTFNC;sech;2S;20| |STTFNC;csch;2S;21| (119 . |asinh|)
+              |STTFNC;asinh;2S;22| (124 . |atanh|) |STTFNC;atanh;2S;23|
+              |STTFNC;acosh;2S;24| |STTFNC;acoth;2S;25| |STTFNC;asech;2S;26|
+              |STTFNC;acsch;2S;27|)
+           '#(|tanh| 129 |tan| 134 |sinh| 139 |sin| 144 |sech| 149 |sec| 154
+              |log| 159 |exp| 164 |csch| 169 |csc| 174 |coth| 179 |cot| 184
+              |cosh| 189 |cos| 194 |atanh| 199 |atan| 204 |asinh| 209 |asin|
+              214 |asech| 219 |asec| 224 |acsch| 229 |acsc| 234 |acoth| 239
+              |acot| 244 |acosh| 249 |acos| 254 ^ 259)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 69
+                             (|makeByteWordVec2| 66
                                                  '(1 11 10 0 12 0 6 0 13 1 14
                                                    11 6 15 1 11 6 0 16 0 6 0 17
                                                    2 6 10 0 0 18 2 14 11 6 19
                                                    20 1 21 11 11 22 2 14 11 11
-                                                   11 23 1 25 24 0 26 2 14 11
-                                                   11 11 28 1 21 11 11 29 2 14
-                                                   11 11 11 30 2 14 11 11 11 32
-                                                   1 21 11 11 34 1 21 11 11 36
+                                                   11 23 2 14 11 11 11 25 1 21
+                                                   11 11 26 2 14 11 11 11 27 2
+                                                   14 11 11 11 29 1 21 11 11 31
+                                                   1 21 11 11 33 1 21 11 11 35
                                                    1 21 11 11 38 1 21 11 11 41
-                                                   1 21 11 11 44 1 21 11 11 46
-                                                   1 21 11 11 52 1 21 11 11 54
+                                                   1 21 11 11 43 1 21 11 11 49
+                                                   1 21 11 11 51 1 21 11 11 53
                                                    1 21 11 11 56 1 21 11 11 59
-                                                   1 21 11 11 62 1 21 11 11 64
-                                                   1 0 11 11 57 1 0 11 11 39 1
-                                                   0 11 11 53 1 0 11 11 35 1 0
-                                                   11 11 60 1 0 11 11 42 1 0 11
-                                                   11 31 1 0 11 11 27 1 0 11 11
-                                                   61 1 0 11 11 43 1 0 11 11 58
-                                                   1 0 11 11 40 1 0 11 11 55 1
-                                                   0 11 11 37 1 0 11 11 65 1 0
-                                                   11 11 47 1 0 11 11 63 1 0 11
-                                                   11 45 1 0 11 11 68 1 0 11 11
-                                                   50 1 0 11 11 69 1 0 11 11 51
-                                                   1 0 11 11 67 1 0 11 11 49 1
-                                                   0 11 11 66 1 0 11 11 48 2 0
-                                                   11 11 11 33)))))
+                                                   1 21 11 11 61 1 0 11 11 54 1
+                                                   0 11 11 36 1 0 11 11 50 1 0
+                                                   11 11 32 1 0 11 11 57 1 0 11
+                                                   11 39 1 0 11 11 28 1 0 11 11
+                                                   24 1 0 11 11 58 1 0 11 11 40
+                                                   1 0 11 11 55 1 0 11 11 37 1
+                                                   0 11 11 52 1 0 11 11 34 1 0
+                                                   11 11 62 1 0 11 11 44 1 0 11
+                                                   11 60 1 0 11 11 42 1 0 11 11
+                                                   65 1 0 11 11 47 1 0 11 11 66
+                                                   1 0 11 11 48 1 0 11 11 64 1
+                                                   0 11 11 46 1 0 11 11 63 1 0
+                                                   11 11 45 2 0 11 11 11
+                                                   30)))))
            '|lookupComplete|)) 

@@ -238,9 +238,10 @@
            (COND
             ((QEQCAR |u| 1)
              (|error|
-              (LIST (SPADCALL |c| (QREFELT $ 35)) " not spanned by "
-                    (SPADCALL |a| (QREFELT $ 35)) " and "
-                    (SPADCALL |b| (QREFELT $ 35)))))
+              (LIST |mathprint|
+                    (LIST (SPADCALL |c| (QREFELT $ 35)) " not spanned by "
+                          (SPADCALL |a| (QREFELT $ 35)) " and "
+                          (SPADCALL |b| (QREFELT $ 35))))))
             ('T (LIST (QCDR (QCDR |u|)) (QCAR (QCDR |u|))))))))) 
 
 (SDEFUN |CRAPACK;multiEuclideanTree;LRL;5|

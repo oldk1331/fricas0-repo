@@ -128,8 +128,10 @@
                    (LETT |s2| (|FORTRAN;mkString| |target| $) . #2#)
                    (EXIT
                     (|error|
-                     (SPADCALL (LIST "Incompatible variable lists:" |s1| |s2|)
-                               (QREFELT $ 53))))))
+                     (LIST |mathprint|
+                           (SPADCALL
+                            (LIST "Incompatible variable lists:" |s1| |s2|)
+                            (QREFELT $ 53)))))))
                  ('T (SPADCALL (QREFELT $ 54))))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;8| ((|u| |Expression| (|MachineInteger|)) ($ $))

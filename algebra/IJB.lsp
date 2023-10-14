@@ -78,7 +78,7 @@
           (|error| "Improper upper index"))
          ((SPADCALL (SPADCALL |lo| (QREFELT $ 29)) (QREFELT $ 9)
                     (QREFELT $ 30))
-          (|error| |errmsg1|))
+          (|error| "Improper multi-index"))
          ((|IJB;CheckZeroIndex| |lo| $) (SPADCALL |up| (QREFELT $ 27)))
          ('T (CONS 3 (CONS |up| |lo|))))) 
 

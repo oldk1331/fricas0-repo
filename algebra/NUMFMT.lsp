@@ -277,8 +277,8 @@
                       (COND
                        ((SPADCALL |c| (QREFELT $ 45) (QREFELT $ 57))
                         (|error|
-                         (LIST "Improper character in Roman numeral: "
-                               (SPADCALL |c| (QREFELT $ 59)))))
+                         (STRCONC "Improper character in Roman numeral: "
+                                  (|make_full_CVEC| 1 |c|))))
                        ('T
                         (SEQ (LETT |nprens| 1 . #3#)
                              (SEQ G190
@@ -336,7 +336,7 @@
                                  (EXIT
                                   (LETT |n|
                                         (SPADCALL 10 (+ |nprens| 2)
-                                                  (QREFELT $ 60))
+                                                  (QREFELT $ 58))
                                         . #3#)))))))))))
                     (EXIT
                      (COND ((< |n| |Max|) (LETT |tot| (- |tot| |n|) . #3#))
@@ -346,10 +346,9 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT
            (COND
-            ((< |tot| 0)
+            ((SPADCALL |tot| 0 (QREFELT $ 59))
              (|error|
-              (LIST "Improper Roman numeral: "
-                    (SPADCALL |tot| (QREFELT $ 61)))))
+              (STRCONC "Improper Roman numeral: " (STRINGIMAGE |tot|))))
             ('T
              (PROG1 (LETT #1# |tot| . #3#)
                (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))))) 
@@ -378,7 +377,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|NumberFormats|) . #1=(|NumberFormats|))
-          (LETT $ (GETREFV 63) . #1#)
+          (LETT $ (GETREFV 61) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|NumberFormats| NIL (CONS 1 $))
@@ -435,17 +434,16 @@
               '|ichar| (|PositiveInteger|) |NUMFMT;FormatArabic;PiS;7|
               |NUMFMT;ScanArabic;SPi;8| (|NonNegativeInteger|) (75 . >)
               |NUMFMT;FormatRoman;PiS;9| (81 . |upperCase|) (86 . |maxIndex|)
-              (91 . |minIndex|) (96 . |elt|) (102 . ~=) (|OutputForm|)
-              (108 . |coerce|) (113 . ^) (119 . |coerce|)
+              (91 . |minIndex|) (96 . |elt|) (102 . ~=) (108 . ^) (114 . <=)
               |NUMFMT;ScanRoman;SPi;10|)
-           '#(|ScanRoman| 124 |ScanFloatIgnoreSpacesIfCan| 129
-              |ScanFloatIgnoreSpaces| 134 |ScanArabic| 139 |FormatRoman| 144
-              |FormatArabic| 149)
+           '#(|ScanRoman| 120 |ScanFloatIgnoreSpacesIfCan| 125
+              |ScanFloatIgnoreSpaces| 130 |ScanArabic| 135 |FormatRoman| 140
+              |FormatArabic| 145)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 62
+                             (|makeByteWordVec2| 60
                                                  '(2 7 0 6 0 8 2 7 9 0 10 11 1
                                                    7 0 9 12 1 10 0 7 13 2 10 14
                                                    0 0 15 2 7 14 16 0 17 1 18 0
@@ -455,11 +453,11 @@
                                                    1 34 0 33 35 2 50 14 0 0 51
                                                    1 7 0 0 53 1 7 27 0 54 1 7
                                                    27 0 55 2 7 10 0 27 56 2 10
-                                                   14 0 0 57 1 10 58 0 59 2 47
-                                                   0 0 47 60 1 27 58 0 61 1 0
-                                                   47 7 62 1 0 31 7 32 1 0 28 7
-                                                   30 1 0 47 7 49 1 0 7 47 52 1
-                                                   0 7 47 48)))))
+                                                   14 0 0 57 2 47 0 0 47 58 2
+                                                   27 14 0 0 59 1 0 47 7 60 1 0
+                                                   31 7 32 1 0 28 7 30 1 0 47 7
+                                                   49 1 0 7 47 52 1 0 7 47
+                                                   48)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NumberFormats| 'NILADIC T) 

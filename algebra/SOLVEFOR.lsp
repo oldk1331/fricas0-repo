@@ -127,8 +127,7 @@
         (COND ((EQL (SPADCALL |u| (QREFELT $ 28)) |n|) 'T)
               ('T
                (|error|
-                (|concat| "Polynomial must be of degree "
-                          (|::| |n| (|String|))))))) 
+                (STRCONC "Polynomial must be of degree " (STRINGIMAGE |n|)))))) 
 
 (SDEFUN |SOLVEFOR;needLcoef| ((|cn| F) ($ |Boolean|))
         (COND ((SPADCALL |cn| (|spadConstant| $ 33) (QREFELT $ 43)) 'T)

@@ -148,10 +148,10 @@
 
 (SDEFUN |FEXPR;checkSymbols| ((|u| |Expression| R) ($ |Expression| R))
         (SPROG
-         ((#1=#:G172 NIL) (|v| NIL) (#2=#:G171 NIL)
+         ((#1=#:G175 NIL) (|v| NIL) (#2=#:G174 NIL)
           (|m| (|Union| (|Expression| R) "failed"))
           (|extras| (|List| (|Symbol|))) (|syms| (|List| (|Symbol|)))
-          (#3=#:G170 NIL) (#4=#:G169 NIL))
+          (#3=#:G173 NIL) (#4=#:G172 NIL))
          (SEQ
           (LETT |syms|
                 (PROGN
@@ -180,29 +180,33 @@
                   (EXIT
                    (COND ((QEQCAR |m| 0) (QCDR |m|))
                          ('T
-                          (|error| "Extra symbols detected:"
-                                   (SPADCALL
-                                    (PROGN
-                                     (LETT #2# NIL . #5#)
-                                     (SEQ (LETT |v| NIL . #5#)
-                                          (LETT #1# |extras| . #5#) G190
-                                          (COND
-                                           ((OR (ATOM #1#)
-                                                (PROGN
-                                                 (LETT |v| (CAR #1#) . #5#)
-                                                 NIL))
-                                            (GO G191)))
-                                          (SEQ
-                                           (EXIT
-                                            (LETT #2#
-                                                  (CONS
-                                                   (SPADCALL |v|
-                                                             (QREFELT $ 33))
-                                                   #2#)
-                                                  . #5#)))
-                                          (LETT #1# (CDR #1#) . #5#) (GO G190)
-                                          G191 (EXIT (NREVERSE #2#))))
-                                    (QREFELT $ 36))))))))))
+                          (|error|
+                           (LIST |mathprint|
+                                 (LIST "Extra symbols detected:"
+                                       (SPADCALL
+                                        (PROGN
+                                         (LETT #2# NIL . #5#)
+                                         (SEQ (LETT |v| NIL . #5#)
+                                              (LETT #1# |extras| . #5#) G190
+                                              (COND
+                                               ((OR (ATOM #1#)
+                                                    (PROGN
+                                                     (LETT |v| (CAR #1#) . #5#)
+                                                     NIL))
+                                                (GO G191)))
+                                              (SEQ
+                                               (EXIT
+                                                (LETT #2#
+                                                      (CONS
+                                                       (SPADCALL |v|
+                                                                 (QREFELT $
+                                                                          33))
+                                                       #2#)
+                                                      . #5#)))
+                                              (LETT #1# (CDR #1#) . #5#)
+                                              (GO G190) G191
+                                              (EXIT (NREVERSE #2#))))
+                                        (QREFELT $ 36))))))))))))
           (EXIT |u|)))) 
 
 (SDEFUN |FEXPR;notSymbol?| ((|v| |BasicOperator|) ($ |Boolean|))
@@ -221,7 +225,7 @@
         (SPROG
          ((|extras| (|List| (|Symbol|)))
           (|fortranFunctions| (|List| (|Symbol|))) (|ops| (|List| (|Symbol|)))
-          (#1=#:G182 NIL) (|v| NIL) (#2=#:G181 NIL))
+          (#1=#:G185 NIL) (|v| NIL) (#2=#:G184 NIL))
          (SEQ
           (LETT |ops|
                 (PROGN
@@ -251,10 +255,10 @@
 
 (SDEFUN |FEXPR;checkOperators| ((|u| |Expression| R) ($ |Void|))
         (SPROG
-         ((#1=#:G191 NIL) (|v| NIL) (#2=#:G190 NIL)
+         ((#1=#:G197 NIL) (|v| NIL) (#2=#:G196 NIL)
           (|extras| (|List| (|Symbol|)))
           (|fortranFunctions| (|List| (|Symbol|))) (|ops| (|List| (|Symbol|)))
-          (#3=#:G189 NIL) (#4=#:G188 NIL))
+          (#3=#:G195 NIL) (#4=#:G194 NIL))
          (SEQ
           (LETT |ops|
                 (PROGN
@@ -283,24 +287,27 @@
           (COND
            ((NULL (NULL |extras|))
             (EXIT
-             (|error| "Non FORTRAN-77 functions detected:"
-                      (SPADCALL
-                       (PROGN
-                        (LETT #2# NIL . #5#)
-                        (SEQ (LETT |v| NIL . #5#) (LETT #1# |extras| . #5#)
-                             G190
-                             (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |v| (CAR #1#) . #5#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #2#
-                                     (CONS (SPADCALL |v| (QREFELT $ 33)) #2#)
-                                     . #5#)))
-                             (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-                             (EXIT (NREVERSE #2#))))
-                       (QREFELT $ 36))))))
+             (|error|
+              (LIST |mathprint|
+                    (LIST "Non FORTRAN-77 functions detected:"
+                          (SPADCALL
+                           (PROGN
+                            (LETT #2# NIL . #5#)
+                            (SEQ (LETT |v| NIL . #5#) (LETT #1# |extras| . #5#)
+                                 G190
+                                 (COND
+                                  ((OR (ATOM #1#)
+                                       (PROGN (LETT |v| (CAR #1#) . #5#) NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT #2#
+                                         (CONS (SPADCALL |v| (QREFELT $ 33))
+                                               #2#)
+                                         . #5#)))
+                                 (LETT #1# (CDR #1#) . #5#) (GO G190) G191
+                                 (EXIT (NREVERSE #2#))))
+                           (QREFELT $ 36))))))))
           (EXIT (SPADCALL (QREFELT $ 43)))))) 
 
 (SDEFUN |FEXPR;checkForNagOperators| ((|u| |Expression| R) ($ $))
@@ -396,7 +403,7 @@
 
 (SDEFUN |FEXPR;retractIfCan;EU;28|
         ((|u| |Expression| R) ($ |Union| $ "failed"))
-        (SPROG ((#1=#:G243 NIL) (|m| (|Union| (|Expression| R) "failed")))
+        (SPROG ((#1=#:G249 NIL) (|m| (|Union| (|Expression| R) "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -410,7 +417,7 @@
                        ((QEQCAR |m| 1)
                         (PROGN
                          (LETT #1# (CONS 1 "failed") . #2#)
-                         (GO #3=#:G242)))
+                         (GO #3=#:G248)))
                        (#4='T (LETT |u| (QCDR |m|) . #2#)))))))
                   (EXIT
                    (COND ((|FEXPR;extraOperators?| |u| $) (CONS 1 "failed"))
@@ -445,14 +452,15 @@
                 (EXIT
                  (COND
                   ((QEQCAR |res| 1)
-                   (|error| "Illegal Symbol Detected:" (|::| |u| (|String|))))
+                   (|error|
+                    (LIST |mathprint| (LIST "Illegal Symbol Detected:" NIL))))
                   ('T (QCDR |res|))))))) 
 
 (DECLAIM (NOTINLINE |FortranExpression;|)) 
 
-(DEFUN |FortranExpression| (&REST #1=#:G269)
+(DEFUN |FortranExpression| (&REST #1=#:G275)
   (SPROG NIL
-         (PROG (#2=#:G270)
+         (PROG (#2=#:G276)
            (RETURN
             (COND
              ((LETT #2#

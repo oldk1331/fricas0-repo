@@ -3,24 +3,22 @@
         ((|u| |String|) (|v| |String|) ($ |Exit|))
         (|error|
          (SPADCALL
-          (SPADCALL
-           (LIST "AXIOM is unable to process the symbol " |u| " from CD " |v|
-                 ".")
-           (QREFELT $ 8))
-          (QREFELT $ 10)))) 
+          (LIST "AXIOM is unable to process the symbol " |u| " from CD " |v|
+                ".")
+          (QREFELT $ 8)))) 
 
 (SDEFUN |OMPKG;OMread;OmdA;2| ((|dev| |OpenMathDevice|) ($ |Any|))
-        (SPADCALL (OM-READ |dev|) (QREFELT $ 15))) 
+        (SPADCALL (OM-READ |dev|) (QREFELT $ 13))) 
 
 (SDEFUN |OMPKG;OMreadFile;SA;3| ((|filename| |String|) ($ |Any|))
         (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)))
                (SEQ
                 (LETT |dev|
-                      (SPADCALL |filename| "r" (SPADCALL (QREFELT $ 19))
-                                (QREFELT $ 20))
+                      (SPADCALL |filename| "r" (SPADCALL (QREFELT $ 17))
+                                (QREFELT $ 18))
                       . #1=(|OMPKG;OMreadFile;SA;3|))
-                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 15)) . #1#)
-                (SPADCALL |dev| (QREFELT $ 22)) (EXIT |res|)))) 
+                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 13)) . #1#)
+                (SPADCALL |dev| (QREFELT $ 20)) (EXIT |res|)))) 
 
 (SDEFUN |OMPKG;OMreadStr;SA;4| ((|str| |String|) ($ |Any|))
         (SPROG ((|res| (|Any|)) (|dev| (|OpenMathDevice|)) (|strp| (|None|)))
@@ -28,11 +26,11 @@
                 (LETT |strp| (OM-STRINGTOSTRINGPTR |str|)
                       . #1=(|OMPKG;OMreadStr;SA;4|))
                 (LETT |dev|
-                      (SPADCALL |strp| (SPADCALL (QREFELT $ 19))
-                                (QREFELT $ 24))
+                      (SPADCALL |strp| (SPADCALL (QREFELT $ 17))
+                                (QREFELT $ 22))
                       . #1#)
-                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 15)) . #1#)
-                (SPADCALL |dev| (QREFELT $ 22)) (EXIT |res|)))) 
+                (LETT |res| (SPADCALL (OM-READ |dev|) (QREFELT $ 13)) . #1#)
+                (SPADCALL |dev| (QREFELT $ 20)) (EXIT |res|)))) 
 
 (PUT '|OMPKG;OMlistCDs;L;5| '|SPADreplace| 'OM-LISTCDS) 
 
@@ -44,11 +42,11 @@
         (OM-LISTSYMBOLS |cd|)) 
 
 (SDEFUN |OMPKG;OMsupportsCD?;SB;7| ((|cd| |String|) ($ |Boolean|))
-        (COND ((SPADCALL (OM-SUPPORTSCD |cd|) (QREFELT $ 31)) 'NIL) ('T 'T))) 
+        (COND ((SPADCALL (OM-SUPPORTSCD |cd|) (QREFELT $ 29)) 'NIL) ('T 'T))) 
 
 (SDEFUN |OMPKG;OMsupportsSymbol?;2SB;8|
         ((|cd| |String|) (|name| |String|) ($ |Boolean|))
-        (COND ((SPADCALL (OM-SUPPORTSSYMBOL |cd| |name|) (QREFELT $ 31)) 'NIL)
+        (COND ((SPADCALL (OM-SUPPORTSSYMBOL |cd| |name|) (QREFELT $ 29)) 'NIL)
               ('T 'T))) 
 
 (DECLAIM (NOTINLINE |OpenMathPackage;|)) 
@@ -76,7 +74,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OpenMathPackage|) . #1=(|OpenMathPackage|))
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT $ (GETREFV 32) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|OpenMathPackage| NIL (CONS 1 $))
@@ -87,32 +85,30 @@
 (MAKEPROP '|OpenMathPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|List| $) (|String|) (0 . |concat|)
-              (|OutputForm|) (5 . |coerce|) (|Exit|)
-              |OMPKG;OMunhandledSymbol;2SE;1| (|Any|) (|InputForm|)
-              (10 . |interpret|) (|OpenMathDevice|) |OMPKG;OMread;OmdA;2|
-              (|OpenMathEncoding|) (15 . |OMencodingUnknown|)
-              (19 . |OMopenFile|) (|Void|) (26 . |OMclose|)
-              |OMPKG;OMreadFile;SA;3| (31 . |OMopenString|)
+              (|Exit|) |OMPKG;OMunhandledSymbol;2SE;1| (|Any|) (|InputForm|)
+              (5 . |interpret|) (|OpenMathDevice|) |OMPKG;OMread;OmdA;2|
+              (|OpenMathEncoding|) (10 . |OMencodingUnknown|)
+              (14 . |OMopenFile|) (|Void|) (21 . |OMclose|)
+              |OMPKG;OMreadFile;SA;3| (26 . |OMopenString|)
               |OMPKG;OMreadStr;SA;4| (|List| 7) |OMPKG;OMlistCDs;L;5|
               |OMPKG;OMlistSymbols;SL;6| (|Boolean|) (|SExpression|)
-              (37 . |null?|) |OMPKG;OMsupportsCD?;SB;7|
+              (32 . |null?|) |OMPKG;OMsupportsCD?;SB;7|
               |OMPKG;OMsupportsSymbol?;2SB;8|)
-           '#(|OMunhandledSymbol| 42 |OMsupportsSymbol?| 48 |OMsupportsCD?| 54
-              |OMreadStr| 59 |OMreadFile| 64 |OMread| 69 |OMlistSymbols| 74
-              |OMlistCDs| 79)
+           '#(|OMunhandledSymbol| 37 |OMsupportsSymbol?| 43 |OMsupportsCD?| 49
+              |OMreadStr| 54 |OMreadFile| 59 |OMread| 64 |OMlistSymbols| 69
+              |OMlistCDs| 74)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 33
-                                                 '(1 7 0 6 8 1 7 9 0 10 1 14 13
-                                                   0 15 0 18 0 19 3 16 0 7 7 18
-                                                   20 1 16 21 0 22 2 16 0 7 18
-                                                   24 1 30 29 0 31 2 0 11 7 7
-                                                   12 2 0 29 7 7 33 1 0 29 7 32
-                                                   1 0 13 7 25 1 0 13 7 23 1 0
-                                                   13 16 17 1 0 26 7 28 0 0 26
-                                                   27)))))
+                             (|makeByteWordVec2| 31
+                                                 '(1 7 0 6 8 1 12 11 0 13 0 16
+                                                   0 17 3 14 0 7 7 16 18 1 14
+                                                   19 0 20 2 14 0 7 16 22 1 28
+                                                   27 0 29 2 0 9 7 7 10 2 0 27
+                                                   7 7 31 1 0 27 7 30 1 0 11 7
+                                                   23 1 0 11 7 21 1 0 11 14 15
+                                                   1 0 24 7 26 0 0 24 25)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathPackage| 'NILADIC T) 

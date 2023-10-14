@@ -103,31 +103,31 @@
                                            (SPADCALL
                                             (SPADCALL 2 (QREFELT $ 29))
                                             (SPADCALL
-                                             (SPADCALL 5 8 (QREFELT $ 39))
-                                             (SPADCALL |n| 2 (QREFELT $ 39))
-                                             (QREFELT $ 40))
-                                            (QREFELT $ 41))
+                                             (SPADCALL 5 8 (QREFELT $ 37))
+                                             (SPADCALL |n| 2 (QREFELT $ 37))
+                                             (QREFELT $ 38))
+                                            (QREFELT $ 39))
                                            (QREFELT $ 34))
                                  (SPADCALL
                                   (SPADCALL (|spadConstant| $ 31)
-                                            (SPADCALL 4 |nf| (QREFELT $ 42))
+                                            (SPADCALL 4 |nf| (QREFELT $ 40))
                                             (QREFELT $ 35))
-                                  (QREFELT $ 43))
+                                  (QREFELT $ 41))
                                  (QREFELT $ 34))
                                 . #1#)
                           (EXIT
                            (LETT |den|
                                  (SPADCALL
-                                  (SPADCALL (SPADCALL (QREFELT $ 44)) |nf|
+                                  (SPADCALL (SPADCALL (QREFELT $ 42)) |nf|
                                             (QREFELT $ 34))
-                                  (SPADCALL 3 8 (QREFELT $ 39)) (QREFELT $ 41))
+                                  (SPADCALL 3 8 (QREFELT $ 37)) (QREFELT $ 39))
                                  . #1#)))))
                        (EXIT
                         (SPADCALL (SPADCALL |num| |den| (QREFELT $ 35))
-                                  (QREFELT $ 46)))))))))) 
+                                  (QREFELT $ 44)))))))))) 
 
 (SDEFUN |GALFACTU;singleFactorBound;UPI;7| ((|p| UP) ($ |Integer|))
-        (SPADCALL |p| 2 (QREFELT $ 47))) 
+        (SPADCALL |p| 2 (QREFELT $ 45))) 
 
 (SDEFUN |GALFACTU;rootBound;UPI;8| ((|p| UP) ($ |Integer|))
         (SPROG
@@ -142,7 +142,7 @@
                   (SEQ
                    (LETT |lc|
                          (SPADCALL
-                          (SPADCALL (SPADCALL |p| (QREFELT $ 49))
+                          (SPADCALL (SPADCALL |p| (QREFELT $ 47))
                                     (QREFELT $ 19))
                           (QREFELT $ 20))
                          . #2#)
@@ -163,7 +163,7 @@
                                              (|check_subtype| (>= #1# 0)
                                                               '(|NonNegativeInteger|)
                                                               #1#))
-                                           (QREFELT $ 50))
+                                           (QREFELT $ 48))
                                  (QREFELT $ 19))
                                 (QREFELT $ 20))
                                . #2#)
@@ -179,7 +179,7 @@
                                          (SPADCALL
                                           (SPADCALL |cl|
                                                     (SPADCALL |n| |i|
-                                                              (QREFELT $ 51))
+                                                              (QREFELT $ 49))
                                                     (QREFELT $ 35))
                                           |i| (QREFELT $ 24))
                                          (QREFELT $ 26))
@@ -188,7 +188,7 @@
                           (LETT |b4|
                                 (SPADCALL |b4|
                                           (SPADCALL
-                                           (SPADCALL |n| |cl| (QREFELT $ 52))
+                                           (SPADCALL |n| |cl| (QREFELT $ 50))
                                            |i| (QREFELT $ 24))
                                           (QREFELT $ 26))
                                 . #2#)))
@@ -198,20 +198,20 @@
                     (MIN
                      (+ 1
                         (SPADCALL (SPADCALL |b1| |lc| (QREFELT $ 35))
-                                  (QREFELT $ 53)))
+                                  (QREFELT $ 51)))
                      (MIN
-                      (SPADCALL (SPADCALL 2 |b2| (QREFELT $ 42))
-                                (QREFELT $ 53))
+                      (SPADCALL (SPADCALL 2 |b2| (QREFELT $ 40))
+                                (QREFELT $ 51))
                       (MIN
                        (SPADCALL
                         (SPADCALL |b3|
                                   (SPADCALL
                                    (SPADCALL (SPADCALL 2 (QREFELT $ 29)) |n|
                                              (QREFELT $ 24))
-                                   (|spadConstant| $ 31) (QREFELT $ 54))
+                                   (|spadConstant| $ 31) (QREFELT $ 52))
                                   (QREFELT $ 35))
-                        (QREFELT $ 53))
-                       (SPADCALL |b4| (QREFELT $ 53))))))))))))) 
+                        (QREFELT $ 51))
+                       (SPADCALL |b4| (QREFELT $ 51))))))))))))) 
 
 (SDEFUN |GALFACTU;beauzamyBound;UPI;9| ((|f| UP) ($ |Integer|))
         (SPROG ((|d| (|NonNegativeInteger|)))
@@ -221,27 +221,27 @@
                 (EXIT
                  (COND
                   ((ZEROP |d|)
-                   (SPADCALL (SPADCALL |f| (QREFELT $ 30)) (QREFELT $ 46)))
+                   (SPADCALL (SPADCALL |f| (QREFELT $ 30)) (QREFELT $ 44)))
                   ('T
                    (SPADCALL
                     (SPADCALL
                      (SPADCALL (SPADCALL |f| (QREFELT $ 30))
                                (SPADCALL (SPADCALL 3 (QREFELT $ 29))
                                          (SPADCALL
-                                          (SPADCALL 3 4 (QREFELT $ 39))
-                                          (SPADCALL |d| 2 (QREFELT $ 39))
-                                          (QREFELT $ 40))
-                                         (QREFELT $ 41))
+                                          (SPADCALL 3 4 (QREFELT $ 37))
+                                          (SPADCALL |d| 2 (QREFELT $ 37))
+                                          (QREFELT $ 38))
+                                         (QREFELT $ 39))
                                (QREFELT $ 34))
                      (SPADCALL 2
                                (SPADCALL
-                                (SPADCALL (SPADCALL (QREFELT $ 44))
+                                (SPADCALL (SPADCALL (QREFELT $ 42))
                                           (SPADCALL |d| (QREFELT $ 29))
                                           (QREFELT $ 34))
-                                (QREFELT $ 56))
-                               (QREFELT $ 42))
+                                (QREFELT $ 54))
+                               (QREFELT $ 40))
                      (QREFELT $ 35))
-                    (QREFELT $ 46)))))))) 
+                    (QREFELT $ 44)))))))) 
 
 (SDEFUN |GALFACTU;bombieriNorm;UPPiF;10|
         ((|f| UP) (|p| |PositiveInteger|) ($ F))
@@ -255,7 +255,7 @@
                   . #4=(|GALFACTU;bombieriNorm;UPPiF;10|))
             (LETT |b|
                   (SPADCALL
-                   (SPADCALL (SPADCALL |f| 0 (QREFELT $ 50)) (QREFELT $ 19))
+                   (SPADCALL (SPADCALL |f| 0 (QREFELT $ 48)) (QREFELT $ 19))
                    (QREFELT $ 20))
                   . #4#)
             (COND ((ZEROP |d|) (PROGN (LETT #3# |b| . #4#) (GO #5=#:G162)))
@@ -264,7 +264,7 @@
                   (SPADCALL |b|
                             (SPADCALL
                              (SPADCALL
-                              (SPADCALL (SPADCALL |f| (QREFELT $ 49))
+                              (SPADCALL (SPADCALL |f| (QREFELT $ 47))
                                         (QREFELT $ 19))
                               (QREFELT $ 20))
                              |p| (QREFELT $ 21))
@@ -282,7 +282,7 @@
                                      (SPADCALL
                                       (SPADCALL
                                        (SPADCALL
-                                        (SPADCALL |f| |i| (QREFELT $ 50))
+                                        (SPADCALL |f| |i| (QREFELT $ 48))
                                         (QREFELT $ 19))
                                        (QREFELT $ 20))
                                       |p| (QREFELT $ 21))
@@ -296,18 +296,18 @@
                                                     (|check_subtype| (>= #2# 0)
                                                                      '(|NonNegativeInteger|)
                                                                      #2#))
-                                                  (QREFELT $ 50))
+                                                  (QREFELT $ 48))
                                         (QREFELT $ 19))
                                        (QREFELT $ 20))
                                       |p| (QREFELT $ 21))
                                      (QREFELT $ 22))
-                                    (SPADCALL |d| |i| (QREFELT $ 51))
+                                    (SPADCALL |d| |i| (QREFELT $ 49))
                                     (QREFELT $ 35))
                                    (QREFELT $ 22))
                          . #4#)))
                  (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
             (COND
-             ((SPADCALL |d| (QREFELT $ 61))
+             ((SPADCALL |d| (QREFELT $ 59))
               (SEQ (LETT |dd| (+ |dd| 1) . #4#)
                    (EXIT
                     (LETT |b|
@@ -321,11 +321,11 @@
                                                     (|check_subtype| (>= #1# 0)
                                                                      '(|NonNegativeInteger|)
                                                                      #1#))
-                                                  (QREFELT $ 50))
+                                                  (QREFELT $ 48))
                                         (QREFELT $ 19))
                                        (QREFELT $ 20))
                                       |p| (QREFELT $ 21))
-                                     (SPADCALL |d| |dd| (QREFELT $ 51))
+                                     (SPADCALL |d| |dd| (QREFELT $ 49))
                                      (QREFELT $ 35))
                                     (QREFELT $ 22))
                           . #4#)))))
@@ -333,7 +333,7 @@
           #5# (EXIT #3#)))) 
 
 (SDEFUN |GALFACTU;bombieriNorm;UPF;11| ((|f| UP) ($ F))
-        (SPADCALL |f| 2 (QREFELT $ 62))) 
+        (SPADCALL |f| 2 (QREFELT $ 60))) 
 
 (DECLAIM (NOTINLINE |GaloisGroupFactorizationUtilities;|)) 
 
@@ -370,7 +370,7 @@
           (LETT |dv$|
                 (LIST '|GaloisGroupFactorizationUtilities| DV$1 DV$2 DV$3)
                 . #1#)
-          (LETT $ (GETREFV 63) . #1#)
+          (LETT $ (GETREFV 61) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|GaloisGroupFactorizationUtilities|
@@ -394,24 +394,24 @@
               |GALFACTU;quadraticNorm;UPF;4| (45 . |max|)
               (|NonNegativeInteger|) (51 . |degree|) (56 . |coerce|)
               |GALFACTU;bombieriNorm;UPF;11| (61 . |One|) (65 . |Gamma|)
-              (70 . *) (76 . *) (82 . /) (|OutputForm|) (88 . /)
-              (|Fraction| 23) (94 . /) (100 . +) (106 . ^) (112 . *)
-              (118 . |exp|) (123 . |pi|) (|GaloisGroupUtilities| 8)
-              (127 . |safeFloor|) |GALFACTU;singleFactorBound;UPNniI;6|
-              |GALFACTU;singleFactorBound;UPI;7| (132 . |leadingCoefficient|)
-              (137 . |coefficient|) (143 . |pascalTriangle|) (149 . *)
-              (155 . |safeCeiling|) (160 . -) |GALFACTU;rootBound;UPI;8|
-              (166 . |sqrt|) |GALFACTU;beauzamyBound;UPI;9| (171 . |Zero|)
-              (175 . |Zero|) (|Boolean|) (179 . |even?|)
+              (70 . *) (76 . *) (82 . /) (|Fraction| 23) (88 . /) (94 . +)
+              (100 . ^) (106 . *) (112 . |exp|) (117 . |pi|)
+              (|GaloisGroupUtilities| 8) (121 . |safeFloor|)
+              |GALFACTU;singleFactorBound;UPNniI;6|
+              |GALFACTU;singleFactorBound;UPI;7| (126 . |leadingCoefficient|)
+              (131 . |coefficient|) (137 . |pascalTriangle|) (143 . *)
+              (149 . |safeCeiling|) (154 . -) |GALFACTU;rootBound;UPI;8|
+              (160 . |sqrt|) |GALFACTU;beauzamyBound;UPI;9| (165 . |Zero|)
+              (169 . |Zero|) (|Boolean|) (173 . |even?|)
               |GALFACTU;bombieriNorm;UPPiF;10|)
-           '#(|singleFactorBound| 184 |rootBound| 195 |quadraticNorm| 200
-              |norm| 205 |length| 211 |infinityNorm| 216 |height| 221
-              |bombieriNorm| 226 |beauzamyBound| 237)
+           '#(|singleFactorBound| 178 |rootBound| 189 |quadraticNorm| 194
+              |norm| 199 |length| 205 |infinityNorm| 210 |height| 215
+              |bombieriNorm| 220 |beauzamyBound| 231)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 62
+                             (|makeByteWordVec2| 60
                                                  '(0 6 0 11 0 7 0 12 0 8 0 16 1
                                                    7 17 0 18 1 8 0 6 19 1 8 0 0
                                                    20 2 8 0 0 13 21 2 8 0 0 0
@@ -419,17 +419,17 @@
                                                    26 1 7 27 0 28 1 8 0 23 29 0
                                                    8 0 31 1 8 0 0 32 2 27 0 13
                                                    0 33 2 8 0 0 0 34 2 8 0 0 0
-                                                   35 2 36 0 0 0 37 2 38 0 23
-                                                   23 39 2 38 0 0 0 40 2 8 0 0
-                                                   38 41 2 8 0 13 0 42 1 8 0 0
-                                                   43 0 8 0 44 1 45 23 8 46 1 7
-                                                   6 0 49 2 7 6 0 27 50 2 45 8
-                                                   27 23 51 2 8 0 27 0 52 1 45
-                                                   23 8 53 2 8 0 0 0 54 1 8 0 0
-                                                   56 0 6 0 58 0 7 0 59 1 23 60
-                                                   0 61 2 0 23 7 27 47 1 0 23 7
-                                                   48 1 0 23 7 55 1 0 8 7 25 2
-                                                   0 8 7 13 14 1 0 8 7 15 1 0 8
-                                                   7 9 1 0 8 7 10 1 0 8 7 30 2
-                                                   0 8 7 13 62 1 0 23 7 57)))))
+                                                   35 2 36 0 23 23 37 2 36 0 0
+                                                   0 38 2 8 0 0 36 39 2 8 0 13
+                                                   0 40 1 8 0 0 41 0 8 0 42 1
+                                                   43 23 8 44 1 7 6 0 47 2 7 6
+                                                   0 27 48 2 43 8 27 23 49 2 8
+                                                   0 27 0 50 1 43 23 8 51 2 8 0
+                                                   0 0 52 1 8 0 0 54 0 6 0 56 0
+                                                   7 0 57 1 23 58 0 59 2 0 23 7
+                                                   27 45 1 0 23 7 46 1 0 23 7
+                                                   53 1 0 8 7 25 2 0 8 7 13 14
+                                                   1 0 8 7 15 1 0 8 7 9 1 0 8 7
+                                                   10 1 0 8 7 30 2 0 8 7 13 60
+                                                   1 0 23 7 55)))))
            '|lookupComplete|)) 

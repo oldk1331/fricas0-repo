@@ -729,11 +729,9 @@
                            (|error| "INDEFINTEGRAL not handled"))
                           (#3#
                            (|error|
-                            (SPADCALL
-                             (SPADCALL "Unexpected plex op:"
-                                       (SPADCALL |op| (QREFELT $ 52))
-                                       (QREFELT $ 53))
-                             (QREFELT $ 60)))))
+                            (SPADCALL "Unexpected plex op:"
+                                      (SPADCALL |op| (QREFELT $ 52))
+                                      (QREFELT $ 53)))))
                          . #2#)
                    (LETT |body|
                          (COND
@@ -1019,13 +1017,13 @@
                                                               (SPADCALL
                                                                (+ |intSplitLen|
                                                                   1)
-                                                               (QREFELT $ 61))
+                                                               (QREFELT $ 60))
                                                               (QREFELT $ 37))
                                                     . #1#)))
                                             NIL (GO G190) G191 (EXIT NIL))
                                        (EXIT
                                         (COND
-                                         ((SPADCALL |nstr| (QREFELT $ 62))
+                                         ((SPADCALL |nstr| (QREFELT $ 61))
                                           (SPADCALL (LIST "<mn>" |str| "</mn>")
                                                     (QREFELT $ 30)))
                                          (#2='T
@@ -1033,7 +1031,7 @@
                                            (LETT |nstr|
                                                  (COND
                                                   ((SPADCALL |str|
-                                                             (QREFELT $ 62))
+                                                             (QREFELT $ 61))
                                                    |nstr|)
                                                   (#2#
                                                    (SPADCALL
@@ -1046,7 +1044,7 @@
                                                    (SPADCALL |nstr|
                                                              (SPADCALL 2
                                                                        (QREFELT
-                                                                        $ 61))
+                                                                        $ 60))
                                                              (QREFELT $ 37))
                                                    "</mn>")
                                              (QREFELT $ 30))))))))
@@ -1071,7 +1069,7 @@
                            ((SPADCALL |len| 1 (QREFELT $ 34))
                             (COND
                              ((SPADCALL (SPADCALL |str| 1 (QREFELT $ 39))
-                                        (QREFELT $ 63))
+                                        (QREFELT $ 62))
                               (EXIT
                                (SPADCALL (LIST "<mn>" |str| "</mn>")
                                          (QREFELT $ 30)))))))
@@ -1100,10 +1098,10 @@
                                   (COND
                                    ((SPADCALL |i| 0 (QREFELT $ 34))
                                     (SPADCALL (QREFELT $ 20) |i|
-                                              (QREFELT $ 65))))))))
+                                              (QREFELT $ 64))))))))
                           (LETT |i|
                                 (SPADCALL (|STR_to_CHAR| " ") |str|
-                                          (QREFELT $ 67))
+                                          (QREFELT $ 66))
                                 . #1#)
                           (EXIT
                            (COND
@@ -1128,11 +1126,11 @@
                                            (EXIT
                                             (COND
                                              ((SPADCALL |op| (QREFELT $ 18)
-                                                        (QREFELT $ 68))
+                                                        (QREFELT $ 67))
                                               (|MMLFORM;formatSpecial| |op|
                                                |args| |prec| $))
                                              ((SPADCALL |op| (QREFELT $ 16)
-                                                        (QREFELT $ 68))
+                                                        (QREFELT $ 67))
                                               (|MMLFORM;formatPlex| |op| |args|
                                                |prec| $))
                                              ((EQL 0 |nargs|)
@@ -1143,7 +1141,7 @@
                                                 ((EQL 1 |nargs|)
                                                  (COND
                                                   ((SPADCALL |op| (QREFELT $ 9)
-                                                             (QREFELT $ 68))
+                                                             (QREFELT $ 67))
                                                    (EXIT
                                                     (|MMLFORM;formatUnary| |op|
                                                      (|SPADfirst| |args|)
@@ -1153,18 +1151,18 @@
                                                  (COND
                                                   ((SPADCALL |op|
                                                              (QREFELT $ 11)
-                                                             (QREFELT $ 68))
+                                                             (QREFELT $ 67))
                                                    (EXIT
                                                     (|MMLFORM;formatBinary|
                                                      |op| |args| |prec| $))))))
                                                (EXIT
                                                 (COND
                                                  ((SPADCALL |op| (QREFELT $ 15)
-                                                            (QREFELT $ 68))
+                                                            (QREFELT $ 67))
                                                   (|MMLFORM;formatNaryNoGroup|
                                                    |op| "" 0 |args| |prec| $))
                                                  ((SPADCALL |op| (QREFELT $ 13)
-                                                            (QREFELT $ 68))
+                                                            (QREFELT $ 67))
                                                   (|MMLFORM;formatNary| |op| ""
                                                    0 |args| |prec| $))
                                                  (#2#
@@ -1200,7 +1198,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|MathMLFormat|) . #1=(|MathMLFormat|))
-          (LETT $ (GETREFV 71) . #1#)
+          (LETT $ (GETREFV 70) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|MathMLFormat| NIL (CONS 1 $))
@@ -1254,18 +1252,18 @@
               (56 . |list|) (61 . |second|) (|NonNegativeInteger|) (66 . >)
               (72 . |elt|) (|Symbol|) (78 . |string|) (83 . |elt|)
               (89 . |message|) (|List| 51) (94 . |position|) (|List| 33)
-              (100 . |elt|) (106 . ~=) (112 . |coerce|) (117 . |segment|)
-              (122 . |empty?|) (127 . |digit?|) (|List| 21) (132 . |elt|)
-              (138 . |char|) (143 . |position|) (149 . |member?|)
-              (|SingleInteger|) (|HashState|))
-           '#(~= 155 |latex| 161 |hashUpdate!| 166 |hash| 172 |exprex| 177
-              |display| 182 |coerceS| 187 |coerceL| 192 |coerce| 197 = 207)
+              (100 . |elt|) (106 . ~=) (112 . |segment|) (117 . |empty?|)
+              (122 . |digit?|) (|List| 21) (127 . |elt|) (133 . |char|)
+              (138 . |position|) (144 . |member?|) (|SingleInteger|)
+              (|HashState|))
+           '#(~= 150 |latex| 156 |hashUpdate!| 161 |hash| 167 |exprex| 172
+              |display| 177 |coerceS| 182 |coerceL| 187 |coerce| 192 = 202)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 22))
-                        (|makeByteWordVec2| 70
+                        (|makeByteWordVec2| 69
                                             '(0 26 0 27 1 21 0 29 30 2 33 32 0
                                               0 34 2 35 0 33 33 36 2 21 0 0 35
                                               37 2 21 38 0 33 39 0 40 0 41 2 40
@@ -1274,15 +1272,14 @@
                                               47 2 48 32 0 0 49 2 45 22 0 33 50
                                               1 51 21 0 52 2 21 0 0 0 53 1 22 0
                                               21 54 2 55 33 51 0 56 2 57 33 0
-                                              33 58 2 33 32 0 0 59 1 21 22 0 60
-                                              1 35 0 33 61 1 21 32 0 62 1 38 32
-                                              0 63 2 64 21 0 33 65 1 38 0 21 66
-                                              2 21 33 38 0 67 2 55 32 51 0 68 2
-                                              0 32 0 0 1 1 0 21 0 1 2 0 70 70 0
-                                              1 1 0 69 0 1 1 0 21 22 31 1 0 26
-                                              21 28 1 0 21 22 24 1 0 21 22 25 1
-                                              0 21 22 23 1 0 22 0 1 2 0 32 0 0
-                                              1)))))
+                                              33 58 2 33 32 0 0 59 1 35 0 33 60
+                                              1 21 32 0 61 1 38 32 0 62 2 63 21
+                                              0 33 64 1 38 0 21 65 2 21 33 38 0
+                                              66 2 55 32 51 0 67 2 0 32 0 0 1 1
+                                              0 21 0 1 2 0 69 69 0 1 1 0 68 0 1
+                                              1 0 21 22 31 1 0 26 21 28 1 0 21
+                                              22 24 1 0 21 22 25 1 0 21 22 23 1
+                                              0 22 0 1 2 0 32 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MathMLFormat| 'NILADIC T) 

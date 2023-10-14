@@ -697,7 +697,7 @@
             ((SPADCALL (SPADCALL |k| (QREFELT $ 76)) 3 (QREFELT $ 77))
              (CONS 0
                    (|ODEEF;parseLODE| |diffeq| |l|
-                    (SPADCALL |c| (LENGTH |l|) (QREFELT $ 82)) |ny| $)))
+                    (SPADCALL |c| (LENGTH |l|) (QREFELT $ 80)) |ny| $)))
             (#4='T
              (SEQ
               (LETT |u|
@@ -716,17 +716,17 @@
                               |diffeq| (QREFELT $ 11))
                              . #3#)
                        (COND
-                        ((SPADCALL |eqrhs| |ny| (QREFELT $ 83))
+                        ((SPADCALL |eqrhs| |ny| (QREFELT $ 81))
                          (COND
-                          ((SPADCALL |c| |ny| (QREFELT $ 83))
+                          ((SPADCALL |c| |ny| (QREFELT $ 81))
                            (COND
-                            ((SPADCALL |d| |ny| (QREFELT $ 83))
+                            ((SPADCALL |d| |ny| (QREFELT $ 81))
                              (EXIT
                               (CONS 0
                                     (CONS
-                                     (SPADCALL (SPADCALL |c| 1 (QREFELT $ 82))
-                                               (SPADCALL |d| (QREFELT $ 85))
-                                               (QREFELT $ 86))
+                                     (SPADCALL (SPADCALL |c| 1 (QREFELT $ 80))
+                                               (SPADCALL |d| (QREFELT $ 83))
+                                               (QREFELT $ 84))
                                      |eqrhs|)))))))))
                        (EXIT (CONS 1 (CONS |diffeq| |c|)))))))))))))) 
 
@@ -740,7 +740,7 @@
           (|k| NIL))
          (SEQ
           (COND
-           ((NULL (SPADCALL (SPADCALL |p| (QREFELT $ 57)) |y| (QREFELT $ 83)))
+           ((NULL (SPADCALL (SPADCALL |p| (QREFELT $ 57)) |y| (QREFELT $ 81)))
             (|error| "parseLODE: not a linear ordinary differential equation"))
            ('T
             (SEQ
@@ -762,8 +762,8 @@
                                       (|check_subtype| (>= #1# 0)
                                                        '(|NonNegativeInteger|)
                                                        #1#))
-                                    (QREFELT $ 82))
-                                   (QREFELT $ 86))
+                                    (QREFELT $ 80))
+                                   (QREFELT $ 84))
                          . #3#)
                    (LETT |d| (- |d| 1) . #3#)
                    (EXIT
@@ -776,7 +776,7 @@
                   (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
              (EXIT
               (COND
-               ((SPADCALL |diffeq| |y| (QREFELT $ 83))
+               ((SPADCALL |diffeq| |y| (QREFELT $ 81))
                 (CONS |p| (SPADCALL |diffeq| (QREFELT $ 75))))
                ('T
                 (|error|
@@ -788,7 +788,7 @@
                 ((SPADCALL
                   (LETT |c| (|ODEEF;getlincoeff| |f| |k| $)
                         |ODEEF;getfreelincoeff|)
-                  |y| (QREFELT $ 83))
+                  |y| (QREFELT $ 81))
                  |c|)
                 ('T
                  (|error|
@@ -809,7 +809,7 @@
                        (SEQ
                         (EXIT
                          (COND
-                          ((NULL (SPADCALL |c| |y| (QREFELT $ 87)))
+                          ((NULL (SPADCALL |c| |y| (QREFELT $ 85)))
                            (PROGN
                             (LETT #1#
                                   (|error|
@@ -844,8 +844,8 @@
             (SEQ
              (LETT |r|
                    (SPADCALL
-                    (SPADCALL (SPADCALL |f| (QREFELT $ 89)) |k| (QREFELT $ 92))
-                    (QREFELT $ 95))
+                    (SPADCALL (SPADCALL |f| (QREFELT $ 87)) |k| (QREFELT $ 90))
+                    (QREFELT $ 93))
                    . #2=(|ODEEF;getcoeff|))
              (EXIT
               (COND
@@ -853,16 +853,16 @@
                     (SPADCALL
                      (SPADCALL
                       (LETT |p|
-                            (SPADCALL (SPADCALL |f| (QREFELT $ 96)) |k|
-                                      (QREFELT $ 92))
+                            (SPADCALL (SPADCALL |f| (QREFELT $ 94)) |k|
+                                      (QREFELT $ 90))
                             . #2#)
-                      (QREFELT $ 97))
+                      (QREFELT $ 95))
                      1 (QREFELT $ 77)))
                 (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #3=#:G325))))))
             (EXIT
              (CONS 0
-                   (SPADCALL (SPADCALL |p| 1 (QREFELT $ 98)) (QCDR |r|)
-                             (QREFELT $ 99))))))
+                   (SPADCALL (SPADCALL |p| 1 (QREFELT $ 96)) (QCDR |r|)
+                             (QREFELT $ 97))))))
           #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |ElementaryFunctionODESolver;|)) 
@@ -895,7 +895,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|ElementaryFunctionODESolver|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|ElementaryFunctionODESolver| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 100) . #1#)
+          (LETT $ (GETREFV 98) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ElementaryFunctionODESolver|
@@ -933,19 +933,19 @@
               (136 . |varselect|) (142 . |is?|) (148 . |first|)
               (153 . |position|) (159 . |coerce|) (164 . *) (170 . /) (176 . -)
               (181 . |height|) (186 . >) (192 . |zero?|) (197 . |name|)
-              (|OutputForm|) (202 . |height|) (206 . |monomial|)
-              (212 . |freeOf?|) (218 . |One|) (222 . |coerce|) (227 . +)
-              (233 . |freeOf?|) (|SparseMultivariatePolynomial| 6 47)
-              (239 . |denom|) (|SparseUnivariatePolynomial| $)
-              (|SparseMultivariatePolynomial| 6 40) (244 . |univariate|)
-              (|Union| 91 '"failed") (|SparseUnivariatePolynomial| 91)
-              (250 . |retractIfCan|) (255 . |numer|) (260 . |degree|)
-              (265 . |coefficient|) (271 . /))
-           '#(|solve| 277) 'NIL
+              (202 . |monomial|) (208 . |freeOf?|) (214 . |One|)
+              (218 . |coerce|) (223 . +) (229 . |freeOf?|)
+              (|SparseMultivariatePolynomial| 6 47) (235 . |denom|)
+              (|SparseUnivariatePolynomial| $)
+              (|SparseMultivariatePolynomial| 6 40) (240 . |univariate|)
+              (|Union| 89 '"failed") (|SparseUnivariatePolynomial| 89)
+              (246 . |retractIfCan|) (251 . |numer|) (256 . |degree|)
+              (261 . |coefficient|) (267 . /))
+           '#(|solve| 273) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 99
+                             (|makeByteWordVec2| 97
                                                  '(1 8 7 0 9 1 8 7 0 10 2 7 0 0
                                                    0 11 0 7 0 28 1 35 34 15 36
                                                    2 29 30 0 37 38 1 7 15 0 39
@@ -963,17 +963,17 @@
                                                    7 0 47 72 2 7 0 0 0 73 2 7 0
                                                    0 0 74 1 7 0 0 75 1 40 58 0
                                                    76 2 58 55 0 0 77 1 7 55 0
-                                                   78 1 14 15 0 79 0 80 37 81 2
-                                                   53 0 7 58 82 2 7 55 0 15 83
-                                                   0 7 0 84 1 53 0 7 85 2 53 0
-                                                   0 0 86 2 7 55 0 0 87 1 7 88
-                                                   0 89 2 91 90 0 40 92 1 94 93
-                                                   0 95 1 7 88 0 96 1 94 58 0
-                                                   97 2 94 91 0 58 98 2 7 0 88
-                                                   88 99 2 0 32 29 15 33 3 0 19
-                                                   29 30 15 31 3 0 19 20 21 15
-                                                   22 3 0 19 23 21 15 24 3 0 13
-                                                   7 14 15 16 3 0 13 8 14 15 17
-                                                   4 0 25 7 14 8 20 26 4 0 25 8
-                                                   14 8 20 27)))))
+                                                   78 1 14 15 0 79 2 53 0 7 58
+                                                   80 2 7 55 0 15 81 0 7 0 82 1
+                                                   53 0 7 83 2 53 0 0 0 84 2 7
+                                                   55 0 0 85 1 7 86 0 87 2 89
+                                                   88 0 40 90 1 92 91 0 93 1 7
+                                                   86 0 94 1 92 58 0 95 2 92 89
+                                                   0 58 96 2 7 0 86 86 97 2 0
+                                                   32 29 15 33 3 0 19 29 30 15
+                                                   31 3 0 19 20 21 15 22 3 0 19
+                                                   23 21 15 24 3 0 13 7 14 15
+                                                   16 3 0 13 8 14 15 17 4 0 25
+                                                   7 14 8 20 26 4 0 25 8 14 8
+                                                   20 27)))))
            '|lookupComplete|)) 

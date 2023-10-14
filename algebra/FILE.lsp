@@ -6,18 +6,23 @@
           (COND
            ((NULL (SPADCALL |fn| (QREFELT $ 10)))
             (|error|
-             (LIST "File is not readable" (SPADCALL |fn| (QREFELT $ 12)))))
+             (LIST |mathprint|
+                   (LIST "File is not readable"
+                         (SPADCALL |fn| (QREFELT $ 12))))))
            (#1='T (MAKE-INSTREAM (SPADCALL |fn| (QREFELT $ 14))))))
          ((EQUAL |mode| "output")
           (COND
            ((NULL (SPADCALL |fn| (QREFELT $ 15)))
             (|error|
-             (LIST "File is not writable" (SPADCALL |fn| (QREFELT $ 12)))))
+             (LIST |mathprint|
+                   (LIST "File is not writable"
+                         (SPADCALL |fn| (QREFELT $ 12))))))
            (#1# (MAKE-OUTSTREAM (SPADCALL |fn| (QREFELT $ 14))))))
          ('T
           (|error|
-           (LIST "IO mode must be input or output"
-                 (SPADCALL |mode| (QREFELT $ 16))))))) 
+           (LIST |mathprint|
+                 (LIST "IO mode must be input or output"
+                       (SPADCALL |mode| (QREFELT $ 16)))))))) 
 
 (SDEFUN |FILE;=;2$B;2| ((|f1| $) (|f2| $) ($ |Boolean|))
         (SPADCALL (QVELT |f1| 0) (QVELT |f2| 0) (QREFELT $ 17))) 

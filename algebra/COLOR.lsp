@@ -85,8 +85,7 @@
          (COND
           ((OR (< |i| 0) (SPADCALL |i| 27 (QREFELT $ 12)))
            (|error|
-            (|concat| "Color should be in the range 1.."
-                      (|::| 27 (|String|))))))
+            (STRCONC "Color should be in the range 1.." (STRINGIMAGE 27)))))
          (EXIT (CONS |i| 1.0)))) 
 
 (SDEFUN |COLOR;coerce;$Of;12| ((|c| $) ($ |OutputForm|))

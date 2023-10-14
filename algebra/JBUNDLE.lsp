@@ -142,7 +142,7 @@
                    (SPADCALL
                     (PROG1 (LETT #1# |up| . #5#)
                       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
-                    |lower| (QREFELT $ 42)))))))))) 
+                    |lower| (QREFELT $ 41)))))))))) 
 
 (PUT '|JBUNDLE;One;$;12| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
@@ -176,7 +176,7 @@
                   (COND ((EQUAL |jt| '|Indep|) (QAREF1O (QREFELT $ 13) |i| 1))
                         ((EQUAL |jt| '|Dep|) (QAREF1O (QREFELT $ 14) |i| 1))
                         (#3#
-                         (SEQ (LETT |mu| (SPADCALL |jv| (QREFELT $ 47)) . #2#)
+                         (SEQ (LETT |mu| (SPADCALL |jv| (QREFELT $ 46)) . #2#)
                               (LETT |res| (QAREF1O (QREFELT $ 14) |i| 1) . #2#)
                               (LETT |lower| NIL . #2#)
                               (SEQ (LETT |j| NIL . #2#) (LETT #1# |mu| . #2#)
@@ -244,7 +244,7 @@
                     (PROGN
                      (LETT #2# NIL . #3#)
                      (SEQ (LETT |i| NIL . #3#)
-                          (LETT #1# (SPADCALL |jv| (QREFELT $ 47)) . #3#) G190
+                          (LETT #1# (SPADCALL |jv| (QREFELT $ 46)) . #3#) G190
                           (COND
                            ((OR (ATOM #1#)
                                 (PROGN (LETT |i| (CAR #1#) . #3#) NIL))
@@ -313,19 +313,19 @@
               (|Boolean|) (|NonNegativeInteger|) (15 . >) |JBUNDLE;X;Pi$;7|
               |JBUNDLE;U;Pi$;8| (21 . |#|) (26 . ~=) |JBUNDLE;Pm;PiL$;9|
               (|Integer|) (32 . |position|) (38 . |minIndex|)
-              |JBUNDLE;coerce;S$;10| (43 . |empty|) (|List| 25) (47 . |Pr|)
-              |JBUNDLE;D;SL$;11| |JBUNDLE;One;$;12| |JBUNDLE;numIndVar;Pi;13|
-              |JBUNDLE;numDepVar;Pi;14| (53 . |repeatedIndex|) (58 . |coerce|)
-              (|List| 17) (63 . |subscript|) |JBUNDLE;name;$S;15|
-              (|Expression| 36) (69 . |One|) (|BasicOperator|)
-              (73 . |operator|) (|Mapping| 17 49) (78 . |display|) (|None|)
-              (|NoneFunctions1| $$) (84 . |coerce|) (89 . |setProperty|)
-              (96 . |weight|) (|NoneFunctions1| 29) (101 . |coerce|)
-              (|NoneFunctions1| 19) (106 . |coerce|) (111 . |coerce|)
-              (116 . |coerce|) (|List| 52) (121 . |concat!|) (|List| $)
-              (127 . |kernel|) |JBUNDLE;coerce;$E;17| (|Union| $ '"failed")
-              (|Union| $ '"0") (|List| 41) (|HashState|) (|String|)
-              (|SingleInteger|))
+              |JBUNDLE;coerce;S$;10| (|List| 25) (43 . |Pr|) |JBUNDLE;D;SL$;11|
+              |JBUNDLE;One;$;12| |JBUNDLE;numIndVar;Pi;13|
+              |JBUNDLE;numDepVar;Pi;14| (49 . |repeatedIndex|) (54 . |empty|)
+              (58 . |coerce|) (|List| 17) (63 . |subscript|)
+              |JBUNDLE;name;$S;15| (|Expression| 36) (69 . |One|)
+              (|BasicOperator|) (73 . |operator|) (|Mapping| 17 49)
+              (78 . |display|) (|None|) (|NoneFunctions1| $$) (84 . |coerce|)
+              (89 . |setProperty|) (96 . |weight|) (|NoneFunctions1| 29)
+              (101 . |coerce|) (|NoneFunctions1| 19) (106 . |coerce|)
+              (111 . |coerce|) (116 . |coerce|) (|List| 52) (121 . |concat!|)
+              (|List| $) (127 . |kernel|) |JBUNDLE;coerce;$E;17|
+              (|Union| $ '"failed") (|Union| $ '"0") (|List| 40) (|HashState|)
+              (|String|) (|SingleInteger|))
            '#(~= 133 |weight| 139 |variables| 144 |type| 155 |smaller?| 160
               |setNotation| 166 |repeatedIndex| 171 |r2m| 176 |order| 181
               |one?| 186 |numIndVar| 191 |numDepVar| 195 |name| 199
@@ -347,8 +347,8 @@
                    (|makeByteWordVec2| 79
                                        '(1 11 0 10 12 1 17 16 0 18 1 15 0 0 22
                                          2 29 28 0 0 30 1 15 29 0 33 2 29 28 0
-                                         0 34 2 10 36 19 0 37 1 10 36 0 38 0 17
-                                         0 40 2 0 0 25 41 42 1 0 41 0 47 1 19
+                                         0 34 2 10 36 19 0 37 1 10 36 0 38 2 0
+                                         0 25 40 41 1 0 40 0 46 0 17 0 47 1 19
                                          17 0 48 2 19 0 0 49 50 0 52 0 53 1 54
                                          0 19 55 2 54 0 0 56 57 1 59 58 2 60 3
                                          54 0 0 19 58 61 1 0 29 0 62 1 63 58 29
@@ -356,19 +356,19 @@
                                          36 68 2 69 0 0 0 70 2 52 0 54 71 72 2
                                          0 28 0 0 1 1 0 29 0 62 2 0 71 29 25 1
                                          1 0 71 29 1 1 0 19 0 27 2 0 28 0 0 1 1
-                                         0 19 19 20 1 0 41 0 47 1 0 23 41 1 1 0
-                                         29 0 1 1 0 28 0 1 0 0 25 45 0 0 25 46
+                                         0 19 19 20 1 0 40 0 46 1 0 23 40 1 1 0
+                                         29 0 1 1 0 28 0 1 0 0 25 44 0 0 25 45
                                          1 0 19 0 51 1 0 23 0 24 2 0 0 0 0 1 2
-                                         0 0 0 0 1 1 0 41 23 1 1 0 78 0 1 2 0
+                                         0 0 0 0 1 1 0 40 23 1 1 0 78 0 1 2 0
                                          74 0 25 1 2 0 0 0 25 1 1 0 25 0 26 2 0
                                          77 77 0 1 1 0 79 0 1 0 0 19 21 1 0 29
                                          29 1 1 0 29 29 1 2 0 75 0 25 1 2 0 23
                                          0 0 1 1 0 0 19 39 1 0 52 0 73 1 0 17 0
                                          1 1 0 29 0 1 1 0 29 23 1 1 0 76 23 1 0
                                          0 0 1 1 0 0 25 31 0 0 0 1 1 0 0 25 32
-                                         2 0 0 25 41 42 2 0 0 25 23 35 1 0 0 29
+                                         2 0 0 25 40 41 2 0 0 25 23 35 1 0 0 29
                                          1 1 0 0 23 1 2 0 0 25 29 1 2 0 0 25 23
-                                         1 0 0 0 44 2 0 0 19 10 43 2 0 28 0 0 1
+                                         1 0 0 0 43 2 0 0 19 10 42 2 0 28 0 0 1
                                          2 0 28 0 0 1 2 0 28 0 0 1 2 0 28 0 0 1
                                          2 0 28 0 0 1)))))
            '|lookupComplete|)) 

@@ -23,16 +23,14 @@
               ((EQUAL |s| '|OMReadError|) (CONS 3 "OMReadError"))
               ('T
                (|error|
-                (SPADCALL
-                 (STRCONC (SPADCALL |s| (QREFELT $ 14))
-                          " is not a valid OpenMathErrorKind.")
-                 (QREFELT $ 16)))))) 
+                (STRCONC (SPADCALL |s| (QREFELT $ 14))
+                         " is not a valid OpenMathErrorKind."))))) 
 
 (SDEFUN |OMERRK;=;2$B;6| ((|a| $) (|b| $) ($ |Boolean|))
-        (SPADCALL |a| |b| (QREFELT $ 18))) 
+        (SPADCALL |a| |b| (QREFELT $ 16))) 
 
 (SDEFUN |OMERRK;coerce;$Of;7| ((|e| $) ($ |OutputForm|))
-        (SPADCALL |e| (QREFELT $ 20))) 
+        (SPADCALL |e| (QREFELT $ 19))) 
 
 (DECLAIM (NOTINLINE |OpenMathErrorKind;|)) 
 
@@ -60,7 +58,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OpenMathErrorKind|) . #1=(|OpenMathErrorKind|))
-          (LETT $ (GETREFV 24) . #1#)
+          (LETT $ (GETREFV 23) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|OpenMathErrorKind| NIL (CONS 1 $))
@@ -78,25 +76,24 @@
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Boolean|)
               |OMERRK;OMParseError?;$B;1| |OMERRK;OMUnknownCD?;$B;2|
               |OMERRK;OMUnknownSymbol?;$B;3| |OMERRK;OMReadError?;$B;4|
-              (|String|) (|Symbol|) (0 . |string|) (|OutputForm|)
-              (5 . |coerce|) |OMERRK;coerce;S$;5| (10 . =) |OMERRK;=;2$B;6|
-              (16 . |coerce|) |OMERRK;coerce;$Of;7| (|SingleInteger|)
-              (|HashState|))
-           '#(~= 21 |latex| 27 |hashUpdate!| 32 |hash| 38 |coerce| 43
-              |OMUnknownSymbol?| 53 |OMUnknownCD?| 58 |OMReadError?| 63
-              |OMParseError?| 68 = 73)
+              (|String|) (|Symbol|) (0 . |string|) |OMERRK;coerce;S$;5| (5 . =)
+              |OMERRK;=;2$B;6| (|OutputForm|) (11 . |coerce|)
+              |OMERRK;coerce;$Of;7| (|SingleInteger|) (|HashState|))
+           '#(~= 16 |latex| 22 |hashUpdate!| 27 |hash| 33 |coerce| 38
+              |OMUnknownSymbol?| 48 |OMUnknownCD?| 53 |OMReadError?| 58
+              |OMParseError?| 63 = 68)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 15))
-                        (|makeByteWordVec2| 23
-                                            '(1 13 12 0 14 1 12 15 0 16 2 6 7 2
-                                              2 18 1 6 15 2 20 2 0 7 0 0 1 1 0
-                                              12 0 1 2 0 23 23 0 1 1 0 22 0 1 1
-                                              0 0 13 17 1 0 15 0 21 1 0 7 0 10
-                                              1 0 7 0 9 1 0 7 0 11 1 0 7 0 8 2
-                                              0 7 0 0 19)))))
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 18))
+                        (|makeByteWordVec2| 22
+                                            '(1 13 12 0 14 2 6 7 2 2 16 1 6 18
+                                              2 19 2 0 7 0 0 1 1 0 12 0 1 2 0
+                                              22 22 0 1 1 0 21 0 1 1 0 0 13 15
+                                              1 0 18 0 20 1 0 7 0 10 1 0 7 0 9
+                                              1 0 7 0 11 1 0 7 0 8 2 0 7 0 0
+                                              17)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OpenMathErrorKind| 'NILADIC T) 
