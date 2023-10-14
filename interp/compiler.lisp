@@ -49,7 +49,7 @@
 ;   initEnvHashTable(e)
 ;   initEnvHashTable($CategoryFrame)
 ;   -- The next line allows the new compiler to be tested interactively.
-;   compFun := if $newCompAtTopLevel=true then 'newComp else 'compOrCroak
+;   compFun := 'compOrCroak
 ;   x is ["DEF",:.] or x is ["where",["DEF",:.],:.] =>
 ;     ([val,mode,.]:= FUNCALL(compFun,x,m,e); [val,mode,e])
 ;         --keep old environment after top level function defs
@@ -71,9 +71,7 @@
       (SETQ |$envHashTable| (MAKE-HASHTABLE 'EQUAL))
       (|initEnvHashTable| |e|)
       (|initEnvHashTable| |$CategoryFrame|)
-      (SETQ |compFun|
-              (COND ((EQUAL |$newCompAtTopLevel| T) '|newComp|)
-                    (#1='T '|compOrCroak|)))
+      (SETQ |compFun| '|compOrCroak|)
       (COND
        ((OR (AND (CONSP |x|) (EQ (CAR |x|) 'DEF))
             (AND (CONSP |x|) (EQ (CAR |x|) '|where|)
@@ -88,7 +86,7 @@
          (SETQ |val| (CAR |LETTMP#1|))
          (SETQ |mode| (CADR |LETTMP#1|))
          (LIST |val| |mode| |e|)))
-       (#1# (FUNCALL |compFun| |x| |m| |e|)))))))
+       ('T (FUNCALL |compFun| |x| |m| |e|)))))))
  
 ; compUniquely(x,m,e) ==
 ;   $compUniquelyIfTrue: local:= true
@@ -1140,6 +1138,10 @@
             (COND ((EQL |x| 0) |$NonNegativeInteger|)
                   ((< 0 |x|) |$PositiveInteger|) (T |$NegativeInteger|)))
            ((FLOATP |x|) |$DoubleFloat|) ('T NIL)))))
+ 
+; DEFPARAMETER($compForModeIfTrue, false)
+ 
+(DEFPARAMETER |$compForModeIfTrue| NIL)
  
 ; compSymbol(s,m,e) ==
 ;   s="$NoValue" => ["$NoValue",$NoValueMode,e]

@@ -466,13 +466,8 @@
                |token|))))))))
        (#1# (|token_install| NIL '*EOF NIL NIL 0 |token|)))))))
  
-; DEFVAR($token_reader)
- 
-(DEFVAR |$token_reader|)
- 
 ; fakeloopInclude0(st, name, n) ==
 ;     $lines : local := incStream(st, name)
-;     $token_reader := function ntokreader
 ;     fakeloopProcess(n,
 ;       next(function insertpile,
 ;         next(function lineoftoks,$lines)))
@@ -484,7 +479,6 @@
     (RETURN
      (PROGN
       (SETQ |$lines| (|incStream| |st| |name|))
-      (SETQ |$token_reader| #'|ntokreader|)
       (|fakeloopProcess| |n|
        (|next| #'|insertpile| (|next| #'|lineoftoks| |$lines|)))
       NIL))))

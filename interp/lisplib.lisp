@@ -533,25 +533,23 @@
 ;   $lisplibSuperDomain: local := NIL
 ;   $libFile: local := NIL
 ;   $lisplibCategory: local := nil
+;   $compiler_output_stream : local := nil
 ;   --for categories, is rhs of definition; otherwise, is target of functor
 ;   --will eventually become the "constructorCategory" property in lisplib
 ;   --set in compDefineCategory1 if category, otherwise in finalizeLisplib
 ;   libName := getConstructorAbbreviation op
 ;   sayMSG ['"   initializing ",$spadLibFT,:bright libName,
 ;     '"for",:bright op]
-;   initializeLisplib libName
-;   sayMSG ['"   compiling into ",$spadLibFT,:bright libName]
-;   -- res:= FUNCALL(fn,df,m,e,prefix,fal)
-;   -- sayMSG ['"   finalizing ",$spadLibFT,:bright libName]
-;   -- finalizeLisplib libName
 ;   -- following guarantee's compiler output files get closed.
 ;   ok := false;
 ;   UNWIND_-PROTECT(
-;       PROGN(res:= FUNCALL(fn,df,m,e,prefix,fal),
+;       PROGN(initializeLisplib libName,
+;             sayMSG ['"   compiling into ", $spadLibFT, :bright libName],
+;             res := FUNCALL(fn, df, m, e, prefix, fal),
 ;             sayMSG ['"   finalizing ",$spadLibFT,:bright libName],
 ;             finalizeLisplib libName,
 ;             ok := true),
-;       PROGN(CLOSE($compiler_output_stream),
+;       PROGN(if $compiler_output_stream then CLOSE($compiler_output_stream),
 ;             RSHUT $libFile))
 ;   if ok then lisplibDoRename(libName)
 ;   filearg := $FILEP(libName, $spadLibFT)
@@ -567,16 +565,18 @@
 ;   res
  
 (DEFUN |compDefineLisplib| (|df| |m| |e| |prefix| |fal| |fn|)
-  (PROG (|$lisplibCategory| |$libFile| |$lisplibSuperDomain|
-         |$lisplibOperationAlist| |$lisplibModemapAlist| |$lisplibModemap|
-         |$lisplibAncestors| |$lisplibParents| |$lisplibAbbreviation|
-         |$lisplibKind| |$lisplibForm| |$lisplibPredicates| |$op| $LISPLIB
-         |filearg| |res| |ok| |libName| |op|)
+  (PROG (|$compiler_output_stream| |$lisplibCategory| |$libFile|
+         |$lisplibSuperDomain| |$lisplibOperationAlist| |$lisplibModemapAlist|
+         |$lisplibModemap| |$lisplibAncestors| |$lisplibParents|
+         |$lisplibAbbreviation| |$lisplibKind| |$lisplibForm|
+         |$lisplibPredicates| |$op| $LISPLIB |filearg| |res| |ok| |libName|
+         |op|)
     (DECLARE
-     (SPECIAL |$lisplibCategory| |$libFile| |$lisplibSuperDomain|
-      |$lisplibOperationAlist| |$lisplibModemapAlist| |$lisplibModemap|
-      |$lisplibAncestors| |$lisplibParents| |$lisplibAbbreviation|
-      |$lisplibKind| |$lisplibForm| |$lisplibPredicates| |$op| $LISPLIB))
+     (SPECIAL |$compiler_output_stream| |$lisplibCategory| |$libFile|
+      |$lisplibSuperDomain| |$lisplibOperationAlist| |$lisplibModemapAlist|
+      |$lisplibModemap| |$lisplibAncestors| |$lisplibParents|
+      |$lisplibAbbreviation| |$lisplibKind| |$lisplibForm| |$lisplibPredicates|
+      |$op| $LISPLIB))
     (RETURN
      (PROGN
       (SETQ |op| (CAADR |df|))
@@ -595,24 +595,28 @@
       (SETQ |$lisplibSuperDomain| NIL)
       (SETQ |$libFile| NIL)
       (SETQ |$lisplibCategory| NIL)
+      (SETQ |$compiler_output_stream| NIL)
       (SETQ |libName| (|getConstructorAbbreviation| |op|))
       (|sayMSG|
        (CONS "   initializing "
              (CONS |$spadLibFT|
                    (APPEND (|bright| |libName|)
                            (CONS "for" (|bright| |op|))))))
-      (|initializeLisplib| |libName|)
-      (|sayMSG|
-       (CONS "   compiling into " (CONS |$spadLibFT| (|bright| |libName|))))
       (SETQ |ok| NIL)
       (UNWIND-PROTECT
           (PROGN
+           (|initializeLisplib| |libName|)
+           (|sayMSG|
+            (CONS "   compiling into "
+                  (CONS |$spadLibFT| (|bright| |libName|))))
            (SETQ |res| (FUNCALL |fn| |df| |m| |e| |prefix| |fal|))
            (|sayMSG|
             (CONS "   finalizing " (CONS |$spadLibFT| (|bright| |libName|))))
            (|finalizeLisplib| |libName|)
            (SETQ |ok| T))
-        (PROGN (CLOSE |$compiler_output_stream|) (RSHUT |$libFile|)))
+        (PROGN
+         (COND (|$compiler_output_stream| (CLOSE |$compiler_output_stream|)))
+         (RSHUT |$libFile|)))
       (COND (|ok| (|lisplibDoRename| |libName|)))
       (SETQ |filearg| ($FILEP |libName| |$spadLibFT|))
       (RPACKFILE |filearg|)

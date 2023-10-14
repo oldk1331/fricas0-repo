@@ -2053,3 +2053,89 @@
              (#1# (|centerAndHighlight| |c|)))
             (SETQ |bfVar#78| (CDR |bfVar#78|))))
          (ELT |$localExposureData| 2) NIL)))))))
+ 
+; getOperationAlistFromLisplib x ==
+;     u := GETDATABASE(x, 'OPERATIONALIST)
+;     --  u := removeZeroOneDestructively u
+;     null u => u          -- this can happen for Object
+;     CAAR u = '_$unique => rest u
+;     f := addConsDB '(NIL T ELT)
+;     for [op, :sigList] in u repeat
+;         for items in tails sigList repeat
+;             [sig, :r] := first items
+;             if r is [., :s] then
+;                 if s is [., :t] then
+;                     if t is [.] then nil
+;                     else RPLACD(s, QCDDR f)
+;                 else RPLACD(r, QCDR f)
+;             else RPLACD(first items, f)
+;             RPLACA(items, addConsDB first items)
+;     u and markUnique u
+ 
+(DEFUN |getOperationAlistFromLisplib| (|x|)
+  (PROG (|u| |f| |op| |sigList| |LETTMP#1| |sig| |r| |s| |t|)
+    (RETURN
+     (PROGN
+      (SETQ |u| (GETDATABASE |x| 'OPERATIONALIST))
+      (COND ((NULL |u|) |u|) ((EQ (CAAR |u|) '|$unique|) (CDR |u|))
+            (#1='T
+             (PROGN
+              (SETQ |f| (|addConsDB| '(NIL T ELT)))
+              ((LAMBDA (|bfVar#80| |bfVar#79|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#80|)
+                        (PROGN (SETQ |bfVar#79| (CAR |bfVar#80|)) NIL))
+                    (RETURN NIL))
+                   (#1#
+                    (AND (CONSP |bfVar#79|)
+                         (PROGN
+                          (SETQ |op| (CAR |bfVar#79|))
+                          (SETQ |sigList| (CDR |bfVar#79|))
+                          #1#)
+                         ((LAMBDA (|items|)
+                            (LOOP
+                             (COND ((ATOM |items|) (RETURN NIL))
+                                   (#1#
+                                    (PROGN
+                                     (SETQ |LETTMP#1| (CAR |items|))
+                                     (SETQ |sig| (CAR |LETTMP#1|))
+                                     (SETQ |r| (CDR |LETTMP#1|))
+                                     (COND
+                                      ((AND (CONSP |r|)
+                                            (PROGN (SETQ |s| (CDR |r|)) #1#))
+                                       (COND
+                                        ((AND (CONSP |s|)
+                                              (PROGN (SETQ |t| (CDR |s|)) #1#))
+                                         (COND
+                                          ((AND (CONSP |t|) (EQ (CDR |t|) NIL))
+                                           NIL)
+                                          (#1# (RPLACD |s| (QCDDR |f|)))))
+                                        (#1# (RPLACD |r| (QCDR |f|)))))
+                                      (#1# (RPLACD (CAR |items|) |f|)))
+                                     (RPLACA |items|
+                                             (|addConsDB| (CAR |items|))))))
+                             (SETQ |items| (CDR |items|))))
+                          |sigList|))))
+                  (SETQ |bfVar#80| (CDR |bfVar#80|))))
+               |u| NIL)
+              (AND |u| (|markUnique| |u|)))))))))
+ 
+; markUnique x ==
+;     u := first x
+;     RPLACA(x, '(_$unique))
+;     RPLACD(x, [u, :rest x])
+;     rest x
+ 
+(DEFUN |markUnique| (|x|)
+  (PROG (|u|)
+    (RETURN
+     (PROGN
+      (SETQ |u| (CAR |x|))
+      (RPLACA |x| '(|$unique|))
+      (RPLACD |x| (CONS |u| (CDR |x|)))
+      (CDR |x|)))))
+ 
+; addConsDB x == x
+ 
+(DEFUN |addConsDB| (|x|) (PROG () (RETURN |x|)))
