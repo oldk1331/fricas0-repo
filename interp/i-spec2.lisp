@@ -306,7 +306,7 @@
 ;   -- process $Lisp calls
 ;   if atom t then code:=getUnname t else
 ;     [lispOp,:argl]:= t
-;     null functionp lispOp.0 =>
+;     not(functionp(lispOp.0) or macrop(lispOp.0)) =>
 ;       throwKeyedMsg("S2IS0024",[lispOp.0])
 ;     for arg in argl repeat bottomUp arg
 ;     code:=[getUnname lispOp,
@@ -325,7 +325,9 @@
       (COND ((ATOM |t|) (SETQ |code| (|getUnname| |t|)))
             (#1='T (SETQ |lispOp| (CAR |t|)) (SETQ |argl| (CDR |t|))
              (COND
-              ((NULL (|functionp| (ELT |lispOp| 0)))
+              ((NULL
+                (OR (|functionp| (ELT |lispOp| 0))
+                    (|macrop| (ELT |lispOp| 0))))
                (|throwKeyedMsg| 'S2IS0024 (LIST (ELT |lispOp| 0))))
               (#1#
                (PROGN
